@@ -13,21 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2015" 
+	ms.date="06/19/2015" 
 	ms.author="josephd"/>
 
 # 使用 Azure 資源管理員範本和 PowerShell 部署以及管理虛擬機器
 
 本文會為您示範如何使用 Azure 資源管理員範本和 Powershell，自動化部署和管理 Azure 虛擬機器的常見工作。如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)和[應用程式架構](virtual-machines-app-frameworks.md)。
 
-常見工作：
-
 - [部署 Windows VM](#windowsvm)
 - [建立自訂的 VM 映像](#customvm)
 - [部署一個多重 VM 應用程式，它會使用虛擬網路和外部負載平衡器](#multivm)
+- [更新利用資源管理員範本部署的虛擬機器](#updatevm)
+- [移除資源群組](#removerg)
 - [登入虛擬機器](#logon)
+- [顯示虛擬機器的相關資訊](#displayvm)
 - [啟動虛擬機器](#start)
 - [停止虛擬機器](#stop)
+- [重新啟動虛擬機器](#restart)
+- [刪除虛擬機器](#delete)
 
 開始之前，確定 Azure PowerShell 已經準備就緒。
 
@@ -48,7 +51,7 @@
 
 如需深入了解 Azure Resource Manager ，請參閱[這裡](virtual-machines-azurerm-versus-azuresm.md)。如果您想了解如何設計範本，請參閱[設計 Azure Resource Manager 範本](../resource-group-authoring-templates.md)。
 
-## <a id="windowsvm"></a>部署 Windows VM
+## <a id="windowsvm"></a>工作：部署 Windows VM
 
 按照本節中的操作方法，使用 Resource Manager 範本和 Azure PowerShell 部署新的 Azure VM。這個範本會在單一子網路的新虛擬網路上，建立單一虛擬機器。
 
@@ -299,7 +302,7 @@
 
 在新的資源群組中，您現在擁有新的 Windows 虛擬機器，名稱是 MyWindowsVM。
 
-## <a id="customvm"></a>建立自訂的 VM 映像
+## <a id="customvm"></a>工作：建立自訂的 VM 映像
 
 請按照本節描述的操作方法，在 Azure 中使用 Resource Manager 範本搭配 Azure PowerShell 建立自訂的 VM 映像。這個範本會從指定的虛擬硬碟 (VHD) 建立單一虛擬機器。
 
@@ -424,7 +427,7 @@
 	vmSize: Standard_A3
 	...
 
-## <a id="multivm"></a>部署一個多重 VM 應用程式，它會使用虛擬網路和外部負載平衡器
+## <a id="multivm"></a>工作：部署一個多重 VM 應用程式，它會使用虛擬網路和外部負載平衡器
 
 按照下列各節的操作方法，部署一個多重 VM 應用程式，它會使用 Azure PowerShell 搭配 Github 範本儲存機制中的 Resource Manager 範本，然後就可以使用虛擬網路和負載平衡器。這個範本會在新雲端服務中單一子網路的新虛擬網路中建立兩個虛擬機器，然後將它們新增至外部負載平衡集，負責 TCP 連接埠 80 的連入流量。
 
@@ -780,7 +783,172 @@
 	vmNamePrefix: WEBFARM
 	...
 
-## 移除資源群組
+## <a id="updatevm"></a>工作：更新利用資源管理員範本部署的虛擬機器
+
+以下是修改 JSON 範本檔以更新利用資源管理員範本部署之虛擬機器組態的範例。在此範例中，您會建立一個 Windows 虛擬機器，然後更新以安裝 Symantec Endpoint Protection 延伸模組。
+
+### 步驟 1：使用範本建立虛擬機器。
+
+如有需要，請在電腦上建立一個資料夾來儲存範本檔案。填入資料夾名稱，並執行這些 Azure PowerShell 命令。
+
+	$myFolder="<your folder path, such as C:\azure\templates\CreateVM>"
+	$webClient=New-Object System.Net.WebClient
+	$url="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
+	$filePath=$myFolder + "\azuredeploy.json"
+	$webclient.DownloadFile($url,$filePath)
+	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.parameters.json"
+	$filePath = $myFolder + "\azuredeploy.parameters.json"
+	$webclient.DownloadFile($url,$filePath)
+
+在您的資料夾中，使用文字編輯器開啟azuredeploy.parameters.json 檔案、指定四個參數的值，然後儲存檔案。
+
+填入新的部署名稱、新的資源群組名稱與 Azure 位置，然後再執行這些命令。
+
+	$deployName="<name for the new deployment>"
+	$RGName="<name for the new Resource Group>"
+	$locName="<an Azure location, such as West US>"
+	cd $myFolder
+	Switch-AzureMode AzureResourceManager
+	New-AzureResourceGroup –Name $RGName –Location $locName
+	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
+
+您應該會看到如下的結果。
+
+	PS C:\azure\templates\windowsvm> $deployName="winvmexttest"
+	PS C:\azure\templates\windowsvm> $RGName="winvmexttest"
+	PS C:\azure\templates\windowsvm> $locname="West US"
+	PS C:\azure\templates\windowsvm> New-AzureResourceGroup -Name $RGName -Location $locName
+	VERBOSE: 11:22:02 AM - Created resource group 'winvmexttest' in location 'westus'
+	
+	
+	ResourceGroupName : winvmexttest
+	Location          : westus
+	ProvisioningState : Succeeded
+	Tags              :
+	Permissions       :
+	                    Actions  NotActions
+	                    =======  ==========
+	                    *
+	
+	ResourceId        : /subscriptions/a58ce54a-c262-460f-b8ef-fe36e6d5f5ec/resourceGroups/winvmexttest
+
+	PS C:\azure\templates\windowsvm> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -Template
+	File azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
+	VERBOSE: 11:22:05 AM - Template is valid.
+	VERBOSE: 11:22:05 AM - Create template deployment 'winvmexttest'.
+	VERBOSE: 11:22:14 AM - Resource Microsoft.Storage/storageAccounts 'contososa' provisioning status is running
+	VERBOSE: 11:22:21 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is running
+	VERBOSE: 11:22:21 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is running
+	VERBOSE: 11:22:37 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
+	VERBOSE: 11:22:39 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
+	VERBOSE: 11:22:41 AM - Resource Microsoft.Storage/storageAccounts 'contososa' provisioning status is succeeded
+	VERBOSE: 11:22:43 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
+	VERBOSE: 11:22:52 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
+	VERBOSE: 11:26:36 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
+	
+	DeploymentName    : winvmexttest
+	ResourceGroupName : winvmexttest
+	ProvisioningState : Succeeded
+	Timestamp         : 6/3/2015 6:26:38 PM
+	Mode              : Incremental
+	TemplateLink      :
+	Parameters        :
+	                    Name             Type                       Value
+	                    ===============  =========================  ==========
+	                    newStorageAccountName  String                     contososa
+	                    adminUsername    String                     admin0987
+	                    adminPassword    SecureString
+	                    dnsNameForPublicIP  String                     contosovm
+	                    windowsOSVersion  String                     2012-R2-Datacenter
+	
+	Outputs           :
+
+接下來，從 Azure 預覽入口網站連接至虛擬機器 (**[瀏覽] > [虛擬機器] (v2) >** [VM 名稱] > [連接])。
+
+從 [開始] 畫面中，輸入 **Symantec**。請注意，Symantec Endpoint Protection 元件不會安裝 (沒有標題中包含 "Symantec" 的搜尋結果)。
+
+關閉遠端桌面連線。
+
+### 步驟 2：修改 azuredeploy.json 檔，以新增 Symantec Endpoint Protection 延伸模組
+
+在您的資料夾中，使用您選擇的文字編輯器開啟 azuredeploy.json 檔案。在**變數**區段中，於定義 publicIPAddressType 變數的行之後加入下面這一行：
+
+	"vmExtensionName" : "SymantecExtension",
+
+在**資源**區段中，在包含最後一個左括號 "]" 的行之前新增下列新的區段：
+
+	       {
+	         "type": "Microsoft.Compute/virtualMachines/extensions",
+	        "name": "[concat(variables('vmName'),'/', variables('vmExtensionName'))]",
+	        "apiVersion": "2014-12-01-preview",
+	        "location": "[variables('location')]",
+	        "dependsOn": [
+	            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+	        ],
+	        "properties": {
+	            "publisher": "Symantec",
+	            "type": "SymantecEndpointProtection",
+	            "typeHandlerVersion": "12.1",
+	            "settings": null,
+	            "protectedSettings": null
+	        }
+	    }
+
+儲存 azuredeploy.json 檔案與這些新的變更。請使用此命令確認已正確地進行變更。
+
+	Test-AzureResourceGroupTemplate -ResourceGroupName $RGName -TemplateFile azuredeploy.json
+
+如果您已適當地進行變更，您應該會看到這個訊息。
+
+	Template is valid.
+
+如果您沒有看到此訊息，請分析錯誤訊息以找出錯誤的來源。
+
+### 步驟 3：執行修改過的範本，以新增 Symantec Endpoint Protection 延伸模組
+
+在 Azure PowerShell 提示字元中執行這個命令。
+
+	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
+
+您應該會看到如下的結果。
+
+	PS C:\azure\templates\winvmext> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateF	ile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
+	VERBOSE: 12:49:42 PM - Template is valid.
+	VERBOSE: 12:49:42 PM - Create template deployment 'winvmexttest'.
+	VERBOSE: 12:49:45 PM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
+	VERBOSE: 12:49:45 PM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
+	VERBOSE: 12:49:47 PM - Resource Microsoft.Storage/storageAccounts 'contososa' provisioning status is succeeded
+	VERBOSE: 12:49:49 PM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
+	VERBOSE: 12:49:51 PM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
+	VERBOSE: 12:50:08 PM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
+	VERBOSE: 12:50:15 PM - Resource Microsoft.Compute/virtualMachines/extensions 'MyWindowsVM/SymantecExtension'	provisioning status is running
+	VERBOSE: 12:53:07 PM - Resource Microsoft.Compute/virtualMachines/extensions 'MyWindowsVM/SymantecExtension' provisioning status is succeeded
+	
+	
+	DeploymentName    : winvmexttest
+	ResourceGroupName : winvmexttest
+	ProvisioningState : Succeeded
+	Timestamp         : 6/3/2015 7:53:07 PM
+	Mode              : Incremental
+	TemplateLink      :
+	Parameters        :
+	                    Name             Type                       Value
+	                    ===============  =========================  ==========
+	                    newStorageAccountName  String                     contososa
+	                    adminUsername    String                     admin0987
+	                    adminPassword    SecureString
+	                    dnsNameForPublicIP  String                     contosovm
+	                    windowsOSVersion  String                     2012-R2-Datacenter
+	
+	Outputs           :
+
+從 Azure 預覽入口網站連接至虛擬機器 (**[瀏覽] > [虛擬機器 (v2)] >** [VM 名稱] > [連接])。
+
+從 [開始] 畫面中，輸入 **Symantec**。您應該會看到像這樣的訊息，表示已安裝 Symantec Endpoint Protection 延伸模組。
+
+![](./media/virtual-machines-deploy-rmtemplates-powershell/SymantecExt.png)
+
+## <a id="removerg"></a>工作：移除資源群組
 
 您可以利用 **Remove-AzureResourceGroup** 命令，移除任何您建立的資源群組。以正確的名稱取代引號中的所有內容，包括 < and > 字元。
 
@@ -792,11 +960,15 @@
 	Are you sure you want to remove resource group 'BuildRG'
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
-## <a id="logon"></a>登入 Windows 虛擬機器
+## <a id="logon"></a>工作：登入 Windows 虛擬機器
 
-如需詳細步驟，請參閱[如何登入執行 Windows Server 的虛擬機器](virtual-machines-log-on-windows-server.md)。
+從 [Azure 預覽入口網站](https://portal.azure.com/)，按一下 [瀏覽全部] > [虛擬機器 (v2)] > [VM 名稱] > [連接]。
 
-## 顯示虛擬機器的相關資訊
+當系統提示您開啟或儲存 RDP 檔案時，按一下 [開啟]，然後按一下 [連接]。輸入有效帳戶的認證，然後按一下 [確定]。
+
+當系統提示您忽略憑證錯誤繼續連線時，請按一下 [是]。
+
+## <a id="displayvm"></a>工作：顯示虛擬機器的相關資訊
 
 您可以使用 **Get-AzureVM** 命令，查看 VM 的相關資訊。這個命令會傳回一個 VM 物件，然後您可以使用其他各種 Cmdlet 即可更新 VM 的狀態。以正確的名稱取代括號中的所有內容，包括 < and > 字元。
 
@@ -864,7 +1036,7 @@
 	Type                     : Microsoft.Compute/virtualMachines
 
 
-## <a id="start"></a>啟動虛擬機器
+## <a id="start"></a>工作：啟動虛擬機器
 
 您可以使用 **Start-AzureVM** 命令啟動 VM。以正確的名稱取代括號中的所有內容，包括 < and > 字元。
 
@@ -881,7 +1053,7 @@
 	RequestId           : aac41de1-b85d-4429-9a3d-040b922d2e6d
 	StatusCode          : OK
 
-## <a id="stop"></a>停止虛擬機器
+## <a id="stop"></a>工作：停止虛擬機器
 
 您可以使用 **Stop-AzureVM** 命令，就可以停止 VM。以正確的名稱取代括號中的所有內容，包括 < and > 字元。
 
@@ -903,7 +1075,7 @@
 	RequestId           : 5cc9ddba-0643-4b5e-82b6-287b321394ee
 	StatusCode          : OK
 
-## 重新啟動虛擬機器
+## <a id=restart"></a>工作：重新啟動虛擬機器
 
 您可以使用 **Restart-AzureVM** 命令重新啟動 VM。以正確的名稱取代引號中的所有內容，包括 < and > 字元。
 
@@ -920,7 +1092,7 @@
 	RequestId           : 7dac33e3-0164-4a08-be33-96205284cb0b
 	StatusCode          : OK
 
-## 刪除虛擬機器
+## <a id=delete"></a>工作：刪除虛擬機器
 
 您可以使用 **Remove-AzureVM** 命令刪除 VM。以正確的名稱取代引號中的所有內容，包括 < and > 字元。您可以使用 **– Force** 參數，略過確認提示。
 
@@ -954,4 +1126,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

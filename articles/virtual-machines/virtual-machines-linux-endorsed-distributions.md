@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="06/03/2015" 
 	ms.author="szark"/>
 
 
@@ -29,7 +29,7 @@ Azure 映像庫中的 Linux 映像是由許多合作夥伴所提供，而我們�
 
 適用於 Hyper-V 和 Azure 的 Linux Integration Services (LIS) 驅動程式是核心模組，Microsoft 會直接提供給上游 Linux Kernel。LIS 驅動程式預設會內建於散發套件的核心，或者，如果是較舊的以 RHEL/CentOS 為基礎的散發套件，可從[這裡](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)個別下載。如需關於 LIS 驅動程式的詳細資訊，請參閱[這篇文章](virtual-machines-linux-create-upload-vhd-generic.md#linux-kernel-requirements)。
 
-Azure Linux 代理程式已預先安裝於 Linux 組件庫映像上，而且通常可透過散發套件的封裝儲存機制來取得。您可以在 [GitHub](https://github.com/azure/walinuxagent) 上找到原始程式碼。
+Azure Linux 代理程式已預先安裝於 Azure 組件庫映像上，而且通常可透過散發套件的封裝儲存機制來取得。您可以在 [GitHub](https://github.com/azure/walinuxagent) 上找到原始程式碼。
 
 <table border="1" width="600">
   <tr bgcolor="#E9E7E7">
@@ -40,14 +40,14 @@ Azure Linux 代理程式已預先安裝於 Linux 組件庫映像上，而且通�
 			</tr>
 	<tr>
 		<th>  Canonical Ubuntu </th>
-		<td> Ubuntu 12.04.1+、14.04 和 14.10 </td>
+		<td> Ubuntu 12.04、14.04、14.10 和 15.04 </td>
 		<td>在核心中</td>
 		<td>封裝：在 "walinuxagent" 下的儲存機制中 <br />
 			來源：<a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 			</tr>
 	<tr>
 		<th> OpenLogic 的 CentOS </th>
-		<td> CentOS 6.3+</td>
+		<td> CentOS 6.3+、7.0+</td>
 	    <td> CentOS 6.3：<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 下載</a><br/>
 	        CentOS 6.4 +：在核心中</td>
 		<td>封裝：在 "WALinuxAgent" 下的 <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic 儲存機制</a>中<br />
@@ -63,7 +63,7 @@ Azure Linux 代理程式已預先安裝於 Linux 組件庫映像上，而且通�
 	</tr>
 	<tr>
 		<th> Oracle Linux </th>
-		<td> 6.4+</td>
+		<td> 6.4+、7.0+ </td>
         <td>在核心中</td>
 		<td>封裝：在 "WALinuxAgent" 下的儲存機制中<br />
 			來源：<a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
@@ -71,9 +71,9 @@ Azure Linux 代理程式已預先安裝於 Linux 組件庫映像上，而且通�
 	</tr>
 	<tr>
 		<th> SUSE Linux Enterprise </th>
-		<td> SLES 11 SP3+</td>
+		<td> SLES 11 SP3+、SLES 12+ 和 <br /> SLES for SAP 11.3+ </td>
         <td>在核心中</td>
-		<td>封裝：在 "WALinuxAgent" 下的<a href="https://build.opensuse.org/project/show/Cloud:Tools" >雲端：工具</a>儲存機制中<br />
+		<td>封裝：在 "WALinuxAgent" 下的<a href="https://build.opensuse.org/project/show/Cloud:Tools">雲端：工具</a>儲存機制中<br />
 			來源：<a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
@@ -122,4 +122,6 @@ Oracle 的策略是提供公用與私人雲端適用的各種解決方案，同�
 
 Azure 上的 SUSE Linux Enterprise Server 是一個經證實可為雲端運算提供優異可靠性與安全性的平台。SUSE 彈性的 Linux 平台可與 Azure 雲端服務緊密整合，提供容易管理的雲端環境。隨著 SUSE Linux Enterprise Server 有 1,800 多家獨立軟體廠商提供 9,200 多個認證應用程式，SUSE 可確保資料中心內所執行受支援的工作負載可以安心部署於 Azure 上。
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

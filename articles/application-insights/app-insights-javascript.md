@@ -1,8 +1,8 @@
 <properties 
-	pageTitle="JavaScript 應用程式和網頁適用的 Application Insights" 
-	description="取得頁面檢視和工作階段計數、Web 用戶端資料，並追蹤使用量模式。在 JavaScript 應用程式和網頁中，偵測例外狀況和效能問題。" 
+	pageTitle="適用 JavaScript Web 應用程式的 Application Insights" 
+	description="取得頁面檢視和工作階段計數、Web 用戶端資料，並追蹤使用量模式。在 JavaScript 網頁中偵測例外狀況與效能問題。" 
 	services="application-insights" 
-	documentationCenter=""
+    documentationCenter=""
 	authors="alancameronwills" 
 	manager="ronmart"/>
 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.date="06/03/2015" 
 	ms.author="awills"/>
  
-# JavaScript 應用程式和網頁適用的 Application Insights
+# 適用 JavaScript Web 應用程式的 Application Insights
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
@@ -51,16 +51,6 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
 *(如果您使用的是已知網頁架構，請在 Application Insights 配接器附近尋找。例如，有 [AngularJS 模組](http://ngmodules.org/modules/angular-appinsights)。)*
 
-#### 如果您的應用程式不是網頁...
-
-如果您的 JavaScript 應用程式是 [Cordova](http://cordova.apache.org/) 應用程式，在檢測金鑰之後插入額外的程式行：
-
-    ...{
-        instrumentationKey:"00000000-662d-4479-0000-40c89770e67c",
-        endpointUrl:"https://dc.services.visualstudio.com/v2/track"
-    } ...
-
-如果是[使用 JavaScript 的 Windows 執行階段應用程式](https://msdn.microsoft.com/library/windows/apps/br211385.aspx)，將 NuGet 封裝 *Javascript 應用程式適用的 Application Insights* 加入至您的專案。(在 [方案總管] 中，以滑鼠右鍵按一下您的專案並選擇 [管理 NuGet 封裝]。勾選 [包括發行前版本]，然後搜尋 Application Insights。)
  
 ## <a name="run"></a>執行您的應用程式
 
@@ -134,7 +124,7 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
     appInsights.trackPageView(myPageName);
 
-頁面名稱可能會含有與 URL 相同的字元，不過 "#" 或 "?" 之後的任何字元都將遭到忽略。
+頁面名稱可能會含有與 URL 相同的字元，不過 "\#" 或 "?" 之後的任何字元都將遭到忽略。
 
 
 ## 檢查個別的頁面檢視事件
@@ -185,4 +175,6 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-custom-events-metrics-api.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

@@ -1,19 +1,19 @@
-<properties 
-   pageTitle="Hadoop 教學課程：開始在 Windows 上使用 Hadoop |Microsoft Azure" 
-   description="開始使用 HDInsight 中的 Hadoop。了解如何在 Windows 上佈建 Hadoop 叢集、在資料上執行 Hive 查詢和在 Excel 中輸出分析。" 
+<properties
+   pageTitle="Hadoop 教學課程：開始在 Windows 上使用 Hadoop |Microsoft Azure"
+   description="開始使用 HDInsight 中的 Hadoop。了解如何在 Windows 上佈建 Hadoop 叢集、在資料上執行 Hive 查詢和在 Excel 中輸出分析。"
    keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+   services="hdinsight"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="05/20/2015"
    ms.author="nitinme"/>
 
@@ -26,7 +26,7 @@
 
 為了協助您了解在 Windows 上的 Hadoop 並開始使用 HDInsight，本教學課程為您示範如何在 Hadoop 叢集上執行 Hive 查詢非結構化資料，並且接著在 Microsoft Excel 中分析結果。
 
-## 本 Hadoop 教學課程要達到什麼目標？ 
+## 本 Hadoop 教學課程要達到什麼目標？
 
 假設您有一個大型的非結構化資料集，而且您想要在此資料集上執行查詢，以擷取一些有用資訊。這正是我們要在此教學課程中進行的動作。以下是要達成此目標的作法：
 
@@ -48,8 +48,8 @@
 開始進行在 Windows 上的 Hadoop 教學課程之前，您必須具備下列條件：
 
 
-- Azure 訂閱。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][azure-purchase-options]、[成員優惠][azure-member-offers]或[免費試用][azure-free-trial]。
-- 安裝 Office 2013 Professional Plus、Office 365 Pro Plus、Excel 2013 Standalone 或 Office 2010 Professional Plus 的電腦。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- 安裝 Office 2013 Professional Plus、Office 365 Pro Plus、Excel 2013 Standalone 或 Office 2010 Professional Plus 的**工作站電腦**。
 
 **預估完成時間：**30 分鐘
 
@@ -75,7 +75,7 @@
 >[AZURE.NOTE]請務必在支援叢集的位置建立您的儲存體帳戶。這些位置包括：「**東亞**」、「**東南亞**」、「**北歐**」、「**西歐**」、「**美國東部**」、「**美國西部**」、「**美國中北部**」和「**美國中南部**」。
 
 從清單中選取新儲存體帳戶，並按一下頁面底部的 [**管理存取金鑰**]。請記下 [**主要存取金鑰**] (或 [**次要存取金鑰**]，任一金鑰皆可)。稍後在教學課程中需要這些資訊。如需詳細資訊，請參閱＜[如何建立儲存體帳戶][azure-create-storageaccount]＞。
-	
+
 ##<a name="provision"></a>佈建 Hadoop 叢集
 
 佈建叢集時，您可以佈建包含 Hadoop 及相關應用程式的 Azure 計算資源。在本節中，您將佈建採用 Hadoop 2.4 版的 HDInsight 3.1 版叢集。您也可以使用 Azure 入口網站、HDInsight PowerShell Cmdlet 或 HDInsight .NET SDK 來建立其他版本的 Hadoop 叢集。如需相關指示，請參閱〈[使用自訂選項佈建 HDInsight 叢集][hdinsight-provision]〉。如需不同 HDInsight 版本及其 SLA 的相關資訊，請參閱〈[HDInsight 元件版本設定](hdinsight-component-versioning.md)〉。
@@ -85,7 +85,7 @@
 
 **佈建 Hadoop 叢集**
 
-1. 登入 [Azure 入口網站][azure-management-portal]。 
+1. 登入 [Azure 入口網站][azure-management-portal]。
 
 2. 按一下在左下角的 [**新增**]，然後輸入如圖所示的值。
 
@@ -95,7 +95,7 @@
 
 4. Enter or select the following values:
 
-	
+
 	<table border="1">
 	<tr><th>Name</th><th>Value</th></tr>
 	<tr><td>Cluster Name</td><td>Name of the cluster.</td></tr>
@@ -105,13 +105,13 @@
 
 	When a storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
 
-	The HDInsight cluster is located in the same datacenter as the storage account. 
+	The HDInsight cluster is located in the same datacenter as the storage account.
 	</td></tr>
 	</table>
-	
+
 	Keep a copy of the cluster name. You will need it later in the tutorial.
 
-	
+
 5. Click **Create HDInsight Cluster**. When the provisioning completes, the  status column shows **Running**.
 
 -- COMMENTED OUT TEXT ENDS -->
@@ -140,9 +140,9 @@
 
 **從叢集儀表板執行 Hive 工作**
 
-1. 登入 [Azure 入口網站][azure-management-portal]。 
+1. 登入 [Azure 入口網站][azure-management-portal]。
 2. 按一下左窗格上的 [HDInsight]。您會看見叢集清單，包括您在上一節中建立的叢集。
-3. 按一下您要執行 Hive 工作的叢集名稱，然後按一下頁面底部的 [**查詢主控台**]。 
+3. 按一下您要執行 Hive 工作的叢集名稱，然後按一下頁面底部的 [**查詢主控台**]。
 4. 網頁會在不同瀏覽器索引標籤中開啟。輸入 Hadoop 使用者帳戶和密碼。預設使用者名稱為 **admin**；密碼是您在佈建叢集時所輸入的密碼。儀表板顯示如下：
 
 	![HDInsight 叢集儀表板中的 [Hive 編輯器] 索引標籤。][img-hdi-dashboard]
@@ -152,7 +152,7 @@
 	> [AZURE.NOTE]請注意，網頁的 URL 為 *&lt;ClusterName&gt;.azurehdinsight.net*。因此，與其從入口網站開啟儀表板，您也可以使用 URL 從網頁瀏覽器中開啟儀表板。
 
 6. 在 [Hive Editor] 索引標籤的 [查詢名稱] 中，輸入 **HTC20**。查詢名稱就是工作標題。在查詢窗格中，如圖所示輸入 Hive 查詢：
-		
+
 	![[Hive 編輯器] 查詢窗格中輸入的 Hive 查詢。][img-hdi-dashboard-query-select]
 
 4. 按一下 [提交]。需要一點時間才會取回結果。螢幕每 30 秒會重新整理一次。您也可以按一下 [重新整理] 來重新整理螢幕。
@@ -168,7 +168,7 @@
 
 **瀏覽至輸出檔案**
 
-1. 在叢集儀表板中，按一下 [**檔案瀏覽器**]。 
+1. 在叢集儀表板中，按一下 [**檔案瀏覽器**]。
 2. 依序按一下您的儲存體帳戶名稱、容器名稱 (會與您的叢集名稱相同)，然後按一下 [使用者]。
 3. 按一下 [**admin**]，然後按一下其上次修改時間比您先前記下的工作開始時間稍晚的 GUID。複製此 GUID。您在下一節將會用到此號碼。
 
@@ -176,7 +176,7 @@
    	![[檔案瀏覽器] 索引標籤中列出的 Hive 查詢輸出檔案 GUID。][img-hdi-dashboard-query-browse-output]
 
 
-##<a name="powerquery"></a>適用於 Excel 的連接到 Microsoft 商業智慧工具 
+##<a name="powerquery"></a>適用於 Excel 的連接到 Microsoft 商業智慧工具
 
 您可以使用適用於 Microsoft Excel 的 Power Query 增益集，將工作輸出從 HDInsight 匯入 Excel，然後使用 Microsoft 商業智慧工具來進一步分析結果。
 
@@ -194,8 +194,8 @@
 	![[Excel PowerQuery 匯入] 功能表針對 Azure HDInsight 開啟。][image-hdi-gettingstarted-powerquery-importdata]
 
 3. 輸入叢集相關 Azure Blob 儲存體帳戶的 [**帳戶名稱**]，然後按一下 [**確定**]。(這是您在教學課程稍早建立的儲存體帳戶。)
-4. 輸入 Azure Blob 儲存體帳戶的 [**帳戶金鑰**]，然後按一下 [**儲存**]。 
-5. 在右窗格中，按兩下 Blob 名稱。依預設，Blob 名稱與叢集名稱相同。 
+4. 輸入 Azure Blob 儲存體帳戶的 [**帳戶金鑰**]，然後按一下 [**儲存**]。
+5. 在右窗格中，按兩下 Blob 名稱。依預設，Blob 名稱與叢集名稱相同。
 
 6. 在 [名稱] 欄中找到 **stdout**。驗證對應 [**資料夾路徑**] 欄中的 GUID 是否符合您先前複製的 GUID。相符就表示輸出資料對應於您提交的工作。按一下 **stdout** 左邊欄的 [**二進位**]。
 
@@ -209,7 +209,7 @@
 
 - 〈[開始使用 HDInsight Hadoop Tools for Visual Studio][1]〉
 - 〈[開始使用 HDInsight Emulator][hdinsight-emulator]〉
-- 〈[搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]〉
+- [搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]
 - 〈[使用 PowerShell 管理 HDInsight][hdinsight-admin-powershell]〉
 - 〈[將資料上傳到 HDInsight][hdinsight-upload-data]〉
 - 〈[搭配 HDInsight 使用 MapReduce][hdinsight-use-mapreduce]〉
@@ -274,5 +274,6 @@
 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

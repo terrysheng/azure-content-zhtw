@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # 啟用管線以使用內部部署資料
@@ -23,44 +23,44 @@
 若要將內部部署資料來源新增為 Data Factory 的連結服務，您必須先在內部部署電腦上下載並安裝「Microsoft 資料管理閘道」，然後設定內部部署資料來源的連結服務使用閘道。
 
 
-## <a href="DMG"></a> 資料管理閘道器
+## <a href="DMG"></a> 資料管理閘道
 
-**資料管理閘道器** 是連接至雲端服務安全且管理的方式在內部部署資料來源的軟體。您可以使用「資料管理閘道」來進行下列作業：
+「資料管理閘道」是一套透過安全且可管理的方式，將內部部署資料來源連結至雲端服務的軟體。您可以使用「資料管理閘道」來進行下列作業：
 
-- **連接至混合式資料存取的內部資料** – 連受益雲端服務，同時保留在內部部署資料以執行商務的雲端服務的內部資料。
-- **定義資料的安全 proxy** – 您可以定義在內部部署資料來源會公開與資料管理閘道器，因此該閘道驗證來自雲端服務的資料要求，並保護的內部部署資料來源。
-- **管理您的閘道器的完整管理** – 系統會提供完整的監視和管理與管理的資料管理閘道器內的所有活動的記錄。
-- **有效率地將資料移** – 資料傳輸以平行方式，彈性間歇性網路問題，自動重試邏輯。
+- 「連接至內部部署資料以支援混合式資料存取」– 您可以將內部部署資料連結至雲端服務，以享受雲端服務的功能，同時保持企業使用內部部署資料持續運作。
+- 「定義安全的資料 Proxy」– 您可以定義要對「資料管理閘道」公開哪些內部部署資料來源，閘道會依此驗證來自雲端服務的資料要求，並保護內部部署資料來源。
+- 「管理您的閘道以達到完整控管」– 您將可完整地監視與記錄「資料管理閘道」內的所有活動，以便您加以管控。
+- 「有效率地移動資料」– 資料會以平行方式傳輸，且系統會採用自動重試邏輯，修復間歇性網路問題。
 
 
 「資料管理閘道」提供全方位內部部署資料連線功能，包括下列：
 
-- **非侵入式編譯到公司防火牆** – 資料管理閘道器只適用於在安裝之後，而不必開啟防火牆連線或需要侵入式變更為您的公司網路基礎結構。 
-- **加密您的憑證認證** – 用來連接到資料來源認證會以完全由使用者所擁有的憑證加密。若沒有憑證，任何人 (包括 Microsoft 在內) 皆無法將認證解密成純文字。
+- 「不會干擾公司防火牆運作」– 資料管理閘道即裝即用，無需開啟防火牆連線或變更您公司網路基礎結構的配置。 
+- 「透過您的憑證加密認證」– 用來連線到資料來源的認證會以完全由使用者所擁有的憑證加密。若沒有憑證，任何人 (包括 Microsoft 在內) 皆無法將認證解密成純文字。
 
 ### 使用資料管理閘道的考量
-1.	資料管理閘道器的單一執行個體可用於多個內部資料來源，但是請記住， **閘道會繫結至 Azure 資料 factory** 並不能共用與另一個資料處理站。
-2.	您可以讓 **只有一個執行個體的資料管理閘道器** 在電腦上安裝。假設您有兩個需要存取內部部署資料來源的 Data Factory，您需要將繫結至不同 Data Factory 的閘道個別安裝在兩部內部部署電腦上。
-3.	 **閘道不需要是做為資料來源相同的電腦上**, ，但仍接近資料來源會減少閘道連接到資料來源的時間。我們建議您在不同的裝載在內部部署資料來源，如此閘道器不會爭奪資源與資料來源的電腦上安裝閘道器。
-4.	您可以讓 **連接至相同的內部部署資料來源的不同電腦上的多個閘道**。例如，您可能必須提供兩個資料處理站的這兩個閘道，但是相同的內部部署資料來源已向的資料處理站。 
-5.	如果您已經安裝在電腦服務的閘道 **Power BI** 案例中，請安裝 **不同 Azure 資料 factory 閘道** 另一部電腦上。
+1.	「資料管理閘道」的單一執行個體可用於多個內部部署資料來源，但是請記住，**閘道器會繫結至一個 Azure Data Factory**，不能與另一個 Data Factory 共用。
+2.	電腦上「只能安裝一個資料管理閘道的執行個體」。假設您有兩個需要存取內部部署資料來源的 Data Factory，您需要將繫結至不同 Data Factory 的閘道個別安裝在兩部內部部署電腦上。
+3.	雖然閘道不需要和資料來源位在相同的電腦上，但越接近資料來源可縮短閘道連線到資料來源的時間。建議您安裝閘道器的電腦不同於裝載內部部署資料來源的電腦，如此閘道器才不會與資料來源爭奪資源。
+4.	您可以有「多個閘道器在不同電腦上，但連接至相同的內部部署資料來源」。例如，您可能有兩個閘道器用於服務兩個 Data Factory，但相同的內部部署資料來源都向這兩個 Data Factory 註冊。 
+5.	若您已在電腦上安裝用於 **Power BI** 案例的閘道器，請於另一台電腦上安裝另一個用於 Azure Data Factory 的閘道器。
 
 ### 連接埠和安全性考量 
-- 資料管理閘道器安裝程式會開啟 **8050** 和 **8051** 閘道器電腦上的連接埠。這些連接埠由 **認證管理員** (ClickOnce 應用程式)，可讓您設定內部連結服務的認證，並測試資料來源連接。無法透過網際網路連接這些連接埠，而且您不需要需要這些在公司防火牆中開啟。
-- 複製自/至從 Azure SQL database 在內部部署 SQL Server 資料庫的資料時，請確定下列各項：
+- 「資料管理閘道」安裝程式會開啟閘道器電腦上的 **8050** 和 **8051** 連接埠。這些連接埠由「認證管理員」(ClickOnce 應用程式) 使用，可讓您設定內部部署連結服務的認證，以及測試資料來源的連接。網際網路無法連接至這些連接埠，您不需要在公司防火牆中開啟這些連接埠。
+- 在內部部署 SQL Server 資料庫和 Azure SQL Database 之間往返複製資料時，請確定下列各項：
  
-	- 閘道器電腦上的防火牆上允許連出的 TCP 通訊 **TCP** 連接埠 **1433年**
-	- 設定 [SQL Azure 防火牆設定](https://msdn.microsoft.com/library/azure/jj553530.aspx) 新增 **的閘道器電腦的 IP 位址** 至 **允許的 IP 位址**。
+	- 閘道器電腦上的防火牆允許從 **TCP** 連接埠 **1433** 連出的 TCP 通訊
+	- 設定 [SQL Azure 防火牆設定](https://msdn.microsoft.com/library/azure/jj553530.aspx)，將閘道器電腦的 IP 位址加入至允許的 IP 位址。
 
-- 當複製資料至/從內部部署 SQL Server 至任何目的地，而且閘道和 SQL Server 電腦不同時，執行下列動作： [設定 Windows 防火牆](https://msdn.microsoft.com/library/ms175043.aspx) 在 SQL Server 電腦，讓閘道可以存取透過 SQL Server 執行個體所接聽的連接埠的資料庫。預設執行個體中，它是連接埠 1433年。
+- 當複製資料至/從內部部署 SQL Server 至任何目的地，而且閘道器和 SQL Server 電腦不同時，請執行下列動作：在 SQL Server 電腦上[設定 Windows 防火牆](https://msdn.microsoft.com/library/ms175043.aspx)，讓閘道器可以透過 SQL Server 執行個體所接聽的連接埠存取資料庫。在預設執行個體中，這是連接埠 1433。
 
-- 您必須啟動 **認證管理員** 應用程式能夠連接到資料管理閘道器，可以設定資料來源的認證，並測試資料來源連接的電腦上。
+- 您必須在能夠連接至「資料管理閘道」的電腦上啟動「認證管理員」應用程式，才能設定資料來源的認證，以及測試資料來源的連接。
 
-### 閘道安裝的必要條件 
+### 閘道器安裝 - 先決條件 
 
-1.	支援 **作業系統** 版本是 Windows 7、 Windows 8 8.1、 Windows Server 2008 R2、 Windows Server 2012。
-2.	建議 **組態** 閘道的機器是至少 2 GHz，4 核心，8 GB RAM 和 80 GB 的磁碟。
-3.	如果主機電腦休眠狀態時，閘道無法回應資料要求。因此，設定適當 **電源計劃** 之前安裝閘道器電腦上。如果電腦已設定為休眠，閘道安裝就會提示訊息。  
+1.	支援的作業系統版本包括 Windows 7、Windows 8/8.1、Windows Server 2008 R2、Windows Server 2012。
+2.	建議閘道器電腦的「組態」至少為 2 GHz、4 核心、8 GB RAM 和 80 GB 磁碟。
+3.	如果主機電腦休眠，閘道器即無法回應資料要求。因此，安裝閘道器之前，請先在電腦上設定適當的「電源計劃」。如果電腦已設定為休眠，安裝閘道器時會提示訊息。  
 
 
  
@@ -69,103 +69,106 @@
 
 在本逐步解說中，您可以使用將資料從內部部署 SQL Server 資料庫移至 Azure Blob 的管線，來建立一個 Data Factory。
 
-## 步驟 1： 建立 Azure 的資料處理站
-在此步驟中，您可以使用 Azure 管理入口網站建立 Azure 資料 Factory 執行個體名為 **ADFTutorialOnPremDF**。您也可以使用 Azure Data Factory Cmdlet 來建立 Data Factory。
+## 步驟 1：建立 Azure Data Factory
+在此步驟中，您可以使用 Azure 管理入口網站來建立名為 **ADFTutorialOnPremDF** 的 Azure Data Factory 執行個體。您也可以使用 Azure Data Factory Cmdlet 來建立 Data Factory。
 
-1.	登入之後 [Azure 預覽入口網站][azure-preview-portal], ，按一下 **新增** 從左下角中，選取 **資料分析** 中 **建立** blade 中，然後按一下 [ **資料 Factory** 上 **資料分析** 分頁。
+1.	登入 [Azure Preview 入口網站][azure-preview-portal]之後，從左下角按一下 [**新增**]、在 [**建立**] 刀鋒視窗選取 [**資料分析**]，然後在 [**資料分析**] 刀鋒視窗上按一下 **Data Factory**。
 
-	![新-> DataFactory][image-data-factory-new-datafactory-menu]
+	![新增->DataFactory][image-data-factory-new-datafactory-menu]
   
-6. 在 **新的資料處理站** 分頁：
-	1. 輸入 **ADFTutorialOnPremDF** 的 **名稱**。
-	2. 按一下 **資源群組名稱** ，然後選取 **ADFTutorialResourceGroup** (如果您已經從教學課程 [開始使用 Azure 資料 Factory][adfgetstarted]。您可以選取現有的資源群組，或建立一個新的群組。若要建立新的資源群組：
-		1. 按一下 **建立新的資源群組**。
-		2. 在 **建立資源群組分頁**, ，輸入 **名稱** 資源群組，然後按一下 **確定**。
+6. 在 [**新增 Data Factory**] 刀鋒視窗中：
+	1. 輸入 **ADFTutorialOnPremDF** 做為名稱。
+	2. 按一下 [資源群組名稱]，然後選取 **ADFTutorialResourceGroup** (如果您已經完成[開始使用 Azure Data Factory][adfgetstarted]教學課程)。您可以選取現有的資源群組，或建立一個新的群組。若要建立新的資源群組：
+		1. 按一下 [建立新的資源群組]。
+		2. 在 [**建立資源群組**] 刀鋒視窗中，輸入資源群組的 [**名稱**]，然後按一下 [**確定**]。
 
-7. 請注意， **新增到儀表板** 會在檢查 **新的資料處理站** 分頁。
+7. 請注意，[**新增 Data Factory**] 刀鋒視窗上已核取 [**新增至開始面板**]。
 
 	![新增至儀表板][image-data-factory-add-to-startboard]
 
-8. 在 **新的資料處理站** blade 中，按一下 **建立**。
+8. 在 [**新增 Data Factory**] 刀鋒視窗中，按一下 [**建立**]。
 
-	> [AZURE.NOTE]**資料處理站名稱"ADFTutorialOnPremDF"不是使用**  
-9. 查詢通知中的建立程序從 **通知** 左邊 」 中樞。按一下 **X** 關閉 **NOTIFCATIONS** 分頁已開啟。
+	Azure Data Factory 的名稱在全域必須是唯一的。如果您收到錯誤：**Data Factory 名稱 “ADFTutorialOnPremDF” 無法使用**，請變更 Data Factory 名稱 (例如 yournameADFTutorialOnPremDF)，然後嘗試重新建立。執行此教學課程中的其餘步驟時，請使用此名稱來取代 ADFTutorialOnPremDF。
+
+9. 尋找左側 [通知] 中樞中來自建立程序的通知。按一下 **X** 關閉 [**通知**] 刀鋒視窗 (若已開啟)。
 
 	![通知中樞][image-data-factory-notifications-hub]
 
-11. 建立已完成之後，您會看到 **資料 Factory** 分頁，如下所示：
+11. 建立完成之後，您會看到 **Data Factory** 刀鋒視窗，如下所示：
 
-	![資料處理站首頁][image-data-factory-datafactory-homepage]
+	![Data Factory 首頁][image-data-factory-datafactory-homepage]
 
-## 步驟 2： 建立資料管理閘道器
-5.	在 **資料 Factory** 刀鋒伺服器 **ADFTutorialOnPremDF**, ，按一下 **連結服務**。 
+## 步驟 2：建立資料管理閘道
+5.	在 **ADFTutorialOnPremDF** 的 **Data Factory** 刀鋒視窗中，按一下 [**連結服務**]。 
 
-	![資料處理站首頁][image-data-factory-home-age]
+	![Data Factory 首頁][image-data-factory-home-age]
 
-2.	在 **連結服務** blade 中，按一下 **+ 資料閘道器**。
+2.	在 [**連結服務**] 刀鋒視窗中，按一下 [**+ 資料閘道**]。
 
-	![連結的服務-新增閘道 按鈕][image-data-factory-linkedservices-add-gateway-button]
+	![連結的服務 - 新增閘道器 按鈕][image-data-factory-linkedservices-add-gateway-button]
 
-2. 在 **建立** blade 中，輸入 **adftutorialgateway** 的 **名稱**, ，按一下 **確定**。
+2. 在 [**建立**] 刀鋒視窗上，輸入 **adftutorialgateway** 做為 [**名稱**]，然後按一下 [**確定**]。
 
-	![建立閘道分頁][image-data-factory-create-gateway-blade]
+	![建立閘道器 刀鋒視窗][image-data-factory-create-gateway-blade]
 
 3. 在 [**設定**] 分頁中，按一下 [**直接安裝在此電腦上**]。這會下載閘道的安裝套件、在電腦上安裝、設定和註冊閘道。
 
-	> [AzURE.NOTE]請使用 Internet Explorer 或 Microsoft ClickOnce 相容的網頁瀏覽器。
+	> [AZURE.NOTE] 請使用 Internet Explorer 或 Microsoft ClickOnce 相容的 Web 瀏覽器。
 
-	![閘道-設定分頁][image-data-factory-gateway-configure-blade]
+	![閘道器 - 設定 刀鋒視窗][image-data-factory-gateway-configure-blade]
 
-	這是最簡單的方式 (一鍵)，透過單一步驟即可下載、安裝、設定和註冊閘道。您可以看到 **Microsoft 資料管理閘道組態管理員** 應用程式安裝在電腦上。您也可以找到可執行檔 **ConfigManager.exe** 資料夾中： **C:\Program Files\Microsoft 資料管理 Gateway\1.0\Shared**。
+	這是最簡單的方式 (一鍵)，透過單一步驟即可下載、安裝、設定和註冊閘道。您可以看到「Microsoft 資料管理閘道組態管理員」應用程式已安裝在電腦上。您也可以在此資料夾中找到執行檔 **ConfigManager.exe**：**]Program Files\Microsoft Data Management Gateway\1.0\Shared**。
 
-	您可以也下載和使用此索引標籤中的連結手動安裝閘道並註冊它使用索引鍵中所示 **註冊金鑰** 文字方塊。
+	您也可以使用此刀鋒視窗中的連結手動下載與安裝閘道器，並使用 [**註冊金鑰**] 文字方塊中顯示的金鑰來加以註冊。
 	
-	請參閱 [資料管理閘道器](#DMG) 如需詳細資訊的閘道，包括最佳作法和重要的考量 ＞ 一節。
+	如需閘道器的詳細資訊 (包括最佳作法和重要考量)，請參閱[資料管理閘道](#DMG)一節。
 
-	>[AZURE.NOTE]您必須是系統管理員在本機電腦上的安裝和設定資料管理閘道器成功。您可以將其他使用者加入至資料管理閘道使用者的本機 Windows 群組。此群組的成員可以使用資料管理閘道組態管理員工具來設定閘道器。
+	>[AZURE.NOTE] 您必須是本機電腦上的系統管理員，才能成功安裝和設定「資料管理閘道」。您可以將其他使用者加入至資料管理閘道使用者本機 Windows 群組。此群組的成員可以使用「資料管理閘道組態管理員」工具來設定閘道器。
 
-4. 按一下 **通知** 左邊 」 中樞。等候，直到您看到 **Express 安裝程式成功 'adftutorialgateway'** 訊息中 **通知** 分頁。
+4. 按一下左側的 [通知] 中樞。等待 [**通知**] 刀鋒視窗中出現 [**'adftutorialgateway' 的快速安裝成功**] 訊息。
 
-	![Express 安裝程式成功][express-setup-succeeded]
-5. 按一下 **確定** 上 **建立** blade 然後在 **新資料閘道器** 分頁。
-6. 關閉 **連結的服務** 分頁 (按 **X** 右上角的按鈕) 並重新開啟 **連結服務** 分頁以查看最新的閘道器狀態。 
-7. 確認已選取 **狀態** 的閘道是 **線上**。 
+	![快速安裝成功][express-setup-succeeded]
+5. 依序在 [**建立**] 刀鋒視窗及 [**新增 Data Factory**] 刀鋒視窗中，按一下 [**確定**]。
+6. 關閉 [**連結服務**] 刀鋒視窗 (按右上角的 **X** 按鈕)，重新開啟 [**連結服務**] 刀鋒視窗以查看最新的閘道器狀態。 
+7. 確認閘道器的 [狀態] 為 [線上]。 
 
 	![閘道器狀態][gateway-status]
-5. 啟動 **Microsoft 資料管理閘道組態管理員** 應用程式在電腦上。
+5. 在電腦上啟動「Microsoft 資料管理閘道組態管理員」應用程式。
 
 	![閘道器組態管理員][image-data-factory-gateway-configuration-manager]
 
 6. 請稍候，待這些值設定完成，如下所示：
-	1. 如果服務 **狀態** 未設定為 **Started**, ，按一下 **啟動服務** 來啟動服務，並等候一分鐘重新整理的其他欄位。
-	2. **閘道器名稱** 設為 **adftutorialgateway**。
-	3. **執行個體名稱** 設為 **adftutorialgateway**。
-	4. **閘道器金鑰狀態** 設為 **註冊**。
-	5. 在狀態列底部顯示 **連接到資料管理閘道器雲端服務** 連同 **綠色核取記號**。
+	1. 如果服務的 [狀態] 未設定為 [已啟動]，請按一下 [啟動服務] 來啟動服務，並稍等一下，待其他欄位重新整理完成。
+	2. [閘道器名稱] 設定為 **adftutorialgateway**。
+	3. [執行個體名稱] 設定為 **adftutorialgateway**。
+	4. [閘道器金鑰狀態] 設定為 [已註冊]。
+	5. 底部的狀態列會顯示 [已連接到資料管理閘道雲端服務] 和一個綠色的核取記號。
 	
-7. 在 **連結的服務** blade 中，確認已選取 **狀態** 的閘道是 **良好**。
-8. 關閉所有刀鋒，直到到達 **資料 Factory** 首頁。 
+7. 在 [**連結服務**] 刀鋒視窗上，確認閘道器的 [**狀態**] 為 [**良好**]。
+8. 關閉所有刀鋒視窗，直到返回 **Data Factory** 首頁。 
 
-## 步驟 2： 建立連結的服務 
-在此步驟中，您將建立兩個連結的服務： **StorageLinkedService** 和 **SqlServerLinkedService**。 **SqlServerLinkedService** 連結在內部部署 SQL Server 資料庫和 **StorageLinkedService** 連結的服務連結至 Azure blob 存放區 **ADFTutorialDataFactory**。稍後在本逐步解說中，您將建立可將內部部署 SQL Server 資料庫的資料複製到 Azure Blob 存放區的管線。
+## 步驟 2：建立連結服務 
+在此步驟中，您將建立兩個連結服務：**StorageLinkedService** 和 **SqlServerLinkedService****SqlServerLinkedService** 連結內部部署 SQL Server 資料庫，而 **StorageLinkedService** 連結服務會將 Azure Blob 存放區連結至 **ADFTutorialDataFactory**。稍後在本逐步解說中，您將建立可將內部部署 SQL Server 資料庫的資料複製到 Azure Blob 存放區的管線。
 
 ### 在內部部署 SQL Server 資料庫中新增連結服務
-1.	在 **資料 FACTORY** 分頁、 clcik **作者和部署** 磚來啟動 **編輯器** 資料處理站。
+1.	在 **DATA FACTORY** 刀鋒視窗中，按一下 [**製作和部署**] 磚來啟動 Data Factory 的**編輯器**。
 
-	![[製作和部署] 磚][image-author-deploy-tile]
+	![製作和部署 磚][image-author-deploy-tile]
 
-	> [AZURE.NOTE][資料處理站編輯器][data-factory-editor]
-2.	在 **編輯器**, ，按一下 **新的資料存放區** 按鈕工具列，然後選取 **在內部部署 SQL server 資料庫** 從下拉式功能表。 
+	如需 Data Factory 編輯器的詳細概觀，請參閱 [Data Factory 編輯器][data-factory-editor]主題。
 
-	![編輯器新增資料存放區] 按鈕][image-editor-newdatastore-onpremsql-button]
+2.	在 [**編輯器**] 中，按一下工具列上的 [**新增資料存放區**] 按鈕，然後從下拉式功能中表選取 [**內部部署 SQL Server 資料庫**]。
+
+	![編輯器 新增資料存放區 按鈕][image-editor-newdatastore-onpremsql-button]
     
-3.	您應該會看到在右窗格中建立的內部連結的 SQL Server 服務的 JSON 範本。 ![在內部 SQL 連結服務-設定][image-editor-newdatastore-onpremsql-settings]
+3.	在右窗格中，您應該會看到用來建立內部部署 SQL Server 連結服務的 JSON 範本。
+	![內部部署 SQL 連結服務 - 設定][image-editor-newdatastore-onpremsql-settings]
 
-4.	依下列方式在 JSON] 窗格中：
-	1.	針對 **gatewayName** 屬性中，輸入 **adftutorialgateway** 取代置於雙引號內的所有文字。  
+4.	在 JSON 窗格中，執行下列動作：
+	1.	在 **gatewayName** 屬性中，輸入 **adftutorialgateway** 取代雙引號內的所有文字。  
 	2.	如果您使用 **SQL 驗證**： 
-		1.	針對 **connectionString** 屬性，取代 **< 伺服器名稱 >**, ，**< 資料庫 >**, ，**< 使用者名稱 >**, ，和 **< 密碼 >** 名稱在內部部署 SQL server、 資料庫、 使用者帳戶和密碼。	
-		2.	移除最後兩個屬性 (* * 使用者名稱 * * 和 **密碼**) 從 JSON 檔案並移除 **逗號 (，)** 從剩餘的 JSON 指令碼的最後一行的結尾字元。
+		1.	在 **connectionString** 屬性中，將 **<servername>**、**<databasename>**、**<username>** 和 **<password>** 分別取代為您的內部部署 SQL Server 名稱、資料庫名稱、使用者帳戶和密碼。	
+		2.	從 JSON 檔案中移除最後兩個屬性 (**username** 和 **password**)，並從剩餘的 JSON 指令碼中移除最後一行結尾的「逗號 (,)」 字元。
 		
 				{
 	    			"name": "SqlServerLinkedService",
@@ -175,8 +178,8 @@
 		        		"gatewayName": "adftutorialgateway"
 	    			}
 				}
-	3.	如果您使用 **Windows 驗證**：
-		1. 針對 **connectionString** 屬性，取代 **< 伺服器名稱 >** 和 **< 資料庫 >** 與您在內部部署 SQL server 和資料庫的名稱。設定 **整合式安全性** 至 **True**。移除 **識別碼** 和 **密碼** 從連接字串。
+	3.	如果您使用「Windows 驗證」：
+		1. 在 **connectionString** 屬性中，將 **<servername>** 和 **<databasename>** 分別取代為您的內部部署 SQL Server 名稱和資料庫名稱。將 **Integrated Security** 設定為 **True**。從連接字串中移除 **ID** 和 **Password**。
 			
 				{
     				"name": "SqlServerLinkedService",
@@ -189,39 +192,39 @@
     				}
 				}		
 		
-6. 按一下 **部署** 部署 SqlServerLinkedService] 工具列上。確認您看到訊息 **連結服務建立成功** 標題列上。您也應該會看到 **SqlServerLinkedService** 左邊的樹狀檢視中。
+6. 按一下工具列上的 [**部署**]，部署 SqlServerLinkedService。確認您在標題列看到 [**已成功建立連結服務**] 訊息。在左邊的樹狀檢視中，您也應該會看到 **SqlServerLinkedService**。
 		   
 	![SqlServerLinkedService 部署成功][image-editor-sql-linked-service-successful]
 	
   
-> [AZURE.NOTE]您也可以建立連結的 SQL Server 服務]，即可 **新的資料存放區** 上的工具列按鈕 **連結服務** 分頁。如果您進入此路由時，您會使用認證管理員 ClickOnce 應用程式存取入口網站的電腦上執行的設定資料來源的認證。如果您從不同於閘道器電腦的電腦存取入口網站，您必須確定認證管理員應用程式可以連接到閘道器電腦。如果應用程式無法連接閘道器電腦，它將不允許您設定資料來源的認證，並測試資料來源連接。
+您也可以按一下 [**連結服務**] 刀鋒視窗上的 [**新增資料存放區**] 工具列按鈕，以建立 SQL Server 連結服務。如果要這樣做，您需要使用在電腦上執行的「認證管理員」ClickOnce 應用程式存取入口網站，設定資料來源的認證。如果您從閘道器電腦以外的另一台電腦存取入口網站，您必須確定「認證管理員」應用程式可以連接到閘道器電腦。如果應用程式無法連接閘道器電腦，它將不允許您設定資料來源的認證，以及測試資料來源的連接。
 
 #### 新增 Azure 儲存體帳戶的連結服務
  
-1. 在 **編輯器**, ，按一下 **新的資料存放區** 按鈕工具列，然後選取 **Azure 儲存體** 從下拉式功能表。您應該會看到在右窗格中建立連結的 Azure 儲存體服務的 JSON 範本。 
+1. 在 [**編輯器**] 中，按一下工具列上的 [**新增資料存放區**] 按鈕，然後從下拉式功能表中選取 [**Azure 儲存體**]。在右窗格中，您應該會看到用來建立 Azure 儲存體連結服務的 JSON 範本。 
 
-	![編輯器新增資料存放區] 按鈕][image-editor-newdatastore-button]
+	![編輯器 新增資料存放區 按鈕][image-editor-newdatastore-button]
     
-6. 取代 **< accountname >** 和 **< accountkey >** 帳戶名稱與 Azure 儲存體帳戶的帳戶金鑰值。
+6. 將 **<accountname>** 和 **<accountkey>** 取代為您的 Azure 儲存體帳戶的帳戶名稱和帳戶金鑰值。
 
-	![Blob 儲存體 JSON 編輯器][image-editor-blob-storage-json]
+	![編輯器 Blob 儲存體 JSON][image-editor-blob-storage-json]    
 	
-	> [AZURE.NOTE]請參閱 [JSON 指令碼參考](http://go.microsoft.com/fwlink/?LinkId=516971) 如需詳細資訊 JSON 內容。
+	如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考](http://go.microsoft.com/fwlink/?LinkId=516971)。
 
-6. 按一下 **部署** 部署 StorageLinkedService] 工具列上。確認您看到訊息 **連結服務建立成功** 標題列上。
+6. 按一下工具列上的 [**部署**]，部署 StorageLinkedService。確認您在標題列看到 [已成功建立連結服務] 訊息。
 
-	![部署編輯器 Blob 儲存體][image-editor-blob-storage-deploy]
+	![編輯器 Blob 儲存體部署][image-editor-blob-storage-deploy]
 
  
-## 步驟 3： 建立輸入和輸出資料集
+## 步驟 3：建立輸入和輸出資料集
 在此步驟中，您會建立代表複製作業的輸入和輸出資料的輸入和輸出資料集 (內部部署 SQL Server 資料庫 => Azure Blob 儲存體)。在建立資料集或資料表 (矩形資料集) 之前，您必須執行下列動作 (清單後列有詳細步驟)：
 
-- 建立了名為 **emp** 在 SQL Server 資料庫您加入做為連結的服務資料處理站和插入的幾個範例項目插入資料表。
-- - 如果您尚未經歷從教學課程 [開始使用 Azure 資料 Factory][adfgetstarted] 文件中，建立名為 blob 容器 **adftutorial** 在 Azure blob 儲存體帳戶加入為連結的服務資料的處理站。
+- 在您新增為 Data Factory 連結服務的 SQL Server 資料庫中，建立名為 **emp** 的資料表，並在資料表中插入幾個範例項目。
+- - 如果您尚未完成[開始使用 Azure Data Factory][adfgetstarted] 一文的教學課程，請在您新增為 Data Factory 連結服務的 Azure blob 儲存體帳戶中，建立名為 **adftutorial** 的 Blob 容器。。
 
 ### 準備用於教學課程的內部部署 SQL Server
 
-1. 您所指定的內部資料庫中的 SQL Server 連結服務 (* * SqlServerLinkedService * *)，使用下列 SQL 指令碼來建立 **emp** 資料庫資料表中的。
+1. 在您指定用於內部部署 SQL Server 連結服務 (**SqlServerLinkedService**) 的資料庫中，使用下列 SQL 指令碼在資料庫中建立 **emp** 資料表。
 
 
         CREATE TABLE dbo.emp
@@ -244,8 +247,8 @@
 
 ### 建立輸入資料表
 
-1.	在 **資料 Factory 編輯器**, ，按一下 **新的資料集** 命令列，然後按一下 [ **在內部部署 SQL**。 
-2.	在右窗格中的 JSON 取代成下列文字：    
+1.	在 [Data Factory 編輯器] 中，按一下命令列的 [新增資料集]，然後按一下 [內部部署 SQL]。 
+2.	使用下列文字取代右窗格中的 JSON：    
 
         {
     		"name": "EmpOnPremSQLTable",
@@ -274,20 +277,20 @@
 
 	請注意：
 	
-	- 位置 **類型** 設為 **OnPremisesSqlServerTableLocation**。
-	- **tableName** 設為 **emp**。
-	- **linkedServiceName** 設為 **SqlServerLinkedService** (您必須在步驟 2 中建立此連結的服務)。
-	- 針對不由 Azure 資料 Factory 中的另一個管線產生輸入資料表，您必須指定 **waitOnExternal** JSON 中的區段。它代表輸入資料產生於 Azure Data Factory 服務外部。   
+	- location **type** 設定為 **OnPremisesSqlServerTableLocation**。
+	- **tableName** 設定為 **emp**。
+	- **linkedServiceName** 設定為 **OnPremSqlLinkedService** (您已在步驟 2 中建立此連結服務)。
+	- 針對不是由 Azure Data Factory 中的另一個管線產生的輸入資料表，您必須在 JSON 中指定 **waitOnExternal** 區段。它代表輸入資料產生於 Azure Data Factory 服務外部。   
 
-	請參閱 [JSON 指令碼參考][json-script-reference] 如需詳細資訊 JSON 內容。
+	如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考][json-script-reference]。
 
-2. 按一下 **部署** 命令列來部署資料集 (資料表是矩形的資料集)。確認您看到的訊息，指出標題列上 **資料表成功部署**。
+2. 按一下命令列的 [部署]，以部署資料集 (資料表是矩形的資料集)。確認您在標題列看到 [已成功部署資料表] 訊息。
 
 
 ### 建立輸出資料表
 
-1.	在 **資料 Factory 編輯器**, ，按一下 **新的資料集** 命令列，然後按一下 [ **Azure Blob 儲存體**。
-2.	在右窗格中的 JSON 取代成下列文字： 
+1.	在 [Data Factory 編輯器] 中，按一下命令列的 [新增資料集]，然後按一下 [Azure Blob 儲存體]。
+2.	使用下列文字取代右窗格中的 JSON： 
 
 		{
     		"name": "OutputBlobTable",
@@ -314,16 +317,16 @@
   
 	請注意：
 	
-	- 位置 **類型** 設為 **AzureBlobLocation**。
-	- **linkedServiceName** 設為 **StorageLinkedService** (您必須在步驟 2 中建立此連結的服務)。
-	- **folderPath** 設為 **adftutorial/outfromonpremdf** outfromonpremdf 所在 adftutorial 容器中的資料夾。您只需要建立 **adftutorial** 容器。
-	-  **可用性** 設為 **每小時** (* * 頻率 * * 設 **小時** 和 **間隔** 設 **1**)。資料處理站服務將會產生輸出的資料配量中的每個小時 **emp** Azure SQL Database 中的資料表。 
+	- location **type** 設為 **AzureBlobLocation**。
+	- **linkedServiceName** 設定為 **StorageLinkedService** (您已在步驟 2 中建立此連結服務)。
+	- **folderPath** 設定為 **adftutorial/outfromonpremdf**，其中 outfromonpremdf 是 adftutorial 容器中的資料夾。您只需要建立 **adftutorial** 容器。
+	- **availability** 設定為**每小時**，且 (**frequency** 設定為**小時**，**interval** 設定為 **1**)。Data Factory 服務會每小時在 Azure SQL Database 的 **emp** 資料表中產生輸出資料配量。 
 
-	如果您沒有指定 **fileName** 的 **輸入的資料表**, ，所有檔案/blob 從輸入資料夾 (* * folderPath * *) 會被視為輸入。如果您在 JSON 中指定 fileName，則只有指定的檔案/Blob 會被視為輸入。請參閱範例檔案 [教學課程][adf-tutorial] 範例。
+	如果您沒有指定**輸入資料表**的 **fileName**，則輸入資料夾 (**folderPath**) 中的所有檔案/Blob 都會視為輸入。如果您在 JSON 中指定 fileName，則只有指定的檔案/Blob 會被視為輸入。如需範例，請參閱[教學課程][adf-tutorial]中的範例檔案。
  
 	如果您未指定**輸出資料表**的 **fileName**，**folderPath** 中產生的檔案會依照下列格式命名：<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.)。
 
-	若要設定 **folderPath** 和 **fileName** 動態地根據 **SliceStart** 時間，請使用 partitionedBy 屬性。在下列範例中，folderPath 使用 SliceStart (處理配量的開始時間) 中的年、月和日，fileName 使用 SliceStart 中的小時。例如，如果配量產生於 2014-10-20T08:00:00，folderName 設定為 wikidatagateway/wikisampledataout/2014/10/20，而 fileName 設定為 08.csv。
+	若要根據 **SliceStart** 時間動態地設定 **folderPath** 和 **fileName**，請使用 partitionedBy 屬性。在下列範例中，folderPath 使用 SliceStart (處理配量的開始時間) 中的年、月和日，fileName 使用 SliceStart 中的小時。例如，如果配量產生於 2014-10-20T08:00:00，folderName 設定為 wikidatagateway/wikisampledataout/2014/10/20，而 fileName 設定為 08.csv。
 
 	  	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
         "fileName": "{Hour}.csv",
@@ -337,16 +340,16 @@
 
  
 
-	請參閱 [JSON 指令碼參考][json-script-reference] 如需詳細資訊 JSON 內容。
+	如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考][json-script-reference]。
 
-2.	按一下 **部署** 命令列來部署資料集 (資料表是矩形的資料集)。確認您看到的訊息，指出標題列上 **資料表成功部署**。
+2.	按一下命令列的 [部署]，以部署資料集 (資料表是矩形的資料集)。確認您在標題列看到 [已成功部署資料表] 訊息。
   
 
-## 步驟 4： 建立和執行管線
-在此步驟中，您會建立 **管線** 以內 **複製活動** 使用 **EmpOnPremSQLTable** 做為輸入和 **OutputBlobTable** 做為輸出。
+## 步驟 4：建立和執行管線
+在此步驟中，您會建立**管線**，其中包含一個使用 **EmpOnPremSQLTable** 做為輸入和 **OutputBlobTable** 做為輸出的**複製活動**。
 
-1.	按一下 **新管線** 命令列上。如果看不到該按鈕，按一下 **...(省略符號)** 若要展開的命令列。
-2.	在右窗格中的 JSON 取代成下列文字：   
+1.	按一下命令列的 [新增管線]。如果沒看到此按鈕，請按一下 [...] (省略符號) 展開命令列。
+2.	使用下列文字取代右窗格中的 JSON：   
 
 
         {
@@ -393,20 +396,26 @@
 
 	請注意：
  
-	- 在 [活動] 區段中，則只有活動其 **類型** 設為 **CopyActivity**。
-	- **輸入** 活動設定為 **EmpOnPremSQLTable** 和 **輸出** 活動設定為 **OutputBlobTable**。
-	- 在 **轉換** ] 區段中， **[sqlsource]** 指定為 **來源類型** 和 **BlobSink **指定為 **sink 類型**。 - SQL 查詢 **選取 * 從 emp** 指定 **sqlReaderQuery** 屬性 **[sqlsource]**。
+	- 在 activities 區段中，只會有一個活動的 **type** 設為 **CopyActivity**。
+	- 活動的**輸入**設定為 **EmpOnPremSQLTable**，活動的**輸出**則設定為 **OutputBlobTable**。
+	- 在 **transformation** 區段中，「來源類型」指定為 **SqlSource**，「接收類型」指定為 **BlobSink**。 - **SqlSource** 的 **sqlReaderQuery** 屬性指定 SQL 查詢 **select * from emp**。
 
-	> [AZURE.NOTE]取代的值 **開始** 屬性與目前的日期和 **結束** 隔天的值。同時開始和結束日期時間必須在 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如： 2014年-10-14T16:32:41Z。 **結束** 時間是選擇性的但是我們將在本教學課程中使用它。如果您沒有指定值 **結束** 屬性，它會計算為"* * 啟動 + 48 小時 * *"。若要無限期地執行管線，請指定 **9/9/9999** 做為值 **結束** 屬性。您要定義持續時間處理資料配量會根據 **可用性** 每個 Azure 資料 Factory 資料表所定義的屬性。在上述範例中，由於每小時即產生一個資料配量，共會有 24 個資料配量。
+	將 **start** 屬性的值取代為目前日期，並將 **end** 值取代為隔天的日期。開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**end** 時間為選擇性項目，但在本教學課程中會用到。
 	
-2. 按一下 **部署** 命令列來部署資料集 (資料表是矩形的資料集)。確認您看到的訊息，指出標題列上 **管線成功部署**。
-5. 現在，關閉 **編輯器** 按一下刀鋒 **X**。按一下 **X** ] 以關閉工具列] 和 [樹狀結構檢視與 [ADFTutorialDataFactory 分頁。如果您看到 **將捨棄未儲存的編輯** 訊息中，按一下 **確定**。
-6. 您應該要回到 **資料 FACTORY** 刀鋒伺服器 **ADFTutorialOnPremDF**。
+	如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。若要無限期地執行管線，請指定 **9/9/9999** 做為 **end** 屬性的值。
+	
+	您定義將根據為每個 Azure Data Factory 資料表定義的 **Availability** 屬性來處理資料配量的持續時間。
+	
+	在上述範例中，由於每小時即產生一個資料配量，共會有 24 個資料配量。
+	
+2. 按一下命令列的 [部署]，以部署資料集 (資料表是矩形的資料集)。確認您在標題列看到 [已成功部署管線] 訊息。
+5. 現在，按一下 **X** 關閉 [**編輯器**] 刀鋒視窗。再按一次 **X**，關閉內含工具列和樹狀檢視的 [ADFTutorialDataFactory] 刀鋒視窗。如果您看到 [將捨棄未儲存的編輯] 訊息，請按一下 [確定]。
+6. 您應該會回到 **ADFTutorialOnPremDF** 的 **DATA FACTORY** 刀鋒視窗。
 
 **恭喜！** 您已成功建立 Azure Data Factory、連結服務、資料表和管線，以及排定的管線。
 
-### 在圖表檢視中檢視資料 factory 
-1. 在 **Azure 預覽入口網站**, ，按一下 **圖表** 在首頁上的磚 **ADFTutorialOnPremDF** 資料處理站。：
+### 在圖表檢視中檢視 Data Factory 
+1. 在「Azure Preview 入口網站」中，在 **ADFTutorialOnPremDF** Data Factory 的首頁上按一下 [圖表] 磚：
 
 	![圖表連結][image-data-factory-diagram-link]
 
@@ -414,69 +423,69 @@
 
 	![圖表檢視][image-data-factory-diagram-view]
 
-	您可以放大、 縮小、 放大到 100%，縮放以符合、 自動定位管線和資料表，以及顯示歷程資訊 (反白顯示選取之項目的上游和下游的項目)。您可以在 (輸入/輸出資料表或管線)，若要查看其屬性的物件上的雙精確度浮點數 blick。
+	您可以將管線和資料表放大、縮小、放大到 100%、縮放至適當比例和自動定位，以及顯示歷程資訊 (反白顯示所選取項目的上游和下游項目)。您可以按兩下物件 (輸入/輸出資料表或管線) 查看其屬性。
 
-## 步驟 5： 監視資料集和管線
-在此步驟中，您將使用 Azure 入口網站來監視 Azure Data Factory 的運作情形。您也可以使用 PowerShell Cmdlet 來監視資料集和管線。如需有關使用適用於監視 cmdlet 的詳細資訊，請參閱 [監視和管理 Azure 資料處理站使用 PowerShell][monitor-manage-powershell]。
+## 步驟 5：監視資料集和管線
+在此步驟中，您將使用 Azure 入口網站來監視 Azure Data Factory 的運作情形。您也可以使用 PowerShell Cmdlet 來監視資料集和管線。如需關於使用 Cmdlet 進行監視的詳細資訊，請參閱[使用 PowerShell 監視和管理 Azure Data Factory][monitor-manage-powershell]。
 
-1. 瀏覽至 **Azure 預覽入口網站** (如果您關閉它)
-2. 如果針對分頁 **ADFTutorialOnPremDF** 尚未開啟，即可開啟 **ADFTutorialOnPremDF** 上 **儀表板**。
-3. 您應該會看到 **計數** 和 **名稱** 的資料表和您在此索引標籤建立的管線。
+1. 瀏覽至「Azure Preview 入口網站」(如果您已關閉它)
+2. 如果 [**ADFTutorialOnPremDF**] 刀鋒視窗尚未開啟，請按一下**開始面板**上的 [**ADFTutorialOnPremDF**] 以開啟此刀鋒視窗。
+3. 您應該會看到您在此刀鋒視窗上建立之資料表和管線的**計數**和**名稱**。
 
-	![資料處理站首頁][image-data-factory-homepage-2]
-4. 現在，按一下 [ **資料集** 並排顯示。
-5. 在 **資料集** blade 中，按一下 **EmpOnPremSQLTable**。
+	![Data Factory 首頁][image-data-factory-homepage-2]
+4. 現在，按一下 [資料集] 磚。
+5. 在 [**資料集**] 刀鋒視窗中，按一下 [**EmpOnPremSQLTable**]。
 
 	![EmpOnPremSQLTable 配量][image-data-factory-onprem-sqltable-slices]
 
-6. 請注意，資料配量，截至目前時間為止已產生，而且它們是 **準備**。這是因為您已將資料插入 SQL Server 資料庫中，而資料一直留存於其中。確認任何配量顯示在 **問題配量** 底部區段。
+6. 請注意，到目前為止已經產生資料配量，且它們的狀態為 [**就緒**]。這是因為您已將資料插入 SQL Server 資料庫中，而資料一直留存於其中。確認下方的 [問題配量] 區段中沒有顯示任何配量。
 
 
-	同時 **最近更新配量** 和 **最近無法配量** 清單會依照 **上次更新時間**。配量的更新時間是在下列情況中變更。
+	[最近更新的配量] 和 [最近失敗的配量] 清單都依照 [上次更新時間] 排序。在下列情況中，配量的更新時間會變更。
     
 
-	-  您扇區的狀態手動更新，例如，使用 **組 AzureDataFactorySliceStatus** (或) 依序按一下 **執行** 上 **配量** 配量的分頁。
-	-  配量因為執行的狀態變更 (例如啟動測試回合、 結束，而且無法執行、 測試回合結束，而且已成功，等等)。
+	-  您以手動方式更新配量的狀態，例如，使用 **Set-AzureDataFactorySliceStatus** (或) 在配量的 [配量] 刀鋒視窗上按一下 [執行]。
+	-  配量因為執行而變更狀態 (例如，開始執行、執行結束但失敗、執行結束且成功等)。
  
-	按一下標題的清單或 **...(橢圓形)** 若要查看較大配量的清單。按一下 **篩選** 篩選配量] 工具列上。
+	按一下清單的標題或 **...** (省略符號)，查看更長的配量清單。按一下工具列上的 [篩選] 以篩選配量。
 	
-	若要檢視的資料配量，而是依照配量的開始/結束時間，請按一下 **(藉由配量的時間) 的資料配量** 並排顯示。
+	若要改成依配量開始/結束時間來檢視資料配量，請按一下 [資料配量 (依配量時間)] 磚。
 
-7. 現在，在 **資料集** blade 中，按一下 **OutputBlobTable**。
+7. 現在，在 [**資料集**] 刀鋒視窗中，按一下 [**OutputBlobTable**]。
 
 	![OputputBlobTable 配量][image-data-factory-output-blobtable-slices]
-8. 確認所產生的目前時間配量和 **準備**。到目前的時間配量的狀態會設為等待 **準備**。
-9. 按一下從清單中的任何資料配量上，您應該會看到 **資料配量** 分頁。
+8. 確認到目前為止的配量已產生，且狀態為 [就緒]。等待到目前為止的配量的狀態設為 [就緒]。
+9. 按一下清單中的任何資料配量，您應該會看到 [**資料配量**] 刀鋒視窗。
 
-	![資料配量分頁][image-data-factory-dataslice-blade]
+	![資料配量刀鋒視窗][image-data-factory-dataslice-blade]
 
-	如果配量不在 **準備** 狀態，您可以看到，未就緒並封鎖目前的配量，從執行中的上游配量 **上游未就緒的配量** 清單。
+	如果配量不是 [就緒] 狀態，您可以在 [未就緒的上游配量] 清單中看到未就緒且阻礙目前配量執行的上游配量。
 
-10. 按一下 **活動執行** 從清單中，若要查看底部 **活動執行詳細資料**。
+10. 按一下底部清單中的 [活動執行]，可查看 [活動執行詳細資料]。
 
-	![活動執行詳細資料] 分頁][image-data-factory-activity-run-details]
+	![活動執行詳細資料 刀鋒視窗][image-data-factory-activity-run-details]
 
-11. 按一下 **X** ，直到您回到首頁刀鋒伺服器關閉所有刀 **ADFTutorialOnPremDF**。
-14. (選擇性)按一下 **管線**, ，按一下 **ADFTutorialOnPremDF**, ，並鑽研輸入資料表 (* * 已使用 * *) 或輸出資料表 (* * Produced * *)。
-15. 使用工具，例如 **Azure 儲存體總管** 來驗證輸出。
+11. 按一下 **X** 關閉所有刀鋒視窗，直到您回到 **ADFTutorialOnPremDF** 的起始刀鋒視窗。
+14. (選用) 依序按一下 [管線] 及 [ADFTutorialOnPremDF]，然後逐步深入輸入資料表 (**已使用**) 或輸出資料表 (**已產生**)。
+15. 使用「Azure 儲存體總管」之類的工具來驗證輸出。
 
 	![Azure 儲存體總管][image-data-factory-stroage-explorer]
 
 
-## 建立和註冊使用 Azure PowerShell 的閘道 
+## 使用 Azure PowerShell 建立和註冊閘道器 
 本節說明如何使用 Azure PowerShell Cmdlet 建立和註冊閘道。
 
-1. 啟動 **Azure PowerShell** 系統管理員模式。 
-2. 中可用的 Azure 資料 Factory cmdlet **AzureResourceManager** 模式。執行下列命令以切換到 **AzureResourceManager** 模式。     
+1. 在系統管理員模式下啟動 **Azure PowerShell**。 
+2. **AzureResourceManager** 模式中可以使用 Azure Data Factory Cmdlet。執行下列命令以切換至 **AzureResourceManager** 模式。     
 
         switch-azuremode AzureResourceManager
 
 
-2. 使用 **新增 AzureDataFactoryGateway** 指令程式可建立的邏輯閘道，如下所示：
+2. 使用 **New-AzureDataFactoryGateway** Cmdlet 來建立邏輯閘道器，如下所示：
 
 		New-AzureDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
 
-	**範例命令，並輸出**：
+	**範例命令和輸出**：
 
 
 		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
@@ -493,7 +502,7 @@
 		ProvisioningState : Succeeded
 
 
-3. 使用 **新增 AzureDataFactoryGatewayKey** 指令程式來產生新建立的閘道，登錄機碼，並將金鑰存放在本機變數 **$Key**：
+3. 使用 **New-AzureDataFactoryGatewayKey** Cmdlet 來為新建立的閘道器產生註冊金鑰，並將金鑰儲存在本機變數 **$Key** 中：
 
 		New-AzureDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
 
@@ -504,17 +513,17 @@
 		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. 在 Azure PowerShell 中，切換到資料夾： **C:\Program Files\Microsoft 資料管理 Gateway\1.0\PowerShellScript** 和執行 **RegisterGateway.ps1** 與本機變數相關聯的指令碼 **$Key** 您稍早建立下列命令以註冊與邏輯閘道在電腦上安裝用戶端代理程式中所示。
+4. 在 Azure PowerShell 中，切換到資料夾：**]Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript**，然後執行與本機變數 **$Key** 相關聯的 **RegisterGateway.ps1** 指令碼 (如以下命令所示)，將您電腦上安裝的用戶端代理程式，註冊到您稍早建立的邏輯閘道器。
 
 		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
-5. 您可以使用 **Get AzureDataFactoryGateway** 指令程式可取得的閘道清單中您資料的處理站。當 **狀態** 顯示 **線上**, ，這表示您的閘道器已準備好使用。
+5. 您可以使用 **Get-AzureDataFactoryGateway** Cmdlet 取得 Data Factory 中的閘道器器清單。當 [狀態] 顯示為 [線上] 時，表示您的閘道器已就緒可供使用。
 
 		Get-AzureDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
 
-您可以移除閘道使用 **移除 AzureDataFactoryGateway** 閘道使用的指令程式並更新描述 **組 AzureDataFactoryGateway** 指令程式。如需這些 Cmdlet 的語法及其他詳細資訊，請參閱 Data Factory Cmdlet 參考文件。
+您可以使用 **Remove-AzureDataFactoryGateway** Cmdlet 移除閘道器，並使用 **Set-AzureDataFactoryGateway** Cmdlet 更新閘道器的說明。如需這些 Cmdlet 的語法及其他詳細資訊，請參閱 Data Factory Cmdlet 參考文件。
 
 
 
@@ -619,4 +628,4 @@
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=58_postMigration-->

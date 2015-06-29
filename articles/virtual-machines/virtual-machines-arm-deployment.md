@@ -67,11 +67,11 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 1. 按一下 [檔案] > [新增] > [專案]。
 
-2. 在 [範本] > [Visual C#] 中，選取 [主控台應用程式]，輸入專案的名稱和位置，然後按一下 [確定]。
+2. 在 [範本] > [Visual C\#] 中，選取 [主控台應用程式]，輸入專案的名稱和位置，然後按一下 [確定]。
 
 3. 在 [方案總管] 中，以滑鼠右鍵按一下專案名稱，然後按一下 [管理 NuGet 封裝]。
 
-4. 在搜尋方塊中輸入 *Active Directory*，對 Active Directory Authentication Library 封裝按一下 [安裝]，然後依照指示，安裝封裝。
+4. 在搜尋方塊中輸入 *Active Directory*，對 Active Directory Authentication Library 封裝按一下 [**安裝**]，然後依照指示，安裝封裝。
 
 5. 在頁面的頂端，選取 [包含發行前版本]。在搜尋方塊中輸入 *Azure Compute*，對 Compute .NET Library 按一下 [安裝]，然後依照指示，安裝封裝。
 
@@ -387,4 +387,4 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 	![建立 AD 應用程式](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

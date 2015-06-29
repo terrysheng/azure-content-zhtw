@@ -3,7 +3,7 @@
 	description="如何開始在 Visual Studio 的雲端服務專案中使用 Azure 資料表儲存體" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # 開始使用 Azure 儲存體 (雲端服務專案)
 
@@ -387,7 +387,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 ## 以非同步方式擷取頁面中的實體
 
-如果您正在讀取大量實體，而且想要在擷取實體時處理/顯示它們，而不是等待它們全部傳回，您可以使用分割的查詢來擷取實體。此範例示範如何使用  Async-Await 模式在頁面中傳回結果，使執行不會因為等待大型結果集傳回而中斷。如需在 .NET 中使用 Async-Await 模式的詳細資訊，請參閱 [Async 和 Await (C# 和 Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+如果您正在讀取大量實體，而且想要在擷取實體時處理/顯示它們，而不是等待它們全部傳回，您可以使用分割的查詢來擷取實體。此範例示範如何使用 Async-Await 模式在頁面中傳回結果，使執行不會因為等待大型結果集傳回而中斷。如需在 .NET 中使用 Async-Await 模式的詳細資訊，請參閱 [Async 和 Await (C# 和 Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
     // Initialize a default TableQuery to retrieve all the entities in the table
     TableQuery<CustomerEntity> tableQuery = new TableQuery<CustomerEntity>();
@@ -453,4 +453,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table Storage]: #tablestorage
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

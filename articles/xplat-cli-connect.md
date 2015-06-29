@@ -1,10 +1,10 @@
 <properties
-	pageTitle="從 Azure 命令列介面 (Azure CLI) 登入"
+	pageTitle="從 Azure 命令列介面 (Azure CLI) 登入 | Microsoft Azure"
 	description="從 Azure 命令列介面 (Azure CLI) 連接到 Azure 訂用帳戶"
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="dlepow"
 	services=""/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
-	ms.author="dkshir"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # 從 Azure 命令列介面 (Azure CLI) 連接到 Azure 訂用帳戶
 
-Azure CLI 是一組開放原始碼的跨平台命令，可供您運用在 Azure 平台上。本文件說明如何從 xplat-cli 連接到您的 Azure 訂用帳戶。如需安裝指示，請參閱[安裝 Azure CLI](xplat-cli-install.md)。
+Azure CLI 是一組開放原始碼的跨平台命令，可供您運用在 Azure 平台上。此文件說明如何從 Azure CLI 連接到您的 Azure 訂用帳戶。如需安裝指示，請參閱[安裝 Azure CLI](xplat-cli-install.md)。
 
 <a id="configure"></a>
 ## 如何連線至您的 Azure 訂閱
@@ -91,7 +91,7 @@ Azure CLI 所提供的大多數命令仍需要連接到 Azure 帳戶。有兩種
 
 	azure account import <path to your .publishsettings file>
 
-匯入發行設定之後，因為命令列工具已不再需要 `.publishsettings` 檔案，而且該檔案可用於存取您的訂用帳戶，並因此而造成安全風險，所以應予以刪除。
+匯入發行設定之後，因為 Azure CLI 已不再需要 `.publishsettings` 檔案，而且該檔案可用於存取您的訂用帳戶，並因此而造成安全風險，所以應予以刪除。
 
 > [AZURE.NOTE]不論您是使用公司或學校帳戶進行登入或是匯入發行設定，存取您 Azure 訂用帳戶所需的資訊都會存放在 `.azure` 目錄中 (位於您的 `user` 目錄中)。您的 `user` 目錄會受到作業系統的保護，但建議您採取額外步驟來加密 `user` 目錄。做法如下：
 >
@@ -101,7 +101,7 @@ Azure CLI 所提供的大多數命令仍需要連接到 Azure 帳戶。有兩種
 
 ### 多重訂閱
 
-如果您擁有多個 Azure 訂用帳戶，連接到 Azure 將會針對與您的認證相關聯的所有訂用帳戶授予存取權限。系統將選取一個訂用帳戶做為預設值，並且讓 xplat-cli 在執行作業時可以使用。您可以使用 `azure account list` 命令來檢視訂用帳戶及預設的訂用帳戶。此命令會傳回類似以下的資訊：
+如果您擁有多個 Azure 訂用帳戶，連接到 Azure 將會針對與您的認證相關聯的所有訂用帳戶授予存取權限。系統將選取一個訂用帳戶做為預設值，並且讓 Azure CLI 在執行作業時可以使用。您可以使用 `azure account list` 命令來檢視訂用帳戶及預設的訂用帳戶。此命令會傳回類似以下的資訊：
 
 	info:    Executing command account list
 	data:    Name              Id                                    Current
@@ -124,9 +124,9 @@ Azure CLI 所提供的大多數命令仍需要連接到 Azure 帳戶。有兩種
 <a id="additional-resources"></a>
 ## 其他資源
 
-* [搭配使用 Azure CLI 和服務管理 (或 ASM 模式) 命令][xplatasm]
+* [搭配使用 Azure CLI 和服務管理 (或 ASM 模式) 命令][cliasm]
 
-* [搭配使用 Azure CLI 和資源管理 (或 ASM 模式) 命令][xplatarm]
+* [搭配使用 Azure CLI 和資源管理 (或 ASM 模式) 命令][cliarm]
 
 * 如需 Azure CLI 的詳細資訊、下載來源程式碼、報告問題，或是對專案發表意見，請造訪 [Azure CLI 的 GitHub 儲存機制](https://github.com/azure/azure-xplat-cli)。
 
@@ -142,7 +142,7 @@ Azure CLI 所提供的大多數命令仍需要連接到 Azure 帳戶。有兩種
 [free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
-[xplatasm]: virtual-machines-command-line-tools.md
-[xplatarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

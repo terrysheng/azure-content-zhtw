@@ -3,7 +3,7 @@
    description="說明如何在您的裝置上安裝 StorSimple 8000 Series Update 1。"
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,23 +12,47 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
-   ms.author="v-sharos" />
+   ms.date="06/18/2015"
+   ms.author="alkohli" />
 
 # 在 StorSimple 裝置上安裝 Update 1
 
 ## 概觀
 
-本教學課程說明如何在執行 Update 1 之前軟體版本的 StorSimple 裝置上安裝 Update 1。您的裝置可以在正式發行版 (GA)、Update 0.1、Update 0.2 或 Update 0.3 軟體上執行。本教學課程也說明在 StorSimple 裝置上 DATA 0 以外的網路介面如果已設定閘道器時該如何處理。
+本教學課程說明如何在執行 Update 1 之前軟體版本的 StorSimple 裝置上安裝 Update 1。您的裝置可以在正式發行版 (GA)、Update 0.1、Update 0.2 或 Update 0.3 軟體上執行。
 
-安裝過程中，如果您的裝置執行的是 Update 1.0 之前的版本，則會在您的裝置上進行檢查。這些檢查會就硬體狀態和網路連線，判斷裝置健康狀況。
+安裝過程中，如果您的裝置執行的是 Update 1 之前的版本，則會在您的裝置上進行檢查。這些檢查會就硬體狀態和網路連線，判斷裝置健康狀況。
 
 系統會提示您執行手動前置檢查以確定：
 
 - 控制器固定 IP 能夠路由，且可以連線到網際網路。這些 IP 用於提供 StorSimple 裝置的更新。您可以在每個控制器上執行下列 Cmdlet 來進行測試：
 
-    `Test-Connection -Source <fixed IP of your device controller> <Destination IP> `
+    `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
  
+	**當固定 IP 能連線到網際網路時測試連線的範例輸出**
+
+	    
+		Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
+	    
+	    Source	  Destination 	IPV4Address      IPV6Address
+	    ----------------- -----------  -----------
+	    HCSNODE0  bing.com		204.79.197.200
+	    HCSNODE0  bing.com		204.79.197.200
+	    HCSNODE0  bing.com		204.79.197.200
+	    HCSNODE0  bing.com		204.79.197.200
+	
+		Controller0>Test-Connection -Source 10.126.173.91 -Destination  204.79.197.200
+
+	    Source	  Destination 	  IPV4Address    IPV6Address
+	    ----------------- -----------  -----------
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    
+	    
+
+
 - 在更新裝置之前，建議您先建立裝置資料的雲端快照。
 
 在驗證並認可的手動檢查 (如上所述) 之後，將會執行一組自動更新前檢查。其中包含：
@@ -51,41 +75,6 @@
 
 [AZURE.INCLUDE [storsimple-install-update-via-portal](../../includes/storsimple-install-update-via-portal.md)]
 
-## 在含有非 DATA 0 網路介面閘道器的裝置上安裝 Update 1 
-
-此程序適用於執行 Update 1.0 之前軟體版本，並在 DATA 0 以外的網路介面上設定閘道器的 StorSimple 裝置。
- 
-如果您的裝置在非 DATA 0 網路介面上沒有閘道器，您可以直接從管理入口網站更新您的裝置。請參閱[使用管理入口網站安裝 Update 1](#use-the-management-portal-to-install-update-1)。
- 
-> [AZURE.NOTE]此程序僅需要執行一次，以套用 Update 1.0。您可以使用 Azure 管理入口網站套用後續的更新。
- 
-如果您的裝置執行的是 Update 1.0 前軟體，而且有設定 DATA 0 以外的網路介面的閘道器，您可以下列兩種方式套用 Update 1.0：
-
-- **選項 1**：下載更新，並從裝置的 Windows PowerShell 介面使用 [Start-HcsHotfix](https://technet.microsoft.com/library/dn688134.aspx) Cmdlet 套用更新。這是建議的方法。
-
-- **選項 2**：直接從管理入口網站安裝更新。
- 
-下列各節提供每個選項的詳細指示。
-
-### 選項 1：使用 Windows PowerShell for StorSimple 套用 Update 1
-
-使用此程序套用更新之前，請確認：
-
-- 這兩個裝置控制器都在線上。
-
-- 已停用 DATA 2 和 DATA 3。只有在裝置執行的是 GA 版本時，才需要執行這項操作。執行 Update 0.2 和 0.3 的裝置不需要停用它們。完成更新之後，您可以再次啟用這些網路介面。
- 
-請執行下列步驟，以套用 Update 1.0。更新可能需要花幾個小時才能完成。
-
-[AZURE.INCLUDE [storsimple-install-update-option1](../../includes/storsimple-install-update-option1.md)]
-
-### 選項 2：使用 Azure 管理入口網站套用 Update 1
-
-更新可能需要花幾個小時才能完成。如果您的主機位於不同的子網路，移除 iSCSI 介面上的閘道器設定可能會導致停機。建議您為 iSCSI 流量設定 DATA 0，以減少停機。
- 
-執行下列步驟來清除閘道器設定，然後再套用更新。
- 
-[AZURE.INCLUDE [storsimple-install-update-option2](../../includes/storsimple-install-update-option2.md)]
 
 ## 更新失敗的疑難排解
 
@@ -101,7 +90,7 @@
 
 其中一個可能的原因是您沒有連線到 Microsoft Update 伺服器。這是需要執行的手動檢查。如果您失去更新伺服器的連線，更新作業將會失敗。您可以從 StorSimple 裝置的 Windows PowerShell 介面執行下列 Cmdlet 以檢查連線：
 
- `Test-Connection -Source <Fixed IP of your device controller> <Destination IP>`
+ `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter>`
 
 在這兩個控制器上執行 Cmdlet。
  
@@ -111,4 +100,4 @@
 
 深入了解 [Microsoft Azure StorSimple](storsimple-overview.md)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

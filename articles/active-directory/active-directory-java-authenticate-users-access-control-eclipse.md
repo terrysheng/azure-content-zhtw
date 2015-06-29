@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="如何使用存取控制 (Java) - Azure 功能指南" 
-	description="了解如何在 Azure 中利用 Java 來開發及使用存取控制。" 
+<properties
+    pageTitle="如何使用存取控制 (Java) - Azure 功能指南"
+    description="了解如何在 Azure 中利用 Java 來開發及使用存取控制。"
 	services="active-directory" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    documentationCenter="java"
+    authors="rmcmurray"
+    manager="wpickett"
+    editor="jimbe" />
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
-	ms.author="robmcm"/>
+<tags
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="Java"
+    ms.topic="article"
+    ms.date="06/03/2015"
+    ms.author="robmcm" />
 
 # 如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者
 
@@ -22,24 +22,7 @@
 
 > [AZURE.NOTE]Azure Access Services Control Filter (由 Microsoft Open Technologies 提供) 是社群技術預覽。作為發行前軟體，它尚未得到 Microsoft Open Technologies, Inc. 及 Microsoft 的正式支援。
 
-## 目錄
-
--   [什麼是 ACS？][]
--   [概念][]
--   [必要條件][]
--   [建立 ACS 命名空間][]
--   [新增身分識別提供者][]
--   [新增信賴憑證者應用程式][]
--   [建立規則][]
--   [將憑證上傳至您的 ACS 命名空間][]
--   [檢閱應用程式整合頁面][]
--   [建立 Java Web 應用程式][]
--   [將 ACS 篩選器程式庫新增至您的應用程式][]
--   [部署至計算模擬器][]
--   [部署至 Azure][]
--   [後續步驟][]
-
-## <a name="what-is"></a>什麼是 ACS？
+## 什麼是 ACS？
 
 大部分開發人員都不是身分識別專家，因而通常不想花時間為其應用程式和服務開發驗證與授權機制。ACS 是一項 Azure 服務，可讓您輕鬆驗證需要存取您的 Web 應用程式與服務的使用者，而不必將複雜的驗證邏輯至分解成您的程式碼。
 
@@ -53,7 +36,7 @@
 
 如需 ACS 的詳細資訊，請參閱＜[存取控制服務 2.0][]＞。
 
-## <a name="concepts"></a>概念
+## 概念
 
 Azure ACS 是以宣告式身分識別為原則來打造，後者是為內部部署上或雲端中執行的應用程式建立驗證機制的一致方式。宣告式身分識別是應用程式與服務在遇到本身組織內、其他組織內與網際網路上的使用者時，常用來取得所需關於這些使用者之身分識別資訊的方式。
 
@@ -85,7 +68,7 @@ Azure ACS 是以宣告式身分識別為原則來打造，後者是為內部部�
 6.  ACS 驗證 IP 所簽發的安全性權杖、將此權杖中的身分識別宣告輸入至 ACS 規則引擎、計算輸出的身分識別宣告，然後簽發含有這些輸出宣告的新安全性權杖。
 7.  ACS 將用戶端重新導向至 RP。用戶端將 ACS 所簽發的全新安全性權杖傳送給 RP。RP 在 ACS 所簽發的安全性權杖上驗證簽章及宣告，然後傳回原先要求的頁面。
 
-## <a name="pre"></a>必要條件
+## 必要條件
 
 若要完成本指南中的工作，您需要有下列項目：
 
@@ -97,7 +80,7 @@ Azure ACS 是以宣告式身分識別為原則來打造，後者是為內部部�
 - 要與您應用程式搭配使用的 X.509 憑證。您需要此憑證同時具有公開憑證 (.cer) 和 個人資訊交換 (.PFX) 格式。(本教學課程稍後將描述建立此憑證的選項)。
 - 熟悉[在 Eclipse 建立 Azure 的 Hello World 應用程式](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) (英文) 中所討論的 Azure 計算模擬器和部署技術。
 
-## <a name="create-namespace"></a>建立 ACS 命名空間
+## 建立 ACS 命名空間
 
 若要在 Azure 開始使用存取控制服務 (ACS)，您必須建立 ACS 命名空間。此命名空間可提供從您的應用程式內定址 ACS 資源的唯一範圍。
 
@@ -111,7 +94,7 @@ Azure ACS 是以宣告式身分識別為原則來打造，後者是為內部部�
 
 Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [作用中] 之後再繼續。
 
-## <a name="add-IP"></a>新增身分識別提供者
+## 新增身分識別提供者
 
 在此工作中，您會新增 IP，以與您的 RP 應用程式搭配使用進行驗證。基於示範目的，此工作會顯示如何新增 Windows Live 作為 IP，但是您可以使用 ACS 管理入口網站中列出的任一個 IP。
 
@@ -122,7 +105,7 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 
 現在已啟用 Windows Live ID 作為 ACS 命名空間的 IP。接著，您可以指定 Java Web 應用程式 (將在稍後建立) 作為 RP。
 
-## <a name="add-RP"></a>新增信賴憑證者應用程式
+## 新增信賴憑證者應用程式
 
 在此工作中，您可以設定 ACS，將 Java Web 應用程式辨識為有效的 RP 應用程式。
 
@@ -131,13 +114,17 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 3.  在 [Relying party applications] 頁面上，執行下列動作：
     1.  在 [名稱] 中，輸入 RP 的名稱。基於本教學課程的目的，輸入 **Azure Web App**。
     2.  在 [模式] 中，選取 [Enter settings manually]。
-    3.  在 [領域] 中，輸入 ACS 所簽發的安全性權杖要套用至的 URI。對於此工作，輸入 **http://localhost:8080/**。![Relying party realm for use in compute emulator][relying_party_realm_emulator] 4.  在 [傳回 URL] 中，輸入 ACS 傳回安全性權杖的 URL。對於此工作，輸入 **http://localhost:8080/MyACSHelloWorld/index.jsp** ![信賴憑證者傳回可用於計算模擬器的 URL][relying_party_return_url_emulator] 5.  在其餘的欄位中接受預設值。
+    3.  在 [領域] 中，輸入 ACS 所簽發的安全性權杖要套用至的 URI。對於此工作，輸入 **http://localhost:8080/**。
+        ![Relying party realm for use in compute emulator][relying_party_realm_emulator]
+    4.  在 [傳回 URL] 中，輸入 ACS 傳回安全性權杖的 URL。對於此工作，輸入 **http://localhost:8080/MyACSHelloWorld/index.jsp**
+        ![信賴憑證者傳回可用於計算模擬器的 URL][relying_party_return_url_emulator]
+    5.  在其餘的欄位中接受預設值。
 
 4.  按一下 [儲存]。
 
 您現在已順利設定 Java Web 應用程式，當它在 Azure 計算模擬器 (在 http://localhost:8080/) 執行時，將成為 ACS 命名空間中的 RP。接著，建立 ACS 用來為 RP 處理宣告的規則。
 
-## <a name="create-rules"></a>建立規則
+## 建立規則
 
 在此工作中，您可以定義規則，驅使從 IP 傳遞至 RP 的宣告方法。基於本指南的目的，我們只會將 ACS 設定成直接在輸出權杖中複製輸入宣告類型和值，而不會篩選或修改它們。
 
@@ -147,7 +134,7 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 4.  在 [**產生規則：Azure Web 應用程式的預設規則群組**] 頁面上，確定已核取 Windows Live ID，然後按一下 [**產生**]。	
 5.  在 [Edit Rule Group] 頁面上，按一下 [儲存]。
 
-## <a name="upload-certificate"></a>將憑證上傳至您的 ACS 命名空間
+## 將憑證上傳至您的 ACS 命名空間
 
 在此工作中，您可以上傳 .PFX 憑證，這將用來簽發 ACS 命名空間所建立的權杖要求。
 
@@ -157,12 +144,13 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
     1. 在 [Used for] 區段中，按一下 [Relying Party Application]，然後選取 [Azure Web App] (先前設為信賴憑證者應用程式的名稱)。
     2. 在 [類型] 區段中，選取 [X.509 憑證]。
     3. 在 [憑證] 區段中，按一下瀏覽按鈕，並導覽至您要使用的 X.509 憑證檔案。這將為 .PFX 檔案。選取檔案、按一下 [開啟]，然後在 [密碼] 文字方塊中輸入憑證密碼。請注意，基於測試目的，您可能使用自我簽署憑證。若要建立自我簽署憑證，請使用 [ACS Filter Library] 對話方塊 (稍後將有描述) 中的 [新增]，或使用 **encutil.exe ** 公用程式，其來自 Azure Starter Kit for Java (由 Microsoft Open Technologies 提供) 的[專案網站][] (英文)。
-    4. 確定已核取 [Make Primary]。您的 [**新增權杖簽署憑證或金鑰**] 頁面應該看起來如下。![Add token-signing certificate][add_token_signing_cert]
+    4. 確定已核取 [Make Primary]。您的 [**新增權杖簽署憑證或金鑰**] 頁面應該看起來如下。
+        ![Add token-signing certificate][add_token_signing_cert]
     5. 按一下 [儲存] 以儲存您的設定，並關閉 [Add Token-Signing Certificate or Key] 頁面。
 
 接著，檢閱應用程式整合頁面中的資訊，並複製您將 Java Web 應用程式設定成使用 ACS 所需的 URI。
 
-## <a name="review-app-int"></a>檢閱應用程式整合頁面
+## 檢閱 [應用程式整合] 頁面
 
 您可以找到將 Java Web 應用程式 (RP 應用程式) 設定成在 ASC 管理入口網站的應用程式整合頁面上使用 ACS 所需的所有資訊和程式碼。設定 Java Web 應用程式進行結盟驗證時，您將需要此資訊。
 
@@ -172,7 +160,7 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 
 在 [**登入頁面整合：Azure Web 應用程式**] 頁面中，於 [**選項 1：連結至 ACS 主控的登入頁面**] 中列出的 URL 將用於 Java Web 應用程式中。將 Azure 存取控制服務篩選器程式庫新增至 Java 應用程式時，您將需要此值。
 
-## <a name="create-java-app"></a>建立 Java Web 應用程式
+## 建立 Java Web 應用程式
 1. 在 Eclipse 內，於功能表上按一下 [檔案]、按一下 [新增]，然後按一下 [Dynamic Web Project]。(如果在按一下 [**檔案**]、[**新增**] 後沒有看到 [**動態 Web 專案**] 列為可用的專案，請執行下列動作：依序按一下 [**檔案**]、[**新增**]、[**專案**]，展開 [**Web**]，按一下 [**動態 Web 專案**]，然後按 [**下一步**]。) 基於本教學課程的目的，將專案命名為 **MyACSHelloWorld**。(確定您使用此名稱，本教學課程中的後續步驟預期您的 WAR 檔案將命名為 MyACSHelloWorld)。您的畫面將出現，如下所示：
 
     ![Create a Hello World project for ACS exampple][create_acs_hello_world]
@@ -194,7 +182,7 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
     
     儲存 index.jsp。
   
-## <a name="add_acs_filter_library"></a>新增 ACS 篩選器程式庫至您的應用程式
+## 將 ACS 篩選器程式庫新增至您的應用程式
 
 1. 在 Eclipse 的專案總管中，於 **MyACSHelloWorld** 上按一下滑鼠右鍵、按一下 [Build Path]，然後按一下 [Configure Build Path]。
 2. 在 [Java Build Path] 對話方塊中，按一下 [程式庫] 索引標籤。
@@ -207,7 +195,7 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 6. 使用開啟至管理入口網站的 [Edit Relying Party Application] 頁面的瀏覽器，複製 [領域] 欄位中列出的 URL，並將它貼入 Eclipse 對話方塊的 [Relying Party Realm] 欄位。
 7. 在 Eclipse 對話方塊的 [安全性] 區段中，如果您想要使用現有的憑證，請按一下 [瀏覽]、導覽至您要使用的憑證，然後按一下 [開啟]。或者，如果您想要建立新憑證，請按一下 [新增] 以顯示 [New Certificate] 對話方塊，然後為新憑證指定密碼、.cer 檔案的名稱，以及 .pfx 檔案的名稱。
 8. 核取 [Embed the certificate in the WAR file]。以此方式內含憑證，可將其併入您的部署中，而不需要您將它手動新增為元件。(如果您必須改為從 WAR 檔案外部儲存憑證，則可以將憑證新增為角色元件，並取消核取 [Embed the certificate in the WAR file]。)
-9. [[選用]] 將 [**需要 HTTPS 連線**] 維持核取狀態。如果設定此選項，您將需要使用 HTTPS 通訊協定存取應用程式。如果不想要要求 HTTPS 連接，請取消核取此選項。
+9. [選用] 將 [Require HTTPS connections] 維持核取狀態。如果設定此選項，您將需要使用 HTTPS 通訊協定存取應用程式。如果不想要要求 HTTPS 連接，請取消核取此選項。
 10. 為了部署至計算模擬器，您的 [Azure ACS Filter] 設定將看起來如下。
 
     ![Azure ACS Filter settings for a deployment to the compute emulator][add_acs_filter_lib_emulator]
@@ -216,7 +204,7 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 12. 當呈現一個對話方塊，描述將建立 web.xml 檔案時，請按一下 [是]。
 13. 按一下 [確定] 以關閉 [Java Build Path] 對話方塊。
 
-## <a name="deploy_compute_emulator"></a>部署至計算模擬器
+## 部署至計算模擬器
 
 1. 在 Eclipse 的專案總管中，於 **MyACSHelloWorld** 上按一下滑鼠右鍵、按一下 [Azure]，然後按一下 [Package for Azure]。
 2. 為 [專案名稱] 輸入 **MyAzureACSProject**，然後按 [下一步]。
@@ -227,7 +215,7 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 7. 在瀏覽器中開啟 <http://localhost:8080/MyACSHelloWorld/> (或 <https://localhost:8080/MyACSHelloWorld/>，如果已核取 [**需要 HTTPS 連線**])，來執行應用程式。系統應該提示您進行 Windows Live ID 登入，然後應該將您帶至為信賴憑證者應用程式指定的傳回 URL。
 99.  當完成了檢視應用程式時，請按一下 [Reset Azure Emulator] 按鈕。
 
-## <a name="deploy_azure"></a>部署至 Azure
+## 部署至 Azure
 
 若要部署至 Azure，您將需要 ACS 命名空間的信賴憑證者領域和傳回 URL。
 
@@ -247,7 +235,7 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 8. 使用開啟至管理入口網站的 [Edit Relying Party Application] 頁面的瀏覽器，複製 [領域] 欄位中列出的 URL，並將它貼入 Eclipse 對話方塊的 [Relying Party Realm] 欄位。
 9. 在 Eclipse 對話方塊的 [安全性] 區段中，如果您想要使用現有的憑證，請按一下 [瀏覽]、導覽至您要使用的憑證，然後按一下 [開啟]。或者，如果您想要建立新憑證，請按一下 [新增] 以顯示 [New Certificate] 對話方塊，然後為新憑證指定密碼、.cer 檔案的名稱，以及 .pfx 檔案的名稱。
 10. 將 [Embed the certificate in the WAR file] 維持核取狀態，假設您想要將憑證內含在 WAR 檔案。
-11. [[選用]] 將 [**需要 HTTPS 連線**] 維持核取狀態。如果設定此選項，您將需要使用 HTTPS 通訊協定存取應用程式。如果不想要要求 HTTPS 連接，請取消核取此選項。
+11. [選用] 將 [Require HTTPS connections] 維持核取狀態。如果設定此選項，您將需要使用 HTTPS 通訊協定存取應用程式。如果不想要要求 HTTPS 連接，請取消核取此選項。
 12. 為了部署至計算模擬器，您的 Azure ACS 篩選器設定將看起來如下。
 
     ![Azure ACS Filter settings for a production deployment][add_acs_filter_lib_production]
@@ -286,24 +274,23 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 
 此時，您的憑證將併入部署中。請注意，無論您是否將憑證內含在 WAR 檔案，或將它當作元件新增至部署，都需要依[將憑證上傳至 ACS 命名空間][]一節所述，將憑證上傳至命名空間。
 
-[什麼是 ACS？]: #what-is
-[概念]: #concepts
-[必要條件]: #pre
-[建立 Java Web 應用程式]: #create-java-app
-[建立 ACS 命名空間]: #create-namespace
-[新增身分識別提供者]: #add-IP
-[新增信賴憑證者應用程式]: #add-RP
-[建立規則]: #create-rules
+[What is ACS?]: #what-is
+[Concepts]: #concepts
+[Prerequisites]: #pre
+[Create a Java web application]: #create-java-app
+[Create an ACS Namespace]: #create-namespace
+[Add Identity Providers]: #add-IP
+[Add a Relying Party Application]: #add-RP
+[Create Rules]: #create-rules
 [將憑證上傳至 ACS 命名空間]: #upload-certificate
-[將憑證上傳至您的 ACS 命名空間]: #upload-certificate
-[檢閱應用程式整合頁面]: #review-app-int
+[Review the Application Integration Page]: #review-app-int
 [Configure Trust between ACS and Your ASP.NET Web Application]: #config-trust
-[將 ACS 篩選器程式庫新增至您的應用程式]: #add_acs_filter_library
-[部署至計算模擬器]: #deploy_compute_emulator
-[部署至 Azure]: #deploy_azure
-[後續步驟]: #next_steps
+[Add the ACS Filter library to your application]: #add_acs_filter_library
+[Deploy to the compute emulator]: #deploy_compute_emulator
+[Deploy to Azure]: #deploy_azure
+[Next steps]: #next_steps
 [專案網站]: http://wastarterkit4java.codeplex.com/releases/view/61026
-[如何檢視 Azure 存取控制服務傳回的 SAML]: /develop/java/how-to-guides/view-saml-returned-by-acs/
+[如何檢視 Azure 存取控制服務傳回的 SAML]: /zh-tw/develop/java/how-to-guides/view-saml-returned-by-acs/
 [存取控制服務 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
@@ -323,5 +310,6 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 [add_jsp_file_acs]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddJSPFileACS.png
 [create_acs_hello_world]: ./media/active-directory-java-authenticate-users-access-control-eclipse/CreateACSHelloWorld.png
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

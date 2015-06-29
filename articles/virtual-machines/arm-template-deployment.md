@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="06/15/2015" 
 	ms.author="davidmu"/>
 
 # 使用 .NET 程式庫和範本部署 Azure 資源
@@ -27,7 +27,7 @@
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Azure 儲存體帳戶](../storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/zh-tw/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](http://www.microsoft.com/zh-tw/download/details.aspx?id=40855)
-- [Azure PowerShell](../install-configure-powershell.md)
+- [Azure PowerShell](../powershell-install-configure.md)
 
 執行這些步驟需要 30 分鐘左右。
 
@@ -69,7 +69,7 @@
 
 1. 按一下 [**檔案**] > [**新增**] > [**專案**]。
 
-2. 在 [**範本**] > [**Visual C#**] 中，選取 [**主控台應用程式**]，輸入專案的名稱和位置，然後按一下 [**確定**]。
+2. 在 [**範本**] > [**Visual C\#**] 中，選取 [**主控台應用程式**]，輸入專案的名稱和位置，然後按一下 [**確定**]。
 
 3. 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後按一下 [**加入**] > [**新增項目**]。
 
@@ -117,7 +117,7 @@
 
     在參數區段之後加入變數元素：
 
-	  	{
+		{
 		  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json",
 		  "contentVersion": "1.0.0.0",
 		  "parameters": {
@@ -147,13 +147,13 @@
             "vnetID":"[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
             "subnet1Ref" : "[concat(variables('vnetID'),'/subnets/',parameters('subnet1Name'))]"
           },
-          }
+        }
 
 8.	[資源](https://msdn.microsoft.com/library/azure/dn835138.aspx#resources)，例如虛擬機器、虛擬網路，以及儲存體帳戶接下來會在範本中定義。
 
     在變數區段之後加入資源區段：
 
-			{
+		{
 		  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json",
 		  "contentVersion": "1.0.0.0",
 		  "parameters": {
@@ -267,7 +267,7 @@
               }
             }
           } ]
-           }
+        }
 
 9.	儲存您所建立的範本檔案。
 
@@ -281,7 +281,7 @@
 
 3.	開啟 parameters.json 檔案，然後加入下列 JSON 內容：
 
-          {
+        {
           "contentVersion": "1.0.0.0",
           "parameters": { 
             "vmName": { "value": "mytestvm1" },
@@ -299,7 +299,7 @@
             "dnsName": { "value": "mytestdns1" }, 
             "nicName": { "value": "mytestnic1" } 
           }
-          }
+        }
 
     >[AZURE.NOTE]映像庫中的映像 VHD 名稱會定期變更，因此您必須取得目前的映像名稱，才能部署虛擬機器。若要這樣做，請參閱[使用 Windows PowerShell 管理映像 Windows](https://msdn.microsoft.com/library/azure/dn790330.aspx)，然後將 {source-image-name} 取代成您想要使用的 VHD 檔案的名稱。例如，"a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201412.01-en.us-127GB.vhd"。將 {subscription-id} 取代成您的訂用帳戶的識別碼。
 
@@ -339,8 +339,8 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 2.	將下列方法加入至 Program 類別，以取得建立認證所需的權杖：
 
-          private static string GetAuthorizationHeader()
-          {
+        private static string GetAuthorizationHeader()
+        {
           ClientCredential cc = new ClientCredential("{application-id}", "{password}");
             var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
             var result = context.AcquireToken("https://management.azure.com/", cc);
@@ -352,7 +352,7 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
           string token = result.AccessToken;
 
           return token;
-          }
+        }
 
 	將 {application-id} 取代成您先前記錄的應用程式識別碼、將 {password} 取代成您為 AD 應用程式選擇的密碼，並將 {tenant-id} 取代成您的訂用帳戶的租用戶識別碼。您可以透過執行 Get-AzureSubscription 來尋找租用戶識別碼。
 
@@ -370,8 +370,8 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 1.	將下列方法加入至 Program 類別以建立資源群組：
 
-	  	public async static void CreateResourceGroup(TokenCloudCredentials credential)
-	  	{
+		public async static void CreateResourceGroup(TokenCloudCredentials credential)
+		{
 		  Console.WriteLine("Creating the resource group...");
 		  var resourceGroup = new ResourceGroup { Location = "West US" };
 		  using (var resourceManagementClient = new ResourceManagementClient(credential))
@@ -379,7 +379,7 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 		    var rgResult = await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync("mytestrg1", resourceGroup);
 		    Console.WriteLine(rgResult.StatusCode);
 		  }
-	  	}
+		}
 
 2.	將下列程式碼加入至 Main 方法，以呼叫您剛才加入的方法：
 
@@ -388,8 +388,8 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 3.	將下列方法加入至 Program 類別，以使用您所定義的範本，將資源部署至資源群組：
 
-	  	public async static void CreateTemplateDeployment(TokenCloudCredentials credential)
-	  	{
+		public async static void CreateTemplateDeployment(TokenCloudCredentials credential)
+		{
 		  Console.WriteLine("Creating the template deployment...");
 		  var deployment = new Deployment();
           deployment.Properties = new DeploymentProperties
@@ -409,7 +409,7 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 		    var dpResult = await templateDeploymentClient.Deployments.CreateOrUpdateAsync("mytestrg1", "mytestdp1", deployment);
 			Console.WriteLine(dpResult.StatusCode);
 		  }
-	  	}
+		}
 
 	將 {storage-account-name} 取代為您先前放置檔案之帳戶的名稱。
 
@@ -424,14 +424,14 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 1.	將下列方法加入至 Program 類別以刪除資源群組：
 
-	  	public async static void DeleteResourceGroup(TokenCloudCredentials credential)
-	  	{
+		public async static void DeleteResourceGroup(TokenCloudCredentials credential)
+		{
 		  using (var resourceGroupClient = new ResourceManagementClient(credential))
 		  {
 		    var rgResult = await resourceGroupClient.ResourceGroups.DeleteAsync("mytestrg1");
 			Console.WriteLine(rgResult.StatusCode);
 		  }
-	  	}
+		}
 
 2.	將下列程式碼加入至 Main 方法，以呼叫您剛才加入的方法：
 
@@ -450,4 +450,4 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 	![建立 AD 應用程式](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

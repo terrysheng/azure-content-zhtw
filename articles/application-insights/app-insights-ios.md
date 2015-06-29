@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Windows 桌面應用程式適用的 Application Insights" 
-    description="使用 Application Insights 分析 Windows 應用程式的使用量和效能。" 
+    pageTitle="iOS 應用程式的 Application Insights" 
+    description="使用 Application Insights 分析您 iOS 應用程式的使用情況和效能。" 
     services="application-insights" 
     documentationCenter="ios"
     authors="alancameronwills" 
@@ -139,4 +139,6 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-custom-events-metrics-api.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

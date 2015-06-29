@@ -134,5 +134,6 @@ SharePoint Server 伺服器陣列是 Microsoft Azure 預覽入口網站的一項
 [在 Azure 基礎結構服務上的 SharePoint](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
 [在混合式雲端中設定用於測試的 SharePoint 內部網路伺服器陣列](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

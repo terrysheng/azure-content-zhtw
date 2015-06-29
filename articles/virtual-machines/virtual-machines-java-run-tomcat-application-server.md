@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # 如何在虛擬機器上執行 Java 應用程式伺服器
@@ -38,7 +38,7 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 
 1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com)。
 2. 依序按一下 [新增]、[運算]、[虛擬機器] 及 [從組件庫]。
-3. 在 [Virtual machine image select]  對話方塊中，選取 [JDK 7 Windows Server 2012]。請注意，唯有當您擁有尚未做好在 JDK 7 中運作之準備的舊版應用程式時，才能選取 [JDK 6 Windows Server 2012]。
+3. 在 [Virtual machine image select] 對話方塊中，選取 [JDK 7 Windows Server 2012]。請注意，唯有當您擁有尚未做好在 JDK 7 中運作之準備的舊版應用程式時，才能選取 [JDK 6 Windows Server 2012]。
 4. 按 [下一步]。
 5. 在 [虛擬機器組態]<strong></strong> 對話方塊中：
     1. 指定虛擬機器的名稱。
@@ -158,5 +158,6 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 [NewRuleAction]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleAction.png
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

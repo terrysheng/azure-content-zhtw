@@ -2,7 +2,7 @@
 	pageTitle="自訂事件和度量的 Application Insights API" 
 	description="在您的裝置或桌面應用程式、網頁或服務中插入幾行程式碼，來追蹤使用狀況及診斷問題。" 
 	services="application-insights"
-	documentationCenter="" 
+    documentationCenter="" 
 	authors="alancameronwills" 
 	manager="ronmart"/>
  
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="06/01/2015" 
 	ms.author="awills"/>
 
 # 自訂事件和度量的 Application Insights API 
@@ -51,7 +51,7 @@ API 是跨所有平台統一的，除了一些小變化形式。
 
 * 在裝置或 Web 伺服器程式碼中，加入：
 
-    *C#:* `using Microsoft.ApplicationInsights;`
+    *C\#:* `using Microsoft.ApplicationInsights;`
 
     *VB:* `Imports Microsoft.ApplicationInsights`
 
@@ -61,7 +61,7 @@ API 是跨所有平台統一的，除了一些小變化形式。
 
 建構 TelemetryClient 的執行個體 (除了在網頁中的 JavaScript)：
 
-*C#:*
+*C\#:*
 
     private TelemetryClient telemetry = new TelemetryClient();
 
@@ -91,7 +91,7 @@ TelemetryClient 具備執行緒安全。
 
     appInsights.trackEvent("WinGame");
 
-*C#*
+*C\#*
     
     telemetry.TrackEvent("WinGame");
 
@@ -133,6 +133,10 @@ TelemetryClient 具備執行緒安全。
 
 度量值應該 > = 0，才能正確顯示。
 
+
+有一些[屬性、屬性值和度量的數目限制](#limits)可供您使用。
+
+
 *JavaScript*
 
     appInsights.trackEvent // or trackPageView, trackMetric, ...
@@ -143,7 +147,7 @@ TelemetryClient 具備執行緒安全。
          {Score: currentGame.score, Opponents: currentGame.opponentCount}
          );
 
-*C#*
+*C\#*
 
     // Set up some properties and metrics:
     var properties = new Dictionary <string, string> 
@@ -209,7 +213,7 @@ TelemetryClient 具備執行緒安全。
 
 ![將詞彙輸入 [搜尋] 中](./media/app-insights-custom-events-metrics-api/appinsights-23-customevents-5.png)
 
-[深入了解搜尋字串][diagnostic]
+[深入了解搜尋運算式][diagnostic]。
 
 #### 設定屬性和度量的替代方式
 
@@ -227,25 +231,12 @@ TelemetryClient 具備執行緒安全。
     telemetry.TrackEvent(event);
 
 
-## <a name="timed"></a>計時事件
+#### <a name="timed"></a>計時事件
 
-有時候您想要繪製執行某些動作耗費多少時間的圖表。例如，您可能想要知道使用者在遊戲中思考選項時花費多少時間。
+有時候您想要繪製執行某些動作耗費多少時間的圖表。例如，您可能想要知道使用者在遊戲中思考選項時花費多少時間。這是使用測量參數的實用範例。
 
-您可以將計時資料附加至事件。在 Web 用戶端中，請使用下列呼叫，而不是呼叫 trackEvent：
 
-*Web 用戶端的 JavaScript*
-
-    // At the start of the game:
-    appInsights.startTrackEvent(game.id);
-
-    // At the end of the game:
-    appInsights.stopTrackEvent(game.id, {GameName: game.name}, {Score: game.score});
-
-在開始和停止呼叫中，使用相同的字串做為第一個參數。
-
-此功能未內建至其他 SDK。但是，您可以撰寫自己的程式碼，如下所示：
-
-*C#*
+*C\#*
 
     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
@@ -278,7 +269,7 @@ TelemetryClient 具備執行緒安全。
 
     appInsights.trackMetric("Queue", queue.Length);
 
-*C#*
+*C\#*
 
     telemetry.TrackMetric("Queue", queue.Length);
 
@@ -292,7 +283,7 @@ TelemetryClient 具備執行緒安全。
 
 事實上，您可能會在背景執行緒中執行這個動作：
 
-*C#*
+*C\#*
 
     private void Run() {
      var appInsights = new TelemetryClient();
@@ -307,6 +298,7 @@ TelemetryClient 具備執行緒安全。
 
 ![加入新的圖表或選取圖表，並在 [自訂] 底下選取您的度量](./media/app-insights-custom-events-metrics-api/03-track-custom.png)
 
+有一些[度量的數目限制](#limits)可供您使用。
 
 ## 頁面檢視
 
@@ -322,7 +314,7 @@ TelemetryClient 具備執行緒安全。
 
     appInsights.trackPageView("tab1");
 
-*C#*
+*C\#*
 
     telemetry.TrackPageView("GameReviewPage");
 
@@ -356,7 +348,7 @@ TelemetryClient 具備執行緒安全。
 
 如果您想要在沒有 Web 服務模組執行的內容中模擬要求，您也可以自行呼叫。
 
-*C#*
+*C\#*
 
     // At start of processing this request:
 
@@ -377,7 +369,7 @@ TelemetryClient 具備執行緒安全。
 
 傳送例外狀況至 Application Insights：以[計算它們][metrics]，做為問題頻率的指示，以及[檢查個別發生次數][diagnostic]。
 
-*C#*
+*C\#*
 
     try
     {
@@ -388,8 +380,7 @@ TelemetryClient 具備執行緒安全。
        telemetry.TrackException(ex);
     }
 
-在 Windows 行動應用程式中，SDK 會攔截未處理的例外狀況，讓您不需要記錄。
-
+在 Windows 行動應用程式中，SDK 會攔截未處理的例外狀況，讓您不需要記錄。在 ASP.NET 中，您可以[撰寫程式碼來自動攔截例外狀況][exceptions]。
 
 
 ## 追蹤 
@@ -401,20 +392,20 @@ TelemetryClient 具備執行緒安全。
 [記錄配接器][trace]使用此 API 將第三方記錄傳送至入口網站。
 
 
-*C#*
+*C\#*
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
 `message` 上的大小限制比屬性上的限制高得多。您可以搜尋訊息內容，但是 (不同於屬性值) 您無法在其中進行篩選。
 
 
-## 設定所有遙測的預設屬性
+## <a name="default-properties"></a>設定所有遙測的預設屬性
 
-您可以設定全域初始設定式，使得所有新 TelemetryClients 會自動使用您的內容。
+您可以設定全域初始設定式，使得所有新 TelemetryClients 會自動使用您的內容。這包括平台特定遙測模組傳送的標準遙測，例如 Web 伺服器要求追蹤。
 
-這包括平台特定遙測模組傳送的標準遙測，例如 Web 伺服器要求追蹤。
+典型的用途是識別來自不同版本或您的應用程式元件的遙測。在入口網站中，您可以依據此屬性篩選或群組結果。
 
-*C#*
+*C\#*
 
     // Telemetry initializer class
     public class MyTelemetryInitializer : IContextInitializer
@@ -450,14 +441,15 @@ TelemetryClient 具備執行緒安全。
     TelemetryConfiguration.getActive().getContextInitializers().add(new MyTelemetryInitializer());
 
 
+JavaScript Web 用戶端目前還沒有設定預設屬性的方法。
 
-## 針對所有遙測在程式碼中設定檢測金鑰
+## <a name="dynamic-ikey"></a>動態檢測金鑰
 
-而不是從組態檔取得檢測金鑰，您可以在程式碼中設定。您可能想要這樣做，例如，從測試安裝將遙測傳送至不同 Application Insights 資源，而不是即時應用程式的遙測。
+若要避免混合來自開發、測試和實際執行環境的遙測，您可以[建立個別 Application Insights 資源][create]，並且依據環境變更其金鑰。
 
-在初始化方法中設定金鑰，例如 ASP.NET 服務中的 global.aspx.cs：
+而不是從組態檔取得檢測金鑰，您可以在程式碼中設定。在初始化方法中設定金鑰，例如 ASP.NET 服務中的 global.aspx.cs：
 
-*C#*
+*C\#*
 
     protected void Application_Start()
     {
@@ -492,7 +484,7 @@ TelemetryClient 具備執行緒安全。
 
 如果您只想為您撰寫的一些自訂事件設定預設屬性值，您可以在 TelemetryClient 中設定它們。它們會附加至從該用戶端傳送的每個遙測項目。
 
-*C#*
+*C\#*
 
     using Microsoft.ApplicationInsights.DataContracts;
 
@@ -527,11 +519,22 @@ TelemetryClient 具備執行緒安全。
 
 ## <a name="ikey"></a>設定已選取自訂遙測的檢測金鑰
 
-*C#*
+*C\#*
     
     var telemetry = new TelemetryClient();
     telemetry.Context.InstrumentationKey = "---my key---";
     // ...
+
+## 排清資料
+
+通常 SDK 會在選擇的時間傳送資料以將對使用者的影響降到最低。不過，在某些情況下您可能想要排清緩衝區，例如，如果您在會關閉的應用程式中使用 SDK。
+
+*C\#*
+
+    telemetry.Flush();
+
+請注意此函式是同步的。
+
 
 
 ## 停用標準遙測
@@ -546,7 +549,7 @@ TelemetryClient 具備執行緒安全。
 偵錯期間，讓您的遙測透過管線加速很有用，如此您就可以立即看到結果。您也會取得額外的訊息，協助您追蹤任何遙測的問題。在生產環境中將它關閉，因為它可能會拖慢您的應用程式。
 
 
-*C#*
+*C\#*
     
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 
@@ -554,15 +557,51 @@ TelemetryClient 具備執行緒安全。
 
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
+## TelemetryContext
 
+TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳送的值數目。它們通常由標準遙測模組設定，但是您也可以自行設定它們。
+
+如果您自行設定這些值，請考慮從 [ApplicationInsights.config][config] 的相關程式碼行移除，如此您的值和標準值才不致混淆。
+
+* **元件** 識別應用程式及其版本
+* **裝置** 應用程式執行所在的裝置的相關資料 (在 Web 應用程式中，這是傳送遙測的伺服器或用戶端裝置)
+* **InstrumentationKey** 識別 Azure 中遙測顯示之位置的 Application Insights 資源。通常會從 ApplicationInsights.config 揀選
+* **位置** 識別裝置的地理位置。
+* **作業** 在 Web 應用程式中，目前的 HTTP 要求。在其他應用程式類型中，您可以設定以將事件群組在一起。
+ * **識別碼**：產生的值，與不同事件相互關聯，如此當您在 [診斷搜尋] 中檢查任何事件時，您可以發現「相關項目」
+ * **名稱**：HTTP 要求的 URL
+ * **SyntheticSource**：如果不為 null 或空白，這個字串表示要求的來源已被識別為傀儡程式或 Web 測試。根據預設，會從計量瀏覽器的計算中排除。
+* **屬性** 與所有遙測資料一起傳送的屬性。可以在個別 Track* 呼叫中覆寫。
+* **工作階段** 識別使用者的工作階段。識別碼會設為產生的值，當使用者一段時間沒有作用時會變更。
+* **使用者** 可讓使用者納入計算。在 Web 應用程式中，如果有 cookie，則會從中取得使用者識別碼。如果沒有，則會產生一個新的識別碼。如果使用者已登入您的應用程式，您可以從其已驗證的識別碼設定識別碼，以提供更可靠且正確的計數，即使使用者是從其他電腦登入。 
+
+## 限制
+
+每一個應用程式都有一些度量和事件的數目限制。
+
+1. 每個檢測金鑰 (也就是每個應用程式) 每秒最多 500 個遙測資料點。這包括 SDK 模組傳送的標準遙測，和您的程式碼傳送的自訂事件、度量和其他遙測。
+1.	您的應用程式具有最多 200 個唯一度量名稱和 200 個唯一屬性名稱。度量包括透過 TrackMetric 傳送的資料，以及其他資料類型上的測量，例如事件。每個檢測金鑰的度量和屬性名稱是全域的，不只限於資料類型。
+2.	只有在每個屬性具有少於 100 個唯一值時，屬性才能用於篩選和分組依據。唯一值超過 100 之後，屬性仍可用於搜尋與篩選，但無法用於篩選器。
+3.	標準屬性，例如要求名稱和網頁 URL 會限制為每週 1000 個唯一值。超過 1000 個唯一值之後，額外值都會標示為「其他值」。原始值仍然可以用於全文檢索搜尋和篩選。
+
+* *問：資料保留多久？*
+
+    請參閱[資料保留和隱私權][data]。
 
 ## 參考文件
 
 * [ASP.NET 參考](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Java 參考](http://dl.windowsazure.com/applicationinsights/javadoc/)
 
+## 問題
 
-* *問：有 REST API 嗎？*
+* *Track * 呼叫會擲回什麼例外狀況？*
+    
+    無。您應該不需要將它們包裝在 catch 子句中。
+
+
+
+* *有 REST API 嗎？*
 
     是，但我們尚未發佈。
 
@@ -578,7 +617,10 @@ TelemetryClient 具備執行緒安全。
 
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
+[create]: app-insights-create-new-resource.md
+[data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
+[exceptions]: app-insights-asp-net-exceptions.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
@@ -586,4 +628,6 @@ TelemetryClient 具備執行緒安全。
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

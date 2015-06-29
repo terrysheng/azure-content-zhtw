@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="建立和管理彈性資料庫工作" 
-	description="逐步解說如何建立和管理彈性資料庫工作。" 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jhubbard" 
-	authors="sidneyh" 
+<properties
+	pageTitle="建立和管理彈性資料庫工作"
+	description="逐步解說如何建立和管理彈性資料庫工作。"
+	services="sql-database"
+	documentationCenter=""
+	manager="jhubbard"
+	authors="sidneyh"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="sql-database"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/12/2015"
 	ms.author="sidneyh"/>
 
 # 建立和管理彈性資料庫工作
@@ -29,12 +29,15 @@
 ## 建立工作 (Job)
 
 1. 在 [彈性資料庫工作集區] 分頁中，按一下 [建立工作]。
-2. 輸入安裝時所建立之資料庫管理員的名稱和密碼。
-2. 在 [建立工作] 分頁中，輸入工作的名稱。
-3. 貼上或輸入 T-SQL 指令碼。
-4. 按一下 [儲存]，然後按一下 [執行]。
+2. 輸入「工作控制資料庫 (工作的中繼資料儲存體)」之資料庫系統管理員 (在安裝作業時建立) 的使用者名稱與密碼。
 
 	![為工作命名，輸入或貼上程式碼，然後按一下 [執行]][1]
+2. 在 [建立工作] 分頁中，輸入工作的名稱。
+3. 輸入使用者名稱與密碼來連線至目標資料庫，以取得足夠權限來成功執行指令碼。
+4. 貼上或輸入 T-SQL 指令碼。
+5. 按一下 [儲存]，然後按一下 [執行]。
+
+	![建立工作並執行][5]
 
 ## 執行等冪工作
 
@@ -44,36 +47,36 @@
             WHERE name = N'IX_ProductVendor_VendorID')
     DROP INDEX IX_ProductVendor_VendorID ON Purchasing.ProductVendor;
 	GO
-	CREATE INDEX IX_ProductVendor_VendorID 
+	CREATE INDEX IX_ProductVendor_VendorID
     ON Purchasing.ProductVendor (VendorID);
 
 或者，使用 "IF NOT EXISTS" 子句，再建立新的執行個體：
 
-	IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'TestTable') 
-	BEGIN 
-	 CREATE TABLE TestTable( 
-	  TestTableId INT PRIMARY KEY IDENTITY, 
-	  InsertionTime DATETIME2 
-	 ); 
-	END 
-	GO 
-	
-	INSERT INTO TestTable(InsertionTime) VALUES (sysutcdatetime()); 
-	GO 
+	IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'TestTable')
+	BEGIN
+	 CREATE TABLE TestTable(
+	  TestTableId INT PRIMARY KEY IDENTITY,
+	  InsertionTime DATETIME2
+	 );
+	END
+	GO
+
+	INSERT INTO TestTable(InsertionTime) VALUES (sysutcdatetime());
+	GO
 
 這個指令碼會接著更新之前建立的資料表。
 
-	IF NOT EXISTS (SELECT columns.name FROM sys.columns INNER JOIN sys.tables on columns.object_id = tables.object_id WHERE tables.name = 'TestTable' AND columns.name = 'AdditionalInformation') 
-	BEGIN 
-	
-	ALTER TABLE TestTable 
-	
-	ADD AdditionalInformation NVARCHAR(400); 
-	END 
-	GO 
-	
-	INSERT INTO TestTable(InsertionTime, AdditionalInformation) VALUES (sysutcdatetime(), 'test'); 
-	GO 
+	IF NOT EXISTS (SELECT columns.name FROM sys.columns INNER JOIN sys.tables on columns.object_id = tables.object_id WHERE tables.name = 'TestTable' AND columns.name = 'AdditionalInformation')
+	BEGIN
+
+	ALTER TABLE TestTable
+
+	ADD AdditionalInformation NVARCHAR(400);
+	END
+	GO
+
+	INSERT INTO TestTable(InsertionTime, AdditionalInformation) VALUES (sysutcdatetime(), 'test');
+	GO
 
 
 ## 檢查工作狀態
@@ -103,6 +106,8 @@
 [2]: ./media/sql-database-elastic-jobs-create-and-manage/click-manage-jobs.png
 [3]: ./media/sql-database-elastic-jobs-create-and-manage/running-jobs.png
 [4]: ./media/sql-database-elastic-jobs-create-and-manage/failed.png
-[5]: ./media/sql-database-elastic-jobs-create-and-manage/provide-creds.png
+[5]: ./media/sql-database-elastic-jobs-create-and-manage/screen-2.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

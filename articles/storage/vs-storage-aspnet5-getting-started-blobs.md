@@ -3,7 +3,7 @@
 	description="如何開始在 Visual Studio 的 ASP.NET 5 專案中使用 Azure Blob 儲存體" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # 開始使用 Azure 儲存體 (ASP.NET 5 專案)
 
@@ -149,5 +149,6 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
 	await blockBlob.DeleteAsync();
 
 [深入了解 Azure 儲存體](http://azure.microsoft.com/documentation/services/storage/)另請參閱[在伺服器總管中瀏覽儲存體資源](http://msdn.microsoft.com/library/azure/ff683677.aspx)和 [ASP.NET 5](http://www.asp.net/vnext)。
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

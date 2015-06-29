@@ -1,25 +1,30 @@
-<properties 
-	pageTitle="在 HDInsight 上使用 Hadoop Sqoop | Azure" 
-	description="了解如何從工作站使用 Azure PowerShell，在 HDInsight 叢集與 Azure SQL Database 之間執行 Sqoop 匯入和匯出。" 
-	editor="cgronlun" 
-	manager="paulettm" 
-	services="hdinsight" 
-	documentationCenter="" 
+<properties
+	pageTitle="在 HDInsight 上使用 Hadoop Sqoop | Microsoft Azure"
+	description="了解如何從工作站使用 Azure PowerShell，在 HDInsight 叢集與 Azure SQL Database 之間執行 Sqoop 匯入和匯出。"
+	editor="cgronlun"
+	manager="paulettm"
+	services="hdinsight"
+	documentationCenter=""
 	authors="mumian"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/31/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/11/2015"
 	ms.author="jgao"/>
 
-#在 HDInsight 上將 Sqoop 與 Hadoop 搭配使用
- 
+#在 HDInsight 上將 Sqoop 與 Hadoop 搭配使用 (Windows)
+
+[AZURE.INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
+
 了解如何從工作站使用 Azure PowerShell 和 HDInsight .NET SDK，在 HDInsight 叢集與 Azure SQL Database 或 SQL Server Database 之間執行 Sqoop 匯入和匯出。
 
+> [AZURE.NOTE]本文中的步驟可以與 Windows 架構或 Linux 架構的 HDInsight 叢集搭配使用。不過，這些步驟只能從 Windows 用戶端運作。
+>
+> 如果您使用的是 Linux、OS X 或 Unix 架構的 HDInsight 伺服器，請參閱[在 HDInsight 上將 Sqoop 與 Hadoop 搭配使用 (SSH)](hdinsight-use-sqoop-mac-linux.md)
 
 ##什麼是 Sqoop？
 
@@ -29,45 +34,40 @@
 
 如需 HDInsight 叢集支援的 Sqoop 版本，請參閱 [HDInsight 所提供叢集版本的新功能][hdinsight-versions]。
 
-
-
-
 ##必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **工作站**：已安裝並設定 Azure PowerShell 的電腦。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install]。若要執行 Azure PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱[執行 Windows PowerShell 指令碼][powershell-script]。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝及使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。若要執行 Azure PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱[執行 Windows PowerShell 指令碼][powershell-script]。
 
 - **Azure HDInsight 叢集**：如需叢集佈建的指示，請參閱[開始使用 HDInsight][hdinsight-get-started] 或[佈建 HDInsight 叢集][hdinsight-provision]。進行教學課程時，您將需要以下資料：
 
 	<table border="1">
-	<tr><th>叢集屬性</th><th>Azure PowerShell 變數名稱</th><th>值</th><th>說明</th></tr>
-	<tr><td>HDInsight 叢集名稱</td><td>$clusterName</td><td></td><td>您的 HDInsight 叢集名稱。</td></tr>
-	<tr><td>Azure 儲存體帳戶名稱</td><td>$storageAccountName</td><td></td><td>可供 HDInsight 叢集使用的 Azure 儲存體帳戶。在本教學課程中，請使用在叢集佈建程序中指定的預設儲存體帳戶。</td></tr>
-	<tr><td>Azure Blob 容器名稱</td><td>$containerName</td><td></td><td>在此範例中，請使用預設 HDInsight 叢集檔案系統所使用的 Blob 容器名稱。根據預設，此容器的名稱會與 HDInsight 叢集名稱相同。</td></tr>
-	</table>
+<tr><th>叢集屬性</th><th>Azure PowerShell 變數名稱</th><th>值</th><th>說明</th></tr>
+<tr><td>HDInsight 叢集名稱</td><td>$clusterName</td><td></td><td>您的 HDInsight 叢集名稱。</td></tr>
+<tr><td>Azure 儲存體帳戶名稱</td><td>$storageAccountName</td><td></td><td>可供 HDInsight 叢集使用的 Azure 儲存體帳戶。在本教學課程中，請使用在叢集佈建程序中指定的預設儲存體帳戶。</td></tr>
+<tr><td>Azure Blob 容器名稱</td><td>$containerName</td><td></td><td>在此範例中，請使用預設 HDInsight 叢集檔案系統所使用的 Blob 容器名稱。根據預設，此容器的名稱會與 HDInsight 叢集名稱相同。</td></tr>
+</table>
 
 - **Azure SQL Database**：您必須設定 Azure SQL Database 伺服器的防火牆規則，以允許從您的工作站存取。如需關於建立 Azure SQL Database 和設定防火牆的指示，請參閱[開始使用 Azure SQL Database][sqldatabase-get-started]。本文提供 Windows PowerShell 指令碼，以建立本教學課程所需的 Azure SQL Database 資料表。
 
 	<table border="1">
-	<tr><th>Azure SQL Database 屬性</th><th>Azure PowerShell 變數名稱</th><th>值</th><th>說明</th></tr>
-	<tr><td>Azure SQL Database 伺服器名稱</td><td>$sqlDatabaseServer</td><td></td><td>Sqoop 會將資料匯出或匯入的 Azure SQL Database 伺服器。</td></tr>
-	<tr><td>Azure SQL Database 登入名稱</td><td>$sqlDatabaseLogin</td><td></td><td>Azure SQL Database 的登入名稱。</td></tr>
-	<tr><td>Azure SQL Database 登入密碼</td><td>$sqlDatabasePassword</td><td></td><td>Azure SQL Database 的登入密碼。</td></tr>
-	<tr><td>Azure SQL Database 名稱</td><td>$sqlDatabaseName</td><td></td><td>Sqoop 會將資料匯出或匯入的 Azure SQL Database。</td></tr>
-	</table>
-
-	> [AZURE.NOTE]根據預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDInsight) 的連線。如果此防火牆設定為停用，您必須在 Azure 入口網站中加以啟用。如需關於建立 Azure SQL Database 和設定防火牆規則的指示，請參閱[建立和設定 SQL Database][sqldatabase-create-configue]。
+<tr><th>Azure SQL Database 屬性</th><th>Azure PowerShell 變數名稱</th><th>值</th><th>說明</th></tr>
+<tr><td>Azure SQL Database 伺服器名稱</td><td>$sqlDatabaseServer</td><td></td><td>Sqoop 會將資料匯出或匯入的 Azure SQL Database 伺服器。</td></tr>
+<tr><td>Azure SQL Database 登入名稱</td><td>$sqlDatabaseLogin</td><td></td><td>Azure SQL Database 的登入名稱。</td></tr>
+<tr><td>Azure SQL Database 登入密碼</td><td>$sqlDatabasePassword</td><td></td><td>Azure SQL Database 的登入密碼。</td></tr>
+<tr><td>Azure SQL Database 名稱</td><td>$sqlDatabaseName</td><td></td><td>Sqoop 會將資料匯出或匯入的 Azure SQL Database。</td></tr>
+</table>> [AZURE.NOTE]根據預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDInsight) 的連線。如果此防火牆設定為停用，您必須在 Azure 入口網站中加以啟用。如需關於建立 Azure SQL Database 和設定防火牆規則的指示，請參閱[建立和設定 SQL Database][sqldatabase-create-configue]。
 
 * **SQL Server**：如果您的 HDInsight 叢集與 SQL Server 位於同一個 Azure 虛擬網路上，您可以使用本文中的步驟在 SQL Server Database 上匯入和匯出資料。
 
-	> [AZURE.NOTE] HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。
+	> [AZURE.NOTE]HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。
 
 	* 若要建立及設定虛擬網路，請參閱[虛擬網路組態工作](http://msdn.microsoft.com/library/azure/jj156206.aspx)。
 
 		* 在您的資料中心裡使用 SQL Server 時，必須將虛擬網路設定為*站對站*或*點對站*。
 
-			> [AZURE.NOTE]使用**點對站**虛擬網路時，SQL Server 必須執行 VPN 用戶端組態應用程式；您可從 Azure 虛擬網路組態的 [儀表板]**** 存取此應用程式。
+			> [AZURE.NOTE]使用**點對站**虛擬網路時，SQL Server 必須執行 VPN 用戶端組態應用程式；您可從 Azure 虛擬網路組態的 [儀表板] 存取此應用程式。
 
 		* 在 Azure 虛擬機器中使用 SQL Server 時，只要主控 SQL Server 的虛擬機器與 HDInsight 在同一個虛擬網路中，即可使用任何虛擬網路組態。
 
@@ -76,15 +76,15 @@
 	> [AZURE.NOTE]SQL Server 也必須允許驗證。您必須使用 SQL Server 登入來完成本文中的步驟。
 
 	<table border="1">
-	<tr><th>SQL Server Database 屬性</th><th>Azure PowerShell 變數名稱</th><th>值</th><th>說明</th></tr>
-	<tr><td>SQL Server 名稱</td><td>$sqlDatabaseServer</td><td></td><td>Sqoop 會將資料匯出或匯入的 SQL Server。</td></tr>
-	<tr><td>SQL Server 登入名稱</td><td>$sqlDatabaseLogin</td><td></td><td>SQL Server 的登入名稱。</td></tr>
-	<tr><td>SQL Server 登入密碼</td><td>$sqlDatabasePassword</td><td></td><td>SQL Server 的登入密碼。</td></tr>
-	<tr><td>SQL Server Database 名稱</td><td>$sqlDatabaseName</td><td></td><td>Sqoop 會將資料匯出或匯入的 SQL Server Database。</td></tr>
-	</table>
+<tr><th>SQL Server Database 屬性</th><th>Azure PowerShell 變數名稱</th><th>值</th><th>說明</th></tr>
+<tr><td>SQL Server 名稱</td><td>$sqlDatabaseServer</td><td></td><td>Sqoop 會將資料匯出或匯入的 SQL Server。</td></tr>
+<tr><td>SQL Server 登入名稱</td><td>$sqlDatabaseLogin</td><td></td><td>SQL Server 的登入名稱。</td></tr>
+<tr><td>SQL Server 登入密碼</td><td>$sqlDatabasePassword</td><td></td><td>SQL Server 的登入密碼。</td></tr>
+<tr><td>SQL Server Database 名稱</td><td>$sqlDatabaseName</td><td></td><td>Sqoop 會將資料匯出或匯入的 SQL Server Database。</td></tr>
+</table>
 
 
-> [AZURE.NOTE] 在先前資料表中填入值。這將有助於本教學課程的執行。
+> [AZURE.NOTE]在先前資料表中填入值。這將有助於本教學課程的執行。
 
 ##了解案例
 HDInsight 叢集附有一些範例資料。您將用到以下兩個範例：
@@ -99,19 +99,19 @@ HDInsight 叢集附有一些範例資料。您將用到以下兩個範例：
 - 參考位於 */hive/warehouse/hivesampletable* 之資料檔案的 Hive 資料表 *hivesampletable*。此資料表包含某些行動裝置資料。此 Hive 資料表的結構描述為：
 
 	<table border="1">
-	<tr><th>欄位</th><th>資料類型</th></tr>
-	<tr><td>clientid</td><td>字串</td></tr>
-	<tr><td>querytime</td><td>字串</td></tr>
-	<tr><td>market</td><td>字串</td></tr>
-	<tr><td>deviceplatform</td><td>字串</td></tr>
-	<tr><td>devicemake</td><td>字串</td></tr>
-	<tr><td>devicemodel</td><td>字串</td></tr>
-	<tr><td>state</td><td>字串</td></tr>
-	<tr><td>country</td><td>字串</td></tr>
-	<tr><td>querydwelltime</td><td>double</td></tr>
-	<tr><td>sessionid</td><td>bigint</td></tr>
-	<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
-	</table>
+<tr><th>欄位</th><th>資料類型</th></tr>
+<tr><td>clientid</td><td>字串</td></tr>
+<tr><td>querytime</td><td>字串</td></tr>
+<tr><td>market</td><td>字串</td></tr>
+<tr><td>deviceplatform</td><td>字串</td></tr>
+<tr><td>devicemake</td><td>字串</td></tr>
+<tr><td>devicemodel</td><td>字串</td></tr>
+<tr><td>state</td><td>字串</td></tr>
+<tr><td>country</td><td>字串</td></tr>
+<tr><td>querydwelltime</td><td>double</td></tr>
+<tr><td>sessionid</td><td>bigint</td></tr>
+<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
+</table>
 
 您必須先將 *sample.log* 和 *hivesampletable* 匯出至 Azure SQL Database 或 SQL Server，再使用下列路徑，將包含行動裝置資料的資料表匯回 HDInsight：
 
@@ -150,15 +150,15 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 
 **Azure SQL Database**
 
-1. 開啟 Windows PowerShell ISE (在 Windows 8 的 [開始] 畫面中輸入 **PowerShell_ISE**，然後按一下 [Windows PowerShell ISE]****。請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell][powershell-start])。
+1. 開啟 Windows PowerShell ISE (在 Windows 8 的 [開始] 畫面中輸入 **PowerShell_ISE**，然後按一下 [Windows PowerShell ISE]。請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell][powershell-start])。
 
 2. 將下列指令碼複製到指令碼窗格中，然後設定前四個變數：
-		
+
 		#SQL database variables
-		$sqlDatabaseServer = "<SQLDatabaseServerName>" 
+		$sqlDatabaseServer = "<SQLDatabaseServerName>"
 		$sqlDatabaseLogin = "<SQLDatabaseUsername>"
 		$sqlDatabasePassword = "<SQLDatabasePassword>"
-		$sqlDatabaseName = "<SQLDatabaseName>" 
+		$sqlDatabaseName = "<SQLDatabaseName>"
 
 		$sqlDatabaseConnectionString = "Data Source=$sqlDatabaseServer.database.windows.net;Initial Catalog=$sqlDatabaseName;User ID=$sqlDatabaseLogin;Password=$sqlDatabasePassword;Encrypt=true;Trusted_Connection=false;"
 
@@ -168,29 +168,29 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 
 		# SQL query strings for creating tables and clustered indexes
 		$cmdCreateLog4jTable = "CREATE TABLE [dbo].[log4jlogs](
-		    [t1] [nvarchar](50), 
-		    [t2] [nvarchar](50), 
-		    [t3] [nvarchar](50), 
-		    [t4] [nvarchar](50), 
-		    [t5] [nvarchar](50), 
-		    [t6] [nvarchar](50), 
+		    [t1] [nvarchar](50),
+		    [t2] [nvarchar](50),
+		    [t3] [nvarchar](50),
+		    [t4] [nvarchar](50),
+		    [t5] [nvarchar](50),
+		    [t6] [nvarchar](50),
 		    [t7] [nvarchar](50))"
-		
+
 		$cmdCreateLog4jClusteredIndex = "CREATE CLUSTERED INDEX log4jlogs_clustered_index on log4jlogs(t1)"
-		
+
 		$cmdCreateMobileTable = " CREATE TABLE [dbo].[mobiledata](
-		[clientid] [nvarchar](50), 
-		[querytime] [nvarchar](50), 
-		[market] [nvarchar](50), 
-		[deviceplatform] [nvarchar](50), 
-		[devicemake] [nvarchar](50), 
-		[devicemodel] [nvarchar](50), 
-		[state] [nvarchar](50), 
-		[country] [nvarchar](50), 
+		[clientid] [nvarchar](50),
+		[querytime] [nvarchar](50),
+		[market] [nvarchar](50),
+		[deviceplatform] [nvarchar](50),
+		[devicemake] [nvarchar](50),
+		[devicemodel] [nvarchar](50),
+		[state] [nvarchar](50),
+		[country] [nvarchar](50),
 		[querydwelltime] [float],
 		[sessionid] [bigint],
 		[sessionpagevieworder][bigint])"
-		
+
 		$cmdCreateMobileDataClusteredIndex = "CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)"
 
 4. 將以下指令碼附加至用以執行 SQL 命令的指令碼窗格中：
@@ -199,7 +199,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		$conn = New-Object System.Data.SqlClient.SqlConnection
 		$conn.ConnectionString = $sqlDatabaseConnectionString
 		$conn.Open()
-		
+
 		Write-Host "Create log4j table and clustered index ..." -ForegroundColor Green
 		$cmd = New-Object System.Data.SqlClient.SqlCommand
 		$cmd.Connection = $conn
@@ -207,54 +207,54 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		$ret = $cmd.ExecuteNonQuery()
 		$cmd.CommandText = $cmdCreateLog4jClusteredIndex
 		$cmd.ExecuteNonQuery()
-		
+
 		Write-Host "Create log4j table and clustered index ..." -ForegroundColor Green
 		$cmd.CommandText = $cmdCreateMobileTable
 		$cmd.ExecuteNonQuery()
 		$cmd.CommandText = $cmdCreateMobileDataClusteredIndex
 		$cmd.ExecuteNonQuery()
-		
-		Write-Host "Close connection ..." -ForegroundColor Green		
+
+		Write-Host "Close connection ..." -ForegroundColor Green
 		$conn.close()
-		
+
 		Write-Host "Done" -ForegroundColor Green
-	
-5. 按一下 [執行指令碼]**** 或按 [F5]****，以執行指令碼。
+
+5. 按一下 [執行指令碼] 或按 [F5]，以執行指令碼。
 6. 使用 [Azure 入口網站][azure-management-portal]檢查資料表和叢集索引。
 
 **SQL Server**
 
-1. 開啟 [SQL Server Management Studio]****，然後連接到 SQL Server。
+1. 開啟 [SQL Server Management Studio]，然後連接到 SQL Server。
 
 2. 建立名為 **sqoopdb** 的新資料庫。
 
-3. 選取 **sqoopdb** 資料庫，然後從 SQL Server Management Studio 頂端的功能區中選取 [新增查詢]****。
+3. 選取 **sqoopdb** 資料庫，然後從 SQL Server Management Studio 頂端的功能區中選取 [新增查詢]。
 
 4. 在查詢視窗中輸入以下資訊：
 
 		CREATE TABLE [dbo].[log4jlogs](
-		 [t1] [nvarchar](50), 
-		 [t2] [nvarchar](50), 
-		 [t3] [nvarchar](50), 
-		 [t4] [nvarchar](50), 
-		 [t5] [nvarchar](50), 
-		 [t6] [nvarchar](50), 
+		 [t1] [nvarchar](50),
+		 [t2] [nvarchar](50),
+		 [t3] [nvarchar](50),
+		 [t4] [nvarchar](50),
+		 [t5] [nvarchar](50),
+		 [t6] [nvarchar](50),
 		 [t7] [nvarchar](50))
 
 		CREATE TABLE [dbo].[mobiledata](
-		 [clientid] [nvarchar](50), 
-		 [querytime] [nvarchar](50), 
-		 [market] [nvarchar](50), 
-		 [deviceplatform] [nvarchar](50), 
-		 [devicemake] [nvarchar](50), 
-		 [devicemodel] [nvarchar](50), 
-		 [state] [nvarchar](50), 
-		 [country] [nvarchar](50), 
+		 [clientid] [nvarchar](50),
+		 [querytime] [nvarchar](50),
+		 [market] [nvarchar](50),
+		 [deviceplatform] [nvarchar](50),
+		 [devicemake] [nvarchar](50),
+		 [devicemodel] [nvarchar](50),
+		 [state] [nvarchar](50),
+		 [country] [nvarchar](50),
 		 [querydwelltime] [float],
 		 [sessionid] [bigint],
 		 [sessionpagevieworder][bigint])
 
-5. 按一下 **F5**，或選取功能區上的 [! 執行]** ** 以執行查詢。查詢下方應該會出現以下訊息：
+5. 按一下 **F5**，或選取功能區上的 [! 執行] 以執行查詢。查詢下方應該會出現以下訊息：
 
 		Command(s) completed successfully.
 
@@ -272,77 +272,77 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 **處理 sample.log 檔案**
 
 1. 開啟 Windows PowerShell ISE。
-2. 在底部窗格中執行下列命令，以連接到您的 Azure 訂閱：
+2. 在底部窗格中執行下列命令，以連接到您的 Azure 訂用帳戶：
 
 		Add-AzureAccount
 
-	系統會提示您輸入 Azure 帳號認證。這種新增訂閱連線的方法會逾時，且在 12 小時後，您將必須重新登入。
+	系統會提示您輸入 Azure 帳號認證。這種新增訂用帳戶連線的方法會逾時，且在 12 小時後，您將必須重新登入。
 
 	> [AZURE.NOTE]如果您有多個 Azure 訂用帳戶，且預設訂用帳戶並非您要使用的訂用帳戶，請使用 <strong>Select-AzureSubscription</strong> Cmdlet 以選取目前的訂用帳戶。
 
 3. 將下列指令碼複製到指令碼窗格中，然後設定前兩個變數：
-		
+
 		$storageAccountName = "<AzureStorageAccountName>"
 		$containerName = "<BlobContainerName>"
-		
+
 		$sourceBlobName = "example/data/sample.log"
 		$destBlobName = "tutorials/usesqoop/data/sample.log"
 
 	如需變數的詳細說明，請參閱本教學課程中的[必要條件](#prerequisites)一節。
- 
+
 4. 將下列指令碼附加至指令碼窗格中：
 
 		# Define the connection string
 		$storageAccountKey = get-azurestoragekey $storageAccountName | %{$_.Primary}
 		$storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$storageAccountName;AccountKey=$storageAccountKey"
-		
+
 		# Create block blob objects referencing the source and destination blob.
 		$storageAccount = [Microsoft.WindowsAzure.Storage.CloudStorageAccount]::Parse($storageConnectionString)
 		$storageClient = $storageAccount.CreateCloudBlobClient();
 		$storageContainer = $storageClient.GetContainerReference($containerName)
 		$sourceBlob = $storageContainer.GetBlockBlobReference($sourceBlobName)
 		$destBlob = $storageContainer.GetBlockBlobReference($destBlobName)
-		
+
 		# Define a MemoryStream and a StreamReader for reading from the source file
 		$stream = New-Object System.IO.MemoryStream
 		$stream = $sourceBlob.OpenRead()
 		$sReader = New-Object System.IO.StreamReader($stream)
-		
+
 		# Define a MemoryStream and a StreamWriter for writing into the destination file
 		$memStream = New-Object System.IO.MemoryStream
 		$writeStream = New-Object System.IO.StreamWriter $memStream
-		
+
 		# process the source blob
 		$exString = "java.lang.Exception:"
 		while(-Not $sReader.EndOfStream){
 		    $line = $sReader.ReadLine()
 		    $split = $line.Split(" ")
-		
+
 		    # remove the "java.lang.Exception" from the first element of the array
 		    # for example: java.lang.Exception: 2012-02-03 19:11:02 SampleClass8 [WARN] problem finding id 153454612
 		    if ($split[0] -eq $exString){
 		        #create a new ArrayList to remove $split[0]
 		        $newArray = [System.Collections.ArrayList] $split
 		        $newArray.Remove($exString)
-		
+
 		        # update $split and $line
 		        $split = $newArray
 		        $line = $newArray -join(" ")
 		    }
-		
+
 		    # remove the lines that has less than 7 elements
 		    if ($split.count -ge 7){
 		        write-host $line
 		        $writeStream.WriteLine($line)
 		    }
 		}
-		
+
 		# Write to the destination blob
 		$writeStream.Flush()
 		$memStream.Seek(0, "Begin")
 		$destBlob.UploadFromStream($memStream)
 
-5. 按一下 [執行指令碼]**** 或按 [F5]****，以執行指令碼。
+5. 按一下 [執行指令碼] 或按 [F5]，以執行指令碼。
 6. 若要檢查已修改的資料檔案，可以使用 Azure 入口網站、Azure 儲存體總管工具或 Azure PowerShell。[開始使用 HDInsight][hdinsight-get-started] 提供了使用 Azure PowerShell 來下載檔案及顯示檔案內容的程式碼範例。
 
 
@@ -351,7 +351,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 在本節中，您將使用 Azure PowerShell 執行 Sqoop 匯出命令，將 Hive 資料表和資料檔案匯出至 Azure SQL Database 或 SQL Server。下一節將提供 HDInsight .NET 範例。
 
 > [AZURE.NOTE]除了連接字串資訊以外，本節中的步驟應該可運用在 Azure SQL Database 或 SQL Server 上。這些步驟已使用下列組態進行測試：
-> 
+>
 > * **Azure 虛擬網路點對站組態**：在私人資料中心裡將 HDInsight 叢集連接到 SQL Server 的虛擬網路。如需詳細資訊，請參閱[使用管理入口網站設定點對站 VPN](http://msdn.microsoft.com/library/azure/dn133792.aspx)。
 > * **Azure HDInsight 3.1**：請參閱[使用自訂選項在 HDInsight 上佈建 Hadoop 叢集](hdinsight-provision-clusters.md)，以取得在虛擬網路上建立叢集的相關資訊。
 > * **SQL Server 2014**：已設定成允許驗證，以及執行 VPN 用戶端組態套件以安全地連接到虛擬網路。
@@ -359,7 +359,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 **匯出 log4j 記錄檔**
 
 1. 開啟 Windows PowerShell ISE。
-2. 在底部窗格中執行下列命令，以連接到您的 Azure 訂閱：
+2. 在底部窗格中執行下列命令，以連接到您的 Azure 訂用帳戶：
 
 		Add-AzureAccount
 
@@ -371,7 +371,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		$clusterName = "<HDInsightClusterName>"
 		$storageAccountName = "<AzureStorageAccount>"
 		$containerName = "<BlobStorageContainerName>"
-		
+
 		# Define the SQL database variables
 		$sqlDatabaseServerName = "<SQLDatabaseServerName>"
 		$sqlDatabaseLogin = "<SQLDatabaseUsername>"
@@ -379,16 +379,16 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		$databaseName = "<SQLDatabaseName>"
 
 		$tableName_log4j = "log4jlogs"
-		
+
 		# Connection string for Azure SQL Database.
 		# Comment if using SQL Server
 		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
 		# Connection string for SQL Server.
 		# Uncomment if using SQL Server.
 		#$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName;user=$sqlDatabaseLogin;password=$sqlDatabasePassword;database=$databaseName"
-		
+
 		$exportDir_log4j = "/tutorials/usesqoop/data"
-	
+
 	如需變數的詳細說明，請參閱本教學課程中的[必要條件](#prerequisites)一節。
 
 	請注意，$exportDir_log4j 並未指定 sample.log 檔案的檔案名稱。Sqoop 會從該資料夾下的所有檔案中匯出資料。
@@ -399,21 +399,21 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		$sqoopDef = New-AzureHDInsightSqoopJobDefinition -Command "export --connect $connectionString --table $tableName_log4j --export-dir $exportDir_log4j --input-fields-terminated-by \0x20 -m 1"
 		$sqoopJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $sqoopDef #-Debug -Verbose
 		Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 -Job $sqoopJob
-		
+
 		Write-Host "Standard Error" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardError
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
-	請注意，欄位分隔符號為 **\\0x20**，即空格。此分隔符號定義於 sample.log 檔案的 Azure PowerShell 指令碼中。如需 **-m 1** 的相關資訊，請參閱 [Sqoop 使用者指南][sqoop-user-guide-1.4.4]。
+	請注意，欄位分隔符號為 **\0x20**，即空格。此分隔符號定義於 sample.log 檔案的 Azure PowerShell 指令碼中。如需 **-m 1** 的相關資訊，請參閱 [Sqoop 使用者指南][sqoop-user-guide-1.4.4]。
 
-5. 按一下 [執行指令碼]**** 或按 [F5]****，以執行指令碼。
+5. 按一下 [執行指令碼] 或按 [F5]，以執行指令碼。
 6. 使用 [Azure 入口網站][azure-management-portal]檢查匯出的資料。
 
 **匯出 hivesampletable Hive 資料表**
 
 1. 開啟 Windows PowerShell ISE。
-2. 在底部窗格中執行下列命令，以連接到您的 Azure 訂閱：
+2. 在底部窗格中執行下列命令，以連接到您的 Azure 訂用帳戶：
 
 		Add-AzureAccount
 
@@ -425,7 +425,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		$clusterName = "<HDInsightClusterName>"
 		$storageAccountName = "<AzureStorageAccount>"
 		$containerName = "<BlobStorageContainerName>"
-		
+
 		# Define the SQL database variables
 		$sqlDatabaseServerName = "<SQLDatabaseServerName>"
 		$sqlDatabaseLogin = "<SQLDatabaseUsername>"
@@ -433,32 +433,32 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		$databaseName = "SQLDatabaseName"
 
 		$tableName_mobile = "mobiledata"
-		
+
 		# Connection string for Azure SQL Database.
 		# Comment if using SQL Server
 		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
 		# Connection string for SQL Server.
 		# Uncomment if using SQL Server
 		#$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName;user=$sqlDatabaseLogin;password=$sqlDatabasePassword;database=$databaseName"
-		
+
 		$exportDir_mobile = "/hive/warehouse/hivesampletable"
-	
+
 	如需變數的詳細說明，請參閱本教學課程中的[必要條件](#prerequisites)一節。
 
 4. 將下列指令碼附加至指令碼窗格中：
-		
+
 		$sqoopDef = New-AzureHDInsightSqoopJobDefinition -Command "export --connect $connectionString --table $tableName_mobile --export-dir $exportDir_mobile --fields-terminated-by \t -m 1"
-		
-		
+
+
 		$sqoopJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $sqoopDef #-Debug -Verbose
 		Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 -Job $sqoopJob
-		
+
 		Write-Host "Standard Error" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardError
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
-5. 按一下 [執行指令碼]**** 或按 [F5]****，以執行指令碼。
+5. 按一下 [執行指令碼] 或按 [F5]，以執行指令碼。
 6. 使用 [Azure 入口網站][azure-management-portal]檢查匯出的資料。
 
 
@@ -478,7 +478,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 	using System.Security.Cryptography.X509Certificates;
 	using Microsoft.WindowsAzure.Management.HDInsight;
 	using Microsoft.Hadoop.Client;
-	
+
 	namespace sqoopSDKSample
 	{
 	    class Program
@@ -494,7 +494,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 	            string sqlDatabaseLoginPassword = "<SQLDatabaseLoginPassword>";
 	            string sqlDatabaseDatabaseName = "hdisqoop";
 	            string sqlDatabaseTableName = "log4jlogs";
-	
+
 	            cmdExport = @"export";
 				// Connection string for using Azure SQL Database.
 				// Comment if using SQL Server
@@ -505,36 +505,36 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 	            cmdExport = cmdExport + @" --table " + sqlDatabaseTableName;
 	            cmdExport = cmdExport + @" --export-dir /tutorials/usesqoop/data";
 	            cmdExport = cmdExport + @" --input-fields-terminated-by \0x20 -m 1";
-	
+
 	            SqoopJobCreateParameters sqoopJobDefinition = new SqoopJobCreateParameters()
 	            {
 	                Command = cmdExport,
 	                StatusFolder = "/tutorials/usesqoop/jobStatus"
 	            };
-	
+
 	            // Get the certificate object from certificate store using the friendly name to identify it
 	            X509Store store = new X509Store();
 	            store.Open(OpenFlags.ReadOnly);
 	            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
 	            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
-	
+
 	            // Submit the Hive job
 	            var jobClient = JobSubmissionClientFactory.Connect(creds);
 	            JobCreationResults jobResults = jobClient.CreateSqoopJob(sqoopJobDefinition);
-	
+
 	            // Wait for the job to complete
 	            WaitForJobCompletion(jobResults, jobClient);
-	
+
 	            // Print the Hive job output
 	            System.IO.Stream stream = jobClient.GetJobErrorLogs(jobResults.JobId);
-	
+
 	            StreamReader reader = new StreamReader(stream);
 	            Console.WriteLine(reader.ReadToEnd());
-	
+
 	            Console.WriteLine("Press ENTER to continue.");
 	            Console.ReadLine();
 	        }
-	
+
 	        private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
 	        {
 	            JobDetails jobInProgress = client.GetJob(jobResults.JobId);
@@ -565,7 +565,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 在本節中，您會將 log4j 記錄檔 (您先前匯出至 Azure SQL Database) 匯回 HDInsight。
 
 1. 開啟 Windows PowerShell ISE。
-2. 在底部窗格中執行下列命令，以連接到您的 Azure 訂閱：
+2. 在底部窗格中執行下列命令，以連接到您的 Azure 訂用帳戶：
 
 		Add-AzureAccount
 
@@ -577,7 +577,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		$clusterName = "<HDInsightClusterName>"
 		$storageAccountName = "<AzureStorageAccount>"
 		$containerName = "<BlobStorageContainerName>"
-		
+
 		# Define the SQL database variables
 		$sqlDatabaseServerName = "<SQLDatabaseServerName>"
 		$sqlDatabaseLogin = "<SQLDatabaseUsername>"
@@ -585,26 +585,26 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		$databaseName = "SQLDatabaseName"
 
 		$tableName_log4j = "log4jlogs"
-		
+
 		# Connection string for Azure SQL Database
 		# Comment if using SQL Server
 		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
 		# Connection string for SQL Server
 		# Uncomment if using SQL Server
 		#$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName;user=$sqlDatabaseLogin;password=$sqlDatabasePassword;database=$databaseName"
-		
+
 		$tableName_mobile = "mobiledata"
 		$targetDir_mobile = "/tutorials/usesqoop/importeddata/"
-	
+
 	如需變數的詳細說明，請參閱本教學課程中的[必要條件](#prerequisites)一節。
 
 4. 將下列指令碼附加至指令碼窗格中：
-	
+
 		$sqoopDef = New-AzureHDInsightSqoopJobDefinition -Command "import --connect $connectionString --table $tableName_mobile --target-dir $targetDir_mobile --fields-terminated-by \t --lines-terminated-by \n -m 1"
-		
+
 		$sqoopJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $sqoopDef #-Debug -Verbose
 		Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 -Job $sqoopJob
-		
+
 		Write-Host "Standard Error" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardError
 		Write-Host "Standard Output" -BackgroundColor Green
@@ -622,7 +622,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 - [將資料上傳至 HDInsight][hdinsight-upload-data]：尋找可將資料上傳至 HDInsight/Azure Blob 儲存體的其他方法。
 
 
- 
+
 
 [azure-management-portal]: https://manage.windowsazure.com/
 
@@ -643,5 +643,6 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

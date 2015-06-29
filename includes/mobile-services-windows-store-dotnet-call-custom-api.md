@@ -57,14 +57,14 @@
 
 1. 在 Visual Studio 中按 **F5** 鍵，以重建專案並啟動應用程式。
 
-2. 在應用程式的 [Insert a TodoItem]**** 中鍵入一些文字，然後按一下 [儲存]****。
+2. 在應用程式的 [Insert a TodoItem] 中鍵入一些文字，然後按一下 [儲存]。
 
 3. 重複前一個步驟，直到將數個 Todo 項目新增至清單為止。
 
-4. 按一下 [Complete All]**** 按鈕。
+4. 按一下 [Complete All] 按鈕。
 
   	![](./media/mobile-services-windows-store-dotnet-call-custom-api/mobile-custom-api-windows-store-completed.png)
 
 	出現訊息對話方塊，指出標示為完成的項目數，並重新執行篩選查詢，以便清除清單的所有項目。
 
-<!--HONumber=54-->
+<!---HONumber=58_postMigration-->

@@ -18,7 +18,7 @@
 
 # 如何取得 Azure Active Directory 租用戶
 
-在 Azure Active Directory (Azure AD) 中，[租用戶](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)代表組織。它是組織在註冊 Microsoft 雲端服務 (例如 Azure、InTune 或 Office 365) 時所收到和擁有的專屬 Azure AD 服務執行個體。每個 Azure AD 租用戶都不同，並與其他 Azure AD 租用戶分開。
+在 Azure Active Directory (Azure AD) 中，[租用戶](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)代表組織。它是組織在註冊 Microsoft 雲端服務 (例如 Azure、Microsoft Intune 或 Office 365) 時所收到和擁有的專屬 Azure AD 服務執行個體。每個 Azure AD 租用戶都不同，並與其他 Azure AD 租用戶分開。
 
 租用戶可裝載公司中的使用者及其相關資訊 (密碼、使用者設定檔資料、權限等)。它還包含群組、應用程式和關於組織及其安全性的其他資訊。
 
@@ -64,5 +64,6 @@
 如果上述對您沒有太大的意義，別擔心。您只需造訪 [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization)，並以新的組織身分註冊 Azure。完成此程序時，您將會有自己專屬的 Azure AD 租用戶，並且它會有您在註冊時選擇的網域名稱。在 [Azure 管理入口網站](https://manage.windowsazure.com) 中，您可以透過瀏覽至左側導覽中的 [Active Directory] 找到租用戶。
 
 註冊 Azure 的過程中，您將需要提供信用卡的詳細資料。您可以放心繼續執行，您將不會被收取在 Azure AD 中發佈應用程式或建立新租用戶的費用。
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

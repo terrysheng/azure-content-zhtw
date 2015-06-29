@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="06/11/2015" 
 	ms.author="josephd"/>
 
 # 使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器
@@ -55,14 +55,14 @@
 - CoreOS Alpha
 - SUSE Linux Enterprise Server 12
 
-開啟所選文字編輯器的新執行個體 (或 PowerShell 整合式指令碼環境 [ISE] 的執行個體) ，並將下列內容複製到新的文字檔來取代 ImageFamily 值。
+開啟您所選擇的文字編輯器的新執行個體，或是 PowerShell 整合式指令碼環境 (ISE) 的執行個體。將以下內容複製到新的文字檔或 PowerShell ISE 中，以取代 ImageFamily 值。
  
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
 ## 步驟 4：建置命令集
 
-將下列適當的區塊集合複製到新的文字檔，然後填入變數的值，並移除 < and > 字元，以建置命令集的其餘部分。請參閱本文結尾的兩個[範例](#examples)，以了解最終產生的結果。
+將下列適當的區塊集合複製到新的文字檔或 PowerShell ISE，然後填入變數值並移除 < and > 字元，以建置命令集的其餘部分。請參閱本文結尾的兩個[範例](#examples)，以了解最終產生的結果。
 
 選擇兩個命令區塊的其中一個，啟動命令集 (必要)。
 
@@ -85,8 +85,6 @@
 
 	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."	
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
-
-如果您要將產生的命令集儲存在檔案中，請將檔案儲存於安全之處，以保護帳戶名稱和密碼。
 
 也可選擇指定已在訂閱中部署的 SSH 金鑰組。
 
@@ -148,15 +146,17 @@
 
 ## 步驟 5：執行命令集
 
-檢閱在步驟 4 中使用文字編輯器以多個命令區塊建立的 Azure PowerShell 命令集。確定您已指定所需的所有變數，並且這些變數具有正確的值。也確定已移除所有 < and > 字元。
+檢閱在步驟 4 中使用文字編輯器或 PowerShell ISE 以多個命令區塊建立的 Azure PowerShell 命令集。確定您已指定所需的所有變數，並且這些變數具有正確的值。也確定已移除所有 < and > 字元。
 
-將命令集複製到剪貼簿，然後以滑鼠右鍵按一下 [開啟 Azure PowerShell 命令提示字元]。這將發出命令集作為一系列的 PowerShell 命令，並建立 Azure 虛擬機器。如果您在錯誤的訂閱、儲存體帳戶、雲端服務、可用性設定組、虛擬網路或子網路中建立虛擬機器，請刪除虛擬機器，並更正命令區塊語法，然後執行更正的命令集。
+如果您使用文字編輯器，請將命令集複製到剪貼簿，然後以滑鼠右鍵按一下 [開啟 Azure PowerShell 命令提示字元]。這將發出命令集作為一系列的 PowerShell 命令，並建立 Azure 虛擬機器。或者，在 PowerShell ISE 中執行您的命令集。
+
+如果您在錯誤的訂閱、儲存體帳戶、雲端服務、可用性設定組、虛擬網路或子網路中建立虛擬機器，請刪除虛擬機器，並更正命令區塊語法，然後執行更正的命令集。
 
 建立虛擬機器之後，請參閱[如何登入執行 Linux 的虛擬機器](virtual-machines-linux-how-to-log-on.md)。
 
 如果您將再次建立這個虛擬機器或類似的虛擬機器，您可以：
 
-- 將這個命令集儲存為文字檔或 PowerShell 指令碼檔 (*.ps1)
+- 將此命令集儲存為 PowerShell 指令碼檔案 (*.ps1)
 - 在 Azure 管理入口網站的 [自動化] 區段中，將這個命令集儲存為 Azure 自動化 Runbook。 
 
 ## <a id="examples"></a>範例
@@ -259,4 +259,6 @@
 
 [使用 Azure PowerShell 建立和預先設定 Windows 型虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

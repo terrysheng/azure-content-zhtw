@@ -63,6 +63,7 @@ Ubuntu 是以 dpkg 和 apt-get 封裝管理為基礎的 Linux 散發套件，其
 9. [映像：Moodle](http://azure.microsoft.com/marketplace/partners/bitnami/moodle270ubuntu1404/)
 11. [映像：Mono 即服務](http://azure.microsoft.com/marketplace/partners/aegis/monoasaserviceubuntu1204/)
 
+
 ### [Debian](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=Debian)
 
 Debian 是 Linux 及以 dpkg 和 apt-get 封裝管理為基礎之開放原始碼世界的重要散發套件。MSOpenTech VM Depot 有數個映像可使用。
@@ -72,26 +73,26 @@ Debian 是 Linux 及以 dpkg 和 apt-get 封裝管理為基礎之開放原始碼
 CentOS Linux 散發版本是一個穩定、可預測、容易管理且可重製的平台，其衍生自 Red Hat Enterprise Linux (RHEL) 的原始碼。
 
 1. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=centos)
-2. [映像庫](http://azure.microsoft.com/en-in/marketplace/partners/OpenLogic/)
+2. [映像庫](http://azure.microsoft.com/zh-tw/marketplace/partners/OpenLogic/)
 3. [做法：針對 Azure 準備自訂 CentOS 型 VM](virtual-machines-linux-create-upload-vhd-centos.md)
 4. [部落格：如何部署 OpenLogic 提供的 CentOS VM 映像](http://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
 6. [做法：安裝 Apache Qpid Proton-C for AMQP 和服務匯流排](http://msdn.microsoft.com/library/azure/dn235560.aspx)
 7. [映像：OpenLogic CentOS 6.3 上的 Apache 2.2.15](http://azure.microsoft.com/marketplace/partners/cognosys/apache2215onopenlogiccentos63/)
 8. [映像：Drupal 7.2，OpenLogic CentOS 6.3 上的 LAMP 伺服器](http://azure.microsoft.com/marketplace/partners/cognosys/drupal720lampserveronopenlogiccentos63/)
 
-### SUSE Enterprise Linux 和 OpenSUSE
+### SUSE Linux Enterprise Server 與 openSUSE
 
 9. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=OpenSUSE)
 11. [做法：安裝和執行 MySQL](virtual-machines-linux-mysql-use-opensuse.md)
 12. [做法：準備自訂 SLES 或 openSUSE VM](virtual-machines-linux-create-upload-vhd-suse.md)  
-13. [[SUSE 論壇]做法：移至新的修補程式伺服器](https://forums.suse.com/showthread.php?5622-New-Update-Infrastructure)
+13. [[SUSE 論壇] 做法：移至新的修補程式伺服器](https://forums.suse.com/showthread.php?5622-New-Update-Infrastructure)
 14. [映像：SUSE Linux Enterprise Server for SAP 雲端應用裝置程式庫](http://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver11sp3forsapcloudappliance/)
 
 ### CoreOS
 
 CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂的純計算。
 
-10. [映像庫](http://azure.microsoft.com/en-in/marketplace/partners/coreos/)  
+10. [映像庫](http://azure.microsoft.com/zh-tw/marketplace/partners/coreos/)  
 11. [做法：在 Azure 上使用 CoreOS](virtual-machines-linux-coreos-how-to.md)
 12. [做法：開始在 Azure 上的 CoreOS 使用 Fleet 和 Docker](virtual-machines-linux-coreos-fleet-get-started.md)
 13. [部落格：TechEd Europe -- Windows Docker 用戶端和 Linux 容器](http://azure.microsoft.com/blog/2014/10/28/new-docker-coreos-topics-linux-on-azure/)
@@ -167,7 +168,6 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 5. [Azure 服務管理 SDK：Go](https://github.com/MSOpenTech/azure-sdk-for-go)
 5. [Azure 服務管理 SDK：Ruby](https://github.com/MSOpenTech/azure-sdk-for-ruby)
     - [做法：安裝 Ruby on Rails](virtual-machines-ruby-rails-web-app-linux.md)
-    - [做法：安裝 Ruby on Rails 及 Capistrano、Nginx、Unicorn 和 PostgreSQL](virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn.md)
 6. [Azure 服務管理 SDK：Python](https://github.com/Azure/azure-sdk-for-python)
     - [做法：Django Hello World Web 應用程式 (Mac-Linux)](virtual-machines-python-django-web-app-linux.md)
 7. [Azure 服務管理 SDK：Node.js](https://github.com/MSOpenTech/azure-sdk-for-node)
@@ -228,8 +228,6 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
     - [Microsoft Azure 中的 MySQL 高可用性架構](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
 7. MariaDB
     - [做法：建立 MariaDb 的多重主機叢集](virtual-machines-mariadb-cluster.md)
-7. PostgreSQL
-    - [做法：安裝 Ruby on Rails 及 Capistrano、Nginx、Unicorn 和 PostgreSQL](virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn.md)
 8. [使用 corosync 安裝 Postgres，使用 ILB 安裝 pg_bouncer](https://github.com/chgeuer/postgres-azure)
 
 
@@ -296,5 +294,6 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 <!--Link references--In actual articles, you only need a single period before the slash. -->
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -20,8 +20,6 @@
 
 本文會為您示範如何使用 Azure 資源管理員範本和 Azure CLI，進行下列部署和管理 Azure 虛擬機器的常見工作。如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)和[應用程式架構](virtual-machines-app-frameworks.md)。
 
-常見工作：
-
 - [在 Azure 中快速建立虛擬機器](#quick-create-a-vm-in-azure)
 - [在 Azure 中利用範本部署虛擬機器](#deploy-a-vm-in-azure-from-a-template)
 - [從自訂映像建立虛擬機器](#create-a-custom-vm-image) 
@@ -33,8 +31,6 @@
 - [停止虛擬機器](#stop-a-virtual-machine)
 - [啟動虛擬機器](#start-a-virtual-machine)
 - [連接資料磁碟](#attach-a-data-disk)
-
-
 
 ## 準備就緒
 
@@ -101,9 +97,9 @@
 - 稽核作業。 
 - 利用其他中繼資料標記資源，方便追蹤。 
 
-如需深入了解 Azure 資源群組以及它們的功能，請參閱[這裡](../resource-groups-overview.md)。如果您想了解如何設計範本，請參閱[設計 Azure 資源管理員範本](../resource-group-authoring-templates.md)。
+如需深入了解 Azure 資源群組以及它們的功能，請參閱[這裡](../resource-group-overview.md)。如果您想了解如何設計範本，請參閱[設計 Azure Resource Manager 範本](../resource-group-authoring-templates.md)。
 
-## 在 Azure 中快速建立 VM
+## <a id="quick-create-a-vm-in-azure"></a>工作：在 Azure 中快速建立 VM
 
 有時候您知道需要何種映像，而且您現在需要該映像的 VM，並且不太在意基礎結構 -- 或許您必須在全新的 VM 上進行某些測試。當您想要使用 `azure vm quick-create` 命令，然後傳遞必要引數來建立 VM 和基礎結構的時候。
 
@@ -129,23 +125,23 @@
 
 | PublisherName | 提供項目 | SKU | 版本 |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic | CentOS | 7 | 7.0.201503 |
-| OpenLogic | CentOS | 7.1 | 7.1.201504 |
-| CoreOS | CoreOS | Beta | 647.0.0 |
-| CoreOS | CoreOS | Stable | 633.1.0 |
-| MicrosoftDynamicsNAV | DynamicsNAV | 2015 | 8.0.40459 |
-| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 | 1.0.0 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | 標準 | 1.0.0 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise | 1.0.0 |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW | 12.0.2430 |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP | 12.0.2430 |
-| Canonical | UbuntuServer | 12.04.5-LTS | 12.04.201504230 |
-| Canonical | UbuntuServer | 14.04.2-LTS | 14.04.201503090 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | 3.0.201503 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | 4.0.201503 |
-| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview | 5.0.201504 |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1.0.141204 |
-| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4.3.4665 |
+| OpenLogic | CentOS | 7 | 7\.0.201503 |
+| OpenLogic | CentOS | 7\.1 | 7\.1.201504 |
+| CoreOS | CoreOS | Beta | 647\.0.0 |
+| CoreOS | CoreOS | Stable | 633\.1.0 |
+| MicrosoftDynamicsNAV | DynamicsNAV | 2015 | 8\.0.40459 |
+| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 | 1\.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | 標準 | 1\.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise | 1\.0.0 |
+| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW | 12\.0.2430 |
+| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP | 12\.0.2430 |
+| Canonical | UbuntuServer | 12\.04.5-LTS | 12\.04.201504230 |
+| Canonical | UbuntuServer | 14\.04.2-LTS | 14\.04.201503090 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | 3\.0.201503 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | 4\.0.201503 |
+| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview | 5\.0.201504 |
+| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1\.0.141204 |
+| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4\.3.4665 |
 
 只要輸入 `azure vm quick-create command`，然後根據系統提示執行，就可以建立 VM。您應該會看到類似下面的畫面：
 
@@ -232,7 +228,7 @@
     
 無論身在何處，新的 VM 就在您身邊。
 
-## 在 Azure 中利用範本部署 VM
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>工作：在 Azure 中利用範本部署 VM
 
 請按照以下各節描述的操作方法，使用 Azure CLI 搭配範本來部署新的 Azure VM。這個範本會在只有單一子網路的新虛擬網路中建立單一虛擬機器，而不同於 `azure vm quick-create`，它可以讓您精確描述想要的內容，而且重複使用時也不會發生任何錯誤。以下是這個範本建立的內容：
 
@@ -501,7 +497,7 @@
     
 
 
-## 建立自訂的 VM 映像
+## <a id="create-a-custom-vm-image"></a>工作：建立自訂的 VM 映像
 
 您已基本了解上述範本的用法，那麼現在我們可以使用類似的操作方法，使用 Azure 的特定 .vhd 檔案搭配範本和 Azure CLI 建立自訌的範本。其中的差別就是這個範本會從指定的虛擬硬碟 (VHD) 建立單一虛擬機器。
 
@@ -766,13 +762,13 @@
     info:    group deployment create command OK
     
 
-## 部署一個多重 VM 應用程式，它會使用虛擬網路和外部負載平衡器
+## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>工作：部署一個多重 VM 應用程式，它會使用虛擬網路和外部負載平衡器
 
 您可以利用這個範本，在一個負載平衡器上建立兩個虛擬機器，然後在連接埠 80 設定負載平衡規則。這個範本也會部署儲存體帳戶、虛擬網路、公用 IP 位址、可用性設定組以及網路介面。
 
 ![](./media/virtual-machines-deploy-rmtemplates-azure-cli/multivmextlb.png)
  
-按照下列步驟部署一個多重 VM 應用程式，它會利用 Azure PowerShell 命令使用 Github 範本儲存機制中的資源管理員範本，然後就可以使用虛擬網路和負載平衡器。
+按照下列步驟部署一個多重 VM 應用程式，它會利用 Azure PowerShell 命令使用 Github 範本儲存機制中的 Resource Manager 範本，然後就可以使用虛擬網路和負載平衡器。
 
 ### 步驟 1：檢查範本的 JSON 檔案。
 
@@ -1178,7 +1174,7 @@
     
 請注意，這個範本會部署 Windows Server 映像。不過，任何 Linux 映像都可以輕易取代它。想要建立一個跨多個地區的 Docker 叢集嗎？ [您做得到](http://azure.microsoft.com/documentation/templates/201-discover-private-ip-dynamically/)。
 
-## 移除資源群組
+## <a id="remove-a-resource-group"></a>工作：移除資源群組
 
 請記住，您可以重新部署至資源群組，但是如果其中一個不想使用了，可以使用 `azure group delete <group name>` 刪除它。
 
@@ -1188,7 +1184,7 @@
     + Deleting resource group myResourceGroup                                               
     info:    group delete command OK
     
-## 顯示資源群組部署記錄檔
+## <a id="show-the-log-for-a-resource-group-deployment"></a>工作：顯示資源群組部署記錄檔
 
 建立或使用範本時，此種情況很常見。您可以使用 `azure group log show <groupname>` 呼叫來顯示群組的部署日誌，它會顯示相當多的實用資訊，幫助您了解為何發生某些狀況，或者為何未發生某些狀況。(如需疑難排解部署以及其他問題的詳細資訊，請參閱[疑難排解 Azure 的資源群組部署](resource-group-deploy-debug.md))。
 
@@ -1204,7 +1200,7 @@
     }
     
 
-## 顯示虛擬機器的相關資訊
+## <a id="display-information-about-a-virtual-machine"></a>工作：顯示虛擬機器的相關資訊
 
 使用 `azure vm show <groupname> <vmname> command` 可以了解資源群組中特定 VM 的相關資訊。您可能需要列出群組中的 VM，首先，如果 VM 不只一個，可以使用 `azure vm list <groupname>`。
 
@@ -1271,11 +1267,11 @@
 
 > [AZURE.NOTE]如果您想要以程式設計方式儲存和操作主控台命令的輸出，可以使用 JSON 剖析工具，例如 **[jq](https://github.com/stedolan/jq)**、**[jsawk](https://github.com/micha/jsawk)** 或工作適合的語言程式庫。
 
-## 登入 Linux 型虛擬機器
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>工作：登入 Linux 型虛擬機器
 
 通常 Linux 機器是透過 SSH 連接的。如需詳細資訊，請參閱[如何在 Azure 上的 Linux 使用 SSH](virtual-machines-linux-use-ssh-key.md)。
 
-## 停止 VM
+## <a id="stop-a-virtual-machine"></a>工作： 停止 VM
 
 請執行這個命令：
 
@@ -1283,11 +1279,11 @@
 
 >[AZURE.IMPORTANT]萬一它是雲端服務的最後一個 VM，您可以使用這個參數來保留雲端服務的虛擬 IP (VIP)。<br><br> 如果使用 StayProvisioned 參數，還是需要支付 VM 的費用。
 
-## 啟動 VM
+## <a id="start-a-virtual-machine"></a>工作： 啟動 VM
 
 請執行這個命令：Azure 資源管理員概觀 azure vm start <group name> <virtual machine name>
 
-## 附加資料磁碟
+## <a id="attach-a-data-disk"></a>工作： 連接資料磁碟
 
 您也需要決定是否要附加新的磁碟或附加已經包含資料的磁碟。如果是新的磁碟，這個命令會建立 .vhd 檔案，然後將它附加在同一個命令中。
 
@@ -1308,4 +1304,13 @@
 
 如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)和[應用程式架構](virtual-machines-app-frameworks.md)。
 
-<!---HONumber=58--> 
+
+
+
+
+
+
+
+ 
+
+<!---HONumber=58_postMigration-->

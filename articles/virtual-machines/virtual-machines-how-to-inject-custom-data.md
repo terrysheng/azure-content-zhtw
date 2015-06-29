@@ -46,7 +46,7 @@
 
 + 如果您的 Azure 虛擬機器是 Windows 虛擬機器，則自訂資料檔案會被儲存到 `%SYSTEMDRIVE%\AzureData\CustomData.bin`，而且雖然從本機電腦傳送到新虛擬機器的資料是 base64 編碼，但是系統會自動將它解碼並立即開啟或使用。
 
-   >[AZURE.NOTE]如果檔案已存在，則會被覆寫。目錄上的安全性會設為 **System:Full Control** 和 **Administrators:Full Control**。
+   >[AZURE.NOTE]如果檔案已存在，則會被覆寫。目錄上的安全性會設為 [System:Full Control] 和 [Administrators:Full Control]。
 
 + 如果您的 Azure 虛擬機器是 Linux 虛擬機器，則自訂資料檔案會位於下列兩個地方，但因為資料會是 base64 編碼，您必須先將資料解碼。
 
@@ -77,5 +77,6 @@
 [加入角色服務管理 REST API 參考](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
 [Azure 命令列介面](https://github.com/Azure/azure-sdk-tools-xplat)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

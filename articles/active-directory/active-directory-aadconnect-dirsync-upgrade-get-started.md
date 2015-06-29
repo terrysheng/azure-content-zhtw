@@ -88,7 +88,7 @@
 
 
 ## 就地升級 - 超過 5 萬個物件
-如果您擁有超過 5 萬個物件的規模可進行同步處理，則會在步驟 #3 中看到不同的訊息。將會顯示與下面類似的畫面：
+如果您擁有超過 5 萬個物件的規模可進行同步處理，則會在步驟 \#3 中看到不同的訊息。將會顯示與下面類似的畫面：
 
 ![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)
 
@@ -100,7 +100,7 @@
 
 ## 就地升級 - 完整 SQL Server
 
-如果 DirSync 安裝使用本機或遠端完整版的 SQL Server，則會在步驟 #3 中看到不同的訊息。將會顯示與下面類似的畫面：
+如果 DirSync 安裝使用本機或遠端完整版的 SQL Server，則會在步驟 \#3 中看到不同的訊息。將會顯示與下面類似的畫面：
 
 ![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)
 
@@ -108,7 +108,7 @@
 
 ## 平行部署 - 超過 5 萬個物件
 
-在步驟 #3，如果您擁有超過 5 萬個物件，則 Azure AD Connect 安裝會建議進行平行部署。如需選擇對 Azure AD Connect 進行就地還是平行部署的詳細資訊，請參閱上面的＜就地升級 - 超過 5 萬個物件＞。將會顯示與下面類似的畫面：
+在步驟 \#3，如果您擁有超過 5 萬個物件，則 Azure AD Connect 安裝會建議進行平行部署。如需選擇對 Azure AD Connect 進行就地還是平行部署的詳細資訊，請參閱上面的＜就地升級 - 超過 5 萬個物件＞。將會顯示與下面類似的畫面：
 
 ![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)
 
@@ -125,7 +125,7 @@
 1. 執行 Azure AD Connect Installer (MSI)
 2. 當您看到 [歡迎使用 Azure AD Connect] 畫面時。按一下視窗右上角的 "X"，以結束精靈。
 3. 開啟命令提示字元
-4. 從 Azure AD Connect 的安裝位置 (預設值：C:\Program Files\Microsoft Azure Active Directory Connect)，執行下列命令：
+4. 從 Azure AD Connect 的安裝位置 (預設值：]Program Files\Microsoft Azure Active Directory Connect)，執行下列命令：
     * AzureADConnect.exe /migrate
 
 Azure AD Connect 會連線並向您呈現下列 UI：
@@ -143,8 +143,8 @@ Azure AD Connect 會連線並向您呈現下列 UI：
 ![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 
 7. 按 [下一步]。 
-8. 在 [準備好設定] 頁面上，取消核取 [設定一完成，即開始同步處理程序]。
-8. 按一下 [安裝]。
+8. 在 [準備好設定] 頁面上，保持核取 [設定一完成，即開始同步處理程序]。[AZURE.NOTE]將會開始 Windows Server Active Directory 和 Azure Active Directory 之間的同步處理作業，但沒有變更會匯出到 Azure AD。一次只能有一個作用中的同步處理工具匯出變更。
+9. 按一下 [安裝]。
 
 [AZURE.NOTE]取消核取開始同步處理核取方塊，確保 DirSync (其仍安裝並執行中) 和 Azure AD Connect 未嘗試同時寫入到 AAD。
 
@@ -203,5 +203,6 @@ Azure AD Connect 會連線並向您呈現下列 UI：
 * [使用 Azure AD Connect 的下一步](active-directory-aadconnect-whats-next.md)
 * [深入了解](active-directory-aadconnect-learn-more.md)
 * [MSDN 上的 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

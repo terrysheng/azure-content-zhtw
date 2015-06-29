@@ -3,7 +3,7 @@
    description="部署 StorSimple Update 1 裝置和服務的步驟與最佳做法。"
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
-   ms.author="v-sharos" />
+   ms.date="06/08/2015"
+   ms.author="alkohli" />
 
 # 部署內部部署 StorSimple 裝置
 
@@ -39,7 +39,7 @@
 
 | | 需求 | 詳細資料 | 值 |
 |---| --------------------- | ---------------------- | ------------- |
-| 1 | 網路設定 <ol><li>裝置 IP 位址</li><li>網路介面、4x1 GbE、2x10 GbE</li><li>固定控制器 IP</li><li>子網路遮罩</li><li>閘道</li></ol> | 需要的 IP 總計：8 <ol><li>每個裝置一個</li><li>每個啟用的網路介面一個，共 6 個</li><li>每個控制站一個，共 2 個，用於連線至網際網路進行服務更新</li><li>每個 IP 位址一個</li><li>每個裝置一個</li></ol> | |
+| 1 | 網路設定 <ol><li>網路介面、4x1 GbE、2x10 GbE</li><li>固定控制器 IP</li><li>子網路遮罩</li><li>閘道</li></ol> | 需要的 IP 總計：8 個<ol><li>每個啟用的網路介面一個，共 6 個</li><li>每個控制站一個，共 2 個，用於連線至網際網路進行服務更新</li><li>每個 IP 位址一個</li><li>每個裝置一個</li></ol> | |
 | 2 | 序列存取 | 初始裝置組態 | 是/否 |
 | 3 | DNS 伺服器 IP 位址 | 需要連接到 Microsoft Azure：總共需要 2 個以提供高可用性 | |
 | 4 | NTP 伺服器 IP 位址 | 需要與 Azure 同步處理時間：1 必要、1 選擇性 | |
@@ -211,5 +211,6 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 設定[虛擬裝置](storsimple-virtual-device.md)。
 
 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx)以管理 StorSimple 裝置。
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="憑證"
+   pageTitle="Azure 自動化中的憑證資產"
    description="憑證可以安全地儲存在 Azure 自動化中，使得 Runbook 可以存取憑證，以向 Azure 和協力廠商資源進行驗證。這篇文章說明憑證的詳細資料，以及如何以文字和圖形化編寫形式加以使用。"
    services="automation"
    documentationCenter=""
@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="06/14/2015"
    ms.author="bwren" />
 
-# 憑證
+# Azure 自動化中的憑證資產
 
-憑證可以安全地儲存在 Azure 自動化中，使得 Runbook 可以透過使用  **Get-AutomationCertificate** 活動來存取憑證。這可讓您建立使用憑證進行驗證的 Runbook，或將它們加入至 Runbook 可能會建立或設定的 Azure 或協力廠商的資源。
+憑證可以安全地儲存在 Azure 自動化中，使得 Runbook 可以透過使用 **Get-AutomationCertificate** 活動來存取憑證。這可讓您建立使用憑證進行驗證的 Runbook，或將它們加入至 Runbook 可能會建立或設定的 Azure 或協力廠商的資源。
 
 >[AZURE.NOTE]Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一索引鍵儲存在 Azure 自動化中。這個索引鍵是由主要憑證加密，並且儲存在 Azure 自動化中。儲存安全資產之前，會使用主要憑證解密自動化帳戶的金鑰，然後用來加密資產。
 
@@ -105,6 +105,6 @@
 
 ## 另請參閱
 
-- [圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow)
+- [圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

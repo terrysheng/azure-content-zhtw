@@ -44,7 +44,7 @@ DataStax 是知名的業界領導者，他們根據 Apache Cassandra™ 來開�
 
 ### 步驟 1-a：使用 PowerShell 下載範本檔案
 
-為 JSON 範本和其他相關聯的檔案建立本機資料夾 (例如，C:\Azure\Templates\DataStax)。
+為 JSON 範本和其他相關聯的檔案建立本機資料夾 (例如，]Azure\Templates\DataStax)。
 
 使用您本機資料夾的資料夾名稱來替代，並執行下列命令：
 
@@ -84,7 +84,7 @@ DataStax 是知名的業界領導者，他們根據 Apache Cassandra™ 來開�
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-完成時，尋找 C:\Azure\Templates 目錄中的 **datastax-on-ubuntu** 資料夾。
+完成時，尋找 ]Azure\Templates 目錄中的 **datastax-on-ubuntu** 資料夾。
 
 ### 步驟 2：(選用) 了解範本參數
 
@@ -480,5 +480,6 @@ vm-disk-utils-0.1.sh 是 azure-quickstart-tempates github 儲存機制中 **shar
 -	所有的張貼部署工作 (例如產品安裝、設定等) 都會利用指令碼部署擴充功能以及建立每一種技術獨有的指令碼
 
 如需詳細資訊，請參閱 [Azure 資源管理員範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)。
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

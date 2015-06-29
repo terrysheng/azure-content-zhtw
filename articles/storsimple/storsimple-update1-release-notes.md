@@ -1,9 +1,9 @@
 <properties 
-    pageTitle="StorSimple 8000 Series Update 1.0 版本資訊"
+    pageTitle="StorSimple 8000 Series Update 1 版本資訊"
     description="說明 StorSimple 8000 Series Update 1 的新功能、問題及因應措施。"
     services="storsimple"
     documentationCenter="NA"
-    authors="alkohli"
+    authors="SharS"
     manager="adinah"
     editor="tysonn" />
  <tags 
@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="05/27/2015"
-    ms.author="alkohli" />
+    ms.date="06/05/2015"
+    ms.author="v-sharos" />
 
-# StorSimple 8000 Series Update 1.0 版本資訊  
+# StorSimple 8000 Series Update 1 版本資訊  
 
 ## 概觀
 
-下列版本資訊說明 StorSimple 8000 Series Update 1.0 的新功能，並識別未決的重要問題。其中也包含此版本隨附之 StorSimple 軟體與韌體更新的清單。這是 StorSimple 8000 系列發行版本於 2014 年 7 月公開上市之後的第一個主要版本。
+下列版本資訊說明 StorSimple 8000 Series Update 1 的新功能，並識別未決的重要問題。其中也包含此版本隨附之 StorSimple 軟體與韌體更新的清單。這是 StorSimple 8000 系列發行版本於 2014 年 7 月公開上市之後的第一個主要版本。
 
 此更新會將裝置軟體變更為 StorSimple 8000 Series Update 1。在 StorSimple 方案中部署更新之前，請檢閱版本資訊中所包含的資訊。如需詳細資訊，請參閱如何[在 StorSimple 裝置上安裝 Update 1](storsimple-install-update-1.md)。
 
@@ -27,9 +27,10 @@
 
 >[AZURE.IMPORTANT]
 > 
-- 使用 StorSimple Manager 服務 (而非 Windows PowerShell for StorSimple) 安裝 Update 1.0。
+- 使用 StorSimple Manager 服務 (而非 Windows PowerShell for StorSimple) 安裝 Update 1。
 - 此版本也包含只有在裝置處於 [維護] 模式時才能套用的磁碟韌體更新。這些都是干擾性更新，將會導致您的裝置停機。您可以在已計劃的維護期間套用這些更新。
 - 安裝此更新大約需要 5-10 小時 (包括 Windows Update)。 
+- 如果是新版本，您可能不會立即看到更新，因為我們會分階段推出更新。請在數天內再次掃描更新，因為很快就會提供更新。
 
 ## Update 1 的新功能
 
@@ -46,11 +47,11 @@
 
 - **其他雲端服務提供者的支援** – 支援的其他雲端服務提供者包括 Amazon S3、含 RRS 的 Amazon S3、HP 以及 OpenStack (beta)。
 
-- **最新儲存 API 的更新** – StorSimple 已經透過這個版本，更新為最新的 Azure 儲存體服務 API。執行 GA 的 StorSimple 8000 系列裝置將使用 2012 年 2 月 12 日之前的 Azure 儲存體服務 API版本。如[儲存體服務版本刪除公告](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/)中所述，這些 API 將於 2015 年 12 月 10 日前被取代。請務必在 2015 年 12 月 9 日之前，套用 StorSimple 8000 Series Update 1.0。如果您無法執行這項操作，StorSimple 裝置將會停止正常運作。
+- **最新儲存 API 的更新** – StorSimple 已經透過這個版本，更新為最新的 Azure 儲存體服務 API。執行 GA 的 StorSimple 8000 系列裝置將使用 2012 年 2 月 12 日之前的 Azure 儲存體服務 API版本。如[儲存體服務版本刪除公告](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/)中所述，這些 API 將於 2015 年 12 月 10 日前被取代。請務必在 2015 年 12 月 9 日之前，套用 StorSimple 8000 Series Update 1。如果您無法執行這項操作，StorSimple 裝置將會停止正常運作。
 
 - **區域備援儲存體 (ZRS) 的支援** – 升級至最新版的儲存體 API 之後，StorSimple 8000 系列除了本地備援儲存體 (LRS) 和異地備援儲存體 (GRS) 之外，也將支援區域備援儲存體 (ZRS)。如需 ZRS 的詳細資訊，請參閱本文件的 [Azure 儲存體備援選項](../storage/storage-redundancy.md)。
 
-- **增強的初始部署和更新經驗** – 在此版本中，已增強安裝和更新程序。安裝精靈安裝已獲得改善，如果網路組態和防火牆設定不正確，可提供意見給使用者。已提供其他診斷 Cmdlet 來協助您為裝置的網路連線進行疑難排解。如需有關用於疑難排解的新診斷 Cmdlet 的詳細資訊，請參閱[疑難排解部署文件](storsimple-troubleshoot-deployment/#cmdlets-available-for-troubleshooting.md)。
+- **增強的初始部署和更新經驗** – 在此版本中，已增強安裝和更新程序。安裝精靈安裝已獲得改善，如果網路組態和防火牆設定不正確，可提供意見給使用者。已提供其他診斷 Cmdlet 來協助您為裝置的網路連線進行疑難排解。如需有關用於疑難排解的新診斷 Cmdlet 的詳細資訊，請參閱[疑難排解部署文件](storsimple-troubleshoot-deployment.md)。
 
 ## 在 Update 1 中修正的問題
 
@@ -82,7 +83,7 @@
 | 6 | Web Proxy | 如果您的 Web Proxy 組態設定將 HTTPS 做為指定的通訊協定，您的裝置對服務通訊將會受到影響並使裝置離線。同時會在程序中產生支援封裝，耗用裝置上的大量資源。 | 請確定 Web Proxy URL 指定的通訊協定為 HTTP。如需詳細資訊，請參閱[設定裝置的 Web Proxy](https://msdn.microsoft.com/library/azure/dn764937.aspx)。 | 是 | 否 |
 | 7 | Web Proxy | 如果您在註冊的裝置上設定並啟用 Web Proxy，將需要重新啟動裝置上的主動控制器。 | | 是 | 否 |
 | 8 | 雲端高延遲與高 I/O 工作負載 | 當 StorSimple 裝置同時出現雲端延遲情況嚴重 (大約數秒) 和 I/O 工作負載高的情況時，裝置磁碟區會進入降級的狀態，而且 I/O 可能會失敗，發生「裝置未就緒」錯誤。 | 您必須以手動方式將裝置控制器重新開機，或或執行裝置容錯移轉，才能從這種情況下復原。 | 是 | 否 |
-| 9 | Azure PowerShell | 當您使用 StorSimple Cmdlet **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** 選取第一個物件，讓您可以建立新的 **VolumeContainer** 物件時，此 Cmdlet 會傳回所有物件。 | 將此 Cmdlet 以括號括住，如下所示：**(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** | 是 | 是 |
+| 9 | Azure PowerShell | 當您使用 StorSimple Cmdlet **Get-AzureStorSimpleStorageAccountCredential | Select-Object -First 1 -Wait** 選取第一個物件，讓您可以建立新的 **VolumeContainer** 物件時，此 Cmdlet 會傳回所有物件。 | 將此 Cmdlet 以括號括住，如下所示：**(Get-Azure-StorSimpleStorageAccountCredential) &\#124; Select-Object -First 1 -Wait** | 是 | 是 |
 | 10| 移轉 | 傳遞多個磁碟區容器以進行移轉時，只有第一個磁碟區容器的最新備份的 ETA 正確。此外，在移轉第一個磁碟區容器中的前 4 個備份之後，將會開始進行平行移轉。 | 建議您一次移轉一個磁碟區容器。 | 是 | 否 |
 | 11| 移轉 | 還原之後，不會將磁碟區新增至備份原則或虛擬磁碟群組。 | 您必須將這些磁碟區新增至備份原則，才能建立備份。 | 是 | 是 |
 | 12| 移轉 | 完成移轉之後，5000/7000 系列裝置不得存取移轉的資料容器。 | 建議您在移轉完成並認可之後，刪除移轉的資料容器。 | 是 | 否 |
@@ -97,11 +98,11 @@
 
 這個版本會針對實體裝置的 SAS 控制站更新驅動程式與軔體。它也會更新裝置上的磁碟軔體。
  
-- 如需有關 SAS 控制器更新的詳細資訊，請參閱[適用於 Microsoft Azure StorSimple 應用裝置的 LSI SAS 控制器的 Update 1](http://bemis.partners.extranet.microsoft.com/203/_layouts/ArticlePages/DisplayArticlePage.aspx?List=27d133d4%2D10ab%2D4795%2Dbb81%2D092dfe8c7866&ID=732454&RootFolder=%2F203%2FLists%2FPssxmlArticles%2F005)。 
+- 如需有關 SAS 控制器更新的詳細資訊，請參閱[適用於 Microsoft Azure StorSimple 應用裝置的 LSI SAS 控制器的 Update 1](https://support.microsoft.com/kb/3043005)。 
 
-- 如需有關韌體更新的詳細資訊，請參閱[適用於 Microsoft Azure StorSimple 應用裝置的韌體 Update 1](http://bemis.partners.extranet.microsoft.com/203/_layouts/ArticlePages/DisplayArticlePage.aspx?List=27d133d4%2D10ab%2D4795%2Dbb81%2D092dfe8c7866&ID=767385&RootFolder=%2F203%2FLists%2FPssxmlArticles%2F414)。
+- 如需有關韌體更新的詳細資訊，請參閱[適用於 Microsoft Azure StorSimple 應用裝置的韌體 Update 1](https://support.microsoft.com/kb/3063414)。
 
-- 如需有關磁碟韌體更新的詳細資訊，請參閱[適用於 Microsoft Azure StorSimple 應用裝置的磁碟韌體 Update 1](http://bemis.partners.extranet.microsoft.com/203/_layouts/ArticlePages/DisplayArticlePage.aspx?List=27d133d4%2D10ab%2D4795%2Dbb81%2D092dfe8c7866&ID=767387&RootFolder=%2F203%2FLists%2FPssxmlArticles%2F416)。
+- 如需有關磁碟韌體更新的詳細資訊，請參閱[適用於 Microsoft Azure StorSimple 應用裝置的磁碟韌體 Update 1](https://support.microsoft.com/zh-tw/kb/3063416)。
  
 ## Update 1 中的虛擬裝置更新
 
@@ -110,5 +111,6 @@
 ## 後續步驟
 
 - [在您的裝置上安裝 Update 1](storsimple-install-update-1.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

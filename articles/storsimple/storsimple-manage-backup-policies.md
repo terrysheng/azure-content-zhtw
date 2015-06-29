@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="管理 StorSimple 備份原則"
+   pageTitle="管理您的 StorSimple 備份原則 | Microsoft Azure"
    description="說明如何使用 StorSimple Manager 服務建立和管理備份作業與備份排程。"
    services="storsimple"
    documentationCenter="NA"
-   authors="alkohli"
+   authors="SharS"
    manager="adinah"
-   editor="tysonn" />
+   editor=""/>
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
+   ms.date="06/17/2015"
+   ms.author="v-sharos"/>
 
 # 管理 StorSimple 備份原則
 
@@ -21,7 +21,7 @@
 
 本教學課程說明如何使用 StorSimple Manager 服務的 [備份原則] 頁面控制 StorSimple 磁碟區的備份程序和備份保留。它也會說明如何完成手動備份。
 
-[備份原則] 頁面可讓您管理備份原則並排程本機和雲端快照 (備份原則用來設定磁碟區集合的備份排程和備份保留)。 此頁面會列出備份原則、其類型、相關聯的磁碟區、保留的備份數目，以及啟用這些原則的選項。
+[備份原則] 頁面可讓您管理備份原則並排程本機和雲端快照 (備份原則用來設定磁碟區集合的備份排程和備份保留)。 備份原則可讓您同時建立多個磁碟區的快照。這表示備份原則所建立的備份將會是與當機時一致的複本。此頁面會列出備份原則、其類型、相關聯的磁碟區、保留的備份數目，以及啟用這些原則的選項。
 
 [備份原則] 頁面也可讓您依下列一個或多個欄位，篩選現有的備份原則：
 
@@ -84,4 +84,4 @@
 
 了解如何使用 [StorSimple Snapshot Manager](https://msdn.microsoft.com/library/azure/dn772365.aspx) 管理 StorSimple 備份。
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

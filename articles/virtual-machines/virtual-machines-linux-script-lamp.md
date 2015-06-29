@@ -20,7 +20,7 @@
 
 適用於 Linux 的 Azure CustomScript 延伸模組提供一種方式，讓您可以執行使用該虛擬機器 (VM) 所支援的任何指令碼語言 (例如 Python、Bash 等) 所撰寫的任意程式碼來自訂 VM。這提供極具彈性的方式，自動將應用程式部署到多部電腦。
 
-您可以使用 Azure 入口網站、PowerShell 或 Azure 跨平台命令列介面 (Azure CLI)，來部署 CustomScript 延伸模組。
+您可以使用 Azure 入口網站、PowerShell 或 Azure 命令列介面 (Azure CLI)，來部署 CustomScript 延伸模組。
 
 此範例將使用 Azure CLI，將簡單的 LAMP 應用程式逐步部署到 Ubuntu。
 
@@ -105,5 +105,6 @@
 [Azure Linux 延伸模組 (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
 [Azure 上的 Linux 和開放原始碼運算](virtual-machines-linux-opensource.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

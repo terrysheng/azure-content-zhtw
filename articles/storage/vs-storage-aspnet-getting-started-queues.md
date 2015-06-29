@@ -3,7 +3,7 @@
 	description="如何開始在 Visual Studio 的 ASP.NET 專案中使用 Azure 佇列儲存體" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # 開始使用 Azure 儲存體 (ASP.NET 專案)
 
@@ -273,4 +273,6 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

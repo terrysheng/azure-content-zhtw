@@ -6,7 +6,6 @@
    authors="SharS"
    manager="adinah"
    editor="tysonn" />
-
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -17,7 +16,7 @@
    ms.author="v-sharos" />
 
 
-### 取得 StorSimple 服務註冊金鑰
+#### 取得 StorSimple 服務註冊金鑰
 
 1. 在 [StorSimple Manager 服務] 頁面上，按一下您建立的服務。這會將您帶領到 [快速入門] 頁面(您隨時都可按一下快速入門圖示 ![StorSimple 快速入門圖示](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png) 來存取 [快速入門] 頁面)。
 
@@ -35,5 +34,6 @@
 
 > [AZURE.NOTE]服務註冊金鑰可用來註冊必須向 StorSimple Manager 服務註冊的所有裝置。
 
+ 
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

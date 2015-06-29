@@ -1,27 +1,27 @@
-<properties 
-    pageTitle="使用 Azure CLI 搭配 Azure 儲存體 | Microsoft Azure" 
-    description="了解如何使用 Azure 跨平台命令列介面 (Azure CLI) 搭配 Azure 儲存體建立和管理儲存體帳戶，以及使用 Azure Blob 和檔案。" 
-    services="storage" 
-    documentationCenter="na" 
-    authors="tamram" 
+<properties
+    pageTitle="使用 Azure CLI 搭配 Azure 儲存體 | Microsoft Azure"
+    description="了解如何搭配 Azure 儲存體使用 Azure 命令列介面 (Azure CLI) 來建立和管理儲存體帳戶，以及使用 Azure Blob 和檔案。"
+    services="storage"
+    documentationCenter="na"
+    authors="tamram"
     manager="jdial"/>
 
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
     ms.topic="article" 
-    ms.date="05/27/2015" 
+    ms.date="05/27/2015"
     ms.author="chungli;jiyang;yaxia;tamram"/>
 
-# 使用 Azure CLI 搭配 Azure 儲存體 
+# 使用 Azure CLI 搭配 Azure 儲存體
 
 ## 概觀
 
 Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用在 Azure 平台上。它提供許多與 Azure 管理入口網站相同的功能，以及豐富的資料存取功能。
 
-在本指南中，我們將探討如何使用 [Azure 跨平台命令列介面 (Azure CLI)](../xplat-cli.md) 搭配 Azure 儲存體執行各種開發和管理工作。建議您在使用本指南之前，先下載並安裝或升級至最新的 Azure CLI。
+在本指南中，我們將探討如何使用 [Azure 命令列介面 (Azure CLI)](../xplat-cli.md) 搭配 Azure 儲存體執行各種開發和管理工作。建議您在使用本指南之前，先下載並安裝或升級至最新的 Azure CLI。
 
 本指南假設您已了解 Azure 儲存體的基本概念。本指南提供許多指令碼示範如何使用 Azure CLI 搭配 Azure 儲存體。在執行每個指令碼之前，請務必先根據您的組態更新指令碼變數。
 
@@ -55,33 +55,33 @@ Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用�
 		export blob_name=<blob_name>
 		export image_to_upload=<image_to_upload>
 		export destination_folder=<destination_folder>
-			   
-		echo "Creating the container..."       
+
+		echo "Creating the container..."
 		azure storage container create $container_name
 
-		echo "Uploading the image..."       
+		echo "Uploading the image..."
 		azure storage blob upload $image_to_upload $container_name $blob_name
 
-		echo "Listing the blobs..."       
+		echo "Listing the blobs..."
 		azure storage blob list $container_name
 
-		echo "Downloading the image..."       
+		echo "Downloading the image..."
 		azure storage blob download $container_name $blob_name $destination_folder
 
 		echo "Done"
-     
+
 5. 在您的本機電腦上，開啟您慣用的文字編輯器 (例如 vim)。在文字編輯器中輸入上述指令碼。
 
 6. 現在，您需要根據您的組態設定更新指令碼變數。
-    
+
     - **<storage_account_name>** 使用指令碼中的指定名稱或為您的儲存體帳戶輸入新名稱。**重要事項：**儲存體帳戶的名稱在 Azure 中必須是唯一的名稱。而且必須是小寫字母！
 
     - **<storage_account_key>** 儲存體帳戶的存取金鑰。
-      
+
     - **<container_name>** 使用指令碼中的指定名稱或為您的容器輸入新名稱。
-    
+
     - **<image_to_upload>** 輸入您本機電腦上的圖片路徑，例如："~/images/HelloWorld.png"。
-    
+
     - **<destination_folder>** 輸入本機目錄的路徑，以儲存從 Azure 儲存體下載的檔案，例如："~/downloadImages"。
 
 7. 在 vim 中更新必要變數之後，請按下按鍵組合 "Esc, : , wq!" 儲存指令碼。
@@ -104,7 +104,7 @@ Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用�
 
 儲存體帳戶的名稱必須介於 3 到 24 個字元的長度，而且只能使用數字和小寫字母。
 
-### 在環境變數中設定預設 Azure 儲存體帳戶 
+### 在環境變數中設定預設 Azure 儲存體帳戶
 
 您可以在訂用帳戶中有多個儲存體帳戶。您可以選擇其中一個儲存體帳戶並且在環境變數中進行設定，讓同一個工作階段中的所有儲存體命令都能使用。這可讓您執行 Azure CLI 儲存體命令，而不需明確指定儲存體帳戶和金鑰。
 
@@ -112,7 +112,7 @@ Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用�
         export AZURE_STORAGE_ACCESS_KEY=<key>
 
 另一種設定預設儲存體帳戶的方式是使用連接字串。首先透過下列命令取得連接字串：
-        
+
         azure storage account connectionstring show <account_name>
 
 然後複製輸出連接字串，並將它設定為環境變數：
@@ -142,7 +142,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。如需詳細資訊，請�
 ### 從容器下載 Blob
 
 下列範例示範如何從容器下載 Blob。
-    
+
         azure storage blob download mycontainer myBlockBlob '~/downloadImages/downloaded.png'
 
 ### 複製 Blob
@@ -152,9 +152,9 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。如需詳細資訊，請�
 下列範例示範如何從一個儲存體帳戶複製 Blob 到另一個儲存體帳戶。在此範例中，我們建立 Blob 為公開，可匿名存取的容器。
 
     azure storage container create mycontainer2 -a <accountName2> -k <accountKey2> -p Blob
-    
+
     azure storage blob upload '~/Images/HelloWorld.png' mycontainer2 myBlockBlob2 -a <accountName2> -k <accountKey2>
-    
+
     azure storage blob copy start 'https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2' mycontainer
 
 此範例會執行非同步複製。您可以執行 `azure storage blob copy show` 作業監視每個複製作業的狀態。
@@ -178,7 +178,7 @@ Azure 檔案儲存體為使用標準 SMB 2.1 通訊協定的應用程式提供�
 Azure 檔案共用是在 Azure 中的 SMB 2.1 檔案共用。所有目錄和檔案都必須在檔案共用中建立。帳戶可包含無限制數目的共用，而共用可儲存無限制數目的檔案，最多可達儲存體帳戶的容量限制。下列範例會建立名為 **myshare** 的檔案共用。
 
         azure storage share create myshare
-        
+
 ### 建立目錄
 
 目錄會提供 Azure 檔案共用選擇性的階層式結構。下列範例會在檔案共用中建立名為 **myDir** 的目錄。
@@ -186,7 +186,7 @@ Azure 檔案共用是在 Azure 中的 SMB 2.1 檔案共用。所有目錄和檔�
         azure storage directory create myshare myDir
 
 請注意，目錄路徑可包含多個層級，*例如*，**a/b**。不過，您必須確定所有父目錄都存在。例如，如果路徑是 **a/b**，您必須先建立目錄 **a**，然後再建立目錄 **b**。
-        
+
 ### 上傳本機檔案至目錄
 
 下列範例將從 **~/temp/samplefile.txt** 上傳檔案至 **myDir** 目錄。編輯檔案路徑，以指向本機機器上的有效檔案：
@@ -202,7 +202,7 @@ Azure 檔案共用是在 Azure 中的 SMB 2.1 檔案共用。所有目錄和檔�
         azure storage file list myshare myDir
 
 請注意，列出作業不一定會顯示目錄名稱。如果省略，則命令會列出共用根目錄的內容。
-        
+
 ## 後續步驟
 
 以下是有助於您深入了解 Azure 儲存體的一些相關文章和資源。
@@ -212,5 +212,6 @@ Azure 檔案共用是在 Azure 中的 SMB 2.1 檔案共用。所有目錄和檔�
 
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

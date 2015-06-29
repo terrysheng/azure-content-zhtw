@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="06/01/2015"
    ms.author="mbaldwin"/>
 
 # 支援的權杖和宣告類型
@@ -57,14 +57,14 @@ Azure AD 不支援 SAML 權杖中的應用程式識別碼宣告。
 
 在 JWT 權杖中，驗證內容類別參考值會出現在 appidacr (應用程式專屬的 ACR 值) 宣告中。
 
-	"appidacr": "0"
+    "appidacr": "0"
 
 ### 驗證內容類別參考
 驗證內容類別參考宣告指出主體的驗證方式 (相對於應用程式驗證內容類別參考宣告中的用戶端)。值為 "0" 表示使用者驗證不符合 ISO/IEC 29115 的需求。
 
 - 在 JWT 權杖中，驗證內容類別參考宣告會出現在 acr (使用者專屬的 ACR 值) 宣告中。
 
-	"acr": "0"
+    "acr": "0"
 
 ### 驗證即刻
 
@@ -409,8 +409,8 @@ Version 宣告儲存權杖的版本號碼。在 JWT 權杖中，使用者主體�
     }.
 
 ##另請參閱
-### 概念
 
-[Azure Active Directory 驗證通訊協定](active-directory-authentication-protocols.md)
+[Azure Active Directory 驗證通訊協定](https://msdn.microsoft.com/library/azure/dn151124.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

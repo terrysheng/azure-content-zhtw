@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # 如何在虛擬機器上以 Java 執行大量運算工作
@@ -46,7 +46,7 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
 1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com)。
 2. 依序按一下 [新增]、[運算]、[虛擬機器] 及 [從組件庫]。
-3. 在 [Virtual machine image select]  對話方塊中，選取 [JDK 7 Windows Server 2012]。請注意，唯有當您擁有尚未做好在 JDK 7 中運作之準備的舊版應用程式時，才能選取 [JDK 6 Windows Server 2012]。
+3. 在 [Virtual machine image select] 對話方塊中，選取 [JDK 7 Windows Server 2012]。請注意，唯有當您擁有尚未做好在 JDK 7 中運作之準備的舊版應用程式時，才能選取 [JDK 6 Windows Server 2012]。
 4. 按 [下一步]。
 4. 在 [虛擬機器組態] 對話方塊中：
     1. 指定虛擬機器的名稱。
@@ -83,10 +83,8 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
 1.  登入 [Azure 管理入口網站](https://manage.windowsazure.com)。
 2.  在管理入口網站左下方的瀏覽窗格中，按一下 [服務匯流排、存取控制和快取]。
-3.  在管理入口網站的左上方窗格中，按一下 [服務匯流排] 節點，然後按一下 [新增] 按鈕。
-![Service Bus Node screenshot][svc_bus_node]
-4.  在 [建立新的服務命名空間] 對話方塊中輸入一個「命名空間」，然後確認它是唯一的，按一下 [檢查可用性] 按鈕。
-![Create a New Namespace screenshot][create_namespace]
+3.  在管理入口網站的左上方窗格中，按一下 [服務匯流排] 節點，然後按一下 [新增] 按鈕。![Service Bus Node screenshot][svc_bus_node]
+4.  在 [建立新的服務命名空間] 對話方塊中輸入一個「命名空間」，然後確認它是唯一的，按一下 [檢查可用性] 按鈕。![Create a New Namespace screenshot][create_namespace]
 5.  確定命名空間名稱可用之後，選擇要裝載命名空間的國家或地區，然後按一下 [建立命名空間] 按鈕。  
       
     然後，您建立的命名空間就會出現在管理入口網站中，稍待片刻就會生效。等到狀態變成 [作用中] 之後，再繼續進行下一步。
@@ -95,19 +93,15 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
 若要在新的命名空間上執行管理作業 (例如建立佇列)，您必須取得命名空間的管理認證。
 
-1.  在左方瀏覽窗格中，按一下 [服務匯流排] 節點，以顯示可用的命名空間清單：
-![Available Namespaces screenshot][avail_namespaces]
-2.  從顯示的清單中，選取您剛建立的命名空間：
-![Namespace List screenshot][namespace_list]
-3.  右邊的 [屬性] 窗格將會列出新命名空間的屬性：
-![Properties Pane screenshot][properties_pane]
-4.  [預設金鑰] 是隱藏的。請按一下 [檢視] 按鈕以顯示安全性認證：
-![Default Key screenshot][default_key]
+1.  在左方瀏覽窗格中，按一下 [服務匯流排] 節點，以顯示可用的命名空間清單：![Available Namespaces screenshot][avail_namespaces]
+2.  從顯示的清單中，選取您剛建立的命名空間：![Namespace List screenshot][namespace_list]
+3.  右邊的 [屬性] 窗格將會列出新命名空間的屬性：![Properties Pane screenshot][properties_pane]
+4.  [預設金鑰] 是隱藏的。請按一下 [檢視] 按鈕以顯示安全性認證：![Default Key screenshot][default_key]
 5.  記下 [Default Issuer] 和 [預設金鑰]，因為您將在下面使用這項資訊來執行命名空間作業。 
 
 ## 如何建立執行大量運算工作的 Java 應用程式
 
-1. 在您的開發電腦 (不一定要是您所建立的虛擬機器) 上，下載 [Azure SDK for Java](http://www.windowsazure.com/develop/java/) (英文)。
+1. 在您的開發電腦 (不一定要是您所建立的虛擬機器) 上，下載 [Azure SDK for Java](http://azure.microsoft.com/develop/java/) (英文)。
 2. 使用本節結尾的範例程式碼建立一個 Java 主控台應用程式。為因應本教學課程的目的，我們將使用 **TSPSolver.java** 做為 Java 檔案名稱。請將 **your_service_bus_namespace**、**your_service_bus_owner** 及 **your_service_bus_key** 預留位置，分別修改成使用您服務匯流排 [命名空間]、[Default Issuer] 及 [預設金鑰] 的值。
 3. 編碼完成之後，將應用程式匯出至可執行的 Java 存檔 (JAR)，並將所需的程式庫封裝至產生的 JAR 中。為因應本教學課程的目的，我們將使用 **TSPSolver.jar** 做為產生的 JAR 名稱。
 
@@ -522,4 +516,7 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

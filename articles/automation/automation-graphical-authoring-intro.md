@@ -113,11 +113,16 @@ Azure 自動化中的每個 Runbook 有草稿和已發行的版本。只可執�
 
 | 資料來源 | 說明 |
 |:---|:---|
-|活動輸出|從優先於工作流程中的目前活動的活動輸出。將列出所有有效的活動。對參數值只選取要使用它的輸出的活動。如果活動會輸出具有多個屬性的物件，您可以在選取活動之後輸入名稱屬性。|
 |常數值|輸入參數的值。這只適用於下列資料型別：Int32、Int64、String、Boolean、DateTime、Switch。 |
+|活動輸出|從優先於工作流程中的目前活動的活動輸出。將列出所有有效的活動。對參數值只選取要使用它的輸出的活動。如果活動會輸出具有多個屬性的物件，您可以在選取活動之後輸入名稱屬性。|
+|Runbook 輸入參數<br>*(即將推出)*|選取 Runbook 的輸入參數做為活動參數的輸入。|  
+|自動化變數資產<br>*(即將推出)*|選取「自動化變數」做為輸入。|  
+|自動化認證資產<br>*(即將推出)*|選取「自動化認證」做為輸入。|  
+|自動化憑證資產<br>*(即將推出)*|選取「自動化憑證」做為輸入。|  
+|自動化連線資產<br>*(即將推出)*|選取「自動化連線」做為輸入。| 
+|PowerShell 運算式|指定簡單 PowerShell 運算式。在活動和用於參數值的結果之前，將會評估運算式。您可以使用變數來參照活動或 Runbook 的輸入參數的輸出。|
 |空字串|空字串值。|
 |Null|Null 值。|
-|PowerShell 運算式|指定簡單 PowerShell 運算式。在活動和用於參數值的結果之前，將會評估運算式。您可以使用變數來參照活動或 Runbook 的輸入參數的輸出。|
 |取消選取|清除先前設定的任何值。|
 
 
@@ -180,7 +185,7 @@ Azure 自動化中的每個 Runbook 有草稿和已發行的版本。只可執�
 
 使用條件式連結時，可從來源活動提供該分支中的其他活動使用的資料將由條件篩選。如果活動是多個連結的來源，可用於每個分支中可用活動的資料取決於連接到該分支的連結中的條件。
 
-例如下面的 Runbook 中的來源活動會取得所有虛擬機器。它有兩個條件式連結和不含條件的連結。第一個條件式連結會使用運算式 *$ActivityOutput['Get-AzureVM'].PowerState -eq 'Started'* 來僅篩選目前正在執行的虛擬機器。第二個使用運算式 *$ActivityOutput['Get-AzureVM'].PowerState -eq 'Stopped'* 來篩選目前已停止的虛擬機器。
+例如下面的 Runbook 中的來源活動會取得所有虛擬機器。它有兩個條件式連結和不含條件的連結。第一個條件式連結會使用運算式 *$ActivityOutput['Get-AzureVM'].PowerState -eq 'Started'* 來篩選目前正在執行的虛擬機器。第二個使用運算式 *$ActivityOutput['Get-AzureVM'].PowerState -eq 'Stopped'* 來篩選目前已停止的虛擬機器。
 
 ![條件式連結範例](media/automation-graphical-authoring-intro/conditional-links.png)
 
@@ -273,5 +278,6 @@ Runbook 可能需要使用者透過 Azure 預覽入口網站啟動 Runbook 時�
 
 - [Azure 自動化 Runbook 概念](automation-runbook-concepts.md)
 - [自動化資產](http://msdn.microsoft.com/library/azure/dn939988.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

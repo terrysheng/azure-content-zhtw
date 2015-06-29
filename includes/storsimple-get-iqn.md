@@ -6,7 +6,6 @@
    authors="SharS"
    manager="adinah"
    editor="tysonn" />
-
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -16,7 +15,7 @@
    ms.date="04/27/2015"
    ms.author="v-sharos" />
 
-### 取得 Windows 主機的 IQN
+#### 取得 Windows 主機的 IQN
 
 1. 在 Windows 主機上啟動 Microsoft iSCSI 啟動器。
 
@@ -26,4 +25,4 @@
 
 3. 儲存這個字串。
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

@@ -33,7 +33,7 @@
 
 ### 步驟 1：下載 JSON 檔案
 
-指派一個本機資料夾，當做 JSON 範本檔案的存放位置，然後建立這個資料夾 (例如，C:\Azure\Templates\availability)。
+指派一個本機資料夾，當做 JSON 範本檔案的存放位置，然後建立這個資料夾 (例如，]Azure\Templates\availability)。
 
 取代資料夾名稱，然後複製以及執行以下命令。
 
@@ -103,4 +103,10 @@
 
 	azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json
 
-<!---HONumber=58--> 
+
+
+
+
+ 
+
+<!---HONumber=58_postMigration-->

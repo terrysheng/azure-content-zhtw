@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="什麼是 HDInsight 中的 HBase？ | Microsoft Azure" 
-	description="HDInsight 中的 Apache HBase (建置在 Hadoop 的 NoSQL 資料庫) 簡介。了解這項巨量資料技術、使用案例，以及與其他 Hadoop 叢集的比較。" 
+	description="HDInsight 中的 Apache HBase (建置在 Hadoop 的 NoSQL 資料庫) 簡介。了解使用案例，並將 HBase 與其他 Hadoop 叢集進行比較。" 
 	keywords="bigtable,nosql,what is hbase"
 	services="hdinsight" 
 	documentationCenter="" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="05/20/2015" 
 	ms.author="jgao"/>
 
 
@@ -40,17 +40,21 @@ HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區
 ## 情節：HBase 的使用案例
 建立 BigTable (以及由此延伸出的 HBase) 的正式使用案例是 Web 搜尋。搜尋引擎會建置索引，以將字詞對應到包含這些字詞的網頁。除此之外，HBase 還有其他許多適用的使用案例，本節會列舉其中幾個。
 
-### 索引鍵-值存放區
-HBase 可做為索引鍵-值存放區，也很適合用來管理訊息系統。Facebook 在訊息系統中使用 HBase，其用來儲存和管理網際網路通訊相當理想。WebTable 使用 HBase 來搜尋和管理從網頁擷取的資料表。
+- 索引鍵-值存放區
 
-### 感應器資料
-HBase 適合用來擷取從多個來源收集累加的資料。這包括社交分析、時間序列、讓互動式儀表板保有最新的趨勢與計數器，以及管理稽核記錄系統。範例包括 Bloomberg 公司的股市資訊終端機以及 Open Time Series Database (OpenTSDB)，其可以儲存針對伺服器系統之健康情況所收集到的度量，並讓使用者加以存取。
+	HBase 可做為索引鍵-值存放區，也很適合用來管理訊息系統。Facebook 在訊息系統中使用 HBase，其用來儲存和管理網際網路通訊相當理想。WebTable 使用 HBase 來搜尋和管理從網頁擷取的資料表。
 
-### 即時查詢
-[Phoenix](http://phoenix.apache.org/) 是適用於 Apache HBase 的 SQL 查詢引擎。其以 JDBC 驅動程式的形式進行存取，並可使用 SQL 查詢和管理 HBase 資料表。
+- 感應器資料
 
-### HBase 即平台
-應用程式可以將 HBase 做為資料存放區，並在此基礎上執行。範例包括 Phoenix、OpenTSDB、Kiji 及 Titan。應用程式也可與 HBase 整合。範例包括 Hive、Pig、Solr、Storm、Flume、Impala、Spark、Ganglia 及 Drill。
+	HBase 適合用來擷取從多個來源收集累加的資料。這包括社交分析、時間序列、讓互動式儀表板保有最新的趨勢與計數器，以及管理稽核記錄系統。範例包括 Bloomberg 公司的股市資訊終端機以及 Open Time Series Database (OpenTSDB)，其可以儲存針對伺服器系統之健康情況所收集到的度量，並讓使用者加以存取。
+
+- 即時查詢
+
+	[Phoenix](http://phoenix.apache.org/) 是適用於 Apache HBase 的 SQL 查詢引擎。其以 JDBC 驅動程式的形式進行存取，並可使用 SQL 查詢和管理 HBase 資料表。
+
+- HBase 即平台
+
+	應用程式可以將 HBase 做為資料存放區，並在此基礎上執行。範例包括 Phoenix、OpenTSDB、Kiji 及 Titan。應用程式也可與 HBase 整合。範例包括 Hive、Pig、Solr、Storm、Flume、Impala、Spark、Ganglia 及 Drill。
 
 
 ##<a name="next-steps"></a>接續步驟
@@ -98,5 +102,6 @@ HBase 適合用來擷取從多個來源收集累加的資料。這包括社交�
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

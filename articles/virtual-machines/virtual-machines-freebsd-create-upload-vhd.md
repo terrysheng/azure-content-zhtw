@@ -66,12 +66,12 @@
 
 5. Azure 代理程式的必要條件
 
-    5.1 **安裝 python**
+    5\.1 **安裝 python**
 
 		# pkg install python27 py27-asn1
 		# ln -s /usr/local/bin/python2.7 /usr/bin/python
 
-    5.2 **安裝 wget**
+    5\.2 **安裝 wget**
 
 		# pkg install wget 
 
@@ -204,5 +204,6 @@
 4. 佈建完成後，您會看到 FreeBSD VM 在 Azure 中執行。
 
 	![azure 中的 freebsd 映像](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

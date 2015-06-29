@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2015" 
+	ms.date="06/12/2015" 
 	ms.author="josephd"/>
 
 # 如何使用 Azure 資源管理員進行自動化
@@ -69,4 +70,6 @@ Azure 資源管理員會簡化在 Azure 基礎結構服務上執行的複雜應�
 
 [虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

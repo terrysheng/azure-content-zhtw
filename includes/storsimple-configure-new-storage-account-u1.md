@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Optional: Configure a new storage account for the service"
-   description="Explains how to configure a storage account for the StorSimple Manager service running Update 1."
+   pageTitle="選用：為服務設定新的儲存體帳戶"
+   description="說明如何針對執行 Update 1 的 StorSimple Manager 服務設定儲存體帳戶。"
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,20 +15,20 @@
    ms.date="05/18/2015"
    ms.author="alkohli" />
 
-#### To add a storage account in StorSimple 8000 Series Update 1.0
+#### 在 StorSimple 8000 系列 Update 1.0 中新增儲存體帳戶
 
-1. On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
+1. 在 StorSimple Manager 服務登陸頁面上選取您的服務，然後按兩下該服務。這會將您帶領到 [快速入門] 頁面。選取 [設定] 頁面。
 
-2. Click **Add/edit storage account**.
+2. 按一下 [新增/編輯儲存體帳戶]。
 
-3. In the **Add/Edit Storage Account** dialog box, click **Add new**.
+3. 在 [**新增/編輯儲存體帳戶**] 對話方塊中，按一下 [**新增**]：
 
-4. In the **Provider** field, select the appropriate cloud service provider. The supported providers are Azure, Amazon S3, Amazon S3 with RRS, HP and OpenStack. Specify the credentials and the location associated with the storage account of your cloud service providers. The fields presented for credentials will be different depending upon the cloud service provider you have specified. 
-  - If you have selected Azure as your cloud service provider, supply the **Name** and the primary **Access Key** for your Microsoft Azure storage account. For an Azure account, the location will be automatically populated.
+4. 在 [**提供者**] 欄位中，選取適當的雲端服務提供者。支援的提供者為 Azure、Amazon S3、具有 RRS 的 Amazon S3、HP 及 OpenStack。指定與您的雲端服務提供者之儲存體帳戶相關聯的認證和位置。針對認證顯示的欄位將會不同，取決於您指定的雲端服務提供者。
+  - 如果您已選取 Azure 做為您的雲端服務提供者，請為您的 Microsoft Azure 儲存體帳戶提供 [**名稱**] 和主要 [**存取金鑰**]。如果是 Azure 帳戶，會自動填入位置。
 
         ![Add Azure storage account](./media/storsimple-configure-new-storage-account-u1/AddAzureStorageaccount-include.png)
 
- - If you have selected Amazon S3 or Amazon S3 with RRS, provide a friendly **Storage Account name**, **Access Key**, and **Secret Key**. For Amazon S3 and Amazon S3 with RRS, the following locations are supported:
+ - 如果您選取 Amazon S3 或具有 RRS 的 Amazon S3 ，請提供易記的 [**儲存體帳戶名稱**]、[**存取金鑰**] 及 [**祕密金鑰**]。如果是 Amazon S3 和具有 RRS 的 Amazon S3，支援下列位置：
 
 		- US Standard
 		- US West (Oregon)
@@ -41,23 +41,25 @@
 
         ![Add Amazon storage account](./media/storsimple-configure-new-storage-account-u1/AddAmazonStorageaccount-include.png)
 	  		
- - If you have selected HP as your cloud service provider, supply a friendly **Storage Account Name**, **Tenant ID**, **Username**, and **Password**. For HP, the following locations are supported:
+ - 如果您選取 HP 做為您的雲端服務提供者，請提供易記的 [**儲存體帳戶名稱**]、[**租用戶識別碼**]、[**使用者名稱**] 及[**密碼**]。如果是 HP，支援下列位置：
 
 		- US East
 		- US West
 	  
         ![Add HP storage account](./media/storsimple-configure-new-storage-account-u1/AddHPStorageaccount-include.png)
 	  		
- - If you have selected **Openstack** as your cloud service provider, provide a **Hostname**, **Access Key**, and **Secret Key**.
+ - 如果您選取 **Openstack** 做為您的雲端服務提供者，請提供 [**主機名稱**]、[**存取金鑰**] 及 [**秘密金鑰**]。
 
         > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 
-5. Select **Enable SSL Mode** to create a secure channel for network communication between your device and the cloud. Clear the **Enable SSL Mode** check box only if you are operating within a private cloud.
+5. 選取 [啟用 SSL 模式] 來建立裝置與雲端之間網路通訊的安全通道。只有當您在私人雲端內進行操作時，才能清除 [啟用 SSL 模式] 核取方塊。
 
-      > [AZURE.NOTE] If you are using HP as your provider, SSL will always be enabled.
+      >[AZURE.NOTE]如果您使用 HP 做為您的提供者，將一律啟用 SSL。
   		
-6. Click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). You will be notified after the storage account is successfully created.
+6. 按一下核取圖示 ![核取圖示](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png)。成功建立儲存體帳戶之後，系統將會通知您。
 
-7. The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. Click **Save** to save the new storage account. Click **OK** when prompted for confirmation.
+7. 新建立的儲存體帳戶將顯示於 [設定] 頁面上的 [儲存體帳戶] 下方。按一下 [**儲存**] 以儲存新的儲存體帳戶。系統提示您進行確認時，按一下 [確定]。
+
+<!---HONumber=58_postMigration-->

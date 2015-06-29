@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Add or modify a StorSimple backup schedule"
-   description="Explains how you can use the StorSimple Manager service to create and edit backup schedules."
+   pageTitle="新增或修改 StorSimple 備份排程"
+   description="說明如何使用 StorSimple Manager 服務建立與編輯備份排程。"
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,32 +15,33 @@
    ms.date="05/13/2015"
    ms.author="v-sharos" />
 
-#### To add or modify a StorSimple backup schedule
+#### 若要加入或修改 StorSimple 備份排程
 
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
+1. 在裝置的 [**快速入門**] 頁面上，按一下 [**備份原則**] 索引標籤。這會將您帶到 [**備份原則**] 頁面。
 
-2. In the tabular listing of the policies, select and click the policy that you want to edit.
+2. 在表格式的原則清單中，選取並按一下您想要編輯的原則。
 
-3. Under **general**, you can modify the backup policy name.
+3. 在 [**一般**] 之下，您可以修改備份原則名稱。
 
-4. Under **schedules**, click **manage schedules** to add or remove schedules. In the **Manage Schedule** dialog box, do the following:
+4. 在 [**排程**] 之下，按一下 [**管理排程**] 來新增或移除排程。在 [**管理排程**] 對話方塊中，執行下列動作：
 
-    1. Choose an existing schedule or create a new schedule.
+    1. 選擇現有的排程或建立新的排程。
 
-    2. Select the type of backup as local or cloud snapshot.
+    2. 選取備份類型為本機或雲端快照集。
 
-    3. Specify the backup frequency, retention, and starting time of the schedule.
+    3. 指定備份頻率、保留期，以及排程的開始時間。
 
-    4. Enable or disable the schedule.
+    4. 啟用或停用排程。
 
-    5. Click the check icon ![check icon](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) to save the changes to the schedule.
+    5. 按一下核取圖示 ![核取圖示](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) 以儲存排程的變更。
 
-5. In the **Volumes** section, add or remove the volumes to this policy.
+5. 在 [**磁碟區**] 區段，新增或移除磁碟機到此原則。
 
-6. Save the changes to this policy.
+6. 將變更儲存到此原則。
 
-7. You will prompted for confirmation. Click **OK** to save the policy.
+7. 系統將提示您進行確認。按一下 [**確定**] 儲存原則。
 
-The **Backup Policies** page will be updated to save the changes to the policy.
+[**備份原則**] 頁面將會更新以儲存原則的變更。
  
 
+<!---HONumber=58_postMigration-->

@@ -83,7 +83,7 @@
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_CommandPrompt.png)
  
-19.	您也可以使用 **C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini** 檔案中的項目來設定伺服器組態的預設設定，例如，基底與資料目錄和磁碟機。如需詳細資訊，請參閱 [5.1.2 伺服器組態預設值](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html)。
+19.	您也可以使用 **]Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini** 檔案中的項目來設定伺服器組態的預設設定，例如，基底與資料目錄和磁碟機。如需詳細資訊，請參閱 [5\.1.2 伺服器組態預設值](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html)。
 
 
 如果您要 MySQL 伺服器服務可供網際網路上的 MySQL 用戶端電腦使用，則必須設定 MySQL 伺服器服務接聽的 TCP 連接埠端點，並建立額外的 Windows 防火牆規則。除非您先前在 [類型和網路] 頁面 (先前程序的步驟 10) 指定不同的連接埠，否則這是 TCP 連接埠 3306。
@@ -94,7 +94,7 @@
 
 若要設定 MySQL Server 服務的端點：
 
-1.	在 Azure 管理入口網站中，依序按一下 [虛擬機器]  和您的 MySQL 虛擬機器名稱，然後按一下 [端點]。
+1.	在 Azure 管理入口網站中，依序按一下 [虛擬機器] 和您的 MySQL 虛擬機器名稱，然後按一下 [端點]。
 2.	在命令列中，按一下 [新增]。
 3.	在 [將端點加入至虛擬機器] 頁面上，按一下向右箭頭。
 4.	如果您使用預設 MySQL TCP 連接埠 3306，請按一下 [名稱] 中的 [MySQL]，然後按一下勾號。
@@ -124,4 +124,7 @@
 
 如需 MySQL 的相關資訊，請參閱 [MySQL 文件](http://dev.mysql.com/doc/)。
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/08/2015"
+   ms.date="06/10/2015"
    ms.author="mbaldwin"/>
 
 
@@ -23,7 +23,7 @@
 Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供有效的方法，協助開發人員將身分識別管理整合到他們的應用程式中。下列文章提供實作的概觀和 Azure Active Directory 的重要功能。我們建議您依序閱讀，如果您尚未準備好開始進行，請跳到[開始使用](#getting-started)。
 
 
-1. **[如何與 Azure AD 整合](active-directory-how-to-integrate.md)**：探索為什麼與 Azure Active Directory 整合是提供安全登入和授權的最佳解決方案。
+1. **[Azure AD 整合的優點](active-directory-how-to-integrate.md)**：探索為什麼與 Azure Active Directory 整合是提供安全登入和授權的最佳解決方案。
 
 1. **[使用 Azure AD 進行登入](active-directory-authentication-scenarios.md)**：利用 Azure Active Directory 的簡易驗證來提供登入功能給您的應用程式。
 
@@ -33,12 +33,8 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 1. **[程式庫](https://msdn.microsoft.com/library/azure/dn151135.aspx)**：使用 Azure 驗證程式庫輕鬆地驗證使用者以取得存取權杖。
 
-#### 影片
-如果您喜歡看影片學習，請觀賞這些使用 Azure Active Directory 開發應用程式的概觀簡報。它們通常由直接參與工程團隊的演講者主講，並提供逐步解說基本主題，包括 IDMaaS、驗證、身分識別同盟和單一登入。
+若要檢視在 Build 2015 會議發表的 AAD 概觀，請參閱下面的[影片](#videos)區段。
 
-- **[Azure Active Directory：現代應用程式的「身分識別管理即服務」](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)**
-- **[使用 Azure Active Directory 開發現代 Web 應用程式](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)**
-- **[使用 Azure Active Directory 開發現代原生應用程式](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)**
 
 ## 開始使用
 
@@ -70,30 +66,31 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 - [如何取得 Azure AD 租用戶](active-directory-howto-tenant.md)
 - [如何在 Azure AD 應用程式庫中列出您的應用程式](active-directory-app-gallery-listing.md)
 - [如何在應用程式中開始使用 Office 365 API](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
+- [如何提交 Office 365 的 Web 應用程式到賣方儀表板](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 
 
 ## 參考
 
 這些文章提供 REST 和驗證程式庫 API、通訊協定、錯誤、程式碼範例和端點的基礎參考。
 
-####  支援
+###  支援
 - **[何處取得支援](http://stackoverflow.com/questions/tagged/azure-active-directory)**：在 Stack Overflow 上搜尋標記 [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 和 [adal](http://stackoverflow.com/questions/tagged/adal)，以尋找 Azure AD 解決方案。
 
-#### 代碼
+### 代碼
 
 - **[Azure AD 開放原始碼程式庫](http://github.com/AzureAD)**：尋找程式庫原始碼最簡單的方式是使用我們的[程式庫清單](https://msdn.microsoft.com/library/azure/dn151135.aspx)。
 
 - **[Azure AD 範例](http://github.com/AzureADSamples)**：瀏覽範例清單最簡單的方式是使用 [程式碼範例索引](active-directory-code-samples.md)。
 
 
-#### Graph API
+### Graph API
 
 - **[Graph API 參考](https://msdn.microsoft.com/library/azure/hh974476.aspx)**：Azure Active Directory Graph API 的 REST 參考。[檢視新的互動式 Graph API 參考體驗](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
 
 - **[Graph API 權限範圍](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes)**：OAuth 2.0 權限範圍，用來控制應用程式對租用戶中的目錄資料有何存取權。
 
 
-#### 驗證通訊協定
+### 驗證通訊協定
 
 - **[SAML 2.0 通訊協定參照](https://msdn.microsoft.com/library/azure/dn195591.aspx)**：SAML 2.0 通訊協定可讓應用程式提供單一登入體驗給使用者。
 
@@ -108,8 +105,17 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 - **[支援的安全性權杖與宣告](active-directory-token-and-claims.md)**：了解與評估 SAML 2.0 和 JSON Web Token (JWT) 權杖中的宣告的指南。
 
-#### 影片
+## 影片
 
+### Build 2015
+
+這些關於配合 Azure Active Directory 開發應用程式的概觀簡報，是由直接參與工程團隊的演講者主講，並涵蓋基本主題，包括 IDMaaS、驗證、身分識別同盟和單一登入。
+
+- **[Azure Active Directory：現代應用程式的「身分識別管理即服務」](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)**
+- **[使用 Azure Active Directory 開發現代 Web 應用程式](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)**
+- **[使用 Azure Active Directory 開發現代原生應用程式](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)**
+
+### Azure Friday
 [Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) 是每星期五的一對一影片系列，專門提供簡短的 10-15 分鐘訪談，由專家就各種 Azure 主題發表意見。請使用頁面上的 [服務篩選] 功能，查看所有 Azure Active Directory 影片。
 
 - **[Azure 身分識別 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)**
@@ -126,4 +132,4 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 - **[Twitter 上的 Azure AD](https://twitter.com/azuread)**：140 個字元以內的 Azure AD 公告。
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

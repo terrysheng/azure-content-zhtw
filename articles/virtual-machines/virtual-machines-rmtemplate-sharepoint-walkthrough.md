@@ -20,7 +20,7 @@
 
 本主題逐步講解三部伺服器的 SharePoint 伺服器陣列的 azuredeploy.json 範本檔案結構。您可以從[此處](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json)在瀏覽器中查看這個範本的內容。
 
-或者，若要檢查 azuredeploy.json 檔案的本機複本，請指定本機資料夾做為該檔案的位置並建立它 (例如，C:\Azure\Templates\SharePointFarm)。填入資料夾名稱，然後在本機電腦的 Azure PowerShell 命令提示字元上執行這些命令。
+或者，若要檢查 azuredeploy.json 檔案的本機複本，請指定本機資料夾做為該檔案的位置並建立它 (例如，]Azure\Templates\SharePointFarm)。填入資料夾名稱，然後在本機電腦的 Azure PowerShell 命令提示字元上執行這些命令。
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
@@ -343,7 +343,7 @@
 
 適用於每個網域控制站且開頭是 **"name": "UpdateVNetDNS"** 的其他區段，會將虛擬網路的 DNS 伺服器設為使用網域控制站的靜態 IP 位址。
 
-接下來的  **"type": "Microsoft.Compute/virtualMachines"** 區段會在部署中建立 SQL Server 虛擬機器，以及：
+接下來的 **"type": "Microsoft.Compute/virtualMachines"** 區段會在部署中建立 SQL Server 虛擬機器，以及：
 
 - 指定儲存體帳戶、可用性設定組、負載平衡器、虛擬網路及網路介面
 - 加入額外的磁碟
@@ -376,4 +376,6 @@
 
 [虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

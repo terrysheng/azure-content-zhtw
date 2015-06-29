@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/02/2015" 
+	ms.date="06/09/2015" 
 	ms.author="mahender"/>
 
 # 開始使用自訂驗證
@@ -52,9 +52,7 @@
 
         public DbSet<Account> Accounts { get; set; }
 
-	>[AZURE.NOTE]本教學課程中的程式碼片段使用 `todoContext` 做為內容名稱。您必須針對專案的內容更新程式碼片段。
-
-	接著，您將設定使用這項資料所需的安全性功能。
+	>[AZURE.NOTE]本教學課程中的程式碼片段使用 `todoContext` 做為內容名稱。您必須更新專案內容的程式碼片段。接著，您將設定使用這項資料所需的安全性功能。
  
 5. 建立名為 `CustomLoginProviderUtils` 的類別，然後新增下列 `using` 陳述式：
 
@@ -162,7 +160,7 @@
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[AZURE.IMPORTANT]任何用戶端均可經由 HTTP 存取此註冊端點。在發佈之前
+>[AZURE.IMPORTANT]任何用戶端均可經由 HTTP 存取此註冊端點。將這項服務發行至實際執行環境之前，您應該實作某種配置來驗證註冊，例如以簡訊或電子郵件為基礎的驗證。這有助於防止惡意使用者建立詐騙註冊。
 
 ## 建立 LoginProvider
 
@@ -217,9 +215,16 @@
             return;
         }
 
-	這是一個無作業方法，因為 **CustomLoginProvider** 沒有與驗證管線整合。
+	此方法並未實作，因為 **CustomLoginProvider** 沒有與驗證管線整合。
 
-4. 將以下 `ParseCredentials` 抽象方法的實作加入 **CustomLoginProvider**。public override ProviderCredentials ParseCredentials(JObject serialized) { if (serialized == null) { throw new ArgumentNullException("serialized"); }
+4. 將以下 `ParseCredentials` 抽象方法的實作加入 **CustomLoginProvider**。
+
+        public override ProviderCredentials ParseCredentials(JObject serialized)
+        {
+            if (serialized == null)
+            {
+                throw new ArgumentNullException("serialized");
+            }
 
             return serialized.ToObject<CustomLoginProviderCredentials>();
         }
@@ -245,6 +250,12 @@
         }
 
 	此方法會將 [ClaimsIdentity] 轉譯為在驗證權杖發行階段使用的 [ProviderCredentials] 物件。此時，您可以再次以此方法擷取任何其他宣告。
+	
+6. 在 **ConfigOptions** 建立之後開啟 App_Start 資料夾中的 WebApiConfig.cs 專案檔案及下列程式碼行：
+		
+		options.LoginProviders.Add(typeof(CustomLoginProvider));
+
+	
 
 ## 建立登入端點
 
@@ -407,4 +418,6 @@
 
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=58_postMigration-->

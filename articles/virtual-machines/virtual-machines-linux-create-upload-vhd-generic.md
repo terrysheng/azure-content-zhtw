@@ -189,4 +189,7 @@ Azure 上的 VHD 映像必須具有與 1 MB 對應的虛擬大小。一般而言
 
 - 接著，您必須關閉虛擬機器，並將 VHD 上傳至 Azure。
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

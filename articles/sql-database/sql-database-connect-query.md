@@ -1,27 +1,27 @@
-
-<properties 
-	pageTitle="使用 C# 連接及查詢您的 SQL Database" 
+<properties
+	pageTitle="使用 C# 連接及查詢您的 SQL Database"
 	description="這個 C# 用戶端程式碼範例使用 ADO.NET 連接到 Azure SQL Database 雲端服務上的 AdventureWorks 資料庫，並與其互動。"
-	services="sql-database" 
-	documentationCenter="" 
-	authors="ckarst" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="ckarst"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/14/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="04/14/2015"
 	ms.author="cakarst"/>
 
 
-# 使用 C 連接及查詢您的 SQL Database# 
+# 使用 C&\#x23; 連接及查詢您的 SQL Database
 
-本主題提供 C# 程式碼範例，示範如何使用 ADO.NET 連接到現有的 AdventureWorks SQL Database。這個範例會編譯成可查詢資料庫並顯示結果的主控台應用程式。
+
+本主題提供 C# 程式碼範例，示範如何使用 ADO.NET 連接到現有的 AdventureWorks SQL Database。這個範例會編譯成可查詢資料庫並顯示結果集的主控台應用程式。
 
 
 ## 必要條件
@@ -43,7 +43,7 @@
 ## 步驟 2：SQL 程式碼範例
 
 
-1. 將底下的程式碼範例複製並貼到您的主控台應用程式中。
+1. 將下面的程式碼範例複製並貼到您的主控台應用程式中。
 
 
 > [AZURE.WARNING]為方便了解，這個程式碼範例盡可能設計得很簡短。這個範例的目的不是在生產環境中使用。
@@ -70,7 +70,7 @@
 	using System.Text;
 	using System.Threading.Tasks;
 	using System.Data.SqlClient;
-	
+
 	namespace ConnectandQuery_Example
 	{
 		class Program
@@ -114,20 +114,20 @@
 ## 步驟 3：尋找資料庫的連接字串
 
 
-1. 開啟 [Azure 入口網站](http://portal.azure.com/)。
+1. 開啟 [Azure Preview 入口網站](http://portal.azure.com/)。
 2. 按一下 [瀏覽] > [SQL Database] > [Adventure Works 資料庫] > [屬性] > [顯示資料庫連接字串]。
 
 
-![入口網站](media/sql-database-connect-query/ConnectandQuery_portal.png)
+![入口網站](./media/sql-database-connect-query/ConnectandQuery_portal.png)
 
 
-在 [資料庫連接字串] 分頁上，您會看到 ADO.NET、ODBC、PHP 和 JDBC 的適當連接字串。
+在 [資料庫連接字串] 分頁上，您可以找到 ADO.NET、ODBC、PHP 和 JDBC 的適當連接字串。
 
 
 ## 步驟 4：以真正的連接資訊取代
 
 
--在您貼上的原始程式碼中，以連接字串取代 *[Your_Connection_String]* 預留位置，請務必以您的實際密碼取代該字串中的 *your_password_here*。
+- 在您貼上的原始程式碼中，以連接字串取代 *[Your_Connection_String]* 預留位置，並請務必以您的實際密碼取代該字串中的 *your_password_here*。
 
 
 ## 步驟 5：執行應用程式
@@ -135,5 +135,6 @@
 
 1. 若要建置並執行您的應用程式，請按一下 [偵錯] > [開始偵錯]
 2. 程式會將查詢結果列印至主控台視窗。
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

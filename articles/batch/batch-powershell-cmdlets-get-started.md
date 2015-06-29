@@ -1,25 +1,25 @@
 <properties
-	pageTitle="開始使用 Azure 批次 PowerShell Cmdlet"
-	description="介紹用來管理 Azure 批次服務的 Azure PowerShell Cmdlet"
-	services="batch"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor="yidingz"/>
+   pageTitle="開始使用 Azure 批次 PowerShell Cmdlet | Microsoft Azure"
+   description="介紹用來管理 Azure 批次服務的 Azure PowerShell Cmdlet"
+   services="batch"
+   documentationCenter=""
+   authors="dlepow"
+   manager="timlt"
+   editor=""/>
 
 <tags
-	ms.service="batch"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="big-compute"
-	ms.date="04/15/2015"
-	ms.author="danlep"/>
+   ms.service="batch"
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="big-compute"
+   ms.date="05/29/2015"
+   ms.author="danlep"/>
 
 # 開始使用 Azure 批次 PowerShell Cmdlet
 本文是 Azure PowerShell Cmdlet 的簡介，可用來管理批次帳戶並取得批次工作項目、工作和任務的相關資訊。
 
-如需詳細的 Cmdlet 語法，輸入```get-help <Cmdlet_name>```。
+如需詳細的 Cmdlet 語法，請輸入 `get-help <Cmdlet_name>`，或請參閱 [Azure 批次 Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/mt125957.aspx)。
 
 
 ## 必要條件
@@ -123,9 +123,9 @@ Get-AzureBatchPool -BatchContext $context
 您可以提供**篩選**參數給 OData 篩選，只尋找您感興趣的物件。例如，您可以找到名稱以 “myWork” 開頭的所有工作項目：
 
 ```
-$filter = "startswith(name,'myWork') and state eq 'active'" 
+$filter = "startswith(name,'myWork') and state eq 'active'"
 Get-AzureBatchWorkItem -Filter $filter -BatchContext $context
-``` 
+```
 
 雖然這個方法比在本機管線中使用 “Where-Object” 較不具有彈性，不過查詢將直接傳送進批次服務，讓所有篩選在伺服器端運作，進而省下網際網路頻寬。
 
@@ -133,8 +133,8 @@ Get-AzureBatchWorkItem -Filter $filter -BatchContext $context
 
 使用**名稱**參數可作為 OData 篩選的替代方式。若要查詢名為 "myWorkItem" 的特定工作項目：
 
-``` 
-Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context 
+```
+Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context
 
 ```
 **名稱**參數僅支援完整名稱的搜尋，不能使用萬用字元或 OData 樣式的篩選。
@@ -144,7 +144,7 @@ Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context
 批次 Cmdlet 可以利用 PowerShell 管線在 Cmdlet 之間傳送資料。這和指定參數有相同效果，但讓列出多個實體更容易。例如，您可以在您的帳戶下找到所有的作業：
 
 ```
-Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context 
+Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
 ```
 
 ### 使用 MaxCount 參數
@@ -152,7 +152,7 @@ Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext 
 依預設，每個 Cmdlet 最多傳回 1000 個物件。如果您已經到達此限制，您可以縮小您的篩選以傳回較少的物件，或使用 **MaxCount** 參數明確地設定最大值。例如：
 
 ```
-Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context 
+Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context
 
 ```
 
@@ -161,6 +161,7 @@ Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context
 ## 相關主題
 * ＜[批次技術概觀](batch-technical-overview.md)＞
 * ＜[下載 Azure PowerShell](http://go.microsoft.com/p/?linkid=9811175)＞
-* ＜[Azure Cmdlet 參考文件](https://msdn.microsoft.com/library/jj554330.aspx)＞
+* [Azure 批次 Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/mt125957.aspx)
+* [有效率的清單查詢](batch-efficient-list-queries.md)
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=58_postMigration-->

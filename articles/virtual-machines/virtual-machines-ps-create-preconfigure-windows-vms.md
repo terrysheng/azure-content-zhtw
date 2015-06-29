@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2015"
+	ms.date="06/10/2015"
 	ms.author="josephd"/>
 
 # 使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器
@@ -27,7 +27,11 @@
 
 這些步驟遵循建立 Azure PowerShell 命令集合的填空方法。如果您剛使用 PowerShell 或只想知道可指定哪些值來成功設定組態，這個方法相當實用。進階的 PowerShell 使用者可以使用命令並取代本身的變數值 (以「$」為開頭的行)。
 
-如需設定以 Linux 為基礎的虛擬機器系列主題，請參閱[使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-linux-vms.md)。
+如需設定以 Linux 為基礎的虛擬機器系列主題，請參閱[使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)。
+
+[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
+
+- [利用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
 ## 步驟 1：安裝 Azure PowerShell
 
@@ -42,7 +46,7 @@
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-您可以從 **Get-AzureSubscription** 命令輸出的 SubscriptionName 屬性，取得正確的訂用帳戶名稱。當您發出 **Select-AzureSubscription** 命令後，就能從 **Get-AzureStorageAccount** 命令輸出的 Label 屬性取得正確的儲存體帳戶名稱。您也可以將這些命令儲存在文字檔中，以供日後使用。
+您可以從 **Get-AzureSubscription** 命令輸出的 SubscriptionName 屬性，取得正確的訂用帳戶名稱。當您發出 **Select-AzureSubscription** 命令後，就能從 **Get-AzureStorageAccount** 命令輸出的 Label 屬性取得正確的儲存體帳戶名稱。
 
 ## 步驟 3：決定 ImageFamily
 
@@ -61,7 +65,7 @@
 - Windows Server Technical Preview
 - SQL Server 2012 SP1 Enterprise on Windows Server 2012
 
-如果您找到所尋找的映像，請開啟所選文字編輯器的新執行個體 (或 PowerShell 整合式指令碼環境 [ISE] 的執行個體) ，並將下列內容複製到新的文字檔來取代 ImageFamily 值。
+如果您找到您正在尋找的映像，請開啟您所選擇的文字編輯器的新執行個體，或是 PowerShell 整合式指令碼環境 (ISE)。將以下內容複製到新的文字檔或 PowerShell ISE 中，以取代 ImageFamily 值。
 
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -70,14 +74,14 @@
 
 	Get-AzureVMImage | select Label -Unique
 
-如果您使用這個命令找到正確的映像，請開啟所選文字編輯器的新執行個體 (或 PowerShell ISE 的執行個體)，並將下列內容複製到新的文字檔來取代 Label 值。
+如果您使用此命令找到正確的映像，請開啟您所選擇的文字編輯器的新執行個體，或是 PowerShell ISE。將以下內容複製到新的文字檔或 PowerShell ISE 中，以取代 Label 值。
 
 	$label="<Label value>"
 	$image = Get-AzureVMImage | where { $_.Label -eq $label } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
 ## 步驟 4：建置命令集
 
-將下列適當的區塊集合複製到新的文字檔，然後填入變數的值，並移除 < and > 字元，以建置命令集的其餘部分。請參閱本文結尾的兩個[範例](#examples)，以了解最終產生的結果。
+將下列適當的區塊集合複製到新的文字檔或 ISE，然後填入變數值並移除 < and > 字元，以建置命令集的其餘部分。請參閱本文結尾的兩個[範例](#examples)，以了解最終產生的結果。
 
 選擇兩個命令區塊的其中一個，啟動命令集 (必要)。
 
@@ -163,13 +167,13 @@
 
 ## 步驟 5：執行命令集
 
-檢閱在步驟 4 中使用文字編輯器以多個命令區塊建立的 Azure PowerShell 命令集。確定您已指定所需的所有變數，並且這些變數具有正確的值。也確定已移除所有 < and > 字元。
+檢閱在步驟 4 中使用文字編輯器或 PowerShell ISE 以多個命令區塊建立的 Azure PowerShell 命令集。確定您已指定所需的所有變數，並且這些變數具有正確的值。也確定已移除所有 < and > 字元。
 
-將命令集複製到剪貼簿，然後以滑鼠右鍵按一下 [開啟 Azure PowerShell 命令提示字元]。這將發出命令集作為一系列的 PowerShell 命令，並建立 Azure 虛擬機器。
+如果您使用文字編輯器，請將命令集複製到剪貼簿，然後以滑鼠右鍵按一下 [開啟 Azure PowerShell 命令提示字元]。這將發出命令集作為一系列的 PowerShell 命令，並建立 Azure 虛擬機器。或者，在 PowerShell ISE 中執行命令集。
 
 如果您將再次建立這個虛擬機器或類似的虛擬機器，您可以：
 
-- 將這個命令集儲存為文字檔或 PowerShell 指令碼檔 (*.ps1)
+- 將此命令集儲存為 PowerShell 指令碼檔案 (*.ps1)
 - 在 Azure 管理入口網站的 [自動化] 區段中，將這個命令集儲存為 Azure 自動化 Runbook。
 
 ## <a id="examples"></a>範例
@@ -263,4 +267,7 @@
 
 [使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
-<!---HONumber=58--> 
+[利用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+ 
+
+<!---HONumber=58_postMigration-->

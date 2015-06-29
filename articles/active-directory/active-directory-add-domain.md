@@ -72,7 +72,7 @@ Office 365 使用者可能對以下相關主題有興趣：
 
 ### 編輯雲端服務的 DNS 記錄
 
-> [AZURE.NOTE]是否使用 Microsoft Intune？ 您不需要編輯 Windows Intune 雲端服務的 DNS 記錄。
+> [AZURE.NOTE]是否使用 Microsoft Intune？ 您不需要編輯 Microsoft Intune 雲端服務的 DNS 記錄。
 
 新增並驗證自訂網域名稱之後，下一步是編輯網域註冊機構或 DNS 主機服務提供者上將流量指向雲端服務的 DNS 記錄。Azure AD 提供您需要的 DNS 資訊。
 
@@ -209,6 +209,6 @@ Office 365 具有 [[常見網域註冊機構的特定指示](https://support.off
 - [Azure AD 論壇](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
 - [Stackoverflow](http://stackoverflow.com/questions/tagged/azure)
 - [以組織身分註冊 Azure](sign-up-organization.md)
-- [在 Azure AD 中管理網域](https://msdn.microsoft.com/library/azure/dn919677.aspx)
+- [在 Azure AD 中管理網域](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

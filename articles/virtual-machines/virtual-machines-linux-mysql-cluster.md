@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2015" 
+	ms.date="04/14/2015"
 	ms.author="jparrel"/>
 
 # 在 Linux 上使用負載平衡集合將 MySQL 叢集化
@@ -160,7 +160,7 @@
 
 ### 建立 MySQL 負載平衡集合
 
-回到 Azure 入口網站，並瀏覽至 `hadb01` VM，然後瀏覽至端點。我們將建立新端點，從下拉式清單中選擇 [MySQL (TCP 3306)]，然後核取 [Create new load balanced set]  方塊。將此負載平衡端點命名為 `lb-mysql`。除了將時間降低為 5 (秒數，最小值) 以外，我們將維持大部分的選項不變。
+回到 Azure 入口網站，並瀏覽至 `hadb01` VM，然後瀏覽至端點。我們將建立新端點，從下拉式清單中選擇 [MySQL (TCP 3306)]，然後核取 [Create new load balanced set] 方塊。將此負載平衡端點命名為 `lb-mysql`。除了將時間降低為 5 (秒數，最小值) 以外，我們將維持大部分的選項不變。
 
 建立端點後，請移至 `hadb02`、[端點]，接著建立新端點，但我們將選擇 `lb-mysql`，然後從下拉式功能表中選取 [MySQL]。在此步驟中，您也可以使用 Azure CLI。
 
@@ -324,7 +324,7 @@ Pacemaker 會使用叢集來監視資源，定義在主要故障時將這些資�
 
 ## STONITH
 
-應該可以透過適用於 Linux 的 Azure 命令列工具發出 VM 關機命令，來代替可控制實體裝置的 STONITH 指令碼。您可以使用 `/usr/lib/stonith/plugins/external/ssh` 做為基礎，並在叢集的組態中啟用 STONITH。系統應會全域安裝 Azure CLI，並載入叢集使用者的發佈設定/設定檔。
+它應該能透過 Azure CLI 發出 VM 關機命令，來代替可控制實體裝置的 STONITH 指令碼。您可以使用 `/usr/lib/stonith/plugins/external/ssh` 做為基礎，並在叢集的組態中啟用 STONITH。系統應會全域安裝 Azure CLI，並載入叢集使用者的發佈設定/設定檔。
 
 您可在 [GitHub](https://github.com/bureado/aztonith) 上找到資源的範例程式碼。您必須變更叢集的組態，方法是將下列程式碼加入 `sudo crm configure`：
 
@@ -346,5 +346,6 @@ Pacemaker 會使用叢集來監視資源，定義在主要故障時將這些資�
 - 負載平衡器至少需要 5 秒的時間進行回應，因此應用程式應為叢集感知且應可容許逾時；其他架構也可提供協助，例如應用程式內部佇列、查詢中繼軟體等。
 - 若要確保寫入作業會以正常的步調結束，且會儘可能頻繁地將快取清除到磁碟以減少記憶體損失，MySQL 調整是有必要的。
 - VM 互連中的寫入效能將會取決於虛擬開關，因為虛擬開關是 DRBD 用來複寫裝置的機制。
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

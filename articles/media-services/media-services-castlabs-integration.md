@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="06/03/2015" 
 	ms.author="juliako"/>
 
 
@@ -32,7 +32,7 @@
 - 媒體內容儲存在 AMS 中。
 - 內容金鑰的金鑰識別碼儲存在 castLabs 與 AMS 中。
 - castLabs 與 AMS 皆有內建權杖驗證。以下幾節將會討論驗證權杖。 
-- 用戶端要求串流視訊時，AMS 會使用 **一般加密** (CENC) 動態加密內容，並動態封裝到任一 (或所有) 指定的通訊協定：Smooth Streaming、HLS 或 DASH。 
+- 用戶端要求串流視訊時，AMS 會使用 **一般加密** (CENC) 動態加密內容，並動態封裝到 Smooth Streaming 與 DASH。我們也會針對 HLS 串流通訊協定傳遞 PlayReady M2TS 基礎資料流加密。
 - PlayReady 授權擷取自 AMS 授權伺服器，Widevine 授權擷取自 castLabs 授權伺服器。 
 - 媒體播放器會根據平台功能自動決定提取哪些授權。 
 
@@ -95,7 +95,7 @@ castLabs 與 AMS 皆支援使用 JWT (JSON Web Token) 權杖格式進行授權�
 
 ##播放視訊
 
-若要播放使用一般加密 (PlayReady 和 Widevine) 技術加密的視訊，您可以使用 [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。執行主控台應用程式時，會回應內容金鑰識別碼和資訊清單 URL。
+若要播放使用一般加密 (PlayReady) 技術加密的視訊，您可以使用 [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。執行主控台應用程式時，會回應內容金鑰識別碼和資訊清單 URL。
 
 1.	開啟新索引標籤，並啟動 STS：http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid]。
 2.	移至 [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。
@@ -106,10 +106,12 @@ castLabs 與 AMS 皆支援使用 JWT (JSON Web Token) 權杖格式進行授權�
 7.	更新播放程式。
 8.	視訊應隨即播放。
 
-如需在 Chrome 中透過 castLabs 播放程式播放用 HTML5 保護的視訊，請連絡 castLabs 以取得播放程式的存取權。當您存取時，請注意以下 2 點：
+如需在 Chrome 中透過 castLabs 播放程式播放用 HTML5 保護的視訊，請連絡 yanmf@microsoft.com 以取得播放程式的存取權。當您存取時，請注意以下 2 點：
 
 1.	castLabs 播放程式必須存取 MPEG-DASH 資訊清單檔案，讓 (format=mpd-time-csf) 附加到您的資訊清單檔案，以取得 MPEG-DASH 資訊清單檔案，而非預設的 Smooth Streaming 資訊清單檔案。
 
 2.	castLab 授權伺服器不需要權杖前有 “Bearer=” 前置詞。因此請先移除該前置詞，再提交權杖。
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

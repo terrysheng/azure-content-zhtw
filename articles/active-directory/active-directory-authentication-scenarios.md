@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="06/01/2015"
    ms.author="mbaldwin"/>
 
 # Azure AD 的驗證案例
@@ -23,9 +23,7 @@ Azure Active Directory (Azure AD) 提供身分識別做為服務來簡化開發�
 
 - [Azure AD 中的驗證基本概念](#basics-of-authentication-in-azure-ad)
 
-
 - [Azure AD 安全性權杖中的宣告](#claims-in-azure-ad-security-tokens)
-
 
 - [在 Azure AD 中登錄應用程式的基本概念](#basics-of-registering-an-application-in-azure-ad)
 
@@ -47,7 +45,9 @@ Azure Active Directory (Azure AD) 提供身分識別做為服務來簡化開發�
 
 如果您不熟悉 Azure AD 中的驗證基本概念，請閱讀本節。否則，您可以往下跳到[應用程式類型和案例](#application-types-and-scenarios)。
 
-我們來看一下需要身分識別的最基本案例：Web 瀏覽器使用者需要向 Web 應用程式驗證。此案例在 [Web 瀏覽器到 Web 應用程式](#web-browser-to-web-application)一節中有更詳細的描述，但提供很好的起點來說明 Azure AD 的功能，並從概念上說明案例的運作方式。請考慮以下關於此案例的圖表：登入 Web 應用程式概觀
+我們來看一下需要身分識別的最基本案例：Web 瀏覽器使用者需要向 Web 應用程式驗證。此案例在 [Web 瀏覽器到 Web 應用程式](#web-browser-to-web-application)一節中有更詳細的描述，但提供很好的起點來說明 Azure AD 的功能，並從概念上說明案例的運作方式。請針對此案例細想下圖：
+
+![登入 Web 應用程式概觀](./media/active-directory-authentication-scenarios/basics_of_auth_in_aad.png)
 
 根據上圖，您對其中各種元件必須有所了解：
 
@@ -60,7 +60,7 @@ Azure Active Directory (Azure AD) 提供身分識別做為服務來簡化開發�
 - 開發人員可以使用開放原始碼 Azure AD 驗證程式庫，為您處理通訊協定的細節，以輕鬆完成驗證。如需詳細資訊，請參閱 [Azure Active Directory 驗證程式庫](https://msdn.microsoft.com/library/azure/dn151135.aspx)。
 
 
-• 使用者通過驗證之後，應用程式必須驗證使用者的安全性權杖，以確定相關各方的驗證成功。開發人員可以使用提供的驗證程式庫來驗證來自 Azure AD 的任何權杖，包括 JSON Web Token (JWT) 或 SAML 2.0。如果您想要手動執行驗證，請參閱 [JWT 權杖處理常式](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx) 文件。
+• 使用者通過驗證之後，應用程式必須驗證使用者的安全性權杖，以確定相關各方的驗證成功。開發人員可以使用提供的驗證程式庫來驗證來自 Azure AD 的任何權杖，包括 JSON Web Token (JWT) 或 SAML 2.0。如果您想要手動執行驗證，請參閱 [JWT 權杖處理常式](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx)文件。
 
 
 > [AZURE.IMPORTANT]Azure AD 使用公開金鑰密碼編譯來簽署權杖並驗證它們有效。如需有關應用程式中必要的邏輯以確保永遠以最新金鑰更新的相關資訊，請參閱 [Azure AD 中簽署金鑰變換的相關重要資訊](https://msdn.microsoft.com/library/azure/dn641920.aspx)。
@@ -130,7 +130,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 
 - 多租用戶應用程式：多租用戶應用程式適合在許多組織中使用，而不只一個組織。這些通常是由獨立軟體廠商 (ISV) 撰寫的軟體即服務 (SaaS) 應用程式。多租用戶應用程式需要佈建在將會用到它們的每個目錄中，而這需要使用者或系統管理員同意才能註冊。當應用程式目錄中已在目錄中註冊並獲權存取 Graph API 或其他 Web API 時，此同意程序會啟動。當不同組織的使用者或系統管理員註冊來使用應用程式時，他們會看到一個對話方塊顯示應用程式需要的權限。使用者或系統管理員可以同意應用程式，讓應用程式存取所述的資料，最後將應用程式註冊在他們的目錄中。如需詳細資訊，請參閱 [同意架構的概觀](https://msdn.microsoft.com/library/azure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_Consent)。
 
-開發多租用戶應用程式，而非單一租用戶應用程式時，有一些其他考量需要注意。例如，如果要讓您的應用程式供多個目錄中的使用者使用，您需要有機制來判斷他們所在的租用戶。單一租用戶應用程式只需要在它自己的目錄中查看使用者，但多租用戶應用程式需要從 Azure AD 的所有目錄中識別特定的使用者。為了完成這項工作，Azure AD 提供一個共同驗證端點，供任何多租用戶應用程式引導登入要求，而非提供租用戶特定的端點。對於 Azure AD 中的所有目錄，此端點為 https://login.windows.net/common而租用戶特定的端點可能是 https://login.windows.net/contoso.onmicrosoft.com開發您的應用程式時尤其必須考量共同端點，因為在登入、登出和權杖驗證期間，您需要必要的邏輯來處理多個租用戶。
+開發多租用戶應用程式，而非單一租用戶應用程式時，有一些其他考量需要注意。例如，如果要讓您的應用程式供多個目錄中的使用者使用，您需要有機制來判斷他們所在的租用戶。單一租用戶應用程式只需要在它自己的目錄中查看使用者，但多租用戶應用程式需要從 Azure AD 的所有目錄中識別特定的使用者。為了完成這項工作，Azure AD 提供一個共同驗證端點，供任何多租用戶應用程式引導登入要求，而非提供租用戶特定的端點。對於 Azure AD 中的所有目錄，此端點為 https://login.microsoftonline.com/common而租用戶特定的端點可能是 https://login.microsoftonline.com/contoso.onmicrosoft.com開發您的應用程式時尤其必須考量共同端點，因為在登入、登出和權杖驗證期間，您需要必要的邏輯來處理多個租用戶。
 
 如果您目前正在開發單一租用戶應用程式，但想要提供給許多組織使用，您可以在 Azure AD 中輕鬆地變更應用程式及其組態，將它變成具備多租用戶功能。此外，不論您是在單一租用戶或多租用戶應用程式中提供驗證，Azure AD 對所有目錄中的所有權杖都使用相同的簽署金鑰。
 
@@ -228,7 +228,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 5. 使用者在登入頁面上登入。
 
 
-6. 如果驗證成功，Azure AD 就會建立識別碼權杖，並當做 URL 片段 (#) 傳回至應用程式的回覆 URL。對於實際執行應用程式，此回覆 URL 應該為 HTTPS。傳回的權杖包含應用程式驗證權杖所需的使用者與 Azure AD 宣告。
+6. 如果驗證成功，Azure AD 就會建立識別碼權杖，並當做 URL 片段 (\#) 傳回至應用程式的回覆 URL。對於實際執行應用程式，此回覆 URL 應該為 HTTPS。傳回的權杖包含應用程式驗證權杖所需的使用者與 Azure AD 宣告。
 
 
 7. 瀏覽器中執行的 JavaScript 用戶端程式碼從回應中擷取權杖，用以保護對應用程式 Web API 後端的呼叫。
@@ -459,12 +459,11 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 
 ## 另請參閱
 
-
-### 概念
 [Azure Active Directory 程式碼範例](active-directory-code-samples.md)
 
 [Azure AD 中簽署金鑰變換的相關重要資訊](https://msdn.microsoft.com/library/azure/dn641920.aspx)
-
+ 
 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

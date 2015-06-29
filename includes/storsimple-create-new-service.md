@@ -16,9 +16,9 @@
    ms.author="v-sharos" />
 
 
-### 建立新服務
+#### 建立新服務
 
-1. 在下列位置使用您的 Microsoft 帳戶認證來登入 Microsoft Azure 管理入口網站：[Azure 管理入口網站](https://manage.windowsazure.com/)。
+1. 使用您的 Microsoft 帳戶認證登入「管理入口網站」，URL 如下：[http://azure.microsoft.com/](http://azure.microsoft.com/)
 
 2. 在管理入口網站中，按一下 [新增] > [資料服務] > [StorSimple Manager] > [快速建立]。
 
@@ -35,4 +35,4 @@
  
        ![服務建立](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

@@ -10,7 +10,7 @@
 <tags
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/12/2015"
@@ -74,13 +74,13 @@
 
     makecert -sky exchange -r -n "CN=RootCertificateName" -pe -a sha1 -len 2048 -ss My "RootCertificateName.cer"
 
-### 將根憑證檔案上傳至管理入口網站 
+### 將根憑證檔案上傳至管理入口網站
 
 1. 在先前的程序中，當您產生自我簽署的根憑證時，也會建立 *.cer* 檔案。現在您要將該檔案上傳至管理入口網站。請注意，.cer 檔案未包含根憑證的私密金鑰。
 1. 在管理入口網站中，於虛擬網路的 [憑證] 頁面上，按一下 [上傳根憑證]。
 1. 在 [上傳憑證] 頁面上，瀏覽到 .cer 根憑證，然後按一下勾號。
 
-### 產生用戶端憑證 
+### 產生用戶端憑證
 
 1. 在用來建立自我簽署之根憑證的相同電腦上，以系統管理員身分開啟 [Visual Studio 命令提示字元] 視窗。
 2. 將目錄切換至您要儲存用戶端憑證檔案的位置。*RootCertificateName* 是指您產生的自我簽署根憑證。如果您執行以下範例 (將 RootCertificateName 變更為根憑證的名稱)，就會在個人憑證存放區中產生一個名為 "ClientCertificateName" 的用戶端憑證。
@@ -118,7 +118,7 @@
 
 ### 在用戶端安裝 VPN 組態封裝並啟動連線
 
-1. 在本機將組態檔複製到您要連接到虛擬網路的電腦上，然後按兩下 .exe 檔案。一旦封裝安裝完成後，您就可以啟動 VPN 連線。請注意，組態封裝並非由 Microsoft 所簽署。您可能想要使用組織的簽署服務來簽署封裝，或是自行使用 [SignTool](https://msdn.microsoft.com/library/windows/desktop/aa387764(v=vs.85).aspx) 來簽署。即使沒有簽署，還是可以使用封裝。不過，如果封裝未簽署，當您安裝封裝時將會出現警告。 
+1. 在本機將組態檔複製到您要連接到虛擬網路的電腦上，然後按兩下 .exe 檔案。一旦封裝安裝完成後，您就可以啟動 VPN 連線。請注意，組態封裝並非由 Microsoft 所簽署。您可能想要使用組織的簽署服務來簽署封裝，或是自行使用 [SignTool](https://msdn.microsoft.com/library/windows/desktop/aa387764(v=vs.85).aspx) 來簽署。即使沒有簽署，還是可以使用封裝。不過，如果封裝未簽署，當您安裝封裝時將會出現警告。
 2. 在用戶端電腦上瀏覽到 VPN 連線，然後找出剛建立的 VPN 連線。它的名稱將會與虛擬網路相同。按一下 [連接]。
 3. 此時會出現一個快顯訊息，此訊息是用來針對閘道端點建立自我簽署的憑證。按一下 [繼續] 以使用較高的權限。
 4. 在 [連線] 狀態頁面上，按一下 [連接] 以便開始連接。
@@ -142,7 +142,7 @@
 		Autoconfiguration Enabled.......: Yes
 		IPv4 Address....................: 192.168.130.2(Preferred)
 		Subnet Mask.....................: 255.255.255.255
-		Default Gateway.................: 
+		Default Gateway.................:
 		NetBIOS over Tcpip..............: Enabled
 
 
@@ -157,5 +157,6 @@
 您可以將虛擬機器加入您的虛擬網路。請參閱[如何建立自訂虛擬機器](../virtual-machines/virtual-machines-create-custom.md)
 
 如果您想要使用 RRAS 設定 VNet 連線，請參閱 [使用 Windows Server 2012 路由及遠端存取服務 (RRAS) 設定站對站 VPN](https://msdn.microsoft.com/library/dn636917.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

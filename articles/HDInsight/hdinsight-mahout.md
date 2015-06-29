@@ -1,6 +1,6 @@
 <properties
-	pageTitle="搭配 Microsoft Azure HDInsight (Hadoop) 使用 Mahout 來產生電影推薦"
-	description="了解如何搭配 HDInsight (Hadoop) 使用 Apache Mahout 機器學習庫來產生電影推薦"
+	pageTitle="使用 Mahout 和 Hadoop 來產生推薦 | Microsoft Azure"
+	description="了解如何搭配 HDInsight (Hadoop) 使用 Apache Mahout 機器學習庫來產生電影推薦。"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -13,16 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2015"
+	ms.date="06/16/2015"
 	ms.author="larryfr"/>
 
-#使用搭配 HDInsight 的 Apache Mahout 產生電影推薦
+#透過在 HDInsight 上將 Apache Mahout 與 Hadoop 搭配使用來產生電影推薦
+
+[AZURE.INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
 了解如何使用搭配 Azure HDInsight 的 [Apache Mahout](http://mahout.apache.org) 機器學習庫產生電影推薦。
 
-> [AZURE.NOTE]您必須有 HDInsight 叢集，才能使用本文的資訊。如需有關建立此叢集的資訊，請參閱[開始在 HDInsight 中使用 Hadoop][getstarted]。
->
-> Mahout 提供 HDInsight 3.1 版的叢集。如果您正在使用舊版的 HDInsight，請參閱[安裝 Mahout](#install) 後再繼續。
+> [AZURE.NOTE]此文件中的步驟需要 Windows 用戶端和 Windows 架構的 HDInsight 叢集。如需搭配使用來自 Linux、OS X 或 Unix 用戶端的 Mahout 與 Linux 架構之 HDInsight 叢集的相關資訊，請參閱[透過在 HDInsight 上將 Apache Mahout 與 Linux 架構的 Hadoop 搭配使用來產生電影推薦清單](hdinsight-hadoop-mahout-linux-mac.md)
+
 
 ##<a name="learn"></a>您將了解
 
@@ -33,6 +34,15 @@ Mahout 是 Apache Hadoop 的[機器學習][ml]庫。Mahout 包含可處理資料
 * 如何從 Hadoop 命令列執行 Mahout 工作
 
 * 如何在 HDInsight 3.0 和 HDInsight 2.0 叢集上安裝 Mahout
+
+	> [AZURE.NOTE]Mahout 提供 HDInsight 3.1 版的叢集。如果您正在使用舊版的 HDInsight，請參閱[安裝 Mahout](#install) 後再繼續。
+
+##先決條件
+
+* **HDInsight 中 Windows 架構的 Hadoop 叢集**。如需建立此叢集的相關資訊，請參閱[開始在 HDInsight 中使用 Hadoop][getstarted]。
+
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝及使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
+
 
 ##<a name="recommendations"></a>使用 Windows PowerShell 產生推薦
 
@@ -84,7 +94,7 @@ Mahout 提供的其中一項功能是推薦引擎。這個引擎接受 `userID``
 	# So dynamically grab it using Hive.
 	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar' | where {$_.startswith("C:\apps\dist")}
 	$noCRLF = $mahoutPath -replace "`r`n", ""
-	$cleanedPath = $noCRLF -replace "", "/"
+	$cleanedPath = $noCRLF -replace "\", "/"
 	$jarFile = "file:///$cleanedPath"
     #
 	# If you are using an earlier version of HDInsight,
@@ -134,11 +144,11 @@ Mahout 工作不會將輸出傳回 STDOUT。相反地，其會將該輸出儲存
 	3	[284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
 	4	[690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
 
-第一欄是`userID`。'[' 和 ']' 包含的值是 `movieId`：`recommendationScore`
+第一欄是`userID`。'[' 和 ']' 中包含的值是 `movieId`:`recommendationScore`。
 
 ###檢視輸出
 
-雖然產生的輸出可以在應用程式中使用，但非常難以讓人判讀。先前解壓縮至 __ml-100k__ 資料夾的其他部分檔案，可以用來將  `movieId` 解析成電影名稱。__ml-100k__ 資料夾中含有一個 Python 指令碼可以這樣做 (__show_recommendations.py__)，或者您也可以使用下列 Windows PowerShell 指令碼：
+雖然產生的輸出可以在應用程式中使用，但非常難以讓人判讀。先前解壓縮至 __ml-100k__ 資料夾的其他部分檔案，可用來將 `movieId` 解析成電影名稱，這就是下列 PowerShell 指令碼所執行的動作：
 
 	<#
 	.SYNOPSIS
@@ -226,9 +236,6 @@ Mahout 工作不會將輸出傳回 STDOUT。相反地，其會將該輸出儲存
 
 	PS C:> show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txt
 
-
-> [AZURE.NOTE]範例 Python 指令碼 __show_recommendations.py__ 接受相同的參數。
-
 輸出應該類似下列所示：
 
 	Reading movies descriptions
@@ -278,17 +285,17 @@ Mahout 可用的其中一個分類方法是建置[隨機森林][forest]。這是
 
 ###執行工作
 
-1. 此工作需要 Hadoop 命令列，因此您必須先透過 [Azure 入口網站][management]啟用遠端桌面。在入口網站中，選取 HDInsight 叢集，然後在 [組態]____ 頁面底部選取 [啟用遠端]____：
+1. 此工作需要 Hadoop 命令列，因此您必須先透過 [Azure 入口網站][management]啟用遠端桌面。在入口網站中，選取 HDInsight 叢集，然後在 [組態] 頁面底部選取 [啟用遠端]：
 
     ![enable remote][enableremote]
 
     出現提示時，輸入要用於遠端工作階段的使用者名稱和密碼。
 
-2. 啟用遠端存取之後，選取 [連接]____ 開始連線。這樣會下載 __.rdp__ 檔案，其可用以啟動遠端桌面工作階段。
+2. 啟用遠端存取之後，選取 [連接] 開始連線。這樣會下載 __.rdp__ 檔案，其可用以啟動遠端桌面工作階段。
 
     ![connect][connect]
 
-3. 連線之後，使用 [Hadoop 命令列]____ 圖示開啟 Hadoop 命令列：
+3. 連線之後，使用 [Hadoop 命令列] 圖示開啟 Hadoop 命令列：
 
 	![hadoop cli][hadoopcli]
 
@@ -357,11 +364,11 @@ Mahout 安裝於 HDInsight 3.1 叢集上，且可使用下列步驟來手動安�
 
     	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    > [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
+    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
 
-2. 將 jar 檔案上傳至叢集預設儲存庫中的 __example/jars__。下列範例使用 [send-hdinsight][sendhdinsight] 指令碼來上傳檔案：
+2. 將 jar 檔案上傳至叢集預設儲存庫中的 __example/jars__。下列範例會使用 [HDInsight-Tools][tools] 的 add-hdinsightfile 來上載檔案：
 
-    	PS C:> .\Send-HDInsight -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
+    	PS C:> .\Add-HDInsightFile -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
 
 ###無法覆寫檔案
 
@@ -399,13 +406,20 @@ HDInsight 3.1 叢集包含 Mahout。路徑和檔案名稱包含叢集上安裝�
 
 若要執行用到這些類別的工作，請連接到 HDInsight 叢集，然後使用 Hadoop 命令列執行工作。相關範例請參閱[使用 Hadoop 命令列將資料分類](#classify)。
 
+##後續步驟
+
+您現在已了解如何使用 Mahout，請繼續探索在 HDInsight 上使用資料的其他方法：
+
+* [搭配 HDInsight 使用 Hive](../hadoop-use-hive.md)
+* [搭配 HDInsight 使用 Pig](../hadoop-use-pig.md)
+* [搭配 HDInsight 使用 MapReduce](../hadoop-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
-[aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[aps]: ../powershell-install-configure.md
 [movielens]: http://grouplens.org/datasets/movielens/
 [100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
-[getstarted]: http://azure.microsoft.com/documentation/articles/hdinsight-get-started/
-[upload]: http://azure.microsoft.com/documentation/articles/hdinsight-upload-data/
+[getstarted]: ../hdinsight-get-started.md
+[upload]: hdinsight-upload-data.md
 [ml]: http://en.wikipedia.org/wiki/Machine_learning
 [forest]: http://en.wikipedia.org/wiki/Random_forest
 [management]: https://manage.windowsazure.com/
@@ -413,5 +427,6 @@ HDInsight 3.1 叢集包含 Mahout。路徑和檔案名稱包含叢集上安裝�
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

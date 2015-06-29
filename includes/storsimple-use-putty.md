@@ -6,7 +6,6 @@
    authors="SharS"
    manager="adinah"
    editor="tysonn" />
-
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -16,7 +15,7 @@
    ms.date="04/01/2015"
    ms.author="v-sharos" />
 
-### 透過序列主控台連接
+#### 透過序列主控台連接
 
 1. 將序列纜線連接到裝置 (直接連接或透過 USB 序列介面卡)。
 
@@ -39,10 +38,11 @@
 
     下圖顯示這些設定。
 
-     ![PuTTY 設定](./media/storsimple-use-putty/HCS_ConnectingViaPutty-include.png)
+     ![PuTTY 設定](./media/storsimple-use-putty/HCS_PuttyConfig-include.png)
 
     > [AZURE.NOTE]如果預設的流程控制設定無法運作，請嘗試將流程控制設為 XON/XOFF。
 
 7. 按一下 [開啟] 以啟動序列工作階段。
  
-<!--HONumber=52-->
+
+<!---HONumber=58_postMigration-->

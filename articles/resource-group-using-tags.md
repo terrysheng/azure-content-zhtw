@@ -42,7 +42,7 @@ Azure 入口網站和基礎資源管理員是用來組織您的資源及量身�
 
 ## 使用 PowerShell 來標記
 
-首要之務是取得最新的 [Azure PowerShell 模組](./install-configure-powershell.md)。如果這是您第一次使用 Azure PowerShell 模組，[請閱讀說明文件](./install-configure-powershell.md)，以快速上手。基於本文的目的，我們假設您已經加入帳戶，並選取含有您想要標記的資源的訂閱。
+首要之務是取得最新的 [Azure PowerShell 模組](./install-configure-powershell.md)。如果這是您第一次使用 Azure PowerShell 模組，[請閱讀說明文件](./install-configure-powershell.md)，以快速上手。基於本文的目的，我們假設您已經加入帳戶，並選取含有您想要標記之資源的訂閱。
 
 標記只適用於[資源管理員](http://msdn.microsoft.com/library/azure/dn790568.aspx)所提供的資源和資源群組，因此，接下來我們需要切換到使用資源管理員。如需詳細資訊，請參閱[將 Azure PowerShell 與 Azure 資源管理員搭配使用](powershell-azure-resource-manager.md)。
 
@@ -56,7 +56,7 @@ Azure 入口網站和基礎資源管理員是用來組織您的資源及量身�
 
 ![在 PowerShell 中使用 Set-AzureResourceGroup 設定標記](./media/resource-group-using-tags/Set-AzureResourceGroup-in-PowerShell.png)
 
-請記住，標記是整體更新，因此，如果您要將一個標記加入至已標記的資源，則必須使用陣列來儲存您想要保留的所有標記。若要移除一個標記，只要儲存不含您要移除的標記的陣列即可。
+請記住，標記是整體更新，因此，如果您要將一個標記加入至已標記的資源，則必須使用陣列與您想要保留的所有標記。若要移除一個標記，只要儲存不含您要移除的標記的陣列即可。
 
 對於資源，處理方式相同，差別在於使用 `Get-AzureResource` 和 `Set-AzureResource` Cmdlet。若要取得含有特定標記的資源或資源群組，請使用 `Get-AzureResource` 或 `Get-AzureResourceGroup` Cmdlet 並指定 `-Tag` 參數。
 
@@ -112,4 +112,4 @@ Azure 入口網站和基礎資源管理員是用來組織您的資源及量身�
 - [使用 Azure 傳統入口網站建立新的 Azure 服務主體](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

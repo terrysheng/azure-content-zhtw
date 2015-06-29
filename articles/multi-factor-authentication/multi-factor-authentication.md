@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="什麼是 Azure Multi-Factor Authentication？" 
-	description="" 
+	description="Azure Multi-Factor Authentication 是除了使用使用者名稱與密碼之外，需要再利用其他方法驗證您的身份的驗證方法。它可以為使用者登入和交易提供額外層級的安全性。" 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="terrylan" 
-	editor="lisatoft"/>
+	editor="bryanla"/>
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,60 +13,52 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2014" 
+	ms.date="06/02/2015" 
 	ms.author="billmath"/>
 
+# 為連線過的項目提供額外的安全性
+
+多因素驗證 (MFA) 是需要使用多種驗證方法，並在使用者登入和交易中新增重要的第二層安全性的驗證方法。其運作方式需要下列其中任何二或多個驗證方法：
+
+- 您知道的某些資訊 (通常是密碼)
+- 您擁有的某些東西 (不容易輕易複製的信任裝置，例如電話)
+- 您身上的某些特徵 (生物識別技術)
+
+<center>![Username and Password](./media/multi-factor-authentication/pword.png) &#160;&#160;&#160;&#160;&#160;![Certificates](./media/multi-factor-authentication/phone.png) &#160;&#160;&#160;&#160;&#160;![Smart Phone](./media/multi-factor-authentication/hware.png) &#160;&#160;&#160;&#160;&#160;![Smart Card](./media/multi-factor-authentication/smart.png) &#160;&#160;&#160;&#160;&#160;![Virtual Smart Card](./media/multi-factor-authentication/vsmart.png) &#160;&#160;&#160;&#160;&#160;![Username and Password](./media/multi-factor-authentication/cert.png)</center>
+
+## 什麼是 Azure Multi-Factor Authentication？
+
+Azure Multi-Factor Authentication 是除了使用使用者名稱與密碼之外，需要再利用其他方法驗證您的身份的驗證方法。它可以為使用者登入和交易提供第二層安全性。
+
+Azure Multi-Factor Authentication 有助於保護對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。它可以透過一些簡單的驗證選項 (例如電話、文字訊息，或行動應用程式通知或驗證代碼，以及第三方 OATH 權杖) 來提供強大的驗證功能。
+
+如需 Azure Multi-Factor Authentication 運作方式的概觀，請參閱以下影片。
 
 
+<center>[AZURE.VIDEO multi-factor-authentication-overview]</center>
 
+##為何使用 Azure Multi-Factor Authentication？
 
-<h1 id="whatiswamfa">什麼是 Azure Multi-Factor Authentication？</h1>
+與以前比較起來，現在人們連線網路的時間越來越長。透過智慧型手機、平板電腦、膝上型電腦以及電腦，人們有幾種不同選擇可隨時用來連線網路並維持連線。人們可以從任何地方存取他們的帳戶與應用程式，這表示他們可以完成更多工作並為客戶提供更好的服務。
 
-多因素或雙因素驗證是需要使用多種驗證方法，並在使用者登入和交易中新增重要第二安全性階層的驗證方法。其運作方式需要下列其中任何二或多個驗證方法： 
+Azure Multi-Factor Authentication 是一個容易使用、可調整且可靠的解決方案，可提供第二種驗證方法讓您的使用者永遠受到保護。
 
-* 您知道的某些資訊 (通常是密碼)
-* 您擁有的某些東西 (不容易輕易複製的信任裝置，例如電話)
-* 您身上的某些特徵 (生物識別技術)
+![容易使用](./media/multi-factor-authentication/simple.png)| ![可調整](./media/multi-factor-authentication/scalable.png)| ![永遠受到保護](./media/multi-factor-authentication/protected.png)|![可靠](./media/multi-factor-authentication/reliable.png)
+:-------------: | :-------------: | :-------------: | :-------------: |
+**容易使用**|**可調整**|**永遠受到保護**|**可靠**
 
-多因素驗證的安全性仰賴其分層方法。使用多重驗證因素會為攻擊者帶來相當程度的挑戰。即使攻擊者試圖打探使用者的密碼，在不持有信任裝置的情況下便沒有任何意義。反之，如果使用者正好遺失裝置，拾獲該裝置的人仍然無法使用此裝置，除非他或她剛好知道使用者的密碼。
-Azure Multi-Factor Authentication 是一種多因素驗證服務，需要使用者同時使用行動裝置應用程式、通話或簡訊來驗證登入。它可與 Azure Active Directory 搭配使用，來保護內部部署資源和 Azure Multi-Factor Authentication Server 的安全，它還可以使用 SDK 來與自訂應用程式和目錄搭配使用。 
+- **容易使用** - Azure Multi-Factor Authenticaton 很容易設定及使用。Azure Multi-Factor Authentication 提供的額外保護功能可讓使用者使用及管理他們自己的裝置，而且在許多情況下，只要簡單地按幾下就可以設定完成。
+- **可調整** - Azure Multi-Factor Authenticaton 採用雲端技術且與您內部部署的 AD 與自訂應用程式整合。此保護功能甚至可以擴充以因應您高任務關鍵性的狀況。
+- **永遠受到保護** - Azure Multi-Factor Authentication 使用最高工業標準提供強大驗證功能。
+- **可靠** - 我們保證 Azure Multi-Factor Authentication 的可用性可達到 99.9%。當服務無法接收或處理多因素驗證的驗證要求時，服務會被視為無法使用。  
 
-![Azure Multi-Factor Authentication](./media/multi-factor-authentication/whatismfa.png)
+如需為何使用 Azure Multi-Factor Authentication 的其他資訊，請參閱以下影片。
 
-<h3>保護雲端 Azure Active Directory 的安全</h3>
-
-啟用適用於 Azure AD 身分識別的 Multi-Factor Authentication，系統將於使用者下次登入時出現設定其他驗證的提示。使用 Multi-Factor Authentication 來保護 Azure、Microsoft Online Services (如 Office 365 和 Dynamics CRM Online)，以及無需額外設定即可整合 Azure AD 的協力廠商雲端服務的安全。您可以快速啟用大量全域使用者和應用程式的多因素驗證。[深入了解](http://msdn.microsoft.com/library/azure/dn249466.aspx)
-
-<h3>保護內部部署資源和 Active Directory 的安全</h3>
-
-使用 Azure Multi-Factor Authentication Server 來啟用內部部署資源 (例如 IIS 和 Active Directory) 的 Multi-Factor Authentication。Azure Multi-Factor Authentication Server 可讓系統管理員整合與 IIS 驗證共同保護 Microsoft IIS Web 應用程式、RADIUS 驗證、LDAP 驗證和 Windows 驗證的安全。[深入了解](http://msdn.microsoft.com/library/azure/dn249467.aspx)
-<h3>保護自訂應用程式的安全</h3>
-
-SDK 允許與雲端服務的直接整合。在應用程式的登入或交易程序中內建主動式驗證通話和簡訊驗證，並充分利用應用程式的現有使用者資料庫。[深入了解](http://msdn.microsoft.com/library/azure/dn249464.aspx)
-
-<h3>Multi-Factor Authentication for Office 365</h3>
-
-Azure Multi-Factor Authentication 技術支援的 Multi-Factor Authentication for Office 365，專用於 Office 365 應用程式並可透過 Office 365 入口網站進行管理。系統管理員現在可以使用多重要素驗證來保護其 Office 365 資源的安全。[深入了解](http://msdn.microsoft.com/library/azure/dn383636.aspx)
-
-<h3>適用於 Azure 系統管理員的多重要素驗證</h3>
-
-適用於 Office 365 的 Multi-Factor Authentication 功能的相同子集將免費提供給所有 Azure 系統管理員。Azure 訂閱的每個管理帳戶現可透過啟用此多因素驗證核心功能，來取得額外的防護。因此想要存取 Azure 入口網站以建立 VM、網站、管理儲存體、行動服務或任何其他 Azure 服務的系統管理員，可在其系統管理員帳戶中新增多因素驗證。[深入了解](http://msdn.microsoft.com/library/azure/dn249471.aspx)
-
-<h3>多重要素驗證功能比較</h3>
-
-下列內容將說明可用的多因素驗證版本，以及所提供的功能簡短摘要。您可以使用此內容來判斷適合您的多因素驗證版本。[深入了解](http://msdn.microsoft.com/library/azure/dn249471.aspx)
-
-![Azure Multi-Factor Authentication Feature Comparison](./media/multi-factor-authentication/mfacomparison2.png)
-
+<center>[AZURE.VIDEO windows-azure-multi-factor-authentication]</center>
 
 **其他資源**
 
-* [以組織身分註冊 Azure](/zh-tw/manage/services/identity/organizational-account/)
-* [Azure 身分識別](/zh-tw/manage/windows/fundamentals/identity/)
-* [Azure Multi-Factor Authentication 程式庫](http://technet.microsoft.com/library/dn249471.aspx)
+* [適用於使用者](multi-factor-authentication-end-user.md)
+* [MSDN 上的 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
- 
+<!---HONumber=58_postMigration-->

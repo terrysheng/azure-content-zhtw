@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="在虛擬機器上搭配使用 Azure 高階儲存體和 SQL Server" 
-	description="本文提供如何利用在 Azure 虛擬機器上執行的 SQL Server，開始使用 Azure 高階儲存體的指導方針。其中包含新部署和移轉 IaaS 上現有 SQL Server 部署的範例。" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="danielsollondon" 
+	pageTitle="在虛擬機器上搭配使用 Azure 高階儲存體和 SQL Server"
+	description="本文提供如何利用在 Azure 虛擬機器上執行的 SQL Server，開始使用 Azure 高階儲存體的指導方針。其中包含新部署和移轉 IaaS 上現有 SQL Server 部署的範例。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="danielsollondon"
 	manager="jeffreyg"
 	editor=""/>
 
@@ -12,15 +12,16 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
-	ms.date="04/29/2015"
+	ms.workload="infrastructure-services"
+	ms.date="06/02/2015"
 	ms.author="jroth"/>
 
 # 在虛擬機器上搭配使用 Azure 高階儲存體和 SQL Server
 
+
 ## 概觀
 
-[Azure 高階儲存體](../storage-premium-storage-preview-portal.md)是新一代儲存體，可提供低延遲和高輸送量 IO。它最適合用於需要大量 IO 的重要工作負載，例如，IaaS [虛擬機器](http://azure.microsoft.com/services/virtual-machines/)上的 SQL Server。本文提供移轉執行 SQL Server 的虛擬機器來執行高階儲存體的規劃與指導方針。這包括 Azure 基礎結構 (網路功能、儲存體) 和客體 Windows VM 步驟。[附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)中的範例示範一個全方位的端對端移轉，說明如何移動更大規模的 VM，來利用透過 PowerShell 改善的本機 SSD 儲存體。
+[Azure 高階儲存體](../storage-premium-storage-preview-portal.md)是新一代儲存體，可提供低延遲和高輸送量 IO。它最適合用於需要大量 IO 的重要工作負載，例如，IaaS [虛擬機器](http://azure.microsoft.com/services/virtual-machines/)上的 SQL Server。本文提供移轉執行 SQL Server 的虛擬機器來執行高階儲存體的規劃與指導方針。這包括 Azure 基礎結構 (網路功能、儲存體) 和客體 Windows VM 步驟。[附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)中的範例示範一個全方位的端對端移轉，說明如何透過 PowerShell 移動更大規模的 VM，來利用 改善的本機 SSD 儲存體。
 
 請務必了解在 IAAS VM 上搭配使用 Azure 高階儲存體和 SQL Server 的端對端處理程序。其中包括：
 
@@ -32,7 +33,7 @@
 
 如需更多關於 Azure 虛擬機器中 SQL Server 的背景資訊，請參閱 [Azure 虛擬機器中的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)。
 
-**技術檢閱者：**Luis Carlos Vargas Herring、Sanjay Mishra、Pravin Mital、Juergen Thomas、Gonzalo Ruiz
+**作者：**Daniel Sol **技術審稿人員：**Luis Carlos Vargas Herring、Sanjay Mishra、Pravin Mital、Juergen Thomas、Gonzalo Ruiz。
 
 ## 適用於高階儲存體的必要條件
 
@@ -373,7 +374,7 @@
 1. **在現有的 AlwaysOn 叢集中新增更多次要複本**
 1. **移轉到新的 AlwaysOn 叢集**
 
-#### 1.在現有的 AlwaysOn 叢集中新增更多次要複本
+#### 1\.在現有的 AlwaysOn 叢集中新增更多次要複本
 
 有一個策略是在 AlwaysOn 可用性群組中新增更多次要項目。您需要將這些項目新增到新的雲端服務，然後使用新的負載平衡器 IP 來更新接聽程式。
 
@@ -420,7 +421,7 @@
 - 在設定次要項目時，可能需要較長的 SQL 資料傳輸時間。
 - 當您平行執行新機器時，會在移轉期間產生額外成本。
 
-#### 2.移轉到新的 AlwaysOn 叢集
+#### 2\.移轉到新的 AlwaysOn 叢集
 
 另一種策略是在新的雲端服務中，使用全新的節點來建立全新的 AlwaysOn 叢集，然後重新導向用戶端來使用該節點。
 
@@ -441,7 +442,7 @@
 ##### 缺點
 
 - 如果您想要同時執行這兩個 AlwaysOn 叢集，就需要變更接聽程式的 DNS 名稱。因為用戶端應用程式字串必須反映新的接聽程式名稱，所以這會在移轉期間增加管理負荷。
-- 您必須在這兩個環境之間實作同步處理機
+- 您必須在這兩個環境之間實作同步處理機  
 制，使它們盡可能靠近彼此，以便在移轉之前將最後的同步處理需求降至最低。
 - 當您正在執行新環境時，這會在移轉期間增加成本。
 
@@ -452,7 +453,7 @@
 1. **利用現有的次要項目：單一站台**
 1. **利用現有的次要項目：多站台**
 
-#### 1.利用現有的次要項目：單一站台
+#### 1\.利用現有的次要項目：單一站台
 
 將停機時間降至最低的其中一種策略是取得現有的雲端次要項目，並從目前的雲端服務中移除它。然後將 VHD 複製到新的高階儲存體帳戶，並在新的雲端服務中建立 VM。接著在叢集設定和容錯移轉中更新接聽程式。
 
@@ -492,13 +493,13 @@
 - 設定 ILB / ELB 並新增端點。
 - 使用下列任一種方法來更新接聽程式：
 	- 使 AlwaysOn 群組離線，並使用新的 ILB / ELB IP 位址來更新 AlwaysOn 接聽程式。 
-	- 或者，透過 PowerShell，將新雲端服務 ILB/ELB 的 IP 位址資源新增到 Windows 叢集。接著，將 IP 位資源的 [可能的擁有者] 設為移轉的節點 SQL2，並在 [網路名稱] 中將此設為  OR 相依性。請參閱[附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)的＜在同一個子網路上新增 IP 位址資源＞。
+	- 或者，透過 PowerShell，將新雲端服務 ILB/ELB 的 IP 位址資源新增到 Windows 叢集。接著，將 IP 位資源的 [可能的擁有者] 設為移轉的節點 SQL2，並在 [網路名稱] 中將此設為 OR 相依性。請參閱[附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)的＜在同一個子網路上新增 IP 位址資源＞。
 - 檢查連到用戶端的 DNS 設定/傳播。
 - 移轉 SQL1 VM，然後執行步驟 2 - 4。
 - 如果使用步驟 5ii，則新增 SQL1 做為新增 IP 位址資源的 [可能的擁有者]
 - 測試容錯移轉。
 
-#### 2.利用現有的次要項目：多站台
+#### 2\.利用現有的次要項目：多站台
 
 如果您的節點分佈於一個以上的 Azure 資料中心 (DC)，或者您擁有混合式環境，則您可在這個環境中使用 AlwaysOn 設定來將停機時間降至最低。
 
@@ -537,7 +538,7 @@
 - 建立高階儲存體帳戶，並從標準儲存體帳戶複製 VHD。
 - 建立新的雲端服務，並使用其連結的高階儲存體磁碟來建立 SQL2 VM。
 - 設定 ILB / ELB 並新增端點。
-- 使用新的  ILB / ELB IP 位址來更新 AlwaysOn 接聽程式，並測試容錯移轉。
+- 使用新的 ILB / ELB IP 位址來更新 AlwaysOn 接聽程式，並測試容錯移轉。
 - 檢查 DNS 設定。
 - 將 AFP 變更為 SQL2，然後移轉 SQL1，並執行步驟 2 – 5。
 - 測試容錯移轉。
@@ -609,7 +610,7 @@
  
 ![Appendix3][13]
 
-將 [最大失敗數目] 變更為 6。 
+將 [最大失敗數目] 變更為 6。
 
 #### 步驟 3：新增叢集群組的 IP 位址資源 <Optional>
 
@@ -665,7 +666,7 @@
 
 如果您的 SQL 用戶端應用程式支援 .Net 4.5 SQLClient，則您可以使用 ‘MULTISUBNETFAILOVER=TRUE’ 關鍵字，若它允許在容錯移轉期間更快速連線到 SQL AlwaysOn 可用性群組，則建議套用這個設定。它會平行列舉所有與 AlwaysOn 接聽程式相關聯的 IP 位址，並在容錯移轉期間更頻繁地執行 TCP 連線重試速度。
 
-如需有關上述設定的詳細資訊，請參閱 [MultiSubnetFailover 關鍵字和相關聯的功能](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover)。另請參閱[適用於高可用性和災害復原的 SqlClient 支援](https://msdn.microsoft.com/library/hh205662(v=vs.110).aspx)。
+如需有關上述設定的詳細資訊，請參閱 [MultiSubnetFailover 關鍵字和相關聯的功能](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover)。另請參閱 [適用於高可用性與災害復原的 SqlClient 支援](https://msdn.microsoft.com/library/hh205662(v=vs.110).aspx)。
 
 #### 步驟 5：叢集仲裁設定
 
@@ -1022,7 +1023,7 @@
 
 繼續等待，直到這所有設定都記錄為成功為止。
 
-適用於個別 Blob 的資訊：#檢查個別的 Blob 狀態 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
+適用於個別 Blob 的資訊：\#檢查個別的 Blob 狀態 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
 
 #### 步驟 21：註冊作業系統磁碟
     #change storage account to the new XIO storage account
@@ -1141,5 +1142,6 @@
 [23]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_13.png
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

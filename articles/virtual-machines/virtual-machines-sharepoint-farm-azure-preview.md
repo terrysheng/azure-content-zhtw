@@ -38,7 +38,7 @@
  
 若要使用 SharePoint 伺服器陣列範本建立您的 SharePoint 伺服器陣列，請執行下列動作：
 
-1. 在 [Microsoft Azure Preview 入口網站](https://portal.azure.com/)中，按一下 [新增] > [計算]  > [SharePoint Server 伺服器陣列]。如果 [SharePoint Server 伺服器陣列] 未出現，請依序按一下 [新增] > [計算] > [Azure Marketplace]、在 [搜尋所有項目] 中輸入 **SharePoint**，然後按一下 [SharePoint Server 伺服器陣列]。 
+1. 在 [Microsoft Azure Preview 入口網站](https://portal.azure.com/)中，按一下 [新增] > [計算] > [SharePoint Server 伺服器陣列]。如果 [SharePoint Server 伺服器陣列] 未出現，請依序按一下 [新增] > [計算] > [Azure Marketplace]、在 [搜尋所有項目] 中輸入 **SharePoint**，然後按一下 [SharePoint Server 伺服器陣列]。 
 2. 在 [建立 SharePoint 伺服器陣列] 窗格中，輸入資源群組的名稱。
 3. 為您伺服器陣列中每個虛擬機器的本機系統管理員帳戶，輸入使用者名稱和密碼。選擇難以猜測的名稱和密碼，並且在記錄後儲存於安全之處。
 4. 如果您需要高可用性伺服器陣列，請按一下 [啟用高可用性]。
@@ -95,4 +95,4 @@ SharePoint Server 伺服器陣列會使用 Azure 資源管理員和指令碼，�
 
 [裝載於 Azure 基礎結構服務中的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -6,7 +6,6 @@
    authors="SharS"
    manager="adinah"
    editor="tysonn" />
-
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -41,6 +40,4 @@
 
 您已經完成裝置設定。
 
-
-
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

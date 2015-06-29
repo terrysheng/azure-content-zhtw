@@ -1,22 +1,6 @@
-<properties 
-   pageTitle="掛接、初始化及格式化磁碟區"
-   description="說明如何設定 StorSimple 裝置上的磁碟區。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+<properties pageTitle="掛接、初始化及格式化磁碟區" description="說明如何設定 StorSimple 裝置上的磁碟區。" services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" /> <tags ms.se**rvice="storsimple" ms.devlang="NA" ms.topic="article" ms.tgt_pltfrm="NA" ms.workload="TBD" ms.date="04/29/2015" ms.author="v-sharos" />
 
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
-
-### 掛接、初始化及格式化磁碟區
+#### 掛接、初始化及格式化磁碟區
 
 1. 啟動 Microsoft iSCSI 啟動器。
 
@@ -47,4 +31,4 @@
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

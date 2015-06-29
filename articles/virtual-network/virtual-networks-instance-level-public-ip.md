@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="06/03/2015"
    ms.author="telmos" />
 
 # 執行個體層級的公用 IP 概觀
@@ -24,8 +24,10 @@
 
 如圖 1 所示，儘管通常是使用 VIP:&lt;連接埠號碼&gt; 來存取個別 VM，但還是會使用 VIP 來存取雲端服務。將 ILPIP 指派給特定的 VM，就能直接使用該 IP 位址來存取 VM。
 
-當您在 Azure 中建立雲端服務時，對應的 DNS A 記錄即會自動建立，以允許透過完整格式的網域名稱 (FQDN) 存取服務，而不需使用實際的 VIP。相同程序也適用於 ILPIP，但可改為透過 FQDN 而不是 ILPIP 來允許存取 VM 或角色執行個體。
+當您在 Azure 中建立雲端服務時，對應的 DNS A 記錄即會自動建立，以允許透過完整格式的網域名稱 (FQDN) 存取服務，而不需使用實際的 VIP。相同程序也適用於 ILPIP，但可改為透過 FQDN 而不是 ILPIP 來允許存取 VM 或角色執行個體。例如，若您建立名為 *contosoadservice* 的雲端服務，並設定名為 *contosoweb* 且具有兩個執行個體的 Web 角色，Azure 將會為那些執行個體登錄下列 A 記錄：
 
+- contosoweb_IN_0.contosoadservice.cloudapp.net
+- contosoweb_IN_1.contosoadservice.cloudapp.net 
 
 >[AZURE.NOTE]您只能針對每個 VM 或角色執行個體指派一個 ILPIP。您可以針對每個訂用帳戶最多使用 5 個 ILPIP。ILPIP 目前不支援多個 NIC 的 VM。
 
@@ -116,14 +118,11 @@
 	  </NetworkConfiguration>
 	</ServiceConfiguration>
 
-## 另請參閱
+## 後續步驟
 
-[保留的私人 IP (DIP)](../virtual-networks-reserved-private-ip)
-
-[保留的公用 IP](../virtual-networks-reserved-public-ip)
-
-[虛擬網路概觀](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[保留的 IP](../virtual-networks-reserved-public-ip)
 
 [保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

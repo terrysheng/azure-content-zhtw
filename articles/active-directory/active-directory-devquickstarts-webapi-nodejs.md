@@ -25,7 +25,7 @@
 在本逐步解說結束時，您應該能夠建置包含下列功能的執行中 REST API 伺服器：
 
 * 搭配 JSON 執行 REST API 介面，且使用 MongoDB 作為永久儲存體的 node.js 伺服器
-* 運用 OAuth2 API 保護，並搭配使用 Azure Active Directory 的持有者權杖的 REST API
+* 運用 OAuth2 API 保護，並搭配使用 Azure Active Directory 的承載者權杖的 REST API
 
 
 我們已在 Apache 2.0 授權底下的 GitHub 中發行這個執行範例的原始程式碼，因此您可以隨意複製 (或更棒的是您可以分散出去！) 和提供意見反應及提取要求。
@@ -847,7 +847,7 @@ var server = restify.createServer({
     formatters: {
         'application/json': function(req, res, body){
             if(req.params.callback){
-                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_.]/g, '');
+                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_\.]/g, '');
                 return callbackFunctionName + "(" + JSON.stringify(body) + ");";
             } else {
                 return JSON.stringify(body);
@@ -1029,7 +1029,7 @@ var passport = require('passport')
   , OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 ```
 
-### 2.告訴伺服器我們正在使用驗證
+### 2\.告訴伺服器我們正在使用驗證
 
 在偏好的編輯器中開啟 `server.js` 檔案，並在您先前定義路由的 **server.get() 下方**，但在 **server.listen()** 方法上方加入下列資訊：
 
@@ -1043,7 +1043,7 @@ var passport = require('passport')
 ```
 
 
-### 3.將 Passport OAuth2 模組加入程式碼
+### 3\.將 Passport OAuth2 模組加入程式碼
 
 在此我們使用加入 config.js 檔案的特定 OAuth2 參數。如果 `aadutils.js` 檔案執行其剖析同盟中繼資料文件的工作，則即使這些值在 config.js 檔案中是空白值，系統仍會替我們填入這些值。
 
@@ -1176,5 +1176,6 @@ server.get('/tasks', passport.authenticate('provider', { session: false }), list
 [ADAL for Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
 [ADAL for .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

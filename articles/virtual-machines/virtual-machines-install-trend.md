@@ -31,9 +31,9 @@
 
 此 [From Gallery] 選項會開啟可協助您設定虛擬機器的精靈。您可以使用精靈的最後一個頁面，來安裝 VM 代理程式和 Trend Micro 安全性延伸模組。如需一般指示，請參閱[建立執行 Windows Server 的虛擬機器](virtual-machines-windows-tutorial.md) (英文)。當您進入精靈的最後一個頁面時，請執行下列動作：
 
-1.	在 **VM Agent** 下，勾選 **Install VM Agent**。
+1.	在 [VM Agent] 下，勾選 [Install VM Agent]。
 
-2.	在 **Security Extensions** 下，勾選 **Trend Micro Deep Security Agent**。
+2.	在 [Security Extensions] 下，勾選 [Trend Micro Deep Security Agent]。
 
 	![Install the VM Agent and the Deep Security Agent](./media/virtual-machines-install-trend/InstallVMAgentandTrend.png)
 
@@ -82,4 +82,6 @@
 [如何登入執行 Windows Server 的虛擬機器]: virtual-machines-log-on-windows-server.md
 [Azure VM 延伸模組與功能]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

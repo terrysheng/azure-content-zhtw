@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure 佇列和服務匯流排佇列 - 異同比較"
-   description="分析 Azure 所提供之兩種佇列類型之間的差異和相似性"
+   description="分析 Azure 所提供之兩種佇列類型之間的差異和相似性。"
    services="service-bus"
    documentationCenter="na"
    authors="sethmanheim"
@@ -295,7 +295,7 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 
 - 由於支援長期輪詢，因此在需要低度延遲傳遞的情況下使用服務匯流排佇列可能會符合成本效益。
 
->[AZURE.NOTE]所有成本都可能會變更。上表反映撰寫本文時的目前定價，不包括目前可能適用的任何促銷優惠方案。如需 Azure 的最新定價資訊，請參閱 [Azure 定價](http://azure.microsoft.com/pricing/)頁面。如需服務匯流排的詳細資訊，請參閱[服務匯流排定價]((http://azure.microsoft.com/pricing/details/service-bus/)。
+>[AZURE.NOTE]所有成本都可能會變更。上表反映撰寫本文時的目前定價，不包括目前可能適用的任何促銷優惠方案。如需 Azure 的最新定價資訊，請參閱 [Azure 定價](http://azure.microsoft.com/pricing/)頁面。如需服務匯流排定價的詳細資訊，請參閱 [服務匯流排定價]((http://azure.microsoft.com/pricing/details/service-bus/)。
 
 ## 結論
 
@@ -316,5 +316,6 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 - [Azure 儲存體架構](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 - [使用 Azure 中的佇列服務](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [了解 Azure 儲存體計費 - 頻寬、交易和容量](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

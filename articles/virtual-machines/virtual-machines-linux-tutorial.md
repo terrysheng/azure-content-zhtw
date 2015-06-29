@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="05/22/2015"
 	ms.author="rasquill"/>
 
@@ -288,12 +288,13 @@
 
 - [Azure 上的 Linux 和開放原始碼運算](virtual-machines-linux-opensource.md)
 
-- [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具](../virtual-machines-command-line-tools.md)
+- [如何使用 Azure 命令列介面](../virtual-machines-command-line-tools.md)
 
 - [使用適用於 Linux 的 Azure CustomScript 延伸模組部署 LAMP 應用程式](virtual-machines-linux-script-lamp.md)
 
 - [關於 Azure VM 組態設定](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
 - [Azure 上 Linux 的 Docker 虛擬機器擴充程式](virtual-machines-docker-vm-extension.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

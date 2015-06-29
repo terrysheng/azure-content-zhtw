@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="部署內部部署 StorSimple 裝置"
+   pageTitle="在 Government 入口網站中部署您的內部部署 StorSimple 裝置"
    description="在 Azure Government 入口網站中部署 StorSimple Update 1 裝置和服務的步驟與最佳作法。"
    services="storsimple"
    documentationCenter="NA"
@@ -12,18 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
+   ms.date="06/12/2015"
    ms.author="v-sharos" />
 
-# 部署內部部署 StorSimple 裝置
-
-[AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
+# 在 Government 入口網站中部署您的內部部署 StorSimple 裝置
 
 ## 概觀
 
 歡迎使用 Microsoft Azure StorSimple 裝置部署。
 
-這些部署教學課程適用於 Azure Government 入口網站中的 StorSimple 8000 系列。
+這些部署教學課程適用於 Azure Government 入口網站中執行 Update 1 軟體的 StorSimple 8000 系列。
 
 這一系列的教學課程說明如何設定 StorSimple 裝置，並包含預先安裝檢查清單、設定必要條件以及詳細的設定步驟。
 
@@ -39,7 +37,7 @@
 
 | | 需求 | 詳細資料 | 值 |
 |---| --------------------- | ---------------------- | ------------- |
-| 1 | 網路設定 <ol><li>裝置 IP 位址</li><li>網路介面、4x1 GbE、2x10 GbE</li><li>固定控制器 IP</li><li>子網路遮罩</li><li>閘道</li></ol> | 需要的 IP 總計：8 <ol><li>每個裝置一個</li><li>每個啟用的網路介面一個，共 6 個</li><li>每個控制站一個，共 2 個，用於連線至網際網路進行服務更新</li><li>每個 IP 位址一個</li><li>每個裝置一個</li></ol> | |
+| 1 | 網路設定 <ol><li>網路介面、4x1 GbE、2x10 GbE</li><li>固定控制器 IP</li><li>子網路遮罩</li><li>閘道</li></ol> | 需要的 IP 總計：8 個<ol><li>每個啟用的網路介面一個，共 6 個</li><li>每個控制站一個，共 2 個，用於連線至網際網路進行服務更新</li><li>每個 IP 位址一個</li><li>每個裝置一個</li></ol> | |
 | 2 | 序列存取 | 初始裝置組態 | 是/否 |
 | 3 | DNS 伺服器 IP 位址 | 需要連接到 Microsoft Azure：總共需要 2 個以提供高可用性 | |
 | 4 | NTP 伺服器 IP 位址 | 需要與 Azure 同步處理時間：1 必要、1 選擇性 | |
@@ -211,5 +209,6 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 設定[虛擬裝置](storsimple-virtual-device.md)。
 
 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx)以管理 StorSimple 裝置。
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="在 Azure 上使用 Linux 的 Docker VM 擴充程式"
-	description="說明 Docker 和 Azure 虛擬機器擴充程式，並說明如何以程式設計的方式，使用 azure-cli 命令介面從命令列在 Azure 上建立 Docker 主機的虛擬機器。"
+	description="說明 Docker 和 Azure 虛擬機器延伸模組，並示範如何以程式設計方式使用 Azure CLI，從命令列在 Azure 上建立 Docker 主機的虛擬機器。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -143,5 +143,6 @@ WARNING: No swap limit support
 
 [使用 https 執行 Docker]: http://docs.docker.com/articles/https/
 [Docker 使用者指南]: https://docs.docker.com/userguide/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

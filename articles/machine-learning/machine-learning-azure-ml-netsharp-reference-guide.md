@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure ML 的 Net# 類神經規格語言指南" 
+	pageTitle="Net# 類神經規格語言指南 | Microsoft Azure" 
 	description="Net# 類神經網路規格語言的語法，以及如何使用 Net# 在 Microsoft Azure ML 中建立自訂類神經網路模型的範例。" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -18,7 +18,7 @@
 
 
 
-# Net# 類神經規格語言指南
+# 適用於 Azure Machine Learning 的 Net# 類神經規格語言指南
 
 ##概觀
 Net# 是由 Microsoft 所開發的語言，用來定義 Microsoft Azure Machine Learning 中的類神經網路模組所使用的類神經網路架構。在本文中，您將了解：
@@ -28,7 +28,7 @@ Net# 是由 Microsoft 所開發的語言，用來定義 Microsoft Azure Machine 
 -	Net# 規格語言的語法和關鍵字
 -	使用 Net# 建立自訂類神經網路的範例 
 	
-[AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)] 
+[AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
 
 ##類神經網路基本概念
 類神經網路的組成結構，包含以***層***組織的***節點***，和節點之間的加權***連線*** (或***邊緣***)。這些連線是雙向的，且每個連線都有***來源***節點和***目的地***節點。
@@ -150,8 +150,8 @@ For example, the following network definition allows the size of all layers to b
 	hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];
 	hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;  
 
--	在 ByRow 的述詞中 **s** 參數代表輸入層 Pixels 之節點矩形陣列的索引，而 **d** 參數代表隱藏層 ByRow 之節點陣列的索引。**s** 和 **d** 的類型為長度二之整數的 Tuple。在概念上，**s** 的範圍介於所有 0 < = s[0] < 10 與 0 < = s[1] < 20 的整數對之間，而 **d** 範圍介於所有 0 < = d[0] < 10 與 0 < = d[1] < 12 的整數對之間。 
--	述詞運算式右側會有一個條件。在此範例中，每個條件為 True 的 **s** 值和 **d** 值都會有一個從來源層節點到目的地層節點的邊緣。因此，此篩選運算式，表示在 s[0] 等於 d[0] 的情況下，套組都會包含從 **s** 所定義之節點到 **d** 所定義之節點的連線。  
+-	在 ByRow 的述詞中 **s** 參數代表輸入層 Pixels 之節點矩形陣列的索引，而 **d** 參數代表隱藏層 ByRow 之節點陣列的索引。**s** 和 **d** 的類型為長度二之整數的 Tuple。在概念上，**s** 的範圍介於所有 0 <= s[0] < 10 與 0 <= s[1] < 20 的整數對之間，而且 **d** 的範圍介於所有 0 <= d[0] < 10 與 0 <= d[1] < 12 的整數對之間。 
+-	述詞運算式右側會有一個條件。在此範例中，每個條件為 True 的 **s** 值和 **d** 值都會有一個從來源層節點到目的地層節點的邊緣。因此，此篩選運算式表示在 s[0] 等於 d[0] 的所有情況下，套組都會包含從 **s** 所定義的節點到 **d** 所定義之節點的連線。  
 
 您可以選擇性地為篩選套組指定一組加權。**加權**屬性的值必須是長度與套組所定義的連線數目相符之浮點值的 Tuple。依預設會隨機產生加權。
 
@@ -171,9 +171,9 @@ For example, the following network definition allows the size of all layers to b
 -	**KernelShape**：(必要) 定義迴旋套組各個核心的維度。其值必須是長度等於套組 Arity 之正整數的 Tuple。此 Tuple 的每個元件皆不可大於 **InputShape** 的對應元件。 
 -	**Stride**：(選用) 定義迴旋的滑動步階大小 (每個維度的步階大小)，即中心節點之間的距離。其值必須是長度為套組 Arity 之正整數的 Tuple。此 Tuple 的每個元件皆不可大於 **KernelShape** 的對應元件。預設值是所有元件皆等於一的 Tuple。 
 -	**Padding**：(選用) 決定是否應使用預設的填補配置填補輸入。其值可以是單一布林值，或是長度為套組 Arity 之布林值的 Tuple。單一布林值可擴充為具有正確長度、所有元件皆等於指定值的 Tuple。如果維度的值為 True，則來源在邏輯上會以零值儲存格在該維度中進行填補，以支援其他核心應用程式，使該維度中第一個和最後一個核心的中心節點成為該維度在來源層中的第一個和最後一個節點。據此將會自動產生每個維度中的「虛擬」節點數目，以將 (InputShape[d] - 1) / Stride[d] + 1 個核心配適到已填補的來源層中。如果維度的值為 False，則在定義核心時，會使每一端排除的節點數目保持相同 (差距不會超過 1 個)。此屬性的預設值是所有元件皆為 False 的 Tuple。
--	**UpperPad** 和 **LowerPad**：(選用) 用來控制所要使用的填補量。只有在****未****定義 *Padding* 的情況下，才可定義這些屬性。其值應為長度為套組 Arity 的整數值 Tuple。在指定這些屬性時，將會在輸入層各個維度的下端和上端新增「虛擬」節點。在維度中的下端和上端新增的節點數目，分別取決於 **LowerPad**[i] 和 **UpperPad**[i]。若要確定核心只會對應至「實際」節點而非「虛擬」節點，必須要符合下列條件：
-	-	**LowerPad** 的每個元件都必須嚴格小於 KernelShape[d]/2。 
-	-	**UpperPad** 的每個元件都必須不能大於 KernelShape[d]/2。 
+-	**UpperPad** 和 **LowerPad**：(選用) 用來控制所要使用的填補量。只有在****未****定義 *Padding* 的情況下，才可定義這些屬性。其值應為長度為套組 Arity 的整數值 Tuple。在指定這些屬性時，將會在輸入層各個維度的下端和上端新增「虛擬」節點。在每個維度中的下端和上端新增的節點數目，分別取決於 **LowerPad**[i] 和 **UpperPad**[i]。若要確定核心只會對應至「實際」節點而非「虛擬」節點，必須要符合下列條件：
+	-	**LowerPad** 的每個元件皆務必小於 KernelShape[d]/2。 
+	-	**UpperPad** 的每個元件皆不可大於 KernelShape[d]/2。 
 	-	這些屬性的預設值是所有元件皆等於 0 的 Tuple。 
 -	**Sharing**：(選用) 為迴旋的每個維度定義加權共用。其值可以是單一布林值，或是長度為套組 Arity 之布林值的 Tuple。單一布林值可擴充為具有正確長度、所有元件皆等於指定值的 Tuple。預設值是全部由 True 值組成的 Tuple。 
 -	**MapCount**：(選用) 定義迴旋套組的特性對應數目。其值可以是單一正整數，或是長度為套組 Arity 之正整數的 Tuple。單一整數值可擴充為具有正確長度、第一個元件皆等於指定值且其餘元件皆等於一的 Tuple。預設值為一。特性對應的總數是 Tuple 元件的乘積。各個元件的此一總數經過因式分解後，將決定特性對應值在目的地節點中的分組方式。 
@@ -222,7 +222,7 @@ For example, the following network definition allows the size of all layers to b
 
 回應正規化套組會將預先定義的函數套用至來源節點值以決定目的地節點值，因此並不具有可訓練的狀態 (加權或偏差)。
 
-**警示**：目的地層中的節點會對應至在核心中作為中心節點的神經元。例如，如果 KernelShape[d] 為奇數，則 KernelShape[d]/2 會對應至中心核心節點。如果 KernelShape[d] 為偶數，則中央節點位於 KernelShape[d]/2 - 1。因此，如果 **Padding**[d] 為 False，第一個和最後一個 KernelShape[d]/2 的節點在目的地層中沒有對應的節點。若要避免發生此狀況，請將 **Padding** 定義為 [true, true, …, true]。
+**警示**：目的地層中的節點會對應至在核心中作為中心節點的神經元。例如，如果 KernelShape[d] 為奇數，則 KernelShape[d]/2 會對應至中心核心節點。如果 KernelShape[d] 為偶數，則中央節點位於 KernelShape[d]/2 - 1。因此，如果 **Padding**[d] 為 False，則第一個和最後一個 KernelShape[d]/2 的節點在目的地層中沒有對應的節點。若要避免發生此狀況，請將 **Padding** 定義為 [true, true, …, true]。
 
 除了前述的四個屬性以外，回應正規化套組也支援下列屬性：
 
@@ -242,7 +242,7 @@ For example, the following network definition allows the size of all layers to b
 
 -	來源層包含五個對應，每個對應有 12x12 的維度，共計有 1440 個節點。 
 -	**KernelShape** 的值指出這是相同對應正規化層，其中，鄰區為 3x3 矩形。 
--	**Padding** 的預設值為 False，因此目的地層的每個維度中只有 10 個節點。若要在目的地層中加入一個與來源層中的每個節點相對應的節點，請新增 Padding = [true, true, true]，並且將 RN1 的大小變更為 [5, 12, 12]。  
+-	**Padding** 的預設值為 False，因此目的地層的每個維度中只有 10 個節點。若要在目的地層中加入一個與來源層中的每個節點相對應的節點，請新增 Padding = [true, true, true]，並將 RN1 的大小變更為 [5, 12, 12]。  
 
 ##共用宣告 
 Net# 可選擇性地支援以共用加權定義多個套組的作業。任何兩個套組如果具有相同的結構，即可共用加權。下列語法定義使用共用加權的套組：
@@ -354,7 +354,7 @@ Net# 可選擇性地支援以共用加權定義多個套組的作業。任何兩
 -	Pixels 層是兩個連線套組的來源層，其目的地層為 ByRow 和 ByCol。
 -	Gather 層和 Result 層是多個連線套組中的目的地層。
 -	輸出層 Result 是兩個連線套組中的目的地層；一個套組以第二層級的隱藏層 (Gather) 作為目的地層，另一個套組以輸入層 MetaData 作為目的地層。
--	隱藏層 ByRow 和 ByCol 使用述詞運算式指定篩選連線。更精確地說，在 [x, y] 上，ByRow 中的節點會連接到 Pixels 之中第一個索引座標等於節點的第一個座標 x 的節點。同樣地，在 [x, y] 上，ByCol 中的節點會連接到 Pixels 之中在其中一個節點的第二個座標 y 內具有第二個索引座標的節點。  
+-	隱藏層 ByRow 和 ByCol 使用述詞運算式指定篩選連線。更精確地說，在 [x, y] 上，ByRow 中的節點會連接到 Pixels 中第一個索引座標等於節點的第一個座標 x 的節點。同樣地，在 [x, y] 上，ByCol 中的節點會連接到 Pixels 中在其中一個節點的第二個座標 y 內具有第二個索引座標的節點。  
 
 ###定義多類別分類的迴旋網路：數字辨識範例
 下列網路的定義設計來辨識數字，說明自訂類神經網路的某些進階技術。
@@ -391,8 +391,9 @@ Net# 可選擇性地支援以共用加權定義多個套組的作業。任何兩
 	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
 	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5。 
 -	節點總數可使用該層的宣告維度 [50, 5, 5] 來計算，如下所示：**MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5
--	由於只有在 d == 0 時，**Sharing**[d] 才會是 False，因此核心數為 **MapCount** * **NodeCount**[0] = 10 * 5 = 50。 
+-	由於只有 d == 0 時，**Sharing**[d] 才會是 False，因此核心數為 **MapCount** * **NodeCount**[0] = 10 * 5 = 50。 
 
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

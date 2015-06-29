@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="Azure 備份 - 還原虛擬機器"
 	description="了解如何還原 Azure 虛擬機器"
@@ -41,7 +42,7 @@
 
     ![選取日期](./media/backup-azure-restore-vms/select-date.png)
 
-    一旦您按一下行事曆控制項中的日期時，該日可用的復原點將會顯示在下方的復原點資料表中。[**時間**] 欄位會指出擷取快照集的時間。 **類型** 資料行會顯示 [一致性](https://azure.microsoft.com/documentation/articles/backup-azure-vms/#consistency-of-recovery-points) 的復原點。資料表標頭會在括號裡顯示該日可用的復原點數目。
+    一旦您按一下行事曆控制項中的日期時，該日可用的復原點將會顯示在下方的復原點資料表中。[**時間**] 欄位會指出擷取快照集的時間。[**類型**] 欄位會顯示復原點的[一致性](https://azure.microsoft.com/documentation/articles/backup-azure-vms/#consistency-of-recovery-points)。資料表標頭會在括號裡顯示該日可用的復原點數目。
 
     ![復原點](./media/backup-azure-restore-vms/recovery-points.png)
 
@@ -54,9 +55,9 @@
   - 指定虛擬機器名稱：在指定的雲端服務中，虛擬機器名稱應該是唯一的。如果您打算使用相同的名稱取代現有的 VM，先刪除現有的 VM 和資料磁碟，然後從 Azure 備份還原資料。
   - 選取 VM 的雲端服務：這是建立 VM 的必要步驟。您可以選擇使用現有的雲端服務，或建立新的雲端服務。
 
-        Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
+        無論雲端服務名稱為何，都必須是全域唯一的名稱。一般來說，雲端服務名稱會與形式為 [cloudservice].cloudapp.net 的公用 URL 相關聯。如果該名稱已有他人使用，Azure 不允許您建立新的雲端服務。如果您選擇建立新的雲端名稱，則該名稱會與虛擬機器相同，在這種情況下，所選擇的 VM 名稱應該是唯一的，以便套用至所有相關的雲端服務。
 
-        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](https://msdn.microsoft.com/en-us/library/azure/jj156085.aspx).
+        我們只會顯示與還原執行個體詳細資料中的任何同質群組不關聯的雲端服務和虛擬網路」[深入瞭解](https://msdn.microsoft.com/zh-tw/library/azure/jj156085.aspx)。
 
 2. 選取 VM 的儲存體帳戶：這是建立 VM 的必要步驟。您可以選取與 Azure 備份保存庫位於相同區域的現有儲存體帳戶。我們不支援區域備援或進階儲存體類型的儲存體帳戶。
 
@@ -70,7 +71,7 @@
 
     ![選取虛擬網路](./media/backup-azure-restore-vms/restore-cs-vnet.png)
 
-4. 選取子網路：如果 VNET 有子網路，預設選取的選項為第一個子網路。從下拉式清單選項中選擇您想要的子網路。子網路的詳細資訊，請移至網路中的延伸模組 [入口網站首頁](https://manage.windowsazure.com/), 虛擬網路和選取的虛擬網路，請向下鑽研以查看子網路詳細資料的設定。
+4. 選取子網路：如果 VNET 有子網路，預設選取的選項為第一個子網路。從下拉式清單選項中選擇您想要的子網路。若需子網路的詳細資訊，請移至[入口網站首頁](https://manage.windowsazure.com/)中的 [網路] 擴充功能，然後移至 [虛擬網路] 並在選取虛擬網路後，向下切入至 [設定] 以查看子網路的詳細資料。
 
     ![選取子網路](./media/backup-azure-restore-vms/select-subnet.png)
 
@@ -89,7 +90,7 @@
 
 ![已完成還原工作](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-還原虛擬機器之後，您可能需要重新安裝原始 VM 上現有的延伸模組和 [重新建立端點](virtual-machines-set-up-endpoints) Azure 入口網站中的虛擬機器。
+還原虛擬機器後，您可能需要重新安裝原始虛擬機器 (VM) 上現有的擴充功能，並為 Azure 入口網站中的虛擬機器[重新建立端點](virtual-machines-set-up-endpoints)。
 
 ## 錯誤疑難排解
 大部分的錯誤您都可以依照「錯誤詳細資料」中所建議的動作進行排解。以下是一些額外項目，用以協助疑難排解：
@@ -101,4 +102,6 @@
 ## 後續步驟
 - [管理虛擬機器](backup-azure-manage-vms)
 
-<!---HONumber=GIT-SubDir--> 
+ 
+
+<!---HONumber=58_postMigration-->

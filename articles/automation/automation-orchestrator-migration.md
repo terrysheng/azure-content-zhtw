@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="從 Orchestrator 移轉 Runbook 和整合套件"
    description="描述如何將 Runbook 和整合套件從 System Center Orchestrator 移轉到 Azure 自動化。"
    services="automation"
@@ -6,10 +6,10 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/22/2015"
@@ -24,9 +24,9 @@
 
 以下是將 Orchestrator Runbook 轉換為 Azure 自動化的基本程序。下列各節將詳細說明這些步驟。
 
-1.  下載 [System Center Orchestrator 遷移工具組](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all)，其中包含的本文所討論的工具和模組。 
+1.  下載 [System Center Orchestrator 遷移工具組](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all)，其中包含的本文所討論的工具和模組。
 2.  安裝[標準活動模組](#standard-activities-module) 到 Azure 自動化。這包括已轉換的 Runbook 可能使用的標準 Orchestrator 活動的轉換版本。
-2.  針對您的 Runbook 所使用的整合套件，安裝 [System Center Orchestrator 整合模組](#system-center-orchestrator-integration-modules) 至 Azure 自動化。 
+2.  針對您的 Runbook 所使用的整合套件，安裝 [System Center Orchestrator 整合模組](#system-center-orchestrator-integration-modules) 至 Azure 自動化。
 3.  使用[整合套件轉換器](#integration-pack-converter)轉換自訂和使用協力廠商整合套件，並在 Azure 自動化中安裝。
 4.  在 Azure 自動化中的 Orchestrator 手動重新建立全域資產，因為沒有任何自動化的方法可執行此移轉。
 5.  使用 [Runbook 轉換器](#runbook-converter-coming-soon) (即將推出) 轉換 Orchestrator Runbook，並在 Azure 自動化中安裝。
@@ -79,5 +79,6 @@ Microsoft 提供[整合套件](http://technet.microsoft.com/library/hh295851.asp
 - [服務管理自動化](https://technet.microsoft.com/library/dn469260.aspx)
 - [混合式 Runbook 背景工作](automation-hybrid-runbook-worker.md)
 - [Orchestrator 標準活動](http://technet.microsoft.com/library/hh403832.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

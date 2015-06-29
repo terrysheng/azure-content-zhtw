@@ -6,7 +6,6 @@
    authors="SharS"
    manager="adinah"
    editor="tysonn" />
-
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -16,7 +15,7 @@
    ms.date="04/01/2015"
    ms.author="v-sharos" />
 
-### 建立磁碟區容器
+#### 建立磁碟區容器
 
 1. 在裝置的 [快速入門] 頁面中，按一下 [新增磁碟區容器]。[建立磁碟區容器] 對話方塊隨即出現。
 
@@ -32,4 +31,4 @@
 
   新建立的磁碟區容器將列於 [磁碟區容器] 頁面上。
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

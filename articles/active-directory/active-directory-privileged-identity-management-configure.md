@@ -18,7 +18,7 @@
 
 # Azure AD 特殊權限身分識別管理
 
-Azure AD 特殊權限身分識別管理可讓您管理、控制和監視特殊權限身分識別，以及其在 Azure AD 和其他 Microsoft 線上服務 (如 Office 365 或 Intune) 中的資源存取權。
+Azure AD 特殊權限身分識別管理可讓您管理、控制和監視特殊權限身分識別，以及其在 Azure AD 和其他 Microsoft 線上服務 (如 Office 365 或 Microsoft Intune) 中的資源存取權。
 
 若要讓使用者能夠執行特殊權限作業，組織通常需要賦予許多使用者在 Azure AD 中或對 Azure 或 Office 365 資源或其他 SaaS 應用程式的永久特殊權限存取權。對大多數客戶而言，這會使其雲端資源的安全性風險提高，因為他們無法充分監視這些使用者利用其管理員權限的所作所為。此外，擁有特殊權限存取權的使用者帳戶若遭到入侵，可能會影響其整體的雲端安全性。Azure AD 特殊權限身分識別管理有助於解決此風險。
 
@@ -105,4 +105,6 @@ Azure AD 特殊權限身分識別管理員有一個儀表板可提供重要資�
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

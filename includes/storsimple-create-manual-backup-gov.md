@@ -1,12 +1,4 @@
-<properties 
-   pageTitle="Create a manual backup"
-   description="Explains how to start a manual, on-demand backup job."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   edito**r="tysonn" />
-<tags 
+<properties pageTitle="建立手動備份" description="說明如何依需求啟動手動備份工作。" services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" /> <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -15,24 +7,26 @@
    ms.date="04/01/2015"
    ms.author="v-sharos" />
 
-#### To create a manual backup
+#### 建立手動備份
 
-1. On the **Devices** page, go to the **Backup Policies** tab. This tab lists all the backup policies in a tabular format, including the policy for the volume that you want to back up.
+1. 在 [裝置] 頁面上，移至 [備份原則] 索引標籤。此索引標籤會以表格格式列出備份原則，包括您想要備份的磁碟區原則。
 
-2. Select the policy by clicking anywhere in the corresponding row except for the first column. At the bottom of the page, click **Take backup**. The button will expand to show the backup options: local snapshot and cloud snapshot. 
+2. 在對應列中按一下第一欄以外的任一處，以選取原則。按一下頁面底部的 [取得備份]。按鈕將會展開以顯示備份選項：本機快照和雲端快照。
 
-3. When you choose either of these options, you will be prompted for confirmation. Click **Yes**. 
+3. 當您選擇其中一個選項時，系統將提示您進行確認。按一下 [是]。
 
-    ![Create manual backup1](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup1-gov-include.png)
+    ![建立手動備份 1](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup1-gov-include.png)
  
-    This will start a job to create a snapshot. You will see a notification at the bottom of the page after the job is successfully created.
+    這將會啟動建立快照的工作。成功建立工作之後，您將會在頁面底部看到通知。
 
-4. To monitor the job, click **View Job** in the notification area (at the bottom of the page). 
+4. 若要監視工作，可在通知區域 (位於頁面底部) 中按一下 [檢視工作]。
 
-    ![Create manual backup2](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
+    ![建立手動備份 2](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
 
-5. After the backup job is finished, go to the **Backup catalog** tab.
+5. 備份工作完成之後，請移至 [備份類別目錄] 索引標籤。
 
-6. Set the filter selections to the appropriate device, backup policy, and time range. Click the check icon ![check icon](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) after setting the filters.
+6. 將篩選選取項目設定為適當的裝置、備份原則和時間範圍。設定篩選器之後，按一下核取圖示 ![核取圖示](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png)。
 
-  The backup should appear in the list of backup sets that is displayed in the catalog.
+  備份應該會出現在類別目錄中顯示的備份組清單中。
+
+<!---HONumber=58_postMigration-->

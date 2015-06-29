@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Delete a StorSimple backup policy"
-   description="Explains how you can use the StorSimple Manager service to delete a backup policy."
+   pageTitle="刪除 StorSimple 備份原則"
+   description="說明如何使用 StorSimple Manager 服務刪除備份原則。"
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,16 +15,15 @@
    ms.date="05/14/2015"
    ms.author="v-sharos" />
 
-#### To delete a StorSimple backup policy
+#### 刪除 StorSimple 備份原則
 
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
+1. 在裝置的 [**快速入門**] 頁面上，按一下 [**備份原則**] 索引標籤。這會將您帶到 [**備份原則**] 頁面。
 
-2. Select the policy you want to delete, and then click **Delete** at the bottom of the page.
+2. 選取您想要刪除的原則，然後按一下頁面底部的 [**刪除**]。
 
-3. You will be prompted for confirmation. Keep in mind that deleting a backup policy will delete all the associated backups. Click **OK** to delete.
+3. 系統將提示您進行確認。請留意，刪除備份原則將會刪除所有相關聯的備份。按一下 [**確定**] 以刪除。
 
-The **Backup Policies** page will be updated to display the new list of policies.
+[**備份原則**] 頁面將會更新以顯示新的原則清單。
  
 
-
-
+<!---HONumber=58_postMigration-->

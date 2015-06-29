@@ -176,7 +176,7 @@
 
 下列主題討論與篩選器相關的媒體服務實體。此主題也會示範如何以程式設計方式建立篩選器。
 
-[使用 REST API 建立篩選器](media-services-rest-create-filters)。
+[使用 REST API 建立篩選器](media-services-rest-dynamic-manifest.md)。
 
 ##已知問題與限制
 
@@ -207,5 +207,6 @@
 [language_filter]: ./media/media-services-dynamic-manifest-overview/media-services-language-filter.png
 [dvr_filter]: ./media/media-services-dynamic-manifest-overview/media-services-dvr-filter.png
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

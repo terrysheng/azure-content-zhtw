@@ -31,7 +31,7 @@
 
 ## 物件
 
-- Azure Active Directory Premium 或 Azure Active Directory Basic、Enterprise Mobility Suite、Office 365、Windows Intune 或任何依賴 Azure Active Directory 作為目錄服務之其他 Microsoft 線上服務的訂閱者沒有限制。
+- Azure Active Directory Premium 或 Azure Active Directory Basic、Enterprise Mobility Suite、Office 365、Microsoft Intune 或任何依賴 Azure Active Directory 作為目錄服務之其他 Microsoft 線上服務的訂閱者沒有限制。
 - 在免費版的 Azure Active Directory 中，最多可以在單一目錄中使用 500,000 個物件。
 - 非系統管理員的使用者最多可以建立 250 個物件。
 
@@ -72,4 +72,7 @@
 - [Azure 訂用帳戶如何與 Azure AD 產生關聯](active-directory-how-subscriptions-associated-directory.md)
 - [Azure AD 術語](active-directory-terminology.md)
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

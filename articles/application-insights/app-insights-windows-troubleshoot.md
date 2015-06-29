@@ -17,7 +17,7 @@
  
 # Windows 裝置適用的 Application Insights 的疑難排解和問答集
 
- [Windows 中的 Visual Studio Application Insights][windows] 疑問或問題？ 以下是一些秘訣。
+[Windows 中的 Visual Studio Application Insights][windows] 疑問或問題？ 以下是一些秘訣。
 
 
 
@@ -31,9 +31,11 @@
 * 模擬器或測試裝置與 Application Insights 入口網站之間有防火牆嗎？ 您可能必須開啟 TCP 連接埠 80 和 443，以允許連出流量送往 dc.services.visualstudio.com 和 f5.services.visualstudio.com。
 * 在 Microsoft Azure 開始面板中，查看服務狀態對應。如果看到一些警示指示，請等待它們恢復 [正常]，然後關閉再重新開啟 Application Insights 應用程式分頁。
 
+
 #### 我曾經看到資料，但是已停止
 
-* 檢查[狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)
+* 檢查[狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)。
+* 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。如果有達到配額，您可以升級您的方案，或付費取得額外容量。請參閱[定價配置](http://azure.microsoft.com/pricing/details/application-insights/)。
 
 
 ## 我要如何將 Application Insights 加入至通用應用程式？
@@ -116,4 +118,6 @@
 [usage]: app-insights-web-track-usage.md
 [windows]: app-insights-windows-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

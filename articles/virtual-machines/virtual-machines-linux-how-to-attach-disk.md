@@ -13,26 +13,20 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2015"
+	ms.date="05/29/2015"
 	ms.author="kathydav"/>
 
-#如何將資料磁碟連接至 Linux 虛擬機器
+# 如何將資料磁碟連接至 Linux 虛擬機器
 
 您可以附加空的磁碟和含有資料的磁碟。在這兩種情況下，磁碟實際上是位於 Azure 儲存體帳戶中的 .vhd 檔案。另外，在這兩種情況下，當您附加磁碟之後，磁碟必須完成初始化才能使用。
 
-> [AZURE.NOTE]最好使用一或多個不同的磁碟來儲存虛擬機器的資料。當您建立 Azure 虛擬機器時，它會有作業系統磁碟和暫存磁碟。**請勿使用暫存磁碟來儲存資料。** 顧名思義，它只提供暫存儲存空間。它並不提供備援或備份，因為它不在 Azure 儲存體內。暫存磁碟通常是由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像中的**/mnt**)。換句話說，在 Linux 上，核心可能會將資料磁碟命名為 `/dev/sdc`。若是如此，您將需要分割、格式化及掛接該資源。如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南](http://azure.microsoft.com/manage/linux/how-to-guides/linux-agent-guide/) (英文)。
-
-- [做法：連接空的磁碟](#attachempty)
-- [做法：連接現有磁碟](#attachexisting)
-- [做法：在 Linux 中初始化新的資料磁碟](#initializeinlinux)
+> [AZURE.NOTE]最好使用一或多個不同的磁碟來儲存虛擬機器的資料。當您建立 Azure 虛擬機器時，它會有作業系統磁碟和暫存磁碟。**請勿使用暫存磁碟來儲存資料。** 顧名思義，它只提供暫存儲存空間。它並不提供備援或備份，因為它不在 Azure 儲存體內。暫存磁碟通常是由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像中的**/mnt**)。換句話說，在 Linux 上，核心可能會將資料磁碟命名為 `/dev/sdc`。若是如此，您將需要分割、格式化及掛接該資源。如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南][Agent]。
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-##<a id="initializeinlinux"></a>做法：在 Linux 中初始化新的資料磁碟
+## 做法：在 Linux 中初始化新的資料磁碟
 
-
-
-1. 使用[如何登入執行 Linux 的虛擬機器](logonlinux)中列出的步驟，連線至虛擬機器。
+1. 連接至虛擬機器。如需指示，請參閱[如何登入執行 Linux 的虛擬機器][Logon]。
 
 
 
@@ -137,8 +131,15 @@
 	如果 `mount` 命令發生錯誤，請檢查 /etc/fstab 檔案的語法是否正確。如果還有建立其他資料磁碟機或磁碟分割，同樣也需要分別在 /etc/fstab 中輸入。
 
 
-	>[AZURE.NOTE]後續移除資料磁碟而不編輯 fstab，可能會造成 VM 無法開機。如果這是常見情況，那麼多數散發套件會提供 `nofail` 和/或 `nobootwait` fstab 選項，即使磁碟在開機時無法掛接，也能讓系統開機。請查閱散發套件的文件，以取得這些參數的相關資訊。
+>[AZURE.NOTE]後續移除資料磁碟而不編輯 fstab，可能會造成 VM 無法開機。如果這是常見情況，那麼多數散發套件會提供 `nofail` 和/或 `nobootwait` fstab 選項，即使磁碟在開機時無法掛接，也能讓系統開機。請查閱散發套件的文件，以取得這些參數的相關資訊。
 
-[logonlinux]: virtual-machines-linux-how-to-log-on.md
+## 其他資源
+[如何登入執行 Linux 的虛擬機器][Logon]
 
-<!---HONumber=58--> 
+
+<!--Link references-->
+[Agent]: virtual-machines-linux-agent-user-guide.md
+[Logon]: virtual-machines-linux-how-to-log-on.md
+ 
+
+<!---HONumber=58_postMigration-->

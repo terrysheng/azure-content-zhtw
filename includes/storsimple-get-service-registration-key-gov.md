@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Get the service registration key"
-   description="Explains how to get the registration key used to register all StorSimple devices."
+   pageTitle="取得服務註冊金鑰。"
+   description="說明如何取得用來註冊所有 StorSimple 裝置的註冊金鑰。"
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -16,22 +16,24 @@
    ms.author="v-sharos" />
 
 
-#### To get the StorSimple service registration key
+#### 取得 StorSimple 服務註冊金鑰
 
-1. On the **StorSimple Manager service** page, click the service that you created. This will take you to the **Quick Start** page. (You can click the quick start icon ![StorSimple Quick Start icon ](./media/storsimple-get-service-registration-key-gov/HCS_QuickStartIcon-include.png) to access the **Quick Start** page at any time.)
+1. 在 [StorSimple Manager 服務] 頁面上，按一下您建立的服務。這會將您帶領到 [快速入門] 頁面(您隨時都可按一下快速入門圖示 ![StorSimple 快速入門圖示](./media/storsimple-get-service-registration-key-gov/HCS_QuickStartIcon-include.png) 來存取 [快速入門] 頁面)。
 
-     ![StorSimple Quick Start page](./media/storsimple-get-service-registration-key-gov/HCS_ServiceQuickStart-gov-include.png)
+     ![StorSimple 快速入門頁面](./media/storsimple-get-service-registration-key-gov/HCS_ServiceQuickStart-gov-include.png)
 
-2. Click **Get service registration key**. You can also click **Registration Key** at the bottom of the page. You will have to wait for a few minutes while the key is retrieved. The **Service Registration Key** dialog box appears.
+2. 按一下 [取得服務註冊金鑰]。您也可以按一下頁面底部的 [註冊金鑰]。您必須等候幾分鐘的時間來擷取金鑰。[服務註冊金鑰] 對話方塊隨即出現。
 
-     ![Service Registration Key dialog box](./media/storsimple-get-service-registration-key-gov/HCS_ServiceRegistrationKey-gov-include.png)
+     ![[服務註冊金鑰] 對話方塊](./media/storsimple-get-service-registration-key-gov/HCS_ServiceRegistrationKey-gov-include.png)
 
-3. Locate the service registration key.
+3. 找到服務註冊金鑰。
 
-4. Click the copy icon ![StorSimple Copy icon](./media/storsimple-get-service-registration-key-gov/HCS_CopyIcon-include.png) to copy the key and save it for later use.
+4. 按一下複製圖示 ![StorSimple 複製圖示](./media/storsimple-get-service-registration-key-gov/HCS_CopyIcon-include.png)，複製此金鑰並加以儲存，以供日後使用。
 
-5. Click the check icon ![StorSimple Check icon](./media/storsimple-get-service-registration-key-gov/HCS_CheckIcon-include.png) to close this dialog box and return to the **Quick Start** page.
+5. 按一下核取圖示 ![StorSimple 核取圖示](./media/storsimple-get-service-registration-key-gov/HCS_CheckIcon-include.png)，關閉此對話方塊並返回 [快速入門] 頁面。
 
-> [AZURE.NOTE] The service registration key is used to register all the devices that need to register with your StorSimple Manager service.
+> [AZURE.NOTE]服務註冊金鑰可用來註冊必須向 StorSimple Manager 服務註冊的所有裝置。
 
  
+
+<!---HONumber=58_postMigration-->

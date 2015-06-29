@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/28/2015" 
+	ms.date="06/16/2015" 
 	ms.author="jeffstok" />
 
 
@@ -30,7 +30,7 @@ Azure 串流分析是一種完全受管理的服務，可用來對雲端中的�
 - 處理遙測資料以進行接近即時的監視和診斷。 
 - 擷取和封存即時事件供後續處理
 
-如需詳細資訊，請參閱 [Azure 串流分析簡介](stream.analytics.introduction)。
+如需詳細資訊，請參閱 [Azure 串流分析簡介](stream-analytics-introduction.md)。
 
 串流分析工作包括：* 一個或多個輸入來源 * 內送資料流上的查詢 * 輸出目標。
 
@@ -39,14 +39,14 @@ Azure 串流分析是一種完全受管理的服務，可用來對雲端中的�
 
 ### 資料流
 
-每個資料流分析工作定義都必須包含至少一個要由工作取用和轉換的資料流輸入來源。支援將 [Azure Blob 儲存體](azure.blob.storage)和 [Azure 事件中樞](azure.event.hubs)當成資料流輸入來源。事件中樞輸入來源可用來從多個不同的裝置和服務收集事件資料流，而 Blob 儲存體則可做為吸取大量資料的輸入來源。由於 Blob 不會串流處理資料，因此除非 Blob 中的記錄包含時間戳記，否則對 Blob 進行串流分析工作都不會是暫時的工作。
+每個資料流分析工作定義都必須包含至少一個要由工作取用和轉換的資料流輸入來源。支援將 [Azure Blob 儲存體](http://azure.microsoft.com/documentation/services/storage/)和 [Azure 事件中樞](http://azure.microsoft.com/services/event-hubs/)當成資料流輸入來源。事件中樞輸入來源可用來從多個不同的裝置和服務收集事件資料流，而 Blob 儲存體則可做為吸取大量資料的輸入來源。由於 Blob 不會串流處理資料，因此除非 Blob 中的記錄包含時間戳記，否則對 Blob 進行串流分析工作都不會是暫時的工作。
 
 ### 參考資料
-串流分析也支援第二種輸入來源類型：參考資料。這是用來執行相互關聯與查閱的輔助資料，此處通常是靜態或不常變更的資料。在預覽版本中，[Azure Blob 儲存體](azure.blob.storage)是唯一支援當成參考資料的輸入來源。參考資料來源 Blob 的大小以 50MB 為限。
+串流分析也支援第二種輸入來源類型：參考資料。這是用來執行相互關聯與查閱的輔助資料，此處通常是靜態或不常變更的資料。在預覽版本中，[Azure Blob 儲存體](http://azure.microsoft.com/documentation/services/storage/)是唯一支援當成參考資料的輸入來源。參考資料來源 Blob 的大小以 50MB 為限。
 
 使用者需要在路徑模式內使用 {date} 與 {time} 權杖，在輸入組態中指定 Blob清單，才能支援重新整理參考資料。該工作將根據 Blob 名稱中使用 UTC 時區編碼的日期與時間載入對應的 Blob。
 
-例如，若這項工作的參考輸入在入口網站設定使用的路徑模式如下：/sample/{date}/{time}/products.csv，其中日期格式為 “YYYY-MM-DD” 而時間格式為 “HH:mm”，那麼該工作將挑選 UTC 時區 2015 年 4 月 16 日下午 5:30 (等同於使用 PST 時區的 2015 年 4 月 16 日 上午 10:30) 名為  /sample/2015-04-16/17:30/products.csv 的檔案.
+例如，若這項工作的參考輸入在入口網站設定使用的路徑模式如下：/sample/{date}/{time}/products.csv，其中日期格式為 “YYYY-MM-DD” 而時間格式為 “HH:mm”，那麼該工作將挑選 UTC 時區 2015 年 4 月 16 日下午 5:30 (等同於使用 PST 時區的 2015 年 4 月 16 日 上午 10:30) 名為 /sample/2015-04-16/17:30/products.csv 的檔案.
 
 
 ### 序列化
@@ -102,7 +102,7 @@ Azure 串流分析是一種完全受管理的服務，可用來對雲端中的�
 串流工作查詢使用 TIMESTAMP BY 關鍵字時，並不保證事件送達輸入的順序，有些位於相同輸入資料分割事件可能會延遲送達，[輸入內允許的最大順序錯亂] 參數可讓串流工作針對允許順序以外的事件採取行動，根據 [遲到事件的動作] 設定，捨棄事件或調整事件的時間戳記。
 
 ### 其他資源
-如需建立輸入來源的詳細資訊，請參閱 [Azure 事件中樞開發人員指南](azure.event.hubs.developer.guide)與[使用 Azure Blob 儲存體](azure.blob.storage.use)。
+如需建立輸入來源的詳細資訊，請參閱 [Azure 事件中樞開發人員指南](http://msdn.microsoft.com/library/azure/dn789972.aspx)與[使用 Azure Blob 儲存體](../storage/storage-dotnet-how-to-use-blobs.md)。
 
 
 
@@ -129,14 +129,14 @@ Azure 串流分析是一種完全受管理的服務，可用來對雲端中的�
 	FROM step1 
 	GROUP BY TumblingWindow (day, 1) 
 
-若要深入了解查詢語言，請參閱 [Azure 資料流分析查詢語言參考](stream.analytics.query.language.reference)。
+若要深入了解查詢語言，請參閱 [Azure 資料流分析查詢語言參考](http://go.microsoft.com/fwlink/?LinkID=513299)。
 
 ## 輸出
 輸出目標是串流分析工作的結果所將寫入到的位置。當工作處理輸入事件時，結果會持續寫入至輸出目標。支援的輸出目標如下：
 
 - Azure 事件中樞 - 當有多個串流管線需要建構在一起時 (例如將命令發回裝置時)，請選擇「事件中樞」做為輸出目標。
 - Azure Blob 儲存體 - 將 Blob 儲存體用於輸出的長期封存，或用來儲存資料以進行後續處理。
-- Azure 資料表儲存體 - Azure 資料表儲存體是有一些結構描述限制的結構化資料存放區。相同的 Azure 資料表中能夠儲存具有不同結構描述與不同類型的實體。使用 Azure 資料表儲存資料時，資料可長期儲存而且調閱方便。如需詳細資訊，請參閱 [Azure 儲存體簡介](../storage.introduction.md)與[設計 Azure 資料表儲存體的可調整分割策略](https://msdn.microsoft.com/library/azure/hh508997.aspx)。
+- Azure 資料表儲存體 - Azure 資料表儲存體是有一些結構描述限制的結構化資料存放區。相同的 Azure 資料表中能夠儲存具有不同結構描述與不同類型的實體。使用 Azure 資料表儲存資料時，資料可長期儲存而且調閱方便。如需詳細資訊，請參閱 [Azure 儲存體簡介](../storage/storage-introduction.md)與[設計 Azure 資料表儲存體的可調整分割策略](https://msdn.microsoft.com/library/azure/hh508997.aspx)。
 - Azure SQL 資料庫 - 此輸出目標適用於本質上具有關聯性的資料，或適用於對資料庫中主控的內容具有相依性的應用程式。
 
 
@@ -144,7 +144,7 @@ Azure 串流分析是一種完全受管理的服務，可用來對雲端中的�
 
 串流分析工作可以透過串流處理單元的設定來調整，此單元會定義工作接收的資料處理能力。每個串流處理單元會對應至約 1 MB/秒的輸送量。每個訂用帳戶的每個區域會有 12 個串流處理單元的配額可配置給該區域的工作。
 
-如需詳細資訊，請參閱[調整 Azure 串流分析工作](stream.analytics.scale.jobs)。
+如需詳細資訊，請參閱[調整 Azure 串流分析工作](stream-analytics-scale-jobs.md)。
 
 
 ## 工作的監視和疑難排解
@@ -176,16 +176,15 @@ Azure 串流分析是一種完全受管理的服務，可用來對雲端中的�
 您可以為資料流分析工作調整下列最上層設定：
 
 - **開始輸出** - 使用此設定來指定這項工作將在何時開始產生結果輸出。如果相關聯的查詢包含時間範圍，工作將會在必要的持續期間開始時從輸入來源開始收取輸入，以在指定的時間產生的第一個輸出事件。共有兩個選項：[工作開始時間] 和 [自訂]。預設值是 [工作開始時間]。使用 [自訂] 選項時，您必須指定日期和時間。此設定可用來指定輸入來源中有多少歷史資料會從特定時間開始取用或收取資料擷取，例如在工作前次停止時。 
-- **順序錯亂原則** - 用以處理事件未依序送達串流分析工作的設定。您可以指定容許的時間範圍，以指定可在其間重新排序事件的時間臨界值，同時指定要對此時間範圍外的事件採取的動作：[捨棄] 或 [調整]。「捨棄」將會捨棄所有以錯誤順序接收的事件，而「調整」會將順序錯亂之事件的 System.Timestamp 變更為最近收到之排序事件的時間戳記。 
+- **順序錯亂原則** - 用以處理事件未依序送達串流分析工作的設定。您可以指定容許的時間範圍，以指定可在其間重新排序事件的時間臨界值，同時指定要對此時間範圍外的事件採取的動作：[捨棄] 或 [調整]。[捨棄] 將會捨棄所有以錯誤順序接收的事件，而 [調整] 將會變更系統。順序錯亂之事件的 System.Timestamp 變更為最近收到之排序事件的時間戳記。 
 - **遲到原則** - 讀取有多個資料分割的輸入來源，卻有一或多個資料分割出現延遲狀況或沒有資料時，串流工作需要決定如何處理這種強況，才能讓事件持續流經系統。[允許的最大送達延遲] 輸入設定可控制該行為且預設值為永遠等待資料，這表示將不會更改事件的時間戳記，事件也將會根據最慢的輸入資料分割流動，並在有一或多個輸入資料分割沒有資料時停止流動。如果資料平均分佈在輸入資料分割且事件間的時間一致性相當重要時，這就會很有幫助。使用者也能決定只等待有限的時間，[允許的最大送達延遲] 可決定延遲時間，工作就會不顧延遲的輸入資料分割，繼續向前進行，並根據 [遲到事件的動作] 設定來對事件採取行動，捨棄事件或稍後在資料抵達時調整事件的時間戳記。如果有延遲的必要且允許更動時間戳記，但輸入可能未平均分佈的情況下，這就會很有幫助。
 - **地區設定** - 使用此設定，可指定串流分析工作的國際化喜好設定。雖然資料的時間戳記是不分地區設定的，但此處的設定將會影響工作剖析、比較和排序資料的方式。預覽版本僅支援 en-US。
 
 ### 狀態
 
-串流分析工作狀態可以在 Azure 入口網站中檢查。執行中的工作會是以下三種狀態之一：[閒置]、[處理中] 或 [已降級]。上述狀態的定義分別如下：
+串流分析工作狀態可以在 Azure 入口網站中檢查。執行作業可能處於下列兩種狀態之一：**執行**，或**降級**。上述狀態的定義分別如下：
 
-- **閒置** - 自從工作建立之後或過去 2 分鐘都沒看到任何輸入位元組。如果工作長時間處於 [閒置] 狀態，很可能是有輸入存在，但沒有要處理的原始位元組。
-- **處理中** - 串流分析工作已成功取用篩選的輸入事件數目並非零。如果工作一直處於 [處理中] 狀態而未產生輸出，很可能是資料處理時間範圍很長或查詢邏輯很複雜。
+- **執行** - 已配置工作，正在處理輸入，或正在等候處理輸入。如果作業顯示執行中狀態，卻沒有產生輸出，可能是資料處理時間範圍很大或查詢邏輯很複雜。另一個原因可能是目前沒有任何資料傳送至工作。
 - **已降級** - 這個狀態指出串流分析工作遇到下列其中一個錯誤：輸入/輸出通訊錯誤、查詢錯誤、可重試執行階段錯誤。若要區分工作遇到那種類型的錯誤，請檢視作業記錄。
 
 
@@ -202,27 +201,6 @@ Azure 串流分析是一種完全受管理的服務，可用來對雲端中的�
 - [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+ 
 
-
-
-
-
-<!--Link references-->
-[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
-[azure.blob.storage.use]: http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/
-
-[azure.event.hubs]: http://azure.microsoft.com/services/event-hubs/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
-
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.forum]: http://go.microsoft.com/fwlink/?LinkId=512151
-
-[stream.analytics.introduction]: stream-analytics-introduction.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
-[stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.limitations]: ../stream-analytics-limitations.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

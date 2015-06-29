@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="設定 Azure 自動化"
    description="描述設定 Azure 自動化以進行初次使用時必須執行的步驟。"
    services="automation"
@@ -6,10 +6,10 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/13/2015"
@@ -24,6 +24,11 @@
 當您第一次啟動 Azure 自動化時，您必須建立至少一個自動化帳戶。自動化帳戶可讓您將您的自動化資源 (Runbook、資產) 與其他自動化帳戶中包含的自動化資源中區隔。您可以使用自動化帳戶，將自動化資源分成個別的邏輯環境。例如，您可能會使用一個帳戶進行開發和另一個用於生產環境。
 
 每個自動化帳戶的自動化資源都會與單一 Azure 區域相關聯，但自動化帳戶可管理任何區域中的 Azure 服務。在不同區域建立自動化帳戶的主要原因會是，若您擁有需要區隔資料和資源到特定區域的原則時。
+
+>[AZURE.NOTE]使用 Azure Preview 入口網站所建立的自動化帳戶，以及其所包含的資源，無法在 Azure 入口網站中存取。如果您想使用 Windows PowerShell 來管理這些帳戶或它們的資源，您必須使用 「Azure 資源管理員」模組。
+>
+>使用 Azure 入口網站建立的自動化帳戶可以透過入口網站或 Cmdlet 集來管理。帳戶一旦建立，您在帳戶中建立和管理資源的方式就沒有差別。如果您打算繼續使用 Azure 入口網站，您應該使用它代替 Azure Preview 入口網站來建立任何的自動化帳戶。
+
 
 如果您的 Azure 帳戶有問題 (例如逾期未付款)，可能會將自動化帳戶暫止。在此情況下，您無法存取帳戶、將暫止任何執行中的工作，並將停用所有排程。您可以檢視帳戶，但不會在其中看到任何資源。一旦您更正問題並啟用自動化帳戶，您將必須啟用排程並重新啟動被暫止的任何 Runbook。
 
@@ -58,7 +63,8 @@
 
 您應該在您的 Runbook 中的任何[檢查點](automation-runbook-execution/#checkpoints)後重複這幾行。如果 Runbook 暫止然後在另一個背景工作上繼續執行，則它必須重新執行驗證。
 
-# 相關文章
-- [Azure 自動化：使用 Azure Active Directory 對 Azure 進行驗證](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) 
+## 相關文章
+- [Azure 自動化：使用 Azure Active Directory 對 Azure 進行驗證](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

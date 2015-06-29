@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="虛擬機器大小" 
-	description="列出虛擬機器的不同大小及其容量。" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor=""/>
+ pageTitle="虛擬機器大小" 
+ description="列出虛擬機器的不同大小及其容量。" 
+ services="virtual-machines" 
+ documentationCenter="" 
+ authors="KBDAzure" 
+ manager="timlt" 
+ editor=""/>
 <tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="vm-multiple" 
-	ms.workload="infrastructure-services"
-	ms.date="05/26/2015" 
-	ms.author="kathydav"/>
+ms.service="virtual-machines" 
+ ms.devlang="na" 
+ ms.topic="article" 
+ ms.tgt_pltfrm="vm-multiple" 
+ ms.workload="infrastructure-services"
+ ms.date="05/28/2015" 
+ ms.author="kathydav"/>
 
 # 虛擬機器的大小
 
@@ -21,7 +21,7 @@
 
 本文說明以虛擬機器為基礎之計算資源的可用大小和選項，而您可以使用這類資源來執行應用程式和工作負載。同時也提供計劃使用這些資源時需注意的部署考量。
 
-Azure 虛擬機器和雲端服務是 Azure 所提供數種計算資源類型的其中兩種。如需說明，請參閱[計算 Azure 所提供的裝載選項](http://go.microsoft.com/fwlink/p/?LinkID=311926)。
+Azure 虛擬機器和雲端服務是 Azure 所提供數種計算資源類型的其中兩種。如需說明，請參閱＜[計算 Azure 所提供的裝載選項](http://go.microsoft.com/fwlink/p/?LinkID=311926)＞。
 
 >[AZURE.NOTE]若要查看相關的 Azure 限制，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)
 
@@ -58,8 +58,8 @@ Azure 虛擬機器和雲端服務是 Azure 所提供數種計算資源類型的�
 |大小 - 管理入口網站\Cmdlet 和 API|CPU 核心|記憶體|最大的磁碟大小 - 虛擬機器|最大的資料磁碟 (每個 1023 GB)|最大IOPS (每個磁碟 300)|
 |---|---|---|---|---|---|
 |A0\Basic_A0|1|768 MB|<p>作業系統 = 1023 GB</p><p>暫存 = 20 GB</p>|1|1x300|
-|A1\Basic_A1|1|1.75 GB|<p>作業系統 = 1023 GB</p><p>暫存 = 40 GB</p>|2|2x300|
-|A2\Basic_A2|2|3.5 GB|<p>作業系統 = 1023 GB</p><p>暫存 = 60 GB</p>|4|4x300|
+|A1\Basic_A1|1|1\.75 GB|<p>作業系統 = 1023 GB</p><p>暫存 = 40 GB</p>|2|2x300|
+|A2\Basic_A2|2|3\.5 GB|<p>作業系統 = 1023 GB</p><p>暫存 = 60 GB</p>|4|4x300|
 |A3\Basic_A3|4|7 GB|<p>作業系統 = 1023 GB</p><p>暫存 = 120 GB</p>|8|8x300|
 |A4\Basic_A4|8|14 GB|<p>作業系統 = 1023 GB</p><p>暫存 = 240 GB</p>|16|16x300|
 
@@ -69,18 +69,18 @@ Azure 虛擬機器和雲端服務是 Azure 所提供數種計算資源類型的�
 |大小 - 管理入口網站\Cmdlet 和 API|CPU 核心|記憶體|最大的磁碟大小 - 虛擬機器|最大的資料磁碟 (每個 1023 GB)|最大IOPS (每個磁碟 500)|
 |---|---|---|---|---|---|
 |A0\ 超小型|1|768 MB|<p>作業系統 = 1023 GB</p><p>暫存 = 20 GB</p>|1|1x500|
-|A1\小型|1|1.75 GB|<p>作業系統 = 1023 GB</p><p>暫存 = 70 GB</p>|2|2x500|
-|A2\中型|2|3.5 GB|<p>作業系統 = 1023 GB</p><p>暫存 = 135 GB</p>|4|4x500|
+|A1\小型|1|1\.75 GB|<p>作業系統 = 1023 GB</p><p>暫存 = 70 GB</p>|2|2x500|
+|A2\中型|2|3\.5 GB|<p>作業系統 = 1023 GB</p><p>暫存 = 135 GB</p>|4|4x500|
 |A3\大型|4|7 GB|<p>作業系統 = 1023 GB</p><p>暫存 = 285 GB</p>|8|8x500|
 |A4\超大型|8|14 GB|<p>作業系統 = 1023 GB</p><p>暫存 = 605 GB</p>|16|16x500|
 |A5(相同)|2|14 GB|<p>作業系統 = 1023 GB</p><p>暫存 = 135 GB</p>|4|4X500|
 |A6(相同)|4|28 GB|<p>作業系統 = 1023 GB</p><p>暫存 = 285 GB</p>|8|8x500|
 |A7(相同)|8|56 GB|<p>作業系統 = 1023 GB</p><p>暫存 = 605 GB</p>|16|16x500|
-|A8(相同)|8|56 GB|<p><p>作業系統 = 1023 GB</p><p>暫存 = 382 GB</p><blockquote><p>[AZURE.NOTE]如需使用此大小的資訊及考量，請參閱<a href="http://go.microsoft.com/fwlink/p/?linkid=328042">關於 A8、A9、A10 和 A11 大量計算執行個體</a>。</p></blockquote>|16|16x500|
-|A9(相同)|16|112 GB|<p><p>作業系統 = 1023 GB</p><p>暫存 = 382 GB</p><blockquote><p>[AZURE.NOTE]如需使用此大小的資訊及考量，請參閱<a href="http://go.microsoft.com/fwlink/p/?linkid=328042">關於 A8、A9、A10 和 A11 大量計算執行個體</a>。</p></blockquote>|16|16x500|
-|A10(相同)|8|56 GB|<p><p>作業系統 = 1023 GB</p><p>暫存 = 382 GB</p><blockquote><p>[AZURE.NOTE]如需使用此大小的資訊及考量，請參閱<a href="http://go.microsoft.com/fwlink/p/?linkid=328042">關於 A8、A9、A10 和 A11 大量計算執行個體</a>。</p></blockquote>|16|16x500|
-|A11(相同)|16|112 GB|<p><p>作業系統 = 1023 GB</p><p>暫存 = 382 GB</p><blockquote><p>[AZURE.NOTE]如需使用此大小的資訊及考量，請參閱<a href="http://go.microsoft.com/fwlink/p/?linkid=328042">關於 A8、A9、A10 和 A11 大量計算執行個體</a>。</p></blockquote>|16|16x500|
-|Standard_D1(相同)|1|3.5 GB|<p>作業系統 = 1023 GB</p><p>暫存 (SSD) = 50 GB</p>|2|2x500|
+|A8(相同)|8|56 GB|<p><p>OS = 1023 GB</p><p>暫存 = 382 GB</p><blockquote><p>注意：如需使用此大小的資訊與考量，請參閱<a href="http://go.microsoft.com/fwlink/p/?linkid=328042">關於 A8、A9、A10 與 A11 計算密集型執行個體</a>.</p></blockquote>|16|16x500|
+|A9(相同)|16|112 GB|<p><p>OS = 1023 GB</p><p>暫存 = 382 GB</p><blockquote><p>注意：如需使用此大小的資訊與考量，請參閱<a href="http://go.microsoft.com/fwlink/p/?linkid=328042">關於 A8、A9、A10 與 A11 計算密集型執行個體</a>.</p></blockquote>|16|16x500|
+|A10(相同)|8|56 GB|<p><p>OS = 1023 GB</p><p>暫存 = 382 GB</p><blockquote><p>注意：如需使用此大小的資訊與考量，請參閱<a href="http://go.microsoft.com/fwlink/p/?linkid=328042">關於 A8、A9、A10 與 A11 計算密集型執行個體</a>.</p></blockquote>|16|16x500|
+|A11(相同)|16|112 GB|<p><p>OS = 1023 GB</p><p>暫存 = 382 GB</p><blockquote><p>注意：如需使用此大小的資訊與考量，請參閱<a href="http://go.microsoft.com/fwlink/p/?linkid=328042">關於 A8、A9、A10 與 A11 計算密集型執行個體</a>.</p></blockquote>|16|16x500|
+|Standard_D1(相同)|1|3\.5 GB|<p>作業系統 = 1023 GB</p><p>暫存 (SSD) = 50 GB</p>|2|2x500|
 |Standard_D2(相同)|2|7 GB|<p>作業系統 = 1023 GB</p><p>暫存 (SSD) = 100 GB</p>|4|4x500|
 |Standard_D3(相同)|4|14 GB|<p>作業系統 = 1023 GB</p><p>暫存 (SSD) = 200 GB</p>|8|8x500|
 |Standard_D4(相同)|8|28 GB|<p>作業系統 = 1023 GB</p><p>暫存 (SSD) = 400 GB</p>|16|16x500|
@@ -94,7 +94,7 @@ Azure 虛擬機器和雲端服務是 Azure 所提供數種計算資源類型的�
 
 |大小 - 管理入口網站\Cmdlet 和 API|CPU 核心|記憶體|最大的磁碟大小 - 虛擬機器|最大的資料磁碟 (每個 1023 GB)|快取大小 (GB)|最大的磁碟 IOPS 和頻寬|
 |---|---|---|---|---|---|---|
-|Standard_DS1(相同)|1|3.5|<p>作業系統 = 1023 GB</p><p>本機 SSD 磁碟 = 7 GB</p>|2|43|<p>3,200</p><p>每秒 32 MB</p>|
+|Standard_DS1(相同)|1|3\.5|<p>作業系統 = 1023 GB</p><p>本機 SSD 磁碟 = 7 GB</p>|2|43|<p>3,200</p><p>每秒 32 MB</p>|
 |Standard_DS2(相同)|2|7|<p>作業系統 = 1023 GB</p><p>本機 SSD 磁碟 = 14 GB</p>|4|86|<p>6,400</p><p>每秒 64 MB</p>|
 |Standard_DS3(相同)|4|14|<p>作業系統 = 1023 GB</p><p>本機 SSD 磁碟 = 28 GB</p>|8|172|<p>12,800</p><p>每秒 128 MB</p>|
 |Standard_DS4(相同)|8|28|<p>作業系統 = 1023 GB</p><p>本機 SSD 磁碟 = 56 GB</p>|16|344|<p>25,600</p><p>每秒 256 MB</p>|
@@ -117,18 +117,9 @@ Azure 虛擬機器和雲端服務是 Azure 所提供數種計算資源類型的�
 
 ### 另請參閱
 
-#### 概念
-
-[設定 Azure 的雲端服務](https://msdn.microsoft.com/library/hh124108)
-
- [設定雲端服務大小](https://msdn.microsoft.com/library/ee814754)
-
-#### 其他資源
-
 [Azure 訂用帳戶和服務限制、配額與限制](../azure-subscription-service-limits.md)
  
- [關於 A8、A9、A10 和 A11 大量計算執行個體](http://go.microsoft.com/fwlink/p/?linkid=328042)
+＜[關於 A8、A9、A10 和 A11 計算密集型執行個體](http://go.microsoft.com/fwlink/p/?linkid=328042)＞
+ 
 
-[雲端服務的大小](../cloud-services-sizes-specs.md)
-
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -46,8 +46,8 @@ Azure Linux 代理程式 (/usr/sbin/waagent) 可管理虛擬機器與 Azure 網�
 * **SCVMM 部署**
     - 在 System Center Virtual Machine Manager 2012 R2 環境中執行時偵測和啟動 Linux 的 VMM 代理程式
 * **VM 延伸模組**
-    - 將 Microsoft 和合作夥伴所撰寫的元件插入 Linux VM (IaaS)，以啟用軟體和設定自動化 
-    - VM 延伸模組參考實作，網址為  [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+    - 將 Microsoft 和合作夥伴所撰寫的元件插入 Linux VM (IaaS)，以啟用軟體和設定自動化
+    - VM 延伸模組參考實作，網址為 [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 
 ##通訊
@@ -315,4 +315,6 @@ Linux 代理程式需要一些系統封裝才能正確運作：
  - [Ubuntu Wiki：設定交換資料分割](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
  - [將自訂資料插入 Azure 虛擬機器](virtual-machines-how-to-inject-custom-data.md)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

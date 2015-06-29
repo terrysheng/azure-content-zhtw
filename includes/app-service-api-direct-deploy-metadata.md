@@ -2,7 +2,7 @@
 
 本節提供您可自訂之 API 應用程式中繼資料的相關資訊。
 
-*apiapp.json* 檔案中的大部分屬性，以及 *Metadata* 資料夾中的檔案，會影響 API 應用程式封裝在 Azure Marketplace 中的呈現方式。下列各節說明當您在 Azure 訂閱中將程式碼部署到 API 應用程式時，哪些屬性和檔案會影響 API 應用程式。
+*apiapp.json* 檔案中的大部分屬性，以及 *Metadata* 資料夾中的檔案，會影響 API 應用程式封裝在 Azure Marketplace 中的呈現方式。下列各節說明當您在 Azure 訂用帳戶中將程式碼部署到 API 應用程式時，哪些屬性和檔案會影響 API 應用程式。
 
 ### API 應用程式識別碼 
 
@@ -20,7 +20,7 @@
 
 ### 動態 Swagger API 定義
 
-若要提供動態 [Swagger](http://swagger.io/) API 定義的 URL 端點，請將 GET 要求時傳回 Swagger 2.0 API 定義之 API 應用程式所公開 API 的相對 URL 儲存在 `endpoints.apiDefinition` 屬性中。例如：
+如果 API 應用程式可以傳回動態 [Swagger](http://swagger.io/) API 定義，則儲存 GET 要求的相對 URL，該要求會在 `endpoints.apiDefinition` 屬性中傳回 API 定義 JSON。例如：
 
 		"endpoints": {
 		    "apiDefinition": "/swagger/docs/v1"
@@ -35,6 +35,5 @@
 ![](./media/app-service-api-direct-deploy-metadata/apidefinmetadata.png)
 
 將 `endpoints.apiDefinition` 保留在 *apiapp.json* 檔案外部，或將其值設定為 Null。如果您同時包含 `endpoints.apiDefinition` URL 和 *apiDefinition.swagger.json* 檔案，則會優先使用 URL，並忽略檔案。
- 
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

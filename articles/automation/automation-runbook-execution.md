@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Azure 自動化中的 Runbook 執行"
    description="描述如何處理 Azure 自動化中的 Runbook 的詳細資料。"
    services="automation"
@@ -6,10 +6,10 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/28/2015"
@@ -43,5 +43,6 @@ Azure 自動化中的 Runbook 通常會需要存取 Azure 訂用帳戶中的資�
 
 - [在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook)
 - [在 Azure 自動化中檢視 Runbook 工作的狀態](automation-viewing-the-status-of-a-runbook-job)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -45,10 +45,10 @@
 ## 建立虛擬機器
 
 1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com)。
-2. 按一下 **新增**。
-3. 按一下 **虛擬機器**。
-4. 按一下 **快速建立**。
-5. 在 **Create a virtual machine** 畫面中輸入 **DNS 名稱** 的值。
+2. 按一下 [新增]。
+3. 按一下 [虛擬機器]。
+4. 按一下 [快速建立]。
+5. 在 [Create a virtual machine] 畫面中輸入 [DNS 名稱] 的值。
 6. 從 [映像] 下拉式清單中選取映像，例如 **Windows Server 2012 R2**。
 7. 在 [使用者名稱] 欄位中輸入系統管理員的名稱。請記住即將輸入的名稱和密碼，因為當您從遠端登入此虛擬機器時將需要用到它們。
 8. 在 [新增密碼] 欄位中輸入密碼，然後在 [確認] 欄位中再輸入一次。
@@ -101,7 +101,7 @@
 
 1. 在您的部署機器 (不一定是您建立的虛擬機器) 上，下載 [Azure SDK for .NET](http://azure.microsoft.com/develop/net/)。
 2. 利用名為 **TSPSolver** 的專案建立 .NET 主控台應用程式。確定已針對 .**NET Framework 4** 或更新版本 (而非 **.NET Framework 4 用戶端設定檔**) 設定目標 Framework。執行下列動作，即可在您建立專案後設定此目標 Framework：在 Visual Studio 的功能表中，依序按一下 [專案]、[屬性]、[應用程式] 索引標籤，然後設定 [目標 Framework] 的值。
-3. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [TSPSolver]，然後依序按一下 [新增參考] 和 [瀏覽] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **C:\Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
+3. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [TSPSolver]，然後依序按一下 [新增參考] 和 [瀏覽] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **]Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
 4. 加入 System Runtime Serialization 程式庫中。在 Visual Studio 方案總管中，於 [TSPSolver] 上按一下滑鼠右鍵，按一下 [新增參考]、按一下 [.NET] 索引標籤，然後選取 **System.Runtime.Serialization** 作為參考。
 5. 將這一節結尾的範例程式碼使用於 **Program.cs** 的內容。
 6. 修改 **your_connection_string** 預留位置以使用服務匯流排 **connection string**。
@@ -326,7 +326,7 @@
 ## 如何建立 .NET 應用程式以便監控需密集運算之工作的進度
 
 1. 在開發電腦上，以 **TSPClient** 作為專案名稱來建立 .NET 主控台應用程式。確定已針對 .**NET Framework 4** 或更新版本 (而非 **.NET Framework 4 用戶端設定檔**) 設定目標 Framework。執行下列動作，即可在您建立專案後設定此目標 Framework：在 Visual Studio 的功能表中，依序按一下 [專案]、[屬性]、[應用程式] 索引標籤，然後設定 [目標 Framework] 的值。
-2. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [TSPClient]，然後依序按一下 [新增參考] 和 [瀏覽] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **C:\Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
+2. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [TSPClient]，然後依序按一下 [新增參考] 和 [瀏覽] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **]Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
 3. 加入 System Runtime Serialization 程式庫中。在 Visual Studio 方案總管中，於 [TSPClient] 上按一下滑鼠右鍵，按一下 [新增參考]、按一下 [.NET] 索引標籤，然後選取 **System.Runtime.Serialization** 作為參考。
 4. 將這一節結尾的範例程式碼使用於 **Program.cs** 的內容。
 5. 修改 **your_connection_string** 預留位置以使用服務匯流排 **connection string**。
@@ -545,5 +545,6 @@
 [click_create]: ./media/virtual-machines-dotnet-run-compute-intensive-task/ClickCreate.png
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

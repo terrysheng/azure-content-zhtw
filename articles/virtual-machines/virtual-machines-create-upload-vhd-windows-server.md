@@ -209,5 +209,6 @@
 [步驟 2：在 Azure 中建立儲存體帳戶]: #createstorage
 [步驟 3：準備 Azure 的連線]: #prepAzure
 [步驟 4：上傳 .vhd 檔案]: #upload
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

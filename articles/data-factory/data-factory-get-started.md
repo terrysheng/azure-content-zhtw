@@ -22,59 +22,59 @@
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 
-這篇文章的教學課程可協助您快速地開始使用 Azure 資料處理站服務。在本教學課程中，您將建立 Azure 的資料處理站，並在資料處理站，將資料從 Azure blob 儲存體複製到 Azure SQL 資料庫中建立管線。
+本文中的教學課程可協助您快速開始使用 Azure Data Factory 服務。在本教學課程中，您將建立 Azure Data Factory，並在 Data Factory 中建立管線，以將資料從 Azure Blob 儲存體複製到 Azure SQL Database。
 
-> [AZURE.NOTE]資料處理站服務的詳細概觀，請參閱 [簡介 Azure 資料 Factory][data-factory-introduction] 發行項。
+> [AZURE.NOTE]如需 Data Factory 服務的詳細概觀，請參閱 [Azure Data Factory 簡介][data-factory-introduction]一文。
 
-##本教學課程的必要條件
+##教學課程的必要條件
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。如果您沒有訂閱，您可以建立免費試用帳戶，只需要幾分鐘的時間。請參閱 [免費試用版][azure-free-trial] 如需詳細資訊的發行項。
-- **Azure 儲存體帳戶**。您將使用 blob 儲存體做為 **來源** 資料儲存在這個教學課程。 如果您沒有儲存體帳戶，請參閱 [建立儲存體帳戶][data-factory-create-storage] 步驟來建立一個發行項。
-- **Azure SQL Database**。您將使用 Azure SQL 資料庫做為 **目的地** 本教學課程中的資料存放區。如果您沒有 Azure SQL database 可讓您在教學課程中，請參閱 [如何建立及設定 Azure SQL Database][data-factory-create-sql-database] 來建立一個。
-- **SQL Server 2012/2014年或 Visual Studio 2013**。若要建立範例資料庫以及在資料庫中檢視結果資料，您將使用 SQL Server Management Studio 或 Visual Studio。  
+- **Azure 訂用帳戶**。如果您沒有訂用帳戶，則只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱[免費試用][azure-free-trial]一文。
+- **Azure 儲存體帳戶**。在本教學課程中，您將使用 Blob 儲存體做為**來源**資料存放區。如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶][data-factory-create-storage]一文以取得建立步驟。
+- **Azure SQL Database**。在本教學課程中，您將使用 Azure SQL Database 做為**目的地**資料存放區。如果您沒有可在教學課程中使用的 Azure SQL Database，請參閱[如何建立和設定 Azure SQL Database][data-factory-create-sql-database]建立一個。
+- **SQL Server 2012/2014 或 Visual Studio 2013**。您將使用 SQL Server Management Studio 或 Visual Studio，建立範例資料庫以及檢視資料庫中的結果資料。  
 
-### 收集帳戶名稱和您的 Azure 儲存體帳戶的帳戶金鑰
-您需要的帳戶名稱和您的 Azure 儲存體帳戶來進行這個教學課程的帳戶金鑰。記下 **帳戶名稱** 和 **帳戶金鑰** 依照下列指示您 Azure 儲存體帳戶：
+### 收集 Azure 儲存體帳戶的帳戶名稱和帳戶金鑰
+您需要有 Azure 儲存體帳戶的帳戶名稱和帳戶金鑰，才能進行這個教學課程。請依照下面的指示，記下 Azure 儲存體帳戶的**帳戶名稱**和**帳戶金鑰**：
 
-1. 登入 [Azure 預覽入口網站][azure-preview-portal]。
-2. 按一下 **瀏覽** 左邊，然後選取中樞 **儲存體帳戶**。
-3. 在 **儲存體帳戶** blade 中，選取 **Azure 儲存體帳戶** 您想要在本教學課程中使用。
-4. 在 **儲存體** blade 中，按一下 **金鑰** 並排顯示。
-5. 在 **管理金鑰** blade 中，按一下 **複製** (影像) 旁的按鈕 **儲存體帳戶名稱** 文字] 方塊，並儲存/貼上它某處 (例如： 文字檔案中)。  
-6. 重複上述步驟，記下或複製 **主要存取金鑰**。
-7. 按一下 [關閉所有刀 **X**。
+1. 登入 [Azure Preview 入口網站][azure-preview-portal]。
+2. 按一下左邊的 [瀏覽] 中樞，然後選取 [儲存體帳戶]。
+3. 在 [**儲存體帳戶**] 刀鋒視窗中，選取您想要在本教學課程中使用的 [**Azure 儲存體帳戶**]。
+4. 在 [**儲存體**] 刀鋒視窗中，按一下 [**金鑰**] 磚。
+5. 在 [**管理金鑰**] 刀鋒視窗中，按一下 [**儲存體帳戶名稱**] 文字方塊旁的 [**複製** (影像)] 按鈕，然後將它儲存/貼到某個位置 (例如：在文字檔中)。  
+6. 重複上述步驟，複製或記下 [主要存取金鑰]。
+7. 按一下 **X**，關閉所有刀鋒視窗。
 
-### 收集伺服器名稱、 資料庫名稱和您的 Azure SQL database 的使用者帳戶
-您需要 Azure SQL server、 資料庫和進行此教學課程的使用者的名稱。記下的名稱 **server**, ，**資料庫**, ，和 **使用者** Azure SQL database 依照下列指示：
+### 收集 Azure SQL Database 的伺服器名稱、資料庫名稱和使用者帳戶
+您需要有 Azure SQL 伺服器、資料庫和使用者的名稱，才能進行這個教學課程。遵循下面的指示，記下 Azure SQL Database 的**伺服器**、**資料庫**和**使用者**名稱：
 
-1. 在 **Azure 預覽入口網站**, ，按一下 **瀏覽** 左邊，然後選取 **SQL 資料庫**。
-2. 在 **SQL 資料庫分頁**, ，請選取 **資料庫** 您想要在本教學課程中使用。記下 **資料庫名稱**。  
-3. 在 **SQL DATABASE** blade 中，按一下 **屬性** 並排顯示。
-4. 記下的值 **伺服器名稱** 和 **SERVER 系統管理員登入**。
-5. 按一下 [關閉所有刀 **X**。
+1. 在 **Azure Preview 入口網站**中，按一下左邊的 [瀏覽]，然後選取 [SQL Database]。
+2. 在 [**SQL Database**] 刀鋒視窗中，選取您想要在本教學課程中使用的**資料庫**。記下**資料庫名稱**。  
+3. 在 [**SQL Database**] 刀鋒視窗中，按一下 [**屬性**]。
+4. 記下 [伺服器名稱] 和 [伺服器系統管理員登入] 的值。
+5. 按一下 **X**，關閉所有刀鋒視窗。
 
-### 允許存取 Azure SQL server 的 Azure 服務
-確定 **允許 Azure 服務存取** 設定開啟 **ON** Azure SQL server，使資料處理站服務可存取您的 Azure SQL server。若要確認並啟動這個設定，執行下列作業：
+### 允許 Azure 服務存取 Azure SQL 伺服器
+確定**開啟** Azure SQL 伺服器的 [允許存取 Azure 服務] 設定，讓 Data Factory 服務可以存取您的 Azure SQL 伺服器。若要確認並開啟此設定，請執行下列作業：
 
-1. 按一下 **瀏覽** 中樞在左方和按一下 **SQL 伺服器**。
-2. 選取 **伺服器**, ，然後按一下 **設定** 上 **SQL SERVER** 分頁。
-3. 在 **設定** blade 中，按一下 **防火牆**。
-4. 在 **防火牆設定** blade 中，按一下 **ON** 的 **允許 Azure 服務存取**。
-5. 按一下 [關閉所有刀 **X**。
+1. 按一下左邊的 [瀏覽] 中樞，然後按一下 [SQL Server]。
+2. 選取**您的伺服器**，然後按一下 [**SQL Server**] 刀鋒視窗上的 [**設定**]。
+3. 在 [**設定**] 刀鋒視窗中，按一下 [**防火牆**]。
+4. 在 [**防火牆設定**] 刀鋒視窗中，對 [**允許存取 Azure 服務**] 按一下 [**開啟**]。
+5. 按一下 **X**，關閉所有刀鋒視窗。
 
 ### 準備教學課程所需的 Azure Blob 儲存體和 Azure SQL 資料庫
-現在，準備您的 Azure blob 儲存體和 Azure SQL database 的教學課程中藉由執行下列步驟：
+現在，請執行下列步驟，準備本教學課程中的 Azure Blob 儲存體和 Azure SQL Database。
 
-1. 啟動 [記事本]，貼上下列文字，並將它儲存成 **emp.txt** 至 **C:\ADFGetStarted** 硬碟機上的資料夾。
+1. 啟動 [記事本]，並貼上下列文字，然後將它以 **emp.txt** 的形式儲存至您硬碟上的 **]ADFGetStarted** 資料夾。
 
         John, Doe
 		Jane, Doe
 
-2. 使用工具，例如 [Azure 儲存體總管](https://azurestorageexplorer.codeplex.com/) 建立 **adftutorial** 容器以及上傳 **emp.txt** 檔案的容器。
+2. 使用 [Azure 儲存體總管](https://azurestorageexplorer.codeplex.com/)這類的工具建立 **adftutorial** 容器，並將 **emp.txt** 檔案上傳至該容器。
 
     ![Azure 儲存體總管][image-data-factory-get-started-storage-explorer]
-3. 使用下列 SQL 指令碼來建立 **emp** Azure SQL 資料庫資料表中的。  
+3. 使用下列 SQL 指令碼，在您的 Azure SQL Database 中建立 **emp** 資料表。  
 
 
         CREATE TABLE dbo.emp
@@ -87,15 +87,15 @@
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**如果您有 SQL Server 2012/2014 安裝在電腦上：** 遵循指示從 [步驟 2： 連接到 SQL Database 管理 Azure SQL Database 的使用 SQL Server Management Studio][sql-management-studio] 文件，以連線到您的 Azure SQL server 並執行 SQL 指令碼。請注意這篇文章會使用發行的管理入口網站 (http://manage.windowsazure.com), ，不預覽入口網站 (http://portal.azure.com), ，若要設定 SQL Azure 伺服器防火牆。
+	**如果您的電腦上已安裝 SQL Server 2012/2014：**請依照[使用 SQL Server Management Studio 管理 Azure SQL Database 中的步驟 2：連線到 SQL Database][sql-management-studio] 一文中的指示，連線到您的 Azure SQL Server 並執行 SQL 指令碼。請注意，本文使用發行管理入口網站 http://manage.windowsazure.com) (非預覽入口網站 http://portal.azure.com)) 設定 Azure SQL Server 的防火牆。
 
-	**如果您必須在電腦上安裝 Visual Studio 2013：** 中 [Azure 預覽入口網站](http://portal.azure.com), ，按一下 **瀏覽** 中樞在左側，按一下 **SQL 伺服器**, ，選取您的資料庫，然後按一下 **在 Visual Studio 中開啟** 連接到您的 Azure SQL server 並執行指令碼的工具列上的按鈕。如果您的用戶端來存取 Azure SQL server 不允許，您必須設定防火牆以允許來自您的電腦 (IP 位址) 存取 Azure SQL server。請參閱上面的步驟來設定您的 Azure SQL server 的防火牆。
+	**如果您的電腦上已安裝 Visual Studio 2013：**在 [Azure Preview 入口網站](http://portal.azure.com)中，按一下左邊的 [瀏覽] 中樞、按一下 [SQL Server]、選取您的資料庫，然後按一下工具列上的 [在 Visual Studio 中開啟] 按鈕，連線到您的 Azure SQL Server 並執行指令碼。如果不允許您的用戶端存取 Azure SQL Server，則需要將 Azure SQL Server 的防火牆設定成允許從您的電腦 (IP 位址) 存取。請參閱上文的步驟，為 Azure SQL Server 設定防火牆。
 
 
 執行下列動作：
 
-- 按一下 [使用資料 Factory 編輯器](data-factory-get-started-using-editor.md) 頂端來使用資料 Factory 編輯器] 中，也就是 Azure 入口網站的一部分來執行本教學課程連結。
-- 按一下 [使用 PowerShell](data-factory-monitor-manage-using-powershell.md) 頂端使用 Azure PowerShell 執行本教學課程連結。
+- 按一下頂端的[使用 Data Factory 編輯器](data-factory-get-started-using-editor.md)連結，使用 Data Factory 編輯器 (這是 Azure 入口網站的一部分) 執行教學課程。
+- 按一下頂端的[使用 PowerShell](data-factory-monitor-manage-using-powershell.md) 連結，使用 Azure PowerShell 執行教學課程。
 
 
 <!--Link references-->
@@ -216,5 +216,6 @@
 [image-data-factory-sql-management-console-2]: ./media/data-factory-get-started/getstarted-azure-sql-management-console-2.png
 
 [image-data-factory-name-not-available]: ./media/data-factory-get-started/getstarted-data-factory-not-available.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=58_postMigration-->

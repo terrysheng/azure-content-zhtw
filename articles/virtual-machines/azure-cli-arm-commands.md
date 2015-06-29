@@ -1,9 +1,9 @@
 <properties
-	pageTitle="使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 資源管理"
-	description="了解如何使用適用於 Mac、Linux 和 Windows 的命令列工具，以便使用 Azure CLI arm 模式來管理 Azure 資源。"
+	pageTitle="搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理 | Microsoft Azure"
+	description="了解如何使用適用於 Mac、Linux 和 Windows 的 Azure CLI，以便使用 Azure CLI arm 模式來管理 Azure 資源。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="squillace"
+	authors="dlepow"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/23/2015"
-	ms.author="rasquill"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # 使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 資源管理
 
@@ -1735,5 +1735,6 @@ Azure 資源管理可讓您建立資源群組，包含虛擬機器、網站、�
 	vm image list-offers [options] <location> <publisher>
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -4,7 +4,7 @@
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="dlepow"
 	services=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2015"
-	ms.author="dkshir"/>
+	ms.date="06/02/2015"
+	ms.author="danlep"/>
 
 # 安裝 Azure CLI
 
@@ -94,7 +94,7 @@ Azure CLI 是以 JavaScript 所撰寫，而且需要 [Node.js](https://nodejs.or
 
 	npm install -g azure-cli
 
-安裝 Azure CLI 之後，您就能從命令列使用者介面 (Bash、終端機、cmd.exe 等) 中使用 **azure** 命令存取 Azure CLI 命令。在安裝結束時，您會看到類似下列的項目：
+安裝 Azure CLI 之後，您就能從命令列使用者介面中使用 **azure** 命令存取 Azure CLI 命令。在安裝結束時，您會看到類似下列的項目：
 
 	azure-cli@0.8.0 ..\node_modules\azure-cli
 	|-- easy-table@0.0.1
@@ -116,20 +116,27 @@ Azure CLI 是以 JavaScript 所撰寫，而且需要 [Node.js](https://nodejs.or
 
 >[AZURE.NOTE]對於 Linux 系統，您也可以安裝 Azure CLI，方法是從[原始碼](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409)建置它。如需從原始碼進行建置的詳細資訊，請參閱封存中內含的 INSTALL 檔案。
 
-您現在已經準備就緒！ 接下來，您可以[從 Azure CLI 連線到您的 Azure 訂用帳戶](xplat-cli-connect.md)，然後開始使用 **azure** 命令。
-
 ## 使用 Docker 容器
 
 在 Docker主機中，執行：```
-	docker run -it kmouss/azure-cli
+	docker run -it microsoft/azure-cli
 ```
+
+## 執行 Azure CLI 命令
+
+安裝 Azure CLI 之後，您就能從命令列使用者介面 (Bash、終端機、cmd.exe 等) 中使用 **azure** 命令存取 Azure CLI 命令。例如，若要在 Windows 中執行 help 命令，請使用系統管理員權限啟動命令提示字元 (cmd.exe)：```
+	c:> azure help
+```
+
+您現在已經準備就緒！ 接下來，您可以[從 Azure CLI 連線到您的 Azure 訂用帳戶](xplat-cli-connect.md)，然後開始使用 **azure** 命令。
+
 
 <a id="additional-resources"></a>
 ## 其他資源
 
-* [搭配使用 Azure CLI 和服務管理 (或 ASM 模式) 命令][xplatasm]
+* [搭配使用 Azure CLI 和服務管理 (或 ASM 模式) 命令][cliasm]
 
-* [搭配使用 Azure CLI 和資源管理 (或 ASM 模式) 命令][xplatarm]
+* [搭配使用 Azure CLI 和資源管理 (或 ASM 模式) 命令][cliarm]
 
 * 如需 Azure CLI 的詳細資訊、下載來源程式碼、報告問題，或是對專案發表意見，請造訪 [Azure CLI 的 GitHub 儲存機制](https://github.com/azure/azure-xplat-cli)。
 
@@ -143,7 +150,7 @@ Azure CLI 是以 JavaScript 所撰寫，而且需要 [Node.js](https://nodejs.or
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
 [linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
-[xplatasm]: virtual-machines-command-line-tools.md
-[xplatarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

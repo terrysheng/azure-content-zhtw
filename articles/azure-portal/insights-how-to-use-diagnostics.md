@@ -27,7 +27,7 @@
 3. [**度量**] 分頁會顯示所選度量的詳細資料。分頁頂端會有一個圖形，圖形下會有一個資料表顯示這些度量的彙總，例如平均值、最小值和最大值。該資料表下會列出您所定義的警示 (依照分頁上顯示的度量進行篩選)。  
     ![Metric blade](./media/insights-how-to-use-diagnostics/Insights_VMMetricBlade.png)
 4. 若要啟用豐富的診斷功能，按一下 [**設定**] 按鈕，接著畫面就會顯示 [**診斷**] 分頁。選擇 [**開啟**]：  
-    ![Diagnostics blade](./media/insights-how-to-use-diagnostics/Insights_VMDiagnosticsBlade.png)
+    ![Diagnostics blade](./media/insights-how-to-use-diagnostics/Insights_CreateTime.png)
     - **Basic metrics**：有關您的虛擬機器的健康情況度量，例如處理器與記憶體 
     - **Per disk metrics**：附加至您的虛擬機器的所有磁碟度量
     - **.NET metrics**：有關在您的虛擬機器上執行的 .NET 與 ASP.NET 應用程式度量

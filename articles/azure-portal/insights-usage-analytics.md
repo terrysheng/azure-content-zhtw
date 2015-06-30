@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="如何使用使用者分析" 
 	description="Microsoft Azure 網站的使用者分析。" 
 	services="application-insights" 
@@ -20,7 +20,7 @@
 
 *您也可以為非 Azure 網站執行此作業：[使用 Application Insights 監視 Web 應用程式使用量](../app-insights-web-track-usage.md)。*
 
-![End User Analytics](./media/insights-usage-analytics/Insights_ConfiguredExperience.png)
+![End User Analytics](./media/azure-portal/Insights_ConfiguredExperience.png)
 
 ## 如何設定使用者分析
 
@@ -34,7 +34,7 @@
 
 瀏覽器工作階段組件可讓您深入檢視不同的瀏覽器，以及瀏覽器版本。
 
-![Browsers](./media/insights-usage-analytics/Insights_Browsers.png)
+![Browsers](./media/azure-portal/Insights_Browsers.png)
 
 [分析] 組件會顯示：
 

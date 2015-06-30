@@ -146,7 +146,7 @@
 
 1.	當虛擬網路建立完成時，[網路] 頁面會將您的虛擬網路狀態顯示為 [已建立]。
 
-	按一下 [名稱] 欄中的 [YourVirtualNetwork] (若為本教學課程中建立的範例) 以開啟儀表板。
+	按一下 [名稱] 欄中的 [YourVirtualNetwork] \(若為本教學課程中建立的範例) 以開啟儀表板。
  
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_07_ClickYourVirtualNetwork.png)
 

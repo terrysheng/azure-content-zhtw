@@ -513,7 +513,7 @@
 		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. 在 Azure PowerShell 中，切換到資料夾：**]Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript**，然後執行與本機變數 **$Key** 相關聯的 **RegisterGateway.ps1** 指令碼 (如以下命令所示)，將您電腦上安裝的用戶端代理程式，註冊到您稍早建立的邏輯閘道器。
+4. 在 Azure PowerShell 中，切換到資料夾：**C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript**，然後執行與本機變數 **$Key** 相關聯的 **RegisterGateway.ps1** 指令碼 (如以下命令所示)，將您電腦上安裝的用戶端代理程式，註冊到您稍早建立的邏輯閘道器。
 
 		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
 		

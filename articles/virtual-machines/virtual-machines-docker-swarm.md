@@ -23,7 +23,7 @@
 
 > [AZURE.NOTE]這是舊版軟體，因此，請查看以往的更新記錄，以取得在 Azure 上使用此功能，為 Docker 容器建立平衡且受控制的大型叢集相關資訊，以及檢查 docker swarm 文件來探索它的所有功能。
 <!-- -->
->此外，本主題會搭配 swarm 使用 docker，並且*不搭配* **docker-machine** 使用 Azure CLI，以示範不同工具如何一同運作但仍保持獨立。**docker-machine** 具備 **--swarm** 參數，可讓您使用 **docker-machine** 直接將節點新增到 swarm。如需範例，請參閱 [docker-machine](https://github.com/docker/machine) 文件。如果您錯過了在 Azure VM 上執行的 **docker-machine**，請參閱[如何搭配 Azure 使用 docker-machine](virtual-machines-docker-machine.md)。
+> 此外，本主題會搭配 swarm 使用 docker，並且*不搭配* **docker-machine** 使用 Azure CLI，以示範不同工具如何一同運作但仍保持獨立。**docker-machine** 具備 **--swarm** 參數，可讓您使用 **docker-machine** 直接將節點新增到 swarm。如需範例，請參閱 [docker-machine](https://github.com/docker/machine) 文件。如果您錯過了在 Azure VM 上執行的 **docker-machine**，請參閱[如何搭配 Azure 使用 docker-machine](virtual-machines-docker-machine.md)。
 
 ## 使用 Azure 虛擬機器建立 docker 主機
 
@@ -64,7 +64,7 @@
 
 > [AZURE.NOTE]只是要先聲明，我們正使用本機 docker 安裝來連接到 Azure 中的 **swarm-master** VM，並指示 **swarm-master** 下載、安裝及執行 **create** 命令，其會傳回我們稍後要基於探索目的而使用的叢集識別碼。
 <!-- -->
->若要確認這一點，請執行 `docker -H tcp://`*&lt;hostname&gt;* ` images` 以列出 **swarm-master** 機器和其他節點上的容器處理程序來進行比較 (因為我們搭配 **--rm** 參數執行舊版 swarm 命令，所以會在命令完成時移除容器，因此，使用 **docker ps -a** 將不會傳回任何內容)：
+> 若要確認這一點，請執行 `docker -H tcp://`*&lt;hostname&gt;* ` images` 以列出 **swarm-master** 機器和其他節點上的容器處理程序來進行比較 (因為我們搭配 **--rm** 參數執行舊版 swarm 命令，所以會在命令完成時移除容器，因此，使用 **docker ps -a** 將不會傳回任何內容)：
 
 
         $ docker --tls -H tcp://swarm-master.cloudapp.net:4243 images
@@ -135,4 +135,4 @@
 
 [docker-machine-azure]: virtual-machines-docker-machine.md
 
-<!---HONumber=58--> 
+<!----HONumber=58--> 

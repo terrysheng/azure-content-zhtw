@@ -153,4 +153,4 @@ Python 中的 [Pandas 程式庫](http://pandas.pydata.org/)提供一組豐富的
 
 [1]: ./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png
 
-<!--HONumber=49--> 
+<!---HONumber=49--> 

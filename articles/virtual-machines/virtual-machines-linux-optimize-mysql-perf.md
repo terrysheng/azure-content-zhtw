@@ -68,7 +68,7 @@ Azure 中的磁碟 I/O 輸送量和 I/O 回應時間可透過 RAID 大幅改進�
 
 [http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
 
->[AZURE.NOTE]如果您使用 XFS 檔案系統，請在建立 RAID 後遵循下列步驟。
+>[AZURE.NOTE] 如果您使用 XFS 檔案系統，請在建立 RAID 後遵循下列步驟。
 
 若要在 Debian、Ubuntu 或 Linux Mint 上安裝 XFS，請使用下列命令：
 
@@ -348,4 +348,4 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!---HONumber=58--> 
+<!----HONumber=58--> 

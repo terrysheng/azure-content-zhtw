@@ -101,4 +101,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!--HONumber=54--> 
+<!---HONumber=54--> 

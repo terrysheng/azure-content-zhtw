@@ -121,8 +121,8 @@
 
 **提示**
 
-> 1.您可以使用所選擇的語言，利用程式設計方式插入記錄。您可能需要插入區塊中的資料以改善寫入效率 [在此處簽出如何使用 pyodbc 來執行此動作的範例](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)。 
-> 2.另一個替代方式是使用 [BCP 公用程式](https://msdn.microsoft.com/library/ms162802.aspx) 來將資料插入資料庫
+> 1. 您可以使用所選擇的語言，利用程式設計方式插入記錄。您可能需要插入區塊中的資料以改善寫入效率 [在此處簽出如何使用 pyodbc 來執行此動作的範例](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)。 
+> 2. 另一個替代方式是使用 [BCP 公用程式](https://msdn.microsoft.com/library/ms162802.aspx) 來將資料插入資料庫
 
 #### <a name="sql-aml"></a>連接到 Azure Machine Learning
 

@@ -350,7 +350,7 @@ DocumentDB 查詢模型嘗試打破功能、效率和簡化之間的平衡。Doc
 	        console.log("Error");
 	    });
 
-###Unregistering a stored procedure
+###取消註冊預存程序
 只要對現有預存程序資源發出 HTTP DELETE，即可取消註冊預存程序。   
 
 	client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)

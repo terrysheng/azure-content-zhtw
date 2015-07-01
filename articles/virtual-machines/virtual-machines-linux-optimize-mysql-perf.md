@@ -131,7 +131,7 @@ Linux 會實作四種類型的 I/O 排程演算法：
 	root@mysqlnode1:~# sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash elevator=noop"/g' /etc/default/grub
 	root@mysqlnode1:~# update-grub
 
->[AZURE.NOTE]單獨針對 /dev/sda 設定此項並不是很有用。必須在資料庫所在的所有資料磁碟上進行設定。
+>[AZURE.NOTE] 單獨針對 /dev/sda 設定此項並不是很有用。必須在資料庫所在的所有資料磁碟上進行設定。
 
 您應會看到下列輸出，表示 grub.cfg 已成功重建且預設排程器已更新為 NOOP。
 
@@ -213,7 +213,8 @@ MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目為 1
 -	**innodb_buffer_pool_size**：緩衝集區包含經過緩衝處理的資料和索引。這通常設定為 70% 的實體記憶體。
 -	**innodb_log_file_size**：這是重做記錄檔的大小。您可以使用重做記錄檔來確保寫入作業快速、可靠並可在當機後復原。這會設定為 512 MB，將提供大量空間給您記錄寫入作業。
 -	**max_connections**：應用程式有時不會正確關閉連線。較大的值讓伺服器有更多的時間來回收閒置的連線。連線數目上限為 10000，但建議的上限為 5000。
--	**Innodb_file_per_table**：此設定可啟用或停用 InnoDB 在個別檔案中儲存資料表的功能。開啟此選項將確保可有效地套用數個進階管理作業。從效能觀點來看，它可以加速資料表空間傳輸，並將 debris 管理效能最佳化。因此這個選項的建議設定為 ON。</br> 從 MySQL 5.6 開始，預設設定為 ON。因此，不需要採取任何動作。若為其他版本，也就是 5.6 以前的版本，預設設定為 OFF。必須將此選項設為 ON。而且應在載入資料之前套用，因為只有新建的資料表會受影響。
+-	**Innodb_file_per_table**：此設定可啟用或停用 InnoDB 在個別檔案中儲存資料表的功能。開啟此選項將確保可有效地套用數個進階管理作業。從效能觀點來看，它可以加速資料表空間傳輸，並將 debris 管理效能最佳化。因此這個選項的建議設定為 ON。</br>
+	從 MySQL 5.6 開始，預設設定為 ON。因此，不需要採取任何動作。若為其他版本，也就是 5.6 以前的版本，預設設定為 OFF。必須將此選項設為 ON。而且應在載入資料之前套用，因為只有新建的資料表會受影響。
 -	**innodb_flush_log_at_trx_commit**：預設值為 1，其範圍設為 0~2。對獨立 MySQL DB 而言，預設值是最適合的選項。設定為 2 可達到最大資料完整性，適合於 MySQL 叢集中的主機。設定為 0 會讓資料遺失，這可能會影響可靠性，在某些情況下，效能會更佳，適合於 MySQL 叢集中的從屬。
 -	**Innodb_log_buffer_size**：記錄緩衝區允許交易執行，而不需在交易認可前將記錄檔排清到磁碟。不過，如果有大型二進位物件或文字欄位，將會非常快速地耗用快取，並將觸發頻繁的磁碟 I/O。如果 Innodb_log_waits 狀態變數不是 0，最好能增加緩衝區大小。
 -	**query_cache_size**：最佳選項是一開始就將它停用。將 query_cache_size 設為 0 (這現在是 MySQL 5.6 中的預設值)，並使用其他方法來加速查詢。  
@@ -237,7 +238,7 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 
 ###步驟 3：使用 “show” 命令來檢查設定是否生效
  
-![][7]
+![][7]   
    
 ![][8]
  
@@ -256,7 +257,7 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 
 ![][9]
  
-**測試命令：**
+**測試命令：**  
 
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=5G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite
 
@@ -265,13 +266,15 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 <a name="AppendixB"></a>附錄 B：**不同 RAID 層級的 MySQL 效能 (輸送量) 比較** (XFS檔案系統)
 
  
-![][10] ![][11]
+![][10]  
+![][11]
 
 **測試命令：**
 
 	mysqlslap -p0ps.123 --concurrency=2 --iterations=1 --number-int-cols=10 --number-char-cols=10 -a --auto-generate-sql-guid-primary --number-of-queries=10000 --auto-generate-sql-load-type=write –engine=innodb
 
-**不同 RAID 層級的 MySQL 效能 (OLTP) 比較** ![][12]
+**不同 RAID 層級的 MySQL 效能 (OLTP) 比較**  
+![][12]
 
 **測試命令：**
 
@@ -290,7 +293,8 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 請注意，這項測試所使用的檔案大小分別為 30 GB 和 1 GB，搭配 RAID 0 (4 磁碟) XFS fie 系統。
 
 
-<a name="AppendixD"></a>附錄 D：**最佳化之前和之後的 MySQL 效能 (輸送量) 比較** (XFS檔案系統)
+<a name="AppendixD"></a>附錄 D：**最佳化之前和之後的 MySQL 效能 (輸送量) 比較**  
+(XFS檔案系統)
 
   
 ![][14]

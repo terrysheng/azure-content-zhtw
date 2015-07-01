@@ -199,6 +199,7 @@
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-js
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [設定 Google Play 服務 SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
+[Azure 管理入口網站]: https://manage.windowsazure.com/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [如何使用適用於行動服務的 Android 用戶端程式庫]: mobile-services-android-how-to-use-client-library.md
 
@@ -207,7 +208,7 @@
 [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293
 
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-android-push-notifications-app-users.md
-
+[開始使用行動服務]: mobile-services-android-get-started.md
 [什麼是通知中樞？]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md

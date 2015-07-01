@@ -97,7 +97,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [開始使用驗證]: ../mobile-services-windows-store-dotnet-get-started-users.md
 [Get started with push notifications]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [開始使用推播通知]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
-
+[Azure 管理入口網站]: https://manage.windowsazure.com/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 

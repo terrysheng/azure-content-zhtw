@@ -59,7 +59,7 @@ Azure 中的磁碟 I/O 輸送量和 I/O 回應時間可透過 RAID 大幅改進�
 
 這會將一個空的磁碟新增到虛擬機器中。再重複執行此步驟三次，您的 RAID 就有 4 個資料磁碟。
 
-查看核心訊息記錄檔，您可以看到虛擬機器中新增的磁碟機。例如，若要在 Ubuntu 上查看此資料，請使用下列命令：
+查看核心訊息記錄檔，您可以看到虛擬機器中新增的磁碟機。例如，若要在 Ubuntu 上查看此資料，請使用下列命令：  
 
 	sudo grep SCSI /var/log/dmesg
 
@@ -179,7 +179,7 @@ Linux 會實作四種類型的 I/O 排程演算法：
 MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目為 1024，這並不足夠。**使用下列步驟來增加系統的並行控制代碼上限，以支援 MySQL 的高並行存取**。
 
 ###步驟 1：修改 limits.conf 檔案
-在 /etc/security/limits.conf 檔案中加入下列四行，以增加允許的並行控制代碼上限。請注意 65536 是系統可支援的數目上限。
+在 /etc/security/limits.conf 檔案中加入下列四行，以增加允許的並行控制代碼上限。請注意 65536 是系統可支援的數目上限。   
 
 	* soft nofile 65536
 	* hard nofile 65536
@@ -187,28 +187,28 @@ MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目為 1
 	* hard nproc 65536
 
 ###步驟 2：更新系統以取得新的限制
-執行以下命令：
+執行以下命令：  
 
 	ulimit -SHn 65536
 	ulimit -SHu 65536 
 
 ###步驟 3：確定會在開機時更新限制
-將下列啟動命令放入 /etc/rc.local 檔案中，以便在每次開機時生效。
+將下列啟動命令放入 /etc/rc.local 檔案中，以便在每次開機時生效。  
 
 	echo “ulimit -SHn 65536” >>/etc/rc.local
 	echo “ulimit -SHu 65536” >>/etc/rc.local
 
 ##MySQL 資料庫最佳化 
-您可以使用相同的效能微調策略，將 Azure 上的 MySQL 設定為內部部署電腦。
+您可以使用相同的效能微調策略，將 Azure 上的 MySQL 設定為內部部署電腦。  
 
-主要的 I/O 最佳化規則如下：
+主要的 I/O 最佳化規則如下：   
 
 -	增加快取的大小。
 -	減少 I/O 回應時間。  
 
 若要最佳化 MySQL 伺服器設定，您可以更新 my.cnf 檔案，該檔案是伺服器和用戶端電腦的預設組態檔。
 
-下列組態項目是影響 MySQL 效能的主要因素：
+下列組態項目是影響 MySQL 效能的主要因素：  
 
 -	**innodb_buffer_pool_size**：緩衝集區包含經過緩衝處理的資料和索引。這通常設定為 70% 的實體記憶體。
 -	**innodb_log_file_size**：這是重做記錄檔的大小。您可以使用重做記錄檔來確保寫入作業快速、可靠並可在當機後復原。這會設定為 512 MB，將提供大量空間給您記錄寫入作業。
@@ -305,18 +305,18 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 
 **預設值與最佳化的組態設定如下所示：**
 
-|參數 |預設值 |optmization
+|參數 |預設值	|optmization
 |-----------|-----------|-----------
-|**innodb_buffer_pool_size** |None |7G
-|**innodb_log_file_size** |5M |512M
-|**max_connections** |100 |5000
-|**innodb_file_per_table** |0 |1
-|**innodb_flush_log_at_trx_commit** |1 |2
-|**innodb_log_buffer_size** |8M |128M
-|**query_cache_size** |16M |0
+|**innodb_buffer_pool_size**	|None	|7G
+|**innodb_log_file_size**	|5M	|512M
+|**max_connections**	|100	|5000
+|**innodb_file_per_table**	|0	|1
+|**innodb_flush_log_at_trx_commit**	|1 |2
+|**innodb_log_buffer_size**	|8M	|128M
+|**query_cache_size**	|16M	|0
 
 
-如需更詳細的最佳化設定參數，請參閱 mysql 官方指示。
+如需更詳細的最佳化設定參數，請參閱 mysql 官方指示。  
 
 [http://dev.mysql.com/doc/refman/5.6/en/innodb-configuration.html](http://dev.mysql.com/doc/refman/5.6/en/innodb-configuration.html)
 
@@ -324,12 +324,12 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 
 **測試環境**
 
-|硬體 |詳細資料
+|硬體	|詳細資料
 |-----------|-------
-|CPU |AMD Opteron(tm) 處理器 4171 HE/4 核心
-|記憶體 |14G
-|disk |10G/磁碟
-|作業系統 |Ubuntu 14.04.1 LTS
+|CPU	|AMD Opteron(tm) 處理器 4171 HE/4 核心
+|記憶體	|14G
+|disk	|10G/磁碟
+|作業系統	|Ubuntu 14.04.1 LTS
 
 
 

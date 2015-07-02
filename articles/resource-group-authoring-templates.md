@@ -38,7 +38,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 | $schema | 是 | JSON 結構描述檔案的位置，說明範本語言的版本。
 | contentVersion | 是 | 範本版本 (例如 1.0.0.0)。使用範本部署資源時，這個值可用來確定使用的是正確的範本。
 | 參數 | 否 | 執行部署以自訂資源部署時所提供的值。
-| variables | 否 | 範本中做為 JSON 片段以簡化範本語言運算式的值。
+| 變數 | 否 | 範本中做為 JSON 片段以簡化範本語言運算式的值。
 | 資源 | 是 | 在資源群組中部署或更新的服務類型。
 | 輸出 | 否 | 部署後傳回的值。
 
@@ -46,7 +46,150 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 ## 運算式和函式
 
-範本的基本語法是 JSON，但運算式與函式能夠延伸範本中的 JSON，讓您能夠建立不是嚴格常數值的值。運算式以方括號 ([ 與 ]) 括住，當部署範本時會評估運算式。運算式可出現在 JSON 字串值中的任何一處，並一律傳回另一個 JSON 值。如果您必須使用開頭為括號 [ 的常數字串，您必須使用兩個括號 [[。一般而言，您可以將運算式搭配函式使用，以執行可設定部署的作業。正如同在 JavaScript 中，函式呼叫的格式為 **functionName(arg1,arg2,arg3)**。您可以使用點與 [index] 運算子來參考屬性。下列清單顯示常見的函式。 - **parameters(parameterName)** 傳回執行部署時提供的參數值。 - **variables(variableName)** 傳回在範本中定義的變數。 - **concat(arg1,arg2,arg3,...)** 結合多個字串值。此函式接受任何數目的引數。 - **base64(inputString)** 傳回輸入字串的 base64 表示式。 - **resourceGroup()** 傳回表示目前資源群組的結構化物件 (識別碼、名稱和位置屬性)。 - **resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)** 傳回資源的唯一識別碼。可用於擷取另一個資源群組中的資源。下列範例顯示當建構值時如何使用數個函式："variables": { "location": "[resourceGroup().location]", "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]", "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]" } 現在您已經充分認識運算式和函式，並了解範本的區段。如需所有範本函式的詳細資訊，包括參數及所傳回值的格式，請參閱 [Azure Resource Manager template functions](./resource-group-template-functions.md)。 ## 參數 在範本的參數區段中，您可以指定在部署資源時使用者可以輸入的值。您可以在整個範本中使用這些參數值，為所部署的資源設定值。只有在參數區段中宣告的參數可以用於範本的其他區段中。在參數區段內，您無法使用參數值來建構另一個參數值。該類型的作業通常在變數區段中發生。您可以定義結構如下的參數： "parameters": { "<parameterName>" : { "type" : "<type-of-parameter-value>", "defaultValue": "<optional-default-value-of-parameter>", "allowedValues": [ "<optional-array-of-allowed-values>" ] } } | 元素名稱 | 必要 | 說明 | :------------: | :------: | :---------- | parameterName | 是 | 參數名稱。必須是有效的 JavaScript 識別碼。| type | 是 | 參數值的類型。請參閱下列的允許類型清單。| defaultValue | 否 | 如果沒有提供參數的任何值，則為參數的預設值。 | allowedValues | 否 | 參數的允許值陣列，可確保提供正確的值。允許的類型與值有： - string 或 secureString - 任何有效的 JSON 字串 - int - 任何有效的 JSON 整數 - bool - 任何有效的 JSON 布林值 - object - 任何有效的 JSON 物件 - array - 任何有效的 JSON 陣列 >[AZURE.NOTE] 所有的密碼、金鑰其他的密碼應使用 **secureString** 類型。部署資源後，無法讀取類型為 secureString 的範本參數。以下範例顯示如何定義參數： "parameters": { "siteName": { "type": "string" }, "siteLocation": { "type": "string" }, "hostingPlanName": { "type": "string" }, "hostingPlanSku": { "type": "string", "allowedValues": [ "Free", "Shared", "Basic", "Standard", "Premium" ], "defaultValue": "Free" } } ## 變數 在變數區段中，您可以建構用來簡化範本語言運算式的值。一般而言，這些變數將會以參數所提供的值為根據。以下範例顯示如何定義從兩個參數值建構的變數： "parameters": { "username": { "type": "string" }, "password": { "type": "secureString" } }, "variables": { "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]" } 接下來的範例顯示為複雜 JSON 類型的變數，和從其他變數建構而得的變數： "parameters": { "environmentName": { "type": "string", "allowedValues": [ "test", "prod" ] } }, "variables": { "environmentSettings": { "test": { "instancesSize": "Small", "instancesCount": 1 }, "prod": { "instancesSize": "Large", "instancesCount": 4 } }, "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]", "instancesSize": "[variables('currentEnvironmentSettings').instancesSize", "instancesCount": "[variables('currentEnvironmentSettings').instancesCount" }
+範本的基本語法是 JSON，但運算式與函式能夠延伸範本中的 JSON，讓您能夠建立不是嚴格常數值的值。運算式以方括號 ([ 與 ]) 括住，並會在部署範本後評估。運算式可出現在 JSON 字串值中的任何一處，並一律傳回另一個 JSON 值。如果您必須使用開頭為括號 [ 的常數字串，您必須使用兩個括號 [[。
+
+一般而言，您可以將運算式搭配函數使用，以執行可設定部署的作業。正如同在 JavaScript 中，函數呼叫的格式為 **functionName(arg1,arg2,arg3)**。您可以使用點與 [index] 運算子來參考屬性。
+
+下列清單顯示常見的函式。
+
+- **parameters(parameterName)**
+
+    傳回執行部署時提供的參數值。
+
+- **variables(variableName)**
+
+    傳回範本中定義的變數。
+
+- **concat(arg1,arg2,arg3,...)**
+
+    結合多個字串值。此函數可以接受任意數目的引數。
+
+- **base64(inputString)**
+
+    傳回輸入字串的 base64 表示法。
+
+- **resourceGroup()**
+
+    傳回代表目前資源群組的結構化物件 (包括 ID、名稱及位置屬性)。
+
+- **resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
+
+    傳回資源的唯一識別碼。可用於擷取另一個資源群組中的資源。
+
+下列範例將示範如何在結構化值時使用數個函數：
+ 
+    "variables": {
+       "location": "[resourceGroup().location]",
+       "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
+       "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+    }
+
+現在您知道有關運算式和函數的相關資訊，以便了解範本區段。如需有關所有範本函式的詳細資訊，包括參數和傳回值的格式，請參閱 [Azure 資源管理員範本函數](./resource-group-template-functions.md)。
+
+
+## 參數
+
+在範本的參數區段中，您會指定使用者可在部署資源時輸入的值。您可以在整個範本中使用這些參數值，為所部署的資源設定值。只有在參數區段中宣告的參數可以用於範本的其他區段中。
+
+在參數區段內，您無法使用參數值來建構另一個參數值。該類型的作業通常在變數區段中發生。
+
+您會定義結構如下的參數：
+
+    "parameters": {
+       "<parameterName>" : {
+         "type" : "<type-of-parameter-value>",
+         "defaultValue": "<optional-default-value-of-parameter>",
+         "allowedValues": [ "<optional-array-of-allowed-values>" ]
+       }
+    }
+
+| 元素名稱 | 必要 | 說明
+| :------------: | :------: | :----------
+| parameterName | 是 | 參數名稱。必須是有效的 JavaScript 識別碼。
+| 類型 | 是 | 參數值類型。請參閱下列允許類型清單。
+| defaultValue | 否 | 如果未提供參數值，則會使用參數的預設值。
+| allowedValues | 否 | 參數的允許值陣列，確保提供正確的值。
+
+允許的類型和值為：
+
+- string 或 secureString - 任何有效的 JSON 字串
+- int - 任何有效的 JSON integer
+- bool - 任何有效的 JSON 布林值
+- object - 任何有效的 JSON 物件
+- array - 任何有效的 JSON 陣列
+
+
+>[AZURE.NOTE]所有密碼、金鑰和其他密碼都應該使用 **secureString** 類型。部署資源後，無法讀取類型為 secureString 的範本參數。
+
+下列範例示範如何定義參數：
+
+    "parameters": {
+       "siteName": {
+          "type": "string"
+       },
+       "siteLocation": {
+          "type": "string"
+       },
+       "hostingPlanName": {
+          "type": "string"
+       },  
+       "hostingPlanSku": {
+          "type": "string",
+          "allowedValues": [
+            "Free",
+            "Shared",
+            "Basic",
+            "Standard",
+            "Premium"
+          ],
+          "defaultValue": "Free"
+       }
+    }
+
+## 變數
+
+在變數區段中，您會建構可用來簡化範本語言運算式的值。一般而言，這些變數將會以參數所提供的值為根據。
+
+下列範例說明如何定義由兩個參數值建構的變數：
+
+    "parameters": {
+       "username": {
+         "type": "string"
+       },
+       "password": {
+         "type": "secureString"
+       }
+     },
+     "variables": {
+       "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
+    }
+
+接下來的範例說明複雜 JSON 類型的變數，以及由其他變數建構的變數：
+
+    "parameters": {
+       "environmentName": {
+         "type": "string",
+         "allowedValues": [
+           "test",
+           "prod"
+         ]
+       }
+    },
+    "variables": {
+       "environmentSettings": {
+         "test": {
+           "instancesSize": "Small",
+           "instancesCount": 1
+         },
+         "prod": {
+           "instancesSize": "Large",
+           "instancesCount": 4
+         }
+       },
+       "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
+       "instancesSize": "[variables('currentEnvironmentSettings').instancesSize",
+       "instancesCount": "[variables('currentEnvironmentSettings').instancesCount"
+    }
 
 ## 資源
 
@@ -254,8 +397,9 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 ## 後續步驟
 - [Azure 資源管理員範本函數](./resource-group-template-functions.md)
-- [使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
+- [使用 Azure 資源管理員範本部署應用程式](./resource-group-template-deploy.md)
 - [進階範本作業](./resource-group-advanced-template.md)
 - [Azure 資源管理員概觀](./resource-group-overview.md)
 
 <!---HONumber=58-->
+

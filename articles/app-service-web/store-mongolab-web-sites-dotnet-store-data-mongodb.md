@@ -37,7 +37,7 @@
 ## 快速入門
 如果您已經有要使用的 Azure App Service，或者您比較熟悉 Azure Marketplace，請從本節著手快速開始。否則，請繼續前往到底下的[佈建資料庫][provision]。
  
-1. 按一下 [新增]**** > [Markeplace]**** 來開啟 Azure Marketplace。
+1. 按一下 [新增] > [Markeplace] 來開啟 Azure Marketplace。  
 	<!-- ![Store][button-store] -->
 
 1. 購買 MongoLab 附加元件。
@@ -46,17 +46,20 @@
 1. 在 [附加元件] 清單中按一下您的 MongoLab 附加元件，然後按一下 [連線資訊]****。
 	![ConnectionInfoButton][button-connectioninfo]
 
-1. 將 MONGOLAB_URI 複製到剪貼簿。![ConnectionInfoScreen][screen-connectioninfo] **此 URI 包含您的資料庫使用者名稱和密碼。這是機密資訊，請勿洩露。**
+1. 將 MONGOLAB_URI 複製到剪貼簿。  
+	![ConnectionInfoScreen][screen-connectioninfo] 
+	**此 URI 包含您的資料庫使用者名稱和密碼。這是機密資訊，請勿洩露。**
 
-1. 將這個值新增到 Azure Web 應用程式的 [組態] 功能表中的 [連接字串] 清單：![WebSiteConnectionStrings][focus-website-connectinfo]
+1. 將這個值新增到 Azure Web 應用程式的 [組態] 功能表中的 [連接字串] 清單：  
+	![WebSiteConnectionStrings][focus-website-connectinfo]
 
-1. 在 [名稱]**** 中，輸入 MONGOLAB_URI。
+1. 在 [名稱] 中，輸入 MONGOLAB\_URI。
 
-1. 在 [值]**** 中，貼上我們在上一節取得的連接字串。
+1. 在 [值] 中，貼上我們在上一節取得的連接字串。
 
-1. 在 [類型] 下拉式清單中選取 [自訂]**** (而非預設的 **SQLAzure**)。
+1. 在 [類型] 下拉式清單中選取 [自訂] (而非預設的 **SQLAzure**)。
 
-1. 在 Visual Studio 中，選取 [工具] > [Library Package Manager] > [Package Manager Console]**** 安裝 Mongo C# 驅動程式。在 PM 主控台上，輸入 **Install-Package mongocsharpdriver**，並按下 **Enter**。
+1. 在 Visual Studio 中，選取 [工具] > [Library Package Manager] > [Package Manager Console] 安裝 Mongo C# 驅動程式。在 PM 主控台上，輸入 **Install-Package mongocsharpdriver**，並按下 **Enter**。
 
 1. 在程式碼中設置勾點，以便從環境變數取得 MongoLab 連線 URI：
 
@@ -67,7 +70,7 @@
         MongoUrl url = new MongoUrl(connectionString);
         MongoClient client = new MongoClient(url);
 
-> **注意：**Azure 會將前置詞 **CUSTOMCONNSTR_** 新增到原始宣告的連接字串前面，所以程式碼會參考 **CUSTOMCONNSTR_MONGOLAB_URI.** 而非 **MONGOLAB_URI**。
+> **注意：**Azure 會將前置詞 **CUSTOMCONNSTR_** 新增到原始宣告的連接字串前面，所以程式碼會參考 **CUSTOMCONNSTR_MONGOLAB\_URI.** 而非 **MONGOLAB\_URI**。
 
 現在，回到教學課程...
 
@@ -86,24 +89,27 @@
 ### 建立專案
 範例應用程式將先使用 Visual Studio 範本。務必使用 .NET Framework 4.5。
 
-1. 選取 [檔案] > [新增專案]****。[新增專案] 對話方塊隨即顯示：![NewProject][dialog-mongolab-csharp-newproject]
+1. 選取 [檔案] > [新增專案]。[新增專案] 對話方塊隨即顯示：    
+	![NewProject][dialog-mongolab-csharp-newproject]
 
-1. 選取 [已安裝] > [範本] > [Visual C#] > [Web]****。
+1. 選取 [已安裝] > [範本] > [Visual C#] > [Web]。
 
-1. 從 .NET 版本下拉式功能表中，選取 [.NET Framework 4.5]****。
+1. 從 .NET 版本下拉式功能表中，選取 [.NET Framework 4.5]。
 
-1. 選擇 [MVC 應用程式]****。
+1. 選擇 [MVC 應用程式]。
 
 1. 輸入 _mongoNotes_ 做為**專案名稱**。如果您選擇不同的名稱，您需要修改整個教學課程中提供的程式碼。
 
-1. 選取 [工具] > [Library Package Manager] > [Package Manager Console]****。在 PM 主控台上，輸入 **Install-Package mongocsharpdriver**，並按下 **Enter**。![PMConsole][focus-mongolab-csharp-pmconsole]MongoDB C# 驅動程式隨即整合到專案中，而且下列一行將自動新增至 _packages.config_ 檔案：
+1. 選取 [工具] > [Library Package Manager] > [Package Manager Console]****。在 PM 主控台上，輸入 **Install-Package mongocsharpdriver**，並按下 **Enter**。  
+	![PMConsole][focus-mongolab-csharp-pmconsole] 
+	MongoDB C# 驅動程式隨即整合到專案中，而且下列一行將自動新增至 _packages.config_ 檔案：
 
         < package id="mongocsharpdriver" version="1.9.2" targetFramework="net45" / >
 
 ### 新增記事模型
 首先建立 Notes 的模型，其中只有簡單的日期和文字內容。
 
-1. 在 [方案總管] 中以滑鼠右鍵按一下 [模型]****，並選取 [新增] > [類別]****。將這個新類別命名為 *Note.cs*。
+1. 在 [方案總管] 中以滑鼠右鍵按一下 [模型]，並選取 [新增] > [類別]。將這個新類別命名為 *Note.cs*。
 
 1. 將對於此類別自動產生的程式碼改為以下內容：
 
@@ -143,9 +149,9 @@
 ### 新增資料存取層
 務必建立存取 MongoDB 的方法以擷取和儲存記事。您的資料存取層將使用 Note 模型，此後將繫結到 HomeController。
 
-1. 在 [方案總管] 中以滑鼠右鍵按一下 [mongoNotes]****，並選取 [新增] > [新增資料夾]****。將資料夾命名為 **DAL**。
+1. 在 [方案總管] 中以滑鼠右鍵按一下 [mongoNotes]，並選取 [新增] > [新增資料夾]。將資料夾命名為 **DAL**。
 
-1. 在 [方案總管] 中以滑鼠右鍵按一下 [DAL]****，並選取 [新增] > [類別]****。將這個新類別命名為 *Dal.cs*。
+1. 在 [方案總管] 中以滑鼠右鍵按一下 [DAL]，並選取 [新增] > [類別]。將這個新類別命名為 *Dal.cs*。
 
 1. 將對於此類別自動產生的程式碼改為以下內容：
 
@@ -272,7 +278,7 @@
 ### 新增建立檢視
 您現在將新增建立新記事的檢視。
 
-1. 在 [方案總管] 中以滑鼠右鍵按一下 [檢視] > [首頁]**** 項目，並選取 [新增] > [檢視]****。將這個新檢視命名為 **Create**，並且按一下 [新增]****。
+1. 在 [方案總管] 中以滑鼠右鍵按一下 [檢視] > [首頁] 項目，並選取 [新增] > [檢視]。將這個新檢視命名為 **Create**，並且按一下 [新增]。
 
 1. 將針對此檢視 (**Create.cshtml**) 自動產生的程式碼改為以下內容：
 
@@ -302,7 +308,7 @@
 ### 修改 index.cshtml
 接著，在您的 Web 應用程式上放置一個用於檢視和建立記事的簡單配置。
 
-1. 在 [檢視] > [首頁]**** 下開啟 **Index.cshtml**，然後將其中的內容改為以下內容：  
+1. 在 [檢視] > [首頁] 下開啟 **Index.cshtml**，然後將其中的內容改為以下內容：  
 
         @model IEnumerable<mongoNotes.Models.Note>
         
@@ -335,7 +341,7 @@
 ### 修改 HomeController.cs
 最後，HomeController 需要將您的資料存取層具現化，然後將它應用於您的檢視。
 
-1. 在 [方案總管] 的 [控制器]**** 下開啟 **HomeController.cs**，然後將其中的內容改為以下內容：  
+1. 在 [方案總管] 的 [控制器] 下開啟 **HomeController.cs**，然後將其中的內容改為以下內容：  
 
         using System;
         using System.Collections.Generic;
@@ -423,17 +429,21 @@
 ### 建立新 Web 應用程式並取得發行設定檔案
 在 Azure 中建立 Web 應用程式非常簡便，尤其是 Azure 會為 Visual Studio 自動產生發行設定檔。
 
-1. 在 Azure 入口網站，按一下 [新增]****。![新增][button-new]
+1. 在 Azure 入口網站，按一下 [新增]。  
+	![新增][button-new]
 
-1. 選取 [運算] > [Web 應用程式] > [快速建立]****。<!-- ![CreateWebApp][screen-mongolab-newwebsite] -->
+1. 選取 [運算] > [Web 應用程式] > [快速建立]。  
+	<!-- ![CreateWebApp][screen-mongolab-newwebsite] -->
 
 1. 輸入 URL 前置詞。選取所需的名稱，但是請注意，這必須是唯一的名稱 (可能無法使用「mongoNotes」)。
 
-1. 按一下 [建立 Web 應用程式]****。
+1. 按一下 [建立 Web 應用程式]。
 
-1. 當 Web 應用程式建立完成，按一下 [Web 應用程式] 清單中的 Web 應用程式名稱。Web 應用程式儀表板隨即顯示。![WebAppDashboard][screen-mongolab-websitedashboard]
+1. 當 Web 應用程式建立完成，按一下 [Web 應用程式] 清單中的 Web 應用程式名稱。Web 應用程式儀表板隨即顯示。  
+	![WebAppDashboard][screen-mongolab-websitedashboard]
 
-1. 按一下 [快速概覽]**** 下的 [下載發行設定檔]****，然後將 .PublishSettings 檔案儲存到所選的目錄。![DownloadPublishProfile][button-website-downloadpublishprofile]
+1. 按一下 [快速概覽] 下的 [下載發行設定檔]，然後將 .PublishSettings 檔案儲存到所選的目錄。  
+![DownloadPublishProfile][button-website-downloadpublishprofile]
 
 或者，您也可以直接從 Visual Studio 設定 Web 應用程式。當您將 Azure 帳戶連結至 Visual Studio 時，請依照提示從該處設定 Web 應用程式。完成此作業後，您即可在方案總管中以滑鼠右鍵按一下專案名稱，將其部署至 Azure。您仍需要設定 MongoLab 連接字串，如下方的步驟中所詳述。
 
@@ -446,15 +456,17 @@
 [AZURE.INCLUDE [howto-save-connectioninfo-mongolab](../../includes/howto-save-connectioninfo-mongolab.md)]
 
 ### 發行 Web 應用程式
-1. 在 Visual Studio 的 [方案總管] 中以滑鼠右鍵按一下 **mongoNotes** 專案，並選取 [發行]****。[發行] 對話方塊隨即顯示：<!-- ![Publish][dialog-mongolab-vspublish] -->
+1. 在 Visual Studio 的 [方案總管] 中以滑鼠右鍵按一下 **mongoNotes** 專案，並選取 [發行]。[發行] 對話方塊隨即顯示：  
+	<!-- ![Publish][dialog-mongolab-vspublish] -->
 
-1. 按一下 [匯入]****，並且從所選的下載目錄中選取 .PublishSettings 檔案。此檔案將自動填入 [發行] 對話方塊中的值。
+1. 按一下 [匯入]，並且從所選的下載目錄中選取 .PublishSettings 檔案。此檔案將自動填入 [發行] 對話方塊中的值。
 
-1. 按一下 [驗證連線]**** 測試檔案。
+1. 按一下 [驗證連線] 測試檔案。
 
-1. 驗證成功後，按一下[發行]****。發行完成後，將開啟新的瀏覽器索引標籤，其中顯示該 Web 應用程式。
+1. 驗證成功後，按一下[發行]。發行完成後，將開啟新的瀏覽器索引標籤，其中顯示該 Web 應用程式。
 
-1. 輸入一些記事文字，並按一下 [建立]****，然後查看結果！![HelloMongoAzure][screen-mongolab-sampleapp]
+1. 輸入一些記事文字，並按一下 [建立]，然後查看結果！  
+	![HelloMongoAzure][screen-mongolab-sampleapp]
 
 <a name="manage"></a>
 ## 管理資料庫
@@ -487,4 +499,4 @@
 [manage]: #manage
 
 
-<!--HONumber=54--> 
+<!---HONumber=54--> 

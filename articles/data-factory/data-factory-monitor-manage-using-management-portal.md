@@ -56,7 +56,8 @@
 ![資料處理站圖表檢視][image-data-factory-diagram-view]
  
 ### 在 [圖表] 檢視中開啟管線
-您可以在管線中檢視的所有活動，以滑鼠右鍵按一下 [圖表] 都檢視中的管線，然後按一下 **開放的管線**。您應該會看到活動的輸入和輸出資料集以及管線中的活動。 ![開啟管線](./media/data-factory-monitor-manage-using-management-portal/DiagramView-OpenPipeline.png)
+您可以在管線中檢視的所有活動，以滑鼠右鍵按一下 [圖表] 都檢視中的管線，然後按一下 **開放的管線**。您應該會看到活動的輸入和輸出資料集以及管線中的活動。 
+![開啟管線](./media/data-factory-monitor-manage-using-management-portal/DiagramView-OpenPipeline.png)
 
 按一下 **資料 factory** 軌跡中若要回到 [圖表] 檢視的左上角。[圖表] 檢視會顯示所有的管線。在此範例中，您只建立了一個管線。
 

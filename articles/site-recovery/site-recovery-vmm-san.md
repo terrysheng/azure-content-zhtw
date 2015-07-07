@@ -217,7 +217,12 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 
 	- 如果您想要使用自訂的 Proxy 伺服器，請在安裝提供者之前先設定它。
 	- 下列 URL 應可從 VMM 伺服器存取
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - 允許 [Azure 資料中心 IP 範圍](http://go.microsoft.com/fwlink/?LinkId=511094)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。 
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net 
+	- 允許 [Azure 資料中心 IP 範圍](http://go.microsoft.com/fwlink/?LinkId=511094)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。 
 	
 	- 如果您選擇使用自訂的 Proxy，則會使用指定的 Proxy 認證，自動建立 VMM RunAs 帳戶 (DRAProxyAccount)。設定 proxy 伺服器，讓此帳戶可以成功進行驗證。
 	- 在 VMM 主控台中，可以修改 VMM RunAs 帳戶設定。若要這樣做，請開啟 [設定] 工作區、展開 [安全性]、按一下 [執行身分帳戶]，然後修改 DRAProxyAccount 的密碼。您必須重新啟動 VMM 服務，這項設定才會生效。
@@ -305,14 +310,17 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 
 <P>為虛擬機器啟用保護之後，它們就會出現在 Azure Site Recovery 主控台中。您可以檢視虛擬機器內容、追蹤狀態，以及讓包含多個虛擬機器的複寫群組進行容錯移轉。請注意，在 SAN 複寫中，與複寫群組關聯的所有虛擬機器必須都一起進行容錯移轉。這是因為容錯移轉會先發生在儲存層。請務必正確地為您的複寫群組分組，並只將相關聯的虛擬機器放在一起。</P>
 
-您可以在 [工作] 索引標籤中追蹤「啟用保護」動作的進度，包括初始複寫。執行「完成保護」工作之後，虛擬機器即準備好進行容錯移轉。![虛擬機器保護工作](./media/site-recovery-vmm-san/SRSAN_JobPropertiesTab.png)
+您可以在 [工作] 索引標籤中追蹤「啟用保護」動作的進度，包括初始複寫。執行「完成保護」工作之後，虛擬機器即準備好進行容錯移轉。
+	![虛擬機器保護工作](./media/site-recovery-vmm-san/SRSAN_JobPropertiesTab.png)
 
 ## 步驟 8：測試部署</h3>
 
 測試您的部署，以確定虛擬機器和資料容錯移轉如預期般運作。若要這樣做，您將必須選取複寫群組來建立復原方案。然後在方案上執行測試容錯移轉。
 
 1. 在 [復原計畫] 索引標籤上，按一下 [建立復原計畫]。
-2. 指定復原方案的名稱，以及來源和目標 VMM 伺服器。來源伺服器必須有已啟用容錯移轉和復原功能的虛擬機器。選取 [SAN]，僅檢視為 SAN 複寫設定的雲端。3. ![建立復原計畫](./media/site-recovery-vmm-san/SRSAN_RPlan.png)
+2. 指定復原方案的名稱，以及來源和目標 VMM 伺服器。來源伺服器必須有已啟用容錯移轉和復原功能的虛擬機器。選取 [SAN]，僅檢視為 SAN 複寫設定的雲端。
+3.
+	![建立復原計畫](./media/site-recovery-vmm-san/SRSAN_RPlan.png)
 
 4. 在 [選取虛擬機器] 中，選取複寫群組。所有與複寫群組關聯的虛擬機器，將會被選取並新增至復原方案。這些虛擬機器會新增到復原方案預設群組 (群組 1)。您可以視需要新增更多群組。請注意，複寫之後，虛擬機器將會根據復原方案群組的順序來啟動。
 

@@ -1,93 +1,41 @@
-<properties 
-	pageTitle="使用命令列介面管理 Hadoop 叢集 | Microsoft Azure" 
-	description="了解在任何支援 Node.js 的平台上，包括 Windows、Mac 和 Linux，如何使用跨平台命令列介面來管理 HDInsight 中的 Hadoop 叢集。" 
-	services="hdinsight" 
-	editor="cgronlun" 
-	manager="paulettm" 
-	authors="mumian" 
+<properties
+	pageTitle="使用 Azure CLI 管理 Hadoop 叢集 | Microsoft Azure"
+	description="如何使用 Azure CLI 管理 Azure HDInsight 上的 Hadoop 叢集"
+	services="hdinsight"
+	editor="cgronlun"
+	manager="paulettm"
+	authors="mumian"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/31/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/08/2015"
 	ms.author="jgao"/>
 
-# 使用跨平台命令列介面管理 HDInsight 上的 Hadoop 叢集
+# 使用 Azure 命令列介面 (Azure CLI) 管理 HDInsight 上的 Hadoop 叢集
 
-學習如何使用適用於 Mac、Linux 和 Windows 的 Azure 命令列介面來管理 Azure HDInsight 上的 Hadoop 叢集。Azure CLI 會在 Node.js 中實作。此工具可在任何支援 Node.js 的平台上使用，包括 Windows、Mac 和 Linux。
+了解如何使用 Azure CLI 管理 Azure HDInsight 上的 Hadoop 叢集。Azure CLI 會在 Node.js 中實作。此工具可在任何支援 Node.js 的平台上使用，包括 Windows、Mac 和 Linux。
 
-Azure CLI 為開放原始碼。原始程式碼會在 GitHub 中受到管理 (<a href= "https://github.com/WindowsAzure/azure-sdk-tools-xplat">https://github.com/WindowsAzure/azure-sdk-tools-xplat</a>)。
+Azure CLI 為開放原始碼。原始程式碼會在 GitHub 中進行管理 (<a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>)。
 
-本文僅提供從 Windows 使用此命令列介面的相關資訊。如需如何使用此命令列介面的一般指引，請參閱[如何使用適用於 Mac 和 Linux 的 Azure 命令列工具][azure-command-line-tools]。
+本文只涵蓋搭配 HDInsight 使用 Azure CLI。如需如何使用 Azure CLI 的一般指引，請參閱[如何使用 Azure CLI][azure-command-line-tools]。
 
 
 ##必要條件
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
-- **Azure 訂用帳戶** - Azure 是訂用帳戶型平台。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][azure-purchase-options]、[成員優惠][azure-member-offers]或[免費試用][azure-free-trial]。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+
+- **Azure CLI** - 請參閱 [安裝及設定 Azure CLI](../xplat-cli.md) 以取得安裝和設定資訊。
 
 ##安裝
-此命令列介面可透過 *Node.js 封裝管理員 (NPM)* 或 Windows Installer 進行安裝。
 
-**使用 NPM 安裝命令列介面**
-
-1.	瀏覽至 **www.nodejs.org**。
-2.	按一下 [**安裝**]，並依照指示使用預設設定操作。
-3.	從您的工作站開啟 [命令提示字元] \(或是 **Azure 命令提示字元**或 **VS2012 開發人員命令提示字元**)。
-4.	在命令提示字元視窗中執行下列命令：
-
-		npm install -g azure-cli
-
-	> [AZURE.NOTE]如果您收到錯誤，指出找不到 NPM 命令，請驗證下列路徑是否在 **PATH** 環境變數中：<i>C:\\Program Files (x86)\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i> 或 <i>C:\\Program Files\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i>
-
-
-5.	執行下列命令以驗證安裝：
-
-		azure hdinsight -h
-
-	您可以在不同層級使用 **-h** 參數，以顯示說明資訊。例如：
-		
-		azure -h
-		azure hdinsight -h
-		azure hdinsight cluster -h
-		azure hdinsight cluster create -h
-
-**使用 Windows Installer 安裝命令列介面**
-
-1.	瀏覽至 **http://azure.microsoft.com/downloads/**
-2.	向下捲動至 [**命令列工具**] 區段，然後按一下 [**跨平台命令列介面**]，並依照 Web Platform Installer 精靈操作。
-
-##下載和匯入 Azure 帳戶 publishsettings 檔案
-
-使用命令列介面之前，您必須先設定工作站與 Azure 之間的連線。命令列介面會使用您的 Azure 訂閱資訊連接到您的帳號。這項資訊可從 Azure 的 publishsettings 檔案取得。接著，publishsettings 檔案可匯入為持續性的本機組態設定，供命令列介面用於後續的作業。您的 publishsettings 檔案只需匯入一次即可。
-
-> [AZURE.NOTE]publishsettings 檔案包含敏感資訊。建議您刪除此檔案，或另採相關步驟加密包含此檔案的使用者資料夾。在 Windows 中，修改資料夾屬性或使用 BitLocker Drive Encryption。
-
-
-**下載和匯入 publishsettings 檔案**
-
-1.	開啟命令提示字元。
-2.	執行下列命令以下載 publishsettings 檔案：
-
-		azure account download
- 
-	![下載 Azure 帳戶的命令列介面。][image-cli-account-download-import]
-
-	此命令會顯示下載檔案的指示，包括 URL。
-
-3.	開啟 Internet Explorer，然後瀏覽至命令提示字元視窗中列出的 URL。
-4.	按一下 [儲存]，將檔案儲存至工作站。
-5.	在命令提示字元視窗中執行下列命令，以匯入 publishsettings 檔案：
-
-		azure account import <file>
-
-	在上一個螢幕擷取畫面中，publishsettings 檔案已儲存至工作站的 C:\\HDInsight 資料夾。
-
+如果您尚未這麼做，請使用[安裝及設定 Azure CLI](../xplat-cli.md)文件來安裝及設定 Azure CLI。
 
 ##佈建 HDInsight 叢集
 
@@ -121,7 +69,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 **azure hdinsight cluster create** 命令會建立容器 (如果不存在)。如果您選擇預先建立容器，您可以使用下列命令：
 
 	azure storage container create --account-name <StorageAccountName> --account-key <StorageAccountKey> [ContainerName]
-		
+
 在儲存體帳號和 Blob 容器準備就緒後，您即可建立叢集。
 
 	azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName <StorageAccountName> --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
@@ -146,22 +94,22 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 ##使用組態檔佈建 HDInsight 叢集
 一般而言，您會佈建 HDInsight 叢集、在叢集上執行工作，然後就刪除叢集，以降低成本。此命令列介面可讓您選擇將組態儲存至檔案，以便您在每次佈建叢集時皆可加以重複使用。
- 
+
 	azure hdinsight cluster config create <file>
-	 
+
 	azure hdinsight cluster config set <file> --clusterName <ClusterName> --nodes <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --username "<Username>" --clusterPassword "<UserPassword>"
-	 
+
 	azure hdinsight cluster config storage add <file> --storageAccountName "<StorageAccountName>.blob.core.windows.net"
 	       --storageAccountKey "<StorageAccountKey>"
-	 
+
 	azure hdinsight cluster config metastore set <file> --type "hive" --server "<SQLDatabaseName>.database.windows.net"
 	       --database "<HiveDatabaseName>" --user "<Username>" --metastorePassword "<UserPassword>"
-	 
+
 	azure hdinsight cluster config metastore set <file> --type "oozie" --server "<SQLDatabaseName>.database.windows.net"
 	       --database "<OozieDatabaseName>" --user "<SQLUsername>" --metastorePassword "<SQLPassword>"
-	 
+
 	azure hdinsight cluster create --config <file>
-		 
+
 
 
 ![HDI.CLIClusterCreationConfig][image-cli-clustercreation-config]
@@ -169,10 +117,10 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 ##列出和顯示叢集詳細資料
 使用下列命令，以列出並顯示叢集詳細資料：
-	
+
 	azure hdinsight cluster list
 	azure hdinsight cluster show <ClusterName>
-	
+
 ![HDI.CLIListCluster][image-cli-clusterlisting]
 
 
@@ -189,8 +137,8 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 * [使用 Azure 入口網站管理 HDInsight][hdinsight-admin-portal]
 * [使用 Azure PowerShell 管理 HDInsight][hdinsight-admin-powershell]
-* [Azure HDInsight 使用者入門][hdinsight-get-started]
-* [如何使用適用於 Mac、Linux 和 Windows 的 Azure CLI][azure-command-line-tools]
+* [開始使用 Azure HDInsight][hdinsight-get-started]
+* [如何使用 Azure CLI][azure-command-line-tools]
 
 
 [azure-command-line-tools]: ../xplat-cli.md
@@ -208,5 +156,6 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "列出和顯示叢集"
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

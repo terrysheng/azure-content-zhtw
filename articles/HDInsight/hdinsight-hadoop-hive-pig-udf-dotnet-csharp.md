@@ -1,5 +1,5 @@
 <properties
-	pageTitle="搭配使用 C# 與 Azure HDInsight 中的 Hive 和 Pig"
+	pageTitle="搭配使用 C# 與 HDInsight 的 Hadoop 上的 Hive 和 Pig | Microsoft Azure"
 	description="了解如何搭配使用 C# 使用者定義函數 (UDF) 與 Azure HDInsight 中的 Hive 和 Pig 串流處理。"
 	services="hdinsight"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.author="larryfr"/>
 
 
-#搭配使用 C# 與 HDInsight 中的 Hive 和 Pig
+#搭配使用 C# 使用者定義函數與 HDInsight 的 Hadoop 上的 Hive 和 Pig 串流處理。 
 
 Hive 與 Pig 很適合在 Azure HDInsight 中處理資料，但您有時需要更通用的語言。Hive 與 Pig 都可讓您透過使用者定義函數 (UDF) 或串流處理來呼叫外部程式碼。
 
@@ -110,7 +110,7 @@ Hive 與 Pig 很適合在 Azure HDInsight 中處理資料，但您有時需要�
 
 ###上傳至儲存體
 
-1. 在 Visual Studio 中，開啟 [伺服器總管]****。
+1. 在 Visual Studio 中，開啟 [伺服器總管]。
 
 3. 展開 [**Azure**]，然後展開 [**HDInsight**]。
 
@@ -122,7 +122,7 @@ Hive 與 Pig 很適合在 Azure HDInsight 中處理資料，但您有時需要�
 
 6. 連按兩下此叢集的 [**預設容器**]。這會開啟顯示預設容器內容的新視窗。
 
-7. 按一下 [上傳] 圖示，然後瀏覽至 **HiveCSharp** 專案的 **bin\\debug** 資料夾。最後，選取 **HiveCSharp.exe** 檔案並按一下 [**確定**]。
+7. 按一下 [上傳] 圖示，然後瀏覽至 **HiveCSharp** 專案的 **bin\debug** 資料夾。最後，選取 **HiveCSharp.exe** 檔案並按一下 [**確定**]。
 
 	![上傳圖示](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
@@ -130,7 +130,7 @@ Hive 與 Pig 很適合在 Azure HDInsight 中處理資料，但您有時需要�
 
 ###Hive 查詢
 
-1. 在 Visual Studio 中，開啟 [伺服器總管]****。
+1. 在 Visual Studio 中，開啟 [伺服器總管]。
 
 2. 展開 [**Azure**]，然後展開 [**HDInsight**]。
 
@@ -238,6 +238,7 @@ Hive 與 Pig 很適合在 Azure HDInsight 中處理資料，但您有時需要�
 
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 
-* [搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)
+* 〈[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)〉
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

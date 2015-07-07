@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用指令碼動作來自訂 HDInsight 叢集| Azure" 
+	pageTitle="使用指令碼動作來自訂 HDInsight 叢集 | Microsoft Azure" 
 	description="深入了解使用指令碼動作來自訂 HDInsight 叢集。" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -43,7 +43,7 @@
 
 > [AZURE.NOTE]因為您在 **ClusterCustomization** 階段中於叢集節點上擁有系統管理員權限，所以您可以使用指令碼來執行作業，例如停止和啟動服務，包括 Hadoop 相關服務。因此，在指令碼中，您必須在指令碼完成執行之前，確定 Ambari 服務及其他 Hadoop 相關服務已啟動並且正在執行。這些服務必須在叢集建立時，成功地確定叢集的健康情況和狀態。如果您變更叢集上的任何會影響這些服務的組態，就必須使用所提供的協助程式函式。如需有關協助程式函式的詳細資訊，請參閱[使用 HDInsight 進行指令碼動作開發][hdinsight-write-script]。
 
-指令碼的輸出和錯誤記錄檔會儲存在您為叢集指定的預設儲存體帳戶中。記錄檔是以 **u<\\cluster-name-fragment><\\time-stamp>setuplog** 的名稱儲存在資料表中。這些是從叢集中所有節點上 (前端節點和背景工作節點) 執行之指令碼彙總的記錄檔。
+指令碼的輸出和錯誤記錄檔會儲存在您為叢集指定的預設儲存體帳戶中。記錄檔是以 **u<\cluster-name-fragment><\time-stamp>setuplog** 的名稱儲存在資料表中。這些是從叢集中所有節點上 (前端節點和背景工作節點) 執行之指令碼彙總的記錄檔。
 
 ## <a name="writescript"></a>如何撰寫叢集自訂指令碼
 
@@ -96,7 +96,7 @@
 
 HDInsight .NET SDK 提供 <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx" target="_blank">ScriptAction</a> 類別以叫用自訂指令碼。若要使用 HDInsight .NET SDK：
 
-1. 建立 Visual Studio 應用程式，然後從 NuGet 安裝 SDK。在 [工具]**** 功能表中按一下 [Nuget 套件管理員]****，然後按一下 [Package Manager Console]****。在主控台中執行下列命令，以安裝封裝：
+1. 建立 Visual Studio 應用程式，然後從 NuGet 安裝 SDK。在 [工具] 功能表中按一下 [Nuget 套件管理員]，然後按一下 [Package Manager Console]。在主控台中執行下列命令，以安裝封裝：
 
 		Install-Package Microsoft.WindowsAzure.Management.HDInsight
 
@@ -162,5 +162,6 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "叢集佈建期間的階段"
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

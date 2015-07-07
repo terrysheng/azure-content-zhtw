@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="開發 HDInsight 的 C# Hadoop 串流程式 | Azure" 
+	pageTitle="開發 HDInsight 的 C# Hadoop 串流程式 | Microsoft Azure" 
 	description="了解如何使用 C# 開發 Hadoop 串流 MapReduce 程式，以及如何部署至 Azure HDInsight。" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -37,11 +37,11 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 開始進行本教學課程之前，您必須完成下列工作：
 
 - 安裝 HDInsight Emulator。如需指示，請參閱＜[開始使用 HDInsight Emulator][hdinsight-get-started-emulator]＞。
-- 在模擬器電腦上安裝 Azure PowerShell。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。
+- 在模擬器電腦上安裝 Azure PowerShell。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install]。
 - 取得 Azure 訂閱。如需指示，請參閱＜[購買選項][azure-purchase-options]＞、＜[成員優惠][azure-member-offers]＞或＜[免費試用][azure-free-trial]＞。
 
 
-##<a name="develop"></a>使用  C&#35 開發字數統計 Hadoop 串流程式
+##<a name="develop"></a>使用 C&#35 開發字數統計 Hadoop 串流程式
 
 字數統計方案包含兩個主控台應用程式專案：對應器和歸納器。對應器應用程式可將每一個字串流傳送至主控台，而歸納器應用程式可計算從文件中串流傳送而來的字數。對應器和歸納器都會從標準輸入資料流 (stdin) 循行讀取字元並寫入至標準輸出資料流 (stdout)。
 
@@ -59,14 +59,14 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 <tr><td>方案名稱</td><td>WordCount</td></tr>
 </table>
 	
-4. 按一下 [確定]**** 以建立專案。
+4. 按一下 [確定] 以建立專案。
 
 **建立對應器程式**
 
-5. 在 [方案總管] 中，以滑鼠右鍵按一下 [Program.cs]****，然後按一下 [重新命名]****。
+5. 在 [方案總管] 中，以滑鼠右鍵按一下 [Program.cs]，然後按一下 [重新命名]。
 6. 將檔案重新命名為 **WordCountMapper.cs**，然後按 **ENTER**。
-7. 按一下 [是]**** 以確認重新命名所有參考。
-8. 按兩下 [WordCountMapper.cs]**** 以開啟它。
+7. 按一下 [是] 以確認重新命名所有參考。
+8. 按兩下 [WordCountMapper.cs] 以開啟它。
 9. 加入下列 **using** 陳述式：
 
 		using System.IO;
@@ -106,11 +106,11 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 <tr><td>名稱</td><td>WordCountReducer</td></tr>
 <tr><td>位置</td><td>C:\Tutorials\WordCount</td></tr>
 </table>
-3. 清除 [為方案建立目錄]**** 旁邊的核取方塊，然後按一下 [確定]**** 建立專案。
-4. 從 [方案總管] 中，以滑鼠右鍵按一下 [Program.cs]****，然後按一下 [重新命名]****。
+3. 清除 [為方案建立目錄] 旁邊的核取方塊，然後按一下 [確定] 建立專案。
+4. 從 [方案總管] 中，以滑鼠右鍵按一下 [Program.cs]，然後按一下 [重新命名]。
 5. 將檔案重新命名為 **WordCountReducer.cs**，然後按 **ENTER**。
-7. 按一下 [是]**** 以確認重新命名所有參考。
-8. 按兩下 [WordCountReducer.cs]**** 以開啟它。
+7. 按一下 [是] 以確認重新命名所有參考。
+8. 按兩下 [WordCountReducer.cs] 以開啟它。
 9. 加入下列 **using** 陳述式：
 
 		using System.IO;
@@ -149,8 +149,8 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 
 對應器和歸納器可執行檔位於：
 
-- C:\\Tutorials\\WordCount\\WordCountMapper\\bin\\Debug\\WordCountMapper.exe
-- C:\\Tutorials\\WordCount\\WordCountReducer\\bin\\Debug\\WordCountReducer.exe
+- C:\Tutorials\WordCount\WordCountMapper\bin\Debug\WordCountMapper.exe
+- C:\Tutorials\WordCount\WordCountReducer\bin\Debug\WordCountReducer.exe
 
 
 ##<a name="test"></a>在模擬器上測試程式
@@ -167,7 +167,7 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 
 本教學課程使用下列資料夾結構：
 
-<table border="1"> <tr><td>資料夾</td><td>附註</td></tr> <tr><td>\\WordCount</td><td>字數統計專案的根資料夾。</td></tr> <tr><td>\\WordCount\\Apps</td><td>對應器和歸納器可執行檔的資料夾。</td></tr> <tr><td>\\WordCount\\Input</td><td>MapReduce 來源檔案資料夾。</td></tr> <tr><td>\\WordCount\\Output</td><td>MapReduce 輸出檔案資料夾。</td></tr> <tr><td>\\WordCount\\MRStatusOutput</td><td>工作輸出資料夾。</td></tr> </table></br>
+<table border="1"> <tr><td>資料夾</td><td>附註</td></tr> <tr><td>\WordCount</td><td>字數統計專案的根資料夾。</td></tr> <tr><td>\WordCount\Apps</td><td>對應器和歸納器可執行檔的資料夾。</td></tr> <tr><td>\WordCount\Input</td><td>MapReduce 來源檔案資料夾。</td></tr> <tr><td>\WordCount\Output</td><td>MapReduce 輸出檔案資料夾。</td></tr> <tr><td>\WordCount\MRStatusOutput</td><td>工作輸出資料夾。</td></tr> </table></br>
 
 本教學課程使用 %hadoop_home% 目錄中的 .txt 檔案。
 
@@ -215,7 +215,7 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 
 **使用 Azure PowerShell 執行 MapReduce 工作**
 
-1. 開啟 Azure PowerShell。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。 
+1. 開啟 Azure PowerShell。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install]。 
 3. 執行下列命令來設定變數：
 
 		$clusterName = "http://localhost:50111"
@@ -264,7 +264,7 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 **檢查工作狀態**
 
 1. 從桌面上，按一下 [**Hadoop YARN 狀態**]，或瀏覽至 **http://localhost:50030/jobtracker.jsp**。2. 在 [**執行中**] 或 [**已完成**] 類別下，使用工作識別碼來尋找工作。 
-3. 如果工作失敗，您可以在 [失敗]**** 類別下找到它。您也可以開啟工作詳細資料，尋找一些有用的資訊來進行偵錯。
+3. 如果工作失敗，您可以在 [失敗] 類別下找到它。您也可以開啟工作詳細資料，尋找一些有用的資訊來進行偵錯。
 
 
 **從 HDFS 顯示輸出**
@@ -278,7 +278,7 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 	您可以在命令尾端附加 "|more" 來取得頁面檢視。
 
 ##<a id="upload"></a>將資料上傳至 Azure Blob 儲存體
-Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以設定 HDInsight 叢集使用其他 Blob 儲存體來儲存資料檔。本節中，您將建立 Azure 儲存體帳戶，並將資料檔上傳至 Blob 儲存體。資料檔是位於 %hadoop_home%\\share\\doc\\hadoop\\common 目錄中的 .txt 檔案。
+Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以設定 HDInsight 叢集使用其他 Blob 儲存體來儲存資料檔。本節中，您將建立 Azure 儲存體帳戶，並將資料檔上傳至 Blob 儲存體。資料檔是位於 %hadoop_home%\share\doc\hadoop\common 目錄中的 .txt 檔案。
 
 
 **建立儲存體帳戶和容器**
@@ -316,7 +316,7 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 		$localFolder = "C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common"
 		$destFolder = "WordCount/Input"
 
-	請注意，本機來源檔案資料夾是 **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\doc\\hadoop\\common**，目的地資料夾是 **WordCount/Input**。來源位置是 .txt 檔案在 HDInsight Emulator 上的位置。目的地是反映在 Azure Blob 容器下的資料夾結構。
+	請注意，本機來源檔案資料夾是 **C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common**，目的地資料夾是 **WordCount/Input**。來源位置是 .txt 檔案在 HDInsight Emulator 上的位置。目的地是反映在 Azure Blob 容器下的資料夾結構。
 
 3. 執行下列命令來取得來源檔案資料夾中的 .txt 檔案清單：
 
@@ -540,7 +540,7 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-[Powershell-install-configure]: ../powershell-install-configure.md
+[powershell-install]: ../powershell-install-configure.md
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "MapReduce 字數統計應用程式流程"
 
@@ -549,5 +549,6 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

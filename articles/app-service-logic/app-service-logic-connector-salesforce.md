@@ -28,7 +28,7 @@
 
 屬於連接器封裝設定的一部分，使用者可以指定連接器可以管理的實體，而系統便會以動態方式填入動作、輸入和輸出參數。以下是 Salesforce 連接器中可用的不同動作。
  
-- 建立實體：使用此動作可建立新的 Salesforce 實體，例如帳戶和案例。
+- 建立實體 - 使用此動作建立新的 Salesforce 實體，例如帳戶、案例或自訂物件
 
 - 更新實體：使用此動作可更新現有的 Salesforce 實體
 
@@ -69,7 +69,7 @@
 
     ![][4]
 
-5.	展開組件庫中的 [此資源群組中的 API 應用程式] 來查看所有可用的 API 應用程式。從組件庫中選取 [Salesforce]，[Salesforce 連接器] 便會被新增至流程。
+5.	展開組件庫中的 [此資源群組中的 API 應用程式] 來查看所有可用的 API 應用程式。從資源庫中選取 [Salesforce]，[Salesforce 連接器] 便會被新增至流程。
 
 
 	![][5]
@@ -96,7 +96,7 @@
 
 	![][11]
 
-13.	從組件庫的 [最近使用的] 區段中選取 [Salesforce 連接器]，即會新增 Salesforce 動作。
+13.	從資源庫的 [最近使用的] 區段中選取 [Salesforce 連接器]，即會新增 Salesforce 動作。
 
 14.	從動作清單中選取 [更新帳戶]，[更新帳戶] 動作的輸入參數便會隨即顯示。
 
@@ -134,5 +134,6 @@
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

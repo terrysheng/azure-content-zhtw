@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="使用指令碼動作在 Hadoop 叢集上安裝 Spark | Microsoft Azure" 
-	description="了解如何自訂 HDInsight 叢集來安裝 Spark。您將使用指令碼動作組態選項來使用指令碼安裝 Spark" 
+	description="了解如何使用 Spark 自訂 HDInsight 叢集。您將使用指令碼動作組態選項來使用指令碼安裝 Spark。" 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
@@ -83,7 +83,7 @@ Spark 提供以 Scala、Python 及 Java 撰寫的 API。您也可以使用互動
 
 1. 從 Azure 入口網站，針對您所建立且已安裝 Spark 的叢集啟用遠端桌面，然後遠端登入到叢集。如需指示，請參閱<a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連線到 HDInsight 叢集</a>。
 
-2. 在遠端桌面通訊協定 (RDP) 工作階段中，從桌面開啟 Hadoop 命令列 (從桌面捷徑)，然後瀏覽至 Spark 的安裝位置；例如 **C:\\apps\\dist\\spark-1.2.0**。
+2. 在遠端桌面通訊協定 (RDP) 工作階段中，從桌面開啟 Hadoop 命令列 (從桌面捷徑)，然後瀏覽至 Spark 的安裝位置；例如 **C:\apps\dist\spark-1.2.0**。
 
 
 3. 執行下列命令以啟動 Spark 殼層：
@@ -117,7 +117,7 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 
 1. 從 Azure 入口網站，針對您所建立且已安裝 Spark 的叢集啟用遠端桌面，然後遠端登入到叢集。如需指示，請參閱<a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連線到 HDInsight 叢集</a>。
 
-2. 在 RDP 工作階段中，從桌面開啟 Hadoop 命令列 (從桌面捷徑)，然後瀏覽至 Spark 的安裝位置；例如 **C:\\apps\\dist\\spark-1.2.0**。
+2. 在 RDP 工作階段中，從桌面開啟 Hadoop 命令列 (從桌面捷徑)，然後瀏覽至 Spark 的安裝位置；例如 **C:\apps\dist\spark-1.2.0**。
 
 
 3. 執行下列命令以啟動 Spark 殼層：
@@ -199,20 +199,20 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 	>[AZURE.NOTE]請確定在檔案中保留那些空白行。
 
 	
-3. 在 **SimpleScalaApp** 資料夾下，建立目錄結構 **\\src\\main\\scala**，然後將您稍早建立的 Scala 程式 (**SimpleApp.scala**) 貼到 \\src\\main\\scala 資料夾下。
+3. 在 **SimpleScalaApp** 資料夾下，建立目錄結構 **\src\main\scala**，然後將您稍早建立的 Scala 程式 (**SimpleApp.scala**) 貼到 \src\main\scala 資料夾下。
 4. 開啟命令提示字元，瀏覽至 SimpleScalaApp 目錄，並輸入下列命令：
 
 
 		sbt package
 
 
-	在編譯應用程式之後，您會看到 **simpleapp_2.10-1.0.jar** 檔案建立在根 SimpleScalaApp 資料夾內的 **\\target\\scala-2.10** 目錄下。
+	在編譯應用程式之後，您會看到 **simpleapp_2.10-1.0.jar** 檔案建立在根 SimpleScalaApp 資料夾內的 **\target\scala-2.10** 目錄下。
 
 
 #### 在叢集上執行工作
 在本節中，您將從遠端連線至已安裝 Spark 的叢集，然後複製 SimpleScalaApp 專案的目標資料夾。接著，您將使用 **spark-submit** 命令在叢集上提交工作。
 
-1. 從遠端連線至已安裝 Spark 的叢集。從您撰寫並建置 SimpleApp.scala 程式的電腦上複製 **SimpleScalaApp\\target** 資料夾，並將它貼到叢集上的位置。
+1. 從遠端連線至已安裝 Spark 的叢集。從您撰寫並建置 SimpleApp.scala 程式的電腦上複製 **SimpleScalaApp\target** 資料夾，並將它貼到叢集上的位置。
 2. 在 RDP 工作階段中，從桌面開啟 Hadoop 命令列，然後瀏覽至您貼上 **target** 資料夾的位置。
 3. 輸入下列命令來執行 SimpleApp.scala 程式：
 
@@ -311,7 +311,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 
 1. 開啟 Visual Studio 2013。
 
-2. 從 [檔案]**** 功能表中，按一下 [新增]****，再按 [專案]****。
+2. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
 
 3. 在 [**新增專案**] 中，輸入或選取下列值：
 	
@@ -330,9 +330,9 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateSparkCluster</td></tr>
 </table>
 
-4. 按一下 [確定]**** 以建立專案。
+4. 按一下 [確定] 以建立專案。
 
-5. 在 [工具]**** 功能表中按一下 [Nuget 套件管理員]****，然後按一下 [Package Manager Console]****。
+5. 在 [工具] 功能表中按一下 [Nuget 套件管理員]，然後按一下 [Package Manager Console]。
 
 6. 在主控台中執行下列命令，以安裝套件：
 
@@ -405,7 +405,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 
 **執行應用程式**
 
-開啟 Azure PowerShell 主控台、瀏覽至您儲存 Visual Studio 專案的位置、瀏覽至專案內的 \\bin\\debug 目錄，然後執行下列命令：
+開啟 Azure PowerShell 主控台、瀏覽至您儲存 Visual Studio 專案的位置、瀏覽至專案內的 \bin\debug 目錄，然後執行下列命令：
 
 	.\CreateSparkCluster <cluster-name>
 
@@ -425,5 +425,6 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: ../install-configure-powershell.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

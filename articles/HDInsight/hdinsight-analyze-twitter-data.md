@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/09/2015" 
+	ms.date="05/28/2015" 
 	ms.author="jgao"/>
 
-# 在 HDInsight 上使用 Hadoop 分析 Twitter 資料
+# 在 HDInsight 中使用 Hive 分析 Twitter 資料
 
-##概觀
 社群網站是驅使採用巨量資料的其中一個主要動力。像 Twitter 之類的網站所提供的公開 API，是分析和了解流行趨勢的一項實用的資料來源。在本教學課程中，您將使用 Twitter 串流 API 取得推文，然後使用 Apache Hive on Azure HDInsight 取得傳送了最多內含特定文字之推文的 Twitter 使用者清單。
 
 > [AZURE.NOTE]HDInsight 範例資源庫中有類似範例。觀看 Channel 9 影片：<a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">使用 Apache Hive in HDInsight 分析 Twitter 趨勢</a>
 
-##必要條件
+###必要條件
+
 開始進行本教學課程之前，您必須具備下列條件：
 
-- 已安裝並設定 Azure PowerShell 的**工作站**。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install]。若要執行 Windows PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱[執行 Windows PowerShell 指令碼][powershell-script]。
+- 已安裝並設定 Azure PowerShell 的**工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。若要執行 Windows PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱[執行 Windows PowerShell 指令碼][powershell-script]。
 
 	執行 Windows PowerShell 指令碼之前，請確定您已使用下列 Cmdlet 連接到 Azure 訂用帳戶：
 
@@ -243,16 +243,16 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。OAuth 是一項驗證
 3. 設定指令碼中的前五到八個變數：
 
 	<table border="1">
-	<tr><th>變數</th><th>說明</th></tr>
-	<tr><td>$clusterName</td><td>這是您要執行應用程式的 HDInsight 叢集名稱。</td></tr><tr><td>$oauth_consumer_key</td><td>這是您先前在建立 Twitter 應用程式時所記下的 Twitter 應用程式<strong>消費者金鑰</strong>。</td></tr>
-	<tr><td>$oauth_consumer_secret</td><td>這是您先前記下的 Twitter 應用程式<strong>消費者密碼</strong>。</td></tr>
-	<tr><td>$oauth_token</td><td>這是您先前記下的 Twitter 應用程式<strong>存取權杖</strong>。</td></tr>
-	<tr><td>$oauth_token_secret</td><td>這是您先前記下的 Twitter 應用程式<strong>存取權杖密碼</strong>。</td></tr>	
-	<tr><td>$destBlobName</td><td>這是輸出 Blob 名稱。預設值為 <strong>tutorials/twitter/data/tweets.txt</strong>。如果您變更預設值，則 Windows PowerShell 指令碼也必須隨之變更。</td></tr>
-	<tr><td>$trackString</td><td>Web 服務會傳回這些關鍵字的相關推文。預設值為 <strong>Azure, Cloud, HDInsight</strong>。如果您變更預設值，則 Windows PowerShell 指令碼也要隨之變更。</td></tr>
-	<tr><td>$lineMax</td><td>此值會決定指令碼所將讀取的推文數。讀取 100 則推文大約需要三分鐘。您可以設定更大的數目，但下載時間將會較久。</td></tr>
+<tr><th>變數</th><th>說明</th></tr>
+<tr><td>$clusterName</td><td>這是您要執行應用程式的 HDInsight 叢集名稱。</td></tr><tr><td>$oauth_consumer_key</td><td>這是您先前在建立 Twitter 應用程式時所記下的 Twitter 應用程式<strong>消費者金鑰</strong>。</td></tr>
+<tr><td>$oauth_consumer_secret</td><td>這是您先前記下的 Twitter 應用程式<strong>消費者密碼</strong>。</td></tr>
+<tr><td>$oauth_token</td><td>這是您先前記下的 Twitter 應用程式<strong>存取權杖</strong>。</td></tr>
+<tr><td>$oauth_token_secret</td><td>這是您先前記下的 Twitter 應用程式<strong>存取權杖密碼</strong>。</td></tr>	
+<tr><td>$destBlobName</td><td>這是輸出 Blob 名稱。預設值為 <strong>tutorials/twitter/data/tweets.txt</strong>。如果您變更預設值，則 Windows PowerShell 指令碼也必須隨之變更。</td></tr>
+<tr><td>$trackString</td><td>Web 服務會傳回這些關鍵字的相關推文。預設值為 <strong>Azure, Cloud, HDInsight</strong>。如果您變更預設值，則 Windows PowerShell 指令碼也要隨之變更。</td></tr>
+<tr><td>$lineMax</td><td>此值會決定指令碼所將讀取的推文數。讀取 100 則推文大約需要三分鐘。您可以設定更大的數目，但下載時間將會較久。</td></tr>
 
-	</table>
+</table>
 
 5. 按 **F5** 以執行指令碼。如果發生問題，請選取所有程式碼行，然後按 **F8**，以解決問題。
 6. 輸出的結尾應會顯示「完成！」。錯誤訊息會顯示為紅色。
@@ -520,7 +520,7 @@ HiveQL 指令碼將執行下列作業：
 	Write-Host "==================================" -ForegroundColor Green
 	#end region
 
-> [AZURE.NOTE]Hive 資料表會使用 \\001 做為欄位分隔符號。此分隔符號不會顯示在輸出中。
+> [AZURE.NOTE]Hive 資料表會使用 \001 做為欄位分隔符號。此分隔符號不會顯示在輸出中。
 
 分析結果列示在 Azure Blob 儲存體之後，您可以將資料匯出至 Azure SQL Database/SQL Server，使用 Power Query 將資料匯出至 Excel，或使用 Hive ODBC 驅動程式將應用程式連接到資料。如需詳細資訊，請參閱[搭配 HDInsight 使用 Sqoop][hdinsight-use-sqoop]、[使用 HDInsight 分析航班延誤資料][hdinsight-analyze-flight-delay-data]、[使用 Power Query 將 Excel 連接到 HDInsight][hdinsight-power-query] 和[使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 HDInsight][hdinsight-hive-odbc]。
 
@@ -557,5 +557,6 @@ HiveQL 指令碼將執行下列作業：
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

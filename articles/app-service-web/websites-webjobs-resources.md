@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure WebJob 資源" 
+	pageTitle="Azure WebJobs 文件資源" 
 	description="了解如何使用 Azure WebJobs 和 Azure WebJobs SDK 的建議資源。" 
 	services="app-service\web" 
 	documentationCenter=".net" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="06/07/2015" 
 	ms.author="tdykstra"/>
 
-# Azure WebJob 資源
+# Azure WebJobs 文件資源
 
 ## 概觀
 
@@ -31,6 +31,7 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 ##<a name="getstarted"></a>開始使用 WebJob 和 WebJobs SDK
 
 * [Azure WebJobs 簡介](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx) (英文)
+* [Azure WebJobs 太酷了，趕快使用，不要猶豫！](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (取自 Troy Hunt 的部落格文章。)
 * [Azure WebJobs 功能](/blog/2014/10/22/webjobs-goes-into-full-production/) (英文)
 * [什麼是 Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md) (英文)
 * [Microsoft Patterns and Practices 提供的背景工作指引](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md) (英文)
@@ -54,7 +55,8 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 * [如何使用 Visual Studio 部署 Azure WebJob](websites-dotnet-deploy-webjobs.md)
 * [如何使用 Azure 管理入口網站部署 WebJobs](web-sites-create-web-jobs.md)
 * [啟用 Azure WebJobs 的命令列或連續傳遞](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
-* [使用 WebJobs 將 .NET 主控台應用程式部署至 Azure 的 Git](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/) 
+* [使用 WebJobs 將 .NET 主控台應用程式部署至 Azure 的 Git](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
+* [將 F# WebJob 部署至 Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
 * 影片
 	* [Visual Studio 的 WebJobs 工具簡介](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) (英文) 
 	* [WebJobs 工具和遠端偵錯](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) (英文) 
@@ -102,11 +104,6 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 ##<a name="additionalsdk"></a>其他 WebJobs SDK 資源
 
 * [WebJobs SDK 原始程式碼](https://github.com/Azure/azure-webjobs-sdk)
-* [AzureJobs 中的 Triggers、Bindings 和 Route 參數](http://blogs.msdn.com/b/jmstall/archive/2014/01/28/trigger-bindings-and-route-parameters-in-azurejobs.aspx) (英文) 
-* Azure 儲存體繫結
-	* [Blobs](http://blogs.msdn.com/b/jmstall/archive/2014/02/18/azure-storage-bindings-part-1-blobs.aspx) (英文)
-	* [佇列](http://blogs.msdn.com/b/jmstall/archive/2014/02/18/azure-storage-bindings-part-2-queues.aspx) (英文)
-	* [資料表](http://blogs.msdn.com/b/jmstall/archive/2014/03/06/azure-storage-bindings-part-3-tables.aspx) (英文)
 * [[BlobTrigger] 如何運作？](http://blogs.msdn.com/b/jmstall/archive/2014/04/17/how-does-blobinput-work.aspx) (英文) 
 * [Azure WebJobs SDK 的進階繫結](http://victorhurdugaci.com/advanced-bindings-with-the-windows-azure-web-jobs-sdk/) (英文)
 * [WebJob 使用 WebJobs SDK 將 FREB 檔案上傳至 Azure 儲存體](http://thenextdoorgeek.com/post/WAWS-WebJob-to-upload-FREB-files-to-Azure-Storage-using-the-WebJobs-SDK) (英文)
@@ -134,10 +131,12 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 * [Azure 和 ASP.NET 論壇](http://forums.asp.net/1247.aspx)
 * [Azure App Service Web Apps 論壇](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
 * [Azure Web Apps 使用者心聲網站](http://feedback.azure.com/forums/169385-websites)
-* [Twitter](http://twitter.com/)。使用 hashtag #AzureWebJobs。
+* [Twitter](http://twitter.com/)。使用雜湊標記 #AzureWebJobs。
+* [WebJobs 錯誤或問題報告](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

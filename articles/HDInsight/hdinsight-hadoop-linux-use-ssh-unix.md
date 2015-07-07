@@ -1,6 +1,6 @@
 <properties
-   pageTitle="從 Linux、Unix 或 OS X 在以 Linux 為基礎的 HDInsight 上搭配使用 SSH 金鑰與 Hadoop | Aure"
-   description="了解如何建立和使用 SSH 金鑰來驗證以 Linux 為基礎的 HDInsight 叢集。"
+   pageTitle="從 Linux、Unix 或 OS X 搭配使用 SSH 金鑰與 Linux 架構的 Hadoop | Microsoft Azure"
+   description="您可以使用安全殼層 (SSH) 存取 Linux 架構的 HDInsight。本文件提供從 Linux、Unix 或 OS X 用戶端搭配使用 SSH 與 HDInsight 的資訊。"
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -61,7 +61,7 @@ SSH 是用來登入遠端伺服器並在其中遠端執行命令的公用程式�
 
 	系統將會提示您輸入下列資訊：
 
-	* 檔案位置 - 預設位置為 \~/.ssh/id_rsa。
+	* 檔案位置 - 預設位置為 ~/.ssh/id_rsa。
 	* 複雜密碼 - 系統會提示您再次輸入此密碼。
 
 		> [AZURE.NOTE]強烈建議您對此金鑰使用安全的複雜密碼。不過如果您忘記此複雜密碼，將無法加以復原。
@@ -94,7 +94,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 您可以使用[適用於 Mac、Linux 和 Windows 的 Azure CLI](../xplat.md)，使用 `azure hdinsight cluster create` 來建立新叢集。
 
-如需使用這個命令的詳細資訊，請參閱 <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">使用自訂選項在 HDInsight 中佈建 Hadoop Linux 叢集</a>。
+如需使用這個命令的詳細資訊，請參閱<a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">使用自訂選項在 HDInsight 中佈建 Hadoop Linux 叢集</a>。
 
 ##連線至以 Linux 為基礎的 HDInsight 叢集
 
@@ -294,5 +294,6 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

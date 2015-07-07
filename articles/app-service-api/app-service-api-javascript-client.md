@@ -20,7 +20,7 @@
 
 ## 概觀
 
-本文說明如何在 [Azure App Service](/documentation/services/app-service/) 中建立 [API 應用程式](app-service-api-apps-why-best-platform.md)的 HTML 和 JavaScript 用戶端。本文假設您已具備 HTML 和 JavaScript 的知識，並將著重於使用 [AngularJS](https://angularjs.org/) JavaScript 架構對 API 應用程式進行 REST 呼叫。
+本文說明如何在 [Azure App Service](/documentation/services/app-service/) 中建立 [API 應用程式](app-service-api-apps-why-best-platform.md)的 HTML 和 JavaScript 用戶端。本文假設您已具備 HTML 和 JavaScript 的知識，並將使用 [AngularJS](https://angularjs.org/) JavaScript 架構對 API 應用程式進行 REST 呼叫。
 
 在此之前先閱讀某些文件，可幫助您開始使用。
 
@@ -36,9 +36,9 @@
 
 ### 對 API 應用程式閘道啟用 CORS
 
-API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。藉由新增 **MS_CrossDomainOrigins** *appSetting*，您可以指定允許呼叫 API 應用程式的 URL。本章將說明如何使用此 *appSetting* 在 API 閘道層級啟用 CORS。
+API 應用程式閘道可設定為使用 Azure Preview 入口網站啟用 CORS。藉由新增 **MS_CrossDomainOrigins** *appSetting*，您可以指定允許呼叫 API 應用程式的 URL。本章將說明如何使用此 *appSetting* 在 API 閘道層級啟用 CORS。
 
-1. 瀏覽至您要啟用 CORS 的 API 應用程式的 Azure 預覽入口網站刀鋒視窗。一旦抵達，請按一下  API 應用程式的*閘道* 圖示。 
+1. 瀏覽至您要啟用 CORS 的 API 應用程式的 Azure 預覽入口網站刀鋒視窗。一旦抵達，請按一下 API 應用程式的*閘道* 圖示。 
 
 	![按一下 [API 應用程式閘道] 按鈕](./media/app-service-api-javascript-client/19-api-app-blade.png)
 
@@ -80,7 +80,7 @@ API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。�
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/01-cors-installed.png)
 
-1. 開啟 *App_Start/WebApiConfig.cs* 檔案。將底下這行程式碼加入至檔案中 **WebApiConfig** 類別的 **Register** 方法。 
+1. 開啟 *App_Start/WebApiConfig.cs* 檔案。將底下這行程式碼加入至檔案中 **WebApiConfig** 類別的 **Register** 方法。
 
 		config.EnableCors();
 
@@ -143,7 +143,7 @@ API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。�
 
 在本節中，將會建立新的空白 Web 應用程式、在其中安裝和使用 AngularJS，以及將簡單的 HTML 前端繫結至 APPI 應用程式。您會將使用中的 Web 應用程式部署至 Azure App Service。HTML Web 應用程式將繫結至並顯示從 API 應用程式擷取的資料，以及提供 Contacts API 的簡單 UI 給使用者。
 
-1. 以滑鼠右鍵按一下方案，然後選取 **[新增] -> [新增專案]**
+1. 以滑鼠右鍵按一下您稍早於[建立 API 應用程式](app-service-dotnet-create-api-app.md)中建立的解決方案，然後依序選取 [新增] -> [新增專案]
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/02-add-project.png)
 
@@ -231,16 +231,16 @@ API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。�
             </thead>
             <tbody>
                 <tr ng-repeat="con in contacts">
-                    <td>{{con.Id}}</td>
-                    <td>{{con.Name}}</td>
-                    <td>{{con.EmailAddress}}</td>
+                    <td>[[con.Id]]</td>
+                    <td>[[con.Name</td>
+                    <td>[[con.EmailAddress]]</td>
                     <td></td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
                     <th>Create a new Contact</th>
-                    <th colspan="2">API Status: {{status}}</th>
+                    <th colspan="2">API Status: [[status]]</th>
                     <th><button class="btn btn-sm btn-info" ng-click="refresh()">Refresh</button></th>
                 </tr>
                 <tr>
@@ -252,11 +252,13 @@ API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。�
             </tfoot>
         </table>
 
-1. 以滑鼠右鍵按一下 *index.html* 檔案，然後選取 [**設定為起始頁**] 功能表項目。然後對 Web 專案進行偵錯，以便在預設瀏覽器中開啟。
+1. 在 `tbody` 和 `tfoot` 元素中，將每個 [ 替換成 {，每個 ] 替換成 }。(此網站目前無法在程式碼區塊中顯示雙大括弧運算式。)
 
-	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/08-run-the-web-app.png)
+2. 以滑鼠右鍵按一下 *index.html* 檔案，然後按一下 [設定為起始頁]。
 
-1. 請記下 HTML 輸出中的範本 Handlebars。您將在下一個步驟中使用 AngularJS 進行這些 HTML 元素的資料繫結。
+3. 以滑鼠右鍵按一下 *index.html* 檔案，然後按一下 [在瀏覽器中檢視]。
+
+	留意 HTML 輸出中的範本 Handlebars。您將在下一個步驟中使用 AngularJS 進行這些 HTML 元素的資料繫結。
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/09-template-ui.png)
 
@@ -308,13 +310,15 @@ API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。�
             $scope.refresh();
         });
 
-	> **注意**：通訊埠號碼可能有所不同，因此如果您的 API 專案是在不同的連接埠上執行，只需變更上述 JavaScript 以反映您自己的環境。
+1，在您剛才加入至 index.html 的程式碼中，將基底 URL (`http://localhost:1578`) 中的通訊埠編號替換成 API 專案的實際通訊埠編號。
 
-1. 請確定 API 應用程式專案也在執行中，否則 JavaScript HTML 將無法正常運作。以滑鼠右鍵按一下方案，然後選取 [**屬性**]。然後將這兩個 Web 專案設定為 [**啟動但不偵錯**]，而且先執行 API 專案。
+	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
+
+1. 執行 HTML 用戶端時，請確定 API 應用程式專案也在執行中，否則 JavaScript HTML 將無法正常運作。以滑鼠右鍵按一下方案，然後選取 [**屬性**]。然後將這兩個 Web 專案設定為 [**啟動但不偵錯**]，而且先執行 API 專案。 
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/10-run-both-web-projects.png)
 
-1. 進行方案偵錯，您將發現 HTML/JavaScript 用戶端可以連接至並顯示 API 應用程式專案中的資料。
+1. 執行方案，HTML/JavaScript 用戶端便會連接並顯示 API 應用程式專案中的資料。
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/11-web-client-running.png)
 
@@ -331,6 +335,8 @@ API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。�
 1. 貼上 API 應用程式的 URL，以覆寫 JavaScript 程式碼中 **$scope.baseUrl** 屬性先前的值。
 
 		$scope.baseUrl = 'https://microsoft-apiappf7e042ba8e5233ab4312021d2aae5d86.azurewebsites.net';
+
+	留意 URL 是否指定 HTTPS。不可選擇使用 HTTPS；API Apps 不支援 HTTP。
 
 1. 以滑鼠右鍵按一下 HTML/JavaScript Web 專案，然後選取 [**發行**] 內容功能表項目。
 
@@ -360,5 +366,8 @@ API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。�
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/18-web-app-visible-in-resource-group.png)
 
 ## 摘要 
-此範例示範如何使用 AngularJS 做為 JavaScript 平台，以供存取 API 應用程式後端。您可以將 REST 存取功能變更為使用任何其他 JavaScript 架構。<!--HONumber=52-->
+此範例示範如何使用 AngularJS 做為 JavaScript 平台，以供存取 API 應用程式後端。您可以將 REST 存取功能變更為使用任何其他 JavaScript 架構。
+
  
+
+<!---HONumber=62-->

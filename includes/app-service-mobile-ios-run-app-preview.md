@@ -9,10 +9,10 @@
 
 3. 在應用程式中輸入有意義的文字 (例如 _Complete the tutorial_)，然後按一下加號 (**+**) 圖示。
 
-   ![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
+   	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
    	如此會傳送 POST 要求到 Azure 中託管的新行動應用程式。要求中的資料會插入 TodoItem 資料表中。行動應用程式會傳回資料表中儲存的項目，並將該資料顯示在清單中。
 
  	</div>
 
-<!---HONumber=58-->
+<!---HONumber=62-->

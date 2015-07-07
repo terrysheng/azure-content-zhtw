@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="05/23/2015"
 	ms.author="stepsic"/>
 	
 # 使用邏輯應用程式功能
 
-在[上一個主題][Create a new logic app]中，您已建立第一個邏輯應用程式。現在我們將說明如何使用應用程式服務邏輯應用程式，來建立更完整的程序。本主題將介紹下列新的邏輯應用程式概念：
+在[上一個主題][Create a new logic app]中，您已建立第一個邏輯應用程式。現在我們將說明如何使用 App Services Logic Apps，來建立更完整的程序。本主題將介紹下列新的邏輯應用程式概念：
 
 - 條件式邏輯，只有在符合特定條件時，才會執行動作。
 - 重複的動作。
@@ -89,15 +89,17 @@
 		    "defaultValue" : "MicrosoftAzure"
 	    }
     
-2. 捲動至 `twitterconnector` 動作、找出查詢值，並將其取代為 `@concat('#', parameters('topic'))`。**concat** 函數將兩個或更多字串聯結在一起。
+2. 捲動至 `twitterconnector` 動作、找出查詢值，並將其取代為 `#@{parameters('topic')}`。您也可以使用 **concat** 函式來結合兩個或多個字串，例如：`@concat('#',parameters('topic'))` 等同於上述程式碼。
  
 3. 最後，請移至 `dropboxconnector` 動作，並新增主題參數，如下所示：
 
-    	@concat('/tweets/', parameters('topic'), '/',repeatItem().TweetID,'.txt')
+    	/tweets/@{parameters('topic')}/@{repeatItem().TweetID}.txt
 
 參數很適合用來提取您很可能經常變更的值。當您需要在不同環境中覆寫參數時，參數特別有用。如需有關如何根據環境覆寫參數的詳細資訊，請參閱我們的 [REST API 文件](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409)。
 
 現在，當您按一下 [**儲存**] 時，每小時都將有回推數超過 5 個的新推文傳遞到您 Dropbox 中名為 [**推文**] 的資料夾。
+
+若要深入了解邏輯應用程式定義，請參閱[撰寫邏輯應用程式定義](app-service-logic-author-definitions.md)。
 
 ## 啟動邏輯應用程式工作流程
 有數個不同的選項可用來啟動您的邏輯應用程式中定義的工作流程。工作流程一律可在 [Azure 入口網站]中隨選啟動。
@@ -106,9 +108,9 @@
 循環觸發程序會依照您指定的間隔執行。當觸發程序具有條件式邏輯時，觸發程序會判斷工作流程是否需要執行。觸發程序透過傳回 `200` 狀態碼，表示應執行。如果不需要執行，則會傳回 `202` 狀態碼。
 
 ### 使用 REST API 回呼
-服務可以呼叫邏輯應用程式端點以啟動工作流程。您可以您可以從邏輯應用程式中的 [**設定**] 命令列按鈕導覽至 [**屬性**] 分頁，以找出要存取的端點。
+服務可以呼叫邏輯應用程式端點以啟動工作流程。您可以您可以從邏輯應用程式中的 [**設定**] 命令列按鈕導覽至 [**屬性**] 刀鋒視窗，以找出要存取的端點。
 
-您可以從自訂應用程式內使用此回呼來叫用邏輯應用程式。您必須使用 [**基本**] 驗證。系統會為您建立 `default` 的使用者名稱，密碼則是 [**屬性**] 分頁上的 [**主要存取金鑰**] 欄位。例如：
+您可以從自訂應用程式內使用此回呼來叫用邏輯應用程式。您必須使用 [**基本**] 驗證。系統會為您建立 `default` 的使用者名稱，密碼則是 [**屬性**] 刀鋒視窗上的 [**主要存取金鑰**] 欄位。例如：
 
         POST https://default:<<your primary access key>>@<< your endpoint>>/run?api-version=2015-02-01-preview
         Content-type: application/json
@@ -130,4 +132,5 @@
 [Create a new logic app]: app-service-logic-create-a-logic-app.md
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
 [Azure 入口網站]: https://portal.azure.com
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

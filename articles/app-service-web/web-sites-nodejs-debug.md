@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="如何在 Azure App Service 中偵錯 Node.js Web 應用程式" 
+<properties
+	pageTitle="如何在 Azure App Service 中偵錯 Node.js Web 應用程式"
 	description="了解如何在 Azure App Service 中偵錯 Node.js Web 應用程式。"
-	tags="azure-portal" 
-	services="app-service\web" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	tags="azure-portal"
+	services="app-service\web"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="04/23/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="04/23/2015"
 	ms.author="mwasson"/>
 
 # 如何在 Azure App Service 中偵錯 Node.js Web 應用程式
@@ -42,11 +42,11 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 
 > [AZURE.NOTE]雖然 devErrorsEnabled 在開發期間診斷問題時很有用，但在生產環境中啟用可能會導致將開發錯誤傳送給使用者。
 
-如果您的應用程式中尚無 **IISNode.yml** 檔案，則在發行已更新的應用程之後，您必須重新啟動 Web 應用程式。如果只是在先前發行的現有 **IISNode.yml** 檔案中變更設定，則不需要重新啟動。
+如果您的應用程式中尚無 **IISNode.yml** 檔案，則在發佈已更新的應用程之後，您必須重新啟動 Web 應用程式。如果只是在先前發佈的現有 **IISNode.yml** 檔案中變更設定，則不需要重新啟動。
 
 > [AZURE.NOTE]如果 Web 應用程式是以 Azure 命令列工具或 Azure PowerShell Cmdlets 建立，則會自動建立預設的 **IISNode.yml** 檔案。
 
-若要重新啟動 Web 應用程式，請在 [Azure 預覽入口網站](https://portal.azure.com) 中選取 Web 應用程式，然後按一下 [重新啟動]**** 按鈕：
+若要重新啟動 Web 應用程式，請在 [Azure 預覽入口網站](https://portal.azure.com) 中選取 Web 應用程式，然後按一下 [重新啟動] 按鈕：
 
 ![restart button][restart-button]
 
@@ -63,13 +63,13 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 
 	npm install azure-cli -g
 
-安裝之後，可使用 'azure' 命令來存取工具。必須先設定命令列工具來使用您的 Azure 訂閱。如需有關如何完成此工作的詳細資訊，請參閱＜**如何使用 Azure 命令列工具**＞的＜[如何下載和匯入發行設定]＞一節。
+安裝之後，可使用 'azure' 命令來存取工具。必須先設定命令列工具來使用您的 Azure 訂閱。如需有關如何完成此工作的詳細資訊，請參閱 [如何使用 Azure 命令列工具] 文章的＜**如何下載和匯入發佈設定**＞一節。
 
 ###FTP
 
-若要透過 FTP 來存取診斷資訊，請造訪 [Azure 預覽入口網站](https://portal.azure.com)，選取您的 Web 應用程式，然後選取 [儀表板]****。在快速連結****區段中，[FTP DIAGNOSTIC LOGS]**** 和 [FTPS DIAGNOSTIC LOGS]**** 連結可讓您使用 FTP 通訊協定來存取記錄檔。
+若要透過 FTP 來存取診斷資訊，請造訪 [Azure 預覽入口網站](https://portal.azure.com)，選取您的 Web 應用程式，然後選取 [儀表板]。在快速連結區段中，[FTP DIAGNOSTIC LOGS] 和 [FTPS DIAGNOSTIC LOGS] 連結可讓您使用 FTP 通訊協定來存取記錄檔。
 
-> [AZURE.NOTE]如果您先前沒有為 FTP 或部署設定使用者名稱和密碼，您可以從 [快速入門]**** 管理頁面中選取 [設定部署認證]**** 來設定。
+> [AZURE.NOTE]如果您先前沒有為 FTP 或部署設定使用者名稱和密碼，您可以從 [快速入門] 管理頁面中選取 [設定部署認證] 來設定。
 
 儀表板中傳回的 FTP URL 是 **LogFiles** 目錄，內含下列子目錄：
 
@@ -118,10 +118,11 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
-[如何下載和匯入發行設定]: ../xplat-cli.md
+[How to Use The Azure Command-Line Interface]: ../xplat-cli.md
 [在 Azure 應用程式中使用 Node.js 模組]: ../nodejs-use-node-modules-azure-apps.md
 [在 Azure 應用程式中指定 Node.js 版本]: ../nodejs-specify-node-version-azure-apps.md
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

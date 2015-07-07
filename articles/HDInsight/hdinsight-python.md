@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 Azure HDInsight 中搭配 Hive 與 Pig 來使用 Python"
-	description="了解如何在 Azure HDInsight 上從 Hive 和 Pig 中使用 Python 使用者定義函數 (UDF)。"
+	pageTitle="在 HDInsight 中搭配 Hive 與 Pig 來使用 Python | Microsoft Azure"
+	description="了解如何在 HDInsight 中從 Hive 和 Pig (Azure 上的 Hadoop 技術堆疊) 使用 Python 使用者定義函數 (UDF)。"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -89,7 +89,7 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 
 2. 執行串流處理時，有一行包含所有的值，而每個值之間是一個定位字元。因此，`string.split(line, "\t")` 可在每個索引標籤進行分割輸入，並只傳回欄位。
 
-3. 處理完成時，輸出必須以一行寫入 STDOUT，而每一個欄位之間是一個定位字元。這是使用  `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])` 以完成。
+3. 處理完成時，輸出必須以一行寫入 STDOUT，而每一個欄位之間是一個定位字元。這是使用 `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])` 以完成。
 
 4. 這全部發生在 `while` 迴圈內，迴圈會一直重複直到沒有 `line` 讀取為止，此時`break` 會結束迴圈，指令碼也就終止。
 
@@ -328,6 +328,7 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 
-* [搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)
+* 〈[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)〉
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

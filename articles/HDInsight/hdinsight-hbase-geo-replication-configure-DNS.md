@@ -1,7 +1,7 @@
 <properties 
-   pageTitle="設定兩個 Azure 虛擬網路之間的 DNS | Azure" 
-   description="了解如何設定兩個 Azure 虛擬網路之間的 VPN 連線、如何設定兩個虛擬網路之間的網域名稱解析，以及如何設定 HBase 異地複寫" 
-   services="hdinsight" 
+   pageTitle="設定兩個 Azure 虛擬網路之間的 DNS | Microsoft Azure" 
+   description="了解如何設定兩個虛擬網路之間的 VPN 連線和網域名稱解析，以及如何設定 HBase 異地複寫。" 
+   services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 
@@ -40,9 +40,9 @@
 ##必要條件
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。Azure 是訂用帳戶型平台。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][azure-purchase-options]、[成員優惠][azure-member-offers]或[免費試用][azure-free-trial]。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-- **已安裝並設定 Azure PowerShell 的工作站**。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install]。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
 
 	執行 PowerShell 指令碼之前，請確定您已使用下列 Cmdlet 連接到 Azure 訂用帳戶：
 
@@ -52,7 +52,7 @@
 
 		Select-AzureSubscription <AzureSubscriptionName>
 
-- **具備 VPN 連線的兩個 Azure 虛擬網路**。如需相關指示，請參閱[設定兩個 Azure 虛擬網路之間的 VPN 連線][hdinsight-hbase-replication-vnet]。
+- **具備 VPN 連線的兩個 Azure 虛擬網路**。如需相關指示，請參閱[設定兩個 Azure 虛擬網路之間的 VPN 連線][hdinsight-hbase-geo-replication-vnet]。
 
 >[AZURE.NOTE]Azure 服務名稱和虛擬機器名稱必須是唯一的。本教學課程中所使用的名稱為 Contoso-[Azure Service/VM name]-[EU/US]。例如，Contoso-VNet-EU 是指位於北歐資料中心的 Azure 虛擬網路；Contoso-DNS-US 是指位於美國東部資料中心的 DNS 伺服器 VM。您必須提供自己的名稱。
  
@@ -73,9 +73,9 @@
 	- **虛擬網路子網路**：Subnet-1
 	- **儲存體帳戶**：使用自動產生的儲存體帳戶
 	
-		雲端服務名稱將與虛擬機器名稱相同。在此案例中，該名稱為 Contoso-DNS-EU。對於後續的虛擬機器而言，我可以選擇使用相同的雲端服務。位於相同雲端服務底下的所有虛擬機器，都會共用相同的虛擬網路與網域尾碼。
+		雲端服務名稱會與虛擬機器名稱相同。在此例中是 Contoso-DNS-EU。對於後續的虛擬機器，我可以選擇使用相同的雲端服務。相同雲端服務下的所有虛擬機器會共用相同的虛擬網路和網域尾碼。
 
-		儲存體帳戶是用來儲存虛擬機器映像檔。 
+		儲存體帳戶用來儲存虛擬機器映像檔。 
 	- **端點**：(向下捲動並選取 [**DNS**]) 
 
 建立虛擬機器之後，請找出內部 IP 和外部 IP。
@@ -216,7 +216,8 @@ DNS 伺服器需要靜態 IP 位址。此步驟無法在 Azure 入口網站中�
 
 [hdinsight-hbase-geo-replication]: hdinsight-hbase-geo-replication.md
 [hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
+[powershell-install]: ../install-configure-powershell.md
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

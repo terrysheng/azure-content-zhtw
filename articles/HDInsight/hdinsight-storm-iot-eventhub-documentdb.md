@@ -1,26 +1,26 @@
 <properties
-	pageTitle="利用 Azure 事件中心和 Apache Storm on HDInsight 處理車輛感應器資料"
-	description="了解如何使用 Apache Storm on HDInsight 處理 Azure 事件中心的車輛感應器資料在處理期間，可藉由查閱 DocumentDB 的車輛模型資訊使資料更豐富。最後，資料會寫入至 Azure 儲存體。"
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"/>
+ pageTitle="使用 Apache Storm on HDInsight 處理車輛感應器資料 | Microsoft Azure"
+ description="了解如何使用 Apache Storm on HDInsight 處理事件中樞的車輛感應器資料從 DocumentDB 加入模型資料，並將輸出儲存至儲存體。"
+ services="hdinsight,documentdb,notification-hubs"
+ documentationCenter=""
+ authors="Blackmist"
+ manager="paulettm"
+ editor="cgronlun"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="04/28/2015"
-	ms.author="larryfr"/>
+ms.service="hdinsight"
+ms.devlang="java"
+ms.topic="article"
+ms.tgt_pltfrm="na"
+ms.workload="big-data"
+ms.date="04/28/2015"
+ms.author="larryfr"/>
 
-#使用 Apache Storm on HDInsight 處理 Azure 事件中心的感應器資料
+#使用 Apache Storm on HDInsight 處理 Azure 事件中樞的車輛感應器資料
 
 了解如何使用 Apache Storm on HDInsight 處理 Azure 事件中心的車輛感應器資料本範例會從 Azure 事件中心讀取感應器資料、藉由參考儲存在 Azure DocumentDB 的資料來充實資料，最後使用 Hadoop 檔案系統 (HDFS) 將資料儲存到 Azure 儲存體。
 
-![架構圖表](./media/hdinsight-storm-iot-eventhub-documentdb/iot.png)
+![HDInsight 和物聯網 (IoT) 架構圖表](./media/hdinsight-storm-iot-eventhub-documentdb/iot.png)
 
 ##概觀
 
@@ -57,6 +57,6 @@ Storm 拓撲中使用的元件如下：
 ## 後續步驟
 
 若需更多範例 Storm 拓撲，請參閱 [Storm on HDInsight 上的範例拓撲](hdinsight-storm-example-topology.md)。
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

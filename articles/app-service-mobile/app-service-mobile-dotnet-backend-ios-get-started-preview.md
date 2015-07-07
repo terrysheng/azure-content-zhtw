@@ -3,7 +3,7 @@
 	description="遵循此教學課程，可開始使用 Azure App Service 進行 iOS 開發。"
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="yuaxu"
+	authors="ysxu"
 	manager="dwrede"
 	editor=""/>
 
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="02/20/2015"
 	ms.author="yuaxu"/>
 
@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
 
-本教學課程示範如何利用 Azure App Service 行動應用程式建立 iOS 應用程式。您將建立新的行動應用程式後端，以及儲存應用程式資料的簡單_待辦事項_應用程式。本教學課程使用伺服器端邏輯的 .NET 和 Visual Studio。
+本教學課程示範如何利用 Azure App Service Mobile Apps 建立 iOS 應用程式。您將建立新的行動應用程式後端，以及儲存應用程式資料的簡單_待辦事項_應用程式。本教學課程使用伺服器端邏輯的 .NET 和 Visual Studio。
 
 若要完成此教學課程，您需要下列項目：
 
@@ -53,7 +53,7 @@
 
  這會下載一個方案，其中包含行動應用程式後端的專案，以及與行動應用程式後端連接的範例_待辦事項_應用程式的專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
 
-6. 下載您的發行設定檔、將下載的檔案儲存至本機電腦，並記下儲存位置。
+6. 下載您的發佈設定檔、將下載的檔案儲存至本機電腦，並記下儲存位置。
 
 ## 測試行動應用程式
 
@@ -84,6 +84,6 @@
 
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

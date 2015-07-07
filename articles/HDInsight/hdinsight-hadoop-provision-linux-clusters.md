@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="在 HDInsight 中於 Linux 上佈建 Hadoop 叢集 | Microsoft Azure" 
-   description="了解如何使用管理入口網站、命令列及 .NET SDK，在 HDInsight 的 Linux 上佈建 Hadoop 叢集。" 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="在 HDInsight 中於 Linux 上佈建 Hadoop 叢集 | Microsoft Azure"
+   description="了解如何使用管理入口網站、命令列及 .NET SDK，在 HDInsight 的 Linux 上佈建 Hadoop 叢集。"
+   services="hdinsight"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
 
 <tags
@@ -12,18 +12,18 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="04/17/2015"
    ms.author="nitinme"/>
 
 
 #使用自訂選項在 HDInsight 中佈建 Hadoop Linux 叢集 (預覽)
 
-在本文中，您將了解在 Azure HDInsight 上自訂佈建 Hadoop Linux 叢集的不同方式 - 使用 Azure 入口網站、Azure PowerShell、命令列工具或 HDInsight .NET SDK。
+在本文中，您將了解在 Azure HDInsight 上自訂佈建 Hadoop Linux 叢集的不同方式 - 使用 Azure 入口網站、Azure PowerShell、Azure CLI 或 HDInsight .NET SDK。
 
 ## 什麼是 HDInsight 叢集？
 
-您有沒有想過為什麼我們每次針對 Hadoop 或巨量資料進行討論時，都一定會提到叢集？ 那是因為 Hadoop 允許大型資料的分散式處理，散佈到叢集的不同節點中。叢集具有主要/背景工作架構，包含一個主要節點 (亦稱為前端節點或名稱節點) 和任意數目的背景工作節點 (亦稱為資料節點)。如需詳細資訊，請參閱 <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>。
+您有沒有想過為什麼每次討論 Hadoop 或巨量資料時，都一定會提到叢集？ 那是因為 Hadoop 允許大型資料的分散式處理，散佈到叢集的不同節點中。叢集具有主要/背景工作架構，包含一個主要節點 (亦稱為前端節點或名稱節點) 和任意數目的背景工作節點 (亦稱為資料節點)。如需詳細資訊，請參閱 <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>。
 
 ![HDInsight Cluster][img-hdi-cluster]
 
@@ -37,8 +37,8 @@ HDInsight 叢集摘要了 Hadoop 實作詳細資料，因此您無需擔心如�
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
-- Azure 訂閱。Azure 是訂用帳戶型平台。適用於 HDInsight 的 Azure PowerShell Cmdlet 會使用您的訂用帳戶執行相關工作。如需取得訂用帳戶的詳細資訊，請參閱<a href="http://azure.microsoft.com/pricing/purchase-options/" target="_blank">購買選項</a>、<a href="http://azure.microsoft.com/pricing/member-offers/" target="_blank">成員優惠</a>或<a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">免費試用</a>。
-- 安全殼層 (SSH) 金鑰。如果您想要使用帶有金鑰的 SSH (而非密碼) 遠端登入到 Linux 叢集，建議使用金鑰的方式，因為它較為安全。如需如何產生 SSH 金鑰的相關指示，請參閱下列文章：
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **安全殼層 (SSH) 金鑰**。如果您想要使用帶有金鑰的 SSH (而非密碼) 遠端登入到 Linux 叢集，建議使用金鑰的方式，因為它較為安全。如需如何產生 SSH 金鑰的相關指示，請參閱下列文章：
 	-  從 Linux 電腦 - [從 Linux、Unix 或 OS X 搭配使用 SSH 與以 Linux 為基礎的 HDInsight (Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
 	-  從 Windows 電腦 - [從 Windows 搭配使用 SSH 與以 Linux 為基礎的 HDInsight (Hadoop)](hdinsight-hadoop-linux-use-ssh-windows.md)。
 
@@ -64,7 +64,7 @@ Metastore 包含 Hive 資料表、資料分割、結構描述和資料行等相�
 佈建 HDInsight 叢集時，您可以指定將包含 Hive Metastore 的 SQL Database。當您刪除叢集時，由於中繼資料資訊已儲存在外部的 SQL Database 中，因而得以保留下來。
 
 
-> [AZURE.NOTE]目前只有在使用 .NET SDK 佈建適用於 Linux 的 HDInsight 時，才有提供使用 Metastore 的選項。如需相關指示，請參閱[使用 .NET SDK 在 Linux 上佈建 HDInsight 叢集](#sdk)。
+> [AZURE.NOTE] 目前只有在使用 .NET SDK 佈建適用於 Linux 的 HDInsight 時，才有提供使用 Metastore 的選項。如需相關指示，請參閱[使用 .NET SDK 在 Linux 上佈建 HDInsight 叢集](#sdk)。
 
 
 
@@ -82,7 +82,7 @@ Windows | 按一下[這裡](#portal) | 按一下[這裡](#cli) | 按一下[這�
 HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相同的資料中心內必須要有 Azure 儲存體帳戶，您才能建立 HDInsight 叢集。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](../hdinsight-use-blob-storage.md)。如需建立 Azure 儲存帳號的詳細資訊，請參閱[如何建立儲存帳號](../storage-create-storage-account.md)。
 
 
-> [AZURE.NOTE]目前只有**東南亞**、**北歐**、**美國東部**和**美國中南部**等地區可代管 HDInsight Linux 叢集。
+> [AZURE.NOTE] 目前只有**東南亞**、**北歐**、**美國東部**和**美國中南部**等地區可代管 HDInsight Linux 叢集。
 
 **使用自訂建立選項建立 HDInsight 叢集**
 
@@ -122,7 +122,7 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 	<tr><td>資料節點大小</td><td><p>選取資料節點的 VM 大小。</p></td></tr>
 	</table>
 
-	>[AZURE.NOTE]根據 VM 的選擇，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有的標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
+	[AZURE.NOTE] 根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
 
 
 5. 在 [Configure Cluster User] 頁面上，提供下列值：
@@ -144,21 +144,22 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 			如需如何在 Linux 電腦上產生 SSH 金鑰的相關指示，請參閱<a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/" target="_blank">這裡</a>。如需如何在 Windows 電腦上產生 SSH 金鑰的相關指示，請參閱<a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/" target="_blank">這裡</a>。
 		</td></tr>
 		<tr><td>輸入 Hive/Oozie Metastore</td>
-			<td>勾選此核取方塊，在與叢集相同的資料中心上指定 SQL Database，以做為 Hive/Oozie Metastore 使用。如果您選取此核取方塊，則必須在精靈的後續頁面指定 Azure SQL Database 的詳細資料。即使在將叢集刪除之後，如果您想要保留 Hive/Oozie 工作的相關中繼資料，此選項將會很有幫助。</td></tr>
+			<td>勾選此核取方塊，在與叢集相同的資料中心上指定 SQL 資料庫，以做為 Hive/Oozie 中繼存放區使用。如果您選取此核取方塊，則必須在精靈的後續頁面指定 Azure SQL Database 的詳細資料。即使在將叢集刪除之後，如果您想要保留 Hive/Oozie 工作的相關中繼資料，此選項將會很有幫助。</td></tr>
 		</td></tr>
 		</table>
+
 
 	> [AZURE.NOTE]建議搭配 SSH 使用 SSH 公開金鑰驗證，因為它比密碼驗證安全。
 
 	按一下向右箭頭。
 
-6. 在 [**設定 Hive/Oozie Metastore**] 頁面上，提供下列值：
+6. 在 [設定 Hive/Oozie 中繼存放區] 頁面上，提供下列值：
 
     ![提供 Hadoop HDInsight 叢集使用者](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page4.png)
 
-	指定要做為 Hive/OOzie Metastore 的 Azure SQL Database。您可以為 Hive 和 Oozie Metastore 指定相同的資料庫。此 SQL 資料庫必須與 HDInsight 叢集位於相同的資料中心內。清單方塊只會列出與您在 [<strong>叢集詳細資料</strong>] 頁面上指定的相同資料中心內的 SQL Database。另外也請指定連線到所選取 Azure SQL Database 用的使用者名稱和密碼。
+	指定要做為 Hive/OOzie Metastore 的 Azure SQL Database。您可以為 Hive 和 Oozie Metastore 指定相同的資料庫。此 SQL 資料庫必須與 HDInsight 叢集位於相同的資料中心內。清單方塊只會列出與您在 [叢集詳細資料]<strong></strong> 頁面上指定之相同資料中心內的 SQL 資料庫。同時請指定使用者名稱及密碼以連線到所選取的 Azure SQL Database。
 
-    >[AZURE.NOTE]用於 metastore 的 Azure SQL Database 必須能夠連線至其他 Azure 服務 (包括 Azure HDInsight)。在 Azure SQL Database 儀表板中，按一下右側的伺服器名稱。這是指執行 SQL Database 執行個體的伺服器。一旦進入伺服器檢視後，按一下 [**設定**]，然後在 [**Azure 服務**] 按一下 [**是**]，再按 [**儲存**]。
+    >[AZURE.NOTE] 用於 metastore 的 Azure SQL Database 必須能夠連線至其他 Azure 服務 (包括 Azure HDInsight)。在 Azure SQL Database 儀表板中，按一下右側的伺服器名稱。這是指執行 SQL Database 執行個體的伺服器。一旦進入伺服器檢視後，按一下 [**設定**]，然後在 [**Azure 服務**] 按一下 [**是**]，再按 [**儲存**]。
 
     按一下向右箭頭。
 
@@ -184,10 +185,10 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 				<li>如果選擇 [<strong>建立新的儲存體</strong>] 或 [<strong>使用其他訂用帳戶的儲存體</strong>] 選項，則您必須提供儲存體帳戶名稱。</li>
 			</ul></td></tr>
 		<tr><td>帳戶金鑰</td>
-			<td>如果選擇 [<strong>使用其他訂用帳戶的儲存體</strong>] 選項，請指定該儲存體帳戶的帳戶金鑰。</td></tr>
+			<td>如果選擇 [從另一個訂用帳戶使用儲存體]<strong></strong> 選項，請指定該儲存體帳戶的帳戶金鑰。</td></tr>
 		<tr><td>預設容器</td>
-			<td><p>指定儲存體帳戶上的預設容器做為 HDInsight 叢集的預設檔案系統。如果您在 [<strong>儲存體帳戶</strong>] 欄位中選擇了 [<strong>使用現有的儲存體</strong>]，且該帳戶中沒有現有的容器，則系統便會依預設建立容器，容器名稱會與叢集名稱相同。如果已有使用叢集名稱的容器存在，則會為容器名稱加上序號。例如 mycontainer1、mycontainer2，依此類推。然而，如果現有儲存體帳戶有容器存在，且其名稱與您指定的叢集名稱不同，則您也可以使用該容器。</p>
-            <p>如果選擇建立新儲存體或使用其他 Azure 訂用帳戶的儲存體，您必須指定預設容器名稱。</p>
+			<td><p>指定儲存體帳戶上的預設容器做為 HDInsight 叢集的預設檔案系統。如果您在 [儲存體帳戶] <strong></strong>欄位中選擇了 [使用現有的儲存體] <strong></strong>，且該帳戶中沒有現有的容器，根據預設，將使用叢集名稱建立名稱相同的容器。如果已有使用叢集名稱的容器存在，則會為容器名稱加上序號。例如 mycontainer1、mycontainer2，依此類推。然而，如果現有儲存體帳戶已有容器存在，且其名稱與您指定的叢集名稱不同，您仍可以使用該容器。</p>
+            <p>如果選擇建立新儲存體或從另一個 Azure 訂用帳戶使用儲存體，則必須指定預設容器名稱。</p>
         </td></tr>
 		<tr><td>其他儲存體帳戶</td>
 			<td>HDInsight 支援多個儲存體帳戶。叢集可使用的其他儲存體帳戶沒有數量上的限制。但如果您使用 Azure 入口網站建立叢集，則會因為 UI 的限制而限定為七個帳戶。您所指定的每個其他儲存體帳戶都會在精靈上另外新增一個 [<strong>儲存體帳戶</strong>] 頁面，您可在此指定帳戶資訊。以上面的螢幕擷取畫面為例，在選取一個其他儲存體帳戶後，對話方塊因此新增了頁面 5。</td></tr>
@@ -202,38 +203,38 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
     在這裡，您可以選擇現有儲存體、建立新儲存體或使用其他 Azure 訂用帳戶的儲存體。提供值的程序會與上個步驟類似。
 
 
-    > [AZURE.NOTE]在您為 HDInsight 叢集選擇 Azure 儲存體帳戶後，您將無法刪除帳戶，也無法將帳戶變更為不同的叢集。
+    > [AZURE.NOTE] 在您為 HDInsight 叢集選擇 Azure 儲存體帳戶後，您將無法刪除帳戶，也無法將帳戶變更為不同的叢集。
 
 
  	在指定其他儲存體帳戶後，按一下核取記號以開始佈建叢集。
 
-###<a id="cli"></a>使用跨平台命令列
+###<a id="cli"></a> 使用 Azure 命令列介面 (Azure CLI)
 
-另一個佈建 HDInsight 叢集的選項，是適用於 Mac、Linux 和 Windows 的 Azure 命令列介面。Azure CLI 會在 Node.js 中實作。此工具可在任何支援 Node.js 的平台上使用，包括 Windows、Mac 和 Linux。您可以從下列位置安裝命令列介面：
+另一個佈建 HDInsight 叢集的選項是 Azure CLI。Azure CLI 會在 Node.js 中實作。此工具可在任何支援 Node.js 的平台上使用，包括 Windows、Mac 和 Linux。您可以從下列位置安裝 Azure CLI：
 
 - **Node.js SDK** - <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
-- **適用於 Mac、Linux 和 Windows 的 Azure CLI** - <a href="https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
+- **適用於 Mac、Linux 和 Windows 的 Azure CLI** - <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
 
-如需如何使用命令列介面的一般指引，請參閱[適用於 Mac、Linux 和 Windows 的 Azure CLI](../xplat-cli.md)。
+如需如何使用 Azure CLI 的一般指南，請參閱[適用於 Mac、Linux 和 Windows 的 Azure CLI](../xplat-cli.md)。
 
-上述指示將引導您如何在 Linux 和 Windows 上安裝跨平台命令列，以及接著如何使用命令列來佈建叢集。
+上述指示將引導您如何在 Linux 和 Windows 上安裝 Azure CLI，以及接著如何使用命令列來佈建叢集。
 
-- [設定適用於 Linux 的跨平台命令列](#clilin)
-- [設定適用於 Windows 的跨平台命令列](#cliwin)
-- [使用跨平台命令列佈建 HDInsight 叢集](#cliprovision)
+- [設定適用於 Linux 的 Azure CLI](#clilin)
+- [設定適用於 Windows 的 Azure CLI](#cliwin)
+- [使用 Azure CLI 佈建 HDInsight 叢集](#cliprovision)
 
-#### <a id="clilin"></a>設定適用於 Linux 的跨平台命令列
+#### <a id="clilin"></a>設定適用於 Linux 的 Azure CLI
 
-執行下列程序來設定您的 Linux 電腦使用 Azure 命令列工具：
+執行下列程序來設定您的 Linux 電腦使用 Azure 命令列工具 (Azure CLI)：
 
-- 使用 Node.js 套件管理員 (NPM) 安裝命令列介面
-- 連線到 Azure 訂閱
+- 使用 Node.js 套件管理員 (NPM) 安裝 Azure CLI
+- 連線到您的 Azure 訂用帳戶
 
-**使用 NPM 安裝命令列介面**
+**使用 NPM 安裝 Azure CLI**
 
 1.	在 Linux 電腦上開啟終端機視窗，然後執行下列命令：
 
-		sudo npm install -g https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
+		sudo npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
 2.	執行下列命令以驗證安裝：
 
@@ -248,10 +249,10 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 
 **連線到您的 Azure 訂用帳戶**
 
-使用命令列介面之前，您必須先設定工作站與 Azure 之間的連線。命令列介面會使用您的 Azure 訂用帳戶資訊連接到您的帳號。這項資訊可從 Azure 的發佈設定檔案取得。接著，發佈設定檔案可匯入為持續性的本機組態設定，供命令列介面用於後續的作業。您的發佈設定只需匯入一次即可。
+使用 Azure CLI 之前，您必須先設定工作站與 Azure 之間的連線。Azure CLI 會使用您的 Azure 訂閱資訊來連線至您的帳戶。這項資訊可從 Azure 的發佈設定檔案取得。接著可以匯入發佈設定檔成為 Azure CLI 後續作業所用的永久本機組態設定。您只需匯入一次發佈設定。
 
 
-> [AZURE.NOTE]發佈設定檔案包含敏感資訊。Microsoft 建議您刪除此檔案，或另採相關步驟加密包含此檔案的使用者資料夾。在 Windows 中，修改資料夾屬性或使用 BitLocker 磁碟機加密。
+> [AZURE.NOTE] 發佈設定檔案包含敏感資訊。Microsoft 建議您刪除此檔案，或另採相關步驟加密包含此檔案的使用者資料夾。在 Windows 中，修改資料夾屬性或使用 BitLocker 磁碟機加密。
 
 
 
@@ -269,27 +270,27 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 
 		azure account import <path/to/the/file>
 
-	
-#### <a id="cliwin"></a>設定適用於 Windows 的跨平台命令列
 
-執行下列程序來設定您的 Windows 電腦使用 Azure 命令列工具：
+#### <a id="cliwin"></a>設定適用於 Windows 的 Azure CLI
 
-- 使用 NPM 或 Windows Installer 安裝命令列介面
+執行下列程序來設定您的 Windows 電腦使用 Azure 命令列工具 (Azure CLI)：
+
+- 使用 NPM 或 Windows Installer 安裝 Azure CLI
 - 下載及匯入 Azure 帳號發佈設定
 
 
-此命令列介面可使用 NPM 或 Windows Installer 進行安裝。Microsoft 建議您僅使用下列兩個選項的其中一個進行安裝。
+Azure CLI 可使用 NPM 或 Windows Installer 進行安裝。Microsoft 建議您僅使用下列兩個選項的其中一個進行安裝。
 
-**使用 NPM 安裝命令列介面**
+**使用 NPM 安裝 Azure CLI**
 
 1.	瀏覽至 **www.nodejs.org**。
-2.	按一下 [**安裝**]，並依照指示使用預設設定操作。
-3.	從您的工作站開啟 [命令提示字元] \(或是 **Azure 命令提示字元**或 **VS2012 開發人員命令提示字元**)。
+2.	按一下 [安裝]，並依照指示使用預設設定。
+3.	從您的工作站開啟 [命令提示字元] (或是 **Azure 命令提示字元**或 **VS2012 開發人員命令提示字元**)。
 4.	在命令提示字元視窗中執行下列命令：
 
-		npm install -g https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
+		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
-	> [AZURE.NOTE]如果您收到錯誤，指出找不到 NPM 命令，請驗證下列路徑是否在 **PATH** 環境變數中：<i>C:\\Program Files (x86)\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i> 或 <i>C:\\Program Files\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i>
+	> [AZURE.NOTE] 如果您收到錯誤，指出找不到 NPM 命令，請驗證下列路徑是否在 **PATH** 環境變數中：<i>C:\Program Files (x86)\nodejs;C:\Users[username]\AppData\Roaming\npm</i> 或 <i>C:\Program Files\nodejs;C:\Users[username]\AppData\Roaming\npm</i>
 
 
 5.	執行下列命令以驗證安裝：
@@ -303,17 +304,16 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 		azure hdinsight cluster -h
 		azure hdinsight cluster create -h
 
-**使用 Windows Installer 安裝命令列介面**
+**使用 Windows Installer 安裝 Azure CLI**
 
-1.	瀏覽至 **http://azure.microsoft.com/downloads/**
-2.	向下捲動至 [命令列工具] 區段，然後按一下 [跨平台命令列介面]，並依照 Web Platform Installer 精靈操作。
+1.	瀏覽至 **http://azure.microsoft.com/downloads/**2.	向下捲動至 [**命令列工具**] 區段，然後按一下 [**Azure 命令列介面**]，並依照 Web Platform Installer 精靈操作。
 
 **下載及匯入發佈設定**
 
-使用命令列介面之前，您必須先設定工作站與 Azure 之間的連線。命令列介面會使用您的 Azure 訂用帳戶資訊連接到您的帳號。這項資訊可從 Azure 的發佈設定檔案取得。接著，發佈設定檔案可匯入為持續性的本機組態設定，供命令列介面用於後續的作業。您的發佈設定只需匯入一次即可。
+使用 Azure CLI 之前，您必須先設定工作站與 Azure 之間的連線。Azure CLI 會使用您的 Azure 訂閱資訊來連線至您的帳戶。這項資訊可從 Azure 的發佈設定檔案取得。接著可以匯入發佈設定檔成為 Azure CLI 後續作業所用的永久本機組態設定。您只需匯入一次發佈設定。
 
 
-> [AZURE.NOTE]發佈設定檔案包含敏感資訊。Microsoft 建議您刪除此檔案，或另採相關步驟加密包含此檔案的使用者資料夾。在 Windows 中，修改資料夾屬性或使用 BitLocker。
+> [AZURE.NOTE] 發佈設定檔案包含敏感資訊。Microsoft 建議您刪除此檔案，或另採相關步驟加密包含此檔案的使用者資料夾。在 Windows 中，修改資料夾屬性或使用 BitLocker。
 
 
 
@@ -335,10 +335,10 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 
 	![HDI.CLIAccountDownloadImport][image-cli-account-download-import]
 
-	
-#### <a id="cliprovision"></a>使用跨平台命令列佈建 HDInsight 叢集
 
-以下是使用跨平台命令列佈建 HDInsight 叢集時所需執行的程序：
+#### <a id="cliprovision"></a>使用 Azure CLI 佈建 HDInsight 叢集
+
+以下是使用 Azure CLI 佈建 HDInsight 叢集時所需執行的程序：
 
 - 建立 Azure 儲存體帳戶
 - 佈建叢集
@@ -383,14 +383,14 @@ HDInsight 叢集還要求儲存體帳戶內要有容器。如果您所提供的�
 
 		azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey <StorageAccountKey> --storageContainer <StorageContainerName> --dataNodeCount <NumberOfNodes> --location <DataCenterLocation> --userName <HDInsightClusterUsername> --password <HDInsightClusterPassword> --osType linux --sshUserName <SSH username> --sshPassword <SSH user password>
 
-	>[AZURE.NOTE]您為 **--userName** 和 **--password** 所指定的是用於 Hadoop 使用者的值。對於 Hadoop 使用者，您一律必須將 --userName 指定為 "admin"。
+	>[AZURE.NOTE] 您為 **--userName** 和 **--password** 所指定的是用於 Hadoop 使用者的值。對於 Hadoop 使用者，您一律必須將 --userName 指定為 "admin"。
 
 	![HDI.CLIClusterCreation][image-cli-clustercreation]
 
 
 **使用組態檔佈建 HDInsight 叢集**
 
-一般而言，您會佈建 HDInsight 叢集、執行工作，然後將此叢集刪除，以降低成本。此命令列介面可讓您選擇將組態儲存至檔案，以便您在每次佈建叢集時皆可加以重複使用。
+一般而言，您會佈建 HDInsight 叢集、執行工作，然後將此叢集刪除，以降低成本。Azure CLI 可讓您選擇將組態儲存至檔案，以便在每次佈建叢集時重複使用。
 
 - 在命令提示字元視窗中執行下列命令：
 
@@ -433,7 +433,7 @@ HDInsight 叢集還要求儲存體帳戶內要有容器。如果您所提供的�
 		azure hdinsight cluster delete <ClusterName>
 
 ###<a id="powershell"></a>使用 Azure PowerShell
-Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控制和自動化工作量的部署與管理。本節提供如何使用 Azure PowerShell 佈建 HDInsight 叢集的指示。如需設定工作站以執行 HDInsight Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。如需搭配使用 Azure PowerShell 與 HDInsight 的詳細資訊，請參閱[使用 PowerShell 管理 HDInsight](hdinsight-administer-use-powershell.md)。如需 HDInsight Windows PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考資料](http://msdn.microsoft.com/library/windowsazure/dn479228.aspx)。
+Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控制和自動化工作量的部署與管理。本節提供如何使用 Azure PowerShell 佈建 HDInsight 叢集的指示。如需設定工作站以執行 HDInsight Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。如需搭配使用 Azure PowerShell 與 HDInsight 的詳細資訊，請參閱[使用 PowerShell 管理 HDInsight](hdinsight-administer-use-powershell.md)。如需 HDInsight Windows PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考資料][hdinsight-powershell-reference]。
 
 以下是使用 Azure PowerShell 佈建 HDInsight 叢集時所需執行的程序：
 
@@ -442,12 +442,12 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 - 建立 HDInsight 叢集
 
 您可以使用 Windows PowerShell 主控台或 Windows PowerShell 整合式指令碼環境 (ISE) 來執行指令碼。
- 
-HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要有 Azure 儲存體帳戶和儲存體容器，您才能建立 HDInsight 叢集。儲存體帳戶必須與 HDInsight 叢集位於相同的資料中心。目前只有**東南亞**、**北歐**、**美國東部**和**美國中南部**等地區可代管 HDInsight Linux 叢集。
+
+HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要有 Azure 儲存體帳戶和儲存體容器，才能夠建立 HDInsight 叢集。儲存體帳戶必須與 HDInsight 叢集位於相同的資料中心。目前只有**東南亞**、**北歐**、**美國東部**和**美國中南部**等地區可代管 HDInsight Linux 叢集。
 
 **連線到您的 Azure 帳戶**
 
-		Add-AzureAccount 
+		Add-AzureAccount
 
 系統會提示您輸入 Azure 帳號認證。
 
@@ -459,7 +459,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 		# Create an Azure Storage account
 		New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
 
-如果您已有儲存體帳戶，但不知道帳戶名稱和帳戶金鑰，您可以使用下列 Windows PowerShell 命令來擷取資訊：
+如果您已有儲存體帳戶，但不知道帳戶名稱和帳戶金鑰，可以使用下列 Windows PowerShell 命令來擷取資訊：
 
 		# List Storage accounts for the current subscription
 		Get-AzureStorageAccount
@@ -497,25 +497,25 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 		$clusterName = "<HDInsightClusterName>"			  # The name for the HDInsight cluster to be created
 		$clusterNodes = <ClusterSizeInNodes>              # The number of nodes in the HDInsight cluster
         $containerName = $clusterName					  # Azure Blob container that is used as the default file system for the HDInsight cluster
-		
-		
+
+
 		# Get the credentials for HTTP and SSH users for the cluster
-		$clusterCredentials = Get-Credential            	  # Make sure you specify the username as "admin". This is the Hadoop user name and password for the cluster. You will use this account to connect to the cluster. 
+		$clusterCredentials = Get-Credential            	  # Make sure you specify the username as "admin". This is the Hadoop user name and password for the cluster. You will use this account to connect to the cluster.
         $sshCredentials = Get-Credential				      # SSH user name for the cluster. You will use this account to start an SSH session on the remote cluster.
-		$sshPublicKey = "<SSH public key>"           
+		$sshPublicKey = "<SSH public key>"
 
 		# Get the storage primary key based on the account name
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-		
+
         # The location of the HDInsight cluster. It must be in the same data center as the Storage account.
-        $location = Get-AzureStorageAccount -StorageAccountName $storageAccountName | %{$_.Location} 
+        $location = Get-AzureStorageAccount -StorageAccountName $storageAccountName | %{$_.Location}
 
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -Name $clusterName -Credential $clusterCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes -Version "3.2" -OSType Linux -SshCredential $sshCredentials -SshPublicKey $sshPublicKey
 
 
->[AZURE.NOTE]您對 **$clusterCredentials** 指定的值會用來建立叢集的 Hadoop 使用者帳戶。您將使用此帳戶來連線到叢集。您對 **$sshCredentials** 指定的值會用來建立叢集的 SSH 使用者。您會使用此帳戶在叢集上啟動遠端 SSH 工作階段並執行工作。如果從 Azure 入口網站使用 [快速建立] 選項佈建叢集，則預設 Hadoop 使用者名稱是 "admin"，預設 SSH 使用者名稱是 "hdiuser"。
+>[AZURE.NOTE] 您對 **$clusterCredentials** 指定的值會用來建立叢集的 Hadoop 使用者帳戶。您將使用此帳戶來連線到叢集。您對 **$sshCredentials** 指定的值會用來建立叢集的 SSH 使用者。您會使用此帳戶在叢集上啟動遠端 SSH 工作階段並執行工作。如果從 Azure 入口網站使用 [快速建立] 選項佈建叢集，則預設 Hadoop 使用者名稱是 "admin"，預設 SSH 使用者名稱是 "hdiuser"。
 
 叢集佈建可能需要幾分鐘的時間才會完成。
 
@@ -534,9 +534,9 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 		$subscriptionName = "<AzureSubscriptionName>"	  # The Azure subscription used for the HDInsight cluster to be created
 		$clusterName = "<HDInsightClusterName>"			  # The name for the HDInsight cluster to be created
 		$clusterNodes = <ClusterSizeInNodes>              # The number of nodes in the HDInsight cluster
-        		
+
 		# Get the credentials for HTTP user, SSH user, and Hive/Oozie metastore databases for the cluster
-		$clusterCredentials = Get-Credential            	  # Make sure you specify the username as "admin". This is the Hadoop user name and password for the cluster. You will use this account to connect to the cluster. 
+		$clusterCredentials = Get-Credential            	  # Make sure you specify the username as "admin". This is the Hadoop user name and password for the cluster. You will use this account to connect to the cluster.
         $sshCredentials = Get-Credential				      # SSH user name for the cluster. You will use this account to start an SSH session on the remote cluster.
 		$sshPublicKey = "<SSH public key>"
 		$oozieCreds = Get-Credential -Message "Oozie metastore"
@@ -561,11 +561,11 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 		# Create a cluster configuration file
 		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes | Set-AzureHDInsightDefaultStorage -StorageAccountName "$storageAccountName_Default.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Default -StorageContainerName $containerName_Default | Add-AzureHDInsightStorage -StorageAccountName "$storageAccountName_Add1.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Add1 | Add-AzureHDInsightMetastore -SqlAzureServerName "$hiveSQLDatabaseServerName.database.windows.net" -DatabaseName $hiveSQLDatabaseName -Credential $hiveCreds -MetastoreType HiveMetastore | Add-AzureHDInsightMetastore -SqlAzureServerName "$oozieSQLDatabaseServerName.database.windows.net" -DatabaseName $oozieSQLDatabaseName -Credential $oozieCreds -MetastoreType OozieMetastore
-		        
+
 		# Create the cluster
 		New-AzureHDInsightCluster -Name $clusterName -Config $config -Credential $clusterCredentials -Location $clusterLocation -Version "3.2" -OSType Linux -SshCredential $sshCredentials -SshPublicKey $sshPublicKey
 
->[AZURE.NOTE]用於 metastore 的 Azure SQL Database 必須能夠連線至其他 Azure 服務 (包括 Azure HDInsight)。在 Azure SQL Database 儀表板中，按一下右側的伺服器名稱。這是指執行 SQL Database 執行個體的伺服器。一旦進入伺服器檢視後，按一下 [**設定**]，然後在 [**Azure 服務**] 按一下 [**是**]，再按 [**儲存**]。
+>[AZURE.NOTE] 用於 metastore 的 Azure SQL Database 必須能夠連線至其他 Azure 服務 (包括 Azure HDInsight)。在 Azure SQL Database 儀表板中，按一下右側的伺服器名稱。這是指執行 SQL Database 執行個體的伺服器。一旦進入伺服器檢視後，按一下 [**設定**]，然後在 [**Azure 服務**] 按一下 [**是**]，再按 [**儲存**]。
 
 叢集佈建可能需要幾分鐘的時間才會完成。
 
@@ -600,19 +600,19 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
 3. 在 [**新增專案**] 中，輸入或選取下列值：
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-<tr>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">屬性</th>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">值</th></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">類別</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">範本/Visual C#/Windows</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">範本</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">主控台應用程式</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">名稱</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
-</table>
+	<tr>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">屬性</th>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">值</th></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">類別</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">範本/Visual C#/Windows</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">範本</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">主控台應用程式</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">名稱</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
+	</table>
 
 4. 按一下 [確定] 以建立專案。
 
@@ -635,7 +635,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
 
 9. 在 **Main()** 函數中，複製並貼上下列程式碼：
 
-	> [AZURE.NOTE]請確定您指定的是下列其中一個位置：**東南亞**、**北歐**、**美國東部**和**美國中南部**等地區可代管 HDInsight Linux 叢集。您提供的儲存體帳戶也應位於相同地區。
+	> [AZURE.NOTE] 請確定您指定的是下列其中一個位置：**東南亞**、**北歐**、**美國東部**和**美國中南部**等地區可代管 HDInsight Linux 叢集。您提供的儲存體帳戶也應位於相同地區。
 
         string thumbprint = "<CertificateThumbprint>";  
         string subscriptionid = "<AzureSubscriptionID>";
@@ -650,7 +650,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
 		string version = "<version>";
         string sshusername = "<ssh user name>";
         string sshpublickey = "<ssh public key>;
-		
+
 
 		// If required, provide details of the Hive and Oozie metastore that you want to configure. ServerName is the name of the server on which the SQL databases are provisioned. HiveStoreSqlDatabaseName and OozieStoreSqlDatabaseName are the names of databases created on the server. You can also use the same database for both Hive and Oozie metastores
 
@@ -688,7 +688,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
 		// Configure Hive and Oozie if you opted for the metastores earlier
 		clusterInfo.HiveConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("datanucleus.connectionPoolingType", "none"));
 		clusterInfo.OozieConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("oozie.service.AuthorizationService.security.enabled", "false"));
-        
+
 
 		// Create the cluster
         Console.WriteLine("Creating the HDInsight cluster ...");
@@ -711,7 +711,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
 在本文中，您已學到幾種方式可以在 Linux 上佈建 HDInsight Hadoop 叢集。若要深入了解，請參閱下列文章：
 
 - [在 Linux 上使用 HDInsight](hdinsight-hadoop-linux-information.md)：了解在 Linux 上使用 HDInsight 叢集的細微差異。
-- [使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)：了解如何使用 Ambari Web 或 Ambari REST API 在 HDInsight 叢集上監視及管理以 Linux 為基礎的 Hadoop。 
+- [使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)：了解如何使用 Ambari Web 或 Ambari REST API 在 HDInsight 叢集上監視及管理以 Linux 為基礎的 Hadoop。
 - [搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)：了解在叢集上執行 MapReduce 工作的不同方法。
 - [搭配 HDInsight 使用 Hivet](hdinsight-use-hive.md)：了解在叢集上執行 Hive 查詢的不同方法。
 - [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)：了解在叢集上執行 Pig 工作的不同方法。
@@ -731,7 +731,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
 [azure-management-portal]: https://manage.windowsazure.com/
 
@@ -764,6 +764,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
 
 [img-hdi-cluster]: ./media/hdinsight-hadoop-provision-linux-clusters/HDI.Cluster.png
 
-[89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
+  [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

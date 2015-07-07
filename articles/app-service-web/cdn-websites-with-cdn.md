@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="在 Azure App Service 中使用 Azure CDN" 
-	description="教學課程，指導您如何將 Web 應用程式部署至提供整合式 Azure CDN 端點內容的 Azure 應用程式服務" 
+	description="教學課程，指導您如何將 Web 應用程式部署至提供整合式 Azure CDN 端點內容的 Azure App Service。" 
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
@@ -16,8 +16,8 @@
 	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
-<a name="intro"></a>
-# 在 Azure App Service 中使用 Azure CDN
+
+#<a name="intro"></a>在 Azure App Service 中使用 Azure CDN
 
 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 可以與 [Azure CDN](/services/cdn/) 整合，並透過從靠近您客戶的伺服器節點全域地提供 Web 應用程式內容，來加入 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 中原有的全域調整功能 (在[這裡](http://msdn.microsoft.com/library/azure/gg680302.aspx)可以找到更新的所有目前節點位置清單)。在提供靜態影像這類情況下，這項整合可以大幅提高您 Azure App Service Web Apps 的效能，同時大幅提升全球 Web 應用程式的使用者經驗。
 
@@ -48,7 +48,7 @@
 
 在本節中，您將在 Visual Studio 2013 中將預設 ASP.NET MVC 應用程式範本部署至 App Service，然後將它與新的 CDN 端點整合。請遵循下列指示：
 
-1. 在 Visual Studio 2013 中，從功能表列中移至 **[檔案] > [新增] > [專案] > [Web] > [ASP.NET Web 應用程式]**，以建立新的 ASP.NET Web 應用程式。命名並按一下 [確定]****。
+1. 在 Visual Studio 2013 中，從功能表列中移至 **[檔案] > [新增] > [專案] > [Web] > [ASP.NET Web 應用程式]**，以建立新的 ASP.NET Web 應用程式。命名並按一下 [確定]。
 
 	![](media/cdn-websites-with-cdn/1-new-project.png)
 
@@ -56,7 +56,7 @@
 
 	![](media/cdn-websites-with-cdn/2-webapp-template.png)
 
-4. 按一下 [登入]****。
+4. 按一下 [登入]。
 
 	![](media/cdn-websites-with-cdn/3-manage-subscription.png)
 
@@ -67,28 +67,26 @@
 
 8. 假設您尚未在 Azure 中建立應用程式服務，Visual Studio 可協助您建立它。在 [**設定 Microsoft Azure 網站**] 對話方塊中，請確定您的網站名稱是唯一的。然後按一下 **[確定]**。
 
-	<!--todo: need 2.5.1 screenshot-->
-	![](media/cdn-websites-with-cdn/5-create-website.png)
+	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/5-create-website.png)
 
 9. 建立 ASP.NET 應用程式之後，在 [Web 發佈活動] 窗格中按一下 [**將 `<app name>` 立即發佈至此網站**]，將它發佈至 Azure。按一下 [**發佈**] 完成程序。
 
-	<!--todo: need 2.5.1 screenshot-->
-	![](media/cdn-websites-with-cdn/6-publish-website.png)
+	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	當發佈完成時，您會在瀏覽器中看到您已發佈的 Web 應用程式。
 
 1. 若要建立 CDN 端點，請登入 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)。
-2. 按一下 [新增]**** > [應用程式服務]**** > [CDN]**** > [快速建立]****。選取 **http://*&lt;sitename>*.azurewebsites.net/**，然後按一下 [**建立**]。
+2. 按一下 [新增] > [App Service] > [CDN] > [快速建立]。選取 **http://*&lt;sitename>*.azurewebsites.net/**，然後按一下 [**建立**]。
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
 	> [AZURE.NOTE]建立 CDN 端點之後，Azure 入口網站會顯示其 URL 及與它整合的原始網域。不過，需要花費一些時間，新的 CDN 端點的組態才能完全傳播到所有 CDN 節點位置。
 
-3. 回到 Azure 入口網站，在 [CDN]**** 索引標籤中，按一下您剛建立的 CDN 端點的名稱。
+3. 回到 Azure 入口網站，在 [CDN] 索引標籤中，按一下您剛建立的 CDN 端點的名稱。
 
 	![](media/cdn-websites-with-cdn/8-select-cdn.png)
 
-3. 按一下 [啟用查詢字串]****，在 CDN 快取中啟用查詢字串。啟用此選項後，將以個別項目來快取以不同查詢字串存取的相同連結。
+3. 按一下 [啟用查詢字串]，在 CDN 快取中啟用查詢字串。啟用此選項後，將以個別項目來快取以不同查詢字串存取的相同連結。
 
 	![](media/cdn-websites-with-cdn/9-enable-query-string.png)
 
@@ -131,7 +129,7 @@
 
 利用 Azure Web 應用程式中的 Azure CDN 整合，您可以指定如何在 CDN 端點中快取靜態內容。若要這樣做，請從 ASP.NET 專案 (例如 **cdnwebapp**) 開啟 *Web.config*，將 `<staticContent>` 元素加入至 `<system.webServer>`。以下的 XML 將快取設為 3 天過期。<pre class="prettyprint"> &lt;system.webServer&gt; <mark>&lt;staticContent&gt; &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt; &lt;/staticContent&gt;</mark> ... &lt;/system.webServer&gt; </pre>
 
-這樣做時，Azure Web 應用程式中的所有靜態檔案會在您的 CDN 快取中遵守相同規則。若要更精確控制快取設定，請將 *Web.config* 檔案加入至資料夾，並在檔案中新增您的設定。例如，將 *Web.config* 檔案加入至 *\\Content* 資料夾，並將內容改成下列 XML：
+這樣做時，Azure Web 應用程式中的所有靜態檔案會在您的 CDN 快取中遵守相同規則。若要更精確控制快取設定，請將 *Web.config* 檔案加入至資料夾，並在檔案中新增您的設定。例如，將 *Web.config* 檔案加入至 *\Content* 資料夾，並將內容改成下列 XML：
 
 	<?xml version="1.0"?>
 	<configuration>
@@ -142,7 +140,7 @@
 	  </system.webServer>
 	</configuration>
 
-此設定會將 *\\Content* 資料夾中的所有靜態檔案快取 15 天。
+此設定會將 *\Content* 資料夾中的所有靜態檔案快取 15 天。
 
 如需有關如何設定 `<clientCache>` 元素的詳細資訊，請參閱[用戶端快取 &lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache)。
 
@@ -151,7 +149,7 @@
 <a name="controller"></a>
 ## 透過 Azure CDN 從控制器動作提供內容 ##
 
-整合 Web 應用程式與 Azure CDN 時，透過 Azure CDN 從控制器動作提供內容就非常簡單。同樣地，如果您決定透過 CDN 來提供整個 Azure Web 應用程式，則您不需要這麼做，因為已可透過 CDN 來呼叫所有控制器動作。但是，就像我在[部署具有整合式 CDN 端點的 Azure Web 應用程式](#deploy)中所提出的理由，您可能決定不這樣做，而是選擇選取您想要從 Azure CDN 提供的控制器動作。[Maarten Balliauw](https://twitter.com/maartenballiauw) 在[使用 Azure CDN 縮短網路延遲時間](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN)中以一個有趣的 MemeGenerator 控制器來說明作法。我在這裡簡單地重述一次。
+整合 Web Apps 與 Azure CDN 時，透過 Azure CDN 從控制器動作提供內容就非常簡單。同樣地，如果您決定透過 CDN 來提供整個 Azure Web 應用程式，則您不需要這麼做，因為已可透過 CDN 來呼叫所有控制器動作。但是，就像我在[部署具有整合式 CDN 端點的 Azure Web 應用程式](#deploy)中所提出的理由，您可能決定不這樣做，而是選擇選取您想要從 Azure CDN 提供的控制器動作。[Maarten Balliauw](https://twitter.com/maartenballiauw) 在[使用 Azure CDN 縮短網路延遲時間](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN)中以一個有趣的 MemeGenerator 控制器來說明作法。我在這裡簡單地重述一次。
 
 假設您想在 Web 應用程式中利用查克羅禮士年輕時的一張相片 ([Alan Light](http://www.flickr.com/photos/alan-light/218493788/) 拍攝) 來引起網路瘋傳：
 
@@ -161,100 +159,114 @@
 
 請依照上述步驟來設定此控制器動作：
 
-1. 在 *\\Controllers* 資料夾中，建立一個新的 .cs 檔案稱為 *MemeGeneratorController.cs*，並將內容改成下列程式碼。請記得將反白部分取代為您的檔案路徑和 CDN 名稱。<pre class="prettyprint"> using System; using System.Collections.Generic; using System.Diagnostics; using System.Drawing; using System.IO; using System.Net; using System.Web.Hosting; using System.Web.Mvc; using System.Web.UI;
-	
-	namespace cdnwebapp.Controllers { public class MemeGeneratorController : Controller { static readonly Dictionary&lt;string, Tuple&lt;string ,string&gt;&gt; Memes = new Dictionary&lt;string, Tuple&lt;string, string&gt;&gt;();
+1. 在 *\Controllers* 資料夾中，建立一個新的 .cs 檔案稱為 *MemeGeneratorController.cs*，並將內容改成下列程式碼。請記得將反白部分取代為您的檔案路徑和 CDN 名稱。
+	<pre class="prettyprint">
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Net;
+using System.Web.Hosting;
+using System.Web.Mvc;
+using System.Web.UI;
 
-	        public ActionResult Index()
-	        {
-	            return View();
-	        }
-	
-	        [HttpPost, ActionName(&quot;Index&quot;)]
-        	public ActionResult Index_Post(string top, string bottom)
-	        {
-	            var identifier = Guid.NewGuid().ToString();
-	            if (!Memes.ContainsKey(identifier))
-	            {
-	                Memes.Add(identifier, new Tuple&lt;string, string&gt;(top, bottom));
-	            }
-	
-	            return Content(&quot;&lt;a href=\&quot;&quot; + Url.Action(&quot;Show&quot;, new {id = identifier}) + &quot;\&quot;&gt;here&#39;s your meme&lt;/a&gt;&quot;);
-	        }
+namespace cdnwebapp.Controllers
+{
+    public class MemeGeneratorController : Controller
+    {
+        static readonly Dictionary&lt;string, Tuple&lt;string ,string>> Memes = new Dictionary&lt;string, Tuple&lt;string, string>>();
 
+        public ActionResult Index()
+        {
+            return View();
+        }
 
-	        [OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
-	        public ActionResult Show(string id)
-	        {
-	            Tuple&lt;string, string&gt; data = null;
-	            if (!Memes.TryGetValue(id, out data))
-	            {
-	                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-	            }
-	
-	            if (Debugger.IsAttached) // Preserve the debug experience
-	            {
-	                return Redirect(string.Format(&quot;/MemeGenerator/Generate?top={0}&bottom={1}&quot;, data.Item1, data.Item2));
-	            }
-	            else // Get content from Azure CDN
-	            {
-	                return Redirect(string.Format(&quot;http://<mark>&lt;yourCDNName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}&quot;, data.Item1, data.Item2));
-	            }
-	        }
+        [HttpPost, ActionName("Index")]
+    	public ActionResult Index_Post(string top, string bottom)
+        {
+            var identifier = Guid.NewGuid().ToString();
+            if (!Memes.ContainsKey(identifier))
+            {
+                Memes.Add(identifier, new Tuple&lt;string, string>(top, bottom));
+            }
 
-	        [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
-	        public ActionResult Generate(string top, string bottom)
-	        {
-	            string imageFilePath = HostingEnvironment.MapPath(&quot;<mark>~/Content/chuck.bmp</mark>&quot;);
-	            Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
-	
-	            using (Graphics graphics = Graphics.FromImage(bitmap))
-	            {
-	                SizeF size = new SizeF();
-	                using (Font arialFont = FindBestFitFont(bitmap, graphics, top.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
-	                {
-	                    graphics.DrawString(top.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), 10f));
-	                }
-	                using (Font arialFont = FindBestFitFont(bitmap, graphics, bottom.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
-	                {
-	                    graphics.DrawString(bottom.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), bitmap.Height - 10f - arialFont.Height));
-	                }
-	            }
-	
-	            MemoryStream ms = new MemoryStream();
-	            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-	            return File(ms.ToArray(), &quot;image/png&quot;);
-	        }
-	
-	        private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
-	        {
-	            // Compute actual size, shrink if needed
-	            while (true)
-	            {
-	                size = g.MeasureString(text, font);
-	
-	                // It fits, back out
-	                if (size.Height &lt; i.Height &amp;&amp;
-	                     size.Width &lt; i.Width) { return font; }
-	
-	                // Try a smaller font (90% of old size)
-	                Font oldFont = font;
-	                font = new Font(font.Name, (float)(font.Size * .9), font.Style);
-	                oldFont.Dispose();
-	            }
-	        }
-	    }
-	} </pre>
+            return Content("&lt;a href="" + Url.Action("Show", new {id = identifier}) + "">here's your meme&lt;/a>");
+        }
+
+        [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
+        public ActionResult Show(string id)
+        {
+            Tuple&lt;string, string> data = null;
+            if (!Memes.TryGetValue(id, out data))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+
+            if (Debugger.IsAttached) // Preserve the debug experience
+            {
+                return Redirect(string.Format("/MemeGenerator/Generate?top={0}&amp;bottom={1}", data.Item1, data.Item2));
+            }
+            else // Get content from Azure CDN
+            {
+                return Redirect(string.Format("http://<mark>&lt;yourCDNName></mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}", data.Item1, data.Item2));
+            }
+        }
+
+        [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
+        public ActionResult Generate(string top, string bottom)
+        {
+            string imageFilePath = HostingEnvironment.MapPath("<mark>~/Content/chuck.bmp</mark>");
+            Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
+
+            using (Graphics graphics = Graphics.FromImage(bitmap))
+            {
+                SizeF size = new SizeF();
+                using (Font arialFont = FindBestFitFont(bitmap, graphics, top.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
+                {
+                    graphics.DrawString(top.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), 10f));
+                }
+                using (Font arialFont = FindBestFitFont(bitmap, graphics, bottom.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
+                {
+                    graphics.DrawString(bottom.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), bitmap.Height - 10f - arialFont.Height));
+                }
+            }
+
+            MemoryStream ms = new MemoryStream();
+            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+            return File(ms.ToArray(), "image/png");
+        }
+
+        private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
+        {
+            // Compute actual size, shrink if needed
+            while (true)
+            {
+                size = g.MeasureString(text, font);
+
+                // It fits, back out
+                if (size.Height &lt; i.Height &amp;&amp;
+                     size.Width &lt; i.Width) { return font; }
+
+                // Try a smaller font (90% of old size)
+                Font oldFont = font;
+                font = new Font(font.Name, (float)(font.Size * .9), font.Style);
+                oldFont.Dispose();
+            }
+        }
+    }
+}
+</pre>
 
 2. 以滑鼠右鍵按一下預設的 `Index()` 動作，選取 [**加入檢視**]。
 
 	![](media/cdn-websites-with-cdn/cdn-6-addview.PNG)
 
-3.  接受下列設定，按一下 [加入]****。
+3.  接受下列設定，按一下 [加入]。
 
 	![](media/cdn-websites-with-cdn/cdn-7-configureview.PNG)
 
-4. 開啟新的 *Views\\MemeGenerator\\Index.cshtml*，將內容改成下列簡單的 HTML 來提交笑梗：
+4. 開啟新的 *Views\MemeGenerator\Index.cshtml*，將內容改成下列簡單的 HTML 來提交笑梗：
 
 		<h2>Meme Generator</h2>
 		
@@ -311,7 +323,7 @@
 -	CDN 端點失敗時的後援機制
 -	儘可能不修改程式碼
 
-在您於[整合 Azure CDN 端點與 Azure 網站，並從 Azure CDN 提供網頁的靜態內容](#deploy)中所建立的 ASP.NET 專案中，開啟 *App_Start\\BundleConfig.cs*，然後查看 `bundles.Add()` 方法呼叫。
+在您於[整合 Azure CDN 端點與 Azure 網站，並從 Azure CDN 提供網頁的靜態內容](#deploy)中所建立的 ASP.NET 專案中，開啟 *App_Start\BundleConfig.cs*，然後查看 `bundles.Add()` 方法呼叫。
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -320,7 +332,7 @@
 		...
     }
 
-第一個 `bundles.Add()` 陳述式將指令碼套件組合加入至虛擬目錄 `~/bundles/jquery`。然後，開啟 *Views\\Shared\_Layout.cshtml*，查看指令碼套件組合標籤如何轉譯。您應該可以找到下列這一行 Razor 程式碼：
+第一個 `bundles.Add()` 陳述式將指令碼套件組合加入至虛擬目錄 `~/bundles/jquery`。然後，開啟 *Views\Shared_Layout.cshtml*，查看指令碼套件組合標籤如何轉譯。您應該可以找到下列這一行 Razor 程式碼：
 
     @Scripts.Render("~/bundles/jquery")
 
@@ -332,33 +344,39 @@
 
     <script src="/Scripts/jquery-1.10.2.js"></script>
 
-這樣可讓您在開發環境中進行 JavaScript 程式碼偵錯，同時減少並行的用戶端連線 (統合)，在實際執行環境中提升檔案下載效能 (縮製)。這是 Azure CDN 整合中保留的絕佳功能。此外，由於轉譯的套件組合已包含自動產生的版本字串，您可以仿照此功能，每當您透過 NuGet 更新 jQuery 版本時，就會以最快速度更新用戶端。
+這樣可讓您在開發環境中進行 JavaScript 程式碼偵錯，同時減少並行的用戶端連線 (統合)，在生產環境中提升檔案下載效能 (縮製)。這是 Azure CDN 整合中保留的絕佳功能。此外，由於轉譯的套件組合已包含自動產生的版本字串，您可以仿照此功能，每當您透過 NuGet 更新 jQuery 版本時，就會以最快速度更新用戶端。
 
 請遵循下列步驟來整合 ASP.NET 統合和縮製與 CDN 端點。
 
-1. 回到 *App_Start\\BundleConfig.cs*，修改 `bundles.Add()` 方法來使用不同的 [Bundle 建構函數](http://msdn.microsoft.com/library/jj646464.aspx) (此函數會指定 CDN 位址)。若要這麼做，請以下列程式碼取代 `RegisterBundles` 方法：<pre class="prettyprint"> public static void RegisterBundles(BundleCollection bundles) { <mark>bundles.UseCdn = true; var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController)) .GetName().Version.ToString(); var cdnUrl = &quot;http://&lt;yourCDNName&gt;.vo.msecnd.net/{0}?v=&quot; + version;</mark>
-	
-	    bundles.Add(new ScriptBundle(&quot;~/bundles/jquery&quot;<mark>, string.Format(cdnUrl, &quot;bundles/jquery&quot;)</mark>).Include(
-	                &quot;~/Scripts/jquery-{version}.js&quot;));
-	
-	    bundles.Add(new ScriptBundle(&quot;~/bundles/jqueryval&quot;<mark>, string.Format(cdnUrl, &quot;bundles/jqueryval&quot;)</mark>).Include(
-	                &quot;~/Scripts/jquery.validate*&quot;));
-	
-	    // Use the development version of Modernizr to develop with and learn from. Then, when you&#39;re
-	    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-	    bundles.Add(new ScriptBundle(&quot;~/bundles/modernizr&quot;<mark>, string.Format(cdnUrl, &quot;bundles/modernizer&quot;)</mark>).Include(
-	                &quot;~/Scripts/modernizr-*&quot;));
-	
-	    bundles.Add(new ScriptBundle(&quot;~/bundles/bootstrap&quot;<mark>, string.Format(cdnUrl, &quot;bundles/bootstrap&quot;)</mark>).Include(
-	                &quot;~/Scripts/bootstrap.js&quot;,
-	                &quot;~/Scripts/respond.js&quot;));
-	
-	    bundles.Add(new StyleBundle(&quot;~/Content/css&quot;<mark>, string.Format(cdnUrl, &quot;Content/css&quot;)</mark>).Include(
-	                &quot;~/Content/bootstrap.css&quot;,
-	                &quot;~/Content/site.css&quot;));
-	} </pre>
+1. 回到 *App_Start\BundleConfig.cs*，修改 `bundles.Add()` 方法來使用不同的 [Bundle 建構函數](http://msdn.microsoft.com/library/jj646464.aspx) (此函數會指定 CDN 位址)。若要這樣做，請將 `RegisterBundles` 方法定義改成下列程式碼：  
+	<pre class="prettyprint">
+public static void RegisterBundles(BundleCollection bundles)
+{
+    <mark>bundles.UseCdn = true;
+    var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
+        .GetName().Version.ToString();
+    var cdnUrl = "http://&lt;yourCDNName>.vo.msecnd.net/{0}?v=" + version;</mark>
 
-	請記得將 `<yourCDNName>` 換成您的 Azure CDN 名稱。
+    bundles.Add(new ScriptBundle("~/bundles/jquery"<mark>, string.Format(cdnUrl, "bundles/jquery")</mark>).Include(
+                "~/Scripts/jquery-{version}.js"));
+
+    bundles.Add(new ScriptBundle("~/bundles/jqueryval"<mark>, string.Format(cdnUrl, "bundles/jqueryval")</mark>).Include(
+                "~/Scripts/jquery.validate*"));
+
+    // Use the development version of Modernizr to develop with and learn from.Then, when you're
+    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+    bundles.Add(new ScriptBundle("~/bundles/modernizr"<mark>, string.Format(cdnUrl, "bundles/modernizer")</mark>).Include(
+                "~/Scripts/modernizr-*"));
+
+    bundles.Add(new ScriptBundle("~/bundles/bootstrap"<mark>, string.Format(cdnUrl, "bundles/bootstrap")</mark>).Include(
+                "~/Scripts/bootstrap.js",
+                "~/Scripts/respond.js"));
+
+    bundles.Add(new StyleBundle("~/Content/css"<mark>, string.Format(cdnUrl, "Content/css")</mark>).Include(
+                "~/Content/bootstrap.css",
+                "~/Content/site.css"));
+}
+</pre>請記得將 `<yourCDNName>` 取代為您的 Azure CDN 名稱。
 
 	簡單地說，您正在設定 `bundles.UseCdn = true`，且已在每一個套件組合中加入謹慎建構的 CDN URL。例如，程式碼的第一個建構函式：
 
@@ -372,45 +390,50 @@
 	
 	-	此 CDN URL 的來源是 `http://<yourSiteName>.azurewebsites.net/bundles/jquery?v=<W.X.Y.Z>`，實際上就是 Web 應用程式中指令碼套件組合的虛擬目錄。
 	-	由於是使用 CDN 建構函式，套件組合的 CDN 指令碼標籤在轉譯的 URL 中已不再包含自動產生的版本字串。指令碼套件組合每次修改時，您都必須手動產生唯一的版本字串，以強制在 Azure CDN 上發生快取遺漏。同時，在部署套件組合之後，此唯一的版本字串在部署的整個存在期間內必須保持不變，讓 Azure CDN 的快取命中率達到最高。
-	-	查詢字串 v=<W.X.Y.Z> 會從 ASP.NET 專案的 *Properties\\AssemblyInfo.cs* 中提取。您的部署工作流程中可以包含每次發佈至 Azure 時就遞增組件版本。或者，您可以直接修改專案中的 *Properties\\AssemblyInfo.cs*，使用萬用字元 '*' 表示每次建置時就自動遞增版本字串。例如：
+	-	查詢字串 v=<W.X.Y.Z> 會從 ASP.NET 專案的 *Properties\AssemblyInfo.cs* 中提取。您的部署工作流程中可以包含每次發佈至 Azure 時就遞增組件版本。或者，您可以直接修改專案中的 *Properties\AssemblyInfo.cs*，使用萬用字元 '*' 表示每次建置時就自動遞增版本字串。例如：
 	
 			[assembly: AssemblyVersion("1.0.0.*")]
 	
 		在此可採取其他任何策略在部署的存在期間內產生唯一字串。
 
-3. 重新發行 ASP.NET 應用程式和存取首頁。
+3. 重新發佈 ASP.NET 應用程式和存取首頁。
  
-4. 檢視頁面的 HTML 程式碼。您應該會看到轉譯的 CDN URL，以及每次將變更重新發佈至 Azure Web 應用程式時的唯一版本字串。例如：<pre class="prettyprint"> ...
+4. 檢視頁面的 HTML 程式碼。您應該會看到轉譯的 CDN URL，以及每次將變更重新發佈至 Azure Web 應用程式時的唯一版本字串。例如：
+	<pre class="prettyprint">
+...
 
-    &lt;link href=&quot;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449&quot; rel=&quot;stylesheet&quot;/&gt;
+&lt;link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
 
-    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
+&lt;script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449">&lt;/script>
 
-	...
+...
 
-    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
+&lt;script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449">&lt;/script>
 
-    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
+&lt;script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449">&lt;/script>
 
-	...</pre>
+...</pre>
 
 5. 在 Visual Studio 中，按 `F5`，在 Visual Studio 中進行 ASP.NET 應用程式偵錯。
 
-6. 檢視頁面的 HTML 程式碼。您仍然會看到每一個指令碼檔案個別地轉譯，所以在 Visual Studio 中享有一致的偵錯體驗。<pre class="prettyprint"> ...
-	
-	    &lt;link href=&quot;/Content/bootstrap.css&quot; rel=&quot;stylesheet&quot;/&gt;
-	&lt;link href=&quot;/Content/site.css&quot; rel=&quot;stylesheet&quot;/&gt;
-	
-	    &lt;script src=&quot;/Scripts/modernizr-2.6.2.js&quot;&gt;&lt;/script&gt;
-	
-	...
-	
-	    &lt;script src=&quot;/Scripts/jquery-1.10.2.js&quot;&gt;&lt;/script&gt;
-	
-	    &lt;script src=&quot;/Scripts/bootstrap.js&quot;&gt;&lt;/script&gt;
-	&lt;script src=&quot;/Scripts/respond.js&quot;&gt;&lt;/script&gt;
-	
-	... </pre>
+6. 檢視頁面的 HTML 程式碼。您仍然會看到每一個指令檔以個別方式轉譯，讓您在 Visual Studio 中享有一致的偵錯體驗。
+	<pre class="prettyprint">
+...
+
+    &lt;link href="/Content/bootstrap.css" rel="stylesheet"/>
+&lt;link href="/Content/site.css" rel="stylesheet"/>
+
+    &lt;script src="/Scripts/modernizr-2.6.2.js">&lt;/script>
+
+...
+
+    &lt;script src="/Scripts/jquery-1.10.2.js">&lt;/script>
+
+    &lt;script src="/Scripts/bootstrap.js">&lt;/script>
+&lt;script src="/Scripts/respond.js">&lt;/script>
+
+...   
+</pre>
 
 <a name="fallback"></a>
 ## CDN URL 的後援機制 ##
@@ -419,34 +442,39 @@
 
 [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) 類別包含一個稱為 [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) 的屬性，可讓您設定 CDN 失敗時的後援機制。若要使用此屬性，請遵循下列步驟：
 
-1. 在 ASP.NET 專案中，開啟 *App_Start\\BundleConfig.cs*，您已在該檔案的每個 [Bundle 建構函數](http://msdn.microsoft.com/library/jj646464.aspx)中加入 CDN URL，並進行下列醒目提示的變更以將後援機制新增至預設套件組合：<pre class="prettyprint"> public static void RegisterBundles(BundleCollection bundles) { var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig)) .GetName().Version.ToString(); var cdnUrl = &quot;http://cdnurl.vo.msecnd.net/.../{0}?&quot; + version; bundles.UseCdn = true;
-	
-	    bundles.Add(new ScriptBundle(&quot;~/bundles/jquery&quot;, string.Format(cdnUrl, &quot;bundles/jquery&quot;)) 
-					<mark>{ CdnFallbackExpression = &quot;window.jquery&quot; }</mark>
-	                .Include(&quot;~/Scripts/jquery-{version}.js&quot;));
-	
-	    bundles.Add(new ScriptBundle(&quot;~/bundles/jqueryval&quot;, string.Format(cdnUrl, &quot;bundles/jqueryval&quot;)) 
-					<mark>{ CdnFallbackExpression = &quot;$.validator&quot; }</mark>
-	            	.Include(&quot;~/Scripts/jquery.validate*&quot;));
-	
-	    // Use the development version of Modernizr to develop with and learn from. Then, when you&#39;re
-	    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-	    bundles.Add(new ScriptBundle(&quot;~/bundles/modernizr&quot;, string.Format(cdnUrl, &quot;bundles/modernizer&quot;)) 
-					<mark>{ CdnFallbackExpression = &quot;window.Modernizr&quot; }</mark>
-					.Include(&quot;~/Scripts/modernizr-*&quot;));
-	
-	    bundles.Add(new ScriptBundle(&quot;~/bundles/bootstrap&quot;, string.Format(cdnUrl, &quot;bundles/bootstrap&quot;)) 	
-					<mark>{ CdnFallbackExpression = &quot;$.fn.modal&quot; }</mark>
-	        		.Include(
-		              		&quot;~/Scripts/bootstrap.js&quot;,
-		              		&quot;~/Scripts/respond.js&quot;));
-	
-	    bundles.Add(new StyleBundle(&quot;~/Content/css&quot;, string.Format(cdnUrl, &quot;Content/css&quot;)).Include(
-	                &quot;~/Content/bootstrap.css&quot;,
-	                &quot;~/Content/site.css&quot;));
-	}</pre>
+1. 在 ASP.NET 專案中，開啟 *App_Start\BundleConfig.cs* (其中，您已在每一個 [Bundle 建構函式](http://msdn.microsoft.com/library/jj646464.aspx)中加入 CDN URL)，進行下列醒目提示的變更將後援機制加入至預設套件組合：  
+	<pre class="prettyprint">
+public static void RegisterBundles(BundleCollection bundles)
+{
+    var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
+        .GetName().Version.ToString();
+    var cdnUrl = "http://cdnurl.vo.msecnd.net/.../{0}?" + version;
+    bundles.UseCdn = true;
 
-	當 `CdnFallbackExpression` 不是 null 時，指令碼會插入 HTML 中來測試是否已成功載入套件組合，如果不是，則直接從原始 Web 伺服器存取套件組合。此屬性必須設為 JavaScript 運算式來測試個別的 CDN 套件組合是否正確載入。測試每一個套件組合所需的運算式根據內容而不同。在以上的預設套件組合中：
+    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
+				<mark>{ CdnFallbackExpression = "window.jquery" }</mark>
+                .Include("~/Scripts/jquery-{version}.js"));
+
+    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")) 
+				<mark>{ CdnFallbackExpression = "$.validator" }</mark>
+            	.Include("~/Scripts/jquery.validate*"));
+
+    // Use the development version of Modernizr to develop with and learn from.Then, when you're
+    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
+				<mark>{ CdnFallbackExpression = "window.Modernizr" }</mark>
+				.Include("~/Scripts/modernizr-*"));
+
+    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")) 	
+				<mark>{ CdnFallbackExpression = "$.fn.modal" }</mark>
+        		.Include(
+	              		"~/Scripts/bootstrap.js",
+	              		"~/Scripts/respond.js"));
+
+    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
+                "~/Content/bootstrap.css",
+                "~/Content/site.css"));
+}</pre>當 `CdnFallbackExpression` 不是 null 時，指令碼會插入 HTML 中來測試是否已成功載入套件組合，如果不是，則直接從原始 Web 伺服器存取套件組合。此屬性必須設為 JavaScript 運算式來測試個別的 CDN 套件組合是否正確載入。測試每一個套件組合所需的運算式根據內容而不同。在以上的預設套件組合中：
 	
 	-	`window.jquery` 定義於 jquery-{version}.js 中
 	-	`$.validator` 定義於 jquery.validate.js 中
@@ -459,32 +487,54 @@
 
 2. 若要使用 CSS 的解決方案，請在 ASP.NET 專案的 *App_Start* 資料夾中，建立新的 .cs 檔案 (稱為 *StyleBundleExtensions.cs*)，並將內容改成 [GitHub 提供的程式碼](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs)。
 
-4. 在 *App_Start\\StyleFundleExtensions.cs* 中，將命名空間重新命名為您的 ASP.NET 應用程式的命名空間 (例如 **cdnwebapp**)。
+4. 在 *App_Start\StyleFundleExtensions.cs* 中，將命名空間重新命名為您的 ASP.NET 應用程式的命名空間 (例如 **cdnwebapp**)。
 
-3. 回到 `App_Start\BundleConfig.cs` 並以下列醒目提示的程式碼修改最後的 `bundles.Add` 陳述式：<pre class="prettyprint"> bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")) <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark> .Include( "~/Content/bootstrap.css", "~/Content/site.css")); </pre>
-
-	這個新的延伸方法採用相同的概念，將指令碼插入 HTML 中來檢查 DOM，尋找 CSS 套件組合中定義的相符類別名稱、規則名稱和規則值，而如果找不到相符項，則退一步存取原始 Web 伺服器。
+3. 回到 `App_Start\BundleConfig.cs`，將最後一個 `bundles.Add` 陳述式修改為下列醒目提示的程式碼：
+	<pre class="prettyprint">
+bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
+    <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark>
+    .Include(
+          "~/Content/bootstrap.css",
+          "~/Content/site.css"));
+</pre>這個新的延伸方法採用相同的概念，將指令碼插入 HTML 中來檢查 DOM，尋找 CSS 套件組合中定義的相符類別名稱、規則名稱和規則值，而如果找不到相符項，則退一步存取原始 Web 伺服器。
 
 4. 重新發佈至 Azure Web 應用程式並存取首頁。
-5. 檢視頁面的 HTML 程式碼。您應該會看到插入的指令碼類似如下：<pre class="prettyprint">...
-	
-		&lt;link href=&quot;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474&quot; rel=&quot;stylesheet&quot;/&gt;
-	<mark>&lt;script&gt;(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i &lt; len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf(&#39;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474&#39;) !== -1) { var meta = document.createElement(&#39;meta&#39;); meta.className = &#39;sr-only&#39;; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue(&#39;width&#39;); document.head.removeChild(meta); if (value !== &#39;1px&#39;) { document.write(&#39;&lt;link href=&quot;/Content/css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;&#39;); } } } return true; }())||document.write(&#39;&lt;script src=&quot;/Content/css&quot;&gt;&lt;/script&gt;&#39;);&lt;/script&gt;</mark>
-	
-	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;(window.Modernizr)||document.write(&#39;&lt;script src=&quot;/bundles/modernizr&quot;&gt;&lt;/script&gt;&#39;);&lt;/script&gt;</mark>
-	
-	...
-	
-	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;(window.jquery)||document.write(&#39;&lt;script src=&quot;/bundles/jquery&quot;&gt;&lt;/script&gt;&#39;);&lt;/script&gt;</mark>
-	
-	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;($.fn.modal)||document.write(&#39;&lt;script src=&quot;/bundles/bootstrap&quot;&gt;&lt;/script&gt;&#39;);&lt;/script&gt;</mark>
-	
-	... </pre>
+5. 檢視頁面的 HTML 程式碼。您應該會發現類似下方的插入指令碼：    
+	<pre class="prettyprint">...
 
-	請注意，針對 CSS 套件組合插入的指令碼，仍在這一行中包含 `CdnFallbackExpression` 屬性殘留的遊蕩部分：
+	&lt;link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+<mark>&lt;script>(function() {
+                var loadFallback,
+                    len = document.styleSheets.length;
+                for (var i = 0; i &lt; len; i++) {
+                    var sheet = document.styleSheets[i];
+                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
+                        var meta = document.createElement('meta');
+                        meta.className = 'sr-only';
+                        document.head.appendChild(meta);
+                        var value = window.getComputedStyle(meta).getPropertyValue('width');
+                        document.head.removeChild(meta);
+                        if (value !== '1px') {
+                            document.write('&lt;link href="/Content/css" rel="stylesheet" type="text/css" />');
+                        }
+                    }
+                }
+                return true;
+            }())||document.write('&lt;script src="/Content/css">&lt;/script>');&lt;/script></mark>
+
+    &lt;script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474">&lt;/script>
+<mark>&lt;script>(window.Modernizr)||document.write('&lt;script src="/bundles/modernizr">&lt;/script>');&lt;/script></mark>
+
+...	
+
+    &lt;script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474">&lt;/script>
+<mark>&lt;script>(window.jquery)||document.write('&lt;script src="/bundles/jquery">&lt;/script>');&lt;/script></mark>
+
+    &lt;script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474">&lt;/script>
+<mark>&lt;script>($.fn.modal)||document.write('&lt;script src="/bundles/bootstrap">&lt;/script>');&lt;/script></mark>
+
+...
+</pre>請注意，針對 CSS 套件組合插入的指令碼，仍在這一行中包含 `CdnFallbackExpression` 屬性殘留的遊蕩部分：
 
         }())||document.write('<script src="/Content/css"></script>');</script>
 
@@ -496,15 +546,16 @@
 
 7. 重新整理瀏覽器視窗來顯示 Azure Web 應用程式。您現在應該會看到所有的指令碼和樣式表都已正確載入。
 
-# 相關資訊 #
-- [Azure 內容傳遞網路 (CDN) 概觀](http://msdn.microsoft.com/library/azure/ff919703.aspx)
+## 相關資訊 
+- [Azure 內容傳遞網路 (CDN) 概觀](../cdn-overview.md)
 - [在 Web 應用程式中從 Azure CDN 提供內容](../cdn-serve-content-from-cdn-in-your-web-application.md)
 - [整合雲端服務與 Azure CDN](../cdn-cloud-service-with-cdn.md)
 - [ASP.NET 統合和縮製](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [使用 Azure 的 CDN](../cdn-how-to-use.md)
+- [使用 Azure 的 CDN](../cdn-how-to-use-cdn.md)
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

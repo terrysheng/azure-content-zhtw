@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="如何設定 App Service 環境" 
 	description="設定、管理和監視 App Service環境" 
-	services="app-services\web" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
 	editor=""/>
 
 <tags 
-	ms.service="app-services-web" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -20,7 +20,7 @@
 
 ## 概觀 ##
 
-App Service 環境是目前以預覽狀態提供的新 Premium 層次功能。它還提供新的調整和網路存取功能。這項新的調整功能可讓您將 Azure App Service 的執行個體放入 VNET 中。如果您不熟悉 App Service 環境 (ASE) 功能，請閱讀文件：[什麼是 App Service 環境][WhatisASE]。如需有關如何建立 ASE 的資訊，請讀取文件：[如何建立 App Service 環境][HowtoCreateASE]。
+App Service 環境是目前以預覽狀態提供的新 Premium 層次功能。它還提供新的調整和網路存取功能。這項新的調整功能可讓您將 Azure App Service 的執行個體放入 VNET 中。如果您不熟悉 App Service 環境 (ASE) 功能，請閱讀此處的文件：[What is an App Service Environment]/app-service-app-service-environment-intro.md)。如需有關如何建立 ASE 的資訊，請讀取文件：[如何建立 App Service 環境](app-service-web-how-to-create-an-app-service-environment.md)。
 
 App Service 環境是由數個主要元件所組成：
 
@@ -30,7 +30,7 @@ App Service 環境是由數個主要元件所組成：
 - 具有至少一個子網路的虛擬網路
 - 在其中執行 Azure App 環境託管服務的子網路
 
-為了協助管理和監視 App Service 環境，您可以從 Azure 入口網站中的 [瀏覽] -> [App Service 環境] 存取該目的的 UI。初始版本有管理系統所需的功能，而且將會持續在未來幾週內藉由其他功能提供改善。
+為了協助管理和監視 App Service 環境，您可以從 Azure Preview 入口網站中的 [瀏覽] -> [App Service 環境] 存取該目的的 UI。初始版本有管理系統所需的功能，而且將會持續在未來幾週內藉由其他功能提供改善。
 
 ![][1]
 
@@ -61,7 +61,7 @@ App Service 環境是由數個主要元件所組成：
 - 如果 X 介於 21 到 40，您可用於工作負載的可用計算資源數量為 X-2
 - 如果 X 介於 41 到 53，您可用於工作負載的可用計算資源數量為 X-3
 
-除了能夠管理您可指派給指定集區的計算資源數量以外，您也可以控制大小。在 App Service 環境中，您可以選擇 4 個標示為 P1 至 P4 的不同大小。如需這些大小及其定價的詳細資訊，請參閱 [App Service 訂價][AppServicePricing]。P1 至 P3 計算資源大小就是通常可用的大小。P4 計算資源提供 14 GB RAM 的八核心， 而且只適用於 App Service 環境。
+除了能夠管理您可指派給指定集區的計算資源數量以外，您也可以控制大小。在 App Service 環境中，您可以選擇 4 個標示為 P1 至 P4 的不同大小。如需這些大小及其定價的詳細資訊，請參閱 [App Service 訂價](../app-service/app-service-value-prop-what-is.md)。P1 至 P3 計算資源大小就是通常可用的大小。P4 計算資源提供 14 GB RAM 的八核心， 而且只適用於 App Service 環境。
 
 如先前所述，App Service 環境功能目前為預覽狀態，因此仍有成長空間。除了額外的監視功能以外，更多管理功能將會隨著 App Service 環境移至 GA 而推出。現在只可以在這個介面中管理下列幾項：
 
@@ -84,11 +84,11 @@ App Service 環境是由數個主要元件所組成：
 - 使用未使用的背景工作集區，以提出所需大小的必要執行個體
 - 將 App Service 方案調整為新的背景工作集區。  
  
-相較於變更具有執行中工作負載的計算資源大小，這麼做比較不會干擾執行中的應用程式。如需在 App Service 環境中調整 Web 應用程式的詳細資訊，請移至[在 App Service 環境中調整 Web 應用程式][HowtoScale]
+相較於變更具有執行中工作負載的計算資源大小，這麼做比較不會干擾執行中的應用程式。如需在 App Service 環境中調整 Web 應用程式的詳細資訊，請移至[在 App Service 環境中調整 Web Apps](app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 
 ## 虛擬網路 ##
 
- [虛擬網路][virtualnetwork]和子網路全都在使用者的控制之下。App Service 環境的確有一些網路需求，但其餘部分是由使用者控制。這些 ASE 需求包括：
+[虛擬網路][virtualnetwork]和子網路全都在使用者的控制之下。App Service 環境的確有一些網路需求，但其餘部分是由使用者控制。這些 ASE 需求包括：
 
 - 至少有 512 個位址的 VNET
 - 至少有 256 個位址的子網路 
@@ -98,7 +98,7 @@ App Service 環境是由數個主要元件所組成：
 
 因為這項功能會將 Azure App Service 放入 VNET，這表示裝載於 ASE 的應用程式現在可以存取直接透過 ExpressRoute 或站台對站台 VPN 提供的資源。您的 APP Service 環境中的應用程式不需要額外的網路功能，即可存取裝載 App Service 環境的 VNET 可用的資源。
 
-如有需要，您現在也可以使用網路安全性群組來控制存取。這項功能可讓您鎖住您的 App Service 環境，只您想要限制它的 IP 位址。如需相關詳細資訊，請參閱以下文件：[如何在 App Service 環境中控制輸入流量][ControlInbound]。
+如有需要，您現在也可以使用網路安全性群組來控制存取。這項功能可讓您鎖住您的 App Service 環境，只您想要限制它的 IP 位址。如需相關詳細資訊，請參閱以下文件：[如何在 App Service 環境中控制輸入流量](app-service-app-service-environment-control-inbound-traffic.md)。
 
 ## 刪除 App Service 環境 ##
 
@@ -106,10 +106,13 @@ App Service 環境是由數個主要元件所組成：
 
 ## 開始使用
 
-若要開始使用 App Service 環境，請參閱[如何建立 App Service 環境][HowtoCreateASE]
+若要開始使用 App Service 環境，請參閱[如何建立 App Service 環境](app-service-web-how-to-create-an-app-service-environment.md)
 
-如需有關 Azure App Service 平台的詳細資訊，請參閱 [Azure App Service][AzureAppService]。
+如需有關 Azure App Service 平台的詳細資訊，請參閱 [Azure App Service](../app-service/app-service-value-prop-what-is.md)。
 
+[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+
+[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!--Image references-->
 [1]: ./media/app-service-web-configure-an-app-service-environment/configureaseblade.png
@@ -120,11 +123,12 @@ App Service 環境是由數個主要元件所組成：
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [Appserviceplans]: http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
-[HowtoCreateASE]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment-in-an-ase/
-[HowtoScale]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-scale-a-web-app-in-an-app-service-environment/
+[HowtoCreateASE]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
+[HowtoScale]: http://azure.microsoft.com/documentation/articles/app-service-web-scale-a-web-app-in-an-app-service-environment/
 [ControlInbound]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
 [virtualnetwork]: https://msdn.microsoft.com/library/azure/dn133803.aspx
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

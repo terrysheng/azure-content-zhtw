@@ -1,9 +1,9 @@
 <properties
-   pageTitle="使用適用於 Mac、Linux 和 Windows 的 Azure CLI 部署範本"
+   pageTitle="使用適用於 Mac、Linux 和 Windows 的 Azure CLI 部署範本 | Microsoft Azure"
    description="說明部署或更新任何範本的基本步驟。"
    services="virtual-machines"
    documentationCenter=""
-   authors="squillace"
+   authors="dlepow"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="04/21/2015"
-   ms.author="rasquill"/>
+   ms.date="06/09/2015"
+   ms.author="danlep"/>
 
 # 使用適用於 Mac、Linux 和 Windows 的 Azure CLI 部署範本
 
@@ -30,11 +30,11 @@
 如果有一個適用於您想要部署之範本的 azuredeploy-parameters.json 檔案存在，請下載它。
 
     curl -O https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy-parameters.json
-    
+
 ## 輸入您的資源群組部署資訊
-    
+
 使用您最愛的編輯器來開啟這個檔案。您將會看到您需要為數個索引鍵指定值，特別是 **adminUsername**、**adminPassword** (請記住複雜性規則！)，以及儲存體帳戶名稱和您想要的 DNS 名稱。
-    
+
     {
       "newStorageAccountName": {
         "value": "uniquestorageaccountname"
@@ -70,7 +70,7 @@
         "value": "myNic"
       }
     }
-    
+
 加入新值 (如果可以，Azure 將會為您建立新的儲存體和 DNS 資源) 或是使用您已經建立的資源。下列 azuredeploy-parameters.json 檔案會示範範例：
 
 
@@ -105,6 +105,6 @@ Vestibul ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia C
 [6]: ./media/markdown-template-for-new-articles/pretty49.png
 [7]: ./media/markdown-template-for-new-articles/channel-9.png
 [8]: ./media/markdown-template-for-new-articles/copytemplate.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

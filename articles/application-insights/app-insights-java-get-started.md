@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.date="05/11/2015" 
 	ms.author="awills"/>
  
 # 在 Java Web 專案中開始使用 Application Insights
@@ -26,7 +26,7 @@
 
 ![範例資料](./media/app-insights-java-get-started/5-results.png)
 
-此外，您可以設定 [Web 測試][availability]來監視應用程式的可用性，以及插入[程式碼到您的網頁][track]以了解使用模式。
+此外，您可以設定 [Web 測試][availability]來監視應用程式的可用性，以及插入[程式碼到您的網頁][api]以了解使用模式。
 
 您需要：
 
@@ -79,7 +79,10 @@
     </dependencies>
 
 
-* *建置或總和檢查碼驗證錯誤？ 嘗試使用特定版本：* `<version>0.9.3</version>`
+* 建置或總和檢查碼驗證錯誤？
+ * 嘗試使用特定版本，例如：* `<version>0.9.n</version>`。您可以在 [SDK 版本資訊](app-insights-release-notes-java.md)或 [Maven 成品](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)中找到最新版本。
+* 更新為新版 SDK
+ * 請重新整理專案的相依性。
 
 #### 如果您使用 Gradle...
 
@@ -96,7 +99,9 @@
       // or applicationinsights-core for bare API
     }
 
-* *建置或總和檢查碼驗證錯誤？ 嘗試使用特定版本：* `version:'0.9.3'`
+* *建置或總和檢查碼驗證錯誤？ 嘗試使用特定版本，例如：* `version:'0.9.n'`。您可以在* [SDK 版本資訊](app-insights-release-notes-java.md)*中找到最新版本。 
+* 更新為新版 SDK
+ * 請重新整理專案的相依性。
 
 #### 否則...
 
@@ -106,6 +111,7 @@
 2. 從 ZIP 檔案擷取下列二進位檔案，然後加入至您的專案：
  * applicationinsights-core
  * applicationinsights-web
+ * annotation-detector
  * commons-codec
  * commons-io
  * commons-lang
@@ -115,15 +121,22 @@
  * httpcore
  * jsr305
 
+問題...
 
-*`-core` 和 `-web` 元件之間有何關係？*
+* *`-core` 和 `-web` 元件之間有何關係？*
 
-`applicationinsights-core` 提供不具自動遙測的單純 API。`applicationinsights-web` 則提供追蹤 HTTP 要求計數和回應時間的度量。
+ * `applicationinsights-core` 提供沒有自動遙測的不包裝 API。
+ * `applicationinsights-web` 提供追蹤 HTTP 要求計數和回應時間的度量。 
+
+* 更新 SDK
+ * 請下載最新的 [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) 取代舊版本。
+ * [SDK 版本資訊](app-insights-release-notes-java.md)中會說明變更內容。
+
 
 
 ## 3.加入 Application Insights XML 檔案
 
-將 ApplicationInsights.xml 加入專案的 resources 資料夾。複製到下列 XML。
+請將 ApplicationInsights.xml 加入至專案的資源資料夾，否則請確定其已加入至您的專案部署類別路徑。複製到下列 XML。
 
 替換為您從 Azure 入口網站取得的檢測金鑰。
 
@@ -205,11 +218,20 @@
 
 (如果預設堆疊中定義了攔截器，可以將攔截器加入該堆疊。)
 
-## 5.在 Application Insights 中檢視遙測
 
-執行您的應用程式。
+## 5.啟用效能計數器集合
 
-返回 Microsoft Azure 中的 Application Insights 資源。
+如果您使用 Windows 電腦，請在伺服器電腦上安裝
+
+* [Microsoft Visual C++ 可轉散發套件](http://www.microsoft.com/download/details.aspx?id=40784)
+
+## 6.執行您的應用程式
+
+在您的開發電腦上以偵錯模式執行應用程式，或發佈至您的伺服器。
+
+## 7.在 Application Insights 中檢視遙測
+
+返回 [Microsoft Azure 入口網站](https://portal.azure.com) 中的 Application Insights 資源。
 
 [概觀] 分頁上會顯示 HTTP 要求資料。(如果沒有出現，請稍等片刻，然後按一下 [重新整理]。)
 
@@ -239,7 +261,15 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
 這可提供要求有意義的彙總，例如要求數量和要求的平均執行時間。
 
-## 5.效能計數器
+## 未處理的例外狀況與失敗要求
+
+
+![](./media/app-insights-java-get-started/21-exceptions.png)
+
+若要收集其他例外狀況的資料，請[在程式碼中插入 TrackException 呼叫][apiexceptions]。
+
+
+## 效能計數器
 
 按一下 [伺服器] 磚，您就會看到一些效能計數器。
 
@@ -298,22 +328,27 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
 
-## 6.擷取記錄追蹤
+## 取得使用者與工作階段資料
+
+好了，您現在正在從 Web 服務傳送遙測資料。現在若要取得應用程式的完整 360 度檢視，可以加入多個監視：
+
+* [將遙測加入至您的網頁][usage]，即可監視頁面檢視和使用者度量。
+* [設定 Web 測試][availability]，以確認應用程式處於線上狀態且能夠回應。
+
+## 擷取記錄追蹤
 
 您可以使用 Application Insights 將來自 Log4J、Logback 或其他記錄架構的記錄分解。您可以將記錄與 HTTP 要求和其他遙測相互關聯。[了解作法][javalogs]。
 
-## 7.傳送您自己的遙測
+## 傳送您自己的遙測
 
 既然您已安裝 SDK，您可以使用 API 來傳送自己的遙測。
 
-* [追蹤自訂事件和度量][track]，以了解使用者正對應用程式進行的動作。
+* [追蹤自訂事件和度量][api]，以了解使用者正對應用程式進行的動作。
 * [搜尋事件和記錄][diagnostic]以協助診斷問題。
 
 
-此外，您可以將 Application Insights 的更多功能納入，以對準您的應用程式：
 
-* [加入 Web 用戶端遙測][usage]，以監視頁面檢視和基本使用者度量。
-* [設定 Web 測試][availability]，以確認應用程式處於線上狀態且能夠回應。
+
 
 
 ## 有疑問嗎？ 有問題嗎？
@@ -324,13 +359,15 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
 <!--Link references-->
 
+[api]: app-insights-api-custom-events-metrics.md
+[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[track]: app-insights-custom-events-metrics-api.md
 [usage]: app-insights-web-track-usage.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

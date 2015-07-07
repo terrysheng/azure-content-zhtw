@@ -1,5 +1,5 @@
 <properties
- pageTitle="使用 Maven 開發 Scalding MapReduce 工作"
+ pageTitle="使用 Maven 開發 Scalding MapReduce 工作 | Microsoft Azure"
  description="了解如何使用 Maven 來建立 Scalding MapReduce 工作，然後在 HDInsight 叢集的 Hadoop 上部署和執行工作。"
  services="hdinsight"
  documentationCenter=""
@@ -23,13 +23,12 @@ Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。�
 
 ## 必要條件
 
-* Azure 訂用帳戶
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+* **HDInsight 叢集上 Windows 或 Linux 架構的 Hadoop**。如需詳細資訊，請參閱[在 HDInsight 上佈建 Linux 架構的 Hadoop](hdinsight-hadoop-provision-linux-clusters.md) 或[在 HDInsight 上佈建 Windows 架構的 Hadoop](hdinsight-provision-clusters.md)。
 
-* 在 HDInsight 叢集上的 Windows 或 Linux 架構 Hadoop – 如需詳細資訊，請參閱[在 HDInsight 上佈建以 Linux 為基礎的 Hadoop](hdinsight-hadoop-provision-linux-clusters.md) 或[在 HDInsight 上佈建以 Windows 為基礎的 Hadoop](hdinsight-provision-clusters.md)。
+* **[Maven](http://maven.apache.org/)**
 
-* [Maven](http://maven.apache.org/)
-
-* [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 或更新版本
+* **[Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 或更新版本**
 
 ## 建立和建置專案。
 
@@ -76,7 +75,7 @@ Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。�
             </dependency>
           </dependencies>
           <build>
-            <sourceDirectory>src/main/scala</sourceDirectory
+            <sourceDirectory>src/main/scala</sourceDirectory>
             <plugins>
               <plugin>
                 <groupId>org.scala-tools</groupId>
@@ -108,7 +107,7 @@ Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。�
                       <excludes>
                         <exclude>META-INF/*.SF</exclude>
                         <exclude>META-INF/*.DSA</exclude>
-                        <exclude>META-INF/*.RSA</exclude>y
+                        <exclude>META-INF/*.RSA</exclude>
                       </excludes>
                     </filter>
                   </filters>
@@ -145,9 +144,9 @@ Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。�
 
     * **maven-shade-plugin**：建立陰影 (fat) jar 的外掛程式。此外掛程式適用於篩選和轉換；尤其是：
 
-        * **篩選條件**: 套用的篩選條件會修改 Jar 檔案中包含的中繼資訊。為避免在執行階段發生登入例外狀況，這會排除相依性中可能包含的多種簽名檔。
+        * **篩選**：套用的篩選會修改 jar 檔案中包含的中繼資訊。若要防止在執行階段發生簽章例外狀況，這不包含各種可能隨附於相依性的簽名檔。
 
-        * **例外狀況**: 套件階段執行設定指定 com.twitter.scalding.Tool 類別作為套件的主類別。如果沒有指定，在使用 Hadoop 命令執行工作時，您需要指定 com.twitter.scalding.Tool，以及包含應用程式邏輯的類別。
+        * **執行**：套件階段執行設定指定 **com.twitter.scalding.Tool** 類別作為套件的主類別。如果沒有指定，在使用 Hadoop 命令執行工作時，您需要指定 com.twitter.scalding.Tool，以及包含應用程式邏輯的類別。
 
 3. 刪除 **src/test** 目錄，因為您將不會在此範例中建立測試。
 
@@ -169,7 +168,7 @@ Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。�
 
           //Tokenizer to split sentance into words
           def tokenize(text : String) : Array[String] = {
-            text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
+            text.toLowerCase.replaceAll("[^a-zA-Z0-9\s]", "").split("\s+")
           }
         }
 
@@ -289,6 +288,6 @@ Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。�
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

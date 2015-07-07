@@ -1,6 +1,6 @@
 <properties
- pageTitle="從 Apache Storm 寫入資料至 Power BI"
- description="如何將資料從在 Apache Storm on HDInsight 叢集上執行的 C# 拓撲寫入至 Power BI 的範例。寫入資料之後，您將學習如何使用 Power BI 建立報表和即時儀表板。"
+ pageTitle="從 Apache Storm 將資料寫入至 Power BI |Microsoft Azure"
+ description="將資料從在 HDInsight 中的 Apache Storm 叢集上執行的 C# 拓撲寫入至 Power BI。此外，使用 Power BI 建立報表和即時儀表板。"
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"
@@ -16,7 +16,7 @@
  ms.date="04/28/2015"
  ms.author="larryfr"/>
 
-# 使用 Power BI (預覽) 視覺化 Storm 拓撲的資料
+# 使用 Power BI (預覽) 視覺化 Apache Storm 拓撲的資料
 
 Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表板。藉由使用 Power BI REST API，您可以輕鬆地使用資料，從在 Apache Storm on HDInsight 叢集上執行的拓撲到 Power BI。
 
@@ -24,7 +24,7 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 ## 必要條件
 
-* Microsoft Azure 訂用帳戶
+- Azure 訂閱。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 * 具備 [Power BI](https://powerbi.com) 存取權的 Azure Active Directory 使用者
 
@@ -54,15 +54,15 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 ## 註冊 Power BI 應用程式
 
-1. 請遵循 [Power BI 快速入門](https://msdn.microsoft.com/en-US/library/dn931989.aspx)中的步驟註冊 Power BI。
+1. 請遵循 [Power BI 快速入門](https://msdn.microsoft.com/zh-tw/library/dn931989.aspx)中的步驟註冊 Power BI。
 
-2. 請遵循[註冊應用程式](https://msdn.microsoft.com/en-US/library/dn877542.aspx)中的步驟來建立應用程式註冊。這會在存取 Power BI REST API 時使用。
+2. 請遵循[註冊應用程式](https://msdn.microsoft.com/zh-tw/library/dn877542.aspx)中的步驟來建立應用程式註冊。這會在存取 Power BI REST API 時使用。
 
     > [AZURE.IMPORTANT]儲存 **用戶端識別碼** 以進行應用程式註冊。
 
 ## 下載範例
 
-下載 [HDInsight C# Storm Power BI 範例]] (https://github.com/Blackmist/hdinsight-csharp-storm-powerbi)。若要下載它，請使用 [git](http://git-scm.com/) 分岔/複製它，或使用**下載**連結下載封存的 .zip。
+下載 [HDInsight C# Storm Power BI 範例](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi)。若要下載它，請使用 [git](http://git-scm.com/) 分岔/複製它，或使用**下載**連結下載封存的 .zip。
 
 ## 設定範例
 
@@ -92,7 +92,7 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
     > [AZURE.NOTE]您也可以從伺服器總管檢視 Storm 拓撲：依序展開 Azure 和 HDInsight，並以滑鼠右鍵按一下 Storm on HDInsight 叢集，然後選取 [檢視 Storm 拓撲]。
 
-3. 檢視**拓樸摘要**時，捲動直到您看到 **Bolt** 一節。在本節中，記下  **PowerBI** bolt 的 **Executed** 資料行。使用頁面頂端的 [重新整理] 按鈕，重新整理直到值變更為零以外的數目。當這個數字開始增加時，表示項目正在寫入至 Power BI。
+3. 檢視**拓樸摘要**時，捲動直到您看到 **Bolt** 一節。在本節中，記下 **PowerBI** bolt 的 **Executed** 資料行。使用頁面頂端的 [重新整理] 按鈕，重新整理直到值變更為零以外的數目。當這個數字開始增加時，表示項目正在寫入至 Power BI。
 
 ## 建立報表
 
@@ -137,6 +137,6 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 在本文件中，您已學會如何使用 REST 將資料從 Storm 拓撲傳送到 Power BI。如需如何使用其他 Azure 技術的資訊，請參閱下列項目：
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

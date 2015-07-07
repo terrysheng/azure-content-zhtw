@@ -22,6 +22,11 @@
 
 本主題包含 Azure SDK for .NET 版本資訊的連結。
 
+
+##Azure SDK for .NET 2.6 版本資訊
+
+[Azure SDK for .NET 2.6 版本資訊](azure-sdk-dotnet-release-notes-2_6.md)
+
 ##Azure SDK for .NET 2.5.1 版本資訊
 
 [Azure SDK for .NET 2.5.1 版本資訊](../app-service/app-service-release-notes.md)
@@ -54,5 +59,7 @@
 
 [Azure SDK for .NET](http://azure.microsoft.com/downloads/archive-net-downloads/)
 
-[MSDN 上的 Azure SDK 版本資訊](https://msdn.microsoft.com/library/azure/dn627519.aspx) <!--HONumber=52-->
+[MSDN 上的 Azure SDK 版本資訊](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
+
+<!---HONumber=62-->

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="使用連接器" 
-   description="使用連接器" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="使用連接器"
+   description="使用連接器"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,14 +12,14 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
+   ms.workload="integration"
    ms.date="03/20/2015"
    ms.author="prkumar"/>
 
 #連接器#
 連接器是 API 應用程式，可讓您連接到執行於雲端或內部部署的資料和服務。連接器可讓您透過各種可在邏輯應用程式和其他應用程式中輕鬆存取的內建觸發程序和動作，來取得所需資料。
 
-Azure 應用程式服務提供許多現成連接器：
+Azure App Service 提供許多現成連接器：
 
 ##標準連接器##
 * [Azure 服務匯流排連接器]
@@ -35,7 +35,6 @@ Azure 應用程式服務提供許多現成連接器：
 * [HTTP 連接器]
 * [Office 365 連接器]
 * [OneDrive 連接器]
-* [Oracle 連接器]
 * [POP3 連接器]
 * [QuickBooks 連接器]
 * [Salesforce 連接器]
@@ -53,18 +52,18 @@ Azure 應用程式服務提供許多現成連接器：
 ##高階連接器和 API 應用程式##
 * AS2 連接器
 * BizTalk EDIFACT
-* BizTalk 一般檔案編碼器
+* [BizTalk 一般檔案編碼器]
 * BizTalk 轉換服務
-* BizTalk 規則
+* [BizTalk 規則]
 * BizTalk X12
-* BIzTalk XPath 擷取程式
-* BizTalk XML 驗證器
+* [BizTalk XPath 擷取程式]
+* [BizTalk XML 驗證器]
 * DB2 連接器
 * Informix 連接器
-* Oracle 資料庫連接器
+* [Oracle 連接器]
 * MQ 連接器
 * [SAP 連接器]
- 
+
 如需其他詳細資訊，請參閱連接器 API 參考，網址為 [http://aka.ms/appservicesconnectorreference](http://aka.ms/appservicesconnectorreference)。
 
 ##連接器和邏輯應用程式##
@@ -108,6 +107,10 @@ Azure 應用程式服務提供許多現成連接器：
 [OneDrive 連接器]: app-service-logic-connector-onedrive.md
 [檔案連接器]: app-service-logic-connector-file.md
 [Slack 連接器]: app-service-logic-connector-slack.md
+[BizTalk 一般檔案編碼器]: app-service-logic-flatfile-encoder.md
+[BizTalk XPath 擷取程式]: app-service-logic-xpath-extract.md
+[BizTalk XML 驗證器]: app-service-logic-xml-validator.md
+[BizTalk 規則]: app-service-logic-use-biztalk-rules.md
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -25,9 +25,9 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
-- Azure 訂閱。Azure 是訂用帳戶型平台。適用於 HDInsight 的 Azure PowerShell Cmdlet 會使用您的訂用帳戶執行相關工作。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][azure-purchase-options]、[成員優惠][azure-member-offers]或[免費試用][azure-free-trial]。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-- 具有 Azure PowerShell 的工作站。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
 
 
 ##佈建 HDInsight 叢集
@@ -270,12 +270,13 @@ Hive 工作會先顯示叢集上所建立的 Hive 資料表，以及從 hivesamp
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
 [powershell-install-configure]: ../install-configure-powershell.md
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

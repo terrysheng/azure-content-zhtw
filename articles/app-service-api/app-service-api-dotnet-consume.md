@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
-	ms.author="bradyg;tarcher"/>
+	ms.date="05/16/2015" 
+	ms.author="tdykstra"/>
 
 # 從 .NET 用戶端使用 Azure App Service 中的 API 應用程式 
 
@@ -27,9 +27,11 @@
 
 下列的教學課程章節各自獨立--您可以直接依照第二個案例的指示，而不需要完成的第一個案例的步驟。
 
+如需關於如何呼叫**內部** API 應用程式的資訊，請參閱[從 .NET 用戶端使用內部 API 應用程式](app-service-api-dotnet-consume-internal.md)。
+
 ## 必要條件
 
-此教學課程假設您已熟悉如何建立專案，並在 Visual Studio 中加入程式碼，以及如何 [在 Azure Preview 入口網站中管理 API 應用程式](../app-service-api-apps-manage-in-portal.md)。
+此教學課程假設您已熟悉如何建立專案，並在 Visual Studio 中加入程式碼，以及如何 [在 Azure Preview 入口網站中管理 API 應用程式](app-service-api-apps-manage-in-portal.md)。
 
 在本文中的專案和程式碼範例，係根據您在這些文件中所建立、部署和保護的 API 應用程式專案：
 
@@ -67,7 +69,7 @@
 
 5. 在下拉式清單中，選取要呼叫的 API 應用程式。
 
-7. 按一下 [確定]****。
+7. 按一下 [確定]。
 
 	![產生畫面](./media/app-service-api-dotnet-consume/04-select-the-api-v3.png)
 
@@ -159,7 +161,7 @@ Azure API 應用程式也支援用戶端驗證流程。未來此教學課程中�
 
 		webBrowser1.Navigate(string.Format(@"{0}login/[authprovider]", GATEWAY_URL));
 
-	以您在閘道中設定的識別服務提供者代碼來取代 "[authprovider]"，例如 "aad"、"twitter"、google"、"microsoftaccount" 或"facebook"。例如：
+	以您在閘道中設定的身分識別服務提供者代碼來取代 "[authprovider]"，例如 "aad"、"twitter"、google"、"microsoftaccount" 或 "facebook"。例如：
 
 		webBrowser1.Navigate(string.Format(@"{0}login/aad", GATEWAY_URL));
 
@@ -201,6 +203,6 @@ Azure API 應用程式也支援用戶端驗證流程。未來此教學課程中�
 本文示範對於存取層級設為 [**公用 (驗證)**] 和 [**公用 (匿名)**] 的 API 應用程式，如何從 .NET 用戶端使用 API 應用程式。
 
 如需其他從 .NET 用戶端呼叫 API 應用程式的程式碼範例，請下載 [Azure Cards](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample) 範例應用程式。
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

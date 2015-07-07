@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="05/28/2015" 
 	ms.author="jgao"/>
 
 #在 HDInsight 上使用 Hadoop 分析航班延誤資料
@@ -42,14 +42,15 @@ Azure HDInsight 的其中一個主要優點就是區隔資料儲存和運算。H
 在附錄中，您可以找到上傳航班延誤資料、建立/上傳 Hive 查詢字串和針對 Sqoop 工作準備 Azure SQL Database 的指示。
 
 
-##<a id="prerequisite"></a>必要條件
+###必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-* 已安裝並設定 Azure PowerShell 的工作站。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。
-* Azure 訂閱。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][azure-purchase-options]、[成員優惠][azure-member-offers]或[免費試用][azure-free-trial]。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-###了解 HDInsight 儲存體
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
+
+**了解 HDInsight 儲存體**
 
 HDInsight 中的 Hadoop 叢集使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]。
 
@@ -91,7 +92,7 @@ Azure Blob 儲存體語法：
 
 
 
-###了解 Hive 內部資料表和外部資料表
+**了解 Hive 內部資料表和外部資料表**
 
 關於 Hive 內部資料表和外部資料表，有若干事項您必須了解：
 
@@ -103,7 +104,7 @@ Azure Blob 儲存體語法：
 
 如需詳細資訊，請參閱 [HDInsight：Hive 內部和外部資料表簡介][cindygross-hive-tables]。
 
-> [AZURE.NOTE]其中一個 HiveQL 陳述式會建立 Hive 外部資料表。Hive 外部資料表會將資料檔案保存在原始位置中。Hive 內部資料表會將資料檔案移至 hive\\warehouse。Hive 內部資料表要求資料檔案必須位於預設容器中。對於儲存在預設 Blob 容器之外的資料，您必須使用 Hive 外部資料表。
+> [AZURE.NOTE]其中一個 HiveQL 陳述式會建立 Hive 外部資料表。Hive 外部資料表會將資料檔案保存在原始位置中。Hive 內部資料表會將資料檔案移至 hive\warehouse。Hive 內部資料表要求資料檔案必須位於預設容器中。對於儲存在預設 Blob 容器之外的資料，您必須使用 Hive 外部資料表。
 
 
 
@@ -406,7 +407,7 @@ Hadoop MapReduce 是批次處理。執行 Hive 工作時，最具成本效益的
 </table>
 
 3. 按一下 [下載]。
-4. 將檔案解壓縮至 **C:\\Tutorials\\FlightDelays\\Data** 資料夾。每個檔案皆為 CSV 檔案，大小約為 60 GB。
+4. 將檔案解壓縮至 **C:\Tutorials\FlightDelays\Data** 資料夾。每個檔案皆為 CSV 檔案，大小約為 60 GB。
 5.	將檔案重新命名為檔案資料所屬月份的名稱。例如，包含一月份資料的檔案，應命名為 *January.csv*。
 6. 重複步驟 2 到 5，以下載 2013 年 12 個月份的檔案。至少要有一個檔案，才能執行此教學課程。  
 
@@ -504,7 +505,7 @@ tutorials/flightdelays/data 路徑是您在上傳檔案時所建立的虛擬資�
 HiveQL 指令碼將執行下列作業：
 
 1. **捨棄 delays_raw 資料表** (若此資料表已存在)。
-2. **建立 delays_raw 外部 Hive 資料表** (指向含有航班誤點檔案的 Blob 儲存體位置)。此查詢會指定欄位將以 "," 分隔，且每一行都會以 "\\n" 結尾。如此，當欄位值含有逗號時，就會產生問題，因為 Hive 無法區分作為欄位分隔符號的逗號，與屬於欄位值的逗號 (在 ORIGIN_CITY_NAME 和 DEST_CITY_NAME 的欄位值中，就會出現此狀況)。為解決此問題，查詢會建立 TEMP 資料行來放置不當分割為資料行的資料。  
+2. **建立 delays_raw 外部 Hive 資料表** (指向含有航班誤點檔案的 Blob 儲存體位置)。此查詢會指定欄位將以 "," 分隔，且每一行都會以 "\n" 結尾。如此，當欄位值含有逗號時，就會產生問題，因為 Hive 無法區分作為欄位分隔符號的逗號，與屬於欄位值的逗號 (在 ORIGIN_CITY_NAME 和 DEST_CITY_NAME 的欄位值中，就會出現此狀況)。為解決此問題，查詢會建立 TEMP 資料行來放置不當分割為資料行的資料。  
 3. **捨棄 delays 資料表** (若此資料表已存在)。
 4. **建立 delays 資料表**。此資料表有助於您在進一步處理之前先清除資料。此查詢會從 delays_raw 資料表建立新資料表 *delays*。請注意，TEMP 資料行 (如前所述) 並不會複製，並且會使用 **substring** 函數來移除資料中的引號。 
 5. **計算天候誤點平均值，並依城市名稱將結果分組。** 此作業也會將結果輸出至 Blob 儲存體。請注意，查詢將會移除資料中的上標號並將排除 **weather_delay** 值為 null 的資料列。這是必要動作，因為 Sqoop (稍後使用於本教學課程) 預設不會正常處理這些值。
@@ -672,7 +673,7 @@ HiveQL 指令碼將執行下列作業：
 
 	以下是指令碼中使用的三個變數：
 
-	- **$hqlLocalFileName** - 指令碼會先將 HiveQL 指令碼檔案儲存在本機，然後才上傳至 Blob 儲存體。這是檔名。預設值為 <u>C:\\tutorials\\flightdelays\\flightdelays.hql</u>
+	- **$hqlLocalFileName** - 指令碼會先將 HiveQL 指令碼檔案儲存在本機，然後才上傳至 Blob 儲存體。這是檔名。預設值為 <u>C:\tutorials\flightdelays\flightdelays.hql</u>
 	- **$hqlBlobName** - 這是 Azure Blob 儲存體中使用的 HiveQL 指令碼檔案 Blob 名稱。預設值為 tutorials/flightdelays/flightdelays.hql。因為檔案會直接寫入 Azure Blob 儲存體，所以 Blob 名稱開頭「沒有」"/"。如果您要從 Blob 儲存體存取檔案，則必須在檔名開頭加上 "/"。
 	- **$srcDataFolder** 和 **$dstDataFolder** - = "tutorials/flightdelays/data" = "tutorials/flightdelays/output"
 
@@ -877,5 +878,6 @@ HiveQL 指令碼將執行下列作業：
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

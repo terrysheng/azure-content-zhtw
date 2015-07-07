@@ -20,7 +20,7 @@
 # 在使用適用於 Mac、Linux 及 Windows 的 Azure CLI 的 VM 操作中的對等資源管理員和服務管理命令
 本文將說明在服務管理 (asm) 模式和資源管理員 (arm) 模式中建立和管理 Azure VM 的對等 Azure 命令列介面 (Azure CLI) 命令。將本文當成便利指南，來將指令碼從某一個命令模式移轉至另一個命令模式。
 
-* 如果您尚未安裝 Azure CLI 及連線至您的訂用帳戶，請參閱[安裝適用於 Mac、Linux 和 Windows 的 Azure CLI](../xplat-cli-install.md) 和[從適用於 Mac、Linux 和 Windows 的 Azure CLI 連線至 Azure 訂用帳戶](../xplat-cli-connect.md)。當您使用 arm 模式命令時，請務必使用登入方法連線。
+* 如果您尚未安裝 Azure CLI 及連線至您的訂用帳戶，請參閱[安裝 Azure CLI](../xplat-cli-install.md) 和[從 Azure CLI 連線至 Azure 訂用帳戶](../xplat-cli-connect.md)。當您使用 arm 模式命令時，請務必使用登入方法連線。
 
 * 若要開始在 Azure CLI 中使用 arm 模式以及切換命令模式，請參閱[搭配使用 Azure 命令列介面與資源管理員](xplat-cli-azure-resource-manager.md)。
 
@@ -61,7 +61,7 @@
 ## 後續步驟
 
 * 如需如何在 arm 模式中利用 Azure CLI 來使用資源的詳細資訊，請參閱[搭配使用 Azure 命令列介面與資源管理員](xplat-cli-azure-resource-manager.md)和[使用 Azure 命令列介面管理角色存取控制](../role-based-access-control-xplat-cli.md)。
-* 如需 CLI 命令的其他範例，請參閱[使用適用於 Mac、Linux 和 Windows 的 Azure 命令列介面](../virtual-machines-command-line-tools.md)和[搭配使用適用於 Mac、Linux 和 Windows 的 CLI 與 Azure 資源管理員](azure-cli-arm-commands.md)。
-
-<!--HONumber=52-->
+* 如需 CLI 命令的其他範例，請參閱[使用 Azure 命令列介面](../virtual-machines-command-line-tools.md)和 [Azure CLI 與 Azure 資源管理員搭配使用](azure-cli-arm-commands.md)。
  
+
+<!---HONumber=62-->

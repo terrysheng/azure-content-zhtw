@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="搜尋診斷記錄" 
-	description="搜尋使用 Trace、NLog 或 Log4Net 產生的記錄檔。" 
+	pageTitle="Application Insights 中 ASP.NET 的記錄檔、例外狀況和自訂診斷" 
+	description="搜尋由追蹤、NLog 或 Log4Net 產生的要求、例外狀況和記錄檔，藉此診斷 ASP.NET Web 應用程式中的問題。" 
 	services="application-insights" 
-documentationCenter=""
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,37 +12,118 @@ documentationCenter=""
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2015" 
+	ms.date="04/02/2015" 
 	ms.author="awills"/>
  
-# Application Insights 中的診斷搜尋
+# Application Insights 中 ASP.NET 的記錄檔、例外狀況和自訂診斷
 
-大部分傳統的偵錯方法之一是插入幾行程式碼來發出追蹤記錄。[Application Insights][start] 可以擷取您的 Web 伺服器記錄檔，並協助您搜尋和篩選它們。如果您已經使用 log4Net、NLog 或 System.Diagnostics.Trace，則可以使用我們的配接器來擷取這些記錄檔。或者，您也可以使用內建於 Application Insights SDK 的 TrackTrace 和 TrackException 方法。
+[Application Insights][start] 包含一項功能強大[診斷搜尋][diagnostic]工具，可讓您探索和鑽研由應用程式之 Application Insights SDK 傳送的遙測資料。SDK 會自動傳送許多事件，例如使用者頁面檢視。
 
-您的搜尋結果也可以包含一般的頁面檢視事件和要求事件 (用來建立[使用情況][usage]和[效能][perf]報告)，以及您所撰寫的任何[自訂 TrackEvent 呼叫][track]。
+您也可以撰寫程式碼來傳送自訂事件、例外狀況報告和追蹤。如果您已經使用記錄架構 (例如 log4J、log4net、NLog 或 System.Diagnostics.Trace)，可以擷取這些記錄檔，並將它們包含在搜尋中。這樣會較容易將使用者動作、例外狀況和其他事件與記錄追蹤相互關聯。
+
+## <a name="send"></a>在您撰寫自訂遙測資料之前
+
+如果您尚未[針對專案安裝 Application Insights][start]，請立即安裝。
+
+執行應用程式時，會傳送一些遙測資料，而這些資料會出現在診斷搜尋中，其中包括由伺服器接收的要求、記錄在用戶端的頁面檢視，以及無法攔截的例外狀況。
+
+開啟 [診斷搜尋] 即可查看 SDK 自動傳送的遙測資料。
+
+![](./media/app-insights-search-diagnostic-logs/appinsights-45diagnostic.png)
+
+![](./media/app-insights-search-diagnostic-logs/appinsights-31search.png)
+
+詳細資料會因應用程式類型而異。您可以逐一點選所有個別事件，以取得更多詳細資料。
+
+##<a name="events"></a>自訂事件
+
+自訂事件會顯示在[診斷搜尋][diagnostic]和[計量瀏覽器][metrics]中。您可以從裝置、網頁和伺服器應用程式傳送這些事件。這些事件可同時用於診斷及[了解使用模式][track]。
+
+每個自訂事件都有自己的名稱，並帶有可透過數值測量單位篩選的屬性。
+
+用戶端的 JavaScript
+
+    appInsights.trackEvent("WinGame",
+         // String properties:
+         {Game: currentGame.name, Difficulty: currentGame.difficulty},
+         // Numeric measurements:
+         {Score: currentGame.score, Opponents: currentGame.opponentCount}
+         );
+
+伺服器上的 C#
+
+    // Set up some properties:
+    var properties = new Dictionary <string, string> 
+       {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
+    var measurements = new Dictionary <string, double>
+       {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
+
+    // Send the event:
+    telemetry.TrackEvent("WinGame", properties, measurements);
 
 
-2. [安裝記錄架構的配接器嗎？](#capture)
-+ [插入診斷記錄呼叫](#pepper)
-+ [例外狀況](#exceptions)
-+ [檢視記錄資料](#view)
-+ [搜尋記錄資料](#search)
-+ [疑難排解](#questions)
-+ [後續步驟](#next)
+伺服器上的 VB
+
+    ' Set up some properties:
+    Dim properties = New Dictionary (Of String, String)
+    properties.Add("game", currentGame.Name)
+    properties.Add("difficulty", currentGame.Difficulty)
+
+    Dim measurements = New Dictionary (Of String, Double)
+    measurements.Add("Score", currentGame.Score)
+    measurements.Add("Opponents", currentGame.OpponentCount)
+
+    ' Send the event:
+    telemetry.TrackEvent("WinGame", properties, measurements)
+
+### 執行應用程式並檢視結果。
+
+開啟 [診斷搜尋]。
+
+選取 [自訂事件]，然後選取特定的事件名稱。
+
+![](./media/app-insights-search-diagnostic-logs/appinsights-332filterCustom.png)
 
 
+在屬性值中輸入搜尋詞彙，以多次篩選該資料。
 
-## <a name="capture"></a> 安裝記錄架構的配接器嗎？
+![](./media/app-insights-search-diagnostic-logs/appinsights-23-customevents-5.png)
 
-如果您尚未[在專案中安裝 Application Insights][start]，請立即安裝。
+深入探索個別事件，以查看其詳細屬性。
 
-如果您將會使用內建的 Application Insights SDK Track*() 呼叫，則不需要配接器 - [請跳到下一節](#pepper)。
+![](./media/app-insights-search-diagnostic-logs/appinsights-23-customevents-4.png)
 
-若要搜尋以 log4Net、NLog 或 System.Diagnostics.Trace 所產生的記錄，請安裝適當的配接器：
+##<a name="pages"></a> 頁面檢視
+
+頁面檢視遙測資料是由[在網頁中插入之 JavaScript 程式碼片段][usage]的 trackPageView() 呼叫所傳送的。此資料主要用途是提供您在概觀頁面看到的頁面檢視計數。
+
+通常它在每個 HTML 頁面中只會被呼叫一次，但是您可以插入多個呼叫 (例如，您有單頁應用程式，且想在使用者取得更多資料時記錄新頁面)。
+
+    appInsights.trackPageView(pageSegmentName, "http://fabrikam.com/page.htm"); 
+
+您可在診斷搜尋中附加做為篩選器使用的屬性，這有時相當實用：
+
+    appInsights.trackPageView(pageSegmentName, "http://fabrikam.com/page.htm",
+     {Game: currentGame.name, Difficulty: currentGame.difficulty});
+
+
+##<a name="trace"></a> 追蹤遙測
+
+追蹤遙測是專門用以建立診斷記錄檔而插入的程式碼。
+
+例如，您可以插入這類呼叫：
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow response - database01");
+
+
+####  為記錄架構安裝配接器
+
+您也可以搜尋由記錄架構 (log4Net、NLog 或 System.Diagnostics.Trace) 產生的記錄檔。
 
 1. 如果您打算使用 log4Net 或 NLog，請將它安裝在您的專案。 
 2. 在 [方案總管] 中，以滑鼠右鍵按一下您的專案並選擇 [**管理 NuGet 封裝**]。
-3. 選取 [線上] > [全部]，選取 [**包括發行前版本**]，然後搜尋 "Microsoft.ApplicationInsights"
+3. 選取 [線上] > [全部]，選取 [Include Prerelease]，然後搜尋 "Microsoft.ApplicationInsights"
 
     ![Get the prerelease version of the appropriate adapter](./media/app-insights-search-diagnostic-logs/appinsights-36nuget.png)
 
@@ -53,16 +134,9 @@ documentationCenter=""
 
 NuGet 封裝會安裝必要的組件，並修改 web.config 或 app.config。
 
-## <a name="pepper"></a>3. 插入診斷記錄呼叫
+#### <a name="pepper"></a>插入診斷記錄呼叫
 
-使用您選擇的記錄架構來插入事件記錄呼叫。 
-
-例如，如果您使用 Application Insights SDK，您可能會插入：
-
-    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-    telemetry.TrackTrace("Slow response - database01");
-
-或如果您使用 System.Diagnostics.Trace：
+如果您使用 System.Diagnostics.Trace，典型的呼叫如下：
 
     System.Diagnostics.Trace.TraceWarning("Slow response - database01");
 
@@ -70,13 +144,19 @@ NuGet 封裝會安裝必要的組件，並修改 web.config 或 app.config。
 
     logger.Warn("Slow response - database01");
 
-以偵錯模式執行您的應用程式，或將它部署至您的 Web 伺服器。
+在偵錯模式中執行應用程式或加以部署。
+
+當您選取 [追蹤] 篩選器時，會看到 [診斷搜尋] 中的訊息。
 
 ### <a name="exceptions"></a>例外狀況
 
-若要將例外狀況傳送至記錄檔：
+Application Insights 中的「取得例外狀況報告」功能非常強大，尤其是您可以切換瀏覽失敗要求和例外狀況，以及讀取例外狀況堆疊。
 
-用戶端的 JavaScript
+在某些情況下，您需要[插入數行程式碼][exceptions]，以確定您的例外狀況會自動被截取。
+
+您也可以撰寫明確的程式碼，以傳送例外狀況遙測資料：
+
+JavaScript
 
     try 
     { ...
@@ -88,7 +168,7 @@ NuGet 封裝會安裝必要的組件，並修改 web.config 或 app.config。
          State: currentGame.State.ToString()});
     }
 
-伺服器上的 C#
+C#
 
     var telemetry = new TelemetryClient();
     ...
@@ -108,7 +188,7 @@ NuGet 封裝會安裝必要的組件，並修改 web.config 或 app.config。
        telemetry.TrackException(ex, properties, measurements);
     }
 
-伺服器上的 VB
+VB
 
     Dim telemetry = New TelemetryClient
     ...
@@ -128,184 +208,70 @@ NuGet 封裝會安裝必要的組件，並修改 web.config 或 app.config。
 
 屬性和度量的參數是選擇性，但很適用於篩選和加入額外的資訊。比方說，如果您有一個應用程式可以執行數個遊戲，則您可以找到與特定遊戲相關的所有例外狀況報告。您可以將許多項目加入至每個字典，且項目數量不限。
 
-## <a name="view"></a>4. 檢視記錄資料
+#### 檢視例外狀況
+
+您會在 [概觀] 刀鋒視窗中看到例外狀況摘要報告，請逐一點選以查看更多詳細資料。例如：
 
 
-1. 在 Application Insights 中，開啟診斷搜尋。
+![](./media/app-insights-search-diagnostic-logs/appinsights-039-1exceptions.png)
 
-    ![Open diagnostic search](./media/app-insights-search-diagnostic-logs/appinsights-30openDiagnostics.png)
-   
-2. 針對您想要查看的事件類型設定篩選。
+按一下任一例外狀況類型，即可查看特定的項目：
 
-    ![Open diagnostic search](./media/app-insights-search-diagnostic-logs/appinsights-331filterTrace.png)
+![](./media/app-insights-search-diagnostic-logs/appinsights-333facets.png)
 
+您也可以直接開啟 [診斷搜尋]、篩選例外狀況，以及選擇您想查看的例外狀況類型。
 
-事件類型包括：
+### 報告未處理的例外狀況
 
-* **追蹤** - 搜尋您已從 Web 伺服器擷取的診斷記錄。這包括 log4Net、NLog、System.Diagnostic.Trace 和 ApplicationInsights TrackTrace 呼叫。
-* **要求** - 搜尋您 Web 應用程式的伺服器元件所收到的 HTTP 要求，包括網頁要求、資料要求、影像等。您將看到的事件是 Application Insights 伺服器 SDK 所傳送的遙測，這些事件用來建立要求計數報表。
-* **頁面檢視** - 搜尋頁面檢視事件。這些事件由 Web 用戶端傳送，並用來建立頁面檢視報表。(如果您在這裡沒有看到任何項目，請設定 [Web 用戶端監視][usage]。)
-* **自訂事件** - 如果您插入 TrackEvent() 和 TrackMetric() 呼叫來[監視使用情況][track]，您可以在這裡搜尋它們。
+無論[狀態監視器][redfield]或 [Application Insights SDK][greenbrown] 是否已檢測這些未處理例外狀況，Application Insights 都可以從裝置、[網頁瀏覽器][usage]，或 Web 伺服器中報告這類例外狀況。
 
-選取任何記錄事件來查看詳細資料。 
+但是，Application Insights 在某些情況下無法執行此動作，因為 .NET Framework 會攔截這些例外狀況。若要確定能看到所有例外狀況，您就必須撰寫一個小型的例外狀況處理常式。最佳程序會因技術而異。如需詳細資訊，請參閱 [ASP.NET 的例外狀況遙測][exceptions]。
 
-![Open diagnostic search](./media/app-insights-search-diagnostic-logs/appinsights-32detail.png)
+### 與組建相互關聯
 
-您可以使用單純字串 (無萬用字元) 來篩選項目內的欄位資料。
+讀取診斷記錄檔時，因為即時程式碼已部署，所以原始程式碼可能會變更。
 
-可用的欄位視記錄架構和您在呼叫中使用的參數而定。
+因此，將組建資訊 (例如目前版本的 URL) 連同每個例外狀況或追蹤置入屬性中，便是十分有用的做法。
 
+您可以在預設內容中設定資訊，而不必將屬性個別加入至每個例外狀況呼叫。
 
-## <a name="search"></a>5. 搜尋資料
+    // Telemetry initializer class
+    public class MyTelemetryInitializer : IContextInitializer
+    {
+        public void Initialize (TelemetryContext context)
+        {
+            context.Properties["AppVersion"] = "v2.1";
+        }
+    }
 
-設定時間範圍並搜尋詞彙。搜尋較短的範圍會比較快。 
+在應用程式初始設定式例如 Global.asax.cs 中：
 
-![Open diagnostic search](./media/app-insights-search-diagnostic-logs/appinsights-311search.png)
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.ContextInitializers
+        .Add(new MyTelemetryInitializer());
+    }
 
-請注意您是搜尋詞彙，而不是子字串。詞彙是英數字串，包含 '.' 和 '_' 之類的標點符號。例如：
+###<a name="requests"></a> 伺服器 Web 要求
 
-<table>
-  <tr><th>詞彙</th><th>「不」符合</th><th>但符合這些</th></tr>
-  <tr><td>HomeController.About</td><td>about<br/>home</td><td>h*about<br/>home*</td></tr>
-  <tr><td>IsLocal</td><td>local<br/>is<br/>*local</td><td>isl*<br/>islocal<br/>i*l</td></tr>
-  <tr><td>New Delay</td><td>w d</td><td>new<br/>delay<br/>n* AND d*</td></tr>
-</table>
+當您[在 Web 伺服器上安裝狀態監視器][redfield]，或[將 Application Insights 加入您的 Web 專案][greenbrown]時，就會自動傳送要求遙測。要求遙測也會在 [計量瀏覽器] 和 [概觀] 頁面中，將摘要填入要求和回應時間圖表。
 
-以下是您可以使用搜尋運算式：
+如果您想要傳送其他事件，可以使用 TrackRequest() API。
 
-<table>
-                    <tr>
-                      <th>
-                        <p>範例查詢</p>
-                      </th>
-                      <th>
-                        <p>效果</p>
-                      </th>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">slow</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>在日期範圍中尋找欄位含有詞彙 "slow" 的所有事件</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">database??</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>符合 database01、databaseAB、...</p>
-                        <p>搜尋詞彙的開頭不允許為 ?。</p>
-                      </td>
-                    </tr>
-                     <tr>
-                      <td>
-                        <p>
-                          <span class="code">database*</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>符合 database、database01、databaseNNNN</p>
-                        <p>* 不允許出現在搜尋詞彙的開頭</p>
-                      </td>
-                    </tr>
-                   <tr>
-                      <td>
-                        <p>
-                          <span class="code">apple AND banana</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>尋找同時含有這兩個詞彙的事件。請使用大寫 "AND"，而不是 "and"。</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">apple OR banana</span>
-                        </p>
-                        <p>
-                          <span class="code">apple banana</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>尋找含有任一詞彙的事件。請使用 "OR"，而不是 "or"。</p>
-                        <p>簡短格式。</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">apple NOT banana</span>
-                        </p>
-                        <p>
-                          <span class="code">apple -banana</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>尋找含有一個詞彙但不含另一個詞彙的事件。</p>
-                        <p>簡短格式。</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>app* AND banana NOT (grape OR pear)</p>
-                        <p>
-                          <span class="code">app* AND banana -(grape pear)</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>邏輯運算子和括號。</p>
-                        <p>簡短格式。</p>
-                      </td>
-                    </tr>
-       <!-- -- fielded search feature not ready yet --
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">message:slow</span>
-                        </p>
-                        <p>
-                          <span class="code">ipaddress:(10.0.0.* OR 192.168.0.*)</span>
-                        </p>
-                        <p>
-                          <span class="code">properties.logEventInfo.level:Error</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>符合指定的欄位。依預設會搜尋所有欄位。若要查看可用的欄位，請選取事件來查看詳細資料。</p>
-                      </td>
-                    </tr>
- -->
-</table>
+## <a name="questions"></a>問與答
 
-
-## <a name="questions"></a>問答集
-
-### <a name="emptykey"></a>我收到「檢測機碼不能是空白」的錯誤
+### <a name="emptykey"></a>我收到「檢測金鑰不能是空白」的錯誤
 
 您可能只安裝記錄配接器 Nuget 封裝，但未安裝 Application Insights。
 
-在 [方案總管] 中，以滑鼠右鍵按一下 `ApplicationInsights.config`，然後選擇 [**Update Application Insights**]。將會出現對話方塊邀請您登入 Azure，並建立 Application Insights 資源或重複使用現有的資源。這樣應該可以解決。
+在 [方案總管] 中，以滑鼠右鍵按一下 `ApplicationInsights.config`，然後選擇 [**更新 Application Insights**]。將會出現對話方塊邀請您登入 Azure，並建立 Application Insights 資源或重複使用現有的資源。這樣應該可以解決。
 
 ### <a name="limits"></a>保留多少資料？
 
 每個應用程式每秒最多 500 個事件。事件會保留七天。
 
-### <a name="cani"></a>我可以...嗎？
-
-- 在事件和例外狀況上設定警示
-- 匯出記錄供進一步分析
-- 搜尋特定屬性
-
-不僅這些，這些功能全部都已準備推出。
-
-## <a name="add"></a>後續步驟
+## <a name="add"></a>接續步驟
 
 * [設定可用性和回應性測試][availability]
 * [疑難排解][qna]
@@ -314,11 +280,19 @@ NuGet 封裝會安裝必要的組件，並修改 web.config 或 app.config。
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
+[exceptions]: app-insights-web-failures-exceptions.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[start]: app-insights-get-started.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
 
-
-
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=62-->

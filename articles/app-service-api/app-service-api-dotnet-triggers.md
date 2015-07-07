@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/09/2015" 
 	ms.author="guayan;tarcher"/>
 
 # Azure App Service API 應用程式觸發程序
@@ -22,11 +22,7 @@
 
 本文說明如何實作 API 應用程式觸發程序，並從邏輯應用程式加以使用。
 
-如果您第一次使用 API 應用程式，請參閱以下入門文章。
-
-1. [建立 API 應用程式](app-service-dotnet-create-api-app.md) - 從頭建立新的 API 應用程式，或將現有的 Web API 專案轉換成 API 應用程式。 
-2. [部署 API 應用程式](app-service-dotnet-deploy-api-app.md) - 將 API 應用程式部署至您的 Azure 訂用。
-3. [偵錯 API 應用程式](../app-service-dotnet-remotely-debug-api-app.md) - 使用 Visual Studio 遠端偵錯在 Azure 中執行的 API 應用程式。
+如果您不熟悉 [Azure App Service](../app-service/app-service-value-prop-what-is.md) 中的 [API 應用程式](app-service-api-apps-why-best-platform.md)，我們建議您閱讀[建立 API 應用程式](app-service-dotnet-create-api-app.md) 中的多個部分系列。
 
 此外，此主題中所有程式碼片段的複製來源為 [FileWatcher API 應用程式程式碼範例](http://go.microsoft.com/fwlink/?LinkId=534802)。
 
@@ -36,7 +32,7 @@
 
 API 應用程式常會需要引發事件，以讓 API 應用程式用戶端採取適當的動作來回應事件。支援此案例的REST API 型機制稱為 API 應用程式觸發程序。
 
-例如，假設用戶端程式碼使用 [Twitter 連接器 API 應用程式](../app-service-logic/app-service-logic-connector-twitter.md)，且您的程式碼必須根據其中包含特定文字的新推文來執行動作。在此情況下，您可以設定推入或提取觸發程序來加速處理這項需求。
+例如，假設用戶端程式碼使用 [Twitter 連接器 API 應用程式](../app-service-logic/app-service-logic-connector-twitter.md)，且您的程式碼必須根據其中包含特定文字的新推文來執行動作。在此情況下，您可以設定輪詢或推入觸發程序來加速處理這項需求。
 
 ## 輪詢觸發程序與推入觸發程序
 
@@ -343,6 +339,6 @@ API 應用程式常會需要引發事件，以讓 API 應用程式用戶端採�
             }
         }
     }
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

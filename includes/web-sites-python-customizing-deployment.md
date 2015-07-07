@@ -1,4 +1,4 @@
-如果以下條件成立****，Azure 將會確定您的應用程式使用 Python：
+如果以下條件成立，Azure 將會確定您的應用程式使用 Python：
 
 - 根資料夾中有 requirements.txt 檔案
 - 根資料夾中有任何 .py 檔案，或擁有指定 Python 的 runtime.txt
@@ -33,4 +33,4 @@
 
 [Azure 命令列介面]: http://azure.microsoft.com/downloads/
 
-<!--HONumber=54-->
+<!---HONumber=62-->

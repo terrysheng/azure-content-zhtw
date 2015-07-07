@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,15 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="06/13/2015" 
 	ms.author="awills"/>
  
 # 從 Application Insights 匯出遙測
 
 想要對您的遙測執行一些自訂的分析？ 或也許您想要對具有特定屬性的事件以電子郵件寄送警示？ 連續匯出很適合此用途。在 Application Insights 入口網站中看見的事件，可以使用 JSON 格式匯出到 Microsoft Azure 中的儲存體。從那裡，您可以下載資料並編寫處理所需的任何程式碼。
 
+在免費試用期間，或是使用[標準及高階定價方案](http://azure.microsoft.com/pricing/details/application-insights/)時，都可使用「連續匯出」功能。
 
-## <a name="setup"></a> 設定連續匯出
+## <a name="setup"> </a> 設定連續匯出
 
 在 Application Insights 入口網站中應用程式的 [概觀] 分頁上，開啟 [連續匯出]：
 
@@ -45,6 +46,7 @@
 若要停止資料流，請按一下 [停用]。再次按一下 [啟用] 時，資料流將會以新資料重新啟動。您無法取得在停用匯出時送抵入口網站的資料。
 
 若要永久停止資料流，請刪除匯出。這麼做不會將您的資料從儲存體刪除。
+
 #### 無法加入或變更匯出？
 
 * 若要加入或變更匯出，您需要擁有者、參與者或 Application Insights 參與者存取權。[了解角色][roles]。
@@ -58,7 +60,7 @@
 
 未包含計算的度量。例如，我們不會匯出平均 CPU 使用率，但我們會匯出用以計算平均的原始遙測。
 
-## <a name="get"></a> 您如何取得？
+## <a name="get"></a> 檢查資料
 
 使用[伺服器總管](http://msdn.microsoft.com/library/azure/ff683677.aspx)之類的工具開啟 Blob 儲存區時，您會看到具有一組 Blob 檔案的容器。每個檔案的 URI 為 application-id/telemetry-type/date/time。
 
@@ -66,18 +68,11 @@
 
 日期和時間為 UTC，並且是遙測存放在儲存區的時間 - 而不是產生的時間。因此，如果您編寫程式碼來下載資料，它可以透過資料線性地移動。
 
-若要以程式方式下載此資料，請使用 [Blob 儲存區 REST API](../storage-dotnet-how-to-use-blobs.md#configure-access) 或 [Azure PowerShell Cmdlet](http://msdn.microsoft.com/library/azure/dn806401.aspx)。
-
-或考慮 [DataFactory](http://azure.microsoft.com/services/data-factory/)，您可以在此設定管線以管理一定規模的資料。
-
-我們開始每小時編寫一個新 Blob (如果有收到事件)。因此，您應該一律處理到最多前一個小時，但等候目前小時完成。
-
-[程式碼範例][exportcode]
 
 
-## <a name="format"></a> 資料看起來如何？
+## <a name="format"></a> 資料格式
 
-* 每個 Blob 是包含多個以 '\\n' 分隔的列的文字檔案。
+* 每個 Blob 是包含多個以 '\n' 分隔的列的文字檔案。
 * 每列是未格式化的 JSON 文件。如果您想要坐一旁並盯著它，請嘗試使用 Notepad++ 之類的檢視器搭配 JSON 外掛程式：
 
 ![使用合適的工具檢視遙測](./media/app-insights-export-telemetry/06-json.png)
@@ -90,7 +85,7 @@
 
 
 
-## 如何處理？
+## 處理資料
 
 就小型規模而言，您可以編寫一些程式碼來取出您的資料，將它讀取為試算表等等。例如：
 
@@ -111,8 +106,17 @@
       }
     }
 
+如需較大型的程式碼範例，請參閱[使用背景工作角色][exportasa]。
 
-或您也可以將它移至 SQL 資料庫 - 請參閱[程式碼範例][exportcode]。
+#### 匯出至 SQL
+
+另一種選擇是將資料移動至 SQL Database，您可以在其中執行更強大的分析功能。
+
+以下範例說明，要將 Blob 儲存體中的資料移至資料庫，有兩種替代方法可以選擇：
+
+* [使用背景工作角色匯出至 SQL][exportcode]
+* [使用串流分析匯出至 SQL][exportasa]
+
 
 就更大型規模而言，請考慮 [HDInsight](http://azure.microsoft.com/services/hdinsight/) - 雲端中的 Hadoop 叢集。HDInsight 提供各種技術，用於管理和分析巨量資料。
 
@@ -129,10 +133,6 @@
 
 連續匯出將重新開始。
 
-
-## 程式碼範例
-
-[將匯出的資料移至 SQL 資料庫][exportcode]
 
 ## 問答集
 
@@ -170,7 +170,9 @@
 <!--Link references-->
 
 [exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
+[exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

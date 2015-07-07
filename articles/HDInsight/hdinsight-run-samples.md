@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在 HDInsight 上執行 Hadoop 範例 | Azure"
+	pageTitle="在 HDInsight 上執行 Hadoop 範例 | Microsoft Azure"
 	description="利用提供的範例開始使用 Azure HDInsight 服務。使用 PowerShell 指令碼在資料叢集上執行 MapReduce 程式。"
 	services="hdinsight"
 	documentationCenter=""
@@ -23,7 +23,7 @@
 
 我們提供了一組範例，協助您使用 Azure HDInsight 並開始在 Hadoop 叢集上執行 MapReduce 工作。這些範例可套用在您所建立的每個 HDInsight 受管理叢集上。執行這些範例可協助您熟悉使用 Azure PowerShell Cmdlet 在 Hadoop 叢集上執行工作。
 
-MapReduce 程式也可透過使用 Microsoft .NET API for HDInsight 從應用程式以程式設計的方式執行。如需使用 HDInsight API 進行工作提交的詳細資訊，請參閱[在 HDInsight 提交 Hadoop 工作][hdinsight-submit-hadoop-jobs-programmatically]。
+MapReduce 程式也可透過使用 Microsoft .NET API for HDInsight 從應用程式以程式設計的方式執行。如需使用 HDInsight API 進行工作提交的詳細資訊，請參閱[在 HDInsight 提交 Hadoop 工作][hdinsight-submit-jobs]。
 
 網路上有許多 Hadoop 相關技術 (例如 Java 型 MapReduce 程式設計和串流) 的文件可供參考，此外也有適用於 Windows PowerShell 指令碼之 Cmdlet 的相關文件。如需這些資源的詳細資訊，請參閱 [Azure HDInsight 簡介][hdinsight-introduction]的最後一節 **HDInsight 的資源**。
 
@@ -34,11 +34,11 @@ MapReduce 程式也可透過使用 Microsoft .NET API for HDInsight 從應用程
 
 **必要條件**：
 
-- 您必須有 Microsoft Azure 帳戶。如需註冊帳戶的相關選項，請參閱 [Azure：免費一個月試用](http://azure.microsoft.com/pricing/free-trial/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **HDInsight 叢集**。如需各種建立此類叢集方式的相關指示，請參閱[佈建 HDInsight 叢集](hdinsight-provision-clusters.md)。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
 
-- 您必須已佈建 HDInsight 叢集。如需各種建立此類叢集方式的相關指示，請參閱[使用自訂選項在 HDInsight 上佈建 Hadoop 叢集](hdinsight-provision-clusters.md)。
 
-- 您必須已安裝 Azure PowerShell，且已將其設定為可用於您的帳號。如需執行此項作業之指示，請參閱[如何安裝和設定 Azure PowerShell][powershell-install-configure]。
 
 ## 範例 ##
 
@@ -86,5 +86,6 @@ HDInsight 附有下列範例：
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

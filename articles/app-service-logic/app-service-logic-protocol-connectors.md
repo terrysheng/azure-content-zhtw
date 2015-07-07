@@ -17,7 +17,7 @@
 	ms.author="deonhe"/>
 
 
-# Microsoft Azure 應用程式服務中的通訊協定連接器
+# Microsoft Azure App Service 中的通訊協定連接器
 
 
 ## 什麼是通訊協定連接器
@@ -105,19 +105,19 @@ Auzre Marketplace 中提供下列通訊協定連接器：
 
 讓我們逐步解說如何使用 Azure Marketplace 建立 SMTP 連接器
 
-1. 登入 Microsoft Azure [入口網站](https://manage.windowsazure.com)。
+1. 登入 Microsoft Azure [Preview 入口網站](https://portal.azure.com)。
 2. 選取 [**新增**] > [**Web + 行動**] > [**Azure Marketplace**] >
-3. 然後在 [**搜尋方塊**] 中輸入 [**通訊協定**]，接著按 **Enter** 鍵。您也可以從清單中選取。選取之後，新分頁或視窗隨即開啟。選取 [**建立**]。 
+3. 然後在 [**搜尋方塊**] 中輸入 [**通訊協定**]，接著按 **Enter** 鍵。您也可以從清單中選取。選取之後，新刀鋒視窗或視窗隨即開啟。選取 [**建立**]。 
 4. 輸入下列屬性：
 
 <table>
 <tr><th>屬性</th> <th>說明</th> </tr>
 <tr><td>名稱</td> <td>說明</td> </tr>
 <tr><td>Package Settings</td> <td>使用封裝設定屬性來輸入 SMTP 伺服器的所有驗證詳細資料，例如使用者名稱、密碼、連接埠號碼伺服器位址等等。</td> </tr>
-<tr><td>應用程式服務方案</td> <td>列出您的付款方案。如果需要增減資源，則可以變更它。</th> </td>
-<tr><td>定價層</td> <td>一個唯讀屬性，會列出您 Azure 訂閱內的定價類別。</td> </tr>
+<tr><td>App Service 方案</td> <td>列出您的付款方案。如果需要增減資源，則可以變更它。</th> </td>
+<tr><td>定價層</td> <td>一個唯讀屬性，會列出您 Azure 訂用帳戶內的定價類別。</td> </tr>
 <tr><td>資源群組</td> <td>建立新群組或使用現有的群組。使用資源群組說明此屬性</td> </tr>
-<tr><td>訂閱</td> <td>列出目前訂閱的唯讀屬性</td> </tr>
+<tr><td>訂閱</td> <td>列出目前訂用帳戶的唯讀屬性</td> </tr>
 <tr><td>位置</td> <td>主控 Azure 服務的地理位置</th> </td>
 <tr><td>新增至開始面板</td> <td>選取此選項，可將 API 應用程式新增至開始面板 (首頁)</td></tr>
 </table>
@@ -126,17 +126,17 @@ Auzre Marketplace 中提供下列通訊協定連接器：
 [使用 REST API 存取連接器](http://go.microsoft.com/fwlink/p/?LinkId=529766)
 
 ## 將連接器新增至您的應用程式 
-Microsoft Azure 應用程式服務會公開可使用這些連接器的不同應用程式類型。例如，您可以透過*邏輯方式*將一或多個連接器結合為單一應用程式，以建立*邏輯*應用程式。
+Microsoft Azure App Service 會公開可使用這些連接器的不同應用程式類型。例如，您可以透過*邏輯方式*將一或多個連接器結合為單一應用程式，以建立*邏輯*應用程式。
 
 若要使用*邏輯*應用程式內的連接器，您可以從清單中選取預先設定的連接器、將其新增至您的設計工作流程中，並確定它已完成所需的設定變更而可供使用。
 
-若要執行這些步驟，您需要 Web 應用程式、行動應用程式或邏輯應用程式。請參閱 <> 以了解特定步驟。應用程式可供使用後，請新增您的連接器。方式如下：
+若要執行這些步驟，您需要 Web 應用程式、行動應用程式或邏輯應用程式。應用程式可供使用後，請新增您的連接器。方式如下：
 
 使用下列步驟，將連接器新增至邏輯應用程式：
 
 1. 在 Azure 入口網站開始面板 (首頁) 中，移至 [**Marketplace**]，然後搜尋邏輯、行動、或 Web 應用程式。 
 
-	如果您要建立新的應用程式，請搜尋邏輯應用程式、行動應用程式或 Web 應用程式。選取應用程式，然後在新分頁中選取 [**建立**]。[建立邏輯應用程式](app-service-logic-create-a-logic-app.md)會列出步驟。
+	如果您要建立新的應用程式，請搜尋邏輯應用程式、行動應用程式或 Web 應用程式。選取應用程式，然後在新刀鋒視窗中選取 [**建立**]。[建立邏輯應用程式](app-service-logic-create-a-logic-app.md)會列出步驟。
 
 2. 開啟您的應用程式，然後選取 [**觸發程序和動作**]。
 3. 從 [**組件庫**] 中，選取連接器。連接器會新增至您的應用程式。
@@ -148,12 +148,13 @@ Microsoft Azure 應用程式服務會公開可使用這些連接器的不同應�
 ## Security
 連接器會使用 OAuth 或使用者名稱和密碼。
 
-## 閱讀關於邏輯應用程式和 Web 應用程式的資訊
-[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md) | [Azure App Service 中的網站和 Web 應用程式](../app-service-web/app-service-web-app-azure-portal.md) |
+## 閱讀關於邏輯應用程式和 Web Apps 的資訊
+[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md) | [Azure App Service 中的網站和 Web Apps](../app-service-web/app-service-web-overview.md) |
 
 
 ## 其他連接器
 
 [BizTalk 整合連接器](app-service-logic-integration-connectors.md) | [企業連接器](app-service-logic-enterprise-connectors.md) | [企業對企業連接器](app-service-logic-b2b-connectors.md) | [社交連接器](app-service-logic-social-connectors.md) | [應用程式和資料服務連接器](app-service-logic-data-connectors.md) | [連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/> [什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

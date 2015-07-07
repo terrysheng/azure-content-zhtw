@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Oracle 連接器" 
+   pageTitle="在 Microsoft Azure App Service 中使用 Oracle 連接器" 
    description="如何使用 Oracle 連接器" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
@@ -13,163 +13,109 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/20/2015"
+   ms.date="06/17/2015"
    ms.author="sutalasi"/>
 
 
-# Oracle 資料庫連接器 #
+# Oracle 資料庫連接器
 
-在邏輯應用程式中，連接器可以在執行流程時用來擷取、處理或發送資料。透過在流程中運用 Oracle 連接器，您可以達到各種案例的目的。幾個範例：  
+連接到內部部署 Oracle 資料庫伺服器來建立和變更資訊或資料。在 Logic Apps 中，連接器可以在「工作流程」中用來擷取、處理或推送資料。在工作流程中使用 Oracle 連接器時，您可以達到各種案例的目的。例如，您可以：
 
-1.	透過 web 或行動使用者前端公開位於 Oracle 上的部分資料。
-2.	將資料插入 Oracle 資料庫資料表以儲存 (例如：Employee Records、Sales Orders 等等)
-3.	從 Oracle 擷取資料，以供商務程序使用
-
-在這些案例中，請務必完成下列需求： 
-
-1. 建立 Oracle 連接器 API 應用程式的執行個體
-2. 建置 API 應用程式可與內部部署 Oracle 進行通訊的混合式連線
-3. 在邏輯應用程式中使用建立的 API 應用程式，以達成所需商務程序的目的
-
-	### 基本觸發程序和動作
-		
-    - 輪詢資料 (觸發程序) 
-    - 插入到資料表
-    - 更新資料表
-    - 從資料表選取
-    - 從資料表刪除
-    - 呼叫預存程序
-
-## 建立 Oracle 資料庫連接器 API 應用程式的執行個體 ##
-
-若要使用 Oracle 連接器，您必須建立 Oracle 連接器 API 應用程式的執行個體。以下步驟可以達到此目的：
-
-1. 使用 Azure 入口網站左下方的 '+新增' 選項開啟 Azure Marketplace。
-2. 瀏覽至 [Web 與行動] > [API 應用程式]，並搜尋「Oracle 連接器」。
-3. 在第一個分頁中提供一般詳細資訊，例如名稱、應用程式服務方案等等
-4. 提供下表中所述的套件設定。
-
-<style type="text/css">
-	table.tableizer-table {
-	border: 1px solid #CCC; font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-} 
-.tableizer-table td {
-	padding: 4px;
-	margin: 3px;
-	border: 1px solid #ccc;
-}
-.tableizer-table th {
-	background-color: #525B64; 
-	color: #FFF;
-	font-weight: bold;
-}
-</style><table class="tableizer-table">
-<tr class="tableizer-firstrow"><th>名稱</th><th>必要</th><th>說明</th></tr>
- <tr><td>資料來源</td><td>是</td><td>安裝 Oracle 用戶端的電腦上的 tnsnames.ora 檔案中所指定的資料來源 (網路服務) 名稱。如需資料來源名稱和 tnsnames.ora 的詳細資訊，請參閱[設定 Oracle 用戶端]</td></tr>
- <tr><td>使用者名稱</td><td>是</td><td>指定連線到 Oracle 伺服器的有效使用者名稱。</td></tr>
- <tr><td>密碼</td><td>是</td><td>指定連線到 Oracle 伺服器的有效密碼。</td></tr>
- <tr><td>服務匯流排連接字串</td><td>是</td><td>選用。如果 Oracle 伺服器是在內部部署，請指定此參數。這應該會是有效的服務匯流排命名空間連接字串。您必須在能夠存取 Oracle Server 的伺服器上安裝接聽程式代理程式。您可以移至您的 API 應用程式摘要頁面，然後按一下 '混合式連線' 來安裝代理程式。</td></tr>
- <tr><td>資料表</td><td>否</td><td>選用。指定資料庫中允許連接器修改的資料表。例如：OrdersTable、EmployeeTable</td></tr>
- <tr><td>預存程序</td><td>否</td><td>選用。指定資料庫中連接器可以呼叫的預存程序。例如：IsEmployeeEligible、CalculateOrderDiscount</td></tr>
- <tr><td>函式</td><td>否</td><td>選用。指定資料庫中連接器可以呼叫的函式。例如：IsEmployeeEligible、CalculateOrderDiscount</td></tr>
- <tr><td>套件實體</td><td>否</td><td>選用。指定資料庫中連接器可以呼叫的套件實體。例如：PackageOrderProcessing.CompleteOrder、PackageOrderProcessing.GenerateBill</td></tr>
- <tr><td>資料提供陳述式</td><td>否</td><td>選用。指定陳述式，該陳述式決定是否有任何資料可供輪詢。範例：從 table_name 選取 *</td></tr>
- <tr><td>輪詢類型</td><td>否</td><td>選用。指定輪詢型別。允許的值為「Select」、「Procedure」、「Function」、「Package」。</td></tr>
- <tr><td>輪詢陳述式</td><td>否</td><td>選用。指定輪詢 Oracle Server 資料庫的陳述式。範例： SELECT * from table_name</td></tr>
- <tr><td>後輪詢陳述式</td><td>否</td><td>選用。指定輪詢後要執行的陳述式。範例： DELETE * from table_name.</td></tr>
-</table>
+- 使用 Web 或行動應用程式，公開位於 Oracle 資料庫中的部分資料。
+- 將資料插入 Oracle 資料庫資料表以儲存。例如，您可以輸入員工記錄、更新銷售訂單等等。
+- 從 Oracle 取得資料，以供商務程序使用。例如，您可以取得客戶記錄，並將這些客戶記錄放在 SalesForce 中。 
 
 
+## 觸發程序和動作
+*觸發程序*是發生的事件。例如，訂單更新時或加入新客戶時。*動作*是觸發程序的結果。例如，當訂單更新時，傳送警示給銷售人員。或者，當加入新客戶時，傳送歡迎電子郵件給新客戶。
 
- ![][1]  
+Oracle 資料庫連接器可以在邏輯應用程式中做為觸發程序或動作，且支援 JSON 和 XML 格式的資料。對於封裝設定中包含的每個資料表 (本主題稍後詳細說明)，都有一組 JSON 動作和一組 XML 動作。如果您使用 XML 觸發程序或動作，您可以使用[轉換 API 應用程式](app-service-logic-transform-xml-documents.md)，將資料轉換成令一種 XML 資料格式。
 
-## 混合式組態 ##
+Oracle 資料庫連接器提供下列觸發程序和動作：
 
-透過 [瀏覽] -> [API 應用程式] -> [<剛建立的 API 應用程式名稱>] 瀏覽到剛建立的 API 應用程式，您將會看到下列行為。因為尚未建立混合式連線，所以安裝未完成。
-
-![][2] 
-
-若要建置混合式連線，請執行下列作業：
-
-1. 複製主要連接字串
-2. 按一下 '下載及設定' 連結
-3. 依照剛起始的安裝程序執行，並在要求時提供主要連接字串
-4. 完成安裝程序後，便會顯示如下所示的對話方塊
-
-![][3] 
-
-現在當您重新瀏覽至建立的 API 應用程式時，您會看到混合式連線狀態為 [已連線]。 
-
-![][4] 
-
-注意：如果您要切換到次要連線字串，您只需重做混合式設定，並提供次要連接字串來取代主要連接字串即可  
-
-## 邏輯應用程式中的使用方式 ##
-
-Oracle 連接器可以在邏輯應用程式中做為觸發程序/動作使用。觸發程序和所有動作支援 JSON 和 XML 兩種資料格式。每個提供為套件設定一部份的資料表，都有一組 JSON 動作和一組 XML 動作。如果您使用 XML 觸發程序/動作，您可以使用「轉換 API 應用程式」將資料轉換成令一種 XML 資料格式。 
-
-讓我們以一個簡單的邏輯應用程式為例，它會輪詢來自 Oracle 資料表的資料，新增其他資料表內的資料並更新資料。
+觸發程序 | 動作
+--- | ---
+輪詢資料 | <ul><li>插入到資料表</li><li>更新資料表</li><li>從資料表選取</li><li>從資料表刪除</li><li>呼叫預存程序</li>
 
 
+## 建立 Oracle 資料庫連接器
 
--  建立/編輯邏輯應用程式時，請選擇 Oracle 連接器 API 應用程式。這樣會列出可以使用的觸發程序 - 「輪詢資料 (JSON)」和「輪詢資料 (XML)」。
+連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。使用 Azure Marketplace 建立連接器：
 
- ![][5] 
+1. 在 Azure 開始面板中，選取 [**Marketplace**]。
+2. 選取 [**API Apps**]，並搜尋「Oracle 資料庫連接器」。
+3. 輸入名稱、App Service 方案和其他屬性。
+4. 輸入下列封裝設定：
 
+	名稱 | 必要 | 說明
+--- | --- | ---
+資料來源 | 是 | 安裝 Oracle 用戶端的電腦上的 tnsnames.ora 檔案中所指定的資料來源 (網路服務) 名稱。如需資料來源名稱和 tnsnames.ora 的詳細資訊，請參閱[設定 Oracle 用戶端](http://msdn.microsoft.com/library/dd787872.aspx)。
+使用者名稱 | 是 | 輸入用來連線到 Oracle 伺服器的使用者名稱。
+密碼 | 是 | 輸入使用者名稱密碼。
+服務匯流排連接字串 | 是 | 如果您要連線至內部部署，請輸入服務匯流排轉送連接字串。<br/><br/>[使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)<br/>[服務匯流排定價](http://azure.microsoft.com/pricing/details/service-bus/)
+資料表 | 否 | 輸入資料庫中允許連接器修改的資料表。例如，輸入 *OrdersTable, EmployeeTable*。
+預存程序 | 否 | 輸入資料庫中可供連接器呼叫的預存程序。例如，輸入 *IsEmployeeEligible,CalculateOrderDiscount*。
+函式 | 否 | 輸入資料庫中可供連接器呼叫的函式。例如，輸入 *IsEmployeeEligible,CalculateOrderDiscount*。
+套件實體 | 否 | 輸入資料庫中可供連接器呼叫的封裝。例如，輸入 *PackageOrderProcessing.CompleteOrder,PackageOrderProcessing.GenerateBill*。
+資料提供陳述式 | 否 | 輸入陳述式以判斷是否有任何資料可供輪詢。例如，輸入 *SELECT * from table_name*。
+輪詢類型 | 否 | 輸入輪詢類型。允許的值為「Select」、「Procedure」、「Function」、「Package」。
+輪詢陳述式 | 否 | 輸入輪詢 Oracle Server 資料庫的陳述式。例如，輸入 *SELECT * from table_name*。
+後輪詢陳述式 | 否 | 輸入輪詢後要執行的陳述式。例如，輸入 *DELETE * from table_name*。
 
-- 選取觸發程序 - [輪詢資料 (JSON)]，然後指定 [頻率] 並按一下 ✓。
-
-![][6] 
-
-
-
-- 該觸發程序在邏輯應用程式中現在會顯示為已設定。觸發程序輸出的結果將會顯示，並可用於輸入後續動作。 
-
-![][7] 
-
-
-- 從元件庫選取相同的 Oracle 連接器做為動作。選取其中一個「插入」動作 - [插入到 TempEmployeeDetails (JSON)]。
-
-![][8] 
-
-
-
-- 提供要插入的記錄，然後按一下 ✓。 
-
-![][9] 
-
+5. 完成時，[封裝設定] 看起來如下：<br/> ![][1]
 
 
-- 從元件庫選取相同的 Oracle 連接器做為動作。選取相同資料表上的「更新」動作 (例如：更新 EmployeeDetails)
+## 使用連接器做為觸發程序
+讓我們以一個簡單的邏輯應用程式為例，它會輪詢 Oracle 資料表的資料、在另一個資料表中加入資料，以及更新資料。
 
-![][11] 
+### 加入觸發程序
+1. 建立或編輯邏輯應用程式時，請選取您建立的 Oracle 連接器做為觸發程序。這樣會列出可用的觸發程序：**輪詢資料 (JSON)** 和**輪詢資料 (XML)**：<br/> ![][5] 
 
+2. 選取 [**輪詢資料 (JSON)**] 觸發程序，輸入頻率，然後按一下 ✓：<br/> ![][6]
 
+3. 現在，觸發程序在邏輯應用程式中顯示為已設定。其中顯示觸發程序的輸出，在任何後續動作中可做為輸入：<br/> ![][7]
 
-- 提供更新動作的輸入並按一下 ✓。 
+## 使用連接器做為動作
+以我們簡單的邏輯應用程式為例，它會輪詢 Oracle 資料表的資料、在另一個資料表中加入資料，以及更新資料。
 
-![][12] 
+若要使用 Oracle 連接器做為動作，請輸入您建立 Oracle 連接器時所輸入的資料表及/或預存程序的名稱：
 
-您可以在所輪詢的資料表中新增記錄，來測試邏輯應用程式。
+1. 從資源庫選取相同的 Oracle 連接器做為動作。選取其中一個「插入」動作，例如*插入到 TempEmployeeDetails (JSON)*：<br/> ![][8] 
+
+2. 輸入要插入的記錄的輸入值，然後按一下 ✓：<br/> ![][9]
+
+3. 從資源庫選取您建立的同一個 Oracle 連接器。在相同資料表上選取「更新」動作當做動作，例如 *Update TempEmployeeDetails*：<br/> ![][11]
+
+4. 輸入更新動作的輸入值，然後按一下 ✓：<br/> ![][12]
+
+您可以在所輪詢的資料表中加入新記錄，以測試邏輯應用程式。
+
+## 混合式組態
+
+> [AZURE.NOTE]只有當您在防火牆後方使用 Oracle 內部部署時，才需要此步驟。
+
+App Service 使用混合式組態管理員來安全地連線到內部部署系統。如果您的連接器使用內部部署 Oracle，則需要混合式連線管理員。
+
+請參閱[使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)。
+
+## 進一步運用您的連接器
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+
+您也可以檢閱連接器的效能統計資料和控制安全性。請參閱[管理和監視 API 應用程式和連接器](../app-service-api/app-service-api-manage-in-portal.md)。
+
 
 <!--Image references-->
-[1]: ./media/app-service-logic-connector-oracle/Create.jpg
-[2]: ./media/app-service-logic-connector-oracle/BrowseSetupIncomplete.jpg
-[3]: ./media/app-service-logic-connector-oracle/HybridSetup.jpg
-[4]: ./media/app-service-logic-connector-oracle/BrowseSetupComplete.jpg
-[5]: ./media/app-service-logic-connector-oracle/LogicApp1.jpg
-[6]: ./media/app-service-logic-connector-oracle/LogicApp2.jpg
-[7]: ./media/app-service-logic-connector-oracle/LogicApp3.jpg
-[8]: ./media/app-service-logic-connector-oracle/LogicApp4.jpg
-[9]: ./media/app-service-logic-connector-oracle/LogicApp5.jpg
-[10]: ./media/app-service-logic-connector-oracle/LogicApp6.jpg
-[11]: ./media/app-service-logic-connector-oracle/LogicApp7.jpg
-[12]: ./media/app-service-logic-connector-oracle/LogicApp8.jpg
-
-<!--Links-->
-[設定 Oracle 用戶端]: https://msdn.microsoft.com/zh-tw/library/dd787872.aspx
+[1]: ./media/app-service-logic-connector-oracle/Create.png
+[5]: ./media/app-service-logic-connector-oracle/LogicApp1.png
+[6]: ./media/app-service-logic-connector-oracle/LogicApp2.png
+[7]: ./media/app-service-logic-connector-oracle/LogicApp3.png
+[8]: ./media/app-service-logic-connector-oracle/LogicApp4.png
+[9]: ./media/app-service-logic-connector-oracle/LogicApp5.png
+[11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
+[12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
 
 
-<!--HONumber=52--> 
+ 
+
+<!---HONumber=62-->

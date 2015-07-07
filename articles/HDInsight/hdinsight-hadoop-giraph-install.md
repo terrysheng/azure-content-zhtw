@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用 HDInsight 中的指令碼動作在 Hadoop 叢集上安裝 Giraph | Azure" 
-	description="了解如何自訂要安裝 Giraph 的 HDInsight 叢集。您將使用指令碼動作設定選項來使用指令碼安裝 Giraph" 
+	pageTitle="在 HDInsight 的 Hadoop 叢集上安裝和使用 Giraph | Microsoft Azure" 
+	description="了解如何使用 Giraph 自訂 HDInsight 叢集。您將使用指令碼動作設定選項來使用指令碼安裝 Giraph。" 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
@@ -16,7 +16,7 @@
 	ms.date="03/03/2015" 
 	ms.author="nitinme"/>
 
-# 在 HDInsight Hadoop 叢集上安裝和使用 Giraph
+# 在 HDInsight Hadoop 叢集上安裝 Giraph，以及使用 Giraph 來處理大規模圖形
 
 您也可以使用**指令碼動作**叢集自訂，在 Azure HDInsight 上 Hadoop 中的任何一種叢集上安裝 Giraph。指令碼動作可讓您執行指令碼，只在建立叢集時才能自訂叢集。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]。
 
@@ -38,7 +38,7 @@
 
 > [AZURE.NOTE]範例指令碼只能與 HDInsight 叢集版本 3.1 搭配使用。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
 
-1. 開始使用 [**自訂建立**] 選項佈建叢集，如[使用自訂選項佈建叢集](hdinsight-provision-clusters.md#portal)所述。 
+1. 依照[使用自訂選項佈建叢集](hdinsight-provision-clusters.md#portal)所述，使用**自訂建立**選項開始佈建叢集。 
 2. 在精靈的 [**指令碼動作**] 頁面上，按一下 [**加入指令碼動作**] 以提供有關指令碼動作的詳細資料，如下所示：
 
 	![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "使用指令碼動作以自訂叢集")
@@ -71,7 +71,7 @@
 
 	將 tiny_graph.txt 檔案上傳至 HDInsight 叢集的主要儲存體。如需有關如何上傳資料的指示，請參閱[在 HDInsight 上將 Hadoop 工作的資料上傳](hdinsight-upload-data.md)。
 
-	這項資料會使用 [source_id、source_value、[[dest_id]、[edge_value]]] 等格式，描述一個有向圖形中物件之間的關聯性。每一行代表 **source_id** 物件和一或多個 **dest_id** 物件之間的關聯性。**edge_value** (或權數) 可以視為 **source_id** 和 **dest_id** 之間的連線強度或距離。
+	這項資料會使用 [source_id, source_value,[[dest_id], [edge_value],...]] 格式，描述一個有向圖形中物件之間的關聯性。每一行代表 **source_id** 物件和一或多個 **dest_id** 物件之間的關聯性。**edge_value** (或權數) 可以視為 **source_id** 和 **dest_id** 之間的連線強度或距離。
 
 	如果使用值 (或權數) 當做物件之間的距離繪製出來，上述資料可能如下圖所示：
 
@@ -79,7 +79,7 @@
 
 	
 
-4. 執行 SimpleShortestPathsComputation 範例。使用 tiny_graph.txt 檔案做為輸入，即可使用下列 Azure PowerShell Cmdlet 來執行此範例。您必須已安裝和設定 [Azure PowerShell][powershell-install-configure]。
+4. 執行 SimpleShortestPathsComputation 範例。使用 tiny_graph.txt 檔案做為輸入，即可使用下列 Azure PowerShell Cmdlet 來執行此範例。您必須已安裝和設定 [Azure PowerShell][powershell-install]。
 
 		$clusterName = "clustername"
 		# Giraph examples jar
@@ -150,7 +150,7 @@
 
 ## <a name="usingPS"></a>使用 Azure PowerShell 在 HDInsight Hadoop 叢集上安裝 Giraph
 
-本節中，我們使用 **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** Cmdlet，使用「指令碼動作」叫用指令碼以自訂叢集。在繼續之前，請確認您已安裝和設定 Azure PowerShell。如需設定工作站以執行 HDInsight 的 Azure Powershell cmdlet 之相關資訊，請參閱[安裝和設定 Azure PowerShell][powershell-install-configure]。
+本節中，我們使用 **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** Cmdlet，使用「指令碼動作」叫用指令碼以自訂叢集。在繼續之前，請確認您已安裝和設定 Azure PowerShell。如需設定工作站以執行 HDInsight 的 Azure Powershell cmdlet 之相關資訊，請參閱[安裝和設定 Azure PowerShell][powershell-install]。
 
 執行下列步驟：
 
@@ -175,7 +175,7 @@
 		$config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
 		$config.DefaultStorageAccount.StorageContainerName=$containerName
 	
-3. 使用 **Add-AzureHDInsightScriptAction** Cmdlet 將指令碼動作加入叢集設定。稍後，在建立叢集時，將會執行指令碼動作。
+3. 使用 **Add-AzureHDInsightScriptAction** Cmdlet 將指令碼動作加入叢集設定。稍後在建立叢集時，將會執行指令碼動作。
 
 		# Add a script action to the cluster configuration
 		$config = Add-AzureHDInsightScriptAction -Config $config -Name "Install Giraph" -ClusterRoleCollection HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1
@@ -188,7 +188,7 @@
 <th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:550px; padding-left:5px; padding-right:5px;">定義</th></tr>
 <tr>
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">設定</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">要在其中新增指令碼動作資訊的設定物件。</td></tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">要在其中新增指令碼動作資訊的組態物件。</td></tr>
 <tr>
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">名稱</td>
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">指令碼動作的名稱。</td></tr>
@@ -197,7 +197,7 @@
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">自訂指令碼執行所在的節點。有效值為 HeadNode (在前端節點上安裝) 或 DataNode (在所有資料節點上安裝)。您可以使用其中一個或兩個值。</td></tr>
 <tr>
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Uri</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">要執行之指令碼的 URI。</td></tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">所執行之指令碼的 URI。</td></tr>
 <tr>
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">參數</td>
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">指令碼所需的參數。本主題中使用的範例指令碼不需要任何參數，因此您在上述程式碼片段中看不到此參數。
@@ -235,7 +235,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
 
 1. 開啟 Visual Studio 2013。
 
-2. 從 [檔案]**** 功能表中，按一下 [新增]****，再按 [專案]****。
+2. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
 
 3. 在 [**新增專案**] 中，輸入或選取下列值：
 	
@@ -254,15 +254,15 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateGiraphCluster</td></tr>
 </table>
 
-4. 按一下 [確定]**** 以建立專案。
+4. 按一下 [確定] 以建立專案。
 
-5. 在 [工具]**** 功能表中按一下 [Nuget 套件管理員]****，然後按一下 [Package Manager Console]****。
+5. 在 [工具] 功能表中按一下 [Nuget 套件管理員]，然後按一下 [Package Manager Console]。
 
-6. 在主控台中執行下列命令，以安裝封裝：
+6. 在主控台中執行下列命令，以安裝套件：
 
 		Install-Package Microsoft.WindowsAzure.Management.HDInsight
 
-	此命令會將 .NET 程式庫及其參考叢目前的 Visual Studio 專案加入它們。
+	此命令會從目前的 Visual Studio 專案新增 .NET 程式庫及其參考。
 
 7. 在 [方案總管] 中，按兩下 **Program.cs** 加以開啟。
 
@@ -329,7 +329,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
 
 **執行應用程式**
 
-開啟 Azure PowerShell 主控台、瀏覽至您儲存 Visual Studio 專案的位置、瀏覽至專案內的 \\bin\\debug 目錄，然後執行下列命令：
+開啟 Azure PowerShell 主控台、瀏覽至您儲存 Visual Studio 專案的位置、瀏覽至專案內的 \bin\debug 目錄，然後執行下列命令：
 
 	.\CreateGiraphCluster <cluster-name>
 
@@ -346,9 +346,11 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
 [tools]: https://github.com/Blackmist/hdinsight-tools
 [aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
+[powershell-install]: ../powershell-install-configure.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

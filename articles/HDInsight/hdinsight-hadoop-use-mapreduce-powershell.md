@@ -24,11 +24,11 @@
 
 ##<a id="prereq"></a>必要條件
 
-若要完成本文中的步驟，您需要下列項目：
+若要完成本文中的步驟，您需要下列項目。
 
-* Azure HDInsight (HDInsight 上的 Hadoop) 叢集 (Windows 型或 Linux 型)
+- **Azure HDInsight (HDInsight 上的 Hadoop) 叢集 (Windows 型或 Linux 型)**
 
-* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
 
 ##<a id="powershell"></a>使用 Azure PowerShell 執行 MapReduce 工作
 
@@ -172,5 +172,6 @@ MapReduce 工作的輸出會儲存在名稱為 *part-r-#####* 的檔案中。使
 * [搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-use-hive.md)
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

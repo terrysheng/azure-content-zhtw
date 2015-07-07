@@ -20,15 +20,16 @@
 
 ## 概觀
 
-在[部署 API 應用程式](app-service-dotnet-deploy-api-app.md)教學課程中，您利用**可供任何人使用**存取層級來部署 API 應用程式。本教學課程顯示如何保護 API 應用程式，以便只有已驗證的使用者才能存取它。
+本教學課程示範如何保護 API 應用程式，如此一來，只有經過驗證的使用者才可加以存取。本教學課程也將提供您可用於 ASP.NET API 的程式碼，以便擷取已登入使用者的相關資訊。
 
-您將執行下列步驟：
+您會執行下列步驟：
 
 - 呼叫 API 應用程式，確認它正在運作。
 - 將驗證規則套用至 API 應用程式。
 - 再次呼叫 API 應用程式，確認它會拒絕未經驗證的要求。
 - 登入已設定的提供者。
-- 再次呼叫 API 應用程式，確認已驗證的存取可以運作。
+- 再次呼叫 API 應用程式，確認經過驗證的存取有作用。
+- 撰寫及測試程式碼，以擷取已登入使用者的宣告。
 
 ## 必要條件
 
@@ -158,7 +159,13 @@
 
 	![閘道 URL](./media/app-service-api-dotnet-add-authentication/gatewayurl.png)
 
-	[providername] 值為 "microsoftaccount"、"facebook"、"twitter"、"google" 或 "aad"。
+	[providername] 的值必須是以下其中一項：
+	
+	* "microsoftaccount"
+	* "facebook"
+	* "twitter"
+	* "google"
+	* "aad"
 
 	這裡是 Azure Active Directory 的範例登入 URL：
 
@@ -230,6 +237,74 @@
 
 	![[403 禁止] 回應](./media/app-service-api-dotnet-add-authentication/403forbidden.png)
 
+## 取得已登入使用者的相關資訊
+
+本節將說明如何變更 ContactsList API 應用程式中的程式碼，以擷取並傳回已登入使用者的名稱和電子郵件地址。
+
+1. 在 Visual Studio 中，開啟您在[部署 API 應用程式](app-service-dotnet-deploy-api-app.md) 中部署的 API 應用程式專案，亦即本教學課程持續使用的專案。
+
+3. 開啟 apiapp.json 檔案，並加入一行，說明 API 應用程式是使用 Azure Active Directory 驗證。
+
+		"authentication": [{"type": "aad"}]
+
+	最後的 apiapp.json 檔案會類似以下範例所示：
+
+		{
+		    "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
+		    "id": "ContactsList",
+		    "namespace": "microsoft.com",
+		    "gateway": "2015-01-14",
+		    "version": "1.0.0",
+		    "title": "ContactsList",
+		    "summary": "",
+		    "author": "",
+		    "endpoints": {
+		        "apiDefinition": "/swagger/docs/v1",
+		        "status": null
+		    },
+		    "authentication": [{"type": "aad"}]
+		}
+
+	本教學課程會使用 Azure Active Directory 做為範例。若是其他提供者，則應改用適當的識別碼。有效的提供者值如下：
+
+	* "aad"
+	* "microsoftaccount"
+	* "google"
+	* "twitter"
+	* "facebook" 
+
+2. 在 *ContactsController.cs* 檔案中，將 `Get` 方法的程式碼替換成以下程式碼。
+
+		var runtime = Runtime.FromAppSettings(Request);
+		var user = runtime.CurrentUser;
+		TokenResult token = await user.GetRawTokenAsync("aad");
+		var name = (string)token.Claims["name"];
+		var email = (string)token.Claims["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"];
+		return new Contact[]
+		{
+		    new Contact { Id = 1, EmailAddress = email, Name = name }
+		};
+
+	程式碼會傳回已登入使用者的連絡資訊，而不是三個範例連絡人。
+
+	範例程式碼會使用 Azure Active Directory。若是其他提供者，則應依照上一個步驟所述，使用適當的權杖名稱與宣告識別碼。
+
+	如需關於可用 Azure Active Directory 宣告的資訊，請參閱[支援的權杖和宣告類型](https://msdn.microsoft.com/library/dn195587.aspx)。
+
+3. 為 `Microsoft.Azure.AppService.ApiApps.Service` 新增 using 陳述式：
+
+		using Microsoft.Azure.AppService.ApiApps.Service;
+
+3. 重新部署專案。
+
+	Visual Studio 會記住您依照[部署](app-service-dotnet-deploy-api-app.md)教學課程部署專案時所做的設定。以滑鼠右鍵按一下專案，按一下 [發行]，然後按一下 [發行 Web]對話方塊中的 [發行]。
+
+6. 依照稍早執行過的程序，將 Get 要求傳送至受保護的 API 應用程式。
+
+	回應訊息會顯示您用來登入的身分識別名稱與識別碼。
+
+	![有關已登入使用者的回應訊息](./media/app-service-api-dotnet-add-authentication/chromegetuserinfo.png)
+
 ## 後續步驟
 
 您已了解如何透過 Azure Active Directory 或社交提供者驗證來保護 Azure API 應用程式。如需詳細資訊，請參閱[什麼是 API 應用程式？](app-service-api-apps-why-best-platform.md)。
@@ -238,4 +313,6 @@
 [Azure 預覽入口網站]: https://portal.azure.com/
 
 
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

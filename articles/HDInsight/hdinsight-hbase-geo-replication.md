@@ -1,7 +1,7 @@
 <properties 
-   pageTitle="設定兩個 Azure 資料中心之間的 HBase 複寫 |Azure" 
-   description="了解如何設定兩個 Azure 虛擬網路之間的 VPN 連線、如何設定兩個虛擬網路之間的網域名稱解析，以及如何設定 HBase 地理複寫" 
-   services="hdinsight" 
+   pageTitle="設定兩個資料中心之間的 HBase 複寫 | Microsoft Azure" 
+   description="了解如何跨兩個資料中心設定 HBase 複寫，以及有關叢集複寫的使用案例。" 
+   services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 
@@ -40,14 +40,15 @@
 
 下圖說明兩個虛擬網路和您在[設定兩個虛擬網路之間的 VPN 連線][hdinsight-hbase-geo-replication-vnet]和[設定虛擬網路的 DNS][hdinsight-hbase-replication-dns] 中建立的網路連線：
 
-![HDInsight HBase 複寫虛擬網路圖][img-vnet-diagram]
+![HDInsight HBase 複寫虛擬網路圖表][img-vnet-diagram]
 
-##<a id="prerequisites"></a>必要條件
+## <a id="prerequisites"></a>必要條件
+
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。Azure 是訂用帳戶型平台。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][azure-purchase-options]、[成員優惠][azure-member-offers]或[免費試用][azure-free-trial]。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-- **已安裝並設定 Azure PowerShell 的工作站**。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install]。若要執行 PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱[使用 Set-executionpolicy cmdlet][2]。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。若要執行 PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱＜使用 Set-ExecutionPolicy Cmdlet＞。
 
 - **兩個具備 VPN 連線且已設定 DNS 的 Azure 虛擬網路**。如需相關指示，請參閱[設定兩個 Azure 虛擬網路之間的 VPN 連線][hdinsight-hbase-replication-vnet]和[在兩個 Azure 虛擬網路之間設定 DNS][hdinsight-hbase-replication-dns]。
 
@@ -62,7 +63,7 @@
 
 
 
-##在 HDInsight 中佈建 HBase 叢集
+## 在 HDInsight 中佈建 HBase 叢集
 
 在[設定兩個 Azure 虛擬網路之間的 VPN 連線][hdinsight-hbase-replication-vnet]中，您已在歐洲資料中心建立了一個虛擬網路，也在美國資料中心建立了一個虛擬網路。兩個虛擬網路透過 VPN 連線。在這個工作階段中，您將在每個虛擬網路中佈建 HBase 叢集。稍後在本教學課程中，您將會讓其中一個 HBase 叢集複寫其他 HBase 叢集。
 
@@ -147,7 +148,7 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
 
 
 
-# 設定 DNS 條件轉寄站
+## 設定 DNS 條件轉寄站
 
 在[設定虛擬網路的 DNS][hdinsight-hbase-replication-dns] 中，您已設定兩個網路的 DNS 伺服器。HBase 叢集有不同的網域尾碼。因此，您必須設定其他的 DNS 條件轉寄站。
 
@@ -193,7 +194,7 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
 
 >[AZURE.IMPORTANT]DNS 必須在您繼續下一個步驟之前運作。
 
-##啟用 HBase 資料表之間的複寫
+## 啟用 HBase 資料表之間的複寫
 
 現在，您可以建立範例 HBase 資料表、啟用複寫，然後利用一些資料進行測試。您將使用的範例資料表有兩個資料行系列：個人和辦公室。
 
@@ -261,7 +262,7 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
 您可以將相同的資料檔案上傳至 HBase 叢集並從中匯入資料。
 
 1. 切換至 [**Contoso-HBase-EU** RDP] 視窗。
-2. 從桌面上，按一下 [Hadoop 命令列]
+2. 從桌面上，按一下 [Hadoop 命令列]。
 3. 將資料夾切換至 HBase 主目錄：
 
 		cd %HBASE_HOME%\bin
@@ -273,14 +274,14 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
 		hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /tmpOutput Contacts
 
 
-##確認資料複寫正在進行中
+## 確認資料複寫正在進行中
 
 您可以利用下列 HBase Shell 命令掃描這兩個叢集的資料表，以確認該複寫正在進行中：
 
 		Scan 'Contacts'
 
 
-##後續步驟
+## 後續步驟
 
 在本教學課程中，您已經學會如何跨兩個資料中心設定 HBase 複寫。若要深入了解 HDInsight 與 HBase ，請參閱：
 
@@ -298,7 +299,7 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication/HDInsight.HBase.Replication.Network.diagram.png
 
-
+[powershell-install]: ../install-configure-powershell.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
@@ -309,5 +310,5 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

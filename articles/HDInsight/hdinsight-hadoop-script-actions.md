@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/10/2015" 
 	ms.author="bradsev"/>
 
 # 使用 HDInsight 開發指令碼動作 
@@ -44,11 +44,11 @@
 
 
 ### <a name="bPS3"></a>確保叢集自訂指令碼具有等冪性
-您必須預期在叢集存留期間將會為 HDInsight 叢集的節點重新製作映像。每當重新製作叢集映像時，都會執行叢集自訂指令碼。此指令碼必須設計成具有等冪性，意思就是在重新製作映像時，此指令碼應該確保叢集會回到與當初建立叢集時，指令碼剛剛第一次執行後相同的自訂狀態。例如，如果自訂指令碼在第一次執行時，在 D:\\AppLocation 中安裝了某個應用程式，則在後續每次的執行中，當重新製作映像時，此指令碼應該先檢查 D:\\AppLocation 位置中是否有該應用程式，再繼續執行指令碼中的其他步驟。
+您必須預期在叢集存留期間將會為 HDInsight 叢集的節點重新製作映像。每當重新製作叢集映像時，都會執行叢集自訂指令碼。此指令碼必須設計成具有等冪性，意思就是在重新製作映像時，此指令碼應該確保叢集會回到與當初建立叢集時，指令碼剛剛第一次執行後相同的自訂狀態。例如，如果自訂指令碼在第一次執行時，在 D:\AppLocation 中安裝了某個應用程式，則在後續每次的執行中，當重新製作映像時，此指令碼應該先檢查 D:\AppLocation 位置中是否有該應用程式，再繼續執行指令碼中的其他步驟。
 
 
 ### <a name="bPS4"></a>在最佳位置安裝自訂元件 
-重新製作叢集節點映像時，C:\\ 資源磁碟機和 D:\\ 系統磁碟機可能被重新格式化，而導致資料及安裝在這些磁碟機上的應用程式遺失。如果隸屬於叢集的 Azure 虛擬機器 (VM) 節點故障，而被新節點取代時，也可能發生這種情況。您可以將元件安裝在 D:\\ 磁碟機上，或叢集上的 C:\\apps 位置中。C:\\ 磁碟機上的所有其他位置則已預留他用。請在叢集自訂指令碼中指定要用來安裝應用程式或程式庫的位置。
+重新製作叢集節點映像時，C:\ 資源磁碟機和 D:\ 系統磁碟機可能被重新格式化，而導致資料及安裝在這些磁碟機上的應用程式遺失。如果隸屬於叢集的 Azure 虛擬機器 (VM) 節點故障，而被新節點取代時，也可能發生這種情況。您可以將元件安裝在 D:\ 磁碟機上，或叢集上的 C:\apps 位置中。C:\ 磁碟機上的所有其他位置則已預留他用。請在叢集自訂指令碼中指定要用來安裝應用程式或程式庫的位置。
 
 
 ### <a name="bPS5"></a>確保叢集架構具有高可用性
@@ -96,13 +96,15 @@
 	Write-HDILog "Starting environment variable setting at: $(Get-Date)";
 	[Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-此陳述式將環境變數 **MDS_RUNNER_CUSTOM_CLUSTER** 設為 'true' 值，並將此變數的範圍設為整個機器。有時候您必須將環境變數設定在適當範圍 – 機器或使用者。如需設定環境變數的詳細資訊，請參閱[這裡](https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx "這裡")。
+此陳述式將環境變數 **MDS_RUNNER_CUSTOM_CLUSTER** 設為 'true' 值，並將此變數的範圍設為整個機器。有時候您必須將環境變數設定在適當範圍 – 機器或使用者。如需設定環境變數的詳細資訊，請參閱[這裡][1]。
 
 ### 存取自訂指令碼儲存所在位置
 
 用來自訂叢集的指令碼必須位於叢集的預設儲存體帳戶，或是位於其他任何儲存體帳戶上的公用唯讀容器。如果指令碼存取位於他處的資源，則這些資源必須是可公開存取的資源 (至少是公用唯讀狀態)。例如，您可能會想要用 SaveFile-HDI 命令存取檔案並加以儲存。
 
 	Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
+
+在此範例中，您必須確定儲存體帳戶 'somestorageaccount' 中的容器 'somecontainer' 可公開存取。否則，指令碼將會擲回「找不到」例外狀況而且失敗。
 
 ### 對於失敗的叢集部署擲回例外狀況
 
@@ -116,6 +118,17 @@
 	exit
 	}
 
+在此程式碼片段中，如果檔案不存在，則會導致指令碼在列印錯誤訊息後確實正常結束的狀態，而叢集會達到執行中狀態 (前提是它「成功」完成叢集自訂程序)。如果您要精確地獲知叢集自訂作業因為遺漏檔案而未如預期般成功的事實，就更適合擲回例外狀況並使叢集自訂步驟失敗。若要達到這個目的，您必須改用下列範例程式碼片段。
+
+	If(Test-Path($SomePath)) {
+		#Process file in some way
+	} else {
+		# File does not exist; handle error case
+		# Print error message
+	throw
+	}
+
+
 ## <a name="deployScript"></a>指令碼動作的部署檢查清單
 以下是我們在準備部署這些指令碼時所採取的步驟：
 
@@ -123,7 +136,7 @@
 2. 在指令碼中加入檢查以確定它們以等冪方式執行，使得指令碼可以在相同的節點上執行多次。
 3. 使用 **Write-Output** Azure PowerShell Cmdlet 來列印至 STDOUT 以及 STDERR。請勿使用 **Write-Host**。
 4. 使用暫存檔案資料夾 (例如 $env:TEMP) 來存放指令碼所使用的下載檔案，然後在執行完指令碼之後將這些檔案清除。
-5. 安裝自訂軟體，位置只能是 D:\\ 或 C:\\apps。不應該使用 C: 磁碟機上的其他位置，因為它們已預留他用。請注意，如果將檔案安裝在 C: 磁碟機上 C:\\apps 資料夾以外的位置，可能會導致在重新製作節點映像期間設定失敗。
+5. 安裝自訂軟體，位置只能是 D:\ 或 C:\apps。不應該使用 C: 磁碟機上的其他位置，因為它們已預留他用。請注意，如果將檔案安裝在 C: 磁碟機上 C:\apps 資料夾以外的位置，可能會導致在重新製作節點映像期間設定失敗。
 6. 如果作業系統層級設定或 Hadoop 服務組態檔已變更，您可能會想要重新啟動 HDInsight 服務，讓它們可以載入任何作業系統層級設定，例如指令碼中設定的環境變數。
 
 
@@ -176,9 +189,9 @@ Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。您�
 
 ## <a name="debugScript"></a>如何對自訂指令碼進行偵錯
 
-指令碼錯誤記錄檔會與其他輸出一起儲存在您建立叢集時為其指定的預設儲存體帳戶中。記錄檔是以 *u<\\cluster-name-fragment><\\time-stamp>setuplog* 的名稱儲存在資料表中。這些是彙總的記錄檔，包含來自指令碼執行所在之所有叢集節點 (前端節點和背景工作節點) 的記錄。
+指令碼錯誤記錄檔會與其他輸出一起儲存在您建立叢集時為其指定的預設儲存體帳戶中。記錄檔是以 *u<\cluster-name-fragment><\time-stamp>setuplog* 的名稱儲存在資料表中。這些是彙總的記錄檔，包含來自指令碼執行所在之所有叢集節點 (前端節點和背景工作節點) 的記錄。
 
-您也可以遠端登入到叢集節點以查看 STDOUT 和 STDERR 中的自訂指令碼。每個節點上的記錄檔都只與該節點有關，並且會記錄到 **C:\\HDInsightLogs\\DeploymentAgent.log**。這些記錄檔會記錄自訂指令碼的所有輸出。Spark 指令碼動作的範例記錄程式碼片段看起來像這樣：
+您也可以遠端登入到叢集節點以查看 STDOUT 和 STDERR 中的自訂指令碼。每個節點上的記錄檔都只與該節點有關，並且會記錄到 **C:\HDInsightLogs\DeploymentAgent.log**。這些記錄檔會記錄自訂指令碼的所有輸出。Spark 指令碼動作的範例記錄程式碼片段看起來像這樣：
 
 	Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.; 
 	Version : 2.1.0.0; 
@@ -234,4 +247,8 @@ Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。您�
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
 [powershell-install-configure]: ../install-configure-powershell/
 
-<!--HONumber=54--> 
+<!--Reference links in article-->
+[1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
+ 
+
+<!---HONumber=62-->

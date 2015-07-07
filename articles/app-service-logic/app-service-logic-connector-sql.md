@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="SQL 連接器" 
+   pageTitle="在 Microsoft Azure App Service 中使用 SQL 連接器" 
    description="如何使用 SQL 連接器" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
@@ -13,162 +13,125 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/20/2015"
+   ms.date="06/17/2015"
    ms.author="sutalasi"/>
 
 
-# Microsoft SQL 連接器 #
+# Microsoft SQL 連接器
 
-在邏輯應用程式中，連接器可以在執行流程時用來擷取、處理或發送資料。某些案例中您可能需要處理 Azure SQL 上的 SQL 資料庫，或 SQL Server (安裝於內部部署且位於防火牆後)。透過在流程中運用 SQL 連接器，您可以達到各種案例的目的。幾個範例：  
+連接到內部部署 SQL Server 或 Azure SQL Database 來建立和變更資訊或資料。在 Logic Apps 中，連接器可以在「工作流程」中用來擷取、處理或推送資料。在工作流程中使用 SQL 連接器時，您可以達到各種案例的目的。例如，您可以：
 
-1.	透過 web 或行動使用者前端公開位於 SQL 上的部分資料。
-2.	將資料插入 SQL 資料庫資料表以儲存 (例如：Employee Records、Sales Orders 等等)
-3.	從 SQL 擷取資料，以供商務程序使用
+- 使用 Web 或行動應用程式，公開位於 SQL 資料庫中的部分資料。 
+- 將資料插入 SQL 資料庫資料表以儲存。例如，您可以輸入員工記錄、更新銷售訂單等等。
+- 從 SQL 取得資料，以供商務程序使用。例如，您可以取得客戶記錄，並將這些客戶記錄放在 SalesForce 中。 
 
-在這些案例中，請務必完成下列需求： 
+## 觸發程序和動作
+*觸發程序*是發生的事件。例如，訂單更新時或加入新客戶時。*動作*是觸發程序的結果。例如，當訂單更新時，傳送警示給銷售人員。或者，當加入新客戶時，傳送歡迎電子郵件給新客戶。
 
-1. 建立 SQL 連接器 API 應用程式的執行個體
-2. 建置 API 應用程式可與內部部署 SQL 進行通訊的混合式連線這個步驟是選用的，且指只有內部部署的 SQL Server 需要，SQL Azure 則不需要。
-3. 在邏輯應用程式中使用建立的 API 應用程式，以達成所需商務程序的目的
+SQL 連接器可以在邏輯應用程式中做為觸發程序或動作，且支援 JSON 和 XML 格式的資料。對於封裝設定中包含的每個資料表 (本主題稍後詳細說明)，都有一組 JSON 動作和一組 XML 動作。
 
-	### 基本觸發程序和動作
-		
-    - 輪詢資料 (觸發程序) 
-    - 插入到資料表
-    - 更新資料表
-    - 從資料表選取
-    - 從資料表刪除
-    - 呼叫預存程序
+SQL 連接器提供下列觸發程序和動作：
 
-## 建立 SQL 連接器 API 應用程式的執行個體 ##
+觸發程序 | 動作
+--- | ---
+輪詢資料 | <ul><li>插入到資料表</li><li>更新資料表</li><li>從資料表選取</li><li>從資料表刪除</li><li>呼叫預存程序</li>
 
-若要使用 SQL 連接器，您必須建立 SQL 連接器 API 應用程式的執行個體。以下步驟可以達到此目的：
+## 建立 SQL 連接器
 
-1. 使用 Azure 入口網站左下方的 [+新增] 選項開啟 Azure Marketplace。
-2. 瀏覽至 [Web 與行動] > [API 應用程式]，並搜尋「SQL 連接器」。
-3. 在第一個分頁中提供一般詳細資訊，例如名稱、應用程式服務方案等等
-4. 提供下表中所述的套件設定。	
+連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
-<style type="text/css">
-	table.tableizer-table {
-	border: 1px solid #CCC; font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-} 
-.tableizer-table td {
-	padding: 4px;
-	margin: 3px;
-	border: 1px solid #ccc;
-}
-.tableizer-table th {
-	background-color: #525B64; 
-	color: #FFF;
-	font-weight: bold;
-}
-</style><table class="tableizer-table">
-<tr class="tableizer-firstrow"><th>名稱</th><th>必要</th><th>預設值</th><th>說明</th></tr>
- <tr><td>伺服器名稱</td><td>是</td><td>&nbsp;</td><td>指定 SQL Server 名稱。範例："SQLserver"、"SQLserver/sqlexpress" 或 "SQLserver.mydomain.com"。</td></tr>
- <tr><td>連接埠</td><td>否</td><td> 1433</td><td>選用。建立連線的連接埠號碼。若沒有指定值，連接器會透過預設的連接埠連線。</td></tr>
- <tr><td>使用者名稱</td><td>是</td><td>&nbsp;</td><td>指定連線到 SQL 伺服器的有效使用者名稱。</td></tr>
- <tr><td>密碼</td><td>是</td><td>&nbsp;</td><td>指定連線到 SQL 伺服器的有效密碼。</td></tr>
- <tr><td>資料庫名稱</td><td>是</td><td>&nbsp;</td><td>指定 SQL Server 中資料庫的名稱。範例："orders" 或 "dbo/orders" 或者 "myaccount/employees"。</td></tr>
- <tr><td>內部部署</td><td>是</td><td>FALSE</td><td>指定 SQL Server 是否內部部署在防火牆後面。如果設定為 TRUE，則您必須在能夠存取 SQL 伺服器的伺服器上安裝接聽程式代理程式。您可以移至您的 API 應用程式摘要頁面，然後按一下 '混合式連線' 來安裝代理程式。</td></tr>
- <tr><td>服務匯流排連接字串</td><td>否</td><td>&nbsp;</td><td>選用。如果 SQL 伺服器是在內部部署，請指定此參數。這應該會是有效的服務匯流排命名空間連接字串。請確認您使用 '標準' 版本的 Azure 服務會流排，而不是 '基本'。</td></tr>
- <tr><td>夥伴伺服器名稱</td><td>否</td><td>&nbsp;</td><td>選用。指定當主要伺服器關閉時，要連線到的夥伴伺服器。</td></tr>
- <tr><td>資料表</td><td>否</td><td>&nbsp;</td><td>選用。指定資料庫中允許連接器修改的資料表。例如：OrdersTable、EmployeeTable</td></tr>
- <tr><td>預存程序</td><td>否</td><td>&nbsp;</td><td>選用。指定資料庫中連接器可以呼叫的預存程序。例如：IsEmployeeEligible、CalculateOrderDiscount</td></tr>
- <tr><td>資料可用查詢</td><td>否</td><td>&nbsp;</td><td>選用。指定SQL 陳述式，該陳述式決定是否有任何資料可供輪詢 SQL Server 資料庫資料表 。範例： SELECT COUNT(*) from table_name.</td></tr>
- <tr><td>輪詢資料查詢</td><td>否</td><td>&nbsp;</td><td>選用。指定輪詢 SQL Server 資料庫資料表的 SQL 陳述式。您可以指定任意數目的 SQL 陳述式並以分號隔開。範例：SELECT * from table_name; DELETE from table_name. 注意：您必須提供不會造成無線迴圈的輪詢陳述式。例如，選取之後應跟隨刪除，且根據旗標選取後應跟隨更新旗標。</td></tr>
-</table>
+1. 在 Azure 開始面板中，選取 [**Marketplace**]。
+2. 選取 [**API Apps**]，並搜尋「SQL 連接器」。
+3. 輸入名稱、App Service 方案和其他屬性。
+4. 輸入下列封裝設定：
 
+	名稱 | 必要 | 說明
+--- | --- | ---
+伺服器名稱 | 是 | 輸入 SQL Server 名稱。例如，輸入 *SQLserver/sqlexpress* 或 *SQLserver.mydomain.com*。
+連接埠 | 否 | 預設值為 1433。
+使用者名稱 | 是 | 輸入可以登入 SQL Server 的使用者名稱。如果要連線到內部部署 SQL Server，請輸入網域\使用者名稱。 
+密碼 | 是 | 輸入使用者名稱密碼。
+資料庫名稱 | 是 | 輸入您要連接的資料庫。例如，您可以輸入 *Customers* 或 *dbo/orders*。
+內部部署 | 是 | 預設值為 False。如果要連接到 Azure SQL Database，請輸入 False。如果要連線到內部部署 SQL Server，請輸入 True。 
+服務匯流排連接字串 | 否 | 如果您要連線至內部部署，請輸入服務匯流排轉送連接字串。<br/><br/>[使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)<br/>[服務匯流排定價](http://azure.microsoft.com/pricing/details/service-bus/)
+夥伴伺服器名稱 | 否 | 如果主要伺服器無法使用，您可以輸入夥伴伺服器做為替代或備份伺服器。 
+資料表 | 否 | 列出可由連接器更新的資料庫資料表。例如，輸入 *OrdersTable* 或 *EmployeeTable*。如果不輸入任何資料表，則可以使用所有資料表。需要有效的資料表和/或預存程序，才能使用此連接器做為動作。 
+預存程序 | 否 | 輸入可供連接器呼叫的現有預存程序。例如，輸入 *sp_IsEmployeeEligible* 或 *sp_CalculateOrderDiscount*。需要有效的資料表和/或預存程序，才能使用此連接器做為動作。 
+資料可用查詢 | 觸發程序支援 | 判斷是否有任何資料可供輪詢 SQL Server 資料庫資料表的 SQL 陳述式。這應該會傳回數值，代表可用的資料的資料列數目。範例：SELECT COUNT(*) from table_name。 
+輪詢資料查詢 | 觸發程序支援 | 輪詢 SQL Server 資料庫資料表的 SQL 陳述式。您可以輸入任意數目的 SQL 陳述式，以分號隔開。此陳述式以交易式方式執行，而且只有在資料安全地儲存在邏輯應用程式中時才會認可。範例：SELECT * FROM table_name; DELETE FROM table_name。<br/><br/>**注意**<br/>您必須提供輪詢陳述式，避免因為刪除、移動或更新選取的資料而造成無限迴圈，以確保不會重複輪詢相同的資料。 
 
- ![][1]  
+5. 完成時，[封裝設定] 看起來如下：<br/> ![][1]
 
-## 混合式組態 (選用) ##
+## 使用連接器做為觸發程序
+讓我們以一個簡單的邏輯應用程式為例，它會輪詢 SQL 資料表的資料、在另一個資料表中加入資料，以及更新資料。
 
-注意：只有當您使用內部部署在防火牆後面的 SQL Server 時才需要此步驟。
+若要使用 SQL 連接器做為觸發程序，請輸入**資料可用查詢**和**輪詢資料查詢**值。**資料可用查詢**依您輸入的排程執行，並判斷是否有任何可用的資料。因為此查詢只傳回純量數字，可在經常執行時微調並最佳化。
 
-透過 [瀏覽] -> [API 應用程式] -> [<剛建立的 API 應用程式名稱>] 瀏覽到剛建立的 API 應用程式，您將會看到下列行為。因為尚未建立混合式連線，所以安裝未完成。
+**輪詢資料查詢**只在「資料可用查詢」指出有資料可用時才會執行。這個陳述式在交易內執行，而且只有在擷取的資料永久儲存在工作流程中時才會認可。必須避免一再地重複擷取相同的資料。此執行的交易式本質可用來刪除或更新資料，以確保下次查詢資料時不會收集到同樣的資料。
 
-![][2] 
+> [AZURE.NOTE]此陳述式所傳回的結構描述可識別連接器中可用的屬性。所有資料行都必須命名。
 
-若要建置混合式連線，請執行下列作業：
+#### 資料可用查詢範例
 
-1. 複製主要連接字串
-2. 按一下  '下載及設定' 連結
-3. 依照剛起始的安裝程序執行，並在要求時提供主要連接字串
-4. 完成安裝程序後，便會顯示如下所示的對話方塊
+	SELECT COUNT(*) FROM [Order] WHERE OrderStatus = 'ProcessedForCollection'
 
-![][3] 
+#### 輪詢資料查詢範例
 
-現在當您重新瀏覽至建立的 API 應用程式時，您會看到混合式連線狀態為 [已連線]。 
+	SELECT *, GetData() as 'PollTime' FROM [Order] 
+		WHERE OrderStatus = 'ProcessedForCollection' 
+		ORDER BY Id DESC; 
+	UPDATE [Order] SET OrderStatus = 'ProcessedForFrontDesk' 
+		WHERE Id = 
+		(SELECT Id FROM [Order] WHERE OrderStatus = 'ProcessedForCollection' ORDER BY Id DESC)
 
-![][4] 
+### 加入觸發程序
+1. 建立或編輯邏輯應用程式時，請選取您建立的連接器做為觸發程序。這樣會列出可用的觸發程序：**輪詢資料 (JSON)** 和**輪詢資料 (XML)**：<br/> ![][5] 
 
-注意：如果您要切換到次要連線字串，您只需重做混合式設定，並提供次要連接字串來取代主要連接字串即可  
+2. 選取 [**輪詢資料 (JSON)**] 觸發程序，輸入頻率，然後按一下 ✓：<br/> ![][6]
 
-## 邏輯應用程式中的使用方式 ##
+3. 現在，觸發程序在邏輯應用程式中顯示為已設定。其中顯示觸發程序的輸出，在任何後續動作中可做為輸入：<br/> ![][7]
 
-SQL 連接器可以在邏輯應用程式中做為觸發程序/動作使用。觸發程序和所有動作支援 JSON 和 XML 兩種資料格式。每個提供為套件設定一部份的資料表，都有一組 JSON 動作和一組 XML 動作。如果您使用 XML 觸發程序/動作，您可以使用「轉換 API 應用程式」將資料轉換成令一種 XML 資料格式。 
+## 使用連接器做為動作
+以我們簡單的邏輯應用程式案例為例，它會輪詢 SQL 資料表的資料、在另一個資料表中加入資料，以及更新資料。
 
-讓我們以一個簡單的邏輯應用程式為例，它會輪詢來自 SQL 資料表的資料，新增其他資料表內的資料並更新資料。
+若要使用 SQL 連接器做為動作，請輸入您建立 SQL 連接器時所輸入的資料表及/或預存程序的名稱：
 
+1. 在觸發程序之後 (或選擇 [手動執行此邏輯])，從資源庫加入您建立的 SQL 連接器。選取其中一個「插入」動作，例如*插入到 TempEmployeeDetails (JSON)*：<br/> ![][8] 
 
+2. 輸入要插入的記錄的輸入值，然後按一下 ✓：<br/> ![][9]
 
--  建立/編輯邏輯應用程式時，請選擇 SQL 連接器 API 應用程式。這樣會列出可以使用的觸發程序 - 「輪詢資料 (JSON)」和「輪詢資料 (XML)」。
+3. 從資源庫選取您建立的同一個 SQL 連接器。在相同資料表上選取「更新」動作當做動作，例如 *Update EmployeeDetails*：<br/> ![][11]
 
- ![][5] 
+4. 輸入更新動作的輸入值，然後按一下 ✓：<br/> ![][12]
+
+您可以在所輪詢的資料表中加入新記錄，以測試邏輯應用程式。
+
+## 混合式組態 (選用)
+
+> [AZURE.NOTE]只有當您在防火牆後方使用 SQL Server 內部部署時，才需要此步驟。
+
+App Service 使用混合式組態管理員來安全地連線到內部部署系統。如果您的連接器使用內部部署 SQL Server，則需要混合式連線管理員。
+
+請參閱[使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)。
 
 
-- 選取觸發程序 - [輪詢資料 (JSON)]，然後指定 [頻率] 並按一下 ✓。
+## 進一步運用您的連接器
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
 
-![][6] 
+您也可以檢閱連接器的效能統計資料和控制安全性。請參閱[管理和監視 API 應用程式和連接器](../app-service-api/app-service-api-manage-in-portal.md)。
 
-
-
-- 該觸發程序在邏輯應用程式中現在會顯示為已設定。觸發程序輸出的結果將會顯示，並可用於輸入後續動作。 
-
-![][7] 
-
-
-- 從元件庫選取相同的 SQL 連接器做為動作。選取其中一個「插入」動作 - [插入到 TempEmployeeDetails (JSON)]。
-
-![][8] 
-
-
-
-- 提供要插入的記錄，然後按一下 ✓。 
-
-![][9] 
-
-
-
-- 從元件庫選取相同的 SQL 連接器做為動作。選取相同資料表上的「更新」動作 (例如：更新 EmployeeDetails)
-
-![][11] 
-
-
-
-- 提供更新動作的輸入並按一下 ✓。 
-
-![][12] 
-
-您可以在所輪詢的資料表中新增記錄，來測試邏輯應用程式。
 
 <!--Image references-->
-[1]: ./media/app-service-logic-connector-sql/Create.jpg
-[2]: ./media/app-service-logic-connector-sql/BrowseSetupIncomplete.jpg
-[3]: ./media/app-service-logic-connector-sql/HybridSetup.jpg
-[4]: ./media/app-service-logic-connector-sql/BrowseSetupComplete.jpg
-[5]: ./media/app-service-logic-connector-sql/LogicApp1.jpg
-[6]: ./media/app-service-logic-connector-sql/LogicApp2.jpg
-[7]: ./media/app-service-logic-connector-sql/LogicApp3.jpg
-[8]: ./media/app-service-logic-connector-sql/LogicApp4.jpg
-[9]: ./media/app-service-logic-connector-sql/LogicApp5.jpg
-[10]: ./media/app-service-logic-connector-sql/LogicApp6.jpg
-[11]: ./media/app-service-logic-connector-sql/LogicApp7.jpg
-[12]: ./media/app-service-logic-connector-sql/LogicApp8.jpg
+[1]: ./media/app-service-logic-connector-sql/Create.png
+[5]: ./media/app-service-logic-connector-sql/LogicApp1.png
+[6]: ./media/app-service-logic-connector-sql/LogicApp2.png
+[7]: ./media/app-service-logic-connector-sql/LogicApp3.png
+[8]: ./media/app-service-logic-connector-sql/LogicApp4.png
+[9]: ./media/app-service-logic-connector-sql/LogicApp5.png
+[11]: ./media/app-service-logic-connector-sql/LogicApp7.png
+[12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

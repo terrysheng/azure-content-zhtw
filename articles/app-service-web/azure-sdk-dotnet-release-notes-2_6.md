@@ -28,7 +28,7 @@
 
 - 事件中心： 
 
-	- 現在藉由公開事件中心的其他發行者端點，可在傳送事件時提供目標存取控制。
+	- 現在藉由公開事件中心的其他發佈者端點，可在傳送事件時提供目標存取控制。
 	- 其他加入至事件中心功能的穩定性和改良。
 	- 在訊息和事件中心內，加入 WebSocket 上的 Amqp 通訊協定支援。
 
@@ -62,15 +62,15 @@
 
 	如需詳細資訊，請參閱 [Azure 快取的角色中快取](https://msdn.microsoft.com/library/azure/dn386103.aspx)。
 
-##Azure 應用程式服務工具
+##Azure App Service 工具
 
 Azure SDK 2.6 版中已更新下列項目。
 
-- 已增強 Azure 發行的功能，以將 Azure API Apps 納為部署目標。
+- 已增強 Azure 發佈的功能，以將 Azure API Apps 納為部署目標。
 - API Apps 佈建功能提供使用者 API 應用程式的建立和佈建功能。
-- 將 [伺服器總管] 使用按資源群組分組的 Web、行動及 API 應用程式加以變更，以反映新的應用程式服務節點。
+- 將 [伺服器總管] 使用按資源群組分組的 Web、行動及 API 應用程式加以變更，以反映新的 App Service 節點。
 - 加入已新增至大部分 C# 專案的 Azure API 應用程式用戶端手勢，將可自動產生啟用 Swagger 功能並可在使用者的 Azure 訂用帳戶中執行的 API Apps。
-- [伺服器總管] 中的 API Apps 工具和應用程式服務節點僅可以在 Visual Studio 2013 中使用。 
+- [伺服器總管] 中的 API Apps 工具和 App Service 節點僅可以在 Visual Studio 2013 中使用。 
 
 ##Azure 資源管理員工具更新
 
@@ -91,7 +91,16 @@ Azure SDK 2.6 重新提供針對收集 Azure 計算模擬器中的診斷記錄�
  
 ##已知問題
 
-收集模擬器中的診斷記錄檔需要 64 位元的作業系統。在 32 位元的作業系統上執行時，將無法收集診斷記錄檔。這並不會影響任何其他模擬器功能。
+- 收集模擬器中的診斷記錄檔需要 64 位元的作業系統。在 32 位元的作業系統上執行時，將無法收集診斷記錄檔。這並不會影響任何其他模擬器功能。 
 
-<!--HONumber=52-->
+- 2015 年 4 月 29 日發行的 Azure SDK 2.6 有兩個問題：
+
+	- 電腦上安裝有 Azure SDK 2.6 時無法在 Visual Studio 2015 載入通用應用程式。
+	- 在 Visual Studio 2013 和 Visual Studio 2015 偵錯雲端服務專案將會失敗，此時 Visual Studio 會變得沒有回應並當機，同時還會顯示內有「正在設定模擬器的診斷」訊息的對話方塊。
+	
+	2015 年 5 月 18 日發行了 Azure SDK 2.6 的更新。更新的版本是 2.6.30508.1601；內含上述兩個問題的修正程式。您可以從 [控制台] -> [程式和功能]-> [Microsoft Azure Tools for Microsoft Visual Studio 2013 – v 2.6] 識別 SDK 的組建。[版本] 欄中會顯示組建編號。
+
+	如果您仍會遇到上述問題，請針對 [VS 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409)、[VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) 或 [VS 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) 安裝最新版的 Azure 2.6 SDK。
  
+
+<!---HONumber=62-->

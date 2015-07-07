@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="05/12/2015" 
 	ms.author="awills"/>
 
 # 適用於 Windows Phone 和市集應用程式的 Application Insights
@@ -64,10 +64,8 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. 選取適當封裝的最新版本 - 下列其中一個：
-   * 適用於 Windows 應用程式的 Application Insights - *適用於 Windows 市集應用程式*
-   * 適用於 Windows Phone 應用程式的 Application Insights
-   * 適用於 Web 應用程式的 Application Insights - *桌面應用程式使用此封裝* 
+3. 選擇**適用於 Windows 應用程式的 Application Insights**
+
 4. 編輯 ApplicationInsights.config (已由 NuGet 安裝加入)。在結尾標記前面插入此內容：
 
     `<InstrumentationKey>`*您複製的金鑰*`</InstrumentationKey>`
@@ -108,9 +106,16 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 [發佈應用程式](http://dev.windows.com/publish)，並觀察資料隨著使用者下載和使用它而累積。
 
-## <a name="ide"></a>自動化方式
+## 後續步驟
 
-如果您偏好使用 Visual Studio 執行設定步驟，您可以對 Windows Phone、Windows 市集和其他許多類型的應用程式這樣做。
+* [偵測和診斷應用程式中的損毀][windowsCrash]
+* [深入了解度量][metrics]
+* [深入了解診斷搜尋][diagnostic]
+
+
+## <a name="ide"></a>自動化設定
+
+如果您偏好使用 Visual Studio 執行設定步驟，可以針對 Windows Phone、Windows 市集和其他許多類型的應用程式這樣做。
 
 ###<a name="new"></a>如果您要建立新的 Windows 應用程式專案...
 
@@ -131,11 +136,13 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 ## <a name="usage"></a>後續步驟
 
-[追蹤應用程式的使用量][windowsUsage]
 
 [偵測和診斷應用程式中的損毀][windowsCrash]
 
-[擷取和搜尋診斷記錄][diagnostic]
+[擷取及搜尋診斷記錄][diagnostic]
+
+
+[追蹤應用程式的使用量][windowsUsage]
 
 [使用 API 傳送自訂遙測][api]
 
@@ -148,11 +155,13 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 [api]: app-insights-api-custom-events-metrics.md
 [azure]: ../insights-perf-analytics.md
 [diagnostic]: app-insights-diagnostic-search.md
+[metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

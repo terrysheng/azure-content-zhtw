@@ -1,5 +1,5 @@
 <properties
-	pageTitle="10GB GraySort 範例 | Azure"
+	pageTitle="10GB GraySort Hadoop MapReduce 範例 | Microsoft Azure"
 	description="了解如何使用 Azure PowerShell 在 HDInsight 的 Hadoop 上，針對極大資料量 (通常至少 100 TB) 執行一般用途的 GraySort。"
 	editor="cgronlun"
 	manager="paulettm"
@@ -16,7 +16,7 @@
 	ms.date="03/30/2015" 
 	ms.author="bradsev"/>
 
-# HDInsight 中的 10GB GraySort Hadoop 範例
+# HDInsight 中的 10GB GraySort Hadoop MapReduce 範例
 
 本範例主題說明如何使用 Azure PowerShell，在 Azure HDInsight 上執行一般用途的 GraySort Hadoop MapReduce 程式。GraySort 是一種效能評定排序，其度量為排序極大資料量時 (通常至少為 100TB) 所達成的排序速率 (TB/分鐘)。
 
@@ -36,11 +36,10 @@
 
 **必要條件：**
 
-- 您必須具有 Azure 帳號。如需註冊帳號的相關選項，請參閱 [免費試用 Azure](http://azure.microsoft.com/pricing/free-trial/) 頁面。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **HDInsight 叢集**。如需各種建立此類叢集方式的相關指示，請參閱[佈建 HDInsight 叢集](hdinsight-provision-clusters.md)。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
 
-- 您必須已佈建 HDInsight 叢集。如需各種建立此類叢集方式的相關指示，請參閱[佈建 HDInsight 叢集](hdinsight-provision-clusters.md)。
-
-- 您必須已安裝 Azure PowerShell，且已將其設定為可用於您的帳號。如需執行此項作業之指示，請參閱＜[安裝和設定 Azure PowerShell][powershell-install-configure]＞。
 
 
 ##使用 Azure PowerShell 執行範例
@@ -418,7 +417,7 @@
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [hdinsight-get-started]: ../hdinsight-get-started.md
 
@@ -430,5 +429,6 @@
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

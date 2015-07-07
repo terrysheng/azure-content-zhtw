@@ -1,301 +1,246 @@
-﻿<properties 
-	pageTitle="開始使用 Azure API 管理" 
-	description="了解如何建立 API、操作及開始使用 API 管理。" 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+<properties
+	pageTitle="在 Azure API 管理中管理您的第一個 API"
+	description="了解如何建立 API、操作及開始使用 API 管理。"
+	services="api-management"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/11/2015" 
+<tags
+	ms.service="api-management"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="sdanie"/>
 
-# 開始使用 Azure API 管理
+# 在 Azure API 管理中管理您的第一個 API
+
+## <a name="overview"> </a>概觀
 
 本指南示範如何快速開始使用 API 管理及進行您的第一個 API 呼叫。
 
-## 本主題內容
+## <a name="concepts"> </a>什麼是 Azure API 管理？
 
--   [建立 API 管理執行個體][建立 API 管理執行個體]
--   [建立 API][建立 API]
--   [加入作業][加入作業]
--   [將新的 API 加入產品][將新的 API 加入產品]
--   [訂閱包含 API 的產品][訂閱包含 API 的產品]
--   [透過開發人員入口網站呼叫作業][透過開發人員入口網站呼叫作業]
--   [檢視分析][檢視分析]
--   [後續步驟][後續步驟]
+Azure API 管理可讓您使用任何後端，並啟用以該後端為基礎的完善 API 方案。
+
+常見案例包括：
+
+* 透過 API 金鑰來控制存取、利用節流或使用進階安全性原則 (例如 JWT 權杖驗證) 來防止 DOS 攻擊，進而**保護行動基礎結構**
+* 透過開發人員入口網站讓合作夥伴快速上手，並建置 API 外觀來減少還不適合合作夥伴使用的內部實作，進而**促成 ISV 合作夥伴生態系統**
+* 提供集中的位置讓組織討論 API 的可用性和最新變更，並以 API 閘道和後端之間的安全通道為基礎，依據組織帳戶控制存取，藉此**執行內部 API 方案**
+
+
+系統是由下列元件所組成：
+
+* **API 閘道**是可執行以下作業的端點：
+  * 接受 API 呼叫，並將這些呼叫傳送到您的後端
+  * 驗證 API 金鑰、JWT 權杖、憑證和其他認證
+  * 強制採用使用量配額和頻率限制
+  * 即時轉換您的 API，且不需要修改程式碼
+  * 快取設定的後端回應
+  * 記錄呼叫中繼資料以供分析使用
+
+* **發行者入口網站**是您設定 API 方案的管理介面：
+	* 定義或匯入 API 結構描述
+	* 將 API 封裝至產品
+	* 設定原則，例如 API 的配額或轉換
+	* 從分析中取得見解
+	* 管理使用者
+
+* **開發人員入口網站**是供開發人員執行以下作業的主要網站空間：
+	* 閱讀 API 文件
+	* 透過互動式主控台試用 API
+	* 建立帳戶，並訂閱以取得 API 金鑰
+	* 存取他們的使用量分析資料
+
 
 ## <a name="create-service-instance"> </a>建立 API 管理執行個體
 
-> 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][Azure 免費試用]。
+> 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][]。
 
-使用 API 管理的第一個步驟是建立服務執行個體。登入[管理入口網站][管理入口網站]，並依序按一下 [新增]、[應用程式服務]、[API 管理] 及 [建立]。
+使用 API 管理的第一個步驟是建立服務執行個體。登入[管理入口網站][]，並依序按一下 [新增]、[應用程式服務]、[API 管理] 及 [建立]。
 
-![API Management new instance][API Management new instance]
+![API Management new instance][api-management-create-instance-menu]
 
 針對 [URL]，請指定要用於服務 URL 的唯一子網域名稱。
 
-選擇您的服務執行個體需要的 [價格層]、[訂閱] 和 [區域]。所有價格層均可用於此教學課程。進行您的選擇之後，請按下一步按鈕。
+針對您的服務執行個體，選擇需要的 [訂用帳戶] 和 [地區]。進行您的選擇之後，請按下一步按鈕。
 
-![New API Management service][New API Management service]
+![New API Management service][api-management-create-instance-step1]
 
 輸入 **Contoso Ltd.** 作為 [組織名稱]，然後在管理員電子郵件欄位中輸入您的電子郵件地址。
 
-> 此電子郵件地址將用於自 API 管理系統傳送通知。如需詳細資訊，請參閱[設定通知][設定通知]。
+>此電子郵件地址將用於自 API 管理系統傳送通知。如需詳細資訊，請參閱[設定通知][]。
+
+![New API Management service][api-management-create-instance-step2]
+
+API 管理服務執行個體共有三種層次：開發人員、標準和高階。根據預設，會使用「開發人員」層次建立新的「API 管理」服務執行個體。若要選取「標準」或「高階」層次，請核取 [進階設定] 核取方塊，然後在接下來的畫面中選取所需的層次。
+
+>Microsoft Azure 提供三種供您執行 API 管理服務的層次：開發人員、標準和高階。「開發人員」層次可用來針對不注重高可用性的 API 程式進行開發、測試及試驗。在「標準」和「高階」層次中，您可以調整保留的單位計數以處理更多流量。「標準」和「高階」層次可為您的 API 管理服務提供最高的處理能力和效能。您可以使用任一層次來完成本教學課程。如需關於 API 管理層次的詳細資訊，請參閱 [API 管理定價][]。
 
 按一下核取方塊來建立您的服務執行個體。
 
-![New API Management service][1]
+![New API Management service][api-management-instance-created]
 
-![New API Management service][2]
+建立服務執行個體之後，下一步是建立或匯入 API。
 
-建立服務執行個體之後，下一步是建立 API。
-
-## <a name="create-api"> </a>建立 API
+## <a name="create-api"> </a>匯入 API
 
 API 包含可自用戶端應用程式叫用的一組作業。API 作業會代理到現有的 Web 服務。
 
-每個 API 管理服務執行個體隨附預先設定的範例 Echo API，該 API 會將傳送至它的輸入傳回。若要使用該 API，您可以叫用任何 HTTP 動詞，而傳回值會等於您所傳送的標頭和本文。
+您可以建立 API 並手動加入作業，或是匯入這兩者。在本教學課程中，我們會針對由 Microsoft 所提供且裝載在 Azure 上的範例計算機 Web 服務，來匯入 API。
 
-此教學課程使用 <http://echoapi.cloudapp.net/api> Web 服務，在 API 管理中建立名為 **My Echo Service** 的新 API。
+>如需建立 API 和手動加入作業的指引，請參閱[如何建立 API](api-management-howto-create-apis.md) 和[如何將作業加入至 API](api-management-howto-add-operations.md)。
 
-API 是透過您經由 Azure 管理入口網站存取的「API 管理」主控台來建立和設定。若要連接「API 管理」主控台，請在 API 管理服務的 Azure 入口網站中按一下 [管理主控台]。
+您必須在 API 發行者入口網站中設定 API，要存取此入口網站需經由 Azure 管理入口網站。若要存取發行者入口網站，請在 Azure 入口網站中，針對您的 API 管理服務按一下 [管理]。
 
-![New API Management console][New API Management console]
+![發行者入口網站][api-management-management-console]
 
-若要建立 **My Echo API**，請從左側的 [API 管理] 功能表按一下 [API]，然後按 [加入 API]。
+若要匯入計算機 API，請從左邊的 [API 管理] 功能表中按一下 [API]，然後按一下 [匯入 API]。
 
-![Create API][Create API]
+![匯入 API 按鈕][api-management-import-api]
 
-![Add new API][Add new API]
+![Add new API][api-management-import-new-api]
 
-以下三個欄位可用來設定新 API。
+執行下列步驟以設定計算機 API。
 
--   在 [Web API Title] 文字方塊中輸入 **My Echo API**。[Web API Title] 提供 API 唯一且描述性的名稱。會顯示在開發人員和管理入口網站中。
--   在 [Web 服務 URL] 中輸入 **<http://echoapi.cloudapp.net/api>**。[Web 服務 URL] 會參考實作 API 的 HTTP 服務。API 管理則將要求轉送至此位址。
--   在 [Web API URL 尾碼] 中輸入 **myecho**。[Web API URL 尾碼] 會附加到 API 管理服務的基礎 URL。您的 API 將共用共同的基礎 URL，而且可由基礎之後附加的唯一尾碼來加以識別。
+1. 按一下 [從 URL]，在 [規格文件 URL] 文字方塊中輸入 **http://calcapi.cloudapp.net/calcapi.json**，然後按一下 [Swagger] 選項按鈕。2. 在 [Web API URL 尾碼] 文字方塊中輸入 **calc**。
+3. 按一下 [產品 (選擇性)] 方塊，然後選擇 [入門]。
+4. 按一下 [儲存] 匯入 API。
 
-按一下 [儲存] 建立 API。建立新 API 之後，API 的摘要頁面隨即會顯示在管理入口網站中。
+匯入 API 之後，API 的摘要頁面隨即會顯示在發行者入口網站中。
 
-![API summary][API summary]
+![API summary][api-management-imported-api-summary]
 
-API 區段有四個索引標籤。[摘要] 索引標籤顯示基本度量和 API 的相關資訊。[設定] 索引標籤可用來檢視和編輯 API 的組態，包括後端服務的驗證認證。[作業] 索引標籤可用來管理 API 的作業，並用於教學課程中的下列步驟，而 [問題] 索引標籤則可用來檢視使用您的 API 之開發人員回報的問題。
-
-> 範例 echo API 未使用驗證，但如需設定驗證的詳細資訊，請參閱[設定 API 設定][設定 API 設定]。
-
-建立 API 且進行設定之後，下一個步驟是將作業加入至 API。作業定義可用來驗證連入要求，以及自動產生文件。
-
-## <a name="add-operation"> </a>加入作業
-
-按一下 [作業]，以顯示 API 的作業窗格。由於我們尚未加入任何作業，因此不會顯示任何作業。
-
-![Operations][Operations]
-
-按一下 [加入作業] 以加入新的作業。將顯示 [新增作業] 視窗，並且預設會選取 [簽章] 索引標籤。
-
-![Operation signature][Operation signature]
-
-在此範例中，我們會對 echo 服務指定 GET 作業。在 [簽章] 索引標籤上的欄位輸入下列值。
-
--   在 [HTTP 指令動詞] 文字方塊中輸入 **GET**。在您開始輸入時，您可以從顯示的 HTTP 指令動詞清單中選取 **GET**。
--   在 [URL 範本] 文字方塊中輸入 **/resource**。
--   在 [顯示名稱] 文字方塊中輸入 **GET resource**。
--   輸入 **A demonstration of a GET call on a sample resource.It is handled by an "echo" backend which returns a response equal to the request (the supplied headers and body are being returned as received).** 到 [說明] 文字方塊。當開發人員使用此 API 時，會使用此說明來產生此作業的文件。
-
-按一下 [參數] 來設定此作業的查詢字串參數。在此範例中，有兩個查詢字串參數。若要加入查詢參數，請按一下 [加入查詢參數]，並指定下列值。
-
-針對第一個查詢參數，設定下列值。
-
--   在 [名稱] 文字方塊中輸入 **param1**。
--   在 [說明] 文字方塊中輸入 **A sample parameter that is required.**。
--   按一下 [類型] 欄位，然後從清單選擇 [字串]。支援的類型為：**string**、**number**、**boolean** 和 **dateTime**。
--   按一下 [值] 欄位，在文字方塊中輸入 **sample**，然後按一下加號，將預設值文字加入到參數。加入預設文字之後，按一下 [值] 欄位外的任意位置來關閉加入值視窗。
--   核取 [必要項] 核取方塊。
-
-針對第二個查詢參數，輸入下列值。
-
--   **名稱**：**param2**
--   **說明**：**Another sample parameter, set to not required.**
--   **類型**：**number**
-
-為作業可能產生的所有狀態碼提供回應範例是良好作法。每個狀態碼可能有不只一個回應本文範例，每個支援的內容類型則會有一個範例。在本教學課程中，我們要加入 **200 OK** 回應碼。
-
-在 [回應] 區段中按一下 [加入]，開始在文字方塊中輸入 **200**，然後從下拉式清單選取 [200 OK]。
-
-![Add response][Add response]
-
-選取 [200 OK] 之後，便會將新回應碼加入至作業，且會顯示回應視窗。在 [說明] 文字方塊中輸入 **Returned in all cases.**。
-
-![Add response][3]
-
-> **Add Representation** 可用來設定多個表示式中的回應。如需詳細資訊，請參閱[回應][回應]。
-
-按一下 [儲存] 將新設定的作業加入至 API。
-
-## <a name="add-api-to-product"> </a>將新的 API 加入產品
-
-開發人員必須先訂閱產品，才能進行 API 呼叫。產品可提供一或多個 API 的存取，並可能包含存取限制 (像是使用量配額和費率限制)。在教學課程的這個步驟中，您會將 My Echo API 加入至現有產品。
-
-從左側的 [API 管理] 功能表按一下 [產品]，以檢視和設定此 API 執行個體中可用的產品。
-
-![Products][Products]
+API 區段有一些索引標籤。[摘要] 索引標籤顯示基本度量和 API 的相關資訊。[設定](api-management-howto-create-apis.md#configure-api-settings)索引標籤可用來檢視和編輯 API 的組態。[作業](api-management-howto-add-operations.md)索引標籤可用來管理 API 的作業。[安全性] 索引標籤可用來將後端伺服器的 Proxy 驗證設定為使用基本驗證或[相互憑證驗證](api-management-howto-mutual-certificates.md)，以及用來設定[使用 OAuth 2.0 的使用者授權](api-management-howto-oauth2.md)。[問題] 索引標籤可用來檢視使用您 API 之開發人員所回報的問題，而 [產品] 索引標籤則可用來設定含有此 API 的產品。
 
 依預設，每個 API 管理執行個體會隨附兩個範例產品：
 
--   **入門**
--   **無限**
+-	**入門**
+-	**無限制**
 
-在本教學課程中，我們將使用**入門**產品。按一下 [入門] 來檢視設定，包括與該產品關聯的 API。
+在本教學課程中，Basic Calculator API 已在匯入 API 時加入至「入門」產品。
 
-![Add API][Add API]
+若要呼叫 API，開發人員必須先訂閱能夠讓他們存取 API 的產品。開發人員可以在開發人員入口網站中訂閱產品，或者管理員也可以在發行者入口網站中為開發人員訂閱產品。由於您在先前的教學課程步驟中建立了 API 管理執行個體，因此您是管理員，且已根據預設訂閱了所有產品。
 
-按一下 [加入 API 至產品]。
+## <a name="call-operation"> </a>從開發人員入口網站呼叫作業
 
-![Add API][4]
+您可以從開發人員入口網站直接呼叫作業，以便檢視和測試 API 的操作。在本教學課程步驟中，您會呼叫 **Basic Calculator** API 的 **Add two integers** 作業。從發行者入口網站右上角的功能表中，按一下 [開發人員入口網站]。
 
-核取 [My Echo API] 的核取方塊，然後按一下 [儲存]。
+![開發人員入口網站][api-management-developer-portal-menu]
 
-![API added][API added]
+按一下上方功能表中的 [API]，然後按一下 [Basic Calculator] 查看可用的作業。
 
-請注意，[My Echo API] 與某個產品相關聯，開發人員可以訂閱產品並開始使用 API。
+![開發人員入口網站][api-management-developer-portal-calc-api]
 
-> 本教學課程步驟會使用「入門」產品，這是經過預先設定而立即可用的產品。如需建立和發行新產品的逐步指南，請參閱[如何建立和發行產品][如何建立和發行產品]。
+請記下和 API 及作業一起匯入的範例說明與參數，為要使用此作業的開發人員提供文件。手動加入作業時，也可以加入這些說明。
 
-## <a name="subscribe"> </a>訂閱包含 API 的產品
+若要呼叫 **Add two integers** 作業，請按一下 [試試看]。
 
-為了對 API 進行呼叫，開發人員必須先訂閱能夠提供存取權的產品。開發人員可以在開發人員入口網站中訂閱產品，或是，管理員也可以在管理主控台中為開發人員訂閱產品。由於您在教學課程先前的步驟中建立了 API 管理執行個體，因此您預設會是管理員，而會為某個帳戶訂閱**入門**產品。
+![試試看][api-management-developer-portal-calc-api-console]
 
-從左側的 [API 管理] 功能表按一下 [開發人員]，以檢視和設定此服務執行個體的開發人員。
+您可以輸入一些參數值，或保留預設值，然後按一下 [傳送]。
 
-![Developers][Developers]
+![HTTP Get][api-management-invoke-get]
 
-按一下開發人員的名稱來設定該使用者的設定，包括訂閱。
+叫用作業之後，開發人員入口網站會顯示 [回應狀態]、[回應標頭]，以及任何的 [回應內容]。
 
-> 在此範例中，我們要為名為 Clayton Gragg 的開發人員進行訂閱。如果您尚未建立任何開發人員帳戶，則可為管理員帳戶進行訂閱。如需建立開發人員帳戶的詳細資訊，請參閱[如何在 Azure API 管理中管理開發人員帳戶][如何在 Azure API 管理中管理開發人員帳戶]。
-
-![Add subscription][Add subscription]
-
-按一下 [加入訂閱]。
-
-![Add subscription][5]
-
-核取 [入門] 的核取方塊，然後按一下 [訂閱]。
-
-![Subscription added][Subscription added]
-
-為開發人員帳戶進行訂閱之後，您可以呼叫該產品的 API。
-
-## <a name="call-operation"> </a>透過開發人員入口網站呼叫作業
-
-您可以從開發人員入口網站直接呼叫作業，該網站提供檢視及測試 API 作業的便利方式。在本教學課程步驟中，您將會呼叫已加入至 **My Echo API** 的 Get 方法。從管理入口網站右上方的功能表按一下 [開發人員入口網站]。
-
-![Developer portal][Developer portal]
-
-從上方功能表一下 [API]，然後按 [My Echo API] 來查看可用的作業。
-
-![Developer portal][6]
-
-請注意，將會顯示您建立作業時所加入的說明和參數，如此可為要使用此作業之開發人員提供文件。
-
-按一下 [GET Resource]，然後按 [開啟主控台]。
-
-![Operation console][Operation console]
-
-輸入參數的一些值，並指定您的開發人員金鑰，然後按一下 [HTTP Get]。
-
-![HTTP Get][HTTP Get]
-
-叫用作業之後，開發人員入口網站會顯示來自後端服務 [要求的 URL]、[回應狀態]、[回應標頭]，以及任何的 [回應內容]。
-
-![Response][Response]
+![Response][api-management-invoke-get-response]
 
 ## <a name="view-analytics"> </a>檢視分析
 
-若要檢視 **My Echo API** 的分析，請從開發人員入口網站右上角的使用者功能表選取 [管理]，以切換回管理入口網站。
+若要檢視 **Basic Calculator** 的分析，請從開發人員入口網站右上角的功能表中選取 [管理]，以切換回發行者入口網站。
 
-![管理][管理]
+![管理][api-management-manage-menu]
 
-管理入口網站的預設檢視為儀表板，其提供 API 管理執行個體的概觀。
+發行者入口網站的預設檢視為**儀表板**，其中提供您 API 管理執行個體的概觀。
 
-![儀表板][儀表板]
+![儀表板][api-management-dashboard]
 
-將滑鼠移過 My Echo API 圖表上，以查看 API 在指定時段特定度量的使用量。
+將滑鼠游標移到 **Basic Calculator** 的圖表上，以查看指定時段中 API 使用量的特定度量。
 
-> 如果您在圖表上看不見任何線條，請切換回開發人員入口網站，並對 API 進行一些呼叫，等候片刻，然後返回儀表板。
+>如果您在圖表上看不見任何線條，請切換回開發人員入口網站，並對 API 進行一些呼叫，等候片刻，然後返回儀表板。
 
-![Analytics][Analytics]
+![Analytics][api-management-mouse-over]
 
 按一下 [檢視詳細資料] 來檢視 API 的摘要頁面，包括已顯示度量的較大版本。
 
-![摘要][摘要]
+![摘要][api-management-api-summary-metrics]
 
 如需詳細度量和報告，請從左側的 [API 管理] 功能表按一下 [分析]。
 
-![概觀][概觀]
+![概觀][api-management-analytics-overview]
 
 [分析] 區段有以下四個索引標籤。
 
--   **At a glance** 提供整體的使用量和健康情況度量，以及名列前茅的開發人員、產品、API 和作業等相關資訊。
--   **Usage** 提供 API 呼叫和頻寬的深入檢視，包括地理區域的呈現。
--   **Health** 著重在狀態碼、快取成功率、回應時間，以及 API 與服務回應時間。
--   **Activity** 提供的報告依開發人員、產品、API 和作業向下鑽研特定活動。
+-	**At a glance** 提供整體的使用量和健康情況度量，以及名列前茅的開發人員、產品、API 和作業等相關資訊。
+-	**Usage** 提供 API 呼叫和頻寬的深入檢視，包括地理區域的呈現。
+-	**Health** 著重在狀態碼、快取成功率、回應時間，以及 API 與服務回應時間。
+-	**Activity** 提供的報告依開發人員、產品、API 和作業向下鑽研特定活動。
 
 ## <a name="next-steps"> </a>後續步驟
 
--   在[開始使用進階 API 組態][開始使用進階 API 組態]教學課程中查看其他主題。
+-	在[開始使用進階 API 組態][]教學課程中查看其他主題。
 
-  [建立 API 管理執行個體]: #create-service-instance
-  [建立 API]: #create-api
-  [加入作業]: #add-operation
-  [將新的 API 加入產品]: #add-api-to-product
-  [訂閱包含 API 的產品]: #subscribe
-  [透過開發人員入口網站呼叫作業]: #call-operation
-  [檢視分析]: #view-analytics
-  [後續步驟]: #next-steps
-  [Azure 免費試用]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
-  [管理入口網站]: https://manage.windowsazure.com/
-  [API Management new instance]: ./media/api-management-get-started/api-management-create-instance-menu.png
-  [New API Management service]: ./media/api-management-get-started/api-management-create-instance-step1.png
-  [設定通知]: ../api-management-howto-configure-notifications
-  [1]: ./media/api-management-get-started/api-management-create-instance-step2.png
-  [2]: ./media/api-management-get-started/api-management-instance-created.png
-  [New API Management console]: ./media/api-management-get-started/api-management-management-console.png
-  [Create API]: ./media/api-management-get-started/api-management-create-api.png
-  [Add new API]: ./media/api-management-get-started/api-management-add-new-api.png
-  [API summary]: ./media/api-management-get-started/api-management-new-api-summary.png
-  [設定 API 設定]: ../api-management-howto-create-apis/#configure-api-settings
-  [Operations]: ./media/api-management-get-started/api-management-myecho-operations.png
-  [Operation signature]: ./media/api-management-get-started/api-management-operation-signature.png
-  [Add response]: ./media/api-management-get-started/api-management-add-response.png
-  [3]: ./media/api-management-get-started/api-management-add-response-window.png
-  [回應]: ../api-management-howto-add-operations/#responses
-  [Products]: ./media/api-management-get-started/api-management-list-products.png
-  [Add API]: ./media/api-management-get-started/api-management-add-api-to-product.png
-  [4]: ./media/api-management-get-started/api-management-add-myechoapi-to-product.png
-  [API added]: ./media/api-management-get-started/api-management-api-added-to-product.png
-  [如何建立和發行產品]: ../api-management-howto-add-products
-  [Developers]: ./media/api-management-get-started/api-management-developers.png
-  [如何在 Azure API 管理中管理開發人員帳戶]: ../api-management-howto-create-or-invite-developers/
-  [Add subscription]: ./media/api-management-get-started/api-management-add-subscription.png
-  [5]: ./media/api-management-get-started/api-management-add-subscription-window.png
-  [Subscription added]: ./media/api-management-get-started/api-management-subscription-added.png
-  [Developer portal]: ./media/api-management-get-started/api-management-developer-portal-menu.png
-  [6]: ./media/api-management-get-started/api-management-developer-portal-myecho-api.png
-  [Operation console]: ./media/api-management-get-started/api-management-developer-portal-myecho-api-console.png
-  [HTTP Get]: ./media/api-management-get-started/api-management-invoke-get.png
-  [Response]: ./media/api-management-get-started/api-management-invoke-get-response.png
-  [管理]: ./media/api-management-get-started/api-management-manage-menu.png
-  [儀表板]: ./media/api-management-get-started/api-management-dashboard.png
-  [Analytics]: ./media/api-management-get-started/api-management-mouse-over.png
-  [摘要]: ./media/api-management-get-started/api-management-api-summary-metrics.png
-  [概觀]: ./media/api-management-get-started/api-management-analytics-overview.png
-  [開始使用進階 API 組態]: ../api-management-get-started-advanced
+[Azure 免費試用]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
-<!--HONumber=46--> 
+[Create an API Management instance]: #create-service-instance
+[Create an API]: #create-api
+[Add an operation]: #add-operation
+[Add the new API to a product]: #add-api-to-product
+[Subscribe to the product that contains the API]: #subscribe
+[Call an operation from the Developer Portal]: #call-operation
+[View analytics]: #view-analytics
+[Next steps]: #next-steps
+
+
+[How to manage developer accounts in Azure API Management]: api-management-howto-create-or-invite-developers.md
+[Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
+[設定通知]: api-management-howto-configure-notifications.md
+[Responses]: api-management-howto-add-operations.md#responses
+[How create and publish a product]: api-management-howto-add-products.md
+[開始使用進階 API 組態]: api-management-get-started-advanced.md
+[API 管理定價]: http://azure.microsoft.com/pricing/details/api-management/
+
+[管理入口網站]: https://manage.windowsazure.com/
+
+[api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
+[api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
+[api-management-create-instance-step1]: ./media/api-management-get-started/api-management-create-instance-step1.png
+[api-management-create-instance-step2]: ./media/api-management-get-started/api-management-create-instance-step2.png
+[api-management-instance-created]: ./media/api-management-get-started/api-management-instance-created.png
+[api-management-import-api]: ./media/api-management-get-started/api-management-import-api.png
+[api-management-import-new-api]: ./media/api-management-get-started/api-management-import-new-api.png
+[api-management-imported-api-summary]: ./media/api-management-get-started/api-management-imported-api-summary.png
+[api-management-calc-operations]: ./media/api-management-get-started/api-management-calc-operations.png
+[api-management-list-products]: ./media/api-management-get-started/api-management-list-products.png
+[api-management-add-api-to-product]: ./media/api-management-get-started/api-management-add-api-to-product.png
+[api-management-add-myechoapi-to-product]: ./media/api-management-get-started/api-management-add-myechoapi-to-product.png
+[api-management-api-added-to-product]: ./media/api-management-get-started/api-management-api-added-to-product.png
+[api-management-developers]: ./media/api-management-get-started/api-management-developers.png
+[api-management-add-subscription]: ./media/api-management-get-started/api-management-add-subscription.png
+[api-management-add-subscription-window]: ./media/api-management-get-started/api-management-add-subscription-window.png
+[api-management-subscription-added]: ./media/api-management-get-started/api-management-subscription-added.png
+[api-management-developer-portal-menu]: ./media/api-management-get-started/api-management-developer-portal-menu.png
+[api-management-developer-portal-calc-api]: ./media/api-management-get-started/api-management-developer-portal-calc-api.png
+[api-management-developer-portal-calc-api-console]: ./media/api-management-get-started/api-management-developer-portal-calc-api-console.png
+[api-management-invoke-get]: ./media/api-management-get-started/api-management-invoke-get.png
+[api-management-invoke-get-response]: ./media/api-management-get-started/api-management-invoke-get-response.png
+[api-management-manage-menu]: ./media/api-management-get-started/api-management-manage-menu.png
+[api-management-dashboard]: ./media/api-management-get-started/api-management-dashboard.png
+
+[api-management-add-response]: ./media/api-management-get-started/api-management-add-response.png
+[api-management-add-response-window]: ./media/api-management-get-started/api-management-add-response-window.png
+[api-management-developer-key]: ./media/api-management-get-started/api-management-developer-key.png
+[api-management-mouse-over]: ./media/api-management-get-started/api-management-mouse-over.png
+[api-management-api-summary-metrics]: ./media/api-management-get-started/api-management-api-summary-metrics.png
+[api-management-analytics-overview]: ./media/api-management-get-started/api-management-analytics-overview.png
+[api-management-analytics-usage]: ./media/api-management-get-started/api-management-analytics-usage.png
+[api-management-]: ./media/api-management-get-started/api-management-.png
+[api-management-]: ./media/api-management-get-started/api-management-.png
  
+
+<!---HONumber=62-->

@@ -13,28 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="06/09/2015" 
 	ms.author="josephd"/>
 
 # Azure 基礎結構服務實作指導方針
  
-這些指導方針著重於用來決定大部分 Azure 基礎結構服務實作中所涉及的各種資源的關鍵設計決策與工作。
+Azure 是用來實作 dev/test 或概念證明設定的絕佳平台，因為它不需要太多投資，就能測試實作解決方案的特定方法。但是，您必須能夠區分 dev/test 環境的簡單做法，以及更困難且詳細的做法，後者適用於 IT 工作負載之功能完整且準備好用於生產的實作。
 
-Azure 是用來實作概念證明設定的絕佳平台，因為它不需要太多投資，就能測試實作解決方案的特定方法。但是，您必須能夠區分概念證明的簡單做法，以及更困難且詳細的做法，後者適用於 IT 工作負載之功能完整且準備好用於生產的實作。
+這個指導方針識別出許多領域，由於規劃了這些領域，而成為 Azure 中 IT 工作負載成功的關鍵。此外，還提供建立必要資源的順序。儘管有一些彈性，但是 Microsoft 建議您在規劃與進行決策時遵循這篇文章裡的順序。
 
-這個指導方針識別出許多領域，由於規劃了這些領域，而成為 Azure 中 IT 基礎結構或工作負載成功的關鍵。此外，透過提供建立所需資源的順序，有助於在 Azure 平台上實作解決方案。儘管有一些彈性，但是 Microsoft 建議您在規劃與進行決策時遵循這個順序。
+這篇文章摘錄自 [Azure 實作方針](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx)部落格文章的內容。感謝 Santiago Cánepa (Microsoft 應用程式開發經理)、Hugo Salcedo (Microsoft 應用程式開發經理) 和 Greg Hinkel (前 Microsoft 應用程式開發經理) 提供的原始資料。
 
-1.	命名慣例
-2.	訂用帳戶與帳戶
-3.	儲存體
-4.	虛擬網路
-5.	雲端服務
-6.	可用性設定組 (Availability Sets)
-7.	虛擬機器
-
-建立良好的命名慣例，以及遵循特定的系統化順序在 Azure 中建立資源，可大幅降低管理負擔，並提高任何實作專案成功的機率。
-
-> [AZURE.NOTE]由於同質群組的用法已經過時，因此不再說明它們。如需詳細資訊，請參閱[關於區域 VNet 和同質群組](https://msdn.microsoft.com/library/azure/jj156085.aspx)。
+> [AZURE.NOTE]同質群組已經過時，因此此處不再加以描述。如需詳細資訊，請參閱[關於區域 VNet 和同質群組](https://msdn.microsoft.com/library/azure/jj156085.aspx)。
 
 ## 1.命名慣例
 
@@ -66,7 +56,7 @@ Environment | dev、stg、prod | 取決於每個環境的用途與名稱。
 位置 | usw (West US)、use (East US 2) | 取決於資料中心的區域或組織的區域。
 Azure 元件、服務或產品 | Svc (適用於雲端服務)、VNet (適用於虛擬網路) | 取決於資源提供支援的產品。
 角色 | sql、ora、sp、iis | 取決於 VM 的角色。
-執行個體 | 01、02 和 03 等 | 適用於可能有一個以上執行個體的資源。例如，雲端服務中負載平衡的 Web 伺服器。
+執行個體 | 01、02 和 03 等 | 適用於有一個以上執行個體的資源。例如，雲端服務中負載平衡的 Web 伺服器。
 		
 建立命名慣例時，請確定它們會清楚描述要針對每個資源類型使用哪些詞綴，以及使用的位置 (前置或後置)。
 
@@ -107,7 +97,7 @@ Azure 元件、服務或產品 | Svc (適用於雲端服務)、VNet (適用於�
 - mystorageaccount.table.core.windows.net
 - mystorageaccount.queue.core.windows.net
 
-此外，儲存體帳戶可能會利用容器。這些必須依循[命名和參考容器、Blob 及中繼資料](https://msdn.microsoft.com/library/azure/dd135715.aspx)中所述的命名慣例。
+此外，儲存體帳戶可以利用容器。這些必須依循[命名和參考容器、Blob 及中繼資料](https://msdn.microsoft.com/library/azure/dd135715.aspx)中所述的命名慣例。
 
 ### Azure 建置組塊名稱
 
@@ -331,11 +321,11 @@ Azure 訂用帳戶最多可支援 200 個雲端服務。
 工作：
 
 - 使用您的命名慣例來定義每個虛擬機器名稱。
-- 使用 Azure Preview 入口網站、Azure 管理入口網站或 **New-AzureVM** PowerShell Cmdlet 來建立虛擬機器。
+- 使用 Azure Preview 入口網站、Azure 管理入口網站、**New-AzureVM** PowerShell Cmdlet、Azure CLI 或資源管理員範本來建立虛擬機器。
 
 ## IT 工作負載的範例：Contoso 財務分析引擎
 
-Contoso Corporation 開發了新一代財務分析引擎，並具備尖端的專屬演算法，以瞄準未來的市場貿易。他們想要使其客戶能夠在 Azure 中使用這個引擎來做為一組伺服器，其中包括： 
+Contoso Corporation 開發了新一代財務分析引擎，並具備尖端的專屬演算法，以瞄準未來的市場貿易。他們想要使其客戶能夠在 Azure 中使用這個引擎來做為一組伺服器，其中包括：
 
 - 兩部 (最終會更多部) 以 IIS 為基礎的 Web 伺服器，其會在 Web 層中執行自訂的 Web 服務
 - 兩部 (最終會更多部) 以 IIS 為基礎的應用程式伺服器，其會在應用程式層中執行計算
@@ -362,7 +352,7 @@ Contoso Corporation 開發了新一代財務分析引擎，並具備尖端的專
 - 儲存體帳戶會使用 contosoazfaeusesa[description] 請注意，已將 contoso 新增為首碼來提供唯一性，而儲存體帳戶名稱不支援使用連字號。
 - 雲端服務會使用 contoso-azfae-use-cs-[description] 請注意，已將 contoso 新增為為首碼來提供唯一性。
 - 虛擬網路會使用 AZFAE-USE-VN[number]。
-- 可用性設定組會使用 azfae-use-as-[role]。
+- 可用性集會使用 azfae-use-as-[role]。
 - 虛擬機器名稱會使用 azfae-use-vm-[vmname]。
 
 ### Azure 訂用帳戶與帳戶
@@ -552,4 +542,10 @@ Contoso 決定為其 Azure 虛擬機器使用下列名稱：
 
 [Azure 儲存體的延展性與效能目標](../storage-scalability-targets.md)
 
-<!--HONumber=54--> 
+[雲端平台整合架構 (Azure 架構模式)](../azure-architectures-cpif-overview.md)
+
+[資料中心延伸模組參考架構圖表](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
+
+ 
+
+<!---HONumber=62-->

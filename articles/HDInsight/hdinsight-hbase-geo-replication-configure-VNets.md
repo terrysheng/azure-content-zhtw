@@ -1,7 +1,7 @@
 <properties 
-   pageTitle="設定兩個 Azure 虛擬網路之間的 VPN 連線 | Azure" 
-   description="了解如何設定兩個 Azure 虛擬網路之間的 VPN 連線、如何設定兩個虛擬網路之間的網域名稱解析，以及如何設定 HBase 異地複寫" 
-   services="hdinsight" 
+   pageTitle="設定兩個虛擬網路之間的 VPN 連線 | Microsoft Azure" 
+   description="了解如何設定兩個 Azure 虛擬網路之間的 VPN 連線和網域名稱解析，以及如何設定 HBase 異地複寫。" 
+   services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 
@@ -19,9 +19,9 @@
 # 設定兩個 Azure 虛擬網路之間的 VPN 連線  
 
 > [AZURE.SELECTOR]
-- [設定 VPN 連線](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [設定 DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [設定 HBase 複寫](hdinsight-hbase-geo-replication.md) 
+- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
 
 Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IKE 的安全通道。VNet 可位於不同的訂用帳戶和不同的區域。您甚至可以使用多網站組態來結合 VNet 對 VNet 通訊。VNet 對 VNet 連線的原因有幾種：
 
@@ -30,6 +30,10 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 - 在 Azure 中的跨訂用帳戶、組織間通訊
 
 如需詳細資訊，請參閱[設定 VNet 對 VNet 連線](https://msdn.microsoft.com/library/azure/dn690122.aspx)。
+
+若要觀看相關影片：
+
+> [AZURE.VIDEO configure-the-vpn-connectivity-between-two-azure-virtual-networks]
 
 本教學課程是建立 HBase 異地複寫[系列][hdinsight-hbase-replication]的一部分。
 
@@ -45,9 +49,9 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 ##必要條件
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。Azure 是訂用帳戶型平台。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][azure-purchase-options]、[成員優惠][azure-member-offers]或[免費試用][azure-free-trial]。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-- **已安裝並設定 Azure PowerShell 的工作站**。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install]。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
 
 	執行 PowerShell 指令碼之前，請確定您已使用下列 Cmdlet 連接到 Azure 訂用帳戶：
 
@@ -74,20 +78,20 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 	- **名稱**：Contoso-VNet-EU
 	- **位置**：北歐
 
-		此教學課程是使用北歐與美國東部數據中心。您可以選擇您自己的數據中心。
+		本教學課程使用北歐和美國東部資料中心。您可以選擇自己的資料中心。
 4.	輸入：
 
 	- **DNS 伺服器**：(保留為空白) 
 	
-		您將需要有自己的 DNS 伺服器以在虛擬網路內執行名稱解析。如需何時使用 Azure 提供的名稱解析，以及何時使用您自己的 DNS 伺服器的詳細資訊，請參閱 [名稱解析 (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx)。如需在 Vnet 之間設定名稱解析的指示，請參閱 [在兩個 Azure 虛擬網路之間設定 DNS][hdinsight-hbase-dns]。
+		您需要有自己的 DNS 伺服器才能在虛擬網路內進行名稱解析。如需有關何時使用 Azure 提供的名稱解析，以及何時使用自己的 DNS 伺服器的詳細資訊，請參閱[名稱解析 (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx)。如需有關設定 Vnet 之間名稱解析的指示，請參閱[設定兩個 Azure 虛擬網路之間的 DNS][hdinsight-hbase-dns]。
   
 	- **設定點對站 VPN**：(未核取)
 
-		點對站不適用此案例。
+		點對站不適用於這種情況。
 
-	- **設定站對站 VPN**：(未核取)
+ 	- **設定站對站 VPN**：(未核取)
  	
-		您將設定站對站 VPN 連線以連線至美國東部數據中心的 Azure 虛擬網路。
+		您將在美國東部資料中心設定 Azure 虛擬網路的站對站 VPN 連線。
 5.	輸入：
 
 	- 	**位址空間起始 IP**：10.1.0.0
@@ -146,7 +150,7 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 	- **名稱**：Contoso-LNet-EU
 	- **VPN 裝置 IP 位址**：192.168.0.1 (此位址將於稍後更新)
 
-		通常，您會針對 VPN 裝置使用實際的外部 IP 位址。針對 VNet 對 VNet 設定，您將會使用 VPN 閘道 IP 位址。由於您尚未替該兩個 VNet 建立 VPN 閘道，因此您可以輸入任何 IP 位址，然後再回來修正。
+		一般而言，您會將實際的外部 IP 位址用於 VPN 裝置。若是 VNet 對 VNet 組態，您將使用 VPN 閘道 IP 位址。假設您尚未建立這兩個 Vnet 的 VPN 閘道，請輸入任意 IP 位址，再回頭修正此問題。
 4.	輸入：
 
 	- **位址空間起始 IP**：10.1.0.0
@@ -266,5 +270,5 @@ Vnet 閘道會使用共用金鑰來驗證虛擬網路之間的連線。此金鑰
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.diagram.png
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

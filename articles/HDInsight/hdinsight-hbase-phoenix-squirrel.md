@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="使用 HDinsight 中的 Apache Phoenix 和 SQuirrel | Azure" 
-   description="了解如何使用 HDinsight 中的 Apache Phoenix，以及如何在您的工作站上安裝與設定 SQuirrel 以連線到 HDInsight 中的 HBase 叢集。" 
+   pageTitle="使用 HDinsight 中的 Apache Phoenix 和 SQuirreL | Microsoft Azure" 
+   description="了解如何使用 HDinsight 中的 Apache Phoenix，以及如何在您的工作站上安裝與設定 SQuirreL 以連線到 HDInsight 中的 HBase 叢集。" 
    services="hdinsight" 
    documentationCenter="" 
    authors="mumian" 
@@ -13,19 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/15/2015"
+   ms.date="05/05/2015"
    ms.author="jgao"/>
 
-# 使用 HDinsight 中的 Apache Phoenix 和 SQuirrel  
+# 在 HDinsight 中搭配 HBase 叢集使用 Phoenix 和 SQuirreL  
 
-了解如何使用 HDinsight 中的 [Apache Phoenix](http://phoenix.apache.org/)，以及如何在您的工作站上安裝與設定 SQuirrel 以連線到 HDInsight 中的 HBase 叢集。如需有關 Phoenix 的詳細資訊，請參閱 [15 分鐘內了解 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。
+了解如何使用 HDinsight 中的 [Apache Phoenix](http://phoenix.apache.org/)，以及如何在您的工作站上安裝與設定 SQuirreL 以連線到 HDInsight 中的 HBase 叢集。如需有關 Phoenix 的詳細資訊，請參閱 [15 分鐘內了解 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。如需 Phoenix 文法，請參閱 [Phoenix 文法](http://phoenix.apache.org/language/index.html)。
 
 >[AZURE.NOTE]如需 HDInsight 中的 Phoenix 版本資訊，請參閱 [HDInsight 在 Hadoop 叢集版本中提供什麼新功能？][hdinsight-versions]
 
-## 使用 SQLLine
+##使用 SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) 是執行 SQL 的命令列公用程式。
 
-### 必要條件
+###必要條件
 開始使用 SQLLine 之前，您必須具備下列項目：
 
 - **HDInsight 中的 HBase 叢集**。如需有關佈建 HBase 叢集的資訊，請參閱[開始使用 HDInsight 中的 Apache HBase][hdinsight-hbase-get-started]。
@@ -34,7 +34,7 @@
 **找出主機名稱**
 
 1. 從桌面開啟 **Hadoop 命令列**。
-2. 執行下列命令
+2. 執行下列命令以取得 DNS 尾碼：
 
 		ipconfig
 
@@ -43,14 +43,24 @@
 **使用 SQLLine**
 
 1. 從桌面開啟 **Hadoop 命令列**。
-2. 執行以下命令：
+2. 執行下列命令來開啟 SQLLine：
 
 		cd %phoenix_home%\bin
 		sqlline.py [The FQDN of one of the Zookeepers]
 
 	![hdinsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
 
-如需詳細資訊，請參閱 [SQLLine 手冊](http://sqlline.sourceforge.net/#manual)。
+	此範例中使用的命令：
+
+		CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
+		
+		!tables;
+		
+		UPSERT INTO Company VALUES(1, 'Microsoft');
+		
+		SELECT * FROM Company;
+
+如需詳細資訊，請參閱 [SQLLine 手冊](http://sqlline.sourceforge.net/#manual)和 [Phoenix 文法](http://phoenix.apache.org/language/index.html)。
 
 
 
@@ -69,28 +79,28 @@
 
 
 
-## 使用 SQuirrel
+##使用 SQuirreL
 
-[SQuirrel SQL 用戶端](http://squirrel-sql.sourceforge.net/) 是圖形化 Java 程式，可讓您檢視 JDBC 相容資料庫的結構、瀏覽資料表中的資料，並發出 SQL 命令等等。
+[SQuirrel SQL 用戶端](http://squirrel-sql.sourceforge.net/) 是圖形化 Java 程式，可讓您檢視 JDBC 相容資料庫的結構、瀏覽資料表中的資料，並發出 SQL 命令等等。它可以用來連接到 HDInsight 上的 Apache Phoenix。
 
-本結說明如在您的工作站上安裝與設定 SQuirrel 以透過 VPN 連線到 HDInsight 中的 HBase 叢集。
+本結說明如在您的工作站上安裝與設定 SQuirreL 以透過 VPN 連線到 HDInsight 中的 HBase 叢集。
 
-### 必要條件
+###必要條件
 
 遵循程序之前，您必須具備下列項目：
 
 - 將 HBase 叢集部署至具備 DNS 虛擬機器的 Azure 虛擬網路。如需相關指示，請參閱 [在 Azure 虛擬網路上佈建 HBase 叢集][hdinsight-hbase-provision-vnet]。 
 
-	>[AZURE.IMPORTANT]您必須將 DNS 伺服器安裝到虛擬網路。
+	>[AZURE.IMPORTANT]您必須將 DNS 伺服器安裝到虛擬網路。如需相關指示，請參閱[設定兩個 Azure 虛擬網路之間的 DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
 
 - 取得 HBase 叢集的連線專用 DNS 尾碼。若要取得該尾碼，請 RDP 到叢集，然後執行 IPConfig。DNS 尾碼會類似於：
 
 		myhbase.b7.internal.cloudapp.net
 - 在您的工作站上下載並安裝 [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)。您將需要封裝的 makecert 以建立您的憑證。  
-- 在您的工作站上下載並安裝 [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)。SQuirrel SQL 用戶端 3.0 版和更新版本需要 JRE 1.6 版或更新版本。  
+- 在您的工作站上下載並安裝 [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)。SQuirreL SQL 用戶端 3.0 版和更新版本需要 JRE 1.6 版或更新版本。  
 
 
-### 設定點對站 VPN 連線到 Azure 虛擬網路
+###設定點對站 VPN 連線到 Azure 虛擬網路
 
 設定點對站 VPN 連線包含 3 個步驟：
 
@@ -151,15 +161,15 @@
 
 - 從相同的命令提示字元 (必須在您建立根憑證所在的相同電腦上。用戶端憑證必須從根憑證產生)，執行下列命令：
 
-		makecert.exe -n "CN=HBaseVnetVPNClientCertificate" -pe -sky exchange -m 96 -ss My -in "HBaseVnetVPNRootCertificate" -is my -a sha1
+  		makecert.exe -n "CN=HBaseVnetVPNClientCertificate" -pe -sky exchange -m 96 -ss My -in "HBaseVnetVPNRootCertificate" -is my -a sha1
 
-	HBaseVnetVPNRootCertificate 為根憑證名稱。它必須和根憑證名稱相符。  
+	HBaseVnetVPNRootCertificate 是根憑證名稱。它必須符合根憑證名稱。
 
-	根憑證與用戶端憑證都儲存在您電腦上的個人憑證存放區中。請使用 certmgr.msc 來確認。
+	根憑證和用戶端憑證都會儲存在電腦上的個人憑證存放區中。使用 certmgr.msc 來驗證。
 
-	![Azure virtual network point-to-site vpn certificate][img-certificate]
+	![Azure 虛擬網路點對站 vpn 憑證][img-certificate]
 
-	您想要連線虛擬網路的每部電腦上都必須安裝用戶端憑證。我們建議您為您想要連線虛擬網路的每部電腦建立唯一的用戶端憑證。若要匯出用戶端憑證，請使用 certmgr.msc。 
+	您想要連接到虛擬網路的每一部電腦都必須安裝用戶端憑證。建議您最好針對要連接到虛擬網路的每部電腦建立唯一的用戶端憑證。若要匯出用戶端憑證，請使用 certmgr.msc。
 
 **將根憑證上傳至 Azure 入口網站**
 
@@ -198,17 +208,17 @@
 		headnode1.myhbase.b7.internal.cloudapp.net
 		workernode0.myhbase.b7.internal.cloudapp.net
 
-### 安裝與設定您的工作站上的 SQuirrel
+###安裝與設定您的工作站上的 SQuirreL
 
-**安裝 SQuirrel**
+**安裝 SQuirreL**
 
 1. 從 [http://squirrel-sql.sourceforge.net/#installation](http://squirrel-sql.sourceforge.net/#installation) 下載 SQuirrel SQL 用戶端 jar 檔案。
 2. 開啟/執行 jar 檔案。它需要 [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)。
 3. 按兩下 [**下一步**]。
 4. 指定您具有寫入權限的路徑，然後按 [**下一步**]。
-	>[AZURE.NOTE]預設的安裝資料夾位於 C:\\Program Files\\squirrel sql 3.6 資料夾中。若要寫入此路徑，必須將系統管理員權限授與安裝程式。您可以系統管理員身分開啟命令提示字元、瀏覽至 Java 的 bin 資料夾，然後再執行
+	>[AZURE.NOTE]預設的安裝資料夾位於 C:\Program Files\squirrel sql 3.6 資料夾中。若要寫入此路徑，必須將系統管理員權限授與安裝程式。您可以系統管理員身分開啟命令提示字元、瀏覽至 Java 的 bin 資料夾，然後再執行
 	>
-	>     java.exe -jar [the path of the SQuirrel jar file] 
+	>     java.exe -jar [the path of the SQuirreL jar file] 
 5. 按一下 [**確定**] 以確認建立目標目錄。
 6. 預設設定是安裝基底和標準封裝。按 [下一步]。
 7. 依序按兩下 [**下一步**] 和 [**完成**]。
@@ -219,11 +229,11 @@
 Phoenix 驅動程式 jar 檔案位於 HBase 叢集上。此路徑根據版本與下列項目相似：
 
 	C:\apps\dist\phoenix-4.0.0.2.1.11.0-2316\phoenix-4.0.0.2.1.11.0-2316-client.jar
-您必須將它複製到您的工作站中的 [SQuirrel 安裝資料夾]/lib 路徑下。最簡單的方法是 RDP 到叢集中，然後再使用檔案複製/貼上 (CTRL + C 和 CTRL + V 鍵)，將它複製到您的工作站。
+您必須將它複製到您的工作站中的 [SQuirreL 安裝資料夾]/lib 路徑下。最簡單的方法是 RDP 到叢集中，然後再使用檔案複製/貼上 (CTRL + C 和 CTRL + V 鍵)，將它複製到您的工作站。
 
-**將 Phoenix 驅動程式新增至 SQuirrel**
+**將 Phoenix 驅動程式新增至 SQuirreL**
 
-1. 從您的工作站開啟 SQuirrel SQL 用戶端。
+1. 從您的工作站開啟 SQuirreL SQL 用戶端。
 2. 按一下左邊的 [**驅動程式**] 索引標籤。
 2. 從 [**驅動程式**] 功能表，按一下[ **新增驅動程式**]。
 3. 輸入以下資訊：
@@ -232,26 +242,26 @@ Phoenix 驅動程式 jar 檔案位於 HBase 叢集上。此路徑根據版本與
 	- **範例 URL**：jdbc:phoenix:zookeeper2.contoso-hbase-eu.f5.internal.cloudapp.net
 	- **類別名稱**：org.apache.phoenix.jdbc.PhoenixDriver
 
-	>[AZURE.WARNING]使用者在範例 URL 中全部小寫。
+	>[AZURE.WARNING]使用者在範例 URL 中全部小寫。您可以使用完整 zookeeper 仲裁，以免其中一項已關閉。主機名稱是 zookeeper0、zookeeper1 和 zookeeper2。
 
-	![HDInsight HBase Phoenix SQuirrel 驅動程式][img-squirrel-driver]
+	![HDInsight HBase Phoenix SQuirreL 驅動程式][img-squirrel-driver]
 4. 按一下 [確定]。
 
 **建立 HBase 叢集的別名**
 
-1. 從 SQuirrel，按一下左邊的 [**別名**] 索引標籤。
+1. 從 SQuirreL，按一下左邊的 [**別名**] 索引標籤。
 2. 從 [**別名**] 功能表，按一下 [**新增別名**]。
 3. 輸入以下資訊：
 
 	- **名稱**：HBase 叢集的名稱或您偏好的任何名稱。
 	- **驅動程式**：Phoenix。必須符合您在上一個程序中建立的驅動程式名稱。
 	- **URL**：從驅動程式組態複製的 URL。請確定使用者全部小寫。
-	- **使用者名稱**：HBase 叢集 HTTP 使用者名稱
-	- **密碼**：HBase 叢集 HTTP 使用者密碼
+	- **使用者名稱**：可以是任何文字。因為您在此使用 VPN 連線，所以完全不會使用使用者名稱。
+	- **密碼**：可以是任何文字。
 
-	![HDInsight HBase Phoenix SQuirrel 驅動程式][img-squirrel-alias]
+	![HDInsight HBase Phoenix SQuirreL 驅動程式][img-squirrel-alias]
 4. 按一下 [**測試**]。 
-5. 按一下 [連接]。當它建立連線時，SQuirrel 如下所示：
+5. 按一下 [連接]。當它建立連線時，SQuirreL 如下所示：
 
 	![HBase Phoenix SQuirrel][img-squirrel]
 
@@ -267,7 +277,7 @@ Phoenix 驅動程式 jar 檔案位於 HBase 叢集上。此路徑根據版本與
 4. 切換回 [**物件**] 索引標籤。
 5. 展開別名名稱，然後再展開**資料表**。您會看到底下所列的新資料表。
  
-## 後續步驟
+##後續步驟
 在本文中，您已經學會如何在 HDInsight 中使用 Apache Phoenix。若要深入了解，請參閱：
 
 - [HDInsight HBase 概觀][hdinsight-hbase-overview]：HBase 是建置於 Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
@@ -294,6 +304,6 @@ Phoenix 驅動程式 jar 檔案位於 HBase 叢集上。此路徑根據版本與
 [img-squirrel-sql]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-sql.png
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

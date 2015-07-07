@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="HDInsight 的 Hadoop 叢集版本的新功能 | Microsoft Azure" 
-	description="HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。請參閱支援的 Hadoop 和 HortonWorks Data Platform (HDP) 配送版本。" 
-	services="hdinsight" 
-	editor="cgronlun" 
-	manager="paulettm" 
-	authors="bradsev" 
+<properties
+	pageTitle="HDInsight 的 Hadoop 叢集版本的新功能 | Microsoft Azure"
+	description="HDInsight 支援多個可部署的 Hadoop 叢集版本。請參閱支援的 Hadoop 和 HortonWorks Data Platform (HDP) 配送版本。"
+	services="hdinsight"
+	editor="cgronlun"
+	manager="paulettm"
+	authors="bradsev"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/18/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/18/2015"
 	ms.author="bradsev"/>
 
 
@@ -42,7 +42,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個�
 
 **取得目前的元件版本資訊**
 
-在 HDInsight 的未來更新中，可能會變更 HDInsight 叢集版本相關的元件版本。若要判斷可用的元件和驗證叢集所使用的版本，有一個辦法就是使用 Ambari REST API。**GetComponentInformation** 命令可用來擷取服務元件的相關資訊。如需詳細資訊，請參閱＜[Ambari 文件][ambari-docs]＞(英文)。另一種取得此資訊的作法就是使用遠端桌面登入叢集，然後直接檢查 "C:\\apps\\dist" 目錄的內容。
+在 HDInsight 的未來更新中，可能會變更 HDInsight 叢集版本相關的元件版本。若要判斷可用的元件和驗證叢集所使用的版本，有一個辦法就是使用 Ambari REST API。**GetComponentInformation** 命令可用來擷取服務元件的相關資訊。如需詳細資訊，請參閱＜[Ambari 文件][ambari-docs]＞(英文)。另一種取得此資訊的作法就是使用遠端桌面登入叢集，然後直接檢查 "C:\apps\dist" 目錄的內容。
 
 
 **版本資訊**
@@ -60,7 +60,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個�
 
 - **Storm** - Azure HDInsight 上的 Storm 現在可供使用，只要一些點擊動作，就可以在幾分鐘內快速、輕易地部署即時分析。Azure HDInsight 上的 Apache Storm 是 Apache Hadoop 生態系統中的開放原始碼專案，提供能夠可靠地處理數百萬事件之分析平台的存取權。現在 Hadoop 使用者可以在事件發生時獲得深入見解，也能夠獲得過去發生之事件的深入見解。Microsoft 也提供與 Visual Studio 的內建整合，讓開發人員輕易地與 Storm 互動。您現在可以從 Visual Studio 開發、部署及偵錯 Storm 拓撲。
 
-- **Linux 上的 HDInsight (預覽)** - Azure HDInsight 提供佈建 Hadoop 叢集的選項，該叢集在 Linux (Ubuntu) 虛擬機器 (VM) 上執行。如果您熟悉 Linux 或 Unix、要從現有的以 Linux 為基礎的 Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，則可以使用此選項。您可以使用 Azure 入口網站、Azure 跨平台命令列介面 (CLI) 或 HDInsight .NET SDK (僅限 Windows)，從執行 Windows 或 Linux 的用戶端電腦，在 Linux 上佈建 HDInsight 叢集。
+- **Linux 上的 HDInsight (預覽)** - Azure HDInsight 提供佈建 Hadoop 叢集的選項，該叢集在 Linux (Ubuntu) 虛擬機器 (VM) 上執行。如果您熟悉 Linux 或 Unix、要從現有的以 Linux 為基礎的 Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，則可以使用此選項。您可以使用 Azure 入口網站、Azure CLI 或 HDInsight .NET SDK (僅限 Windows)，從執行 Windows 或 Linux 的用戶端電腦，在 Linux 上佈建 HDInsight 叢集。
 
 - **其他 VM 大小** - HDInsight 叢集現在有更多 VM 類型和大小可用。HDInsight 叢集現在可以利用針對一般用途建置的 A2 到 A7 大小；特色為固態硬碟 (SSD) 和處理器速度更快 60% 的 D 系列節點；以及具有 InfiniBand 支援可快速進行網路連線的 A8 和 A9 大小。Azure HDInsight 上的 Apache HBase 客戶可以從 D 系列更大的記憶體組態獲得效能增加的優點。Azure HDInsight 上的 Apache Storm 客戶可以獲得額外記憶體的優點，用來載入更大的參考資料集，以及更快的 CPU 可用於更高的輸送量。
 
@@ -95,7 +95,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個�
 下表列出目前可用的 HDInsight 版本、它們使用的相對應 Hortonworks Data Platform 版本及其發行日期。另外也會提供其支援到期日和淘汰日期 (已知道的話)。請注意：
 
 * 依預設，系統會為 HDInsight 2.1 和更新版本部署搭配兩個前端節點的高可用性叢集。HDInsight 1.6 叢集並不適用。
-* 在特定版本的支援到期後，您可能無法透過 Azure 入口網站取得。下表指出可在 Azure 入口網站上取得的版本。您可透過 Windows PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到其淘汰日期為止。 
+* 在特定版本的支援到期後，您可能無法透過 Azure 入口網站取得。下表指出可在 Azure 入口網站上取得的版本。您可透過 Windows PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到其淘汰日期為止。
 
 <table border="1"> <tr><th>HDInsight 版本</th><th>HDP 版本</a><th>高可用性</th></th><th>發行日期</th><th>可用於 Azure 入口網站</th><th>支援到期日</th><th>淘汰日期</th></tr> <tr><td>HDI 3.2</td><td>HDP 2.2</td><td>是</td><td>2/18/2015</td><td>是</td><td></td><td></td></tr> <tr><td>HDI 3.1</td><td>HDP 2.1</td><td>Yes</td><td>6/24/2014</td><td>是</td><td></td><td></td></tr> <tr><td>HDI 3.0</td><td>HDP 2.0</td><td>是</td><td>02/11/2014</td><td>是</td><td>09/17/2014</td><td>06/30/2015</td></tr> <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>是</td><td>10/28/2013</td><td>否</td><td>05/12/2014</td><td>05/31/2015</td></tr> <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>否</td><td>10/28/2013</td><td>否</td><td>04/26/2014</td><td>05/31/2015</td></tr> </table><br>
 
@@ -105,7 +105,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個�
 
 ### HDInsight 叢集版本的服務等級協定
 
-SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft 客戶服務與支援中心支援 HDInsight 叢集版本的一段時間。如果 HDInsight 叢集版本的 [支援到期日]**** 超過目前日期，則表示該叢集不在「支援期間」。上表中可找到支援的 HDInsight 叢集版本清單。特定 HDInsight X (在較新的 X+1 版本推出後) 版本的支援到期日計算方式會以下列較晚的時間為準：
+SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft 客戶服務與支援中心支援 HDInsight 叢集版本的一段時間。如果 HDInsight 叢集版本的 [支援到期日] 超過目前日期，則表示該叢集不在「支援期間」。上表中可找到支援的 HDInsight 叢集版本清單。特定 HDInsight X (在較新的 X+1 版本推出後) 版本的支援到期日計算方式會以下列較晚的時間為準：
 
 - 公式 1：將 HDInsight 叢集 X 版發行日期加上 180 天。
 - 公式 2：將 HDInsight 叢集 X+1 版日期加上 90 天 (X 之後的後續版本) 可用於 Azure 入口網站。
@@ -151,5 +151,6 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [zookeeper]: http://zookeeper.apache.org/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

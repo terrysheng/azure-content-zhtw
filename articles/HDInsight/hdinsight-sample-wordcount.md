@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在 HDInsight 中執行 Hadoop MapReduce 字數統計範例 | Azure"
+	pageTitle="HDInsight 中的 Hadoop MapReduce 字數統計範例 | Microsoft Azure"
 	description="在 HDInsight 的 Hadoop 叢集上執行 MapReduce 字數統計範例。以 Java 撰寫的程式將計算文字在文字檔中出現的次數。"
 	editor="cgronlun"
 	manager="paulettm"
@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015" 
+	ms.date="06/15/2015" 
 	ms.author="bradsev"/>
 
-#在 HDInsight 的 Hadoop 叢集上執行 MapReduce 字數統計範例
+#在 HDInsight 的 Hadoop 叢集上執行以 Java 撰寫的 MapReduce 字數統計範例
 
 本教學課程說明如何在 HDInsight 的 Hadoop 叢集上執行 MapReduce 字數統計範例。程式是以 Java 撰寫。它可統計文字檔中出現的字數，然後輸出內含每個文字及其出現頻率配對的新文字檔。本範例中所分析的文字檔，是 The Notebooks of Leonardo Da Vinci 的古騰堡計劃 (Project Gutenberg) 電子書版本。
 
+> [AZURE.NOTE]本文件中的步驟需要 Windows 用戶端。如需利用 Linux 架構的 HDInsight 叢集從 Linux、OS X 或 Unix 用戶端使用字數統計範例的步驟，請參閱[搭配使用 MapReduce 與 HDInsight 上的 Hadoop 和 SSH](hdinsight-hadoop-use-mapreduce-ssh.md) 或[利用 Curl 搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-hadoop-use-mapreduce-curl.md)。
 
 **您將了解：**
 
@@ -29,13 +30,15 @@
 
 **必要條件**：
 
-- 您必須具有 Azure 帳號。如需註冊帳戶的相關選項，請參閱 [免費試用 Azure](http://azure.microsoft.com/pricing/free-trial/) 頁面。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-- 您必須已經佈建 HDInsight 叢集。如需各種建立此類叢集方式的相關指示，請參閱[開始使用 Azure HDInsight][hdinsight-get-started] 或[佈建 HDInsight 叢集](hdinsight-provision-clusters.md)
+- **HDInsight 叢集**。如需各種建立此類叢集方式的相關指示，請參閱[開始使用 Azure HDInsight][hdinsight-get-started] 或[佈建 HDInsight 叢集](hdinsight-provision-clusters.md)
 
-- 您必須已安裝 Azure PowerShell 並加以設定，使其可用於您的帳戶。如需執行此項作業之指示，請參閱[安裝和設定 Azure PowerShell][powershell-install-configure]。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
 
-<h2><a id="run-sample"></a>使用 Azure PowerShell 執行範例</h2>
+
+
+## <a id="run-sample"></a>使用 Azure PowerShell 執行範例</h2>
 
 **提交 MapReduce 工作**
 
@@ -51,7 +54,7 @@
 		# Define the MapReduce job
 		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
-	> [AZURE.NOTE]*hadoop-examples.jar* 隨附於 HDInsight  2.1 版叢集。檔案已在 HDInsight 3.0 版叢集上重新命名為 *hadoop-mapreduce.jar*。
+	> [AZURE.NOTE]*hadoop-examples.jar* 隨附於 HDInsight 2.1 版叢集。檔案已在 HDInsight 3.0 版叢集上重新命名為 *hadoop-mapreduce.jar*。
 
 	HDInsight 叢集附有 hadoop-mapreduce-examples.jar 檔案。MapReduce 工作有兩個引數。第一個是來源檔案名稱，第二個是輸出檔案路徑。HDInsight 叢集附有來源檔案，輸出檔案路徑則是在執行階段中建立。
 
@@ -95,7 +98,7 @@
 		# Download the job output to the workstation
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	*/example/data/WordCountOutput* 資料夾是您執行 MapReduce 工作時指定的輸出資料夾。*part-r-00000* 是 MapReduce 工作輸出的預設檔案名稱。檔案會以相同資料夾結構下載至本機資料夾。例如，在下列螢幕擷取畫面中，目前的資料夾是 C 根資料夾。檔案將下載到 *C:\\example\\data\\WordCountOutput* 資料夾。
+	*/example/data/WordCountOutput* 資料夾是您執行 MapReduce 工作時指定的輸出資料夾。*part-r-00000* 是 MapReduce 工作輸出的預設檔案名稱。檔案會以相同資料夾結構下載至本機資料夾。例如，在下列螢幕擷取畫面中，目前的資料夾是 C 根資料夾。檔案將下載到 *C:\example\data\WordCountOutput* 資料夾。
 
 5. 執行下列命令來列印 MapReduce 工作輸出檔案：
 
@@ -110,7 +113,7 @@ WordCount 指令碼的輸出應會在命令視窗中顯示如下：
 
 請注意，MapReduce 工作的輸出檔是固定不變的。因此，如果您重新執行此範例，則需要變更輸出檔的名稱。
 
-<h2><a id="java-code"></a>適用於 WordCount MapReduce 程式的 Java 程式碼</h2>
+## <a id="java-code"></a>適用於 WordCount MapReduce 程式的 Java 程式碼</h2>
 
 
 
@@ -186,7 +189,7 @@ WordCount 指令碼的輸出應會在命令視窗中顯示如下：
 
 在此教學課程中，您已了解如何透過 HDInsight 使用 Azure PowerShell 執行 MapReduce 程式，以計算文字檔中的文字出現次數。
 
-<h2><a id="next-steps"></a>後續步驟</h2>
+## <a id="next-steps"></a>後續步驟</h2>
 
 如需執行其他範例，及提供以 Azure PowerShell 在 Azure HDInsight 上使用 Pig、Hive 和 MapReduce 工作之指示的教學課程，請參閱：
 
@@ -210,8 +213,9 @@ WordCount 指令碼的輸出應會在命令視窗中顯示如下：
 
 [hdinsight-get-started]: ../hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

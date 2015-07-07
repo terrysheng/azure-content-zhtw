@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="05/21/2015"
 	ms.author="tdykstra"/>
 
 #在 Azure App Service 中部署 Web 應用程式
@@ -67,8 +67,13 @@ Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，�
 * [FTP 指令碼](#ftp2)
 * [Windows PowerShell](#powershell)
 * [.NET 管理 API](#api)
-* [跨平台命令列 (xplat-cli)](#cli)
+* [Azure 命令列介面 (Azure CLI)](#cli)
 * [Web Deploy 命令列](#webdeploy)
+ 
+###<a name="octopus"></a>Octopus 部署
+
+[Octopus 部署](http://en.wikipedia.org/wiki/Octopus_Deploy)可以搭配 App Service Web Apps 使用。如需詳細資訊，請參閱＜[將 ASP.NET Web 應用程式部署至 Azure 網站](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites)＞。
+
 
 ##<a name="vso"></a>Visual Studio Online
 
@@ -86,7 +91,7 @@ Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，�
 如需詳細資訊，請參閱下列資源：
 
 * [使用 Git 從原始檔控制發行至 Web Apps](web-sites-publish-source-control.md)。說明如何使用 Git，從本機電腦直接發行至 Web Apps (在 Azure 中，這個發行方法稱為「本機 Git」)。此外也說明如何為 Git 儲存機制啟用從 GitHub、CodePlex 或 BitBucket 的連續部署。
-* [使用 Kudu 透過 GitHub 部署至 Web Apps](/documentation/videos/deploying-to-azure-from-github/)。由 Scott Hanselman 和 David Ebbo 提供的影片，示範如何從 GitHub 直接將 Web 應用程式部署至 Web Apps。
+* [使用 Kudu 透過 GitHub 部署至 Web Apps](http://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/)。由 Scott Hanselman 和 David Ebbo 提供的影片，示範如何從 GitHub 直接將 Web 應用程式部署至 Web Apps。
 * [部署至 Web Apps 的 Azure 按鈕](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/)。觸發從 Git 儲存機制部署之方法的相關部落格。
 * [Git、Mercurial 和 Dropbox 的 Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit)。
 
@@ -152,7 +157,7 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 * [從一個 Git 儲存機制將兩個網站部署至 Azure](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx)。取自 Scott Hanselman 的部落格文章。
 
 
-##<a name=msbuild></a>MSBuild
+##<a name="msbuild"></a>MSBuild
 
 如果您使用 [Visual Studio IDE](#vs) 進行開發，您將可使用 [MSBuild](http://msbuildbook.com/) 將任何您可在 IDE 中執行的工作自動化。您可以設定 MSBuild，以使用 [Web Deploy](#webdeploy) 或 [FTP/FTPS](#ftp) 來複製檔案。Web Deploy 也可自動化其他多種部署相關工作，例如部署資料庫。
 
@@ -186,13 +191,13 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 
 * [使用 Azure 管理庫和 .NET 將一切自動化](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx)。這是 .NET 管理 API 的簡介，並提供相關文件的連結。
 
-##<a name="cli"></a>跨平台命令列 (xplat-cli)
+##<a name="cli"></a>Azure 命令列介面 (Azure CLI)
 
-您可以透過 FTP，使用 Mac 或 Linux 機器中的命令列進行部署。如果您這麼做，您也將可使用 Azure 跨平台命令列介面 (xplat-cli) 存取 Azure REST 管理 API。xplat-cli 也可在 Windows 電腦中使用。
+您可以透過 FTP，使用 Windows、Mac 或 Linux 機器中的命令列進行部署。如果您這麼做，也可以使用 Azure CLI 存取 Azure REST 管理 API。
 
 如需詳細資訊，請參閱下列資源：
 
-* [命令列工具](/downloads/#cmd-line-tools)。Azure.com 中提供命令列工具資訊的入口網站頁面。
+* [Azure 命令列工具](/downloads/#cmd-line-tools)。Azure.com 中提供命令列工具資訊的入口網站頁面。
 
 ##<a name="webdeploy"></a>Web Deploy 命令列
 
@@ -219,5 +224,6 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

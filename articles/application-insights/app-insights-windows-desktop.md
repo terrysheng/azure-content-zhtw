@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Windows 桌面應用程式適用的 Application Insights" 
+	pageTitle="Windows 桌面應用程式與服務的 Application Insights" 
 	description="使用 Application Insights 分析 Windows 應用程式的使用量和效能。" 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2015" 
+	ms.date="06/13/2015" 
 	ms.author="awills"/>
 
-# Windows 桌面應用程式上的 Application Insights
+# Windows 桌面應用程式與服務的 Application Insights
 
 *Application Insights 目前僅供預覽。*
 
@@ -23,19 +23,16 @@
 
 Application Insights 可讓您監視所部署應用程式的使用量和效能。
 
-*儘管 Application Insights SDK 可在桌面應用程式中運作，它不是我們目前支援的案例。但如果您想要實驗性地嘗試它，以下提供一些作法的秘訣。*
-
-
+Windows 桌面應用程式與服務的支援是由 Application Insights 核心 SDK 所提供。此 SDK 可為所有遙測資料提供完整的 API 支援，但不提供任何遙測自動集合。
 
 
 ## <a name="add"></a> 建立 Application Insights 資源
 
 
-1.  在 [Azure 入口網站][portal] 中，建立新的 Application Insights 資源。針對應用程式類型，選擇 ASP.NET 應用程式或 Windows 市集應用程式。 
+1.  在 [Azure 入口網站][portal] 中，建立新的 Application Insights 資源。針對應用程式類型，選擇 Windows 市集應用程式。 
 
     ![按一下 [新增]，然後按一下 [Application Insights]](./media/app-insights-windows-desktop/01-new.png)
 
-    (您選擇的應用程式類型將設定 [概觀] 分頁的內容，以及[計量瀏覽器][metrics]中可用的屬性。)
 
 2.  取得檢測金鑰的副本。
 
@@ -46,11 +43,9 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 
 1. 在 Visual Studio 中，編輯桌面應用程式專案的 NuGet 封裝。![以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 封裝]](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. 安裝 Application Insights SDK 核心。
+2. 安裝 Application Insights API 套件。
 
     ![選取 [**線上**]、[**包括發行前版本**]，然後搜尋 "Application Insights"](./media/app-insights-windows-desktop/04-ai-nuget.png)
-
-    (或者，您可以選擇 Web Apps 適用的 Application Insights SDK。這可提供一些內建的效能計數器遙測。)
 
 3. 編輯 ApplicationInsights.config (已由 NuGet 安裝加入)。在結尾標記前面插入此內容：
 
@@ -60,11 +55,10 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
     
     `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
 
-4. 如果您安裝了 Web Apps SDK，可能會想要從 ApplicationInsights.config 註解化 Web 遙測模組
 
 ## <a name="telemetry"></a>插入遙測呼叫
 
-建立 `TelemetryClient` 執行個體，然後[使用它來傳送遙測][track]。
+建立 `TelemetryClient` 執行個體，然後[使用它來傳送遙測][api]。
 
 使用 `TelemetryClient.Flush` 在關閉應用程式之前傳送訊息。(對其他類型應用程式不建議使用。)
 
@@ -78,6 +72,15 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
         ...
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Alternative to setting ikey in config file:
+            tc.InstrumentationKey = "key copied from portal";
+
+            // Set session data:
+            tc.Context.User.Id = Environment.GetUserName();
+            tc.Context.Session.Id = Guid.NewGuid().ToString();
+            tc.Context.Device.OperatingSystem = Environment.OSVersion.ToString();
+
+            // Log a page view:
             tc.TrackPageView("Form1");
             ...
         }
@@ -94,23 +97,25 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 
 ```
 
-使用任一個 [Application Insights API][track] 來傳送遙測。在 Windows 桌面應用程式中，不會自動傳送遙測。一般您會使用：
+使用任一個 [Application Insights API][api] 來傳送遙測。在 Windows 桌面應用程式中，不會自動傳送遙測。一般您會使用：
 
 * TrackPageView(pageName) 用於切換表單、頁面或索引標籤
 * TrackEvent(eventName) 用於其他使用者動作
+* TrackMetric(name, value) 用在背景工作，以傳送未附加到特定事件之度量的一般報告。
 * TrackTrace(logEvent) 用於[診斷記錄][diagnostic]
 * TrackException(exception) 用在 catch 子句中
-* TrackMetric(name, value) 用在背景工作，以傳送未附加到特定事件之度量的一般報告。
 
-若要查看使用者和工作階段的計數，請設定內容初始設定式：
+#### 內容初始設定式
 
-    class TelemetryInitializer: IContextInitializer
+在每個 TelemetryClient 執行個體中設定工作階段資料時，您也可以選擇使用內容初始設定式：
+
+```C#
+    class UserSessionInitializer: IContextInitializer
     {
         public void Initialize(TelemetryContext context)
         {
             context.User.Id = Environment.UserName;
-            context.Session.Id = DateTime.Now.ToFileTime().ToString();
-            context.Session.IsNewSession = true;
+            context.Session.Id = Guid.NewGuid().ToString();
         }
     }
 
@@ -120,8 +125,9 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
         static void Main()
         {
             TelemetryConfiguration.Active.ContextInitializers.Add(
-                new TelemetryInitializer());
+                new UserSessionInitializer());
             ...
+```
 
 
 
@@ -149,7 +155,7 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 
 ## <a name="usage"></a>後續步驟
 
-[追蹤應用程式的使用量][track]
+[追蹤應用程式的使用量][knowUsers]
 
 [擷取及搜尋診斷記錄][diagnostic]
 
@@ -164,7 +170,9 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[knowUsers]: app-insights-overview-usage.md
+[api]: app-insights-api-custom-events-metrics.md
+[CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

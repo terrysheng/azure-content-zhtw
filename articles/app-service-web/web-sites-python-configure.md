@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="在 Azure 網站上設定 Python" 
-	description="本教學課程說明在 Azure 網站上編寫與設定基本的 Web 伺服器閘道介面 (WSGI) 相容之 Python 應用程式的選項。" 
+	pageTitle="使用 Azure App Service Web Apps 設定 Python" 
+	description="本教學課程描述在 Azure App Service Web Apps 上編寫與設定基本的 Web 伺服器閘道介面 (WSGI) 相容之 Python 應用程式的選項。" 
 	services="app-service\web" 
 	documentationCenter="python" 
 	tags="python"
@@ -14,44 +14,39 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="04/15/2015" 
 	ms.author="huguesv"/>
 
 
 
 
-# 在 Azure 網站上設定 Python
+# 使用 Azure App Service Web Apps 設定 Python
 
-本教學課程說明在 Azure 網站上編寫與設定基本的 Web 伺服器閘道介面 (WSGI) 相容之 Python 應用程式的選項。
+本教學課程描述在 [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 上編寫與設定基本的 Web 伺服器閘道介面 (WSGI) 相容之 Python 應用程式的選項。
 
 它會說明 Git 部署的其他功能，例如虛擬環境和使用 requirements.txt 進行封裝安裝。
 
 
 ## Bottle、Django 或 Flask？
 
-Azure 組件庫包含 Bottle、Django 和 Flask 架構的範本。如果您在開發您的第一個 Azure 網站，或是您不熟悉 Git，我們建議您遵循這些教學課程，其中包括了在 Windows 或 Mac 使用 Git 部署，從組件庫建置工作應用程式的逐步指示：
+Azure Marketplace 包含 Bottle、Django 和 Flask 架構的範本。如果您在 Azure App Service 中開發您的第一個 Web 應用程式，或是您不熟悉 Git，我們建議您遵循這些教學課程，其中包括了在 Windows 或 Mac 使用 Git 部署，從資源庫建置工作應用程式的逐步指示：
 
-- [使用 Bottle 建立網站][]
-- [使用 Django 建立網站][]
-- [使用 Flask 建立網站][]
+- [利用 Bottle 建立 Web 應用程式](web-sites-python-create-deploy-bottle-app.md)
+- [利用 Django 建立 Web 應用程式](web-sites-python-create-deploy-django-app.md)
+- [利用 Flask 建立 Web 應用程式](web-sites-python-create-deploy-flask-app.md)
 
 
-## 在入口網站上建立網站
+## 在 Azure Preview 入口網站中建立 Web 應用程式
 
-本教學課程假定現有一個 Azure 訂閱，而且能夠存取 Azure 管理入口網站。
+本教學課程假設定有現有的 Azure 訂用帳戶，而且能夠存取 Azure Preview 入口網站。
 
-如果您還沒有網站，則可以從 Azure 管理入口網站建立一個網站。按一下左下角的 [新增] 按鈕。隨即會出現一個視窗。依序按一下 [運算]、[網站] 及 [快速建立]。
-
-![](./media/web-sites-python-configure/configure-python-create-website.png)
-
+如果您還沒有 Web 應用程式，則可以從 [Azure Preview 入口網站](https://portal.azure.com)建立。按一下左下角的 [新增] 按鈕，然後按一下 [**Web + 行動**] > [**Web 應用程式**]。
 
 ## Git 發行
 
-在您新建立的網站上使用 [快速啟動] 或 [儀表板] 索引標籤以設定 Git 發行。本教學課程將使用 Git 來建立、管理並將您的 Python 網站發行至 Azure 網站。
+遵循[在 Azure App Service 中使用 GIT 連續部署](web-sites-publish-source-control.md)的以下指示，為您新建立的 Web 應用程式設定 Git 發行功能。本教學課程將使用 Git 來建立、管理並將您的 Python Web 應用程式發佈至 Azure App Service。
 
-![](./media/web-sites-python-configure/configure-python-git.png)
-
-Git 發行設定完畢後，會建立一個 Git 儲存機制並與您的網站產生關聯。該儲存機制的 URL 會加以顯示，方便您將資料從本機開發環境推送到雲端。若要透過 Git 發行應用程式，請確保同時安裝了 Git 用戶端，並遵守提供的指示將您的網站內容推送到 Azure 網站。
+Git 發佈設定完畢後，會建立一個 Git 儲存機制並與您的 Web 應用程式產生關聯。該儲存機制的 URL 會加以顯示，方便您將資料從本機開發環境推送到雲端。若要透過 Git 發佈應用程式，請確保同時安裝了 Git 用戶端，並遵守提供的指示將您的 Web 應用程式內容推送到 Azure App Service。
 
 
 ## 應用程式概觀
@@ -67,9 +62,9 @@ Git 發行設定完畢後，會建立一個 Git 儲存機制並與您的網站�
 
 ## WSGI 處理常式
 
-WSGI 是由 [PEP 3333](http://www.python.org/dev/peps/pep-3333/) 描述的一項 Python 標準，此標準定義了 Web 伺服器與 Python 之間的介面。此標準為您提供標準化介面，方便您使用 Python 撰寫各種 Web 應用程式與架構。今日熱門的 Python Web 架構都採用 WSGI。Azure 網站針對此類任何架構提供支援，而進階使用者甚至可以撰寫自己的架構，但前提是自訂處理常式必須遵守 WSGI 規範指示。
+WSGI 是由 [PEP 3333](http://www.python.org/dev/peps/pep-3333/) 描述的一項 Python 標準，此標準定義了 Web 伺服器與 Python 之間的介面。此標準為您提供標準化介面，方便您使用 Python 撰寫各種 Web 應用程式與架構。今日熱門的 Python Web 架構都採用 WSGI。Azure App Service Web Apps 針對此類任何架構提供支援，而進階使用者甚至可以撰寫自己的架構，但前提是自訂處理常式必須遵守 WSGI 規範指示。
 
-以下定義自訂處理常式的  `app.py` 範例：
+以下是用於定義自訂處理常式的 `app.py` 範例：
 
     def wsgi_app(environ, start_response):
         status = '200 OK'
@@ -84,7 +79,7 @@ WSGI 是由 [PEP 3333](http://www.python.org/dev/peps/pep-3333/) 描述的一項
         httpd = make_server('localhost', 5555, wsgi_app)
         httpd.serve_forever()
 
-您可以在本機 `python app.py`執行這個應用程式，然後在網頁瀏覽器中瀏覽至 `http://localhost:5555`。
+您可以搭配 `python app.py` 在本機執行此應用程式，然後在您的網頁瀏覽器中瀏覽到 `http://localhost:5555`。
 
 
 ## 虛擬環境
@@ -93,7 +88,7 @@ WSGI 是由 [PEP 3333](http://www.python.org/dev/peps/pep-3333/) 描述的一項
 
 為了協助管理外部的封裝相依性，Azure Git 部署支援虛擬環境的建立。
 
-當 Azure 偵測到儲存機制根目錄中的 requirements.txt 時，會自動建立名為  `env` 的虛擬環境。這只會發生在第一次部署，或是選取之 Python 執行階段變更之後的任何部署期間。
+當 Azure 偵測到儲存機制根目錄中的 requirements.txt 時，會自動建立名為 `env` 的虛擬環境。這只會發生在第一次部署，或是選取之 Python 執行階段變更之後的任何部署期間。
 
 您可能想要在本機建立虛擬環境以進行開發，但是請勿將它包含在 Git 儲存機制中。
 
@@ -122,9 +117,9 @@ Requirements.txt 中所列封裝，將會使用 pip 自動安裝於虛擬環境�
 
 請注意，如果您在儲存機制中有 web.x.y. 組態檔，其中 x.y 符合所選的 Python 執行階段，則 Azure 會自動複製適當的檔案，做為 web.config。
 
-下列 web.config 範例仰賴虛擬環境 Proxy 指令碼，於下一節中說明。它們會使用上述範例  `app.py` 中所使用之 WSGI 處理常式
+下列 web.config 範例仰賴虛擬環境 Proxy 指令碼，於下一節中說明。其會使用上述範例 `app.py` 中所使用之 WSGI 處理常式。
 
-Python 2.7  `web.config` 範例：
+Python 2.7 的範例 `web.config`：
 
     <?xml version="1.0"?>
     <configuration>
@@ -173,7 +168,7 @@ Python 2.7  `web.config` 範例：
     </configuration>
 
 
-Python 3.4  `web.config` 範例：
+Python 3.4 的範例 `web.config`：
 
     <?xml version="1.0"?>
     <configuration>
@@ -222,37 +217,37 @@ Python 3.4  `web.config` 範例：
 
 靜態檔案交由 Web 伺服器直接處理，而不會通過 Python 程式碼，以改善效能。
 
-在上述範例中，磁碟上靜態檔案的位置應該符合在 URL 中的位置。這表示  `http://pythonapp.azurewebsites.net/static/site.css` 要求將於  `\static\site.css` 提供磁碟上的檔案。
+在上述範例中，磁碟上靜態檔案的位置應該符合在 URL 中的位置。這表示 `http://pythonapp.azurewebsites.net/static/site.css` 要求將於 `\static\site.css` 提供磁碟上的檔案。
 
-有可能將規則  `Static Files` 設定為從不同於 URL 位置的磁碟位置上提供檔案。在下列規則定義中， `http://pythonapp.azurewebsites.net/static/site.css` 將於  `\FlaskWebProject\static\site.css` 提供磁碟上的檔案，而不是  `\static\site.css`。
+有可能將規則 `Static Files` 設定為從不同於 URL 位置的磁碟位置上提供檔案。在下列規則定義中，`http://pythonapp.azurewebsites.net/static/site.css` 將於 `\FlaskWebProject\static\site.css` 提供磁碟上的檔案，而不是 `\static\site.css`
 
     <rule name="Static Files" stopProcessing="true">
       <match url="^/static/.*" ignoreCase="true" />
       <action type="Rewrite" url="^/FlaskWebProject/static/.*" appendQueryString="true" />
     </rule>
 
-`WSGI_ALT_VIRTUALENV_HANDLER` 是您指定 WSGI 處理常式的地方。在上述範例中，為  `app.wsgi_app` 因為處理常式是根資料夾中  `app.py` 內名為  `wsgi_app` 的函式。
+`WSGI_ALT_VIRTUALENV_HANDLER` 是您指定 WSGI 處理常式的地方。在上述範例中，為 `app.wsgi_app` 因為處理常式是根資料夾中 `app.py` 內名為 `wsgi_app` 的函式。
 
-`PYTHONPATH` 可自訂，但是如果您藉由在 requirements.txt 中指定相依性，將它們全部安裝於虛擬環境中，您應該不需要變更它。
+`PYTHONPATH` 可自訂，但是如果您藉由在 requirements.txt 中指定相依性，將其全部安裝於虛擬環境中，您應該不需要變更。
 
 
 ## 虛擬環境 Proxy
 
 下列指令碼用來擷取 WSGI 處理常式，會啟動虛擬環境並記錄錯誤。它已設計為 Generic，不需修改就可使用。
 
- `ptvs_virtualenv_proxy.py` 內容：
+`ptvs_virtualenv_proxy.py` 內容：
 
      # ############################################################################
      #
-     # Copyright (c) Microsoft Corporation。 
+     # Copyright (c) Microsoft Corporation. 
      #
-     # 此原始程式碼是受到條款與條件的 Apache 授權 2.0 版的規範。A 
-     # 您可以在 License.html 檔案中找到一份授權複本，此檔案位於此發佈的根目錄中。如果 
-     # 找不到 Apache 授權 2.0 版，請傳送電子郵件至 
-     # vspython@microsoft.com。以任何方式使用此原始程式碼，表示您同意受到 
-     # Apache 授權 2.0 版條款的規範。
+     # This source code is subject to terms and conditions of the Apache License, Version 2.0. A 
+     # copy of the license can be found in the License.html file at the root of this distribution. If 
+     # you cannot locate the Apache License, Version 2.0, please send an email to 
+     # vspython@microsoft.com. By using this source code in any fashion, you are agreeing to be bound 
+     # by the terms of the Apache License, Version 2.0.
      #
-     # 您不得從本軟體移除此聲明，或任何其他聲明。
+     # You must not remove this notice, or any other, from this software.
      #
      # ###########################################################################
 
@@ -367,11 +362,6 @@ Python 3.4  `web.config` 範例：
 [AZURE.INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-deployment.md)]
 
 
-## 疑難排解 - 部署
-
-[AZURE.INCLUDE [web-sites-python-troubleshooting-deployment](../../includes/web-sites-python-troubleshooting-deployment.md)]
-
-
 ## 疑難排解 - 封裝安裝
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
@@ -381,11 +371,16 @@ Python 3.4  `web.config` 範例：
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+
+## 變更的項目
+* 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
-[使用 Bottle 建立網站]: web-sites-python-create-deploy-bottle-app.md
-[使用 Django 建立網站]: web-sites-python-create-deploy-django-app.md
-[使用 Flask 建立網站]: web-sites-python-create-deploy-flask-app.md
 
 
-<!--HONumber=52--> 
+
+ 
+
+<!---HONumber=62-->

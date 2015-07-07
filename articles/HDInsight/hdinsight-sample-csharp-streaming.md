@@ -1,5 +1,5 @@
 <properties
-	pageTitle="HDInsight 中的 C# 串流字數 Hadoop 範例 | Azure"
+	pageTitle="C# 串流字數統計 Hadoop 範例 | Microsoft Azure"
 	description="如何以 C# 撰寫使用 Hadoop 串流介面的 MapReduce 程式，以及如何使用 PowerShell Cmdlet 在 HDInsight 上執行該程式。"
 	editor="cgronlun"
 	manager="paulettm"
@@ -44,11 +44,10 @@ Hadoop 提供 MapReduce 一個串流 API，可讓您以 Java 以外的語言撰�
 
 開始之前，您必須具備下列條件：
 
-- 一個 Azure 帳戶。如需註冊帳戶的相關選項，請參閱 [免費試用 Azure](http://azure.microsoft.com/pricing/free-trial/) 頁面。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **HDInsight 叢集**。如需各種建立此類叢集方式的相關指示，請參閱[佈建 HDInsight 叢集](hdinsight-provision-clusters.md)。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
 
-- 一個佈建的 HDInsight 叢集。如需各種建立此類叢集方式的相關指示，請參閱[佈建 HDInsight 叢集](hdinsight-provision-clusters.md)。
-
-- Azure PowerShell 來預備應用程式。必須設定它以搭配您的帳戶使用。如需執行此項作業的指示，請參閱[安裝和設定 Azure PowerShell][powershell-install-configure]。
 
 
 ## <a id="run-sample"></a>使用 Azure PowerShell 執行範例
@@ -98,7 +97,9 @@ Hadoop 提供 MapReduce 一個串流 API，可讓您以 Java 以外的語言撰�
 
 	請注意，MapReduce 工作的輸出檔是固定不變的。因此，如果您重新執行此範例，則需要變更輸出檔的名稱。
 
-##<a id="java-code"></a>Hadoop 串流的 C# 程式碼
+
+## <a id="java-code"></a>Hadoop 串流的 C# 程式碼
+
 
 MapReduce 程式使用 cat.exe 應用程式做為對應介面以將文字串流至主控台，並使用 wc.exe 應用程式做為縮減介面以計算從文件串流的字數。mapper 和 reducer 都會從標準輸入資料流 (stdin) 逐行讀取字元並寫入至標準輸出資料流 (stdout)。
 
@@ -164,11 +165,13 @@ cat.cs 檔案中的 mapper 程式碼會使用 [StreamReader][streamreader] 物�
 
 wc.cs 檔案中的 reducer 程式碼會使用 [StreamReader][streamreader] 物件，從已經由 cat.exe mapper 輸出的標準輸入資料流讀取字元。當它使用 [Console.Writeline][console-writeline] 方法讀取字元時，它會藉由計算空格和每個字尾端的行尾字元來計算字數。然後將總計使用 [Console.Writeline][console-writeline] 方法寫入標準輸出資料流。
 
-##<a id="summary"></a>摘要
+
+## <a id="summary"></a>摘要
 
 在本教學課程中，您已看到如何使用 Hadoop 串流在 HDInsight 部署 MapReduce 工作。
 
-##<a id="next-steps"></a>接續步驟
+## <a id="next-steps"></a>接續步驟
+
 
 如需執行其他範例及提供如何以 Azure PowerShell 在 Azure HDInsight 上使用 Pig、Hive 和 MapReduce 工作之指示的教學課程，請參閱下列主題：
 
@@ -199,5 +202,6 @@ wc.cs 檔案中的 reducer 程式碼會使用 [StreamReader][streamreader] 物�
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

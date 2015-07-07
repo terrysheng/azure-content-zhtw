@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/23/2015" 
+	ms.date="06/02/2015" 
 	ms.author="cephalin"/>
 
 # 使用混合式連線從 Azure App Service 內的 Web 應用程式連線至內部部署 SQL Server
@@ -23,8 +23,8 @@
 在本教學課程中，您將了解如何在 [Azure 預覽](http://go.microsoft.com/fwlink/?LinkId=529715)中建立 App Service Web 應用程式、使用新的「混合式連線」功能將 Web 應用程式連接到您的本機內部部署 SQL Server 資料庫、建立將使用混合式連線的簡易 ASP.NET 應用程式，以及將應用程式部署至 App Service Web 應用程式。Azure 上已完成的 Web 應用程式會將使用者認證儲存在內部部署的成員資格資料庫中。本教學課程假設您沒有使用 Azure 或 ASP.NET 的經驗。
 
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
-
-> [AZURE.NOTE]「混合式連線」功能的 Web Apps 部分僅適用於 [Azure 預覽入口網站](https://portal.azure.com)。若要在 BizTalk 服務中建立連線，請參閱[混合式連線](http://go.microsoft.com/fwlink/p/?LinkID=397274)。
+>
+>「混合式連線」功能的 Web Apps 部分僅適用於 [Azure Preview 入口網站](https://portal.azure.com)。若要在 BizTalk 服務中建立連線，請參閱[混合式連線](http://go.microsoft.com/fwlink/p/?LinkID=397274)。
 
 ## 必要條件 ##
 
@@ -36,7 +36,7 @@
 
 - **Microsoft .NET Framework 3.5 Service Pack 1** - 如果您的作業系統是 Windows 8.1、Windows Server 2012 R2、Windows 8、Windows Server 2012、Windows 7 或 Windows Server 2008 R2，您可以在 [控制台] > [程式和功能] > [開啟或關閉 Windows 功能] 中啟用此項目。否則，您可以從 [Microsoft 下載中心](http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=22)下載。
 
-- **SQL Server 2014 Express with Tools** - 請在 [Microsoft Web Platform Database 頁面](http://www.microsoft.com/web/platform/database.aspx)下載免費的 Microsoft SQL Server Express。選擇 [Express]**** (非 LocalDB) 版本。[Express with Tools]**** 版本包含您將在此教學課程中使用的 SQL Server Management Studio。
+- **SQL Server 2014 Express with Tools** - 請在 [Microsoft Web Platform Database 頁面](http://www.microsoft.com/web/platform/database.aspx)下載免費的 Microsoft SQL Server Express。選擇 [Express] (非 LocalDB) 版本。[Express with Tools] 版本包含您將在此教學課程中使用的 SQL Server Management Studio。
 
 - **SQL Server Management Studio Express** - 此項目隨附於前述的 SQL Server 2014 Express with Tools 下載中，但您必須個別加以安裝，您可以從 [SQL Server Express 下載頁面](http://www.microsoft.com/web/platform/database.aspx)加以下載並安裝。
 
@@ -85,17 +85,17 @@
 	
 	![SQL Server Install][SQLServerInstall]
 	
-2. 選擇 [新的 SQL Server 獨立安裝或將功能加入到現有安裝]****。遵循指示接受預設選項和設定，直到您進入 [執行個體組態]**** 頁面。
+2. 選擇 [新的 SQL Server 獨立安裝或將功能加入到現有安裝]。遵循指示接受預設選項和設定，直到您進入 [執行個體組態] 頁面。
 	
-3. 在 [執行個體組態]**** 頁面上，選擇 [預設執行個體]****。
+3. 在 [執行個體組態] 頁面上，選擇 [預設執行個體]。
 	
 	![Choose Default Instance][ChooseDefaultInstance]
 	
 	根據預設，SQL Server 的預設執行個體會在靜態連接埠 1433 上接聽來自 SQL Server 用戶端的要求，而這正是混合式連線功能的需求。指定的執行個體會使用動態連接埠和 UDP，而混合式連線並不加以支援。
 	
-4. 接受 [伺服器組態]**** 頁面上的預設值。
+4. 接受 [伺服器組態] 頁面上的預設值。
 	
-5. 在 [資料庫引擎組態]**** 頁面上的 [驗證模式]**** 下，選擇 [混合模式 (SQL Server 驗證和 Windows 驗證)]****，並提供密碼。
+5. 在 [資料庫引擎組態] 頁面上的 [驗證模式] 下，選擇 [混合模式 (SQL Server 驗證和 Windows 驗證)]，並提供密碼。
 	
 	![Choose Mixed Mode][ChooseMixedMode]
 	
@@ -111,65 +111,65 @@
 
 您的 Visual Studio Web 應用程式需要可由 Azure 存取的成員資格資料庫。這必須要有 SQL Server 或 SQL Server Express 資料庫 (不是 MVC 範本依預設使用的 LocalDB 資料庫)，因此您接下來將會建立成員資格資料庫。
 
-1. 在 SQL Server Management Studio 中，連接到您剛剛安裝的 SQL Server。(如果 [連線到伺服器]**** 對話方塊未自動出現，請導覽至左窗格中的 [物件總管]****，依序按一下 [連接]**** 和 [資料庫引擎]****。)![連線到伺服器][SSMSConnectToServer]
+1. 在 SQL Server Management Studio 中，連接到您剛剛安裝的 SQL Server。(如果 [連線到伺服器] 對話方塊未自動出現，請導覽至左窗格中的 [物件總管]，依序按一下 [連接] 和 [資料庫引擎]。)![連線到伺服器][SSMSConnectToServer]
 	
-	針對 [伺服器類型]****，選擇 [資料庫引擎]****。對於 [伺服器名稱]****，您可以使用 **localhost** 或您要使用之電腦的名稱。選擇 [SQL Server 驗證]****，然後以您先前建立的 sa 使用者名稱和密碼登入。
+	針對 [伺服器類型]，選擇 [資料庫引擎]。對於 [伺服器名稱]，您可以使用 **localhost** 或您要使用之電腦的名稱。選擇 [SQL Server 驗證]，然後以您先前建立的 sa 使用者名稱和密碼登入。
 	
-2. 若要使用 SQL Server Management Studio 建立新資料庫，請在 [物件總管] 中以滑鼠右鍵按一下 [資料庫]****，然後按一下 [New Database]****。
+2. 若要使用 SQL Server Management Studio 建立新資料庫，請在 [物件總管] 中以滑鼠右鍵按一下 [資料庫]，然後按一下 [New Database]。
 	
 	![Create new database][SSMScreateNewDB]
 	
-3. 在 [New Database]**** 對話方塊中，輸入 MembershipDB 做為資料庫名稱，然後按一下 [確定]****。
+3. 在 [New Database] 對話方塊中，輸入 MembershipDB 做為資料庫名稱，然後按一下 [確定]。
 	
 	![Provide database name][SSMSprovideDBname]
 	
 	請注意，到目前為止您並未對資料庫做任何變更。成員資格資訊後續會在您執行 Web 應用程式時由該應用程式自動新增。
 	
-4. 在 [物件總管] 中，如果您展開 [資料庫]****，您會發現成員資格資料庫已建立。
+4. 在 [物件總管] 中，如果您展開 [資料庫]，您會發現成員資格資料庫已建立。
 	
 	![MembershipDB created][SSMSMembershipDBCreated]
 	
 <a name="CreateSite"></a>
-## B.在 Azure 預覽入口網站中建立 Web 應用程式 ##
+## B.在 Azure Preview 入口網站中建立 Web 應用程式 ##
 
-> [AZURE.NOTE]如果您已在 Azure 預覽入口網站中建立要用於此教學課程的 Web 應用程式，您可以直接跳到[建立混合式連線和 BizTalk 服務](#CreateHC)繼續作業。
+> [AZURE.NOTE]如果您已在 Azure Preview 入口網站中建立要用於此教學課程的 Web 應用程式，您可以直接跳到[建立混合式連線和 BizTalk 服務](#CreateHC)繼續作業。
 
-1. 在 [Azure 預覽入口網站][](https://portal.azure.com) 中，按一下 [新增]**** > [Web + 行動]**** > [Web 應用程式]****。
+1. 在 [Azure 預覽入口網站][](https://portal.azure.com) 中，按一下 [新增] > [Web + 行動] > [Web 應用程式]。
 	
 	![New button][New]
 	
-2. 設定您的 Web 應用程式，然後按一下 [建立]****。
+2. 設定您的 Web 應用程式，然後按一下 [建立]。
 	
 	![Website name][WebsiteCreationBlade]
 	
-3. 經過一段時間之後，Web 應用程式會建立，並顯示它的 Web 應用程式分頁。此分頁是垂直捲動的儀表板，可供您管理 Web 應用程式。
+3. 經過一段時間之後，Web 應用程式會建立，並顯示它的 Web 應用程式刀鋒視窗。此刀鋒視窗是垂直捲動的儀表板，可供您管理 Web 應用程式。
 	
 	![Website running][WebSiteRunningBlade]
 	
-	若要確認 Web 應用程式是否已上線啟用，您可以按一下 [瀏覽]**** 圖示以顯示預設頁面。
+	若要確認 Web 應用程式是否已上線啟用，您可以按一下 [瀏覽] 圖示以顯示預設頁面。
 	
 接著，您將為 Web 應用程式建立混合式連線和 BizTalk 服務。
 
 <a name="CreateHC"></a>
 ## C.建立混合式連線和 BizTalk 服務 ##
 
-1. 返回入口網站，向下捲動 Web 應用程式的分頁，然後按一下 [混合式連線]****。
+1. 返回入口網站，向下捲動 Web 應用程式的刀鋒視窗，然後按一下 [混合式連線]。
 	
 	![Hybrid connections][CreateHCHCIcon]
 	
-2. 在 [混合式連線] 分頁上，按一下 [新增]**** > [建立混合式連線]****。
+2. 在 [混合式連線] 刀鋒視窗上，按一下 [新增] > [建立混合式連線]。
 	
-3. 在 [建立混合式連線分頁]**** 上：
-	- 在 [名稱]**** 中，提供連線的名稱。
-	- 針對 [主機名稱]****，輸入您的 SQL Server 主機電腦的電腦名稱。
-	- 針對 [連接埠]****，輸入 1433 (SQL Server 的預設連接埠)。
-	- 按一下 [Biz Talk 服務]**** 並輸入 BizTalk 服務的名稱。
+3. 在 [建立混合式連線刀鋒視窗] 上：
+	- 在 [名稱] 中，提供連線的名稱。
+	- 針對 [主機名稱]，輸入您的 SQL Server 主機電腦的電腦名稱。
+	- 針對 [連接埠]，輸入 1433 (SQL Server 的預設連接埠)。
+	- 按一下 [Biz Talk 服務] 並輸入 BizTalk 服務的名稱。
 	
 	![Create a hybrid connection][TwinCreateHCBlades]
 		
-5. 按兩次 [確定]****。
+5. 按兩次 [確定]。
 
-	程序完成時，[通知]**** 區域會閃爍綠色 [成功]****，而且 [混合式連線]**** 分頁會顯示新的混合式連線，且狀態為 [未連線]****。
+	程序完成時，[通知] 區域會閃爍綠色 [成功]，而且 [混合式連線] 刀鋒視窗會顯示新的混合式連線，且狀態為 [未連線]。
 	
 	![One hybrid connection created][CreateHCOneConnectionCreated]
 	
@@ -178,33 +178,7 @@
 <a name="InstallHCM"></a>
 ## D.安裝內部部署混合式連線管理員以完成連線 ##
 
-1. 在 [混合式連線]**** 分頁中，按一下您剛剛建立的混合式連線，然後按一下 [接聽程式設定]****。
-	
-	![Click Listener Setup][ClickListenerSetup]
-	
-4. [混合式連線屬性]**** 分頁隨即開啟。在 [內部部署混合式連線管理員]**** 下，選擇 [按一下此處進行安裝]****。
-	
-	![Click here to install][ClickToInstallHCM]
-	
-5. 在 [應用程式執行] 安全性警告對話方塊中，選擇 [執行]**** 以繼續作業。
-	
-	![Choose Run to continue][ApplicationRunWarning]
-	
-6.	在 [使用者帳戶控制]**** 對話方塊中，選擇 [是]****。
-	
-	![Choose Yes][UAC]
-	
-7. 系統會為您下載並安裝混合式連線管理員。
-	
-	![安裝][HCMInstalling]
-	
-8. 安裝完成後，請按一下 [關閉]****。
-	
-	![Click Close][HCMInstallComplete]
-	
-	在 [混合式連線]**** 分頁上，[狀態]**** 欄此時會顯示為 [未連線]****。
-	
-	![Connected Status][HCStatusConnected]
+[AZURE.INCLUDE [app-service-hybrid-connections-manager-install](../../includes/app-service-hybrid-connections-manager-install.md)]
 
 現在，混合式連線基礎結構已完成，您將建立使用此基礎結構的 Web 應用程式。
 
@@ -212,15 +186,15 @@
 ## E.建立基本 ASP.NET Web 專案、編輯資料庫連接字串，和在本機執行專案 ##
 
 ### 建立基本 ASP.NET 專案 ###
-1. 在 Visual Studio 的 [檔案]**** 功能表上，建立新的專案：
+1. 在 Visual Studio 的 [檔案] 功能表上，建立新的專案：
 	
 	![New Visual Studio project][HCVSNewProject]
 	
-2. 在 [新增專案]**** 對話方塊的 [範本]**** 區段中選取 [Web]****，再選擇 [ASP.NET Web 應用程式]****，然後按一下 [確定]****。
+2. 在 [新增專案] 對話方塊的 [範本] 區段中選取 [Web]，再選擇 [ASP.NET Web 應用程式]，然後按一下 [確定]。
 	
 	![Choose ASP.NET Web Application][HCVSChooseASPNET]
 	
-3. 在 [新增 ASP.NET 專案]**** 對話方塊中，選擇 [MVC]****，然後按一下 [確定]****。
+3. 在 [新增 ASP.NET 專案] 對話方塊中，選擇 [MVC]，然後按一下 [確定]。
 	
 	![Choose MVC][HCVSChooseMVC]
 	
@@ -238,19 +212,19 @@
 	
 	![Web.config][HCVSChooseWebConfig]
 	
-2. 依照下列範例中的語法編輯 [connectionStrings]**** 區段，將 SQL Server 資料庫指向您的本機電腦：
+2. 依照下列範例中的語法編輯 [connectionStrings] 區段，將 SQL Server 資料庫指向您的本機電腦：
 	
 	![Connection string][HCVSConnectionString]
 	
 	編譯連接字串時，請留意下列事項：
 	
-	- 如果您要連接到指定的執行個體而非預設執行個體 (例如 YourServer\\SQLEXPRESS)，您必須將 SQL Server 設定成使用靜態連接埠。如需設定靜態連接埠的相關資訊，請參閱[如何將 SQL Server 設定成在特定連接埠上接聽](http://support.microsoft.com/kb/823938)。根據預設，指定的執行個體會使用 UDP 和動態連接埠，而混合式連線並不加以支援。 
+	- 如果您要連接到指定的執行個體而非預設執行個體 (例如 YourServer\SQLEXPRESS)，您必須將 SQL Server 設定成使用靜態連接埠。如需設定靜態連接埠的相關資訊，請參閱[如何將 SQL Server 設定成在特定連接埠上接聽](http://support.microsoft.com/kb/823938)。根據預設，指定的執行個體會使用 UDP 和動態連接埠，而混合式連線並不加以支援。 
 	
 	- 建議您指定連接埠 (依預設為 1433，如範例所示) 和連接字串，以確定您的本機 SQL Server 會啟用 TCP 並使用正確的連接埠。
 	
 	- 請務必使用 SQL Server 驗證進行連接，以在您的連接字串中指定使用者識別碼和密碼。
 	
-3. 在 Visual Studio 中按一下 [儲存]****，以儲存 Web.config 檔案。
+3. 在 Visual Studio 中按一下 [儲存]，以儲存 Web.config 檔案。
 
 ### 在本機執行專案和註冊新使用者 ###
 
@@ -258,7 +232,7 @@
 	
 	![Run project][HCVSRunProject]
 	
-2. 在預設網頁的右上方，選擇 [註冊]**** 以註冊新帳戶：
+2. 在預設網頁的右上方，選擇 [註冊] 以註冊新帳戶：
 	
 	![Register a new account][HCVSRegisterLocally]
 	
@@ -270,46 +244,46 @@
 	
 4. 關閉預設網頁的瀏覽器視窗。這會停止 Visual Studio 中的應用程式。
 
-現在您已可執行下一個步驟，也就是將應用程式發行至 Azure，並加以測試。
+現在您已可執行下一個步驟，也就是將應用程式發佈至 Azure，並加以測試。
 
 <a name="PubNTest"></a>
-## F.將 Web 應用程式發行至 Azure 並加以測試 ##
+## F.將 Web 應用程式發佈至 Azure 並加以測試 ##
 
-現在，您會將應用程式發行至您的 App Service Web 應用程式並加以測試，以確認您先前設定的混合式連線是否可用來將您的 Web 應用程式連接到本機電腦上的資料庫。
+現在，您會將應用程式發佈至您的 App Service Web 應用程式並加以測試，以確認您先前設定的混合式連線是否可用來將您的 Web 應用程式連接到本機電腦上的資料庫。
 
-### 發行 Web 應用程式 ###
+### 發佈 Web 應用程式 ###
 
-1. 您可以在 Azure 預覽入口網站中下載 App Service Web 應用程式的發行設定檔。在您 Web 應用程式的分頁上，按一下 [取得發行設定檔]****，然後將檔案儲存至您的電腦。
+1. 您可以在 Azure 預覽入口網站中下載 App Service Web 應用程式的發行設定檔。在您 Web 應用程式的刀鋒視窗上，按一下 [取得發行設定檔]，然後將檔案儲存至您的電腦。
 	
 	![Download publish profile][PortalDownloadPublishProfile]
 	
 	接著，您會將此檔案匯入 Visual Studio Web 應用程式中。
 	
-2. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下專案名稱，並選取 [發行]****。
+2. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下專案名稱，並選取 [發佈]。
 	
 	![Select publish][HCVSRightClickProjectSelectPublish]
 	
-3. 在 [Publish Web]**** 對話方塊的 [設定檔]**** 索引標籤上，選擇 [匯入]****。
+3. 在 [Publish Web] 對話方塊的 [設定檔] 索引標籤上，選擇 [匯入]。
 	
 	![Import][HCVSPublishWebDialogImport]
 	
-4. 瀏覽至您已下載的發行設定檔並加以選取，然後按一下 [確定]****。
+4. 瀏覽至您已下載的發行設定檔並加以選取，然後按一下 [確定]。
 	
 	![Browse to profile][HCVSBrowseToImportPubProfile]
 	
-5. 您的發行資訊會匯入並顯示在對話方塊的 [連線]**** 索引標籤上。
+5. 您的發佈資訊會匯入並顯示在對話方塊的 [連線] 索引標籤上。
 	
 	![Click Publish][HCVSClickPublish]
 	
-	按一下 [發行]****。
+	按一下 [發佈]。
 	
-	發行完成後，瀏覽器將會啟動並顯示您熟悉的 ASP.NET 應用程式，差別在於網站現在已運作於 Azure 雲端中。
+	發佈完成後，瀏覽器將會啟動並顯示您熟悉的 ASP.NET 應用程式，差別在於網站現在已運作於 Azure 雲端中。
 
 接著，您將使用即時 Web 應用程式來檢視其運作中的混合式連線。
 
 ### 測試 Azure 上已完成的 Web 應用程式 ###
 
-1. 在您位於 Azure 上的網頁中，從右上方選擇 [登入]****。
+1. 在您位於 Azure 上的網頁中，從右上方選擇 [登入]。
 	
 	![Test log in][HCTestLogIn]
 	
@@ -317,11 +291,11 @@
 	
 	![Hello greeting][HCTestHelloContoso]
 	
-3. 若要進一步測試新的混合式連線，請登出您的 Azure Web 應用程式，再以另一名使用者的身分註冊。提供新的使用者名稱和密碼，然後按一下 [註冊]****。
+3. 若要進一步測試新的混合式連線，請登出您的 Azure Web 應用程式，再以另一名使用者的身分註冊。提供新的使用者名稱和密碼，然後按一下 [註冊]。
 	
 	![Test register another user][HCTestRegisterRelecloud]
 	
-4. 若要驗證新使用者的認證已透過混合式連線儲存在您的本機資料庫中，請在本機電腦上開啟 SQL Management Studio。在 [物件總管] 中展開 **MembershipDB** 資料庫，然後展開 [資料表]****。以滑鼠右鍵按一下 **hybridService1.TodoItems** 成員資格資料表，然後選擇 [Select Top 1000 Rows]**** 以檢視結果。
+4. 若要驗證新使用者的認證已透過混合式連線儲存在您的本機資料庫中，請在本機電腦上開啟 SQL Management Studio。在 [物件總管] 中展開 **MembershipDB** 資料庫，然後展開 [資料表]。以滑鼠右鍵按一下 **hybridService1.TodoItems** 成員資格資料表，然後選擇 [Select Top 1000 Rows] 以檢視結果。
 	
 	![View the results][HCTestSSMSTree]
 	
@@ -402,5 +376,6 @@
 [HCTestRegisterRelecloud]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F09HCTestRegisterRelecloud.png
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="從程式碼使用 SaaS 連接器" 
+	pageTitle="部署及設定 SaaS 連接器 API 應用程式" 
 	description="了解如何設定您從 Azure Marketplace 安裝在 Azure 訂閱中的 SaaS 連接器。" 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -16,7 +16,7 @@
 	ms.date="04/07/2015" 
 	ms.author="tdykstra"/>
 
-# 從程式碼使用 SaaS 連接器
+# 在 Azure App Service 中部署及設定 SaaS 連接器 API 應用程式
 
 ## 概觀
 
@@ -24,7 +24,7 @@
 
 例如，如果您想要編碼 HTTP 要求，以您的 Dropbox 帳戶讀取和寫入檔案，則直接使用 Dropbox 的驗證程序很複雜。Dropbox 連接器會處理驗證的複雜性，以便您可以專注於撰寫商業特有程式碼。
 
-> [AZURE.WARNING]**如果想要從邏輯應用程式使用 SaaS 連接器，則*不*應該遵循**這裡的指示。如需如何在邏輯應用程式內使用 SaaS 連接器的詳細資料，請參閱[建立新的邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。如果您想要使用*程式碼*來呼叫連接器，則此文章特別有用。
+> [AZURE.NOTE]如果您想要在邏輯應用程式中使用 SaaS 連接器，就不需要遵循這裡的指示。如需關於如何在邏輯應用程式內使用 SaaS 連接器的資訊，請參閱[建立新的邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
  
 本教學課程使用 DropBox 連接器作為範例，並逐步引導您完成下列步驟：
 
@@ -43,7 +43,7 @@
 
 	![按一下 [Dropbox 連接器]](./media/app-service-api-connnect-your-app-to-saas-connector/searchdb.png)
  
-3. 按一下 [建立]****。
+3. 按一下 [建立]。
 
 	![Click Create](./media/app-service-api-connnect-your-app-to-saas-connector/clickcreate.png)
  
@@ -275,4 +275,6 @@ Azure 現在正為您管理三個驗證權杖：
 
 [Azure 預覽入口網站]: https://portal.azure.com/
 [Azure 入口網站]: https://manage.windowsazure.com/
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

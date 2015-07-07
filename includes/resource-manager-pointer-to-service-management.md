@@ -1,3 +1,5 @@
-### Azure Resource Manager and Azure Service Management
+### Azure 資源管理員和 Azure 服務管理
  
-This article is for a Resource Manager-based Azure resource, which Microsoft recommends over the use of Azure Service Management. For an explanation of the advantages of Resource Manager, see [Azure Compute, Network & Storage Providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md). To do the equivalent task with Azure Service Management, see the following article:
+本文是針對資源管理員型 Azure 資源，Microsoft 建議您透過使用 Azure 服務管理來使用。如需資源管理員優點的說明，請參閱 [Azure 資源管理員底下的 Azure 運算、網路和儲存體提供者](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)。若要執行與 Azure 服務管理相等的工作，請參閱下列文章：
+
+<!---HONumber=62-->

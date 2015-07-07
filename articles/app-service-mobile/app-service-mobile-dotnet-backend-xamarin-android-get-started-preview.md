@@ -1,9 +1,9 @@
 <properties
-	pageTitle="在 Xamarin Android 應用程式中開始使用 Azure 行動應用程式 - Azure 行動應用程式"
-	description="遵循此教學課程，可開始使用 Azure 行動應用程式進行 Xamarin Android 開發。"
+	pageTitle="在 Xamarin Android 應用程式中開始使用 Azure Mobile Apps - Azure Mobile Apps"
+	description="遵循此教學課程，可開始使用 Azure Mobile Apps 進行 Xamarin Android 開發。"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="chrande"
+	authors="chrisanderson"
 	manager="dwrede"
 	editor="mollybos"/>
 
@@ -12,21 +12,21 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="11/11/2014"
+	ms.topic="get-started-article"
+	ms.date="05/01/2015"
 	ms.author="chrande"/>
 
 # <a name="getting-started"> </a>建立 Xamarin Android 應用程式
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
 
-本教學課程將示範如何使用 Azure 行動應用程式，將雲端後端服務新增至 Xamarin Android 應用程式。在本教學課程中，您將建立新的 .NET 服務，並建立可在  .NET 後端中儲存應用程式資料的簡單_待辦事項_ 應用程式。
+本教學課程示範如何使用 Azure Mobile Apps，將雲端型後端服務新增到 Xamarin Android 應用程式。在本教學課程中，您將建立新的 .NET 服務，並建立可在 .NET 後端中儲存應用程式資料的簡單_待辦事項_ 應用程式。
 
 以下是完成應用程式的螢幕擷取畫面：
 
 ![][0]
 
-完成本教學課程是 Xamarin Android 應用程式所有其他 Azure 行動應用程式教學課程的先決條件。
+完成本教學課程是 Xamarin Android 應用程式所有其他 Azure Mobile Apps 教學課程的先決條件。
 
 若要完成此教學課程，您需要下列項目：
 
@@ -45,7 +45,7 @@
 
 在本節中，您將為行動應用程式下載新的 Xamarin Android 應用程式和 .NET 後端服務專案。
 
-1. 在 Azure 入口網站中，依序按一下 [**瀏覽**]、[**行動應用程式**]，然後按一下您剛建立的行動應用程式。
+1. 在 Azure 入口網站中，依序按一下 [**瀏覽**]、[**Mobile Apps**]，然後按一下您剛建立的行動應用程式。
 
 2. 在刀鋒視窗頂端，按一下 [**加入用戶端**] 並展開 **Xamarin.Android**。
 
@@ -54,15 +54,15 @@
     這將顯示三個簡單步驟，可用來建立連接到您行動應用程式後端的 Xamarin Android 應用程式。
 
 
-3. 在您的本機電腦或虛擬機器下載並安裝 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> (如果您尚未這麼做)。  
+3. 在您的本機電腦或虛擬機器下載並安裝 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> (如果您尚未這麼做)。
 
 4. 下載並安裝 [Xamarin Studio] (如果您尚未這麼做)。您也可以使用 Xamarin for Visual Studio。
 
 5. 在 [**下載您的服務並發佈至雲端**] 下，按一下 [**下載**]。
 
-  這會下載一個方案，其中包含行動應用程式後端程式碼的專案，以及與行動應用程式後端連接的範例_待辦事項_用戶端應用程式的專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
+  	這會下載一個方案，其中包含行動應用程式後端程式碼的專案，以及與行動應用程式後端連接的範例_待辦事項_用戶端應用程式的專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
 
-6. 下載您的發行設定檔、將下載的檔案儲存至本機電腦，並記下儲存位置。
+6. 下載您的發佈設定檔、將下載的檔案儲存至本機電腦，並記下儲存位置。
 
 ## 測試行動應用程式後端
 
@@ -92,8 +92,7 @@
 
 	如此會傳送 POST 要求到 Azure 中代管的新行動應用程式後端。要求中的資料會插入 TodoItem 資料表中。行動應用程式後端會傳回資料表中儲存的項目，而該資料會顯示在清單中。
 
-	> [AZURE.NOTE]
-   	> 您可以檢閱用來存取行動應用程式後端以查詢和插入資料的程式碼，該程式碼位於 ToDoActivity.cs C# 檔案中。
+	> [AZURE.NOTE]您可以檢閱存取行動應用程式後端以查詢與插入資料的程式碼，您可在 ToDoActivity.cs C# 檔案中找到此程式碼。
 
 
 
@@ -109,6 +108,6 @@
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

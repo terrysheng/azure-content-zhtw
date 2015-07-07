@@ -18,7 +18,7 @@
 
 # 在 Azure 應用程式服務中使用 Azure 儲存體建立 PHP Web 應用程式
 
-本教學課程示範如何在 [Azure 應用程式服務](http://go.microsoft.com/fwlink/?LinkId=529714)中建立 PHP Web 應用程式，以及在後端使用 Azure 資料表儲存體服務。本教學課程假定您的電腦已經安裝 [PHP][install-php] 與一部 Web 伺服器。本教學課程裡的說明可運用在包括 Windows、Mac 與 Linux 的任何作業系統上。完成本指南的步驟後，您將擁有一台在 Azure 上執行的 PHP Web 應用程式，並能夠存取資料表儲存體服務。
+本教學課程示範如何在 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中建立 PHP Web 應用程式，以及在後端使用 Azure 資料表儲存體服務。本教學課程假定您的電腦已經安裝 [PHP][install-php] 與一部 Web 伺服器。本教學課程裡的說明可運用在包括 Windows、Mac 與 Linux 的任何作業系統上。完成本指南的步驟後，您將擁有一台在 Azure 上執行的 PHP Web 應用程式，並能夠存取資料表儲存體服務。
  
 您將了解：
 
@@ -27,22 +27,21 @@
 * 如何建立 Azure 儲存體帳戶並設定您的應用程式來使用它。
 * 如何建立 Azure Web 應用程式並使用 Git 來部署到該 Web 應用程式
  
-您將在 PHP 中建立簡單的「工作清單」Web 應用程式。完成之應用程式的螢幕擷取畫面如下：
+您將在 PHP 中建立簡單的 Tasklist Web 應用程式。完成之應用程式的螢幕擷取畫面如下：
 
 ![Azure PHP Web 應用程式][ws-storage-app]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE] 如果您要在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，讓您可以在 App Service 中立即建立短期的簡易版 Web 應用程式。不需要信用卡，無需承諾。
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
-## 安裝 Azure 用戶端程式庫
+##安裝 Azure 用戶端程式庫
 
 若要透過 Composer 安裝 PHP Client Libraries for Azure，請依照下列步驟進行：
 
 1. [安裝 Git][install-git]
 
-	> [AZURE.NOTE]
-	> 在 Windows 中，您也需要將 Git 可執行檔新增至 PATH 環境變數。
+	> [AZURE.NOTE]在 Windows 中，您也需要將 Git 可執行檔新增至 PATH 環境變數。
 
 2. 在專案的根目錄中建立名為 **composer.json** 的檔案，並新增下列程式碼：
 
@@ -65,7 +64,7 @@
 
 		php composer.phar install
 
-## 開始使用用戶端程式庫
+##開始使用用戶端程式庫
 
 在您使用程式庫呼叫 Azure API 之前，必須先執行以下四個基本步驟。您將建立初始化指令碼以執行這些步驟。
 
@@ -95,7 +94,7 @@
 	
 		UseDevelopmentStorage=true
 
-* 使用  `ServicesBuilder::createTableService` 原廠方法在資料表服務呼叫周圍具現化包裝函式。
+* 使用 `ServicesBuilder::createTableService` 原廠方法在表格服務呼叫周圍具現化包裝函式。
 
 		$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
@@ -104,7 +103,7 @@
 
 ## 建立資料表
 
-儲存資料之前，您必須先建立資料容器，亦即資料表。 
+儲存資料之前，您必須先建立資料容器，亦即資料表。
 
 * 建立名為 **createtable.php** 的檔案。
 
@@ -113,7 +112,7 @@
 		<?php
 		require_once "init.php";
 
-* 接著，呼叫  *createTable* 以便傳入資料表名稱。就像其他 NoSQL 資料表儲存庫一樣，Azure 資料表不需要任何結構描述。
+* 接著，呼叫 *createTable* 以便傳入資料表名稱。就像其他 NoSQL 資料表儲存庫一樣，Azure 資料表不需要任何結構描述。
 	
 		try	{
 			$tableRestProxy->createTable('tasks');
@@ -125,12 +124,12 @@
 		}
 		?>
 
-	您可在此找到錯誤代碼與訊息掃描：[http://msdn.microsoft.com/library/windowsazure/dd179438.aspx][msdn-errors]
+	有關錯誤代碼與訊息掃描，請參閱：[http://msdn.microsoft.com/library/windowsazure/dd179438.aspx][msdn-errors]
 
 
-## 查詢資料表
+##查詢資料表
 
-「工作清單」應用程式首頁會列出所有現有工作，並允許插入新的工作。
+Tasklist 應用程式首頁會列出所有現有工作，並允許插入新的工作。
 
 * 建立名為 **index.php** 的檔案，並插入構成頁面標題的下列 HTML 與 PHP 程式碼：
 	
@@ -156,7 +155,7 @@
 		<?php		
 		require_once "init.php";
 
-* 若要查詢 Azure 資料表以瞭解  *tasks* 資料表中儲存的「所有實體」，請呼叫  *queryEntities* 方法以便單純傳遞資料表名稱。在以下的「更新實體」小節中，您將同時瞭解如何傳遞一項可查詢特定實體的篩選。
+* 若要查詢 Azure 資料表以瞭解 **tasks** 資料表中儲存的「所有實體」，請呼叫 *queryEntities* 方法以便單純傳遞資料表名稱。在以下的「**更新實體**」一節中，您將同時瞭解如何傳遞一項可查詢特定實體的篩選。
 
 		try {
 		    $result = $tableRestProxy->queryEntities('tasks');
@@ -173,7 +172,7 @@
 			
 		for ($i = 0; $i < count($entities); $i++) {
 
-* 取得  `Entity` 之後，讀取資料的模型即為  `Entity->getPropertyValue('[name]')`：
+* 取得 `Entity` 之後，讀取資料的模型即為 `Entity->getPropertyValue('[name]')`：
 
 			if ($i == 0) {
 				echo "<table border='1'>
@@ -205,7 +204,7 @@
 			echo "<h3>No items on list.</h3>";
 		?>
 
-* Last, you must insert the form that feeds data into the task insertion script and complete the HTML:
+* 最後，您必須插入表單以饋送資料至工作插入指令碼並完成 HTML：
 
 			<hr/>
 			<form action="additem.php" method="post">
@@ -241,7 +240,7 @@
 		use WindowsAzure\Table\Models\Entity;
 		use WindowsAzure\Table\Models\EdmType;		
 
-* 插入實體的第一步，就是具現化  `Entity` 物件並在其上設定屬性：
+* 插入實體的第一步，就是具現化 `Entity` 物件並在其上設定屬性：
 		
 		$entity = new Entity();
 		$entity->setPartitionKey('p1');
@@ -251,7 +250,7 @@
 		$entity->addProperty('date', EdmType::STRING, $_POST['date']);
 		$entity->addProperty('complete', EdmType::BOOLEAN, false);
 
-* 接著您可以將剛建立的 `$entity` 傳遞至  `insertEntity` 方法：
+* 接著您可以將剛建立的 `$entity` 傳遞至 `insertEntity` 方法：
 
 		try{
 			$tableRestProxy->insertEntity('tasks', $entity);
@@ -269,7 +268,7 @@
 	
 ## 更新實體
 
-工作清單應用程式能夠將項目標記為完成，也能取消標記。首頁會傳入實體的  *RowKey*與  *PartitionKey*，以及目標狀態 (已標記==1，未標記==0)。
+工作清單應用程式能夠將項目標記為完成，也能取消標記。首頁會傳入實體的 *RowKey* 與 *PartitionKey*，以及目標狀態 (已標記==1，未標記==0)。
 
 * 建立名為 **markitem.php** 的檔案，並新增初始化部分：
 
@@ -279,17 +278,17 @@
 
 * 更新實體的第一步是從資料表加以擷取：
 		
-		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');		
+		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq ''.$_GET['pk'].'' and RowKey eq ''.$_GET['rk'].''');		
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
-	如您所見，傳入的查詢篩選形式為 `Key eq 'Value'`。查詢語法的完整描述可[在此][msdn-table-query-syntax]取得。
+	如您所見，傳入的查詢篩選形式為 `Key eq 'Value'`查詢語法的完整描述可[在此][msdn-table-query-syntax]取得。
 
 * 接著您可以變更任何屬性：
 
 		$entity->setPropertyValue('complete', ($_GET['complete'] == 'true') ? true : false);
 
-* 而且  `updateEntity` 方法會執行更新：
+* 而且 `updateEntity` 方法會執行更新：
 
 		try{
 			$result = $tableRestProxy->updateEntity('tasks', $entity);
@@ -308,7 +307,7 @@
 
 ## 刪除實體
 
-單次呼叫  `deleteItem` 即可刪除項目。傳入值為 **PartitionKey** 與 **RowKey**，兩者共同構成了實體的主要金鑰。建立名為 **deleteitem.php** 的檔案，並插入下列程式碼：
+單次呼叫 `deleteItem` 即可刪除項目。傳入值為 **PartitionKey** 與 **RowKey**，兩者共同構成了實體的主要金鑰。建立名為 **deleteitem.php** 的檔案，並插入下列程式碼：
 
 		<?php
 		
@@ -321,11 +320,11 @@
 
 ## 建立 Azure 儲存體帳戶
 
-若要讓您的應用程式將資料儲存至雲端，首先您需要在 Azure 建立儲存體帳戶，然後將適當的驗證資訊傳遞至  *Configuration* 類別。
+若要讓您的應用程式將資料儲存至雲端，首先您需要在 Azure 建立儲存體帳戶，然後將適當的驗證資訊傳遞至 *Configuration* 類別。
 
 1. 登入 [Azure 入口網站][management-portal]。
 
-2. 按一下入口網站左下方的 [**新增**] 圖示，然後按一下 [**資料 + 儲存體**] >[ **儲存體**]。為儲存體帳戶指定唯一名稱，並建立新[資源群組](../azure-preview-portal-using-resource-groups.md) 給它。
+2. 按一下入口網站左下方的 [**新增**] 圖示，然後按一下 [**資料 + 儲存體**] >[**儲存體**]。為儲存體帳戶指定唯一名稱，並為它建立新的[資源群組](../resource-group-overview.md)。
 
 	![建立新的儲存體帳戶][storage-quick-create]
 	
@@ -333,9 +332,9 @@
 
 5. 按一下儲存體帳戶刀鋒視窗中的 [**設定**] 部分。記下帳戶名稱和金鑰。
 
-	![選取管理金鑰][storage-access-keys]
+	![Select Manage Keys][storage-access-keys]
 
-7. 開啟 **init.php**，使用上一個步驟中記下的帳戶名稱和金鑰，取代 `[YOUR_STORAGE_ACCOUNT_NAME]` 和 `[YOUR_STORAGE_ACCOUNT_KEY]`。儲存檔案。
+7. 開啟 **init.php** 並使用您在上個步驟記下的帳戶名稱與金鑰來取代 `[YOUR_STORAGE_ACCOUNT_NAME]` 及 `[YOUR_STORAGE_ACCOUNT_KEY]`儲存檔案。
 
 ## 建立 Azure Web 應用程式並設定 Git 發行功能
 
@@ -343,27 +342,27 @@
 
 1. 登入 [Azure 入口網站][management-portal]。
 
-2. 建立空的 Web 應用程式，方法是使用 [How to：使用 Azure Portal 入口網站建立 Web 應用程式](../web-sites-create-deploy.md#createawebsiteportal)中的指示。務必要建立新[應用程式服務方案](azure-web-sites-web-hosting-plans-in-depth-overview) 然後選取您先前建立的儲存體帳戶的資源群組。
+2. 依照＜[做法：使用 Azure 入口網站建立 Web 應用程式](../web-sites-create-deploy.md#createawebsiteportal)＞中的指示建立空白的 Web 應用程式。請務必建立新的 [App Service 計劃](azure-web-sites-web-hosting-plans-in-depth-overview)，然後選取您先前建立的儲存體帳戶的資源群組。
 
-	建立 Web 應用程式後，[**通知**] 按鈕便會閃爍綠色 [**成功**]， Web 應用程式戶的刀鋒視窗會開啟，顯示它屬於您所建立的新資源群組。
+	建立 Web 應用程式後，[**通知**] 按鈕便會閃爍綠色 [**成功**]，Web 應用程式戶的刀鋒視窗會開啟，顯示它屬於您所建立的新資源群組。
 
-6. 在 Web 應用程式的刀鋒視窗中，按一下 [**設定連續部署**]，然後選擇 [**本機 Git 儲存機制**]。按一下 [確定]。
+6. 在 Web 應用程式的刀鋒視窗中，按一下 [**設定連續部署**]，然後選擇 [**本機 Git 儲存機制**]。按一下 [**確定**]。
 
-	![設定 Git 發行功能][setup-git-publishing]
+	![Set up Git publishing][setup-git-publishing]
 
-7. 將本機 Git 儲存機制部署到 Azure 之前，您必須也設定部署認證。在 web 應用程式的刀鋒視窗中，按一下 [**所有設定**] > [**部署認證**] 來設定認證。當您完成時，按一下 [**儲存**]。
+7. 將本機 Git 儲存機制部署到 Azure 之前，您必須也設定部署認證。在 Web 應用程式的刀鋒視窗中，按一下 [**所有設定**] > [ **部署認證**] 來設定認證。當您完成時，按一下 [**儲存**]。
 
-	![建立發行認證][credentials]
+	![Create publishing credentials][credentials]
 
 	設定儲存機制需要幾秒鐘的時間。
 
-8. 一旦 Git 儲存機制準備就緒時，您現在即可將變更推送給它。您可以按一下 Web 應用程式刀鋒視窗中的相同部署組件來尋找儲存機制 URL。 
+8. 一旦 Git 儲存機制準備就緒時，您現在即可將變更推送給它。您可以按一下 Web 應用程式刀鋒視窗中的相同部署組件來尋找儲存機制 URL。
 
 	![建立 Web 應用程式儲存機制之後傳回的 Git 部署指示][git-instructions]
 
 	記下相關指示，以便在下一節中用來發行應用程式。
 
-## 發行您的應用程式
+##發行您的應用程式
 
 若要使用 Git 發行您的應用程式，請遵循下列步驟。
 
@@ -372,9 +371,9 @@
 	* .gitattributes
 	* .gitignore
 			
-	當 Composer 封裝管理員下載 Azure 用戶端程式庫與其相依性時，它會複製其所在的 GitHub 儲存機制來達到這個目的。在下一個步驟中，Git 將於應用程式根目錄資料夾建立儲存機制，藉以部署該應用程式。除非已經移除儲存機制特定的檔案，否則 Git 會忽略用戶端程式庫所在的子儲存機制。
+	當 Composer 封裝管理員下載 Azure 用戶端程式庫與其相依性時，將會複製其所在的 GitHub 儲存機制來達到這個目的。在下一個步驟中，會在應用程式的根資料夾之外建立儲存機制，以透過 Git 來部署應用程式。除非已經移除儲存機制特定的檔案，否則 Git 會忽略用戶端程式庫所在的子儲存機制。
 
-2. 開啟 GitBash (如果 Git 位於您的  `PATH`，則為終端機)，將目錄變更為應用程式的根目錄，並執行下列命令：
+2. 開啟 GitBash (如果 Git 位於您的 `PATH`，則為終端機)，將目錄變更為應用程式的根目錄，並執行下列命令：
 
 		git init
 		git add .
@@ -384,17 +383,17 @@
 
 	系統會提示您輸入先前建立的密碼。
 
-3. 瀏覽至 **http://[您的 Web 應用程式網域]/createtable.php**，為應用程式建立資料表。
-4. 瀏覽至 **http://[您的 Web 應用程式網域]/index.php** ，開始使用應用程式。
+3. 瀏覽至 **http://[your web app domain]/createtable.php**，為應用程式建立資料表。
+4. 瀏覽至 **http://[your web app domain]/index.php**，開始使用應用程式。
 
-發行應用程式之後，您可以開始對其進行變更，並使用 Git 來發行它們。 
+發行應用程式之後，您可以開始對其進行變更，並使用 Git 來發行它們。
 
-## 將變更發佈至您的應用程式
+##將變更發行至您的應用程式
 
 若要將變更發行至應用程式，請依照以下步驟進行：
 
 1. 在本機對您的應用程式進行變更。
-2. 開啟 GitBash (如果 Git 位於您的  `PATH`，則為終端機)，將目錄變更為應用程式的根目錄，並執行下列命令：
+2. 開啟 GitBash (如果 Git 位於您的 `PATH`，則為終端機)，將目錄變更為應用程式的根目錄，並執行下列命令：
 
 		git add .
 		git commit -m "comment describing changes"
@@ -402,11 +401,11 @@
 
 	系統會提示您輸入先前建立的密碼。
 
-3. 瀏覽至 **http://[您的 Web 應用程式網域]/index.php** 以查看您的變更。 
+3. 瀏覽至 **http://[your web app domain]/index.php** 以查看您的變更。
 
-## 變更的內容
-* 如需從網站變更為 App Service 的指引，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需將舊的入口網站變更為新的入口網站的指引，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+## 變更的項目
+* 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[瀏覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 
@@ -427,6 +426,6 @@
 [credentials]: ./media/web-sites-php-storage/git-deployment-credentials.png
 
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

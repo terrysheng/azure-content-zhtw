@@ -1,6 +1,6 @@
 <properties
    pageTitle="使用適用於 Visual Studio 的 Hadoop 工具執行 HIVE 查詢 | Microsoft Azure"
-   description="了解如何透過 Visual Studio 搭配使用 Hive 與 HDInsight。"
+   description="了解如何利用 Visual Studio Hadoop 工具搭配使用 Hive 與 HDInsight 中的 Hadoop。"
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -54,7 +54,7 @@
         > 捨棄外部資料表並**不會**刪除資料，只會刪除資料表定義。
 
     * **ROW FORMAT**：告訴 Hive 如何格式化資料。在此情況下，每個記錄中的欄位會以空格隔開。
-    * **STORED AS TEXTFILE LOCATION**：將資料的儲存位置告訴 Hive (example/data 目錄)，且資料儲存為文字。
+    * **STORED AS TEXTFILE LOCATION**：告訴 Hive 資料的儲存位置 (example/data 目錄) 且資料儲存為文字。
     * **SELECT**：選擇其資料欄 **t4** 包含值 **[ERROR]** 的所有資料列計數。這應該會傳回值 **3**，因為有三個資料列包含此值。
 
 3. 從工具列中，選取您要用於此查詢的 [**HDInsight 叢集**]，然後選取 [**提交**] 以 Hive 工作形式執行陳述式。[**Hive 工作摘要**] 將會出現並顯示執行中工作的相關資訊。使用 [**￼重新整理**] 連結來重新整理工作資訊，直到 [**工作狀態**] 變更為 [**已完成**] 為止。
@@ -75,7 +75,7 @@
         > [AZURE.NOTE]與 **EXTERNAL** 資料表不同之處在於，捨棄內部資料表也會刪除基礎資料。
 
     * **STORED AS ORC**：以最佳化資料列單欄式 (Optimized Row Columnar, ORC) 格式儲存資料。這是高度最佳化且有效率的 Hive 資料儲存格式。
-    * **INSERT OVERWRITE ...SELECT**：從包含 **[ERROR]** 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表。
+    * **INSERT OVERWRITE ...SELECT**：從包含 **[ERROR]** 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表
 
 7. 從工具列中，選取 [**提交**] 來執行工作。使用 [**工作狀態**] 來判斷工作是否已順利完成。
 
@@ -133,5 +133,6 @@
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

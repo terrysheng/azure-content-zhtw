@@ -1,6 +1,6 @@
 <properties
-   pageTitle="在以 Linux 為基礎的 HDInsight 上安裝 Hadoop 的須知事項 | Azure"
-   description="以 Linux 為基礎的 HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端中執行的 Hadoop。"
+   pageTitle="在 Linux 架構的 HDInsight 上使用 Hadoop 的秘訣 |Microsoft Azure"
+   description="取得在 Azure 雲端中執行的熟悉 Linux 環境上使用 Linux 架構的 HDInsight (Hadoop) 叢集的實作秘訣。"
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/17/2015"
+   ms.date="05/27/2015"
    ms.author="larryfr"/>
 
-# 在 Linux 上使用 HDInsight (預覽)
+# 在 Linux 上使用 HDInsight 的相關資訊 (預覽)
 
 以 Linux 為基礎的 Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端中執行的 Hadoop。其操作大多與 Linux 安裝上的任何其他 Hadoop 相同。本文件會指出其中應注意的特殊不同之處。
 
@@ -92,13 +92,24 @@ HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要�
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
 
-2. 尋找 `fs.defaultFS` 項目。這樣會以如下的格式包含預設容器和儲存體帳戶名稱：
+2. 在傳回的 JSON 資料中，找到 `fs.defaultFS` 項目。這樣會以如下的格式包含預設容器和儲存體帳戶名稱：
 
         wasb://CONTAINTERNAME@STORAGEACCOUNTNAME.blob.core.windows.net
 
-> [AZURE.TIP]如果您已安裝 [jq](http://stedolan.github.io/jq/)，您可以使用下列程式碼以只傳回 `fs.defaultFS` 項目：
->
-> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
+	> [AZURE.TIP]如果您已安裝 [jq](http://stedolan.github.io/jq/)，您可以使用下列程式碼以只傳回 `fs.defaultFS` 項目：
+	>
+	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
+	
+3. 若要尋找用來驗證儲存體帳戶的金鑰，或尋找與叢集相關聯的任何次要儲存體帳戶，使用下列方法：
+
+		curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
+		
+4. 在傳回的 JSON 資料中，找到以 `fs.azure.account.key` 開頭的項目。項目名稱的其餘部分是儲存體帳戶名稱。例如，`fs.azure.account.key.mystorage.blob.core.windows.net`。此項目中儲存的值是用來驗證儲存體帳戶的金鑰。
+
+	> [AZURE.TIP]如果您已安裝 [jq](http://stedolan.github.io/jq/)，可以使用下列程式碼來傳回金鑰和值清單：
+	>
+	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
+
 
 **Azure 入口網站**
 
@@ -114,7 +125,7 @@ HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要�
 
 除了透過叢集的 Hadoop 命令，還有各種不同方式可用來存取 Blob：
 
-* [適用於 Mac、Linux 及 Windows 的 Azure CLI](../xplat-cli.md)：用於 Azure 的跨平台命令。安裝好後，請使用 `azure storage` 命令以協助使用儲存體，或是針對 Blob 特有命令使用 `azure blob`。
+* [適用於 Mac、Linux 及 Windows 的 Azure CLI](../xplat-cli.md)：用於 Azure 的命令列介面命令。安裝好後，請使用 `azure storage` 命令以協助使用儲存體，或是針對 Blob 特有命令使用 `azure blob`。
 
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage)：python 指令碼，用於 Azure 儲存體中的 Blob。
 
@@ -139,5 +150,6 @@ HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要�
 * [搭配 HDInsight 使用 Hivet](hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

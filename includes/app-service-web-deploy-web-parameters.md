@@ -1,15 +1,12 @@
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called Parameters that contains all of the parameter values.
-You should define a parameter for those values that will vary based on the project you are deploying or based on the 
-environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deploy. 
+透過 Azure 資源管理員，您可以定義在部署範本時想要指定之值的參數。此範本有一個 Parameters 區段，內含所有參數值。您應該為會隨著要部署的專案或要部署到的環境而變化的值定義參數。請不要為永遠保持不變的值定義參數。每個參數值都可在範本中用來定義所部署的資源。
 
-When defining parameters, use the **allowedValues** field to specify which values a user can provide during deployment. Use the **defaultValue** field to assign a value to the parameter, if no value is provided 
-during deployment.
+在定義參數時，請使用 [**allowedValues**] 欄位來指定使用者可以在部署期間提供的值。使用 [**defaultValue**] 欄位來指派部署期間未提供任何值時的參數值。
 
-We will describe each parameter in the template.
+我們將說明範本中的每個參數。
 
 ### siteName
 
-The name of the web app that you wish to create.
+想要建立之 Web 應用程式的名稱。
 
     "siteName":{
       "type":"string"
@@ -17,7 +14,7 @@ The name of the web app that you wish to create.
 
 ### hostingPlanName
 
-The name of the App Service plan to use for hosting the web app.
+用來主控 Web 應用程式之 App Service 方案的名稱。
     
     "hostingPlanName":{
       "type":"string"
@@ -25,7 +22,7 @@ The name of the App Service plan to use for hosting the web app.
 
 ### siteLocation
 
-The location to use for creating the web app and hosting plan. It must be one of the Azure locations that support web apps.
+用來建立 Web 應用程式和主控方案的位置。它必須是其中一個支援 Web 應用程式的 Azure 位置。
 
     "siteLocation":{
       "type":"string"
@@ -33,7 +30,7 @@ The location to use for creating the web app and hosting plan. It must be one of
 
 ### sku
 
-The pricing tier for the hosting plan.
+主控方案的定價層。
 
     "sku":{
       "type":"string",
@@ -46,11 +43,11 @@ The pricing tier for the hosting plan.
       "defaultValue":"Free"
     }
 
-The template defines the values that are permitted for this parameter (Free, Shared, Basic, or Standard), and assigns a default value (Free) if no value is specified.
+範本會定義此參數允許使用的值 (免費、共用、基本或標準)，並指派未指定任何值時的預設值 (免費)。
 
 ### workerSize
 
-The instance size of the hosting plan (small, medium, or large).
+主控方案的執行個體大小 (小型、中型或大型)。
 
     "workerSize":{
       "type":"string",
@@ -62,4 +59,6 @@ The instance size of the hosting plan (small, medium, or large).
       "defaultValue":"0"
     }
     
-The template defines the values that are permitted for this parameter (0, 1, or 2), and assigns a default value (0) if no value is specified. The values correspond to small, medium and large.
+範本會定義此參數允許使用的值 (0、1 或 2)，並指派未指定任何值時的預設值 (0)。這些值分別對應到小型、中型和大型。
+
+<!---HONumber=62-->

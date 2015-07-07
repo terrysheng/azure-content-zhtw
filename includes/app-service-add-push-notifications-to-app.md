@@ -1,14 +1,14 @@
 
-## <a id="add-push"></a>Add Push Notifications to App
+## <a id="add-push"></a>推播通知新增至應用程式
 
-* In QSAppDelegate.m, import the iOS SDK and QSTodoService.h:
+* 在 QSAppDelegate.m 中，匯入 iOS SDK 和 QSTodoService.h：
 
 ```
         #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
         #import "QSTodoService.h"
 ```
 
-* In `didFinishLaunchingWithOptions` in QSAppDelegate.m, insert the following lines right before `return YES;`:
+* 在 qsappdelegate.m 的 `didFinishLaunchingWithOptions` 中，於 `return YES;` 之前插入下列幾行：
 
 ```
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
@@ -16,7 +16,7 @@
         [[UIApplication sharedApplication] registerForRemoteNotifications];
 ```
 
-* In QSAppDelegate.m, add the following handler methods. Your app is now updated to support push notifications.
+* 在 QSAppDelegate.m 中，新增下列處理常式方法。您的應用程式現在已更新為支援推播通知。
 
 ```
         // Registration with APNs is successful
@@ -56,3 +56,5 @@
             [alert show];
         }
 ```
+
+<!---HONumber=62-->

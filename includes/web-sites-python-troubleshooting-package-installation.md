@@ -28,14 +28,14 @@ Mac/Linux 使用者：如果您無法存取 Windows 電腦，請參閱[建立執
 
     env\scripts\pip wheel azure==0.8.4
 
-這會在 \\wheelhouse 資料夾中建立一個 .whl 檔。將 \\wheelhouse 資料夾與 Wheel 檔案加入至您的儲存機制。
+這會在 \wheelhouse 資料夾中建立一個 .whl 檔。將 \wheelhouse 資料夾與 Wheel 檔案加入至您的儲存機制。
 
 編輯 requirements.txt 以便在頂端加入 `--find-links` 選項。這會告訴 PIP 尋找本機資料夾中完全相符的項目，才能進入 Python 封裝索引。
 
     --find-links wheelhouse
     azure==0.8.4
 
-如果您想要在 \\wheelhouse 資料夾中包含所有相依性，而且完全不使用 Python 封裝索引，您可以將 `--no-index` 加入至 requirements.txt 的頂端，以強制 PIP 忽略封裝索引。
+如果您想要在 \wheelhouse 資料夾中包含所有相依性，而且完全不使用 Python 封裝索引，您可以將 `--no-index` 加入至 requirements.txt 的頂端，以強制 PIP 忽略封裝索引。
 
     --no-index
 
@@ -68,4 +68,4 @@ Mac/Linux 使用者：如果您無法存取 Windows 電腦，請參閱[建立執
 [Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
-<!--HONumber=54-->
+<!---HONumber=62-->

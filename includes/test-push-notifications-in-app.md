@@ -1,14 +1,12 @@
 
-## <a id="test"></a>Test Push Notifications in App
+## <a id="test"></a>在應用程式中測試推播通知
 
-* Press **Run** in Xcode and start the app on an actual iOS device (not the simulator.) Then click **OK** to accept push notifications. You must explicitly accept push notifications from your app; this request occurs only the first time that the app runs.
+* 在 Xcode 中按下 [執行]，並在實際的 iOS裝置 (非模擬器) 上啟動應用程式。 然後，按一下 [確定] 以接收推撥通知。您必須明確地接受來自您應用程式的推播通知；此要求僅在初次執行應用程式時發生。
 
-* In the app, add a new item, such as _A new Mobile Services task_ and then click the **+** icon.
+* 在應用程式中新增新項目 (例如「新的行動服務工作」)，然後按一下 **+** 圖示。
 
-* Verify that a notification is received, then click **OK** to dismiss the notification.
+* 確認您已接收到通知，然後按一下 [確定] 以關閉通知。您現在已成功完成此教學課程。
 
   	![](../articles/media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png)
 
-* Add another item and immediately close the app. Verify that the following push is shown. You have now successfully completed this tutorial.
-
-  	![](../articles/media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png)
+<!---HONumber=62-->

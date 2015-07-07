@@ -1,6 +1,6 @@
 <properties
-	pageTitle="HDInsight 中的 Pi 估算器 Hadoop 範例 | Azure"
-	description="了解如何在 HDInsight 上執行 Hadoop MapReduce 範例。"
+	pageTitle="HDInsight 中的 Pi 估算器 Hadoop 範例 | Microsoft Azure"
+	description="了解如何在 HDInsight 上執行 Hadoop MapReduce 範例 Pi 估算器。"
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -37,14 +37,13 @@
 
 **必要條件**：
 
-- 您必須具有 Azure 帳號。如需註冊帳戶的相關選項，請參閱 [免費試用 Azure](http://azure.microsoft.com/pricing/free-trial/) 頁面。
-
-- 您必須已經佈建 HDInsight 叢集。如需各種建立此類叢集方式的相關指示，請參閱[佈建 HDInsight 叢集](hdinsight-provision-clusters.md)。
-
-- 您必須已安裝 Azure PowerShell，且已將其設定為可用於您的帳號。如需執行此項作業之指示，請參閱＜[安裝和設定 Azure PowerShell][powershell-install-configure]＞。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **HDInsight 叢集**。如需各種建立此類叢集方式的相關指示，請參閱[佈建 HDInsight 叢集](hdinsight-provision-clusters.md)。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
 
 
-<h2><a id="run-sample"></a>使用 Azure PowerShell 執行範例</h2>
+
+## <a id="run-sample"></a>使用 Azure PowerShell 執行範例
 
 **提交 MapReduce 工作**
 
@@ -78,7 +77,7 @@
 	Pi 的前 10 位小數是 3.1415926535，供您對照。
 
 
-<h2><a id="java-code"></a>Pi 估算器 MapReduce 程式的 Java 程式碼</h2>
+## <a id="java-code"></a>Pi 估計器 MapReduce 程式的 Java 程式碼
 
 
 
@@ -419,8 +418,7 @@
 	 }
 	 }
 
-
-<h2><a id="summary"></a>摘要</h2>
+## <a id="summary"></a>摘要
 
 本教學課程中，您看到如何在 HDInsight 上執行 MapReduce 工作，以及如何使用蒙特卡羅法，此方法需要且會產生可由此服務來管理的大型資料集。
 
@@ -447,7 +445,7 @@
 
 
 
-<h2><a id="next-steps"></a>後續步驟</h2>
+## <a id="next-steps"></a>接續步驟
 
 關於描述執行其他範例及如何以 Azure PowerShell 在 Azure HDInsight 上使用 Pig、Hive 和 MapReduce 工作之指示的教學課程，請參閱下列主題：
 
@@ -461,7 +459,7 @@
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [hdinsight-get-started]: ../hdinsight-get-started.md
 
@@ -473,5 +471,6 @@
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

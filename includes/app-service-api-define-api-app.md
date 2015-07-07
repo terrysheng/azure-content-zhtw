@@ -10,7 +10,7 @@
 
 	![](./media/app-service-api-define-api-app/0301-add-new-class-dialog-v3.png)
 
-3. 按一下 [新增]****。
+3. 按一下 [新增]。
 
 4. 一旦建立了 *Contact.cs* 檔案，即會將檔案的整個內容取代為下列程式碼。
 
@@ -69,6 +69,8 @@
 
 不過，Azure API 應用程式的新專案範本會停用 API 測試頁面。如果已使用 API 應用程式專案範本建立 API 應用程式專案，則您需要執行下列步驟來啟用測試頁面。
 
+**注意：**如果您啟用 Swagger UI，並將 API 應用程式部署為「匿名公用」，則任何人都能夠使用 Swagger UI 探索及呼叫您的 API。
+
 1. 開啟 *App_Start/SwaggerConfig.cs* 檔案，並搜尋 **EnableSwaggerUI**：
 
 	![](./media/app-service-api-define-api-app/12-enable-swagger-ui-with-box.png)
@@ -95,4 +97,4 @@
 
 	![](./media/app-service-api-define-api-app/15-swagger-ui-post-test.png)
 
-<!--HONumber=54-->
+<!---HONumber=62-->

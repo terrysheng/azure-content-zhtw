@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="在 Azure App Service 中建置和部署 Node.js API 應用程式" 
-	description="兩解如何建立 Node.js API 應用程式封裝並將其部署至 Azure App Service." 
-	services="app-service\api" 
-	documentationCenter="nodejs" 
-	authors="pkefal" 
-	manager="", 
+<properties
+	pageTitle="在 Azure App Service 中建置和部署 Node.js API 應用程式"
+	description="了解如何建立 Node.js API 應用程式封裝並將其部署至 Azure App Service。"
+	services="app-service\api"
+	documentationCenter="nodejs"
+	authors="pkefal"
+	manager=""
 	editor=""/>
 
 <tags
@@ -24,6 +24,8 @@
 
 ![][sample-api-app-page]
 
+> [AZURE.NOTE]您也可以使用 Visual Studio 程式碼，在 Azure App Service 中建置和部署 Node.js API 應用程式。如需 Visual Studio 程式碼和 Node.js 的詳細資訊，請參閱 [Visual Studio 程式碼](http://code.visualstudio.com/Docs/)和[開發節點應用程式](http://code.visualstudio.com//Docs/nodejs)。
+
 ## 在 Azure 預覽入口網站中建立 API 應用程式
 
 > [AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/)或是[申請免費試用](/pricing/free-trial/)。您也可以免費試用 [App Service 應用程式範例](http://tryappservice.azure.com)。
@@ -42,7 +44,7 @@
 
 	![][portal-create-api]
 
-6. 按一下 **[建立]**。
+6. 按一下 [建立]。
 
 	![][api-app-blade]
 
@@ -52,7 +54,7 @@
 
 9. 將存取權層級設定為 [**公用 (匿名)**]。
 
-11. 按一下 **[儲存]**。
+11. 按一下 [儲存]。
 
 	![][set-api-app-access-level]
 
@@ -72,7 +74,7 @@
 
 3. 按一下 **[選擇來源] > [本機 Git 儲存機制]**。
 
-5. 按一下 [確定]****。
+5. 按一下 [確定]。
 
 	![][setup-git-publishing]
 
@@ -82,7 +84,7 @@
 
 	* 建立使用者名稱和密碼。
 
-	* 按一下 [儲存]****。
+	* 按一下 [儲存]。
 
 	![][deployment-credentials]
 
@@ -106,7 +108,7 @@
 
 	![][apiapp-json]
 
-	若要將 Node.js 應用程式辨識為 API 應用程式，Azure App Service  需具備兩個先決條件：
+	若要將 Node.js 應用程式辨識為 API 應用程式，Azure App Service 需具備兩個先決條件：
 
 	+ 名為 *apiapp.json* 的檔案必須存在於應用程式的根目錄中。
 	+ 應用程式必須公開 Swagger 2.0 中繼資料端點。此端點的 URL 已在 *apiapp.json* 檔案中指定。
@@ -127,7 +129,7 @@
 		    handlers: './handlers/'
 		}));
 
-	 `api` 屬性指向的 api.json 檔案包含我們的 API 的 Swagger 2.0 規格定義。您可以在文字編輯器中手動建立此檔案，或使用 [Swagger 的線上編輯器](http://editor.swagger.io)並從該處下載 JSON 檔案。(*api.json* 檔案指定 `host` 屬性，但這個屬性的值已在執行階段動態決定和取代。)
+	`api` 屬性指向的 api.json 檔案包含我們的 API 的 Swagger 2.0 規格定義。您可以在文字編輯器中手動建立此檔案，或使用 [Swagger 的線上編輯器](http://editor.swagger.io)並從該處下載 JSON 檔案。(*api.json* 檔案指定 `host` 屬性，但這個屬性的值已在執行階段動態決定和取代。)
 
 	`docspath` 屬性會指向 Swagger 2.0 端點。此 URL 相對於您的 API 的基底路徑。基底路徑已在 api.json 檔案中宣告。在我們的範例中，基底路徑是 */api/data*，因此 swagger 端點的相對路徑是 */api/data/swagger*。
 
@@ -189,17 +191,17 @@
 
 		remote: Deployment successful.
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
-	* [new branch] master -> master
+	 	* [new branch]      master -> master
 
 ## 在 Azure 預覽入口網站中檢視 API 定義
 
-現已將 API 部署到您的 API 應用程式，您可在 Azure 預覽入口網站中查看 API 定義。一開始要先重新啟動*閘道*，這可讓 Azure 認可 API 應用程式的 API 定義已經變更。閘道是一個 Web 應用程式，可處理資源群組中 API 應用程式的 API 管理和授權。
+現已將 API 部署到您的 API 應用程式，您可在 Azure 預覽入口網站中查看 API 定義。一開始要先重新啟動*閘道器*，這可讓 Azure 認可 API 應用程式的 API 定義已經變更。閘道器是一個 Web 應用程式，可處理資源群組中 API 應用程式的 API 管理和授權。
 
-6. 在 Azure 預覽入口網站中，移至您稍早建立之 API 應用程式的 [**API 應用程式**] 刀鋒視窗，然後按一下 [**閘道**] 連結。
+6. 在 Azure 預覽入口網站中，移至您稍早建立之 API 應用程式的 [**API 應用程式**] 刀鋒視窗，然後按一下 [**閘道器**] 連結。
 
 	![](./media/app-service-api-nodejs-api-app/clickgateway.png)
 
-7. 在 [**閘道**] 刀鋒視窗中，按一下 [**重新啟動**]。您現在可以關閉此刀鋒視窗。
+7. 在 [**閘道器**] 刀鋒視窗中，按一下 [**重新啟動**]。您現在可以關閉此刀鋒視窗。
 
 	![](./media/app-service-api-nodejs-api-app/gatewayrestart.png)
 
@@ -207,7 +209,7 @@
 
 	![](./media/app-service-api-nodejs-api-app/apidef.png)
 
-	 **API 定義**] 刀鋒視窗會顯示兩個 Get 方法。
+	**API 定義**] 刀鋒視窗會顯示兩個 Get 方法。
 
 	![](./media/app-service-api-nodejs-api-app/apidefblade.png)
 
@@ -218,8 +220,6 @@
 ![][browse-api-app-page]
 
 瀏覽器會顯示您先前在本機執行範例應用程式時看到的首頁。
-
-## API 應用程式中繼資料
 
 [AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../../includes/app-service-api-direct-deploy-metadata.md)]
 
@@ -243,6 +243,6 @@
 [server-js]: ./media/app-service-api-nodejs-api-app/server-js.png
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

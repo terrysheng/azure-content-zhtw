@@ -1,6 +1,6 @@
 <properties
-   pageTitle="從 Windows 在以 Linux 為基礎的 HDInsight 上搭配使用 SSH 金鑰與 Hadoop | Aure"
-   description="了解如何建立和使用 SSH 金鑰來驗證以 Linux 為基礎的 HDInsight 叢集。"
+   pageTitle="從 Windows 搭配使用 SSH 金鑰與 Linux 架構叢集上的 Hadoop | Microsoft Azure"
+   description="了解如何建立和使用 SSH 金鑰來驗證以 Linux 為基礎的 HDInsight 叢集。使用 PuTTY SSH 用戶端，從 Windows 用戶端連接叢集。"
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -28,7 +28,7 @@
 
 ##必要條件
 
-* 適用於以 Windows 為基礎的用戶端的 **PuTTY** 和 **PuTTYGen**這些公用程式可從下列位置取得：<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html</a>。
+* 適用於以 Windows 為基礎的用戶端的 **PuTTY** 和 **PuTTYGen**這些公用程式可從下列位置取得：<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>。
 
 * 支援 HTML5 的新式網頁瀏覽器。
 
@@ -124,7 +124,7 @@ SSH 是用來登入遠端伺服器並在其中遠端執行命令的公用程式�
 
 如果您在建立使用者帳戶時提供 SSH 金鑰，當您想要連接至背景工作節點時，您必須執行下列步驟來選取要在驗證叢集時使用的私密金鑰。
 
-1. 從下列位置安裝 Pageant：<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html</a>。此公用程式是用於快取 PuTTY 的 SSH 金鑰。
+1. 從下列位置安裝 Pageant：<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>。此公用程式是用於快取 PuTTY 的 SSH 金鑰。
 
 2. 執行 Pageant。它會最小化為狀態列中的圖示。以滑鼠右鍵按一下圖示，然後選取 [**新增金鑰**]。
 
@@ -277,5 +277,6 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

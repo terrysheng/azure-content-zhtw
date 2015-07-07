@@ -21,5 +21,8 @@
 		    }
 		}
 
+請注意 `apiDefinition` 端點 `/swagger/docs/v1`：根據預設，API 應用程式專案會使用 [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet 封裝提供自動 [Swagger](http://swagger.io/) 中繼資料產生。
+
 在本教學課程中，您可以接受預設值。教學課程稍後的 [API 應用程式中繼資料](#api-app-metadata)一節，說明如何自訂此中繼資料。
-<!--HONumber=54-->
+
+<!---HONumber=62-->

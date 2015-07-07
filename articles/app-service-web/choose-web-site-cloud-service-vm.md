@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure App Service、雲端服務與虛擬機器之比較" 
+<properties
+	pageTitle="Azure App Service、雲端服務與虛擬機器之比較"
 	description="了解何時使用 Azure App Service、雲端服務和虛擬機器來裝載 Web 應用程式。"
-	services="•app-service\web, virtual-machines, cloud-services" 
-	documentationCenter="" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	services="app-service\web, virtual-machines, cloud-services"
+	documentationCenter=""
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="04/29/2015"
 	ms.author="tdykstra"/>
 
 # Azure App Service、雲端服務與虛擬機器之比較
@@ -52,20 +52,20 @@ Azure App Service 是大多數 Web 應用程式的最佳選擇。部署和管理
 
 Azure App Service 是複雜商業應用程式的絕佳解決方案。您開發的應用程式將能夠在負載平衡平台上自動調整、採用 Active Directory 來保護，以及連接到內部部署資源。它可讓您透過世界級的管理入口網站和 API 來輕鬆管理應用程式，並利用應用程式洞察工具來深入了解客戶如何使用應用程式。新的 [Webjobs][] 功能可讓您在 Web 層執行背景程序和工作，而混合式連線和 [VNET 功能](../fundamentals-introduction-to-azure.md#networking/)可讓您輕鬆地連回到內部部署資源。Azure App Service 為 Web 應用程式提供三個 9 的 SLA，可讓您：
 
-* 在自我修復、自動修補的雲端平台上可靠地執行應用程式。 
+* 在自我修復、自動修補的雲端平台上可靠地執行應用程式。
 * 在全球的資料中心網路上自動調整。
-* 針對災害復原進行備份與還原。 
+* 針對災害復原進行備份與還原。
 * 符合 ISO、SOC2 和 PCI。
 * 與 Active Directory 整合
 
-### <a id="corp"></a>我需要可靠的方法來裝載可靈活調整且可供全球存取的公司網站。 
+### <a id="corp"></a>我需要可靠的方法來裝載可靈活調整且可供全球存取的公司網站。
 
 Azure App Service 是裝載公司網站的絕佳解決方案。它可讓 Web 應用程式快速調整，輕鬆符合全球資料中心網路的需求。它提供本機存取、容錯和智慧型流量管理。一切盡在一個提供世界級管理工具的平台上，可讓您快速又輕鬆地深入了解網站健康情況和網路流量。Azure App Service 為 Web 應用程式提供三個 9 的 SLA，可讓您：
 
-* 在自我修復、自動修補的雲端平台上可靠地執行網站。 
+* 在自我修復、自動修補的雲端平台上可靠地執行網站。
 * 在全球的資料中心網路上自動調整。
-* 針對災害復原進行備份與還原。 
-* 使用整合式工具來管理記錄和流量。 
+* 針對災害復原進行備份與還原。
+* 使用整合式工具來管理記錄和流量。
 * 符合 ISO、SOC2 和 PCI。
 * 與 Active Directory 整合
 
@@ -74,12 +74,12 @@ Azure App Service 是裝載公司網站的絕佳解決方案。它可讓 Web 應
 Azure App Service 可讓您輕鬆地省去移轉舊版 IIS6 應用程式時相關的基礎結構成本。Microsoft 建立[簡單易用的移轉工具和詳細的移轉指引](https://www.movemetowebsites.net/)，可讓您檢查相容性和識別任何需要進行的變更。與 Visual Studio、TFS 和一般 CMS 工具整合，讓您輕鬆地將 IIS6 應用程式直接部署到雲端。部署之後，Azure 管理入口網站提供健全的管理工具，可讓您依需要而縮小規模來管理成本，或擴大規模來符合需求。移轉工具可讓您：
 
 * 快速又輕鬆地將舊式的 Windows Server 2003 Web 應用程式移轉至雲端。
-* 選擇將連接的 SQL 資料庫留在內部部署，以建立混合式應用程式。 
-* 自動隨著舊式應用程式一起移動 SQL 資料庫。 
+* 選擇將連接的 SQL 資料庫留在內部部署，以建立混合式應用程式。
+* 自動隨著舊式應用程式一起移動 SQL 資料庫。
 
 ### <a id="smallbusiness"></a>我是小型企業業主，需要有便宜的方式來裝載網站，但又想顧及網站未來成長的可能性。
 
-Azure App Service 是此案例的絕佳解決方案，因為您可先免費使用它，等到需要更多功能時再新增功能即可。每一個免費 Web 應用程式都隨附 Azure 提供的網域 (*your_company*.azurewebsites.net)，且平台包含整合式部署和管理工具及應用程式庫，輕鬆地就能開始使用。另外還有其他許多服務與調整選項，可讓網站隨使用者需求的增加來發展。使用 Azure App Service，您可以：
+Azure App Service 是此案例的絕佳解決方案，因為您可先免費使用它，等到需要更多功能時再新增功能即可。每一個免費 Web 應用程式都隨附 Azure 提供的網域 (*your_company*.azurewebsites.net)，且平台包含整合式部署和管理工具及應用資源庫，輕鬆地就能開始使用。另外還有其他許多服務與調整選項，可讓網站隨使用者需求的增加來發展。使用 Azure App Service，您可以：
 
 - 從免費版本開始，視需要進行向上調整。
 - 使用應用程式庫迅速設定熱門的 Web 應用程式，例如 WordPress。
@@ -108,16 +108,16 @@ Azure App Service 是此案例的絕佳解決方案，因為您可先免費使�
 
 如果您的應用程式需要用到安裝或設定方式複雜的軟體與作業系統，則「虛擬機器」可能是最佳解決方案。虛擬機器可讓您：
 
-- 使用虛擬機器庫來得到初步的作業系統，例如 Windows 或 Linux，然後根據自己的應用程式需求加以自訂。 
-- 建立並上傳現有內部部署伺服器的自訂映像，使其執行於 Azure 中的虛擬機器上。 
+- 使用虛擬資源庫來得到初步的作業系統，例如 Windows 或 Linux，然後根據自己的應用程式需求加以自訂。
+- 建立並上傳現有內部部署伺服器的自訂映像，使其執行於 Azure 中的虛擬機器上。
 
 ### <a id="oss"></a>我的網站使用開放原始碼軟體，我想要將該軟體裝載在 Azure 上。
 
 如果 App Service 上支援您的開放原始碼架構，則會自動設定您的應用程式所需的語言和架構。App Service 可讓您：
 
-- 使用許多熱門的開放原始碼語言，例如 [.NET][dotnet] (英文)、[PHP][] (英文)、[Node.js][nodejs] (英文) 及 [Python][] (英文)。 
-- 設定 WordPress、Drupal、Umbraco、DNN 及其他許多協力廠商 Web 應用程式。 
-- 移轉現有的應用程式，或從應用程式庫建立新的應用程式。 
+- 使用許多熱門的開放原始碼語言，例如 [.NET][dotnet] (英文)、[PHP][] (英文)、[Node.js][nodejs] (英文) 及 [Python][] (英文)。
+- 設定 WordPress、Drupal、Umbraco、DNN 及其他許多協力廠商 Web 應用程式。
+- 移轉現有的應用程式，或從應用程式庫建立新的應用程式。
 
 如果 App Service 上不支援您的開放原始碼架構，您可以在其他兩個 Azure Web 裝載選項上執行它。「雲端服務」需要您使用啟動工作，以安裝並設定任何在 Windows 上執行的必要開放原始碼軟體。「虛擬機器」則需要您在機器映像 (可以是 Windows 或 Linux 型) 上安裝並設定軟體。
 
@@ -131,10 +131,10 @@ HTTP 型 Web 服務可讓您支援各種用戶端，包括行動用戶端。ASP.
 
 - 迅速建立一個 Web 應用程式，以將 HTTP Web 服務裝載於 Azure 全球各地的其中一個資料中心內。
 - 移轉現有的服務或建立新服務。
-- 以單一執行個體達到可用性 SLA，或向外延展至多部專用機器。 
+- 以單一執行個體達到可用性 SLA，或向外延展至多部專用機器。
 - 使用已發佈的網站來提供 REST API 給任何 HTTP 用戶端，包括行動用戶端。
 
-此外，Azure App Service 有 REST API 的新預覽功能：API 應用程式。如需 API 應用程式的詳細資訊，請參閱[什麼是 API 應用程式](app-service-api/app-service-api-apps-why-best-platform.md)。
+此外，Azure App Service 有 REST API 的新預覽功能：API 應用程式。如需 API 應用程式的詳細資訊，請參閱[什麼是 API 應用程式](../app-service-api/app-service-api-apps-why-best-platform.md)。
 
 ##<a name="features"></a>功能比較
 
@@ -230,7 +230,7 @@ HTTP 型 Web 服務可讓您支援各種用戶端，包括行動用戶端。ASP.
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
-   <td valign="middle">App Service Web 應用程式可以輕易裝載 REST API 中間層，而 <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> 功能可以裝載背景處理工作。您可以在專用網站中執行 WebJobs，以實現此層的獨立擴充性。預覽 [API 應用程式] (app-service-api/app-service-api-apps-why-best-platform.md) 功能提供了更多裝載 REST 服務的功能。</td>
+   <td valign="middle">App Service Web 應用程式可以輕易裝載 REST API 中間層，而 <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> 功能可以裝載背景處理工作。您可以在專用網站中執行 WebJobs，以實現此層的獨立擴充性。預覽 [API 應用程式] (../app-service-api/app-service-api-apps-why-best-platform.md) 功能提供了更多裝載 REST 服務的功能。</td>
 </tr>
 <tr>
    <td valign="middle"><p>整合 MySQL 即服務的支援</p></td>
@@ -349,21 +349,22 @@ HTTP 型 Web 服務可讓您支援各種用戶端，包括行動用戶端。ASP.
 * [Azure 雲端服務](/documentation/services/cloud-services/)
 * [Azure 虛擬機器](/documentation/services/virtual-machines/)
 
-[ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
-[Azure App Service]: /services/app-service/
-[雲端服務]: http://go.microsoft.com/fwlink/?LinkId=306052
-[虛擬機器]: http://go.microsoft.com/fwlink/?LinkID=306053
-[ClearDB]: http://www.cleardb.com/
-[WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-[Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
-[azurestore]: http://www.windowsazure.com/gallery/store/
-[scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
-[dotnet]: http://www.windowsazure.com/develop/net/
-[nodejs]: http://www.windowsazure.com/develop/nodejs/
-[PHP]: http://www.windowsazure.com/develop/php/
-[Python]: http://www.windowsazure.com/develop/python/
-[servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
-[sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
-[儲存體]: http://www.windowsazure.com/documentation/services/storage/
+  [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
+  [Azure App Service]: /services/app-service/
+  [雲端服務]: http://go.microsoft.com/fwlink/?LinkId=306052
+  [虛擬機器]: http://go.microsoft.com/fwlink/?LinkID=306053
+  [ClearDB]: http://www.cleardb.com/
+  [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
+  [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
+  [azurestore]: http://www.windowsazure.com/gallery/store/
+  [scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
+  [dotnet]: http://www.windowsazure.com/develop/net/
+  [nodejs]: http://www.windowsazure.com/develop/nodejs/
+  [PHP]: http://www.windowsazure.com/develop/php/
+  [Python]: http://www.windowsazure.com/develop/python/
+  [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
+  [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
+  [儲存體]: http://www.windowsazure.com/documentation/services/storage/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

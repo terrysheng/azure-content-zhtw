@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/18/2015"
+   ms.date="05/11/2015"
    ms.author="rajram"/>
    
 #Azure 儲存體 Blob 連接器
@@ -22,28 +22,18 @@
 Azure 儲存體 Blob 連接器可讓您從 Blob 容器上傳、下載及刪除 Blob。
 
 ##建立新的 Azure 儲存體 Blob 連接器
-若要建立新的 Azure 儲存體連接器，請遵循下面所述的步驟。
-<ul>
-<li>啟動 Azure 入口網站<li>使用 \[+ 新增\] (位於頁面底部) -> [Web + 行動] --> [Azure Marketplace] 開啟 Azure Marketplace
-</ul>
+若要建立新的 Azure 儲存體連接器，請遵循下面所述的步驟。<ul> <li>啟動 Azure 入口網站<li>使用 [+ 新增] (位於頁面底部) -> [Web + 行動] --> [Azure Marketplace] 開啟 Azure Marketplace </ul>
 
-![啟動 Azure Marketplace][1]<br>
-<ul>
-<li>按一下 [API 應用程式] <li>搜尋 <i>Blob</i>，然後選取 Azure 儲存體 Blob 連接器
-</ul>
+![啟動 Azure Marketplace][1]<br> <ul> <li>按一下 [API 應用程式] <li>搜尋 <i>Blob</i>，然後選取 Azure 儲存體 Blob 連接器 </ul>
 
-![選取 Azure 儲存體 Blob 連接器][2]
-<br>
-<ul>
-<li>按一下 [建立] <li>在開啟的 Azure 儲存體 Blob 連接器分頁中，提供下列資料。
-</ul>
+![選取 Azure 儲存體 Blob 連接器][2] <br> <ul> <li>按一下 [建立] <li>在開啟的 Azure 儲存體 Blob 連接器刀鋒視窗中，提供下列資料。</ul>
 
 ![建立 Azure 儲存體 Blob 連接器][3]
 
 - **位置** - 選擇您要部署連接器的地理位置
-- **訂閱** - 選擇您要建立此連接器的訂閱
+- **訂用帳戶** - 選擇您要建立此連接器的訂用帳戶
 - **資源群組** - 選取或建立連接器所在的資源群組
-- **Web 裝載方案** - 選取或建立 Web 裝載方案
+- **Web 裝載方**案 - 選取或建立 Web 裝載方案
 - **定價層** - 選擇連接器的定價層
 - **名稱** - 提供 Blob 儲存體連接器的名稱
 - **套裝設定** 
@@ -69,7 +59,7 @@ Azure 儲存體 Blob 連接器可做為動作。
 
 ![Azure 儲存體 Blob 動作的清單][10]
 
-Azure 儲存體 Blob 連接器支援四個動作。包括
+Azure 儲存體 Blob 連接器支援六個動作。包括
 
 - **取得 Blob** - 從容器取得特定的 Blob
 - **上傳 Blob** - 上傳新的 Blob 或更新現有的 Blob
@@ -116,5 +106,6 @@ Azure 儲存體 Blob 連接器支援四個動作。包括
 [9]: ./media/app-service-logic-connector-azurestorageblob/ConfiguredBlobAvailableTrigger.PNG
 [10]: ./media/app-service-logic-connector-azurestorageblob/ListOfAzureStorageBlobActions.PNG
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
+ 
 
-<!---HONumber=54--> 
+<!---HONumber=62-->

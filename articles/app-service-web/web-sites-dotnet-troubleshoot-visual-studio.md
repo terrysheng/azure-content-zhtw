@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/08/2015" 
 	ms.author="tdykstra"/>
 
 # 使用 Visual Studio 疑難排解 Azure App Service 中的 Web 應用程式
@@ -49,9 +49,9 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 1. 如果您尚未在 Visual Studio 中登入 Azure，按一下 [伺服器總管] 中的 [連線到 Azure] 按鈕。
 
-	替代方式為安裝可讓您存取帳戶的管理憑證。如果您選擇安裝憑證，請以滑鼠右鍵按一下 [伺服器總管] 中的 [Azure] 節點，然後按一下內容功能表中的 [管理訂閱]。在 [管理 Azure 訂用帳戶] 對話方塊中，按一下 [憑證] 索引標籤，再按一下 [匯入]。請依照指示下載，然後匯入您 Azure 帳戶的訂用帳戶檔案 (亦稱為 *.publishsettings* 檔案)。
+	替代方式為安裝可讓您存取帳戶的管理憑證。如果您選擇安裝憑證，請以滑鼠右鍵按一下 [伺服器總管] 中的 [Azure] 節點，然後按一下內容功能表中的 [管理訂閱]。在 [管理 Azure 訂閱] 對話方塊中，按一下 [憑證] 索引標籤，再按一下 [匯入]。請依照指示下載，然後匯入您 Azure 帳戶的訂閱檔案 (亦稱為 *.publishsettings* 檔案)。
 
-	> [AZURE.NOTE]如果您下載了訂閱檔案，請將其儲存到原始程式碼目錄以外的資料夾 (例如在 Downloads 資料夾)，然後在匯入完成後刪除該檔案。惡意使用者一旦能夠存取此訂用帳戶檔案，就能夠編輯、建立和刪除您的 Azure 服務。
+	> [AZURE.NOTE]如果您下載了訂閱檔案，請將其儲存到原始程式碼目錄以外的資料夾 (例如在 Downloads 資料夾)，然後在匯入完成後刪除該檔案。惡意使用者一旦能夠存取此訂閱檔案，就能夠編輯、建立和刪除您的 Azure 服務。
 
 	如需從 Visual Studio 連線至 Azure 資源的詳細資訊，請參閱[管理帳戶、訂閱和系統管理角色](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)。
 
@@ -87,19 +87,17 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 ![Unhelpful error page](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
-要找到錯誤原因最簡單的方式，往往就是啟用詳細的錯誤訊息，而以上第一個螢幕擷取畫面說明的是其做法。該做法需要在部署的 Web.config 檔案中進行變更。您可以編輯專案中的 *Web.config* 檔案並重新部署專案，或建立 [Web.config 轉換](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations)並部署偵錯組建，但還有更快的方法：在 [方案總管] 中使用 *[遠端檢視]* 功能，直接檢視及編輯遠端 Web 應用程式上的檔案。
+要找到錯誤原因最簡單的方式，往往就是啟用詳細的錯誤訊息，而以上第一個螢幕擷取畫面說明的是其做法。該做法需要在部署的 Web.config 檔案中進行變更。您可以編輯專案中的 *Web.config* 檔案並重新部署專案，或建立 [Web.config 轉換](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations)並部署偵錯組建，但還有更快的方法：在 [方案總管] 中使用 [遠端檢視] 功能，直接檢視及編輯遠端 Web 應用程式上的檔案。
 
-1. 在 [伺服器總管] 中，依序展開 [Azure]、[Web 應用程式]，然後展開您要部署的 Web 應用程式節點。
+1. 在 [**伺服器總管**] 中，依序展開 [**Azure**]、[**App Service**] 和 Web 應用程式所在的資源群組，然後展開 Web 應用程式的節點。
 
 	您會看到可供您存取 Web 應用程式內容檔案與記錄檔的節點。
-
-	![檔案與記錄檔案](./media/web-sites-dotnet-troubleshoot-visual-studio/fileandlogfiles.png)
 
 2. 展開 [檔案] 節點，然後按兩下 *Web.config* 檔案。
 
 	![開啟 Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfig.png)
 
-	Visual Studio 會從遠端 Web 應用程式開啟 Web.config 檔案，然後在標題列中的檔案名稱旁邊顯示 [遠端][]。
+	Visual Studio 會從遠端 Web 應用程式開啟 Web.config 檔案，然後在標題列中的檔案名稱旁邊顯示 [遠端]。
 
 3. 將下列字行新增至 `system.web` 元素：
 
@@ -111,7 +109,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 	![詳細的錯誤訊息](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-	(顯示的錯誤是透過將紅色字行新增至 *Views\\Home\\Index.cshtml* 中來加以建立。)
+	(顯示的錯誤是透過將紅色字行新增至 *Views\Home\Index.cshtml* 中來加以建立。)
 
 能夠讀取與編輯您的 Azure Web 應用程式上的檔案，使得疑難排解作業更為輕鬆，編輯 Web.config 檔案僅僅是其中一個範例案例。
 
@@ -125,7 +123,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 1. 開啟您在[開始使用 Azure 和 ASP.NET][GetStarted] 中建立的 Web 專案。
 
-1. 開啟 *Controllers\\HomeController.cs*。
+1. 開啟 *Controllers\HomeController.cs*。
 
 2. 刪除 `About()` 方法，然後插入以下程式碼加以取代。
 
@@ -138,13 +136,13 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 2. 在 `ViewBag.Message` 字行中[設定中斷點](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)。
 
-1. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，再按一下 [發行]。
+1. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，再按一下 [發佈]。
 
 2. 在 [設定檔] 下拉式清單中，選取您在[開始使用 Azure 和 ASP.NET][GetStarted] 中使用的相同設定檔。
 
-3. 按一下 [設定] 索引標籤，然後將 [組態] 變更為 [偵錯]，然後按一下 [發行]。
+3. 按一下 [設定] 索引標籤，然後將 [組態] 變更為 [偵錯]，然後按一下 [發佈]。
 
-	![於偵錯模式中發行](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
+	![於偵錯模式中發佈](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
 4. 當部署完成且您的瀏覽器開啟至 Web 應用程式的 Azure URL 之後，請關閉瀏覽器。
 
@@ -206,13 +204,13 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 Web 專案 (不是 WebJob 專案)，然後按一下 [發佈]。
 
-2. 在 [設定檔] 下拉式清單中，選取您在[開始使用 Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md) 中所使用的相同設定檔。 
+2. 在 [設定檔] 下拉式清單中，選取您在[開始使用 Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md) 中所使用的相同設定檔。
 
-3. 按一下 [設定] 索引標籤，然後將 [組態] 變更為 [偵錯]，然後按一下 [發行]。
+3. 按一下 [設定] 索引標籤，然後將 [組態] 變更為 [偵錯]，然後按一下 [發佈]。
 
 	Visual Studio 會部署 Web 和 WebJob 專案，且在瀏覽器中開啟您 Web 應用程式的 Azure URL。
 
-5. 在 [伺服器總管]  中，依序展開 [Azure] > [Web 應用程式] > 您的 Web 應用程式 > [WebJob] > [連續]，然後以滑鼠右鍵按一下 [ContosoAdsWebJob]。
+5. 在 [伺服器總管] 中，依序展開 [Azure] > [Web 應用程式] > 您的 Web 應用程式 > [WebJob] > [連續]，然後以滑鼠右鍵按一下 [ContosoAdsWebJob]。
 
 7. 按一下 [連結偵錯工具]。
 
@@ -260,7 +258,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 * 在偵錯期間，伺服器會將資料傳送至 Visual Studio，進而影響頻寬付費情況。如需關於頻寬費率的詳細資訊，請參閱 [Azure 定價](/pricing/calculator/)。
 
-* 確保 *Web.config* 檔案裡 `compilation` 元素中的 `debug` 屬性設為 true。在發行偵錯組建組態時，該值預設會設為 true。
+* 確保 *Web.config* 檔案裡 `compilation` 元素中的 `debug` 屬性設為 true。在發佈偵錯組建組態時，該值預設會設為 true。
 
         <system.web>
           <compilation debug="true" targetFramework="4.5" />
@@ -298,7 +296,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 ### 將追蹤陳述式新增至應用程式
 
-1. 開啟 *Controllers\\HomeController.cs*，然後使用下列程式碼來取代檔案內容，以便為 `System.Diagnostics` 加入 `Trace` 陳述式與 `using` 陳述式：
+1. 開啟 *Controllers\HomeController.cs*，然後使用下列程式碼來取代檔案內容，以便為 `System.Diagnostics` 加入 `Trace` 陳述式與 `using` 陳述式：
 
 		using System;
 		using System.Collections.Generic;
@@ -393,11 +391,11 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 ### 在 Azure 中檢視追蹤輸出
 
-1. 在 [方案總管] 中，於 Web 專案上按一下滑鼠右鍵，再按一下 [發行]。
+1. 在 [方案總管] 中，於 Web 專案上按一下滑鼠右鍵，再按一下 [發佈]。
 
-2. 在 [發行 Web] 對話方塊中，按一下 [發行]。
+2. 在 [發佈 Web] 對話方塊中，按一下 [發佈]。
 
-	當 Visual Studio 成功發行您的更新後，將會開啟瀏覽器視窗至您的首頁 (假設您並未清除 [連線] 索引標籤上的 [目的地 URL])。
+	當 Visual Studio 成功發佈您的更新後，將會開啟瀏覽器視窗至您的首頁 (假設您並未清除 [連線] 索引標籤上的 [目的地 URL])。
 
 3. 在 [伺服器總管] 中，以滑鼠右鍵按一下您的 Web 應用程式，然後選取 [檢視串流記錄]。
 
@@ -420,7 +418,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 	不過，當您選取 [檢視串流記錄] 時，Visual Studio 會自動將 [Application Logging (File System)] 變更為 [錯誤]，代表回報的會是錯誤層級記錄。為了查看所有的追蹤記錄，您可以將此設定變更為 [詳細資訊]。當您選取低於錯誤的嚴重性層級時，將一併回報較高嚴重性層級的所有記錄。因此當您選取詳細資訊時，您會同時看到資訊、警告與錯誤記錄。
 
-4. 在 [伺服器總管] 中，以滑鼠右鍵按一下 Web 應用程式，然後按一下 [檢視設定] \(如同您稍早所做的動作)。
+4. 在 [伺服器總管] 中，以滑鼠右鍵按一下 Web 應用程式，然後按一下 [檢視設定] (如同您稍早所做的動作)。
 
 5. 將 [Application Logging (File System)] 變更為 [詳細資訊]，然後按一下 [儲存]。
  
@@ -519,11 +517,11 @@ Web 伺服器記錄會記下 Web 應用程式的所有 HTTP 活動。為了在 [
 
 	![下載的檔案](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-	* 應用程式追蹤記錄位於 *LogFiles\\Application* 資料夾的 *.txt* 檔案中。
-	* Web 伺服器記錄位於 *LogFiles\\http\\RawLogs* 資料夾的 *.log* 檔案中。您可以使用[記錄檔剖析器](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) (英文) 之類的工具來檢視與操作這些檔案。
-	* 詳細的錯誤訊息記錄位於 *LogFiles\\DetailedErrors* 資料夾的 *.html* 檔案中。
+	* 應用程式追蹤記錄位於 *LogFiles\Application* 資料夾的 *.txt* 檔案中。
+	* Web 伺服器記錄位於 *LogFiles\http\RawLogs* 資料夾的 *.log* 檔案中。您可以使用[記錄檔剖析器](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) (英文) 之類的工具來檢視與操作這些檔案。
+	* 詳細的錯誤訊息記錄位於 *LogFiles\DetailedErrors* 資料夾的 *.html* 檔案中。
 
-	(*deployments* 資料夾用於存放來源控制發行功能所建立的檔案，它與 Visual Studio 發行功能沒有任何關聯。*Git* 資料夾則用於存放與來源控制發行功能相關的追蹤記錄，以及記錄檔案串流服務。)
+	(*deployments* 資料夾用於存放來源控制發佈功能所建立的檔案，它與 Visual Studio 發佈功能沒有任何關聯。*Git* 資料夾則用於存放與來源控制發佈功能相關的追蹤記錄，以及記錄檔案串流服務。)
 
 ## <a name="storagelogs"></a>檢視儲存體記錄
 
@@ -543,7 +541,7 @@ Web 伺服器記錄會記下 Web 應用程式的所有 HTTP 活動。為了在 [
 
 與檔案系統相較之下，儲存體帳戶可提供更多的儲存體與較長的記錄保留時間。將應用程式追蹤記錄傳送至儲存體的另一項好處，就是您可以從每個記錄中獲得更多的額外資訊，而檔案系統記錄則無法提供。
 
-5. 以滑鼠右鍵按一下 Azure 節點下的 [儲存體]，然後按一下 [建立儲存體帳戶]。
+5. 以滑鼠右鍵按一下 Azure 節點下的 [**儲存體**]，然後按一下 [**建立儲存體帳戶**]。
 
 ![建立儲存體帳戶](./media/web-sites-dotnet-troubleshoot-visual-studio/createstor.png)
 
@@ -551,15 +549,15 @@ Web 伺服器記錄會記下 Web 應用程式的所有 HTTP 活動。為了在 [
 
 	這個名稱必須是唯一的 (其他 Azure 儲存體帳戶不可以有相同的名稱)。如果您輸入的名稱已在使用中，您可以變更此名稱。
 
-	存取儲存體帳戶的 URL 將會是 *{name}*.core.windows.net。
+	存取儲存體帳戶的 URL 會是 *{name}*.core.windows.net。
 
-5. 將 [區域或同質群組] 下拉式清單設為最接近您的區域。
+5. 將 [區域或同質群組] 下拉式清單設為離您最近的區域。
 
 	此設定會指定哪個 Azure 資料中心將會主控您的儲存體帳戶。在本教學課程中，您的決定並不會造成明顯的差異，但對於生產 Web 應用程式而言，您會希望 Web 伺服器和儲存體帳戶是在相同區域內，以便將延遲和資料輸出費用降到最低。您稍後將建立的 Web 應用程式的執行區域應該盡可能接近可存取您 Web 應用程式的瀏覽器，以便將延遲降至最低。
 
 6. 將 [複寫] 下拉式清單設為 [本機備援]。
 
-	對儲存體帳戶啟用地理區域複寫時，儲存內容會複寫至次要資料中心，以便能在主要位置發生嚴重災難時容錯移轉至該位置。地理區域複寫會引發額外成本。對於測試和開發帳戶，您通常不會想要付費使用地理區域複寫功能。如需詳細資訊，請參閱[建立、管理或刪除儲存體帳戶](../storage-create-storage-account/#replication-options)。
+	對儲存體帳戶啟用異地複寫時，儲存內容會複寫至次要資料中心，以便能在主要位置發生嚴重災難時容錯移轉至該位置。異地複寫會引發額外成本。對於測試和開發帳戶，您通常不會想要付費使用異地複寫功能。如需詳細資訊，請參閱[建立、管理或刪除儲存體帳戶](../storage-create-storage-account/#replication-options)。
 
 5. 按一下 [建立]。
 
@@ -567,8 +565,7 @@ Web 伺服器記錄會記下 Web 應用程式的所有 HTTP 活動。為了在 [
 
 1. 在 Visual Studio 的 [Azure Web 應用程式] 視窗中，按一下 [記錄] 索引標籤，然後按一下 [設定管理入口網站中的記錄]。
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
-	![Configure logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![設定記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	這麼做會在管理入口網站中開啟您的 Web 應用程式的 [設定] 索引標籤。要到達此頁面的另一個方法，就是按一下 [Web 應用程式] 索引標籤、按一下您的 Web 應用程式，然後按一下 [設定] 索引標籤。
 
@@ -638,7 +635,7 @@ Azure Web 應用程式會使用 IIS 7.0 及更新版本所提供的相同失敗�
 
 2. 在 Visual Studio 中，於 [Azure Web 應用程式] 視窗的 [組態] 索引標籤中按一下 [在管理入口網站中開啟]。
 
-3. 在適用於您 Web 應用程式的管理入口網站分頁中，按一下 [所有設定] > [部署認證]，然後按一下 [重設您的部署認證]。
+3. 在適用於您 Web 應用程式的管理入口網站刀鋒視窗中，按一下 [所有設定] > [部署認證]，然後按一下 [重設您的部署認證]。
 
 4. 輸入新的使用者名稱與密碼。
 
@@ -737,7 +734,7 @@ Azure Web 應用程式會使用 IIS 7.0 及更新版本所提供的相同失敗�
 
 針對錯誤記錄，做為撰寫自己的追蹤程式碼的替代方法，便是使用開放原始碼的記錄架構，例如 [ELMAH](http://nuget.org/packages/elmah/)。如需詳細資訊，請參閱 [Scott Hanselman 關於 ELMAH 的部落格文章](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx) (英文)。
 
-此外，如果您想要從 Azure 取得串流記錄，則您不需要使用 ASP.NET 或 System.Diagnostics 追蹤功能。Azure Web 應用程式串流記錄服務會串流它在 *LogFiles* 資料夾所找到的任何 *.txt*、*.html* 或 *.log* 檔案。因此，您可以建立自己的記錄系統以寫入 Web 應用程式的檔案系統，而您的檔案將自動進行串流與下載。您只需撰寫會在 *d:\\home\\logfiles* 資料夾中建立相關檔案的應用程式碼。
+此外，如果您想要從 Azure 取得串流記錄，則您不需要使用 ASP.NET 或 System.Diagnostics 追蹤功能。Azure Web 應用程式串流記錄服務會串流它在 *LogFiles* 資料夾所找到的任何 *.txt*、*.html* 或 *.log* 檔案。因此，您可以建立自己的記錄系統以寫入 Web 應用程式的檔案系統，而您的檔案將自動進行串流與下載。您只需撰寫會在 *d:\home\logfiles* 資料夾中建立相關檔案的應用程式碼。
 
 ### 分析 Web 伺服器記錄
 
@@ -764,5 +761,6 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤](http://www.iis.net/lear
 
 [GetStarted]: web-sites-dotnet-get-started.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

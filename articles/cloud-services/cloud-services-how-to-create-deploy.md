@@ -30,11 +30,14 @@ Azure 管理入口網站提供兩種方法讓您建立和部署雲端服務：[*
 ## 概念
 需要三個元件才能部署應用程式成為 Azure 中的雲端服務：
 
-- **服務定義**<br/> 定義服務模型的雲端服務定義檔 (.csdef)，包含角色數。
+- **服務定義**<br/>
+  定義服務模型的雲端服務定義檔 (.csdef)，包含角色數。
 
-- **服務組態**<br/> 雲端服務組態檔 (.cscfg) 提供雲端服務和個別角色的組態設定，包括角色執行個體數。
+- **服務組態**<br/>
+  雲端服務組態檔 (.cscfg) 提供雲端服務和個別角色的組態設定，包括角色執行個體數。
 
-- **服務封裝**<br/> 服務封裝 (.cspkg) 包含應用程式程式碼和組態以及服務定義檔。
+- **服務封裝**<br/>
+  服務封裝 (.cspkg) 包含應用程式程式碼和組態以及服務定義檔。
 
 ## 準備您的應用程式
 您部署雲端服務之前，必須先從應用程式程式碼和雲端服務組態檔 (.cscfg) 建立雲端服務封裝 (.cspkg)。Azure SDK 提供準備這些必要部署檔案的工具。您可以從 [Azure 下載](http://azure.microsoft.com/downloads/) (英文) 頁面安裝 SDK，使用您偏好的語言開發應用程式程式碼。
@@ -92,7 +95,7 @@ Azure 管理入口網站提供兩種方法讓您建立和部署雲端服務：[*
 
 4. 在 [密碼] 中，輸入憑證的私密金鑰。
 
-5. 按一下 [確定] (勾選記號)。
+5. 按一下 [確定] \(勾選記號)。
 
 	![CloudServices_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
 
@@ -119,7 +122,7 @@ Azure 管理入口網站提供兩種方法讓您建立和部署雲端服務：[*
 
  如果每個角色至少有兩個執行個體，Azure 只能保證在維護和服務更新期間存取雲端服務的成功率為 99.95%。若有需要，您可以在部署雲端服務後，在 [Scale] 頁面上新增其他角色執行個體。如需詳細資訊，請參閱[服務等級協定](http://azure.microsoft.com/support/legal/sla/)。
 
-6. 按一下 [確定] (核取記號) 開始雲端服務部署。
+6. 按一下 [確定] \(核取記號) 開始雲端服務部署。
 
 	![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
 

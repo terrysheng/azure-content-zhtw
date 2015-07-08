@@ -523,7 +523,8 @@ R 資料框架支援強大的篩選功能。藉由在資料列或資料行使用
 
 如已經提過的，時間序列是一系列依時間編制索引的資料值。R 時間序列物件可用來建立和管理時間索引。使用時間序列物件有數個優點。時間序列物件可讓您不必理會管理封裝在物件中之時間序列索引值的許多細節。此外，時間序列物件還可讓您使用許多時間序列方法來繪製、列印、建立模型等。
 
-POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類別是從 1970 年 1 月 1 日開始計量時間。在此範例中，我們將使用 POSIXct 時間序列物件。其他廣泛使用的 R 時間序列物件類別包括 zoo 和 xts (可延伸時間序列)。<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
+POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類別是從 1970 年 1 月 1 日開始計量時間。在此範例中，我們將使用 POSIXct 時間序列物件。其他廣泛使用的 R 時間序列物件類別包括 zoo 和 xts (可延伸時間序列)。
+<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ###	時間序列物件範例
 

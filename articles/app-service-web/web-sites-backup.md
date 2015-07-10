@@ -127,7 +127,8 @@ Web Apps 可以備份下列資訊：
 
 我已完整備份網站，包括舊映像。現在我想要每天備份網站，但我不想付費儲存從未變更的記錄檔或靜態映像檔。
 
-![記錄檔資料夾][LogsFolder] ![映像資料夾][ImagesFolder]
+![記錄檔資料夾][LogsFolder]
+![映像資料夾][ImagesFolder]
 	
 下列步驟顯示我如何從備份中排除那些檔案。
 
@@ -267,4 +268,4 @@ _backup.filter 中所列出之篩選條件下的任何檔案和資料夾將從�
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

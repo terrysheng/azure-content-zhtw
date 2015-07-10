@@ -24,9 +24,18 @@ Azure 儲存體 Blob 連接器可讓您從 Blob 容器上傳、下載及刪除 B
 ##建立新的 Azure 儲存體 Blob 連接器
 若要建立新的 Azure 儲存體連接器，請遵循下面所述的步驟。<ul> <li>啟動 Azure 入口網站<li>使用 [+ 新增] (位於頁面底部) -> [Web + 行動] --> [Azure Marketplace] 開啟 Azure Marketplace </ul>
 
-![啟動 Azure Marketplace][1]<br> <ul> <li>按一下 [API 應用程式] <li>搜尋 <i>Blob</i>，然後選取 Azure 儲存體 Blob 連接器 </ul>
+![啟動 Azure Marketplace][1]<br>
+<ul>
+<li>按一下 [API 應用程式]
+<li>搜尋 <i>Blob</i>，然後選取 Azure 儲存體 Blob 連接器
+</ul>
 
-![選取 Azure 儲存體 Blob 連接器][2] <br> <ul> <li>按一下 [建立] <li>在開啟的 Azure 儲存體 Blob 連接器刀鋒視窗中，提供下列資料。</ul>
+![選取 Azure 儲存體 Blob 連接器][2]
+<br>
+<ul>
+<li>按一下 [建立]
+<li>在開啟的 Azure 儲存體 Blob 連接器刀鋒視窗中，提供下列資料。
+</ul>
 
 ![建立 Azure 儲存體 Blob 連接器][3]
 
@@ -108,4 +117,4 @@ Azure 儲存體 Blob 連接器支援六個動作。包括
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

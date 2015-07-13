@@ -95,7 +95,10 @@
 
      `Get-HcsSystem`
 
-    您應該會看到下列版本：- HcsSoftwareVersion：6.3.9600.17491 - CisAgentVersion：1.0.9037.0 - MdsAgentVersion：26.0.4696.1433
+    您應該會看到下列版本：
+    - HcsSoftwareVersion：6.3.9600.17491
+    - CisAgentVersion：1.0.9037.0
+    - MdsAgentVersion：26.0.4696.1433
  
 9. 執行下列 Cmdlet 以確認已正確套用韌體更新：
 
@@ -133,7 +136,9 @@
 	
 	![StorSimple 註冊裝置 7](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice7_gov-include.png)
 
-      >[AZURE.IMPORTANT]若要從序列主控台視窗複製文字，只需選取該文字。然後您應該能夠將它貼到剪貼簿或任何文字編輯器中。> > 請勿使用 Ctrl + C 來複製服務資料加密金鑰。使用 Ctrl + C 將導致安裝精靈結束。如此一來，裝置系統管理員密碼將不會變更，而裝置將還原為預設密碼。
+      >[AZURE.IMPORTANT]若要從序列主控台視窗複製文字，只需選取該文字。然後您應該能夠將它貼到剪貼簿或任何文字編輯器中。
+      >
+      > 請勿使用 Ctrl + C 來複製服務資料加密金鑰。使用 Ctrl + C 將導致安裝精靈結束。如此一來，裝置系統管理員密碼將不會變更，而裝置將還原為預設密碼。
 
 16. 結束序列主控台。
 
@@ -144,9 +149,9 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
-        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
+        如果裝置狀態為 [離線]，請等待數分鐘，讓裝置上線。 
       
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
+        若裝置經數分鐘後仍舊離線，您便需要確認您的防火牆網路設置是否與[StorSimple 裝置的網路需求](https://msdn.microsoft.com/library/dn772371.aspx) 說明相同。若您沒有 HTTP 1.1 支援，請檢查及確保 9354 連接埠為開啟狀態並允許輸出通訊。此連接埠是供 StorSimple 管理員服務及 StorSimple 裝置間進行通訊之用。
      
         
 

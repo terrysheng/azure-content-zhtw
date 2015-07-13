@@ -1,3 +1,5 @@
-For Azure RemoteApp, please see the following topic:
+對於 Azure RemoteApp，請參閱下列主題：
 
-- [RemoteApp service limits and default values](../articles/remoteapp/remoteapp-servicelimits.md)
+- [RemoteApp 服務限制與預設值](../articles/remoteapp/remoteapp-servicelimits.md)
+
+<!---HONumber=62-->

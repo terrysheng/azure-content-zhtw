@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/17/2015"
+   ms.date="06/22/2015"
    ms.author="sutalasi"/>
 
 
@@ -128,6 +128,7 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [7]: ./media/app-service-logic-connector-sql/LogicApp3.png
 [8]: ./media/app-service-logic-connector-sql/LogicApp4.png
 [9]: ./media/app-service-logic-connector-sql/LogicApp5.png
+[10]: ./media/app-service-logic-connector-sql/LogicApp6.png
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 

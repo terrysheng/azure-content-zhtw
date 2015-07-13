@@ -1,13 +1,11 @@
 
-先前範例所示範的標準登入，在每次應用程式啟動時，皆需要用戶端連絡身分識別提供者和行動服務。這個方法不能調整且效率不佳。
+在先前範例中，每次應用程式啟動時，都會連繫識別提供者和行動服務。相反地，您可以快取授權權杖，並嘗試優先使用它。
 
-更好的方法就是快取 Azure 行動服務傳回的授權權杖，然後嘗試在使用提供者形式登入前先使用此方法。
+* 建議在 iOS 用戶端上用來加密和儲存驗證權杖的方法是使用 iOS Keychain。我們將使用 [SSKeychain](https://github.com/soffes/sskeychain) -- iOS Keychain 的一種簡單的包裝函式。依照 [SSKeychain] 頁面上的指示，將該包裝函式加入至您的專案。確認已在專案的 [建置設定]**Build Settings** ([Apple LLVM - 語言 - 模組] 區段) 中啟用 [啟用模組] 設定。
 
-1. 建議在 iOS 用戶端上用來加密和儲存驗證權杖的方法是使用 iOS Keychain。我們將使用 [SSKeychain](https://github.com/soffes/sskeychain) -- iOS Keychain 的一種簡單的包裝函式。依照 [SSKeychain] 頁面上的指示，將該包裝函式加入至您的專案。確認已在專案的 [建置設定]**Build Settings** ([Apple LLVM - 語言 - 模組]區段) 中啟用 [啟用模組]設定。
+* 開啟 **QSTodoListViewController.m**，並加入下列程式碼：
 
-2. 開啟 **QSTodoListViewController.m**，並加入下列程式碼：
-
-
+```
 		- (void) saveAuthInfo {
 				[SSKeychain setPassword:self.todoService.client.currentUser.mobileServiceAuthenticationToken forService:@"AzureMobileServiceTutorial" account:self.todoService.client.currentUser.userId]
 		}
@@ -22,12 +20,18 @@
 
 		    }
 		}
+```
 
-3. 在 `loginAndGetData` 方法中，於 `[self refresh]` 這一行前面加入 `saveAuthInfo` 的呼叫，修改 `loginWithProvider:controller:animated:completion:` 呼叫的完成區塊。透過這個呼叫，我們只能儲存使用者識別碼和權杖屬性：
+* 在 `loginAndGetData` 中，修改 `loginWithProvider:controller:animated:completion:` 的 completion 區塊。在 `[self refresh]` 前面加入下列這一行，以儲存使用者識別碼和權杖屬性：
 
+```
 				[self saveAuthInfo];
+```
 
-4. 讓我們也在應用程式啟動時載入使用者識別碼和權杖。在 **QSTodoListViewController.m** 的  `viewDidLoad` 方法中，在將 `self.todoService` 初始化之後，加入 loadAuthInfo 的呼叫。
+* 讓我們在應用程式啟動時載入使用者識別碼和權杖。在 **QSTodoListViewController.m** 的 `viewDidLoad` 中，在 `self.todoService` 初始化之後加入這部分。
 
+```
 				[self loadAuthInfo];
-<!--HONumber=54-->
+```
+
+<!---HONumber=62-->

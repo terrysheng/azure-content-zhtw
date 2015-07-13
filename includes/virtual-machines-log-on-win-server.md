@@ -1,5 +1,3 @@
-<properties services="virtual-machines" title="How to Log on to a Virtual Machine Running Windows Server" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn" />
-
 1. 如果您尚未登入 [Azure 管理入口網站](http://manage.windowsazure.com)，請先登入。
 
 2. 按一下 [虛擬機器]，然後選取適當的虛擬機器。
@@ -28,4 +26,4 @@
 
 您現在可以從遠端使用虛擬機器。
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

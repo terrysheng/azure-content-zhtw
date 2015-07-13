@@ -51,7 +51,7 @@
 
 如果您有可以使用的現有資料閘道，請略過此步驟。
 
-1.	建立邏輯資料閘道。在 **Azure 預覽入口網站**, ，按一下 **連結服務** 上 **資料 FACTORY** 分頁。
+1.	建立邏輯資料閘道。在 **Azure Preview 入口網站**中，按一下 **DATA FACTROY** 刀鋒視窗上的 [**連結服務**]。
 2.	按一下命令列上的 [**新增 (+) 資料閘道**]。  
 3.	在 [**新增資料閘道**] 分頁中，按一下 [**建立**]。
 4.	在 [**建立**] 分頁中，輸入 **MyGateway** 做為資料閘道的 [**名稱**]。
@@ -97,46 +97,46 @@
 
 ### 建立連結的服務
 
-1.	在 **Azure 預覽入口網站**, ，按一下 **連結服務** 磚上 **資料 FACTORY** 刀鋒伺服器 **LogProcessingFactory**。
-2.	在 **連結服務** blade 中，按一下 **加號 (+) 資料存放區**。
-3.	在 **新的資料存放區** blade 中，輸入 **OnPremSqlLinkedService** 的 **名稱**。 
-4.	按一下 **型別 (所需的設定)** ，然後選取 **SQL Server**。您應該會看到 **資料閘道器**, ，**Server**, ，**資料庫**, ，和 **認證** 中的設定 **新的資料存放區** 現在分頁。 
-5.	按一下 **資料閘道器 (設定必要的設定)** ，然後選取 **MyGateway** 您先前建立。 
-6.	輸入 **名稱** 資料庫伺服器裝載的 **MarketingCampaigns** 資料庫。 
-7.	輸入 **MarketingCampaigns** 資料庫。 
-8.	按一下 **認證**。 
-9.	在 **認證** blade 中，按一下 **安全地設定認證，請按一下這裡**。
-10.	它會在第一次按一下應用程式安裝並啟動 **設定認證 **對話方塊。 11.	在 **設定認證** 對話方塊方塊中，輸入 **使用者名稱** 和 **密碼**, ，按一下 **確定**。請稍候，待對話方塊關閉。 
-12.	按一下 **確定** 中 **新的資料存放區** 分頁。 
-13.	在 **連結的服務** blade 中，確認已選取 **OnPremSqlLinkedService** 出現在清單中， **狀態** 連結服務是 **良好**。
+1.	在 **Azure Preview 入口網站**中，按一下 **LogProcessingFactory** 的 **DATA FACTORY** 刀鋒視窗上的 [**連結服務**] 磚。
+2.	在 [**連結服務**] 刀鋒視窗中，按一下 [**新增 (+) 資料存放區**]。
+3.	在 [新增資料存放區] 刀鋒視窗中，針對 [名稱] 輸入 **OnPremSqlLinkedService**。 
+4.	按一下 [**類型 (需要設定)**]，然後選取 [**SQL Server**]。您現在應該會在 [**新增資料存放區**] 刀鋒視窗中看到 [**資料閘道**]、[**伺服器**]、[**資料庫**]，以及 [**認證**] 設定。 
+5.	按一下 [**資料閘道 (設定必要的設定)**]，然後選取您先前建立的 [**MyGateway**]。 
+6.	輸入裝載 **MarketingCampaigns** 資料庫的資料庫伺服器**名稱**。 
+7.	針對 [資料庫] 輸入 **MarketingCampaigns**。 
+8.	按一下 [**認證**]。 
+9.	在 [**認證**] 刀鋒視窗中，按一下 [**按一下這裡以安全地設定認證**]。
+10.	第一次時會安裝一鍵式應用程式，並啟動 [**設定認證]**對話方塊。11.	在 [**設定認證**] 對話方塊中，輸入 [**使用者名稱**] 和 [**密碼**]，然後按一下 [**確定**]。請稍候，待對話方塊關閉。 
+12.	按一下 [**新增資料存放區**] 刀鋒視窗中的 [**確定**]。 
+13.	在 [**連結服務**] 刀鋒視窗中，確認 **OnPremSqlLinkedService** 顯示在清單中，且連結服務的 [**狀態**] 為 [**良好**]。
 
 ## <a name="OnPremStep3"></a>步驟 3：建立資料表和管線
 
 ### 建立內部部署邏輯資料表
 
-1.	在 **Azure PowerShell**, ，切換到 **C:\ADFWalkthrough\OnPremises** 資料夾。 
-2.	使用 cmdlet **新增 AzureDataFactoryTable** 以建立資料表，如下所示的 **MarketingCampaignEffectivenessOnPremSQLTable.json**。
+1.	在 **Azure PowerShell** 中，切換至 **C:\ADFWalkthrough\OnPremises** 資料夾。 
+2.	使用 Cmdlet **New-AzureDataFactoryTable** 來建立 **MarketingCampaignEffectivenessOnPremSQLTable.json** 的資料表，如下所示。
 
 			
 		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### 建立將資料從 Azure Blob 複製到 SQL Server 的管線
 
-1.	使用 cmdlet **新增 AzureDataFactoryPipeline** 建立管線，如下所示的 **EgressDataToOnPremPipeline.json**。
+1.	使用 Cmdlet **New-AzureDataFactoryPipeline** 來建立 **EgressDataToOnPremPipeline.json** 的管線，如下所示。
 
 			
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
 	 
-2. 使用 cmdlet **組 AzureDataFactoryPipelineActivePeriod** 到指定的作用中期間 **EgressDataToOnPremPipeline**。
+2. 使用 Cmdlet **Set-AzureDataFactoryPipelineActivePeriod** 來指定 **EgressDataToOnPremPipeline** 的作用期間。
 
 			
 		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
 
-	按下 **'Y'** 才能繼續。
+	請按 **'Y'** 繼續進行。
 	
 ## <a name="OnPremStep4"></a>步驟 4：監視管線和檢視結果
 
-您現在可以使用相同的步驟中導入 [步驟 6： 監視資料表和管線](#MainStep6) 監視新的管線和新的內部 ADF 資料表的資料配量。
+您現在可以使用[步驟 6：監視資料表和管線](#MainStep6)中介紹的相同步驟，監視新的內部部署 ADF 資料表的新管線和資料配量。
  
 當您看到資料表 **MarketingCampaignEffectivenessOnPremSQLTable** 的配量狀態變成「就緒」時，這表示管線已完成配量的執行。若要檢視結果，請查詢 **MarketingCampaignEffectiveness** 資料表 (位於 SQL Server 的 **MarketingCampaigns** 資料庫中)。
  
@@ -168,4 +168,6 @@
 
 [image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises-using-powershell/DataManagementGatewayConfigurationManager.png
 
-<!---HONumber=GIT-SubDir--> 
+ 
+
+<!---HONumber=62-->

@@ -1,59 +1,45 @@
+| 計算選項 | 對象 |
+| ------------------ | --------   |
+| [應用程式服務] | 可擴充 Web 應用程式、行動應用程式、API 應用程式，以及任何裝置的邏輯應用程式 |
+| [雲端服務] | 具備更高的作業系統控制能力的高度可用、可擴充的多層式架構雲端應用程式 |
+| [虛擬機器] | 具備完整作業系統控制能力的自訂 Windows 和 Linux VM |
+
 <a name="tellmevm"></a>
-## Tell me about virtual machines
+## 我想了解虛擬機器
 
-Azure Virtual Machines lets developers, IT operations people, and others create and use virtual machines in the cloud. Providing what's known as *Infrastructure as a Service (IaaS)*, this technology can be used in variety of ways. This figure shows its basic components.
+Azure 虛擬機器可讓您在雲端中建立和使用虛擬機器。提供所謂的「基礎結構即服務 (IaaS)」，虛擬機器技術可用於許多方面。部分範例如下：
 
-<a name="fig_createvms"></a>
-![vm_diagram](./media/virtual-machines-choose-me-content/diagram.png)
+- **適用於開發和測試用途的虛擬機器 (VM)** 開發群組通常會使用 VM，因為它們提供了一個快速、簡單的方法，用以建立為應用程式撰寫程式碼並進行測試時所需之特定組態的電腦。Azure 虛擬機器能夠以直接且經濟的方式建立和使用這些 VM，並且於不再需要時加以刪除。
+- **在雲端執行應用程式。** 在公用雲端中執行某些應用程式符合經濟效益考量。例如，具有大型尖峰需求的應用程式。雖然您能夠建置擁有足夠硬體來因應尖峰需求的資料中心，但硬體可能在大部分的時間都處於使用量很低的狀態。在 Azure 上執行此應用程式可讓您在需要時支付額外的 VM，而在您不需要時關閉它們。另外，假設您立即需要隨選運算資源，但是不想受約束。同樣地，Azure 會是正確的選擇。
+- **將您自己的資料中心擴展到公用雲端。** 當您使用 Azure 虛擬網路時，您的組織可以建立虛擬網路 (VNET) 做為您內部部署網路的延伸，並新增 VM 至該 VNET。這可讓您在 Azure VM 上執行應用程式，例如 [SharePoint](virtual-machines-sharepoint-infrastructure-services.md)、[SQL Server](virtual-machines-sql-server-infrastructure-services.md) 等等。這種方法可能比在您資料中心的 VM 中執行還要更容易部署或成本較低。   
+- **災害復原。** IaaS 型災害復原可以讓您在確實需要運算資源時才付費使用，而不需要將成本持續浪費在不常使用的備份資料中心上。例如，如果主要資料中心故障，您可以建立在 Azure 上執行的 VM 來執行基本的應用程式，然後於不再需要時關閉這些應用程式。
 
-**Figure: Azure Virtual Machines provides Infrastructure as a Service.**
-
-As the figure shows, you can create virtual machines using either the Azure Management Portal or the REST-based Azure Service Management API. The Management Portal can be accessed from any popular browser, including Internet Explorer, Mozilla, and Chrome. For the REST API, Microsoft provides client scripting tools for Windows, Linux, and Macintosh systems. Other software is also free to use this interface.
-
-However you access the platform, creating a new VM requires choosing a virtual hard disk (VHD) for the VM's image. These VHDs are stored in [Azure blobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). 
-
-To get started you have two choices 
-
-1. Upload your own VHD 
-2. Use VHDs provided by Microsoft and its partners in the Azure Virtual Machines gallery or on the Microsoft open source [VMDepot](http://vmdepot.msopentech.com/) website. 
-
-The VHDs in the gallery and on VMDepot include clean Microsoft and Linux operating system images as well as images that include Microsoft and other third party products installed on them.  The options are growing all the time. Examples include various versions, editions and configurations of:
+就像其他虛擬機器一樣，Azure 中的 VM 具有作業系統、儲存體和網路功能，而且可以執行各式各樣的應用程式。您可以使用 Azure 或其合作夥伴之一所提供的映像，或使用您自己的映像。其中包含下列的各種版本、版次和組態：
  
 -	Windows Server 
--	Linux servers such as Suse, Ubuntu and CentOS
+-	Linux 伺服器，例如 Suse、Ubuntu 和 CentOS
 -	SQL Server
 -	BizTalk Server 
 -	SharePoint Server
 
-Along with a VHD, you specify the size of your new VM.  The full stats for each size are listed [in the Azure library](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx).  
+虛擬機器是使用虛擬硬碟 (VHD) 來儲存其作業系統 (OS) 和資料。VHD 也能夠使用於您可以選擇用來安裝 OS 的映像。下圖說明此特點，以及用來建立及管理您的 VM 的兩項工具。
 
--	**Extra Small**, with a shared core and 768MB  of memory.
--	**Small**, with 1 core and 1.75GB  of memory.
--	**Medium**, with 2 cores and 3.5GB  of memory.
--	**Large**, with 4 cores and 7GB of memory.
--	**Extra Large**, with 8 cores and 14GB of memory.
--	**A6**, with 4 cores and 28GB of memory.
--	**A7**, with 8 cores and 56GB of memory.
+<a name="fig_createvms"></a> ![vm_diagram](./media/virtual-machines-choose-me-content/diagram.png)
 
-Finally, you choose which Azure datacenter your new VM should run in, whether in the US, Europe, or Asia. 
+**圖：Azure 虛擬機器提供「基礎結構即服務」。**
 
-Once a VM is running, you pay for each hour it runs, and you stop paying when you remove that VM. The amount you pay doesn't depend on how much your VM is used -- it's based solely on wall-clock time. A VM that sits idle for an hour costs the same as one that's heavily loaded. 
+可以使用以瀏覽器為基礎的入口網站、支援指令碼處理的命令列工具，或直接透過 REST API 管理 VM。RightScale 及 ScaleXtreme 等 Microsoft 合作夥伴也提供透過 REST API 進行的管理服務。
 
-Each running VM has an associated *OS disk*, kept in a blob. When you create a VM using a gallery VHD, that VHD is copied to your VM's OS disk. Any changes you make to the operating system of your running VM are stored here. For example, if you install an application that modifies the Windows registry, that change will be stored in your VM's OS disk. The next time you create a VM from that OS disk, the VM continues running in the same state you left it in. For VHDs stored in the gallery, Microsoft applies updates when needed, such as operating system patches. For the VHDs in your own OS disks, however, you're responsible for applying these updates (although Windows Update is turned on by default).
+除了作業系統以外，VM 的其他設定選項包括：
 
-Running VMs can also be modified and then captured using the sysprep tool. Sysprep removes specifics like the machine name so that a VHD image can be used to create additional VMs with the same general configuration. These images are stored in the Management portal alongside your uploaded images so they can be used as a starting point for additional VMs. 
+- 大小，這可決定像是您可以連接多少磁碟和處理能力等項目的因素。Azure 提供了各種不同的大小，以支援許多類型的用法。如需詳細資訊，請參閱[虛擬機器的大小](virtual-machines-size-specs.md)。  
+- 將裝載您新 VM 的 Azure 區域，例如美國、歐洲或亞洲。 
+- VM 延伸模組，可提供您虛擬機器額外功能，例如執行防毒軟體，或使用 Windows PowerShell 的期望狀態設定功能。
 
-Virtual Machines also monitors the hardware hosting each VM you create. If a physical server running a VM fails, the platform notices this and starts the same VM on another machine. And assuming you have the right licensing, you can copy a changed VHD out of your OS disk, then run it someplace else, such as in your own on-premises datacenter or at another cloud provider. 
+VM 應考量的其他優點包括：
 
-Along with its OS disk, your VM has one or more data disks. Even though each of these looks like a mounted disk drive to your VM, the contents of each one is in fact stored in a blob. Every write made to a data disk is stored persistently in the underlying blob. As with all blobs, Azure replicates these both within a single datacenter and across datacenters to guard against failures.
+**預付方案** -- Azure 可依據 VM 的大小和作業系統，以每小時價格方式收費。針對不足一小時的部分，Azure 只會收取使用分鐘數的費用。儲存體是個別定價與收費。如需詳細資訊，請參閱[虛擬機器定價](http://azure.microsoft.com/pricing/details/virtual-machines/)。
 
-Running VMs can be managed using the Management Portal, PowerShell and other scripting tools, or directly through the REST API. (In fact, whatever you can do through the Management Portal can be done programmatically through this API.) Microsoft partners such as RightScale and ScaleXtreme also provide management services that rely on the REST API.
+**恢復功能** -- Azure 會監視裝載各個執行中 VM 的實體硬體。如果執行 VM 的實體伺服器失敗，Azure 會在發現這個狀況時，將 VM 移至新硬體並重新啟動 VM。此程序有時稱為服務修復。Azure 也會透過在 Blob 儲存體中保留 VHD 的備援複本，以保護虛擬機器的資料。
 
-Azure Virtual Machines can be used in a variety of ways. The primary scenarios that Microsoft targets include these:
-
-- **VMs for development and test.** Development groups commonly need VMs with specific configurations for creating applications. Azure Virtual Machines provides a straightforward and economical way to create these VMs, use them, then remove them when they're no longer needed.
-- **Running applications in the cloud.** For some applications, running on the public cloud makes economic sense. Think about an application with large spikes in demand, for example. It's always possible to buy enough machines for your own datacenter to run this application, but most of those machines are likely to sit unused much of the time. Running this application on Azure lets you pay for extra VMs only when you need them, shutting them down when a demand spike has ended. Or suppose you're a start-up that needs on-demand computing resources quickly and with no commitment. Once again, Azure can be the right choice.
-- **Extending your own datacenter into the public cloud.** With Azure Virtual Network, your organization can create a virtual network (VNET) that makes a group of Azure VMs appear to be part of your own on-premises network. This allows running applications such as SharePoint and others on Azure, an approach that might be easier to deploy and/or less expensive than running them in your own datacenter. You can also run [SQL Server on VMs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#sqliaas) if that meets your needs better than Azure SQL Database.  
-- **Disaster recovery.** Rather than paying continuously for a backup datacenter that's rarely used, IaaS-based disaster recovery lets you pay for the computing resources you need only when you really need them.  For example, if your primary datacenter goes down, you can create VMs running on Azure to run essential applications, then shut them down when they're no longer needed.
-
-These aren't the only possibilities, but they're good examples of how you might use Azure Virtual Machines.  
+<!---HONumber=62-->

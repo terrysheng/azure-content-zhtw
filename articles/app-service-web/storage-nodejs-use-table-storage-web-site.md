@@ -29,7 +29,7 @@
 
 * 如何使用 npm (節點封裝管理員) 來安裝節點模組
 
-* 如何使用 Azure 資料表服務
+* 如何使用 Azure 表格服務
 
 * 如何使用 Azure CLI 建立 Web 應用程式。
 
@@ -499,8 +499,7 @@
 
 	此命令會啟動瀏覽器並瀏覽至下載頁面。若出現提示，請使用與您的 Azure 訂用帳戶相關聯的帳戶登入。
 
-	<!-- ![The download page][download-publishing-settings] -->
-	檔案應該會自動開始下載，如果沒有，您可以按一下頁面開頭的連結手動下載檔案。儲存檔案，並記下檔案路徑。
+	<!-- ![The download page][download-publishing-settings] -->檔案應該會自動開始下載，如果沒有，您可以按一下頁面開頭的連結手動下載檔案。儲存檔案，並記下檔案路徑。
 
 2. 輸入下列命令以匯入設定：
 
@@ -642,4 +641,4 @@
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

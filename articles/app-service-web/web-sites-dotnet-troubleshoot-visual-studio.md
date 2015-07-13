@@ -49,9 +49,9 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 1. 如果您尚未在 Visual Studio 中登入 Azure，按一下 [伺服器總管] 中的 [連線到 Azure] 按鈕。
 
-	替代方式為安裝可讓您存取帳戶的管理憑證。如果您選擇安裝憑證，請以滑鼠右鍵按一下 [伺服器總管] 中的 [Azure] 節點，然後按一下內容功能表中的 [管理訂閱]。在 [管理 Azure 訂閱] 對話方塊中，按一下 [憑證] 索引標籤，再按一下 [匯入]。請依照指示下載，然後匯入您 Azure 帳戶的訂閱檔案 (亦稱為 *.publishsettings* 檔案)。
+	替代方式為安裝可讓您存取帳戶的管理憑證。如果您選擇安裝憑證，請以滑鼠右鍵按一下 [伺服器總管] 中的 [Azure] 節點，然後按一下內容功能表中的 [管理訂閱]。在 [管理 Azure 訂用帳戶] 對話方塊中，按一下 [憑證] 索引標籤，再按一下 [匯入]。請依照指示下載，然後匯入您 Azure 帳戶的訂用帳戶檔案 (亦稱為 *.publishsettings* 檔案)。
 
-	> [AZURE.NOTE]如果您下載了訂閱檔案，請將其儲存到原始程式碼目錄以外的資料夾 (例如在 Downloads 資料夾)，然後在匯入完成後刪除該檔案。惡意使用者一旦能夠存取此訂閱檔案，就能夠編輯、建立和刪除您的 Azure 服務。
+	> [AZURE.NOTE]如果您下載了訂閱檔案，請將其儲存到原始程式碼目錄以外的資料夾 (例如在 Downloads 資料夾)，然後在匯入完成後刪除該檔案。惡意使用者一旦能夠存取此訂用帳戶檔案，就能夠編輯、建立和刪除您的 Azure 服務。
 
 	如需從 Visual Studio 連線至 Azure 資源的詳細資訊，請參閱[管理帳戶、訂閱和系統管理角色](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)。
 
@@ -89,7 +89,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 要找到錯誤原因最簡單的方式，往往就是啟用詳細的錯誤訊息，而以上第一個螢幕擷取畫面說明的是其做法。該做法需要在部署的 Web.config 檔案中進行變更。您可以編輯專案中的 *Web.config* 檔案並重新部署專案，或建立 [Web.config 轉換](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations)並部署偵錯組建，但還有更快的方法：在 [方案總管] 中使用 [遠端檢視] 功能，直接檢視及編輯遠端 Web 應用程式上的檔案。
 
-1. 在 [**伺服器總管**] 中，依序展開 [**Azure**]、[**App Service**] 和 Web 應用程式所在的資源群組，然後展開 Web 應用程式的節點。
+1. 在 [伺服器總管] 中，依序展開 [Azure]、[App Service] 和 Web 應用程式所在的資源群組，然後展開 Web 應用程式的節點。
 
 	您會看到可供您存取 Web 應用程式內容檔案與記錄檔的節點。
 
@@ -136,13 +136,13 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 2. 在 `ViewBag.Message` 字行中[設定中斷點](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)。
 
-1. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，再按一下 [發佈]。
+1. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，再按一下 [發行]。
 
 2. 在 [設定檔] 下拉式清單中，選取您在[開始使用 Azure 和 ASP.NET][GetStarted] 中使用的相同設定檔。
 
-3. 按一下 [設定] 索引標籤，然後將 [組態] 變更為 [偵錯]，然後按一下 [發佈]。
+3. 按一下 [設定] 索引標籤，然後將 [組態] 變更為 [偵錯]，然後按一下 [發行]。
 
-	![於偵錯模式中發佈](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
+	![於偵錯模式中發行](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
 4. 當部署完成且您的瀏覽器開啟至 Web 應用程式的 Azure URL 之後，請關閉瀏覽器。
 
@@ -206,7 +206,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 2. 在 [設定檔] 下拉式清單中，選取您在[開始使用 Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md) 中所使用的相同設定檔。
 
-3. 按一下 [設定] 索引標籤，然後將 [組態] 變更為 [偵錯]，然後按一下 [發佈]。
+3. 按一下 [設定] 索引標籤，然後將 [組態] 變更為 [偵錯]，然後按一下 [發行]。
 
 	Visual Studio 會部署 Web 和 WebJob 專案，且在瀏覽器中開啟您 Web 應用程式的 Azure URL。
 
@@ -258,7 +258,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 * 在偵錯期間，伺服器會將資料傳送至 Visual Studio，進而影響頻寬付費情況。如需關於頻寬費率的詳細資訊，請參閱 [Azure 定價](/pricing/calculator/)。
 
-* 確保 *Web.config* 檔案裡 `compilation` 元素中的 `debug` 屬性設為 true。在發佈偵錯組建組態時，該值預設會設為 true。
+* 確保 *Web.config* 檔案裡 `compilation` 元素中的 `debug` 屬性設為 true。在發行偵錯組建組態時，該值預設會設為 true。
 
         <system.web>
           <compilation debug="true" targetFramework="4.5" />
@@ -269,7 +269,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 * 當您啟用遠端偵錯功能時，伺服器上會啟動計時器，並在 48 小時後自動關閉此功能。此 48 小時的限制是為了安全與效能起見而設計的功能。若需要，您可以輕鬆開啟這項功能，次數不限。當您不需要偵錯時，建議您將其保持為停用。
 
-* 您可以手動將偵錯工具附加至任何處理序，不僅止於 Web 應用程式處理序 (w3wp.exe)。如需如何在 Visual Studio 中使用偵錯模式的詳細資訊，請參閱[Visual Studio 偵錯](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)。
+* 您可以手動將偵錯工具附加至任何處理序，不僅止於 Web 應用程式處理序 (w3wp.exe)。如需如何在 Visual Studio 中使用偵錯模式的詳細資訊，請參閱[Visual Studio 偵錯](http://msdn.microsoft.com/zh-tw/library/vstudio/sc65sadd.aspx)。
 
 ## <a name="logsoverview"></a>診斷記錄概觀
 
@@ -391,11 +391,11 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 ### 在 Azure 中檢視追蹤輸出
 
-1. 在 [方案總管] 中，於 Web 專案上按一下滑鼠右鍵，再按一下 [發佈]。
+1. 在 [方案總管] 中，於 Web 專案上按一下滑鼠右鍵，再按一下 [發行]。
 
-2. 在 [發佈 Web] 對話方塊中，按一下 [發佈]。
+2. 在 [發行 Web] 對話方塊中，按一下 [發行]。
 
-	當 Visual Studio 成功發佈您的更新後，將會開啟瀏覽器視窗至您的首頁 (假設您並未清除 [連線] 索引標籤上的 [目的地 URL])。
+	當 Visual Studio 成功發行您的更新後，將會開啟瀏覽器視窗至您的首頁 (假設您並未清除 [連線] 索引標籤上的 [目的地 URL])。
 
 3. 在 [伺服器總管] 中，以滑鼠右鍵按一下您的 Web 應用程式，然後選取 [檢視串流記錄]。
 
@@ -521,7 +521,7 @@ Web 伺服器記錄會記下 Web 應用程式的所有 HTTP 活動。為了在 [
 	* Web 伺服器記錄位於 *LogFiles\http\RawLogs* 資料夾的 *.log* 檔案中。您可以使用[記錄檔剖析器](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) (英文) 之類的工具來檢視與操作這些檔案。
 	* 詳細的錯誤訊息記錄位於 *LogFiles\DetailedErrors* 資料夾的 *.html* 檔案中。
 
-	(*deployments* 資料夾用於存放來源控制發佈功能所建立的檔案，它與 Visual Studio 發佈功能沒有任何關聯。*Git* 資料夾則用於存放與來源控制發佈功能相關的追蹤記錄，以及記錄檔案串流服務。)
+	(*deployments* 資料夾用於存放來源控制發行功能所建立的檔案，它與 Visual Studio 發行功能沒有任何關聯。*Git* 資料夾則用於存放與來源控制發行功能相關的追蹤記錄，以及記錄檔案串流服務。)
 
 ## <a name="storagelogs"></a>檢視儲存體記錄
 
@@ -541,7 +541,7 @@ Web 伺服器記錄會記下 Web 應用程式的所有 HTTP 活動。為了在 [
 
 與檔案系統相較之下，儲存體帳戶可提供更多的儲存體與較長的記錄保留時間。將應用程式追蹤記錄傳送至儲存體的另一項好處，就是您可以從每個記錄中獲得更多的額外資訊，而檔案系統記錄則無法提供。
 
-5. 以滑鼠右鍵按一下 Azure 節點下的 [**儲存體**]，然後按一下 [**建立儲存體帳戶**]。
+5. 以滑鼠右鍵按一下 Azure 節點下的 [儲存體]，然後按一下 [建立儲存體帳戶]。
 
 ![建立儲存體帳戶](./media/web-sites-dotnet-troubleshoot-visual-studio/createstor.png)
 
@@ -557,7 +557,7 @@ Web 伺服器記錄會記下 Web 應用程式的所有 HTTP 活動。為了在 [
 
 6. 將 [複寫] 下拉式清單設為 [本機備援]。
 
-	對儲存體帳戶啟用異地複寫時，儲存內容會複寫至次要資料中心，以便能在主要位置發生嚴重災難時容錯移轉至該位置。異地複寫會引發額外成本。對於測試和開發帳戶，您通常不會想要付費使用異地複寫功能。如需詳細資訊，請參閱[建立、管理或刪除儲存體帳戶](../storage-create-storage-account/#replication-options)。
+	對儲存體帳戶啟用地理區域複寫時，儲存內容會複寫至次要資料中心，以便能在主要位置發生嚴重災難時容錯移轉至該位置。地理區域複寫會引發額外成本。對於測試和開發帳戶，您通常不會想要付費使用地理區域複寫功能。如需詳細資訊，請參閱[建立、管理或刪除儲存體帳戶](../storage-create-storage-account/#replication-options)。
 
 5. 按一下 [建立]。
 
@@ -635,7 +635,7 @@ Azure Web 應用程式會使用 IIS 7.0 及更新版本所提供的相同失敗�
 
 2. 在 Visual Studio 中，於 [Azure Web 應用程式] 視窗的 [組態] 索引標籤中按一下 [在管理入口網站中開啟]。
 
-3. 在適用於您 Web 應用程式的管理入口網站刀鋒視窗中，按一下 [所有設定] > [部署認證]，然後按一下 [重設您的部署認證]。
+3. 在適用於您 Web 應用程式的管理入口網站分頁中，按一下 [所有設定] > [部署認證]，然後按一下 [重設您的部署認證]。
 
 4. 輸入新的使用者名稱與密碼。
 
@@ -751,7 +751,7 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤](http://www.iis.net/lear
 
 ### 偵錯雲端服務
 
-如果您想對 Azure 雲端服務 (而非 Web 應用程式) 進行偵錯，請參閱[偵錯雲端服務](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx)。
+如果您想對 Azure 雲端服務 (而非 Web 應用程式) 進行偵錯，請參閱[偵錯雲端服務](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee405479.aspx)。
 
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 

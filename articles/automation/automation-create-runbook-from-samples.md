@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="開始使用 Azure 自動化" 
-	description="了解如何在 Azure 中匯入和執行自動化工作。" 
-	services="automation" 
-	documentationCenter="" 
-	authors="bwren" 
-	manager="stevenka" 
+<properties
+	pageTitle="開始使用 Azure 自動化"
+	description="了解如何在 Azure 中匯入和執行自動化工作。"
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
 	editor=""/>
 
-<tags 
-	ms.service="automation" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="hero-article" 
-	ms.date="02/20/2015" 
+<tags
+	ms.service="automation"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="05/19/2015"
 	ms.author="bwren"/>
 
 
@@ -46,16 +46,16 @@ Microsoft Azure 自動化可讓使用者將執行於雲端環境中的手動、�
 
 ## <a name="importrunbook"></a>從 Runbook 組件庫匯入 Runbook
 
- [Runbook 組件庫](http://aka.ms/runbookgallery)包含您可以直接匯入 Azure 自動化帳戶的範例 Runbook，可讓您運用其他 Azure 自動化和 PowerShell 使用者的工作。在此步驟中，您將使用組件庫匯入"Hello World" 範例 Runbook。
+[Runbook 組件庫](http://aka.ms/runbookgallery)包含您可以直接匯入 Azure 自動化帳戶的範例 Runbook，可讓您運用其他 Azure 自動化和 PowerShell 使用者的工作。在此步驟中，您將使用組件庫匯入"Hello World" 範例 Runbook。
 
 4.	在 [自動化] 頁面上，按一下您剛剛建立的新帳戶。
- 
+
 	![New Account](./media/automation-create-runbook-from-samples/automation_03_NewAutoAcct.png)
 
 5.	按一下 [Runbook]。
 
 	![Runbooks Tab](./media/automation-create-runbook-from-samples/automation_04_RunbooksTab.png)
-  
+
 6.	按一下 [新增] > [Runbook] > [從組件庫]。
 
 	![Runbook Gallery](./media/automation-create-runbook-from-samples/automation_05_ImportGallery.png)
@@ -72,7 +72,7 @@ Microsoft Azure 自動化可讓使用者將執行於雲端環境中的手動、�
 
 	![Runbook Details](./media/automation-create-runbook-from-samples/automation_08_RunbookDetails.png)
 
-## <a name="publishrunbook"></a>發佈 Runbook 
+## <a name="publishrunbook"></a>發佈 Runbook
 
 Runbook 會先以草稿模式匯入。這表示在您授權為可執行的新版本之前，可以繼續在其上執行作業。由於此範例 Runbook 不需要額外設定，所以您會立即依現況發佈。如需詳細資訊，請參閱[發佈 Runbook](http://aka.ms/runbookauthor/azure/publishrunbook)。
 
@@ -85,13 +85,13 @@ Runbook 會先以草稿模式匯入。這表示在您授權為可執行的新版
 	您可以在 [草稿] 模式下修改 Runbook 的內容。對這個 Runbook 無須進行任何修改。
 
 	![Author Draft](./media/automation-create-runbook-from-samples/automation_08_AuthorDraft.png)
- 
+
 10.	按一下 [**發佈**] 以提升 Runbook，使其可用於生產環境中。
 
 	![Publish](./media/automation-create-runbook-from-samples/automation_085_Publish.png)
-   
+
 11.	系統提示您進行確認時，請按一下 [**是**]。
- 
+
 	![Save and Pub prompt](./media/automation-create-runbook-from-samples/automation_09_SavePubPrompt.png)
 
 ## <a name="startrunbook"></a>啟動 Runbook
@@ -101,22 +101,22 @@ Runbook 會先以草稿模式匯入。這表示在您授權為可執行的新版
 12.	開啟 **Write-HelloWorld** Runbook 後，按一下 [啟動]。
 
 	![已發佈](./media/automation-create-runbook-from-samples/automation_10_PublishStart.png)
- 
+
 13.	在 [Specify the runbook parameter values] 頁面上，輸入將作為 Write-HelloWorld.ps1 指令碼之輸入參數的 [名稱]，然後按一下核取記號。
 
 	![Runbook Parameters](./media/automation-create-runbook-from-samples/automation_11_RunbookParams.png)
-  
+
 14.	按一下 [JOBS] 以查看您剛剛啟動之 Runbook 工作的狀態，然後按一下 [工作啟動] 欄中的時間戳記，以檢視工作摘要。
 
 	![Runbook Status](./media/automation-create-runbook-from-samples/automation_12_RunbookStatus.png)
 
 15.	在 [摘要] 頁面上，您可以檢視工作的摘要、輸入參數和輸出。
- 
+
 	![Runbook Summary](./media/automation-create-runbook-from-samples/automation_13_RunbookSummary_callouts.png)
 
 恭喜！ 您已完成本教學課程。
 
-## <a name="nextsteps"></a>後續步驟 
+## <a name="nextsteps"></a>後續步驟
 1. 本教學課程中的簡單 Runbook **不會管理 Azure 服務**。大部分的 Runbook 將會使用 [Azure Cmdlet](http://msdn.microsoft.com/library/jj156055.aspx) 來執行此作業，而這需要向您的 Azure 訂用帳戶進行驗證。請依照[設定 Azure 以便依 Runbook 管理](http://aka.ms/azureautomationauthentication)中的指示來設定您的 Azure 訂用帳戶，才能使用這些 Cmdlet。  
 2. 如需 Azure 自動化功能的詳細資訊，請參閱下列[資源](#resources)。
 3. 訂閱 [Azure 自動化部落格](http://azure.microsoft.com/blog/tag/azure-automation)，隨時掌握 Azure 自動化團隊的最新消息。
@@ -125,7 +125,7 @@ Runbook 會先以草稿模式匯入。這表示在您授權為可執行的新版
 
 您可利用各種其他資源，深入了解 Azure 自動化，並建立自己的 Runbook。
 
-- [Azure 自動化程式庫](http://go.microsoft.com/fwlink/p/?LinkId=392860)提供完整的文件，說明如何設定和管理 Azure 自動化，以及撰寫自己的 Runbook。 
+- [Azure 自動化程式庫](http://go.microsoft.com/fwlink/p/?LinkId=392860)提供完整的文件，說明如何設定和管理 Azure 自動化，以及撰寫自己的 Runbook。
 - [Azure PowerShell Cmdlet](http://msdn.microsoft.com/library/jj156055.aspx) 提供使用 Windows PowerShell 自動執行 Azure 作業的資訊。Runbook 會使用這些 Cmdlet 來處理 Azure 資源。
 - [Azure 自動化部落格](http://azure.microsoft.com/blog/tag/azure-automation)提供 Microsoft 的最新 Azure 自動化資訊。
 - [自動化論壇](http://go.microsoft.com/fwlink/p/?LinkId=390561)可讓您張貼有關要由 Microsoft 和自動化社群解決的 Azure 自動化問題。
@@ -134,11 +134,11 @@ Runbook 會先以草稿模式匯入。這表示在您授權為可執行的新版
 ## 範例和工具 Runbook
 
 Microsoft 和 Azure 自動化社群會提供範例 Runbook，協助您開始建立自己的解決方案和公用程式 Runbook，而您可以將這些 Runbook 做為大型自動化工作的建置組塊。您可以從[指令碼中心](http://go.microsoft.com/fwlink/p/?LinkId=393029)下載這些 Runbook，或使用 [Runbook 程式庫](http://aka.ms/runbookgallery)直接將其匯入 Azure 自動化中。
-  
+
 
 ## 意見反應
 
-<strong>請不吝提供意見！</strong> 如果您要尋找 Azure 自動化 Runbook 解決方案或整合模組，請在指令碼中心提出指令碼要求。如果您有關於 Azure 自動化的任何意見或功能要求，請張貼在 [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback) 上。感謝您 ！
-
-<!--HONumber=52-->
+<strong>請不吝提供意見！</strong> 如果您要尋找 Azure 自動化 Runbook 解決方案或整合模組，請在指令碼中心提出指令碼要求。如果您有關於 Azure 自動化的任何意見或功能要求，請張貼在 [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback) 上。感謝您！
  
+
+<!---HONumber=62-->

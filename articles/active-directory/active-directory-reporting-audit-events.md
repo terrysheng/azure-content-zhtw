@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Azure Active Directory 稽核報告事件" 
-   description="可供檢視以及從 Azure Active Directory 下載的稽核事件" 
-   services="active-directory" 
-   documentationCenter="" 
-   authors="kenhoff" 
-   manager="mbaldwin" 
+<properties
+   pageTitle="Azure Active Directory 稽核報告事件"
+   description="可供檢視以及從 Azure Active Directory 下載的稽核事件"
+   services="active-directory"
+   documentationCenter=""
+   authors="kenhoff"
+   manager="mbaldwin"
    editor=""/>
 
 <tags
@@ -12,18 +12,24 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="identity" 
-   ms.date="04/13/2015"
+   ms.workload="identity"
+   ms.date="06/18/2015"
    ms.author="kenhoff"/>
 
 # Azure Active Directory 稽核報告事件
 
-Azure Active Directory 稽核報告可協助客戶識別其 Azure Active Directory 中發生的特殊權限動作。特殊權限動作包括提高權限變更 (例如，角色建立或密碼重設)、原則設定變更 (例如密碼原則) 或目錄設定變更 (例如，網域同盟設定變更)。報告會提供的稽核記錄包括事件名稱、執行動作的執行者、受變更影響的目標資源，以及日期和時間 (UTC)。客戶能透過 [Azure 管理入口網站](https://manage.windowsazure.com/)擷取其 Azure Active Directory 的稽核事件清單 。
+Azure Active Directory 稽核報告可協助客戶識別其 Azure Active Directory 中發生的特殊權限動作。特殊權限動作包括提高權限變更 (例如，角色建立或密碼重設)、原則設定變更 (例如密碼原則) 或目錄設定變更 (例如，網域同盟設定變更)。報告會提供的稽核記錄包括事件名稱、執行動作的執行者、受變更影響的目標資源，以及日期和時間 (UTC)。客戶能透過 [Azure 管理入口網站](https://manage.windowsazure.com/)擷取其 Azure Active Directory 的稽核事件清單，如[檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)中所述。
+
+## 稽核報告保留
+
+Azure AD 稽核報告中的事件會保留 180 天。如需保留報告的詳細資訊，請參閱 [Azure Active Directory 報告保留原則](active-directory-reporting-retention.md)。
+
+若是對於儲存其稽核事件較長的保留時間感興趣的客戶，報告 API 可用來定期將稽核事件提取至不同的資料存放區。如需詳細資訊，請參閱[開始使用報告 API](active-directory-reporting-api-getting-started.md)。
 
 ## 每個稽核事件包含的屬性
 
 | 屬性 | 說明 |
-| ------	| ------								|		
+| ------	| ------								|
 | 日期和時間 | 稽核事件發生的日期和時間 |
 | 執行者 | 執行此動作的使用者或服務主體 |
 | 動作 | 已執行的動作 |
@@ -66,7 +72,7 @@ Azure Active Directory 稽核報告可協助客戶識別其 Azure Active Directo
 | 設定公司資訊 | 更新公司層級資訊。如需詳細資訊，請參閱 [Get-MsolCompanyInformation](https://msdn.microsoft.com/library/azure/dn194126.aspx) PowerShell Cmdlet。 |
 | 設定強制變更使用者密碼 | 設定可強制使用者在登入時變更其密碼的屬性。 |
 
-<!--- 
+<!---
 
 List of events that still need descriptions:
 
@@ -95,5 +101,6 @@ Promote tenant to partner
 | TelephoneNumber | 使用者的電話號碼。 |
 
 稽核記錄是許多標準規定的必要控制項。對於使用 Azure Active Directory 稽核報告以符合其標準規定的客戶，建議客戶提交一份本說明主題 (包含客戶匯出的稽核報告副本)，協助說明報告詳細資料。如果稽核人員想要了解 Azure 目前符合的法規，請將稽核人員導向至 Microsoft Azure 信任中心的[規範](http://azure.microsoft.com/support/trust-center/compliance/)頁面。
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -108,7 +108,7 @@
         ...
         </WebRole>
 
-    **Certificates** 區段定義憑證的名稱、位置，以及其所在的存放區名稱。因為我們將憑證安裝到使用者憑證存放區，所以使用的值為 "My"。也可以使用其他憑證存放區位置。如需詳細資訊，請參閱＜[將憑證與服務產生關聯]＞。
+    **Certificates** 區段定義憑證的名稱、位置，以及其所在的存放區名稱。因為我們將憑證安裝到使用者憑證存放區，所以使用的值為 "My"。也可以使用其他憑證存放區位置。如需詳細資訊，請參閱 [將憑證與服務產生關聯]。
 
 2.  在服務定義檔中，更新 **Endpoints** 區段內的 **InputEndpoint** 元素來啟用 HTTPS：
 
@@ -165,24 +165,31 @@
 
 [如何在 HTTPS 端點上設定 SSL 憑證]
 
-[步驟 1：建立 Node.js 服務並將服務發行至雲端]: #step1
-[步驟 2：取得 SSL 憑證]: #step2
-[步驟 3：匯入 SSL 憑證]: #step3
-[步驟 4：修改服務定義檔和組態檔]: #step4
-[步驟 5：使用 HTTPS 來連線至角色執行個體]: #step5
-[**Azure PowerShell**]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
-[1]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-01.png
-[2]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-02.png
-[3]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-03.png
-[Azure Management Portal]: http://manage.windowsazure.com
-[如何使憑證與服務產生關聯]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
-[將憑證與服務產生關聯]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
-[site-url]: ./media/cloud-services-nodejs-configure-ssl-certificate/site-url.png
-[8]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-08.png
-[如何在 HTTPS 端點上設定 SSL 憑證]: http://msdn.microsoft.com/library/windowsazure/ff795779.aspx
-[powershell-menu]: ./media/cloud-services-nodejs-configure-ssl-certificate/azure-powershell-start.png
-[cert-wizard]: ./media/cloud-services-nodejs-configure-ssl-certificate/certificateimport.png
-[key-protection]: ./media/cloud-services-nodejs-configure-ssl-certificate/exportable.png
-[在 Azure 背景工作角色中設定 Node.js 應用程式的 SSL]: /develop/nodejs/common-tasks/enable-ssl-worker-role/
+  [步驟 1：建立 Node.js 服務並將服務發行至雲端]: #step1
+  [步驟 2：取得 SSL 憑證]: #step2
+  [步驟 3：匯入 SSL 憑證]: #step3
+  [步驟 4：修改服務定義檔和組態檔]: #step4
+  [步驟 5：使用 HTTPS 來連線至角色執行個體]: #step5
+  [**Azure PowerShell**]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
+  
+  
+  
+  
+  [1]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-01.png
+  [2]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-02.png
+  [3]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-03.png
+  [Azure Management Portal]: http://manage.windowsazure.com
+  
+  
+  [如何使憑證與服務產生關聯]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
+  
+  [site-url]: ./media/cloud-services-nodejs-configure-ssl-certificate/site-url.png
+  [8]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-08.png
+  [如何在 HTTPS 端點上設定 SSL 憑證]: http://msdn.microsoft.com/library/windowsazure/ff795779.aspx
+  [powershell-menu]: ./media/cloud-services-nodejs-configure-ssl-certificate/azure-powershell-start.png
+  [cert-wizard]: ./media/cloud-services-nodejs-configure-ssl-certificate/certificateimport.png
+  [key-protection]: ./media/cloud-services-nodejs-configure-ssl-certificate/exportable.png
+  [在 Azure 背景工作角色中設定 Node.js 應用程式的 SSL]: /develop/nodejs/common-tasks/enable-ssl-worker-role/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

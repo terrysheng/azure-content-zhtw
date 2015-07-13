@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="02/24/2015"
 	ms.author="chrande"/>
 
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
 
-本教學課程將示範如何使用 Azure 行動應用程式，將雲端後端服務新增至  Xamarin iOS 應用程式。在本教學課程中，您將建立新的 .NET 服務，並建立可在  .NET 後端中儲存應用程式資料的簡單_待辦事項_ 應用程式。
+本教學課程將示範如何使用 Azure 行動應用程式，將雲端後端服務新增至 Xamarin iOS 應用程式。在本教學課程中，您將建立新的 .NET 服務，並建立可在 .NET 後端中儲存應用程式資料的簡單_待辦事項_ 應用程式。
 
 若要完成此教學課程，您需要下列項目：
 
@@ -48,7 +48,7 @@
 
 	這將顯示三個簡單步驟，可用來建立連接到您行動應用程式後端的 Xamarin iOS 應用程式。
 
-3. 在您的本機電腦或虛擬機器下載並安裝  <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> (如果您尚未這麼做)。
+3. 在您的本機電腦或虛擬機器下載並安裝 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> (如果您尚未這麼做)。
 
 4. 下載並安裝 [Xcode] v4.4 或更新版本和 [Xamarin Studio]。您也可以使用 Xamarin for Visual Studio。
 
@@ -76,7 +76,7 @@
 
 	![][9]
 
-2. 按 [執行]**** 按鈕以建置用戶端專案，並在 iPhone 模擬器中啟動應用程式。
+2. 按 [執行] 按鈕以建置用戶端專案，並在 iPhone 模擬器中啟動應用程式。
 
 3. 在應用程式中輸入有意義的文字 (例如 _Complete the tutorial_)，然後按一下加號 (**+**) 圖示。
 
@@ -115,6 +115,6 @@
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

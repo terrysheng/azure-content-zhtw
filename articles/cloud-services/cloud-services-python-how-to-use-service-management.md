@@ -23,7 +23,7 @@
 ## <a name="WhatIs"> </a>什麼是服務管理？
 管理服務 API 可讓使用者以程式設計方式存取[管理入口網站][management-portal]所提供的多種服務管理功能。Azure SDK for Python 可讓您管理雲端服務和儲存體帳戶。
 
-若要使用服務管理 API，您必須[建立 Azure 帳號](http://www.windowsazure.com/pricing/free-trial/)。
+若要使用服務管理 API，您必須[建立 Azure 帳號](http://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="Concepts"> </a>概念
 Azure SDK for Python 含有 [Azure 服務管理 API][svc-mgmt-rest-api]，這是一種 REST API。所有 API 作業都會透過 SSL 而執行，並可使用 X.509 v3 憑證相互驗證。管理服務可從執行於 Azure 的服務內存取，或直接透過網際網路，從任何可傳送 HTTPS 要求和接收 HTTPS 回應的應用程式存取。
@@ -42,7 +42,7 @@ Azure SDK for Python 含有 [Azure 服務管理 API][svc-mgmt-rest-api]，這是
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-如需 Azure 憑證的詳細資訊，請參閱[在 Azure 中管理憑證](http://msdn.microsoft.com/library/windowsazure/gg981929.aspx)。如需 OpenSSL 參數的完整說明，請參閱 [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html) 上的文件。
+如需 Azure 憑證的詳細資訊，請參閱[在 Azure 中管理憑證](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg981929.aspx)。如需 OpenSSL 參數的完整說明，請參閱 [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html) 上的文件。
 
 建立這些檔案後，您必須透過[管理入口網站][management-portal]中 [設定] 索引標籤的 [上傳] 動作，將 `.cer` 檔案上傳至 Azure，且必須記下 `.pem` 檔案的儲存位置。
 
@@ -64,7 +64,7 @@ Azure SDK for Python 含有 [Azure 服務管理 API][svc-mgmt-rest-api]，這是
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-此命令會建立 `.cer` 檔案，並將其安裝在 [**個人**] 憑證存放區中。如需詳細資訊，請參閱[建立及上傳 Azure 的管理憑證](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx)。
+此命令會建立 `.cer` 檔案，並將其安裝在 [**個人**] 憑證存放區中。如需詳細資訊，請參閱[建立及上傳 Azure 的管理憑證](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg551722.aspx)。
 
 建立憑證後，您必須透過[管理入口網站][management-portal]中 [設定] 索引標籤的 [上傳] 動作，將 `.cer` 檔案上傳至 Azure。
 
@@ -74,7 +74,7 @@ Azure SDK for Python 含有 [Azure 服務管理 API][svc-mgmt-rest-api]，這是
 	from azure.servicemanagement import *
 
 	subscription_id = '<your_subscription_id>'
-	certificate_path = 'CURRENT_USER\\my\\AzureCertificate'
+	certificate_path = 'CURRENT_USER\my\AzureCertificate'
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -443,5 +443,6 @@ Azure SDK for Python 含有 [Azure 服務管理 API][svc-mgmt-rest-api]，這是
 [Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [Cloud Services]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

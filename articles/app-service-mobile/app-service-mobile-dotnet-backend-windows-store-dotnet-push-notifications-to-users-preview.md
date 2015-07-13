@@ -3,7 +3,7 @@
 	description="了解如何將推播通知傳送至特定使用者的所有裝置。"
 	services="app-service\mobile" 
 	documentationCenter="windows" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/17/2015"
+	ms.date="06/23/2015"
 	ms.author="yuaxu"/>
 
 # 傳送跨平台通知給特定使用者
@@ -34,7 +34,7 @@
 
 ##<a name="client"></a>更新您的用戶端，以註冊處理跨平台推播所需的範本
 
-1. 我們會改為在 **MainPage.cs** 中執行 **InitNotificationAsync**，以處理使用者驗證。刪除您在 **App.xmal.cs** 中的 **InitNotificationAsync**  方法定義和呼叫，並在 **MainPage** 類別的 **MainPage.cs** 中新增下列項目：
+1. 我們會改為在 **MainPage.cs** 中執行 **InitNotificationAsync**，以處理使用者驗證。刪除您在 **App.xmal.cs** 中的 **InitNotificationAsync** 方法定義和呼叫，並在 **MainPage** 類別的 **MainPage.cs** 中新增下列項目：
 
         private async void InitNotificationsAsync()
         {
@@ -105,5 +105,6 @@
 [開始使用驗證]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
 [開始使用推播通知]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview.md
 [範本]: https://msdn.microsoft.com/zh-tw/library/dn530748.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

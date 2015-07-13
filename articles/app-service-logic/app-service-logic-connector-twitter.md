@@ -61,8 +61,7 @@ Twitter 連接器可讓您張貼推文，並從您 Twitter 帳戶的時間表、
 	![][6]
 7.	您可以採用類似方式在流程中使用 Twitter 動作。選取 Twitter 動作，並設定該個別動作的輸入。
 
-	![][7] 
-	![][8]
+	![][7] ![][8]
 
 	<!--Image references-->
 [1]: ./media/app-service-logic-connector-twitter/img1.png
@@ -73,5 +72,6 @@ Twitter 連接器可讓您張貼推文，並從您 Twitter 帳戶的時間表、
 [6]: ./media/app-service-logic-connector-twitter/img6.png
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/img8.png
+ 
 
-<!---HONumber=54--> 
+<!---HONumber=62-->

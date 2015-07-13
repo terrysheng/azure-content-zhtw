@@ -81,7 +81,7 @@
 
 ![資源群組圖](./media/app-service-api-dotnet-add-authentication/rgdiagram.png)
 
-### 將 API 應用程式設定為需要驗證
+### <a id="apiapp"></a>將 API 應用程式設定為需要驗證
 
 若要將 API 應用程式設定為只接受已驗證的要求，您會將其可存取性設定為 [**公用 (已驗證)**]，而且您會將閘道設定為需要提供者 (例如 Azure Active Directory、Google 或 Facebook) 的驗證。
 

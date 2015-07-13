@@ -1,5 +1,5 @@
 
-1. 如果行動服務目前正在 IIS Express 中執行，請確實加以停止。以滑鼠右鍵按一下 IIS Express 系統匣圖示，然後對行動服務按一下 [停止]****。
+1. 如果行動服務目前正在 IIS Express 中執行，請確實加以停止。以滑鼠右鍵按一下 IIS Express 系統匣圖示，然後對行動服務按一下 [停止]。
 
     ![](./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png)
 
@@ -39,4 +39,4 @@
 <!-- URLs. -->
 [如何新增 Windows 防火牆連接埠規則]: http://go.microsoft.com/fwlink/?LinkId=392240
 
-<!--HONumber=54-->
+<!---HONumber=62-->

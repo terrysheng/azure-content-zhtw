@@ -156,11 +156,9 @@ Don't use this file. It's deprecated and will be removed. Instead use, virtual-m
 		`sudo umount /datadrive`
 		`sudo mount /datadrive`
 
-	如果第二個命令發生錯誤，請檢查 /etc/fstab 檔案的語法是否正確。
+	如果第二個命令會產生錯誤，請檢查 /etc/fstab 檔案的正確語法。
 
 
-	>[AZURE.NOTE] 後續移除資料磁碟而不編輯 fstab，可能會造成 VM 無法開機。 如果這是常見情況，那麼多數散發套件會提供 `nofail` 和/或 `nobootwait` 選項，使得即使沒有磁碟，也能讓系統開機。 請查閱散發套件的文件，以取得這些參數的相關資訊。
+	>[AZURE.NOTE]後續移除資料磁碟而不編輯 fstab，可能會造成 VM 無法開機。如果這是常見情況，那麼多數散發套件會提供 `nofail` 和/或 `nobootwait` fstab 選項，使得即使沒有磁碟，也能讓系統開機。請查閱散發套件的文件，以取得這些參數的相關資訊。
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

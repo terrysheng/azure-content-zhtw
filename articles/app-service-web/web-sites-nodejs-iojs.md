@@ -29,7 +29,7 @@
 
 [Io.js 部署指令碼]可在 GitHub 上取得。若要在 Web 應用程式上啟用 io.js，只要將 **.deployment**、**deploy.cmd** 和 **IISNode.yml** 複製到應用程式資料夾的根目錄，以及部署至 Web Apps。
 
-第一個檔案 **.deployment** 會在部署時指示  Web Apps 執行 **deploy.cmd**。此指令碼會針對 Node.js 應用程式執行所有一般步驟，但也會下載最新版的 io.js。最後，**IISNode.yml** 會設定 Web Apps 使用剛才下載的 io.js 二進位檔，而不是預先安裝的 Node.js 二進位檔。
+第一個檔案 **.deployment** 會在部署時指示 Web Apps 執行 **deploy.cmd**。此指令碼會針對 Node.js 應用程式執行所有一般步驟，但也會下載最新版的 io.js。最後，**IISNode.yml** 會設定 Web Apps 使用剛才下載的 io.js 二進位檔，而不是預先安裝的 Node.js 二進位檔。
 
 > [AZURE.NOTE]若要更新使用的 io.js 二進位檔，只要重新部署應用程式即可；每次部署應用程式時，指令碼都會下載新版 io.js。
 
@@ -59,6 +59,6 @@
 [io.js 散發]: https://iojs.org/dist/
 [GitHub 上的 io.js]: https://github.com/iojs/io.js
 [Io.js 部署指令碼]: https://github.com/felixrieseberg/iojs-azure
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

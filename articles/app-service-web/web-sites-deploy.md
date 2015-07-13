@@ -70,9 +70,9 @@ Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，�
 * [Azure 命令列介面 (Azure CLI)](#cli)
 * [Web Deploy 命令列](#webdeploy)
  
-###<a name="octopus"></a>Octopus 部署
+###<a name="octopus"></a>Octopus Deploy
 
-[Octopus 部署](http://en.wikipedia.org/wiki/Octopus_Deploy)可以搭配 App Service Web Apps 使用。如需詳細資訊，請參閱＜[將 ASP.NET Web 應用程式部署至 Azure 網站](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites)＞。
+[Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy)可以搭配 App Service Web Apps 使用。如需詳細資訊，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites)。
 
 
 ##<a name="vso"></a>Visual Studio Online

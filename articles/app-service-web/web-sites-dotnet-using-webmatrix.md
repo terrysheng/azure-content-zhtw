@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="05/15/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -36,7 +36,7 @@
 ## Sign into Azure
 
 1. 啟動 WebMatrix。
-2. 如果這是您第一次使用 WebMatrix 3，則會提示您登入 Azure。否則，您可以按一下 [登入]**** 按鈕，然後選擇 [新增帳戶]****。選擇使用您的 Microsoft 帳戶來 [登入]****。
+2. 如果這是您第一次使用 WebMatrix 3，則會提示您登入 Azure。否則，您可以按一下 [登入] 按鈕，然後選擇 [新增帳戶]。選擇使用您的 Microsoft 帳戶來 [登入]。
 
 	![Add Account][addaccount]
 
@@ -47,11 +47,11 @@
 
 ## 使用 Azure 內建的範本建立網站
 
-1. 在開始畫面上，按一下 [新增]**** 按鈕，然後選擇 [範本庫]****，從範本庫建立新的網站：
+1. 在開始畫面上，按一下 [新增] 按鈕，然後選擇 [範本庫]，從範本庫建立新的網站：
 
 	![New site from Template Gallery][sitefromtemplate]
 
-2. 範本庫會顯示可在本機或 Azure 上執行的可用範本清單。從範本清單中選取 [糕點]****，在 [站台名稱]**** 中輸入 **bakerysample**，然後按 [下一個]****。
+2. 範本庫會顯示可在本機或 Azure 上執行的可用範本清單。從範本清單中選取 [糕點]，在 [站台名稱] 中輸入 **bakerysample**，然後按 [下一個]。
 
 	![Create Site from Template][sitefromtemplatedetails]
 
@@ -116,7 +116,7 @@
         }*/
 
 
-5. 新增使用 SendGrid (而不是使用 WebMail) 來傳送電子郵件的程式碼。新增下列程式碼以取代您在上一個步驟中所刪除的程式碼。
+5. 新增使用 SendGrid (而不是使用 WebMail) 來傳送電子郵件的程式碼。新增下列程式碼以取代您在上一個步驟中所刪除的程式碼。當建立 NetworkCredential 時，請務必新增您的 SendGrid 使用者名稱與密碼。
 
 		 if (email.IsEmpty()) {
             Response.Redirect("~/OrderSuccess?NoEmail=1");
@@ -130,14 +130,14 @@
             myMessage.Text = body;
 
             // Create credentials, specifying your user name and password.
-            var credentials = new NetworkCredential("[your user name", "[your password]");
+            var credentials = new NetworkCredential("[your user name]", "[your password]");
 
             // Create an Web transport for sending email.
             var transportWeb = new Web(credentials);
 
             // Send the email.
             try {
-                transportWeb.Deliver(myMessage);
+                transportWeb.DeliverAsync(myMessage);
                 Response.Redirect("~/OrderSuccess");
             } catch {
                 ModelState.AddFormError("There was an error and your order could not be processed at this time");
@@ -145,22 +145,22 @@
         }
 
 
-6. 在 WebMatrix 功能區，按一下 [執行]**** 來測試網站。
+6. 在 WebMatrix 功能區，按一下 [執行] 來測試網站。
 
 	![][modify4]
 
-7. 在其中一個產品上，按一下 [立即訂購]****，將訂單傳送給您自己。
+7. 在其中一個產品上，按一下 [立即訂購]，將訂單傳送給您自己。
 
 8. 檢查電子郵件，確定您收到訂單確認。如果您無法傳送電子郵件，請參閱＜ASP.NET 網頁 (Razor) 疑難排解指南＞中的＜[傳送電子郵件時的問題][sendmailissues]＞(英文)。
  
 
 ## 將自訂的網站從 WebMatrix 部署至 Azure
 
-1. 在 WebMatrix 中，從 [首頁]**** 功能區按一下 [發行]****，以顯示網站的 [發行預覽]**** 對話方塊。
+1. 在 WebMatrix 中，從 [首頁] 功能區按一下 [發行]，以顯示網站的 [發行預覽] 對話方塊。
 
 	![WebMatrix Publish Preview][howtopublishpreview]
 
-2. 按一下以選取 bakery.sdf 的核取方塊，然後按一下 [繼續]****。發行完成時，Azure App Service 中已更新的 Web 應用程式的 URL 會顯示在 WebMatrix IDE 底部。
+2. 按一下以選取 bakery.sdf 的核取方塊，然後按一下 [繼續]。發行完成時，Azure App Service 中已更新的 Web 應用程式的 URL 會顯示在 WebMatrix IDE 底部。
 
 	![Publishing Complete][publishcomplete]
 
@@ -168,7 +168,7 @@
 
 	![Bakery Sample Site][bakerysample]
 
-	Web Apps 執行個體的 URL 也可以在 [Azure 入口網站](https://portal.azure.com)中找到，請按一下 [瀏覽]**** > [Web Apps]**** 以顯示您訂用帳戶的所有 Web Apps 執行個體，然後選取 Web 應用程式。Web 應用程式的 URL 會顯示 Web 應用程式的分頁。
+	Web Apps 執行個體的 URL 也可以在 [Azure 入口網站](https://portal.azure.com)中找到，請按一下 [瀏覽] > [Web Apps] 以顯示您訂用帳戶的所有 Web Apps 執行個體，然後選取 Web 應用程式。Web 應用程式的 URL 會顯示 Web 應用程式的分頁。
 
 ## 修改網站並重新發佈至 Azure 網站
 
@@ -187,7 +187,7 @@
 
 	![][modify5]
 
-3. 在檔案中找到 "var shipping = Request["orderShipping"];"，在此行後面直接插入下列這一行程式碼。
+3. 在檔案中出 "var shipping = Request["orderShipping"];"，在此行下方直接插入下列這一行程式碼。
 
 		var gift = Request["isGift"];
 
@@ -205,9 +205,9 @@
 
 	![][modify7]
 
-6. 在 [首頁]**** 功能區按一下 [發行]****，以重新發行網站。
+6. 在 [首頁] 功能區按一下 [發行]，以重新發行網站。
 
-7. 在 [發行預覽]**** 對話方塊中，確定已勾選 Order.cshtml，然後按一下 [繼續]。
+7. 在 [發行預覽] 對話方塊中，確定已勾選 Order.cshtml，然後按一下 [繼續]。
 
 8. 按一下連結，在瀏覽器中開啟網站，然後在您的 Web Apps 執行個體上測試更新結果。
 
@@ -248,5 +248,6 @@
 
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
 [sendgridexample]: http://azure.microsoft.com/documentation/articles/sendgrid-dotnet-how-to-send-email/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,5 +1,5 @@
 
-1. 在 Eclipse 的 [封裝總管] 中，開啟 ToDoActivity.java 檔案，並加入下列 import 陳述式。
+1. 在 Eclipse 的 [套件瀏覽器] 中，開啟 ToDoActivity.java 檔案，並加入下列 import 陳述式。
 
 		import java.util.concurrent.ExecutionException;
 		import java.util.concurrent.atomic.AtomicBoolean;
@@ -11,10 +11,9 @@
 		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
 		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
-2. 將下列方法加入至 **ToDoActivity** 類別： 
+2. 將下列方法加入至 **ToDoActivity** 類別：
 	
-	    private void authenticate() {
-	    // Login using the Google provider.
+	private void authenticate() { // 使用 Google 提供者登入。
 	    
 		ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
 
@@ -31,14 +30,14 @@
     			createTable();	
     		}
     	});   	
-	    }
+	}
 
 
 	這會建立新的方法來處理驗證程序。使用者透過 Google 登入來驗證。將出現對話方塊來顯示已驗證的使用者的識別碼。必須通過驗證才能繼續。
 
-    > [AZURE.NOTE] 如果您使用 Google 以外的身分識別提供者，請將上述傳至 **login** 方法的值變更為下列其中一項：_MicrosoftAccount_、_Facebook_、_Twitter_、或 _windowsazureactivedirectory_。
+    > [AZURE.NOTE]如果您使用的身分識別提供者不是 Google，請將傳給上述 **login** 方法的值變更為下列其中一個：_MicrosoftAccount_、_Facebook_、_Twitter_ 或 _windowsazureactivedirectory_。
 
-3. 在 **onCreate** 方法中，在具現化  `MobileServiceClient` 物件的程式碼後面加入下列這一行程式碼。
+3. 在 **onCreate** 方法中，在具現化 `MobileServiceClient` 物件的程式碼後面新增下列這一行程式碼。
 
 		authenticate();
 
@@ -62,9 +61,8 @@
 			refreshItemsFromTable();
 		}
 
-9. 從 [**執行**] 功能表，按一下 [**執行**] 來啟動應用程式，並以您選擇的身分識別提供者登入。 
+9. 從 [執行] 功能表，按一下 [執行] 來啟動應用程式，並以您選擇的身分識別提供者登入。
 
    	成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

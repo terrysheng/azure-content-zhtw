@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="06/18/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 管理原則參考文件
 
 本節提供 [API 管理原則參考文件][]中原則的索引。如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則][]。
 
-如果原則不另行指定，則可以在任何 API 管理原則中，使用原則運算式做為屬性值或文字值。某些原則是以原則運算式為基礎，例如[控制流程][]和[設定變數][]原則。如需詳細資訊，請參閱[進階原則][]和[原則運算式][]，並觀看以下影片。
-
-> [AZURE.VIDEO policy-expressions-in-azure-api-management]
+如果原則不另行指定，則可以在任何 API 管理原則中，使用原則運算式做為屬性值或文字值。某些原則是以原則運算式為基礎，例如[控制流程][]和[設定變數][]原則。如需詳細資訊，請參閱[進階原則][]和[原則運算式][]。
 
 ## 原則參考索引
 
@@ -56,6 +54,11 @@
 	-	[設定查詢字串參數][] - 新增、取代值或刪除要求查詢字串參數。
 	-	[重寫 URL][] - 將要求 URL 從公用格式轉換成 Web 服務所需的格式。
 
+## 後續步驟
+
+如需原則運算式的詳細資訊，請觀看以下影片。
+
+> [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
 [存取限制原則]: https://msdn.microsoft.com/library/azure/dn894078.aspx
 [檢查 HTTP 標頭]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#CheckHTTPHeader

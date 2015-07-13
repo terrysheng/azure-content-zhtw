@@ -42,6 +42,6 @@
 
 - [建立或匯入 Runbook](https://msdn.microsoft.com/library/dn643637.aspx)
 - [自動化資產](https://msdn.microsoft.com/library/dn939988.aspx)
-- [Azure Cmdlet](https://msdn.microsoft.com/library/dn690262.aspx)
+- [Azure Cmdlet](https://msdn.microsoft.com/library/dn690262.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

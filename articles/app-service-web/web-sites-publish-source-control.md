@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在 Azure App Service 中使用 GIT 進行連續部署" 
+	pageTitle="在 Azure App Service 中使用 GIT 連續部署" 
 	description="了解如何使用 Git 發行 Azure Web 應用程式，然後從 Bitbucket、CodePlex、Dropbox、GitHub 或 Mercurial 啟用連續部署。" 
 	services="app-service\web" 
 	documentationCenter=".net" 
@@ -19,5 +19,6 @@
 
 
 [AZURE.INCLUDE [publishing-with-git](../../includes/publishing-with-git.md)]
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=62-->

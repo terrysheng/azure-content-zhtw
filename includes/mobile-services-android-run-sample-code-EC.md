@@ -14,5 +14,6 @@
 
    	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
-   	請注意，儲存的文字是儲存在記憶體中集合，並顯示在下列清單中。
-<!--HONumber=54-->
+   	Notice that the saved text is stored in an in-memory collection and displayed in the list below.
+
+<!---HONumber=62-->

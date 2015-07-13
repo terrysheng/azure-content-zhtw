@@ -40,11 +40,11 @@
 
 行動應用程式離線同步處理可讓使用者在無法存取網路時，仍可與本機資料庫互動。若要在您的應用程式中使用這些功能，您必須將 `MobileServiceClient.SyncContext` 初始化至本機存放區。接著，請透過 `IMobileServiceSyncTable` 介面參考您的資料表。本節將逐步解說 `QSTodoService.cs` 中的離線同步處理相關程式碼。
 
-1. 在 Visual Studio 中，開啟您在[開始使用行動應用程式]教學課程中完成的專案。開啟檔案 `QSTodoService.cs`。
+1. 在 Visual Studio 中，開啟您在 [開始使用行動應用程式教學課程中完成的專案]。開啟檔案 `QSTodoService.cs`。
 
 2. 請注意，`todoTable` 成員的類型為 `IMobileServiceSyncTable`。離線同步處理會使用此同步處理資料表介面，而不是 `IMobileServiceTable`。使用同步處理資料表時，所有作業都會移至本機存放區，而且只與具有明確推送和提取作業的遠端服務同步處理。
 
-    要取得同步處理資料表的參考時，應使用 `GetSyncTable()` 方法。若要移除離線同步處理功能，您應改用 `GetTable()`。
+    若要取得同步處理資料表的參考，應使用 `GetSyncTable()` 方法。若要移除離線同步處理功能，您應改用 `GetTable()`。
 
 3. 必須先初始化本機存放區，才可以執行資料表作業。此動作可用 `InitializeStoreAsync` 方法來完成：
 
@@ -164,5 +164,6 @@
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin 延伸]: http://xamarin.com/visual-studio
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

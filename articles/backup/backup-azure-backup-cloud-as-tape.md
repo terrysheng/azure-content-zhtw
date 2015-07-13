@@ -1,20 +1,19 @@
 <properties
-	pageTitle="使用 Azure 備份來取代您的磁帶基礎結構"
-	description="了解 Azure 備份如何提供可讓您在 Azure 中備份和還原資料的磁帶式語意"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="使用 Azure 備份來取代您的磁帶基礎結構"
+   description="了解 Azure 備份如何提供可讓您在 Azure 中備份和還原資料的磁帶式語意"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="03/27/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="03/27/2015"
+   ms.author="prvijay"/>
 
 # 使用 Azure 備份來取代您的磁帶基礎結構
 
@@ -77,5 +76,6 @@
 [3]: ./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png
 [4]: ./media/backup-azure-backup-cloud-as-tape/samplescreen.png
 [5]: ./media/backup-azure-backup-cloud-as-tape/modify.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

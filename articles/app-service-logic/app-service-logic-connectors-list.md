@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="連接器和 API 應用程式清單 | Azure" 
-	description="閱讀有關在 Azure App Service 中的連接器和 API 應用程式；微服務架構" 
+	description="閱讀有關在 Azure 應用程式服務中的連接器和 API 應用程式；微服務架構" 
 	services="app-service\logic" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
@@ -42,7 +42,7 @@ Azure WebJobs | 連接到 WebJobs。
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Office 365 連接器可以使用 Office 365 帳戶來傳送和接收電子郵件、管理您的行事曆及管理您的連絡人。您還可以傳送、接收和取得電子郵件、建立和刪除行事曆中的事件，以及建立、更新、取得和刪除您的連絡人。
 [Microsoft OneDrive](app-service-logic-connector-onedrive.md) | Microsoft OneDrive 是項檔案裝載服務。OneDrive 連接器可以連接到您的個人 Microsoft OneDrive，還可以上傳檔案、取得檔案、刪除檔案、列出檔案，以及使用觸發程序來擷取檔案。
 [Microsoft SharePoint](app-service-logic-connector-sharepoint.md) | 連接至內部部署 Microsoft SharePoint Server 或 SharePoint Online 來管理文件和清單項目。您還可以建立、更新、取得和刪除文件和清單項目。支援不同的驗證方法，例如預設認證、OAuth 2.0、Windows 驗證和表單架構驗證。
-[Microsoft SQL Server](app-service-logic-connector-sql.md) | 連接至內部部署 SQL Server 或 Azure SQL Database。您可以建立、更新、取得和刪除 SQL 資料庫資料表上的項目。
+[Microsoft SQL Server](app-service-logic-connector-sql.md) | Connects to on-premises SQL Server or an Azure SQL Database.您可以建立、更新、取得和刪除 SQL 資料庫資料表上的項目。
 [Microsoft Yammer](app-service-logic-connector-yammer.md) | 連接到 Yammer。包含「張貼訊息」動作和可擷取新訊息的觸發程序。
 [POP3](app-service-logic-connector-pop3.md) (郵局通訊協定)| 連接至 POP3 伺服器，且包含觸發程序來擷取帶有附件的電子郵件。
 [QuickBooks](app-service-logic-connector-quickbooks.md) | 您可以使用此連接器建立、更新、讀取、刪除和查詢來自 Intuit QuickBooks (如客戶、項目、發票等等) 的不同實體。

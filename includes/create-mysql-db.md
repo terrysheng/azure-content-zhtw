@@ -1,14 +1,8 @@
-#如何在 Azure 中建立 MySQL 資料庫
-
 本指南將示範如何從 [Azure 市集]使用 [ClearDB] 建立 MySQL 資料庫，以及如何在建立 [Azure 網站][waws]時建立 MySQL 資料庫作為連結的資源。[ClearDB] 是一項可容錯的「資料庫即服務」提供者，可讓您在 Azure 資料中心內執行和管理 MySQL 資料庫，以及從任何應用程式連線至這些資料庫。
-
-##目錄
-* [如何：從 Azure 市集建立 MySQL 資料庫](#CreateFromStore)
-* [如何：為 Azure 網站建立 MySQL 資料庫作為連結的資源](#CreateForWebSite)
 
 > [AZURE.NOTE]在網站建立過程中建立 MySQL 資料庫時，您只能建立免費資料庫。從 Azure 市集建立 MySQL 資料庫時，則可以建立免費資料庫或選擇付費選項。
 
-<h2><a id="CreateFromStore"></a>如何：從 Azure 市集建立 MySQL 資料庫</h2>
+## 如何：從 Azure 市集建立 MySQL 資料庫
 
 若要從 [Azure 市集]建立 MySQL 資料庫，請執行下列動作：
 
@@ -38,7 +32,7 @@
 	![MySql 連接資訊](./media/create-mysql-db/mysql-conn-info.png)
 
 
-<h2><a id="CreateForWebSite"></a>如何：為 Azure 網站建立 MySQL 資料庫作為連結的資源</h2>
+## 如何：為 Azure 網站建立 MySQL 資料庫作為連結的資源
 
 若要在建立 [Azure 網站][waws]時建立 MySQL 資料庫作為連結的資源，請執行下列動作：
 
@@ -81,4 +75,4 @@
 [portal]: http://manage.windowsazure.com
 [configure]: ../article/app-service-web/web-sites-configure.md
 
-<!--HONumber=52-->
+<!---HONumber=62-->

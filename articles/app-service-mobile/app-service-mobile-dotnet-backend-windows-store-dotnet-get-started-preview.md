@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="02/24/2015"
+	ms.topic="get-started-article"
+	ms.date="06/16/2015"
 	ms.author="chrande"/>
 
 
@@ -46,15 +46,15 @@
 
 2. 在刀鋒視窗頂端，按一下 [**加入用戶端**] 並展開 **Windows (C#)**。
 
-   ![行動應用程式快速入門步驟](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
+    ![行動應用程式快速入門步驟](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
 
-   這將顯示三個簡單步驟，可用來建立連接到您行動應用程式後端的 Windows 市集應用程式。
+    這將顯示三個簡單步驟，可用來建立連接到您行動應用程式後端的 Windows 市集應用程式。
 
 3. 在您的本機電腦或虛擬機器下載並安裝 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> (如果您尚未這麼做)。
 
-4. 在 [Download and run your app and service locally]**** 中，選取 Windows 市集應用程式的語言，然後按一下 [下載]****。
+4. 在 [Download and run your app and service locally] 中，選取 Windows 市集應用程式的語言，然後按一下 [下載]。
 
-   這會下載一個方案，其中包含行動應用程式後端的專案，以及與行動應用程式後端連接的範例_待辦事項_應用程式的專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
+    這會下載一個方案，其中包含行動應用程式後端的專案，以及與行動應用程式後端連接的範例_待辦事項_應用程式的專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
 
 ## 測試行動應用程式
 
@@ -86,6 +86,6 @@
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure Portal]: https://portal.azure.com/
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

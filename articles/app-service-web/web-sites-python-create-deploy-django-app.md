@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="在 Azure 中使用 Django 建立 Web 應用程式" 
-	description="介紹在 Azure App Service Web Apps 中執行 Python Web 應用程式的教學課程。" 
-	services="app-service\web" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="在 Azure 中使用 Django 建立 Web 應用程式"
+	description="介紹在 Azure App Service Web Apps 中執行 Python Web 應用程式的教學課程。"
+	services="app-service\web"
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/15/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="hero-article" 
+	ms.date="04/15/2015"
 	ms.author="huguesv"/>
 
 
@@ -57,11 +57,11 @@
 
 建立應用程式的第一步是透過 [Azure 入口網站](https://portal.azure.com)建立 Web 應用程式。
 
-1. 登入 Azure 入口網站中，並按一下左下角的 [新增]**** 按鈕。 
-2. 按一下 [Web + 行動]**** > [Azure Marketplace]**** > [Web Apps]****。
+1. 登入 Azure 入口網站中，並按一下左下角的 [新增] 按鈕。
+2. 按一下 [Web + 行動] > [Azure Marketplace] > [Web Apps]。
 3. 在搜尋方塊中，輸入 "python"。
-4. 在搜尋結果中，選取 [Django]****，然後按一下 [建立]****。
-5. 設定新的 Django 應用程式，例如為它建立新的應用程式服務方案和新的資源群組。然後按一下 [建立]****。
+4. 在搜尋結果中，選取 [Django]，然後按一下 [建立]。
+5. 設定新的 Django 應用程式，例如為它建立新的應用程式服務方案和新的資源群組。然後按一下 [建立]。
 6. 遵循[在 Azure App Service 中使用 GIT 連續部署](web-sites-publish-source-control.md)的以下指示，為您新建立的 Web 應用程式設定 Git 發行功能。
 
 ## 應用程式概觀
@@ -111,7 +111,7 @@
     \requirements.txt
 
 此應用程式所需的外部封裝。部署指令碼將 pip 安裝在這個檔案中所列的封裝。
- 
+
     \web.2.7.config
     \web.3.4.config
 
@@ -156,17 +156,17 @@ Python 虛擬環境。如果 Web 應用程式上不存在相容的虛擬環境�
 
 ### 建立虛擬環境
 
-現在我們要建立本機開發的虛擬環境。以滑鼠右鍵按一下 [Python 環境]****，選取 [新增虛擬環境...]****。
+現在我們要建立本機開發的虛擬環境。以滑鼠右鍵按一下 [Python 環境]，選取 [新增虛擬環境...]。
 
 - 請確定環境的名稱是 `env`。
 
-- 選取基礎解譯器。確認使用針對您 Web 應用程式選取的 Python 版本 (在 runtime.txt 中，或在 Azure 入口網站中您的 Web 應用程式的 [應用程式設定]**** 分頁中) 相同的版本。
+- 選取基礎解譯器。確認使用針對您 Web 應用程式選取的 Python 版本 (在 runtime.txt 中，或在 Azure 入口網站中您的 Web 應用程式的 [應用程式設定] 分頁中) 相同的版本。
 
 - 確定已勾選下載並安裝封裝的選項。
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-add-virtual-env-27.png)
 
-按一下 [建立]****。這會建立虛擬環境，並安裝 requirements.txt 中列出的相依性。
+按一下 [建立]。這會建立虛擬環境，並安裝 requirements.txt 中列出的相依性。
 
 ### 建立超級使用者
 
@@ -198,19 +198,19 @@ Python 虛擬環境。如果 Web 應用程式上不存在相容的虛擬環境�
 
 您的應用程式可能會擁有 Python 和 Django 之外的相依性。
 
-您可以使用 pip 安裝其他封裝。若要安裝封裝，以滑鼠右鍵按一下虛擬環境，然後選取 [安裝 Python 封裝]****。
+您可以使用 pip 安裝其他封裝。若要安裝封裝，以滑鼠右鍵按一下虛擬環境，然後選取 [安裝 Python 封裝]。
 
 例如，若要安裝 Azure SDK for Python，讓您可存取 Azure 儲存體、服務匯流排和其他 Azure 服務，請輸入 `azure`：
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-install-package-dialog.png)
 
-以滑鼠右鍵按一下虛擬環境，然後選取 [產生 requirements.txt]**** 更新 requirements.txt。
+以滑鼠右鍵按一下虛擬環境，然後選取 [產生 requirements.txt] 更新 requirements.txt。
 
 然後，將變更認可到 Git 儲存機制的 requirements.txt。
 
 ### 部署至 Azure
 
-若要觸發部署，按一下 [同步]**** 或 [推送]****。同步處理會推送和提取。
+若要觸發部署，按一下 [同步] 或 [推送]。同步處理會推送和提取。
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-git-push.png)
 
@@ -229,7 +229,7 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 
     git clone <repo-url>
     cd <repo-folder>
-    git remote add azure <repo-url> 
+    git remote add azure <repo-url>
 
 ### 建立虛擬環境
 
@@ -318,7 +318,7 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 
     git clone <repo-url>
     cd <repo-folder>
-    git remote add azure <repo-url> 
+    git remote add azure <repo-url>
 
 ### 建立虛擬環境
 
@@ -423,7 +423,7 @@ Django 具有收集靜態檔案的概念。這會從原始位置取得所有靜�
 
 如果您想要跳過 Django 應用程式的靜態檔案收集：
 
-    .skipDjango 
+    .skipDjango
 
 那麼您必須要在本機電腦，手動執行收集：
 
@@ -453,10 +453,10 @@ Django 具有收集靜態檔案的概念。這會從原始位置取得所有靜�
     ALLOWED_HOSTS = (
         '*',
     )
- 
+
 在實務上，您可能希望進行更複雜的操作，以應付在偵錯和發行模式之間切換，以及取得主機名稱。
 
-您可以透過 Azure 入口網站中的 [設定]**** 頁面來設定環境變數 (在 [應用程式設定]**** 區段中)。這對設定您不想要顯示於來源 (連接字串、密碼等等) 中的值，或是您想要 Azure 與本機電腦有不同設定時很有幫助。在 `settings.py` 中，您可以使用 `os.getenv` 查詢環境變數。
+您可以透過 Azure 入口網站中的 [設定] 頁面來設定環境變數 (在 [應用程式設定] 區段中)。這對設定您不想要顯示於來源 (連接字串、密碼等等) 中的值，或是您想要 Azure 與本機電腦有不同設定時很有幫助。在 `settings.py` 中，您可以使用 `os.getenv` 查詢環境變數。
 
 
 ## 使用資料庫
@@ -480,7 +480,7 @@ Azure 提供了資料庫服務，可從 Django 應用程式輕鬆使用。從 Dj
 ## 後續步驟
 
 請遵循下列連結以深入了解 Django 和 Python Tools for Visual Studio：
- 
+
 - [Django 說明文件]
 - [Python Tools for Visual Studio 說明文件]
 
@@ -513,6 +513,6 @@ Azure 提供了資料庫服務，可從 Django 應用程式輕鬆使用。從 Dj
 [PTVS 文件]: http://pytools.codeplex.com/documentation
 [Python Tools for Visual Studio 說明文件]: http://pytools.codeplex.com/documentation
 [Django 說明文件]: https://www.djangoproject.com/
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

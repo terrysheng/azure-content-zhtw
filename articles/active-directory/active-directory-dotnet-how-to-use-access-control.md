@@ -217,7 +217,7 @@ Azure 即會建立並啟動命名空間。
         ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
 
         return View();
-    	}
+    }
 
 1. 在 *Claims* 方法上按一下滑鼠右鍵並選取 [加入檢視]。
 
@@ -401,5 +401,6 @@ Visual Studio 中的 Identity and Access Tool 會自動將您的應用程式與 
   [18]: ./media/active-directory-dotnet-how-to-use-access-control/acsManagementService.png
   [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

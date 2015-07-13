@@ -21,9 +21,9 @@
 ## 概觀
 本文章將顯示如何使用 [Azure Preview 入口網站](https://portal.azure.com)、[Azure CLI][Azure CLI] 或 [Azure PowerShell Cmdlet][powershell-cmdlets]，在 [Azure App Service] 中建立 PHP Web 應用程式。
 
-一般而言，在 Azure App Service 中建立 PHP Web 應用程式與建立*任何* Web 應用程式並無不同。依預設，所有 Web 應用程式都會啟用 PHP。如需設定 PHP (或提供您自己的自訂 PHP 執行階段) 的相關資訊，請參閱＜[在 Azure App Service Web Apps 中設定 PHP]＞。
+一般而言，在 Azure App Service 中建立 PHP Web 應用程式與建立「任何」 Web 應用程式並無不同。依預設，所有 Web 應用程式都會啟用 PHP。如需設定 PHP (或提供您自己的自訂 PHP 執行階段) 的相關資訊，請參閱[在 Azure App Service Web Apps 中設定 PHP]。
 
-下述每一個選項說明如何在共用託管環境中免費建立 Web 應用程式，但 CPU 使用量和頻寬使用量有所限制。如需詳細資訊，請參閱＜[App Service 定價]＞。如需有關如何在應用程式服務中升級和調整 Web 應用程式的資訊，請參閱＜[在 Azure App Service 中調整 Web 應用程式規模]＞。
+下述每一個選項說明如何在共用託管環境中免費建立 Web 應用程式，但 CPU 使用量和頻寬使用量有所限制。如需詳細資訊，請參閱 [App Service 定價]。如需有關如何在 App Service 中升級和調整 Web 應用程式的資訊，請參閱[在 Azure App Service 中調整 Web 應用程式規模]。
 
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
@@ -31,9 +31,9 @@
 
 在 Azure Preview 入口網站中建立 PHP Web 應用程式時有三個選項：
 
-- **快速建立** - 請參閱＜[如何：使用 Azure Preview 入口網站建立 Web 應用程式](../web-sites-create-deploy.md#createawebsiteportal)＞
-- **使用資料庫建立** - 請參閱＜[在 Azure App Service 中建立 PHP-MySQL Web 應用程式並使用 Git 部署]＞
-- **從 Marketplace** - 請參閱＜[在 Azure App Service 中建立 WordPress Web 應用程式]＞
+- **快速建立** - 請參閱[作法：使用 Azure Preview 入口網站建立 Web 應用程式](../web-sites-create-deploy.md#createawebsiteportal)
+- **使用資料庫建立** - 請參閱[在 Azure App Service 中建立 PHP-MySQL Web 應用程式並使用 Git 部署]
+- **從 Marketplace** - 請參閱[在 Azure App Service 中建立 WordPress Web 應用程式]
 
 ## 使用 Azure CLI 建立 PHP Web 應用程式
 
@@ -53,7 +53,7 @@
 
 * `--location [location name]`。此選項可讓您指定要建立 Web 應用程式的資料中心位置 (例如，[美國西部])。如果省略此選項，此命令會提示您選擇位置。
 * `--hostname [custom host name]`。此選項可讓您指定 Web 應用程式的自訂主機名稱。
-* `--git`。此選項可讓您在本機應用程式目錄和 Web 應用程式的資料中心建立 git 儲存機制，以利用 git 來發佈至 Web 應用程式。請注意，如果本機資料夾已經是 git 儲存機制，此命令會將新的遠端新增至現有的儲存機制，並指向 Web 應用程式資料中心裡的儲存機制。
+* `--git`。此選項可讓您在本機應用程式目錄和 Web 應用程式的資料中心建立 git 儲存機制，以利用 git 來發行至 Web 應用程式。請注意，如果本機資料夾已經是 git 儲存機制，此命令會將新的遠端新增至現有的儲存機制，並指向 Web 應用程式資料中心裡的儲存機制。
 
 ## 使用 Azure PowerShell Cmdlet 來建立 PHP Web 應用程式
 
@@ -61,7 +61,7 @@
 
 1. 依照下列指示來安裝 Azure PowerShell Cmdlet：[開始使用 Azure PowerShell](/develop/php/how-to-guides/powershell-cmdlets/#GetStarted)。
 
-1. 依照下列指示來下載和匯入發佈設定檔：[如何：匯入發佈設定](/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings)。
+1. 依照下列指示來下載和匯入發佈設定檔：[作法：匯入發佈設定](/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings)。
 
 1. 開啟 PowerShell 命令提示字元並執行下列命令：
 
@@ -73,7 +73,7 @@
 
 * `-Location [location name]`。此選項可讓您指定要建立 Web 應用程式的資料中心位置 (例如，[美國西部])。如果省略此選項，此命令會提示您選擇位置。
 * `-Hostname [custom host name]`。此選項可讓您指定 Web 應用程式的自訂主機名稱。
-* `-Git`。此選項可讓您在本機應用程式目錄和 Web 應用程式的資料中心建立 git 儲存機制，以利用 git 來發佈至 Web 應用程式。請注意，如果本機資料夾已經是 git 儲存機制，此命令會將新的遠端新增至現有的儲存機制，並指向 Web 應用程式資料中心裡的儲存機制。
+* `-Git`。此選項可讓您在本機應用程式目錄和 Web 應用程式的資料中心建立 git 儲存機制，以利用 git 來發行至 Web 應用程式。請注意，如果本機資料夾已經是 git 儲存機制，此命令會將新的遠端新增至現有的儲存機制，並指向 Web 應用程式資料中心裡的儲存機制。
 
 ## 後續步驟
 

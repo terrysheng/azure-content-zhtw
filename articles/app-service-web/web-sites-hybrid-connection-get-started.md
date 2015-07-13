@@ -39,13 +39,13 @@
 
 > [AZURE.NOTE]如果您已在 Azure 預覽入口網站中建立本教學課程要使用的 Web 應用程式，則您可以直接跳到[建立混合式連線和 BizTalk 服務](#CreateHC)，並從那裡開始操作。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)左下角，依序按一下 [新增]**** > [Web + 行動]**** > [網站]****。
+1. 在 [Azure 入口網站](https://portal.azure.com)左下角，依序按一下 [新增] > [Web + 行動] > [網站]。
 	
 	![New button][New]
 	
 	![新 Web 應用程式][NewWebsite]
 	
-2. 在 [Web 應用程式]**** 分頁上，提供 URL，然後按一下 [建立]****。
+2. 在 [Web 應用程式] 分頁上，提供 URL，然後按一下 [建立]。
 	
 	![Website name][WebsiteCreationBlade]
 	
@@ -53,7 +53,7 @@
 	
 	![Website running][WebSiteRunningBlade]
 	
-4. 若要確認網站是否已上線啟用，您可以按一下 [瀏覽]**** 圖示以顯示預設頁面。
+4. 若要確認網站是否已上線啟用，您可以按一下 [瀏覽] 圖示以顯示預設頁面。
 	
 	![按一下 [瀏覽] 以查看您的 Web 應用程式][Browse]
 	
@@ -64,46 +64,46 @@
 <a name="CreateHC"></a>
 ## 建立混合式連線和 BizTalk 服務 ##
 
-1. 向下捲動 Web 應用程式的分頁，然後選擇 [混合式連線]****。
+1. 向下捲動 Web 應用程式的分頁，然後選擇 [混合式連線]。
 	
 	![Hybrid connections][CreateHCHCIcon]
 	
-2. 在 [混合式連線] 分頁上，按一下 [新增]****。
+2. 在 [混合式連線] 分頁上，按一下 [新增]。
 	
 	<!-- ![Add a hybrid connnection][CreateHCAddHC]
 -->
 	
-3. [新增混合式連線]**** 分頁隨即開啟。由於這是您的第一個混合式連線，因此會預先選取 [新增混合式連線]**** 選項，並為您開啟 [建立混合式連線]**** 分頁。
+3. [新增混合式連線] 分頁隨即開啟。由於這是您的第一個混合式連線，因此會預先選取 [新增混合式連線] 選項，並為您開啟 [建立混合式連線] 分頁。
 	
 	![Create a hybrid connection][TwinCreateHCBlades]
 	
-	在 [建立混合式連線分頁]**** 上：- 在 [名稱]**** 中，提供連線的名稱。- 在 [主機名稱]**** 中，輸入主控資源的內部部署電腦名稱。- 在 [連接埠]**** 中，輸入內部部署資源使用的連接埠號碼 (若是 SQL Server 預設執行個體，請輸入 1433)。- 按一下 [Biz Talk 服務]****
+	在 [建立混合式連線分頁] 上：- 在 [名稱] 中，提供連線的名稱。- 在 [主機名稱] 中，輸入主控資源的內部部署電腦名稱。- 在 [連接埠] 中，輸入內部部署資源使用的連接埠號碼 (若是 SQL Server 預設執行個體，請輸入 1433)。- 按一下 [Biz Talk 服務]
 
 
-4. [建立 BizTalk 服務]**** 分頁隨即開啟。輸入 BizTalk 服務的名稱，然後按一下 [確定]****。
+4. [建立 BizTalk 服務] 分頁隨即開啟。輸入 BizTalk 服務的名稱，然後按一下 [確定]。
 	
 	![Create BizTalk service][CreateHCCreateBTS]
 	
-	[建立 BizTalk 服務]**** 分頁隨即關閉，而您會回到 [建立混合式連線]**** 分頁。
+	[建立 BizTalk 服務] 分頁隨即關閉，而您會回到 [建立混合式連線] 分頁。
 	
-5. 在 [建立混合式連線] 分頁上，按一下 [確定]****。
+5. 在 [建立混合式連線] 分頁上，按一下 [確定]。
 	
 	![Click OK][CreateBTScomplete]
 	
-6. 程序完成時，入口網站中的通知區域會通知您已成功建立連線。
-<!-- TODO
+6. 當程序完成時，入口網站中的通知區域會通知您已成功建立連線。
+	<!-- TODO
 
-    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
-	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-	Create hybrid conn step, you get the following error
-	Failed to create hybrid connection RelecIoudHC. The 
-	resource type could not be found in the namespace 
-	'Microsoft.BizTaIkServices for api version 2014-06-01'.
-	
-	The error indicates it couldn't find the type, not the instance.
-	![Success notification][CreateHCSuccessNotification]
-	-->
-7. 在 Web 應用程式的分頁上，[混合式連線]**** 圖示現在會顯示已建立 1 個混合式連線。
+Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
+(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+Create hybrid conn step, you get the following error
+Failed to create hybrid connection RelecIoudHC. The 
+resource type could not be found in the namespace 
+'Microsoft.BizTaIkServices for api version 2014-06-01'.
+
+The error indicates it couldn't find the type, not the instance.
+![Success notification][CreateHCSuccessNotification]
+-->
+7. 在 Web 應用程式的刀鋒視窗上，[混合式連線] 圖示現在會顯示已建立 1 個混合式連線。
 	
 	![One hybrid connection created][CreateHCOneConnectionCreated]
 	
@@ -116,7 +116,7 @@
 	
 	![Hybrid connections icon][HCIcon]
 	
-2. 在 [混合式連線]**** 分頁上，最近新增之端點的 [狀態]**** 欄會顯示為 [未連線]****。請按一下連線加以設定。
+2. 在 [混合式連線] 分頁上，最近新增之端點的 [狀態] 欄會顯示為 [未連線]。請按一下連線加以設定。
 	
 	![Not connected][NotConnected]
 	
@@ -124,19 +124,19 @@
 	
 	![NotConnectedBlade][NotConnectedBlade]
 	
-3. 在此分頁上，按一下 [Listener Setup]****。
+3. 在此分頁上，按一下 [Listener Setup]。
 	
 	![Click Listener Setup][ClickListenerSetup]
 	
-4. [混合式連線屬性]**** 分頁隨即開啟。在 [內部部署混合式連線管理員]**** 下，選擇 [按一下此處進行安裝]****。
+4. [混合式連線屬性] 分頁隨即開啟。在 [內部部署混合式連線管理員] 下，選擇 [按一下此處進行安裝]。
 	
 	![Click here to install][ClickToInstallHCM]
 	
-5. 在 [應用程式執行] 安全性警告對話方塊中，選擇 [執行]**** 以繼續作業。
+5. 在 [應用程式執行] 安全性警告對話方塊中，選擇 [執行] 以繼續作業。
 	
 	![Choose Run to continue][ApplicationRunWarning]
 	
-6.	在 [使用者帳戶控制]**** 對話方塊中，選擇 [是]****。
+6.	在 [使用者帳戶控制] 對話方塊中，選擇 [是]。
 	
 	![Choose Yes][UAC]
 	
@@ -144,11 +144,11 @@
 	
 	![安裝][HCMInstalling]
 	
-8. 安裝完成後，請按一下 [關閉]****。
+8. 安裝完成後，請按一下 [關閉]。
 	
 	![Click Close][HCMInstallComplete]
 	
-	在 [混合式連線]**** 分頁上，[狀態]**** 欄此時會顯示為 [未連線]****。
+	在 [混合式連線] 分頁上，[狀態] 欄此時會顯示為 [未連線]。
 	
 	![Connected Status][HCStatusConnected]
 
@@ -205,5 +205,6 @@
 [HCMInstalling]: ./media/web-sites-hybrid-connection-get-started/D08HCMInstalling.png
 [HCMInstallComplete]: ./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="如何在 Azure App Service Web Apps 中購買自訂網域名稱"
 	description="了解如何在 Azure App Service 中購買搭配 Web 應用程式的自訂網域名稱。"
@@ -44,7 +45,7 @@
 
 1. 在瀏覽器中開啟 [Azure 管理入口網站](https://portal.azure.com)。
 
-2. 在 [**Web 應用程式**] 索引標籤上，按一下您 Web 應用程式的名稱，選取 [**設定**]，然後選取 [**自訂網域和 SSL**]
+2. 在 [**Web 應用程式**] 索引標籤中，按一下您 Web 應用程式的名稱，並選取 [**設定**]，然後選取 [**自訂網域和 SSL**]。
 
 	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
@@ -92,5 +93,6 @@
 	Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
 
 此時，您應該能夠在瀏覽器中輸入自訂網域名稱，並且能成功移至您的 Web 應用程式。
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

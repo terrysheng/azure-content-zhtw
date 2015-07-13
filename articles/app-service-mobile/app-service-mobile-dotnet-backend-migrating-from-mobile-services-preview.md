@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/22/2015" 
+	ms.date="06/23/2015" 
 	ms.author="mahender"/>
 
 # 將您現有的 Azure 行動服務移轉至 Azure 應用程式服務行動應用程式
@@ -114,4 +114,5 @@
 [Azure 排程器]: /zh-tw/documentation/services/scheduler/
 [Web 工作]: ../app-service-web/websites-webjobs-resources.md
 [傳送跨平台推播通知]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

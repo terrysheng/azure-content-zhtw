@@ -98,7 +98,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 3. 使用您的 Azure 認證登入。
 
-5. 以滑鼠右鍵按一下 Azure 節點下的 [**儲存體**]，然後按一下 [**建立儲存體帳戶**]。
+5. 在 Azure 節點下的 [儲存體] 上按一下滑鼠右鍵，然後按一下 [建立儲存體帳戶]。
 
 ![建立儲存體帳戶](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
@@ -114,7 +114,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 6. 將 [複寫] 下拉式清單設為 [本機備援]。
 
-	對儲存體帳戶啟用異地複寫時，儲存內容會複寫至次要資料中心，以便能在主要位置發生嚴重災難時容錯移轉至該位置。異地複寫會引發額外成本。對於測試和開發帳戶，您通常不會想要付費使用異地複寫功能。如需詳細資訊，請參閱[建立、管理或刪除儲存體帳戶](../storage-create-storage-account/#replication-options)。
+	對儲存體帳戶啟用地理區域複寫時，儲存內容會複寫至次要資料中心，以便能在主要位置發生嚴重災難時容錯移轉至該位置。地理區域複寫會引發額外成本。對於測試和開發帳戶，您通常不會想要付費使用地理區域複寫功能。如需詳細資訊，請參閱[建立、管理或刪除儲存體帳戶](../storage-create-storage-account/#replication-options)。
 
 5. 按一下 [建立]。
 
@@ -222,9 +222,9 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 1. 關閉瀏覽器和主控台應用程式視窗。
 
-3. 在 [方案總管] 中，以滑鼠右鍵按一下 ContosoAdsWeb 專案，然後按一下 [發佈]。
+3. 在 [方案總管] 中，以滑鼠右鍵按一下 ContosoAdsWeb 專案，然後按一下 [發行]。
 
-3. 在 [發佈 Web] 精靈的 [設定檔] 步驟中，按一下 [Microsoft Azure Web 應用程式]。
+3. 在 [發行 Web] 精靈的 [設定檔] 步驟中，按一下 [Microsoft Azure Web 應用程式]。
 
 	![選取 Azure 網站發佈目標](./media/websites-dotnet-webjobs-sdk-get-started/pubweb.png)
 
@@ -256,7 +256,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	Visual Studio 便會建立方案、Web 專案、Azure 中的 Web 應用程式，以及 Azure SQL Database 執行個體。
 
-2. 在 [發佈 Web] 精靈的 [連線] 步驟中，按 [下一步]。
+2. 在 [發行 Web] 精靈的 [連線] 步驟中，按 [下一步]。
 
 	![Connection step](./media/websites-dotnet-webjobs-sdk-get-started/connstep.png)
 
@@ -264,7 +264,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	![Settings step](./media/websites-dotnet-webjobs-sdk-get-started/settingsstep.png)
 	
-	您無需使用發佈對話方塊來設定 SQL 連接字串，因為您稍後將在 Azure 環境中設定該值。
+	您無需使用發行對話方塊來設定 SQL 連接字串，因為您稍後將在 Azure 環境中設定該值。
 
 	您可以忽略此頁面上的警告。
 
@@ -278,13 +278,13 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	![Click Start Preview](./media/websites-dotnet-webjobs-sdk-get-started/previewstep.png)
 
-	您可以忽略有關未發佈任何資料庫的警告。Entity Framework Code First 將建立資料庫；因此無需發佈資料庫。
+	您可以忽略有關未發行任何資料庫的警告。Entity Framework Code First 將建立資料庫；因此無需發行資料庫。
 
 	預覽視窗會顯示將複製 WebJob 專案的二進位和組態檔至 Web 應用程式的 *app_data\jobs\continuous* 資料夾中。
 
 	![WebJobs files in preview window](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)
 
-5. 按一下 [發佈]。
+5. 按一下 [發行]。
 
 	Visual Studio 會部署應用程式，並在瀏覽器中開啟首頁 URL。
 
@@ -314,7 +314,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 12. 當 Web 應用程式停止之後，再次以滑鼠右鍵按一下該 Web 應用程式，然後按一下 [啟動 Web 應用程式]。
 
-	發佈時，WebJob 便會自動啟動，但在您進行組態變更時便會停止。若要重新啟動它，您可以重新啟動 Web 應用程式，或在 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中重新啟動 WebJob。通常建議您在進行設定變更之後重新啟動 Web 應用程式。
+	發行時，WebJob 便會自動啟動，但在您進行組態變更時便會停止。若要重新啟動它，您可以重新啟動 Web 應用程式，或在 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中重新啟動 WebJob。通常建議您在進行設定變更之後重新啟動 Web 應用程式。
 
 9. 重新整理網址列中具有 Web 應用程式 URL 的瀏覽器視窗。
 

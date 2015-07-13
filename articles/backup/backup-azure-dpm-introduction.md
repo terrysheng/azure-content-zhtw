@@ -60,7 +60,7 @@ System Center DPM 會備份檔案和應用程式資料。備份到 DPM 的資料
 4. 在 [**區域**] 中，選取保存庫的地理區域。請注意，保存庫必須與您想要保護的虛擬機器位於相同區域。如果您的虛擬機器在不同區域，每個區域皆需建立保存庫。儲存備份資料不需指定儲存體帳戶，備份保存庫和 Azure 備份服務將自動處理。
     > [AZURE.NOTE][支援的區域](http://azure.microsoft.com/regions/#services)
 
-5. 在 [訂用帳戶] 中，輸入要與備份保存庫搭配使用的 Azure 訂用帳戶。
+5. 在 [訂閱] 中，輸入要與備份保存庫搭配使用的 Azure 訂閱。
 6. 按一下 [**建立保存庫**]。![建立備份保存庫](./media/backup-azure-dpm-introduction/backup_vaultcreate.png)
 
     要等備份保存庫建立好，可能需要一些時間。監視位於入口網站底部的狀態通知。![建立保存庫快顯通知](./media/backup-azure-dpm-introduction/creating-vault.png)

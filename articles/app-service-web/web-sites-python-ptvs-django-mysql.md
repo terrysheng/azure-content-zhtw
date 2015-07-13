@@ -25,7 +25,7 @@
 
 我們將學習如何使用在 Azure 上裝載的 MySQL 服務、如何設定 Web 應用程式使用 MySQL，以及如何將 Web 應用程式發佈至 [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)。
 
-如需更多相關文章 (說明透過使用 Bottle、Flask 和 Django 架構的 PTVS、透過 MongoDB、Azure 資料表儲存體、MySQL 和 SQL Database 服務進行 Azure App Service Web Apps 開發)，請參閱〈[Python 開發人員中心]〉。雖然本文著重於 App Service，但其開發步驟類似於開發 [Azure 雲端服務]。
+如需更多相關文章 (說明透過使用 Bottle、Flask 和 Django 架構的 PTVS、透過 MongoDB、Azure 資料表儲存體、MySQL 和 SQL Database 服務進行 Azure App Service Web Apps 開發)，請參閱 [Python 開發人員中心]。雖然本文著重於 App Service，但其開發步驟類似於開發 [Azure 雲端服務]。
 
 ## 必要條件
 
@@ -43,13 +43,13 @@
 
 在這一節中，我們將使用範例範本建立 Visual Studio 專案。我們將建立虛擬環境並安裝必要的套件。我們將使用 sqlite 建立本機資料庫。然後會在本機執行此應用程式。
 
-1.  在 Visual Studio 中，選取 [**檔案**]、[**新增專案**]。
+1.  在 Visual Studio 中，選取 [檔案]、[新增專案]。
 
-1.  在 [**Python**]、[**範例**] 之下可取得 PTVS 範例 VSIX 中的專案範本。選取 [**Polls Django Web Project**]，然後按一下 [確定] 以建立專案。
+1.  在 [Python]、[範例] 之下可取得 PTVS 範例 VSIX 中的專案範本。選取 [Polls Django Web Project]，然後按一下 [確定] 以建立專案。
 
   	![New Project Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoNewProject.png)
 
-1.  系統會提示您安裝外部套件。選取 [**安裝到虛擬環境**]。
+1.  系統會提示您安裝外部套件。選取 [安裝到虛擬環境]。
 
   	![外部套件對話方塊](./media/web-sites-python-ptvs-django-mysql/PollsDjangoExternalPackages.png)
 
@@ -57,7 +57,7 @@
 
   	![新增虛擬環境對話方塊](./media/web-sites-python-ptvs-django-mysql/PollsCommonAddVirtualEnv.png)
 
-1.  以滑鼠右鍵按一下專案節點，然後選取 [**Python**]、[**Django Sync DB**]。
+1.  以滑鼠右鍵按一下專案節點，然後選取 [Python]、[Django Sync DB]。
 
   	![Django Sync DB 命令](./media/web-sites-python-ptvs-django-mysql/PollsDjangoSyncDB.png)
 
@@ -69,7 +69,7 @@
 
 1.  按 <kbd>F5</kbd> 確認應用程式可運作。
 
-1.  按一下頂端導覽列中的 [**登入**]。
+1.  按一下頂端導覽列中的 [登入]。
 
   	![Web Browser](./media/web-sites-python-ptvs-django-mysql/PollsDjangoCommonBrowserLocalMenu.png)
 
@@ -77,7 +77,7 @@
 
   	![Web Browser](./media/web-sites-python-ptvs-django-mysql/PollsDjangoCommonBrowserLocalLogin.png)
 
-1.  按一下 [**Create Sample Polls**]。
+1.  按一下 [Create Sample Polls]。
 
   	![Web Browser](./media/web-sites-python-ptvs-django-mysql/PollsDjangoCommonBrowserNoPolls.png)
 
@@ -95,11 +95,11 @@
 
 1.  登入 [Azure 入口網站]。
 
-1.  在瀏覽窗格的底部，按一下 [**新增**]。接著，按一下 [**資料 + 儲存體**] > [**Azure Marketplace**]。
+1.  在瀏覽窗格的底部，按一下 [新增]。接著，按一下 [資料 + 儲存體] > [Azure Marketplace]。
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)-->
 
-1.  在搜尋方塊中輸入 "**mysql**"，然後按一下 [**MySQL 資料庫**]，再按一下 [**建立**]。
+1.  在搜尋方塊中輸入「mysql」，然後按一下 [MySQL 資料庫]，再按一下 [建立]。
 
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 
@@ -107,7 +107,7 @@
 
   	<!-- ![Personalize Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon2.png) -->
 
-1.  建立 MySQL 資料庫後，請按一下資料庫刀鋒視窗中的 [**屬性**]。
+1.  建立 MySQL 資料庫後，請按一下資料庫刀鋒視窗中的 [屬性]。
 2.  使用 [複製] 按鈕將 **CONNECTION STRING** 的值複製到剪貼簿上。
 
 ## 設定專案
@@ -132,42 +132,42 @@
         }
 
 
-1.  在 [方案總管] 的 [**Python 環境**] 之下，在虛擬環境上按一下滑鼠右鍵並選取 [**安裝 Python 封裝**]。
+1.  在 [方案總管] 的 [Python 環境] 之下，在虛擬環境上按一下滑鼠右鍵並選取 [安裝 Python 封裝]。
 
 1. 使用 **easy_install** 安裝 `mysql-python` 封裝。
 
   	![安裝套件對話方塊](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
 
-1.  以滑鼠右鍵按一下專案節點，然後選取 [**Python**]、[**Django Sync DB**]。
+1.  以滑鼠右鍵按一下專案節點，然後選取 [Python]、[Django Sync DB]。
 
     此舉會為我們在上一節中建立的 MySQL 資料庫建立資料表。依照提示建立使用者，該使用者不需符合在第一節中建立之 sqlite 資料庫中的使用者。
 
   	![Django 管理主控台視窗](./media/web-sites-python-ptvs-django-mysql/PollsDjangoConsole.png)
 
-1.  使用 `F5` 執行應用程式。使用 [**Create Sample Polls**] 建立的民調以及投票所提交的資料將會在 MySQL 資料庫中序列化。
+1.  使用 `F5` 執行應用程式。使用 [Create Sample Polls] 建立的民調以及投票所提交的資料將會在 MySQL 資料庫中序列化。
 
 ## 將 Web 應用程式發佈至 Azure App Service
 
 Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Service。
 
-1.  在 [**方案總管**] 中，以滑鼠右鍵按一下專案節點並選取 [**發佈**]。
+1.  在 [方案總管] 中，以滑鼠右鍵按一下專案節點並選取 [發佈]。
 
   	![發行 Web 對話方塊](./media/web-sites-python-ptvs-django-mysql/PollsCommonPublishWebSiteDialog.png)
 
-1.  按一下 [**Microsoft Azure Web Apps**]。
+1.  按一下 [Microsoft Azure Web Apps]。
 
-1.  按一下 [**新增**] 以建立新的 Web 應用程式。
+1.  按一下 [新增] 以建立新的 Web 應用程式。
 
-1.  填寫下列欄位，然後按一下 [**建立**]。
-	-	**Web 應用程式名稱**
-	-	**App Service 計劃**
-	-	**資源群組**
-	-	**區域**
-	-	讓「**資料庫伺服器**」維持設定為「**沒有資料庫**」
+1.  填寫下列欄位，然後按一下 [建立]。
+	-	Web 應用程式名稱
+	-	App Service 計劃
+	-	資源群組
+	-	區域
+	-	讓「資料庫伺服器」維持設定為「沒有資料庫」
 
   	<!-- ![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-django-mysql/PollsCommonCreateWebSite.png) -->
 
-1.  接受所有其他預設值並按一下 [**發佈**]。
+1.  接受所有其他預設值並按一下 [發佈]。
 
 1.  您的 Web 瀏覽器將會自動開啟到已發佈的 Web 應用程式。您應該會看到 Web 應用程式如預期般運作，並使用 Azure 上裝載的 **MySQL** 資料庫。
 
@@ -187,8 +187,8 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 - [MySQL]
 
 ## 變更的項目
-* 如需從網站變更為 App Service 的指南，請參閱：〈[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)〉
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：〈[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)〉
+* 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->

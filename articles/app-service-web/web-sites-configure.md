@@ -49,12 +49,12 @@
 
 **受管理的管線版本**。設定 IIS [管線模式](http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application)。除非您擁有的舊版應用程式需要舊版 IIS，否則請保留 [整合 (預設值)] 的設定。
 
-**自動交換**。如果您針對部署位置啟用「自動交換」，當您將更新推送到該位置時，App Service 就會將 Web 應用程式自動交換至生產位置。如需詳細資訊，請參閱〈[將 Azure App Service 中的 Web 應用程式部署至預備位置](web-sites-staged-publishing.md)〉。
+**自動交換**。如果您針對部署位置啟用「自動交換」，當您將更新推送到該位置時，App Service 就會將 Web 應用程式自動交換至生產位置。如需詳細資訊，請參閱[將 Azure App Service 中的 Web 應用程式部署至預備位置](web-sites-staged-publishing.md)。
 
 
 ### Debugging
 
-**遠端偵錯**。啟用遠端偵錯。一經啟用，您就可以使用 Visual Studio 中的遠端偵錯工具，直接連接到您的 Web 應用程式。遠端偵錯將保持啟用達 48 小時。
+**遠端偵錯**啟用遠端偵錯。一經啟用，您就可以使用 Visual Studio 中的遠端偵錯工具，直接連接到您的 Web 應用程式。遠端偵錯將保持啟用達 48 小時。
 
 
 ### 應用程式設定
@@ -158,7 +158,7 @@ Web 應用程式可能會使用根據 URL 路由傳送的模組，而非處理�
 
 在 [基本] 或 [標準] 模式中，您可以測試 HTTP 或 HTTPS 端點的可用性，最多可測試三個分散的地理位置。如果 HTTP 回應碼為錯誤 (4xx 或 5xx)，或是當回應時間超過 30 秒時，監視測試即告失敗。如果所有指定位置上的端點監視測試全都成功，表示該端點可用。
 
-如需詳細資訊，請參閱〈[如何監視 Web 端點狀態](http://go.microsoft.com/fwLink/?LinkID=279906&clcid=0x409)〉。
+如需詳細資訊，請參閱[如何監視 Web 端點狀態](http://go.microsoft.com/fwLink/?LinkID=279906&clcid=0x409)。
 
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
@@ -170,8 +170,8 @@ Web 應用程式可能會使用根據 URL 路由傳送的模組，而非處理�
 - [在 Azure App Service 中監視 Web 應用程式的基本概念](web-sites-monitor.md)
 
 ## 變更的項目
-* 如需從網站變更為 App Service 的指南，請參閱：〈[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)〉
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：〈[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)〉
+* 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
 <!---HONumber=62-->

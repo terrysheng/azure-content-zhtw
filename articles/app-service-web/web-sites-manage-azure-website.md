@@ -39,7 +39,7 @@ Azure App Service 提供了五種階層：免費、共用、基本、標準和�
 
 - 視需要選取 .NET、PHP、Java 或 Python 的**執行階段版本**。
 - 如果您的 Web 應用程式使用 WebSocket 通訊協定，請啟用 **WebSockets**。(這包括使用 [ASP.NET SignalR](http://www.asp.net/signalr) (英文) 或 [socket.io](web-sites-nodejs-chat-app-socketio.md) 的應用程式)。
-- 您是否執行連續性的 Web 工作？ 如果是的話，請啟用 [Always On]****。
+- 您是否執行連續性的 Web 工作？ 如果是的話，請啟用 [Always On]。
 - 設定**預設文件** (如 index.html)。
 
 除了以上基本組態設定之外，您也許還想要設定以下各項：
@@ -100,4 +100,7 @@ Azure App Service 提供了五種階層：免費、共用、基本、標準和�
 [Before you deploy your site to production]: #before-you-deploy-your-site-to-production
 [While your website is running]: #while-your-website-is-running
 [When you update your website]: #when-you-update-your-website
-<!--HONumber=54--> 
+
+  
+
+<!---HONumber=62-->

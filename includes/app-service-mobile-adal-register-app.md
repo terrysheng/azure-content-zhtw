@@ -6,9 +6,9 @@
 
 3. 選取您的目錄，然後選取頂端的 [**應用程式**] 索引標籤。按一下底部的 [**新增**]，以建立新的應用程式註冊。 
 
-4. 按一下 [Add an application my organization is developing]****。
+4. 按一下 [Add an application my organization is developing]。
 
-5. 在 [新增應用程式精靈] 中，輸入應用程式的 [名稱]****，然後按一下 [原生用戶端應用程式]**** 類型。接著，按一下以繼續。
+5. 在 [新增應用程式精靈] 中，輸入應用程式的 [名稱]，然後按一下 [原生用戶端應用程式] 類型。接著，按一下以繼續。
 
 6. 在 [**重新導向 URI**] 方塊中，輸入 App Service 閘道的 /login/done 端點。此值應與 https://contoso.azurewebsites.net/login/done 類似。
 
@@ -18,7 +18,7 @@
 
 9. 搜尋先前註冊的 Web 應用程式，再按一下加號圖示。然後按一下核取標記以關閉對話方塊。
 
-10. 在您剛才加入的新項目上，開啟 [**委派的權限**] 下拉式清單，然後選取 [**存取 (appName)**]。然後按一下 [儲存]****
+10. 在您剛才加入的新項目上，開啟 [**委派的權限**] 下拉式清單，然後選取 [**存取 (appName)**]。然後按一下 [儲存]
 
    ![](./media/app-service-mobile-adal-register-app/aad-native-client-add-permissions.png)
 
@@ -27,4 +27,4 @@
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [如何使用 Azure Active Directory 設定行動應用程式]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
 
-<!--HONumber=54-->
+<!---HONumber=62-->

@@ -211,7 +211,17 @@
 
 1. 在 Azure 入口網站中，選取 [**新增**] > [**Web + 行動**] > [**Azure Marketplace**]
 2. **搜尋**連接器，或從清單中選取。選取之後，新分頁或視窗隨即開啟。選取 [**建立**]。 
-3. 輸入連接器的下列屬性：<table> <tr><th>屬性</th> <th>說明</th> </tr> <tr><td>名稱</td> <td>為 API 應用程式輸入任何名稱。例如，您可以將其命名為 RulesDiscountTaxCode 或 APIAppValidateXML</td> </tr> <tr><td>應用程式服務方案</td> <td>列出付款方案。如果需要增減資源，則可以變更它</th> </td> <tr><td>定價層</td> <td>一個唯讀屬性，會列出您 Azure 訂閱內的定價類別。</td> </tr> <tr><td>資源群組</td> <td>建立新群組或使用現有的群組。使用資源群組說明此屬性</td> </tr> <tr><td>訂閱</td> <td>一種唯讀屬性，會列出您的現行訂閱</td> </tr> <tr><td>位置</td> <td>裝載 Azure 服務的地理位置 </td></tr> <tr><td>新增至開始面板</td> <td>選取此選項，可將 API 應用程式新增至開始面板 (首頁)</td></tr> </table> 
+3. 輸入連接器的下列屬性： 
+	<table>
+    <tr><th>屬性</th> <th>說明</th> </tr>
+    <tr><td>名稱</td> <td>輸入 API 應用程式的名稱。例如，您可以將其命名為 RulesDiscountTaxCode 或 APIAppValidateXML</td> </tr>
+    <tr><td>應用程式服務計劃</td> <td>列出您的付款方案。如果需要增減資源，則可以變更它。</th> </td>
+    <tr><td>定價層</td> <td>一個唯讀屬性，會列出您 Azure 訂閱內的定價類別。</td> </tr>
+    <tr><td>資源群組</td> <td>建立新群組或使用現有的群組。使用資源群組說明此屬性</td> </tr>
+    <tr><td>訂閱</td> <td>列出目前訂閱的唯讀屬性</td> </tr>
+    <tr><td>位置</td> <td>主控 Azure 服務的地理位置 </td></tr>
+    <tr><td>新增至開始面板</td> <td>選取此選項，可將 API 應用程式新增至儀表板 (首頁)</td></tr>
+</table>
 4. 選取 [**建立**]。您的連接器將會建立。此作業可能需要一些時間，在建立連接器期間，將會顯示 [首頁] 畫面。使用左側的 [通知] 功能表項目，可監視連接器的狀態。
 
 現在您已建立第一個連接器，可以考慮建置 Web、行動或邏輯應用程式來搭配使用。
@@ -246,11 +256,12 @@ Microsoft Azure 應用程式服務會公開可使用這些連接器的不同應�
 
 
 ## 閱讀關於邏輯應用程式和 Web 應用程式的資訊
-[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md) | [Azure App Service 中的網站和 Web 應用程式](../app-service-web/app-service-web-app-azure-portal.md) |
+[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md) | [Azure 應用程式服務中的網站和 Web 應用程式](../app-service-web/app-service-web-overview.md) |
 
 
 
 ## 其他連接器
 [BizTalk 整合連接器](app-service-logic-integration-connectors.md) | [企業連接器](app-service-logic-enterprise-connectors.md) | [企業對企業連接器](app-service-logic-b2b-connectors.md) | [社交連接器](app-service-logic-social-connectors.md) | [通訊協定連接器](app-service-logic-protocol-connectors.md) | [應用程式和資料服務連接器](app-service-logic-data-connectors.md) | [連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/> [什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

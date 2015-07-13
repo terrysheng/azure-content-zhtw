@@ -1,21 +1,3 @@
-<properties 
-   pageTitle="設定和註冊裝置"
-   description="說明如何使用 Windows PowerShell for StorSimple 來設定和註冊裝置 (執行 Update 1)。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/26/2015"
-   ms.author="alkohli" />
-
-
 ### 設定和註冊裝置
 
 1. 存取 StorSimple 裝置序列主控台上的 Windows PowerShell 介面。如需相關指示，請參閱[使用 PuTTY 來連接至裝置序列主控台](#use-putty-to-connect-to-the-device-serial-console)。**請務必確實依照此程序，否則將無法存取主控台。**
@@ -42,7 +24,7 @@
    - 閘道器
    - 適用於主要 DNS 伺服器的 IP 位址
     
-		請注意，系統在此過程中會於完成每個步驟後便檢查網路設定一次。
+		Note that the system is validating network settings after each step in the process.
    
       >[AZURE.NOTE]您可能需要等候幾分鐘，以套用子網路遮罩和 DNS 設定。如果您收到「檢查 Data 0 的網路連線」錯誤訊息，請檢查主動控制器之 DATA 0 網路介面上的實體網路連線。
 
@@ -75,10 +57,10 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
   
-        如果裝置狀態為 [離線]，請等待數分鐘，讓裝置上線。 
+        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
       
-        若裝置經數分鐘後仍舊離線，您便需要確認您的防火牆網路設置是否與[StorSimple 裝置的網路需求](https://msdn.microsoft.com/library/dn772371.aspx) 說明相同。若您沒有 HTTP 1.1 支援，請檢查及確保 9354 連接埠為開啟狀態並允許輸出通訊。此連接埠是供 StorSimple 管理員服務及 StorSimple 裝置間進行通訊之用。
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
        
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -1,20 +1,19 @@
 <properties
-	pageTitle="下載、安裝和註冊 Azure 備份代理程式"
-	description="了解下載 Azure 備份代理程式的方式和位置、安裝步驟，以及如何使用保存庫認證來註冊 Azure 備份代理程式"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="下載、安裝和註冊 Azure 備份代理程式"
+   description="了解下載 Azure 備份代理程式的方式和位置、安裝步驟，以及如何使用保存庫認證來註冊 Azure 備份代理程式"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="04/08/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="04/08/2015"
+   ms.author="prvijay"/>
 
 # 下載、安裝和註冊 Azure 備份代理程式
 
@@ -57,5 +56,6 @@
 [4]: ./media/backup-azure-backup-download-register/vc.png
 [5]: ./media/backup-azure-backup-download-register/encryption.png
 [6]: ./media/backup-azure-backup-download-register/change.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

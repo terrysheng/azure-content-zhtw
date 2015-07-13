@@ -21,6 +21,21 @@
 
 [請參閱「平台」][platforms]
 
+## 它是免費的嗎？
+
+* 是的，如果您選擇免費[定價層](app-insights-pricing.md)。您會獲得大部分的功能和大量資料配額。 
+* 您必須提供信用卡資料以向 Microsoft Azure 註冊，但我們不會收取任何費用，除非您使用其他付費 Azure 服務，或明確地升級至付費層。
+* 如果您的應用程式傳送的資料超過免費層的每月配額，它會停止記錄。如果發生這種情況，您可以選擇開始付費，或等到月底重設配額。
+* 基本的使用情況和工作階段資料不受配額限制。
+* 另外也有 30 天的免費試用，在這 30 天內您可以得到免費的高階功能。
+* 每個應用程式資源都有個別的配額，其定價層的設定與其他任何資源無關。
+
+#### 付費能得到什麼？
+
+* 較大的[每月資料配額](http://azure.microsoft.com/pricing/details/application-insights/)。
+* 能夠選擇針對超額部分付費，以繼續收集超過每月配額的資料。如果您的資料超過配額，我們將會以每 Mb 來收費。
+* [連續匯出](app-insights-export-telemetry.md)
+
 ## 新增 SDK
 
 #### <a name="q01"></a>我在 Visual Studio 中沒有看到任何選項可將 Application Insights 加入至我的專案
@@ -88,7 +103,7 @@
 作法：
 
 1. 在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [上傳專案]。
-2. 再次以滑鼠右鍵按一下專案，並選擇 [編輯 yourProject.csproj] 
+2. 再次以滑鼠右鍵按一下專案，並選擇 [*編輯 yourProject.csproj*] 
 3. 移至專案檔案最下方，並移除類似以下所示的 BCL 目標：``` <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
 	  
 	  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
@@ -99,15 +114,20 @@
 	    
 	</Target> ```
 4. 儲存檔案。
-5. 以滑鼠右鍵按一下專案，然後選擇 [重新載入 yourProject.csproj]
+5. 以滑鼠右鍵按一下專案，然後選擇 [*重新載入 yourProject.csproj*]
+
+## 如何從舊版 SDK 升級？
+
+請參閱您的應用程式類型所適用之 SDK 的[版本資訊](app-insights-release-notes.md)。
+
 
 ## 沒有資料
 
 #### <a name="q03"></a>我已成功加入 Application Insights 並執行我的應用程式，但在入口網站中從未看到資料。
 
 + 在 [概觀] 頁面中，按一下 [搜尋] 磚以開啟 [診斷搜尋]。這裡會先顯示資料。
-+ 按一下 [重新整理] 按鈕。在目前版本中，分頁的內容不會自動重新整理。
-+ 在 Microsoft Azure 開始面板中，查看服務狀態對應。如果看到一些警示指示，請等待它們恢復 [正常]，然後關閉再重新開啟 Application Insights 應用程式分頁。
++ 按一下 [重新整理] 按鈕。在目前版本中，刀鋒視窗的內容不會自動重新整理。
++ 在 Microsoft Azure 開始面板中，查看服務狀態對應。如果看到一些警示指示，請等待它們恢復 [正常]，然後關閉再重新開啟 Application Insights 應用程式刀鋒視窗。
 + 也請查閱[我們的狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/archive/2015/04/14/data-latency-and-data-access-issue-with-data-storage-service-4-14-investigating.aspx)。
 + 在防火牆中，您可能必須開啟 TCP 連接埠 80 和 443，以允許連出流量送往 dc.services.visualstudio.com 和 f5.services.visualstudio.com。
 + 如果您必須使用 Proxy 在貴公司網路之外傳送內容，請設定 Web.config 中的 [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx)
@@ -131,7 +151,7 @@
 
 #### 我曾經看到資料，但是已停止
 
-* 請查閱[狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)。
+* 檢查[狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)。
 * 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。若有達到配額，您可以升級您的方案，或付費取得額外容量。請參閱[定價機制](http://azure.microsoft.com/pricing/details/application-insights/)。
 
 
@@ -197,6 +217,9 @@
 
 如果您的 Web 服務在 Azure VM 中執行，您也可以從該處[取得診斷][azurediagnostic]。
 
+## 自動化
+
+您可以[撰寫 PowerShell 指令碼](app-insights-powershell-script-create-resource.md)來建立 Application Insights 資源。
 
 
 <!--Link references-->

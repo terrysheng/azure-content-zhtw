@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="06/15/2015" 
 	ms.author="spelluru"/>
 
 # 在 Azure Data Factory 中使用複製活動的進階案例 
@@ -236,7 +236,6 @@
 		<ul>
 			<li> <b>TextFormat：</b>所有資料行類型都視為字串，且所有資料行名稱都設為 "Prop_&lt;0-N>"</li> 
 			<li><b>AvroFormat：</b>使用 Avro 檔案中的內建資料行類型和名稱。</li> 
-			<li><b>JsonFormat：</b>所有資料行類型都視為字串，並使用 Json 檔案中內建的資料行名稱。</li>
 		</ul>
 		</td>
 	</tr>
@@ -320,7 +319,7 @@
 預存程序功能使用[資料表值參數][table-valued-parameters]。
 
 ## 指定文字檔的編碼。
-雖然 UTF-8 編碼很常用，但由於歷史因素，Azure Blob 中的文字檔經常採用其他編碼。**encodingName** 屬性可讓您使用字碼頁名稱，對 TextFormat 類型的資料表指定編碼。如需有效編碼名稱的清單，請參閱：Encoding.EncodingName 屬性。例如：windows-1250 或 shift_jis。預設值為 UTF-8。關於有效的編碼名稱，請參閱 [Encoding 類別](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx)。
+雖然 UTF-8 編碼很常用，但由於歷史因素，Azure Blob 中的文字檔經常採用其他編碼。**encodingName** 屬性可讓您使用字碼頁名稱，對 TextFormat 類型的資料表指定編碼。如需有效編碼名稱的清單，請參閱：Encoding.EncodingName 屬性。例如：windows-1250 或 shift_jis。預設值為 UTF-8。請參閱「[Encoding 類別](https://msdn.microsoft.com/library/system.text.encoding.aspx)」，取得有效的編碼名稱。
 
 ## 另請參閱
 
@@ -341,10 +340,11 @@
 
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[azure-table-data-type]: https://msdn.microsoft.com/en-us/library/azure/dd179338.aspx
+[azure-table-data-type]: https://msdn.microsoft.com/zh-tw/library/azure/dd179338.aspx
 
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

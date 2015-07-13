@@ -1,31 +1,31 @@
-## How to deploy with Azure CLI
+## 如何使用 Azure CLI 部署
 
-1. Login to your Azure account.
+1. 登入您的 Azure 帳戶。
 
         azure login
 
-  After providing your credentials, the command returns the result of your login.
+  提供您的認證之後，命令會傳回您的登入的結果。
 
         ...
         info:    login command OK
 
-2. If you have multiple subscriptions, provide the subscription id you wish to use for deployment.
+2. 如果您有多個訂用帳戶，請提供您想要用於部署的訂用帳戶識別碼。
 
         azure account set <YourSubscriptionNameOrId>
 
-3. Switch to Azure Resource Manager module
+3. 切換至 Azure 資源管理員模組
 
         azure config mode arm
 
-   You will receive confirmation of the new mode.
+   您會收到新模式的確認。
 
         info:     New mode is arm
 
-4. If you do not have an existing resource group, create a new resource group. Provide the name of the resource group and location that you need for your solution.
+4. 如果您沒有現有資源群組，請建立新的資源群組。提供您的解決方案所需的資源群組名稱和位置。
 
         azure group create -n ExampleResourceGroup -l "West US"
 
-   A summary of the new resource group is returned.
+   隨即傳回新資源群組的摘要。
 
         info:    Executing command group create
         + Getting resource group ExampleResourceGroup
@@ -39,23 +39,23 @@
         data:
         info:    group create command OK
 
-5. To create a new deployment for your resource group, run the following command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario.
+5. 若要建立資源群組的新部署，請執行下列命令，並提供必要的參數。參數會包含您部署的名稱、資源群組的名稱、您建立之範本的路徑或 URL，以及您的案例所需的任何其他參數。
 
-   You have the following options for providing parameter values:
+   您有下列選項可以用來提供參數值：
 
-   - Use inline parameters and a local template.
+   - 使用內嵌參數和本機範本。
 
              azure group deployment create -f <PathToTemplate> {"ParameterName":"ParameterValue"} -g ExampleResourceGroup -n ExampleDeployment
 
-   - Use inline parameters and a link to a template.
+   - 使用內嵌參數和範本的連結。
 
              azure group deployment create --template-uri <LinkToTemplate> {"ParameterName":"ParameterValue"} -g ExampleResourceGroup -n ExampleDeployment
 
-   - Use a parameter file.
+   - 使用參數檔案。
 
              azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-  When the resource group has been deployed, you will see a summary of the deployment.
+  部署資源群組之後，您會看到部署的摘要。
 
          info:    Executing command group deployment create
          + Initializing template configurations and parameters
@@ -64,10 +64,12 @@
          info:    group deployment create command OK
 
 
-6. To get information about your latest deployment.
+6. 取得最新部署的相關資訊。
 
          azure group log show -l ExampleResourceGroup
 
-7. To get detailed information about deployment failures.
+7. 取得部署失敗的詳細資訊。
 
          azure group log show -l -v ExampleResourceGroup
+
+<!---HONumber=62-->

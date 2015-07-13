@@ -2,13 +2,13 @@
 
 [**Apache Storm**](https://storm.incubator.apache.org) 是分散式即時運算系統，可簡化未繫結資料串流的可靠處理。本節顯示如何使用事件中心 Storm Spout 接收來自事件中心的事件。使用 Apache Storm，您可以將事件分割到多個裝載於不同節點的處理序。事件中心與 Storm 的整合透過使用 Storm 的 Zookeeper 安裝透明地設定檢查點以檢查其進度、管理持續檢查點以及來自事件中心的平行接收，以簡化事件的使用。
 
-如需事件中心接收模式的詳細資訊，請參閱[事件中心概觀]。
+如需事件中樞接收模式的詳細資訊，請參閱[事件中樞概觀]。
 
-本教學課程使用 [HDInsight Storm] 安裝，其包含在已可使用的事件中心 Spout 中。
+本教學課程使用 [HDInsight Storm] 安裝，其包含在已可使用的事件中樞 Spout 中。
 
-1. 請依照 [HDInsight Storm - 入門](../articles/hdinsight-storm-getting-started.md) 程序來建立新的 HDInsight 叢集，並透過遠端桌面與其連線。
+1. 請遵循 [HDInsight Storm - 入門](../articles/hdinsight-storm-getting-started.md)程序來建立新的 HDInsight 叢集，並透過遠端桌面與其連線。
 
-2. 將  `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` 檔案複製到本機開發環境。這包含 events-storm-spout。
+2. 將 `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` 檔案複製到本機開發環境。這包含 events-storm-spout。
 
 3. 使用下列命令將封裝安裝到本機 Maven 存放區。這樣可讓您在稍後的步驟中將它加入 Storm 專案中做為參考。
 
@@ -24,7 +24,7 @@
 
 7. 插入 **GroupId** 和 **ArtifactId**，然後按一下 [**完成**]
 
-8. 在 **pom.xml**中，於 '<dependency>' 節點中新增下列相依性。
+8. 在 **pom.xml**中，於 `<dependency>` 節點中新增下列相依性。
 
 		<dependency>
 			<groupId>org.apache.storm</groupId>
@@ -94,7 +94,7 @@
 			@Override
 			public void execute(Tuple tuple) {
 				String value = tuple.getString(0);
-				logger.info("Tuple value:" + value);
+				logger.info("Tuple value: " + value);
 
 				collector.ack(tuple);
 			}
@@ -154,11 +154,11 @@
 				int receiverCredits = Integer.parseInt(properties
 						.getProperty("eventhub.receiver.credits")); // prefetch count
 																	// (opt)
-				System.out.println("Eventhub spout config:");
-				System.out.println("  partition count:" + partitionCount);
-				System.out.println("  checkpoint interval:"
+				System.out.println("Eventhub spout config: ");
+				System.out.println("  partition count: " + partitionCount);
+				System.out.println("  checkpoint interval: "
 						+ checkpointIntervalInSeconds);
-				System.out.println("  receiver credits:" + receiverCredits);
+				System.out.println("  receiver credits: " + receiverCredits);
 
 				spoutConfig = new EventHubSpoutConfig(username, password,
 						namespaceName, entityPath, partitionCount, zkEndpointAddress,
@@ -220,7 +220,7 @@
 	這個類別會建立新的事件中心 Spout，方法是使用組態檔中的屬性來進行具現化。請務必注意此範例所建立的 Spouts 工作數目要與事件中心內的磁碟分割數目一樣多，才能使用該事件中心所允許的最大平行處理。
 
 <!-- Links -->
-[事件中心概觀]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[事件中樞概觀]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 [HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
 [HDInsight 感應器分析教學課程]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 
@@ -230,4 +230,4 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!--HONumber=52--> 
+<!---HONumber=62-->

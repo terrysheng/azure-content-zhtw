@@ -82,7 +82,7 @@
 * 建置或總和檢查碼驗證錯誤？
  * 嘗試使用特定版本，例如：* `<version>0.9.n</version>`。您可以在 [SDK 版本資訊](app-insights-release-notes-java.md)或 [Maven 成品](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)中找到最新版本。
 * 更新為新版 SDK
- * 請重新整理專案的相依性。
+ * 請重新整理專案的相依項目。
 
 #### 如果您使用 Gradle...
 
@@ -101,7 +101,7 @@
 
 * *建置或總和檢查碼驗證錯誤？ 嘗試使用特定版本，例如：* `version:'0.9.n'`。您可以在* [SDK 版本資訊](app-insights-release-notes-java.md)*中找到最新版本。 
 * 更新為新版 SDK
- * 請重新整理專案的相依性。
+ * 請重新整理專案的相依項目。
 
 #### 否則...
 

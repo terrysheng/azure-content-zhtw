@@ -32,49 +32,49 @@ Umbraco CMS 是個功能齊全的開放原始碼內容管理系統，可用來�
 
 1. 登入 [Azure 預覽入口網站](https://portal.azure.com/)。
 
-2. 選擇 [Marketplace]**** 圖示。
+2. 選擇 [Marketplace] 圖示。
 	
 	![Choose Web Gallery][01Startboard]
 	
-3. 在 [Marketplace]**** 中，選取 [Web Apps]**** 索引標籤，然後選取 [Umbraco CMS]****。
+3. 在 [Marketplace] 中，選取 [Web Apps] 索引標籤，然後選取 [Umbraco CMS]。
 	
 	![Select Umbraco in the Web Gallery][02WebGallery]
 	
-4. 若要建立新的 Umbraco CMS Web 應用程式，請按一下 [建立]****。
+4. 若要建立新的 Umbraco CMS Web 應用程式，請按一下 [建立]。
 	
 	![Click Create][03UmbracoCMS]
 	
-5. 下一個步驟是設定所有與 Umbraco CMS 相關的資源。在此案例中的資源是 Web 應用程式和 SQL Server 資料庫。首先，選取 [Web 應用程式]**** 以進行 Web 應用程式設定，例如 [URL]****、[應用程式服務計劃]****、[Web 應用程式設定]**** 和 [位置]****。
+5. 下一個步驟是設定所有與 Umbraco CMS 相關的資源。在此案例中的資源是 Web 應用程式和 SQL Server 資料庫。首先，選取 [Web 應用程式] 以進行 Web 應用程式設定，例如 [URL]、[應用程式服務計劃]、[Web 應用程式設定] 和 [位置]。
 	
 	![Configure resources][04AppSettings]
 	
-6. 現在開始設定資料庫。選取 [資料庫]****，然後選擇 [伺服器]****。本範例將為 Azure 上的資料庫建立 SQL Server。
+6. 現在開始設定資料庫。選取 [資料庫]，然後選擇 [伺服器]。本範例將為 Azure 上的資料庫建立 SQL Server。
 	
 	![Create a SQL Server on Azure][05NewServer]
 	
-7. 現在已設定好 Web 應用程式和資料庫，您可以開始部署應用程式，方法是在第一個 [Umbraco CMS]**** 分頁 (上圖中所示) 的底部上，按一下 [建立]****。
+7. 現在已設定好 Web 應用程式和資料庫，您可以開始部署應用程式，方法是在第一個 [Umbraco CMS] 分頁 (上圖中所示) 的底部上，按一下 [建立]。
 	
 	![Click Create][06UmbracoCMSGroup]
 	
-完成部署之後，入口網站將會顯示您的 Umbraco CMS Web 應用程式的資源群組分頁。在 [摘要]**** 區段中，按一下 Web 應用程式名稱以檢視 Web 應用程式屬性。另外，在 [摘要]**** 區段中，您還可以選取資料庫資源，以查看相關資料庫的屬性。
+完成部署之後，入口網站將會顯示您的 Umbraco CMS Web 應用程式的資源群組分頁。在 [摘要] 區段中，按一下 Web 應用程式名稱以檢視 Web 應用程式屬性。另外，在 [摘要] 區段中，您還可以選取資料庫資源，以查看相關資料庫的屬性。
 	
 ![][07UmbracoCMSGroupBlade]
 
 ## 啟動和設定 Umbraco CMS Web 應用程式 ##
 
-1. 在 Web 應用程式的詳細資料分頁中，按一下 [瀏覽]**** 以瀏覽您的 Web 應用程式。
+1. 在 Web 應用程式的詳細資料分頁中，按一下 [瀏覽] 以瀏覽您的 Web 應用程式。
 	
 	![Browse to your site][08UmbracoCMSGroupRunning]
 	
-2. 瀏覽 Web 應用程式時，Umbraco CMS 會啟動其安裝程式精靈。輸入要求的資訊，然後按一下 [自訂]****。
+2. 瀏覽 Web 應用程式時，Umbraco CMS 會啟動其安裝程式精靈。輸入要求的資訊，然後按一下 [自訂]。
 	
 	![Install Umbraco wizard][09InstallUmbraco7]
 	
-3. 輸入 Umbraco 即將使用的資料庫連線和驗證詳細資料。在資料庫類型中選取 [Microsoft SQL Azure]****。您可以從 Web 應用程式的 [網站設定]**** 區段中取得資料庫的連接字串。
+3. 輸入 Umbraco 即將使用的資料庫連線和驗證詳細資料。在資料庫類型中選取 [Microsoft SQL Azure]。您可以從 Web 應用程式的 [網站設定] 區段中取得資料庫的連接字串。
 	
 	![Configure your database][10ConfigureYourDatabase]
 	
-4. 如果您不熟悉 Umbraco CMS，您可以選取網站入門套件。您也可以按一下 [No thanks, I do not want to install a starter website] ****。
+4. 如果您不熟悉 Umbraco CMS，您可以選取網站入門套件。您也可以按一下 [No thanks, I do not want to install a starter website] 。
 	
 	![Install a starter website][11InstallAStarterWebsite]
 	
@@ -82,11 +82,11 @@ Umbraco CMS 是個功能齊全的開放原始碼內容管理系統，可用來�
 	
 	![Umbraco CMS dashboard][14FriendlyCMS]
 	
-6. 您現在可以建立您將發行的範例文字頁面。依序選取 [連線]****、[溢位]**** 及 [TextPage]****。
+6. 您現在可以建立您將發行的範例文字頁面。依序選取 [連線]、[溢位] 及 [TextPage]。
 	
 	![Create a text page][15CreateItemUnderOverflow]
 	
-7. 輸入文字頁面的標題和部分內容，如下所示。結束時，請按一下 [儲存並發行]****。
+7. 輸入文字頁面的標題和部分內容，如下所示。結束時，請按一下 [儲存並發行]。
 	
 	![Enter a title and some content][16EnterAName]
 	
@@ -133,5 +133,6 @@ Umbraco CMS 是個功能齊全的開放原始碼內容管理系統，可用來�
 [15CreateItemUnderOverflow]: ./media/web-sites-gallery-umbraco/15CreateItemUnderOverflow.PNG
 [16EnterAName]: ./media/web-sites-gallery-umbraco/16EnterAName.PNG
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

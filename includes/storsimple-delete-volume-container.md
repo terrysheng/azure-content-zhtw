@@ -1,27 +1,11 @@
-<properties 
-   pageTitle="Delete a StorSimple volume container"
-   description="Explains how you can use the StorSimple Manager service volume containers page to delete a volume container."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/13/2015"
-   ms.author="v-sharos" />
+#### 刪除磁碟區容器
 
+1. 在 [**裝置**] 頁面中，選取並按兩下裝置，然後按一下 [**磁碟區容器**] 索引標籤。
 
-#### To delete a volume container
+2. 選取您想要刪除的磁碟區容器。
 
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
+3. 磁碟區容器沒有相關聯的磁碟區時，才能刪除它。按一下頁面底部的 [**刪除**] 以刪除此容器。系統提示您進行確認時，按一下 [是]。這將會刪除磁碟區容器。
 
-2. Select the volume container you want to delete.
+如果磁碟區容器有相關聯的磁碟區，您必須先讓那些磁碟區依照[讓磁碟區離線](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline)中的步驟離線。磁碟機離線後，才可以刪除它們。當磁碟區容器沒有相關聯的磁碟區時，則依照前面所述刪除磁碟區容器。
 
-3. If a volume container has no associated volumes, then it can be deleted. Click **Delete** at the bottom of the page to delete this container. When prompted for confirmation, click **Yes**. This will delete the volume container.
-
-If the volume container has associated volumes, you will first need to take those volumes offline by following the steps in [Take a volume offline](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). After the volumes are offline, you can delete them. When the volume container has no associated volumes, delete the volume container as described above.
+<!---HONumber=62-->

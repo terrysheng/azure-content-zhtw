@@ -145,7 +145,7 @@ Azure Data Factory 編輯器是 Azure Preview 入口網站中的簡易型 Web �
 
 ![[加入活動] 選項][add-activity-options]
 
-如果您要將資料從 Azure SQL Database 複製到 Azure Blob 儲存體，並在 HDInsight 叢集上使用 Pig 指令碼來處理 Blob 儲存體中的資料，請先將**複製活動**加入至管線，再將 **Pig 活動**加入至管線。這樣會在管線 JSON 的 [activities] 區段中建立兩個區段。Pig 活動只是 HDInsight 活動再加上 Pig 轉換。
+如果您要將資料從 Azure SQL Database 複製到 Azure Blob 儲存體，並在 HDInsight 叢集上使用 Pig 指令碼來處理 Blob 儲存體中的資料，請先將**複製活動**加入至管線，再將 **Pig 活動**加入至管線。這樣會在管線 JSON 的 [活動] 區段中建立兩個區段。Pig 活動只是 HDInsight 活動再加上 Pig 轉換。
 
 	"activities": [
     	{
@@ -221,4 +221,4 @@ Azure Data Factory 編輯器是 Azure Preview 入口網站中的簡易型 Web �
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

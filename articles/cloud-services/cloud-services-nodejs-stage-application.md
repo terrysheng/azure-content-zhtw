@@ -41,15 +41,15 @@
 
     **Publish-AzureServiceProject -Slot staging**
 
-2.  登入 [Azure 管理入口網站]，選取 [雲端服務]****。當雲端服務已建立且 [預備]**** 欄狀態更新為 [正在執行]**** 之後，按一下服務名稱。
+2.  登入 [Azure 管理入口網站]，選取 [雲端服務]。當雲端服務已建立且 [預備] 欄狀態更新為 [正在執行] 之後，按一下服務名稱。
 
 	![portal displaying a running service][cloud-service]
 
-3.  選取 [儀表板]****，然後選取 [預備]****。
+3.  選取 [儀表板]，然後選取 [預備]。
 
 	![cloud service dashboard][cloud-service-dashboard]
 
-4. 請注意右邊的 [網站 URL]**** 項目中的值。DNS 名稱是 Azure 產生的隱藏內部識別碼。
+4. 請注意右邊的 [網站 URL] 項目中的值。DNS 名稱是 Azure 產生的隱藏內部識別碼。
 
     ![site url][cloud-service-staging-url]
 
@@ -63,13 +63,13 @@
 
 > [AZURE.NOTE]此步驟假設您已將應用程式部署至生產環境，也已預備應用程式的升級版本。
 
-1.  登入 [Azure 管理入口網站]，按一下 [雲端服務]****，然後選取服務名稱。
+1.  登入 [Azure 管理入口網站]，按一下 [雲端服務]，然後選取服務名稱。
 
-2.  從 [儀表板]**** 中，選取 [預備]****，然後按一下頁面底部的 [交換]****。這樣會開啟 [VIP 交換] 對話方塊。
+2.  從 [儀表板] 中，選取 [預備]，然後按一下頁面底部的 [交換]。這樣會開啟 [VIP 交換] 對話方塊。
 
     ![vip swap dialog][vip-swap-dialog]
 
-3.  檢閱資訊，然後按一下 [確定]****。兩個部署開始更新，預備部署會切換至生產環境，而生產部署會切換至預備環境。
+3.  檢閱資訊，然後按一下 [確定]。兩個部署開始更新，預備部署會切換至生產環境，而生產部署會切換至預備環境。
 
 您已與預備中的部署交換 IP，順利預備部署並升級生產部署。
 
@@ -78,15 +78,16 @@
 - [如何在 Azure 中交換 VIP 將服務升級部署至生產環境]
 - [在 Azure 中管理部署的概觀]
 
-[步驟 1：預備應用程式]: #step1
-[Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
-[步驟 2：交換 VIP 將應用程式部署至生產環境]: #step2
-[Azure 管理入口網站]: http://manage.windowsazure.com
+  [步驟 1：預備應用程式]: #step1
+  [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
+  [步驟 2：交換 VIP 將應用程式部署至生產環境]: #step2
+  [Azure 管理入口網站]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
-[cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
-[vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-[如何在 Azure 中交換 VIP 將服務升級部署至生產環境]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
-[在 Azure 中管理部署的概觀]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
+  [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
+  [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
+  [如何在 Azure 中交換 VIP 將服務升級部署至生產環境]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
+  [在 Azure 中管理部署的概觀]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

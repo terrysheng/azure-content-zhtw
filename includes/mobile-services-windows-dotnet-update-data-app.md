@@ -69,4 +69,5 @@
 	This sends an item update to the mobile service.
 
 應用程式現已更新為使用行動服務進行後端儲存，我們可以開始在行動服務中測試應用程式。
-<!--HONumber=54-->
+
+<!---HONumber=62-->

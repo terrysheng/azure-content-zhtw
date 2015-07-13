@@ -87,4 +87,4 @@
 * [MSDN 上的 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

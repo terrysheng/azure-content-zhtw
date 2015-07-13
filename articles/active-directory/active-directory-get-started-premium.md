@@ -122,4 +122,7 @@ Microsoft 雲端服務的服務和功能可用性會依國家或地區而有所�
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=62-->

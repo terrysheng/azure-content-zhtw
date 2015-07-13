@@ -56,10 +56,12 @@
 		<th>Azure SQL Database</th>
 		<th>內部部署 SQL Server</th>
 		<th>IaaS 上的 SQL Server</th>
+		<th>Azure DocumentDB</th>
 	</tr>	
 
 	<tr>
 		<td><b>Azure Blob</b></td>
+		<td>X</td>
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
@@ -74,10 +76,12 @@
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td>X</td>
 	</tr>	
 
 	<tr>
 		<td><b>Azure SQL Database</b></td>
+		<td>X</td>
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
@@ -93,6 +97,7 @@
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
 	<tr>
@@ -102,11 +107,13 @@
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
 	<tr>
 		<td><b>內部部署檔案系統</b></td>
 		<td>X</td>
+		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -120,13 +127,85 @@
 		<td></td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
+	<tr>
+		<td><b>內部部署檔案系統</b></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>內部部署 MySQL 資料庫</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>內部部署 DB2 資料庫</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>內部部署 Teradata 資料庫</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>內部部署 Sybase 資料庫</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>內部部署 PostgreSQL 資料庫</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Azure DocumentDB</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
 
 </table>
 
+請參閱MSDN Library 上的「[支援的來源與接收](https://msdn.microsoft.com/library/dn894007.aspx)」主題，以了解詳細資料。
+
 ### 基礎架構即服務 (IaaS) 上的 SQL
-SQL Server IaaS 上也支援做為來源與接收。在 IaaS 上建立連結至 SQL Server 服務時，需要資料管理閘道器。您應該考慮安裝一個裝載 SQL Server，以避免效能降低，因為 SQL Server 和閘道競爭資源以外的虛擬機器中的資料管理閘道器。如需有關「資料管理閘道」的詳細資料，請參閱[讓您的管線使用內部部署資料][use-onpremises-datasources]。
+IaaS 上的 SQL Server 也可以當做來源和接收器受到支援。必須有資料管理閘道，才能與 IaaS 上的 SQL Server 建立連結服務。您應該考慮在裝載 SQL Server 外的其他虛擬機器上安裝資料管理閘道，以避免因 SQL Server 和閘道競爭資源所造成的效能降低。如需有關「資料管理閘道」的詳細資料，請參閱[讓您的管線使用內部部署資料][use-onpremises-datasources]。
 
 1.	具有公用 DNS 名稱以及靜態公用連接埠：私用連接埠對應的 VM
 2.	具有公用 DNS 名稱、但未公開 SQL 端點的 VM
@@ -146,7 +225,7 @@ SQL Server IaaS 上也支援做為來源與接收。在 IaaS 上建立連結至 
 一個複製活動可以有一個**輸入資料表**和一個**輸出資料表**。
 
 ## <a name="CopyActivityJSONSchema"></a>複製活動的 JSON
-管線由一或多個活動所組成。管線中的活動定義於 [**活動[]**] 區段中。管線的 JSON 如下所示：
+管線由一或多個活動所組成。管線中的活動是在 [**活動**] 區段中定義。管線的 JSON 如下所示：
          
 	{
 		"name": "PipelineName",
@@ -364,7 +443,7 @@ SQL Server IaaS 上也支援做為來源與接收。在 IaaS 上建立連結至 
 
 若是 **Azure SQL Database**，明確要求加密的連線，且不要信任伺服器憑證，以避免「攔截式」攻擊。若要達到此目的，請在連接字串中使用 **Encrypt = True** 和 **TrustServerCertificate = False**。如需詳細資訊，請參閱 Azure [SQL Database 方針和限制](https://msdn.microsoft.com/library/azure/ff394108.aspx)。
 
-若是傳統的資料庫 (例如 **SQL Server**，尤其當執行個體位於 Azure 虛擬機器中時)，可透過設定簽署的憑證，並在連接字串中設定 **Encrypt = True** 和 **TrustServerCertificate = False** 來啟用加密的連接選項。如需詳細資訊，請參閱[啟用 Database Engine 的加密連線](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) 和[連接字串語法](https://msdn.microsoft.com/library/ms254500.aspx)。
+若是傳統的資料庫 (例如 **SQL Server**，尤其當執行個體位於 Azure 虛擬機器中時)，可透過設定簽署的憑證，並在連接字串中設定 **Encrypt = True** 和 **TrustServerCertificate = False** 來啟用加密的連接選項。如需詳細資訊，請參閱 [啟用 Database Engine 的加密連接 (SQL Server 組態管理員)](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) 和「[連接字串語法](https://msdn.microsoft.com/library/ms254500.aspx)」。
 
 ## 進階案例
 - **使用結構定義的資料行篩選**。根據資料表的類型，您可以藉由在資料表定義的**結構**定義中指定比存在於基礎資料來源中的資料行還少的資料行，來指定資料行的子集。
@@ -405,5 +484,6 @@ SQL Server IaaS 上也支援做為來源與接收。在 IaaS 上建立連結至 
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

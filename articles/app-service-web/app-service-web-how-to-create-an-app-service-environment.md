@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="如何建立 App Service 環境" 
 	description="App Service 的建立流程說明" 
-	services="app-services\web" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
 	editor=""/>
 
 <tags 
-	ms.service="app-services-web" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -126,7 +126,10 @@ App Service 環境的定價是根據指派的計算資源。無論是否裝載�
 
 如需有關 Azure App Service 平台的詳細資訊，請參閱 [Azure App Service][AzureAppService]。
 
+[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
+[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
+ 
 
 <!--Image references-->
 [1]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseblade.png
@@ -138,5 +141,5 @@ App Service 環境的定價是根據指派的計算資源。無論是否裝載�
 [ASEConfig]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

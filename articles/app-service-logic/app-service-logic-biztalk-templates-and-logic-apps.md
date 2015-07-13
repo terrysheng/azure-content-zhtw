@@ -16,8 +16,9 @@
 	ms.date="03/05/2015" 
 	ms.author="jtwist"/>
 
-## BizTalk 範本和邏輯應用程式
+##BizTalk 範本和邏輯應用程式
 
-### 這份文件即將推出。
+###這份文件即將推出。
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=62-->

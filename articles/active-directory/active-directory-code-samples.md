@@ -87,7 +87,7 @@
 
 ## 伺服器或精靈應用程式到 Web API
 
-這些程式碼範例示範如何建置精靈或伺服器應用程式，以使用  [Azure AD 驗證程式庫 (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) 和 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx) 從 Web API 取得資源。
+這些程式碼範例示範如何建置精靈或伺服器應用程式，以使用 [Azure AD 驗證程式庫 (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) 和 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx) 從 Web API 取得資源。
 
 | 語言/平台 | 範例 | 說明
 | ----------------- | ------ | -----------
@@ -150,4 +150,9 @@ PHP | [Azure AD Graph API 的 PHP 範例應用程式](http://code.msdn.microsoft
 
 [使用 OAuth 和 Active Directory Federation Services 開發現代化的應用程式](http://msdn.microsoft.com/library/dn633593.aspx)
 
-<!---HONumber=58--> 
+
+
+
+ 
+
+<!---HONumber=62-->

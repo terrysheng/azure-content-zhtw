@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="如何為您的應用程式服務應用程式設定 Google 驗證"
-	description="了解如何為您的應用程式服務應用程式設定 Google 驗證。" 
-    services="app-service\mobile" 
-	documentationCenter="" 
-	authors="mattchenderson,ggailey777" 
-	manager="dwrede" 
+	description="了解如何為您的應用程式服務應用程式設定 Google 驗證。"
+    services="app-service\mobile"
+	documentationCenter=""
+	authors="mattchenderson" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="02/19/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="05/26/2015"
 	ms.author="mahender"/>
 
 # 如何設定應用程式以使用 Google 登入
@@ -26,7 +26,7 @@
 
 1. 瀏覽至 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> 網站，以您的 Google 帳戶認證登入，按一下 [**建立專案**]，提供 [**名稱**]，然後按一下 [**建立**]。
 
-2. 在左側導覽列中，按一下 [**API 和驗證**]。然後按一下 [**同意畫面**]。選取您的 [**電子郵件地址**]，並輸入 [**產品名稱**]。然後按一下 [儲存]****。
+2. 在左側導覽列中，按一下 [**API 和驗證**]。然後按一下 [**同意畫面**]。選取您的 [**電子郵件地址**]，並輸入 [**產品名稱**]。然後按一下 [儲存]。
 
 3. 同時在 [**API 和驗證**] 下選取 [**API**]，並啟用 [**Google+ API**]。
 
@@ -45,7 +45,7 @@
 
 7. 登入 [Azure 管理入口網站]，然後導覽至您的 App Services 閘道。
 
-8. 在 [**設定**] 下選擇 [**身分識別**]，然後選取 [**Google**]。貼入您先前取得的用戶端識別碼和用戶端密鑰值。然後按一下 [儲存]****。
+8. 在 [**設定**] 下選擇 [**身分識別**]，然後選取 [**Google**]。貼入您先前取得的用戶端識別碼和用戶端密鑰值。然後按一下 [儲存]。
 
      ![][1]
 
@@ -69,5 +69,6 @@
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 
 [Azure 管理入口網站]: https://portal.azure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

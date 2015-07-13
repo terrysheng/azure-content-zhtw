@@ -28,11 +28,11 @@
 遵循[這些指示](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache)以建立快取。
 
 <h2><a id="configureproject"></a>將 RedisSessionStateProvider NuGet 封裝新增至 Web 應用程式</h2>
-安裝 NuGet `RedisSessionStateProvider` 封裝。從封裝管理員主控台 (**Tools** > [NuGet 封裝管理員]**** > [封裝管理員主控台]****) 中使用下列命令來安裝：
+安裝 NuGet `RedisSessionStateProvider` 封裝。從封裝管理員主控台 (**Tools** > [NuGet 封裝管理員] > [封裝管理員主控台]) 中使用下列命令來安裝：
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
   
-若要從 [工具]**** > [NuGet 封裝管理員]**** > [管理解決方案的 NuGet 封裝]**** 安裝，可搜尋 `RedisSessionStateProvider`。
+若要從 [工具] > [NuGet 封裝管理員] > [管理解決方案的 NuGet 封裝] 安裝，可搜尋 `RedisSessionStateProvider`。
 
 如需詳細資訊，請參閱 [NuGet RedisSessionStateProvider 頁面](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/)和[設定快取用戶端](../cache-dotnet-how-to-use-azure-redis-cache.md#NuGet) 。
 
@@ -45,13 +45,13 @@
 
 
   <pre class="prettyprint">  
-    &lt;system.web&gt;
-    &lt;customErrors mode="Off" /&gt;
-    &lt;authentication mode="None" /&gt;
-    &lt;compilation debug="true" targetFramework="4.5" /&gt;
-    &lt;httpRuntime targetFramework="4.5" /&gt;
-  &lt;sessionState mode="Custom" customProvider="RedisSessionProvider"&gt;
-      &lt;providers&gt;  
+    &lt;system.web>
+    &lt;customErrors mode="Off" />
+    &lt;authentication mode="None" />
+    &lt;compilation debug="true" targetFramework="4.5" />
+    &lt;httpRuntime targetFramework="4.5" />
+  &lt;sessionState mode="Custom" customProvider="RedisSessionProvider">
+      &lt;providers>  
           &lt;!--&lt;add name="RedisSessionProvider" 
             host = "127.0.0.1" [String]
             port = "" [number]
@@ -61,17 +61,17 @@
             retryTimeoutInMilliseconds = "0" [number]
             databaseId = "0" [number]
             applicationName = "" [String]
-          /&gt;--&gt;
+          />-->
          &lt;add name="RedisSessionProvider" 
               type="Microsoft.Web.Redis.RedisSessionStateProvider" 
               <mark>port="6380"
               host="movie2.redis.cache.windows.net" 
               accessKey="m7PNV60CrvKpLqMUxosC3dSe6kx9nQ6jP5del8TmADk=" 
-              ssl="true"</mark> /&gt;
-      &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" /&gt;--&gt;
-      &lt;/providers&gt;
-    &lt;/sessionState&gt;
-  &lt;/system.web&gt;</pre>
+              ssl="true"</mark> />
+      &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" />-->
+      &lt;/providers>
+    &lt;/sessionState>
+  &lt;/system.web></pre>
 
 
 <h2><a id="usesessionobject"></a>在程式碼中使用工作階段物件</h2>
@@ -96,16 +96,17 @@
 
   *作者：[Rick Anderson](https://twitter.com/RickAndMSFT)*
   
-[installed the latest]: http://www.windowsazure.com/downloads/?sdk=net
-[ASP.NET 工作階段狀態概觀]: http://msdn.microsoft.com/library/ms178581.aspx
+  [installed the latest]: http://www.windowsazure.com/downloads/?sdk=net
+  [ASP.NET 工作階段狀態概觀]: http://msdn.microsoft.com/library/ms178581.aspx
 
-[NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
-[NewCacheDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png
-[CacheIcon]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheIcon.png
-[NuGetDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_NuGet.png
-[OutputConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_OC_WebConfig.png
-[CacheConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheConfig.png
-[EndpointURL]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png
-[ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
+  [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
+  [NewCacheDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png
+  [CacheIcon]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheIcon.png
+  [NuGetDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_NuGet.png
+  [OutputConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_OC_WebConfig.png
+  [CacheConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheConfig.png
+  [EndpointURL]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png
+  [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

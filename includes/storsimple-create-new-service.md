@@ -1,21 +1,3 @@
-<properties 
-   pageTitle="建立新的 StorSimple Manager 服務"
-   description="說明如何建立 StorSimple Manager 服務的新執行個體。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/28/2015"
-   ms.author="v-sharos" />
-
-
 #### 建立新服務
 
 1. 使用您的 Microsoft 帳戶認證登入「管理入口網站」，URL 如下：[http://azure.microsoft.com/](http://azure.microsoft.com/)

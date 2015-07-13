@@ -81,7 +81,7 @@ App Service Web Apps 提供一個既穩定又可靠的平台，此平台已證�
 
 Microsoft Azure 平台允許角色型權限控管，針對 Web Apps 中的資源提供企業層級的控管。RBAC 可讓企業在 Azure 環境中實作所有資產的專屬存取管理原則，方法是將使用者指派給群組，並針對資產 (例如 Web 應用程式) 依序將必要權限指派給這些群組。如需有關 Azure 中 RBAC 的詳細資訊，請參閱 [http://aka.ms/azurerbac](../role-based-access-control-configure/)。透過使用 Web Apps，您可以確定您的 Web 應用程式會在安全的環境中進行部署，而且您會擁有部署資產所在領域的完整控制權。
 
-此外，透過提供連線回到內部資源 (例如您的資料倉儲或 SharePoint 環境) 的能力，Web Apps 還能充分運用您的內部部署投資。如[高階解決方案]中所述，您可以利用混合式連線和虛擬網路連線來建立內部部署基礎結構和服務之間的連線。
+此外，透過提供連線回到內部資源 (例如您的資料倉儲或 SharePoint 環境) 的能力，Web Apps 還能充分運用您的內部部署投資。如 [高階解決方案] 中所述，您可以利用混合式連線和虛擬網路連線來建立內部部署基礎結構和服務之間的連線。
 
 ### 全球規模 ###
 
@@ -152,5 +152,6 @@ App Service Web Apps 針對快速發展環境中的企業動態需求，提供�
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

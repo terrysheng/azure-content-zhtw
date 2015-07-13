@@ -20,12 +20,9 @@
         </receiver>
 
 
-4. 在應用程式目錄中 **build.gradle** 檔案的 *dependencies* 底下新增下列程式碼行：
+4. 在應用程式目錄中 **build.gradle** 檔案的 *dependencies* 底下新增下列程式碼行，並重新同步 gradle 與專案：
 
-	    compile 'com.google.guava:guava:18.0'
-	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0-beta'
 	    compile(group: 'com.microsoft.azure', name: 'azure-notifications-handler', version: '1.0.1', ext: 'jar')
-   		compile 'com.google.android.gms:play-services-base:6.5.87'
 
 
 5. 開啟 *ToDoItemActivity.java* 檔案，新增下列 import 陳述式：
@@ -37,15 +34,15 @@
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
-7. 將 *MobileServiceClient* 的定義從**** [私用] 變更為**** [公用靜態]，如下所示：
+7. 將 *MobileServiceClient* 的定義從 [私用] 變更為 [公用靜態]，如下所示：
 
 		public static MobileServiceClient mClient;
 
 
 
-8. 接下來我們需要加入新類別來處理通知。在 [專案總管] 中，尋找 `src` 節點並將它開啟，然後以滑鼠右鍵按一下封裝名稱節點：按一下 [新增]****，然後按一下 [Java 類別]****。
+8. 接下來我們需要加入新類別來處理通知。在 [專案總管] 中，開啟 **src** => **main** => **java** 節點，然後以滑鼠右鍵按一下封裝名稱節點：按一下 [**新增**]，然後按一下 [**Java 類別**]。
 
-9. 在 [名稱]**** 中，輸入 `MyHandler`，然後按一下 [確定]****。
+9. 在 [名稱] 中，輸入 `MyHandler`，然後按一下 [確定]。
 
 
 	![](./media/mobile-services-android-get-started-push/android-studio-create-class.png)
@@ -138,4 +135,4 @@
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
 
-<!--HONumber=54-->
+<!---HONumber=62-->

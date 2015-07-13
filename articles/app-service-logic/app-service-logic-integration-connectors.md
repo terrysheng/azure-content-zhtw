@@ -100,7 +100,7 @@ BIzTalk XPath 擷取程式 | 根據特定的 XPath 來查詢和擷取來自 XML 
 
 - 檢視資訊和錯誤事件
 - 檢視工作處理序 (w3wp) 的記憶體使用量和執行緒計數
-- 檢視應用程式和 Web 伺服器記錄檔\\
+- 檢視應用程式和 Web 伺服器記錄檔\
 
 另請參閱[監視邏輯應用程式](app-service-logic-monitor-your-logic-apps.md)以取得更多資訊。
 
@@ -128,9 +128,10 @@ Microsoft Azure 應用程式服務會公開可以使用這些整合 API 應用�
 
 
 ## 閱讀關於邏輯應用程式和 Web 應用程式的資訊
-[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)<br/> [Azure 應用程式服務中的網站和 Web 應用程式](../app-service-web/app-service-web-app-azure-portal.md)
+[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)<br/> [Azure 應用程式服務中的網站和 Web 應用程式](../app-service-web/app-service-web-overview.md)
 
 
 ## 其他連接器
 [企業連接器](app-service-logic-enterprise-connectors.md)<br/> [企業對企業連接器](app-service-logic-b2b-connectors.md)<br/> [社交連接器](app-service-logic-social-connectors.md)<br/> [通訊協定連接器](app-service-logic-protocol-connectors.md)<br/> [應用程式 + 資料服務連接器](app-service-logic-data-connectors.md)<br/> [連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/> [什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

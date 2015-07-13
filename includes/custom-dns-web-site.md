@@ -6,7 +6,7 @@
 
 > [AZURE.NOTE]此工作中的程序適用於 Azure 網站；若為雲端服務，請參閱<a href="/develop/net/common-tasks/custom-dns/">在 Azure 中設定自訂網域名稱</a>。
 
-> [AZURE.NOTE]您需要將網站設定為共用或標準模式，才能執行此工作中的步驟，但這可能會變更您的訂閱費用。如需詳細資訊，請參閱<a href="/pricing/details/web-sites/">網站定價詳細資料</a>。
+> [AZURE.NOTE]您需要將網站設定為共用或標準模式，才能執行此工作中的步驟，但這可能會變更您的訂用帳戶費用。如需詳細資訊，請參閱<a href="/pricing/details/web-sites/">網站定價詳細資料</a>。
 
 本文內容：
 
@@ -28,15 +28,15 @@ CNAME 記錄將*特定的*網域 (例如 **contoso.com** 或 **www.contoso.com**
 
 ###A 記錄
 
-A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字元網域* (例如 ***.contoso.com**) 對應至 IP 位址。以 Azure 網站而言，就是指服務的虛擬 IP 或您為網站購買的特定 IP 位址。相較於 C0NAME 記錄，A 記錄的主要優點在於只需要有一個項目使用萬用字元，例如 ***.contoso.com**，即可處理多個子網域的要求，例如 **mail.contoso.com** 、**login.contoso.com** 或 **www.contso.com**。
+A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字元網域* (例如 ***.contoso.com**) 對應至 IP 位址。以 Azure 網站而言，就是指服務的虛擬 IP 或您為網站購買的特定 IP 位址。相較於 C0NAME 記錄，A 記錄的主要優點在於只需要有一個項目使用萬用字元，例如 ***.contoso.com**，即可處理多個子網域的要求，例如 **mail.contoso.com**、**login.contoso.com** 或 **www.contso.com**。
 
 > [AZURE.NOTE]因為 A 記錄會對應至靜態 IP 位址，所以無法自動解析網站 IP 位址的變更。您在設定網站的自訂網域名稱設定時會提供 A 記錄所使用的 IP 位址。不過，如果您刪除又重新建立網站，或將網站模式變回免費，此值就可能改變。
 
 > [AZURE.NOTE]A 記錄無法用於流量管理員的負載平衡。如需詳細資訊，請參閱[使用 Azure 流量管理員來控制 Azure 網站的流量][trafficmanager]。
- 
+
 <a name="bkmk_configsharedmode"></a><h2>將網站設定為共用或標準模式</h2>
 
-只有在 Azure 網站的共用和標準模式中，才能在網站上設定自訂網域名稱。將網站從免費網站模式切換到共用或標準網站模式之前，您必須先移除網站訂閱的支出上限。如需共用與標準模式定價的詳細資訊，請參閱[定價詳細資料][PricingDetails]。
+只有在 Azure 網站的共用和標準模式中，才能在網站上設定自訂網域名稱。將網站從免費網站模式切換到共用或標準網站模式之前，您必須先移除網站訂用帳戶的支出上限。如需共用與標準模式定價的詳細資訊，請參閱[定價詳細資料][PricingDetails]。
 
 1. 在瀏覽器中開啟[管理入口網站][portal]。
 2. 在 [網站] 索引標籤中，按一下您網站的名稱。
@@ -47,7 +47,7 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 
 	![][standardmode2]
 
-	
+
 4. 在 [一般] 區段中，按一下 [共用] 以設定網站模式。
 
 	![][standardmode3]
@@ -57,9 +57,7 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 5. 按一下 [儲存]。
 6. 系統會指出共用模式 (若選擇 [標準]，則為標準模式) 將增加成本，如果同意，請按一下 [是]。
 
-	<!--![][standardmode4]-->
-
-	**注意**<br /> 如果發生『設定網站「網站名稱」的規模失敗』錯誤，您可以利用詳細資料按鈕來取得詳細資訊。
+	<!--![][standardmode4]-->**注意**<br /> 如果發生『設定網站「網站名稱」的規模失敗』錯誤，您可以利用詳細資料按鈕來取得詳細資訊。
 
 <a name="trafficmanager"></a><h2>(選用) 將網站新增至流量管理員</h2>
 
@@ -98,9 +96,9 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 
 <a name="bkmk_configurecname"></a><h2>新增自訂網域的 CNAME</h2>
 
-若要建立 CNAME 記錄，您必須使用註冊機構提供的工具，在 DNS 表格中為自訂網域新增項目。各註冊機構指定 CNAME 記錄的方法都很類似，只是稍微不同，但概念都一樣。
+若要建立 CNAME 記錄，您必須使用註冊機構提供的工具，在 DNS 資料表中為自訂網域新增項目。各註冊機構指定 CNAME 記錄的方法都很類似，只是稍微不同，但概念都一樣。
 
-1. 請利用下列其中一種方法，尋找指派給您網站的 **.azurewebsite.net** 網域名稱。
+1. 請利用下列其中一種方法，尋找指派至您網站的 **.azurewebsite.net** 網域名稱。
 
 	* 登入 [Azure 管理入口網站][portal]、選取您的網站、選取 [儀表板]，然後在 [快速概覽] 區段中尋找 [網站 URL] 項目。
 
@@ -108,7 +106,7 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 
 			get-azurewebsite yoursitename | select hostnames
 
-	* 安裝並設定 [Azure 跨平台命令列介面](/manage/install-and-configure-cli/)，然後使用下列命令：
+	* 安裝並設定 [Azure 命令列介面](/manage/install-and-configure-cli/)，然後使用下列命令：
 
 			azure site domain list yoursitename
 
@@ -118,7 +116,7 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 
 4. 現在，找出可選取或輸入 CNAME 記錄的地方。您可能需要從下拉式清單中或移至進階設定頁面，才能選取記錄類型。請尋找 **CNAME**、**Alias** 或 **Subdomains** 之類的字。
 
-5. 您也必須為 CNAME 提供網域或子網域別名。例如，若要建立 **www.customdomain.com** 的別名，請提供 **www**。如果要建立根網域的別名，註冊機構的 DNS 工具中可能會以 '**@**' 符號列出此別名。
+5. 您也必須為 CNAME 提供網域或子網域別名。例如，若要建立 **www.customdomain.com** 的別名，請提供 **www**。如果要建立根網域的別名，註冊機構的 DNS 工具中可能會以 '**@** 符號列出此別名。
 
 5. 您也必須提供主機名稱，做為此 CNAME 別名的正式網域名稱。這是您網站的 **.azurewebsite.net** 名稱。
 
@@ -143,11 +141,11 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 
 ###將網域名稱新增至網站
 
-當網域名稱的 CNAME 記錄傳播完成之後，您必須將此記錄與網站產生關聯。您可以使用 Azure 跨平台命令列介面或 Azure 管理入口網站，將 CNAME 記錄所定義的自訂網域名稱新增至網站。
+當網域名稱的 CNAME 記錄傳播完成之後，您必須將此記錄與網站產生關聯。您可以使用 Azure 命令列介面 (Azure CLI) 或 Azure 管理入口網站，將 CNAME 記錄所定義的自訂網域名稱新增至網站。
 
 **使用命令列工具新增網域名稱**
 
-安裝並設定 [Azure 跨平台命令列介面](/manage/install-and-configure-cli/)，然後使用下列命令：
+安裝並設定 [Azure 命令列介面](/manage/install-and-configure-cli/)，然後使用下列命令：
 
 	azure site domain add customdomain yoursitename
 
@@ -187,9 +185,9 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 
 	![][setcname2]
 
-5. 在 [管理自訂網域] 對話方塊中，找出 [The IP Address to use when configuring A records]。複製 IP 位址。建立 A 記錄時會使用此位址。
+5. 在 [Manage custom domains] 對話方塊中，找出 [The IP Address to use when configuring A records]。複製 IP 位址。建立 A 記錄時會使用此位址。
 
-5. 在 [管理自訂網域] 對話方塊中，請注意對話方塊頂端的文字結尾的 awverify 網域名稱。應該是 **awverify.mysite.azurewebsites.net**，其中 **mysite** 是您的網站名稱。這是在建立驗證 CNAME 記錄時所使用的網域名稱，請複製下來。
+5. 在 [Manage custom domains] 對話方塊中，請注意對話方塊頂端的文字結尾的 awverify 網域名稱。應該是 **awverify.mysite.azurewebsites.net**，其中 **mysite** 是您的網站名稱。這是在建立驗證 CNAME 記錄時所使用的網域名稱，請複製下來。
 
 6. 登入 DNS 註冊機構的網站，然後移至 DNS 管理頁面。在網站中尋找標示為 **Domain Name**、**DNS** 或 **Name Server Management** 的連結或區域。
 
@@ -203,20 +201,18 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 
 	2. 在提供的欄位中，輸入雲端服務的 IP 位址。這樣會將 A 記錄中使用的網域項目與雲端服務部署的 IP 位址產生關聯。
 
-		例如，下列 A 記錄會將來自 contoso.com 的所有流量轉送至 137.135.70.239 (已部署之應用程式的 IP 位址)：
+		例如，下列 A 記錄會將來自 **contoso.com** 的所有流量轉送至 **137.135.70.239** (已部署之應用程式的 IP 位址)：
 
 		<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-		<tr>
-		<td><strong>Host name/Subdomain</strong></td>
-		<td><strong>IP address</strong></td>
-		</tr>
-		<tr>
-		<td>@</td>
-		<td>137.135.70.239</td>
-		</tr>
-		</table>
-
-		此範例示範建立根網域的 A 記錄。 如果想要建立萬用字元項目來涵蓋所有子網域，請輸入 '__*__' 作為子網域。
+<tr>
+<td><strong>主機名稱/子網域</strong></td>
+<td><strong>IP 位址</strong></td>
+</tr>
+<tr>
+<td>@</td>
+<td>137.135.70.239</td>
+</tr>
+</table>此範例示範建立根網域的 A 記錄。如果想要建立萬用字元項目來涵蓋所有子網域，請輸入 '__*__' 作為子網域。
 
 7. 接下來，建立具有別名 **awverify** 和您稍早取得之正式網域 **awverify.mysite.azurewebsites.net** 的 CNAME 記錄。
 
@@ -239,11 +235,11 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 
 ###將網域名稱新增至網站
 
-當網域名稱的 **awverify** CNAME 記錄傳播完成之後，您就可以將 A 記錄所定義的自訂網域與網站產生關聯。您可以使用 Azure 跨平台命令列介面或 Azure 管理入口網站，將 A 記錄所定義的自訂網域名稱新增至網站。
+當網域名稱的 **awverify** CNAME 記錄傳播完成之後，您就可以將 A 記錄所定義的自訂網域與網站產生關聯。您可以使用 Azure CLI 或 Azure 管理入口網站，將記錄所定義的自訂網域名稱新增至網站。
 
-**使用命令列工具新增網域名稱**
+**使用 Azure 命令列介面 (Azure CLI) 新增網域名稱**
 
-安裝並設定 [Azure 跨平台命令列介面](/manage/install-and-configure-cli/)，然後使用下列命令：
+安裝並設定 [Azure CLI](/manage/install-and-configure-cli/)，然後使用下列命令：
 
 	azure site domain add customdomain yoursitename
 
@@ -315,4 +311,4 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 [setcname2]: ./media/custom-dns-web-site/dncmntask-cname-6.png
 [setcname3]: ./media/custom-dns-web-site/dncmntask-cname-7.png
 
-<!--HONumber=52-->
+<!---HONumber=62-->

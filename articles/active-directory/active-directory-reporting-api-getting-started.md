@@ -136,5 +136,6 @@ Azure AD 報告 API 透過一組以 REST 為基礎的 API (可從各種程式設
 - 想知道有哪些安全性、稽核及活動報告可用嗎？ 請查看 [Azure AD 安全性、稽核及活動報告](active-directory-view-access-usage-reports.md)
 - 如需稽核報告的詳細資訊，請參閱 [Azure AD 稽核報告事件](active-directory-reporting-audit-events.md)
 - 如需圖形 API REST 服務的詳細資訊，請參閱 [Azure AD 報告和事件 (預覽)](https://msdn.microsoft.com/library/azure/mt126081.aspx)。
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

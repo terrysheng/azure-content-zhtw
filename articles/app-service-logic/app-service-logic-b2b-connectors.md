@@ -83,7 +83,7 @@ TPM 執行個體 | 建立 AS2 連接器和 X12 或 EDIFACT API 應用程式時�
 --- | ---
 名稱 | 輸入 TPM 執行個體的任何名稱。例如，您可以將它命名為 *AccountsPayableTPM*。
 Package Settings | 將 ADO.NET **資料庫連接字串**輸入到您所建立的 Azure SQL Database。<br/><br/>當您複製連接字串時，密碼不會加入至連接字串。請務必在連接字串中輸入密碼。
-App Service 方案 | 列出您的付款方案。如果您需要更多或更少的資源，您可以加以變更。
+App Service 方案 | 列出您的付款方案。如果需要增減資源，則可以變更它。
 定價層 | 一個唯讀屬性，會列出您 Azure 訂閱內的定價類別。 
 資源群組 | 建立新群組或使用現有的群組。邏輯應用程式、Web 應用程式和行動應用程式的所有 API 應用程式和連接器都必須位於相同的資源群組。<br/><br/>[使用資源群組](../resource-group-overview.md)說明此屬性 
 訂閱 | 可列出目前訂閱的唯讀屬性
@@ -105,7 +105,7 @@ App Service 方案 | 列出您的付款方案。如果您需要更多或更少�
 --- | ---
 名稱 | 輸入 AS2 連接器的任何名稱。例如，您可以將它命名為 *AS2Connector*。
 Package Settings | 輸入該 API 應用程式特定的設定，像是 TPM 執行個體名稱。<br/><br/>請參閱本主題中的[新增 AS2 封裝設定](#AddAS2Conn)以取得特定屬性。 
-App Service 方案 | 列出您的付款方案。如果您需要更多或更少的資源，您可以加以變更。
+App Service 方案 | 列出您的付款方案。如果需要增減資源，則可以變更它。
 定價層 | 一個唯讀屬性，會列出您 Azure 訂閱內的定價類別。 
 資源群組 | 建立新群組或使用現有的群組。[使用資源群組](../resource-group-overview.md)說明此屬性。 
 訂閱 | 可列出目前訂閱的唯讀屬性
@@ -134,7 +134,7 @@ TPM 執行個體名稱 | 輸入您先前建立的 **BizTalk 交易夥伴管理**
 --- | ---
 名稱 | 輸入 B2B API 應用程式的任何名稱。例如，您可以將它命名為 *EDI850APIApp*。
 Package Settings | 輸入該 API 應用程式特定的設定，像是 TPM 執行個體名稱。<br/><br/>請參閱本主題中的 [X12 或 EDIFACT 封裝設定](#AddX12)以取得特定屬性。 
-App Service 方案 | 列出您的付款方案。如果您需要更多或更少的資源，您可以加以變更。
+App Service 方案 | 列出您的付款方案。如果需要增減資源，則可以變更它。
 定價層 | 一個唯讀屬性，會列出您 Azure 訂閱內的定價類別。 
 資源群組 | 建立新群組或使用現有的群組。[使用資源群組](../resource-group-overview.md)說明此屬性。 
 訂閱 | 可列出目前訂閱的唯讀屬性
@@ -181,7 +181,7 @@ Microsoft Azure App Service 會公開可使用這些 B2B API 應用程式的不�
 
 1. 在 Azure 入口網站開始面板 (首頁) 中，移至 [**Marketplace**]，然後搜尋邏輯、行動、或 Web 應用程式。 
 
-	如果您是建立新的應用程式，請搜尋邏輯應用程式、行動應用程式或 Web 應用程式。選取 [應用程式]，然後在新分頁中，選取 [**建立**]。[建立邏輯應用程式](app-service-logic-create-a-logic-app.md)會列出步驟。
+	如果您是建立新的應用程式，請搜尋邏輯應用程式、行動應用程式或 Web 應用程式。選取應用程式，然後在新分頁中選取 [**建立**]。[建立邏輯應用程式](app-service-logic-create-a-logic-app.md)會列出步驟。
 
 2. 開啟您的應用程式，然後選取 [**觸發程序和動作**]。
 
@@ -198,9 +198,10 @@ Microsoft Azure App Service 會公開可使用這些 B2B API 應用程式的不�
 
 
 ## 閱讀關於邏輯應用程式和 Web 應用程式的資訊
-[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)<br/> [Azure App Service 中的網站和 Web 應用程式](../app-service-web/app-service-web-app-azure-portal.md)
+[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)<br/> [Azure 應用程式服務中的網站和 Web 應用程式](../app-service-web/app-service-web-overview.md)
 
 
 ## 其他連接器
 [BizTalk 整合連接器](app-service-logic-integration-connectors.md)<br/> [企業連接器](app-service-logic-enterprise-connectors.md)<br/> [社交連接器](app-service-logic-social-connectors.md)<br/> [通訊協定連接器](app-service-logic-protocol-connectors.md)<br/> [應用程式 + 資料服務連接器](app-service-logic-data-connectors.md)<br/> [連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/> [什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

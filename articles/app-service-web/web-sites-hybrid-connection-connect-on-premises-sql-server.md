@@ -24,7 +24,7 @@
 
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 >
->「混合式連線」功能的 Web Apps 部分僅適用於 [Azure Preview 入口網站](https://portal.azure.com)。若要在 BizTalk 服務中建立連線，請參閱[混合式連線](http://go.microsoft.com/fwlink/p/?LinkID=397274)。
+>「混合式連線」功能的 Web Apps 部分僅適用於 [Azure 預覽入口網站](https://portal.azure.com)。若要在 BizTalk 服務中建立連線，請參閱[混合式連線](http://go.microsoft.com/fwlink/p/?LinkID=397274)。
 
 ## 必要條件 ##
 
@@ -130,9 +130,9 @@
 	![MembershipDB created][SSMSMembershipDBCreated]
 	
 <a name="CreateSite"></a>
-## B.在 Azure Preview 入口網站中建立 Web 應用程式 ##
+## B.在 Azure 預覽入口網站中建立 Web 應用程式 ##
 
-> [AZURE.NOTE]如果您已在 Azure Preview 入口網站中建立要用於此教學課程的 Web 應用程式，您可以直接跳到[建立混合式連線和 BizTalk 服務](#CreateHC)繼續作業。
+> [AZURE.NOTE]如果您已在 Azure 預覽入口網站中建立要用於此教學課程的 Web 應用程式，您可以直接跳到[建立混合式連線和 BizTalk 服務](#CreateHC)繼續作業。
 
 1. 在 [Azure 預覽入口網站][](https://portal.azure.com) 中，按一下 [新增] > [Web + 行動] > [Web 應用程式]。
 	
@@ -142,7 +142,7 @@
 	
 	![Website name][WebsiteCreationBlade]
 	
-3. 經過一段時間之後，Web 應用程式會建立，並顯示它的 Web 應用程式刀鋒視窗。此刀鋒視窗是垂直捲動的儀表板，可供您管理 Web 應用程式。
+3. 經過一段時間之後，Web 應用程式會建立，並顯示它的 Web 應用程式分頁。此分頁是垂直捲動的儀表板，可供您管理 Web 應用程式。
 	
 	![Website running][WebSiteRunningBlade]
 	
@@ -153,13 +153,13 @@
 <a name="CreateHC"></a>
 ## C.建立混合式連線和 BizTalk 服務 ##
 
-1. 返回入口網站，向下捲動 Web 應用程式的刀鋒視窗，然後按一下 [混合式連線]。
+1. 返回入口網站，向下捲動 Web 應用程式的分頁，然後按一下 [混合式連線]。
 	
 	![Hybrid connections][CreateHCHCIcon]
 	
-2. 在 [混合式連線] 刀鋒視窗上，按一下 [新增] > [建立混合式連線]。
+2. 在 [混合式連線] 分頁上，按一下 [新增] > [建立混合式連線]。
 	
-3. 在 [建立混合式連線刀鋒視窗] 上：
+3. 在 [建立混合式連線分頁] 上：
 	- 在 [名稱] 中，提供連線的名稱。
 	- 針對 [主機名稱]，輸入您的 SQL Server 主機電腦的電腦名稱。
 	- 針對 [連接埠]，輸入 1433 (SQL Server 的預設連接埠)。
@@ -169,7 +169,7 @@
 		
 5. 按兩次 [確定]。
 
-	程序完成時，[通知] 區域會閃爍綠色 [成功]，而且 [混合式連線] 刀鋒視窗會顯示新的混合式連線，且狀態為 [未連線]。
+	程序完成時，[通知] 區域會閃爍綠色 [成功]，而且 [混合式連線] 分頁會顯示新的混合式連線，且狀態為 [未連線]。
 	
 	![One hybrid connection created][CreateHCOneConnectionCreated]
 	
@@ -244,22 +244,22 @@
 	
 4. 關閉預設網頁的瀏覽器視窗。這會停止 Visual Studio 中的應用程式。
 
-現在您已可執行下一個步驟，也就是將應用程式發佈至 Azure，並加以測試。
+現在您已可執行下一個步驟，也就是將應用程式發行至 Azure，並加以測試。
 
 <a name="PubNTest"></a>
-## F.將 Web 應用程式發佈至 Azure 並加以測試 ##
+## F.將 Web 應用程式發行至 Azure 並加以測試 ##
 
-現在，您會將應用程式發佈至您的 App Service Web 應用程式並加以測試，以確認您先前設定的混合式連線是否可用來將您的 Web 應用程式連接到本機電腦上的資料庫。
+現在，您會將應用程式發行至您的 App Service Web 應用程式並加以測試，以確認您先前設定的混合式連線是否可用來將您的 Web 應用程式連接到本機電腦上的資料庫。
 
-### 發佈 Web 應用程式 ###
+### 發行 Web 應用程式 ###
 
-1. 您可以在 Azure 預覽入口網站中下載 App Service Web 應用程式的發行設定檔。在您 Web 應用程式的刀鋒視窗上，按一下 [取得發行設定檔]，然後將檔案儲存至您的電腦。
+1. 您可以在 Azure 預覽入口網站中下載 App Service Web 應用程式的發行設定檔。在您 Web 應用程式的分頁上，按一下 [取得發行設定檔]，然後將檔案儲存至您的電腦。
 	
 	![Download publish profile][PortalDownloadPublishProfile]
 	
 	接著，您會將此檔案匯入 Visual Studio Web 應用程式中。
 	
-2. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下專案名稱，並選取 [發佈]。
+2. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下專案名稱，並選取 [發行]。
 	
 	![Select publish][HCVSRightClickProjectSelectPublish]
 	
@@ -271,13 +271,13 @@
 	
 	![Browse to profile][HCVSBrowseToImportPubProfile]
 	
-5. 您的發佈資訊會匯入並顯示在對話方塊的 [連線] 索引標籤上。
+5. 您的發行資訊會匯入並顯示在對話方塊的 [連線] 索引標籤上。
 	
 	![Click Publish][HCVSClickPublish]
 	
-	按一下 [發佈]。
+	按一下 [發行]。
 	
-	發佈完成後，瀏覽器將會啟動並顯示您熟悉的 ASP.NET 應用程式，差別在於網站現在已運作於 Azure 雲端中。
+	發行完成後，瀏覽器將會啟動並顯示您熟悉的 ASP.NET 應用程式，差別在於網站現在已運作於 Azure 雲端中。
 
 接著，您將使用即時 Web 應用程式來檢視其運作中的混合式連線。
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="我使用行動服務，App Service 有何幫助？"
+	pageTitle="我使用行動服務，應用程式服務對我有何幫助？"
 	description="了解 App Service 為您現有的行動服務專案帶來哪些優勢。"
 	services="app-service\mobile"
 	documentationCenter="ios"
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="02/20/2015"
 	ms.author="kirillg"/>
 
@@ -24,18 +24,18 @@
 - 針對包含 Web 和行動用戶端的應用程式，提供更簡單、更容易且更符合成本效益的功能
 - 新的主機功能包括 Web 工作、自訂 CName、更完善的監視
 - 與 Office 365、Dynamics CRM、Salesforce 和其他重要 SaaS API 的周全整合。
-- 除了 Node.js 和.NET 以外，還支援 Java 和 PHP 後端程式碼 
+- 除了 Node.js 和.NET 以外，還支援 Java 和 PHP 後端程式碼
 - 與流量管理員的周全整合
 - 除了混合式連線以外，使用 VNet 連線至內部部署資源和 VPN
 - 使用 NewRelic 或 AppInsights 以及警示，監視和疑難排解您的應用程式
-- 更廣泛的基礎計算資源，例如 VM 大小 
+- 更廣泛的基礎計算資源，例如 VM 大小
 - 內建自動調整、負載平衡，以及效能監視。
-- 內建預備、備份、回復和實際環境測試功能 
+- 內建預備、備份、回復和實際環境測試功能
 
 ## 新的裝載功能
 在 *AzureApp Service* 中，*行動應用程式* 後端程式碼會在與 Web 應用程式和 API 應用程式相同的容器中執行。因此，您可以利用此容器中的所有功能，包括行動服務中目前不存在的功能：
 
-- 透過 Web 工作加入連續執行的後端邏輯 
+- 透過 Web 工作加入連續執行的後端邏輯
 - 確保您的後端程式碼持續不斷執行
 - 使用自訂 CName，為您的行動裝置後端端點提供友善且穩定的名稱
 - 使用流量管理員，異地擴充您的應用程式
@@ -65,8 +65,6 @@
 
 
 當 *Azure App Service 行動應用程式* 功能公開推出的時候，我們將提供從現有行動服務移轉至 App Service 的順暢體驗 (如果您選擇移轉的話)。在此同時，您即可開始探索 *App Service*，並遵循此 [教學課程](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md)，將 *App Service* 運用於您現有的行動服務。
-
-
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

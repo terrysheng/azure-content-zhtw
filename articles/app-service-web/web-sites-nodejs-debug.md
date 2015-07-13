@@ -42,7 +42,7 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 
 > [AZURE.NOTE]雖然 devErrorsEnabled 在開發期間診斷問題時很有用，但在生產環境中啟用可能會導致將開發錯誤傳送給使用者。
 
-如果您的應用程式中尚無 **IISNode.yml** 檔案，則在發佈已更新的應用程之後，您必須重新啟動 Web 應用程式。如果只是在先前發佈的現有 **IISNode.yml** 檔案中變更設定，則不需要重新啟動。
+如果您的應用程式中尚無 **IISNode.yml** 檔案，則在發行已更新的應用程之後，您必須重新啟動 Web 應用程式。如果只是在先前發行的現有 **IISNode.yml** 檔案中變更設定，則不需要重新啟動。
 
 > [AZURE.NOTE]如果 Web 應用程式是以 Azure 命令列工具或 Azure PowerShell Cmdlets 建立，則會自動建立預設的 **IISNode.yml** 檔案。
 
@@ -63,7 +63,7 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 
 	npm install azure-cli -g
 
-安裝之後，可使用 'azure' 命令來存取工具。必須先設定命令列工具來使用您的 Azure 訂閱。如需有關如何完成此工作的詳細資訊，請參閱 [如何使用 Azure 命令列工具] 文章的＜**如何下載和匯入發佈設定**＞一節。
+安裝之後，可使用 'azure' 命令來存取工具。必須先設定命令列工具來使用您的 Azure 訂閱。如需有關如何完成此工作的詳細資訊，請參閱 [如何使用 Azure 命令列工具] 文章的＜如何下載和匯入發佈設定＞一節。
 
 ###FTP
 

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="06/16/2015" 
 	ms.author="awills"/>
 
 # 適用於 Windows Phone 和市集應用程式的 Application Insights
@@ -60,11 +60,11 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
     ![](./media/app-insights-windows-get-started/03-nuget.png)
 
-2. 選取 [**線上**]、[**包括發行前版本**]，然後搜尋 "Application Insights"。
+2. 搜尋「Application Insights」。
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. 選擇**適用於 Windows 應用程式的 Application Insights**
+3. 選擇 **Application Insights for .NET Windows 應用程式**
 
 4. 編輯 ApplicationInsights.config (已由 NuGet 安裝加入)。在結尾標記前面插入此內容：
 
@@ -132,6 +132,10 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 
 ![](./media/app-insights-windows-get-started/appinsights-d22-add.png)
+
+## 升級到新版的 SDK
+
+當[新的 SDK 版本發行時](app-insights-release-notes-windows.md)：* 在您的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。* 選取已安裝的 Application Insights 封裝，然後選擇 [動作：升級]。
 
 
 ## <a name="usage"></a>後續步驟

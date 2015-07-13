@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/24/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -38,11 +38,11 @@
 請遵循以下步驟來建立 Web 應用程式與 MySQL 資料庫：
 
 1. 登入 [Azure 入口網站][management-portal]。
-2. 按一下入口網站左下方的 [+ 新增] 圖示****。
+2. 按一下入口網站左下方的 [+ 新增] 圖示。
 
 	![Create New Azure Web Site][new-website]
 
-3. 依序按一下 [Web + 行動]**** 和 [Web 應用程式 + MySQL]****。
+3. 依序按一下 [Web + 行動] 和 [Web 應用程式 + MySQL]。
 
 	![Custom Create a new Web Site][custom-create]
 
@@ -62,7 +62,7 @@
 
 	![開啟 Web 應用程式][go-to-webapp]
 
-6. 向下捲動，直到您找到 [設定部署認證]**** 為止。
+6. 向下捲動，直到您找到 [設定部署認證] 為止。
 
 	![設定部署認證][set-deployment-credentials]
 
@@ -218,7 +218,7 @@
 
 	![選取資料庫][select-database]
 
-2. 從資料庫摘要中，選取 [屬性]****。
+2. 從資料庫摘要中，選取 [屬性]。
 
     ![選取屬性][select-properties]
 	
@@ -226,7 +226,7 @@
 
     ![注意屬性][note-properties]
 
-3. 從 Web 應用程式中，按一下頁面右下角的 [下載發行設定檔]**** 連結：
+3. 從 Web 應用程式中，按一下頁面右下角的 [下載發行設定檔] 連結：
 
 	![Download publish profile][download-publish-profile]
 
@@ -242,7 +242,7 @@
 
 ##發佈您的應用程式
 
-當您在本機完成應用程式測試之後，可以使用 FTP 將其發行至您的 Web 應用程式。不過，您必須先更新應用程式中的資料庫連接資訊。使用您稍早取得的資料庫連接資訊 (在＜取得 MySQL 和 FTP 連線資訊＞****一節中），將 `createdatabase.php` 和 `index.php` **兩者**檔案中的下列資訊都更新為適當的值：
+當您在本機完成應用程式測試之後，可以使用 FTP 將其發行至您的 Web 應用程式。不過，您必須先更新應用程式中的資料庫連接資訊。使用您稍早取得的資料庫連接資訊 (在＜取得 MySQL 和 FTP 連線資訊＞一節中），將 `createdatabase.php` 和 `index.php` **兩者**檔案中的下列資訊都更新為適當的值：
 
 	// DB connection info
 	$host = "value of Data Source";
@@ -287,5 +287,6 @@
 [connection-string-info]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/connection_string_info.png
 [management-portal]: https://portal.azure.com
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

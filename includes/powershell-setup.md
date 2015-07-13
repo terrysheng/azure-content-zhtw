@@ -1,25 +1,14 @@
-<properties services="virtual-machines" title="Setting up PowerShell" authors="JoeDavies-MSFT" solutions="" manager="timlt" editor="tysonn" />
+## 設定 PowerShell
 
-<tags
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm=""
-   ms.workload="infrastructure"
-   ms.date="05/12/2015"
-   ms.author="josephd" />
+請先遵循下列步驟，您才可以使用 Azure PowerShell。
 
-## Setting up PowerShell
+### 確認 PowerShell 版本
 
-Before you can use Azure PowerShell, follow these steps.
-
-### Verify PowerShell versions
-
-Before you can use Windows PowerShell, you must have Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type this command at a Windows PowerShell command prompt.
+您必須具備 Windows PowerShell 3.0 版或 4.0 版，才可以使用 Windows PowerShell。若要尋找 Windows PowerShell 版本，請在 Windows PowerShell 命令提示字元中輸入這個命令。
 
 	$PSVersionTable
 
-You should see something like this.
+您應該會看到如下的結果。
 
 	Name                           Value
 	----                           -----
@@ -31,34 +20,34 @@ You should see something like this.
 	PSCompatibleVersions           {1.0, 2.0, 3.0}
 	PSRemotingProtocolVersion      2.2
 
-Verify that the value of **PSVersion** is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+確認 **PSVersion** 的值是 3.0 或 4.0。若要安裝相容版本，請參閱 [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)。
 
-You should also have Azure PowerShell version 0.8.0 or later. You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.
+您應該也有 Azure PowerShell 0.8.0 版或更新版本。您可以在 Azure PowerShell 命令提示字元下使用這個命令來檢查已安裝的 Azure PowerShell 版本。
 
 	Get-Module azure | format-table version
 
-You should see something like this.
+您應該會看到如下的結果。
 
 	Version
 	-------
 	0.8.16.1
 
-For instructions and a link to the latest version, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md).
+如需最新版本的指示與連結，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
 
 
-### Set your Azure account and subscription
+### 設定 Azure 帳戶和訂用帳戶
 
-If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
+如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
-Open an Azure PowerShell command prompt and log on to Azure with this command.
+使用這個命令，開啟 Azure PowerShell 命令提示字元，並登入 Azure。
 
 	Add-AzureAccount
 
-If you have multiple Azure subscriptions, you can list your Azure subscriptions with this command.
+如果您有多個 Azure 訂用帳戶，則可以使用這個命令列出 Azure 訂用帳戶。
 
 	Get-AzureSubscription
 
-You will receive the following type of information:
+您會收到下列類型的資訊：
 
 	SubscriptionId            : fd22919d-eaca-4f2b-841a-e4ac6770g92e
 	SubscriptionName          : Visual Studio Ultimate with MSDN
@@ -71,9 +60,11 @@ You will receive the following type of information:
 	CurrentStorageAccountName : 
 	TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
 
-You can set the current Azure subscription by running these commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters, with the correct name.
+您可以在 Azure PowerShell 命令提示字元下執行這些命令，設定目前 Azure 訂用帳戶。以正確的名稱取代括號中的所有內容，包括 < and > 字元。
 
 	$subscr="<SubscriptionName from the display of Get-AzureSubscription>"
 	Select-AzureSubscription -SubscriptionName $subscr -Current	
 
-For more information about Azure subscriptions and accounts, see [How to: Connect to your subscription](powershell-install-configure.md#Connect).
+如需 Azure 訂用帳戶和帳戶的詳細資訊，請參閱[如何：連線至訂用帳戶](powershell-install-configure.md#Connect)。
+
+<!---HONumber=62-->

@@ -1,15 +1,13 @@
-﻿
+
 接下來，您需要變更註冊推播通知的方式，以便在嘗試註冊之前，能夠確定使用者已通過驗證。用戶端應用程式更新會根據您實作推播通知的方法而定。
 
 ###在 Visual Studio 2013 Update 2 或更新版本中使用推播通知精靈
 
 在這個方法中，精靈會在專案中產生新的 push.register.js 和 service.js 檔案。
 
->[AZURE.NOTE][加入推播通知精靈] 目前僅支援 .NET 後端行動服務。
+1. 在 Visual Studio 的 [方案總管] 中，開啟 push.register.js 專案檔，然後將 **addEventListener** 的呼叫標記為註解或加以刪除。 
 
-1. 在 Visual Studio 的 [方案總管] 中，開啟 push.register.js 專案檔，然後將對 **addEventListener** 的呼叫標記為註解或加以刪除。 
-
-2. 在 default.js 專案檔中，使用下列程式碼來取代現有的 **login** 函式：
+2. 在 default.js 專案檔中，使用下列程式碼來取代現有的 **login** 函數：
  
 		// Request authentication from Mobile Services using a Facebook login.
 		var login = function () {
@@ -52,7 +50,7 @@
 		        client.push.registerNative(channel.uri);
 		    }); 
  
-2. 將這行程式碼移至 **login** 函式，就在對 **refreshTodoItems** 之呼叫的正前方，讓 **login** 函式會看起來向下面這樣：
+2. 將這行程式碼移至 **login** 函數，就在 **refreshTodoItems** 呼叫的正前方，如此一來，**login** 函數就會看起來如下所示：
  
 		// Request authentication from Mobile Services using a Facebook login.
 		var login = function () {
@@ -80,4 +78,4 @@
 		    });
 		}  
 
-<!--HONumber=42-->
+<!---HONumber=62-->

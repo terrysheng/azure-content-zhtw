@@ -64,29 +64,29 @@
 
 ### <a id="convertlink"></a> 透過 Web 專案啟用自動 WebJobs 部署
   
-1. 以滑鼠右鍵按一下 [方案總管]**** 中的 Web 專案，然後依序按一下 [新增]**** > [Existing Project as Azure WebJob]****。
+1. 以滑鼠右鍵按一下 [方案總管] 中的 Web 專案，然後依序按一下 [新增] > [Existing Project as Azure WebJob]。
 
 	![Existing Project as Azure WebJob](./media/websites-dotnet-deploy-webjobs/eawj.png)
 	
 	[Add Azure WebJob][](#configure) 對話方塊隨即出現。
 
-1. 在 [專案名稱]**** 下拉式清單中，選取要新增為 WebJob 的主控台應用程式專案。
+1. 在 [專案名稱] 下拉式清單中，選取要新增為 WebJob 的主控台應用程式專案。
 
 	![Selecting project in Add Azure WebJob dialog](./media/websites-dotnet-deploy-webjobs/aaw1.png)
 
-2. 完成 [Add Azure WebJob][](#configure) 對話方塊，然後按一下 [確定]****。
+2. 完成 [Add Azure WebJob][](#configure) 對話方塊，然後按一下 [確定]。
 
 ### <a id="convertnolink"></a> 不透過 Web 專案啟用 WebJobs 部署
   
-1. 以滑鼠右鍵按一下 [方案總管]**** 中的主控台應用程式專案，然後按一下 [Publish as Azure WebJob]****。 
+1. 以滑鼠右鍵按一下 [方案總管] 中的主控台應用程式專案，然後按一下 [Publish as Azure WebJob]。 
 
 	![Publish as Azure WebJob](./media/websites-dotnet-deploy-webjobs/paw.png)
 	
-	[Add Azure WebJob][](#configure) 對話方塊隨即出現，而且 [專案名稱]**** 方塊中已選取此專案。
+	[Add Azure WebJob][](#configure) 對話方塊隨即出現，而且 [專案名稱] 方塊中已選取此專案。
 
-2.  完成 [Add Azure WebJob][](#configure) 對話方塊，然後按一下 [確定]****。
+2.  完成 [Add Azure WebJob][](#configure) 對話方塊，然後按一下 [確定]。
 
-	此時會出現 [發行 Web]**** 精靈。如果您不打算立即發行，請關閉精靈。您所輸入的設定會被儲存下來，以供[部署專案](#deploy)時使用。
+	此時會出現 [發行 Web] 精靈。如果您不打算立即發行，請關閉精靈。您所輸入的設定會被儲存下來，以供[部署專案](#deploy)時使用。
 
 ## <a id="create"></a>建立具有 WebJobs 功能的新專案
 
@@ -105,7 +105,7 @@
 
 ### <a id="createnolink"></a> 在獨立的 WebJob 中使用 WebJobs 新專案範本
   
-1. 依序按一下 [檔案]**** > [新增專案]****，然後在 [新增專案]**** 對話方塊中，依序按一下 [雲端]**** > [Microsoft Azure WebJob]****。
+1. 依序按一下 [檔案] > [新增專案]，然後在 [新增專案] 對話方塊中，依序按一下 [雲端] > [Microsoft Azure WebJob]。
 
 	![New Project dialog showing WebJob template](./media/websites-dotnet-deploy-webjobs/np.png)
 	
@@ -113,21 +113,21 @@
 
 ### <a id="createlink"></a> 在連結至 Web 專案的 WebJob 中使用 WebJobs 新專案範本
 
-1. 以滑鼠右鍵按一下 [方案總管]**** 中的 Web 專案，然後依序按一下 [新增]**** > [New Azure WebJob Project]****。
+1. 以滑鼠右鍵按一下 [方案總管] 中的 Web 專案，然後依序按一下 [新增] > [New Azure WebJob Project]。
 
 	![New Azure WebJob Project menu entry](./media/websites-dotnet-deploy-webjobs/nawj.png)
 
 	[Add Azure WebJob][](#configure) 對話方塊隨即出現。
 
-2. 完成 [Add Azure WebJob][](#configure) 對話方塊，然後按一下 [確定]****。
+2. 完成 [Add Azure WebJob][](#configure) 對話方塊，然後按一下 [確定]。
 
 ## <a id="configure"></a>[新增 Azure WebJob] 對話方塊
 
-[Add Azure WebJob]**** 對話方塊可讓您輸入 WebJob 的名稱和排程設定。
+[Add Azure WebJob] 對話方塊可讓您輸入 WebJob 的名稱和排程設定。
 
 ![Add Azure WebJob dialog](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
-此對話方塊中的欄位會對應至 Azure 管理入口網站中 [新增工作]**** 對話方塊上的欄位。如需詳細資訊，請參閱[使用 WebJobs 執行背景工作](web-sites-create-web-jobs.md)。
+此對話方塊中的欄位會對應至 Azure 管理入口網站中 [新增工作] 對話方塊上的欄位。如需詳細資訊，請參閱[使用 WebJobs 執行背景工作](web-sites-create-web-jobs.md)。
 
 若是排程 WebJob (不適用於連續 WebJobs)，則 Visual Studio 會建立 [Azure 排程器](/services/scheduler/)工作集合 (如果尚未存在)，然後在集合中建立工作：
 
@@ -137,7 +137,7 @@
 >[AZURE.NOTE]
 > 
 >* 如需命令列部署的詳細資訊，請參閱[啟用 Azure WebJobs 的命令列或連續傳遞](/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)。
->* 如果設定的是 [週期性工作]****，並將週期頻率設為分鐘數，則 Azure 排程器不是免費提供的服務。其他頻率 (時數、天數等) 可免費提供。
+>* 如果設定的是 [週期性工作]，並將週期頻率設為分鐘數，則 Azure 排程器不是免費提供的服務。其他頻率 (時數、天數等) 可免費提供。
 >* 如果您部署了 WebJob，但之後決定變更 WebJob 的類型並重新部署，就必須刪除 webjobs-publish-settings.json 檔案。這樣會讓 Visual Studio 再次顯示發佈選項，您才能夠變更 WebJob 的類型。
 >* 如果部署 WebJob，並在稍後將執行模式從連續變更為非連續 (或相反情形)，則在您重新部署時，Visual Studio 會在 Azure 中建立新的 WebJob。如果您變更其他排程設定但保持執行模式不變，或在排程和隨選模式之間切換，則 Visual Studio 會更新現有的工作，而非建立新的工作。
 
@@ -159,7 +159,7 @@
 
 >[AZURE.NOTE]
 >
->* 如果設定的是 [週期性工作]****，並將週期頻率設為分鐘數，則 Azure 排程器不是免費提供的服務。其他頻率 (時數、天數等) 可免費提供。
+>* 如果設定的是 [週期性工作]，並將週期頻率設為分鐘數，則 Azure 排程器不是免費提供的服務。其他頻率 (時數、天數等) 可免費提供。
 
 ## <a id="webjobslist"></a>webjobs-list.json
 
@@ -183,11 +183,11 @@
 
 已連結到 Web 專案的 WebJobs 專案會透過 Web 專案自動部署。如需 Web 專案部署的相關資訊，請參閱[如何部署至 Web 應用程式](web-sites-deploy.md)。
 
-若要自我部署 WebJobs 專案，以滑鼠右鍵按一下 [方案總管] **** 中的專案，然後按一下 [Publish as Azure WebJob]****。
+若要自我部署 WebJobs 專案，以滑鼠右鍵按一下 [方案總管] 中的專案，然後按一下 [Publish as Azure WebJob]。
 
 ![Publish as Azure WebJob](./media/websites-dotnet-deploy-webjobs/paw.png)
 	
-若是獨立的 WebJob，則 Web 專案所使用的相同 [發行 Web]**** 精靈隨即出現，但其中幾個設定可以變更。
+若是獨立的 WebJob，則 Web 專案所使用的相同 [發行 Web] 精靈隨即出現，但其中幾個設定可以變更。
 
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
@@ -198,5 +198,6 @@
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

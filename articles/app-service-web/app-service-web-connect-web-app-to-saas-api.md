@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="在 Azure App Service 中將  Web 應用程式連接至 API 應用程式" 
+   pageTitle="在 Azure App Service 中將 Web 應用程式連接至 API 應用程式" 
    description="本教學課程示範如何透過 Azure App Service 中裝載的 ASP.NET Web 應用程式使用 API 應用程式。" 
    services="app-service\web" 
    documentationCenter=".net" 
@@ -16,7 +16,7 @@
    ms.date="03/24/2015"
    ms.author="cfowler"/>
 
-# 在 Azure App Service 中將  Web 應用程式連接至 API 應用程式
+# 在 Azure App Service 中將 Web 應用程式連接至 API 應用程式
 
 本教學課程示範如何透過 [App Service](../app-service.md) 中裝載的 ASP.NET Web 應用程式使用 API 應用程式。
 
@@ -36,7 +36,7 @@
 
 ## 在 Visual Studio 中建立 ASP.NET MVC 應用程式
 
-1. 開啟 Visual Studio。使用 [ **新專案**] 對話方塊，加入新的 [**ASP.NET Web 應用程式**]。按一下 [確定]****。
+1. 開啟 Visual Studio。使用 [ **新專案**] 對話方塊，加入新的 [**ASP.NET Web 應用程式**]。按一下 [確定]。
 
 	![檔案 > 新增 > Web > ASP.NET Web 應用程式](./media/app-service-web-connect-web-app-to-saas-api/1-Create-New-MVC-App-For-Consumption.png)
 
@@ -69,11 +69,19 @@
 
 	![HomeController.cs 程式碼更新](./media/app-service-web-connect-web-app-to-saas-api/5-Write-Code-Which-Leverages-Swagger-Generated-Code.png)
 
-1. 更新 `Contact` 檢視，以下列程式碼反映連絡人動態清單：<pre>// Add to the very top of the view file @model IList&lt;MyContactsList.Web.Models.Contact&gt;
-	
-	// Replace the default email addresses with the following &lt;h3&gt;Public Contacts&lt;/h3&gt; &lt;ul&gt; @foreach (var contact in Model) { &lt;li&gt;&lt;a href=&quot;mailto:@contact.EmailAddress&quot;&gt;@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a&gt;&lt;/li&gt; } &lt;/ul&gt; </pre>
+1. 使用下面的程式碼來更新 `Contact` 檢視，以反映連絡人動態清單：
+	<pre>// Add to the very top of the view file
+@model IList&lt;MyContactsList.Web.Models.Contact>
 
-	![Contact.cshtml 程式碼更新](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
+// Replace the default email addresses with the following
+&lt;h3>Public Contacts&lt;/h3>
+&lt;ul>
+    @foreach (var contact in Model)
+    {
+        &lt;li>&lt;a href="mailto:@contact.EmailAddress">@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a>&lt;/li>
+    }
+&lt;/ul> 
+</pre>![Contact.cshtml 程式碼更新](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
 ## 將 Web 應用程式部署到應用程式服務中的 Web 應用程式
 
@@ -84,5 +92,6 @@
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

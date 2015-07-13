@@ -5,7 +5,7 @@
 
 3. 將下載的檔案解壓縮並記下其位置。
 
-2. 在 Eclipse 中，依序按一下 [檔案] 、[匯入] 、展開 [Android] ，按一下 [匯入現有的 Android 程式碼至工作區] ，然後按 [下一步] 。
+2. 在 Eclipse 中，依序按一下 [檔案]、[匯入]、展開 [Android]，按一下 [匯入現有的 Android 程式碼至工作區]，然後按 [下一步]。
 
  	![](./media/download-android-sample-code/mobile-services-import-android-workspace.png)
 
@@ -19,4 +19,5 @@
 
 <!-- URLs. -->
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
-<!--HONumber=54-->
+
+<!---HONumber=62-->

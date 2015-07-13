@@ -21,9 +21,9 @@
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+[AZURE.INCLUDE 〈[websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)〉]
 
-> [AZURE.NOTE]如果您已透過 Azure App Service Web Apps 購買網域，請略過<a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">購買 Web Apps 網域</a>文章的最後一個步驟。
+> [AZURE.NOTE]如果您已透過 Azure App Service Web Apps 購買網域，請參考<a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">購買 Web Apps 網域</a>文章的最後一個步驟。
 
 [AZURE.INCLUDE [簡介](../../includes/custom-dns-web-site-intro.md)]
 

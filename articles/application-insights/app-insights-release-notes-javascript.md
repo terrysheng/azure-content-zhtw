@@ -18,4 +18,6 @@
 
 [使用 JavaScript 適用的 SDK](app-insights-javascript.md)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

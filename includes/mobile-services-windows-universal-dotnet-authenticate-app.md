@@ -1,9 +1,5 @@
 
-1. 開啟共用的專案檔案 MainPage.cs 並新增下列 using 陳述式：
-
-        using Windows.UI.Popups;
-
-2. 將下列程式碼片段新增至 MainPage 類別：
+1. 開啟共用專案檔案 MainPage.cs，然後將下列程式碼片段新增至 MainPage 類別：
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -60,7 +56,10 @@
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. 針對 Windows Phone 市集應用程式專案重複上一個步驟，不過這次請將 **Button** 新增至 **TitlePanel** 中，使其位於 **TextBlock** 元素後方。
+6. 在 Windows Phone 應用程式專案中，將以下 **Button** 元素新增至定義 **Save** 按鈕的元素前面：
+
+		<Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
+                        Visibility="Visible">Sign in</Button> 
 
 5. 開啟共用的 App.xaml.cs 專案檔案並新增下列 using 陳述式 (如果該陳述式不存在的話)：
 
@@ -90,4 +89,5 @@
    	成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
 
 9. 以滑鼠右鍵按一下 Windows Phone 市集應用程式專案、按一下 [設定為啟始專案]，然後重複上一個步驟以驗證 Windows Phone 市集應用程式是否也能正常運作。
-<!--HONumber=54-->
+
+<!---HONumber=62-->

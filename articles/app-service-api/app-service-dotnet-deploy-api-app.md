@@ -28,9 +28,9 @@
 
 API 應用程式是以 Web 應用程式為基礎的事實，也表示您可以將針對 ASP.NET 以外平台撰寫的程式碼部署到 API 應用程式。如需使用 Git 將 Node.js 程式碼部署到 API 應用程式的範例。請參閱[在 Azure App Service 中建立 Node.js API 應用程式](app-service-api-nodejs-api-app.md)。
  
-## 部署 API 應用程式 
+## <a id="provision"></a>在 Azure 中建立 API 應用程式 
 
-在本節中，您可看到將 API 應用程式部署到 Azure 訂用帳戶所需的步驟。
+在本節中，您會使用 Visual Studio **發行 Web** 精靈在 Azure 中建立新的 API 應用程式。
 
 1. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案 (而非方案)，然後按一下 [**發佈...**]。 
 
@@ -40,7 +40,7 @@ API 應用程式是以 Web 應用程式為基礎的事實，也表示您可以�
 
 	![發佈 Web 對話方塊](./media/app-service-dotnet-deploy-api-app/21-select-api-apps-for-deployment-v2.png)
 
-3. 按一下 [**新增**] 以在 Azure 訂用帳戶中佈建新的 API 應用程式。
+3. 按一下 [**新增**] 以在 Azure 訂閱中佈建新的 API 應用程式。
 
 	![選取現有的 API 服務對話方塊](./media/app-service-dotnet-deploy-api-app/23-publish-to-apiapps-v3.png)
 
@@ -63,7 +63,11 @@ API 應用程式是以 Web 應用程式為基礎的事實，也表示您可以�
 
 	![透過 Azure App Service 活動視窗的狀態通知](./media/app-service-dotnet-deploy-api-app/26-provisioning-success-v3.png)
 
-7. 佈建 API 應用程式後，以滑鼠右鍵按一下 [**方案總管**] 中的專案，並選取 [**發佈**] 來重新開啟 [發佈] 對話方塊。在上一個步驟中建立的發佈設定檔應會預先選取。按一下 [**發佈**] 開始部署程序。
+## <a id="deploy"></a>將您的程式碼部署到新的 API 應用程式
+
+在本節中，您會使用相同的**發行 Web** 精靈來部署您的程式碼。
+
+7. 以滑鼠右鍵按一下 [**方案總管**] 中的專案，並選取 [**發佈**] 來重新開啟 [發佈] 對話方塊。在上一個步驟中建立的發佈設定檔應會預先選取。按一下 [**發佈**] 開始部署程序。 
 
 	![部署 API 應用程式](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v3.png)
 
@@ -87,7 +91,7 @@ API 應用程式是以 Web 應用程式為基礎的事實，也表示您可以�
 
 	![API 應用程式清單](./media/app-service-dotnet-deploy-api-app/28-view-api-list-v3.png)
 
-4. 按一下 [**API 定義**]。應用程式的 [**API 定義**] 刀鋒視窗會顯示您建立應用程式時定義的 API 作業清單。
+4. 按一下 [**API 定義**]。應用程式的 [**API 定義**] 分頁會顯示您建立應用程式時定義的 API 作業清單。
 
 	![API 定義](./media/app-service-dotnet-deploy-api-app/29-api-definition-v3.png)
 
@@ -120,7 +124,7 @@ API 應用程式是以 Web 應用程式為基礎的事實，也表示您可以�
 
 11. 按一下 [發佈]。
 
-12. 在發佈程序完成後，回到入口網站，然後關閉並重新開啟 [**API 定義**] 刀鋒視窗。您會看到您剛建立並直接部署到 Azure 訂用帳戶中的新 API 端點。
+12. 在發佈程序完成後，回到入口網站，然後關閉並重新開啟 [**API 定義**] 刀鋒視窗。您會看到您剛建立並直接部署到 Azure 訂閱中的新 API 端點。
 
 	![API 定義](./media/app-service-dotnet-deploy-api-app/38-portal-with-post-method-v4.png)
 

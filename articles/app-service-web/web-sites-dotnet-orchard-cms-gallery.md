@@ -41,27 +41,27 @@ Marketplace 提供由 Microsoft、協力廠商公司及開放原始碼軟體計�
 
 1. 登入 [Azure Preview 入口網站](http://portal.azure.com)。
 
-2. 按一下 [新增]**** > [Web + 行動]**** > [Azure Marketplace]****。
+2. 按一下 [新增] > [Web + 行動] > [Azure Marketplace]。
 	
 	![建立新的][1]
 
-3. 按一下 [Web 應用程式]**** > [Orchard CMS]****。在下一個分頁中，按一下 [建立]****。
+3. 按一下 [Web 應用程式] > [Orchard CMS]。在下一個分頁中，按一下 [建立]。
 	
 	![從 Marketplace 建立][2]
 
-4. 設定 Web 應用程式的 URL、App Service 計劃、資源群組，以及位置。完成之後，請按一下 [建立]****。
+4. 設定 Web 應用程式的 URL、App Service 計劃、資源群組，以及位置。完成之後，請按一下 [建立]。
 	
 	![設定應用程式][3]
 
-	Web 應用程式建立之後，[通知]**** 按鈕會顯示綠色「成功」並顯示 Web 應用程式分頁。
+	Web 應用程式建立之後，[通知] 按鈕會顯示綠色「成功」並顯示 Web 應用程式分頁。
 
 ## 啟動和管理 Orchard Web 應用程式
 
-1. 在 Web 應用程式的分頁中，按一下 [瀏覽]**** 以開啟 Web 應用程式的歡迎頁面。
+1. 在 Web 應用程式的分頁中，按一下 [瀏覽] 以開啟 Web 應用程式的歡迎頁面。
 
 	![browse button][12]
 
-2. 輸入 Orchard 所需的組態資訊，然後按一下 [完成設定]****，以完成組態並開啟 Web 應用程式的首頁。
+2. 輸入 Orchard 所需的組態資訊，然後按一下 [完成設定]，以完成組態並開啟 Web 應用程式的首頁。
 
 	![login to Orchard][7]
 
@@ -90,5 +90,6 @@ Marketplace 提供由 Microsoft、協力廠商公司及開放原始碼軟體計�
 [13]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

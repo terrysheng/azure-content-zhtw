@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="偵測、分級、診斷" 
-	description="分析損毀並偵測及診斷應用程式的效能問題" 
-	authors="alancameronwills" 
-	services="application-insights" 
+<properties
+	pageTitle="偵測、分級、診斷"
+	description="分析損毀並偵測及診斷應用程式的效能問題"
+	authors="alancameronwills"
+	services="application-insights"
     documentationCenter=""
 	manager="keboyd"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/02/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="04/02/2015"
 	ms.author="awills"/>
 
 # 使用 Application Insights 刪除、分級和診斷
@@ -45,12 +45,12 @@ Application Insights 會處理裝置應用程式和 Web 應用程式。在此逐
 
 
 
-## 偵測可用性不佳 
+## 偵測可用性不佳
 
 
 Marcela Markova 是 OBS 小組的測試專員，主導線上效能方面的監視。她設定數項 [Web 測試][availability]：
 
-* 用於應用程式主要登陸頁面的單一 URL 測試 http://fabrikambank.com/onlinebanking/。她設定 HTTP 代碼 200 與文字「歡迎使用！」的準則。如果此測試失敗，表示網路或伺服器發生嚴重錯誤，或可能有部署問題。(或是有人變更了頁面上的「歡迎使用！」訊息但沒讓我們知道。) 
+* 用於應用程式主要登陸頁面的單一 URL 測試 http://fabrikambank.com/onlinebanking/。她設定 HTTP 代碼 200 與文字「歡迎使用！」的準則。如果此測試失敗，表示網路或伺服器發生嚴重錯誤，或可能有部署問題。(或是有人變更了頁面上的「歡迎使用！」訊息但沒讓我們知道。)
 
 
 * 更深入的多步驟測試將會記錄並取得目前帳戶清單，檢查每個頁面上的一些重要詳細資料。此測試會驗證對帳戶資料庫的連結運作中。她使用虛構的客戶識別碼：其中少數幾個保留供測試目的。
@@ -67,7 +67,7 @@ Marcela Markova 是 OBS 小組的測試專員，主導線上效能方面的監�
 但更重要的是，任何失敗的相關警示將以電子郵件方式寄送給開發小組。以該方式，他們幾乎可在所有客戶之前便得知該情況。
 
 
-## 監視效能度量 
+## 監視效能度量
 
 
 在與可用性圖表相同的概觀頁面上，有一個圖表會顯示各種[重要度量][perf]。
@@ -107,13 +107,13 @@ Marcela 喜歡不時查看這些圖表。失敗的要求的持續背景是有些
 
     var telemetry = new TelemetryClient();
     ...
-    try 
+    try
     { ...
     }
     catch (Exception ex)
     {
        // Set up some properties:
-       var properties = new Dictionary <string, string> 
+       var properties = new Dictionary <string, string>
          {{"Game", currentGame.Name}};
 
        var measurements = new Dictionary <string, double>
@@ -131,7 +131,7 @@ Fabrikam 銀行小組制定出一律在發生例外狀況時傳送遙測的作�
     var successCode = AttemptTransfer(transferAmount, ...);
     if (successCode < 0)
     {
-       var properties = new Dictionary <string, string> 
+       var properties = new Dictionary <string, string>
             {{ "Code", returnCode, ... }};
        var measurements = new Dictionary <string, double>
          {{"Value", transferAmount}};
@@ -144,7 +144,7 @@ TrackException 用來報告例外狀況，因為它會傳送堆疊的副本；Tr
 
 ![在「診斷搜尋」中，請使用篩選器來顯示特定類型的資料](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
-## 監視良好事件 
+## 監視良好事件
 
 
 Fabrikam 開發小組希望追蹤良好事件以及嚴重的事件。部分原因是因為能知道發生良好事件的量與位置很明智；再者是因為良好事件突然停止時，事情就變嚴重了。
@@ -171,7 +171,7 @@ Marcela 不會無所事事等候警示。緊接著在每次重新部署之後，
 她可以評估每個部署的效能影響，通常是將每週與前一週比較。如果突然有變慢的情況，她會將該情況向相關的開發人員反應。
 
 
-## 分級 
+## 分級
 
 
 分級 - 評估問題的嚴重性和程度 - 是偵測後的第一個步驟。我們是否應該在半夜打電話給小組？ 或是問題可以留到累積的工作中下一次方便的時候？ 分級時有一些重要的問題。
@@ -197,7 +197,7 @@ Marcela 不會無所事事等候警示。緊接著在每次重新部署之後，
 封鎖案例的重要性如何？ 如果這是功能性問題，封鎖了特定的使用者劇本，有很大影響嗎？ 如果客戶無法支付帳單，便很嚴重；如果客戶無法變更其畫面色彩喜好設定，也可以稍候再解決。事件或例外狀況的詳細資料或緩慢頁面的身分識別，會告知您客戶發生問題的位置。
 
 
-## 診斷 
+## 診斷
 
 
 診斷與偵測不太一樣。開始追蹤程式碼之前，您應該對問題的原因、位置和發生時機有約略的構念。
@@ -223,7 +223,7 @@ Marcela 不會無所事事等候警示。緊接著在每次重新部署之後，
 Fabrikam 的帳戶間轉送發生間歇性問題，但只有某些帳戶類型有此情況。為了更加了解發生的情況，他們在程式碼中的重要點插入了 TrackTrace() 呼叫，附加帳戶類型作為每個呼叫的內容。那使得要在診斷搜尋中僅篩選掉這些追蹤更為輕鬆。他們也將參數值附加為追蹤呼叫的屬性和測量。
 
 
-## 處理 
+## 處理
 
 
 診斷問題之後，您可以製訂修正問題的計劃。也許您需要復原最近的變更，或也許您可以繼續並修正它。修正完成之後，Application Insights 將告知您是否成功。
@@ -231,7 +231,7 @@ Fabrikam 的帳戶間轉送發生間歇性問題，但只有某些帳戶類型�
 
 Fabrikam 銀行的開發小組對效能測量採取較使用 Application Insights 之前更具結構的方法。
 
-* 他們會在 Application Insights 概觀頁面就特定度量設定效能目標。 
+* 他們會在 Application Insights 概觀頁面就特定度量設定效能目標。
 
 * 他們從頭為應用程式設計效能度量，例如透過「漏斗」測量使用者進度的度量。
 
@@ -248,7 +248,7 @@ Application Insights 也可以用來了解使用者在應用程式內執行的�
 
 ## 影片
 
-[AZURE.VIDEO app-insights-performance-monitoring]
+[AZURE.VIDEO performance-monitoring-application-insights]
 
 <!--Link references-->
 
@@ -258,6 +258,6 @@ Application Insights 也可以用來了解使用者在應用程式內執行的�
 [metrics]: app-insights-metrics-explorer.md
 [perf]: app-insights-web-monitor-performance.md
 [usage]: app-insights-web-track-usage.md
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

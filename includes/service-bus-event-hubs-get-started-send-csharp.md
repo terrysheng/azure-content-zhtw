@@ -5,28 +5,29 @@
 
    	![][7]
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下方案，然後按一下 [**管理方案的 NuGet 封裝...**]。 
+2. 在 [方案總管] 中，以滑鼠右鍵按一下方案，然後按一下 [**管理方案的 NuGet 封裝...**]。
 
 	此時會顯示 [管理 NuGet 封裝] 對話方塊。
 
-3. 搜尋  `Microsoft Azure Service Bus`，然後按一下 [**安裝**] 並接受使用條款。 
+3. 搜尋 `Microsoft Azure Service Bus`，然後按一下 [**安裝**] 並接受使用條款。
 
 	![][8]
 
 	這會下載、安裝並新增 <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">Azure Service Bus 程式庫 NuGet 封裝</a>的參考。
 
-4. 在 **Program.cs** 檔案開頭處新增下列  `using` 陳述式：
+4. 在 **Program.cs** 檔案開頭處新增下列 `using` 陳述式：
 
+		using System.Threading;
 		using Microsoft.ServiceBus.Messaging;
 
-5. 將下列欄位加入至 **Program** 類別，並將值替代為您在上一節中所建立的事件中心名稱，以及將連接字串替代為 **Send** 權限：
+5. 將下列欄位加入至 **Program** 類別，並將值替代為您在上一節中所建立的事件中樞名稱，以及將連接字串替代為 **Send** 權限：
 
 		static string eventHubName = "{event hub name}";
         static string connectionString = "{send connection string}";
 
 6. 將下列方法加入至 **Program** 類別：
 
-		static async Task SendingRandomMessages()
+		static void SendingRandomMessages()
         {
             var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
             while (true)
@@ -34,17 +35,17 @@
                 try
                 {
                     var message = Guid.NewGuid().ToString();
-                    Console.WriteLine("{0} > Sending message:{1}", DateTime.Now.ToString(), message);
-                    await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(message)));
+                    Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
+                    eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
                 }
                 catch (Exception exception)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("{0} > Exception:{1}", DateTime.Now.ToString(), exception.Message);
+                    Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
                     Console.ResetColor();
                 }
 
-                await Task.Delay(200);
+                Thread.Sleep(200);
             }
         }
 
@@ -55,11 +56,11 @@
 		Console.WriteLine("Press Ctrl-C to stop the sender process");
         Console.WriteLine("Press Enter to start now");
         Console.ReadLine();
-        SendingRandomMessages().Wait();
+        SendingRandomMessages();
 
 
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-[8]:./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
+[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
 
-<!--HONumber=52--> 
+<!---HONumber=62-->

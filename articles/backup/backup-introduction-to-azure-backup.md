@@ -64,5 +64,6 @@ Azure 備份與 SCDPM 結合後可以備份：
 ## 後續步驟
 + Azure 備份服務的常見問題集在[這裡](backup-azure-backup-faq.md)列出。
 + 造訪 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933) (英文)。
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

@@ -145,7 +145,7 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
     - 封裝：jar
     - 名稱：AzureWebDemo
 
-    按一下 [完成]****。
+    按一下 [完成]。
 
 3. 在 [專案總管] 中開啟新專案的 pom.xml 檔案。選取 [**相依性**] 索引標籤。由於這是新專案，所以尚未列出任何封裝。
 
@@ -164,7 +164,7 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 
     > **注意：**如果在新版本發行後更新相依性，則需在這份清單中重新新增每個相依性。按一下 [**新增**] 並選取每個相依性後，每個相依性會在 [**相依性**] 清單中顯示新的版本號碼。
 
-按一下 [確定]****。Azure 封裝會接著顯示在 [**相依性**] 清單中。
+按一下 [確定]。Azure 封裝會接著顯示在 [**相依性**] 清單中。
 
 
 ### 呼叫 Azure SDK 以便撰寫 Java 程式碼來建立 Web 應用程式
@@ -177,7 +177,7 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 
     ![][2]
 
-3. 按一下 [完成]****。WebCreator.java 檔案會顯示在 [專案總管] 中。
+3. 按一下 [完成]。WebCreator.java 檔案會顯示在 [專案總管] 中。
 
 
 ### 呼叫 Azure API 以建立 App Service Web 應用程式
@@ -238,7 +238,7 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 - `webAppName` 可以您選擇的任何名稱；此程序使用 `WebDemoWebApp` 這個名稱。完整網域名稱為附加 `domainName` 的 `webAppName`，所以此例中的完整網域為 `webdemowebapp.azurewebsites.net`
 - `domainName` 應如上所述加以指定。
 - `webSpaceName` 應是在 [WebSpaceNames](http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html) 類別中指定的其中一個值。
--  `appServicePlanName` 應如上所述加以指定。
+- `appServicePlanName` 應如上所述加以指定。
 
 > **注意：**每次執行此應用程式時，您必須先變更 `webAppName` 和 `appServicePlanName` 的值 (或在 Azure 入口網站上刪除 Web 應用程式)，才能再次執行此應用程式。否則，執行作業會因為 Azure 上已存在相同資源而失敗。
 
@@ -356,13 +356,13 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 
 為了示範如何將應用程式部署到 Web，下列程序顯示如何建立簡單的 "Hello World" Java 應用程式並將它更新至您的應用程式所建立的 App Service Web App。
 
-1. 按一下 **[檔案] > [新增] > [動態 Web 專案]**。將它命名為 `JSPHello`您不需要變更此對話方塊中的任何其他設定。按一下 [完成]****。
+1. 按一下 **[檔案] > [新增] > [動態 Web 專案]**。將它命名為 `JSPHello`您不需要變更此對話方塊中的任何其他設定。按一下 [完成]。
 
     ![][3]
 
-2. 在 [專案總管] 中，展開 **JSPHello** 專案，以滑鼠右鍵按一下 **WebContent**，然後按一下 **[新增] > [JSP 檔案]**。在 [新增 JSP 檔案] 對話方塊中，將新檔案命名為 `index.jsp`。按 [下一步]****。
+2. 在 [專案總管] 中，展開 **JSPHello** 專案，以滑鼠右鍵按一下 **WebContent**，然後按一下 **[新增] > [JSP 檔案]**。在 [新增 JSP 檔案] 對話方塊中，將新檔案命名為 `index.jsp`。按 [下一步]。
 
-3. 在 [Select JSP Template]**** 對話方塊中，選取 [New JSP File (html)]****，然後按一下 [完成]****。
+3. 在 [Select JSP Template] 對話方塊中，選取 [New JSP File (html)]，然後按一下 [完成]。
 
 4. 在 index.jsp 的 `<head>` 和 `<body>` 標記區段中新增下列程式碼：
 
@@ -392,7 +392,7 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 
     ![][5]
 
-    按一下 [完成]****。
+    按一下 [完成]。
 
 5. 然後，返回 [**屬性**] 對話方塊的 [**目標執行階段**] 頁面。選取 [**Apache Tomcat v7.0**]，然後按一下 [**確定**]。
 
@@ -402,7 +402,7 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 
     ![][7]
 
-    按一下 [完成]****。
+    按一下 [完成]。
 
 7. 當應用程式執行時，您應看見 [**JSPHello**] 頁面顯示於 Eclipse 的 localhost 視窗 (`http://localhost:8080/JSPHello/`)，顯示下列訊息：
 
@@ -461,7 +461,7 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 
 1. 在 [**基本功能**] 之下，尋找並複製 [**FTP 主機名稱**]。這是類似於 `ftp://waws-prod-bay-NNN.ftp.azurewebsites.windows.net` 的 URI。
 
-2. 在 [**基本功能**] 之下，尋找並複製 [**FTP/部署使用者名稱**]。其格式為 *webappname\\deployment-username*；例如 `WebDemoWebApp\deployer77`
+2. 在 [**基本功能**] 之下，尋找並複製 [**FTP/部署使用者名稱**]。其格式為 *webappname\deployment-username*；例如 `WebDemoWebApp\deployer77`
 
 若要從發行設定檔取得 FTP 連線資訊：
 
@@ -497,7 +497,7 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 
 3. 在 [**預設文件**] 中，新增 index.jsp 並向上移至清單最上方。(Web 應用程式的預設檔案為 hostingstart.html。)
 
-4. 按一下 [儲存]****。
+4. 按一下 [儲存]。
 
 
 #### 使用 Kudu 發佈您的應用程式
@@ -542,11 +542,11 @@ FileZilla 是另一項可用來發佈應用程式的工具 ，這是具有便利
 1. 在 FileZilla 中，按一下 **[檔案] > [網站管理員]**。
 2. 在 [**網站管理員**] 對話方塊中，按一下 [**新增網站**]。[**選取項目**] 中將會出現新的空白 FTP 網站，提示您提供名稱。在此程序中，將它命名為 `AzureWebDemo-FTP`
 
-    在 [**一般**] 索引標籤上，指定下列設定： - **主機：**輸入您從儀表板複製的 [**FTP 主機名稱**]。 - **連接埠：** (將此空白，因為這是被動傳輸，伺服器將會決定要使用的連接埠。) - **通訊協定：** FTP 檔案傳輸通訊協定 - **加密：**使用一般 FTP - **登入類型：** 一般 - **使用者：**輸入您從儀表板複製的部署 / FTP 使用者。這是完整 FTP 使用者名稱，其格式為 *webappname\\username*。 - **密碼：**輸入您設定部署認證時指定的密碼。
+    在 [**一般**] 索引標籤上，指定下列設定： - **主機：**輸入您從儀表板複製的 [**FTP 主機名稱**]。 - **連接埠：** (將此空白，因為這是被動傳輸，伺服器將會決定要使用的連接埠。) - **通訊協定：** FTP 檔案傳輸通訊協定 - **加密：**使用一般 FTP - **登入類型：** 一般 - **使用者：**輸入您從儀表板複製的部署 / FTP 使用者。這是完整 FTP 使用者名稱，其格式為 *webappname\username*。 - **密碼：**輸入您設定部署認證時指定的密碼。
 
     在 [**傳輸設定**] 索引標籤上，選取 [**被動**]。
 
-3. 按一下 [連接]****。如果成功，FileZilla 的主控台將顯示 `Status: Connected` 訊息並發出 `LIST` 命令以列出目錄內容。
+3. 按一下 [連接]。如果成功，FileZilla 的主控台將顯示 `Status: Connected` 訊息並發出 `LIST` 命令以列出目錄內容。
 
 4. 在 [**本機**] 網站面板中，選取 JSPHello.war 檔案所在的來源目錄；路徑將類似下列路徑：
 
@@ -578,15 +578,16 @@ FileZilla 是另一項可用來發佈應用程式的工具 ，這是具有便利
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-[1]: ./media/java-create-azure-website-using-java-sdk/eclipse-maven-repositories-rebuild-index.png
-[2]: ./media/java-create-azure-website-using-java-sdk/eclipse-new-java-class.png
-[3]: ./media/java-create-azure-website-using-java-sdk/eclipse-new-dynamic-web-project.png
-[4]: ./media/java-create-azure-website-using-java-sdk/eclipse-java-build-path.png
-[5]: ./media/java-create-azure-website-using-java-sdk/eclipse-targeted-runtimes-tomcat-server.png
-[6]: ./media/java-create-azure-website-using-java-sdk/eclipse-targeted-runtimes-properties-page.png
-[7]: ./media/java-create-azure-website-using-java-sdk/eclipse-run-on-server.png
-[8]: ./media/java-create-azure-website-using-java-sdk/kudu-console-drag-drop.png
-[9]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-1.png
-[10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
+  [1]: ./media/java-create-azure-website-using-java-sdk/eclipse-maven-repositories-rebuild-index.png
+  [2]: ./media/java-create-azure-website-using-java-sdk/eclipse-new-java-class.png
+  [3]: ./media/java-create-azure-website-using-java-sdk/eclipse-new-dynamic-web-project.png
+  [4]: ./media/java-create-azure-website-using-java-sdk/eclipse-java-build-path.png
+  [5]: ./media/java-create-azure-website-using-java-sdk/eclipse-targeted-runtimes-tomcat-server.png
+  [6]: ./media/java-create-azure-website-using-java-sdk/eclipse-targeted-runtimes-properties-page.png
+  [7]: ./media/java-create-azure-website-using-java-sdk/eclipse-run-on-server.png
+  [8]: ./media/java-create-azure-website-using-java-sdk/kudu-console-drag-drop.png
+  [9]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-1.png
+  [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

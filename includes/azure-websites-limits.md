@@ -170,9 +170,9 @@
 
 <sup>2</sup>基本和標準網站會在專用的電腦上執行。您可以在這些電腦上裝載的實際網站數目，會視網站的活動、電腦執行個體的大小，及對應的資源使用率而定。
 
-<sup>3</sup>除了免費層以外，Web 主控方案的限制會以每個資源群組計算。如需建立與管理資源群組的詳細資訊，請參閱[使用資源群組管理您的 Azure 資源][useresourcegroups]。
+<sup>3</sup>除了免費層以外，Web 主控方案的限制會以每個資源群組計算。如需建立與管理資源群組的詳細資訊，請參閱[Azure 資源管理員概觀](../articles/resource-group-overview.md)。
 
-<sup>4</sup>專用執行個體可以是小型、中型或大型。如需詳細資訊，請參閱 [Azure 網站定價頁面][websitespricing]。您可透過提出支援要求，來取得額外的執行個體。
+<sup>4</sup>專用執行個體可以是小型、中型或大型。如需詳細資訊，請參閱 [Azure 網站定價頁面](http://azure.microsoft.com/pricing/details/web-sites/)。您可透過提出支援要求，來取得額外的執行個體。
 
 <sup>5</sup>所有網站會共用相同的儲存體資源以取得網站內容。因此，儲存體限制是指跨所有網站的總大小，而非每個網站的大小。您可透過提出支援要求來提高儲存體限制。
 
@@ -182,12 +182,8 @@
 
 <sup>8</sup>此值代表每個網站執行個體的並行 Web 通訊端連接數。例如，如果您將基本網站相應放大成兩個執行個體，則您實際上會有 700 個並行連接 (350 x 2)。
 
-<sup>9</sup>基本層會套用標準的 [SSL 定價][sslpricing]。
+<sup>9</sup>基本層會套用標準的 [SSL 定價](http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections)。
 
 <sup>10</sup>在您的網站執行個體中，以背景工作的方式隨選、依照排程或連續執行自訂可執行檔和/或指令碼。若要連續執行 WebJobs，「永遠開啟」是必要選項。若是排程 WebJobs，則 Azure 排程器免費或標準版本是必要項目。
 
-  [useresourcegroups]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/
-  [websitespricing]: http://azure.microsoft.com/pricing/details/web-sites/
-  [sslpricing]: http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections
-
-<!---HONumber=58-->
+<!---HONumber=62-->

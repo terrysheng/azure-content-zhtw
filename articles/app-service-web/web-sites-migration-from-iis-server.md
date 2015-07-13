@@ -57,20 +57,20 @@
 
 	![](./media/web-sites-migration-from-iis-server/migration-tool-homepage.png)
 
-2.	按一下 [專用 IIS 伺服器]**** 按鈕，以安裝 Web Apps 移轉小幫手。在不久的將來會有更多的選項。
-4.	按一下 [安裝工具]**** 按鈕，在電腦上安裝 Web Apps 移轉小幫手。
+2.	按一下 [專用 IIS 伺服器] 按鈕，以安裝 Web Apps 移轉小幫手。在不久的將來會有更多的選項。
+4.	按一下 [安裝工具] 按鈕，在電腦上安裝 Web Apps 移轉小幫手。
 
 	![](./media/web-sites-migration-from-iis-server/install-page.png)
 
-	>[AZURE.NOTE]您也可以按一下 [下載以進行離線安裝]**** 下載 ZIP 檔案，以便在未連線到網際網路的伺服器上安裝。或者，您可以按一下 [上傳現有的移轉整備報告]****，這是一個進階選項，可處理您先前產生的現有移轉整備報告 (稍後說明)。
+	>[AZURE.NOTE]您也可以按一下 [下載以進行離線安裝] 下載 ZIP 檔案，以便在未連線到網際網路的伺服器上安裝。或者，您可以按一下 [上傳現有的移轉整備報告]，這是一個進階選項，可處理您先前產生的現有移轉整備報告 (稍後說明)。
 
-5.	在 [應用程式安裝]**** 畫面中，按一下 [安裝]**** 即可安裝在電腦上。必要時也會安裝對應的相依項目，如 Web Deploy、DacFX 和 IIS。
+5.	在 [應用程式安裝] 畫面中，按一下 [安裝] 即可安裝在電腦上。必要時也會安裝對應的相依項目，如 Web Deploy、DacFX 和 IIS。
 
 	![](./media/web-sites-migration-from-iis-server/install-progress.png)
 
 	安裝後，Web Apps 移轉小幫手會自動啟動。
   
-6.	選擇 [將網站與資料庫從遠端伺服器移轉到 Azure]****。輸入遠端伺服器的管理認證，並按一下 [繼續]****。
+6.	選擇 [將網站與資料庫從遠端伺服器移轉到 Azure]。輸入遠端伺服器的管理認證，並按一下 [繼續]。
 
 	![](./media/web-sites-migration-from-iis-server/migrate-from-remote.png)
 
@@ -78,11 +78,11 @@
  
 	此時移轉工具會檢查 IIS 伺服器的組態，例如網站、應用程式、應用程式集區和相依性，以識別可供移轉的候選網站。
 
-8.	以下螢幕擷取畫面顯示三個網站 – **預設的網站**、**TimeTracker** 與 **CommerceNet4**。全部都有我們想要移轉的相關資料庫。選取您想評估的所有網站，然後按 [下一步]****。
+8.	以下螢幕擷取畫面顯示三個網站 – **預設的網站**、**TimeTracker** 與 **CommerceNet4**。全部都有我們想要移轉的相關資料庫。選取您想評估的所有網站，然後按 [下一步]。
 
 	![](./media/web-sites-migration-from-iis-server/select-migration-candidates.png)
  
-9.	按一下 [上傳]**** 以上傳整備報表。如果您按一下 [在本機儲存檔案]****，您可以稍後再執行移轉工具，並如先前所述上傳儲存的整備報表。
+9.	按一下 [上傳] 以上傳整備報表。如果您按一下 [在本機儲存檔案]，您可以稍後再執行移轉工具，並如先前所述上傳儲存的整備報表。
 
 	![](./media/web-sites-migration-from-iis-server/upload-readiness-report.png)
  
@@ -90,9 +90,9 @@
  
 	![](./media/web-sites-migration-from-iis-server/readiness-assessment.png)
 
-12.	按一下 [開始移轉]**** 開始進行移轉。您現在會被重新導向至 Azure 來登入您的帳戶。請務必以具有使用中 Azure 訂閱的帳戶進行登入。如果您沒有 Azure 帳戶，可以在此註冊免費試用版。
+12.	按一下 [開始移轉] 開始進行移轉。您現在會被重新導向至 Azure 來登入您的帳戶。請務必以具有使用中 Azure 訂閱的帳戶進行登入。如果您沒有 Azure 帳戶，可以在此註冊免費試用版。
 
-13.	選取要針對移轉的 Azure Web 應用程式和資料庫使用的租用戶帳戶、Azure 訂用帳戶和區域，然後按一下 [開始移轉]****。您可以選取稍後要移轉的網站。
+13.	選取要針對移轉的 Azure Web 應用程式和資料庫使用的租用戶帳戶、Azure 訂用帳戶和區域，然後按一下 [開始移轉]。您可以選取稍後要移轉的網站。
 
 	![](./media/web-sites-migration-from-iis-server/choose-tenant-account.png)
 
@@ -107,15 +107,15 @@
 
 	![](./media/web-sites-migration-from-iis-server/migration-settings.png)
 
-	>[AZURE.NOTE]自訂設定中的 [啟用 Azure Active Directory]**** 核取方塊可整合 Azure Web 應用程式與 [Azure Active Directory](active-directory-whatis.md) (**預設目錄**)。如需有關同步處理 Azure Active Directory 與內部部署 Active Directory 的詳細資訊，請參閱[目錄整合](http://msdn.microsoft.com/library/jj573653)。
+	>[AZURE.NOTE]自訂設定中的 [啟用 Azure Active Directory] 核取方塊可整合 Azure Web 應用程式與 [Azure Active Directory](active-directory-whatis.md) (**預設目錄**)。如需有關同步處理 Azure Active Directory 與內部部署 Active Directory 的詳細資訊，請參閱[目錄整合](http://msdn.microsoft.com/library/jj573653)。
 
-16.	 進行所有必要的變更後，按一下 [建立]**** 即可啟動移轉程序。移轉工具會建立 Azure SQL Database 和 Azure Web 應用程式，然後發行網站內容和資料庫。移轉進度會清楚地顯示在移轉工具中，而您最後將看到摘要畫面，詳述移轉的網站、移轉是否成功、新建立的 Azure Web 應用程式連結。
+16.	 進行所有必要的變更後，按一下 [建立] 即可啟動移轉程序。移轉工具會建立 Azure SQL Database 和 Azure Web 應用程式，然後發行網站內容和資料庫。移轉進度會清楚地顯示在移轉工具中，而您最後將看到摘要畫面，詳述移轉的網站、移轉是否成功、新建立的 Azure Web 應用程式連結。
 
-	如果在移轉期間發生任何錯誤，移轉工具會清楚指出失敗並回復所做的變更。您也可以按一下 [傳送錯誤報告]**** 按鈕，將錯誤報告 (包含擷取的失敗的呼叫堆疊和建置訊息內文) 直接傳送給工程小組。
+	如果在移轉期間發生任何錯誤，移轉工具會清楚指出失敗並回復所做的變更。您也可以按一下 [傳送錯誤報告] 按鈕，將錯誤報告 (包含擷取的失敗的呼叫堆疊和建置訊息內文) 直接傳送給工程小組。
 
 	![](./media/web-sites-migration-from-iis-server/migration-error-report.png)
 
-	如果移轉成功時沒有錯誤，您也可以按一下 [提供意見]**** 按鈕，直接提供任何意見。
+	如果移轉成功時沒有錯誤，您也可以按一下 [提供意見] 按鈕，直接提供任何意見。
  
 20.	按一下 Azure Web 應用程式的連結，確認已成功移轉。
 
@@ -130,5 +130,6 @@
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

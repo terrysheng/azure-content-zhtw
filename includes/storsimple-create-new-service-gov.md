@@ -1,21 +1,3 @@
-<properties 
-   pageTitle="建立新的 StorSimple Manager 服務"
-   description="說明如何使用 Azure Government 入口網站建立新的 StorSimple Manager 服務執行個體。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/20/2015"
-   ms.author="v-sharos" />
-
-
 #### 建立新服務
 
 1. 使用您的 Microsoft 帳戶認證以登入 [Microsoft Azure Government 入口網站](https://manage.windowsazure.us/)。
@@ -35,4 +17,4 @@
  
        ![服務建立](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

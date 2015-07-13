@@ -1,46 +1,27 @@
-<properties 
-   pageTitle="Modify a volume container"
-   description="Explains how you can use the StorSimple Manager service volume containers page to modify a volume container."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/13/2015"
-   ms.author="v-sharos" />
+#### 修改磁碟區容器
 
+1. 在 [**裝置**] 頁面中，選取並按兩下裝置，然後按一下 [**磁碟區容器**] 索引標籤。
 
-#### To modify a volume container
+2. 在磁碟區容器的表格式清單中，選取您想修改的設定，然後按一下 [**修改**]。
 
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
+3. 在 [**修改磁碟區容器**] 對話方塊中，執行下列動作：
 
-2. In the tabular listing of the volume containers, select the setting that you want to modify, and click **Modify**.
+    1. 變更磁碟區容器的名稱、修改相關聯的頻寬，並指定位於雲端的資料是否需要加密。
 
-3. In the **Modify Volume container** dialog box, do the following:
+        ![使用頻寬範本 1 修改磁碟區容器](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
 
-    1. Change the name of the volume container, modify the associated bandwidth, and specify whether or not the data residing in the cloud needs to be encrypted.
+    2. 指定之後，就無法變更加密金鑰和儲存體帳戶。如果您指定 [**選擇頻寬範本**]，按一下箭頭以前往下一頁。
 
-        ![Modify Volume Container with Bandwidth Template 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
+4. 在 [**修改磁碟區容器**] 對話方塊的下一頁中：
 
-    2. The encryption key and storage account cannot be changed after they are specified. If you specified **Select a bandwidth template**, click the arrow to proceed to the next page.
+    1. 從下拉式清單中選擇現有的頻寬範本。
 
-4. In the next page of the **Modify Volume Container** dialog box:
+    2. 檢閱指定的頻寬範本的排程設定。
 
-    1. From the drop-down list, choose an existing bandwidth template.
+        ![使用頻寬範本 2 修改磁碟區容器](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
 
-    2. Review the schedule settings for the specified bandwidth template.
-
-        ![Modify Volume Container with Bandwidth Template 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
-
-    3. Click the check icon ![check icon](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) to save the updated settings. The **Volume containers** page will be updated to reflect the changes.
+    3. 按一下核取圖示 ![核取圖示](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) 儲存已更新的設定。[**磁碟區容器**] 頁面將會更新以反映所做的變更。
 
  
 
-
-
+<!---HONumber=62-->

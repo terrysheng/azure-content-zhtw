@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="在使用流量管理員的 Azure 應用程式服務中設定 Web 應用程式的自訂網域名稱" 
-	description="在包含負載平衡的流量管理員的 Azure 應用程式服務中使用 Web 應用程式的自訂網域名稱。" 
+	pageTitle="在使用流量管理員的 Azure App Service 中設定 Web 應用程式的自訂網域名稱" 
+	description="在包含負載平衡的流量管理員的 Azure App Service 中使用 Web 應用程式的自訂網域名稱。" 
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="MikeWasson" 
@@ -16,13 +16,13 @@
 	ms.date="05/12/2015" 
 	ms.author="mwasson"/>
 
-#在使用流量管理員的 Azure 應用程式服務中設定 Web 應用程式的自訂網域名稱
+#在使用流量管理員的 Azure App Service 中設定 Web 應用程式的自訂網域名稱
 
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 [AZURE.INCLUDE [簡介](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-本文提供對 Azure 應用程式服務 (使用流量管理員進行負載平衡的網站) 使用自訂網域名稱的一般指示。
+本文提供對 Azure App Service (使用流量管理員進行負載平衡的網站) 使用自訂網域名稱的一般指示。
 
 [AZURE.INCLUDE [tmwebsitefooter](../../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
@@ -42,10 +42,10 @@
 ## 新增自訂網域的 DNS 記錄
 
 
-> [AZURE.NOTE]如果您已透過 Azure App Service Web Apps 購買網域，請略過下列步驟，並參閱<a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">購買 Web Apps 網域</a>文的最後一個步驟。
+> [AZURE.NOTE]如果您已透過 Azure App Service Web Apps 購買網域，請略過下列步驟，並參閱<a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">購買 Web Apps 網域</a>文張的最後一個步驟。
 
 
-若要將您的自訂網域與 Azure 應用程式服務的 Web 應用程式建立關聯，必須在 DNS 表格中為您的自訂網域新增項目，方法是使用您向其購買網域名稱之網域註冊機構所提供的工具。使用下列步驟來尋找並使用 DNS 工具。
+若要將您的自訂網域與 Azure App Service 的 Web 應用程式建立關聯，必須在 DNS 表格中為您的自訂網域新增項目，方法是使用您向其購買網域名稱之網域註冊機構所提供的工具。使用下列步驟來尋找並使用 DNS 工具。
 
 1. 在網域註冊機構登入您的帳戶，並尋找用於管理 DNS 記錄的頁面。在網站中尋找標示為 **Domain Name**、**DNS** 或 **Name Server Management** 的連結或區域。通常該頁面的連結可透過檢視您的帳戶資訊，然後尋找**我的網域**之類的連結來找到。
 
@@ -55,7 +55,7 @@
 	* 頁面上會提及 **CNAME 記錄**，或提供選取記錄類型的下拉式清單。它也可能提及其他記錄 (如 **A 記錄**和 **MX 記錄**)。在部分情況下，會以其他名稱來稱呼 CNAME 記錄，如**別名記錄**。
 	* 頁面上也會有可讓您將**主機名稱**或**網域名稱****對應**為其他網域名稱的欄位。
 
-5. 由於每個註冊機構的特殊要求可能有所不同，一般來說，您會*從*自訂網域名稱 (例如 **contoso.com**) 對應*至*使用於流量管理員網域名稱 (**contoso.trafficmanager.net**)。
+5. 由於每個註冊機構的特殊要求可能有所不同，一般來說，您會「從」自訂網域名稱 (例如 **contoso.com**) 對應「至」您應用程式使用的流量管理員網域名稱 (**contoso.trafficmanager.net**)。
 
 6. 在註冊機構處將新增或修改 DNS 記錄的作業完成後，請儲存變更。
 

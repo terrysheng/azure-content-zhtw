@@ -1,4 +1,4 @@
-﻿
+
 1. 以滑鼠右鍵按一下 Windows 市集專案、按一下 [設定為啟始專案]，然後按 F5 鍵以執行 Windows 市集應用程式。
 	
 	應用程式啟動後，系統便會替裝置註冊推播通知。
@@ -7,7 +7,7 @@
 
 	此時，系統會註冊這兩個裝置以接收推播通知。
 
-3. 再執行 Windows 市集應用程式一次，接著在 [插入 TodoItem] 中輸入文字，然後按一下 [儲存]。
+3. 再執行 Windows 市集應用程式一次，接著在 [Insert a TodoItem] 中輸入文字，然後按一下 [儲存]。
 
    	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push1.png)
 
@@ -19,5 +19,4 @@
 
    	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push5-wp8.png)
 
-
-<!--HONumber=49-->
+<!---HONumber=62-->

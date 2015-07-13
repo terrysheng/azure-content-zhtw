@@ -1,15 +1,15 @@
 <properties
-	pageTitle="Azure 備份 - 從 Windows Server 或 Windows 用戶端進行備份和還原"
-	description="了解如何從 Windows Server 或 Windows 用戶端進行備份和還原。本文章也涵蓋替代伺服器復原"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
+   pageTitle="Azure 備份 - 從 Windows Server 或 Windows 用戶端進行備份和還原"
+   description="了解如何從 Windows Server 或 Windows 用戶端進行備份和還原。本文章也涵蓋替代伺服器復原"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
@@ -112,5 +112,6 @@
 [16]: ./media/backup-azure-backup-and-recover/searchitems.png
 [17]: ./media/backup-azure-backup-and-recover/restorelocation.png
 [18]: ./media/backup-azure-backup-and-recover/encryption.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

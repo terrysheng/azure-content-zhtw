@@ -73,8 +73,8 @@ App Service 方案的服務層級是以[方案的*定價層*](/pricing/details/a
 
 ### 偵錯工具支援 ###
 
-- 在每個 App Service 方案 1 個同時連線的情況下，偵錯工具支援適用於 [**免費**]、[**共用**] 及 [**基本**] 模式。
-- 在每個 App Service 方案 5 個同時連線的情況下，偵錯工具支援適用於 [**標準**] 和 [**高階**] 模式。
+- 在每個 App Service 方案 1 個同時連線的情況下，偵錯工具支援適用於 [免費]、[共用] 及 [基本] 模式。
+- 在每個 App Service 方案有 5 個同時連線的情況下，偵錯工具支援適用於 [標準] 和 [高階] 模式。
 
 <a name="OtherFeatures"></a>
 ## 其他功能
@@ -103,7 +103,7 @@ App Service 方案的服務層級是以[方案的*定價層*](/pricing/details/a
 	
 	[App Service 定價詳細資料 - SSL 連線](/pricing/details/web-sites/#ssl-connections)
 
-- 如需 Azure App Service 最佳作法 (包括建置可調整且具彈性的架構) 的相關資訊，請參閱[最佳作法：Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)。
+- 如需 Azure App Service 最佳作法 (包括建置可調整且具彈性的架構) 的詳細資訊，請參閱[最佳作法：Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)。
 
 - 調整 Web Apps 規模的相關影片：
 	
@@ -125,5 +125,6 @@ App Service 方案的服務層級是以[方案的*定價層*](/pricing/details/a
 [ResourceGroup]: ./media/web-sites-scale/scale10ResourceGroup.png
 [ScaleDatabase]: ./media/web-sites-scale/scale11SQLScale.png
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

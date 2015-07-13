@@ -49,7 +49,7 @@
 
 7. 一旦 MongoDB 安裝完成，您必須設定端點，讓 MongoDB 可以遠端存取。在 [管理入口網站] 中，按一下 [虛擬機器]，接著按一下新虛擬機器的名稱，再按一下 [端點]。
 	
-	![端點][Image7]
+	![Endpoints][Image7]
 
 8. 按一下頁面底部的 [新增端點]。
 	
@@ -72,4 +72,4 @@
 [Image7]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
 [Image8]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png
 
-<!--HONumber=52-->
+<!---HONumber=62-->

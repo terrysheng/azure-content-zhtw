@@ -45,7 +45,7 @@ Azure 會評估 SQL Database 的歷程記錄資源使用狀況，藉此分析目
 
 ## 取得定價層建議
 
-選取現有的 Web 或 Business 資料庫，然後按一下 [定價層] 磚，可取得定價層建議。
+選取現有的 Web 或商務資料庫，然後按一下 [定價層] 磚，可取得定價層建議。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下左側功能表中的 [瀏覽]。
@@ -87,4 +87,7 @@ Azure 會評估 SQL Database 的歷程記錄資源使用狀況，藉此分析目
 [4]: ./media/sql-database-pricing-tier-recommendations/choose-pricing-tier.png
 [5]: ./media/sql-database-pricing-tier-recommendations/usage-details.png
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=62-->

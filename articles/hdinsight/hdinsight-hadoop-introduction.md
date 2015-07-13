@@ -78,7 +78,7 @@ HDInsight 會提供特定工作負載的叢集組態：Hadoop、HBase 或 Storm�
 
 * **[Avro](#avro)** (Microsoft .NET Library for Avro)：Microsoft.NET 環境的資料序列化。
 
-* **[Hive 和 HCatalog](#hive)**：類似結構化查詢語言 (SQL) 的查詢，以及資料表和儲存體管理層。
+* **[Hive & HCatalog](#hive)**：類似結構化查詢語言 (SQL) 的查詢，以及資料表和儲存體管理層。
 
 * **[Mahout](#mahout)**：機器學習。
 

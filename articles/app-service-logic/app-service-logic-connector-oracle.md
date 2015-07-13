@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/17/2015"
+   ms.date="06/22/2015"
    ms.author="sutalasi"/>
 
 
@@ -40,7 +40,7 @@ Oracle 資料庫連接器提供下列觸發程序和動作：
 
 ## 建立 Oracle 資料庫連接器
 
-連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。使用 Azure Marketplace 建立連接器：
+連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
 1. 在 Azure 開始面板中，選取 [**Marketplace**]。
 2. 選取 [**API Apps**]，並搜尋「Oracle 資料庫連接器」。
@@ -80,7 +80,7 @@ Oracle 資料庫連接器提供下列觸發程序和動作：
 
 若要使用 Oracle 連接器做為動作，請輸入您建立 Oracle 連接器時所輸入的資料表及/或預存程序的名稱：
 
-1. 從資源庫選取相同的 Oracle 連接器做為動作。選取其中一個「插入」動作，例如*插入到 TempEmployeeDetails (JSON)*：<br/> ![][8] 
+1. 從元件庫選取相同的 Oracle 連接器做為動作。選取其中一個「插入」動作，例如*插入到 TempEmployeeDetails (JSON)*：<br/> ![][8] 
 
 2. 輸入要插入的記錄的輸入值，然後按一下 ✓：<br/> ![][9]
 
@@ -99,9 +99,9 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 請參閱[使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
 
-您也可以檢閱連接器的效能統計資料和控制安全性。請參閱[管理和監視 API 應用程式和連接器](../app-service-api/app-service-api-manage-in-portal.md)。
+您也可以檢閱連接器的效能統計資料和控制安全性。請參閱[管理和監視 API 應用程式和連接器](app-service-api-manage-in-portal.md)。
 
 
 <!--Image references-->
@@ -111,6 +111,7 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [7]: ./media/app-service-logic-connector-oracle/LogicApp3.png
 [8]: ./media/app-service-logic-connector-oracle/LogicApp4.png
 [9]: ./media/app-service-logic-connector-oracle/LogicApp5.png
+[10]: ./media/app-service-logic-connector-oracle/LogicApp6.png
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 

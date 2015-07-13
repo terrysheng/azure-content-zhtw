@@ -4,7 +4,7 @@
 		using System;
 		using System.Collections.Generic;
 
-2. 以下列程式碼取代 `PostTodoItem` 方法：
+2. 以下列程式碼更新 `PostTodoItem` 方法定義：
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -28,7 +28,8 @@
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-    此程式碼會在插入 Todo 項目之後傳送推播通知 (含所插入項目的文字)。如果發生錯誤，程式碼將會新增可透過管理入口網站從行動服務的 [記錄檔]**** 索引標籤來檢視的錯誤記錄項目。
+    此程式碼會在插入 Todo 項目之後傳送推播通知 (含所插入項目的文字)。如果發生錯誤，程式碼將會新增可透過管理入口網站從行動服務的 [記錄檔] 索引標籤來檢視的錯誤記錄項目。
 
 3. 將您的行動服務專案重新發佈至 Azure。
-<!--HONumber=54-->
+
+<!---HONumber=62-->

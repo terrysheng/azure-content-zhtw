@@ -170,7 +170,7 @@ Application Insights SDK 是由數個模組所組成。核心模組提供基本�
 
 #### Web.TelemetryInitializers.WebSessionTelemetryInitializer
 
-為每個事件加上工作階段 ID。會設定 telemetryClient.Context.Session
+為每個事件加上工作階段 ID。Sets telemetryClient.Context.Session
 
 ## 自訂初始設定式
 

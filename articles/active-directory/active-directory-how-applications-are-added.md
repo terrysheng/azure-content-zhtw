@@ -1,20 +1,20 @@
 <properties
-	pageTitle="將應用程式加入至 Azure Active Directory 的方式"
-	description="本文將說明如何將應用程式加入至 Azure Active Directory 的執行個體。"
-	services="active-directory"
-	documentationCenter=""
-	authors="shoatman"
-	manager="kbrint"
-	editor=""/>
+   pageTitle="將應用程式加入至 Azure Active Directory 的方式"
+   description="本文將說明如何將應用程式加入至 Azure Active Directory 的執行個體。"
+   services="active-directory"
+   documentationCenter=""
+   authors="shoatman"
+   manager="kbrint"
+   editor=""/>
 
-<tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="03/23/2015"
-	ms.author="shoatman"/>
+   <tags
+      ms.service="active-directory"
+      ms.devlang="na"
+      ms.topic="article"
+      ms.tgt_pltfrm="na"
+      ms.workload="identity"
+      ms.date="03/23/2015"
+      ms.author="shoatman"/>
 
 # 將應用程式加入至 Azure AD 的方式和原因
 
@@ -145,5 +145,6 @@
 <!--Image references-->
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

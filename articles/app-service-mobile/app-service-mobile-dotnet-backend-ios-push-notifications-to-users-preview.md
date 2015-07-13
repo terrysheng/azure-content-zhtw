@@ -3,7 +3,7 @@
 	description="了解如何將推播通知傳送至特定使用者的所有裝置。"
 	services="app-service\mobile" 
 	documentationCenter="ios" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-dotnet" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="03/17/2015"
+	ms.date="06/23/2015"
 	ms.author="yuaxu"/>
 
 # 傳送跨平台通知給特定使用者
@@ -104,5 +104,6 @@
 [開始使用驗證]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
 [開始使用推播通知]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
 [範本]: https://msdn.microsoft.com/zh-tw/library/dn530748.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

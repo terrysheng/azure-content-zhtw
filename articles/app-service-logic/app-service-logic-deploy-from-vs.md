@@ -64,4 +64,5 @@
 未來，您可以在原始檔控制中修改邏輯應用程式，並利用 Visual Studio 來部署新的版本。請注意，如果您直接在 Azure 入口網站中修改定義，則下次從 Visual Studio 部署時會覆寫這些變更。
 
 如果您不想使用 Visual Studio，但仍想有工具從原始檔控制來部署邏輯應用程式，您永遠都能直接利用 [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 或 [Powershell](../powershell-azure-resource-manager.md) 來自動化部署。
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

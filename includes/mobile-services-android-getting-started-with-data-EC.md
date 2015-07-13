@@ -37,7 +37,7 @@
 
 		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
 
-8. 儲存檔案，專案會指出建置錯誤。請搜尋其餘三個用到 `toDoItemList` 變數的地方，並將指出的區段變成註解。這會完全移除記憶體中的清單。
+8. 儲存檔案，專案會指出建置錯誤。請搜尋其餘三個用到 `toDoItemList` 變數的位置，並將指出的區段變成註解。這會完全移除記憶體中的清單。
 
 9. 現在開始加入我們的行動服務。將下列幾行程式碼取消註解：
 
@@ -156,4 +156,5 @@
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
-<!--HONumber=54-->
+
+<!---HONumber=62-->

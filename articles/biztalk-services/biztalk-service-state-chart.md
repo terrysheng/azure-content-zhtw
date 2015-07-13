@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="BizTalk 服務：服務狀態圖 | Azure" 
+	pageTitle="BizTalk 服務在每個狀態下可執行的工作 |Azure" 
 	description="不同 MABS 狀態允許的動作/作業：停止、啟動、重新啟動、暫停、繼續、刪除、調整、更新組態和備份" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2015" 
+	ms.date="06/07/2015" 
 	ms.author="mandia"/>
 
 
@@ -25,14 +25,14 @@
 
 **不允許此作業**
 
-若要佈建 BizTalk 服務，請參閱＜[BizTalk 服務：使用 Azure 管理入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)。
+若要佈建 BizTalk 服務，請移至「[BizTalk 服務：使用 Azure 管理入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)」。
 
-下表列出當 BizTalk 服務處於特定狀態時可執行的作業。核取記號表示可在此狀態下執行作業。空白項目表示無法在此狀態下執行作業。
+下表列出當 BizTalk 服務處於特定狀態時可執行的作業或動作。核取記號表示可在該狀態下執行作業。空白項目表示無法在此狀態下執行作業。
 
-#### 啟動、停止、重新啟動、暫止、繼續和刪除作業
+## 啟動、停止、重新啟動、暫止、繼續和刪除作業
 <table border="1">
 <tr>
-        <th colspan="15">作業</th>
+        <th colspan="15">作業或動作</th>
 </tr>
 
 <tr>
@@ -40,7 +40,7 @@
 </tr>
 <tr bgcolor="FAF9F9">
         <th> </th>
-        <th>從這裡</th>
+        <th>啟動</th>
         <th>停止</th>
         <th>重新啟動</th>
         <th>暫止</th>
@@ -48,7 +48,7 @@
         <th>刪除</th>
 </tr>
 <tr>
-<td bgcolor="FAF9F9"><b>Active</b></td>
+<td bgcolor="FAF9F9"><b>使用中</b></td>
 <td> </td>
 <td><center>x</center></td>
 <td><center>x</center></td>
@@ -57,7 +57,7 @@
 <td><center>x</center></td>
 </tr>
 <tr>
-<td bgcolor="FAF9F9"><b>已停用</b></td>
+<td bgcolor="FAF9F9"><b>停用</b></td>
 <td> </td>
 <td> </td>
 <td> </td>
@@ -162,10 +162,10 @@
 </table>
 <br/>
 
-####調整、更新組態和備份作業
+## 調整、更新組態和備份作業
 <table border="1">
 <tr>
-        <th colspan="15">作業</th>
+        <th colspan="15">作業或動作</th>
 </tr>
 
 <tr>
@@ -178,13 +178,13 @@
         <th>備份</th>
 </tr>
 <tr>
-<td bgcolor="FAF9F9"><b>Active</b></td>
+<td bgcolor="FAF9F9"><b>使用中</b></td>
 <td><center>x</center></td>
 <td><center>x</center></td>
 <td><center>x</center></td>
 </tr>
 <tr>
-<td bgcolor="FAF9F9"><b>已停用</b></td>
+<td bgcolor="FAF9F9"><b>停用</b></td>
 <td> </td>
 <td> </td>
 <td> </td>
@@ -256,15 +256,15 @@
 </table>
 
 ## 另請參閱
-- [BizTalk 服務：使用 Azure 管理入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/> (英文)
-- [BizTalk 服務：儀表板、監視器和調整索引標籤](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/> (英文)
-- [BizTalk 服務：開發人員、基本、標準和高級版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/> (英文)
-- [BizTalk 服務：備份與還原](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/> (英文)
-- [BizTalk 服務：節流](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/> (英文)
-- [BizTalk 服務：簽發者名稱和簽發者金鑰](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/> (英文)
+- [BizTalk 服務：使用 Azure 管理入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [BizTalk 服務：儀表板、監視和調整索引標籤](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+- [BizTalk 服務：開發人員、基本、標準和高級版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+- [BizTalk 服務：備份與還原](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+- [BizTalk 服務：節流](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+- [BizTalk 服務：簽發者名稱和簽發者金鑰](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 - [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=62-->

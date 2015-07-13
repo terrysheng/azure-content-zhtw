@@ -1,11 +1,11 @@
 
-1. 在 [管理入口網站] 中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。 
+1. 在管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。 
  
-2. 在 [todoitem] 按一下 [指令碼] 索引標籤並選取 [插入]。
+2. 在 [todoitem] 中，按一下 [指令碼] 索引標籤，然後選取 [插入]。
    
-   	這會顯示 [**TodoItem**] 資料表中發生插入時所叫用的函數。
+   	如此即會顯示 [TodoItem] 資料表中發生插入時所叫用的函數。
 
-3. 使用下列程式碼來取代 insert 函數，然後按一下 [儲存]：
+3. 使用下列程式碼來取代 insert 函數，然後按一下 **[儲存]**：
 
 		function insert(item, user, request) {
 		// Define a simple payload for a GCM notification.
@@ -35,7 +35,6 @@
 		  });
 		}
 
-   	如此即會註冊新的 insert 指令碼，該指令碼會在插入成功之後，使用 [gcm 物件](http://go.microsoft.com/fwlink/p/?LinkId=282645) 將推播通知傳送給所有已註冊的裝置。 
+   	如此即會註冊新的 insert 指令碼，該指令碼會在插入成功之後，使用 [gcm 物件](http://go.microsoft.com/fwlink/p/?LinkId=282645)將推播通知傳送給所有已註冊的裝置。
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

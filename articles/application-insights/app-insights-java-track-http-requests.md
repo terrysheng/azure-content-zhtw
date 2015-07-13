@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="05/26/2015" 
 	ms.author="awills"/>
  
 # 在 Java Web 應用程式中追蹤 HTTP 要求
@@ -85,11 +85,14 @@
 
 在專案中找到並開啟 ApplicationInsights.xml 檔案，並合併 <TelemetryInitializers> 元素下的下列程式碼片段。
 
-如果此檔案中沒有 <TelemetryInitializers> 元素，請在 <ApplicationInsights> 元素下加入一個。
+如果此檔案中沒有 < TelemetryInitializers> 元素，請在 <ApplicationInsights> 元素下加入一個。
 
     <TelemetryInitializers>
-      <Add   type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
-      <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+     <Add  type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
     </TelemetryInitializers>
 
 
@@ -134,5 +137,6 @@
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

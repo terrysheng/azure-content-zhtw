@@ -1,28 +1,28 @@
-## How to deploy with PowerShell
+## 如何使用 PowerShell 部署
 
-1. Login to your Azure account.
+1. 登入您的 Azure 帳戶。
 
           Add-AzureAccount
 
-   After providing your credentials, the command returns information about your account.
+   提供您的認證之後，命令會傳回您的帳戶的相關資訊。
 
           Id                             Type       ...
           --                             ----    
           example@contoso.com            User       ...   
 
-2. If you have multiple subscriptions, provide the subscription id you wish to use for deployment. 
+2. 如果您有多個訂用帳戶，請提供您想要用於部署的訂用帳戶識別碼。 
 
           Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
 
-3. Switch to the Azure Resource Manager module.
+3. 切換至 Azure 資源管理員模組。
 
           Switch-AzureMode AzureResourceManager
 
-4. If you do not have an existing resource group, create a new resource group. Provide the name of the resource group and location that you need for your solution.
+4. 如果您沒有現有資源群組，請建立新的資源群組。提供您的解決方案所需的資源群組名稱和位置。
 
         New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
 
-   A summary of the new resource group is returned.
+   隨即傳回新資源群組的摘要。
 
         ResourceGroupName : ExampleResourceGroup
         Location          : westus
@@ -34,24 +34,24 @@
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. To create a new deployment for your resource group, run the **New-AzureResourceGroupDeployment** command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario. 
+5. 若要建立資源群組的新部署，請執行 **New-AzureResourceGroupDeployment** 命令，並提供必要的參數。參數會包含您部署的名稱、資源群組的名稱、您建立之範本的路徑或 URL，以及您的案例所需的任何其他參數。 
    
-   You have the following options for providing parameter values: 
+   您有下列選項可以用來提供參數值：
    
-   - Use inline parameters.
+   - 使用內嵌參數。
 
             New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
-   - Use a parameter object.
+   - 使用參數物件。
 
             $parameters = @{"<ParameterName>"="<Parameter Value>"}
             New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
 
-   - Using a parameter file.
+   - 使用參數檔案。
 
             New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
 
-  When the resource group has been deployed, you will see a summary of the deployment.
+  部署資源群組之後，您會看到部署的摘要。
 
              DeploymentName    : ExampleDeployment
              ResourceGroupName : ExampleResourceGroup
@@ -60,10 +60,12 @@
              Mode              : Incremental
              ...
 
-6. To get information about deployment failures.
+6. 取得部署失敗的相關資訊。
 
         Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
 
-7. To get detailed information about deployment failures.
+7. 取得部署失敗的詳細資訊。
 
         Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+
+<!---HONumber=62-->

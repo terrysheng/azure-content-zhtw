@@ -100,7 +100,7 @@
 
 7. 按一下 [備份保存庫] 前往 [**快速入門**] 頁面，上面將會顯示備份 Azure 虛擬機器的指示。![虛擬機器的備分指示在 [儀表板] 頁面上](./media/backup-azure-vms-introduction/vmbackup-instructions.png)
 
-    >[AZURE.NOTE]請確定建立保存庫之後，立即選擇適當的儲存體備援選項。進一步了解[在備份保存庫中設定儲存體備援選項][vault-storage-redundancy]。
+    >[AZURE.NOTE]請確定建立保存庫之後，立即選擇適當的儲存體備援選項。進一步了解 [在備份保存庫中設定儲存體備援選項][vault-storage-redundancy]。
 
 ### 2.VM 代理程式
 在您開始備份 Azure 虛擬機器之前，請先確定 Azure VM 代理程式已正確安裝在虛擬機器上。為了備份虛擬機器，Azure 備份服務將在 VM 代理程式上安裝延伸模組。由於 VM 代理程式在建立虛擬機器時為選擇性元件，您必須確定在佈建虛擬機器前，已選取 VM 代理程式的核取方塊。
@@ -133,4 +133,7 @@
 
 + 監視備份工作
 
-<!---HONumber=GIT-SubDir--> 
+
+ 
+
+<!---HONumber=62-->

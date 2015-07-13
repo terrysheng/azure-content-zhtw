@@ -26,11 +26,11 @@
 
 ##<a name="register"></a>註冊應用程式進行驗證，並設定應用程式服務
 
-[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)] 
+[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ##<a name="permissions"></a>限制只有通過驗證的使用者具有權限
 
-[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 <ol start="7">
 <li><p>在 Visual Studio 或 Xamarin Studio 中，在裝置或模擬器上執行用戶端專案。確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。</p>
@@ -84,7 +84,7 @@
 		}
 
 
-4. 修改要驗證的方法 **RefreshAsync**，並在 [使用者]**** 屬性為 null 時顯示登入畫面。在方法定義最上方的下列程式碼上：
+4. 修改要驗證的方法 **RefreshAsync**，並在 [使用者] 屬性為 null 時顯示登入畫面。在方法定義最上方的下列程式碼上：
 
 		// start of RefreshAsync method
 		if (todoService.User == null) {
@@ -96,7 +96,7 @@
 		}
 		// rest of RefreshAsync method
 	
-5. 按 [執行]**** 按鈕以建置專案，並在 iPhone 模擬器中啟動應用程式。確認應用程式未顯示資料。
+5. 按 [執行] 按鈕以建置專案，並在 iPhone 模擬器中啟動應用程式。確認應用程式未顯示資料。
 
 	將項目清單往下拉以執行重新整理動作，這會使登入畫面出現。在您成功輸入有效認證後，應用程式將會顯示 todo 項目清單，且您可以對資料進行更新。
 
@@ -107,5 +107,6 @@
 [建立 Xamarin.iOS 應用程式]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
 [Azure Management Portal]: https://portal.azure.com
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

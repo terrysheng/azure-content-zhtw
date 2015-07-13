@@ -40,7 +40,7 @@ Azure Marketplace 包含 Bottle、Django 和 Flask 架構的範本。如果您�
 
 本教學課程假設定有現有的 Azure 訂用帳戶，而且能夠存取 Azure Preview 入口網站。
 
-如果您還沒有 Web 應用程式，則可以從 [Azure Preview 入口網站](https://portal.azure.com)建立。按一下左下角的 [新增] 按鈕，然後按一下 [**Web + 行動**] > [**Web 應用程式**]。
+如果您還沒有 Web 應用程式，則可以從 [Azure Preview 入口網站](https://portal.azure.com)建立。按一下左下角的 [新增] 按鈕，然後按一下 [Web + 行動] > [Web 應用程式]。
 
 ## Git 發行
 
@@ -97,7 +97,7 @@ WSGI 是由 [PEP 3333](http://www.python.org/dev/peps/pep-3333/) 描述的一項
 
 Requirements.txt 中所列封裝，將會使用 pip 自動安裝於虛擬環境中。這種情況會發生在每個部署，但是如果已安裝封裝，pip 會跳過安裝。
 
-範例 `requirements.txt`：
+`requirements.txt` 範例：
 
     azure==0.8.4
 
@@ -106,7 +106,7 @@ Requirements.txt 中所列封裝，將會使用 pip 自動安裝於虛擬環境�
 
 [AZURE.INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
-範例 `runtime.txt`：
+`runtime.txt` 範例：
 
     python-2.7
 
@@ -119,7 +119,7 @@ Requirements.txt 中所列封裝，將會使用 pip 自動安裝於虛擬環境�
 
 下列 web.config 範例仰賴虛擬環境 Proxy 指令碼，於下一節中說明。其會使用上述範例 `app.py` 中所使用之 WSGI 處理常式。
 
-Python 2.7 的範例 `web.config`：
+Python 2.7 的 `web.config` 範例：
 
     <?xml version="1.0"?>
     <configuration>
@@ -168,7 +168,7 @@ Python 2.7 的範例 `web.config`：
     </configuration>
 
 
-Python 3.4 的範例 `web.config`：
+Python 3.4 的 `web.config` 範例：
 
     <?xml version="1.0"?>
     <configuration>
@@ -219,7 +219,7 @@ Python 3.4 的範例 `web.config`：
 
 在上述範例中，磁碟上靜態檔案的位置應該符合在 URL 中的位置。這表示 `http://pythonapp.azurewebsites.net/static/site.css` 要求將於 `\static\site.css` 提供磁碟上的檔案。
 
-有可能將規則 `Static Files` 設定為從不同於 URL 位置的磁碟位置上提供檔案。在下列規則定義中，`http://pythonapp.azurewebsites.net/static/site.css` 將於 `\FlaskWebProject\static\site.css` 提供磁碟上的檔案，而不是 `\static\site.css`
+有可能將規則 `Static Files` 設定為從不同於 URL 位置的磁碟位置上提供檔案。在下列規則定義中，`http://pythonapp.azurewebsites.net/static/site.css` 將於 `\FlaskWebProject\static\site.css` 提供磁碟上的檔案，而不是 `\static\site.css`。
 
     <rule name="Static Files" stopProcessing="true">
       <match url="^/static/.*" ignoreCase="true" />

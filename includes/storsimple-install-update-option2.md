@@ -1,34 +1,17 @@
-<properties 
-   pageTitle="Option 2: Use the Azure Management Portal to apply Update 1"
-   description="Explains how to use the Management Portal to install StorSimple 8000 Series Update 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/14/2015"
-   ms.author="v-sharos" />
+#### 從 Azure 管理入口網站安裝 Update 1
 
-#### To install Update 1 from the Azure Management Portal
-
-1. In the Management Portal, go to the **Devices** page and select your device.
+1. 在管理入口網站中，移至 [**裝置**] 頁面，並選取您的裝置。
  
-2. Navigate to **Devices** > **Configure**. 
+2. 瀏覽至 [**裝置**] > [**設定**]。
 
-3. Under **Network Interfaces**, locate the network interface that has a gateway assigned. This will be a network interface other than DATA 0. 
+3. 在 [**網路介面**] 之下，找到具有已指派閘道器的網路介面。這將是 DATA 0 以外的網路介面。
 
-4. Clear the gateway setting. Note that because gateway settings are required on a cloud-enabled network interface, you will need to disable the cloud access for this interface to clear the setting.
+4. 清除閘道器設定。請注意，因為閘道器設定需要具備雲端功能的網路介面，您將需要停用此介面的雲端存取以清除設定。
 
-5. Repeat step 4 for any other network interface that has a gateway assigned (excluding DATA 0).
+5. 針對其他具有已指派閘道器的網路介面 (不含 DATA 0)，請重複步驟 4。
 
-6. Save the modified configuration.
+6. 儲存已修改的設定。
 
-7. You can now [use the Management Portal to install Update 1](#use-the-management-portal-to-install-update-1). 
+7. 您現在可以[使用管理入口網站安裝 Update 1](#use-the-management-portal-to-install-update-1)。
 
-
+<!---HONumber=62-->

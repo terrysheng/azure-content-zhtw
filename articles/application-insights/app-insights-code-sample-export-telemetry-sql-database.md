@@ -436,7 +436,7 @@
     }
 
 
-#### Entity framework 提供 SQL 互動的 DBcontext
+#### DBcontext for SQL interaction by Entity Framework
 
 	public class TelemetryContext : DbContext
     {

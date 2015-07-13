@@ -36,7 +36,7 @@
 執行下列步驟，即可在 Azure App Service 中建立 Web 應用程式。
 
 1. 啟動 WebMatrix
-2. 如果這是您第一次使用 WebMatrix，則會提示您登入 Azure。否則，您可以按一下 [登入]**** 按鈕，然後選擇 [新增帳戶]****。選擇使用您的 Microsoft 帳戶來 [登入]****。
+2. 如果這是您第一次使用 WebMatrix，則會提示您登入 Azure。否則，您可以按一下 [登入] 按鈕，然後選擇 [新增帳戶]。選擇使用您的 Microsoft 帳戶來 [登入]。
 
 	![Add Account][addaccount]
 
@@ -47,11 +47,11 @@
 
 ## 使用 Azure 內建的範本建立網站
 
-1. 在開始畫面上，按一下 [新增]**** 按鈕，然後選擇 [範本庫]****，從範本庫建立新的網站：
+1. 在開始畫面上，按一下 [新增] 按鈕，然後選擇 [範本庫]，從範本庫建立新的網站：
 
 	![New site from Template Gallery][sitefromtemplate]
 
-2. 在 [依據範本的站台]**** 對話方塊中，選取 [Node]****，再選取 [Express 網站]****。最後，按 [下一步]****。如果您遺漏 [Express 網站]**** 範本的任何必要元件，則會提示您安裝。
+2. 在 [依據範本的站台] 對話方塊中，選取 [Node]，再選取 [Express 網站]。最後，按 [下一步]。如果您遺漏 [Express 網站] 範本的任何必要元件，則會提示您安裝。
 
 	![select express template][webmatrix-templates]
 
@@ -65,11 +65,11 @@
 
 ##將應用程式發行至 Azure
 
-1. 在 WebMatrix 中，從 [首頁]**** 功能區按一下 [發佈]****，以顯示網站的 [發佈預覽]**** 對話方塊。
+1. 在 WebMatrix 中，從 [首頁] 功能區按一下 [發佈]，以顯示網站的 [發佈預覽] 對話方塊。
 
 	![publish preview][webmatrix-node-publishpreview]
 
-2. 按一下 [繼續]****。發佈完成時，App Service Web 應用程式的 URL 會顯示在 WebMatrix IDE 底部
+2. 按一下 [繼續]。發佈完成時，App Service Web 應用程式的 URL 會顯示在 WebMatrix IDE 底部
 
 	![publish complete][webmatrix-publish-complete]
 
@@ -81,7 +81,7 @@
 
 您可以輕鬆地修改和重新發行應用程式。以下，您將在 **index.jade** 檔案中簡單地變更標題，然後重新發行應用程式。
 
-1. 在 WebMatrix 中，選取 [檔案]****，然後展開 **views** 資料夾。按兩下以開啟 **index.jade** 檔案。
+1. 在 WebMatrix 中，選取 [檔案]，然後展開 **views** 資料夾。按兩下以開啟 **index.jade** 檔案。
 
 	![webmatrix viewing index.jade][webmatrix-modify-index]
 
@@ -89,7 +89,7 @@
 
 		p Welcome to #{title} with WebMatrix on Azure!
 
-3. 儲存您所做的變更，然後按一下發行圖示。最後，在 [發行預覽]**** 對話方塊中按一下 [繼續]****，等待發行更新。
+3. 儲存您所做的變更，然後按一下發行圖示。最後，在 [發行預覽] 對話方塊中按一下 [繼續]，等待發行更新。
 
 	![publish preview][webmatrix-republish]
 
@@ -124,5 +124,6 @@
 [signin]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-sign-in.png
 [sitefromtemplate]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-site-from-template.png
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

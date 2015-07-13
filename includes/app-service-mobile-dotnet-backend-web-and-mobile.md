@@ -8,11 +8,11 @@
 
 ## 建立新的行動應用程式後端和用戶端
 
-* 依照[建立行動應用程式]教學課程中的步驟，同時建立一個行動應用程式後端和一個用戶端。您可以使用 Mobile Apps 支援的任何用戶端平台，包括 iOS、Windows、Xamarin iOS 和 Xamarin Android。
+* 依照[建立行動應用程式]教學課程中的步驟，同時建立一個行動應用程式後端和一個用戶端。您可以使用行動應用程式支援的任何用戶端平台，包括 iOS、Windows、Xamarin iOS 和 Xamarin Android。
 
 * 請確定您已將行動應用程式後端部署至 Azure，而且您將行動用戶端應用程式連接至託管的後端。行動應用程式程式碼專案使用 Entity Framework Code First，並在行動用戶端應用程式的第一個 REST 要求之後初始化資料庫。
 
-## 從 Visual Studio 發佈 TodoList Web API
+## 從 Visual Studio 發行 TodoList Web API
 
 在本節中，您將使用範例 Web 應用程式方案，建立一個新的 Web 應用程式。您將修改範例以使用相同的資料庫結構描述名稱和相同的連接字串做為行動應用程式。
 
@@ -32,17 +32,17 @@
 
     - 在開啟的刀鋒視窗中，選取 [**所有設定**]，然後選取 [**應用程式設定**]。
 
-    - 在 [**連接字串**] 底下，按一下 [**顯示連接字串**]。複製 **MS_TableConnectionString** 設定的值。這是您的行動應用程式用來連線到 SQL Database 的連接字串。
+    - 在 [**連接字串**] 底下，按一下 [**顯示連接字串**]。複製 **MS_TableConnectionString** 設定的值。這是您的行動應用程式用來連線到 SQL 資料庫的連接字串。
 
 5. 在 Visual Studio 中，以滑鼠右鍵按一下 Web API 專案，然後選取 [**發佈**]。選取 [**Azure Web Apps**] 做為發佈目標，然後選取先前建立的 Web 應用程式。按 [**下一步**]，直到到達 [發佈 Web] 精靈的 [**設定**] 區段為止。
 
 6. 在 [**資料庫**] 區段中，貼上行動應用程式連接字串做為 **MultiChannelToDoContext** 的值。僅選取 [**在執行階段使用此連接字串**] 核取方塊。
 
-7. 一旦您的 Web API 已成功發佈至 Azure 之後，您將會看到一個確認頁面。複製已發佈之服務的 URL。
+7. 一旦您的 Web API 已成功發行至 Azure 之後，您將會看到一個確認頁面。複製已發行之服務的 URL。
 
-## 從 Visual Studio 發佈 TodoList Web 用戶端 UI
+## 從 Visual Studio 發行 TodoList Web 用戶端 UI
 
-在本節中，您將使用以 AngularJS 實作的範例 Web 用戶端應用程式。接著，您將使用 Visual Studio 將專案發佈至 Azure 中新託管的 App Service Web 應用程式。
+在本節中，您將使用以 AngularJS 實作的範例 Web 用戶端應用程式。接著，您將使用 Visual Studio 將專案發行至 Azure 中新託管的 App Service Web 應用程式。
 
 1. 在 Visual Studio 中，開啟 **MultiChannelToDo.Web** 專案。編輯檔案 `js/service/ToDoService.js`，將 URL 新增至您剛才發佈的 Web API 中：
 
@@ -52,7 +52,7 @@
 
 3. 在 [**發佈 Web**] 精靈中，選取 [**Azure Web 應用程式**] 做為發佈目標，並建立不含資料庫的新 Web 應用程式。
 
-4. 一旦成功發佈您的專案之後，您將會在瀏覽器中看到 Web UI。
+4. 一旦成功發行您的專案之後，您將會在瀏覽器中看到 Web UI。
 
 ## 測試行動和 Web 應用程式
 

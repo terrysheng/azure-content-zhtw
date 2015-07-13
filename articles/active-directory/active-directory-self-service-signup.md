@@ -148,7 +148,7 @@
 
 	下列步驟是使用 Windows PowerShell 執行驗證的必要步驟。
 
-步驟 |	要使用的 Cmdlet
+	步驟 |	要使用的 Cmdlet
 	-------	| -------------
 	建立認證物件 | Get-Credential
 	連接至 Azure AD | Connect-MsolService
@@ -234,4 +234,6 @@
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

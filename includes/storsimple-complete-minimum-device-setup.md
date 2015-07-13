@@ -1,21 +1,4 @@
-<properties 
-   pageTitle="完成最小裝置設定"
-   description="說明如何完成最小的 StorSimple 裝置設定。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
-
-### 完成最小的 StorSimple 裝置安裝
+#### 完成最小的 StorSimple 裝置安裝
 
 1. 選取裝置，然後按一下 [快速入門]。按一下 [完成裝置設定] 以啟動設定裝置精靈。
 
@@ -35,9 +18,8 @@
 
     ![StorSimple 最小裝置設定網路介面](./media/storsimple-complete-minimum-device-setup/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
 
-5. 按一下核取圖示 ![StorSimple 核取圖示](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png)。
-  您將會回到裝置的 [快速入門] 頁面。
+5. 按一下核取圖示 ![StorSimple 核取圖示](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png)。您將會回到裝置的 [快速入門] 頁面。
 
- > [AZURE.NOTE]您可以藉由存取 [設定] 頁面，隨時修改所有的其他裝置設定。
+ >[AZURE.NOTE]您可以隨時存取 [**設定**] 頁面，以修改其他所有裝置設定。
 
-<!--HONumber=52-->
+<!---HONumber=62-->

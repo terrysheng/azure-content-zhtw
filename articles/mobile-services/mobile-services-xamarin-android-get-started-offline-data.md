@@ -10,10 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/20/2015"
+	ms.date="06/15/2015"
 	ms.author="donnam"/>
 
 # 在行動服務中使用離線資料同步
@@ -97,7 +97,7 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
     請注意，推送和提取作業可能會發生 `MobileServicePushFailedException`。下一個教學課程[處理行動服務的離線支援衝突]示範如何處理這些同步處理相關的例外狀況。
 
-5. 在 `ToDoActivity` 類別中，`SyncAsync()` 方法會在修改資料的作業 (`AddItem()` 和 `CheckItem()`) 之後呼叫。此外也會從 `OnRefreshItemsSelected()` 呼叫此方法，讓使用者在每次按 [重新整理]**** 按鈕後都能取得最新的資料。應用程式也會在啟動時執行同步處理，因為 `ToDoActivity.OnCreate()` 會呼叫 `OnRefreshItemsSelected()`。
+5. 在 `ToDoActivity` 類別中，`SyncAsync()` 方法會在修改資料的作業 (`AddItem()` 和 `CheckItem()`) 之後呼叫。此外也會從 `OnRefreshItemsSelected()` 呼叫此方法，讓使用者在每次按 [重新整理] 按鈕後都能取得最新的資料。應用程式也會在啟動時執行同步處理，因為 `ToDoActivity.OnCreate()` 會呼叫 `OnRefreshItemsSelected()`。
 
     因為每次修改資料時都會呼叫 `SyncAsync()`，所以此應用程式假設使用者每次在編輯資料時都處於線上狀態。在下一節中我們將更新應用程式，讓使用者即使在離線時也可以編輯。
 
@@ -124,15 +124,15 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
 ## <a name="update-online-app"></a>更新應用程式以重新連接您的行動服務
 
-在本節中，您會將應用程式重新連接至行動服務。您將藉此模擬應用程式在行動服務中從離線狀態恢復為線上狀態的情境。當您推送 [重新整理]**** 按鈕時，資料會同步處理至您的行動服務。
+在本節中，您會將應用程式重新連接至行動服務。您將藉此模擬應用程式在行動服務中從離線狀態恢復為線上狀態的情境。當您推送 [重新整理] 按鈕時，資料會同步處理至您的行動服務。
 
 1. 開啟 `ToDoActivity.cs`。移除無效的行動服務 URL，並重新新增正確的 URL 和應用程式金鑰。
 
 2. 重新建置並執行應用程式。請注意，雖然應用程式此時已連接到行動服務，但資料看起來仍會與離線狀態下相同。這是因為此應用程式一律會使用指向本機存放區的 `IMobileServiceSyncTable`。
 
-3. 登入 Microsoft Azure 管理入口網站，並檢視您的行動服務的資料庫。如果您的服務使用 JavaScript 後端，則您可以從行動服務的 [資料]**** 索引標籤瀏覽資料。
+3. 登入 Microsoft Azure 管理入口網站，並檢視您的行動服務的資料庫。如果您的服務使用 JavaScript 後端，則您可以從行動服務的 [資料] 索引標籤瀏覽資料。
 
-    如果您將 .NET 後端用於行動服務，請在 Visual Studio 中移至 [伺服器總管]**** -> [Azure]**** -> [SQL 資料庫]****。在資料庫上按一下滑鼠右鍵，並選取 [在 SQL Server 物件總管中開啟]****。
+    如果您將 .NET 後端用於行動服務，請在 Visual Studio 中移至 [伺服器總管] -> [Azure] -> [SQL 資料庫]。在資料庫上按一下滑鼠右鍵，並選取 [在 SQL Server 物件總管中開啟]。
 
     請注意，資料*並未*與資料庫和本機存放區進行同步處理。
 
@@ -170,5 +170,6 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin 延伸]: http://xamarin.com/visual-studio
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

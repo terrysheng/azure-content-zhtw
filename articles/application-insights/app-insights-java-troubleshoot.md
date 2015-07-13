@@ -43,7 +43,7 @@
 
 #### 我曾經看到資料，但是已停止
 
-* 請查閱[狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)。
+* 檢查[狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)。
 * 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。若有達到配額，您可以升級您的方案，或付費取得額外容量。請參閱[定價機制](http://azure.microsoft.com/pricing/details/application-insights/)。
 
 

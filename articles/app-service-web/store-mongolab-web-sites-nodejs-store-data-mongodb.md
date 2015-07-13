@@ -47,19 +47,15 @@
 ## 快速入門
 如果您已對 Azure 市集有一定的了解，請從本節著手快速開始。否則，請繼續前往到底下的[佈建資料庫][provision]。
 
-1. 按一下 [**新增**] > [**Markeplace**] 來開啟 Azure Marketplace。  
+1. 按一下 [新增] > [Markeplace] 來開啟 Azure Marketplace。  
 <!-- ![Store][button-store] -->
-2. 按一下 **MongoLab** 附加元件。  
-![MongoLab][entry-mongolab]
-3. 在 [附加元件] 清單中按一下您的 **MongoLab** 附加元件，然後按一下 [連線資訊]。  
-![ConnectionInfoButton][button-connectioninfo]  
-4. 將 **MONGOLAB_URI** 複製到剪貼簿。  
-![ConnectionInfoScreen][screen-connectioninfo]
+2. 按一下 **MongoLab** 附加元件。![MongoLab][entry-mongolab]
+3. 在 [附加元件] 清單中按一下您的 **MongoLab** 附加元件，然後按一下 [連線資訊]。![ConnectionInfoButton][button-connectioninfo]  
+4. 將 **MONGOLAB_URI** 複製到剪貼簿。![ConnectionInfoScreen][screen-connectioninfo]
 
 	>[AZURE.NOTE]此 URI 包含您的資料庫使用者名稱和密碼。這是機密資訊，請勿洩露。
 
-5. 在 Azure App Service 中 Web 應用程式的 [組態] 功能表中，將這個值新增到 [連接字串] 清單：  
-![WebAppConnectionStrings][focus-website-connectinfo]
+5. 在 Azure App Service 中 Web 應用程式的 [組態] 功能表中，將這個值新增到 [連接字串] 清單：![WebAppConnectionStrings][focus-website-connectinfo]
 6. 在 [名稱] 中，輸入 **MONGOLAB_URI**。
 7. 在 [值] 中，貼上我們在上一節取得的連接字串。
 8. 在 [類型] 下拉式清單中選取 [自訂] (取代預設的 [SQLAzure])。
@@ -404,7 +400,7 @@
 
 現在應用程式已經開發好，該開始以 Azure App Service 建立用以主控它的 Web 應用程式、設定該 Web 應用程式及部署程式碼。本節的重點是 MongoDB 連接字串 (URI) 的使用。您即將在 We 應用程式中以此 URI 設定環境變數，使 URI 和您的程式碼分開。您應該將 URI 當做敏感資訊，因為它包含連線至您的資料庫的認證。
 
-本節的步驟使用適用於 Mac、Linux 及 Windows 的 Azure 命令列介面，在 Azure App Service 中建立新的 Web 應用程式，然後使用 Git 部署應用程式。若要執行這些步驟，必須有 Azure 訂閱。
+本節的步驟使用適用於 Mac、Linux 及 Windows 的 Azure 命令列介面，在 Azure App Service 中建立新的 Web 應用程式，然後使用 Git 部署應用程式。若要執行這些步驟，必須有 Azure 定用帳戶。
 
 ### 安裝 Azure CLI
 
@@ -449,9 +445,8 @@
 
 在 Azure App Service 中建立 Web 應用程式非常簡單。如果這是您的第一個 Azure Web 應用程式，您必須使用入口網站。如果您已有至少一個網站，請直接跳至步驟 7。
 
-1. 在 Azure 入口網站，按一下 [新增]。
-![新增][button-new]
-2. 選取 [**運算 > Web 應用程式 > 快速建立**]。
+1. 在 Azure 入口網站，按一下 [新增]。![新增][button-new]
+2. 選取 [運算] > [Web 應用程式] > [快速建立]。
 <!-- ![Create Web App][screen-mongolab-newwebsite] -->
 3. 輸入 URL 前置詞。選擇您喜愛的名稱，但記住一定要獨一無二 (很可能無法使用 'mymongoapp')。
 4. 按一下 [建立 Web 應用程式]。
@@ -575,4 +570,4 @@
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!----HONumber=62-->
+<!---HONumber=62-->

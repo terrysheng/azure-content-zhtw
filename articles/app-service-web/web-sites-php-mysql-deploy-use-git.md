@@ -41,15 +41,15 @@
 請遵循以下步驟來建立 Web 應用程式與 MySQL 資料庫：
 
 1. 登入 [Azure 入口網站][management-portal]。
-2. 按一下入口網站左下方的 [新增]**** 圖示。
+2. 按一下入口網站左下方的 [新增] 圖示。
 
 	![建立新的 Azure 網站][new-website]
 
-3. 依序按一下 [Web + 行動]****、[Azure Marketplace]****。
+3. 依序按一下 [Web + 行動]、[Azure Marketplace]。
 
 	![自訂建立新的 Web 應用程式][custom-create]
 
-4. 依序按一下 [Web 應用程式]**** 和 [Web 應用程式 + MySQL]****。然後按一下 [建立]****。
+4. 依序按一下 [Web 應用程式] 和 [Web 應用程式 + MySQL]。然後按一下 [建立]。
 
 	![](./media/web-sites-php-mysql-deploy-use-git/create_marketplace.png)
 
@@ -69,11 +69,11 @@
 
 	![開啟 Web 應用程式][go-to-webapp]
 
-7. 按一下 [設定連續部署]****。
+7. 按一下 [設定連續部署]。
 
 	![Set up Git publishing][setup-publishing]
 
-8. 針對來源選取 [本機 Git 儲存機制]****。
+8. 針對來源選取 [本機 Git 儲存機制]。
 
     ![設定 Git 儲存機制][setup-repository]
 
@@ -91,7 +91,7 @@
 
 	![選取資料庫][select-database]
 
-2. 從資料庫摘要中，選取 [屬性]****。
+2. 從資料庫摘要中，選取 [屬性]。
 
     ![選取屬性][select-properties]
 
@@ -294,5 +294,6 @@
 [connection-string-info]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
 [management-portal]: https://portal.azure.com
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

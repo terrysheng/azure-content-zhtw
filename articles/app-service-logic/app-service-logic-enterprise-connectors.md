@@ -72,9 +72,9 @@ SAP | **動作**連接器。連接至內部部署 SAP 伺服器。叫用 RFC、B
 --- | ---
 名稱 | 為您的連接器輸入任何名稱。例如，您可將它命名為 *SAPConnector*、*SalesForceGetAccounts* 或 *QuickBooksGetItems*。
 Package Settings | 輸入企業系統設定，如 *SAP 使用者名稱*或 *SugarCRM 伺服器 URL*。請參閱本主題中的[企業系統特有屬性](#AddProperties)。 
-應用程式服務計劃 | 列出您的付款計劃。如果您需要更多或更少的資源，您可以加以變更。
+應用程式服務計劃 | 列出您的付款方案。如果需要增減資源，則可以變更它。
 定價層 | 一個唯讀屬性，會列出您 Azure 訂閱內的定價類別。 
-資源群組 | 建立新群組或使用現有的群組。邏輯應用程式、Web 應用程式和行動應用程式的所有 API 應用程式和連接器都必須位於相同的資源群組。<br/><br/>[使用資源群組](../resource-group-overview.md)說明此屬性。 
+資源群組 | 建立新群組或使用現有的群組。邏輯應用程式、Web 應用程式和行動應用程式的所有 API 應用程式和連接器都必須位於相同的資源群組。<br/><br/>[使用資源群組](../resource-group-overview.md)說明此屬性 
 訂閱 | 可列出目前訂閱的唯讀屬性
 位置 | 裝載您 Azure 服務的地理位置 
 新增至儀表板 | 選取此選項將連接器新增至您的開始面板 (首頁)
@@ -113,7 +113,7 @@ SugarCRM | <ul><li>伺服器 URL</li><li>提供者名稱</li><li>模組名稱</l
 
 - 檢視資訊和錯誤事件
 - 檢視工作處理序 (w3wp) 的記憶體使用量和執行緒計數
-- 檢視應用程式和 Web 伺服器記錄檔\\
+- 檢視應用程式和 Web 伺服器記錄檔\
 
 另請參閱[監視邏輯應用程式](app-service-logic-monitor-your-logic-apps.md)以取得更多資訊。
 
@@ -147,10 +147,11 @@ Microsoft Azure 應用程式服務會公開可以使用這些連接器的不同�
 
 
 ## 閱讀關於邏輯應用程式和 Web 應用程式的資訊
-[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)<br/> [Azure 應用程式服務中的網站和 Web 應用程式](../app-service-web/app-service-web-app-azure-portal.md)
+[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)<br/> [Azure 應用程式服務中的網站和 Web 應用程式](../app-service-web/app-service-web-overview.md)
 
 
 
 ## 其他連接器
 [BizTalk 整合連接器](app-service-logic-integration-connectors.md)<br/> [企業對企業連接器](app-service-logic-b2b-connectors.md)<br/> [社交連接器](app-service-logic-social-connectors.md)<br/> [通訊協定連接器](app-service-logic-protocol-connectors.md)<br/> [應用程式 + 資料服務連接器](app-service-logic-data-connectors.md)<br/> [連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/> [什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

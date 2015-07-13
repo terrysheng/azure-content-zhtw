@@ -1,5 +1,3 @@
-<properties title="Create a Virtual Machine Running Windows Server" pageTitle="如何建立執行 Windows Server 的虛擬機器" description="描述如何建立 Windows 虛擬機器、新增資料磁碟，以及從遠端登入" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
-
 # 建立執行 Windows Server 的虛擬機器 #
 
 本教學課程說明如何使用 Azure 管理入口網站中的映像庫輕鬆建立執行 Windows Server 的 Azure 虛擬機器。映像庫提供多種映像，包括 Windows 作業系統、Linux 架構的作業系統和應用程式映像。
@@ -83,7 +81,7 @@
 
 7. 使用上一節「如何在建立虛擬機器之後登入」[](#logon)中的步驟，連線至虛擬機器。
 
-8. 登入虛擬機器之後，開啟 [伺服器管理員]。在左窗格中，選取 [檔案和存放服務]。
+8. 登入虛擬機器之後，開啟 [伺服器管理員]。在左窗格中，選取 [File and Storage Services]。
 
 	![Expand File and Storage Services in Server Manager](./media/CreateVirtualMachineWindowsTutorial/fileandstorageservices.png)
 
@@ -127,6 +125,4 @@
 [How to attach a data disk to the new virtual machine]: #attachdisk
 [How to set up communication with the virtual machine]: #endpoints
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

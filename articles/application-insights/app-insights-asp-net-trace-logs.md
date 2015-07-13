@@ -2,7 +2,7 @@
 	pageTitle="在 Application Insights 中探索 .NET 追蹤記錄" 
 	description="搜尋使用 Trace、NLog 或 Log4Net 產生的記錄檔。" 
 	services="application-insights" 
-	documentationCenter=".net"
+    documentationCenter=".net"
 	authors="alancameronwills" 
 	manager="keboyd"/>
 
@@ -122,4 +122,6 @@ NuGet 封裝會安裝必要的組件，並修改 web.config 或 app.config。
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

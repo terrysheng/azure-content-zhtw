@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="在 Azure 應用程式服務中使用 Azure 儲存體建立 PHP Web 應用程式" 
-	description="本教學課程示範如何在 Azure 應用程式服務中建立 PHP Web 應用程式，以及在後端使用 Azure 資料表儲存體服務。" 
+	pageTitle="在 Azure App Service 中使用 Azure 儲存體建立 PHP Web 應用程式" 
+	description="本教學課程示範如何在 Azure App Service 中建立 PHP Web 應用程式，以及在後端使用 Azure 資料表儲存體服務。" 
 	services="app-service\web, storage" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
@@ -16,7 +16,7 @@
 	ms.date="04/07/2015" 
 	ms.author="tomfitz"/>
 
-# 在 Azure 應用程式服務中使用 Azure 儲存體建立 PHP Web 應用程式
+# 在 Azure App Service 中使用 Azure 儲存體建立 PHP Web 應用程式
 
 本教學課程示範如何在 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中建立 PHP Web 應用程式，以及在後端使用 Azure 資料表儲存體服務。本教學課程假定您的電腦已經安裝 [PHP][install-php] 與一部 Web 伺服器。本教學課程裡的說明可運用在包括 Windows、Mac 與 Linux 的任何作業系統上。完成本指南的步驟後，您將擁有一台在 Azure 上執行的 PHP Web 應用程式，並能夠存取資料表儲存體服務。
  
@@ -94,7 +94,7 @@
 	
 		UseDevelopmentStorage=true
 
-* 使用 `ServicesBuilder::createTableService` 原廠方法在表格服務呼叫周圍具現化包裝函式。
+* 使用 `ServicesBuilder::createTableService` 原廠方法在資料表服務呼叫周圍具現化包裝函式。
 
 		$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
@@ -155,7 +155,7 @@ Tasklist 應用程式首頁會列出所有現有工作，並允許插入新的�
 		<?php		
 		require_once "init.php";
 
-* 若要查詢 Azure 資料表以瞭解 **tasks** 資料表中儲存的「所有實體」，請呼叫 *queryEntities* 方法以便單純傳遞資料表名稱。在以下的「**更新實體**」一節中，您將同時瞭解如何傳遞一項可查詢特定實體的篩選。
+* 若要查詢 Azure 資料表以瞭解 **tasks** 資料表中儲存的「所有實體」，請呼叫 *queryEntities* 方法以便單純傳遞資料表名稱。在以下的「更新實體」小節中，您將同時瞭解如何傳遞一項可查詢特定實體的篩選。
 
 		try {
 		    $result = $tableRestProxy->queryEntities('tasks');
@@ -282,7 +282,7 @@ Tasklist 應用程式首頁會列出所有現有工作，並允許插入新的�
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
-	如您所見，傳入的查詢篩選形式為 `Key eq 'Value'`查詢語法的完整描述可[在此][msdn-table-query-syntax]取得。
+	如您所見，傳入的查詢篩選形式為 `Key eq 'Value'`。查詢語法的完整描述可[在此][msdn-table-query-syntax]取得。
 
 * 接著您可以變更任何屬性：
 
@@ -324,17 +324,17 @@ Tasklist 應用程式首頁會列出所有現有工作，並允許插入新的�
 
 1. 登入 [Azure 入口網站][management-portal]。
 
-2. 按一下入口網站左下方的 [**新增**] 圖示，然後按一下 [**資料 + 儲存體**] >[**儲存體**]。為儲存體帳戶指定唯一名稱，並為它建立新的[資源群組](../resource-group-overview.md)。
+2. 按一下入口網站左下方的 [新增] 圖示，然後按一下 [資料 + 儲存體] >[ 儲存體]。為儲存體帳戶指定唯一名稱，並為它建立新的[資源群組](../resource-group-overview.md)。
 
 	![建立新的儲存體帳戶][storage-quick-create]
 	
-	建立儲存體帳戶後，[**通知**] 按鈕便會閃爍綠色 [**成功**]，儲存體帳戶的刀鋒視窗會開啟，顯示它屬於您所建立的新資源群組。
+	建立儲存體帳戶後，[通知] 按鈕便會閃爍綠色 [成功]，儲存體帳戶的刀鋒視窗會開啟，顯示它屬於您所建立的新資源群組。
 
-5. 按一下儲存體帳戶刀鋒視窗中的 [**設定**] 部分。記下帳戶名稱和金鑰。
+5. 按一下儲存體帳戶刀鋒視窗中的 [設定] 部分。記下帳戶名稱和金鑰。
 
-	![Select Manage Keys][storage-access-keys]
+	![選取管理金鑰][storage-access-keys]
 
-7. 開啟 **init.php** 並使用您在上個步驟記下的帳戶名稱與金鑰來取代 `[YOUR_STORAGE_ACCOUNT_NAME]` 及 `[YOUR_STORAGE_ACCOUNT_KEY]`儲存檔案。
+7. 開啟 **init.php** 並使用您在上個步驟記下的帳戶名稱與金鑰來取代 `[YOUR_STORAGE_ACCOUNT_NAME]` 及 `[YOUR_STORAGE_ACCOUNT_KEY]`。儲存檔案。
 
 ## 建立 Azure Web 應用程式並設定 Git 發行功能
 
@@ -342,23 +342,23 @@ Tasklist 應用程式首頁會列出所有現有工作，並允許插入新的�
 
 1. 登入 [Azure 入口網站][management-portal]。
 
-2. 依照＜[做法：使用 Azure 入口網站建立 Web 應用程式](../web-sites-create-deploy.md#createawebsiteportal)＞中的指示建立空白的 Web 應用程式。請務必建立新的 [App Service 計劃](azure-web-sites-web-hosting-plans-in-depth-overview)，然後選取您先前建立的儲存體帳戶的資源群組。
+2. 依照[作法：使用 Azure 入口網站建立 Web 應用程式](../web-sites-create-deploy.md#createawebsiteportal)中的指示建立空白的 Web 應用程式。請務必建立新的 [App Service 方案](azure-web-sites-web-hosting-plans-in-depth-overview)，然後選取您先前建立的儲存體帳戶的資源群組。
 
-	建立 Web 應用程式後，[**通知**] 按鈕便會閃爍綠色 [**成功**]，Web 應用程式戶的刀鋒視窗會開啟，顯示它屬於您所建立的新資源群組。
+	建立 Web 應用程式後，[通知] 按鈕便會閃爍綠色 [成功]，Web 應用程式戶的刀鋒視窗會開啟，顯示它屬於您所建立的新資源群組。
 
-6. 在 Web 應用程式的刀鋒視窗中，按一下 [**設定連續部署**]，然後選擇 [**本機 Git 儲存機制**]。按一下 [**確定**]。
+6. 在 Web 應用程式的刀鋒視窗中，按一下 [設定連續部署]，然後選擇 [本機 Git 儲存機制]。按一下 [確定]。
 
-	![Set up Git publishing][setup-git-publishing]
+	![設定 Git 發佈][setup-git-publishing]
 
-7. 將本機 Git 儲存機制部署到 Azure 之前，您必須也設定部署認證。在 Web 應用程式的刀鋒視窗中，按一下 [**所有設定**] > [ **部署認證**] 來設定認證。當您完成時，按一下 [**儲存**]。
+7. 將本機 Git 儲存機制部署到 Azure 之前，您必須也設定部署認證。在 Web 應用程式的刀鋒視窗中，按一下 [所有設定] > [ 部署認證] 來設定認證。當您完成時，按一下 [儲存]。
 
-	![Create publishing credentials][credentials]
+	![建立發佈認證][credentials]
 
 	設定儲存機制需要幾秒鐘的時間。
 
 8. 一旦 Git 儲存機制準備就緒時，您現在即可將變更推送給它。您可以按一下 Web 應用程式刀鋒視窗中的相同部署組件來尋找儲存機制 URL。
 
-	![建立 Web 應用程式儲存機制之後傳回的 Git 部署指示][git-instructions]
+	![建立 Web 應用程式儲存機制之後傳回的 Git 部署指示。][git-instructions]
 
 	記下相關指示，以便在下一節中用來發行應用程式。
 

@@ -39,11 +39,11 @@
 <h3><a id="use_nuget"></a>將 Twilio 程式庫新增至 Web 角色專案：</h3>
 
 1.  在 Visual Studio 中開啟方案。
-2.  以滑鼠右鍵按一下 [參考]****。
-3.  按一下 [管理 NuGet 封裝]****。
-4.  按一下 [線上]****。
+2.  以滑鼠右鍵按一下 [參考]。
+3.  按一下 [管理 NuGet 封裝]。
+4.  按一下 [線上]。
 5.  在搜尋線上方塊中，輸入 *twilio*。
-6.  在 Twilio 套件上按一下 [安裝]****。
+6.  在 Twilio 套件上按一下 [安裝]。
 
 下列程式碼將說明如何建立 Web 表單，以擷取撥打電話所需的使用者資料。在此範例中，會建立名為 **TwilioCloud** 的 ASP.NET Web 角色。
 
@@ -192,4 +192,4 @@
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-<!--HONumber=54-->
+<!---HONumber=62-->

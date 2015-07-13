@@ -38,7 +38,7 @@
 
 您可以使用下列步驟在 Azure PowerShell 中建立簡單的 Node.js 'hello world' 服務：
 
-1. 從 [開始] 功能表**** 或 [開始畫面]**** 中，搜尋 **Azure PowerShell**。最後，以滑鼠右鍵按一下 [Azure PowerShell]****，然後選取 [以系統管理員身分執行]****。
+1. 從 [開始] 功能表 或 [開始畫面] 中，搜尋 **Azure PowerShell**。最後，以滑鼠右鍵按一下 [Azure PowerShell]，然後選取 [以系統管理員身分執行]。
 
 	![Azure PowerShell icon][powershell-menu]
 
@@ -58,7 +58,7 @@
 
 	> [AZURE.NOTE]如果您先前未匯入 Azure 訂閱的發行設定，則嘗試發行時會發生錯誤。如需有關下載和匯入訂閱之發行設定的詳細資訊，請參閱＜[如何使用 Azure PowerShell 來處理 Node.js](https://www.windowsazure.com/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings)＞(英文)
 
-**Publish-AzureServiceProject** Cmdlet 傳回的 [建立的網站 URL]**** 值包含受託管應用程式的完整網域名稱。您需要取得此特定完整網域名稱的 SSL 憑證並部署至 Azure。
+**Publish-AzureServiceProject** Cmdlet 傳回的 [建立的網站 URL] 值包含受託管應用程式的完整網域名稱。您需要取得此特定完整網域名稱的 SSL 憑證並部署至 Azure。
 
 ## <a name="step2"> </a>步驟 2：取得 SSL 憑證
 
@@ -77,9 +77,9 @@
 
 當 Node.js 應用程式部署至背景工作角色時，是由 Node.exe 管理伺服器憑證和 SSL 連線。為了處理 SSL 流量，您必須使用 'https' 模組，而不是 'http'。請執行下列步驟將 SSL 憑證加入至專案，然後修改應用程式來使用憑證。
 
-1.   將憑證授權單位 (CA) 提供的 **.pfx** 檔案儲存至您的應用程式所在的目錄。例如，**c:\\node\\securesite\\workerrole1** 是本文中使用的應用程式所在的目錄。
+1.   將憑證授權單位 (CA) 提供的 **.pfx** 檔案儲存至您的應用程式所在的目錄。例如，**c:\node\securesite\workerrole1** 是本文中使用的應用程式所在的目錄。
 
-2.   使用 Notepad.exe 開啟 **c:\\node\\securesite\\workerrole1\\server.js** 檔案，將檔案內容改成下列內容：
+2.   使用 Notepad.exe 開啟 **c:\node\securesite\workerrole1\server.js** 檔案，將檔案內容改成下列內容：
 
 		var https = require('https');
 		var fs = require('fs');
@@ -123,9 +123,9 @@
 
 您的部署已在 Azure 啟動並執行，現在您可以使用 HTTPS 來與其連線。
 
-1.  在 Azure 管理入口網站中，選取您的雲端服務，然後按一下 [儀表板]****。
+1.  在 Azure 管理入口網站中，選取您的雲端服務，然後按一下 [儀表板]。
 
-2. 向下捲動並按一下顯示為 [網站 URL]**** 的連結：
+2. 向下捲動並按一下顯示為 [網站 URL] 的連結：
 
     ![the site url][site-url]
 
@@ -145,21 +145,32 @@
 
 [如何在 HTTPS 端點上設定 SSL 憑證]
 
-[步驟 1：建立 Node.js 服務並將服務發行至雲端]: #step1
-[步驟 2：取得 SSL 憑證]: #step2
-[步驟 3：修改應用程式來使用 SSL 憑證]: #step3
-[步驟 4：修改服務定義檔]: #step4
-[步驟 5：使用 HTTPS 來連線至角色執行個體]: #step5
-[**Azure PowerShell**]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
-[1]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
-[2]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-02-worker.png
-[3]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png
-[Azure Management Portal]: http://manage.windowsazure.com
-[如何使憑證與服務產生關聯]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
-[site-url]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/site-url.png
-[8]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-08.png
-[如何在 HTTPS 端點上設定 SSL 憑證]: http://msdn.microsoft.com/library/windowsazure/ff795779.aspx
-[powershell-menu]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/azure-powershell-start.png
-[在 Azure Web 角色中設定 Node.js 應用程式的 SSL]: /develop/nodejs/common-tasks/enable-ssl/
+  [步驟 1：建立 Node.js 服務並將服務發行至雲端]: #step1
+  [步驟 2：取得 SSL 憑證]: #step2
+  [步驟 3：修改應用程式來使用 SSL 憑證]: #step3
+  [步驟 4：修改服務定義檔]: #step4
+  [步驟 5：使用 HTTPS 來連線至角色執行個體]: #step5
+  [**Azure PowerShell**]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
+  
+  
+  
+  
+  [1]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
+  [2]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-02-worker.png
+  [3]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png
+  [Azure Management Portal]: http://manage.windowsazure.com
+  
+  
+  [如何使憑證與服務產生關聯]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
+  
+  [site-url]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/site-url.png
+  [8]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-08.png
+  [如何在 HTTPS 端點上設定 SSL 憑證]: http://msdn.microsoft.com/library/windowsazure/ff795779.aspx
+  [powershell-menu]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/azure-powershell-start.png
+  
+  
+  [在 Azure Web 角色中設定 Node.js 應用程式的 SSL]: /develop/nodejs/common-tasks/enable-ssl/
+  
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,8 +1,8 @@
-﻿> [AZURE.SELECTOR-LIST (平台 | 後端)]
-- [(iOS | 任何)](../articles/mobile-services-ios-get-started-offline-data.md)
-- [(Windows 通用 C# | 任何)](../articles/mobile-services-windows-store-dotnet-get-started-offline-data.md)
-- [(Windows Phone | 任何)](../articles/mobile-services-windows-phone-get-started-offline-data.md)
-- [(Xamarin iOS | 任何)](../articles/mobile-services-xamarin-ios-get-started-offline-data.md)
-- [(Xamarin Android | 任何)](../articles/mobile-services-xamarin-android-get-started-offline-data.md)
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(iOS | Any)](../articles/mobile-services-ios-get-started-offline-data.md)
+- [(Windows Runtime 8.1 universal C# | Any)](../articles/mobile-services-windows-store-dotnet-get-started-offline-data.md)
+- [(Windows Phone Silverlight 8.x | Any)](../articles/mobile-services-windows-phone-get-started-offline-data.md)
+- [(Xamarin.iOS | Any)](../articles/mobile-services-xamarin-ios-get-started-offline-data.md)
+- [(Xamarin.Android | Any)](../articles/mobile-services-xamarin-android-get-started-offline-data.md)
 
-<!--HONumber=49-->
+<!---HONumber=62-->

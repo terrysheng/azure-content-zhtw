@@ -1,6 +1,8 @@
-Every blob in Azure storage must reside in a container. The container forms part of the blob name. For example, `mycontainer` is the name of the container in these sample blob URIs:
+儲存體 Blob 中的每個 Blob 必須位於一個容器中。此容器會組成 blob 名稱的一部分。例如，`mycontainer` 是這些範例 blob URI 中容器的名稱：
 
 	https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
 	https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
  
-> [AZURE.IMPORTANT] Note that the name of a container must always be lowercase. If you include an upper-case letter in a container name, or otherwise violate the container naming rules, you may receive a 400 error (Bad Request). For rules on naming containers, see [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx).
+> [AZURE.IMPORTANT]請注意容器的名稱一律必須小寫。如果在容器名稱中含有大寫字母，或其他違反容器命名規則，您可能會收到「400 錯誤 (不正確的要求)」錯誤訊息。關於容器的命名規則，請參閱[命名和參考容器、Blob 及中繼資料](https://msdn.microsoft.com/library/azure/dd135715.aspx)。
+
+<!---HONumber=62-->

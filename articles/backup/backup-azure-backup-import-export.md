@@ -1,20 +1,19 @@
 <properties
-	pageTitle="Azure 備份 - 離線備份或使用 Azure 匯入/匯出服務進行初始植入"
-	description="了解 Azure 備份如何讓您使用 Azure 匯入/匯出服務在網路上傳送資料。此文章說明如何使用 Azure 匯入/匯出服務離線植入初始備份資料"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="Azure 備份 - 離線備份或使用 Azure 匯入/匯出服務進行初始植入"
+   description="了解 Azure 備份如何讓您使用 Azure 匯入/匯出服務在網路上傳送資料。此文章說明如何使用 Azure 匯入/匯出服務離線植入初始備份資料"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="04/07/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="04/07/2015"
+   ms.author="prvijay"/>
 
 # 在 Azure 備份中離線備份工作流程
 
@@ -133,5 +132,6 @@ SCDPM 中的對應工作流程可透過按一下 [**保護群組**]，然後選�
 [7]: ./media/backup-azure-backup-import-export/complete.png
 [8]: ./media/backup-azure-backup-import-export/dpmoffline.png
 [9]: ./media/backup-azure-backup-import-export/dpmbackupnow.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

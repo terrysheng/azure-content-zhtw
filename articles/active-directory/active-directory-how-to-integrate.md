@@ -90,4 +90,6 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
 [使用 Azure AD 登入使用者](active-directory-authentication-scenarios.md)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

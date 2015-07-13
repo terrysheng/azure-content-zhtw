@@ -139,5 +139,6 @@ public IEnumerable<TodoItem> Get()
 [使用 Azure AD 建置 .NET 原生用戶端 >>](../active-directory-devquickstarts-native-dotnet.md)
 
 如需其他資源，請參閱：- [GitHub 上的 AzureADSamples >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - [Azure.com 上的 Azure AD 文件 >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

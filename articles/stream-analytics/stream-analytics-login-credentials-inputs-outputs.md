@@ -68,7 +68,7 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 8.  按一下 [執行]：![graphic20][graphic20]
 9.  回到步驟 2，這一次按一下資料庫：![graphic21][graphic21]
 10. 按一下 [管理] 命令：![graphic22][graphic22]
-11. 輸入使用者名稱和密碼，然後按一下 [登入]：![graphic23][graphic23] 
+11. 輸入使用者名稱和密碼，然後按一下 [登入]：![graphic23][graphic23]
 12. 按一下 [新增查閱]：![graphic24][graphic24]
 13. 輸入下列查詢，即可將 <user_name> 換成當您登入此資料庫的內容時想用的識別名稱 (例如，使用之前提供給 <login_name> 的值)，並將 <login_name> 換成新的使用者名稱：`CREATE USER <user_name> FROM LOGIN <login_name>`
 14. 按一下 [執行]：![graphic25][graphic25]
@@ -85,7 +85,7 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 
 ##第 3 部分：編輯 Stream Analytics 工作的認證
 
-###Blob 儲存體/資料表儲存體 
+###Blob 儲存體/資料表儲存體
 1.	尋找 [儲存體帳戶金鑰] 欄位，然後貼上剛剛產生的金鑰：![graphic31][graphic31]
 2.	按一下 [儲存] 命令，然後確認儲存所做的變更：![graphic32][graphic32]
 3.	當您儲存所做的變更時，系統會自動測試連線，以保證萬無一失。
@@ -94,7 +94,7 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 ###事件中樞
 1.	尋找 [事件中樞原則金鑰] 欄位，然後貼上剛剛產生的金鑰：![graphic33][graphic33]
 2.	按一下 [儲存] 命令，然後確認儲存所做的變更：![graphic34][graphic34]
-3.	當您儲存所做的變更時，系統會自動測試連線，以保證萬無一失。 
+3.	當您儲存所做的變更時，系統會自動測試連線，以保證萬無一失。
 4.	繼續第 4 部分。
 
 ###Power BI
@@ -103,13 +103,13 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 * 系統會要求您進行以下確認：  
 * ![graphic36][graphic36]
 2.	按一下 [儲存] 命令，然後確認儲存所做的變更：![graphic37][graphic37]
-3.	當您儲存所做的變更時，系統會自動測試連線，以保證萬無一失。   
+3.	當您儲存所做的變更時，系統會自動測試連線，以保證萬無一失。
 4.	繼續第 4 部分。
 
 ###SQL 資料庫
 1.	尋找 [使用者名稱] 和 [密碼] 欄位，然後貼上剛剛建立的一組認證：![graphic38][graphic38]
 2.	按一下 [儲存] 命令，然後確認儲存所做的變更：![graphic39][graphic39]
-3.	當您儲存所做的變更時，系統會自動測試連線，以保證萬無一失。   
+3.	當您儲存所做的變更時，系統會自動測試連線，以保證萬無一失。  
 4.	繼續第 4 部分。
 
 ##第 4 部分：從上次停止的時間開始您的工作
@@ -121,7 +121,7 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 ##第 5 部分：移除舊的認證集
 這部分適用於下列的輸入/輸出：* Blob 儲存體 * 事件中樞 * SQL 資料庫 * 資料表儲存體
 
-###Blob 儲存體/資料表儲存體 
+###Blob 儲存體/資料表儲存體
 為工作以前使用的存取金鑰，重複第 1 部分，以更新現在未使用的存取金鑰。
 
 ###事件中樞
@@ -136,7 +136,7 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 	Command(s) completed successfully.
 
 ## 取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟
 
@@ -190,6 +190,6 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 [graphic41]: ./media/stream-analytics-login-credentials-inputs-outputs/41-stream-analytics-login-credentials-inputs-outputs.png
 [graphic42]: ./media/stream-analytics-login-credentials-inputs-outputs/42-stream-analytics-login-credentials-inputs-outputs.png
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

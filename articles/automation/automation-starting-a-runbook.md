@@ -178,7 +178,7 @@ Azure 自動化 Web 服務會為特定資料型別的參數提供特殊功能，
 
 ### 陣列
 
-如果參數是陣列，例如 [array] 或 [string[]]，則您可以使用下列 JSON 格式對其傳送值清單：*[Value1,Value2,Value3]*。這些值必須是簡單型別。
+如果參數是陣列，例如 [array] 或 [string]，則您可以使用下列 JSON 格式對其傳送值清單：*[Value1,Value2,Value3]*。這些值必須是簡單型別。
 
 請考慮可接受稱為 *user* 的參數的下列測試 Runbook。
 
@@ -230,6 +230,6 @@ Azure 自動化 Web 服務會為特定資料型別的參數提供特殊功能，
 
 ## 相關文章
 
-- [從另一個 Runbook 啟動 Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx)
+- [從另一個 Runbook 啟動 Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

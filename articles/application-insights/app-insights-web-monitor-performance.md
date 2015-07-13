@@ -33,7 +33,7 @@ Application Insights 能監視託管於內部部署設施或虛擬機器上的 A
 * [立即監視即時網站的效能][redfield] (英文) - 如果您選用這個方法，便不需要更新應用程式專案或重新部署網站。
 * [若為 Microsoft Azure 網站](../insights-how-to-customize-monitoring.md)，您已經可以在網站的 [監視] 透鏡上查看度量。 
 
-使用其中一種方法，即可在 Application Insights 中的 [概觀] 刀鋒視窗中快速查看資料。
+使用其中一種方法，即可在 Application Insights 中的 [概觀] 刀鋒視窗中快速查看資料。使用其中一種方法，即可在 Application Insights 中的 [概觀] 刀鋒視窗中快速查看資料。
 
 
 ## <a name="view"></a>探索度量
@@ -41,11 +41,11 @@ Application Insights 能監視託管於內部部署設施或虛擬機器上的 A
 按一下任一項目可查看詳細資料，也能查看較長期的結果。例如，按一下 [要求] 磚，然後選取時間範圍：
 
 
-![Click through to more data and select a time range](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
+![按一下詳細資料的方式來選取時間範圍](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
 
 按一下圖表以選擇它要顯示的度量，或是加入新圖表並選取其度量：
 
-![Click a graph to choose metrics](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
+![按一下圖形以選擇度量](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
 
 > [AZURE.NOTE]**取消核取所有度量**可查看所有可供選擇的項目。度量分為多個群組；當您選取群組的任何成員時，只有該群組的其他成員會出現。
 
@@ -97,7 +97,7 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 
 若要查看其他可顯示的度量，請按一下圖表，然後取消選取所有度量以查看可供使用的完整集合。按一下 (i) 可查看各項度量的定義。
 
-![Deselect all metrics to see the whole set](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
+![取消選取所有度量以查看完整的集合](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
 
 
 選取任何度量將會停用其他度量，使其無法顯示在同一個圖表中。

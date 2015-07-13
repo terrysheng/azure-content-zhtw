@@ -30,5 +30,4 @@ Blob 服務包含下列元件：
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

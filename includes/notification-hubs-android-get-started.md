@@ -1,35 +1,36 @@
 
 
->[AZURE.NOTE]To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+>[AZURE.NOTE]若要完成此程序，您必須要有已通過電子郵件地址驗證的 Google 帳戶。若要建立新的 Google 帳戶，請前往 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>。
 
 
-1. Navigate to the <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a> website, sign-in with your Google account credentials, and then click **Create Project**.
+1. 導覽至 <a href="http://cloud.google.com/console" target="_blank">Google 雲端主控台</a>網站，並使用 Google 帳戶認證登入，然後按一下 [建立專案]。
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)
 
-	>[AZURE.NOTE]When you already have an existing project, you are directed to the <strong>Projects</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.
+	>[AZURE.NOTE]如果您目前已有專案，登入後會將您重新導向至 [專案] <strong></strong>頁面。若要從 [儀表板] 建立新的專案，請展開 [API 專案]<strong></strong>，並按一下 [其他專案]<strong></strong> 下的 [建立...]<strong></strong>，然後輸入專案名稱，並按一下 [建立專案]<strong></strong>。
 
-2. Enter a project name, accept the terms of service, and click **Create**. If requested, carry out the SMS Verification, and click **Create** again.
+2. 輸入專案名稱，接受服務條款，然後按一下 [建立]。如果有要求，請執行簡訊驗證，再重新按一下 [建立]。
 
-3. Make a note of the project number in the **Projects** section. 
+3. 記下 [專案] 區段中的專案號碼。
 
-	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
+	在本教學課程的稍後內容中，您會設定這個值作為用戶端中的 PROJECT_ID 變數。
 
-4. In the left column, expand **APIs & auth**, click **APIs** then scroll down and click the toggle to enable **Google Cloud Messaging for Android** and accept the terms of service. 
+4. 在左欄中，展開 [**API 與驗證**]，按一下 [**API**]，然後向下捲動並按一下切換開關以啟用 [**Google Cloud Messaging for Android**] 並接受服務條款。
 
 	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
-5. Click **Credentials**, and then click **Create new Key** 
+5. 按一下 [認證]，然後按一下 [建立新的金鑰]
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
 
-6. In **Create a new key**, click **Server key**. In the next window click **Create**.
+6. 在 [Create a new key] 中，按一下 [伺服器金鑰]。在下一個視窗中，按一下 [建立]。
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
 
-7. Make a note of the **API KEY** value.
+7. 記下 [API 金鑰] 的值。
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png)
 
-	You will use this API key value to enable Azure to authenticate with GCM and send push notifications on behalf of your app.
+	您將使用此 API 金鑰值，讓 Azure 能夠使用 GCM 進行驗證，並代表您的應用程式傳送推播通知。
 
+<!---HONumber=62-->

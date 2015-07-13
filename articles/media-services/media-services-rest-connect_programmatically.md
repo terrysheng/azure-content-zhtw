@@ -19,7 +19,7 @@
 
 # 使用媒體服務 REST API 連接到媒體服務帳戶
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md) 系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md)系列的一部分。
 
 本主題描述如何在使用媒體服務 REST API 進行程式設計時，取得 Microsoft Azure 媒體服務的程式設計連線。
 
@@ -30,19 +30,18 @@
 1. 取得存取權杖 
 2. 連接至媒體服務 URI 
 
-	>[AZURE.NOTE] 順利連接到 https://media.windows.net 後，您會收到指定另一個媒體服務 URI 的 301 重新導向。後續的呼叫必須送到新的 URI。
-	您也可能會收到 HTTP/1.1 200 回應，其中包含 ODATA API 中繼資料描述。
+	>[AZURE.NOTE]成功連線至 https://media.windows.net 後，您會收到指定另一個媒體服務 URI 的 301 重新導向。後續的呼叫必須送到新的 URI。您也可能會收到 HTTP/1.1 200 回應，其中包含 ODATA API 中繼資料描述。
 
-3. 將後續的 API 呼叫張貼到新的URL。 
+3. 將後續的 API 呼叫張貼到新的 URL。
 
 	例如，如果您在嘗試進行連接之後得到下列結果：
 
-		HTTP/1.1 301 已永久移至他處
-		位置: https://wamsbayclus001rest-hs.cloudapp.net/api/
+		HTTP/1.1 301 Moved Permanently
+		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-	您應該將後續的 API 呼叫張貼到 https://wamsbayclus001rest-hs.cloudapp.net/api/.
+	您應該將後續的 API 呼叫張貼到 https://wamsbayclus001rest-hs.cloudapp.net/api/。
 
-## 取得存取權杖
+##取得存取權杖
 
 若要直接透過 REST API 存取媒體服務，從 ACS 擷取存取權杖，並在每個您對服務提出的 HTTP 要求中使用它。這個權杖類似於 ACS 根據 HTTP 要求標頭中提供的存取宣告而提供的其他權杖，以及使用 OAuth v2 通訊協定。直接連接到媒體服務之前，您不需要其他任何必要條件。
 
@@ -53,22 +52,22 @@
 	POST https://wamsprodglobal001acs.accesscontrol.windows.net/v2/OAuth2-13 HTTP/1.1
 	Content-Type: application/x-www-form-urlencoded
 	Host: wamsprodglobal001acs.accesscontrol.windows.net
-	Content-Length:120
-	Expect:100-continue
-	Connection:Keep-Alive
+	Content-Length: 120
+	Expect: 100-continue
+	Connection: Keep-Alive
 	Accept: application/json
 
 	
 **主體**：
 
-您需要在這個要求的主體中證明 client_id 與 client_secret 值；client_id 與 client_secret 分別對應到 AccountName 與 AccountKey 值。當您設定帳戶時，媒體服務會提供這些值給您。 
+您需要在這個要求的主體中證明 client_id 與 client_secret 值；client_id 與 client_secret 分別對應到 AccountName 與 AccountKey 值。當您設定帳戶時，媒體服務會提供這些值給您。
 
-請注意，您的媒體服務帳戶的 AccountKey 在使用它做為存取權杖要求中 client_secret 值時必須已編碼 URL (請參閱 [Percent-Encoding](http://tools.ietf.org/html/rfc3986#section-2.1)。
+請注意，您的媒體服務帳戶的 AccountKey 在使用它做為存取權杖要求中 client_secret 值時必須已編碼 URL (請參閱 [Percent-Encoding](http://tools.ietf.org/html/rfc3986#section-2.1))。
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
 
-例如： 
+例如：
 
 	grant_type=client_credentials&client_id=amstestaccount001&client_secret=wUNbKhNj07oqjqU3Ah9R9f4kqTJ9avPpfe6Pk3YZ7ng%3d&scope=urn%3aWindowsAzureMediaServices
 
@@ -94,18 +93,17 @@
 	}
 	
 
->[AZURE.NOTE]
-建議您將 "access_token" 和 "expires_in" 值快取到外部儲存體。稍後可以從儲存體擷取權杖資料，然後重複使用在媒體服務 REST API 呼叫中。這特別適用於權杖可以在多個處理程序或電腦之間安全共用的情況。
+>[AZURE.NOTE]建議您將 "access_token" 和 "expires_in" 值快取到外部儲存體。稍後可以從儲存體擷取權杖資料，然後重複使用在媒體服務 REST API 呼叫中。這特別適用於權杖可以在多個處理程序或電腦之間安全共用的情況。
 
 請務必監控存取權杖的 "expires_in" 值，並視需要以新權杖更新您的 REST API 呼叫。
 
-### 連接至媒體服務 URI
+###連接至媒體服務 URI
 
-媒體服務的根 URI 為 https://media.windows.net/ 。 您應該一開始會連接到此 URI，而且如果回應中出現 301 重新導向，您應該將後續呼叫送到新的 URI。此外，請勿在要求中使用任何自動重新導向/跟隨邏輯。HTTP 指令動詞與要求主體不會轉送到新的 URI。
+媒體服務的根 URI 為 https://media.windows.net/。您應該一開始會連接到此 URI，而且如果回應中出現 301 重新導向，您應該將後續呼叫送到新的 URI。此外，請勿在要求中使用任何自動重新導向/跟隨邏輯。HTTP 指令動詞與要求主體不會轉送到新的 URI。
 
-請注意，上傳與下載資產檔案的根 URI 是 https://yourstorageaccount.blob.core.windows.net/ ， 其中儲存體帳戶名稱是您在媒體服務帳戶設定期間所用的相同名稱。
+請注意，上傳與下載資產檔案的根 URI 是 https://yourstorageaccount.blob.core.windows.net/，其中儲存體帳戶名稱是您在媒體服務帳戶設定期間所用的相同名稱。
 
-下列範例示範對媒體服務根 URI (https://media.windows.net/) 的 HTTP 要求。此要求會在回應中得到 301 重新導向。後續的要求使用新的 URI (https://wamsbayclus001rest-hs.cloudapp.net/api/ )。     
+下列範例示範對媒體服務根 URI 的 HTTP 要求 (https://media.windows.net/)。此要求會在回應中得到 301 重新導向。後續的要求使用新的 URI (https://wamsbayclus001rest-hs.cloudapp.net/api/)。
 
 **HTTP 要求**：
 	
@@ -161,7 +159,7 @@
 	 
 
 
->[AZURE.NOTE] 取得新的 URI 之後，便應該使用此 URI 來與媒體服務通訊。 
+>[AZURE.NOTE]取得新的 URI 之後，便應該使用此 URI 來與媒體服務通訊。
 
 
 <!-- Anchors. -->
@@ -169,5 +167,4 @@
 
 <!-- URLs. -->
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

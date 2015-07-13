@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="06/19/2015" 
 	ms.author="awills"/>
 
 # 建立新 Application Insights 資源
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-Visual Studio Application Insights 會在 Microsoft Azure 資源中顯示您應用程式的資料。因此建立新的資源屬於[設定 Application Insights 以監視新應用程式][start]的一環。在許多情況下，這是可由 IDE 自動完成的工作，而且也建議盡量使用這種方式。但在某些情況下，您必須以手動方式建立資源。
+Visual Studio Application Insights 會在 Microsoft Azure *資源*中顯示您應用程式的資料。因此建立新的資源屬於[設定 Application Insights 以監視新應用程式][start]的一環。在許多情況下，這是可由 IDE 自動完成的工作，而且也建議盡量使用這種方式。但在某些情況下，您必須以手動方式建立資源。
 
 建立資源後，您會取得其檢測金鑰，並將該金鑰用來設定應用程式中的 SDK。這麼做會將遙測資料傳送到資源。
 
@@ -78,6 +78,9 @@ Visual Studio Application Insights 會在 Microsoft Azure 資源中顯示您應�
 
 如果您預期有更多資料，請在幾秒之後按一下 [重新整理]。
 
+## 自動建立資源
+
+您可以撰寫 [PowerShell 指令碼](app-insights-powershell-script-create-resource.md)來自動建立資源。
 
 
 <!--Link references-->

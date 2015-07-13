@@ -28,7 +28,7 @@
 
 - 事件中心： 
 
-	- 現在藉由公開事件中心的其他發佈者端點，可在傳送事件時提供目標存取控制。
+	- 現在藉由公開事件中心的其他發行者端點，可在傳送事件時提供目標存取控制。
 	- 其他加入至事件中心功能的穩定性和改良。
 	- 在訊息和事件中心內，加入 WebSocket 上的 Amqp 通訊協定支援。
 
@@ -62,15 +62,15 @@
 
 	如需詳細資訊，請參閱 [Azure 快取的角色中快取](https://msdn.microsoft.com/library/azure/dn386103.aspx)。
 
-##Azure App Service 工具
+##Azure 應用程式服務工具
 
 Azure SDK 2.6 版中已更新下列項目。
 
-- 已增強 Azure 發佈的功能，以將 Azure API Apps 納為部署目標。
+- 已增強 Azure 發行的功能，以將 Azure API Apps 納為部署目標。
 - API Apps 佈建功能提供使用者 API 應用程式的建立和佈建功能。
-- 將 [伺服器總管] 使用按資源群組分組的 Web、行動及 API 應用程式加以變更，以反映新的 App Service 節點。
+- 將 [伺服器總管] 使用按資源群組分組的 Web、行動及 API 應用程式加以變更，以反映新的應用程式服務節點。
 - 加入已新增至大部分 C# 專案的 Azure API 應用程式用戶端手勢，將可自動產生啟用 Swagger 功能並可在使用者的 Azure 訂用帳戶中執行的 API Apps。
-- [伺服器總管] 中的 API Apps 工具和 App Service 節點僅可以在 Visual Studio 2013 中使用。 
+- [伺服器總管] 中的 API Apps 工具和應用程式服務節點僅可以在 Visual Studio 2013 中使用。 
 
 ##Azure 資源管理員工具更新
 

@@ -1,6 +1,6 @@
 ##<a name="add-select-images"></a>更新快速入門用戶端應用程式以擷取和上傳影像
 
-1. 在 Visual Studio 中，開啟 Package.appxmanifest 檔案，並在 [功能]**** 索引標籤中，啟用 [網路攝影機]**** 和 [麥克風]**** 功能。
+1. 在 Visual Studio 中，開啟 Package.appxmanifest 檔案，並在 [功能] 索引標籤中，啟用 [網路攝影機] 和 [麥克風] 功能。
 
    	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png)
  
@@ -122,17 +122,17 @@
 
 1. 在 Visual Studio 中，按 F5 鍵以執行此應用程式。
 
-2. 在 [Insert a TodoItem]**** 下方的文字方塊中輸入文字，然後按一下 [相片]****。
+2. 在 [Insert a TodoItem] 下方的文字方塊中輸入文字，然後按一下 [相片]。
 
    	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar.png)
 
   	這會顯示相機擷取 UI。
 
-3. 按一下影像以拍照，然後按 [確定]****。
+3. 按一下影像以拍照，然後按 [確定]。
   
    	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-camera.png)
 
-4. 按一下 [上傳]**** 插入新項目並上傳影像。
+4. 按一下 [上傳] 插入新項目並上傳影像。
 
 	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar2.png)
 
@@ -142,5 +142,4 @@
 
    	>[AZURE.NOTE]將新項目的 <code>imageUri</code> 屬性繫結至 <strong>Image</strong> 控制項時，會從 Blob 儲存體服務自動下載影像。
 
-
-<!--HONumber=54-->
+<!---HONumber=62-->

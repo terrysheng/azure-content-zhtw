@@ -11,7 +11,7 @@ ms.workload="mobile"
 ms.tgt_pltfrm="mobile-ios" 
 ms.devlang="objective-c" 
 ms.topic="article" 
-ms.date="02/20/2015" 
+ms.date="05/19/2015" 
 ms.author="mahender" />
 
 # 將 Azure Active Directory 單一登入新增至您的 iOS 應用程式
@@ -35,7 +35,7 @@ ms.author="mahender" />
 
 ## <a name="require-authentication"></a>將應用程式設定為需要驗證
 
-[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-adal"></a>新增 Active Directory Authentication Library 的參考
 
@@ -92,7 +92,7 @@ ms.author="mahender" />
             }];
         }
 
-4. 在上述 `loginAndGetData` 方法的程式碼中，將 **INSERT-AUTHORITY-HERE** 取代成您佈建應用程式的租用戶名稱，其格式應為 https://login.windows.net/tenant-name.onmicrosoft.com。此值可從 [Azure 管理入口網站]複製到 Azure Active Directory 的 [網域] 索引標籤以外。
+4. 在上述 `loginAndGetData` 方法的程式碼中，將 **INSERT-AUTHORITY-HERE** 替換為您佈建應用程式的租用戶名稱，其格式應為 https://login.windows.net/tenant-name.onmicrosoft.com。此值可從 [Azure 管理入口網站]複製到 Azure Active Directory 的 [網域] 索引標籤以外。
 
 5. 在前述 `loginAndGetData` 方法的程式碼中，將 **INSERT-RESOURCE-URI-HERE** 取代為您行動應用程式的 [**應用程式識別碼 URI**]。如果您依照[如何向 Azure Active Directory 設定您的行動應用程式]主題的內容操作，您的應用程式識別碼 URI 應類似於 https://contosogateway.azurewebsites.net/login/aad。
 
@@ -114,6 +114,7 @@ ms.author="mahender" />
 [如何向 Azure Active Directory 設定您的行動應用程式]: app-service-mobile-how-to-configure-active-directory-authentication-preview.md
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
-[開始使用行動應用程式]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+ [開始使用行動應用程式]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

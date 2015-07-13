@@ -18,47 +18,29 @@
 
 # 什麼是 API 應用程式？
 
-API 應用程式隸屬於 [Azure App Service](../app-service/app-service-value-prop-what-is.md) 套件，此套件也包括 Web 應用程式、行動應用程式和邏輯應用程式。
+API 應用程式提供豐富的平台和生態系統，可用來在雲端和內部部署中建置、主控、使用和分送 API。將您的 API 部署為 API 應用程式，即可受益於企業級安全性、簡單的存取控制、混合式與 SaaS 連線、自動 SDK 產生，並與 [邏輯應用程式](../app-service-logic/app-service-logic-what-are-logic-apps.md) 完美整合。
+
+API 應用程式是 [Azure 應用程式服務](../app-service/app-service-value-prop-what-is.md)套件的其中一部分，此套件的其他部分包括 Web 應用程式、行動應用程式和邏輯應用程式。
 
 ![](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-此套件的 API Apps 部分提供豐富的平台和生態系統，可用來在雲端和內部部署中建置、主控、使用和分送 API。
-
->[AZURE.NOTE] [Azure API Management](/services/api-management/) 屬於個別服務，可提供端點整合及節流等功能。您可以搭配 API Apps 使用 API 管理。
->
->API 應用程式目前處於公開預覽狀態。它是建置在[應用程式服務 Web 應用程式](../app-service-web/app-service-web-overview.md)之上，而此 Web 應用程式是正式推出 (GA) 的服務，其設計旨在組建和裝載全球規模的安全任務關鍵型應用程式。如果您目前正在尋找 GA 服務來組建 API，則 Web 應用程式正是最佳選項。當 API Apps 正式推出時，我們將提供一條採用現有 Web 應用程式並運用 API Apps 功能的途徑。
-
 ## 為何採用 API 應用程式？
 
-API 應用程式是[應用程式服務 Web 應用程式](../app-service-web/app-service-web-overview.md)，並附有額外功能，可加強開發、部署、發佈、使用、管理和鑄造 RESTful Web API 的體驗。
-
-### Web 服務的 Web 應用程式功能
-
-您可以使用 Web 應用程式來主控 Web 服務，並取得 Azure App Service 平台的所有 Web 主控功能：
-
-- 自動修補作業系統
-- 企業等級的安全性
-- 高可用性
-- 自動縮放和負載平衡
-- 用於背景處理的 [WebJobs](../app-service-web/websites-webjobs-resources.md)
-- 快速且輕鬆地部署，並享有[多種連續傳遞選項](../app-service-web/web-sites-deploy.md)
-- 使用[混合式連線](../integration-hybrid-connection-overview.md)和 [VNET](../app-service-web/web-sites-integrate-with-vnet.md) 存取內部部署資料。
-
-### API Apps 功能目前已可預覽
-
-如果您使用 API Apps (而非 Web 應用程式) 來主控 Web 服務，應用程式服務便可提供額外功能：
+API 應用程式可用來開發、部署、發行、使用和管理 RESTful Web API。應用程式服務提供公開預覽的下列立即可用功能：
 
 - **輕鬆使用** - 使用整合的 [Swagger](http://swagger.io/) 支援，讓各種用戶端都能輕鬆使用您的 API。API Apps SDK 可以各種語言 (包括 C#、Java 和 Javascript) 為您的 API 產生用戶端程式碼。
 
-- **簡易存取控制** - 內建的驗證服務可支援 Azure Active Directory 或協力廠商服務 (例如 Facebook 和 Twitter)。您可以保護 API 應用程式，使其免於未經驗證的存取，且不必變更程式碼。如果您熟悉 [Azure 行動服務](../mobile-services-windows-dotnet-how-to-use-client-library.md#authentication)提供的驗證服務，則 API 應用程式可建置於該架構上，並將其延伸至 API Apps 主控的 Web 服務。App Service SDK 也可讓您使用簡化的授權碼語法。如需詳細資訊，請參閱[保護 API 應用程式](app-service-api-dotnet-add-authentication.md)。
+- **簡易存取控制** - 內建的驗證服務可支援 Azure Active Directory 或協力廠商服務 (例如 Facebook 和 Twitter)。您可以保護 API 應用程式，使其免於未經驗證的存取，且不必變更程式碼。如果您熟悉 [Azure 行動服務](../mobile-services-windows-dotnet-how-to-use-client-library.md#authentication)提供的驗證服務，則 API 應用程式可建置於該架構上，並將其延伸至 API 應用程式主控的 API。App Service SDK 也可讓您使用簡化的授權碼語法。如需詳細資訊，請參閱[保護 API 應用程式](app-service-api-dotnet-add-authentication.md)。
 
 - **輕鬆連接到 SaaS 平台** - Azure Marketplace 中的[連接器 API 應用程式](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md)是由 Microsoft 和協力廠商提供，以簡化您為了與 SalesForce、Office 365、Twitter、Facebook、Dropbox 和許多其他應用程式互動而撰寫的程式碼。
 
-- **與邏輯應用程式整合** - 您建立的 API 應用程式可供[應用程式服務邏輯應用程式](../app-service-logic/app-service-logic-what-are-logic-apps.md)使用。
+- **與邏輯應用程式整合** - 您建立的 API 應用程式可供 [App Service Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) 使用。
 
 - **Visual Studio 整合** - Visual Studio 中的專用工具可簡化[建立](app-service-dotnet-create-api-app.md)、[部署](app-service-dotnet-deploy-api-app.md)、[偵錯](app-service-dotnet-remotely-debug-api-app)和管理 API 應用程式的工作。
 
-您可以繼續使用現有的 API：您不必變更現有 API 的任何程式碼，就能利用所有功能，只要將程式碼部署至 API 應用程式即可。您可以在 API 中使用 ASP.NET、Java、PHP、Node.js 或 Python。
+您可以繼續使用現有的 API：您不必變更現有 API 的任何程式碼，就能利用 API 應用程式功能，只要將程式碼部署至 API 應用程式即可。您可以在 API 中使用 ASP.NET、Java、PHP、Node.js 或 Python。
+
+API 應用程式另外包含 [App Service Web Apps 的功能](../app-service-web/app-service-web-overview.md)。
 
 ### API Apps 功能即將推出
 
@@ -71,6 +53,10 @@ API 應用程式是[應用程式服務 Web 應用程式](../app-service-web/app-
 - **自動更新** - 當更新您已共用的其中一個 API 應用程式套件的程式碼時，您將能夠推送更新至已安裝並正在執行您的 API 應用程式的每一個人。這將適用於非重大變更，以及已選擇接收更新的使用者。
 
 其中許多功能 (例如公用市場和自動更新) 已可供 Microsoft 所提供的 API 應用程式使用。
+
+>[AZURE.NOTE] [Azure API Management](/services/api-management/) 屬於個別服務，可提供端點整合及節流等功能。您可以搭配 API Apps 使用 API 管理。
+>
+>API 應用程式目前處於公開預覽狀態。它是建置在[應用程式服務 Web 應用程式](../app-service-web/app-service-web-overview.md)之上，而此 Web 應用程式是正式推出 (GA) 的服務，其設計旨在組建和裝載全球規模的安全任務關鍵型應用程式。如果您目前正在尋找 GA 服務來組建 API，則 Web 應用程式正是最佳選項。當 API Apps 正式推出時，我們將提供一條採用現有 Web 應用程式並運用 API Apps 功能的途徑。
 
 ## API 應用程式概念 ##
 

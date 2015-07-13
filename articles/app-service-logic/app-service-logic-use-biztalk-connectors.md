@@ -19,7 +19,7 @@
 #連接器#
 連接器是 API 應用程式，可讓您連接到執行於雲端或內部部署的資料和服務。連接器可讓您透過各種可在邏輯應用程式和其他應用程式中輕鬆存取的內建觸發程序和動作，來取得所需資料。
 
-Azure App Service 提供許多現成連接器：
+Azure 應用程式服務提供許多現成連接器：
 
 ##標準連接器##
 * [Azure 服務匯流排連接器]
@@ -50,12 +50,12 @@ Azure App Service 提供許多現成連接器：
 * [Yammer 連接器]
 
 ##高階連接器和 API 應用程式##
-* AS2 連接器
-* BizTalk EDIFACT
+* [AS2 連接器]
+* [BizTalk EDIFACT]
 * [BizTalk 一般檔案編碼器]
 * BizTalk 轉換服務
 * [BizTalk 規則]
-* BizTalk X12
+* [BizTalk X12]
 * [BizTalk XPath 擷取程式]
 * [BizTalk XML 驗證器]
 * DB2 連接器
@@ -111,6 +111,8 @@ Azure App Service 提供許多現成連接器：
 [BizTalk XPath 擷取程式]: app-service-logic-xpath-extract.md
 [BizTalk XML 驗證器]: app-service-logic-xml-validator.md
 [BizTalk 規則]: app-service-logic-use-biztalk-rules.md
- 
+[AS2 連接器]: app-service-logic-connector-as2.md
+[BizTalk EDIFACT]: app-service-logic-connector-edifact
+[BizTalk X12]: app-service-logic-connector-x12.md
 
 <!---HONumber=62-->

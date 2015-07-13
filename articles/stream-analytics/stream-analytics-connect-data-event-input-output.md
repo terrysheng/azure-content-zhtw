@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="連接輸入和輸出 | Azure" 
+	pageTitle="連接輸入和輸出 | Microsoft Azure" 
 	description="了解如何連接以及設定輸入來源和輸出目標，以制定 Stream Analytics 解決方案。" 
 	documentationCenter="" 
 	services="stream-analytics"
@@ -74,19 +74,21 @@
 ##使用事件中樞
 
 ###概觀
-事件中樞可以擷取大量的事件，是最常見的 Stream Analytics  資料入口。它們可以收集各種裝置和服務的事件資料流。事件中樞搭配 Stream Analytics 之後，可以為客戶提供一種端點對端點的方案來分析即時資料 -- 用戶可以透過事件中樞即時將事件傳送到 Azure，然後 Stream Analytics 工作就會立即處理事件無時差。例如，用戶可以將網頁點選次數、感應器數據、線上記錄事件發佈到事件中樞，然後建立各種 Azure Stream Analytics 工作，讓這些工作將事件中樞當做輸入資料流來進行資料的即時篩選、彙總以及聯給。事件中樞也可以當做資料出口。要將 EH 做為輸出，最常見的例子就是 Stream Analytics 工作的輸出是另一個資料流工作的輸入。
+ 
+事件中樞可以擷取大量的事件，是最常見的 Stream Analytics 資料入口。它們可以收集各種裝置和服務的事件資料流。事件中樞搭配 Stream Analytics 之後，可以為客戶提供一種端點對端點的方案來分析即時資料 -- 用戶可以透過事件中樞即時將事件傳送到 Azure，然後 Stream Analytics 工作就會立即處理事件無時差。例如，用戶可以將網頁點選次數、感應器數據、線上記錄事件發佈到事件中樞，然後建立各種 Azure Stream Analytics 工作，讓這些工作將事件中樞當做輸入資料流來進行資料的即時篩選、彙總以及聯給。事件中樞也可以當做資料出口。要將 EH 做為輸出，最常見的例子就是 Stream Analytics 工作的輸出是另一個資料流工作的輸入。
 
 ###用戶群組
 每一個 Azure Stream Analytics 工作都應該設定自己的事件中樞用戶群組。當工作包含自我聯結或多個輸出時，某些輸出就有可能供一個以上的讀取器使用，這樣會造成單個用戶群組中的讀取器總數，超過事件中樞規定的每一個用戶群組最多 5 個讀取器。在這種情況下，就需要將查詢細分成多個查詢並透過其他事件中樞，傳遞中繼結果。請注意，每一個事件中樞另外還有 20 個用戶群組的限制。如需詳細資訊，請參閱事件中心開發人員指南。
 
- 
+ 
 ###參數
+ 
 用戶設定事件中樞資料流時，還需要設定幾個參數。除非另有其他規定，否則這些參數會套用至事件中樞的輸入和輸出資料流。
 
 1. 服務匯流排命名空間：事件中樞的服務匯流排命名空間。服務匯流排命名空間是一個容器，包含一組訊息實體。建立新的事件中樞時，也會建立服務匯流排命名空間。 
 2. 事件中樞名稱：事件中樞的名稱。在您建立新事件中樞時所指定的名稱。 
 3. 事件中樞原則名稱：共用存取原則 (用於存取事件中樞) 的名稱。您可以在 [設定] 索引標籤上，設定事件中樞的共用存取原則。每一個共用存取原則會有名稱、權限 (由您設定) 和存取金鑰。
-4. 事件中樞原則索引鍵：共用存取原則 (用於存取事件中樞) 的主要或次要索引鍵。 
+4. 事件中樞原則索引鍵：共用存取原則 (用於存取事件中樞) 的主要或次要索引鍵。  
 5. 事件中樞用戶群組：事件中樞輸入參數 (選擇性)。負責從事件中樞擷取資料的用戶群組。如果未指定，Stream Analytics 工作使用預設用戶群組，然後從事件中樞擷取資料。我們建議您每一個 Stream Analytics 工作使用不同的用戶群組。
 
 資料分割索引鍵資料行： 事件中樞的輸出參數 (選擇性)。資料屬性資料行，是事件中樞輸出的資料分割索引鍵。
@@ -148,7 +150,7 @@
 ![graphic19][graphic19]
 
 ## 取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟
 
@@ -156,7 +158,7 @@
 - [開始使用 Azure Stream Analytics](stream-analytics-get-started.md)
 - [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 
@@ -180,6 +182,6 @@
 [graphic17]: ./media/stream-analytics-connect-data-event-input-output/17-stream-analytics-connect-data-event-input-output.png
 [graphic18]: ./media/stream-analytics-connect-data-event-input-output/18-stream-analytics-connect-data-event-input-output.png
 [graphic19]: ./media/stream-analytics-connect-data-event-input-output/19-stream-analytics-connect-data-event-input-output.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

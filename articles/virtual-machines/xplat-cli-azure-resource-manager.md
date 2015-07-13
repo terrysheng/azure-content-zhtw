@@ -54,7 +54,7 @@
 
 ## 建立資源群組
 
-資源群組是網路、儲存體和其他資源的邏輯群組。**arm** 模式中幾乎有的命令都需要資源群組。您可以使用命令建立名為 _testrg_ 的資源群組，例如使用命令。
+資源群組是網路、儲存體和其他資源的邏輯群組。**arm** 模式中幾乎所有命令都需要資源群組。您可以使用命令建立名為 _testrg_ 的資源群組，例如使用命令
 
 	azure group create -n "testrg" -l "West US"
 
@@ -131,7 +131,7 @@
 
 #### 建立虛擬機器
 
-您現在已準備好執行 **vm create** 命令來建立虛擬機器，並傳遞所需的資訊。在此階段選擇性地傳遞公用 IP，因為 NIC 已經有此資訊。您的命令可能看起來如下，其中 _testvm_ 是在 _testrg_ 資源群組中建立的虛擬機器名稱。
+您現在已經準備好透過執行 **vm create** 命令並傳送必要資訊來建立虛擬機器。在此階段選擇性地傳遞公用 IP，因為 NIC 已經有此資訊。您的命令可能看起來如下，其中 _testvm_ 是在 _testrg_ 資源群組中建立的虛擬機器名稱。
 
 	azure-cli@0.8.0:/# azure vm create "testrg" "testvm" "westus" "Linux" -Q "CoreOS:CoreOS:Alpha:660.0.0" -u "azureuser" -p "Pass1234!" -N "testnic"
 	info:    Executing command vm create

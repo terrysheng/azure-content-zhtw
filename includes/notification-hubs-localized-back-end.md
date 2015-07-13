@@ -1,4 +1,4 @@
-﻿
+
 
 在您的後端應用程式中，您現在必須切換成傳送範本通知 (而非原生裝載)。此動作將會簡化後端程式碼，因為您將無需為不同平台傳送多個裝載。
 
@@ -13,16 +13,16 @@
 
 本節將以兩種不同方式示範傳送通知的方式：
 
-- using a console app
-- using a Mobile Services script
+- 使用主控台應用程式
+- 使用行動服務指令碼
 
 後端可廣播至任何支援的裝置，因此隨附的程式碼會廣播至 Windows 市集和 iOS 裝置。
 
 
 
-## 使用 C# 主控台應用程式 ## 傳送通知
+## 使用 C# 主控台應用程式傳送通知 ##
 
-我們將透過傳送單一範本通知，來簡單修改您的  *SendNotificationAsync* 方法。
+我們將透過傳送單一範本通知，來簡單修改您的 *SendNotificationAsync* 方法。
 
 	var hub = NotificationHubClient.CreateClientFromConnectionString("<connection string>", "<hub name>");
     var notification = new Dictionary<string, string>() {
@@ -31,7 +31,7 @@
                             {"News_Mandarin", "World News in Mandarin!"}};
     await hub.SendTemplateNotificationAsync(notification, "World");
 
-請注意，此簡單呼叫會將已當地語系化的正確新聞片段傳送到您的**所有**裝置 (不論平台為何)，因為您的通知中樞會建立並傳遞正確的原生裝載給訂用特定標籤的所有裝置。
+請注意，此簡單呼叫會將已當地語系化的正確新聞片段傳送到您的**所有**裝置 (不論平台為何)，因為您的通知中心會建立並傳遞正確的原生裝載給訂用特定標籤的所有裝置。
 
 ### 行動服務
 
@@ -52,4 +52,4 @@
 	
 請注意，此案例不需要針對不同地區設定和平台傳送多次通知。
 
-<!--HONumber=49-->
+<!---HONumber=62-->

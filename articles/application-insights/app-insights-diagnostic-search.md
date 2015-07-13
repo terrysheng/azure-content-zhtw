@@ -107,7 +107,7 @@
 
 
 
-## <a name="search"></a>搜尋資料
+## 搜尋資料
 
 您可以搜尋任何屬性值中的字詞。如果您已編寫具有屬性值的[自訂事件][track]，這特別實用。
 
@@ -180,8 +180,6 @@ app* AND banana -(grape pear)|邏輯運算子和括號。
 
 
 
-
-
 <!--Link references-->
 
 [availability]: app-insights-monitor-web-app-availability.md
@@ -192,5 +190,6 @@ app* AND banana -(grape pear)|邏輯運算子和括號。
 [trace]: app-insights-search-diagnostic-logs.md
 [track]: app-insights-custom-events-metrics-api.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

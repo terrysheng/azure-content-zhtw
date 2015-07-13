@@ -1,15 +1,15 @@
 <properties
-	pageTitle="Azure 備份 - 常見問題集"
-	description="Azure 備份服務的常見問題集"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
+   pageTitle="Azure 備份 - 常見問題集"
+   description="Azure 備份服務的常見問題集"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
@@ -17,7 +17,7 @@
 	 ms.author="prvijay"/>
 
 # Azure 備份 - 常見問題集
-下列是關於 Azure 備份常見問題的清單。若您有任何關於 Azure 備份的其他問題，請前往[論壇](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazureonlinebackup)並張貼您的問題。我們社群的服務人員將協助您找到答案。若遇到常見問題，我們會將其加入此文章，以便您可以快速且輕鬆地找到。
+下列是關於 Azure 備份常見問題的清單。若您有任何關於 Azure 備份的其他問題，請前往[論壇](https://social.msdn.microsoft.com/forums/azure/zh-tw/home?forum=windowsazureonlinebackup)並張貼您的問題。我們社群的服務人員將協助您找到答案。若遇到常見問題，我們會將其加入此文章，以便您可以快速且輕鬆地找到。
 
 ## 安裝和設定
 
@@ -152,5 +152,6 @@
 <!--Image references-->
 [1]: ./media/backup-azure-backup-faq/Schedule.png
 [2]: ./media/backup-azure-backup-faq/RetentionScreen1.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

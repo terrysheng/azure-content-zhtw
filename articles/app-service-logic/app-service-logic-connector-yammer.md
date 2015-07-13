@@ -32,12 +32,12 @@ Yammer 連接器可讓您連線到 Yammer 並執行「張貼訊息」動作和�
  
  ![][1]
  
-	- **Location** - choose the geographic location where you would like the connector to be deployed
-	- **Subscription** - choose a subscription you want this connector to be created in
-	- **Resource group** - select or create a resource group where the connector should reside
-	- **App Service plan** - select or create a web hosting plan
-	- **Pricing tier** - choose a pricing tier for the connector
-	- **Name** - give a name for your Yammer Connector 
+	- **位置** - 選擇您要部署連接器的地理位置
+	- **訂用帳戶** - 選擇您要建立此連接器的訂用帳戶
+	- **資源群組** - 選取或建立連接器所在的資源群組
+	- **App Service 方案** - 選取或建立 Web 裝載方案
+	- **定價層** - 選擇連接器的定價層
+	- **名稱** -  提供 Yammer 連接器的名稱
 
 4.	按一下 [建立]。將建立新的 Yammer 連接器。
 5.	建立 API 應用程式執行個體後，您可以在相同的資源群組中建立邏輯應用程式，以便使用 Yammer 連接器。 
@@ -53,7 +53,7 @@ Yammer 連接器可讓您連線到 Yammer 並執行「張貼訊息」動作和�
  
 ![][3]
  
-3.	Yammer 連接器就會出現在右側資源庫中的 [此資源群組中的 API 應用程式] 區段。
+3.	Yammer 接器就會出現在右側程式庫中的 [此資源群組中的 API 應用程式] 區段。
  
 ![][4]
  
@@ -86,7 +86,7 @@ Yammer 連接器可讓您連線到 Yammer 並執行「張貼訊息」動作和�
 	- 	**標記使用者** -需要標記在訊息中的一組使用者網路名稱。 
 
 	![][10]
- 
+
 	![][11]
 
 	<!--Image references-->

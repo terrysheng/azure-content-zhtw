@@ -87,10 +87,10 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 **要求標頭**
 
-下表說明必要及選用的要求標頭。
+下列清單說明必要及選用的要求標頭。
 
 - `Content-Type`：必要。請設為 `application/json`
-- `api-key`：必要。 `api-key` 可用來驗證搜尋服務的要求。其為服務的唯一字串值。**建立資料來源**要求必須包含管理員金鑰 (相對於查詢金鑰) 上所設的 `api-key` 標頭。 
+- `api-key`：必要。`api-key` 可用來驗證搜尋服務的要求。其為服務的唯一字串值。**建立資料來源**要求必須包含管理員金鑰 (相對於查詢金鑰) 上所設的 `api-key` 標頭。 
  
 您也必須提供服務名稱才能建構要求 URL。您可透過 [Azure 管理入口網站](https://portal.azure.com/)的服務儀表板取得服務名稱與 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立搜尋服務](search-create-service-portal.md)。
 
@@ -139,7 +139,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 如果資料來源包含的資料行或屬性符合下列準則，請使用此原則：
  
 - 所有插入都指定資料行的值。 
-- 項目的所有更新也會變更資料行的值。 
+- 所有項目更新變更資料行的值。 
 - 每次變更都會增加此資料行的值。
 - 當查詢使用類似下方 `WHERE [High Water Mark Column] > [Current High Water Mark Value]` 的篩選子句時，可更有效執行。
 
@@ -154,7 +154,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 		"highWaterMarkColumnName" : "[a row version or last_updated column name]" 
 	} 
 
-***SQL 整合式變更偵測原則***
+**SQL 整合式變更偵測原則**
 
 如果您的 SQL 資料庫支援[變更追蹤](https://msdn.microsoft.com/library/bb933875.aspx)，則建議您使用 SQL 整合式變更追蹤原則。這項原則可保障最高效的變更追蹤，並讓 Azure 搜尋服務識別出已刪除的資料列，而不需在結構描述中具備明確的「虛刪除」資料行。
 
@@ -393,7 +393,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 <a name="FieldMappingFunctions"></a> ***欄位對應函數***
 
-您也可以使用「對應函數」**，將欄位對應用來轉換來源欄位值。
+您也可以使用「對應函數」，將欄位對應用來轉換來源欄位值。
 
 這類函數目前僅支援一種：`jsonArrayToStringCollection`。它會將格式化為 JSON 陣列的字串剖析為目標索引中的 Collection(Edm.String) 欄位。該函數主要用來搭配 Azure SQL 索引子，因為 SQL 不具備原生的集合資料類型。其用法如下：
 
@@ -774,4 +774,5 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 <td>不支援；Azure 搜尋服務目前僅支援基本類型與字串集合</td>
 </tr>
 </table>
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

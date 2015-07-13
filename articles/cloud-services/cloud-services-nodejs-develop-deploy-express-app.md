@@ -33,13 +33,13 @@ Node.js 包含核心執行時期的一組最低功能。開發人員在開發 No
 
 請執行下列步驟來建立名為 'expressapp' 的新雲端服務專案：
 
-1. 從 [開始] 功能表**** 或 [開始畫面]**** 中，搜尋 **Azure PowerShell**。最後，以滑鼠右鍵按一下 [Azure PowerShell]****，然後選取 [以系統管理員身分執行]****。
+1. 從 [開始] 功能表 或 [開始畫面] 中，搜尋 **Azure PowerShell**。最後，以滑鼠右鍵按一下 [Azure PowerShell]，然後選取 [以系統管理員身分執行]。
 
 	![Azure PowerShell icon](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
 
 	[AZURE.INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
 
-2. 切換至 **c:\\node** 目錄，然後輸入下列命令來建立名為 **expressapp** 的新方案和名為 **WebRole1** 的 Web 角色：
+2. 切換至 **c:\node** 目錄，然後輸入下列命令來建立名為 **expressapp** 的新方案和名為 **WebRole1** 的 Web 角色：
 
 		PS C:\node> New-AzureServiceProject expressapp
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
@@ -129,9 +129,10 @@ Node.js 包含核心執行時期的一組最低功能。開發人員在開發 No
 ![A web browser displaying the Express page.The URL indicates it is now hosted on Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 
-[Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
-[Express]: http://expressjs.com/
-[http://jade-lang.com]: http://jade-lang.com
+  [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
+  [Express]: http://expressjs.com/
+  [http://jade-lang.com]: http://jade-lang.com
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

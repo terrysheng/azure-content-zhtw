@@ -92,7 +92,7 @@ Azure 管理入口網站提供兩種方法讓您建立和部署雲端服務：[*
 
 4. 在 [密碼] 中，輸入憑證的私密金鑰。
 
-5. 按一下 [確定] \(勾選記號)。
+5. 按一下 [確定] (勾選記號)。
 
 	![CloudServices_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
 
@@ -107,7 +107,7 @@ Azure 管理入口網站提供兩種方法讓您建立和部署雲端服務：[*
 	儀表板會在生產環境中開啟，此時您可以選取 [預備]，將應用程式部署在預備環境中。如需詳細資訊，請參閱＜[在 Azure 中管理部署](http://msdn.microsoft.com/library/gg433027.aspx)＞。
 
 
-2. 按一下 [上傳新的生產部署] 或 [上傳]。
+2. 按一下 [Upload a new production deployment] 或 [上傳]。
 
 3. 在 [部署標籤] 中，輸入新部署的名稱，例如，MyCloudServicev4。
 
@@ -115,7 +115,7 @@ Azure 管理入口網站提供兩種方法讓您建立和部署雲端服務：[*
 
 4. 在 [組態] 中，使用 [瀏覽] 選取要使用的服務組態檔 (.cscfg)。
 
-5. 如果雲端服務將包含只有一個執行個體的任何角色，請選取 [即使一或多個角色包含單一執行個體也請部署] 核取方塊，讓部署繼續進行。
+5. 如果雲端服務將包含只有一個執行個體的任何角色，請選取 [Deploy even if one or more roles contain a single instance] 核取方塊，讓部署繼續進行。
 
  如果每個角色至少有兩個執行個體，Azure 只能保證在維護和服務更新期間存取雲端服務的成功率為 99.95%。若有需要，您可以在部署雲端服務後，在 [Scale] 頁面上新增其他角色執行個體。如需詳細資訊，請參閱[服務等級協定](http://azure.microsoft.com/support/legal/sla/)。
 
@@ -133,11 +133,11 @@ Azure 管理入口網站提供兩種方法讓您建立和部署雲端服務：[*
 
 	狀態應該會顯示服務為 [正在執行]。
 
-2. 在 [快速瀏覽] 下，按一下網站 URL，在網頁瀏覽器中開啟您的雲端服務。
+2. 在 [quick glance] 下，按一下網站 URL，在網頁瀏覽器中開啟您的雲端服務。
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
 
 ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

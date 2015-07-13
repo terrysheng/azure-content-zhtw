@@ -147,5 +147,6 @@ Application Insights 附加器可由任何設定的記錄器參考，而不一�
 [diagnostic]: app-insights-diagnostic-search.md
 [java]: app-insights-java-get-started.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

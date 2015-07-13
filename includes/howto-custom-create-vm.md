@@ -1,5 +1,3 @@
-<properties authors="kathydav" editor="tysonn" manager="jeffreyg" />
-
 #如何建立自訂虛擬機器 (英文)
 
 *自訂*虛擬機器會參考您使用 [從組件庫] 方法建立的虛擬機器，因其比使用 [快速建立] 方法可讓您設定更多選項。這些選項包含︰
@@ -53,7 +51,7 @@
 17. 按一下箭號來建立虛擬機器。
 
 
-	![Custom virtual machine creation successful](./media/howto-custom-create-vm/VMSuccessWindows.png)
+	![成功建立自訂虛擬機器](./media/howto-custom-create-vm/VMSuccessWindows.png)
 
 ##後續步驟##
 虛擬機器建立後，將會自動啟動。當入口網站顯示狀態為執行中，您便可以登入虛擬機器。如需指示，請參閱下列文章︰
@@ -61,6 +59,4 @@
 - [如何登入執行 Linux 的虛擬機器](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [如何登入執行 Windows Server 的虛擬機器](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

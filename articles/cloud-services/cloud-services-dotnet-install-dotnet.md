@@ -18,7 +18,7 @@
 
 # 在雲端服務角色上安裝 .NET 
 
-本文說明如何在雲端服務 Web 和背景工作角色上安裝 .NET framework。您可以使用下列步驟來安裝依預設不存在於 Azure 客體 OS 上的 .NET framework 版本。如需最新的客體 OS 版本相關資訊，請參閱 [Azure 客體 OS 版本與 SDK 相容性比較表](cloud-services-guestos-update-matrix.md)。
+本文說明如何在雲端服務 Web 和背景工作角色上安裝 .NET framework。您可以依照下列步驟在 Azure 客體 OS 系列 4 上安裝.NET framework 4.5.2。如需最新的客體 OS 版本相關資訊，請參閱 [Azure 客體 OS 版本與 SDK 相容性比較表](cloud-services-guestos-update-matrix.md)。
 
 在 Web 和背景工作角色上安裝 .NET 的程序會涉及在雲端專案中加入 .NET 安裝程式套件，並在角色的啟動工作過程中啟動安裝程式。
 
@@ -115,6 +115,6 @@
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

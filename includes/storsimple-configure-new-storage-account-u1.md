@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="選用：為服務設定新的儲存體帳戶"
-   description="說明如何針對執行 Update 1 的 StorSimple Manager 服務設定儲存體帳戶。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/18/2015"
-   ms.author="alkohli" />
-
 #### 在 StorSimple 8000 系列 Update 1.0 中新增儲存體帳戶
 
 1. 在 StorSimple Manager 服務登陸頁面上選取您的服務，然後按兩下該服務。這會將您帶領到 [快速入門] 頁面。選取 [設定] 頁面。
@@ -50,7 +33,7 @@
 	  		
  - 如果您選取 **Openstack** 做為您的雲端服務提供者，請提供 [**主機名稱**]、[**存取金鑰**] 及 [**秘密金鑰**]。
 
-        > [AZURE.NOTE] 除 Azure 以外，允許為其他雲端服務提供者使用易記名稱。您可以使用不同的易記名稱並建立一組以上的儲存體帳戶，且可使用相同認證。
+        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 
@@ -62,4 +45,4 @@
 
 7. 新建立的儲存體帳戶將顯示於 [設定] 頁面上的 [儲存體帳戶] 下方。按一下 [**儲存**] 以儲存新的儲存體帳戶。系統提示您進行確認時，按一下 [確定]。
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

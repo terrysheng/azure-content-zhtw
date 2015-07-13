@@ -3,7 +3,7 @@
 
 在本節中，您會從[開始使用行動服務] (英文) 教學課程中更新專案，以便拍照並將相片上傳至 Azure Blob 儲存體。為了擷取影像，此教學課程從 `Microsoft.Phone.Tasks` 命名空間使用 [CameraCaptureTask]。此類別會啟動 Windows Phone 裝置的相機 UI 以擷取相片，並將影像自動儲存到 Windows Phone 裝置上的相機相簿。如果不希望將影像儲存至相機相簿，請改用 `Microsoft.Devices` 命名空間的 [PhotoCamera] 類別。
 
-1. 在 Visual Studio 的 [方案總管] 中，展開專案下方的 [屬性]****。接下來開啟 WMAppManifest.xml 檔案，然後在 [功能]**** 索引標籤上按一下 [ID_CAP_ISV_CAMERA]**** 以啟用相機。關閉檔案以儲存您的變更。
+1. 在 Visual Studio 的 [方案總管] 中，展開專案下方的 [屬性]。接下來開啟 WMAppManifest.xml 檔案，然後在 [功能] 索引標籤上按一下 [ID_CAP_ISV_CAMERA] 以啟用相機。關閉檔案以儲存您的變更。
 
    	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png)
 
@@ -91,7 +91,7 @@
             imageStream = e.ChosenPhoto;
         }
 
-7. 在 MainPage.xaml.cs 專案檔案中更新 MainPage 類別。新增下列程式碼來顯示相機 UI，讓使用者按一下 [擷取影像]**** 按鈕來擷取影像。
+7. 在 MainPage.xaml.cs 專案檔案中更新 MainPage 類別。新增下列程式碼來顯示相機 UI，讓使用者按一下 [擷取影像] 按鈕來擷取影像。
 
         private void ButtonCaptureImage_Click(object sender, RoutedEventArgs e)
         {
@@ -154,7 +154,7 @@
 
 1. 您可以在 Visual Studio 中按 F5 鍵，在模擬器或選定的實際裝置中測試應用程式。
 
-2. 在文字方塊中輸入部分文字，然後按一下 [擷取影像]****。
+2. 在文字方塊中輸入部分文字，然後按一下 [擷取影像]。
 
    	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-wp8.png)
 
@@ -164,11 +164,11 @@
   
    	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-wp8.png)
 
-4. 按一下 [接受]**** 以接受影像並結束相機 UI。
+4. 按一下 [接受] 以接受影像並結束相機 UI。
 
     ![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-accept-wp8.png)
 
-5. 按一下 [儲存]**** 插入新項目並上傳影像。
+5. 按一下 [儲存] 插入新項目並上傳影像。
 
 	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-save-wp8.png)
 
@@ -183,4 +183,4 @@
 [CameraCaptureTask]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
 [PhotoCamera]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
 
-<!--HONumber=54-->
+<!---HONumber=62-->

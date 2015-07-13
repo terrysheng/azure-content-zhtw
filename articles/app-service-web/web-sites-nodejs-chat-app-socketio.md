@@ -65,11 +65,11 @@ Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時�
 
 ## 建立 Azure Web 應用程式
 
-遵循以下步驟來建立 Azure Web 應用程式、啟用 Git 發佈，然後針對 Web 應用程式啟用 WebSocket 支援。
+遵循以下步驟來建立 Azure Web 應用程式、啟用 Git 發行，然後針對 Web 應用程式啟用 WebSocket 支援。
 
 > [AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 免費試用</a>。
 
-1. 安裝 Azure 命令列介面 (Azure CLI)，並連接到您的 Azure 訂用帳戶。請參閱＜[安裝和設定 Azure CLI](xplat-cli)＞。
+1. 安裝 Azure 命令列介面 (Azure CLI)，並連線到您的 Azure 訂用帳戶。請參閱[安裝和設定 Azure CLI](xplat-cli)。
 
 2. 如果這是您第一次在 Azure 中設定儲存機制，就需要建立登入認證。從 Azure CLI 中，輸入下列命令：
 
@@ -103,7 +103,7 @@ Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時�
 
 	>[AZURE.NOTE]'azure site set -w' 命令僅適用於 Azure 命令列介面 0.7.4 版或更新版本。您也可以使用 [Azure 入口網站](https://portal.azure.com)來啟用 WebSocket 支援。
 	>
-	>若要使用 Azure 入口網站啟用 WebSocket，可從 [Web App] 刀鋒視窗中按一下 Web 應用程式，然後依序按一下 [所有設定] > [應用程式設定]。在 [Web 通訊端] 下方，按一下 [開啟]。然後按一下 [儲存]。
+	>若要使用 Azure 入口網站啟用 WebSocket，可從 [Web App] 分頁中按一下 Web 應用程式，然後依序按一下 [所有設定] > [應用程式設定]。在 [Web 通訊端] 下方，按一下 [開啟]。然後按一下 [儲存]。
 
 5. 若要在 Azure 上檢視 Web 應用程式，請使用下列命令來啟動網頁瀏覽器，並瀏覽至裝載的 Web 應用程式：
 

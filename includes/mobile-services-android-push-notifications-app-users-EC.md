@@ -1,8 +1,8 @@
-﻿
+
 接下來，您需要變更您註冊通知的時間，以確認使用者在嘗試註冊前已經驗證。
 
 
-1. 在 Eclipse 的 [封裝總管] 中，開啟 ToDoActivity.java 檔案並尋找 `onCreate` 方法。將下列程式碼從 `onCreate` 方法移至 `createTable` 方法的開頭處。
+1. 在 Eclipse 的 [封裝總管] 中，開啟 ToDoActivity.java 檔案並尋找 `onCreate` 方法。將下列程式碼從 `onCreate` 方法移至 `createTable` 方法的開頭。
 
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
@@ -26,6 +26,4 @@
             refreshItemsFromTable();
         }	
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

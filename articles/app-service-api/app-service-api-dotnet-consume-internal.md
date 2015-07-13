@@ -261,5 +261,6 @@ App Service SDK 取決於 Swagger API 定義來產生用戶端類別。如果您
 本文說明如何從 .NET 用戶端取用內部 API 應用程式。如需如何取用已設定為 [**公用 (已驗證)**] 或 [**公用 (匿名)**] 存取層級之 API 應用程式的相關資訊，請參閱[從 Azure App Service 中的 .NET 用戶端取用 API 應用程式](app-service-api-dotnet-consume.md)。
 
 如需其他從 .NET 用戶端呼叫 API 應用程式的程式碼範例，請下載 [Azure Cards](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample) 範例應用程式。
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

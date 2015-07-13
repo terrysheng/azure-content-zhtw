@@ -32,12 +32,12 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 <a name="Diagnosing"></a>
 ## 診斷問題
 
-如果您懷疑行動服務有負載過大的問題，首先您應在 [Azure 管理入口網站][]中查看您的服務的 **儀表板** 索引標籤。應確認的事項如下：
+如果您懷疑行動服務有負載過大的問題，首先您應在 **Azure 管理入口網站**中查看您的服務的 [儀表板][][] 索引標籤。應確認的事項如下：
 
 - 您的使用計量 (包括 [API 呼叫] 和 [使用中裝置] 計量) 未超出配額
 - [端點監視] 狀態指出服務已啟動 (只有在服務使用標準層且 [端點監視] 已啟用時才適用) 
 
-前述若有任一項條件不符，請考慮在 *[調整]* 索引標籤上修改您的調整設定。如果仍無法解決問題，您可以進一步調查問題是否來自於 Azure SQL Database。後續幾節將說明幾種診斷可能錯誤的不同方法。
+前述若有任一項條件不符，請考慮在 [調整] 索引標籤上修改您的調整設定。如果仍無法解決問題，您可以進一步調查問題是否來自於 Azure SQL Database。後續幾節將說明幾種診斷可能錯誤的不同方法。
 
 ### 選擇正確的 SQL Database 層 
 
@@ -205,7 +205,7 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 ### 必要條件
 若要執行本節中的某些診斷工作，您必須存取 SQL 資料庫的管理工具 (例如 **SQL Server Management Studio**) 或 **Azure 管理入口網站**的內建管理功能。
 
-SQL Server Management Studio 是一項免費的 Windows 應用程式，可提供最進階的功能。如果您無法存取 Windows 機器 (例如，如果您使用 Mac)，請考慮依照[建立執行 Windows Server 的虛擬機器](../virtual-machines-windows-tutorial.md)中的說明在 Azure 中佈建虛擬機器，然後從遠端加以連接。如果您使用 VM 的主要目的是要執行 SQL Server Management Studio，則一個 [基本 A0] \(先前稱為「超小型」) 執行個體即應夠用。
+SQL Server Management Studio 是一項免費的 Windows 應用程式，可提供最進階的功能。如果您無法存取 Windows 機器 (例如，如果您使用 Mac)，請考慮依照[建立執行 Windows Server 的虛擬機器](../virtual-machines-windows-tutorial.md)中的說明在 Azure 中佈建虛擬機器，然後從遠端加以連接。如果您使用 VM 的主要目的是要執行 SQL Server Management Studio，則一個 [基本 A0] (先前稱為「超小型」) 執行個體即應夠用。
 
 Azure 管理入口網站提供內建的管理功能，雖然功能有限，但不需本機安裝即可使用。
 
@@ -247,7 +247,7 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 <a name="AdvancedDiagnosing" />
 ### 進階診斷
 
-許多診斷工作都可直接在 \[Azure 管理入口網站\] 中輕易完成，但有些進階診斷工作則只能透過 [SQL Server Management Studio] 或 [SQL Database 管理入口網站] 來執行。我們將利用動態管理檢視的功能，這是一組會以資料庫的相關診斷資訊自動填入的檢視。本節將提供一組可用來對這些檢視執行以檢查各種度量的查詢。如需詳細資訊，請參閱[使用動態管理檢視監視 SQL Database][]。
+許多診斷工作都可直接在 [Azure 管理入口網站] 中輕易完成，但有些進階診斷工作則只能透過 [SQL Server Management Studio] 或 [SQL Database 管理入口網站] 來執行。我們將利用動態管理檢視的功能，這是一組會以資料庫的相關診斷資訊自動填入的檢視。本節將提供一組可用來對這些檢視執行以檢查各種度量的查詢。如需詳細資訊，請參閱[使用動態管理檢視監視 SQL Database][]。
 
 完成上一節中的步驟而連接到您在 SQL Server Management Studio 中的資料庫後，請在 [物件總管] 中選取您的資料庫。展開 [檢視]，[系統檢視] 會顯現管理檢視清單。若要執行下方的查詢，請選取 [新增查詢]，而您先前已在 [物件總管] 中選取您的資料庫，請在貼上查詢後選取 [執行]。
 
@@ -474,5 +474,6 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 
 <!-- BLOG LINKS -->
 [該索引鍵的成本為何？]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

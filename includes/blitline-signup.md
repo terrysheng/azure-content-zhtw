@@ -34,7 +34,7 @@
 
 	![blitline-connection-info-button][blitline-connection-info-button]
 
-2. 在 [連線資訊]** 對話方塊中，可以看到您的應用程式識別碼
+2. 在 [連線資訊] 對話方塊中，可以看到您的應用程式識別碼
 
 	![blitline-connection-info][blitline-connection-info]
 
@@ -46,5 +46,4 @@
 [blitline-connection-info-button]: ./media/blitline-signup/blitline_connection_info_button.png
 [blitline-connection-info]: ./media/blitline-signup/blitline_connection_info_screen.jpeg
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

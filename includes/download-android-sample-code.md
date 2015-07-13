@@ -1,7 +1,7 @@
 本教學課程以 Android 應用程式 **GetStartedWithData** 為基礎。此應用程式的 UI 與 Mobile Services Android 快門入口中的應用程式相同，差別在於加入清單的項目會儲存在本機的記憶體。您將加入必要的程式碼，以便將資料保存至儲存體。
 
 
-1. 按一下<a href="https://github.com/RickSaling/mobile-services-samples/tree/androidStudio" target="blank">這裡</a>，然後按一下 [**下載 ZIP**]，即可從 gitHub 下載應用程式專案。
+1. 按一下<a href="https://github.com/Azure/mobile-services-samples" target="blank">這裡</a>，然後按一下 [**下載 ZIP**]，即可從 gitHub 下載範例儲存機制。
 
 2. 解壓縮下載的檔案並記下其位置，或將它移至您的 Android Studio 專案目錄。
 
@@ -14,8 +14,5 @@
 
 	您現在可以開始使用此專案。
  
->[AZURE.NOTE]如果想要取得前一版 Mobile Services Android SDK 中使用的範例檔案，您可以在[這裡][GitHub]取得。
 
-<!-- URLs. -->
-[GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
-<!--HONumber=54-->
+<!---HONumber=62-->

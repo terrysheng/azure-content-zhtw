@@ -31,7 +31,7 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 ##<a name="getstarted"></a>開始使用 WebJob 和 WebJobs SDK
 
 * [Azure WebJobs 簡介](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx) (英文)
-* [Azure WebJobs 太酷了，趕快使用，不要猶豫！](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (取自 Troy Hunt 的部落格文章。)
+* [Azure WebJobs 太酷了，趕快使用，不要猶豫！](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (取自 Troy Hunt 的部落格文章，英文。)
 * [Azure WebJobs 功能](/blog/2014/10/22/webjobs-goes-into-full-production/) (英文)
 * [什麼是 Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md) (英文)
 * [Microsoft Patterns and Practices 提供的背景工作指引](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md) (英文)
@@ -56,7 +56,7 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 * [如何使用 Azure 管理入口網站部署 WebJobs](web-sites-create-web-jobs.md)
 * [啟用 Azure WebJobs 的命令列或連續傳遞](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [使用 WebJobs 將 .NET 主控台應用程式部署至 Azure 的 Git](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
-* [將 F# WebJob 部署至 Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
+* [將 F# WebJob 部署至 Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx) (英文)
 * 影片
 	* [Visual Studio 的 WebJobs 工具簡介](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) (英文) 
 	* [WebJobs 工具和遠端偵錯](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) (英文) 
@@ -132,7 +132,7 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 * [Azure App Service Web Apps 論壇](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
 * [Azure Web Apps 使用者心聲網站](http://feedback.azure.com/forums/169385-websites)
 * [Twitter](http://twitter.com/)。使用雜湊標記 #AzureWebJobs。
-* [WebJobs 錯誤或問題報告](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
+* [報告 WebJobs 錯誤或問題](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)

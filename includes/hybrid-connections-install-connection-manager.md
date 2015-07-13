@@ -1,16 +1,18 @@
 
-The Hybrid Connection Manager enables your on-premises machine to connect to Azure and relay TCP traffic. You must  install the manager to an on-premises computer that can connect to the your SQL Server instance.
+混合式連線管理員可讓您的內部部署機器連接到 Azure 並轉送 TCP 流量。您必須將管理員安裝在可以連線到 SQL Server 執行個體的內部部署電腦。
 
-1. The connection you just created should have a **Status** of **On-premesis setup incomplete**. Click this connection and click **On-premises Setup**.
+1. 您剛才建立的連接應該是 [**內部部署設定未完成**] 的 [**狀態**]。按一下此連線，然後按一下 [**內部部署設定**]。
 
 	![On-Premises Setup](./media/hybrid-connections-install-connection-manager/5-1.png)
 
-2. Click **Install and Configure**.
+2. 按一下 [安裝和設定]。
 
-	This installs a customized instance of the Connection Manager, which is already pre-configured to work with the hybrid connection you just created.
+	這會安裝自訂的連線管理員執行個體，而且此執行個體已預先設定成使用您剛剛建立的混合式連線。
 
-3. Complete the rest of the setup steps for the Connection Manager.
+3. 完成連線管理員其餘的安裝步驟。
 
-	After the installation is complete, the hybrid connection status will change to **1 Instance Connected**. You may need to refresh the browser and wait a few minutes. 
+	安裝完成之後，混合式連線狀態會變更為 [**已連接 1 個執行個體**]。您可能必須重新整理瀏覽器，並等候數分鐘。
 
-The hybrid connection setup is now complete.
+混合式連線設定現在已完成。
+
+<!---HONumber=62-->

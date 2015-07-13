@@ -21,7 +21,7 @@
 
 ## Windows PowerShell Cmdlet
 
-下表中的 Cmdlet 是用來在  Azure 自動化中透過 Windows PowerShell 建立和管理變數。它們是隨著 [Azure PowerShell 模組](../powershell-install-configure.md)的一部分推出。
+下表中的 Cmdlet 是用來在 Azure 自動化中透過 Windows PowerShell 建立和管理變數。它們是隨著 [Azure PowerShell 模組](../powershell-install-configure.md)的一部分推出。
 
 |Cmdlet|說明|
 |:---|:---|
@@ -52,7 +52,7 @@
 
 ### 使用 Windows PowerShell 建立新排程
 
- [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690271.aspx) Cmdlet 會建立新的排程，並設定現有排程的值。下列範例 Windows PowerShell 命令會建立名為「我的每日排程」的新排程，該排程將從明天中午開始，並每天發動一次持續一年：
+[New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690271.aspx) Cmdlet 會建立新的排程，並設定現有排程的值。下列範例 Windows PowerShell 命令會建立名為「我的每日排程」的新排程，該排程將從明天中午開始，並每天發動一次持續一年：
 
 	$automationAccountName = "MyAutomationAccount"
 	$scheduleName = "My Daily Schedule"
@@ -64,5 +64,6 @@
 
 ## 另請參閱
 - [在 Azure 自動化中排程 Runbook](automation-scheduling-a-runbook.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

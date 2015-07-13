@@ -1,9 +1,9 @@
 
-1. 在 [混合式連線] 刀鋒視窗中，按一下您剛剛建立的混合式連線，然後按一下 [接聽程式設定]。
+1. 在 [混合式連線] 分頁中，按一下您剛剛建立的混合式連線，然後按一下 [接聽程式設定]。
 	
 	![Click Listener Setup](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
 	
-4. [混合式連線屬性] 刀鋒視窗隨即開啟。在 [**內部部署 Hybrid Connection Manager**] 下，選擇 [**手動下載和設定**]，並儲存下載的 HybridConnectionManager.msi 封裝，然後複製閘道器連接字串。
+4. [混合式連線屬性] 分頁隨即開啟。在 [**內部部署 Hybrid Connection Manager**] 下，選擇 [**手動下載和設定**]，並儲存下載的 HybridConnectionManager.msi 封裝，然後複製閘道器連接字串。
 	
 	![Click here to install](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
 	
@@ -21,7 +21,7 @@
 	
 	![Click Close](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
 	
-	在 [混合式連線] 刀鋒視窗上，[狀態] 欄此時會顯示為 [未連線]。
+	在 [混合式連線] 分頁上，[狀態] 欄此時會顯示為 [未連線]。
 	
 	![Connected Status](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
 

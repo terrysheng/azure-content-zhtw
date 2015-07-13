@@ -1,24 +1,30 @@
 
-1. On the on-premises machine, log on to the [Azure Management Portal](http://manager.windowsazure.com) (this is the old portal).
+1. 在內部部署機器上，登入 [Azure 管理入口網站](http://manager.windowsazure.com) (這是舊的入口網站)。
 
-2. At the bottom of the navigation pane, select **+NEW** and then select **App Services**, **BizTalk Service**, and then **Custom Create**
+2. 在導覽窗格底部，選取 [**+新增**] > [**應用程式服務**] > [**BizTalk 服務**] > [**自訂建立**]。
 
-3. Provide a **BizTalk Service Name** and select an **Edition**. 
+3. 提供 [BizTalk 服務名稱]，然後選取 [版本]。
 
-	This tutorial uses **mobile1**. You will need to supply a unique name for your new BizTalk Service.
+	本教學課程使用 **mobile1**。您必須為新的 BizTalk 服務提供唯一名稱。
 
-4. Once the BizTalk Service has been created, select the **Hybrid Connections** tab, then click **Add**.
+4. BizTalk 服務建立後，請選取 [混合式連線] 索引標籤，然後按一下 [新增]。
 
 	![Add Hybrid Connection](./media/hybrid-connections-create-new/3.png)
 
-	This creates a new hybrid connection.
+	這會建立新的混合式連線。
 
-5. Provide a **Name** and **Host Name** for your hybrid connection and set **Port** to `1433`. 
+5. 提供混合式連線的 [名稱] 和 [主機名稱]，然後將 [連接埠] 設為 `1433`。
   
 	![Configure Hybrid Connection](./media/hybrid-connections-create-new/4.png)
 
-	The host name is the name of the on-premises server. This configures the hybrid connection to access SQL Server running on port 1433. If you are using a named SQL Server instance, instead use the static port you defined earlier.
+	主機名稱是內部部署伺服器的名稱。這會設定混合式連線，使其存取在連接埠 1433 上執行的 SQL Server。如果您使用具名的 SQL Server 執行個體，請改用您稍早定義的靜態連接埠。
 
-6. After the new connection is created, the status of the of the new connection shows **On-premises setup incomplete**.
+6. 建立新連線之後，新連線的狀態會顯示為 [**內部部署設定未完成**]。
 
-Next, you'll need to install the Hybrid Connection Manager on the on-premises computer.
+7. 瀏覽回到您的行動服務中，按一下 [**設定**]，向下捲動至 [**混合式連線**]，按一下 [**加入混合式連線**]，然後選取您剛才建立的混合式連線，並按一下 [**確定**]。
+
+    這可讓您的行動服務使用新的混合式連線。
+
+接下來，您必須在內部部署電腦上安裝混合式連線管理員。
+
+<!---HONumber=62-->

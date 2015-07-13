@@ -1,32 +1,6 @@
-在向 APNS 註冊應用程式及設定專案後，接下來您必須設定行動服務以整合 APNS。
 
-1. 在 Keychain Access 中，以滑鼠右鍵按一下 [金鑰] 或 [我的憑證] 中快速入門應用程式的新憑證，按一下 [匯出]，將您的檔案命名為 QuickstartPusher，選取 .p12 格式，然後按一下 [儲存]。
+* 請依照[在伺服器上安裝用戶端 SSL 簽署身分識別](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW15)的步驟，將您在上一個步驟中下載的憑證匯出至 .p12 檔案。
 
-   	![](./media/mobile-services-apns-configure-push/mobile-services-ios-push-step18.png)
+* 在 Azure 入口網站中，按一下 [**行動服務**] > 您的應用程式 > [**推播**] 索引標籤 > "apple 推播通知設定** > "**上傳**。上傳 .p12 檔案，並確定已選取正確的 [**模式**] (不是 [沙箱] 就是 [實際執行]，這對應於您產生的用戶端 SSL 憑證為 [開發] 或 [配送])。 您的行動服務現在已設定成在 iOS 上使用推播通知！
 
-  記下匯出憑證的檔案名稱和位置。
-
->[AZURE.NOTE]> [WACOM.NOTE] 本教學課程建立 QuickstartPusher.p12 檔案。Your file name and location might be different.
-
-2. 登入 [Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
-
-   	![](./media/mobile-services-apns-configure-push/mobile-services-selection.png)
-
-3. 依序按一下 [推播] 索引標籤和 [上傳]。
-
-   	![](./media/mobile-services-apns-configure-push/mobile-push-tab-ios.png)
-
-	This displays the Upload Certificate dialog.
-
-4. 按一下 [檔案]，選取匯出的憑證 QuickstartPusher.p12 檔案，輸入密碼，確定已選取正確模式 (Dev/Sandbox 或 Prod/Production)，按一下核取圖示，然後按一下 [儲存]。
-
-   	![](./media/mobile-services-apns-configure-push/mobile-push-tab-ios-upload.png)
-
-    > [AZURE.NOTE]本教學課程使用開發憑證。
-
-您的行動服務現已設定為與 APNS 搭配運作。
-
-<!-- URLs. -->
-[Azure 管理入口網站]: https://manage.windowsazure.com/
-
-<!--HONumber=54-->
+<!---HONumber=62-->

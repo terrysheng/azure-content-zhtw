@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Windows 桌面應用程式與服務的 Application Insights" 
-	description="使用 Application Insights 分析 Windows 應用程式的使用量和效能。" 
+	description="使用 Application Insights 分析 Windows 桌面應用程式的使用情况和效能。" 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="06/18/2015" 
 	ms.author="awills"/>
 
 # Windows 桌面應用程式與服務的 Application Insights
@@ -33,6 +33,7 @@ Windows 桌面應用程式與服務的支援是由 Application Insights 核心 S
 
     ![按一下 [新增]，然後按一下 [Application Insights]](./media/app-insights-windows-desktop/01-new.png)
 
+    (您選擇的應用程式類型將設定 [概觀] 分頁的內容，以及[計量瀏覽器][metrics]中可用的屬性。)
 
 2.  取得檢測金鑰的副本。
 
@@ -45,11 +46,11 @@ Windows 桌面應用程式與服務的支援是由 Application Insights 核心 S
 
 2. 安裝 Application Insights API 套件。
 
-    ![選取 [**線上**]、[**包括發行前版本**]，然後搜尋 "Application Insights"](./media/app-insights-windows-desktop/04-ai-nuget.png)
+    ![搜尋「Application Insights」](./media/app-insights-windows-desktop/04-core-nuget.png)
 
 3. 編輯 ApplicationInsights.config (已由 NuGet 安裝加入)。在結尾標記前面插入此內容：
 
-    &lt;InstrumentationKey&gt;*您複製的金鑰*&lt;/InstrumentationKey&gt;
+    `<InstrumentationKey>*the key you copied*</InstrumentationKey>`
 
     或者，您也可以使用此程式碼來達成相同的效果：
     
@@ -60,7 +61,7 @@ Windows 桌面應用程式與服務的支援是由 Application Insights 核心 S
 
 建立 `TelemetryClient` 執行個體，然後[使用它來傳送遙測][api]。
 
-使用 `TelemetryClient.Flush` 在關閉應用程式之前傳送訊息。(對其他類型應用程式不建議使用。)
+使用 `TelemetryClient.Flush()` 在關閉應用程式之前傳送訊息。核心 SDK 會使用記憶體中緩衝區。排清方法可確保這個緩衝區會清空，協助確保資料在程序關閉時不會遺失 (對其他類型應用程式不建議使用。平台 SDK 會自動實作這個行為)。
 
 例如，在 Windows Forms 應用程式中，您可以編寫：
 
@@ -107,9 +108,10 @@ Windows 桌面應用程式與服務的支援是由 Application Insights 核心 S
 
 #### 內容初始設定式
 
-在每個 TelemetryClient 執行個體中設定工作階段資料時，您也可以選擇使用內容初始設定式：
+若要查看使用者和工作階段的計數，您可以對每個 `TelemetryClient` 執行個體設定值。或者，您可以使用內容初始設定式來對所有用戶端執行這個加入動作：
 
 ```C#
+
     class UserSessionInitializer: IContextInitializer
     {
         public void Initialize(TelemetryContext context)
@@ -127,6 +129,7 @@ Windows 桌面應用程式與服務的支援是由 Application Insights 核心 S
             TelemetryConfiguration.Active.ContextInitializers.Add(
                 new UserSessionInitializer());
             ...
+
 ```
 
 

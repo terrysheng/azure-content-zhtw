@@ -32,7 +32,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
 下列步驟會建立雲端服務專案來裝載 Socket.IO 應用程式。
 
-1. 從 [開始] 功能表**** 或 [開始畫面]**** 中，搜尋 **Azure PowerShell**。最後，以滑鼠右鍵按一下 [Azure PowerShell]****，然後選取 [以系統管理員身分執行]****。
+1. 從 [開始] 功能表 或 [開始畫面] 中，搜尋 **Azure PowerShell**。最後，以滑鼠右鍵按一下 [Azure PowerShell]，然後選取 [以系統管理員身分執行]。
 
 	![Azure PowerShell icon][powershell-menu]
 
@@ -40,7 +40,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
 
 
-2. 切換至 **c:\\node** 目錄，然後輸入下列命令來建立名為 **chatapp** 的新方案和名為 **WorkerRole1** 的背景工作角色：
+2. 切換至 **c:\node** 目錄，然後輸入下列命令來建立名為 **chatapp** 的新方案和名為 **WorkerRole1** 的背景工作角色：
 
 		PS C:\node> New-AzureServiceProject chatapp
 		PS C:\Node> Add-AzureNodeWorkerRole
@@ -53,17 +53,17 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
 在此專案中，我們使用 [Socket.IO GitHub 儲存機制]中的交談範例。請執行下列步驟來下載範例，並將它加入至您先前建立的專案。
 
-1.  使用 [Clone]**** 按鈕來建立儲存機制的本機複本。您也可以使用 [ZIP]**** 按鈕來下載專案。
+1.  使用 [Clone] 按鈕來建立儲存機制的本機複本。您也可以使用 [ZIP] 按鈕來下載專案。
 
     ![A browser window viewing https://github.com/LearnBoost/socket.io/tree/master/examples/chat, with the ZIP download icon highlighted][chat-example-view]
 
-3.  瀏覽本機儲存機制的目錄結構，直到找到 **examples\\chat** 目錄為止。將此目錄的內容複製到稍早建立的 **C:\\node\\chatapp\\WorkerRole1** 目錄。
+3.  瀏覽本機儲存機制的目錄結構，直到找到 **examples\chat** 目錄為止。將此目錄的內容複製到稍早建立的 **C:\node\chatapp\WorkerRole1** 目錄。
 
-    ![總管，會顯示擷取自封存的 examples\\chat 目錄內容][chat-contents]
+    ![總管，會顯示擷取自封存的 examples\chat 目錄內容][chat-contents]
 
-    上方螢幕擷取畫面中反白顯示的項目是從 **examples\\chat** 目錄複製的檔案
+    上方螢幕擷取畫面中反白顯示的項目是從 **examples\chat** 目錄複製的檔案
 
-4.  在 **C:\\node\\chatapp\\WorkerRole1** 目錄中，刪除 **server.js** 檔案，然後將 **app.js** 檔案重新命名為 **server.js**。這樣會移除先前由 **Add-AzureNodeWorkerRole** Cmdlet 建立的預設 **server.js** 檔案，並取代為交談範例中的應用程式檔案。
+4.  在 **C:\node\chatapp\WorkerRole1** 目錄中，刪除 **server.js** 檔案，然後將 **app.js** 檔案重新命名為 **server.js**。這樣會移除先前由 **Add-AzureNodeWorkerRole** Cmdlet 建立的預設 **server.js** 檔案，並取代為交談範例中的應用程式檔案。
 
 ### 修改 Server.js 和安裝模組
 
@@ -89,7 +89,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
 儲存 server.js 的變更之後，請使用下列步驟來安裝必要的模組，然後在 Azure 模擬器中測試應用程式：
 
-1.  使用 **Azure PowerShell**，切換至 **C:\\node\\chatapp\\WorkerRole1** 目錄，再使用下列命令來安裝此應用程式所需的模組：
+1.  使用 **Azure PowerShell**，切換至 **C:\node\chatapp\WorkerRole1** 目錄，再使用下列命令來安裝此應用程式所需的模組：
 
         PS C:\node\chatapp\WorkerRole1> npm install
 
@@ -135,23 +135,27 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
 在本教學課程中，您學到如何建立裝載於 Azure 雲端服務的基本交談應用程式。若要了解如何在 Azure 網站中裝載此應用程式，請參閱[在 Azure 網站上使用 Socket.IO 建立 Node.js 交談應用程式][chatwebsite]。
 
-[chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
+  [chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
 
-[Azure SLA]: http://www.windowsazure.com/support/sla/
-[Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
-[completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
-[Azure SDK for Node.js]: https://www.windowsazure.com/develop/nodejs/
-[Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
-[Socket.IO GitHub 儲存機制]: https://github.com/LearnBoost/socket.io/tree/0.9.14
-[Azure Considerations]: #windowsazureconsiderations
-[Hosting the Chat Example in a Worker Role]: #hostingthechatexampleinawebrole
-[Summary and Next Steps]: #summary
-[powershell-menu]: ./media/cloud-services-nodejs-chat-app-socketio/azure-powershell-start.png
+  [Azure SLA]: http://www.windowsazure.com/support/sla/
+  [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
+  [completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
+  [Azure SDK for Node.js]: https://www.windowsazure.com/develop/nodejs/
+  [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
+  [Socket.IO GitHub 儲存機制]: https://github.com/LearnBoost/socket.io/tree/0.9.14
+  [Azure Considerations]: #windowsazureconsiderations
+  [Hosting the Chat Example in a Worker Role]: #hostingthechatexampleinawebrole
+  [Summary and Next Steps]: #summary
+  [powershell-menu]: ./media/cloud-services-nodejs-chat-app-socketio/azure-powershell-start.png
 
-[chat example]: https://github.com/LearnBoost/socket.io/tree/master/examples/chat
-[chat-example-view]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png
-[chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
-[The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
-[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
+  [chat example]: https://github.com/LearnBoost/socket.io/tree/master/examples/chat
+  [chat-example-view]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png
+  
+  
+  [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
+  [The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
+  [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
+  
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

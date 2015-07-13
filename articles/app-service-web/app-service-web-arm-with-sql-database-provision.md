@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="06/22/2015" 
 	ms.author="tomfitz"/>
 
 # 佈建 Web 應用程式與 SQL Database
@@ -22,7 +22,9 @@
 
 如需關於建立範本的詳細資訊，請參閱[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)。
 
-如需完整的範本，請參閱 [Web 應用程式與 SQL Database 範本](https://github.com/tfitzmac/AppServiceTemplates/blob/master/webandsql.json)。
+如需有關部署應用程式的詳細資訊，請參閱[透過可預測方式在 Azure 中部署複雜應用程式](app-service-deploy-complex-application-predictably.md)。
+
+如需完整的範本，請參閱 [Web 應用程式與 SQL Database 範本](../../templates/app-service-web-arm-with-sql-database-provision/)。
 
 ## 部署內容
 
@@ -176,7 +178,7 @@
       },
       "properties": {
         "name": "[parameters('siteName')]",
-        "serverFarm": "[parameters('hostingPlanName')]"
+        "serverFarmId": "[parameters('hostingPlanName')]"
       },
       "resources": [
         {
@@ -187,7 +189,7 @@
           "properties": {
               "DefaultConnection":{
               "value":"[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
-              "type": 2 //SQL
+              "type": 2 
             },
           }
         }

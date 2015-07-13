@@ -94,6 +94,6 @@ Runbook 可以連結至多個排程，而排程可以有多個與其連結的 Ru
 ## 相關文章
 
 - [Azure 自動化中的排程資產](http://msdn.microsoft.com/library/azure/dn940016.aspx)
-- [在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md)
+- [在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

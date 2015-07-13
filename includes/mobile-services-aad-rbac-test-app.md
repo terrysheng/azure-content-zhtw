@@ -1,5 +1,5 @@
-﻿
-下面的指示和螢幕擷取畫面適用於測試 Windows 市集用戶端，但您可以在 Azure 行動服務所支援的任何平台上進行測試。 
+
+下面的指示和螢幕擷取畫面適用於測試 Windows 市集用戶端，但您可以在 Azure 行動服務所支援的任何平台上進行測試。
 
 1. 在 Visual Studio 中執行用戶端應用程式，並嘗試驗證名為 Dave 的已建立使用者帳戶。 
 
@@ -17,7 +17,4 @@
 
     ![](./media/mobile-services-aad-rbac-test-app/success.png)
 
-
-
-
-<!--HONumber=49-->
+<!---HONumber=62-->

@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="新增 StorSimple 備份原則"
-   description="說明如何使用 StorSimple Manager 服務建立備份原則。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
-
 #### 若要新增 StorSimple 備份原則
 
 1. 在裝置的 [**快速入門**] 頁面上，按一下 [**備份原則**] 索引標籤。這會將您帶到 [**備份原則**] 頁面。
@@ -30,4 +13,4 @@
 新加入的原則將會以表格式檢視顯示在 [**備份原則**] 頁面。
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

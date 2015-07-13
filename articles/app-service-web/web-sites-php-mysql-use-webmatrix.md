@@ -67,11 +67,11 @@
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 按一下入口網站左下方的 [新增]**** 圖示。
+2. 按一下入口網站左下方的 [新增] 圖示。
 
 	![Create New Azure web site](./media/web-sites-php-mysql-use-webmatrix/new_website2.png)
 
-3. 依序按一下 [Web + 行動]**** 和 [Web 應用程式 + MySQL]****。
+3. 依序按一下 [Web + 行動] 和 [Web 應用程式 + MySQL]。
 
 	![Custom Create a new web site](./media/web-sites-php-mysql-use-webmatrix/create_web_mysql.png)
 
@@ -97,7 +97,7 @@
 
 	![選取資料庫](./media/web-sites-php-mysql-use-webmatrix/select_database.png)
 
-2. 從資料庫摘要中，選取 [屬性]****。
+2. 從資料庫摘要中，選取 [屬性]。
 
     ![選取屬性](./media/web-sites-php-mysql-use-webmatrix/select_properties.png)
 
@@ -110,7 +110,7 @@
 接下來幾個步驟，您將會加入稍早下載的檔案並做一些修改，以開發「工作清單」應用程式。不過，可以加入您自己現有的檔案或建立新的檔案。
 
 1. 啟動 [Microsoft WebMatrix](http://www.microsoft.com/web/webmatrix/)。如果尚未安裝，請立即安裝。
-2. 如果這是您第一次使用 WebMatrix 3，則會提示您登入 Azure。否則，您可以按一下 [登入]**** 按鈕，然後選擇 [新增帳戶]****。選擇使用您的 Microsoft 帳戶來 [登入]****。
+2. 如果這是您第一次使用 WebMatrix 3，則會提示您登入 Azure。否則，您可以按一下 [登入] 按鈕，然後選擇 [新增帳戶]。選擇使用您的 Microsoft 帳戶來 [登入]。
 
 	![Add Account](./media/web-sites-php-mysql-use-webmatrix/webmatrix-add-account.png)
 
@@ -118,15 +118,15 @@
 
 	![Sign into Azure](./media/web-sites-php-mysql-use-webmatrix/webmatrix-sign-in.png)
 
-1. 在開始畫面上，按一下 [新增]**** 按鈕，然後選擇 [範本庫]****，從範本庫建立新的網站：
+1. 在開始畫面上，按一下 [新增] 按鈕，然後選擇 [範本庫]，從範本庫建立新的網站：
 
 	![New site from Template Gallery](./media/web-sites-php-mysql-use-webmatrix/webmatrix-site-from-template.png)
 
-4. 從可用的範本中，選擇 [PHP]****。
+4. 從可用的範本中，選擇 [PHP]。
 
 	![Site from template][site-from-template]
 
-5. 選取 [空白網站]**** 範本。提供網站的名稱，然後按 [下一個]****。
+5. 選取 [空白網站] 範本。提供網站的名稱，然後按 [下一個]。
 
 	![Provide name for site][site-from-template-2]
 
@@ -150,11 +150,11 @@
 
 	儲存 `taskmodel.php` 檔案。
 
-8. 對於要執行的應用程式，需要建立 `items` 資料表。以滑鼠右鍵按一下 `createtable.php` 檔案，然後選取 [在瀏覽器中啟動]****。這樣會在瀏覽器中啟動 `createtable.php`，並執行在 `tasklist` 資料庫中建立 `items` 資料表的程式碼。
+8. 對於要執行的應用程式，需要建立 `items` 資料表。以滑鼠右鍵按一下 `createtable.php` 檔案，然後選取 [在瀏覽器中啟動]。這樣會在瀏覽器中啟動 `createtable.php`，並執行在 `tasklist` 資料庫中建立 `items` 資料表的程式碼。
 
 	![WebMatrix - Launch createtable.php in browser][edit_run]
 
-9. 現在，您可以在本機測試應用程式。以滑鼠右鍵按一下 `index.php` 檔案，然後選取 [在瀏覽器中啟動]****。請開始測試應用程式，包括加入項目、將項目標示為完成，然後刪除項目。
+9. 現在，您可以在本機測試應用程式。以滑鼠右鍵按一下 `index.php` 檔案，然後選取 [在瀏覽器中啟動]。請開始測試應用程式，包括加入項目、將項目標示為完成，然後刪除項目。
 
 
 ## 發行您的應用程式
@@ -171,11 +171,11 @@
 	
 	儲存 `taskmodel.php` 檔案。
 
-2. 按一下 WebMatrix 中的 [發行]****。
+2. 按一下 WebMatrix 中的 [發行]。
 
 	![WebMatrix - Publish][edit_publish]
 
-3. 按一下[從 Windows Azure 選擇現有網站]****。
+3. 按一下[從 Windows Azure 選擇現有網站]。
 
 	![](./media/web-sites-php-mysql-use-webmatrix/webmatrix-publish-existing-site.png)
 
@@ -183,7 +183,7 @@
 
 	![](./media/web-sites-php-mysql-use-webmatrix/webmatrix-publish-existing-site-choose.png)
 
-3. 持續按 [繼續]**** 直到 WebMatrix 將網站發行至 Azure App Service Web Apps 為止。
+3. 持續按 [繼續] 直到 WebMatrix 將網站發行至 Azure App Service Web Apps 為止。
 
 3. 瀏覽至 http://[your 網站名稱].azurewebsites.net/createtable.php 以建立 `items` 資料表。
 
@@ -193,7 +193,7 @@
 
 您可以編輯稍早下載的網站本機複本，輕鬆地修改應用程式，然後重新發行，或者，您也可以在「遠端」模式下直接編輯。在此，您將在 `index.php` 檔案中簡單地變更標題，並直接儲存至即時網站。
 
-1. 在 WebMatrix 中按一下 [遠端] 索引標籤，然後選取 [開啟遠端檢視]****。這樣會開啟遠端網站來直接編輯。![WebMatrix - Open Remote View][OpenRemoteView]
+1. 在 WebMatrix 中按一下 [遠端] 索引標籤，然後選取 [開啟遠端檢視]。這樣會開啟遠端網站來直接編輯。![WebMatrix - Open Remote View][OpenRemoteView]
  
 2. 按兩下以開啟 `index.php` 檔案。![WebMatrix - Open index file][Remote_editIndex]
 
@@ -261,5 +261,6 @@
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

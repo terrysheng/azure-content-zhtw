@@ -1,38 +1,40 @@
 <table cellspacing="0" border="1">
 <tr>
-   <th align="left" valign="middle">Resource</th>
-   <th align="left" valign="middle">Default Limit</th>
-   <th align="left" valign="middle">Maximum Limit</th>
+   <th align="left" valign="middle">資源</th>
+   <th align="left" valign="middle">預設限制</th>
+   <th align="left" valign="middle">上限</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Virtual networks</a><sup>1</sup> per subscription</p></td>
+   <td valign="middle"><p>每一訂用帳戶的<a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">虛擬網路</a><sup>1</sup></p></td>
    <td valign="middle"><p>10</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Total machines<sup>2</sup> per virtual network</p></td>
+   <td valign="middle"><p>每一虛擬網路的機器總數<sup>2</sup></p></td>
    <td valign="middle"><p>2048</p></td>
    <td valign="middle"><p>2048</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Concurrent TCP connections for a virtual machine or role instance</p></td>
+   <td valign="middle"><p>虛擬機器或角色執行個體的並行 TCP 連線</p></td>
    <td valign="middle"><p>500K</p></td>
    <td valign="middle"><p>500K</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Access Control Lists (ACLs) per endpoint<sup>3</sup></p></td>
+   <td valign="middle"><p>每一端點的存取控制清單 (ACL)<sup>3</sup></p></td>
    <td valign="middle"><p>50</p></td>
    <td valign="middle"><p>50</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Local network sites per virtual network</p></td>
+   <td valign="middle"><p>每一虛擬網路的區域網路網站</p></td>
    <td valign="middle"><p>10</p></td>
    <td valign="middle"><p>10</p></td>
 </tr>
 </table>
 
-<sup>1</sup>Each virtual network supports a single [virtual network gateway](http://msdn.microsoft.com/library/azure/jj156210.aspx).
+<sup>1</sup>每個虛擬網路支援一個單一[虛擬網路閘道](http://msdn.microsoft.com/library/azure/jj156210.aspx)。
 
-<sup>2</sup>The total number of machines includes Virtual Machines and Web/Worker role instances.
+<sup>2</sup>電腦總數包括虛擬機器和 Web/背景工作角色執行個體。
 
-<sup>3</sup>ACL is supported on Input Endpoints for Virtual Machines. For web/worker roles, it is supported on Input and Instance Input endpoints.
+<sup>3</sup>虛擬機器的輸入端點上支援 ACL。輸入和執行個體輸入端點上支援 Web/背景工作角色。
+
+<!---HONumber=62-->

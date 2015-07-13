@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="使用 Data Factory SDK 來建立、監視及管理 Azure Data Factory" 
-	description="了解如何以程式設計方式建立、 監視和管理 Azure 資料處理站所使用的資料處理站 SDK。" 
+	description="了解如何使用 Data Factory .NET SDK，以程式設計方式建立、監視和管理 Azure Data Factory。" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -18,36 +18,36 @@
 
 # 使用 Data Factory .NET SDK 來建立、監視及管理 Azure Data Factory
 ## 概觀
-您可以使用 Data Factory .NET SDK，以程式設計方式建立、監視及管理 Azure Data Factory本文包含指導您建立範例 .NET 主控台應用程式的逐步解說，此應用程式將會建立並監視 Data Factory。請參閱 [資料 Factory 類別庫參考][adf-class-library-reference] 資料 Factory.NET SDK 的詳細資料。
+您可以使用 Data Factory .NET SDK，以程式設計方式建立、監視及管理 Azure Data Factory本文包含指導您建立範例 .NET 主控台應用程式的逐步解說，此應用程式將會建立並監視 Data Factory。請參閱 [Data Factory 類別庫參考][adf-class-library-reference]，以取得有關 Data Factory .NET SDK 的詳細資料。
 
 
 
 ## 必要條件
 
 - Visual Studio 2012 或 2013
-- 下載並安裝 [Azure.NET SDK][azure-developer-center]
+- 下載並安裝 [Azure .NET SDK][azure-developer-center]。
 - 下載並安裝適用於 Azure Data Factory 的 NuGet 封裝逐步解說中包含相關指示。
 
 ## 逐步介紹
 1. 使用 Visual Studio 2012 或 2013 來建立 C# .NET 主控台應用程式。
 	<ol type="a">
 	<li>啟動 <b>Visual Studio 2012</b> 或 <b>Visual Studio 2013</b>。</li>
-	<li>按一下 <b>檔案</b>, ，指向 <b>新增</b>, ，然後按一下 <b>專案</b>。</li> 
-	<li>展開 <b>範本</b>, ，然後選取 <b>Visual C#</b>。在此逐步解說中，您使用的是 C#，但您可以使用任何 .NET 語言。</li> 
-	<li>選取 <b>主控台應用程式</b> 從右邊的專案類型清單。</li>
-	<li>輸入 <b>DataFactoryAPITestApp</b> 的 <b>名稱</b>。</li> 
-	<li>選取 <b>C:\ADFGetStarted</b> 的 <b>位置</b>。</li>
+	<li>按一下 [<b>檔案</b>]，指向 [<b>新增</b>]，然後按一下 [<b>專案</b>]。</li> 
+	<li>展開 [範本]<b></b>，然後選取 [Visual C#]<b></b>。在此逐步解說中，您使用的是 C#，但您可以使用任何 .NET 語言。</li> 
+	<li>從右邊的專案類型清單中選取 [主控台應用程式]<b></b>。</li>
+	<li>在 [名稱]<b></b> 輸入 <b>DataFactoryAPITestApp</b>。</li> 
+	<li>在 [<b>位置</b>] 中選取 <b>C:\ADFGetStarted</b>。</li>
 	<li>按一下 [確定]<b></b> 以建立專案。</li>
 </ol>
-2. 按一下 <b>工具</b>, ，指向 <b>NuGet 封裝管理員</b>, ，然後按一下 <b>Package Manager Console</b>。
-3.	在 <b>Package Manager Console</b>, ，執行下列命令一一。</b>。 
+2. 按一下 [<b>工具</b>]，指向 [<b>NuGet 封裝管理員</b>]，然後按一下 [<b>封裝管理員主控台</b>]。
+3.	在 [Package Manager Console]<b></b> 中，逐一執行下列命令。</b>。 
 
 		Install-Package Microsoft.Azure.Management.DataFactories –Pre
 		Install-Package Microsoft.DataFactories.Runtime –Pre
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-6. 加入下列 **appSetttings** 區段 **App.config** 檔案。這些由 helper 方法： **Microsoft.identitymodel.waad.preview.graph.graphinterface**。 
+6. 將下列 **appSetttings** 區段加入 **App.config** 檔案。Helper 方法使用的是：**Microsoft.identitymodel.waad.preview.graph.graphinterface**。 
 
-	以您的 Azure 訂用帳戶與租用戶識別碼取代 **SubscriptionId** 和 **ActiveDirectoryTenantId** 的值。您可以取得這些值執行 **Get AzureAccount** 從 Azure PowerShell (您可能需要使用 Add-azureaccount 的第一次登入)。
+	以您的 Azure 訂用帳戶與租用戶識別碼取代 **SubscriptionId** 和 **ActiveDirectoryTenantId** 的值。從 Azure PowerShell 執行 **Get-AzureAccount** 即可取得這些值 (您可能需要先使用 Add-AzureAccount 登入)。
  
 		<appSettings>
 		    <!--CSM Prod related values-->
@@ -60,7 +60,7 @@
 		    <add key="SubscriptionId" value="49fb6e5f-3098-4fb2-ba2f-6d6eed843a65" />
     		<add key="ActiveDirectoryTenantId" value="37330244-7828-4a28-99b7-c8c3a437c7ac" />
 		</appSettings>
-6. 加入下列 **使用** 原始程式檔 (Program.cs) 專案中的陳述式。
+6. 將下列 **using** 陳述式加入專案的原始程式檔 (Program.cs) 中。
 
 		using System.Threading;
 		using System.Configuration;
@@ -70,7 +70,7 @@
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
 		using Microsoft.Azure; 
-6. 加入下列程式碼所建立的執行個體 **DataPipelineManagementClient** 類別 **Main** 方法。您將使用此物件來建立 Data Factory、連結的服務、輸入和輸出資料表，以及管線。您也將使用此物件來監視執行階段的資料表配量。    
+6. 將下列會建立 **DataPipelineManagementClient** 類別執行個體的程式碼加入 **Main** 方法中。您將使用此物件來建立 Data Factory、連結的服務、輸入和輸出資料表，以及管線。您也將使用此物件來監視執行階段的資料表配量。    
 
         // create data pipeline management client
         string resourceGroupName = "ADF";
@@ -84,7 +84,7 @@
         Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
         DataPipelineManagementClient client = new DataPipelineManagementClient(aadTokenCredentials, resourceManagerUri);
-7. 加入下列程式碼會建立 **資料 factory** 至 **Main** 方法。
+7. 將下列會建立 **Data Factory** 的程式碼加入 **Main** 方法中。
 
         // create a data factory
         Console.WriteLine("Creating a data factory");
@@ -99,7 +99,7 @@
                 }
             }
         );
-8. 加入下列程式碼會建立 **連結服務** 至 **Main** 方法。
+8. 將下列會建立**連結服務**的程式碼加入 **Main** 方法中。
 	> [AZURE.NOTE]**帳戶名稱****帳戶金鑰****ConnectionString** 
 
 		// create a linked service
@@ -117,11 +117,11 @@
                 }
             }
         );
-9. 加入下列程式碼會建立 **輸入和輸出資料表** 至 **Main** 方法。 
+9. 將下列會建立**輸入和輸出資料表**的程式碼加入 **Main** 方法中。 
 
-	請注意， **FolderPath** 輸入的 blob 是設定為 **adftutorial /** 其中 **adftutorial** 是在 blob 儲存體容器的名稱。如果此容器不存在於 Azure blob 儲存體中，建立容器具有此名稱： **adftutorial** 將文字檔案上傳至容器。
+	請注意，輸入 Blob 的 **FolderPath** 設定為 **adftutorial/**，其中 **adftutorial** 是 Blob 儲存體中的容器名稱。如果 Azure Blob 儲存體中沒有此容器，請以下列名稱建立容器：**adftutorial**，並將文字檔上傳至容器。
 	
-	請注意，輸出 blob 的 FolderPath 設為： **adftutorial/apifactoryoutput / {配量}** 其中 **配量** 動態計算的值依據 **SliceStart** (開始日期時間的每個配量)。
+	請注意，輸出 Blob 的 FolderPath 設為：**adftutorial/apifactoryoutput/{Slice}**，其中 **Slice** 是根據 **SliceStart** (每個配量的開始日期時間) 的值自動計算而得。
 
  
         // create input and output tables
@@ -195,7 +195,7 @@
                     }
                 }
             });
-10. 加入下列程式碼， **會建立並啟動管線** 至 **Main** 方法。此管線有 **CopyActivity** ，它會採用 **BlobSource** 做為來源和 **BlobSink** 做為接收器。 
+10. 將下列會**建立並啟用管線**的程式碼加入 **Main** 方法中。此管線有一個 **CopyActivity**，它以 **BlobSource** 為來源，**BlobSink** 為接收器。 
 
         // create a pipeline
         Console.WriteLine("Creating a pipeline");
@@ -267,7 +267,7 @@
                 }
             });
 
-11. 新增下列協助程式方法所使用 **Main** 方法 **程式** 類別。這個方法會出現，可讓您提供的對話方塊 **使用者名稱** 和 **密碼** 您用來登入 Azure 入口網站。
+11. 將 **Main** 方法所使用的下列 Helper 方法加入 **Program** 類別中。此方法會顯示一個對話方塊，讓您提供登入 Azure 入口網站的**使用者名稱**和**密碼**。
  
 		public static string GetAuthorizationHeader()
         {
@@ -303,7 +303,7 @@
             throw new InvalidOperationException("Failed to acquire token");
         }  
  
-13. 加入下列程式碼以 **Main** 方法來取得輸出資料表的資料配量的狀態。在此範例中只預期有配量。
+13. 將下列程式碼加入 **Main** 方法中，以取得輸出資料表的資料配量狀態。在此範例中只預期有配量。
  
         // Pulling status within a timeout threshold
         DateTime start = DateTime.Now;
@@ -334,7 +334,7 @@
             }
         }
 
-14. 加入下列程式碼，以取得執行到的資料配量配量的詳細資料 **Main** 方法。
+14. 將下列會取得資料配量之執行詳細資料的程式碼加入 **Main** 方法中。
 
         Console.WriteLine("Getting run details of a data slice");
 
@@ -356,25 +356,25 @@
         Console.ReadKey();
     }
 
-15. 建置主控台應用程式。按一下 **建置** 上功能表，然後按一下 **建置方案**。
+15. 建置主控台應用程式。按一下功能表上的 [建置]，再按一下 [建置方案]。
 16. 確認您 Azure Blob 儲存體之 adftutorial 容器中至少有一個檔案。如果沒有，請在「記事本」中以下列內容建立 Emp.txt 檔案，然後將它上傳至 adftutorial 容器。
 
         John, Doe
 		Jane, Doe
 	 
-17. 執行範例即可 **偵錯** -> **開始偵錯** 功能表上。
-18. 使用 Azure 預覽入口網站來確認資料處理站： **APITutorialFactory** 建立下列成品： 
-	- 連結服務： **LinkedService_AzureStorage** 
-	- 資料表： **TableBlobSource** 和 **TableBlobDestination**。
-	- 管線： **PipelineBlobSample** 
-18. 確認已在建立輸出檔 **apifactoryoutput** 資料夾中的 **adftutorial** 容器。
+17. 按一下功能表上的 [偵錯] -> [開始偵錯]，執行範例。
+18. 使用 Azure Preview 入口網站確認 Data Factory：**APITutorialFactory** 是使用下列成品所建立： 
+	- 連結服務：**LinkedService_AzureStorage** 
+	- 資料表：**TableBlobSource** 和 **TableBlobDestination**。
+	- 管線：**PipelineBlobSample** 
+18. 確認輸出檔案已建立在 **adftutorial** 容器的 **apifactoryoutput** 資料夾中。
 
 
 ## 另請參閱
 
 文章 | 說明
 ------ | ---------------
-[Azure 資料工廠開發人員參考資料][developer-reference] | 開發人員參考資料具有完整的參考內容.NET 類別庫、 cmdlet、 JSON 指令碼、 函式等等... 
+[Azure Data Factory 開發人員參考][developer-reference] | 開發人員參考包含 .NET 類別庫、Cmdlet、JSON 指令碼、函式等完整參考內容。 
 
 
 [data-factory-introduction]: data-factory-introduction.md
@@ -386,5 +386,6 @@
  
 [adf-class-library-reference]: http://go.microsoft.com/fwlink/?LinkID=521877
 [azure-developer-center]: http://azure.microsoft.com/downloads/
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

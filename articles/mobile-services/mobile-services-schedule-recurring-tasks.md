@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # 在行動服務中為週期性工作排程 
@@ -28,11 +28,7 @@
 + 要求或儲存外部資料，例如推文、RSS 項目和位置資訊。
 + 處理或調整儲存影像的大小。
 
-本教學課程將逐步引導您完成下列步驟，以瞭解如何使用工作排程器，來建立向 Twitter 要求推文資料並在新的 Updates 資料表中儲存推文的排定工作：
-
-+ [註冊以取得 Twitter 存取權與儲存認證]
-+ [建立新的 Updates 資料表]
-+ [建立新的排定工作]
+本教學課程將為您示範如何使用工作排程器，來建立向 Twitter 要求推文資料並在新的 Updates 資料表中儲存推文的排定工作。
 
 ##<a name="get-oauth-credentials"></a>註冊以取得 Twitter v1.1 API 的存取權與儲存認證
 
@@ -42,23 +38,23 @@
 
 接下來，您必須建立要儲存推文的新資料表。
 
-2. 在管理入口網站中，按一下行動服務的 [資料]**** 索引標籤，然後按一下 [建立]****。
+2. 在管理入口網站中，按一下行動服務的 [資料] 索引標籤，然後按一下 [建立]。
 
-3. 在 [資料表名稱]**** 中輸入 _Updates_，然後按一下核取按鈕。
+3. 在 [資料表名稱] 中輸入 _Updates_，然後按一下核取按鈕。
 
 ##<a name="add-job"></a>建立新的排定工作  
 
 現在，您可以建立可存取 Twitter 並將推文資料儲存於全新 Updates 資料表中的排定工作。
 
-2. 按一下 [排程器]**** 索引標籤，然後按一下 [建立]****。 
+2. 按一下 [排程器] 索引標籤，然後按一下 [建立]。 
 
     >[AZURE.NOTE]當您在<em>免費</em>層中執行行動服務時，您一次只能執行一個排定工作。在付費層中，您一次可以執行多達十個排定工作。
 
-3. 在排程器對話方塊的 [工作名稱]__ 中輸入 **getUpdates**、設定排程間隔和單位，然後按一下核取按鈕。
+3. 在排程器對話方塊的 [工作名稱] 中輸入 **getUpdates**、設定排程間隔和單位，然後按一下核取按鈕。
 
    	這會建立名為 **getUpdates** 的新工作。
 
-4. 按一下您剛才建立的新工作，按一下 [指令碼]**** 索引標籤，將預留位置函數 **getUpdates** 取代為下列程式碼：
+4. 按一下您剛才建立的新工作，按一下 [指令碼] 索引標籤，將預留位置函數 **getUpdates** 取代為下列程式碼：
 
 		var updatesTable = tables.getTable('Updates');
 		var request = require('request');
@@ -136,43 +132,31 @@
 
    	此指令碼會使用儲存的認證來呼叫 Twitter 查詢 API，以要求包含雜湊標記 `#mobileservices` 的最新推文。在重複的推文和回覆被儲存於資料表之前，系統會先將它們從結果中移除。
 
-    >[AZURE.NOTE]本範例會假設每次排定執行期間，資料表只會插入幾個資料列。倘若一個迴圈會在免費層上執行插入許多資料列，則您可能會沒有足夠的連線。在此情況下，您應該以批次方式執行插入。如需詳細資訊，請參閱<a href="/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">作法：執行大量插入</a>。
+    >[AZURE.NOTE]本範例會假設每次排定執行期間，資料表只會插入幾個資料列。倘若一個迴圈會在免費層上執行插入許多資料列，則您可能會沒有足夠的連線。在此情況下，您應該以批次方式執行插入。如需詳細資訊，請參閱[做法：執行大量插入](mobile-services-how-to-use-server-scripts.md#bulk-inserts)。
 
-6. 按一下 [執行一次]**** 以測試指令碼。
+6. 按一下 [執行一次] 以測試指令碼。
 
    	當工作在排程器中維持停用狀態時，這麼做會儲存並執行工作。
 
-7. 按 [上一步] 按鈕，再依序按一下 [資料]****、[Updates]**** 資料表、[瀏覽]****，並驗證 Twitter 資料是否已插入資料表中。
+7. 按 [上一步] 按鈕，再依序按一下 [資料]、[Updates] 資料表、[瀏覽]，並驗證 Twitter 資料是否已插入資料表中。
 
-8. 按 [上一步] 按鈕，再按一下 [排程器]****、選取 [getUpdates]****，然後按一下 [啟用]****。
+8. 按 [上一步] 按鈕，再按一下 [排程器]、選取 [getUpdates]，然後按一下 [啟用]。
 
    	這會讓工作在指定的排程上執行，在此案例中為每個小時。
 
 恭喜！您已順利地在行動服務上建立新的排定工作。系統會依排程執行此工作，直到您停用或修改此工作為止。
 
-## <a name="nextsteps"> </a>後續步驟
+## <a name="nextsteps"> </a>另請參閱
 
 * [行動服務伺服器指令碼參考] <br/>深入了解如何註冊和使用伺服器指令碼。
 
 <!-- Anchors. -->
-[註冊以取得 Twitter 存取權與儲存認證]: #get-oauth-credentials
-[建立新的 Updates 資料表]: #create-table
-[建立新的排定工作]: #add-job
+[Register for Twitter access and store credentials]: #get-oauth-credentials
+[Create the new Updates table]: #create-table
+[Create a new scheduled job]: #add-job
 [Next steps]: #next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-my-apps.png
-[1]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-app-secrets.png
-[2]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
-[3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
-[4]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
-[5]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png
-[6]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script-new.png
-[7]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script.png
-[8]: ./media/mobile-services-schedule-recurring-tasks/mobile-browse-updates-table.png
-[9]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-enabled.png
-[10]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-app-settings.png
-[11]: ./media/mobile-services-schedule-recurring-tasks/mobile-identity-tab-twitter-only.png
 
 <!-- URLs. -->
 [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293
@@ -181,5 +165,6 @@
 [Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

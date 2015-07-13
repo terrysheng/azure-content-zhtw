@@ -3,9 +3,9 @@
 
 若要產生可將映像上傳至 Blob 儲存體的 SAS，您必須首先新增可在行動服務專案中安裝儲存體用戶端程式庫的 NuGet 封裝。
 
-1. 在 Visual Studio 的 [方案總管]**** 中，以滑鼠右鍵按一下行動服務專案，然後選取 [管理 NuGet 封裝]****。
+1. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下行動服務專案，然後選取 [管理 NuGet 封裝]。
 
-2. 在左側窗格中，依序選取 [線上]**** 類別及 [Stabile Only]****，搜尋 **WindowsAzure.Storage**，並按一下 [Azure 儲存體]**** 封裝上的 [安裝]****，然後接受授權協定。
+2. 在左側窗格中，依序選取 [線上] 類別及 [Stabile Only]，搜尋 **WindowsAzure.Storage**，並按一下 [Azure 儲存體] 封裝上的 [安裝]，然後接受授權協定。
 
   	![](./media/mobile-services-configure-blob-storage/mobile-add-storage-nuget-package-dotnet.png)
 
@@ -34,11 +34,11 @@ TodoItem 類別可定義資料物件，您必須將相同屬性新增至此類�
 
 0. 如果您尚未建立儲存體帳戶，請參閱[如何建立儲存體帳戶]。
 
-1. 在管理入口網站中，按一下 [儲存體]****、儲存體帳戶和 [管理金鑰]****。
+1. 在管理入口網站中，按一下 [儲存體]、儲存體帳戶和 [管理金鑰]。
 
-2. 請記下 [儲存體帳戶名稱]**** 和 [存取金鑰]****。
+2. 請記下 [儲存體帳戶名稱] 和 [存取金鑰]。
  
-3. 在行動服務中，按一下 [設定]**** 索引標籤，向下捲動至 [應用程式設定]****，並輸入您從儲存體帳戶取得之下列各項的 [名稱]**** 和 [值]**** 組，然後按一下 [儲存]****。
+3. 在行動服務中，按一下 [設定] 索引標籤，向下捲動至 [應用程式設定]，並輸入您從儲存體帳戶取得之下列各項的 [名稱] 和 [值] 組，然後按一下 [儲存]。
 
 	+ `STORAGE_ACCOUNT_NAME`
 	+ `STORAGE_ACCOUNT_ACCESS_KEY`
@@ -127,20 +127,9 @@ TodoItem 類別可定義資料物件，您必須將相同屬性新增至此類�
 <!-- Anchors. -->
 
 <!-- Images. -->
-[0]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
-[1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png
-
-[3]: ./media/mobile-services-configure-blob-storage/mobile-portal-data-tables.png
-[4]: ./media/mobile-services-configure-blob-storage/mobile-insert-script-blob.png
-
-
-
-
-
-[10]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
 
 <!-- URLs. -->
-[如何建立儲存體帳戶]: /manage/services/storage/how-to-create-a-storage-account
+[如何建立儲存體帳戶]: ../articles/storage/storage-create-storage-account.md
 [應用程式設定]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=54-->
+<!---HONumber=62-->

@@ -113,7 +113,7 @@ Web 測試可分為兩種：
 或者，您可以下載結果檔案，然後在 Visual Studio 中檢查。
 
 
-看起來正常，但回報為失敗？ 請檢查所有映像、指令碼、樣式表和頁面載入的任何其他檔案。如果有任何檔案失敗，則即使主要 html 頁面載入正常，測試還是會回報為失敗。
+看起來正常，但回報為失敗？ 請檢查所有映像、指令碼、樣式表和頁面載入的任何其他檔案。If any of them fails, the test will be reported as failed, even if the main html page loads OK.
 
 
 

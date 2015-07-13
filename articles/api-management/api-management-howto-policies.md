@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="06/24/2015" 
 	ms.author="sdanie"/>
 
 
@@ -25,9 +25,7 @@
 
 原則是在位於 API 取用者與受管理 API 之間的 Proxy 內套用。Proxy 會接收所有要求，然後通常原封不動地轉送至基礎 API。不過，原則可以套用至輸入要求和輸出要求。
 
-如果原則不另行指定，則可以在任何 API 管理原則中，使用原則運算式做為屬性值或文字值。某些原則是以原則運算式為基礎，例如[控制流程][]和[設定變數][]原則。如需詳細資訊，請參閱[進階原則][]和[原則運算式][]，並觀看以下影片。
-
-> [AZURE.VIDEO policy-expressions-in-azure-api-management]
+如果原則不另行指定，則可以在任何 API 管理原則中，使用原則運算式做為屬性值或文字值。某些原則是以原則運算式為基礎，例如[控制流程][]和[設定變數][]原則。如需詳細資訊，請參閱[進階原則][]和[原則運算式][]。
 
 ## <a name="scopes"> </a>如何設定原則
 原則可以整體設定，或在[產品][]、[API][] 或[操作][]的範圍上設定。若要設定原則，請瀏覽至發行者入口網站的原則編輯器。
@@ -105,6 +103,12 @@
 在上述的原則定義範例中，cross-domain 陳述式會在任何更高的原則之前執行，而這些原則後面又接著 find-and-replace 原則。
 
 注意：全域原則沒有父系原則，在全域原則中使用 `<base>` 項目沒有任何作用。
+
+## 後續步驟
+
+請查看有關原則運算式的下列影片。
+
+> [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
 [原則參考文件]: api-management-policy-reference.md
 [產品]: api-management-howto-add-products.md

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="06/16/2015"
 	ms.author="adegeo"/>
 
 
@@ -110,28 +110,28 @@
 您的部署套件已更新為使用該憑證，而且您已新增 HTTPS 端點。現在您可以利用管理入口網站將套件和憑證上傳至 Azure。
 
 1. 登入 [Azure 管理入口網站][]。 
-2. 按一下 [新增]****、按一下 [雲端服務]****，然後按一下 [Custom Create]****。
-3. 在 [建立雲端服務]**** 對話方塊中，輸入 URL、地區/同質群組及訂閱的值。確定已核取 [Deploy a cloud service package now]****，然後按 [下一步]**** 按鈕。
-3. 在 [Publish your cloud service]**** 對話方塊中，輸入雲端服務的必要資訊、為環境選取 [生產]****，並確定核取 [Add certificates now]****。(如果您的任一個角色包含單一執行個體，請確定核取 [Deploy even if one or more roles contain a single instance]****。) 
+2. 按一下 [新增]、按一下 [雲端服務]，然後按一下 [Custom Create]。
+3. 在 [建立雲端服務] 對話方塊中，輸入 URL、地區/同質群組及訂閱的值。確定已核取 [Deploy a cloud service package now]，然後按 [下一步] 按鈕。
+3. 在 [Publish your cloud service] 對話方塊中，輸入雲端服務的必要資訊、為環境選取 [生產]，並確定核取 [Add certificates now]。(如果您的任一個角色包含單一執行個體，請確定核取 [Deploy even if one or more roles contain a single instance]。) 
 
     ![發佈您的雲端服務][0]
 
-4.  按 [下一步]**** 按鈕。
-5.  在 [加入憑證]**** 對話方塊中，輸入 SSL 憑證檔 .pfx 的位置、憑證的密碼，然後按一下 [attach certificate]****。  
+4.  按 [下一步] 按鈕。
+5.  在 [加入憑證] 對話方塊中，輸入 SSL 憑證檔 .pfx 的位置、憑證的密碼，然後按一下 [attach certificate]。  
 
     ![新增憑證][1]
 
-6.  確定您的憑證列在 [Attached Certificates]**** 區段內。
+6.  確定您的憑證列在 [Attached Certificates] 區段內。
 
     ![附加的憑證][4]
 
-7.  按一下 [完成]**** 按鈕，以建立雲端服務。當部署達到了 [就緒]**** 狀態時，您可以繼續進行接下來的步驟。
+7.  按一下 [完成] 按鈕，以建立雲端服務。當部署達到了 [就緒] 狀態時，您可以繼續進行接下來的步驟。
 
 ## 步驟 4：使用 HTTPS 來連線至角色執行個體
 
 您的部署已在 Azure 啟動並執行，現在您可以使用 HTTPS 來與其連線。
 
-1.  在管理入口網站中，選取您的部署，然後按一下 [網站 URL]**** 下的連結。
+1.  在管理入口網站中，選取您的部署，然後按一下 [網站 URL] 下的連結。
 
     ![判定網站 URL][2]
 
@@ -141,7 +141,7 @@
 
     ![SSL 範例網站][3]
 
-若要對預備部署而不是對生產部署使用 SSL，首先您需要判定要在預備部署中使用的 URL。請將您的雲端服務部署至預備環境，但不包括憑證或任何憑證資訊。一旦部署好，您就可以判定 GUID 型 URL (這會列在管理入口網站的 [網站 URL]**** 欄位中)。建立一般名稱 (CN) 等於 GUID 型 URL (例如，**32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**) 的憑證、使用管理入口網站將該憑證新增至預備的雲端服務、將憑證資訊新增至 CSDEF 與 CSCFG 檔案、重新封裝套件，然後將預備部署更新為使用新的套件與 CSCFG 檔。
+若要對預備部署而不是對生產部署使用 SSL，首先您需要判定要在預備部署中使用的 URL。請將您的雲端服務部署至預備環境，但不包括憑證或任何憑證資訊。一旦部署好，您就可以判定 GUID 型 URL (這會列在管理入口網站的 [網站 URL] 欄位中)。建立一般名稱 (CN) 等於 GUID 型 URL (例如，**32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**) 的憑證、使用管理入口網站將該憑證新增至預備的雲端服務、將憑證資訊新增至 CSDEF 與 CSCFG 檔案、重新封裝套件，然後將預備部署更新為使用新的套件與 CSCFG 檔。
 
 ## 其他資源
 
@@ -149,14 +149,15 @@
 
 * [如何在 HTTPS 端點上設定 SSL 憑證][]
 
-[如何建立角色的憑證]: http://msdn.microsoft.com/library/azure/gg432987.aspx
-[如何使憑證與服務產生關聯]: http://msdn.microsoft.com/library/azure/gg465718.aspx
-[Azure 管理入口網站]: http://manage.windowsazure.com
-[0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
-[1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
-[2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
-[3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
-[4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
-[如何在 HTTPS 端點上設定 SSL 憑證]: http://msdn.microsoft.com/library/azure/ff795779.aspx
+  [如何建立角色的憑證]: http://msdn.microsoft.com/library/azure/gg432987.aspx
+  [如何使憑證與服務產生關聯]: http://msdn.microsoft.com/library/azure/gg465718.aspx
+  [Azure 管理入口網站]: http://manage.windowsazure.com
+  [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
+  [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
+  [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
+  [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
+  [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
+  [如何在 HTTPS 端點上設定 SSL 憑證]: http://msdn.microsoft.com/library/azure/ff795779.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

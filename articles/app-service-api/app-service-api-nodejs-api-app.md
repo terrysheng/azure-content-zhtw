@@ -4,8 +4,8 @@
 	services="app-service\api"
 	documentationCenter="nodejs"
 	authors="pkefal"
-	manager=""
-	editor=""/>
+  manager="" 
+  editor=""/>
 
 <tags
 	ms.service="app-service-api"
@@ -195,13 +195,13 @@
 
 ## 在 Azure 預覽入口網站中檢視 API 定義
 
-現已將 API 部署到您的 API 應用程式，您可在 Azure 預覽入口網站中查看 API 定義。一開始要先重新啟動*閘道器*，這可讓 Azure 認可 API 應用程式的 API 定義已經變更。閘道器是一個 Web 應用程式，可處理資源群組中 API 應用程式的 API 管理和授權。
+現已將 API 部署到您的 API 應用程式，您可在 Azure 預覽入口網站中查看 API 定義。一開始要先重新啟動*閘道*，這可讓 Azure 認可 API 應用程式的 API 定義已經變更。閘道是一個 Web 應用程式，可處理資源群組中 API 應用程式的 API 管理和授權。
 
-6. 在 Azure 預覽入口網站中，移至您稍早建立之 API 應用程式的 [**API 應用程式**] 刀鋒視窗，然後按一下 [**閘道器**] 連結。
+6. 在 Azure 預覽入口網站中，移至您稍早建立之 API 應用程式的 [**API 應用程式**] 刀鋒視窗，然後按一下 [**閘道**] 連結。
 
 	![](./media/app-service-api-nodejs-api-app/clickgateway.png)
 
-7. 在 [**閘道器**] 刀鋒視窗中，按一下 [**重新啟動**]。您現在可以關閉此刀鋒視窗。
+7. 在 [**閘道**] 刀鋒視窗中，按一下 [**重新啟動**]。您現在可以關閉此刀鋒視窗。
 
 	![](./media/app-service-api-nodejs-api-app/gatewayrestart.png)
 

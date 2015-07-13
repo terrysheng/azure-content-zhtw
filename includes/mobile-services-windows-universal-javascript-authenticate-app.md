@@ -1,6 +1,6 @@
-﻿
 
-1. 開啟專案檔案 default.js，然後在 **app.OnActivated** 方法多載中，以下列程式碼取代對 **refreshTodoItems** 方法的最後呼叫： 
+
+1. 開啟專案檔案 default.js，然後在 **app.OnActivated** 方法多載中，以下列程式碼取代對 **refreshTodoItems** 方法最後的呼叫： 
 
         // Define a member variable for storing the signed-in user.
         var userId = null;
@@ -40,9 +40,8 @@
 
       	<button id="buttonLogin" style="margin-left: 5px">Sign in</button>
 
-3. 按 F5 鍵執行應用程式，並以您選擇的身分識別提供者登入應用程式。 
+3. 按 F5 鍵執行應用程式，並以您選擇的身分識別提供者登入應用程式。
 
    	成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

@@ -69,15 +69,15 @@
 
 1. 登入 [Azure 預覽入口網站](https://portal.azure.com)。
 
-2. 按一下 [Marketplace]**** 圖示，或按一下儀表板左下方的 [新增]**** 圖示，選取 [Web + 行動]****，然後選取底部的 [Azure Marketplace]**** 以開啟 Azure Marketplace。
+2. 按一下 [Marketplace] 圖示，或按一下儀表板左下方的 [新增] 圖示，選取 [Web + 行動]，然後選取底部的 [Azure Marketplace] 以開啟 Azure Marketplace。
 	
-3. 在 Marketplace 中，選取 [Web Apps]****。
+3. 在 Marketplace 中，選取 [Web Apps]。
 
-4. 按一下 [Web 應用程式 + SQL]**** 圖示。
+4. 按一下 [Web 應用程式 + SQL] 圖示。
 
-5. 讀取 Web 應用程式 + SQL 應用程式的描述之後，選取 [建立]****。
+5. 讀取 Web 應用程式 + SQL 應用程式的描述之後，選取 [建立]。
 
-6. 按一下每個部分 (**資源群組**、[Web 應用程式]****、[資料庫]**** 以及 [訂閱]****)，然後輸入或選取必填欄位的值：
+6. 按一下每個部分 (**資源群組**、[Web 應用程式]、[資料庫] 以及 [訂閱])，然後輸入或選取必填欄位的值：
 	
 	- 輸入您選擇的 URL 名稱	
 	- 設定資料庫伺服器認證
@@ -85,9 +85,9 @@
 
 	![設定您的應用程式](./media/web-sites-php-sql-database-use-webmatrix/configure-db-settings.png)
 
-7. 定義 Web 應用程式完成之後，按一下 [建立]****。
+7. 定義 Web 應用程式完成之後，按一下 [建立]。
 
-	建立 Web 應用程式後，[通知]**** 按鈕便會閃爍綠色**成功**並開啟資源群組分頁，以顯示群組中的 Web 應用程式與 SQL 資料庫。
+	建立 Web 應用程式後，[通知] 按鈕便會閃爍綠色**成功**並開啟資源群組分頁，以顯示群組中的 Web 應用程式與 SQL 資料庫。
 
 4. 按一下資源群組分頁中的 Web 應用程式圖示，開啟 Web 應用程式分頁。
 
@@ -99,18 +99,18 @@
 
 1. 回到資源群組分頁，按一下 SQL 資料庫的圖示。
 
-2. 在 SQL 資料庫的分頁中，按一下 [屬性]****，然後按一下 [顯示資料庫連接字串]****。
+2. 在 SQL 資料庫的分頁中，按一下 [屬性]，然後按一下 [顯示資料庫連接字串]。
 
 	![檢視資料庫屬性](./media/web-sites-php-sql-database-use-webmatrix/view-database-properties.png)
 	
-3. 從所產生對話方塊的 [PHP]**** 區段中，請記下 `Server`、`SQL Database` 和 `User Name` 的值。稍後將 PHP Web 應用程式發行至 Azure 應用程式服務 時，您將使用這些值。
+3. 從所產生對話方塊的 [PHP] 區段中，請記下 `Server`、`SQL Database` 和 `User Name` 的值。稍後將 PHP Web 應用程式發行至 Azure 應用程式服務 時，您將使用這些值。
 
 ## 在 WebMatrix 中建立您的應用程式
 
 接下來幾個步驟，您將會加入稍早下載的檔案並做一些修改，以開發「工作清單」應用程式。不過，可以加入您自己現有的檔案或建立新的檔案。
 
 1. 啟動 [Microsoft WebMatrix](http://www.microsoft.com/web/webmatrix/)。如果尚未安裝，請立即安裝。
-2. 如果這是您第一次使用 WebMatrix 3，則會提示您登入 Azure。否則，您可以按一下 [登入]**** 按鈕，然後選擇 [新增帳戶]****。選擇使用您的 Microsoft 帳戶來 [登入]****。
+2. 如果這是您第一次使用 WebMatrix 3，則會提示您登入 Azure。否則，您可以按一下 [登入] 按鈕，然後選擇 [新增帳戶]。選擇使用您的 Microsoft 帳戶來 [登入]。
 
 	![Add Account](./media/web-sites-php-sql-database-use-webmatrix/webmatrix-add-account.png)
 
@@ -118,19 +118,19 @@
 
 	![Sign into Azure](./media/web-sites-php-sql-database-use-webmatrix/webmatrix-sign-in.png)
 
-1. 在開始畫面上，按一下 [新增]**** 按鈕，然後選擇 [範本庫]****，從範本庫建立新的網站：
+1. 在開始畫面上，按一下 [新增] 按鈕，然後選擇 [範本庫]，從範本庫建立新的網站：
 
 	![New site from Template Gallery](./media/web-sites-php-sql-database-use-webmatrix/webmatrix-site-from-template.png)
 
-4. 從可用的範本中，選擇 [PHP]****。
+4. 從可用的範本中，選擇 [PHP]。
 
 	![Site from template][site-from-template]
 
-5. 選取 [空白網站]**** 範本。提供網站的名稱，然後按 [下一個]****。
+5. 選取 [空白網站] 範本。提供網站的名稱，然後按 [下一個]。
 
 	![Provide name for site][site-from-template-2]
 
-3. 如果您已登入 Azure，現在可選擇為您的本機網站建立 Azure App Service Web Apps 執行個體。暫時選擇 [跳過]****。
+3. 如果您已登入 Azure，現在可選擇為您的本機網站建立 Azure App Service Web Apps 執行個體。暫時選擇 [跳過]。
 
 	![Create site on Azure](./media/web-sites-php-sql-database-use-webmatrix/webmatrix-site-from-template-azure.png)
 
@@ -150,11 +150,11 @@
 
 	儲存 `taskmodel.php` 檔案。
 
-3. 對於要執行的應用程式，需要建立 `items` 資料表。以滑鼠右鍵按一下 `createtable.php` 檔案，然後選取 [在瀏覽器中啟動]****。這樣會在瀏覽器中啟動 `createtable.php`，並執行在 `tasklist` 資料庫中建立 `items` 資料表的程式碼。
+3. 對於要執行的應用程式，需要建立 `items` 資料表。以滑鼠右鍵按一下 `createtable.php` 檔案，然後選取 [在瀏覽器中啟動]。這樣會在瀏覽器中啟動 `createtable.php`，並執行在 `tasklist` 資料庫中建立 `items` 資料表的程式碼。
 
 	![WebMatrix - Launch createtable.php in browser][edit_run]
 
-4. 現在，您可以在本機測試應用程式。以滑鼠右鍵按一下 `index.php` 檔案，然後選取 [在瀏覽器中啟動]****。請開始測試應用程式，包括加入項目、將項目標示為完成，然後刪除項目。
+4. 現在，您可以在本機測試應用程式。以滑鼠右鍵按一下 `index.php` 檔案，然後選取 [在瀏覽器中啟動]。請開始測試應用程式，包括加入項目、將項目標示為完成，然後刪除項目。
 
 <a id="Publish"></a>
 ## 發行您的應用程式
@@ -171,11 +171,11 @@
 	
 	儲存 `taskmodel.php` 檔案。
 
-2. 按一下 WebMatrix 中的 [發行]****。
+2. 按一下 WebMatrix 中的 [發行]。
 
 	![WebMatrix - Publish][edit_publish]
 
-3. 按一下 [從 Microsoft Azure 選擇現有網站]****。
+3. 按一下 [從 Microsoft Azure 選擇現有網站]。
 
 	![](./media/web-sites-php-sql-database-use-webmatrix/webmatrix-publish-existing-site.png)
 
@@ -183,7 +183,7 @@
 
 	![](./media/web-sites-php-sql-database-use-webmatrix/webmatrix-publish-existing-site-choose.png)
 
-3. 持續按 [繼續]**** 直到 WebMatrix 將網站發行至 Azure App Service Web Apps 為止。
+3. 持續按 [繼續] 直到 WebMatrix 將網站發行至 Azure App Service Web Apps 為止。
 
 3. 瀏覽至 http://[your 網站名稱].azurewebsites.net/createtable.php 以建立 `items` 資料表。
 
@@ -191,9 +191,9 @@
 	
 ##修改和重新發行應用程式
 
-您可以編輯網站本機複本，輕鬆地修改應用程式，然後重新發行，或者，您也可以在 [遠端]**** 模式下直接編輯。在此，您將在 `index.php` 檔案中簡單地變更標題，並直接儲存至即時的 App Service Web 應用程式。
+您可以編輯網站本機複本，輕鬆地修改應用程式，然後重新發行，或者，您也可以在 [遠端] 模式下直接編輯。在此，您將在 `index.php` 檔案中簡單地變更標題，並直接儲存至即時的 App Service Web 應用程式。
 
-1. 在 WebMatrix 中按一下 [遠端]**** 索引標籤，然後選取 [開啟遠端檢視]****。這將開啟您的遠端檔案 (裝載於 Web Apps 上) 以便直接編輯。![WebMatrix - Open Remote View][OpenRemoteView]
+1. 在 WebMatrix 中按一下 [遠端] 索引標籤，然後選取 [開啟遠端檢視]。這將開啟您的遠端檔案 (裝載於 Web Apps 上) 以便直接編輯。![WebMatrix - Open Remote View][OpenRemoteView]
  
 2. 按兩下以開啟 `index.php` 檔案。![WebMatrix - Open index file][Remote_editIndex]
 
@@ -246,5 +246,6 @@
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

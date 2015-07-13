@@ -1,10 +1,4 @@
-<properties 
-	pageTitle="C++ 應用程式的 Application Insights" 
-	description="使用 Application Insights 分析您 C++ 應用程式的使用情況和效能。" 
-	services="application-insights" 
-	documentationCenter="cpp" 
-	authors="crystk" 
-	manager="jakubo"/>
+<properties pageTitle="Application Insights for C++ apps" description="Analyze usage and performance of your C++ app with Application Insights." services="application-insights" documentationCenter="cpp" authors="crystk" manager="jakubo""/>
 
 <tags 
     ms.service="application-insights" 
@@ -49,14 +43,22 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 
 2. 安裝 C++ 應用程式適用的 Application Insights SDK。
 
-    ![選取 [**線上**]、[**包括發行前版本**]，然後搜尋 "Application Insights"](./media/app-insights-windows-cpp/04-ai-nuget.png)
+    ![選取 [**包括發行前版本**]，然後搜尋「Application Insights」](./media/app-insights-windows-cpp/04-nuget.png)
 
 3. 在專案的版本與偵錯設定中：
   - 將 $(SolutionDir)packages\ApplicationInsights-CPP.1.0.0-Beta\src\inc 加入至 [專案屬性] -> [VC + + 目錄] -> [包含目錄]
-  - 將$(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<PLATFORM TYPE>\release\AppInsights_Win10-UAP 加入至 [專案屬性] -> [VC + + 目錄] -> [程式庫目錄]
+  - 將$(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<PLATFORM TYPE>\release\AppInsights_Win10-UAP 加入至 [專案屬性] -> [VC + + 目錄] -> [資源庫目錄]
 
 4. 從 $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<PLATFORM TYPE>\release\ApplicationInsights 中，以參考形式將 ApplicationInsights.winmd 加入至專案
 5. 從 $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<PLATFORM TYPE>\release\AppInsights_Win10-UAP 加入 AppInsights_Win10-UAP.dll。移至 [屬性]，並將內容設為 [是]。這會將 dll 複製到組建目錄。
+
+
+#### 將 SDK 更新為未來版本
+
+當新的 [SDK 發行時](app-insights-release-notes-windows-cpp.md)：
+
+* 在 NuGet 封裝管理員中，選取已安裝的 SDK，然後選擇 [動作：升級]。
+* 使用新的版本號碼重複安裝步驟。
 
 ## 使用 SDK
 

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="將行動應用程式連接到企業 SaaS | 行動開發人員中心" 
-	description="了解如何呼叫 SharePoint Online 之類的企業資源" 
-	documentationCenter="" 
-	authors="mattchenderson" 
-	manager="dwrede" 
-	editor="na" 
+<properties
+	pageTitle="將行動應用程式連接到企業 SaaS | 行動開發人員中心"
+	description="了解如何呼叫 SharePoint Online 之類的企業資源"
+	documentationCenter=""
+	authors="mattchenderson"
+	manager="dwrede"
+	editor="na"
 	services="app-service\mobile"/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="03/05/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="get-started-article" 
+	ms.date="06/19/2015"
 	ms.author="mahender"/>
 
 # 將您的行動應用程式連接到 SaaS API
@@ -31,7 +31,7 @@
 
 1. 在 **Azure 管理入口網站**的 [Active Directory][] 區段中，選取您的租用戶。導覽至您為應用程式服務建立的 Web 應用程式。
 
-2. 在 [設定]**** 索引標籤中，將頁面向下捲動至「其他應用程式的權限」區段。選取 [Office 365 SharePoint Online]****，然後授與 [編輯或刪除使用者的檔案]**** 委派權限。然後按一下 [儲存]****。
+2. 在 [設定] 索引標籤中，將頁面向下捲動至「其他應用程式的權限」區段。選取 [Office 365 SharePoint Online]，然後授與 [編輯或刪除使用者的檔案] 委派權限。然後按一下 [儲存]。
 
     ![][1]
 
@@ -47,7 +47,7 @@
 
 3. 在 [管理入口網站] 的 [行動應用程式程式碼] 區段中，導覽至 [設定] 索引標籤，然後向下捲動至 [應用程式設定]。在此處您可以提供金鑰值組，以便參考所需的認證。
 
-* 將 SP_Authority 設為 AAD 租用戶的授權端點。此項目應與您的用戶端應用程式所使用的授權值相同。其格式將是 `https://login.windows.net/contoso.onmicrosoft.com`
+* 將 SP_Authority 設為 AAD 租用戶的授權端點。此項目應與您的用戶端應用程式所使用的授權值相同。其格式會是 `https://login.windows.net/contoso.onmicrosoft.com`
 
 * 將 SP_ClientSecret 設為您先前取得的用戶端密碼值。
 
@@ -90,7 +90,7 @@
             AuthenticationResult ar = ac.AcquireToken(sharepointURL, new ClientCredential(clientId, clientSecret), new UserAssertion(userToken));
             accessToken = ar.AccessToken;
             string upn = ar.UserInfo.UserId;
-            mySiteApiPath = "/personal/" + upn.Replace('@','_').Replace('.','_') + "/_api/web"; 
+            mySiteApiPath = "/personal/" + upn.Replace('@','_').Replace('.','_') + "/_api/web";
             clientId = settings.AzureActiveDirectoryClientId;
             clientSecret = settings["SP_ClientSecret"];
             sharepointURL = settings["SP_SharePointURL"];
@@ -158,11 +158,11 @@
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
             TodoItem current = await InsertAsync(item);
-            
+
             SharePointUploadContext context = await SharePointUploadContext.createContext((ServiceUser)this.User, Services.Settings);
             byte[] document = CreateWordDocument(item);
             bool uploadResult = await context.UploadDocument(item.Id, document);
-            
+
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
@@ -185,5 +185,6 @@
 [SharePoint Online]: http://office.microsoft.com/zh-tw/sharepoint/
 [使用 Active Directory Authentication Library 單一登入驗證您的應用程式]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

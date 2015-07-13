@@ -22,7 +22,7 @@
 
 Azure 提供內建診斷功能，可協助對 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中裝載的 Web 應用程式進行偵錯。本文將說明如何啟用診斷記錄，並在您的應用程式中加入檢測設備，以及如何存取 Azure 所記錄的資訊。
 
-> [AZURE.NOTE]本文使用 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)、Azure PowerShell 及 Azure 命令列介面 (Azure CLI)　來處理診斷記錄。如需使用 Visual Studio 來處理診斷記錄的詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure](../troubleshoot-web-sites-in-visual-studio.md)。
+> [AZURE.NOTE]本文使用 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)、Azure PowerShell 及 Azure 命令列介面 (Azure CLI) 來處理診斷記錄。如需使用 Visual Studio 來處理診斷記錄的詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure](../troubleshoot-web-sites-in-visual-studio.md)。
 
 ## <a name="whatisdiag"></a>Web 伺服器診斷和應用程式診斷
 
@@ -38,7 +38,7 @@ Azure 提供內建診斷功能，可協助對 [App Service](http://go.microsoft.
 
 ### 應用程式診斷
 
-應用程式診斷可讓您擷取 Web 應用程式所產生的資訊。ASP.NET 應用程式會使用 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) 類別將資訊記錄到應用程式診斷記錄。例如：
+應用程式診斷可讓您擷取 Web 應用程式所產生的資訊。ASP.NET 應用程式會使用 [System.Diagnostics.Trace](http://msdn.microsoft.com/zh-tw/library/36hhw2t6.aspx) 類別將資訊記錄到應用程式診斷記錄。例如：
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -48,11 +48,11 @@ Azure 提供內建診斷功能，可協助對 [App Service](http://go.microsoft.
 
 > [AZURE.NOTE]與變更 web.config 檔案的作法不同之處在於啟用應用程式診斷或是變更診斷記錄層級，而不會回收在其中執行應用程式的應用程式網域。
 
-當您將內容發佈至 Web 應用程式時，Azure Web 應用程式也會記錄部署資訊。此動作會自動發生，因此無須任何組態設定即會記錄部署動作。部署記錄功能可讓您判斷部署失敗的原因。例如，如果您是使用自訂的部署指令碼，則您可以使用部署記錄功能來判斷指令碼失敗的原因。
+當您將內容發行至 Web 應用程式時，Azure Web 應用程式也會記錄部署資訊。此動作會自動發生，因此無須任何組態設定即會記錄部署動作。部署記錄功能可讓您判斷部署失敗的原因。例如，如果您是使用自訂的部署指令碼，則您可以使用部署記錄功能來判斷指令碼失敗的原因。
 
 ## <a name="enablediag"></a>如何啟用診斷
 
-若要在 [Azure 管理入口網站](https://portal.azure.com)中啟用診斷，請移至 Web 應用程式的刀鋒視窗，依序按一下 [所有設定] > [診斷記錄]。
+若要在 [Azure 管理入口網站](https://portal.azure.com)中啟用診斷，請移至 Web 應用程式的分頁，依序按一下 [所有設定] > [診斷記錄]。
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![記錄部分](./media/web-sites-enable-diagnostic-log/logspart.png)
@@ -77,7 +77,7 @@ Azure 提供內建診斷功能，可協助對 [App Service](http://go.microsoft.
 
 ##<a name="download"></a> 作法：下載記錄
 
-儲存在 Web 應用程式檔案系統中的診斷資訊，可透過 FTP 直接存取，或是使用 Azure PowerShell 或 Azure 命令列介面下載為 Zip 封存。
+儲存在 Web 應用程式檔案系統中的診斷資訊，可透過 FTP 直接存取。或是使用 Azure PowerShell 或 Azure 命令列介面下載為 Zip 封存。
 
 儲存這些記錄的目錄結構如下所示：
 
@@ -174,7 +174,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE]如果您尚未安裝 Azure 命令列介面，或是尚未將其設定為使用您的 Azure 訂用帳戶，請參閱＜[如何使用 Azure 命令列介面](../xplat-cli.md)＞。
+> [AZURE.NOTE]如果您尚未安裝 Azure 命令列介面，或是尚未將其設定為使用您的 Azure 訂用帳戶，請參閱[如何使用 Azure 命令列介面](../xplat-cli.md)。
 
 ##<a name="understandlogs"></a> 作法：了解診斷記錄
 

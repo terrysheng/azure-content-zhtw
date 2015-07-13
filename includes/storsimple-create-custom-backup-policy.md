@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="建立自訂的 StorSimple 備份原則"
-   description="說明如何使用 StorSimple Manager 服務建立自訂備份原則。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/14/2015"
-   ms.author="v-sharos" />
-
 #### 若要建立自訂備份原則
 
 1. 在 [**裝置**] 頁面上，按一下 [**備份原則**]，然後按一下 [**新增**]。
@@ -55,4 +38,4 @@
 
     ![自訂備份原則](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png)。
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

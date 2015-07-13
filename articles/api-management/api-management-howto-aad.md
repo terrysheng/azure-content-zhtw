@@ -3,7 +3,7 @@
 	description="了解如何在 API 管理中使用 Azure Active Directory 授權使用者" 
 	services="api-management" 
 	documentationCenter="API Management" 
-	authors="sdanie" 
+	authors="steved0x" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中使用 Azure Active Directory 授權開發人員帳戶
@@ -207,7 +207,7 @@
 
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to add and publish a product]: api-management-howto-add-products.md
-[Monitoring and analytics]: ../api-management-monitoring.md
+[Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [建立 API 管理服務執行個體]: api-management-get-started.md
@@ -228,5 +228,4 @@
 
 [使用 Azure Active Directory 帳戶登入開發人員入口網站]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

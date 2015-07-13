@@ -145,4 +145,7 @@ Azure AD 需要符合特定條件才能刪除目錄。這可降低刪除目錄�
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=62-->

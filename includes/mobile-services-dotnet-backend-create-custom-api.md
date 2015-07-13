@@ -1,14 +1,14 @@
 
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下 [Controllers] 資料夾，展開 [新增]****，然後按一下 [新增 Scaffolded 項目]****。這會顯示 [新增 Scaffold] 對話方塊。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下 [Controllers] 資料夾，展開 [新增]，然後按一下 [新增 Scaffolded 項目]。這會顯示 [新增 Scaffold] 對話方塊。
 
-2. 展開 [Azure 行動服務]****，按一下 [Azure 行動服務自訂控制器]****，再按一下 [新增]****，並提供 `CompleteAllController` 的 [控制器名稱]****，最後再按一下 [新增]****。
+2. 展開 [Azure 行動服務]，按一下 [Azure 行動服務自訂控制器]，再按一下 [新增]，並提供 `CompleteAllController` 的 [控制器名稱]，最後再按一下 [新增]。
 
 	![Web API Add Scaffold dialog](./media/mobile-services-dotnet-backend-create-custom-api/add-custom-api-controller.png)
 
 	這會建立名為 **CompleteAllController** 的新空白控制器類別。
 
-	>[AZURE.NOTE]如果對話方塊沒有行動服務的特定 Scaffold，請改為建立新的 Web API 控制器 - 空白****。在此新控制器類別中加入公用 **Services** 屬性，該屬性可傳回 **ApiServices** 類型。此屬性可用來存取控制器內部的伺服器專屬設定。
+	>[AZURE.NOTE]如果對話方塊沒有行動服務的特定 Scaffold，請改為建立新的 Web API 控制器 - 空白。在此新控制器類別中加入公用 **Services** 屬性，該屬性可傳回 **ApiServices** 類型。此屬性可用來存取控制器內部的伺服器專屬設定。
 
 3. 在 **CompleteAllController.cs** 中，新增下列 **using** 陳述式。以行動服務專案的命名空間取代 `todolistService`，該名稱必須是附加 `Service` 的行動服務名稱。
 
@@ -54,4 +54,4 @@
 
 	> [AZURE.NOTE]有了預設權限，具備應用程式金鑰的任何人都可以呼叫自訂 API。不過，應用程式金鑰並不會被視為安全的認證，因為它不是以安全的方式散佈或儲存。請考慮限制只有經過驗證的使用者才能存取，以提供進階的安全性。
 
-<!--HONumber=54-->
+<!---HONumber=62-->

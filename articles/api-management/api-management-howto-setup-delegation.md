@@ -13,16 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="06/18/2015" 
 	ms.author="antonba"/>
 
 # 如何委派使用者註冊和產品訂閱
 
 委派可讓您使用現有的網站來處理開發人員登入/註冊和產品訂閱，而非使用開發人員入口網站中的內建功能。這樣可讓您的網站擁有使用者資料，並以自訂方式來執行這些步驟的驗證。
-
-如需委派的詳細資訊，請觀看以下影片。
-
-> [AZURE.VIDEO delegating-user-authentication-and-product-subscription-to-a-3rd-party-site]
 
 ## <a name="delegate-signin-up"> </a>委派開發人員登入和註冊
 
@@ -36,15 +32,15 @@
 4. 成功時，將使用者重新導向回到他們所來自的 API 管理開發人員入口網站頁面
 
 
-首先，請設定 API 管理透過委派端點來傳遞要求。在 API 管理發行者入口網站中，按一下 [安全性]，然後按一下 [委派] 索引標籤。按一下核取方塊以啟用 [Delegate sign-in & sign-up]。
+首先，請設定 API 管理透過委派端點來傳遞要求。在 API 管理發行者入口網站中，按一下 [**安全性**]，然後按一下 [**委派**] 索引標籤。按一下核取方塊以啟用 [Delegate sign-in & sign-up]。
 
 ![Delegation page][api-management-delegation-signin-up]
 
-* 決定特殊委派端點的 URL，並在 [Delegation endpoint URL] 欄位中輸入。 
+* 決定特殊委派端點的 URL，並在 [**Delegation endpoint URL**] 欄位中輸入。 
 
-* 在 [Delegation authentication key] 欄位中輸入密碼，用來計算提供給您驗證的簽章，以確定要求確實來自 Azure API 管理。您可以按一下 [產生] 按鈕，讓 API 管理為您隨機產生金鑰。
+* 在 [**Delegation authentication key**] 欄位中輸入密碼，用來計算提供給您驗證的簽章，以確定要求確實來自 Azure API 管理。您可以按一下 [**產生**] 按鈕，讓 API 管理為您隨機產生金鑰。
 
-現在您需要建立「委派端點」。必須執行一些動作：
+現在您需要建立「**委派端點**」。必須執行一些動作：
 
 1. 接收下列形式的要求：
 
@@ -123,7 +119,7 @@
 
 ## <a name="delegate-example-code"> </a> 範例程式碼 ##
 
-這些程式碼範例示範如何取得委派驗證金鑰 (在 API 管理入口網站的 [委派] 畫面中設定)，以建立隨後用於驗證簽章的 HMAC，藉此證明所傳遞之 returnUrl 的有效性。相同的程式碼稍微修改一下後，也適用於 productId 和 userId。
+這些程式碼範例示範如何取得*委派驗證金鑰* (在 API 管理入口網站的 [委派] 畫面中設定)，以建立隨後用於驗證簽章的 HMAC，藉此證明所傳遞之 returnUrl 的有效性。相同的程式碼稍微修改一下後，也適用於 productId 和 userId。
 
 **產生 returnUrl 雜湊的 C# 程式碼**
 
@@ -155,6 +151,12 @@
     // compare signature to sig query parameter
 	
 	var signature = digest.toString('base64');
+
+## 後續步驟
+
+如需委派的詳細資訊，請觀看以下影片。
+
+> [AZURE.VIDEO delegating-user-authentication-and-product-subscription-to-a-3rd-party-site]
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription

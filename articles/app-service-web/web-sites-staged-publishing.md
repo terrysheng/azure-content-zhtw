@@ -36,14 +36,14 @@
 
 - 非生產位置不支援連結的資源管理。
 
-	> [AZURE.NOTE]只有在 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中，您才能藉由暫時將非生產位置移到其他 App Service 方案模式，來避免這種對生產位置的潛在影響。請注意，非生產位置必須先再次與生產位置共用相同模式，您才能交換這兩個位置。
+	> [AZURE.NOTE]只有在 [Azure 預覽入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中，您才能藉由暫時將非生產位置移到其他 App Service 方案模式，來避免這種對生產位置的潛在影響。請注意，非生產位置必須先再次與生產位置共用相同模式，您才能交換這兩個位置。
 
 <a name="Add"></a>
 ## 將部署位置新增至 Web 應用程式 ##
 
 Web 應用程式必須在 [標準] 或 [高階] 模式中執行，您才能啟用多個部署位置。
 
-1. 在 [Azure Preview 入口網站](https://portal.azure.com/)中，開啟 Web 應用程式的刀鋒視窗。
+1. 在 [Azure 預覽入口網站](https://portal.azure.com/)中，開啟 Web 應用程式的刀鋒視窗。
 2. 按一下 [部署位置]。然後，在 [部署位置] 刀鋒視窗中，按一下 [加入位置]。
 
 	![新增部署位置][QGAddNewDeploymentSlot]
@@ -201,7 +201,7 @@ Azure CLI 提供跨平台命令供您處理 Azure，包括支援管理 Web 應�
 
 - 如需安裝與設定 Azure CLI 的相關說明，包括如何將 Azure CLI 連線至 Azure 訂用帳戶的資訊，請參閱[安裝與設定 Azure CLI](../xplat-cli.md)。
 
--  若要在 Azure CLI 中列出 Azure App Service 可用的命令，請呼叫 `azure site -h`
+-  若要在 Azure CLI 中列出 Azure App Service 可用的命令，請呼叫 `azure site -h`。
 
 ----------
 ### azure site list

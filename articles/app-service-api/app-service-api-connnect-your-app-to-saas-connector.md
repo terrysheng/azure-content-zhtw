@@ -79,7 +79,7 @@
 
 若要讓 API 能夠存取您的 Dropbox 帳戶，您必須在 Dropbox 開發人員網站上建立 Dropbox 應用程式。然後，將用戶端識別碼和用戶端密碼值從該 Dropbox 應用程式複製到您的 Dropbox 連接器，並將連接器設為只接受已驗證的要求。
 
-### 建立一個 Dropbox 應用程式
+### <a id="createdbapp"></a>建立 Dropbox 應用程式
 
 下列步驟顯示如何使用 Dropbox.com 網站建立 Dropbox 應用程式的程序。因為 Dropbox.com 網站可能變更，而不另行通知，所以您在 UI 看到的可能與顯示的有所不同。
 
@@ -103,7 +103,7 @@
 
 	![建立 Dropbox 應用程式](./media/app-service-api-connnect-your-app-to-saas-connector/dbappsettings.png)
 
-### 將 Dropbox 應用程式設定複製到 Azure Dropbox 連接器，反之亦然 
+### <a id="copysettings"></a>將 Dropbox 應用程式設定複製到 Azure Dropbox 連接器，反之亦然 
 
 4. 在另一個瀏覽器視窗或索引標籤中，移至 [Azure 預覽入口網站]。
 

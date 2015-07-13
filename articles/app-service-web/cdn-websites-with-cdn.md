@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="在 Azure App Service 中使用 Azure CDN" 
-	description="教學課程，指導您如何將 Web 應用程式部署至提供整合式 Azure CDN 端點內容的 Azure App Service。" 
+	description="教學課程，指導您如何將 Web 應用程式部署至提供整合式 Azure CDN 端點內容的 Azure 應用程式服務" 
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
@@ -67,18 +67,16 @@
 
 8. 假設您尚未在 Azure 中建立應用程式服務，Visual Studio 可協助您建立它。在 [**設定 Microsoft Azure 網站**] 對話方塊中，請確定您的網站名稱是唯一的。然後按一下 **[確定]**。
 
-	<!--todo: need 2.5.1 screenshot-->
-	![](media/cdn-websites-with-cdn/5-create-website.png)
+	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/5-create-website.png)
 
 9. 建立 ASP.NET 應用程式之後，在 [Web 發佈活動] 窗格中按一下 [**將 `<app name>` 立即發佈至此網站**]，將它發佈至 Azure。按一下 [**發佈**] 完成程序。
 
-	<!--todo: need 2.5.1 screenshot-->
-	![](media/cdn-websites-with-cdn/6-publish-website.png)
+	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	當發佈完成時，您會在瀏覽器中看到您已發佈的 Web 應用程式。
 
 1. 若要建立 CDN 端點，請登入 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)。
-2. 按一下 [新增] > [App Service] > [CDN] > [快速建立]。選取 **http://*&lt;sitename>*.azurewebsites.net/**，然後按一下 [**建立**]。
+2. 按一下 [新增] > [應用程式服務] > [CDN] > [快速建立]。選取 **http://*&lt;sitename>*.azurewebsites.net/**，然後按一下 [**建立**]。
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
@@ -151,7 +149,7 @@
 <a name="controller"></a>
 ## 透過 Azure CDN 從控制器動作提供內容 ##
 
-整合 Web Apps 與 Azure CDN 時，透過 Azure CDN 從控制器動作提供內容就非常簡單。同樣地，如果您決定透過 CDN 來提供整個 Azure Web 應用程式，則您不需要這麼做，因為已可透過 CDN 來呼叫所有控制器動作。但是，就像我在[部署具有整合式 CDN 端點的 Azure Web 應用程式](#deploy)中所提出的理由，您可能決定不這樣做，而是選擇選取您想要從 Azure CDN 提供的控制器動作。[Maarten Balliauw](https://twitter.com/maartenballiauw) 在[使用 Azure CDN 縮短網路延遲時間](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN)中以一個有趣的 MemeGenerator 控制器來說明作法。我在這裡簡單地重述一次。
+整合 Web 應用程式與 Azure CDN 時，透過 Azure CDN 從控制器動作提供內容就非常簡單。同樣地，如果您決定透過 CDN 來提供整個 Azure Web 應用程式，則您不需要這麼做，因為已可透過 CDN 來呼叫所有控制器動作。但是，就像我在[部署具有整合式 CDN 端點的 Azure Web 應用程式](#deploy)中所提出的理由，您可能決定不這樣做，而是選擇選取您想要從 Azure CDN 提供的控制器動作。[Maarten Balliauw](https://twitter.com/maartenballiauw) 在[使用 Azure CDN 縮短網路延遲時間](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN)中以一個有趣的 MemeGenerator 控制器來說明作法。我在這裡簡單地重述一次。
 
 假設您想在 Web 應用程式中利用查克羅禮士年輕時的一張相片 ([Alan Light](http://www.flickr.com/photos/alan-light/218493788/) 拍攝) 來引起網路瘋傳：
 
@@ -346,7 +344,7 @@ namespace cdnwebapp.Controllers
 
     <script src="/Scripts/jquery-1.10.2.js"></script>
 
-這樣可讓您在開發環境中進行 JavaScript 程式碼偵錯，同時減少並行的用戶端連線 (統合)，在生產環境中提升檔案下載效能 (縮製)。這是 Azure CDN 整合中保留的絕佳功能。此外，由於轉譯的套件組合已包含自動產生的版本字串，您可以仿照此功能，每當您透過 NuGet 更新 jQuery 版本時，就會以最快速度更新用戶端。
+這樣可讓您在開發環境中進行 JavaScript 程式碼偵錯，同時減少並行的用戶端連線 (統合)，在實際執行環境中提升檔案下載效能 (縮製)。這是 Azure CDN 整合中保留的絕佳功能。此外，由於轉譯的套件組合已包含自動產生的版本字串，您可以仿照此功能，每當您透過 NuGet 更新 jQuery 版本時，就會以最快速度更新用戶端。
 
 請遵循下列步驟來整合 ASP.NET 統合和縮製與 CDN 端點。
 
@@ -398,7 +396,7 @@ public static void RegisterBundles(BundleCollection bundles)
 	
 		在此可採取其他任何策略在部署的存在期間內產生唯一字串。
 
-3. 重新發佈 ASP.NET 應用程式和存取首頁。
+3. 重新發行 ASP.NET 應用程式和存取首頁。
  
 4. 檢視頁面的 HTML 程式碼。您應該會看到轉譯的 CDN URL，以及每次將變更重新發佈至 Azure Web 應用程式時的唯一版本字串。例如：
 	<pre class="prettyprint">
@@ -560,4 +558,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!----HONumber=62-->
+<!---HONumber=62-->

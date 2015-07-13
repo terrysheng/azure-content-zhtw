@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="06/24/2015"
 	ms.author="tomfitz"/>
 
 #在 Azure App Service Web Apps 中設定 PHP
@@ -29,41 +29,41 @@ PHP 5.5 和 PHP 5.6 版本同樣可供使用，但預設並未啟用。若要更
 
 ### Azure 入口網站
 
-1. 在 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中瀏覽至您的 Web 應用程式，然後按一下 [設定]**** 按鈕。
+1. 在 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中瀏覽至您的 Web 應用程式，然後按一下 [設定] 按鈕。
 
 	![Web 應用程式設定][settings-button]
 
-2. 從 [設定]**** 分頁中，選取 [應用程式設定]**** 並選擇新的 PHP 版本。
+2. 從 [設定] 分頁中，選取 [應用程式設定] 並選擇新的 PHP 版本。
 
     ![應用程式設定][application-settings]
 
-3. 按一下 [Web 應用程式設定]**** 分頁頂端的 [儲存]**** 按鈕。
+3. 按一下 [Web 應用程式設定] 分頁頂端的 [儲存] 按鈕。
 
 	![儲存組態設定。][save-button]
-	
+
 ### Azure PowerShell (Windows)
 
 1. 開啟 Windows PowerShell
 2. 輸入 `Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name <site-name>`，然後按 Enter 鍵。
 3. PHP 版本現在已設定完成。
-	
+
 	![使用 Azure PowerShell 設定 PHP 版本][SETPHPVERPS]
 4. 您可以藉由輸入 `Get-AzureWebiste -Name <site-name>` 然後按下 Enter 鍵來確認這些設定。
-	
+
 	![使用 Azure PowerShell 確認 PHP 版本][GETPHPVERPS]
 
 ### Azure 命令列介面 (Linux、Mac、Windows)
 
->[Azure.Note]Azure 命令列介面需要您電腦上安裝 **Node.js** 才能使用。
+若要使用 Azure 命令列介面，您必須在電腦上安裝 **Node.js**。
 
 1. 開啟 [終端機]。
 2. 輸入 `azure site set --php-version [5.4 | 5.5] [site-name]`，然後按 Enter 鍵。
 3. PHP 版本現在已設定完成。
-	
-	![使用 Azure 命令列介面設定 PHP 版本][SETPHPVERXPLAT]
+
+	![使用 Azure 命令列介面設定 PHP 版本][SETPHPVERCLI]
 4. 您可以藉由輸入 `azure site show [site-name]` 然後按下 Enter 鍵來確認這些設定。
-	
-	![使用 Azure 命令列介面確認 PHP 版本][GETPHPVERXPLAT]
+
+	![使用 Azure 命令列介面確認 PHP 版本][GETPHPVERCLI]
 
 ## 作法：變更內建 PHP 組態
 
@@ -115,16 +115,16 @@ PHP 5.5 和 PHP 5.6 版本同樣可供使用，但預設並未啟用。若要更
 1. 將 `bin` 目錄新增至根目錄。
 2. 將 `.dll` 擴充檔放入 `bin` 目錄中 (例如，`php_mongo.dll`)。確定擴充與 PHP 預設版本 (截至撰寫時為止，該版本為 PHP 5.4) 相容，而且與 VC9 及非安全執行緒 (nts) 相容。
 3. 部署 Web 應用程式。
-4. 在 Azure 入口網站中瀏覽至您的 Web 應用程式，然後按一下 [設定]**** 按鈕。
+4. 在 Azure 入口網站中瀏覽至您的 Web 應用程式，然後按一下 [設定] 按鈕。
 
 	![Web 應用程式設定][settings-button]
 
-5. 從 [設定]**** 分頁中選取 [應用程式設定]****，然後捲動至 [應用程式設定]**** 區段。
-6. 在 [應用程式設定]**** 區段中，建立 **PHP_EXTENSIONS** 索引鍵。此索引鍵的值是相對於網站根目錄的路徑：**bin\\your-ext-file**。
+5. 從 [設定] 分頁中選取 [應用程式設定]，然後捲動至 [應用程式設定] 區段。
+6. 在 [應用程式設定] 區段中，建立 **PHP_EXTENSIONS** 索引鍵。此索引鍵的值是相對於網站根目錄的路徑：**bin\your-ext-file**。
 
 	![啟用應用程式設定中的擴充][php-extensions]
 
-7. 按一下 [Web 應用程式設定]**** 分頁頂端的 [儲存]**** 按鈕。
+7. 按一下 [Web 應用程式設定] 分頁頂端的 [儲存] 按鈕。
 
 	![儲存組態設定。][save-button]
 
@@ -139,15 +139,15 @@ Zend 擴充功能也支援使用 **PHP_ZENDEXTENSIONS** 索引鍵。若要啟用
 3. 或者，將擴充功能新增至 PHP 執行階段，並且在 `php.ini` 檔案中啟用這些擴充功能。
 4. 將 `bin` 目錄新增至根目錄，並在其中放入包含 PHP 執行階段的目錄 (例如，`bin\php`)。
 5. 部署 Web 應用程式。
-4. 在 Azure 入口網站中瀏覽至您的 Web 應用程式，然後按一下 [設定]**** 按鈕。
+4. 在 Azure 入口網站中瀏覽至您的 Web 應用程式，然後按一下 [設定] 按鈕。
 
 	![Web 應用程式設定][settings-button]
 
-7. 從 [設定]**** 分頁中選取 [應用程式設定]****，然後捲動至 [處理常式對應]**** 區段。將 `*.php` 新增至 [副檔名] 欄位，然後將路徑加入 `php-cgi.exe` 可執行檔。如果您將 PHP 執行階段放入應用程式根目錄內的 `bin` 目錄中，該路徑將是 `D:\home\site\wwwroot\bin\php\php-cgi.exe`。
+7. 從 [設定] 分頁中選取 [應用程式設定]，然後捲動至 [處理常式對應] 區段。將 `*.php` 新增至 [副檔名] 欄位，然後將路徑加入 `php-cgi.exe` 可執行檔。如果您將 PHP 執行階段放入應用程式根目錄內的 `bin` 目錄中，該路徑將是 `D:\home\site\wwwroot\bin\php\php-cgi.exe`。
 
 	![指定處理常式對應中的處理常式][handler-mappings]
 
-8. 按一下 [Web 應用程式設定]**** 分頁頂端的 [儲存]**** 按鈕。
+8. 按一下 [Web 應用程式設定] 分頁頂端的 [儲存] 按鈕。
 
 	![儲存組態設定。][save-button]
 
@@ -170,9 +170,10 @@ Zend 擴充功能也支援使用 **PHP_ZENDEXTENSIONS** 索引鍵。若要啟用
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
 [http://windows.php.net/download/]: http://windows.php.net/download/
 [http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
-[SETPHPVERXPLAT]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
-[GETPHPVERXPLAT]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
+[SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
+[GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,59 +1,42 @@
-<properties 
-   pageTitle="Option 1: Use Windows PowerShell for StorSimple to install Update 1"
-   description="Explains how to use Windows PowerShell for StorSimple to install StorSimple 8000 Series Update 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="v-sharos" />
+#### 從 Windows PowerShell for StorSimple 安裝 Update 1
 
-#### To install Update 1 from Windows PowerShell for StorSimple
+1. 執行下列步驟以下載軟體更新。
 
-1. Perform the following steps to download the software update.
-
-    1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com/v7/site/Home.aspx](http://catalog.update.microsoft.com/v7/site/Home.aspx).
-    2. If you are a first-time user, you will be prompted to install a Microsoft Update Catalog. Click **Install**.
+    1. 啟動 Internet Explorer 並瀏覽至 [http://catalog.update.microsoft.com/v7/site/Home.aspx](http://catalog.update.microsoft.com/v7/site/Home.aspx)。
+    2. 如果您是第一次使用者，系統會提示您安裝 Microsoft Update Catalog。按一下 [Install]。
     
-        ![Install catalog](./media/storsimple-install-update-option-1/HCS_InstallCatalog-include.png)
+        ![安裝目錄](./media/storsimple-install-update-option-1/HCS_InstallCatalog-include.png)
 
-    3. You will see a catalog search screen. Enter **3063418** in the search box, and click **Search**.
+    3. 您會看到目錄搜尋畫面。在搜尋方塊中輸入 **3063418** ，然後按一下 [**搜尋**]。
 
-        ![Search catalog](./media/storsimple-install-update-option-1/HCS_SearchCatalog-include.png)
+        ![搜尋目錄](./media/storsimple-install-update-option-1/HCS_SearchCatalog-include.png)
 
-    4. You will see the **StorSimple Update 1.0 Appliance Update** bundle. Click **Add**. The update will be added to the basket. 
+    4. 您會看到 **StorSimple Update 1.0 Appliance Update** 套件組合。按一下 [新增]。更新將會加入到購物籃中。
 
-        ![Update bundle](./media/storsimple-install-update-option-1/HCS_UpdateBundle-include.png) 
+        ![更新套件組合](./media/storsimple-install-update-option-1/HCS_UpdateBundle-include.png)
 
-    5. Click **View Basket**.
+    5. 按一下 [**檢視購物籃**]。
  
-        ![View basket](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png) 
+        ![檢視購物籃](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png)
 
-    6. Click **Download**. Specify or Browse to a local location where you want the download to appear. The update (all-hcsmdssoftwareupdate_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) will be downloaded in a StorSimple Update 1.0 Appliance Update bundle (KB3063418)” folder to the chosen location. The folder can also be copied to a network share that is reachable from the device.
+    6. 按一下 [下載]。指定或瀏覽至您想要儲存下載項目的本機位置。更新 (all-hcsmdssoftwareupdate_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) 將下載到所選位置的 StorSimple Update 1.0 Appliance Update 套件組合 (KB3063418) 資料夾中。資料夾也可以複製到裝置可連線的網路共用位置。
         
-2. To install the software update, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](#use-putty-to-connect-to-the-serial-console).
+2. 若要安裝軟體更新，請存取 StorSimple 裝置序列主控台上的 Windows PowerShell 介面。請依照[使用 PuTTy 連接到序列主控台](#use-putty-to-connect-to-the-serial-console)中的詳細指示執行作業。
 
-3. At the command prompt, press Enter.
+3. 在命令提示字元中，按 Enter 鍵。
 
-4. Select **Option 1** to log on to the device with full access.
+4. 選取 [**選項 1**] 以使用完整的存取權限登入裝置。
 
-5. To install the update package, at the command prompt, type:
+5. 若要安裝更新套件，請在命令提示字元中輸入：
 
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
 
-    The credential parameter is used only if you are accessing an authenticated share.
+    只有當您要存取已驗證的共用位置時，才會用到認證參數。
 
-    Sample output is shown below.
+    範例輸出如下所示。
 
         ````
-        Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
+        Controller0>Start-HcsHotfix -Path \10.100.100.100\share
         \hcsmdssoftwareupdate.exe -Credential contoso\John
       
         Confirm
@@ -65,11 +48,11 @@
 
         ````
  
-6. Type **Y** when prompted to confirm the hotfix installation.
+6. 當系統提示您確認 Hotfix 安裝時，請輸入 **Y**。
 
-7. Monitor the update by using the Get-HcsUpdateStatus cmdlet.
+7. 使用 Get-HcsUpdateStatus Cmdlet 監視更新。
 
-    The following sample output shows the update in progress.
+    下列範例輸出顯示更新進行中。
 
         ````
         Controller0>Get-HcsUpdateStatus
@@ -80,7 +63,7 @@
         Controller1Events   : 
         ````
  
-     The following sample output indicates that the update is finished.
+     下列範例輸出指出更新已完成。
 
         ````
         Controller1>Get-HcsUpdateStatus
@@ -93,22 +76,24 @@
 
         ````
  
-8. After the software update is complete, navigate to the Maintenance page in the Management Portal. Scan for available updates. You should see that more software updates are available.
+8. 軟體更新完成後，請瀏覽至管理入口網站中的 [維護] 頁面。掃描可用的更新。您應該會看到更多可用的軟體更新。
 
-9. Click **Install updates** to apply all the available software updates from the portal. 
+9. 按一下 [**安裝更新**] 以從入口網站套用所有可用的更新。
 
-10. After the software updates are complete, verify the system software, driver, and firmware versions. Type the following command:
+10. 軟體更新完成之後，請確認系統軟體、驅動程式和韌體版本。輸入以下命令：
 
     `Get-HcsSystem`
 
-    You should see the following versions:
+    您應該會看見下列版本：
 
-    - HcsSoftwareVersion: 6.3.9600.17491
-    - CisAgentVersion: 1.0.9037.0
-    - MdsAgentVersion: 26.0.4696.1433 
+    - HcsSoftwareVersion：6.3.9600.17491
+    - CisAgentVersion：1.0.9037.0
+    - MdsAgentVersion：26.0.4696.1433 
  
-11. To verify that the firmware was updated correctly, type:
+11. 若要確認已正確更新韌體，請輸入：
 
     `Start-HcsFirmwareCheck`
 
-    The firmware status should be **UpToDate**.
+    韌體狀態應該是 **UpToDate**。
+
+<!---HONumber=62-->

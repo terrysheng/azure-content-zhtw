@@ -1,6 +1,6 @@
 <properties
 	pageTitle="使用 Azure App Service 將推播通知新增至 iOS 應用程式"
-	description="了解如何使用 Azure App Service 傳送推播通知至 iOS 應用程式。"
+	description="了解如何使用 Azure 應用程式服務傳送推播通知至 iOS 應用程式。"
 	services="app-service\mobile"
 	documentationCenter="ios"
 	manager="dwrede"

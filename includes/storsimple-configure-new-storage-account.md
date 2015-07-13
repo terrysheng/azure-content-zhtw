@@ -1,22 +1,4 @@
-<properties 
-   pageTitle="選用：為服務設定新的儲存體帳戶"
-   description="說明如何針對 StorSimple 服務設定儲存體帳戶。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
-
-### 設定新的儲存體帳戶
+#### 若要新增新的儲存體帳戶到 StorSimple 發行版本 (GA)
 
 1. 在 StorSimple Manager 服務登陸頁面上選取您的服務，然後按兩下該服務。這會將您帶領到 [快速入門] 頁面。選取 [設定] 頁面。
 
@@ -34,4 +16,4 @@
 
 4. 新建立的儲存體帳戶將顯示於 [設定] 頁面上的 [儲存體帳戶] 下方。按一下 [儲存] 以儲存新建立的儲存體帳戶。系統提示您進行確認時，按一下 [確定]。
 
-<!--HONumber=52-->
+<!---HONumber=62-->

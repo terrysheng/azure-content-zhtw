@@ -1,9 +1,10 @@
 <properties 
-	pageTitle="使用 Azure 資料流分析管理 .NET SDK | Azure" 
-	description="了解如何使用資料流分析管理 .NET SDK" 
+	pageTitle="了解如何使用串流分析管理 .NET SDK | Microsoft Azure" 
+	description="Azure 串流分析管理 .NET SDK 入門。了解如何設定及執行分析工作：建立專案、輸入、輸出及轉換。" 
+	keywords=".net skd,analytics jobs,event hub"
 	services="stream-analytics" 
 	documentationCenter="" 
-	authors="mumian" 
+	authors="jeffstokes72" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,17 +14,17 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/05/2015" 
-	ms.author="jgao"/>
+	ms.date="06/17/2015" 
+	ms.author="jeffstok"/>
 
 
-# 使用 Azure 資料流分析管理 .NET SDK
+# 使用 Azure 串流分析管理 .NET SDK 設定及執行分析工作
 
-[此為發行前文件，其內容將在未來的版本中變更。]
+了解如何使用 Stream Analytics Management .NET SDK 設定及執行分析工作設定專案，建立輸入與輸出來源、轉換，以及開始和停止工作。對於您的分析工作，您可以從 Blob 儲存體或從事件中樞串流資料。
 
-Azure 資料流分析是完全受管理的服務，可用來對雲端中的串流資料進行低延遲、高可用性、可延展的複雜事件處理。在預覽版本中，資料流分析可讓客戶設定串流工作以分析資料流，並可讓客戶以接近即時的方式進行分析。  
+Azure 資料流分析是完全受管理的服務，可用來對雲端中的串流資料進行低延遲、高可用性、可延展的複雜事件處理。串流分析可讓客戶設定串流工作以分析資料流，並可讓客戶以接近即時的方式進行分析。
 
-本文將示範如何使用 Azure 資料流分析管理 .NET SDK。
+對於 .NET API 參照，請參閱 [Stream Analytics Management .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx)。
 
 
 ## 必要條件
@@ -31,7 +32,7 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 
 - 安裝 Visual Studio 2012 或 2013。
 - 下載並安裝 [Azure .NET SDK](http://azure.microsoft.com/downloads/)。 
-- 在您的訂閱中建立 Azure 資源群組。下列是 PowerShell 指令碼範例。如需 Azure PowerShell 的詳細資訊，請參閱 [安裝和設定 Azure PowerShell](../install-configure-powershell.md)；  
+- 在您的訂閱中建立 Azure 資源群組。下列是 PowerShell 指令碼範例。如需 Azure PowerShell 資訊，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。  
 
 
 		# Configure the Azure PowerShell session to access Azure Resource Manager
@@ -47,18 +48,20 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 		New-AzureResourceGroup -Name <YOUR RESORUCE GROUP NAME> -Location <LOCATION>
 
 
--	設定要使用的輸入來源和輸出目標。請參閱 [開始使用 Azure 資料流分析](stream-analytics-get-started.md)，以設定要在本文中使用的範例輸入及/或輸出。
+-	設定要使用的輸入來源和輸出目標。請參閱[開始使用 Azure 資料流分析 (stream-analytics-get-started.md)](stream-analytics-get-started.md)，以設定要在本文中使用的範例輸入及/或輸出。
 
 
 ## 設定專案
 
+若要建立分析工作，請先設定您的專案。
+
 1. 建立 Visual Studio C# .NET 主控台應用程式。
-2. 在 Package Manager Console 中，執行下列命令以安裝 NuGet 封裝。第一個是 Azure 資料流分析管理 .NET SDK。第二個是驗證要使用的 Azure Active Directory 用戶端。
+2. 在 Package Manager Console 中，執行下列命令以安裝 NuGet 封裝。第一個是 Azure 串流分析管理 .NET SDK。第二個是驗證要使用的 Azure Active Directory 用戶端。
 
 		Install-Package Microsoft.Azure.Management.StreamAnalytics -Pre
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
-4. 將下列 **appSettings** 區段加入至 App.config 檔案：
+4. 將下列 **appSettings** 區段加入 App.config 檔案：
 
 		<appSettings>
 		  <!--CSM Prod related values-->
@@ -72,11 +75,11 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 		</appSettings>
 
 
-	以您的 Azure 訂用帳戶和租用戶識別碼取代 **SubscriptionId** 和 **ActiveDirectoryTenantId** 的值。您可以藉由執行下列 Azure PowerShell Cmdlet 來取得這些值：
+	以您的 Azure 訂用帳戶與租用戶識別碼取代 **SubscriptionId** 和 **ActiveDirectoryTenantId** 的值。您可以藉由執行下列 Azure PowerShell Cmdlet 來取得這些值：
 
 		Get-AzureAccount
 
-5. 將下列 **using** 陳述式加入至專案的原始程式檔 (Program.cs) 中：
+5. 將下列 **using** 陳述式加入專案的原始程式檔 (Program.cs) 中。
 
 		using System;
 		using System.Configuration;
@@ -100,10 +103,10 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 						ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
 		
 		            result = context.AcquireToken(
-		                resource:ConfigurationManager.AppSettings["WindowsManagementUri"],
-		                clientId:ConfigurationManager.AppSettings["AsaClientId"],
+		                resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+		                clientId: ConfigurationManager.AppSettings["AsaClientId"],
 		                redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-		                promptBehavior:PromptBehavior.Always);
+		                promptBehavior: PromptBehavior.Always);
 		        }
 		        catch (Exception threadEx)
 		        {
@@ -127,9 +130,9 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 
 ## 建立資料流分析管理用戶端
 
-**StreamAnalyticsManagementClient** 物件可讓您管理工作和工作元件，例如輸入、輸出和轉換。 
+**StreamAnalyticsManagementClient** 物件可讓您管理工作和工作元件，例如輸入、輸出和轉換。
 
-在 **Main** 方法的開頭加入下列程式碼： 
+在 **Main** 方法的開頭加入下列程式碼：
 
 	string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
 	string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
@@ -146,13 +149,13 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 	// Create Stream Analytics management client
 	StreamAnalyticsManagementClient client = new StreamAnalyticsManagementClient(aadTokenCredentials);
 
-**ResourceGroupName** 變數的值應該會與您在先決條件步驟中建立或選取的資源群組名稱相同。
+**resourceGroupName** 變數的值應該會與您在先決條件步驟中建立或選取的資源群組名稱相同。
 
 本文的其餘章節會假設 **Main** 方法的開頭已有這段程式碼。
 
-## 建立資料流分析工作
+## 建立串流分析工作
 
-下列程式碼會在您已定義的資源群組下方建立一個資料流分析工作。您稍後可以在工作中加入輸入、輸出和轉換。
+下列程式碼會在您已定義的資源群組下方建立一個串流分析工作。您稍後可以在工作中加入輸入、輸出和轉換。
 
 	// Create a Stream Analytics job
 	JobCreateOrUpdateParameters jobCreateParameters = new JobCreateOrUpdateParameters()
@@ -218,7 +221,7 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 	InputCreateOrUpdateResponse inputCreateResponse = 
 		client.Inputs.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, jobInputCreateParameters);
 
-輸入來源會繫結至特定工作。若要在不同的工作中使用相同的輸入來源，您必須重新呼叫此方法，並指定不同的工作名稱。
+輸入來源 (來自 Blob 儲存體或事件中樞) 受限於特定工作。若要在不同的工作中使用相同的輸入來源，您必須重新呼叫此方法，並指定不同的工作名稱。
 
 
 ## 測試資料流分析輸入來源
@@ -271,7 +274,7 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 
 ## 建立資料流分析轉換
 
-下列程式碼會使用 "select * from Input" 查詢來建立資料流分析轉換，並指定為資料流分析工作配置一個資料流單位。如需有關如何調整資料流單位的詳細資訊，請參閱 [調整 Azure 資料流分析工作](stream-analytics-scale-jobs.md)。
+下列程式碼會使用 "select * from Input" 查詢來建立串流分析轉換，並指定為串流分析工作配置一個串流單位。如需有關如何調整資料流單位的詳細資訊，請參閱[調整 Azure 資料流分析工作](stream-analytics-scale-jobs.md)。
 
 
 	// Create a Stream Analytics transformation
@@ -291,10 +294,10 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 	var transformationCreateResp = 
 		client.Transformations.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, transformationCreateParameters);
 
-和輸入和輸出一樣，轉換也會繫結至建立該轉換的特定資料流分析工作。
+和輸入和輸出一樣，轉換也會繫結至建立該轉換的特定串流分析工作。
 
 ## 啟動資料流分析工作
-建立資料流分析工作及其輸入、輸出和轉換之後，您可以藉由呼叫 **Start** 方法來啟動工作。 
+建立資料流分析工作及其輸入、輸出和轉換之後，您可以藉由呼叫 **Start** 方法來啟動工作。
 
 下列範例程式碼會啟動自訂輸出開始時間設為 2012 年 12 月 12 日 12:12:12 UTC 的資料流分析工作：
 
@@ -322,15 +325,20 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 	LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
 
 
+## 取得支援
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)。
+
+
 ## 後續步驟
 
-- [Azure 資料流分析簡介][stream.analytics.introduction]
-- [開始使用 Azure 資料流分析][stream.analytics.get.started]
-- [調整 Azure 資料流分析工作][stream.analytics.scale.jobs]
-- [Azure 資料流分析的限制和已知問題][stream.analytics.limitations]
-- [Azure 資料流分析查詢語言參考][stream.analytics.query.language.reference]
-- [Azure 資料流分析管理 REST API 參考][stream.analytics.rest.api.reference]
+您已經學到使用 .NET SDK 建立及執行分析工作的基本知識。若要深入了解，請參閱下列文章：
 
+- [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
+- [開始使用 Azure Stream Analytics](stream-analytics-get-started.md)
+- [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
+- [Azure 串流分析管理 .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx)。
+- [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 <!--Image references-->
@@ -353,9 +361,8 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.limitations]: ../stream-analytics-limitations.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

@@ -78,4 +78,6 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

@@ -1,18 +1,18 @@
 
-For more information about disks, see [About Virtual Machine Disks in Azure](http://go.microsoft.com/fwlink/p/?LinkId=403697).
+如需有關磁碟的詳細資訊，請參閱[關於 Azure 中的虛擬機器磁碟](http://go.microsoft.com/fwlink/p/?LinkId=403697)。
 
-##<a id="cliattachempty"></a>How to: Attach an empty disk
-Attaching an empty disk is the simpler way to add a data disk. Run the following command to attach a new empty disk:
+##<a id="cliattachempty"></a>做法：連接空的磁碟
+連接空的磁碟是新增資料磁碟較為簡易的方式。執行下列命令連接空的新磁碟：
 
     vm disk attach-new <vm-name> <size-in-gb> [blob-url]
 
-Replace `vm-name` with the name of your virtual machine, and `size-in-gb` with the size of your new disk. You can optionally use a blob URL as the last argument to explicitly specify the target blob to create. If you do not specify a blob URL, a blob object will be automatically generated.  
+使用您的虛擬機器名稱來取代 `vm-name`，並使用新硬碟的大小來取代 `size-in-gb`。您可以選擇性地使用 Blob URL 作為最後一個引數，明確指定要建立的目標 Blob。如果不指定 Blob URL，則會自動產生 Blob 物件。
 
-Run the following command to verify that your disk has been created:
+執行下列命令以確認是否已建立您的磁碟：
 
     vm disk list <vm-name>
 
-Here is a sample walkthrough of the above commands including terminal output:
+以下是上述命令的逐步解說範例 (包含終端機輸出)：
 
     ~$ azure vm disk attach-new pinkylinux 20 http://pinkylinux.blob.core.windows.net/vhds/pinkydisk1.vhd
     info:   Executing command vm disk attach-new
@@ -30,3 +30,5 @@ Here is a sample walkthrough of the above commands including terminal output:
     data:    0    5         pinkydisk1.vhd
     data:    1    20        pinkylinux-f8ef0006ab182209.vhd
     info:    vm disk list command OK
+
+<!---HONumber=62-->

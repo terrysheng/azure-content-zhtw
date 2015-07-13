@@ -108,9 +108,9 @@
 - 對應至 127.0.0.1 的 **contoso.com**。
 - 對應至 **contoso.azurewebsites.net** 的 **www.contoso.com**。
 
->[AZURE.NOTE]您可以使用 Azure DNS 來裝載 web 應用程式所需的網域記錄。若要在 Azure DNS 設定您的自訂網域，並建立您的記錄，請參閱＜[建立 Web 應用程式的自訂 DNS 記錄](../dns-web-sites-custom-domain)＞。
+>[AZURE.NOTE]您可以使用 Azure DNS 來裝載 web 應用程式所需的網域記錄。若要在 Azure DNS 設定您的自訂網域，並建立您的記錄，請參閱[建立 Web 應用程式的自訂 DNS 記錄](../dns-web-sites-custom-domain)。
 
-<a name="awverify" />
+<a name="awverify" /></a>
 ## 建立 awverify 記錄 (僅限 A 記錄)
 
 若您建立 A 記錄，Web 應用程式也會要求特定的 CNAME 記錄，用於確認您是否擁有嘗試使用的網域。此 CNAME 記錄必須具有下列形式。
@@ -129,11 +129,11 @@
 
 ## 後續步驟
 
-如需詳細資訊，請參閱：＜[開始使用 Azure DNS](http://azure.microsoft.com/documentation/articles/dns-getstarted-create-dnszone)＞和＜[將網域委派給 Azure DNS](http://azure.microsoft.com/documentation/articles/dns-domain-delegation)＞
+如需詳細資訊，請參閱：[開始使用 Azure DNS](http://azure.microsoft.com/zh-tw/documentation/articles/dns-getstarted-create-dnszone) 和[將網域委派給 Azure DNS](http://azure.microsoft.com/zh-tw/documentation/articles/dns-domain-delegation)
 
 ## 變更的項目
-* 如需從網站變更為 App Service 的指南，請參閱：〈[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)〉
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：〈[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)〉
+* 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- Anchors. -->
 [Overview]: #overview

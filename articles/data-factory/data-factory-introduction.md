@@ -22,7 +22,7 @@ The **Azure Data Factory** service is a fully managed service for composing data
 -->
 
 
- **Azure 資料 Factory** 服務是完全受管理的服務來撰寫成簡化、 可擴充且可靠的資料實際執行管線的資料儲存、 資料處理和資料移動的服務。Data Factory 服務可讓您：
+**Azure Data Factory** 服務是完全受管理的服務，可將資料儲存、資料處理及資料移動服務組合成有效率、可調整且可靠的資料生產管線。Data Factory 服務可讓您：
 
 - 建置資料導向的工作流程 (管線)，以聯結、彙總和轉換來自內部部署、雲端型和網際網路資料存放區的資料。 
 - 將半結構化、非結構化和結構化資料從不同的資料來源轉換為受信任的資訊。
@@ -30,10 +30,10 @@ The **Azure Data Factory** service is a fully managed service for composing data
 - 透過簡單的 JSON 指令碼來設定複雜資料處理。
 - 透過 Azure 預覽入口網站所提供的豐富視覺體驗，快速監視和管理這些管線。  
 
-下列影片提供 Azure 的資料處理站服務的快速概觀。
+以下影片提供 Azure Data Factory 服務的快速概觀。
 
 
-- [影片： 簡介 Azure 資料處理站](http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory/)
+- [影片：Azure Data Factory 簡介](http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory/)
 
 
 <!--
@@ -45,20 +45,20 @@ This article provides an overview of the Azure Data Factory service, the value i
 ## 概觀
 傳統上，資料整合專案牽涉到建立從組織內的各種資料來源擷取資料的「擷取、轉換和載入 (ETL)」程序、轉換資料以符合 Enterprise Data Warehouse (EDW) 的目標結構描述，以及將資料載入至 EDW。接著，EDW 會受到存取，做為 BI 分析解決方案的單一事實來源。
 
-![傳統的 ETL][image-data-factory-introduction-traditional-ETL]
+![傳統 ETL][image-data-factory-introduction-traditional-ETL]
 
 企業現今的資料型態，在數量、多樣性與複雜性方面都持續呈現急速成長的態勢。不同形式和速度的內部部署與雲端架構資料，都比以往更為多元化。資料處理必須跨地理位置執行，並且包含開放原始碼軟體、商業解決方案和自訂處理服務的組合，其成本昂貴，而且難以整合和維護。因應現今不斷變動的巨量資料型態所需的靈活性，是結合傳統 EDW 與現代資訊生產系統所需功能的良機。
 
-![當今的各種處理橫向][image-data-factory-introduction-todays-diverse-processing-landspace]
+![當今的各種處理型態][image-data-factory-introduction-todays-diverse-processing-landspace]
 
- **Azure 資料 Factory** 服務是撰寫平台進行跨傳統 EDWs 的工作以及變更資料的景象，讓企業使用的所有資料，提供給他們的資料導向的決策。它可讓企業善用這些多樣性，因為它所提供的平台可將資料處理、儲存和移動服務組合到資訊生產管線中，以及管理受信任的資料資產。
+**Azure Data Factory** 服務是可跨越傳統 EDW 和變動的資料型態而運作的編撰平台，可讓企業利用所有的可用資料做出資料導向的決策。它可讓企業善用這些多樣性，因為它所提供的平台可將資料處理、儲存和移動服務組合到資訊生產管線中，以及管理受信任的資料資產。
 
 Azure Data Factory 服務可讓您：
 
-- **輕鬆地使用不同的資料儲存和處理系統。** Data Factory 服務可讓您建立資訊生產管線，以移動和處理內部部署資料 (例如 SQL Server) 和雲端資料來源 (例如 Azure SQL Database、Azure 資料表和 Blob)。 
-- **將資料轉換為受信任的資訊。** Data Factory 服務支援 Hive、Pig 和 C# 處理以及重要處理功能，例如自動 Hadoop (HDInsight) 叢集管理、暫時性失敗重試、可設定的逾時原則和警示。  
-- **監視資料管線，在同一個地方。** Data Factory 服務提供一個可靠且完整的儲存、處理和資料移動服務檢視。它可協助您快速評估端對端資料管線健康情況、指出問題所在，並視需要採取修正動作。您也可以透過視覺化方式追蹤跨任何來源的資料之間的資料歷程和關聯，並從單一監視儀表板查看工作執行、系統健全狀況和相依性的完整歷程記錄處理。
-- **深入探索豐富已轉換的資料從** 資料處理站服務可讓您建立信任的資料，可供商務智慧和分析工具和其他應用程式所產生的資料管線。
+- 輕鬆地使用不同的資料儲存和處理系統。 Data Factory 服務可讓您建立資訊生產管線，以移動和處理內部部署資料 (例如 SQL Server) 和雲端資料來源 (例如 Azure SQL Database、Azure 資料表和 Blob)。 
+- 將資料轉換為受信任的資訊。 Data Factory 服務支援 Hive、Pig 和 C# 處理以及重要處理功能，例如自動 Hadoop (HDInsight) 叢集管理、暫時性失敗重試、可設定的逾時原則和警示。  
+- 在同一處監視資料管線。 Data Factory 服務提供一個可靠且完整的儲存、處理和資料移動服務檢視。它可協助您快速評估端對端資料管線健康情況、指出問題所在，並視需要採取修正動作。您也可以透過視覺化方式追蹤跨任何來源的資料之間的資料歷程和關聯，並從單一監視儀表板查看工作執行、系統健全狀況和相依性的完整歷程記錄處理。
+- **從轉換的資料取得豐富的深入資訊** Data Factory 服務可讓您建立資料管線，以產生受信任的資料，供商業智慧和分析工具以及其他應用程式使用。
 
 <!--
 Today, to take advantage of the benefits of Data Factory, developers interact directly with individual data pipelines, storage services, and compute services.  As the Data Factory service evolves over time, we will introduce additional storage and processing services, and new mechanisms of grouping compute and storage services and data pipelines together into ‘Hubs’.  We describe Hubs here in our introduction, as this nascent concept appears throughout the service as a precursor for future releases.
@@ -76,9 +76,9 @@ Hubs will help to encapsulate storage and compute in a way where pipelines can r
 
 Azure Data Factory 有三個資訊生產階段：
 
-- **連接 (& s) 收集**。在這個階段中，資料會從各種資料來源匯入至資料中樞。資料處理站中的管線可以有一或多個活動。您可以使用一或多個 **複製** 活動資料管線中要從中收集資料來源到目的地資料存放區與資料中心中做進一步處理的資料存放區。HDInsight 叢集 (運算) 和其相關聯的 Azure Blob 儲存體 (儲存) 一起構成資料中樞 (HDInsight 資料中樞)。若要使用 HDInsight 資料中樞，您可以將所有來源資料複製到與 HDInsight 相關聯的 Azure Blob 存放區，以讓 HDInsight 叢集處理資料。管線會在資料中樞 (例如 HDInsight 叢集) 的運算資源上執行。      
-- **轉換 (& s) 充實**。在這個階段中，會處理所收集的資料。例如， **HDInsight 活動** 管線中可以處理由執行轉換使用 Hive/Pig 指令碼來產生可靠的資訊儲存在相關聯的 Azure blob 存放區中的資料。管線可以鏈結 (如圖所示)，因此，管線的輸出資料集可以是相同資料中樞或另一個資料中樞內另一個管線的輸入資料集。  
-- **發行**。在這個階段中，會發行資料，讓資料可供 BI 工具、分析工具及其他應用程式取用。例如，管線中的複製活動可以將輸出資料從轉換和擴充階段中所執行的處理複製到資料存放區 (例如：內部部署 SQL Server)，而在其上可建置商業智慧解決方案。   
+- 連接和收集。在這個階段中，資料會從各種資料來源匯入至資料中樞。資料處理站中的管線可以有一或多個活動。您可以使用資料管線中的一或多個複製活動，將來源資料存放區中的資料收集到資料中樞內的目的地資料存放區，以供進一步處理。HDInsight 叢集 (運算) 和其相關聯的 Azure Blob 儲存體 (儲存) 一起構成資料中樞 (HDInsight 資料中樞)。若要使用 HDInsight 資料中樞，您可以將所有來源資料複製到與 HDInsight 相關聯的 Azure Blob 存放區，以讓 HDInsight 叢集處理資料。管線會在資料中樞 (例如 HDInsight 叢集) 的運算資源上執行。      
+- 轉換和擴充。在這個階段中，會處理所收集的資料。例如，管線中的 HDInsight 活動可以使用 Hive/Pig 指令碼執行轉換，以產生受信任的資訊，藉此處理相關聯 Azure Blob 存放區中所儲存的資料。管線可以鏈結 (如圖所示)，因此，管線的輸出資料集可以是相同資料中樞或另一個資料中樞內另一個管線的輸入資料集。  
+- 發行。在這個階段中，會發行資料，讓資料可供 BI 工具、分析工具及其他應用程式取用。例如，管線中的複製活動可以將輸出資料從轉換和擴充階段中所執行的處理複製到資料存放區 (例如：內部部署 SQL Server)，而在其上可建置商業智慧解決方案。   
 
 <!--
 
@@ -93,13 +93,13 @@ Finally, **pipelines** can be chained (as shown in the diagram) such that the ou
 
 
 ##後續步驟
-1. [開始使用資料 Factory][datafactory-getstarted]。本文提供端對端教學課程，說明如何建立將資料從 Azure Blob 複製到 Azure SQL 資料庫的範例 Azure Data Factory。
-2. [教學課程： 移動並處理記錄檔使用資料 Factory][adf-tutorial]。這篇文章提供 **端對端逐步解說** ，示範如何實作 **真實世界的案例** 使用 Azure 資料 Factory 從記錄檔的資料轉換成見解。
+1. [開始使用 Data Factory][datafactory-getstarted]。本文提供端對端教學課程，說明如何建立將資料從 Azure Blob 複製到 Azure SQL 資料庫的範例 Azure Data Factory。
+2. [教學課程：使用 Data Factory 移動和處理記錄檔][adf-tutorial]。本文提供端對端逐步解說，示範如何使用 Azure Data Factory 實作真實案例，藉此將記錄檔中的資料轉換成深入資訊。
 
 ## 另請參閱
-- [資料 Factory-術語][adf-terminology]。這篇文章所介紹的是您要建立使用 Azure 資料處理站服務的資料處理站所使用的術語 
-- [資料 Factory-常見問題集][adf-faq]。本文提供常見問題與解答的清單。
-- [常見案例使用 Azure 資料 Factory][adf-common-scenarios]。本文說明使用 Azure Data Factory 服務的一些常見案例。 
+- [Data Factory - 術語][adf-terminology]。本文介紹使用 Azure Data Factory 服務建立 Data Factory 時所使用的術語。 
+- [Data Factory - 常見問題集][adf-faq]。本文提供常見問題與解答的清單。
+- [使用 Azure Data Factory 的常見案例][adf-common-scenarios]。本文說明使用 Azure Data Factory 服務的一些常見案例。 
 
 
 [Power-Query-Azure-Table]: http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azuretable-storage-HA104122607.aspx
@@ -136,4 +136,8 @@ Finally, **pipelines** can be chained (as shown in the diagram) such that the ou
 
 [image-data-factory-data-flow]: ./media/data-factory-introduction/DataFactoryDataFlow.png
 
-<!---HONumber=GIT-SubDir--> 
+
+
+ 
+
+<!---HONumber=62-->

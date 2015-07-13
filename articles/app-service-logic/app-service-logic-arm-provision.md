@@ -38,7 +38,7 @@
 
      "testUri": {
         "type": "string",
-        "defaultValue": "http://azure.microsoft.com/status/feed/"
+        "defaultValue": "http://azure.microsoft.com/zh-tw/status/feed/"
       }
     
 ## 要部署的資源

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="BizTalk 服務中的節流閾值 | Azure" 
+	pageTitle="了解 BizTalk 服務中的節流 | Azure" 
 	description="了解 BizTalk 服務的節流閾值和產生的執行階段行為。節流是以記憶體使用量和訊息數為依據。MABS，WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -13,21 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.date="06/07/2015" 
 	ms.author="mandia"/>
 
 
 
 
 
-# BizTalk 服務：節流 (英文)
+# BizTalk 服務：節流
 
-Azure BizTalk 服務根據兩個條件來實作服務節流：記憶體使用量和同時訊息處理數目。本主題列出節流閾值，並說明發生節流狀況時的執行階段行為。
+Azure BizTalk 服務根據兩個條件實作服務節流：記憶體使用量和同時訊息處理的數量。本主題列出節流閾值，並說明發生節流狀況時的執行階段行為。
 
 ## 節流閾值
 
 下表列出節流來源和閾值：
-
 
 <table border="1">
 
@@ -39,7 +38,7 @@ Azure BizTalk 服務根據兩個條件來實作服務節流：記憶體使用量
 </tr>
     <tr>
         <td>記憶體</td>
-        <td>可用系統記憶體總計的 %/PageFileBytes。 
+        <td>可用系統記憶體總計的 %/PageFileBytes。
 <br/><br/>
 可用的 PageFileBytes 總計大約是系統 RAM 的 2 倍。</td>
         <td>60%</td>
@@ -62,11 +61,8 @@ Azure BizTalk 服務會追蹤節流狀態 (正常狀態與節流狀態) 和節�
 
 Azure BizTalk 服務進入節流狀態時會發生下列情況：
 
-- 依每一角色執行個體來節流。例如：<br/>
-RoleInstanceA 節流。RoleInstanceB 未節流。在此情況下，RoleInstanceB 中的訊息如預期般地處理。RoleInstanceA 中的訊息會捨棄且失敗，並傳回下列錯誤：<br/><br/>
-伺服器忙碌中。請再試一次。<br/><br/>
-- 所有提取來源不會輪詢或下載訊息。例如：<br/>
-管線從外部 FTP 來源提取訊息。進行提取的角色執行個體會進入節流狀態。在此情況下，在角色執行個體停止節流之前，管線會停止下載其他訊息。
+- 依每一角色執行個體來節流。例如：<br/> RoleInstanceA 正在節流。RoleInstanceB 未節流。在此情況下，RoleInstanceB 中的訊息如預期般地處理。RoleInstanceA 中的訊息會被捨棄且失敗，並出現下列錯誤訊息：<br/><br/> **伺服器忙碌中。請再試一次。**<br/><br/>
+- 所有提取來源不會輪詢或下載訊息。例如：<br/>管線會從外部 FTP 來源提取訊息。進行提取的角色執行個體會進入節流狀態。在此情況下，在角色執行個體停止節流之前，管線會停止下載其他訊息。
 - 回應會傳送給用戶端，讓用戶端可以重新提交訊息。
 - 您必須等待節流情況解決為止。尤其，您必須等待到達到低閾值為止。
 
@@ -84,12 +80,12 @@ RoleInstanceA 節流。RoleInstanceB 未節流。在此情況下，RoleInstanceB
 -  [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## 另請參閱
-- [BizTalk 服務：開發人員、基本、標準和高級版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/> (英文)
-- [BizTalk 服務：使用 Azure 管理入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/> (英文)
-- [BizTalk 服務：佈建狀態圖](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/> (英文)
-- [BizTalk 服務：儀表板、監視器和調整索引標籤](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/> (英文)
-- [BizTalk 服務：備份與還原](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/> (英文)
-- [BizTalk 服務：簽發者名稱和簽發者金鑰](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/> (英文)
-
-<!--HONumber=46--> 
+- [BizTalk 服務：開發人員、基本、標準和高級版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+- [BizTalk 服務：使用 Azure 管理入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [BizTalk 服務：佈建狀態圖](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+- [BizTalk 服務：儀表板、監視和調整索引標籤](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+- [BizTalk 服務：備份與還原](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+- [BizTalk 服務：簽發者名稱和簽發者金鑰](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
+
+<!---HONumber=62-->

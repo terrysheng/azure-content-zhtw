@@ -1,15 +1,15 @@
 <properties
-	pageTitle="Azure 備份 - 建立備份保存庫和指定儲存體備援性"
-	description="了解如何在 Azure 備份中建立備份保存庫以及指定儲存體備援選項"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
+   pageTitle="Azure 備份 - 建立備份保存庫和指定儲存體備援性"
+   description="了解如何在 Azure 備份中建立備份保存庫以及指定儲存體備援選項"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
@@ -62,5 +62,6 @@ GRS 可維護六個資料複本。有了 GRS，您的資料會在主要區域內
 [3]: ./media/backup-azure-backup-create-vault/backupvaultstatus1.png
 [4]: ./media/backup-azure-backup-create-vault/grs.png
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

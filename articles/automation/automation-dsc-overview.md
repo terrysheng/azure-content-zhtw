@@ -220,4 +220,6 @@ Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](../power
 
 - 使用 `Register-AzureAutomationDscNode`、`Set-AzureAutomationDscExtension` 或 Azure 預覽入口網站中的 Azure 自動化 DSC VM 延伸模組將 Azure VM 上架以使用 Azure 自動化 DSC 管理時，如果註冊失敗，並出現**未指定電腦名稱，並且組態目錄沒有任何組態檔**，這是誤報而 VM 註冊實際上是成功的。您可以使用 `Get-AzureAutomationDscNode` Cmdlet 驗證成功註冊。
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

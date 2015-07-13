@@ -31,6 +31,8 @@
 
 - 若要將資料庫降級，資料庫應該小於目標服務層允許的大小上限。如需每個服務層允許大小的詳細資訊，請參閱本節稍後的服務層與資料庫大小表格。
 
+- 升級資料庫時若將[標準地理複寫](https://msdn.microsoft.com/library/azure/dn758204.aspx)或[作用中地理複寫](https://msdn.microsoft.com/library/azure/dn741339.aspx)啟用，您必須先將其次要資料庫升級為所需的效能層次，然後再升級主要資料庫。
+
 - 從高階服務層降級時，您必須先終止所有的「異地複寫」關聯性。您可以遵循[終止連續複製關聯性](https://msdn.microsoft.com/library/azure/dn741323.aspx)主題所述的步驟，停止主要資料庫與作用中次要資料庫之間的複寫程序。
 
 - 還原服務會針對各種服務層提供不同的選項。降級後您可能會無法還原至某個時間點，或具有較短的備份保留期限。如需詳細資訊，請參閱 [Azure SQL Database 備份和還原](https://msdn.microsoft.com/library/azure/jj650016.aspx)。
@@ -225,5 +227,6 @@ Azure PowerShell 參考 若要查看本主題中使用之 Azure PowerShell Cmdle
 [New-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391027)
 
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

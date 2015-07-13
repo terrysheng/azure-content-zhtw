@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="建立 PHP-SQL Web 應用程式並使用 Git 部署至 Azure 應用程式服務" 
-	description="示範如何建立 PHP Web 應用程式將資料儲存於 Azure SQL Database 以及使用 Git 部署至 Azure 應用程式服務的教學課程。" 
+	pageTitle="建立 PHP-SQL Web 應用程式並使用 Git 部署至 Azure App Service" 
+	description="示範如何建立 PHP Web 應用程式將資料儲存於 Azure SQL Database 以及使用 Git 部署至 Azure App Service 的教學課程。" 
 	services="app-service\web, sql-database" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
@@ -16,7 +16,7 @@
 	ms.date="04/29/2015" 
 	ms.author="tomfitz"/>
 
-# 建立 PHP-SQL Web 應用程式並使用 Git 部署至 Azure 應用程式服務
+# 建立 PHP-SQL Web 應用程式並使用 Git 部署至 Azure App Service
 
 本教學課程會示範如何在 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中建立連線到 Azure SQL Database 的 PHP Web 應用程式，以及如何使用 Git 來部署它。本教學課程假設您的電腦上已安裝 [PHP][install-php]、[SQL Server Express][install-SQLExpress]、[Microsoft Drivers for SQL Server for PHP](http://www.microsoft.com/download/en/details.aspx?id=20098)、Web 伺服器和 [Git][install-git]。完成本指南的步驟後，您將擁有在 Azure 上運作的 PHP-SQL Web 應用程式。
 
@@ -24,7 +24,7 @@
 
 您將了解：
 
-* 如何使用 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)建立 Azure Web 應用程式和 SQL Database。由於預設會在應用程式服務 Web 應用程式上啟用 PHP，因此您不需要執行任何特殊步驟就能執行 PHP 程式碼。
+* 如何使用 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)建立 Azure Web 應用程式和 SQL Database。由於預設會在 App Service Web Apps 上啟用 PHP，因此您不需要執行任何特殊步驟就能執行 PHP 程式碼。
 * 如何使用 Git 來發行與重新發行應用程式到 Azure。
  
 依照本教學課程進行，您將使用 PHP 建置一個簡易的註冊網頁應用程式。該應用程式將在 Azure 網站中託管。完成之應用程式的螢幕擷取畫面如下：
@@ -39,17 +39,17 @@
 
 請遵循以下步驟來建立 Azure Web 應用程式與 SQL Database：
 
-1. 登入 [Azure Preview 入口網站](https://portal.azure.com/)。
+1. 登入 [Azure 預覽入口網站](https://portal.azure.com/)。
 
-2. 按一下 [**Marketplace**] 圖示，或按一下儀表板左下方的 [**新增**] 圖示，選取 [**Web + 行動**]，然後選取底部的 [**Azure Marketplace**] 以開啟 Azure Marketplace。
+2. 按一下 [Marketplace] 圖示，或按一下儀表板左下方的 [新增] 圖示，選取 [Web + 行動]，然後選取底部的 [Azure Marketplace] 以開啟 Azure Marketplace。
 	
-3. 在 Marketplace 中，選取 [**Web Apps**]。
+3. 在 Marketplace 中，選取 [Web Apps]。
 
-4. 按一下 [**Web 應用程式 + SQL**] 圖示。
+4. 按一下 [Web 應用程式 + SQL] 圖示。
 
-5. 讀取 Web 應用程式 + SQL 應用程式的描述之後，選取 [**建立**]。
+5. 讀取 Web 應用程式 + SQL 應用程式的描述之後，選取 [建立]。
 
-6. 按一下每個部分 (**資源群組**、[**Web 應用程式**]、[**資料庫**] 以及 [**訂閱**])，然後輸入或選取必填欄位的值：
+6. 按一下每個部分 (**資源群組**、[Web 應用程式]、[資料庫] 以及 [訂閱])，然後輸入或選取必填欄位的值：
 	
 	- 輸入您選擇的 URL 名稱	
 	- 設定資料庫伺服器認證
@@ -57,23 +57,23 @@
 
 	![設定您的應用程式](./media/web-sites-php-sql-database-deploy-use-git/configure-db-settings.png)
 
-7. 定義 Web 應用程式完成之後，按一下 [**建立**]。
+7. 定義 Web 應用程式完成之後，按一下 [建立]。
 
-	建立 Web 應用程式後，[**通知**] 按鈕便會閃爍綠色**成功**並開啟資源群組分頁，以顯示群組中的 Web 應用程式與 SQL 資料庫。
+	建立 Web 應用程式後，[通知] 按鈕便會閃爍綠色**成功**並開啟資源群組分頁，以顯示群組中的 Web 應用程式與 SQL 資料庫。
 
 4. 按一下資源群組分頁中的 Web 應用程式圖示，開啟 Web 應用程式分頁。
 
 	![Web 應用程式的資源群組](./media/web-sites-php-sql-database-deploy-use-git/resource-group-blade.png)
 
-5. 按一下 [**設定連續部署**] > [**選擇來源**]。選取 [**本機 Git 儲存機制**]，按一下 [**確定**]。
+5. 按一下 [設定連續部署**]**** > [選擇來源]**。選取 [本機 Git 儲存機制]，按一下 [確定]。
 
 	![where is your source code](./media/web-sites-php-sql-database-deploy-use-git/setup-local-git.png)
 
-	如果您從未設定 Git 儲存機制，則必須提供使用者名稱和密碼。若要這樣做，請按一下 Web 應用程式刀鋒視窗中的 [**設定部署認證**]。
+	如果您從未設定 Git 儲存機制，則必須提供使用者名稱和密碼。若要這樣做，請按一下 Web 應用程式刀鋒視窗中的 [設定部署認證]。
 
 	![](./media/web-sites-php-sql-database-deploy-use-git/deployment-credentials.png)
 
-6. [**設定連續部署**] 會變成 [**找不到部署**]。按一下以查看稍後部署 PHP 應用程式時需要使用的 Git 遠端 URL。
+6. [設定連續部署] 會變成 [找不到部署]。按一下以查看稍後部署 PHP 應用程式時需要使用的 Git 遠端 URL。
 
 ##取得 SQL Database 連線資訊
 
@@ -81,11 +81,11 @@
 
 1. 回到資源群組分頁，按一下 SQL 資料庫的圖示。
 
-2. 在 SQL 資料庫的分頁中，按一下 [**屬性**]，然後按一下 [**顯示資料庫連接字串**]。
+2. 在 SQL 資料庫的分頁中，按一下 [屬性]，然後按一下 [顯示資料庫連接字串]。
 
 	![檢視資料庫屬性](./media/web-sites-php-sql-database-deploy-use-git/view-database-properties.png)
 	
-3. 從所產生對話方塊的 [**PHP**] 區段中，請記下 `Server`、`SQL Database` 和 `User Name` 的值。稍後將 PHP Web 應用程式發行至 Azure 應用程式服務 時，您將使用這些值。
+3. 從所產生對話方塊的 [PHP] 區段中，請記下 `Server`、`SQL Database` 和 `User Name` 的值。稍後將 PHP Web 應用程式發行至 Azure App Service 時，您將使用這些值。
 
 ##在本機建置與測試您的應用程式
 
@@ -232,7 +232,7 @@
 
 ##發行您的應用程式
 
-當您在本機完成應用程式測試之後，就可以使用 Git 將其發行至應用程式服務 Web 應用程式。不過，您必須先更新應用程式中的資料庫連接資訊。使用您稍早取得的資料庫連線資訊 (在＜**取得 SQL Database 連線資訊**＞一節中)，將 `createdatabase.php` 和 `index.php` **兩者**檔案中的下列資訊都更新為適當的值：
+當您在本機完成應用程式測試之後，就可以使用 Git 將其發行至 App Service Web Apps。不過，您必須先更新應用程式中的資料庫連接資訊。使用您稍早取得的資料庫連線資訊 (在＜取得 SQL Database 連線資訊＞一節中)，將 `createdatabase.php` 和 `index.php`「兩者」檔案中的下列資訊都更新為適當的值：
 
 	// DB connection info
 	$host = "tcp:<value of Server>";
@@ -245,7 +245,7 @@
 
 現在，您可以準備設定 Git 發行，並發行應用程式。
 
-> [AZURE.NOTE]這些步驟與前述＜**建立 Azure Web 應用程式並設定 Git 發行功能**＞一節中最後面的步驟相同。
+> [AZURE.NOTE]這些步驟與前述＜建立 Azure Web 應用程式並設定 Git 發行功能＞一節中最後面的步驟相同。
 
 
 1. 開啟 GitBash (如果 Git 位於您的 `PATH`，則為終端機)，將目錄變更為應用程式的根目錄 (**registration** 目錄)，並執行下列命令：
@@ -258,8 +258,8 @@
 
 	系統會提示您輸入先前建立的密碼。
 
-2. 瀏覽至 **http://[web app name].azurewebsites.net/createtable.php**，建立應用程式的 SQL Database 資料表。
-3. 瀏覽至 **http://[web app name].azurewebsites.net/index.php**，開始使用應用程式。
+2. 瀏覽至 **http://[web 應用程式名稱].azurewebsites.net/createtable.php**，建立應用程式的 SQL Database 資料表。
+3. 瀏覽至 **http://[web 應用程式名稱].azurewebsites.net/index.php**，開始使用應用程式。
 
 發行應用程式之後，您可以開始對其進行變更，並使用 Git 來發行它們。
 
@@ -276,11 +276,11 @@
 
 	系統會提示您輸入先前建立的密碼。
 
-3. 瀏覽至 **http://[web app name].azurewebsites.net/index.php** 以查看您的變更。
+3. 瀏覽至 **http://[web 應用程式名稱].azurewebsites.net/index.php** 以查看您的變更。
 
 ## 變更的項目
-* 如需從網站變更為 App Service 的指南，請參閱：〈[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)〉
-* 如需從入口網站變更為預覽入口網站的指南，請參閱：〈[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)〉
+* 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 如需從入口網站變更為預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 

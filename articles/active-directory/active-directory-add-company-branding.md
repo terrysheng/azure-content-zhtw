@@ -185,4 +185,6 @@ Azure AD 中的部分可自訂元素有多個使用案例。公司標誌可以�
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

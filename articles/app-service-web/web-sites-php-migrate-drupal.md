@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="將 Drupal 移轉至 Azure 應用程式服務" 
-	description="將 Drupal PHP 網站移轉到 Azure 應用程式服務。" 
+	pageTitle="將 Drupal 移轉至 Azure App Service" 
+	description="將 Drupal PHP 網站移轉到 Azure App Service。" 
 	services="app-service\web" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
@@ -17,15 +17,15 @@
 	ms.author="tomfitz"/>
 
 
-# 將 Drupal 移轉至 Azure 應用程式服務
+# 將 Drupal 移轉至 Azure App Service
 
-因為 Azure 應用程式服務同時支援 PHP 與 MySQL，所以將 Drupal 網站移轉至 Azure 應用程式服務 Web 應用程式相當直接。而且，因為 Drupal 與 PHP 可在任何平台上執行，所以不論您目前的平台為何，此處理程序應可適用於將 Drupal 移至 Azure 應用程式服務 Web 應用程式。如此一來，Drupal 安裝可能大不相同，可能有一些未涵蓋於下列資料中的獨特移轉步驟。請注意，因為 Azure 應用程式服務不支援 Drush 工具，所以並未採用。
+因為 Azure App Service 同時支援 PHP 與 MySQL，所以將 Drupal 網站移轉至 Azure App Service Web Apps 相當直接。而且，因為 Drupal 與 PHP 可在任何平台上執行，所以不論您目前的平台為何，此處理程序應可適用於將 Drupal 移至 Azure App Service Web Apps。如此一來，Drupal 安裝可能大不相同，可能有一些未涵蓋於下列資料中的獨特移轉步驟。請注意，因為 Azure App Service 不支援 Drush 工具，所以並未採用。
 
-如果您正在移動大型而複雜的 Drupal 應用程式，另一個選項就是考慮使用 Azure 雲端服務。如需 App Service 與雲端服務之間差異的詳細資訊，請參閱＜<a href="http://go.microsoft.com/fwlink/?LinkId=310123">Azure App Service、雲端服務與 VM 使用時機</a>＞。如需將 Drupal 移至雲端服務的說明，請參閱＜<a href="http://blogs.msdn.com/b/brian_swan/archive/2012/03/19/azure-real-world-migrating-drupal-from-lamp-to-windows-azure.aspx">將 Drupal 網站從 LAMP 移轉至 Azure</a>＞。
+如果您正在移動大型而複雜的 Drupal 應用程式，另一個選項就是考慮使用 Azure 雲端服務。如需 App Service 與雲端服務之間差異的詳細資訊，請參閱<a href="http://go.microsoft.com/fwlink/?LinkId=310123">Azure App Service、雲端服務與 VM 使用時機</a>。如需將 Drupal 移至雲端服務的說明，請參閱<a href="http://blogs.msdn.com/b/brian_swan/archive/2012/03/19/azure-real-world-migrating-drupal-from-lamp-to-windows-azure.aspx">將 Drupal 網站從 LAMP 移轉至 Azure</a> (英文)。
  
 ## 建立 Web 應用程式和 MySQL 資料庫
 
-首先，先完成逐步解說教學課程，瞭解如何使用 MySQL 建立新的 Web 應用程式：＜[在 Azure App Service 中建立 PHP-MySQL Web 應用程式，再使用 Git 部署][]＞。如果您打算使用 Git 來發行 Drupal 網站，請遵循教學課程中說明如何設定 Git 儲存機制的步驟。請務必遵循＜**取得遠端 MySQL 連線資訊**＞一節中的指示，因為您稍後會需要該資訊。您可以為了部署 Drupal 網站而忽略其餘的教學課程，但如果這是您第一次使用 Azure 應用程式服務 (和 Git)，您可能會發現發現其他有用文章。
+首先，先完成逐步解說教學課程，瞭解如何使用 MySQL 建立新的 Web 應用程式：[在 Azure App Service 中建立 PHP-MySQL Web 應用程式並使用 Git 部署][]。如果您打算使用 Git 來發行 Drupal 網站，請遵循教學課程中說明如何設定 Git 儲存機制的步驟。請務必遵循＜**取得遠端 MySQL 連線資訊**＞一節中的指示，因為您稍後會需要該資訊。您可以為了部署 Drupal 網站而忽略其餘的教學課程，但如果這是您第一次使用 Azure App Service (和 Git)，您可能會發現發現其他有用文章。
 
 設定採用 MySQL 資料庫的新 Web 應用程式之後，您現在即可取得 MySQL 資料庫連線資訊和 (選用) Git 儲存機制。下一步是將資料庫複製到 Web 應用程式的 MySQL 資料庫。
 
@@ -81,19 +81,19 @@
 
 如需詳細資訊，請參閱下列文章和主題：
 
-- [Azure App Service Web Apps - PHP 觀點][]
+- [Azure App Service Web Apps - PHP 觀點][] (英文)
 - [Azure App Service、雲端服務與 VM 使用時機][]
-- [使用 .user.ini 檔案在 Azure App Service Web Apps 中設定 PHP][]
-- [Azure 整合模組](https://drupal.org/project/azure_auth)
-- [Azure Blob 儲存體模組](https://drupal.org/project/azure_blob)
+- [使用 .user.ini 檔案在 Azure App Service Web Apps 中設定 PHP][] (英文)
+- [Azure 整合模組](https://drupal.org/project/azure_auth) (英文)
+- [Azure Blob 儲存體模組](https://drupal.org/project/azure_blob) (英文)
 
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ## 變更的項目
-* 如需從網站變更為 App Service 的指南，請參閱：〈[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)〉
-* 如需從入口網站變更為預覽入口網站的指南，請參閱：〈[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)〉
+* 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 如需從入口網站變更為預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-  [在 Azure App Service 中建立 PHP-MySQL Web 應用程式，再使用 Git 部署]: /develop/php/tutorials/website-w-mysql-and-git/
+  [在 Azure App Service 中建立 PHP-MySQL Web 應用程式並使用 Git 部署]: /develop/php/tutorials/website-w-mysql-and-git/
   
   [Azure App Service Web Apps - PHP 觀點]: http://blogs.msdn.com/b/silverlining/archive/2012/06/12/windows-azure-websites-a-php-perspective.aspx
   [Azure App Service、雲端服務與 VM 使用時機]: http://go.microsoft.com/fwlink/?LinkId=310123

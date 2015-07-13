@@ -63,4 +63,4 @@ BizTalk XPath 擷取連接器可協助您的應用程式根據指定的 XPath �
 <!-- Links -->
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -42,7 +42,7 @@ App Service 平台提供適用於 Web 應用程式設定的彈性和控制。雖
 	</configuration>
 
 
-從 FTP 根目錄的 LogFiles\\Transform 之下可取得含有轉換狀態和詳細資料的記錄檔案。
+從 FTP 根目錄的 LogFiles\Transform 之下可取得含有轉換狀態和詳細資料的記錄檔案。
 
 如需其他範例，請參閱＜[https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)＞。
 
@@ -55,9 +55,9 @@ App Service 平台提供適用於 Web 應用程式設定的彈性和控制。雖
 
 App Service 支援使用 Web 應用程式擴充功能做為系統管理動作的擴充點。事實上，有些 App Service 平台功能已當作預先安裝的擴充功能來實作。雖然您無法修改預先安裝的平台擴充功能，但可建立和設定自己 Web 應用程式的私人擴充功能。這項功能也會依賴 XDT 宣告。建立私人 Web 應用程式擴充功能的主要步驟如下：
 
-1. Web 應用程式擴充功能的「內容」****：建立任何 App Service 所支援的 Web 應用程式
-2. Web 應用程式擴充功能的「宣告」****：建立 ApplicationHost.xdt 檔案
-3. Web 應用程式擴充功能的「部署」****：將內容放置於 `root` 下方的 SiteExtensions 資料夾中
+1. Web 應用程式擴充功能的「內容」：建立任何 App Service 所支援的 Web 應用程式
+2. Web 應用程式擴充功能的「宣告」：建立 ApplicationHost.xdt 檔案
+3. Web 應用程式擴充功能的「部署」：將內容放置於 `root` 下方的 SiteExtensions 資料夾中
 
 Web 應用程式的內部連結應指向在 ApplicationHost.xdt 檔案中指定之應用程式路徑的相對路徑。對 ApplicationHost.xdt 檔案所做的任何變更都需要回收 Web 應用程式。
 
@@ -81,7 +81,7 @@ PHP Manager 擴充功能是使用 Visual Studio ASP.NET MVC 4 Web 應用程式�
 
 ![TransformSiteSolEx][TransformSiteSolEx]
 
-檔案 I/O 所需的唯一特殊邏輯就是指出 Web 應用程式的 wwwroot 目錄位於何處。如下列程式碼範例所示，環境變數 "HOME" 表示 Web 應用程式的根路徑，而附加 "site\\wwwroot" 即可建構 wwwroot 路徑：
+檔案 I/O 所需的唯一特殊邏輯就是指出 Web 應用程式的 wwwroot 目錄位於何處。如下列程式碼範例所示，環境變數 "HOME" 表示 Web 應用程式的根路徑，而附加 "site\wwwroot" 即可建構 wwwroot 路徑：
 
 	/// <summary>
 	/// Gives the location of the .user.ini file, even if one doesn't exist yet
@@ -112,7 +112,7 @@ Web 應用程式擴充功能中值得注意的一點與內部連結的處理有�
 
 ####<a id="XDT"></a> applicationHost.xdt 檔案
 
-Web 應用程式擴充功能的程式碼位於 %HOME%\\SiteExtensions[your-extension-name] 之下。我們將此稱為擴充功能根目錄。
+Web 應用程式擴充功能的程式碼位於 %HOME%\SiteExtensions[your-extension-name] 之下。我們將此稱為擴充功能根目錄。
 
 若要使用 applicationHost.config 檔案登錄您的 Web 應用程式擴充功能，您必須將名為 ApplicationHost.xdt 的檔案放在擴充功能根目錄中。ApplicationHost.xdt 檔案的內容應如下所示：
 
@@ -178,5 +178,6 @@ Web 應用程式擴充功能的程式碼位於 %HOME%\\SiteExtensions[your-exten
 <!-- IMAGES -->
 [TransformSitePHPUI]: ./media/web-sites-transform-extend/TransformSitePHPUI.png
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

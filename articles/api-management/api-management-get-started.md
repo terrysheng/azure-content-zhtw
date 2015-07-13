@@ -67,7 +67,7 @@ Azure API 管理可讓您使用任何後端，並啟用以該後端為基礎的�
 
 針對 [URL]，請指定要用於服務 URL 的唯一子網域名稱。
 
-針對您的服務執行個體，選擇需要的 [訂用帳戶] 和 [地區]。進行您的選擇之後，請按下一步按鈕。
+針對您的服務執行個體，選擇需要的 [**訂用帳戶**] 和 [**地區**]。進行您的選擇之後，請按下一步按鈕。
 
 ![New API Management service][api-management-create-instance-step1]
 
@@ -77,7 +77,7 @@ Azure API 管理可讓您使用任何後端，並啟用以該後端為基礎的�
 
 ![New API Management service][api-management-create-instance-step2]
 
-API 管理服務執行個體共有三種層次：開發人員、標準和高階。根據預設，會使用「開發人員」層次建立新的「API 管理」服務執行個體。若要選取「標準」或「高階」層次，請核取 [進階設定] 核取方塊，然後在接下來的畫面中選取所需的層次。
+API 管理服務執行個體共有三種層次：開發人員、標準和高階。根據預設，會使用「開發人員」層次建立新的「API 管理」服務執行個體。若要選取「標準」或「高階」層次，請核取 [**進階設定**] 核取方塊，然後在接下來的畫面中選取所需的層次。
 
 >Microsoft Azure 提供三種供您執行 API 管理服務的層次：開發人員、標準和高階。「開發人員」層次可用來針對不注重高可用性的 API 程式進行開發、測試及試驗。在「標準」和「高階」層次中，您可以調整保留的單位計數以處理更多流量。「標準」和「高階」層次可為您的 API 管理服務提供最高的處理能力和效能。您可以使用任一層次來完成本教學課程。如需關於 API 管理層次的詳細資訊，請參閱 [API 管理定價][]。
 
@@ -95,11 +95,11 @@ API 包含可自用戶端應用程式叫用的一組作業。API 作業會代理
 
 >如需建立 API 和手動加入作業的指引，請參閱[如何建立 API](api-management-howto-create-apis.md) 和[如何將作業加入至 API](api-management-howto-add-operations.md)。
 
-您必須在 API 發行者入口網站中設定 API，要存取此入口網站需經由 Azure 管理入口網站。若要存取發行者入口網站，請在 Azure 入口網站中，針對您的 API 管理服務按一下 [管理]。
+您必須在 API 發行者入口網站中設定 API，要存取此入口網站需經由 Azure 管理入口網站。若要存取發行者入口網站，請在 Azure 入口網站中，針對您的 API 管理服務按一下 [**管理**]。
 
 ![發行者入口網站][api-management-management-console]
 
-若要匯入計算機 API，請從左邊的 [API 管理] 功能表中按一下 [API]，然後按一下 [匯入 API]。
+若要匯入計算機 API，請從左邊的 [**API 管理**] 功能表中按一下 [**API**]，然後按一下 [**匯入 API**]。
 
 ![匯入 API 按鈕][api-management-import-api]
 
@@ -107,15 +107,15 @@ API 包含可自用戶端應用程式叫用的一組作業。API 作業會代理
 
 執行下列步驟以設定計算機 API。
 
-1. 按一下 [從 URL]，在 [規格文件 URL] 文字方塊中輸入 **http://calcapi.cloudapp.net/calcapi.json**，然後按一下 [Swagger] 選項按鈕。2. 在 [Web API URL 尾碼] 文字方塊中輸入 **calc**。
-3. 按一下 [產品 (選擇性)] 方塊，然後選擇 [入門]。
-4. 按一下 [儲存] 匯入 API。
+1. 按一下 [**從 URL**]，在 [**規格文件 URL**] 文字方塊中輸入 **http://calcapi.cloudapp.net/calcapi.json**，然後按一下 [**Swagger**] 選項按鈕。2. 在 [**Web API URL 尾碼**] 文字方塊中輸入 **calc**。
+3. 按一下 [**產品 (選擇性)**] 方塊，然後選擇 [**入門**]。
+4. 按一下 [**儲存**] 匯入 API。
 
 匯入 API 之後，API 的摘要頁面隨即會顯示在發行者入口網站中。
 
 ![API summary][api-management-imported-api-summary]
 
-API 區段有一些索引標籤。[摘要] 索引標籤顯示基本度量和 API 的相關資訊。[設定](api-management-howto-create-apis.md#configure-api-settings)索引標籤可用來檢視和編輯 API 的組態。[作業](api-management-howto-add-operations.md)索引標籤可用來管理 API 的作業。[安全性] 索引標籤可用來將後端伺服器的 Proxy 驗證設定為使用基本驗證或[相互憑證驗證](api-management-howto-mutual-certificates.md)，以及用來設定[使用 OAuth 2.0 的使用者授權](api-management-howto-oauth2.md)。[問題] 索引標籤可用來檢視使用您 API 之開發人員所回報的問題，而 [產品] 索引標籤則可用來設定含有此 API 的產品。
+API 區段有一些索引標籤。[**摘要**] 索引標籤顯示基本度量和 API 的相關資訊。[設定](api-management-howto-create-apis.md#configure-api-settings)索引標籤可用來檢視和編輯 API 的組態。[作業](api-management-howto-add-operations.md)索引標籤可用來管理 API 的作業。[**安全性**] 索引標籤可用來將後端伺服器的 Proxy 驗證設定為使用基本驗證或[相互憑證驗證](api-management-howto-mutual-certificates.md)，以及用來設定[使用 OAuth 2.0 的使用者授權](api-management-howto-oauth2.md)。[**問題**] 索引標籤可用來檢視使用您 API 之開發人員所回報的問題，而 [**產品**] 索引標籤則可用來設定含有此 API 的產品。
 
 依預設，每個 API 管理執行個體會隨附兩個範例產品：
 
@@ -128,31 +128,31 @@ API 區段有一些索引標籤。[摘要] 索引標籤顯示基本度量和 API
 
 ## <a name="call-operation"> </a>從開發人員入口網站呼叫作業
 
-您可以從開發人員入口網站直接呼叫作業，以便檢視和測試 API 的操作。在本教學課程步驟中，您會呼叫 **Basic Calculator** API 的 **Add two integers** 作業。從發行者入口網站右上角的功能表中，按一下 [開發人員入口網站]。
+您可以從開發人員入口網站直接呼叫作業，以便檢視和測試 API 的操作。在本教學課程步驟中，您會呼叫 **Basic Calculator** API 的 **Add two integers** 作業。從發行者入口網站右上角的功能表中，按一下 [**開發人員入口網站**]。
 
 ![開發人員入口網站][api-management-developer-portal-menu]
 
-按一下上方功能表中的 [API]，然後按一下 [Basic Calculator] 查看可用的作業。
+按一下上方功能表中的 [**API**]，然後按一下 [**Basic Calculator**] 查看可用的作業。
 
 ![開發人員入口網站][api-management-developer-portal-calc-api]
 
 請記下和 API 及作業一起匯入的範例說明與參數，為要使用此作業的開發人員提供文件。手動加入作業時，也可以加入這些說明。
 
-若要呼叫 **Add two integers** 作業，請按一下 [試試看]。
+若要呼叫 **Add two integers** 作業，請按一下 [**試試看**]。
 
 ![試試看][api-management-developer-portal-calc-api-console]
 
-您可以輸入一些參數值，或保留預設值，然後按一下 [傳送]。
+您可以輸入一些參數值，或保留預設值，然後按一下 [**傳送**]。
 
 ![HTTP Get][api-management-invoke-get]
 
-叫用作業之後，開發人員入口網站會顯示 [回應狀態]、[回應標頭]，以及任何的 [回應內容]。
+叫用作業之後，開發人員入口網站會顯示 [**回應狀態**]、[**回應標頭**]，以及任何的 [**回應內容**]。
 
 ![Response][api-management-invoke-get-response]
 
 ## <a name="view-analytics"> </a>檢視分析
 
-若要檢視 **Basic Calculator** 的分析，請從開發人員入口網站右上角的功能表中選取 [管理]，以切換回發行者入口網站。
+若要檢視 **Basic Calculator** 的分析，請從開發人員入口網站右上角的功能表中選取 [**管理**]，以切換回發行者入口網站。
 
 ![管理][api-management-manage-menu]
 

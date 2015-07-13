@@ -88,7 +88,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 ![][3]
 
-您會有相同名稱的使用者帳戶，一個在 Azure AD 中，另一個在消費者 Microsoft 帳戶系統中。您應該挑選您要使用且與 Azure 訂用帳戶相關聯的帳戶。如果您收到錯誤訊息指出此使用者的訂用帳戶不存在，您很有可能只是選錯選項。登出然後再試一次。如需有關可能阻止登入的錯誤詳細資訊，請參閱[疑難排解「我們找不到與您帳戶相關聯的任何訂用帳戶」錯誤](https://social.msdn.microsoft.com/Forums/en-US/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement)。
+您會有相同名稱的使用者帳戶，一個在 Azure AD 中，另一個在消費者 Microsoft 帳戶系統中。您應該挑選您要使用且與 Azure 訂用帳戶相關聯的帳戶。如果您收到錯誤訊息指出此使用者的訂用帳戶不存在，您很有可能只是選錯選項。登出然後再試一次。如需有關可能阻止登入的錯誤詳細資訊，請參閱[疑難排解「我們找不到與您帳戶相關聯的任何訂用帳戶」錯誤](https://social.msdn.microsoft.com/Forums/zh-tw/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement)。
 
 ## 在 Azure 中管理 Office 365 訂用帳戶的目錄。
 
@@ -124,4 +124,6 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

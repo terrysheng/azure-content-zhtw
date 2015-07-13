@@ -387,7 +387,7 @@
 
 ##<a name="caching"></a>作法：驗證使用者
 
-行動服務支援使用各種外部識別提供者 (Facebook、Google、Microsoft 帳戶以及 Twitter) 來驗證與授權應用程式使用者。您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。您也可以在伺服器指令碼中，使用驗證的使用者的身分識別來實作授權規則。如需詳細資訊，請參閱[開始使用驗證]教學課程。
+行動服務支援使用各種外部識別提供者 (Facebook、Google、Microsoft 帳戶以及 Twitter) 來驗證與授權應用程式使用者。您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。您也可以使用通過驗證使用者的身分識別來實作伺服器指令碼中的授權規則。如需詳細資訊，請參閱 [開始使用驗證] 教學課程。
 
 >[AZURE.NOTE]在 PhoneGap 或 Cordova 應用程式中使用驗證時，您必須也將下列外掛程式新增至專案：
 >
@@ -400,7 +400,7 @@
 ###伺服器流程
 若要讓行動服務管理 Windows 市集或 HTML5 應用程式中的驗證程序，您必須向身分識別提供者註冊應用程式。接著在您的行動服務中，您必須設定提供者所提供的應用程式 ID 和密碼。如需詳細資訊，請參閱[將驗證新增至您的應用程式](mobile-services-html-get-started-users.md)教學課程。
 
-在註冊識別提供者之後，您只需使用提供者的 [MobileServiceAuthenticationProvider] 值來呼叫 [LoginAsync 方法]即可。例如，若要以 Facebook 登入，請使用下列程式碼。
+註冊身分識別提供者之後，請直接以提供者的 MobileServiceAuthenticationProvider 值來呼叫 LoginAsync 方法。例如，若要以 Facebook 登入，請使用下列程式碼。
 
 	client.login("facebook").done(function (results) {
 	     alert("You are now logged in as: " + results.userId);
@@ -410,7 +410,7 @@
 
 如果您使用的身分識別提供者不是 Facebook，請將傳遞至上述 `login` 方法的值，變更為下列其中一個值：`microsoftaccount`、`facebook`、`twitter`、`google` 或 `windowsazureactivedirectory`。
 
-在此案例中，行動服務透過顯示所選提供者的登入頁面，並在使用識別提供者成功登入後產生行動服務驗證權杖的方式，來管理 OAuth 2.0 驗證流程。[login] 函數完成時會傳回 JSON 物件 (**user**)，此物件會在 **userId** 和 **authenticationToken** 欄位中分別顯示使用者識別碼和行動服務驗證權杖。您可以快取並重複使用此權杖，直到它到期為止。如需詳細資訊，請參閱[快取驗證權杖]。
+在此案例中，行動服務透過顯示所選提供者的登入頁面，並在使用識別提供者成功登入後產生行動服務驗證權杖的方式，來管理 OAuth 2.0 驗證流程。[login] 函數完成時會傳回 JSON 物件 (**user**)，此物件會在 **userId** 和 **authenticationToken** 欄位中分別顯示使用者識別碼和行動服務驗證權杖。您可以快取並重複使用此權杖，直到它到期為止。如需詳細資訊，請參閱「快取驗證權杖」。
 
 > [AZURE.NOTE]**Windows 市集應用程式** 使用 Microsoft 帳戶登入提供者來驗證 Windows 市集應用程式的使用者時，也應該向行動服務註冊應用程式封裝。向行動服務註冊 Windows 市集應用程式封裝資訊之後，用戶端就能夠重複使用 Microsoft 帳戶登入認證來享受單一登入的方便性。如果您沒有執行此動作，Microsoft 帳戶登入使用者會在每次呼叫登入方法時j都會看到登入提示。若要了解如何註冊 Windows 市集應用程式封裝，請參閱[註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank")。向行動服務註冊封裝資訊之後，請呼叫 [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") 方法，並在 <em>useSingleSignOn</em> 參數中提供 **true** 值以重複使用認證。
 
@@ -444,7 +444,7 @@
 	     alert("Error: " + err);
 	});
 
-此範例假設個別提供者 SDK 所提供的權杖儲存在 `token` 變數中。目前還無法使用 Twitter 進行用戶端驗證。
+此範例假設個別提供者 SDK 所提供的權杖儲存在 `token` 變數中。目前還無法使用 Twitter 進行用戶端驗證。目前 Microsoft Azure Active Directory 無法與 JavaScript 後端搭配使用來進行用戶端驗證。
 
 ###快取驗證權杖
 在某些情況下，可在使用者第一次驗證之後避免呼叫 login 方法。使用者第一次登入時，我們可以使用 [sessionStorage] 或 [localStorage] 來快取目前的使用者身分識別，然後在後續每次登入時，我們就檢查快取中是否已經有使用者身分識別。如果快取是空的，或呼叫失敗 (表示目前的登入工作階段已過期)，我們仍然需要完成登入程序。
@@ -606,5 +606,6 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData 系統查詢選項參考]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 [從用戶端呼叫自訂 API]: mobile-services-html-call-custom-api.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

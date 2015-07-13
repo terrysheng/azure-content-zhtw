@@ -4,11 +4,11 @@
 
 2. 開啟 Android Studio。如果您正在使用專案，而它出現的話，請關閉專案 ([檔案] => [關閉專案])。
 
-3. 選取 [開啟現有的 Android Studio 專案]****，瀏覽至專案位置，然後按一下 [確定]****。
+3. 選取 [開啟現有的 Android Studio 專案]，瀏覽至專案位置，然後按一下 [確定]。
 
  	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
 
-4. 在左側 [專案總管]**** 視窗中，確定已選取 [專案]** 索引標籤，然後依序開啟 [app]****、[src]****、[java]****，並連按兩下 [ToDoactivity]****。
+4. 在左側 [專案總管] 視窗中，確定已選取 [專案] 索引標籤，然後依序開啟 [app]、[src]、[java]，並連按兩下 [ToDoactivity]。
 
    	![](./media/mobile-services-android-get-started/Android-Studio-quickstart.png)
 
@@ -19,19 +19,19 @@
 	- 	以您行動服務的金鑰取代 "AppKey"。
 	- 	如需詳細資訊，請參閱教學課程[將行動服務新增至現有的應用程式](../articles/mobile-services/mobile-services-android-get-started-data.md)。 
 
-6. 從 [執行]**** 功能表中，按一下 [執行]**** 在 Android 模擬器中啟動專案。
+6. 從 [執行] 功能表中，按一下 [執行] 在 Android 模擬器中啟動專案。
 
 	> [AZURE.IMPORTANT]若要能夠在 Android 模擬器中執行此專案，您必須至少定義一個 Android 虛擬裝置 (AVD)。請使用 AVD 管理員來建立和管理這些裝置。
 
-7. 在應用程式中輸入有意義的文字 (例如 _Complete the tutorial_)，然後按一下 [新增]****。
+7. 在應用程式中輸入有意義的文字 (例如 _Complete the tutorial_)，然後按一下 [新增]。
 
    	![][10]
 
-   	如此會傳送 POST 要求到 Azure 中代管的新行動服務。Data from the request is inserted into the TodoItem table.Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+   	如此會傳送 POST 要求到 Azure 中代管的新行動服務。要求中的資料會插入 TodoItem 資料表中。Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
 	> [AZURE.NOTE]您可以檢閱存取行動服務來查詢和插入資料的程式碼，這可以在 ToDoActivity.java 檔案中找到。
 
-8. 回到管理入口網站中，按一下 [資料]**** 索引標籤，然後按一下 [TodoItems]**** 資料表。
+8. 回到管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 資料表。
 
    	![](./media/mobile-services-android-get-started/mobile-data-tab1.png)
 
@@ -60,4 +60,5 @@
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
-<!--HONumber=54-->
+
+<!---HONumber=62-->

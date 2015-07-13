@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="06/05/2015" 
 	ms.author="ricksal"/>
 
 
@@ -73,7 +73,7 @@
 
 - 第二個引數一律是 [user 物件][User object]，此物件表示提交要求的使用者。
 
-- 第三個引數一律是 [request 物件][Request object]，您以此物件控制要求之作業的執行以及傳送給用戶端的回應。
+- 第三個引數一律是 [request 物件][request object]，您以此物件控制要求之作業的執行以及傳送給用戶端的回應。
 
 以下是資料表作業的標準主要函數特徵：
 
@@ -96,7 +96,7 @@
 	
 	若要知道怎麼做，請參閱[使用伺服器指令碼驗證及修改行動服務中的資料]。
 
-+ 使用原始檔控制。啟用原始檔控制後，只要在 git 儲存機制的 .\\service\\table 子資料夾中建立名為 <em>`<table>`</em>.<em>`<operation>`</em>.js 的檔案，其中 <em>`<table>`</em> 是資料表的名稱，而 <em>`<operation>`</em> 是所註冊的資料表作業。如需詳細資訊，請參閱[原始檔控制與共用程式碼][Source control, shared code, and helper functions]。
++ 使用原始檔控制。啟用原始檔控制後，只要在 git 儲存機制的 .\service\table 子資料夾中建立名為 <em>`<table>`</em>.<em>`<operation>`</em>.js 的檔案，其中 <em>`<table>`</em> 是資料表的名稱，而 <em>`<operation>`</em> 是所註冊的資料表作業。如需詳細資訊，請參閱[原始檔控制與共用程式碼][Source control, shared code, and helper functions]。
 
 + 從命令提示字元使用 Azure 命令列工具。如需詳細資訊，請參閱[使用命令列工具]。
 
@@ -227,8 +227,8 @@
 
 `id` 的值必須是唯一的，且不可包含下列字元集中的字元：
 
-+ 控制字元：[0x0000-0x001F] 和 [0x007F-0x009F]如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set) (英文)。
-+  可列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?** (0x003F)、**\** (0x005C)、**`** (0x0060)
++ 控制字元：[0x0000-0x001F] 和 [0x007F-0x009F]。如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set) (英文)。
++  可列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?** (0x003F)、**** (0x005C)、**`** (0x0060)
 +  識別碼 "." 和 ".."
 
 您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表](../virtual-machines-command-line-tools.md#Mobile_Tables) (英文)。
@@ -337,13 +337,13 @@
 
 您可以用下列方式之一，定義註冊到自訂 API 端點中 HTTP 方法的伺服器指令碼：
 
-+ 使用 [Azure 管理入口網站][Management Portal]。在 [API] 索引標籤中建立及修改自訂 API 指令碼。伺服器指令碼位於指定自訂 API 的 [指令碼]  索引標籤下。以下是 POST 要求對 `CompleteAll` 自訂 API 端點叫用的指令碼。 
++ 使用 [Azure 管理入口網站][Management Portal]。在 [API] 索引標籤中建立及修改自訂 API 指令碼。伺服器指令碼位於指定自訂 API 的 [指令碼] 索引標籤下。以下是 POST 要求對 `CompleteAll` 自訂 API 端點叫用的指令碼。 
 
 	![2][2]
 	
 	在 [權限] 索引標籤中指派對自訂 API 方法的存取權限。若要了解此自訂 API 是如何建立的，請參閱[從用戶端呼叫自訂 API]。
 
-+ 使用原始檔控制。啟用原始檔控制後，只要在 git 儲存機制的 .\\service\\api 子資料夾中建立名為 <em>`<custom_api>`</em>.js 的檔案，其中 <em>`<custom_api>`</em> 是所註冊之自訂 API 的名稱。此指令碼檔案包含 _exported_ 函數，用於自訂 API 公開的每個 HTTP 方法。權限是在伴隨的 .json 檔案中定義。如需詳細資訊，請參閱[原始檔控制與共用程式碼][Source control, shared code, and helper functions]。
++ 使用原始檔控制。啟用原始檔控制後，只要在 git 儲存機制的 .\service\api 子資料夾中建立名為 <em>`<custom_api>`</em>.js 的檔案，其中 <em>`<custom_api>`</em> 是所註冊之自訂 API 的名稱。此指令碼檔案包含 _exported_ 函數，用於自訂 API 公開的每個 HTTP 方法。權限是在伴隨的 .json 檔案中定義。如需詳細資訊，請參閱[原始檔控制與共用程式碼][Source control, shared code, and helper functions]。
 
 + 從命令提示字元使用 Azure 命令列工具。如需詳細資訊，請參閱[使用命令列工具]。
 
@@ -462,7 +462,7 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 
 + 從命令提示字元使用 Azure 命令列工具。如需詳細資訊，請參閱[使用命令列工具]。
 
->[AZURE.NOTE]啟用原始檔控制後，可以直接在 git 儲存機制的 .\\service\\scheduler 子資料夾中編輯排程工作指令碼。如需詳細資訊，請參閱[作法：使用原始檔控制共用程式碼]。
+>[AZURE.NOTE]啟用原始檔控制後，可以直接在 git 儲存機制的 .\service\scheduler 子資料夾中編輯排程工作指令碼。如需詳細資訊，請參閱[作法：使用原始檔控制共用程式碼]。
 
 ##<a name="shared-code"></a>原始檔控制、共用程式碼及協助程式函數
 
@@ -654,7 +654,7 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 
 若要從指令碼存取資料表，最簡單的作法是使用 [tables 物件]。**getTable** 函數會傳回 [table 物件]執行個體，此執行個體是存取要求之資料的 Proxy。然後您可以呼叫 Proxy 上的函數來存取及變更資料。
 
-同時註冊到資料表作業和排程工作的指令碼可以存取 [tables 物件]，如同全域物件。這一行程式碼會從全域 [tables 物件]取得 *[TodoItems]* 資料表的 Proxy：
+同時註冊到資料表作業和排程工作的指令碼可以存取 [tables 物件]，如同全域物件。這一行程式碼會從全域 *tables 物件*取得 [TodoItems] 資料表的 Proxy：
 
 		var todoItemsTable = tables.getTable('TodoItems');
 
@@ -818,7 +818,7 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 + [作法：執行靜態查詢]
 + [作法：執行動態查詢]
 + [作法：聯結關聯式資料表]
-+ [作法：執行查詢並傳回未經處理**的結果]
++ [作法：執行查詢並傳回未經處理的結果]
 + [作法：取得對資料庫連線的存取權]	
 
 ####<a name="static-query"></a>作法：執行靜態查詢
@@ -881,7 +881,7 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 		{ text: 'Take out the trash', complete: false, description: 'Critical'}
 
 
-####<a name="raw"></a>作法：執行查詢並傳回未經處理**的結果
+####<a name="raw"></a>作法：執行查詢並傳回未經處理的結果
 
 此範例會如同前文所述執行查詢，但傳回未經處理格式的結果集，您需要逐列逐欄剖析結果集。可能的應用案例之一，是您需要存取行動服務不支援的資料類型。此程式碼只會將輸出寫入主控台記錄檔，因此您可以檢查未經處理的格式。
 
@@ -981,7 +981,7 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 [使用 Transact-SQL 存取資料表]: #TSQL
 [作法：執行靜態查詢]: #static-query
 [作法：執行動態查詢]: #dynamic-query
-[作法：執行查詢並傳回未經處理**的結果]: #raw
+[作法：執行查詢並傳回未經處理的結果]: #raw
 [作法：取得對資料庫連線的存取權]: #connection
 [作法：聯結關聯式資料表]: #joins
 [作法：執行大量插入]: #bulk-inserts
@@ -1079,5 +1079,6 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 [應用程式設定]: http://msdn.microsoft.com/library/dn529070.aspx
 [config module]: http://msdn.microsoft.com/library/dn508125.aspx
 [Azure 行動服務對 package.json 的支援]: http://go.microsoft.com/fwlink/p/?LinkId=391036
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

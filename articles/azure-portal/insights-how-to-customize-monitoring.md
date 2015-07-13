@@ -1,72 +1,76 @@
 <properties 
-	pageTitle="如何自訂監視" 
+	pageTitle="監視服務計量" 
 	description="了解如何在 Azure 自訂監視圖表。" 
-	authors="alancameronwills" 
-	manager="kamrani" 
+	authors="stepsic-microsoft-com" 
+	manager="ronmart" 
 	editor="" 
-	services="application-insights" 
-	documentationCenter=""/>
+	services="azure-portal"
+documentationCenter=""/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
+	ms.service="azure-portal" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2014-11-04" 
-	ms.author="awills"/>
+	ms.date="04/28/2015" 
+	ms.author="stepsic"/>
 
-# 自訂監視
+# 監視服務計量
 
-Azure 應用程式有各種可監視的度量，而且您可以在選擇的一段期間將它們繪製成圖表。
+所有的 Azure 服務都會追蹤重要計量，可讓您監視服務的健全狀況、效能、可用性和使用情況。您可以在 Azure 入口網站中檢視這些計量，而且您也可以使用 [REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx) 或 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) 以程式設計方式存取完整的計量集合。
 
-1. 在 [Azure 入口網站預覽](https://portal.azure.com/) 中，按一下 [**瀏覽**]，然後按一下您有興趣監視的資源。
-2. [**監視**] 透鏡中含有每個 Azure 資源最重要的度量。例如，網站就有「要求」、「錯誤」、「[Web 測試](http://go.microsoft.com/fwlink/?LinkID=394528&clcid=0x409)」和「[分析](http://go.microsoft.com/fwlink/?LinkID=394529&clcid=0x409)」。按一下 [**今天的要求和錯誤**] 組件將會顯示 [**度量**] 分頁。  
-    ![Monitoring lens](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
-3. [**度量**] 分頁會顯示所選度量的詳細資料。分頁頂端會有一個圖形，圖形下會有一個資料表顯示這些度量的彙總，例如平均值、最小值和最大值。該資料表下會列出您所定義的警示 (依照分頁上顯示的度量進行篩選)。如此，即使您有許多警示，在此您也只會看見關聯性較高者。您仍可檢視網站的所有警示，只要按一下 [**網站**] 分頁上的 [**警示規則**] 組件即可。  
-    ![Metric blade](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
-4. 若要自訂要顯示的度量，請以滑鼠右鍵按一下圖表，然後選取 [**編輯查詢**]：  
-    ![Edit Query](./media/insights-how-to-customize-monitoring/Insights_MetricMenu.png)
-5. 在 [編輯查詢] 分頁上，您可以執行兩個動作：變更時間範圍和選擇不同的度量。  
-    ![Edit Query](./media/insights-how-to-customize-monitoring/Insights_EditQuery.png)
-6. 變更時間範圍十分容易，只要選取不同的範圍 (例如 [**Past Hour**])，再按一下分頁底部的 [**儲存**] 即可。您也可以選擇 [**自訂**]，這是 [入口網站預覽] 的新功能：  
-    ![Custom time range](./media/insights-how-to-customize-monitoring/Insights_CustomTime.png)
-7. [自訂] 可讓您選擇過去 2 週的任何一段期間，例如，您可以完整檢視這兩週，或僅檢視昨天的某 1 小時。請在文字方塊中輸入不同的小時。
-8. 在時間範圍下，您可以選擇任何要顯示在圖表上的度量數。您可以檢視某些新度量：[**記憶體工作集**] 和 [**平均記憶體工作集**]。
+在某些服務中，您可能需要開啟診斷，才能查看任何計量。在其他服務中 (例如虛擬機器)，您將會取得基本的計量集合，但需要啟用完整的高頻率計量集合。若要深入了解，請參閱[啟用監視和診斷](insights-how-to-use-diagnostics.md)。
 
-9. 如果您按一下 [儲存]，您的變更將會保留到您退出網站分頁為止。當您後續返回頁面時，您將會看見原有的度量和時間範圍。
+## 使用監視圖表 
 
-## 監視新資源
+您可以製作任何選擇時間期間上的計量圖表。
 
-監視各種新資源的效能度量是 Azure 入口網站預覽的新功能，包括：
-- Web 主控方案
-- Redis 快取
-- DocumentDB 帳戶
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [**瀏覽**]，然後按一下您有興趣監視的資源。
 
-Web 主控方案較其他資源來得複雜些，因為他們代表執行**網站**的執行個體效能。若要存取 Web 主控方案，請按一下網站「摘要」透鏡中的 Web 主控方案。
+2. [**監視**] 區段中含有每個 Azure 資源最重要的計量。例如，Web 應用程式具有**要求和錯誤**，而虛擬機器則具有 **CPU 百分比**和**磁碟讀取和寫入**：![Monitoring lens](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
 
-![Web hosting plan](./media/insights-how-to-customize-monitoring/Insights_WHPSelect.png)
+3. 按一下任何一個圖表，即會顯示 [**計量**] 刀鋒視窗。在此刀鋒視窗上，除了一個圖形之外，還會有一個顯示這些計量彙總 (例如選擇時間範圍上的平均值、最小值和最大值) 的資料表。下面是資源的警示規則。![Metric blade](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
 
-在此，您可以檢視 [**監視**] 透鏡中的圖表，其運作方式與網站分頁中的圖表相同，但在此處您可以檢視新度量：
+4. 若要自訂出現的資料行，請按一下圖表上的 [**編輯**] 按鈕，或按一下 [計量] 刀鋒視窗上的 [**編輯圖表**] 命令。
 
-- CPU 百分比
-- 記憶體百分比
-- HTTP 佇列深度
-- 磁碟佇列深度
+5. 在 [編輯查詢] 刀鋒視窗上，您可以執行三個動作：
+    - 變更時間範圍
+    - 在長條圖與折線圖之間切換外觀
+    - 選擇不同的計量 ![Edit Query](./media/insights-how-to-customize-monitoring/Insights_EditQuery.png)
+
+6. 變更時間範圍十分容易，只要選取不同的範圍 (例如 [Past Hour])，再按一下刀鋒視窗底部的 [儲存] 即可。您也可以選擇 [**自訂**]，這可讓您選擇過去 2 週的任何一段時間。例如，您可以完整檢視這兩週，或僅檢視昨天的某 1 小時。請在文字方塊中輸入不同的小時。![Custom time range](./media/insights-how-to-customize-monitoring/Insights_CustomTime.png)
+
+7. 在時間範圍下，您可以選擇任何要顯示在圖表上的度量數。
+
+8. 當您按一下 [儲存] 時，系統便會儲存為該特定資源所做的變更。例如，如果您有兩部虛擬機器，若變更其中一部虛擬機器的圖表，它將不會影響到另一部虛擬機器的圖表。
 
 ## 建立並排圖表
 
-透過「Azure 入口網站預覽」中強大的使用者自訂功能，您可以建立並排圖表，以供自訂之用。
+使用入口網站中的強大自訂功能，您可以新增任意數目的圖表。
 
-1. 首先，請以滑鼠右鍵按一下最先要處理的圖表，然後選取 [**自訂**  ]。
-    ![Customize chart](./media/insights-how-to-customize-monitoring/Insights_Customize.png)
-2. 然後按一下 [**...**] 功能表上的 [**複製**]，以複製組件。  
-    ![Clone part](./media/insights-how-to-customize-monitoring/Insights_ClonePart.png)
-3. 最後，在畫面頂端的工具列上按一下 [**完成**]。現在，您可以將此組件視為一般度量組件。如果您以滑鼠右鍵按一下顯示的度量並加以變更，您將可看見兩個不同的度量同時並排顯示：  
-    ![Two metrics Side by Side](./media/insights-how-to-customize-monitoring/Insights_SideBySide.png)
+1. 在刀鋒視窗頂端的 [**...**] 功能表中，按一下 [**新增磚**]：![新增功能表](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
+2. 然後，您可以從右側螢幕上的 [**資源庫**] 選取圖表：![資源庫](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
+3. 如果您沒有看到所需的計量，您可以隨時新增其中一個預設計量，並**編輯**圖表以顯示所需的計量。 
 
-請注意，當您退出入口網站時，圖表的時間範圍和選擇的度量將會重設。
+## 監視使用量配額
 
+大部分的計量會顯示某一段時間的趨勢，但是某些特定資料 (如使用量配額) 則會是包含臨界值的時間點資訊。
 
-<!--HONumber=46--> 
+您也可以在刀鋒視窗上查看具有配額之資源的使用量配額：
+
+![使用量](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
+
+和計量一樣，您可以使用 [REST API](https://msdn.microsoft.com/library/azure/dn931963.aspx) 或 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) 以程式設計方式存取完整的使用量配額集合。
+
+## 後續步驟
+
+* 每當計量超出臨界值時，[接收警示通知](insights-receive-alert-notifications.md)。
+* [啟用監視和診斷](insights-how-to-use-diagnostics.md)來在您服務中收集詳細的高頻率計量。
+* [自動調整執行個體計數](insights-how-to-scale.md)以確保您的服務可用且可迅速回應。
+* 如果您想要了解您的程式碼如何在雲端中執行，可以[監視應用程式效能](insights-perf-analytics.md)。
+* 使用 [JavaScript 應用程式和網頁適用的 Application Insights](../app-insights-web-track-usage.md)，以取得有關造訪網頁瀏覽器的用戶端分析。
+* 使用 Application Insights [監視任何網頁的可用性和回應性](../app-insights-monitor-web-app-availability.md)，讓您可以找出您的頁面是否關閉。
  
+
+<!---HONumber=62-->

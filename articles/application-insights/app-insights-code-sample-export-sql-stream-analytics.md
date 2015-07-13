@@ -48,12 +48,16 @@
 
     如果沒有列出您的應用程式類型，請查看[使用者入門][start]頁面。
 
-4. 在此範例中，我們正在監視 Web 應用程式，因此可以使用 Visual Studio 中的 Azure Tools 安裝 SDK。告訴 SDK 我們的 Application Insights 資源名稱：
+4. 在此範例中，我們正在監視 Web 應用程式，因此可以使用 Visual Studio 中的 Azure Tools 安裝 SDK。告訴 SDK 您的 Application Insights 資源名稱：
 
-    ![在 Visual Studio 的 [新增專案] 對話方塊中，核取 [新增 Application Insights]，然後在 [傳送遙測資料至] 中，選擇要建立新的應用程式，或使用現有的應用程式。](./media/app-insights-code-sample-export-sql-stream-analytics/030-new-project.png)
+    ![在 Visual Studio [方案總管] 中，以滑鼠右鍵按一下專案，然後選擇 [加入 Application Insights]。在 [傳送遙測資料至] 選擇建立新資源，或使用現有資源。](./media/app-insights-code-sample-export-sql-stream-analytics/appinsights-d012-addbrown.png)
+
+5. 發行應用程式，並觀察出現在 Application Insights 資源中的遙測資料。
 
 
 ## 在 Azure 中建立儲存體
+
+連續匯出一律會將資料輸出至 Azure 儲存體帳戶，因此您必須先建立儲存體。
 
 1. 在 [Azure 入口網站][portal]的訂用帳戶中建立儲存體帳戶。
 
@@ -95,7 +99,7 @@
 
 ![在 Visual Studio 中，依序開啟 [Server Browser]、[Azure]、[儲存體]](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
 
-事件會以 JSON 格式寫入至 Blob 檔案。每個檔案可能會包含一或多個事件。因此我們想要撰寫程式碼來讀取事件資料，並篩選出需要的欄位。我們可以利用資料執行各種作業，但我們現在打算撰寫一些程式碼，將資料移至 SQL Database。這麼做可讓您輕鬆執行許多有趣的查詢工作。
+事件會以 JSON 格式寫入至 Blob 檔案。每個檔案可能會包含一或多個事件。因此我們想要讀取事件資料，並篩選出需要的欄位。我們可以利用資料執行各種作業，但我們現在打算使用串流分析，將資料移至 SQL Database。這麼做可讓您輕鬆執行許多有趣的查詢工作。
 
 ## 建立 Azure SQL Database
 

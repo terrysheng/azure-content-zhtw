@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="部署 Azure App Service  API 應用程式" 
+	pageTitle="部署 Azure App Service API 應用程式" 
 	description="了解如何將 API 應用程式專案部署到您的 Azure 訂閱。" 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="05/19/2015" 
 	ms.author="bradyg;tarcher"/>
 
-# 部署 Azure App Service  API 應用程式
+# 部署 Azure App Service API 應用程式
 
 ## 概觀
 
@@ -45,7 +45,7 @@
 在 [**建立 API 應用程式**] 對話方塊中，輸入下列項目：
 
 - 在 [**API 應用程式名稱**] 之下，輸入應用程式的名稱。 
-- 如果您有多個 Azure 訂閱，請選取您要使用的 Azure 訂閱 -在 [App Service 方案] 之下，從現有的 App Service  方案進行選取，或選取 [**建立新的 App Service  方案**] 並輸入新的方案名稱。 
+- 如果您有多個 Azure 訂閱，請選取您要使用的 Azure 訂閱 -在 [App Service 方案] 之下，從現有的 App Service 方案進行選取，或選取 [**建立新的 App Service 方案**] 並輸入新的方案名稱。 
 - 在 [**資源群組**] 之下，從現有的資源群組進行選取，或選取 [**建立新的資源群組**] 並輸入名稱。此名稱必須是唯一的。請考慮使用應用程式名稱做為前置詞並附加一些個人資訊，例如 Microsoft ID (不含 @ 符號)。  
 - 在 [**存取層級**] 之下，選取 [**可供任何人使用**]。此選項可讓您的 API 完全公開，這在本教學課程沒有問題。稍後您可以透過 Azure 入口網站限制存取。
 - 選取區域。  
@@ -120,5 +120,6 @@
 您已了解 Visual Studio 中的直接部署功能如何讓您輕鬆逐一查看和快速部署您的 API，以及測試其是否運作正常。在下一個[教學課程](../app-service-dotnet-remotely-debug-api-app.md)中，您會了解如何在 API 應用程式於 Azure 中執行時進行偵錯。
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

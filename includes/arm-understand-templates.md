@@ -1,9 +1,11 @@
-## Understanding Azure resource templates and resource groups
+## 了解 Azure 資源範本和資源群組
 
-Most applications that are deployed and run in Microsoft Azure are built out of a combination of different cloud resource types (e.g. one or more VMs and Storage accounts, a SQL database, a virtual network, a CDN, etc).  [Azure Resource Manager templates](https://msdn.microsoft.com/library/azure/dn835138.aspx) make it possible for you to deploy and manage these different resources together by using a JSON description of the resources and associated configuration and deployment parameters.
+在 Microsoft Azure 中部署和執行的應用程式，大部分在建立時會使用不同雲端資源類型的組合 (例如一或多個 VM 和儲存體帳戶、SQL 資料庫、虛擬網路、CDN 等等)。有了 [Azure 資源管理員範本](https://msdn.microsoft.com/library/azure/dn835138.aspx)之後，您就可以使用 JSON 的資源說明、相關設定和部署參數，來部署和管理這些不同的資源。
 
-Once you have defined a JSON based resource template, you can execute it and have the resources defined within it be deployed in Azure using a PowerShell command.  You can run this PowerShell command either standalone within the PowerShell command shell, or you can integrate it within a PowerShell script that contains additional automation logic.
+定義好 JSON 資源範本後，您可以使用 PowerShell 命令來執行這個範本，以及將範本中定義的資源部署到 Azure。您可以在 PowerShell 命令殼層中獨立執行此 PowerShell 命令，或者合併到內含其他自動化還輯的 PowerShell 指令碼中。
 
-The resources you create using Azure Resource Manager templates will be deployed to either a new or existing Azure resource group.  An Azure resource group allows you to manage multiple deployed resources together as a logical group. Typically, a group will contain resources related to a specific application.  Azure resource groups provide a way to manage the overall lifecycle of the group/application and provide management APIs that allow you to stop/start/delete all of the resources within the group at once, apply Role Based Access Control (RBAC) rules to lock down security permissions on them, audit operations, as well as tag resources with additional meta-data for better tracking. To learn more about Azure Resource Groups, see the [Azure Resource Manager Overview](https://azure.microsoft.com/documentation/articles/resource-group-overview/). 
+您使用 Azure 資源管理員範本建立的資源，會部署到新的或現有 Azure 資源群組。Azure 資源群組可讓您將多個已部署的資源當成一個邏輯群組來管理。一般而言，一個群組會包含一個特定應用程式的相關資源。Azure 資源群組提供方法來管理群組/應用程式的整體生命週期，並提供管理 API 讓您一次停止/啟動/刪除群組內的所有資源、套用角色型存取控制 (RBAC) 規則來嚴格管制它們的安全性權限、稽核作業，以及加上其他中繼資料來標記資源以利追蹤。若要深入了解 Azure 資源群組，請參閱 [Azure 資源管理員概觀](https://azure.microsoft.com/documentation/articles/resource-group-overview/)。
 
-The following automation examples demonstrate how to use Azure Resource Manager Templates and deploy Resource Groups using PowerShell or CLI.
+下列的自動化範例示範如何利用 PowerShell 或 CLI 來使用 Azure 資源管理員範本和部署資源群組。
+
+<!---HONumber=62-->

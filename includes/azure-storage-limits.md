@@ -1,72 +1,74 @@
 <table cellspacing="0" border="1">
 <tr>
-   <th align="left" valign="middle">Resource<sup>1</sup></th>
-   <th align="left" valign="middle">Default Limit</th>
+   <th align="left" valign="middle">資源<sup>1</sup></th>
+   <th align="left" valign="middle">預設限制</th>
 </tr>
 <tr>
-   <td valign="middle"><p>TB per storage account</p></td>
+   <td valign="middle"><p>每一儲存體帳戶的 TB</p></td>
    <td valign="middle"><p>500 TB</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max size of a single blob container, table, or queue</p></td>
+   <td valign="middle"><p>單一 Blob 容器、資料表或佇列的大小上限</p></td>
    <td valign="middle"><p>500 TB</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account</p></td>
-   <td valign="middle"><p>Only limit is the 500 TB storage account capacity</p></td>
+   <td valign="middle"><p>每一儲存體帳戶的 Blob 容器、Blob、檔案共用、資料表、佇列、實體或訊息的數目上限</p></td>
+   <td valign="middle"><p>唯一的限制是 500 TB 儲存體帳戶容量</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max size of a file share</p></td>
+   <td valign="middle"><p>檔案共用的大小上限</p></td>
    <td valign="middle"><p>5 TB</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max number of files in a file share</p></td>
-   <td valign="middle"><p>Only limit is the 5 TB total capacity of the file share</p></td>
+   <td valign="middle"><p>檔案共用中的檔案數目上限</p></td>
+   <td valign="middle"><p>檔案共用的唯一限制是 5 TB 總容量</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max 8 KB IOPS per persistent disk (Basic Tier)</p></td>
+   <td valign="middle"><p>每一永久性磁碟最多 8 KB IOPS (基本層)</p></td>
    <td valign="middle"><p>300<sup>2</sup></p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max 8 KB IOPS per persistent disk (Standard Tier)</p></td>
+   <td valign="middle"><p>每一永久性磁碟最多 8 KB IOPS (標準層)</p></td>
    <td valign="middle"><p>500<sup>2</sup></p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Total Request Rate (assuming 1KB object size) per storage account</p></td>
-   <td valign="middle"><p>Up to 20,000 entities or messages per second</p></td>
+   <td valign="middle"><p>每一儲存體帳戶的總要求率 (假設 1KB 物件大小)</p></td>
+   <td valign="middle"><p>每秒最多 20,000 個實體或訊息</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Target Throughput for Single Blob</p></td>
-   <td valign="middle"><p>Up to 60 MB per second, or up to 500 requests per second</p></td>
+   <td valign="middle"><p>單一 Blob 的目標輸送量</p></td>
+   <td valign="middle"><p>每秒最多 60 MB，或每秒最多 500 個要求</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Target Throughput for Single Queue (1 KB messages)</p></td>
-   <td valign="middle"><p>Up to 2000 messages per second</p></td>
+   <td valign="middle"><p>單一佇列的目標輸送量 (1 KB 訊息)</p></td>
+   <td valign="middle"><p>每秒最多 2000 個訊息</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Target Throughput for Single Table Partition (1 KB entities)</p></td>
-   <td valign="middle"><p>Up to 2000 entities per second</p></td>
+   <td valign="middle"><p>單一資料表分割的目標輸送量 (1 KB 實體)</p></td>
+   <td valign="middle"><p>每秒最多 2000 個實體</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max ingress per storage account (US Regions)</p></td>
-   <td valign="middle"><p>10 Gbps if GRS<sup>3</sup> enabled, 20 Gbps for LRS</p></td>
+   <td valign="middle"><p>每一儲存體帳戶的輸入上限 (美國地區)</p></td>
+   <td valign="middle"><p>如果啟用 GRS<sup>3</sup>，則為 10 Gbps，LRS 為 20 Gbps</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max egress per storage account (US Regions)</p></td>
-   <td valign="middle"><p>20 Gbps if GRS<sup>3</sup> enabled, 30 Gbps for LRS</p></td>
+   <td valign="middle"><p>每一儲存體帳戶的輸出上限 (美國地區)</p></td>
+   <td valign="middle"><p>如果啟用 GRS<sup>3</sup>，則為 20 Gbps，LRS 為 30 Gbps</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max ingress per storage account (European and Asian Regions)</p></td>
-   <td valign="middle"><p>5 Gbps if GRS<sup>3</sup> enabled, 10 Gbps for LRS</p></td>
+   <td valign="middle"><p>每一儲存體帳戶的輸入上限 (歐洲和亞洲地區)</p></td>
+   <td valign="middle"><p>如果啟用 GRS<sup>3</sup>，則為 5 Gbps，LRS 為 10 Gbps</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max egress per storage account (European and Asian Regions)</p></td>
-   <td valign="middle"><p>10 Gbps if GRS<sup>3</sup> enabled, 15 Gbps for LRS</p></td>
+   <td valign="middle"><p>每一儲存體帳戶的輸出上限 (歐洲和亞洲地區)</p></td>
+   <td valign="middle"><p>如果啟用 GRS<sup>3</sup>，則為 10 Gbps，LRS 為 15 Gbps</p></td>
 </tr>
 </table>
 
-<sup>1</sup>For more details on these limits, see [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md).
+<sup>1</sup> 如需這些限制的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](../articles/storage/storage-scalability-targets.md)。
 
-<sup>2</sup>For virtual machines in the Basic Tier, do not place more than 66 highly used VHDs in a storage account to avoid the 20,000 total request rate limit (20,000/300). For virtual machines in the Standard Tier, do not place more than 40 highly used VHDs in a storage account (20,000/500). For more information, see [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx).
+<sup>2</sup> 對於基本層中的虛擬機器，請勿在儲存體帳戶中放入超過 66 個高度使用的 VHD，以避免達到 20,000 總要求率的限制 (20,000/300)。對於標準層中的虛擬機器，請勿在儲存體帳戶中放入超過 40 個高度使用的 VHD (20,000/500)。如需詳細資訊，請參閱＜[Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)＞。
 
-<sup>3</sup>GRS is [Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx). LRS is [Locally Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx). Note that GRS is also locally redundant.
+<sup>3</sup> GRS 的全名是 [Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx) (異地備援儲存體)。LRS 的全名是 [Locally Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx) (本地備援儲存體)。請注意，GRS 也是本地備援。
+
+<!---HONumber=62-->

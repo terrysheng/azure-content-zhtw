@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 
@@ -129,7 +129,7 @@
         "end": "2014-05-05T00:00:00Z",
         "isPaused": false
 
-	[AZURE.NOTE]請注意，開始和結束時間設為 05/01/2014 和 05/05/2014，因為此逐步解說中的範例資料是從 05/01/2014 到 05/05/2014。
+	請注意，**開始**和**結束**時間設為 05/01/2014 和 05/05/2014，因為本逐步解說中的範例資料的時間範圍是從 05/01/2014 到 05/05/2014。
  
 3. 按一下工具列的 [**部署**]，建立並部署管線。確認您在編輯器的標題列看到 [**已成功建立管線**] 訊息。
 	
@@ -167,4 +167,6 @@
 
 [image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises/DataManagementGatewayConfigurationManager.png
 
-<!---HONumber=GIT-SubDir--> 
+ 
+
+<!---HONumber=62-->

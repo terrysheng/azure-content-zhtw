@@ -212,7 +212,7 @@
 
 為了支援離線同步處理功能，我們使用了 `MSSyncTable` 介面，並對本機存放區初始化 `MSClient.syncContext`。在此案例中，本機存放區是以核心資料為基礎的資料庫。
 
-使用核心資料本機存放區時，您必須使用[正確的系統屬性][Review the Core Data model]定義數個資料表。
+使用核心資料本機存放區時，您必須使用 [正確的系統屬性][檢閱核心資料模型]定義數個資料表。
 
 正常情況下，在行動應用程式的 CRUD 作業執行時，應用程式會如同仍處於連線狀態，但所有的作業都會對本機存放區執行。
 
@@ -275,6 +275,7 @@
 [Soft Delete]: ../mobile-services-using-soft-delete.md
 
 [雲端報導：Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday：Azure 行動服務中的離線應用程式]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday：Azure 行動服務中的離線應用程式]: http://azure.microsoft.com/zh-tw/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

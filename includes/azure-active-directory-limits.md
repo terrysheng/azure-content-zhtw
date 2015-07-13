@@ -1,3 +1,5 @@
-For Azure Active Directory (AD), please see the following topic:
+針對 Azure Active Directory (AD)，請參閱下列主題：
 
- - [Azure Active Directory service limits and restrictions](http://msdn.microsoft.com/library/azure/dn764971.aspx)
+ - [Azure Active Directory 服務限制和限制](http://msdn.microsoft.com/library/azure/dn764971.aspx)
+
+<!---HONumber=62-->

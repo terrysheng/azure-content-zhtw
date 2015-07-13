@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="06/17/2015" 
 	ms.author="awills"/>
  
 # 從 Application Insights 匯出遙測
@@ -21,9 +21,11 @@
 
 在免費試用期間，或是使用[標準及高階定價方案](http://azure.microsoft.com/pricing/details/application-insights/)時，都可使用「連續匯出」功能。
 
+(如果您只想要[一次性匯出](app-insights-metrics-explorer.md#export-to-excel)您在度量或搜尋刀鋒視窗上看到的內容，請按一下分頁頂端的 [匯出]。)
+
 ## <a name="setup"> </a> 設定連續匯出
 
-在 Application Insights 入口網站中應用程式的 [概觀] 分頁上，開啟 [連續匯出]：
+在 Application Insights 入口網站中應用程式的 [概觀] 刀鋒視窗上，開啟 [連續匯出]：
 
 ![向下捲動並按一下 [連續匯出]](./media/app-insights-export-telemetry/01-export.png)
 
@@ -138,7 +140,7 @@
 
 * *但我想要的只是一次性下載圖表。*  
  
-    我們正另外對此進行處理。
+    是的，您可以這麼做。在刀鋒視窗頂端，按一下 [[匯出資料](app-insights-metrics-explorer.md#export-to-excel)]。
 
 * *我設定匯出，但我的儲存區中沒有資料。*
 
@@ -152,7 +154,7 @@
 
 * *我是否能直接匯出到我自己的內部部署儲存區？*
 
-    否，抱歉。我們的匯出引擎需要仰賴大量開放的儲存區來推送資料。
+    否，抱歉。我們的匯出引擎目前僅適用於 Azure 儲存體。
 
 * *放置在我的儲存區中的資料量有任何限制？*
 

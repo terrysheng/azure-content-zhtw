@@ -1,38 +1,23 @@
-<properties 
-   pageTitle="Add a volume container"
-   description="Explains how you can use the StorSimple Manager service volume containers page to add a volume container."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/13/2015"
-   ms.author="v-sharos" />
+#### 若要新增磁碟區容器
 
-#### To add a volume container
+1. 在 [**裝置**] 頁面中，選取並按兩下裝置，然後按一下 [**磁碟區容器**] 索引標籤。
 
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
+2. 按一下頁面底部的 [新增]。在 [**建立磁碟區容器**] 對話方塊中，執行下列動作：
 
-2. Click **Add** at the bottom of the page. In the **Create volume container** dialog box, do the following:
+  1. 提供磁碟區容器的唯一 [**名稱**]。此名稱最多可以包含 32 個字元。
+  2. 選取與這個磁碟區容器相關聯的 [**儲存體帳戶**]。您可以從相同訂用帳戶內的現有儲存體帳戶中選擇，或是選取 [**新增其他**] 以從其他訂用帳戶選取儲存體帳戶。您也可以選擇建立服務時第一個產生的儲存體帳戶。
+  3. 如果您想要耗用所有可用的頻寬，將頻寬指定為 [**無限**]，或者 [**自訂**] 以使用頻寬控制。對於自訂頻寬，提供介於 1 與 1000 Mbps 之間的值。若要根據排程配置頻寬，您可以 [**選取頻寬範本**]。
+  4. 我們建議您保留選取 [**啟用雲端儲存體加密**]，以加密移至雲端的資料。只有當您採用其他方法來加密您的資料時，才停用加密。
+  5. 提供長度為 8 到 32 個字元的 [**雲端儲存體加密金鑰**]。裝置會使用這個金鑰來存取加密的資料。在 [**確認雲端儲存體加密金鑰**] 欄位中，再次輸入雲端儲存體加密金鑰，以便確認。
+  6. 按一下箭頭以繼續前往下一頁。
 
-  1. Supply a unique **Name** for your volume container. This name can contain a maximum of 32 characters.
-  2. Select a **Storage Account** to be associated with this volume container. You can choose from an existing storage account within the same subscription or select **Add more** to select a storage account from another subscription. You can also choose the storage account that was first generated when the service was created.
-  3. Specify bandwidth as **Unlimited** if you want to consume all available bandwidth, or **Custom** to employ bandwidth controls. For a custom bandwidth, supply a value between 1 and 1000 Mbps. To allocate bandwidth based on a schedule, you can **Select a bandwidth template**.
-  4. We recommend that you keep **Enable Cloud Storage Encryption** selected to encrypt the data that is going to the cloud. Disable encryption only if you are employing other means to encrypt your data.
-  5. Provide a **Cloud Storage Encryption Key** that contains between 8 and 32 characters. The device uses this key to access the encrypted data. In the **Confirm Cloud Storage Encryption Key** field, enter the cloud storage encryption key again to confirm it.
-  6. Click the arrow to proceed to the next page.
+    ![使用頻寬範本 1 建立磁碟區容器](./media/storsimple-add-volume-container/HCS_CreateVCBT1-include.png)
 
-    ![Create volume container with bandwidth template 1](./media/storsimple-add-volume-container/HCS_CreateVCBT1-include.png) 
+3. 如果您指定 [**選取頻寬範本**]，請從現有頻寬範本的下拉式清單中選擇。檢閱排程設定，然後按一下勾號圖示 ![核取圖示](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png)。
 
-3. If you specified **Select a bandwidth template**, choose from the drop-down list of existing bandwidth templates. Review the schedule settings and click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png).
+    ![使用頻寬範本 2 建立磁碟區容器](./media/storsimple-add-volume-container/HCS_CreateVCBT2-include.png)
 
-    ![Create volume container with bandwidth template 2](./media/storsimple-add-volume-container/HCS_CreateVCBT2-include.png) 
-
-The volume container will be saved and the newly created volume container will be listed on the **Volume container** page.
+將會儲存磁碟區容器，新建立的磁碟區容器將列於 [**磁碟區容器**] 頁面上。
  
+
+<!---HONumber=62-->

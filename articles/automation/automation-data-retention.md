@@ -34,6 +34,6 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 保留原則適用於所有使用者，而且目前無法自訂。
 
 ## 相關文章
-- [備份 Azure 自動化](https://msdn.microsoft.com/library/dn643635.aspx)
+- [備份 Azure 自動化](https://msdn.microsoft.com/library/dn643635.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

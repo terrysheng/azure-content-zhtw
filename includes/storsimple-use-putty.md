@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="使用 PuTTY 連接到裝置序列主控台"
-   description="說明如何使用 PuTTY 終端機模擬軟體來連接到 StorSimple 裝置。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
-
 #### 透過序列主控台連接
 
 1. 將序列纜線連接到裝置 (直接連接或透過 USB 序列介面卡)。
@@ -45,4 +28,4 @@
 7. 按一下 [開啟] 以啟動序列工作階段。
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -49,19 +49,19 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
 
 [SendGrid NuGet 封裝](https://www.nuget.org/packages/Sendgrid)是取得 SendGrid API 及透過所有相依性設定應用程式的最簡單方式。NuGet 是 Microsoft Visual Studio 2012 隨附的 Visual Studio 延伸模組，能輕鬆地安裝及更新程式庫和工具。
 
-> [AZURE.NOTE]如果您是執行 Visual Studio 2012 之前的 Visual Studio 版本，若要安裝 NuGet，請造訪 [http://www.nuget.org](http://www.nuget.org) (英文)，然後按一下 [安裝 NuGet]**** 按鈕。
+> [AZURE.NOTE]如果您是執行 Visual Studio 2012 之前的 Visual Studio 版本，若要安裝 NuGet，請造訪 [http://www.nuget.org](http://www.nuget.org) (英文)，然後按一下 [安裝 NuGet] 按鈕。
 
 若要在應用程式中安裝 SendGrid NuGet 封裝，請執行下列動作：
 
-1.  在 [方案總管]**** 中，以滑鼠右鍵按一下 [參考]****，然後按一下 [Manage NuGet Packages]****。
+1.  在 [方案總管] 中，以滑鼠右鍵按一下 [參考]，然後按一下 [Manage NuGet Packages]。
 
-2.  在 [Manage NuGet Packages]**** 對話方塊的左窗格中，按一下 [線上]****。
+2.  在 [Manage NuGet Packages] 對話方塊的左窗格中，按一下 [線上]。
 
 3.  在結果清單中搜尋 **SendGrid** 並選取 **SendGrid** 項目 (目前的版本是 5.0.0)。
 
     ![SendGrid NuGet 封裝][SendGrid-NuGet-package]
 
-4.  按一下 [安裝]**** 完成安裝，然後關閉此對話方塊。
+4.  按一下 [安裝] 完成安裝，然後關閉此對話方塊。
 
 SendGrid 的 .NET 類別庫稱為 **SendGridMail**。其中包含下列命名空間：
 
@@ -215,22 +215,29 @@ SendGrid 提供的網頁式 API 與 Webhook 可供從 Azure 應用程式運用�
 *   SendGrid API 文件：<https://sendgrid.com/docs>
 *   Azure 客戶的 SendGrid 特別優惠：[https://sendgrid.com](https://sendgrid.com)
 
-[後續步驟]: #nextsteps
-[What is the SendGrid Email Service?]: #whatis
-[Create a SendGrid Account]: #createaccount
-[Reference the SendGrid .NET Class Library]: #reference
-[How to: Create an Email]: #createemail
-[How to: Send an Email]: #sendemail
-[How to: Add an Attachment]: #addattachment
-[How to: Use Filters to Enable Footers, Tracking, and Analytics]: #usefilters
-[How to: Use Additional SendGrid Services]: #useservices
-[special offer]: https://www.sendgrid.com/windowsazure.html
-[SendGrid-NuGet-package]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png
-[sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp
-[SMTP vs. Web API]: https://sendgrid.com/docs/Integrate/index.html
-[應用程式設定]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-[SendGrid API 文件]: https://sendgrid.com/docs
-[雲端架構電子郵件服務]: https://sendgrid.com/email-solutions
-[交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
+  [後續步驟]: #nextsteps
+  [What is the SendGrid Email Service?]: #whatis
+  [Create a SendGrid Account]: #createaccount
+  [Reference the SendGrid .NET Class Library]: #reference
+  [How to: Create an Email]: #createemail
+  [How to: Send an Email]: #sendemail
+  [How to: Add an Attachment]: #addattachment
+  [How to: Use Filters to Enable Footers, Tracking, and Analytics]: #usefilters
+  [How to: Use Additional SendGrid Services]: #useservices
+  
+  
+  [special offer]: https://www.sendgrid.com/windowsazure.html
+  
+  
+  
+  [SendGrid-NuGet-package]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png
+  [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp
+  [SMTP vs. Web API]: https://sendgrid.com/docs/Integrate/index.html
+  [應用程式設定]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
+  [SendGrid API 文件]: https://sendgrid.com/docs
+  
+  [雲端架構電子郵件服務]: https://sendgrid.com/email-solutions
+  [交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

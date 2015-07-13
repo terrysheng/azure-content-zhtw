@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="06/17/2015" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中探索度量
@@ -158,7 +158,28 @@
 
 ![在 [計量瀏覽器] 中，選擇 [警示規則]，然後選擇 [加入警示]](./media/app-insights-metrics-explorer/appinsights-413setMetricAlert.png)
 
-[深入了解][alerts]。
+[深入了解警示][alerts]。
+
+## 匯出至 Excel
+
+您可以將 [計量瀏覽器] 中顯示的度量資料匯出到 Excel 檔案。匯出的資料包括入口網站中所示所有圖表和資料表的資料。
+
+
+![在 [計量瀏覽器] 中，選擇 [警示規則]，然後選擇 [加入警示]](./media/app-insights-metrics-explorer/31-export.png)
+
+每個圖表或資料表的資料都會匯出到 Excel 檔案中的個別工作表。
+
+您看到的內容即為匯出的內容。如果您想要變更所匯出資料的範圍，請變更時間範圍或篩選器。對於資料表，如果有顯示 [**載入更多**] 命令，您可以先按它再按一下 [匯出]，以匯出更多資料。
+
+*匯出動作目前僅適用於 Internet Explorer 和 Chrome。我們正努力新增其他瀏覽器的支援。*
+
+如果您想要連續匯出資料以在外部處理，請考慮使用[連續匯出](app-insights-export-telemetry.md)。
+
+
+## 後續步驟
+
+* [使用 Application Insights 監視使用情況](app-insights-overview-usage.md)
+* [使用診斷搜尋](app-insights-diagnostic-search.md)
 
 
 <!--Link references-->
@@ -167,5 +188,6 @@
 [start]: app-insights-get-started.md
 [track]: app-insights-custom-events-metrics-api.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

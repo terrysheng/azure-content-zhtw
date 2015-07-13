@@ -1,28 +1,24 @@
-<properties writer="kathydav" editor="tysonn" manager="timlt" />
+#如何使用 CLI 從虛擬機器卸離資料磁碟
+
+當不再需要某個連接至虛擬機器的資料磁碟時，卸離此資料磁碟很簡單。這會將磁碟從虛擬機器中卸離，但這不會將它從儲存體中移除。如果您想要再次使用磁碟上現有的資料，您可以將磁碟重新連接至相同或其他虛擬機器。
+
+> [AZURE.NOTE]Azure 中的虛擬機器使用不同類型的磁碟：例如作業系統磁碟、本機暫存磁碟和選擇性資料磁碟。建議您使用資料磁碟來儲存虛擬機器的資料。如需磁碟的詳細資訊，請參閱[關於磁碟和映像](http://go.microsoft.com/fwlink/p/?LinkId=263439)。目前無法卸離作業系統磁碟。
 
 
-
-#How to Detach a Data Disk from a Virtual Machine with the CLI
-
-When you no longer need a data disk that is attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.
-
-> [AZURE.NOTE] A virtual machine in Azure uses different types of disks: an operating system disk, a local temporary disk, and optional data disks. Data disks are the recommended way to store data for a virtual machine. For details about disks, see [About disks and images](http://go.microsoft.com/fwlink/p/?LinkId=263439). It is not currently possible to detach an operating system disk.
-
-
-1. Get the list of disks attached to your VM:
+1. 取得連接至您 VM 的磁碟清單：
 
         vm disk list <vm-name>
 
-    If you omit `<vm-name>`, you will get a list of all disks in your subscription.
+    如果省略 `<vm-name>`，則您將會取得訂用帳戶中的所有磁碟清單。
 
 
-2. Detach a disk:
+2. 卸離磁碟：
 
         vm disk detach <vm-name> <lun>
 
-    `lun` identifies the disk to be detached, and will be a number which can be found in your VM's disk list.
+    `lun` 識別要卸離的磁碟，而且會是可以在您的 VM 磁碟清單中找到的數字。
 
-Sample walkthrough including terminal output:
+範例逐步解說 (包括終端機輸出)：
 
     ~$ azure vm disk list kmlinux
     info:    Executing command vm disk list
@@ -50,3 +46,5 @@ Sample walkthrough including terminal output:
     data:         30        kmlinux-kmlinux-2015-02-05.vhd          Linux
     data:    1    5         kmlinux-f8ef0006ab182209.vhd
     info:    vm disk list command OK
+
+<!---HONumber=62-->

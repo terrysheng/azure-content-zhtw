@@ -4,17 +4,16 @@
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
-	writer="" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="2/26/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
 
 # 在行動服務中為週期性工作排程 
@@ -29,14 +28,7 @@
 + 要求或儲存外部資料，例如推文、RSS 項目和位置資訊。
 + 處理或調整儲存影像的大小。
 
-本教學課程將逐步引導您完成下列步驟，以瞭解如何使用工作排程器，來建立向 Twitter 要求推文資料並在新的 Updates 資料表中儲存推文的排定工作：
-
-1. [註冊以取得 Twitter 存取權與儲存認證]
-2. [下載並安裝 LINQ to Twitter 程式庫]
-3. [建立新的 Updates 資料表]
-4. [建立新的排定工作]
-5. [在本機測試排定工作]
-6. [發佈服務及註冊工作]
+本教學課程將逐步引導您瞭解如何使用工作排程器，來建立向 Twitter 要求推文資料並在新的 Updates 資料表中儲存推文的排定工作。
 
 >[AZURE.NOTE]本教學課程採用第三方 LINQ to Twitter 程式庫，以簡化對 Twitter v1.1. API 的 OAuth 2.0 存取。您必須下載並安裝 LINQ to Twitter NuGet 封裝，才能完成本教學課程。如需詳細資訊，請參閱 [LINQ to Twitter CodePlex 專案]。
 
@@ -57,9 +49,9 @@
 
 ##<a name="install-linq2twitter"></a>下載並安裝 LINQ to Twitter 程式庫
 
-1. 在 Visual Studio 的 [方案總管]**** 中以滑鼠右鍵按一下專案名稱，然後選取 [管理 NuGet 封裝]****。
+1. 在 Visual Studio 的 [方案總管] 中以滑鼠右鍵按一下專案名稱，然後選取 [管理 NuGet 封裝]。
 
-2. 在左窗格中選取 [線上]**** 類別、搜尋 `linq2twitter`，按一下 **linqtotwitter** 封裝上的 [安裝]****，然後閱讀並接受授權合約。
+2. 在左窗格中選取 [線上] 類別、搜尋 `linq2twitter`，按一下 **linqtotwitter** 封裝上的 [安裝]，然後閱讀並接受授權合約。
 
   	![][1]
 
@@ -69,11 +61,11 @@
 
 ##<a name="create-table"></a>建立新的 Updates 資料表
 
-1. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下 DataObjects 資料夾，展開 [新增]****，按一下 [類別]****，在 [名稱]**** 中輸入 `Updates`，然後按一下 [新增]****。
+1. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下 DataObjects 資料夾，展開 [新增]，按一下 [類別]，在 [名稱] 中輸入 `Updates`，然後按一下 [新增]。
 
 	這會為 Updates 類別建立新的專案檔案。
 
-2. 以滑鼠右鍵按一下 [參考]****，按一下 [加入參考...]****，選取 [組件]**** 下的 [架構]****，核取 [System.ComponentModel.DataAnnotations]****，然後按一下 [確定]****。
+2. 以滑鼠右鍵按一下 [參考]，按一下 [加入參考...]，選取 [組件] 下的 [架構]，核取 [System.ComponentModel.DataAnnotations]，然後按一下 [確定]。
 
 	![][7]
 
@@ -234,39 +226,39 @@
 
 	這會啟動行動服務專案，以及顯示歡迎使用頁面的新瀏覽器視窗。
 
-2. 按一下 [立即試用]****，然後按一下 [POST 工作/{jobName}]****。
+2. 按一下 [立即試用]，然後按一下 [POST 工作/{jobName}]。
 
 	![][8]
  
-4. 按一下 [立即試用]****，輸入 `Sample` 作為 **{jobName}** 參數值，然後按一下 [傳送]****。
+4. 按一下 [立即試用]，輸入 `Sample` 作為 **{jobName}** 參數值，然後按一下 [傳送]。
 
 	![][9]
 
 	這會將新的 POST 要求傳送至範例工作端點。在本機服務中，已啟動 **ExecuteAsync** 方法。您可以在這個方法中設定中斷點，對程式碼進行偵錯。
 
-3. 在 [伺服器總管] 中，依序展開 [資料連線]****、[MSTableConnectionString]**** 和 [資料表]****，以滑鼠右鍵按一下 [更新]****，然後按一下 [顯示資料表資料]****。
+3. 在 [伺服器總管] 中，依序展開 [資料連線]、[MSTableConnectionString] 和 [資料表]，以滑鼠右鍵按一下 [更新]，然後按一下 [顯示資料表資料]。
 
 	新的推文會以資料列的形式輸入資料表中。
 
 ##<a name="register-job"></a>發佈服務及註冊新工作 
 
-工作必須在 [排程器]**** 索引標籤中註冊，行動服務才能依據您定義的排程加以執行。
+工作必須在 [排程器] 索引標籤中註冊，行動服務才能依據您定義的排程加以執行。
 
 3. 將行動服務專案重新發佈至 Azure。 
 
 4. 在[Azure 管理入口網站]中，按一下 [行動服務]，然後按一下您的應用程式。
 
-2. 按一下 [排程器]**** 索引標籤，然後按一下 [建立]****。
+2. 按一下 [排程器] 索引標籤，然後按一下 [建立]。
 
     >[AZURE.NOTE]當您在<em>免費</em>層中執行行動服務時，您一次只能執行一個排定工作。在付費層中，您一次可以執行多達十個排定工作。
 
-3. 在排程器對話方塊的 [工作名稱]**** 中輸入 _Sample_，設定排程間隔和單位，然後按一下核取按鈕。
+3. 在排程器對話方塊的 [工作名稱] 中輸入 _Sample_，設定排程間隔和單位，然後按一下核取按鈕。
    
    	![][4]
 
    	這會建立名為 **Sample** 的新工作。
 
-4. 按一下您剛建立的新工作，然後按一下 [執行一次]****，以測試指令碼。
+4. 按一下您剛建立的新工作，然後按一下 [執行一次]，以測試指令碼。
 
    	這會執行在排程器中仍處於停用狀態的工作。在此頁面上，您可以隨時啟用工作及變更其排程。
 
@@ -283,12 +275,12 @@
 恭喜！您已順利地在行動服務上建立新的排定工作。系統會依排程執行此工作，直到您停用或修改此工作為止。
 
 <!-- Anchors. -->
-[註冊以取得 Twitter 存取權與儲存認證]: #get-oauth-credentials
-[下載並安裝 LINQ to Twitter 程式庫]: #install-linq2twitter
-[建立新的 Updates 資料表]: #create-table
-[建立新的排定工作]: #add-job
-[在本機測試排定工作]: #run-job-locally
-[發佈服務及註冊工作]: #register-job
+[Register for Twitter access and store credentials]: #get-oauth-credentials
+[Download and install the LINQ to Twitter library]: #install-linq2twitter
+[Create the new Updates table]: #create-table
+[Create a new scheduled job]: #add-job
+[Test the scheduled job locally]: #run-job-locally
+[Publish the service and register the job]: #register-job
 [Next steps]: #next-steps
 
 <!-- Images. -->
@@ -308,4 +300,5 @@
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ to Twitter CodePlex 專案]: http://linqtotwitter.codeplex.com/
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

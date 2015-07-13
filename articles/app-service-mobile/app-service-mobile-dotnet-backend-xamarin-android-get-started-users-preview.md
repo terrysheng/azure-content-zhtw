@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/22/2015" 
+	ms.date="06/23/2015" 
 	ms.author="mahender"/>
 
 # 將驗證新增至 Xamarin.Android 應用程式
@@ -26,11 +26,11 @@
 
 ##<a name="register"></a>註冊應用程式進行驗證，並設定應用程式服務
 
-[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)] 
+[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ##<a name="permissions"></a>限制只有通過驗證的使用者具有權限
 
-[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 <ol start="7">
 <li><p>在 Visual Studio 或 Xamarin Studio 中，在裝置或模擬器上執行用戶端專案。確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。</p>
@@ -44,7 +44,7 @@
 
 1. 將下列屬性新增至 **TodoActivity** 類別：
 
-			private MobileServiceUser user;
+			private MobileServiceUser user;
 
 2. 將下列方法加入 **TodoActivity** 類別：
 
@@ -75,7 +75,7 @@
 	此呼叫會啟動驗證程序再非同步等候它。
 
 
-4. 從 [執行]**** 功能表，按一下 [執行]**** 來啟動應用程式，並以您選擇的身分識別提供者登入。
+4. 從 [執行] 功能表，按一下 [執行] 來啟動應用程式，並以您選擇的身分識別提供者登入。
 
    	當您成功登入後，應用程式將會顯示 todo 項目的清單，您可以對資料進行更新。
 
@@ -87,5 +87,6 @@
 [建立 Xamarin.Android 應用程式教學課程]: app-service-mobile-dotnet-backend-xamarin-android-get-started-preview.md
 
 [Azure Management Portal]: https://portal.azure.com
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

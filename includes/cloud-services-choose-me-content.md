@@ -1,33 +1,33 @@
 <a name="tellmecs"></a>
-## Tell me about cloud services
+## 我想了解雲端服務
 
-Cloud Services is an example of Platform-as-a-Service (PaaS). Like [App Services](app-service-web-overview.md), this technology is designed to support applications that are scalable, reliable, and cheap to operate. Just like an [App Services](app-service-web-overview.md) are hosted on VMs, so too are Cloud Services, however, you have more control over the VMs. You can install your own software on Cloud Service VMs and you can remote into them.
+雲端服務是平台即服務 (PaaS) 的一個範例。這項技術如同[應用程式服務](app-service-web-overview.md)，是專為支援可調整、穩定且操作成本低的應用程式而設計。雲端服務也如同[應用程式服務](app-service-web-overview.md)在 VM 上託管，不過，雲端服務更易於透過 VM 控制。您可以在雲端服務 VM 上安裝您自己的軟體，並且可從遠端加以操控。
 
-![cs_diagram](./media/cloud-services-choose-me-content/diagram.png) 
+![cs_diagram](./media/cloud-services-choose-me-content/diagram.png)
 
-More control also means less ease of use; unless you need the  additional control options, it's typically quicker and easier to get a web application up and running in Websites compared to Cloud Services. 
+更充分的控制也意味著較低的易用性；除非您需要的額外控制選項，否則相較於雲端服務，在網站中通常可更快、更輕易地啟動並執行 Web 應用程式。
 
-The technology provides two slightly different VM options: instances of *web roles* run a variant of Windows Server with IIS, while instances of *worker roles* run the same Windows Server variant without IIS. A Cloud Services application relies on some combination of these two options. 
+此技術提供兩個僅有些許差異的 VM 選項：*Web 角色*的執行個體執行含有 IIS 的 Windows Server 變體，而*背景工作角色*的執行個體則執行不含 IIS 的相同 Windows Server 變體。雲端服務應用程式需要這兩個選項的一些組合。
 
-Any combination of these two slightly different VM hosting options are available in a cloud service:
+雲端服務提供這兩個僅有些許差異的 VM 裝載選項的任意搭配組合：
 
-* **Web role**  
-  Runs Windows Server with your web app automatically deployed to IIS.
-* **Worker role**  
-  Runs Windows Server without IIS.
+* **Web 角色**執行 Windows Server，且您的 Web 應用程式會自動部署至 IIS。
+* **背景工作角色**執行不含 IIS 的 Windows Server。
 
-For example, a simple application might use just a web role, while a more complex application might use a web role to handle incoming requests from users, then pass the work those requests create to a worker role for processing. (This communication could use [Service Bus](../articles/service-bus/fundamentals-service-bus-hybrid-solutions.md) or [Azure Queues](../articles/storage/storage-introduction.md).)
+例如，簡單的應用程式可以只使用 Web 角色，而較複雜的應用程式可以使用 Web 角色處理使用者的連入要求，然後將這些要求產生的工作傳送給背景工作角色進行處理。(此通訊會使用[服務匯流排](../articles/service-bus/fundamentals-service-bus-hybrid-solutions.md)或 [Azure 佇列](../articles/storage/storage-introduction.md))。
 
-As the figure above suggests, all of the VMs in a single application run in the same cloud service. Because of this, users access the application through a single public IP address, with requests automatically load balanced across the application's VMs. The platform will [scale and deploy](../articles/cloud-services/cloud-services-how-to-scale.md) the VMs in a Cloud Services application in a way that avoids a single point of hardware failure. 
+如上圖所示，單一應用程式中的所有 VM 都會在同一個雲端服務中執行。因此，使用者可以透過單一公用 IP 位址存取應用程式，並且可在應用程式的 VM 之間自動進行要求的負載平衡。該平台會在雲端服務應用程式中[調整和部署](../articles/cloud-services/cloud-services-how-to-scale.md) 所有VM，藉此避免發生單一硬體失敗點。
 
-Even though applications run in virtual machines, it's important to understand that Cloud Services provides PaaS, not IaaS. Here's one way to think about it: With IaaS, such as Azure Virtual Machines, you first create and configure the environment your application will run in, then deploy your application into this environment. You're responsible for managing much of this world, doing things such as deploying new patched versions of the operating system in each VM. In PaaS, by contrast, it's as if the environment already exists. All you have to do is deploy your application. Management of the platform it runs on, including deploying new versions of the operating system, is handled for you.
+即使應用程式在虛擬機器中執行，也必須了解雲端服務提供 PaaS，而非 IaaS。換句話說，透過 IaaS (例如 Azure 虛擬機器)，您可以先建立並設定執行應用程式的環境，然後將應用程式部署到此環境。您負責管理大部分的環境，處理在各個 VM 中部署作業系統新修補版本等作業。相反地，在 PaaS 中，環境似乎已經存在。您只需要部署您的應用程式。平台的管理會為您處理，包括部署作業系統的新版本。
 
-## Scaling and management
-With Cloud Services, you don't create virtual machines. Instead, you provide a configuration file that tells Azure how many of each you'd like, such as **three web role instances** and **two worker role instances**, and the platform creates them for you.  You still choose [what size](../articles/cloud-services/cloud-services-sizes-specs.md) those backing VMs should be, but you don't explicitly create them yourself. If your application needs to handle a greater load, you can ask for more VMs, and Azure will create those instances. If the load decreases, you can shut those instances down and stop paying for them.
+## 調整和管理
+藉由雲端服務，您不需要建立虛擬機器。您只需要提供組態檔，讓 Azure 知道您需要多少個執行個體，例如 **3 個 Web 角色**執行個體和 **2 個背景工作角色**執行個體，平台就會為您建立。您仍然可以選擇這些支援 VM 的[大小](../articles/cloud-services/cloud-services-sizes-specs.md)，但您不需自行建立這些 VM。如果應用程式需要處理較大的負載，您可以要求更多的 VM，Azure 將建立這些執行個體。如果負載減少，您可以關閉這些執行個體並停止付費。
 
-A Cloud Services application is typically made available to users via a two-step process. A developer first [uploads the application](../articles/cloud-services/cloud-services-how-to-create-deploy.md) to the platform's staging area. When the developer is ready to make the application live, they use the Azure Management Portal to request that it be put into production. This [switch between staging and production](../articles/cloud-services/cloud-services-nodejs-stage-application.md) can be done with no downtime, which lets a running application be upgraded to a new version without disturbing its users. 
+雲端服務應用程式一般透過兩個步驟的程序提供給使用者使用。開發人員會先將[應用程式上傳](../articles/cloud-services/cloud-services-how-to-create-deploy.md)到平台的預備區域。開發人員準備啟動應用程式時，會透過 Azure 管理入口網站要求將應用程式投入生產。此[預備與生產之間的切換](../articles/cloud-services/cloud-services-nodejs-stage-application.md)程序完全不會造成停機，因此執行中的應用程式得以在不干擾使用者的情況下升級至新版。
 
-## Monitoring
-Cloud Services also provides monitoring. Like Azure Virtual Machines, it will detect a failed physical server and restart the VMs that were running on that server on a new machine. But Cloud Services also detects failed VMs and applications, not just hardware failures. Unlike Virtual Machines, it has an agent inside each web and worker role, and so it's able to start new VMs and application instances when failures occur.
+## 監視
+雲端服務也提供監視。和 Azure 虛擬機器一樣，它將偵測故障的實體伺服器，並且在新機器上重新啟動原先在該伺服器上執行的 VM。不過，雲端服務也會偵測故障的 VM 和應用程式，而不只是硬體故障。和虛擬機器不同的是，它在各個 Web 角色和背景工作角色中都有代理程式，因此能夠在故障時啟動新的 VM 和應用程式執行個體。
 
-The PaaS nature of Cloud Services has other implications, too. One of the most important is that applications built on this technology should be written to run correctly when any web or worker role instance fails. To achieve this, a Cloud Services application shouldn't maintain state in the file system of its own VMs. Unlike VMs created with Azure Virtual Machines, writes made to Cloud Services VMs aren't persistent; there's nothing like a Virtual Machines data disk. Instead, a Cloud Services application should explicitly write all state to SQL Database, blobs, tables, or some other external storage. Building applications this way makes them easier to scale and more resistant to failure, both important goals of Cloud Services.
+雲端服務的 PaaS 性質也有其他意涵。其中一個最重要的意涵是，採用這項技術建立的應用程式應該在任何 Web 角色或背景工作角色執行個體故障時都能正常運作。為了實現這一點，雲端服務應用程式不應該在本身 VM 的檔案系統中保持狀態。和使用 Azure 虛擬機器建立的 VM 不一樣的是，對於雲端服務 VM 進行的寫入並不一致；不會出現類似虛擬機器資料磁碟的元件。雲端服務應用程式反而應該將所有狀態明確寫入 SQL 資料庫、Blob、表格或其他一些外部儲存體。以這種方式建立應用程式使得調整更簡單，而且更能夠因應故障，這是雲端服務的兩個重要目標。
+
+<!---HONumber=62-->

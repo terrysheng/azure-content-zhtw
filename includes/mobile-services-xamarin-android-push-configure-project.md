@@ -1,7 +1,7 @@
 
-1. 在 [方案] 檢視中，展開 Xamarin.Android 應用程式中的 [元件]**** 資料夾，並確認已安裝 Azure 行動服務封裝。 
+1. 在 [方案] 檢視中，展開 Xamarin.Android 應用程式中的 [元件] 資料夾，並確認已安裝 Azure 行動服務封裝。 
 
-2. 在 [元件]**** 資料夾上按一下滑鼠右鍵，按一下 [取得更多元件...]****，搜尋 [Google Cloud Messaging 用戶端]**** 元件，然後將它新增至專案。
+2. 在 [元件] 資料夾上按一下滑鼠右鍵，按一下 [取得更多元件...]，搜尋 [Google Cloud Messaging 用戶端] 元件，然後將它新增至專案。
 
 1. 開啟 ToDoActivity.cs 專案檔案，然後將下列 using 陳述式加入至類別：
 
@@ -48,4 +48,5 @@
         GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
 
 您的 **ToDoActivity** 現在可供新增推送通知。
-<!--HONumber=54-->
+
+<!---HONumber=62-->

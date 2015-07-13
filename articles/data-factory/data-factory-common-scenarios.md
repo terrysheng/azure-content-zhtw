@@ -72,4 +72,8 @@ Azure Data Factory 支援下列可讓產生的資料易於取用的功能：
 
 [image-data-factory-introduction-secenario2-operationalize-infoproduction]: ./media/data-factory-common-scenarios/Scenario2-OperationalizeInformationProduction.png
 
-<!---HONumber=GIT-SubDir--> 
+
+
+ 
+
+<!---HONumber=62-->

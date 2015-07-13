@@ -36,7 +36,7 @@
 
 >[AZURE.NOTE]本教學課程旨在協助您深入了解如何透過行動服務，來使用 Azure 儲存並擷取 Windows 市集應用程式中的資料。如果這是您第一次接觸行動服務，您應該先完成[開始使用行動服務]教學課程。
 >
->若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得多達 10 個免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。
+>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，您可以註冊 Azure 試用版並取得高達 10 項的免費行動服務。此外，在試用期間結束後您仍可繼續使用這些服務。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。
 >
 >Visual Studio 2012 的舊有 Windows Phone 8 教學課程仍可在這裡取得：[Visual Studio 2012 的 Windows Phone 8 教學課程]。
 
@@ -72,14 +72,14 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
 2. 在 Visual Studio 中，開啟您在[開始使用行動服務]教學課程中完成的專案。安裝適用於 Windows 8.1 執行階段和 Windows Phone 8.1 專案的 **WindowsAzure.MobileServices.SQLiteStore** NuGet 封裝。
 
-    * **Windows 8.1：**在 [方案總管] 中，以滑鼠右鍵按一下 Windows 8.1 專案，然後按一下 [管理 Nuget 封裝]****，以執行 NuGet 封裝管理員。搜尋 **SQLiteStore** 以安裝 `WindowsAzure.MobileServices.SQLiteStore` 封裝。
-    * **Windows Phone 8.1：**以滑鼠右鍵按一下 Windows Phone 8.1 專案，然後按一下 [管理 NuGet 封裝]****，以執行 NuGet 封裝管理員。搜尋 **SQLiteStore** 以安裝 `WindowsAzure.MobileServices.SQLiteStore` 封裝。
+    * **Windows 8.1：**在 [方案總管] 中，以滑鼠右鍵按一下 Windows 8.1 專案，然後按一下 [管理 Nuget 封裝]，以執行 NuGet 封裝管理員。搜尋 **SQLiteStore** 以安裝 `WindowsAzure.MobileServices.SQLiteStore` 封裝。
+    * **Windows Phone 8.1：**以滑鼠右鍵按一下 Windows Phone 8.1 專案，然後按一下 [管理 NuGet 封裝]，以執行 NuGet 封裝管理員。搜尋 **SQLiteStore** 以安裝 `WindowsAzure.MobileServices.SQLiteStore` 封裝。
 
     >[AZURE.NOTE]如果安裝建立舊版 SQLite 的參考，您可以只刪除該重複的參考。
 
     ![][2]
 
-2. 在方案總管中，以滑鼠右鍵按一下 Windows 8.1 執行階段和 Windows Phone 8.1 平台專案的 [參考]****，並確定有 SQLite 的參考位於 [擴充功能]**** 區段中。
+2. 在方案總管中，以滑鼠右鍵按一下 Windows 8.1 執行階段和 Windows Phone 8.1 平台專案的 [參考]，並確定有 SQLite 的參考位於 [擴充功能] 區段中。
 
     ![][1] </br>
 
@@ -89,7 +89,7 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
     **Windows Phone 8.1**
 
-3. SQLite Runtime 會要求您變更要建置到 **x86**、**x64** 或 **ARM** 之專案的處理器架構。[任何 CPU]**** 不受支援。在方案總管中，按一下上方的 [方案]，將處理器架構下拉式方塊變更為您想測試的其中一項支援的設定。
+3. SQLite Runtime 會要求您變更要建置到 **x86**、**x64** 或 **ARM** 之專案的處理器架構。[任何 CPU] 不受支援。在方案總管中，按一下上方的 [方案]，將處理器架構下拉式方塊變更為您想測試的其中一項支援的設定。
 
     ![][13]
 
@@ -202,7 +202,7 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
 ## <a name="update-sync"></a>更新應用程式的同步處理行為
 
-在本節中，您將修改應用程式，使其不會對插入和更新作業執行同步處理，但僅限於按下 [重新整理]**** 按鈕時。然後，您將中斷行動服務的應用程式連線，以模擬離線狀態。當您新增資料項目時，這些項目會存放在本機存放區中，但不會同步處理至行動服務。
+在本節中，您將修改應用程式，使其不會對插入和更新作業執行同步處理，但僅限於按下 [重新整理] 按鈕時。然後，您將中斷行動服務的應用程式連線，以模擬離線狀態。當您新增資料項目時，這些項目會存放在本機存放區中，但不會同步處理至行動服務。
 
 1. 開啟共用專案中的 MainPage.cs。編輯 `InsertTodoItem` 和 `UpdateCheckedTodoItem` 方法，以註解化對 `SyncAsync` 的呼叫。
 
@@ -215,7 +215,7 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
 3. 在 `InitLocalStoreAsync()` 中註解化 `SyncAsync()` 的呼叫，使應用程式不會在啟動時執行同步處理。
 
-4. 按 **F5** 以建置並執行應用程式。輸入一些新的 todo 項目，然後為每個項目按一下 [儲存]****。新的 todo 項目在可推送至行動服務之前，都只會存留在本機存放區中。用戶端應用程式的行為，會如同它已連接到支援所有建立、讀取、更新、刪除 (CRUD) 作業的行動服務。
+4. 按 **F5** 以建置並執行應用程式。輸入一些新的 todo 項目，然後為每個項目按一下 [儲存]。新的 todo 項目在可推送至行動服務之前，都只會存留在本機存放區中。用戶端應用程式的行為，會如同它已連接到支援所有建立、讀取、更新、刪除 (CRUD) 作業的行動服務。
 
 5. 關閉應用程式並重新加以開啟，以驗證您所建立的新項目持續存留於本機存放區中。
 
@@ -227,15 +227,15 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
 2. 按 **F5** 鍵，以重新建置與執行應用程式。請注意，雖然應用程式此時已連接到行動服務，但資料看起來仍會與離線狀態下相同。這是因為此應用程式一律會使用指向本機存放區的 `IMobileServiceSyncTable`。
 
-3. 登入 Microsoft Azure 管理入口網站，並檢視您的行動服務的資料庫。如果您的行動服務使用 JavaScript 後端，則您可以從行動服務的 [資料]**** 索引標籤瀏覽資料。
+3. 登入 Microsoft Azure 管理入口網站，並檢視您的行動服務的資料庫。如果您的行動服務使用 JavaScript 後端，則您可以從行動服務的 [資料] 索引標籤瀏覽資料。
 
-    如果您將 .NET 後端用於行動服務，請在 Visual Studio 中移至 [伺服器總管]**** -> [Azure]**** -> [SQL 資料庫]****。在資料庫上按一下滑鼠右鍵，並選取 [在 SQL Server 物件總管中開啟]****。
+    如果您將 .NET 後端用於行動服務，請在 Visual Studio 中移至 [伺服器總管] -> [Azure] -> [SQL 資料庫]。在資料庫上按一下滑鼠右鍵，並選取 [在 SQL Server 物件總管中開啟]。
 
     請注意，資料並未與資料庫和本機存放區進行同步處理。
 
     ![][6]
 
-4. 在應用程式中，按 [重新整理]**** 按鈕。這會使應用程式呼叫 `PushAsync` 和 `PullAsync`。此推送作業會將本機存放區項目傳送至行動服務，然後從行動服務中擷取新的資料。
+4. 在應用程式中，按 [重新整理] 按鈕。這會使應用程式呼叫 `PushAsync` 和 `PullAsync`。此推送作業會將本機存放區項目傳送至行動服務，然後從行動服務中擷取新的資料。
 
     推送作業會從 `MobileServiceClient.SyncContext` 執行 (而非 `IMobileServicesSyncTable`)，並推送該同步內容所有相關資料表的變更。這是為了解說資料表之間有所關聯的情況。
 
@@ -245,7 +245,7 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
     ![][8]
 
-6. 再按一次 [重新整理]**** 按鈕，以呼叫 `SyncAsync`。`SyncAsync` 會同時呼叫推送和提取，但在此案例中，我們可能已移除 `PushAsync` 的呼叫。這是因為**提取一律會先執行推送**。這是為了確保本機存放區中的所有資料表和關聯性都保持一致。
+6. 再按一次 [重新整理] 按鈕，以呼叫 `SyncAsync`。`SyncAsync` 會同時呼叫推送和提取，但在此案例中，我們可能已移除 `PushAsync` 的呼叫。這是因為**提取一律會先執行推送**。這是為了確保本機存放區中的所有資料表和關聯性都保持一致。
 
     ![][10]
   
@@ -295,5 +295,6 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

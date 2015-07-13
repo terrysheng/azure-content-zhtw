@@ -80,7 +80,7 @@ Visual Studio Application Insights 的狀態監視器可讓您在任何 IIS 伺�
 
 完成精靈之後，您隨時都可以重新設定代理程式。如果已安裝代理程式，但初始設定有一些問題，則您也可以這樣做。
 
-![Click the Application Insights icon on the task bar](./media/app-insights-monitor-performance-live-website-now/appinsights-033-aicRunning.png)
+![按一下工作列上的 [Application Insights] 圖示](./media/app-insights-monitor-performance-live-website-now/appinsights-033-aicRunning.png)
 
 ## 檢視效能遙測資料
 

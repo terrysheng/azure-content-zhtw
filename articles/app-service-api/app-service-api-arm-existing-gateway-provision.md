@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/22/2015" 
 	ms.author="tomfitz"/>
 
 # 以現有閘道佈建 API 應用程式
@@ -22,7 +22,9 @@
 
 如需關於建立範本的詳細資訊，請參閱[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)。
 
-如需完整的範本，請參閱 [API 應用程式與現有閘道的範本](https://github.com/tfitzmac/AppServiceTemplates/blob/master/existing-gateway-existing-plan-new-apiapp.json) (英文)。
+如需有關部署應用程式的詳細資訊，請參閱[透過可預測方式在 Azure 中部署複雜應用程式](../app-service-web/app-service-deploy-complex-application-predictably.md)。
+
+如需完整的範本，請參閱 [API 應用程式與現有閘道的範本](../../templates/app-service-api-arm-existing-gateway-provision/) (英文)。
 
 ## 部署內容
 

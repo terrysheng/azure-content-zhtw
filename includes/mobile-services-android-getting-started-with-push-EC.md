@@ -89,7 +89,7 @@
 
 
 
-14. 在 `MyHandler` 類別中，新增下列程式碼以覆寫 **onReceive** 方法 (能在收到通知時隨即顯示)。
+14. 在 `MyHandler` 類別中，新增下列程式碼以覆寫 **onReceive** 方法 (在收到通知時隨即顯示)。
 
 		@Override
 		public void onReceive(Context context, Bundle bundle) {
@@ -129,4 +129,4 @@
 <!-- URLs. -->
 [行動服務 Android SDK]: http://aka.ms/Iajk6q
 
-<!--HONumber=54-->
+<!---HONumber=62-->

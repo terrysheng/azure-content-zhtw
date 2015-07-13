@@ -185,7 +185,7 @@ Azure 診斷可收集下列類型的遙測資料：
 1.	在 [方案總管] 中選取 **WadExample** 專案，然後從 [**建置**] 功能表選取 [**發行**]，以從 Visual Studio 將背景工作角色部署至 Azure。
 2.	選擇您的訂用帳戶。
 3.	在 [**Microsoft Azure 發行設定**] 對話方塊中，選取 [**建立新的…**]。
-4.	在 [**建立雲端服務和儲存體帳戶**] 對話方塊中，輸入一個 \[**名稱**\] (例如 "WadExample") 並選取一個區域或同質群組。
+4.	在 [**建立雲端服務和儲存體帳戶**] 對話方塊中，輸入一個 [**名稱**] (例如 "WadExample") 並選取一個區域或同質群組。
 5.	將 [環境] 設為 [預備]。
 6.	適當地修改其他任何**設定**，然後按一下 [發行]。
 7.	部署完成之後，請在 Azure 入口網站中確認您的雲端服務是否處於 [執行中] 狀態。
@@ -238,8 +238,7 @@ Azure 診斷可收集下列類型的遙測資料：
 
 
 ### 步驟 6：查看您的遙測資料
-在 Visual Studio 的 [伺服器總管] 中，瀏覽至 wadexample 儲存體帳戶。在雲端服務執行約 5 分鐘之後，您應該會看到資料表 **WADEnumsTable**、**WADHighFreqTable**、**WADMessageTable**、**WADPerformanceCountersTable** 和 **WADSetOtherTable**。按兩下其中一個資料表以檢視收集的遙測資料。
-	![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
+在 Visual Studio 的 [伺服器總管] 中，瀏覽至 wadexample 儲存體帳戶。在雲端服務執行約 5 分鐘之後，您應該會看到資料表 **WADEnumsTable**、**WADHighFreqTable**、**WADMessageTable**、**WADPerformanceCountersTable** 和 **WADSetOtherTable**。按兩下其中一個資料表以檢視收集的遙測資料。![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## 如何在虛擬機器中啟用診斷
 
@@ -333,7 +332,7 @@ Azure 診斷可收集下列類型的遙測資料：
 
 ### 步驟 3：部署應用程式
 1.	在 [**方案總管**] 中以滑鼠右鍵按一下 **WadExampleVM** 專案，然後選擇 [**在檔案總管中開啟資料夾**]。
-2.	瀏覽至 *bin\\Debug* 資料夾並複製所有檔案 (WadExampleVM.*)。
+2.	瀏覽至 *bin\Debug* 資料夾並複製所有檔案 (WadExampleVM.*)。
 3.	在 [伺服器總管] 中，以滑鼠右鍵按一下虛擬機器並選擇 [使用遠端桌面連線]。
 4.	連線至 VM 之後，建立名為 WadExampleVM 的資料夾，並將您的應用程式檔案貼到資料夾中。
 5.	啟動 WadExampleVM.exe 應用程式。您應該會看見空白的主控台視窗。
@@ -387,8 +386,7 @@ Azure 診斷可收集下列類型的遙測資料：
 
 
 ### 步驟 6：查看您的遙測資料
-在 Visual Studio 的 [伺服器總管] 中，瀏覽至 wadexample 儲存體帳戶。在 VM 執行約 5 分鐘之後，您應該會看到資料表 **WADEnumsTable**、**WADHighFreqTable**、**WADMessageTable**、**WADPerformanceCountersTable** 和 **WADSetOtherTable**。按兩下其中一個資料表以檢視收集的遙測資料。
-	![CloudServices_diag_wadexamplevm_tables](./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png)
+在 Visual Studio 的 [伺服器總管] 中，瀏覽至 wadexample 儲存體帳戶。在 VM 執行約 5 分鐘之後，您應該會看到資料表 **WADEnumsTable**、**WADHighFreqTable**、**WADMessageTable**、**WADPerformanceCountersTable** 和 **WADSetOtherTable**。按兩下其中一個資料表以檢視收集的遙測資料。![CloudServices_diag_wadexamplevm_tables](./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png)
 
 ## 組態檔結構描述
 
@@ -399,7 +397,7 @@ Azure 診斷可收集下列類型的遙測資料：
 ### Azure 診斷未啟動
 診斷是由兩個元件所組成：客體代理程式外掛程式和監視代理程式。客體代理程式外掛程式的記錄檔位於下列檔案中：
 
-*%SystemDrive%\\ WindowsAzure\\Logs\\Plugins\\Microsoft.Azure.Diagnostics.PaaSDiagnostics<DiagnosticsVersion>*\\CommandExecution.log
+*%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics<DiagnosticsVersion>*\CommandExecution.log
 
 外掛程式會傳回下列錯誤碼：
 
@@ -533,14 +531,11 @@ Azure 診斷可收集下列類型的遙測資料：
 
 **問：** 如何將我的 Visual Studio 解決方案從 Azure Diagnostics 1.0 升級至 Azure Diagnostics 1.1？
 
-**答：** 將 Visual Studio 解決方案從 Diagnostics 1.0 升級至 Diagnostics 1.1 (或更新版本) 是手動程序：
-- 請停用您的 Visual Studio 方案中的診斷，以防止 Diagnostics 1.0 隨您的角色部署 
-- 如果您的程式碼使用追蹤接聽項，則需要修改程式碼才能使用 .NET EventSource。Diagnostics 1.1 及更新版本不支援追蹤接聽項。
-- 請修改您的部署處理序，以安裝 Diagnostics 1.1 擴充功能。
+**答：** 將 Visual Studio 解決方案從 Diagnostics 1.0 升級至 Diagnostics 1.1 (或更新版本) 是手動程序：- 請停用您的 Visual Studio 方案中的診斷，以防止 Diagnostics 1.0 隨您的角色部署 - 如果您的程式碼使用追蹤接聽項，則需要修改程式碼才能使用 .NET EventSource。Diagnostics 1.1 及更新版本不支援追蹤接聽項。- 請修改您的部署處理序，以安裝 Diagnostics 1.1 擴充功能。
 
 **問：** 如果我已經在角色或 VM 上安裝診斷 1.1 擴充功能，如何才能升級至診斷 1.2 或 1.3？
 
-**答：**  如果您在安裝 Diagnostics 1.1 時指定了 “–Version “1.*”"，下次角色或 VM 重新啟動時，便會自動更新為符合規則運算式 “1.*” 的最新版本。如果您在安裝 Diagnostics 1.1 時指定了 “–Version “1.1””，則可以重新執行 Set- Cmdlet 並指定您要安裝的版本，以更新為更新版本。
+**答：** 如果您在安裝 Diagnostics 1.1 時指定了 “–Version “1.*”"，下次角色或 VM 重新啟動時，便會自動更新為符合規則運算式 “1.*” 的最新版本。如果您在安裝 Diagnostics 1.1 時指定了 “–Version “1.1””，則可以重新執行 Set- Cmdlet 並指定您要安裝的版本，以更新為更新版本。
 
 **問：** 資料表的命名方式為何？
 
@@ -769,6 +764,7 @@ Azure 診斷可收集下列類型的遙測資料：
 [比較 Azure 診斷版本]: #comparing
 [Additional Resources]: #additional
 [EventSource 類別]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+  
 [為 Azure 雲端服務和虛擬機器設定診斷功能]: http://msdn.microsoft.com/library/windowsazure/dn186185.aspx
 [偵錯 Azure 應用程式]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx
 [使用 Windows Azure 診斷收集記錄資料]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
@@ -779,5 +775,6 @@ Azure 診斷可收集下列類型的遙測資料：
 [Set-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495270.aspx
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495145.aspx
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

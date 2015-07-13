@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="建立備份"
-   description="說明如何定義 StorSimple 備份原則。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
-
 ### 建立備份
 
 1. 在裝置的 [快速入門] 頁面上，按一下 [新增備份原則]。這將會啟動 [新增備份原則] 精靈。 
@@ -40,4 +23,4 @@
 
 您已經完成裝置設定。
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

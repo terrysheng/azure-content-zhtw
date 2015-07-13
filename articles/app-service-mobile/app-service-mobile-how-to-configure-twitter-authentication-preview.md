@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="如何為您的應用程式服務應用程式設定 Twitter 驗證"
-	description="了解如何為您的應用程式服務應用程式設定 Twitter 驗證。" 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	authors="mattchenderson,ggailey777" 
-	manager="dwrede" 
+	description="了解如何為您的應用程式服務應用程式設定 Twitter 驗證。"
+	services="app-service\mobile"
+	documentationCenter=""
+	authors="mattchenderson" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="02/19/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="05/26/2015"
 	ms.author="mahender"/>
 
 # 如何設定應用程式以使用 Twitter 登入
@@ -43,7 +43,7 @@
 
 6. 登入 [Azure 管理入口網站]，然後導覽至您的 App Service 閘道。
 
-7. 在 [**設定**] 下選擇 [**身分識別**]，然後選取 [**Twitter**]。貼入您先前取得的應用程式識別碼和應用程式密鑰值。然後按一下 [儲存]****。
+7. 在 [**設定**] 下選擇 [**身分識別**]，然後選取 [**Twitter**]。貼入您先前取得的應用程式識別碼和應用程式密鑰值。然後按一下 [儲存]。
 
     ![][1]
 
@@ -65,5 +65,6 @@
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Azure 管理入口網站]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

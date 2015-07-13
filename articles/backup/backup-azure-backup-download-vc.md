@@ -1,20 +1,19 @@
 <properties
-	pageTitle="在 Azure 備份中下載保存庫認證"
-	description="了解如何使用保存庫認證，以便透過備份保存庫和 Azure 備份服務來驗證您的電腦"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="在 Azure 備份中下載保存庫認證"
+   description="了解如何使用保存庫認證，以便透過備份保存庫和 Azure 備份服務來驗證您的電腦"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="03/27/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="03/27/2015"
+   ms.author="prvijay"/>
 
 # 使用保存庫認證來驗證 Azure 備份服務
 
@@ -52,5 +51,6 @@
 <!--Image references-->
 [1]: ./media/backup-azure-backup-download-vc/quickview.png
 [2]: ./media/backup-azure-backup-download-vc/downloadvc.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

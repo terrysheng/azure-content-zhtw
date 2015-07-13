@@ -35,9 +35,9 @@
 
 	![連接到伺服器](./media/hybrid-connections-create-on-premises-database/A04SSMSConnectToServer.png)
 	
-	針對 [伺服器類型]，選擇 [資料庫引擎]。對於 [**伺服器名稱**]，您可以使用 **localhost** 或您要安裝 SQL Server 之電腦的名稱。選擇 [**SQL Server 驗證**]，並且提供您先前建立的 sa 登入密碼。
+	針對 [**伺服器類型**]，選擇 [**資料庫引擎**]。對於 [**伺服器名稱**]，您可以使用 **localhost** 或您要安裝 SQL Server 之電腦的名稱。選擇 [**SQL Server 驗證**]，並且提供您先前建立的 sa 登入密碼。
 	
-2. 若要使用 SQL Server Management Studio 建立新資料庫，請在 [物件總管] 中以滑鼠右鍵按一下 [資料庫]，然後按一下 [New Database]。
+2. 若要使用 SQL Server Management Studio 建立新資料庫，請在 [物件總管] 中以滑鼠右鍵按一下 [資料庫]，然後按一下 [**New Database**]。
 	
 3. 在 [**新的資料庫**] 對話方塊中，輸入 `OnPremisesDB`，然後按一下 [**確定**]。
 	

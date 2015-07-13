@@ -178,5 +178,6 @@ ADAL for Javascript 是開放原始碼程式庫。如需分佈選項、原始程
 
 + [Azure Active Directory 程式碼範例](https://msdn.microsoft.com/library/azure/dn646737.aspx)
 + [Azure AD 的驗證案例](https://msdn.microsoft.com/library/azure/dn499820.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

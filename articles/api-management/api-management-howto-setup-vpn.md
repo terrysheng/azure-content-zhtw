@@ -65,5 +65,6 @@ API 管理的 VPN 支援可讓您將 API 管理 Proxy 連接到 Azure 虛擬網�
 
 [教學課程：建立站對站連線的跨單位虛擬網路]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫]: api-management-howto-api-inspector.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

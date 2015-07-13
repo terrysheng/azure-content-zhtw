@@ -111,4 +111,5 @@
 [開始使用驗證]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md
 [開始使用推播通知]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [範本]: https://msdn.microsoft.com/zh-tw/library/dn530748.aspx
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

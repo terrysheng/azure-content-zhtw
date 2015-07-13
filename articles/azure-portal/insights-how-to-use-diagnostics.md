@@ -1,85 +1,74 @@
 <properties 
-	pageTitle="如何使用診斷" 
+	pageTitle="啟用監視和診斷" 
 	description="了解如何在 Azure 設定資源的診斷。" 
 	authors="stepsic-microsoft-com" 
-	manager="kamrani" 
+	manager="ronmart" 
 	editor="" 
-	services="application-insights" 
-	documentationCenter=""/>
+	services="azure-portal" 
+	documentationCenter="na"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
+	ms.service="azure-portal" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2014-11-04" 
+	ms.date="04/28/2015" 
 	ms.author="stepsic"/>
 
-# 設定診斷功能
+# 啟用監視和診斷
 
-在 Azure 入口網站預覽中，您現在可以為您的 Windows 虛擬機器與儲存體帳戶，設定內容豐富且經常產生的監視與診斷資料。
+在 [Azure 入口網站](http://portal.azure.com)中，您可以為您的資源設定內容豐富且經常產生的監視與診斷資料。您也可以使用 [REST API](https://msdn.microsoft.com/library/azure/dn931932.aspx) 或 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) 設定，並以程式設計方式設定診斷。
 
-## 收集來自虛擬機器的豐富資料
-1. 在 [Azure 入口網站預覽](https://portal.azure.com/) 中，按一下 [**瀏覽**]，然後按一下 [**虛擬機器**]。選取您想要監視的虛擬機器。
-2. [**監視**] 透鏡包含一些預設的度量，例如 [**CPU 百分比**]、[**磁碟讀取和寫入**] 和 [**進出網路**]。按一下其中任何一個部分，即會顯示 [**度量**] 分頁。  
-    ![Monitoring lens](./media/insights-how-to-use-diagnostics/Insights_VMMonitoringLens.png)
-3. [**度量**] 分頁會顯示所選度量的詳細資料。分頁頂端會有一個圖形，圖形下會有一個資料表顯示這些度量的彙總，例如平均值、最小值和最大值。該資料表下會列出您所定義的警示 (依照分頁上顯示的度量進行篩選)。  
-    ![Metric blade](./media/insights-how-to-use-diagnostics/Insights_VMMetricBlade.png)
-4. 若要啟用豐富的診斷功能，按一下 [**設定**] 按鈕，接著畫面就會顯示 [**診斷**] 分頁。選擇 [**開啟**]：  
-    ![Diagnostics blade](./media/insights-how-to-use-diagnostics/Insights_CreateTime.png)
-    - **Basic metrics**：有關您的虛擬機器的健康情況度量，例如處理器與記憶體 
-    - **Per disk metrics**：附加至您的虛擬機器的所有磁碟度量
-    - **.NET metrics**：有關在您的虛擬機器上執行的 .NET 與 ASP.NET 應用程式度量
-    - **Network metrics**：有關您的網路連線與 Web 服務的度量
-    - **Windows event application logs**：傳送至應用程式通道的 Windows 事件
-    - **Windows event system logs**：傳送至系統通道的 Windows 事件。此事件同時包含來自 [Microsoft 反惡意程式碼](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409) (英文) 的所有事件。 
-    - **Windows event security logs**：傳送至安全性通道的 Windows 事件
-    - **Diagnostics infrastructure logs**：記錄有關診斷收集基礎結構的資訊
-    - **IIS 記錄**：有關 IIS 伺服器的記錄
-    所有的度量與記錄都將以一分鐘的間隔來記錄，以便您隨時保有最新的機器相關資訊。
+在 Azure 中的診斷、監視和計量資料會被儲存到您所選擇的儲存體帳戶。這可讓您使用任何工具來讀取資料，從儲存體總管到 Power BI 再到協力廠商工具。
 
-當您對儲存體帳戶啟用診斷資訊功能時，我們將向該帳戶收取正常儲存、交易及出口流量費用。不過，這些功能並不會產生大量的資料 (IIS 記錄是可能的例外情況)。為了有效降低出口流量費用，請在選取儲存體帳戶所在區域時，盡量與虛擬機器一致。
+## 建立資源的時機
 
-一旦您按一下 [**確定**]，您的儲存體帳戶在幾分鐘內就會開始出現資料。您無法在執行 Linux 的虛擬機器上啟用診斷功能，而且必須安裝客體代理程式以便啟用診斷功能。
+當您在 [Azure 入口網站](http://portal.azure.com)中首次建立服務時，大部分的服務可讓您啟用診斷功能。
 
-## 收集來自儲存體帳戶的豐富資料
+1. 移至 [**新增**] 並選擇您感興趣的資源。 
 
-一直以來您都可以順利收集到來自儲存體帳戶的一些資料，不過現在隨著 Azure 入口網站預覽功能的問世，您可以將資料收集間隔縮短至一分鐘，以便真正了解您的儲存體帳戶內的一舉一動。啟用一分鐘度量的步驟，類似於虛擬機器上的設定步驟：
+2. 選取 [**選用組態**]。![[診斷] 刀鋒視窗](./media/insights-how-to-use-diagnostics/Insights_CreateTime.png)
 
-1. 您可以按一下 [**Storage account**] 分頁上的任何圖表，前往 [**度量**] 分頁。
-2. 按一下命令列中的 [**診斷**] 按鈕。
-3. 選取您要從儲存體帳戶中收集的資料類型：  
-    ![Storage diagnostics](./media/insights-how-to-use-diagnostics/Insights_StorageDiagnostics.png)
-4. 按一下 [**確定**]。資料初次顯示時，需要幾分鐘時間來完成。
+3. 選取 [**診斷**]，然後按一下 [**開啟**]。您將必須選擇您要儲存診斷的儲存體帳戶。將診斷傳送至儲存體帳戶時，您將需要支付儲存和交易的一般數據傳輸費用。
 
-## 視覺化診斷資料 
+4. 按一下 [**確定**]，並建立資源。
 
-一旦您啟用了診斷功能，就可用滑鼠右鍵按一下任何一張圖表，並選取 [**編輯查詢**] 來查看完整的可用度量清單：
+## 變更現有資源的設定
 
-![Edit query](./media/insights-how-to-use-diagnostics/Insights_VMEditQuery.png)
+如果您已經建立資源，而且您想要變更診斷設定 (例如，變更資料收集的層級)，您可以直接在 Azure 入口網站中執行此作業。
 
-您可以繪製這些度量，放大到 [**Past hour**]、縮小到 [**Past week**] 或甚至選擇 [**自訂**] 時間範圍：
+1. 移至資源，然後按一下 [**設定**] 命令。
+
+2. 選取 [**診斷**]。
+
+3. [**診斷**] 刀鋒視窗會有該資源的所有可能診斷和監視集合資料。在某些資源中，您也可以為資料選擇 [**保留**] 原則，以便將它從儲存體帳戶中清除。![儲存體診斷診斷](./media/insights-how-to-use-diagnostics/Insights_StorageDiagnostics.png)
+
+4. 選擇設定之後，請按一下 [**儲存**] 命令。如果您是第一次啟用此選項，則顯示監視資料可能需要一點時間。
+
+### 虛擬機器的資料收集類別
+在虛擬機器中，所有的計量與記錄都將以一分鐘的間隔來記錄，以便您隨時保有最新的機器相關資訊。
+
+- **基本計量**：有關您的虛擬機器的健康情況計量，例如處理器與記憶體 
+- **網路和 Web 計量**：有關您的網路連線與 Web 服務的計量
+- **.NET 計量**：有關在您的虛擬機器上執行的 .NET 與 ASP.NET 應用程式計量
+- **SQL 計量**：如果您執行的是 Microsoft SQL 服務，這會是其效能計量
+- **Windows 事件應用程式記錄檔**：傳送至應用程式通道的 Windows 事件
+- **Windows 事件系統記錄檔**：傳送至系統通道的 Windows 事件。此事件同時包含來自 [Microsoft 反惡意程式碼](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409) (英文) 的所有事件。 
+- **Windows 事件安全性記錄檔**：傳送至安全性通道的 Windows 事件
+- **診斷基礎結構記錄檔**：記錄有關診斷收集基礎結構的資訊
+- **IIS 記錄檔**：有關 IIS 伺服器的記錄
+
+請注意，目前不支援特定的 Linux 散發套件，而且虛擬機器上必須安裝客體代理程式。
+
+## 後續步驟
+
+* 每當發生操作事件或計量超過臨界值時，[接收警示通知](insights-receive-alert-notifications.md)。
+* [監視服務計量](insights-how-to-customize-monitoring.md)以確保您的服務可用且可回應。
+* [自動調整執行個體計數](insights-how-to-scale.md)以確保您的服務可根據需求進行調整。
+* 如果您想要了解您的程式碼如何在雲端中執行，可以[監視應用程式效能](insights-perf-analytics.md)。
+* [檢視事件和稽核記錄檔](insights-debugging-with-events.md)以了解在您服務內發生的所有內容。
+* [追蹤服務健康狀況](insights-service-health.md)可以找出 Azure 何時遭遇效能降低或服務中斷。 
  
-![Custom timerange](./media/insights-how-to-use-diagnostics/Insights_VMCustomTime.png)
 
-您會發現這些度量比先前提供的資料還要細膩，而且延遲時間非常短。
-
-此時您無法繪製具有多重執行個體的度量，例如個別程序或個別磁碟度量。如需有關如何自訂您的監視圖表的詳細資訊，請參閱 [如何自訂監視](http://go.microsoft.com/fwlink/?LinkID=394523&clcid=0x409) (英文)。
-
-## 對診斷資料發出警示通知
-
-除了對度量進行視覺化處理之外，您還可以對入口網站預覽中的任何度量發出警示通知。首先，將頁面向下捲動至虛擬機器或儲存體分頁的 [**警示規則**] 部分，然後按一下 [**加入警示**]：
-
-![Add alert](./media/insights-how-to-use-diagnostics/Insights_VMAlerts.png)
-
-接著您就可以選取先前啟用的任何一項診斷度量：
-
-![JIT alert](./media/insights-how-to-use-diagnostics/Insights_VMJITAlert.png)
-
-該圖形會顯示您的警示臨界值與前一天度量相比較的預覽。按一下 [**儲存**] 之後，幾分鐘內您將收到所選的度量是否超出臨界值的通知。 
-
-請注意，只在 [預覽入口網站] 上顯示的所有度量，無法在 [完整入口網站] 上提供警示通知。如此一來，來自預覽入口網站的特定警示規則，將無法顯示在完整入口網站上。
-
-<!--HONumber=46--> 
- 
+<!---HONumber=62-->

@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="完成最小裝置設定"
-   description="說明如何完成最小的 StorSimple 裝置設定。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/21/2015"
-   ms.author="v-sharos" />
 
 #### 完成最小的 StorSimple 裝置安裝
 

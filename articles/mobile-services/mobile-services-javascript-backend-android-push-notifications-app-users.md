@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/03/2015" 
 	ms.author="wesmc"/>
 
 
@@ -40,7 +40,7 @@
 
 ##更新服務以要求註冊所需的驗證
 
-[AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../../includes/mobile-services-javascript-backend-push-notifications-app-users.md)] 
+[AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
 
 <ol start="5"><li><p>使用下列程式碼來取代 insert 函數，然後按一下 [儲存]<strong></strong>：</p>
 <pre><code> function insert(item, user, request) {
@@ -78,11 +78,11 @@
 
 ##更新應用程式以在註冊前先登入
 
-[AZURE.INCLUDE [mobile-services-android-push-notifications-app-users](mobile-services-android-push-notifications-app-users.md)] 
+[AZURE.INCLUDE [mobile-services-android-push-notifications-app-users](mobile-services-android-push-notifications-app-users.md)]
 
 ##測試應用程式
 
-[AZURE.INCLUDE [mobile-services-android-test-push-users](../../includes/mobile-services-android-test-push-users.md)] 
+[AZURE.INCLUDE [mobile-services-android-test-push-users](../../includes/mobile-services-android-test-push-users.md)]
 
 <!---##Next steps
 
@@ -93,8 +93,9 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [將驗證新增至行動服務應用程式]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: mobile-services-javascript-backend-android-get-started-push.md
 [開始使用推播通知]: mobile-services-javascript-backend-android-get-started-push.md
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
+ 
 
-<!---HONumber=54--> 
+<!---HONumber=July15_HO1-->

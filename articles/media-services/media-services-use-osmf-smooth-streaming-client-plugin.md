@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="06/17/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,6 +21,8 @@
 # 如何使用 Adobe Open Source Media Framework 的 Microsoft Smooth Streaming 外掛程式 #
 
 ##概觀 ##
+
+
 Open Source Media Framework 2.0 的 Microsoft Smooth Streaming 外掛程式 (SS for OSMF) 可擴充 OSMF 的預設功能，並可為新的和現有的 OSMF 播放程式新增 Microsoft Smooth Streaming 內容播放功能。此外掛程式也可為 Strobe Media Playback (SMP) 新增 Smooth Streaming 播放功能。
 
 SS for OSMF 包含兩個外掛程式版本：
@@ -43,21 +45,13 @@ SS for OSMF 包含兩個外掛程式版本：
 - 透過 OSMF 內建 API 的多重音訊語言切換
 - 透過 OSMF 內建 API 的最高播放品質選取
 - 透過 OSMF 字幕外掛程式的 Sidecar 隱藏式輔助字幕
-- Adobe&reg; Flash&reg; Player 10.2 或更新版本。
+- Adobe&reg; Flash&reg; Player 11.4 或更新版本。
 - 此版本僅支援 OSMF 2.0。
 
-以下是不受支援的功能：
+## 支援的功能和已知問題
 
-- VC-1 和 WMA 轉碼器
-- 內容保護 (PlayReady)
-- 文字和疏鬆播放軌
-- 特效 (慢動作、快進和倒帶)
+如需支援功能、不支援功能和已知問題的完整清單，請參閱[這份文件](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf)。
 
-以下是已知問題清單：
-
-- 使用 48KHz 音軌播放 Smooth Streaming 內容時會發生問題。Flash 執行階段的 48KHz 音訊內容轉譯有已知問題。由於此問題，以 48Khz 設定編碼的 Smooth Streaming 內容可能無法如預期運作。請參閱：[使用 Flash Player](http://forums.adobe.com/message/4483498#4483498) (英文) 和 [Adobe Flash Player 11.3 - 錯誤 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964) (英文)，以取得詳細資訊。
-- 單一頁面上的多重 Smooth Streaming 內容播放可能會產生問題。這是 OSMF 的已知問題。
-- Stage Video 的播放可能會產生問題，且有些機器上無法播放視訊。若要解決此問題，您可以停用硬體加速或 Stage Video。
 
 ## 載入外掛程式
 OSMF 外掛程式可以靜態方式 (在編譯時) 或動態方式 (在執行階段) 載入。OSMF 的 Smooth Streaming 外掛程式下載，會同時包含動態和靜態版本。
@@ -404,4 +398,9 @@ Smooth Streaming for OSMF 動態外掛程式與 [Strobe Media Playback (SMP)](ht
 
 如需一般 OSMF 開發的詳細資訊，請參閱官方 [OSMF 開發頁面](http://osmf.org/resources.html)。
 
-<!--HONumber=54--> 
+
+##另請參閱
+
+[OSMF 的 Microsoft 彈性資料流外掛程式更新](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) (英文)
+
+<!---HONumber=July15_HO1-->

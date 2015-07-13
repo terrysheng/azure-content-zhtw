@@ -3,18 +3,17 @@
 	description="了解如何定義自訂 API 然後從使用 Azure 行動服務的 HTML 應用程式呼叫它。" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="ggailey777" 
-	writer="jparrel" 
+	authors="bureado"  
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # 從 HTML 應用程式呼叫自訂 API
@@ -25,21 +24,15 @@
 
 本主題中所建立的自訂 API 可讓您傳送單一 POST 要求，並將資料表中所有 todo 項目的已完成旗標設定為 `true`。若沒有此自訂 API，用戶端必須傳送個別要求，來為資料表中的每個 todo 項目更新旗標。
 
-將此功能新增至您在完成[開始使用行動服務]或[開始使用資料]教學課程時所建立的應用程式。若要達到此目的，您將需要完成下列步驟：
-
-1. [定義自訂 API]
-2. [更新應用程式以呼叫自訂 API]
-3. [測試應用程式] 
-
-本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務]或[開始使用資料]。
+本教學課程會以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務]或[新增行動服務至現有應用程式]。
 
 ## <a name="define-custom-api"></a>定義自訂 API
 
 [AZURE.INCLUDE [mobile-services-create-custom-api](../../includes/mobile-services-create-custom-api.md)]
 
-<h2><a name="update-app"></a>更新應用程式以呼叫自訂 API</h2>
+##<a name="update-app"></a>更新應用程式以呼叫自訂 API
 
-1. 使用您的文字編輯器開啟 index.html 檔案，找出名為 `buttonRefresh` 的 [按鈕]**** 元素，然後在後面新增以下新元素： 
+1. 使用您的文字編輯器開啟 index.html 檔案，找出名為 `buttonRefresh` 的 [按鈕] 元素，然後在後面新增以下新元素： 
 
 		<button id="buttonCompleteAll">Complete All</button> 
 
@@ -71,27 +64,32 @@
 
 1. 重新整理您的瀏覽器。
 
-2. 在應用程式的 [Insert a TodoItem]**** 中鍵入一些文字，然後按一下 [儲存]****。
+2. 在應用程式的 [Insert a TodoItem] 中鍵入一些文字，然後按一下 [儲存]。
 
 3. 重複前一個步驟，直到將數個 Todo 項目新增至清單為止。
 
-4. 按一下 [Complete All]**** 按鈕。出現訊息對話方塊，指出標示為完成的項目數，並重新執行篩選查詢，以便清除清單的所有項目。
+4. 按一下 [Complete All] 按鈕。出現訊息對話方塊，指出標示為完成的項目數，並重新執行篩選查詢，以便清除清單的所有項目。
 
 ## 後續步驟
 
-您已建立自訂 API，並從您的 HTML 應用程式呼叫此 API，建議您搜尋有關下列行動服務主題的更多資訊：
+本主題示範如何使用 **invokeApi** 函數從 HTML/JavaScript 應用程式呼叫相當簡單的自訂 API。若要深入了解如何使用 **invokeApi** 函數，請參閱 [Azure 行動服務中的自訂 API](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx) 文章。
+
+並請考慮更深入了解下列行動服務主題：
 
 * [行動服務伺服器指令碼參照] <br/> (英文) 深入了解建立自訂 API。
 
+* [在來源控制中儲存伺服器指令碼] <br/>了解如何使用來源控制功能，來更輕鬆及安全地開發並發佈自訂 API 指令碼。
+
 <!-- Anchors. -->
-[定義自訂 API]: #define-custom-api
-[更新應用程式以呼叫自訂 API]: #update-app
-[測試應用程式]: #test-app
+[Define the custom API]: #define-custom-api
+[Update the app to call the custom API]: #update-app
+[Test the app]: #test-app
 [Next Steps]: #next-steps
 
 <!-- URLs. -->
 [行動服務伺服器指令碼參照]: http://go.microsoft.com/fwlink/?LinkId=262293
-[My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
 [開始使用行動服務]: mobile-services-html-get-started.md
-[開始使用資料]: mobile-services-html-get-started-data.md
-<!--HONumber=54--> 
+[新增行動服務至現有應用程式]: mobile-services-html-get-started-data.md
+[在來源控制中儲存伺服器指令碼]: mobile-services-store-scripts-source-control.md
+
+<!---HONumber=July15_HO1-->

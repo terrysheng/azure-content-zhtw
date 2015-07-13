@@ -466,4 +466,4 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

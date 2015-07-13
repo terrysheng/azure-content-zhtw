@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何從媒體服務傳遞串流內容 - Azure" 
+	pageTitle="如何從媒體服務傳遞串流內容" 
 	description="了解如何建立定位器，用來建置串流 URL。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
 	authors="juliako" 
 	manager="dwrede" 
@@ -13,24 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
-# 做法：傳遞串流內容
+#作法：傳遞串流內容
 
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md)系列的一部分。  
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md)系列的一部分。
 
-## 概觀
+##概觀
 
-您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。[為資產編碼](media-services-encode-asset.md)主題顯示如何編碼為調適性位元速率 MP4 集。建立定位器之前，您應該如[這個](media-services-dotnet-configure-asset-delivery-policy.md)主題中所述，設定資產傳遞原則。 
+您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。[為資產編碼](media-services-encode-asset.md)主題說明如何編碼為調適性位元速率 MP4 集。建立定位器之前，您應該如[此](media-services-dotnet-configure-asset-delivery-policy.md)主題所述設定資產傳遞原則。
 
-您也可以使用隨選串流定位器來建置指向可漸進式下載之 MP4 檔案的 URL。  
+您也可以使用隨選串流定位器來建置指向可漸進式下載之 MP4 檔案的 URL。
 
-本主題說明如何建立隨選串流定位器以發佈資產及建置 Smooth、MPEG DASH 和 HLS 串流 URL。它也會示範如何建置漸進式下載 URL。 
+本主題說明如何建立隨選串流定位器以發佈資產及建置 Smooth、MPEG DASH 和 HLS 串流 URL。它也會示範如何建置漸進式下載 URL。
   	 
-## 建立隨選串流定位器
+##建立隨選串流定位器
 
 若要建立隨選串流定位器並取得 URL，您需要執行下列動作：
 
@@ -42,9 +42,9 @@
    4. 建置資訊清單檔或 MP4 檔案的 URL。 
    
 
-### 使用 Media Services .NET SDK 
+###使用 Media Services .NET SDK 
 
-建置串流 URL 
+建置串流 URL
 
 	private static void BuildStreamingURLs(IAsset asset)
 	{
@@ -92,7 +92,7 @@
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 	
 
-建置漸進式下載 URL 
+建置漸進式下載 URL
 
 	private static void BuildProgressiveDownloadURLs(IAsset asset)
 	{
@@ -131,7 +131,7 @@
 	
 	. . . 
 
-### 使用 Media Services .NET SDK 延伸模組
+###使用 Media Services .NET SDK 延伸模組
 
 下列程式碼會呼叫 .NET SDK 延伸模組方法，以針對調適性串流建立定位器並產生 Smooth Streaming、HLS 和 MPEG-DASH URL。
 
@@ -150,6 +150,6 @@
 	Console.WriteLine(smoothStreamingUri);
 	Console.WriteLine(hlsUri);
 	Console.WriteLine(mpegDashUri);
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

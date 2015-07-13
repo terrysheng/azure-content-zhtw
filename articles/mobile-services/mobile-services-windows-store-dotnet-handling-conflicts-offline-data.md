@@ -10,16 +10,16 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/15/2015" 
 	ms.author="wesmc"/>
 
 
 # 處理行動服務中的離線資料同步衝突
 
-[WACOM.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
 ##概觀
 
@@ -51,13 +51,13 @@
 
 2. 如果您尚未安裝[開始使用離線資料]教學課程中所述的 SQLite for Windows 8.1 和 Windows Phone 8.1，請安裝這兩個執行階段。
 
-3. 在 Visual Studio 2013，開啟 *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln* 方案檔。請按 **F5** 鍵，以重新建置與執行專案。確認 NuGet 封裝已還原，並已正確設定參考。
+3. 在 Visual Studio 2013，開啟 *mobile-services-samples\TodoOffline\WindowsUniversal\TodoOffline-Universal.sln* 方案檔。請按 **F5** 鍵，以重新建置與執行專案。確認 NuGet 封裝已還原，並已正確設定參考。
 
     >[AZURE.NOTE]您可能需要刪除任何舊的 SQLite 執行階段參考，並以更新過的參考 (如[開始使用離線資料]教學課程中所述) 加以取代。
 
-4. 在應用程式的 [插入 TodoItem]**** 中輸入一些文字，然後按一下 [儲存]****，來將一些 todo 項目加入本機存放區。然後關閉應用程式。
+4. 在應用程式的 [插入 TodoItem] 中輸入一些文字，然後按一下 [儲存]，來將一些 todo 項目加入本機存放區。然後關閉應用程式。
 
-請注意，應用程式尚未連接到任何行動服務，因此 [推送]**** 和 [提取]**** 按鈕將會擲出例外狀況。
+請注意，應用程式尚未連接到任何行動服務，因此 [推送] 和 [提取] 按鈕將會擲出例外狀況。
 
 
 
@@ -66,7 +66,7 @@
 
 現在，我們將對行動服務進行應用程式測試。
 
-1. 在 Azure 管理入口網站中，按一下 [儀表板]**** 索引標籤之命令列上的 [管理金鑰]****，以找出您行動服務的應用程式金鑰。複製 [應用程式金鑰]****。
+1. 在 Azure 管理入口網站中，按一下 [儀表板] 索引標籤之命令列上的 [管理金鑰]，以找出您行動服務的應用程式金鑰。複製 [應用程式金鑰]。
 
 2. 在 Visual Studio 的 [方案總管] 中，開啟 JavaScript 用戶端範例專案中的 App.xaml.cs 檔案。變更 **MobileServiceClient** 的初始化，使其使用您的行動服務 URL 和應用程式金鑰：
 
@@ -89,16 +89,16 @@
 
 下列步驟說明如何使用範例同時執行 Windows Phone 8.1 和 Windows 市集 8.1 用戶端，以造成並解決衝突。
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下 Windows Phone 8.1 專案，然後按一下 [設定為啟始專案]****。然後按 **Ctrl+F5** 鍵，以在不偵錯的情形下執行 Windows Phone 8.1 用戶端。一旦您在模擬器中啟動並執行 Windows Phone 8.1 用戶端，請按一下 [提取]**** 按鈕，以同步處理本機存放區與資料庫的目前狀態。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下 Windows Phone 8.1 專案，然後按一下 [設定為啟始專案]。然後按 **Ctrl+F5** 鍵，以在不偵錯的情形下執行 Windows Phone 8.1 用戶端。一旦您在模擬器中啟動並執行 Windows Phone 8.1 用戶端，請按一下 [提取] 按鈕，以同步處理本機存放區與資料庫的目前狀態。
  
     ![][3]
  
    
-2. 在 Visual Studio 中，以滑鼠右鍵按一下 Windows 8.1 執行階段專案，然後按一下 [設定為啟始專案]****，將它設回成啟始專案。然後按 **F5** 執行此專案。一旦您在模擬器中啟動並執行 Windows 市集 8.1 用戶端，請按一下 [提取]**** 按鈕，以同步處理本機存放區與資料庫的目前狀態。
+2. 在 Visual Studio 中，以滑鼠右鍵按一下 Windows 8.1 執行階段專案，然後按一下 [設定為啟始專案]，將它設回成啟始專案。然後按 **F5** 執行此專案。一旦您在模擬器中啟動並執行 Windows 市集 8.1 用戶端，請按一下 [提取] 按鈕，以同步處理本機存放區與資料庫的目前狀態。
 
     ![][4]
  
-3. 此時，這兩個用戶端都已與資料庫同步處理。兩個用戶端的程式碼也會使用增量同步處理，如此一來它們只會同步未完成的 todo 項目。已完成的 todo 項目會被忽略。選擇其中一個項目，並在這兩個用戶端中將相同項目的文字編輯成不同的值。按一下 [推送]**** 按鈕，將這兩個變更同步處理到伺服器上的資料庫。
+3. 此時，這兩個用戶端都已與資料庫同步處理。兩個用戶端的程式碼也會使用增量同步處理，如此一來它們只會同步未完成的 todo 項目。已完成的 todo 項目會被忽略。選擇其中一個項目，並在這兩個用戶端中將相同項目的文字編輯成不同的值。按一下 [推送] 按鈕，將這兩個變更同步處理到伺服器上的資料庫。
 
     ![][5]
 
@@ -165,5 +165,6 @@
 [Handling Database Conflicts]: mobile-services-windows-store-dotnet-handle-database-conflicts.md#test-app
 [行動服務範例 GitHub 儲存機制]: http://go.microsoft.com/fwlink/?LinkId=512865
 [Todo 離線行動服務範例]: http://go.microsoft.com/fwlink/?LinkId=512866
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

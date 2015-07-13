@@ -16,7 +16,7 @@
 					// Change 'MobileService' to the name of your MobileServiceClient instance.
 					// Sign-in using Facebook authentication.
                     user = await App.MobileService
-                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook, true);
                     message = 
                         string.Format("You are now signed in - {0}", user.UserId);
                 }
@@ -59,7 +59,7 @@
 6. 在 Windows Phone 應用程式專案中，將以下 **Button** 元素新增至定義 **Save** 按鈕的元素前面：
 
 		<Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
-                        Visibility="Visible">Sign in</Button> 
+                        Visibility="Visible" Margin="10, 0, 0, 0">Sign in</Button> 
 
 5. 開啟共用的 App.xaml.cs 專案檔案並新增下列 using 陳述式 (如果該陳述式不存在的話)：
 
@@ -90,4 +90,4 @@
 
 9. 以滑鼠右鍵按一下 Windows Phone 市集應用程式專案、按一下 [設定為啟始專案]，然後重複上一個步驟以驗證 Windows Phone 市集應用程式是否也能正常運作。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
 # 使用 Media Services SDK for .NET 連線到媒體服務帳戶
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md) 系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md)系列的一部分。
 
 本主題描述使用 Media Services SDK for .NET 進行程式設計時，如何取得與 Microsoft Azure 媒體服務的程式設計連線。
 
 
 ## 連線到媒體服務
 
-若要以程式設計方式連線到媒體服務，您必須先前已設定 Azure 帳戶，並在該帳戶上設定媒體服務，然後設定 Visual Studio 專案，才能使用 Media Services SDK for .NET 進行開發。如需詳細資訊，請參閱＜使用 Media Services SDK for .NET 進行開發的設定＞。
+若要以程式設計方式連線到媒體服務，您必須先前已設定 Azure 帳戶，並在該帳戶上設定媒體服務，然後設定 Visual Studio 專案，才能使用 Media Services SDK for .NET 進行開發。如需詳細資訊，請參閱＜使用 Media Services SDK for .NET　進行開發的設定＞。
 
 媒體服務帳戶設定程序結束時，您會取得下列必要連線值。使用這些值，即可進行與媒體服務的程式設計連線。
 
@@ -41,10 +41,10 @@
 
 若要開始針對媒體服務進行程式設計，您需要建立可呈現伺服器內容的 **CloudMediaContext** 執行個體。**CloudMediaContext** 包含重要集合的參考，包括工作、資產、檔案、存取原則和定位器。
 
->[AZURE.NOTE] **CloudMediaContext** 類別不具備執行緒安全。您應該為每個執行緒或每組作業建立新的 CloudMediaContext。
+>[AZURE.NOTE]**CloudMediaContext** 類別不具備執行緒安全。您應該為每個執行緒或每組作業建立新的 CloudMediaContext。
 
 
-CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServicesCredentials** 做為參數的建構函式。如需詳細資訊，請參閱下面的**重複使用存取控制服務權杖**。 
+CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServicesCredentials** 做為參數的建構函式。如需詳細資訊，請參閱下面的**重複使用存取控制服務權杖**。
 
 下列範例會使用公用 CloudMediaContext(MediaServicesCredentials 認證) 建構函式：
 
@@ -85,7 +85,7 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 
 - 您也可以快取 AccessToken 字串和 TokenExpiration 值。稍後可以使用這些值，來建立具有快取權杖資料的新 MediaServicesCredentials 物件。這特別適用於權杖可以在多個處理程序或電腦之間安全共用的情況。
 
-	下列程式碼片段會呼叫此範例中未定義的 SaveTokenDataToExternalStorage、GetTokenDataFromExternalStorage 和 UpdateTokenDataInExternalStorageIfNeeded 方法。您可以定義這些方法來儲存、擷取和更新外接式儲存裝置中的權杖資料。 
+	下列程式碼片段會呼叫此範例中未定義的 SaveTokenDataToExternalStorage、GetTokenDataFromExternalStorage 和 UpdateTokenDataInExternalStorageIfNeeded 方法。您可以定義這些方法來儲存、擷取和更新外接式儲存裝置中的權杖資料。
 
 		CloudMediaContext context1 = new CloudMediaContext(_mediaServicesAccountName, _mediaServicesAccountKey);
 		
@@ -96,7 +96,7 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 		// Save token values for later use. 
 		// The SaveTokenDataToExternalStorage method should check 
 		// whether the TokenExpiration value is valid before saving the token data. 
-		// If it is not valid, call MediaServicesCredentials's RefreshToken before caching.
+		// If it is not valid, call MediaServicesCredentials’s RefreshToken before caching.
 		SaveTokenDataToExternalStorage(accessToken, tokenExpiration);
 		
 	使用儲存的權杖值來建立 MediaServicesCredentials。
@@ -117,7 +117,7 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 		
 		CloudMediaContext context2 = new CloudMediaContext(credentials);
 
-	更新權杖副本 (以免媒體服務 SDK 已更新權杖)。 
+	更新權杖副本 (以免媒體服務 SDK 已更新權杖)。
 	
 		if(tokenExpiration != context2.Credentials.TokenExpiration)
 		{
@@ -125,7 +125,7 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 		}
 		
 
-- 如果您有多個媒體服務帳戶 (例如，針對負載共用目的或地理分散)，則可以使用 System.Collections.Concurrent.ConcurrentDictionary 集合來快取 MediaServicesCredentials 物件 (ConcurrentDictionary 集合代表多個執行緒可以並行存取之金鑰/值組的執行緒安全集合)。您之後就可以使用 GetOrAdd 方法來取得快取的認證。 
+- 如果您有多個媒體服務帳戶 (例如，針對負載共用目的或地理分散)，則可以使用 System.Collections.Concurrent.ConcurrentDictionary 集合來快取 MediaServicesCredentials 物件 (ConcurrentDictionary 集合代表多個執行緒可以並行存取之金鑰/值組的執行緒安全集合)。您之後就可以使用 GetOrAdd 方法來取得快取的認證。
 
 		// Declare a static class variable of the ConcurrentDictionary type in which the Media Services credentials will be cached.  
 		private static readonly ConcurrentDictionary<string, MediaServicesCredentials> mediaServicesCredentialsCache = 
@@ -166,18 +166,18 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 
 ## 在組態中儲存連線值
 
-強烈建議使用這種作法將連線值儲存在組態中，尤其是敏感的值 (例如您的帳戶名稱與密碼)。另外，也建議將敏感的組態資料加密。您可以使用 Windows 加密檔案系統 (EFS) 將整個組態檔加密。若要在檔案上啟用 EFS，請在檔案上按一下滑鼠右鍵，並選取 [**內容**]，然後在 [**進階設定**] 索引標籤中啟用加密。或者，可以使用受保護的組態，建立將選擇之組態檔案內的部分加密的自訂解決方案。請參閱[使用受保護組態將組態資訊加密](https://msdn.microsoft.com/library/53tyfkaw.aspx)。
+強烈建議使用這種作法將連線值儲存在組態中，尤其是敏感的值 (例如您的帳戶名稱與密碼)。另外，也建議將敏感的組態資料加密。您可以使用 Windows 加密檔案系統 (EFS) 將整個組態檔加密。若要在檔案上啟用 EFS，請在檔案上按一下滑鼠右鍵，並選取 [**屬性**]，然後在 [**進階設定**] 索引標籤中啟用加密。或者，可以使用受保護的組態，建立將選擇之組態檔案內的部分加密的自訂解決方案。請參閱[使用受保護組態將組態資訊加密](https://msdn.microsoft.com/library/53tyfkaw.aspx)。
 
 下列 App.config 檔案包含必要的連線值。<appSettings> 元素中的值是您在媒體服務帳戶設定程序中取得的必要值。
 
 
 <pre><code>
-&lt;configuration&gt;
-    &lt;appSettings&gt;
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
-    &lt;/appSettings&gt;
-&lt;/configuration&gt;
+&lt;configuration>
+    &lt;appSettings>
+	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+    &lt;/appSettings>
+&lt;/configuration>
 </code></pre>
 
 若要從組態擷取連線值，可以使用 **ConfigurationManager** 類別，然後將值指派至程式碼中的欄位：
@@ -191,5 +191,4 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 
 <!-- URLs. -->
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

@@ -159,7 +159,7 @@ oracle-jdk
 
 ####測試：
 
-若要檢查是否已成功安裝 tomcat7，請瀏覽至 tomcat 伺服器的 DNS 名稱  (http://tomcatexample.cloudapp.net/ 是本文中的範例 URL)。如果您看到類似下列的頁面，表示 tomcat7 安裝正確。![][16]
+若要檢查是否已成功安裝 tomcat7，請瀏覽至 tomcat 伺服器的 DNS 名稱 (http://tomcatexample.cloudapp.net/ 是本文中的範例 URL)。如果您看到類似下列的頁面，表示 tomcat7 安裝正確。![][16]
 
 
 ###安裝其他 Tomcat 元件
@@ -301,5 +301,6 @@ tomcat7 伺服器將在您安裝時自動啟動。您也可以自行使用下列
 [16]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-16.png
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

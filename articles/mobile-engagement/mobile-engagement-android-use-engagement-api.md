@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/24/2015" 
 	ms.author="kapiteir" />
@@ -32,11 +32,11 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 ### `Session`和`Activity`
 
-如果使用者在兩個活動**之間維持閒置超過幾秒鐘，其活動序列會分割成兩個相異的工作階段。****這幾秒稱為「工作階段逾時」。
+如果使用者在兩個活動之間維持閒置超過幾秒鐘，其活動序列會分割成兩個相異的工作階段。這幾秒稱為「工作階段逾時」。
 
-活動**通常會與應用程式的某個畫面相關聯，也就是說，活動**會在畫面顯示時啟動，並在畫面關閉時停止：這是使用 `EngagementActivity` 類別整合 Engagement SDK 時的情況。
+活動通常會與應用程式的某個畫面相關聯，也就是說，活動會在畫面顯示時啟動，並在畫面關閉時停止：這是使用 `EngagementActivity` 類別整合 Engagement SDK 時的情況。
 
-但您也可以透過 Engagement API 手動控制活動**。這樣可以將指定的畫面分隔為數個子部分，以取得關於此畫面使用方式的詳細資料 (例如，可了解此畫面內對話方塊的使用頻率與使用時間長度)。
+但您也可以透過 Engagement API 手動控制活動。這樣可以將指定的畫面分隔為數個子部分，以取得關於此畫面使用方式的詳細資料 (例如，可了解此畫面內對話方塊的使用頻率與使用時間長度)。
 
 ##報告活動
 
@@ -165,9 +165,9 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 			}
 			[...]
 
-### 於工作期間報告錯誤
+### 報告工作期間的錯誤
 
-錯誤可能與正在執行的作業關聯，而不是與目前的使用者工作階段關聯。
+錯誤可能與正在執行的工作關聯，而不是與目前的使用者工作階段關聯。
 
 **範例：**
 
@@ -296,5 +296,6 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 在上述範例中，傳送到伺服器的 JSON 會是 44 個字元：
 
 			{"expiration":"2016-12-07","status":"premium"}
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

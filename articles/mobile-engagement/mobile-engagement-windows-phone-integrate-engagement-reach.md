@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="C#" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
@@ -44,7 +44,7 @@ Engagement Reach SDK 需要一些額外的功能。
 
 ##啟用 Microsoft 推播通知服務
 
-若要使用****「Microsoft 推播通知服務」(簡稱 MPNS)，您的 `WMAppManifest.xml` 檔案必須包含 `<App />` 標記，且 `Publisher` 屬性設為您專案的名稱。
+若要使用「Microsoft 推播通知服務」(簡稱 MPNS)，您的 `WMAppManifest.xml` 檔案必須包含 `<App />` 標記，且 `Publisher` 屬性設為您專案的名稱。
 
 ##初始化 Engagement Reach SDK
 
@@ -54,8 +54,8 @@ Engagement 組態會集中在您專案的 `Resources\EngagementConfiguration.xml
 
 編輯此檔案來指定 Reach 的組態：
 
--   **(選擇性) 在 `<enableNativePush>` 和 `</enableNativePush>` 標記之間指定是否啟用原生推送 (MPNS) 的設定 (預設為 `true`)。
--   **(選擇性) 在 `<channelName>` 和 `</channelName>` 標記之間指定推送通道的名稱，提供應用程式目前使用的推送通道名稱或保留空白。
+-   (選擇性) 在 `<enableNativePush>` 和 `</enableNativePush>` 標記之間指定是否啟用原生推送 (MPNS) 的設定 (預設為 `true`)。
+-   (選擇性) 在 `<channelName>` 和 `</channelName>` 標記之間指定推送通道的名稱，提供應用程式目前使用的推送通道名稱或保留空白。
 
 若想要改為在執行階段指定它，您可以在 Engagement 代理程式初始化之前呼叫下列方法：
 
@@ -79,7 +79,7 @@ Engagement 組態會集中在您專案的 `Resources\EngagementConfiguration.xml
 
 修改 `App.xaml.cs`：
 
--   加入您的 `using` 陳述式：
+-   新增至您的 `using` 陳述式：
 
 		using Microsoft.Azure.Engagement;
 
@@ -113,7 +113,7 @@ EngagementReach 物件提供兩種方法來管理加入/退出、`EnableNativePu
 
 您也可以選擇透過 Engagement 組態 <windows-phone-sdk-reach-configuration> 來停用 MPNS。
 
-> 2.9.1) 應用程式必須先描述所提供之通知的內容，並取得使用者明確的許可 (選擇加入)****，且必須提供使用者可以選擇退出接收推播通知的機制****。使用 Microsoft 推播通知服務提供的所有通知必須與提供給使用者的描述一致，且必須遵守所有適用的[應用程式原則][Content Policies]和[適用於特定應用程式類型的額外需求]。
+> 2.9.1) 應用程式必須先描述所提供之通知的內容，並取得使用者明確的許可 (選擇加入)，且必須提供使用者可以選擇退出接收推播通知的機制。使用 Microsoft 推播通知服務提供的所有通知必須與提供給使用者的描述一致，且必須遵守所有適用的[應用程式原則][Content Policies]和[適用於特定應用程式類型的額外需求]。
 
 2) 您不應該使用太多推播通知。Engagement 將為您處理通知。
 
@@ -177,7 +177,7 @@ EngagementReach 物件提供兩種方法來管理加入/退出、`EnableNativePu
 	   // Engagement Agent and Reach initialization
 	}
 
-> [AZURE.NOTE]根據預設，Engagement 會使用自己的 `EngagementReachHandler` 實作。您不需要自己建立，但如果要建立，您不需要覆寫每個方法。預設行為是選取 Engagement 基底物件。
+> [AZURE.NOTE]根據預設，Engagement 會使用自己的 `EngagementReachHandler` 實作。您不需要自己建立，但如果有需要，您不需要覆寫每個方法。預設行為是選取 Engagement 基底物件。
 
 ### 版面配置
 
@@ -264,5 +264,6 @@ EngagementReach 物件提供兩種方法來管理加入/退出、`EnableNativePu
 [應用程式原則]: http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
 [Content Policies]: http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
 [適用於特定應用程式類型的額外需求]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

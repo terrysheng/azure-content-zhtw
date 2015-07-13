@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="06/03/2015" 
 	ms.author="mahender"/>
 
 # 開始使用行動分析 (Capptain)
@@ -40,11 +40,11 @@
 
 ## <a name="initialize"></a>初始化 Capptain SDK
 
-1. 導覽至您在 Capptain 中註冊之應用程式的 [應用程式詳細資料]**** 頁面。選取 [SDK] 索引標籤，並下載套件。
+1. 導覽至您在 Capptain 中註冊之應用程式的 [應用程式詳細資料] 頁面。選取 [SDK] 索引標籤，並下載套件。
 
 2. 在 XCode 中，以滑鼠右鍵按一下您的專案並選取 [將檔案新增至...]，以將 Capptain SDK 新增至您的專案。 選擇 CapptainSDK 資料夾。
 
-3. 選取您的專案。在 [Build Phases]**** 索引標籤下選取 [Link Binary With Libraries]****，然後新增下列架構：
+3. 選取您的專案。在 [Build Phases] 索引標籤下選取 [Link Binary With Libraries]，然後新增下列架構：
     * AdSupport.framework - 將連結設為選用
     * SystemConfiguration.framework
     * CoreTelephony.framework
@@ -100,5 +100,6 @@
 <!-- URLs. -->
 [Capptain]: http://www.capptain.com
 [行動服務標準層]: /pricing/details/mobile-services/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

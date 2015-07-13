@@ -279,4 +279,4 @@ Twilio 為 .NET 開發人員提供五種程式庫：<table border="1"> <tr> <th>
 [twilio_account]: https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 
-<!---HONumber=58-->
+<!---HONumber=July15_HO1-->

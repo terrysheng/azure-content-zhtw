@@ -3,7 +3,7 @@
 	description="了解如何透過 Python 後端使用 Azure 通知中樞。" 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="12/09/2014" 
+	ms.date="04/14/2015" 
 	ms.author="yuaxu"/>
 
 # 如何透過 Python 使用通知中樞
@@ -21,11 +21,11 @@
     	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
 </div>
 
-您可以使用通知中樞 REST 介面，存取 Java/PHP/Python/Ruby 後端的所有通知中樞功能，如 MSDN 主題[通知中樞 REST API](http://msdn.microsoft.com/library/dn223264.aspx) 中所述。
+您可以透過 Java/PHP/Python/Ruby 後端使用通知中樞 REST 介面來存取所有通知中樞功能，如 MSDN 主題[通知中樞 REST API](http://msdn.microsoft.com/library/dn223264.aspx) 所述。
 
-> [AZURE.NOTE] 這是在 Python 實作通知傳送的範例參考實作，並非正式支援的通知中樞 Python SDK。
+> [AZURE.NOTE]這是在 Python 實作通知傳送的範例參考實作，並非正式支援的通知中樞 Python SDK。
 
-> [AZURE.NOTE] 這個範例是使用 Python 3.4 撰寫的。
+> [AZURE.NOTE]這個範例是使用 Python 3.4 撰寫的。
 
 在本主題中，我們將說明如何：
 
@@ -33,9 +33,9 @@
 * 使用 Python 介面傳送通知到通知中樞 REST API。 
 * 取得 HTTP REST 要求/回應的傾印以用於偵錯/教學用途。 
 
-您可以依照[入門教學課程](notification-hubs-windows-store-dotnet-get-started.md)， 針對您所選的行動平台，在 Python 中實作後端部分。
+您可以遵循選定行動平台的[開始使用教學課程](notification-hubs-windows-store-dotnet-get-started.md)來實作 Python 的後端部分。
 
-> [AZURE.NOTE] 此範例的範圍僅限於傳送通知，不會執行任何註冊管理。
+> [AZURE.NOTE]此範例的範圍僅限於傳送通知，不會執行任何註冊管理。
 
 ## 用戶端介面
 主要用戶端介面提供的方法與 [.NET 通知中樞 SDK](http://msdn.microsoft.com/library/jj933431.aspx) 中的方法相同。這可讓您直接轉換目前此網站上和網際網路社群所貢獻的所有教學課程和範例。
@@ -51,8 +51,8 @@
 	wns_payload = """<toast><visual><binding template="ToastText01"><text id="1">Hello world!</text></binding></visual></toast>"""
 	hub.send_windows_notification(wns_payload)
 	
-## Implementation
-如果您尚未實作，請依循[開始使用教學課程]的指示直到最後一節，以完成後端實作。
+## 實作
+如果您尚未執行此作業，請遵循[開始使用教學課程]的指示，進行到您必須實作後端的最後一節。
 
 您可以在 [MSDN](http://msdn.microsoft.com/library/dn530746.aspx) 上找到所有實作完整 REST 包裝函式的詳細資料。在本節中，我們將針對存取通知中樞 REST 端點和傳送通知所需之主要步驟的 Python 實作進行說明：
 
@@ -87,8 +87,7 @@
 
 
 ### 建立安全性權杖
-如需建立安全性權杖的詳細資料，請移至[此處](http://msdn.microsoft.com/library/dn495627.aspx)。
-必須將下列方法新增至 **NotificationHub** 類別，才能依據目前要求的 URI 和從連接字串擷取的認證建立權杖。
+您可以在[此處](http://msdn.microsoft.com/library/dn495627.aspx)找到建立安全性權杖的詳細資料。必須將下列方法新增至 **NotificationHub** 類別，才能依據目前要求的 URI 和從連接字串擷取的認證建立權杖。
 
 	@staticmethod
     def get_expiry():
@@ -139,7 +138,7 @@
 
 此類別是原生通知主體的容器，或是一組範本通知案例的屬性，及一組包含格式 (原生平台或範本) 的標頭，以及平台特定屬性 (如 Apple 到期屬性和 WNS 標頭)。
 
-如需所有適用選項，請參閱[通知中樞 REST API 文件](http://msdn.microsoft.com/library/dn495827.aspx)和特定的通知平台格式。
+請參閱[通知中心 REST API 文件](http://msdn.microsoft.com/library/dn495827.aspx)及特定通知平台的格式，以取得所有可用選項。
 
 有了此類別之後，我們現在可以在 **NotificationHub** 類別內寫入傳送通知方法。
 
@@ -207,26 +206,23 @@
 
         self.make_http_request(url, payload_to_send, headers)
 
-上述方法會傳送 HTTP POST 要求至通知中樞的 /messages 端點，並使用正確的主體和標頭傳送通知。
+上述方法會傳送 HTTP POST 要求至通知中心的 /messages 端點，並使用正確的主體和標頭傳送通知。
 
 ### 使用偵錯屬性啟用詳細的記錄
-在初始化通知中樞時啟用偵錯屬性會寫出關於 HTTP 要求和回應傾印的詳細記錄資訊，以及詳細的通知訊息傳送結果。 
-我們近期新增了稱為[通知中樞 TestSend 屬性](http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx)的屬性。
-它會傳回關於通知傳送結果的詳細資訊。 
-若要使用它 - 請使用下列命令初始化：
+在初始化通知中樞時啟用偵錯屬性會寫出關於 HTTP 要求和回應傾印的詳細記錄資訊，以及詳細的通知訊息傳送結果。我們近期新增了稱為[通知中樞 TestSend 屬性](http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx)的屬性，該屬性會傳回關於通知傳送結果的詳細資訊。若要使用它 - 請使用下列命令初始化：
 
 	hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 
-通知中樞傳送要求 HTTP URL 會附加 "test" 查詢字串做為結果。 
+通知中樞傳送要求 HTTP URL 會附加 "test" 查詢字串做為結果。
 
-## <a name="complete-tutorial"></a>完成教學課程
+##<a name="complete-tutorial"></a>完成教學課程
 現在您可以透過從 Python 後端傳送通知，來完成開始使用教學課程。
 
-初始化您的通知中樞用戶端 (請依[開始使用教學課程]中的指示替換連接字串和中樞名稱)：
+初始化您的通知中樞用戶端 (請依[開始使用教學課程]中的指示替換連接字串和中心名稱)：
 
 	hub = NotificationHub("myConnectionString", "myNotificationHubName")
 
-然後根據您的目標行動平台新增傳送程式碼。此範例也會新增更高層級的方法以依據平台傳送通知，例如，Windows 為 send_windows_notification；Apple 為 send_apple_notification 等等。 
+然後根據您的目標行動平台新增傳送程式碼。此範例也會新增更高層級的方法以依據平台傳送通知，例如，Windows 為 send_windows_notification；Apple 為 send_apple_notification 等等。
 
 ### Windows 市集和 Windows Phone 8.1 (非 Silverlight)
 
@@ -265,7 +261,7 @@
 	}
 	hub.send_adm_notification(adm_payload)
 
-### 百度
+### Baidu
 	baidu_payload = {
 	    'data':
 	        {
@@ -279,10 +275,9 @@
 ## 範例：
 
 ### 啟用偵錯屬性
-若在初始化 NotificationHub 時啟用偵錯旗標，您會看到詳細的 HTTP 要求和回應傾印，還有類似以下的 NotificationOutcome，您可從中了解在要求中傳送的 HTTP 標頭，以及從通知中樞收到的 HTTP 回應：
-   	![][1]
+若在初始化 NotificationHub 時啟用偵錯旗標，您會看到詳細的 HTTP 要求和回應傾印，還有類似以下的 NotificationOutcome，您可從中了解在要求中傳送的 HTTP 標頭，以及從通知中樞收到的 HTTP 回應：![][1]
 
-您會看到詳細的通知中樞結果，例如 
+您會看到詳細的通知中樞結果，例如
 
 - 訊息成功傳送至推播通知服務的時間。 
 	
@@ -294,7 +289,7 @@
 
 ### 廣播快顯通知給 Windows 
 
-請注意當您傳送廣播快顯通知給 Windows 用戶端時所送出的標頭。 
+請注意當您傳送廣播快顯通知給 Windows 用戶端時所送出的標頭。
 
 	hub.send_windows_notification(wns_payload)
 
@@ -302,7 +297,7 @@
 
 ### 傳送指定標記 (或標記運算式) 的通知
 
-請注意新增至 HTTP 要求的 Tags HTTP 標頭 (在下列範例中，我們只將通知傳送給含有  'sports' 承載的註冊)
+請注意新增至 HTTP 要求的 Tags HTTP 標頭 (在下列範例中，我們只將通知傳送給含有 'sports' 承載的註冊)
 
 	hub.send_windows_notification(wns_payload, "sports")
 
@@ -310,7 +305,7 @@
 
 ### 傳送指定多個標記的通知
 
-請注意傳送多個標記時的 Tags HTTP 標頭如何變更 
+請注意傳送多個標記時的 Tags HTTP 標頭如何變更
 	
 	tags = {'sports', 'politics'}
 	hub.send_windows_notification(wns_payload, tags)
@@ -353,5 +348,6 @@
 [3]: ./media/notification-hubs-python-backend-how-to/SendWithOneTag.png
 [4]: ./media/notification-hubs-python-backend-how-to/SendWithMultipleTags.png
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

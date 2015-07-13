@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/02/2015" 
 	ms.author="wesmc"/>
 # 使用 ASP.NET 來註冊目前使用者以取得推播通知
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">Windows 市集 C#</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
+    <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows 市集 C#">Windows 市集 C#</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iiOS" class="current">iOS</a>
 </div>
 
-## 概觀
+##概觀
 
-本主題將說明以 ASP.NET Web API 執行註冊時，應如何向 Azure 通知中樞要求推播通知註冊。這是[使用通知中樞來通知使用者]教學課程的延伸主題。您必須已完成該教學課程中的必要步驟，才能建立已驗證的行動服務。如需有通知使用者案例的詳細資訊，請參閱[使用通知中樞通知使用者][使用通知中樞來通知使用者]。
+本主題將說明以 ASP.NET Web API 執行註冊時，應如何向 Azure 通知中心要求推播通知註冊。這是[使用通知中心來通知使用者]教學課程的延伸主題。您必須已完成該教學課程中的必要步驟，才能建立已驗證的行動服務。如需通知使用者案例的詳細資訊，請參閱[使用通知中心來通知使用者]。
 
-## 更新應用程式  
+##更新應用程式  
 
 1. 在您的 MainStoryboard_iPhone.storyboard 中，從物件程式庫新增下列元件：
 
@@ -41,11 +41,11 @@
 
    	![][0]
 
-2. 在輔助編輯器中，為所有切換的控制項建立出口並加以呼叫、使用檢視控制器 (委派) 連接文字欄位，然後為 [**登入**] 按鈕建立 [**動作**]。
+2. 在輔助編輯器中，為所有切換的控制項建立出口並加以呼叫、使用檢視控制器 (委派) 連接文字欄位，然後為 [登入] 按鈕建立 [動作]。
 
-   ![][1]
+   	![][1]
 
-   	您的 BreakingNewsViewController.h 檔現在應該含有以下代碼：
+   	Your BreakingNewsViewController.h file should now contain the following code:
 
 		@property (weak, nonatomic) IBOutlet UILabel *installationId;
 		@property (weak, nonatomic) IBOutlet UITextField *User;
@@ -100,7 +100,7 @@
 
 		[[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
-	第一行會初始化 **DeviceInfo** 單一子句。第二行會啟動推播通知的註冊；如果您已完成[開始使用通知中樞]教學課程，則會有此註冊存在。
+	第一行會初始化 **DeviceInfo** singleton。第二行會啟動推播通知的註冊；如果您已完成[開始使用通知中心]教學課程，則會有此註冊存在。
 
 9. 在 PushToUserAppDelegate.m 中，在您的 AppDelegate 中實作 **didRegisterForRemoteNotificationsWithDeviceToken** 方法，並新增下列程式碼：
 
@@ -108,17 +108,17 @@
 
 	這會設定要求的裝置權杖。
 
-	> [AZURE.NOTE] 此時，此方法中不應有任何其他程式碼。如果您已呼叫您在完成[開始使用通知中樞](/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank")教學課程時所新增的 **registerNativeWithDeviceToken** 方法，您必須註解化或移除該呼叫。
+	> [AZURE.NOTE]此時，此方法中不應有任何其他程式碼。如果您已呼叫您在完成[開始使用通知中樞](/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank")教學課程時所新增的 **registerNativeWithDeviceToken** 方法，您必須註解化或移除該呼叫。
 
 10.	在 PushToUserAppDelegate.m 檔案中，新增下列處理常式方法：
 
-			(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+		- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
 		    NSLog(@"%@", userInfo);
 		    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
 		                          [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
 		                          @"OK" otherButtonTitles:nil, nil];
 		    [alert show];
-		   }
+		}
 
 	 此方法會在您執行中的應用程式接收到通知時，在 UI 中顯示警示。
 
@@ -219,9 +219,9 @@
 		        }
 		    }];
 
-	This method gets both an installation ID and channel for push notifications and sends it, along with the device type, to the authenticated Web API method that creates a registration in Notification Hubs.此 Web API 定義於[使用通知中樞來通知使用者]中。
+	This method gets both an installation ID and channel for push notifications and sends it, along with the device type, to the authenticated Web API method that creates a registration in Notification Hubs.此 Web API 定義於[使用通知中心來通知使用者]中。
 
-現在，用戶端應用程式已更新，請回到[使用通知中樞來通知使用者]，並更新行動服務，以使用通知中樞傳送通知。
+現在，用戶端應用程式已更新，請回到[使用通知中心來通知使用者]，並更新行動服務，以使用通知中心傳送通知。
 
 <!-- Anchors. -->
 
@@ -230,9 +230,10 @@
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[使用通知中樞來通知使用者]: /manage/services/notification-hubs/notify-users-aspnet
+[使用通知中心來通知使用者]: /manage/services/notification-hubs/notify-users-aspnet
 
-[Azure 管理入口網站]: https://manage.windowsazure.com/
-[開始使用通知中樞]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+[Azure Management Portal]: https://manage.windowsazure.com/
+[開始使用通知中心]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

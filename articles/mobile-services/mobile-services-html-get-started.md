@@ -62,17 +62,17 @@
 1.  在管理入口網站中，按一下 **[行動服務]**，然後按一下您剛剛建立的行動服務。
 
 
-2. 在 [快速入門] 索引標籤中，按一下 [選擇平台] 下的 [Windows]，然後展開 [建立新的 HTML 應用程式]。
+2. 在 [快速入門] 索引標籤中，按一下 [Choose platform] 下的 [Windows]，然後展開 [Create a new HTML app]。
 
    	![][6]
 
-   	這將顯示三個簡單步驟，可用來建立和主控連接到您行動服務的 HTML 應用程式。
+   	This displays the three easy steps to create and host an HTML app connected to your mobile service.
 
   	![][7]
 
-3. 按一下 [建立 TodoItem 資料表] 以建立儲存應用程式資料的資料表。
+3. 按一下 [Create TodoItems table] 以建立儲存應用程式資料的資料表。
 
-4. 在 [下載和執行您的應用程式] 下，按 [下載]。
+4. 在 [Download and run your app] 下，按 [下載]。
 
   	如此會下載連接至行動服務之範例 _To do list_ 應用程式的網站檔案。請將壓縮檔儲存至本機電腦，並記下儲存位置。
 
@@ -159,4 +159,4 @@
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

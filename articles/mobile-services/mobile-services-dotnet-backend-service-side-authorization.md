@@ -2,6 +2,7 @@
 	pageTitle="行動服務中使用 .NET 後端的使用者服務端授權 |行動開發人員中心"
 	description="了解如何在 Azure 行動服務的 .NET 後端為使用者授權。"
 	services="mobile-services"
+	documentationCenter="windows"
 	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
@@ -9,9 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
-	ms.date="2/18/2015"
+	ms.devlang="dotnet"
+	ms.date="05/10/2015"
 	ms.author="krisragh"/>
 
 # 在行動服務中的使用者服務端授權
@@ -20,7 +22,7 @@
 - [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
 - [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
-本主題說明如何使用伺服器端邏輯來授權使用者。在此教學課程中，您根據使用者識別碼在NET 篩選查詢中修改資料存取方法，並且只提供使用者對自己資料的存取權。
+本主題說明如何使用伺服器端邏輯來授權使用者。在此教學課程中，您會修改資料表控制器、根據使用者識別碼篩選查詢，以及只提供使用者對自己資料的存取權。根據使用者識別碼篩選使用者查詢結果是最基本的授權形式。根據特定案例，您也可能也會想要建立使用者或角色資料表，以便追蹤更詳細的使用者授權資訊，例如使用者可以存取哪些端點。
 
 本教學課程是根據＜行動服務快速入門＞，並且以[將驗證新增至現有的行動服務應用程式]教學課程為基礎而建立。請先完成[將驗證新增至現有的行動服務應用程式]。
 
@@ -67,11 +69,7 @@
 [3]: ./media/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
-[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
 [將驗證新增至現有的行動服務應用程式]: mobile-services-dotnet-backend-ios-get-started-users.md
-[Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
+ 
 
-[Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

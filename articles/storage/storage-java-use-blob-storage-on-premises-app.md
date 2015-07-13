@@ -368,4 +368,4 @@
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

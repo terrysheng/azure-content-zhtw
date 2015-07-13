@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="C#" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
@@ -35,5 +35,6 @@
 - `EngagementIconCloseDark.png`：適用於 Windows Phone 暗色調佈景主題，Engagement 觸達通知的「關閉」圖示。
 
 - `EngagementConfiguration.xml`：Mobile Engagement 的組態檔，您可以在此自訂 Engagement 的設定 (Engagement 連接字串、報告當機等)。
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

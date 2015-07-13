@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/18/2015" 
 	ms.author="wesmc"/>
 
 # 處理資料庫寫入衝突
@@ -31,15 +31,15 @@
 
 本教學課程需要下列各項
 
-+ Microsoft Visual Studio 2012 Express for Windows 或更新版本。
-+ 本教學課程是以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務]。 
++ Microsoft Visual Studio 2013 或更新版本。
++ 本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務]。 
 + [Azure 帳戶]
 + Azure 行動服務 NuGet 封裝 1.1.0 或更新版本。若要取得最新版本，請遵循下列步驟：
-	1. 在 Visual Studio 中開啟專案，在 [方案總管] 中以滑鼠右鍵按一下專案，然後按一下 [管理 NuGet 封裝]****。 
+	1. 在 Visual Studio 中開啟專案，在 [方案總管] 中以滑鼠右鍵按一下專案，然後按一下 [管理 NuGet 封裝]。 
 
 		![][19]
 
-	2. 展開 [線上]****，然後按一下 [Microsoft and .NET]****。在搜尋文字方塊中，輸入 [Azure 行動服務]****。在 [Azure 行動服務]**** NuGet 封裝上，按一下 [安裝]****。
+	2. 展開 [線上]，然後按一下 [Microsoft and .NET]。在搜尋文字方塊中，輸入 [Azure 行動服務]。在 [Azure 行動服務] NuGet 封裝上，按一下 [安裝]。
 
 		![][20]
 
@@ -66,12 +66,7 @@
 		</ListView>
 
 
-3. 在 MainPage.xaml.cs 中，將下列 `using` 指示詞新增至頁面頂端。
-
-		using System.Threading.Tasks;
-
-
-4. 在 Visual Studio 的 [方案總管] 中，開啟 MainPage.xaml.cs。將事件處理常式新增至 TextBox `LostFocus` 事件的 MainPage，如下所示。
+4. 在 Visual Studio 方案總管中，開啟共用專案中的 MainPage.cs。將事件處理常式新增至 TextBox `LostFocus` 事件的 MainPage，如下所示。
 
 
         private async void ToDoText_LostFocus(object sender, RoutedEventArgs e)
@@ -86,7 +81,7 @@
             }
         }
 
-4. 在 MainPage.xaml.cs 中，為事件處理常式中參考的 `UpdateToDoItem()` 方法新增定義，如下所示。
+4. 在共用專案的 MainPage.cs 中，為事件處理常式中參考的 MainPage `UpdateToDoItem()` 方法加入定義，如下所示。
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -112,8 +107,8 @@
 
 在部分案例中，兩個或多個用戶端可能會同時對相同項目寫入變更。在沒有偵測到任何衝突的情況下，最後寫入將覆寫任何先前的更新，即使這不是您想要的結果。[開放式並行存取控制項]會假設每筆交易都可以認可，因此不會使用任何資源鎖定。在認可交易之前，開放式並行存取控制項會驗證沒有其他交易已修改此資料。如果資料已修改，則會復原認可的交易。Azure 行動服務支援開放式並行存取控制項，方法是使用新增至每個資料表的 `__version` 系統屬性資料欄來追蹤對每個項目的變更。在本節中，我們將使應用程式能夠透過 `__version` 系統屬性偵測這些寫入衝突。在嘗試更新期間，如果記錄自前次查詢後有所變更，系統將會以 `MobileServicePreconditionFailedException` 通知應用程式。此時，應用程式將可選擇是要認可它對資料庫的變更，還是保留資料庫的最後變更。如需行動服務之系統屬性的詳細資訊，請參閱[系統屬性]。
 
-1. 在 MainPage.xaml.cs 中，以下列程式碼更新 **TodoItem** 類別定義，以加入可用來支援寫入衝突偵測的 **__version** 系統屬性。
-		
+1. 開啟共用專案中的 TodoItem.cs，以下列程式碼更新 `TodoItem` 類別定義，以加入可用來支援寫入衝突偵測的 `__version` 系統屬性。
+
 		public class TodoItem
 		{
 			public string Id { get; set; }			
@@ -133,7 +128,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 `````
 
 
-2. 將 `Version` 屬性新增至 `TodoItem` 類別後，如果在更新期間發現自前次查詢後有所變更的記錄，系統將會以 `MobileServicePreconditionFailedException` 例外狀況通知應用程式。此例外狀況會包含來自伺服器的最新版項目。在 MainPage.xaml.cs 中新增下列程式碼，以處理 `UpdateToDoItem()` 方法中的例外狀況。
+2. 將 `Version` 屬性新增至 `TodoItem` 類別後，如果在更新期間發現自前次查詢後有所變更的記錄，系統將會以 `MobileServicePreconditionFailedException` 例外狀況通知應用程式。此例外狀況會包含來自伺服器的最新版項目。在共用專案的 MainPage.cs 中新增下列程式碼，以處理 `UpdateToDoItem()` 方法中的例外狀況。
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -167,7 +162,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
         }
 
 
-3. 在 MainPage.xaml.cs 中，為 `UpdateToDoItem()` 中參考的 `ResolveConflict()` 方法新增定義。請注意，若要解決衝突，您必須先將本機項目的版本設為來自伺服器的更新版本，再認可使用者的決策。否則將會持續發生衝突。
+3. 在 MainPage.cs 中，為 `UpdateToDoItem()` 中參考的 `ResolveConflict()` 方法新增定義。請注意，若要解決衝突，您必須先將本機項目的版本設為來自伺服器的更新版本，再認可使用者的決策。否則將會持續發生衝突。
 
 
         private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
@@ -204,27 +199,27 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 在本節中您將會建置 Windows 市集應用程式封裝，以將應用程式安裝至第二部機器或虛擬機器。接著，您將同時在兩部機器上執行應用程式而產生寫入衝突，以測試程式碼。兩個應用程式執行個體將會嘗試更新相同項目的 `text` 屬性，而讓使用者必須解決衝突。
 
 
-1. 建立 Windows 市集應用程式封裝，以安裝在第二部機器或虛擬機器上。若要執行此動作，請在 Visual Studio 中依序按一下 [專案]**** -> [市集] -> [建立應用程式套件]。
+1. 建立 Windows 市集應用程式封裝，以安裝在第二部機器或虛擬機器上。若要執行此動作，請在 Visual Studio 中依序按一下 [專案] -> [市集] -> [建立應用程式套件]。
 
 	![][0]
 
-2. 在 [建立您的套件] 畫面上按一下 [否]****，因為此封裝將不會上傳至 Windows 市集。然後按 [下一步]****。
+2. 在 [建立您的套件] 畫面上按一下 [否]，因為此封裝將不會上傳至 Windows 市集。然後按 [下一步]。
 
 	![][1]
 
-3. 在 [選取和設定套件] 畫面上接受預設值，然後按一下 [建立]****。
+3. 在 [選取和設定套件] 畫面上接受預設值，然後按一下 [建立]。
 
 	![][10]
 
-4. 在 [套件建立完成] 畫面上按一下 [輸出位置]**** 連結，以開啟封裝位置。
+4. 在 [套件建立完成] 畫面上按一下 [輸出位置] 連結，以開啟封裝位置。
 
    	![][11]
 
-5. 將封裝資料夾 "todolist_1.0.0.0_AnyCPU_Debug_Test" 複製到第二部機器。在該機器上開啟封裝資料夾，以滑鼠右鍵按一下 **Add-AppDevPackage.ps1** PowerShell 指令碼，然後按一下 [用 PowerShell 執行]****，如下所示。依照提示安裝應用程式。
+5. 將封裝資料夾 "todolist_1.0.0.0_AnyCPU_Debug_Test" 複製到第二部機器。在該機器上開啟封裝資料夾，以滑鼠右鍵按一下 **Add-AppDevPackage.ps1** PowerShell 指令碼，然後按一下 [用 PowerShell 執行]，如下所示。依照提示安裝應用程式。
 
 	![][12]
   
-5. 依序按一下 [偵錯]**** -> [開始偵錯]，在 Visual Studio 中執行應用程式的執行個體 1。在第二部機器的 [開始] 畫面上按一下向下箭頭，以依名稱檢視應用程式。接著，按一下 **todolist** 應用程式，以執行應用程式的執行個體 2。
+5. 依序按一下 [偵錯] -> [開始偵錯]，在 Visual Studio 中執行應用程式的執行個體 1。在第二部機器的 [開始] 畫面上按一下向下箭頭，以依名稱檢視應用程式。接著，按一下 **todolist** 應用程式，以執行應用程式的執行個體 2。
 
 	應用程式執行個體 1 ![][2]
 
@@ -243,7 +238,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 	應用程式執行個體 2 ![][5]
 
-8. 因為更新嘗試所用的 `__version` 值與伺服器的 `__version` 值不符，行動服務 SDK 會擲回 `MobileServicePreconditionFailedException`，讓應用程式解決此衝突。若要解決衝突，您可以按一下 [Commit Local Text]****，以認可執行個體 2 中的值。或者，您可以按一下 [Leave Server Text]**** 捨棄執行個體 2 中的值，而保留已認可的應用程式執行個體 1 中的值。
+8. 因為更新嘗試所用的 `__version` 值與伺服器的 `__version` 值不符，行動服務 SDK 會擲回 `MobileServicePreconditionFailedException`，讓應用程式解決此衝突。若要解決衝突，您可以按一下 [Commit Local Text]，以認可執行個體 2 中的值。或者，您可以按一下 [Leave Server Text] 捨棄執行個體 2 中的值，而保留已認可的應用程式執行個體 1 中的值。
 
 	應用程式執行個體 1 ![][4]
 
@@ -260,19 +255,19 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 下列步驟將引導您新增伺服器更新指令碼並加以測試。
 
-1. 登入 [Azure 管理入口網站]，按一下 [行動服務]****，然後按一下您的應用程式。 
+1. 登入 [Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。 
 
    	![][7]
 
-2. 按一下 [資料]**** 索引標籤，然後按一下 [TodoItem]**** 資料表。
+2. 按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
    	![][8]
 
-3. 按一下 [指令碼]****，然後選取 [更新]**** 作業。
+3. 按一下 [指令碼]，然後選取 [更新] 作業。
 
    	![][9]
 
-4. 以下列函數取代現有的指令碼，然後按一下 [儲存]****。
+4. 以下列函數取代現有的指令碼，然後按一下 [儲存]。
 
 		function update(item, user, request) { 
 			request.execute({ 
@@ -301,7 +296,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 	應用程式執行個體 2 ![][14]
 
-7. 請留意到，由於伺服器指令碼已解決衝突，而使更新得以進行 (因為項目未標示為完成)，因此應用程式中未發生例外狀況。若要確認更新已順利完成，請在執行個體 2 中按一下 [重新整理]****，以重新查詢資料庫。
+7. 請留意到，由於伺服器指令碼已解決衝突，而使更新得以進行 (因為項目未標示為完成)，因此應用程式中未發生例外狀況。若要確認更新已順利完成，請在執行個體 2 中按一下 [重新整理]，以重新查詢資料庫。
 
 	應用程式執行個體 1 ![][15]
 
@@ -369,5 +364,6 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [系統屬性]: http://go.microsoft.com/fwlink/?LinkId=331143
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

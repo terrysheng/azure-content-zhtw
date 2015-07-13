@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
+	ms.date="05/15/2015" 
 	ms.author="szarkos"/>
 
 # 準備執行 Azure 的 CentOS 型虛擬機器
 
-- [準備執行 Azure 的 CentOS 6.x 虛擬機器](#centos6)
-- [準備執行 Azure 的 CentOS 7.0+ 虛擬機器](#centos7)
+- [準備 Azure 的 CentOS 6.x 虛擬機器](#centos6)
+- [準備 Azure 的 CentOS 7.0+ 虛擬機器](#centos7)
 
-## 必要條件##
+##必要條件##
 
-本文假設您已將 CentOS (或類似的衍生物件) Linux 作業系統安裝到虛擬硬碟。有多項工具可用來建立 .vhd 檔案，例如 Hyper-V 的虛擬化解決方案。如需相關指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。 
+本文假設您已將 CentOS (或類似的衍生物件) Linux 作業系統安裝到虛擬硬碟。有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。如需指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。
 
 
 **CentOS 安裝注意事項**
@@ -43,7 +43,7 @@
 
 1. 在 Hyper-V 管理員中，選取虛擬機器。
 
-2. 按一下 [**連接**] 以開啟虛擬機器的主控台視窗。
+2. 按一下 [連接]，以開啟虛擬機器的主控台視窗。
 
 3. 執行下列命令以解除安裝 NetworkManager：
 
@@ -51,12 +51,12 @@
 
 	**注意：**如果尚未安裝封裝，此命令將會失敗，並出現錯誤訊息。這是預期行為。
 
-4.	在 `/etc/sysconfig/` 目錄中，建立名為 **network**、且包含下列文字的檔案：
+4.	在 `/etc/sysconfig/` 目錄中，建立名為 **network** 且包含下列文字的檔案：
 
 		NETWORKING=yes
 		HOSTNAME=localhost.localdomain
 
-5.	在 `/etc/sysconfig/network-scripts/` 目錄中，建立名為 **ifcfg-eth0**、且包含下列文字的檔案：
+5.	在 `/etc/sysconfig/network-scripts/` 目錄中，建立名為 **ifcfg-eth0** 且包含下列文字的檔案：
 
 		DEVICE=eth0
 		ONBOOT=yes
@@ -80,25 +80,25 @@
 
 8. **僅限 CentOS 6.3**：安裝 Linux Integration Services 的驅動程式
 
-	**重要事項：此步驟僅適用於 CentOS 6.3 和較舊的版本。**  在 CentOS 6.4 以上的版本中，Linux Integration Services  *already available in the kernel*。
+	**重要事項：此步驟僅適用於 CentOS 6.3 和較舊的版本。** 在 CentOS 6.4+ 中，Linux Integration Services *已是核心中的可用項目*。
 
-	a) 從 [Microsoft 下載中心](http://www.microsoft.com/zh-tw/download/details.aspx?id=41554)取得包含 Linux Integration Services 驅動程式的 .iso 檔案。
+	a) 從 [Microsoft 下載中心](http://www.microsoft.com/download/details.aspx?id=41554)取得包含 Linux Integration Services 驅動程式的 .iso 檔案。
 
-	b) 在 Hyper-V 管理員的 [**動作**] 窗格中，按一下 [**設定**]。
+	b) 在 Hyper-V 管理員的 **[動作]** 窗格中，按一下 **[設定]**。
 
-	![Open Hyper-V settings](./media/virtual-machines-linux-create-upload-vhd-centos/settings.png)
+	![開啟 Hyper-V 設定](./media/virtual-machines-linux-create-upload-vhd-centos/settings.png)
 
-	c) 在 [**硬體**] 窗格中，按一下 [**IDE 控制器 1**]。
+	c) 在 **[硬體]** 窗格中，按一下 **[IDE 控制器 1]**。
 
-	![Add DVD drive with install media](./media/virtual-machines-linux-create-upload-vhd-centos/installiso.png)
+	![使用安裝媒體新增 DVD 光碟機](./media/virtual-machines-linux-create-upload-vhd-centos/installiso.png)
 
-	d) 在 [**IDE 控制器**] 方塊中，按一下 [**DVD 光碟機**]，然後按一下 [**新增**]。
+	d) 在 **[IDE 控制器]** 方塊中，按一下 **[DVD 光碟機]**，再按 **[新增]**。
 
-	e) 選取 [**映像檔**]，瀏覽至 **Linux IC v3.2.iso**，然後按一下 [**開啟**]。
+	e) 選取 **[映像檔]**，瀏覽至 **Linux IC v3.2.iso**，然後按一下 **[開啟]**。
 
-	f) 在 [**設定**] 頁面中，按一下 [**確定**]。
+	f) 在 **[設定]** 頁面中，按一下 **[確定]**。
 
-	g) 按一下 [**連接**]，以開啟虛擬機器的視窗。
+	g) 按一下 **[連接]**，以開啟虛擬機器的視窗。
 
 	h) 在 [命令提示字元] 視窗中，輸入下列命令：
 
@@ -154,14 +154,14 @@
 		enabled=0
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
-	**注意：**本指南的其他部分將假設您至少會使用 [openlogic] 儲存機制，該儲存機制稍後將可用來安裝 Azure Linux 代理程式。
+	**注意：**本指南的其他部分將假設您至少會使用 [openlogic] 儲存機制，該儲存機制稍後將用來安裝 Azure Linux 代理程式。
 
 
 11.	在 /etc/yum.conf 中加入這一行：
 
 		http_caching=packages
 
-	且**僅在 CentOS 6.3 上**，新增以下一行：
+	若是 **CentOS 6.3**，則加入這一行：
 
 		exclude=kernel*
 
@@ -183,13 +183,13 @@
 
 	這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。因為 CentOS 6 所使用核心版本的一個錯誤，這將會停用 NUMA。
 
-	除了上述以外，我們還建議您 *remove*下列參數：
+	除了上述以外，我們還建議您*移除*下列參數：
 
 		rhgb quiet crashkernel=auto
 
 	在雲端環境中，我們會將所有記錄傳送到序列埠，因此不適合使用圖形化和無訊息啟動。
 
-	如有需要，您可以保留  `crashkernel` 選項的設定，但請注意，此參數將會減少 VM 中約 128MB 或以上的可用記憶體數量，這在較小的 VM 中可能會是個問題。
+	如有需要，您可以保留 `crashkernel` 選項的設定，但請注意，此參數將會減少 VM 中約 128MB 或以上的可用記憶體數量，這在較小的 VM 中可能會是個問題。
 
 
 16.	確定您已安裝 SSH 伺服器，並已設定為在開機時啟動。這通常是預設值。
@@ -202,7 +202,7 @@
 
 18.	請不要在 OS 磁碟上建立交換空間
 
-	Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，資源磁碟是  *temporary* 磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
+	Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，資源磁碟是*暫存*磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -216,7 +216,7 @@
 		# export HISTSIZE=0
 		# logout
 
-20. 在 Hyper-V 管理員中，依序按一下 [**動作] -> [關閉**]。您現在可以將 Linux VHD 上傳至 Azure。
+20. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
 
 ----------
@@ -224,7 +224,7 @@
 
 ## <a id="centos7"> </a>CentOS 7.0+ ##
 
-**CentOS 7 (及類似的衍生物件) 中的變更**
+**CentOS 7 (和類似的衍生項目) 中的變更**
 
 準備適用於 Azure 的 CentOS 7 虛擬機器會與 CentOS 6 極為類似，不過，其中有幾個重要差異值得注意：
 
@@ -233,18 +233,18 @@
  - XFS 現為預設的檔案系統。如有需要，您仍可使用 ext4 檔案系統。
 
 
-**設定步驟**
+**組態步驟**
 
 1. 在 Hyper-V 管理員中，選取虛擬機器。
 
-2. 按一下 [**連接**] 以開啟虛擬機器的主控台視窗。
+2. 按一下 [連接]，以開啟虛擬機器的主控台視窗。
 
-3.	在 `/etc/sysconfig/` 目錄中，建立名為 **network** 、且包含下列文字的檔案：
+3.	在 `/etc/sysconfig/` 目錄中，建立名為 **network** 且包含下列文字的檔案：
 
 		NETWORKING=yes
 		HOSTNAME=localhost.localdomain
 
-4.	在 `/etc/sysconfig/network-scripts/` 目錄中，建立名為 **ifcfg-eth0**、且包含下列文字的檔案：
+4.	在 `/etc/sysconfig/network-scripts/` 目錄中，建立名為 **ifcfg-eth0** 且包含下列文字的檔案：
 
 		DEVICE=eth0
 		ONBOOT=yes
@@ -314,24 +314,24 @@
 		
 
 
-	**注意：**本指南的其他部分將假設您至少會使用 [openlogic] 儲存機制，該儲存機制稍後將可用來安裝 Azure Linux 代理程式。
+	**注意：**本指南的其他部分將假設您至少會使用 [openlogic] 儲存機制，該儲存機制稍後將用來安裝 Azure Linux 代理程式。
 
 9.	執行下列命令，以清除目前的 yum 中繼資料並安裝任何更新：
 
 		# sudo yum clean all
 		# sudo yum -y update
 
-10.	修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。作法是，在文字編輯器中開啟 "/etc/default/grub" 並編輯  `GRUB_CMDLINE_LINUX` 參數，例如：
+10.	修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。若要執行這個動作，請在文字編輯器中開啟 "/etc/default/grub" 並編輯 `GRUB_CMDLINE_LINUX` 參數，例如：
 
 		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
-	這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。除了上述以外，我們還建議您 *remove*下列參數：
+	這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。除了上述以外，我們還建議您*移除*下列參數：
 
 		rhgb quiet crashkernel=auto
 
 	在雲端環境中，我們會將所有記錄傳送到序列埠，因此不適合使用圖形化和無訊息啟動。
 
-	如有需要，您可以保留  `crashkernel` 選項的設定，但請注意，此參數將會減少 VM 中約 128MB 或以上的可用記憶體數量，這在較小的 VM 中可能會是個問題。
+	如有需要，您可以保留 `crashkernel` 選項的設定，但請注意，此參數將會減少 VM 中約 128MB 或以上的可用記憶體數量，這在較小的 VM 中可能會是個問題。
 
 11. 在您參照上述完成編輯 "/etc/default/grub" 之後，請執行下列命令以重建 grub 組態：
 
@@ -345,7 +345,7 @@
 
 14.	請不要在 OS 磁碟上建立交換空間
 
-	Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，資源磁碟是  *temporary* 磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
+	Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，資源磁碟是*暫存*磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -359,9 +359,9 @@
 		# export HISTSIZE=0
 		# logout
 
-16. 在 Hyper-V 管理員中，依序按一下 [**動作] -> [關閉**]。您現在可以將 Linux VHD 上傳至 Azure。
+16. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
 
-
-<!--HONumber=45--> 
  
+
+<!---HONumber=July15_HO1-->

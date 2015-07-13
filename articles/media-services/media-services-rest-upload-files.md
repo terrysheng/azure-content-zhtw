@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="06/05/2015" 
 	ms.author="juliako"/>
 
 
 
-# 使用 REST API 將檔案上傳至媒體服務帳戶
+#使用 REST API 將檔案上傳至媒體服務帳戶
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)系列的一部分。
 
-在媒體服務中，您會將數位檔案上傳到到資產。[資產](https://msdn.microsoft.com/library/azure/hh974277.aspx)實體可以包含視訊、音訊、影像、縮圖集合、文字播放軌及隱藏式字幕檔案 (以及這些檔案的相關中繼資料)。一旦檔案會上傳到資產，您的內容會安全地儲存在雲端，以便進行進一步的處理和串流。 
+在媒體服務中，您會將數位檔案上傳到到資產。[資產](https://msdn.microsoft.com/library/azure/hh974277.aspx)實體可以包含視訊、音訊、影像、縮圖集合、文字播放軌及隱藏式字幕檔案 (以及這些檔案的相關中繼資料)。 一旦檔案會上傳到資產，您的內容會安全地儲存在雲端，以便進行進一步的處理和串流。
 
 
->[AZURE.NOTE]建置串流內容的 URL (例如，http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters) 時，媒體服務會使用 IAssetFile.Name 屬性的值。基於這個理由，不允許 percent-encoding。**Name** 屬性的值不能有下列任何 [percent-encoding-reserved 字元](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。而且，副檔名只能有一個 '.'。
+>[AZURE.NOTE]媒體服務在建置串流內容的 URL 時使用 IAssetFile.Name 屬性的值 (例如，http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) 基於這個理由，不允許 percent-encoding。**Name** 屬性的值不能有下列任何 [percent-encoding-reserved 字元](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#"。而且，副檔名只能有一個 ‘.’。
 
 內嵌資產的基本工作流程分成下列各節：
 
@@ -35,30 +35,29 @@
 - 將檔案上傳至 blob 儲存體
 
 
-## 建立資產
+##建立資產
 
->[AZURE.NOTE] 使用媒體服務 REST API 時，適用下列考量事項：
+>[AZURE.NOTE]使用媒體服務 REST API 時，適用下列考量事項：
 >
->在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發的設定](media-services-rest-how-to-use.md)。
+>在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 
->順利連接到 https://media.windows.net 後，您會收到指定另一個媒體服務 URI 的 301 重新導向。後續的呼叫必須向新的 URI 提出，如[使用 REST API 連接至媒體服務](media-services-rest-connect_programmatically.md)中所述。 
+>成功連線至 https://media.windows.net 後，您會收到指定另一個媒體服務 URI 的 301 重新導向。您必須依照[使用 REST API 連線至媒體服務](media-services-rest-connect_programmatically.md)所述，對新的 URI 進行後續呼叫。
  
 資產是媒體服務中多種類型或物件集的容器，包括視訊、音訊、影像、縮圖集合、文字播放軌和隱藏式字幕檔案。在 REST API 中，建立資產必須傳送 POST 要求給媒體服務，並將關於您資產的任何屬性資訊放在要求主體中。
 
-其中一個您可以在建立資產時指定的屬性是 **Options**。**Options** 是描述可用來建立資產之加密選項的列舉值。有效的值是以下清單的其中一個值，而不是值的組合。 
+您可以在建立資產時指定的其中一個屬性是 **Options**。**Options** 是列舉值，描述可用來建立資產的加密選項。有效的值是以下清單的其中一個值，而不是值的組合。
 
-- **None** = **0**：將不使用加密。這是預設值。請注意，使用此選項時，您的內容在傳輸或儲存體中靜止時不會受到保護。
-	如果您計劃使用漸進式下載傳遞 MP4，請使用此選項。 
+- **None** = **0**：將不使用加密。這是預設值。請注意，使用此選項時，您的內容在傳輸或儲存體中靜止時不會受到保護。如果您計劃使用漸進式下載傳遞 MP4，請使用此選項。 
 
-- **StorageEncrypted** = **1**：指定是否要用 AES-256 位元加密來加密您的檔案，以便進行上傳和儲存。
+- **StorageEncrypted** = **1**：如果要用 AES-256 位元加密來加密您的檔案，以便進行上傳和儲存，請指定此值。
 
 	如果您的資產是儲存體加密，必須設定資產傳遞原則。如需詳細資訊，請參閱[設定資產傳遞原則](media-services-rest-configure-asset-delivery-policy.md)。
 
-- **CommonEncryptionProtected** = **2**：指定是否您上傳使用一般加密方法 (例如 PlayReady) 保護的檔案。 
+- **CommonEncryptionProtected** = **2**：如果上傳使用一般加密方法 (例如 PlayReady) 保護的檔案，請指定此值。
 
-- **EnvelopeEncryptionProtected** = **4**：指定您是否上傳使用 AES 檔案加密的 HLS。請注意，檔案必須已由 Transform Manager 編碼和加密。
+- **EnvelopeEncryptionProtected** = **4**：如果上傳使用 AES 檔案加密的 HLS，請指定此值。請注意，檔案必須已由 Transform Manager 編碼和加密。
 
->[AZURE.NOTE]如果您的資產會使用加密，您必須建立 **ContentKey** 並將它連結到您的資產，如下列主題中所述：[如何建立 ContentKey](media-services-rest-create-contentkey.md)。請注意，檔案上傳到資產之後，您必須將 **AssetFile** 實體上的加密屬性更新為在**資產**加密期間得到的值。請使用 **MERGE** HTTP 要求。 
+>[AZURE.NOTE]如果您的資產會使用加密，您必須建立 **ContentKey** 並將它連結到您的資產，如下列主題中所述：[如何建立 ContentKey](media-services-rest-create-contentkey.md)。請注意，檔案上傳到資產之後，您必須將 **AssetFile** 實體上的加密屬性更新為在**資產**加密期間得到的值。請使用 **MERGE** HTTP 要求執行此作業。
 
 
 下列範例示範如何建立資產。
@@ -72,7 +71,7 @@
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 	
 	{"Name":"BigBuckBunny.mp4"}
@@ -108,13 +107,13 @@
 	   "StorageAccountName":"storagetestaccount001"
 	}
 	
-## 建立 AssetFile
+##建立 AssetFile
 
 [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) 實體代表儲存在 blob 容器中的視訊或音訊檔案。資產檔案一律會與資產相關聯，而資產可包含一或多個資產檔案。如果資產檔案物件並未與 blob 容器中的數位檔案相關聯，媒體服務編碼器工作將會失敗。
 
-請注意， **AssetFile** 執行個體和實際的媒體檔案是兩個不同的物件。AssetFile 執行個體包含媒體檔案的相關中繼資料，而媒體檔案包含實際的媒體內容。
+請注意，**AssetFile** 執行個體和實際的媒體檔案是兩個不同的物件。AssetFile 執行個體包含媒體檔案的相關中繼資料，而媒體檔案包含實際的媒體內容。
 
-您將數位媒體檔案上傳至 blob 容器之後，您將使用 **MERGE** HTTP 要求，以媒體檔案的相關資訊來更新 AssetFile (如本主題稍後所示)。 
+您將數位媒體檔案上傳至 blob 容器之後，您將使用 **MERGE** HTTP 要求，以媒體檔案的相關資訊來更新 AssetFile (如本主題稍後所示)。
 
 **HTTP 要求**
 
@@ -125,7 +124,7 @@
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 	Content-Length: 164
 	
@@ -188,7 +187,7 @@
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 	
 	{"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
@@ -220,9 +219,9 @@
 	   "Permissions":2
 	}
 
-## 取得上傳 URL
+##取得上傳 URL
 
-若要接收實際的上傳 URL，請建立 SAS 定位器。定位器為想要存取資產中之檔案的用戶端定義連線端點的開始時間和類型。您可以為指定的 AccessPolicy 與 Asset 配對建立多個 Locator 實體，以處理不同的用戶端要求與需求。這些 Locator 每個都會使用 StartTime 值加上 AccessPolicy 的 DurationInMinutes 值，以判斷可以使用 URL 的時間長度。如需詳細資訊，請參閱[定位器](http://msdn.microsoft.com/library/azure/hh974308.aspx)。
+若要接收實際的上傳 URL，請建立 SAS 定位器。定位器為想要存取資產中之檔案的用戶端定義連線端點的開始時間和類型。您可以為指定的 AccessPolicy 與 Asset 配對建立多個 Locator 實體，以處理不同的用戶端要求與需求。這些 Locator 每個都會使用 StartTime 值加上 AccessPolicy 的 DurationInMinutes 值，以判斷可以使用 URL 的時間長度。如需詳細資訊，請參閱＜定位器＞[](http://msdn.microsoft.com/library/azure/hh974308.aspx)。
 
 
 SAS URL 具有下列格式：
@@ -232,7 +231,7 @@ SAS URL 具有下列格式：
 適用一些考量事項：
 
 - 您一次不能有超過五個唯一定位器與指定的資產相關聯。如需詳細資訊，請參閱＜定位器＞。
-- 如果您需要立即上傳檔案，您應該將 StartTime 值設為目前時間的五分鐘前。這是因為用戶端電腦與媒體服務之間可能有時間差。此外，您的 StartTime 值必須是以下 DateTime 格式：YYYY-MM-DDTHH:mm:ssZ(例如，"2014-05-23T17:53:50Z")。	
+- 如果您需要立即上傳檔案，您應該將 StartTime 值設為目前時間的五分鐘前。這是因為用戶端電腦與媒體服務之間可能有時間差。此外，您的 StartTime 值必須是以下日期時間格式：YYYY-MM-DDTHH:mm:ssZ (例如，"2014-05-23T17:53:50Z")。	
 - 建立 Locator 之後到它可供使用時，中間可能會有 30 到 40 秒的延遲。此問題同時適用於 SAS URL 與原始定位器。
 
 下列範例會示範如何建立 SAS URL 定位器，如要求主體中的 Type 屬性所定義 ("1" 代表 SAS 定位器，"2" 代表隨選原始定位器)。傳回的 **Path** 屬性包含上傳檔案必須使用的 URL。
@@ -246,7 +245,7 @@ SAS URL 具有下列格式：
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 	{  
 	   "AccessPolicyId":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
@@ -290,9 +289,9 @@ SAS URL 具有下列格式：
 
 ## 將檔案上傳至 blob 儲存體容器
 	
-一旦設定 AccessPolicy 與 Locator，實際檔案會使用 Azure 儲存體 REST API 上傳至 Azure Blob 儲存容器。您可以使用頁面或區塊 blob 上傳。 
+一旦設定 AccessPolicy 與 Locator，實際檔案會使用 Azure 儲存體 REST API 上傳至 Azure Blob 儲存容器。您可以使用頁面或區塊 blob 上傳。
 
->[AZURE.NOTE] 您必須將要上傳的檔案名稱新增到上一節中所收到的 Locator **Path** 值。例如，https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
+>[AZURE.NOTE]您必須將要上傳的檔案名稱新增到上一節中所收到的 Locator **Path** 值。例如，https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 
 如需使用 Azure 儲存體 blob 的詳細資訊，請參閱 [Blob 服務 REST API](http://msdn.microsoft.com/library/azure/dd135733.aspx)。
 
@@ -308,7 +307,7 @@ SAS URL 具有下列格式：
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 	
 	{  
@@ -322,9 +321,7 @@ SAS URL 具有下列格式：
 
 **HTTP 回應**
 
-如果成功，則會傳回下列內容：
-	
-	HTTP/1.1 204 No Content
+如果成功，會傳回下列訊息：HTTP/1.1 204 沒有內容
 
 ## 刪除 Locator 和 AccessPolicy 
 
@@ -337,7 +334,7 @@ SAS URL 具有下列格式：
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 
 	
@@ -356,7 +353,7 @@ SAS URL 具有下列格式：
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 
 **HTTP 回應**
@@ -367,7 +364,7 @@ SAS URL 具有下列格式：
 	...
 
  
-[如何取得媒體處理器]: media-services-get-media-processor.md
+[How to Get a Media Processor]: media-services-get-media-processor.md
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

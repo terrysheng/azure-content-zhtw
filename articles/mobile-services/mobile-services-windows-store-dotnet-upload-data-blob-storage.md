@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/22/2015" 
+	ms.date="05/28/2015" 
 	ms.author="glenga"/>
 
 # 使用行動服務將影像上傳到 Azure 儲存體
@@ -24,17 +24,14 @@
 
 您無法將資料安全上傳至 Blob 儲存體服務所需的認證，安全地散佈給用戶端應用程式。您必須在您的行動服務中儲存這些認證，並將其用於產生共用存取簽章 (SAS)，以便上傳新的影像。行動服務會安全地將 SAS (到期時間很短的認證，在此例中為 5 分鐘) 傳回給用戶端應用程式。應用程式會使用此暫存認證來上傳影像。在此範例中，來自 Blob 服務的下載是公開的。
 
-在此教學課程中，您會在行動服務快速入門應用程式中新增功能，以便使用行動服務所產生的 SAS 來拍照並將影像上傳到 Azure。本教學課程會逐步引導您完成更新行動服務快速入門的基本步驟，以將影像上傳到 Blob 儲存體服務：
+在此教學課程中，您會在行動服務快速入門應用程式中新增功能，以便使用行動服務所產生的 SAS 來拍照並將影像上傳到 Azure。
 
-1. [安裝儲存體用戶端程式庫]
-2. [更新插入指令碼以產生 SAS]
-3. [更新用戶端應用程式以擷取影像]
-4. [上傳影像以測試應用程式]
+##必要條件
 
 本教學課程需要下列各項：
 
 + Microsoft Visual Studio 2012 Express for Windows 8 或更新版本
-+ [Azure 儲存體帳戶][How To Create a Storage Account]
++ [Azure 儲存體帳戶](../storage-create-storage-account.md)
 + 連接到電腦的相機或其他影像擷取裝置。
 
 本教學課程是以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務]。
@@ -43,9 +40,9 @@
 
 若要使用 SAS 將影像上傳至 Blob 儲存體，您必須先新增 NuGet 封裝，以安裝適用於 Windows 市集應用程式的儲存體用戶端程式庫。
 
-1. 在 Visual Studio 的 [方案總管]**** 中以滑鼠右鍵按一下專案名稱，然後選取 [管理 NuGet 封裝]****。
+1. 在 Visual Studio 的 [方案總管] 中以滑鼠右鍵按一下專案名稱，然後選取 [管理 NuGet 封裝]。
 
-2. 在左側窗格中選取 [線上]**** 類別，搜尋 `WindowsAzure.Storage`，按一下 [Azure 儲存體]**** 封裝上的 [安裝]****，然後接受授權協定。
+2. 在左側窗格中選取 [線上] 類別，搜尋 `WindowsAzure.Storage`，按一下 [Azure 儲存體] 封裝上的 [安裝]，然後接受授權協定。
 
   	![][2]
 
@@ -81,10 +78,10 @@
   
  
 <!-- Anchors. -->
-[安裝儲存體用戶端程式庫]: #install-storage-client
-[更新用戶端應用程式以擷取影像]: #add-select-images
-[更新插入指令碼以產生 SAS]: #update-scripts
-[上傳影像以測試應用程式]: #test
+[Install the Storage Client library]: #install-storage-client
+[Update the client app to capture images]: #add-select-images
+[Update the insert script to generate an SAS]: #update-scripts
+[Upload images to test the app]: #test
 [Next Steps]: #next-steps
 
 <!-- Images. -->
@@ -93,16 +90,17 @@
 
 
 <!-- URLs. -->
-[使用 SendGrid 從行動服務傳送電子郵件]: /develop/mobile/tutorials/send-email-with-sendgrid/
+[使用 SendGrid 從行動服務傳送電子郵件]: store-sendgrid-mobile-services-send-email-scripts.md
 [在行動服務中排程後端工作]: mobile-services-schedule-recurring-tasks.md
 [Send push notifications to Windows Store apps using Service Bus from a .NET back-end]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
-[行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/p/?LinkId=262293
-[開始使用行動服務]: ../mobile-services-windows-store-get-started.md
+[行動服務伺服器指令碼參考]: mobile-services-how-to-use-server-scripts.md
+[開始使用行動服務]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How To Create a Storage Account]: /manage/services/storage/how-to-create-a-storage-account
+[How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
-[行動服務 .NET 作法概念性參考]: /develop/mobile/how-to-guides/work-with-net-client-library
+[行動服務 .NET 作法概念性參考]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

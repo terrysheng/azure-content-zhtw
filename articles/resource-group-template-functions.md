@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure 資源管理員範本函數"
-   description="描述要在 Azure 資源管理員範本中使用以將應用程式部署到 Azure 的函數。"
+   description="描述要在 Azure 資源管理員範本中用來擷取值、格式化字串，並擷取部署資訊的函數。"
    services="na"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz;ilygre"/>
+   ms.date="06/08/2015"
+   ms.author="tomfitz"/>
 
 # Azure 資源管理員範本函數
 
@@ -52,9 +52,36 @@
         }
     }
 
+## 部署
+
+**deployment()**
+
+傳回目前部署作業的相關資訊。
+
+傳回部署的相關資訊做為具有下列屬性的物件：
+
+    {
+      "name": "",
+      "properties": {
+        "template": {},
+        "parameters": {},
+        "mode": "",
+        "provisioningState": ""
+      }
+    }
+
+下列範例顯示如何在輸出區段中傳回部署資訊。
+
+    "outputs": {
+      "exampleOutput": {
+        "value": "[deployment()]",
+        "type" : "object"
+      }
+    }
+
 ## listKeys
 
-**listKeys (resourceName 或 resourceIdentifier, [apiVersion])**
+**listKeys (resourceName or resourceIdentifier, [apiVersion])**
 
 傳回儲存體帳戶的金鑰。使用 [resourceId](./#resourceid) 函數或使用格式 **providerNamespace/resourceType/resourceName**，即可指定 resourceId。您可以使用此函數來取得 primaryKey 和 secondaryKey。
   
@@ -71,6 +98,28 @@
         "type" : "object" 
       } 
     } 
+
+## padLeft
+
+**padLeft(stringToPad, totalLength, paddingCharacter)**
+
+藉由將字元新增至左邊，直到到達指定的總長度，以傳回靠右對齊的字串。
+  
+| 參數 | 必要 | 說明
+| :--------------------------------: | :------: | :----------
+| stringToPad | 是 | 要靠右對齊的字串。
+| totalLength | 是 | 傳回字串中的字元總數。
+| paddingCharacter | 是 | 要用於左側填補直到達到總長度的字元。
+
+下列範例顯示如何藉由新增零個字元，直到字傳達到 10 個字元，以填補使用者提供的參數值。如果原始參數值超過 10 個字元，就不新增任何字元。
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "paddedAppName": "[padLeft(parameters('appName'),10,'0')]"
+    }
+
 
 ## 參數
 
@@ -128,7 +177,7 @@
 
 ## reference
 
-**reference (resourceName 或 resourceIdentifier, [apiVersion])**
+**reference (resourceName or resourceIdentifier, [apiVersion])**
 
 可讓運算式從另一個資源的執行階段狀態衍生其值。
 
@@ -146,6 +195,27 @@
           "type": "string",
           "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
       }
+    }
+
+## 取代
+
+**replace(originalString, oldCharacter, newCharacter)**
+
+在由另一個字元取代的指定字串中，傳回具備一個字元的所有執行個體的新字串。
+
+| 參數 | 必要 | 說明
+| :--------------------------------: | :------: | :----------
+| originalString | 是 | 具有由另一個字元取代之某個字元的所有執行個體的字串。
+| oldCharacter | 是 | 要從原始字串中移除的字元。
+| newCharacter | 是 | 要新增來取代移除字元的字元。
+
+下列範例顯示如何從使用者提供的字串中移除所有的連字號。
+
+    "parameters": {
+        "identifier": { "type": "string" }
+    },
+    "variables": { 
+        "newidentifier": "[replace(parameters('identifier'),'-','')]"
     }
 
 ## resourceGroup
@@ -256,7 +326,46 @@
       } 
     } 
 
-## variables
+## toLower
+
+**toLower(stringToChange)**
+
+將指定的字串轉換為小寫。
+
+| 參數 | 必要 | 說明
+| :--------------------------------: | :------: | :----------
+| stringToChange | 是 | 要轉換成小寫的字串。
+
+下列範例會將使用者提供的參數值轉換為小寫。
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "lowerCaseAppName": "[toLower(parameters('appName'))]"
+    }
+
+## toUpper
+
+**toUpper(stringToChange)**
+
+將指定的字串轉換為大寫。
+
+| 參數 | 必要 | 說明
+| :--------------------------------: | :------: | :----------
+| stringToChange | 是 | 要轉換成大寫的字串。
+
+下列範例會將使用者提供的參數值轉換為大寫。
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "upperCaseAppName": "[toUpper(parameters('appName'))]"
+    }
+
+
+## 變數
 
 **variables (variableName)**
 
@@ -270,7 +379,7 @@
 ## 後續步驟
 - [編寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)
 - [進階範本作業](./resource-group-advanced-template.md)
-- [使用 Azure 資源管理員範本部署應用程式](./resouce-group-template-deploy.md)
+- [使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
 - [Azure 資源管理員概觀](./resource-group-overview.md)
 
-<!--HONumber=52-->
+<!---HONumber=July15_HO1-->

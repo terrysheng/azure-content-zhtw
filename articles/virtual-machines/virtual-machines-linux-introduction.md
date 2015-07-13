@@ -103,11 +103,11 @@ Azure 可將現有虛擬機器的狀態擷取到映像中，供以後用來部�
 在 Linux 上，資源磁碟通常由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像中的 **/mnt**)。
 
 
-	>[AZURE.NOTE]  請注意，資源磁碟是**暫存**磁碟，當 VM 重新開機時，該磁碟可能會被刪除或重新格式化。
+	>[AZURE.NOTE] Note that the resource disk is a **temporary** disk, and might be deleted and reformatted when the VM is rebooted.
 
 在 Linux 上，核心可能會將資料磁碟命名為 `/dev/sdc`，而使用者必須分割、格式化及掛接該資源。[如何將資料磁碟連接至虛擬機器](virtual-machines-linux-how-to-attach-disk.md)的教學課程中涵蓋這部分的逐步指示。
 
  - **另請參閱：** [在 Linux 上設定軟體 RAID](virtual-machines-linux-configure-raid.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

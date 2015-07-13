@@ -3,7 +3,7 @@
 	description="了解如何使用 Azure 服務匯流排通知中樞傳送本地化重大新聞通知。" 
 	services="notification-hubs" 
 	documentationCenter="windows" 
-	authors="RickSaling" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,44 +13,38 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
-	ms.author="ricksal"/>
-# 使用通知中樞傳送當地語系化的即時新聞
+	ms.date="04/27/2015" 
+	ms.author="wesmc"/>
+
+# 使用通知中心傳送當地語系化的即時新聞
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows Store C#" class="current">Windows 市集 C#</a><a href="/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS">iOS</a>
+    	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows 市集 C#" class="current">Windows 市集 C#</a><a href="/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iiOS">iOS</a>
 </div>
 
-本主題將說明如何使用 Azure 通知中樞的**範本**功能，廣播已由語言和裝置當地語系化的即時新聞通知。在本教學課程中，首先您會執行在[使用通知中樞傳送即時新聞]中建立的 Windows 市集應用程式。完成之後，您將可註冊您感興趣的類別、指定您要接收哪種語言的通知，並以該語言針對選取的類別接收推播通知。
+##概觀
 
-本教學課程會逐步引導您完成啟用此案例的基本步驟：
-
-1. [範本概念]
-2. [應用程式使用者介面]
-3. [建置 Windows 市集用戶端應用程式]
-4. [從後端傳送通知]
+本主題將說明如何使用 Azure 通知中心的**範本**功能，廣播已由語言和裝置當地語系化的即時新聞通知。在本教學課程中，首先您會執行在[使用通知中心傳送即時新聞]中建立的 Windows 市集應用程式。完成之後，您將可註冊您感興趣的類別、指定您要接收哪種語言的通知，並以該語言針對選取的類別接收推播通知。
 
 
 此案例分成兩部分：
 
 - Windows 市集應用程式允許用戶端裝置指定語言，以及訂閱不同的即時新聞類別； 
 
-- 後端使用 Azure 通知中樞的**標籤**和**範本**功能廣播通知。
+- 後端使用 Azure 通知中心的**標籤**和**範本**功能廣播通知。
 
 
 
-## 必要條件 ##
+##必要條件
 
-您必須已完成[使用通知中樞傳送即時新聞]教學課程，並具有可用的程式碼，因為此教學課程是直接根據該程式碼而建置的。 
+您必須已完成[使用通知中心傳送即時新聞]教學課程，並具有可用的程式碼，因為此教學課程是直接根據該程式碼而建置的。
 
 您也需要 Visual Studio 2012。
 
 
-<h2><a name="concepts"></a>範本概念</h2>
+##範本概念
 
-在[使用通知中樞傳送即時新聞]中，您建置了使用**標籤**來訂閱不同即時新聞類別之通知的應用程式。
-但有許多應用程式是以多個市場為目標的，因此需要當地語系化。這表示通知本身的內容必須進行當地語系化，並傳遞至正確的裝置集。
-在此主題中，我們將說明如何使用通知中樞的**範本**功能，輕鬆地傳遞已當地語系化的即時新聞通知。
+在[使用通知中心傳送即時新聞]，您建置了使用**標籤**來訂閱不同即時新聞類別之通知的應用程式。但有許多應用程式是以多個市場為目標的，因此需要當地語系化。這表示通知本身的內容必須進行當地語系化，並傳遞至正確的裝置集。在此主題中，我們將說明如何使用通知中心的**範本**功能，輕鬆地傳遞已當地語系化的即時新聞通知。
 
 注意：傳送當地語系化通知的方法之一，是為每個標籤建立多個版本。例如，若要支援英文、法文和中文，我們將必須為世界新聞建立三個不同的標籤："world_en"、"world_fr" 和 "world_ch"。接著，我們必須將當地語系化版本的世界新聞分別傳送至這三個標籤。在此主題中我們會使用範本，以避免使用過多的標籤和傳送過多訊息。
 
@@ -74,15 +68,15 @@
 
 
 
-範本的功能非常強大，您可以在[通知中樞指引]一文中了解詳情。[Windows 市集的通知中樞作法]則提供了範本運算式語言的參考。
+範本的功能非常強大，您可以在[通知中心指引]一文中了解詳情。[Windows 市集的通知中心作法]則提供了範本運算式語言的參考。
 
 
-<h2><a name="ui"></a>應用程式使用者介面</h2>
+##應用程式使用者介面
 
-現在，我們將修改您在[使用通知中樞傳送即時新聞]主題中建立的即時新聞應用程式，以使用範本傳送當地語系化的即時新聞。
+現在，我們將修改您在[使用通知中心傳送即時新聞]主題中建立的即時新聞應用程式，以使用範本傳送當地語系化的即時新聞。
 
 
-若要調整用戶端應用程式使其能夠接收當地語系化的訊息，您必須以範本註冊取代您的 *原生*註冊 (也就是指定範本的註冊)。
+若要調整用戶端應用程式使其能夠接收當地語系化的訊息，您必須以範本註冊取代您的*原生*註冊 (也就是指定範本的註冊)。
 
 
 在您的 Windows 市集應用程式中：
@@ -118,9 +112,9 @@
         <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="Button_Click" />
     </Grid>
 
-<h2><a name="building-client"></a><span class="building app">App ui</span>建置 Windows 市集用戶端應用程式</h2>
+##建置 Windows 市集用戶端應用程式
 
-1. 在您的 Notifications 類別中，將地區設定參數新增至  *StoreCategoriesAndSubscribe* 和  *SubscribeToCateories* 方法。
+1. 在您的 Notifications 類別中，將地區設定參數新增至 *StoreCategoriesAndSubscribe* 和 *SubscribeToCateories* 方法。
 
 		public async Task StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
         {
@@ -137,7 +131,7 @@
             await hub.RegisterTemplateAsync(channel.Uri, template, "newsTemplate", categories);
         }
 
-	請注意，我們不會呼叫  *RegisterNativeAsync* 方法，而是會呼叫  *RegisterTemplateAsync*：我們將會註冊讓範本依循地區設定的特定通知格式。我們也為範本提供名稱 ("newsTemplate")，因為我們可能會想註冊多個範本 (例如，一個供快顯通知使用，一個供磚使用)，而且我們必須為其命名，才能加以更新或刪除。
+	請注意，我們不會呼叫 *RegisterNativeAsync* 方法，而是會呼叫 *RegisterTemplateAsync*：我們將會註冊讓範本依循地區設定的特定通知格式。我們也為範本提供名稱 ("newsTemplate")，因為我們可能會想註冊多個範本 (例如，一個供快顯通知使用，一個供磚使用)，而且我們必須為其命名，才能加以更新或刪除。
 
 	請注意，如果有裝置使用相同的標籤註冊多個範本，一個以該標籤為目標的傳入訊息將會使多個通知傳遞至裝置 (每個範本各一個)。此行為在相同的邏輯訊息必須產生多個視覺化通知時將有所幫助，例如，在一個 Windows 市集應用程式中同時顯示徽章和快顯通知。
 
@@ -167,13 +161,12 @@
          dialog.Commands.Add(new UICommand("OK"));
          await dialog.ShowAsync();
 
-4. 最後，在您的 App.xaml.cs 檔案中，確認將呼叫更新為 
- *OnLaunched* 方法中的通知單一子句：
+4. 最後，在您的 App.xaml.cs 檔案中，確實在 *OnLaunched* 方法中更新您對通知 singleton 的呼叫：
 
 		Notifications.SubscribeToCategories(Notifications.RetrieveLocale(), Notifications.RetrieveCategories());
 
 
-<h2><a name="send"></a>從後端傳送已當地語系化的通知</h2>
+##從後端傳送已當地語系化的通知
 
 [AZURE.INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
 
@@ -183,40 +176,60 @@
 
 ## 後續步驟
 
-如需使用範本的詳細資訊，請參閱[使用通知中樞來通知使用者：ASP.NET][使用通知中樞通知使用者：ASP.NET]、[使用通知中樞來通知使用者：行動服務][使用通知中樞通知使用者：行動服務]，並參閱[通知中樞指引]。[Windows 市集的通知中樞作法]則提供了範本運算式語言的參考。
+如需有關使用範本的詳細資訊，請參閱[使用通知中樞來通知使用者：ASP.NET]、[使用通知中樞來通知使用者：行動服務]，還可參閱[通知中樞指引]。[Windows 市集的通知中心作法]則提供了範本運算式語言的參考。
 
 <!-- Anchors. -->
-[範本概念]: #concepts
-[應用程式使用者介面]: #ui
-[建置 Windows 市集用戶端應用程式]: #building-client
-[從後端傳送通知]: #send
-[後續步驟]:#next-steps
+[Template concepts]: #concepts
+[The app user interface]: #ui
+[Building the Windows Store client app]: #building-client
+[Send notifications from your back-end]: #send
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- URLs. -->
-[行動服務]: /develop/mobile/tutorials/get-started
-[使用通知中樞通知使用者：ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[使用通知中樞通知使用者：行動服務]: /manage/services/notification-hubs/notify-users
-[使用通知中樞傳送即時新聞]: /manage/services/notification-hubs/breaking-news-dotnet 
+[Mobile Service]: /develop/mobile/tutorials/get-started
+[使用通知中樞來通知使用者：ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[使用通知中樞來通知使用者：行動服務]: /manage/services/notification-hubs/notify-users
+[使用通知中心傳送即時新聞]: /manage/services/notification-hubs/breaking-news-dotnet
 
-[提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[開始使用行動服務]: /develop/mobile/tutorials/get-started/#create-new-service
-[開始使用資料]: /develop/mobile/tutorials/get-started-with-data-dotnet
-[開始使用驗證]: /develop/mobile/tutorials/get-started-with-users-dotnet
-[開始使用推播通知]: /develop/mobile/tutorials/get-started-with-push-dotnet
-[推播通知給應用程式使用者]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
-[使用指令碼授權使用者]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-[JavaScript 和 HTML]: /develop/mobile/tutorials/get-started-with-push-js
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-dotnet
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
 [通知中樞指引]: http://msdn.microsoft.com/library/jj927170.aspx
-[iOS 的通知中樞作法]: http://msdn.microsoft.com/library/jj927168.aspx
-[Windows 市集的通知中樞作法]: http://msdn.microsoft.com/library/jj927172.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Windows 市集的通知中心作法]: http://msdn.microsoft.com/library/jj927172.aspx
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

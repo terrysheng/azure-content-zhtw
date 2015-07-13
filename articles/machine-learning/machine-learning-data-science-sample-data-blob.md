@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Azure Blob 儲存體中的取樣資料 | Azure" 
+	pageTitle="Azure Blob 儲存體中的取樣資料 | Microsoft Azure" 
 	description="Azure Blob 儲存體中的取樣資料" 
-	services="machine-learning" 
+	services="machine-learning,storage" 
 	documentationCenter="" 
-	authors="sunliangms,fashah,msolhab" 
+	authors="msolhab" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="sunliangms,fashah,msolhab,garye" /> 
+	ms.date="05/29/2015" 
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
 
-# <a name="heading"></a>Azure Blob 儲存體中的取樣資料
+#<a name="heading"></a>Azure Blob 儲存體中的取樣資料
 
 本文件說明為儲存於 Azure Blob 儲存體中的資料進行取樣，您可以利用程式設計方式下載它，然後使用 Python 程式碼範例來對它進行取樣。執行此動作的步驟如下：
 
@@ -45,7 +45,7 @@
 	    #directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. 使用 `numpy` 的 `random.choice` 來進行資料取樣，如下所示：
+3. 使用 `numpy` 的 `random.choice` 以進行資料取樣，如下所示：
 
 	    # A 1 percent sample
     	sample_ratio = 0.01 
@@ -55,7 +55,7 @@
 
 	現在您可以使用上述具有 1% 樣本的資料框架，進行進一步探索和功能產生。
 
-## <a name="heading"></a>連接到 Azure Machine Learning
+##<a name="heading"></a>連接到 Azure Machine Learning
 
 您可以使用下列程式碼範例，對資料進行向下取樣，並直接在 Azure ML 中使用它：
 
@@ -85,10 +85,15 @@
 	    except:	        
 		    print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
 
-3. 使用 Azure ML *Reader Module* 從 Azure Blob 讀取資料，如下列螢幕擷取畫面所示：
+3. 使用 Azure ML [讀取器](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/)讀取 Azure Blob 的資料，如下圖所示：
  
-![reader blob][1]
+![讀取器 Blob][1]
 
 [1]: ./media/machine-learning-data-science-sample-data-blob/reader_blob.png
 
-<!--HONumber=49--> 
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+ 
+
+<!---HONumber=July15_HO1-->

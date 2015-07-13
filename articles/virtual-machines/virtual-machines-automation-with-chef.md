@@ -238,4 +238,4 @@ Chef 會使用 Cookbook 來定義一組您想在受管理的用戶端上執行�
 
 <!--Link references-->
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

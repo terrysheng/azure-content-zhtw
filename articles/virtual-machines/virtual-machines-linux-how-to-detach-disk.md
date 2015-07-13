@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="從 Azure 中的 Linux 虛擬機器卸離磁碟" 
-	description="了解如何從 Azure 虛擬機器卸離資料磁碟。" 
+	description="了解從 Azure 虛擬機器卸離資料磁碟。" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="KBDAzure" 
@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/27/2015" 
 	ms.author="kathydav"/>
 
-
+# 如何從 Linux 虛擬機器卸離磁碟
 
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 
-<!--HONumber=45--> 
+## 其他資源
+
+[如何將資料磁碟連接至 Linux 虛擬機器](virtual-machines-linux-how-to-attach-disk.md)
  
+
+<!---HONumber=July15_HO1-->

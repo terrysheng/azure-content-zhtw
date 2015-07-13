@@ -2,7 +2,7 @@
 
 > [AZURE.NOTE]在網站建立過程中建立 MySQL 資料庫時，您只能建立免費資料庫。從 Azure 市集建立 MySQL 資料庫時，則可以建立免費資料庫或選擇付費選項。
 
-## 如何：從 Azure 市集建立 MySQL 資料庫
+## 做法：從 Azure 市集建立 MySQL 資料庫
 
 若要從 [Azure 市集]建立 MySQL 資料庫，請執行下列動作：
 
@@ -75,4 +75,4 @@
 [portal]: http://manage.windowsazure.com
 [configure]: ../article/app-service-web/web-sites-configure.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

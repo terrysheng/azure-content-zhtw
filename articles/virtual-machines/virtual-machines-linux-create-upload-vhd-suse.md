@@ -177,4 +177,7 @@
 
 13. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO1-->

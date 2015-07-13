@@ -1,31 +1,45 @@
-<properties urlDisplayName="SendGrid Email Service" pageTitle="如何使用 SendGrid 電子郵件服務 (Java) - Azure" metaKeywords="Azure SendGrid, Azure 電子郵件服務, Azure SendGrid Java, Azure 電子郵件 Java" description="了解如何在 Azure 上使用 SendGrid 電子郵件服務傳送電子郵件。以 Java 撰寫的程式碼範例。" metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties 
+	pageTitle="如何使用 SendGrid 電子郵件服務 (Java) - Azure" 
+	description="了解如何在 Azure 使用 SendGrid 電子郵件服務傳送電子郵件。程式碼範例以 Java 撰寫。" 
+	services="" 
+	documentationCenter="java" 
+	authors="thinkingserious" 
+	manager="sendgrid" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 
 # 如何使用 SendGrid 透過 Java 傳送電子郵件
 
-本指南示範如何在 Azure 上透過 SendGrid 電子郵件服務執行常見程式設計工作。相關範例是以 Java 撰寫的。涵蓋的案例包括「建構電子郵件」、「傳送電子郵件」、「新增附件」、「使用篩選器」及「更新屬性」。如需 SendGrid 與傳送電子郵件的詳細資訊，請參閱[後續步驟][]一節。
+本指南示範如何在 Azure 上透過 SendGrid 電子郵件服務執行常見程式設計工作。相關範例是以 Java 撰寫的。涵蓋的案例包括**建構電子郵件**、**傳送電子郵件**、**新增附件**、**使用篩選器**及**更新屬性**。如需 SendGrid 及傳送電子郵件的詳細資訊，請參閱[後續步驟][]一節。
 
 ## 目錄
 
 -   [什麼是 SendGrid 電子郵件服務？][]
 -   [建立 SendGrid 帳戶][]
--   [做法：使用 javax.mail 程式庫][]
--   [做法：建立電子郵件][]
--   [做法：傳送電子郵件][]
--   [做法：新增附件][]
--   [做法：使用篩選器來啟用頁尾、追蹤和分析][]
--   [做法：更新電子郵件屬性][]
--   [做法：使用其他 SendGrid 服務][]
+-   [如何：使用 javax.mail 程式庫][]
+-   [如何：建立電子郵件][]
+-   [如何：傳送電子郵件][]
+-   [如何：新增附件][]
+-   [如何：使用篩選器來啟用頁尾、追蹤和分析][]
+-   [如何：更新電子郵件屬性][]
+-   [如何：使用其他 SendGrid 服務][]
 -   [後續步驟][]
 
 ## <a name="bkmk_WhatIsSendGrid"> </a>什麼是 SendGrid 電子郵件服務？
 
-SendGrid 是[雲端式電子郵件服務]，能提供可靠的[交易式電子郵件傳遞]、延展性和即時分析，以及有彈性的 API 來輕鬆進行自訂整合。常見的 SendGrid 使用案例包括：
+SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交易式電子郵件傳遞] (英文)，擴充性和即時分析，以及有彈性的 API 來輕鬆進行自訂整合。常見的 SendGrid 使用案例包括：
 
 -   自動傳送回條給客戶
 -   管理通訊群組清單，以便將每月電子傳單和特別優惠傳送給客戶
--   收集封鎖的電子郵件、客戶的回應情形等項目的即時計量
+-   收集封鎖的電子郵件、客戶的回應情形等項目的即時度量
 -   產生報表，協助找出趨勢
 -   轉寄客戶查詢
 - 透過電子郵件從您的應用程式傳送通知
@@ -34,14 +48,13 @@ SendGrid 是[雲端式電子郵件服務]，能提供可靠的[交易式電子�
 
 ## <a name="bkmk_CreateSendGridAcct"> </a>建立 SendGrid 帳戶
 
-[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+[AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## <a name="bkmk_HowToUseJavax"> </a>作法：使用 javax.mail 程式庫
+## <a name="bkmk_HowToUseJavax"> </a>如何：使用 javax.mail 程式庫
 
 取得 javax.mail 程式庫，例如從 <http://www.oracle.com/technetwork/java/javamail> 並將其匯入您的程式碼中。使用 javax.mail 程式庫來傳送採用 SMTP 之電子郵件的高層級程序就是執行下列動作：
 
-1.  指定 SMTP 值 (包括 SMTP 伺服器)，
-    對 SendGrid 而言是 smtp.sendgrid.net。
+1.  指定 SMTP 值 (包括 SMTP 伺服器)，對 SendGrid 而言是 smtp.sendgrid.net。
     
         import java.util.Properties;
         import javax.activation.*;
@@ -64,9 +77,9 @@ SendGrid 是[雲端式電子郵件服務]，能提供可靠的[交易式電子�
            	  properties.put("mail.smtp.host", SMTP_HOST_NAME);
            	  properties.put("mail.smtp.port", 587);
            	  properties.put("mail.smtp.auth", "true");
-           	  // ...
+           	  // …
 
-2.  擴充 <span class="auto-style1">javax.mail.Authenticator</span>     類別，接著在     <span class="auto-style1">getPasswordAuthentication</span> 方法的實作中，傳回您的 SendGrid 使用者名稱與密碼。  
+2.  擴充 <span class="auto-style1">javax.mail.Authenticator</span> 類別，以及在 <span class="auto-style1">getPasswordAuthentication</span> 方法的實作中，傳回您的 SendGrid 使用者名稱和密碼。
 
         private class SMTPAuthenticator extends javax.mail.Authenticator {
         public PasswordAuthentication getPasswordAuthentication() {
@@ -75,16 +88,15 @@ SendGrid 是[雲端式電子郵件服務]，能提供可靠的[交易式電子�
            return new PasswordAuthentication(username, password);
         }
 
-3.  建立經過驗證的電子郵件工作階段，方法是透過
-    <span class="auto-style1">javax.mail.Session</span> 物件的程式碼後面加入下列程式碼行。  
+3.  透過 <span class="auto-style1">javax.mail.Session</span> 物件建立經過驗證的電子郵件工作階段。
 
         Authenticator auth = new SMTPAuthenticator();
         Session mailSession = Session.getDefaultInstance(properties, auth);
 
-4.  建立郵件並指派 [收件者]、[寄件者]、[主旨] 和內容值。如[作法：建立電子郵件](#bkmk_HowToCreateEmail) 一節所示。
-5.  傳送郵件，方法是透過     <span class="auto-style1">javax.mail.Transport</span> 物件的程式碼後面加入下列程式碼行。如[做法：傳送電子郵件][How to: Send an Email]一節所示。
+4.  建立郵件並指派 [收件者]、[寄件者]、[主旨] 和內容值。這顯示在[如何：建立電子郵件](#bkmk_HowToCreateEmail)一節中。
+5.  透過 <span class="auto-style1">javax.mail.Transport</span> 物件傳送郵件。這顯示在[如何：傳送電子郵件][How to: Send an Email]一節中。
 
-## <a name="bkmk_HowToCreateEmail"> </a>作法：建立電子郵件
+## <a name="bkmk_HowToCreateEmail"> </a>如何：建立電子郵件
 
 下列程式碼顯示如何指定電子郵件的值。
 
@@ -106,7 +118,7 @@ SendGrid 是[雲端式電子郵件服務]，能提供可靠的[交易式電子�
     message.setSubject("Your recent order");
     message.setContent(multipart);
 
-## <a name="bkmk_HowToSendEmail"> </a>作法：傳送電子郵件
+## <a name="bkmk_HowToSendEmail"> </a>如何：傳送電子郵件
 
 下列程式碼顯示如何傳送電子郵件。
 
@@ -118,13 +130,13 @@ SendGrid 是[雲端式電子郵件服務]，能提供可靠的[交易式電子�
     // Close the connection.
     transport.close();
 
-## <a name="bkmk_HowToAddAttachment"> </a>作法：新增附件
+## <a name="bkmk_HowToAddAttachment"> </a>如何：新增附件
 
 下列程式碼顯示如何新增附件。
 
     // Local file name and path.
     String attachmentName = "myfile.zip";
-    String attachmentPath = "c:\\myfiles"; 
+    String attachmentPath = "c:\myfiles"; 
     MimeBodyPart attachmentPart = new MimeBodyPart();
     // Specify the local file to attach.
     DataSource source = new FileDataSource(attachmentPath + attachmentName);
@@ -134,12 +146,11 @@ SendGrid 是[雲端式電子郵件服務]，能提供可靠的[交易式電子�
     attachmentPart.setFileName(attachmentName);
     multipart.addBodyPart(attachmentPart);
 
-## <a name="bkmk_HowToUseFilters"> </a>作法：使用篩選器來啟用頁尾、追蹤和分析
+## <a name="bkmk_HowToUseFilters"> </a>如何：使用篩選器來啟用頁尾、追蹤和分析
 
-SendGrid 提供了運用 *篩選器* 的其他電子郵件功能。這些設定可新增到電子郵件以啟用特定功能，例如啟用點擊追蹤、Google 分析、訂閱追蹤等。如需完整的篩選器清單，請參閱[篩選器設定][]。
+SendGrid 運用篩選器提供其他電子郵件功能。這些設定可新增到電子郵件以啟用特定功能，例如啟用點擊追蹤、Google 分析、訂閱追蹤等。如需完整的篩選器清單，請參閱[篩選器設定][] (英文)。
 
--   以下示範如何插入頁尾篩選器，這會導致
-    HTML 文字顯示在要傳送之電子郵件的下方。
+-   下列程式碼顯示如何插入頁尾篩選器，以使 HTML 文字出現在傳送之電子郵件的底部。
 
         message.addHeader("X-SMTPAPI", 
 			"{"filters": 
@@ -157,7 +168,7 @@ SendGrid 提供了運用 *篩選器* 的其他電子郵件功能。這些設定�
 			Thank you.", 
         	"text/html");
 
--   To enable the click tracking, use the following code:
+-   若要啟用點擊追蹤，請使用下列程式碼：
 
         message.addHeader("X-SMTPAPI", 
 			"{"filters": 
@@ -165,7 +176,7 @@ SendGrid 提供了運用 *篩選器* 的其他電子郵件功能。這些設定�
 			{"settings": 
         	{"enable":1}}}}");
 
-## <a name="bkmk_HowToUpdateEmail"> </a>作法：更新電子郵件屬性
+## <a name="bkmk_HowToUpdateEmail"> </a>如何：更新電子郵件屬性
 
 某些電子郵件屬性可使用 **set*Property*** 覆寫，或可使用 **add*Property*** 附加。
 
@@ -177,21 +188,18 @@ SendGrid 提供了運用 *篩選器* 的其他電子郵件功能。這些設定�
     
 	message.setReplyTo(addresses);
 
-若要新增「副本」收件者，請使用下列程式碼：
+若要增加副本 收件者，請使用下列程式碼：
 
     message.addRecipient(Message.RecipientType.CC, new 
     InternetAddress("john@contoso.com"));
 
-## <a name="bkmk_HowToUseAdditionalSvcs"> </a>作法：使用其他 SendGrid 服務
+## <a name="bkmk_HowToUseAdditionalSvcs"> </a>如何：使用其他 SendGrid 服務
 
-SendGrid 提供網頁式 API，可讓您透過 Azure 應用程式使用其他
-SendGrid 功能。如需完整的
-詳細資訊，請參閱 [SendGrid API 文件][]。
+SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGrid 功能。如需完整詳細資料，請參閱 [SendGrid API 文件][] (英文)。
 
 ## <a name="bkmk_NextSteps"> </a>後續步驟
 
-了解 SendGrid 電子郵件服務的基本概念後，請參考
-下列連結以取得更多資訊。
+了解 SendGrid 電子郵件服務的基本概念後，請參考下列連結以取得更多資訊。
 
 * 示範在 Azure 部署中使用 SendGrid 的範例：[如何在 Azure 部署中使用 SendGrid 透過 Java 傳送電子郵件](store-sendgrid-java-how-to-send-email-example.md)
 * SendGrid Java SDK：<https://sendgrid.com/docs/Code_Examples/java.html>
@@ -201,14 +209,14 @@ SendGrid 功能。如需完整的
   [後續步驟]: #bkmk_NextSteps
   [什麼是 SendGrid 電子郵件服務？]: #bkmk_WhatIsSendGrid
   [建立 SendGrid 帳戶]: #bkmk_CreateSendGridAcct
-  [作法：使用 javax.mail 程式庫]: #bkmk_HowToUseJavax
-  [作法：建立電子郵件]: #bkmk_HowToCreateEmail
-  [作法：傳送電子郵件]: #bkmk_HowToSendEmail
+  [如何：使用 javax.mail 程式庫]: #bkmk_HowToUseJavax
+  [如何：建立電子郵件]: #bkmk_HowToCreateEmail
   [How to: Send an Email]: #bkmk_HowToSendEmail
-  [作法：新增附件]: #bkmk_HowToAddAttachment
-  [作法：使用篩選器來啟用頁尾、追蹤和分析]: #bkmk_HowToUseFilters
-  [作法：更新電子郵件屬性]: #bkmk_HowToUpdateEmail
-  [作法：使用其他 SendGrid 服務]: #bkmk_HowToUseAdditionalSvcs
+  [如何：傳送電子郵件]: #bkmk_HowToSendEmail
+  [如何：新增附件]: #bkmk_HowToAddAttachment
+  [如何：使用篩選器來啟用頁尾、追蹤和分析]: #bkmk_HowToUseFilters
+  [如何：更新電子郵件屬性]: #bkmk_HowToUpdateEmail
+  [如何：使用其他 SendGrid 服務]: #bkmk_HowToUseAdditionalSvcs
   [http://sendgrid.com]: https://sendgrid.com
   [http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html
   [http://www.sendgrid.com/azure.html]: https://www.sendgrid.com/windowsazure.html
@@ -217,14 +225,7 @@ SendGrid 功能。如需完整的
   [篩選器設定]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
   [SendGrid API 文件]: https://sendgrid.com/docs/API_Reference/index.html
   [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
-  [雲端式電子郵件服務]: https://sendgrid.com/email-solutions
+  [雲端架構電子郵件服務]: https://sendgrid.com/email-solutions
   [交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
 
-  [做法：使用 javax.mail 程式庫]: #bkmk_HowToUseJavax
-  [做法：建立電子郵件]: #bkmk_HowToCreateEmail
-  [做法：傳送電子郵件]: #bkmk_HowToSendEmail
-  [做法：新增附件]: #bkmk_HowToAddAttachment
-  [做法：使用篩選器來啟用頁尾、追蹤和分析]: #bkmk_HowToUseFilters
-  [做法：更新電子郵件屬性]: #bkmk_HowToUpdateEmail
-  [做法：使用其他 SendGrid 服務]: #bkmk_HowToUseAdditionalSvcs
-<!--HONumber=35.2-->
+<!---HONumber=July15_HO1-->

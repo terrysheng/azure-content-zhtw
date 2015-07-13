@@ -10,17 +10,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/09/2015" 
 	ms.author="wesmc"/>
 
 # 行動服務和 Azure Active Directory 中的角色型存取控制
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
-## 概觀
+##概觀
 
 角色型存取控制 (RBAC) 是針對使用者可擔任的角色指派權限的作法。它可妥善定義特定類別的使用者能夠與無法執行哪些動作的界線。本教學課程將逐步解說如何將基本 RBAC 新增至 Azure 行動服務。
 
@@ -29,7 +29,7 @@
 
 >[AZURE.NOTE]本教學課程的目的是要擴充驗證知識以加入授權實務作法。您應先使用 Azure Active Directory 驗證提供者完成[將驗證新增至您的應用程式]教學課程。本教學課程接著將更新[將驗證新增至您的應用程式]教學課程中使用的 TodoItem 應用程式。
 
-## 必要條件
+##必要條件
 
 本教學課程需要下列各項：
 
@@ -39,7 +39,7 @@
  
 
 
-## 為整合的應用程式產生金鑰
+##為整合的應用程式產生金鑰
 
 
 在進行[將驗證新增至您的應用程式]教學課程期間，您已在完成[註冊使用 Azure Active Directory 登入]步驟時，為整合的應用程式建立註冊。在本節中，您將產生在使用該整合的應用程式用戶端識別碼讀取目錄資訊時所將使用的金鑰。
@@ -50,21 +50,21 @@
 
 
 
-## 建立具有成員資格的銷售群組
+##建立具有成員資格的銷售群組
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-create-sales-group](../../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 
 
-## 在行動服務上建立自訂授權屬性 
+##在行動服務上建立自訂授權屬性 
 
 在本節中，您將新建可用來對行動服務作業執行存取檢查的自訂授權屬性。屬性將會根據傳至 Active Directory 群組的角色名稱查閱該群組。接著，它會根據該群組的成員資格執行存取檢查。
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務.NET 後端專案，然後按一下 [管理 NuGet 封裝]****。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務.NET 後端專案，然後按一下 [管理 NuGet 封裝]。
 
-2. 在 [NuGet Package Manager] 對話方塊中，在搜尋條件中輸入 **ADAL**，以尋找並安裝您的行動服務的 [Active Directory Authentication Library]****。本教學課程近期多搭配 3.0.110281957-alpha (搶鮮版) 版本的 ADAL 封裝進行測試。
+2. 在 [NuGet Package Manager] 對話方塊中，在搜尋條件中輸入 **ADAL**，以尋找並安裝您的行動服務的 [Active Directory Authentication Library]。本教學課程近期多搭配 3.3.205061641-alpha (搶鮮版) 版本的 ADAL 封裝進行測試。
 
-3. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務專案，然後依序按一下 [新增]**** 和 [新資料夾]****。將新資料夾命名為 **Utilities**。
+3. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務專案，然後依序按一下 [新增] 和 [新資料夾]。將新資料夾命名為 **Utilities**。
 
 4. 在 Visual Studio 中，以滑鼠右鍵按一下新的 **Utilities** 資料夾，然後新增名為 **AuthorizeAadRole.cs** 的類別檔案。
 
@@ -84,7 +84,7 @@
 		using System.Globalization;
 		using System.IO;
 
-6. 在 AuthorizeAadRole.cs 中，將下列列舉類型新增至「公用程式」命名空間。在此範例中，我們只會處理 [銷售]**** 角色。其他角色只是您可能使用之群組的範例。
+6. 在 AuthorizeAadRole.cs 中，將下列列舉類型新增至「公用程式」命名空間。在此範例中，我們只會處理 [銷售] 角色。其他角色只是您可能使用之群組的範例。
 
         public enum AadRoles
         {
@@ -178,7 +178,8 @@
 
     >[AZURE.NOTE]根據預設，適用於 .NET 的 ADAL 包含記憶體內部權杖快取，有助於減輕對您 Active Directory 的額外網路流量。但是，您可以寫入自己的快取實作或完全停用快取。如需詳細資訊，請參閱[適用於 .NET 的 ADAL]。
 
-        private string GetAADToken()
+        // Use ADAL and the authentication app settings from the Mobile Service to get an AAD access token
+        private async Task<string> GetAADToken()
         {
             // Try to get the required AAD authentication app settings from the mobile service.  
             if (!(services.Settings.TryGetValue("AAD_CLIENT_ID", out clientid) &
@@ -192,8 +193,8 @@
             ClientCredential clientCred = new ClientCredential(clientid, clientkey);
             string authority = String.Format(CultureInfo.InvariantCulture, AadInstance, tenantdomain);
             AuthenticationContext authContext = new AuthenticationContext(authority);
-            AuthenticationResult result = authContext.AcquireTokenAsync(GraphResourceId, clientCred).Result;
 
+            AuthenticationResult result = await authContext.AcquireTokenAsync(GraphResourceId, clientCred);
             if (result != null)
                 token = result.AccessToken;
             else
@@ -324,7 +325,7 @@
 
 12. 將您的變更儲存至 AuthorizeAadRole.cs。
 
-## 將角色型存取檢查新增至資料庫作業
+##將角色型存取檢查新增至資料庫作業
 
 1. 在 Visual Studio 中，展開行動服務專案下的 **Controllers** 資料夾。開啟 TodoItemController.cs。
 
@@ -366,7 +367,7 @@
 5. 將行動服務發行至您的 Azure 帳戶。
 
 
-## 測試用戶端的存取
+##測試用戶端的存取
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-test-app](../../includes/mobile-services-aad-rbac-test-app.md)]
 
@@ -390,4 +391,5 @@
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [存取 Azure Active Directory Graph 資訊]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [適用於 .NET 的 ADAL]: https://msdn.microsoft.com/library/azure/jj573266.aspx
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO1-->

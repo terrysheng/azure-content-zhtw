@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="05/28/2015" 
 	ms.author="glenga"/>
 
 # 在您的行動服務應用程式中新增驗證 
@@ -22,21 +22,15 @@
 
 本主題顯示如何從 HTML 應用程式 (包含 PhoneGap 或 Cordova 應用程式) 驗證 Azure 行動服務中的使用者。在本教學課程中，您將使用行動服務支援的身分識別提供者，將驗證加入至快速入門專案。由行動服務成功驗證並授權之後，就會顯示使用者識別碼值。
 
-本教學課程帶領您執行下列基本步驟，在您的應用程式中啟用驗證：
-
-1. [註冊應用程式進行驗證，並設定行動服務]
-2. [限制只有經驗證的使用者具有資料表的權限]
-3. [將驗證新增至應用程式]
-
 本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務]。
 
 ##<a name="register"></a>註冊應用程式進行驗證，並設定行動服務
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
 ##<a name="permissions"></a>限制只有通過驗證的使用者具有權限
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
 3. 在應用程式目錄中，從 **server** 子資料夾啟動下列其中一個命令檔。
@@ -107,7 +101,7 @@
 			$("#logged-in button").click(logOut);
 		});
 
-    這會建立一組函數來處理驗證程序。使用者透過 Facebook 登入來驗證。如果您使用的身分識別提供者不是 Facebook，請將傳給上述 <strong>login</strong> 方法的值變更為以下其中一個：<em>microsoftaccount</em>、<em>facebook</em>、<em>twitter</em>、<em>google</em>或 <em>aad</em>。
+    這會建立一組函數來處理驗證程序。使用者會透過 Facebook 登入受到驗證。如果您使用的識別提供者不是 Facebook，請將傳給上述 **login** 方法的值變更為以下其中一個：*microsoftaccount*、*facebook*、*twitter*、*google* 或 *aad*。
 
 	>[AZURE.IMPORTANT]在 PhoneGap 應用程式中，您必須也將以下外掛程式新增至專案：<ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li> <li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
@@ -122,9 +116,9 @@
 在下一堂教學課程[使用指令碼授權使用者]中，您將使用行動服務根據通過驗證使用者所提供的使用者 ID 值，並用它來篩選行動服務所傳回的資料。深入了解如何透過 HTML/JavaScript 來使用行動服務，請參閱[行動服務 HTML/JavaScript 作法概念性參考]
 
 <!-- Anchors. -->
-[註冊應用程式進行驗證，並設定行動服務]: #register
-[限制只有經驗證的使用者具有資料表的權限]: #permissions
-[將驗證新增至應用程式]: #add-authentication
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
 [Next Steps]: #next-steps
 
 <!-- Images. -->
@@ -141,6 +135,7 @@
 [使用指令碼授權使用者]: mobile-services-javascript-backend-service-side-authorization.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[行動服務 HTML/JavaScript 作法概念性參考]: /documentation/articles/mobile-services-html-how-to-use-client-library
+[行動服務 HTML/JavaScript 作法概念性參考]: mobile-services-html-how-to-use-client-library.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

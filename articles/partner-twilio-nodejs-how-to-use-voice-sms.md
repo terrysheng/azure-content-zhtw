@@ -1,10 +1,10 @@
-﻿<properties 
+<properties 
 	pageTitle="在 Azure 中透過 Twilio 使用語音、VoIP 和簡訊功能" 
 	description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。程式碼範例以 Node.js 撰寫。" 
 	services="" 
 	documentationCenter="nodejs" 
-	authors="devinrader" 
-	manager="twilio" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="11/25/2014" 
-	ms.author="MicrosoftHelp@twilio.com"/>
+	ms.author="mwasson"/>
 
 
 # 在 Azure 中透過 Twilio 使用語音、VoIP 和簡訊功能
@@ -40,21 +40,24 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
 
 <a id="signup"/>
 ## 註冊 Twilio (Microsoft 折扣)
-在使用 Twilio 服務之前，您必須先 [註冊帳戶][signup]。Microsoft Azure 客戶享有特別折扣 -  [請務必在此註冊][signup]！
+
+在使用 Twilio 服務之前，您必須先[註冊帳戶][signup]。Microsoft Azure 客戶享有特別折扣 - [請務必在此註冊][signup]！
 
 <a id="azuresite"/>
 ## 建立及部署 node.js Azure 網站
+
 接著，您必須建立在 Azure 上執行的 node.js 網站。[此作業的正式指引文件位於此處][azure_new_site]。概括而言，您將執行下列作業：
 
 * 註冊 Azure 帳戶 (若您尚無此帳戶)
 * 使用 Azure 管理主控台建立新網站
 * 新增原始檔控制支援 (我們假設您使用 git)
-* 使用簡單的 node.js Web 應用程式建立 `server.js`  檔案
+* 使用簡單的 node.js Web 應用程式建立 `server.js` 檔案
 * 將這個簡單的應用程式部署至 Azure
 
 <a id="twiliomodule"/>
 ## 設定 Twilio 模組
-接著，我們將開始撰寫採用 Twilio API 的簡易 node.js 應用程式。開始之前，我們必須設定 Twilio 帳戶認證。  
+
+接著，我們將開始撰寫採用 Twilio API 的簡易 node.js 應用程式。開始之前，我們必須設定 Twilio 帳戶認證。
 
 ### 在系統環境變數中設定 Twilio 認證
 
@@ -67,23 +70,12 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
 這些變數設定完成後，請在 Azure 主控台中重新啟動您的應用程式。
 
 ### 在 package.json 中宣告 Twilio 模組
+
 接下來，我們必須建立一個 package.json，以透過 [npm] 管理節點模組相依性。在您於 Azure/node.js 教學課程中建立的 "server.js" 檔案所屬的相同層級上，建立名為 "package.json" 的檔案。在此檔案中放入下列項目：
 
-  {
-    "name": "application-name",
-    "version": "0.0.1",
-    "private": true,
-    "scripts": {
-      "start": "node server"
-    },
-    "dependencies": {
-      "express": "3.1.0",
-      "ejs": "*",
-      "twilio":"*"
-    }
-  }
+  { "name": "application-name", "version": "0.0.1", "private": true, "scripts": { "start": "node server" }, "dependencies": { "express": "3.1.0", "ejs": "*", "twilio":"*" } }
 
-這會將 twilio 模組宣告為相依項目，以及常用的 [Express Web 架構][express] 和 EJS 範本引擎。一切都已就緒，可以開始撰寫程式碼了。
+這會將 twilio 模組宣告為相依性，以及常用的 [Express Web 架構][express]和 EJS 範本引擎。一切都已就緒，可以開始撰寫程式碼了。
 
 <a id="makecall"/>
 ## 向外撥打電話
@@ -182,6 +174,7 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
 
 <a id="sendmessage"/>
 ## 傳送簡訊
+
 現在，我們要設定用以傳送簡訊的使用者介面和表單處理邏輯。請開啟 "server.js"，並在 "app.post" 的最後一個通話之後新增下列程式碼：
 
     app.post('/sms', function(request, response) {
@@ -203,7 +196,7 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
       });
     });
 
-在 "views/index.ejs" 中，於第一個表單底下新增另一個表單，用以提交數字和簡訊：
+In "views/index.ejs", add another form under the first one to submit a number and a text message:
 
     <form action="/sms" method="POST">
       <input placeholder="Enter a phone number" name="number"/>
@@ -240,7 +233,4 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
 [pair]: http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
 [azure-admin-console]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png
 
-
-
-
-<!--HONumber=47-->
+<!---HONumber=July15_HO1-->

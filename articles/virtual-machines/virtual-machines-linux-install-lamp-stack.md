@@ -123,5 +123,6 @@ LAMP 堆疊由下列不同元素組成：
 有許多關於在 Ubuntu 上設定 LAMP 堆疊的其他資源可供參考。
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

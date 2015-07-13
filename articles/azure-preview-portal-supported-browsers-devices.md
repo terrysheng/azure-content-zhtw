@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="支援的瀏覽器和裝置" 
 	description="" 
 	services="" 
@@ -33,5 +33,4 @@ Microsoft Azure 預覽入口網站可在所有最新的桌上型電腦和平板�
 
 *不支援 Safari 6 和之前的版本。如果您使用的不是 OS X，您可以使用 Chrome、Firefox，或升級至 OS X Mavericks 以取得 Safari 7。*
 
-
-<!--HONumber=47-->
+<!---HONumber=July15_HO1-->

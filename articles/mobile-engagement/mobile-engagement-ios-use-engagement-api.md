@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/24/2015" 
 	ms.author="kapiteir" />
@@ -35,9 +35,9 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 ### `Session`和`Activity`
 
-活動**通常會與應用程式的某個畫面相關聯，也就是說，活動**會在畫面顯示時啟動，並在畫面關閉時停止：這是使用 `EngagementViewController` 類別整合 Engagement SDK 時的情況。
+活動通常會與應用程式的某個畫面相關聯，也就是說，活動會在畫面顯示時啟動，並在畫面關閉時停止：這是使用 `EngagementViewController` 類別整合 Engagement SDK 時的情況。
 
-但您也可以透過 Engagement API 手動控制活動**。這樣可以將指定的畫面分隔為數個子部分，以取得關於此畫面使用方式的詳細資料 (例如，可了解此畫面內對話方塊的使用頻率與使用時間長度)。
+但您也可以透過 Engagement API 手動控制活動。這樣可以將指定的畫面分隔為數個子部分，以取得關於此畫面使用方式的詳細資料 (例如，可了解此畫面內對話方塊的使用頻率與使用時間長度)。
 
 ##報告活動
 
@@ -51,7 +51,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 			[[EngagementAgent shared] endActivity];
 
-> [AZURE.WARNING]您應該****「永不」自行呼叫此函數，除非您希望將應用程式的一次使用分割為數個工作階段：呼叫此函數會立即結束目前的工作階段，因此後續的 `startActivity()` 呼叫會啟動新的工作階段。當您的應用程式關閉時，SDK 會自動呼叫此函數。
+> [AZURE.WARNING]您應該「永不」自行呼叫此函數，除非您希望將應用程式的一次使用分割為數個工作階段：呼叫此函數會立即結束目前的工作階段，因此後續的 `startActivity()` 呼叫會啟動新的工作階段。當您的應用程式關閉時，SDK 會自動呼叫此函數。
 
 ##報告事件
 
@@ -283,5 +283,6 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 			{"birthdate":"1983-12-07","gender":"female"}
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="設定 Azure 連接字串" 
-	description="了解如何設定連接字串以連接到 Azure 中的儲存體帳戶。" 
+	pageTitle="設定 Azure 儲存體的連接字串 | Microsoft Azure" 
+	description="了解如何設定 Azure 儲存體帳戶的連接字串。連接字串包含以程式設計方式驗證儲存體帳戶中資源存取所需的資訊。連接字串可能會封裝您擁有的帳戶存取金鑰，或者可能包含共用的存取簽章，用於存取帳戶的資源，而不需要存取金鑰。" 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,30 +13,45 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/15/2015" 
 	ms.author="tamram"/>
 
 # 設定 Azure 儲存體連接字串
 
 ## 概觀
 
-連接字串包含以程式設計方式存取 Azure 儲存體帳戶所需的資訊。您可以使用下列方式設定連接到 Azure 儲存體的連接字串：
+連接字串包含以程式設計方式存取 Azure 儲存體資源所需的資訊。您的應用程式會使用連接字串，以提供 Azure 儲存體驗證存取所需的資訊。
+
+您可以設定連接字串，以進行下列動作：
 
 - 當您在本機測試服務或應用程式時，連接到 Azure 儲存體模擬器。
+- 使用儲存體服務的預設端點或您已定義的明確端點，連接到 Azure 中的儲存體帳戶。
+- 透過共用的存取簽章 (SAS) 存取儲存體帳戶的資源。
 
-- 使用儲存體服務的預設端點，連接到 Azure 中的儲存體帳戶。
+## 儲存您的連接字串
 
-- 使用明確的儲存體服務端點，連接到 Azure 中的儲存體帳戶。
+您的應用程式必須儲存連接字串，才能在執行時驗證對於 Azure 儲存體的存取。您有幾種不同的選項，用來儲存連接字串：
 
-如果您的應用程式是在 Azure 中執行的雲端服務，則您通常會將連接字串儲存在 [Azure 服務組態結構描述 (.cscfg) 檔](https://msdn.microsoft.com/library/ee758710.aspx) 中。如果您的應用程式在其他環境中執行 (例如，在桌面上)，則您通常會將連接字串儲存在 app.config 檔或另一個組態檔中。您可以使用 Azure `CloudConfigurationManager` 類別，在執行階段存取連接字串，而不論執行所在的地方為何。
+- 對於在桌面上或裝置上執行的應用程式，您可以在 app.config 檔案或另一個組態檔中儲存此連接字串。如果您使用 app.config 檔案，請將連接字串加入 [AppSettings] 區段。
+- 對於在 Azure 雲端服務中執行的應用程式，您可以將連接字串儲存在 [Azure 服務組態結構描述 (.cscfg) 檔](https://msdn.microsoft.com/library/ee758710.aspx)中。將此連接字串加入服務組態檔的 [ConfigurationSettings] 區段。
+
+在組態檔內儲存連接字串，可讓您更容易更新連接字串，藉此在儲存體模擬器和雲端中的 Azure 儲存體帳戶之間切換。您只需要編輯連接字串以指向儲存體帳戶。
+
+您可以使用 Azure [ CloudConfigurationManager](https://msdn.microsoft.com/library/microsoft.windowsazure.cloudconfigurationmanager.aspx) 類別，在執行階段存取連接字串，而不論應用程式執行所在的地方為何。
 
 ## 建立儲存體模擬器的連接字串
 
-儲存體模擬器是具有已知名稱和金鑰的本機帳戶。由於所有使用者的帳戶名稱和金鑰都一樣，因此，您可以使用捷徑字串格式來參考連接字串內的儲存體模擬器。將連接字串的值設為 `UseDevelopmentStorage=true`。
+儲存體模擬器帳戶是具有已知名稱和金鑰的本機帳戶。您可以使用捷徑字串格式 (`UseDevelopmentStorage=true`)，參考連接字串內的儲存體模擬器。例如，在 app.config 中儲存體模擬器的連接字串看起來會像這樣：
+
+    <appSettings>
+      <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
+    </appSettings>
 
 您也可以指定在對儲存體模擬器測試服務時要使用的 HTTP Proxy。當您正在對儲存體服務進行作業偵錯時，這對於觀察 HTTP 要求和回應非常有用。若要指定 Proxy，可將 `DevelopmentStorageProxyUri` 選項加入連接字串，並將其值設為 Proxy URI。例如，以下是指向儲存體模擬器並設定 HTTP Proxy 的連接字串：
 
     UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
+
+如需儲存體模擬器的詳細資訊，請參閱[使用 Azure 儲存體模擬器進行開發和測試](storage-use-emulator.md)。
 
 ## 建立 Azure 儲存體帳戶的連接字串
 
@@ -49,7 +64,7 @@
 ```        DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtB7wYQw33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIAy5l/Yhg==
 ```
 
-> [AZURE.NOTE] Azure 儲存體服務可同時支援連接字串中的 HTTP 和 HTTPS；不過，強烈建議您使用 HTTPS。
+> [AZURE.NOTE]Azure 儲存體服務可同時支援連接字串中的 HTTP 和 HTTPS；不過，強烈建議您使用 HTTPS。
     
 ## 建立明確儲存體端點的連接字串
 
@@ -68,12 +83,12 @@ BlobEndpoint=myBlobEndpoint;QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableE
 
 當您在連接字串中明確指定服務端點時，您有兩個選項可以指定上述字串中的 `credentials`：
 
-- 您可以指定帳戶名稱和金鑰： `AccountName=myAccountName;AccountKey=myAccountKey` 
-- 您可以指定共用存取簽章： `SharedAccessSignature=base64Signature`
+- 您可以指定帳戶名稱和金鑰：`AccountName=myAccountName;AccountKey=myAccountKey` 
+- 您可以指定共用存取簽章：`SharedAccessSignature=base64Signature`
 
 ### 使用自訂網域名稱指定 Blob 端點 
 
-如果您已向 Blob 服務註冊要使用的自訂網域名稱，則可能想要明確地在連接字串中設定 Blob 端點。連接字串中列出的端點值可用來建構連接到 Blob 服務的要求 URI，而它會要求任何傳回到您程式碼的 URI 形式。 
+如果您已向 Blob 服務註冊要使用的自訂網域名稱，則可能想要明確地在連接字串中設定 Blob 端點。連接字串中列出的端點值可用來建構連接到 Blob 服務的要求 URI，而它會要求任何傳回到您程式碼的 URI 形式。
 
 例如，位於自訂網域之 Blob 端點的連接字串可能會類似：
 
@@ -89,7 +104,7 @@ DefaultEndpointsProtocol=https;BlobEndpoint=www.mydomain.com;AccountName=storage
 
     BlobEndpoint=myBlobEndpoint; QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;SharedAccessSignature=base64Signature
 
-端點可以是預設服務端點或自訂端點。 `base64Signature` 會對應到共用存取簽章的簽章部分。簽章是透過有效簽署字串所計算的 HMAC，而金鑰使用的是 SHA256 演算法，然後使用 Base64 進行編碼。
+端點可以是預設服務端點或自訂端點。`base64Signature` 會對應到共用存取簽章的簽章部分。簽章是透過有效簽署字串所計算的 HMAC，而金鑰使用的是 SHA256 演算法，然後使用 Base64 進行編碼。
 
 ### 建立包含端點尾碼的連接字串
 
@@ -103,6 +118,6 @@ DefaultEndpointsProtocol=https;BlobEndpoint=www.mydomain.com;AccountName=storage
 
 	DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtR7wYQk33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIHy5l/Yhg==;EndpointSuffix=core.chinacloudapi.cn;
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

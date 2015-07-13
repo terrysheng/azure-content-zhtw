@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="C#" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
@@ -34,9 +34,9 @@ Engagement API 是由 `EngagementAgent` 類別提供。您可以透過 `Engageme
 
 ### `Session`和`Activity`
 
-**「活動」通常與應用程式的某個頁面關聯，也就是說，**「活動」會在頁面顯示時啟動，當頁面關閉時就停止：使用 `EngagementPage` 類別來整合 Engagement SDK 的情況便是如此。
+「活動」通常與應用程式的某個頁面關聯，也就是說，「活動」會在頁面顯示時啟動，當頁面關閉時就停止：使用 `EngagementPage` 類別來整合 Engagement SDK 的情況便是如此。
 
-但您也可以透過 Engagement API 手動控制「活動」**。這樣可允許將指定的頁面分割成多個部分，以獲得有關該頁面使用方式的詳細資訊 (例如，對話方塊在此頁面的使用平率和使用時間)。
+但您也可以透過 Engagement API 手動控制「活動」。這樣可允許將指定的頁面分割成多個部分，以獲得有關該頁面使用方式的詳細資訊 (例如，對話方塊在此頁面的使用平率和使用時間)。
 
 ##報告活動
 
@@ -66,9 +66,9 @@ Engagement API 是由 `EngagementAgent` 類別提供。您可以透過 `Engageme
 
 			EngagementAgent.Instance.EndActivity();
 
-##報告工作
+##報告作業
 
-### 啟動工作
+### 啟動作業
 
 #### 參考
 
@@ -196,7 +196,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。您可以透過 `Engageme
 
 			void SendJobError(string errorName, string jobName, Dictionary<object, object> extras = null)
 
-錯誤可能與正在執行的作業關聯，而不是與目前的使用者工作階段關聯。
+錯誤可能與正在執行的工作關聯，而不是與目前的使用者工作階段關聯。
 
 #### 範例
 
@@ -232,7 +232,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。您可以透過 `Engageme
 
 Engagement 也提供將傳送未處理的例外狀況之方法。在 Silverlight 的 UnhandledException 事件處理常式內此方法特別有用。
 
-此方法「一律」****會在被呼叫之後終止 Engagement 工作階段和作業。
+此方法「一律」會在被呼叫之後終止 Engagement 工作階段和作業。
 
 #### 範例
 
@@ -279,7 +279,7 @@ Engagement 也提供將傳送未處理的例外狀況之方法。在 Silverlight
 
 可以附加任意資料到事件、錯誤、活動或作業。可以使用字典來結構化這些資料。索引鍵和值可以是任何型別。
 
-額外的資料已經序列化，因此如果您想要在額外資料中插入您自己的型別，您必須針對此型別加入資料合約。
+額外的資料已經序列化，因此如果您想要在額外資料中插入您自己的型別，您必須針對此型別新增資料合約。
 
 ### 範例
 
@@ -324,7 +324,7 @@ Engagement 也提供將傳送未處理的例外狀況之方法。在 Silverlight
 			
 			EngagementAgent.Instance.SendEvent("Event", extras);
 
-> [AZURE.WARNING]如果您加入其他類型的物件，請確定已實作它們的 ToString() 方法，以傳回使用者可閱讀的字串。
+> [AZURE.WARNING]如果您新增其他類型的物件，請確定已實作它們的 ToString() 方法，以傳回使用者可閱讀的字串。
 
 ### 限制
 
@@ -377,5 +377,6 @@ Engagement 也提供將傳送未處理的例外狀況之方法。在 Silverlight
 在上述範例中，傳送到伺服器的 JSON 會是 44 個字元：
 
 			{"subscription":"2013-12-07","premium":"true"}
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="C#" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
@@ -29,5 +29,6 @@
 -   Azure Mobile Engagement 的最初發行版本。
 -   以連接字串組態取代 appId/sdkKey 組態。
 -   增強安全性。
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -17,7 +17,7 @@
       "defaultValue": "Basic"
     }
 
-此範本定義此參數允許的值 (基木或標準)，並指派未指定任何值時的預設值 (基本)。「基本」提供單一節點，有多種大小可用，最大為 53 GB。「標準」提供雙節點「主要/複本」，有多種大小可用，最大為 53 GB，還有高達 99.9% 的 SLA。
+此範本定義此參數允許的值 (基本或標準)，並指派未指定任何值時的預設值 (基本)。「基本」提供單一節點，有多種大小可用，最大為 53 GB。「標準」提供雙節點「主要/複本」，有多種大小可用，最大為 53 GB，還有高達 99.9% 的 SLA。
 
 ### redisCacheFamily
 
@@ -25,13 +25,12 @@ Sku 系列。
 
     "redisCacheFamily": {
       "type": "string",
-      "allowedValues": [ "C" ],
       "defaultValue": "C"
     }
 
 ### redisCacheCapacity
 
-新的 Azure Redis 快取執行個體的定價層。
+新的 Azure Redis 快取執行個體的大小。
 
     "redisCacheCapacity": {
       "type": "int",
@@ -43,12 +42,11 @@ Sku 系列。
 
 ### redisCacheVersion
 
-新快取的 Redis 伺服器版本。
+新的快取的 Redis 伺服器版本。
 
     "redisCacheVersion": {
       "type": "string",
-      "allowedValues": [ "2.8" ],
       "defaultValue": "2.8"
     }
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

@@ -13,37 +13,29 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="06/03/2015" 
 	ms.author="ricksal"/>
 
 
 # 如何使用行動服務的 Android 用戶端程式庫
 
-<div class="dev-center-tutorial-selector sublanding"> 
-  <a href="/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
-</div>
-
+[AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
 本指南將說明如何使用 Azure 行動服務的 Android 用戶端執行一般案例。所涵蓋的案例包括查詢資料，以及插入、更新和刪除資料、驗證使用者、處理錯誤和自訂用戶端。
 
-如果您不熟悉行動服務，應先完成[行動服務快速入門][Get started with Mobile Services]。成功完成該教學課程可確保您將安裝 Android Studio；它會幫助您設定帳戶並建立您的第一個行動服務，並安裝支援 Android 2.2 或更新版本的行動服務 SDK，但我們建議您針對 Android 4.2 版或更新版本進行建置。
+如果您不熟悉行動服務，應先完成[開始使用行動服務]的快速入門教學課程。成功完成該教學課程可確保您將安裝 Android Studio；它會幫助您設定帳戶並建立您的第一個行動服務，並安裝支援 Android 2.2 或更新版本的行動服務 SDK，但我們建議您針對 Android 4.2 版或更新版本進行建置。
 
-
-
+您可以在[這裡](http://go.microsoft.com/fwlink/p/?LinkId=298735)找到 Android 用戶端程式庫的 Javadocs API 參考。
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
-
-<h2><a name="setup"></a>設定和必要條件</h2>
+##<a name="setup"></a>設定和必要條件
 
 我們假設您已建立行動服務和資料表。如需詳細資訊，請參閱[建立資料表](http://go.microsoft.com/fwlink/p/?LinkId=298592)。在本主題所使用的程式碼中，我們假設資料表的名稱為 *ToDoItem*，且其中包含下列資料行：
 
-<ul>
-<li>id</li>
-<li>text</li>
-<li>完成</li>
-
-</ul>
+- id
+- text
+- 完成
 
 對應的型別用戶端物件如下：
 
@@ -55,22 +47,21 @@
 	
 啟用動態結構描述時，Azure 行動服務會根據插入或更新要求中的物件自動產生新資料行。如需詳細資訊，請參閱[動態結構描述](http://go.microsoft.com/fwlink/p/?LinkId=296271)。
 
-<h2><a name="create-client"></a>作法：建立行動服務用戶端</h2>
-
+##<a name="create-client"></a>作法：建立行動服務用戶端
 下列程式碼將建立用來存取行動服務的 [MobileServiceClient](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html) 物件。程式碼會進入在 *AndroidManifest.xml* 中指定為 **MAIN** 動作和 **LAUNCHER** 類別目錄之 Activity 類別的 `onCreate` 方法。
 
-			MobileServiceClient mClient = new MobileServiceClient(
-					"MobileServiceUrl", // Replace with the above Site URL
-					"AppKey", 			// replace with the Application Key 
-					this)
+		MobileServiceClient mClient = new MobileServiceClient(
+				"MobileServiceUrl", // Replace with the above Site URL
+				"AppKey", 			// replace with the Application Key 
+				this)
 
-在上述程式碼中，請以行動服務 URL 和應用程式金鑰依序取代 `MobileServiceUrl` 和 `AppKey`。這兩個項目都可從管理入口網站取得，只要選取您的行動服務，再按一下 [儀表板]** 即可。
+在上述程式碼中，請以行動服務 URL 和應用程式金鑰依序取代 `MobileServiceUrl` 和 `AppKey`。這兩個項目都可從管理入口網站取得，只要選取您的行動服務，再按一下 [儀表板] 即可。
 
-<h2><a name="instantiating"></a>作法：建立資料表參考</h2>
+##<a name="instantiating"></a>作法：建立資料表參考
 
-要查詢或修改行動服務中的資料，最簡單的方式就是使用*型別程式設計模型*，因為 Java 屬於強型別語言 (後續我們將討論*不具型別的*模型)。這個模型會在用戶端與行動服務之間傳送資料時，使用 <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> 程式庫提供順暢的 JSON 序列化和還原序列化：開發人員不需要執行任何動作，架構會處理一切。
+要查詢或修改行動服務中的資料，最簡單的方式就是使用*型別程式設計模型*，因為 Java 屬於強型別語言 (後續我們將討論*不具型別的*模型)。這個模型會在用戶端與行動服務之間傳送資料時，使用 [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) 程式庫提供順暢的 JSON 序列化和還原序列化：開發人員不需要執行任何動作，架構會處理一切。
 
-查詢或修改資料的第一步，是要在 [MobileServiceClient](http://go.microsoft.com/fwlink/p/?LinkId=296835) 上呼叫 **getTable** 方法，以建立 [**MobileServiceTable**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html)物件。我們將考量此方法的兩個多載：
+查詢或修改資料的第一步，是要在 [**MobileServiceClient**](http://go.microsoft.com/fwlink/p/?LinkId=296835) 上呼叫 [getTable](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html) 方法，以建立 **MobileServiceTable** 物件。我們將考量此方法的兩個多載：
 
 	public class MobileServiceClient {
 	    public <E> MobileServiceTable<E> getTable(Class<E> clazz);
@@ -88,21 +79,18 @@
 
 		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
- 
-
-
 ## <a name="api"></a>API 結構
 
 從 2.0 版用戶端程式庫起，行動服務資料表作業會在所有非同步作業 (例如涉及查詢的方法) 和作業 (像是插入、更新和刪除) 中使用 [Future](http://developer.android.com/reference/java/util/concurrent/Future.html) 和 [AsyncTask](http://developer.android.com/reference/android/os/AsyncTask.html) 物件。如此可使得執行多個多個作業 (在背景執行緒時) 變得更容易，而無需處理多個巢狀回呼。
 
 
-<h2><a name="querying"></a>作法：查詢行動服務中的資料</h2>
+##<a name="querying"></a>作法：查詢行動服務中的資料
 
 本節將說明如何對行動服務發出查詢。各小節將說明不同的層面，例如排序、篩選和分頁等。最後，我們將討論如何將這些作業串連在一起。
 
 ### <a name="showAll"></a>作法：從資料表傳回所有項目
 
-下列程式碼會傳回 *ToDoItem* 資料表中的所有項目。新增項目到配接器，即會在 UI 中顯示。此程式碼類似於[行動服務快速入門][Get started with Mobile Services]中的內容。
+下列程式碼會傳回 *ToDoItem* 資料表中的所有項目。新增項目到配接器，即會在 UI 中顯示。此程式碼類似於[開始使用行動服務]快速入門教學課程中的程式碼。
 
 		new AsyncTask<Void, Void, Void>() {
 
@@ -241,7 +229,7 @@
 要將方法鏈結在一起，最主要的要求是必須先使用 *where* 方法和述詞。其後，您可以依據應用程式的需求，以最適當的順序呼叫後續方法。
 
 
-<h2><a name="inserting"></a>作法：將資料插入行動服務</h2>
+##<a name="inserting"></a>作法：將資料插入行動服務
 
 下列程式碼說明如何在資料表中插入新的資料列。
 
@@ -310,133 +298,133 @@
 
 `id` 的值必須是唯一的，且不可包含下列字元集中的字元：
 
-+ 控制字元：[0x0000-0x001F] 及 [0x007F-0x009F]。如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1] (英文)。
-+  可列印的字元：**"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F)、**\** (0x005C)、**`** (0x0060)
++ 控制字元：[0x0000-0x001F] 和 [0x007F-0x009F]。如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1] (英文)。
++  可列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?** (0x003F)、**** (0x005C)、**`** (0x0060)
 +  識別碼 "." 和 ".."
 
-另外，您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表] (英文)。
+另外，您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱「使用 CLI 管理行動服務資料表」。
 
 
-<h2><a name="updating"></a>作法︰更新行動服務中的資料</h2>
+##<a name="updating"></a>作法︰更新行動服務中的資料
 
 下列程式碼說明如何更新資料表中的資料。在此範例中，*item* 是 *ToDoItem* 資料表中某個資料列的參考，其中已有一些變更。下列方法會更新資料表和 UI 配接器。
 
-		private void updateItem(final ToDoItem item) {
-		    if (mClient == null) {
-		        return;
-		    }
-		
-		    new AsyncTask<Void, Void, Void>() {
-		
-		        @Override
-		        protected Void doInBackground(Void... params) {
-		            try {
-		                mToDoTable.update(item).get();
-		                runOnUiThread(new Runnable() {
-		                    public void run() {
-		                        if (item.isComplete()) {
-		                            mAdapter.remove(item);
-		                        }
-		                        refreshItemsFromTable();
-		                    }
-		                });
-		            } catch (Exception exception) {
-		                createAndShowDialog(exception, "Error");
-		            }
-		            return null;
-		        }
-		    }.execute();
-}
-
-<h2><a name="deleting"></a>作法：刪除行動服務中的資料</h2>
-
-下列程式碼說明如何刪除資料表中的資料。它會從 ToDoItem 資料表中將 UI 上已核取 [已完成] ****核取方塊的現有項目刪除。
-
-		public void checkItem(final ToDoItem item) {
-			if (mClient == null) {
-				return;
-			}
+	private void updateItem(final ToDoItem item) {
+	    if (mClient == null) {
+	        return;
+	    }
 	
-			// Set the item as completed and update it in the table
-			item.setComplete(true);
-			
-			new AsyncTask<Void, Void, Void>() {
+	    new AsyncTask<Void, Void, Void>() {
 	
-	            @Override
-	            protected Void doInBackground(Void... params) {
-	                try {
-	                    mToDoTable.delete(item);
-	                    runOnUiThread(new Runnable() {
-	                        public void run() {
-	                            if (item.isComplete()) {
-	                                mAdapter.remove(item);
-	                            }
-	                            refreshItemsFromTable();
+	        @Override
+	        protected Void doInBackground(Void... params) {
+	            try {
+	                mToDoTable.update(item).get();
+	                runOnUiThread(new Runnable() {
+	                    public void run() {
+	                        if (item.isComplete()) {
+	                            mAdapter.remove(item);
 	                        }
-	                    });
-	                } catch (Exception exception) {
-	                    createAndShowDialog(exception, "Error");
-	                }
-	                return null;
+	                        refreshItemsFromTable();
+	                    }
+	                });
+	            } catch (Exception exception) {
+	                createAndShowDialog(exception, "Error");
 	            }
-	        }.execute();
+	            return null;
+	        }
+	    }.execute();
+	}
+
+##<a name="deleting"></a>作法：刪除行動服務中的資料
+
+下列程式碼說明如何刪除資料表中的資料。它會從 ToDoItem 資料表中將 UI 上已核取 [已完成] 核取方塊的現有項目刪除。
+
+	public void checkItem(final ToDoItem item) {
+		if (mClient == null) {
+			return;
 		}
 
+		// Set the item as completed and update it in the table
+		item.setComplete(true);
+		
+		new AsyncTask<Void, Void, Void>() {
 
-下列程式碼將說明另一種執行方式。此方式會指定要刪除之資料列的 ID 欄位值 (假設等於 "2FA404AB-E458-44CD-BC1B-3BC847EF0902")，以刪除 ToDoItem 資料表中的現有項目。在實際的應用程式中，您會以某種方式取得識別碼，並將它傳入做為變數。在這裡，為簡化測試，您可以移至服務的 Azure 行動服務入口網站，按一下 [資料] ****並複製您想要測試的識別碼。
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    mToDoTable.delete(item);
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            if (item.isComplete()) {
+                                mAdapter.remove(item);
+                            }
+                            refreshItemsFromTable();
+                        }
+                    });
+                } catch (Exception exception) {
+                    createAndShowDialog(exception, "Error");
+                }
+                return null;
+            }
+        }.execute();
+	}
 
-	    public void deleteItem(View view) {
-	
-	        final String ID = "2FA404AB-E458-44CD-BC1B-3BC847EF0902";
-	        new AsyncTask<Void, Void, Void>() {
-	
-	            @Override
-	            protected Void doInBackground(Void... params) {
-	                try {
-	                    mToDoTable.delete(ID);
-	                    runOnUiThread(new Runnable() {
-	                        public void run() {
-	                            refreshItemsFromTable();
-	                        }
-	               });
-	                } catch (Exception exception) {
-	                    createAndShowDialog(exception, "Error");
-	                }
-	                return null;
-	            }
-	        }.execute();
-	    }
 
-<h2><a name="lookup"></a>作法：查詢特定項目</h2>
-有時候，您會想要依據 *id* 來查閱特定項目；此方式不像查詢通常會產生符合某個條件的項目集合。下列程式碼說明如何執行此作業，假設 **id = "0380BAFB-BCFF-443C-B7D5-30199F730335"。在實際的應用程式中，您會以某種方式取得識別碼，並將它傳入做為變數。在這裡，為簡化測試，您可以移至服務的 Azure 行動服務入口網站，按一下 [資料] ****索引標籤並複製您想要測試的識別碼。
+下列程式碼將說明另一種執行方式。此方式會指定要刪除之資料列的 ID 欄位值 (假設等於 "2FA404AB-E458-44CD-BC1B-3BC847EF0902")，以刪除 ToDoItem 資料表中的現有項目。在實際的應用程式中，您會以某種方式取得識別碼，並將它傳入做為變數。在這裡，為簡化測試，您可以移至服務的 Azure 行動服務入口網站，按一下 [資料] 並複製您想要測試的識別碼。
 
-	    /**
-	     * Lookup specific item from table and UI
-	     */
-	    public void lookup(View view) {
-	
-	        final String ID = "0380BAFB-BCFF-443C-B7D5-30199F730335";
-	        new AsyncTask<Void, Void, Void>() {
-	
-	            @Override
-	            protected Void doInBackground(Void... params) {
-	                try {
-	                    final ToDoItem result = mToDoTable.lookUp(ID).get();
-	                    runOnUiThread(new Runnable() {
-	                        public void run() {
-	                            mAdapter.clear();
-	                            mAdapter.add(result);
-	                        }
-	               });
-	                } catch (Exception exception) {
-	                    createAndShowDialog(exception, "Error");
-	                }
-	                return null;
-	            }
-	        }.execute();
-	    }
+    public void deleteItem(View view) {
 
-<h2><a name="untyped"></a>作法：使用不具型別的資料</h2>
+        final String ID = "2FA404AB-E458-44CD-BC1B-3BC847EF0902";
+        new AsyncTask<Void, Void, Void>() {
+
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    mToDoTable.delete(ID);
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            refreshItemsFromTable();
+                        }
+               });
+                } catch (Exception exception) {
+                    createAndShowDialog(exception, "Error");
+                }
+                return null;
+            }
+        }.execute();
+    }
+
+##<a name="lookup"></a>作法：查閱特定項目
+有時候，您會想要依據 *id* 來查閱特定項目；此方式不像查詢通常會產生符合某個條件的項目集合。下列程式碼說明如何執行此作業，假設 *id* 值為 `0380BAFB-BCFF-443C-B7D5-30199F730335`。在實際的應用程式中，您會以某種方式取得識別碼，並將它傳入做為變數。在這裡，為簡化測試，您可以移至服務的 Azure 行動服務入口網站，按一下 [資料] 索引標籤並複製您想要測試的識別碼。
+
+    /**
+     * Lookup specific item from table and UI
+     */
+    public void lookup(View view) {
+
+        final String ID = "0380BAFB-BCFF-443C-B7D5-30199F730335";
+        new AsyncTask<Void, Void, Void>() {
+
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    final ToDoItem result = mToDoTable.lookUp(ID).get();
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            mAdapter.clear();
+                            mAdapter.add(result);
+                        }
+               });
+                } catch (Exception exception) {
+                    createAndShowDialog(exception, "Error");
+                }
+                return null;
+            }
+        }.execute();
+    }
+
+##<a name="untyped"></a>作法：使用不具類型的資料
 
 不具型別的程式設計模型可讓您精確掌控 JSON 序列化，因此在某些情況下，您可能會想加以使用，例如：您的行動服務資料表包含大量資料行，但您只需要參考其中幾個而已。使用型別模型時，您必須在資料類別中定義所有行動服務資料表的資料行。但在使用不具型別的模型時，您只需定義需要使用的資料行即可。
 
@@ -511,44 +499,44 @@
 
 ### <a name="json_get"></a>作法：從不具型別的資料表傳回所有資料列
 
-下列程式碼將說明如何擷取整個資料表。由於您使用 Json 資料表，您可以選擇性地只擷取某些資料表的資料行。
+下列程式碼將說明如何擷取整個資料表。由於您使用 JSON 資料表，因此可以選擇性地只擷取資料表的某些資料行。
 
-	    public void showAllUntyped(View view) {
-	        new AsyncTask<Void, Void, Void>() {
-	            @Override
-	            protected Void doInBackground(Void... params) {
-	                try {
-	                    final JsonElement result = mJsonToDoTable.execute().get();
-	                    final JsonArray results = result.getAsJsonArray();
-	                    runOnUiThread(new Runnable() {
-	
-	                        @Override
-	                        public void run() {
-	                            mAdapter.clear();
-	                            for (JsonElement item : results) {
-	                                String ID = item.getAsJsonObject().getAsJsonPrimitive("id").getAsString();
-	                                String mText = item.getAsJsonObject().getAsJsonPrimitive("text").getAsString();
-	                                Boolean mComplete = item.getAsJsonObject().getAsJsonPrimitive("complete").getAsBoolean();
-	                                ToDoItem mToDoItem = new ToDoItem();
-	                                mToDoItem.setId(ID);
-	                                mToDoItem.setText(mText);
-	                                mToDoItem.setComplete(mComplete);
-	                                mAdapter.add(mToDoItem);
-	                            }
-	                        }
-	                    });
-	                } catch (Exception exception) {
-	                    createAndShowDialog(exception, "Error");
-	                }
-	                return null;
-	            }
-	        }.execute();
-	    }
+    public void showAllUntyped(View view) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    final JsonElement result = mJsonToDoTable.execute().get();
+                    final JsonArray results = result.getAsJsonArray();
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            mAdapter.clear();
+                            for (JsonElement item : results) {
+                                String ID = item.getAsJsonObject().getAsJsonPrimitive("id").getAsString();
+                                String mText = item.getAsJsonObject().getAsJsonPrimitive("text").getAsString();
+                                Boolean mComplete = item.getAsJsonObject().getAsJsonPrimitive("complete").getAsBoolean();
+                                ToDoItem mToDoItem = new ToDoItem();
+                                mToDoItem.setId(ID);
+                                mToDoItem.setText(mText);
+                                mToDoItem.setComplete(mComplete);
+                                mAdapter.add(mToDoItem);
+                            }
+                        }
+                    });
+                } catch (Exception exception) {
+                    createAndShowDialog(exception, "Error");
+                }
+                return null;
+            }
+        }.execute();
+    }
 
 如果方法的名稱與型別程式設計模型中所使用的相同，您即可串連這些方法，以執行篩選、排序和分頁。
 
 
-<h2><a name="binding"></a>作法：將資料繫結到使用者介面</h2>
+##<a name="binding"></a>作法：將資料繫結到使用者介面
 
 資料繫結牽涉到三項要件：
 
@@ -566,27 +554,27 @@
  
 配置可使用數個 XML 程式碼片段來定義。在現有配置下，我們假設下列程式碼會顯示我們要以伺服器資料填入的 **ListView**。
 
-	    <ListView
-	        android:id="@+id/listViewToDo"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        tools:listitem="@layout/row_list_to_do" >
-	    </ListView>
+    <ListView
+        android:id="@+id/listViewToDo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/row_list_to_do" >
+    </ListView>
 	
 
 在上述程式碼中，*listitem* 屬性會指定清單中個別資料列的配置 ID。以下提供會指定核取方塊及其相關文字的程式碼。清單中的每個項目會分別使其具現化一次。更複雜的配置將會指定顯示畫面中的其他欄位。此程式碼位於 *row_list_to_do.xml* 檔案中。
 
-		<?xml version="1.0" encoding="utf-8"?>
-		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		    android:layout_width="match_parent"
-		    android:layout_height="match_parent"
-		    android:orientation="horizontal">		    
-		    <CheckBox
-		        android:id="@+id/checkToDoItem"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="@string/checkbox_text" />
-		</LinearLayout>
+	<?xml version="1.0" encoding="utf-8"?>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="horizontal">		    
+	    <CheckBox
+	        android:id="@+id/checkToDoItem"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/checkbox_text" />
+	</LinearLayout>
 		
 
 ### <a name="adapter"></a>作法：定義配接器
@@ -595,87 +583,85 @@
 
 我們在程式碼中定義了下列類別，這是 *ArrayAdapter&lt;E&gt;* 類別的擴充功能：
 
-		public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
-
+	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
 
 您必須覆寫配接器的 *getView* 方法。此範例程式碼是如何執行此動作的其中一個範例：詳細資料會隨著您的應用程式而有所不同。
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row = convertView;
-
+	
 		final ToDoItem currentItem = getItem(position);
-
+	
 		if (row == null) {
 			LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
 			row = inflater.inflate(R.layout.row_list_to_do, parent, false);
 		}
-
+	
 		row.setTag(currentItem);
-
+	
 		final CheckBox checkBox = (CheckBox) row.findViewById(R.id.checkToDoItem);
 		checkBox.setText(currentItem.getText());
 		checkBox.setChecked(false);
 		checkBox.setEnabled(true);
-
+	
 		return row;
 	}
 
 我們在「活動」中建立此類別的執行個體，如下所示：
 
-		ToDoItemAdapter mAdapter;
-		mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
+	ToDoItemAdapter mAdapter;
+	mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 
 請留意到，ToDoItemAdapter 建構函式的第二個參數是配置的參考。對建構函式的呼叫會在下列程式碼之後執行，而此程式碼會先取得 **ListView** 的參考，然後呼叫 *setAdapter*，以將本身設定成使用我們剛建立的配接器：
 
-		ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
-		listViewToDo.setAdapter(mAdapter);
+	ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
+	listViewToDo.setAdapter(mAdapter);
 
 
 ### <a name="use-adapter"></a>作法：使用配接器
 
 您現在已可使用資料繫結。下列程式碼將說明如何取得行動服務資料表中的項目、清除配接器，然後呼叫配接器的 *add* 方法以填入傳回的項目。
 
-	    public void showAll(View view) {
-	        new AsyncTask<Void, Void, Void>() {
-	            @Override
-	            protected Void doInBackground(Void... params) {
-	                try {
-	                    final MobileServiceList<ToDoItem> result = mToDoTable.execute().get();
-	                    runOnUiThread(new Runnable() {
-	
-	                        @Override
-	                        public void run() {
-	                            mAdapter.clear();
-	                            for (ToDoItem item : result) {
-	                                mAdapter.add(item);
-	                            }
-	                        }
-	                    });
-	                } catch (Exception exception) {
-	                    createAndShowDialog(exception, "Error");
-	                }
-	                return null;
-	            }
-	        }.execute();
-	    }
+    public void showAll(View view) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    final MobileServiceList<ToDoItem> result = mToDoTable.execute().get();
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            mAdapter.clear();
+                            for (ToDoItem item : result) {
+                                mAdapter.add(item);
+                            }
+                        }
+                    });
+                } catch (Exception exception) {
+                    createAndShowDialog(exception, "Error");
+                }
+                return null;
+            }
+        }.execute();
+    }
 
 您也必須在每次修改過 *ToDoItem* 資料表後呼叫配接器 (如果您要顯示其執行結果)。修改是對個別記錄逐一執行的，因此您將會處理單一資料列，而不是集合。在插入項目時，您會對配接器呼叫 *add* 方法，刪除時則呼叫 *remove* 方法。
 
 
-<h2><a name="authentication"></a>作法：驗證使用者</h2>
+##<a name="authentication"></a>作法：驗證使用者
 
-行動服務支援使用各種外部身分識別提供者 (Facebook、Google、Microsoft 帳戶、Twitter 以及 Azure Active Directory) 來驗證與授權應用程式使用者。您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。您也可以使用已驗證使用者的身分識別，以伺服器指令碼實作授權規則。如需詳細資訊，請參閱[開始使用驗證](http://go.microsoft.com/fwlink/p/?LinkId=296316) (英文)。
+行動服務支援使用各種外部識別提供者 (Facebook、Google、Microsoft 帳戶、Twitter 以及 Azure Active Directory) 來驗證與授權應用程式使用者。您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。您也可以使用經驗證使用者的身分識別，以在後端實作授權規則。如需詳細資訊，請參閱[開始使用驗證](http://go.microsoft.com/fwlink/p/?LinkId=296316) (英文)。
 
-支援兩個驗證流程：伺服器**流程和用戶端流程**。由於伺服器流程採用提供者的 Web 驗證介面，因此所提供的驗證體驗也最為簡單。用戶端流程可支援裝置特定功能 (例如單一登入) 的深入整合，因為此流程使用的是提供者特定裝置的專用 SDK。
+支援兩個驗證流程：伺服器流程和用戶端流程。由於伺服器流程採用提供者的 Web 驗證介面，因此所提供的驗證體驗也最為簡單。用戶端流程可支援裝置特定功能 (例如單一登入) 的深入整合，因為此流程使用的是提供者特定裝置的專用 SDK。
 
 要在您的應用程式中啟用驗證，必須執行三個步驟：
 
-<ol>
-<li>對提供者註冊應用程式以進行驗證，並設定行動服務</li>
-<li>限制只有經驗證的使用者具有資料表的權限</li>
-<li>將驗證碼新增至您的應用程式</li>
-</ol>
+- 對提供者註冊應用程式以進行驗證，並設定行動服務
+- 限制只有經驗證的使用者具有資料表的權限
+- 將驗證碼新增至您的應用程式
+
 
 行動服務支援下列可讓您用來驗證使用者的現有身分識別提供者：
 
@@ -705,27 +691,27 @@
 
 2. 在活動類別的 **onCreate** 方法中，將下列一行程式碼加至可建立 `MobileServiceClient` 物件的程式碼之後︰我們假設 `MobileServiceClient` 物件的參考是 *mClient*。
 	
-		    // Login using the Google provider.
-		    
-			ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
-	
-	    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
-	    		@Override
-	    		public void onFailure(Throwable exc) {
-	    			createAndShowDialog((Exception) exc, "Error");
-	    		}   		
-	    		@Override
-	    		public void onSuccess(MobileServiceUser user) {
-	    			createAndShowDialog(String.format(
-	                        "You are now logged in - %1$2s",
-	                        user.getUserId()), "Success");
-	    			createTable();	
-	    		}
-	    	}); 
+	    // Login using the Google provider.
+	    
+		ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
+
+    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+    		@Override
+    		public void onFailure(Throwable exc) {
+    			createAndShowDialog((Exception) exc, "Error");
+    		}   		
+    		@Override
+    		public void onSuccess(MobileServiceUser user) {
+    			createAndShowDialog(String.format(
+                        "You are now logged in - %1$2s",
+                        user.getUserId()), "Success");
+    			createTable();	
+    		}
+    	}); 
 
     此程式碼會使用 Google 登入來驗證使用者。此時會出現對話方塊，顯示已驗證的使用者 ID。必須通過驗證才能繼續。
 
-    > [AZURE.NOTE]如果您使用的身分識別提供者不是 Google，請將傳給上述 **login** 方法的值變更為下列其中一個：_MicrosoftAccount_、_Facebook_、_Twitter_ 或 _WindowsAzureActiveDirectory_。</div>
+    > [AZURE.NOTE]如果您使用的身分識別提供者不是 Google，請將傳給上述 **login** 方法的值變更為下列其中一個：_MicrosoftAccount_、_Facebook_、_Twitter_ 或 _WindowsAzureActiveDirectory_。
 
 
 3. 當您執行應用程式時，請以您選擇的身分識別提供者登入。
@@ -792,56 +778,60 @@
 	}
 
 
-權杖過期將有何影響？ 在此情況下，當您嘗試使用權杖進行連接時，將會出現 *401 未授權*的回應。使用者將必須登入，以取得新權杖。您可以使用篩選器攔截對行動服務的呼叫和行動服務的回應，如此，您即無須逐一在呼叫行動服務的應用程式中撰寫處理此狀況的程式碼。篩選器程式碼將會測試 401 的回應，並視需要觸發登入程序，然後繼續執行產生 401 的要求。
+權杖過期將有何影響？ 在此情況下，當您嘗試使用權杖進行連接時，將會出現 *401 未授權*的回應。使用者將必須登入，以取得新權杖。您可以使用篩選器攔截對行動服務的呼叫和行動服務的回應，如此，您即無須在呼叫行動服務的應用程式中逐一撰寫處理此狀況的程式碼。篩選器程式碼將會測試 401 的回應，並視需要觸發登入程序，然後繼續執行產生 401 的要求。
 
 
-<h2><a name="customizing"></a>作法：自訂用戶端</h2>
+##<a name="customizing"></a>作法：自訂用戶端
+
+有幾種方式可以自訂行動服務用戶端的預設行為。
 
 ### <a name="headers"></a>作法：自訂要求標頭
 
-您可能會想要將自訂標頭附加至每個外送要求。您只需依照下列方式設定 ServiceFilter 即可：
+您可能會想要將自訂標頭附加至每個外送要求。您只需依照下列方式設定 **ServiceFilter** 即可：
 
-		private class CustomHeaderFilter implements ServiceFilter {
-	
-	        @Override
-	        public ListenableFuture<ServiceFilterResponse> handleRequest(
-	                	ServiceFilterRequest request, 
-						NextServiceFilterCallback next) {
-	
-	            runOnUiThread(new Runnable() {
-	
-	                @Override
-	                public void run() {
-		        		request.addHeader("My-Header", "Value");	                }
-	            });
-	
-	            SettableFuture<ServiceFilterResponse> result = SettableFuture.create();
-	            try {
-	                ServiceFilterResponse response = next.onNext(request).get();
-	                result.set(response);
-	            } catch (Exception exc) {
-	                result.setException(exc);
-	            }
-	        }
+	private class CustomHeaderFilter implements ServiceFilter {
+
+        @Override
+        public ListenableFuture<ServiceFilterResponse> handleRequest(
+                	ServiceFilterRequest request, 
+					NextServiceFilterCallback next) {
+
+            runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+	        		request.addHeader("My-Header", "Value");	                }
+            });
+
+            SettableFuture<ServiceFilterResponse> result = SettableFuture.create();
+            try {
+                ServiceFilterResponse response = next.onNext(request).get();
+                result.set(response);
+            } catch (Exception exc) {
+                result.setException(exc);
+            }
+        }
 
 ### <a name="serialization"></a>作法：自訂序列化
 
-根據預設，行動服務會假設伺服器上的資料表名稱、資料行名稱和資料類型，全都會與用戶端上的對應項目完全相符。但實際上卻有各種原因可能導致伺服器與用戶端的名稱不相符。例如，如果您要變更現有的用戶端，使其改用 Azure 行動服務，而不再使用其他品牌的產品，就會造成名稱不符。
+根據預設，行動服務會假設伺服器上的資料表名稱、資料行名稱和資料類型，全都會與用戶端上的對應項目完全相符。但實際上卻有各種原因可能導致伺服器與用戶端的名稱不相符。例如，如果您要變更現有的用戶端，使其改用行動服務，而不再使用其他品牌的產品，就會造成名稱不符。
 
-您可以執行下列類型的自訂：<ul> <li> 行動服務資料表中的資料行名稱不符合您在用戶端中使用的名稱</li>
+您可能會想要執行下列類型的自訂：
 
-<li>使用名稱與用戶端中的對應類別不同的行動服務資料表</li>
-<li>開啟自動使用大寫屬性</li>
-
-<li>將複雜屬性新增至物件</li>
-
-</ul>
+- 行動服務資料表中的資料行名稱不符合您在用戶端中使用的名稱
+- 使用名稱與用戶端中的對應類別不同的行動服務資料表
+- 開啟自動使用大寫屬性
+- 將複雜屬性新增至物件
 
 ### <a name="columns"></a>作法：對應不同的用戶端和伺服器名稱
 
-假設您的 Java 用戶端程式碼對 *ToDoItem* 物件屬性使用標準 Java 樣式名稱，如下所示。<ul> <li>mId</li> <li>mText</li> <li>mComplete</li> <li>mDuration</li>
+假設您的 Java 用戶端程式碼對 *ToDoItem* 物件屬性使用標準 Java 樣式名稱，如下所示。
 
-</ul>
+- mId
+- mText
+- mComplete
+- mDuration
+
 
 您必須將用戶端名稱序列化為 JSON 名稱，且這些名稱必須與伺服器上的 *ToDoItem* 資料表的資料行名稱相符。下列使用 <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> 程式庫的程式碼會執行此動作。
 
@@ -861,7 +851,7 @@
 
 要將用戶端資料表名稱對應至不同的行動服務資料表名稱並不難，只要使用 <a href="http://go.microsoft.com/fwlink/p/?LinkId=296840" target="_blank">getTable()</a> 函數的其中一項覆寫即可，如下列程式碼所示。
 
-		mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
+	mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
 
 ### <a name="conversions"></a>作法：自動化資料行名稱對應
@@ -895,11 +885,6 @@
 若要檢視執行此作業的範例，請參閱部落格貼文<a href="http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson" target="_blank">在行動服務 Android 用戶端中使用 <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> 程式庫自訂序列化</a> (英文)。
 
 只要有無法自動序列化為 JSON 和行動服務資料表的複雜物件出現時，我們即可使用此一般方法。
-
-
-## <a name="next-steps"></a>接續步驟
-
-如需 Android 用戶端 API 的 Javadocs 參考，請前往 [http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/package-summary.html](http://go.microsoft.com/fwlink/p/?LinkId=298735 "開始")
 
 <!-- Anchors. -->
 
@@ -938,26 +923,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- URLs. -->
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android/
-[Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?linkid=280126
-[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-android/
+[開始使用行動服務]: mobile-services-android-get-started.md
 [ASCII 控制碼 C0 和 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[使用 CLI 管理行動服務資料表]: http://azure.microsoft.com/documentation/articles/command-line-tools/#Commands_to_manage_mobile_services
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

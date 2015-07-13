@@ -1,6 +1,6 @@
 若要完成此教學課程，您需要下列項目：
 
-- 一個 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Azure 免費試用</a>。
+- 一個 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Azure 免費試用</a>。
 
 
 - [Azure 行動服務 Android SDK](http://aka.ms/Iajk6q)；
@@ -14,4 +14,4 @@
 [開始使用行動服務]: ../articles/mobile-services/mobile-services-android-get-started.md
 [將行動服務新增至現有的應用程式]: ../articles/mobile-services/mobile-services-android-get-started-data.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

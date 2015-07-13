@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="06/05/2015" 
 	ms.author="donnam"/>
 
 
@@ -55,28 +55,28 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 
 3. 在尋找程式中，將下載的 zip 檔解壓縮，並選取 **libPusher-combined.a** 及 **/headers** 資料夾，然後將這些項目拖曳至您專案的 **libPusher** 群組中。
 
-4. 勾選 [Copy items into destination group's folder]****，然後按一下 [完成]****
+4. 勾選 [Copy items into destination group's folder]，然後按一下 [完成]
 
 	![][add-files-to-group]
 
    這會將 libPusher 檔案複製到您的專案。
 
-5. 在專案總管的專案根目錄中，按一下 [Build Phases]****，然後按一下 [Add Build Phase]**** 及 [Add Copy Files]****。
+5. 在專案總管的專案根目錄中，按一下 [Build Phases]，然後按一下 [Add Build Phase] 及 [Add Copy Files]。
 
 6. 從專案總管將 **libPusher-combined.a** 檔案拖曳至新的組建階段。
 
-7. 將 [目的地]**** 變更為 [Frameworks]****，並按一下 [Copy only when installing]****。
+7. 將 [目的地] 變更為 [Frameworks]，並按一下 [Copy only when installing]。
 
 	![][add-build-phase]
 
-8. 在 [Link Binary With Libraries]**** 區域中，新增下列程式庫：
+8. 在 [Link Binary With Libraries] 區域中，新增下列程式庫：
 
 	- libicucore.dylib
 	- CFNetwork.framework
 	- Security.framework
 	- SystemConfiguration.framework
 
-9. 最後，在 [組建設定]**** 中，找出目標組建設定 [Other Linker Flags]****，並新增 **-all_load** 旗標。
+9. 最後，在 [組建設定] 中，找出目標組建設定 [Other Linker Flags]，並新增 **-all_load** 旗標。
 
 	![][add-linker-flag]
 
@@ -272,7 +272,7 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 
 
 
-<h2><a name="install-scripts"></a>安裝服務指令碼</h2>
+##<a name="install-scripts"></a>安裝伺服器指令碼
 
 
 
@@ -280,23 +280,23 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 
 
 
-1. 登入 [Azure 管理入口網站]，按一下 [行動服務]****，然後按一下您的行動服務。
+1. 登入 [Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的行動服務。
 
 
-2. 在管理入口網站中，按一下 [資料]**** 索引標籤，然後按一下 [TodoItem]**** 資料表。
+2. 在管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
 	![][1]
 
 
 
-3. 在 [TodoItem]**** 中，按一下 [指令碼]**** 索引標籤，然後選取 [插入]****。
+3. 在 [TodoItem] 中，按一下 [指令碼] 索引標籤，然後選取 [插入]。
 
 
 	![][2]
 
 
 
-	這會顯示 [TodoItem]**** 資料表中發生插入時所叫用的函數。
+	這會顯示 [TodoItem] 資料表中發生插入時所叫用的函數。
 
 
 4. 使用下列程式碼來取代插入函數：
@@ -339,10 +339,10 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 	- **`**your_app_key_secret**`**：app&#95;key&#95;secret
 
 
-6. 按一下 [儲存]**** 按鈕。您現在已設定指定碼，可在每次有新項目插入至 **TodoItem** 資料表時，就發佈事件至 Pusher。
+6. 按一下 [儲存] 按鈕。您現在已設定指定碼，可在每次有新項目插入至 **TodoItem** 資料表時，就發佈事件至 Pusher。
 
 
-7. 從 [作業]**** 下拉式功能表中，選取 [更新]****。
+7. 從 [作業] 下拉式功能表中，選取 [更新]。
 
 
 8. 以下列程式碼取代 update 函數：
@@ -381,17 +381,17 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 9. 重複步驟 5，讓此指令碼取代預留位置。
 
 
-10. 按一下 [儲存]**** 按鈕。您現在已設定指定碼，可在每次有新項目更新時，就發佈事件至 Pusher。
+10. 按一下 [儲存] 按鈕。您現在已設定指定碼，可在每次有新項目更新時，就發佈事件至 Pusher。
 
 
 
-<h2><a name="test-app"></a>測試應用程式</h2>
+##<a name="test-app"></a>測試應用程式
 
 
 
 若要測試應用程式，您需要執行兩個執行個體。您可以在 iOS 裝置上執行一個執行個體，並在 iOS 模擬器上執行另一個執行個體。
 
-1. 連接 iOS 裝置，按 [執行]**** 按鈕 (或 Command+R 鍵) 在裝置上啟動應用程式，然後停止偵錯。
+1. 連接 iOS 裝置，按 [執行] 按鈕 (或 Command+R 鍵) 在裝置上啟動應用程式，然後停止偵錯。
 
 	您的應用程式現在已安裝到裝置上。
 
@@ -442,5 +442,6 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
 [行動服務伺服器指令碼參照]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

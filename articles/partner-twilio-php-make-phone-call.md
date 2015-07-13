@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="如何使用 Twilio 撥打電話 (PHP) - Azure" 
 	description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。範例適用於 PHP 應用程式。" 
 	documentationCenter="php" 
@@ -25,7 +25,7 @@
 您必須執行下列動作才能使用本主題中的程式碼：
 
 1. 取得 Twilio 帳戶和驗證權杖。若要開始使用 Twilio，請在 [http://www.twilio.com/pricing][twilio_pricing] 上評估價格。您可以在 [https://www.twilio.com/try-twilio][try_twilio] 上註冊試用帳戶。如需 Twilio 所提供之 API 的相關資訊，請參閱 [http://www.twilio.com/api][twilio_api]。
-2. 取得適用於 PHP 的 Twilio 程式庫。您可以從 Github 下載此程式庫 ([https://github.com/twilio/twilio-php][twilio_php_github])，或以 PEAR 封裝的形式安裝。如需詳細資訊，請參閱 [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme]。
+2. 取得適用於 PHP 的 Twilio 程式庫。您可以從 GitHub 下載此程式庫 ([https://github.com/twilio/twilio-php][twilio_php_github])，或以 PEAR 封裝的形式安裝。如需詳細資訊，請參閱 [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme]。
 3. 安裝 Azure SDK for PHP。如需 SDK 的概觀及其安裝指示，請參閱[設定 Azure SDK for PHP][setup_php_sdk]。
 
 ## 建立用以撥打電話的 Web 表單
@@ -94,7 +94,7 @@
 	</body>
 	</html>
 
-除了撥打電話以外，**makecall.php** 也會顯示某些通話中繼資料 (範例顯示於下方的螢幕擷取畫面中)。如需通話中繼資料的詳細資訊，請參閱 [https://www.twilio.com/docs/api/rest/call#instance-propertiestwilio_call_properties]。
+除了撥打電話以外，**makecall.php** 也會顯示某些通話中繼資料 (範例顯示於下方的螢幕擷取畫面中)。如需通話中繼資料的詳細資訊，請參閱 [https://www.twilio.com/docs/api/rest/call#instance-properties][twilio_call_properties]。
 
 ![Azure Call Response Using Twilio and PHP][twilio_php_response]
 
@@ -102,7 +102,7 @@
 下一個步驟是將您的應用程式部署至 Azure 網站。下列文章包含使用 Git、FTP 或 WebMatrix 來建立網站及部署程式碼的相關資訊 (並非每篇文章中的所有資訊都是相關的)：
 
 * [建立 PHP-MySQL Azure 網站並使用 Git 部署][website-git]
-* [建立 PHP-MySQL Azure 網站並使用 Git 部署][website-ftp]
+* [建立 PHP-MySQL Azure 網站並使用 FTP 部署][website-ftp]
 * [使用 WebMatrix 建立並部署 PHP-MySQL Azure 網站][website-webmatrix]
 
 ## 後續步驟
@@ -112,7 +112,7 @@
 * **makecall.php** 程式碼會使用 Twilio 提供的 URL ([http://twimlets.com/message][twimlet_message_url]) 來提供 Twilio 標記語言 (TwiML) 回應，以告知 Twilio 應如何執行通話。例如，傳回的 TwiML 可能會包含 `<Say>` 動詞，而產生要傳達給受話方的文字。除了使用 Twilio 提供的 URL 以外，您也可以建置自己的服務來回應 Twilio 的要求；如需詳細資訊，請參閱[如何在 PHP 中透過 Twilio 使用語音和簡訊功能][howto_twilio_voice_sms_php]。如需 TwiML 的詳細資訊，請參閱 [http://www.twilio.com/docs/api/twiml][twiml]；如需 `<Say>` 和其他 Twilio 動詞的詳細資訊，請參閱 [http://www.twilio.com/docs/api/twiml/say][twilio_say]。
 * 閱讀 [https://www.twilio.com/docs/security][twilio_docs_security] 上的 Twilio 安全性指引。
 
-如需關於 Twilio 的其他資訊，請參閱 [https://www.twilio.com/docs][twilio_docs]。
+如需 Twilio 的其他資訊，請參閱 [https://www.twilio.com/docs][twilio_docs]。
 
 ## 另請參閱
 * [如何在 PHP 中透過 Twilio 使用語音和簡訊功能](partner-twilio-php-how-to-use-voice-sms.md)
@@ -128,7 +128,7 @@
 [twiml]: http://www.twilio.com/docs/api/twiml
 [twilio_api_service]: http://api.twilio.com
 [build_php_azure_app]: http://azurephp.interoperabilitybridges.com/articles/build-and-deploy-a-windows-azure-php-application
-[howto_twilio_voice_sms_php]: ../partner-twilio-php-how-to-use-voice-sms
+[howto_twilio_voice_sms_php]: partner-twilio-php-how-to-use-voice-sms.md
 [howto_blob_storage_php]: http://azure.microsoft.com/documentation/articles/storage-php-how-to-use-blobs/
 [howto_sql_azure_php]: http://azure.microsoft.com/documentation/articles/sql-database-php-how-to-use/
 [twilio_call_properties]: https://www.twilio.com/docs/api/rest/call#instance-properties
@@ -138,9 +138,9 @@
 [ssl_validation]: http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html
 [twilio_php]: ./media/partner-twilio-php-make-phone-call/WA_TwilioPHPCallForm.jpg
 [twilio_php_response]: ./media/partner-twilio-php-make-phone-call/WA_TwilioPHPMakeCall.jpg
-[website-git]: https://www.windowsazure.com/zh-tw/develop/php/tutorials/website-w-mysql-and-git/
-[website-ftp]: https://www.windowsazure.com/zh-tw/develop/php/tutorials/website-w-mysql-and-ftp/
-[website-webmatrix]: https://www.windowsazure.com/zh-tw/develop/php/tutorials/website-w-mysql-and-webmatrix/
+[website-git]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-git/
+[website-ftp]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-ftp/
+[website-webmatrix]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-webmatrix/
 [twilio_php_github]: https://github.com/twilio/twilio-php
 
-<!--HONumber=45--> 
+<!---HONumber=July15_HO1-->

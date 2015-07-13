@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="06/03/2015" 
 	ms.author="ricksal"/>
 
 # 將推播通知新增至行動服務應用程式
@@ -137,7 +137,7 @@
 
 1. 在 Eclipse 的 [執行] 功能表中按一下 [執行]，以啟動應用程式。
 
-2. 在應用程式中，輸入有意義的文字，例如_「新的行動服務工作」_，然後按一下 [加入] 按鈕。
+2. 在應用程式中，輸入有意義的文字，如 _A new Mobile Services task_，然後按一下 [加入] 按鈕。
 
   	![](./media/mobile-services-javascript-backend-android-get-started-push-EC/mobile-quickstart-push1-android.png)
 
@@ -167,9 +167,9 @@
 
 * [將驗證新增至應用程式][Get started with authentication] <br/>了解如何使用行動服務驗證使用不同帳戶類型的應用程式使用者。
 
-* [什麼是通知中樞？] <br/>深入了解通知中樞如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
+* [什麼是通知中樞？] <br/>深入了解通知中心如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
 
-* [偵錯通知中樞應用程式](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>取得通知中樞解決方案的疑難排解和偵錯指引。
+* [偵錯通知中心應用程式](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>取得通知中心解決方案的疑難排解和偵錯指引。
 
 * [如何使用適用於行動服務的 Android 用戶端程式庫] <br/>深入了解如何搭配使用行動服務與 Android。
 
@@ -199,7 +199,6 @@
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-js
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [設定 Google Play 服務 SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
-[Azure 管理入口網站]: https://manage.windowsazure.com/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [如何使用適用於行動服務的 Android 用戶端程式庫]: mobile-services-android-how-to-use-client-library.md
 
@@ -208,9 +207,10 @@
 [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293
 
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-android-push-notifications-app-users.md
-[開始使用行動服務]: mobile-services-android-get-started.md
+
 [什麼是通知中樞？]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
+ 
 
-<!---HONumber=54--> 
+<!---HONumber=July15_HO1-->

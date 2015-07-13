@@ -71,11 +71,11 @@ Blitline 使用 JSON 定義您要對影像採取的動作。此 JSON 是由幾�
 
 在此，我們要求 JSON 準備一個 "src" 影像 "...boys.jpeg"，然後將該影像大小調整為 240x140。
 
-您可以在 Azure 上的 [連接資訊]**** 或 [管理]**** 索引標籤中找到應用程式識別碼的資訊。應用程式識別碼是可讓您在 Blitline 上執行工作的密碼識別碼。
+您可以在 Azure 上的 [連接資訊] 或 [管理] 索引標籤中找到應用程式識別碼的資訊。應用程式識別碼是可讓您在 Blitline 上執行工作的密碼識別碼。
 
 "save" 參數可識別有關處理完影像時，您想要放置該影像的位置資訊。在這個簡單的案例中，我們尚未定義一個位置。如果沒有定義位置，Blitline 會將它儲存在本機 (並暫時地) 的唯一雲端位置。建立 Blitline 時，您將能夠從 Blitline 所傳回的 JSON 取得該位置。"image" 識別碼為必要欄位，並會在要識別此特定儲存影像時傳回。
 
-您可以在下列連結中找到有關我們可支援的更多「函數」**相關資訊：<http://www.blitline.com/docs/functions> 
+您可以在下列連結中找到有關我們可支援的更多「函數」相關資訊：<http://www.blitline.com/docs/functions> 
 
 您也可以在下列連結中找到有關工作選項的相關文件：<http://www.blitline.com/docs/api>
 
@@ -143,12 +143,11 @@ SAS 必須包含整個 SAS URL，包括目的地檔案的檔案名稱。
 * 協力廠商 Nuget 程式庫 <http://nuget.org/packages/Blitline.Net>
 
 
-[後續步驟]: #nextsteps
-[什麼是 Blitline？]: #whatis
-[Blitline 不是什麼]: #whatisnot
-[建立 Blitline 帳戶]: #createaccount
-[如何建立 Blitline 工作]: #createjob
-[如何將影像儲存至您的 Azure 儲存體]: #saveazure
+  [後續步驟]: #nextsteps
+  [什麼是 Blitline？]: #whatis
+  [Blitline 不是什麼]: #whatisnot
+  [建立 Blitline 帳戶]: #createaccount
+  [如何建立 Blitline 工作]: #createjob
+  [如何將影像儲存至您的 Azure 儲存體]: #saveazure
 
-
-<!--HONumber=52-->
+<!---HONumber=July15_HO1-->

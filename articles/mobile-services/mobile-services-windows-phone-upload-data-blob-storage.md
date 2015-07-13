@@ -2,8 +2,7 @@
 	pageTitle="使用行動服務將影像上傳至 Blob 儲存體 (Windows Phone) | 行動服務" 
 	description="了解如何使用行動服務將影像上傳至 Azure Blob 儲存體。" 
 	documentationCenter="windows" 
-	authors="wesmc7777" 
-	writer="wesmc" 
+	authors="ggailey777" 
 	services="mobile-services" 
 	manager="dwrede" 
 	editor=""/>
@@ -11,11 +10,11 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
-	ms.author="wesmc"/>
+	ms.date="06/04/2015" 
+	ms.author="glenga"/>
 
 # 使用行動服務將影像上傳到 Azure 儲存體
 
@@ -45,11 +44,11 @@
 
 若要使用 SAS 將影像上傳至 Blob 儲存體，您必須先新增 NuGet 封裝，以安裝適用於 Windows Phone 應用程式的儲存體用戶端程式庫。
 
-1. 在 Visual Studio 的 [方案總管]**** 中以滑鼠右鍵按一下專案名稱，然後選取 [管理 NuGet 封裝]****。
+1. 在 Visual Studio 的 [方案總管] 中以滑鼠右鍵按一下專案名稱，然後選取 [管理 NuGet 封裝]。
 
-2. 在左側窗格中依序選取 [線上]**** 類別、[Include Prerelease]****，搜尋 **WindowsAzure.Storage-Preview**，並按一下 [Azure Storage]**** 封裝上的 [安裝]****，然後接受授權協定。
+2. 在左側窗格中依序選取 [線上] 類別、[Include Prerelease]，搜尋 **WindowsAzure.Storage-Preview**，並按一下 [Azure Storage] 封裝上的 [安裝]，然後接受授權協定。
 
-  	![][2]
+  	![新增 Azure 儲存體 NuGet](./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png)
 
   	這麼做會將 Azure 儲存體服務的用戶端程式庫新增至專案。
 
@@ -77,6 +76,8 @@
 
   了解如何使用行動服務工作排程器功能，定義可依您定義的排程執行的伺服器指令碼。
 
+##另請參閱
+
 + [行動服務伺服器指令碼參考]
 
   參考使用伺服器指令碼來執行伺服器端工作以及與其他 Azure 元件和外部資源整合的主題。
@@ -85,34 +86,21 @@
 
   深入了解如何搭配使用行動服務與 .NET
   
- 
-
 <!-- Images. -->
 
-
-[2]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-
-
-[5]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png
-[6]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-wp8.png
-[7]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-camera-wp8.png
-[8]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-save-wp8.png
-[9]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-final-wp8.png
-
-[11]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-camera-accept-wp8.png
-
 <!-- URLs. -->
-[使用 SendGrid 從行動服務傳送電子郵件]: /develop/mobile/tutorials/send-email-with-sendgrid/
-[在行動服務中排程後端工作]: /develop/mobile/tutorials/schedule-backend-tasks/
-[行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+[使用 SendGrid 從行動服務傳送電子郵件]: store-sendgrid-mobile-services-send-email-scripts.md
+[在行動服務中排程後端工作]: mobile-services-schedule-recurring-tasks.md
+[行動服務伺服器指令碼參考]: mobile-services-how-to-use-server-scripts.md
 [Get started with Mobile Services]: ../mobile-services-windows-phone-get-started.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How To Create a Storage Account]: /manage/services/storage/how-to-create-a-storage-account
+[How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
-[行動服務 .NET 作法概念性參考]: /develop/mobile/how-to-guides/work-with-net-client-library
+[行動服務 .NET 作法概念性參考]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Windows Phone SDK 8.0]: http://www.microsoft.com/download/details.aspx?id=35471
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

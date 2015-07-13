@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz;ilygre"/>
+   ms.date="06/22/2015"
+   ms.author="tomfitz"/>
 
 # 授權 Azure 資源管理員範本
 
@@ -397,9 +397,9 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 ## 後續步驟
 - [Azure 資源管理員範本函數](./resource-group-template-functions.md)
-- [使用 Azure 資源管理員範本部署應用程式](./resource-group-template-deploy.md)
+- [使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
 - [進階範本作業](./resource-group-advanced-template.md)
+- [透過可預測方式在 Azure 中部署複雜應用程式](app-service-web/app-service-deploy-complex-application-predictably.md)
 - [Azure 資源管理員概觀](./resource-group-overview.md)
 
-<!---HONumber=58-->
-
+<!---HONumber=July15_HO1-->

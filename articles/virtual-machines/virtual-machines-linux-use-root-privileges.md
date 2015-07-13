@@ -40,7 +40,7 @@
 您也可以編輯 `/etc/sudoers.d/waagent` 檔案來啟用 passwordless sudo，例如：
 
 	#/etc/sudoers.d/waagent
-	azureuser (ALL) = (ALL) NOPASSWD: ALL
+	azureuser ALL = (ALL) NOPASSWD: ALL
 
 這項變更將允許 azureuser 使用者的 passwordless sudo。
 
@@ -52,4 +52,6 @@
 
 在此例子中，將**不會**提示使用者輸入密碼。按 `<enter>` 鍵之後，`sudo` 將會以 `root` 權限執行命令。
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO1-->

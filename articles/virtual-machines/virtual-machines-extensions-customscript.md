@@ -9,9 +9,9 @@
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm=""
+   ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/19/2015"
    ms.author="kundanap"/>
@@ -36,8 +36,7 @@ Windows 的自訂指令碼延伸模組讓您能夠在遠端虛擬機器上執行
 
 ## 自訂指令碼延伸模組案例：
 
- ### 將檔案上傳到預設容器：
-如果訂用帳戶之預設帳戶的儲存體容器中含有您的指令碼，則下列 Cmdlet 程式碼片段會示範如何在 VM 上執行它們。下列範例中的 ContainerName 是您上傳的指令碼。預設的儲存體帳戶可以使用 ‘Get-AzureSubscription –Default’ Cmdlet 來驗證
+ ### 將檔案上傳到預設容器：如果訂用帳戶之預設帳戶的儲存體容器中含有您的指令碼，則下列 Cmdlet 程式碼片段會示範如何在 VM 上執行它們。下列範例中的 ContainerName 是您上傳的指令碼。預設的儲存體帳戶可以使用 ‘Get-AzureSubscription –Default’ Cmdlet 來驗證
 
 注意：這個使用案例會建立新的 VM，但相同作業也可以在現有的 VM 上完成。
 
@@ -59,8 +58,7 @@ Windows 的自訂指令碼延伸模組讓您能夠在遠端虛擬機器上執行
 這個使用案例示範如何使用相同訂閱內或不同訂閱中的非預設儲存體上傳指令碼/檔案。此處將使用現有的 VM，但相同作業也可以在建立新的 VM 時完成。
 
         Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileName 'file1.ps1','file2.ps1' -Run 'file.ps1' | Update-AzureVM
-  ### 將指令碼上傳到橫跨不同儲存體帳戶的多個容器。
-如果指令碼檔案儲存在多個容器中，則目前若要執行這些指令碼，您必須提供這些檔案的完整 SAS URL。
+  ### 將指令碼上傳到橫跨不同儲存體帳戶的多個容器。如果指令碼檔案儲存在多個容器中，則目前若要執行這些指令碼，您必須提供這些檔案的完整 SAS URL。
 
       Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
 
@@ -80,5 +78,6 @@ Windows 的自訂指令碼延伸模組讓您能夠在遠端虛擬機器上執行
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

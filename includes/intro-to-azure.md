@@ -172,9 +172,9 @@ Blob 儲存體可用於許多其他 Azure 功能 (包括虛擬機器)，所以�
 
 
 ###Azure 檔案服務###
-![Azure 檔案服務](./media/intro-to-azure/FileServiceIntroNew.png) **圖：Azure 檔案服務提供 SMB \\server\share 路徑給在雲端中執行的應用程式。**
+![Azure 檔案服務](./media/intro-to-azure/FileServiceIntroNew.png) **圖：Azure 檔案服務提供 SMB \server\share 路徑給在雲端中執行的應用程式。**
 
-在內部部署中，通常會透過伺服器訊息區 (SMB) 通訊協定 (使用 \\Server\share 格式) 存取大量檔案儲存體。Azure 現在擁有可讓您在雲端中使用此通訊協定的服務。在 Azure 中執行的應用程式可使用此服務，在使用類似檔案系統 API (如 ReadFile 和 WriteFile) 的 VM 之間共用檔案。此外，還可透過 REST 介面同時存取檔案，若您同時也設定了虛擬網路，這還可讓您從內部部署中存取共用。Azure 檔案會架構在 Blob 服務上，因此它會繼承內建於 Azure 儲存體的相同可用性、持久性和異地備份。
+在內部部署中，通常會透過伺服器訊息區 (SMB) 通訊協定 (使用 \Server\share 格式) 存取大量檔案儲存體。Azure 現在擁有可讓您在雲端中使用此通訊協定的服務。在 Azure 中執行的應用程式可使用此服務，在使用類似檔案系統 API (如 ReadFile 和 WriteFile) 的 VM 之間共用檔案。此外，還可透過 REST 介面同時存取檔案，若您同時也設定了虛擬網路，這還可讓您從內部部署中存取共用。Azure 檔案會架構在 Blob 服務上，因此它會繼承內建於 Azure 儲存體的相同可用性、持久性和異地備份。
 
 **Azure 檔案的案例**
 
@@ -372,11 +372,11 @@ Android、iOS、HTML/JavaScript、Windows Phone 和 Windows 市集的原生用�
 ###站台復原###
 
  
-Azure Site Recovery (先前稱為 Hyper-V 復原管理員) 可協助您保護重要應用程式的安全，方法是在各個站台中協調 Hyper-V 映像的複寫與復原。您可以備份到專屬的次要站台 (主機服務提供者的網站)，或使用 Azure 以省下建置與管理專屬次要位置的費用和複雜性。Azure 會加密資料和訊息，您也可以選擇為靜態資料啟用加密。
+Azure Site Recovery (先前稱為 Hyper-V 復原管理員) 可透過在各個網站中協調複寫與復原，協助您保護重要的應用程式。Site Recovery 能夠針對您自己的次要網站、主機服務提供者的網站或 Azure，保護以 Hyper-V、VMWare 或 SAN 為基礎的應用程式，免除建置及管理您的自有次要位置所需的費用和複雜程序。Azure 會加密資料和通訊，您也可以選擇為待用資料啟用加密。
 
-它會持續監控您的服務健全狀況，並在主要資料中心發生站台服務中斷時，協助自動化循序復原服務。以組織的方式啟動虛擬機器，可協助快速還原服務，即使是複雜的多層次工作負載也不例外。
+它會持續監控您服務的健康狀態，並在主要資料中心發生網站中斷時，協助自動執行循序復原服務。以協調的方式啟動虛擬機器，有助於快速還原服務，即使是複雜的多層式工作負載也不例外。
 
-Site Recovery 使用現有的技術，例如 Hyper-V 複本、System Center 和 SQL Server AlwaysOn。
+Site Recovery 使用現有的技術，例如 Hyper-V 複本、System Center 和 SQL Server AlwaysOn。請查看 [Azure Site Recovery 概觀](hyper-v-recovery-manager-overview.md)，以了解更多詳細資料。
 
 ###Azure 備份###
 ![Azure 備份](./media/intro-to-azure/AzureBackupIntroNew.png) **圖：Azure 備份會將資料從內部部署 Windows Server 備份到雲端。**
@@ -578,4 +578,4 @@ SendGrid 是 Azure Store 中可讓您傳送電子郵件的應用程式。它提�
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

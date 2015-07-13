@@ -43,7 +43,7 @@
 
 1. 在管理入口網站中，按一下 **[行動服務]**，然後按一下您剛剛建立的行動服務。
 
-2. 在快速入門索引標籤中，按一下 [選擇平台] 下的 [Windows]，並展開 [建立新的 Windows 市集應用程式]。
+2. 在快速入門索引標籤中，按一下 [Choose platform] 下的 [Windows]，並展開 [Create a new Windows Store app]。
 
    	![][6]
 
@@ -53,7 +53,7 @@
 
 3. 在您的本機電腦或虛擬機器下載並安裝 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> (如果您尚未這麼做)。
 
-4. 在 [在本機下載及執行您的應用程式和服務] 中，選取 Windows 市集應用程式的語言，然後按一下 [下載]。
+4. 在 [Download and run your app and service locally] 中，選取 Windows 市集應用程式的語言，然後按一下 [下載]。
 
   	這會下載一個方案，其中包含行動服務的專案，以及與行動服務連接的範例_待辦事項_應用程式的專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
 
@@ -80,7 +80,7 @@
 
 <li><p>按 <strong>F5</strong> 鍵，以重建專案並啟動應用程式。</p></li>
 
-<li><p>在應用程式的 [插入 TodoItem]<em></em> 中輸入有意義的文字，例如<strong>完成教學課程</strong>，然後按一下 [儲存]<strong></strong>。</p>
+<li><p>在應用程式的 [Insert a TodoItem]<em></em> 中輸入有意義的文字，例如<strong>完成教學課程</strong>，然後按一下 [儲存]<strong></strong>。</p>
 
 <p>如此會傳送 POST 要求到 Azure 中代管的新行動服務。</p>
 </li>
@@ -121,4 +121,4 @@
 [Get started with data in Mobile Services using Visual Studio 2012]: ../mobile-services-windows-store-dotnet-get-started-data-vs2012.md
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

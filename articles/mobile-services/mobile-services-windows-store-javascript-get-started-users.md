@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/03/2015" 
 	ms.author="glenga"/>
 
 # 在您的行動服務應用程式中新增驗證
@@ -35,7 +35,7 @@
 
 ##<a name="register"></a>註冊應用程式進行驗證，並設定行動服務
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
 <ol start="5">
 <li><p>(選用) 完成<a href="/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/">註冊 Windows 市集應用程式套件以採用 Microsoft 驗證</a>中的步驟。</p>
@@ -48,7 +48,7 @@
 
 ##<a name="permissions"></a>限制只有通過驗證的使用者具有權限
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 <ol start="3">
 <li><p>在 Visual Studio 2012 Express for Windows 8 中，開啟您在完成<a href="/develop/mobile/tutorials/get-started/">開始使用行動服務</a>教學課程時所建立的專案。</p></li> 
@@ -61,11 +61,11 @@
 
 ##<a name="add-authentication"></a>將驗證新增至應用程式
 
-[AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app](../../includes/mobile-services-windows-store-javascript-authenticate-app.md)] 
+[AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app](../../includes/mobile-services-windows-store-javascript-authenticate-app.md)]
 
 ##<a name="tokens"></a>將授權權杖儲存在用戶端上
 
-[AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app-with-token](../../includes/mobile-services-windows-store-javascript-authenticate-app-with-token.md)] 
+[AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app-with-token](../../includes/mobile-services-windows-store-javascript-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"> </a>後續步驟
 
@@ -92,5 +92,6 @@
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Register your Windows Store app package for Microsoft authentication]: /develop/mobile/how-to-guides/register-windows-store-app-package
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

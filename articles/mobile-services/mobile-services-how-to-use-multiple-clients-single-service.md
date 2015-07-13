@@ -5,18 +5,19 @@
 	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
-	editor="mollybos"/> <tags 
+	editor="mollybos"/>
+<tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # 從單一行動服務支援多重裝置平台
  
-使用 Azure 行動服務來進行行動應用程式開發的最大好處之一，是能夠使用單一後端服務，在多重用戶端平台上支援您的應用程式。行動服務提供適用於所有主要裝置平台的原生用戶端程式庫，可讓您使用單一後端服務或跨平台開發人員工具來開發應用程式時，更加輕鬆。本主題討論使用單一行動服務後端時，讓您的應用程式在多重用戶端平台上執行的考量。如需行動服務的一般詳細資訊，請參閱[行動服務開發人員中心](/documentation/services/mobile-services/)。
+使用 Azure 行動服務來進行行動應用程式開發的最大好處之一，是能夠使用單一後端服務，在多重用戶端平台上支援您的應用程式。行動服務提供適用於所有主要裝置平台的原生用戶端程式庫，可讓您使用單一後端服務或跨平台開發人員工具來開發應用程式時，更加輕鬆。本主題討論使用單一行動服務後端時，讓您的應用程式在多重用戶端平台上執行所需的考量。
 
 ##<a id="push"></a>跨平台推播通知
 
@@ -207,5 +208,6 @@ Visual Studio 2013 Update 2 新增對通用 Windows 應用程式專案的支援�
 [Windows Phone 8 開發人員的下一步]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [建置適用於所有 Windows 裝置的通用 Windows 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [使用 MVVM 的 Azure 行動服務通用 Windows 應用程式]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

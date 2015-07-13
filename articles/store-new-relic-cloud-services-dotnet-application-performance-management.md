@@ -22,15 +22,13 @@
 
 本指南說明如何將 New Relic 的世界級效能監視加入至 Azure 託管的應用程式。我們將討論以快速又簡單的程序將 New Relic 加入至應用程式，並介紹一些 New Relic 功能。如需有關使用 New Relic 的詳細資訊，請參閱＜[使用 New Relic](#using-new-relic)＞。
 
-什麼是 New Relic？
---
+什麼是 New Relic？--
 
 New Relic 是一種開發人員專用工具，可監視生產應用程式，並深入探索其效能和可靠性。主要是讓您在識別和診斷效能問題時可節省時間，並隨手取得解決這些問題所需的資訊。
 
 New Relic 會追蹤 Web 交易的載入時間和輸送量，包括來自伺服器和使用者瀏覽器。它會顯示您在資料庫中花費多少時間、分析較慢的查詢和 Web 要求、提供運作時間監視和警示、追蹤應用程式例外狀況，還有許多其他功能。
 
-透過 Azure 市集享受 New Relic 優惠價格
---
+透過 Azure 市集享受 New Relic 優惠價格 --
 
 New Relic Standard 供 Azure 使用者免費使用。New Relic Pro 依 Azure 雲端服務的執行個體大小來報價
 
@@ -40,8 +38,7 @@ New Relic Standard 供 Azure 使用者免費使用。New Relic Pro 依 Azure 雲
 
 Azure 客戶部署 New Relic 代理程式時享有 New Relic Pro 試用訂閱 2 週。
 
-使用 Azure 市集註冊 New Relic
---
+使用 Azure 市集註冊 New Relic --
 
 New Relic 與 Azure Web 角色和背景工作角色緊密整合。
 
@@ -176,4 +173,4 @@ New Relic 與 Azure Web 角色和背景工作角色緊密整合。
  * [實際使用者監控](https://newrelic.com/docs/features/real-user-monitoring) (英文)：RUM 如何詳述使用者瀏覽器載入網頁所需的時間、使用者來自何方及使用什麼瀏覽器的概觀
  * [尋找說明](https://newrelic.com/docs/site/finding-help) (英文)：New Relic 線上說明中心提供的資源
 
-<!--HONumber=54-->
+<!---HONumber=July15_HO1-->

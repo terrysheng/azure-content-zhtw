@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Python Web 和背景工作角色與 Python Tools 2.1 for Visual Studio" 
-	description="使用 Python Tools for Visual Studio 建立 Azure 雲端服務的概觀，包括 Web 角色和背景工作角色。" 
-	services="" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="Python Web 和背景工作角色與 Python Tools 2.1 for Visual Studio"
+	description="使用 Python Tools for Visual Studio 建立 Azure 雲端服務的概觀，包括 Web 角色和背景工作角色。"
+	services=""
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="02/09/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="get-started-article" 
+	ms.date="02/09/2015"
 	ms.author="huvalo"/>
 
 
@@ -43,7 +43,7 @@ Azure 提供三種運算模型來執行應用程式：[Azure 網站][execution m
 
 ## 建立專案
 
-在 Visual Studio 中，您可以在 [新增專案]**** 對話方塊的 [Python]**** 下選取 [Azure 雲端服務]****。
+在 Visual Studio 中，您可以在 [新增專案] 對話方塊的 [Python] 下選取 [Azure 雲端服務]。
 
 ![New Project Dialog](./media/cloud-services-python-ptvs/new-project-cloud-service.png)
 
@@ -67,13 +67,13 @@ Azure 提供三種運算模型來執行應用程式：[Azure 網站][execution m
 
 雖然 PTVS 支援在模擬器中啟動，但無法使用偵錯 (中斷點等)。
 
-若要對 Web 和背景工作角色進行偵錯，您可以將角色專案設為啟始專案，然後偵錯。您也可以設定多個啟始專案。請在方案上按一下滑鼠右鍵，然後選取 [設定啟始專案]****。
+若要對 Web 和背景工作角色進行偵錯，您可以將角色專案設為啟始專案，然後偵錯。您也可以設定多個啟始專案。請在方案上按一下滑鼠右鍵，然後選取 [設定啟始專案]。
 
 ![Solution Startup Project Properties](./media/cloud-services-python-ptvs/startup.png)
 
 ## 發佈至 Azure
 
-若要發行，請在方案中的雲端服務專案上按一下滑鼠右鍵，然後選取 [發行]****。
+若要發行，請在方案中的雲端服務專案上按一下滑鼠右鍵，然後選取 [發行]。
 
 ![Microsoft Azure Publish Sign In](./media/cloud-services-python-ptvs/publish-sign-in.png)
 
@@ -89,7 +89,7 @@ Azure 提供三種運算模型來執行應用程式：[Azure 網站][execution m
 
 ![Remote Desktop Configuration Dialog](./media/cloud-services-python-ptvs/publish-remote-desktop-configuration.png)
 
-組態設定完成之後，按一下 [發行]****。
+組態設定完成之後，按一下 [發行]。
 
 輸出視窗中會顯示一些進度，接著會出現 [Microsoft Azure 活動記錄] 視窗。
 
@@ -104,7 +104,7 @@ Azure 提供三種運算模型來執行應用程式：[Azure 網站][execution m
 - [雲端服務專案][]
 
 如需有關從 Web 和背景工作角色使用 Azure 服務的詳細資訊，例如使用 Azure 儲存體或服務匯流排，請參閱下列指南：
- 
+
 - [Blob 服務][]
 - [資料表服務][]
 - [佇列服務][]
@@ -139,4 +139,4 @@ Azure 提供三種運算模型來執行應用程式：[Azure 網站][execution m
 [Python 2.7 32 位元]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32 位元]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!--HONumber=54-->
+<!---HONumber=July15_HO1-->

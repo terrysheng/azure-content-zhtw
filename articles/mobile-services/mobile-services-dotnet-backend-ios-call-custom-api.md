@@ -4,7 +4,6 @@
 	services="mobile-services"
 	documentationCenter="ios"
 	authors="krisragh"
-	writer="krisragh"
 	manager="dwrede"
 	editor=""/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/03/2015"
+	ms.date="06/03/2015"
 	ms.author="krisragh"/>
 
 
@@ -28,7 +27,9 @@
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-custom-api](../../includes/mobile-services-dotnet-backend-create-custom-api.md)]
 
-[AZURE.INCLUDE [mobile-services-ios-call-custom-api](mobile-services-ios-call-custom-api.md)]
+[AZURE.INCLUDE [mobile-services-ios-call-custom-api](../../includes/mobile-services-ios-call-custom-api.md)]
+
+本主題示範如何使用 **invokeApi** 方法從 iOS 應用程式呼叫相當簡單的自訂 API。若要深入了解如何使用 **invokeApi** 方法，請參閱 [Azure 行動服務中的自訂 API](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx) 文章。
 
 <!-- Anchors. -->
 [Define the custom API]: #define-custom-api
@@ -48,5 +49,6 @@
 [Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
 [Store server scripts in source control]: mobile-services-store-scripts-source-control.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

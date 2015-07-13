@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="處理資料  Azure Blob" 
-	description="處理 Azure Blob 中的資料" 
-	metaKeywords="" 
-	services="machine-learning" 
+	pageTitle="處理使用進階分析的 Azure Blob 資料 | Microsoft Azure" 
+	description="處理 Azure Blob 儲存體中的資料。" 
+	services="machine-learning,storage" 
 	solutions="" 
 	documentationCenter="" 
-	authors="sunliangms,fashah,msolhab" 
+	authors="msolhab" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="sunliangms,fashah,msolhab,garye" /> 
+	ms.date="05/29/2015" 
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
 
-# <a name="heading"></a>在資料科學環境中處理 Azure Blob 資料
+#<a name="heading"></a>處理使用進階分析的 Azure Blob 資料
 
-本文件涵蓋探索資料以及從 Azure Blob 中儲存的資料產生功能。若要這樣做，必須從 Blob 來源將資料下載至本機檔案，然後將其載入 Pandas 資料框架中，以進行探索和操作。以下是要遵循的步驟：
+本文件涵蓋探索資料以及從 Azure Blob 儲存體中儲存的資料產生功能的說明。若要這樣做，必須從 Blob 來源將資料下載至本機檔案，然後將其載入 Pandas 資料框架中，以進行探索和操作。以下是要遵循的步驟：
 
 1. 使用 Blob 服務，透過下列 Python 程式碼範例，從 Azure Blob 下載資料。使用您的特定值來取代下列程式碼中的變數： 
 
@@ -48,7 +47,7 @@
 
 現在您已經準備好探索資料並在此資料集上產生功能。
 
-#### <a name="blob-dataexploration"></a>資料探索
+##<a name="blob-dataexploration"></a>資料探索
 
 以下是數個可使用 Pandas 探索資料的範例方式：
 
@@ -89,7 +88,7 @@
 	
 		dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})		
 
-8. 使用變動數目的分類收納組來建立長條圖，以繪製變數的分佈	
+8. 使用變動數目的分類收納組來建立長條圖，以繪製變數的分佈
 	
 		dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
 		
@@ -104,11 +103,11 @@
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 	
 	
-#### <a name="blob-featuregen"></a>功能產生
+##<a name="blob-featuregen"></a>功能產生
 	
 我們可以使用 Python 來產生功能，如下所示：
 
-##### <a name="blob-countfeature"></a>以指標值為基礎的功能產生
+###<a name="blob-countfeature"></a>以指標值為基礎的功能產生
 
 類別功能可使用如下的方式來建立：
 
@@ -121,7 +120,7 @@
 		#generate the indicator column
 		dataframe_blobdata_identity = pd.get_dummies(dataframe_blobdata['<categorical_column>'], prefix='<categorical_column>_identity')
 
-3. 將指標資料行與原始資料框架聯結在一起 
+3. 將指標資料行與原始資料框架聯結在一起
  
 			#Join the dummy variables back to the original data frame
 			dataframe_blobdata_with_identity = dataframe_blobdata.join(dataframe_blobdata_identity)
@@ -131,7 +130,7 @@
 		#Remove the original column rate_code in df1_with_dummy
 		dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 	
-##### <a name="blob-binningfeature"></a>分類收納功能產生
+###<a name="blob-binningfeature"></a>分類收納功能產生
 
 若要產生分類收納功能，我們可使用如下的方式繼續進行：
 
@@ -148,11 +147,9 @@
 
 		dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)	
 
-#### <a name="sql-featuregen"></a>將資料寫回 Azure Blob 並在 Azure ML 中取用
+##<a name="sql-featuregen"></a>將資料寫回 Azure Blob 並在 AzureMachine Learning 中取用
 
-在探索資料並建立必要功能之後，就可將資料上傳 (取樣或功能化) 至 Azure Blob，並使用下列步驟在 Azure ML 中加以取用：
-請注意，您也可以在 Azure ML Studio 中建立額外功能。 
-1. 將資料框架寫入本機檔案中
+在您探索資料和建立必要功能後，可以上傳資料 (取樣性或功能性) 至 Azure Blob，並在 Azure Machine Learning 中透過下列步驟取用資料：請注意，您也可以在 Azure Machine Learning Studio 中建立其他功能。1.將資料框架寫入本機檔案中
 
 		dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
 
@@ -178,10 +175,15 @@
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. 現在您可以使用 Azure ML *Reader Module*，從 Blob 讀取資料，如下列畫面所示：
+3. 現在您可以使用 Azure Machine Learning [讀取器][reader]模組讀取 Blob 中的資料，如下列畫面所示：
  
-![reader blob][1]
+![讀取器 Blob][1]
 
 [1]: ./media/machine-learning-data-science-process-data-blob/reader_blob.png
 
-<!--HONumber=49--> 
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+ 
+
+<!---HONumber=July15_HO1-->

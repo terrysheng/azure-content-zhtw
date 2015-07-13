@@ -13,29 +13,18 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="05/12/2015" 
 	ms.author="ricksal"/>
 
 # 將推播通知新增至行動服務應用程式
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-EC.md)]
 
+##概觀
+
 本主題說明如何使用 Azure 行動服務傳送推播通知至 Android 應用程式。在本教學課程中，您會使用 Google 雲端通訊 (GCM) 將推播通知新增至快速入門專案。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
-本教學課程將逐步引導您完成下列步驟：
-
-1. [啟用 Google Cloud Messaging](#register)
-2. [設定行動服務以傳送推播要求](#configure)
-5. [更新伺服器以傳送推播通知](#update-server)
-7. [將推播通知新增至應用程式](#update-app)
-8. [啟用推播通知以進行本機測試](#local-testing)
-9. [對已發佈的行動服務進行應用程式測試](#test-app)
-
-
-本教學課程會以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務]或[開始使用資料]，將您的專案連接到行動服務。同樣地，本教學課程也需要 Visual Studio 2013。
-
->[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure 免費試用</a>。
-
+本教學課程會以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務]或[將行動服務新增至現有的應用程式]，將您的專案連接到行動服務。同樣地，本教學課程也需要 Visual Studio 2013。
 
 ##<a id="register"></a>啟用 Google Cloud Messaging
 
@@ -44,11 +33,11 @@
 
 ##<a id="configure"></a>設定行動服務以傳送推播要求
 
-1. 登入 [Azure 管理入口網站]，按一下 [行動服務]****，然後按一下您的應用程式。
+1. 登入 [Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
    	![](./media/mobile-services-dotnet-backend-android-get-started-push-EC/mobile-services-selection.png)
 
-2. 按一下 [推播]**** 索引標籤，輸入前一個程序中從 GCM 取得的 [API Key]**** 值，然後按一下 [儲存]****。
+2. 按一下 [推播] 索引標籤，輸入前一個程序中從 GCM 取得的 [API Key] 值，然後按一下 [儲存]。
 
    	![](./media/mobile-services-dotnet-backend-android-get-started-push-EC/mobile-push-tab-android.png)
 
@@ -58,11 +47,11 @@
 您的行動服務現在已設定成使用 GCM 和通知中心。
 
 
-<h2><a name="download-the-service"></a>將服務下載至您的本機電腦</h2>
+##<a name="download-the-service"></a>將服務下載至您的本機電腦
 
 [AZURE.INCLUDE [mobile-services-download-service-locally](../../includes/mobile-services-download-service-locally.md)]
 
-<h2><a name="test-the-service"></a>測試行動服務</h2>
+##<a name="test-the-service"></a>測試行動服務
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service](../../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
@@ -74,7 +63,7 @@
 		using System;
 		using System.Collections.Generic;
 
-2. 以下列程式碼取代 `PostTodoItem` 方法：
+2. 以下列程式碼更新 `PostTodoItem` 方法定義：
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -98,10 +87,10 @@
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-    此程式碼會在插入 Todo 項目之後傳送推播通知 (含所插入項目的文字)。如果發生錯誤，程式碼將會新增可透過管理入口網站從行動服務的 [記錄檔]**** 索引標籤來檢視的錯誤記錄項目。
+    此程式碼會在插入 Todo 項目之後傳送推播通知 (含所插入項目的文字)。如果發生錯誤，程式碼將會新增可透過管理入口網站從行動服務的 [記錄檔] 索引標籤來檢視的錯誤記錄項目。
 
 
-<h2><a name="publish-the-service"></a>將行動服務發佈至 Azure</h2>
+##<a name="publish-the-service"></a>將行動服務發佈至 Azure
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
 
@@ -115,7 +104,7 @@
 
 下一個步驟是安裝 Google Play 服務。Google 雲端通訊在開發和測試方面有一些 API 層級的最低需求，這些是資訊清單中的 **minSdkVersion** 屬性所必須遵守。
 
-如果您要以較舊的裝置進行測試，請參考[設定 Google Play 服務 SDK]，以確認此值可以設得多低，並加以適當設定。
+如果您要以較舊的裝置進行測試，請參考 [設定 Google Play 服務 SDK]，以確認此值可以設得多低，並加以適當設定。
 
 ###新增 Google Play 服務至專案
 
@@ -125,7 +114,7 @@
 
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-EC.md)]
 
-<h2><a name="test-app"></a>對已發佈的行動服務進行應用程式測試</h2>
+##<a name="test-app"></a>對已發佈的行動服務進行應用程式測試
 
 您可以使用 USB 纜線直接連接 Android 手機，或使用模擬器中的虛擬裝置，對應用程式進行測試。
 
@@ -133,11 +122,11 @@
 
 請務必使用支援 Google API 的 Android 虛擬裝置 (AVD)。
 
-1. 從 [視窗]**** 中選取 [Android Virtual Device Manager]****，選取您的裝置，按一下 [編輯]**** (如果您沒有任何裝置，則按 [新增]****)。
+1. 從 [視窗] 中選取 [Android Virtual Device Manager]，選取您的裝置，按一下 [編輯] (如果您沒有任何裝置，則按 [新增])。
 
 	![](./media/mobile-services-dotnet-backend-android-get-started-push-EC/mobile-services-android-virtual-device-manager.png)
 
-2. 在 [目標]**** 中選取 [Google API]**** (或 [Google APIs x86]****)，然後按一下 [確定]。
+2. 在 [目標] 中選取 [Google API] (或 [Google APIs x86])，然後按一下 [確定]。
 
    	![](./media/mobile-services-dotnet-backend-android-get-started-push-EC/mobile-services-android-virtual-device-manager-edit.png)
 
@@ -149,9 +138,9 @@
 
 ###執行測試
 
-1. 在 Eclipse 的 [執行]**** 功能表中按一下 [執行]****，以啟動應用程式。
+1. 在 Eclipse 的 [執行] 功能表中按一下 [執行]，以啟動應用程式。
 
-2. 在應用程式中，輸入有意義的文字，如 _A new Mobile Services task_，然後按一下 [加入]**** 按鈕。
+2. 在應用程式中，輸入有意義的文字，如 _A new Mobile Services task_，然後按一下 [加入] 按鈕。
 
   	![](./media/mobile-services-dotnet-backend-android-get-started-push-EC/mobile-quickstart-push1-android.png)
 
@@ -230,19 +219,13 @@
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-dotnet
 [開始使用行動服務]: mobile-services-dotnet-backend-android-get-started.md
-[開始使用資料]: mobile-services-dotnet-backend-android-get-started-data.md
+[將行動服務新增至現有的應用程式]: mobile-services-dotnet-backend-android-get-started-data.md
 [開始使用驗證]: mobile-services-dotnet-backend-android-get-started-users.md
-[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-data-js
-[JavaScript backend version]: /develop/mobile/tutorials/get-started-with-data-android
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
-[MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
 [如何使用適用於行動服務的 Android 用戶端程式庫]: mobile-services-android-how-to-use-client-library.md
 
@@ -252,5 +235,6 @@
 [Send broadcast notifications to subscribers]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [Azure 管理入口網站]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

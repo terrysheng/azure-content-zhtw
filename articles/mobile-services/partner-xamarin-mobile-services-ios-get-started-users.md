@@ -10,10 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/23/2014"
+	ms.date="05/14/2015"
 	ms.author="donnam"/>
 
 # 在您的行動服務應用程式中新增驗證
@@ -32,11 +32,11 @@
 
 完成本教學課程需使用 [Xamarin.iOS]、XCode 6.0 及 iOS 7.0 或更新版本。
 
-<h2><a name="register"></a>註冊您的應用程式以驗證與設定行動服務</h2>
+##<a name="register"></a>註冊應用程式進行驗證，並設定行動服務
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-<h2><a name="permissions"></a> 限制只有經驗證的使用者具有權限</h2>
+##<a name="permissions"></a>限制只有通過驗證的使用者具有權限
 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
@@ -50,17 +50,17 @@
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
-<h2><a name="add-authentication"></a>將驗證新增至應用程式</h2>
+##<a name="add-authentication"></a>將驗證新增至應用程式
 
-1. 開啟 **TodoService** 專案檔案，並新增下列變數。
+1. 開啟 **ToDoService** 專案檔案，並新增下列變數。
 
 		// Mobile Service logged in user
 		private MobileServiceUser user;
 		public MobileServiceUser User { get { return user; } }
 
-2. 接著將名稱為 **Authenticate** 的新方法新增至 **TodoService**，定義如下：
+2. 接著將名稱為 **Authenticate** 的新方法新增至 **ToDoService**，定義如下：
 
-        private async Task Authenticate(UIViewController view)
+        private async Task Authenticate(MonoTouch.UIKit.UIViewController view)
         {
             try
             {
@@ -74,34 +74,34 @@
 
 	> [AZURE.NOTE]如果您使用的身分識別提供者不是 Microsoft 帳戶，請將傳給上述 **LoginAsync** 的值變更為下列其中一個：_Facebook_、_Twitter_、_Google_ 或 _WindowsAzureActiveDirectory_。
 
-3. 將 **TodoItem** 的要求從 **TodoService** 建構函式移至名稱為 **CreateTable** 的新方法中：
+3. 將 **ToDoItem** 的要求從 **ToDoService** 建構函式移至名稱為 **CreateTable** 的新方法中：
 
         private async Task CreateTable()
         {
-            // Create an MSTable instance to allow us to work with the TodoItem table
-            todoTable = client.GetTable<TodoItem>();
+            // Create an MSTable instance to allow us to work with the ToDoItem table
+            todoTable = client.GetSyncTable<ToDoItem>();
         }
 
 4. 建立名稱為 **LoginAndGetData** 的新非同步公用方法，定義如下：
 
-        public async Task LoginAndGetData(UIViewController view)
+        public async Task LoginAndGetData(MonoTouch.UIKit.UIViewController view)
         {
             await Authenticate(view);
             await CreateTable();
         }
 
-5. 在 **TodoListViewController** 中覆寫 **ViewDidAppear** 方法，並且按照下列方式定義該方法。如果 **TodoService** 在使用者上還沒有控點，如此會將使用者登入。
+5. 在 **TodoListViewController** 中覆寫 **ViewDidAppear** 方法，並且按照下列方式定義該方法。如果 **ToDoService** 在使用者上還沒有控點，如此會將使用者登入。
 
         public override async void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
 
-            if (TodoService.DefaultService.User == null)
+            if (QSToDoService.DefaultService.User == null)
             {
-                await TodoService.DefaultService.LoginAndGetData(this);
+                await QSToDoService.DefaultService.LoginAndGetData(this);
             }
 
-            if (TodoService.DefaultService.User == null)
+            if (QSToDoService.DefaultService.User == null)
             {
                 // TODO:: show error
                 return;
@@ -149,5 +149,6 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
 [完成的範例專案]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

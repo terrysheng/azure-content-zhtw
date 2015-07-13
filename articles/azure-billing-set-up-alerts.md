@@ -46,4 +46,4 @@ Azure 支援任何電子郵件地址，但不會驗證電子郵件地址是否�
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

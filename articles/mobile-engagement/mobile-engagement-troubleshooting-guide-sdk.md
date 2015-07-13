@@ -13,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="06/18/2015"
    ms.author="piyushjo"/>
-
 
 # SDK 整合問題的疑難排解指南
 
@@ -34,7 +33,7 @@
 
 - 大部分需要解決的 Azure Mobile Engagement SDK 問題，都會因為您應用程式中發生失敗而發現 (例如 UI 資料收集失敗、推送失敗、進階功能失敗、API 失敗、應用程式當機或明顯的服務中斷)。  
 - 如果 Azure Mobile Engagement 的某項特定功能從未在您的應用程式中運作過，表示您必須完成整合。 
-- 如果 Azure Mobile Engagement 的某項特定功能曾運作並停止，表示您可能需要升級到 Azure Mobile Engagement SDK 的最新版本。請記住，Azure Mobile Engagement 支援的每個平台 (Android、iOS、Web、Windows 及 Windows Phone) 皆有不同的 Azure Mobile Engagement SDK 適用版本。
+- 如果 Azure Mobile Engagement 的某項特定功能曾運作並停止，表示您可能需要升級到 Azure Mobile Engagement SDK 的最新版本。請記住，Azure Mobile Engagement 支援的每個平台 (Android、iOS、Windows 及 Windows Phone) 皆有不同的 Azure Mobile Engagement SDK 適用版本。
 
 #### SDK 整合
 
@@ -43,19 +42,32 @@
 - 憑證已過期或 PROD 與 DEV 不正確 (僅限 iOS)。
 - GCM 或 ADM 未正確整合在 SDK 中 (僅限 Android - 服務特定推送)。
 - 追蹤未正確整合在 SDK 中 (安裝存放區追蹤)。
-- 延遲位置或 GPS 位置未正確整合在 SDK 中 (依地理位置設定目標)。[SDK 文件 - 整合指南][Link 5], [疑難排除指南 - 推送][Link 23]
+- 延遲位置或 GPS 位置未正確整合在 SDK 中 (依地理位置設定目標)。
+
+
+**另請參閱：**
+
+- [SDK 文件 - 整合指南][Link 5] 
+- [疑難排解指南 - 推送][Link 23]
 
 #### SDK 升級
 
 - 必須升級 SDK 來解決較舊版本 SDK 的問題 (經常與裝置作業系統的較新版本有關)。
-- 解除安裝您裝置上所有的舊版應用程式，並重新安裝最新版本的應用程式，然後從 Azure Mobile Engagement UI 重新註冊您的裝置識別碼，以確認您的裝置是使用最新版本的應用程式。[SDK 文件 - 版本資訊](http://go.microsoft.com/fwlink/?LinkId= 525554), [SDK 文件 - 升級指南](http://go.microsoft.com/fwlink/?LinkId= 525554), [UI 文件 - 設定][Link 20]
+- 解除安裝您裝置上所有的舊版應用程式，並重新安裝最新版本的應用程式，然後從 Azure Mobile Engagement UI 重新註冊您的裝置識別碼，以確認您的裝置是使用最新版本的應用程式。
+
+**另請參閱：**
+
+- [SDK 文件 - 版本資訊](http://go.microsoft.com/fwlink/?LinkId= 525554) 
+- [SDK 文件 - 升級指南](http://go.microsoft.com/fwlink/?LinkId= 525554)
 
 #### SDK 其他問題
 
-- 與 Azure Mobile Engagement 相關之程式碼區段中的錯誤可能會導致 Azure Mobile Engagement 無法運作。
 - 應用程式資訊清單 "AndroidManifest.xml" 中的錯誤可能會導致 Azure Mobile Engagement 無法運作 (僅限 Android)。
-- SDK 整合與 
-- API 使用方式的一個常見問題是將 SDK 金鑰和 API 金鑰混淆。[概念 - 詞彙][Link 6]
+- SDK 整合與 API 使用方式的一個常見問題是將 SDK 金鑰和 API 金鑰混淆。
+
+**另請參閱：**
+
+- [概念 - 詞彙][Link 6]
 
 ## 進階編碼問題
 
@@ -70,17 +82,12 @@
 - 過期的憑證或未正確使用憑證的 DEV 或 Prod 版本，會造成推送問題 (僅限 iOS)。
 - 平台中有一些固有限制是 Azure Mobile Engagement 無法控制的 (例如系統中心針對 Android 和 iOS 中的應用程式外推送所採用的運作方式)。
 - Azure Mobile Engagement 發佈了 Azure Mobile Engagement 針對 iOS 與 Android 所使用之內部套件的完整清單以供參考。請記住，Azure Mobile Engagement 的部分功能為平台特定功能 (Android、iOS、Web、Windows 及 Windows Phone)。
-- 適用於每個平台的 SDK 會以下列程式設計語言來撰寫：
-    -     Android SDK 是以 Java 撰寫
-    -     iOS SDK 是以 Objective C 撰寫
-    -     Web SDK 是以 JavaScript 撰寫
-    -     Windows SDK 是以 C# 與 JavaScript 撰寫
-    -     Windows Phone SDK 是以 C# 與 JavaScript 撰寫
 
 ### 另請參閱
 
- - [疑難排除指南 - 推送][Link 23], [SDK 文件 - 版本資訊][Link 5], [SDK 文件 - 升級指南][Link 5], [SDK 文件 - Android - Azure Mobile Engagement 技術文件概觀][Link 5], [SDK 文件 - iOS - Azure Mobile Engagement 技術文件概觀][Link 5], [SDK 文件 - iOS - 如何準備您的應用程式以使用 Apple 推送通知][Link 5], [Android 開發人員](https://developer.android.com/), [iOS 開發人員](https://developer.apple.com/), [Windows 開發人員](https://developer.windows.com/) 
- 
+ - [疑難排解指南 - 推送][Link 23] 
+ - [SDK 文件 - 版本資訊][Link 5]
+ - [SDK 文件 - 升級指南][Link 5]
 
 ## 應用程式當機
 
@@ -89,27 +96,24 @@
 
 ### 原因
 
-- 當機資訊可以在分析 UI 或分析 API 中檢視。
+- 您可以在「分析 UI」或「分析 API」中檢視當機資訊。
 - 您可以尋找測試裝置的裝置識別碼，並採取造成使用者使用應用程式時當機的相同動作，以協助識別您應用程式的當機原因。
-- 升級為最新版本的 SDK 有時候會解決造成應用當機的 Azure Mobile Engagement SDK 已知問題，因此在調查當機原因時，請務必查閱平台的相關版本資訊。
+- 升級為最新版本的 SDK 有時候可以解決造成應用程式當機的 Azure Mobile Engagement SDK 已知問題。因此在調查當機原因時，請務必查看平台的版本資訊。
 
 ### 另請參閱
 
-- [概念 - 常見問題集][Link 6], [概念 - 詞彙][Link 6], [API 文件 - 分析 API - 當機][Link 4], [UI 文件 - 分析 - 當機][Link 15], [UI 文件 - 設定][Link 20], [SDK 文件 - 版本資訊][Link 5], [SDK 文件 - 升級指南][Link 5]
+- [SDK 文件 - 版本資訊][Link 5]
+- [SDK 文件 - 升級指南][Link 5]
 
 ## 應用程式商店上傳失敗
 
 ### 問題
-- 將您最新版本的應用程式上傳到 iTunes、GooglePlay、Windows 或 Windows Phone 市集的相關錯誤。
+- 將您最新版本的應用程式上傳到 Apple、Google 或 Windows 應用程式市集的相關錯誤。
 
 ### 原因
 
-- 應用程式商店有時候會封鎖已啟用特定功能的應用程式 (iTunes Store 會防止商店中的應用程式使用 IDFV，GooglePlay 商店則是會防止應用程式之間共享應用程式資訊)。 
+- 應用程式商店有時候會封鎖已啟用特定功能的應用程式 (例如 Apple Store 會防止商店中的應用程式使用 IDFV，Google Play 商店則是會防止應用程式之間共享應用程式資訊)。 
 - 如果您無法將應用程式上傳至商店，請務必查閱平台與 SDK 目前版本的相關版本資訊。
-
-### 另請參閱
-
-- [SDK 文件 - 版本資訊][Link 5], [SDK 文件 - 升級指南][Link 5] 
 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
@@ -141,5 +145,6 @@
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

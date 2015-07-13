@@ -59,7 +59,7 @@ Azure 中的磁碟 I/O 輸送量和 I/O 回應時間可透過 RAID 大幅改進�
 
 這會將一個空的磁碟新增到虛擬機器中。再重複執行此步驟三次，您的 RAID 就有 4 個資料磁碟。
 
-查看核心訊息記錄檔，您可以看到虛擬機器中新增的磁碟機。例如，若要在 Ubuntu 上查看此資料，請使用下列命令：  
+查看核心訊息記錄檔，您可以看到虛擬機器中新增的磁碟機。例如，若要在 Ubuntu 上查看此資料，請使用下列命令：
 
 	sudo grep SCSI /var/log/dmesg
 
@@ -68,7 +68,7 @@ Azure 中的磁碟 I/O 輸送量和 I/O 回應時間可透過 RAID 大幅改進�
 
 [http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
 
->[AZURE.NOTE] 如果您使用 XFS 檔案系統，請在建立 RAID 後遵循下列步驟。
+>[AZURE.NOTE]如果您使用 XFS 檔案系統，請在建立 RAID 後遵循下列步驟。
 
 若要在 Debian、Ubuntu 或 Linux Mint 上安裝 XFS，請使用下列命令：
 
@@ -131,7 +131,7 @@ Linux 會實作四種類型的 I/O 排程演算法：
 	root@mysqlnode1:~# sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash elevator=noop"/g' /etc/default/grub
 	root@mysqlnode1:~# update-grub
 
->[AZURE.NOTE] 單獨針對 /dev/sda 設定此項並不是很有用。必須在資料庫所在的所有資料磁碟上進行設定。
+>[AZURE.NOTE]單獨針對 /dev/sda 設定此項並不是很有用。必須在資料庫所在的所有資料磁碟上進行設定。
 
 您應會看到下列輸出，表示 grub.cfg 已成功重建且預設排程器已更新為 NOOP。
 
@@ -179,7 +179,7 @@ Linux 會實作四種類型的 I/O 排程演算法：
 MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目為 1024，這並不足夠。**使用下列步驟來增加系統的並行控制代碼上限，以支援 MySQL 的高並行存取**。
 
 ###步驟 1：修改 limits.conf 檔案
-在 /etc/security/limits.conf 檔案中加入下列四行，以增加允許的並行控制代碼上限。請注意 65536 是系統可支援的數目上限。   
+在 /etc/security/limits.conf 檔案中加入下列四行，以增加允許的並行控制代碼上限。請注意 65536 是系統可支援的數目上限。
 
 	* soft nofile 65536
 	* hard nofile 65536
@@ -187,34 +187,33 @@ MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目為 1
 	* hard nproc 65536
 
 ###步驟 2：更新系統以取得新的限制
-執行以下命令：  
+執行以下命令：
 
 	ulimit -SHn 65536
 	ulimit -SHu 65536 
 
 ###步驟 3：確定會在開機時更新限制
-將下列啟動命令放入 /etc/rc.local 檔案中，以便在每次開機時生效。  
+將下列啟動命令放入 /etc/rc.local 檔案中，以便在每次開機時生效。
 
 	echo “ulimit -SHn 65536” >>/etc/rc.local
 	echo “ulimit -SHu 65536” >>/etc/rc.local
 
 ##MySQL 資料庫最佳化 
-您可以使用相同的效能微調策略，將 Azure 上的 MySQL 設定為內部部署電腦。  
+您可以使用相同的效能微調策略，將 Azure 上的 MySQL 設定為內部部署電腦。
 
-主要的 I/O 最佳化規則如下：   
+主要的 I/O 最佳化規則如下：
 
 -	增加快取的大小。
 -	減少 I/O 回應時間。  
 
 若要最佳化 MySQL 伺服器設定，您可以更新 my.cnf 檔案，該檔案是伺服器和用戶端電腦的預設組態檔。
 
-下列組態項目是影響 MySQL 效能的主要因素：  
+下列組態項目是影響 MySQL 效能的主要因素：
 
 -	**innodb_buffer_pool_size**：緩衝集區包含經過緩衝處理的資料和索引。這通常設定為 70% 的實體記憶體。
 -	**innodb_log_file_size**：這是重做記錄檔的大小。您可以使用重做記錄檔來確保寫入作業快速、可靠並可在當機後復原。這會設定為 512 MB，將提供大量空間給您記錄寫入作業。
 -	**max_connections**：應用程式有時不會正確關閉連線。較大的值讓伺服器有更多的時間來回收閒置的連線。連線數目上限為 10000，但建議的上限為 5000。
--	**Innodb_file_per_table**：此設定可啟用或停用 InnoDB 在個別檔案中儲存資料表的功能。開啟此選項將確保可有效地套用數個進階管理作業。從效能觀點來看，它可以加速資料表空間傳輸，並將 debris 管理效能最佳化。因此這個選項的建議設定為 ON。</br>
-	從 MySQL 5.6 開始，預設設定為 ON。因此，不需要採取任何動作。若為其他版本，也就是 5.6 以前的版本，預設設定為 OFF。必須將此選項設為 ON。而且應在載入資料之前套用，因為只有新建的資料表會受影響。
+-	**Innodb_file_per_table**：此設定可啟用或停用 InnoDB 在個別檔案中儲存資料表的功能。開啟此選項將確保可有效地套用數個進階管理作業。從效能觀點來看，它可以加速資料表空間傳輸，並將 debris 管理效能最佳化。因此這個選項的建議設定為 ON。</br> 從 MySQL 5.6 開始，預設設定為 ON。因此，不需要採取任何動作。若為其他版本，也就是 5.6 以前的版本，預設設定為 OFF。必須將此選項設為 ON。而且應在載入資料之前套用，因為只有新建的資料表會受影響。
 -	**innodb_flush_log_at_trx_commit**：預設值為 1，其範圍設為 0~2。對獨立 MySQL DB 而言，預設值是最適合的選項。設定為 2 可達到最大資料完整性，適合於 MySQL 叢集中的主機。設定為 0 會讓資料遺失，這可能會影響可靠性，在某些情況下，效能會更佳，適合於 MySQL 叢集中的從屬。
 -	**Innodb_log_buffer_size**：記錄緩衝區允許交易執行，而不需在交易認可前將記錄檔排清到磁碟。不過，如果有大型二進位物件或文字欄位，將會非常快速地耗用快取，並將觸發頻繁的磁碟 I/O。如果 Innodb_log_waits 狀態變數不是 0，最好能增加緩衝區大小。
 -	**query_cache_size**：最佳選項是一開始就將它停用。將 query_cache_size 設為 0 (這現在是 MySQL 5.6 中的預設值)，並使用其他方法來加速查詢。  
@@ -238,7 +237,7 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 
 ###步驟 3：使用 “show” 命令來檢查設定是否生效
  
-![][7]   
+![][7]
    
 ![][8]
  
@@ -257,7 +256,7 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 
 ![][9]
  
-**測試命令：**  
+**測試命令：**
 
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=5G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite
 
@@ -266,15 +265,13 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 <a name="AppendixB"></a>附錄 B：**不同 RAID 層級的 MySQL 效能 (輸送量) 比較** (XFS檔案系統)
 
  
-![][10]  
-![][11]
+![][10] ![][11]
 
 **測試命令：**
 
 	mysqlslap -p0ps.123 --concurrency=2 --iterations=1 --number-int-cols=10 --number-char-cols=10 -a --auto-generate-sql-guid-primary --number-of-queries=10000 --auto-generate-sql-load-type=write –engine=innodb
 
-**不同 RAID 層級的 MySQL 效能 (OLTP) 比較**  
-![][12]
+**不同 RAID 層級的 MySQL 效能 (OLTP) 比較** ![][12]
 
 **測試命令：**
 
@@ -293,8 +290,7 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 請注意，這項測試所使用的檔案大小分別為 30 GB 和 1 GB，搭配 RAID 0 (4 磁碟) XFS fie 系統。
 
 
-<a name="AppendixD"></a>附錄 D：**最佳化之前和之後的 MySQL 效能 (輸送量) 比較**  
-(XFS檔案系統)
+<a name="AppendixD"></a>附錄 D：**最佳化之前和之後的 MySQL 效能 (輸送量) 比較** (XFS檔案系統)
 
   
 ![][14]
@@ -305,18 +301,18 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 
 **預設值與最佳化的組態設定如下所示：**
 
-|參數 |預設值	|optmization
+|參數 |預設值 |optmization
 |-----------|-----------|-----------
-|**innodb_buffer_pool_size**	|None	|7G
-|**innodb_log_file_size**	|5M	|512M
-|**max_connections**	|100	|5000
-|**innodb_file_per_table**	|0	|1
-|**innodb_flush_log_at_trx_commit**	|1 |2
-|**innodb_log_buffer_size**	|8M	|128M
-|**query_cache_size**	|16M	|0
+|**innodb_buffer_pool_size** |None |7G
+|**innodb_log_file_size** |5M |512M
+|**max_connections** |100 |5000
+|**innodb_file_per_table** |0 |1
+|**innodb_flush_log_at_trx_commit** |1 |2
+|**innodb_log_buffer_size** |8M |128M
+|**query_cache_size** |16M |0
 
 
-如需更詳細的最佳化設定參數，請參閱 mysql 官方指示。  
+如需更詳細的最佳化設定參數，請參閱 mysql 官方指示。
 
 [http://dev.mysql.com/doc/refman/5.6/en/innodb-configuration.html](http://dev.mysql.com/doc/refman/5.6/en/innodb-configuration.html)
 
@@ -324,12 +320,12 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 
 **測試環境**
 
-|硬體	|詳細資料
+|硬體 |詳細資料
 |-----------|-------
-|CPU	|AMD Opteron(tm) 處理器 4171 HE/4 核心
-|記憶體	|14G
-|disk	|10G/磁碟
-|作業系統	|Ubuntu 14.04.1 LTS
+|CPU |AMD Opteron(tm) 處理器 4171 HE/4 核心
+|記憶體 |14G
+|disk |10G/磁碟
+|作業系統 |Ubuntu 14.04.1 LTS
 
 
 
@@ -347,5 +343,6 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 [12]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-12.png
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
+ 
 
-<!----HONumber=58--> 
+<!---HONumber=July15_HO1-->

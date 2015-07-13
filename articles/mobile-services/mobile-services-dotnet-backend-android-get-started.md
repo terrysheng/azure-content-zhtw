@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/13/2015" 
+	ms.date="05/13/2015" 
 	ms.author="ricksal"/>
 
 
@@ -46,19 +46,15 @@
 
 您已建立行動服務，接著請下載可在您的本機電腦或虛擬機器上執行的個人化行動服務專案。
 
-1. 按一下您剛剛建立的行動服務，然後在 [快速入門] 索引標籤中，按一下 [選擇平台]**** 下的 [Android]****，並展開 [Create a new Android app]****。
+1. 按一下您剛剛建立的行動服務，然後在 [快速入門] 索引標籤中，按一下 [選擇平台] 下的 [Android]，並展開 [Create a new Android app]。
 
 	![][1]
 
 2. 下載並安裝 [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) 或更新版本 (若您尚未這麼做)。
 
-3. 在步驟 2 中，按一下 [下載您的服務並發佈至雲端] ****下的 [下載]****。
+3. 在步驟 2 中，按一下 [下載您的服務並發佈至雲端] 下的 [下載]。
 
 	這會下載實作行動服務的 Visual Studio 專案。請將壓縮的專案檔案儲存至本機電腦，並記下儲存位置。
-
-<!--
-4. Also, download your publish profile, save the downloaded file to your local computer, and make a note of where you save it.
--->
 
 ## 測試行動服務
 
@@ -72,26 +68,24 @@
 
 在本節中，您將建立與行動服務連線的新 Android 應用程式。
 
-1. 在[管理入口網站]中，按一下 [行動服務]****，然後按一下您剛剛建立的行動服務。
+1. 在[管理入口網站]中，按一下 [行動服務]，然後按一下您剛剛建立的行動服務。
 
-2. 在快速入門索引標籤中，按一下 [Choose platform]**** 下的 [Android]****，並展開 [Create a new Android app]****。
+2. 在快速入門索引標籤中，按一下 [Choose platform] 下的 [Android]，並展開 [Create a new Android app]。
  
 	![][2]
 
 3. 如果您尚未這麼做，請在您的本機電腦或虛擬機器下載並安裝 [Android Developer Tools][Android SDK]。
 
-4. 在 [Download and run your app]**** 下，按 [下載]****。
+4. 在 [Download and run your app] 下，按 [下載]。
 
   	這將會下載與行動服務連接的範例_待辦事項_應用程式專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
 
 ## 執行您的 Android 應用程式
 
-[WACOM.INCLUDE [mobile-services-run-your-app](mobile-services-android-get-started.md)]
+[AZURE.INCLUDE [mobile-services-run-your-app](../../includes/mobile-services-android-get-started.md)]
 
 ## <a name="next-steps"> </a>後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
-
-* [開始使用資料] <br/>深入了解使用行動服務來儲存與查詢資料。
 
 * [開始使用驗證] <br/>了解如何向身分識別提供者驗證應用程式的使用者。
 
@@ -124,7 +118,7 @@
 
 <!-- URLs. -->
 [開始使用 (Eclipse)]: mobile-services-dotnet-backend-android-get-started-EC.md
-[開始使用資料]: mobile-services-dotnet-backend-android-get-started-data.md
+[Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
 [開始使用驗證]: mobile-services-dotnet-backend-android-get-started-users.md
 [開始使用推播通知]: mobile-services-dotnet-backend-android-get-started-push.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
@@ -133,5 +127,6 @@
 [行動服務 .NET 後端疑難排解]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 [管理入口網站]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -174,5 +174,6 @@
 	![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtyprivatekey.png)
 
 5.	按一下 [開啟] 以連線到虛擬機器。
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

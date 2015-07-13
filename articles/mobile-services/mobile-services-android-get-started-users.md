@@ -13,19 +13,22 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="06/01/2015" 
 	ms.author="ricksal"/>
 
-# 在您的行動服務應用程式中新增驗證
+# 將驗證加入至行動服務 Android 應用程式
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+
+## 摘要
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-## 摘要
+
 
 <p>本主題顯示如何在 Azure 行動服務中從應用程式驗證使用者。在本教學課程中，您將使用行動服務支援的身分識別提供者，將驗證加入至快速入門專案。由行動服務成功驗證並授權之後，就會顯示使用者識別碼值。</p>
+
 </div>
 
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="label">觀看教學課程</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-authentication-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">播放影片</span></a><span class="time">10:42</span></div>
@@ -38,33 +41,33 @@
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
-<h2><a name="register"></a>註冊您的應用程式以驗證與設定行動服務</h2>
+## 註冊您的應用程式以驗證與設定行動服務
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-<h2><a name="permissions"></a> 限制只有經驗證的使用者具有權限</h2>
+## 限制只有通過驗證的使用者具有權限
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-3. 在 Android Studio 中，開啟您完成[開始使用行動服務]教學課程時所建立的專案。 
+1. 在 Android Studio 中，開啟您完成[開始使用行動服務]教學課程時所建立的專案。 
 
-4. 在 [執行]**** 功能表中，按一下 [執行應用程式]****。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。
+2. 在 [執行] 功能表中，按一下 [執行應用程式]。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。
 
 	 這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 _TodoItem_ 資料表現在需要驗證。
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
-<h2><a name="add-authentication"></a>將驗證新增至應用程式</h2>
+## 將驗證新增至應用程式
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app](../../includes/mobile-services-android-authenticate-app.md)]
 
 ## <a name="cache-tokens"></a>在用戶端快取驗證權杖
 
-[AZURE.INCLUDE [mobile-services-android-authenticate-app-with-token](../../includes/mobile-services-android-authenticate-app-with-token.md)] 
+[AZURE.INCLUDE [mobile-services-android-authenticate-app-with-token](../../includes/mobile-services-android-authenticate-app-with-token.md)]
 
 ## <a name="refresh-tokens"></a>重新整理權杖快取
 
-[AZURE.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../../includes/mobile-services-android-authenticate-app-refresh-token.md)] 
+[AZURE.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../../includes/mobile-services-android-authenticate-app-refresh-token.md)]
 
 
 
@@ -112,5 +115,6 @@
 [使用指令碼授權使用者]: /develop/mobile/tutorials/authorize-users-in-scripts-android
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

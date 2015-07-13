@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="如何使用 Azure 服務管理 API (PHP)" 
-	description="了解如何使用 Azure PHP 服務管理 API 來管理雲端服務和其他 Azure 應用程式。" 
-	services="web-sites" 
-	documentationCenter="php" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="如何使用 Azure 服務管理 API (PHP)"
+	description="了解如何使用 Azure PHP 服務管理 API 來管理雲端服務和其他 Azure 應用程式。"
+	services="web-sites"
+	documentationCenter="php"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="11/17/2014" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="PHP"
+	ms.topic="article"
+	ms.date="11/17/2014"
 	ms.author="tomfitz"/>
 
 # 如何從 PHP 使用服務管理
@@ -26,7 +26,7 @@
 若要使用服務管理 API，您必須[建立 Azure 帳號][win-azure-account]。
 
 ## 概念
-Azure SDK for PHP 會包裝 [Azure 服務管理 API][svc-mgmt-rest-api] (其為 REST API)。所有 API 作業都會透過 SSL 而執行，並可使用 X.509 v3 憑證相互驗證。管理服務可從執行於 Azure 的服務內存取，或直接透過網際網路，從任何可傳送 HTTPS 要求和接收 HTTPS 回應的應用程式存取。
+Azure SDK for PHP 會包裝 [Azure 服務管理 API][svc-mgmt-rest-api] (其為 REST API)。所有 API 作業都是透過 SSL 所執行，而且使用 X.509 v3 憑證進行互相驗證。管理服務可從執行於 Azure 的服務內存取，或直接透過網際網路，從任何可傳送 HTTPS 要求和接收 HTTPS 回應的應用程式存取。
 
 ## 建立 PHP 應用程式
 
@@ -52,14 +52,14 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API][svc-mgmt-rest-api] (其為 
 
 如需 Azure 憑證的詳細資訊，請參閱 [Azure 憑證的概觀](http://msdn.microsoft.com/library/azure/gg981929.aspx)。如需 OpenSSL 參數的完整說明，請參閱 [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html) 上的文件。
 
-如果您已使用[Azure 命令列工具][command-line-tools]下載並匯入發行設定檔案，則可使用工具建立的 `.pem` 檔案，而不是建立您自己的檔案。工具會建立 `.cer` 並將它上傳至 Azure，而且它們會將對應的 `.pem` 檔案放到電腦的 `.azure` 目錄 (位於您的 user 目錄) 中。
+如果您已使用 [Azure 命令列介面][Azure CLI]下載並匯入發佈設定檔案，則可使用工具建立的 `.pem` 檔案，而不是建立您自己的檔案。工具會建立 `.cer` 並將它上傳至 Azure，而且它們會將對應的 `.pem` 檔案放到電腦的 `.azure` 目錄 (位於您的 user 目錄) 中。
 
 建立這些檔案之後，需要透過[管理入口網站][management-portal]將 `.cer` 檔案上傳至 Azure，而且需要記下 `.pem` 檔案的儲存位置。
 
 取得訂閱識別碼、建立憑證並將 `.cer` 檔案上傳至 Azure 之後，就可以建立連接字串並將它傳送至 **ServicesBuilder** 類別上的 **createServiceManagementService** 方法，以連接到 Azure 管理端點：
 
 	require_once 'vendor\autoload.php';
-	
+
 	use WindowsAzure\Common\ServicesBuilder;
 
 	$conn_string = "SubscriptionID=<your_subscription_id>;CertificatePath=<path_to_.pem_certificate>";
@@ -79,9 +79,9 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API][svc-mgmt-rest-api] (其為 
 
 	try{
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-	
+
 		$result = $serviceManagementRestProxy->listLocations();
-	
+
 		$locations = $result->getLocations();
 
 		foreach($locations as $location){
@@ -90,32 +90,32 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API][svc-mgmt-rest-api] (其為 
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-在建立雲端服務、儲存服務或親和性群組時，您必須提供有效位置。**listLocations** 方法一律會傳回最新的目前可用位置清單。截至本文撰寫時間為止，可用位置如下：
+在建立雲端服務、儲存服務或親和性群組時，您必須提供有效位置。**listLocations** 方法一律會傳回最新的目前可用位置清單。撰寫這份文件時，可用位置如下：
 
-- 美國任何地方 
-- 歐洲任何地方 
-- 西歐 
-- 亞洲任何地方 
-- 東南亞 
-- 東亞 
-- 美國中北部 
-- 北歐 
-- 美國中南部 
-- 美國西部 
+- 美國任何地方
+- 歐洲任何地方
+- 西歐
+- 亞洲任何地方
+- 東南亞
+- 東亞
+- 美國中北部
+- 北歐
+- 美國中南部
+- 美國西部
 - 美國東部
 
-在下面的程式碼範例中，以字串形式將位置傳遞給方法。不過，您也可以使用 <code>WindowsAzure\\ServiceManagement\\Models\\Locations</code> 類別，以列舉形式傳遞位置。例如，您可以傳遞 <code>Locations::WEST_US</code>，而不是將「美國西部」傳遞給接受位置的方法。
+在下面的程式碼範例中，以字串形式將位置傳遞給方法。不過，您也可以使用 <code>WindowsAzure\ServiceManagement\Models\Locations</code> 類別，以列舉形式傳遞位置。例如，您可以傳遞 <code>Locations::WEST_US</code>，而不是將「美國西部」傳遞給接受位置的方法。
 
 ## 作法：建立雲端服務
 
-當您建立應用程式並在 Azure 中執行它時，其程式碼和組態併稱為 Azure [雲端服務] (在舊版 Azure 中，稱為*託管服務* )。**createHostedServices** 方法可讓您透過提供託管服務名稱 (在 Azure 中必須是唯一的)、標籤 (Base 64 編碼託管服務名稱) 和 **CreateServiceOptions** 物件，來建立新的託管服務。[CreateServiceOptions] 物件可讓您設定服務的位置「或」**同質群組。
+當您建立應用程式並在 Azure 中執行它時，其程式碼和組態併稱為 Azure [雲端服務] (在舊版 Azure 中，稱為*託管服務* )。**createHostedServices** 方法可讓您透過提供託管服務名稱 (在 Azure 中必須是唯一的)、標籤 (Base 64 編碼託管服務名稱) 和 **CreateServiceOptions** 物件，來建立新的託管服務。[CreateServiceOptions] 物件可讓您設定服務的位置「或」同質群組。
 
 	require_once 'vendor\autoload.php';
 
@@ -126,7 +126,7 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API][svc-mgmt-rest-api] (其為 
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "myhostedservice";
         $label = base64_encode($name);
         $options = new CreateServiceOptions();
@@ -138,7 +138,7 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API][svc-mgmt-rest-api] (其為 
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -162,9 +162,9 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API][svc-mgmt-rest-api] (其為 
 如果您想要取得特定託管服務的相關資訊，則可以將託管服務名稱傳遞給 **getHostedServiceProperties** 方法：
 
 	$getHostedServicePropertiesResult = $serviceManagementRestProxy->getHostedServiceProperties("myhostedservice");
-		
+
 	$hosted_service = $getHostedServicePropertiesResult->getHostedService();
-		
+
 	echo "Service name: ".$hosted_service->getName()."<br />";
 	echo "Management URL: ".$hosted_service->getUrl()."<br />";
 	echo "Affinity group: ".$hosted_service->getAffinityGroup()."<br />";
@@ -203,7 +203,7 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API][svc-mgmt-rest-api] (其為 
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "myhostedservice";
 		$deploymentName = "v1";
         $slot = DeploymentSlot::PRODUCTION;
@@ -217,13 +217,13 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API][svc-mgmt-rest-api] (其為 
 														 $packageUrl,
 														 $configuration,
 														 $label);
-		
+
 		$status = $serviceManagementRestProxy->getOperationStatus($result);
 		echo "Operation status: ".$status->getStatus()."<br />";
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -236,7 +236,7 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API][svc-mgmt-rest-api] (其為 
 
 	$options = new GetDeploymentOptions();
 	$options->setSlot(DeploymentSlot::PRODUCTION);
-		
+
 	$getDeploymentResult = $serviceManagementRestProxy->getDeployment("myhostedservice", $options);
 	$deployment = $getDeploymentResult->getDeployment();
 
@@ -268,20 +268,20 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API][svc-mgmt-rest-api] (其為 
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "myhostedservice";
 		$configuration = base64_encode(file_get_contents('path to .cscfg file'));
 		$options = new ChangeDeploymentConfigurationOptions();
 		$options->setSlot(DeploymentSlot::PRODUCTION);
 
         $result = $serviceManagementRestProxy->changeDeploymentConfiguration($name, $configuration, $options);
-		
+
 		$status = $serviceManagementRestProxy->getOperationStatus($result);
 		echo "Operation status: ".$status->getStatus()."<br />";
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -299,19 +299,19 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API][svc-mgmt-rest-api] (其為 
 	use WindowsAzure\ServiceManagement\Models\DeploymentSlot;
 	use WindowsAzure\ServiceManagement\Models\GetDeploymentOptions;
 	use WindowsAzure\Common\ServiceException;
-	
+
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
 		$options = new GetDeploymentOptions();
 		$options->setSlot(DeploymentSlot::PRODUCTION);
-		
+
         $result = $serviceManagementRestProxy->updateDeploymentStatus("myhostedservice", DeploymentStatus::RUNNING, $options);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -324,7 +324,7 @@ Azure 提供兩個部署環境：預備和生產。一般而言，將服務部�
 
 下列範例示範如何使用 **swapDeployment** 方法來交換兩個部署 (部署名稱為 `v1` 和 `v2`)。在此範例中，呼叫 **swapDeployment** 之前，部署 `v1` 位於生產位置中，而部署 `v2` 位於預備位置中。呼叫 **swapDeployment** 之後，`v2` 位於生產位置中，而 `v1` 位於預備位置中。
 
-	require_once 'vendor\autoload.php';	
+	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
@@ -332,12 +332,12 @@ Azure 提供兩個部署環境：預備和生產。一般而言，將服務部�
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
 		$result = $serviceManagementRestProxy->swapDeployment("myhostedservice", "v2", "v1");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -358,15 +358,15 @@ Azure 提供兩個部署環境：預備和生產。一般而言，將服務部�
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
 		$options = new GetDeploymentOptions();
 		$options->setSlot(DeploymentSlot::STAGING);
-		
+
 		$result = $serviceManagementRestProxy->deleteDeployment("myhostedservice", $options);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -378,16 +378,16 @@ Azure 提供兩個部署環境：預備和生產。一般而言，將服務部�
 [儲存體服務]可讓您存取 Azure [Blob][azure-blobs]、[資料表][azure-tables]和[佇列][azure-queues]。若要建立儲存體服務，您需要服務的名稱 (3 到 24 個小寫字元，而且在 Azure 內是唯一的)、標籤 (服務的 Base 64 編碼名稱，最多 100 個字元)，以及位置或同質群組。提供服務的說明是選用作業。位置、同質群組和說明設定於 [CreateServiceOptions] 物件中，這會傳遞給 **createStorageService** 方法。下列範例顯示如何指定位置來建立儲存體服務。如果您想要使用同質群組，則需要先建立同質群組 (請參閱[作法：建立同質群組](#CreateAffinityGroup))，並使用 **CreateServiceOptions->setAffinityGroup** 方法加以設定。
 
 	require_once 'vendor\autoload.php';
-	 
+
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\ServiceManagement\Models\CreateServiceOptions;
 	use WindowsAzure\Common\ServiceException;
-	 
-	 
+
+
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "mystorageaccount";
         $label = base64_encode($name);
         $options = new CreateServiceOptions();
@@ -401,7 +401,7 @@ Azure 提供兩個部署環境：預備和生產。一般而言，將服務部�
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -430,19 +430,19 @@ Azure 提供兩個部署環境：預備和生產。一般而言，將服務部�
 您可以將儲存體服務名稱傳遞給 **deleteStorageService** 方法，以刪除儲存體服務。刪除儲存服務時，將同時刪除該服務中儲存的所有資料 (Blob、資料表和佇列)。
 
 	require_once 'vendor\autoload.php';
-	
+
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
 		$serviceManagementRestProxy->deleteStorageService("mystorageservice");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -456,27 +456,27 @@ Azure 提供兩個部署環境：預備和生產。一般而言，將服務部�
 若要建立同質群組，您需要名稱、標籤 (Base 64 編碼名稱) 和位置。您可以選擇性地提供描述：
 
 	require_once 'vendor\autoload.php';
-	
+
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\ServiceManagement\Models\CreateAffinityGroupOptions;
 	use WindowsAzure\Common\ServiceException;
-	 
+
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "myAffinityGroup";
         $label = base64_encode($name);
         $location = "West US";
 
         $options = new CreateAffinityGroupOptions();
 		$options->setDescription = "My affinity group description.";
-		
+
         $serviceManagementRestProxy->createAffinityGroup($name, $label, $location, $options);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -488,7 +488,7 @@ Azure 提供兩個部署環境：預備和生產。一般而言，將服務部�
 呼叫 **listAffinityGroups** 方法，然後在 [AffinityGroup] 類別上呼叫適當的方法，就可以列出同質群組並檢查其屬性：
 
 	$result = $serviceManagementRestProxy->listAffinityGroups();
-	
+
 	$groups = $result->getAffinityGroups();
 
 	foreach($groups as $group){
@@ -499,31 +499,33 @@ Azure 提供兩個部署環境：預備和生產。一般而言，將服務部�
 	}
 
 ## 作法：刪除同質群組
-	
+
 您可以將群組名稱傳遞給 **deleteAffinityGroup** 方法，以刪除同質群組。請注意，必須先中斷同質群組與任何服務的關聯 (或必須刪除使用同質群組的服務)，再刪除同質群組。
 
 	require_once 'vendor\autoload.php';
-	
+
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
-		// An affinity group must be disassociated from all services 
+
+		// An affinity group must be disassociated from all services
 		// before it can be deleted.
 		$serviceManagementRestProxy->deleteAffinityGroup("myAffinityGroup");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
+
 [ServiceManagementRestProxy]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementRestProxy.php
+
 [Azure SDK for PHP]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementRestProxy.php
 [management-portal]: https://manage.windowsazure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
@@ -531,7 +533,7 @@ Azure 提供兩個部署環境：預備和生產。一般而言，將服務部�
 [storage-account]: storage/storage-create-storage-account.md
 
 [download-SDK-PHP]: php-download-sdk.md
-[command-line-tools]: virtual-machines-command-line-tools.md
+[Azure CLI]: virtual-machines/virtual-machines-command-line-tools.md
 [Composer]: http://getcomposer.org/
 [ServiceManagementSettings]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementSettings.php
 
@@ -556,4 +558,4 @@ Azure 提供兩個部署環境：預備和生產。一般而言，將服務部�
 
 [Azure 服務組態結構描述 (.cscfg 檔)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 
-<!--HONumber=54-->
+<!---HONumber=July15_HO1-->

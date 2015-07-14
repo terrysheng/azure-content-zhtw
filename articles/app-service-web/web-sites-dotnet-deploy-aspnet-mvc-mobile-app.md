@@ -262,7 +262,7 @@ Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊�
 
 ![][AllSpeakersFixedDesktop]
 
-雖然已經改善行動瀏覽器檢視，但要瀏覽冗長的演講者清單還是很不方便。Bootstrap 並沒有現成的搜尋篩選功能，但您可以用數行程式碼來新增此功能。首先要先將搜尋方塊新增至檢視，然後與 JavaScript 程式碼連結，以取得篩選功能。在 *Views\Home\AllSpeakers.cshtml* 中，在 <h2> 標籤後面加入 <form> 標籤，如下所示：
+雖然已經改善行動瀏覽器檢視，但要瀏覽冗長的演講者清單還是很不方便。Bootstrap 並沒有現成的搜尋篩選功能，但您可以用數行程式碼來新增此功能。首先要先將搜尋方塊新增至檢視，然後與 JavaScript 程式碼連結，以取得篩選功能。在 *Views\Home\AllSpeakers.cshtml* 中，在 \<h2\> 標籤後面加入 \<form\> 標籤，如下所示：
 
     @model IEnumerable<string>
 

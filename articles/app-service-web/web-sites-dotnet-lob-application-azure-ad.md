@@ -67,7 +67,7 @@
 
 2.	依照 [README.md](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/master/README.md) 的指示設定 Azure Active Directory 應用程式和專案。
 
-	> [AZURE.NOTE]在 Azure Active Directory 應用程式中設定的權限只需要「使用者」<strong></strong>角色，而不需要「全域管理員」。
+	> [AZURE.NOTE]在 Azure Active Directory 應用程式中設定的權限只需要<strong>使用者</strong>角色，而不需要**全域管理員**。
 	
 3.	完成應用程式設定後，按 `F5` 執行應用程式。
 
@@ -83,7 +83,12 @@
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png)
 
-	> [AZURE.NOTE]在 Views\Roles\Index.cshtml 中，您將看到使用稱為 <code>AadPicker</code> 物件 (定義在 Scripts\AadPickerLibrary.js) 的檢視，存取 <code>Roles</code> 控制器中的 <code>Search</code> 動作。<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>"; ... var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre> 在 Controllers\RolesController.cs 中，您將看到 <code>Search</code> 動作，其會將實際要求傳送至 Azure Active Directory 圖形 API，並將回應傳田至頁面。稍後您將使用相同的方法，在您的應用程式中建立簡單的功能。
+	> [AZURE.NOTE]在 Views\Roles\Index.cshtml 中，您將看到檢視使用稱為 <code>AadPicker</code> 的物件 (定義在 Scripts\AadPickerLibrary.js)，存取<code>角色</code>控制器中的<code>搜尋</code>動作。
+		<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>";
+	 ...
+    var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre>
+		在 Controllers\RolesController.cs 中，您將看到<code>搜尋</code>動作，其會將實際要求傳送至 Azure Active Directory 圖形 API，並將回應傳田至頁面。
+		稍後您將使用相同的方法，在您的應用程式中建立簡單的功能。
 
 6.	從下拉式清單中選取使用者或群組，選取角色，然後按一下 [指派角色]。
 
@@ -247,9 +252,13 @@ public class WorkItemsController : Controller
     <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
     public async Task&lt;ActionResult> DeleteConfirmed(int id)
     ...
-}</pre>由於您負責 Roles 控制器中的角色對應，因此您只需要確定每個動作都授權適當的角色。
+	}</pre>
+	由於您負責 Roles 控制器中的角色對應，因此您只需要確定每個動作都授權適當的角色。
 
-	> [AZURE.NOTE]您可能已經注意到某些動作上的 <code>[ValidateAntiForgeryToken]</code> 裝飾。由於 [Brock Allen](https://twitter.com/BrockLAllen) 在 [MVC 4、AntiForgeryToken 和宣告](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) 所描述的行為，HTTP POST 可能無法執行防偽語彙基元驗證，因為：+ Azure Active Directory 不會傳送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider，依預設防偽語彙基元需要此項。+ 如果 Azure Active Directory 是與 AD FS 進行同步處理的目錄，依預設 AD FS 信任不會傳送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 宣告，但是您可以手動設定 AD FS 來傳送此宣告。您會在下一步這麼做。
+	> [AZURE.NOTE]您可能已經注意到某些動作上的 <code>[ValidateAntiForgeryToken]</code> 裝飾。由於 [Brock Allen](https://twitter.com/BrockLAllen) 在 [MVC 4、AntiForgeryToken 和宣告](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) 所描述的行為，HTTP POST 可能無法執行防偽語彙基元驗證，因為：
+	> + Azure Active Directory 不會傳送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider，依預設防偽語彙基元需要此項。
+	> + 如果 Azure Active Directory 是與 AD FS 進行同步處理的目錄，依預設 AD FS 信任不會傳送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 宣告，但是您可以手動設定 AD FS 來傳送此宣告。
+	> 您會在下一步這麼做。
 
 12.  在 App_Start\Startup.Auth.cs 中，在 `ConfigureAuth` 方法中加入下行程式碼：
 
@@ -257,7 +266,9 @@ public class WorkItemsController : Controller
 	
 	`ClaimTypes.NameIdentifies` 指定宣告 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`，而 Azure Active Directory 確實會提供此宣告。既然您已完成授權處理 (說真的，不會太久)，您可以投入時間來執行實際的功能。
 
-13.	In Create() and Edit() add following code to make some variables available to your JavaScript later: ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value); ViewData["tenant"] = ConfigHelper.Tenant;
+13.	在 Create() 和 Edit() 中，加入下列程式碼，讓某些變數稍後可供 JavaScript 使用：
+            ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value);
+            ViewData["tenant"] = ConfigHelper.Tenant；
 
 14.	在 Views\WorkItems\Create.cshtml (自動建構的項目) 中尋找 `Html.BeginForm` Helper 方法，並如下所示修改它：
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
@@ -308,7 +319,7 @@ public class WorkItemsController : Controller
     &lt;/div>
 
     <mark>&lt;script>
-            // 人員/群組選擇器程式碼
+	            // 人員/群組選擇器程式碼
             var maxResultsPerPage = 14;
             var searchUrl = window.location.protocol + "//" + window.location.host + "/Roles/Search";
             var input = document.getElementById("AssignedToName");
@@ -317,15 +328,16 @@ public class WorkItemsController : Controller
 
             var picker = new AadPicker(searchUrl, maxResultsPerPage, input, token, tenant);
 
-            // 送出要指派的所選使用者/群組。
+	            // 送出要指派的所選使用者/群組。
             $("#submit-button").click({ picker: picker }, function () {
                 if (!picker.Selected())
                     return;
                 $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
             });
     &lt;/script></mark>
+	}</pre>
 
-}</pre>在指令碼中，AadPicker 物件會為符合輸入的 Azure Active Directory 使用者和群組搜尋 `~/Roles/Search` 動作。然後，按一下 [提交] 按鈕時，AadPicker 物件會將使用者識別碼儲存到隱藏的 `AssignedToID` 欄位。
+	在指令碼中，AadPicker 物件會為符合輸入的 Azure Active Directory 使用者和群組搜尋 `~/Roles/Search` 動作。然後，按一下 [提交] 按鈕時，AadPicker 物件會將使用者識別碼儲存到隱藏的 `AssignedToID` 欄位。  
 
 15. 現在請在 Visual Studio 偵錯工具中執行應用程式，或是發行至 Azure 應用程式服務 Web 應用程式。以應用程式擁有者身分登入，並瀏覽至 `~/WorkItems/Create`。從我已發佈的特定業務應用程式中，瀏覽到 `https://mylobapp.azurewebsites.net/WorkItems/Create`。您現在會發現：您可以使用同一個 AadPicker 搜尋篩選器來挑選 Azure Active Directory 使用者。
 
@@ -362,4 +374,4 @@ public class WorkItemsController : Controller
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

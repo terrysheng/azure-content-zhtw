@@ -36,7 +36,8 @@
 **Framework 版本**。如果您的應用程式使用下列任何 Framework，請設定下列選項：
 
 - **.NET Framework**：設定 .NET framework 版本。 
-- **PHP**：設定 PHP 版本，或設為 **[關閉] **以停用 PHP。- **Java**：選取 Java 版本，或設為 [**關閉**] 以停用 Java 。使用 [**Web 容器**] 選項來選擇 Tomcat 或 Jetty 版本。
+- **PHP**：設定 PHP 版本，或設為 **[關閉] **以停用 PHP。
+- **Java**：選取 Java 版本，或設為 [**關閉**] 以停用 Java 。使用 [**Web 容器**] 選項來選擇 Tomcat 或 Jetty 版本。
 - **Python**：選取 Python 版本，或設為 [**關閉**] 以停用 Python.
 
 在技術上，針對您的應用程式啟用 Java 就會停用 .NET、PHP 與 Python 選項。
@@ -174,4 +175,4 @@ Web 應用程式可能會使用根據 URL 路由傳送的模組，而非處理�
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

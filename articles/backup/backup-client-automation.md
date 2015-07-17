@@ -56,7 +56,16 @@ PS C:\> MARSAgentInstaller.exe /?
 
 | 選項 | 詳細資料 | 預設值 |
 | ---- | ----- | ----- |
-| /q | 無訊息安裝 | - | | /p:"location" | Azure 備份代理程式的安裝資料夾路徑。 | C:\Program Files\Microsoft Azure Recovery Services Agent | | /s:"location" | Azure 備份代理程式的快取資料夾路徑。 | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch | | /m | 選擇加入 Microsoft Update | - | | /nu | 安裝完成後不要檢查更新 | - | | /d | 解除安裝 Microsoft Azure 復原服務代理程式 | - | | /ph | Proxy 主機位址 | - | | /po | Proxy 主機連接埠號碼 | - | | /pu | Proxy 主機使用者名稱 | - | | /pw | Proxy 密碼 | - |
+| /q | 無訊息安裝 | - |
+| /p:"location" | Azure 備份代理程式的安裝資料夾路徑。 | C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"location" | Azure 備份代理程式的快取資料夾路徑。 | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /m | 選擇加入 Microsoft Update | - |
+| /nu | 安裝完成後不要檢查更新 | - |
+| /d | 解除安裝 Microsoft Azure 復原服務代理程式 | - |
+| /ph | Proxy 主機位址 | - |
+| /po | Proxy 主機連接埠號碼 | - |
+| /pu | Proxy 主機使用者名稱 | - |
+| /pw | Proxy 密碼 | - |
 
 
 ### 向 Azure 備份服務進行註冊

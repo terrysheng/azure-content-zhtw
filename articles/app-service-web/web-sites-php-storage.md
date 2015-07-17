@@ -41,7 +41,8 @@
 
 1. [安裝 Git][install-git]
 
-	> [AZURE.NOTE]在 Windows 中，您也需要將 Git 可執行檔新增至 PATH 環境變數。
+	> [AZURE.NOTE]
+	> 在 Windows 中，您也需要將 Git 可執行檔新增至 PATH 環境變數。
 
 2. 在專案的根目錄中建立名為 **composer.json** 的檔案，並新增下列程式碼：
 

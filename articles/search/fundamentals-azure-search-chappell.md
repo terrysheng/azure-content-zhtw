@@ -40,5 +40,6 @@
 **下載次數：**
 
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">「Azure 搜尋簡介」(PDF 檔案)</a>
-* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">「Azure 搜尋簡介」(Microsoft Word 檔案)</a> <!--HONumber=52-->
+* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">「Azure 搜尋簡介」(Microsoft Word 檔案)</a> 
+<!--HONumber=52-->
  

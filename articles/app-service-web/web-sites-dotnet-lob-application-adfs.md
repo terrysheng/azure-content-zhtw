@@ -97,14 +97,15 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
   &lt;add key="webpages:Enabled" value="false" />
   &lt;add key="ClientValidationEnabled" value="true" />
   &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
-  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
+	  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
   <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
   <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
-  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
-  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
+	  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
+	  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
 
 &lt;/appSettings>
-</pre>根據您的對應環境填寫索引鍵值。
+	</pre>
+	根據您的對應環境填寫索引鍵值。
 
 7.	建置應用程式，確定沒有任何錯誤。
 
@@ -283,7 +284,14 @@ public ActionResult Contact()
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	如果您在 AD FS 伺服器的事件檢視器中調查此錯誤，您會看到這則例外狀況訊息：<pre class="prettyprint"> Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made '6' requests in the last '11' seconds.</mark> Contact your administrator for details. at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) </pre>
+	如果您在 AD FS 伺服器的事件檢視器中調查此錯誤，您會看到這則例外狀況訊息：
+	<pre class="prettyprint">
+	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made '6' requests in the last '11' seconds.</mark> Contact your administrator for details.
+	   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) 
+	   at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) 
+	</pre>
 
 	發生這種情況的原因是，在未授權使用者的角色時，MVC 預設會傳回「401 未授權」。這樣會針對您的身分識別提供者 (AD FS) 觸發重新驗證要求。因為使用者已通過驗證，AD FS 會返回相同的頁面，然後發出另一個 401，從而建立重新導向迴圈。您會使用簡單的邏輯來覆寫 AuthorizeAttribute 的 `HandleUnauthorizedRequest` 方法，從而顯示有意義的資訊而非持續出現重新導向迴圈。
 

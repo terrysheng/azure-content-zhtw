@@ -48,13 +48,13 @@
 如果您已對 Azure 市集有一定的了解，請從本節著手快速開始。否則，請繼續前往到底下的[佈建資料庫][provision]。
 
 1. 按一下 [新增] > [Markeplace] 來開啟 Azure Marketplace。  
-<!--- ![Store][button-store] -->
+	<!--- ![Store][button-store] -->
 2. 按一下 **MongoLab** 附加元件。  
-![MongoLab][entry-mongolab]
+	![MongoLab][entry-mongolab]
 3. 在 [附加元件] 清單中按一下您的 **MongoLab** 附加元件，然後按一下 [連線資訊]。  
-![ConnectionInfoButton][button-connectioninfo]  
+	![ConnectionInfoButton][button-connectioninfo]  
 4. 將 **MONGOLAB_URI** 複製到剪貼簿。  
-![ConnectionInfoScreen][screen-connectioninfo]
+	![ConnectionInfoScreen][screen-connectioninfo]
 
 	>[AZURE.NOTE]此 URI 包含您的資料庫使用者名稱和密碼。這是機密資訊，請勿洩露。
 
@@ -448,13 +448,14 @@
 
 在 Azure App Service 中建立 Web 應用程式非常簡單。如果這是您的第一個 Azure Web 應用程式，您必須使用入口網站。如果您已有至少一個網站，請直接跳至步驟 7。
 
-1. 在 Azure 入口網站，按一下 [新增]。![新增][button-new]
-2. 選取 [運算] > [Web 應用程式] > [快速建立]。
-<!--- ![Create Web App][screen-mongolab-newwebsite] -->
+1. 在 Azure 入口網站，按一下 [新增]。  
+	![新增][button-new]
+2. 選取 [運算] > [Web 應用程式] > [快速建立]。  
+	<!--- ![Create Web App][screen-mongolab-newwebsite] -->
 3. 輸入 URL 前置詞。選擇您喜愛的名稱，但記住一定要獨一無二 (很可能無法使用 'mymongoapp')。
 4. 按一下 [建立 Web 應用程式]。
-5. 當 Web 應用程式建立完成，按一下 [Web 應用程式] 清單中的 Web 應用程式名稱。Web 應用程式儀表板隨即顯示。
-<!--- ![Web App Dashboard][screen-mongolab-websitedashboard] -->
+5. 當 Web 應用程式建立完成，按一下 [Web 應用程式] 清單中的 Web 應用程式名稱。Web 應用程式儀表板隨即顯示。  
+	<!--- ![Web App Dashboard][screen-mongolab-websitedashboard] -->
 6. 按一下 [快速概覽] 下的 [設定從原始檔控制進行部署]，選取 GitHub，並輸入您要使用的 git 使用者名稱和密碼。要發佈至您的 Web 應用程式時將使用這個密碼 (步驟 9)。  
 7. 如果您以上述步驟建立 Web 應用程式，以下命令將會完成此程序。不過，若您已有多個 Web 應用程式，可以跳過以上步驟，同樣使用此命令建立新的 Web 應用程式。在您的 **tasklist** 專案目錄中：
 
@@ -573,4 +574,4 @@
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!----HONumber=62-->
+<!-----HONumber=62-->

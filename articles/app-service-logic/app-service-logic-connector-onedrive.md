@@ -52,7 +52,8 @@ OneDrive 連接器可讓您從 OneDrive 帳戶上傳\下載\刪除檔案。
 	![][2]
 4.	您可以在 [OneDrive 連接器] 上按一下來將 OneDrive 連接器 API 應用程式置入編輯器。按一下 [授權] 按鈕。提供您的 Microsoft 認證 (若未自動登入)。按一 [是] 來允許存取。
 
-	![][3] ![][4]
+	![][3]
+	![][4]
 
 5.	您現在便可以在流程中使用 OneDrive 連接器。OneDrive 連接器中目前沒有觸發程序可使用。可使用的動作有 - 「取得檔案」、「上傳檔案」、「刪除檔案」和「列出檔案」。
 
@@ -90,4 +91,4 @@ OneDrive 連接器可讓您從 OneDrive 帳戶上傳\下載\刪除檔案。
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
 [OneDrive API 定義]: https://msdn.microsoft.com/zh-tw/library/dn974227.aspx
 
-<!---HONumber=62-->
+<!----HONumber=62-->

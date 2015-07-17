@@ -54,10 +54,13 @@ Dropbox 連接器可讓您從 Dropbox 帳戶上傳或下載檔案。
 	![][4]
 4.	您可以在 [Dropbox 連接器] 上按一下來將 Dropbox 連接器 API 應用程式置入編輯器。按一下 [授權] 按鈕。提供您的 Dropbox 認證。按一下 [允許]
  
-	![][5] ![][6] ![][7]
+	![][5]
+	![][6]
+	![][7]
 6.	您現在便可以在流程中使用 Dropbox 連接器。您可以使用 Dropbox 動作 [上傳檔案] 將檔案上傳到您的 Dropbox 帳戶。
  
-	![][8] ![][9]
+	![][8]
+	![][9]
 
 設定 [上傳檔案] 的輸入屬性，如下所示：
 
@@ -79,4 +82,4 @@ Dropbox 連接器可讓您從 Dropbox 帳戶上傳或下載檔案。
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

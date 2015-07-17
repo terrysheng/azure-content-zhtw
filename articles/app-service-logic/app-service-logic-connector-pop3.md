@@ -62,7 +62,8 @@ POP3 連接器可讓您連接到 POP3 伺服器，並提供擷取帶有附件的
 
 5.	您現在便可以在流程中使用 POP3 連接器。選取 [取得電子郵件] 觸發程序，並設定頻率和時間間隔。您可以在流程的其他動作中使用從 POP3 觸發程序所擷取的電子郵件。
 
-	![][5] ![][6]
+	![][5]
+	![][6]
 
 	<!--Image references-->
 [1]: ./media/app-service-logic-connector-pop3/img1.PNG
@@ -72,4 +73,4 @@ POP3 連接器可讓您連接到 POP3 伺服器，並提供擷取帶有附件的
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=62-->
+<!----HONumber=62-->

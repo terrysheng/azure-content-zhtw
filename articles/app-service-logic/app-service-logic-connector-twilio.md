@@ -64,7 +64,8 @@ Twilio 連接器可讓您從 Twilio 帳戶傳送和接收 SMS。它也可讓您�
 	- **傳到電話號碼** - 目的地電話號碼。接受的格式為：加號 (+) 後面跟隨國碼 (地區碼)，然後是電話號碼。例如， +16175551212。如果省略加號 (+)，Twilio 會使用您在 [傳自] 號碼中輸入的國碼。
 	- **文字** - 您要傳送的訊息文字。
 
-	![][5] ![][6]
+	![][5]
+	![][6]
 
 	<!--Image references-->
 [1]: ./media/app-service-logic-connector-twilio/img1.PNG
@@ -75,4 +76,4 @@ Twilio 連接器可讓您從 Twilio 帳戶傳送和接收 SMS。它也可讓您�
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

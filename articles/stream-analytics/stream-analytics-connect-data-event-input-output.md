@@ -126,7 +126,8 @@
 在下一個頁面上輸入 Azure 資料表資訊。輸出別名在查詢中的用途就是要將查詢輸出指向這個資料表。
 
 
-![graphic14][graphic14] ![graphic15][graphic15]
+![graphic14][graphic14]
+![graphic15][graphic15]
 
 「批次大小」是指批次作業的記錄個數，如果不熟悉，請保留預設值或者參考 [https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) 以取得詳細資訊。
 

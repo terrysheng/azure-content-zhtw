@@ -28,7 +28,8 @@
 
 > [AZURE.NOTE]將 Web 應用程式從 [免費] 模式切換為 [基本]、[標準] 或 [高階] 模式之前，您必須先適當地移除 Azure App Service 訂用帳戶的支出費用上限。若要檢視或變更 Microsoft Azure App Service 訂用帳戶的選項，請參閱 [Microsoft Azure 訂訂用帳戶][azuresubscriptions]。
 
-<a name="scalingsharedorbasic"></a> <!-- ===================================== -->
+<a name="scalingsharedorbasic"></a>
+<!-- ===================================== -->
 ## 調整為共用或基本模式
 <!-- ===================================== -->
 
@@ -48,7 +49,8 @@
 	
 	當操作完成時，[通知] 索引標籤會有綠色的「成功」字樣閃爍顯示。
 	
-<a name="scalingstandard"></a> <!-- ================================= -->
+<a name="scalingstandard"></a>
+<!-- ================================= -->
 ## 調整為標準或高階模式
 <!-- ================================= -->
 
@@ -197,4 +199,4 @@
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

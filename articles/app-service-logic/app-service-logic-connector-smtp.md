@@ -75,7 +75,8 @@ POP3 連接器可讓您連接到 POP3 伺服器，並執行傳送有附件之電
 		- 內容識別碼 (字串)
 		- 檔案名稱 (字串)
 
-	![][5] ![][6]
+	![][5]
+	![][6]
 
 	<!--Image references-->
 [1]: ./media/app-service-logic-connector-smtp/img1.PNG
@@ -86,4 +87,4 @@ POP3 連接器可讓您連接到 POP3 伺服器，並執行傳送有附件之電
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

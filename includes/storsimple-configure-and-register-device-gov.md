@@ -1,3 +1,21 @@
+<properties 
+   pageTitle="設定和註冊裝置"
+   description="說明如何使用 Windows PowerShell for StorSimple 來設定和註冊 StorSimple 裝置 (執行 Update 1)。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="05/22/2015"
+   ms.author="alkohli" />
+
+
 ### 設定和註冊裝置
 
 1. 存取 StorSimple 裝置序列主控台上的 Windows PowerShell 介面。如需相關指示，請參閱[使用 PuTTY 來連接至裝置序列主控台](#use-putty-to-connect-to-the-device-serial-console)。**請務必確實依照此程序，否則將無法存取主控台。**
@@ -132,4 +150,4 @@
      
         
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

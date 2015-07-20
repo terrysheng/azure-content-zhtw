@@ -40,7 +40,7 @@
 >
 >在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 
->成功連線至https://media.windows.net後，您會收到指定另一個媒體服務 URI 的 301 重新導向。您必須依照[使用 REST API 連線至媒體服務](media-services-rest-connect_programmatically.md)所述，對新的 URI 進行後續呼叫。
+>成功連線至 https://media.windows.net 後，您會收到指定另一個媒體服務 URI 的 301 重新導向。您必須依照[使用 REST API 連線至媒體服務](media-services-rest-connect_programmatically.md)所述，對新的 URI 進行後續呼叫。
 
 
 
@@ -65,7 +65,7 @@
 	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
 	Host:media.windows.net 
 
-要求本文
+Request body
 
 	{  
 	   "Name":"GlobalFilter",
@@ -121,7 +121,7 @@
 	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
 	Host: media.windows.net  
 
-要求本文
+Request body
 
 	{   
 	   "Name":"AssetFilter", 
@@ -361,4 +361,6 @@
 [動態資訊清單概觀](media-services-dynamic-manifest-overview.md)
  
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

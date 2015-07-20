@@ -216,7 +216,7 @@
 2. 開啟/執行 jar 檔案。它需要 [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)。
 3. 按兩下 [**下一步**]。
 4. 指定您具有寫入權限的路徑，然後按 [**下一步**]。
-	>[AZURE.NOTE]預設的安裝資料夾位於 C:\Program Files\squirrel sql 3.6 資料夾中。若要寫入此路徑，必須將系統管理員權限授與安裝程式。您可以系統管理員身分開啟命令提示字元、瀏覽至 Java 的 bin 資料夾，然後再執行
+	>[AZURE.NOTE]預設的安裝資料夾位於 C:\\Program Files\\squirrel sql 3.6 資料夾中。若要寫入此路徑，必須將系統管理員權限授與安裝程式。您可以系統管理員身分開啟命令提示字元、瀏覽至 Java 的 bin 資料夾，然後再執行
 	>
 	>     java.exe -jar [the path of the SQuirreL jar file] 
 5. 按一下 [**確定**] 以確認建立目標目錄。
@@ -306,4 +306,4 @@ Phoenix 驅動程式 jar 檔案位於 HBase 叢集上。此路徑根據版本與
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

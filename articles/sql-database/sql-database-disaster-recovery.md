@@ -44,7 +44,7 @@ Azure SQL Database 提供幾項中斷復原功能：
 1. 登入 [Azure 入口網站](https://portal.Azure.com)
 2. 在畫面左側選取 [瀏覽]，然後選取 [SQL Database]。
 3. 巡覽至您的資料庫，然後加以選取。 
-4. 在資料庫分頁底部選取 [異地複寫對應]。
+4. 在資料庫刀鋒視窗底部選取 [異地複寫對應]。
 4. 在 [次要] 下，以滑鼠右鍵按一下含有您要復原之資料庫名稱的資料列，然後選取 [停止]。
 
 終止連續複製關聯性之後，您可以遵循[完成復原的資料庫](sql-database-recovered-finalize.md)指南，設定復原的資料庫。
@@ -99,5 +99,6 @@ Azure SQL Database 提供幾項中斷復原功能：
 4.	使用[資料庫作業狀態](http://msdn.microsoft.com/library/azure/dn720371.aspx)作業來追蹤復原狀態。
 
 復原資料庫之後，您可以遵循[完成復原的資料庫](sql-database-recovered-finalize.md)指南，設定資料庫以供使用。
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

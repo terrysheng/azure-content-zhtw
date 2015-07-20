@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/02/2015"
+   ms.date="06/30/2015"
    ms.author="jgao"/>
 
 #要變更 HDInsight 中資料節點數目的 Scale Hadoop、HBase 或 Apache Storm 叢集 
@@ -145,4 +145,4 @@ HDInsight 叢集上有提供 Storm Web UI：
 請參閱[使用自訂選項在 HDInsight 上佈建 Hadoop 叢集](hdinsight-provision-clusters.md)主題，以取得如何使用 HDInsight .NET SDK 的詳細資訊。
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

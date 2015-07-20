@@ -3,7 +3,7 @@
    description="Azure Mobile Engagement 的使用者介面概觀" 
    services="mobile-engagement" 
    documentationCenter="" 
-   authors="v-micada" 
+   authors="piyushjo" 
    manager="dwrede" 
    editor=""/>
 
@@ -13,27 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
-   ms.author="v-micada"/>
-
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="簡介">簡介</a> 
-<a href="../mobile-engagement-user-interface-navigation" title="導覽">導覽</a> 
-<a href="../mobile-engagement-user-interface-home/" title="首頁">首頁</a> 
-<a href="../mobile-engagement-user-interface-my-account" title="我的帳戶">我的帳戶</a> 
-<a href="../mobile-engagement-user-interface-analytics" title="分析">分析</a> 
-<a href="../mobile-engagement-user-interface-monitor" title="監視">監視</a> 
-<a href="../mobile-engagement-user-interface-reach" title="觸達">觸達</a> 
-<a href="../mobile-engagement-user-interface-reach-campaign" title="觸達活動">觸達活動</a> 
-<a href="../mobile-engagement-user-interface-reach-criterion" title="觸達準則">觸達準則</a> 
-<a href="../mobile-engagement-user-interface-reach-content" title="觸達內容">觸達內容</a> 
-<a href="../mobile-engagement-how-tos" title="作法">觸達作法</a> 
-<a href="../mobile-engagement-user-interface-segments" title="區段">區段</a> 
-<a href="../mobile-engagement-user-interface-dashboard" title="儀表板">儀表板</a> 
-<a href="../mobile-engagement-user-interface-settings" title="設定">設定</a>
-</div>
+   ms.date="05/12/2015"
+   ms.author="piyushjo"/>
 
 # 如何開始使用及管理推送通知以推送給使用者
+
 一旦 SDK 完全整合至應用程式後，您便可以開始使用 UI 的 [Reach] 區段，將通知推送給應用程式使用者。
 
 ## 進行第一個推送通知活動
@@ -307,5 +291,6 @@
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

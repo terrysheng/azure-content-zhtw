@@ -13,23 +13,30 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="05/27/2015" 
 	ms.author="juliako"/>
 
 
 #使用.NET SDK 建立通道，以執行從單一位元速率到多位元速率串流的即時編碼 (預覽)
 
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+- 
 ##概觀
 
 本教學課程將逐步引導您建立**通道**，可接收單一位元速率的即時串流，並將其編碼為多位元速率串流。
 
->[AZURE.NOTE]若需為即時編碼啟用之通道的詳細概念資訊，請參閱[使用通道執行從單一位元速率到多位元速率串流的即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
+>[AZURE.NOTE]如需為即時編碼啟用之通道相關的詳細概念資訊，請參閱[使用通道執行從單一位元速率到多位元速率串流的即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
+
+>[AZURE.NOTE]您必須使用媒體服務 .NET SDK 3.2.0.0 版或更新版本。
 
 ##常見即時串流案例
 
 下列步驟說明建立常見即時串流應用程式所包含的工作。
 
-1. 將攝影機連接到電腦。啟動和設定可在下列其中一個通訊協訂輸出單一位元速率的內部部署即時編碼器：RTMP、Smooth Streaming 或 RTP (MPEG TS)。如需詳細資訊，請參閱[Azure 媒體服務 RTMP 支援和即時編碼器](http://go.microsoft.com/fwlink/?LinkId=532824)。
+1. 將攝影機連接到電腦。啟動和設定可使用下列其中一種通訊協定輸出單一位元速率串流的內部部署即時編碼器：RTMP、Smooth Streaming 或 RTP (MPEG-TS)。如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](http://go.microsoft.com/fwlink/?LinkId=532824)。
 	
 	此步驟也可以在您建立通道之後執行。
 
@@ -54,7 +61,7 @@
 	請確定在您想串流內容的串流端點上至少有一個串流保留的單元。
 1. 當您準備好開始串流和封存時，請啟動程式。
 2. 即時編碼器會收到啟動公告的信號 (選擇性)。公告會插入輸出串流中。
-1. 每當您想要停止串流和封存事件時，請停止程式。
+1. 每當您想要停止串流處理和封存事件時，請停止程式。
 1. 刪除程式 (並選擇性地刪除資產)。   
 
 ##本主題內容
@@ -73,7 +80,7 @@
 1. 清除您的通道和所有相關聯的資源。
 
 ##必要條件
-需要下列項目才能完成本教學課程。
+需要有下列項目，才能完成教學課程。
 
 - 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](azure.microsoft.com)。
 - 媒體服務帳戶。若要建立媒體服務帳號，請參閱[建立帳戶](media-services-create-account.md)。
@@ -491,6 +498,7 @@
 	
 ##相關主題
 
-[使用執行從單一位元速率到多位元速率串流之即時編碼的通道](media-services-manage-live-encoder-enabled-channels.md) 
-<!--HONumber=52-->
+[使用執行從單一位元速率到多位元速率串流之即時編碼的通道](media-services-manage-live-encoder-enabled-channels.md)
  
+
+<!---HONumber=July15_HO2-->

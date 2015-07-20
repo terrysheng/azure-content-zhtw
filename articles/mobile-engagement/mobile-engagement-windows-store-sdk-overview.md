@@ -32,9 +32,9 @@
 
 ##版本資訊
 
-###3.0.1 (2015/04//29)
+###3.1.0 (05/21/2015)
 
--   已修復影響 SDK 在部分 Windows Phone WinRT 應用程式上的初始化錯誤。
+-   Mobile Engagement 裝置識別碼現在是根據在安裝時產生的 GUID。
 
 如需較早版本，請參閱[完整版本資訊](mobile-engagement-windows-store-release-notes.md)
 
@@ -52,4 +52,5 @@
 ### 從舊版升級
 
 請參閱[升級程序](mobile-engagement-windows-store-upgrade-procedure/)
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

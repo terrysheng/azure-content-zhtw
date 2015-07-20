@@ -1,19 +1,18 @@
-<properties 
+<properties
    pageTitle="Operational Insights 支援的組態"
    description="深入了解 Operational Insights 所需的組態"
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" /> 
-
-<tags 
+   editor="tysonn" />
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Operational Insights 支援的組態
@@ -40,14 +39,8 @@
 
 請參閱[檢視 Operational Insights 警示](http://go.microsoft.com/fwlink/?LinkID=293793)了解安裝和組態指示。
 
-如果您要檢視有關 SharePoint Server 2010、Lync Server 2013、Lync Server 2010 或 System Center 2012 SP1 - Virtual Machine Manager 的 Operational Insights 警示，您必須為這些工作負載設定「執行身分」帳戶。請參閱下列資訊：
+如果您要檢視有關 SharePoint Server 2010、Lync Server 2013、Lync Server 2010 或 System Center 2012 SP1 - Virtual Machine Manager 的 Operational Insights 警示，您必須為這些工作負載設定「執行身分」帳戶。如需如何設定執行身分帳戶的相關資訊，請參閱 [Operational Insights 的 Operations Manager 考量](operational-insights-operations-manager.md)。
 
-
-- [為 SharePoint 設定執行身分帳戶](../operational-insights-run-as.md)
-
-- [為 Lync Server 設定執行身分帳戶](../operational-insights-run-as.md)
-
-- [為 Virtual Machine Manager (VMM) 設定執行身分帳戶](../operational-insights-run-as.md)
 
 ### Operations Manager 作業系統
 
@@ -107,5 +100,4 @@
 
 此外，也支援在 WOW64 實作中執行的 32 位元版本 SQL Server。
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

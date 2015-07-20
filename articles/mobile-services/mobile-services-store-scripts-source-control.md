@@ -16,20 +16,13 @@
 	ms.date="04/24/2015" 
 	ms.author="ggailey777"/>
 
-# 在原始檔控制中儲存專案碼
+# 在原始檔控制中儲存專案程式碼
 
-<div class="dev-center-tutorial-subselector">
-	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET 後端">.NET 後端</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript 後端" class="current">JavaScript 後端</a>
-</div>
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
+- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
 
 本主題說明如何使用 Azure 行動服務所提供的原始檔控制來儲存您的伺服器指令碼。指令碼和其他 JavaScript 程式碼後端檔案可以從本機 Git 儲存機制升級到生產行動服務。它還說明如何定義多個指令碼所需的共用程式碼，以及如何使用 package.json 檔案將 Node.js 模組新增至您的行動服務。
-
-本教學課程將引導您完成下列步驟：
-
-1. [在行動服務中啟用原始檔控制]。
-2. [安裝 Git 與建立本機儲存機制]。
-3. [將更新指令碼檔案部署到行動服務]。
-4. [在伺服器指令碼中運用共用程式碼和 Node.js 模組]。
 
 若要完成本教學課程，您必須已建立行動服務，方法是完成[開始使用行動服務]或[將行動服務新增至現有的應用程式]教學課程。
 
@@ -100,31 +93,21 @@
 	
 	您應會看到一連串命令，指出已將認可部署到行動服務。
 
-6. 回到管理入口網站中，按一下 [資料]**** 索引標籤，然後按一下 [TodoItem]**** 資料表。
-
-	![][5]
-
-3. 按一下 [指令碼]****，然後選取 [插入]**** 作業。
-
-	![][6]
-
+6. 回到管理入口網站中，按一下 [**資料**] 索引標籤，然後按一下 [**TodoItem**] 資料表、[**指令碼**]，再選取 [**插入**] 作業。
+7. 
 	請注意，顯示的插入作業指令碼會與您剛才上傳至儲存機制的 JavaScript 程式碼相同。
 
 ##<a name="use-npm"></a>在伺服器指令碼中運用共用程式碼和 Node.js 模組
 
-行動服務提供整組核心 Node.js 模組的存取權，透過 **require** 函數，您可以在您的程式碼中使用這些模組。行動服務也可以使用不是核心 Node.js 封裝一部分的 Node.js 模組，您甚至可以將自己的共用程式碼定義為 Node.js 模組。如需關於建立模組的詳細資訊，請參閱 Node.js API 參考文件中的[模組][Node.js API Documentation: Modules] (英文)。
+行動服務提供整組核心 Node.js 模組的存取權，透過 **require** 函數，您可以在您的程式碼中使用這些模組。行動服務也可以使用不是核心 Node.js 封裝一部分的 Node.js 模組，您甚至可以將自己的共用程式碼定義為 Node.js 模組。如需關於建立模組的詳細資訊，請參閱 Node.js API 參考文件中的[模組] (英文)。
 
 建議的方法是藉由將參考新增至服務的 package.json 檔案，以將 Node.js 模組新增至您的行動服務。接著，您必須更新 package.json 檔案，以將 [node-uuid] Node.js 模組新增至您的行動服務。當更新發行至 Azure 時，將會重新啟動行動服務，並安裝模組。接著便可使用此模組，來為插入項目上的 **uuid** 屬性產生新的 GUID 值。
 
-2. 導覽至本機 Git 儲存機制的 `.\service` 資料夾，然後在文字編輯器中開啟 package.json 檔案。
+2. 導覽至本機 Git 儲存機制的 `.\service` 資料夾在文字編輯器中開啟 package.json 檔案，然後將下列欄位新增至 **dependencies** 物件：
 
-3. 找出
+		"node-uuid": "~1.4.3"
 
-		npm install node-uuid
-
-	NPM 會在目前位置中建立 `node_modules` 目錄，並在 `\node-uuid` 子目錄中安裝 [node-uuid] 模組。
-
-	> [AZURE.NOTE]如果目錄階層中已有 `node_modules`，NPM 將會在那裡建立 `\node-uuid` 子目錄，而不會在儲存機制中建立新的 `node_modules`。在此情況下，只要刪除現有的 `node_modules` 目錄。
+	>[AZURE.NOTE]此項 package.json 檔案更新會導致在推送認可後重新啟動您的行動服務。
 
 4. 現在，請瀏覽到 .\\service\\table 子資料夾，開啟並修改 todoitem.insert.js 檔案，如下所示：
 
@@ -154,10 +137,10 @@
 + [從用戶端呼叫自訂 API] <br/>說明如何建立可從用戶端呼叫的自訂 API。
 
 <!-- Anchors. -->
-[在行動服務中啟用原始檔控制]: #enable-source-control
-[安裝 Git 與建立本機儲存機制]: #clone-repo
-[將更新指令碼檔案部署到行動服務]: #deploy-scripts
-[在伺服器指令碼中運用共用程式碼和 Node.js 模組]: #use-npm
+[Enable source control in your mobile service]: #enable-source-control
+[Install Git and create the local repository]: #clone-repo
+[Deploy updated script files to your mobile service]: #deploy-scripts
+[Leverage shared code and Node.js modules in your server scripts]: #use-npm
 
 <!-- Images. -->
 [4]: ./media/mobile-services-store-scripts-source-control/mobile-source-local-repo.png
@@ -173,7 +156,8 @@
 [在行動服務中使用伺服器指令碼]: mobile-services-how-to-use-server-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [從用戶端呼叫自訂 API]: mobile-services-ios-call-custom-api.md
-[Node.js API Documentation: Modules]: http://nodejs.org/api/modules.html
+[模組]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

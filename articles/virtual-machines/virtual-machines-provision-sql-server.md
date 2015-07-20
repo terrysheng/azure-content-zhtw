@@ -3,7 +3,7 @@
 	description="本教學課程會教您如何在 Azure 上建立及設定 SQL Server 虛擬機器。" 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="jeffgoll" 
+	authors="rothja" 
 	manager="jeffreyg" 
 	editor="monicar"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
-	ms.author="jeffreyg"/>
+	ms.date="06/17/2015" 
+	ms.author="jroth"/>
 
 # 在 Azure 上佈建 SQL Server 虛擬機器 #
 
@@ -27,9 +27,9 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 * [完成在另一部電腦上使用 SQL Server Management Studio 連接到虛擬機器的組態步驟](#SSMS)
 * [後續步驟](#Optional)
 
-##<a id="Provision">連接到 Azure 管理入口網站並從組件庫佈建虛擬機器</a>
+##<a id="Provision">從資源庫佈建 SQL Server 虛擬機器</a>
 
-1. 使用您的帳戶登入 [Azure 管理入口網站](http://manage.windowsazure.com)。如果您沒有 Azure 帳戶，請造訪 [Azure 免費試用](http://www.windowsazure.com/pricing/free-trial/)。
+1. 使用您的帳戶登入 [Azure 管理入口網站](http://manage.windowsazure.com)。如果您沒有 Azure 帳戶，請造訪 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
 2. 在 Azure 管理入口網站中，依序按一下網頁左下角的 [+NEW]、[運算]、[虛擬機器] 和 [從組件庫]。
 
@@ -39,7 +39,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 如需 Azure 支援之 SQL Server 映像的最新資訊，請參閱 [Azure 虛擬機器中的 SQL Server](http://go.microsoft.com/fwlink/p/?LinkId=294720) 文件集內的[開始使用 Azure 虛擬機器中的 SQL Server](http://go.microsoft.com/fwlink/p/?LinkId=294719) 主題。
 
    
->[AZURE.NOTE]如果您擁有以 SQL Server Evaluation Edition 平台映像建立的虛擬機器，該虛擬機器無法升級為組件庫內以分鐘計費之版本的映像。您可以選擇下列其中一個選項：您可以使用依分鐘計費的 SQL Server 版本，從組件庫建立新的虛擬機器，並將資料庫檔案移轉至這個新的虛擬機器，方法是依照[如何使用資料磁碟在 Azure 虛擬機器之間移轉 SQL Server 資料庫檔案和結構描述](http://go.microsoft.com/fwlink/p/?LinkId=294738)中的步驟，**或者**，您可以根據 [Azure 上透過軟體保證的授權行動性](http://www.windowsazure.com/pricing/license-mobility/)協議，按照[升級為不同的 SQL Server 2014 版本](http://go.microsoft.com/fwlink/?LinkId=396915)中的步驟，將現有的 SQL Server 評估版執行個體升級為不同版本的 SQL Server。如需如何購買授權版本之 SQL Server 的詳細資訊，請參閱[如何購買 SQL Server](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx)。
+>[AZURE.NOTE]如果您擁有以 SQL Server Evaluation Edition 平台映像建立的虛擬機器，該虛擬機器無法升級為組件庫內以分鐘計費之版本的映像。您可以選擇下列其中一個選項：您可以使用依分鐘計費的 SQL Server 版本，從組件庫建立新的虛擬機器，並將資料庫檔案移轉至這個新的虛擬機器，方法是依照[如何使用資料磁碟在 Azure 虛擬機器之間移轉 SQL Server 資料庫檔案和結構描述](http://go.microsoft.com/fwlink/p/?LinkId=294738)中的步驟，**或者**，您可以根據 [Azure 上透過軟體保證的授權行動性](http://azure.microsoft.com/pricing/license-mobility/)協議，按照[升級為不同的 SQL Server 2014 版本](http://go.microsoft.com/fwlink/?LinkId=396915)中的步驟，將現有的 SQL Server 評估版執行個體升級為不同版本的 SQL Server。如需如何購買授權版本之 SQL Server 的詳細資訊，請參閱[如何購買 SQL Server](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx)。
 
 
 4. 在第一個 [虛擬機器組態] 頁面，請提供下列資訊：
@@ -54,7 +54,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 	按一下右下角的 [下一步] 箭頭以繼續操作。
 
-	![VM 組態](./media/virtual-machines-provision-sql-server/4VM-Config.png)
+	![VM 組態][Image4]
 
 
 5. 在第二個 [虛擬機器組態] 頁面上，請設定網路、儲存體和可用性的資源：
@@ -80,7 +80,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 	- 執行中
 	
 
-##<a id="RemoteDesktop">使用遠端桌面開啟虛擬機器並完成設定</a>
+##<a id="RemoteDesktop">使用遠端桌面開啟 VM 以完成設定</a>
 
 1. 佈建完成時，請按一下虛擬機器的名稱以前往 [儀表板] 頁面。按一下頁面底部的 [連接]。
 2. 按一下 [開啟] 按鈕。![按一下 [開啟] 按鈕][Image37]
@@ -92,9 +92,11 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 使用 Windows 遠端桌面連接到虛擬機器之後，虛擬機器的運作方式與任何其他電腦很像。請依照正常方法使用 SQL Server Management Studio (於虛擬機器上運作) 連接 SQL Server 的預設執行個體。
 
-##<a id="SSMS">完成在另一部電腦上使用 SQL Server Management Studio 連接到虛擬機器的組態步驟</a>
+##<a id="SSMS">從另一部電腦上的 SSMS 連線到 SQL Server VM 執行個體</a>
 
-您必須先完成後續各小節描述的以下工作，才能從網際網路連接 SQL Server 的執行個體：
+下列步驟示範如何使用 SQL Server Management Studio (SSMS) 透過網際網路連線到 SQL Server 執行個體。不過，相同的步驟適用於讓您在內部部署或 Azure 中執行的應用程式可存取 SQL Server 虛擬機器。
+
+您必須先完成後續各小節描述的下列工作，才能從其他 VM 或網際網路連接 SQL Server 的執行個體：
 
 - [為虛擬機器建立 TCP 端點](#Endpoint)
 - [在 Windows 防火牆中開啟 TCP 連接埠](#FW)
@@ -109,9 +111,11 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 ![連接 SQL Server 虛擬機器][Image8b]
 
-##<a id="Endpoint">為虛擬機器建立 TCP 端點</a>
+###<a id="Endpoint">為虛擬機器建立 TCP 端點</a>
 
-虛擬機器必須具有端點才能接聽傳入 TCP 通訊。此 Azure 組態步驟能將傳入 TCP 連接埠流量導向虛擬機器可存取的 TCP 連接埠。
+若要從網際網路存取 SQL Server，虛擬機器必須具有端點才能接聽傳入 TCP 通訊。此 Azure 組態步驟能將傳入 TCP 連接埠流量導向虛擬機器可存取的 TCP 連接埠。
+
+>[AZURE.NOTE]如果您在相同的雲端服務或虛擬網路內連接，則不需要建立可公開存取的端點在此情況下，您可以繼續進行下一個步驟。如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 連線考量](https://msdn.microsoft.com/library/azure/dn133152.aspx)。
 
 1. 在 Azure 管理入口網站中按一下 [虛擬機器]。
 	
@@ -128,7 +132,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 6. 按一下打勾記號繼續。系統隨即會建立端點。
 
-##<a id="FW">在 Windows 防火牆中為 Database Engine 的預設執行個體開啟 TCP 連接埠</a>
+###<a id="FW">在 Windows 防火牆中為 Database Engine 的預設執行個體開啟 TCP 連接埠</a>
 
 1. 透過 Windows 遠端桌面連接虛擬機器。登入後，在 [開始] 畫面中輸入 **WF.msc**，然後按 ENTER 鍵。 
 
@@ -151,7 +155,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 	![允許連線][Image15]
 
-7. 在 [設定檔] 對話方塊中選取 [公用]，然後按 [下一步]。
+7. 在 [設定檔] 對話方塊中，依序選取 [公用]、[私人]，然後 [網域]。然後按 [下一步]。
 
     **安全性注意事項：**選取 [公用] 可允許透過網際網路存取。請盡可能選取較具有限制性的設定檔。
 
@@ -186,7 +190,9 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 ###<a id="Mixed">設定 SQL Server 以進行混合模式驗證</a>
 
-SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若要從另一部電腦連接 Database Engine，請設定 SQL Server 以進行混合模式驗證。混合模式驗證可允許 SQL Server 驗證和 Windows 驗證。如果您已設定 Azure 虛擬網路，可能就不需要設定混合模式驗證。如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server](http://go.microsoft.com/fwlink/?LinkId=294723) 文件集內的 [Azure 虛擬機器中的 SQL Server 連接性考量](http://go.microsoft.com/fwlink/?LinkId=294719)。
+SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若要從另一部電腦連接 Database Engine，請設定 SQL Server 以進行混合模式驗證。混合模式驗證可允許 SQL Server 驗證和 Windows 驗證。
+
+>[AZURE.NOTE]如果您已經設定具有已設定網域環境的 Azure 虛擬網路，可能就不需要設定混合模式驗證。
 
 1. 連接到虛擬機器時，在 [開始] 頁面上輸入 **SQL Server 2014 Management Studio**，然後按一下選取的圖示。
 
@@ -194,7 +200,7 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 	當您首次開啟 Management Studio 時，它必須建立使用者 Management Studio 環境。這可能需要花費幾分鐘的時間。
 
-2. Management Studio 會出現 [連接到伺服器] 對話方塊。在 [伺服器名稱] 方塊中，輸入虛擬機器的名稱以利用物件總管連接 Database Engine。除了虛擬機器名稱之外，您還可以使用 [(本機)]，或將一個句點當做 [伺服器名稱]。選取 [Windows 驗證]，並保留 [使用者名稱] 方塊中的 [_your_VM_name_\your_local_administrator]。按一下 [連接]。
+2. Management Studio 會出現 [連接到伺服器] 對話方塊。在 [伺服器名稱] 方塊中，輸入虛擬機器的名稱以利用物件總管連接 Database Engine。除了虛擬機器名稱之外，您還可以使用 [(本機)]，或將一個句點當做 [伺服器名稱]。選取 [Windows 驗證]，並保留 [使用者名稱] 方塊中的 [_your_VM_name_\\your_local_administrator]。按一下 [連接]。
 
 	![連接到伺服器][Image19]
 
@@ -276,11 +282,11 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 	![使用 SSMS 進行連線][Image33]
 
-### <a id="cdea">從應用程式連接到 Database Engine</a>
+## <a id="cdea">從應用程式連接到資料庫引擎</a>
 
 如果您可以使用 Management Studio 連接於 Azure 虛擬機器上運作的 SQL Server 執行個體，應該能使用與下文相似的連線字串進行連接。
 
-	connectionString="Server=<DNS_Name>;Integrated Security=false;User ID=<login_name>;Password=<your_password>;"providerName="System.Data.SqlClient"
+	connectionString = "Server=tutorialtestVM.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
 如需詳細資訊，請參閱[如何疑難排解 SQL Server Database Engine 連線](http://social.technet.microsoft.com/wiki/contents/articles/how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx) (英文)。
 
@@ -306,10 +312,6 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 [Azure 虛擬機器中的 SQL Server 連接性考量](http://go.microsoft.com/fwlink/p/?LinkId=294723)
 
-- 教學課程：連接到相同雲端服務中的 SQL Server 
-- 教學課程：連接到不同雲端服務中的 SQL Server 
-- 教學課程：透過虛擬網路，將 ASP.NET 應用程式連接到 Azure 中的 SQL Server 
-
 [Azure 虛擬機器中的 SQL Server 效能考量](http://go.microsoft.com/fwlink/?LinkId=294724)
 
 [Azure 虛擬機器中的 SQL Server 安全注意事項](http://go.microsoft.com/fwlink/p/?LinkId=294725)
@@ -322,10 +324,6 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 - 教學課程：Azure 中的 AlwaysOn 可用性群組 (PowerShell)
 - 教學課程：AlwaysOn 可用性群組的接聽程式設定
 - 教學課程：加入 Azure 複本精靈
-- 教學課程：Azure 中因應災害復原的資料庫鏡像
-- 教學課程：Hybrid IT 中因應災害復原的資料庫鏡像 
-- 教學課程：Azure 中提供高可用性的資料庫鏡像
-- 教學課程：混合式 IT 中因應災害復原的記錄傳送 
 - 針對 Azure 中的可用性群組接聽程式進行疑難排解
 
 [Azure 虛擬機器中的 SQL Server 備份和還原](http://go.microsoft.com/fwlink/p/?LinkId=294728)
@@ -340,16 +338,15 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 [Azure 虛擬機器中 SQL Server 適用的技術文件](http://msdn.microsoft.com/library/azure/dn248435.aspx)
 
-- [白皮書：了解 Azure 虛擬機器中的 Azure SQL Database 和 SQL Server](http://azure.microsoft.com/documentation/articles/data-management-azure-sql-database-and-sql-server-iaas/)
+- [白皮書：了解 Azure 虛擬機器中的 Azure SQL Database 和 SQL Server](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
 - [白皮書：Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略](http://msdn.microsoft.com/library/azure/dn574746.aspx)
 
 - [白皮書：在 Azure 虛擬機器中部署 SQL Server Business Intelligence](http://msdn.microsoft.com/library/windowsazure/dn321998.aspx)
 
-- [白皮書：Azure 虛擬機器中的 SQL Server 效能指引](http://msdn.microsoft.com/library/windowsazure/dn248436.aspx)
-
 - [白皮書：Reporting Services 報告檢視器控制項和 Microsoft Azure 虛擬機器型報表伺服器](http://msdn.microsoft.com/library/azure/dn753698.aspx)
 
+[Image4]: ./media/virtual-machines-provision-sql-server/4VM-Config.png
 [Image5]: ./media/virtual-machines-provision-sql-server/5VM-Mode.png
 [Image5b]: ./media/virtual-machines-provision-sql-server/5VM-Connect.png
 [Image6]: ./media/virtual-machines-provision-sql-server/6VM-Options.png
@@ -361,7 +358,7 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 [Image13]: ./media/virtual-machines-provision-sql-server/13New-FW-Rule.png
 [Image14]: ./media/virtual-machines-provision-sql-server/14Port-1433.png
 [Image15]: ./media/virtual-machines-provision-sql-server/15Allow-Connection.png
-[Image16]: ./media/virtual-machines-provision-sql-server/16Public-Profile.png
+[Image16]: ./media/virtual-machines-provision-sql-server/16Public-Private-Domain-Profile.png
 [Image17]: ./media/virtual-machines-provision-sql-server/17Rule-Name.png
 [Image18]: ./media/virtual-machines-provision-sql-server/18Start-SSMS.png
 [Image19]: ./media/virtual-machines-provision-sql-server/19Connect-to-Server.png
@@ -382,5 +379,6 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 [Image36]: ./media/virtual-machines-provision-sql-server/sql-vm-port-number.png
 [Image37]: ./media/virtual-machines-provision-sql-server/click-open-to-connect.png
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

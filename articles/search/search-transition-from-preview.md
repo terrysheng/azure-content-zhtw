@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/05/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 #從預覽 API 版本 = 2014* 轉換為 API 版本 = 2015*#
@@ -22,12 +22,12 @@
 
 身為預覽客戶，您可能有這些舊的預覽版本之一：
 
-- [2014-07-31-Preview](../search-api-2014-07-31-preview.md)
+- [2014-07-31-Preview](search-api-2014-07-31-preview.md)
 - [2014-10-20-Preview](search-api-2014-10-20-preview.md)
 
-既然 Azure 搜尋服務已正式推出，我們鼓勵轉換到較新的版本：2015-02-28 是 Azure 搜尋服務正式運作版本的官方 API 版本。這個版本記載於 [MSDN](https://msdn.microsoft.com/zh-tw/library/azure/dn798933.aspx)。
+既然 Azure 搜尋服務已正式推出，我們鼓勵轉換到較新的版本：2015-02-28 是 Azure 搜尋服務正式運作版本的官方 API 版本。這個版本記載於 [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx)。
 
-我們還推出下一個預覽版本 [2015-02-28-Preview](../search-api-2015-02-28-preview.md)，引入還在開發中的功能。我們懇請您在 [Azure 搜尋服務論壇](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azuresearch)或我們的[意見反應頁面](http://feedback.azure.com/forums/263029-azure-search)上給予意見反應。
+我們還推出下一個預覽版本 [2015-02-28-Preview](search-api-2015-02-28-preview.md)，引入還在開發中的功能。您可以透過 [Azure 搜尋服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch)或我們的[意見反應頁面](http://feedback.azure.com/forums/263029-azure-search)提供有關預覽 API 的意見反應。
 
 ###移轉的檢查清單###
 
@@ -41,7 +41,7 @@
 
 此 API 的初始版本包含自動完成或預先輸入建議的功能。雖然很實用，但這受限制於只能比對前置詞，在搜尋詞彙中的第一個字元搜尋，而無法支援欄位中其他地方的比對。此實作曾為布林屬性，稱為 `suggestions`，如果您想在特定欄位上啟用前置詞比對，可將其設定為 `true`。
 
-最初的實作現在已經棄用，改用新的 `Suggesters` 建構，定義於[索引](https://msdn.microsoft.com/zh-tw/library/azure/dn798941.aspx)功能中，提供字間和模糊比對。顧名思義，字間和模糊比對提供更廣泛的比對能力。字間比對包含前置詞，它仍然會比對開頭的字元，但延伸比對到包含字串的剩餘部分。
+最初的實作現在已經棄用，改用新的 `Suggesters` 建構，定義於[索引](https://msdn.microsoft.com/library/azure/dn798941.aspx)功能中，提供字間和模糊比對。顧名思義，字間和模糊比對提供更廣泛的比對能力。字間比對包含前置詞，它仍然會比對開頭的字元，但延伸比對到包含字串的剩餘部分。
 
 我們選擇停用先前的實作 (布林屬性)，代表這在 2015 的任一版本中都完全無法使用，也沒有回溯相容性，以避免客戶建置較新解決方案時意外地採用它。如果您使用 `2015-02-28` 或 `2015-02-28-Preview`，您將需要使用新的 `Suggesters` 建構來啟用預先輸入的查詢。
 
@@ -52,7 +52,7 @@
 實作建議的自訂應用程式應執行下列動作：
 
 1. 更新所有 Nuget 封裝。
-1. 將 API 版本直接改成 `2015-02-28`。如果您正使用下列程式碼範例，此 API 版本就位在  **AzureSearchHelper** 類別中。
+1. 將 API 版本直接改成 `2015-02-28`。如果您正使用下列程式碼範例，此 API 版本就位在 **AzureSearchHelper** 類別中。
 1. 從定義索引的 JSON 結構描述刪除 `Suggestions={true | false}` 屬性。
 1. 在 `Suggesters` 的索引底部加入建構 (如[後續](#after)章節所述)。
 1. 請確認您可以發佈到服務 (您可能需要重新命名索引以避免命名衝突)。
@@ -135,12 +135,13 @@
 當您已編譯解決方案為新的版本並確認如預期運作後，您可使用下列連結以知悉新的功能。
 
 - [Azure 搜尋服務已正式推出 (部落格文章)](http://go.microsoft.com/fwlink/p/?LinkId=528211)
-- [Azure 搜尋服務有什麼最新的更新？](../search-latest-updates/)
-- [Azure 搜尋服務概觀](https://msdn.microsoft.com/zh-tw/library/azure/dn798933.aspx)
+- [Azure 搜尋服務有什麼最新的更新？](search-latest-updates.md)
+- [何謂 Azure 搜尋服務？](search-what-is-azure-search.md)
 
 ##取得說明##
 
-API 版本 `2015-02-28` 是在 SLA 下。請使用在[此頁](http://azure.microsoft.com/support/options/)的支援選項和連結來提出支援票證。
+API 版本 `2015-02-28` 是在 SLA 下。請使用在[此頁](../support/options/)的支援選項和連結來提出支援票證。
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

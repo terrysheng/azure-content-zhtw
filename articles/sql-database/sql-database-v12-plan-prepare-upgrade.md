@@ -14,20 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="07/07/2015"
 	ms.author="genemi"/>
 
 
 # 規劃和準備升級至 SQL Database V12
 
 
-<!-- What is being changed this time?:
-GeneMi , 2015-May-15 14:31pm
-Powershell cmdlets.
--->
-
-
-本主題描述將 Azure SQL Database 從 V11 版升級至 V12 ([某些地區為預覽](sql-database-v12-whats-new.md#V12AzureSqlDbPreviewGaTable)) 所必須執行的規劃和準備。
+本主題描述將 Azure SQL Database 從 V11 版升級至 V12 ([某些區域為預覽](sql-database-v12-whats-new.md#V12AzureSqlDbPreviewGaTable)) 所必須執行的規劃和準備。
 
 
 全新的 [Azure Preview 入口網站](http://portal.azure.com/)可支援您升級至 V12。
@@ -54,9 +48,9 @@ Powershell cmdlets.
 本文件是關於將 Microsoft Azure SQL Database 從 V11 升級至 V12 版。更正式的版本編號接近 Transact-SQL 陳述式 **SELECT @@version;** 報告的下列兩個值：
 
 
-- 11.0.9228.18 *(V11)*
 - 12.0.2000.8 *(或更新的版本，V12)*
-
+- 11.0.9228.18 *(V11)*
+ - 有時 V11 也稱為 SAWA v2。
 
 ### 服務層規劃
 
@@ -156,6 +150,9 @@ V12 不支援 Web 和商務服務定價層級。
 ### 升級至 V12 *期間*的限制
 
 
+升級至 V12 期間，V11 資料庫仍然可供存取資料。還有一些限制需要注意。
+
+
 | 限制 | 說明 |
 | :--- | :--- |
 | 升級期間 | 升級期間取決於大小、版本和伺服器中的資料庫數目而定。伺服器的升級程序可能會執行數小時至數天，尤其對於具有下列資料庫的伺服器：<br/><br/>* 大於 50 GB，或 <br/>* 在非高階服務層<br/><br/>升級期間在伺服器上建立新資料庫，也會增加升級的時間。 |
@@ -169,7 +166,7 @@ V12 不支援 Web 和商務服務定價層級。
 | :--- | :--- |
 | 無法還原成 V11 | 在升級完成之後，就無法還原或復原結果。 |
 | Web 或商務層 | 在升級開始之後，新的 V12 資料庫的伺服器就無法再辨識或接受 Web 或商務服務層。 |
-| 50% 折扣不會反映在 Azure 入口網站的定價層卡片中 | 在預覽期間，在最新 Azure SQL Database Preview Update (V12) 中註冊的資料庫享有 50% 預覽折扣*。即使折扣不會顯示在預覽入口網站的服務定價層刀鋒視窗，仍會一律提供折扣。<br/><br/> 在 **2015 年 3 月 31 日** 以前 (所有地區屆時便會過期)，50% 折扣在所有地理區域中仍然有效。此折扣在已宣佈公開上市 (GA) 的地區仍然有效。<br/><br/>(* 使用最新的 Azure SQL Database Update V12 功能時，必須遵循您的授權合約 (例如，Enterprise Agreement、Microsoft Azure 合約或 Microsoft 線上訂用帳戶合約) 中的預覽條款，以及任何適用的 [Microsoft Azure Preview 補充使用條款](http://azure.microsoft.com/support/legal/preview-supplemental-terms/)。在預覽期間，Microsoft 將以一半的公開上市 (GA) 費率向您 (或您的轉銷商 (適用的話)) 收取所有在此預覽中註冊之資料庫的費用，以提供 50% 的預覽折扣。Microsoft 將透過電子郵件，提供預覽期間和折扣預覽費率到期前 30 天的通知。 |
+| 50% 折扣不會反映在 Azure 入口網站的定價層卡片中 | 在預覽期間，在最新 Azure SQL Database Preview Update (V12) 中註冊的資料庫享有 50% 預覽折扣*。即使折扣不會顯示在預覽入口網站的服務定價層刀鋒視窗，仍會一律提供折扣。<br/><br/> 在 **2015 年 3 月 31 日** 以前 (所有區域屆時便會過期)，50% 折扣在所有地理區域中仍然有效。此折扣在已宣佈公開上市 (GA) 的區域仍然有效。<br/><br/>(* 使用最新的 Azure SQL Database Update V12 功能時，必須遵循您的授權合約 (例如，Enterprise Agreement、Microsoft Azure 合約或 Microsoft 線上訂用帳戶合約) 中的預覽條款，以及任何適用的 [Microsoft Azure Preview 補充使用條款](http://azure.microsoft.com/support/legal/preview-supplemental-terms/)。在預覽期間，Microsoft 將以一半的公開上市 (GA) 費率向您 (或您的轉銷商 (適用的話)) 收取所有在此預覽中註冊之資料庫的費用，以提供 50% 的預覽折扣。Microsoft 將透過電子郵件，提供預覽期間和折扣預覽費率到期前 30 天的通知。 |
 
 
 ### 在升級至 V12 *之後*匯出和匯入
@@ -245,5 +242,6 @@ Stop- Cmdlet 表示取消，不是暫停。升級一旦停止就沒有任何方�
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

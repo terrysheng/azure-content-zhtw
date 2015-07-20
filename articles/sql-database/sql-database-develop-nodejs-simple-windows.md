@@ -49,14 +49,16 @@
 	npm install -g node-gyp
 
 
-安裝 node-gyp 之後，請巡覽至您的目錄 *您的專案目錄*，再巡覽至 **node_modules\msnodesql**。然後在您的 **cmd.exe** 視窗中發出下列命令。
+安裝 node-gyp 之後，請巡覽至您的目錄 *您的專案目錄*，再巡覽至 **node_modules\\msnodesql**。然後在您的 **cmd.exe** 視窗中發出下列命令。
 
 
 	node-gyp configure 
 	node-gyp build
 
 
-接下來，巡覽至目錄 **build\release**。複製 **sqlserver.node** 檔案並貼到 **msnodesql\lib** 目錄中。如有必要，請取代舊的檔案。
+接下來，巡覽至目錄 **build\\release**。複製 **sqlserver.node** 檔案並貼到 **msnodesql\\lib** 目錄中。如有必要，請取代舊的檔案。
+
+請查看我們的[小組部落格](http://blogs.msdn.com/b/sqlphp/archive/2015/05/12/getting-started-with-node-js-and-microsoft-sql-server-and-azure-sql-database.aspx)和[影片](https://www.youtube.com/watch?v=kQo_L-D_zk8)，以了解如何安裝及設定上述需求。
 
 
 ### 建立資料庫並擷取您的連接字串
@@ -230,4 +232,6 @@
 	    });
 	});
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

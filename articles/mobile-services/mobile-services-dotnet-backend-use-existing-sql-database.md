@@ -13,21 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
 
 
 # 使用現有的 SQL Database 和行動服務 .NET 後端建置服務
 
 行動服務 .NET 後端可方便您運用現有的資產來建置行動服務。在內部部署或雲端中使用現有 SQL Database (可能已有其他應用程式正在使用)，讓現有資料可供行動用戶端使用，是特別有趣的案例之一。在此情況下，資料庫模型 (或*結構描述*) 必須保持不變，現有的方案才能繼續運作。
-
-本教學課程包含以下幾節：
-
-1. [探索現有的資料庫模型](#ExistingModel)
-2. [為您的行動服務建立資料傳輸物件 (DTO)](#DTOs)
-3. [在 DTO 與模型之間建立對應](#Mapping)
-4. [實作網域特定邏輯](#DomainManager)
-5. [使用 DTO 實作 TableController](#Controller)
 
 <a name="ExistingModel"></a>
 ## 探索現有的資料庫模型
@@ -79,7 +71,7 @@
             }
         }
 
-    您會發現這兩個類別有此關係**：每個 **Order** 會與單一 **Customer** 產生關聯，而一個 **Customer** 可與多個 **Orders** 產生關聯。互相有關係在現有的資料模型中是很常見的。
+    您會發現這兩個類別有此關係：每個 **Order** 會與單一 **Customer** 產生關聯，而一個 **Customer** 可與多個 **Orders** 產生關聯。互相有關係在現有的資料模型中是很常見的。
 
 4. 在 **Models** 資料夾中建立 **ExistingContext.cs** 檔案，並以下列方式實作：
 
@@ -120,7 +112,7 @@
             }
         }
 
-    請注意，此類別會與模型中的 **Customer** 類別相類似，差別在於 **Order** 的關係屬性已移除。一個物件要能夠正常使用行動服務離線同步，必須要有一組*系統屬性*來維護開放式並行性，因此您會發現 DTO 繼承自 [**EntityData**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx)，而其中包含這些屬性。原始模型中的 int 型 **CustomerId** 屬性會取代為 **EntityData** 中的字串型 **Id** 屬性，而這將是行動服務所使用的 [識別碼]****。
+    請注意，此類別會與模型中的 **Customer** 類別相類似，差別在於 **Order** 的關係屬性已移除。一個物件要能夠正常使用行動服務離線同步，必須要有一組*系統屬性*來維護開放式並行性，因此您會發現 DTO 繼承自 [**EntityData**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx)，而其中包含這些屬性。原始模型中的 int 型 **CustomerId** 屬性會取代為 **EntityData** 中的字串型 **Id** 屬性，而這將是行動服務所使用的 [識別碼]。
 
 2. 在您服務專案的 **DataObjects** 資料夾中建立 **MobileOrder.cs** 檔案。
 
@@ -158,7 +150,7 @@
         using System.ComponentModel.DataAnnotations;
         using System;
 
-    接著，將這些額外的屬性新增至各個類別：
+4. 接著，將這些額外的屬性新增至各個類別：
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Index]
@@ -187,7 +179,7 @@
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.Linq;
 
-    接著，在 **ExistingContext** 的本文中覆寫 [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx)：
+5. 在 **ExistingContext** 的本文中覆寫 [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx)：
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -621,5 +613,6 @@ AutoMapper 此時會將物件互相對應。所有具有對應名稱的屬性都
 
     }
 
-您可在此時建置用來存取服務的用戶端應用程式，以執行下一個步驟。
-<!--HONumber=54--> 
+您可在此時建置用來存取服務的用戶端應用程式，以執行下一個步驟。如需詳細資訊，請參閱[將行動服務新增至現有的應用程式](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service)。
+
+<!---HONumber=July15_HO2-->

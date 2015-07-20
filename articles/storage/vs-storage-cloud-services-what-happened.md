@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="開始使用 Azure 儲存體" 
-	description="描述在 Visual Studio 雲端服務專案中建立 Azure 儲存體時會發生什麼情況"  
+	description="描述在 Visual Studio 雲端服務專案中建立 Azure 儲存體時會發生什麼情況" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -13,19 +13,20 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kempb"/>
+	ms.date="04/20/2015" 
+	ms.author="patshea123"/>
+
+# 我的專案發生什麼情形？
 
 > [AZURE.SELECTOR]
-> - [開始使用](vs-storage-cloud-services-getting-started-blobs.md)
-> - [發生什麼情形](vs-storage-cloud-services-what-happened.md)
+> - [Getting Started](vs-storage-cloud-services-getting-started-blobs.md)
+> - [What Happened](vs-storage-cloud-services-what-happened.md)
 
 ###<span id="whathappened">我的專案發生什麼情形？</span>
 
 ###### 加入參考
 
-Azure 儲存體 NuGet 封裝已加入至 Visual Studio 專案。  
-這個封裝會加入下列 .NET 參考：
+Azure 儲存體 NuGet 封裝已加入至 Visual Studio 專案。這個封裝會加入下列 .NET 參考：
 
 - `Microsoft.Data.Edm`
 - `Microsoft.Data.OData`
@@ -43,6 +44,6 @@ Azure 儲存體 NuGet 封裝已加入至 Visual Studio 專案。
 - `ServiceConfiguration.Cloud.cscfg`
 - `ServiceConfiguration.Local.cscfg`
 
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=July15_HO2-->

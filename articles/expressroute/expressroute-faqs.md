@@ -1,17 +1,18 @@
-<properties 
+<properties
    pageTitle="ExpressRoute 常見問題集"
    description="ExpressRoute 常見問題集包含支援的 Azure 服務、費用、資料和連線、SLA、提供者和位置、頻寬等資訊及其他技術詳細資料。"
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
    manager="adinah"
-   editor="tysonn"/> <tags 
+   editor="tysonn"/>
+<tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article" 
+   ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="05/05/2015"
+   ms.workload="infrastructure-services"
+   ms.date="06/26/2015"
    ms.author="cherylmc"/>
 
 # ExpressRoute 常見問題集
@@ -101,7 +102,7 @@ ExpressRoute 支援大多數的 Azure 雲端服務。
 ### 我可以使用其他服務提供者的 ExpressRoute 電路嗎？
 是。您可以使用許多服務提供者的 ExpressRoute 電路。每個 ExpressRoute 電路只會與一個服務提供者產生關聯。
 
-### 我要如何將我的虛擬網路連線至 ExpressRoute 電路？
+### 我要如何將虛擬網路連線至 ExpressRoute 電路
 基本步驟說明如下。
 
 - 您必須建立 ExpressRoute 電路，並要求服務提供者將它啟用。
@@ -110,8 +111,8 @@ ExpressRoute 支援大多數的 Azure 雲端服務。
 
 下列教學課程將協助您：
 
-- [透過網路服務提供者設定 ExpressRoute 連線](expressroute-configuring-exps.md)
-- [透過 Exchange 提供者設定 ExpressRoute 連線](expressroute-configuring-nsps.md)
+- [透過網路服務提供者設定 ExpressRoute 連線](expressroute-configuring-nsps.md)
+- [透過 Exchange 提供者設定 ExpressRoute 連線](expressroute-configuring-exps.md)
 - [設定 ExpressRoute 的虛擬網路和閘道](expressroute-configuring-vnet-gateway.md)
 
 ### 我的 ExpressRoute 電路是否有連線範圍？
@@ -120,7 +121,7 @@ ExpressRoute 支援大多數的 Azure 雲端服務。
 ### 我可以將多個虛擬網路連結至 ExpressRoute 電路嗎？
 是。您最多可以將 10 個虛擬網路連結至 ExpressRoute 電路。
 
-### 我可以將屬於多個訂用帳戶的虛擬網路連線到 ExpressRoute 電路嗎？
+### 我有多個含有虛擬網路的 Azure 訂用帳戶。我可以將各個訂用帳戶的虛擬網路連線到單一 ExpressRoute 電路嗎？
 是。您最多可以向 10 個其他 Azure 訂用帳戶授權使用單一 ExpressRoute 電路。您可透過啟用 ExpressRoute 進階功能來提高此限制。
 
 如需詳細資訊，請參閱[在多個訂用帳戶中共用 ExpressRoute 電路](https://msdn.microsoft.com/library/azure/dn835110.aspx)。
@@ -140,8 +141,8 @@ ExpressRoute 支援大多數的 Azure 雲端服務。
 ### 連結至相同 ExpressRoute 電路的虛擬網路是否可以互通訊息？
 是。在連線到相同 ExpressRoute 電路的虛擬網路中部署的虛擬機器可以互相通訊。
 
-### 我是否可以將虛擬網路的站對站和點對站連線與 ExpressRoute 搭配使用?
-是。ExpressRoute 可與站對站和點對站 VPN 並存。若要執行此作業，您首先必須建立 ExpressRoute 閘道，然後為相同虛擬網路建立動態路由閘道。
+### 我是否可以將虛擬網路的站對站連線與 ExpressRoute 搭配使用?
+是。ExpressRoute 可與站對站 VPN 並存。
 
 ### 我可以將虛擬網路從站對站/點對站組態移至使用 ExpressRoute 嗎？
 是。您必須在您的虛擬網路內建立 ExpressRoute 閘道。會有與此程序相關的短暫停機時間。
@@ -167,22 +168,22 @@ BGP 工作階段將會被刪除。當首碼計數降至限制以下時，系統�
 2. 執行 DNS 查詢，並尋找 **kms.core.windows.net** 的 IP 位址
 3. 然後執行下列其中一個項目，以便金鑰管理服務識別啟動需求是來自 Azure，並接受要求。
 	- 在您的內部部署網路上，將目的地為 IP 位址 (在步驟 2 中取得) 的流量透過公用對等互連路由回到 Azure。
-	- 要求您的 NSP 提供者將流量透過公用對等互連夾帶回 Azure。 
+	- 要求您的 NSP 提供者將流量透過公用對等互連夾帶回 Azure。
 
 ### 我可以變更 ExpressRoute 電路的頻寬嗎？
 是。您可以增加 ExpressRoute 電路的頻寬，而無需將它拆解。您必須追蹤連線提供者的後續情形，以確保他們更新網路內的流速以支援增加頻寬。不過，妳無法降低 ExpressRoute 電路的頻寬。必須降低頻寬係指拆解和重新建立 ExpressRoute 電路。
 
-### 我可以如何變更 ExpressRoute 電路的頻寬？ 
+### 我如何變更 ExpressRoute 電路的頻寬？
 您可以使用更新的專用電路 API 和 PowerShell cmdlet，來更新 ExpressRoute 電路的頻寬。
 
 ## ExpressRoute Premium
 
 ### 什麼是 ExpressRoute Premium？
 ExpressRoute Premium 是下面所列功能的集合。
- 
+
  - 將公用對等互連和私人對等互連的路由表限制，從 4000 個路由提高到 10,000 個路由。
  - 提高可連線到 ExpressRoute 電路的 VNet 數目 (預設值為 10)。如需詳細資訊，請參閱下表。
- - 透過 Microsoft 核心網路的全球連線。您現在能夠將某一個地緣政治區域中的 VNet 與另一個區域中的 ExpressRoute 電路連結。**範例：**您可以將在歐洲西部建立的 VNet created 連結至在矽谷建立的 ExpressRoute 電路。 
+ - 透過 Microsoft 核心網路的全球連線。您現在能夠將某一個地緣政治區域中的 VNet 與另一個區域中的 ExpressRoute 電路連結。**範例：**您可以將在歐洲西部建立的 VNet created 連結至在矽谷建立的 ExpressRoute 電路。
 
 ### 如果已啟用 ExpressRoute Premium，我可以將多少個 VNet 連結至 ExpressRoute 電路？
 下表提供針對可連結至 ExpressRoute 電路的 VNet 數目所提高的限制。預設限制為 10
@@ -195,7 +196,7 @@ ExpressRoute Premium 是下面所列功能的集合。
 | 50 Mbps | 10 | 20 |
 | 100 Mbps | 10 | 25 |
 | 500 Mbps | 10 | 40 |
-| 1Gbps | 10 | 50                                                                                     
+| 1Gbps | 10 | 50
 |
 
 
@@ -236,7 +237,7 @@ ExpressRoute Premium 是下面所列功能的集合。
 1. 請檢閱 [ExpressRoute 必要條件頁面](expressroute-prerequisites.md)，以確定您符合需求
 2. 請檢閱 [ExpressRoute 合作夥伴和位置](expressroute-locations.md)中的服務提供者和位置清單，以確定符合您的連線需求。
 3. 透過檢閱 [Office 365 的網路規劃和效能調整](http://aka.ms/tune/)來計劃您的容量需求
-4. 依照下面工作流程中的所列步驟設定連線。 
+4. 依照下面工作流程中的所列步驟設定連線。
 
 	- [透過網路服務提供者設定 ExpressRoute 連線](expressroute-configuring-nsps.md)
 	- [透過 Exchange 提供者設定 ExpressRoute 連線](expressroute-configuring-exps.md)
@@ -249,7 +250,7 @@ ExpressRoute Premium 是下面所列功能的集合。
 - [透過網路服務提供者設定 ExpressRoute 連線](expressroute-configuring-nsps.md)
 - [透過 Exchange 提供者設定 ExpressRoute 連線](expressroute-configuring-exps.md)
 
-### 透過 ExpressRoute 連線可以存取哪些 Office 365 服務？ 
+### 透過 ExpressRoute 連線可以存取哪些 Office 365 服務？
 
 **支援下列 Office 365 服務**
 
@@ -258,7 +259,6 @@ ExpressRoute Premium 是下面所列功能的集合。
 - Skype for Business Online
 - Office Online
 - Azure AD 和 Azure AD Sync
-- CRM Online
 - Office 365 影片
 - Power BI
 - Delve
@@ -268,7 +268,7 @@ ExpressRoute Premium 是下面所列功能的集合。
 
 - Yammer
 - Office 365 ProPlus 用戶端下載項目
-- 內部部署識別提供者登入 
+- 內部部署識別提供者登入
 - 中國地區的 Office 365 (由 21 Vianet 所經營) 服務
 
 您可以透過網際網路與這些服務連線。
@@ -284,4 +284,6 @@ ExpressRoute Premium 是下面所列功能的集合。
 
 ### 即使 ExpressRoute 已設定供我的組織使用，我是否可以透過網際網路存取 Office 365？
 是。即使 ExpressRoute 已設定供我的組織使用，您仍可以透過網際網路存取 Office 365 服務端點。如果所處位置已設定透過 ExpressRoute 連線到 Office 365 服務，您將會透過 ExpressRoute 進行連線。
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO2-->

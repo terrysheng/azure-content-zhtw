@@ -1,24 +1,25 @@
 <properties 
 	pageTitle="疑難排解以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線" 
-	description="了解如何以診斷和步驟還原連接到 Azure 虛擬機器的遠端桌面 (RDP) 連線，以隔離問題的來源。"
+	description="如果您無法連線以 Windows 為基礎的 Azure 虛擬機器，請使用下列診斷與步驟來隔離問題的來源。"
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
 # 疑難排解以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線
 
-本主題描述對於以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線，如何以有條理的方式修正和判定根本原因。
+如果您無法連線到以 Windows 為基礎的 Azure 虛擬機器，本文將說明如何以有條理的方式修正遠端桌面連線並判定根本原因。
 
 ## 步驟 1：執行 Azure IaaS 診斷封裝。
 
@@ -35,7 +36,7 @@
 
 ## 步驟 2：判斷來自遠端桌面用戶端的錯誤訊息。
 
-根據您得到的錯誤訊息來使用這些章節。
+根據您在嘗試連線時所看到的錯誤訊息來使用下列各節。
 
 ### 遠端桌面連線訊息視窗：遠端工作階段已中斷連線，因為沒有可用的遠端桌面授權伺服器來提供授權。
 
@@ -60,12 +61,24 @@
 	full address:s:tailspin-azdatatier.cloudapp.net:55919
 	prompt for credentials:i:1
 
-位址部分包含雲端服務的完整網域名稱，這包含虛擬機器 (在本範例中為 tailspin-azdatatier.cloudapp.net) 以及遠端桌面流量端點的外部 TCP 連接埠 (55919)。
+在此範例中，位址部分包含雲端服務的完整網域名稱，這包含虛擬機器 (在本範例中為 tailspin-azdatatier.cloudapp.net) 以及遠端桌面流量端點的外部 TCP 連接埠 (55919)。
 
 此問題的可能解決方案：
 
 - 如果您位於組織內部網路，請確保您的電腦能存取並傳送 HTTPS 流量給 Proxy 伺服器。
-- 如果您正使用本機儲存的 RDP 檔案，請嘗試使用 Azure 管理入口網站所產生的 RDP 檔案，確保雲端服務的名稱和虛擬機器的端點連接埠正確。
+- 如果您正使用本機儲存的 RDP 檔案，請嘗試使用 Azure 管理入口網站所產生的 RDP 檔案，確保虛擬機器或雲端服務的 DNS 名稱以及虛擬機器的端點連接埠都正確。
+
+### 遠端桌面連線訊息視窗：發生驗證錯誤。無法連絡本機安全性授權。
+
+原因：您連線的虛擬機器找不到您認證的使用者名稱部分所表示的安全性授權。
+
+若您的使用者名稱格式為 *SecurityAuthority*\\*UserName* (範例：CORP\\User1)，則 *SecurityAuthority* 部分可以是虛擬機器的電腦名稱 (做為本機安全性授權) 或 Active Directory 網域名稱。
+
+此問題的可能解決方案：
+
+- 如果該使用者帳戶只能在虛擬機器中使用，請確認虛擬機器名稱的拼字正確。
+- 如果該使用者帳戶是 Active Directory 網域帳戶，請確認網域名稱的拼字正確。
+- 如果該使用者帳戶是 Active Directory 網域帳戶且網域名稱的拼字正確，請確認可以使用 Active Directory 網域的網域控制站。網域控制站電腦並未啟動，在包含網域控制站的 Azure 虛擬網路中是常見的問題。暫時的解決辦法是使用本機系統管理員帳戶，而不要使用網域帳戶。
 
 ### Windows 安全性訊息視窗：您的認證無法運作。
 
@@ -73,8 +86,8 @@
 
 以 Windows 為基礎的電腦可以驗證本機帳戶或以網域為基礎帳戶之認證。
 
-- 對於本機帳戶，請使用 <computer name><帳戶名稱> 語法 (範例：SQL1\\Admin4798)。 
-- 對於網域帳戶，請使用 <domain name><帳戶名稱> 語法 (範例：CONTOSO\\johndoe)。
+- 如果是本機帳戶，請使用 *ComputerName*\\*UserName* 語法 (範例：SQL1\\Admin4798)。 
+- 如果是網域帳戶，請使用 *DomainName*\\*UserName* 語法 (範例：CONTOSO\\johndoe)。
 
 對於您在新的 AD 樹系提升為網域控制器的電腦，您執行此提升時所登入的本機系統管理員帳戶會轉換為對等的帳戶，密碼與在新樹系和網域中的相同。上一個本機系統管理員帳戶已刪除。例如，如果您以本機系統管理員帳戶 DC1\\DCAdmin 登入，並提升此虛擬機器為 corp.contoso.com 網域中新樹系的網域控制器，則會刪除 DC1\\DCAdmin 本機帳戶，並且以相同密碼建立一個新的網域帳戶 CORP\\DCAdmin。
 
@@ -100,7 +113,7 @@
  
 在深入了解逐步的疑難排解程序之前，先在心中檢閱您在可以成功建立遠端桌面連線之後曾進行過的變更，再使用這些變更當成修正問題的基礎會相當有幫助。例如：
 
-- 如果您可以建立遠端桌面連線，且您變更了包含虛擬機器的雲端服務之公用 IP 位址 (又稱為虛擬 IP 位址 [VIP])，則您的 DNS 用戶端快取可能有此雲端服務和*舊的 IP 位址*的 DNS 名稱項目。請清除 DNS 用戶端快取並重試一次。或者，請嘗試使用新的 VIP 建立連線。
+- 如果您可以建立遠端桌面連線，且您變更了虛擬機器或包含虛擬機器的雲端服務之公用 IP 位址 (又稱為虛擬 IP 位址 [VIP])，則您的 DNS 用戶端快取可能會有 DNS 名稱和「舊的 IP 位址」項目。請清除 DNS 用戶端快取並重試一次。或者，請嘗試使用新的 VIP 建立連線。
 - 如果您從使用 Azure 管理入口網站或 Azure Preview 入口網站變更為使用應用程式來管理遠端桌面連線，則請確保應用程式組態包含用於遠端桌面流量之隨機決定的 TCP 連接埠。 
 
 下節將逐步地隔離和判定此問題的各種根本原因，並提供解決方案和因應措施。
@@ -146,7 +159,7 @@
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_2.png)
  
-如果您沒有直接連接到網際網路的電腦，則您只要將新的 Azure 虛擬機器建立於專屬的雲端服務中並加以使用即可。如需詳細資訊，請參閱[在 Azure 中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial.md)。當您完成測試後，請刪除此虛擬機器及雲端服務。
+如果您沒有直接連線到網際網路的電腦，則您只要將新的 Azure 虛擬機器建立於專屬的資源群組或雲端服務中並加以使用即可。如需詳細資訊，請參閱[在 Azure 中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial.md)。當您完成測試後，請刪除此資源群組或虛擬機器及雲端服務。
 
 如果您可以對直接連線到網際網路的電腦建立遠端桌面連線，請檢查組織內部網路的邊緣裝置之下列項目：
 
@@ -158,24 +171,26 @@
 
 ### 來源 3：雲端服務端點和 ACL
 
-若要排除雲端服務端點和 ACL 為問題或錯誤設定來源之可能性，請確認另一部位於相同雲端服務的 Azure 虛擬機器能遠端桌面連線到您的 Azure 虛擬機器。
+若要為「服務管理」建立的虛擬機器排除雲端服務端點和 ACL 為問題或錯誤設定來源之可能性，請確認另一部位於相同雲端服務或虛擬網路的 Azure 虛擬機器能使用遠端桌面連線到您的 Azure 虛擬機器。
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_3.png)
  
-如果在相同的雲端服務中沒有另一部虛擬機器，則您只要建立一部新的即可。如需詳細資訊，請參閱[在 Azure 中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial.md)。當您完成測試後，請刪除額外的虛擬機器。
+> [AZURE.NOTE]如果是在資源管理員中建立的虛擬機器，請跳到[來源 4：網路安全性群組](#nsgs)。
 
-如果您可以建立遠端桌面連線到相同雲端服務中的虛擬機器，則請檢查下列項目：
+如果在同一個雲端服務或虛擬網路中沒有另一部虛擬機器，可以建立一部新的。如需詳細資訊，請參閱[在 Azure 中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial.md)。當您完成測試後，請刪除額外的虛擬機器。
+
+如果您可以建立遠端桌面連線到相同雲端服務或虛擬網路中的虛擬機器，則請檢查下列項目：
 
 - 目標虛擬機器上的遠端桌面流量端點組態。此端點的私用 TCP 連接埠必須符合虛擬機器上遠端桌面服務正在接聽的 TCP 連接埠，根據預設為 3389。 
 - 目標虛擬機器上的遠端桌面流量端點 ACL。ACL 讓您可指定要根據來源 IP 位址允許或拒絕來自網際網路的連入流量。設定錯誤的 ACL 會阻止送至端點的連入遠端桌面流量。檢查您的 ACL，以確保允許來自您的 Proxy 或其他邊緣伺服器的公用 IP 位址之連入流量。如需詳細資訊，請參閱[關於網路存取控制清單 (ACL)](https://msdn.microsoft.com/library/azure/dn376541.aspx)。
 
 若要排除端點為問題或錯誤設定來源之可能性，請移除目前的端點，再選擇外部連接埠號碼介於 49152 到 65535 的隨機連接埠來建立新的端點。如需詳細資訊，請參閱[在 Azure 中設定虛擬機器的端點](virtual-machines-set-up-endpoints.md)。
 
-### 來源 4：網路安全性群組
+### <a id="nsgs"></a>來源 4：網路安全性群組
 
 網路安全性群組讓您更精確地控制受允許的輸入和輸出流量。您可以在 Azure 虛擬網路中建立跨越子網路和雲端服務的規則。請檢查您的網路安全性群組規則，以確保允許來自網際網路的遠端桌面流量。
 
-如需詳細資訊，請參閱[關於網路安全性群組](https://msdn.microsoft.com/library/azure/dn848316.aspx)。
+如需詳細資訊，請參閱[關於網路安全性群組](../virtual-network/virtual-networks-nsg.md)。
 
 ### 來源 5：以 Windows 為基礎的 Azure 虛擬機器
 
@@ -195,7 +210,7 @@
 - Windows 防火牆或其他本機防火牆有阻止遠端桌面流量的輸出規則。
 - 在 Azure 虛擬機器上執行的入侵偵測或網路監視軟體正在阻止遠端桌面連線。
 
-若要修正這些可能的問題，您可以使用關於 Azure 虛擬機器的遠端 PowerShell 工作階段。首先，您必須安裝虛擬機器之代管雲端服務的憑證。移至[設定安全遠端 PowerShell 對 Azure 虛擬機器的存取權](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe)，以及下載 **InstallWinRMCertAzureVM.ps1** 指令碼檔案到您本機電腦的資料夾。
+若要為在「服務管理」中建立的虛擬機器修正這些可能的問題，您可以使用遠端 PowerShell 工作階段連線到 Azure 虛擬機器。首先，您必須安裝虛擬機器之代管雲端服務的憑證。移至[設定安全遠端 PowerShell 對 Azure 虛擬機器的存取權](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe)，以及下載 **InstallWinRMCertAzureVM.ps1** 指令碼檔案到您本機電腦的資料夾。
 
 接下來，如果尚未安裝 Azure PowerShell，則請先安裝。請參閱[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)。
 
@@ -268,9 +283,8 @@ PortNumber 屬性會顯示目前的連接埠號碼。如有需要，請以此命
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-[虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[疑難排解以 Linux 為基礎之 Azure 虛擬機器的安全殼層 (SSH) 連線](virtual-machines-troubleshoot-ssh-connections.md)
 
-[Azure 虛擬機器常見問題集](http://msdn.microsoft.com/library/azure/dn683781.aspx)
+[疑難排解在 Azure 虛擬機器上執行的應用程式存取](virtual-machines-troubleshoot-access-application.md)
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

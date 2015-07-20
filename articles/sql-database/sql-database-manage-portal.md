@@ -68,5 +68,6 @@ Azure SQL Database 可以設定為以非同步方式，將已認可的交易複�
   [AzureDb datamasking]: http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/
 
  
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

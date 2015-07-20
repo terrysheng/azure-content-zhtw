@@ -70,4 +70,6 @@
 
 - 資料庫連接事件的度量可透過查詢 [**sys.database_connection_stats (Azure SQL Database)**](https://msdn.microsoft.com/library/dn269986.aspx) 檢視來存取。
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

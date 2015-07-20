@@ -13,14 +13,14 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/18/2015" 
+	ms.date="07/08/2015" 
 	ms.author="eugenesh"/>
 
 #使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務。#
 
 Azure 搜尋服務可以輕鬆地提供強大的搜尋體驗，但您必須先在 Azure 搜尋服務索引中填入您的資料，您才能夠搜尋。如果 Azure SQL Database 中有您的資料，您可以在 Azure 搜尋服務中，使用全新 **適用於 Azure SQL Database 的 Azure 搜尋服務索引子** (或簡稱 **Azure SQL 索引子**) 功能，自動化編製索引的程序。這表示您可以減少編寫程式碼的工作，並且減少需要維護的基礎結構。
 
-目前索引子僅適用於 Azure SQL Database、Azure VM 上的 SQL Server，以及 Azure DocumentDB。在本文中，我們將重點放在如何針對 Azure SQL Database 使用索引子。如果您想參閱其他資料來源的支援，請您在 [Azure 搜尋意見反應論壇](http://feedback.azure.com/forums/263029-azure-search)上提供寶貴意見。
+目前索引子僅適用於 Azure SQL Database、Azure VM 上的 SQL Server，以及 Azure DocumentDB。在本文中，我們將重點放在如何針對 Azure SQL Database 使用索引子。如果您想參閱其他資料來源的支援，請您在 [Azure 搜尋服務意見反應論壇](http://feedback.azure.com/forums/263029-azure-search)上提供寶貴意見。
 
 本文將介紹使用索引子的機制，但我們也會深入了解僅在 SQL 資料庫上出現的功能與行為 (例如，整合變更追蹤)。
 
@@ -66,7 +66,7 @@ Azure 搜尋服務可以輕鬆地提供強大的搜尋體驗，但您必須先�
 
 您可以從 [Azure 入口網站](https://portal.azure.com)取得連接字串；使用 `ADO.NET connection string` 選項。
 
-然後，建立目標 Azure 搜尋索引 (如果您尚未建立)。您可以從 [Azure 入口網站 UI](https://portal.azure.com) 或使用[建立索引 API](https://msdn.microsoft.com/library/azure/dn798941.aspx) 來執行此作業。確保您的目標索引結構敘述與來源資料表結構敘述相容。請參閱下列資料表，對應 SQL 及 Azure 搜尋服務間的資料類型。
+然後，建立目標 Azure 搜尋服務索引 (如果您尚未建立)。您可以從 [Azure 入口網站 UI](https://portal.azure.com) 或使用[建立索引 API](https://msdn.microsoft.com/library/azure/dn798941.aspx) 來執行此作業。確保您的目標索引結構敘述與來源資料表結構敘述相容。請參閱下列資料表，對應 SQL 及 Azure 搜尋服務間的資料類型。
 
 **在 SQL 資料類型及 Azure 搜尋服務資料類型間比對** <table style="font-size:12"> <tr> <td>SQL 資料類型</td> <td>允許的目標索引欄位類型</td> <td>注意</td> </tr> <tr> <td>bit</td> <td>Edm.Boolean、Edm.String</td> <td></td> </tr> <tr> <td>int、smallint、tinyint</td> <td>Edm.Int32、Edm.Int64、 Edm.String</td> <td></td> </tr> <tr> <td>bigint</td> <td>Edm.Int64、 Edm.String</td> <td></td> </tr> <tr> <td>real、 float</td> <td>Edm.Double、 Edm.String</td> <td></td> </tr> <tr> <td>smallmoney、 money<br/>decimal<br/>numeric </td> <td>Edm.String</td> <td>Azure 搜尋服務不支援將 decimal 類型轉換為 Edm.Double，因為這可能會失去精確度</td> </tr> <tr> <td>char、 nchar、varchar、 nvarchar</td> <td>Edm.String<br/>Collection(Edm.String)</td> <td>將字串資料行轉換為 Collection (Edm.String) 需要使用預覽 API 版本 2015-02-28-預覽。請參閱 [本文](search-api-indexers-2015-02-28-Preview.md#create-indexer) 了解詳細資訊</td> </tr> <tr> <td>smalldatetime、datetime、datetime2、date、datetimeoffset</td> <td> Edm.DateTimeOffset、Edm.String</td> <td></td> </tr> <tr> <td> uniqueidentifer</td> <td>Edm.String</td> <td></td> </tr> <tr> <td>geography</td> <td>Edm.GeographyPoint</td> <td>僅支援使用 SRID 4326 (預設) 之 POINT 類型的 geography執行個體</td> </tr> <tr> <td>rowversion</td> <td>N/A</td> <td> 資料列版本的資料行無法儲存在搜尋索引中，但可用於變更追蹤</td> </tr> <tr> <td>time、 timespan<br>binary、varbinary、image、<br>xml、 geometry、CLR 類型</td> <td>N/A</td> <td>不支援</td> </tr> </table>
 
@@ -143,7 +143,7 @@ Azure 搜尋服務可以輕鬆地提供強大的搜尋體驗，但您必須先�
 	    "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
 	}
 
- **間隔** 參數是必需的。間隔指兩個連續索引子開始執行的時間。允許的最小間隔為 5 分鐘；最長間隔為一天。它必須格式化為 XSD "dayTimeDuration" 值 ([ISO 8601 持續時間](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。間隔的模式為：`P(nD)(T(nH)(nM))`。範例：`PT15M` 代表每隔 15 分鐘，`PT2H` 代表每隔 2 個小時。
+**間隔** 參數是必需的。間隔指兩個連續索引子開始執行的時間。允許的最小間隔為 5 分鐘；最長間隔為一天。其必須格式化為 XSD "dayTimeDuration" 值 ([ISO 8601 持續時間](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)值的受限子集)。間隔的模式為：`P(nD)(T(nH)(nM))`。範例：`PT15M` 代表每隔 15 分鐘，`PT2H` 代表每隔 2 個小時。
 
 選用的 **startTime** 表示排定執行應開始的時間 ；如果省略選用時間，則會使用您目前的 UTC 時間 。開始時間可以設定為過去的時間 (在這種情況下，可以假設索引子從 startTime 已持續執行一段時間，以排定第一次執行的時間)。
 
@@ -174,7 +174,7 @@ Azure 搜尋服務可以輕鬆地提供強大的搜尋體驗，但您必須先�
 下列的 SQL Server 資料庫版本支援整合變更追蹤：
  
 - SQL Server 2008 R2 和更高版本 (若您使用 Azure VM 上 SQL Server )。 
-- Azure SQL Database  V12 (若您使用 Azure SQL Database )。
+- Azure SQL Database V12 (若您使用 Azure SQL Database )。
 
 使用 SQL 整合式變更追蹤原則時，請不要指定個別的資料刪除偵測原則，因為本原則已內建支援刪除資料列的識別。
 
@@ -261,5 +261,6 @@ Azure 搜尋服務可以輕鬆地提供強大的搜尋體驗，但您必須先�
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

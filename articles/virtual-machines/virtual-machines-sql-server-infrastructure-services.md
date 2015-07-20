@@ -23,7 +23,7 @@
 
 > [AZURE.NOTE]在 Azure VM 上執行 SQL Server，是用來將關聯式資料儲存到 Azure 的選項之一。您也可以使用 Azure SQL Database 服務。如需詳細資訊，請參閱[了解 Azure SQL Database 和 Azure VM 中的 SQL Server][sqldbcompared]。
  
-## 在單一  VM 上部署  SQL Server 執行個體
+## 在單一 VM 上部署 SQL Server 執行個體
 當您[使用 Azure 入口網站建立 Azure 虛擬機器][createvmportal]或採用自動化方法後，您可以安裝任何您有授權的 SQL Server 執行個體。不過，您必須採取其他步驟，在 SQL Server 電腦和其他用戶端電腦之間[設定連線][setupconnectivity]。
  
 您也可以從組件庫許多不同 SQL Server 虛擬機器映像中，安裝其中一個。這些映像包含的 SQL Server 授權，是以 VM 為計價單位。如需詳細資訊，請參閱[在 Azure 上佈建 SQL Server 虛擬機器][provisionsqlvm]。
@@ -51,27 +51,27 @@
 
 [Azure 虛擬機器中 SQL Server 適用的技術文件][technicalarticles]
 
-[sqlvmlanding]: http://azure.microsoft.com/services/virtual-machines/sql-server/
-[sqldbcompared]: http://azure.microsoft.com/documentation/articles/data-management-azure-sql-database-and-sql-server-iaas
-[createvmportal]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
-[setupconnectivity]: https://msdn.microsoft.com/library/azure/dn133152.aspx
-[provisionsqlvm]: http://azure.microsoft.com/documentation/articles/virtual-machines-provision-sql-server/
-[sqlalwaysonportal]: http://go.microsoft.com/fwlink/?LinkId=526941
-[sqlalwaysonmanual]: https://msdn.microsoft.com/library/azure/dn249504.aspx
-[sqlhadr]: https://msdn.microsoft.com/library/azure/jj870962.aspx
-[sqlbi]: https://msdn.microsoft.com/library/azure/jj992719.aspx
-[sqldw]: https://msdn.microsoft.com/library/azure/dn387396.aspx
-[sqloltp]: https://msdn.microsoft.com/library/azure/eb0188e2-5569-48ff-b92c-1f6c0bf79620#about
-[migratesql]: https://msdn.microsoft.com/library/azure/dn133142.aspx
-[backupurl]: https://msdn.microsoft.com/library/dn435916(v=sql.120).aspx
-[managedbackup]: https://msdn.microsoft.com/library/dn449496.aspx
-[autobackup]: https://msdn.microsoft.com/library/azure/dn906091.aspx
-[autopatching]: https://msdn.microsoft.com/library/azure/dn961166.aspx
-[managementtasks]: https://msdn.microsoft.com/library/azure/dn906886.aspx
-[sqlmsdnlanding]: https://msdn.microsoft.com/library/azure/jj823132.aspx
-[sqlvmgetstarted]: https://msdn.microsoft.com/library/azure/dn133151.aspx
-[sqlperf]: https://msdn.microsoft.com/library/azure/dn133149.aspx
-[sqlsecurity]: https://msdn.microsoft.com/library/azure/dn133147.aspx
-[technicalarticles]: https://msdn.microsoft.com/library/azure/dn248435.aspx
-<!--HONumber=52-->
- 
+  [sqlvmlanding]: http://azure.microsoft.com/services/virtual-machines/sql-server/
+  [sqldbcompared]: http://azure.microsoft.com/documentation/articles/data-management-azure-sql-database-and-sql-server-iaas
+  [createvmportal]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
+  [setupconnectivity]: https://msdn.microsoft.com/library/azure/dn133152.aspx
+  [provisionsqlvm]: http://azure.microsoft.com/documentation/articles/virtual-machines-provision-sql-server/
+  [sqlalwaysonportal]: http://go.microsoft.com/fwlink/?LinkId=526941
+  [sqlalwaysonmanual]: https://msdn.microsoft.com/library/azure/dn249504.aspx
+  [sqlhadr]: https://msdn.microsoft.com/library/azure/jj870962.aspx
+  [sqlbi]: https://msdn.microsoft.com/library/azure/jj992719.aspx
+  [sqldw]: https://msdn.microsoft.com/library/azure/dn387396.aspx
+  [sqloltp]: https://msdn.microsoft.com/library/azure/eb0188e2-5569-48ff-b92c-1f6c0bf79620#about
+  [migratesql]: https://msdn.microsoft.com/library/azure/dn133142.aspx
+  [backupurl]: https://msdn.microsoft.com/library/dn435916(v=sql.120).aspx
+  [managedbackup]: https://msdn.microsoft.com/library/dn449496.aspx
+  [autobackup]: https://msdn.microsoft.com/library/azure/dn906091.aspx
+  [autopatching]: https://msdn.microsoft.com/library/azure/dn961166.aspx
+  [managementtasks]: https://msdn.microsoft.com/library/azure/dn906886.aspx
+  [sqlmsdnlanding]: https://msdn.microsoft.com/library/azure/jj823132.aspx
+  [sqlvmgetstarted]: https://msdn.microsoft.com/library/azure/dn133151.aspx
+  [sqlperf]: https://msdn.microsoft.com/library/azure/dn133149.aspx
+  [sqlsecurity]: https://msdn.microsoft.com/library/azure/dn133147.aspx
+  [technicalarticles]: https://msdn.microsoft.com/library/azure/dn248435.aspx
+
+<!---HONumber=July15_HO2-->

@@ -33,22 +33,22 @@
 
 您可以使用任何 HTTP 偵錯程式來傳送和檢查 HTTP 流量。[Fiddler](http://www.telerik.com/fiddler) 是開發人員基於此目的而經常使用的工具。為了讓開發人員的工作更輕鬆，行動服務會會搭售 Web 型 HTTP 偵錯程式 (也稱為測試用戶端)，而減少使用外部工具的需求。在本機主控行動服務時，將會在類似於 [http://localhost:59233](http://localhost:59233) 的 URI 上提供行動服務，而在雲端中主控時，URI 則會是 [http://todo-list.azure-mobile.net](http://todo-list.azure-mobile.net) 的格式。無論在何處主控服務，下列步驟的會以相同方式運作：
 
-1. 首先，在 **Visual Studio 2013 Update 2** 或更新版本中開啟行動服務伺服器專案。如果您尚無此專案，可以依序選取 [檔案]****、[新增]****、[專案]****，然後依序選取 [雲端]**** 節點和 [Microsoft Azure 行動服務]**** 範本，以建立專案。
-2. 點按 **F5**，以建置並執行專案。在開始頁面上，選取 [立即試用]****。 
+1. 首先，在 **Visual Studio 2013 Update 2** 或更新版本中開啟行動服務伺服器專案。如果您尚無此專案，可以依序選取 [檔案]、[新增]、[專案]，然後依序選取 [雲端] 節點和 [Microsoft Azure 行動服務] 範本，以建立專案。
+2. 點按 **F5**，以建置並執行專案。在開始頁面上，選取 [立即試用]。 
 
-    >[AZURE.NOTE]如果是在本機主控服務，則在按一下連結後將會導向至下一頁。但如果是在雲端中主控，則系統會提示您提供一組認證。這是為了確保讓未經授權的使用者無法存取您 API 和裝載的相關資訊。若要檢視頁面，您必須使用**空白使用者名稱**，並以您的**應用程式金鑰**作為密碼，來進行登入。您可以導覽至行動服務的 [儀表板]**** 索引標籤，並選取 [管理金鑰]****，在 [Azure 管理入口網站]**** 中取得應用程式金鑰。
+    >[AZURE.NOTE]如果是在本機主控服務，則在按一下連結後將會導向至下一頁。但如果是在雲端中主控，則系統會提示您提供一組認證。這是為了確保讓未經授權的使用者無法存取您 API 和裝載的相關資訊。若要檢視頁面，您必須使用**空白使用者名稱**，並以您的**應用程式金鑰**作為密碼，來進行登入。您可以導覽至行動服務的 [儀表板] 索引標籤，並選取 [管理金鑰]，在 [Azure 管理入口網站] 中取得應用程式金鑰。
     >
     > ![Authentication prompt to access help page][HelpPageAuth]
 
-3. 您所檢視的頁面 (稱為「說明頁面」) 會顯示您的行動服務啟用的 HTTP API 完整清單。選取其中一個 API (如果您是在 Visual Studio 中開始使用行動服務專案的，您應該會看見 [GET tables/TodoItem]****)。
+3. 您所檢視的頁面 (稱為「說明頁面」) 會顯示您的行動服務啟用的 HTTP API 完整清單。選取其中一個 API (如果您是在 Visual Studio 中開始使用行動服務專案的，您應該會看見 [GET tables/TodoItem])。
 
     ![Help page][HelpPage]
 
-4. 產生的頁面會顯示 API 所預期之要求和回應的任何文件與 JSON 範例。選取 [try this out]**** 按鈕。
+4. 產生的頁面會顯示 API 所預期之要求和回應的任何文件與 JSON 範例。選取 [try this out] 按鈕。
 
     ![Test page for an API][HelpPageApi]
 
-5. 這是測試用戶端，可讓您傳送 HTTP 要求以試用您的 API。選取 [傳送]****。
+5. 這是測試用戶端，可讓您傳送 HTTP 要求以試用您的 API。選取 [傳送]。
 
     ![Test client][TestClient]
 
@@ -64,28 +64,28 @@
 .NET 後端的主要功能之一是在本機偵錯服務程式碼，以及偵錯在雲端環境中即時執行的程式碼。請遵循下列步驟：
 
 1. 在 **Visual Studio 2013 Update 2** 或更新版本中開啟您要偵錯的行動服務專案。
-2. 設定符號載入。導覽至 [偵錯]**** 功能表，然後選取 [選項和設定]****。確定未核取 [啟用 Just My Code]****，並核取 [啟用來源伺服器支援]****。
+2. 設定符號載入。導覽至 [偵錯] 功能表，然後選取 [選項和設定]。確定未核取 [啟用 Just My Code]，並核取 [啟用來源伺服器支援]。
 
     ![Configure symbol loading][SymbolLoading]
 
-3. 在左側選取 [符號]**** 節點，並使用 URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public) 將參考新增至 (SymbolSource) [http://symbolsource.org] 伺服器。行動服務 .NET 後端的符號會以最新的版本啟用。
+3. 在左側選取 [**符號**] 節點，並使用 URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public) 將參考新增至 (SymbolSource)[http://symbolsource.org] 伺服器。行動服務 .NET 後端的符號會以最新的版本啟用。
  
     ![Configure symbol server][SymbolServer]
 
 4. 在程式碼片段中要進行偵錯之處，設定一個中斷點。您可以在 Visual Studio 中的行動服務專案範本隨附之 **TodoItemController** 的 **GetAllTodoItems()** 方法中，設定一個中斷點。
 5. 按 **F5** 在本機進行服務的偵錯。第一次載入可能會比較慢，因為 Visual Studio 必須為行動服務 .NET 後端下載符號。
-6. 如先前關於 HTTP 偵錯的章節所說明，您可以使用測試用戶端將 HTTP 要求傳送至您設定中斷點之處。例如，您可以在說明頁面上選取 [GET tables/TodoItem]****，然後依序選取 [try this out]**** 和 [傳送]****，以將要求傳送至 **GetAllTodoItems()** 方法。
-7. Visual Studio 應會在您設定的中斷點中斷，且 Visual Studio 中的 [呼叫堆疊]**** 視窗中應會提供附有原始程式碼的完整堆疊追蹤。
+6. 如先前關於 HTTP 偵錯的章節所說明，您可以使用測試用戶端將 HTTP 要求傳送至您設定中斷點之處。例如，您可以在說明頁面上選取 [GET tables/TodoItem]，然後依序選取 [try this out] 和 [傳送]，以將要求傳送至 **GetAllTodoItems()** 方法。
+7. Visual Studio 應會在您設定的中斷點中斷，且 Visual Studio 中的 [呼叫堆疊] 視窗中應會提供附有原始程式碼的完整堆疊追蹤。
 
     ![Hitting a breakpoint][Breakpoint]
 
-8. 現在您可以將服務發行至 Azure，且我們將能夠以前述方式使用偵錯。在 [方案總管]**** 中以滑鼠右鍵按一下專案，然後選取 [發行]****，以發行專案。
-9. 在 [發行] 精靈的 [設定]**** 索引標籤上，選取 [偵錯]**** 組態。這樣可以確保相關的偵錯符號都會隨您的程式碼發行。
+8. 現在您可以將服務發行至 Azure，且我們將能夠以前述方式使用偵錯。在 [方案總管] 中以滑鼠右鍵按一下專案，然後選取 [發行]，以發行專案。
+9. 在 [發行] 精靈的 [設定] 索引標籤上，選取 [偵錯] 組態。這樣可以確保相關的偵錯符號都會隨您的程式碼發行。
 
     ![Publish debug][PublishDebug]
 
-10. 在服務成功發佈後，開啟 [伺服器總管]****，然後依序展開 [Azure]**** 和 [行動服務]**** 節點。視需要登入。
-11. 以滑鼠右鍵按一下您剛剛發行到的行動服務，然後選取 [連結偵錯工具]****。
+10. 在服務成功發佈後，開啟 [伺服器總管]，然後依序展開 [Azure] 和 [行動服務] 節點。視需要登入。
+11. 以滑鼠右鍵按一下您剛剛發行到的行動服務，然後選取 [連結偵錯工具]。
 
     ![連結偵錯工具][AttachDebugger]
 
@@ -99,15 +99,15 @@
 
 您的行動服務處理來自客戶的要求時，會產生各種實用的診斷資訊，並擷取任何發生的例外狀況。除此之外，您也可以使用每個 [**TableController**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.apiservices.log.aspx) 的[**服務**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.tables.tablecontroller.services.aspx)屬性上提供的[**記錄**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.tables.tablecontroller.aspx)屬性，以其他記錄編寫您的控制器程式碼。
 
-在本機上偵錯時，記錄會顯示在 Visual Studio 的 [輸出]**** 視窗中。
+在本機上偵錯時，記錄會顯示在 Visual Studio 的 [輸出] 視窗中。
 
 ![Logs in Visual Studio Output window][LogsOutputWindow]
 
-在您將服務發行至 Azure 後，您可以在 Visual Studio 的 [伺服器總管]**** 中，以滑鼠右鍵按一下行動服務，然後選取 [檢視記錄]****，以取得執行於雲端中的服務執行個體的記錄。
+在您將服務發行至 Azure 後，您可以在 Visual Studio 的 [伺服器總管] 中，以滑鼠右鍵按一下行動服務，然後選取 [檢視記錄]，以取得執行於雲端中的服務執行個體的記錄。
 
 ![Logs in Visual Studio Server Explorer][LogsServerExplorer]
 
-相同的記錄也可從行動服務之 [記錄]**** 索引標籤上的 [Azure 管理入口網站]**** 中取得。
+相同的記錄也可從行動服務之 [記錄] 索引標籤上的 [Azure 管理入口網站] 中取得。
 
 ![Logs in Azure Management Portal][LogsPortal]
 
@@ -153,4 +153,5 @@
 [LogsServerExplorer]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/12.png
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

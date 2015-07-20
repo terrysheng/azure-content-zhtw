@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #使用 Apache Storm on HDInsight 判斷 Twitter 的趨勢主題
@@ -90,13 +90,13 @@ Spout **TwitterSpout** 會使用 <a href="http://twitter4j.org/en/" target="_bla
 
 使用以下步驟註冊新的 Twitter 應用程式，然後取得讀取 Twitter 內容所需的取用者和存取權杖資訊。
 
-1. 前往 <a href="https://apps.twitter.com" target="_blank">Twitter 應用程式</a>，然後按一下 [建立新應用程式]**** 按鈕。填寫表單時，請將 [回呼 URL]**** 欄位保留空白。
+1. 前往 <a href="https://apps.twitter.com" target="_blank">Twitter 應用程式</a>，然後按一下 [建立新應用程式] 按鈕。填寫表單時，請將 [回呼 URL] 欄位保留空白。
 
-2. 建立應用程式後，按一下 [金鑰和存取權杖]**** 索引標籤。
+2. 建立應用程式後，按一下 [金鑰和存取權杖] 索引標籤。
 
-3. 複製 [取用者金鑰]**** 和 [取用者密碼]**** 的資訊。
+3. 複製 [取用者金鑰] 和 [取用者密碼] 的資訊。
 
-4. 如果沒有權杖，請在頁面底部選取 [建立我的存取權杖]****。建立權杖後，複製 [存取權杖]**** 和 [存取權杖密碼]**** 的資訊。
+4. 如果沒有權杖，請在頁面底部選取 [建立我的存取權杖]。建立權杖後，複製 [存取權杖] 和 [存取權杖密碼] 的資訊。
 
 5. 在先前複製的 **TwitterSpoutTopology** 專案中，開啟 **resources/twitter4j.properties** 檔案，並新增先前步驟中所收集的資訊，然後儲存檔案。
 
@@ -139,4 +139,4 @@ Spout **TwitterSpout** 會使用 <a href="http://twitter4j.org/en/" target="_bla
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

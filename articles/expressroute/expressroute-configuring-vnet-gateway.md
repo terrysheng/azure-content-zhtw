@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/21/2015"
+   ms.date="06/25/2015"
    ms.author="cherylmc"/>
 
 #  設定 ExpressRoute 的虛擬網路
@@ -39,6 +39,8 @@
 	- **名稱**：您想要命名區域 (內部部署) 網站的名稱。
 	- **位址空間**：包括起始 IP 和 CIDR (位址計數)。您可以指定任何位址範圍，只要不會與虛擬網路的位址範圍重疊即可。
 	- **加入位址空間**：此設定與 ExpressRoute 無關。
+	- 
+**附註：**您必須建立 ExpressRoute 的區域網路站台。指定用於區域網路站台的位址前置詞會被忽略。透過 ExpressRoute 電路向 Microsoft 通告的位址前置詞將用於路由目的。
 
 6. 在 [Virtual Network Address Spaces] 頁面上，輸入下列資訊，然後按一下右下角的核取記號來設定您的網路。虛擬網路位址空間有極多的相關規則，因此您也許希望參閱[虛擬網路位址空間頁面](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS)來了解詳細資訊。
 
@@ -72,4 +74,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

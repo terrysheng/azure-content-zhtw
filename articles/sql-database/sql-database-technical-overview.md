@@ -25,5 +25,6 @@ SQL Database 可讓您[相應增加](sql-database-service-tiers.md)或[相應放
 「基本」、「標準」和「高階」[服務層](sql-database-service-tiers.md)提供的 SQL Database，都支援輕量級到重量級的資料庫工作負載，因此您可以在各個層之間移動或混合各個層，進行各種創新的應用程式設計。透過 Azure 功能強大而無遠弗屆的特性，您可以使用 SQL Database 混合和搭配 Azure 服務，滿足您獨特新型應用程式的設計需求、有效運用成本和資源，並且產生新的商機。
 
 現在就開始[免費試用](http://azure.microsoft.com/pricing/free-trial/)，並且了解[如何建立您的第一個 SQL Database](sql-database-get-started.md)！
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

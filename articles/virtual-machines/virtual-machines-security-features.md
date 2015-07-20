@@ -40,4 +40,7 @@ Azure 提供數個防毒/反惡意程式碼解決方案的選項，但管理則�
 ##其他資源
 Microsoft Azure 信任中心上的[資源](http://azure.microsoft.com/support/trust-center/resources/)
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

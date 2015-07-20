@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 Azure Machine Learning Web 服務參數 | Azure" 
+	pageTitle="使用 Azure Machine Learning Web 服務參數 | Microsoft Azure" 
 	description="如何使用 Azure Machine Learning Web 服務參數來修改模型在 Web 服務受到存取時的行為。" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="06/29/2015" 
 	ms.author="raymondl;garye"/>
 
 #使用 Azure Machine Learning Web 服務參數
@@ -22,7 +22,7 @@
 
 常見的範例是設定[讀取者][reader]模組，讓已發行 Web 服務的使用者可以在存取服務時，指定不同的資料來源。或者，設定[寫入者][writer]模組，以便指定不同的目的地。部分其他範例包括變更[雜湊功能][feature-hashing]模組的位元數，或變更[以篩選為基礎的功能選擇][filter-based-feature-selection] 模組的所需功能數。
 
-您可以定義 Web 服務參數，並使其與一個或多個模組參數產生關聯，而且您可以指定它們是必要還是選用參數。接著，Web 服務的使用者可以在服務受到存取時，提供這些參數的值，並據此修改模組動作。
+您可以定義 Web 服務參數，並使其與一個或多個模組參數產生關聯，而且您可以指定它們是必要還是選用參數。接著，Web 服務的使用者可以在服務遭到存取時，提供這些參數的值，如此一來，模組動作便會在執行階段進行修改。
 
 [AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
 
@@ -48,7 +48,8 @@ Web 服務的文件 (透過 Machine Learning Studio 中 Web 服務 **DASHBOARD**
 
     - 在 **[請指定資料目的地]** 底下，選取 [Azure Blob 儲存體]。
     - 在 **[請指定驗證類型]** 底下，選取 [帳戶]。
-    - 輸入 Azure Blob 儲存體的帳戶資訊。<p />
+    - 輸入 Azure Blob 儲存體的帳戶資訊。 
+    <p />
 
 3.	按一下 **[以容器參數為開頭的 Blob 路徑]** 右邊的圖示。它看起來像這樣：
 
@@ -88,5 +89,6 @@ Web 服務的使用者現在就可以在存取 Web 服務時為[寫入器][write
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

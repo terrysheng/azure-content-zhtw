@@ -50,7 +50,7 @@
 
 - **Android + iOS 動作**
     - 開啟網頁
-    - http://[web-site-domain] 
+    - http://[web-site-domain\] 
     - 範例：http://www.azure.com
     - 傳送電子郵件
     - mailto:[收件者]?subject=[主旨]&body=[訊息] 
@@ -70,11 +70,11 @@
     - 範例：geo:0,0?q=starbucks,paris
 - **僅限 iOS 的動作**
     - 下載 App Store 上的應用程式
-    - http://itunes.apple.com/[country]/app/[app 名稱]/id[app 識別碼]?mt=8 
+    - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
     - 範例：http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Windows 動作
     - 開啟網頁
-    - http://[web-site-domain] 
+    - http://[web-site-domain\] 
     - 範例：http://www.azure.com
     - 傳送電子郵件
     - mailto:[收件者]?subject=[主旨]&body=[訊息] 
@@ -228,5 +228,6 @@
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

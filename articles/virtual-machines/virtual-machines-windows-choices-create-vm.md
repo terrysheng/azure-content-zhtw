@@ -20,7 +20,7 @@
 
 Azure 提供建立 VM 的不同方式，因為 VM 適用於不同的使用者和用途。這表示您必須進行一些關於 VM 的選擇，並選擇建立它的方式。本文提供這些選項及指示連結的摘要說明。
 
-我們最近推出 Azure 資源管理員範本做為一種方式，用以建立虛擬機器，並將它與其不同資源當成一個邏輯部署單位來管理。以下提供這個可用方法的指示。若要深入了解 Azure 資源管理員，以及如何將資源當成一個單位來管理，請參閱〈[概觀][]〉。
+我們最近推出 Azure 資源管理員範本做為一種方式，用以建立虛擬機器，並將它與其不同資源當成一個邏輯部署單位來管理。以下提供這個可用方法的指示。若要深入了解 Azure 資源管理員，以及如何將資源當成一個單位來管理，請參閱[概觀][]。
 
 ## 工具選項
 
@@ -34,7 +34,7 @@ Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器�
 
 如果您偏好在命令殼層中工作，可選擇適用於 Mac 和 Linux 使用者的 Azure 命令列介面 (CLI) 或 Azure PowerShell (其中具有適用於 Azure 和自訂主控台的 Windows PowerShell Cmdlet)。
 
-針對 Azure CLI，請參閱〈[在使用適用於 Mac、Linux 及 Windows 的 Azure CLI 的 VM 操作中的對等資源管理員和服務管理命令][]〉。若要使用範本，請參閱〈[使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器][]〉。
+針對 Azure CLI，請參閱[在使用適用於 Mac、Linux 及 Windows 的 Azure CLI 的 VM 操作中的對等資源管理員和服務管理命令][]。若要使用範本，請參閱〈[使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器][]〉。
 
 針對 Azure PowerShell，請參閱＜[使用 Azure PowerShell 建立和預先設定 Windows 虛擬機器][]＞。若要使用範本，請參閱＜[使用 Azure 資源管理員範本和 PowerShell 部署和管理虛擬機器][]＞。
 
@@ -102,4 +102,4 @@ Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器�
 
 [Azure 混合式雲端測試環境]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -45,8 +45,8 @@
 使用下列方塊中的 PowerShell 命令為上述兩個網域控制站建立虛擬機器。指定變數的值，並移除 < and > 字元。請注意，此 PowerShell 命令集使用下方的值：
 
 - 資料表 M，適用於您的虛擬機器
-- 資料表 V，適用於您的虛擬網路設定
-- 資料表 S，適用於子您的網路
+- 資料表 V，適用於虛擬網路設定
+- 資料表 S，適用於子網路
 - 資料表 A，適用於可用性設定組
 - 資料表 C ，適用於雲端服務
 
@@ -112,8 +112,10 @@
 5.	瀏覽器對話方塊隨即出現，並詢問：「您想開啟或儲存來自 manage.windowsazure.com 的 ComputerName.rdp 嗎？」。 按一下 [開啟]。
 6.	在 [**遠端桌面連線**] 對話方塊中按一下 [**連線**]。
 7.	在 [**Windows 安全性**] 對話方塊中按一下 [**使用其他帳戶**]。
-8.	在 [**使用者名稱**] 中，輸入虛擬機器名稱以及使用該虛擬機器建立的本機系統管理員帳戶名稱 (本機電腦帳戶)。請使用下列格式： 
-- *ComputerName**本機系統管理員帳戶名稱*
+8.	在 [**使用者名稱**] 中，輸入虛擬機器名稱以及使用該虛擬機器建立的本機系統管理員帳戶名稱 (本機電腦帳戶)。  
+  
+請使用下列格式： 
+- *ComputerName*\\*本機系統管理員帳戶名稱*
 9.	在 [**密碼**] 中輸入本機系統管理員帳戶的密碼。
 10.	按一下 [確定]。
 11.	在 [**遠端桌面連線**] 對話方塊中按一下 [**是**]。新機器的桌面會顯示在遠端桌面工作階段視窗中。
@@ -123,7 +125,7 @@
 ### <a id="datadisk"></a>初始化空磁碟
 
 1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
-2.	在 [內容] 窗格的 [**磁碟**] 群組中，按一下 \[磁碟 **2**\] ([**磁碟分割**] 設為 [**未知**])。
+2.	在 [內容] 窗格的 [**磁碟**] 群組中，按一下 [磁碟 **2**] ([**磁碟分割**] 設為 [**未知**])。
 3.	按一下 [工作]，然後按一下 [新增磁碟區]。
 4.	在 [新增磁碟區精靈] 的 [在您開始前] 頁面上，按 [下一步]。
 5.	在 [選取伺服器和磁碟] 中按一下 [**磁碟 2**]，然後按一下 [**下一步**]。出現提示時，按一下 [確定]。
@@ -191,7 +193,7 @@ SharePoint 伺服器陣列需要下列使用者帳戶：
 
 1.	在 [開始] 畫面中輸入 **Active Directory Users**，然後按一下 [**Active Directory 使用者和電腦**]。 
 2.	在樹狀目錄窗格中開啟您的網域，然後按一下 [**使用者**]。 
-3.	在 [內容] 窗格中，以滑鼠右鍵按一下 [**sp_install**]，然後按一下 [**新增至群組**]。 
+3.	在 [內容] 窗格中，以滑鼠右鍵按一下 [**sp_install**]，然後按一下 [**新增至群組**]。
 4.	在 [**選取群組**] 對話方塊中輸入 **domain admins**，然後按兩次 [**確定**]。
 5.	在對話方塊中按一下 **[檢視]，再按一下 [進階功能]**。這個選項可讓您在 [屬性] 視窗中看到 AD 物件所有隱藏的容器以及隱藏的索引標籤。
 6.	以滑鼠右鍵按一下您的網域名稱，然後按一下 [**屬性**]。
@@ -199,7 +201,7 @@ SharePoint 伺服器陣列需要下列使用者帳戶：
 8.	在 [**<YourDomain> 的進階安全性設定**] 視窗中按一下 [ **新增**]。
 9.	在 [**<YourDomain> 的權限項目**] 視窗按一下 [**選取一個主體**]。
 10.	在文字方塊中輸入 **<YourDomain>\\sp_install** ，然後按一下 [**確定**]。
-11.	在  [**建立電腦物件**] 中選取 [**允取**]，然後按三次 [**確定**]。
+11.	在 [**建立電腦物件**] 中選取 [**允取**]，然後按三次 [**確定**]。
 
 接下來，為您的虛擬網路更新 DNS 伺服器，讓 Azure 將兩個新網域控制站的 IP 位址指派給虛擬機器，做為他們的 DNS 伺服器。請注意，此程序使用資料表 V 的值 (用於您虛擬網路的設定)。
 
@@ -234,12 +236,15 @@ SharePoint 伺服器陣列需要下列使用者帳戶：
 
 ## 其他資源
 
-[在 Azure 中使用 SQL Server AlwaysOn 可用性群組部署 SharePoint](virtual-machines-workload-intranet-sharepoint-overview.md)
+[在 Azure 中部署含有 SQL Server AlwaysOn 可用性群組的 SharePoint](virtual-machines-workload-intranet-sharepoint-overview.md)
 
-[在 Azure 基礎結構服務中代管的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
+[裝載於 Azure 基礎結構服務中的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
 
-[包含 SQL Server AlwaysOn 資訊圖的  SharePoint](http://go.microsoft.com/fwlink/?LinkId=394788)
+[包含 SQL Server AlwaysOn 的 SharePoint 資訊圖](http://go.microsoft.com/fwlink/?LinkId=394788)
 
 [適用於 SharePoint 2013 的 Microsoft Azure 架構](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!--HONumber=54--> 
+[Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
+
+<!---HONumber=July15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用 .NET 後端行動服務開始使用推播通知" 
-	description="了解如何使用 Azure 行動服務及通知中心傳送推播通知至通用 Windows 應用程式。" 
+	pageTitle="將推播通知新增至通用 Windows 8.1 應用程式 | Azure 行動服務" 
+	description="了解如何使用 Azure 通知中樞從 .NET 後端行動服務傳送推播通知給通用 Windows 8.1 應用程式。" 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,23 +13,17 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/09/2015" 
+	ms.date="07/01/2015" 
 	ms.author="glenga"/>
 
 # 將推播通知新增至行動服務應用程式
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
-#概觀
+
+##概觀
 本主題說明如何使用 Azure 行動服務與 .NET 後端傳送推播通知至通用 Windows 應用程式。在本教學課程中，您會透過 Azure 通知中心，啟用通用 Windows 應用程式專案中的推播通知功能。完成之後，每次 TodoList 資料表中插入記錄時，您的行動服務將會從 .NET 後端將推播通知傳送至所有註冊的 Windows 市集與 Windows Phone 市集應用程式。您所建立的通知中心可透過行動服務免費使用、可在行動服務以外個別管理，並且可供其他應用程式和服務使用。
 
 >[AZURE.NOTE]本主題說明如何使用 Visual Studio Professional 2013 with Update 3 的工具，從行動服務將推播通知支援新增至通用 Windows 應用程式。要將推播通知從行動服務新增到 Windows 市集或 Windows Phone 8.1 應用程式時，也可使用相同的步驟進行。若要將推播通知新增至 Windows Phone 8 或 Windows Phone Silverlight 8.1 應用程式，請檢視此版本的[開始在行動服務中使用推播通知](mobile-services-dotnet-backend-windows-phone-get-started-push.md)。
-
-本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
-
-1. [註冊應用程式以取得推播通知](#register)
-2. [更新服務以傳送推播通知](#update-service)
-3. [啟用推播通知以進行本機測試](#local-testing)
-4. [在應用程式中測試推播通知](#test)
 
 若要完成此教學課程，您需要下列項目：
 
@@ -113,5 +107,6 @@ public static MobileServiceClient todolistClient = new MobileServiceClient(
 [什麼是通知中樞？]: ../notification-hubs-overview.md
 
 [如何使用 Azure 行動服務的 .NET 用戶端]: mobile-services-windows-dotnet-how-to-use-client-library.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

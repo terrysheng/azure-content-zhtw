@@ -214,4 +214,4 @@ Azure 檔案共用是在 Azure 中的 SMB 2.1 檔案共用。所有目錄和檔�
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

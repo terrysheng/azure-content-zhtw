@@ -1,3 +1,20 @@
+<properties 
+   pageTitle="建立磁碟區"
+   description="說明如何在 StorSimple 裝置上新增磁碟區。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="04/28/15"
+   ms.author="v-sharos" />
+
 #### 建立磁碟區
 
 1. 在裝置的 [快速入門] 頁面上，按一下 [新增磁碟區]。這樣會啟動 [新增磁碟區] 精靈。
@@ -21,4 +38,4 @@
 
 4. 按一下核取圖示 ![核取圖示](./media/storsimple-create-volume/HCS_CheckIcon-include.png)。使用指定的設定來建立磁碟區。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

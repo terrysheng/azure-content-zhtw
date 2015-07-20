@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="04/02/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh"/>
 
 # 傳送推播通知給已驗證的使用者
@@ -23,18 +23,18 @@
 
 在本主題中，您將了解如何將推播通知傳送給 iOS 上已驗證的使用者。開始本教學課程之前，請先完成[開始使用驗證]和[開始使用推播通知]。
 
-在本教學課程中，您會要求使用者先進行驗證、向通知中樞註冊進行推播通知，以及更新伺服器指令碼以傳送這些通知給已驗證的使用者。
+在本教學課程中，您會要求使用者先進行驗證、向通知中心註冊進行推播通知，以及更新伺服器指令碼以傳送這些通知給已驗證的使用者。
 
 
 ##<a name="register"></a>更新服務以要求註冊所需的驗證
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
 
-使用下列程式碼來取代 `insert` 函數，然後按一下 [儲存]****。此插入指令碼使用已登入使用者的使用者識別碼標記來傳送推播通知給所有 iOS 應用程式註冊：
+使用下列程式碼來取代 `insert` 函數，然後按一下 [儲存]。此插入指令碼使用已登入使用者的使用者識別碼標記來傳送推播通知給所有 iOS 應用程式註冊：
 
 ```
 // Get the ID of the logged-in user.
-var userId = user.userId; 
+var userId = user.userId;
 
 function insert(item, user, request) {
     request.execute();
@@ -73,4 +73,4 @@ function insert(item, user, request) {
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

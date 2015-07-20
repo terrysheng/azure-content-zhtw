@@ -112,5 +112,6 @@ azure vm endpoint create <machine-name> 80 8080
 <!--Image references-->
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

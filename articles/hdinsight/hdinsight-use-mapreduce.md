@@ -1,6 +1,6 @@
 <properties
-   pageTitle="搭配 HDInsight 上的 Hadoop 使用 MapReduce"
-   description="了解如何搭配 HDInsight 上的 Hadoop 使用 MapReduce。"
+   pageTitle="MapReduce 與 HDInsight 上的 Hadoop | Microsoft Azure"
+   description="了解如何在 HDInsight 叢集中的 Hadoop 上執行 MapReduce 工作。您將以 Java MapReduce 工作的方式執行基本字數統計作業實作。"
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/23/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # 在 HDInsight 上的 Hadoop 中使用 MapReduce
@@ -192,4 +192,4 @@ HDInsight 可以使用各種方法執行 HiveQL 工作。請使用下表決定�
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

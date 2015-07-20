@@ -6,11 +6,11 @@
 
 > [AZURE.NOTE]本文中描述的許多 Git 命令會在使用[適用於 Mac 和 Linux 的 Azure 命令列工具](/develop/nodejs/how-to-guides/command-line-tools/)建立 Web 應用程式時自動執行
 
-<h2><a id="Step1"></a>步驟 1：安裝 Git</h2>
+## <a id="Step1"></a>步驟 1：安裝 Git
 
 安裝 Git 所需的步驟會因作業系統而有所不同。如需作業系統特定的發佈和安裝指引，請參閱[安裝 Git]。
 
-> [AZURE.NOTE]在某些作業系統上，將提供 Git 的命令列和 GUI 兩種版本。本文提供的指示將使用命令列版本。
+> [AZURE.NOTE]在某些作業系統上，會同時提供例 Git 的命令列和 GUI 兩種版本。本文提供的指示將使用命令列版本。
 
 ## <a id="Step2"></a>步驟 2：建立本機儲存機制
 
@@ -18,7 +18,7 @@
 
 1. 建立名為 MyGitRepository 的目錄，以包含您的 Git 儲存機制和 Web 應用程式檔案。
 
-2. 開啟命令列，例如 **GitBash** (Windows) 或 **Bash** (Unix Shell)。在 OS X 系統上，您可以透過 **[終端機]** 應用程式來存取命令列。
+2. 開啟命令列工具，例如 **GitBash** (Windows) 或 **Bash** (Unix Shell)。在 OS X 系統上，您可以透過 **[終端機]** 應用程式來存取命令列。
 
 3. 從命令列，切換至 MyGitRepository 目錄。
 
@@ -32,7 +32,7 @@
 
 ## <a id="Step3"></a>步驟 3：新增網頁
 
-Web 應用程式支援以各種程式設計語言建立的應用程式。以此範例為例，您將使用靜態 .html 檔案。如需有關以其他程式設計語言將 Web Apps 發行至 Azure 的資料，請參閱 [Azure 開發人員中心] (英文)。
+Web 應用程式支援以各種程式設計語言建立的應用程式。以此範例為例，您將使用靜態 .html 檔案。
 
 1. 使用文字編輯器，在 Git 儲存機制的根目錄 (您稍早建立的 MyGitRepository 目錄) 中建立名為 **index.html** 的新檔案。
 
@@ -56,39 +56,37 @@ Web 應用程式支援以各種程式設計語言建立的應用程式。以此�
 		 1 file changed, 1 insertion(+)
 		 create mode 100644 index.html
 
-<h2><a id="Step4"></a>啟用 Web 應用程式儲存機制</h2>
+## <a id="Step4"></a>啟用 Web 應用程式儲存機制
 
-請執行下列步驟來啟用 Web 應用程式的 Git 儲存機制，方法是使用 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)：
+請執行下列步驟來啟用 Web 應用程式的 Git 儲存機制。
 
-1. 登入 [Azure 入口網站]。
+1. 登入 [Azure 預覽入口網站]。
 
 2. 在 Web 應用程式的刀鋒視窗中，向下捲動至 [**部署**] 區段，然後按一下 [**設定連續部署**]。依序按一下 [**選擇來源**]、[**本機 Git 儲存機制**] 以及 [**確定**]。
 
-2. 等到 Web 應用程式建立程序完成，然後選取 [Web 應用程式] 分頁中的 Web 應用程式。
+	![本機 Git 儲存機制](./media/publishing-with-git/azure1-local-git.png)
 
-	![顯示所選 Web 應用程式的影像](./media/publishing-with-git/azure1-local-git.png)
-
-4. 如果這是您第一次在 Azure 中設定儲存機制，就需要為它建立登入認證。您將使用這些認證來登入 Azure 儲存機制，並推播來自您本機 Git 儲存機制的變更。從 Web 應用程式的刀鋒視窗中，按一下 [**設定部署認證**]，然後設定您的部署使用者名稱和密碼。完成後，按一下 [**確定**]。
+4. 如果這是您第一次在 Azure 中設定儲存機制，就需要為它建立登入認證。您將使用這些認證來登入 Azure 儲存機制，並推播來自您本機 Git 儲存機制的變更。從 Web 應用程式的刀鋒視窗中，按一下 [設定] > [部署認證]，然後設定您的部署使用者名稱和密碼。完成後，按一下 [**確定**]。
 
 	![](./media/publishing-with-git/azure2-credentials.png)
 
-<h2><a id="Step5"></a>部署專案</h2>
+## <a id="Step5"></a>部署專案
 
 * [將本機檔案推送至 Azure (本機 Git)](#Step6)
 * [部署儲存機制網站 (如 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial) 的檔案](#Step7)
 * [從 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial 部署 Visual Studio 方案](#Step75)
 
-利用下列步驟，使用本機 Git 將 Web 應用程式發行至 Azure：
+利用下列步驟，使用本機 Git 將 Web 應用程式發行至 Azure。
 
 1. 在 Web 應用程式的刀鋒視窗的 [部署] 區段中，按一下 [**找不到部署**]。
 
 	![](./media/publishing-with-git/azure3-repo-details.png)
 
-	**Git URL** 將是之後從本機儲存機制部署的遠端參考。
+	**Git URL** 是從本機儲存機制部署的遠端參考。在下列步驟中，您將使用此 URL。
 
 1. 使用命令列，驗證您位在包含先前建立之 index.html 檔案的本機 Git 儲存機制的根目錄。
 
-2. 使用 Git 遠端加入從步驟 1 的 **Git URL** 中所列的遠端參考。您的命令將類似以下範例：
+2. 使用 `git remote` 加入從步驟 1 的 **Git URL** 中所列的遠端參考。您的命令將類似以下範例：
 
 		git remote add azure https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 
@@ -118,7 +116,7 @@ Web 應用程式支援以各種程式設計語言建立的應用程式。以此�
 
 	![](./media/publishing-with-git/azure4-deployed.png)
 
-2. 按一下入口網站頂端的 URL，以確認已部署 **index.html**。隨即會出現包含 'Hello Git!' 的頁面。
+2. 按一下 Web 應用程式刀鋒視窗頂端 **URL** 底下的連結，確認已部署 **index.html**。隨即會出現包含 'Hello Git!' 的頁面。
 
 	![包含 'Hello Git!' 的網頁][hello-git]
 
@@ -132,9 +130,7 @@ Web 應用程式支援以各種程式設計語言建立的應用程式。以此�
 
 	一旦完成 **[推送]** 命令之後，請重新整理瀏覽器 (您可能需要按 Ctrl+F5，瀏覽器才能正常重新整理)，並請注意頁面內容現已反映最新的認可變更。
 
-	![包含 'Yay!' 的網頁][yay]
-
-<h3><a id="Step7"></a>部署來自儲存機制網站 (如 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial) 的檔案</h3>
+### <a id="Step7"></a>部署來自儲存機制網站 (如 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial) 的檔案
 
 使用本機 Git 將本機檔案推送至 Azure，可讓您將更新從本機專案手動推送至 Azure 中的 Web 應用程式，但若從 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial 部署，則會轉變成連續部署程序，Azure 將從您的專案中提取最近的更新。
 
@@ -192,13 +188,13 @@ Azure 將與所選儲存機制建立關聯，然後從指定的分支提取檔�
 
 -	使用儲存機制根目錄中的 .sln 檔案，將整個解決方案的目錄樹狀結構新增至您的儲存機制。
 
--	在您的 Visual Studio 方案中，[啟用 NuGet 封裝還原](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)可讓 Visual Studio 自動還原遺失的封裝。
+-	在您的 Visual Studio 方案中，[啟用 NuGet 封裝還原](http://docs.nuget.org/Consume/Package-Restore)可讓 Visual Studio 自動還原遺失的封裝。
 
 一旦您設定儲存機制 (如前所述)，並設定 Azure 中的 Web 應用程式以便從其中一個線上 Git 儲存機制連續發行之後，就能夠在 Visual Studio 中本機開發 ASP.NET 應用程式，並且只需將變更推送至線上 Git 儲存機制，就能連續部署您的程式碼。
 
-<h2>停用連續部署</h2>
+## 停用連續部署
 
-連續部署可以從 [**部署**] 刀鋒視窗停用。從 Web 應用程式刀鋒視窗的 [**部署**] 區段中，按一下 [現用部署]。然後按一下 **[中斷連線**]。
+連續部署可以從 [**部署**] 刀鋒視窗停用。從 Web 應用程式刀鋒視窗的 [部署] 區段中，按一下 [現用部署]。然後按一下 **[中斷連線**]。
 
 ![git-DisconnectFromGitHub](./media/publishing-with-git/azure5-disconnect.png)
 
@@ -277,8 +273,8 @@ Azure 將與所選儲存機制建立關聯，然後從指定的分支提取檔�
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-[Azure 開發人員中心]: http://www.windowsazure.com/zh-tw/develop/overview/
-[Azure 入口網站]: https://portal.azure.com
+[Azure Developer Center]: http://azure.microsoft.com/develop/overview/
+[Azure 預覽入口網站]: https://portal.azure.com
 [Git website]: http://git-scm.com
 [安裝 Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [如何使用適用於 Azure 的 PowerShell]: ../articles/install-configure-powershell.md
@@ -304,4 +300,4 @@ Azure 將與所選儲存機制建立關聯，然後從指定的分支提取檔�
 [使用 Dropbox 分享 Git 儲存機制]: https://gist.github.com/trey/2722927
 [使用 Visual Studio Online 持續傳遞至 Azure]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

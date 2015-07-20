@@ -1,29 +1,30 @@
-<properties 
-	pageTitle="開始使用適用於 iOS (Objective C) 的 Azure Mobile Engagement" 
+<properties
+	pageTitle="開始使用適用於 iOS (Objective C) 的 Azure Mobile Engagement"
 	description="了解如何使用 iOS 應用程式的 Azure Mobile Engagement 與分析和推播通知。"
-	services="mobile-engagement" 
-	documentationCenter="Mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="Mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="04/30/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="get-started-article" 
+	ms.date="04/30/2015"
 	ms.author="piyushjo" />
 
 # 開始使用適用於 iOS 應用程式 (Objective C) 的 Azure Mobile Engagement
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md) 
-- [iOS - Obj C](mobile-engagement-ios-get-started.md) 
+- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
+- [iOS - Obj C](mobile-engagement-ios-get-started.md)
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md) 
+- [Android](mobile-engagement-android-get-started.md)
+- [Cordova](mobile-engagement-cordova-get-started.md)
 
 本主題說明如何使用 Azure Mobile Engagement 來了解您的應用程式使用量，並傳送推播通知給 iOS 應用程式的區隔使用者。在本教學課程中，您將使用 Apple 推播通知服務 (APNS)，建立可收集基本資料，並接收推播通知的空白 iOS 應用程式。完成之後，您便能夠依據使用者的裝置特性，向所有裝置或目標特定使用者廣播推播通知。
 
@@ -47,36 +48,36 @@
 
 ##<a id="setup-azme"></a>為您的應用程式設定 Mobile Engagement
 
-1. 登入 Azure 管理入口網站，並按一下畫面底部的 [+新增]****。
+1. 登入 Azure 管理入口網站，並按一下畫面底部的 [+新增]。
 
-2. 依序按一下 [應用程式服務]****、[Mobile Engagement]****，然後 [建立]****。
+2. 依序按一下 [應用程式服務]、[Mobile Engagement]，然後 [建立]。
 
    	![][7]
 
 3. 在顯示的快顯視窗中，輸入以下資訊：
- 
+
    	![][8]
 
 	- **應用程式名稱**：輸入您應用程式的名稱。可自由使用任何字元。
-	- **平台**：為應用程式選取目標平台 (**iOS**。如果您的應用程式是針對多種平台，請針對每種平台重複參與此教學課程)。 
+	- **平台**：為應用程式選取目標平台 (**iOS**。如果您的應用程式是針對多種平台，請針對每種平台重複參與此教學課程)。
 	- **應用程式資源名稱**：這是此應用程式可透過 API 與 URL 存取時的名稱。您只可以使用 傳統 URL 自字元。自動產生的名稱應該能提供您強健的基礎。建議您附加平台名稱，以避免發生名稱衝突，因為名稱必須是唯一的。
 	- **位置**：選取將裝載此應用程式 (更重要的是其「集合」) 的資料中心 。
 	- **集合**：如果您已經有建立應用程式，請選取之前建立的集合，若沒有則選取 [新集合]。
 	- **集合名稱**：這代表您的應用程式群組。它也會確保您所有的應用程式都在一個群組中，以允許計量的彙總計算。如果適用於此欄位，建議使用您的公司名稱或部門。
 
-4. 選取剛才在 [應用程式]**** 索引標籤建立的應用程式。
+4. 選取剛才在 [應用程式] 索引標籤建立的應用程式。
 
-5. 按一下 [連線資訊]**** 來顯示要置入您行動應用程式中 SDK 整合的連線設定。
- 
+5. 按一下 [連線資訊] 來顯示要置入您行動應用程式中 SDK 整合的連線設定。
+
    	![][10]
 
-6. 複製 [連接字串]**** - 在您的應用程式程式碼中，以及從您的「電話應用程式」與 Mobile Engagement 連線時 ，將需要它來識別這個應用程式。
+6. 複製 [連接字串]：在您的應用程式程式碼中，以及從您的「電話應用程式」與 Mobile Engagement 連接時 ，將需要它來識別這個應用程式。
 
    	![][11]
 
-##<a id="connecting-app"></a>將您的應用程式連線至 Mobile Engagement 後端
+##<a id="connecting-app"></a>將您的應用程式連接至 Mobile Engagement 後端
 
-本教學課程將說明「基本整合」，這是收集資料及傳送推播通知所需的最低設定。完整的整合文件位於 [Mobile Engagement iOS SDK 文件]
+本教學課程將說明「基本整合」，這是收集資料及傳送推播通知時必要的最低設定。完整的整合文件位於 [Mobile Engagement iOS SDK 文件]
 
 我們將會使用 XCode 建立基本應用程式來示範整合：
 
@@ -84,21 +85,21 @@
 
 如果您已經有應用程式，並熟悉 iOS 開發過程，可以略過此步驟
 
-1. 啟動 Xcode，並在快顯視窗中，選取 [Create a new Xcode project]****
+1. 啟動 Xcode，並在快顯視窗中，選取 [Create a new Xcode project]
 
    	![][12]
 
-2. 現在選取 [Single View Application]****，然後按 [Next]
+2. 現在選取 [Single View Application]，然後按 [Next]
 
    	![][14]
 
-3. 輸入 [Product Name]****、[Organization Name]**** 和 [Organization Identifier]****。請確定您已在語言選取 [Objective-C]****。
+3. 輸入 [Product Name]、[Organization Name] 和 [Organization Identifier]。請確定您已在語言選取 [Objective-C]。
 
    	![][13]
 
 Xcode 會建立示範應用程式，我們將和它整合 Mobile Engagement
 
-###將您的應用程式連線至 Mobile Engagement 後端 
+###將您的應用程式連線至 Mobile Engagement 後端
 
 1. 下載 [Mobile Engagement iOS SDK]
 2. 將 .tar.gz 檔案解壓縮到電腦中的資料夾
@@ -114,7 +115,7 @@ Xcode 會建立示範應用程式，我們將和它整合 Mobile Engagement
 
 	![][19]
 
-6. 回到 Azure 入口網站中您應用程式的 [連線資訊]** 頁面，並複製 [連線字串]。
+6. 回到 Azure 入口網站中您應用程式的 [連線資訊] 頁面，並複製 [連線字串]。
 
 	![][11]
 
@@ -184,7 +185,7 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 1. 在實作檔案頂端匯入 Engagement Reach 模組
 
 		#import "AEReachModule.h"
-	
+
 2. 在 `application:didFinishLaunchingWithOptions` 內建立觸達模組並將它傳遞到您現有的 Engagement 初始化行：
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -192,7 +193,7 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 			[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
 			[...]
 			return YES;
-		}	
+		}
 
 ###讓您的應用程式能接收 APNS 推播通知
 
@@ -208,7 +209,7 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 		}
 
 2. 新增 `application:didRegisterForRemoteNotificationsWithDeviceToken` 方法，如下所示：
- 
+
 		(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 		{
  			[[EngagementAgent shared] registerDeviceToken:deviceToken];
@@ -247,8 +248,8 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 
 1. 瀏覽至您的 Mobile Engagement 入口網站中的 [觸達] 索引標籤
 
-2. 按一下 [新增宣告]**** 來建立您的推播活動。
-	
+2. 按一下 [新增宣告] 來建立您的推播活動。
+
 	![][35]
 
 3. 設定活動的第一個欄位：
@@ -298,6 +299,6 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [37]: ./media/mobile-engagement-ios-get-started/campaign-content.png
 [38]: ./media/mobile-engagement-ios-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-ios-get-started/campaign-activate.png
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

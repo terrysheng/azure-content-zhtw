@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Machine Learning 建議 API 文件" 
+	pageTitle="Azure Machine Learning 建議 API 文件 | Microsoft Azure" 
 	description="Azure Machine Learning 建議 API 文件" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -74,8 +74,7 @@
 |:--------			|:--------								|
 |	modelName |	只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (_)。<br>最大長度：20 |
 |	apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 
 **回應**：
@@ -121,12 +120,11 @@ OData XML
 |:--------|:--------|
 |GET |`<rootURI>/GetModel?id=%27<model_id>%27&apiVersion=%271.0%27`<br>範例：<br>`<rootURI>/GetModel?id=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`|
 
-|	參數名稱 |	有效值						|
+|	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	id |	模型的唯一識別碼。 |
 |	apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
@@ -184,11 +182,10 @@ OData XML
 |:--------|:--------|
 |刪除 |`<rootURI>/GetAllModels?apiVersion=%271.0%27`<br>範例：<br>`<rootURI>/GetAllModels?apiVersion=%271.0%27`|
 
-|	參數名稱 |	有效值						|
+|	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
@@ -244,21 +241,18 @@ OData XML
 
 ###4.4.更新模型
 
-您可以更新模型說明或作用中組建識別碼。<br>
-<ins>作用中組建識別碼</ins> – 每個模型的每個組建都有「組建識別碼」。使用中「組建 Id」是每個新模型的第一個成功組建。在您有了使用中的組建識別碼之後，如果又對同一個模型進行其他組建，您可以視需要將它明確設定為預設組建識別碼。當您取用建議時，如果您未指定想要使用的組建識別碼，將會自動使用預設組建識別碼。<br>
-此機制可讓您在生產環境中有建議模型後建立新模型，並先加以測試，再提升至生產環境。
+您可以更新模型說明或作用中組建識別碼。<br> <ins>作用中組建識別碼</ins> – 每個模型的每個組建都有「組建識別碼」。使用中「組建 Id」是每個新模型的第一個成功組建。在您有了使用中的組建識別碼之後，如果又對同一個模型進行其他組建，您可以視需要將它明確設定為預設組建識別碼。當您取用建議時，如果您未指定想要使用的組建識別碼，將會自動使用預設組建識別碼。<br> 此機制可讓您在生產環境中有建議模型後建立新模型，並先加以測試，再提升至生產環境。
 
 
 | HTTP 方法 | URI |
 |:--------|:--------|
 |PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br>範例：<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
 
-|	參數名稱 |	有效值						|
+|	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	id | 模型的唯一識別碼。 |
 |	apiVersion | 1.0 |
-|||
-| 要求本文 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>請注意，xml 標記 Description 和 ActiveBuildId 為選擇性。如果您不想要設定 Description 或 ActiveBuildId，請移除整個標記。|
+||| | 要求本文 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>請注意，xml 標記 Description 和 ActiveBuildId 為選擇性。如果您不想要設定 Description 或 ActiveBuildId，請移除整個標記。|
 
 **回應**：
 
@@ -275,8 +269,7 @@ HTTP 狀態碼：200
 |:--------			|:--------								|
 |	id |	模型的唯一識別碼。 |
 |	apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
@@ -317,8 +310,7 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼。 |
 |	apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
@@ -326,79 +318,9 @@ HTTP 狀態碼：200
 
 OData XML
 
-資料會以下集合傳回：
-<pre>
-	feed/entry/id/content/properties/key
-	feed/entry/id/content/properties/value
-</pre>
+資料會以下集合傳回：<pre> feed/entry/id/content/properties/key feed/entry/id/content/properties/value </pre>
 
-下表描述每個索引鍵所代表的值
-	<table>
-    	<tr>
-        	<th>索引鍵</th>
-        	<th>描述</th>
-        </tr>
-        <tr>
-        	<td>AvgItemLength</td>
-        	<td>每個項目不同使用者的平均數目</td>
-        </tr>
-        <tr>
-        	<td>AvgUserLength</td>
-        	<td>每個使用者不同項目的平均數目</td>
-        </tr>
-        <tr>
-        	<td>DensificationNumberOfItems</td>
-        	<td>剪除不能模型化的項目之後的項目數目</td>
-        </tr>
-        <tr>
-        	<td>DensificationNumberOfUsers</td>
-        	<td>剪除不能模型化的使用者和項目之後的使用點數目</td>
-        </tr>
-        <tr>
-        	<td>DensificationNumberOfRecords</td>
-        	<td>剪除不能模型化的使用者和項目之後的始用點數目</td>
-        </tr>
-        <tr>
-        	<td>MaxItemLength</td>
-        	<td>最受歡迎項目的不同使用者數目</td>
-        </tr>
-        <tr>
-        	<td>MaxUserLength</td>
-        	<td>使用者之不同項目的最大數目</td>
-        </tr>
-        <tr>
-        	<td>MinItemLength</td>
-        	<td>項目之不同使用者的最大數目</td>
-        </tr>
-        <tr>
-        	<td>MinUserLength</td>
-        	<td>使用者之不同項目的最小數目</td>
-        </tr>
-        <tr>
-        	<td>RawNumberOfItems</td>
-        	<td>剪除不能模型化的項目之前的項目數目</td>
-        </tr>
-        <tr>
-        	<td>RawNumberOfUsers</td>
-        	<td>任何剪除動作之前的使用點數目</td>
-        </tr>
-        <tr>
-        	<td>RawNumberOfRecords</td>
-        	<td>任何剪除動作之前的使用點數目</td>
-        </tr>
-        <tr>
-        	<td>SampelingNumberOfItems</td>
-        	<td>如果已開啟取樣，則為範例中的項目數目。否則會忽略</td>
-        </tr>
-        <tr>
-        	<td>SampelingNumberOfRecords</td>
-        	<td>如果已開啟取樣，則為指出範例的使用者數目。否則會忽略</td>
-        </tr>
-        <tr>
-        	<td>SampelingNumberOfUsers</td>
-        	<td>如果已開啟取樣，則為指出範例的使用者數目。否則會忽略</td>
-        </tr>
-    </table>
+下表描述每個索引鍵所代表的值 <table> <tr> <th>索引鍵</th> <th>描述</th> </tr> <tr> <td>AvgItemLength</td> <td>每個項目不同使用者的平均數目</td> </tr> <tr> <td>AvgUserLength</td> <td>每個使用者不同項目的平均數目</td> </tr> <tr> <td>DensificationNumberOfItems</td> <td>剪除不能模型化的項目之後的項目數目</td> </tr> <tr> <td>DensificationNumberOfUsers</td> <td>剪除不能模型化的使用者和項目之後的使用點數目</td> </tr> <tr> <td>DensificationNumberOfRecords</td> <td>剪除不能模型化的使用者和項目之後的始用點數目</td> </tr> <tr> <td>MaxItemLength</td> <td>最受歡迎項目的不同使用者數目</td> </tr> <tr> <td>MaxUserLength</td> <td>使用者之不同項目的最大數目</td> </tr> <tr> <td>MinItemLength</td> <td>項目之不同使用者的最大數目</td> </tr> <tr> <td>MinUserLength</td> <td>使用者之不同項目的最小數目</td> </tr> <tr> <td>RawNumberOfItems</td> <td>剪除不能模型化的項目之前的項目數目</td> </tr> <tr> <td>RawNumberOfUsers</td> <td>任何剪除動作之前的使用點數目</td> </tr> <tr> <td>RawNumberOfRecords</td> <td>任何剪除動作之前的使用點數目</td> </tr> <tr> <td>SampelingNumberOfItems</td> <td>如果已開啟取樣，則為範例中的項目數目。否則會忽略</td> </tr> <tr> <td>SampelingNumberOfRecords</td> <td>如果已開啟取樣，則為指出範例的使用者數目。否則會忽略</td> </tr> <tr> <td>SampelingNumberOfUsers</td> <td>如果已開啟取樣，則為指出範例的使用者數目。否則會忽略</td> </tr> </table>
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
@@ -601,8 +523,7 @@ OData XML
 |	modelId |	模型的唯一識別碼。 |
 |	buildId |	選擇性 – 識別成功組建的編號。 |
 |	apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
@@ -610,31 +531,9 @@ HTTP 狀態碼：200
 
 OData XML
 
-資料會以下集合傳回：
-<pre>
-	feed/entry/id/content/properties/key
-	feed/entry/id/content/properties/value
-</pre>
+資料會以下集合傳回：<pre> feed/entry/id/content/properties/key feed/entry/id/content/properties/value </pre>
 
-下表描述每個索引鍵所代表的值
-	<table>
-    	<tr>
-        	<th>索引鍵</th>
-        	<th>描述</th>
-        </tr>
-        <tr>
-        	<td>CatalogCoverage</td>
-        	<td>目錄的哪個部分可以利用使用模式進行模型化。其餘的項目都需要以內容為基礎的功能</td>
-        </tr>
-        <tr>
-        	<td>Mpr</td>
-        	<td>模型的平均值百分位數排名。越低越好。</td>
-        </tr>
-        <tr>
-        	<td>NumberOfDimensions</td>
-        	<td>矩陣分解演算法所使用的維度數目</td>
-        </tr>
-    </table>
+下表描述每個索引鍵所代表的值<table> <tr> <th>索引鍵</th> <th>描述</th> </tr> <tr> <td>CatalogCoverage</td> <td>目錄的哪個部分可以利用使用模式進行模型化。其餘的項目都需要以內容為基礎的功能</td> </tr> <tr> <td>Mpr</td> <td>模型的平均值百分位數排名。越低越好。</td> </tr> <tr> <td>NumberOfDimensions</td> <td>矩陣分解演算法所使用的維度數目</td> </tr> </table>
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetModelInsight" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
@@ -692,141 +591,20 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼。 |
 |	apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
 HTTP 狀態碼：200
 
-OData XML<br>
-以原始文字格式傳回的回應
-<pre>
+OData XML<br> 以原始文字格式傳回的回應 <pre>
 層級 1
 ---------------
-655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel
-	655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel 評等：0.5215
-	3f471802-f84f-44a0-99c8-6d2e7418eec1, Black Hawk Down: A Story of Modern War 評等：0.5151
-	07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon 評等：0.5148
-	6afc18e4-8c2a-43d1-9021-57543d6b11d8, Imajica 評等：0.5146
-	e4cc5e69-3567-43ab-b00f-f0d8d0506870, Hit List 評等：0.514
-56b61441-0eed-46cc-a8f6-112775b81892, Life and Death in Shanghai
-	56b61441-0eed-46cc-a8f6-112775b81892, Life and Death in Shanghai 評等：0.5218
-	53156702-cc0c-443d-b718-6fb74b2491d3, Son of \\ 評等：0.5212
-	fb8cf7a6-8719-46ee-97d4-92f931d77a3a, Smoke and Mirrors: Short Fictions and Illusions 評等：0.5188
-	8f5fe006-79e4-4679-816b-950989d1db4b, A Place I'Ve Never Been (Contemporary American Fiction) 評等：0.5156
-	d8db4583-cc0f-49ce-bc95-b7fa3491623f, Happiness : A Novel 評等：0.5156
-50471eec-9aeb-4900-84d7-21567ab18546, If the Buddha Dated: A Handbook for Finding Love on a Spiritual Path
-	cfe922a1-7ca0-4f8d-ad9d-b7cc87bfe0ef, Divine Secrets of the Ya-Ya Sisterhood: A Novel 評等：0.5266
-	ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel 評等：0.5252
-	973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven 評等：0.5244
-	e2cbf7ad-0636-4117-8b30-298da6df7077, Animal Dreams 評等：0.5227
-	6c818fd3-5a09-417d-9ab4-7ffe090f0fef, Confessions of an Ugly Stepsister : A Novel 評等：0.5222
-5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club)
-	5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club) 評等：0.537
-	5dcbac37-2946-4f2a-a0b3-bbe710f9409a, Up Island: A Novel 評等：0.5277
-	bc5b69db-733b-4346-adde-3927544258f7, Downtown 評等：0.5275
-	31fe5c63-3e5a-48d0-802b-d3b0f989a634, Have a Nice Day : A Tale of Blood and Sweatsocks 評等：0.5252
-	0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm : A True Story of Men Against the Sea 評等：0.5238
-68f97068-ae1a-4163-9e94-396b800b743d, Modoc : The True Story of the Greatest Elephant That Ever Lived
-	68f97068-ae1a-4163-9e94-396b800b743d, Modoc : The True Story of the Greatest Elephant That Ever Lived 評等：0.5379
-	6724862e-e4e7-4022-9614-1468d8b902ff, Little House on the Prairie 評等：0.5345
-	cdedb837-1620-496d-94c4-6ccfed888320, Little House in the Big Woods 評等：0.5325
-	382164ba-406b-4187-b726-d7a54b9d790d, The Tao of Pooh 評等：0.5309
-	6a068d6a-bb74-4ba3-b3f2-a956c4f9d1b5, On the Banks of Plum Creek 評等：0.5285
-37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships
-	37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships 評等：0.5397
-	f2be16d4-5faf-4d32-ab83-7ba74d29261e, Politically Correct Bedtime Stories: Modern Tales for Our Life and Times 評等：0.5207
-	ef732c5c-334b-4d6b-ab82-7255eb7286d0, Honor Among Thieves 評等：0.5195
-	0b209b8c-7cdd-47fd-b940-05c7ff7c60fc, The Giving Tree 評等：0.5194
-	883b360f-8b42-407f-b977-2f44ad840877, Scary Stories to Tell in the Dark : Collected from American Folklore (Scary Stories) 評等：0.5184
-ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work : The Craft of Baseball
-	d008dae9-c73a-40a1-9a9b-96d5cf546f36, The Gulag Archipelago 1918-1956 : An Experiment in Literary Investigation I-II 評等：0.5416
-	ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work : The Craft of Baseball 評等：0.5403
-	49dec30e-0adb-411a-b186-48eaabf6f8bc, Fatherland 評等：0.5394
-	cc7964fd-d30f-478e-a425-93ddbdf094ed, Magic the Gathering: Arena Vol. 1 評等：0.5379
-	8a1e9f36-97af-4614-bed9-24e3940a05f3, More Sniglets: Any Word That Doesn't Appear in the Dictionary but Should 評等：0.5377
-12a6d988-be21-4a09-8143-9d5f4261ba16, A Dream of Eagles
-	07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon 評等：0.5417
-	e4cc5e69-3567-43ab-b00f-f0d8d0506870, Hit List 評等：0.5416
-	1f1a34c4-9781-49f5-a3cc-acec3ae3c71d, The Family 評等：0.5371
-	56daeffe-7d48-43cd-8ef8-7dffd0c103d3, Kilo Class 評等：0.5366
-	b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender 評等：0.5366
-df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish
-	56d33036-dfda-46b9-8e2a-76cb03921bb0, The X-Files: Ground Zero 評等：0.5417
-	0780cde8-6529-4e1d-b6c6-082c1b80e596, Twelve Red Herrings 評等：0.5416
-	df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish 評等：0.5408
-	400fe331-2c35-490c-adbc-b28b4b73d56c, Shall We Tell the President? 評等：0.5383
-	f86ad7d0-5c03-42b3-aebf-13d44aec8b30, Shades of Grace 評等： 0.5358
-de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology
-	de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology 評等：0.5422
-	b303538f-e2c6-4a2c-b425-8d21e684fc3e, My Uncle Oswald 評等：0.5385
-	34b84627-48af-4a4c-96c4-b26fb3863f56, Midnight In the Garden of Good and Evil 評等：0.5379
-	306cbaa7-b1a8-4142-9d55-e11b5018a7a8, The Street Lawyer 評等： 0.5376
-	e53b4baa-8c09-45c4-95c0-b6a26b98770b, Miss Smillas Feeling for Snow 評等：0.5367
+655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel 655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel 評等：0.5215 3f471802-f84f-44a0-99c8-6d2e7418eec1, Black Hawk Down: A Story of Modern War 評等：0.5151 07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon 評等：0.5148 6afc18e4-8c2a-43d1-9021-57543d6b11d8, Imajica 評等：0.5146 e4cc5e69-3567-43ab-b00f-f0d8d0506870, Hit List 評等：0.514 56b61441-0eed-46cc-a8f6-112775b81892, Life and Death in Shanghai 56b61441-0eed-46cc-a8f6-112775b81892, Life and Death in Shanghai 評等：0.5218 53156702-cc0c-443d-b718-6fb74b2491d3, Son of \\ 評等：0.5212 fb8cf7a6-8719-46ee-97d4-92f931d77a3a, Smoke and Mirrors: Short Fictions and Illusions 評等：0.5188 8f5fe006-79e4-4679-816b-950989d1db4b, A Place I'Ve Never Been (Contemporary American Fiction) 評等：0.5156 d8db4583-cc0f-49ce-bc95-b7fa3491623f, Happiness : A Novel 評等：0.5156 50471eec-9aeb-4900-84d7-21567ab18546, If the Buddha Dated: A Handbook for Finding Love on a Spiritual Path cfe922a1-7ca0-4f8d-ad9d-b7cc87bfe0ef, Divine Secrets of the Ya-Ya Sisterhood: A Novel 評等：0.5266 ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel 評等：0.5252 973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven 評等：0.5244 e2cbf7ad-0636-4117-8b30-298da6df7077, Animal Dreams 評等：0.5227 6c818fd3-5a09-417d-9ab4-7ffe090f0fef, Confessions of an Ugly Stepsister : A Novel 評等：0.5222 5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club) 5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club) 評等：0.537 5dcbac37-2946-4f2a-a0b3-bbe710f9409a, Up Island: A Novel 評等：0.5277 bc5b69db-733b-4346-adde-3927544258f7, Downtown 評等：0.5275 31fe5c63-3e5a-48d0-802b-d3b0f989a634, Have a Nice Day : A Tale of Blood and Sweatsocks 評等：0.5252 0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm : A True Story of Men Against the Sea 評等：0.5238 68f97068-ae1a-4163-9e94-396b800b743d, Modoc : The True Story of the Greatest Elephant That Ever Lived 68f97068-ae1a-4163-9e94-396b800b743d, Modoc : The True Story of the Greatest Elephant That Ever Lived 評等：0.5379 6724862e-e4e7-4022-9614-1468d8b902ff, Little House on the Prairie 評等：0.5345 cdedb837-1620-496d-94c4-6ccfed888320, Little House in the Big Woods 評等：0.5325 382164ba-406b-4187-b726-d7a54b9d790d, The Tao of Pooh 評等：0.5309 6a068d6a-bb74-4ba3-b3f2-a956c4f9d1b5, On the Banks of Plum Creek 評等：0.5285 37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships 37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships 評等：0.5397 f2be16d4-5faf-4d32-ab83-7ba74d29261e, Politically Correct Bedtime Stories: Modern Tales for Our Life and Times 評等：0.5207 ef732c5c-334b-4d6b-ab82-7255eb7286d0, Honor Among Thieves 評等：0.5195 0b209b8c-7cdd-47fd-b940-05c7ff7c60fc, The Giving Tree 評等：0.5194 883b360f-8b42-407f-b977-2f44ad840877, Scary Stories to Tell in the Dark : Collected from American Folklore (Scary Stories) 評等：0.5184 ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work : The Craft of Baseball d008dae9-c73a-40a1-9a9b-96d5cf546f36, The Gulag Archipelago 1918-1956 : An Experiment in Literary Investigation I-II 評等：0.5416 ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work : The Craft of Baseball 評等：0.5403 49dec30e-0adb-411a-b186-48eaabf6f8bc, Fatherland 評等：0.5394 cc7964fd-d30f-478e-a425-93ddbdf094ed, Magic the Gathering: Arena Vol. 1 評等：0.5379 8a1e9f36-97af-4614-bed9-24e3940a05f3, More Sniglets: Any Word That Doesn't Appear in the Dictionary but Should 評等：0.5377 12a6d988-be21-4a09-8143-9d5f4261ba16, A Dream of Eagles 07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon 評等：0.5417 e4cc5e69-3567-43ab-b00f-f0d8d0506870, Hit List 評等：0.5416 1f1a34c4-9781-49f5-a3cc-acec3ae3c71d, The Family 評等：0.5371 56daeffe-7d48-43cd-8ef8-7dffd0c103d3, Kilo Class 評等：0.5366 b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender 評等：0.5366 df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish 56d33036-dfda-46b9-8e2a-76cb03921bb0, The X-Files: Ground Zero 評等：0.5417 0780cde8-6529-4e1d-b6c6-082c1b80e596, Twelve Red Herrings 評等：0.5416 df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish 評等：0.5408 400fe331-2c35-490c-adbc-b28b4b73d56c, Shall We Tell the President? 評等：0.5383 f86ad7d0-5c03-42b3-aebf-13d44aec8b30, Shades of Grace 評等： 0.5358 de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology 評等：0.5422 b303538f-e2c6-4a2c-b425-8d21e684fc3e, My Uncle Oswald 評等：0.5385 34b84627-48af-4a4c-96c4-b26fb3863f56, Midnight In the Garden of Good and Evil 評等：0.5379 306cbaa7-b1a8-4142-9d55-e11b5018a7a8, The Street Lawyer 評等： 0.5376 e53b4baa-8c09-45c4-95c0-b6a26b98770b, Miss Smillas Feeling for Snow 評等：0.5367
 
 層級 2
 ---------------
-352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony)
-	352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony) 評等：0.5425
-	74c49398-bc10-4af5-a658-a996a1201254, Children of the Storm (Peters Elizabeth) 評等：0.5387
-	9ba80080-196e-43fd-8025-391d963f77e7, The Floating Girl 評等：0.5372
-	e68f81d5-7745-4cc7-b943-fedb8fcc2ced, Killer Smile (Scottoline Lisa) 評等：0.5353
-	b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender 評等：0.5332
-c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days
-	0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm : A True Story of Men Against the Sea 評等：0.5433
-	c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days 評等：0.543
-	a00ae6ad-4a7f-4211-9836-75ce8834eb11, Sniglets (Snig'lit : Any Word That Doesn't Appear in the Dictionary But Should) 評等：0.5327
-	6f6e192e-0d64-49ca-9b63-f09413ea1ee6, Politically Correct Holiday Stories: For an Enlightened Yuletide Season 評等：0.5307
-	798051a8-147d-4d46-b0dc-e836325029e6, AGE OF INNOCENCE (MOVIE TIE-IN) 評等：0.5301
-73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics)
-	cba8163f-6536-436b-8130-47b4a43c827f, Trust No One (The Official Guide to the X-Files Vol. 2) 評等：0.5434
-	5708e4cb-2492-49c0-94a8-cc413eec5d89, Small Gods (Discworld Novels (Paperback)) 評等：0.5406
-	73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics) 評等：0.5403
-	d885b0bd-ae4b-452d-bdf2-faa90197dbc9, The Color of Magic 評等：0.539
-	b133a9c4-4784-4db3-b100-d0d6dffb94d2, The Truth Is Out There (The Official Guide to the X-Files Vol. 1) 評等：0.5367
-271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke : Or I Know Why the Winged Whale Sings
-	271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke : Or I Know Why the Winged Whale Sings 評等：0.5445
-	2de1c354-90ff-47c5-a0db-1bad7d88ef94, The Salaryman's Wife (Children of Violence Series) 評等：0.5329
-	d279416e-19c0-43f8-9ec9-a585947879ca, Zen Attitude 評等：0.5316
-	c8f854d7-3de3-4b23-8217-f4f851670fd4, Revenge of the Cootie Girls: A Robin Hudson Mystery (Robin Hudson Mysteries (Paperback)) 評等：0.5305
-	8ef4751c-7074-409e-a3ac-d49b222fc864, Where the Wild Things Are 評等：0.5289
-9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God
-	9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God 評等：0.5446
-	da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees 評等：0.5389
-	65ecbdd1-131c-40c3-a3d6-d86ca281377a, The God of Small Things 評等：0.5387
-	c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries 評等：0.5355
-	973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven 評等：0.5344
-5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money (Stephanie Plum Novels (Paperback))
-	5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money (Stephanie Plum Novels (Paperback)) 評等：0.5446
-	57169b2b-9a8a-486b-9aac-1ed98ce57168, Final Appeal 評等：0.5332
-	efcb1bc4-7278-4a8f-b491-befde02070d6, Moment of Truth 評等：0.5329
-	1efa91a2-993b-4c43-9f5c-3454fc12612d, Burn Factor 評等：0.5309
-	24c59962-458a-4ec8-b95d-d694e861919c, At Home in Mitford (The Mitford Years) 評等：0.5303
-4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl
-	4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl 評等：0.5449
-	cd5f2c03-20cb-43be-a1fb-3b4233e63222, Pigs in Heaven 評等：0.5329
-	19985fdb-d07a-4a25-ae4a-97b9cb61e5d1, Love in the Time of Cholera (Penguin Great Books of the 20th Century) 評等：0.5267
-	15689d09-c711-4844-84d8-130a90237b26, Bel Canto 評等：0.5245
-	ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel 評等：0.5235
-98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories
-	f874b5a3-5d40-4436-94ff-0fa1c090ddf5, The Sun Also Rises (A Scribner classic) 評等：0.5451
-	98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories 評等：0.5442
-	0ce0014a-9a48-4013-a08a-7f2c11877930, H.M.S.Unseen 評等：0.5421
-	15316ca6-1e38-425f-893d-691944a47000, More Scary Stories To Tell In The Dark 評等：0.5409
-	329d5682-3dc3-4206-8aa2-eef4b1032258, Letters from the Earth 評等：0.54
-5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune : A Novel (Oprah's Book Club (Hardcover))
-	5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune : A Novel (Oprah's Book Club (Hardcover)) 評等：0.5462
-	ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel 評等：0.5372
-	604eb3bd-6026-4f51-bffd-9fb54f180400, Family Pictures: A Novel 評等：0.5341
-	8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) 評等：0.5334
-	da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees 評等：0.5319
-d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
-	d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven 評等：0.5491
-	ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel 評等：0.5401
-	c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries 評等：0.5393
-	8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) 評等：0.5382
-	973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven 評等：0.5367
+352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony) 352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony) 評等：0.5425 74c49398-bc10-4af5-a658-a996a1201254, Children of the Storm (Peters Elizabeth) 評等：0.5387 9ba80080-196e-43fd-8025-391d963f77e7, The Floating Girl 評等：0.5372 e68f81d5-7745-4cc7-b943-fedb8fcc2ced, Killer Smile (Scottoline Lisa) 評等：0.5353 b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender 評等：0.5332 c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days 0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm : A True Story of Men Against the Sea 評等：0.5433 c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days 評等：0.543 a00ae6ad-4a7f-4211-9836-75ce8834eb11, Sniglets (Snig'lit : Any Word That Doesn't Appear in the Dictionary But Should) 評等：0.5327 6f6e192e-0d64-49ca-9b63-f09413ea1ee6, Politically Correct Holiday Stories: For an Enlightened Yuletide Season 評等：0.5307 798051a8-147d-4d46-b0dc-e836325029e6, AGE OF INNOCENCE (MOVIE TIE-IN) 評等：0.5301 73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics) cba8163f-6536-436b-8130-47b4a43c827f, Trust No One (The Official Guide to the X-Files Vol. 2) 評等：0.5434 5708e4cb-2492-49c0-94a8-cc413eec5d89, Small Gods (Discworld Novels (Paperback)) 評等：0.5406 73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics) 評等：0.5403 d885b0bd-ae4b-452d-bdf2-faa90197dbc9, The Color of Magic 評等：0.539 b133a9c4-4784-4db3-b100-d0d6dffb94d2, The Truth Is Out There (The Official Guide to the X-Files Vol. 1) 評等：0.5367 271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke : Or I Know Why the Winged Whale Sings 271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke : Or I Know Why the Winged Whale Sings 評等：0.5445 2de1c354-90ff-47c5-a0db-1bad7d88ef94, The Salaryman's Wife (Children of Violence Series) 評等：0.5329 d279416e-19c0-43f8-9ec9-a585947879ca, Zen Attitude 評等：0.5316 c8f854d7-3de3-4b23-8217-f4f851670fd4, Revenge of the Cootie Girls: A Robin Hudson Mystery (Robin Hudson Mysteries (Paperback)) 評等：0.5305 8ef4751c-7074-409e-a3ac-d49b222fc864, Where the Wild Things Are 評等：0.5289 9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God 9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God 評等：0.5446 da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees 評等：0.5389 65ecbdd1-131c-40c3-a3d6-d86ca281377a, The God of Small Things 評等：0.5387 c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries 評等：0.5355 973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven 評等：0.5344 5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money (Stephanie Plum Novels (Paperback)) 5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money (Stephanie Plum Novels (Paperback)) 評等：0.5446 57169b2b-9a8a-486b-9aac-1ed98ce57168, Final Appeal 評等：0.5332 efcb1bc4-7278-4a8f-b491-befde02070d6, Moment of Truth 評等：0.5329 1efa91a2-993b-4c43-9f5c-3454fc12612d, Burn Factor 評等：0.5309 24c59962-458a-4ec8-b95d-d694e861919c, At Home in Mitford (The Mitford Years) 評等：0.5303 4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl 4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl 評等：0.5449 cd5f2c03-20cb-43be-a1fb-3b4233e63222, Pigs in Heaven 評等：0.5329 19985fdb-d07a-4a25-ae4a-97b9cb61e5d1, Love in the Time of Cholera (Penguin Great Books of the 20th Century) 評等：0.5267 15689d09-c711-4844-84d8-130a90237b26, Bel Canto 評等：0.5245 ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel 評等：0.5235 98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories f874b5a3-5d40-4436-94ff-0fa1c090ddf5, The Sun Also Rises (A Scribner classic) 評等：0.5451 98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories 評等：0.5442 0ce0014a-9a48-4013-a08a-7f2c11877930, H.M.S.Unseen 評等：0.5421 15316ca6-1e38-425f-893d-691944a47000, More Scary Stories To Tell In The Dark 評等：0.5409 329d5682-3dc3-4206-8aa2-eef4b1032258, Letters from the Earth 評等：0.54 5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune : A Novel (Oprah's Book Club (Hardcover)) 5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune : A Novel (Oprah's Book Club (Hardcover)) 評等：0.5462 ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel 評等：0.5372 604eb3bd-6026-4f51-bffd-9fb54f180400, Family Pictures: A Novel 評等：0.5341 8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) 評等：0.5334 da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees 評等：0.5319 d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven 評等：0.5491 ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel 評等：0.5401 c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries 評等：0.5393 8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) 評等：0.5382 973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven 評等：0.5367
 
 </pre>
 
@@ -843,8 +621,7 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼。 |
 |	apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
@@ -896,11 +673,10 @@ OData XML
 |:--------|:--------|
 |POST |`<rootURI>/AddRule?apiVersion=%271.0%27`|
 
-|	參數名稱 |	有效值						|
+|	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	apiVersion | 1.0 |
-|||
-| 要求本文 | <ins>用於新增 BlockList 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>用於新增 Upsale 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`|
+||| | 要求本文 | <ins>用於新增 BlockList 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>用於新增 Upsale 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`|
 
 HTTP 狀態碼：200
 
@@ -937,13 +713,12 @@ OData XML
 |:--------|:--------|
 |GET |`<rootURI>/DeleteRule?modelId=%27<model_id>%27&filterId=%27<filter_Id>%27&apiVersion=%271.0%27`<br><br>範例：<br>`DeleteRule?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&filterId=%271000011%27&apiVersion=%271.0%27`|
 
-|	參數名稱 |	有效值						|
+|	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼。 |
 |	filterId |	篩選器的唯一識別碼。 |
 |	apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
@@ -959,8 +734,7 @@ HTTP 狀態碼：200
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼。 |
 |	apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
@@ -976,13 +750,12 @@ HTTP 狀態碼：200
 |:--------|:--------|
 |POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-|	參數名稱 |	有效值						|
+|	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼。 |
 | 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (_)<br>最大長度：50 |
 |	apiVersion | 1.0 |
-|||
-| 要求本文 | 目錄資料。格式：<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>項目識別碼</td><td>是</td><td>英數字元，最大長度 50</td><td>項目的唯一識別碼</td></tr><tr><td>項目名稱</td><td>是</td><td>英數字元，最大長度 255</td><td>項目名稱</td></tr><tr><td>項目類別</td><td>是</td><td>英數字元，最大長度 255</td><td>此項目所屬類別 (例如烹飪書籍、劇本...)</td></tr><tr><td>描述</td><td>否</td><td>英數字元，最大長度 4000</td><td>這個項目的描述</td></tr></table><br>檔案大小上限為 200MB<br><br>範例：<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+||| | 要求本文 | 目錄資料。格式：<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>項目識別碼</td><td>是</td><td>英數字元，最大長度 50</td><td>項目的唯一識別碼</td></tr><tr><td>項目名稱</td><td>是</td><td>英數字元，最大長度 255</td><td>項目名稱</td></tr><tr><td>項目類別</td><td>是</td><td>英數字元，最大長度 255</td><td>此項目所屬類別 (例如烹飪書籍、劇本...)</td></tr><tr><td>描述</td><td>否</td><td>英數字元，最大長度 4000</td><td>這個項目的描述</td></tr></table><br>檔案大小上限為 200MB<br><br>範例：<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
 **回應**：
@@ -1026,8 +799,7 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼。 |
 |	apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
@@ -1128,8 +900,7 @@ OData XML
 |	modelId |	模型的唯一識別碼。 |
 |	token |	目錄項目名稱的 token。應該至少包含 3 個字元。 |
 |	apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
@@ -1180,13 +951,12 @@ OData XML
 |:--------|:--------|
 |POST |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
 
-|	參數名稱 |	有效值						|
+|	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼。 |
 | 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (_)<br>最大長度：50 |
 |	apiVersion | 1.0 |
-|||
-| 要求本文 | 使用資料。格式：<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>使用者識別碼</td><td>是</td><td>英數字元</td><td>使用者的唯一識別碼</td></tr><tr><td>項目識別碼</td><td>是</td><td>英數字元，最大長度 50</td><td>項目的唯一識別碼</td></tr><tr><td>時間</td><td>否</td><td>日期格式：YYYY/MM/DDTHH:MM:SS (例如 2013/06/20T10:00:00)</td><td>資料的時間</td></tr><tr><td>事件</td><td>否；如果提供，也必須註明日期</td><td>下列其中之一：<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>檔案大小上限：200 MB<br><br>範例<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+||| | 要求本文 | 使用資料。格式：<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>使用者識別碼</td><td>是</td><td>英數字元</td><td>使用者的唯一識別碼</td></tr><tr><td>項目識別碼</td><td>是</td><td>英數字元，最大長度 50</td><td>項目的唯一識別碼</td></tr><tr><td>時間</td><td>否</td><td>日期格式：YYYY/MM/DDTHH:MM:SS (例如 2013/06/20T10:00:00)</td><td>資料的時間</td></tr><tr><td>事件</td><td>否；如果提供，也必須註明日期</td><td>下列其中之一：<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>檔案大小上限：200 MB<br><br>範例<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **回應**：
 
@@ -1233,7 +1003,7 @@ OData XML
 |:--------			|:--------								|
 |	apiVersion | 1.0 |
 
-要求本文
+Request body
 
 	Event data entry for each event you want to send. You should send for the same user or browser session the same id in the SessionId field.
 
@@ -1337,8 +1107,7 @@ OData XML
 |:--------			|:--------								|
 |	forModelId |	模型的唯一識別碼。 |
 |	apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
@@ -1403,8 +1172,7 @@ OData XML
 | endDate |	結束日期。格式：yyyy/MM/ddTHH:mm:ss |
 | eventTypes |	以逗號分隔的事件類型字串或是 null，可取得所有事件。 |
 | apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
@@ -1487,31 +1255,13 @@ OData XML
 | modelId |	模型的唯一識別碼。 |
 | fileId |	模型使用方式檔案的唯一識別碼。 |
 | apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
 HTTP 狀態碼：200
 
-OData XML<br>
-回應會以原始文字格式傳回：<pre>
-85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-</pre>
+OData XML<br> 回應會以原始文字格式傳回：<pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 </pre>
 
 ###8.5.取得模型使用方式檔案
 抓取使用方式檔案的完整內容：
@@ -1526,49 +1276,13 @@ OData XML<br>
 | fid |	模型使用方式檔案的唯一識別碼。 |
 | 下載 | 1 |
 | apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
 HTTP 狀態碼：200
 
-OData XML<br>
-回應會以原始文字格式傳回：<pre>
-85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-</pre>
+OData XML<br> 回應會以原始文字格式傳回：<pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 </pre>
 
 ###8.6.刪除使用方式檔案
 刪除指定的模型使用方式檔案
@@ -1582,8 +1296,7 @@ OData XML<br>
 | modelId |	模型的唯一識別碼。 |
 | fileId | 要刪除之檔案的唯一識別碼 |
 | apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
@@ -1601,8 +1314,7 @@ HTTP 狀態碼：200
 |:--------			|:--------								|
 | modelId |	模型的唯一識別碼。 |
 | apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
@@ -1616,13 +1328,12 @@ HTTP 狀態碼：200
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
 
-|	參數名稱 |	有效值						|
+|	參數名稱 |	有效值 |
 |:--------			|:--------								|
 | modelId |	模型的唯一識別碼。 |
 | userDescription | 目錄的文字識別碼。請注意，如果您使用空格，必須將其編碼改成 %20。請參閱上面的範例。<br>最大長度：50 |
 | apiVersion | 1.0 |
-|||
-| 要求本文 | 如果保留空白，則組建會以預設的組建參數執行。<br><br>如果您想要設定組建參數，請在本文中傳送下列 XML (如需參數說明，請參閱＜取得組建參數＞一節)：<br>`<BuildParametersList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><UseFeaturesInModel>false</UseFeaturesInModel><AllowColdItemPlacement>false</AllowColdItemPlacement><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableFeatureCorrelation>false</EnableFeatureCorrelation><RefreshFeatureScoreOnBuild>false</RefreshFeatureScoreOnBuild><ComputeUpd>false</ComputeUpd><EnableModelingInsights>true</EnableModelingInsights><ModelingFeatureList /><ReasoningFeatureList /></BuildParametersList>`|
+||| | 要求本文 | 如果保留空白，則組建會以預設的組建參數執行。<br><br>如果您想要設定組建參數，請在本文中傳送下列 XML (如需參數說明，請參閱＜取得組建參數＞一節)：<br>`<BuildParametersList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><UseFeaturesInModel>false</UseFeaturesInModel><AllowColdItemPlacement>false</AllowColdItemPlacement><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableFeatureCorrelation>false</EnableFeatureCorrelation><RefreshFeatureScoreOnBuild>false</RefreshFeatureScoreOnBuild><ComputeUpd>false</ComputeUpd><EnableModelingInsights>true</EnableModelingInsights><ModelingFeatureList /><ReasoningFeatureList /></BuildParametersList>`|
 
 **回應**：
 
@@ -1889,101 +1600,9 @@ HTTP 狀態碼：200
 
 OData XML
 
-每個都包含一個參數的索引鍵/值集合：
-<pre>
-索引鍵：
-	feed/entry/content/properties/Key – 組件參數名稱 
-值： 
-	feed/entry/content/properties/Value – 組建餐數值 
-</pre>
+每個都包含一個參數的索引鍵/值集合：<pre> 索引鍵：feed/entry/content/properties/Key – 組件參數名稱 值： feed/entry/content/properties/Value – 組建餐數值 </pre>
 
-下表描述每個索引鍵所代表的值
-	<table>
-    	<tr>
-        	<th>索引鍵</th>
-        	<th>描述</th>
-        	<th>類型</th>
-        	<th>有效值</th>
-        </tr>
-        <tr>
-        	<td>NumberOfModelIterations</td>
-        	<td>整體運算時間和模型精確度會反映模型執行反覆運算的次數。數字越高，得到的精確度就越高，但需要較久的運算時間。</td>
-            <td>整數</td>
-            <td>10-50</td>
-        </tr>
-        <tr>
-        	<td>NumberOfModelDimensions</td>
-        	<td>維度的數目與「功能」的數目相關，模型會嘗試尋找資料中的數目。增加維度的數目將允許結果進一步微調成較小的叢集。不過，太多維度會讓模型無法尋找項目之間的關聯。</td>
-            <td>整數</td>
-            <td>10-40</td>
-        </tr>
-        <tr>
-        	<td>MinItemAppearance</td>
-        	<td>您可以控制項目未包含在模型中的最小外觀數目。臨界值越高，從模型得到的結果越佳。不過要是臨界值太高，可能會導致您自己沒有足夠的項目可用。</td>
-            <td>整數</td>
-            <td>0 或以上</td>
-        </tr>
-        <tr>
-        	<td>MinUserAppearance</td>
-        	<td>您可以控制使用者未包含在模型中的最小外觀數目。臨界值越高，從模型得到的結果越佳。不過要是臨界值太高，可能會導致您自己沒有足夠的項目可用，或沒有特定使用者的建議。</td>
-            <td>整數</td>
-            <td>0-20</td>
-        </tr>
-        <tr>
-        	<td>描述</td>
-        	<td>組建說明</td>
-            <td>字串</td>
-            <td>任何文字，最多 255 個字元</td>
-        </tr>
-        <tr>
-        	<td>UseFeaturesInModel</td>
-        	<td>供日後使用</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-        	<td>AllowColdItemPlacement</td>
-        	<td>供日後使用</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-        	<td>EnableFeatureCorrelation</td>
-        	<td>供日後使用</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-        	<td>RefreshFeatureScoreOnBuild</td>
-        	<td>供日後使用</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-        	<td>ComputeUpd</td>
-        	<td>供日後使用</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-        	<td>EnableModelingInsights</td>
-        	<td>供日後使用</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-        	<td>ModelingFeatureList</td>
-        	<td>供日後使用</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-        	<td>ReasoningFeatureList</td>
-        	<td>供日後使用</td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
+下表描述每個索引鍵所代表的值 <table> <tr> <th>索引鍵</th> <th>描述</th> <th>類型</th> <th>有效值</th> </tr> <tr> <td>NumberOfModelIterations</td> <td>整體運算時間和模型精確度會反映模型執行反覆運算的次數。數字越高，得到的精確度就越高，但需要較久的運算時間。</td> <td>整數</td> <td>10-50</td> </tr> <tr> <td>NumberOfModelDimensions</td> <td>維度的數目與「功能」的數目相關，模型會嘗試尋找資料中的數目。增加維度的數目將允許結果進一步微調成較小的叢集。不過，太多維度會讓模型無法尋找項目之間的關聯。</td> <td>整數</td> <td>10-40</td> </tr> <tr> <td>MinItemAppearance</td> <td>您可以控制項目未包含在模型中的最小外觀數目。臨界值越高，從模型得到的結果越佳。不過要是臨界值太高，可能會導致您自己沒有足夠的項目可用。</td> <td>整數</td> <td>0 或以上</td> </tr> <tr> <td>MinUserAppearance</td> <td>您可以控制使用者未包含在模型中的最小外觀數目。臨界值越高，從模型得到的結果越佳。不過要是臨界值太高，可能會導致您自己沒有足夠的項目可用，或沒有特定使用者的建議。</td> <td>整數</td> <td>0-20</td> </tr> <tr> <td>描述</td> <td>組建說明</td> <td>字串</td> <td>任何文字，最多 255 個字元</td> </tr> <tr> <td>UseFeaturesInModel</td> <td>供日後使用</td> <td></td> <td></td> </tr> <tr> <td>AllowColdItemPlacement</td> <td>供日後使用</td> <td></td> <td></td> </tr> <tr> <td>EnableFeatureCorrelation</td> <td>供日後使用</td> <td></td> <td></td> </tr> <tr> <td>RefreshFeatureScoreOnBuild</td> <td>供日後使用</td> <td></td> <td></td> </tr> <tr> <td>ComputeUpd</td> <td>供日後使用</td> <td></td> <td></td> </tr> <tr> <td>EnableModelingInsights</td> <td>供日後使用</td> <td></td> <td></td> </tr> <tr> <td>ModelingFeatureList</td> <td>供日後使用</td> <td></td> <td></td> </tr> <tr> <td>ReasoningFeatureList</td> <td>供日後使用</td> <td></td> <td></td> </tr> </table>
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
@@ -2329,10 +1948,7 @@ OData XML
 	</feed>
 
 ##11.通知
-「Azure ML 建議」會在系統中持續發生錯誤時建立通知。有 3 種通知：
-1.	組建失敗 – 每個組建失敗時都會觸發此通知。
-2.	資料擷取處理失敗 - 當我們在處理每一模型的使用事件時，如果最後 5 分鐘有超過 100 個錯誤，就會觸發此通知。
-3.	建議取用失敗 - 當我們在處理每一模型的建議要求時，如果最後 5 分鐘有超過 100 個錯誤，就會觸發此通知。
+「Azure ML 建議」會在系統中持續發生錯誤時建立通知。有 3 種通知：1.組建失敗 – 每個組建失敗時都會觸發此通知。2.資料擷取處理失敗 - 當我們在處理每一模型的使用事件時，如果最後 5 分鐘有超過 100 個錯誤，就會觸發此通知。3.建議取用失敗 - 當我們在處理每一模型的建議要求時，如果最後 5 分鐘有超過 100 個錯誤，就會觸發此通知。
 
 
 ###11.1.取得通知
@@ -2347,8 +1963,7 @@ OData XML
 |:--------			|:--------								|
 | modelId | 選擇性參數；如果省略，您將會取得所有模型的所有通知。<br>有效值：模型的唯一識別碼。|
 | apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應：**
 
@@ -2399,8 +2014,7 @@ OData XML
 |:--------			|:--------								|
 | modelId | 模型的唯一識別碼。 |
 | apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
@@ -2417,13 +2031,13 @@ HTTP 狀態碼：200
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 | apiVersion | 1.0 |
-|||
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
 HTTP 狀態碼：200
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

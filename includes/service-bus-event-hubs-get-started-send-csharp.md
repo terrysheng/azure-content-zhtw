@@ -1,4 +1,5 @@
 ## 將訊息傳送至事件中心
+
 在本節中，您將撰寫一個 Windows 主控台應用程式，以將事件傳送至事件中心。
 
 1. 在 Visual Studio 中，使用**主控台應用程式**專案範本建立新的「Visual C# 桌面應用程式」專案。將專案命名為 **Sender**。
@@ -63,4 +64,4 @@
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

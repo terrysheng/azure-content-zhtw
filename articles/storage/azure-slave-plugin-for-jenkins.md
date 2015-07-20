@@ -213,4 +213,4 @@ Jenkins 就會使用上一節建立的範本建立從屬節點，並執行您針
 
   
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

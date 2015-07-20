@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="使用 Hive 及 Hadoop 分析感應器資料 | Microsoft Azure" 
-	description="了解如何使用 Hive 查詢主控台搭配 HDInsight (Hadoop) 分析感應器資料，然後在 Microsoft Excel 中使用 Power View 將資料視覺化。" 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="Blackmist" 
-	manager="paulettm" 
+<properties
+	pageTitle="使用 Hive 及 Hadoop 分析感應器資料 | Microsoft Azure"
+	description="了解如何使用 Hive 查詢主控台搭配 HDInsight (Hadoop) 分析感應器資料，然後在 Microsoft Excel 中使用 Power View 將資料視覺化。"
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/06/2015" 
 	ms.author="larryfr"/>
 
 #在 HDInsight 的 Hadoop 上使用 Hive 查詢主控台分析感應器資料
@@ -43,14 +43,14 @@
 
 ##執行範例
 
-1. 從 Azure 入口網站，按一下您要執行範例的叢集，然後按一下底部的 [查詢主控台]****。或者，您也可以使用下列 URL 直接開啟查詢主控台：
+1. 從 Azure 入口網站，按一下您要執行範例的叢集，然後按一下底部的 [查詢主控台]。或者，您也可以使用下列 URL 直接開啟查詢主控台：
 
 	 	https://<clustername>.azurehdinsight.net
 
 	出現提示時，使用您佈建此叢集時所用的系統管理員使用者名稱和密碼來進行驗證。
 
-2. 從開啟的網頁中，按一下 [Getting Started Gallery]**** 索引標籤，然後在 [搭配範例資料的方案]**** 類別下，按一下 [感應器資料分析]**** 範例。
+2. 從開啟的網頁中，按一下 [Getting Started Gallery] 索引標籤，然後在 [搭配範例資料的方案] 類別下，按一下 [感應器資料分析] 範例。
 
 3. 依照網頁上提供的指示完成範例。
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

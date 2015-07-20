@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="windows" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/03/2015" 
 	ms.author="glenga"/>
 
 
@@ -59,7 +59,7 @@
 
 2. 按 **F5** 鍵以執行應用程式。包含註冊金鑰的快顯對話方塊隨即顯示。
 
-6. 開啟 Package.appxmanifest 檔案，並在 [應用程式 UI]**** 索引標籤中確認 [支援快顯通知]**** 設為 [是]****。
+6. 開啟 Package.appxmanifest 檔案，並在 [應用程式 UI] 索引標籤中確認 [支援快顯通知] 設為 [是]。
 
    	![][2]
 
@@ -89,13 +89,13 @@
 
 在下列主題中深入了解行動服務和通知中心：
 
-* [開始使用資料] <br/>深入了解使用行動服務來儲存與查詢資料。
+* [開始使用資料]<br/>深入了解如何使用行動服務來儲存與查詢資料。
 
 * [開始使用驗證] <br/>了解如何使用行動服務驗證使用不同帳戶類型的應用程式使用者。
 
-* [什麼是通知中樞？] <br/>深入了解通知中心如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
+* [什麼是通知中心？] <br/>深入了解通知中心如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
 
-* [偵錯通知中樞應用程式](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>取得通知中樞解決方案的疑難排解和偵錯指引。
+* [偵錯通知中心應用程式](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>取得通知中心解決方案的疑難排解和偵錯指引。
 
 * [行動服務 .NET 作法概念參考資料] <br/>深入了解如何使用搭配 .NET 的行動服務。
 
@@ -123,8 +123,9 @@
 
 [將推播通知傳送給驗證的使用者]: mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users.md
 
-[什麼是通知中樞？]: ../notification-hubs-overview.md
+[什麼是通知中心？]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-windows-store-javascript-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-windows-store-javascript-send-localized-breaking-news.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

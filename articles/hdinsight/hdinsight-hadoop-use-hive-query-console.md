@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # 使用查詢主控台執行 Hive 查詢
@@ -34,7 +34,7 @@
 
 ##<a id="run"></a>使用查詢主控台執行 Hive 查詢
 
-1. 開啟 <a href="https://manage.windowsazure.com" target="_blank">Azure 入口網站</a>，選取您的 HDInsight 叢集。選取頁面底部的 [**查詢主控台**]。出現提示時，輸入您建立叢集時所輸入的使用者名稱和密碼。
+1. 開啟 [Azure 入口網站](https://manage.windowsazure.com)，然後選取您的 HDInsight 叢集。選取頁面底部的 [**查詢主控台**]。出現提示時，輸入您建立叢集時所輸入的使用者名稱和密碼。
 
     > [AZURE.NOTE]在瀏覽器中輸入 **https://CLUSTERNAME.azurehdinsight.net**，也可以到達查詢主控台。
 
@@ -63,7 +63,7 @@
     * **STORED AS TEXTFILE LOCATION**：將資料的儲存位置告訴 Hive (example/data 目錄)，且資料儲存為文字
     * **SELECT**：選擇其資料欄 **t4** 包含值 **[ERROR]** 的所有資料列計數。這應該會傳回值 **3**，因為有三個資料列包含此值。
 
-2. 按一下 [提交]****。頁面底部的 [**作業工作階段**] 應該會顯示工作的詳細資料。
+2. 按一下 [提交]。頁面底部的 [**作業工作階段**] 應該會顯示工作的詳細資料。
 
 3. 當 [**狀態**] 欄位變更為 [**已完成**] 時，請選取工作的 [**檢視詳細資料**]。在詳細資料頁面上，[**工作輸出**] 包含 `[ERROR]	3`。您可以使用此欄位下方的 [**下載**] 按鈕，下載含有工作輸出的檔案。
 
@@ -106,18 +106,18 @@
 
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

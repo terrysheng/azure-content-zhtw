@@ -13,22 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="04/14/2015"
-   ms.author="guscatal;spatnaik"/>
+   ms.date="07/07/2015"
+   ms.author="guscatal;spatnaik;elizapo"/>
 
 
 
-使用 Powershell 在 Azure RemoteApp 中開始使用
+# 使用 Powershell 在 Azure RemoteApp 中開始使用
 =====================================
 
 
-取得 Cmdlet ------------- 首先，我們需要在[這裡](http://go.microsoft.com/?linkid=9811175)下載 Azure Powershell Cmdlet，而 RemoteApp 包含在其中。
+## 取得 Cmdlet 
+-------------
+先，我們需要在[這裡](http://go.microsoft.com/?linkid=9811175)下載 Azure Powershell Cmdlet，而 RemoteApp 包含在其中。
 
-設定 Azure Cmdlet 以使用訂用帳戶
+## 設定 Azure Cmdlet 以使用訂用帳戶
 ------------------
 請依照[本指南](../powershell-install-configure.md)進行，以對 Azure 訂用帳戶使用 Cmdlet。
 
-建立雲端收藏
+## 建立雲端收藏
 --------------------
 十分簡單，只要執行下列命令：
 
@@ -47,6 +49,7 @@
 
 大功告成！ 該使用者應該可以使用在[這裡](https://www.remoteapp.windowsazure.com/)找到的 Azure RemoteApp 用戶端連接到應用程式。
 
+## 可用的 Cmdlet
 我們還有一些其他命令，將會簡短予以說明：
 
 基本 RemoteApp 集合 Cmdlet：
@@ -94,6 +97,6 @@ Other RemoteApp cmdlets:
 - Get-AzureRemoteAppWorkspace
 - Set-AzureRemoteAppWorkspace
 - Get-AzureRemoteAppOperationResult
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

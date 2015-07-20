@@ -13,4 +13,4 @@
 
 	請注意，資料表含有 Id、__createdAt、__updatedAt 和 __version 等欄。這些欄支援離線資料同步，並可在 [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx) (英文) 基底類別中實作。如需詳細資訊，請參閱 [開始使用離線資料同步]。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

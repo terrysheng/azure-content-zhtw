@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # 使用 Visual Studio 的 Hadoop 工具開發 Apache Storm on HDInsight 的 C# 拓撲
@@ -26,23 +26,23 @@
 
 -	下列其中一個 Visual Studio 版本
 
-	-	Visual Studio 2012 <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">(含 Update 4)</a>
+	-	Visual Studio 2012 (含 [Update 4](http://www.microsoft.com/download/details.aspx?id=39305))
 
-	-	Visual Studio 2013 <a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">(含 Update 4)</a> 或 <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
+	-	Visual Studio 2013 (含 [Update 4](http://www.microsoft.com/download/details.aspx?id=44921)) 或 [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
-	-	<a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
+	-	[Visual Studio 2015 CTP6](http://visualstudio.com/downloads/visual-studio-2015-ctp-vs)
 
 -	Azure SDK 2.5.1 或更新版本
 
--	HDInsight Tools for Visual Studio：請參閱<a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">開始使用 HDInsight Tools for Visual Studio</a> 以安裝及設定 HDInsight tools for Visual Studio。
+-	HDInsight Tools for Visual Studio：請參閱[開始使用 HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) 以安裝及設定 HDInsight tools for Visual Studio。
 
--	Apache Storm on HDInsight 叢集：請參閱<a href="../hdinsight-storm-getting-started/" target="_blank">開始使用 Apache Storm on HDInsight</a> 以取得建立叢集的步驟。
+-	Apache Storm on HDInsight 叢集：請參閱[開始使用 Apache Storm on HDInsight](hdinsight-storm-getting-started.md) 以取得建立叢集的步驟。
 
 	> [AZURE.NOTE]目前 HDInsight Tools for Visual Studio 只支援 Storm on HDInsight 3.2 版叢集。
 
 ##建立 C# 拓撲
 
-1.	如果您尚未安裝最新版本的 HDInsight Tools for Visual Studio，請參閱<a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">開始使用 HDInsight Tools for Visual Studio</a>
+1.	如果您尚未安裝最新版本的 HDInsight Tools for Visual Studio，請參閱[開始使用 HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)。
 
 2.	開啟 Visual Studio，並依序選取 [檔案] > [新增] 和 [專案]。
 
@@ -58,7 +58,7 @@
 
 	-	**Bolt.cs**：保留 Spout 所發出數字之計數的範例 Bolt。
 
-	在專案建立過程中，會從 NuGet 下載最新的 <a href="https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/" target="_blank">SCP.NET 封裝</a>
+	在專案建立過程中，會從 NuGet 下載最新的 [SCP.NET 封裝](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/)。
 
 在下列各節中，您會將此專案修改成基本 WordCount 應用程式。
 
@@ -579,7 +579,7 @@ SCP.Net 版本 0.9.4.203 引進了專用於事件中樞 Spout (從事件中心�
 
 6.	儲存變更，然後按一下 **F5** 或選取 [偵錯] > [開始偵錯] 啟動專案。應該會出現主控台視窗，並記錄測試進行的狀態。出現 [測試已完成] 時，請按任意鍵關閉視窗。
 
-7.	使用 **Windows 檔案總管**找到包含您專案的目錄，例如 **C:\Users<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**。在此目錄中，開啟 [Bin]，然後按一下 [偵錯]。您應該會看到執行測試時所產生的文字檔：sentences.txt、counter.txt 和 splitter.txt。開啟每個文字檔，並檢查資料。
+7.	使用 **Windows 檔案總管**找到包含您專案的目錄，例如 **C:\\Users<your_user_name>\\Documents\\Visual Studio 2013\\Projects\\WordCount\\WordCount**。在此目錄中，開啟 [Bin]，然後按一下 [偵錯]。您應該會看到執行測試時所產生的文字檔：sentences.txt、counter.txt 和 splitter.txt。開啟每個文字檔，並檢查資料。
 
 	> [AZURE.NOTE]字串資料會保存為這些檔案中的十進位值的陣列。例如，**splitter.txt** 檔案中的 [[97,103,111]] 是 'and' 這個字。
 
@@ -638,6 +638,5 @@ Context.Logger.Info("Component started");
 **Apache HBase on HDInsight**
 
 -	[開始使用 HBase on HDInsight](../hdinsight-hbase-get-started.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

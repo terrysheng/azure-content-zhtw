@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #Windows 通用 app Reach SDK 整合
@@ -28,9 +28,9 @@
 
 ##啟用 Windows 通知服務
 
-若要在 `Application UI` 上的 `Package.appxmanifest` 檔案中使用 **Windows 通知服務** (簡稱 WNS)，請在左邊 bot 方塊中的 `All Image Assets` 上按一下。請在 `Notifications` 中方塊的右邊，將 `toast capable` 從 `(not set)` 變更為 `Yes`。
+若要在 `Application UI` 上的 `Package.appxmanifest` 檔案中使用 **Windows 通知服務** (簡稱 WNS)，請在左邊 bot 方塊中的 `All Image Assets` 上按一下。請在 `Notifications` 中方塊的右邊，將 `toast capable` 從 `(not set)` 變更為 `(Yes)`。
 
-此外，您必須將您的應用程式與您的 Microsoft 帳戶以及 Engagement 平台同步。在 Engagement 前端中，繼續應用程式的 `native push` 設定，並貼上您的認證。接下來，在您的專案上按一下滑鼠右鍵，依序選取 `store` 和 `Associate App with the Store...`。
+此外，您必須將您的應用程式與您的 Microsoft 帳戶以及 Engagement 平台同步。因此您需要建立一個帳戶或登入 [windows 開發人員中心](https://dev.windows.com)。然後，建立新的應用程式，並且尋找 SID 和秘密金鑰。在 Engagement 前端中，繼續應用程式的 `native push` 設定，並貼上您的認證。接下來，在您的專案上按一下滑鼠右鍵，依序選取 `store` 和 `Associate App with the Store...`。您只需要在同步處理之前選取您建立的應用程式。
 
 ##初始化 Engagement Reach SDK
 
@@ -40,7 +40,7 @@
 
 		using Microsoft.Azure.Engagement;
 
--   在 `OnLaunched` 中，將 `EngagementReach.Instance.Init` 插入 `EngagementAgent.Instance.Init` 之後：
+-   在 `OnLaunched` 中，將 `EngagementReach.Instance.Init` 插入 `EngagementAgent.Instance.Init` 後方：
 
 		protected override void OnLaunched(LaunchActivatedEventArgs args)
 		{
@@ -48,7 +48,7 @@
 		  EngagementReach.Instance.Init(args);
 		}
 
--   若您想要在應用程式啟用時啟動 Engagement Reach，請覆寫 `OnActivated` 方法：
+-   如果您想要在您的應用程式由命令、其他應用程式或自訂配置啟動時啟用 Engagement Reach，請覆寫 `OnActivated` 方法：
 
 		protected override void OnActivated(IActivatedEventArgs args)
 		{
@@ -64,17 +64,17 @@
 
 Engagment 提供兩種方式實作 Reach 通知和宣告：「重疊整合」和「Web 檢視」整合。
 
-windows-sdk-engagement-overlay-integration 不需要大量程式碼寫入您的應用程式。您只需要用 EngagementPageOverlay 標記您的頁面、xaml 和 cs 檔案。此外，如果您自訂 Engagement 預設檢視，您的自訂項目會在所有已標記的頁面之間共用，而且只定義一次。但如果您的頁面需要從 EngagementPageOverlay 以外的物件繼承，那麼您就只能使用「Web 檢視」整合。
+重疊整合不需要大量程式碼寫入您的應用程式。您只需要用 EngagementPageOverlay 標記您的頁面、xaml 和 cs 檔案。此外，如果您自訂 Engagement 預設檢視，您的自訂項目會在所有已標記的頁面之間共用，而且只定義一次。但如果您的頁面需要從 EngagementPageOverlay 以外的物件繼承，那麼您就只能使用「Web 檢視」整合。
 
-windows-sdk-engagement-webview-integration 的實作較為複雜。但如果您的應用程式需要從 "Page" 以外的物件繼承，那麼您必須整合 「Web 檢視」和其行為。
+Web 檢視整合的實作較為複雜。但如果您的應用程式需要從 "Page" 以外的物件繼承，那麼您必須整合 「Web 檢視」和其行為。
 
-> [AZURE.TIP]您應該考慮新增第一層級的 `<Grid></Grid>` 元素，來包圍所有頁面內容。針對 Web 檢視整合，請新增 Webview 為此格線的子系。如果您需要在其他地方設定 Engagement 的元件，請記住您必須自行管理顯示的大小。
+> [AZURE.TIP]您應該考慮新增根層級的 `<Grid></Grid>` 元素，來包圍所有頁面內容。針對 Web 檢視整合，請新增 Webview 為此格線的子系。如果您需要在其他地方設定 Engagement 的元件，請記住您必須自行管理顯示的大小。
 
 ### 重疊整合
 
 Engagement 提供通知和宣告顯示的重疊。
 
-如果您不想使用它，請不要使用 windows-sdk-engagement-webview-integration。
+如果您想要使用它，請不要使用 Web 檢視整合。
 
 將您 .xaml 檔案中的 EngagementPage 參考變更為 EngagementPageOverlay
 
@@ -155,9 +155,9 @@ Engagement 重疊會使用它在 xaml 檔案中找到的第一個 “Grid”元�
 -   `EngagementOverlayNotification.xaml.cs`：`EngagementOverlayNotification.xaml` 已連結的程式碼。
 -   `EngagementPageOverlay.cs`：`Overlay`宣告和通知顯示的程式碼。
 
-### 「Web 檢視」整合
+### Web 檢視整合
 
-如果您不想使用它，請不要使用 windows-sdk-engagement-overlay-integration。
+如果您想要使用它，請不要使用重疊整合。
 
 若要顯示 Engagement 內容，您需要在要顯示通知和宣告的每個頁面整合這兩個 xaml WebView。因此請將此程式碼新增至您的 xaml 檔案：
 
@@ -408,5 +408,6 @@ NotfificationHTML 是 `ms-appx-web:///Resources/EngagementNotification.html`。�
 			    }
 			  }
 			  #endregion
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

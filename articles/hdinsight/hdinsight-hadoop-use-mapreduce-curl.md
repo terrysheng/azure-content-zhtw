@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #使用 Curl 搭配執行 MapReduce 工作與 HDInsight 上的 Hadoop
@@ -32,9 +32,9 @@ Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 
 
 * HDInsight 叢集上的 Hadoop (Linux 或 Windows 型)
 
-* <a href="http://curl.haxx.se/" target="_blank">Curl</a>
+* [Curl](http://curl.haxx.se/)
 
-* <a href="http://stedolan.github.io/jq/" target="_blank">jq</a>
+* [jq](http://stedolan.github.io/jq/)
 
 ##<a id="curl"></a>使用 Curl 執行 MapReduce 工作
 
@@ -42,7 +42,7 @@ Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 
 >
 > 針對本節中的命令，將 **USERNAME** 取代為向叢集驗證的使用者，並將 **PASSWORD** 取代為使用者帳戶的密碼。將 **CLUSTERNAME** 取代為您叢集的名稱。
 >
-> 使用<a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">基本存取驗證</a>來保護 REST API 的安全。您應該一律使用 HTTPS 提出要求，確保認證安全地傳送至伺服器。
+> 使用[基本存取驗證](http://en.wikipedia.org/wiki/Basic_access_authentication)來保護 REST API 的安全。您應該一律使用 HTTPS 提出要求，確保認證安全地傳送至伺服器。
 
 1. 從命令列中，使用下列命令來確認您可以連線到 HDInsight 叢集：
 
@@ -114,4 +114,4 @@ Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

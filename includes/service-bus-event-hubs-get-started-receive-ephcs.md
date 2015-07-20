@@ -1,6 +1,6 @@
 ## 使用 EventProcessorHost 接收訊息
 
-[EventProcessorHost] 是一個 .NET 類別，透過管理持續檢查點以及來自事件中樞的平行接收，簡化來自事件中樞之事件的接收作業。使用 [EventProcessorHost]，您可以將事件分割到多個接收者，即使裝載於不同的節點時也是一樣。這個範例顯示單一接收者如何使用 [EventProcessorHost]。[擴充事件處理範例] 顯示如何搭配使用 [EventProcessorHost] 與多個接收者。
+[EventProcessorHost] 是一個 .NET 類別，透過管理持續檢查點以及來自事件中樞的平行接收，簡化來自事件中樞之事件的接收作業。使用 [EventProcessorHost]，您可以將事件分割到多個接收者，即使裝載於不同的節點時也是一樣。這個範例顯示單一接收者如何使用 [EventProcessorHost]。[擴充事件處理]範例顯示如何搭配使用 [EventProcessorHost] 與多個接收者。
 
 若要使用 [EventProcessorHost]，您必須擁有 [Azure 儲存體帳戶]：
 
@@ -8,17 +8,17 @@
 
 2. 依序按一下 [**資料服務**]、[**儲存體**] 和 [**快速建立**]，然後輸入儲存體帳戶的名稱。選取您所需的區域，然後按一下 [**建立儲存體帳戶**]。
 
-  ![][11]
+    ![][11]
 
 3. 按一下新建立的儲存體帳戶，然後按一下 [**管理存取金鑰**]：
 
-  ![][12]
+    ![][12]
 
-	Copy the access key to use later in this tutorial.
+    複製存取金鑰以便稍後在此教學課程中使用。
 
 4. 在 Visual Studio 中，使用**主控台應用程式**專案範本建立新的「Visual C# 桌面應用程式」專案。將專案命名為 **Receiver**。
 
-  ![][14]
+    ![][14]
 
 5. 在 [方案總管] 中，以滑鼠右鍵按一下方案，然後按一下 [**管理 NuGet 封裝**]。
 
@@ -26,9 +26,9 @@
 
 6. 搜尋 `Microsoft Azure Service Bus Event Hub - EventProcessorHost`，然後按一下 [**安裝**] 並接受使用條款。
 
-  ![][13]
+    ![][13]
 
-	This downloads, installs, and adds a reference to the <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">Azure Service Bus Event Hub - EventProcessorHost NuGet package</a>, with all its dependencies.
+	這會下載、安裝並新增 <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">Azure Service Bus Event Hub - EventProcessorHost NuGet 封裝</a>的參考與其所有相依性。
 
 7. 在 [**接收者**] 專案上按一下滑鼠右鍵，按一下 [**新增**]，然後按一下 [**類別**]。將新類別命名為 **SimpleEventProcessor**，然後按一下 [**確定**] 以建立該類別。
 
@@ -129,4 +129,4 @@
 [Async Await in Console Apps]: http://blogs.msdn.com/b/pfxteam/archive/2012/01/20/10259049.aspx
 [AsyncPump.cs]: http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-components-postattachments/00-10-25-90-49/AsyncPump_2E00_cs
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

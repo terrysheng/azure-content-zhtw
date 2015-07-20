@@ -20,4 +20,4 @@
 
 4. 與 Eclipse 的情況不同，在 Android Studio 中，不再使用資訊清單檔案來指定目標 SDK 和最低的 SDK 版本。
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

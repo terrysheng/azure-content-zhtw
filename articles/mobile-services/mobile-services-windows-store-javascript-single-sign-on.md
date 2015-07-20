@@ -18,7 +18,7 @@
 
 # 使用 Microsoft 帳戶以用戶端管理的驗證方式驗證您的 Windows 市集應用程式
 
-[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)] 
+[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)]
 
 ##概觀
 本主題說明如何從您的 Windows 市集應用程式在 Azure 行動服務中驗證使用者。在本教學課程中，您會使用 Live Connect 將驗證新增至快速入門專案。在經過 Live Connect 成功驗證後，畫面會顯示名稱和使用者識別碼值來歡迎已登入使用者。
@@ -41,7 +41,7 @@
 
 接著您必須限制資源的存取權，在此案例中，要確保 *TodoItems* 資料表只能被登入的使用者存取。
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)]
 
 ##<a name="add-authentication"></a>將驗證新增至應用程式
 
@@ -143,5 +143,6 @@
 [使用指令碼授權使用者]: ../mobile-services-windows-store-javascript-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

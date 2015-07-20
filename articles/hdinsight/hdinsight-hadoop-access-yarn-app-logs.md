@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="以程式設計方式存取 HDInsight YARN 應用程式記錄檔| Microsoft Azure" 
-	description="以程式設計方式存取 HDInsight 應用程式記錄檔。" 
+	pageTitle="以程式設計方式存取 Hadoop YARN 應用程式記錄檔 | Microsoft Azure" 
+	description="在 HDInsight 中的 Hadoop 叢集上以程式設計方式存取應用程式記錄檔" 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -16,7 +16,7 @@
 	ms.date="03/31/2015" 
 	ms.author="bradsev"/>
 
-# 以程式設計方式存取 HDInsight 中的 YARN 應用程式記錄檔
+# 在 HDInsight 中的 Hadoop 上，以程式設計方式存取 YARN 應用程式記錄檔
 
 本主題說明如何以程式設計方式列舉在 Azure HDInsight 中的 Hadoop 叢集上已完成的 YARN (另一種資源協調程式) 應用程式，以及如何以程式設計方式存取應用程式記錄檔，而不需使用端桌面通訊協定 (RDP) 連線到您的叢集。具體來說，已加入一個新元件和一個新 API：
 
@@ -163,10 +163,14 @@ YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程�
 	{
 	    appHistoryClient.DownloadApplicationLogs(container, downloadLocation);
 	}
+
+
+
 [YARN-timeline-server]: http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
 [log-aggregation]: http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/
 [T-file]: https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

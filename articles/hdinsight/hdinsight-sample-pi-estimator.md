@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015" 
+	ms.date="03/30/2015"
 	ms.author="bradsev"/>
 
 # HDInsight 中的 Pi 估算器 Hadoop 範例
 
 本主題說明如何使用 Azure Powershell 在 Azure HDinsight 上執行 Hadoop MapReduce 程式，以估計數學常數 Pi 的值。它還提供在用來估計 Pi 值的 MapReduce 程式中所用的 Java 程式碼以進行檢查。
+
+> [AZURE.NOTE]此文件中的步驟需要以 Windows 為基礎的 HDInsight 叢集。如需在以 Linux 為基礎的叢集執行此範例和其他範例的資訊，請參閱[在 HDInsight 上執行 Hadoop 範例](hdinsight-hadoop-run-samples-linux.md)
 
 此程式使用統計 (擬蒙特卡羅法) 方法來估計 Pi 的值。單位正方形內隨機散佈的點，也會落在該正方形的內切圓之內，且機率等於圓面積 Pi/4。Pi 的值可從 4R 的值來估計，其中 R 是圓內點數佔正方形內總點數的比例。使用的樣本點越多，估計越準確。
 
@@ -471,6 +473,5 @@
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

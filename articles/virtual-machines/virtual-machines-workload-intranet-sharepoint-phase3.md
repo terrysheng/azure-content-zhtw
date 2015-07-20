@@ -18,7 +18,7 @@
 
 # SharePoint 內部網路伺服器陣列工作負載第 3 階段：設定 SQL Server 基礎結構
 
-在 Azure 基礎結構服務內，使用 SQL Server AlwaysOn 可用性群組部署內部網路專用的 SharePoint 2013 的這個階段中，您需要設定兩部  SQL Server 電腦與叢集多數節點電腦，再將他們併入 Windows Server 叢集。
+在 Azure 基礎結構服務內，使用 SQL Server AlwaysOn 可用性群組部署內部網路專用的 SharePoint 2013 的這個階段中，您需要設定兩部 SQL Server 電腦與叢集多數節點電腦，再將他們併入 Windows Server 叢集。
 
 您必須先完成這個階段才能前往[第 4 階段](virtual-machines-workload-intranet-sharepoint-phase4.md)。如需所有階段的詳細資訊，請參閱[在 Azure 中使用 SQL Server AlwaysOn 可用性群組部署 SharePoint](virtual-machines-workload-intranet-sharepoint-overview.md)。
 
@@ -134,7 +134,7 @@ SQL Server 虛擬機器共有兩部。一部 SQL Server 包含可用性群組中
 1.	在 [開始] 畫面中，以滑鼠右鍵按一下 [**這台電腦**]，然後按一下 [**內容**] 。
 2.	在 [**系統**] 視窗中按一下 [**遠端設定**]。
 3.	在 [**遠端桌面**] 部分中按一下 [**選取使用者**]，然後按一下 [**新增**]。
-4.	在 [**輸入要選取的物件名稱**] 中輸入[網域]**\\sp_farm_db**，然後按三次 [**確定**]。 
+4.	在 [輸入要選取的物件名稱] 中輸入「[網域]**\\sp_farm_db**」，然後按三次 [確定]。
 
 SQL Server 需要一個連接埠讓用戶端存取資料庫伺服器，同時也需要連接埠來連線 SQL Server Management Studio，並管理高可用性群組。接下來，在系統管理員層級 Windows PowerShell 命令提示字元中執行下列命令兩次，分別為兩部 SQL server 進行設定，新增允許輸入流量至 SQL Server 的防火牆規則。
 
@@ -173,12 +173,12 @@ SQL Server AlwaysOn 可用性群組依賴 Windows Server 的容錯移轉叢集 (
 5.	在 [選取伺服器] 頁面中輸入主要 SQL Server 機器的名稱，按一下 [**新增**]，然後按一下 [**下一步**]。
 6.	在 [驗證警告] 頁面中，按一下 [**否。我不需要從 Microsoft 取得此叢集的支援，也不想要執行驗證測試。按 [下一步] 後，繼續建立叢集。**]，然後按一下 [**下一步**]。
 7.	在 [管理叢集的存取點] 頁面中，請在 [**叢集名稱**] 文字方塊中輸入叢集名稱，然後按一下 [**下一步**]。
-8.	在 [確認] 頁面中按一下 [**下一步**] 開始建立叢集。  
+8.	在 [確認] 頁面中按一下 [**下一步**] 開始建立叢集。 
 9.	在 [摘要] 頁面中按一下 [**完成**]。
 10.	在左側窗格中按一下您的新叢集。在 [內容] 窗格的 [**叢集核心資源**] 部分中，開啟您的伺服器叢集名稱。[**IP位址**] 資源的狀態為 [**失敗**]。 由於指派給叢集的 IP 位址與虛擬機器相同，因此該 IP 位址資源無法上線，造成位址重覆的狀況。 
 11.	以滑鼠右鍵按一下失敗的 [**IP 位址**]資源，然後按一下 [**內容**]。
 12.	在 [**IP 位址內容**] 對話方塊中，按一下 [**靜態 IP 位址**]。
-13.	輸入一個未使用的 IP，此 IP 位址範圍需與 SQL Server 所在的子網路相對應，然後按一下 [**確定**]。 
+13.	輸入一個未使用的 IP，此 IP 位址範圍需與 SQL Server 所在的子網路相對應，然後按一下 [**確定**]。
 14.	以滑鼠右鍵按一下失敗的 [IP 位址] 資源，然後按一下 [**上線**]。等待兩個資源上線。待叢集名稱資源上線後，將使用新的 Active Directory (AD) 電腦帳戶更新網域控制站。此 AD 帳戶稍後將用來執行可用性群組叢集服務。
 15.	現在 AD 帳戶已建立，請讓叢集名稱離線。以滑鼠右鍵按一下 [**叢集核心資源**] 中的叢集名稱，然後按一下 [**離線**]。
 16.	若要移除叢集 IP 位址，請以滑鼠右鍵按一下 [**IP 位址**]，按一下 [**移除**] ，並在出現提示時按一下 [**是**]。由於叢集資源依賴 IP 位址資源，因此無法再次上線。不過，可用性群組不需依賴叢集名稱或 IP 位址即可正常運作。因此叢集名稱可保持離線狀態。
@@ -196,12 +196,12 @@ SQL Server AlwaysOn 可用性群組依賴 Windows Server 的容錯移轉叢集 (
 
 使用這些步驟啟用 SQL Server 上的 AlwaysOn 可用性群組。
 
-1.	使用 **sp_farm_db** 帳戶登入主要  SQL Server，或使用其他在 SQL Server 中具有系統管理員伺服器角色的帳戶。
+1.	使用 **sp_farm_db** 帳戶登入主要 SQL Server，或使用其他在 SQL Server 中具有系統管理員伺服器角色的帳戶。
 2.	在 [ 開始] 畫面中輸入 **SQL Server Configuration**，然後按一下 [**SQL Server 組態管理員**]。
 3.	在左側窗格中按一下 [**SQL Server 服務**]。
 4.	在 [内容] 窗格中按兩下 [**SQL Server (MSSQLSERVER)**]。
 5.	在 [**SQL Server (MSSQLSERVER) 屬性**] 中按一下 [**AlwaysOn 高可用性**] 索引標籤、選取 [**啟用 AlwaysOn可用性群組**]，然後按一下 [**套用**]，並在出現提示時按一下 [**確定**]。先不要關閉屬性視窗。 
-6.	按一下 [虛擬-機器-管理-可用性] 索引標籤，然後在 [**帳戶名稱**] 輸入[網域]**\\sqlservice**。在 [**密碼**] 和 [**確認密碼**] 中輸入 sqlservice 帳戶密碼，然後按一下 [**確定**]。
+6.	按一下 [虛擬-機器-管理-可用性] 索引標籤，然後在 [帳戶名稱] 中輸入「[網域]**\\sqlservice**」。在 [**密碼**] 和 [**確認密碼**] 中輸入 sqlservice 帳戶密碼，然後按一下 [**確定**]。
 7.	在訊息視窗中按一下 [**是**]，重新開啟 SQL Server 服務。
 8.	登入次要 SQL Server 並重複此程序。 
 
@@ -215,13 +215,15 @@ SQL Server AlwaysOn 可用性群組依賴 Windows Server 的容錯移轉叢集 (
 
 ## 其他資源
 
-[在 Azure 中使用 SQL Server AlwaysOn 可用性群組部署 SharePoint](virtual-machines-workload-intranet-sharepoint-overview.md)
+[在 Azure 中部署含有 SQL Server AlwaysOn 可用性群組的 SharePoint](virtual-machines-workload-intranet-sharepoint-overview.md)
 
-[在 Azure 基礎結構服務中代管的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
+[裝載於 Azure 基礎結構服務中的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
 
-[包含 SQL Server AlwaysOn 資訊圖的  SharePoint](http://go.microsoft.com/fwlink/?LinkId=394788)
+[包含 SQL Server AlwaysOn 的 SharePoint 資訊圖](http://go.microsoft.com/fwlink/?LinkId=394788)
 
 [適用於 SharePoint 2013 的 Microsoft Azure 架構](https://technet.microsoft.com/library/dn635309.aspx)
 
+[Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

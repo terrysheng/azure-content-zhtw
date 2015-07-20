@@ -12,24 +12,22 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/31/2015" 
+	ms.date="06/24/2015" 
 	ms.author="heidist"/>
 
 # Azure 搜尋服務 REST API：版本 2014-10-20-Preview #
 
-本文說明 **2014-10-20-Preview** 版本的 Azure 搜尋服務 REST API。這是 API 的原型版本，隨時都會變更。請勿在生產程式碼中採用此 API 上的相依性。
-
-> [AZURE.NOTE]由於這是實驗性版本，因此，並不是本文件中描述的所有功能都可在 Azure 入口網站使用者介面中使用。具體來說，目前僅在 API 中公開的是，在欄位中透過 `analyzer` 選項支援多種語言、新的 `tag` 評分函式，以及新的 `suggesters` 功能。如果您使用此 API 來啟用這其中一個功能，就能在入口網站中檢視索引定義，但無法更新它們，而且您看不到已視覺化的新功能。
+本文說明 **2014-10-20-Preview** 版本的 Azure 搜尋服務 REST API。此版本現在已過時。如果您是在實際執行程式碼中使用此 API，請儘快移轉至公開上市版本。如需指引，請參閱[從 Azure 搜尋服務中的預覽 API 轉換](search-transition-from-preview.md)。
 
 與此版本相關的其他 API 內容包含下列項目：
 
-- [評分設定檔 (Azure 搜尋服務 REST API：2014-10-20-Preview)](../search-api-scoring-profiles-2014-10-20-preview/)
+- [評分設定檔 (Azure 搜尋服務 REST API：2014-10-20-Preview)](search-api-scoring-profiles-2014-10-20-preview.md)
 
 您可以在 MSDN 上找到適用於 Azure 搜尋服務 REST API 發行版本的文件。如需詳細資訊，請參閱 [Azure 搜尋服務 REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx)。
 
 ##關於服務 REST API##
 
-Azure 搜尋服務是以雲端為基礎的服務，可用來建置自訂搜尋應用程式。Azure 搜尋服務具有「搜尋服務」**和「索引」**的概念，而搜尋服務會包含一或多個索引。您的搜尋服務可透過完整網域名稱來進行唯一識別 (例如：`mysearchservice.search.windows.net`)。佈建服務時會產生 API 金鑰，用來驗證對 Azure 搜尋服務的要求。
+Azure 搜尋服務是以雲端為基礎的服務，可用來建置自訂搜尋應用程式。Azure 搜尋服務具有「搜尋服務」和「索引」的概念，而搜尋服務會包含一或多個索引。您的搜尋服務可透過完整網域名稱來進行唯一識別 (例如：`mysearchservice.search.windows.net`)。佈建服務時會產生 API 金鑰，用來驗證對 Azure 搜尋服務的要求。
 
 可對 Azure 搜尋服務執行的動作有兩種：
 
@@ -51,7 +49,7 @@ Azure 搜尋服務是以雲端為基礎的服務，可用來建置自訂搜尋�
 
 - 所有的 API 要求都可選擇性地設定 `Accept` HTTP 標頭。若未設定，即會假設預設值為 `application/json`。
 
-已針對服務管理提供個別的 API。服務管理操作的範例包含佈建服務或更改容量。如需此 API 的詳細資訊，請參閱＜Azure 搜尋管理 REST API＞。
+已針對服務管理提供個別的 API。服務管理操作的範例包含佈建服務或更改容量。如需此 API 的詳細資訊，請參閱＜Azure 搜尋服務管理 REST API＞。
 
 ### 端點 ###
 
@@ -68,7 +66,7 @@ Azure 搜尋服務是以雲端為基礎的服務，可用來建置自訂搜尋�
 
 驗證 Azure 搜尋服務時需要兩項資訊：搜尋服務 URL 和 `api-key`。`api-keys` 會在服務建立時產生，並且可在佈建服務之後視需求重新產生。`api-key` 可以是授與所有操作存取權的系統管理金鑰，或是僅驗證查詢要求的查詢金鑰。針對每個服務，您擁有 2 個系統管理金鑰，且最多可有 50 個查詢金鑰。
 
-存取控制僅限用於透過 Azure 預覽入口網站中提供的角色型取控制 (RBAC) 來執行的服務管理。角色可用來設定服務管理的存取層級。例如，檢視系統管理金鑰限用於擁有者和參與者角色，而檢視服務狀態則是所有角色的成員都可檢視。
+存取控制僅限用於透過 Azure Preview 入口網站中提供的角色型取控制 (RBAC) 來執行的服務管理。角色可用來設定服務管理的存取層級。例如，檢視系統管理金鑰限用於擁有者和參與者角色，而檢視服務狀態則是所有角色的成員都可檢視。
 
 對搜尋服務端點執行的資料操作 (包括索引管理、索引填入和查詢) 都是透過 `api-keys` 以獨佔方進行式存取。RBAC 不適用於索引或文件相關的操作。若要深入了解 Azure 搜尋服務中的 `api-keys` 或 RBAC，請參閱[在 Microsoft Azure 上管理您的搜尋服務](search-manage.md)。
 
@@ -122,8 +120,9 @@ Azure 搜尋服務 API 支援兩種查閱實體的語法：簡單和替代的 OD
 
     GET /indexes/[index name]/docs/suggest?[query parameters]
 
-________________________________________ <a name="IndexOps"></a>
-# 索引操作 #
+________________________________________
+<a name="IndexOps"></a>
+## 索引操作
 
 您可以針對指定的索引資源，透過簡單的 HTTP 要求 (POST、GET、PUT、DELETE)，在 Azure 搜尋服務中建立與管理索引。若要建立索引，您必須先 POST 一份 JSON 文件來說明索引結構描述。結構描述可定義索引欄位、其資料類型，以及使用它們的方式 (例如，用於全文檢索搜尋、篩選器、排序、面向設定或建議)。它也會定義評分設定檔、建議工具，以及可用來設定索引行為的其他屬性。
 
@@ -180,7 +179,7 @@ ________________________________________ <a name="IndexOps"></a>
 
 索引名稱必須是小寫、開頭為字母或數字、不可有斜線或點，且上限為 128 個字元。將索引名稱的開頭設為字母或數字之後，名稱的其餘部分就能包含任意字母、數字及破折號 (但不可為連續破折號)。
 
-`api-version` 為必要項目。有效值包括 `2014-07-31-Preview` 或 `2014-10-20-Preview`。您可以指定在每個要求上使用哪一個值來取得版本特定的行為，但最佳做法是在整個程式碼中使用同一個版本。針對一般用法，建議的版本為 `2014-07-31-Preview`。或者，使用 `2014-10-20-Preview` 來評估實驗性功能，例如，支援透過分析器索引屬性來表達的語言分析器。如需 API 版本的詳細資訊，請參閱[搜尋服務版本設定](http://msdn.microsoft.com/library/azure/dn864560.aspx)。如需語言分析器的詳細資訊，請參閱[語言支援](#LanguageSupport)。
+`api-version` 為必要項目。有效值包括 `2014-07-31-Preview` 或 `2014-10-20-Preview`。您可以指定在每個要求上使用哪一個值來取得版本特定的行為，但最佳做法是在整個程式碼中使用同一個版本。如需 API 版本的詳細資訊，請參閱[搜尋服務版本設定](http://msdn.microsoft.com/library/azure/dn864560.aspx)。如需語言分析器的詳細資訊，請參閱[語言支援](#LanguageSupport)。
 
 **要求標頭**
 
@@ -190,7 +189,7 @@ ________________________________________ <a name="IndexOps"></a>
 - `api-key`：必要。`api-key` 可用來 
 - 驗證搜尋服務的要求。它是服務專屬的唯一字串值。**建立索引**要求必須包含已設為您系統管理金鑰 (相對於查詢金鑰) 的 `api-key` 標頭。 
  
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[開始使用 Azure 搜尋服務](search-get-started.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
 <a name="RequestData"></a> **要求本文的語法**
 
@@ -272,7 +271,7 @@ ________________________________________ <a name="IndexOps"></a>
     
 **索引屬性**
 
-建立索引時，可以設定下列屬性。如需評分和評分設定檔的詳細資訊，請參閱[評分設定檔 (Azure 搜尋服務 REST API：2014-10-20-Preview)](../search-api-scoring-profiles-2014-10-20-preview/)。
+建立索引時，可以設定下列屬性。如需評分和評分設定檔的詳細資訊，請參閱[評分設定檔 (Azure 搜尋服務 REST API：2014-10-20-Preview)](search-api-scoring-profiles-2014-10-20-preview.md)。
 
 `name` - 設定欄位名稱。
 
@@ -298,7 +297,7 @@ ________________________________________ <a name="IndexOps"></a>
 
 `retrievable` - 設定搜尋結果中是否會傳回該欄位。當您想要使用某個欄位 (例如邊距) 做為篩選、排序或評分機制，但不想讓使用者看見該欄位時，這非常有用。針對 `key` 欄位，此屬性必須是 `true`。
 
-`scoringProfiles` - 定義自訂評分行為，讓您能夠影響搜尋結果中哪些項目的出現機率會比較高。評分設定檔是由加權欄位和函式所組成。如需評分設定檔中所使用的屬性詳細資訊，請參閱[評分設定檔 (Azure 搜尋服務 REST API：2014-10-20-Preview)](../search-api-scoring-profiles-2014-10-20-preview/)。
+`scoringProfiles` - 定義自訂評分行為，讓您能夠影響搜尋結果中哪些項目的出現機率會比較高。評分設定檔是由加權欄位和函式所組成。如需評分設定檔中所使用的屬性詳細資訊，請參閱[評分設定檔 (Azure 搜尋服務 REST API：2014-10-20-Preview)](search-api-scoring-profiles-2014-10-20-preview.md)。
 
 `analyzer` - 設定要針對此欄位使用的文字分析器名稱。如需允許的值組，請參閱[語言支援](#LanguageSupport)。此選項只能與 `searchable` 欄位搭配使用。選擇分析器之後，就無法針對此欄位進行變更。
 
@@ -686,7 +685,7 @@ Azure 搜尋服務正在轉換為新的建議工具 API。版本 2014-07-31-Prev
 <a name="UpdateIndex"></a>
 ## 更新索引 ##
 
-您可以在 Azure 搜尋服務中，使用 HTTP PUT 要求來更新現有的索引。在公開預覽版本中，更新包括將欄位新增到現有的結構描述、修改 CORS 選項，以及修改評分設定檔 (請參閱[評分設定檔 (Azure 搜尋服務 REST API：2014-10-20-Preview)](../search-api-scoring-profiles-2014-10-20-preview/))。您可以在要求 URI 上指定要更新的索引名稱：
+您可以在 Azure 搜尋服務中，使用 HTTP PUT 要求來更新現有的索引。在公開預覽版本中，更新包括將欄位新增到現有的結構描述、修改 CORS 選項，以及修改評分設定檔 (請參閱[評分設定檔 (Azure 搜尋服務 REST API：2014-10-20-Preview)](search-api-scoring-profiles-2014-10-20-preview.md))。您可以在要求 URI 上指定要更新的索引名稱：
 
     PUT https://[search service url]/indexes/[index name]?api-version=[api-version]
     Content-Type: application/json
@@ -711,7 +710,7 @@ Azure 搜尋服務正在轉換為新的建議工具 API。版本 2014-07-31-Prev
 - `Content-Type`：必要。請設為 `application/json`
 - `api-key`：必要。`api-key` 可用來驗證搜尋服務的要求。它是服務專屬的唯一字串值。**更新索引**要求必須包含已設為您系統管理金鑰 (相對於查詢金鑰) 的 `api-key` 標頭。
  
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[開始使用 Azure 搜尋服務](search-get-started.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
 **要求本文的語法**
 
@@ -813,7 +812,7 @@ Azure 搜尋服務正在轉換為新的建議工具 API。版本 2014-07-31-Prev
  
 - `api-key`：必要。`api-key` 可用來驗證搜尋服務的要求。它是服務專屬的唯一字串值。**列出索引**要求必須包含已設為系統管理金鑰 (相對於查詢金鑰) 的 `api-key`。
  
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[開始使用 Azure 搜尋服務](search-get-started.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
 **要求本文**
 
@@ -880,7 +879,7 @@ Azure 搜尋服務正在轉換為新的建議工具 API。版本 2014-07-31-Prev
  
 - `api-key`：`api-key` 可用來驗證搜尋服務的要求。它是服務專屬的唯一字串值。**取得索引**要求必須包含已設為系統管理金鑰 (相對於查詢金鑰) 的 `api-key`。
 
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[開始使用 Azure 搜尋服務](search-get-started.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
 **要求本文**
 
@@ -922,7 +921,7 @@ Azure 搜尋服務正在轉換為新的建議工具 API。版本 2014-07-31-Prev
 
 **回應**
 
-回應成功時會傳回「狀態碼：204 沒有內容」。
+狀態碼：回應成功時會傳回「204 沒有內容」。
 
 <a name="GetIndexStats"></a>
 ## 取得索引統計資料 ##
@@ -946,7 +945,7 @@ Azure 搜尋服務正在轉換為新的建議工具 API。版本 2014-07-31-Prev
  
 - `api-key`：`api-key` 可用來驗證搜尋服務的要求。它是服務專屬的唯一字串值。**取得索引統計資料**要求必須包含已設為系統管理金鑰 (相對於查詢金鑰) 的 `api-key`。
  
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[開始使用 Azure 搜尋服務](search-get-started.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
 **要求本文**
 
@@ -963,8 +962,9 @@ Azure 搜尋服務正在轉換為新的建議工具 API。版本 2014-07-31-Prev
 	  "storageSize": number (size of the index in bytes)
     }
 
-________________________________________ <a name="DocOps"></a>
-# 文件操作 #
+________________________________________
+<a name="DocOps"></a>
+## 文件操作
 
 在 Azure 搜尋服務中，使用您上傳到服務的 JSON 文件來填入索引。您上傳的所有文件會包含您搜尋資料的主體。文件會包含欄位，其中一些欄位會在它們上傳時語彙基元化為搜尋字詞。Azure 搜尋服務 API 中的 `/docs` URL 區段表示索引中的文件集合。在集合中執行的所有操作 (例如，上傳、合併、刪除或查詢文件) 都會在單一索引的內容中執行，因此，這些操作的 URL 一律會以 `/indexes/[index name]/docs` 為開頭來做為指定的索引名稱。
 
@@ -1004,7 +1004,7 @@ ________________________________________ <a name="DocOps"></a>
 - `Content-Type`：必要。請設為 `application/json`
 - `api-key`：必要。`api-key` 可用來驗證搜尋服務的要求。它是服務專屬的唯一字串值。**新增文件**要求必須包含已設為您系統管理金鑰 (相對於查詢金鑰) 的 `api-key` 標頭。
  
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[開始使用 Azure 搜尋服務](search-get-started.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
 **要求本文**
 
@@ -1108,7 +1108,8 @@ ________________________________________ <a name="DocOps"></a>
         }
       ]
     }
-________________________________________ <a name="SearchDocs"></a>
+________________________________________
+<a name="SearchDocs"></a>
 ## 搜尋文件 ##
 
 **搜尋**操作是當成 GET 要求來發出，可指定查詢參數，在選取相符文件時提供準則。
@@ -1147,7 +1148,7 @@ ________________________________________ <a name="SearchDocs"></a>
 - `count` (多面向字詞的最大數目；預設值為 10)。沒有最大值，但較高的值會導致相對應的效能損失，尤其是在多面向欄位包含大量的唯一字詞時。
   - 例如：`facet=category,count:5` 會取得多面向結果中的前五個類別。  
   - **注意**：如果 `count` 參數小於唯一字詞的數目，結果可能不正確。這是因為多面向查詢的方式會散佈於各個分區中。提高 `count` 通常會增加字詞計數的準確性，但需要付出效能代價。 
-- `sort` (下列其中一個：依計數「遞減」**排序的 `count`、依計數「遞增」**排序的 `-count`、依值「遞增」**排序的 `value`，或是依值「遞增」**排序的 `-value`)
+- `sort` (下列其中一個：依計數「遞減」排序的 `count`、依計數「遞增」排序的 `-count`、依值「遞增」排序的 `value`，或是依值「遞增」排序的 `-value`)
   - 例如，`facet=category,count:3,sort:count` 會在多面向結果中，依照含有每個城市名稱的文件數目的遞減排序方式，來取得前三個類別。例如，如果前三個類別是 Budget、Motel 及 Luxury，且 Budget 有 5 個點閱數、Motel 有 6 個點閱數，而 Luxury 有 4 個點閱數，則值區依序為 Motel、Budget、Luxury。
   - 例如：`facet=rating,sort:-value` 會以依值的遞減排序方式，針對所有可能的評等來產生值區。舉例來說，如果評等是從 1 到 5，則值區的排序方式可能是 5、4、3、2、1，而不考慮有多少份文件符合每一個評等。
 - `values` (直立線符號分隔的數字或 `Edm.DateTimeOffset` 值，可指定一組動態的多面向項目值)
@@ -1180,7 +1181,7 @@ ________________________________________ <a name="SearchDocs"></a>
 
 - `api-key`：`api-key` 可用來驗證搜尋服務的要求。它是服務 URL 專屬的唯一字串值。**搜尋**要求可以為 `api-key` 指定系統管理金鑰或查詢金鑰。
  
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[開始使用 Azure 搜尋服務](search-get-started.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
 **要求本文**
 
@@ -1314,7 +1315,7 @@ ________________________________________ <a name="SearchDocs"></a>
 
 - `api-key`：`api-key` 可用來驗證搜尋服務的要求。它是服務 URL 專屬的唯一字串值。**查閱文件**要求可以為 `api-key` 指定系統管理金鑰或查詢金鑰。
  
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[開始使用 Azure 搜尋服務](search-get-started.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
 **要求本文**
 
@@ -1362,7 +1363,7 @@ ________________________________________ <a name="SearchDocs"></a>
 - `Accept`：此值必須設為 `text/plain`。
 - `api-key`：`api-key` 可用來驗證搜尋服務的要求。它是服務 URL 專屬的唯一字串值。**文件計數**要求可以為 `api-key` 指定系統管理金鑰或查詢金鑰。
  
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[開始使用 Azure 搜尋服務](search-get-started.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
 **要求本文**
 
@@ -1423,7 +1424,7 @@ ________________________________________ <a name="SearchDocs"></a>
 
 - `api-key`：`api-key` 可用來驗證搜尋服務的要求。它是服務 URL 專屬的唯一字串值。**建議**要求可以指定系統管理金鑰或查詢金鑰來做為 `api-key`。
 
-  您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[開始使用 Azure 搜尋服務](search-get-started.md)。
+  您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
 **要求本文**
 
@@ -1465,5 +1466,6 @@ ________________________________________ <a name="SearchDocs"></a>
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/16/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 #如何在 Azure 搜尋服務中對搜尋結果分頁#
@@ -96,7 +96,7 @@
 
     	GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-如需 `$filter` 運算式的詳細資訊，請參閱[搜尋文件 (Azure 搜尋 API)](http://msdn.microsoft.com/library/azure/dn798927.aspx)。
+如需 `$filter` 運算式的詳細資訊，請參閱[搜尋文件 (Azure 搜尋服務 API)](http://msdn.microsoft.com/library/azure/dn798927.aspx)。
 
 ## 另請參閱 ##
 
@@ -113,4 +113,5 @@
 [3]: ./media/search-pagination-page-layout/Pages-3-SortBy.png
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

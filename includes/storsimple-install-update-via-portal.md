@@ -1,3 +1,4 @@
+
 #### 從管理入口網站安裝 Update 1
 
 1. 在 [StorSimple 服務] 頁面上，選取您的裝置。瀏覽至 [**裝置**] > [**維護**]。
@@ -44,4 +45,4 @@
 
     ![維護頁面](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates7-include.png)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

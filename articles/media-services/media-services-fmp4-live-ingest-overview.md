@@ -53,7 +53,7 @@
 
 ##通訊協定格式 – HTTP
 
-Microsoft Azure 媒體服務的 ISO 分散 MP4 即時內嵌使用標準的長時間執行 HTTP POST 要求，將以分散 MP4 格式封裝的編碼媒體資料傳輸到服務。每個 HTTP POST 會傳送完整的分散 MP4 位元資料流 (“Stream”)，其開頭為標頭方塊 ( ‘ftyp’、“Live Server Manifest Box” 及 ‘moov’ 方塊)，接著連續的一連串片段 (‘moof’ 與 ‘mdat’ 方塊)。請參閱 [1] 的 9.2 節中有關 HTTP POST 要求的 URL 語法說明。以下是 POST URL 的範例：
+Microsoft Azure 媒體服務的 ISO 分散 MP4 即時內嵌使用標準的長時間執行 HTTP POST 要求，將以分散 MP4 格式封裝的編碼媒體資料傳輸到服務。每個 HTTP POST 會傳送完整的分散 MP4 位元資料流 (“Stream”)，其開頭為標頭方塊 ( ‘ftyp’、“Live Server Manifest Box” 及 ‘moov’ 方塊)，接著連續的一連串片段 (‘moof’ 與 ‘mdat’ 方塊)。請參閱 [1] 的第 9.2 節中有關 HTTP POST 要求的 URL 語法說明。以下是 POST URL 的範例：
 
 	http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
 
@@ -64,7 +64,7 @@ Microsoft Azure 媒體服務的 ISO 分散 MP4 即時內嵌使用標準的長時
 3. 編碼器「必須」以分散 MP4 資料流開始新的 HTTP POST 要求。裝載的開頭「必須」是標頭方塊，後面加上片段。請注意，由於上一個要求在資料流結束前終止，因此即使編碼器必須重新連線，‘ftyp’、“Live Server Manifest Box” 及 ‘moov’ 方塊 (依此順序) 仍「必須」連同每個要求傳送。 
 4. 因為無法預測即時事件的整個內容長度，編碼器「必須」使用區塊傳送編碼上傳。
 5. 當事件結束時，在傳送最後一個片段之後，編碼器「必須」依正常程序結束區塊傳輸編碼的訊息序列 (大部分的 HTTP 用戶端堆疊會自動處理)。編碼器「必須」等候服務傳回最後的回應碼，然後終止連線。 
-6. 如 [1] 中 9.2 節所述，編碼器「不得」使用 Events() 名詞，才能即時內嵌至 Microsoft Azure 媒體服務。
+6. 如 [1] 中第 9.2 節所述，編碼器「不得」使用 Events() 名詞，才能即時內嵌至 Microsoft Azure 媒體服務。
 7. 如果 HTTP POST 要求在資料流結束時終止或逾時，並發生 TCP 錯誤，則編碼器「必須」使用新連線發出新的 POST 要求，並遵循上述的需求及下列額外的需求：編碼器「必須」為資料流中的每個資料軌重新傳送前兩個 MP4 片段並繼續進行，但不在媒體時間軸上造成不連續。為每個資料軌重新傳送最後兩個 MP4 片段，可確保不會遺失資料。換句話說，如果資料流包含音訊和視訊播放軌，而且目前的 POST 要求失敗，則編碼器必須重新連線，然後為音訊播放軌重新傳送最後兩個片段 (先前已成功傳送)，為視訊播放軌重新傳送最後兩個片段 (先前已成功傳送)，以確保不會遺失任何資料。編碼器「必須」維護媒體片段的 “forward” 緩衝區，當重新連線時會重新傳送此緩衝區。
 
 ##時幅 
@@ -204,4 +204,6 @@ Microsoft Azure 媒體服務的 ISO 分散 MP4 即時內嵌使用標準的長時
 [image6]: ./media/media-services-fmp4-live-ingest-overview/media-services-image6.png
 [image7]: ./media/media-services-fmp4-live-ingest-overview/media-services-image7.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

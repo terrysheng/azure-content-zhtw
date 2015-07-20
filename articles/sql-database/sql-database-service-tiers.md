@@ -87,5 +87,6 @@
 請在 [SQL Database 定價](http://azure.microsoft.com/pricing/details/sql-database/)進一步了解這些層的定價。
 
 如果您認識了 SQL Database 各個層，可以[免費試用](http://azure.microsoft.com/pricing/free-trial/)親身體驗，然後了解[如何建立您的第一個 SQL Database](sql-database-get-started.md)！
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

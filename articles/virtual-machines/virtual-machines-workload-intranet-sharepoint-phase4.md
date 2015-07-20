@@ -18,7 +18,7 @@
 
 # SharePoint 內部網路伺服器陣列工作負載第 4 階段：設定 SharePoint Server。
 
-在 Azure 基礎結構服務內，使用 SQL Server AlwaysOn 可用性群組部署內部網路專用的 SharePoint 2013 伺服器陣列的這個階段中，您需要建立 SharePoint 伺服器陣列的應用程式和 Web 階層，並使用 SharePoint 組態精靈建立伺服器陣列。  
+在 Azure 基礎結構服務內，使用 SQL Server AlwaysOn 可用性群組部署內部網路專用的 SharePoint 2013 伺服器陣列的這個階段中，您需要建立 SharePoint 伺服器陣列的應用程式和 Web 階層，並使用 SharePoint 組態精靈建立伺服器陣列。
 
 您必須先完成這個階段才能前往[第 5 階段](virtual-machines-workload-intranet-sharepoint-phase5.md)。如需所有階段的詳細資訊，請參閱[在 Azure 中使用 SQL Server AlwaysOn 可用性群組部署 SharePoint](virtual-machines-workload-intranet-sharepoint-overview.md)。
 
@@ -95,7 +95,7 @@ SharePoint Server 虛擬機器共有四部。其中兩個 SharePoint Server 虛�
 	
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
 
-使用[使用遠端桌面連線程序登入虛擬機器](virtual-machines-workload-intranet-sharepoint-phase2.md#logon)四次，以便使用在[第 2 階段：設定網域控制站](virtual-machines-workload-intranet-sharepoint-phase2.md)所建立的[網域\\sp_farm_db] 帳戶認證，分別登入四部 SharePoint Server。
+使用[使用遠端桌面連線程序登入虛擬機器](virtual-machines-workload-intranet-sharepoint-phase2.md#logon)四次，以便使用在[第 2 階段：設定網域控制站](virtual-machines-workload-intranet-sharepoint-phase2.md)所建立的「[網域]\\sp_farm_db」帳戶認證，分別登入四部 SharePoint Server。
 
 使用[測試連線能力程序](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn)四次，分別為四部 SharePoint Server 測試組織網路中各個位置的連線能力。
 
@@ -105,16 +105,16 @@ SharePoint Server 虛擬機器共有四部。其中兩個 SharePoint Server 虛�
 
 1.	在第一部 SharePoint 應用程式伺服器桌面上，按兩下 **SharePoint 2013 產品設定精靈**。詢問是否允許程式變更電腦時，按一下 [**是**]。
 2.	在 [歡迎使用 SharePoint 產品] 頁面中按一下 [**下一步**]。
-3.	**SharePoint 2013 產品設定精靈**對話方塊隨即出現，警告將重新啟動或重設服務 (例如 IIS)。按一下 [是]****。
-4.	在 [連線至伺服器陣列] 頁面中，選取 [**建立新的伺服器陣列**]，然後按一下 [**下一步**]。 
+3.	**SharePoint 2013 產品設定精靈**對話方塊隨即出現，警告將重新啟動或重設服務 (例如 IIS)。按一下 [是]。
+4.	在 [連線至伺服器陣列] 頁面中，選取 [**建立新的伺服器陣列**]，然後按一下 [**下一步**]。
 5.	在 [指定組態資料庫設定] 頁面中：
 - 在 [**資料庫伺服器**] 中輸入主要 SQL Server 的名稱。 
-- 在 [**使用者名稱**] 中，輸入[網域]**\\sp_farm_db** (在[第 2 階段：設定網域控制站](virtual-machines-workload-intranet-sharepoint-phase2.md)所建立)。還記得 sp_farm_db 帳戶具有 SQL Server 的系統管理員權限。 
+- 在 [使用者名稱] 中，輸入「[網域]**\\sp_farm_db**」(在[第 2 階段：設定網域控制站](virtual-machines-workload-intranet-sharepoint-phase2.md)中所建立)。還記得 sp_farm_db 帳戶具有 SQL Server 的系統管理員權限。 
 - 在 [**密碼**] 中輸入 sp_farm_db 帳戶密碼。
-6.	按 [下一步]****。
-7.	在 [指定伺服陣列安全性設定] 頁面中，輸入複雜密碼兩次。記下複雜密碼並儲存在安全的位置，以供日後參考。按 [下一步]****。
+6.	按 [下一步]。
+7.	在 [指定伺服陣列安全性設定] 頁面中，輸入複雜密碼兩次。記下複雜密碼並儲存在安全的位置，以供日後參考。按 [下一步]。
 8.	在 [設定 SharePoint 管理中心 Web 應用程式] 頁面中，按 [**下一步**]。
-9.	[完成 SharePoint 產品組態精靈] 頁面隨即出現。按 [下一步]****。
+9.	[完成 SharePoint 產品組態精靈] 頁面隨即出現。按 [下一步]。
 10.	[設定 SharePoint 產品] 頁面隨即出現。等候組態程序完成，約 8 分鐘。
 11.	成功設定伺服器陣列後，按一下 [**完成**] 按鈕。 新的管理網站隨即啟動。
 12.	若要開始設定 SharePoint 伺服器陣列，請按一下 [**啟動精靈**]。
@@ -123,23 +123,23 @@ SharePoint Server 虛擬機器共有四部。其中兩個 SharePoint Server 虛�
 
 1.	從桌面按兩下 [**SharePoint 2013 產品組態精靈**]。詢問是否允許程式變更電腦時，按一下 [**是**]。
 2.	在 [歡迎使用 SharePoint 產品] 頁面中按一下 [**下一步**]。
-3.	SharePoint 2013 產品設定精靈對話方塊隨即出現，警告將重新啟動或重設服務 (例如 IIS)。按一下 [是]****。
+3.	SharePoint 2013 產品設定精靈對話方塊隨即出現，警告將重新啟動或重設服務 (例如 IIS)。按一下 [是]。
 4.	在 [連線至伺服器陣列] 頁面中，按一下 [**連線至現有的伺服器陣列**]，然後按 [**下一步**]。
 5.	在 [指定組態資料庫設定] 頁面中的 [**資料庫伺服器]** 中，輸入主要 SQL Server 名稱，然後按一下 [**擷取資料庫名稱**]。 
 6.	在資料庫名稱清單中按一下 [**SharePoint_Config**]，然後按一下 [**下一步**]。 
-7.	在 [指定伺服器陣列安全性設定] 頁面中，輸入先前程序所設定的複雜密碼。按 [下一步]****。
-8.	[完成 SharePoint 產品組態精靈] 頁面隨即出現。按 [下一步]****。
+7.	在 [指定伺服器陣列安全性設定] 頁面中，輸入先前程序所設定的複雜密碼。按 [下一步]。
+8.	[完成 SharePoint 產品組態精靈] 頁面隨即出現。按 [下一步]。
 9.	在 [組態成功] 頁面中，按一下 [**完成**]。 
 
 SharePoint 建立伺服器陣列後，會在主要 SQL Server 虛擬機器中設定一組伺服器登入。SQL Server 2012 引入了自主資料庫使用者密碼的概念。自主資料庫本身儲存了資料庫中繼資料和使用者資訊，且在此資料庫中定義的使用者不一定需要對應的登入。可用性群組會複製此資料庫的資訊，容錯移轉之後仍可使用。如需詳細資訊，請參閱[自主資料庫](http://go.microsoft.com/fwlink/p/?LinkId=262794)。
 
-不過根據預設，SharePoint 資料庫並非自主資料庫。因此您必須手動設定次要 SQL Server ，使其與主要 SQL Server 具備同樣的 SharePoint 伺服器陣列登入設定。您可以同時與兩部伺服器連線，從 SQL Server Management Studio 執行此同步設定。 
+不過根據預設，SharePoint 資料庫並非自主資料庫。因此您必須手動設定次要 SQL Server ，使其與主要 SQL Server 具備同樣的 SharePoint 伺服器陣列登入設定。您可以同時與兩部伺服器連線，從 SQL Server Management Studio 執行此同步設定。
 
 完成此初始設定後，便可使用更多 SharePoint 伺服器陣列功能的組態選項。 如需詳細資訊，請參閱[計劃在 Azure 基礎結構服務上部署 SharePoint 2013](http://msdn.microsoft.com/library/dn275958.aspx)。
 
-## 設定內部負載平衡 
+## 設定內部負載平衡
 
-設定內部負載平衡，能讓進入 SharePoint 伺服器陣列的用戶端流量平均分佈至兩部前端 Web 伺服器。您需要指定內部負載平衡執行個體 ，包含了名稱和從子網路位址空間指派的所屬 IP 位址 。若要確定您為內部負載平衡器所選的 IP 位址是否可用，請使用下列 Azure PowerShell  命令：
+設定內部負載平衡，能讓進入 SharePoint 伺服器陣列的用戶端流量平均分佈至兩部前端 Web 伺服器。您需要指定內部負載平衡執行個體 ，包含了名稱和從子網路位址空間指派的所屬 IP 位址 。若要確定您為內部負載平衡器所選的 IP 位址是否可用，請使用下列 Azure PowerShell 命令：
 
 	$vnet="<Table V – Item 1 – Value column>"
 	$testIP="<a chosen IP address from the subnet address space, Table S - Item 1 – Subnet address space column>"
@@ -180,12 +180,15 @@ SharePoint 建立伺服器陣列後，會在主要 SQL Server 虛擬機器中設
 
 ## 其他資源
 
-[在 Azure 中使用 SQL Server AlwaysOn 可用性群組部署 SharePoint](virtual-machines-workload-intranet-sharepoint-overview.md)
+[在 Azure 中部署含有 SQL Server AlwaysOn 可用性群組的 SharePoint](virtual-machines-workload-intranet-sharepoint-overview.md)
 
-[在 Azure 基礎結構服務中代管的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
+[裝載於 Azure 基礎結構服務中的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
 
-[包含 SQL Server AlwaysOn 資訊圖的  SharePoint](http://go.microsoft.com/fwlink/?LinkId=394788)
+[包含 SQL Server AlwaysOn 的 SharePoint 資訊圖](http://go.microsoft.com/fwlink/?LinkId=394788)
 
 [適用於 SharePoint 2013 的 Microsoft Azure 架構](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!--HONumber=54--> 
+[Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
+
+<!---HONumber=July15_HO2-->

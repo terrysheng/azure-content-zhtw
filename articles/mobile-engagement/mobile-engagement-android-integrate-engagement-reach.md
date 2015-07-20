@@ -22,9 +22,9 @@
 
 ##標準整合
 
-Reach SDK 需要「Android 支援程式庫 (v4)」。****
+Reach SDK 需要「Android 支援程式庫 (v4)」。
 
-在 Eclipse 中，將程式庫加入到專案的最快方法是 `Right click on your project -> Android Tools -> Add Support Library...`。****
+在 Eclipse 中，將程式庫加入到專案的最快方法是 `Right click on your project -> Android Tools -> Add Support Library...`。
 
 如果您未使用 Eclipse，可以先閱讀[這裡]的指示。
 
@@ -57,16 +57,25 @@ Reach SDK 需要「Android 支援程式庫 (v4)」。****
 			    <category android:name="android.intent.category.DEFAULT" />
 			  </intent-filter>
 			</activity>
-			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
-			  android:exported="false">
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+			    <category android:name="android.intent.category.DEFAULT"/>
+			  </intent-filter>
+			</activity>
+			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver" android:exported="false">
 			  <intent-filter>
 			    <action android:name="android.intent.action.BOOT_COMPLETED"/>
 			    <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
 			    <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-			    <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+			  </intent-filter>
+			</receiver>
+			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+			  <intent-filter>
+			    <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 			  </intent-filter>
 			</receiver>
 
@@ -78,7 +87,7 @@ Reach SDK 需要「Android 支援程式庫 (v4)」。****
 
 			<meta-data android:name="engagement:reach:notification:icon" android:value="<name_of_icon_WITHOUT_file_extension_and_WITHOUT_'@drawable/'>" />
 
-> [AZURE.IMPORTANT]如果您打算在建立 Reach 活動時使用系統通知，則「務必」使用此區段。****Android 禁止顯示沒有圖示的系統通知。因此如果您省略此區段，使用者將無法接收系統通知。
+> [AZURE.IMPORTANT]如果您打算在建立 Reach 活動時使用系統通知，則「務必」使用此區段。Android 禁止顯示沒有圖示的系統通知。因此如果您省略此區段，使用者將無法接收系統通知。
 
 -   建立活動時，當系統通知使用大圖片，若缺少下列權限便需先行加入 (在 `</application>` 標記之後)：
 
@@ -91,10 +100,23 @@ Reach SDK 需要「Android 支援程式庫 (v4)」。****
 
 	若無此權限，如果您在 Reach 活動管理員中核取了響鈴或震動的選項，Android 會禁止顯示系統通知。
 
--   如果使用 ProGuard 建置應用程式，且發生與 Android 支援程式庫或 Engagement jar 相關的錯誤，請在 `proguard.cfg` 檔案中加入下列幾行：****
+-   如果使用 ProGuard 建置應用程式，且發生與 Android 支援程式庫或 Engagement jar 相關的錯誤，請在 `proguard.cfg` 檔案中加入下列幾行：
 
 			-dontwarn android.**
 			-keep class android.support.v4.** { *; }
+
+## 原生推送
+
+現在，您會設定 Reach 模組，您需要設定原生推播以便在裝置上接收行銷活動。
+
+我們在 Android 上支援兩種服務：
+
+  - Google Play 裝置：遵循[如何整合 GCM 與 Engagement 指南](mobile-engagement-android-gcm-integrate.md)，來使用 [Google Cloud Messaging]。
+  - Amazon 裝置：遵循[如何整合 ADM 與 Engagement 指南](mobile-engagement-android-adm-integrate.md)，來使用 [Amazon Device Messaging]
+
+如果您的目標想要同時鎖定 Amazon 和 Google Play 裝置，可以將所有東西放在一個 AndroidManifest.xml/APK 進行開發。但提交給 Amazon 時，如果他們發現 GCM 程式碼可能會拒絕您的應用程式。
+
+您應該在此情況下使用多個 APK。
 
 **現在您的應用程式已準備好接收及顯示 Reach 活動！**
 
@@ -149,19 +171,6 @@ Reach SDK 需要「Android 支援程式庫 (v4)」。****
 -   如果其中一個廣播接收器傳回 `true` 或 `false`，則 `Replied` 會遞增。
 -   只有在其中一個廣播接收器傳回 `true` 時，`Actioned` 才會遞增。
 
-##如何隨時接收活動
-
-遵循上述整合程序時，只有當需要報告統計資料時 (加上 1 分鐘的逾時)，Engagement 服務才會連線到 Engagement 伺服器。因此，「只有在使用者工作階段期間才能接收 Reach 活動」****。幸好，Engagement 可以設定為「允許應用程式隨時接收 Reach 活動」****，包括裝置在休眠狀態時也能接收 (當然，裝置必須擁有作用中的網路連線，裝置離線時訊息則會延遲)。
-
-若要受益於「隨時」推送，您需要使用一或多個原生推送服務，視您的目標裝置而定：
-
-  - Google Play 裝置：遵循[如何整合 GCM 與 Engagement 指南](mobile-engagement-android-gcm-integrate.md)，來使用 [Google Cloud Messaging]。
-  - Amazon 裝置：遵循[如何整合 ADM 與 Engagement 指南](mobile-engagement-android-adm-integrate.md)，來使用 [Amazon Device Messaging]
-
-如果您的目標想要同時鎖定 Amazon 和 Google Play 裝置，可以將所有東西放在一個 AndroidManifest.xml/APK 進行開發。但提交給 Amazon 時，如果他們發現 GCM 程式碼可能會拒絕您的應用程式。
-
-您應該在此情況下使用多個 APK。
-
 ##如何自訂活動
 
 若要自訂活動，您可以修改 Reach SDK 中提供的配置。
@@ -174,7 +183,7 @@ Reach SDK 需要「Android 支援程式庫 (v4)」。****
 
 #### 系統通知
 
-若要自訂系統通知，您需要使用 [類別]****。您可以跳到 [類別][](#categories)。
+若要自訂系統通知，您需要使用 [類別]。您可以跳到 [類別][](#categories)。
 
 #### 應用程式內通知
 
@@ -482,7 +491,7 @@ Engagement Reach SDK 會自動偵測到通知配置已包含在此活動中，�
 -   如果關閉通知，則會呼叫 `exitNotification` 方法、報告統計資料，且可立即處理下一個活動。
 -   如果按一下通知，則會呼叫 `actionNotification`、報告統計資料，並啟動相關聯的意圖。
 
-如果您 `EngagementNotifier` 的實作略過預設行為，您必須自行呼叫這些生命週期方法。下列範例說明部分會略過預設行為的情況：
+如果您 `EngagementNotifier` 的實作略過預設行為，您必須自行呼叫這些生命週期方法。以下範例說明一些會略過預設行為的情況：
 
 -   您不需延伸 `EngagementDefaultNotifier`，例如從頭開始實作類別處理。
 -   若為系統通知，您已覆寫 `onNotificationPrepared` 並修改 `Notification` 物件中的 `contentIntent` 或 `deleteIntent`。
@@ -636,5 +645,6 @@ Reach SDK 使用意圖系統來解析特定類別的正確活動，如果解析�
 [這裡]: http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]: http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

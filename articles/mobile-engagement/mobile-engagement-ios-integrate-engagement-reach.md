@@ -24,7 +24,7 @@
 
 ### 將 Engagement Reach SDK 嵌入您的 iOS 專案
 
--   在您的 Xcode 專案中加入 Reach SDK。在 Xcode 中，移至 [專案] > [加入至專案]****，然後選擇 `EngagementReach` 資料夾。
+-   在您的 Xcode 專案中加入 Reach SDK。在 Xcode 中，移至 [專案] > [加入至專案]，然後選擇 `EngagementReach` 資料夾。
 
 ### 修改您的應用程式委派
 
@@ -44,7 +44,7 @@
 			}
 
 -   使用您想做為通知圖示的影像名稱修改 **'icon.png'** 字串。
--   如果您想在觸達活動中使用 [更新徽章值]** 選項，或想使用原生推送 </SaaS/Reach API/Campaign format/Native Push> 活動，必須讓觸達模組自行管理徽章圖示 (它會自動清除應用程式徽章，也會重設每一次應用程式啟動或於前景執行時，由 Engagement 所儲存的值)。做法是在觸達模組初始化之後加入以下這一行：
+-   如果您想在觸達活動中使用 [更新徽章值] 選項，或想使用原生推送 </SaaS/Reach API/Campaign format/Native Push> 活動，必須讓觸達模組自行管理徽章圖示 (它會自動清除應用程式徽章，也會重設每一次應用程式啟動或於前景執行時，由 Engagement 所儲存的值)。做法是在觸達模組初始化之後加入以下這一行：
 
 			[reach setAutoBadgeEnabled:YES];
 
@@ -71,7 +71,7 @@
 
 當您建立「資料推送」活動時，類別參數是選用的，且可讓您篩選資料推送。如果您想要推送不同種類的 `Base64` 資料，且想要在剖析這些資料之前識別其類型，這會很有用。
 
-您的應用程式現在已準備好接收及顯示觸達內容！****
+您的應用程式現在已準備好接收及顯示觸達內容！
 
 ##如何隨時接收宣告和輪詢
 
@@ -85,7 +85,7 @@
 
 ### 加入必要的用戶端程式碼
 
-目前您的應用程式應該在 Engagement 前端具備已註冊的 Apple 推送憑證。**
+目前您的應用程式應該在 Engagement 前端具備已註冊的 Apple 推送憑證。
 
 如果尚未這麼做，必須註冊應用程式以接收推送通知。啟動您的應用程式時，請新增以下這一行 (通常在 `application:didFinishLaunchingWithOptions:` 中)：
 
@@ -293,8 +293,8 @@
 
 1.  使用介面產生器加入通知檢視
 
-	-   開啟 [介面產生器]**
-	-   放置您想要在其中顯示通知的 `UIView` (大小為 320x60，如果在 iPad 上則為 768x60) 
+	-   開啟 [介面產生器]
+	-   放置您想要在其中顯示通知的 `UIView` (大小為 320x60，如果在 iPad 上則為 768x60)
 	-   將此檢視的標記值設定為：**36822491**
 
 2.  以程式設計方式新增通知檢視。在您已經將檢視初始化時加入以下程式碼：
@@ -324,7 +324,7 @@
 			AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
 			[reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:@"my_category"];
 
-> [AZURE.NOTE]每次使用者按一下通知以取得 "my_category" 類別的宣告時，會將您已經註冊的檢視控制器 (在此情況下為 `MyCustomAnnouncementViewController`) 透過呼叫 `initWithAnnouncement:` 方法來初始化，而且會將檢視加入到目前的應用程式視窗。
+> [AZURE.NOTE]每次使用者按一下通知以取得 "my\\_category" 類別的宣告時，會將您已經註冊的檢視控制器 (在此情況下為 `MyCustomAnnouncementViewController`) 透過呼叫 `initWithAnnouncement:` 方法來初始化，而且會將檢視加入到目前的應用程式視窗。
 
 在 `AEAnnouncementViewController` 類別的實作中，您必須讀取 `announcement` 屬性來初始化您的子檢視。請考量以下範例，其中的兩個標籤會使用屬於 `AEReachAnnouncement` 類別的 `title` 和 `body` 屬性來初始化：
 
@@ -456,5 +456,6 @@
 			}
 			
 			@end
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

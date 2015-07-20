@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用 Azure 行動服務 .NET 後端建立排行榜應用程式" 
-	description="了解如何使用具有 .NET 後端的 Azure 行動服務建置 Windows 市集應用程式。" 
+	pageTitle="使用 .NET 後端建立 Windows 市集排行榜應用程式 | Azure 行動服務" 
+	description="了解如何使用具有 .NET 後端的 Azure 行動服務建置 Windows 市集排行榜應用程式。" 
 	documentationCenter="windows" 
 	authors="MikeWasson" 
 	manager="dwrede" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
-	ms.author="mwasson"/>
+	ms.date="06/24/2015" 
+	ms.author="glenga"/>
 
 # 使用 Azure 行動服務 .NET 後端建立排行榜應用程式
 
@@ -68,7 +68,7 @@ PlayerRank 具有 Player 的外部索引鍵。每個玩家各有零或一個 Pla
 
 ![][3]
 
-在 Visual Studio 2013 中，ASP.NET Web 應用程式專案包含 Azure 行動服務的範本。請選取此範本，然後按一下 [確定]****。
+在 Visual Studio 2013 中，ASP.NET Web 應用程式專案包含 Azure 行動服務的範本。請選取此範本，然後按一下 [確定]。
 
 ![][4]
  
@@ -111,26 +111,26 @@ PlayerRank 具有 Player 的外部索引鍵。每個玩家各有零或一個 Pla
 
 請注意，這兩個類別皆衍生自 **EntityData** 類別。從 **EntityData** 衍生，可方便應用程式取用資料，而將跨平台用戶端程式庫用於 Azure 行動服務。**EntityData** 也可方便應用程式[處理資料庫寫入衝突](mobile-services-windows-store-dotnet-handle-database-conflicts.md)。
 
-`PlayerRank` 類別具有指向相關 `Player` 實體的[導覽屬性](http://msdn.microsoft.com/data/jj713564.aspx)。**[ForeignKey]** 屬性會告知 EF，說明 `Player` 屬性代表外部索引鍵。
+`PlayerRank` 類別具有指向相關 `Player` 實體的[導覽屬性](http://msdn.microsoft.com/data/jj713564.aspx)。**[ForeignKey]** 屬性 (attribute) 會向 EF 指出，`Player` 屬性 (property) 代表外部索引鍵。
 
-# 新增 Web API 控制器
+## 新增 Web API 控制器
 
 接著，您會為 `Player` 和 `PlayerRank` 新增 Web API 控制器。您所將新增的並不是一般 Web API 控制器，而是特別針對 Azure 行動服務而設計、名為*資料表控制器*的特殊控制器。
 
-以滑鼠右鍵按一下 [控制器] 資料夾 > [新增]**** > [新增 Scaffolded 項目]****。
+以滑鼠右鍵按一下 [控制器] 資料夾 > [新增] > [新增 Scaffolded 項目]。
 
 ![][6]
 
-在 [新增 Scaffold]**** 對話方塊中，展開位於左側的 [一般]****，然後選取 [Azure 行動服務]****。接著，選取 [Azure 行動服務資料表控制器]****。按一下 [新增]****。
+在 [新增 Scaffold] 對話方塊中，展開位於左側的 [一般]，然後選取 [Azure 行動服務]。接著，選取 [Azure 行動服務資料表控制器]。按一下 [新增]。
 
 ![][7]
  
-在 [新增控制器]**** 對話方塊中：
+在 [新增控制器] 對話方塊中：
 
-1.	在 [模型類別]**** 下，選取 [Player]。 
-2.	在 [資料內容類別]**** 下，選取 [MobileServiceContext]。
+1.	在 [模型類別] 下，選取 [Player]。 
+2.	在 [資料內容類別] 下，選取 [MobileServiceContext]。
 3.	將控制器命名為 "PlayerController"。
-4.	按一下 [新增]****。
+4.	按一下 [新增]。
 
 
 此步驟會將名為 PlayerController.cs 的檔案新增至專案中。
@@ -318,7 +318,7 @@ DTO 是定義資料如何透過網路傳送的物件。如果您想讓電傳格�
 
 	[Route("api/score")]
 
-您也可以將方法放入個別的控制器中。沒有哪種方法特別好，端視您想要如何組織程式碼而定。若要深入了解 **[Route]** 屬性，請參閱 [Web API 中的屬性路由](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2) (英文)。
+您也可以將方法放入個別的控制器中。沒有哪種方法特別好，端視您想要如何組織程式碼而定。若要深入了解 **[Route]** 屬性，請參閱 [Web API 中的屬性路由](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2)。
 
 ## 建立 Windows 市集應用程式
 
@@ -328,11 +328,11 @@ DTO 是定義資料如何透過網路傳送的物件。如果您想讓電傳格�
 
 ![][10]
  
-使用 NuGet Package Manager 新增行動服務用戶端程式庫。在 Visual Studio 中，從 [工具]**** 功能表中選取 [NuGet Package Manager]****。接著，選取 [Package Manager 主控台]****。在 [Package Manager 主控台] 視窗中，輸入下列命令。
+使用 NuGet Package Manager 新增行動服務用戶端程式庫。在 Visual Studio 中，從 [工具] 功能表中選取 [NuGet Package Manager]。接著，選取 [Package Manager 主控台]。在 [Package Manager 主控台] 視窗中，輸入下列命令。
 
 	Install-Package WindowsAzure.MobileServices -Project LeaderboardApp
 
-\-Project 參數會指定要將封裝安裝到哪個專案。
+-Project 參數會指定要將封裝安裝到哪個專案。
 
 ## 新增模型類別
 
@@ -607,7 +607,7 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
 	    }
 	}
 
-當您在本機上進行偵錯時，行動服務會在 IIS Express 上執行。Visual Studio 會指派隨機連接埠號碼，因此本機 URL 為 http://localhost:*port*，而其中的 *port* 為連接埠號碼。若要取得連接埠號碼，請按 F5 在 Visual Studio 中啟動服務，以進行偵錯。Visual Studio 會啟動瀏覽器，並導覽至服務 URL。您也可以在專案屬性中的 [Web]**** 下尋找本機 URL。
+當您在本機上進行偵錯時，行動服務會在 IIS Express 上執行。Visual Studio 會指派隨機連接埠號碼，因此本機 URL 為 http://localhost:*port*，而其中的 *port* 為連接埠號碼。若要取得連接埠號碼，請按 F5 在 Visual Studio 中啟動服務，以進行偵錯。Visual Studio 會啟動瀏覽器，並導覽至服務 URL。您也可以在專案屬性中的 [Web] 下尋找本機 URL。
 
 ## 建立主頁面
 
@@ -630,12 +630,12 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
 
 如前所述，我不會說明應用程式的所有 XAML。MVVM 模式的優點之一是能夠區隔顯示和應用程式邏輯，因此，如果您不喜歡範例應用程式，您可以輕易變更 UI。
 
-玩家清單會顯示在 [ListBox]**** 中：
+玩家清單會顯示在 [ListBox] 中：
 
 	<ListBox Width="200" Height="400" x:Name="PlayerListBox" 
 	    ItemsSource="{Binding Players}" DisplayMemberPath="Name"/>
 
-排名會顯示在 [ListView]**** 中：
+排名會顯示在 [ListView] 中：
 
 	<ListView x:Name="RankingsListView" ItemsSource="{Binding Ranks}" SelectionMode="None">
 	    <!-- Header and styles not shown -->
@@ -661,20 +661,20 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
 
 在此步驟中，您會將行動服務發行至 Microsoft Azure，並修改應用程式以使用即時服務。
 
-在 [方案總管] 中，以滑鼠右鍵按一下排行榜專案，然後選取 [發行]****。
+在 [方案總管] 中，以滑鼠右鍵按一下排行榜專案，然後選取 [發行]。
  
 ![][12]
 
-在 [發佈]**** 對話方塊中，按一下 [Azure 行動服務]****。
+在 [發佈] 對話方塊中，按一下 [Azure 行動服務]。
 
 ![][13]
  
-如果您尚未登入 Azure 帳戶，請按一下 [登入]****。
+如果您尚未登入 Azure 帳戶，請按一下 [登入]。
 
 ![][14]
 
 
-選取現有的行動服務，或按一下 [新增]**** 以建立新的。然後按一下 [確定]****，以執行發行。
+選取現有的行動服務，或按一下 [新增] 以建立新的。然後按一下 [確定]，以執行發行。
 
 ![][15]
  
@@ -685,11 +685,11 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
 - 服務的 URL
 - 應用程式金鑰
 
-您可以從 Azure 管理入口網站取得這兩個項目。在管理入口網站中按一下 [行動服務]****，然後按一下行動服務。服務 URL 會列示在排行榜索引標籤上。若要取得應用程式金鑰，請按一下 [管理金鑰]****。
+您可以從 Azure 管理入口網站取得這兩個項目。在管理入口網站中按一下 [行動服務]，然後按一下行動服務。服務 URL 會列示在排行榜索引標籤上。若要取得應用程式金鑰，請按一下 [管理金鑰]。
 
 ![][16]
  
-在 [管理存取金鑰]**** 對話方塊中，複製應用程式金鑰的值。
+在 [管理存取金鑰] 對話方塊中，複製應用程式金鑰的值。
 
 ![][17]
 
@@ -760,5 +760,6 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
 [新增推播通知]: ../notification-hubs-windows-store-dotnet-get-started.md
 [開始使用驗證]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

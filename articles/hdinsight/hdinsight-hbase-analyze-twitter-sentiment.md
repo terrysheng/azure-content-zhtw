@@ -98,17 +98,15 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 3. 輸入 [名稱]、[描述] 和 [網站]。我們實際上不會用到 [網站] 欄位。因此您不必輸入有效的 URL。下表列出部分要使用的範例值：
 
 	<table border="1">
-	<tr><th>欄位</th><th>值</th></tr>
-	<tr><td>名稱</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>說明</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>網站</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-	</table>
-
-	> [AZURE.NOTE]Twitter 應用程式名稱必須是唯一的名稱。
+<tr><th>欄位</th><th>值</th></tr>
+<tr><td>名稱</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>說明</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>網站</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+</table>> [AZURE.NOTE]Twitter 應用程式名稱必須是唯一的名稱。
 
 4. 核取 [Yes, I agree]然後按一下 [Create your Twitter application]。
 5. 按一下 [權限] 索引標籤。預設權限為 [唯讀]。本教學課程使用預設值即可。 
-6. 按一下 [金鑰和存取權杖] 索引標籤。
+6. 按一下 **[金鑰和存取權杖**] 索引標籤。
 7. 按一下 [Create my access token]。
 8. 按一下位於頁面右上角的 [測試 OAuth]。
 9. 複製 [消費者金鑰]、[消費者密碼]、[存取權杖] 和 [存取權杖密碼] 等值。稍後會在教學課程中使用這些值。
@@ -222,7 +220,7 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
         // Sentiment dictionary file and the punctuation characters
         const string DICTIONARYFILENAME = @"....\data\dictionary\dictionary.tsv";
         private static char[] _punctuationChars = new[] { 
-            ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
+            ' ', '!', '"', '#', '$', '%', '&', ''', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
             ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };   //ascii 58--64 + misc.
 
         // For writting to HBase
@@ -415,7 +413,7 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 	此程式碼提供以下功能：
 
 	- **連接到 Hbase [ HBaseWriter() ]**：使用 HBase SDK 來建立含有叢集 URL 和 Hadoop 使用者認證的 *ClusterCredentials* 物件，然後使用 ClusterCredentials 物件來建立 *HBaseClient* 物件。
-	- **建立 HBase 資料表[ HBaseWriter() ]**：方法呼叫是 *HBaseClient.CreateTable()*。
+	- **建立 HBase 資料表 [ HBaseWriter() ]**：方法呼叫是 *HBaseClient.CreateTable()*。
 	- **寫入 HBase 資料表 [ WriterThreadFunction() ]**：方法呼叫是 *HBaseClient.StoreCells()*。
 
 **完成 Program.cs**
@@ -724,7 +722,7 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 3. 在 [項目名稱] 欄位輸入 **heatmap.js**。
 4. 將下列程式碼貼到檔案中。該程式碼由 Alastair Aitchison 所撰寫。如需詳細資訊，請參閱 [BBing 地圖 AJAX v7 HeatMap 程式庫](http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/)。
 
-		/***
+		/*******************************************************************************
 		* Author: Alastair Aitchison
 		* Website: http://alastaira.wordpress.com
 		* Date: 15th April 2011
@@ -1177,8 +1175,7 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 
 **修改 layout.cshtml**
 
-1. 在 **方案總管** 中，依序展開 [TweetSentimentWeb]、[Views] 及 [Shared]，然後按兩下 _[Layout.cshtml]。
-2. 以下列內容取代原始內容：
+1. 在 **方案總管** 中，依序展開 [TweetSentimentWeb]、[Views] 及 [Shared]，然後按兩下 _[Layout.cshtml]。2. 以下列內容取代原始內容：
 
 		<!DOCTYPE html>
 		<html>
@@ -1356,5 +1353,6 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -1,3 +1,20 @@
+<properties 
+   pageTitle="完成最小裝置設定"
+   description="說明如何完成最小的 StorSimple 裝置設定。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="05/21/2015"
+   ms.author="v-sharos" />
+
 #### 完成最小的 StorSimple 裝置安裝
 
 1. 選取裝置，然後按一下 [快速入門]。按一下 [完成裝置設定] 以啟動設定裝置精靈。
@@ -28,4 +45,4 @@
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

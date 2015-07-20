@@ -49,4 +49,4 @@
 
 [如何將資料磁碟連接至 Windows 虛擬機器](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

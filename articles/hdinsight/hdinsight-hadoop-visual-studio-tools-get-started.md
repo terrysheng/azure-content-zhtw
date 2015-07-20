@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="學習使用適用於 HDInsight 的 Visual Studio Hadoop 工具 | Microsoft Azure" 
-	description="了解如何安裝和使用適用於 HDInsight 的 Visual Studio Hadoop 工具來連線到 Hadoop 叢集和執行 Hive 查詢。" 
+<properties
+	pageTitle="學習使用適用於 HDInsight 的 Visual Studio Hadoop 工具 | Microsoft Azure"
+	description="了解如何安裝和使用適用於 HDInsight 的 Visual Studio Hadoop 工具來連線到 Hadoop 叢集和執行 Hive 查詢。"
 	keywords="hadoop tools,hive query,visual studio"
-	services="HDInsight" 
-	documentationCenter="" 
-	authors="mumian" 
-	manager="paulettm" 
+	services="HDInsight"
+	documentationCenter=""
+	authors="mumian"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="big-data" 
-	ms.date="04/08/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="04/08/2015"
 	ms.author="jgao"/>
 
 # 開始使用適用於 HDInsight 的 Visual Studio Hadoop 工具來執行 Hive 查詢
@@ -27,6 +27,11 @@
 ## 必要條件
 
 若要完成本教學課程並使用 Visual Studio 中的 Hadoop 工具，您需要下列項目：
+
+- Azure HDInsight 叢集：以 Linux 或 Windows 為基礎的叢集將適用這份文件中的步驟。如需建立叢集的詳細資訊，請參閱下列其中一項：
+
+	- [開始使用以 Linux 為基礎的 HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+	- [開始使用以 Windows 為基礎的 HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md)
 
 - 已安裝下列軟體的工作站：
 
@@ -60,14 +65,14 @@ HDInsight Tools for Visual Studio 封裝在 Microsoft Azure SDK for .NET 2.5.1 �
 
 1.	開啟 Visual Studio。
 2.	從 [**檢視**] 功能表中，按一下 [**伺服器總管**] 以開啟 [伺服器總管] 視窗。
-3.	展開 [**Azure**]，然後展開 [**HDInsight**]。 
+3.	展開 [**Azure**]，然後展開 [**HDInsight**]。
 
 	>[AZURE.NOTE]**HDInsight 工作清單****其他視窗****檢視****HDInsight 工作清單視窗**  
 4.	輸入您的 Azure 訂用帳戶認證，然後按一下 [**登入**]。只有當您從未在此工作站上從 Visual Studio 連線到 Azure 訂用帳戶時，才需要這樣做。
 5.	在 [伺服器總管] 中，您會看到現有 HDInsight 叢集的清單。如果您沒有任何叢集，您可以使用 Azure 入口網站、Azure PowerShell 或 HDInsight SDK 來佈建一個。如需詳細資訊，請參閱[佈建 HDInsight 叢集][hdinsight-provision]。
 
 	![Hadoop 工具：HDInsight Tools for Visual Studio 伺服器總管叢集清單][5]
-6.	展開某個 HDInsight 叢集。您將會看到 [**Hive 資料庫**]、預設儲存體帳戶、連結的儲存體帳戶和 [**Hadoop 服務記錄**]。您可以進一步展開這些實體。 
+6.	展開某個 HDInsight 叢集。您將會看到 [**Hive 資料庫**]、預設儲存體帳戶、連結的儲存體帳戶和 [**Hadoop 服務記錄**]。您可以進一步展開這些實體。
 
 在連線到您的 Azure 訂用帳戶之後，您將可以執行下列工作：
 
@@ -79,7 +84,7 @@ HDInsight Tools for Visual Studio 封裝在 Microsoft Azure SDK for .NET 2.5.1 �
 
 - 從 [**工具**] 功能表中，按一下 [**HDInsight**]，然後按一下 [**MSDN 論壇**] 來提出問題，或按一下 [**提供意見反應**]。
 
-## 瀏覽連結的資源 
+## 瀏覽連結的資源
 
 從 [伺服器總管] 中，您可以看到預設的儲存體帳戶，以及任何連結的儲存體帳戶。如果您展開預設儲存體帳戶，您可以看到儲存體帳戶上的容器。預設儲存體帳戶和預設容器皆已標示。您也可以在任何容器上按一下滑鼠右鍵來檢視該容器。
 
@@ -92,7 +97,7 @@ HDInsight Tools for Visual Studio 封裝在 Microsoft Azure SDK for .NET 2.5.1 �
 
 HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 Hive 工作的 YARN 記錄，來查看 Hive 工作的內容。
 
-###檢視 **hivesampletable** 
+###檢視 **hivesampletable**
 所有 HDInsight 叢集皆隨附一個稱為 *hivesampletable* 的範例 Hive 資料表。我們將使用此資料表來示範如何列出 Hive 資料表、檢視資料表結構描述，以及列出 Hive 資料表中的資料列。
 
 
@@ -105,7 +110,7 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 		SELECT * FROM hivesampletable LIMIT 100
 
 	您可以自訂資料列計數。
- 
+
 	![Hadoop 工具：HDinsight Hive Visual Studio 結構描述查詢][6]
 
 ###建立 Hive 資料表
@@ -129,8 +134,8 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 **建立、驗證和執行特定查詢**
 
 1. 從 [**伺服器總管**] 中，展開 [**Azure**]，然後展開 [**HDInsight 叢集**]。
-2. 在您想要執行查詢的叢集上按一下滑鼠右鍵，然後按一下 [**撰寫 Hive 查詢**]。 
-3. 輸入 Hive 查詢。請注意，Hive 編輯器支援 Intellisense。HDInsight Tools for Visual Studio 支援在編輯 Hive 指令碼時載入遠端中繼資料。例如，當您輸入 "SELECT * FROM"，Intellisense 會列出所有建議的資料表名稱。在指定了資料表名稱時，Intellisense 會列出資料行名稱。 
+2. 在您想要執行查詢的叢集上按一下滑鼠右鍵，然後按一下 [**撰寫 Hive 查詢**]。
+3. 輸入 Hive 查詢。請注意，Hive 編輯器支援 Intellisense。HDInsight Tools for Visual Studio 支援在編輯 Hive 指令碼時載入遠端中繼資料。例如，當您輸入 "SELECT * FROM"，Intellisense 會列出所有建議的資料表名稱。在指定了資料表名稱時，Intellisense 會列出資料行名稱。
 
 	![Hadoop 工具：HDInsight Visual Studio 工具 Intellisense][13]
 
@@ -155,14 +160,14 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 
 **建立和執行 Hive 方案**
 
-1. 在 [檔案]**** 功能表中按一下 [新增]****，然後按一下 [專案]****。
+1. 在 [檔案] 功能表中按一下 [新增]，然後按一下 [專案]。
 2. 從左窗格中選取 [**HDInsight**]，選取中間窗格中的 [**Hive 應用程式**]，輸入屬性，然後按一下 [**確定**]。
 
 	![Hadoop 工具：hdinsight visual studio 工具新 hive 專案][11]
-3. 從 [**方案總管**] 中，按兩下 **Script.hql** 來開啟它。 
+3. 從 [**方案總管**] 中，按兩下 **Script.hql** 來開啟它。
 4. 若要驗證 Hive 指令碼，您可以按一下 [**驗證指令碼**] 按鈕，或在 Hive 編輯器中的指令碼上按一下滑鼠右鍵，然後按一下內容功能表中的 [**驗證指令碼**]。
 
- 
+
 ###檢視 Hive 工作
 您可以檢視 Hive 工作的工作查詢、工作輸出、工作記錄和 Yarn 記錄。如需詳細資訊，請參閱上一個螢幕擷取畫面。
 
@@ -170,11 +175,12 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 
 **檢視 Hive 工作**
 
-1. 從 [**伺服器總管**] 中，展開 [**Azure**]，然後展開 [**HDInsight**]。 
-2. 在某個 HDInsight 叢集上按一下滑鼠右鍵，然後按一下 [**檢視 Hive 工作**]。您會看到在該叢集上執行之 Hive 工作的清單。 
+1. 從 [**伺服器總管**] 中，展開 [**Azure**]，然後展開 [**HDInsight**]。
+2. 在某個 HDInsight 叢集上按一下滑鼠右鍵，然後按一下 [**檢視 Hive 工作**]。您會看到在該叢集上執行之 Hive 工作的清單。
 3. 按一下工作清單中的某個工作來選取它，然後使用 [**Hive 工作摘要**] 視窗來開啟 [**工作查詢**]、[**工作輸出**]、[**工作記錄**] 或 [**Yarn 記錄**]。
 
 	![Hadoop 工具：HDInsight Visual Studio 工具檢視 Hive 工作][12]
+
 ## 後續步驟
 在本文中，您已經學會如何使用 Hadoop 工具套件從 Visual Studio 連線到 HDInsight 叢集，以及如何執行 Hive 查詢。如需詳細資訊，請參閱：
 
@@ -217,4 +223,4 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 
 [apache.hive]: http://hive.apache.org
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

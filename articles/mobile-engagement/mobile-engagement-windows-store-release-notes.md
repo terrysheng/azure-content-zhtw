@@ -18,7 +18,11 @@
 
 #Windows 通用 app SDK 版本資訊
 
-##3.0.1 (2015/04/29)
+##3.1.0 (05/21/2015)
+
+-   Mobile Engagement 裝置識別碼現在是根據在安裝時產生的 GUID。
+
+##3.0.1 (2015/04//29)
 
 -   已修復影響 SDK 在部分 Windows Phone WinRT 應用程式上的初始化錯誤。
 
@@ -35,5 +39,6 @@
 -   連接字串組態取代 appId/sdkKey 組態。
 -   增強安全性。
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -49,7 +49,7 @@ Azure CLI 有數個命令，可協助防止錯誤，並偵測發生的問題。
           "location": "East US,West US,West Europe,East Asia,Southeast Asia,North Europe"
         }
 
-- **azure group template validate <resource group>**.此命令會先驗證範本和範本參數，您才能使用它們。請輸入自訂或組件庫範本，以及您打算使用的範本參數值。此 Cmdlet 會測試範本是否達到內部的一致性，以及您的參數值設定是否與範本相符。
+- **azure group template validate <resource group>**.這個命令會在您使用範本和範本參數之前，先驗證它們。請輸入自訂或資源庫範本，以及您打算使用的範本參數值。
 
     下列範例顯示如何驗證範本和任何必要參數；Azure CLI 會提示您輸入所需的參數值。
 
@@ -115,7 +115,7 @@ Azure CLI 有數個命令，可協助防止錯誤，並偵測發生的問題。
                                        Subnet-1
                                        "}}}]}}
 
-        Use the **--last-deployment** option to retrieve only the log for the most recent deployment. The following script uses the **--json** option and **jq** to search the log for deployment failures.
+使用 **--last-deployment** 選項，只擷取最新部署的記錄。下列指令碼會使用 **--json** 選項和 **jq**，來搜尋部署失敗的記錄。
 
         azure group log show templates --json | jq '.[] | select(.status.value == "Failed")'
 
@@ -195,7 +195,7 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 - **Get-AzureLocation**：此 Cmdlet 會取得支援每種資源類型的位置。在您輸入資源的位置之前，請使用此 Cmdlet 來確認該位置是否支援此資源類型。
 
 
-- **Test-AzureResourceGroupTemplate**：使用範本和範本參數之前，請先進行測試。請輸入自訂或組件庫範本，以及您打算使用的範本參數值。此 Cmdlet 會測試範本是否達到內部的一致性，以及您的參數值設定是否與範本相符。
+- **Test-AzureResourceGroupTemplate**：使用範本和範本參數之前，請先進行測試。請輸入自訂或資源庫範本，以及您打算使用的範本參數值。此 Cmdlet 會測試範本是否達到內部的一致性，以及您的參數值設定是否與範本相符。
 
 ## 取得資訊來修正 Windows PowerShell 中的部署問題
 
@@ -213,6 +213,26 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 
 部署達到預設配額 (可能是根據資源群組、訂用帳戶、帳戶以及其他範圍) 時，也可能會發生問題。確認您有可正確部署的資源。如需完整配額資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與限制](../azure-subscription-service-limits.md)。
 
+若要檢查您自己訂用帳戶的核心配額，您應該使用 Azure CLI 中的 `azure vm list-usage` 命令以及 PowerShell 中的 `Get-AzureVMUsage` Cmdlet。以下顯示 Azure CLI 中的命令，並說明免費試用帳戶的核心配額為 4：
+
+    azure vm list-usage
+    info:    Executing command vm list-usage
+    Location: westus
+    data:    Name   Unit   CurrentValue  Limit
+    data:    -----  -----  ------------  -----
+    data:    Cores  Count  0             4    
+    info:    vm list-usage command OK
+
+如果您嘗試部署的範本會在上述訂用帳戶內，於美國西部區域中建立 4 個以上的核心，則會發生部署錯誤，該錯誤看起來如下 (可能是在入口網站中，也可能是調查部署記錄時發現的)：
+
+    statusCode:Conflict
+    serviceRequestId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    statusMessage:{"error":{"code":"OperationNotAllowed","message":"Operation results in exceeding quota limits of Core. Maximum allowed: 4, Current in use: 4, Additional requested: 2."}}
+
+在這些情況下，您應該移至入口網站，並提出支援問題，以針對您想要部署的區域提高配額。
+
+> [AZURE.NOTE]請記住，對於資源群組，配額適用於每個個別區域，而不是整個訂用帳戶。如果您需要在美國西部部署 30 個核心，就必須要求在美國西部擁有 30 個資源管理核心。如果您需要在任何具有存取權限的區域部署 30 個核心，就應該要求在所有區域中擁有 30 個資源管理核心。<!-- --> 舉例來說，若要更明確地了解核心，您應該使用下列命令來要求適當的配額數目，這個命令可以使用管線傳送到 **jq** 以進行 json 剖析。 <!-- --> Azure 提供者會顯示 Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
+     
 
 ## Azure CLI 和 PowerShell 模式問題
 
@@ -243,7 +263,7 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
         data:    Microsoft.Sql                    Registered
         info:    provider list command OK
 
-    Again, if you want more information about providers, including their regional availability, type `azure provider list --json`. The following selects only the first one in the list to view:
+此外，如果您想要更多關於提供者的資訊，包括它們的區域可用性，請輸入 `azure provider list --json`。下列程式碼只會選取清單中的第一個項目來檢視：
 
         azure provider list --json | jq '.[0]'
         {
@@ -351,8 +371,6 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 
     }
 
-
-
 ## 後續步驟
 
 若要精通範本的建立，請閱讀[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)，並捲動 [AzureRMTemplates 儲存機制](https://github.com/azurermtemplates/azurermtemplates)以取得可部署的範例。**dependsOn** 屬性範例是[具有輸入 NAT 規則範本的負載平衡器](https://github.com/azurermtemplates/azurermtemplates/blob/master/101-create-internal-loadbalancer/azuredeploy.json)。
@@ -367,6 +385,6 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

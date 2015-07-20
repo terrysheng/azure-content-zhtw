@@ -18,7 +18,7 @@
 
 #如何在 Azure 中建立執行 Linux 的自訂虛擬機器
 
-「自訂」虛擬機器是指您使用 **[從組件庫]** 選項建立的虛擬機器，因為您可以有比 **[快速建立]** 選項更多的設定選擇。這些選擇包括：
+「自訂」虛擬機器是指您使用 [從組件庫] 選項建立的虛擬機器，因為您可以有比 [快速建立] 選項更多的設定選擇。這些選擇包括：
 
 - 將 VM 連線到虛擬網路
 - 安裝 VM 代理程式和擴充功能，例如反惡意程式碼 
@@ -31,6 +31,6 @@
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-LinuxVM.md)]
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

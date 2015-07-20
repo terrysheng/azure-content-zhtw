@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用串流分析的即時事件處理 | Azure" 
+	pageTitle="使用串流分析的即時事件處理 | Microsoft Azure" 
 	description="了解一組 Azure 服務可如何交互操作以啟用即時事件處理與分析。" 
 	services="stream-analytics,event-hubs,storage,sql-database" 
 	documentationCenter="" 
@@ -60,5 +60,6 @@ Microsoft Azure 提供分析技術的全面目錄，可以支援一系列不同�
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

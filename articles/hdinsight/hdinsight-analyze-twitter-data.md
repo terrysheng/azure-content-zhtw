@@ -520,7 +520,7 @@ HiveQL 指令碼將執行下列作業：
 	Write-Host "==================================" -ForegroundColor Green
 	#end region
 
-> [AZURE.NOTE]Hive 資料表會使用 \001 做為欄位分隔符號。此分隔符號不會顯示在輸出中。
+> [AZURE.NOTE]Hive 資料表會使用 \\001 做為欄位分隔符號。此分隔符號不會顯示在輸出中。
 
 分析結果列示在 Azure Blob 儲存體之後，您可以將資料匯出至 Azure SQL Database/SQL Server，使用 Power Query 將資料匯出至 Excel，或使用 Hive ODBC 驅動程式將應用程式連接到資料。如需詳細資訊，請參閱[搭配 HDInsight 使用 Sqoop][hdinsight-use-sqoop]、[使用 HDInsight 分析航班延誤資料][hdinsight-analyze-flight-delay-data]、[使用 Power Query 將 Excel 連接到 HDInsight][hdinsight-power-query] 和[使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 HDInsight][hdinsight-hive-odbc]。
 
@@ -559,4 +559,4 @@ HiveQL 指令碼將執行下列作業：
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

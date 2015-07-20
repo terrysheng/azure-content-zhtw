@@ -1,25 +1,27 @@
-<properties 
-   pageTitle="利用評估智慧套件最佳化環境"
-   description="評估智慧套件可讓您定期評估伺服器環境的風險和健康狀態"
+<properties
+   pageTitle="利用評估解決方案最佳化環境"
+   description="使用「評估」解決方案定期評估伺服器環境的風險和健全狀況"
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" />
-<tags 
+   editor="" />
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
-# 利用評估智慧套件最佳化環境
+# 利用評估解決方案最佳化環境
 
-評估智慧套件可讓您定期評估伺服器環境的風險和健康狀態。它們能針對已部署的伺服器基礎結構提供按照優先順序排列的具體建議清單。建議分為六個焦點領域，它們能協助您快速了解基礎結構的風險和健康狀態，以及讓您輕鬆地採取各種動作來降低風險及改善健康狀態。
+[AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
-以下是目前可用的評估智慧套件：
+您可以使用「評估」解決方案定期評估伺服器環境的風險和健全狀況。它們能針對已部署的伺服器基礎結構提供按照優先順序排列的具體建議清單。建議分為六個焦點領域，它們能協助您快速了解基礎結構的風險和健康狀態，以及讓您輕鬆地採取各種動作來降低風險及改善健康狀態。
+
+以下是目前可用的評估解決方案：
 
 - Active Directory
 
@@ -29,52 +31,41 @@
 
 您可以選擇對組織而言最重要的焦點區域，同時追蹤經營無風險且健康狀態良好之環境的進度。
 
-您需要安裝智慧套件以更新 Operational Insights 的 Operations Manager 代理程式和基底組態模組，以及將 AdvisorAssessment.exe 檔案加入受監視的伺服器中。智慧套件會讀取組態資料，然後將資料傳送至雲端中的 Operational Insights 服務，以便進行處理。系統會將邏輯套用在接收到的資料上，而雲端服務則會記錄資料。當評估完成時，系統會將焦點區域的摘要資訊顯示在環境之基礎結構的 [**評估**] 儀表板中。透過 [**評估**] 儀表板中的資訊，您可以檢視伺服器基礎結構的建議動作並予以實施。
+您需要安裝解決方案以更新 Operational Insights 的 Operations Manager 代理程式和基底組態模組，以及將 AdvisorAssessment.exe 檔案加入受監視的伺服器中。智慧套件會讀取組態資料，然後將資料傳送至雲端中的 Operational Insights 服務，以便進行處理。會將邏輯套用至接收的資料，且雲端服務會記錄資料。當評估完成時，系統會將焦點區域的摘要資訊顯示在環境之基礎結構的 [**評估**] 儀表板中。透過 [**評估**] 儀表板中的資訊，您可以檢視伺服器基礎結構的建議動作並予以實施。
 
-![image of SQL Assessment tile](./media/operational-insights-assessment/overview-sql-assess.png)
+![SQL 評估磚的影像](./media/operational-insights-assessment/overview-sql-assess.png)
 
-![image of SQL Assessment dashboard](./media/operational-insights-assessment/gallery-ad-01.png)
+![SQL 評估儀表板的影像](./media/operational-insights-assessment/gallery-ad-01.png)
 
 
-## 評估智慧套件常見問題集
+## 評估解決方案常見問題集
 
-*評估的執行頻率為何?*<br>
-評估會每隔 7 天執行一次。
+*評估的執行頻率為何？*<br> 評估會每隔 7 天執行一次。
 
-*是否有設定評估執行頻率的方法？*<br>
-目前沒有。
+*是否有設定評估執行頻率的方法？*<br> 目前沒有。
 
-*如果我在加入評估智慧套件後探索到另一部伺服器，智慧套件也會評估這部伺服器嗎？*<br>
-是的。智慧套件會在探索到該伺服器之後每隔 7 天評估一次。
+*如果我在加入評估智慧套件後探索到另一部伺服器，解決方案也會評估這部伺服器嗎？*<br> 是的。智慧套件會在探索到該伺服器之後每隔 7 天評估一次。
 
-*如果把伺服器除役，何時能將它從評估中移除？*<br>
-如果伺服器在 3 週內未提交任何資料，智慧套件便會將其移除。
+*如果把伺服器除役，何時能將它從評估中移除？*<br> 如果伺服器在 3 週內未提交任何資料，智慧套件便會將其移除。
 
-*負責收集資料之處理序的名稱為何？*<br>
-AdvisorAssessment.exe
+*負責收集資料之處理序的名稱為何？*<br> AdvisorAssessment.exe
 
-*收集資料需要花費多少時間？*<br>
-伺服器上的實際資料收集需費時約 1 小時。對於擁有大量 Active Directory 伺服器或 SQL 執行個體或資料庫的伺服器，資料收集可能需要花費更久的時間。
+*收集資料需要花費多少時間？*<br> 伺服器上的實際資料收集需費時約 1 小時。對於擁有大量 Active Directory 伺服器或 SQL 執行個體或資料庫的伺服器，資料收集可能需要花費更久的時間。
 
-*收集的資料類型為何？*<br>
-收集的資料類型如下：
+*收集的資料類型為何？*<br> 收集的資料類型如下：
 
 - WMI
 - 登錄
 - 效能計數器
 - SQL 動態管理檢視 (DMV)。
 
-*是否有設定資料收集時間的方法？*<br>
-目前沒有。
+*是否有設定資料收集時間的方法？*<br> 目前沒有。
 
-*為什麼我必須設定執行身分帳戶？*<br>
-智慧套件會針對 SQL Server 執行少量的 SQL 查詢。為了要執行 SQL 查詢，智慧套件必須使用具備「檢視伺服器狀態」權限的執行身分帳戶。此外，為了要查詢 WMI，智慧套件還需要本機系統管理員認證。
+*為什麼我必須設定執行身分帳戶？*<br> 智慧套件會針對 SQL Server 執行少量的 SQL 查詢。為了要執行 SQL 查詢，智慧套件必須使用具備「檢視伺服器狀態」權限的執行身分帳戶。此外，為了要查詢 WMI，智慧套件還需要本機系統管理員認證。
 
-*為什麼只顯示前 10 項建議？*<br>
-與其提供鉅細靡遺的工作清單，我們建議您先著重於解決優先建議事項。解決後，智慧套件將會提供其他建議。如果您想要查看詳細清單，可以使用 Operational Insights 搜尋來檢視所有建議。
+*為什麼只顯示前 10 項建議？*<br> 與其提供鉅細靡遺的工作清單，我們建議您先著重於解決優先建議事項。解決後，智慧套件將會提供其他建議。如果您想要查看詳細清單，可以使用 Operational Insights 記錄搜尋來檢視所有建議。
 
-*是否有忽略建議的方法？*<br>
-目前沒有。
+*是否有忽略建議的方法？*<br> 目前沒有。
 
 ## 了解建議的排列方式
 
@@ -88,7 +79,7 @@ AdvisorAssessment.exe
 
 - 疑難對組織的*影響力* (如果確實引發問題)。影響力較高等同於建議的整體分數較高。
 
-- 實作建議所需的*勞力* 。勞力較高等同於建議的整體分數較低。
+- 實作建議所需的*勞力*。勞力較高等同於建議的整體分數較低。
 
 每項建議之加權的表示採用每個焦點區域之總分的百分比。例如，如果針對安全性和法務遵循焦點區域之建議的分數為 5%，代表實作該項建議能增加 5% 的安全性和法務遵循整體分數。
 
@@ -114,7 +105,7 @@ AdvisorAssessment.exe
 
 ## 使用評估焦點區域建議
 
-在使用 Microsoft Azure Operational Insights 中的評估智慧套件之前，您必須先安裝智慧套件。若要閱讀有關安裝智慧套件的詳細資訊，請參閱 [使用組件庫來加入或移除智慧套件](../operational-insights-add-intelligence-pack.md)。安裝智慧套件後，您可以在 Operational Insights 中使用 [概觀] 頁面上的 [評估] 磚檢視建議摘要。
+在使用 Microsoft Azure Operational Insights 中的評估解決方案之前，您必須先安裝解決方案。如需閱讀安裝解決方案的更多資訊，請參閱[使用解決方案資源庫來新增或移除解決方案](operational-insights-add-solution.md)。安裝智慧套件後，您可以在 Operational Insights 中使用 [概觀] 頁面上的 [評估] 磚檢視建議摘要。
 
 您可以總結基礎結構的法務遵循評估結果，然後再深入鑽研建議事項。
 
@@ -132,5 +123,4 @@ AdvisorAssessment.exe
 
 4. 在 [**建議動作**] 中實施更正措施。當您解決某個項目後，後續評估會記錄您實施的建議動作並提高法務遵循分數。更正後的項目將呈現為 [**通過的物件**]。
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

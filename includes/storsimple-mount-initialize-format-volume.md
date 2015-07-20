@@ -1,3 +1,4 @@
+
 #### 掛接、初始化及格式化磁碟區
 
 1. 啟動 Microsoft iSCSI 啟動器。
@@ -29,4 +30,4 @@
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

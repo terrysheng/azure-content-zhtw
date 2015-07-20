@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="如何使用 Python 的 Blob 儲存體 | Microsoft Azure" 
-	description="了解如何使用 Python 的 Azure Blob 服務來上傳、列出、下載及刪除 Blob。" 
+	pageTitle="如何使用 Python 中的 Blob 儲存體 | Microsoft Azure" 
+	description="了解如何使用 Python 的 Azure Blob 服務上傳、列出、下載及刪除 blob。" 
 	services="storage" 
 	documentationCenter="python" 
 	authors="huguesv" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="05/11/2015" 
 	ms.author="huvalo"/>
 
 # 如何使用 Python 的 Blob 儲存體
@@ -22,9 +22,7 @@
 
 ## 概觀
 
-本指南將示範如何使用 Azure Blob 儲存體服務
-執行一般案例。相關範例是以 Python 撰寫的，並使用 [Python Azure 封裝][]。所涵蓋的案例包括「**上傳**」、「**列出**」、
-「**下載**」及「**刪除**」Blob。
+本指南將示範如何使用 Azure Blob 儲存服務執行一般案例。相關範例是以 Python 所撰寫，並使用 [Python Azure 封裝][]。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -32,10 +30,9 @@
 
 ## 作法：建立容器
 
-> [AZURE.NOTE] 如果您需要安裝 Python 或 [Python Azure 封裝][]，請參閱 [Python 安裝指南](../python-how-to-install.md)。
+> [AZURE.NOTE]如果您需要安裝 Python 或 [Python Azure 封裝][]，請參閱 [Python 安裝指南](../python-how-to-install.md)。
 
-
-**BlobService** 物件讓您能使用容器及 Blob。下列程式碼會建立 **BlobService** 物件。將下列內容新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 Python 檔案內的頂端附近：
+**BlobService** 物件讓您能使用容器及 blob。下列程式碼會建立 **BlobService** 物件。將下列內容新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 Python 檔案內的頂端附近：
 
 	from azure.storage import BlobService
 
@@ -43,7 +40,9 @@
 
 	blob_service = BlobService(account_name='myaccount', account_key='mykey')
 
-所有儲存體 Blob 皆位於一個容器中。如果容器不存在，您可以使用 **BlobService** 物件建立容器：
+[AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
+
+如果容器不存在，您可以使用 **BlobService** 物件建立容器：
 
 	blob_service.create_container('mycontainer')
 
@@ -57,13 +56,13 @@
 
 做此變更之後，網際網路上的任何人都可以看到公用容器中的 Blob，但只有您能修改或刪除它們。
 
-## 作法：將 Blob 上傳至容器
+## 作法：將 Blob 上傳到容器中
 
 若要將資料上傳至 Blob，請使用 **put_block_blob_from_path**、**put_block_blob_from_file**、**put_block_blob_from_bytes** 或 **put_block_blob_from_text** 方法。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
 
-**put_block_blob_from_path** 會從指定的路徑上傳檔案的內容，**put_block_blob_from_file** 會從已開啟的檔案/串流上傳內容。**put_block_blob_from_bytes** 會上傳位元組陣列，**put_block_blob_from_text** 會使用指定的編碼 (預設為 UTF-8) 上傳指定的文字值。
+**put_block_blob_from_path** 會從指定的路徑上傳檔案的內容，**put_block_blob_from_file** 會從已開啟的檔案/串流上傳內容，**put_block_blob_from_bytes** 會上傳位元組陣列，**put_block_blob_from_text** 會使用指定的編碼 (預設為 UTF-8) 上傳指定的文字值。
 
-下列範例會將 **sunset.png**檔的內容上傳至 **myblob** 中。
+下列範例會將 **sunset.png** 檔案的內容上傳至 **myblob** blob 中。
 
 	blob_service.put_block_blob_from_path(
         'mycontainer',
@@ -74,8 +73,7 @@
 
 ## 作法：列出容器中的 Blob
 
-若要列出容器中的 Blob，請使用 **list_blobs** 方法和
-**for** 迴圈，以顯示容器中每個 Blob 的名稱。下列程式碼將容器中每個 Blob 的 **name** 和 **url** 輸出到主控台。
+若要列出容器中的 Blob，請搭配使用 **list_blobs** 方法與 **for** 迴圈，顯示容器中每個 Blob 的名稱。下列程式碼將容器中每個 Blob 的 **name** 和 **url** 輸出到主控台。
 
 	blobs = blob_service.list_blobs('mycontainer')
 	for blob in blobs:
@@ -86,7 +84,7 @@
 
 若要從 Blob 下載資料，請使用 **get_blob_to_path**、**get_blob_to_file**、**get_blob_to_bytes** 或 **get_blob_to_text**。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
 
-下列範例示範如何使用 **get_blob_to_path** 下載 **myblob** Blob 的內容，並將其儲存至 **out-sunset.png** 檔案：
+下列範例示範如何使用 **get_blob_to_path** 下載 **myblob** blob 的內容，並將其儲存至 **out-sunset.png** 檔案：
 
 	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
 
@@ -100,11 +98,12 @@
 
 了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解有關更複雜的儲存工作。
 
--   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料][]
--   請造訪 [Azure 儲存體團隊部落格][]
+-   請參閱 MSDN 參考資料：[儲存和存取在 Azure 中的資料][]
+-   造訪 [Azure 儲存體團隊部落格][] (英文)。
 
-[在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[儲存和存取在 Azure 中的資料]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
-[Python Azure 封裝]: https://pypi.python.org/pypi/azure  
+[Python Azure 封裝]: https://pypi.python.org/pypi/azure
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

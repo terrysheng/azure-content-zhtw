@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="05/26/2015" 
 	ms.author="juliako"/>
 
-# Azure 媒體服務概觀
+#Azure 媒體服務概觀
 
 Microsoft Azure 媒體服務是一個可延伸的雲端型平台，供開發人員建置可擴充的媒體管理和傳遞應用程式。媒體服務是以 REST API 為基礎，可讓您安全地上傳、儲存、編碼和封裝視訊或音訊內容，以用於隨選和即時資料流傳遞給各種用戶端 (例如電視、電腦和行動裝置)。
 
@@ -26,119 +26,65 @@ Microsoft Azure 媒體服務是一個可延伸的雲端型平台，供開發人�
 
 - [媒體服務 REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 - 其中一個可用的用戶端 SDK：[Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services)、[Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java)、[Azure Media Services for Node.js](https://github.com/fritzy/node-azure-media)、[Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
-- 現有的工具：[Azure 管理入口網站](http://manage.windowsazure.com/) 或 [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer)。
+- 現有工具：[Azure 管理入口網站](http://manage.windowsazure.com/)或 [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer)。
 
-**服務等級協定 (SLA)**：媒體服務保證媒體服務編碼的 REST API 交易可用性高達 99.9%。至少購買一個串流保留單元時，針對現有的媒體內容，隨選串流可保證以 99.9% 的可用性成功服務要求。可用性是以每月帳單週期來計算。如需詳細資訊，請下載 [SLA 文件](https://www.microsoft.com/download/details.aspx?id=39302)。
 
-下列海報說明從媒體建立到耗用量的 Azure 媒體服務工作流程。您可以從這裡下載海報：[Azure 媒體服務海報](http://www.microsoft.com/download/details.aspx?id=38195)。
+下列海報說明從媒體建立到耗用量的 Azure 媒體服務工作流程。您可以從這裡下載海報：[Azure 媒體服務海報](http://www.microsoft.com/download/details.aspx?id=38195)
 
-![概觀][概觀]
+![概觀][overview]
 
-## 概念
+**服務等級協定 (SLA)**：
+
+- 對於媒體服務編碼，我們保證 REST API 交易可用性高達 99.9%。
+- 對於串流，我們在至少購買一個串流單位時，針對現有的媒體內容，可保證以 99.9% 的可用性成功服務要求。
+- 對於即時通道，我們保證執行中的通道至少 99.9% 的時間具有外部連線能力。
+- 對於內容保護，我們保證至少 99.9% 的時間將會成功滿足金鑰要求。
+- 對於索引子，我們將會在 99.9% 的時間成功服務編碼保留單元處理的索引子工作要求。
+
+	如需詳細資訊，請參閱 [Microsoft Azure SLA](http://azure.microsoft.com/support/legal/sla/)。
+
+##概念
 
 如需詳細資訊，請參閱[概念](media-services-concepts.md)。
 
-## 選擇您的媒體經驗
 
-分享視訊內容的第一個步驟是決定您要用戶端擁有何種經驗。您的客戶將如何檢視視訊內容？客戶會連線到網際網路嗎？他們是在電腦還是手持裝置上檢視您的內容？您的客戶期待 HD 視訊嗎？這些問題可以協助您提供客戶最佳的觀看經驗。
+##利用 Azure 媒體服務提供點播媒體
 
-### 存取視訊
- 
-客戶有四種存取視訊的基本方式：
+下列主題說明一般媒體服務隨選視訊工作流程的步驟。這個主題會連結至其他主題，說明如何使用媒體服務支援的技術達成這些步驟。
 
-- 離線檢視 
-- 漸進式下載
-- 串流\調適性位元速率串流
+[利用 Azure 媒體服務提供點播媒體](media-services-video-on-demand-workflow.md)。
 
-#### 離線檢視
+##利用 Azure 媒體服務提供即時資料流
 
-若要離線檢視視訊，客戶必須先將整個視訊下載到他的電腦或裝置上。視訊通常相當大，所以完成下載可能需要花一些時間。離線檢視的好處是，只要將視訊下載到裝置後，您不需要網路連線也能觀看。 
+下列主題說明一般媒體服務即時串流工作流程的步驟。這個主題會連結至其他主題，說明如何使用媒體服務支援的技術達成這些步驟。
 
-#### 漸進式下載
+[利用 Azure 媒體服務提供即時串流](media-services-live-streaming-workflow.md)。
 
-漸進式下載需要客戶連線到網際網路，並可在下載完整視訊前就讓客戶開始觀看視訊。離線檢視和漸進式下載方法都需要客戶用來觀看視訊的裝置具有足夠的儲存空間，以便容納整個視訊。
+##使用內容
 
-#### 串流
+Azure 媒體服務提供一些工具，供您用來建立適用於大部分平台的豐富、動態用戶端播放器應用程式，此處所述的平台包括：iOS 裝置、Android 裝置、Windows、Windows Phone、Xbox 和機上盒。下列主題也會提供 SDK 和 Player Framework 連結，可讓您開發自己的用戶端應用程式，使用來自媒體服務的串流媒體。
 
-串流技術也需要網際網路連線，但一次只下載一小片段的視訊，且在該視訊片段顯示之後就將其捨棄。這對檢視裝置上的儲存空間要求非常小。網路連線的輸送量不一，但無論網路頻寬為何，客戶仍期望能夠觀看視訊。調適性位元速率技術可讓視訊播放器應用程式判斷網路狀況，並由數種位元速率中進行選擇。當網路通訊降級時，用戶端會選擇較低的位元速率，讓播放器能夠持續以較低的視訊品質來播放視訊。當網路狀況改善時，用戶端會切換至較高的位元速率，以提高視訊品質。Azure 媒體服務支援下列調適性位元速率技術：HTTP 即時資料流 (HLS)、Smooth Streaming、MPEG DASH 和 HDS。
+[開發視訊播放器應用程式](media-services-develop-video-players.md)
 
-### 使用何種裝置
+##模式與實例指南
 
-需要決定的另一個決策是：您的客戶使用何種裝置來檢視您的視訊。媒體服務支援網頁瀏覽器、智慧型手機、平板電腦、XBOX、機上盒和網路連線電視。
+[模式與實例指南](https://wamsg.codeplex.com/) [線上文件](https://msdn.microsoft.com/library/dn735912.aspx) [可下載的電子書](https://www.microsoft.com/download/details.aspx?id=42629)
 
-#### 網頁瀏覽器
-
-網頁瀏覽器可以在 Windows 電腦、Macintosh 電腦和智慧型手機上執行。在電腦或 Macintosh 電腦上執行時，您可以運用大螢幕及大型儲存容量的優勢。這可讓您串流較高品質的視訊。Windows 電腦或 Macintosh 電腦可以使用原生應用程式或 HTML 相容網頁瀏覽器來檢視由媒體服務傳遞的視訊。原生應用程式可以支援 Smooth Streaming、Apple HLS、漸進式下載或離線檢視。HTML5 網頁支援漸進式下載。
-
-
-#### 智慧型手機
-
-智慧型手機的螢幕較小，儲存容量也較小。串流是這些裝置的最佳選擇。支援 iPhone、Windows Phone 和 Android 手機。iPhone 和 Android 手機支援 Smooth Streaming 和 HLS。Windows Phone 支援 Smooth Streaming。
-
-### 平板電腦
-
-平板電腦的螢幕比智慧型手機大，但通常儲存容量比較小。串流是平板電腦的最佳選擇。擁有較大儲存容量的平板電腦也可以運用離線檢視以及漸進式下載的優勢。
-
-#### XBox
-
-XBox 主控台擁有較大的螢幕和較大的儲存容量，適合採用離線、漸進式下載和串流。
-機上盒和網路連線電視
-這些裝置也擁有大螢幕，但儲存容量很少，串流是最好的選擇。
-
-### 裝置支援的技術
-
-下表顯示媒體服務支援的每種裝置類型和用戶端技術：
- 
-<table border="1">
-<tr><th>裝置</th><th>技術</th></tr>
-<tr><td>iOS</td><td>Smooth Streaming、Apple HLS、漸進式下載</td></tr>
-<tr><td>Windows Phone 8</td><td>Smooth Streaming</td></tr>
-<tr><td>Windows RT</td><td>Smooth Streaming</td></tr>
-<tr><td>Windows</td><td>Smooth Streaming、漸進式下載</td></tr>
-<tr><td>Android 手機</td><td>Smooth Streaming 和 Apple HLS</td></tr>
-<tr><td>XBox</td><td>Smooth Streaming</td></tr>
-<tr><td>Macintosh</td><td>Apple HLS、漸進式下載</td></tr>
-<tr><td>機上盒、網路連線電視</td><td>Smooth Streaming、Apple HLS、漸進式下載</td></tr>
-</table>
-
-
-## 利用 Azure 媒體服務提供點播媒體
-
-如需詳細資訊，請參閱[利用 Azure 媒體服務提供點播媒體](media-services-video-on-demand-workflow.md)。
-
-## 利用 Azure 媒體服務提供即時資料流
-
-如需詳細資訊，請參閱[利用 Azure 媒體服務提供即時資料流](media-services-live-streaming-workflow.md)以及提供主題連結，這些連結會示範如何執行上述工作。
-
-## 用戶端
-
-Azure 媒體服務提供一些工具，供您用來建立適用於大部分平台的豐富、動態用戶端播放器應用程式，此處所述的平台包括：iOS 裝置、Android 裝置、Windows、Windows Phone、Xbox 和機上盒。
-
-- [Smooth Streaming Client SDK](http://www.iis.net/downloads/microsoft/smooth-streaming) 
-- [Microsoft Media Platform：Player Framework](http://playerframework.codeplex.com/) 
-- [HTML5 Player Framework 文件](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
-- [Microsoft Smooth Streaming Plugin for OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Media Player Framework for iOS](https://github.com/Azure/azure-media-player-framework) 
-- [Licensing Microsoft(r) Smooth Streaming Client Porting Kit](https://www.microsoft.com/mediaplatform/sspk.aspx) 
-- 建置 Windows 8 上的視訊應用程式 
-- [XBOX Video Application Development](http://xbox.create.msdn.com/) 
-
-如需詳細資訊，請參閱[開發視訊播放器應用程式](media-services-develop-video-players.md).
-
-## 模式與實例指南
-
-[模式與實例指南](https://wamsg.codeplex.com/)
-[線上文件](https://msdn.microsoft.com/library/dn735912.aspx)
-[可下載的電子書](https://www.microsoft.com/download/details.aspx?id=42629)
-
-## 支援
+##支援
 
 [Azure 支援](http://azure.microsoft.com/support/options/)提供 Azure 的支援選項，包括媒體服務。
 
+##後續步驟
+
+[利用 Azure 媒體服務提供即時資料流](media-services-live-streaming-workflow.md)
+
+[開發視訊播放器應用程式](media-services-develop-video-players.md)
+ 
+[開發視訊播放器應用程式](media-services-develop-video-players.md)
 
 
 <!-- Images -->
-[概觀]: ./media/media-services-overview/media-services-overview.png
+[overview]: ./media/media-services-overview/media-services-overview.png
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

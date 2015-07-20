@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/18/2015" 
 	ms.author="wesmc"/>
 
 # 存取 Azure Active Directory 圖形資訊
@@ -22,11 +22,11 @@
 [AZURE.INCLUDE [mobile-services-selector-aad-graph](../../includes/mobile-services-selector-aad-graph.md)]
 ##概觀
 
-如同其他隨行動服務提供的身分識別提供者，Azure Active Directory (AAD) 提供者也支援豐富的圖形 API，可用於對目錄的程式設計存取。在本教學課程中，您會使用[圖形 REST API] 從目錄中擷取的其他使用者資訊來更新 ToDoList 應用程式，以個人化已驗證使用者的應用程式體驗。
+如同其他隨行動服務提供的身分識別提供者，Azure Active Directory (AAD) 提供者也支援豐富的圖形 API，可用於對目錄的程式設計存取。在本教學課程中，您會使用[Graph REST API] 從目錄中擷取的其他使用者資訊來更新 ToDoList 應用程式，藉此個人化已驗證使用者的應用程式體驗。
 
-如需有關 Azure AD 圖形 API 的詳細資訊，請參閱 [Azure Active Directory 圖形團隊部落格]。
+如需 Azure AD Graph API 的詳細資訊，請參閱 [Azure Active Directory 圖形團隊部落格]。
 
->[AZURE.NOTE]本教學課程的目的是要擴充您使用 Azure Active Directory 進行驗證的知識。您應已使用 Azure Active Directory 驗證提供者完成[將驗證新增至您的應用程式]教學課程。本教學課程接著將更新[將驗證新增至您的應用程式]教學課程中使用的 TodoItem 應用程式。
+>[AZURE.NOTE]本教學課程的目的是要擴充您使用 Azure Active Directory 進行驗證的知識。您應先使用 Azure Active Directory 驗證提供者，完成[將驗證新增至您的應用程式]教學課程。本教學課程接著會更新[將驗證新增至您的應用程式]教學課程中使用的 TodoItem 應用程式。
 
 
 
@@ -55,7 +55,7 @@
 
 如果您未曾搭配使用自訂 API 與行動服務，您應考慮先參閱[自訂 API 教學課程]，再開始執行本節步驟。
 
-1. 在 [Azure 管理入口網站]中，為您的行動服務建立新的 GetUserInfo 自訂 API，然後將 get 方法的參數設為 [僅限通過驗證的使用者]****。
+1. 在 [Azure 管理入口網站]中，為您的行動服務建立新的 GetUserInfo 自訂 API，然後將 get 方法的參數設為 [僅限通過驗證的使用者]。
 
     ![][0]
 
@@ -142,7 +142,7 @@
 ##更新應用程式以使用 GetUserInfo
 
 
-在本節中，您會更新您在[開始使用驗證]教學課程中實作的 `AuthenticateAsync` 方法，以呼叫自訂 API 並從 AAD 傳回使用者的其他相關資訊。
+在本節中，您會更新您在[開始使用驗證] 教學課程中實作的 `AuthenticateAsync` 方法，以呼叫自訂 API 並從 AAD 傳回使用者的其他相關資訊。
 
 [AZURE.INCLUDE [mobile-services-aad-graph-info-update-app](../../includes/mobile-services-aad-graph-info-update-app.md)]
 
@@ -175,8 +175,10 @@
 [Store Server Scripts]: mobile-services-store-scripts-source-control.md
 [註冊使用 Azure Active Directory 登入]: mobile-services-how-to-register-active-directory-authentication.md
 [Graph API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
+[Graph REST API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [圖形 REST API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [取得使用者]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [行動服務中使用 AAD 的角色型存取控制]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [Azure Active Directory 圖形團隊部落格]: http://go.microsoft.com/fwlink/?LinkId=510536
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

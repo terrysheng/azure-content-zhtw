@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="06/30/2015" 
 	ms.author="elizapo"/>
 
 # 什麼是 Azure RemoteApp？
@@ -30,7 +30,7 @@ Azure RemoteApp 屬於 [Microsoft 虛擬桌面基礎結構](http://www.microsoft
 
 **新功能！** 想要深入了解 Azure RemoteApp 嗎？ 或準備要驗證 RemoteApp？ 請加入我們每週的[專家請益網路研討會](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website)。
 
-## RemoteApp 部署選項
+## RemoteApp 收藏
 RemoteApp 收藏分成兩種：
 
 
@@ -47,9 +47,10 @@ RemoteApp 收藏分成兩種：
 
 您也可以為使用者建立雲端收藏來共用某個自訂應用程式或一組應用程式。若要這樣做，您需要[建立自訂映像](remoteapp-imageoptions.md) (這是我們將應用程式發佈到 RemoteApp 的方法)，而且只要在建立收藏時選擇該映像 (而非 Office 2013 映像) 即可。
 
-####選擇雲端的時機
+#### 選擇雲端收藏的時機
 
-當應用程式不需要透過 VPN 裝置對您公司私人網路上的任何資源進行連線時，就很適合「雲端收藏」。如果您的應用程式只會使用網際網路、OneDrive 或 Azure 上的資源，這就很適合您，而且非常容易設定。
+當您想要共用的應用程式不需要連接至貴公司私人網路上的任何資源時 (例如，透過 VPN 裝置)，請選擇雲端收藏。如果應用程式使用網際網路、OneDrive 或 Azure 上的資源，則雲端收藏將適用於您。它也是最快建立的。
+
 
 ### 混合式收藏
 [混合式 RemoteApp 收藏](remoteapp-create-hybrid-deployment.md)可讓您提供自訂的一組應用程式給使用者，並且提供您區域網路中資料和資源的存取權。不同於雲端收藏使用的自訂映像，您為混合式收藏建立的映像是在加入網域的環境中執行，因此會授與您區域網路和資料的完整存取權。
@@ -58,26 +59,29 @@ RemoteApp 收藏分成兩種：
 
 只要您使用 RD 工作階段主機角色服務在 Windows Server 2012 R2 上建置您的範本映像，您可以為使用者發佈的應用程式會有一些限制。如果應用程式在該範本映像環境中運作正常，使用者即可透過 RemoteApp 加以存取。
 
-####選擇混合式的時機
+#### 選擇混合式的時機
 
-如果您需要連線回您的私人網路，就比較適合「混合式」。有一些很好的範例，包括：
+如果您需要連接至貴公司私人網路上的資源，請選擇混合式收藏。比方說，如果應用程式需要存取下列其中一項：
 
-- 私人的檔案伺服器
+- 位於內部網路上的檔案伺服器
 - Quicken
-- 私人資料庫
-- 等等。
+- 防火牆後面的資料庫
 
-這通常對私人網路上有大量資源且無法移動到雲端的大型公司比較有用。
+這通常對私人網路上有大量資源無法移至雲端的大型公司很有用。
 
 ### 升級收藏
 混合式與雲端收藏之間的一個主要差異，在於軟體更新的處理方式。對於使用預先安裝之 Office 365 ProPlus 或 Office 2013 映像的雲端收藏，您不需擔心任何更新。此服務會自行維護並持續推出應用程式和作業系統的更新。
 
 對於混合式收藏以及使用自訂範本映像的雲端收藏，您必須負責維護映像和應用程式。對於已加入網域的映像，您可以使用 Windows Update、群組原則或 System Center 等工具控制更新。
 
-升級自訂的範本映像後，必須將新映像上傳至 Azure 雲端，然後更新收藏以使用新映像。(您可以從 RemoteApp [快速入門]**** 頁面或 [儀表板] 執行此作業。)
+升級自訂的範本映像後，必須將新映像上傳至 Azure 雲端，然後更新收藏以使用新映像。(您可以從 RemoteApp [快速入門] 頁面或 [儀表板] 執行此作業。)
+
+如需詳細資訊，請參閱 [更新您的收藏](remoteapp-update.md)。
 
 ## 支援的 RemoteApp 用戶端
 Windows 和 Windows RT 的 RemoteApp 用戶端應用程式以及 Mac、iOS 和 Android 適用的 Microsoft 遠端桌面應用程式均可支援 Azure RemoteApp。您的使用者可以在其行動或運算裝置上使用這些應用程式，以存取新的 RemoteApp 程式。
+
+如需用戶端的詳細資訊，請參閱[在 Azure RemoteApp 存取您的應用程式](remoteapp-clients.md)。
 
 ## 後續步驟
 快！ 立即試用！ 這些文章可幫助您開始使用 RemoteApp：
@@ -88,5 +92,6 @@ Windows 和 Windows RT 的 RemoteApp 用戶端應用程式以及 Mac、iOS 和 A
 - [RemoteApp 中的授權如何運作？](remoteapp-licensing.md)
 - [使用 Azure RemoteApp 的最佳作法](remoteapp-bestpractices.md)
 - [Azure RemoteApp 常見問題集](remoteapp-faq.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

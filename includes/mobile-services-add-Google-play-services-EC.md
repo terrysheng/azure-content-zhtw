@@ -27,4 +27,4 @@
 
 9. 依序按一下 [套用] 及 [確定]。
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

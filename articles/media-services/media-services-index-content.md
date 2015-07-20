@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="使用 Azure Media Indexer 編製媒體檔案索引" 
+	pageTitle="使用 Azure Media Indexer 編輯媒體檔案索引" 
 	description="Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。本主題說明如何使用 Media Indexer。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/25/2015" 
+	ms.date="04/21/2015" 
 	ms.author="juliako"/>
 
 
-# 使用 Azure Media Indexer 編製媒體檔案索引
+# 使用 Azure Media Indexer 編輯媒體檔案索引
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)系列的一部分。
 
-Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。您可以處理一份媒體檔或是批次處理多個媒體檔案。  
+Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。您可以處理一份媒體檔或是批次處理多個媒體檔案。
 
->[AZURE.NOTE] 在編製內容索引時，請務必使用語音非常清楚的媒體檔案 (不含背景音樂、噪音、效果或麥克風雜音)。適當內容的一些範例有：錄製的會議、演講或簡報。下列內容可能不適合用來編製索引：電影、電視節目、任何具有混合音訊與音效的內容、錄製效果不良有背景噪音 (雜音) 的內容。
+>[AZURE.NOTE]在編製內容索引時，請務必使用語音非常清楚的媒體檔案 (不含背景音樂、噪音、效果或麥克風雜音)。適當內容的一些範例有：錄製的會議、演講或簡報。下列內容可能不適合用來編製索引：電影、電視節目、任何具有混合音訊與音效的內容、錄製效果不良有背景噪音 (雜音) 的內容。
 
 
 編製索引工作會為每個要編製索引的檔案產生四個輸出：
@@ -38,11 +38,11 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 	如需詳細資訊，請參閱[搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)。
 
 
-本主題示範如何建立索引工作 **建立資產的索引** 和 **建立多個檔案的索引**。
+本主題示範如何建立索引工作**建立資產的索引**和**建立多個檔案的索引**。
 
 如需最新的 Azure Media Indexer 更新，請參閱[媒體服務部落格](http://azure.microsoft.com/blog/topics/media-services/)。
 
-## 針對索引工作使用組態和資訊清單檔
+##針對索引工作使用組態和資訊清單檔
 
 您可以使用工作組態來為索引工作指定更多詳細資料。例如，您可以指定要用於媒體檔案的中繼資料。語言引擎會使用此中繼資料來擴充其詞彙，並大幅提升語音辨識準確度。
 
@@ -50,7 +50,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 
 如需詳細資訊，請參閱 [Azure Media Indexer 的工作預設](https://msdn.microsoft.com/library/azure/dn783454.aspx)。
 
-## 編製資產索引
+##編製資產索引
 
 下列方法會將媒體檔案上傳為資產，並建立工作來編製資產索引。
 
@@ -96,7 +96,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 	    progressJobTask.Wait();
 	
 	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.Here we check 
+	    // method for job progress should log errors.  Here we check 
 	    // for error state and exit if needed.
 	    if (job.State == JobState.Error)
 	    {
@@ -143,7 +143,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 	    return processor;
 	} 
 	
-### <a id="output_files"></a>輸出檔
+###<a id="output_files"></a>輸出檔案
 
 索引工作會產生下列輸出檔案。檔案會儲存在第一個輸出資產。
 
@@ -176,7 +176,7 @@ SAMI 和 TTML 都包含稱為 <b>Recognizability</b> 的標記，它會根據來
 
 如果不是所有輸入媒體檔案都成功編製索引，則索引工作將會失敗，錯誤碼為 4000。如需詳細資訊，請參閱[錯誤碼](#error_codes)。
 
-## 編製多個檔案的索引
+##編製多個檔案的索引
 
 下列方法會將多個媒體檔案上傳為資產，並建立工作來批次編製這些檔案的索引。
 
@@ -228,7 +228,7 @@ SAMI 和 TTML 都包含稱為 <b>Recognizability</b> 的標記，它會根據來
 	    progressJobTask.Wait();
 	
 	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.Here we check 
+	    // method for job progress should log errors.  Here we check 
 	    // for error state and exit if needed.
 	    if (job.State == JobState.Error)
 	    {
@@ -256,11 +256,11 @@ SAMI 和 TTML 都包含稱為 <b>Recognizability</b> 的標記，它會根據來
 	}
 
 
-### 輸出檔案
+###輸出檔案
 
 當有多個輸入媒體檔案時，WAMI 會產生工作輸出的資訊清單檔，名為 'JobResult.txt'。針對每個輸入媒體檔案，產生的 AIB、SAMI、TTML 以及關鍵字檔案會循序編號，如下所示。
 
-如需輸出檔案的描述，請參閱[輸出檔案](#output_files)。 
+如需輸出檔案的描述，請參閱[輸出檔案](#output_files)。
 
 
 <table border="1">
@@ -271,7 +271,7 @@ SAMI 和 TTML 都包含稱為 <b>Recognizability</b> 的標記，它會根據來
 <br/><br/>
 
 <table border="1">
-<tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Error</th></tr>
+<tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>錯誤</th></tr>
 <tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr>
 <tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr>
 <tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr>
@@ -298,7 +298,7 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 
 如果不是所有輸入媒體檔案都成功編製索引，則索引工作將會失敗，錯誤碼為 4000。如需詳細資訊，請參閱[錯誤碼](#error_codes)。
 
-### 部分成功的工作
+###部分成功的工作
 
 如果不是所有輸入媒體檔案都成功編製索引，則索引工作將會失敗，錯誤碼為 4000。如需詳細資訊，請參閱[錯誤碼](#error_codes)。
 
@@ -317,23 +317,23 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 <tr><td>2003</td><td>無法下載媒體檔案</td><td>資訊清單檔中的 URL 無效。</td></tr>
 <tr><td>2004</td><td>不支援的通訊協定</td><td>不支援媒體 URL 的通訊協定。</td></tr>
 <tr><td>2005</td><td>不支援的檔案類型</td><td>不支援輸入媒體檔案類型。</td></tr>
-<tr><td>2006</td><td>太多輸入檔案</td><td>輸入資訊清單中有超過 10 個檔案。 </td></tr>
+<tr><td>2006</td><td>太多輸入檔案</td><td>輸入資訊清單中有超過 10 個檔案。</td></tr>
 <tr><td>3000</td><td>無法解碼媒體檔案</td>
 <td>不支援的媒體轉碼器。
 <br/>或<br/>
 損毀的媒體檔案。
 <br/>或<br/>
 輸入媒體沒有音訊資料流。</td></tr>
-<tr><td>4000</td><td>批次編製索引已部分成功</td><td>某些輸入媒體檔案無法編製索引。如需詳細資訊，請參閱<a href="output_files">輸出檔</a>。</td></tr>
+<tr><td>4000</td><td>批次編製索引已部分成功</td><td>某些輸入媒體檔案無法編製索引。如需詳細資訊，請參閱<a href="output_files">輸出檔案</a>。</td></tr>
 <tr><td>其他</td><td>內部錯誤</td><td>請連絡技術支援小組。</td></tr>
 </table>
 
 
-## <a id="supported_languages"></a>支援的語言
+##<a id="supported_languages"></a>支援的語言
 
-目前只支援英文。
+目前支援英文和西班牙文。如需詳細資訊，請參閱 [Azure Media Indexer (西班牙文)](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)。
 
-## 相關連結
+##相關連結
 
 [搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
@@ -343,5 +343,4 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 
 <!-- URLs. -->
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

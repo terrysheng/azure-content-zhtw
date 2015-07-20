@@ -1,3 +1,4 @@
+
 #### 透過 Windows PowerShell for StorSimple 安裝維護模式 Hotfix
 
 > [AZURE.IMPORTANT]在維護模式中，您需要先在某一個控制站上套用 Hotfix，然後在另一個控制站上套用 Hotfix。
@@ -16,4 +17,4 @@
 
 6. 套用 Hotfix 之後，結束維護模式。如需相關指示，請參閱[結束維護模式](#exit-maintenance-mode)。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

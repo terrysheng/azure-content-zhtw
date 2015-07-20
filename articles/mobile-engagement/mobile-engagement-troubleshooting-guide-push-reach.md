@@ -13,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="06/18/2015"
    ms.author="piyushjo"/>
-
 
 # 推送與觸達問題的疑難排解指南
 
@@ -45,10 +44,6 @@
 - 對於推送 API 的問題，請確認您真的希望使用推送 API 而不是觸達 API (因為觸達 API 更常使用)，且您並沒有混淆 "payload" 和 "notifier" 參數。
 - 使用透過 WIFI 與 3G 連線的裝置測試您的推播活動，來消除可能為問題來源的網路連線。
 
-### 另請參閱
-
-- [疑難排解指南 - SDK][Link 25], [疑難排解指南 - 推送][Link 23], [SDK 文件 - iOS - 如何準備你的應用程式以使用 Apple 推送通知][Link 5]
- 
 ## 推送測試
 
 ### 問題
@@ -59,10 +54,7 @@
 - 測試裝置在各平台上有不同的設定，但是在您測試裝置上的應用程式中引發事件，以及在入口網站尋找您的裝置識別碼的功能應該運作，以尋找您的裝置在所有平台上的裝置識別碼。
 - 測試裝置與 IDFA 與IDFV 搭配使用時運作方式不同 (僅 iOS)。
 
-### 另請參閱
 
-- [UI 文件 - Reach][Link 17]
- 
 ## 自訂推送
 
 ### 問題
@@ -85,12 +77,6 @@
 - Android 和 iOS 處理應用程式外通知方式的不同，導致難以直接比較應用程式 Android 和 iOS 版本兩者的推送統計數據。Android 相較於 iOS，提供較多作業系統層級的通知資訊。Android 在通知中心中接收、按一下、或是刪除原生通知時會報告，但 iOS 中除非按一下通知，否則不會報告此資訊，。 
 - 觸達活動的「已推送」數目與「已傳遞」數目不同的主要原因，在於「應用程式中」與「應用程式外」的通知以不同的方式計算。「應用程式中」通知由 Mobile Engagement 處理，但「應用程式外」通知則由裝置作業系統中的通知中心處理。
 
-### 另請參閱
-
-- [作法 - 第一次推送][Link 27], [疑難排除指南 - 推送][Link 23], [HTTP 通訊協定資訊](http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html)
-- [Apple 開發人員 - 「退出 (Opt-Out)」UI 資訊](http://support.apple.com/kb/HT3576), [Apple 開發人員 - 「退出 (Opt-Out)」開發資訊](https://developer.apple.com/notifications/), [Apple 開發人員 - 「退出 (Opt-Out)」疑難排解](https://developer.apple.com/library/ios/technotes/tn2265/), [Apple 開發人員 - URL 結構描述](https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html) 
-- [Android 開發人員 - 「退出 (Opt-Out)」UI 資訊](http://developer.android.com/about/versions/jelly-bean.html), [Android 開發人員 - 「退出 (Opt-Out)」模式](http://developer.android.com/design/patterns/notifications.html), [Android 開發人員 - 「退出 (Opt-Out)」通知程式](http://developer.android.com/guide/topics/ui/notifiers/notifications.html), [Android 開發人員 - 「退出 (Opt-Out)」預覽](https://developer.android.com/preview/notifications.html), [Android 開發人員 - 「退出 (Opt-Out)」參照](http://developer.android.com/reference/android/app/Notification.html), [Android 開發人員 - 意圖篩選結構描述](http://developer.android.com/guide/components/intents-filters.html#DataTest), [Android 開發人員 - 意圖篩選參照指南](http://developer.android.com/reference/android/content/Intent.html#toUri)
-
 ## 推送目標
 
 ### 問題
@@ -106,10 +92,7 @@
 - 設定「語言」和依據國家或地區設定目標不同，這也和依據地理位置、手機位置或 GPS 定位位置設定目標不同。
 - 系統會傳送使用「預設語言」的訊息給未將其裝置設定為您所指定之替代語言之一的任何客戶。
 
-### 另請參閱
 
-- [UI 文件 - 觸達][Link 17], [UI 文件 - 設定][Link 20], [API 文件 - 觸達][Link 4], [API 文件-推送][Link 4], [API 文件 - 裝置][Link 4]
- 
 ## 推送排程
 
 ### 問題
@@ -125,39 +108,6 @@
 - 如果您在觸達活動的 [活動] 區段中使用 [略過對象，推送將透過 API 傳送給使用者] 選項，活動將不會自動傳送，您必須以手動方式透過「觸達 API」傳送活動。
 - 如果您在 Reach 中使用自訂類別來顯示應用程式內通知，您必須遵循通知的正確生命週期，否則當使用者關閉通知時可能不會清除通知。
 
-### 另請參閱
-
-- [Reach 使用方法 - 安排活動][Link 3], [UI 文件 - Reach 的新推送活動][Link 27]
  
-<!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: mobile-engagement-user-interface-reach-campaign.md
-[Link 28]: mobile-engagement-user-interface-reach-criterion.md
-[Link 29]: mobile-engagement-user-interface-reach-content.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

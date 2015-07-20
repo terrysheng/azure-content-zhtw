@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #部署和管理 HDInsight 上的 Apache Storm 拓撲
@@ -177,6 +177,5 @@ REST API 的要求必須使用**基本驗證**，因此請使用 HDInsight 叢�
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor-topology/dashboard-link.png
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

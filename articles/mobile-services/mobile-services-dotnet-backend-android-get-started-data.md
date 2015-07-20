@@ -28,9 +28,9 @@
 
 若要完成此教學課程，您需要下列項目：
 
-+ <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> (Update 3 或更新版本。) 
++ <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> (Update 3 或更新版本)。 
 
-+ 一個 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-android-get-started-data%2F)。
++ Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-android-get-started-data%2F)。
 
 ##<a name="create-service"></a>建立新的行動服務
 
@@ -71,11 +71,11 @@
 
 現在，應用程式已更新為使用行動服務做為後端儲存，您可以使用 Android 模擬器或 Android 手機，在行動服務上測試應用程式。
 
-1. 在 [執行]**** 功能表中，按一下 [執行應用程式]**** 來啟動專案。
+1. 在 [執行] 功能表中，按一下 [執行應用程式] 來啟動專案。
 
 	這樣會執行您的應用程式 (以 Android SDK 建立)，該應用程式利用用戶端程式庫傳送查詢，然後從您的行動服務傳回項目。
 
-5. 同樣地，輸入有意義的文字，然後按一下 [加入]****。
+5. 同樣地，輸入有意義的文字，然後按一下 [加入]。
 
    	這會傳送新項目以插入至行動服務。
 
@@ -131,4 +131,6 @@ Android 的**開始使用資料**教學課程到此結束。
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
-<!--HONumber=54--> 
+   
+
+<!---HONumber=July15_HO2-->

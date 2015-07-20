@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="如何部署 SQL 資料庫 - Azure" 
-	description="了解如何將 SQL Server 資料庫部署到 Azure。您將使用 [Deploy Database to SQL Database] 精靈來上傳範例資料庫。" 
+	pageTitle="如何將 SQL Database 部署到 SQL Azure" 
+	description="使用 SQL Server 2016 Management Studio 中的精靈，將 SQL Server 資料庫部署到 Azure SQL Database。" 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="jeffgoll" 
+	authors="sidneyh" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,32 +13,35 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
-	ms.author="jeffreyg"/>
+	ms.date="07/01/2015" 
+	ms.author="sidneyh"/>
 
 
+# 如何將 SQL Database 部署到 Azure SQL Database
 
+在本文中，您會使用 [**將資料庫部署到 Azure SQL Database 精靈**]，將範例資料庫上傳至 Azure SQL Database。您必須為本教學課程下載 **SQL Server 2016 Management Studio (CTP 2.1)**。
 
+估計完成時間：15 分鐘 (包括下載時間)
 
+> [AZURE.NOTE]本教學課程使用非常簡便的 "school" 範例資料庫；其所有物件都與 Azure SQL Database 相容，排除了修改或準備資料庫進行移轉的需求。如果您是移轉更複雜的現有資料庫，您也可以考慮使用 [SQL Database 移轉精靈](http://sqlazuremw.codeplex.com/)，請參閱此[概觀](sql-database-cloud-migrate.md)。
 
-<h1><a id="howtodeploySQLdb"></a>如何將資料庫部署到 Azure</h1>
+## 必要條件
 
-將內部部署 SQL Server 資料庫移至 Azure 的方式有數種。在此工作中，您將使用 [Deploy Database to SQL Database] 精靈來上傳範例資料庫。
+**Microsoft Azure 帳戶**。如需免費試用版，請參閱此[優惠](http://azure.microsoft.com/pricing/free-trial/)。
 
-School 範例資料庫非常簡便，其所有物件都與 SQL Database 相容，排除了修改或準備資料庫進行移轉的需求。做為新的系統管理員，在使用自己的資料庫之前，首先嘗試部署簡單的資料庫以熟悉步驟。 
+下載 [**SQL Server Management Studio**](https://msdn.microsoft.com/library/mt238290.aspx)。(如需有關此工具的詳細資訊，請參閱 [SQL Server Management Studio - 2015 年 6 月版本資訊](https://msdn.microsoft.com/library/mt238486.aspx) (英文)。)
 
-**注意：**請檢閱《Azure SQL Database 移轉指南》，以取得準備將內部部署資料庫移轉至 Azure 的詳細指示。此外，請考慮下載 Azure 訓練套件。其中包含一個實驗室，會說明移轉內部部署資料庫的替代方法。
+Azure SQL Database 上的現有伺服器。如需有關建立新資料庫 (位於新伺服器) 的指示，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)。
 
+## 在內部部署伺服器上建立 school 資料庫
 
-<h2><a id="schooldb"></a>作法：在內部部署伺服器上建立 school 資料庫</h2>
+在 SQL Server Management Studio (SSMS) 中執行這些指令碼，以建立內部部署版本的 "school" 資料庫。
 
-您可以在 [開始使用 SQL Database 管理][] 中找到建立此資料庫的指令碼。在此指南中，您將在 Management Studio 中執行這些指令碼，以建立內部部署版本的 school 資料庫。
+1. 在 SSMS 中，連接到內部部署伺服器。以滑鼠右鍵按一下 [資料庫]，按一下 [新增資料庫]，並輸入 *school*。
 
-1. 在 Management Studio 中，連接到內部部署伺服器。以滑鼠右鍵按一下 [**資料庫**]，按一下 [**新增資料庫**]，並輸入 *school*。
+2. 以滑鼠右鍵按一下 *school*，並按一下 [新增查詢]。
 
-2. 以滑鼠右鍵按一下 *school*，然後按一下 [**新增查詢**]。 
-
-3. 複製然後執行教學課程中的建立結構描述指令碼。 
+3. 複製並執行此指令碼：
 
 <div style="width:auto; height:300px; overflow:auto"><pre>
 	-- Create the Department table.
@@ -531,68 +534,63 @@ School 範例資料庫非常簡便，其所有物件都與 SQL Database 相容�
 	VALUES (1061, 30, 4);
 	GO
 </pre></div>
+您現在擁有一個可匯出至 Azure 的內部部署資料庫。接著，您將執行可建立 .bacpac 檔案、將它載入 Azure 以及將它匯入 SQL Database 的精靈。
 
-   您現在擁有一個可匯出至 Azure 的內部部署資料庫。接著，您將執行可建立 .bacpac 檔案、將它載入 Azure 以及將它匯入 SQL Database 的精靈。
+	
+## 將資料庫部署到 Azure SQL 
+	
+1. 在 Management Studio 中，以滑鼠右鍵按一下您剛才建立的 school 資料庫，指向 [**工作**]，然後按一下 [**將資料庫部署到 Microsoft Azure SQL Database**]。
+2. 在 [**部署設定**] 中，輸入資料庫的名稱 (例如 *school*)。
+5. 按一下 [連接]。若要解決連線問題，請嘗試此[疑難排解](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1)。
+6. 在 [**伺服器名稱**] 中，輸入 10 個字元的伺服器名稱，後面接著 **.database.windows.net**
+7. 在 [**驗證**] 中，選擇 [**SQL Server 驗證**]。
+8. 輸入您在佈建 SQL Database 邏輯伺服器時所建立的系統管理員登入名稱和密碼。
+9. 按一下 [選項]。
+10. 在 [連接屬性] 的 [**連接到資料庫**] 中，輸入 **master**。
 
+	**注意** 每當您想要在 Azure SQL Database 伺服器上建立資料庫時，都必須連接到 **master** 資料庫。 
+11. 按一下 [連接]。此步驟會以連接規格作為總結，並引導您回到精靈。
+12. 按 [下一步]，然後按一下 [完成] 以執行精靈。
 
-<h2><a id="deploydb"></a>作法：部署至 SQL Database</h2>
+	
+## 作法：驗證資料庫部署
+	
+1. 在 Management Studio 中，在 [**物件總管**] 下按一下 [**連接**] 圖示。
+2. 在 [**伺服器**] 名稱方塊中，輸入 Azure SQL 伺服器的名稱，後面接著 **database.windows.net**
+3. 在 [**驗證**] 中，選取 [**SQL Server 驗證**]。
+4. 輸入您在佈建伺服器時所建立的系統管理員登入名稱和密碼。 
+5. 按一下 [**選項**] 按鈕。
+6. 按一下 [**連接至資料庫**] 下拉式清單，再按一下 [**瀏覽伺服器**]。在下列對話方塊中，按一下 [**是**] 以允許瀏覽伺服器。
+7. 按一下 [**school**] 資料庫加以選取，然後按一下 [**確定**]。 
+8. 然後按一下 [**連接**]。若要解決連線問題，請嘗試此[疑難排解](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1)。
+2. 展開 [**資料庫**] 資料夾。您應該會在清單中看到 **school** 資料庫。
 
-1. 在 Management Studio 中，連接到有您要移轉之資料庫的內部部署 SQL Server 執行個體。
-
-2. 以滑鼠右鍵按一下您剛才建立的 school 資料庫，指向 [**工作**]，然後按一下 [**將資料庫部署到 SQL Azure**]。
-
-3. 在 [部署設定] 中，輸入資料庫的名稱 (例如 *school*)。 
-
-4. 按一下 [**連接**]。
-
-5. 在 [伺服器名稱] 中，輸入 10 個字元的伺服器名稱，後面接著 .database.windows.net。
-
-6. 在 [驗證] 中，選擇 [**SQL Server 驗證**]。
-
-7. 輸入您在建立 SQL Database 邏輯伺服器時所佈建的系統管理員登入名稱和密碼。
-
-8. 按一下 [**選項**]。
-
-9. 在 [連接屬性] 的 [**連接到資料庫**] 中，輸入 **master**。
-
-10. 按一下 [**連接**]。此步驟會以連接規格做為總結，並引導您回到精靈。
-
-
-11. 按 [**下一步**]，然後按一下 [**完成**] 以執行精靈。
-
-
-<h2><a id="verify"></a>作法：驗證資料庫部署</h2>
-
-1. 在 Management Studio 的 [物件總管] 中，重新整理資料庫以檢視您剛才建立的新資料庫。
-
-2. 展開 [**資料庫**] 資料夾。您應該會在清單中看見 **school** 資料庫。
-
-3. 以滑鼠右鍵按一下 school 資料庫，然後按一下 [**新增查詢**]。
-
+	**注意** 必須連接至您想要查詢的資料庫。 
+3. 以滑鼠右鍵按一下 [**school**]，再按一下 [**新增查詢**]。
 4. 執行下列查詢以驗證該資料是否可以存取。
 
-<div style="width:auto; height:auto; overflow:auto"><pre>
-	SELECT
-		Course.Title as "Course Title"
-  		,Department.Name as "Department"
-  		,Person.LastName as "Instructor"
-  		,OnsiteCourse.Location as "Location"
-  		,OnsiteCourse.Days as "Days"
-  		,OnsiteCourse.Time as "Time"
-	FROM
- 	 Course
- 	 INNER JOIN Department
-  	  ON Course.DepartmentID = Department.DepartmentID
- 	 INNER JOIN CourseInstructor
- 	   ON Course.CourseID = CourseInstructor.CourseID
- 	 INNER JOIN Person
- 	   ON CourseInstructor.PersonID = Person.PersonID
- 	 INNER JOIN OnsiteCourse
+		SELECT
+			Course.Title as "Course Title"
+				,Department.Name as "Department"
+				,Person.LastName as "Instructor"
+				,OnsiteCourse.Location as "Location"
+				,OnsiteCourse.Days as "Days"
+				,OnsiteCourse.Time as "Time"
+		FROM
+			 Course
+			 INNER JOIN Department
+			  ON Course.DepartmentID = Department.DepartmentID
+			 INNER JOIN CourseInstructor
+			   ON Course.CourseID = CourseInstructor.CourseID
+			 INNER JOIN Person
+			   ON CourseInstructor.PersonID = Person.PersonID
+			 INNER JOIN OnsiteCourse
 		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
-</pre></div>
+		
+## 後續步驟
 
-[開始使用 SQL Database 管理]: /manage/services/sql-databases/getting-started-w-sql-databases/  
+如需建立新 Azure SQL Database 的教學課程，請參閱[開始使用 SQL Database 管理](sql-database-get-started.md)。如需從 C# 應用程式連接到 Azure SQL Database 的基本概念，請參閱[使用 C# 連接及查詢您的 SQL Database](sql-database-connect-query.md)。如需從各種平台 (例如 PHP) 連接的更多教學課程，請參閱 [Azure SQL Database 開發： 作法主題](https://msdn.microsoft.com/library/azure/ee621787.aspx)。
 
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

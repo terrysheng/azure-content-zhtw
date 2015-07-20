@@ -32,4 +32,4 @@
 
 2. 將行動服務專案重新發佈至 Azure。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

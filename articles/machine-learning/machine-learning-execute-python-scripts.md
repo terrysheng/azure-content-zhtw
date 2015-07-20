@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="在 Azure Machine Learning 中執行 Python 指令碼 | Azure" 
-	description="概述 Azure Machine Learning 中對於 Python 目前支援基礎之下的設計原則，以及基本使用案例、功能及限制。" 
+	pageTitle="執行 Python 機器學習服務指令碼 | Microsoft Azure" 
+	description="概述 Azure Machine Learning 中對於 Python 指令碼目前支援基礎之下的設計原則，以及基本使用案例、功能及限制。" 
+	keywords="python machine learning,pandas,python pandas,python scripts"
 	services="machine-learning"
 	documentationCenter="" 
 	authors="garyericson" 
@@ -17,11 +18,9 @@
 	ms.author="bradsev;garye" />
 
 
-# 在 Azure Machine Learning 中執行 Python 指令碼
+# 在 Azure Machine Learning Studio 中執行 Python 機器學習服務指令碼
 
-## 簡介
-
-本主題說明 Azure Machine Learning 中對於 Python 目前支援基礎之下的設計原則。也會概述主要功能，包括支援匯入現有程式碼、匯出視覺效果，最後會討論一些限制和進行中的工作。
+本主題說明 Azure Machine Learning 中對於 Python 指令碼目前支援基礎之下的設計原則。也會概述主要功能，包括支援匯入現有程式碼、匯出視覺效果，最後會討論一些限制和進行中的工作。
 
 [Python](https://www.python.org/) 是許多資料科學家工具櫃中不可或缺的工具。它有簡潔的語法、跨平台支持、大量的強力程式庫及成熟的的開發工具。Python 可用於機器學習模型中常用之工作流程的所有階段，從資料內嵌和處理開始，到模型訓練、驗證及部署的功能建構止。
 
@@ -30,12 +29,12 @@ Azure Machine Learning Studio 支援將 Python 指令碼內嵌至機器學習實
 [AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
 
 
-## 設計原則
+## 在 Machine Learning 中設計 Python 指令碼的原則
 Azure Machine Learning Studio 中 Python 的主要介面是透過「圖 1」中顯示的[執行 Python 指令碼][execute-python-script]模組。
 
-![image1](./media/machine-learning-execute-python-scripts/figure1a.png)
+![image1](./media/machine-learning-execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
-![image2](./media/machine-learning-execute-python-scripts/figure1b.png)
+![image2](./media/machine-learning-execute-python-scripts/embedded-machine-learning-python-script.png)
 
 圖 1.**執行 Python 指令碼**模組。
 
@@ -50,14 +49,16 @@ Azure Machine Learning Studio 中 Python 的主要介面是透過「圖 1」中�
   * 使用 R 評估和後處理結果。
 
 
-## 基本用法
-在此章節中，我們會調查[執行 Python 指令碼][execute-python-script]模組的一些基本用法。如稍早所述，對 Python 模組的任何輸入都會公開為 Pandas 資料框架。如需 Pandas 的詳細資訊和如何用於有效處理資料的資訊，可以在 W. McKinney 撰寫的 *Python for Data Analysis* (Sebastopol, CA.: O'Reilly, 2012) 中找到。函數必須傳回在 Python [序列](https://docs.python.org/2/c-api/sequence.html) (例如 tuple、清單或 NumPy 陣列) 內封裝的單一 Pandas 資料框架。然後會在模組的第一個輸出連接埠中傳回此序列的第一個元素。此配置顯示在「圖 2」中。
+## 機器學習服務中 Python 指令碼的基本使用案例
+在此章節中，我們會調查[執行 Python 指令碼][execute-python-script]模組的一些基本用法。如稍早所述，對 Python 模組的任何輸入都會公開為 Pandas 資料框架。如需 Python Pandas 及如何使用其更有效率地處理資料的詳細資訊，請參閱 W. McKinney 所撰寫的 *Python for Data Analysis* (Sebastopol, CA.: O'Reilly, 2012)。函數必須傳回在 Python [序列](https://docs.python.org/2/c-api/sequence.html) (例如 tuple、清單或 NumPy 陣列) 內封裝的單一 Pandas 資料框架。然後會在模組的第一個輸出連接埠中傳回此序列的第一個元素。此配置顯示在「圖 2」中。
 
-![image3](./media/machine-learning-execute-python-scripts/figure2.png) 圖 2.將輸入連接埠對應至參數，並且將值傳回至輸出連接埠。
+![image3](./media/machine-learning-execute-python-scripts/map-of-python-script-inputs-outputs.png)
+
+圖 2.將輸入連接埠對應至參數，並且將值傳回至輸出連接埠。
 
 輸入連接埠如何對應至 `azureml_main` 函數的參數的更詳細語意如「表 1」所示：
 
-![image1T](./media/machine-learning-execute-python-scripts/table-1.png)
+![image1T](./media/machine-learning-execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
 表 1.將輸入連接埠對應至函數參數。
 
@@ -75,13 +76,13 @@ Azure Machine Learning Studio 中 Python 的主要介面是透過「圖 1」中�
 
 ![image4](./media/machine-learning-execute-python-scripts/figure3a.png)
 
-![image5](./media/machine-learning-execute-python-scripts/figure3b.png)
+![image5](./media/machine-learning-execute-python-scripts/python-script-with-python-pandas.png)
 
 圖 3.用以評估 Python 運算式的 Web 服務。
 
 根據此實驗建立的 Web 服務會採用 Python 運算式的輸入 (字串)，將其傳送至 Python 解譯器，並且傳回包含運算式和評估結果的資料表。
 
-## 匯入現有 Python 模組
+## 匯入現有的 Python 指令碼模組
 對於許多資料科學家，常見的使用案例是將現有 Python 指令碼併入 Azure Machine Learning 實驗。而不是將所有程式碼串連和貼上至單一指令碼方塊，[執行 Python 指令碼][execute-python-script]模組接受第三個輸入連接埠，可以連接包含 Python 模組的 zip 檔案。然後，該檔案由執行架構在執行階段解壓縮，將內容新增至 Python 解譯器的程式庫路徑。然後 `azureml_main` 進入點函數可以直接匯入這些模組。
 
 做為範例，請考量包含簡單 “Hello, World” 函數的 Hello.py 檔案。
@@ -138,7 +139,7 @@ Azure Machine Learning Studio 中 Python 的主要介面是透過「圖 1」中�
 
 
 ## 進階範例
-Azure Machine Learning 中安裝的 Anaconda 環境包含常用封裝，例如 NumPy、SciPy 及 Scikits-Learn 和可以有效地用於在典型機器學習管線中的各種資料處理工作的那些項目。做為範例，下列實驗和指令碼說明在 Scikits-Learn 中使用集成學習器以計算資料集的功能重要性分數。然後可以使用該分數先執行受監督的功能選取，再將功能饋送至其他機器學習模型。
+Azure Machine Learning 中安裝的 Anaconda 環境包含常用封裝 (例如 NumPy、SciPy 及 Scikits-Learn)，以及可有效用於典型機器學習服務管線中各種資料處理工作的封裝。做為範例，下列實驗和指令碼說明在 Scikits-Learn 中使用集成學習器以計算資料集的功能重要性分數。然後可以使用該分數先執行受監督的功能選取，再將功能饋送至其他機器學習模型。
 
 Python 函數，用於根據以下顯示的功能計算重要性分數及排序功能：
 
@@ -168,5 +169,6 @@ Python 函數，用於根據以下顯示的功能計算重要性分數及排序�
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

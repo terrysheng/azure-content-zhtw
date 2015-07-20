@@ -103,7 +103,7 @@ MySQL 支援 3 種安裝方法：二進位套件、rpm 套件和來源套件。�
 
 - 步驟 1：安裝 MySQL Server 5.6
 
-    利用 apt-get 命令安裝 mysql-server 5.6 
+    利用 apt-get 命令安裝 mysql-server 5.6
 
               # azureuser@mysqlnode1:~$ sudo apt-get update
               # azureuser@mysqlnode1:~$ sudo apt-get -y install mysql-server-5.6
@@ -237,5 +237,6 @@ MySQL 支援 3 種安裝方法：二進位套件、rpm 套件和來源套件。�
     若要將 MySQL 設為在系統開機時啟動，請執行下列命令：
 
            #mysql-test:~ # insserv mysql
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

@@ -19,7 +19,6 @@
 
 # 使用 Microsoft Avro Library 將 Hadoop 中的資料序列化
 
-##概觀
 本主題說明如何使用 <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> 來將物件和其他資料結構序列化為資料流，以便將他們保留在記憶體、資料庫或檔案中，以及如何還原序列化來將他們復原成原始物件。
 
 
@@ -50,7 +49,7 @@ Azure HDInsight 和其他 Apache Hadoop 環境中廣泛採用了 Apache Avro 序
 ##<a name="installation"></a>Microsoft Avro Library 安裝
 Microsoft Avro 程式庫會以 NuGet 封裝發行，您可以透過下列程序在 Visual Studio 中安裝 NuGet 封裝：
 
-1. 依序選取 [專案]**** 索引標籤 -> [管理 NuGet 封裝]****
+1. 依序選取 [專案] 索引標籤 -> [管理 NuGet 封裝]
 2. 在 [**線上搜尋**] 方塊中搜尋 "Microsoft.Hadoop.Avro"。
 3. 按一下 [**Microsoft Avro Library**] 旁的 [**安裝**] 按鈕。 
 
@@ -1397,9 +1396,14 @@ Microsoft Avro 程式庫可透過反映、根據要序列化的 C# 物件資料�
 若要清理叢集，請執行下列命令：
 
     AvroHDISample clean
+
+
+
+
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

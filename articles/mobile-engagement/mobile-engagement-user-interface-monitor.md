@@ -142,6 +142,6 @@ UI 的 [監視] 區段提供即時分析資訊，並可讓您設定在 UI 之 [�
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

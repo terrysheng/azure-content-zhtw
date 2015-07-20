@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="06/18/2015"
    ms.author="piyushjo"/>
 
 # 分析、監視、分割，以及儀表板問題的疑難排解指南
@@ -33,16 +33,12 @@
 - 您可以使用分析 API、監視 API 與區段 API，查看是否能透過 API 看到 UI 中遺漏的任何資料。
 - 如果 Azure Mobile Engagement SDK 未正確地整合到您的應用程式中，您就無法查看分析、分割、監視或儀表板中的資訊。
 - 區段建立之後就無法變更，只能「再製」(複製) 或「終結」(刪除) 區段。區段只能包含 10 個準則。
-- 測試監視中遺漏資訊的最佳方式 (安裝測試裝置、解除安裝及/或重新安裝測試裝置上的應用程式)。
+- 測試監視中遺漏資訊的最佳方式是安裝測試裝置、解除安裝及/或重新安裝測試裝置上的應用程式。
 - 每隔 24 小時會重新整理分析、分割或儀表板的資訊。
-- 在新區段建立 24 小時之後，新區段中的資訊才會顯示 (即使該區段是以先前的資訊為根據)。
+- 在新區段建立 24 小時之後，新區段中的資訊才會顯示，即使該區段是以先前的資訊為根據。
 - 在 UI 中篩選您的分析資料，無論您的應用程式版本為何，將會顯示此類型的所有範例。(例如，依名稱篩選「當機」會從您的應用程式第 1 版和第 2 版顯示)。
 - 分析的時間週期是以使用者裝置設定的日期為依據，因此使用者的手機日期設定如果不正確，可能會顯示錯誤的時間週期。
 - 當您使用按鈕來「測試」推送時，不會記錄任何伺服器端的資料，只會記錄實際推送活動的資料。
-
-### 另請參閱
-
-- [疑難排解指南 - SDK][Link 25], [API 文件][Link 4], [UI 文件 - 分割][Link 18]
 
 ## 在 UI 中找不到項目
 
@@ -57,10 +53,6 @@
 - 對於無法新增至區段的內建項目與應用程式資訊標記，您必須在每個活動中設定目標準則的清單，來執行以區段為依據之目標的相同函式。
 - 請參閱 Azure Mobile Engagement UI 的分析、監視、分割及儀表板區段中的操作功能表，以取得更多協助與使用方式資訊。
 
-### 另請參閱
-
-- [UI 文件 - Reach 的新推送準則 (適用於目標對象)][Link 28]
- 
 ## 當機疑難排解
 
 ### 問題
@@ -71,39 +63,6 @@
 - 如果要疑難排解分析、監視或儀表板中發生的應用程式當機，請務必查看版本資訊，了解舊版 SDK 的已知問題。
 - 若要進一步疑難排解應用程式當機，請在已安裝您應用程式的測試裝置上執行事件，並在 Azure Mobile Engagement UI 的 [監視 – 事件] 區段中查詢您的裝置識別碼。然後執行造成應用程式當機的事件，並查詢 Azure Mobile Engagement UI 的 [監視 – 當機] 區段中的其他資訊。 
 
-### 另請參閱
+ 
 
-- [概念 - 常見問題集][Link 6], [概念 - 詞彙][Link 6], [UI 文件][Link 1], [SDK 文件 - 版本資訊][Link 5], [SDK 文件 - 升級指南][Link 5]
-
-<!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: mobile-engagement-user-interface-reach-campaign.md
-[Link 28]: mobile-engagement-user-interface-reach-criterion.md
-[Link 29]: mobile-engagement-user-interface-reach-content.md
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

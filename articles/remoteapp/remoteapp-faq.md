@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="06/30/2015" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp 常見問題集
@@ -27,11 +27,12 @@
 
 ## 支援的組態 ##
 
-
+- **服務限制有哪些？** 我們剛加入新的主題，涵蓋所有[服務限制及預設值](remoteapp-servicelimits.md)。讓我們知道您是否有更多的問題。
+- **我必須有多少個使用者？** 至少 20 個使用者。容我再次重複 - 至少 20 個。您將為 20 個使用者付費。請在這裡查看其他[使用者限制及預設值](remoteapp-servicelimits.md)。
 - **是否支援自訂的企業營運 (LOB) 應用程式？** 是。若要在 Azure RemoteApp 中使用自訂應用程式，請建立[自訂範本映像](remoteapp-create-custom-image.md)，然後將其上傳至 RemoteApp 收藏。
 - **我自訂的 LOB 應用程式能在 Azure RemoteApp 中運作嗎？** 最好的方式就是進行測試。檢閱[應用程式相容性需求](http://www.microsoft.com/download/details.aspx?id=18704)並查看 [RD 相容性中心](http://www.rdcompatibility.com/compatibility/default.aspx)。
 - **哪一種部署方式 (雲端或混合式) 最適合我的組織？** 如果您想要與單一登入 (SSO) 完整整合，而且有安全的內部部署網路連線，混合式收藏能提供最完整的體驗。雲端收藏使用多種驗證方法，提供靈活簡單的方式隔離您的部署。深入了解[部署選項](remoteapp-whatis.md)。
-- **混合式收藏需要 VNET。我們可以使用現有的 NET 嗎？** 現在不行，但我們知道您的需求。在我們在努力的同時，您可以依循[這些指示](http://blogs.msdn.com/b/rds/archive/2014/07/21/how-to-link-azure-remoteapp-to-an-existing-vnet.aspx)，將您現有的 VNET 連線至 Azure RemoteApp VNET。
+- **混合式收藏需要 VNET。我們可以使用現有的 VNET 嗎？** 可以，如果現有的 VNET 為 Azure VNET 的話。如需詳細資訊，請參閱[混合式收藏指示](remoteapp-create-hybrid-deployment.md)中的「步驟 1：設定虛擬網路」。
 - **我可以使用雲端或現有的虛擬機器作為 RemoteApp 收藏的範本嗎？** 可以！ 您可以根據 Azure VM 建立映像、使用訂用帳戶中包含的其中一個映像，或者建立自訂映像。查看 [RemoteApp 映像選項](remoteapp-imageoptions.md)。
 - **我們在內部部署或 Azure 中有 SQL 或其他資料庫。我們應使用何種部署類型？** 這取決於您的 SQL 或後端資料庫的所在位置。如果資料庫在私人網路中，請使用混合式收藏。如果資料庫公開於網際網路上並可供用戶端連線，您可以使用雲端收藏。
 - **磁碟機對應、USB 和序列埠、剪貼簿共用，以及印表機重新導向呢？** Azure RemoteApp 中都支援上述所有功能。預設會啟用剪貼簿共用和印表機重新導向。您可以在[這裡](remoteapp-redirection.md)深入了解重新導向。 
@@ -39,7 +40,7 @@
 
 - **驗證呢？ 支援何種方法？** 雲端收藏支援 Microsoft 帳戶與 Azure Active Directory 帳戶，而其同時也是 Office 365 帳戶。混合式收藏僅支援已從 Windows Server Active Directory 部署同步 (使用類似 [Azure Active Directory 同步作業](http://blogs.technet.com/b/ad/archive/2014/09/16/azure-active-directory-sync-is-now-ga.aspx)的工具) 的 Azure Active Directory 帳戶；更具體而言，就是同步時使用 [密碼同步] 選項，或是同步時已設定 Active Directory Federation Services (AD FS) 同盟。您也可以設定[多重要素驗證 (MFA)](../../services/multi-factor-authentication/)。
 
-	**注意：**Azure Active Directory 使用者必須來自於與您的訂用帳戶相關聯的租用戶。(您可以在入口網站的 [設定]**** 索引標籤上檢視和修改您的訂用帳戶。如需詳細資訊，請參閱[變更 RemoteApp 所使用的 Azure Active Directory 租用戶](remoteapp-changetenant.md)。)
+	**注意：**Azure Active Directory 使用者必須來自於與您的訂用帳戶相關聯的租用戶。(您可以在入口網站的 [設定] 索引標籤上檢視和修改您的訂用帳戶。如需詳細資訊，請參閱[變更 RemoteApp 所使用的 Azure Active Directory 租用戶](remoteapp-changetenant.md)。)
 
 - **為什麼我不能授與我的 Azure Active Directory 帳戶存取權？** Azure Active Directory 使用者必須來自於與您的訂用帳戶相關聯的目錄。您可以在入口網站的 [設定] 索引標籤上檢視或修改該目錄。如需詳細資訊，請參閱[變更 RemoteApp 所使用的 Azure Active Directory 租用戶](remoteapp-changetenant.md)。
 - **用戶端應用程式支援哪些裝置和作業系統？** Windows 8.1、Windows 8、Windows 7 Service Pack 1、iOS、Mac OS X、Windows RT、Android 裝置和 Windows Phone 都可以使用用戶端應用程式。我們也支援 Windows 10 預覽版。
@@ -79,5 +80,6 @@
 
 	影片！ 我們也有一些關於 RemoteApp 的影片。有些提供簡介 ([Azure RemoteApp 簡介](http://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/))，有些則是引導您完成部署 ([雲端部署](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be)和[混合式部署](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be))。請觀賞影片！
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

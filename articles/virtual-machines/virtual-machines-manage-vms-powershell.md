@@ -13,56 +13,84 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="02/20/2015"
+   ms.date="06/24/2015"
    ms.author="kasing"/>
 
 # 使用 Azure PowerShell 管理您的虛擬機器
 
-開始執行之前，您必須確定已安裝 Azure PowerShell。若要這樣做，請造訪[如何安裝及設定 Azure PowerShell](../install-configure-powershell.md)
+當您進行 VM 的日常管理時，可以使用 Azure PowerShell Cmdlet 自動完成許多工作。這篇文章提供了幾個簡單工作的範例命令，另外也提供顯示用來完成更複雜的工作之命令的文章連結。
 
-## 取得映像
+>[AZURE.NOTE]如果您尚未安裝和設定 Azure PowerShell，請按一下[這裡](../install-configure-powershell.md)以取得操作方法。
 
-建立 VM 之前，您需要決定「要使用哪一個映像」****。您可以使用下列 Cmdlet 來取得映像清單
-
-      Get-AzureVMImage
-
-這個 Cmdlet 將傳回在 Azure 中所有可用的映像清單。這份清單很長，而且很難找到您想要使用的確切映像。在下列範例中，我會使用其他的 PowerShell Cmdlet 來縮減傳回的映像清單，使其只包含以 **Windows Server 2012 R2 Datacenter** 為依據的映像。此外，會為傳回的映像陣列指定 [-1]，來選擇只取得最新映像。
-
-    $img = (Get-AzureVMImage | Select -Property ImageName, Label | where {$_.Label -like '*Windows Server 2012 R2 Datacenter*'})[-1]
-
-## 建立 VM
-
-VM 的建立是從 **New-AzureVMConfig** Cmdlet 開始。您將在此處指定 VM 的「名稱」****、VM 的「大小」****，以及要供該 VM 使用的「映像」****。這個 Cmdlet 會建立本機 VM 物件 **$myVM**，稍後可使用本指南中的其他 Azure PowerShell Cmdlet 來修改此物件。
-
-      $myVM = New-AzureVMConfig -Name "testvm" -InstanceSize "Small" -ImageName $img.ImageName
-
-接著，您需要選擇 VM 的「使用者名稱」****和「密碼」****。您可以使用 **Add-AzureProvisioningConfig** Cmdlet 來執行此動作。這是您告知 Azure，VM 為何種作業系統的地方。而不是說您仍在對本機 **$myVM** 物件進行變更。
-
-    $user = "azureuser"
-    $pass = "&Azure1^Pass@"
-    $myVM = Add-AzureProvisioningConfig -Windows -AdminUsername $user -Password $pass
-
-最後，您已經準備好在 Azure 中運作您的 VM。若要這樣做，您將需要使用 **New-azurevm** Cmdlet
-
-> [AZURE.NOTE] 您必須先設定雲端服務，才能建立 VM。做法有二種。
-* 使用 New-AzureService Cmdlet 來建立雲端服務。如果您選擇這個方法，則必須確定以下在 New-AzureVM Cmdlet 中指定的位置與您雲端服務的位置相符，否則 New-AzureVM Cmdlet 執行 Cmdlet 將會失敗。
-* 讓 New-AzureVM Cmdlet 來為您執行此動作。您必須確定該服務的名稱是唯一，否則 New-AzureVM Cmdlet 執行將會失敗。
-
-    New-AzureVM -ServiceName "mytestserv" -VMs $myVM -Location "West US"
-
-**選擇性**
-
-您可以使用其他 Cmdlet (例如 **Add-AzureDataDisk**、**Add-AzureEndpoint**) 來設定 VM 的其他選項
+## 如何使用範例命令
+命令中的某些文字必須換成適合您環境的文字。 < and > 符號表示您需要取代的文字。當您取代文字時，請移除符號，但將引號保留在原處。
 
 ## 取得 VM
-現在您已在 Azure 上建立 VM，您一定想要看到它正在進行。您可以使用 **Get-AzureVM** Cmdlet 來執行此動作，如下所示
+這是您會經常使用的基本工作。使用它來取得 VM 的相關資訊、在 VM 上執行工作，或取得輸出以儲存至變數中。
 
-    Get-AzureVM -ServiceName "mytestserv" -Name "testvm"
+若要取得 VM 的相關資訊，請執行這個命令並取代引號中的任何內容，包括 < and > 字元：
 
+     Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-## 後續步驟
-[透過 RDP 或 SSH 連接到 Azure 虛擬機器](https://msdn.microsoft.com/library/azure/dn535788.aspx)<br>
-[Azure 虛擬機器常見問題集](https://msdn.microsoft.com/library/azure/dn683781.aspx)
+若要儲存 $vm 變數中的輸出，請執行：
 
-<!--HONumber=47-->
- 
+    $vm = Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+
+## 登入 Windows 型虛擬機器
+
+執行以下命令：
+
+>[AZURE.NOTE]您可以從 **Get-azurevm** 命令顯示的畫面中，取得虛擬機器和雲端服務名稱。
+>
+	$svcName="<cloud service name>"
+	$vmName="<virtual machine name>"
+	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
+	$localFile=$localPath + "" + $vmname + ".rdp"
+	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
+
+## 停止 VM
+
+請執行這個命令：
+
+    Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+
+>[AZURE.IMPORTANT]萬一它是雲端服務的最後一個 VM，您可以使用這個參數來保留雲端服務的虛擬 IP (VIP)。<br><br> 如果使用 StayProvisioned 參數，還是需要支付 VM 的費用。
+
+## 啟動 VM
+
+請執行這個命令：
+
+    Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+
+## 附加資料磁碟
+這項工作需要幾個步驟。首先，請使用 ****Add-AzureDataDisk**** Cmdlet，將磁碟新增至 $vm 物件，然後使用 Update-AzureVM Cmdlet 更新 VM 的設定。
+
+您也需要決定是否要附加新的磁碟或附加已經包含資料的磁碟。如果是新的磁碟，這個命令會建立 .vhd 檔案，然後將它附加在同一個命令中。
+
+若要附加新的磁碟，請執行這個命令：
+
+    Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM <$vm> `
+              | Update-AzureVM
+
+若要附加現有的資料磁碟，請執行這個命令：
+
+    Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> `
+              | Update-AzureVM
+
+若要從 Blob 儲存體中現有的 .vhd 檔案附加資料磁碟，請執行這個命令：
+
+    Add-AzureDataDisk -ImportFrom -MediaLocation `
+              "<https://mystorage.blob.core.windows.net/mycontainer/MyExistingDisk.vhd>" `
+              -DiskLabel "<main>" -LUN <0> `
+              | Update-AzureVM
+
+## 建立 Windows VM
+
+若要在 Azure 中建立新的 Windows 型虛擬機器，請按照[使用 Azure PowerShell 建立和預先設定 Windows 型虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)的操作方法執行。本主題會逐步教您建立 PowerShell 命令集，然後利用這些命令建立一個預先設定了下列軟件的 Windows 虛擬機器：
+
+- Active Directory 網域成員資格
+- 額外的磁碟
+- 成為現有負載平衡集的成員
+- 靜態 IP 位址
+
+<!---HONumber=July15_HO2-->

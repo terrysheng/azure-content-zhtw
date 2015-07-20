@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="05/14/2015" 
 	ms.author="donnam"/>
 
 # 在您的行動服務應用程式中新增驗證
@@ -28,23 +28,23 @@
 2. [限制只有經驗證的使用者具有資料表的權限]
 3. [將驗證新增至應用程式]
 
-本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務]。
+本教學課程會以行動服務快速入門為基礎。您也必須先完成 [開始使用行動服務] 教學課程。
 
 完成本教學課程需要有 Xamarin.Android 和 Android SDK 4.2 或更新版本。
 
 ##<a name="register"></a>註冊應用程式進行驗證，並設定行動服務
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
 ##<a name="permissions"></a>限制只有通過驗證的使用者具有權限
 
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-3. 在 Eclipse 中，開啟您完成教學課程[開始使用行動服務]時建立的專案。 
+3. 在 Eclipse 中，開啟您完成教學課程 [開始使用行動服務] 時建立的專案。 
 
-4. 從 [執行]**** 功能表，按一下 [執行]**** 來啟動應用程式。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。
+4. 從 [執行] 功能表，按一下 [執行] 來啟動應用程式。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。
 
 	 這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 _TodoItem_ 資料表現在需要驗證。
 
@@ -52,11 +52,11 @@
 
 ##<a name="add-authentication"></a>將驗證新增至應用程式
 
-1. 將下列屬性新增至 **TodoActivity** 類別：
+1. 將下列屬性新增至 **ToDoActivity** 類別：
 
-		private MobileServiceUser user;
+		private MobileServiceUser user;
 
-2. 將下列方法加入 **TodoActivity** 類別：
+2. 將下列方法加入至 **ToDoActivity** 類別：
 
         private async Task Authenticate()
         {
@@ -85,14 +85,17 @@
 
         private async Task CreateTable()
         {
-            // Get the Mobile Service Table instance to use
-            todoTable = client.GetTable<TodoItem>();
+            
+            await InitLocalStoreAsync();
 
-            textNewTodo = FindViewById<EditText>(Resource.Id.textNewTodo);
+            // Get the Mobile Service Table instance to use
+            toDoTable = client.GetTable<ToDoItem>();
+
+            textNewToDo = FindViewById<EditText>(Resource.Id.textNewToDo);
 
             // Create an adapter to bind the items with the view
-            adapter = new TodoItemAdapter(this, Resource.Layout.Row_List_To_Do);
-            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewTodo);
+            adapter = new ToDoItemAdapter(this, Resource.Layout.Row_List_To_Do);
+            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewToDo);
             listViewTodo.Adapter = adapter;
 
             // Load the items from the Mobile Service
@@ -104,7 +107,7 @@
 		await CreateTable();
 
 
-6. 從 [執行]**** 功能表，按一下 [執行]**** 來啟動應用程式，並以您選擇的身分識別提供者登入。
+6. 從 [執行] 功能表，按一下 [執行] 來啟動應用程式，並以您選擇的身分識別提供者登入。
 
    	成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
 
@@ -133,5 +136,6 @@
 [使用指令碼授權使用者]: mobile-services-javascript-backend-service-side-authorization.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [完成的範例專案]: http://go.microsoft.com/fwlink/p/?LinkId=331328
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

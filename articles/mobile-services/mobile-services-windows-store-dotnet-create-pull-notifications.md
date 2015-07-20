@@ -34,17 +34,17 @@
 
 ## <a name="define-custom-api"></a>定義自訂 API
 
-1. 登入 [Azure 管理入口網站]，按一下 [行動服務]****，然後按一下您的應用程式。
+1. 登入 [Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
    	![][0]
 
-2. 按一下 [API]**** 索引標籤，然後按一下 [Create a custom API]****。
+2. 按一下 [API] 索引標籤，然後按一下 [Create a custom API]。
 
    	![][1]
 
-	這樣做會顯示 [Create a new custom API]**** 對話方塊。
+	這樣做會顯示 [Create a new custom API] 對話方塊。
 
-3. 將 [Get permission]**** 變更為 [Everyone]****，在 [API 名稱]__ 中輸入 **tiles**，然後按一下核取按鈕。
+3. 將 [Get permission] 變更為 [Everyone]，在 [API 名稱] 中輸入 **tiles**，然後按一下核取按鈕。
 
    	![][2]
 
@@ -54,7 +54,7 @@
 
 	![][3]
 
-5. 按一下 [指令碼]**** 索引標籤，並使用下列程式碼來取代現有程式碼：
+5. 按一下 [指令碼] 索引標籤，並使用下列程式碼來取代現有程式碼：
 
 		exports.get = function(request, response) {
 		    var wns = require('wns');
@@ -104,7 +104,7 @@
 
 1. 在 Visual Studio 中，按 F5 鍵以執行上一個教學課程中的快速入門應用程式。
 
-2. 確定至少顯示了一個項目。如果沒有任何項目，請在 [Insert a TodoItem]**** 中輸入文字，然後按一下 [儲存]****。
+2. 確定至少顯示了一個項目。如果沒有任何項目，請在 [Insert a TodoItem] 中輸入文字，然後按一下 [儲存]。
 
 3. 在 Visual Studio 中，開啟 App.xaml.cs 專案檔案，並新增下列 using 陳述式：
 
@@ -117,7 +117,7 @@
             PeriodicUpdateRecurrence.Hour
         );
 
-	此程式碼會開啟定期通知，以向新的**磚**自訂 API 要求磚範本資料。選取與您的資料更新頻率最相符的 [PeriodicUpdateRecurrance][] 值。
+	此程式碼會開啟定期通知，以向新的**磚**自訂 API 要求磚範本資料。選取與您的資料更新頻率最相符的 [PeriodicUpdateRecurrance] 值。
 
 ## <a name="test-app"></a>測試應用程式
 
@@ -165,5 +165,6 @@
 
 [行動服務 .NET 作法概念參考資料]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

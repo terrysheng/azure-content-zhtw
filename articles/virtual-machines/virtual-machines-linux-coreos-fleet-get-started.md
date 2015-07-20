@@ -1,23 +1,21 @@
-<properties 
-	pageTitle="開始在 Azure 上的 CoreOS 使用 Fleet" 
-	description="提供在 Azure 上的 CoreOS Linux 虛擬機器使用 Fleet 和 Docker 的基本範例。" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="dlepow" 
+<properties
+	pageTitle="開始在 Azure 上的 CoreOS 使用 Fleet"
+	description="提供在 Azure 上的 CoreOS Linux 虛擬機器使用 Fleet 和 Docker 的基本範例。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
 	manager="timlt"
 	editor="madhana"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.workload="infrastructure-services" 
-	ms.date="03/17/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="03/17/2015"
 	ms.author="danlep"/>
 
-
-<!--The next line, with one pound sign at the beginning, is the page title-->
 # 開始在 Azure 上的 CoreOS 使用 Fleet
 
 本文提供您兩個快速的範例，有關使用 [Fleet](https://github.com/coreos/fleet) 和 [Docker](https://www.docker.com/) 在 [ CoreOS] 虛擬機器的叢集上執行應用程式。
@@ -156,7 +154,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 如需在 Azure 上的 Linux VM 使用開放原始碼環境的詳細資訊，另請參閱 [Azure 上的 Linux 和開放原始碼運算]。
 
 <!--Link references-->
-[Azure Cross-Platform Interface (xplat-cli)]: ../xplat-cli.md
+[Azure Command-Line Interface (Azure)]: ../xplat-cli.md
 [ CoreOS]: https://coreos.com/
 [CoreOS 概觀]: https://coreos.com/using-coreos/
 [CoreOS with Azure]: https://coreos.com/docs/running-coreos/cloud-providers/azure/
@@ -171,4 +169,6 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 [busybox Docker 中樞映像]: https://registry.hub.docker.com/_/busybox/
 [CoreOS Apache Docker 中樞映像]: https://registry.hub.docker.com/u/coreos/apache/
 [Azure 上的 Linux 和開放原始碼運算]: virtual-machines-linux-opensource.md
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO2-->

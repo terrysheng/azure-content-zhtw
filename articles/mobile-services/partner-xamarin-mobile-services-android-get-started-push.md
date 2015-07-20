@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="將推播通知新增至行動服務應用程式 - 行動服務" 
-	description="了解如何在 Xamarin.Android 應用程式中以 Azure 行動服務使用推播通知。" 
+	pageTitle="將推播通知新增至 Xamarin Android 應用程式 | Azure 行動服務" 
+	description="了解如何使用 Google Cloud Messaging，為使用 Azure 行動服務和 Azure 通知中樞的 Xamarin.Android 應用程式設定推播通知。" 
 	documentationCenter="xamarin" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -13,29 +13,22 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/12/2015" 
+	ms.date="06/19/2015" 
 	ms.author="glenga"/>
 
 # 將推播通知新增至行動服務應用程式
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
-本主題說明如何使用 Azure 行動服務傳送推播通知至 Xamarin.Android 應用程式。在本教學課程中，您會使用Google Cloud Messaging (GCM) 服務將推播通知新增至[開始使用行動服務]專案。完成後，行動服務就會在每次插入記錄時傳送推播通知。
-
-本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
-
-1. [啟用 Google Cloud Messaging](#register)
-2. [設定行動服務](#configure)
-4. [設定用於推播通知的專案](#configure-app)
-5. [將推播通知程式碼新增至應用程式](#add-push)
-6. [插入資料以接收通知](#test)
+##概觀
+本主題說明如何使用 Azure 行動服務傳送推播通知至 Xamarin.Android 應用程式。在本教學課程中，您會使用 Google Cloud Messaging (GCM) 服務將推播通知新增至[開始使用行動服務]專案。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
 本教學課程需要下列各項：
 
 + 有效的 Google 帳戶。
 + [Google Cloud Messaging 用戶端元件]。您在教學課程中會新增此元件。
 
-您在完成[開始使用行動服務]或[將行動服務新增至現有的應用程式]時，應該已經在專案中安裝了 [Xamarin.Android] 和 [Azure 行動服務][Azure Mobile Services Component]元件。
+您在完成[開始使用行動服務]或[將行動服務新增至現有的應用程式]時，應該已經在專案中安裝了 [Xamarin.Android] 和 [Azure 行動服務元件]。
 
 ##<a id="register"></a>啟用 Google Cloud Messaging
 
@@ -47,7 +40,7 @@
 
 ##<a id="update-scripts"></a>更新註冊的插入指令碼以傳送通知
 
->[AZURE.NOTE]下列步驟示範如何在 Azure 管理入口網站中對 TodoItem 資料表上的插入作業更新註冊的指令碼。您也可以直接在 Visual Studio 之伺服器總管的 Azure 節點中，直接存取和編輯此行動服務指令碼。
+>[AZURE.TIP]下列步驟示範如何在 Azure 管理入口網站中對 TodoItem 資料表上的插入作業更新註冊的指令碼。您也可以直接在 Visual Studio 之伺服器總管的 Azure 節點中，直接存取和編輯此行動服務指令碼。
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
@@ -76,7 +69,7 @@
 
 * [開始使用驗證](mobile-services-android-get-started-users.md) <br/>了解如何使用行動服務驗證使用不同帳戶類型的應用程式使用者。
 
-* [什麼是通知中樞？](../notification-hubs-overview.md) <br/>深入了解通知中心如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
+* [什麼是通知中心？](../notification-hubs-overview.md) <br/>深入了解通知中心如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
 
 * [偵錯通知中樞應用程式](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>取得通知中樞解決方案的疑難排解和偵錯指引。
 
@@ -90,5 +83,7 @@
 
 [Google Cloud Messaging 用戶端元件]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
-[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
-<!--HONumber=54--> 
+[Azure 行動服務元件]: http://components.xamarin.com/view/azure-mobile-services/
+ 
+
+<!---HONumber=July15_HO2-->

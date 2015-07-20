@@ -3,7 +3,7 @@
 	description="了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。範例以 PHP 撰寫。" 
 	documentationCenter="php" 
 	services="storage" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="adinah" 
 	editor=""/>
 
@@ -22,7 +22,7 @@
 
 ## 概觀
 
-本指南將示範如何使用 Azure 佇列服務執行一般案例。這些範例均是以 Windows SDK for PHP 中的類別撰寫。所涵蓋的案例包括「**插入**」、「**查看**」、「**取得**」和「**刪除**」佇列訊息，以及「**建立和刪除佇列**」。如需佇列的詳細資訊，請參閱[後續步驟](#NextSteps) 一節。
+本指南將示範如何使用 Azure 佇列服務執行一般案例。這些範例均是以 Windows SDK for PHP 中的類別撰寫。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。如需佇列的詳細資訊，請參閱[後續步驟](#NextSteps)一節。
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -45,10 +45,9 @@
 1. 參考使用 [require_once][require_once] 陳述式的自動換片器檔案，以及
 2. 參考任何您可能使用的類別。
 
-下列範例顯示如何包含自動換片器檔案及參考 **ServicesBuilder** 類別。
+下列範例顯示如何納入自動換片器檔案及參考 **ServicesBuilder** 類別。
 
-> [AZURE.NOTE]
-> 此範例 (和本文中的其他範例) 假設您已透過 Composer 安裝 PHP Client Libraries for Azure。如果您以手動方式或以 PEAR 套件方式安裝程式庫，則必須參考 `WindowsAzure.php` 自動換片器檔案。
+> [AZURE.NOTE]此範例 (和本文中的其他範例) 假設您已透過 Composer 安裝 PHP Client Libraries for Azure。如果您手動或透過 PEAR 封裝安裝程式庫，則必須參考 `WindowsAzure.php` 自動換片器檔案。
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -74,7 +73,7 @@
 * 直接將連接字串傳遞給它，或
 * 使用 **CloudConfigurationManager (CCM)** 到多種外部來源檢查連接字串：
 	* 預設已支援一種外部來源，即環境變數
-	* 您可以擴充 **ConnectionStringSource** 類別以新增來源
+	* 您可以擴充 **ConnectionStringSource** 類別以加入新來源
 
 在本文的各範例中，將會直接傳遞連接字串。
 
@@ -116,7 +115,7 @@
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [AZURE.NOTE] 您不應該倚賴大小寫來區分中繼資料索引鍵。從服務讀取索引鍵時，所有索引鍵都是視為小寫。
+> [AZURE.NOTE]您不應該倚賴大小寫來區分中繼資料索引鍵。從服務讀取索引鍵時，所有索引鍵都是視為小寫。
 
 
 ## 作法：將訊息新增至佇列
@@ -191,7 +190,7 @@
 		}
 	}
 
-## 作法：將下一個訊息清除佇列
+## 作法：在下一個訊息清除佇列
 
 您的程式碼可以使用兩個步驟來將訊息從佇列中移除。首先，您需呼叫 **QueueRestProxy->listMessages**，這會讓從佇列讀取資料的任何其他程式碼無法看見此訊息。依預設，此訊息會維持不可見狀態 30 秒 (如果未在此期間內刪除訊息，訊息就會再次於佇列中變成可見。)若要完成從佇列中移除訊息，您必須呼叫 **QueueRestProxy->deleteMessage**。這個移除訊息的兩步驟程序可確保您的程式碼因為硬體或軟體故障而無法處理訊息時，另一個程式碼的執行個體可以取得相同訊息並再試一次。您的程式碼會在處理完訊息之後立即呼叫 **deleteMessage**。
 
@@ -376,12 +375,13 @@
 
 了解 Azure 佇列服務的基礎概念之後，請參考下列連結以深入了解更複雜的儲存工作。
 
-- 請參閱 MSDN 參考：[Azure 儲存體](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-- 請造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
+- 請參閱 MSDN 參考資料：[Azure 儲存體](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
 
-[下載]: http://go.microsoft.com/fwlink/?LinkID=252473
+[download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
-[Azure 管理入口網站]: http://manage.windowsazure.com/
-[在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Azure Management Portal]: http://manage.windowsazure.com/
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

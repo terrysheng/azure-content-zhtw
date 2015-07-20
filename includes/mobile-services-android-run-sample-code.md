@@ -25,4 +25,4 @@
 
    	Notice that the saved text is stored in an in-memory collection and displayed in the list below.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

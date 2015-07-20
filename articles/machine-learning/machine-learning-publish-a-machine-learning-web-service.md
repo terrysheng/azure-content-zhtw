@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="發佈 Machine Learning Web 服務 | Azure" 
+	pageTitle="發佈 Machine Learning Web 服務 | Microsoft Azure" 
 	description="如何將訓練實驗轉換為評分實驗，準備它以進行發佈，然後當做 Azure Machine Learning Web 服務發佈。" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="05/27/2015" 
 	ms.author="garye"/>
 
 #發佈 Azure Machine Learning Web 服務
@@ -93,8 +93,7 @@ Azure Machine Learning 可讓您建置、測試以及部署預測分析解決方
 
 在 Azure 管理入口網站中，您可以管理您的 Web 服務，方法是按一下 [**機器學習**] 服務，開啟您的機器學習工作區，然後從 [**WEB 服務**] 索引標籤開啟 Web 服務。您可以從這個頁面監視 Web 服務、更新及刪除它。您也可以為 Web 服務新增預設端點 (在您發佈服務時建立) 之外的第二個端點。
 
-如需詳細資訊，請參閱[管理 Azure Machine Learning 工作區](machine-learning-manage-workspace.md)。
-<!-- When this article gets published, fix the link and uncomment
+如需詳細資訊，請參閱[管理 Azure Machine Learning 工作區](machine-learning-manage-workspace.md)。<!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**. 
 -->
 
@@ -107,5 +106,6 @@ For more information on how to manage Azure Machine Learning web service endpoin
 
 > [AZURE.NOTE]如果您在原始 Web 服務中進行組態變更，例如輸入新的顯示名稱或說明，則您必須再次輸入這些值。
 
+更新 Web 服務的一個選擇是以程式設計方式重新定型模型。如需詳細資訊，請參閱[以程式設計方式重新定型機器學習服務模型](machine-learning-retrain-models-programmatically.md)。
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

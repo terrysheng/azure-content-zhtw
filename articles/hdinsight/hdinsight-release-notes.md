@@ -13,11 +13,45 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/18/2015"
+	ms.date="06/26/2015"
 	ms.author="nitinme"/>
 
 
 # Azure HDInsight 上 Hadoop 元件的版本資訊
+
+
+## HDInsight 2015/06/26 版本的附註 ##
+
+使用此版本部署的 HDInsight 叢集的完整版本號碼：
+
+* HDInsight 2.1.10.601.1610731 (HDP 1.3.12.0-01795 - 未變更)
+* HDInsight 3.0.6.601.1610731 (HDP 2.0.13.0-2117 - 未變更)
+* HDInsight 3.1.4.601.1610731 (HDP 2.1.15.0-2334 - 未變更)
+* HDInsight 3.2.4.601.1610731 (HDP 2.2.6.1-0011)
+* SDK 1.5.8
+
+
+此版本包含下列更新。
+
+<table border="1">
+<tr>
+<th>課程名稱</th>
+<th>說明</th>
+<th>受影響的區域 (例如服務、元件或 SDK)</p></th>
+<th>叢集類型 (例如 Hadoop、HBase 或 Storm)</th>
+<th>JIRA (如果適用)</th>
+</tr>
+
+
+<tr>
+<td>HDInsight 3.2 叢集的更新後 HDP 版本</td>
+<td>在此版本中，HDInsight 3.2 會部署 HDP 2.2.6.1</td>
+<td>服務</td>
+<td>全部</td>
+<td>N/A</td>
+</tr>
+
+</table>
 
 ## HDInsight 06/18/2015 版本的相關資訊 ##
 
@@ -1246,4 +1280,4 @@ SQL Server 的 Java 資料庫連接 (JDBC) 驅動程式僅供 HDInsight 內部�
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

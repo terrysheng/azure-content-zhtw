@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #使用 PowerShell 執行 Hive 查詢
@@ -22,7 +22,7 @@
 
 本文件提供使用 Azure PowerShell 在 HDInsight 叢集的 Hadoop 中執行 Hive 查詢的範例。
 
-> [AZURE.NOTE]本文件不提供範例中使用的 HiveQL 陳述式所執行的工作詳細的描述。如需此範例中使用的 HiveQL 的相關資訊，請參閱<a href="hdinsight-use-hive.md" target="_blank">搭配使用 Hive 與 HDInsight 上的 Hadoop</a>。
+> [AZURE.NOTE]本文件不提供範例中使用的 HiveQL 陳述式所執行的工作詳細的描述。如需此範例中使用的 HiveQL 的相關資訊，請參閱[在 HDInsight 上搭配 Hadoop 使用 Hive](hdinsight-use-hive.md)。
 
 
 ##<a id="prereq"></a>必要條件
@@ -34,7 +34,7 @@
 
 ##<a id="powershell"></a>使用 Azure PowerShell 執行 Hive 查詢
 
-Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Hive 查詢。在內部，您可以使用在 HDInsight 叢集上執行的 <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (先前稱為 Templeton) 的 REST 呼叫來達到此目的。
+Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Hive 查詢。在內部，您可以使用在 HDInsight 叢集上執行的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (先前稱為 Templeton) 的 REST 呼叫來達到此目的。
 
 在遠端 HDInsight 叢集中執行 Hive 查詢時，會使用下列 Cmdlet：
 
@@ -142,6 +142,5 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Hiv
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

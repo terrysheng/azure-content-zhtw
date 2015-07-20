@@ -24,7 +24,7 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及�
 
 在開始之前，您將需要下列項目：
 
-- Azure 訂閱。Azure 是訂閱型平台。如需取得訂閱的詳細資訊，請參閱[購買選項]、[成員優惠]或[免費試用]。
+- Azure 訂用帳戶。Azure 是訂用帳戶型平台。如需取得訂用帳戶的詳細資訊，請參閱[購買選項]、[成員優惠]或[免費試用]。
 
 - 具備 Azure PowerShell 的電腦。請參閱下一節的設定指示。
 
@@ -260,7 +260,7 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及�
 
 這些部落格張貼文章中有更多詳細的範例可用：
 
-- [如何使用 PowerShell 指令碼來建立服務匯流排佇列、主題及訂閱](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+- [如何使用 PowerShell 指令碼來建立服務匯流排佇列、主題及訂用帳戶](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [如何使用 PowerShell 指令碼來建立服務匯流排命名空間與事件中樞](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
 也有一些現成的指令碼可供下載：- [服務匯流排 PowerShell 指令碼](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
@@ -276,4 +276,4 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及�
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
 [服務匯流排的 .NET API]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

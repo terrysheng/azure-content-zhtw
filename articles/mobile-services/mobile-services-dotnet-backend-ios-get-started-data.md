@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/03/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh"/>
 
 # 將行動服務新增至現有的應用程式
@@ -37,7 +37,7 @@
 
 ##<a name="test-app"></a>測試應用程式
 
-1. 在 Xcode 中，按一下 [執行]**** 啟動應用程式。輸入文字並且按一下 [+]****，將項目新增至 todo 清單。
+1. 在 Xcode 中，按一下 [執行] 啟動應用程式。輸入文字並且按一下 [+]，將項目新增至 todo 清單。
 
 2. 確認變更已保存在 Azure 中的資料庫。使用 Azure 管理入口網站或 Visual Studio 的 SQL Server 物件總管來檢查資料庫。
 
@@ -87,4 +87,4 @@
 [快速入門]: mobile-services-dotnet-backend-ios-get-started.md
 [GetStartedWithData iOS 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

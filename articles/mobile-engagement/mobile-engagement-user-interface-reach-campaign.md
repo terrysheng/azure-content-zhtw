@@ -117,7 +117,7 @@
 您可以使用 [內容] 區段修改通知、投票、資料推送和磚 (僅限 Windows Phone) 的內容。推播活動的 [內容] 設定與活動類型有關。
 
 ### 另請參閱
-- [UI 文件 - 觸達 - 推播內容][Link 29]
+- [UI 文件 - 觸達 - 推送內容][Link 29]
  
 ![Reach-Campaign5][24]
 
@@ -258,5 +258,6 @@
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

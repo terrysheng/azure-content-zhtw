@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 
@@ -23,9 +23,9 @@
 
 ## 概觀
 
-本指南將示範如何使用 Azure 資料表儲存體服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][]。所涵蓋的案例包括「**建立**」、「**列出**」和「**刪除**」資料表，以及在資料表中「**插入**」、「**查詢**」、「**修改**」和「**刪除**」實體。如需資料表的詳細資訊，請參閱 [後續步驟](#NextSteps) 一節。
+本指南將示範如何使用 Azure 資料表儲存體服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][]。所涵蓋的案例包括「建立」、「列出」和「刪除」資料表，以及在資料表中「插入」、「查詢」、「修改」和「刪除」實體。如需資料表的詳細資訊，請參閱[後續步驟](#NextSteps)一節。
 
-注意：有一套 SDK 可供在 Android 裝置上使用 Azure 儲存體的開發人員使用。如需詳細資訊，請參閱 [Azure Storage SDK for Android][]。 
+注意：已發行一套 SDK 可供在 Android 裝置上使用 Azure 儲存體的開發人員使用。如需詳細資訊，請參閱 [Azure Storage SDK for Android][]。
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -56,7 +56,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         "AccountName=your_storage_account;" + 
         "AccountKey=your_storage_account_key";
 
-在 Microsoft Azure 的角色內執行的應用程式中，此字串可以儲存在服務組態檔  *ServiceConfiguration.cscfg* 裡，且可以藉由呼叫 **RoleEnvironment.getConfigurationSettings** 方法來存取。以下是從服務組態檔中名為 *StorageConnectionString* 的 **Setting** 元素取得連接字串的範例：
+在 Microsoft Azure 的角色內執行的應用程式中，此字串可以儲存在服務組態檔 *ServiceConfiguration.cscfg* 裡，且可以藉由呼叫 **RoleEnvironment.getConfigurationSettings** 方法來存取。以下是從服務組態檔中名為 **StorageConnectionString** 的 *Setting* 元素取得連接字串的範例：
 
     // Retrieve storage account from connection-string.
     String storageConnectionString = 
@@ -66,9 +66,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 ## 作法：建立資料表
 
-**CloudTableClient** 物件可讓您取得資料表和實體的參照物件
-。下列程式碼將建立 **CloudTableClient** 物件
-並使用此物件建立新的 **CloudTable** 物件，以代表一個名為 "people" 的資料表。(注意：還有其他方法可建立 **CloudStorageAccount** 物件。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考] (英文) 中的 **CloudStorageAccount**。)
+**CloudTableClient** 物件可讓您取得資料表和實體的參照物件。下列程式碼會建立 **CloudTableClient** 物件，並使用此物件建立新的 **CloudTable** 物件，此新物件代表一個名為「people」的資料表。(注意：還有其他方式可建立 **CloudStorageAccount** 物件。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考]中的 **CloudStorageAccount**。)
 
     try
     {
@@ -116,9 +114,9 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         e.printStackTrace();
     }
 
-## 作法：將實體加入至資料表
+## 作法：將實體新增至資料表
 
-將實體對應至 Java 物件，是透過一個實作 **TableEntity** 的自訂類別進行。為了方便起見，**TableServiceEntity** 類別會實作 **TableEntity**，並使用反映將屬性對應至為屬性指定的 Getter 和 Setter 方法。若要將實體新增至資料表，請先建立一個類別來定義實體的屬性。下列程式碼會定義一個使用客戶名字做為資料列索引鍵、並使用姓氏做為資料分割索引鍵的實體類別。實體的資料分割索引鍵和資料列索引鍵共同唯一識別資料表中的實體。相較於查詢具有不同資料分割索引鍵的實體，查詢具有相同資料分割索引鍵的實體速度會較快。
+將實體對應至 Java 物件，是透過一個實作 **TableEntity** 的自訂類別進行。為了方便起見，**TableServiceEntity** 類別會實作 **TableEntity**，並使用反映將屬性對應至為屬性指定的 Getter 和 Setter 方法。若要將實體新增至資料表，請先建立一個類別來定義實體的屬性。下列程式碼會定義一個使用客戶名字作為資料列索引鍵、並使用姓氏作為資料分割索引鍵的實體類別。實體的資料分割索引鍵和資料列索引鍵共同唯一識別資料表中的實體。相較於查詢具有不同資料分割索引鍵的實體，查詢具有相同資料分割索引鍵的實體速度會較快。
 
     public class CustomerEntity extends TableServiceEntity {
         public CustomerEntity(String lastName, String firstName) {
@@ -148,7 +146,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         }
     }
 
-涉及實體的資料表操作需要 **TableOperation** 物件。此物件定義了要在實體上執行的操作，而該操作可由 **CloudTable** 物件執行。下列程式碼會建立 **CustomerEntity** 類別的新執行個體，其中含有一些要儲存的客戶資料。程式碼接著會呼叫 **TableOperation.insertOrReplace** 來建立可將實體插入資料表中的 **TableOperation** 物件，然後將新的 **CustomerEntity** 與該物件建立關聯。最後，程式碼會在 **CloudTable** 物件上呼叫 **execute** 方法，其中指定 "people" 資料表和新的 **TableOperation**，而後者就會傳送要求給儲存體服務，以將新的客戶實體插入 "people" 資料表中。
+涉及實體的資料表操作需要 **TableOperation** 物件。此物件定義了要在實體上執行的操作，而該操作可由 **CloudTable** 物件執行。下列程式碼會建立 **CustomerEntity** 類別的新執行個體，其中含有一些要儲存的客戶資料。程式碼接著會呼叫 **TableOperation.insertOrReplace** 來建立將實體插入資料表中的 **TableOperation** 物件，然後將新的 **CustomerEntity** 與該物件建立關聯。最後，程式碼會呼叫 **CloudTable** 物件上的 **execute** 方法，其中指定 "people" 資料表和新的 **TableOperation**，而後者就會傳送要求給儲存體服務，以將新的客戶實體插入 "people" 資料表中。
 
     try
     {
@@ -181,7 +179,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 ## 作法：插入實體批次
 
-您可以在單一寫入操作中，插入實體批次至資料表服務。下列程式碼會建立一個 **TableBatchOperation** 物件，然後在其中新增三個插入操作。加入每個插入操作的方式都是建立新的實體物件、設定其值，然後在 **TableBatchOperation** 物件上呼叫 **insert** 方法以將實體與新的插入操作建立關聯。然後，程式碼會在 **CloudTable** 物件上呼叫 **execute**，其中指定 "people" 資料表和 **TableBatchOperation** 物件，而後者就會以單一要求將整批資料表操作傳送給儲存體服務。
+您可以在單一寫入操作中，插入實體批次至資料表服務。下列程式碼會建立一個 **TableBatchOperation** 物件，然後在其中新增三個插入操作。加入每個插入操作的方式都是建立新的實體物件、設定其值，然後呼叫 **TableBatchOperation** 物件上的 **insert** 方法以將實體與新的插入操作建立關聯。然後，程式碼會呼叫 **CloudTable** 物件上的 **execute**，其中指定 "people" 資料表和 **TableBatchOperation** 物件，而後者就會以單一要求將整批資料表操作傳送給儲存體服務。
 
     try
     {
@@ -415,7 +413,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 ## 作法：查詢實體屬性的子集
 
-一項資料表查詢可以只擷取實體的少數屬性。這項稱為「投射」的技術可減少頻寬並提高查詢效能 (尤其是對大型實體而言)。下列程式碼中的查詢會使用 **select** 方法，只傳回資料表中之實體的電子郵件地址。結果會在 **EntityResolver** (負責對從伺服器傳回的實體執行類型轉換) 的幫助下投影至 **String** 的集合中。您可以閱讀這篇 [部落格文章][] (英文) 深入了解投射。請注意，投射並不支援在本機儲存體模擬器上進行，因此此程式碼唯有在使用資料表服務上的帳戶時才會執行。
+一項資料表查詢可以只擷取實體的少數屬性。這項稱為「投射」的技術可減少頻寬並提高查詢效能 (尤其是對大型實體而言)。下列程式碼中的查詢會使用 **select** 方法，只傳回資料表中之實體的電子郵件地址。結果會在 **EntityResolver** (負責對從伺服器傳回的實體執行類型轉換) 的幫助下投影至 **String** 的集合中。您可以閱讀這篇[部落格文章][]深入了解投射。請注意，投射並不支援在本機儲存體模擬器上進行，因此此程式碼唯有在使用資料表服務上的帳戶時才會執行。
 
     try
     {
@@ -456,7 +454,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 ## 作法：插入或取代實體
 
-您經常會想要新增實體至資料表，但不知道它是否已在資料表中。插入或取代實體允許您透過單一要求，如果實體不存在便插入它，若是存在則取代現有實體。以先前的範例為基礎，下列程式碼會插入或取代 "Walter Harp" 的實體。建立新實體之後，此程式碼會呼叫 **TableOperation.insertOrReplace** 方法。此程式碼接著會以資料表以及插入或取代資料表操作當作參數，在 **CloudTable** 物件上呼叫 **execute**。若只要更新實體的某一部分，可以改用 **TableOperation.insertOrMerge** 方法。請注意，插入或取代並不支援在本機儲存體模擬器上進行，因此此程式碼唯有在使用資料表服務上的帳戶時才會執行。您可以閱讀這篇 [部落格文章][] (英文) 深入了解插入或取代，以及插入或合併。
+您經常會想要新增實體至資料表，但不知道它是否已在資料表中。插入或取代實體允許您透過單一要求，如果實體不存在便插入它，若是存在則取代現有實體。以先前的範例為基礎，下列程式碼會插入或取代 "Walter Harp" 的實體。建立新實體之後，此程式碼會呼叫 **TableOperation.insertOrReplace** 方法。此程式碼接著會以資料表以及插入或取代資料表操作當作參數，在 **CloudTable** 物件上呼叫 **execute**。若只要更新實體的某一部分，可以改用 **TableOperation.insertOrMerge** 方法。請注意，插入或取代並不支援在本機儲存體模擬器上進行，因此此程式碼唯有在使用資料表服務上的帳戶時才會執行。您可以閱讀這篇[部落格文章][] (英文) 深入了解插入或取代，以及插入或合併。
 
     try
     {
@@ -561,5 +559,6 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 [Azure 儲存體 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 [部落格文章]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

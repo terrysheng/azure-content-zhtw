@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="05/29/2015" 
 	ms.author="josephd"/>
 
 # Azure 混合式雲端測試環境
@@ -28,13 +28,13 @@
 - Azure 虛擬網路與複本網域控制站
 - 站對站 VPN 連線
 
-## 混合式雲端中的 SharePoint 內部網路伺服器陣列 
+## 混合式雲端中的 SharePoint 內部網路伺服器陣列
 
 [混合式雲端測試環境中的 SharePoint 內部網路伺服器陣列](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)會將 SQL Server 2014 伺服器和 SharePoint Server 2013 伺服器，加入至混合式雲端基本設定。這會建立兩層式 SharePoint 伺服器陣列，您可以從簡化的內部部署網路上的用戶端電腦存取。
 
 ## 混合式雲端中的網頁型 LOB 應用程式
 
- [混合式雲端測試環境中的網頁型 LOB 應用程式](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)會將 SQL Server 2014 伺服器和網際網路資訊服務 (IIS) 伺服器加入至混合式雲端基本設定。這樣會在裡面建立基礎結構，讓您可以部署和測試分層式網頁型 LOB 應用程式。
+[混合式雲端測試環境中的網頁型 LOB 應用程式](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)會將 SQL Server 2014 伺服器和網際網路資訊服務 (IIS) 伺服器加入至混合式雲端基本設定。這樣會在裡面建立基礎結構，讓您可以部署和測試分層式網頁型 LOB 應用程式。
 
 ## 混合式雲端中的 Office 365 目錄同步作業 (DirSync) 伺服器
 
@@ -53,6 +53,9 @@
 
 [在 Microsoft Azure 中部署 Office 365 目錄同步作業 (DirSync)](https://technet.microsoft.com/library/dn635310.aspx)
 
+[Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!--HONumber=52-->
+
  
+
+<!---HONumber=July15_HO2-->

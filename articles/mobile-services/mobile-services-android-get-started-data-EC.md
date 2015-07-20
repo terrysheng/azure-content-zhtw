@@ -100,11 +100,9 @@ Android 的**開始使用資料**教學課程到此結束。
 
 接著，請嘗試這些其他的 Android 教學課程：
 
-* [開始使用驗證] 
-	<br/>了解如何驗證應用程式的使用者。
+* [開始使用驗證] <br/>了解如何驗證應用程式的使用者。
 
-* [開始使用推送通知] 
-  <br/>了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
+* [開始使用推送通知] <br/>了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
 
 <!-- Anchors. -->
 [Download the Android app project]: #download-app
@@ -132,5 +130,6 @@ Android 的**開始使用資料**教學課程到此結束。
 [行動服務 Android SDK]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

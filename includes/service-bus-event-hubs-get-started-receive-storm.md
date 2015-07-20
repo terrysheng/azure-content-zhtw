@@ -6,7 +6,7 @@
 
 本教學課程使用 [HDInsight Storm] 安裝，其包含在已可使用的事件中樞 Spout 中。
 
-1. 請遵循 [HDInsight Storm - 入門](../articles/hdinsight-storm-getting-started.md)程序來建立新的 HDInsight 叢集，並透過遠端桌面與其連線。
+1. 請遵循 [HDInsight Storm - 入門](../hdinsight/hdinsight-storm-overview.md)程序來建立新的 HDInsight 叢集，並透過遠端桌面與其連線。
 
 2. 將 `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` 檔案複製到本機開發環境。這包含 events-storm-spout。
 
@@ -220,9 +220,9 @@
 	這個類別會建立新的事件中心 Spout，方法是使用組態檔中的屬性來進行具現化。請務必注意此範例所建立的 Spouts 工作數目要與事件中心內的磁碟分割數目一樣多，才能使用該事件中心所允許的最大平行處理。
 
 <!-- Links -->
-[事件中樞概觀]: http://msdn.microsoft.com/library/azure/dn836025.aspx
-[HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
-[HDInsight 感應器分析教學課程]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[事件中樞概觀]: event-hubs-overview.md
+[HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
+[HDInsight 感應器分析教學課程]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 
 <!-- Images -->
 
@@ -230,4 +230,4 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

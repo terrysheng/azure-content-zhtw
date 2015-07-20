@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/09/2015"
+   ms.date="07/08/2015"
    ms.author="v-sharos" />
 
 # 安裝您的 StorSimple 8100 裝置
@@ -21,7 +21,7 @@
 
 您的 Microsoft Azure StorSimple 8100 是單一機箱、機架掛接裝置。
 
-本教學課程說明如何在您設定 StorSimple 軟體之前{b>，<b}打開包裝、利用機架掛接和佈線 StorSimple 8100 裝置硬體。
+本教學課程說明如何在您設定 StorSimple 軟體之前，打開包裝、利用機架掛接和佈線 StorSimple 8100 裝置硬體。
 
 ## 打開您的 StorSimple 8100 裝置包裝
 
@@ -45,9 +45,9 @@
 
 2. 打開箱子。下圖顯示您的 Azure StorSimple 裝置打開包裝的檢視。
 
-    **圖 1 儲存體裝置打開包裝的檢視**
-
      ![打開您的儲存體裝置包裝](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
+
+    **圖 1：儲存體裝置打開包裝的樣子**
 
      標籤 | 說明 
      ----- | -------------
@@ -113,14 +113,14 @@
 
 2. 通常，滑軌會在工廠安裝。如果沒有的話，則在機箱底座側邊安裝左邊和右邊滑軌。他們是在每一邊使用六個公制螺絲來連接。為了協助辨識方向，滑軌標示為 [**LH – Front**] (左邊 – 前) 和 [**RH – Front**] (右邊 – 前)，接至機箱後端的尾端有錐型結尾。<br/>
 
-    **圖 2 將滑軌連接至機箱邊**
-
     ![將滑軌連接至機箱底座](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
-    標籤 | 說明
+   **圖 2：將滑軌連接至機箱邊**
+
+    Label | Description
     ----- | -----------
-    1 | M 3x4 圓頭螺釘
-    2 | 底座滑軌
+    1     | M 3x4 button-head screws
+    2     | Chassis slides
 
 3. 將左邊滑軌和右邊滑軌組件連接至機櫃垂直面。托架會標示 [**LH**] (左邊)，[**RH**] (右邊) 和 [**This side up**] (此面向上)，引導您正確的方向。
 
@@ -130,9 +130,9 @@
 
 6. 對其他滑軌組件重複這些步驟。<br/>
 
-    **圖 3 將滑軌組件連接至機架**
-
      ![將滑軌連接至機櫃](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+
+    **圖 3：將滑軌組件連接至機架**
 
      標籤 | 說明
      ----- | -----------
@@ -152,18 +152,18 @@
 
 2. 仔細地將裝置插入滑軌，然後將裝置完全推入至機櫃。<br/>
 
-    **圖 4 在機架中掛接裝置**
-
     ![在機架中插入裝置](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
+
+    **圖 4：在機架中掛接裝置**
 
 3. 藉由在每個輪緣、左側和右側，安裝一個提供的十字螺絲，在機架中鎖固機箱。
 
 4. 安裝輪緣蓋，方法是將其推入定位並且扣住。<br/>
 
-    **圖 5 安裝輪緣蓋**
-
      ![安裝輪緣蓋](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
  
+    **圖 5：安裝輪緣蓋**
+
      標籤 | 說明
      ----- | -----------
      1 | 機箱鎖固螺絲
@@ -213,10 +213,9 @@
 
     >[AZURE.NOTE]若要確保您的系統的高可用性，您應該嚴格遵守電源佈線配置，如下圖所示。
 
+    ![為您的 2U 裝置進行電源佈線](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
 
-    **圖 6 您的裝置的電源佈線**
-
-     ![為您的 2U 裝置進行電源佈線](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
+    **圖 6：您裝置的電源纜線**
 
      標籤 | 說明
      ----- | -----------
@@ -236,9 +235,9 @@
 
 1. 您的裝置在每個控制器上有六個網路介面：四個 1 Gbps 和兩個 10 Gbps 乙太網路連接埠。識別裝置後擋板上的各個資料連接埠。
 
-    **圖 7 顯示資料連接埠的裝置背面**
-
     ![8100 裝置的後擋板](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
+
+    **圖 7：顯示資料連接埠的裝置背面**
  
      標籤 | 說明
      ------- | -----------
@@ -255,21 +254,21 @@
     2. 每個控制器上的介面與至少兩個不同的交換器，以在發生交換器失敗時確保可用性。
     3. DATA 0 連接埠與主要 LAN (具有網際網路存取的網路)。其他資料連接埠可以連線到網路的 SAN/iSCSI LAN (VLAN) 區段，視預期的角色而定。
 
-   至少設定一個網路介面用於雲端存取，一個網路介面用於 iSCSI。對於高可用性和效能，請在每個控制器上設定網路介面的兩個配對。請參閱下圖的網路佈線。(最小的網路組態會以藍色實線顯示。對於高可用性和效能，需要的其他組態會以虛線顯示。)
+    至少設定一個網路介面用於雲端存取，一個網路介面用於 iSCSI。對於高可用性和效能，請在每個控制器上設定網路介面的兩個配對。請參閱下圖的網路佈線。(最小的網路組態會以藍色實線顯示。對於高可用性和效能，需要的其他組態會以虛線顯示。)
 
-   **圖 8 您的裝置的網路佈線**
+    ![為您的 2U 裝置進行網路佈線](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
-   ![為您的 2U 裝置進行網路佈線](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
+    **圖 8：您裝置的網路纜線**
 
-    Label | Description
+    標籤 | 說明
     ----- | -----------
-     A    | LAN with Internet access
-     B    | Controller 0
-     C    | PCM 0
-     D    | Controller 1
-     E    | PCM 1
-     F,G  | Hosts
-     0-5  | Network interfaces
+     A | 具有網際網路存取的 LAN
+     B | 控制器 0
+     C | PCM 0
+     D | 控制器 1
+     E | PCM 1
+     F、G | 主機
+     0-5 | 網路介面
    
 ### 序列連接埠佈線
 
@@ -298,4 +297,4 @@
 您現在已準備好[部署和設定您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

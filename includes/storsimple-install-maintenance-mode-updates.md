@@ -1,3 +1,4 @@
+
 #### 透過 Windows PowerShell for StorSimple 安裝維護模式更新
 
 1. 如果您尚未這樣做，請存取裝置序列主控台並選取選項 1 [使用完整存取權登入]。 
@@ -24,4 +25,4 @@
 
 8. 更新這兩個控制站之後，結束維護模式。如需相關指示，請參閱[結束維護模式](#exit-maintenance-mode)。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

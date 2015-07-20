@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/09/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 #Azure 搜尋服務的最新更新事項#
@@ -84,11 +84,11 @@ Azure 搜尋服務目前已正式推出，並為支援的 [2015-02-28 版本 API
 ##Api 版本 2014-07-31 預覽版本
 **發行日期：2014 年 8 月 21日**
 
-此版本是 Azure 搜尋的公用預覽版本，提供以下核心功能：
+此版本是 Azure 搜尋服務的公用預覽版本，提供以下核心功能：
 
-- 索引及文件作業專用的 REST API。在 2015-02-28 版本中，仍保有此 API 版本的大部分內容。有關版本 `2014-07-31-Preview` 的文件可以在 [Azure 搜尋服務 REST API 2014-07-31](../search-api-2014-07-31-preview.md) 中找到。
+- 索引及文件作業專用的 REST API。在 2015-02-28 版本中，仍保有此 API 版本的大部分內容。有關版本 `2014-07-31-Preview` 的文件可以在 [Azure 搜尋服務 REST API 2014-07-31](search-api-2014-07-31-preview.md) 中找到。
 
-- 調整搜尋結果專用的評分設定檔。評分設定檔可新增用於運算搜尋分數的準則。此功能的文件可以在 [Azure 搜尋服務評分設定檔 REST API 版本 2014-07-31](../search-api-scoring-profiles-2014-07-31-preview.md) 中找到。
+- 調整搜尋結果專用的評分設定檔。評分設定檔可新增用於運算搜尋分數的準則。此功能的文件可以在 [Azure 搜尋服務評分設定檔 REST API 版本 2014-07-31](search-api-scoring-profiles-2014-07-31-preview.md) 中找到。
 
 - 地理空間支援一開始就已推出，透過 Azure 搜尋服務最早包含的 `Edm.GeographyPoint` 資料類型提供服務。
 
@@ -97,13 +97,14 @@ Azure 搜尋服務目前已正式推出，並為支援的 [2015-02-28 版本 API
 ##管理 Api 版本 2015-02-28
 **發行日期：2015 年 3 月 5日**
 
-[管理 REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx) 為 API 管理的第一個版本，屬於 Azure 搜尋中正式運作的版本。這個版本與舊版預覽的功能沒有不同。
+[管理 REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx) 為 API 管理的第一個版本，屬於 Azure 搜尋服務中正式運作的版本。這個版本與舊版預覽的功能沒有不同。
 
 ##管理 api-版本 2014-07-31-預覽
 **發行日期：2014 年 10 月**
 
-新增的[管理 REST API](../search-management-api-2014-07-31-preview.md) 預覽版本支援以程式設計方式管理服務。REST API 服務單獨建自己的版本。
+新增的[管理 REST API](search-management-api-2014-07-31-preview.md) 預覽版本支援以程式設計方式管理服務。REST API 服務單獨建自己的版本。
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

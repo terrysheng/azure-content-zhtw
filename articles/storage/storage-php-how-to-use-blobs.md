@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="如何使用 PHP 的 Blob 儲存體 | Microsoft Azure" 
+	pageTitle="如何使用 PHP 中的 Blob 儲存體 | Microsoft Azure" 
 	description="了解如何使用 Azure Blob 服務來上傳、列出、下載及刪除 Blob。程式碼範例以 PHP 撰寫。" 
 	documentationCenter="php" 
 	services="storage" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="05/11/2015" 
 	ms.author="tomfitz"/>
 
 # 如何使用 PHP 的 Blob 儲存體
@@ -22,7 +22,7 @@
 
 ## 概觀
 
-本指南將示範如何使用 Azure Blob 服務執行一般案例。這些範例均是以 PHP 撰寫，並使用 [Azure SDK for PHP] [下載]。所涵蓋的案例包括「**上傳**」、「**列出**」、「**下載**」及「**刪除**」Blob。如需 Blob 的詳細資訊，請參閱 [後續步驟](#NextSteps) 一節。
+本指南將示範如何使用 Azure Blob 服務執行一般案例。這些範例均是以 PHP 撰寫，並使用 [Azure SDK for PHP][download] (英文)。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。如需 Blob 的詳細資訊，請參閱[後續步驟](#NextSteps)一節。
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -45,9 +45,9 @@
 1. 參考使用 [require_once][require_once] 陳述式的自動換片器檔案，以及
 2. 參考任何您可能使用的類別。
 
-下列範例顯示如何包含自動換片器檔案及參考 **ServicesBuilder** 類別。
+下列範例顯示如何納入自動換片器檔案及參考 **ServicesBuilder** 類別。
 
-> [AZURE.NOTE] 此範例 (和本文中的其他範例) 假設您已透過 Composer 安裝 PHP Client Libraries for Azure。如果您以手動方式或以 PEAR 套件方式安裝程式庫，則必須參考 `WindowsAzure.php` 自動換片器檔案。
+> [AZURE.NOTE]此範例 (和本文中的其他範例) 假設您已透過 Composer 安裝 PHP Client Libraries for Azure。如果您手動或透過 PEAR 封裝安裝程式庫，則必須參考 `WindowsAzure.php` 自動換片器檔案。
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -73,7 +73,7 @@
 * 直接將連接字串傳遞給它，或
 * 使用 **CloudConfigurationManager (CCM)** 到多種外部來源檢查連接字串：
 	* 預設已支援一種外部來源，即環境變數
-	* 您可以擴充 **ConnectionStringSource** 類別以新增來源
+	* 您可以擴充 **ConnectionStringSource** 類別以加入新來源
 
 在本文的各範例中，將會直接傳遞連接字串。
 
@@ -84,6 +84,8 @@
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
 ## 作法：建立容器
+
+[AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 **BlobRestProxy** 物件可讓您使用 **createContainer** 方法建立 Blob 容器。建立容器時，您可以在容器上設定選項，但這並非必要動作。(下列範例顯示如何設定容器 ACL 和容器中繼資料)。
 
@@ -135,11 +137,11 @@
 		echo $code.": ".$error_message."<br />";
 	}
 
-呼叫 **setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS)** 可讓容器和 Blob 資料開放透過匿名要求來存取。呼叫 **setPublicAccess(PublicAccessType::BLOBS_ONLY)** 可讓 Blob 資料開放透過匿名要求來存取。如需容器 ACL 的詳細資訊，請參閱 [設定容器 ACL (REST API)][container-acl] (英文)。
+呼叫 **setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS)** 可讓容器和 Blob 資料開放透過匿名要求來存取。呼叫 **setPublicAccess(PublicAccessType::BLOBS_ONLY)** 可讓 Blob 資料開放透過匿名要求來存取。如需容器 ACL 的詳細資訊，請參閱[設定容器 ACL (REST API)][container-acl] (英文)。
 
 如需 Blob 服務錯誤碼的詳細資訊，請參閱 [Blob 服務錯誤碼][error-codes] (英文)。
 
-## 作法：將 Blob 上傳至容器
+## 作法：將 Blob 上傳到容器中
 
 若要將檔案當作 Blob 上傳，請使用 **BlobRestProxy->createBlockBlob** 方法。如果 Blob 不存在，此作業將予以建立，若已存在，則予以覆寫。下列程式碼範例假設已建立容器，並使用 [fopen][fopen] (英文) 將檔案當作串流開啟。
 
@@ -168,7 +170,7 @@
 		echo $code.": ".$error_message."<br />";
 	}
 
-請注意，上述範例會以串流方式上傳 Blob。不過，也可以使用 [file_get_contents][file_get_contents] 之類的函數將 Blob 當作字串上傳。若要這麼做，請將上述範例中的 `$content = fopen("c:\myfile.txt", "r");` 變更為 `$content = file_get_contents("c:\myfile.txt");`。
+請注意，上述範例會以串流方式上傳 Blob。不過，也可以使用 [file_get_contents][file_get_contents] 之類的函數將 Blob 當作字串上傳。若要這樣做，請將上述範例中的 `$content = fopen("c:\myfile.txt", "r");` 變更為 `$content = file_get_contents("c:\myfile.txt");`。
 
 ## 作法：列出容器中的 Blob
 
@@ -234,7 +236,7 @@
 
 ## 作法：刪除 Blob
 
-若要刪除 Blob，請將容器名稱和 Blob 名稱傳遞至 **BlobRestProxy->deleteBlob**。 
+若要刪除 Blob，請將容器名稱和 Blob 名稱傳遞至 **BlobRestProxy->deleteBlob**。
 
 	require_once 'vendor\autoload.php';
 
@@ -288,18 +290,19 @@
 
 了解 Azure Blob 服務的基礎概念之後，請參考下列連結以深入了解更複雜的儲存工作。
 
-- 請參閱 MSDN 參考：[Azure 儲存體](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-- 請造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
+- 請參閱 MSDN 參考資料：[Azure 儲存體](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
 - 請參閱 <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php> 中的 PHP 區塊 Blob 範例。
 - 請參閱 <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php> 中的 PHP 分頁 Blob 範例
 
-[下載]: http://go.microsoft.com/fwlink/?LinkID=252473
-[在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[download]: http://go.microsoft.com/fwlink/?LinkID=252473
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/library/azure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
 [require_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

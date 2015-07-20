@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #使用 Curl 在 HDInsight 中以 Hadoop 執行 Hive 查詢
@@ -24,7 +24,7 @@
 
 本文件使用 Curl 示範如何使用未經處理的 HTTP 要求來與 HDInsight 互動，以便執行、監視和擷取 Hive 查詢的結果。要想執行這些作業，就要使用 HDInsight 叢集所提供的 WebHCat REST API (先前稱為 Templeton)。
 
-> [AZURE.NOTE]如果您已熟悉使用以 Linux 為基礎的 Hadoop 伺服器，但剛接觸 HDInsight，請參閱<a href="../hdinsight-hadoop-linux-information/" target="_blank">在以 Linux 為基礎的 HDInsight 上安裝 Hadoop 的須知事項</a>。
+> [AZURE.NOTE]如果您已熟悉使用以 Linux 為基礎的 Hadoop 伺服器，但剛接觸 HDInsight，請參閱[在以 Linux 為基礎的 HDInsight 上安裝 Hadoop 的須知事項](hdinsight-hadoop-linux-information.md)。
 
 ##<a id="prereq"></a>必要條件
 
@@ -32,19 +32,19 @@
 
 * HDInsight 叢集上的 Hadoop (Linux 或 Windows 型)
 
-* <a href="http://curl.haxx.se/" target="_blank">Curl</a>
+* [Curl](http://curl.haxx.se/)
 
-* <a href="http://stedolan.github.io/jq/" target="_blank">jq</a>
+* [jq](http://stedolan.github.io/jq/)
 
 ##<a id="curl"></a>使用 Curl 執行 Hive 查詢
 
 > [AZURE.NOTE]在使用 Curl 或與 WebHCat 進行任何其他 REST 通訊時，您必須提供 HDInsight 叢集系統管理員的使用者名稱和密碼來驗證要求。您也必須在用來將要求傳送至伺服器的統一資源識別項 (URI) 中使用叢集名稱。
-> 
+>
 > 在本節的所有命令中，將 **USERNAME** 取代為用來驗證叢集的使用者，並將 **PASSWORD** 取代為使用者帳戶的密碼。將 **CLUSTERNAME** 取代為您叢集的名稱。
-> 
-> 透過<a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">基本驗證</a>來保護 REST API 的安全。您應一律使用安全 HTTP (HTTPS) 來提出要求，以協助確保認證能夠安全地傳送到伺服器。
+>
+> 透過[基本驗證](http://en.wikipedia.org/wiki/Basic_access_authentication)來保護 REST API 的安全。您應該一律使用安全 HTTP (HTTPS) 提出要求，確保認證安全地傳送至伺服器。
 
-1. 從命令列使用下列命令來確認您可以連線到 HDInsight 叢集：
+1. 從命令列中，使用下列命令來確認您可以連線到 HDInsight 叢集：
 
         curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
 
@@ -74,15 +74,15 @@
     * **-d** - 因為未使用 `-G`，要求會依預設使用 POST 方法。`-d` 可指定與要求一起傳送的資料值。
 
         * **user.name** - 執行命令的使用者。
-        
+
         * **execute** - 要執行的 HiveQL 陳述式。
-        
+
         * **statusdir** - 要寫入此工作狀態的目錄。
 
     這些陳述式將執行下列動作：
 
     * **DROP TABLE** - 刪除資料表和資料檔 (如果資料表已存在)。
-    
+
     * **CREATE EXTERNAL TABLE** - 在 Hive 中建立新的「外部」資料表。外部資料表只會將資料表定義儲存在 Hive 中。資料會留在原來的位置。
 
 		> [AZURE.NOTE]當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，但希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。
@@ -90,10 +90,10 @@
 		> 捨棄外部資料表並**不會**刪除資料，只會刪除資料表定義。
 
     * **ROW FORMAT** - 告訴 Hive 如何格式化資料。在此情況下，每個記錄中的欄位會以空格隔開。
-    
+
     * **STORED AS TEXTFILE LOCATION** - 將資料的儲存位置告訴 Hive (example/data 目錄)，且資料儲存為文字。
-    
-    * **SELECT** - 選擇其資料欄 **t4** 包含值 **[ERROR]** 的所有資料列計數。這應該會傳回值 **3**，因為有 3 個資料列包含此值。
+
+    * **SELECT** - 選取其資料行 **t4** 包含 **[ERROR]** 值的所有資料列計數。這應該會傳回值 **3**，因為有 3 個資料列包含此值。
 
     > [AZURE.NOTE]請注意，在搭配 Curl 使用時，會以 `+` 字元取代 HiveQL 陳述式之間的空格。加上引號的值若包含空格，例如分隔符號，則不應以 `+` 取代。
 
@@ -125,14 +125,14 @@
 
         curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="CREATE+TABLE+IF+NOT+EXISTS+errorLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+STORED+AS+ORC;INSERT+OVERWRITE+TABLE+errorLogs+SELECT+t1,t2,t3,t4,t5,t6,t7+FROM+log4jLogs+WHERE+t4+=+'[ERROR]';SELECT+*+from+errorLogs;" -d statusdir="wasb:///example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
 
-    這些陳述式將執行下列動作：
+    這些陳述式會執行下列動作：
 
     * **CREATE TABLE IF NOT EXISTS** - 建立資料表 (如果不存在)。因為未使用 **EXTERNAL** 關鍵字，所以這是內部資料表，而內部資料表儲存在 Hive 資料倉儲中，並完全透過 Hive 所管理。
 
 		> [AZURE.NOTE]與外部資料表不同，捨棄內部資料表也會同時刪除基礎資料。
 
     * **STORED AS ORC** - 以最佳化資料列單欄式 (Optimized Row Columnar, ORC) 格式儲存資料。這是高度最佳化且有效率的 Hive 資料儲存格式。
-    * **INSERT OVERWRITE ...SELECT** - 從包含 **[ERROR]** 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表。
+    * **INSERT OVERWRITE ...SELECT**：從包含 **[ERROR]** 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表。
     * **SELECT** - 從新的 **errorLogs** 資料表選取所有資料列。
 
 7. 使用傳回的工作識別碼檢查工作的狀態。成功後，如先前所述使用適用於 Mac、Linux 和 Windows 的 Azure CLI 下載並檢視結果。輸出應包含三行，其中都包含 **[ERROR]**。
@@ -189,4 +189,4 @@ Hive 與 HDInsight 搭配使用的一般資訊：
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

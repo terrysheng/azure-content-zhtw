@@ -65,5 +65,6 @@
 
 * [Azure 上的 Linux 和開放原始碼運算](virtual-machines-linux-opensource.md)
 * [如何登入執行 Linux 的虛擬機器](virtual-machines-linux-how-to-log-on.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

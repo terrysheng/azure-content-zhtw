@@ -60,4 +60,9 @@
 
 異地複寫使用連續複製。因此，使用 [sys.dm_continuous_copy_status](https://msdn.microsoft.com/library/azure/dn741329.aspx) 動態管理檢視 (DMV) 可取得上次複寫時間和其他資訊。
 
-<!---HONumber=58--> 
+
+
+
+ 
+
+<!---HONumber=July15_HO2-->

@@ -75,10 +75,6 @@ HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable*
 
     例如，`azure sql server create admin password "West US"`
 
-    > [AZURE.NOTE]如果您收到的錯誤指出您沒有存取權，您可能需要使用下列命令，將用戶端工作站的 IP 位址加入至 SQL Database 防火牆：
-    >
-    > `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
-
     命令完成時，您應該會收到類似這樣的回應：
 
         info:    Executing command sql server create
@@ -94,6 +90,9 @@ HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable*
 
     完成時會傳回 [確定] 訊息。
 
+	> [AZURE.NOTE]如果您收到的錯誤指出您沒有存取權，您可能需要使用下列命令，將用戶端工作站的 IP 位址加入至 SQL Database 防火牆：
+	>
+	> `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
 ##建立資料表
 
@@ -264,6 +263,5 @@ HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable*
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

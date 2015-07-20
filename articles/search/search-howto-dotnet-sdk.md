@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="04/17/2015"
+   ms.date="07/08/2015"
    ms.author="brjohnst"/>
 
 # 如何從 .NET 應用程式使用 Azure 搜尋服務 #
@@ -29,9 +29,9 @@ SDK 包含用戶端程式庫 `Microsoft.Azure.Search`。該程式庫可讓您管
 - [Microsoft.Azure.Search](https://msdn.microsoft.com/library/azure/microsoft.azure.search.aspx)
 - [Microsoft.Azure.Search.Models](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx)
 
-目前的 Azure 搜尋服務 .NET SDK 版本為 `0.10.0-preview`。這是 SDK 的發行前版本。如果您想提供意見反應給我們，讓我們可以將您的意見併入第一個穩定版本中，請瀏覽我們[意見回應頁面](http://feedback.azure.com/forums/263029-azure-search)。
+目前的 Azure 搜尋服務 .NET SDK 版本是發行前版本。如果您想提供意見反應給我們，讓我們可以將您的意見併入第一個穩定版本中，請瀏覽我們[意見回應頁面](http://feedback.azure.com/forums/263029-azure-search)。
 
-.NET SDK 支援 `2015-02-28` 版 Azure 搜尋服務 REST API，該項目已記載於 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)。新功能*不*在此版本中，例如支援 Microsoft 的自然語言處理器或 `moreLikeThis` 搜尋參數，都在[預覽版](../search-api-2015-02-28-preview/)中，SDK 還沒有提供這些功能。您可以查看[搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)或 [Azure 搜尋服務的最新更新](../search-latest-updates/)，了解任一功能的狀態更新。
+.NET SDK 支援 `2015-02-28` 版 Azure 搜尋服務 REST API，該項目已記載於 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)。新功能*不*在此版本中，例如支援 Microsoft 的自然語言處理器或 `moreLikeThis` 搜尋參數，都在[預覽版](search-api-2015-02-28-preview.md)中，SDK 還沒有提供這些功能。您可以查看[搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)或 [Azure 搜尋服務的最新更新](search-latest-updates.md)，了解任一功能的狀態更新。
 
 此 SDK 中其他不支援的功能包括：
 
@@ -41,7 +41,7 @@ SDK 包含用戶端程式庫 `Microsoft.Azure.Search`。該程式庫可讓您管
 
 1. Visual Studio 2013 或更新版本。
 
-2. 擁有 Azure Search 服務。為了使用 SDK，您需要為服務命名，還需要一或多個 API 金鑰。[在入口網站建立服務](../search-create-service-portal/)可協助您執行這些步驟。
+2. 擁有 Azure Search 服務。為了使用 SDK，您需要為服務命名，還需要一或多個 API 金鑰。[在入口網站建立服務](search-create-service-portal.md)可協助您執行這些步驟。
 
 3. 使用 Visual Studio 中的 [管理 NuGet 封裝] 下載 Azure 搜尋服務 .NET SDK [NuGet 封裝](http://www.nuget.org/packages/Microsoft.Azure.Search)。只要在 NuGet.org 上搜尋封裝名稱 `Microsoft.Azure.Search` 即可。務必選取 [包含發行前版本 (Include Prerelease)]，確保 SDK 的發行前版本會出現在搜尋結果中。
 
@@ -295,7 +295,7 @@ Azure 搜尋服務 .NET SDK 支援以 .NET Framework 4.0 或更新版為目標�
 
 此方法的第三部分是擷取區塊，該區塊會為編制索引處理重要錯誤情況。如果您的 Azure Search 服務無法將 Batch 中的一些文件編制索引，則 `Documents.Index` 會擲回 `IndexBatchException`。如果您在服務負載過重時編制文件的索引，就會發生此情況。**我們強烈建議您在程式碼中明確處理此情況。** 您可以延遲，然後重新嘗試將失敗的文件編制索引，或像範例一樣加以記錄並繼續，或是根據您應用程式的資料一致性需求執行其他操作。
 
-最後，方法會延遲兩秒。您的 Azure Search 服務中會發生非同步索引編製，因此範例應用程式必須稍待一會，才能確定文件已準備好可供搜尋。通常只有在示範、測試和範例應用程式中，才需要這類延遲。
+最後，方法會延遲兩秒。您的 Azure 搜尋服務中會發生非同步索引編製，因此範例應用程式必須稍待一會，才能確定文件已準備好可供搜尋。通常只有在示範、測試和範例應用程式中，才需要這類延遲。
 
 #### .NET SDK 如何處理文件 ####
 
@@ -623,5 +623,6 @@ Hotel.cs：
             }
         }
     }
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

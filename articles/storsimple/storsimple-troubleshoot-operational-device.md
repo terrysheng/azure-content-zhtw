@@ -5,8 +5,7 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> 
-
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -47,5 +46,6 @@
 | 4 | Invoke-HcsSetupWizard：值未落在預期的範圍內。 | 這個錯誤是因為不正確的子網路遮罩而引發。可能的原因如下：<ul><li>子網路遮罩遺失或空白。</li><li>Ipv6 首碼格式不正確。</li><li>介面具備雲端功能，但閘道遺失或不正確。</li></ul>請注意，如果 DATA 0 是透過安裝精靈設定的，即會自動具備雲端功能。 | 若要判斷問題所在，請使用子網路 0.0.0.0 或 256.256.256.256，然後查看輸出。視需要針對子網路遮罩、閘道及 Ipv6 首碼輸入正確的值。 |
  
 ## 後續步驟
-如果您無法解決問題，請[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)以尋求協助。<!--HONumber=52-->
- 
+如果您無法解決問題，請[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)，尋求協助。
+
+<!---HONumber=July15_HO2-->

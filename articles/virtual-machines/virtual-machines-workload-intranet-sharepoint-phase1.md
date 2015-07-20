@@ -84,7 +84,7 @@
 - 適用於您虛擬網路之 Azure VPN 閘道的公用 IPv4 位址。
 - 適用於網站間 VPN 連線的網際網路通訊協定安全性 (IPsec) 預先共用金鑰
 
-若要在建立虛擬網路之後，於 Azure 管理入口網站中查看這些設定，請依序按一下 [網路]****、虛擬網路的名稱，以及 [儀表板]**** 功能表選項。
+若要在建立虛擬網路之後，於 Azure 管理入口網站中查看這些設定，請依序按一下 [網路]、虛擬網路的名稱，以及 [儀表板] 功能表選項。
 
 其次，您要設定虛擬網路閘道來建立安全的網站間 VPN 連線。如需相關指示，請參閱[在管理入口網站中設定虛擬網路閘道](http://msdn.microsoft.com/library/jj156210.aspx)。
 
@@ -166,4 +166,7 @@
 
 [適用於 SharePoint 2013 的 Microsoft Azure 架構](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!--HONumber=54--> 
+[Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
+
+<!---HONumber=July15_HO2-->

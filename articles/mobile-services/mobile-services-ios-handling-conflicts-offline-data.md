@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="處理行動服務 (iOS) 中的離線資料衝突 | 行動開發人員中心" 
-	description="了解您在 iOS 應用程式中同步離線資料時如何使用 Azure 行動服務處理衝突" 
-	documentationCenter="ios" 
-	authors="krisragh" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="處理行動服務 (iOS) 中的離線資料衝突 | 行動開發人員中心"
+	description="了解您在 iOS 應用程式中同步離線資料時如何使用 Azure 行動服務處理衝突"
+	documentationCenter="ios"
+	authors="krisragh"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="07/01/2015" 
 	ms.author="krisragh;donnam"/>
 
 
@@ -51,7 +51,7 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
 
 ### <a name="update-list-view"></a>更新待辦事項清單檢視控制器
 
-1. 在 Xcode 的 [專案導覽] 中選取 [MainStoryboard_iPhone.storyboard]****，然後選取 [待辦事項清單檢視控制器]****。選取資料表檢視儲存格，並將其 [配件] 模式設為 [公開指標]****。公開指標會為使用者指出如果他們點選了相關聯的資料表檢視控制器，就會顯示新的檢視。公開指標不會產生事件。
+1. 在 Xcode 的 [專案導覽] 中選取 [MainStoryboard_iPhone.storyboard]，然後選取 [待辦事項清單檢視控制器]。選取資料表檢視儲存格，並將其 [配件] 模式設為 [公開指標]。公開指標會為使用者指出如果他們點選了相關聯的資料表檢視控制器，就會顯示新的檢視。公開指標不會產生事件。
 
       ![][update-todo-list-view-controller-2]
 
@@ -123,21 +123,21 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
             [[self view] endEditing:YES];
         }
 
-7. 在 **QSItemViewController** 中，還要新增下列方法，以便在使用者按下導覽列中 [返回]**** 按鈕時呼叫。此方法可以在其他事件時呼叫，所以我們會先檢查父檢視。如果項目有任何變更，則會修改 **self.item** 以及呼叫 **editCompleteBlock** 回呼：
+7. 在 **QSItemViewController** 中，還要新增下列方法，以便在使用者按下導覽列中 [返回] 按鈕時呼叫。此方法可以在其他事件時呼叫，所以我們會先檢查父檢視。如果項目有任何變更，則會修改 **self.item** 以及呼叫 **editCompleteBlock** 回呼：
 
         - (void)didMoveToParentViewController:(UIViewController *)parent
         {
             if (![parent isEqual:self.parentViewController]) {
                 NSNumber *completeValue = [NSNumber numberWithBool:self.itemComplete.selectedSegmentIndex == 0];
-                
+
                 Boolean changed =
                     [self.item valueForKey:@"text"] != [self.itemText text] ||
                     [self.item valueForKey:@"complete"] != completeValue;
-                
+
                 if (changed) {
                     [self.item setValue:[self.itemText text] forKey:@"text"];
                     [self.item setValue:completeValue forKey:@"complete"];
-                    
+
                     self.editCompleteBlock(self.item);
                 }
             }
@@ -147,11 +147,11 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
 
 1. 使用 [專案導覽] 返回 **MainStoryboard_iPhone.storyboard** 檔案。
 
-2. 在腳本中現有的 [待辦事項清單檢視控制器]**** 右側，為待辦事項新增檢視控制器。將此新檢視控制器的自訂類別設為 **QSItemViewController**。若要深入了解，請參閱[將場景新增至腳本]。
+2. 在腳本中現有的 [待辦事項清單檢視控制器] 右側，為待辦事項新增檢視控制器。將此新檢視控制器的自訂類別設為 **QSItemViewController**。若要深入了解，請參閱[將場景新增至腳本]。
 
-3. 將 [待辦事項清單檢視控制器]**** 中的 **Show** segue 新增至 [待辦事項檢視控制器]****。然後，在屬性偵測器中，將 segue 識別碼設定為 **detailSegue**。
+3. 將 [待辦事項清單檢視控制器] 中的 **Show** segue 新增至 [待辦事項檢視控制器]。然後，在屬性偵測器中，將 segue 識別碼設定為 **detailSegue**。
 
-    請不要從原始檢視控制器中的任何儲存格或按鈕建立此 segue。您應按住 CTRL，然後在腳本介面中，從 [待辦事項清單檢視控制器]**** 上的檢視控制器圖示拖曳至 [待辦事項檢視控制器]****：
+    請不要從原始檢視控制器中的任何儲存格或按鈕建立此 segue。您應按住 CTRL，然後在腳本介面中，從 [待辦事項清單檢視控制器] 上的檢視控制器圖示拖曳至 [待辦事項檢視控制器]：
 
     ![][todo-list-view-controller-add-segue]
 
@@ -161,13 +161,13 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
 
     若要深入了解 Segue，請參閱[在腳本中的場景之間新增 Segue]。
 
-4. 將項目文字的文字欄位和完成狀態的分段控制項新增至新的 [待辦事項檢視控制器]****，連同標籤在內。在分段控制項中，將 [區段 0]**** 的標題設為 [是]****，並將 [區段 1]**** 的標題設為 [否]****。將這些新欄位連接到程式碼中的出口。若要深入了解，請參閱[建置使用者介面]和[分段控制項]。
+4. 將項目文字的文字欄位和完成狀態的分段控制項新增至新的 [待辦事項檢視控制器]，連同標籤在內。在分段控制項中，將 [區段 0] 的標題設為 [是]，並將 [區段 1] 的標題設為 [否]。將這些新欄位連接到程式碼中的出口。若要深入了解，請參閱[建置使用者介面]和[分段控制項]。
 
       ![][add-todo-item-view-controller-3]
 
-5. 將這些新欄位連接到已新增至 **QSItemViewController.m** 的對應出口。將項目文字欄位連接到 [itemText]**** 出口，並將完成狀態分段控制項連接到 [itemComplete]**** 出口。若要深入了解，請參閱[建立出口連線]。
+5. 將這些新欄位連接到已新增至 **QSItemViewController.m** 的對應出口。將項目文字欄位連接到 [itemText] 出口，並將完成狀態分段控制項連接到 [itemComplete] 出口。若要深入了解，請參閱[建立出口連線]。
 
-6. 將文字欄位的委派設為檢視控制器。按住 CTRL，然後在腳本介面中，從文字欄位拖曳至 [待辦事項檢視控制器]**** 下的檢視控制器圖示，然後選取委派出口；這會向腳本指出此文字欄位的委派就是這個檢視控制器。
+6. 將文字欄位的委派設為檢視控制器。按住 CTRL，然後在腳本介面中，從文字欄位拖曳至 [待辦事項檢視控制器] 下的檢視控制器圖示，然後選取委派出口；這會向腳本指出此文字欄位的委派就是這個檢視控制器。
 
 7. 確認應用程式可在您目前所做的所有變更下運作。接著，在模擬器中執行應用程式。將項目新增至待辦事項清單，然後按一下這些項目。您將會看見項目檢視控制器 (目前是空的)。
 
@@ -188,17 +188,17 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
         - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
             NSManagedObject *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
             self.editingItem = [MSCoreDataStore tableItemFromManagedObject:item]; // map from managed object to dictionary
-            
+
             [self performSegueWithIdentifier:@"detailSegue" sender:self];
         }
 
-4. 在 **QSTodoListViewController.m** 中實作 **prepareForSegue:sender:**，以將事項傳遞至 [待辦事項檢視控制器]****，並指定當使用者結束詳細資料檢視時的回呼︰
+4. 在 **QSTodoListViewController.m** 中實作 **prepareForSegue:sender:**，以將事項傳遞至 [待辦事項檢視控制器]，並指定當使用者結束詳細資料檢視時的回呼︰
 
         - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
             if ([[segue identifier] isEqualToString:@"detailSegue"]) {
                 QSItemViewController *ivc = (QSItemViewController *) [segue destinationViewController];
                 ivc.item = [self.editingItem mutableCopy];
-                
+
                 ivc.editCompleteBlock = ^(NSDictionary *editedValue) {
                     [self.todoService updateItem:editedValue completion:^(NSUInteger index) {
                         self.editingItem = nil;
@@ -219,11 +219,11 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
         {
             // Set the item to be complete (we need a mutable copy)
             NSMutableDictionary *mutable = [item mutableCopy];
-            
+
             // Update the item in the TodoItem table and remove from the items array when we mark an item as complete
             [self.syncTable update:mutable completion:^(NSError *error) {
                 [self logErrorIfNotNil:error];
-                
+
                 if (completion != nil) {
                     dispatch_async(dispatch_get_main_queue(), completion);
                 }
@@ -471,4 +471,4 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Get started with data]: mobile-services-ios-get-started-data.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

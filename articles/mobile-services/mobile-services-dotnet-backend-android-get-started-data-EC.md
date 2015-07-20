@@ -72,11 +72,11 @@
 
 現在，應用程式已更新為使用行動服務做為後端儲存，您可以使用 Android 模擬器或 Android 手機，在行動服務上測試應用程式。
 
-1. 從 [執行]**** 功能表，按一下 [執行]**** 來啟動專案。
+1. 從 [執行] 功能表，按一下 [執行] 來啟動專案。
 
 	這樣會執行您的應用程式 (以 Android SDK 建立)，該應用程式利用用戶端程式庫傳送查詢，然後從您的行動服務傳回項目。
 
-5. 同樣地，輸入有意義的文字，然後按一下 [加入]****。
+5. 同樣地，輸入有意義的文字，然後按一下 [加入]。
 
    	這會傳送新項目以插入至行動服務。
 
@@ -133,4 +133,5 @@ Android 的**開始使用資料**教學課程到此結束。
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

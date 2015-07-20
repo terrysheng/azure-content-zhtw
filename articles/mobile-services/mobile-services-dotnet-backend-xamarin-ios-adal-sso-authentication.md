@@ -4,7 +4,7 @@
 	documentationCenter="xamarin" 
 	authors="mattchenderson" 
 	manager="dwrede" 
-	editor="" 
+	editor="dwrede" 
 	services="mobile-services"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/19/2015" 
 	ms.author="mahender"/>
 
 # 使用 Active Directory Authentication Library 單一登入驗證您的應用程式
@@ -49,7 +49,7 @@
 
 ##將驗證程式碼新增至用戶端應用程式
 
-1. 將 Active Directory Authentication Library 的 Xamarin 繫結新增至您的 Xamarin.iOS 專案。在 Visual Studio 2013 中，以滑鼠右鍵按一下 [參考]****，然後選取 [新增參考]****。接著，瀏覽至您的繫結程式庫，然後按一下 [新增]****。請務必同時從 ADAL 來源新增腳本。
+1. 將 Active Directory Authentication Library 的 Xamarin 繫結新增至您的 Xamarin.iOS 專案。在 Visual Studio 2013 中，以滑鼠右鍵按一下 [參考]，然後選取 [新增參考]。接著，瀏覽至您的繫結程式庫，然後按一下 [新增]。請務必同時從 ADAL 來源新增腳本。
 
 2. 將下列程式碼新增至 QSTodoService 類別：
 
@@ -108,7 +108,7 @@
 
 6. 在上述 `AuthenticateAsync` 方法的程式碼中，將 **INSERT-AUTHORITY-HERE** 替換為您佈建應用程式的租用戶名稱，其格式應為 https://login.windows.net/tenant-name.onmicrosoft.com。此值可從 [Azure 管理入口網站]複製到 Azure Active Directory 的 [網域] 索引標籤以外。
 
-7. 在上述 `AuthenticateAsync` 方法的程式碼中，將 **INSERT-RESOURCE-URI-HERE** 替換為您行動服務的「應用程式識別碼 URI」****。如果您依照[如何向 Azure Active Directory 註冊]主題的內容操作，您的應用程式識別碼 URI 應類似於 https://todolist.azure-mobile.net/login/aad。
+7. 在上述 `AuthenticateAsync` 方法的程式碼中，將 **INSERT-RESOURCE-URI-HERE** 替換為您行動服務的「應用程式識別碼 URI」。如果您依照[如何向 Azure Active Directory 註冊]主題的內容操作，您的應用程式識別碼 URI 應類似於 https://todolist.azure-mobile.net/login/aad。
 
 8. 在上述 `AuthenticateAsync` 方法的程式碼中，將 **INSERT-CLIENT-ID-HERE** 替換為您從原生用戶端應用程式中複製的用戶端識別碼。
 
@@ -140,4 +140,5 @@
 [Active Directory Authentication Library for iOS 的 Xamarin 繫結]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
 [Xamarin 延伸]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

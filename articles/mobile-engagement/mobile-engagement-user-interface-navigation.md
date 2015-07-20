@@ -22,14 +22,14 @@
 ![Navigation1][1]
 
 ## 頁首
-- ****Azure Mobile Engagement (標誌)：Azure Mobile Engagement 應用程式的首頁
-- ****您的名稱：我的帳戶設定檔
-- ****文件：[Azure Mobile Engagement 文件][Link 10]
-- ****登出：登出 Azure Mobile Engagement
+- Azure Mobile Engagement (標誌)：Azure Mobile Engagement 應用程式的首頁
+- 您的名稱：我的帳戶設定檔
+- 文件：[Azure Mobile Engagement 文件][Link 10]
+- 登出：登出 Azure Mobile Engagement
  
 ## 頁尾
-- ****服務條款 [http://azure.microsoft.com/support/legal/](http://azure.microsoft.com/support/legal/)
-- ****隱私權與 Cookie [http://www.microsoft.com/privacystatement/OnlineServices/Default.aspx](http://www.microsoft.com/privacystatement/OnlineServices/Default.aspx)
+- 服務條款 [http://azure.microsoft.com/support/legal/](http://azure.microsoft.com/support/legal/)
+- 隱私權與 Cookie [http://www.microsoft.com/privacystatement/OnlineServices/Default.aspx](http://www.microsoft.com/privacystatement/OnlineServices/Default.aspx)
  
 ## Cookie 連結
 - 快速瀏覽到通往您目前位置的先前頁面。
@@ -138,4 +138,8 @@
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!--HONumber=54--> 
+
+ 
+ 
+
+<!---HONumber=July15_HO2-->

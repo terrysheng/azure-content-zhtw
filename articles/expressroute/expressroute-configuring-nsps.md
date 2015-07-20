@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/29/2015"
+   ms.date="06/29/2015"
    ms.author="cherylmc"/>
 
 #  透過網路服務提供者設定 ExpressRoute 連線
@@ -89,7 +89,7 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 		Verizon              Silicon Valley,Washington DC   10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000
 		
 
-3. **提出服務金鑰要求，並將它傳遞給交換服務提供者。**
+3. **提出服務金鑰要求，並將它傳遞給網路服務提供者。**
 
 	您將使用 PowerShell Cmdlet 來提出此要求。在此範例中，我們將使用 AT&T Netbond 做為服務提供者，並且會指定位在美國矽谷的 50 Mbps ExpressRoute 線路。如果您使用不同的提供者和不同的設定，請在提出要求時替換成該資訊。
 
@@ -150,4 +150,4 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 		
 		Provisioned 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

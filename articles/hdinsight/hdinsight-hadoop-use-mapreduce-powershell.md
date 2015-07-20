@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #使用 PowerShell 搭配執行 Hive 查詢與 HDInsight 上的 Hadoop
@@ -28,11 +28,11 @@
 
 - **Azure HDInsight (HDInsight 上的 Hadoop) 叢集 (Windows 型或 Linux 型)**
 
-- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 
 ##<a id="powershell"></a>使用 Azure PowerShell 執行 MapReduce 工作
 
-Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 MapReduce 工作。在內部，您可以使用在 HDInsight 叢集上執行的 <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (先前稱為 Templeton) 的 REST 呼叫來達到此目的。
+Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 MapReduce 工作。在內部，您可以使用在 HDInsight 叢集上執行的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (先前稱為 Templeton) 的 REST 呼叫來達到此目的。
 
 在遠端 HDInsight 叢集中執行 MapReduce 工作時，會使用下列 Cmdlet。
 
@@ -99,7 +99,7 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Map
 		JobId           : job_1415949758166_0071
 
 	此輸出表示工作已順利完成。
-	
+
 	> [AZURE.NOTE]如果 **ExitCode** 的值不是 0，請參閱[疑難排解](#troubleshooting)。
 
 ##<a id="results"></a>檢視工作輸出
@@ -172,6 +172,5 @@ MapReduce 工作的輸出會儲存在名稱為 *part-r-#####* 的檔案中。使
 * [搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-use-hive.md)
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

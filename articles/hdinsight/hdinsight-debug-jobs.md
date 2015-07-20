@@ -193,7 +193,7 @@
 - **緩和**：請重新啟動訂用帳戶，或取得新的有效訂用帳戶。
 
 ### <a id="SubscriptionIdNotFound"></a>SubscriptionIdNotFound
-- **描述**：找不到訂用帳戶識別碼  *yourSubscriptionId*。  
+- **描述**：找不到訂用帳戶識別碼 *yourSubscriptionId*。  
 - **緩和**：請檢查訂用帳戶識別碼有效，然後重試作業。 
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
@@ -231,5 +231,6 @@
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

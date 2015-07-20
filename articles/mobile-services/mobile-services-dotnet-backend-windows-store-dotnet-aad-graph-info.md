@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="multiple" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="06/09/2015" 
 	ms.author="wesmc"/>
 
 # 存取 Azure Active Directory 圖形資訊
@@ -58,11 +58,11 @@
 
 如果您未曾搭配使用自訂 API 與行動服務，請先參閱[自訂 API 教學課程]，再開始執行本節步驟。
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務.NET 後端專案，然後按一下 [管理 NuGet 封裝]****。
-2. 在 [NuGet Package Manager] 對話方塊中，在搜尋條件中輸入 **ADAL**，以尋找並安裝您的行動服務的 [Active Directory Authentication Library]****。本教學課程近期多搭配 3.0.110281957-alpha (搶鮮版) 版本的 ADAL 封裝進行測試。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務.NET 後端專案，然後按一下 [管理 NuGet 封裝]。
+2. 在 [NuGet Package Manager] 對話方塊中，在搜尋條件中輸入 **ADAL**，以尋找並安裝您的行動服務的 [Active Directory Authentication Library]。本教學課程近期多搭配 3.3.205061641-alpha (搶鮮版) 版本的 ADAL 封裝進行測試。
 
 
-3. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務專案的 [控制器]**** 資料夾，然後按一下 [新增]****，以新增名為 `GetUserInfoController` 的 [Microsoft Azure 行動服務自訂控制器]****。用戶端會呼叫此 API，從 Active Directory 中取得使用者資訊。
+3. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務專案的 [控制器] 資料夾，然後按一下 [新增]，以新增名為 `GetUserInfoController` 的 [Microsoft Azure 行動服務自訂控制器]。用戶端會呼叫此 API，從 Active Directory 中取得使用者資訊。
 
 4. 在新的 GetUserInfoController.cs 檔案中，新增下列 `using` 陳述式。
 
@@ -252,5 +252,6 @@
 [Azure Active Directory 圖形團隊部落格]: http://go.microsoft.com/fwlink/?LinkId=510536
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [行動服務中使用 AAD 的角色型存取控制]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/12/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh"/>
 
 # 將行動服務新增至現有的應用程式
@@ -36,9 +36,9 @@
 
 ##<a name="test-app"></a>測試應用程式
 
-1. 在 Xcode 中，按一下 [執行]**** 啟動應用程式。輸入文字並且按一下 [+]**** 新增項目至 todo 清單。
+1. 在 Xcode 中，按一下 [執行] 啟動應用程式。輸入文字並且按一下 [+] 新增項目至 todo 清單。
 
-2. 在 Azure 管理入口網站中，按一下 [行動服務]****，然後按一下您的行動服務。按一下 [資料]**** 索引標籤，然後按一下 [瀏覽]****。請注意，[TodoItem]**** 資料表現在包含資料和行動服務產生的識別碼值，且資料行已自動新增至資料表，以符合應用程式中的 TodoItem 類別。
+2. 在 Azure 管理入口網站中，按一下 [行動服務]，然後按一下您的行動服務。按一下 [資料] 索引標籤，然後按一下 [瀏覽]。請注意，[TodoItem] 資料表現在包含資料和行動服務產生的識別碼值，且資料行已自動新增至資料表，以符合應用程式中的 TodoItem 類別。
 
 <!-- Anchors. -->
 [Download the iOS app project]: #download-app
@@ -80,4 +80,4 @@
 [快速入門]: ../mobile-services-javascript-backend-ios-get-started.md
 [GetStartedWithData iOS 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

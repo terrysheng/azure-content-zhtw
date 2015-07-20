@@ -13,9 +13,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
- 
+
 #使用 Pig 命令 (SSH) 在以 Linux 為基礎的叢集上執行 Pig 工作
 
 [AZURE.INCLUDE [Pig 選取器](../../includes/hdinsight-selector-use-pig.md)]
@@ -24,7 +24,7 @@
 
 Pig Latin 程式設計語言可讓您描述套用至輸入資料來產生想要輸出的轉換。
 
-> [AZURE.NOTE]如果您已熟悉使用以 Linux 為基礎的 Hadoop 伺服器，但剛接觸 HDInsight，請參閱<a href="../hdinsight-hadoop-linux-information/" target="_blank">在以 Linux 為基礎的 HDInsight 上安裝 Hadoop 的須知事項</a>。
+> [AZURE.NOTE]如果您已熟悉使用以 Linux 為基礎的 Hadoop 伺服器，但剛接觸 HDInsight，請參閱[以 Linux 為基礎的 HDInsight 秘訣](hdinsight-hadoop-linux-information.md)。
 
 ##<a id="prereq"></a>必要條件
 
@@ -32,7 +32,7 @@ Pig Latin 程式設計語言可讓您描述套用至輸入資料來產生想要�
 
 * 以 Linux 為基礎的 HDInsight (HDInsight 上的 Hadoop) 叢集。
 
-* SSH 用戶端。Linux、Unix 和 Mac OS 應該具備 SSH 用戶端。Windows 使用者必須下載用戶端，例如 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">PuTTY</a>。
+* SSH 用戶端。Linux、Unix 和 Mac OS 應該具備 SSH 用戶端。Windows 使用者必須下載用戶端，例如 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)。
 
 ##<a id="ssh"></a>使用 SSH 連線
 
@@ -46,13 +46,13 @@ Pig Latin 程式設計語言可讓您描述套用至輸入資料來產生想要�
 
 **如果您提供密碼進行 SSH 驗證** (在建立 HDInsight 叢集時)，則需要在出現提示時提供密碼。
 
+如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱[從 Linux、Unix 和 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)。
+
 ###PuTTY (Windows 架構用戶端)
 
-Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，這可以從下列位置進行下載：<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html</a>。
+Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下列位置下載：[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)。
 
-如需有關如何使用 PuTTY 的詳細資訊，請參閱<a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">如何搭配 Azure 上的 Linux 使用 SSH</a> 中的**使用 Putty 連線至 Linux 機器**一節。
-
-> [AZURE.NOTE]如果您將憑證用於 HDInsight 叢集的 SSH 驗證，則您還必須參閱<a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">如何搭配 Azure 上的 Linux 使用 SSH</a> 中的**建立 Putty 的 PPK** 一節。
+如需使用 PuTTY 的詳細資訊，請參閱[從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)。
 
 ##<a id="pig"></a>使用 Pig 命令
 
@@ -153,4 +153,4 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，這可以從下
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

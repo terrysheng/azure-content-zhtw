@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/23/2015"
+	ms.date="06/16/2015"
 	ms.author="mingzhan"/>
 
 
@@ -32,9 +32,13 @@
      
     #sudo apt-get install waagent
 
-對於 CentOS 和 Oracle Linux，輸入：
+在 CentOS 上請輸入：
 
     #sudo yum install waagent
+
+對於 Oracle Linux，請確定已在檔案 `/etc/yum.repo.d/public-yum-ol6.repo` 或 `/etc/yum.repo.d/public-yum-ol7.repo` 中啟用附加元件儲存機制，然後輸入：
+
+    #sudo yum install WALinuxAgent
 
 通常您要做就是這幾個步驟了，但如果因為其他原因造成您必須直接從 https://github.com 安裝，請執行以下步驟。
 
@@ -94,6 +98,6 @@
 
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

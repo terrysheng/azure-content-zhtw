@@ -1,3 +1,4 @@
+
 #### 取得 Windows 主機的 IQN
 
 1. 在 Windows 主機上啟動 Microsoft iSCSI 啟動器。
@@ -8,4 +9,4 @@
 
 3. 儲存這個字串。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

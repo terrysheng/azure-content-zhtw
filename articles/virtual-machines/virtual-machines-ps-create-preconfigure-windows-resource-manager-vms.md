@@ -338,4 +338,4 @@ FrontendSubnet 的子網路索引為 0，而 backendSubnet 的子網路索引為
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -29,18 +29,18 @@
 ##Engagement Reach SDK
 
 `EngagementReach`
-	
+
 > Engagement Reach SDK 包含標頭、程式庫，以及相關聯資源。
 
 ##其他檔案
 
-`doc/index.html` (於  `doc` 資料夾中)
+`doc/index.html` (在 `doc` 資料夾)
 
 > Engagement SDK 與 Reach SDK Objective-C 文件。
 
 `src` 資料夾
 
 > Engagement 檢視控制器與 Reach SDK 原始程式碼 (適用於想要依照其需求調整 Engagement 類別的進階使用者)。
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

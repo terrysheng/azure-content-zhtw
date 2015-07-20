@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #如何在 Windows 通用上使用 Engagement API
@@ -34,9 +34,9 @@ Engagement API 是由 `EngagementAgent` 類別提供。您可以透過 `Engageme
 
 ### `Session`和`Activity`
 
-**「活動」通常與應用程式的某個頁面關聯，也就是說，**「活動」會在頁面顯示時啟動，當頁面關閉時就停止：使用 `EngagementPage` 類別來整合 Engagement SDK 的情況便是如此。
+「活動」通常與應用程式的某個頁面關聯，也就是說，「活動」會在頁面顯示時啟動，當頁面關閉時就停止：使用 `EngagementPage` 類別來整合 Engagement SDK 的情況便是如此。
 
-但您也可以透過 Engagement API 手動控制「活動」**。這樣可允許將指定的頁面分割成多個部分，以獲得有關該頁面使用方式的詳細資訊 (例如，對話方塊在此頁面的使用平率和使用時間)。
+但您也可以透過 Engagement API 手動控制「活動」。這樣可允許將指定的頁面分割成多個部分，以獲得有關該頁面使用方式的詳細資訊 (例如，對話方塊在此頁面的使用平率和使用時間)。
 
 ##報告活動
 
@@ -152,7 +152,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。您可以透過 `Engageme
 
 			void SendJobEvent(string eventName, string jobName, Dictionary<object, object> extras = null)
 
-作業事件通常用來報告在「工作」期間由使用者所執行的動作。
+作業事件通常用來報告在作業期間由使用者所執行的動作。
 
 #### 範例
 
@@ -230,9 +230,9 @@ Engagement API 是由 `EngagementAgent` 類別提供。您可以透過 `Engageme
 
 			void SendCrash(Exception e)
 
-如果您「已經停用」****Engagement 自動****當機報告，Engagement 也會提供傳送未處理例外狀況的方法。在應用程式的 UnhandledException 事件處理常式內此方法特別有用。
+如果您「已經停用」Engagement 自動當機報告，Engagement 也會提供傳送未處理例外狀況的方法。在應用程式的 UnhandledException 事件處理常式內此方法特別有用。
 
-此方法「一律」****會在被呼叫之後終止 Engagement 工作階段和作業。
+此方法「一律」會在被呼叫之後終止 Engagement 工作階段和作業。
 
 #### 範例
 
@@ -358,5 +358,6 @@ Engagement API 是由 `EngagementAgent` 類別提供。您可以透過 `Engageme
 在上述範例中，傳送到伺服器的 JSON 會是 44 個字元：
 
 			{"birthdate":"1983-12-07","gender":"female"}
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

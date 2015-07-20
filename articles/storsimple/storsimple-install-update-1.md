@@ -100,4 +100,4 @@
 
 深入了解 [Microsoft Azure StorSimple](storsimple-overview.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

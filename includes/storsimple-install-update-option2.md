@@ -1,3 +1,4 @@
+
 #### 從 Azure 管理入口網站安裝 Update 1
 
 1. 在管理入口網站中，移至 [**裝置**] 頁面，並選取您的裝置。
@@ -14,4 +15,4 @@
 
 7. 您現在可以[使用管理入口網站安裝 Update 1](#use-the-management-portal-to-install-update-1)。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -29,5 +29,6 @@
 
 如果應用程式可以暫時在唯讀模式下運作，則可以設計升級工作流程，有效地完全避免停機時間。若要了解如何實作特定應用程式拓撲的升級工作流程，請參閱[使 Azure SQL Database 在應用程式輪流升級期間的中斷時間最短的最佳作法](https://msdn.microsoft.com/library/azure/dn790385.aspx)
  
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

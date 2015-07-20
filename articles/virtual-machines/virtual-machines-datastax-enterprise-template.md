@@ -499,5 +499,6 @@ vm-disk-utils-0.1.sh 是 azure-quickstart-tempates github 儲存機制中 **shar
 -	所有的張貼部署工作 (例如產品安裝、設定等) 都會利用指令碼部署擴充功能以及建立每一種技術獨有的指令碼
 
 如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)。
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

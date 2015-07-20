@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure Media Encoder 格式和轉碼器" 
-	description="本主題提供 Azure Media Encoder 格式和轉碼器的概觀" 
+	description="本主題提供 Azure 媒體編碼器格式和轉碼器的概觀。" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/27/2015" 
+	ms.date="06/29/2015" 
 	ms.author="juliako"/>
 
-# Azure Media Encoder 格式和轉碼器
+#Azure Media Encoder 格式和轉碼器
 
-編碼器會使用轉碼器壓縮數位媒體。編碼器通常會有各種設定，可讓您指定產生的媒體屬性，例如使用的轉碼器、檔案格式、解析度和位元速率。檔案格式是容器，可用來保存已壓縮視訊以及使用哪些轉碼器來壓縮視訊等相關資訊。 
+編碼器會使用轉碼器壓縮數位媒體。編碼器通常會有各種設定，可讓您指定產生的媒體屬性，例如使用的轉碼器、檔案格式、解析度和位元速率。檔案格式是容器，可用來保存已壓縮視訊以及使用哪些轉碼器來壓縮視訊等相關資訊。
 
 轉碼器有兩個元件：一個用來壓縮數位媒體檔案以利傳輸，另一個元件則是解壓縮數位媒體檔案以利播放。音訊轉碼器用於壓縮和解壓縮音訊，視訊轉碼器則用於壓縮和解壓縮視訊。轉碼器可以運用不失真或失真壓縮。不失真轉碼器在進行壓縮時會保留所有資訊。解壓縮檔案時，產生的檔案與輸入媒體完全相同，因此不失真轉碼器相當適合用於封存和儲存。失真轉碼器在進行編碼時會遺失部分資訊並產生較小的檔案 (與原始檔案相比)，代價是減損視訊品質，適用於透過網際網路串流處理。Azure Media Encoder 用來編碼的兩種主要轉碼器是 H.264 和 VC-1。其他轉碼器可能適用於我們合作夥伴的編碼器生態系統。
 
@@ -27,16 +27,16 @@
 本文件包含您可以在 Azure Media Encoder 中使用的常見匯入和匯出檔案格式清單。
 
 
-[Media Encoder 匯入格式](#import_formats)
+[媒體編碼器匯入格式](#import_formats)
 
-[Media Encoder 匯出格式](#export_formats)
+[媒體編碼器匯出格式](#export_formats)
 
 
-## <a id="import_formats"></a>Media Encoder 匯入格式 
+##<a id="import_formats"></a>媒體編碼器匯入格式 
 
 下節會列出支援匯入的轉碼器和檔案格式清單。
 
-### 視訊轉碼器
+###視訊轉碼器
 
 - H.264 (基準、主要和高設定檔)
 - MPEG-1 (包括 MPEG-PS)
@@ -47,14 +47,14 @@
 - DV (DVC、DVHD、DVSD、DVSL)
 - Grass Valley HQ/HQX
  
-### 音訊轉碼器
+###音訊轉碼器
 
 - AC-3 (Dolby Digital 音訊)
 - AAC (AAC-LC、搭配 AAC-LC 核心的 HE-AAC v1，和搭配 AAC-LC 核心的 HE-AAC v2)
 - MP3
 - Windows Media 音訊 9 (Windows Media Audio Standard、Windows Media Audio Professional 和 Windows Media Audio Lossless)
 
-### 視訊檔案格式
+###視訊檔案格式
  
 <table border="1">
 <tr><th>檔案格式</th><th>檔案副檔名</th></tr>
@@ -73,9 +73,9 @@
 <tr><td>Windows Media 視訊 (WMV)</td><td>.wmv</td></tr>
 </table>
 
-支援部分未壓縮格式。如需詳細資訊，請參閱 [支援的未壓縮視訊格式](#uncompressed)
+支援部分未壓縮格式。如需詳細資訊，請參閱[支援的未壓縮視訊格式](#uncompressed)
 
-### 音訊檔案格式
+###音訊檔案格式
 
 <table border="1">
 <tr><th>檔案格式</th><th>檔案副檔名</th></tr>
@@ -89,7 +89,7 @@
 <tr><td>Windows Media 音訊</td><td>.wma</td></tr>   
 </table>
 
-### 影像檔案格式
+###影像檔案格式
 
 <table border="1">
 <tr><th>檔案格式</th><th>檔案副檔名</th></tr>
@@ -102,7 +102,7 @@
 </table>
 
 
-## <a id="export_formats"></a>Media Encoder 匯出格式
+##<a id="export_formats"></a>媒體編碼器匯出格式
 
 下表會列出支援匯出的轉碼器和檔案格式清單。
 
@@ -118,7 +118,7 @@ AAC-LC、HE-AAC v1、HE-AAC v2</td></tr>
 
 如需媒體服務中其他支援的轉碼器和篩選器，請參閱 [Windows DirectShow 篩選](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx)。
 
-## <a id="uncompressed"></a>支援的未壓縮視訊格式 
+##<a id="uncompressed"></a>支援的未壓縮視訊格式 
 
 Azure 媒體服務提供匯入未壓縮視訊資料的支援。
 
@@ -137,5 +137,4 @@ Azure 媒體服務提供匯入未壓縮視訊資料的支援。
 <tr><td>Indeo-produced YVU9 格式</td><td>Indeo-produced YVU9 格式，包含與最後一個影格的區別額外資訊。每個像素 9.5 位元，但回報為 9 位元。</td></tr>
 </table>
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

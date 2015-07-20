@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="sql-database" 
-	ms.workload="sql-database" 
+	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/25/2015" 
+	ms.date="04/17/2015" 
 	ms.author="genemi"/>
 
 
@@ -35,10 +35,10 @@ Converting plain text "CREATE ASSEMBLY" into a link to the MSDN topic, ms189524.
 為了解本主題，您必須有已部分知道下列：
 
 
-- [CLR 資料表值函數 ](http://msdn.microsoft.com/library/ms131103.aspx)<br/>說明 CREATE ASSEMBLY Transact-SQL 陳述式如何搭配內部部署 Microsoft SQL Server 的其他陳述式使用。
+- [CLR 資料表值函數](http://msdn.microsoft.com/library/ms131103.aspx)<br/>說明 CREATE ASSEMBLY Transact-SQL 陳述式如何搭配內部部署 Microsoft SQL Server 的其他陳述式使用。
 
 
-## A. 整體的技巧
+## 答：整體的技巧
 
 
 1. DROP FUNCTION 和 DROP ASSEMBLY (如果需要清除上一個執行)。
@@ -50,9 +50,7 @@ Converting plain text "CREATE ASSEMBLY" into a link to the MSDN topic, ms189524.
 5. T-SQL SELECT 陳述式用於呼叫並測試函數。
 
 
-上述清單並未提到...<br/>
-**execute sp_configure 'clr enabled', 1;**<br/>
-...因為即使 Microsoft SQL Server 需要用到，但 Azure SQL Database 並不需要。
+上述清單並未提到...<br/> **execute sp_configure 'clr enabled', 1;**<br/> ...因為即使 Microsoft SQL Server 需要用到，但 Azure SQL Database 並不需要。
 
 
 如果需要重新執行，卸除函數與組件的 T-SQL 程式碼為以下的：
@@ -62,13 +60,13 @@ Converting plain text "CREATE ASSEMBLY" into a link to the MSDN topic, ms189524.
     DROP ASSEMBLY CreateAssemblyFunctions3;
 
 
-## B. 用於參考之 T-SQL 函數的簡單組件 DLL
+## B.用於參考之 T-SQL 函數的簡單組件 DLL
 
 
 本節中的簡單式 C# 程式碼範例可以編譯到組件 DLL 檔案中。
 
 
-此程式碼範例所包含的 **CompareCaseSensitiveNet** 方法，會在稍後的 T-SQL CREATE FUNCTION 陳述式中參考。請注意Hˇ方法是使用名稱為 **SqlFunction** 的 .NET 屬性裝飾。使用此屬性裝飾的方法可以透過 T-SQL，當做函數呼叫。
+此程式碼範例所包含的 **CompareCaseSensitiveNet** 方法，會在稍後的 T-SQL CREATE FUNCTION 陳述式中參考。請注意，方法是使用名稱為 **SqlFunction** 的 .NET 屬性裝飾。使用此屬性裝飾的方法可以透過 T-SQL，當做函數呼叫。
 
 
 	using           System;   // C#
@@ -90,14 +88,14 @@ Converting plain text "CREATE ASSEMBLY" into a link to the MSDN topic, ms189524.
 	}
 
 
-## C. C&#x23; 發出 CREATE ASSEMBLY 之 EXE 的程式碼範例
+## C.C&#x23; 發出 CREATE ASSEMBLY 之 EXE 的程式碼範例
 
 
 當您執行從此 C# 範例建置的 EXE 時，會發生以下順序：
 
 
 1. EXE 的命令列執行會呼叫 **Main** 方法。
-2. Main 會呼叫 **ObtainHexStringOfAssembly** 發法。
+2. Main 會呼叫 **ObtainHexStringOfAssembly** 方法。
  - 此方法會輸出以十六進位數字儲存組件的 SqlString。
 3. Main 會呼叫 **SubmitCreateAssemblyToAzureSqlDb** 方法。
  - 主要輸入為 SqlString。
@@ -295,7 +293,7 @@ Converting plain text "CREATE ASSEMBLY" into a link to the MSDN topic, ms189524.
 為簡化說明，此範例會以命令列參數傳遞密碼。較好的設計是讓 C# 程式碼從 CONFIG 檔案取得密碼。
 
 
-## D. 執行 CREATE FUNCTION 陳述式
+## D.執行 CREATE FUNCTION 陳述式
 
 
 在組件儲存到 Azure SQL Database 伺服器之後，您必須執行參考組件中的方法的 Transact-SQL CREATE FUNCTION 陳述式。
@@ -330,5 +328,4 @@ Transact-SQL 程式碼的以下區塊包含數個不重要的 SELECT 陳述式�
 
 <!-- EndOfFile -->
 
-
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

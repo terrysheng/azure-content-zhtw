@@ -149,8 +149,8 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 
 對應器和歸納器可執行檔位於：
 
-- C:\Tutorials\WordCount\WordCountMapper\bin\Debug\WordCountMapper.exe
-- C:\Tutorials\WordCount\WordCountReducer\bin\Debug\WordCountReducer.exe
+- C:\\Tutorials\\WordCount\\WordCountMapper\\bin\\Debug\\WordCountMapper.exe
+- C:\\Tutorials\\WordCount\\WordCountReducer\\bin\\Debug\\WordCountReducer.exe
 
 
 ##<a name="test"></a>在模擬器上測試程式
@@ -167,7 +167,7 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 
 本教學課程使用下列資料夾結構：
 
-<table border="1"> <tr><td>資料夾</td><td>附註</td></tr> <tr><td>\WordCount</td><td>字數統計專案的根資料夾。</td></tr> <tr><td>\WordCount\Apps</td><td>對應器和歸納器可執行檔的資料夾。</td></tr> <tr><td>\WordCount\Input</td><td>MapReduce 來源檔案資料夾。</td></tr> <tr><td>\WordCount\Output</td><td>MapReduce 輸出檔案資料夾。</td></tr> <tr><td>\WordCount\MRStatusOutput</td><td>工作輸出資料夾。</td></tr> </table></br>
+<table border="1"> <tr><td>資料夾</td><td>附註</td></tr> <tr><td>\\WordCount</td><td>字數統計專案的根資料夾。</td></tr> <tr><td>\\WordCount\\Apps</td><td>對應器和歸納器可執行檔的資料夾。</td></tr> <tr><td>\\WordCount\\Input</td><td>MapReduce 來源檔案資料夾。</td></tr> <tr><td>\\WordCount\\Output</td><td>MapReduce 輸出檔案資料夾。</td></tr> <tr><td>\\WordCount\\MRStatusOutput</td><td>工作輸出資料夾。</td></tr> </table></br>
 
 本教學課程使用 %hadoop_home% 目錄中的 .txt 檔案。
 
@@ -278,7 +278,7 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 	您可以在命令尾端附加 "|more" 來取得頁面檢視。
 
 ##<a id="upload"></a>將資料上傳至 Azure Blob 儲存體
-Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以設定 HDInsight 叢集使用其他 Blob 儲存體來儲存資料檔。本節中，您將建立 Azure 儲存體帳戶，並將資料檔上傳至 Blob 儲存體。資料檔是位於 %hadoop_home%\share\doc\hadoop\common 目錄中的 .txt 檔案。
+Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以設定 HDInsight 叢集使用其他 Blob 儲存體來儲存資料檔。本節中，您將建立 Azure 儲存體帳戶，並將資料檔上傳至 Blob 儲存體。資料檔是位於 %hadoop_home%\\share\\doc\\hadoop\\common 目錄中的 .txt 檔案。
 
 
 **建立儲存體帳戶和容器**
@@ -316,7 +316,7 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 		$localFolder = "C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common"
 		$destFolder = "WordCount/Input"
 
-	請注意，本機來源檔案資料夾是 **C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common**，目的地資料夾是 **WordCount/Input**。來源位置是 .txt 檔案在 HDInsight Emulator 上的位置。目的地是反映在 Azure Blob 容器下的資料夾結構。
+	請注意，本機來源檔案資料夾是 **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\doc\\hadoop\\common**，目的地資料夾是 **WordCount/Input**。來源位置是 .txt 檔案在 HDInsight Emulator 上的位置。目的地是反映在 Azure Blob 容器下的資料夾結構。
 
 3. 執行下列命令來取得來源檔案資料夾中的 .txt 檔案清單：
 
@@ -551,4 +551,4 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

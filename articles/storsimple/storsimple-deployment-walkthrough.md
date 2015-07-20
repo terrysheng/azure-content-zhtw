@@ -1,25 +1,29 @@
-<properties 
+<properties
    pageTitle="部署內部部署 StorSimple 裝置"
    description="部署 StorSimple 裝置與服務的步驟與最佳做法。"
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
-   editor="tysonn" /> 
-<tags 
+   editor="tysonn" />
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/28/2015"
-   ms.author="v-sharos" />
+   ms.date="06/08/2015"
+   ms.author="alkohli" />
 
 # 部署內部部署 StorSimple 裝置
+
+[AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
 
 ## 概觀
 
 歡迎使用 Microsoft Azure StorSimple 裝置部署。
+
+這些部署教學課程適用於 StorSimple 8000 系列發行版本、StorSimple 8000 系列 Update 0.1、StorSimple 8000 系列 Update 0.2 與 StorSimple 8000 系列 Update 0.3。
 
 這一系列的教學課程說明如何設定 StorSimple 裝置，並包含預先安裝檢查清單、設定必要條件以及詳細的設定步驟。
 
@@ -36,7 +40,7 @@
 | | 需求 | 詳細資料 | 值 |
 |---| --------------------- | ---------------------- | ------------- |
 | 1 | 裝置的易記名稱 | 裝置的描述性名稱 | |
-| 2 | 網路設定 <ol><li>裝置 IP 位址</li><li>網路介面、4x1 GbE、2x10 GbE</li><li>固定控制器 IP</li><li>子網路遮罩</li><li>閘道</li></ol> | 需要的 IP 總計：8 <ol><li>每個裝置一個</li><li>每個啟用的網路介面一個，共 6 個</li><li>每個控制站一個，共 2 個</li><li>每個 IP 位址各一個</li><li>每個裝置一個</li></ol> | |
+| 2 | 網路設定 <ol><li>網路介面、4x1 GbE、2x10 GbE</li><li>固定控制器 IP</li><li>子網路遮罩</li><li>閘道</li></ol> | 需要的 IP 數量總計：8 <ol><li> 每個已啟用的網路介面一個，共 6 個 </li><li> 每個控制器一個，共 2 個 </li><li> 每個 IP 位址各一個 </li><li> 每個裝置一個</li></ol> | |
 | 3 | 序列存取 | 初始裝置組態 | 是/否 |
 | 4 | DNS 伺服器 IP 位址 | 需要連接到 Microsoft Azure：總共需要 2 個以提供高可用性 | |
 | 5 | NTP 伺服器 IP 位址 | 需要與 Azure 同步處理時間：1 必要、1 選擇性 | |
@@ -75,13 +79,13 @@
 
 請遵循這些必要步驟來設定 StorSimple 裝置，並將它連接到 StorSimple Manager 服務：
 
-- 步驟 1：建立新的服務 
+- 步驟 1：建立新的服務
 - 步驟 2：取得服務註冊金鑰
-- 步驟 3：透過 Windows PowerShell for StorSimple 設定和註冊裝置 
+- 步驟 3：透過 Windows PowerShell for StorSimple 設定和註冊裝置
 - 步驟 4：完成最小量裝置設定
-- 步驟 5：建立磁碟區容器 
+- 步驟 5：建立磁碟區容器
 - 步驟 6：建立磁碟區
-- 步驟 7：掛接、初始化及格式化磁碟區 
+- 步驟 7：掛接、初始化及格式化磁碟區
 - 步驟 8：進行備份
 
 在部署方案時，除了必要步驟，您可能還有幾個選擇性步驟需要完成。這些選擇性步驟說明如何：
@@ -102,8 +106,8 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 > [AZURE.IMPORTANT]如果您並未啟用服務自動建立儲存體帳戶，您將必須在成功建立服務後，至少建立一個儲存體帳戶。當您建立磁碟區容器時，將會使用此儲存體帳戶。
 >
-> * 如果您未自動建立儲存體帳戶，請移至[針對服務設定新的儲存體帳戶](#Configure-a-new-storage-account-for-the-service)以取得詳細指示。 
-> * 如果您已啟用自動建立儲存體帳戶，請移至＜步驟 2：取得服務註冊金鑰＞。
+> * 如果您未自動建立儲存體帳戶，請移至[針對服務設定新的儲存體帳戶](#Configure-a-new-storage-account-for-the-service)以取得詳細指示。
+> * 如果您已啟用自動建立儲存體帳戶，請移至[步驟 2：取得服務註冊金鑰](#step-2:-get-the-service-registration-key)。
 
 ## 步驟 2：取得服務註冊金鑰
 
@@ -156,7 +160,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 ## 步驟 8：進行備份
 
-備份可提供磁碟區的時間點保護，並改善復原能力，同時讓還原時間降至最低。您可以在 StorSimple 裝置上進行兩種備份類型： 本機快照與雲端快照。每一種備份類型都可以是 **[排程]** 或 **[手動]**。
+備份可提供磁碟區的時間點保護，並改善復原能力，同時讓還原時間降至最低。您可以在 StorSimple 裝置上進行兩種備份類型： 本機快照與雲端快照。每一種備份類型都可以是 [排程] 或 [手動]。
 
 請在管理入口網站中執行下列步驟，以建立排程備份。
 
@@ -206,6 +210,6 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 設定[虛擬裝置](storsimple-virtual-device.md)。
 
 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx)以管理 StorSimple 裝置。
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

@@ -32,7 +32,7 @@
 
 ##將 Engagement SDK 和服務嵌入至您的 Android 專案
 
-取得 `mobile-engagement-VERSION.jar` 並將其放入 Android 專案的 `libs` 資料夾 (如果 libs 資料夾尚不存在，請先建立此資料夾)。
+從[這裡](http://go.microsoft.com/?linkid=9863935&clcid=0x409)下載 Android SDK，取得 `mobile-engagement-VERSION.jar` 並將它們放入 Android 專案的 `libs` 資料夾 (如果 libs 資料夾尚不存在，請建立此資料夾)。
 
 > [AZURE.IMPORTANT]如果您使用 ProGuard 建立應用程式封裝，您需要保留一些類別。您可以使用下列組態程式碼片段：
 >
@@ -55,7 +55,7 @@
 			<uses-permission android:name="android.permission.INTERNET"/>
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
--   對於幾種裝置型號，我們無法從 ANDROID_ID 產生 Engagement 裝置識別碼 (可能會出現錯誤或無法使用)。在此情況下，SDK 會產生隨機裝置識別碼，並嘗試將它儲存在裝置的外部儲存體上，讓其他 Engagement 應用程式可以共用相同的裝置識別碼 (它也會儲存為共用喜好設定，以確保萬一外部儲存體故障，應用程式本身仍可使用相同的裝置識別碼)。為了讓此機制正常運作，如有遺漏，您必須新增下列權限 (在 `<application>` 標記之前)：
+-   對於幾種裝置型號，我們無法從 ANDROID\\_ID 產生 Engagement 裝置識別碼 (可能會出現錯誤或無法使用)。在此情況下，SDK 會產生隨機裝置識別碼，並嘗試將它儲存在裝置的外部儲存體上，讓其他 Engagement 應用程式可以共用相同的裝置識別碼 (它也會儲存為共用喜好設定，以確保萬一外部儲存體故障，應用程式本身仍可使用相同的裝置識別碼)。為了讓此機制正常運作，如有遺漏，您必須新增下列權限 (在 `<application>` 標記之前)：
 
 			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
@@ -131,15 +131,15 @@
 
 > [AZURE.IMPORTANT]使用 `EngagementListActivity` 或 `EngagementExpandableListActivity` 時，務必先呼叫 `requestWindowFeature(...);` 再呼叫 `super.onCreate(...);`，否則會發生當機。
 
-我們提供 `FragmentActivity` 和 `MapActivity` 的子類別，但為了避免使用 ProGuard 的應用程式發生問題，所以未將這些項目包含在 `engagement.jar` 中。****
+我們提供 `FragmentActivity` 和 `MapActivity` 的子類別，但為了避免使用 ProGuard 的應用程式發生問題，所以未將這些項目包含在 `engagement.jar` 中。
 
-您可以在 `src` 資料夾中找到這些類別，並將其複製到您的專案。這些類別也會顯示在 JavaDoc 中。****
+您可以在 `src` 資料夾中找到這些類別，並將其複製到您的專案。這些類別也會顯示在 JavaDoc 中。
 
 ### 替代方法：手動呼叫 `startActivity()` 和 `endActivity()`
 
 如果您無法或不想多載 `Activity` 類別，可以改用直接呼叫 `EngagementAgent` 的方式來開始及結束您的活動。
 
-> [AZURE.IMPORTANT]Android SDK 絕不會呼叫 `endActivity()` 方法，即使在關閉應用程式後也不會呼叫 (在 Android 上，應用程式其實永遠不會關閉)。因此，「強烈」建議在您「所有」活動的 `onResume` 回呼中呼叫 `startActivity()` 方法，以及在您「所有」活動的 `onPause()` 回呼中呼叫 `endActivity()` 方法。******這是確保不會遺漏工作階段的唯一方法。如果遺漏了工作階段，Engagement 服務將永遠不會從 Engagement 後端中斷連線 (因為只要工作階段處於暫止狀態，服務就會保持連線)。
+> [AZURE.IMPORTANT]Android SDK 絕不會呼叫 `endActivity()` 方法，即使在關閉應用程式後也不會呼叫 (在 Android 上，應用程式其實永遠不會關閉)。因此，「強烈」建議在您「所有」活動的 `onResume` 回呼中呼叫 `startActivity()` 方法，以及在您「所有」活動的 `onPause()` 回呼中呼叫 `endActivity()` 方法。這是確保不會遺漏工作階段的唯一方法。如果遺漏了工作階段，Engagement 服務將永遠不會從 Engagement 後端中斷連線 (因為只要工作階段處於暫止狀態，服務就會保持連線)。
 
 下列是一個範例：
 
@@ -165,7 +165,7 @@
 
 ##測試
 
-現在請閱讀＜如何在 Android 上測試 Engagement 整合＞，確認您的整合。
+現在請確認您的整合，方法是在模擬器或裝置中執行您的行動應用程式，並確認它會在 [監視] 索引標籤上註冊工作階段。
 
 下一節是選擇性的。
 
@@ -177,7 +177,7 @@
 
 延遲區域位置報告允許報告國家、地區以及與裝置相關聯的位置。這類位置報告只會使用網路位置 (根據基地台識別碼或 WIFI)。每個工作階段最多報告一次裝置區域。絕不會使用 GPS，因此這類位置報告對於電池的影響很小 (但不是沒有)。
 
-報告區域會用來計算有關使用者、工作階段、事件及錯誤的地理統計資料。它們也可用來做為 Reach 活動的準則。針對裝置報告的最後已知區域可以藉由[裝置 API] 來擷取。
+報告的區域用來計算關於使用者、工作階段、事件與錯誤的地理統計資料。它們也可用來做為觸達活動的準則。針對裝置報告的最後已知區域可以藉由[裝置 API] 來擷取。
 
 若要啟用消極式區域位置報告，請加入：
 
@@ -189,9 +189,9 @@
 
 ### 即時位置報告
 
-即時位置報告允許報告與裝置相關聯的女緯度和經度。根據預設，這類位置報告只會使用網路位置 (根據基地台識別碼或 WIFI)，且只會在應用程式在前景中執行 (也就是在工作階段) 時，報告才會在作用中。
+即時位置報告允許報告與裝置相關聯的緯度和經度。根據預設，這類位置報告只會使用網路位置 (根據基地台識別碼或 WIFI)，且只會在應用程式於前景中執行 (也就是在工作階段) 時，報告才會為作用中。
 
-即時位置「不會」用來計算統計資料。**其唯一用途，是允許在 Reach 活動中使用即時地理圍欄 <Reach-Audience-geofencing> 準則。
+即時位置「不會」用來計算統計資料。其唯一用途，是允許在 Reach 活動中使用即時地理圍欄 <Reach-Audience-geofencing> 準則。
 
 若要啟用即時位置報告，請加入：
 
@@ -213,7 +213,7 @@
 
 #### 背景報告
 
-根據預設，即時位置報告只在應用程式在前景中執行 (也就是在工作階段) 時才會在作用中。若要也在背景中啟用報告，請加入：
+根據預設，即時位置報告只在應用程式在前景中執行 (也就是在工作階段) 時才會為作用中。若要也在背景中啟用報告，請加入：
 
 			<meta-data android:name="engagement:locationReport:realTime:background" android:value="true" />
 
@@ -309,5 +309,6 @@ Engagement 在喜好設定檔案內會一律使用 `engagement:key` 布林值機
 
 <!-- URLs. -->
 [裝置 API]: http://go.microsoft.com/?linkid=9876094
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

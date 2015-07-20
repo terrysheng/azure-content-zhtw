@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="07/02/2015" 
 	ms.author="patshea123"/>
 
 # 我的專案發生什麼情形？
@@ -38,5 +38,11 @@ Azure 行動服務 NuGet 封裝加入至專案。因此，下列 .NET 參考已�
 
 在 App.xaml.cs 檔案中，已使用所選行動服務的應用程式 URL 和應用程式金鑰建立 **MobileServiceClient** 物件。
 
+####已加入行動服務專案
+
+如果在連線服務提供者中建立 .NET 行動服務，則會建立行動服務專案並將其加入至方案。
+
+
 [深入了解行動服務](http://azure.microsoft.com/documentation/services/mobile-services/)
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

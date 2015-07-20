@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/06/2015" 
+    ms.date="06/22/2015" 
     ms.author="tamram"/>
 
 # 如何使用 C++ 的佇列儲存體  
@@ -21,9 +21,9 @@
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 ## 概觀
-本指南將示範如何使用 Azure 佇列儲存服務執行一般案例。這些範例均以 C++ 撰寫，並使用 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v0.5.0-preview/README.md)。所涵蓋的案例包括「插入」****、「查看」****、「取得」****和「刪除」****佇列訊息，以及「建立和刪除佇列」****。
+本指南將示範如何使用 Azure 佇列儲存服務執行一般案例。這些範例均以 C++ 撰寫，並使用 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md)。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。
 
->[AZURE.NOTE]本指南以 Azure Storage Client Library for C++ 0.5.0 版和更新版本為對象。建議的版本是 Storage Client Library 0.5.0，可透過 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/) 取得。
+>[AZURE.NOTE]本指南以 Azure Storage Client Library for C++ 1.0.0 版和更新版本為對象。建議的版本是 Storage Client Library 1.0.0，可透過 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/) 取得。
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -36,9 +36,9 @@
 若要安裝 Azure Storage Client Library for C++，您可以使用下列方法：
 
 -	**Linux：**遵循 [Azure Storage Client Library for C++ 讀我檔案](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)頁面中提供的指示進行。  
--	**Windows：**在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]****。在 [NuGet 套件管理員主控台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)中輸入下列命令，然後按下 **ENTER**。  
+-	**Windows：**在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。在 [NuGet 套件管理員主控台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)中輸入下列命令，然後按下 **ENTER**。  
 
-		Install-Package wastorage -Pre  
+		Install-Package wastorage 
  
 ## 設定您的應用程式以存取佇列儲存體
 在您要使用 Azure 儲存體 API 來存取佇列的 C++ 檔案頂端，加入下列 include 陳述式：
@@ -58,7 +58,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 	// Define the connection-string with Azure Storage Emulator.
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 
-若要啟動 Azure 儲存體模擬器，選取 [開始]**** 按鈕或按下 [Windows]**** 鍵。開始輸入 **Azure 儲存體模擬器**，然後從應用程式清單選取 [Microsoft Azure 儲存體模擬器]****。
+若要啟動 Azure 儲存體模擬器，選取 [開始] 按鈕或按下 [Windows] 鍵。開始輸入 **Azure 儲存體模擬器**，然後從應用程式清單選取 [Microsoft Azure 儲存體模擬器]。
 
 下列範例假設您已經使用這兩個方法之一來取得儲存體連接字串。
 
@@ -83,7 +83,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 	azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
 	// Create the queue if it doesn't already exist.
- queue.create_if_not_exists();
+ 	queue.create_if_not_exists();  
 
 ## 作法：將訊息插入佇列中
 若要將訊息插入現有佇列，請先建立一個新的 **cloud_queue_message**。接著，呼叫 **add_message** 方法。**cloud_queue_message** 便可以從字串或 **byte** 陣列建立。以下是建立佇列 (如果佇列不存在) 並插入訊息 'Hello, World' 的程式碼：
@@ -119,7 +119,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 	// Peek at the next message.
 	azure::storage::cloud_queue_message peeked_message = queue.peek_message();
 
-	// Output the message value.
+	// Output the message content.
 	std::wcout << U("Peeked message content: ") << peeked_message.content_as_string() << std::endl;
 
 ## 作法：變更佇列訊息的內容
@@ -142,6 +142,8 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 	changed_message.set_content(U("Changed message"));
 	queue.update_message(changed_message, std::chrono::seconds(60), true);
+
+	// Output the message content.
 	std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 
 ## 作法：在下一個訊息清除佇列
@@ -161,8 +163,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 	std::wcout << U("Dequeued message: ") << dequeued_message.content_as_string() << std::endl;
 
 	// Delete the message.
-	queue.delete_message(dequeued_message);  
-
+	queue.delete_message(dequeued_message); 
 
 ## 作法：運用清除佇列訊息的其他選項
 自訂從佇列中擷取訊息的方法有兩種。首先，您可以取得一批訊息 (最多 32 個)。其次，您可以設定較長或較短的可見度逾時，讓您的程式碼有較長或較短的時間可以完全處理每個訊息。下列程式碼範例將使用 **get_messages** 方法，在一次呼叫中取得 20 個訊息。接著它會使用 **for** 迴圈處理每個訊息。它也會將可見度逾時設定為每個訊息五分鐘。請注意，系統會針對所有訊息同時開始計時 5 分鐘，所以從呼叫 **get_messages** 開始的 5 分鐘後，任何尚未刪除的訊息都會重新出現。
@@ -184,12 +185,10 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 	// Retrieve 20 messages from the queue with a visibility timeout of 300 seconds.
 	std::vector<azure::storage::cloud_queue_message> messages = queue.get_messages(20, std::chrono::seconds(300), options, context);
 		
-	std::vector<azure::storage::cloud_queue_message>::const_iterator i;
-
-	for (i = messages.cbegin(); i != messages.cend(); ++i)
+	for (auto it = messages.cbegin(); it != messages.cend(); ++it)
 	{
-    	// Display the contents of the message.
-    	std::wcout << U("Get: ") << i->content_as_string() << std::endl;
+		// Display the contents of the message.
+		std::wcout << U("Get: ") << it->content_as_string() << std::endl;
 	}
 
 ## 作法：取得佇列長度
@@ -237,6 +236,6 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 -	[Azure 儲存體 MSDN 參考](https://msdn.microsoft.com/library/azure/gg433040.aspx)
 -	[Azure 儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

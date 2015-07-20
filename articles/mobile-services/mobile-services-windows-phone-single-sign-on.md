@@ -18,7 +18,7 @@
 
 # 使用 Microsoft 帳戶以用戶端管理的驗證方式驗證您的 Windows Phone 應用程式
 
-[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)] 
+[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)]
 ##概觀
 本主題示範如何使用 Live SDK 從 Windows Phone 8 或 Windows Phone 8.1 Silverlight 應用程式取得 Microsoft 帳戶的驗證權杖。然後您可以使用此權杖來驗證使用 Azure 行動服務的使用者。在本教學課程中，您將使用 Live SDK 將 Microsoft 帳戶驗證新增至現有的專案。成功驗證後，畫面會顯示名稱和使用者識別碼值來歡迎登入的使用者。
 
@@ -40,15 +40,15 @@
 
 接著您必須限制資源的存取權，在此案例中，要確保 *TodoItems* 資料表只能被登入的使用者存取。
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)]
 
 ##<a name="add-authentication"></a>將驗證新增至應用程式
 
 最後，您要新增 Live SDK 並用它來驗證您應用程式中的使用者。
 
-1. 在 [方案總管]**** 中，以滑鼠右鍵按一下方案，然後選取 [管理 NuGet 封裝]****。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下方案，然後選取 [管理 NuGet 封裝]。
 
-2. 在左窗格中選取 [線上]**** 類別、搜尋 **LiveSDK**，按一下 [Live SDK]**** 封裝上的 [安裝]****，然後接受授權合約。
+2. 在左窗格中選取 [線上] 類別、搜尋 **LiveSDK**，按一下 [Live SDK] 封裝上的 [安裝]，然後接受授權合約。
 
   	這樣會將 Live SDK 新增至方案中。
 
@@ -140,5 +140,6 @@
 [使用指令碼授權使用者]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

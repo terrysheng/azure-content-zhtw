@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在 Machine Learning Studio 中管理實驗逐一查看 | Azure" 
+	pageTitle="在 Machine Learning Studio 中管理實驗逐一查看 | Microsoft Azure" 
 	description="如何在 Azure Machine Learning Studio 中管理實驗逐一查看" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -83,5 +83,6 @@ ML Studio 中 [**實驗**] 索引標籤的實驗清單一律會顯示最新版�
 
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

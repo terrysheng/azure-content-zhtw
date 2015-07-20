@@ -42,4 +42,4 @@
 
 4. 依序按一下向後鍵、[資料] 索引標籤、[TodoItem] 及 [指令碼]，然後選取 [插入]。
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

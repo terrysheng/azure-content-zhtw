@@ -62,11 +62,11 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 
 使用 **Azure 管理入口網站**、**.NET** 或 **REST API** 上傳檔案。
 
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
+[AZURE.INCLUDE [媒體-服務-選取器-上傳-檔案](../../includes/media-services-selector-upload-files.md)]
 
 使用 **Azure 管理入口網站**、**.NET** 或 **REST API**，以 **Azure Media Encoder** 進行編碼。
  
-[AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
+[AZURE.INCLUDE [媒體-服務-選取器-編碼](../../includes/media-services-selector-encode.md)]
 
 
 ###上傳現有的自動調整位元速率集，並使用 Media Packager 加以驗證
@@ -83,11 +83,11 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 
 使用 **.NET** 或 **REST API** 設定資產傳遞原則。
 
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
+[AZURE.INCLUDE [媒體-服務-選取器-資產-傳遞-原則](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-使用 **Azure 管理入口網站l**或 **.NET** (藉由建立定位器) 發行資產。
+使用 **Azure 管理入口網站**或 **.NET** (藉由建立定位器) 發行資產。
 
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
+[AZURE.INCLUDE [媒體-服務-選取器-發行](../../includes/media-services-selector-publish.md)]
 
 
 ##<a id="unsupported_formats"></a>動態封裝不支援的格式
@@ -95,6 +95,6 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 動態封裝不支援下列來源檔案格式。
 
 - Dolby digital 加上 mp4 檔案。
-- Dolby digital 加上 smooth 檔案。
+- Dolby digital 加上 smooth 檔案。 
 
-<!---HONumber=52-->
+<!---HONumber=July15_HO2-->

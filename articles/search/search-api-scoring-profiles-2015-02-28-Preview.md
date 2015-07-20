@@ -18,7 +18,7 @@
       
 #評分設定檔 (Azure 搜尋服務 REST API 2015-02-28-Preview 版)
 
-> [AZURE.NOTE]本文說明 [2015-02-28-Preview](../search-api-2015-02-28-preview.md) 的評分設定檔。目前 [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) 上記載的 `2015-02-28` 版本與此處說明的 `2015-02-28-Preview` 版本並無差異。即便此 API 正好未經變更，本文主要目的是提供 `2015-02-28-Preview` 的完整文件。
+> [AZURE.NOTE]本文說明 [2015-02-28-Preview](search-api-2015-02-28-preview.md) 的評分設定檔。目前 [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) 上記載的 `2015-02-28` 版本與此處說明的 `2015-02-28-Preview` 版本並無差異。即便此 API 正好未經變更，本文主要目的是提供 `2015-02-28-Preview` 的完整文件。
 
 ## 概觀
 
@@ -55,7 +55,7 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2015-02-28-Preview
 
-此查詢會搜尋 'inn' 一詞，並傳入目前的位置。請注意這個查詢包括其他的參數，例如 `scoringParameter`。查詢參數說明於[搜尋文件 (Azure 搜尋服務 API)](../search-api-2015-02-28-preview.md#SearchDocs) 中。
+此查詢會搜尋 'inn' 一詞，並傳入目前的位置。請注意這個查詢包括其他的參數，例如 `scoringParameter`。查詢參數說明於[搜尋文件 (Azure 搜尋服務 API)](search-api-2015-02-28-preview.md#SearchDocs) 中。
 
 按一下[範例](#example)，可檢閱更多評分設定檔的詳細範例。
 
@@ -158,9 +158,9 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 
 評分設定檔的主體是從加權欄位和函數建構的。
 
-<font> <table> <thead><tr><td><b>項目</b></td><td><b>描述</b></td></tr></thead> <tbody> <tr> <td><b>權數</b></td> <td>指定將相對權數指派給欄位的名稱值組。在[範例](#example) 中，albumTitle、內容類型和 artistName 欄位分別會提升 1、5 和 null。為何內容類型提升的程度遠比其他多？ 如果是對帶有同質性的資料進行搜尋 (如同 `musicstoreindex` 中的 'genre')，則相對權數可能需要較大的變異數。例如，在 `musicstoreindex` 中，'rock' 不僅以類型的形式出現，也出現在相同措詞的類型說明中。如果您要讓內容類型的權數高於類型說明，則內容類型欄位需要更高的相對權數。</td> </tr> <tr> <td><b>函數</b></td><td>在特定內容需要額外計算時使用。有效值為 `freshness`、`magnitude` 、`distance` 和 `tag`。每個函數都有其獨特的參數。<p> - `freshness` 應使用於當您想要依項目的新舊程度進行提升時。此函數僅適用於 datetime 欄位 (Edm.DataTimeOffset)。請注意，`boostingDuration` 屬性僅適用於 freshness 函數。</p><p> - `magnitude` 應在您想要依數值的高低程度進行提升時使用。呼叫此函數的案例，包含依毛利率、最高價格、最低價格或下載次數進行提升。此函數僅可用於雙精度浮點數和整數欄位。</p><p> 針對 `magnitude` 函數，若您想要反轉高至低的模式 (例如，比高價格項目更提升低價格的項目)，則可將範圍反轉。假設價格範圍為 $100 美元到 $1 美元，您可將 `boostingRangeStart` 設為 100，並將 `boostingRangeEnd` 設為 1 以提升低價格的項目。 </p><p> - `distance` 應在您想要依鄰近性或地理位置進行提升時使用。此函數只能搭配使用 `Edm.GeographyPoint` 欄位。</p><p> - 想要依據文件和搜尋查詢之間的共通標記進行提升時，應使用 `tag`。此函數只能搭配使用 `Edm.String` 和 (Collection(Edm.String) 欄位。</p> <p><b>使用函數的規則</b></p>函數類型 (freshness、magnitude、distance、tag) 必須是小寫。<br/> 函數不可包含 null 或空值。明確而言，如果您包含欄位名稱，則必須加以設定。<br/> 函數只能套用至可篩選的欄位。請參閱[建立索引 (Azure 搜尋服務 API)](../search-api-2015-02-28-preview.md#createindex) 以了解更多有關可篩選欄位的相關資訊。<br/> 函數只能套用至索引的欄位集合中定義的欄位。</td> </tr> </tbody> </table> </font>
+<font> <table> <thead><tr><td><b>項目</b></td><td><b>描述</b></td></tr></thead> <tbody> <tr> <td><b>權數</b></td> <td>指定將相對權數指派給欄位的名稱值組。在[範例](#example) 中，albumTitle、內容類型和 artistName 欄位分別會提升 1、5 和 null。為何內容類型提升的程度遠比其他多？ 如果是對帶有同質性的資料進行搜尋 (如同 `musicstoreindex` 中的 'genre')，則相對權數可能需要較大的變異數。例如，在 `musicstoreindex` 中，'rock' 不僅以類型的形式出現，也出現在相同措詞的類型說明中。如果您要讓內容類型的權數高於類型說明，則內容類型欄位需要更高的相對權數。</td> </tr> <tr> <td><b>函數</b></td><td>在特定內容需要額外計算時使用。有效值為 `freshness`、`magnitude` 、`distance` 和 `tag`。每個函數都有其獨特的參數。<p> - `freshness` 應使用於當您想要依項目的新舊程度進行提升時。此函數僅適用於 datetime 欄位 (Edm.DataTimeOffset)。請注意，`boostingDuration` 屬性僅適用於 freshness 函數。</p><p> - `magnitude` 應在您想要依數值的高低程度進行提升時使用。呼叫此函數的案例，包含依毛利率、最高價格、最低價格或下載次數進行提升。此函數僅可用於雙精度浮點數和整數欄位。</p><p> 針對 `magnitude` 函數，若您想要反轉高至低的模式 (例如，比高價格項目更提升低價格的項目)，則可將範圍反轉。假設價格範圍為 $100 美元到 $1 美元，您可將 `boostingRangeStart` 設為 100，並將 `boostingRangeEnd` 設為 1 以提升低價格的項目。 </p><p> - `distance` 應在您想要依鄰近性或地理位置進行提升時使用。此函數只能搭配使用 `Edm.GeographyPoint` 欄位。</p><p> - 想要依據文件和搜尋查詢之間的共通標記進行提升時，應使用 `tag`。此函數只能搭配使用 `Edm.String` 和 (Collection(Edm.String) 欄位。</p> <p><b>使用函數的規則</b></p>函數類型 (freshness、magnitude、distance、tag) 必須是小寫。<br/> 函數不可包含 null 或空值。明確而言，如果您包含欄位名稱，則必須加以設定。<br/> 函數只能套用至可篩選的欄位。請參閱[建立索引 (Azure 搜尋服務 API)](search-api-2015-02-28-preview.md#createindex) 以了解更多有關可篩選欄位的相關資訊。<br/> 函數只能套用至索引的欄位集合中定義的欄位。</td> </tr> </tbody> </table> </font>
 
-索引定義之後，請上傳索引結構描述 (接著上傳文件) 以建置索引。如需這些操作的指示，請參閱[建立索引](../search-api-2015-02-28-preview.md#createindex)和[新增或更新文件](../search-api-2015-02-28-preview.md#AddOrUpdateDocuments)。索引建置後，您應會有可運作的評分設定檔可處理您的搜尋資料。
+索引定義之後，請上傳索引結構描述 (接著上傳文件) 以建置索引。如需這些操作的指示，請參閱[建立索引](search-api-2015-02-28-preview.md#createindex)和[新增或更新文件](search-api-2015-02-28-preview.md#AddOrUpdateDocuments)。索引建置後，您應會有可運作的評分設定檔可處理您的搜尋資料。
 
 <a name="bkmk_template"></a>
 ##範本
@@ -266,13 +266,13 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 </tr><tr>
 <td>distance</td>	<td>距離計分函數可用來根據文件與參考地理位置的距離，對文件的分數產生影響。參考位置會以 lon,lat 引數的形式，指定為參數中查詢的一部分 (使用 scoringParameterquery 字串選項)。</td>
 </tr><tr>
-<td>distance | referencePointParameter</td>	<td>傳入查詢中做為參考位置的參數。scoringParameter 是查詢參數。如需查詢參數的說明，請參閱＜搜尋文件＞(../search-api-2015-02-28-preview.md#SearchDocs)。</td>
+<td>distance | referencePointParameter</td>	<td>傳入查詢中做為參考位置的參數。scoringParameter 是查詢參數。如需查詢參數的說明，請參閱＜搜尋文件＞(search-api-2015-02-28-preview.md#SearchDocs)。</td>
 </tr><tr>
 <td>distance | boostingDistance</td>	<td>以公里為單位，設定與提升範圍結束處的參考位置相隔的距離。</td>
 </tr><tr>
 <td>tag</td>	<td>標記計分函數可用來根據文件和搜尋查詢中的標記，對文件的分數產生影響。將會提升擁有與搜尋查詢共通之標記的文件。搜尋查詢的標記是以每個搜尋要求中的計分參數形式提供 (使用 scoringParameterquery 字串選項)。</td>
 </tr><tr>
-<td>tag | tagsParameter</td>	<td>傳入查詢中用來指定特定要求之標記的參數。scoringParameter 是查詢參數。如需查詢參數的說明，請參閱＜搜尋文件＞(../search-api-2015-02-28-preview.md#SearchDocs)。</td>
+<td>tag | tagsParameter</td>	<td>傳入查詢中用來指定特定要求之標記的參數。scoringParameter 是查詢參數。如需查詢參數的說明，請參閱＜搜尋文件＞(search-api-2015-02-28-preview.md#SearchDocs)。</td>
 </tr><tr>
 <td>functionAggregation</td>	<td>選用。只有在已指定函數時才會套用。有效值包括：sum (預設值)、average、minimum、maximum 和 firstMatching。搜尋分數是從多個變數 (包含多個函數) 計算的單一值。此屬性可指出所有函數如何結合為後續會套用至基準文件分數的單一彙總提升。基準分數的基礎是從文件和搜尋查詢計算出來的 tf-idf 值。</td>
 </tr><tr>
@@ -331,5 +331,6 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

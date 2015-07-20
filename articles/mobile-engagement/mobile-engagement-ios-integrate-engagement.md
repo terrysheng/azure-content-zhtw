@@ -32,9 +32,9 @@
 
 ##將 Engagement SDK 嵌入您的 iOS 專案
 
-將 Engagement SDK 加入您的 iOS 專案：在 Xcode 4 中，以滑鼠右鍵按一下專案，然後選取 [新增檔案至...]****，再選擇 `EngagementSDK` 資料夾。
+將 Engagement SDK 加入您的 iOS 專案：在 Xcode 4 中，以滑鼠右鍵按一下專案，然後選取 [新增檔案至...]，再選擇 `EngagementSDK` 資料夾。
 
-Engagement 需要額外的架構才能運作：在專案總管中，開啟專案窗格並選取正確的目標。然後，開啟 [建置階段]**** 索引標籤，在 [連結二進位檔與程式庫]**** 功能表中加入下列架構：
+Engagement 需要額外的架構才能運作：在專案總管中，開啟專案窗格並選取正確的目標。然後，開啟 [建置階段] 索引標籤，在 [連結二進位檔與程式庫] 功能表中加入下列架構：
 
 > -   `AdSupport.framework`：將連結設為`Optional`
 > -   `SystemConfiguration.framework`
@@ -98,7 +98,7 @@ Engagement 需要額外的架構才能運作：在專案總管中，開啟專案
 
 如果您無法或不想要多載 `UIViewController` 類別，可以改用直接呼叫 `EngagementAgent` 的方法來開始活動。
 
-> [AZURE.IMPORTANT]iOS SDK 會在應用程式關閉時自動呼叫 `endActivity()` 方法。因此，「強烈」**建議每當使用者的活動變更時便呼叫 `startActivity` 方法，並且**「絕對不要」呼叫 `endActivity` 方法，因為呼叫此方法會強制結束目前的工作階段。
+> [AZURE.IMPORTANT]iOS SDK 會在應用程式關閉時自動呼叫 `endActivity()` 方法。因此，「強烈」建議每當使用者的活動變更時便呼叫 `startActivity` 方法，並且「絕對不要」呼叫 `endActivity` 方法，因為呼叫此方法會強制結束目前的工作階段。
 
 ##位置報告
 
@@ -125,7 +125,7 @@ Apple 服務條款不允許應用程式只為了統計資料的目的而使用�
 
 即時位置報告允許報告與裝置相關聯的緯度和經度。根據預設，這類位置報告只會使用網路位置 (根據基地台識別碼或 WIFI)，且只會在應用程式於前景中執行 (也就是在工作階段) 時，報告才會為作用中。
 
-即時位置「不會」**用來計算統計資料。其唯一用途，是允許在觸達活動中使用即時地理圍欄 <Reach-Audience-geofencing> 準則。
+即時位置「不會」用來計算統計資料。其唯一用途，是允許在觸達活動中使用即時地理圍欄 <Reach-Audience-geofencing> 準則。
 
 若要啟用即時位置報告，請在初始化 Engagement 代理程式之後加入下面這一行：
 
@@ -206,5 +206,6 @@ Engagement API 可允許使用所有 Engagement 的進階功能，詳情請見�
 [NSLocationAlwaysUsageDescription]: https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

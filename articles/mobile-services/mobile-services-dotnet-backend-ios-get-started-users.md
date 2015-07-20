@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="04/13/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh"/>
 
 # 將驗證加入現有的 Azure 行動服務應用程式
@@ -22,27 +22,27 @@
 
 在本教學課程中，您可以使用支援的身分識別提供者，將驗證加入快速入門專案。本教學課程以[行動服務快速入門教學課程]為基礎，您必須先完成該教學課程。
 
-## <a name="register"></a>註冊應用程式進行驗證，並設定行動服務
+##<a name="register"></a>註冊應用程式進行驗證，並設定行動服務
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../../includes/mobile-services-dotnet-backend-aad-server-extension.md)]
 
-## <a name="permissions"></a>限制只有通過驗證的使用者具有權限
+##<a name="permissions"></a>限制只有通過驗證的使用者具有權限
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 在 Xcode 中，開啟專案。按 [執行] 按鈕，以啟動應用程式。確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的例外狀況。這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 _TodoItem_ 資料表現在需要驗證。
 
-## <a name="add-authentication"></a>將驗證加入應用程式
+##<a name="add-authentication"></a>將驗證加入應用程式
 
 [AZURE.INCLUDE [mobile-services-ios-authenticate-app](../../includes/mobile-services-ios-authenticate-app.md)]
 
-## <a name="store-authentication"></a>將驗證權杖儲存在應用程式中
+##<a name="store-authentication"></a>將驗證權杖儲存在應用程式中
 
 [AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
-## <a name="next-steps"></a>接續步驟
+##<a name="next-steps"></a>接續步驟
 
 在下一個教學課程[行動服務使用者的服務端授權中]，您將使用使用者識別碼值篩選傳回的資料。
 
@@ -65,4 +65,4 @@
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

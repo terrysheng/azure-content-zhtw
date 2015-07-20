@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="利用 Azure 媒體服務提供即時資料流" 
-	description="本主題描述媒體服務即時資料流的一般工作流程步驟。" 
+	description="本主題提供即時串流中涉及的主要元件的概觀。" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,105 +13,76 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="05/26/2015" 
 	ms.author="juliako"/>
 
 
-# 利用 Azure 媒體服務提供即時資料流
+#使用 Azure 媒體服務傳遞即時串流事件
 
-## 概觀
+##概觀
 
-本主題說明 Azure 媒體服務 (AMS) 即時資料流的一般工作流程步驟。每個步驟會連結至相關主題。針對可以使用不同技術達成的工作，有幾個按鈕連結至您選擇的技術 (例如 .NET 或 REST)。   
+使用即時資料流時通常涉及下列元件：
 
-請注意，您可以將媒體服務與現有工具和程序整合。例如，編碼站台上的內容，然後將其上傳至媒體服務以轉碼為多種格式，並透過 Azure CDN 或協力廠商 CDN 進行傳遞。 
+- 相機，用來廣播事件。
+- 即時視訊編碼器，它會將相機中的訊號轉換成資料流，然後再傳送至即時資料流服務。 
+  
+	(選擇性) 多個即時編碼器。針對某些需要相當高度可用性與高品質經驗的重要即時事件，建議使用主動對主動備援編碼器，以達成順暢容錯移轉，而不會遺失資料。
+- 即時串流服務可讓您執行下列動作： 
+	- 使用各種即時串流處理通訊協定 (例如 RTMP 或 Smooth Streaming) 擷取即時內容， 
+	- 將您的串流編碼成調適性位元速率串流
+	- 預覽您的即時串流，
+	- 儲存擷取的內容以於稍後進行串流 (隨選視訊)
+	- 透過一般串流通訊協定 (例如，MPEG DASH、Smooth、HLS、HDS) 直接將內容傳遞給客戶，或傳遞至內容傳遞網路 (CDN) 供進一步的發佈。 
+	
+		
+**Microsoft Azure 媒體服務** (AMS) 提供擷取、編碼、預覽、儲存和傳遞即時串流內容的能力。
 
-下圖顯示即時資料流工作流程中涉及的媒體服務平台主要部分。
+當您將內容傳遞給客戶時，您的目標是在不同的網路條件下將高品質的視訊傳遞到各種裝置。請注意品質和網路狀況，使用即時編碼器將您的串流編碼成多位元速率 (調適性位元速率) 視訊串流。請注意不同裝置上的串流，使用媒體服務[動態封裝](media-services-dynamic-packaging-overview.md)將串流動態地重新封裝至不同的通訊協定。媒體服務支援傳遞下列可調位元速率資料流技術：HTTP 即時資料流 (HLS)、Smooth Streaming、MPEG DASH 和 HDS (僅適用於 Adobe PrimeTime/Access licensees)。
 
-![即時工作流程][live-overview]
+在 Azure 媒體服務中，**通道**、**程式**及 **StreamingEndpoints** 會處理所有的即時串流功能，包括內嵌、格式化、DVR、安全性、延展性和備援能力。
 
-本主題描述即時資料流相關概念並提供一些主題連結，您可以從這些連結中瞭解如何完成即時資料流工作。
-
-## 概念
-
-如需即時資料流相關概念，請參閱[媒體服務概念](media-services-concepts.md)。
-
-## 建立媒體服務帳戶
-
-使用 **Azure 管理入口網站**[建立 Azure 媒體服務帳戶](media-services-create-account.md)。
-
-## 設定串流端點
-
-如需有關串流端點以及有管理方法簡介，請參閱[如何管理媒體服務帳戶中的串流處理端點](media-services-manage-origins.md)
-
-## 設定開發環境  
-
-針對開發環境選擇 **.NET** 或 **REST API**。
-
-[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
-
-## 以程式設計方式連接  
-
-選擇 **.NET** 或 **REST API** 以程式設計方式連接到 Azure 媒體服務。
-
-[AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
+在 Azure 媒體服務中，**通道**代表處理即時串流內容的管線。目前，通道可以接收即時輸入串流的方式如下：
 
 
-## 使用內部部署即時編碼器，將多位元速率資料流輸出至通道
+- 內部部署即時編碼器會傳送單一位元速率串流至通道，可以使用下列格式之一，以媒體服務執行即時編碼：RTP (MPEG-TS)、RTMP 或 Smooth Streaming (分散的 MP4) 。通道接著會執行即時編碼，將連入的單一位元速率串流編碼成多位元速率 (自動調整) 視訊串流。接到要求時，媒體服務會傳遞串流給客戶。
 
-## 使用第三方即時轉碼器
-
-如需詳細資訊，請參閱[搭配使用協力廠商即時編碼器與 Azure 媒體服務](https://msdn.microsoft.com/library/azure/dn783464.aspx)。
-
-## 管理通道、程式、資產
-
-**概觀**：[管理通道和程式概觀](media-services-manage-channels-overview.md).
-
-依序選擇 [入口網站]、[.NET]、[REST API]，即可查看範例。
-
-[AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
-
-## 設定資產傳遞原則
-
-使用 **.NET** 或 **REST API** 設定資產傳遞原則。
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-## 建立內容金鑰
-
-建立當您利用 **.NET** 或 **REST API** 加密資產時會用到的內容金鑰。
-
-[AZURE.INCLUDE [media-services-selector-create-contentkey](../../includes/media-services-selector-create-contentkey.md)]
-
-## 設定內容金鑰授權原則 
-
-使用 **.NET** 或 **REST API** 設定內容保護和金鑰授權原則。
-
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
+	利用媒體服務編碼即時串流處於**預覽**狀態。
+- 內部部署即時編碼器會傳送多位元速率 **RTMP** 或 **Smooth Streaming** (分散的 MP4) 到通道。您可以使用下列輸出多位元速率 Smooth Streaming 的即時編碼器：Elemental、Envivio、Cisco。下列即時編碼器會輸出 RTMP：Adobe Flash Live、Telestream Wirecast 和 Tricaster 轉錄器。內嵌的串流會通過**通道**，而不需任何進一步處理。您的即時編碼器也會傳送單一位元速率串流至無法用於即時編碼的通道，但是不建議。接到要求時，媒體服務會傳遞串流給客戶。
 
 
-## 發行及傳遞資產
-
-**概觀**：[傳遞內容概觀](media-services-deliver-content-overview.md)
-
-使用 **Azure 管理入口網站**或 **.NET** (藉由建立定位器) 發行資產。
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
+##使用啟用的通道來以 Azure 媒體服務執行即時編碼
 
 
-## 啟用 Azure CDN
+下圖顯示 AMS 平台的主要部分，與通道可以使用媒體服務執行即時編碼的即時串流工作流程有關。
 
-媒體服務支援與 CDN 的整合。如需瞭解如何啟用 Azure CDN，請參閱[如何管理媒體服務帳戶中的串流端點](media-services-manage-origins.md#enable_cdn)。
+![即時工作流程][live-overview1]
 
-## 調整媒體服務帳戶
+如需詳細資訊，請參閱[使用啟用的通道來以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
 
-您可以藉由指定您要佈建給帳戶的**串流保留單元**數目來調整 **媒體服務**。 
 
-如需調整串流單元的相關資訊，請參閱：[如何調整串流單位](media-services-manage-origins.md#scale_streaming_endpoints.md).
+##使用通道，從內部部署編碼器接收多位元速率即時串流
+
+
+下圖顯示即時串流工作流程中涉及的 AMS 平台主要部分。
+
+![即時工作流程][live-overview2]
+
+如需詳細資訊，請參閱[使用通道，從內部部署編碼器接收多位元速率即時串流](media-services-manage-channels-overview.md)。
+
+
+##相關主題
+
+[媒體服務概念](media-services-concepts.md)
+
+[Azure 媒體服務的分散 MP4 即時內嵌規格](media-services-fmp4-live-ingest-overview.md)
 
 
 
 
-[live-overview]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
 
+[live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
 
-<!--HONumber=52--> 
+[live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
+ 
+
+<!---HONumber=July15_HO2-->

@@ -38,13 +38,13 @@
 
 ##執行範例
 
-1. 從 Azure 入口網站，按一下您要執行範例的叢集，然後按一下底部的 [查詢主控台]****。或者，您也可以使用下列 URL 直接開啟查詢主控台：
+1. 從 Azure 入口網站，按一下您要執行範例的叢集，然後按一下底部的 [查詢主控台]。或者，您也可以使用下列 URL 直接開啟查詢主控台：
 
 	 	https://<clustername>.azurehdinsight.net
 	
 	出現提示時，使用您佈建叢集時所用的系統管理員使用者名稱和密碼來進行驗證。
   
-2. 從開啟的網頁中，按一下 [Getting Started Gallery]**** 索引標籤，然後在 [範例]**** 類別下，按一下 [Website Log Analysis]**** 範例。
+2. 從開啟的網頁中，按一下 [Getting Started Gallery] 索引標籤，然後在 [範例] 類別下，按一下 [Website Log Analysis] 範例。
 
 3. 依照網頁上提供的指示完成範例。
 
@@ -56,5 +56,6 @@
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

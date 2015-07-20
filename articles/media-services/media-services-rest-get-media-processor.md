@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/12/2015" 
 	ms.author="juliako"/>
 
 
-# 做法：取得媒體處理器執行個體
+#如何：取得媒體處理器執行個體
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)系列的一部分。
 
 
-## 概觀
+##概觀
 
 在媒體服務中，媒體處理器是可處理特定處理工作的元件，例如編碼、格式轉換、加密或解密媒體內容。您通常會在建立媒體內容的編碼、加密或格式轉換工作時建立媒體處理器。
 
@@ -40,7 +40,7 @@
     <tr>
        <td>Azure Media Encoder</td>
        <td>讓您使用 Azure Media Encoder 執行編碼工作。</td>
-       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Azure Media Encoder 的工作預設字串</a></td>
+       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx">Azure Media Encoder 的工作預設字串</a></td>
     </tr>
     <tr>
        <td>Media Encoder Premium Workflow</td>
@@ -60,10 +60,15 @@
     <tr>
         <td>Windows Azure Media Encryptor</td>
         <td>可讓您使用 PlayReady Protection 為媒體資產加密。</td>
-        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Azure Media Packager 的工作預設字串</a></td>
+        <td><a href=" http://go.microsoft.com/fwlink/?LinkId=613274">Azure Media Packager 的工作預設字串</a></td>
     </tr>
+	<tr>
+		<td>Azure Media Hyperlapse (預覽)</td>
+		<td>可讓您使用影片穩定讓影片中的「巔簸」變得平滑。也可讓您將內容加速至可使用的片段。</td>
+		<td><a href="http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db">Azure Media Hyperlapse</a></td>
+	</tr>
     <tr>
-        <td>儲存體解密</td>
+        <td>Storage Decryption</td>
         <td>可讓您對使用儲存體加密功能加密的媒體資產進行解密。</td>
 		<td>N/A</td>
     </tr>  </tbody>
@@ -71,17 +76,17 @@
 
 <br />
 
-## 取得 MediaProcessor
+##取得 MediaProcessor
 
->[AZURE.NOTE] 使用媒體服務 REST API 時，適用下列考量事項：
+>[AZURE.NOTE]使用媒體服務 REST API 時，適用下列考量事項：
 >
->在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發的設定](media-services-rest-how-to-use.md)。
+>在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 
->順利連接到 https://media.windows.net 後，您會收到指定另一個媒體服務 URI 的 301 重新導向。後續的呼叫必須向新的 URI 提出，如[使用 REST API 連接至媒體服務](media-services-rest-connect_programmatically.md)中所述。 
+>成功連線至 https://media.windows.net 後，您會收到指定另一個媒體服務 URI 的 301 重新導向。您必須依照[使用 REST API 連線至媒體服務](media-services-rest-connect_programmatically.md)所述，對新的 URI 進行後續呼叫。
 
 
 
-下列 REST 呼叫示範如何依名稱取得媒體處理器執行個體 (在此情況下， **Azure Media Encoder**)。 
+下列 REST 呼叫示範如何依名稱取得媒體處理器執行個體 (在此案例中，**Azure Media Encoder**)。
 
 	
 要求：
@@ -115,12 +120,11 @@
 	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#MediaProcessors","value":[{"Id":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609","Description":"Azure Media Encoder","Name":"Azure Media Encoder","Sku":"","Vendor":"Microsoft","Version":"4.4"}]}
 
 
-## 後續步驟
-現在您知道如何取得媒體處理器執行個體，請移至[如何為資產編碼][]主題，以了解如何使用 Azure Media Encoder 為資產編碼。
+##後續步驟
+現在您已了解如何取得媒體處理器執行個體，接著請移至[如何為資產編碼][]主題，以了解如何使用 Azure Media Encoder 為資產編碼。
 
 [如何為資產編碼]: media-services-rest-encode-asset.md
-[Azure Media Encoder 的工作預設字串]: http://msdn.microsoft.com/library/jj129582.aspx
-[做法：以程式設計方式連接到媒體服務]: ../media-services-rest-connect_programmatically/
+[Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
+[How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

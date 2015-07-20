@@ -1,29 +1,30 @@
-<properties 
-	pageTitle="開始使用 Azure Mobile Engagement" 
+<properties
+	pageTitle="開始使用 Azure Mobile Engagement"
 	description="了解如何使用 Android 應用程式的 Azure Mobile Engagement 與分析和推播通知。"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="05/01/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="get-started-article" 
+	ms.date="05/01/2015"
 	ms.author="piyushjo" />
-	
+
 # 開始使用適用於 Android 應用程式的 Azure Mobile Engagement
 
 > [AZURE.SELECTOR]
 - [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS - Obj C](mobile-engagement-ios-get-started.md) 
+- [iOS - Obj C](mobile-engagement-ios-get-started.md)
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md)
+- [Cordova](mobile-engagement-cordova-get-started.md)
 
 本主題說明如何使用 Azure Mobile Engagement 來了解您應用程式的使用情形，以及傳送推播通知給 Android 應用程式的分段使用者。本教學課程將示範使用 Mobile Engagement 的簡單廣播案例。在此案例中，您先建立空白的 Android 應用程式，使用 Google 雲端通訊 (GCM) 來收集基本資料並接收推播通知。完成之後，您便能夠依據使用者的裝置特性，向所有裝置或目標特定使用者廣播推播通知。請務必搭配下一個教學課程來了解如何使用 Mobile Engagement 處理特定使用者與裝置群組。
 
@@ -45,14 +46,14 @@ You will use your GCM API key later when setting up your app for Mobile Engageme
 
 ##<a id="setup-azme"></a>為您的應用程式設定 Mobile Engagement
 
-1. 登入 [Azure 管理入口網站]，並按一下畫面底部的 [+新增]****。
+1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com)，並按一下畫面底部的 [+新增]。
 
-2. 依序按一下 [應用程式服務]、[Mobile Engagement]，以及 [建立]。************
+2. 依序按一下 [應用程式服務]、[Mobile Engagement]，以及 [建立]。
 
    	![][7]
 
 3. 在顯示的快顯視窗中，輸入以下資訊：
- 
+
    	![][8]
 
 	1. **應用程式名稱**：您可以輸入應用程式的名稱。可自由使用任何字元。
@@ -65,15 +66,15 @@ You will use your GCM API key later when setting up your app for Mobile Engageme
 
 	當您完成時，請按一下檢查按鈕以完成您應用程式的建立作業。
 
-4. 現在請在 [應用程式] 索引標籤中按一下/選取您剛剛建立的應用程式。****
- 
+4. 現在請在 [應用程式] 索引標籤中按一下/選取您剛剛建立的應用程式。
+
    	![][9]
 
-5. 然後按一下 [連線資訊] 以顯示要置入 SDK 整合中的連線設定。****
- 
+5. 然後按一下 [連線資訊] 以顯示要置入 SDK 整合中的連線設定。
+
    	![][10]
 
-6. 最後，請記下 [連線字串]，您將需要此字串來從您的應用程式程式碼中識別此應用程式。****
+6. 最後，請記下 [連線字串]，您將需要此字串來從您的應用程式程式碼中識別此應用程式。
 
    	![][11]
 
@@ -89,24 +90,24 @@ You will use your GCM API key later when setting up your app for Mobile Engageme
 
 如果您已經有應用程式並且熟悉 Android 開發過程，可以略過此步驟。
 
-1. 啟動 Android Studio，然後在快顯視窗中選取 [開始新的 Android Studio 專案]。****
+1. 啟動 Android Studio，然後在快顯視窗中選取 [開始新的 Android Studio 專案]。
 
    	![][12]
 
-2. 填入應用程式名稱與公司網域。請記下這些資訊，以便稍後使用，然後按 [下一步]****。
+2. 填入應用程式名稱與公司網域。請記下這些資訊，以便稍後使用，然後按 [下一步]。
 
    	![][13]
 
-3. 現在選取目標尺寸和 API 層級，然後按 [下一步]。****
+3. 現在選取目標尺寸和 API 層級，然後按 [下一步]。
 	>[AZURE.NOTE]Mobile Engagement 至少需要 API 層級 10 (Android 2.3.3)。
 
    	![][14]
 
-4. 我們現在要新增活動到這個簡單的應用程式中，做為它的主要、唯一畫面。請務必選取 [空白活動]****，然後按 [下一步]。****
+4. 我們現在要新增活動到這個簡單的應用程式中，做為它的主要、唯一畫面。請務必選取 [空白活動]，然後按 [下一步]。
 
    	![][15]
 
-5. 在精靈的最後一個畫面中，您可以因應本教學課程的用途而保留所有項目，然後按一下 [完成]。****
+5. 在精靈的最後一個畫面中，您可以因應本教學課程的用途而保留所有項目，然後按一下 [完成]。
 
    	![][16]
 
@@ -118,7 +119,7 @@ Android Studio 現在將建立要用於整合 Mobile Engagement 的示範應用�
 
 1. 下載 [Mobile Engagement Android SDK]。
 2. 將封存檔案解壓縮至電腦中的資料夾。
-3. 找出此 SDK 目前版本的 .jar 程式庫 (本文採用 3.0.0 版) 並將它複製到剪貼簿。
+3. 找出此 SDK 目前版本的 .jar 程式庫，並將它複製到剪貼簿。
 
 	![][17]
 
@@ -139,7 +140,7 @@ Android Studio 現在將建立要用於整合 Mobile Engagement 的示範應用�
 		engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
 		EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-2. 回到 Azure 入口網站中您應用程式的 [連線資訊] 頁面，****，並複製 [連線字串]****。
+2. 回到 Azure 入口網站中您應用程式的 [連線資訊] 頁面，，並複製 [連線字串]。
 
 	![][11]
 
@@ -154,34 +155,27 @@ Android Studio 現在將建立要用於整合 Mobile Engagement 的示範應用�
 ###新增權限和服務宣告
 
 1. 將這些權限加入至您專案的 Manifest.xml 中，緊接在 `<application>` 標記之前或之後：
-	
+
 		<uses-permission android:name="android.permission.INTERNET"/>
 		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 		<uses-permission android:name="android.permission.VIBRATE" />
-		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 		<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
 	結果應如下所示：
 
 	![][21]
 
-2. 在 < application > 和 </application > 標記之間加入下列內容，宣告代理程式服務：
+2. 在 `<application>` 和 `</application>` 標記之間加入下列內容，宣告代理程式服務：
 
 		<service
  			android:name="com.microsoft.azure.engagement.service.EngagementService"
  			android:exported="false"
- 			android:label="<Your application name>Service"
+ 			android:label="<Your application name>"
  			android:process=":Engagement"/>
 
-3. 在您剛才貼上的程式碼中，更換標籤中的 "< Your application name>"。例如：
-
-		<service
- 			android:name="com.microsoft.azure.engagement.service.EngagementService"
- 			android:exported="false"
- 			android:label="MySuperAppService"
- 			android:process=":Engagement"/>
+3. 在您剛才貼上的程式碼中，更換標籤中的 `"<Your application name>"`。這是設定功能表中顯示的項目，使用者可以在該功能表中看到裝置上正在執行的服務。例如，您可以在該標籤中加入「服務」這個字。
 
 ###傳送螢幕到 Mobile Engagement
 
@@ -197,11 +191,11 @@ Android Studio 現在將建立要用於整合 Mobile Engagement 的示範應用�
 
 1. 瀏覽至您的 Mobile Engagement 入口網站。
 
-	在 Azure 入口網站中，確定您已位於我們用於此專案的應用程式，然後按一下底部的 [Engage] 按鈕。****
+	在 Azure 入口網站中，確定您已位於我們用於此專案的應用程式，然後按一下底部的 [Engage] 按鈕。
 
 	![][26]
 
-2. 您將登陸您應用程式的 Engagement 入口網站。從該處按一下 [監視器] 索引標籤，如下所示。****![][30]
+2. 您將登陸您應用程式的 Engagement 入口網站。從該處按一下 [監視器] 索引標籤，如下所示。![][30]
 
 3. 監視器可以即時顯示將會啟動您應用程式的任何裝置。![][31]
 
@@ -218,7 +212,7 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 
 ### 啟用應用程式內傳訊
 
-1. 將下列應用程式內傳訊資源複製到 Manifest.xml 的 < application > 和 </application > 標記之間。
+1. 將下列應用程式內傳訊資源複製到 Manifest.xml 的 `<application>` 和 `</application>` 標記之間。
 
 		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light">
   			<intent-filter>
@@ -240,6 +234,12 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
+		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog">
+			<intent-filter>
+				<action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
 		<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver" android:exported="false">
 			<intent-filter>
 				<action android:name="android.intent.action.BOOT_COMPLETED"/>
@@ -247,33 +247,49 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 				<action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
 				<action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
 				<action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-				<action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 				<action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+			</intent-filter>
+		</receiver>
+		<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 			</intent-filter>
 		</receiver>
 
 2. 透過下列步驟，將資源複製到您的專案：
-	1. 瀏覽回到您的 SDK 下載內容並開啟 'res' 資料夾。
-	2. 選取這 2 個資料夾並將其複製到剪貼簿。
+	1. 瀏覽回到您的 SDK 下載內容，並且複製 'res' 資料夾。
 
 		![][23]
 
-	4. 回到 Android Studio，選取專案的 'res' 部分並貼上，將資源新增至您的專案。
+	2. 返回 Android Studio，選取專案檔案的「主要」部分，並且貼上以將資源加入至您的專案。
 
 		![][24]
 
-###在通知中指定預設圖示
-下列程式碼會定義顯示在通知上的預設圖示。此處我們使用 Android Studio 所建立專案提供的圖示。此 xml 程式碼片段要貼到 Manifest.xml 的 < application > 和 </application > 標記之間。務必確定 ic_launcher 位於您的應用程式中，或是使用其他圖示檔案，否則通知將無法顯示。
+###指定通知的圖示
 
-		<meta-data android:name="engagement:reach:notification:icon" android:value="ic_launcher" />
+下列程式碼會定義用來在應用程式中顯示以及顯示系統通知的圖示。
+
+雖然這是應用程式內通知的選用功能，但是對於系統通知是必要的，Android 會拒絕具有無效圖示的系統通知。
+
+此 xml 程式碼片段要貼到 Manifest.xml 的 `<application>` 和 `</application>` 標記之間。
+
+請確定您使用存在於其中一個**可繪製**資料夾 (例如 ``engagement_close.png``) 中的圖示。我們不支援 **mipmap** 資料夾。
+	
+		<meta-data android:name="engagement:reach:notification:icon" android:value="engagement_close"/>
+
+這只是示範語法的範例，當然，您應該依據 [Android 設計指導方針](http://developer.android.com/design/patterns/notifications.html)，使用適用於通知的圖示。
+
+您不應該使用啟動器圖示，它的解析度不同，而且通常是在 mipmap 資料夾中，我們不支援該資料夾。
+
+>[AZURE.TIP]若要確保使用正確的圖示解析度，您可以查看[這些範例](https://www.google.com/design/icons)。向下捲動至 [*通知*] 區段、按一下圖示，然後按一下 `PNGS` 即可下載圖示可繪製集合。您會看到對於每個版本的圖示要使用哪種解析度的可繪製資料夾。
 
 ###啟用應用程式接收 GCM 推播通知
 
-1. 將下列內容複製並貼入 Manifest.xml 的 < application > 和 </application > 標記之間，以輸入 gcm:sender 中繼資料。下面的隱藏值 (星號) 是取自 Google Play 主控台的`project number`。請務必在專案編號後面加上 \\n。 
+1. 將下列內容複製並貼入 Manifest.xml 的 `<application>` 和 `</application>` 標記之間，以輸入 gcm:sender 中繼資料。下面的隱藏值 (星號) 是取自 Google Play 主控台的`project number`。請務必在專案編號後面加上 \\n。
 
 		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
-2. 將下列程式碼貼到 Manifest.xml 的 < application > 和 </application > 標記之間。請注意，在 `<category android:name="com.mycompany.mysuperapp" />` 中，我們使用專案的封裝名稱。在您實際執行的專案中，這個名稱應該不同。
+2. 將下列程式碼貼到 Manifest.xml 的 `<application>` 和 `</application>` 標記之間。取代封裝名稱 <Your package name>。
 
 		<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
 		android:exported="false">
@@ -281,20 +297,20 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 				<action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
 			</intent-filter>
 		</receiver>
-		
+
 		<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
 			<intent-filter>
 				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
-				<category android:name="com.mycompany.mysuperapp" />
+				<category android:name="<Your package name>" />
 			</intent-filter>
 		</receiver>
 
-3. 將下列反白顯示的最後一組權限集新增至 < application> 標記之前或之後。再次重申，我們使用的是此專案封裝名稱，您的實際執行應用程式中必須加以替換。
+3. 將下列反白顯示的最後一組權限集新增至 `<application>` 標記之前。將 `<Your package name>` 取代為您的應用程式的實際封裝名稱。
 
 		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-		<uses-permission android:name="com.mycompany.mysuperapp.permission.C2D_MESSAGE" />
-		<permission android:name="com.mycompany.mysuperapp.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+		<uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
+		<permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
 ###授與 GCM API 金鑰的存取權給 Mobile Engagement
 
@@ -302,15 +318,15 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 
 1. 瀏覽至您的 Mobile Engagement 入口網站
 
-	在 Azure 入口網站中，確定您已位於我們用於此專案的應用程式，然後按一下底部的 [Engage] 按鈕：****
+	在 Azure 入口網站中，確定您已位於我們用於此專案的應用程式，然後按一下底部的 [Engage] 按鈕：
 
 	![][26]
 
-2. 您現在會在 Engagement 入口網站的設定頁面中。在該處按一下 [原生推送] 區段以輸入 GCM 金鑰：****![][27]
+2. 您現在會在 Engagement 入口網站的設定頁面中。在該處按一下 [原生推送] 區段以輸入 GCM 金鑰：![][27]
 
-3. 按一下 [GCM 設定] 區段中 [API 金鑰] 前面的編輯圖示，如下所示：****![][28]
+3. 按一下 [GCM 設定] 區段中 [API 金鑰] 前面的編輯圖示，如下所示：![][28]
 
-4. 在快顯視窗中，貼上您從 [啟用 Google Cloud Messaging] 區段中取得的 GCM 伺服器金鑰，然後按一下 [確定]。[](#register)****
+4. 在快顯視窗中，貼上您從 [啟用 Google Cloud Messaging] 區段中取得的 GCM 伺服器金鑰，然後按一下 [確定]。[](#register)
 
 	![][29]
 
@@ -322,19 +338,19 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 
 我們將建立一個簡單的「推播通知」活動，它將會傳送推播通知給我們的應用程式。
 
-1. 瀏覽至 Mobile Engagement 入口網站中的 [REACH] 索引標籤****。![][34]
+1. 瀏覽至 Mobile Engagement 入口網站中的 [REACH] 索引標籤。![][34]
 
-2. 按一下 [新公告] 以建立您的推送活動。****![][35]
+2. 按一下 [新公告] 以建立您的推送活動。![][35]
 
 3. 遵循下列步驟來設定活動的第一個欄位：![][36]
 
 	1. 以任何您想要的名稱來命名活動。
-	2. 將 [傳遞類型]**** 選取為 [系統通知 / 簡易]**：這是 Android 簡易推播通知類型，具備一個標題和一小行文字。
-	3. 將 [傳遞時間] 選取為 [任何時候]，這樣無論應用程式是否啟動都能接收通知。******
-	4. 在通知文字中，輸入 [標題]，這在推播中會以粗體顯示。
+	2. 將 [傳遞類型] 選取為 [系統通知 / 簡易]：這是 Android 簡易推播通知類型，具備一個標題和一小行文字。
+	3. 將 [傳遞時間] 選取為 [任何時候]，這樣無論應用程式是否啟動都能接收通知。
+	4. 在通知文字中，輸入 [標題]，這在推送中會以粗體顯示。
 	5. 然後輸入您的訊息。
 
-4. 向下捲動，在 [內容] 區段中選取 [僅通知]****。![][37]
+4. 向下捲動，在 [內容] 區段中選取 [僅通知]。![][37]
 
 5. 您已經完成設定一個盡可能最基本的活動，現在向下捲動並建立您的活動以儲存它！![][38]
 
@@ -378,4 +394,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [38]: ./media/mobile-engagement-android-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

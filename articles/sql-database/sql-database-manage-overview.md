@@ -25,7 +25,7 @@
 ## Azure 入口網站
 
 
- [Azure 入口網站](http://portal.azure.com)是網頁式管理入口網站，您可以在其中建立、更新和刪除 Azure SQL Database 和邏輯伺服器，以及監視資料庫資源。如果您剛開始使用 Azure，或管理少量的資料庫，或是需要快速做某件事，那這正是十分適合您的工具。
+[Azure 入口網站](http://portal.azure.com)是網頁式管理入口網站，您可以在其中建立、更新和刪除 Azure SQL Database 和邏輯伺服器，以及監視資料庫資源。如果您剛開始使用 Azure，或管理少量的資料庫，或是需要快速做某件事，那這正是十分適合您的工具。
 
 如需關於使用入口網站的詳細深入資訊，請參閱[使用 Azure 入口網站管理 SQL Database](sql-database-manage-portal.md)。
 
@@ -42,5 +42,6 @@ Visual Studio 中的 SQL Server Management Studio (SSMS) 和 SQL Server Data Too
 您可以使用命令列工具 (例如 PowerShell) 來管理 Azure SQL Database 以及自動化 Azure 資源部署工作。當您在生產環境中管理大量 Azure SQL Database 以及部署資源變更時，Microsoft 建議使用這項工具。
 
 如需使用命令列工具管理 Azure SQL Database 的詳細資訊，請[按一下這裡](sql-database-command-line-tools.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

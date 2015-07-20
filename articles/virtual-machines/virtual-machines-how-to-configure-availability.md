@@ -110,4 +110,7 @@
 [虛擬網路概觀]: http://msdn.microsoft.com/library/azure/jj156007.aspx
 [關於 Azure VM 組態設定]: http://msdn.microsoft.com/library/azure/dn763935.aspx
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

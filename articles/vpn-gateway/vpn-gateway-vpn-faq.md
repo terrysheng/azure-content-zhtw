@@ -244,4 +244,4 @@ Azure VPN 使用 PSK (預先共用金鑰) 驗證。當建立 VPN 通道時，就
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

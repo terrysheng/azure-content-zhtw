@@ -1,9 +1,9 @@
 <properties
-   pageTitle="使用適用於 Mac、Linux 和 Windows 的 Azure CLI 管理 Azure VM"
+   pageTitle="使用適用於 Mac、Linux 和 Windows 的 Azure CLI 管理 Azure VM | Microsoft Azure"
    description="描述如何使用適用於 Mac、Linux 和 Windows 的 Azure CLI 建立、管理以及刪除 Azure VM。"
    services="virtual-machines"
    documentationCenter="virtual-machines"
-   authors="squillace"
+   authors="dlepow"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/23/2015"
-   ms.author="rasquill"/>
+   ms.date="06/09/2015"
+   ms.author="danlep"/>
 
 # 使用適用於 Mac、Linux 和 Windows 的 Azure CLI 管理虛擬機器
 
@@ -38,7 +38,7 @@
 若要將 $vm 變數中的輸出儲存為 JSON 文件，請執行：
 
     vmInfo=$(azure vm show -g <group name> -n <virtual machine name> --json)
-    
+
 或者，您可以透過管道將 stdout 傳送至檔案。
 
 ## 登入 Linux 型虛擬機器
@@ -54,9 +54,7 @@
 
 ## 啟動 VM
 
-請執行這個命令：
-Azure Resource Manager 概觀 
-	azure vm start <group name> <virtual machine name>
+請執行這個命令：Azure 資源管理員概觀 azure vm start <group name> <virtual machine name>
 
 ## 附加資料磁碟
 
@@ -64,7 +62,7 @@ Azure Resource Manager 概觀
 
 若要附加新的磁碟，請執行這個命令：
 
-     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb> 
+     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb>
 
 若要附加現有的資料磁碟，請執行這個命令：
 
@@ -75,20 +73,12 @@ Azure Resource Manager 概觀
 若要建立新的 Linux 型 VM，您需要準備好幾個值，包括資源群組名稱、位置、映像名稱、VM 名稱以及儲存體帳戶，用來儲存 .vhd 備份映像。需要的資訊準備齊全之後，Azure CLI 會建立互動式工作階段，提示您輸入這些值：
 
     azure vm create
-    
+
 當然，如果您已經有這些值，就可以找到適當的參數，直接傳遞給它們，請輸入 `azure help vm create`：
 
 ## 後續步驟
 
-如需其他有關 Azure CLI 搭配 **arm** 模式使用的範例，請參閱[搭配 Azure 資源管理使用適用於 Mac、Linux 和 Windows 的 Microsoft Azure CLI](../xplat-cli-resource-manager.md)。若要深入了解 Azure 資源和概念，請參閱 [Azure Resource Manager 概觀](../resource-group-overview.md)。
-
-
-
-
-
-
-
-
-
-<!--HONumber=52-->
+如需其他有關 Azure CLI 搭配 **arm** 模式使用的範例，請參閱[搭配 Azure 資源管理使用適用於 Mac、Linux 和 Windows 的 Microsoft Azure CLI](../xplat-cli-resource-manager.md)。若要深入了解 Azure 資源和概念，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。
  
+
+<!---HONumber=July15_HO2-->

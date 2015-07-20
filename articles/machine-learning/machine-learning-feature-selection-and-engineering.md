@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 機器學習中的特性工程設計和選取 | Azure" 
-	description="說明機器學習的資料增強程序中特性選取和特性工程設計的目的，並提供其角色的範例。" 
+<properties
+	pageTitle="Azure Machine Learning 中的特徵設計和選取 | Microsoft Azure" 
+	description="說明機器學習的資料增強程序中特性選取和特性工程設計的目的，並提供其角色的範例。"
 	services="machine-learning"
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/21/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/21/2015"
 	ms.author="zhangya;bradsev" />
 
 
@@ -29,16 +29,16 @@
 
 特性的工程設計和選取屬於較大型程序的一部分，該程序通常包含下列四個步驟：
 
-* 資料收集 
-* 資料增強 
-* 模型建構 
-* 後處理 
+* 資料收集
+* 資料增強
+* 模型建構
+* 後處理
 
 工程設計和選取是資料學習的**資料增強**步驟。此程序的三個層面主要有四個目的：
 
 * **資料前處理**：此程序嘗試確保收集的資料乾淨而一致。其中包含下列工作：例如整合多個資料集、處理不一致的資料，以及轉換資料類型。
 * **特性工程設計**：此程序嘗試從資料中的現有原始特性建立其他相關特性，以及增加學習演算法的預測功效。
-* **特性選取**：此程序嘗試選取主要的原始資料特性子集，以縮小定型問題的維度。 
+* **特性選取**：此程序嘗試選取主要的原始資料特性子集，以縮小定型問題的維度。
 
 本主題僅涵蓋資料增強程序的特性工程設計和特性選取層面。如需資料前處理步驟的其他資訊，請參閱[在 Azure ML Studio 中進行資料前處理](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/)影片。
 
@@ -51,7 +51,7 @@
 
 從 Azure 機器學習著手時，最簡單的方式是透過 Studio 中提供的範例具體地領會此程序。以下呈現兩個範例：
 
-* 在已知目標值的監督實驗中的[單車租用數量預測](../machine-learning-sample-prediction-of-number-of-bike-rentals.md)迴歸範例 
+* 在已知目標值的監督實驗中的[單車租用數量預測](../machine-learning-sample-prediction-of-number-of-bike-rentals.md)迴歸範例
 * 使用[特性雜湊][feature-hashing]的文字採礦分類範例
 
 ### 範例 1：新增迴歸模型的暫時特性 ###
@@ -59,7 +59,7 @@
 讓我們在 Azure Machine Learning Studio 中使用「單車的需求預測」實驗，示範如何設計迴歸工作的特性。這項實驗的目標在於預測單車需求，也就是再特定月份/日期/小時內單車租用的數量。資料集「單車租用 UCI 資料集」作為原始輸入資料使用。此資料集是以在美國華盛頓特區維護單車出租網路的 Capital Bikeshare 公司所提供的實際資料為基礎。此資料集代表 2011 年和 2012 年中特定一個小時內的單車租用數量，總共包含 17379 個資料列和 17 個資料行。原始特性集包含天氣條件 (溫度/溼度/風速) 和當天的類型 (假日/工作日)。要預測的欄位為 "cnt"，代表特定小時內單位租用的計數，其範圍是 1 至 977。
 
 為了達到在定型資料中建構有效特性的目的，會使用相同的演算法建立四個各有不同定型資料集的迴歸模型，這四個資料集代表相同的原始輸入資料，但設定的特性數量增加。這些特性可分為四類：
- 
+
 1. A = 預測日的天氣 + 假日 + 工作日 + 週末特性
 2. B = 過去的 12 小時以來，每小時租出的單車數量
 3. C = 過去的 12 天以來，每天在同一個時間租出的單車數量
@@ -83,8 +83,8 @@
 
 Azure 機器學習中有一個[特性雜湊][feature-hashing]模組，方便建立這些文字/片語特性。下圖顯示使用此模組的範例。輸入資料集包含兩個資料行：1 至 5 的書籍評比，以及實際評論內容。此[特性雜湊][feature-hashing]模組的目標在於擷取一些新特性，以顯示特定書籍評論中對應文字/片語的發生次數。若要使用此模組，我們必須完成下列步驟：
 
-* 第一步，選取包含輸入文字的資料行 (此例中的 "Col2")。 
-* 第二步，將 "Hashing bitsize" 設定為 8，表示將建立 2^8=256 個特性。所有文字中的文字/片語會雜湊至 256 個索引。"Hashing bitsize" 參數的範圍是 1 至 31。如果將此值設定為較大的數字，文字/片語比較不可能雜湊至相同的索引。 
+* 第一步，選取包含輸入文字的資料行 (此例中的 "Col2")。
+* 第二步，將 "Hashing bitsize" 設定為 8，表示將建立 2^8=256 個特性。所有文字中的文字/片語會雜湊至 256 個索引。"Hashing bitsize" 參數的範圍是 1 至 31。如果將此值設定為較大的數字，文字/片語比較不可能雜湊至相同的索引。
 * 第三步，將 "N-grams" 參數設定為 2。這麼做可從輸入文字中取得 unigrams (適用於每一個文字的特性) 和 bigrams (適用於每一對相鄰文字的特性) 的發生次數。"N-grams" 參數的範圍是 0 至 10，這表示要包含在一個特性中的循序文字數目上限。  
 
 ![「特性雜湊」模組](./media/machine-learning-feature-selection-and-engineering/feature-Hashing1.png)
@@ -97,15 +97,15 @@ Azure 機器學習中有一個[特性雜湊][feature-hashing]模組，方便建�
 
 特性選取程序通常適用於定型資料集的建構，以便進行預測性建模工作，例如分類或迴歸工作。其目的在於從原始資料集中選取一小組特性，使用極小一組的特性來代表資料中的最大變異量，藉此縮小其維度。因此，此特性子集是要用於定型模型的唯一特性。特性選取有兩個主要目的。
 
-* 第一，特性選取通常會排除不相關、多餘或高度相關的特性，進而提高分類正確性。 
-* 第二，減少特性數目，讓模型定型程序更有效率。對於定型代價昂貴的學習者 (例如支援向量機器) 而言，這格外重要。 
+* 第一，特性選取通常會排除不相關、多餘或高度相關的特性，進而提高分類正確性。
+* 第二，減少特性數目，讓模型定型程序更有效率。對於定型代價昂貴的學習者 (例如支援向量機器) 而言，這格外重要。
 
 雖然特性選取設法要減少資料集中用於定型模型的特性數目 ，但通常不是指「維度縮減」。特性選取方法會擷取資料中的原始特性子集，但不會加以變更。維度縮減方法會運用經過工程設計的特性，轉換原始特性並加以修改。維度縮減方法的範例包含主成分分析、典型相關分析和奇異值分解。
 
 監督環境中有一個廣泛應用的特性選取方法類別，稱之為「以篩選為基礎的特性選取」。這些方法會評估每個特性與目標屬性之間的相關性，套用統計量值以將評分指派給每個特性。接著會依分數將特性排名，而分數可用來設定保留或排除特定特性的臨界值。這些方法中使用的統計量值範例包含皮耳森相關、相互資訊和卡方檢定。
 
 Azure Machine Learning Studio 中有針對特性選取而提供的模組。如下圖所示，這些模組包含[以篩選為基礎的特性選取][filter-based-feature-selection]和[費雪線性判別分析][fisher-linear-discriminant-analysis]。
- 
+
 ![特性選取範例](./media/machine-learning-feature-selection-and-engineering/feature-Selection.png)
 
 
@@ -133,5 +133,6 @@ Azure Machine Learning Studio 中有針對特性選取而提供的模組。如�
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

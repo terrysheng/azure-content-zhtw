@@ -57,7 +57,7 @@ Spark 3.0.0 版為預設版本，而且可以變更為 Spark 儲存機制上可�
 
 ### 步驟 1-a：使用 PowerShell 下載範本檔案
 
-為 JSON 範本和其他相關聯的檔案建立本機資料夾 (例如，C:\Azure\Templates\Spark)。
+為 JSON 範本和其他相關聯的檔案建立本機資料夾 (例如，C:\\Azure\\Templates\\Spark)。
 
 使用您本機資料夾的資料夾名稱來替代，並執行下列命令：
 
@@ -91,7 +91,7 @@ foreach ($file in $files)
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-完成時，尋找 C:\Azure\Templates 目錄中的 **spark-on-ubuntu** 資料夾。
+完成時，尋找 C:\\Azure\\Templates 目錄中的 **spark-on-ubuntu** 資料夾。
 
 ### 步驟 2：(選用) 了解範本參數
 
@@ -416,7 +416,7 @@ Remove-AzureResourceGroup -Name "<resource group name>" -Force
 
 本節將帶領您逐步了解 Spark 叢集的 **azuredeploy.json** 檔案結構。
 
-如果您尚未下載範本檔案的複本，請指定本機資料夾做為該檔案的位置並建立它 (例如，C:\Azure\Templates\Spark)。填寫資料夾名稱，然後執行以下命令。
+如果您尚未下載範本檔案的複本，請指定本機資料夾做為該檔案的位置並建立它 (例如，C:\\Azure\\Templates\\Spark)。填寫資料夾名稱，然後執行以下命令。
 
 ```powershell
 $folderName="<folder name, such as C:\Azure\Templates\Spark>"
@@ -844,4 +844,4 @@ $webclient.DownloadFile($url,$filePath)
 [疑難排解範本部署](resource-group-deploy-debug.md)。
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

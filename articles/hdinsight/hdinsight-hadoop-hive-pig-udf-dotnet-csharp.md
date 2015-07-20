@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/30/2015"
+	ms.date="07/06/2015"
 	ms.author="larryfr"/>
 
 
-#搭配使用 C# 使用者定義函數與 HDInsight 的 Hadoop 上的 Hive 和 Pig 串流處理。 
+#搭配使用 C# 使用者定義函數與 HDInsight 的 Hadoop 上的 Hive 和 Pig 串流處理。
 
 Hive 與 Pig 很適合在 Azure HDInsight 中處理資料，但您有時需要更通用的語言。Hive 與 Pig 都可讓您透過使用者定義函數 (UDF) 或串流處理來呼叫外部程式碼。
 
@@ -29,15 +29,15 @@ Hive 與 Pig 很適合在 Azure HDInsight 中處理資料，但您有時需要�
 
 * 含有下列版本的 Visual Studio：
 
-	* Visual Studio 2012 Professional/Premium/Ultimate，含 <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>
+	* Visual Studio 2012 Professional/Premium/Ultimate，含 [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-	* Visual Studio 2013 Community/Professional/Premium/Ultimate，含 <a href="https://www.microsoft.com/download/details.aspx?id=44921" target="_blank">Update 4</a>
+	* Visual Studio 2013 Community/Professional/Premium/Ultimate，含 [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
 
 	* Visual Studio 2015 預覽
 
 * HDInsight 叢集上的 Hadoop - 如需建立叢集的步驟，請參閱[佈建 HDInsight 叢集](hdinsight-provision-clusters.md)
 
-* 適用於 Visual Studio 的 Hadoop 工具。如需安裝和設定工具的步驟，請參閱<a href="../hdinsight-hadoop-visual-studio-tools-get-started" target="_blank">開始使用 HDInsight Hadoop Tools for Visual Studio</a>。
+* 適用於 Visual Studio 的 Hadoop 工具。如需安裝和設定工具的步驟，請參閱[開始使用 HDInsight Hadoop Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)。
 
 ##HDInsight 上的 .NET
 
@@ -122,7 +122,7 @@ Hive 與 Pig 很適合在 Azure HDInsight 中處理資料，但您有時需要�
 
 6. 連按兩下此叢集的 [**預設容器**]。這會開啟顯示預設容器內容的新視窗。
 
-7. 按一下 [上傳] 圖示，然後瀏覽至 **HiveCSharp** 專案的 **bin\debug** 資料夾。最後，選取 **HiveCSharp.exe** 檔案並按一下 [**確定**]。
+7. 按一下 [上傳] 圖示，然後瀏覽至 **HiveCSharp** 專案的 **bin\\debug** 資料夾。最後，選取 **HiveCSharp.exe** 檔案並按一下 [**確定**]。
 
 	![上傳圖示](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
@@ -152,7 +152,7 @@ Hive 與 Pig 很適合在 Azure HDInsight 中處理資料，但您有時需要�
 
 6. 按一下 [**重新整理**] 以重新整理摘要，直到 [**工作狀態**] 變更為 [**已完成**] 為止。若要檢視工作輸出，請按一下 [**工作輸出**]。
 
-###Pig 和 C&#35;
+##Pig 和 C&#35;
 
 ###建立 C# 專案
 
@@ -193,7 +193,7 @@ Hive 與 Pig 很適合在 Azure HDInsight 中處理資料，但您有時需要�
 
 ###上傳應用程式
 
-1. Pig 串流處理預期此應用程式會成為叢集檔案系統上的本機。啟用 HDInsight 叢集的「遠端桌面」，然後依照<a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連線到 HDInsight 叢集</a>中的指示進行連線。
+1. Pig 串流處理預期此應用程式會成為叢集檔案系統上的本機。啟用 HDInsight 叢集的「遠端桌面」，然後依照[使用 RDP 連線到 HDInsight 叢集](hdinsight-administer-use-management-portal.md#rdp)中的指示進行連線。
 
 2. 連線之後，從您本機電腦上 PigUDF 專案的 **bin/debug** 目錄中複製 **PigUDF.exe**， 然後將它貼到叢集上的 **%PIG_HOME%** 目錄。
 
@@ -239,6 +239,5 @@ Hive 與 Pig 很適合在 Azure HDInsight 中處理資料，但您有時需要�
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 
 * 〈[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)〉
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

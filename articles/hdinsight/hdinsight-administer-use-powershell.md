@@ -279,4 +279,4 @@ Hive 工作會先顯示叢集上所建立的 Hive 資料表，以及從 hivesamp
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -64,4 +64,4 @@ HDInsight Getting Started Gallery 在 HDInsight 中執行範例應用程式，�
 [azure.portal]: https://manage.windowsazure.com
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -33,4 +33,4 @@
 
 	您將使用此 API 金鑰值，讓 Azure 能夠使用 GCM 進行驗證，並代表您的應用程式傳送推播通知。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

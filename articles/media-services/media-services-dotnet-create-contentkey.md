@@ -3,7 +3,7 @@
 	description="了解如何建立提供資產安全存取的內容金鑰。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,27 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="04/15/2015" 
 	ms.author="juliako"/>
 
 
-# 使用 .NET 建立 ContentKeys
+#使用 .NET 建立 ContentKeys
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md)系列的一部分。  
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md)系列的一部分。
 
-媒體服務可讓您建立新的資產及傳遞已加密的資產。**ContentKey** 提供**資產**的安全存取。 
+媒體服務可讓您建立資產及傳遞已加密的資產。**ContentKey** 提供**資產**的安全存取。
 
-當您建立新的資產時 (例如，[將檔案上傳](media-services-dotnet-upload-files.md)之前)，您可以指定下列加密選項：**StorageEncrypted**、**CommonEncryptionProtected** 或 **EnvelopeEncryptionProtected**。 
+當您建立新的資產時 (例如，[將檔案上傳](media-services-dotnet-upload-files.md)之前)，您可以指定下列加密選項：**StorageEncrypted**、**CommonEncryptionProtected** 或 **EnvelopeEncryptionProtected**。
 
 當您將資產傳遞至您的用戶端時，您可以使用下列兩個加密的其中一個[設定動態加密的資產](media-services-dotnet-configure-asset-delivery-policy.md)：**DynamicEnvelopeEncryption** 或 **DynamicCommonEncryption**。
 
 加密的資產必須與 **ContentKey** 相關聯。本文說明如何建立內容金鑰。
 
->[AZURE.NOTE] 使用 Media Services .NET SDK 建立新的 **StorageEncrypted** 資產時，會自動建立 **ContentKey**，並將其與資產連結。
+>[AZURE.NOTE]使用 Media Services .NET SDK 建立新的 **StorageEncrypted** 資產時，會自動建立 **ContentKey**，並將其與資產連結。
 
-## ContentKeyType
+##ContentKeyType
 
-您在建立內容金鑰時必須設定的其中一個值就是內容金鑰類型。選擇下列值之一。 
+您在建立內容金鑰時必須設定的其中一個值就是內容金鑰類型。選擇下列值之一。
 
     /// <summary>
     /// Specifies the type of a content key.
@@ -55,19 +55,9 @@
         /// Specifies a content key for encrypting encoding configuration data that may contain sensitive preset information. 
         /// </summary>
         ConfigurationEncryption = 2,
-
-        /// <summary>
-        /// Specifies a content key for url encryption.  Only used internally.
-        /// </summary>
-        UrlEncryption = 3,
-
-        /// <summary>
-        /// Specifies a content key for Envelope encryption.  Only used internally.
-        /// </summary>
-        EnvelopeEncryption = 4
     }
 
-## <a id="envelope_contentkey"></a>建立信封類型 ContentKey
+##<a id="envelope_contentkey"></a>建立信封類型 ContentKey
 
 下列程式碼片段會建立信封加密類型的內容金鑰。然後建立金鑰與所指定資產的關聯。
 
@@ -105,7 +95,7 @@ call
 
 
 
-## <a id="common_contentkey"></a>建立一般類型 ContentKey    
+##<a id="common_contentkey"></a>建立一般類型 ContentKey    
 
 下列程式碼片段會建立一般加密類型的內容金鑰。然後建立金鑰與所指定資產的關聯。
 
@@ -141,7 +131,6 @@ call
     }
 call
 
-	IContentKey key = CreateCommonTypeContentKey(encryptedsset);
+	IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/20/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop (預覽)
@@ -76,7 +76,7 @@ SSH 是用來登入遠端伺服器並在其中遠端執行命令的公用程式�
 
 * **適用於 Mac、Linux 和 Windows 的 Azure CLI** - 使用命令列命令建立叢集。
 
-這兩種方法都需要密碼或公開金鑰。如需建立以 Linux 為基礎的 HDInsight 叢集的完整資訊，請參閱<a href="/documentation/articles/hdinsight-hadoop-provision-linux-clusters/" target="_blank">佈建以 Linux 為基礎的 HDInsight 叢集</a>。
+這兩種方法都需要密碼或公開金鑰。如需建立以 Linux 為基礎的 HDInsight 叢集的完整資訊，請參閱[佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 ###Azure 入口網站
 
@@ -94,7 +94,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 您可以使用[適用於 Mac、Linux 和 Windows 的 Azure CLI](../xplat.md)，使用 `azure hdinsight cluster create` 來建立新叢集。
 
-如需使用這個命令的詳細資訊，請參閱<a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">使用自訂選項在 HDInsight 中佈建 Hadoop Linux 叢集</a>。
+如需使用這個命令的詳細資訊，請參閱[使用自訂選項在 HDInsight 中佈建 Hadoop Linux 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 ##連線至以 Linux 為基礎的 HDInsight 叢集
 
@@ -139,7 +139,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    如果未傳回任何項目，則表示 **ssh-agent** 未執行。請參閱您的作業系統文件以取得安裝和設定 **ssh-agent** 的特定步驟，或參閱<a href="http://mah.everybody.org/docs/ssh" target="_blank">透過 ssh 使用 ssh-agent</a>。
+    如果未傳回任何項目，則表示 **ssh-agent** 未執行。請參閱您的作業系統文件以取得安裝和設定 **ssh-agent** 的特定步驟，或參閱[透過 ssh 使用 ssh-agent](http://mah.everybody.org/docs/ssh)。
 
 4. 一旦確認 **ssh-agent** 正在執行，請使用下列項目將您的 SSH 私密金鑰新增至代理程式：
 
@@ -241,11 +241,11 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 
 	> [AZURE.NOTE]選取 [**遠端 DNS**] 會使用 HDInsight 叢集解析網域名稱系統 (DNS) 要求。若未選取，則會在本機解析 DNS。
 
-	您可以驗證是否透過通道路由傳送流量，方法是在 Firefox 中啟用和停用 Proxy 設定的情況下造訪網站，例如 <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a>。在啟用設定時，是使用 Microsoft Azure 資料中心內之機器的 IP 位址。
+	您可以驗證是否透過通道路由傳送流量，方法是在 Firefox 中啟用和停用 Proxy 設定的情況下造訪網站，例如 [http://www.whatismyip.com/](http://www.whatismyip.com/)。在啟用設定時，是使用 Microsoft Azure 資料中心內之機器的 IP 位址。
 
 ###瀏覽器延伸模組
 
-當設定瀏覽器使用通道的功能在運作時，您通常不會想透過通道傳送所有流量。瀏覽器延伸模組 (例如 <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a>) 支援 URL 要求的模式比對 (僅限 FoxyProxy Standard 或 Plus)，以便只有特定 URL 的要求會透過通道傳送。
+當設定瀏覽器使用通道的功能在運作時，您通常不會想透過通道傳送所有流量。瀏覽器延伸模組 (例如 [FoxyProxy](http://getfoxyproxy.org/)) 支援 URL 要求的模式比對 (僅限 FoxyProxy Standard 或 Plus)，以便只有特定 URL 的要求會透過通道傳送。
 
 如果您已安裝 FoxyProxy Standard，請使用下列步驟將它設定為只透過通道轉送 HDInsight 的流量：
 
@@ -294,6 +294,5 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -1,3 +1,20 @@
+<properties
+   pageTitle="安裝一般的 Hotfix"
+   description="說明如何使用 Windows PowerShell for StorSimple 來安裝一般的 Hotfix。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="NA" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="06/02/2015"
+   ms.author="alkohli" />
+
 #### 透過 Windows PowerShell for StorSimple 安裝一般 Hotfix
 
 1. 連接到裝置序列主控台。如需詳細資訊，請參閱[連接到序列主控台](#connect-to-the-serial-console)。
@@ -14,4 +31,4 @@
 
 5. 系統將提示您進行確認。輸入 **Y** 繼續安裝 Hotfix。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

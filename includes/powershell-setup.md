@@ -1,3 +1,4 @@
+
 ## 設定 PowerShell
 
 請先遵循下列步驟，您才可以使用 Azure PowerShell。
@@ -67,4 +68,4 @@
 
 如需 Azure 訂用帳戶和帳戶的詳細資訊，請參閱[如何：連線至訂用帳戶](powershell-install-configure.md#Connect)。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

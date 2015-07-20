@@ -61,4 +61,4 @@
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

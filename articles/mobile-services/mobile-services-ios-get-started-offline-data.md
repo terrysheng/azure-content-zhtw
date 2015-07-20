@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/19/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh;donnam"/>
 
 # 開始使用行動服務中的離線資料同步
@@ -127,7 +127,7 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
     |----------- |   ------    |
     | id | 整數 64 |
     | itemId | String |
-    | 屬性 | 二進位資料 |
+    | properties | 二進位資料 |
     | 資料表 | String |
     | tableKind | 整數 16 |
 
@@ -137,7 +137,7 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
     |------------ | ----------  |
     | id | String |
     | operationId | 整數 64 |
-    | 屬性 | 二進位資料 |
+    | properties | 二進位資料 |
     | tableKind | 整數 16 |
 
     #### MS_TableConfig
@@ -226,7 +226,7 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
 * [雲端報導：Azure 行動服務中的離線同步處理]
 
-* [Azure Friday：Azure 行動服務中的離線應用程式] \(附註︰示範適用於 Windows，但功能討論適用於所有平台\)
+* [Azure Friday：Azure 行動服務中的離線應用程式] (附註︰示範適用於 Windows，但功能討論適用於所有平台)
 
 <!-- URLs. -->
 
@@ -272,4 +272,4 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
 [行動服務快速入門教學課程]: mobile-services-ios-get-started.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

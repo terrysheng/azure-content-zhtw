@@ -1,3 +1,4 @@
+
 #### 從 Windows PowerShell for StorSimple 安裝 Update 1
 
 1. 執行下列步驟以下載軟體更新。
@@ -36,7 +37,7 @@
     範例輸出如下所示。
 
         ````
-        Controller0>Start-HcsHotfix -Path \10.100.100.100\share
+        Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
         \hcsmdssoftwareupdate.exe -Credential contoso\John
       
         Confirm
@@ -96,4 +97,4 @@
 
     韌體狀態應該是 **UpToDate**。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

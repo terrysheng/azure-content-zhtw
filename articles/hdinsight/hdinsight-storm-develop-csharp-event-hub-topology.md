@@ -532,7 +532,7 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 
 * 拓撲遭終止並**使用相同名稱**重新啟動。
 
-您也可以匯出及匯入保存的檢查點到 WASB (您的 HDInsight 叢集所使用的 Azure 儲存體)。 要執行此步驟的指令碼位於 Storm on HDInsight 叢集的 **C:\apps\dist\storm-0.9.3.2.2.1.0-2340\zkdatatool-1.0\bin**。
+您也可以匯出及匯入保存的檢查點到 WASB (您的 HDInsight 叢集所使用的 Azure 儲存體)。 要執行此步驟的指令碼位於 Storm on HDInsight 叢集的 **c:\\apps\\dist\\storm-0.9.3.2.2.1.0-2340\\zkdatatool-1.0\\bin**。
 
 >[AZURE.NOTE]路徑中的版本號碼可能不同，因為叢集上安裝的 Storm 版本可能會在未來變更。
 
@@ -557,4 +557,4 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

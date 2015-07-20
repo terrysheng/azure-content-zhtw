@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/08/2015"
    ms.author="larryfr"/>
 
 #使用 HDInsight 上的 Apache Storm 和 Maven 開發基本字數統計應用程式的 Java 型拓撲
@@ -30,7 +30,7 @@
 
 * 文字編輯器，例如記事本、<a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>、<a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>、<a href="https://atom.io/" target="_blank">Atom.io</a>、<a href="http://brackets.io/" target="_blank">Brackets.io</a>。或者您可以使用整合式開發環境 (IDE)，例如 <a href="https://eclipse.org/" target="_blank">Eclipse</a> (Luna 版本或更新版本)。
 
-	> [AZURE.NOTE]您的編輯器或 IDE 可能具有處理 Eclipse 的特定功能，但未記載在這份文件中。如需編輯環境功能的詳細資訊，請參閱所使用產品的文件。
+	> [AZURE.NOTE]您的編輯器或 IDE 可能具有處理 Maven 的特定功能，但未記載在這份文件中。如需編輯環境功能的詳細資訊，請參閱所使用產品的文件。
 
 ##設定環境變數
 
@@ -42,7 +42,7 @@
 
 	* **JAVA_HOME** (或對等的路徑)
 
-	* **JAVA_HOME\bin** (或對等的路徑)
+	* **JAVA_HOME\\bin** (或對等的路徑)
 
 	* 已安裝 Maven 的目錄
 
@@ -58,17 +58,17 @@
 
 * **pom.xml**：內含 Maven 專案的設定。
 
-* **src\main\java\com\microsoft\example**：內含應用程式碼。
+* **src\\main\\java\\com\\microsoft\\example**：內含應用程式碼。
 
-* **src\test\java\com\microsoft\example**：內含您應用程式的測試。在此範例中，我們不會建立測試。
+* **src\\test\\java\\com\\microsoft\\example**：內含您應用程式的測試。在此範例中，我們不會建立測試。
 
 ###移除範例程式碼
 
 因為我們要建立應用程式，所以請刪除產生的測試和應用程式檔案：
 
-*  **src\test\java\com\microsoft\example\AppTest.java**
+*  **src\\test\\java\\com\\microsoft\\example\\AppTest.java**
 
-*  **src\main\java\com\microsoft\example\App.java**
+*  **src\\main\\java\\com\\microsoft\\example\\App.java**
 
 ##新增相依性
 
@@ -153,7 +153,7 @@ Java 型 Storm 拓撲包含三個您必須編寫 (或參考) 為相依性的元�
 >
 > * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm-Kafka</a>從 Kafka 讀取的 Spout
 
-針對 Spout，在 **src\main\java\com\microsoft\example** 目錄中建立名為 **RandomSentenceSpout.java** 的新檔案，並使用下列項目做為內容：
+針對 Spout，在 **src\\main\\java\\com\\microsoft\\example** 目錄中建立名為 **RandomSentenceSpout.java** 的新檔案，並使用下列項目做為內容：
 
     /**
      * Licensed to the Apache Software Foundation (ASF) under one
@@ -251,7 +251,7 @@ Bolt 會處理資料的處理。針對此拓撲，我們有兩個 Bolt：
 
 > [AZURE.NOTE]Bolt 幾乎可以包辦任何作業，例如計算、持續性或與外部元件交談。
 
-在 **src\main\java\com\microsoft\example** 目錄中，建立兩個新的檔案：**SplitSentence.java** 和 **WordCount.Java**。使用下列項目做為檔案的內容：
+在 **src\\main\\java\\com\\microsoft\\example** 目錄中，建立兩個新的檔案：**SplitSentence.java** 和 **WordCount.Java**。使用下列項目做為檔案的內容：
 
 **SplitSentence**
 
@@ -285,7 +285,7 @@ Bolt 會處理資料的處理。針對此拓撲，我們有兩個 Bolt：
           //get the word
           String word=sentence.substring(start,end);
           //If a word is whitespace characters, replace it with empty
-          word=word.replaceAll("\s+","");
+          word=word.replaceAll("\\s+","");
           //if it's an actual word, emit it
           if (!word.equals("")) {
             collector.emit(new Values(word));
@@ -352,7 +352,7 @@ Bolt 會處理資料的處理。針對此拓撲，我們有兩個 Bolt：
 
 ![顯示 Spout 和 Bolt 排列的圖表](./media/hdinsight-storm-develop-java-topology/wordcount-topology.png)
 
-若要實作拓撲，請在 **src\main\java\com\microsoft\example** 目錄中建立名為 **WordCountTopology.java** 的新檔案。使用下列項目做為檔案的內容：
+若要實作拓撲，請在 **src\\main\\java\\com\\microsoft\\example** 目錄中建立名為 **WordCountTopology.java** 的新檔案。使用下列項目做為檔案的內容：
 
 	package com.microsoft.example;
 
@@ -465,6 +465,5 @@ Trident 是 Storm 提供的高層級抽象。它支援具狀態的處理。Tride
 * [使用 Visual Studio 開發 Apache Storm on HDInsight 的 C# 拓撲](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 您可透過瀏覽 [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)找到更多範例 Storm 拓撲。
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

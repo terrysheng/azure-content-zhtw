@@ -12,13 +12,9 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="03/17/2015"
+	ms.topic="get-started-article"
+	ms.date="07/02/2015"
 	ms.author="sethm"/>
-
-
-
-
 
 # 使用服務匯流排佇列的 .NET 多層式應用程式
 
@@ -49,7 +45,7 @@
 
 在 Web 層與中間層之間使用代理的通訊，可使這兩個元件彼此脫鉤。相較於直接傳訊 (亦即，TCP 或 HTTP)，Web 層不會直接連線至中間層，而是透過訊息的形式，將工作單位推播至服務匯流排，而後者會可靠地保管工作單位，直到中間層準備好取用並處理這些工作單位為止。
 
-服務匯流排提供兩個實體來支援代理的傳訊，也就是：佇列和主題。使用佇列時，每個傳送至佇列的訊息都是由單一接收者取用。主題可支援發佈/訂閱模式，亦即每個發佈的訊息會提供給在主題註冊的訂用帳戶。每個訂閱在邏輯上會維護自己的訊息佇列。訂閱也可以設定成使用篩選規則，以將傳遞至訂閱佇列的訊息限制為符合篩選條件的訊息。本範例使用服務匯流排佇列。
+服務匯流排提供兩個實體來支援代理的傳訊，也就是：佇列和主題。使用佇列時，每個傳送至佇列的訊息都是由單一接收者取用。主題可支援發佈/訂用帳戶模式，亦即每個發佈的訊息會提供給在主題註冊的訂用帳戶。每個訂用帳戶在邏輯上會維護自己的訊息佇列。訂用帳戶也可以設定成使用篩選規則，以將傳遞至訂用帳戶佇列的訊息限制為符合篩選條件的訊息。本範例使用服務匯流排佇列。
 
 ![][1]
 
@@ -77,11 +73,11 @@
 
 	![][32]
 
-4. 	當系統提示您執行或儲存安裝檔案時，按一下 **[執行]**：
+4. 	當系統提示您執行或儲存安裝檔案時，按一下 [執行]：
 
     ![][3]
 
-5.  在 Web Platform Installer 中，按一下 **[安裝]** 並繼續進行安裝：
+5.  在 Web Platform Installer 中，按一下 [安裝] 並繼續進行安裝：
 
     ![][33]
 
@@ -97,13 +93,13 @@
 
 1.  登入 [Azure 管理入口網站][]。
 
-2.  在管理入口網站的左方瀏覽窗格中，按一下 **[服務匯流排]**。
+2.  在管理入口網站的左方瀏覽窗格中，按一下 [服務匯流排]。
 
-3.  在管理入口網站的下方窗格中，按一下 **[建立]**。
+3.  在管理入口網站的下方窗格中，按一下 [建立]。
 
     ![][6]
 
-4.  在 [Add a new namespace]**** 對話方塊中，輸入命名空間名稱。系統會立即檢查此名稱是否可用。![][7]
+4.  在 [Add a new namespace] 對話方塊中，輸入命名空間名稱。系統會立即檢查此名稱是否可用。![][7]
 
 5.  確定命名空間名稱可用之後，請選擇要代管命名空間的國家或區域 (必須使用您要部署運算資源的相同國家/區域)。另外，請確定您在命名空間的 [**類型**] 欄位中選取 [**傳訊**]，並在 [**傳訊層**] 欄位中選取 [**標準**]。
 
@@ -117,7 +113,7 @@
 
 	![][30]
 
-8. 按一下 [連線資訊]****。
+8. 按一下 [連線資訊]。
 
 	![][31]
 
@@ -125,27 +121,7 @@
 
     ![][35]
 
-10.  請記下這些認證，或將它們複製到剪貼簿。
-
-## 使用 Visual Studio 伺服器總管來管理命名空間與傳訊實體
-
-若要使用 Visual Studio (而非 Azure 管理入口網站) 來管理命名空間並取得連線資訊，請遵循[這裡](http://msdn.microsoft.com/library/ff687127.aspx)所述的程序 (**從 Visual Studio 連接到 Azure** 一節)。在您登入 Azure 時，伺服器總管 [Microsoft Azure]**** 樹狀目錄下的 [服務匯流排]**** 節點，將會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 [屬性]****，查看在 Visual Studio **[屬性]** 窗格中所顯示，與此命名空間關聯的連線字串與其他中繼資料。
-
-請記下 **SharedAccessKey** 值，或將它複製到剪貼簿：
-
-![][34]
-
-**注意**，您也可以使用 [**伺服器總管**]，使用下列程序來管理另一個訂用帳戶的服務匯流排命名空間：
-
-1. 從 Visual Studio 中的功能表列，選擇 **[檢視]**，然後按一下 **[伺服器總管]**。**[服務匯流排]** 節點會出現在伺服器總管階層內的 **[Azure]** 下方，如下圖所示。
-
-	![][21]
-
-2. 在 [伺服器總管] 中，展開 [**Microsoft Azure**]，再以滑鼠右鍵按一下 [**服務匯流排**]，然後按一下 [**加入新的連接**]。
-
-3. 在 [**新增連線**] 對話方塊中，輸入服務命名空間的名稱、簽發者名稱和簽發者金鑰，或在命名空間的連接字串中貼上。與簽發者金鑰相關聯的權限會決定您可以在此命名空間中執行的作業。然後按一下 **[確定]** 以繼續。
-
-	![][22]
+10.  記下這些認證，或將它們複製到剪貼簿。
 
 ## 建立 Web 角色
 
@@ -153,38 +129,38 @@
 
 ### 建立專案
 
-1.  使用系統管理員權限，啟動 Microsoft Visual Studio 2013 或 Microsoft Visual Studio Express。若要以系統管理員權限啟動 Visual Studio，請在 [Microsoft Visual Studio 2013] (或 [Microsoft Visual Studio Express])**** 上按一下滑鼠右鍵，然後按一下 [以系統管理員身分執行]****。本指南稍後討論的 Azure 計算模擬器需要您以系統管理員權限啟動 Visual Studio。
+1.  使用系統管理員權限，啟動 Microsoft Visual Studio 2013 或 Microsoft Visual Studio Express。若要以系統管理員權限啟動 Visual Studio，請在 [Microsoft Visual Studio 2013] (或 [Microsoft Visual Studio Express]) 上按一下滑鼠右鍵，然後按一下 [以系統管理員身分執行]。本指南稍後討論的 Azure 計算模擬器需要您以系統管理員權限啟動 Visual Studio。
 
-    在 Visual Studio 的 **[檔案]** 功能表，按一下 **[新增]**，然後按一下 **[專案]**。
+    在 Visual Studio 的 [檔案] 功能表，按一下 [新增]，然後按一下 [專案]。
 
     ![][8]
 
 
-2.  從 **[已安裝的範本]** 的 **[Visual C#]** 下，按一下 **[雲端]**，然後按一下 **[Azure 雲端服務]**。將專案命名為 **MultiTierApp**。然後按一下 **[確定]**。
+2.  從 [已安裝的範本] 的 [Visual C#] 下，按一下 [雲端]，然後按一下 [Azure 雲端服務]。將專案命名為 **MultiTierApp**。然後按一下 [確定]。
 
     ![][9]
 
-3.  從 **.NET Framework 4.5** 角色中，按兩下 **[ASP.NET Web 角色]**。
+3.  從 **.NET Framework 4.5** 角色中，按兩下 [ASP.NET Web 角色]。
 
     ![][10]
 
-4.  將滑鼠移至 **[Azure Cloud Service solution]** 下的 **[WebRole1]**，按一下鉛筆圖示，將 Web 角色重新命名為 **FrontendWebRole**。然後按一下 **[確定]**。(請確定您輸入 "Frontend"，其中 e 為小寫，而不是 "FrontEnd"。)
+4.  將滑鼠移至 [Azure Cloud Service solution 下的 [WebRole1]，按一下鉛筆圖示，將 Web 角色重新命名為 **FrontendWebRole**。然後按一下 [確定]。(請確定您輸入 "Frontend"，其中 e 為小寫，而不是 "FrontEnd"。)
 
     ![][11]
 
-5.  從 **[New ASP.NET Project]** 對話方塊的 **[選取範本]** 清單中，按一下 **[MVC]**，然後按一下 **[確定]**。
+5.  從 [New ASP.NET Project] 對話方塊的 [選取範本] 清單中，按一下 [MVC]，然後按一下 [確定]。
 
     ![][12]
 
-6.  在 [方案總管]**** 中，於 [參考]**** 上按一下滑鼠右鍵，然後按一下 **[Manage NuGet Packages...]** 或 **[加入程式庫套件參考]**。
+6.  在 [方案總管] 中，於 [參考] 上按一下滑鼠右鍵，然後按一下 [Manage NuGet Packages...] 或 [加入程式庫套件參考]。
 
-7.  選取對話方塊左手邊的 **[線上]**。搜尋 "**Service Bus**"，並選取 [**Azure 服務匯流排**] 項目。然後完成安裝並關閉此對話方塊。
+7.  選取對話方塊左手邊的 [線上]。搜尋 "**Service Bus**"，並選取 [**Azure 服務匯流排**] 項目。然後完成安裝並關閉此對話方塊。
 
     ![][13]
 
 8.  請注意，現在已參考必要的用戶端組件，並已新增一些新的程式碼檔案。
 
-9.  在 **[方案總管]** 中，於 **[模型]** 上按一下滑鼠右鍵、按一下 **[新增]**，再按一下 **[類別]**。在 [**名稱**] 方塊中，輸入名稱 **OnlineOrder.cs**。然後按一下 **[新增]**。
+9.  在 [方案總管] 中，於 [模型] 上按一下滑鼠右鍵、按一下 [新增]，再按一下 [類別]。在 [**名稱**] 方塊中，輸入名稱 **OnlineOrder.cs**。然後按一下 [新增]。
 
 ### 撰寫 Web 角色的程式碼
 
@@ -201,7 +177,7 @@
             }
         }
 
-2.  在 **[方案總管]** 中，按兩下 **[Controllers\\HomeController.cs]**。在檔案頂端新增下列 **using** 陳述式，以納入您剛建立之模型的命名空間，以及服務匯流排：
+2.  在 [方案總管] 中，按兩下 [Controllers\\HomeController.cs]。在檔案頂端新增下列 **using** 陳述式，以納入您剛建立之模型的命名空間，以及服務匯流排：
 
         using FrontendWebRole.Models;
         using Microsoft.ServiceBus.Messaging;
@@ -258,29 +234,29 @@
             }
         }
 
-4.  從 **[建置]** 功能表中，按一下 **[建置方案]**。
+4.  從 [**建置**] 功能表中，按一下 [**建置方案**] 以測試您的工作到目前為止是否正確無誤。
 
 5.  現在，您將為上面建立的 **Submit()** 方法建立檢視。在 Submit() 方法內按一下滑鼠右鍵，然後選擇 [**加入檢視**]。
 
     ![][14]
 
-6.  隨即出現對話方塊，供您建立檢視。在 **[模型類別]** 下拉式清單中選取 **[OnlineOrder]** 類別，然後在 **[範本]** 下拉式清單中選擇 **[建立]**。
+6.  隨即出現對話方塊，供您建立檢視。在 [**範本**] 下拉式清單中，選擇 [**建立**]。在 [**模型類別**] 下拉式清單中，按一下 [**OnlineOrder**] 類別。
 
     ![][15]
 
-7.  按一下 **[新增]**。
+7.  按一下 [新增]。
 
-8.  現在，變更應用程式的顯示名稱。在 **[方案總管]** 中，按兩下 **Views\\Shared\_Layout.cshtml** 檔案以在 Visual Studio 編輯器中開啟。
+8.  現在，變更您的應用程式的顯示名稱。在 [**方案總管**] 中，按兩下 **Views\\Shared\\_Layout.cshtml** 檔案以在 Visual Studio 編輯器中開啟。
 
 9.  將所有出現的 **My ASP.NET Application** 取代為 **LITWARE'S Products**。
 
-10. 移除 **[首頁]**、**[關於]** 和 **[連絡人]** 連結。刪除反白顯示的程式碼：
+10. 移除 [首頁]、[關於] 和 [連絡人] 連結。刪除反白顯示的程式碼：
 
 	![][28]
 
-11. 最後，修改提交頁面，以納入佇列的一些相關資訊。在 **[方案總管]** 中，按兩下 **[Views\\Home\\Submit.cshtml]** 檔案以在 Visual Studio 編輯器中開啟。在 **&lt;h2>Submit&lt;/h2>** 後面新增下列一行。**ViewBag.MessageCount** 現在暫時是空的。稍後您將在其中填入資料。
+11. 最後，修改提交頁面，以納入佇列的一些相關資訊。在 [方案總管] 中，按兩下 [Views\\Home\\Submit.cshtml] 檔案以在 Visual Studio 編輯器中開啟。在 **&lt;h2>Submit&lt;/h2>** 後面新增下列一行。**ViewBag.MessageCount** 現在暫時是空的。稍後您將在其中填入資料。
 
-        <p>Current Number of Orders in Queue Waiting to be Processed: @ViewBag.MessageCount</p>
+        <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
 
 
 12. 您現在已實作 UI。您可以按 **F5** 執行應用程式，確認它的外觀與預期一樣。
@@ -291,9 +267,9 @@
 
 現在，您將新增程式碼以提交項目給佇列。首先，您將建立一個類別，並使其包含服務匯流排佇列連接資訊。接著，您將從 **Global.aspx.cs** 初始化連線。最後，您將更新稍早在 **HomeController.cs** 建立的提交程式碼，以將項目實際提交給服務匯流排佇列。
 
-1.  在 [方案總管] 中，於 **[FrontendWebRole]** 上按一下滑鼠右鍵 (在專案而非角色上按一下滑鼠右鍵)。按一下 **[加入]**，然後按一下 **[類別]**。
+1.  在 [方案總管] 中，於 [FrontendWebRole] 上按一下滑鼠右鍵 (在專案而非角色上按一下滑鼠右鍵)。按一下 [加入]，然後按一下 [類別]。
 
-2.  將類別命名為 **QueueConnector.cs**。按一下 [加入]**** 以建立類別。
+2.  將類別命名為 **QueueConnector.cs**。按一下 [加入] 以建立類別。
 
 3.  您現在要加入可封裝連線資訊、並初始化與服務匯流排佇列連線的程式碼。在 QueueConnector.cs 中，加入下列程式碼，並在 [**命名空間**] (您的服務命名空間) 和 [**yourKey**] (這是您稍早從 [Azure 管理入口網站][Azure Management Portal]中取得的 SAS 金鑰) 中輸入值。
 
@@ -355,15 +331,15 @@
             }
         }
 
-    **注意**稍後在本教學課程中，您將學會如何將您的**命名空間**名稱和您的 SAS 金鑰值儲存在組態檔中。
+    請注意，稍後在本教學課程中，您將學會如何將您的**命名空間**名稱和您的 SAS 金鑰值儲存在組態檔中。
 
-4.  現在，您將確定自己的 **Initialize** 方法會受到呼叫。在 [方案總管]**** 中，按兩下 [Global.asax\\Global.asax.cs]****。
+4.  現在，請確定會呼叫自己的 **Initialize** 方法。在 [方案總管] 中，按兩下 [Global.asax\\Global.asax.cs]。
 
 5.  將下列一行新增至 **Application_Start** 方法底部：
 
         FrontendWebRole.QueueConnector.Initialize();
 
-6.  最後，您將更新稍早建立的 Web 程式碼，以提交項目給佇列。在 [方案總管]**** 中，按兩下稍早建立的 [Controllers\\HomeController.cs]****。
+6.  最後，更新稍早建立的 Web 程式碼，以提交項目給佇列。在 [方案總管] 中，按兩下 [Controllers\\HomeController.cs]。
 
 7.  將 **Submit()** 方法更新為如下，以取得佇列的訊息計數：
 
@@ -444,31 +420,31 @@
 
 1. 請確定您已依使用 Visual Studio 伺服器總管管理命名空間和訊息實體一節中所述，將 Visual Studio 連接到您的 Azure 帳戶 。
 
-2.  在 Visual Studio 的 [方案總管]**** 中，於 [MultiTierApp]**** 專案下的 [角色]**** 資料夾上按一下滑鼠右鍵。
+2.  在 Visual Studio 的 [方案總管] 中，於 [MultiTierApp] 專案下的 [角色] 資料夾上按一下滑鼠右鍵。
 
-3.  按一下 [加入]****，然後按一下 [新的背景工作角色專案]****。[加入新的角色專案]**** 對話方塊隨即出現。
+3.  按一下 [加入]，然後按一下 [新的背景工作角色專案]。[加入新的角色專案] 對話方塊隨即出現。
 
 	![][26]
 
-4.  在 [加入新的角色專案]**** 對話方塊中，按一下 [Worker Role with Service Bus Queue]****，如下圖所示：
+4.  在 [加入新的角色專案] 對話方塊中，按一下 [Worker Role with Service Bus Queue]，如下圖所示：
 
 	![][23]
 
-5.  在 [名稱]**** 方塊中，將專案命名為 **OrderProcessingRole**。然後按一下 [新增]****。
+5.  在 [名稱] 方塊中，將專案命名為 **OrderProcessingRole**。然後按一下 [新增]。
 
-6.  在 [伺服器總管] 中，於您的服務命名空間的名稱上按一下滑鼠右鍵，再按一下 [屬性]****。在 Visual Studio [**屬性**] 窗格中，第一個項目會包含已填入命名空間端點 (其含必要的授權認證) 的連接字串。例如，請參閱下圖。按兩下 [ConnectionString]****，再按 **Ctrl+C**，將此字串複製到剪貼簿。
+6.  在 [伺服器總管] 中，於您的服務命名空間的名稱上按一下滑鼠右鍵，再按一下 [屬性]。在 Visual Studio [**屬性**] 窗格中，第一個項目會包含已填入命名空間端點 (其含必要的授權認證) 的連接字串。例如，請參閱下圖。按兩下 [ConnectionString]，再按 **Ctrl+C**，將此字串複製到剪貼簿。
 
 	![][24]
 
-7.  在 [方案總管] 中，請以滑鼠右鍵按一下您在步驟 5 中所建立的 **OrderProcessingRole** (請確定您是在 [**角色**] 下，而不是類別下，以滑鼠右鍵按一下 **OrderProcessingRole**)。然後按一下 [屬性]****。
+7.  在 [方案總管] 中，請以滑鼠右鍵按一下您在步驟 5 中所建立的 **OrderProcessingRole** (請確定您是在 [**角色**] 下，而不是類別下，以滑鼠右鍵按一下 **OrderProcessingRole**)。然後按一下 [屬性]。
 
 8.  在 [**屬性**] 對話方塊的 [**設定**] 索引標籤中，按一下 **Microsoft.ServiceBus.ConnectionString** 的 [**值**] 方塊內部，然後貼上您在步驟 6 中複製的端點值。
 
 	![][25]
 
-9.  建立 **OnlineOrder**，以代表您從佇列處理它們時的順序。您可以重複使用已建立的類別。在 [方案總管] 中，於 [OrderProcessingRole]**** 專案上按一下滑鼠右鍵 (在專案而不是角色上按一下滑鼠右鍵)。按一下 [加入]****，然後按一下 [現有項目]****。
+9.  建立 **OnlineOrder**，以代表您從佇列處理它們時的順序。您可以重複使用已建立的類別。在 [方案總管] 中，於 [OrderProcessingRole] 專案上按一下滑鼠右鍵 (在專案而不是角色上按一下滑鼠右鍵)。按一下 [加入]，然後按一下 [現有項目]。
 
-10. 瀏覽至 **FrontendWebRole\\Models** 的子資料夾，並按兩下 [OnlineOrder.cs]****，以將它新增至這個專案。
+10. 瀏覽至 **FrontendWebRole\\Models** 的子資料夾，並按兩下 [OnlineOrder.cs]，以將它新增至這個專案。
 
 11. 在 WorkerRole.cs 中，將 **WorkerRole.cs** 中的 **QueueName** 變數值從 `"ProcessingQueue"` 取代為 `"OrdersQueue"`，如下列程式碼所示：
 
@@ -487,7 +463,7 @@
 		Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
 		receivedMessage.Complete();
 
-14. 您已完成應用程式。您可以測試完整的應用程式，方法是以滑鼠右鍵按一下 [方案總管] 中的 MultiTierApp 專案、選取 [**設定為啟始專案**]，然後按下 F5。請注意，訊息計數不會增加，因為背景工作角色會處理佇列中的項目，並將它們標示為完成。您可以檢視 Azure 計算模擬器 UI，來查看背景工作角色的追蹤輸出。作法為在工作列的通知區中的計算模擬器圖示上按一下滑鼠右鍵，並選取 [Show Compute Emulator UI]****。
+14. 您已完成應用程式。您可以測試完整的應用程式，方法是以滑鼠右鍵按一下 [方案總管] 中的 MultiTierApp 專案、選取 [**設定為啟始專案**]，然後按下 F5。請注意，訊息計數不會增加，因為背景工作角色會處理佇列中的項目，並將它們標示為完成。您可以檢視 Azure 計算模擬器 UI，來查看背景工作角色的追蹤輸出。作法為在工作列的通知區中的計算模擬器圖示上按一下滑鼠右鍵，並選取 [Show Compute Emulator UI]。
 
     ![][19]
 
@@ -518,52 +494,49 @@
 若要了解如何將前端部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](http://azure.microsoft.com/develop/net/tutorials/get-started/)。若要了解如何將後端部署至 Azure 雲端服務，請參閱[使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式][mutitierstorage]。
 
 
-[0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
-[1]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
-[sbqueuecomparison]: http://msdn.microsoft.com/library/hh767287.aspx
-[2]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-[取得工具和 SDK (英文)]: http://go.microsoft.com/fwlink/?LinkId=271920
-[3]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
+  [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+  [1]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
+  [sbqueuecomparison]: http://msdn.microsoft.com/library/hh767287.aspx
+  [2]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
+  [取得工具和 SDK (英文)]: http://go.microsoft.com/fwlink/?LinkId=271920
+  [3]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
 
 
 
-[Azure Management Portal]: http://manage.windowsazure.com
-[Azure 管理入口網站]: http://manage.windowsazure.com
-[6]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
-[7]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
-[8]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
-[9]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
-[10]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
-[11]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
-[12]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-12.png
-[13]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-13.png
-[14]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-33.png
-[15]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-34.png
-[16]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-35.png
-[17]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
-[18]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
+  [Azure Management Portal]: http://manage.windowsazure.com
+  [Azure 管理入口網站]: http://manage.windowsazure.com
+  [6]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
+  [7]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
+  [8]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
+  [9]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
+  [10]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
+  [11]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
+  [12]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-12.png
+  [13]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-13.png
+  [14]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-33.png
+  [15]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-34.png
+  [16]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-35.png
+  [17]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
+  [18]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
 
-[19]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
-[20]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
-[21]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBExplorer.png
-[22]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBExplorerAddConnect.png
-[23]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRole1.png
-[24]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBExplorerProperties.png
-[25]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRoleProperties.png
-[26]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
-[27]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-27.png
-[28]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
-[30]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-09.png
-[31]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-06.png
-[32]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
-[33]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
-[34]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/VSProperties.png
-[35]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
-[sbmsdn]: http://msdn.microsoft.com/library/ee732537.aspx
-[sbwacom]: /documentation/services/service-bus/
-[sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/
-[mutitierstorage]: /develop/net/tutorials/multi-tier-web-site/1-overview/
-[executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
-
-<!--HONumber=52-->
+  [19]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
+  [20]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
+  [23]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRole1.png
+  [24]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBExplorerProperties.png
+  [25]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRoleProperties.png
+  [26]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
+  [27]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-27.png
+  [28]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
+  [30]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-09.png
+  [31]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-06.png
+  [32]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
+  [33]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
+  [35]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
+  [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx
+  [sbwacom]: /documentation/services/service-bus/
+  [sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/
+  [mutitierstorage]: /develop/net/tutorials/multi-tier-web-site/1-overview/
+  [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
+
+<!---HONumber=July15_HO2-->

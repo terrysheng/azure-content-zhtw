@@ -32,12 +32,9 @@
 
 ##版本資訊
 
-###2.1.0 (2015/04/24)
+###2.2.0 (05/21/2015)
 
--   新增 Swift 相容性。
--   現在按一下通知時，動作 URL 會在應用程式開啟後立即執行。
--   在 SDK 封裝中加入缺少的標頭檔案。
--   已修正 Mobile Engagement 當機報告程式停用時的問題。
+-   針對 < iOS 6 之裝置的 Mobile Engagement 裝置識別碼現在是根據在安裝時產生的 GUID。
 
 如需較早版本，請參閱[完整版本資訊](mobile-engagement-ios-release-notes.md)
 
@@ -51,5 +48,6 @@
 
 ###從 2.0.0 到 2.1.0
 無。
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

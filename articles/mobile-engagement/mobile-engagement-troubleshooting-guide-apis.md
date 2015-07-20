@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Mobile Engagement 疑難排解指南 - API" 
-   description="Azure Mobile Engagement 疑難排解" 
+   description="Azure Mobile Engagement 疑難排解指南 - API" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="06/18/2015"
    ms.author="piyushjo"/>
 
 # API 問題的疑難排解指南
@@ -35,7 +35,8 @@
 
 ### 另請參閱
  
-- [概念 - 詞彙][Link 6], [API 文件][Link 4], [XMPP 通訊協定資訊](http://xmpp.org/extensions/xep-0199.html)
+- [API 文件][Link 4]
+- [XMPP 通訊協定資訊](http://xmpp.org/extensions/xep-0199.html)
  
 ## 無法使用 API 執行 Azure Mobile Engagement UI 中可用的相同動作
 
@@ -77,7 +78,7 @@
         409        Name already associated to a different device ID or campaign.
         413        Too many device identifiers (current limit is 1,000), POST URL encoded entity is over 2MB, or the period is too large to be displayed (the server didn’t retrieve the analytics because the user request is for a period that is too large).
         503        Analytics not available yet (the requested information is not computed yet for an application).
-        504         The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
+        504        The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
 
 ### 另請參閱
 
@@ -95,7 +96,7 @@
 
 ### 另請參閱
 
-- [疑難排解指南 - SDK][Link 25], [SDK 文件][Link 5]
+- [疑難排解指南 - SDK][Link 25]
  
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
@@ -127,5 +128,6 @@
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

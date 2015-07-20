@@ -76,4 +76,4 @@ Azure 客戶每月可以解除鎖定 25,000 封免費電子郵件。這些每月
 [SendGrid 佈建程序]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [所有 API]: https://sendgrid.com/docs/API_Reference/index.html
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何在 Azure Machine Learning 中解譯模型結果 | Azure" 
+	pageTitle="如何在 Machine Learning 中解譯模型結果 | Microsoft Azure" 
 	description="如何針對使用和視覺化評分模型輸出的演算法選擇最佳的參數設定。" 
 	services="machine-learning"
 	documentationCenter="" 
@@ -21,7 +21,7 @@
  
 **了解和視覺化「評分模型」輸出**本主題說明如何視覺化和解譯 Azure Machine Learning Studio 中的預測結果。在您訓練模型並且完成模型最上層的預測 (「評分模型」) 之後，您必須了解和解譯您已取得的預測結果。
 
-[AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)] 
+[AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
 
 Azure Machine Learning 中有四個主要的機器學習類型：
 
@@ -307,5 +307,6 @@ Azure Machine Learning 有不同的模組可以處理各種類型的分類。但
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # 如何使用 Java 的佇列儲存體
@@ -22,9 +22,9 @@
 
 ## 概觀
 
-本指南將示範如何使用 Azure 佇列儲存服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][]。所涵蓋的案例包括「**插入**」、「**查看**」、「**取得**」和「**刪除**」佇列訊息，以及「**建立**」和「**刪除**」佇列。如需佇列的詳細資訊，請參閱 [後續步驟](#NextSteps) 一節。
+本指南將示範如何使用 Azure 佇列儲存服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][]。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立」和「刪除」佇列。如需佇列的詳細資訊，請參閱[後續步驟](#NextSteps)一節。
 
-注意：有一套 SDK 可供在 Android 裝置上使用 Azure 儲存體的開發人員使用。如需詳細資訊，請參閱 [Azure Storage SDK for Android][]。 
+注意：已發行一套 SDK 可供在 Android 裝置上使用 Azure 儲存體的開發人員使用。如需詳細資訊，請參閱 [Azure Storage SDK for Android][]。
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -54,7 +54,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         "AccountName=your_storage_account;" + 
         "AccountKey=your_storage_account_key";
 
-在 Microsoft Azure 的角色內執行的應用程式中，此字串可以儲存在服務組態檔  *ServiceConfiguration.cscfg* 裡，且可以藉由呼叫 **RoleEnvironment.getConfigurationSettings** 方法來存取。以下是從服務組態檔中名為 *StorageConnectionString* 的 **Setting** 元素取得連接字串的範例：
+在 Microsoft Azure 的角色內執行的應用程式中，此字串可以儲存在服務組態檔 *ServiceConfiguration.cscfg* 裡，且可以藉由呼叫 **RoleEnvironment.getConfigurationSettings** 方法來存取。以下是從服務組態檔中名為 **StorageConnectionString** 的 *Setting* 元素取得連接字串的範例：
 
     // Retrieve storage account from connection-string.
     String storageConnectionString = 
@@ -64,7 +64,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 ## 作法：建立佇列
 
-**CloudQueueClient** 物件可讓您取得佇列的參照物件。下列程式碼將建立 **CloudQueueClient** 物件。(注意：還有其他方法可建立 **CloudStorageAccount** 物件。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考] (英文) 中的 **CloudStorageAccount**。)
+**CloudQueueClient** 物件可讓您取得佇列的參照物件。下列程式碼將建立 **CloudQueueClient** 物件。(備註：還有其他方法可建立 **CloudStorageAccount** 物件。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考]中的 **CloudStorageAccount**。)
 
 使用 **CloudQueueClient** 物件來取得想要使用佇列的參照。如果佇列不存在，您可以建立佇列。
 
@@ -153,7 +153,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 您可以在佇列中就地變更訊息內容。如果訊息代表工作作業，則您可以使用此功能來更新工作作業的狀態。下列程式碼將使用新的內容更新佇列訊息，並將可見度逾時設定延長 60 秒。這可儲存與訊息相關的工作狀態，並提供用戶端多一分鐘的時間繼續處理訊息。您可以使用此技巧來追蹤佇列訊息上的多步驟工作流程，如果因為硬體或軟體故障而導致某個處理步驟失敗，將無需從頭開始。通常，您也會保留重試計數，如果訊息重試超過 *n* 次，您會將它刪除。這麼做可防止每次處理時便觸發應用程式錯誤的訊息。
 
-下列程式碼範例會在訊息佇列中搜尋，找出內容符合 "Hello, World" 的第一個訊息，然後修改訊息內容並結束。 
+下列程式碼範例會在訊息佇列中搜尋，找出內容符合 "Hello, World" 的第一個訊息，然後修改訊息內容並結束。
 
     try
     {
@@ -231,7 +231,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 ## 作法：取得佇列長度
 
-您可以取得佇列中的估計訊息數目。**downloadAttributes** 方法會向佇列服務要求數個目前值，包括計算佇列中的訊息數。此計數只是一個約略值，因為在佇列服務回應您的要求之後，仍有新增或移除訊息的可能。**getApproximateMessageCount** 方法會傳回呼叫 **downloadAttributes** 所擷取的最後一個值，而無需呼叫佇列服務。
+您可以取得佇列中的估計訊息數目。**downloadAttributes** 方法會向佇列服務要求數個目前值，包括計算佇列中的訊息數。由於佇列服務在回應您的要求之後可以新增或移除訊息，此計數僅為近似值。**getApproximateMessageCount** 方法會傳回呼叫 **downloadAttributes** 所擷取的最後一個值，而無需呼叫佇列服務。
 
     try
     {
@@ -262,7 +262,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 ## 作法：清除下一個佇列訊息
 
-您的程式碼可以使用兩個步驟來清除佇列訊息。呼叫 **retrieveMessage** 時，您會取得佇列中的下一個訊息。對於從此佇列讀取訊息的任何其他程式碼而言，將無法看到從 **retrieveMessage** 傳回的訊息。依預設，此訊息會維持 30 秒的不可見狀態。若要完成從佇列中移除訊息，您還必須呼叫 **deleteMessage**。這個移除訊息的兩步驟程序可確保您的程式碼因為硬體或軟體故障而無法處理訊息時，另一個程式碼的執行個體可以取得相同訊息並再試一次。您的程式碼會在處理完訊息之後立即呼叫 **deleteMessage**。
+您的程式碼可以使用兩個步驟來清除佇列訊息。呼叫 **retrieveMessage** 時，您會取得佇列中的下一個訊息。從 **retrieveMessage** 傳回的訊息，對於從此佇列讀取訊息的任何其他程式碼而言將會是不可見的。依預設，此訊息會維持 30 秒的不可見狀態。若要完成將訊息從佇列中移除，您還必須呼叫 **deleteMessage**。這個移除訊息的兩步驟程序可確保您的程式碼因為硬體或軟體故障而無法處理訊息時，另一個程式碼的執行個體可以取得相同訊息並再試一次。您的程式碼會在處理完訊息之後立即呼叫 **deleteMessage**。
 
     try
     {
@@ -296,7 +296,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 自訂從佇列中擷取訊息的方法有兩種。首先，您可以取得一批訊息 (最多 32 個)。其次，您可以設定較長或較短的可見度逾時，讓您的程式碼有較長或較短的時間可以完全處理每個訊息。
 
-下列程式碼範例將使用 **retrieveMessages** 方法，在一次呼叫中取得 20 個訊息。接著它會使用 **for** 迴圈處理每個訊息。它也會將可見度逾時設定為每個訊息五分鐘 (300 秒)。請注意，系統會針對所有訊息同時開始計時五分鐘，所以從呼叫 **retrieveMessages** 開始的五分鐘後，任何尚未刪除的訊息都會重新出現。
+下列程式碼範例使用 **retrieveMessages** 方法，在一次呼叫中取得 20 個訊息。接著它會使用 **for** 迴圈處理每個訊息。它也會將可見度逾時設定為每個訊息五分鐘 (300 秒)。請注意，系統會針對所有訊息同時開始計時五分鐘，所以從呼叫 **retrieveMessages** 開始的五分鐘後，任何尚未刪除的訊息都會重新出現。
 
     try
     {
@@ -325,7 +325,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 ## 作法：列出佇列
 
-若要取得目前佇列的清單，請呼叫 **CloudQueueClient.listQueues()**方法，此方法會傳回 **CloudQueue** 物件的集合。 
+若要取得目前佇列的清單，請呼叫 **CloudQueueClient.listQueues()** 方法，此方法會傳回 **CloudQueue** 物件的集合。
 
     try
     {
@@ -390,5 +390,6 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
 [Azure 儲存體 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

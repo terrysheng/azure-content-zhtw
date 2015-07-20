@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/27/2015" 
 	ms.author="juliako"/>
 
 #使用啟用的通道來以 Azure 媒體服務執行即時編碼 (預覽)
@@ -40,6 +40,16 @@
 下圖代表即時串流工作流程，其中通道可使用下列其中一種通訊協定接收單一位元速率串流：RTMP、Smooth Streaming 或 RTP (MPEG-TS)；然後它會將串流編碼為多位元速率串流。
 
 ![即時工作流程][live-overview]
+
+>[AZURE.NOTE]並非所有資料中心都支援使用 Azure 媒體服務進行即時編碼。
+>
+>如果您使用 Azure 管理入口網站來建立通道，您將會有兩個通道編碼類型選項可用：[**無**] 和 [**標準**]。如果您只看到 [**無**] 選項時，表示您的資料中心不支援使用 AMS 的即時編碼。
+>
+>如果您使用 .NET SDK 或 REST API，請執行下列動作來檢查：
+>
+>1. 嘗試建立通道，將編碼類型設為 [標準]。 
+>2. 如果傳回結果 HTTP 錯誤碼 412 (預先指定的條件失敗) 且具有下列訊息：「*即時編碼在此區域中不支援；EncodingType 必須設定為 [無]。*」，則您的資料中心不支援即時編碼。
+
 
 ##本主題內容
 
@@ -69,13 +79,13 @@
 
 	使用 Azure 管理入口網站時，建立程式也會建立資產。
 
-	使用 .NET SDK 或 REST 時，您必須建立資產並指定要在建立程式時使用此資產。
+	使用 .NET SDK 或 REST 時，您必須建立資產並指定要在建立程式時使用此資產。 
 1. 發行與程式相關聯的資產。   
 
 	請確定在您想串流內容的串流端點上至少有一個串流保留單元。
 1. 當您準備好開始串流和封存時，請啟動程式。
 2. 即時編碼器會收到啟動公告的信號 (選擇性)。公告會插入輸出串流中。
-1. 每當您想要停止串流和封存事件時，請停止程式。
+1. 每當您想要停止串流處理和封存事件時，請停止程式。
 1. 刪除程式 (並選擇性地刪除資產)。   
 
 [即時串流工作](media-services-manage-channels-overview.md#tasks)一節會連結至示範如何達成上述工作的主題。
@@ -107,29 +117,29 @@
 - 以下是支援的轉碼器：
 	- Mpeg-2 / H.262 視訊 
 		
-		- Main Profile (4:2:0)
-		- High Profile (4:2:0, 4:2:2)
-		- 422 Profile (4:2:0, 4:2:2)
+		- 主要設定檔 (4:2:0)
+		- 高設定檔 (4:2:0, 4:2:2)
+		- 422 設定檔 (4:2:0, 4:2:2)
 
-	- MPEG-4 AVC / H.264 視訊  
+	- MPEG-4 AVC / H.264 視訊
 	
-		- Baseline, Main, High Profile (8-bit 4:2:0)
-		- High 10 Profile (10-bit 4:2:0)
-		- High 422 Profile (10-bit 4:2:2)
+		- 基準、主要、高設定檔 (8-bit 4:2:0)
+		- 高 10 設定檔 (10 位元 4:2:0)
+		- 高 422 設定檔 (10 位元 4:2:2)
 
 
-	- MPEG-2 AAC-LC Audio 
+	- Mpeg-2 AAC-LC 音訊
 	
-		- Mono, Stereo, Surround (5.1, 7.1)
-		- MPEG-2 style ADTS packaging
+		- 單聲道、立體聲、環繞 (5.1、7.1)
+		- MPEG-2 樣式 ADTS 封裝
 
-	- Dolby Digital (AC-3) Audio 
+	- Dolby Digital (AC-3) 音訊
 
-		- Mono, Stereo, Surround (5.1, 7.1)
+		- 單聲道、立體聲、環繞 (5.1、7.1)
 
-	- MPEG Audio (Layer II and III) 
+	- MPEG 音訊 (Layer II 和 III)
 			
-		- Mono, Stereo
+		- 單聲道、立體聲
 
 - 建議的廣播編碼器包含：
 	- Ateme AM2102
@@ -158,15 +168,15 @@
 
 	- MPEG-4 AVC / H.264 視訊  
 	
-		- Baseline, Main, High Profile (8-bit 4:2:0)
-		- High 10 Profile (10-bit 4:2:0)
-		- High 422 Profile (10-bit 4:2:2)
+		- 基準、主要、高設定檔 (8-bit 4:2:0)
+		- 高 10 設定檔 (10 位元 4:2:0)
+		- 高 422 設定檔 (10 位元 4:2:2)
 
 	- Mpeg-2 AAC-LC 音訊
 
-		- Mono, Stereo, Surround (5.1, 7.1)
-		- 44.1 kHz sampling rate
-		- MPEG-2 style ADTS packaging
+		- 單聲道、立體聲、環繞 (5.1、7.1)
+		- 44.1 kHz 範例速率
+		- MPEG-2 樣式 ADTS 封裝
 	
 - 建議的編碼器包括：
 
@@ -287,7 +297,7 @@
 
 當您的通道啟用即時編碼時，您會在處理視訊的管線中具有元件，並可加以操作。您可以發出信號給通道以將 Slate 及/或廣告插入連出的自動調整位元速率串流。Slate 是靜止映像，您可以用來在某些情況下遮蓋輸入的即時摘要 (例如廣告插播期間)。廣告信號是您嵌入連外串流的時間同步處理信號，告知視訊播放器採取特殊動作 – 例如在適當時機切換到廣告。如需此用途的 SCTE 35 信號發送機制的概觀，請參閱此[部落格](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/)。以下是您可以在即時事件中實作的典型案例。
 
-1. 讓您的檢視器在事件開始前取得  PRE-EVENT 映像。
+1. 讓您的檢視器在事件開始前取得 PRE-EVENT 映像。
 1. 讓您的檢視器在事件開始前取得 POST-EVENT 映像。
 1. 在事件期間發生問題時 (例如場地中的電源中斷)，請讓您的檢視器取得 ERROR-EVENT 映像。
 1. 傳送 AD-BREAK 映像來隱藏廣告插播期間的即時事件摘要。
@@ -304,9 +314,10 @@
 
 ###顯示 slate
 
-選用。在廣告插播期間發送信號給即時編碼器以切換至預設 slate 映像，並隱藏連入的視訊摘要。在 slate 期間也要使音訊靜音。預設值為 **false**。
+選用。在廣告插播期間發送信號給即時編碼器以切換至[預設 slate](media-services-manage-live-encoder-enabled-channels.md#default_slate) 映像，並隱藏連入的視訊摘要。在 slate 期間也要使音訊靜音。預設值為 **false**。
  
 在建立通道時會透過預設 slate 資產識別碼屬性指定要使用的映像。slate 將會延伸到符合顯示映像大小。
+
 
 ##插入 slate 映像
 
@@ -322,14 +333,17 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 
 設為 true 時，此設定會將即時編碼器設為在廣告插播期間插入 slate 映像。預設值為 true。
 
-###預設 slate 資產識別碼
+###<a id="default_slate"></a>預設 slate 資產識別碼
 
 選用。指定包含 slate 映像之媒體服務資產的資產識別碼。預設值為 null。
 
-**注意**：建立通道之前，最大解析度為 1920 x 1080，格式為 JPEG，且大小上限為 3 Mb 的 slate 映像應上傳做為專用的資產 (此資產中應該沒有其他檔案)。檔案名稱應該有 *.jpg 附檔名，且 AssetFile 應該標記為資產的主要檔案。此資產不可為加密的儲存體。
+**注意**：建立通道之前，具有下列限制的 slate 映像應上傳做為專用的資產 (此資產中應該沒有其他檔案)。
+
+- 最多 1920 x 1080 的解析度。
+- 最多 3 Mb 的大小。
+- 檔案名稱必須有 *.jpg 副檔名。- 影像必須上傳到資產做為唯一的 AssetFile，資產和此 AssetFile 應該標示為主要檔案。此資產不可為加密的儲存體。
 
 如果未指定**預設 slate 資產識別碼**，且 **ad 標記上的插入 slate** 設為 **true**，將使用預設 Azure 媒體服務來隱藏輸入視訊串流。在 slate 期間也要使音訊靜音。
-
 
 
 ##通道的程式
@@ -344,7 +358,7 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 
 您不應該將現有程式重複用於新的事件。而是為每個事件建立並啟動新的程式 (如＜程式設計即時串流應用程式＞一節中所述)。
 
-當您準備好開始串流和封存時，請啟動程式。每當您想要停止串流和封存事件時，請停止程式。
+當您準備好開始串流和封存時，請啟動程式。每當您想要停止串流處理和封存事件時，請停止程式。
 
 若要刪除封存的內容，請停止並刪除程式，然後刪除相關聯的資產。如果程式使用資產，則無法刪除資產；必須先刪除程式。
 
@@ -378,8 +392,7 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 </table>
 
 
->[AZURE.NOTE]在預覽中，通道啟動目前可能需要最多 30 分鐘。重設通道可能需要最多 5 分鐘。
-
+>[AZURE.NOTE]目前在預覽中，通道啟動可能需要 20 分鐘以上。重設通道可能需要最多 5 分鐘。
 
 
 ##<a id="Considerations"></a>考量
@@ -390,6 +403,12 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 - 根據預設，您只能加入最多 5 個通道到媒體服務帳戶。這是所有新帳戶的彈性配額。如需詳細資訊，請參閱[配額和限制](media-services-quotas-and-limitations.md)。
 - 通道或其相關聯程式正在執行時，您無法變更輸入通訊協定。如果您需要不同的通訊協定，則應該為每個輸入通訊協定建立個別的通道。
 - 只有當您的通道處於**執行中**狀態時，才會向您計費。若需詳細資訊，請參閱[這個](media-services-manage-live-encoder-enabled-channels.md#states)章節。
+
+##已知問題
+
+- 通道啟動時可能需要 20 分鐘以上。
+- 為專業的廣播者建立 RTP 支援。請先檢閱[這個](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/)部落格中的 RTP 注意事項。
+- Slate 映像應該符合[這裡](media-services-manage-live-encoder-enabled-channels.md#default_slate)所述的限制。如果您嘗試建立預設 slate 大於 1920 x 1080 的通道，要求最後將會發生錯誤。
 
 
 ##<a id="tasks"></a>與即時串流相關的工作
@@ -406,13 +425,13 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 
 為開發環境選擇 **.NET** 或 **REST API**。
 
-[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
+[AZURE.INCLUDE [媒體-服務-選取器-設定](../../includes/media-services-selector-setup.md)]
 
 ###以程式設計方式連接  
 
 選擇 **.NET** 或 **REST API** 以程式設計方式連接到 Azure 媒體服務。
 
-[AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
+[AZURE.INCLUDE [媒體-服務-選取器-連接](../../includes/media-services-selector-connect.md)]
 
 ###建立通道以執行從單一位元速率到自動調整多位元速率的即時編碼 
 
@@ -420,36 +439,50 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-- [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx
+- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 ###保護資產
+
+**概觀**：
+
+[內容保護概觀](media-services-content-protection-overview.md)
 
 如果您想要使用進階加密標準 (AES) (使用 128 位元加密金鑰) 或 PlayReady DRM 加密和程式相關聯的資產，您必須建立內容金鑰。
 
 使用 **.NET** 或 **REST API** 來建立金鑰。
 
-[AZURE.INCLUDE [media-services-selector-create-contentkey](../../includes/media-services-selector-create-contentkey.md)]
+[AZURE.INCLUDE [媒體-服務-選取器-建立-contentkey](../../includes/media-services-selector-create-contentkey.md)]
 
 一旦您建立內容金鑰之後，您就可以使用 **.NET** 或 **REST API** 設定金鑰授權原則。
 
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
+[AZURE.INCLUDE [媒體-服務-選取器-內容-金鑰-auth-原則](../../includes/media-services-selector-content-key-auth-policy.md)]
+
+####與夥伴整合
+
+[使用 castLabs 將 DRM 授權傳遞到 Azure 媒體服務](media-services-castlabs-integration.md)
+
 
 ###發行及傳遞資產
 
 **概觀**：
 
 - [動態封裝概觀](../media-services-dynamic-overview.md)
-- [傳遞內容概觀](media-services-deliver-content-overview.md)
+
 
 使用 **.NET** 或 **REST API** 設定資產傳遞原則。
 
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
+[AZURE.INCLUDE [媒體-服務-選取器-資產-傳遞-原則](../../includes/media-services-selector-asset-delivery-policy.md)]
 
 使用 **Azure 管理入口網站**或 **.NET** (藉由建立定位器) 發行資產。
 
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
+
+傳遞內容
+
+> [AZURE.SELECTOR]
+- [Overview](media-services-deliver-content-overview.md)
 
 ###啟用 Azure CDN
 
@@ -467,8 +500,9 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 
 [媒體服務概念](media-services-concepts.md)
 
+[Azure 媒體服務的分散 MP4 即時內嵌規格](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

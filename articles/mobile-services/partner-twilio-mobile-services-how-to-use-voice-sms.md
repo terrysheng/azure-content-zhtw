@@ -105,7 +105,7 @@ Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您�
 		  "keywords":[]
 		}
 
-	>[AZURE.NOTE]應將 Twilio 的相依性新增為 `"twilio": "~1.7.0"`，包含 (\~)。不支援使用插入號 (^) 的參考。
+	>[AZURE.NOTE]應將 Twilio 的相依性新增為 `"twilio": "~1.7.0"`，包含 (~)。不支援使用插入號 (^) 的參考。
 
 4. 認可此檔案更新，並將更新推回行動服務。
 
@@ -228,5 +228,6 @@ Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您�
 [azure_twilio_howto_ruby]: /develop/ruby/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_python]: /develop/python/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_php]: /develop/php/how-to-guides/twilio-voice-and-sms-service/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

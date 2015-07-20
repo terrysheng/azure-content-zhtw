@@ -3,17 +3,17 @@
    description="說明不同的複製類型以及使用時機，並說明如何使用備份組來複製個別磁碟區。"
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/13/2015"
-   ms.author="v-sharos" />
+   ms.date="05/27/2015"
+   ms.author="alkohli" />
 
 # 複製 StorSimple 磁碟區
 
@@ -23,7 +23,9 @@
 
   ![backup-catalog](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
 
-本教學課程說明如何使用備份組來複製個別磁碟區。它也會說明「暫時性」**與「永久」**複製之間的差異。
+**圖 1：備份類別目錄**
+
+本教學課程說明如何使用備份組來複製個別磁碟區。它也會說明「暫時性」與「永久」複製之間的差異。
 
 ## 建立磁碟區複製
 
@@ -31,7 +33,7 @@
 
 ## 若要複製磁碟區
 
-1. 在 StorSimple Manager 服務頁面上，按一下  [備份類別目錄] 索引標籤，然後選取備份組。
+1. 在 StorSimple Manager 服務頁面上，按一下 [備份類別目錄] 索引標籤，然後選取備份組。
 
 2. 展開備份組以檢視相關聯的磁碟區。從備份組中按一下並選取磁碟區。
 
@@ -41,9 +43,9 @@
 
 4. 在 [複製磁碟區精靈] 的 [指定名稱和位置] 下：
 
-  1. 識別目標裝置。這是即將建立複製的位置。您可以選擇相同的裝置，或指定另一個裝置。
+  1. 識別目標裝置。這是即將建立複製的位置。您可以選擇相同的裝置，或指定另一個裝置。如果您選擇與其他雲端服務提供者相關的磁碟區 (非 Azure)，目標裝置的下拉式清單將只會顯示實體裝置。您無法將與其他雲端服務提供者相關的磁碟區複製到虛擬裝置。
 
-        >  [AZURE.NOTE] 請確定複製時所需的容量小於目標裝置上可用的容量。
+        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
   2. 為複製指定唯一的磁碟區名稱。此名稱必須包含 3 到 127 個字元。
   3. 按一下箭頭圖示 ![arrow-icon](./media/storsimple-clone-volume/HCS_ArrowIcon.png) 以繼續前往下一頁。
 
@@ -67,9 +69,9 @@
 
 ## 暫時性與永久複製
 
-您可以從備份組中複製特定磁碟區。以這種方式建立的複製就是「暫時性」**複製。暫時性複製會有原始磁碟區的參考，並在本機寫入時使用該磁碟區來讀取。這可能導致效能變慢，特別是複製的磁碟區很大時。
+您可以從備份組中複製特定磁碟區。以這種方式建立的複製就是「暫時性」複製。暫時性複製會有原始磁碟區的參考，並在本機寫入時使用該磁碟區來讀取。這可能導致效能變慢，特別是複製的磁碟區很大時。
 
-在建立暫時性複製的雲端快照之後，產生的複製就是「永久」**複製。永久複製獨立且沒有所複製原始磁碟區的任何參考。為了增進效能，建議您建立永久複製。
+在建立暫時性複製的雲端快照之後，產生的複製就是「永久」複製。永久複製獨立且沒有所複製原始磁碟區的任何參考。為了增進效能，建議您建立永久複製。
 
 ## 暫時性複製與永久複製的案例
 
@@ -87,6 +89,6 @@
 了解如何[從備份組還原 StorSimple 磁碟區](storsimple-restore-from-backup-set.md)。
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

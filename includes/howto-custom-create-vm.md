@@ -1,3 +1,4 @@
+
 #如何建立自訂虛擬機器 (英文)
 
 *自訂*虛擬機器會參考您使用 [從組件庫] 方法建立的虛擬機器，因其比使用 [快速建立] 方法可讓您設定更多選項。這些選項包含︰
@@ -59,4 +60,4 @@
 - [如何登入執行 Linux 的虛擬機器](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [如何登入執行 Windows Server 的虛擬機器](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

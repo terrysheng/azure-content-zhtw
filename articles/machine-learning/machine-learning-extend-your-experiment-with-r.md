@@ -1,5 +1,5 @@
 <properties
-	pageTitle="透過 R 擴展您的經驗 | Azure"
+	pageTitle="透過 R 擴展您的經驗 | Microsoft Azure"
 	description="如何利用「執行 R 指令碼」模組，透過 R 語言擴充 Azure Machine Learning Studio 的功能。"
 	services="machine-learning"
 	documentationCenter=""
@@ -155,7 +155,7 @@
 | DeducerExtras | Deducer 的其他對話方塊和函數 |
 | deldir | Delaunay 三角化和 Dirichlet (Voronoi) 拼貼。 |
 | DEoptimR | 純 R 的差分演化最佳化 |
-| deSolve | 常微分方程式 (ODE)、偏微分方程式 (PDE)、微分代數方程式  (DAE) 和時滯微分方程式 (DDE) 之初始值問題的一般規劃求解 |
+| deSolve | 常微分方程式 (ODE)、偏微分方程式 (PDE)、微分代數方程式 (DAE) 和時滯微分方程式 (DDE) 之初始值問題的一般規劃求解 |
 | devtools | 方便開發 R 程式碼的工具 |
 | dichromat | 二色覺者的顏色配置 |
 | digest | 建立 R 物件的密碼編譯雜湊摘要 |
@@ -246,7 +246,7 @@
 | iplots | iPlots - R 的互動式圖形 |
 | ipred | 已改進的預測量 |
 | irr | 施測者間信度和一致性的各種係數 |
-| iterators |  R 的迭代器結構 |
+| iterators | R 的迭代器結構 |
 | JavaGD | Java 圖形裝置 |
 | JGR | JGR - Java GUI for R |
 | kernlab | 核化機器學習實驗室 |
@@ -299,7 +299,7 @@
 | MCMCpack | Markov Chain Monte Carlo (MCMC) 封裝 |
 | memoise | Memoise 函數 |
 | methods | 正規方法和類別 |
-| mgcv | 具  GCV/AIC/REML 平滑度估計的混合 GAM 計算工具 |
+| mgcv | 具 GCV/AIC/REML 平滑度估計的混合 GAM 計算工具 |
 | mice | 使用連鎖方程式的多變量插補法 |
 | microbenchmark | 亞微秒精確計時函數 |
 | mime | 將檔案名稱對應至 MIME 類型 |
@@ -344,7 +344,7 @@
 | pbivnorm | 向量化二元常態 CDF |
 | pcaPP | 投影追蹤產生的穩健 PCA |
 | permute | 用於產生資料限制排列的函數 |
-| pls |  偏最小平方和主成分迴歸 |
+| pls | 偏最小平方和主成分迴歸 |
 | plyr | 用於分割、套用和合併資料的工具 |
 | png | 讀取和寫入 PNG 影像 |
 | polynom | 函數集合，用以實作多變量二項式操作的類別 |
@@ -428,7 +428,7 @@
 | sem | 結構方程式模型 |
 | seriation | 系列化的基礎結構 |
 | setRNG | 設定 (常態) 隨機數字產生器和種子 |
-| sgeostat |  S+ 中地理統計模型的物件導向架構 |
+| sgeostat | S+ 中地理統計模型的物件導向架構 |
 | shapefiles | 讀取和寫入 ESRI Shapefile |
 | shiny | R 的 Web 應用程式架構 |
 | SimpleTable | 存在不可測干擾因素的 2 x 2 和 2 x 2 x K 資料表中因果效應的貝氏推斷和敏感度分析 |
@@ -501,5 +501,6 @@
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

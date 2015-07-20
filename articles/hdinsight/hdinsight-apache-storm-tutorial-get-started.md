@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 
@@ -42,9 +42,9 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 	>[AZURE.NOTE]佈建 HDInsight 叢集的快速建立選項 (如在本教學課程中所使用的選項) 在佈建叢集時並不會詢問位置。相反地，它會依預設將叢集並存於與儲存體帳戶相同的資料中心內。因此請務必在叢集支援的位置中建立儲存體帳戶，這些位置包括：**東亞**、**東南亞**、**北歐****西歐**、**美國東部**、**美國西部**、**美國中北部**、**美國中南部**。
 
-4. 等候新儲存體帳戶的 [狀態] 變更為 [線上]。
+4. 等候新儲存體帳戶的 [**狀態**] 變更為 [**線上**]。
 
-如需建立儲存體帳戶的詳細資訊，請參閱<a href="../storage-create-storage-account/" target="_blank">如何建立儲存體帳戶</a>。
+如需建立儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶](../storage/storage-create-storage-account.md)。
 
 ##在 Azure 入口網站上佈建 Storm 叢集
 
@@ -92,7 +92,7 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 ###<a id="run">從 GitHub 的 Storm Starter 專案執行 word-count 範例
 
-與叢集一併提供的範例包含 word-counting 拓撲的數個變體。這些範例包含會隨機產生句子的 **spout**，以及會將每個句子拆成個別單字，然後計算每個單字的出現次數的 **bolts**。這些範例均來自 <a href="https://github.com/apache/storm/tree/master/examples/storm-starter" target="_blank">Storm Starter 範例</a> (Apache Storm 的一部分)。
+與叢集一併提供的範例包含 word-counting 拓撲的數個變體。這些範例包含會隨機產生句子的 **spout**，以及會將每個句子拆成個別單字，然後計算每個單字的出現次數的 **bolts**。這些範例均來自 [Storm Starter 範例](https://github.com/apache/storm/tree/master/examples/storm-starter) (Apache Storm 的一部分)。
 
 請使用以下步驟執行 Storm Starter 範例：
 
@@ -143,7 +143,7 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 	* **停用**：暫停執行中拓撲。
 
-	* **重新平衡**：調整拓撲的平行處理原則。變更叢集中的節點數目之後，您應該重新平衡執行中拓撲。這可讓拓撲調整平行處理原則，以彌補叢集中增加/減少的節點數目。如需詳細資訊，請參閱<a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">了解 Storm 拓樸的平行處理原則</a>。
+	* **重新平衡**：調整拓撲的平行處理原則。變更叢集中的節點數目之後，您應該重新平衡執行中拓撲。這可讓拓撲調整平行處理原則，以彌補叢集中增加/減少的節點數目。如需詳細資訊，請參閱[了解 Storm 拓撲的平行處理原則](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)。
 
 	* **終止 (Kill)**：在指定的逾時之後終止 Storm 拓撲。
 
@@ -190,9 +190,9 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 * **HDInsight Tools for Visual Studio**：類似稍早提到的 Storm 儀表板，HDInsight Tools 可讓您運用 Visual Studio 提交、監視及管理 Storm 拓撲。HDInsight Tools 也能讓您建立 C# Storm 拓撲，並提供可讓您在叢集上部署和執行的範例拓撲。
 
-	如需詳細資訊，請參閱<a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">開始使用 HDInsight Tools for Visual Studio</a>。
+	如需詳細資訊，請參閱[開始使用 HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)。
 
-* **範例檔案**：HDInsight Storm 叢集在 **%STORM_HOME%\contrib** 目錄中提供數個範例。每個範例應該會包含下列項目：
+* **範例檔案**：HDInsight Storm 叢集在 **%STORM_HOME%\\contrib** 目錄中提供數個範例。每個範例應該會包含下列項目：
 
 	* 原始程式碼 - 例如，storm-starter-0.9.1.2.1.5.0-2057-sources.jar
 
@@ -204,7 +204,7 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 	> [AZURE.NOTE]Java 文件是由網頁組成。解壓縮之後，請使用瀏覽器來檢視 **index.html** 檔案。
 
-	若要存取這些範例，必須為 Storm on HDInsight 叢集啟用「遠端桌面」，然後從 **%STORM_HOME%\contrib** 複製檔案。
+	若要存取這些範例，必須為 Storm on HDInsight 叢集啟用「遠端桌面」，然後從 **%STORM_HOME%\\contrib** 複製檔案。
 
 * 以下文件含有可和 Storm on HDInsight 搭配使用的其他範例清單：
 
@@ -216,6 +216,5 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -1,7 +1,7 @@
 
 ##<a name="update-app"></a>更新應用程式以呼叫自訂 API
 
-1. 我們將在現有的按鈕旁新增標示為 [Complete All] 的按鈕，並將兩個按鈕下移一行。在 Android Studio 中，開啟快速入門專案中的 *res\layout\activity_to_do.xml* 檔案，尋找 **LinearLayout** 元素，此元素包含名為 `buttonAddToDo` 的 **Button** 元素。複製 **LinearLayout** 並將其緊貼在原始元素後方。從第一個 **LinearLayout** 刪除 **Button** 元素。
+1. 我們將在現有的按鈕旁新增標示為 [Complete All] 的按鈕，並將兩個按鈕下移一行。在 Android Studio 中，開啟快速入門專案中的 *res\\layout\\activity_to_do.xml* 檔案，尋找 **LinearLayout** 元素，此元素包含名為 `buttonAddToDo` 的 **Button** 元素。複製 **LinearLayout** 並將其緊貼在原始元素後方。從第一個 **LinearLayout** 刪除 **Button** 元素。
 
 2. 在第二個 **LinearLayout** 中，刪除 **EditText** 元素，並緊接著現有 **Button** 元素新增下列程式碼：
 
@@ -36,7 +36,7 @@
 	    </LinearLayout>
 	
 
-4. 開啟 res\values\string.xml 檔案並新增下列程式碼行：
+4. 開啟 res\\values\\string.xml 檔案並新增下列程式碼行：
 
     	<string name="complete_button_text">Complete All</string>
 
@@ -112,4 +112,4 @@
 
 	出現訊息對話方塊，指出標示為完成的項目數，並重新執行篩選查詢，以便清除清單的所有項目。
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

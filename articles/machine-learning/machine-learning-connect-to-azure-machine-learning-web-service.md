@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="連線到 Azure Machine Learning Web 服務 | Azure" 
+	pageTitle="連線到 Azure Machine Learning Web 服務 | Microsoft Azure" 
 	description="透過 C# 或 Python，使用授權金鑰連線到 Azure Machine Learning Web 服務。" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="derrickv" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,17 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="04/07/2015" 
 	ms.author="derrickv" />
 
 
 # 連線到 Azure Machine Learning Web 服務 
-Azure Machine Learning 開發人員體驗是一個 Web 服務 API，可即時或以批次模式從輸入資料進行預測。您可以使用 Azure Machine Learning Studio (ML Studio) 來建立預測和發佈 Azure ML Web 服務。 
+Azure Machine Learning 開發人員體驗是一個 Web 服務 API，可即時或以批次模式從輸入資料進行預測。您可以使用 Azure Machine Learning Studio 來建立預測及發佈 Azure Machine Learning Web 服務。
 
-若要深入了解如何使用 ML Studio 建立和發佈 Azure Machine Learning Web 服務，請參閱：
+[AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
 
-- [Azure ML 程序概觀](../machine-learning-overview-of-azure-ml-process.md)
-- [ML Studio 入門](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
+若要深入了解如何使用 Studio 建立和發佈 Azure Machine Learning Web 服務，請參閱：
+
+- [發佈機器學習 Web 服務](machine-learning-publish-a-machine-learning-web-service.md)
+- [開始使用 ML Studio](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
 - [Azure Machine Learning 預覽](https://studio.azureml.net/)
 - [Machine Learning 文件中心](http://azure.microsoft.com/documentation/services/machine-learning/)
 
@@ -33,22 +35,22 @@ Azure Machine Learning 開發人員體驗是一個 Web 服務 API，可即時或
 
 Azure Machine Learning 有兩種類型的服務：
 
-- 要求-回應服務 (RRS) - 這是一種低延遲、高擴充性的服務，針對從 ML Studio 建立和發佈的無狀態模型提供介面。
-- 批次執行服務 (BES) - 這是一種非同步的服務，為一批資料記錄進行計分。
+- 要求-回應服務 (RRS) – 這是一種低延遲、高擴充性的服務，針對從 ML Studio 建立和發佈的無狀態模型提供介面。
+- 批次執行服務 (BES) – 這是一種非同步的服務，為一批資料記錄進行計分。
 
-如需 Azure Machine Learning Web 服務的詳細資訊，請參閱 [Azure ML 流程概觀](../machine-learning-overview-of-azure-ml-process.md)。
+如需 Azure Machine Learning Web 服務的詳細資訊，請參閱[發佈 Azure Machine Learning Web 服務](machine-learning-publish-a-machine-learning-web-service.md)。
 
 ## 取得 Azure Machine Learning 授權金鑰 ##
 您可以從 ML Web 服務取得 Web 服務 API 金鑰。您可以從 Microsoft Azure Machine Learning Studio 或 Azure 管理入口網站取得該金鑰。
 ### Microsoft Azure Machine Learning Studio ###
-1. 在 Microsoft Azure Machine Learning Studio 中，按一下左側的 [**Web 服務**]。
-2. 按一下某個 Web 服務。[API 金鑰] 位於 [**儀表板**] 索引標籤上。
+1. 在 Microsoft Azure Machine Learning Studio 中，按一下左側的 [Web 服務]。
+2. 按一下某個 Web 服務。[API 金鑰] 位於 [儀表板] 索引標籤上。
 
 ### Azure 管理入口網站 ###
 
-1. 按一下左側的 [**機器學習**]。
+1. 按一下左側的 [機器學習]。
 2. 按一下工作區。
-3. 按一下 [**Web 服務**]。
+3. 按一下 [Web 服務]。
 4. 按一下某個 Web 服務。
 5. 按一下某個端點。[API 金鑰] 位於右下角。
 
@@ -60,21 +62,19 @@ Azure Machine Learning 有兩種類型的服務：
 當您發佈 Web 服務時，會建立 Azure ML API 說明頁面。請參閱 [Azure Machine Learning 逐步解說 - 發佈 Web 服務](machine-learning-walkthrough-5-publish-web-service.md)。
 
 
-**檢視 Azure ML API 說明頁面**
-在 Microsoft Azure Machine Learning Studio 中：
+**檢視 Azure ML API 說明頁面** 在 Microsoft Azure Machine Learning Studio 中：
 
-1. 選擇 [**Web 服務**]。
+1. 選擇 [Web 服務]。
 2. 選擇某個 Web 服務。
-3. 選擇 [**API 說明頁面**] - [**要求/回應**] 或 [**批次執行**]。
+3. 依序選擇 [API 說明頁面] - [要求/回應] 或 [批次執行]。
 
 
-**Azure ML API 說明頁面**
-Azure ML API 說明頁面包含有關預測 Web 服務的詳細資料，包括
+**Azure ML API 說明頁面** Azure ML API 說明頁面包含有關預測 Web 服務的詳細資料，包括
 
 
 <table>
 	<tr>
-		<td>&nbsp;</td>
+		<td>&#160;</td>
 		<td>範例 </td>
 	</tr>
 	<tr>
@@ -86,16 +86,16 @@ Azure ML API 說明頁面包含有關預測 Web 服務的詳細資料，包括
 	<tr>
 		<td>範例要求 </td>
 		<td>{ <br/> 
-			&nbsp;&nbsp; "Id":"score00001",   <br/>
-			&nbsp;&nbsp; "Instance": <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp; {  <br/>  
- 			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; "FeatureVector":{ <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  "Col1":"0", <br/>      
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  "Col2":"0", <br/>      
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  "Col3":"0", <br/>  
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  ...     },   <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;   "GlobalParameters":{}   <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp; } <br/>
+			&#160;&#160; "Id": "score00001",  <br/>
+			&#160;&#160; "Instance": <br/>
+			&#160;&#160;&#160;&#160; {  <br/>  
+ 			&#160;&#160;&#160;&#160; &#160;&#160; "FeatureVector": { <br/>
+			&#160;&#160;&#160;&#160; &#160;&#160;  "Col1": "0",<br/>      
+			&#160;&#160;&#160;&#160; &#160;&#160;  "Col2": "0",<br/>      
+			&#160;&#160;&#160;&#160; &#160;&#160;  "Col3": "0",<br/>  
+			&#160;&#160;&#160;&#160; &#160;&#160;  ... },  <br/>
+			&#160;&#160;&#160;&#160;   "GlobalParameters": {}   <br/>
+			&#160;&#160;&#160;&#160; } <br/>
 		}</td>
 	</tr>
 	<tr>
@@ -104,13 +104,13 @@ Azure ML API 說明頁面包含有關預測 Web 服務的詳細資料，包括
 		<table style="width: 100%">
 
 			<tr>
-				<td><B>名稱</B></td>
+				<td><B>Name</B></td>
 				<td><B>資料類型</B></td>
 			</tr>
 	
 			<tr>
 				<td>功能</td>
-				<td>字串</td>
+				<td>String</td>
 			</tr>
 			<tr>
 				<td>計數</td>
@@ -121,15 +121,15 @@ Azure ML API 說明頁面包含有關預測 Web 服務的詳細資料，包括
 				<td>數值 </td>
 			</tr>
 			<tr>
-				<td>... </td>
-				<td>... </td>
+				<td>...</td>
+				<td>...</td>
 			</tr>
 		</table>
 		</td>
 	</tr>
 	<tr>
 		<td>範例回應 </td>
-		<td>[&quot;Col1&quot;,&quot;1&quot;,&quot;1&quot;,...] </td>
+		<td>["Col1","1","1",…] </td>
 	</tr>
 	<tr>
 		<td>範例程式碼 </td>
@@ -137,23 +137,23 @@ Azure ML API 說明頁面包含有關預測 Web 服務的詳細資料，包括
 	</tr>
 </table>
 
-**注意** 範例來自範例 1：從 UCI 下載資料集：Azure ML 範例集合的成人 2 類別資料集部分。
+**注意** 範例是來自 Azure ML 範例集合中的 Sample 1: Download dataset from UCI: Adult 2 class dataset (範例 1：從 UCI 下載資料集：成人 2 類別資料集)。
 
 ### C# 範例 ###
 
-若要連線到 Azure ML Web 服務，請使用 **HttpClient** 傳遞 ScoreData。ScoreData 包含 FeatureVector，這是一個代表  ScoreData 之數值功能的 n 維向量。您要使用 API 金鑰驗證 Azure ML 服務。
+若要連線到 Azure ML Web 服務，請使用 **HttpClient** 傳遞 ScoreData。ScoreData 包含 FeatureVector，這是代表 ScoreData 的數值特徵 N 維向量。您要使用 API 金鑰驗證 Azure ML 服務。
 
-若要連線到 ML Web 服務，必須安裝 **Microsoft.AspNet.WebApi.Client** Nuget 套件。
+若要連線到 ML Web 服務，必須安裝 **Microsoft.AspNet.WebApi.Client** Nuget 封裝。
 
 **在 Visual Studio 中安裝 Microsoft.AspNet.WebApi.Client Nuget**
 
-1. 從 UCI 發佈下載資料集：成人 2 類別資料集 Web 服務。
-2. 按一下 [**工具**] > [**Nuget 封裝管理員**] > [**封裝管理員主控台**]。
-2. 選擇 [**Install-package Microsoft.AspNet.WebApi.Client**]。
+1. 發佈 Download dataset from UCI: Adult 2 class dataset 的 Web 服務。
+2. 按一下 [工具] > [NuGet 封裝管理員] > [封裝管理員主控台]。
+2. 選擇 [Install-package Microsoft.AspNet.WebApi.Client]。
 
 **執行程式碼範例**
 
-1. 發佈「範例 1：從 UCI 下載資料集：成人 2 類別資料集」實驗，這是 Azure ML 範例集合的一部分。
+1. 發佈 Azure ML 範例集合中的 "Sample 1: Download dataset from UCI: Adult 2 class dataset" 實驗。
 2. 使用來自 Web 服務的金鑰指派 apikey。請了解如何取得 Azure ML 授權金鑰。
 3. 使用要求 URI 指派 serviceUri。請了解如何取得要求 URI。
 
@@ -256,12 +256,12 @@ Azure ML API 說明頁面包含有關預測 Web 服務的詳細資料，包括
 
 ### Python 範例 ###
 
-若要連線到 Azure ML Web 服務，請使用 **urllib2** 程式庫傳遞 ScoreData。ScoreData 包含 FeatureVector，這是一個代表  ScoreData 之數值功能的 n 維向量。您要使用 API 金鑰驗證 Azure ML 服務。
+若要連線到 Azure ML Web 服務，請使用 **urllib2** 程式庫傳遞 ScoreData。ScoreData 包含 FeatureVector，這是代表 ScoreData 的數值特徵 N 維向量。您要使用 API 金鑰驗證 Azure ML 服務。
 
 
 **執行程式碼範例**
 
-1. 發佈「範例 1：從 UCI 下載資料集：成人 2 類別資料集」實驗，這是 Azure ML 範例集合的一部分。
+1. 發佈 Azure ML 範例集合中的 "Sample 1: Download dataset from UCI: Adult 2 class dataset" 實驗。
 2. 使用來自 Web 服務的金鑰指派 apikey。請了解如何取得 Azure ML 授權金鑰。
 3. 使用要求 URI 指派 serviceUri。請了解如何取得要求 URI。
 
@@ -312,5 +312,6 @@ Azure ML API 說明頁面包含有關預測 Web 服務的詳細資料，包括
 	
 		result = response.read()
 		print(result) 
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

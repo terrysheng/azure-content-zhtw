@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="05/20/2015"
 	ms.author="jolevy"/>
 
 
 
-# 使用 Azure 自動化管理 Azure 儲存體
+#使用 Azure 自動化管理 Azure 儲存體
 
 本指南將為您介紹 Azure 自動化服務，以及如何使用它來簡化 Azure 儲存體 Blob、資料表及佇列的管理。
 
 
 ## 什麼是 Azure 自動化？
 
-[Azure 自動化](http://azure.microsoft.com/services/automation/)是一項 Azure 服務，可透過程序自動化簡化雲端管理。透過 Azure 自動化，長時間執行、手動、容易發生錯誤和經常重複的工作都可以自動化，以提高可靠性、效率，並為您的組織縮短創造價值時程。
+[Azure 自動化](http://azure.microsoft.com/services/automation/) 是一項 Azure 服務，可經由程序自動化簡化雲端管理。透過 Azure 自動化，長時間執行、手動、容易發生錯誤和經常重複的工作都可以自動化，以提高可靠性、效率，並為您的組織縮短創造價值時程。
 
 Azure 自動化提供非常可靠且高度可用的工作流程執行引擎，可隨著組織的成長根據您的需求進行調整。在 Azure 自動化中，程序可透過手動方式、經由協力廠商系統，或依照排程的間隔啟動，讓工作精準地在需要時執行。
 
@@ -34,9 +34,9 @@ Azure 自動化提供非常可靠且高度可用的工作流程執行引擎，�
 
 ## Azure 自動化為何有助於管理 Azure 儲存體？
 
-Azure 儲存體可透過 [Azure PowerShell 工具](https://msdn.microsoft.com/library/azure/jj156055.aspx)中提供的 PowerShell Cmdlet，在 Azure 自動化中受到管理。Azure 自動化的這些 儲存體 PowerShell Cmdlet 都是內建的，以便您在服務內執行所有 Blob、資料表及佇列管理工作。您也可以在 Azure 自動化中將這些 Cmdlet 與其他 Azure 服務的 Cmdlet 配對，將跨 Azure 服務和協力廠商系統的複雜工作自動化。
+Azure 儲存體可透過 [Azure PowerShell 工具](https://msdn.microsoft.com/library/azure/jj156055.aspx)中提供的 PowerShell Cmdlet，在 Azure 自動化中受到管理。Azure 自動化的這些 儲存體 PowerShell Cmdlet 都是內建的，以便您在服務內執行所有 Blob、資料表及佇列管理工作。您也可以將 Azure 自動化中的這些 Cmdlet 與其他 Azure 服務的 Cmdlet 搭配，以透過 Azure 服務和協力廠商系統自動執行複雜的工作。
 
-[Azure 自動化 Runbook 組件庫](http://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/)含有多種產品團隊和社群 Runbook，可供您開始針對 Azure 儲存體、其他 Azure 服務及協力廠商系統進行自動化管理。組件庫 Runbook 包括：
+[Azure 自動化 Runbook 資源庫](http://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/)含有多種產品團隊和社群 Runbook，可供您開始針對 Azure 儲存體、其他 Azure 服務及協力廠商系統進行自動化管理。資源庫 Runbook 包括：
 
  * [移除存在時間超過 X 天的 Azure 儲存體 Blob](https://gallery.technet.microsoft.com/scriptcenter/Remove-Storage-Blobs-that-aae4b761)
  * [從 Azure 儲存體將 Blob 下載到 Azure 自動化](https://gallery.technet.microsoft.com/scriptcenter/a-Blob-from-Azure-Storage-6bc13745)
@@ -47,7 +47,7 @@ Azure 儲存體可透過 [Azure PowerShell 工具](https://msdn.microsoft.com/li
 
 了解 Azure 自動化的基本概念以及如何用它來管理 Azure 儲存體 Blob、資料表及佇列之後，請參考下列連結，以深入了解 Azure 自動化。
 
-請參閱 Azure 自動化[入門教學課程](../automation-create-runbook-from-samples.md)
+請參閱 Azure 自動化[入門指南](../automation-create-runbook-from-samples.md)
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

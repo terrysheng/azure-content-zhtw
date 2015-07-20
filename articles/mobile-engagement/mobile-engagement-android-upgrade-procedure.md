@@ -23,27 +23,88 @@
 
 如果您有錯過幾個版本的 SDK，您必須遵循幾個步驟。例如，如果您要從 1.4.0 移轉到 1.6.0，必須先遵循「從 1.4.0 到 1.5.0」的程序，然後再依照「從 1.5.0 到 1.6.0」的程序進行。
 
-不論您升級開始的版本為何，都必須將所有 `mobile-engagement-VERSION.jar` 替換為新的。
+不論您升級開始的版本為何，都必須將 `mobile-engagement-VERSION.jar` 替換為新的。
 
-###從 2.4.0 到 3.0.0
+##從 3.0.0 到 4.0.0
 
-以下說明如何將 SDK 整合從 Capptain SAS 提供的 Capptain 服務，移轉到由 Azure Mobile Engagement 提供的應用程式內。
+### 原生推播
 
->[AZURE.IMPORTANT]Capptain 和 Mobile Engagement 是不同的服務，而以下程序只專注在移轉用戶端應用程式。移轉應用程式中的 SDK「不會」將您的資料從 Capptain 伺服器移轉到 Mobile Engagement 伺服器
+原生推播 (GCM/ADM) 現在也用於應用程式通知，因此您必須為任何類型的推播行銷活動設定原生推播認證。
 
-如果您是從較早版本移轉，請參閱 Capptain 網站，先移轉到 2.4 後再套用以下程序
+如果尚未完成，請遵循[此程序](mobile-engagement-android-integrate-engagement-reach.md#native-push)。
 
-#### JAR 檔案
+### AndroidManifest.xml
+
+``AndroidManifest.xml`` 中的 Reach 整合已修改。
+
+取代下列項目：
+
+    <receiver
+      android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
+      android:exported="false">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
+        <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+      </intent-filter>
+    </receiver>
+
+依據
+
+    <receiver
+      android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
+      android:exported="false">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+      </intent-filter>
+    </receiver>
+    <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+      <intent-filter>
+        <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+      </intent-filter>
+    </receiver>
+
+現在當您按一下公告 (具有文字/網頁內容) 或輪詢，可能是載入畫面。您必須加入此項目，這些行銷活動才能在 4.0.0 中運作：
+
+    <activity
+      android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity"
+      android:theme="@android:style/Theme.Dialog">
+      <intent-filter>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+
+### 資源
+
+內嵌新的 `res/layout/engagement_loading.xml` 檔案到您的專案。
+
+##從 2.4.0 到 3.0.0
+
+以下說明如何將 SDK 整合從 Capptain SAS 提供的 Capptain 服務，移轉到由 Azure Mobile Engagement 提供的應用程式內。如果您是從較早版本移轉，請參閱 Capptain 網站，先移轉到 2.4.0 後再套用以下程序。
+
+>[AZURE.IMPORTANT]Capptain 和 Mobile Engagement 是不同的服務，而以下程序只適用於移轉用戶端應用程式。移轉應用程式中的 SDK「不會」將您的資料從 Capptain 伺服器移轉到 Mobile Engagement 伺服器。
+
+### JAR 檔案
 
 將 `libs` 資料夾中的 `capptain.jar` 以 `mobile-engagement-VERSION.jar`取代。
 
-#### 資源檔
+### 資源檔
 
 我們提供的每個資源檔 (前置詞為 `capptain_`) 都必須替換為新的資源檔 (前置詞為 `engagement_`)。
 
-如果您已自訂這些檔案，則必須在新的檔案上重新套用自訂，****資源檔中的所有識別碼也已重新命名。
+如果您已自訂這些檔案，則必須在新的檔案上重新套用自訂，資源檔中的所有識別碼也已重新命名。
 
-#### 應用程式識別碼
+### 應用程式識別碼
 
 現在 Engagement 使用連接字串來設定 SDK 識別碼，例如應用程式識別碼。
 
@@ -63,7 +124,7 @@
 
 			<meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
 
-#### Java API
+### Java API
 
 對 SDK 任何 Java 類別的各個呼叫都必須重新命名，例如 `CapptainAgent.getInstance(this)` 必須重新命名為 `EngagementAgent.getInstance(this)`、`extends CapptainActivity` 必須重新命名為 `extends EngagementActivity`，以此類推...
 
@@ -71,15 +132,15 @@
 
 建立 Web 公告時，Javascript 繫結器現在是 `engagementReachContent`。
 
-#### AndroidManifest.xml
+### AndroidManifest.xml
 
-這裡有許多變更，服務不再共用，且許多接收器不再可匯出。
+這裡有許多變更，服務不再共用，且許多接收器也不再能匯出。
 
 服務宣告現在更為簡單，移除意圖篩選及其內所有中繼資料，然後加入 `exportable=false`。
 
 再加上所有項目重新命名以使用 Engagement。
 
-它現在必須看似如下：
+現在的樣貌如下：
 
 			<service
 			  android:name="com.microsoft.azure.engagement.service.EngagementService"
@@ -289,7 +350,7 @@ and
 
 			sendXMPPMessage(android.os.Bundle msg)
 
-#### Proguard
+### Proguard
 
 Proguard 組態受到品牌重新命名的影響，規則現在類似：
 
@@ -300,5 +361,6 @@ Proguard 組態受到品牌重新命名的影響，規則現在類似：
 			-keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
 			  <methods>;
 			}
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

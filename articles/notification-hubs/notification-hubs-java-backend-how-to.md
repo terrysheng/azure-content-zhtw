@@ -3,7 +3,7 @@
 	description="了解如何從 Java 後端使用 Azure 通知中樞。" 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="java" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="01/12/2015" 
+	ms.date="04/14/2015" 
 	ms.author="yuaxu"/>
 
 # 如何從 Java 使用通知中樞
@@ -21,10 +21,9 @@
     	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
 </div>
 
-本主題說明最新完整支援的官方 Azure 通知中樞 Java SDK 有哪些主要功能。 
-這是開放原始碼專案，您可以在 [Java SDK] 檢視完整的 SDK 程式碼。 
+本主題說明最新完整支援的官方 Azure 通知中樞 Java SDK 有哪些主要功能。這是開放原始碼專案，您可以在 [Java SDK] 檢視完整的 SDK 程式碼。
 
-一般而言，您可以使用通知中樞 REST 介面，存取 Java/PHP/Python/Ruby  後端的所有通知中樞功能，如 MSDN 主題[通知中樞 REST API](http://msdn.microsoft.com/library/dn223264.aspx) 中所述。此 Java SDK 透過 Java 中的這些 REST 介面提供了精簡型包裝函式。 
+一般而言，您可以使用通知中心 REST 介面，存取 Java/PHP/Python/Ruby 後端的所有通知中心功能，如 MSDN 主題[通知中樞 REST API](http://msdn.microsoft.com/library/dn223264.aspx) 中所述。此 Java SDK 透過 Java 中的這些 REST 介面提供了精簡型包裝函式。
 
 SDK 目前支援：
 
@@ -35,7 +34,7 @@ SDK 目前支援：
 - 定期傳送
 - 排程的傳送
 - 透過 Java NIO 的非同步作業
-- 支援的平台：APNS (iOS)、GCM (Android)、WNS (Windows 市集應用程式)、MPNS (Windows Phone)、ADM (Amazon Kindle Fire)、Baidu (沒有 Google 服務的 Android) 
+- 受支援的平台：APNS (iOS)、GCM (Android)、WNS (Windows 市集應用程式)、MPNS (Windows Phone)、ADM (Amazon Kindle Fire)、Baidu (沒有 Google 服務的 Android) 
 
 ## SDK 的使用方式
 
@@ -127,7 +126,7 @@ SDK 目前支援：
 	
 		hub.getRegistration(regid);
 	
-* 	**取得中心的所有註冊：**
+* 	**取得中樞的所有註冊：**
 	
 		hub.getRegistrations();
 	
@@ -142,16 +141,14 @@ SDK 目前支援：
 所有集合查詢都支援 $top 和接續權杖。
 
 ### 安裝 API 的使用方式
-安裝 API 是註冊管理的替代機制。要維護多個註冊並非易事，並且可能容易出錯或效率低落，但現在您已可以使用單一安裝物件。 
-安裝包含所需的一切：推播通道 (裝置權杖)、標籤、範本、次要磚 (適用於 WNS 和 APNS)。現在您無須呼叫服務即可取得識別碼 - 只要產生 GUID 或任何其他識別碼、將它保存在裝置上，並透過推播通道傳送至您的後端 (裝置權杖) 即可。 
-在後端上，您應該只需執行單一呼叫：CreateOrUpdateInstallation，它是完全等冪的，因此您可以儘管在必要時重試。
+安裝 API 是註冊管理的替代機制。要維護多個註冊並非易事，並且可能容易出錯或效率低落，但現在您已可以使用單一安裝物件。安裝包含所需的一切：推播通道 (裝置權杖)、標籤、範本、次要磚 (適用於 WNS 和 APNS)。現在您無須呼叫服務即可取得識別碼 - 只要產生 GUID 或任何其他識別碼、將它保存在裝置上，並透過推播通道傳送至您的後端 (裝置權杖) 即可。您只能在後端執行單一呼叫：CreateOrUpdateInstallation，它是完全等冪的，因此您可以儘管在必要時重試。
 
 以 Amazon Kindle Fire 為例，將如下所示：
 
 	Installation installation = new Installation("installation-id", NotificationPlatform.Adm, "adm-push-channel");
 	hub.createOrUpdateInstallation(installation);
 
-如果您想要加以更新： 
+如果您想要加以更新：
 
 	installation.addTag("foo");
 	installation.addTemplate("template1", new InstallationTemplate("{"data":{"key1":"$(value1)"}}","tag-for-template1"));
@@ -226,10 +223,9 @@ CreateOrUpdate、Patch 和 Delete 最終都會與 Get 一致。您要求的作�
 
 	List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-**具有 SAS 簽章的 URI：**
-這是某個 Blob 檔案或 Blob 容器的 URL，加上參數集 (如權限和到期時間)，再加上所有使用帳戶 SAS 金鑰之項目的簽章。Azure Storage Java SDK 具有豐富的功能，包括建立此類的 URI。此外您可以參考 ImportExportE2E 測試類別 (從 github 位置) 的簡單替代方法，它可實作非常基本而精簡的簽署演算法。
+**具備 SAS 簽章的 URI：**這是某個 Blob 檔案或 Blob 容器的 URL，加上參數集 (如權限和到期時間)，再加上所有使用帳戶 SAS 金鑰之項目的簽章。Azure Storage Java SDK 具有豐富的功能，包括建立此類的 URI。此外您可以參考 ImportExportE2E 測試類別 (從 github 位置) 的簡單替代方法，它可實作非常基本而精簡的簽署演算法。
 
-### 傳送通知
+###傳送通知
 通知物件是附有標頭的本文，某些公用程式方法有助於建立原生和範本通知物件。
 
 * **Windows 市集和 Windows Phone 8.1 (非 Silverlight)**
@@ -274,7 +270,7 @@ CreateOrUpdate、Patch 和 Delete 最終都會與 Get 一致。您要求的作�
 		tags.add("foo");
 		hub.sendNotification(n, tags);
 
-* **傳送至標籤運算式**       
+* **傳送至標籤運算式**
 
 		hub.sendNotification(n, "foo && ! bar");
 
@@ -288,8 +284,8 @@ CreateOrUpdate、Patch 和 Delete 最終都會與 Get 一致。您要求的作�
 
 執行 Java 程式碼現在應會產生一則顯示於目標裝置的通知。
 
-## <a name="next-steps"></a>後續步驟
-在本主題中，我們會說明如何為通知中樞建立簡單的 Java REST 用戶端。您可以在這裡執行下列動作：
+##<a name="next-steps"></a>後續步驟
+在本主題中，我們會說明如何為通知中心建立簡單的 Java REST 用戶端。您可以在這裡執行下列動作：
 
 * 下載完整 [Java SDK]，其中包含完整的 SDK 程式碼。 
 * 試用範例：
@@ -300,12 +296,13 @@ CreateOrUpdate、Patch 和 Delete 最終都會與 Get 一致。您要求的作�
 	- [傳送跨平台通知給已驗證的使用者]
 
 [Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
-[開始使用教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [開始使用通知中樞]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
 [傳送即時新聞]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
 [傳送當地語系化的即時新聞]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
 [傳送通知給已驗證的使用者]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
 [傳送跨平台通知給已驗證的使用者]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Maven]: http://maven.apache.org/
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

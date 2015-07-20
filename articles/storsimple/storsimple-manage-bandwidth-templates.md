@@ -176,4 +176,4 @@
 
 深入了解 [StorSimple 元件](storsimple-components.md)。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -85,9 +85,9 @@
 
 * [開始使用驗證] <br/>了解如何驗證應用程式的使用者。
 
-* [開始使用推播通知] <br/>了解如何將極為基本的推播通知傳送到應用程式。
+* [開始使用推播通知] <br/>了解如何將非常基本的推播通知傳送到應用程式。
 
-* [行動服務 C# 作法概念性參考](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>深入了解如何使用搭配 .NET 的行動服務。
+* [行動服務 C# 做法概念性參考](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>深入了解如何搭配 .NET使用行動服務。
   
 <!-- Anchors. -->
 
@@ -116,5 +116,6 @@
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

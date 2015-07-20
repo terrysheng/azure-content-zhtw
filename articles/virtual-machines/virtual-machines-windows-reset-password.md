@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="06/25/2015" 
 	ms.author="josephd"/>
 
 # 如何重設 Windows 虛擬機器的密碼或遠端桌面服務
 
 如果您因為忘記密碼或遠端桌面服務組態有問題，而無法連線至 Windows 虛擬機器，請使用 Azure Preview 入口網站或 VMAccess 延伸模組，來重設本機系統管理員密碼或重設遠端桌面服務組態。
+
+> [AZURE.NOTE]本文不適用於以 Azure 資源管理員為基礎的虛擬機器。
 
 ## Azure Preview 入口網站
 
@@ -88,7 +90,7 @@ VMAccess 延伸項目會在 VM 上執行這兩個命令：
 
 	此命令會啟用允許連入遠端桌面流量 (使用 TCP 連接埠 3389) 的內建 Windows 防火牆群組。
 
-- **Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0**
+- **Set-ItemProperty -Path 'HKLM:\\System\\CurrentControlSet\\Control\\Terminal Server' -name "fDenyTSConnections" -Value 0**
 
 	此命令會將 fDenyTSConnections 登錄值設為 0，以啟用遠端桌面連線。
 
@@ -108,4 +110,6 @@ VMAccess 延伸項目會在 VM 上執行這兩個命令：
 
 [透過 RDP 或 SSH 連接至 Azure 虛擬機器](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

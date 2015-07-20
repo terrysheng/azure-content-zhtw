@@ -4,21 +4,21 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/09/2015"
+   ms.date="07/08/2015"
    ms.author="v-sharos" />
 
 # 安裝您的 StorSimple 8600 裝置
 
 ## 概觀
-您的 Microsoft Azure StorSimple 8600 是雙重機箱裝置，包含主要及 EBOD 機箱。本教學課程說明如何在您設定 StorSimple 軟體之前{b>，<b}打開包裝、利用機架掛接和配接 StorSimple 8600 裝置硬體纜線。
+您的 Microsoft Azure StorSimple 8600 是雙重機箱裝置，包含主要及 EBOD 機箱。本教學課程說明如何在您設定 StorSimple 軟體之前，打開包裝、利用機架掛接和配接 StorSimple 8600 裝置硬體纜線。
 
 ## 打開您的 StorSimple 8600 裝置包裝
 
@@ -41,10 +41,10 @@
 1. 檢查箱子及包裝發泡材料有無損毀、割痕、浸水，或任何其他明顯損傷。如果箱子或包裝嚴重損毀，不要打開箱子。請連絡 Microsoft 支援服務以協助您評估裝置是否可以正常運作。
 
 2. 開啟兩個箱子，然後打開主要及 EBOD 機箱的包裝。下圖顯示您的儲存體裝置打開包裝的檢視。
- 
-    **圖 1 儲存體裝置打開包裝的檢視**
 
     ![打開您的儲存體裝置包裝](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
+ 
+    **圖 1：儲存體裝置打開包裝的樣子**
 
      標籤 | 說明 
      ----- | -------------
@@ -112,9 +112,9 @@
 
 2. 通常，這些滑軌會在工廠安裝。如果沒有的話，則在機箱底座側邊安裝左邊和右邊滑軌。他們是在每一邊使用六個公制螺絲來連接。為了協助辨識方向，滑軌標示為 [**LH – Front**] (左邊 – 前) 和 [**RH – Front**] (右邊 – 前)，接至機箱後端的尾端有錐型結尾。
 
-    **圖 2 將滑軌連接至機箱邊**
-
     ![將滑軌連接至機箱底座](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+
+    **圖 2：將滑軌連接至機箱邊**
 
     標籤 | 說明
     ----- | -----------
@@ -129,9 +129,9 @@
 
 6. 對其他滑軌組件重複這些步驟。
 
-    **圖 3 將滑軌組件連接至機架**
-
      ![將滑軌連接至機櫃](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+
+    **圖 3：將滑軌組件連接至機架**
 
      標籤 | 說明
      ----- | -----------
@@ -151,17 +151,17 @@
 
 2. 仔細地將機箱插入滑軌，然後將機箱完全推入至機櫃。
 
-    **圖 4 在機架中掛接機箱**
-
     ![在機架中插入裝置](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
+
+    **圖 4：在機架中掛接機箱**
 
 3. 藉由在每個輪緣、左側和右側，安裝一個提供的十字螺絲，在機架中鎖固機箱。
 
 4. 安裝輪緣蓋，方法是將其推入定位並且扣住。
 
-    **圖 5 安裝輪緣蓋**
-
      ![安裝輪緣蓋](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
+
+    **圖 5：安裝輪緣蓋**
  
      標籤 | 說明
      ----- | -----------
@@ -208,9 +208,9 @@
 
 1. 識別主要機箱與 EBOD 機箱。可以藉由查看個別後擋板識別兩個機箱。如需指引，請參閱下圖。
 
-    **圖 6 識別主要機箱與 EBOD 機箱**
-
     ![主要機箱與 EBOD 機箱](./media/storsimple-8600-hardware-installation/HCSBackplaneofprimaryandEBODenclosure.png)
+
+    **圖 6：主要機箱與 EBOD 機箱的後方**
 
      標籤 | 說明
      ----- | -----------
@@ -220,9 +220,9 @@
 
 2. 找出主要機箱與 EBOD 機箱的序號。序號貼紙貼在每個機箱的背後。兩個機箱上的序號必須相同。如果序號不相符，請立即連絡 Microsoft 支援。請參閱下圖以協助您尋找序號。
 
-    **圖 7 顯示序號位置的機箱後方檢視**
-
     ![序號的位置](./media/storsimple-8600-hardware-installation/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
+
+    **圖 7：顯示序號位置的機箱後方**
 
      標籤 | 說明
      ----- | -----------
@@ -235,9 +235,9 @@
 
 1. 識別主要機箱與 EBOD 機箱上的四個序列連接 SCSI (SAS) 連接埠。SAS 連接埠標在主要機箱上標示為 EBOD，在 EBOD 機箱上標示為 CTRL，如「圖 8」所示。
 
-    **圖 8 主要機箱與 EBOD 機箱的 SAS 連接埠的位置**
-
     ![SAS 連接埠的位置](./media/storsimple-8600-hardware-installation/HCSSAScablingforyourdevice.png)
+
+    **圖 8：主要機箱與 EBOD 機箱的 SAS 連接埠的位置**
 
      標籤 | 說明
      ----- | -----------
@@ -284,9 +284,9 @@
 
 > [AZURE.IMPORTANT]若要確保您的系統的高可用性，您應該嚴格遵守電源佈線配置，如下圖所示。
 
-   **圖 9 您的裝置的電源佈線**
-
    ![電源佈線圖表](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforPower.png)
+
+   **圖 9：您裝置的電源纜線**
 
      Label | Description
      ----- | -----------
@@ -311,9 +311,9 @@
 
 1. 您的裝置在每個控制器上有六個網路介面：四個 1 Gbps 和兩個 10 Gbps 乙太網路連接埠。請參閱下圖以識別裝置後擋板上的各個資料連接埠。
 
-    **圖 10 顯示資料連接埠的裝置背面**
-
      ![8600 裝置的後擋板](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
+
+    **圖 10：裝置後方的資料連接埠**
  
      標籤 | 說明
      ------- | -----------
@@ -332,9 +332,9 @@
 
 至少設定一個網路介面用於雲端存取，一個網路介面用於 iSCSI。對於高可用性和效能，請在每個控制器上設定網路介面的兩個配對。請參閱下圖的網路佈線。(最小的網路組態會以藍色實線顯示。對於高可用性和效能，需要的其他組態會以虛線顯示。)
 
-**圖 11 您的裝置的網路佈線**
-
 ![為您的 4U 裝置進行網路佈線](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
+
+**圖 11：您裝置的網路纜線**
 
 標籤 | 說明
 ----- | -----------
@@ -382,4 +382,4 @@ H,I | 主機 (例如，檔案伺服器)
 您現在已準備好[部署和設定您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -1,3 +1,4 @@
+
 #### 建立新服務
 
 1. 使用您的 Microsoft 帳戶認證登入「管理入口網站」，URL 如下：[http://azure.microsoft.com/](http://azure.microsoft.com/)
@@ -17,4 +18,4 @@
  
        ![服務建立](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

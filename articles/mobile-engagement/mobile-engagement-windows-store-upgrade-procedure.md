@@ -45,7 +45,7 @@ SDK 使用 `Engagement` 一詞。您需要更新您的專案，以符合此變�
 
 您需要解除安裝目前的 Capptain nuget 封裝。請考慮您在 [Capptain Resources] 資料夾中所有的變更將會移除。如果您想要保留這些檔案，請將它們複製一份。
 
-接下來，在您的專案上安裝新的 Microsoft Azure Engagement nuget 封裝。您可以直接在 [Nuget 網站]或此處的索引找到它。此動作會取代所有 Engagement 使用的資源檔，並將新的 Engagement DLL 新增到您專案的「參考」。
+接下來，在您的專案上安裝新的 Microsoft Azure Engagement nuget 封裝。您可以直接在 [nuget 網站] 或此處的索引找到它。此動作會取代所有 Engagement 使用的資源檔，並將新的 Engagement DLL 新增到您專案的「參考」。
 
 您必須刪除 Capptain DLL 參考來清除您專案的參考。如果沒有這樣做，Capptain 的版本會有衝突並發生錯誤。
 
@@ -167,5 +167,6 @@ Engagement 使用連接字串。您不需要為 Mobile Engagement 指定應用�
 
 請注意，重新命名也會影響覆寫方法。
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

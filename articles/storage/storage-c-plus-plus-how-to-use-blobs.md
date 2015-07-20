@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/06/2015" 
+	ms.date="05/11/2015" 
     ms.author="tamram"/>
 
 # 如何使用 C++ 的 Blob 儲存體  
@@ -21,9 +21,9 @@
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## 概觀
-本指南將示範如何使用 Azure Blob 儲存體服務執行一般案例。這些範例均以 C++ 撰寫，並使用 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v0.5.0-preview/README.md)。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。
+本指南將示範如何使用 Azure Blob 儲存體服務執行一般案例。這些範例均以 C++ 撰寫，並使用 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md)。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。
 
->[AZURE.NOTE]本指南以 Azure Storage Client Library for C++ 0.5.0 版和更新版本為對象。建議的版本是 Storage Client Library 0.5.0，可透過 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/) 取得。
+>[AZURE.NOTE]本指南以 Azure Storage Client Library for C++ 1.0.0 版和更新版本為對象。建議的版本是 Storage Client Library 1.0.0，可透過 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp) 取得。
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -38,7 +38,7 @@
 -	**Linux：**遵循 [Azure Storage Client Library for C++ 讀我檔案](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)頁面中提供的指示進行。  
 -	**Windows：**在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。在 [NuGet 套件管理員主控台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)中輸入下列命令，然後按下 **ENTER**。  
 
-		Install-Package wastorage -Pre
+		Install-Package wastorage
 
 ## 設定您的應用程式以存取 Blob 儲存體  
 在您要使用 Azure 儲存體 API 來存取 Blob 的 C++ 檔案頂端，加入下列 include 陳述式：
@@ -57,7 +57,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 	// Define the connection-string with Azure Storage Emulator.
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 
-若要啟動 Azure 儲存體模擬器，選取 [開始]按鈕或按下 [Windows] 鍵。開始輸入 **Azure 儲存體模擬器**，然後從應用程式清單選取 [Microsoft Azure 儲存體模擬器]。
+若要啟動 Azure 儲存體模擬器，選取 [開始] 按鈕或按下 [Windows] 鍵。開始輸入 **Azure 儲存體模擬器**，然後從應用程式清單選取 [Microsoft Azure 儲存體模擬器]。
 
 下列範例假設您已經使用這兩個方法之一來取得儲存體連接字串。
 
@@ -73,27 +73,29 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 	azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
 
 ## 作法：建立容器
-儲存體 Blob 中的每個 Blob 必須位於一個容器中。此範例說明如何建立尚不存在的容器：
+
+[AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
+
+此範例說明如何建立尚不存在的容器：
 
 	try 
 	{
-   		// 從連接字串擷取儲存體帳戶。
-   		azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
+		// Retrieve storage account from connection string.
+		azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-   		// 建立 Blob 用戶端。
-   		azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();
+		// Create the blob client.
+		azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();
 
-   		// 擷取容器的參考。
-   		azure::storage::cloud_blob_container container = blob_client.get_container_reference(U("my-sample-container"));
+		// Retrieve a reference to a container.
+		azure::storage::cloud_blob_container container = blob_client.get_container_reference(U("my-sample-container"));
 
-   		// 如果容器不存在，建立容器。
-   		container.create_if_not_exists();
+		// Create the container if it doesn't already exist.
+		container.create_if_not_exists();
 	}
 	catch (const std::exception& e)
 	{
-	std::wcout << U("Error: ") << e.what() << std::endl;
+		std::wcout << U("Error: ") << e.what() << std::endl;
 	}  
-
 
 根據預設，新容器屬私人性質，您必須指定儲存體存取金鑰才能從此容器下載 Blob。若要讓所有人都能使用容器中的檔案 (Blob)，您可以使用下列程式碼將容器設定為公用容器：
 
@@ -138,7 +140,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 或者，您可以使用 **upload_from_file** 方法，將檔案上傳至區塊 Blob。
 
 ## 作法：列出容器中的 Blob
-若要列出容器中的 Blob，請先取得容器參照。然後您即可使用容器的**list_blobs_segmented** 方法來擷取 Blob 和 (或) 其中的目錄。若要為傳回的 **blob_result_segment** 存取一組豐富的屬性和方法，您必須呼叫 **blob_result_segment.blobs** 屬性來取得 **cloud_blob** 物件，或呼叫 **blob_result_segment.directories** 屬性來取得 cloud_blob_directory 物件。下列程式碼示範如何擷取和輸出 **my-sample-container** 容器中每個項目的 URI：
+若要列出容器中的 Blob，請先取得容器參照。然後，您可以使用容器的 **list_blobs** 方法來擷取 blob 和 (或) 其中的目錄。若要存取傳回的 **list_blob_item** 中豐富的屬性和方法，您必須呼叫 **list_blob_item.as_blob** 方法來取得 **cloud_blob** 物件，或呼叫 **list_blob.as_directory** 方法來取得 cloud_blob_directory 物件。下列程式碼示範如何擷取和輸出 **my-sample-container** 容器中每個項目的 URI：
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -149,27 +151,19 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 	// Retrieve a reference to a previously created container.
 	azure::storage::cloud_blob_container container = blob_client.get_container_reference(U("my-sample-container"));
 
-	// Loop over items within the container and output the length and URI.
-	azure::storage::continuation_token token;
-	do
+	// Output URI of each item.
+	azure::storage::list_blob_item_iterator end_of_results;
+	for (auto it = container.list_blobs(); it != end_of_results; ++it)
 	{
-   		azure::storage::blob_result_segment result = container.list_blobs_segmented(token);
-   		std::vector<azure::storage::cloud_blob> blobs = result.blobs();
-
-   		for (std::vector<azure::storage::cloud_blob>::const_iterator it = blobs.cbegin(); it != blobs.cend(); ++it)
-   		{
-			std::wcout << U("Blob: ") << it->uri().primary_uri().to_string() << std::endl;
-   		}
-
-   		std::vector<azure::storage::cloud_blob_directory> directories = result.directories();
-
-   		for (std::vector<azure::storage::cloud_blob_directory>::const_iterator it = directories.cbegin(); it != directories.cend(); ++it)
-  		{
-			std::wcout << U("Directory: ") << it->uri().primary_uri().to_string() << std::endl;
-  		}
-  		token = result.continuation_token();
-	} while (!token.empty()); 
-
+		if (it->is_blob())
+		{
+			std::wcout << U("Blob: ") << it->as_blob().uri().primary_uri().to_string() << std::endl;
+		}
+		else
+		{
+			std::wcout << U("Directory: ") << it->as_directory().uri().primary_uri().to_string() << std::endl;
+		}
+	}
 
 ## 作法：下載 Blob
 若要下載 Blob，請先擷取 Blob 參考，然後呼叫 **download_to_stream** 方法。下列範例使用 **download_to_stream** 方法將 Blob 內容傳送給資料流物件，您接著可將該物件永久儲存成本機檔案。
@@ -244,6 +238,6 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

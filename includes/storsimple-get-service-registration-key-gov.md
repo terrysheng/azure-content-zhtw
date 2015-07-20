@@ -1,3 +1,4 @@
+
 #### 取得 StorSimple 服務註冊金鑰
 
 1. 在 [StorSimple Manager 服務] 頁面上，按一下您建立的服務。這會將您帶領到 [快速入門] 頁面(您隨時都可按一下快速入門圖示 ![StorSimple 快速入門圖示](./media/storsimple-get-service-registration-key-gov/HCS_QuickStartIcon-include.png) 來存取 [快速入門] 頁面)。
@@ -18,4 +19,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

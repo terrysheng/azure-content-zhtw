@@ -199,4 +199,4 @@
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!----HONumber=62-->
+<!-----HONumber=62-->

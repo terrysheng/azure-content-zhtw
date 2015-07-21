@@ -23,10 +23,11 @@
 
 您可以使用 Visual Studio Online Team 專案託管原始程式碼的 Git 儲存機制，並在每次將認可推送至儲存機制時，自動建置該機制並部署至 Azure Web 應用程式或雲端服務。
 
-您需要安裝 Visual Studio 2013 和 Azure SDK。如果尚無 Visual Studio 2013，請至 **www.visualstudio.com** 選擇 [免費開始用][](http://www.visualstudio.com) 連結來下載。從[這裡](http://go.microsoft.com/fwlink/?LinkId=239540)安裝 Azure SDK。
+您需要安裝 Visual Studio 2013 和 Azure SDK。如果尚無 Visual Studio 2013，請至 [www.visualstudio.com](http://www.visualstudio.com) 選擇 [免費開始用] 連結來下載。從[這裡](http://go.microsoft.com/fwlink/?LinkId=239540)安裝 Azure SDK。
 
 
-> [AZURE.NOTE]您需要 Visual Studio Online 帳戶，才能完成本教學課程：您可以[開啟免費的 Visual Studio Online 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=512979)。
+> [AZURE.NOTE]您需要 Visual Studio Online 帳戶，才能完成本教學課程：
+> 您可以[開啟免費的 Visual Studio Online 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=512979)。
 
 若要使用 Visual Studio Online 將雲端服務設定為自動建立和部署至 Azure，請依照下列步驟進行：
 
@@ -130,15 +131,18 @@ Team Explorer 會顯示簽入已觸發的組建。<br/>
 在 [**處理序**] 索引標籤中，您可以看到部署環境已設為您的雲端服務或 Web 應用程式的名稱。<br/>
 ![][27]
 <br/>
-如果不想要使用預設值，請指定屬性的值。Azure 發行屬性在 [部署] 區段中，您也可能需要設定 MSBuild 參數。例如，在雲端服務專案中，若要指定 "Cloud" 以外的服務組態，請將 MSbuild 參數設為 /p:TargetProfile=*YourProfile*，其中，*YourProfile* 符合一個以 ServiceConfiguration.*YourProfile*.cscfg 命名的服務組態檔。下表顯示 [部署] 區段中可用的屬性：
+如果不想要使用預設值，請指定屬性的值。Azure 發行屬性在 [部署] 區段中，您也可能需要設定 MSBuild 參數。例如，在雲端服務專案中，若要指定 "Cloud" 以外的服務組態，請將 MSbuild 參數設為 /p:TargetProfile=*YourProfile*，其中，*YourProfile* 符合一個以 ServiceConfiguration.*YourProfile*.cscfg 命名的服務組態檔。
+下表顯示 [部署] 區段中可用的屬性：
 	<table>
 <tr><td><b>屬性</b></td><td><b>預設值</b></td></tr>
 ><tr><td>允許未受信任的憑證</td><td>如果為 false，SSL 憑證必須經過根授權單位簽署。</td></tr>
-<tr><td>允許升級</td><td>允許部署更新現有的部署而非建立新的部署。保留 IP 位址。</td></tr><tr><td>不要刪除</td><td>如果為 true，則不要覆寫現有不相關的部署 (允許升級)。</td></tr>
+<tr><td>允許升級</td><td>允許部署更新現有的部署而非建立新的部署。保留 IP 位址。</td></tr>
+><tr><td>不要刪除</td><td>如果為 true，則不要覆寫現有不相關的部署 (允許升級)。</td></tr>
 <tr><td>部署設定的路徑</td><td>Web 應用程式的 .pubxml 檔的路徑，這是儲存機制之根資料夾的相對路徑。雲端服務則會忽略。</td></tr>
 <tr><td>SharePoint 部署環境</td><td>與服務名稱相同</td></tr>
 <tr><td>Azure 部署環境</td><td>Web 應用程式或雲端服務的名稱</td></tr>
-</table> <br/>
+</table>
+<br/>
 
 11. 現在應該已順利完成您的組建。<br/>
 ![][28]

@@ -11,8 +11,10 @@
 
 雲端服務提供這兩個僅有些許差異的 VM 裝載選項的任意搭配組合：
 
-* **Web 角色**執行 Windows Server，且您的 Web 應用程式會自動部署至 IIS。
-* **背景工作角色**執行不含 IIS 的 Windows Server。
+* **Web 角色**  
+  執行 Windows Server，且您的 Web 應用程式會自動部署至 IIS。
+* **背景工作角色**  
+  執行不含 IIS 的 Windows Server。
 
 例如，簡單的應用程式可以只使用 Web 角色，而較複雜的應用程式可以使用 Web 角色處理使用者的連入要求，然後將這些要求產生的工作傳送給背景工作角色進行處理。(此通訊會使用[服務匯流排](../articles/service-bus/fundamentals-service-bus-hybrid-solutions.md)或 [Azure 佇列](../articles/storage/storage-introduction.md))。
 

@@ -147,12 +147,19 @@ Microsoft Azure 應用程式服務會公開可使用這些連接器的不同應�
 連接器會使用 OAuth 或使用者名稱和密碼。
 
 ## 閱讀關於邏輯應用程式和 Web 應用程式的資訊
-[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md) | [Azure 應用程式服務中的網站和 Web 應用程式](../app-service-web/app-service-web-overview.md) |
+[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md) | 
+[Azure 應用程式服務中的網站和 Web 應用程式](../app-service-web/app-service-web-overview.md) |
 
 
 ## 其他連接器
 
-[BizTalk 整合連接器](app-service-logic-integration-connectors.md) | [企業連接器](app-service-logic-enterprise-connectors.md) | [企業對企業連接器](app-service-logic-b2b-connectors.md) | [通訊協定連接器](app-service-logic-protocol-connectors.md) | [應用程式 + 資料服務連接器](app-service-logic-data-connectors.md) | [連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/> [什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
+[BizTalk 整合連接器](app-service-logic-integration-connectors.md) | 
+[企業連接器](app-service-logic-enterprise-connectors.md) | 
+[企業對企業連接器](app-service-logic-b2b-connectors.md) | 
+[通訊協定連接器](app-service-logic-protocol-connectors.md) | 
+[應用程式 + 資料服務連接器](app-service-logic-data-connectors.md) | 
+[連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/> 
+[什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
  
 
 <!---HONumber=62-->

@@ -40,9 +40,12 @@ Azure 對於執行的應用程式提供不同的裝載模型。每個模型都�
 
 Azure 也針對更特殊的用途提供其他計算裝載模型，如下所示：
 
-* [行動服務](/services/mobile-services/)適用於行動裝置上執行之應用程式的雲端後端最佳化模型。
-* [批次](/services/batch/)適用於處理大量的類似工作的最佳化模型，特別適用於將本身調撥在多台電腦以平行工作執行的工作負載。
-* [HDInsight (Hadoop)](/services/hdinsight/)適用於在 Hadoop 叢集上執行 [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) 工作的最佳化模型。 
+* [行動服務](/services/mobile-services/)  
+  適用於行動裝置上執行之應用程式的雲端後端最佳化模型。
+* [批次](/services/batch/)  
+  適用於處理大量的類似工作的最佳化模型，特別適用於將本身調撥在多台電腦以平行工作執行的工作負載。
+* [HDInsight (Hadoop)](/services/hdinsight/)  
+  適用於在 Hadoop 叢集上執行 [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) 工作的最佳化模型。 
 
 ## 該用哪個模型？ 思考和選擇
 
@@ -52,7 +55,8 @@ App Service 是大部分 Web 應用程式的最佳選擇。部署和管理都已
 
 如果您需要加強控制 Web 伺服器環境，例如想要從遠端登入伺服器或設定伺服器啟動工作，Azure 雲端服務通常是最佳選項。
 
-如果現有應用程式需要進行大幅修改才能在 Azure 網站或 Azure 雲端服務中執行，您可以選擇 Azure 虛擬機器來簡化移轉至雲端的工作。不過，相較於 Azure 網站和雲端服務，正確設定、保護和維護 VM 需要投入更多時間和 IT 專業知識。如果您考慮採用 Azure 虛擬機器，請確定您已將修補、更新和管理 VM 環境所需的持續性維護工作都納入考量。如果現有的應用程式需要進行大幅修改才能在 App Service 或 Azure 雲端服務中執行，您可以選擇 Azure 虛擬機器以簡化移轉至雲端的工作。不過，相較於 App Service 和雲端服務，正確地設定、保護和維護 VM 需要投入更多時間和 IT 專業知識。如果您考慮採用 Azure 虛擬機器，請確定您已將修補、更新和管理 VM 環境所需的持續性維護工作都納入考量。
+如果現有應用程式需要進行大幅修改才能在 Azure 網站或 Azure 雲端服務中執行，您可以選擇 Azure 虛擬機器來簡化移轉至雲端的工作。不過，相較於 Azure 網站和雲端服務，正確設定、保護和維護 VM 需要投入更多時間和 IT 專業知識。如果您考慮採用 Azure 虛擬機器，請確定您已將修補、更新和管理 VM 環境所需的持續性維護工作都納入考量。
+如果現有的應用程式需要進行大幅修改才能在 App Service 或 Azure 雲端服務中執行，您可以選擇 Azure 虛擬機器以簡化移轉至雲端的工作。不過，相較於 App Service 和雲端服務，正確地設定、保護和維護 VM 需要投入更多時間和 IT 專業知識。如果您考慮採用 Azure 虛擬機器，請確定您已將修補、更新和管理 VM 環境所需的持續性維護工作都納入考量。
 
 有時候，任何單一選項都不是正確的選項。在這種情況下，可以併用多個選項。例如，假設您要建置發揮雲端服務 Web 角色管理效益的應用程式，但是由於相容性或效能考量，您也需使用在虛擬機器中託管的標準 SQL Server。
 

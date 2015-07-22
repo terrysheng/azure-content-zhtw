@@ -71,7 +71,9 @@ Yammer 連接器可讓您連線到 Yammer 並執行「張貼訊息」動作和�
 
 1.	 您可以在流程的其他動作中使用從 Yammer 觸發程序 ([新訊息]) 擷取的新訊息。設定 Yammer 觸發程序的輸入屬性，如下所示：
 
-	- **群組識別碼** - 應該從中擷取新訊息之群組的識別碼。如果未提供群組識別碼，訊息將會從「關注摘要」擷取。群組識別碼可以從 Yammer 中的群組 URL 擷取。範例：下列 URL 中的群組識別碼為 "5453203" https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
+	- **群組識別碼** - 應該從中擷取新訊息之群組的識別碼。如果未提供群組識別碼，訊息將會從「關注摘要」擷取。群組識別碼可以從 Yammer 中的群組 URL 擷取。範例
+	下列 URL 中的群組識別碼為 "5453203"
+	https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
 
 	![][8]
  
@@ -79,10 +81,12 @@ Yammer 連接器可讓您連線到 Yammer 並執行「張貼訊息」動作和�
 
 ## 使用 Yammer 連接器張貼訊息
 
-6.	您也可以在邏輯應用程式中使用 Yammer 連接器做為動作。首先，指定邏輯應用程式的觸發程序，或核取 [手動執行此邏輯] (如下所示)。加入 yammer 連接器，適當地授權，然後選擇 [張貼訊息] 動作。設定 [張貼訊息] 動作，如下所示：
+6.	您也可以在邏輯應用程式中使用 Yammer 連接器做為動作。首先，指定邏輯應用程式的觸發程序，或核取 [手動執行此邏輯] \(如下所示)。加入 yammer 連接器，適當地授權，然後選擇 [張貼訊息] 動作。設定 [張貼訊息] 動作，如下所示：
 
 	- **訊息文字** - 要張貼之訊息的文字內容
-	- **群組識別碼** - 指定應該張貼新訊息之群組的識別碼。如果未提供群組識別碼，訊息將會張貼到「所有公司摘要」。群組識別碼可以從 Yammer 中的群組 URL 擷取。範例：下列 URL 中的群組識別碼為 "5453203" https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
+	- **群組識別碼** - 指定應該張貼新訊息之群組的識別碼。如果未提供群組識別碼，訊息將會張貼到「所有公司摘要」。群組識別碼可以從 Yammer 中的群組 URL 擷取。範例：
+	下列 URL 中的群組識別碼為 "5453203"
+	https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
 	- 	**標記使用者** -需要標記在訊息中的一組使用者網路名稱。 
 
 	![][10]
@@ -102,4 +106,4 @@ Yammer 連接器可讓您連線到 Yammer 並執行「張貼訊息」動作和�
 [10]: ./media/app-service-logic-connector-yammer/img10.PNG
 [11]: ./media/app-service-logic-connector-yammer/img11.PNG
 
-<!---HONumber=62-->
+<!----HONumber=62-->

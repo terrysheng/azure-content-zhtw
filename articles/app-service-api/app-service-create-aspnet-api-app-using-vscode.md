@@ -45,7 +45,7 @@ ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上�
 1. 若要在 Windows 中安裝 .NET 版本管理員 (DNVM)，請在 [命令視窗] 中執行下列命令。
 
 	<pre class="prettyprint">
-@powershell -NoProfile -ExecutionPolicy unrestricted -Command "&amp;{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
+	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "&amp;{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
 	</pre> 
 	這將下載 DNVM 指令碼，並將它放在您的使用者設定檔中。
 
@@ -53,8 +53,9 @@ ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上�
 3. 在 [命令視窗] 中執行下列命令，以檢查 DNVM 的位置： 
 
 	<pre class="prettyprint">
-where dnvm
+	where dnvm
 	</pre>
+
 	[命令視窗] 將顯示如下路徑：
 
 	![dnvm 位置](./media/app-service-create-aspnet-api-app-using-vscode/00-where-dnvm.png)
@@ -62,14 +63,15 @@ where dnvm
 4. 現在您具有 DNVM，您需要使用其來下載 DNX，才能執行應用程式。從 [命令視窗] 中執行下列命令：
 
 	<pre class="prettyprint">
-dnvm upgrade
-</pre>
+	dnvm upgrade
+	</pre>
 
 5. 確認您的 DNVM，並在 [命令視窗] 中輸入下列命令，檢視使用中執行階段：
 
 	<pre class="prettyprint">
-dnvm list
+	dnvm list
 	</pre>
+
 	[命令視窗] 將顯示使用中執行階段的詳細資料：
 
 	![dnvm 位置](./media/app-service-create-aspnet-api-app-using-vscode/00b-dnvm-list.png)
@@ -84,14 +86,14 @@ dnvm list
 2. 在命令視窗中輸入下列命令來安裝 Yeoman 和支援的工具：
 
 	<pre class="prettyprint">
-npm install -g yo grunt-cli generator-aspnet bower
-</pre>
+	npm install -g yo grunt-cli generator-aspnet bower
+	</pre>
 
 3. 在命令視窗中輸入下列命令來建立專案資料夾，並建立應用程式的結構：
 
 	<pre class="prettyprint">
-yo aspnet
-</pre>
+	yo aspnet
+	</pre>
 
 4. 捲動和選取 **Web API 應用程式**型別，以遵循產生器所提供的指示。
 
@@ -113,8 +115,9 @@ yo aspnet
 9. 在 [**命令調色盤**] 中，輸入下列命令：
 
 	<pre class="prettyprint">
-dnx:dnu restore - (ContactsList)
+	dnx:dnu restore - (ContactsList)
 	</pre>
+
 	當您開始輸入時，您將從清單中看到完整的命令列。
 
 	![Restore 命令](./media/app-service-create-aspnet-api-app-using-vscode/04-dnu-restore.png)
@@ -132,49 +135,52 @@ dnx:dnu restore - (ContactsList)
 2. 以滑鼠右鍵按一下 **Models** 資料夾，使用下列程式碼加入名為 *Contact.cs* 的新類別檔案：
 
 	<pre class="prettyprint">
-namespace ContactsList.Models
-{
-    public class Contact
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string EmailAddress { get; set; }
-    }
-}
-</pre>
+	namespace ContactsList.Models
+	{
+	    public class Contact
+	    {
+	        public int Id { get; set; }
+	        public string Name { get; set; }
+	        public string EmailAddress { get; set; }
+	    }
+	}
+	</pre>
+
+
 
 3. 以滑鼠右鍵按一下 **Controllers** 資料夾，並加入 *ContactsController.cs* 檔案使其出現，如下所示：
 
 	<pre class="prettyprint">
-using System.Collections.Generic;
-using Microsoft.AspNet.Mvc;
-using ContactsList.Models;
+	using System.Collections.Generic;
+	using Microsoft.AspNet.Mvc;
+	using ContactsList.Models;
 
-namespace ContactsList.Controllers
-{
-    [Route("api/[controller]")]
-    public class ContactsController : Controller
-    {
-        // GET: api/Contacts
-        [HttpGet]
-        public IEnumerable&lt;Contact> Get()
-        {
-            return new Contact[]{
-                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
-                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
-                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
-            };
-        }
-    }
-}
-</pre>
+	namespace ContactsList.Controllers
+	{
+	    [Route("api/[controller]")]
+	    public class ContactsController : Controller
+	    {
+	        // GET: api/Contacts
+	        [HttpGet]
+	        public IEnumerable&lt;Contact> Get()
+	        {
+	            return new Contact[]{
+	                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+	                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+	                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+	            };
+	        }
+	    }
+	}
+	</pre>
 
 4. 選取 [**檔案**] > [**全部儲存**]，確定儲存您的所有檔案。
 5. 從 [**命令調色盤**] 中，輸入下列命令以在本機執行應用程式：
 
 	<pre class="prettyprint">
-dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001
+	dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001
 	</pre>
+
 	命令視窗將在其中顯示 [*已啟動*]。如果命令視窗未顯示 [*已啟動*]，請檢查 VSCode 左下角，找出專案中的錯誤。
 
 5. 開啟瀏覽器，並巡覽至下列 URL：
@@ -194,18 +200,18 @@ dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server
 3. 將下列程式碼加入 *apiapp.json* 檔案：
 
 	<pre class="prettyprint">
-{
-    "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
-    "id": "ContactsList",
-    "namespace": "microsoft.com",
-    "gateway": "2015-01-14",
-    "version": "1.0.0",
-    "title": "ContactsList",
-    "summary": "",
-    "author": "",
-    "endpoints": null
-}
-</pre>
+	{
+	    "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
+	    "id": "ContactsList",
+	    "namespace": "microsoft.com",
+	    "gateway": "2015-01-14",
+	    "version": "1.0.0",
+	    "title": "ContactsList",
+	    "summary": "",
+	    "author": "",
+	    "endpoints": null
+	}
+	</pre>
 
 在 *apiapp.json* 檔案中，您可以指定動態 Swagger API 定義 JSON 的端點，但在本教學課程中，您將使用靜態 API 定義檔。如需使用動態 Swagger 產生的範例，請參閱[將 Web API 專案設定為 API 應用程式](app-service-dotnet-create-api-app-visual-studio.md)。
 
@@ -217,106 +223,106 @@ dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server
 3. 將下列 json 語法加入新檔案中：
 
 	<pre class="prettyprint">
-{
-  "swagger": "2.0",
-  "info": {
-    "version": "v1",
-    "title": "ContactsList"
-  },
-  "host": "MUST REPLACE THIS WITH YOUR HOST URL",
-  "schemes": [
-    "https"
-  ],
-  "paths": {
-    "/api/Contacts": {
-      "get": {
-        "tags": [
-          "Contacts"
-        ],
-        "operationId": "Contacts_Get",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Contact"
-              }
-            }
-          }
-        },
-        "deprecated": false
-      },
-      "post": {
-        "tags": [
-          "Contacts"
-        ],
-        "operationId": "Contacts_Post",
-        "consumes": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml",
-          "application/x-www-form-urlencoded"
-        ],
-        "produces": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
-        ],
-        "parameters": [
-          {
-            "name": "contact",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Contact"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Object"
-            }
-          }
-        },
-        "deprecated": false
-      }
-    }
-  },
-  "definitions": {
-    "Contact": {
-      "type": "object",
-      "properties": {
-        "Id": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "EmailAddress": {
-          "type": "string"
-        }
-      }
-    },
-    "Object": {
-      "type": "object",
-      "properties": {}
-    }
-  }
-}
-</pre>
+	{
+	  "swagger": "2.0",
+	  "info": {
+	    "version": "v1",
+	    "title": "ContactsList"
+	  },
+	  "host": "MUST REPLACE THIS WITH YOUR HOST URL",
+	  "schemes": [
+	    "https"
+	  ],
+	  "paths": {
+	    "/api/Contacts": {
+	      "get": {
+	        "tags": [
+	          "Contacts"
+	        ],
+	        "operationId": "Contacts_Get",
+	        "consumes": [],
+	        "produces": [
+	          "application/json",
+	          "text/json",
+	          "application/xml",
+	          "text/xml"
+	        ],
+	        "responses": {
+	          "200": {
+	            "description": "OK",
+	            "schema": {
+	              "type": "array",
+	              "items": {
+	                "$ref": "#/definitions/Contact"
+	              }
+	            }
+	          }
+	        },
+	        "deprecated": false
+	      },
+	      "post": {
+	        "tags": [
+	          "Contacts"
+	        ],
+	        "operationId": "Contacts_Post",
+	        "consumes": [
+	          "application/json",
+	          "text/json",
+	          "application/xml",
+	          "text/xml",
+	          "application/x-www-form-urlencoded"
+	        ],
+	        "produces": [
+	          "application/json",
+	          "text/json",
+	          "application/xml",
+	          "text/xml"
+	        ],
+	        "parameters": [
+	          {
+	            "name": "contact",
+	            "in": "body",
+	            "required": true,
+	            "schema": {
+	              "$ref": "#/definitions/Contact"
+	            }
+	          }
+	        ],
+	        "responses": {
+	          "200": {
+	            "description": "OK",
+	            "schema": {
+	              "$ref": "#/definitions/Object"
+	            }
+	          }
+	        },
+	        "deprecated": false
+	      }
+	    }
+	  },
+	  "definitions": {
+	    "Contact": {
+	      "type": "object",
+	      "properties": {
+	        "Id": {
+	          "format": "int32",
+	          "type": "integer"
+	        },
+	        "Name": {
+	          "type": "string"
+	        },
+	        "EmailAddress": {
+	          "type": "string"
+	        }
+	      }
+	    },
+	    "Object": {
+	      "type": "object",
+	      "properties": {}
+	    }
+	  }
+	}
+	</pre>
 
 稍後，在本教學課程中，您會將上述的主機 URL 預留位置字串取代為您稍後將建立和複製的 Azure 主機 URL。
 
@@ -416,29 +422,30 @@ Git 是一個您可用來部署 Azure 網站的分散式版本控制系統。您
 7. 在 **GitBash** 中，將資料夾變更為 VSCode 專案資料夾。例如：
 
 	<pre class="prettyprint">
-cd c:\VSCodeProjects\ContactsList
-</pre>
+	cd c:\VSCodeProjects\ContactsList
+	</pre>
 
 7. 使用您稍早複製的 Git URL (結尾為 ".git")，建立遠端參考，以便將更新發送至之前建立的 Web 應用程式 (API 應用程式主機)：
 
 	<pre class="prettyprint">
-git remote add azure [URL for remote repository]
-</pre>
+	git remote add azure [URL for remote repository]
+	</pre>
 
 8. 輸入下列命令，將您的變更發送至 Azure：
 
 	<pre class="prettyprint">
-git push azure master
+	git push azure master
 	</pre>
+
 	系統會提示您輸入先前建立的密碼。**注意：將看不到您的密碼。**
 
 	上述命令的輸出結尾會出現部署成功的訊息：
 
 	<pre class="prettyprint">
-remote: Deployment successful.
+	remote: Deployment successful.
 	 https://user@testsite.scm.azurewebsites.net/testsite.git
-[new branch]      master -> master
-</pre>
+	[new branch]      master -> master
+	</pre>
 
 > [AZURE.NOTE]如果您變更應用程式，則可以重新發佈，方法是在 VSCode 中選取 [**全部認可**] 核取方塊，然後在 **GitBash** 中輸入 **git push azure master** 命令。
 
@@ -459,4 +466,4 @@ remote: Deployment successful.
 在本教學課程中，您學到如何在 Visual Studio 程式碼中建立 API 應用程式。如需 Visual Studio 程式碼的詳細資訊，請參閱 [Visual Studio 程式碼](https://code.visualstudio.com/Docs/)。如需 API 應用程式的相關資訊，請參閱[什麼是 API 應用程式？](app-service-api-apps-why-best-platform.md)。
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

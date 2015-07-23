@@ -173,18 +173,18 @@
 
 1. 在 *\Controllers* 資料夾中，建立一個新的 .cs 檔案稱為 *MemeGeneratorController.cs*，並將內容改成下列程式碼。請記得將反白部分取代為您的檔案路徑和 CDN 名稱。
 	<pre class="prettyprint">
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Net;
-using System.Web.Hosting;
-using System.Web.Mvc;
-using System.Web.UI;
+	using System;
+	using System.Collections.Generic;
+	using System.Diagnostics;
+	using System.Drawing;
+	using System.IO;
+	using System.Net;
+	using System.Web.Hosting;
+	using System.Web.Mvc;
+	using System.Web.UI;
 
-namespace cdnwebapp.Controllers
-{
+	namespace cdnwebapp.Controllers
+	{
     public class MemeGeneratorController : Controller
     {
         static readonly Dictionary&lt;string, Tuple&lt;string ,string>> Memes = new Dictionary&lt;string, Tuple&lt;string, string>>();
@@ -372,32 +372,32 @@ namespace cdnwebapp.Controllers
 
 1. 回到 *App_Start\BundleConfig.cs*，修改 `bundles.Add()` 方法來使用不同的 [Bundle 建構函數](http://msdn.microsoft.com/library/jj646464.aspx) (此函數會指定 CDN 位址)。若要這樣做，請將 `RegisterBundles` 方法定義改成下列程式碼：  
 	<pre class="prettyprint">
-public static void RegisterBundles(BundleCollection bundles)
-{
-    <mark>bundles.UseCdn = true;
-    var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
-        .GetName().Version.ToString();
-    var cdnUrl = "http://&lt;yourCDNName>.vo.msecnd.net/{0}?v=" + version;</mark>
+	public static void RegisterBundles(BundleCollection bundles)
+	{
+	    <mark>bundles.UseCdn = true;
+	    var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
+	        .GetName().Version.ToString();
+	    var cdnUrl = "http://&lt;yourCDNName>.vo.msecnd.net/{0}?v=" + version;</mark>
 
-    bundles.Add(new ScriptBundle("~/bundles/jquery"<mark>, string.Format(cdnUrl, "bundles/jquery")</mark>).Include(
-                "~/Scripts/jquery-{version}.js"));
+	    bundles.Add(new ScriptBundle("~/bundles/jquery"<mark>, string.Format(cdnUrl, "bundles/jquery")</mark>).Include(
+	                "~/Scripts/jquery-{version}.js"));
 
-    bundles.Add(new ScriptBundle("~/bundles/jqueryval"<mark>, string.Format(cdnUrl, "bundles/jqueryval")</mark>).Include(
-                "~/Scripts/jquery.validate*"));
+	    bundles.Add(new ScriptBundle("~/bundles/jqueryval"<mark>, string.Format(cdnUrl, "bundles/jqueryval")</mark>).Include(
+	                "~/Scripts/jquery.validate*"));
 
-    // Use the development version of Modernizr to develop with and learn from.Then, when you're
-    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-    bundles.Add(new ScriptBundle("~/bundles/modernizr"<mark>, string.Format(cdnUrl, "bundles/modernizer")</mark>).Include(
+	    // Use the development version of Modernizr to develop with and learn from.Then, when you're
+	    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+	    bundles.Add(new ScriptBundle("~/bundles/modernizr"<mark>, string.Format(cdnUrl, "bundles/modernizer")</mark>).Include(
                 "~/Scripts/modernizr-*"));
 
-    bundles.Add(new ScriptBundle("~/bundles/bootstrap"<mark>, string.Format(cdnUrl, "bundles/bootstrap")</mark>).Include(
-                "~/Scripts/bootstrap.js",
-                "~/Scripts/respond.js"));
+	    bundles.Add(new ScriptBundle("~/bundles/bootstrap"<mark>, string.Format(cdnUrl, "bundles/bootstrap")</mark>).Include(
+	                "~/Scripts/bootstrap.js",
+	                "~/Scripts/respond.js"));
 
-    bundles.Add(new StyleBundle("~/Content/css"<mark>, string.Format(cdnUrl, "Content/css")</mark>).Include(
-                "~/Content/bootstrap.css",
-                "~/Content/site.css"));
-}
+	    bundles.Add(new StyleBundle("~/Content/css"<mark>, string.Format(cdnUrl, "Content/css")</mark>).Include(
+	                "~/Content/bootstrap.css",
+	                "~/Content/site.css"));
+	}
 	</pre>
 	請記得將 `<yourCDNName>` 取代為您的 Azure CDN 名稱。
 
@@ -423,40 +423,40 @@ public static void RegisterBundles(BundleCollection bundles)
  
 4. 檢視頁面的 HTML 程式碼。您應該會看到轉譯的 CDN URL，以及每次將變更重新發佈至 Azure Web 應用程式時的唯一版本字串。例如：
 	<pre class="prettyprint">
-...
+	...
 
     &lt;link href=&quot;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449&quot; rel=&quot;stylesheet&quot;/&gt;
 
     &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
 
-...
+	...
 
     &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
 
     &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
 
-...</pre>
+	...</pre>
 
 5. 在 Visual Studio 中，按 `F5`，在 Visual Studio 中進行 ASP.NET 應用程式偵錯。
 
 6. 檢視頁面的 HTML 程式碼。您仍然會看到每一個指令檔以個別方式轉譯，讓您在 Visual Studio 中享有一致的偵錯體驗。
-	<pre class="prettyprint">
-...
-
+<pre class="prettyprint">
+	...
+	
 	    &lt;link href=&quot;/Content/bootstrap.css&quot; rel=&quot;stylesheet&quot;/&gt;
 	&lt;link href=&quot;/Content/site.css&quot; rel=&quot;stylesheet&quot;/&gt;
-
+	
 	    &lt;script src=&quot;/Scripts/modernizr-2.6.2.js&quot;&gt;&lt;/script&gt;
-
-...
-
+	
+	...
+	
 	    &lt;script src=&quot;/Scripts/jquery-1.10.2.js&quot;&gt;&lt;/script&gt;
-
+	
 	    &lt;script src=&quot;/Scripts/bootstrap.js&quot;&gt;&lt;/script&gt;
 	&lt;script src=&quot;/Scripts/respond.js&quot;&gt;&lt;/script&gt;
-
-...   
-</pre>
+	
+	...    
+	</pre>
 
 <a name="fallback"></a>
 ## CDN URL 的後援機制 ##
@@ -467,33 +467,33 @@ public static void RegisterBundles(BundleCollection bundles)
 
 1. 在 ASP.NET 專案中，開啟 *App_Start\BundleConfig.cs* (其中，您已在每一個 [Bundle 建構函式](http://msdn.microsoft.com/library/jj646464.aspx)中加入 CDN URL)，進行下列醒目提示的變更將後援機制加入至預設套件組合：  
 	<pre class="prettyprint">
-public static void RegisterBundles(BundleCollection bundles)
-{
-    var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
-        .GetName().Version.ToString();
+	public static void RegisterBundles(BundleCollection bundles)
+	{
+	    var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
+	        .GetName().Version.ToString();
 	    var cdnUrl = &quot;http://cdnurl.vo.msecnd.net/.../{0}?&quot; + version;
-    bundles.UseCdn = true;
-
+	    bundles.UseCdn = true;
+	
 	    bundles.Add(new ScriptBundle(&quot;~/bundles/jquery&quot;, string.Format(cdnUrl, &quot;bundles/jquery&quot;)) 
 					<mark>{ CdnFallbackExpression = &quot;window.jquery&quot; }</mark>
 	                .Include(&quot;~/Scripts/jquery-{version}.js&quot;));
-
+	
 	    bundles.Add(new ScriptBundle(&quot;~/bundles/jqueryval&quot;, string.Format(cdnUrl, &quot;bundles/jqueryval&quot;)) 
 					<mark>{ CdnFallbackExpression = &quot;$.validator&quot; }</mark>
 	            	.Include(&quot;~/Scripts/jquery.validate*&quot;));
-
+	
 	    // Use the development version of Modernizr to develop with and learn from. Then, when you&#39;re
-    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+	    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
 	    bundles.Add(new ScriptBundle(&quot;~/bundles/modernizr&quot;, string.Format(cdnUrl, &quot;bundles/modernizer&quot;)) 
 					<mark>{ CdnFallbackExpression = &quot;window.Modernizr&quot; }</mark>
 					.Include(&quot;~/Scripts/modernizr-*&quot;));
-
+	
 	    bundles.Add(new ScriptBundle(&quot;~/bundles/bootstrap&quot;, string.Format(cdnUrl, &quot;bundles/bootstrap&quot;)) 	
 					<mark>{ CdnFallbackExpression = &quot;$.fn.modal&quot; }</mark>
-        		.Include(
+	        		.Include(
 		              		&quot;~/Scripts/bootstrap.js&quot;,
 		              		&quot;~/Scripts/respond.js&quot;));
-
+	
 	    bundles.Add(new StyleBundle(&quot;~/Content/css&quot;, string.Format(cdnUrl, &quot;Content/css&quot;)).Include(
 	                &quot;~/Content/bootstrap.css&quot;,
 	                &quot;~/Content/site.css&quot;));
@@ -515,7 +515,7 @@ public static void RegisterBundles(BundleCollection bundles)
 
 3. 回到 `App_Start\BundleConfig.cs`，將最後一個 `bundles.Add` 陳述式修改為下列醒目提示的程式碼：
 	<pre class="prettyprint">
-bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
+	bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
     <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark>
     .Include(
           "~/Content/bootstrap.css",
@@ -526,39 +526,39 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 4. 重新發佈至 Azure Web 應用程式並存取首頁。
 5. 檢視頁面的 HTML 程式碼。您應該會發現類似下方的插入指令碼：    
 	<pre class="prettyprint">...
-
+	
 		&lt;link href=&quot;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474&quot; rel=&quot;stylesheet&quot;/&gt;
 	<mark>&lt;script&gt;(function() {
-                var loadFallback,
-                    len = document.styleSheets.length;
-                for (var i = 0; i &lt; len; i++) {
-                    var sheet = document.styleSheets[i];
+	                var loadFallback,
+	                    len = document.styleSheets.length;
+	                for (var i = 0; i &lt; len; i++) {
+	                    var sheet = document.styleSheets[i];
 	                    if (sheet.href.indexOf(&#39;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474&#39;) !== -1) {
 	                        var meta = document.createElement(&#39;meta&#39;);
 	                        meta.className = &#39;sr-only&#39;;
-                        document.head.appendChild(meta);
+	                        document.head.appendChild(meta);
 	                        var value = window.getComputedStyle(meta).getPropertyValue(&#39;width&#39;);
-                        document.head.removeChild(meta);
+	                        document.head.removeChild(meta);
 	                        if (value !== &#39;1px&#39;) {
 	                            document.write(&#39;&lt;link href=&quot;/Content/css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;&#39;);
-                        }
-                    }
-                }
-                return true;
+	                        }
+	                    }
+	                }
+	                return true;
 	            }())||document.write(&#39;&lt;script src=&quot;/Content/css&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
-
+	
 	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
 	<mark>&lt;script&gt;(window.Modernizr)||document.write(&#39;&lt;script src=&quot;/bundles/modernizr&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
-
-...	
-
+	
+	...	
+	
 	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
 	<mark>&lt;script&gt;(window.jquery)||document.write(&#39;&lt;script src=&quot;/bundles/jquery&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
-
+	
 	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
 	<mark>&lt;script&gt;($.fn.modal)||document.write(&#39;&lt;script src=&quot;/bundles/bootstrap&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
-
-...
+	
+	...
 	</pre>
 	請注意，針對 CSS 套件組合插入的指令碼，仍在這一行中包含 `CdnFallbackExpression` 屬性殘留的遊蕩部分：
 
@@ -584,4 +584,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!----HONumber=62-->
+<!-----HONumber=62-->

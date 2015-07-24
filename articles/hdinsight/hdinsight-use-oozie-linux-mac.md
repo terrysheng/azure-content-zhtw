@@ -361,7 +361,9 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。使
 		</configuration>
 
 	* 將 **wasb://mycontainer@mystorageaccount.blob.core.windows.net** 的所有執行個體替換為您之前收到的值。
-	> [AZURE.WARNING]您必須使用完整的 WASB 路徑，其中包含容器和儲存體帳戶做為路徑的一部分。使用簡短格式 (wasb:///) 會在工作開始時導致 RunHiveScript 動作失敗。
+
+
+	> [AZURE.WARNING] 您必須使用完整的 WASB 路徑，其中包含容器和儲存體帳戶做為路徑的一部分。使用簡短格式 (wasb:///) 會在工作開始時導致 RunHiveScript 動作失敗。
 
 	* 將 **JOBTRACKERADDRESS** 替換為您之前收到的 JobTracker/ResourceManager 位址。
 
@@ -725,4 +727,4 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO2-->
+<!-----HONumber=July15_HO2-->

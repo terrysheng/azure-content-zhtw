@@ -44,11 +44,13 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 3.0 及 2.1 版叢集�
 - **Azure HDInsight 叢集**。如需叢集佈建的指示，請參閱[開始使用 HDInsight][hdinsight-get-started] 或[佈建 HDInsight 叢集][hdinsight-provision]。進行教學課程時，您將需要下列資料：
 
 	<table border="1">
-<tr><th>叢集屬性</th><th>Azure PowerShell 變數名稱</th><th>值</th><th>說明</th></tr>
-<tr><td>HDInsight 叢集名稱</td><td>$clusterName</td><td></td><td>您的 HDInsight 叢集名稱。</td></tr>
-<tr><td>叢集使用者名稱</td><td>$clusterUsername</td><td></td><td>佈建時指定的叢集使用者名稱。</td></tr>
-<tr><td>叢集密碼</td><td>$clusterPassword</td><td></td><td>叢集使用者密碼。</td></tr>
-</table>> [AZURE.NOTE]將值填入資料表。這將有助於本教學課程的執行。
+	<tr><th>叢集屬性</th><th>Azure PowerShell 變數名稱</th><th>值</th><th>說明</th></tr>
+	<tr><td>HDInsight 叢集名稱</td><td>$clusterName</td><td></td><td>您的 HDInsight 叢集名稱。</td></tr>
+	<tr><td>叢集使用者名稱</td><td>$clusterUsername</td><td></td><td>佈建時指定的叢集使用者名稱。</td></tr>
+	<tr><td>叢集密碼</td><td>$clusterPassword</td><td></td><td>叢集使用者密碼。</td></tr>
+	</table>
+
+	> [AZURE.NOTE]將值填入資料表。這將有助於本教學課程的執行。
 
 
 

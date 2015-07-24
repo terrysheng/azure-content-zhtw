@@ -38,7 +38,8 @@
 
 7. 當您執行測試或啟動公告時，您會看到具有指定表情符號的通知。
 
-	![][3] ![][4]
+	![][3] 
+	![][4]
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-use-emoji-with-push/emoji.png
@@ -47,4 +48,4 @@
 [4]: ./media/mobile-engagement-use-emoji-with-push/notification_ios.png
  
 
-<!---HONumber=July15_HO2-->
+<!----HONumber=July15_HO2-->

@@ -35,7 +35,7 @@ Azure 資源管理員 (ARM) 是 Azure 中新的服務管理架構。Azure 負載
 - 輸入 NAT 規則 - 定義流經前端 IP 並散發到後端 IP 之輸入流量的 NAT 規則。
 
 
-![](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/zh-tw/documentation/articles/resource-groups-networking/20150429054039/figure5.png)
+![](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/resource-groups-networking/20150429054039/figure5.png)
 
 
 

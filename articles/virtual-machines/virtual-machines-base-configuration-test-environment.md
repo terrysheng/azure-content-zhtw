@@ -1,27 +1,30 @@
 <properties 
 	pageTitle="基本設定測試環境" 
-	description="了解如何建立簡單的開發/測試環境來模擬 Azure 中的簡化內部網路。" 
+	description="了解如何建立簡單的開發/測試環境來模擬 Microsoft Azure 中簡化的內部網路。" 
 	documentationCenter=""
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
 # 基本設定測試環境
 
-本主題會逐步解說如何利用 Windows Server 2012 R2 電腦，在 Microsoft Azure 虛擬網路中建立「基本設定」測試環境。產生的測試環境可以用於：
+本文將逐步解說如何利用在服務管理中建立的虛擬機器，在 Microsoft Azure 虛擬網路中建立「基本設定」測試環境。
+
+產生的測試環境可以用於：
 
 - 開發和測試應用程式。
--  [模擬混合式雲端環境](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)。
+- [模擬混合式雲端環境](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)。
 - 添加其他虛擬機器和 Azure 服務，打造自己的測試環境。
  
 「基本設定」測試環境是由 TestLab 純雲端 Azure 虛擬網路中的公司子網路構成的，可以模擬簡化的私人內部網路。
@@ -54,13 +57,13 @@
 
 首先，您可以建立 TestLab Azure 虛擬網路，用它來架設公司子網路基本設定。
 
-1.	在 Azure 管理入口網站的工作列上，依序按一下 **[新增]** > **[網路服務]** > **[虛擬網路]** > **[自訂建立]**。
-2.	在 [虛擬網路詳細資料] 頁面中的 **[名稱]** 中，輸入 **TestLab**。
-3.	在 **[位置]** 中，選取適當的區域。
+1.	在 Azure 管理入口網站的工作列上，依序按一下 [新增] > [網路服務] > [虛擬網路] > [自訂建立]。
+2.	在 [虛擬網路詳細資料] 頁面中的 [名稱] 中，輸入 **TestLab**。
+3.	在 [位置] 中，選取適當的區域。
 4.	按 [下一步] 箭頭。
-5.	在 [DNS 伺服器和 VPN 連線] 頁面的 [DNS 伺服器]**** 的 [選取或輸入名稱]**** 中，輸入 **DC1**，然後在 [IP 位址]**** 中輸入 **10.0.0.4**，最後按 [下一步] 箭頭。
-6.	在 [虛擬網路位址空間] 頁面的 **[子網路]** ，按一下 **subnet-1**，然後將名稱改成 **Corpnet**。 
-7.	在公司子網路的 **[CIDR (位址計數)]** 欄中，按一下 **[/24 (256)]**。
+5.	在 [DNS 伺服器和 VPN 連線] 頁面的 [DNS 伺服器] 的 [選取或輸入名稱] 中，輸入 **DC1**，然後在 [IP 位址] 中輸入 **10.0.0.4**，最後按 [下一步] 箭頭。
+6.	在 [虛擬網路位址空間] 頁面的 [子網路] ，按一下 **subnet-1**，然後將名稱改成 **Corpnet**。 
+7.	在公司子網路的 [CIDR (位址計數)] 欄中，按一下 [/24 (256)]。
 8.	按一下 [完成] 圖示。等候虛擬網路建立後再繼續。
 
 接下來，按照[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md) 中的操作方法，在本機電腦安裝 Azure PowerShell。開啟 Azure PowerShell 命令提示字元。
@@ -128,20 +131,20 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 5.	出現輸入認證的提示時，使用下列：
 - 名稱：**DC1**[本機系統管理員帳戶名稱]
 - 密碼：[本機系統管理員帳戶密碼]
-6.	顯示憑證相關的 [遠端桌面連線] 訊息方塊提示時，按一下 [是]****。
+6.	顯示憑證相關的 [遠端桌面連線] 訊息方塊提示時，按一下 [是]。
 
 接著，將額外的資料磁碟新增為磁碟機代號 F: 的新磁碟區。
 
-1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]****，然後按一下 [磁碟]****。
-2.	在 [內容] 窗格的 [磁碟]**** 群組中，按一下 [磁碟 2]** ** ([磁碟分割]**** 設為 [不明]****)。
-3.	按一下 [工作]****，然後按一下 [新增磁碟區]****。
-4.	在 [新增磁碟區精靈] 的 [在您開始前] 頁面上，按 [下一步]****。
-5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]****，然後按 [下一步]****。出現提示時，按一下 **[確定]**。
-6.	在 [指定磁碟區大小] 頁面上，按 [下一步]****。
-7.	在 [指派成磁碟機代號或資料夾] 頁面上，按 [下一步]****。
-8.	在 [選取檔案系統設定] 頁面上，按 [下一步]****。
-9.	在 [確認選取項目] 頁面上，按一下 [建立]****。
-10.	完成時，按一下 [關閉]****。
+1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
+2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2] ([磁碟分割] 設為 [不明])。
+3.	按一下 [工作]，然後按一下 [新增磁碟區]。
+4.	在 [新增磁碟區精靈] 的 [在您開始前] 頁面上，按 [下一步]。
+5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]，然後按 [下一步]。出現提示時，按一下 **[確定]**。
+6.	在 [指定磁碟區大小] 頁面上，按 [下一步]。
+7.	在 [指派成磁碟機代號或資料夾] 頁面上，按 [下一步]。
+8.	在 [選取檔案系統設定] 頁面上，按 [下一步]。
+9.	在 [確認選取項目] 頁面上，按一下 [建立]。
+10.	完成時，按一下 [關閉]。
 
 接著，將 DC1 設定為 corp.contoso.com 網域的網域控制站和 DNS 伺服器。在系統管理員層級 Windows PowerShell 命令提示字元，執行下列命令。
 
@@ -150,14 +153,14 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 
 DC1 重新啟動之後，重新連接到 DC1 的虛擬機器。
 
-1.	在 Azure 管理入口網站的 [虛擬機器] 頁面上，按一下 DC1 虛擬機器 [狀態]**** 欄中的 [執行]****。
-2.	在工作列上，按一下 **[連接]**。 
+1.	在 Azure 管理入口網站的 [虛擬機器] 頁面上，按一下 DC1 虛擬機器 [狀態] 欄中的 [執行]。
+2.	在工作列上，按一下 [連接]。 
 3.	提示開啟 DC1.rdp 時，按一下 [開啟]。
 4.	顯示 [遠端桌面連線] 訊息方塊後，按一下 [連接]。
 5.	出現輸入認證的提示時，使用下列：
 - 名稱：**CORP**[本機系統管理員帳戶名稱]
 - 密碼：[本機系統管理員帳戶密碼]
-6.	顯示憑證相關的 [遠端桌面連線] 訊息方塊提示時，按一下 [是]****。
+6.	顯示憑證相關的 [遠端桌面連線] 訊息方塊提示時，按一下 [是]。
 
 接下來，在 Active Directory 中建立一個當使用者登入 CORP 網域成員電腦時，就會用到的使用者帳戶。在系統管理員層級 Windows PowerShell 命令提示字元執行下列命令，一次執行一個。
  
@@ -166,7 +169,7 @@ DC1 重新啟動之後，重新連接到 DC1 的虛擬機器。
 
 請注意，第一個命令會提示使用者輸入 User1 帳戶密碼。因為這個帳戶會用於所有 CORP 網域成員電腦的遠端桌面連線，所以請選取強式密碼。要檢查密碼強度，請參閱[密碼檢查程式：使用強式密碼](https://www.microsoft.com/security/pc-security/password-checker.aspx)。記錄 User1 帳戶的密碼，然後儲存在安全的位置。
 
-使用 CORP\\User1 帳戶，重新連線到 DC1 的虛擬機器。
+使用 CORP\User1 帳戶，重新連線到 DC1 的虛擬機器。
 
 接下來，在系統管理員層級 Windows PowerShell 命令提示字元，執行這個命令，允許 Ping 工具連接網路。
 
@@ -191,7 +194,7 @@ APP1 提供網頁和檔案共用服務。
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName TestLab
 
-接下來，使用 CORP\\User1 認證連接到 APP1 虛擬機器，然後開啟系統管理員層級 Windows PowerShell 命令提示字元。
+接下來，使用 CORP\User1 認證連接到 APP1 虛擬機器，然後開啟系統管理員層級 Windows PowerShell 命令提示字元。
 
 要檢查 APP1 和 DC1 之間的名稱解析和網路通訊，請執行 **ping dc1.corp.contoso.com** 命令，然後確定顯示 4 個回覆。
 
@@ -224,7 +227,7 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName TestLab
 
-然後，以 CORP\\User1 認證連接到 CLIENT1 虛擬機器。
+然後，以 CORP\User1 認證連接到 CLIENT1 虛擬機器。
 
 要檢查 CLIENT1 和 DC1 之間的名稱解析和網路通訊，請在 Windows PowerShell 命令提示字元執行 **ping dc1.corp.contoso.com** 命令，然後確定顯示 4 個回覆。
 
@@ -232,10 +235,10 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 
 1.	在 [伺服器管理員] 的樹狀目錄窗格中，按一下 [本機伺服器]。 
 2.	在 [CLIENT1 的屬性] 中，按一下 [IE 增強式安全性設定] 旁的 [開啟]。
-3.	在 [Internet Explorer 增強式安全性設定] 中，按一下 [系統管理員] 和 [使用者] 的 **[關閉]**，然後按一下 **[確定]**。
+3.	在 [Internet Explorer 增強式安全性設定] 中，按一下 [系統管理員] 和 [使用者] 的 [關閉]，然後按一下 [確定]。
 4.	從 [開始] 畫面中，按一下 [Internet Explorer]，然後按一下 [確定]。
 5.	在網址列中，輸入 **http://app1.corp.contoso.com/**，然後按下 ENTER。您應該會看到 APP1 的預設網際網路資訊服務網頁。6.	按一下桌面工作列中的 [檔案總管] 圖示。
-7.	在網址列中，輸入 **\\\\app1\\Files**，然後按下 ENTER。
+7.	在網址列中，輸入 **\app1\Files**，然後按下 ENTER。
 8.	您應該會看到一個資料夾視窗，裡面有檔案共用資料夾的內容。
 9.	在 [檔案] 共用資料夾視窗中，按兩下 **Example.txt** 檔案。您應該會看到 Example.txt 檔案的內容。
 10.	關閉 [example.txt - 記事本] 和 [檔案] 共用資料夾視窗。
@@ -244,7 +247,7 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 
 ![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png)
 
-Azure 基本設定現在可以用於應用程式開發、測試或其他測試環境，例如[模擬混合式雲端環境](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)。
+您在 Azure 中的基本設定現在可用於應用程式開發與測試或其他測試環境，例如[模擬混合式雲端環境](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)。
 
 ## 其他資源
 
@@ -278,6 +281,6 @@ Azure 基本設定現在可以用於應用程式開發、測試或其他測試�
 	Start-AzureVM -ServiceName $serviceName -Name "DC1"
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

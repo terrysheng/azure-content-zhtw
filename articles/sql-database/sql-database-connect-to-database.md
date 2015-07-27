@@ -1,13 +1,11 @@
 <properties
-	urlDisplayName="How to connect to an Azure SQL database using SSMS"
 	pageTitle="如何使用 SSMS 連接到 Azure SQL Database" metaKeywords=""
 	description="了解如何使用 SSMS 連接到 Azure SQL Database。"
-	metaCanonical=""
 	services="sql-database"
 	documentationCenter=""
-	title="How to connect to an Azure SQL database using SSMS"
-	authors="sidneyh" solutions=""
-	manager="jhubbard" editor="" />
+	authors="sidneyh"
+	manager="jhubbard" 
+	editor="" />
 
 <tags
 	ms.service="sql-database"
@@ -15,17 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/02/2015"
+	ms.date="06/25/2015"
 	ms.author="sidneyh" />
 
-# 如何使用 SSMS 連接到 Azure SQL Database
+# 如何使用 SQL Server Management Studio 連接到 Azure SQL Database
 
-以下是使用 SQL Server Management Studio 連接到 Microsoft Azure SQL Database 的步驟。
+以下是使用 SQL Server Management Studio (SSMS) 連接到 Microsoft Azure SQL Database 的步驟。
 
 ## 必要條件
 * 已佈建且在執行中的 Azure SQL Database。若要建立新的 SQL Database，請參閱[開始使用 Microsoft Azure SQL Database](sql-database-get-started.md)。
 * SQL Database 的系統管理員名稱和密碼。
 * SQL Server Management Studio 2014。若要取得工具，請參閱[下載 SQL Express](http://www.hanselman.com/blog/DownloadSQLServerExpress.aspx)。
+* 設定資料庫的防火牆設定。請參閱[作法：進行防火牆設定 (Azure SQL Database)](sql-database-configure-firewall-settings.md)
 
 ## 連接到 SQL Database 的執行個體
 1. 登入 [Azure 管理入口網站](https://portal.azure.com)。
@@ -63,4 +62,4 @@
 [5]: ./media/sql-database-connect-to-database/ssms-master.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

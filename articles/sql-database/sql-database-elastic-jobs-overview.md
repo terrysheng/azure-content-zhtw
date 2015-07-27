@@ -1,9 +1,8 @@
 <properties 
-	title="Elastic database jobs overview" 
 	pageTitle="彈性資料庫工作概觀" 
 	description="說明彈性資料庫工作服務" 
-	metaKeywords="azure sql database elastic databases" 
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sidneyh" />
 
 # 彈性資料庫工作概觀
@@ -36,15 +35,10 @@
 
 ## 工作的運作方式
 
-1.	安裝彈性資料庫工作所使用的服務。請參閱[安裝彈性資料庫工作](sql-database-elastic-jobs-service-installation.md)。如果安裝失敗，請參閱[如何解除安裝](sql-database-elastic-jobs-uninstall.md)。
+1.	安裝彈性資料庫工作所使用的服務。請參閱[安裝彈性資料庫作業](sql-database-elastic-jobs-service-installation.md)。如果安裝失敗，請參閱[如何解除安裝](sql-database-elastic-jobs-uninstall.md)。
 2.	[將使用者加入每個資料庫](sql-database-elastic-jobs-add-logins-to-dbs.md)，以設定要執行工作的彈性資料庫集區。
-3.	從彈性資料庫工作集區檢視，按一下 [建立工作]。
-4.	輸入工作控制資料庫 (工作的中繼資料儲存體) 的使用者名稱和密碼。(當您安裝彈性資料庫工作時，會建立使用者名稱和密碼)。
-5.	在**建立工作**刀鋒視窗中，將工作名稱、使用者名稱和密碼輸入到目標資料庫 (具備讓指令碼成功執行的足夠權限)，並貼上或輸入 T-SQL 指令碼。
-6.	按一下 [執行]，這項工作隨即會對每個資料庫執行指令碼。
-7.	[管理工作] 檢視可讓您查看所有執行中的工作，或已執行和處於最新執行狀態的工作。
-8.	按一下任何工作，以查看工作執行詳細資料和每個資料庫的工作執行狀態。
-9.	如果工作失敗，請按一下其名稱以查看錯誤記錄檔。
+3.	建立能夠針對集區中的每個資料庫執行的 itempotent T-SQL 指令碼。
+4.	遵循下列步驟來執行指令碼：[建立和管理彈性資料庫作業](sql-database-elastic-jobs-create-and-manage.md) 
 
 ## 元件和定價 
 
@@ -64,4 +58,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

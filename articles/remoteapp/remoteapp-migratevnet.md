@@ -2,7 +2,6 @@
     pageTitle="如何從 RemoteApp VNET 移轉至 Azure VNET"
     description="了解如何從 RemoteApp VNET 移轉至 Azure VNET" 
     services="remoteapp" 
-    solutions="" 
 	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
@@ -13,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/23/2015" 
+    ms.date="05/28/2015" 
     ms.author="elizapo" />
 
 
@@ -27,7 +26,7 @@
 
 1.	在[管理入口網站](http://manage.windowsazure.com/)的 [**網路**] 索引標籤上，使用與用於 *RemoteAppVNET* 相同的位置、DNS 組態和位址空間 (針對至少其中一個 *AzureVNET* 子網路) 建立稱為 *AzureVNET* 的 VNET。
 2.	設定 *AzureVNET* 裝載或透過網路連接到 *OriginalCollection* 加入網域的 Active Directory 部署。
-3.	在 [**RemoteApp**] 索引標籤上，建立稱為「*新集合*」的新 RemoteApp 集合 (使用 [**使用 VPN 建立**] 選項，而不是 [**快速建立**])。
+3.	在 [**RemoteApp**] 索引標籤上，建立稱為「*新集合*」的新 RemoteApp 集合 (使用 [**使用 VNET 建立**] 選項，而不是 [**快速建立**])。
 3.	設定要部署到 *AzureVNET* 中子網路的 *NewCollection*。
 4.	設定 *NewCollection* 使用與您用於 *OriginalCollection* 相同的映像和網域加入資訊。
 5.	在幾個小時後，*NewCollection* 會顯示在集合清單中，且狀態為 [作用中]。
@@ -49,6 +48,6 @@
 現在，大功告成！
 
 如果您有任何疑問或需要特殊協助，請將電子郵件寄到 [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help)。
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

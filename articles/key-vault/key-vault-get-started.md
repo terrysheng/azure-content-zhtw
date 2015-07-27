@@ -4,7 +4,8 @@
 	services="key-vault"
 	documentationCenter=""
 	authors="cabailey"
-	manager="mbaldwin"/>
+	manager="mbaldwin"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -12,19 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="05/04/2015"
+	ms.date="06/25/2015"
 	ms.author="cabailey"/>
 
 # 開始使用 Azure 金鑰保存庫 #
+大部分地區均提供 Azure 金鑰保存庫。如需詳細資訊，請參閱[金鑰保存庫定價頁面](../../../../pricing/details/key-vault/)。
 
 ## 簡介  
-使用本教學課程可協助您開始使用 Azure 金鑰保存庫 (目前為預覽狀態)，進而在 Azure 中建立強化的容器 (保存庫)，以儲存及管理 Azure 中的密碼編譯金鑰和密碼。本教學課程將逐步引導您完成使用 Windows PowerShell 建立包含金鑰或密碼 (稍後可用於 Azure 應用程式) 的保存庫程序。接著，它會說明應用程式後續可以如何使用該金鑰或密碼。
+使用本教學課程可協助您開始使用 Azure 金鑰保存庫，進而在 Azure 中建立強化的容器 (保存庫)，以儲存及管理 Azure 中的密碼編譯金鑰和密碼。本教學課程將逐步引導您完成使用 Windows PowerShell 建立包含金鑰或密碼 (稍後可用於 Azure 應用程式) 的保存庫程序。接著，它會說明應用程式後續可以如何使用該金鑰或密碼。
 
 **預估完成時間：**20 分鐘
 
 >[AZURE.NOTE]本教學課程沒有指示說明如何撰寫其中一個步驟所包括的 Azure 應用程式，但會顯示如何授權應用程式使用金鑰保存庫中的金鑰或密碼。
 >
->在預覽期間，您無法在 Azure 入口網站中設定 Azure 金鑰保存庫。請改用這些 Azure PowerShell 指示。
+>目前，您無法在 Azure 入口網站中設定 Azure 金鑰保存庫。請改用這些 Azure PowerShell 指示。或者，如需跨平台命令列介面的指示，請參閱[這個對等的教學課程](key-vault-manage-with-cli.md)。
 
 如需 Azure 金鑰保存庫的概觀資訊，請參閱[什麼是 Azure 金鑰保存庫？](key-vault-whatis.md)
 
@@ -32,7 +34,7 @@
 
 若要完成本教學課程，您必須具備下列項目：
 
-- Microsoft Azure 訂用帳戶。如果您沒有訂用帳戶，您可以註冊[免費試用](../../../pricing/free-trial)。
+- Microsoft Azure 訂用帳戶。如果您沒有訂用帳戶，您可以註冊[免費試用](../../../../pricing/free-trial)。
 - Azure PowerShell 0.9.1 版或更新版本。若要安裝最新版本，並將它與 Azure 訂用帳戶建立關聯，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 - 可設定使用您在本教學課程中所建立之金鑰或密碼的應用程式。您可以在 [Microsoft 下載中心](http://www.microsoft.com/zh-tw/download/details.aspx?id=45343)找到範例應用程式。如需相關指示，請參閱隨附的讀我檔案。
 
@@ -117,7 +119,7 @@
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-透過使用其 URI，您現在可以參照您所建立或上傳至 Azure 金鑰保存庫的金鑰。例如：**https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 
+透過使用其 URI，您現在可以參照您所建立或上傳至 Azure 金鑰保存庫的金鑰。使用 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** 可一律取得最新的版本，使用 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 可取得此特定版本。
 
 若要顯示此金鑰的 URI，請輸入：
 
@@ -131,7 +133,7 @@
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-透過使用其 URI，您現在可以參照您新增至 Azure 金鑰保存庫的密碼。例如：**https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**
+透過使用其 URI，您現在可以參照您新增至 Azure 金鑰保存庫的密碼。使用 **https://ContosoVault.vault.azure.net/secrets/SQLPassword** 可一律取得最新的版本，使用 **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** 可取得此特定版本。
 
 若要顯示此密碼的 URI，請輸入：
 
@@ -188,7 +190,7 @@
 
 ## <a id="HSM"></a>如果您想要使用硬體安全模組 (HSM) ##
 
-為了加強保證，您可以在硬體安全模組 (HSM) 中匯入或產生無需離開 HSM 界限的金鑰。HSM 已獲得 FIPS 140-2 Level 2 認證。如果此需求對您不適用，請略過本節並移至[刪除金鑰保存庫及相關聯的金鑰和密碼](#delete)。
+為了加強保證，您可以在硬體安全模組 (HSM) 中匯入或產生無需離開 HSM 界限的金鑰。HSM 已通過 FIPS 140-2 Level 2 驗證。如果此需求對您不適用，請略過本節並移至[刪除金鑰保存庫及相關聯的金鑰和密碼](#delete)。
 
 若要建立這些受 HSM 保護的金鑰，您必須具備[支援受 HSM 保護之金鑰的保存庫訂用帳戶](../../../pricing/free-trial)。
 
@@ -239,11 +241,11 @@
 
 ## <a id="next"></a>接續步驟 ##
 
-如需在 Web 應用程式中使用 Azure 金鑰保存庫的的教學課程，請參閱[從 Web 應用程式使用 Azure 金鑰保存庫](key-vault-use-from-web-application.md)
+如需在 Web 應用程式中使用 Azure 金鑰保存庫的後續教學課程，請參閱[從 Web 應用程式使用 Azure 金鑰保存庫](key-vault-use-from-web-application.md)。
 
 如需 Azure 金鑰保存庫的 Windows PowerShell Cmdlet 清單，請參閱 [Azure 金鑰保存庫 Cmdlet](https://msdn.microsoft.com/library/azure/dn868052.aspx)。
 
-如需程式設計參考，請參閱 [Azure 金鑰保存庫 REST API 參考](https://msdn.microsoft.com/library/azure/dn903609.aspx)和 [Azure 金鑰保存庫 C# 用戶端 API 參考](https://msdn.microsoft.com/library/azure/dn903628.aspx)。
+如需程式設計參考，請參閱 MSDN 上 Microsoft Azure 文件庫中的[金鑰保存庫](https://msdn.microsoft.com/library/azure/dn903625.aspx)。
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

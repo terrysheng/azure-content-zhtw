@@ -1,4 +1,11 @@
-<properties pageTitle="從 Web 應用程式使用 Azure 金鑰保存庫 | 概觀" description="使用此教學課程來幫助您了解如何從 Web 應用程式使用 Azure 金鑰保存庫。" services="key-vault" documentationCenter="" authors="adamhurwitz" manager="" tags="azure-resource-manager"//>
+<properties 
+	pageTitle="從 Web 應用程式使用 Azure 金鑰保存庫 | 概觀" 
+	description="使用此教學課程來幫助您了解如何從 Web 應用程式使用 Azure 金鑰保存庫。" 
+	services="key-vault" 
+	documentationCenter="" 
+	authors="adamhurwitz" 
+	manager=""
+	tags="azure-resource-manager">
 
 <tags 
 	ms.service="key-vault" 
@@ -125,4 +132,4 @@
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

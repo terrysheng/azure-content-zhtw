@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -36,7 +37,7 @@
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## 了解 Azure 資源範本和資源群組
+## 了解 Azure 資源管理員範本和資源群組
 
 在 Microsoft Azure 中部署和執行的應用程式，大部分在建立時會使用不同雲端資源類型的組合 (例如一或多個 VM 和儲存體帳戶、SQL 資料庫或虛擬網路)。有了 Azure 資源管理員範本之後，您就可以使用 JSON 的資源說明、相關設定和部署參數，來部署和管理這些不同的資源。
 
@@ -1126,4 +1127,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

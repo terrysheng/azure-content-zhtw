@@ -5,7 +5,8 @@
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="06/29/2015" 
 	ms.author="josephd"/>
 
 # Azure 基礎結構服務實作指導方針
@@ -22,7 +23,7 @@ Azure 是用來實作 dev/test 或概念證明設定的絕佳平台，因為它�
 
 這個指導方針識別出許多領域，由於規劃了這些領域，而成為 Azure 中 IT 工作負載成功的關鍵。此外，還提供建立必要資源的順序。儘管有一些彈性，但是 Microsoft 建議您在規劃與進行決策時遵循這篇文章裡的順序。
 
-這篇文章摘錄自 [Azure 實作方針](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx)部落格文章的內容。感謝 Santiago Cánepa (Microsoft 應用程式開發經理)、Hugo Salcedo (Microsoft 應用程式開發經理) 和 Greg Hinkel (前 Microsoft 應用程式開發經理) 提供的原始資料。
+這篇文章摘錄自 [Azure 實作方針](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx)部落格文章的內容。感謝 Santiago Cánepa (Microsoft 應用程式開發經理) 和 Hugo Salcedo (Microsoft 應用程式開發經理) 提供的原始資料。
 
 > [AZURE.NOTE]同質群組已經過時，因此此處不再加以描述。如需詳細資訊，請參閱[關於區域 VNet 和同質群組](https://msdn.microsoft.com/library/azure/jj156085.aspx)。
 
@@ -43,10 +44,10 @@ Azure 是用來實作 dev/test 或概念證明設定的絕佳平台，因為它�
 - 名稱開頭 (前置)
 - 名稱結尾 (後置)
 
-例如，以下是兩個適用於裝載計算引擎之雲端服務的可能名稱：
+例如，以下是兩個適用於裝載計算引擎之資源群組的可能名稱：
 
-- Svc-CalculationEngine (前置)
-- CalculationEngine-Svc (後置)
+- Rg-CalculationEngine (前置)
+- CalculationEngine-Rg (後置)
 
 詞綴指的是可說明特定資源的各個層面。下列表格顯示一些常用範例。
 
@@ -54,7 +55,7 @@ Azure 是用來實作 dev/test 或概念證明設定的絕佳平台，因為它�
 --- | --- | ---
 Environment | dev、stg、prod | 取決於每個環境的用途與名稱。
 位置 | usw (West US)、use (East US 2) | 取決於資料中心的區域或組織的區域。
-Azure 元件、服務或產品 | Svc (適用於雲端服務)、VNet (適用於虛擬網路) | 取決於資源提供支援的產品。
+Azure 元件、服務或產品 | Rg (適用於資源群組)、Svc (適用於雲端服務)、VNet (適用於虛擬網路) | 取決於資源提供支援的產品。
 角色 | sql、ora、sp、iis | 取決於 VM 的角色。
 執行個體 | 01、02 和 03 等 | 適用於有一個以上執行個體的資源。例如，雲端服務中負載平衡的 Web 伺服器。
 		
@@ -73,6 +74,7 @@ Azure 元件、服務或產品 | Svc (適用於雲端服務)、VNet (適用於�
 - 虛擬網路
 - 子網路
 - 可用性設定組 (Availability Sets)
+- Resource groups
 - 雲端服務
 - 虛擬機器
 - 端點
@@ -83,7 +85,7 @@ Azure 元件、服務或產品 | Svc (適用於雲端服務)、VNet (適用於�
 
 ### 電腦名稱
 
-當系統管理員建立虛擬機器時，Microsoft Azure 將要求他們提供虛擬機器名稱。Microsoft Azure 將使用該虛擬機器名稱，做為 Azure 虛擬機器資源名稱。Azure 將使用與虛擬機器上安裝之作業系統的電腦名稱相同的名稱。但是，這些名稱不一定相同。
+當系統管理員建立虛擬機器時，Microsoft Azure 將要求他們提供最多 15 個字元的虛擬機器名稱。Microsoft Azure 將使用該虛擬機器名稱，做為 Azure 虛擬機器資源名稱。Azure 將使用與虛擬機器上安裝之作業系統的電腦名稱相同的名稱。但是，這些名稱不一定相同。
 
 若虛擬機器是從已經包含作業系統的 .VHD 檔案中所建立，Microsoft Azure 中的虛擬機器名稱可能會與虛擬機器的作業系統電腦名稱不同。這種情況可能會增加虛擬機器管理的困難度，因此不建議使用。一律確保 Azure 虛擬機器資源名稱與指派給該虛擬機器作業系統的電腦名稱相同。
 
@@ -161,7 +163,7 @@ Azure 中可供使用的儲存體帳戶分為兩種類型。標準儲存體可�
 
 Azure 會建立含有一個作業系統磁碟、一個暫存磁碟，以及零或多個選用資料磁碟的虛擬機器。作業系統磁碟和資料磁碟是 Azure Blob，而暫存磁碟會依儲存體本機備份到該虛擬機器所在的節點。這會使得暫存磁碟不適合用於系統回收期間必須持續存在的資料，因為該虛擬機器可能會以無訊息模式從某個節點移轉到其他節點，因而遺失該磁碟上的所有資料。請勿在暫存磁碟機上儲存任何資料。
 
-作業系統磁碟和資料磁碟的大小上限為 1023 GB (一個 GB 是 10243 位元組)，因為 Blob 的大小上限為 1024 GB 且必須包含 VHD 檔案的中繼資料 (頁尾) 。您可以在 Windows 中實作磁碟等量來超越這個限制。
+作業系統磁碟和資料磁碟的大小上限為 1023 GB (一個 GB 是 1024<sup>3</sup> 位元組)，因為 Blob 的大小上限為 1024 GB 且必須包含 VHD 檔案的中繼資料 (頁尾) 。您可以在 Windows 中實作磁碟等量來超越這個限制。
 
 ### 等量磁碟
 除了能夠建立大於 1023 GB 的磁碟，在許多情況下，針對資料磁碟使用等量，可藉由允許多個 Blob 備份單一磁碟區的儲存體來增強效能。這會與需要從單一磁碟讀取和寫入資料的 I/O 平行處理。
@@ -204,15 +206,19 @@ Microsoft 建議您一開始先為每個儲存體帳戶部署一部虛擬機器�
 
 ## 4.雲端服務
 
-雲端服務是 Azure 中的基本建置組塊，適用於 PaaS 和 IaaS 服務。對於 PaaS，雲端服務代表其執行個體可以彼此通訊之角色的關聯。雲端服務會關聯至公開虛擬 IP (VIP) 位址和負載平衡器，其會取得來自網際網路的連入流量，並將它負載平衡至設定來接收該流量的角色。
+雲端服務是 Azure 服務管理中的基本建置組塊，適用於 PaaS 和 IaaS 服務。對於 PaaS，雲端服務代表其執行個體可以彼此通訊之角色的關聯。雲端服務會關聯至公開虛擬 IP (VIP) 位址和負載平衡器，其會取得來自網際網路的連入流量，並將它負載平衡至設定來接收該流量的角色。
 
 在 IaaS 的案例中，雲端服務可提供類似功能，儘管在大多數案例中，負載平衡器的功能是用來將流量轉接到特定的 TCP 或 UDP 連接埠 (從網際網路到該雲端服務內的多部虛擬機器)。
+
+> [AZURE.NOTE]雲端服務不存在於 Azure 資源管理員中。如需資源管理員優點的介紹，請參閱 [Azure 資源管理員提供的 Azure 運算、網路和儲存提供者](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)。
 
 雲端服務名稱在 IaaS 中特別重要，因為 Azure 會使用它們做為磁碟預設命名慣例的一部分。雲端服務名稱只能包含字母、數字和連字號。欄位中的第一個和最後一個字元，必須是字母或數字。
 
 Microsoft Azure 會公開雲端服務名稱，因為它們會關聯至網域 “cloudapp.net” 中的 VIP。為了得到更好的應用程式使用者體驗，您應該視需要設定虛名，來取代完整格式的雲端服務名稱。這通常是使用您公用 DNS 中的 CNAME 記錄來完成，其會將來源的公用 DNS 名稱 (例如 www.contoso.com) 對應至裝載資源之雲端服務的 DNS 名稱 (例如，裝載適用於 www.contoso.com 之 Web 伺服器的雲端服務)。
 
 此外，用於雲端服務的命名慣例可能需要容許例外狀況，因為不論 Microsoft Azure 租用戶為何，雲端服務名稱在所有其他 Microsoft Azure 雲端服務中是唯一的。
+
+雲端服務必須考量的一個重要限制是，對於雲端服務中的所有虛擬機器一次只能執行一個虛擬機器管理作業。當您對雲端服務中的一個虛擬機器執行虛擬機器管理作業時，您必須等候它完成才能對另一個虛擬機器執行新的管理作業。因此，您應該保持雲端服務中虛擬機器為較少的數量。
 
 Azure 訂用帳戶最多可支援 200 個雲端服務。
 
@@ -342,15 +348,14 @@ Contoso Corporation 開發了新一代財務分析引擎，並具備尖端的專
 - Contoso Azure 訂用帳戶和帳戶
 - 儲存體帳戶
 - 具有兩個子網路的虛擬網路
-- 一組雲端服務
 - 適用於具備類似角色之伺服器組合的可用性設定組
 - 虛擬機器
+- 單一資源群組
 
 以上各項將遵循下列 Contoso 命名慣例：
 
 - Contoso 使用 [IT workload]-[location]-[Azure resource] 做為首碼。針對此範例，"azfae" (Azure 財務分析引擎) 是 IT 工作負載名稱，而 "use" (East US 2) 是位置，因為 Contoso 大多數最初的客戶都位於美國東岸。
 - 儲存體帳戶會使用 contosoazfaeusesa[description] 請注意，已將 contoso 新增為首碼來提供唯一性，而儲存體帳戶名稱不支援使用連字號。
-- 雲端服務會使用 contoso-azfae-use-cs-[description] 請注意，已將 contoso 新增為為首碼來提供唯一性。
 - 虛擬網路會使用 AZFAE-USE-VN[number]。
 - 可用性集會使用 azfae-use-as-[role]。
 - 虛擬機器名稱會使用 azfae-use-vm-[vmname]。
@@ -365,11 +370,6 @@ Contoso 判斷他們需要兩個儲存體帳戶：
 
 - **contosoazfaeusesawebapp**，適用於 Web 伺服器、應用程式伺服器，以及網域控制站及其額外資料磁碟的標準儲存體
 - **contosoazfaeusesasqlclust**，適用於 SQL Server 叢集伺服器及其額外資料磁碟的高階儲存體
-
-Contoso 使用下列 PowerShell 命令來建立這兩個儲存體帳戶：
-
-	New-AzureStorageAccount -StorageAccountName "contosoazfaeusesawebapp" -Location "East US 2"
-	New-AzureStorageAccount -StorageAccountName "contosoazfaeusesasqlclust" -Location "East US 2" -Type Premium_LRS
 
 ### 具有子網路的虛擬網路
 
@@ -386,18 +386,6 @@ Contoso 使用下列 PowerShell 命令來建立這兩個儲存體帳戶：
 - 第二個子網路：
 	- 名稱：BackEnd
 	- 位址空間：10.0.2.0/24
-
-### 雲端服務
-
-Contoso 決定使用兩個雲端服務：
-
-- **contoso-azfae-use-cs-frontend**，適用於前端 Web 伺服器
-- **contoso-azfae-use-cs-backend**，適用於後端應用程式伺服器、SQL Server 叢集伺服器及網域控制站
-
-Contoso 使用下列 PowerShell 命令來建立雲端服務：
-
-	New-AzureService -Service "contoso-azfae-use-cs-frontend" -Location "East US 2"
-	New-AzureService -Service "contoso-azfae-use-cs-backend" -Location "East US 2"
 
 ### 可用性設定組 (Availability Sets)
 
@@ -431,108 +419,12 @@ Contoso 決定為其 Azure 虛擬機器使用下列名稱：
 這個設定包含下列各項：
 
 - 含有兩個子網路 (前端和後端) 且僅限雲端的虛擬網路
-- 兩個雲端服務
 - 兩個儲存體帳戶
 - 四個可用性設定組，每一層財務分析引擎都有一組
 - 適用於四個層級的虛擬機器
 - 適用於以 HTTPS 為基礎之 Web 流量 (從網際網路到 Web 伺服器) 的外部負載平衡組
 - 適用於未加密之 Web 流量 (從 Web 伺服器到應用程式伺服器) 的內部負載平衡組
-
-這些 Azure PowerShell 命令會針對先前建立的儲存體帳戶、雲端服務及虛擬網路，在這個設定中建立虛擬機器。
-
-	#Specify the storage account for the web and application servers
-	Set-AzureSubscription –SubscriptionName "Contoso Enterprise Subscription" -CurrentStorageAccountName "contosoazfaeusesawebapp"
-	
-	#Specify the cloud service name for the web servers
-	$ServiceName="contoso-azfae-use-cs-frontend"
-	
-	#Get the image string for the latest version of the Windows Server 2012 R2 Datacenter image in the gallery
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	
-	#Create the first web server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first web server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-web01 -InstanceSize large -ImageName $image -AvailabilitySetName azfae-use-as-web
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames FrontEnd
-	$vm1 | Add-AzureEndpoint -Name Web1 -Protocol tcp -LocalPort 443 -PublicPort 443 -LBSetName "WebSet" -DefaultProbe
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create the second web server 
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second web server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-web02 -InstanceSize Large -ImageName $image -AvailabilitySetName azfae-use-as-web
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames FrontEnd
-	$vm1 | Add-AzureEndpoint -Name Web2 -Protocol tcp -LocalPort 443 -PublicPort 443 -LBSetName "WebSet" -DefaultProbe
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Specify the cloud service name for the application, SQL server, and authentication tiers
-	$ServiceName="contoso-azfae-use-cs-backend"
-	
-	#Create the first domain controller server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first domain controller server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-dc01 -InstanceSize Small -ImageName $image -AvailabilitySetName azfae-use-as-dc
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel AppFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create the second domain controller server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second domain controller server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-dc02 -InstanceSize Small -ImageName $image -AvailabilitySetName azfae-use-as-dc
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel AppFiles –LUN 0 -HostCaching None
-	New-	AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create an internal load balancer instance for the application server tier 
-	Add-AzureInternalLoadBalancer -ServiceName $ServiceName -InternalLoadBalancerName "AppTierILB" –SubnetName BackEnd –StaticVNetIPAddress 10.0.2.100
-	
-	#Create the first application server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first application server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-app01 -InstanceSize Large -ImageName $image -AvailabilitySetName azfae-use-as-app
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureEndpoint -Name App1 -Protocol tcp -LocalPort 80 -PublicPort 80 -LBSetName "AppSet" -InternalLoadBalancerName "AppTierILB" -DefaultProbe
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 500 -DiskLabel AppFiles –LUN 0 -HostCaching None
-	New-	AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create the second application server 
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second application server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-app02 -InstanceSize Large -ImageName $image -AvailabilitySetName azfae-use-as-app
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Add-AzureEndpoint -Name App2 -Protocol tcp -LocalPort 80 -PublicPort 80 -LBSetName "AppSet" -InternalLoadBalancerName "AppTierILB" -DefaultProbe
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 500 -DiskLabel AppFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Specify the premium storage account for the SQL Server cluster
-	Set-AzureSubscription –SubscriptionName "Contoso Enterprise Subscription" -CurrentStorageAccountName "contosoazfaeusesasqlclust"
-	
-	#Create the majority node witness server for the SQL Server cluster
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the majority node witness server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-sqlmn01 -InstanceSize Medium -ImageName $image -AvailabilitySetName azfae-use-as-sql
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Change the image string for the latest version of the SQL Server 2014 image in the gallery
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	
-	#Create the first SQL Server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first SQL Server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-sql01 -InstanceSize A5 -ImageName $image  -AvailabilitySetName azfae-use-as-sql
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1000 -DiskLabel SQLFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create the second SQL Server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second SQL Server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-sql02 -InstanceSize A5 -ImageName $image  -AvailabilitySetName azfae-use-as-sql
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1000 -DiskLabel SQLFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
+- 單一資源群組
 
 ## 其他資源
 
@@ -546,6 +438,7 @@ Contoso 決定為其 Azure 虛擬機器使用下列名稱：
 
 [資料中心延伸模組參考架構圖表](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
+[Azure 資源管理員提供的 Azure 運算、網路和儲存提供者](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

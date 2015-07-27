@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="開始使用 Azure Search" 
+	pageTitle="開始使用 Azure 搜尋服務 | Microsoft Azure" 
 	description="開始使用 Azure Search" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
 	manager="mblythe" 
-	editor=""/>
+	editor=""
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="search" 
@@ -13,57 +14,46 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/16/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 # 開始使用 Azure Search
 
-[AZURE.INCLUDE [本文使用 Azure Preview 入口網站](../../includes/preview-portal-note.md)]
+Microsoft Azure 搜尋服務是一項可讓您將搜尋功能內嵌到自訂用程式中的新服務。它可為您的資料提供搜尋引擎和儲存體，並讓您透過 .NET 檔案庫或 REST API 加以存取和管理。
 
-Microsoft Azure Search 是一項可讓您將搜尋功能內嵌到自訂用程式中的新服務。它可為您的資料提供搜尋引擎和儲存體，並讓您透過 .NET SK 或 REST API 加以存取和管理。若想深入了解為何要使用 Azure Search 的原因，請參閱 [Azure Search 案例和功能](http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/)。  
+本文章可讓您開始使用 Azure 搜尋服務 REST API。
 
-身為管理員，當您選擇共用服務時，可以在現有訂用帳戶中免費新增搜尋服務，或是如果您選擇的是專用資源，則可以用較低的費率新增搜尋服務。本文包含下列章節：
+.NET 開發人員的替代方式就是使用 Azure 搜尋服務 .NET SDK。如需詳細資訊，請參閱 [開始使用 .NET 中的 Azure 搜尋服務](search-get-started-dotnet.md)或[如何使用 Azure 搜尋服務 .NET SDK](search-howto-dotnet-sdk.md)。
 
+
+> [AZURE.NOTE]若要完成本教學課程，需有 [Azure 訂用帳戶](../includes/free-trial-note.md)。如果尚未準備好註冊試用版訂用帳戶，則您可以略過本教學課程，並改為選擇 [試用 Azure App Service](https://tryappservice.azure.com/)。這個替代選項免費提供您 Azure 搜尋服務與 ASP.NET Web 應用程式 - 每個工作階段一小時 - 不需有訂用帳戶。
+ 
 <a id="sub-1"></a>
 ## 開始使用免費服務
 
+身為管理員，當您選擇共用服務時，可以在現有訂用帳戶中免費新增搜尋服務，或是如果您選擇的是專用資源，則可以用較低的費率新增搜尋服務。
+
 訂戶可自動且免費地存取共用的多租用戶搜尋服務，此服務可用於學習、概念證明測試或是小型開發搜尋專案。請使用下列步驟註冊免費版本。
 
-1. 使用您現有的訂用帳戶登入 [Azure Preview 入口網站](https://portal.azure.com)。請注意，此 URL 會引導您前往預覽入口網站。您必須使用預覽入口網站。 
+1. 使用您現有的訂用帳戶登入 [Azure 入口網站](https://portal.azure.com)。請注意，此 URL 會引導您前往預覽入口網站。您必須使用預覽入口網站。 
 
-2. 按一下頁面底部的 [新增]。
+2. 按一下頁面頂端的 [**新增**]。
  
   	![][6]
 
-3. 按一下頁面頂端的 [全部]。 
+3. 按一下 [**資料 + 儲存體**] | [**搜尋**]。
 
-  	![][7]
+	- 輸入要在服務 URL 中使用的小寫服務名稱，請避免使用空格，並且不要超過 15 個字元的字串限制。
 
-4. 從 [組件庫] 中，按一下 [**資料 + 分析**]。
- 
-  	![][8]
+	- 按一下 [Pricing Tier] 中的箭頭，來選擇收費選項。選擇 [免費] 然後在頁面底部按一下 [選擇]。免費版本所提供的容量，已足夠用來試驗教學課程以及撰寫概念證明程式碼，但並不適用於生產應用程式。
 
-5. 從 [資料服務] 中，按一下 [搜尋]。
- 
-  	![][10]
+	- 按一下 [資源群組] 中的箭頭，選取現有群組或建立新的群組。資源群組是用於一般用途之服務和資源的容器。例如，如果您以 Azure 搜尋服務、Azure 網站和 Azure BLOB 儲存體為基礎建立自訂搜尋應用程式，那麼您可以建立資源群組，來將這些服務一起放在入口網站的管理頁面中。
 
-7. 按一下 [搜尋] 頁面底部的 [建立]。
+	- 如果您有多個訂用帳戶，而且您想針對此搜尋服務使用不同的訂用帳戶，請按一下 [訂用帳戶] 中的箭頭。
 
-8. 輸入要在服務 URL 中使用的小寫服務名稱，請避免使用空格，並且不要超過 15 個字元的字串限制。
- 
-  	![][11]
+	- 按一下 [位置] 中的箭頭，選擇資料中心的區域。在此預覽中，您可以選擇美國西部、美國東部、北歐及東南亞。之後有其他區域上線時，請選擇您要建立服務的區域。公開預覽並不支援將資源分散在多個資料中心的設定。
 
-9. 按一下 [定價層] 中的箭頭，來選擇收費選項。選擇 [免費]，然後在頁面底部按一下 [選擇]。免費版本所提供的容量，已足夠用來試驗教學課程以及撰寫概念證明程式碼，但並不適用於生產應用程式。 
-
-  	![][12]
-
-10. 按一下 [資源群組] 中的箭頭，選取現有群組或建立新的群組。資源群組是用於一般用途之服務和資源的容器。例如，如果您以 Azure 搜尋、Azure 網站和 Azure BLOB 儲存體為基礎建立自訂搜尋應用程式，那麼您可以建立資源群組，來將這些服務一起放在入口網站的管理頁面中。
-
-11. 如果您有多個訂用帳戶，而且您想針對此搜尋服務使用不同的訂用帳戶，請按一下 [訂用帳戶] 中的箭頭。
-
-12. 按一下 [位置] 中的箭頭，選擇資料中心的區域。在此預覽中，您可以選擇美國西部、美國東部、北歐及東南亞。之後有其他區域上線時，請選擇您要建立服務的區域。公開預覽並不支援將資源分散在多個資料中心的設定。
-
-13. 按一下 [建立] 來佈建服務。請注意，只有在填入所有必要值之後，才會啟用 [建立]。 
+4. 按一下 [建立] 來佈建服務。請注意，只有在填入所有必要值之後，才會啟用 [建立]。
 
 幾分鐘後，服務即建立完成。您可以回到組態設定以取得 URL 或 API 金鑰。若想要連接至 [搜尋服務]，您必須同時擁有 URL 和 API 金鑰以驗證呼叫。下面會說明如何快速找到這些值：
 
@@ -71,17 +61,9 @@ Microsoft Azure Search 是一項可讓您將搜尋功能內嵌到自訂用程式
 
   	![][13]
 
-15.	在服務儀表板上，您會看到 [**屬性**] 和 [**金鑰**] 磚，以及可讓您立即清楚知道資源使用量的使用量資訊。 
+15.	在服務儀表板上，您會看到 [屬性] 和 [金鑰] 磚，以及可讓您立即清楚知道資源使用量的使用量資訊。
 
-  	![][23]
-
-   [**屬性**] 包含服務 URL。 
-
-   [**金鑰**] 包含用於驗證的 API 金鑰。
- 
-   [**使用量**] 顯示文件計數、可用資源及儲存體限制。
-
-如需有關如何使用這些值與服務連接的指示，請繼續[測試服務作業](#sub-3) 。
+接著前往[測試服務作業](#sub-3)，可取得如何使用這些值連接至服務的指示。
 
 <a id="sub-2"></a>
 ## 升級至標準搜尋
@@ -92,27 +74,19 @@ Microsoft Azure Search 是一項可讓您將搜尋功能內嵌到自訂用程式
 
 若要使用標準搜尋，請建立新的搜尋服務，並選擇 [標準] 價格層。請注意，升級指的並不是將免費版本就地升級。切換至標準版 (透過其調整規模的潛能) 需要用到新的服務。您將需要重新載入搜尋應用程式所使用的索引和文件。
 
-設定專用資源可能需要一些時間 (15分鐘或更久)。 
+設定專用資源可能需要一些時間 (15分鐘或更久)。
 
-**步驟 1 - 建立價格層設為標準的新服務**
+**步驟 1 - 建立定價層設為標準的新服務**
 
-1. 使用您現有的訂用帳戶登入 [Azure Preview 入口網站](https://portal.azure.com)。 
+1. 使用您現有的訂用帳戶登入 [Azure 入口網站](https://portal.azure.com)。 
 
 2. 按一下頁面底部的 [新增]。
 
-3. 按一下頁面頂端的 [全部]。
+4. 從 [資源庫] 中，按一下 [**資料 + 儲存庫**] | [**搜尋**]。
 
-4. 從 [組件庫] 中，按一下 [**資料 + 分析**]。
+7. 填寫服務組態設定，然後按一下 [**建立**]。
 
-6. 從 [資料服務] 中，按一下 [搜尋]。
-
-7. 按一下 [搜尋] 頁面底部的 [建立]。
-
-8. 輸入要在服務 URL 中使用的小寫服務名稱，請避免使用連字號和空格，並且不要超過 15 個字元的字串限制。
-
-9. 按一下 [定價層] 中的箭頭，來選擇收費選項。選擇 [標準]，然後在頁面底部按一下 [選擇]。
-
- ![][14]
+8. 在 [**定價層**] 中，選取定價選項。選擇 [標準] 然後在頁面底部按一下 [選擇]。
 
 **步驟 2 - 依據規模需求調整搜尋單位**
 
@@ -120,18 +94,18 @@ Microsoft Azure Search 是一項可讓您將搜尋功能內嵌到自訂用程式
 
 1.	建立好服務之後，請回到服務儀表板，按一下 [調整] 磚。
 
-2.	使用滑桿新增副本和 (或) 資料分割。 
+2.	使用滑桿新增副本和 (或) 資料分割。
 
-額外的複本和資料分割會以搜尋單位計費。當您新增資源時，頁面上會顯示要支援任何特定資源設定所需要的搜尋單位總數。 
+額外的複本和資料分割會以搜尋單位計費。當您新增資源時，頁面上會顯示要支援任何特定資源設定所需要的搜尋單位總數。
 
-您可以查看[定價詳細資料](http://go.microsoft.com/fwlink/p/?LinkID=509792)以取得每單位的計費資訊。請參閱[限制和條件約束](http://msdn.microsoft.com/library/azure/dn798934.aspx)可幫助決定如何設定分割和複本的組合。
+您可以查看[定價詳細資料](http://go.microsoft.com/fwlink/p/?LinkID=509792)以取得每單位的計費資訊。有關如何設定資料分割和複本的組合，請參閱[限制和條件約束](http://msdn.microsoft.com/library/azure/dn798934.aspx)以協助您決定設定方式。
 
  ![][15]
 
 <a id="sub-3"></a>
 ## 測試服務作業
 
-設定搜尋服務的最後一個步驟是，確認您的服務可否從用戶端應用程式上操作和存取。此程序使用 Fiddler (您可以[透過 Telerik 免費下載](http://www.telerik.com/fiddler)) 來發出 HTTP 要求和檢視回應。藉由使用 Fiddler，您無須撰寫任何程式碼就可立即測試 API。 
+設定搜尋服務的最後一個步驟是，確認您的服務可否從用戶端應用程式上操作和存取。此程序使用 Fiddler (您可以[透過 Telerik 免費下載](http://www.telerik.com/fiddler)) 來發出 HTTP 要求和檢視回應。藉由使用 Fiddler，您無須撰寫任何程式碼就可立即測試 API。
 
 下列程序在共用及標準搜尋中皆適用。在以下步驟中，您將建立索引、上傳文件、查詢索引，然後查詢系統以取得服務資訊。
 
@@ -145,28 +119,28 @@ Microsoft Azure Search 是一項可讓您將搜尋功能內嵌到自訂用程式
 
 3. 輸入可指出服務 URL (可在 [Properties (屬性)] 頁面上找到)、要求屬性和 API 版本的完整 URL。請留意以下幾點：
    + 使用 HTTPS 作為首碼
-   + 要求屬性為 "/indexes/hotels"。這樣可告知「搜尋」建立名為  'hotels' 的索引。
-   + API 版本為小寫，並指定為 "?api-version=2014-07-31-preview"。API 版本十分重要，因為 Azure 搜尋會定期部署更新。在極少數情況下，更新服務可能會對 API 造成中斷變更。使用 API 版本時，您可以先繼續使用現有版本，方便時再升級到較新的版本。
+   + 要求屬性為 "/indexes/hotels"。這可告知「搜尋」建立名為 'hotels' 的索引。
+   + API 版本為小寫，並指定為 "?api-version=2015-02-28"。API 版本十分重要，因為 Azure 搜尋服務會定期部署更新。在極少數情況下，更新服務可能會對 API 造成中斷變更。使用 API 版本時，您可以先繼續使用現有版本，方便時再升級到較新的版本。
 
     完整 URL 應該會類似下列範例：
 
-         https://my-app.search.windows.net/indexes/hotels?api-version=2014-07-31-Preview
+         https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
 
 4.	指定要求標頭，使用服務的有效值取代主機和 API 金鑰。
 
-			User-Agent: Fiddler
-        	host: my-app.search.windows.net
-        	content-type: application/json
-        	api-key: 1111222233334444
+        User-Agent: Fiddler
+        host: my-app.search.windows.net
+        content-type: application/json
+        api-key: 1111222233334444
 
 5.	在 [Request Body (要求本文)] 中，貼上構成索引定義的欄位。
 
-         	{
-        	"name": "hotels",  
-       	 "fields": [
+         {
+        "name": "hotels",  
+        "fields": [
           {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
           {"name": "baseRate", "type": "Edm.Double"},
-          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true},
+          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
           {"name": "hotelName", "type": "Edm.String", "suggestions": true},
           {"name": "category", "type": "Edm.String"},
           {"name": "tags", "type": "Collection(Edm.String)"},
@@ -175,12 +149,12 @@ Microsoft Azure Search 是一項可讓您將搜尋功能內嵌到自訂用程式
           {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
           {"name": "rating", "type": "Edm.Int32"},
           {"name": "location", "type": "Edm.GeographyPoint"}
-         	] 
-        	}
+         ] 
+        }
 
-6.	按一下 [執行]。
+6.	按一下 [Execute (執行)]。
 
-幾秒鐘後，您應該就會在工作階段清單中看見 HTTP 201 的回應，其指出已成功建立索引。 
+幾秒鐘後，您應該就會在工作階段清單中看見 HTTP 201 的回應，指出已成功建立索引。
 
 如果您收到 HTTP 504，請確認 URL 所指定的是 HTTPS。如果您看見 HTTP 400 或 404，請查看要求本文以確認並沒有「複製-貼上」錯誤。HTTP 403 通常表示 API 金鑰有問題 (可能是金鑰無效或是用來指定 API 金鑰的語法有問題)。
 
@@ -192,22 +166,22 @@ Microsoft Azure Search 是一項可讓您將搜尋功能內嵌到自訂用程式
 
 1. 選取 [POST]。
 
-2.	輸入以 HTTPS 開頭，並於後面依序加上服務 URL 和 "/indexes/<'indexname'>/docs/index?api-version=2014-07-31-preview" 的完整 URL。完整 URL 應該會類似下列範例：
+2.	輸入以 HTTPS 開頭的 URL，並於後面依序加上服務 URL 和 "/indexes/<'indexname'>/docs/index?api-version=2015-02-28"。完整 URL 應該會類似下列範例：
 
-        https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2014-07-31-Preview
+        https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
 3.	要求標頭應與之前的相同。請記住，您已使用您服務的有效值取代主機和 API 金鑰。
 
-        	User-Agent: Fiddler
-        	host: my-app.search.windows.net
-        	content-type: application/json
-        	api-key: 1111222233334444
+        User-Agent: Fiddler
+        host: my-app.search.windows.net
+        content-type: application/json
+        api-key: 1111222233334444
 
 4.	[Request Body (要求本文)] 包含 4 個要新增到飯店索引的文件。
 
-       	 {
-        	"value": [
-       	 {
+        {
+        "value": [
+        {
         	"@search.action": "upload",
         	"hotelId": "1",
         	"baseRate": 199.0,
@@ -262,11 +236,11 @@ Microsoft Azure Search 是一項可讓您將搜尋功能內嵌到自訂用程式
         	"lastRenovationDate": null,
         	"rating": 4,
         	"location": { "type": "Point", "coordinates": [-122.12151, 47.67399] }
-         	 }
-        	 ]
-        	}
+          }
+         ]
+        }
 
-8.	按一下 [執行]。
+8.	按一下 [Execute (執行)]。
 
 幾秒鐘後，您應該就會在工作階段清單中看見 HTTP 200 的回應。這表示已成功建立文件。如果您收到 207，表示至少有一個文件上傳失敗。如果您收到 404，則表示要求的標頭或本文有語法錯誤。
 
@@ -276,57 +250,56 @@ Microsoft Azure Search 是一項可讓您將搜尋功能內嵌到自訂用程式
 
    ![][18]
 
-1.	選取 **GET**。
+1.	選取 [GET]。
 
 2.	輸入以 HTTPS 開頭，並於後面依序加上服務 URL、"/indexes/<'indexname'>/docs?" 和查詢參數的完整 URL。舉例來說，使用下列 URL，並以服務的有效值取代範例主機名稱。
 
-        https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2014-07-31-Preview
+        https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
 
     此查詢會搜尋「motel」一字，並擷取評等的 Facet 類別。
 
 3.	要求標頭應與之前的相同。請記住，您已使用您服務的有效值取代主機和 API 金鑰。
 
-        	User-Agent: Fiddler
-        	host: my-app.search.windows.net
-        	content-type: application/json
-        	api-key: 1111222233334444
+        User-Agent: Fiddler
+        host: my-app.search.windows.net
+        content-type: application/json
+        api-key: 1111222233334444
 
 回應碼應為 200，而回應的輸出看起來應該會類似下圖。
  
    ![][19]
 
-下列範例查詢來自 MSDN 上的[搜尋索引作業 (Azure Searc API)](http://msdn.microsoft.com/library/dn798927.aspx)。此主題中有許多範例查詢包含空格，這在 Fiddler 中是不允許的。因此，請先使用 + 字元取代空格，再貼到查詢字串中，然後再於 Fiddler 中嘗試該查詢： 
+下列範例查詢來自 MSDN 上的[搜尋索引作業 (Azure 搜尋服務 API)](http://msdn.microsoft.com/library/dn798927.aspx) (英文)。此主題中有許多範例查詢包含空格，這在 Fiddler 中是不允許的。因此，請先使用 + 字元取代空格，再貼到查詢字串中，然後再於 Fiddler 中嘗試該查詢：
 
 **取代空格之前：**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2014-07-31-Preview
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
 
 **以 + 取代空格之後：**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2014-07-31-Preview
-
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2015-02-28
 ### 查詢系統
 
 您也可以查詢系統以取得文件計數和儲存體用量。在 [Composer (編寫器)] 索引標籤上，您的要求看起來會像下面這樣，而回應會傳回文件計數和空間的使用量。
 
    ![][20]
 
-1.	選取 **GET**。
+1.	選取 [GET]。
 
-2.	輸入由服務 URL 和 "/indexes/hotels/stats?api-version=2014-07-31-Preview" 組成的完整 URL：
+2.	輸入含有服務 URL 的 URL，並於後面加上 "/indexes/hotels/stats?api-version=2015-02-28"：
 
-        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2014-07-31-Preview 
+        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28 
 
 3.	指定要求標頭，使用服務的有效值取代主機和 API 金鑰。
 
-        	User-Agent: Fiddler
-       	 host: my-app.search.windows.net
-        	content-type: application/json
-       	 api-key: 1111222233334444
+        User-Agent: Fiddler
+        host: my-app.search.windows.net
+        content-type: application/json
+        api-key: 1111222233334444
 
 4.	讓要求本文保持空白。
 
-5.	按一下 [執行]。您應該會在工作階段清單中看到 HTTP 200 的狀態碼。選取為命令張貼的項目。
+5.	按一下 [Execute (執行)]。您應該會在工作階段清單中看到 HTTP 200 的狀態碼。選取為命令張貼的項目。
 
 6.	按一下 [Inspectors (檢測器)] 索引標籤 | [標頭]，然後選取 [JSON] 格式。您應該會看到文件計數和儲存體大小 (以 KB計算)。
 
@@ -337,48 +310,46 @@ Microsoft Azure Search 是一項可讓您將搜尋功能內嵌到自訂用程式
 
 如果您需要複習如何尋找設定頁面，請依循以下步驟尋找服務儀表板。
 
-1.	使用您現有的訂用帳戶登入 [Azure Preview 入口網站](https://portal.azure.com)。 
+1.	使用您現有的訂用帳戶登入 [Azure 入口網站](https://portal.azure.com)。 
 2.	按一下 [**首頁**]，然後按一下搜尋服務的磚。
 
  	![][22]
 
-4.	按一下磚會開啟服務儀表板。請注意，[啟動]、[停止] 及 [刪除] 命令皆在頂端。服務儀表板包含用來檢視 [屬性]、[金鑰] 及 [快速啟動] 的磚，並且有連結可查看相關資訊和指示。向下捲動以檢視 [使用量]。
+4.	按一下磚會開啟服務儀表板。請注意，[啟動]、[停止] 及 [刪除] 命令皆在頂端。
 
-5.	按一下 [屬性]。請注意，[屬性] 頁面會在右方開啟。服務 URL 位於頁面頂端。您需要此 URL 來連接到 Azure 搜尋服務。
-
- 	![][23]
+5.	請注意，服務 URL 是在頁面頂端附近。您需要此 URL 來連接到 Azure 搜尋服務。
 	
-7.	按一下 [**金鑰**] 檢視 api 金鑰。您需要系統管理金鑰來驗證服務。您可以使用主要或次要金鑰。(選擇性) 您可以建立查詢金鑰以進行服務的唯讀存取。
+7.	按一下 [**金鑰**] 圖示以檢視 API 金鑰。您需要系統管理金鑰來驗證服務。您可以使用主要或次要金鑰。(選擇性) 您可以建立查詢金鑰以進行服務的唯讀存取。
 
 
 <!--Next steps and links -->
 <a id="next-steps"></a>
 ## 立即試用
 
-準備好前往下一個步驟了嗎？下列連結會引導您前往其他資料頁面，這些頁面會說明如何建置和管理使用 Azure 搜尋的搜尋應用程式。
+準備好前往下一個步驟了嗎？ 下列連結會引導您前往其他資料頁面，這些頁面會說明如何建置和管理使用 Azure 搜尋服務的搜尋應用程式。
 
-- [建立第一個 Azure Search 方案](search-create-first-solution.md) 
+- [建立 Azure 搜尋服務 GeoSearch 範例](search-create-geospatial.md)
 
-- [建立 Azure Search GeoSearch 範例](search-create-geospatial.md)
+- [在 Microsoft Azure 中管理搜尋方案](search-manage.md)
 
-- [在 Microsoft Azure 中管理搜尋方案](search-manage.md) 
+- [何謂 Azure 搜尋服務？](search-what-is-azure-search.md)
 
-- [Azure Search 技術概觀](http://msdn.microsoft.com/library/dn798933.aspx)
+- [Azure 搜尋服務 REST API](http://msdn.microsoft.com/library/dn798935.aspx)
 
-- [Azure Search REST API](http://msdn.microsoft.com/library/dn798935.aspx)
+- [Azure 搜尋服務 .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)
 
-- [第 9 頻道視訊：Azure Search 簡介](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
+- [第 9 頻道影片：Azure 搜尋服務簡介](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
 
-- [第 9 頻道視訊：Azure Search 和地理空間資料](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)
+- [第 9 頻道影片：Azure 搜尋服務和地理空間資料](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)
 
-- [雲端報導第 152 集：在 Azure Search 中產生索引](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh)
+- [雲端報導第 152 集：在 Azure 搜尋服務中產生索引](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh)
 
 <!--Anchors-->
-[開始使用免費服務]: #sub-1
-[升級至標準搜尋]: #sub-2
-[測試服務作業]: #sub-3
-[瀏覽搜尋服務儀表板]: #sub-4
-[立即試用]: #next-steps
+[Start with the free service]: #sub-1
+[Upgrade to standard search]: #sub-2
+[Test service operations]: #sub-3
+[Explore Search service dashboard]: #sub-4
+[Try it out]: #next-steps
 
 <!--Image references-->
 [6]: ./media/search-get-started/AzureSearch_Configure1_1_New.PNG
@@ -402,11 +373,9 @@ Microsoft Azure Search 是一項可讓您將搜尋功能內嵌到自訂用程式
 
 
 <!--Link references-->
-[在 Microsoft Azure 中管理搜尋方案]: search-manage.md
-[Azure Search 開發工作流程]: search-workflow.md
-[建立第一個 Azure Search 方案]: search-create-first-solution.md
-[使用 Azure Search 建立地理空間搜尋應用程式]: search-create-geospatial.md
+[Manage your search solution in Microsoft Azure]: search-manage.md
+[Azure Search development workflow]: search-workflow.md
+[Create your first azure search solution]: search-create-first-solution.md
+[Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!--HONumber=49--> 
-
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

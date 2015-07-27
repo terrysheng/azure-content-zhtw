@@ -5,7 +5,8 @@
    documentationCenter="dev-center-name"
    authors="mahthi"
    manager="coreysa"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -47,7 +48,7 @@ Azure Resource Manager 可讓您輕鬆運用預先建立的應用程式範本，
 
 ## 新 API 帶來的觀念差異
 
-在本節中，我們會詳細解說時下流行的 XML 型 API 和透過適用於運算、網路和儲存體的 Azure Resource Manager 所提供的  JSON 型 API，二者之間存在的重大觀念差異。
+在本節中，我們會詳細解說時下流行的 XML 型 API 和透過適用於運算、網路和儲存體的 Azure Resource Manager 所提供的 JSON 型 API，二者之間存在的重大觀念差異。
 
  項目 | Azure 服務管理 (XML 型) | 運算、網路和儲存提供者 (JSON 型)
  ---|---|---
@@ -58,7 +59,8 @@ Azure Resource Manager 可讓您輕鬆運用預先建立的應用程式範本，
 |虛擬 IP 位址 | 將 VM 新增到雲端服務後，雲端服務會得到預設的 VIP (虛擬 IP 位址)。虛擬 IP 位址是隱含性負載平衡器的相關位址。 | 公用 IP 位址是 Microsoft.Network 提供者所公開的資源。公用 IP 位址可以是靜態 (保留) 或動態。動態公用 IP 可以指派至負載平衡器。使用安全性群組可以保護公用 IP。 |
 |保留 IP 位址|	您可以將 IP 位址保留在 Azure 中，然後與雲端服務建立關聯，確保 IP 位址不會變動。 | 您可以在「靜態」模式中建立公用 IP 位址，然後它就具備「保留的 IP 位址」一樣的功能。靜態公用 IP 現在只能指派至負載平衡器。 |
 |每一個 VM 的公用 IP 位址 (PIP) | 公用 IP 位址也可以直接與 VM 建立關聯。 | 公用 IP 位址是 Microsoft.Network 提供者所公開的資源。公用 IP 位址可以是靜態 (保留) 或動態。不過，只有動態公用 IP 才可以指派至網路介面，以立即取得每一個 VM 的公用 IP。 |
-|端點| 輸入端點需要在開放特定連接埠連線的虛擬機器上設定。設定輸入端點之後，就能完成幾個常見的虛擬機器連線模式之一。| 您可以在負載平衡器上設定「傳入 NAT 規則」，以達到啟用特定連接埠上的端點以連線至 VM 的相同功能。 |
+|端點| 輸入端點需要在開放特定連接埠連線的虛擬機器上設定。設定輸入端點之後，就能完成幾個常見的虛擬機器連線模式之一。  
+ | 您可以在負載平衡器上設定「傳入 NAT 規則」，以達到啟用特定連接埠上的端點以連線至 VM 的相同功能。 |
 |DNS 名稱| 雲端服務會取得隱含的全域唯一 DNS 名稱。例如：`mycoffeeshop.cloudapp.net`。 | DNS 名稱是可以在公用 IP 位址資源上指定的選用參數。FQDN 的格式如下 - `<domainlabel>.<region>.cloudapp.azure.com`。 |
 |網路介面 | 主要和次要網路介面與其屬性會定義為虛擬機器的網路組態。 | 網路介面是 Microsoft.Network 提供者所公開的資源。網路介面的生命週期與虛擬機器無關。 |
 
@@ -102,12 +104,12 @@ Azure 命令列介面 (Azure CLI) 有兩種部署模式 - **AzureServiceManageme
 
 **我可以透過新的 Azure Resource Manager API，繼續使用自動指令碼佈建虛擬機器、虛擬網路、儲存體帳戶嗎？**
 
-所有您建立的自動化和指令碼，仍然適用於 Azure 服務管理模式下建立的現有虛擬機器和虛擬網路。不過，您必須更新指令碼，才能使用新的結構描述並透過 Azure Resource Manager 模式建立相同的資源。
+所有您建立的自動化和指令碼，仍然適用於 Azure 服務管理模式下建立的現有虛擬機器和虛擬網路。不過，您必須更新指令碼，才能使用新的結構描述並透過 Azure Resource Manager 模式建立相同的資源。  
 進一步了解如何修改 [Azure CLI 指令碼](xplat-cli-azure-manage-vm-asm-arm.md)。
 
 **使用新的 Azure Resource Manager API 建立的虛擬網路，可以連線到我的 Express Route Circuit 嗎？**
 
 目前尚未支援。使用新的 Azure Resource Manager API 建立的虛擬網路並無法連線到 Express Route Circuit。未來將會支援。
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

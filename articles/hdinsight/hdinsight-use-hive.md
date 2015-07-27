@@ -1,7 +1,6 @@
 <properties
 	pageTitle="了解什麼是 Hive 以及如何使用 HiveQL |Microsoft Azure"
-	description="了解 Apache Hive 以及如何搭配 HDInsight 中的 Hadoop 使用它。選擇想要如何執行 Hive 工作，並使用 HiveQL 分析範例 Apache Log4j 檔案。" 
-	keywords="hiveql,what is hive"
+	description="了解 Apache Hive 以及如何搭配 HDInsight 中的 Hadoop 使用它。選擇如何執行 Hive 工作，並使用 HiveQL 分析範例 Apache Log4j 檔案。"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/23/2015"
+	ms.date="07/06/2015"
 	ms.author="larryfr"/>
 
 # 搭配 HDInsight 中的 Hadoop 使用 Hive 和 HiveQL 來分析範例 Apache Log4j 檔案
@@ -24,7 +23,7 @@
 
 在本教學課程中，您將了解如何在 HDInsight 中使用 Hadoop 內的 Apache Hive，以及選擇要如何執行 Hive 工作。您也將了解 HiveQL 以及如何分析範例 Apache Log4j 檔案。
 
-##<a id="why"></a>什麼是 Hive，為什麼要使用它？ 
+##<a id="why"></a>什麼是 Hive，為什麼要使用它？
 [Apache Hive](http://hive.apache.org/) 是適用於 Hadoop 的資料倉儲系統，可透過 HiveQL (與 SQL 類似的查詢語言) 執行資料摘要、查詢以及資料分析。Hive 可以互動方式用於探索資料，或者建立可重複使用的批次處理工作。
 
 Hive 可讓您將結構投影在大量非結構化資料上。定義結構後，您不須具備 Jave 或 MapReduce 相關知識，即可使用 Hive 查詢該資料。**HiveQL** (Hive 查詢語言) 可讓您使用類似於 T-SQL 的陳述式撰寫查詢。
@@ -73,11 +72,11 @@ Hive 也可透過**使用者定義函數 (UDF)** 延伸。UDF 可讓您在 HiveQ
 * **CREATE EXTERNAL TABLE**：在 Hive 中建立新的**外部**資料表。外部資料表只會在 Hive 中儲存資料表定義；資料會以原始格式保留在原始位置。
 * **ROW FORMAT**：告訴 Hive 如何格式化資料。在此情況下，每個記錄中的欄位會以空格隔開。
 * **STORED AS TEXTFILE LOCATION**：告訴 Hive 資料的儲存位置 (example/data 目錄) 且資料儲存為文字。資料可以在目錄的一個檔案中，也可以分散在多個檔案中。
-* **SELECT**：選擇其資料行 **t4** 包含值 **[ERROR]** 的所有資料列計數。這應該會傳回值 **3**，因為有三個資料列包含此值。
+* **SELECT**：選取其資料行 **t4** 包含 **[ERROR]** 值的所有資料列計數。這應該會傳回值 **3**，因為有三個資料列包含此值。
 
 > [AZURE.NOTE]當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，並希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。
 >
-> 捨棄外部資料表並「不會」****刪除資料，只會刪除資料表定義。
+> 捨棄外部資料表並「不會」刪除資料，只會刪除資料表定義。
 
 建立外部資料表後，下列的陳述式可用於建立**内部**資料表。
 
@@ -163,4 +162,4 @@ HDInsight 可以使用各種方法執行 Hive QL 工作。請使用下表決定�
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

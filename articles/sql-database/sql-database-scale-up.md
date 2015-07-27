@@ -27,7 +27,9 @@
 
 您可以使用 Azure 管理入口網站、[PowerShell](https://msdn.microsoft.com/library/azure/dn546726.aspx) 或 [REST API](https://msdn.microsoft.com/library/dn505719.aspx) 輕鬆地在任何服務層之間移動。
 
-在服務層之間移動時，請考慮以下情況：- 升級服務層或效能等級前，請先確定您在伺服器上有可用的配額。如果您需要額外配額，請連絡客戶支援。- 同盟資料庫無法升級至基本、標準或高階服務層。
+在服務層之間移動時，請考慮以下情況：
+- 升級服務層或效能等級前，請先確定您在伺服器上有可用的配額。如果您需要額外配額，請連絡客戶支援。
+- 同盟資料庫無法升級至基本、標準或高階服務層。
 
 - 若要將資料庫降級，資料庫應該小於目標服務層允許的大小上限。如需每個服務層允許大小的詳細資訊，請參閱本節稍後的服務層與資料庫大小表格。
 
@@ -41,9 +43,11 @@
 
 - 完成變更之前，不會將新屬性套用至資料庫。
 
-請注意以下事項：- 2015 年 9 月將會淘汰 Business 和 Web 服務層。如需詳細資訊，請參閱 [Web 和 Business Edition 終止常見問題集](https://msdn.microsoft.com/library/azure/dn741330.aspx)。
+請注意以下事項：
+- 2015 年 9 月將會淘汰 Business 和 Web 服務層。如需詳細資訊，請參閱 [Web 和 Business Edition 終止常見問題集](https://msdn.microsoft.com/library/azure/dn741330.aspx)。
 
-<note included> - 請務必注意，目前實作的[「同盟」將與 Web 和 Business 服務層一起被淘汰](https://msdn.microsoft.com/library/azure/dn741330.aspx)。建議您使用 [Elastic Scale for Azure SQL Database](sql-database-elastic-scale-get-started.md)，在 Azure SQL Database 上建置分區化的向外延展解決方案。若要試用，請參閱「開始使用 Azure SQL Database Elastic Scale 預覽」。
+<note included> 
+- 請務必注意，目前實作的[「同盟」將與 Web 和 Business 服務層一起被淘汰](https://msdn.microsoft.com/library/azure/dn741330.aspx)。建議您使用 [Elastic Scale for Azure SQL Database](sql-database-elastic-scale-get-started.md)，在 Azure SQL Database 上建置分區化的向外延展解決方案。若要試用，請參閱「開始使用 Azure SQL Database Elastic Scale 預覽」。
 
 ## 升級至較高的服務層
 使用下列其中一種方法升級資料庫。這些步驟是針對升級至高階服務層，但也適用於所有的升級情形。
@@ -64,7 +68,11 @@
 2. 使用 New-AzureSqlDatabaseServerContext Cmdlet 設定伺服器內容。＜使用 Azure PowerShell 命令＞一節中有範例語法。
 3. 取得資料庫的控制代碼，然後鎖定效能等級。使用 Set-AzureSqlDatabase –ServiceObjective 指定效能等級
 
-使用範例 在此範例中：- 此範例示範如何升級至高階服務層。- 建立指向 "somedb" 資料庫名稱的 $db 控制代碼。- 建立指向高階效能等級 1 的 $P1 控制代碼。- 將資料庫 $db 的效能等級設定為 $P1。
+使用範例 在此範例中：
+- 此範例示範如何升級至高階服務層。
+- 建立指向 "somedb" 資料庫名稱的 $db 控制代碼。
+- 建立指向高階效能等級 1 的 $P1 控制代碼。
+- 將資料庫 $db 的效能等級設定為 $P1。
 
 		Windows PowerShell:
 
@@ -120,7 +128,8 @@
 
 如果您變更效能等級的高階資料庫已設定「主動式異地複寫關聯性」，請針對主要資料庫和作用中次要資料庫，依照以下順序執行：
 
-這是因為作用中次要資料庫必須等於或高於主要資料庫的效能等級。- 如果您要從較高的效能等級變更為較低的效能等級，請先從主要資料庫開始變更，再接著變更一或多個作用中次要資料庫。
+這是因為作用中次要資料庫必須等於或高於主要資料庫的效能等級。
+- 如果您要從較高的效能等級變更為較低的效能等級，請先從主要資料庫開始變更，再接著變更一或多個作用中次要資料庫。
 
 - 如果您要從較低的效能等級變更為較高的效能等級，請先從作用中次要資料庫開始變更，最後才變更主要資料庫。
 
@@ -203,7 +212,8 @@
 
 2. 從 [Azure SDK 和工具下載](http://azure.microsoft.com/downloads/)的＜命令列工具＞一節下載 Azure PowerShell。
 
-執行下列動作：從 [開始] 畫面或 [開始] 功能表，瀏覽至 Azure PowerShell 並加以啟動。
+執行下列動作：
+從 [開始] 畫面或 [開始] 功能表，瀏覽至 Azure PowerShell 並加以啟動。
 
 輸入伺服器的使用者名稱和密碼。
 
@@ -229,4 +239,4 @@ Azure PowerShell 參考 若要查看本主題中使用之 Azure PowerShell Cmdle
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

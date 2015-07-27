@@ -5,7 +5,7 @@
 
    	![](./media/mobile-services-windows-store-test-push/mobile-quickstart-push1.png)
 
-   	Note that after the insert completes, the app receives a push notification from WNS.
+   	請注意插入完成之後，應用程式會收到 WNS 的推播通知。
 
    	![](./media/mobile-services-windows-store-test-push/mobile-quickstart-push2.png)
 

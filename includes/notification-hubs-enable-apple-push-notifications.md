@@ -98,7 +98,7 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 
-2. 將 [Development] 下方的 [iOS App Development] 選為佈建設定檔類型，然後按一下 [Continue]。
+2. 將 [Development] 下方的 [iOS App 開發 ] 選為佈建設定檔類型，然後按一下 [Continue]。
 
 
 3. 接著，從 [**應用程式識別碼**] 下拉式清單選取您剛建立的應用程式識別碼，然後按一下 [**繼續**]。

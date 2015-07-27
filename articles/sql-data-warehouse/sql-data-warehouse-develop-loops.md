@@ -69,7 +69,7 @@ DROP TABLE #tbl;
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 ## 後續步驟
-如需更多開發秘訣，請參閱[開發概觀][]。
+如需更多開發祕訣，請參閱[開發概觀][]。
 
 <!--Image references-->
 
@@ -82,4 +82,4 @@ DROP TABLE #tbl;
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

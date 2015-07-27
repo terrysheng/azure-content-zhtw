@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tomfitz"/>
 
 # 佈建 Web 應用程式與 SQL Database
@@ -24,7 +24,7 @@
 
 如需有關部署應用程式的詳細資訊，請參閱[透過可預測方式在 Azure 中部署複雜應用程式](app-service-deploy-complex-application-predictably.md)。
 
-如需完整的範本，請參閱 [Web 應用程式與 SQL Database 範本](../../templates/app-service-web-arm-with-sql-database-provision/)。
+如需完整的範本，請參閱 [Web 應用程式與 SQL Database 範本](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json)。
 
 ## 部署內容
 
@@ -36,6 +36,10 @@
 - 自動調整設定
 - 警示規則
 - 應用程式情資
+
+若要自動執行部署，請按一下下列按鈕：
+
+[![部署至 Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
 ## 要指定的參數
 
@@ -101,12 +105,16 @@
 
 ### maxSizeBytes
 
+資料庫的大小上限 (位元組)。
+
     "maxSizeBytes": {
       "type": "string",
       "defaultValue": "1073741824"
     }
 
 ### requestedServiceObjectiveId
+
+與版本的效能等級對應的 GUID。如需可用值的清單，請參閱[建立資料庫](https://msdn.microsoft.com/library/azure/dn505701.aspx)。預設值會對應至 Web 效能等級。
 
     "requestedServiceObjectiveId": {
         "type": "string",
@@ -168,7 +176,7 @@
 ### Web 應用程式
 
     {
-      "apiVersion": "2014-06-01",
+      "apiVersion": "2015-06-01",
       "name": "[parameters('siteName')]",
       "type": "Microsoft.Web/Sites",
       "location": "[parameters('siteLocation')]",
@@ -426,13 +434,13 @@
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/webandsql.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/webandsql.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

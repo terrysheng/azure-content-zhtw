@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -62,7 +62,7 @@ UCI 網站提供了功能向量的屬性說明，這些屬性包括財務資訊�
 2.	按一下視窗底部的 [**+新增**]。
 3.	選取 [**資料集**]。
 4.	選取 [**從本機檔案**]。
-5.	在 [**上傳新的資料集對話方塊**] 中按一下 [**瀏覽**]，然後尋找您建立的 **german.csv** 檔案
+5.	在 [**上傳新的資料集**] 對話方塊中按一下 [**瀏覽**]，然後尋找您建立的 **german.csv** 檔案。
 6.	輸入資料集的名稱。在此例中，我們稱它為「UCI 德國信用卡資料」。
 7.	針對資料類型，請選取**不具標頭的一般 CSV 檔案 (.nh.csv)**。
 8.	視需要新增說明。
@@ -80,4 +80,4 @@ UCI 網站提供了功能向量的屬性說明，這些屬性包括財務資訊�
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

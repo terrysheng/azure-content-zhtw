@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="SugarCRM 連接器" 
-   description="如何使用 SugarCRM 連接器" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="SugarCRM 連接器"
+   description="如何使用 SugarCRM 連接器"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="04/01/2015"
-   ms.author="vagarw"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #在邏輯應用程式中使用 SugarCRM 連接器#
@@ -32,7 +32,7 @@
 
 ##SugarCRM 連接器動作##
 以下是 SugarCRM 連接器中可使用的不同動作。
- 
+
 - 建立模組 - 使用此動作建立 SugarCRM 模組的新記錄，例如帳戶、潛在客戶、連絡人。
 
 - 更新模組 - 使用此動作更新 SugarCRM 模組的現有記錄。
@@ -48,7 +48,7 @@
 - 檢查重複模組 - 使用此動作檢查模組中重複的記錄。
 
 *注意*：如需查詢中的引數之詳細資訊，請參閱 SugarCRM REST API 文件。
-   
+
 ##建立 SugarCRM 連接器 API 應用程式##
 1.	使用 Azure 入口網站右下方的 [+新增] 選項開啟 Azure Marketplace。
 2.	瀏覽至 [Web 與行動] > [API 應用程式]，並搜尋「SugarCRM 連接器」。
@@ -154,7 +154,4 @@
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

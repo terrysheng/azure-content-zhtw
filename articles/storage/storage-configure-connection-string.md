@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/08/2015" 
 	ms.author="tamram"/>
 
 # 設定 Azure 儲存體連接字串
@@ -41,15 +41,7 @@
 
 ## 建立儲存體模擬器的連接字串
 
-儲存體模擬器帳戶是具有已知名稱和金鑰的本機帳戶。您可以使用捷徑字串格式 (`UseDevelopmentStorage=true`)，參考連接字串內的儲存體模擬器。例如，在 app.config 中儲存體模擬器的連接字串看起來會像這樣：
-
-    <appSettings>
-      <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
-    </appSettings>
-
-您也可以指定在對儲存體模擬器測試服務時要使用的 HTTP Proxy。當您正在對儲存體服務進行作業偵錯時，這對於觀察 HTTP 要求和回應非常有用。若要指定 Proxy，可將 `DevelopmentStorageProxyUri` 選項加入連接字串，並將其值設為 Proxy URI。例如，以下是指向儲存體模擬器並設定 HTTP Proxy 的連接字串：
-
-    UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
+[AZURE.INCLUDE [storage-emulator-connection-string-include](../../includes/storage-emulator-connection-string-include.md)]
 
 如需儲存體模擬器的詳細資訊，請參閱[使用 Azure 儲存體模擬器進行開發和測試](storage-use-emulator.md)。
 
@@ -60,9 +52,10 @@
     DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey
 
 例如，您的連接字串看起來會類似下列連接字串範例：
-
-```        DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtB7wYQw33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIAy5l/Yhg==
-```
+ 
+	DefaultEndpointsProtocol=https;
+	AccountName=storagesample;
+	AccountKey=<account-key>
 
 > [AZURE.NOTE]Azure 儲存體服務可同時支援連接字串中的 HTTP 和 HTTPS；不過，強烈建議您使用 HTTPS。
     
@@ -75,9 +68,12 @@
 
 若要建立指定明確 Blob 端點的連接字串，請使用下列格式來指定每個服務的完整服務端點，包括通訊協定規格 (HTTP 或 HTTPS)：
 
-``` 
-BlobEndpoint=myBlobEndpoint;QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;FileEndpoint=myFileEndpoint;[credentials]
-```
+	BlobEndpoint=myBlobEndpoint;
+	QueueEndpoint=myQueueEndpoint;
+	TableEndpoint=myTableEndpoint;
+	FileEndpoint=myFileEndpoint;
+	[credentials]
+
 
 您必須至少指定一個服務端點，但不需指定全部的服務端點。例如，如果您正在建立連接字串來與自訂的 Blob 端點搭配使用，則指定佇列和資料表端點是選擇性的。請注意，如果您選擇在連接字串中省略佇列和資料表端點，則您將無法使用該連接字串，從程式碼中存取佇列和資料表服務。
 
@@ -92,9 +88,11 @@ BlobEndpoint=myBlobEndpoint;QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableE
 
 例如，位於自訂網域之 Blob 端點的連接字串可能會類似：
 
-```
-DefaultEndpointsProtocol=https;BlobEndpoint=www.mydomain.com;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtB7wYQw33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIAy5l/Yhg== 
-```
+	DefaultEndpointsProtocol=https;
+	BlobEndpoint=www.mydomain.com;
+	AccountName=storagesample;
+	AccountKey=<account-key> 
+
 
 ### 指定具有共用存取簽章的 Blob 端點 
 
@@ -116,8 +114,12 @@ DefaultEndpointsProtocol=https;BlobEndpoint=www.mydomain.com;AccountName=storage
 
 例如，您的連接字串應該看起來類似下列連接字串範例：
 
-	DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtR7wYQk33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIHy5l/Yhg==;EndpointSuffix=core.chinacloudapi.cn;
+	DefaultEndpointsProtocol=https;
+	AccountName=storagesample;
+	AccountKey=<account-key>;
+	EndpointSuffix=core.chinacloudapi.cn;
+
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

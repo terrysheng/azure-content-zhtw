@@ -172,4 +172,4 @@ Twitter 連接器現在便是工作流程的一部分。
 [使用邏輯應用程式功能]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

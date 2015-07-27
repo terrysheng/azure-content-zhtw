@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/07/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -175,9 +175,7 @@
 
 	![WebMatrix - Publish][edit_publish]
 
-3. 按一下[從 Windows Azure 選擇現有網站]。
-
-	![](./media/web-sites-php-mysql-use-webmatrix/webmatrix-publish-existing-site.png)
+3. 按一下 [從 Microsoft Azure 選擇現有網站]。
 
 3. 選取您先前建立的 App Service Web 應用程式。
 
@@ -263,4 +261,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

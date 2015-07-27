@@ -103,4 +103,4 @@
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

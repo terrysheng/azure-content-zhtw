@@ -222,7 +222,7 @@
 
 若要將可用來串流處理內容的 URL 提供給使用者，您必須建立定位器 (使用入口網站發佈資產時，即會建立定位器) 先 「發佈」資產 (如前一節所述)。定位器提供對於資產中包含之檔案的存取。
 
-根據您要用來播放內容的串流通訊協定，可能需要修改從「通道\程式」的 [**發佈 URL**] 連結取得的 URL。
+根據您要用來播放內容的串流通訊協定，可能需要修改從「通道\\程式」的 [**發佈 URL**] 連結取得的 URL。
 
 動態封裝會負責將即時串流封裝成指定的通訊協定。
 
@@ -259,4 +259,4 @@
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -232,4 +232,4 @@ Azure 自動化 Web 服務會為特定資料型別的參數提供特殊功能，
 
 - [從另一個 Runbook 啟動 Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

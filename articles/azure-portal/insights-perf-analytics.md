@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="監視應用程式的效能" 
+	pageTitle="監視 Azure Web 應用程式效能" 
 	description="圖表載入和回應時間、相依性資訊以及設定效能警示。" 
 	services="azure-portal"
     documentationCenter="na"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="azure-portal" 
@@ -12,32 +12,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
 
-# 監視應用程式的效能
+# 監視 Azure Web 應用程式效能
 
-在 [Azure 入口網站](http://portal.azure.com) 中，您可以設定監視功能，使其收集您 Web 應用程式或虛擬機器中應用程式相依性的統計資料和詳細資料。
+在 [Azure 入口網站](http://portal.azure.com) 中，您可以設定監視功能，使其收集 [Azure Web 應用程式](../app-service-web/app-service-web-overview.md)或[虛擬機器](../virtual-machines/virtual-machines-about.md)中應用程式相依性的統計資料和詳細資料。
 
 Azure 運用*擴充功能*支援「應用程式」效能監視功能 (或 *APM*)。這些擴充功能已安裝在應用程式中，可收集資料並回報給監視服務。
+
+Application Insights 和 New Relic 是兩個可用的效能監視延伸模組。若要使用 New Relic，您需要在執行階段安裝代理程式。若要使用 Application Insights，您需要使用 SDK 重新建置程式碼。您也可以安裝提供其他資料之存取能力的延伸模組。SDK 可讓您撰寫程式碼來監視應用程式的詳細使用狀況和效能。
 
 ## 啟用擴充功能
 
 1. 按一下 [**瀏覽**]，然後選取您要檢測的 Web 應用程式或虛擬機器。
 
-2. 按一下 [**監視**] 底下的 [**應用程式監視**] 磚。
+2. 加入 Application Insights 或 New Relic 延伸模組。如果您要檢測 Web 應用程式：
 
-3. 選擇您要使用的擴充功能提供者，例如 **Application Insights** 或 **New Relic**。
-
-![Web 應用程式 APM](./media/insights-perf-analytics/05-extend.png)
+![設定、延伸模組、加入、Application Insights](./media/insights-perf-analytics/05-extend.png)
 
 如果您使用的是虛擬機器：
 
-![虛擬機器](./media/insights-perf-analytics/10-vm1.png)
+![按一下 [分析] 磚。](./media/insights-perf-analytics/10-vm1.png)
 
 ### 如果是 Application insights：請使用 SDK 重建
 
-New Relic 可以自動安裝，完全不需任何其他的檢測，但 Application Insights 有一個額外的需求。
+Application Insights 能藉由將 SDK 安裝在應用程式中發揮作用。
 
 在 Visual Studio 中，將 Application Insights SDK 加入專案。
 
@@ -81,4 +81,4 @@ SDK 會提供 API 供您[撰寫自訂遙測](../app-insights-api-custom-events-m
 * 使用 Application Insights [監視任何網頁的可用性和回應性](../app-insights-monitor-web-app-availability.md)，讓您可以找出您的頁面是否關閉。
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

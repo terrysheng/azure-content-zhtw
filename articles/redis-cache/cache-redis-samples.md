@@ -79,4 +79,4 @@
 
 [頻寬監視器](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor)範例可讓您監視用戶端上使用的頻寬。若要測量頻寬，請在快取用戶端電腦上執行這個範例、呼叫快取，並觀察頻寬監視器範例所報告的頻寬。
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

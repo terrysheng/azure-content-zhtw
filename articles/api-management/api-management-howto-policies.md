@@ -128,4 +128,4 @@
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

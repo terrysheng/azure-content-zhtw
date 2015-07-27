@@ -4,7 +4,7 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
-	manager="dwrede" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
@@ -142,4 +142,4 @@ Engagement 使用連接字串。您不需要為 Mobile Engagement 指定應用�
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

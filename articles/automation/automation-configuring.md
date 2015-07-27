@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/13/2015"
+   ms.date="07/10/2015"
    ms.author="bwren" />
 
 # 設定 Azure 自動化
@@ -61,10 +61,10 @@
 	Add-AzureAccount –Credential $cred
 	Select-AzureSubscription –SubscriptionName "My Subscription"
 
-您應該在您的 Runbook 中的任何[檢查點](automation-runbook-execution/#checkpoints)後重複這幾行。如果 Runbook 暫止然後在另一個背景工作上繼續執行，則它必須重新執行驗證。
+您應該在您的 Runbook 中的任何[檢查點](automation-runbook-execution#checkpoints)後重複這幾行。如果 Runbook 暫止然後在另一個背景工作上繼續執行，則它必須重新執行驗證。
 
 ## 相關文章
 - [Azure 自動化：使用 Azure Active Directory 對 Azure 進行驗證](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

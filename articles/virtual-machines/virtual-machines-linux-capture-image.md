@@ -3,7 +3,7 @@
 	description="了解如何對執行 Linux 的 Azure 虛擬機器 (VM) 擷取映像。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="dsk-2015"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015" 
-	ms.author="kathydav"/>
+	ms.date="06/11/2015"
+	ms.author="dkshir"/>
 
 
 # 如何擷取 Linux 虛擬機器作為範本使用##
@@ -88,6 +88,4 @@ Azure 會將此範本視為映像，並將其儲存在 [我的映像] 下方。�
 [如何建立自訂虛擬機器]: virtual-machines-create-custom.md
 [如何將資料磁碟連接至虛擬機器]: storage-windows-attach-disk.md
 
- 
-
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

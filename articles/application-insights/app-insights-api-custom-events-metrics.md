@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/11/2015" 
 	ms.author="awills"/>
 
 # 自訂事件和度量的 Application Insights API 
@@ -35,6 +35,7 @@ API 是跨所有平台統一的，除了一些小變化形式。
 [`TrackException`](#track-exception)|記錄診斷的例外狀況。追蹤與其他事件的發生相對位置，並且檢查堆疊追蹤。
 [`TrackRequest`](#track-request)| 記錄伺服器要求的頻率和持續時間以進行效能分析。
 [`TrackTrace`](#track-trace)|診斷記錄訊息。您也可以擷取第三方記錄檔。
+[`TrackDependency`](#track-dependency)|記錄對您的應用程式所依賴的外部元件的呼叫持續時間及頻率。
 
 您可以[附加屬性和度量](#properties)至這裡大部分的遙測呼叫。
 
@@ -231,6 +232,7 @@ TelemetryClient 具備執行緒安全。
     telemetry.TrackEvent(event);
 
 
+
 #### <a name="timed"></a>計時事件
 
 有時候您想要繪製執行某些動作耗費多少時間的圖表。例如，您可能想要知道使用者在遊戲中思考選項時花費多少時間。這是使用測量參數的實用範例。
@@ -367,7 +369,7 @@ TelemetryClient 具備執行緒安全。
 
 ## 追蹤例外狀況
 
-傳送例外狀況至 Application Insights：以[計算它們][metrics]，做為問題頻率的指示，以及[檢查個別發生次數][diagnostic]。
+傳送例外狀況至 Application Insights：以[計算它們][metrics]，做為問題頻率的指示，以及[檢查個別發生次數][diagnostic]。報告包含堆疊追蹤。
 
 *C#*
 
@@ -397,6 +399,30 @@ TelemetryClient 具備執行緒安全。
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
 `message` 上的大小限制比屬性上的限制高得多。您可以搜尋訊息內容，但是 (不同於屬性值) 您無法在其中進行篩選。
+
+## 追蹤相依性
+
+標準的相依性追蹤模組使用此 API 來記錄對外部相依性 (例如資料庫或 REST API) 的呼叫。模組會自動探索一些外部相依性，但是您可能想以相同的方式對待一些其他元件。
+
+例如，如果您使用不是您自己撰寫的組件來建置程式碼，您可以計算對它的所有呼叫，以找出它對您的回應時間的貢獻。若要在 Application Insights 中的相依性圖表中顯示此資料，請使用 `TrackDependency` 傳送。
+
+```C#
+
+            var success = false;
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                success = dependency.Call();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+            }
+```
+
+若要關閉標準的相依性追蹤模組，請編輯 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 並刪除 `DependencyCollector.DependencyTrackingTelemetryModule` 的參考。
 
 ## <a name="defaults"></a>設定已選取自訂遙測的預設值
 
@@ -432,6 +458,7 @@ TelemetryClient 具備執行緒安全。
     gameTelemetry.TrackEvent("WinGame");
     
 個別遙測呼叫可以覆寫其屬性字典中的預設值。
+
 
 
 
@@ -692,6 +719,9 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 * **工作階段** 識別使用者的工作階段。識別碼會設為產生的值，當使用者一段時間沒有作用時會變更。
 * **使用者** 可讓使用者納入計算。在 Web 應用程式中，如果有 cookie，則會從中取得使用者識別碼。如果沒有，則會產生一個新的識別碼。如果使用者已登入您的應用程式，您可以從其已驗證的識別碼設定識別碼，以提供更可靠且正確的計數，即使使用者是從其他電腦登入。 
 
+
+
+
 ## 限制
 
 每一個應用程式都有一些度量和事件的數目限制。
@@ -704,6 +734,7 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 * *問：資料保留多久？*
 
     請參閱[資料保留和隱私權][data]。
+
 
 ## 參考文件
 
@@ -747,4 +778,4 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

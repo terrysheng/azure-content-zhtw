@@ -3,7 +3,7 @@
 	description="了解如何建立及上傳包含 Linux 作業系統的 Azure 虛擬硬碟 (VHD)。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="dsk-2015"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/15/2015"
-	ms.author="kathydav"/>
+	ms.author="dkshir"/>
 
 # 建立及上傳包含 Linux 作業系統的虛擬硬碟
 
@@ -140,6 +140,5 @@ Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](../linux-en
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

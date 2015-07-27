@@ -367,4 +367,4 @@ HTTP 型 Web 服務可讓您支援各種用戶端，包括行動用戶端。ASP.
   [儲存體]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

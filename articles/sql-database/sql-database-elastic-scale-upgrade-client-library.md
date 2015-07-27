@@ -1,8 +1,6 @@
 <properties 
-	title="Upgrade to the latest elastic database client library" 
 	pageTitle="升級至最新的彈性資料庫用戶端程式庫" 
 	description="使用 PowerShell 和 C# 升級指示" 
-	metaKeywords="sharding,elastic scale, Azure SQL DB sharding" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
@@ -50,7 +48,7 @@
 
 4. 從[指令碼中心](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9)下載彈性資料庫用戶端升級程式碼片段，然後將它儲存到包含 DLL 的相同資料夾。
 
-5. 從該資料夾中，從命令提示字元執行 “PowerShell .\upgrade.ps1”，然後依照提示完成作業。
+5. 從該資料夾中，從命令提示字元執行 “PowerShell .\\upgrade.ps1”，然後依照提示完成作業。
  
 **選項 2：使用 C# 升級中繼資料**
 
@@ -96,4 +94,4 @@
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

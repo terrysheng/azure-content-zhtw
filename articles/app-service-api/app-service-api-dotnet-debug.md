@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="07/08/2015" 
 	ms.author="bradyg;tarcher"/>
 
 # 偵錯 Azure App Service 中的 API 應用程式
@@ -68,7 +68,7 @@
 
 1. 在 Visual Studio 中，開啟 API 應用程式專案的 *web.config* 檔案。 
  
-2. 在瀏覽器中導覽至 [Azure 預覽入口網站](http://portal.azure.com)。
+2. 在瀏覽器中導覽至 [Azure 預覽入口網站](https://portal.azure.com)。
 
 3. 按一下側邊列上的 [**瀏覽**] 按鈕，然後選取 [**API 應用程式**]。
 
@@ -109,11 +109,26 @@
 
 	![設定中斷點](./media/app-service-api-dotnet-debug/ld-breakpoints.png)
 
-11. 按一下 &lt;F5> 啟動 Visual Studio 偵錯工作階段。當瀏覽器載入頁面時，您應該會看到一則錯誤訊息。在瀏覽器位址列中，將 */swagger* 加到 URL 的結尾，然後按 Enter 鍵。
+11. 按 F5 啟動 Visual Studio 偵錯工作階段。
+ 
+13.  如果 API 應用程式的存取層級設為 [公用 (匿名)]，則您可以使用 Swagger UI 頁面進行測試。
 
-12. 載入 Swagger UI 後，請按一下瀏覽器視窗中的 **Get** 動詞，以顯示 Contact 物件的結構描述，然後按一下 [試試看]。Visual Studio 現在會在您稍早設定的中斷點上停止程式執行，且您可以對控制器的邏輯進行偵錯。
+	* 瀏覽器載入頁面時，您會看到一則錯誤訊息。在瀏覽器位址列中，將 */swagger* 加入 URL 的結尾，然後按 Enter。
 
-	![立即試用](./media/app-service-api-dotnet-debug/ld-try-it-out.png)
+	* 載入 Swagger UI 後，請按一下瀏覽器視窗中的 **Get** 動詞，以顯示 Contact 物件的結構描述，然後按一下 [試試看]。
+
+		Visual Studio 現在會在您稍早設定的中斷點上停止程式執行，且您可以對控制器的邏輯進行偵錯。
+
+		![立即試用](./media/app-service-api-dotnet-debug/ld-try-it-out.png)
+
+14.	如果 API 應用程式的存取層級設為 [公用 (已驗證)]，則您需要在 Post 要求的[保護 API 應用程式](app-service-api-dotnet-add-authentication.md#use-postman-to-send-a-post-request)中所顯示的程序之後驗證並使用瀏覽器工具，亦即：
+
+	* 移至閘道登入 URL，並輸入認證進行登入。
+	* 從 x-zumo-auth Cookie 取得 Zumo Token 值。
+	* 將 x-zumo-auth 標頭加入您的要求，並將其值設定為 x-zumo-auth Cookie 值。
+	* 提交要求。
+
+	**注意：**當您在本機執行時，Azure 無法控制對 API 應用程式的存取權，以確保只有已驗證的使用者可執行其方法。當您在 Azure 中執行時，適用於 API 應用程式的所有流量都會透過閘道路由，而且閘道不會傳遞未經驗證的要求。當您在本機執行時，不會進行任何重新導向，這表示會禁止未驗證的要求存取 API 應用程式。如上所述驗證的值是您可以在 API 應用程式中成功執行驗證相關程式碼 (例如，擷取已登入使用者相關資訊的程式碼)。如需閘道如何處理 API 應用程式之驗證的詳細資訊，請參閱 [API 應用程式和行動應用程式的驗證](../app-service/app-service-authentication-overview.md#azure-app-service-gateway)。
 
 ## 後續步驟
 
@@ -121,7 +136,7 @@ API 應用程式的遠端偵錯可讓您輕鬆地查看您的程式碼在 Azure 
 
 App Service API 應用程式是具有額外功能 (用於裝載 Web 服務) 的 App Service Web 應用程式，因此您可對 API 應用程式使用您對 Web 應用程式使用的相同偵錯和疑難排解工具。如需詳細資訊，請參閱[使用 Visual Studio 疑難排解 Azure App Service 中的 Web 應用程式](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)。
 
-任何人皆可公開呼叫您在此系列中所建立的 API 應用程式。如需如何保護 API 應用程式，以便只有已驗證的使用者可以呼叫它的相關資訊，請參閱[保護 API 應用程式：新增 Azure Active Directory 或社交提供者驗證](app-service-api-dotnet-add-authentication.md)。
+任何人皆可公開呼叫您在此系列中所建立的 API 應用程式。如需如何保護 API 應用程式使得只有已驗證使用者可加以呼叫的相關資訊，請參閱 [Azure App Service 中 API 應用程式和行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

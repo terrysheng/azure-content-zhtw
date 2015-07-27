@@ -13,25 +13,23 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="05/29/2015"
+   ms.date="07/08/2015"
    ms.author="danlep"/>
 
 # 開始使用 Azure 批次 PowerShell Cmdlet
-本文是 Azure PowerShell Cmdlet 的簡介，可用來管理批次帳戶並取得批次工作項目、工作和任務的相關資訊。
+本文是 Azure PowerShell Cmdlet 的簡介，可用來管理批次帳戶並取得批次作業、工作及其他詳細資訊的相關資訊。
 
-如需詳細的 Cmdlet 語法，請輸入 `get-help <Cmdlet_name>`，或請參閱 [Azure 批次 Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/mt125957.aspx)。
-
+如需詳細的 Cmdlet 語法，請輸入 `get-help <Cmdlet_name>`，或請參閱 [Azure 批次 Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/mt125957.aspx)。a
 
 ## 必要條件
 
-* **批次預覽** - 請申請[批次預覽](https://account.windowsazure.com/PreviewFeatures)以使用服務 (如果您還沒有申請)。
 * **Azure PowerShell** - 請參閱＜[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)＞以了解必要條件、下載和安裝指示。自 0.8.10 起及後續版本導入批次 Cmdlet。
 
 ## 使用批次 Cmdlet
 
 使用標準程序啟動 Azure PowerShell 並[連接到 Azure 訂用帳戶](../powershell-install-configure.md#Connect)。此外：
 
-* **選取 Azure 訂用帳戶** - 如果您有多個訂用帳戶，請選取您已新增「批次預覽」功能的訂用帳戶：
+* **選取 Azure 訂用帳戶** - 如果您有多個訂用帳戶，請選取一個訂用帳戶：
 
     ```
     Select-AzureSubscription -SubscriptionName <SubscriptionName>
@@ -90,9 +88,9 @@ Remove-AzureBatchAccount -AccountName <account_name>
 
 出現提示時，請確認您想要移除的帳戶。帳戶移除可能需要一些時間來完成。
 
-## 查詢工作項目、 工作和作業
+## 查詢作業、工作及其他詳細資料
 
-使用 Cmdelt，例如 **Get-AzureBatchWorkItem**、**Get-AzureBatchJob**、**Get-AzureBatchTask** 和 **Get-AzureBatchPool** 在批次帳戶下查詢所建立的實體。
+使用 Cmdelt，例如 **Get-AzureBatchJob**、**Get-AzureBatchTask** 和 **Get-AzureBatchPool** 在 Batch 帳戶下查詢所建立的實體。
 
 若要使用這些指令程式，您必須先建立一個 AzureBatchContext 物件以儲存您的帳戶名稱和金鑰：
 
@@ -102,39 +100,33 @@ $context = Get-AzureBatchAccountKeys "<account_name>"
 
 使用 **BatchContext** 參數將此內容傳入與批次服務互動的 Cmdlet。
 
-> [AZURE.NOTE]依預設，帳戶的主要金鑰用於驗證，但是您可以透過變更 BatchAccountContext 物件的 **KeyInUse** 屬性，明確地選取要使用的金鑰：```$context.KeyInUse = "Secondary"```。
+> [AZURE.NOTE]依預設，帳戶的主要金鑰用於驗證，但是您可以透過變更 BatchAccountContext 物件的 **KeyInUse** 屬性，明確地選取要使用的金鑰：`$context.KeyInUse = "Secondary"`。
 
 
 ### 查詢資料
 
-例如，使用 **Get-AzureBatchWorkItem** 以尋找您的工作項目。依預設，這將查詢您的帳戶下的所有工作項目，並假設您已經將 BatchAccountContext 物件儲存在 *$context* 裡：
-
-```
-Get-AzureBatchWorkItem -BatchContext $context
-```
-
-其他實體 (例如集區) 可以用相同方式處理：
+例如，使用 **Get-AzureBatchPools** 來尋找您的集區。依預設，這將查詢您的帳戶下的所有集區，並假設您已經將 BatchAccountContext 物件儲存在 *$context* 裡：
 
 ```
 Get-AzureBatchPool -BatchContext $context
 ```
 ### 使用 OData 篩選
 
-您可以提供**篩選**參數給 OData 篩選，只尋找您感興趣的物件。例如，您可以找到名稱以 “myWork” 開頭的所有工作項目：
+您可以提供**篩選**參數給 OData 篩選，只尋找您感興趣的物件。例如，您可以找到名稱以 “myPool” 開頭的所有集區：
 
 ```
-$filter = "startswith(name,'myWork') and state eq 'active'"
-Get-AzureBatchWorkItem -Filter $filter -BatchContext $context
+$filter = "startswith(name,'myPool')"
+Get-AzureBatchPool -Filter $filter -BatchContext $context
 ```
 
 雖然這個方法比在本機管線中使用 “Where-Object” 較不具有彈性，不過查詢將直接傳送進批次服務，讓所有篩選在伺服器端運作，進而省下網際網路頻寬。
 
 ### 使用名稱參數
 
-使用**名稱**參數可作為 OData 篩選的替代方式。若要查詢名為 "myWorkItem" 的特定工作項目：
+使用**名稱**參數可作為 OData 篩選的替代方式。若要查詢名稱為 "myPool" 的特定集區：
 
 ```
-Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context
+Get-AzureBatchPool -Name "myPool" -BatchContext $context
 
 ```
 **名稱**參數僅支援完整名稱的搜尋，不能使用萬用字元或 OData 樣式的篩選。
@@ -144,7 +136,7 @@ Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context
 批次 Cmdlet 可以利用 PowerShell 管線在 Cmdlet 之間傳送資料。這和指定參數有相同效果，但讓列出多個實體更容易。例如，您可以在您的帳戶下找到所有的作業：
 
 ```
-Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
+Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
 ```
 
 ### 使用 MaxCount 參數
@@ -152,7 +144,7 @@ Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext 
 依預設，每個 Cmdlet 最多傳回 1000 個物件。如果您已經到達此限制，您可以縮小您的篩選以傳回較少的物件，或使用 **MaxCount** 參數明確地設定最大值。例如：
 
 ```
-Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context
+Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 
 ```
 
@@ -164,4 +156,4 @@ Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context
 * [Azure 批次 Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [有效率的清單查詢](batch-efficient-list-queries.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

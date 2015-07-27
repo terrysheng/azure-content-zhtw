@@ -64,10 +64,10 @@
 <!--Image references-->
 
 <!--Article references-->
-[business continuity overview]: sql-database-business-continuity.md
-[Finalize a recovered database]: sql-database-recovered-finalize.md
+[business continuity overview]: ../sql-database/sql-database-business-continuity.md
+[Finalize a recovered database]: ../sql-database/sql-database-recovered-finalize.md
 [Azure 儲存體備援選項]: storage-redundancy/#read-access-geo-redundant-storage-ra-grs.md
-[SQL Database 業務持續性概觀]: sql-database-business-continuity.md
+[SQL Database 業務持續性概觀]: ../sql-database/sql-database-business-continuity.md
 [從使用者錯誤中復原]: sql-data-warehouse-business-continuity-recover-from-user-error.md
 
 <!--MSDN references-->
@@ -78,4 +78,4 @@
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

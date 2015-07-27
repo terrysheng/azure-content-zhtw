@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/24/2015" 
+	ms.date="07/01/2015" 
 	ms.author="jeffstok"/>
 
 #連接輸入和輸出
@@ -90,8 +90,7 @@
 3. 事件中樞原則名稱：共用存取原則 (用於存取事件中樞) 的名稱。您可以在 [設定] 索引標籤上，設定事件中樞的共用存取原則。每一個共用存取原則會有名稱、權限 (由您設定) 和存取金鑰。
 4. 事件中樞原則索引鍵：共用存取原則 (用於存取事件中樞) 的主要或次要索引鍵。  
 5. 事件中樞用戶群組：事件中樞輸入參數 (選擇性)。負責從事件中樞擷取資料的用戶群組。如果未指定，Stream Analytics 工作使用預設用戶群組，然後從事件中樞擷取資料。我們建議您每一個 Stream Analytics 工作使用不同的用戶群組。
-
-資料分割索引鍵資料行： 事件中樞的輸出參數 (選擇性)。資料屬性資料行，是事件中樞輸出的資料分割索引鍵。
+6. 資料分割索引鍵資料行： 事件中樞的輸出參數 (選擇性)。資料屬性資料行，是事件中樞輸出的資料分割索引鍵。 
 
 ##使用 Azure 資料表輸出
 
@@ -126,8 +125,7 @@
 在下一個頁面上輸入 Azure 資料表資訊。輸出別名在查詢中的用途就是要將查詢輸出指向這個資料表。
 
 
-![graphic14][graphic14]
-![graphic15][graphic15]
+![graphic14][graphic14] ![graphic15][graphic15]
 
 「批次大小」是指批次作業的記錄個數，如果不熟悉，請保留預設值或者參考 [https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) 以取得詳細資訊。
 
@@ -151,7 +149,7 @@
 ![graphic19][graphic19]
 
 ## 取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟
 
@@ -185,4 +183,4 @@
 [graphic19]: ./media/stream-analytics-connect-data-event-input-output/19-stream-analytics-connect-data-event-input-output.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

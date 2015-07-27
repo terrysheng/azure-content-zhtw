@@ -3,7 +3,7 @@
     pageTitle="上傳 Azure RemoteApp 的自訂映像"
     description="了解如何上傳 Azure RemoteApp 的自訂映像" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+    documentationCenter="" 
     authors="ericorman" 
     manager="mbaldwin" />
 
@@ -52,4 +52,4 @@
 - 如果 vhd 檔案在上傳期間遭到鎖定，請將檔案複製或移動到新位置，並再次嘗試上傳。有些 Windows 程序可能會阻止上傳。  
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

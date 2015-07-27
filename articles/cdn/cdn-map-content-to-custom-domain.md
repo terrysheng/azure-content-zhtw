@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="03/05/2015" 
+	 ms.date="07/07/2015" 
 	 ms.author="mazha"/>
 
 #如何將自訂網域對應至內容傳遞網路 (CDN) 端點
@@ -83,11 +83,11 @@
 
 		http://www.mydomain.com/cdn/mycloudservice
 
-#另請參閱
+##另請參閱
 
 
-[如何啟用 Azure 內容傳遞網路 (CDN)](./cdn-create-new-endpoint.md) ** Azure CDN 概觀**
+[如何啟用 Azure 內容傳遞網路 (CDN)](./cdn-create-new-endpoint.md)
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="07/07/2015" 
 	ms.author="cephalin"/>
 
 # 將企業 Web 應用程式移轉至 Azure App Service
 
 您可以輕鬆地將在 Internet Information Service (IIS) 6 或更新版本上執行的現有網站移轉至 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)。[Web Apps 移轉小幫手](https://www.movemetothecloud.net/)可以分析您的 IIS 伺服器安裝、識別哪些網站可以移轉至 App Service、反白顯示任何無法移轉或平台上不支援的項目，然後將您的網站和相關聯的資料庫移轉至 Azure。
 
->[AZURE.NOTE]我們將在 2015 年 7 月 14 日終止對 Windows Server 2003 的支援。如果您的網站目前裝載於採用 Windows Server 2003 的 IIS 伺服器上，則 Web Apps 是一種讓您的網站保持連線的低風險、低成本和低摩擦方式，而 Web Apps 移轉小幫手可以協助您自動進行移轉程序。
+>[AZURE.IMPORTANT]我們將在 2015 年 7 月 14 日終止對 Windows Server 2003 的支援。如果您的網站目前裝載於採用 Windows Server 2003 的 IIS 伺服器上，則 Web Apps 是一種讓您的網站保持連線的低風險、低成本和低摩擦方式，而 Web Apps 移轉小幫手可以協助您自動進行移轉程序。
 
 ## 在相容性分析期間驗證的元素 ##
 移轉小幫手會建立整備報表，來識別導致無法從內部部署 IIS 成功移轉至 Azure App Service Web Apps 之相關問題或封鎖問題的任何潛在原因。一些需要留意的重要項目：
@@ -132,4 +132,4 @@
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

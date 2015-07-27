@@ -65,7 +65,7 @@ SET     @v +=1;
 
 
 ## 後續步驟
-如需更多開發秘訣，請參閱[開發概觀][]。
+如需更多開發祕訣，請參閱[開發概觀][]。
 
 <!--Image references-->
 
@@ -76,4 +76,4 @@ SET     @v +=1;
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

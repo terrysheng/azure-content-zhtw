@@ -2,7 +2,7 @@
 
 > [AZURE.NOTE]快速完成啟用 -- 使用全新的 Azure [引導式逐步解說](http://support.microsoft.com/kb/2990804)！ 在彈指之間完成自訂網域名稱的關聯，以及與 Azure 雲端服務或 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 之間的通訊 (SSL) 保護。
 
-您可以透過採用安全通訊端層 (SSL) 加密的 HTTPS 來保護 Web 應用程式與瀏覽器之間的通訊。這是最常用來保護在網際網路上傳送之資料的方法，並可讓訪客安心知道其與您應用程式進行的交易正受到安全保護。本文討論如何在 Azure App Service 中設定 Web 應用程式的 HTTPS。
+您可以透過採用安全通訊端層 (SSL) 加密的 HTTPS 來保護 Web 應用程式與瀏覽器之間的通訊。這是最常用來保護在網際網路上傳送之資料的方法，並可讓訪客安心知道其與您應用程式進行的交易正受到安全保護。本文討論如何在 Azure App Service 中設定 Web 應用程式的 HTTPS。這份文件未涵蓋用戶端憑證驗證，如需相關資訊，請參閱[如何設定 Web 應用程式的 TLS 相互驗證](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md)。
 
 ##<a name="bkmk_azurewebsites"></a>適用於 *.azurewebsites.net 網域的 HTTPS
 
@@ -517,7 +517,7 @@ Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTT
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-[customdomain]: ../article/app-service-web/web-sites-custom-domain-name.md
+[customdomain]: ../articles/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
 [installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx
@@ -541,4 +541,4 @@ Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTT
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="HDInsight 連接器" 
-   description="如何使用 HDInsight 連接器" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="HDInsight 連接器"
+   description="如何使用 HDInsight 連接器"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # Microsoft HDInsight 連接器 #
@@ -22,7 +22,7 @@
 在邏輯應用程式中，連接器可以在執行流程時用來擷取、處理或發送資料。HDInsight 連接器可讓您在 Azure 上建立 Hadoop 叢集，並提交各種 Hadoop 工作，例如 Hive、Pig、MapReduce 和 Streaming MapReduce 工作。Azure HDInsight 服務在雲端部署和佈建 Apache Hadoop 叢集，提供軟體架構來管理、分析和報告巨量資料。Hadoop 核心採用 Hadoop Distributed File System (HDFS) 來提供可靠的資料儲存，並提供簡單的 MapReduce 程式設計模型，可並行處理和分析這個分散式系統中儲存的資料。您可以使用 HDInsight 連接器建立或刪除叢集、提交工作並等候它完成。
 
 ###基本動作
-		
+
 - 建立叢集
 - 等候建立叢集
 - 提交 Pig 工作
@@ -78,7 +78,7 @@ HDInsight 在邏輯應用程式中只能當動作使用。讓我們以一個簡�
 
 
 
-- 該動作現在會在邏輯應用程式中顯示為已設定。將會顯示動作輸出的結果，並可用於輸入後續動作。 
+- 該動作現在會在邏輯應用程式中顯示為已設定。將會顯示動作輸出的結果，並可用於輸入後續動作。
 
 ![][7]
 
@@ -121,6 +121,5 @@ HDInsight 在邏輯應用程式中只能當動作使用。讓我們以一個簡�
 [9]: ./media/app-service-logic-connector-hdinsight/LogicApp5.jpg
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

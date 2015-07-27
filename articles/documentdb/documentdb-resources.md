@@ -459,4 +459,4 @@ DocumentDB 使用者代表用於分組權限的邏輯命名空間。DocumentDB �
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

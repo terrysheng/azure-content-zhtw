@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.date="07/11/2015" 
 	ms.author="awills"/>
  
 # 在 ASP.NET 應用程式中使用 Application Insights 的診斷失敗和例外狀況  
@@ -31,9 +31,8 @@
 
 ![選取失敗要求的執行個體，並在例外狀況詳細資料底下，取得例外狀況的執行個體。](./media/app-insights-asp-net-exceptions/030-req-drill.png)
 
-*未顯示例外狀況？ 請參閱[擷取例外狀況](#exceptions)。*
 
-或者，您可以從例外狀況清單開始，您會在該處進一步發現 [失敗] 刀鋒視窗。請按一下直到最終到達個別例外狀況。
+**或者**，您可以從例外狀況清單開始，您會在該處進一步發現 [失敗] 刀鋒視窗。請按一下直到最終到達個別例外狀況。
 
 
 ![鑽研](./media/app-insights-asp-net-exceptions/040-exception-drill.png)
@@ -57,7 +56,25 @@
 
 *沒有相依性失敗？ 非常好。但是，若要確認您取得相依性資料，請開啟 [效能] 刀鋒視窗，並查看 [相依性持續時間] 圖表。*
 
-## 如何查看要求 POST 和其他記錄資料
+ 
+
+## 自訂追蹤和記錄資料
+
+若要取得您的應用程式的特定診斷資料，您可以插入程式碼以傳送您自己的遙測資料。這會隨著要求、頁面檢視和其他自動收集的資料顯示在診斷搜尋中。
+
+您有數個選項：
+
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) 通常用來監視使用模式，但它傳送的資料也會出現在診斷搜尋的自訂事件下。事件會被命名，並且可以承載字串屬性和數字度量，您可以對其[篩選診斷搜尋][diagnostic]。
+* [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) 可讓您傳送較長的資料，例如 POST 資訊。
+* [TrackException()](#exceptions) 會傳送堆疊追蹤。[深入了解例外狀況](#exceptions)。
+* 如果您已經使用 Log4Net 或 NLog 之類的記錄架構，您可以[擷取這些記錄][netlogs]，並且在診斷搜尋中隨著要求和例外狀況資料查看記錄。
+
+若要查看這些事件，請開啟 [[搜尋][diagnostic]]，開啟 [篩選]，然後選擇 [自訂事件]、[追蹤] 或 [例外狀況]。
+
+
+![鑽研](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
+
+### 如何查看要求 POST 資料
 
 要求詳細資料不包括在 POST 呼叫中傳送至您的應用程式的資料。若要報告此資料：
 
@@ -67,12 +84,8 @@
 
 ![鑽研](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
-如果您已經使用像是 Log4Net 或 NLog 的記錄架構，您可以[擷取這些記錄檔][netlogs]，並且以相同的方式查看。
 
-[自訂事件][api]通常用於使用量追蹤，但是您也可以在「此要求的所有遙測」底下找到它們。
-
-
-## <a name="exceptions"></a>擷取例外狀況和相關的診斷資料
+## <a name="exceptions"></a> 擷取例外狀況和相關的診斷資料
 
 一開始，您不會在入口網站看到應用程式中造成失敗的所有例外狀況。您會看到任何瀏覽器例外狀況 (如果您在網頁中使用 [JavaScript SDK][client])。但是 IIS 會攔截大部分的伺服器例外狀況，而且您必須撰寫一段程式碼才能查看它們。
 
@@ -428,4 +441,4 @@ VB
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

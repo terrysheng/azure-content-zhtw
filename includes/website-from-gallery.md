@@ -17,25 +17,33 @@ Azure Marketplace 提供由 Microsoft、協力廠商公司及開放原始碼軟�
 
 1. 登入 Azure 預覽入口網站。
 
-2. 按一下 [Marketplace] 圖示，或按一下儀表板左下方的 [新增] 圖示，選取 [Web + 行動]，然後選取底部的 [Azure Marketplace] 以開啟 Azure Marketplace。
+2. 您可以按一下 **Marketplace** 圖示來開啟 Azure Marketplace：
+
+    ![Marketplace 圖示][marketplace]
+
+    或按一下儀表板右上角的 [**新增**] 圖示，然後選取清單底部的 **Marketplace**。
 	
-	![建立新的][5]
+    ![建立新的][5]
 	
-3. 選取 [Web Apps]。搜尋 **WordPress**，然後按一下 **WordPress** 圖示。
+3. 選取 [**Web + Mobile**]。搜尋 **WordPress**，然後按一下 **WordPress** 圖示。
 
 	![WordPress 來源清單][7]
 	
 5. 讀取 WordPress 應用程式的描述之後，選取 [建立]。
 
-6. 按一下 [Web 應用程式]，然後提供設定 Web 應用程式所需的值。
+6. 按一下 [**Web 應用程式**]，然後提供設定 Web 應用程式所需的值。
 	
-   ![設定您的應用程式][8]
+    ![設定您的應用程式][8]
 
-7. 按一下 [資料庫]，然後提供設定 MySQL 資料庫所需的值。 
+7. 按一下 [**資料庫**]，然後提供設定 MySQL 資料庫所需的值。
 
-   ![設定資料庫][database]
+    ![設定資料庫][database]
 
-8. 如有必要，按一下 [訂用帳戶]，然後指定要使用的訂用帳戶。 
+8. 提供新資源群組的名稱。
+
+    ![設定資源群組][groupname]
+
+8. 如有必要，按一下 [訂用帳戶]，然後指定要使用的訂用帳戶。
 
 7. 當您完成定義 Web 應用程式時，按一下 [建立]，然後靜待新的 Web 應用程式建立。
 
@@ -47,11 +55,11 @@ Azure Marketplace 提供由 Microsoft、協力廠商公司及開放原始碼軟�
 	
 1. 按一下您的新 Web 應用程式，以查看應用程式的相關詳細資料。
 
-   ![啟動儀表板][10]
+    ![啟動儀表板][10]
 
 2. 在 [Essentials] 頁面上，按一下 [瀏覽] 或 [Url] 底下的連結，以開啟 Web 應用程式的歡迎頁面。
 
-   ![網站 URL][browse]
+    ![網站 URL][browse]
 
 3. 如果您尚未安裝 WordPress，請輸入 WordPress 所需的適當組態資訊，然後按一下 [安裝 WordPress] 以完成組態設定，並開啟 Web 應用程式的登入頁面。
 
@@ -66,16 +74,18 @@ Azure Marketplace 提供由 Microsoft、協力廠商公司及開放原始碼軟�
 
 
 
-[5]: ./media/website-from-gallery/startmarketplace.png
+[5]: ./media/website-from-gallery/start-marketplace.png
 [6]: ./media/website-from-gallery/wordpressgallery-02.png
-[7]: ./media/website-from-gallery/selectwordpress.png
-[8]: ./media/website-from-gallery/configureweb.png
+[7]: ./media/website-from-gallery/search-web-app.png
+[8]: ./media/website-from-gallery/set-web-app.png
 [9]: ./media/website-from-gallery/wordpressgallery-05.png
-[10]: ./media/website-from-gallery/seewebapp.png
+[10]: ./media/website-from-gallery/select-web.png
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
 [webapps]: ./media/website-from-gallery/selectwebapps.png
-[database]: ./media/website-from-gallery/configuredb.png
-[resourcegroup]: ./media/website-from-gallery/showgroup.png
-[browse]: ./media/website-from-gallery/browse.png
+[database]: ./media/website-from-gallery/set-db.png
+[resourcegroup]: ./media/website-from-gallery/show-rg.png
+[browse]: ./media/website-from-gallery/browse-web.png
+[marketplace]: ./media/website-from-gallery/marketplace-icon.png
+[groupname]: ./media/website-from-gallery/set-rg.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

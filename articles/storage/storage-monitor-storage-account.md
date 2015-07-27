@@ -159,4 +159,4 @@
 診斷記錄檔儲存在儲存體帳戶中的 $logs Blob 容器。如需存取 $logs 容器的詳細資訊，請參閱[關於儲存體分析記錄](http://msdn.microsoft.com/library/azure/hh343262.aspx)。
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

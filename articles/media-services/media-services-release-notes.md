@@ -301,7 +301,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 
 ### <a name="jan_fab_14_donnet_changes"></a>Azure 媒體服務 .NET SDK 3.0.0.1、3.0.0.2 和 3.0.0.3
 
-3.0.0.1 和 3.0.0.2 中的變更包括：
+3\.0.0.1 和 3.0.0.2 中的變更包括：
 
 * 修正了使用 OrderBy 陳述式進行 LINQ 查詢的用法相關問題。
 
@@ -309,7 +309,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 
 如需關於變更的詳細資料，請參閱：[Azure 媒體服務 .NET SDK 3.0.0.1 和 3.0.0.2 版本]。
 
-3.0.0.3 中做了下列變更：
+3\.0.0.3 中做了下列變更：
 
 * 已升級 Azure 儲存體相依性而使用 3.0.3.0 版。 
 
@@ -537,4 +537,4 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [處理媒體服務工作通知]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

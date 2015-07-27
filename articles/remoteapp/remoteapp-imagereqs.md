@@ -1,9 +1,9 @@
 
 <properties 
-    pageTitle="RemoteApp 映像需求"
-    description="深入了解建立可用於 RemoteApp 的映像需求" 
+    pageTitle="Azure RemoteApp 映像需求"
+    description="深入了解建立可用於 Azure RemoteApp 的映像需求" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="07/06/2015" 
     ms.author="elizapo" />
 
 
 
-# RemoteApp 映像的需求
-RemoteApp 會使用 Windows Server 2012 R2 映像來主控您要與使用者共用的所有程式。若要建立自訂 RemoteApp 映像，您可以從現有的映像建立，或[建立新映像](remoteapp-create-custom-image.md)。
+# Azure RemoteApp 映像的需求
+Azure RemoteApp 會使用 Windows Server 2012 R2 映像來主控您要與使用者共用的所有程式。若要建立自訂映像，您可以從現有的映像建立，或[建立新映像](remoteapp-create-custom-image.md)。
 
-> [AZURE.TIP]是否知道 Azure RemoteApp 訂用帳戶可讓您存取 Azure VM 資源庫中可用來建立專屬範本映像的建置前 Windows Server 2012 R2 映像？ [立即使用](remoteapp-image-on-azurevm.md)。
+> [AZURE.TIP]是否知道 Azure RemoteApp 訂用帳戶可讓您存取 Azure VM 資源庫中可用來建立專屬範本映像的 Windows Server 2012 R2 映像？ [立即使用](remoteapp-image-on-azurevm.md)。
 
 
 可上傳用於 Azure RemoteApp 的映像有下列需求：
@@ -43,4 +43,4 @@ RemoteApp 會使用 Windows Server 2012 R2 映像來主控您要與使用者共�
 - 不支援從快照鏈結上傳您 VHD。
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

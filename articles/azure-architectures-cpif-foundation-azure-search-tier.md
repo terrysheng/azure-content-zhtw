@@ -46,4 +46,4 @@ Azure 搜尋服務層設計模式詳述提供搜尋服務所需的 Azure 功能�
 
 [批次處理層](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

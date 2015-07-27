@@ -1,18 +1,11 @@
 <properties 
-	urlDisplayName="Jenkins Continuous Integration" 
 	pageTitle="使用 Azure 儲存體搭配 Jenkins 連續整合解決方案 | Microsoft Azure" 
-	metaKeywords="" 
 	description="本教學課程說明如何使用 Azure Blob 服務作為 Jenkins 連續整合解決方案所建立之組建成品的存放庫。" 
-	metaCanonical="" 
 	services="storage" 
 	documentationCenter="java" 
-	title="" 
 	authors="rmcmurray" 
-	solutions="" 
 	manager="wpickett" 
-	editor="jimbe" 
-	scriptId="" 
-	videoId=""/>
+	editor="jimbe" />
 
 <tags 
 	ms.service="storage" 
@@ -172,4 +165,4 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
   [ms-open-tech]: http://msopentech.com
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO3-->

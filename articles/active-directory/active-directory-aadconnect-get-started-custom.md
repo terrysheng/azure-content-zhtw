@@ -58,7 +58,7 @@ SQL Server 名稱 |可讓您指定 SQL Server 名稱和執行個體名稱。如�
 <center>![使用者登入](./media/active-directory-aadconnect-get-started-custom/connectaad.png) </center>
 
 ### 連接您的目錄
-若要連接到您的 Active Directory 網域服務，Azure AD Connect 需要具有足夠權限的帳戶認證。此帳戶可以是一般使用者帳戶，因為我們只需要預設的讀取權限。不過，視您的情況而定，可能會需要其他權限。如需詳細資訊，請參閱 [Azure AD Connect 帳戶摘要](active-directory-addconnect-account-summary)
+若要連接到您的 Active Directory 網域服務，Azure AD Connect 需要具有足夠權限的帳戶認證。此帳戶可以是一般使用者帳戶，因為我們只需要預設的讀取權限。不過，視您的情況而定，可能會需要其他權限。如需詳細資訊，請參閱 [Azure AD Connect 帳戶摘要](active-directory-aadconnect-account-summary.md)
 
 <center>![使用者登入](./media/active-directory-aadconnect-get-started-custom/connectdir.png) </center>
 
@@ -125,6 +125,9 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 <center>![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/extension4.png) </center>
 
 ## 使用者回寫 (預覽功能)
+
+> [AZURE.WARNING]如果您目前啟用 DirSync 或 Azure AD Sync，請不要在 Azure AD Connect 中啟動任何回寫功能
+
 使用者回寫可讓您取得 Azure AD 中建立的使用者 (透過入口網站、圖形、PowerShell 或任何其他方法)，然後將使用者寫回內部部署 AD DS。若要啟用此功能，請在 [選用功能] 頁面上選取 [使用者回寫]。您現在會看到要在其中建立這些使用者的位置。預設組態會將所有使用者建立在 AD DS 中的同一個位置。
 
 <center>![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/writeback2.png) </center>
@@ -133,6 +136,9 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 >[AZURE.NOTE]密碼同步處理和密碼回寫與此預覽功能不相容。
 
 ## 群組回寫 (預覽功能)
+
+> [AZURE.WARNING]如果您目前啟用 DirSync 或 Azure AD Sync，請不要在 Azure AD Connect 中啟動任何回寫功能
+
 選用功能中的群組回寫選項可讓您將「Office 365 中的群組」回寫至安裝 Exchange 的樹系。這是永遠在雲端中受控制的新群組類型。您可以在 outlook.office365.com 或 myapps.microsoft.com 中找到此群組類型，如下所示：
 
 
@@ -152,7 +158,16 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 如需詳細資訊，請參閱[這裡](http://blogs.office.com/2014/09/25/delivering-first-chapter-groups-office-365/)。
 
 ## 裝置回寫 (預覽功能)
-裝置回寫功能可讓您取得在雲端中 (例如在 Intune 中) 註冊的裝置，並將它納入 AD DS 中以供有條件的存取。若要啟用此功能，必須備妥 AD DS。如果您安裝 AD FS 與裝置註冊服務 (DRS)，則 DRS 會提供 PowerShell Cmdlet，讓您準備要用於裝置回寫的 AD。如果沒有安裝 DRS，可以企業系統管理員的身分執行 C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1。
+
+> [AZURE.WARNING]如果您目前啟用 DirSync 或 Azure AD Sync，請不要在 Azure AD Connect 中啟動任何回寫功能。
+
+裝置回寫功能可讓您取得在雲端中 (例如在 Intune 中) 註冊的裝置，並將它納入 AD DS 中以供有條件的存取。若要啟用此功能，必須備妥 AD DS。如果您安裝 AD FS 與裝置註冊服務 (DRS)，則 DRS 會提供 PowerShell Cmdlet，讓您準備要用於裝置回寫的 AD。如果沒有安裝 DRS，可以企業系統管理員的身分執行 C:\\Program Files\\Microsoft Azure Active Directory Connect\\AdPrep\\AdSyncAdPrep.psm1。
+
+在您可以執行 PowerShell Cmdlet 之前，必須先匯入它。
+
+	Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
+
+若要執行這項操作，您必須將 Active Directory 和 MSOnline PowerShell 安裝在本機上。
 
 
 
@@ -258,4 +273,4 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 * [深入了解](active-directory-aadconnect-learn-more.md)
 * [MSDN 上的 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

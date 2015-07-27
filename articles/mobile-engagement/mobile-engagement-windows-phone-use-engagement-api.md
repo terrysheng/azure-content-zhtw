@@ -4,7 +4,7 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
-	manager="dwrede" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #如何在 Windows Phone Silverlight 上使用 Engagement API
@@ -379,4 +379,4 @@ Engagement 也提供將傳送未處理的例外狀況之方法。在 Silverlight
 			{"subscription":"2013-12-07","premium":"true"}
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -423,7 +423,7 @@ Django 具有收集靜態檔案的概念。這會從原始位置取得所有靜�
 
 如果您想要跳過 Django 應用程式的靜態檔案收集：
 
-    .skipDjango
+    \.skipDjango
 
 那麼您必須要在本機電腦，手動執行收集：
 
@@ -515,4 +515,4 @@ Azure 提供了資料庫服務，可從 Django 應用程式輕鬆使用。從 Dj
 [Django 說明文件]: https://www.djangoproject.com/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

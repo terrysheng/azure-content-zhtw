@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="QuickBooks 連接器" 
-   description="如何使用 QuickBooks 連接器" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="QuickBooks 連接器"
+   description="如何使用 QuickBooks 連接器"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="04/01/2015"
-   ms.author="vagarw"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #在邏輯應用程式中使用 QuickBooks 連接器#
@@ -119,7 +119,4 @@
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

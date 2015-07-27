@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="deonhe"/>
 
 
 # Microsoft Azure App Service 中的資料連接器
+
+> [AZURE.NOTE]將淘汰此主題。請參閱[連接器和 API 應用程式清單](app-service-logic-connectors-list.md)以查看所有可用的內建連接器和 API 應用程式。
 
 
 ## 什麼是應用程式 + 資料服務 API 應用程式連接器
@@ -47,17 +49,6 @@
 <td>Azure 服務匯流排連接器可讓您從服務匯流排實體 (如佇列和主題) 傳送訊息，並接收來自服務匯流排實體 (例如佇列和訂閱) 的訊息。
 <td>新訊息
 <td>傳送訊息
-</tr>
-<tr>
-<td>Azure 儲存體資料表
-<td>Azure 儲存體資料表連接器可讓您連接至 Azure 儲存體資料表，並執行各種動作，例如取得實體、查詢實體、插入實體、更新實體、刪除實體和可擷取資料的觸發程序。
-<td>新增實體
-<td><li>取得實體
-	<li>插入實體
-	<li>刪除實體
-	<li>更新實體
-	<li>查詢
-
 </tr>
 
 <tr>
@@ -126,17 +117,6 @@
 	<li>從資料表選取
 	<li>從資料表刪除
 	<li>呼叫預存程序
-</tr>
-
-<tr>
-<td>MongoDB
-<td>MongoDB 連接器可讓您建立、更新、刪除和取得 MongoDB 集合中的文件。
-<td>新增文件
-<td>	<li>新增文件
-		<li>更新文件
-		<li>取得文件
-		<li>更新插入文件
-		<li>刪除文件
 </tr>
 
 
@@ -261,7 +241,8 @@ Microsoft Azure 應用程式服務會公開可使用這些連接器的不同應�
 
 
 ## 其他連接器
-[BizTalk 整合連接器](app-service-logic-integration-connectors.md) | [企業連接器](app-service-logic-enterprise-connectors.md) | [企業對企業連接器](app-service-logic-b2b-connectors.md) | [社交連接器](app-service-logic-social-connectors.md) | [通訊協定連接器](app-service-logic-protocol-connectors.md) | [應用程式和資料服務連接器](app-service-logic-data-connectors.md) | [連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/> [什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
+
+[連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/>[什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

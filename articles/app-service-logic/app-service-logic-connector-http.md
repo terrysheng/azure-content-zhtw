@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Http 接聽程式和連接器" 
-   description="在邏輯應用程式中使用 HTTP 接聽程式和 HTTP 動作" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Http 接聽程式和連接器"
+   description="在邏輯應用程式中使用 HTTP 接聽程式和 HTTP 動作"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
+   ms.workload="integration"
+   ms.date="07/02/2015"
    ms.author="prkumar"/>
 
 
@@ -88,11 +88,4 @@ HTTP 動作的輸出會是標頭和主體，可進一步在流程的下游中使
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-
-
-
-
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

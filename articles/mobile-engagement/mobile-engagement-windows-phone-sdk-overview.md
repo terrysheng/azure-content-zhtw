@@ -4,7 +4,7 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
-	manager="dwrede" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
@@ -32,7 +32,7 @@
 
 ##版本資訊
 
-###3.0.0 (2015/04/03)
+###3\.0.0 (2015/04/03)
 
 -   預設通知圖示已更新。
 -   按一下通知時，會傳回系統通知動作回饋。
@@ -55,4 +55,4 @@
 請參閱[升級程序](mobile-engagement-windows-phone-upgrade-procedure/)
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

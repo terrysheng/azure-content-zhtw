@@ -14,15 +14,15 @@
 
 如果您想要略過所有 Python 專屬的部署步驟，可以建立此空白檔案：
 
-    .skipPythonDeployment
+    \.skipPythonDeployment
 
 如果您想要跳過 Django 應用程式的靜態檔案收集：
 
-    .skipDjango 
+    \.skipDjango 
 
 若要更能掌控部署，您可以建立以下檔案來覆寫預設的部署指令碼：
 
-    .deployment
+    \.deployment
     \deploy.cmd
 
 您可以使用 [Azure 命令列介面][]建立檔案。從您的專案資料夾中使用此命令：
@@ -33,4 +33,4 @@
 
 [Azure 命令列介面]: http://azure.microsoft.com/downloads/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

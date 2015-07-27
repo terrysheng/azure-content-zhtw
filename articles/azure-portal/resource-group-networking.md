@@ -363,4 +363,4 @@ VPN 閘道的重要屬性包括：
 
 [範本部署](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

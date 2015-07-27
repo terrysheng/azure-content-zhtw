@@ -50,7 +50,7 @@
         [JsonProperty(PropertyName = "imageUri")]
         public string ImageUri { get; set; } 
 
-   	>[AZURE.NOTE]如果要在 TodoItem 物件中新增屬性，您必須在行動服務中啟用動態結構描述。When Dynamic Schema is enabled, new columns are automatically added to the TodoItem table that map to these new properties.
+   	>[AZURE.NOTE]如果要在 JavaScript 後端行動服務的 TodoItem 物件中新增屬性，您必須在行動服務中啟用動態結構描述。When Dynamic Schema is enabled, new columns are automatically added to the TodoItem table that map to these new properties.對於 .NET 後端行動服務，請參閱[如何對 .NET 後端行動服務進行資料模型變更](../articles/mobile-services/mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)主題。
 
 5. 在 MainPage 類別中，新增下列程式碼：
 
@@ -142,4 +142,4 @@
 
    	>[AZURE.NOTE]將新項目的 <code>imageUri</code> 屬性繫結至 <strong>Image</strong> 控制項時，會從 Blob 儲存體服務自動下載影像。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

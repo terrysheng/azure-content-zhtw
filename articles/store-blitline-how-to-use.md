@@ -150,4 +150,4 @@ SAS 必須包含整個 SAS URL，包括目的地檔案的檔案名稱。
   [如何建立 Blitline 工作]: #createjob
   [如何將影像儲存至您的 Azure 儲存體]: #saveazure
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,6 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
-	writer="Justinha" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
@@ -148,4 +147,4 @@ Azure AD 需要符合特定條件才能刪除目錄。這可降低刪除目錄�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

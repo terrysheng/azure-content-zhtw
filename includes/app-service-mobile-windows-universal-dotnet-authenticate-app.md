@@ -57,10 +57,13 @@
 		
 5. 在 Windows 市集應用程式專案中，開啟 MainPage.xaml 專案檔案，並將以下 **Button** 元素新增至定義 **Save** 按鈕的元素前方：
 
-		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
-                        Visibility="Visible">Sign in</Button>
+	<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
+                Visibility="Visible">登入</Button>
 
-6. 針對 Windows Phone 市集應用程式專案重複上一個步驟，不過這次請將 **Button** 新增至 **TitlePanel** 中，使其位於 **TextBlock** 元素後方。
+6. 在 Windows Phone 市集應用程式專案中，在 **ContentPanel** 中 **TextBlock** 元素的後面新增 **Button** 元素：
+
+        <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
+        Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
 
 7. 開啟共用的 App.xaml.cs 專案檔案並新增下列 using 陳述式 (如果該陳述式不存在的話)：
 
@@ -91,4 +94,4 @@
 
 10. 以滑鼠右鍵按一下 Windows Phone 市集應用程式專案、按一下 [設定為啟始專案]，然後重複上一個步驟以驗證 Windows Phone 市集應用程式是否也能正常運作。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

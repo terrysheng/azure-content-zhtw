@@ -77,9 +77,9 @@
 
 當 Node.js 應用程式部署至背景工作角色時，是由 Node.exe 管理伺服器憑證和 SSL 連線。為了處理 SSL 流量，您必須使用 'https' 模組，而不是 'http'。請執行下列步驟將 SSL 憑證加入至專案，然後修改應用程式來使用憑證。
 
-1.   將憑證授權單位 (CA) 提供的 **.pfx** 檔案儲存至您的應用程式所在的目錄。例如，**c:\node\securesite\workerrole1** 是本文中使用的應用程式所在的目錄。
+1.   將憑證授權單位 (CA) 提供的 **.pfx** 檔案儲存至您的應用程式所在的目錄。例如，**c:\\node\\securesite\\workerrole1** 是本文中使用的應用程式所在的目錄。
 
-2.   使用 Notepad.exe 開啟 **c:\node\securesite\workerrole1\server.js** 檔案，將檔案內容改成下列內容：
+2.   使用 Notepad.exe 開啟 **c:\\node\\securesite\\workerrole1\\server.js** 檔案，將檔案內容改成下列內容：
 
 		var https = require('https');
 		var fs = require('fs');
@@ -173,4 +173,4 @@
   
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

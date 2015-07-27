@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
 # 什麼是 Azure WebJobs SDK
@@ -22,7 +22,7 @@
 
 本文說明 WebJobs SDK 是什麼、檢閱部分適用的典型案例，以及提供在程式碼中的使用方式概觀。
 
-[WebJobs](web-sites-create-web-jobs.md) 是一項 Azure App Service 功能，可讓您在與 Web 應用程式相同的內容中執行程式或指令碼。WebJobs SDK 的目的旨在簡化程式碼撰寫 (包括以 WebJob 的形式執行，及使用 Azure 儲存體佇列、Blob 和資料表，和服務匯流排佇列等) 工作。
+[WebJobs](websites-webjobs-resources.md) 是一項 Azure App Service 功能，可讓您在與 Web 應用程式相同的內容中執行程式或指令碼。WebJobs SDK 的目的旨在簡化程式碼撰寫 (包括以 WebJob 的形式執行，及使用 Azure 儲存體佇列、Blob 和資料表，和服務匯流排佇列等) 工作。
 
 WebJobs SDK 包含下列元件：
 
@@ -105,4 +105,4 @@ WebJobs SDK 提供多種使用 Azure 儲存體的方法。例如，如果使用 
 如需 WebJobs SDK 的詳細資訊，請參閱 [Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

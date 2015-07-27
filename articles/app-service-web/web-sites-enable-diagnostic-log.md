@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2015"
+	ms.date="07/02/2015"
 	ms.author="cephalin"/>
 
 # 在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能。
 
 ## 概觀
 
-Azure 提供內建診斷功能，可協助對 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中裝載的 Web 應用程式進行偵錯。本文將說明如何啟用診斷記錄，並在您的應用程式中加入檢測設備，以及如何存取 Azure 所記錄的資訊。
+Azure 提供內建診斷功能，可協助對 [App Service Web 應用程式](http://go.microsoft.com/fwlink/?LinkId=529714)進行偵錯。本文將說明如何啟用診斷記錄，並在您的應用程式中加入檢測設備，以及如何存取 Azure 所記錄的資訊。
 
-> [AZURE.NOTE]本文使用 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)、Azure PowerShell 及 Azure 命令列介面 (Azure CLI) 來處理診斷記錄。如需使用 Visual Studio 來處理診斷記錄的詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure](../troubleshoot-web-sites-in-visual-studio.md)。
+> [AZURE.NOTE]本文使用 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)、Azure PowerShell 及 Azure 命令列介面 (Azure CLI) 來處理診斷記錄。如需使用 Visual Studio 來處理診斷記錄的詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure](troubleshoot-web-sites-in-visual-studio.md)。
 
 ## <a name="whatisdiag"></a>Web 伺服器診斷和應用程式診斷
 
-[App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提供診斷功能。這些資訊邏輯上可區分為 [Web 伺服器診斷] 與 [應用程式診斷]。
+App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提供診斷功能。這些資訊邏輯上可區分為 [Web 伺服器診斷] 與 [應用程式診斷]。
 
 ### Web 伺服器診斷
 
@@ -38,40 +38,39 @@ Azure 提供內建診斷功能，可協助對 [App Service](http://go.microsoft.
 
 ### 應用程式診斷
 
-應用程式診斷可讓您擷取 Web 應用程式所產生的資訊。ASP.NET 應用程式會使用 [System.Diagnostics.Trace](http://msdn.microsoft.com/zh-tw/library/36hhw2t6.aspx) 類別將資訊記錄到應用程式診斷記錄。例如：
+應用程式診斷功能可讓您擷取 Web 應用程式所產生的資訊。ASP.NET 應用程式會使用 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) 類別將資訊記錄到應用程式診斷記錄。例如：
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-應用程式診斷功能可在運用特定程式碼判斷時，讓您散發資訊以便疑難排解執行中的應用程式。當您嘗試判斷程式碼為何使用特定路徑 (通常使用該路徑會產生錯誤或其他不應該的行為) 時，這個方法會特別實用。
+您可以在執行階段擷取這些記錄檔，以協助疑難排解。如需詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure Web 應用程式](../troubleshoot-web-sites-in-visual-studio.md)。
 
-如需使用 Visual Studio 來處理應用程式診斷的相關資訊，請參閱[在 Visual Studio 中疑難排解 AzureWeb 應用程式](../troubleshoot-web-sites-in-visual-studio.md)。
-
-> [AZURE.NOTE]與變更 web.config 檔案的作法不同之處在於啟用應用程式診斷或是變更診斷記錄層級，而不會回收在其中執行應用程式的應用程式網域。
-
-當您將內容發行至 Web 應用程式時，Azure Web 應用程式也會記錄部署資訊。此動作會自動發生，因此無須任何組態設定即會記錄部署動作。部署記錄功能可讓您判斷部署失敗的原因。例如，如果您是使用自訂的部署指令碼，則您可以使用部署記錄功能來判斷指令碼失敗的原因。
+當您將內容發行至 Web 應用程式時，App Service Web 應用程式也會記錄部署資訊。此動作會自動發生，因此無須任何組態設定即會記錄部署動作。部署記錄功能可讓您判斷部署失敗的原因。例如，如果您是使用自訂的部署指令碼，則您可以使用部署記錄功能來判斷指令碼失敗的原因。
 
 ## <a name="enablediag"></a>如何啟用診斷
 
-若要在 [Azure 管理入口網站](https://portal.azure.com)中啟用診斷，請移至 Web 應用程式的分頁，依序按一下 [所有設定] > [診斷記錄]。
+若要在 [Azure 預覽入口網站](https://portal.azure.com)中啟用診斷，請移至 Web 應用程式的分頁，然後依序按一下 [設定] > [診斷記錄]。
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![記錄部分](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-啟用 [應用程式診斷] 時，您必須同時選取 [記錄層級]，以及是否要對 [檔案系統]、[資料表儲存體] 或 [Blob 儲存體] 啟用記錄功能。雖然以上三個儲存位置全都提供相同的基本資訊供您記錄事件，[資料表儲存體] 與 [Blob 儲存體] 會比 [檔案系統] 記錄更多的資訊，例如執行個體識別碼、執行緒識別碼以及更細緻的時間戳記 (刻度格式)。
+啟用 [應用程式診斷] 時，也會選擇 [層級]。此設定可讓您篩選擷取至 [資訊]、[警告] 或 [錯誤] 資訊中的資訊。將此功能設為 [詳細資訊] 會記錄所有由該應用程式所產生的資訊。
 
-啟用 [網站診斷] 後，您必須針對 [Web 伺服器記錄] 選取 [儲存] 或 [檔案系統]。選取 [儲存] 可讓您選取儲存體帳戶，並接著選取可供寫入記錄的 Blob 容器。[網站診斷] 的其他所有記錄 都只會寫入檔案系統。
+> [AZURE.NOTE]與變更 web.config 檔案的作法不同之處在於啟用應用程式診斷或是變更診斷記錄層級，而不會回收在其中執行應用程式的應用程式網域。
 
-> [AZURE.NOTE]儲存在 [資料表儲存體] 或 [Blob 儲存體] 內的資訊只能透過儲存用戶端，或是能夠直接使用這些儲存系統的應用程式來存取。例如，Visual Studio 2013 內含的 [儲存體總管] 可用來探索資料表或 Blob 儲存體，而 HDInsight 則可存取儲存在 Blob 儲存體內的資料。您也可以使用任何一項 [Azure SDK](/downloads/#)，撰寫可存取 Azure 儲存體的應用程式。
+在 [Azure 入口網站](https://manage.windowsazure.com) Web 應用程式 [設定] 索引標籤中，您可以針對 [Web 伺服器記錄] 選取 [儲存體] 或 [檔案系統]。選取 [儲存] 可讓您選取儲存體帳戶，並接著選取可供寫入記錄的 Blob 容器。[網站診斷] 的其他所有記錄 都只會寫入檔案系統。
 
-以下列出當您啟用 [應用程式診斷] 時可用的設定：
+[Azure 入口網站](https://manage.windowsazure.com) Web 應用程式 [設定]索引標籤也有其他應用程式診斷的設定：
 
-* **記錄層級** - 可讓您篩選擷取至 [資訊]、[警告] 或 [錯誤] 資訊中的資訊。將此功能設為 [詳細資訊] 會記錄所有由該應用程式所產生的資訊。您可以分別針對 [檔案系統]、[資料表儲存體] 與 [Blob 儲存體] 記錄功能設定不同的 [記錄層級]。
 * **檔案系統** - 將應用程式診斷資訊儲存至 Web 應用程式檔案系統。這些檔案可透過 FTP 存取，或是使用 Azure PowerShell 或 Azure 命令列介面 (Azure CLI) 下載為 Zip 封存。
 * **資料表儲存體** - 會將應用程式診斷資訊儲存至指定的 Azure 儲存體帳戶與資料表名稱。
 * **Blob 儲存體** - 會將應用程式診斷資訊儲存至指定的 Azure 儲存體帳戶與 Blob 容器中。
 * **保留週期** - 依預設，所有記錄不會自動從 [Blob 儲存體] 中刪除。如果您想要讓系統自動刪除記錄的話，請選取 [set retention] 並輸入記錄保留天數。
 
-> [AZURE.NOTE]包括檔案系統、資料表儲存體或是 Blob 儲存體的任意組合都可以同時啟用，並個別具有記錄層級組態。例如，您也許想要將各種錯誤與警告資訊記錄到 Blob 儲存體做為長期的記錄解決方案，同時啟用詳細資訊層級的檔案系統記錄功能。
+包括檔案系統、資料表儲存體或是 Blob 儲存體的任意組合都可以同時啟用，並個別具有記錄層級組態。例如，您也許想要將各種錯誤與警告資訊記錄到 Blob 儲存體做為長期的記錄解決方案，同時啟用詳細資訊層級的檔案系統記錄功能。
+
+雖然以上三個儲存位置全都提供相同的基本資訊供您記錄事件，[資料表儲存體] 與 [Blob 儲存體] 會比 [檔案系統] 記錄更多的資訊，例如執行個體識別碼、執行緒識別碼以及更細緻的時間戳記 (刻度格式)。
+
+> [AZURE.NOTE]儲存在 [資料表儲存體] 或 [Blob 儲存體] 內的資訊只能透過儲存用戶端，或是能夠直接使用這些儲存系統的應用程式來存取。例如，Visual Studio 2013 內含的 [儲存體總管] 可用來探索資料表或 Blob 儲存體，而 HDInsight 則可存取儲存在 Blob 儲存體內的資料。您也可以使用任何一項 [Azure SDK](/downloads/#)，撰寫可存取 Azure 儲存體的應用程式。
 
 > [AZURE.NOTE]您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
 
@@ -93,7 +92,7 @@ Azure 提供內建診斷功能，可協助對 [App Service](http://go.microsoft.
 
 ### FTP
 
-若要使用 FTP 存取診斷資訊，請在 Azure 管理入口網站中造訪您 Web 應用程式的 [儀表板]。在 [Quick Glance] 區段中，使用 **FTP Diagnostic Logs** 連結以便透過 FTP 存取記錄檔案。[Deployment/FTP User] 項目會列出應該用來存取 FTP 網站的使用者名稱。
+若要使用 FTP 存取診斷資訊，請在 [Azure 入口網站](https://manage.windowsazure.com)中造訪您 Web 應用程式的 [儀表板]。在 [Quick Glance] 區段中，使用 **FTP Diagnostic Logs** 連結以便透過 FTP 存取記錄檔案。[Deployment/FTP User] 項目會列出應該用來存取 FTP 網站的使用者名稱。
 
 > [AZURE.NOTE]如果未設定的 [部署/FTP 使用者] 項目，或是您忘記此使用者的密碼，您可以使用 [儀表板] 的 [快速概覽] 區段中**重設部署認證**連結來建立新的使用者名稱和密碼。
 
@@ -136,7 +135,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 
 > [AZURE.NOTE]某些記錄緩衝區類型會寫入記錄檔中，進而造成串流中的事件順序錯亂。例如，使用者造訪某個網頁所產生的應用程式記錄項目，可能會比頁面要求的對應 HTTP 記錄項目優先顯示在串流中。
 
-> [AZURE.NOTE]記錄串流也會將串流資訊寫入儲存於 **D:\home\LogFiles** 資料夾中的任何文字檔。
+> [AZURE.NOTE]記錄串流也會將串流資訊寫入儲存於 **D:\\home\\LogFiles\** 資料夾中的任何文字檔。
 
 ### 使用 Azure PowerShell 來串流
 
@@ -323,18 +322,17 @@ Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](http://msdn.microsoft.c
 
 > [AZURE.NOTE]Azure Web 應用程式所產生的記錄並不支援 __s-computername__、__s-ip__ 或 __cs-version__ 欄位。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
-
 ##<a name="nextsteps"></a> 後續步驟
 
 - [如何監視 Web 應用程式](/zh-tw/manage/services/web-sites/how-to-monitor-websites/)
-- [教學課程 - 疑難排解 Web 應用程式](/zh-tw/develop/net/best-practices/troubleshooting-web-sites/)
 - [在 Visual Studio 中疑難排解 Azure Web Apps](/zh-tw/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
 - [在 HDInsight 中分析 Web 應用程式記錄](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+
+> [AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

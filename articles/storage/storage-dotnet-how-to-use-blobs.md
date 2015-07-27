@@ -1,6 +1,6 @@
 <properties
 	pageTitle="如何使用 .NET 的 Blob 儲存體 | Microsoft Azure"
-	description="了解如何使用 Microsoft Azure Blob 儲存體來上傳、下載、列出及刪除 Blob 內容。範例是以 C# 撰寫的。"
+	description="了解如 Azure Blob 儲存體以及如何建立容器與上傳、下載、列出及刪除 Blob 內容。"
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/15/2015"
+	ms.date="07/06/2015"
 	ms.author="tamram"/>
 
 
@@ -304,4 +304,4 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

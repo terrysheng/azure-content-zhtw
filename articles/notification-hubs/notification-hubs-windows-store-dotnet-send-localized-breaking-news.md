@@ -232,4 +232,4 @@
 [Windows 市集的通知中心作法]: http://msdn.microsoft.com/library/jj927172.aspx
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/24/2015" 
+	ms.date="07/14/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -21,26 +21,26 @@
 
 對於擁有數十、數百或甚至數千個資料庫的 SaaS 開發人員而言，彈性資料庫集區可以簡化在整個資料庫群組中，進行建立、維護及管理流程的效能和成本。
 
-這份參考提供了彈性集區文章和可程式性資訊的連結與詳細資料。
+這份參考提供了彈性資料庫集區文章和可程式性資訊的連結與詳細資料。
 
 ## 概觀
 
-彈性集區是資料庫輸送量單位 (DTU) 的集合，也是由多個資料庫共用的儲存體 (GB)。您可以隨時在集區中加入和移除彈性資料庫。集區中的彈性資料庫只會利用集區中它們需要的資源，而集區也只會針對需要這些資源的作用中資料庫釋出可用資源。
+彈性資料庫集區是庫集區輸送量單位 (DTU) 的集合，也是由多個資料庫共用的儲存體 (GB)。您可以隨時在集區中加入和移除彈性資料庫。集區中的彈性資料庫只會利用集區中它們需要的資源，而集區也只會針對需要這些資源的作用中資料庫釋出可用資源。如需判斷您的資料庫是否因彈性資料庫集區而受益的協助，請參閱[彈性資料庫集區的價格和效能考量](sql-database-elastic-pool-guidance.md)。
 
 
 
-## 建立和管理彈性集區的必要條件
+## 建立和管理彈性資料庫集區的必要條件
 
 
-- 只有 Azure SQL Database V12 伺服器才可以使用彈性集區。   
-- 只有 Azure 資源管理員 (ARM) 支援彈性集區的 PowerShell 和 REST API；不支援服務管理命令 (RDFE)。 
-- 只有 [Microsoft Azure 入口網站](https:portal.azure.com)中支援建立和管理彈性集區。 
+- 只有 Azure SQL Database V12 伺服器才可以使用彈性資料庫集區。   
+- 只有在 Azure 資源管理員 (ARM) 上使用 [Microsoft Azure 入口網站](https://portal.azure.com)、PowerShell 和 REST API 才支援建立和管理彈性資料庫集區；[傳統入口網站](https://manage.windowsazure.com/)和服務管理命令 (RDFE) 不受支援。 
 
 
 ## 目前的預覽版本限制
 
-- 目前預覽版本中彈性集區的定價層為標準版。  
-- 不支援直接將資料庫匯入彈性集區。您可以匯入獨立資料庫，然後將資料庫移到集區。支援從集區將資料庫匯出。
+- 目前預覽版本中彈性資料庫集區的定價層為標準版。  
+- 不支援直接將資料庫匯入集區。您可以匯入獨立資料庫，然後將資料庫移到集區。支援從集區將資料庫匯出。
+- 每個集區可以有最大值 100 個資料庫。
 
 
 ## 文章清單
@@ -49,9 +49,9 @@
 
 | 文章 | 說明 |
 | :-- | :-- |
-| [SQL Database 彈性集區](sql-database-elastic-pool.md) | 彈性集區概觀 |
-| [使用 Azure 入口網站建立和管理 SQL Database 彈性集區](sql-database-elastic-pool-portal.md) | 如何使用 Azure 入口網站建立和管理彈性集區 |
-| [使用 PowerShell 建立和管理 SQL Database 彈性集區](sql-database-elastic-pool-powershell.md) | 如何使用 PowerShell Cmdlet 建立和管理彈性集區 |
+| [SQL Database 彈性資料庫集區](sql-database-elastic-pool.md) | 彈性集區概觀 |
+| [使用 Azure 入口網站建立和管理 SQL Database 彈性資料庫集區](sql-database-elastic-pool-portal.md) | 如何使用 Azure 入口網站建立和管理彈性集區 |
+| [使用 PowerShell 建立和管理 SQL Database 彈性資料庫集區](sql-database-elastic-pool-powershell.md) | 如何使用 PowerShell Cmdlet 建立和管理彈性集區 |
 | [彈性資料庫工作概觀](sql-database-elastic-jobs-overview.md) | 彈性工作服務的概觀，此服務可在集區中的所有彈性資料庫內執行 T-SQL 指令碼 |
 | [安裝彈性資料庫工作元件](sql-database-elastic-jobs-service-installation.md) | 如何安裝彈性資料庫工作服務 |
 | [建立彈性工作服務所需的使用者](sql-database-elastic-jobs-add-logins-to-dbs.md) | 若要執行彈性資料庫工作指令碼，必須將具有適當權限的使用者加入至集區中的每個資料庫。 |
@@ -63,7 +63,7 @@
 彈性集區是 Microsoft Azure SQL Database 中 "ElasticPool" 類型的 ARM 資源。
 
 - **namespace**：Microsoft.Sql/ElasticPool
-- 用於 REST API 呼叫的 **secondary-endpoint** (Azure 資源管理員)：https://management.azure.com
+- 用於 REST API 呼叫的 **management-endpoint** (Azure 資源管理員)：https://management.azure.com
 
 
 
@@ -79,7 +79,7 @@
 | elasticPoolId | 集區執行個體的 GUID。 |
 | elasticPoolName | 集區的名稱。此名稱是其父伺服器的唯一相對名稱。 |
 | location | 建立集區的資料中心位置。 |
-| state | 如果訂閱的帳單付款有拖欠，則狀態為「已停用」，反之為「就緒」。 |
+| state | 如果訂用帳戶的帳單付款有拖欠，則狀態為「已停用」，反之為「就緒」。 |
 | storageMB | 集區的儲存體限制 (MB)。集區中的任何單一資料庫可以使用的上限為標準版的儲存體限制 (250 GB)，但集區中的所有資料庫使用的儲存體總計不能超過此集區限制。 |
 
 
@@ -111,11 +111,10 @@
 
 ## Azure 資源管理員限制
 
-使用彈性集區需要 Azure SQL Database V12 伺服器。伺服器均位於資源群組內。
+Azure SQL Database V12 伺服器位於資源群組中。
 
 - 每個資源群組最多可以有 800 部伺服器。
 - 每部伺服器最多可以有 800 個彈性集區。
-- 每個彈性集區最多可以有 100 個資料庫。
 
 
 ## 彈性集區的作業延遲
@@ -153,7 +152,7 @@
 | Get-Metrics | Get Metrics |
 
 
-## 計費和定價資訊
+## 計費和價格資訊
 
 彈性資料庫集區會依據下列特性計費：
 
@@ -165,7 +164,7 @@
 - 彈性集區的價格是以集區的 DTU 數和集區中的資料庫數目為計算基礎。
 - 價格的計算方式為 (集區的 DTU 數) x (每 DTU 的單價) + (資料庫數目) x (每個資料庫的單價)
 
-在同一個服務層中，彈性集區的 DTU 單價大於獨立資料庫的 DTU 單價。如需詳細資訊，請參閱 [SQL Database 定價](http://azure.microsoft.com/pricing/details/sql-database/)。
+在同一個服務層中，彈性集區的 DTU 單價大於獨立資料庫的 DTU 單價。如需詳細資訊，請參閱 [SQL Database 價格](http://azure.microsoft.com/pricing/details/sql-database/)。
 
 ## 彈性資料庫集區錯誤
 
@@ -192,4 +191,4 @@
 | 40891 | EX_USER | 每個資料庫的最小 DTU (%d) 不能超過每個資料庫的最大 DTU (%d)。 | 每個資料庫的最小 DTU、每個資料庫的最大 DTU。 | 試圖將每個資料庫的最小 DTU 設為超過每個資料庫的最大 DTU。 | 請確定每個資料庫的最小 DTU 並未超過每個資料庫的最大 DTU。 |
 | TBD | EX_USER | 彈性集區中個別資料庫的儲存體大小，不能超過 '%.*ls' 服務層彈性集區所允許的大小上限。 | 彈性集區服務層 | 資料庫的大小上限超過彈性集區服務層所允許的大小上限。 | 請將資料庫的大小上限設定在彈性集區服務層所允許的大小上限內。 |
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

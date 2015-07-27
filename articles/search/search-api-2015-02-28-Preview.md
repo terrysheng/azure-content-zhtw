@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="05/25/2015"
+   ms.date="07/10/2015"
    ms.author="heidist"/>
 
 # Azure 搜尋服務 REST API：版本 2015-02-28-Preview
@@ -795,7 +795,7 @@ Azure 搜尋服務支援以各種語言來編製欄位的索引。每一種語�
 	</tr>
   	<tr>
 		<td>韓文</td>
-		<td>ko.microsfot</td>
+		<td>ko.microsoft</td>
 		<td>
 		<ul>
 			<li>詞幹縮減分析器 (詞形還原)</li>
@@ -2107,4 +2107,4 @@ ________________________________________
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

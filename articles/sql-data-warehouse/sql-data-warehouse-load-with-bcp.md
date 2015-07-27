@@ -71,7 +71,7 @@ GO
 20150101,1,3
 ```
 
-將此檔案儲存到本機暫存目錄，C:\Temp\DimDate2.txt。
+將此檔案儲存到本機暫存目錄，C:\\Temp\\DimDate2.txt。
 
 ### 步驟 3：連接並匯入資料
 在 bcp 中，您可以使用下列命令來連接並匯入資料 (請適當地取代其中的值)：
@@ -150,4 +150,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Microsoft 下載中心]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

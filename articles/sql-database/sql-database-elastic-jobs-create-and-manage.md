@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/12/2015"
+	ms.date="06/25/2015"
 	ms.author="sidneyh"/>
 
 # 建立和管理彈性資料庫工作
@@ -22,14 +22,14 @@
 
 ## 必要條件
 
-* Azure 訂閱。如需免費試用，請參閱[免費試用一個月](http://azure.microsoft.com/pricing/free-trial/)。
+* Azure 訂用帳戶。如需免費試用，請參閱[免費試用一個月](http://azure.microsoft.com/pricing/free-trial/)。
 * 彈性資料庫集區。請參閱[關於彈性資料庫集區](sql-database-elastic-pool.md)。
 * 安裝彈性資料庫工作服務元件。請參閱[安裝彈性資料庫工作服務](sql-database-elastic-jobs-service-installation.md)。
 
 ## 建立工作 (Job)
 
 1. 在 [彈性資料庫工作集區] 刀鋒視窗中，按一下 [建立工作]。
-2. 輸入工作控制資料庫 (工作的中繼資料儲存體) 之資料庫系統管理員 (在安裝作業時建立) 的使用者名稱與密碼。
+2. 輸入工作控制資料庫 (工作的中繼資料儲存體) 之資料庫系統管理員 (在安裝工作時建立) 的使用者名稱與密碼。
 
 	![為工作命名，輸入或貼上程式碼，然後按一下 [執行]][1]
 2. 在 [建立工作] 刀鋒視窗中，輸入工作的名稱。
@@ -110,4 +110,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

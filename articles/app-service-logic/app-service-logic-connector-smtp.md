@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="SMTP 連接器 API 應用程式" 
-   description="如何使用 SMTP 連接器" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="SMTP 連接器 API 應用程式"
+   description="如何使用 SMTP 連接器"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,71 +12,84 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/31/2015"
-   ms.author="adgoda"/>
+   ms.workload="integration"
+   ms.date="07/01/2015"
+   ms.author="andalmia"/>
 
 
-# 在邏輯應用程式中使用 SMTP 連接器 #
+# SMTP 連接器
 
-邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。
+邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於工作流程一部分的資料。
 
 POP3 連接器可讓您連接到 POP3 伺服器，並執行傳送有附件之電子郵件的動作。SMTP 連接器「傳送電子郵件」動作可讓您傳送電子郵件到指定的電子郵件位置。
 
-## 建立邏輯應用程式的 SMTP 連接器 ##
-若要使用 SMTP 連接器，您必須先建立 SMTP 連接器 API 應用程式的執行個體。以下步驟可以達到此目的：
+## 觸發程序和動作
+*觸發程序*是發生的事件。例如，訂單更新時或加入新客戶時。*動作*是觸發程序的結果。例如，更新訂單或加入新客戶時，傳送電子郵件給新客戶。
 
-1.	使用 Azure 入口網站左下方的 [+新增] 選項開啟 Azure Marketplace。
-2.	瀏覽至 [Web 與行動] > [API Marketplace]，並搜尋「SMTP 連接器」。
-3.	設定 SMTP 連接器，如下所示：
- 
-	![][1] 
-	- **位置** - 選擇您要部署連接器的地理位置 
-	- **訂用帳戶** - 選擇您要在其中建立此連接器的訂用帳戶 
-	- **資源群組** - 選取或建立連接器所在的資源群組 
-	- **Web 主控方案** - 選取或建立 Web 主控方案 
-	- **定價層** - 選擇用於連接器的定價層 
-	- **名稱** - 提供 SMTP 連接器的名稱 
-	- **封裝設定** 
-		- **使用者名稱** 指定用來連線到 SMTP 伺服器的使用者名稱
-		- **密碼** 指定用來連線到 SMTP 伺服器的密碼
-		- **伺服器位址** 指定 SMTP 伺服器名稱或 IP 位址 
-		- **伺服器連接埠** 指定 SMTP 伺服器連接埠號碼 
-		- **啟用 SSL** 指定 true 以透過 SSL/TLS 安全通道使用 SMTP
-4.	按一下 [建立]。將建立新的 SMTP 連接器。
-5.	建立 API 應用程式執行個體後，您可以在相同的資源群組中建立邏輯應用程式，以便使用 SMTP 連接器。 
+SMTP 連接器可以在邏輯應用程式中用作觸發程序或動作，且支援 JSON 和 XML 格式的資料。這個連接器目前沒有觸發程序。
 
-## 在邏輯應用程式中使用 SMTP 連接器 ##
-建立 API 應用程式之後，您現在可以使用 SMTP 連接器做為邏輯應用程式的動作。若要這樣做，您需要：
+SMTP 連接器提供下列觸發程序和動作：
 
-1.	建立新的邏輯應用程式，並選擇具有 SMTP 連接器的相同資源群組。
- 
+觸發程序 | 動作
+--- | ---
+無 | 傳送電子郵件
+
+
+## 建立 SMTP 連接器
+連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
+
+1. 在 Azure 開始面板中，選取 [**Marketplace**]。
+2. 選取 [API 應用程式]，然後搜尋「SMTP 連接器」。
+3. **建立**連接器。
+4. 輸入名稱、App Service 方案和其他屬性。
+5. 輸入下列封裝設定：
+
+	名稱 | 必要 | 說明
+	--- | --- | ---
+	使用者名稱 | 是 | 輸入可以連接到 SMTP 伺服器的使用者名稱。
+	密碼 | 是 | 輸入使用者名稱密碼。
+	伺服器位址 | 是 | 輸入 SMTP 伺服器名稱或 IP 位址。
+	伺服器連接埠 | 是 | 輸入 SMTP 伺服器連接埠號碼。
+	啟用 SSL | 否 | 輸入 *true* 以透過 SSL/TLS 安全通道使用 SMTP。
+
+6. 選取 [**建立**]。
+
+## 在邏輯應用程式中使用 SMTP 連接器
+建立連接器之後，即可使用 SMTP 連接器做為邏輯應用程式的動作。作法：
+
+1.	建立新的邏輯應用程式：
+
 	![][2]
-2.	開啟 [觸發程序和動作] 以開啟邏輯應用程式設計工具，並設定您的流程。 
- 
+2.	開啟 [觸發程序和動作] 以開啟邏輯應用程式設計工具，並設定您的工作流程：
+
 	![][3]
-3.	SMTP 接器就會出現在右側程式庫中的 [此資源群組中的 API 應用程式] 區段。選取該項目。
- 
+3.	SMTP 連接器會列在右側資源庫中的 [此資源群組中的 API 應用程式] 區段。請選取它：
+
 	![][4]
-4.	您可以在 [SMTP 連接器] 上按一下來將 SMTP 連接器 API 應用程式置入編輯器。 
-	
-7.	您現在便可以在流程中使用 SMTP 連接器。選取 [傳送電子郵件] 動作並設定輸入屬性，如下所示：
-	- **收件者** - 這是收件者的電子郵件位址。用分號分 (;) 分隔多個電子郵件位址。例如：recipient1@domain.com;recipient2@domain.com。
-	- **副本** - 這是副本收件者的電子郵件位址。用分號分 (;) 分隔多個電子郵件位址。例如：recipient1@domain.com;recipient2@domain.com。
-	- **主旨** - 這是電子郵件的主旨。
-	- **內文** - 這是電子郵件的內文。
-	- **是 HTML** - 這個屬性設為 true 時，內文的內容會以 HTML 傳送。
-	- **密件副本** - 這是密件副本收件者的電子郵件地址。用分號分 (;) 分隔多個電子郵件位址。例如：recipient1@domain.com;recipient2@domain.com。
-	- **重要性** - 這是電子郵件的重要性。選項為 [一般]、[低]、[高]。
-	- **附件** - 與電子郵件一起傳送的附件。其中包含下列欄位：
-		- 內容 (字串)
-		- 內容轉移編碼 (列舉) (“none”|”base64”)
-		- 內容類型 (字串)
-		- 內容識別碼 (字串)
-		- 檔案名稱 (字串)
+4.	選取 [SMTP 連接器]，自動將它加入工作流程設計工具。
+
+您現在可以設定要在工作流程中使用的 SMTP 連接器。選取 [傳送電子郵件] 動作，並設定輸入屬性：
+
+	Property | Description
+	--- | ---
+	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Subject | Enter the subject of the email.
+	Body | Enter body of the email.
+	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
+	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
+	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
 	![][5]
 	![][6]
+
+## 進一步運用您的連接器
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
+
+使用 REST API 建立 API 應用程式。請參閱[連接器和 API 應用程式參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)。
+
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)。
 
 	<!--Image references-->
 [1]: ./media/app-service-logic-connector-smtp/img1.PNG
@@ -85,6 +98,5 @@ POP3 連接器可讓您連接到 POP3 伺服器，並執行傳送有附件之電
 [4]: ./media/app-service-logic-connector-smtp/img4.PNG
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
- 
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

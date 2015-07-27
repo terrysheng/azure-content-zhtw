@@ -412,4 +412,4 @@ NuGet 套件也會新增下列組件的參考：
 [適合我的 Azure 快取提供項目]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

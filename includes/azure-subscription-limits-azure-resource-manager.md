@@ -52,4 +52,4 @@
 
 <sup>3</sup>Azure 資源群組和 Azure 資源管理員已不再需要這些功能。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

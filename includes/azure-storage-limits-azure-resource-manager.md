@@ -1,3 +1,5 @@
+只有在使用 Azure 資源管理員和 Azure 資源群組時才適用下列限制。
+
 <table cellspacing="0" border="1">
 <tr>
    <th align="left" valign="middle">資源</th>
@@ -13,4 +15,4 @@
 </tr>
 </table>
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

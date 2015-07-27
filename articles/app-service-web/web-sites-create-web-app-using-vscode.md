@@ -220,9 +220,13 @@ Git 是一個您可用來部署 Azure App Service Web 應用程式的分散式�
 
 		git remote add azure [URL for remote repository]
 
-7. 輸入下列命令，將您的變更推播至 Azure。
+7. 設定 Git 在本機儲存認證，讓它們自動附加至您從 VS 程式碼產生的推送命令。
 
-		git push azure master
+		git config credential.helper store
+
+8. 輸入下列命令，將您的變更推播至 Azure。在這個初始推送至 Azure 之後，將可以從 VS 程式碼進行所有推送命令。
+
+		git push -u azure master
 
 	系統會提示您輸入先前建立的密碼。**注意：將看不到您的密碼。**
 
@@ -232,7 +236,9 @@ Git 是一個您可用來部署 Azure App Service Web 應用程式的分散式�
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE]如果您變更應用程式時，則可以重新發行，方法是在 VS Code 中選取 [全部認可] 選項，然後在命令提示字元輸入 **git push azure master** 命令。
+> [AZURE.NOTE]如果您變更應用程式，則可以使用內建 Git 功能在 VS 程式碼中直接重新發行，方法是依序選取 [全部認可] 選項和 [推送] 選項。您會發現 [全部認可] 和 [重新整理] 按鈕旁邊之下拉式功能表中可用的 [推送] 選項。
+
+如果您需要與他人對專案進行共同作業，則應該考慮在推送至 Azure 之間推送至 GitHub。
 
 ## 在 Azure 中執行應用程式
 既然您已部署 Web 應用程式，讓我們執行裝載於 Azure 的應用程式。
@@ -250,4 +256,4 @@ Git 是一個您可用來部署 Azure App Service Web 應用程式的分散式�
 ## 摘要
 在本教學課程中，您學到如何在 VS Code 建立 Web 應用程式，並將其部署至 Azure。如需 VS Code 的詳細資訊，請參閱文章：[為什選擇 Visual Studio Code？](https://code.visualstudio.com/Docs/)。如需 App Service Web Apps 的相關資訊，請參閱 [Web 應用程式概觀](app-service-web-overview.md)。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

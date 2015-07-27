@@ -1,7 +1,6 @@
 <properties
 	pageTitle="機器學習適用之 R 語言的快速入門教學課程 | Microsoft Azure"
 	description="請透過此 R 程式設計教學課程快速開始搭配 Azure Machine Learning Studio 使用 R 語言來建立預測解決方案。"
-	keywords="quickstart,r language,r programming language,r programming tutorial"
 	services="machine-learning"
 	documentationCenter=""
 	authors="Blackmist"
@@ -1117,4 +1116,4 @@ Paul Cowpertwait 與 Andrew Metcalfe 所著的 《Introductory Time Series with 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

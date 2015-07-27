@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/06/2015"
 	ms.author="cephalin"/>
 
 # Azure App Service Web 應用程式進階設定和擴充功能
@@ -42,7 +42,7 @@ App Service 平台提供適用於 Web 應用程式設定的彈性和控制。雖
 	</configuration>
 
 
-從 FTP 根目錄的 LogFiles\Transform 之下可取得含有轉換狀態和詳細資料的記錄檔案。
+從 FTP 根目錄的 LogFiles\\Transform 之下可取得含有轉換狀態和詳細資料的記錄檔案。
 
 如需其他範例，請參閱＜[https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)＞。
 
@@ -81,7 +81,7 @@ PHP Manager 擴充功能是使用 Visual Studio ASP.NET MVC 4 Web 應用程式�
 
 ![TransformSiteSolEx][TransformSiteSolEx]
 
-檔案 I/O 所需的唯一特殊邏輯就是指出 Web 應用程式的 wwwroot 目錄位於何處。如下列程式碼範例所示，環境變數 "HOME" 表示 Web 應用程式的根路徑，而附加 "site\wwwroot" 即可建構 wwwroot 路徑：
+檔案 I/O 所需的唯一特殊邏輯就是指出 Web 應用程式的 wwwroot 目錄位於何處。如下列程式碼範例所示，環境變數 "HOME" 表示 Web 應用程式的根路徑，而附加 "site\\wwwroot" 即可建構 wwwroot 路徑：
 
 	/// <summary>
 	/// Gives the location of the .user.ini file, even if one doesn't exist yet
@@ -93,7 +93,7 @@ PHP Manager 擴充功能是使用 Visual Studio ASP.NET MVC 4 Web 應用程式�
     		{
         		rootPath = System.IO.Path.GetTempPath(); // For testing purposes
     		};
-    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot.user.ini");
+    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
     		return userSettingsFile;
 	}
 
@@ -112,7 +112,7 @@ Web 應用程式擴充功能中值得注意的一點與內部連結的處理有�
 
 ####<a id="XDT"></a> applicationHost.xdt 檔案
 
-Web 應用程式擴充功能的程式碼位於 %HOME%\SiteExtensions[your-extension-name] 之下。我們將此稱為擴充功能根目錄。
+Web 應用程式擴充功能的程式碼位於 %HOME%\\SiteExtensions[your-extension-name] 之下。我們將此稱為擴充功能根目錄。
 
 若要使用 applicationHost.config 檔案登錄您的 Web 應用程式擴充功能，您必須將名為 ApplicationHost.xdt 的檔案放在擴充功能根目錄中。ApplicationHost.xdt 檔案的內容應如下所示：
 
@@ -180,4 +180,4 @@ Web 應用程式擴充功能的程式碼位於 %HOME%\SiteExtensions[your-extens
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

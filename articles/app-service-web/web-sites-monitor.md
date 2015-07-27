@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/02/2015"
 	ms.author="cephalin"/>
-
-
 
 #<a name="howtomonitor"></a>監視 Azure App Service 中的 Web 應用程式
 
@@ -24,7 +22,7 @@
 
 ##<a name="websitemetrics"></a>作法：新增 Web 應用程式度量
 
-1. 在 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中，從 Web 應用程式的 [管理] 頁面按一下 [監視] 索引標籤，以顯示 [監視] 管理頁面。依預設，[監視] 頁面之圖表顯示的度量與 [儀表板] 頁面的圖表相同。
+1. 在 [Azure 入口網站](https://manage.windowsazure.com)的 Web 應用程式頁面中，按一下 [監視] 索引標籤以顯示 [監視] 管理頁面。依預設，[監視] 頁面之圖表顯示的度量與 [儀表板] 頁面的圖表相同。
 
 2. 若要檢視 Web 應用程式的其他度量，可按一下頁面底部的 [新增度量]，以顯示 [選擇度量] 對話方塊。
 
@@ -37,25 +35,25 @@
 6. 若要將 [監視] 頁面中的度量移除，請選取要移除的度量，然後按一下頁面底部的 [Delete Metric] 圖示。
 
 ##<a name="howtoreceivealerts"></a>作法：接收來自 Web 應用程式度量的警示
-在 [標準] Web 應用程式模式中，您可以接收以 Web 應用程式監視度量為基礎的警示。您必須先設定監視所用的 Web 端點才能使用警示功能，您可以在 [設定] 頁面的 [監視] 區段中加已設定。在 Azure 管理入口網站的 [設定] 頁面中，您可以建立規則以在選擇之度量達到指定的值時觸發警示。您也可以選擇在警示觸發時傳送電子郵件。如需詳細資訊，請參閱[作法：在 Azure 中接收警示通知及管理警示規則](http://go.microsoft.com/fwlink/?LinkId=309356)。
+
+在 [標準] Web 應用程式模式中，您可以接收以 Web 應用程式監視度量為基礎的警示。您必須先設定監視所用的 Web 端點才能使用警示功能，您可以在 [設定] 頁面的 [監視] 區段中加已設定。您也可以選擇在所選擇的度量達到所指定的值時傳送電子郵件。如需詳細資訊，請參閱[作法：在 Azure 中接收警示通知及管理警示規則](http://go.microsoft.com/fwlink/?LinkId=309356)。
 
 ##<a name="howtoviewusage"></a>作法：檢視 Web 應用程式的使用量配額
 
-Web 應用程式可以從 Web 應用程式的 [調整規模] 管理頁面，設為在 [共用] 或 [標準] 模式中執行。在 [共用] 模式中，每個 Azure 訂用帳戶都能存取針對每個區域執行最多 100 個 Web 應用程式的目的而提供的資源集區。基於此目的而提供給每個 Web 應用程式訂用帳戶使用的資源集區，將由相同地理位置中設定為在 [共用] 模式中執行的其他 Web 應用程式所共用。由於這些資源需與其他 Web 應用程式共用，因此所有訂用帳戶在使用這些資源時均會受到限制。套用在訂用帳戶上的資源使用限制，會以列於各個 Web 應用程式 [儀表板] 管理頁面之 [使用量概觀] 區段下的使用量配額來表示。
+Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) Web 應用程式的 [調整規模] 管理頁面，設為在 [共用] 或 [標準] 模式中執行。在 [共用] 模式中，每個 Azure 訂用帳戶都能存取針對每個區域執行最多 100 個 Web 應用程式的目的而提供的資源集區。基於此目的而提供給每個 Web 應用程式訂用帳戶使用的資源集區，將由相同地理位置中設定為在 [共用] 模式中執行的其他 Web 應用程式所共用。由於這些資源需與其他 Web 應用程式共用，因此所有訂用帳戶在使用這些資源時均會受到限制。套用在訂用帳戶上的資源使用限制，會以列於各個 Web 應用程式 [儀表板] 管理頁面之 [使用量概觀] 區段下的使用量配額來表示。
 
 >[AZURE.NOTE]若將網站設定為以 [標準] 模式執行，則該網站會被配置相當於下文表格中 [小型] (預設值)、[中型] 或 [大型] 虛擬機器大小的專用資源：[Azure 的虛擬機器和雲端服務大小][vmsizes]。對於在 [標準] 模式下運作的 Web 應用程式，其訂用帳戶可使用的資源並沒有限制。然而，每個區域容許建立的 [標準] 模式 Web 應用程式數目只有 500 個。
 
 ### 作法：檢視設定為共用模式的 Web 應用程式的使用量配額 ###
 若要判斷 Web 應用程式影響資源使用量配額的程度，請遵循以下步驟：
 
-1. 開啟 Web 應用程式的 [儀表板] 管理頁面。
+1. 開啟 [Azure 入口網站](https://manage.windowsazure.com) Web 應用程式的 [儀表板] 管理頁面。
 2. 個別[應用程式服務](http://go.microsoft.com/fwlink/?LinkId=529714)方案的使用量配額會顯示在 [使用量概觀] 區段之下，它是下列項目的子集：
 	-	[資料輸出]、[CPU 時間] 和 [記憶體] - 若超出配額，Azure 會在目前剩餘的配額間隔期間停止 Web 應用程式。Azure 會在下一個配額間隔開始時啟動 Web 應用程式。
 	-	[檔案系統儲存體] - 若達到此配額，檔案系統儲存體仍可進行讀取作業，但是會封鎖所有的寫入作業，包括正常 Web 應用程式活動所需的作業。當您降低檔案使用量或將 Web 應用程式移到配額較高的應用程式服務方案時，將會繼續進行寫入作業。
 	-	[已連結的資源] - 這裡也會顯示 Web 應用程式的任何連結資源 (例如資料庫或儲存體) 的配額。
 
 	有些配額可以依據 Web 裝載計畫套用，但有些配額則可依據網站套用。如需各 Web 裝載計畫的使用量配額詳細資訊，請參閱[網站限制](azure-subscription-service-limits.md#websiteslimits)。
-
 
 ##<a name="resourceusage"></a>作法：避免超出配額
 
@@ -64,10 +62,9 @@ Web 應用程式可以從 Web 應用程式的 [調整規模] 管理頁面，設�
 - 將 Web 應用程式移到較高層級的應用程式服務方案，以利用較大的配額。例如，[基本] 和 [標準] 方案的唯一配額為檔案系統儲存體。
 - 隨著 Web 應用程式的執行個體數目增加，超過共用資源配額的可能性也會隨之提高。如果適當，請考慮在超出共用資源配額時調降 Web 應用程式的其他執行個體。
 
-
 ##<a name="howtoconfigdiagnostics"></a>作法：設定診斷功能及下載 Web 應用程式記錄
 
-您可以在 Web 應用程式的 [設定] 管理頁面中啟用診斷功能。診斷功能分為兩種：應用程式診斷和網站診斷。
+您可以在 [Azure 入口網站](https://manage.windowsazure.com) Web 應用程式的 [設定] 索引標籤上啟用診斷功能。診斷功能分為兩種：應用程式診斷和網站診斷。
 
 #### 應用程式診斷 ####
 
@@ -95,16 +92,14 @@ Web 應用程式可以從 Web 應用程式的 [調整規模] 管理頁面，設�
 
 由於儲存體的應用程式記錄功能須使用儲存體用戶端來檢視記錄資料，因此當您計劃使用了解如何直接讀取及處理 Azure 資料表或 Blob 儲存體之資料的服務或應用程式時，這項功能最為實用。檔案系統的記錄功能會產生可透過 FTP 或其他公用程式下載到本機電腦的檔案，如本節後續內容所述。
 
-> [AZURE.NOTE]您可以同時啟用 [Application diagnostics (file system)]、[Application diagnostics (table storage)] 及 [Application diagnostics (blob storage)]，且它們可以擁有各自的記錄層級組態。例如，您也許會想要將錯誤和警告記錄在儲存體並做為長期的記錄解決方案，同時在檢測應用程式程式碼後啟用檔案系統記錄並搭配詳細資訊層級，以供疑難排解問題之用。
+您可以同時啟用 [Application diagnostics (file system)]、[Application diagnostics (table storage)] 及 [Application diagnostics (blob storage)]，且它們可以擁有各自的記錄層級組態。例如，您也許會想要將錯誤和警告記錄在儲存體並做為長期的記錄解決方案，同時在檢測應用程式程式碼後啟用檔案系統記錄並搭配詳細資訊層級，以供疑難排解問題之用。
 
-> [AZURE.NOTE]您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。
->
-> 如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
+您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
 
 > [AZURE.NOTE]應用程式記錄功能仰賴應用程式產生的記錄資訊。用來產生記錄資訊的方法和資訊的格式取決於應用程式的撰寫語言。如需有關使用應用程式記錄功能的語言特有資訊，請參閱以下文章：
 >
-> - **.NET** - [啟用 Azure 網站的診斷記錄功能](/develop/net/common-tasks/diagnostics-logging-and-instrumentation/)
-> - **Node.js** - [如何在 Azure 網站中偵錯 Node.js 應用程式](/develop/nodejs/how-to-guides/Debug-Website/)
+> - **.NET** - [使用 Visual Studio 疑難排解 Azure App Service 中的 Web 應用程式](web-sites-dotnet-troubleshoot-visual-studio.md)
+> - **Node.js** - [如何在 Azure 網站中偵錯 Node.js 應用程式](web-sites-nodejs-debug.md)
 >
 > 只有 .NET 應用程式才支援資料表或 Blob 儲存體的應用程式記錄功能。
 
@@ -137,7 +132,7 @@ Web 應用程式可以從 Web 應用程式的 [調整規模] 管理頁面，設�
 
 - 儲存應用程式記錄的位置，相對於 Web 根目錄。
 
-- 預設值：....\LogFiles\Application
+- 預設值：..\\..\\LogFiles\\Application
 
 **DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 
@@ -157,7 +152,7 @@ Web 應用程式可以從 Web 應用程式的 [調整規模] 管理頁面，設�
 
 **FTP**
 
-1. 開啟 Web 應用程式的 [儀表板] 管理頁面，接著記下 [診斷記錄] 下列示的 FTP 站台和 [部署使用者] 下列示的帳戶。FTP 站台是記錄檔的所在位置，而列示於 [Deployment User] 下的帳戶可用來通過 FTP 站台的驗證。
+1. 開啟 [Azure 入口網站](https://manage.windowsazure.com) Web 應用程式的 [儀表板] 管理頁面，接著記下 [診斷記錄] 下列示的 FTP 站台和 [部署使用者] 下列示的帳戶。FTP 站台是記錄檔的所在位置，而列示於 [Deployment User] 下的帳戶可用來通過 FTP 站台的驗證。
 2. 如果您尚未建立部署認證，列示於 [Deployment User] 下的帳戶將會是 [未設定]。在這種情況下，您必須建立部署認證 (如 [儀表板] 的 [Reset Deployment Credentials] 區段所述)，因為您必須使用這些認證來通過儲存記錄檔之 FTP 站台的驗證。Azure 不支援使用 Live ID 認證來通過此 FTP 站台的驗證。
 3. 請考慮使用 FTP 用戶端 (如 [FileZilla][fzilla]) 來連接 FTP 站台。與瀏覽器普遍的功能相比，FTP 用戶端更能簡化認證的指定和 FTP 站台資料夾的檢視。
 4. 請將 FTP 站台上的記錄檔複製到本機電腦。
@@ -266,7 +261,6 @@ Web 應用程式可以從 Web 應用程式的 [調整規模] 管理頁面，設�
 
 	Azure 現在會主動監視端點，並且在端點的回覆時間超過 3 秒時傳送點子郵件通知。
 
-
 如需 Web 應用程式端點監視的詳細資訊，請觀看以下影片：
 
 - [Scott Guthrie 介紹 Azure 網站及設定端點監視](/documentation/videos/websites-and-endpoint-monitoring-scottgu/) (英文)
@@ -277,10 +271,10 @@ Web 應用程式可以從 Web 應用程式的 [調整規模] 管理頁面，設�
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+* 如需 Azure 入口網站變更為 Azure 預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

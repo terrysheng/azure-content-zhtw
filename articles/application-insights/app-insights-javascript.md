@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="07/10/2015" 
 	ms.author="awills"/>
  
 # 適用 JavaScript Web 應用程式的 Application Insights
@@ -44,7 +44,7 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
 在您想要追蹤之每一個頁面的 &lt;/head&gt; 標記之前插入指令碼。如果您的網站有主版頁面，您可以那裡放入指令碼。例如：
 
-* 在 ASP.NET MVC 專案中，可放在 View\Shared_Layout.cshtml 中
+* 在 ASP.NET MVC 專案中，可放在 View\\Shared\\_Layout.cshtml 中
 * 在 SharePoint 網站中，在控制台中開啟[站台設定/主要頁面](app-insights-sharepoint.md)。
 
 指令碼包含檢測金鑰，會將資料導向您的 Application Insights 資源。
@@ -135,11 +135,15 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
 ![](./media/app-insights-javascript/12-search-pages.png)
 
-選取任一事件以查看詳細資料。
+選取任一事件以查看詳細資料。在詳細資料頁面中，按一下 "..." 來查看更多詳細資料。
 
 > [AZURE.NOTE]如果您使用[搜尋][diagnostic]，請注意，您必須比對完整字詞："Abou" 和 "bout" 與 "About" 不相符，但是 "Abou* " 相符。此外，您不能將萬用字元當做搜尋詞彙的開頭。例如，搜尋 "*bou" 將無法與 "About" 相符。
 
 > [深入了解診斷搜尋][diagnostic]
+
+### 頁面檢視屬性
+
+* **網頁檢視期間** 載入網頁並開始執行指令碼所花費的時間。具體來說，開始載入頁面及執行 trackPageView 之間的間隔。如果您在指令碼的初始設定之後將 trackPageView 從一般位置移走，它會反映不同的值。 
 
 ## 自訂使用情況追蹤
 
@@ -177,4 +181,4 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

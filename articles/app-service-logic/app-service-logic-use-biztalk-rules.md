@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="BizTalk 規則" 
-   description="本主題說明 BizTalk 規則的功能，並提供其使用方式的指示" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="BizTalk 規則"
+   description="本主題說明 BizTalk 規則的功能，並提供其使用方式的指示"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,11 +12,11 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="02/27/2015"
+   ms.workload="integration"
+   ms.date="07/02/2015"
    ms.author="andalmia"/>
 
-#BizTalk 規則 
+#BizTalk 規則
 
 商務規則會封裝可控制商務程序的原則和決策。這些原則可能正式定義於程序手冊、合約或協議中，或內化成為員工本身的知識或專業。這些原則是動態的，而且有可能隨著時間因為商務計劃、法規或其他原因的變動而有所變更。
 
@@ -30,7 +30,7 @@
 - 讓商務分析人員更充分掌控商務邏輯管理
 + 商務邏輯變更可更快轉移至生產環境
 
-#規則概念
+##規則概念
 
 ##詞彙
 
@@ -77,14 +77,14 @@ _IF_ _條件_ _THEN_ _動作_
 在非常簡單的保險理賠案例中，Claimant 送出他保險理賠 (透過像是網站、手機應用程式等任何用戶端)。此理賠要求傳送至企業的理賠處理單位，並根據處理的結果，宣告可能通過核准、遭到拒絕或送交進一步的手動處理。我們的案例中，理賠處理單位將是包含系統之商務邏輯的單位。深入檢視此單位時，我們可以發現下列事項：
 
 ![替代文字][2]
- 
+
 現在，我們將使用商務規則實作此商務邏輯。
 
 
 ##建立規則 API 應用程式
 
 
-1. 登入 Azure 入口網站並進入首頁。 
+1. 登入 Azure 入口網站並進入首頁。
 1. 按一下 [新增] -> [Azure Marketplace] -> [API 應用程式] -> [BizTalk 規則] -> [建立] ![替代文字][3]
 1. 在開啟的新分頁中，輸入下列資訊：  
 	1. 名稱 - 提供規則 API 應用程式的名稱
@@ -99,29 +99,21 @@ _IF_ _條件_ _THEN_ _動作_
 
 
 1. 藉由 [瀏覽] -> [API 應用程式] -> [<Your Rules API App>] 瀏覽至已建立的 API 應用程式。這應會使您進入 [規則 API 應用程式儀表板]，如下所示：
- 
+
    ![替代文字][4]
 
-2. 接著，按一下 [詞彙定義]。這會顯示 [詞彙撰寫] 畫面。按一下 [新增]，開始新增新的詞彙定義。目前支援兩種類型的詞彙定義 – 常值和 XML。
+2\. 接著，按一下 [詞彙定義]。這會顯示 [詞彙撰寫] 畫面。按一下 [新增]，開始新增新的詞彙定義。目前支援兩種類型的詞彙定義 – 常值和 XML。
 
 ##常值定義
 1.	按一下 [新增] 後，新的 [新增定義] 分頁隨即開啟。輸入下列值
   1.	名稱 – 限用不含任何特殊字元的英數字元。此外，這在您現有的詞彙定義清單中必須是唯一的。
   2.	說明 – 選擇性欄位。
   3.	類型 – 有兩種支援的類型。在此範例中選擇常值
-  4.	輸入類型 – 這可讓使用者選取定義的資料類型。目前有 4 種資料類型可供選取：
-    i.	字串 – 這些值必須在雙引號中輸入 (「範例字串」)  
-    ii.	布林值 – 這可以是 true 或 false  
-    iii.	數字 – 可以是任何十進位數字  
-    iv.	日期時間 – 這表示定義屬於日期類型。資料必須以下列格式輸入 – mm/dd/yyyy hh:mm:ss AM\PM  
-    v.	輸入 – 這是您輸入您定義值的位置。在此輸入的值必須符合選擇的資料型。使用者可以輸入單一值、一組以逗號分隔的值，或是使用關鍵字的值範圍。例如，使用者可以輸入唯一值 1；一組值 1、2、3；或是範圍 1 到 5。請注意，範圍僅適用於數字。
+  4.	輸入類型 – 這可讓使用者選取定義的資料類型。目前有 4 種資料類型可供選取：i.字串 – 這些值必須在雙引號中輸入 (「範例字串」) ii.布林值 – 這可以是 true 或 false iii.數字 – 可以是任何十進位數字 iv.日期時間 – 這表示定義屬於日期類型。資料必須以下列格式輸入 – mm/dd/yyyy hh:mm:ss AM\\PM v.輸入 – 這是您輸入您定義值的位置。在此輸入的值必須符合選擇的資料型。使用者可以輸入單一值、一組以逗號分隔的值，或是使用關鍵字的值範圍。例如，使用者可以輸入唯一值 1；一組值 1、2、3；或是範圍 1 到 5。請注意，範圍僅適用於數字。
 
 ![替代文字][5]
 ##XML 定義
-如果選擇 XML 做為 [詞彙類型]，則必須指定下列的輸入  
-  a.	結構描述 – 按一下此選項會開啟新分頁，讓使用者從已上傳的結構描述清單中選擇，或讓使用者上傳新的結構描述。   
-  b.	XPATH – 只有在上一個步驟中選擇結構描述後，才會解除鎖定此輸入。按一下此選項會顯示已選取的結構描述，並讓使用者選取必須建立詞彙定義的節點。  
-  c.	FACT – 此輸入會指出哪個資料物件會饋送至規則引擎進行處理。這是進階屬性，依預設會設定為所選 XPATH 的父系。在鏈結和集合的案例中，FACT 特別重要。
+如果選擇 XML 做為 [詞彙類型]，則必須指定下列的輸入 a.結構描述 – 按一下此選項會開啟新分頁，讓使用者從已上傳的結構描述清單中選擇，或讓使用者上傳新的結構描述。b.XPATH – 只有在上一個步驟中選擇結構描述後，才會解除鎖定此輸入。按一下此選項會顯示已選取的結構描述，並讓使用者選取必須建立詞彙定義的節點。c.FACT – 此輸入會指出哪個資料物件會饋送至規則引擎進行處理。這是進階屬性，依預設會設定為所選 XPATH 的父系。在鏈結和集合的案例中，FACT 特別重要。
 
 ![替代文字][6]
 
@@ -131,50 +123,20 @@ _IF_ _條件_ _THEN_ _動作_
 ![替代文字][7]
 
 ##建立原則
-在開發人員建立必要的詞彙後，預期應由商務分析人員透過 Azure 入口網站建立商務原則。 
-	1.	在建立的規則應用程式上會有原則濾鏡，使用者按一下後即可進入原則建立頁面。  
-	2.	此頁面會顯示此特定規則應用程式具有的原則清單。使用者只要輸入原則名稱並按索引標籤，即可新增原則。多個原則可以位於單一規則 API 應用程式中。  
-	3.	按一下已建立的原則，會讓使用者進入原則詳細資料頁面，而得以檢視位於原則中的規則。  
-	![替代文字][8] 
-	4.	按一下 [新增] 以新增規則。這會使您進入新分頁。
+在開發人員建立必要的詞彙後，預期應由商務分析人員透過 Azure 入口網站建立商務原則。1.在建立的規則應用程式上會有原則濾鏡，使用者按一下後即可進入原則建立頁面。2.此頁面會顯示此特定規則應用程式具有的原則清單。使用者只要輸入原則名稱並按索引標籤，即可新增原則。多個原則可以位於單一規則 API 應用程式中。3.按一下已建立的原則，會讓使用者進入原則詳細資料頁面，而得以檢視位於原則中的規則。![替代文字][8] 4.按一下 [新增] 以新增規則。這會使您進入新分頁。
 
 ##建立規則
-規則是條件和動作陳述式的集合。如果條件評估為 true，則會執行動作。在 [建立規則] 分頁中，提供唯一的規則名稱 (適用於該原則) 和說明 (選擇性)。[條件] 方塊可用來建立複雜的條件陳述式。以下是支援的關鍵字：  
-1. 	And – 條件運算子  
-2. 	Or – 條件運算子  
-3. 	does_not_exist  
-4. 	exists  
-5. 	false  
-6. 	is_equal_to  
-7. 	is_greater_than  
-8. 	is_greater_than_equal_to  
-9. 	is_in  
-10. is_less_than  
-11. is_less_than_equal_to  
-12. is_not_in  
-13. is_not_equal_to  
-14. mod  
-15. true
+規則是條件和動作陳述式的集合。如果條件評估為 true，則會執行動作。在 [建立規則] 分頁中，提供唯一的規則名稱 (適用於該原則) 和說明 (選擇性)。[條件] 方塊可用來建立複雜的條件陳述式。以下是支援的關鍵字：1.And – 條件運算子 2.Or – 條件運算子 3. does_not_exist 4. exists 5. false 6. is_equal_to 7. is_greater_than 8. is_greater_than_equal_to 9. is_in 10. is_less_than 11. is_less_than_equal_to 12. is_not_in 13. is_not_equal_to 14. mod 15. true
 
-Action(Then) 方塊可以包含多個陳述式 (每行一個)，用來建立要執行的動作。以下是支援的關鍵字：  
-1.	equals  
-2.	false  
-3.	true  
-4.	halt  
-5.	mod  
-6.	null  
-7.	update  
+Action(Then) 方塊可以包含多個陳述式 (每行一個)，用來建立要執行的動作。以下是支援的關鍵字：1. equals 2. false 3. true 4. halt 5. mod 6. null 7. update
 
-條件和動作方塊提供 Intellisense 協助使用者快速撰寫規則。按 ctrl + 空格或直接輸入，即可加以觸發。輸入的字元若符合關鍵字，將會自動進行篩選並顯示。Intellisense 視窗會顯示所有的關鍵字和詞彙定義。
-![替代文字][9]
+條件和動作方塊提供 Intellisense 協助使用者快速撰寫規則。按 ctrl + 空格或直接輸入，即可加以觸發。輸入的字元若符合關鍵字，將會自動進行篩選並顯示。Intellisense 視窗會顯示所有的關鍵字和詞彙定義。![替代文字][9]
 
-##明確向前鏈結  
-BizTalk 規則支援明確向前鏈結。意思就是，如果使用者想要重新評估規則以回應特定動作，可以使用特定的關鍵字加以觸發。下列是支援的關鍵字：
-   1.	update <vocabulary definition> - 此關鍵字會重新評估在其條件中使用指定詞彙定義的所有規則。  
-   2.	Halt – 此關鍵字會停止所有規則執行
+##明確向前鏈結
+BizTalk 規則支援明確向前鏈結。意思就是，如果使用者想要重新評估規則以回應特定動作，可以使用特定的關鍵字加以觸發。下列是支援的關鍵字：1. update <vocabulary definition> - 此關鍵字會重新評估在其條件中使用指定詞彙定義的所有規則。2.Halt – 此關鍵字會停止所有規則執行
 
-##啟用\停用規則
-可以啟用或停用原則中的每個規則。依預設會啟用所有規則。停用的規則在原則執行期間不會執行。啟用\停用規則可從規則分頁直接執行 – 命令提供於分頁頂端的命令列中，或可從原則中存取，內容功能表 (以滑鼠右鍵按一下規則) 具有啟用\停用的選項。
+##啟用\\停用規則
+可以啟用或停用原則中的每個規則。依預設會啟用所有規則。停用的規則在原則執行期間不會執行。啟用\\停用規則可從規則分頁直接執行 – 命令提供於分頁頂端的命令列中，或可從原則中存取，內容功能表 (以滑鼠右鍵按一下規則) 具有啟用\\停用的選項。
 
 ##規則優先順序
 原則的所有規則都按順序執行。執行的優先順序取決於在原則中的出現順序。只要拖放規則，即可變更此優先順序。
@@ -199,20 +161,20 @@ BizTalk 規則支援明確向前鏈結。意思就是，如果使用者想要重
 
             JObject input = new JObject();
 
-			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>". 
-			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient". 
-			// This is CASE SENSITIVE. 
+			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>".
+			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient".
+			// This is CASE SENSITIVE.
             input.Add("insuranceclaimschema_Patient", xmlInstance);
             string stringContent = JsonConvert.SerializeObject(input);
 
 
             // Making REST call to Rules API App
             HttpClient httpClient = new HttpClient();
-	
+
 			// The url is the Host URL of the Rules API App
-            httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");            
+            httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");
             HttpContent httpContent = new StringContent(stringContent);
-            httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");            
+            httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
 
             // Invoking API "Execute" on policy "InsruranceClaimPolicy" and getting response JSON object. The url can be gotten from the API Definition Lens
             var postReponse = httpClient.PostAsync("api/Policies/InsuranceClaimPolicy?comp=Execute", httpContent).Result;
@@ -237,7 +199,4 @@ BizTalk 規則支援明確向前鏈結。意思就是，如果使用者想要重
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

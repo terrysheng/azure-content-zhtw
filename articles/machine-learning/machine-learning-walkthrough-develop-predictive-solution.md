@@ -1,7 +1,6 @@
 <properties
 	pageTitle="使用 Machine Learning 建立的信用風險預測解決方案 | Microsoft Azure"
 	description="詳細的逐步解說說明如何在 Azure Machine Learning 中為信用風險評估建立預測分析解決方案。"
-	keywords="credit risk, predictive analytics solution,risk assessment"	
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/22/2015"
+	ms.date="07/10/2015"
 	ms.author="garye"/>
 
 
@@ -42,4 +41,4 @@
 此逐步解說以隨附於 Machine Learning Studio 的簡化版[信用風險預測範例實驗](../machine-learning-sample-credit-risk-prediction.md)為基礎。
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

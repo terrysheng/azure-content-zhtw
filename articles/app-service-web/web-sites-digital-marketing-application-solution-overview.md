@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="07/06/2015" 
 	ms.author="cephalin"/>
 
 # 在 Azure App Service Web Apps 上建立數位行銷活動
@@ -33,7 +33,7 @@
 
 Azure Marketplace 提供受歡迎網站內容管理系統 (CMS) 的範本，例如 [Orchard]、[Umbraco]、[Drupal] 以及 [WordPress]。您可以使用喜愛的 CMS 風格來建立 Web 應用程式。您可以根據自己的需求從各種不同的資料庫後端中選擇，包括 [Azure SQL Database] 和 [MySQL]。
 
-您現有的 Web 資產 (無論是 .NET、PHP、Java、Node.js 或 Python) 都可以在 Web Apps 上執行。您可以使用熟悉的 [FTP] 工具將它們移至 Web Apps。如果您經常建立數位行銷活動，您可能在原始檔控制管理系統已經有 Web 資產。您可以直接從受歡迎的原始檔控制選項，例如 [Visual Studio]、[Visual Studio Online] 和 [Git] (本機、GitHub、BitBucket、DropBox 及 Mercurial 等) 部署至 Web Apps。
+您現有的 Web 資產 (無論是 .NET、PHP、Java、Node.js 或 Python) 都可以在 Web Apps 上執行。您可以使用熟悉的 [FTP] 工具將它們移至 Web Apps。如果您經常建立數位行銷活動，您可能在原始檔控制管理系統已經有 Web 資產。您可以直接從受歡迎的原始檔控制選項，例如 [Visual Studio]、[Visual Studio Online] 和 [Git] - 本機、GitHub、BitBucket、DropBox 及 Mercurial 等部署至 Web Apps。
 
 ## 維持敏捷性
 
@@ -141,4 +141,4 @@ App Service Web Apps [相應增加和放大]的能力非常適合無法預期的
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

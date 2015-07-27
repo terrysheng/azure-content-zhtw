@@ -139,4 +139,4 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中設定警示
@@ -36,7 +36,7 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
 ![在 [警示規則] 分頁中，按一下 [新增警示]。將您的應用程式設定為要測量的資源，提供警示的名稱，然後選擇度量。](./media/app-insights-alerts/01-set-metric.png)
 
-設定其他屬性之前的資源。如果您想要設定效能或使用度量的相關警示，請勿選擇 webtest 資源。
+設定其他屬性之前的資源。如果您想要設定效能或使用度量的相關警示，請**選擇 "(元件)" 資源**。
 
 請小心注意系統要求您輸入臨界值時所使用的單位。
 
@@ -80,4 +80,4 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="03/03/2015"
+	ms.date="06/23/2015"
 	ms.author="mandia"/>
 
 
@@ -237,7 +237,7 @@ BizTalk 配接器服務是由 Azure BizTalk 服務使用。BizTalk 配接器服�
 
 #### 如何從 BizTalk 服務的某層移轉至另一層？
 
-使用備份與還原流程，從某層移轉至另一層。僅支援某些移轉路徑。請參閱「[BizTalk 服務：備份與還原](http://go.microsoft.com/fwlink/p/?LinkID=329873)」，以取得支援的移轉路徑詳細資料。
+使用備份與還原流程，從某層移轉至另一層。僅支援某些移轉路徑。請參閱「[BizTalk 服務：備份與還原](biztalk-backup-restore.md)」，以取得支援的移轉路徑詳細資料。
 
 #### 服務中是否包括 BizTalk 介面卡服務？ 如何接收軟體？
 
@@ -245,16 +245,16 @@ BizTalk 配接器服務是由 Azure BizTalk 服務使用。BizTalk 配接器服�
 
 ## 下一步
 
-若要在 Azure 管理入口網站中建立 Azure BizTalk 服務，請移至 [BizTalk 服務：使用 Azure 管理入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)。若要開始建立應用程式，請移至 [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=235197)。
+若要在 Azure 管理入口網站中建立 Azure BizTalk 服務，請移至 [BizTalk 服務：使用 Azure 管理入口網站進行佈建](biztalk-provision-services.md)。若要開始建立應用程式，請移至 [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=235197)。
 
 ## 另請參閱
-- [BizTalk 服務：使用 Azure 管理入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [BizTalk 服務：佈建狀態圖](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-- [BizTalk 服務：儀表板、監視和調整索引標籤](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-- [BizTalk 服務：備份與還原](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-- [BizTalk 服務：節流](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [BizTalk 服務：簽發者名稱和簽發者金鑰](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+- [BizTalk 服務：使用 Azure 管理入口網站進行佈建](biztalk-provision-services.md)<br/>
+- [BizTalk 服務：佈建狀態圖](biztalk-service-state-chart.md)<br/>
+- [BizTalk 服務：儀表板、監視和調整索引標籤](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+- [BizTalk 服務：備份與還原](biztalk-backup-restore.md)<br/>
+- [BizTalk 服務：節流](biztalk-throttling-thresholds.md)<br/>
+- [BizTalk 服務：簽發者名稱和簽發者金鑰](biztalk-issuer-name-issuer-key.md)<br/>
 - [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

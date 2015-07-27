@@ -3,7 +3,7 @@
     pageTitle="免費試用 Azure RemoteApp 30 天"
     description="嘗試 Azure RemoteApp 的 30 天免費試用版。"
     services="remoteapp"
-    solutions="" documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -30,4 +30,4 @@
 
 有人給您意見嗎？ 張貼問題到[討論區論壇](http://feedback.azure.com/forums/247748-azure-remoteapp) (英文)。如果您有 [Azure 支援方案](http://azure.microsoft.com/support/plans/)，則可以提交支援案例。每個人都可以在我們的[意見反應論壇](http://feedback.azure.com/forums/247748-azure-remoteapp) (英文) 上送出意見。
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

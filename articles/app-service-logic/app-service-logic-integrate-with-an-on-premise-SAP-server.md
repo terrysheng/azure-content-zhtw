@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="與 Microsoft Azure 應用程式服務中的內部部署 SAP 伺服器整合"
 	description="了解如何與內部部署 SAP 伺服器整合"
-	authors="rajeshramabathiran" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2015"
-	ms.author="harish"/>
+	ms.date="07/02/2015"
+	ms.author="sameerch"/>
 
 
 # 與內部部署 SAP 伺服器整合
 使用 SAP 連接器，您可以將 Azure 應用程式服務 Web、行動及邏輯應用程式連接到現有的 SAP 伺服器。您可以叫用 RFC、BAPI、tRFC，以及將 IDOC 傳送至 SAP 伺服器。
-	
+
 SAP 伺服器甚至可以位於在內部部署的防火牆後面。如果是內部部署伺服器，連線能力會透過混合式接聽程式建立，如下所示：
 
 ![Hybrid connectivity flow][1]
@@ -40,12 +40,12 @@ SAP 伺服器甚至可以位於在內部部署的防火牆後面。如果是內�
 
 
 ## 建立新的 SAP 配接器
-1. 登入 Microsoft Azure 管理入口網站。 
+1. 登入 Microsoft Azure 管理入口網站。
 2. 選取 [**新增**]。
 3. 在 [建立] 分頁中，依序選取 [**計算**] > [**Azure Marketplace**]。
 4. 在 [Marketplace] 分頁中，選取 [**API 應用程式**]，並在搜尋列中搜尋 SAP：
-	
-	![SAP 連接器 API 應用程式][2]	
+
+	![SAP 連接器 API 應用程式][2]
 5. 選取 Microsoft 所發佈的 **SAP 連接器**。
 6. 在 [SAP 連接器] 分頁中，選取 [**建立**]。
 7. 在開啟的新分頁中，輸入下列內容：
@@ -125,8 +125,4 @@ SAP 伺服器甚至可以位於在內部部署的防火牆後面。如果是內�
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
 
-
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

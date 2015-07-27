@@ -10,4 +10,4 @@
 
 	如需詳細資料，請參閱 [混合式連線概觀](../articles/integration-hybrid-connection-overview.md)。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

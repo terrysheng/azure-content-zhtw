@@ -23,7 +23,7 @@
 您有兩個選項可控制 TTL。
 
 1.	請不要設定快取值，因此會使用預設 TTL：7 天。 
-2.	在 [**放置 Blob**]、[**放置封鎖清單**] 或 [**設定 Blob 屬性**] 要求上明確地設定 *x-ms-blob-cache-control* 屬性，或使用 Azure 受管理程式庫來設定 [BlobProperties.CacheControl](http://msdn.microsoft.com/library/microsoft.windowsazure.storageclient.blobproperties.cachecontrol.aspx) 屬性。設定此屬性會設定 Blob 之 *Cache-Control* 標頭的值。標頭或屬性的值應該指定適當的值 (秒)。例如，若要將快取期間上限設為一年，您可以將要求標頭指定為 `x-ms-blob-cache-control: public, max-age=31556926`。如需有關設定快取標頭的詳細資料，請參閱 [HTTP/1.1 規格](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html)。  
+2.	在 [**放置 Blob**]、[**放置封鎖清單**] 或 [**設定 Blob 屬性**] 要求上明確地設定 *x-ms-blob-cache-control* 屬性，或使用 Azure 受管理程式庫來設定 [BlobProperties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) 屬性。設定此屬性會設定 Blob 之 *Cache-Control* 標頭的值。標頭或屬性的值應該指定適當的值 (秒)。例如，若要將快取期間上限設為一年，您可以將要求標頭指定為 `x-ms-blob-cache-control: public, max-age=31556926`。如需有關設定快取標頭的詳細資料，請參閱 [HTTP/1.1 規格](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html)。  
 
 您想要透過 CDN 快取的任何內容都必須以公開存取的 Blob 形式儲存在 Azure 儲存體帳戶中。如需 Azure Blob 服務的詳細資料，請參閱 **Blob 服務概念**。
 
@@ -96,4 +96,4 @@
 
 [如何管理 Azure 內容傳遞網路 (CDN) 中雲端服務內容的到期](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

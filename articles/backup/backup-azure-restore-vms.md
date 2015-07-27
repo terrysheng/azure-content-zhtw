@@ -4,7 +4,7 @@
 	description="了解如何還原 Azure 虛擬機器"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/27/2015"
-	ms.author="aashishr"/>
+	ms.author="trinadhk"/>
 
 # 還原虛擬機器
 您可以使用還原動作，利用儲存在 Azure 備份保存庫的備份，將虛擬機器還原至新的 VM。
@@ -90,7 +90,7 @@
 
 ![已完成還原工作](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-還原虛擬機器後，您可能需要重新安裝原始虛擬機器 (VM) 上現有的擴充功能，並為 Azure 入口網站中的虛擬機器[重新建立端點](virtual-machines-set-up-endpoints)。
+還原虛擬機器後，您可能需要重新安裝原始虛擬機器 (VM) 上現有的擴充功能，並為 Azure 入口網站中的虛擬機器[修改端點](virtual-machines-set-up-endpoints)。
 
 ## 錯誤疑難排解
 大部分的錯誤您都可以依照「錯誤詳細資料」中所建議的動作進行排解。以下是一些額外項目，用以協助疑難排解：
@@ -104,4 +104,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

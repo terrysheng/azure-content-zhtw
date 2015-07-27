@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="以新的閘道部署 API 應用程式" 
-	description="使用 Azure 資源管理員範本，以新的閘道和新的應用程式服務方案，部署 API 應用程式。" 
+	description="使用「Azure 資源管理員」範本，以新的閘道和新的 App Service 方案，部署 API 應用程式。" 
 	services="app-service\api" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/23/2015" 
+	ms.date="07/01/2015" 
 	ms.author="tomfitz"/>
 
 # 以新的閘道佈建 API 應用程式
 
-在本主題中，您將學習如何建立 Azure 資源管理員範本，以部署 Azure API 應用程式和閘道。您將學習如何定義要部署哪些資源，以及如何定義執行部署時所指定的參數。您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。
+在本主題中，您將學習如何建立「Azure 資源管理員」範本，以部署 Azure API 應用程式和閘道。您將學習如何定義要部署哪些資源，以及如何定義執行部署時所指定的參數。您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。
 
 如需關於建立範本的詳細資訊，請參閱[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)。
 
 如需有關部署應用程式的詳細資訊，請參閱[透過可預測方式在 Azure 中部署複雜應用程式](../app-service-web/app-service-deploy-complex-application-predictably.md)。
 
-如需完整的範本，請參閱 [API 應用程式與新閘道的範本](../../templates/app-service-api-arm-new-gateway-provision/) (英文)。
+如需完整的範本，請參閱 [API 應用程式與新閘道的範本](https://github.com/Azure/azure-quickstart-templates/blob/master/201-api-app-gateway-new/azuredeploy.json) (英文)。
 
 ## 部署內容
 
@@ -32,11 +32,30 @@
 
 - API 應用程式
 - 新的閘道
-- 新的應用程式服務主控方案
+- 新的 App Service 虛擬主機方案
+
+若要自動執行部署，請按一下下列按鈕：
+
+[![部署至 Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-app-gateway-new%2Fazuredeploy.json)
 
 ## 參數
 
 [AZURE.INCLUDE [app-service-api-deploy-parameters](../../includes/app-service-api-deploy-parameters.md)]
+
+### hostingPlanSettings
+
+新的虛擬主機方案設定。
+
+    "hostingPlanSettings": {
+      "type": "Object",
+      "defaultValue": {
+        "computeMode": "Dedicated",
+        "siteMode": "Limited",
+        "sku": "Standard",
+        "workerSize": "0",
+        "hostingEnvironment": ""
+      }
+    }
     
 ## 變數
 
@@ -50,9 +69,9 @@
 
 ## 要部署的資源
 
-### 主控方案
+### 虛擬主機方案
 
-建立 API 應用程式的服務主控方案。
+建立 API 應用程式的服務虛擬主機方案。
 
     {
       "type": "Microsoft.Web/serverfarms",
@@ -68,11 +87,11 @@
       }
     }
 
-### 主控閘道的 Web 應用程式
+### 裝載閘道的 Web 應用程式
 
-建立主控閘道的 Web 應用程式。
+建立裝載閘道的 Web 應用程式。
 
-請注意，請將 **kind** 設為 **gateway**，這麼做會通知 Azure 入口網站此 Web 應用程式正在主控某個閘道。入口網站會在瀏覽 Web 應用程式刀鋒視窗中隱藏此 Web 應用程式。主控應用程式與閘道之間會定義一個連結。應用程式設定區段中會包含主控 API 應用程式的必要值。
+請注意，**kind** 是設定為 **gateway**，這樣會通知 Azure 入口網站此 Web 應用程式裝載某個閘道。入口網站會在瀏覽 Web 應用程式刀鋒視窗中隱藏此 Web 應用程式。裝載的 Web 應用程式與閘道之間會定義一個連結。應用程式設定區段包含裝載 API 應用程式的必要值。
 
 
     {
@@ -107,7 +126,7 @@
             },
             {
               "name": "EmaStorage",
-              "value": "D:\home\data\apiapps"
+              "value": "D:\\home\\data\\apiapps"
             },
             {
               "name": "WEBSITE_START_SCM_ON_SITE_CREATION",
@@ -121,11 +140,11 @@
       ]
     }
 
-### 閘道器
+### 閘道
 
 建立閘道。
 
-主控 Web 應用程式會定義為閘道的屬性。
+裝載 Web 應用程式會定義為閘道的屬性。
 
     {
       "type": "Microsoft.AppService/gateways",
@@ -155,11 +174,11 @@
       }
     }
 
-### 主控 API 應用程式的 Web 應用程式
+### 裝載 API 應用程式的 Web 應用程式
 
-建立主控 API 應用程式的 Web 應用程式。
+建立裝載 API 應用程式的 Web 應用程式。
 
-請注意，請將 **kind** 設為 **apiApp**，這麼做會通知 Azure 入口網站此 Web 應用程式正在主控某個閘道。入口網站會在瀏覽 Web 應用程式刀鋒視窗中隱藏此 Web 應用程式。此應用程式包含可安裝預設空白 API 應用程式封裝的延伸模組。API 應用程式與主控 Web 應用程式之間會定義一個連結。應用程式設定區段中會包含主控 API 應用程式的必要值。
+請注意，**kind** 是設定為 **apiApp**，這樣會通知 Azure 入口網站此 Web 應用程式裝載某個 API 應用程式。入口網站會在瀏覽 Web 應用程式刀鋒視窗中隱藏此 Web 應用程式。此應用程式包含可安裝預設空白 API 應用程式封裝的延伸模組。API 應用程式與裝載 Web 應用程式之間會定義一個連結。應用程式設定區段包含裝載 API 應用程式的必要值。
 
     {
       "type": "Microsoft.Web/sites",
@@ -229,7 +248,7 @@
 
 建立 API 應用程式。
 
-請注意，主控 Web 應用程式和閘道的名稱會定義為 API 應用程式中的屬性。
+請注意，裝載 Web 應用程式和閘道的名稱會定義為 API 應用程式中的屬性。
 
     {
       "type": "Microsoft.AppService/apiapps",
@@ -272,13 +291,13 @@
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-new/azuredeploy.json
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-new/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

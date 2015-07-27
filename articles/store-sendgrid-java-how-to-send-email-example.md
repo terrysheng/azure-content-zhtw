@@ -221,4 +221,4 @@
 [emailsent]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailSent.jpg
 [emailresult]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaResult.jpg
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

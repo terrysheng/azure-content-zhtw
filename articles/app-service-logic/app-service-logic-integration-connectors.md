@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 
 # Microsoft Azure 應用程式服務中的 BizTalk 整合 API 應用程式
+
+> [AZURE.NOTE]將淘汰此主題。請參閱[連接器和 API 應用程式清單](app-service-logic-connectors-list.md)以查看所有可用的內建連接器和 API 應用程式。
+
+
 Microsoft Azure 應用程式服務 (或簡稱應用程式服務) 包含許多對整合環境很重要的 BizTalk API 應用程式。這些 API 應用程式會以 BizTalk Server 內所使用的概念和工具為基礎，但現在可做為 Azure 應用程式服務的一部分提供。
 
 這些 API 應用程式的其中一個類別是 BizTalk 整合 API 應用程式。使用這些 BizTalk API 應用程式，您可以輕鬆地新增商務規則、轉換和驗證 XML 訊息、編碼一般檔案和 JSON 資料等等；就如同在 BizTalk Server 的內部部署一樣。
@@ -100,7 +104,7 @@ BIzTalk XPath 擷取程式 | 根據特定的 XPath 來查詢和擷取來自 XML 
 
 - 檢視資訊和錯誤事件
 - 檢視工作處理序 (w3wp) 的記憶體使用量和執行緒計數
-- 檢視應用程式和 Web 伺服器記錄檔\
+- 檢視應用程式和 Web 伺服器記錄檔\\
 
 另請參閱[監視邏輯應用程式](app-service-logic-monitor-your-logic-apps.md)以取得更多資訊。
 
@@ -132,6 +136,7 @@ Microsoft Azure 應用程式服務會公開可以使用這些整合 API 應用�
 
 
 ## 其他連接器
-[企業連接器](app-service-logic-enterprise-connectors.md)<br/> [企業對企業連接器](app-service-logic-b2b-connectors.md)<br/> [社交連接器](app-service-logic-social-connectors.md)<br/> [通訊協定連接器](app-service-logic-protocol-connectors.md)<br/> [應用程式 + 資料服務連接器](app-service-logic-data-connectors.md)<br/> [連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/> [什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=62-->
+[連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/>[什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
+
+<!---HONumber=July15_HO3-->

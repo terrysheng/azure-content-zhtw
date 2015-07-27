@@ -37,7 +37,7 @@ Azure 提供三種計算模型來執行應用程式：[Azure 網站][execution m
 
 若要建立新的 Azure 服務專案，請以系統管理員身分執行 Azure PowerShell 並執行下列命令：
 
-	PS C:\>New-AzureServiceProject myProject
+	PS C:>New-AzureServiceProject myProject
 
 此命令會建立新目錄 (`myProject`)，讓您可將 Web 和背景工作角色新增至該處。
 
@@ -212,4 +212,4 @@ Azure 計算和儲存模擬器所提供的本機環境，可讓您在 Azure 應�
 [作法：匯入發佈設定]: /develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
 [作法：將雲端服務部署到 Azure]: /develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

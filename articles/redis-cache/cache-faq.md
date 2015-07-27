@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="07/09/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis 快取常見問題集
@@ -217,7 +217,7 @@ Redis 工具 (例如 `redis-cli`) 未使用 SSL 連接埠，但您可以遵循[�
 -	Microsoft Patterns & Practices 具有下列指引。
 	-	[快取指引](https://github.com/mspnp/azure-guidance/blob/master/Caching.md)。
 	-	[Azure 雲端應用程式設計和實作指引](https://github.com/mspnp/azure-guidance)
--	[Azure Redis 快取的常見快取模式](cache-howto-common-cache-patterns/)
+-	[Azure Redis 快取的常見快取模式](cache-howto-common-cache-patterns.md)
 
 <a name="cache-reference"></a>
 ## Azure Redis 快取為什麼沒有像一些其他 Azure 服務的 MSDN 類別庫參考？
@@ -226,4 +226,4 @@ Microsoft Azure Redis 快取是基於受歡迎的開放原始碼 Redis 快取，
 
 因為每個用戶端都不同，所以 MSDN 上沒有一個集中式類別參考；而是每個用戶端都會維護其專屬的參考文件。除了參考文件之外，Azure.com 上還會有數個教學課程，可顯示如何使用 [[Redis 快取文件](http://azure.microsoft.com/documentatgion/services/redis-cache/)] 頁面上的不同語言和快取用戶端來開始使用 Azure Redis 快取。
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

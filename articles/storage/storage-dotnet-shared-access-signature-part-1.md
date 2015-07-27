@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="共用存取簽章：了解 SAS 模型 | Microsoft Azure" 
-	description="了解如何使用共用存取簽章來委派對 Blob、佇列和資料表資源的存取" 
+	description="深入了解使用共用的存取簽章 (SAS) 委派存取至 Azure 儲存體資源，包括 blob、佇列和資料表。利用共用的存取簽章，您可以保護您的儲存體帳戶金鑰，同時將帳戶中資源的存取權授與其他使用者。您可以控制您授與的權限和 SAS 的有效時間間隔。如果您也可以建立預存的存取原則，您就可以在擔心帳戶安全性遭到入侵時撤銷 SAS。" 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
+	ms.date="07/07/2015" 
 	ms.author="tamram"/>
 
 
@@ -35,11 +35,11 @@
 證明 SAS 非常有用的一個常見案例，就是使用者在您的儲存體帳戶中讀取和寫入自己的資料。在儲存體帳戶儲存使用者資料的案例中，典型的設計模式有兩種：
 
 
-1.用戶端通過前端 Proxy 服務 (執行驗證) 來上傳與下載資料。此前端 Proxy 服務有個好處，那就是允許商務規則的驗證，但在大量資料或大量交易的情況下，建立可調整以符合需求的服務可能十分昂貴或困難。
+1\.用戶端通過前端 Proxy 服務 (執行驗證) 來上傳與下載資料。此前端 Proxy 服務有個好處，那就是允許商務規則的驗證，但在大量資料或大量交易的情況下，建立可調整以符合需求的服務可能十分昂貴或困難。
 
 ![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
-2.輕量型服務可視需要驗證用戶端，然後產生 SAS。在用戶端收到 SAS 之後，他們可以使用 SAS 所定義的權限，並在 SAS 允許的間隔內直接存取帳戶資源。SAS 可減輕透過前端 Proxy 服務路由所有資料的需求。
+2\.輕量型服務可視需要驗證用戶端，然後產生 SAS。在用戶端收到 SAS 之後，他們可以使用 SAS 所定義的權限，並在 SAS 允許的間隔內直接存取帳戶資源。SAS 可減輕透過前端 Proxy 服務路由所有資料的需求。
 
 ![sas-storage-provider-service][sas-storage-provider-service]
 
@@ -231,11 +231,9 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&s
 
 [使用共用存取簽章 (REST API) 來委派存取權](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 
-[資料表和佇列 SAS 簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+[資料表和佇列 SAS 簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  
 
-<!----HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

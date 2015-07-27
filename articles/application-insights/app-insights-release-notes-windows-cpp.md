@@ -19,7 +19,7 @@
 [Application Insights SDK](app-insights-windows-cpp.md) 傳送有關您作用中的應用程式遙測到 [Application Insights](http://azure.microsoft.com/services/application-insights/)，您可以在此分析它的使用情況與效能。
 
 
-#### 在應用程式中安裝 SDK
+#### 若要在應用程式中安裝 SDK
 
 請參閱[開始使用適用於 Windows Phone 和市集應用程式的 Application Insights](app-insights-windows-cpp.md)。
 
@@ -30,11 +30,11 @@
 * 選取已安裝的 Application Insights 封裝，然後選擇 [動作：升級]。
 * 使用新的版本號碼執行[設定步驟](app-insights-windows-cpp.md)。
 
-## 1.0.0 Beta 版 
+## 1\.0.0 Beta 版 
 
 2015-06-05 預覽
 
 第一次發行
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

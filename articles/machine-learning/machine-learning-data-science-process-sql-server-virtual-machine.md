@@ -2,7 +2,6 @@
 	pageTitle="處理 SQL Azure 的資料 |Microsoft Azure" 
 	description="處理 SQL Azure 的資料" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="fashah" 
 	manager="paulettm" 
@@ -157,4 +156,4 @@ Python 中的 [Pandas 程式庫](http://pandas.pydata.org/)提供一組豐富的
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

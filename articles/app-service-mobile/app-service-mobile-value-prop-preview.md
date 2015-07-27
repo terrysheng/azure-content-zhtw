@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="06/30/2015"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>什麼是行動應用程式
@@ -56,4 +56,4 @@ Azure 應用程式服務是完全受管理的平台即服務 (PaaS) 產品，適
 [JavaScript backend version]: ../mobile-services-ios-get-started.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -371,4 +371,4 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 
 [Azure 免費試用]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

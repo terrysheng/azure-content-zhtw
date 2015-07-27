@@ -95,4 +95,4 @@ Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Se
 
 [Azure 入口網站]: http://portal.azure.com/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

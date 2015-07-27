@@ -26,6 +26,7 @@ ASE 功能基本上會將 Azure App Service 部署到客戶的 VNET 中。若要
 
 - 區域 VNET，有超過 512 (/ 23) 個或更多地址
 - 此 VNET 中的子網路，其中有 256 (/ 24) 個或更多地址
+- 子網路**不得包含任何其他計算資源**。一個子網路只能部署一個 App Service 環境。如果子網路中已有任何其他計算資源，則建立嘗試會失敗。
 
 如果您尚未有想用來裝載 App Service 環境的 VNET，您可以在 App Service 環境建立期間建立一個 VNET。
 
@@ -142,4 +143,4 @@ App Service 環境的定價是根據指派的計算資源。無論是否裝載�
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

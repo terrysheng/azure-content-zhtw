@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/03/2015"
 	ms.author="cephalin"/>
 
 
@@ -52,13 +52,21 @@
 
 Azure App Service 可讓您將設定資訊以「應用程式設定」與「連接字串」的形式，儲存為 Web Apps 執行階段環境的一部分。這些值會在執行階段，透過大多數程式設計語言的*環境變數*，來向您的應用程式公開。若是 .NET 應用程式，則這些值會在執行階段加入您的 .NET 組態。
 
-「應用程式設定」與「連接字串」可使用 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)或公用程式 (例如 PowerShell 或 Azure CLI) 進行設定。
+「應用程式設定」與「連接字串」可使用 [Azure 預覽入口網站](http://portal.azure.com)或公用程式 (例如 PowerShell 或 Azure CLI) 進行設定。
 
 如需應用程式設定和連接字串的詳細資訊，請參閱[設定 Web 應用程式](web-sites-configure.md)。
 
 ### FTPS
 
-Azure 針對 Web 應用程式的檔案系統，提供透過 **FTPS** 的安全 FTP 存取權限。這可讓您以安全的方式存取 Web 應用程式上的應用程式程式碼及診斷記錄。您可以在 [Azure 管理入口網站](https://manage.windowsazure.com)的 [儀表板] 頁面中找到 Web 應用程式的 FTPS 連結。
+Azure 針對 Web 應用程式的檔案系統，提供透過 **FTPS** 的安全 FTP 存取權限。這可讓您以安全的方式存取 Web 應用程式上的應用程式程式碼及診斷記錄。您 Web 應用程式的 FTPS 連結具有下列步驟：
+
+1. 開啟 [Azure Preview 入口網站](http://portal.azure.com)。
+2. 選取 [全部瀏覽]。
+3. 從 [瀏覽] 分頁中，選取 [Web 應用程式]。
+4. 從 [Web 應用程式] 分頁中，選取所需的 Web 應用程式。
+5. 從 Web 應用程式的分頁中，選取 [所有設定]。
+6. 從 [設定] 分頁中，選取 [屬性]。
+7. [設定] 分頁上提供 FTP 和 FTPS 連結。 
 
 如需 FTPS 的詳細資訊，請參閱[檔案傳輸通訊協定](http://en.wikipedia.org/wiki/File_Transfer_Protocol)。
 
@@ -78,4 +86,4 @@ Azure 針對 Web 應用程式的檔案系統，提供透過 **FTPS** 的安全 F
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

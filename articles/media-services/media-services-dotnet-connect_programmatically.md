@@ -191,4 +191,4 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

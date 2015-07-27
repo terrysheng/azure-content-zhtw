@@ -1,4 +1,3 @@
-
 **重要事項**：如果您想要讓虛擬機器使用虛擬網路，請務必在建立虛擬機器時指定虛擬網路。只有在建立虛擬機器時，才能將虛擬機器設定為加入虛擬網路。如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](http://go.microsoft.com/fwlink/p/?LinkID=294063)。
 
 
@@ -29,13 +28,13 @@
 ##連線至虛擬機器
 視您的電腦執行的作業系統而定，您將使用 SSH 或 PuTTY 連線至虛擬機器：
 
-- 如果您使用 Linux 連線至 VM，則使用 SSH。在命令提示字元下，執行： 
+- 如果您使用 Linux 連線至 VM，則使用 SSH。在命令提示字元下，執行：
 
 	`$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
-	
+
 	輸入使用者的密碼。
 
-- 如果您使用 Windows 連線至 VM，則使用 PuTTY。您可以從 [PuTTY 下載頁面][PuTTYDownLoad]下載 PuTTY。
+- 如果您使用 Windows 連線至 VM，則使用 PuTTY。您可以從 [PuTTY 下載頁面][PuTTYDownload]下載 PuTTY。
 
 	下載 **putty.exe** 並將其儲存至您電腦上的目錄中。開啟命令提示字元，瀏覽至該資料夾，然後執行 **putty.exe**。
 
@@ -59,4 +58,4 @@
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

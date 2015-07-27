@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="登入在 Azure 中執行 Linux 的虛擬機器" 
-	description="了解如何登入執行 Linux 的 Azure 虛擬機器，方法是使用安全殼層 (SSH) 用戶端。" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="登入在 Azure 中執行 Linux 的虛擬機器"
+	description="了解如何登入執行 Linux 的 Azure 虛擬機器，方法是使用安全殼層 (SSH) 用戶端。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/16/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/16/2015"
+	ms.author="rasquill"/>
 
 
 
@@ -47,11 +47,10 @@
 	![登入虛擬機器](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
 
 >[AZURE.NOTE]VMAccess 擴充功能可以在您忘記 SSH 金鑰或密碼時幫助您重設。如果忘記使用者名稱，您可以使用擴充功能，以 sudo 權限建立新的使用者名稱。如需指示，請參閱[如何為 Linux 虛擬機器重設密碼或 SSH]。
-	
+
 您現在可以開始使用虛擬機器，就如同操作任何其他伺服器一樣。
 
 <!-- LINKS -->
 [如何為 Linux 虛擬機器重設密碼或 SSH]: http://go.microsoft.com/fwlink/p/?LinkId=512138
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

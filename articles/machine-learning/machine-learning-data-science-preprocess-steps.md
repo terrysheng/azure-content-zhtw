@@ -104,4 +104,4 @@ Azure Machine Learning 會取用正確格式的表格式資料。如果資料已
 >_Data Mining: Concepts and Techniques_ (資料採礦：觀念與技術)，第三版，Morgan Kaufmann，2011，Jiawei Han、Micheline Kamber 及 Jian Pei
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

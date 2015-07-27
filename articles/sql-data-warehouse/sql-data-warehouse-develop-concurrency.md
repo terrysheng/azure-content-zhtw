@@ -60,21 +60,11 @@ SQL 資料倉儲會以**資料庫角色**的形式公開四個不同的資源類
 - largerc
 - xlargerc
 
-您可以利用下列查詢查看本身的角色：
-
-```
-SELECT  ro.[name]           AS [db_role_name]
-FROM    sys.database_principals ro
-WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
-AND     ro.[is_fixed_role]  = 0
-;
-```
-
 根據預設，每位使用者都是小型資源類別 - smallrc 的成員。不過，任何使用者都可以加入至一或多個較高的資源類別。SQL 資料倉儲將採用最高的角色成員資格來執行查詢。將使用者加入至較高的資源類別會增加該使用者的資源，但它也會耗用更大的並行存取插槽；可能會限制您的並行存取。這是因為多個資源配置給一個查詢時，系統必須限制其他查詢所耗用的資源。天下沒有免費的午餐。
 
 較高的資源類別所控制最重要的資源就是記憶體。大部分有意義大小的資料倉儲資料表都會使用叢集資料行存放區索引。這通常會提供資料倉儲工作負載的最佳效能，而維護工作負載是一項記憶體密集的作業。使用較高的資源類別通常相當有助於索引重建等資料管理作業。
 
-若要增加您的記憶體，只需要將資料庫使用者加入至先前所述的其中一個角色。
+若要增加您的記憶體，只需要將資料庫使用者加入至先前所述的其中一個角色 / 資源類別。
 
 您可以使用 `sp_addrolemember` 和 `sp_droprolemember` 程序，將自己新增和移除至工作負載管理資料庫角色。請注意，您需要 `ALTER ROLE` 權限才能執行此動作。您不能使用 ALTER ROLE DDL 語法。您必須使用上述的預存程序。
 
@@ -90,13 +80,22 @@ AND     ro.[is_fixed_role]  = 0
 | largerc (l)                 | High     | 200 MB | 400 MB | 400 MB | 800  MB | 800 MB  | 800 MB  | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 6400  MB |
 | xlargerc (xl)               | High     | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB | 6400 MB | 12800 MB |
 -->
-| 可用記憶體 (每個 dist) | 優先順序 | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
-| :-------------------------- | :------- | :----  | :----- | :----- | :------ | :------ | :------ | :------ | :------ | :------ | :------ |
-| smallrc(default) (s) | 中型 | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB |
-| mediumrc (m) | 中型 | 100 MB | 200 MB | 200 MB | 400 MB | 400 MB | 400 MB | 800 MB | 800 MB | 800 MB | 1600 MB |
-| largerc (l) | 高 | 200 MB | 400 MB | 400 MB | 800 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB |
-| xlargerc (xl) | 高 | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB |
 
+<!--
+| Memory Available (per dist) | Priority | DW100  | DW200  | DW300  | DW400   | DW500   | DW600   | DW1000  | DW1200  | DW1500  | DW2000  |
+| :-------------------------- | :------- | :----  | :----- | :----- | :------ | :------ | :------ | :------ | :------ | :------ | :------ |
+| smallrc(default) (s)        | Medium   | 100 MB | 100 MB | 100 MB | 100  MB | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100 MB  |
+| mediumrc (m)                | Medium   | 100 MB | 200 MB | 200 MB | 400  MB | 400 MB  | 400 MB  | 800 MB  | 800 MB  | 800 MB  | 1600 MB |
+| largerc (l)                 | High     | 200 MB | 400 MB | 400 MB | 800  MB | 800 MB  | 800 MB  | 1600 MB | 1600 MB | 1600 MB | 3200 MB |
+| xlargerc (xl)               | High     | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB |
+-->
+
+| 可用記憶體 (每個 dist) | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
+| :-------------------------- | :----  | :----- | :----- | :------ | :------ | :------ | :------ | :------ | :------ | :------ |
+| smallrc(default) (s) | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB |
+| mediumrc (m) | 100 MB | 200 MB | 200 MB | 400 MB | 400 MB | 400 MB | 800 MB | 800 MB | 800 MB | 1600 MB |
+| largerc (l) | 200 MB | 400 MB | 400 MB | 800 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB |
+| xlargerc (xl) | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB |
 
 此外，如上所述，指派給使用者的資源類別愈高，並行存取插槽的耗用量就愈大。下表記錄查詢在指定資源類別中的並行存取插槽耗用量。
 
@@ -122,6 +121,147 @@ AND     ro.[is_fixed_role]  = 0
 
 請務必記得，使用中的查詢工作負載必須在並行查詢和並行存取插槽這兩個臨界值內。一旦超越任何一個臨界值，查訊就會開始排入佇列。排入佇列的查詢將根據提交時間的優先順序解決。
 
+幕後的情況有點複雜。資源類別會以動態方式對應至資源管理員內的一組一般工作負載管理群組。使用的群組將取決於倉儲的 DWU 值。不過，總共有八個由 SQL 資料倉儲所使用的工作負載群組。如下：
+
+- SloDWGroupC00
+- SloDWGroupC01
+- SloDWGroupC02
+- SloDWGroupC03
+- SloDWGroupC04
+- SloDWGroupC05
+- SloDWGroupC06
+- SloDWGroupC07
+
+這 8 個群組會對應至並行存取插槽耗用量
+
+| 工作負載群組 | 並行存取插槽對應 | 優先順序對應 |
+| :------------  | :----------------------- | :--------------- |
+| SloDWGroupC00 | 1 | 中型 |
+| SloDWGroupC01 | 2 | 中型 |
+| SloDWGroupC02 | 4 | 中型 |
+| SloDWGroupC03 | 8 | 中型 |
+| SloDWGroupC04 | 16 | 高 |
+| SloDWGroupC05 | 32 | 高 |
+| SloDWGroupC06 | 64 | 高 |
+| SloDWGroupC07 | 128 | 高 |
+
+因此，比例而言，如果 DW500 是您的 SQL 資料倉儲目前的 DWU 設定，則作用中的工作負載群組會對應至資源類別，如下所示：
+
+| 資源類別 | 工作負載群組 | 已使用的並行存取插槽 | 重要性 |
+| :------------- | :------------- | :---------------------   | :--------- |
+| smallrc | SloDWGroupC00 | 1 | 中型 |
+| mediumrc | SloDWGroupC02 | 4 | 中型 |
+| largerc | SloDWGroupC03 | 8 | 中型 |
+| xlargerc | SloDWGroupC04 | 16 | 高 |
+
+若要從資源管理員的觀點查看詳細資料中記憶體資源配置的差異，請使用下列查詢：
+
+```
+WITH rg
+AS
+(   SELECT  pn.name									AS node_name
+	,		pn.[type]								AS node_type
+	,		pn.pdw_node_id							AS node_id
+	,		rp.name									AS pool_name
+    ,       rp.max_memory_kb*1.0/1024				AS pool_max_mem_MB
+    ,       wg.name									AS group_name
+    ,       wg.importance							AS group_importance
+    ,       wg.request_max_memory_grant_percent		AS group_request_max_memory_grant_pcnt
+    ,       wg.max_dop								AS group_max_dop
+    ,       wg.effective_max_dop					AS group_effective_max_dop
+	,		wg.total_request_count					AS group_total_request_count
+	,		wg.total_queued_request_count			AS group_total_queued_request_count
+	,		wg.active_request_count					AS group_active_request_count
+	,		wg.queued_request_count					AS group_queued_request_count
+    FROM    sys.dm_pdw_nodes_resource_governor_workload_groups wg
+    JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools rp    ON  wg.pdw_node_id  = rp.pdw_node_id
+															        AND wg.pool_id      = rp.pool_id
+	JOIN	sys.dm_pdw_nodes pn										ON	wg.pdw_node_id	= pn.pdw_node_id
+	WHERE   wg.name like 'SloDWGroup%'
+	AND     rp.name = 'SloDWPool'
+) 
+SELECT	pool_name
+,		pool_max_mem_MB
+,		group_name
+,		group_importance
+,		(pool_max_mem_MB/100)*group_request_max_memory_grant_pcnt AS max_memory_grant_MB
+,		node_name
+,		node_type
+,       group_total_request_count
+,       group_total_queued_request_count
+,       group_active_request_count
+,       group_queued_request_count
+FROM	rg
+ORDER BY 
+	node_name
+,	group_request_max_memory_grant_pcnt
+,	group_importance
+;
+```
+
+> [AZURE.NOTE]上述查詢也可以在疑難排解時，用來分析工作負載群組的作用中和歷史的使用情況
+
+## 工作負載管理範例
+
+若要授與使用者 SQL 資料倉儲的存取權，他們需要先登入。
+
+開啟 SQL 資料倉儲之主要資料庫的連接，並執行下列命令：
+
+```
+CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
+
+CREATE USER newperson for LOGIN newperson
+```
+
+[AZURE.NOTE]您最好在同時使用 Azure SQL Database 和 SQL 資料倉儲時，為主要資料庫的登入建立使用者。此層級有兩個可用的伺服器角色，需要登入才能在主要資料庫中擁有使用者以授與成員資格。這些角色為 `Loginmanager` 和 `dbmanager`。在 Azure SQL Database 和 SQL 資料倉儲中，這些角色會授與管理登入以及建立資料庫的權限。這與 SQL Server 有所不同。如需詳細資料，請參閱[管理資料庫和 Azure SQL Database 中的登入]一文以取得詳細資料。
+ 
+一旦已建立登入，現在必須新增使用者帳戶。
+
+開啟 SQL 資料倉儲資料庫的連接，然後執行下列命令：
+
+```
+CREATE USER newperson FOR LOGIN newperson
+```
+
+完成之後，必須授與權限給使用者。下列範例會在 SQL 資料倉儲資料庫上授與 `CONTROL`。在資料庫層級的 `CONTROL` 相當於 SQL Server 中的 db_owner。
+
+```
+GRANT CONTROL ON DATABASE::MySQLDW to newperson
+```
+
+若要查看工作負載管理角色，請使用下列查詢：
+
+```
+SELECT  ro.[name]           AS [db_role_name]
+FROM    sys.database_principals ro
+WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
+AND     ro.[is_fixed_role]  = 0
+;
+```
+
+若要將使用者加入至增加工作負載管理角色，請使用下列查詢：
+
+``` 
+EXEC sp_addrolemember 'largerc', 'newperson' 
+```
+
+若要從工作負載管理角色移除使用者，請使用下列查詢：
+
+``` 
+EXEC sp_droprolemember 'largerc', 'newperson' 
+```
+> [AZURE.NOTE]您不可能從 smallrc 移除使用者。
+
+若要查看哪些使用者是指定角色的成員，請使用下列查詢：```
+SELECT	r.name AS role_principal_name
+,		m.name AS member_principal_name
+FROM	sys.database_role_members rm
+JOIN	sys.database_principals AS r			ON rm.role_principal_id		= r.principal_id
+JOIN	sys.database_principals AS m			ON rm.member_principal_id	= m.principal_id
+WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
+;
+```
+
 ## 排入佇列的查詢偵測
 若要識別保留在並行存取佇列中的查詢，您可以一律參考 `sys.dm_pdw_exec_requests` DMV。
 
@@ -131,6 +271,7 @@ SELECT 	 r.[request_id]									AS Request_ID
 		,r.[submit_time]								AS Request_SubmitTime
 		,r.[start_time]									AS Request_StartTime
         ,DATEDIFF(ms,[submit_time],[start_time])		AS Request_InitiateDuration_ms
+        ,r.resource_class                               AS Request_resource_class
 FROM    sys.dm_pdw_exec_requests r
 ;
 ```
@@ -144,7 +285,7 @@ SQL 資料倉儲具有特定的等候類型以測量並行存取。
 - DmsConcurrencyResourceType
 - BackupConcurrencyResourceType
 
-LocalQueriesConcurrencyResourceType 指的是並行存取插槽架構之外的查詢。DMV 查詢和 SELECT @@VERSION 等系統函數都是 localqueries 的範例。
+LocalQueriesConcurrencyResourceType 指的是並行存取插槽架構之外的查詢。DMV 查詢及 `SELECT @@VERSION` 這類的系統功能是本機查詢的範例。
 
 UserConcurrencyResourceType 指的是並行存取插槽架構之內的查詢。針對使用者資料表的查詢代表會使用此資源類型的範例。
 
@@ -224,7 +365,7 @@ FROM	sys.dm_pdw_wait_stats w
 ```
 
 ## 後續步驟
-如需更多開發秘訣，請參閱[開發概觀][]。
+如需更多開發祕訣，請參閱[開發概觀][]。
 
 <!--Image references-->
 
@@ -232,8 +373,8 @@ FROM	sys.dm_pdw_wait_stats w
 [開發概觀]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-
+[管理資料庫和 Azure SQL Database 中的登入]: https://msdn.microsoft.com/zh-tw/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

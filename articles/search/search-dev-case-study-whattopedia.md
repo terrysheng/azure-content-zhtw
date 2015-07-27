@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="04/13/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 # Azure 搜尋開發人員案例研究
@@ -421,4 +421,4 @@ Azure 搜尋服務並不是唯一的驚喜。與我們先前的方式相比，�
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

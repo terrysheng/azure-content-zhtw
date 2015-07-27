@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2015"
+   ms.date="07/10/2015"
    ms.author="bwren" />
 
 # Azure 自動化中的圖形化編寫
@@ -115,11 +115,11 @@ Azure 自動化中的每個 Runbook 有草稿和已發行的版本。只可執�
 |:---|:---|
 |常數值|輸入參數的值。這只適用於下列資料型別：Int32、Int64、String、Boolean、DateTime、Switch。 |
 |活動輸出|從優先於工作流程中的目前活動的活動輸出。將列出所有有效的活動。對參數值只選取要使用它的輸出的活動。如果活動會輸出具有多個屬性的物件，您可以在選取活動之後輸入名稱屬性。|
-|Runbook 輸入參數<br>*(即將推出)*|選取 Runbook 的輸入參數做為活動參數的輸入。|  
-|自動化變數資產<br>*(即將推出)*|選取「自動化變數」做為輸入。|  
-|自動化認證資產<br>*(即將推出)*|選取「自動化認證」做為輸入。|  
-|自動化憑證資產<br>*(即將推出)*|選取「自動化憑證」做為輸入。|  
-|自動化連線資產<br>*(即將推出)*|選取「自動化連線」做為輸入。| 
+|Runbook 輸入參數|選取 Runbook 的輸入參數做為活動參數的輸入。|  
+|自動化變數資產|選取「自動化變數」做為輸入。|  
+|自動化認證資產|選取「自動化認證」做為輸入。|  
+|自動化憑證資產|選取「自動化憑證」做為輸入。|  
+|自動化連線資產|選取「自動化連線」做為輸入。| 
 |PowerShell 運算式|指定簡單 PowerShell 運算式。在活動和用於參數值的結果之前，將會評估運算式。您可以使用變數來參照活動或 Runbook 的輸入參數的輸出。|
 |空字串|空字串值。|
 |Null|Null 值。|
@@ -228,7 +228,7 @@ Azure 自動化中的每個 Runbook 有草稿和已發行的版本。只可執�
 
 ### 檢查點
 
-在您的 Runbook 中設定[檢查點](automation-runbook-concepts/#checkpoints)的相同指示適用於圖形化 Runbook。您可以在您要設定檢查點的位置加入 Checkpoint-Workflow Cmdlet 的活動。然後，如果 Runbook 在不同的背景工作從這個檢查點開始，您應該使用 Add-AzureAccount 遵循此活動。
+在您的 Runbook 中設定[檢查點](automation-powershell-workflow/#checkpoints)的相同指示適用於圖形化 Runbook。您可以在您要設定檢查點的位置加入 Checkpoint-Workflow Cmdlet 的活動。然後，如果 Runbook 在不同的背景工作從這個檢查點開始，您應該使用 Add-AzureAccount 遵循此活動。
 
 ## 向 Azure 資源驗證
 
@@ -276,8 +276,8 @@ Runbook 可能需要使用者透過 Azure 預覽入口網站啟動 Runbook 時�
 
 ## 相關文章
 
-- [Azure 自動化 Runbook 概念](automation-runbook-concepts.md)
+- [了解 Windows PowerShell 工作流程](automation-powershell-workflow.md)
 - [自動化資產](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

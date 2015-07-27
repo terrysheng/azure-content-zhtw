@@ -16,7 +16,7 @@
 
 	- **新使用者名稱**是指用來管理伺服器的系統管理帳戶。建立此帳戶的唯一密碼，並確定記住此密碼。**您將需要使用者名稱和密碼才能登入虛擬機器**。
 
-	- 虛擬機器的大小會影響其使用成本以及組態選項 (例如您可連接的資料磁碟數目)。如需詳細資料，請參閱 [Azure 的虛擬機器和雲端服務大小](http://go.microsoft.com/fwlink/p/?LinkId=466520)。
+	- 虛擬機器的大小會影響其使用成本以及組態選項 (例如您可連接的資料磁碟數目)。如需詳細資訊，請參閱 Azure 中的《[虛擬機器的大小](../articles/virtual-machines-size-specs.md)》和《[雲端服務的大小](../articles/cloud-services-sizes-specs.md)》。
 
 
 6. 第三個畫面可讓您設定網路、儲存體和可用性的資源。以下是可協助您填寫欄位的部分詳細資料：
@@ -40,4 +40,4 @@
 
 	![設定 VM 代理程式和需擬機器端點](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

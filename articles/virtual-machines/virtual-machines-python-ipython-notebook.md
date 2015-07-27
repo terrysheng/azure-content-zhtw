@@ -17,9 +17,6 @@
 	ms.author="huvalo"/>
 
 
-
-
-
 # Azure 上的 IPython Notebook
 
 [IPython 專案](http://ipython.org) 提供用於科學運算的工具集合，其中包括強大的互動式殼層、高效能且易於使用的平行庫，以及稱為 IPython Notebook 的 Web 型環境。對於將程式碼執行與即時運算文件的建立相互結合的互動式運算，Notebook 提供工作環境。這些 Notebook 文件可以包含任何文字、數學公式、輸入程式碼、結果、圖形、視訊，以及新型 Web 瀏覽器能夠顯示的其他任何類型的媒體。
@@ -149,7 +146,7 @@
 
 在 Windows 上：
 
-    cd \users\azureuser.ipython\profile_nbserver
+    cd \users\azureuser\.ipython\profile_nbserver
 
 建立 SSL 憑證，如下所示 (Linux 和 Windows)：
 
@@ -180,7 +177,7 @@
     c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
     
     # And if using a Windows VM:
-    c.NotebookApp.certfile = r'C:\Users\azureuser.ipython\profile_nbserver\mycert.pem'
+    c.NotebookApp.certfile = r'C:\Users\azureuser\.ipython\profile_nbserver\mycert.pem'
     
     # Create your own password as indicated above
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
@@ -262,18 +259,18 @@ IPython Notebook 為交互存取 Azure 上 Python 生態系統的功能提供強
 
 
 [tornado]: http://www.tornadoweb.org/ "Tornado"
-[PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
-[NumPy]: http://www.numpy.org/ "NumPy"
-[Matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
+[pyzmq]: https://github.com/zeromq/pyzmq "PyZMQ"
+[numpy]: http://www.numpy.org/ "NumPy"
+[matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
 
 [portal-vm-windows]: /manage/windows/tutorials/virtual-machine-from-gallery/
 [portal-vm-linux]: /manage/linux/tutorials/virtual-machine-from-gallery/
 
 [儲存機制]: https://github.com/ipython/ipython
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[python Tools for visual studio]: http://aka.ms/ptvs
 
-[Python 2.7]: http://www.python.org/download
-[OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
+[python 2.7]: http://www.python.org/download
+[openssl]: http://slproweb.com/products/Win32OpenSSL.html
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

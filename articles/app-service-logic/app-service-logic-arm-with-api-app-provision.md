@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tomfitz"/>
 
 # 使用範本建立邏輯應用程式與 API 應用程式
@@ -26,7 +26,7 @@
 
 如需關於建立範本的詳細資訊，請參閱[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)。
 
-如需完整範本，請參閱[使用 API 應用程式範本的邏輯應用程式](https://github.com/tfitzmac/AppServiceTemplates/blob/master/LogicAppAndAPIApp.json)。
+如需完整範本，請參閱[使用 API 應用程式範本的邏輯應用程式](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-api-app-create/azuredeploy.json)。
 
 ## 部署內容
 
@@ -34,6 +34,10 @@
 
 - 邏輯應用程式
 - API 應用程式
+
+若要自動執行部署，請按一下下列按鈕：
+
+[![部署至 Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-api-app-create%2Fazuredeploy.json)
 
 ## 參數
 
@@ -129,7 +133,7 @@ API 應用程式的密碼。
                     },
                     {
                         "name": "EmaStorage",
-                        "value": "D:\home\data\apiapps"
+                        "value": "D:\\home\\data\\apiapps"
                     },
                     {
                         "name": "WEBSITE_START_SCM_ON_SITE_CREATION",
@@ -381,13 +385,13 @@ API 應用程式的密碼。
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/LogicAppAndAPIApp.json -ResourceGroupName ExampleDeployGroup
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-logic-app-api-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/LogicAppAndAPIApp.json -g ExampleDeployGroup
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-logic-app-api-app-create/azuredeploy.json -g ExampleDeployGroup
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

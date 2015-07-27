@@ -20,6 +20,8 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 本主題說明如何從用戶端應用程式驗證應用程式服務行動應用程式的使用者。在本教學課程中，您將使用應用程式服務支援的身分識別提供者，將驗證新增至快速入門專案。由行動應用程式成功驗證並授權之後，就會顯示使用者識別碼值。
 
 本教學課程以行動應用程式快速入門為基礎。您也必須先完成[建立 Xamarin.Android 應用程式教學課程]。
@@ -89,4 +91,4 @@
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

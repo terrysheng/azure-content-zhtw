@@ -37,22 +37,27 @@
  
 比較舊的和新的 ApplicationInsights.xml。您看到的變更許多是因為我們新增與移除了模組。恢復您所做的任何自訂。
 
-## 0.9.6 版
-- 讓 Java SDK 與 Servlet 2.5 版與 HttpClient pre-4.3 版相容
-- 新增支援 Java EE 攔截器
-- 從 Logback 附加器移除多餘的相依性
+## 1\.0.0 版
+- 加入 CollectD 適用的 Application Insights 寫入器外掛程式的支援。
+- 加入 Application Insights Java 代理程式的支援。
+- 支援 HttpClient 版本 4.2 版或更新版本的相容性問題的修正程式。
 
-## 0.9.5 版  
+## 0\.9.6 版
+- 讓 Java SDK 與 Servlet 2.5 版與 HttpClient 4.3 之前的版本相容。
+- 加入 Java EE 攔截器的支援。
+- 從 Logback 附加器移除多餘的相依性。
+
+## 0\.9.5 版  
 
 - 修正自訂事件因 Cookie 剖析錯誤而沒有與使用者/工作階段相互關聯的問題。  
 - 改善解析 ApplicationInsights.xml 組態檔位置的邏輯。
-- 移除工作階段和使用者的追蹤 (僅能由用戶端 SDK 完成)。
+- 將不會在伺服器端產生匿名使用者和工作階段 Cookie。若要實作 Web 應用程式的使用者和工作階段追蹤，JavaScript SDK 的檢測現在為必要 – 仍採用來自 JavaScript SDK 的 Cookie。請注意，這項變更可能會造成使用者和工作階段計數的明顯重新結算，因為現在只需計算使用者產生的工作階段。
 
-## 0.9.4 版
+## 0\.9.4 版
 
 - 支援從 32 位元 Windows 電腦收集效能計數器。
 - 支援使用新的 ```trackDependency``` 方法 API 手動追蹤相依性。
 - 能夠藉由將 ```SyntheticSource``` 屬性加入至報告項目，將遙測項目標記為綜合。
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

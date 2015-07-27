@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/16/2015"
+	ms.date="06/30/2015"
 	ms.author="adegeo"/>
 
 
@@ -21,9 +21,13 @@
 
 # 如何建立和部署雲端服務
 
-Azure 管理入口網站提供兩種方法讓您建立和部署雲端服務：[**快速建立**] 和 [**自訂建立**]。
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-how-to-create-deploy.md)
+- [Azure Preview Portal](cloud-services-how-to-create-deploy-portal.md)
 
-本主題說明如何使用「快速建立」方法建立新的雲端服務，然後使用 [上傳] 上傳雲端服務封裝並在 Azure 中部署。您使用這個方法時，Azure 管理入口網站會提供您進行時完成所有要求的便利連結。如果您準備在建立雲端服務時加以部署，可以同時使用**自訂建立**進行這兩項作業。
+Azure 入口網站提供兩種方法讓您建立和部署雲端服務：[**快速建立**] 和 [**自訂建立**]。
+
+本主題說明如何使用「快速建立」方法建立新的雲端服務，然後使用 [上傳] 上傳雲端服務封裝並在 Azure 中部署。當您使用這個方法時，Azure 入口網站會在過程中提供便利的連結，讓您完成所有要求。如果您準備在建立雲端服務時加以部署，可以同時使用**自訂建立**進行這兩項作業。
 
 > [AZURE.NOTE]如果您計劃從 Visual Studio Online (VSO) 發佈您的雲端服務，請使用 [快速建立]，然後從 [**快速啟動**] 或儀表板設定 VSO 發佈。如需詳細資訊，請參閱[使用 Visual Studio Online 連續傳遞至 Azure][TFSTutorialForCloudService] 或**快速啟動**頁面的說明。
 
@@ -117,7 +121,7 @@ Azure 管理入口網站提供兩種方法讓您建立和部署雲端服務：[*
 
 5. 如果雲端服務將包含只有一個執行個體的任何角色，請選取 [Deploy even if one or more roles contain a single instance] 核取方塊，讓部署繼續進行。
 
- 如果每個角色至少有兩個執行個體，Azure 只能保證在維護和服務更新期間存取雲端服務的成功率為 99.95%。若有需要，您可以在部署雲端服務後，在 [Scale] 頁面上新增其他角色執行個體。如需詳細資訊，請參閱[服務等級協定](http://azure.microsoft.com/support/legal/sla/)。
+    如果每個角色至少有兩個執行個體，Azure 只能保證在維護和服務更新期間存取雲端服務的成功率為 99.95%。若有需要，您可以在部署雲端服務後，在 [Scale] 頁面上新增其他角色執行個體。如需詳細資訊，請參閱[服務等級協定](http://azure.microsoft.com/support/legal/sla/)。
 
 6. 按一下 [確定] (核取記號) 開始雲端服務部署。
 
@@ -135,9 +139,10 @@ Azure 管理入口網站提供兩種方法讓您建立和部署雲端服務：[*
 
 2. 在 [quick glance] 下，按一下網站 URL，在網頁瀏覽器中開啟您的雲端服務。
 
-[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
+    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
-![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+
+[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

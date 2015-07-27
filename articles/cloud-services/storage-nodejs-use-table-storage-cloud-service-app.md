@@ -50,7 +50,7 @@
 
 1.  從 [開始] 功能表中啟動 Azure PowerShell (如果尚未開啟的話)，方法是依序展開 [所有程式]、[Azure]，以滑鼠右鍵按一下 [Azure PowerShell]，然後選取 [以系統管理員身份執行]。
 
-2.  將目錄變更到包含應用程式的資料夾。例如，C:\node\tasklist\WebRole1。
+2.  將目錄變更到包含應用程式的資料夾。例如，C:\\node\\tasklist\\WebRole1。
 
 3.  在 [Azure Powershell] 視窗中，輸入下列 Cmdlet 以擷取儲存體帳戶資訊：
 
@@ -321,7 +321,7 @@
 
 **views** 目錄中的 **layout.jade** 檔是用來作為其他 **.jade** 檔案的全域範本。在此步驟中，您將修改它以使用 [Twitter Bootstrap](https://github.com/twbs/bootstrap)，這個工具組能夠方便設計美觀的網站。
 
-1. 下載並解壓縮 [Twitter Bootstrap](http://getbootstrap.com/) 的檔案。將 **bootstrap.min.css** 檔案從 **bootstrap\dist\css** 資料夾複製到您 tasklist 應用程式的 **public\stylesheets** 目錄。
+1. 下載並解壓縮 [Twitter Bootstrap](http://getbootstrap.com/) 的檔案。將 **bootstrap.min.css** 檔案從 **bootstrap\\dist\\css** 資料夾複製到您 tasklist 應用程式的 **public\\stylesheets** 目錄。
 
 2. 從 **views** 資料夾，以文字編輯器開啟 **layout.jade**，並將內容取代為：
 
@@ -408,4 +408,4 @@ Azure 會就每小時伺服器時間所使用的 Web 角色執行個體數進行
  
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

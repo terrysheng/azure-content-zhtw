@@ -140,4 +140,4 @@ Document Explorer 支援大量擷取一或多個現有 JSON 文件。
 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

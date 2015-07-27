@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="07/14/2015" 
 	ms.author="mandia"/>
 
 
@@ -99,6 +99,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 	- 內部部署資源會自動設定為使用「主要內部部署連接字串」。
 
 - 混合式連線管理員必須使用有效的內部部署連接字串，才能進行授權。Azure Web Apps 或 Azure Mobile Apps 必須使用有效的應用程式連接字串，才能進行授權。
+- 您可以在另一部伺服器上安裝另一個混合式連線管理員的執行個體，藉此調整混合式連線。設定內部部署接聽程式，以使用與第一個內部部署接聽程式相同的位址。在此情況下，流量會隨機分散 (循環配置資源) 到作用中的內部部署接聽程式之間。 
 
 
 ## <a name="ManageHybridConnection"></a>管理混合式連線
@@ -123,8 +124,8 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 2. 將檔案解壓縮。
 3. 在修改群組原則的電腦上，執行下列動作： 
 
-	- 將 .ADMX 檔案複製到 *%WINROOT%\PolicyDefinitions* 資料夾。
-	- 將 .ADML 檔案複製到 *%WINROOT%\PolicyDefinitions\zh-tw* 資料夾。
+	- 將 .ADMX 檔案複製到 *%WINROOT%\\PolicyDefinitions* 資料夾。
+	- 將 .ADML 檔案複製到 *%WINROOT%\\PolicyDefinitions\\zh-tw* 資料夾。
 
 複製之後，您可以使用群組原則編輯器來變更原則。
 
@@ -145,4 +146,4 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

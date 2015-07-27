@@ -777,4 +777,4 @@ subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 - StackExchange.Redis 儲存機制上的 [Redis 中的交易 (英文)](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) 頁面。
 - Microsoft 網站上的[資料分割指南 (英文)](http://msdn.microsoft.com/library/dn589795.aspx)。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

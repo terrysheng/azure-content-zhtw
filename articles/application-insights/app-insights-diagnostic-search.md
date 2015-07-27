@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中使用診斷搜尋
@@ -81,6 +81,12 @@
 
 此外，如果您也想要查看在這段時間其他事件發生的情況，可以勾選 [**包含未定義屬性的事件**]。
 
+## 移除 Bot 和 Web 測試流量
+
+使用篩選器**真實或綜合流量**並勾選**真實**。
+
+您也可以依**綜合流量的來源**篩選。
+
 ## 檢查個別出現次數
 
 將該要求名稱加入到篩選器集，然後您可以檢查該事件的個別出現次數。
@@ -89,7 +95,7 @@
 
 針對 [要求] 事件，詳細資料顯示處理要求時發生的例外狀況。
 
-逐一點選例外狀況來查看其詳細資料。
+逐一點選例外狀況來查看其詳細資料，包括堆疊追蹤。
 
 ![按一下例外狀況](./media/app-insights-diagnostic-search/06-callStack.png)
 
@@ -192,4 +198,4 @@ app* AND banana -(grape pear)|邏輯運算子和括號。
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

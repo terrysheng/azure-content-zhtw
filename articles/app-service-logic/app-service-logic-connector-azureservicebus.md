@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Azure 服務匯流排連接器 API 應用程式" 
-   description="如何使用 AzureServiceBusConnector" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="在 Azure App Service 中使用 Azure 服務匯流排連接器"
+   description="如何使用 Azure 服務匯流排連接器"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,49 +12,66 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/31/2015"
-   ms.author="adgoda"/>
+   ms.workload="integration"
+   ms.date="06/29/2015"
+   ms.author="andalmia"/>
 
 
-# 在邏輯應用程式中使用 Azure 服務匯流排連接器 #
+# Azure 服務匯流排連接器
 
-邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。
+Azure 服務匯流排連接器可讓您從服務匯流排實體 (如佇列和主題) 傳送訊息，並接收來自服務匯流排實體 (例如佇列和訂閱) 的訊息。
 
-Azure 服務匯流排連接器讓您透過佇列/主題/訂閱接收和傳送訊息。
+## 觸發程序和動作
+觸發程序是發生的事件。例如，訂單更新時或加入新客戶時。動作是觸發程序的結果。例如，將訂單或新訊息放入佇列時，會傳送警示或訊息。
 
-## 建立邏輯應用程式的 Azure 服務匯流排連接器 ##
-若要使用 Azure 服務匯流排連接器，您必須先建立 Azure 服務匯流排連接器 API 應用程式的執行個體。以下步驟可以達到此目的：
+Azure 服務匯流排連接器可以在邏輯應用程式中用作觸發程序或動作，且支援 JSON 和 XML 格式的資料。
 
-1.	使用 Azure 入口網站左下方的 [+新增] 選項開啟 Azure Marketplace。
-2.	瀏覽至 [Web 與行動] > [API 應用程式]，並搜尋「Azure 服務匯流排連接器」。
-3.	設定 Azure 服務匯流排連接器，如下所示：
- 
-	![][1] - **位置** - 選擇您要部署連接器的地理位置 - **訂用帳戶** - 選擇您要在其中建立此連接器的訂用帳戶 - **資源群組** - 選取或建立連接器所在的資源群組 - **Web 主控方案** - 選取或建立 Web 主控方案 - **定價層** - 選擇用於連接器的定價層 - **名稱** - 提供 Azure 服務匯流排連接器的名稱 - **封裝設定** - **連接字串** - Azure 服務匯流排的連接字串。範例：Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=[name];SharedAccessKey=[key] - **實體名稱** - 佇列或主題的名稱 - **訂用帳戶名稱** - 訂用帳戶接收訊息之來源的名稱。
+Azure 服務匯流排連接器提供下列觸發程序和動作：
 
-4.	按一下 [建立]。將建立新的 Azure 服務匯流排連接器。
-5.	建立 API 應用程式執行個體後，您可以在相同的資源群組中建立邏輯應用程式，以便使用 Azure 服務匯流排連接器。 
+觸發程序 | 動作
+--- | ---
+可用的郵件 | 傳送訊息
 
-## 在邏輯應用程式中使用 Azure 服務匯流排連接器 ##
-建立 API 應用程式之後，您現在可以使用 Azure 服務匯流排連接器做為邏輯應用程式的觸發程序/動作。若要這樣做，您需要：
+## 建立 Azure 服務匯流排連接器
+連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
-1.	建立新的邏輯應用程式，並選擇具有 Azure 服務匯流排連接器的相同資源群組。
- 
-	![][2]
-2.	開啟 [觸發程序和動作] 以開啟邏輯應用程式設計工具，並設定您的流程。 
- 
-	![][3]
-3.	Azure 服務匯流排連接器就會出現在右側資源庫中的 [此資源群組中的 API 應用程式] 區段。
- 
-	![][4]
-4. 您可以在 [Azure 服務匯流排連接器] 上按一下來將 Azure 服務匯流排連接器 API 應用程式置入編輯器。
- 
-5.	您現在便可以在流程中使用 Azure 服務匯流排連接器。您現在可以在流程的其他動作中使用從 Azure 服務匯流排觸發程序 ([可用訊息]) 擷取的訊息。
- 
-	![][5] ![][6] 
-6.	同樣地，您可以使用 Azure 服務匯流排動作 [傳送訊息] 來傳送訊息。
+1. 在 Azure 開始面板中，選取 [**Marketplace**]。
+2. 選取 [API 應用程式]，然後搜尋「Azure 服務匯流排連接器」。
+3. 輸入名稱、App Service 方案和其他屬性：<br/> ![][1]
 
-	![][7] ![][8]
+4. 輸入下列封裝設定：
+
+	名稱 | 說明
+--- | ---
+連接字串 | Azure 服務匯流排的連接字串。例如，輸入：*Endpoint=sb://[命名空間].servicebus.windows.net;SharedAccessKeyName=[名稱];SharedAccessKey=[金鑰]*。
+實體名稱 | 輸入佇列或主題的名稱。
+訂閱名稱 | 輸入要從中接收訊息之訂用帳戶名稱。
+
+5. 按一下 [建立]。
+
+建立連接器之後，即可將它加入相同資源群組中的邏輯應用程式。
+
+## 在邏輯應用程式中使用服務匯流排連接器
+建立連接器之後，即可使用 Azure 服務匯流排連接器做為邏輯應用程式的觸發程序或動作。作法：
+
+1.	建立新的邏輯應用程式，並選擇具有 Azure 服務匯流排連接器的相同資源群組：<br/> ![][2]
+
+2.	開啟 [觸發程序和動作] 以開啟邏輯應用程式設計工具，並設定您的工作流程：<br/> ![][3]
+
+3. Azure 服務匯流排連接器會出現在右側資源庫中的 [此資源群組中的 API 應用程式] 區段：<br/> ![][4]
+
+4. 您可以按一下 [Azure 服務匯流排連接器]，將 Azure 服務匯流排連接器置入編輯器。
+
+5.	您現在可以在工作流程中使用 Azure 服務匯流排連接器。您可以在流程的其他動作中使用從 Azure 服務匯流排觸發程序 ([可用訊息]) 擷取的訊息：<br/> ![][5] <br/> ![][6]
+
+您也可以使用 Azure 服務匯流排 [傳送訊息] 動作：<br/> ![][7] <br/> ![][8]
+
+## 進一步運用您的連接器
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
+
+使用 REST API 建立 API 應用程式。請參閱[連接器和 API 應用程式參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)。
+
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)。
 
 
 	<!--Image references-->
@@ -67,4 +84,4 @@ Azure 服務匯流排連接器讓您透過佇列/主題/訂閱接收和傳送訊
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

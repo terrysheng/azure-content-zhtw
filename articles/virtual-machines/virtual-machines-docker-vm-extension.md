@@ -82,4 +82,4 @@ Docker VM 擴充程式是個元件，它會安裝在您所建立的 VM 執行個
 [Linux 及 Windows 的虛擬機器延伸模組]: #Virtual-Machine-Extensions-For-Linux-and-Windows
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

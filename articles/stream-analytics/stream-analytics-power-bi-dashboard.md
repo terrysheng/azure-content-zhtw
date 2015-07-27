@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="串流分析上的 Power BI 儀表板 | Microsoft Azure" 
 	description="使用即時串流 Power BI 儀表板來收集商業智慧及分析來自串流分析工作的大量資料。" 
-	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/12/2015" 
+	ms.date="06/30/2015" 
 	ms.author="jeffstok"/>
 	
 # Azure 串流分析與 Power BI：用於串流資料即時分析的即時儀表板
@@ -27,12 +26,12 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 
 > [AZURE.NOTE]Power BI 輸出是 Azure 串流分析的預覽功能。
 
-##必要條件
+## 必要條件 ##
 
 * 使用組織識別碼的 Microsoft Azure 帳戶 (限 Power BI 搭配組織識別碼。組織識別碼是公司或企業的電子郵件地址，例如 xyz@mycompany.com。xyz@hotmail.com 此類的個人電子郵件，則不是組織識別碼。您可以在[這裡](https://msdn.microsoft.com/subscriptions/dn531048.aspx)詳細了解組織識別碼，而且也可以從[這裡](http://go.microsoft.com/fwlink/?linkid=331007&clcid=0x409)下載常見問題集)。
 * 串流分析工作從中使用串流資料的輸入。串流分析可接收來自 Azure 事件中樞或 Azure Blob 儲存體的輸入。  
 
-##建立 Azure 串流分析工作
+## 建立 Azure 串流分析工作 ##
 
 在 [Azure 入口網站][](https://manage.windowsazure.com) 中，依序按一下 [新增]、[資料服務]、[Stream Analytics]、[快速建立]。
 
@@ -48,7 +47,7 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 
 > [AZURE.TIP]新工作會以 [未啟動] 的狀態列出。請注意，頁面底部的 [啟動] 按鈕會停用。這是正常行為，因為您必須先設定工作輸入、輸出、查詢等項目，才能啟動工作。
 
-##指定工作輸入
+## 指定工作輸入 ##
 
 在本教學課程中，我們假設您搭配 JSON 序列化與 utf-8 編碼使用 EventHub 做為輸入。
 
@@ -73,7 +72,7 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
   *	**編碼** - UTF8
 *	按一下核取按鈕以新增此來源，並確認 Stream Analytics 可成功連接到事件中樞。
 
-##新增 Power BI 輸出
+## 新增 Power BI 輸出 ##
 
 1.  按一下頁面頂端的 [輸出]，然後按一下 [新增輸出]。您會看到 Power BI 被列為輸出選項。
 
@@ -104,7 +103,7 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 >	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
-##撰寫查詢
+## 撰寫查詢 ##
 
 移至工作的 [查詢] 索引標籤。撰寫查詢，就是 Power BI 中要有的輸出。例如，可能是類似下列 SQL 查詢的內容：
 
@@ -125,7 +124,7 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
     
 開始您的工作。驗證事件中樞是否正在接收事件，而且您的查詢會產生預期的結果。如果您的查詢輸出 0 個資料列，系統就不會自動建立 Power BI 資料集和資料表。
 
-##在 Power BI 中建立儀表板
+## 在 Power BI 中建立儀表板 ##
 
 移至 [Powerbi.com](https://powerbi.com)，然後輸入組織識別碼登入如果串流分析工作查詢輸出任何結果，就會看到您的資料集已經建立完成：
 
@@ -161,10 +160,34 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 
 另一個深入了解如何利用 Power BI 建立儀表板的實用資源，可參考 [Power BI 預覽中的儀表板](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview)。
 
-## 取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)
+## 限制和最佳作法 ##
+Power BI 同時採用並行處理和輸送量的條件約束，如下所述：[https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Power BI 價格")
 
-## 後續步驟
+由於這些 Power BI 本身以最自然的方式符合案例需求，其中 Azure 串流分析會大量降低資料載入的作業。我們建議使用 TumblingWindow 或 HoppingWindow 來確保資料推送最多 1 推送/秒，且查詢會落在輸送量需求之中 – 您可以使用下列方程式來計算每秒提供給視窗的值：![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)。
+
+在此範例中 – 如果您有 1,000 個每秒傳送資料的裝置，且位於支援每小時 1,000,000 個資料列的 Power BI Pro SKU 上，而您想要在 Power BI 上取得每個裝置的平均資料，則每個裝置最多可以每 4 秒執行一次推送 (如下所示)：![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+
+這表示我們會將原始查詢變更為：
+
+    SELECT
+    	MAX(hmdt) AS hmdt,
+    	MAX(temp) AS temp,
+    	System.TimeStamp AS time,
+    	dspl
+    INTO
+    	OutPBI
+    FROM
+    	Input TIMESTAMP BY time
+    GROUP BY
+    	TUMBLINGWINDOW(ss,4),
+    	dspl
+
+
+
+## 取得說明 ##
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+
+## 後續步驟 ##
 
 - [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 - [開始使用 Azure Stream Analytics](stream-analytics-get-started.md)
@@ -185,4 +208,4 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

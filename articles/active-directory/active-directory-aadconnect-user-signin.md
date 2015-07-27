@@ -64,4 +64,4 @@ Azure AD Connect 可讓使用者使用同一組密碼登入雲端和內部部署
 	- 使用裝置註冊、Azure AD 聯結或 Intune MDM 原則有條件存取內部部署和雲端資源
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

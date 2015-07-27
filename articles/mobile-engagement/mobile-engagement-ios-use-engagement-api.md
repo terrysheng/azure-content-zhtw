@@ -3,7 +3,7 @@
 	description="最新的 iOS SDK - 如何在 iOS 上使用 Engagement API"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kapiteir" 
+	authors="kpiteira" 
 	manager="dwrede" 
 	editor="" />
 
@@ -12,7 +12,7 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-ios" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="01/24/2015" 
 	ms.author="kapiteir" />
 
@@ -285,4 +285,4 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

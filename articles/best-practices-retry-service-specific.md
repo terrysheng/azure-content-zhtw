@@ -1121,4 +1121,4 @@ var result = await policy.ExecuteAsync(() => authContext.AcquireTokenAsync(resou
 | **線性 (固定間隔)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 秒<br />true | 重試次數。<br />重試之間的延遲。<br />是否立即進行第一次重試嘗試。 |
 如需使用暫時性錯誤處理應用程式區塊的範例，請參閱本指引中稍早＜範例＞各節中有關使用 ADO.NET 和 Azure Active Directory 的 Azure SQL Database 說明。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

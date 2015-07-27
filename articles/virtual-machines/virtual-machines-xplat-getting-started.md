@@ -23,13 +23,13 @@ Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。
 
 ## 安裝 Azure CLI
 
-請遵循這些指示來安裝 [Azure CLI](../xplat-cli.md#install)。
+遵循指示來[安裝 Azure CLI](../xplat-cli.md#install)。
 
 ## 使用 Azure CLI 連接到 Azure
 
 您可以使用個人 Azure 帳戶，或是使用工作或學校的 Azure 帳戶，連接 Azure CLI 安裝。若要了解差異並選擇，請參閱[如何連線到您的 Azure 訂用帳戶](../xplat-cli.md#configure)。
 
-## 建立及連接到 Azure 中的 VM
+## 建立和連接到 Azure 中的 VM
 
 建立 VM 時，首先是選擇 (或上傳) 映像並使用 `azure vm create` 命令。
 
@@ -45,15 +45,13 @@ Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。
 
         azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-zh-tw-30GB
 
-2. 建立您的 VM。
-
-    一旦選擇 VM 映像之後，您就可使用 `vm create` 命令來建立映像。此命令有許多選項，您可以使用說明命令來列出這些選項：
+2. 一旦選擇 VM 映像之後，您就可使用 `vm create` 命令來建立映像。此命令有許多選項，您可以使用 `help` 命令來列出這些選項：
 
         vm create --help
 
     除了來自步驟 1 的映像，您建立 VM 所需的重要引數為位置、DNS 名稱及使用者名稱。
 
-    基於驗證目的，您可以選擇指定密碼 (在命令列上或以互動方式)，或使用憑證進行驗證。如果您選擇密碼，則它必須至少是 8 個字元、同時包含大寫與小寫字母，而且包含特殊字元 (例如，! @# $%^ & = 的其中一個)。如果您要在命令列上傳遞密碼，最好將密碼放在引號和逸出特殊字元之中。
+    基於驗證目的，您可以選擇指定密碼 (在命令列上或以互動方式)，或使用憑證進行驗證。如果您選擇密碼，則其必須至少為 8 個字元、同時包含大寫與小寫字母，而且包含一個特殊字元 (例如，! @# $%^ & = 的其中一個)。如果您要在命令列上傳遞密碼，最好將密碼放在引號和逸出特殊字元之中。
 
     若要選擇位置，您可以使用 `vm location list` 命令來挑選鄰近區域。
 
@@ -71,10 +69,9 @@ Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。
 
     ssh myadminuser@my-new-cli-vm.cloudapp.net
 
-有一個好地方可以看到使用 Azure CLI 管理 Azure 的基礎結構的更多範例，那就是 [Azure CLI 命令參考頁面](../virtual-machines-command-line-tools.md)
+建議您前往《[Azure CLI 命令參考頁面](../virtual-machines-command-line-tools.md)》，以查看使用 Azure CLI 管理 Azure 的基礎結構的更多範例。
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

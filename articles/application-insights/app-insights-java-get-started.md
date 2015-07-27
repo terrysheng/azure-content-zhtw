@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="06/30/2015" 
 	ms.author="awills"/>
  
 # 在 Java Web 專案中開始使用 Application Insights
@@ -21,12 +21,11 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-透過將 Visual Studio Application Insights 加入到您的專案，您可以偵測並診斷效能問題和例外狀況。
-
+Application Insights 是一項可延伸的分析服務，可幫助您了解即時應用程式的效能和使用情形。使用它來偵測及診斷效能問題和例外狀況，以及[撰寫程式碼][api]來追蹤使用者對應用程式執行的動作。
 
 ![範例資料](./media/app-insights-java-get-started/5-results.png)
 
-此外，您可以設定 [Web 測試][availability]來監視應用程式的可用性，以及插入[程式碼到您的網頁][api]以了解使用模式。
+[Application Insights Web 測試][availability]會監視您的應用程式可用性。
 
 您需要：
 
@@ -34,7 +33,7 @@
 * [Microsoft Azure](http://azure.microsoft.com/) 訂用帳戶。(您可以從[免費試用](http://azure.microsoft.com/pricing/free-trial/)開始。)
 
 
-## 1.取得 Application Insights 檢測金鑰
+## 1\.取得 Application Insights 檢測金鑰
 
 1. 登入 [Microsoft Azure 入口網站](https://portal.azure.com)
 2. 建立新 Application Insights 資源
@@ -47,7 +46,7 @@
 
     ![在新資源概觀中，按一下 [屬性] 並複製檢測金鑰](./media/app-insights-java-get-started/03-key.png)
 
-## 2.將 Java 適用的 Application Insights SDK 加入至專案
+## 2\.將 Java 適用的 Application Insights SDK 加入至專案
 
 *選擇適合您的專案的方式。*
 
@@ -74,13 +73,12 @@
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web</artifactId>
         <!-- or applicationinsights-core for bare API -->
-        <version>[0.9,)</version>
+        <version>[1.0,)</version>
       </dependency>
     </dependencies>
 
 
-* 建置或總和檢查碼驗證錯誤？
- * 嘗試使用特定版本，例如：* `<version>0.9.n</version>`。您可以在 [SDK 版本資訊](app-insights-release-notes-java.md)或 [Maven 成品](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)中找到最新版本。
+* *建置或總和檢查碼驗證錯誤？ 嘗試使用特定版本，例如：* `<version>1.0.n</version>`。您可以在 [SDK 版本資訊](app-insights-release-notes-java.md)或 [Maven 成品](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)中找到最新版本。
 * 更新為新版 SDK
  * 請重新整理專案的相依項目。
 
@@ -95,11 +93,11 @@
     }
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '0.9.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
       // or applicationinsights-core for bare API
     }
 
-* *建置或總和檢查碼驗證錯誤？ 嘗試使用特定版本，例如：* `version:'0.9.n'`。您可以在* [SDK 版本資訊](app-insights-release-notes-java.md)*中找到最新版本。 
+* *建置或總和檢查碼驗證錯誤？ 嘗試使用特定版本，例如：* `version:'1.0.n'`。您可以在* [SDK 版本資訊](app-insights-release-notes-java.md)*中找到最新版本。 
 * 更新為新版 SDK
  * 請重新整理專案的相依項目。
 
@@ -107,34 +105,23 @@
 
 手動加入 SDK：
 
-1. 下載 [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)
-2. 從 ZIP 檔案擷取下列二進位檔案，然後加入至您的專案：
- * applicationinsights-core
- * applicationinsights-web
- * annotation-detector
- * commons-codec
- * commons-io
- * commons-lang
- * commons-logging
- * guava
- * httpclient
- * httpcore
- * jsr305
+1. 下載 [Java 適用的 Application Insights SDK](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)
+2. 從 ZIP 檔案擷取二進位檔案，然後加入至您的專案。
 
 問題...
 
-* *`-core` 和 `-web` 元件之間有何關係？*
+* *壓縮檔中的 `-core` 和 `-web` 元件之間有何關係？*
 
- * `applicationinsights-core` 提供沒有自動遙測的不包裝 API。
- * `applicationinsights-web` 提供追蹤 HTTP 要求計數和回應時間的度量。 
+ * `applicationinsights-core` 會提供裸機 API。您一律會需要它。
+ * `applicationinsights-web` 提供追蹤 HTTP 要求計數和回應時間的度量。如果您不想要自動收集此遙測 - 例如，如果您想要撰寫自己自己的遙測，可以省略它。
 
 * 更新 SDK
- * 請下載最新的 [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) 取代舊版本。
+ * 下載最新的 [Application Insights SDK for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) 並取代舊的。
  * [SDK 版本資訊](app-insights-release-notes-java.md)中會說明變更內容。
 
 
 
-## 3.加入 Application Insights XML 檔案
+## 3\.加入 Application Insights XML 檔案
 
 請將 ApplicationInsights.xml 加入至專案的資源資料夾，否則請確定其已加入至您的專案部署類別路徑。複製到下列 XML。
 
@@ -175,7 +162,7 @@
 * HTTP 要求元件是選用的。它會自動將要求和回應時間的遙測傳送到入口網站。
 * 事件相互關聯是 HTTP 要求元件的補充。它會指派識別碼給伺服器收到的每個要求，並將它加入為遙測的每個項目的屬性，作為 'Operation.Id' 屬性。它可讓您相互關聯與每個要求關聯的遙測，方法是在[診斷搜尋][diagnostic]中設定篩選器。
 
-## 4.加入 HTTP 篩選器
+## 4\.加入 HTTP 篩選器
 
 上一個組態步驟可讓 HTTP 要求元件記錄每個 Web 要求。(如果您只需要單純的 API，則非必要。)
 
@@ -218,18 +205,19 @@
 
 (如果預設堆疊中定義了攔截器，可以將攔截器加入該堆疊。)
 
+## 5\.在伺服器上安裝
 
-## 5.啟用效能計數器集合
-
-如果您使用 Windows 電腦，請在伺服器電腦上安裝
+在 Windows 伺服器上，安裝：
 
 * [Microsoft Visual C++ 可轉散發套件](http://www.microsoft.com/download/details.aspx?id=40784)
 
-## 6.執行您的應用程式
+(這會啟用效能計數器。)
+
+## 6\.執行您的應用程式
 
 在您的開發電腦上以偵錯模式執行應用程式，或發佈至您的伺服器。
 
-## 7.在 Application Insights 中檢視遙測
+## 7\.在 Application Insights 中檢視遙測
 
 返回 [Microsoft Azure 入口網站](https://portal.azure.com) 中的 Application Insights 資源。
 
@@ -261,12 +249,21 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
 這可提供要求有意義的彙總，例如要求數量和要求的平均執行時間。
 
-## 未處理的例外狀況與失敗要求
+## 例外狀況與要求失敗
 
+會收集未處理的例外狀況：
 
 ![](./media/app-insights-java-get-started/21-exceptions.png)
 
-若要收集其他例外狀況的資料，請[在程式碼中插入 TrackException 呼叫][apiexceptions]。
+若要收集其他例外狀況的資料，您有兩個選項：
+
+* [在您的程式碼中插入 TrackException 的呼叫][apiexceptions]。
+* [在伺服器上安裝 Java 代理程式](app-insights-java-agent.md)。您指定您想要觀看的方法。
+
+
+## 監視方法呼叫和外部相依性
+
+[安裝 Java 代理程式](app-insights-java-agent.md)以記錄透過 JDBC 發出的指定內部方法和呼叫與計時資料。
 
 
 ## 效能計數器
@@ -307,7 +304,7 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
 
 
-#### Windows (64 位元) 效能計數器 
+#### Windows 效能計數器 
 
 每個 [Windows 效能計數器](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx)是類別的成員 (以欄位是類別成員的相同方式)。類別可以是全域，或可以有一定數量或指定的執行個體。
 
@@ -327,6 +324,10 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
+
+### Unix 效能計數器
+
+* [使用 Application Insights 安裝 collectd 外掛程式](app-insights-java-collectd.md)來取得各種不同的系統和網路資料。
 
 ## 取得使用者與工作階段資料
 
@@ -370,4 +371,4 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
-	writer="Rick-Anderson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/16/2015" 
 	ms.author="riande"/>
 
 # 在 Azure App Service 中使用 ASP.NET Web API 和 SQL Database 建立 REST 服務
@@ -37,7 +36,8 @@
 
 ![網站的螢幕擷取畫面][intro001]
 
-<a name="bkmk_setupdevenv"></a> <!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->[AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+<!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->
+[AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ### 建立專案
 
@@ -75,10 +75,10 @@
 ### 設定頁首及頁尾
 
 
-1. 在 [方案總管]中，展開 *Views\Shared* 資料夾並開啟 *_Layout.cshtml* 檔案。
+1. 在 [方案總管]中，展開 *Views\\Shared* 資料夾並開啟 *_Layout.cshtml* 檔案。
 	![[方案總管] 中的 _Layout.cshtml][newapp004]
 
-1. 以下列程式碼取代 *Views\Shared_Layout.cshtml* 檔案中的內容：
+1. 以下列程式碼取代 *Views\\Shared_Layout.cshtml* 檔案中的內容：
 
 
 		<!DOCTYPE html>
@@ -125,7 +125,7 @@
 
 只需執行上述作業，即可建立稍後要部署至 Azure 的應用程式。稍後您將新增資料庫功能。
 
-<h2><a name="bkmk_deploytowindowsazure1"></a>將應用程式部署至 Azure</h2>
+## 將應用程式部署至 Azure
 
 1. 在 Visual Studio 的 [方案總管] 中以滑鼠右鍵按一下專案，再選取內容功能表中的 [發行]。
 
@@ -145,7 +145,7 @@ Visual Studio 隨即開始進行將檔案複製至 Azure 伺服器的程序。[�
 	
 	![在 Azure 中執行的待辦事項清單首頁][rxz2]
 
-<h2><a name="bkmk_addadatabase"></a>新增資料庫至應用程式</h2>
+## 新增資料庫至應用程式
 
 接下來，您將更新 MVC 應用程式，以加上顯示和更新資料庫中的連絡人，以及在資料庫中儲存資料的能力。應用程式將使用 Entity Framework，以建立資料庫以及讀取和更新資料庫中的資料。
 
@@ -191,7 +191,7 @@ Visual Studio 隨即開始進行將檔案複製至 Azure 伺服器的程序。[�
 
 ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更新和刪除 (CRUD) 動作。
 
-<h2><a name="bkmk_addcontroller"></a>新增控制器和資料檢視</h2>
+## 新增控制器和資料檢視
 
 1. 在 [方案總管] 中展開 Controllers 資料夾。
 
@@ -235,7 +235,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 	在 **Initial** 類別中，**Up** 方法會建立 Contacts 資料表，**Down** 方法 (當您希望返回前個狀態時使用) 則會捨棄該資料表。
 
-3. 開啟 *Migrations\Configuration.cs* 檔案。
+3. 開啟 *Migrations\\Configuration.cs* 檔案。
 
 4. 新增下列命名空間。
 
@@ -316,9 +316,9 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 ![資料的 MVC 檢視][rxz3]
 
-<h2><a name="bkmk_addview"></a>編輯檢視</h2>
+## 編輯檢視
 
-1. 開啟 *Views\Home\Index.cshtml* 檔案。在下一個步驟中，我們會將產生的標記取代為使用 [jQuery](http://jquery.com/) 和 [Knockout.js](http://knockoutjs.com/) 的程式碼。這個新的程式碼會使用 Web API 和 JSON 來擷取連絡人清單，然後再使用 knockout.js 使連絡人資料與 UI 繫結。如需詳細資訊，請參閱本教學課程結尾處的[後續步驟](#nextsteps)一節。 
+1. 開啟 *Views\\Home\\Index.cshtml* 檔案。在下一個步驟中，我們會將產生的標記取代為使用 [jQuery](http://jquery.com/) 和 [Knockout.js](http://knockoutjs.com/) 的程式碼。這個新的程式碼會使用 Web API 和 JSON 來擷取連絡人清單，然後再使用 knockout.js 使連絡人資料與 UI 繫結。如需詳細資訊，請參閱本教學課程結尾處的[後續步驟](#nextsteps)一節。 
 
 
 2. 以下列程式碼取代檔案的內容。
@@ -475,7 +475,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 	我們會將此樣式表用於 Contact Manager 應用程式所用的版面配置、色彩及樣式。
 
-6. 開啟 *App_Start\BundleConfig.cs* 檔案。
+6. 開啟 *App_Start\\BundleConfig.cs* 檔案。
 
 
 7. 新增以下程式碼以註冊 [Knockout](http://knockoutjs.com/index.html "KO") 外掛程式。
@@ -499,10 +499,9 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 1. 在 Package Manager Console 中，執行下列命令以安裝 Knockout。
 
 	Install-Package knockoutjs
+## 為符合 REST 限制的 Web API 介面新增控制器
 
-<h2><a name="bkmk_addwebapi"></a>為符合 Web API REST 限制的介面新增控制器</h2>
-
-1. 在 [方案總管]，於 Controllers 上按一下滑鼠右鍵，按一下 [新增]，再按一下 [控制器...] 
+1. 在 [方案總管]，於 Controllers 上按一下滑鼠右鍵，按一下 [新增]，再按一下 [控制器...]
 
 1. 在 [Add Scaffold] 對話方塊中，選取 [Web API 2 Controller with actions, using Entity Framework]，再按一下 [新增]。
 
@@ -541,8 +540,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 	![Web API 儲存對話方塊][addwebapi007]
 
 	**安全性警告**：此時您的應用程式並未受到保護，且容易遭受 CSRF 攻擊。在本教學課程稍後的內容中，我們將移除這項弱點。如需詳細資訊，請參閱[避免跨網站偽造要求 (CSRF) 攻擊][prevent-csrf-attacks] (英文)。
-
-<h2><a name="xsrf"></a>新增 XSRF 保護</h2>
+## 新增 XSRF 保護
 
 跨網站偽造要求 (亦稱為 XSRF 或 CSRF) 為以 Web 主控之應用程式為目標的攻擊，惡意網站能藉此影響用戶端瀏覽器和該瀏覽器信任之網站間的互動。這些攻擊之所以能得逞，是因為網頁瀏覽器會隨著對網站的每個要求自動傳送驗證權杖。ASP.NET 的 Forms Authentication 票證即是驗證 Cookie 的標準範例。然而，使用任何持續驗證機制 (如 Windows 驗證、基本驗證等等) 的網站都可能成為這些攻擊的目標。
 
@@ -630,7 +628,7 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 
 	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
 
-1. 更新 *Views\Home\Index.cshtml* 檔案的 *Scripts* 區段，使其包含取得 XSRF 權杖的程式碼。
+1. 更新 *Views\\Home\\Index.cshtml* 檔案的 *Scripts* 區段，使其包含取得 XSRF 權杖的程式碼。
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -685,7 +683,7 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
             </script>
 
 
-<h2><a name="bkmk_deploydatabaseupdate"></a>將應用程式更新發行至 Azure 和 SQL Database</h2>
+## 將應用程式更新發行至 Azure 和 SQL Database
 
 若要發行應用程式，您需要重複先前遵循過的程序。
 
@@ -722,7 +720,7 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
-<h2><a name="nextsteps"></a>後續步驟</h2>
+## 後續步驟
 
 真實的應用程式會要求驗證和授權，而您需要使用成員資格資料庫來達成目的。[部署含有 OAuth、成員資格及 SQL Database 的安全 ASP.NET MVC 應用程式](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)教學課程是以本教學課程為基礎，其展示如何部署含有成員資格資料庫的 Web 應用程式。
 
@@ -811,4 +809,4 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -3,7 +3,7 @@
 	description="說明 Azure 支援的兩個不同負載平衡類型：適用於雲端服務的負載平衡器，以及適用於用戶端流量的 Azure 流量管理員。" 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="cherylmc" 
+	authors="joaoma" 
 	manager="adinah" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
-	ms.author="cherylmc"/>
+	ms.date="06/16/2015" 
+	ms.author="joaoma"/>
 
 
 # Azure 基礎結構服務的負載平衡#
@@ -36,7 +36,7 @@ Azure Traffic Manager 使用三種不同的負載平衡方法來分配流量︰
 - **效能**：當您的端點位於不同地理位置，且您為了取得最低延遲而要求用戶端使用「最靠近」的端點時，才可使用此方法。
 - **循環配置資源**：在您想要在相同資料中心的一組雲端服務上，或在不同資料中心的雲端服務或網站上分配負載時，才可使用此方法。
 
-如需詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法](http://msdn.microsoft.com/library/azure/dn339010.aspx)。
+如需詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法](../traffic-manager/traffic-manager-load-balancing-methods.md)。
 
 下圖顯示在不同雲端服務間使用循環配置資源負載平衡方法分配流量的範例。
 
@@ -49,7 +49,7 @@ Azure Traffic Manager 使用三種不同的負載平衡方法來分配流量︰
 3.	流量管理員選擇循環配置資源中的下一個雲端服務，並傳回 DNS 名稱。網際網路用戶端的 DNS 伺服器將該名稱解析為 IP 位址，並傳送至網際網路用戶端。
 4.	網際網路用戶端連線到流量管理員選擇的雲端服務。
 
-如需詳細資訊，請參閱 [Traffic Manager](http://msdn.microsoft.com/library/azure/hh745750.aspx)。
+如需詳細資訊，請參閱 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)。
 
 ## 虛擬機器的 Azure 負載平衡 ##
 
@@ -61,7 +61,7 @@ Azure 負載平衡器會隨機分配稱為負載平衡集之組態中的多個�
 
 ![負載平衡](./media/virtual-machines-load-balance/LoadBalancing.png)
 
-如需詳細資訊，請參閱 [Azure 負載平衡器](http://msdn.microsoft.com/library/azure/dn655058.aspx)。如須建立負載平衡集的步驟，請參閱[設定負載平衡集](http://msdn.microsoft.com/library/azure/dn655055.aspx)。
+如需詳細資訊，請參閱 [Azure 負載平衡器](../load-balancer/load-balancer-overview.md)。如須建立負載平衡集的步驟，請參閱[設定負載平衡集](../load-balancer/load-balancer-internet-getstarted.md)。
 
 Azure 也可在雲端服務或虛擬網路中進行負載平衡。這稱為內部負載平衡，可用於以下方式︰
 
@@ -77,10 +77,10 @@ Azure 也可在雲端服務或虛擬網路中進行負載平衡。這稱為內�
 
 ## 後續步驟
 
-如須建立負載平衡集的步驟，請參閱[設定內部負載平衡集](http://msdn.microsoft.com/library/azure/dn690125.aspx)。
+如須建立負載平衡集的步驟，請參閱[設定內部負載平衡集](../load-balancer/load-balancer-internal-getstarted.md)。
 
-如需負載平衡器的詳細資訊，請參閱[內部負載平衡](http://msdn.microsoft.com/library/azure/dn690121.aspx)。
+如需負載平衡器的詳細資訊，請參閱[內部負載平衡](../load-balancer/load-balancer-internal-overview.md)。
 
 <!-- LINKS -->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

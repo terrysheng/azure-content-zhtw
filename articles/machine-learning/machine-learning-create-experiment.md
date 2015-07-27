@@ -1,7 +1,6 @@
 <properties
 	pageTitle="在 Machine Learning Studio 中建立簡易實驗 | Microsoft Azure"
 	description="第一個機器學習教學課程適合用來建立簡單的實驗，來訓練和測試 Azure Machine Learning Studio 中的線性迴歸模型。"
-	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="04/21/2015"
+	ms.date="07/09/2015"
 	ms.author="garye"/>
 
 #機器學習教學課程：在 Azure Machine Learning Studio 中建立您的第一個實驗
@@ -23,9 +22,9 @@
 
 [AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
 
-Machine Learning Studio 實驗包含用以「建立模型」、「訓練模型」和「對模型評分與測試」的拖放式元件。這個實驗會利用 Machine Learning Studio 模組形式來使用預測性模型化技術，以擷取資料、根據它來訓練模型，並將模型套用到新資料。您也可以將模組新增至前置處理資料並選取功能、將資料分割為訓練和測試集，以及評估或交叉驗證模型的品質。
+Machine Learning Studio 實驗包含將元件拖放到畫布，以及連接元件以*建立模型*、*訓練模型*及*對模型評分與測量*。這個實驗會利用 Machine Learning Studio 模組形式來使用預測性模型化技術，以擷取資料、根據它來訓練模型，並將模型套用到新資料。您也可以將模組新增至前置處理資料並選取功能、將資料分割為訓練和測試集，以及評估或交叉驗證模型的品質。
 
-開啟 Machine Learning Studio：[https://studio.azureml.net/Home](https://studio.azureml.net/Home)。如需開始使用 Machine Learning Studio 的協助，請參閱 [Microsoft Azure Machine Learning Studio 首頁](https://studio.azureml.net/)。
+進入 Machine Learning Studio ([https://studio.azureml.net](https://studio.azureml.net))，然後按一下 [開始使用] 按鈕。您可以選擇以來賓身分存取或登入 Microsoft 帳戶。
 
 而如需一般 Machine Learning Studio 的詳細資訊，請參閱[什麼是 Machine Learning Studio？](machine-learning-what-is-ml-studio.md)。
 
@@ -233,4 +232,4 @@ Machine Learning Studio 隨附多個範例資料集，而且您可以從許多�
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

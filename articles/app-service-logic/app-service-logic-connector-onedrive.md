@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/09/2015"
+	ms.date="07/02/2015"
 	ms.author="andalmia"/>
 
 # 在邏輯應用程式中使用 OneDrive 連接器 #
 
 邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。
 
-OneDrive 連接器可讓您從 OneDrive 帳戶上傳\下載\刪除檔案。
+OneDrive 連接器可讓您從 OneDrive 帳戶上傳\\下載\\刪除檔案。
 
 ## 建立邏輯應用程式的 OneDrive 連接器 ##
 若要使用 OneDrive 連接器，您必須先建立 OneDrive 連接器 API 應用程式的執行個體。這可以直接從邏輯應用程式設計工具中進行，或在工具外進行。在設計工具外建立執行個體的作法如下：
@@ -29,13 +29,7 @@ OneDrive 連接器可讓您從 OneDrive 帳戶上傳\下載\刪除檔案。
 2.	Under "Everything", search for “OneDrive connector”.
 3.	設定 OneDrive 連接器，如下所示：
 
-	![][1] 
-	- **名稱** - 提供 OneDrive 連接器的名稱 
-	- **App Service 方案** - 選取或建立 App Service 方案 
-	- **定價層** - 選擇用於連接器的定價層 
-	- **資源群組** - 選取或建立連接器所在的資源群組 
-	- **訂用帳戶** - 選擇您要在其中建立此連接器的訂用帳戶 
-	- **位置** - 選擇您要部署連接器的地理位置
+	![][1] - **名稱** - 提供 OneDrive 連接器的名稱 - **App Service 方案** - 選取或建立 App Service 方案 - **定價層** - 選擇用於連接器的定價層 - **資源群組** - 選取或建立連接器所在的資源群組 - **訂用帳戶** - 選擇您要在其中建立此連接器的訂用帳戶 - **位置** - 選擇您要部署連接器的地理位置
 
 4. 按一下 [建立]。將建立新的 OneDrive 連接器。
 5. 建立 API 應用程式執行個體後，您可以在相同的資源群組中建立邏輯應用程式，以便使用 OneDrive 連接器。
@@ -52,8 +46,7 @@ OneDrive 連接器可讓您從 OneDrive 帳戶上傳\下載\刪除檔案。
 	![][2]
 4.	您可以在 [OneDrive 連接器] 上按一下來將 OneDrive 連接器 API 應用程式置入編輯器。按一下 [授權] 按鈕。提供您的 Microsoft 認證 (若未自動登入)。按一 [是] 來允許存取。
 
-	![][3]
-	![][4]
+	![][3] ![][4]
 
 5.	您現在便可以在流程中使用 OneDrive 連接器。OneDrive 連接器中目前沒有觸發程序可使用。可使用的動作有 - 「取得檔案」、「上傳檔案」、「刪除檔案」和「列出檔案」。
 
@@ -91,4 +84,4 @@ OneDrive 連接器可讓您從 OneDrive 帳戶上傳\下載\刪除檔案。
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
 [OneDrive API 定義]: https://msdn.microsoft.com/zh-tw/library/dn974227.aspx
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

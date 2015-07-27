@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="06/28/2015"
 	ms.author="adegeo"/>
 
 
@@ -21,13 +21,20 @@
 
 # 在 Azure 設定應用程式的 SSL
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-configure-ssl-certificate.md)
+- [Azure Preview Portal](cloud-services-configure-ssl-certificate-portal.md)
 
 安全通訊端層 (SSL) 加密是最常用來保護在網際網路上傳送之資料的方法。此常見工作會討論如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。
 
 > [AZURE.NOTE]這項工作中的程序適用於 Azure 雲端服務；對於「網站」，請參閱[設定 Azure 網站的 SSL 憑證](../web-sites-configure-ssl-certificate.md)。
 
 此工作將使用生產部署；本主題最後將提供關於如何使用預備部署的資訊。
+
+如果尚未建立雲端服務，請先閱讀[這裡](cloud-services-how-to-create-deploy.md)。
+
+[AZURE.INCLUDE 〈[websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)〉]
+
 
 ## 步驟 1：取得 SSL 憑證
 
@@ -105,27 +112,22 @@
 
 您已更新服務定義檔與服務組態檔，現在請封裝您的部署，以上傳至 Azure。如果您是使用 **cspack**，請確定未使用 **/generateConfigurationFile** 旗標，因為如此會將覆寫您剛插入的憑證資訊。
 
-## 步驟 3：上傳部署套件和憑證
+## 步驟 3：上傳憑證
 
 您的部署套件已更新為使用該憑證，而且您已新增 HTTPS 端點。現在您可以利用管理入口網站將套件和憑證上傳至 Azure。
 
 1. 登入 [Azure 管理入口網站][]。 
-2. 按一下 [新增]、按一下 [雲端服務]，然後按一下 [Custom Create]。
-3. 在 [建立雲端服務] 對話方塊中，輸入 URL、地區/同質群組及訂閱的值。確定已核取 [Deploy a cloud service package now]，然後按 [下一步] 按鈕。
-3. 在 [Publish your cloud service] 對話方塊中，輸入雲端服務的必要資訊、為環境選取 [生產]，並確定核取 [Add certificates now]。(如果您的任一個角色包含單一執行個體，請確定核取 [Deploy even if one or more roles contain a single instance]。) 
+2. 按一下左邊瀏覽窗格的 [**雲端服務**]。
+3. 按一下所需的雲端服務。
+4. 按一下 [**憑證**] 索引標籤。
 
-    ![發佈您的雲端服務][0]
+    ![按一下 [憑證] 索引標籤](./media/cloud-services-configure-ssl-certificate/click-cert.png)
 
-4.  按 [下一步] 按鈕。
-5.  在 [加入憑證] 對話方塊中，輸入 SSL 憑證檔 .pfx 的位置、憑證的密碼，然後按一下 [attach certificate]。  
+5. 按一下 [上傳] 按鈕。
 
-    ![新增憑證][1]
-
-6.  確定您的憑證列在 [Attached Certificates] 區段內。
-
-    ![附加的憑證][4]
-
-7.  按一下 [完成] 按鈕，以建立雲端服務。當部署達到了 [就緒] 狀態時，您可以繼續進行接下來的步驟。
+    ![上傳](./media/cloud-services-configure-ssl-certificate/upload-button.png)
+    
+6. 提供 [**檔案**]、[**密碼**]，然後按一下 [**完成**] (核取記號)。
 
 ## 步驟 4：使用 HTTPS 來連線至角色執行個體
 
@@ -160,4 +162,4 @@
   [如何在 HTTPS 端點上設定 SSL 憑證]: http://msdn.microsoft.com/library/azure/ff795779.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

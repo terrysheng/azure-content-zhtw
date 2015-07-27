@@ -258,7 +258,7 @@ SQL 資料倉儲公開許多 SQL Server 動態管理檢視 (DMV)。在 SQL 資�
 - [VIEWS (Transact-SQL)](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## 後續步驟
-如需詳細參考資訊，請參閱 [SQL 資料倉儲參考概觀][]。
+如需更多的參考資訊，請參閱 [SQL 資料倉儲參考概觀][]。
 
 <!--Image references-->
 
@@ -270,4 +270,4 @@ SQL 資料倉儲公開許多 SQL Server 動態管理檢視 (DMV)。在 SQL 資�
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

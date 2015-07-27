@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 #Azure Data Factory - 術語
@@ -113,4 +113,4 @@ Microsoft **資料管理閘道**是將內部部署資料來源連接至雲端服
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,24 +1,26 @@
 <properties
    pageTitle="授權 Azure 資源管理員範本"
    description="使用宣告式 JSON 語法建立 Azure 資源管理員範本，藉此將應用程式部署至 Azure。"
-   services="multiple"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # 授權 Azure 資源管理員範本
 
 Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網站等) 結合在一起，以達到所需的目標。您不是分開部署與管理每個資源，而是建立一個 Azure 資源管理員範本，藉此經由單一、協調的作業署與佈建應用程式有的資源。在範本中，您會定義應用程式所需的資源，並指定部署參數以針對不同的環境輸入值。範本由 JSON 與運算式所組成，可讓您用來為部署建構值。
+
+此主題說明範本的各區段。對於實際結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)。
 
 ## 範本格式
 
@@ -401,5 +403,6 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 - [進階範本作業](./resource-group-advanced-template.md)
 - [透過可預測方式在 Azure 中部署複雜應用程式](app-service-web/app-service-deploy-complex-application-predictably.md)
 - [Azure 資源管理員概觀](./resource-group-overview.md)
+- [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

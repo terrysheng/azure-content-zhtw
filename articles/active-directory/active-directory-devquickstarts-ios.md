@@ -227,4 +227,4 @@ ADAL 可讓您輕鬆地將這些常見的身分識別功能全部納入您的應
 - [Azure.com 上的 Azure AD 文件 >>](http://azure.microsoft.com/documentation/services/active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

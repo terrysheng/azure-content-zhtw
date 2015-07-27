@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+[AZURE.INCLUDE 〈[websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)〉]
 
 > [AZURE.NOTE]如果您已透過 Azure App Service Web Apps 購買網域，請參考<a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">購買 Web Apps 網域</a>文章的最後一個步驟。
 
@@ -60,7 +60,7 @@
 
 	![選取記錄類型](./media/web-sites-godaddy-custom-domain-name/godaddy-selectrecordtype.png)
 
-	接下來，您必須提供 [主機] \(自訂網域或子網域\) 及其 [指向] 位置。
+	接下來，您必須提供 [主機] (自訂網域或子網域) 及其 [指向] 位置。
 
 	![新增區域記錄](./media/web-sites-godaddy-custom-domain-name/godaddy-addzonerecord.png)
 
@@ -89,4 +89,4 @@
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

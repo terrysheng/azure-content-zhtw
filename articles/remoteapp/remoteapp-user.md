@@ -2,7 +2,6 @@
     pageTitle="在 RemoteApp 中新增使用者" 
     description="了解如何在 RemoteApp 中新增使用者" 
     services="remoteapp" 
-    solutions="" 
 	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
@@ -13,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="06/30/2015" 
     ms.author="elizapo" />
 
 # 如何在 RemoteApp 中新增使用者
@@ -42,7 +41,7 @@ Office 365 使用者為 Azure Active Directory 使用者。如果這些使用者
 |具有密碼同步的 ADsync |是 |是 |
 |不具密碼同步的 ADsync|	是 |否 |
 |具 AD FS 的 ADsync |是 |是 |
-|Azure 支援的第三方識別提供者 (例如 Ping) |是 |否|	
+|Azure 支援的第三方識別提供者 (例如 Ping) |是 |是|	
 |Multi-Factor Authentication |是 |是 |
 
 請查看有關設定 RemoteApp 的 Active Directory 的[詳細資訊](remoteapp-ad.md)。
@@ -54,4 +53,4 @@ Office 365 使用者為 Azure Active Directory 使用者。如果這些使用者
 如果您的收藏中使用 Office 365 ProPlus 範本映像，*或者*如果您建立了使用 Office 365 的自訂映像，則您只能新增在您的訂用帳戶的預設網域中擁有 Office 365 訂用帳戶的 Azure Active Directory 使用者。如需詳細資訊，請參閱[透過 Azure RemoteApp 使用 Office 365](remoteapp-o365.md)。
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

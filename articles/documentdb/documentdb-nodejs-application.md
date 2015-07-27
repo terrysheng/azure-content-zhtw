@@ -93,7 +93,7 @@
 
 	![[package.json] 索引標籤的螢幕擷取畫面](./media/documentdb-nodejs-application/image17.png)
 
-這會讓 Node (之後則是 Azure) 知道您的應用程式需要仰賴這些額外模組。
+       這會讓 Node (之後則是 Azure) 知道您的應用程式需要仰賴這些額外模組。
 
 ## <a name="_Toc395783180"></a>步驟 4：在節點應用程式中使用 DocumentDB 服務
 
@@ -378,7 +378,7 @@
 ### 新增 config.js
 
 1. 在您的專案目錄中，建立名為 **config.js** 的新檔案。
-2. 將下列程式碼新增至 **config.js**。這會定義應用程式所需的組態設定和值。
+2. 將下列程式碼新增至 **config.js**。這會定義組態設定和我們的應用程式所需的值。
 
 		var config = {}
 		
@@ -389,7 +389,7 @@
 		
 		module.exports = config;
 
-3. 在 **config.js** 檔案中，使用在 [Microsoft Azure 入口網站](http://portal.azure.com) DocumentDB 帳戶的 [金鑰] 刀鋒視窗上找到的值來更新 [主機] 和 [AUTH_KEY] 的值：
+3. 在 **config.js** 檔案中，使用在 [Microsoft Azure Preview 入口網站](http://portal.azure.com) DocumentDB 帳戶的 [金鑰] 刀鋒視窗上找到的值來更新 [主機] 和 [AUTH_KEY] 的值：
 
 4. 儲存並關閉 **config.js** 檔案。
  
@@ -423,7 +423,7 @@
 		app.post('/completetask', taskList.completeTask.bind(taskList));
 
 
-6. 這幾行會定義 **TaskDao** 物件的新執行個體，內含與 DocumentDB 的新連線 (使用從 **config.js** 中讀取的值)，初始化工作物件，然後將表單動作繫結至 **TaskList** 控制站上的方法。 
+6. 這幾行會定義 **TaskDao** 物件的新執行個體，內含與 DocumentDB 的新連線 (使用從 **config.js** 中讀取的值)，初始化工作物件，然後將表單動作繫結至 **TaskList** 控制站上的方法。
 
 7. 最後，儲存並關閉 **app.js** 檔案，我們就差不多快完成了。
  
@@ -450,8 +450,7 @@
 
 
 
-	這個程式碼實際上會指示 Jade 引擎呈現我們應用程式的部分 HTML，並建立稱為 "content" 的 "block"，我們可以在其中提供內容頁面的配置。
-	儲存並關閉此 **layout.jade** 檔案。
+	這個程式碼實際上會指示 **Jade** 引擎呈現我們應用程式的部分 HTML，並建立稱為 **content** 的 **block**，我們可以在其中提供內容頁面的配置。儲存並關閉此 **layout.jade** 檔案。
 
 4. 現在，開啟 **index.jade** 檔案 (應用程式即將使用的檢視)，並將檔案中的內容取代為下列內容；
 
@@ -534,7 +533,7 @@
 
 	![[待辦事項] 清單中包含一個新項目的應用程式螢幕擷取畫面](./media/documentdb-nodejs-application/image19.png)
 
-4. 若要完成工作，您只需勾選 [已完成] 資料行中的核取方塊，然後按一下 **[更新工作]**。
+4. 若要完成工作，您只需勾選 [已完成] 資料行中的核取方塊，然後按一下 [更新工作]。
 
 ## <a name="_Toc395783182"></a>步驟 7：將應用程式部署至 Azure 網站
 
@@ -556,8 +555,8 @@
 
 您可以在[這裡](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo)下載完整參考應用程式的原始程式碼。
 
-[Node.js]: http://nodejs.org/
-[Git]: http://git-scm.com/
-
-<!--HONumber=52-->
+  [Node.js]: http://nodejs.org/
+  [Git]: http://git-scm.com/
  
+
+<!---HONumber=July15_HO3-->

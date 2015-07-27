@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="06/28/2015" 
 	ms.author="juliako"/>
 
 
@@ -26,13 +26,19 @@
 
 編碼工作是媒體服務中最常見的處理作業。您建立編碼工作以將媒體檔案從一種編碼轉換成另一種編碼。編碼時，您可以使用媒體服務內建的 Media Encoder。您也可以使用媒體服務合作夥伴提供的編碼器；第三方編碼器可透過 Azure Marketplace 取得。您可以使用針對您的編碼器定義的預設字串，或使用預設組態檔，指定編碼工作的詳細資料。若要查看可用的預設類型，請參閱[Azure 媒體服務的工作預設](https://msdn.microsoft.com/library/azure/dn619392.aspx)。如果您使用第三方編碼器，則應該[驗證檔案](https://msdn.microsoft.com/library/azure/dn750842.aspx)。
 
-每個工作可以有一或多個工作，視您想要完成的處理類型而定。您可以透過 REST API 以兩種方式的其中之一建立工作和其相關工作：工作可以透過 Job 實體上的 Tasks 導覽屬性，或透過 OData 批次處理進行內嵌定義。媒體服務 SDK 使用批次處理；不過，為了本主題中的程式碼範例可讀性，工作都是內嵌定義。如需批次處理的資訊，請參閱[開放式資料通訊協定 (OData) 批次處理](http://www.odata.org/documentation/odata-version-3-0/batch-processing/)。您也可以在[工作](https://msdn.microsoft.com/library/azure/hh974289.aspx)主題中找到批次處理範例。
+
+每個工作可以有一或多個工作，視您想要完成的處理類型而定。透過 REST API，您可以用兩種方式之一建立工作和其相關的工作：
+
+- 工作可以透過 Job 實體上的 Tasks 導覽屬性，或 
+- 透過 OData 批次處理進行內嵌定義。
+  
 
 建議一律將夾層檔編碼為調適性位元速率 MP4 集，然後使用[動態封裝](https://msdn.microsoft.com/library/azure/jj889436.aspx)將該集合轉換為所要的格式。若要利用動態封裝，您必須先取得至少一個串流端點的隨選串流單位，您打算從中傳遞您的內容。如需詳細資訊，請參閱[如何調整媒體服務](media-services-manage-origins.md#scale_streaming_endpoints)。
 
 如果您的輸出資產是儲存體加密，必須設定資產傳遞原則。如需詳細資訊，請參閱[設定資產傳遞原則](media-services-rest-configure-asset-delivery-policy.md)。
 
 
+>[AZURE.NOTE]開始參考媒體處理器之前，請確認您擁有正確的媒體處理器識別碼。如需詳細資訊，請參閱[取得媒體處理器](media-services-rest-get-media-processor.md)。
 
 ##建立具有單一編碼工作的工作 
 
@@ -58,7 +64,7 @@
 	Host: media.windows.net
 
 	
-	{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Broadband 720p", "MediaProcessorId" : "nb:mpid:UUID:70bdc2c3-ebf4-42a9-8542-5afc1e55d217",  "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
+	{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Broadband 720p", "MediaProcessorId" : "nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",  "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
 
 回應：
 	
@@ -66,7 +72,13 @@
 
 	. . . 
 
-##注意事項
+###設定輸出資產的名稱
+
+下列範例示範如何設定 assetName 屬性：
+
+	{ "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="CustomOutputAssetName">JobOutputAsset(0)</outputAsset></taskBody>"}
+
+##考量
 
 - TaskBody 屬性必須使用 XML 常值來定義工作所使用的輸入或輸出資產數目。工作主題包含 XML 的 XML 結構描述定義。
 - 在 TaskBody 定義中，<inputAsset> 和 <outputAsset> 的每一個內部值必須設定為 JobInputAsset(value) 或 JobOutputAsset(value)。
@@ -77,11 +89,6 @@
 - 由於媒體服務建置在 OData v3 之上，因此 InputMediaAsset 與 OutputMediaAsset 導覽屬性集合中的個別資產會透過 "__metadata : uri" 名稱 / 值組參考。.
 - InputMediaAsset 對應至您在媒體服務中建立的一個或多個資產。OutputMediaAsset 由系統建立。它們不會參考現有的資產。
 - OutputMediaAsset 可以使用 assetName 屬性命名。如果這個屬性不存在，則 OutputMediaAsset 的名稱將是 <outputAsset> 元素的任何內部文字值，並且尾碼為工作名稱值或工作識別碼值 (在未定義 Name 屬性的情況下)。例如，如果您將 assetName 的值設為 "Sample"，則 OutputMediaAsset Name 屬性會設為 "Sample"。不過，如果您未設定 assetName 的值，但已將工作名稱設為 "NewJob"，則 OutputMediaAsset Name 會是 "JobOutputAsset(value)_NewJob"。 
-
-下列範例示範如何設定 assetName 屬性：
-
-	{ "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="CustomOutputAssetName">JobOutputAsset(0)</outputAsset></taskBody>"}
-
 
 
 ##建立具有鏈結工作的工作
@@ -112,16 +119,17 @@
 	   "Tasks":[  
 	      {  
 	         "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
-	         "MediaProcessorId":"nb:mpid:UUID:2e7aa8f3-4961-4e0c-b4db-0e0439e524f5",
+	         "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
 	         "TaskBody":"<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
 	      },
 	      {  
 	         "Configuration":"H264 Smooth Streaming 720p",
-	         "MediaProcessorId":"nb:mpid:UUID:2e7aa8f3-4961-4e0c-b4db-0e0439e524f5",
+	         "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
 	         "TaskBody":"<?xml version="1.0" encoding="utf-16"?><taskBody><inputAsset>JobOutputAsset(0)</inputAsset><outputAsset>JobOutputAsset(1)</outputAsset></taskBody>"
 	      }
 	   ]
 	}
+
 
 ###注意事項
 
@@ -129,6 +137,67 @@
 
 - 工作必須有至少 2 個工作
 - 必須有至少一個工作的輸入是工作中另一項工作的輸出。
+
+## 使用 OData 批次處理 
+
+以下範例示範如何使用 OData 批次處理來建立工作和作業。如需批次處理的資訊，請參閱[開放式資料通訊協定 (OData) 批次處理](http://www.odata.org/documentation/odata-version-3-0/batch-processing/)。
+ 
+	POST https://media.windows.net/api/$batch HTTP/1.1
+	DataServiceVersion: 1.0;NetFx
+	MaxDataServiceVersion: 3.0;NetFx
+	Content-Type: multipart/mixed; boundary=batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e
+	Accept: multipart/mixed
+	Accept-Charset: UTF-8
+	Authorization: Bearer <token>
+	x-ms-version: 2.11
+	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+	Host: media.windows.net
+	
+	
+	--batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e
+	Content-Type: multipart/mixed; boundary=changeset_122fb0a4-cd80-4958-820f-346309967e4d
+	
+	--changeset_122fb0a4-cd80-4958-820f-346309967e4d
+	Content-Type: application/http
+	Content-Transfer-Encoding: binary
+	
+	POST https://media.windows.net/api/Jobs HTTP/1.1
+	Content-ID: 1
+	Content-Type: application/json
+	Accept: application/json
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	Accept-Charset: UTF-8
+	Authorization: Bearer <token>
+	x-ms-version: 2.11
+	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+	
+	{"Name" : "NewTestJob", "InputMediaAssets@odata.bind":["https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A2a22445d-1500-80c6-4b34-f1e5190d33c6')"]}
+	
+	--changeset_122fb0a4-cd80-4958-820f-346309967e4d
+	Content-Type: application/http
+	Content-Transfer-Encoding: binary
+	
+	POST https://media.windows.net/api/$1/Tasks HTTP/1.1
+	Content-ID: 2
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	Accept-Charset: UTF-8
+	Authorization: Bearer <token>
+	x-ms-version: 2.11
+	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+	
+	{  
+	   "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
+	   "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
+	   "TaskBody":"<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="Custom output name">JobOutputAsset(0)</outputAsset></taskBody>"
+	}
+
+	--changeset_122fb0a4-cd80-4958-820f-346309967e4d--
+	--batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e--
+ 
 
 
 ## 使用 JobTemplate 建立工作
@@ -184,63 +253,13 @@
 	. . . 
 
 
-##控制媒體服務編碼器輸出檔名 
-
-依照預設，Azure 媒體編碼器會透過結合輸入資產與編碼處理程序的多種屬性來建立輸出檔案名稱。每種屬性都是使用下面所述的巨集來識別。
-
-以下是命名輸出檔案時可用之巨集的完整清單：音訊位元速率 - 編碼音訊時使用的位元速率 (kbps)。
-
-- 音訊轉碼器 - 編碼音訊時使用的轉碼器，有效值為：AAC、WMA 及 DDP
-- 聲道計數 - 編碼的音訊聲道數，有效值為：1、2 或 6
-- 預設副檔名 – 預設的檔案副檔名 
-- 語言 - 代表音訊中使用之語言的 BCP-47 語言代碼。此項目目前的預設值為 "und"。 
-- 原始檔案名稱 - 上傳至 Azure 儲存體的檔案的名稱
-- StreamId – 由預設檔案中 <StreamInfo> 元素的 streamID 屬性定義的資料流識別碼 
-- 視訊轉碼器 - 編碼時使用的轉碼器，有效值為：H264 和 VC1
-- 視訊位元速率 - 編碼視訊時使用的位元速率 (kbps)
-
-這些巨集可以以任何排列方式組合，以控制媒體服務編碼器所產生之檔案的名稱。例如，預設命名慣例為：
-
-	{Original File Name}_{Video Codec}{Video Bitrate}{Audio Codec}{Language}{Channel Count}{Audio Bitrate}.{Default Extension}
-
-檔案命名慣例是使用 [Preset](https://msdn.microsoft.com/library/azure/dn554334.aspx) 元素的 DefaultMediaOutputFileName 屬性指定。例如：
-
-	<Preset DefaultMediaOutputFileName="{Original file name}{StreamId}_LongOutputFileName{Bit Rate}{Video Codec}{Video Bitrate}{Audio Codec}{Audio Bitrate}{Language}{Channel Count}.{Default extension}"
-	  Version="5.0">
-	<MediaFile …>
-	   <OutputFormat>
-	      <MP4OutputFormat StreamCompatibility="Standard">
-	         <VideoProfile>
-	            <MainH264VideoProfile … >
-	               <Streams  AutoSize="False"
-	                         FreezeSort="False">
-	                  <StreamInfo StreamId="1"
-	                              Size="1280, 720">
-	                     <Bitrate>
-	                       <ConstantBitrate Bitrate="3400"
-	                                        IsTwoPass="False"
-	                                        BufferWindow="00:00:05" />
-	                     </Bitrate>
-	                   </StreamInfo>
-	                  </Streams>
-	               </MainH264VideoProfile>
-	            </VideoProfile>
-	         </MP4OutputFormat>
-	   </OutputFormat>
-	</MediaFile>
-
-編碼器將會在每個巨集之間插入底線，例如上述設定會產生像這樣的檔案名稱：MyVideo_H264_4500kpbs_AAC_und_ch2_128kbps.mp4.
 
 ##後續步驟
 您已了解如何建立為資產編碼的工作，現在請移至[如何使用媒體服務檢查工作進度](media-services-rest-check-job-progress.md) (英文) 主題。
 
-[Azure Marketplace]: https://datamarket.azure.com/
-[Encoder Preset]: http://msdn.microsoft.com/library/dn619392.aspx
-[How to: Get a Media Processor Instance]: http://go.microsoft.com/fwlink/?LinkId=301732
-[How to: Upload an Encrypted Asset]: http://go.microsoft.com/fwlink/?LinkId=301733
-[How to: Deliver an Asset by Download]: http://go.microsoft.com/fwlink/?LinkId=301734
-[How to Check Job Progress]: http://go.microsoft.com/fwlink/?LinkId=301737
-[Task Preset for Azure Media Packager]: http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
- 
 
-<!---HONumber=62-->
+ ##另請參閱
+
+[取得媒體處理器](media-services-rest-get-media-processor.md)
+
+<!---HONumber=July15_HO3-->

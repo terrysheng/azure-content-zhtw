@@ -4,7 +4,6 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
-	writer="Justinha" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
@@ -47,4 +46,4 @@ Microsoft Online Services 登入小幫手 | 登入小幫手是安裝在用戶端
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

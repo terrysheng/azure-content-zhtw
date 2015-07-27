@@ -4,7 +4,7 @@
 
 ### gatewayName
 
-想要建立之閘道的名稱。API 應用程式會向此閘道註冊。
+閘道器的名稱。API 應用程式會向此閘道註冊。
 
     "gatewayName": {
       "type": "string"
@@ -12,7 +12,7 @@
 
 ### apiAppName
 
-要建立之 API 應用程式的名稱。
+要建立之 API 應用程式的名稱。名稱必須包含至少 8 個字元，而且不能多於 50 個字元。
     
     "apiAppName": {
       "type": "string"
@@ -34,4 +34,4 @@ API 應用程式的密碼。此值必須是 base64 編碼的字串。
       "type": "string"
     }
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

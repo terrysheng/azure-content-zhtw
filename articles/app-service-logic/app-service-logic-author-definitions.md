@@ -234,7 +234,7 @@
 }
 ```
 
-您可以閱讀 [MSDN 上的邏輯應用程式類型動作](https://msdn.microsoft.com/zh-tw/library/azure/dn948511.aspx)。
+您可以閱讀 [MSDN 上的邏輯應用程式類型動作](https://msdn.microsoft.com/en-US/library/azure/dn948511.aspx)。
 
 >[AZURE.NOTE]邏輯應用程式設計工具不支援邏輯應用程式類型的動作，因此您必須手動編輯定義。
 
@@ -688,4 +688,4 @@ Content-type: application/json
 
 然後，在每個環境中，您就可以提供不同的值給 `connection` 參數。如需有關建立及管理邏輯應用程式的所有可用選項，請參閱 [REST API 文件](https://msdn.microsoft.com/library/azure/dn948513.aspx)。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

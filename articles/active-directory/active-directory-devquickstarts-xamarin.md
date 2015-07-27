@@ -200,4 +200,4 @@ ADAL 可讓您輕鬆地將常見的身分識別功能納入您的應用程式。
 如需其他資源，請參閱：- [GitHub 上的 AzureADSamples >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - [Azure.com 上的 Azure AD 文件 >>](http://azure.microsoft.com/documentation/services/active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

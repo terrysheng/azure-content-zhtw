@@ -35,7 +35,7 @@ Visual Studio Application Insights 可讓您監視已發佈的應用程式在以
 * [Microsoft Azure][azure] 訂用帳戶。
 * Visual Studio 2013 或更新版本。
 
-## 1.建立 Application Insights 資源 
+## 1\.建立 Application Insights 資源 
 
 在 [Azure 入口網站][portal] 中，建立新的 Application Insights 資源。
 
@@ -50,7 +50,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 ![開啟 Essentials 下拉式抽屜，選取檢測金鑰](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2.將 Application Insights SDK 加入至應用程式
+## 2\.將 Application Insights SDK 加入至應用程式
 
 在 Visual Studio 中，將適當的 SDK 加入至專案。
 
@@ -64,13 +64,33 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. 選擇 **Application Insights for .NET Windows 應用程式**
+3. 選擇**適用於 Windows 應用程式的 Application Insights**
 
-4. 編輯 ApplicationInsights.config (已由 NuGet 安裝加入)。在結尾標記前面插入此內容：
+4. 將 ApplicationInsights.config 檔案加入至您方案的根目錄，並插入以上複製的檢測金鑰。此組態檔的範例 XML 如下所示。**務必將 ApplicationInsights.config 檔案的「建置動作」標示為「內容」並將「複製到輸出目錄」標示為「一律複製」**。
 
-    `<InstrumentationKey>`*您複製的金鑰*`</InstrumentationKey>`
+	```xml
+		<?xml version="1.0" encoding="utf-8" ?>
+		<ApplicationInsights>
+			<InstrumentationKey>YOUR COPIED KEY FROM ABOVE</InstrumentationKey>
+		</ApplicationInsights>
+	```
+	
+	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
 
-**Windows Universal 應用程式**：對 Phone 和市集專案重複這些步驟。
+5. 加入下列初始化程式碼。建議您將這個程式碼加入至 `App()` 建構函式。如果這項初始化未在應用程式建構函式中完成，您可能會遺漏初始頁面檢視的自動收集。
+
+```C#
+	public App()
+	{
+	   // Add this initilization line. 
+	   WindowsAppInitializer.InitializeAsync();
+	
+	   this.InitializeComponent();
+	   this.Suspending += OnSuspending;
+	}  
+```
+
+**Windows Universal 應用程式**：對 Phone 和市集專案重複這些步驟。[Windows 8.1 通用應用程式的範例](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal)。
 
 ## <a name="network"></a>3.對應用程式啟用網路存取
 
@@ -85,6 +105,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 ![](./media/app-insights-windows-get-started/appinsights-09eventcount.png)
 
 在偵測模式下，遙測一產生就立即送出。在發行模式下，遙測會先儲存在裝置上，只在應用程式恢復時才傳送。
+
 
 ## <a name="monitor"></a>5.查看監視資料
 
@@ -105,6 +126,44 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 ## <a name="deploy"></a>5.將應用程式發行至市集
 
 [發佈應用程式](http://dev.windows.com/publish)，並觀察資料隨著使用者下載和使用它而累積。
+
+## 自訂您的遙測
+
+#### 選擇收集器
+
+Application Insights SDK 包含數個收集器，它會從您的應用程式中自動收集不同類型的資料。根據預設，它們都是作用中。但是，您可以選擇要在應用程式建構函式中初始化的收集器：
+
+    WindowsAppInitializer.InitializeAsync( "00000000-0000-0000-0000-000000000000",
+       WindowsCollectors.Metadata
+       | WindowsCollectors.PageView
+       | WindowsCollectors.Session 
+       | WindowsCollectors.UnhandledException);
+
+#### 傳送您自己的遙測資料
+
+使用 [API][api] 來傳送事件、度量和診斷資料至 Application Insights。簡言之：
+
+```C#
+
+ var tc = new TelemetryClient(); // Call once per thread
+
+ // Send a user action or goal:
+ tc.TrackEvent("Win Game");
+
+ // Send a metric:
+ tc.TrackMetric("Queue Length", q.Length);
+
+ // Provide properties by which you can filter events:
+ var properties = new Dictionary{"game", game.Name};
+
+ // Provide metrics associated with an event:
+ var measurements = new Dictionary{"score", game.score};
+
+ tc.TrackEvent("Win Game", properties, measurements);
+
+```
+
+如需詳細資訊，請參閱[自訂事件和度量][api]。
 
 ## 後續步驟
 
@@ -168,4 +227,4 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

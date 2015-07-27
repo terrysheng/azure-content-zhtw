@@ -255,4 +255,4 @@ SAS URL 具有下列格式：
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

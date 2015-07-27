@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="04/03/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
 # 使用 Visual Studio 部署 WebJob
@@ -193,11 +193,11 @@
 
 ## <a id="nextsteps"></a>後續步驟
 
-如需如何在 Visual Studio 中使用連續傳遞程序部署 Azure WebJobs 的詳細資訊，請參閱 [Azure WebJobs - 建議資源 - 部署](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying)。
+本文說明如何使用 Visual Studio 部署 WebJobs。如需如何在 Visual Studio 中使用連續傳遞程序部署 Azure WebJobs 的相關資訊，請參閱 [Azure WebJobs - 建議資源 - 部署](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying)。
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+* 如需 Azure 入口網站變更為 Azure 預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

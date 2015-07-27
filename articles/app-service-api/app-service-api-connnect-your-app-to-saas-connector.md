@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/08/2015" 
 	ms.author="tdykstra"/>
 
 # 在 Azure App Service 中部署及設定 SaaS 連接器 API 應用程式
 
 ## 概觀
 
-本教學課程顯示如何在 [Azure App Service](/documentation/services/app-service/) 安裝、設定和測試[軟體即服務 (SaaS) 連接器](../app-service-logic-what-are-bizTalk-api-apps.md)，以便可用程式呼叫它，例如從行動應用程式呼叫它。SaaS 連接器是一種 [API 應用程式](app-service-api-apps-why-best-platform.md)，可簡化與 SaaS 平台 (例如 Office 365、Salesforce、Facebook 和 Dropbox) 的互動。
+本教學課程顯示如何在 [Azure App Service](/documentation/services/app-service/) 安裝、設定和測試[軟體即服務 (SaaS) 連接器](../app-service-logic-what-are-bizTalk-api-apps.md)，以便可用程式呼叫它，例如從行動裝置應用程式呼叫它。SaaS 連接器是一種 [API 應用程式](app-service-api-apps-why-best-platform.md)，可簡化與 SaaS 平台 (例如 Office 365、Salesforce、Facebook 和 Dropbox) 的互動。若要建立自訂的 .NET API 應用程式而不使用預先封裝的連接器，請參閱[從 ASP.NET API 應用程式連線到 SaaS 平台](app-service-api-dotnet-connect-to-saas.md)。
 
 例如，如果您想要編碼 HTTP 要求，以您的 Dropbox 帳戶讀取和寫入檔案，則直接使用 Dropbox 的驗證程序很複雜。Dropbox 連接器會處理驗證的複雜性，以便您可以專注於撰寫商業特有程式碼。
 
@@ -32,6 +32,8 @@
 * 設定 Dropbox 連接器，以便它可以連接至 Dropbox 服務。(若要完成此步驟，您將需要 Dropbox 帳戶。)
 * 設定資源群組，以便只有通過驗證的使用者才能存取資源群組中包括的 API 應用程式。
 * 測試以確認使用者驗證和 Dropbox 驗證兩者可以運作。
+
+如需有關 App Service 中之驗證的詳細資訊，請參閱 [API 應用程式與行動裝置應用程式的驗證](../app-service/app-service-authentication-overview.md)。
 
 ## 安裝 Dropbox 連接器
 
@@ -81,57 +83,11 @@
 
 ### <a id="createdbapp"></a>建立 Dropbox 應用程式
 
-下列步驟顯示如何使用 Dropbox.com 網站建立 Dropbox 應用程式的程序。因為 Dropbox.com 網站可能變更，而不另行通知，所以您在 UI 看到的可能與顯示的有所不同。
-
-1. 請移至 [Dropbox 開發人員入口網站](https://www.dropbox.com/developers/apps)、按一下 [**應用程式主控台**]，然後按一下 [**建立應用程式**。
-
-	![建立 Dropbox 應用程式](./media/app-service-api-connnect-your-app-to-saas-connector/dbappcreate.png)
-
-2. 選擇 [**Dropbox API 應用程式**]，並設定其他設定。
- 
-	底下螢幕擷取畫面中顯示的檔案存取選項將可讓您利用簡單的 HTTP Get 要求，測試對 Dropbox 帳戶的存取，如果您在帳戶中有任何檔案的話。
-
-	Dropbox API 應用程式的名稱可以是 Dropbox 網站將接受的任何名稱。
-
-3. 按一下 [**建立應用程式**]。
-
-	![建立 Dropbox 應用程式](./media/app-service-api-connnect-your-app-to-saas-connector/dbapiapp.png)
-
-	下一頁顯示您將用於設定 Azure Dropbox 連接器的應用程式金鑰和應用程式密碼設定 (在 Azure 中，其名稱為用戶端識別碼和用戶端密碼)。
-
-	本頁面也有一個欄位，您可在其中輸入重新導向 URI，其為您將在下一節取得的值。
-
-	![建立 Dropbox 應用程式](./media/app-service-api-connnect-your-app-to-saas-connector/dbappsettings.png)
+[AZURE.INCLUDE [app-service-api-create-dropbox-app](../../includes/app-service-api-create-dropbox-app.md)]
 
 ### <a id="copysettings"></a>將 Dropbox 應用程式設定複製到 Azure Dropbox 連接器，反之亦然 
 
-4. 在另一個瀏覽器視窗或索引標籤中，移至 [Azure 預覽入口網站]。
-
-3. 移至 Dropbox 連接器的 [**API 應用程式**] 分頁。(如果您仍在 [**資源群組**] 分頁上，只需按一下圖表中的 Dropbox 連接器即可。)
-
-4. 按一下 [**設定**]，然後在 [**設定**] 分頁中，按一下 [**驗證**]。
-
-	![按一下 [設定]](./media/app-service-api-connnect-your-app-to-saas-connector/clicksettings.png)
-
-	![按一下 [驗證]](./media/app-service-api-connnect-your-app-to-saas-connector/clickauth.png)
-
-5. 在 [驗證] 分頁中，輸入來自 Dropbox 網站的用戶端識別碼和用戶端密碼，然後按一下 [**儲存**]。
-
-	![輸入設定並按一下 [儲存]](./media/app-service-api-connnect-your-app-to-saas-connector/authblade.png)
-
-3. 複製 [**重新導向 URI**] (用戶端識別碼和用戶端密碼上方的灰色方塊)，並將值新增至您在前一個步驟中開啟且未關閉的頁面。
-
-	重新導向 URI 會導循下列模式：
-
-		[gatewayurl]/api/consent/redirect/[connectorname]
-
-	例如：
-
-		https://dropboxrgaeb4ae60b7.azurewebsites.net/api/consent/redirect/DropboxConnector
-
-	![取得重新導向 URI](./media/app-service-api-connnect-your-app-to-saas-connector/redirecturi.png)
-
-	![建立 Dropbox 應用程式](./media/app-service-api-connnect-your-app-to-saas-connector/dbappsettings2.png)
+[AZURE.INCLUDE [app-service-api-exchange-dropbox-settings](../../includes/app-service-api-exchange-dropbox-settings.md)]
 
 ### 將 Dropbox 連接器設為需要已驗證的存取
 
@@ -157,7 +113,7 @@
 
 大部分時間，您將從程式碼呼叫連接器來使用它，而且我們也正在撰寫教學課程，顯示如何執行該動作。但是，有時候您想要在佈線應用程式的其他部分之前驗證連接器是否正在運作中。本教學課程顯示如何使用瀏覽器和簡單的 REST 用戶端工具，透過您剛安裝並設定的 Dropbox 連接器來確認您可以與 Dropbox 服務互動。
 
-下列指示顯示如何使用 Chrome 瀏覽器開發人員工具和 Postman REST 用戶端工具，來執行這些步驟。這只是範例而已，您也可以利用其他瀏覽器和工具來執行相同程序。
+下列指示顯示如何使用 Chrome 瀏覽器開發人員工具和 Postman REST 用戶端工具，來執行這些步驟。這只是範例而已，您也可以利用其他瀏覽器和工具來執行相同程序。「進階 REST 用戶端」是另一個您可以使用的 Chrome 附加元件。
 
 ### 以使用者身分登入
 
@@ -187,7 +143,7 @@
 
 ### 提供使用者的身分識別給 Dropbox
 
-若要取得 Dropbox 授權來使用 Dropbox API，您必須提供使用者的認證給 Dropbox。Azure 將為您執行該動作，但是若要觸發該程序，您必須移至瀏覽器中的特殊 URL。若要取得該 URL，請向閘道提出 HTTP Post 要求。
+若要取得 Dropbox 授權來使用 Dropbox API，您必須提供使用者的認證給 Dropbox。Azure 將為您起始該程序，但是若要觸發該程序，您必須移至瀏覽器中的特殊閘道 URL。若要取得該 URL，請向閘道提出 HTTP Post 要求。
 
 閘道的 HTTP Post 要求必須包括 Azure 在您登入時所提供的驗證權杖。若要瀏覽器要求，包括權杖是自動的，因為權杖儲存在 Cookie 中，但是若為 HTTP Post 要求，使用 REST 用戶端工具時，您必須從 Cookie 取得權杖，並將它置於 HTTP Post 要求的要求標題中。
 
@@ -223,15 +179,15 @@
 
 	![針對同意的 URL 傳送](./media/app-service-api-connnect-your-app-to-saas-connector/sendforconsent.png)
 
-	回應包括要使用的 URL，以便能夠利用 Dropbox 來驗證使用者。(如果您得到錯誤回應，指出雖然已將 Get 方法下拉清單設為 **Post**，但是不支援該方法，則可能必須使用不同的 REST 用戶端工具。「進階 REST 用戶端」是另一個您可以使用的 Chrome 附加程式。)
+	回應包括一個 URL，用來起始利用 Dropbox 登入使用者的程序(如果您看到錯誤回應，指出雖然已將 Get 方法下拉式清單設定為 [Post]，但是不支援該方法，請確定您的閘道 URL 是 HTTPS，而非 HTTP)。
 
 	![同意的 URL](./media/app-service-api-connnect-your-app-to-saas-connector/getconsenturl.png)
 
 2. 移至您收到的 URL，以回應 HTTP Post 要求。
 
-	Dropbox 會使您的使用者身分識別與您的 Dropbox API 應用程式產生關聯，然後將瀏覽器重新導向至您指定的重新導向 URL (例如，如果您已遵循範例，並使用 https://portal.azure.com)，則為 Azure 預覽入口網站。)
-
-	因為您的 Dropbox 應用程式處於開發人員模式，所以在瀏覽器移至重新導向 URL 之前，您可能會從 Dropbox 取得登入頁面。在您使用 Dropbox 認證登入之後，您用來登入閘道的使用者身分識別會與您的 Dropbox 應用程式相關聯，因此該使用者身分識別日後不再需要這個 Dropbox 登入步驟。
+	對此 URL 的回應，會將瀏覽器重新導向到 Dropbox 網站，在其中使用者會登入並將對使用者帳戶的存取權授與應用程式。
+	
+	當登入和同意程序完成時，Dropbox 會將瀏覽器重新導向到您指定的重新導向 URL (例如，Azure Preview 入口網站 - 如果您遵循範例並使用 https://portal.azure.com)。如果您是從 Web 應用程式呼叫，則會是 Web 應用程式中下一個要顯示的頁面。應用程式應該檢查 URL，因為如果在登入或同意程序中有錯誤，重新導向 URL 可能會包含 `error` querystring 變數。
 
 3. 將此瀏覽器保持開啟狀態，因為您將在下一節中使用它。
 
@@ -271,10 +227,13 @@ Azure 現在正為您管理三個驗證權杖：
 
 ## 後續步驟
 
-您已了解如何安裝、設定和測試 SaaS 連接器。如需詳細資訊，請參閱[使用連接器](../app-service-logic/app-service-logic-use-biztalk-connectors.md)。
+您已了解如何安裝、設定和測試 SaaS 連接器。如需詳細資訊，請參閱這些資源：
+
+* [使用連接器](../app-service-logic/app-service-logic-connectors-list.md)
+* [API 應用程式與行動裝置應用程式的驗證](../app-service/app-service-authentication-overview.md)  
 
 [Azure 預覽入口網站]: https://portal.azure.com/
 [Azure 入口網站]: https://manage.windowsazure.com/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

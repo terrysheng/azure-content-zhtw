@@ -3,7 +3,7 @@
 	description="了解如何使用新的 Relic 附加元件監視行動服務。" 
 	documentationCenter="" 
 	authors="stepsic-microsoft-com" 
-	manager="carolz" 
+	manager="carolz"
 	editor="" 
 	services="mobile-services"/>
 
@@ -154,4 +154,4 @@
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

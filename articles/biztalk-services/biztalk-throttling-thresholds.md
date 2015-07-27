@@ -88,4 +88,4 @@ Azure BizTalk 服務進入節流狀態時會發生下列情況：
 - [BizTalk 服務：簽發者名稱和簽發者金鑰](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

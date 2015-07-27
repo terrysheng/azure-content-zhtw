@@ -104,13 +104,13 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 
    如果使用 Eclipse：
 
-    1. 在Eclipse 的專案總管中，於 **HelloSQLAzure** 專案上按一下滑鼠右鍵，並按一下 **內容**.
-    2. 在 **內容** 對話方塊的左窗格中，按一下 **Java Build Path**.
-    3. 按一下 **程式庫** 索引標籤，然後按一下 **新增程式庫**.
-    4. 在 **新增程式庫** 對話方塊中選取 **Microsoft JDBC Driver 4.0 for SQL Server**, 按 **下一步**, 然後按一下 **完成**.
-    5. 按一下 **確定** 以關閉 **內容** 對話方塊。
+    1. Within Eclipse's Project Explorer, right-click the **HelloSQLAzure** project and click **Properties**.
+    2. In the left-hand pane of the **Properties** dialog, click **Java Build Path**.
+    3. Click the **Libraries** tab, and then click **Add Library**.
+    4. In the **Add Library** dialog, select **Microsoft JDBC Driver 4.0 for SQL Server**, click **Next**, and then click **Finish**.
+    5. Click **OK** to close the **Properties** dialog.
 
-    如果不是使用 Eclipse，則將 Microsoft JDBC Driver 4.0 for SQL Server JAR 新增至您的類別路徑。 [使用 JDBC 驅動程式](http://msdn.microsoft.com/library/ms378526.aspx).
+    If you are not using Eclipse, add the Microsoft JDBC Driver 4.0 for SQL Server JAR to your class path. For related information, see [Using the JDBC Driver](http://msdn.microsoft.com/library/ms378526.aspx).
 
 4. 在 **HelloSQLAzure.java** 程式碼中加入 `import` 陳述式，如下所示：
 
@@ -726,4 +726,4 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

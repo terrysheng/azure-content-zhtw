@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article" 
 	ms.tgt_pltfrm="na"
-	ms.date="04/23/2015"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 # Azure 搜尋開發的一般工作流程
@@ -22,7 +22,7 @@
 
 在下列各節中，我們細分初始原型的一般工作流程，以協助您評估 Azure 搜尋符合您應用程式的搜尋需求的程度。本文的第二個部分涵蓋歸入更嚴重應用程式開發工作的重要設計決策。
 
-開始建立原型之前，建議您使用其中一個「快速入門」教學課程或這個[一小時深入探討簡報影片](http://azure.microsoft.com/documentation/videos/tech-ed-europe-2014-azure-search-deep-dive/) (英文)。「快速入門」教學課程具有下列語言版本：[.NET](../search-get-started-dotnet/)、[Java](../search-get-started-java/)、[Node.JS](../search-get-started-nodejs/)。
+開始建立原型之前，建議您使用其中一個「快速入門」教學課程或這個[一小時深入探討簡報影片](http://azure.microsoft.com/documentation/videos/tech-ed-europe-2014-azure-search-deep-dive/) (英文)。「快速入門」教學課程具有下列語言版本：[.NET](search-get-started-dotnet.md)、[Java](search-get-started-java.md)、[Node.JS](search-get-started-nodejs.md)。
 
 ##原型開發
 
@@ -34,7 +34,7 @@
 
 ###步驟 1：佈建服務
 
-Azure 搜尋是可透過 Azure 訂用帳戶取得的完全管理線上服務。[註冊 Azure 之後](http://azure.microsoft.com/pricing/free-trial/)，新增搜尋服務極為快速。如需如何將搜尋服務新增至訂用帳戶的指示，請瀏覽[在入口網站中建立搜尋服務](../search-create-service-portal/)。
+Azure 搜尋是可透過 Azure 訂用帳戶取得的完全管理線上服務。[註冊 Azure 之後](http://azure.microsoft.com/pricing/free-trial/)，新增搜尋服務極為快速。如需如何將搜尋服務新增至訂用帳戶的指示，請瀏覽[在入口網站中建立搜尋服務](search-create-service-portal.md)。
 
 有 2 種定價層可供選擇。建議您使用用於建立原型的共用 (免費) 服務，但請注意，您需要使用您資料的其中一小部分。共用服務可以供現有訂閱者自由使用 (透過試用或定期成員資格) 並且快速進行設定，但會將可使用的索引和文件數目限制為 3 個索引 (一個索引最多 10,000 份文件) 或儲存體總計 50 MB (看何者先達到)。
 
@@ -42,7 +42,7 @@ Azure 搜尋是可透過 Azure 訂用帳戶取得的完全管理線上服務。[
 
 建立服務之後，就可以從其結構描述定義開始來建立索引。
 
-建立索引的最快速且最簡單方式是透過入口網站。每份文件最少必須具有唯一索引鍵，以及至少一個包含可搜尋資料的欄位。若要開始使用，請參閱[在入口網站中建立索引](../search-create-index-portal/)。
+建立索引的最快速且最簡單方式是透過入口網站。每份文件最少必須具有唯一索引鍵，以及至少一個包含可搜尋資料的欄位。若要開始使用，請參閱[在入口網站中建立索引](search-create-index-portal.md)。
 
 > [AZURE.NOTE]**在 Azure 搜尋索引內**
 >
@@ -66,14 +66,14 @@ Azure 搜尋是可透過 Azure 訂用帳戶取得的完全管理線上服務。[
 
 ####如何將資料載入索引
 
-其中一種方法是使用索引子。對於 Azure 中的 Azure DocumentDB 或 SQL Server 關聯式資料來源 (尤其是 Azure VM 中的 Azure SQL Database 或 SQL Server)，您可以使用[索引子](https://msdn.microsoft.com/library/dn946891.aspx)以從支援的資料來源擷取文件。在下列任何「快速入門」教學課程中，都可以找到使用用於載入文件之索引子的程式碼範例：[.NET](../search-get-started-dotnet/)、[Java](../search-get-started-java/)、[Node.JS](../search-get-started-nodejs/)。
+其中一種方法是使用索引子。對於 Azure 中的 Azure DocumentDB 或 SQL Server 關聯式資料來源 (尤其是 Azure VM 中的 Azure SQL Database 或 SQL Server)，您可以使用[索引子](https://msdn.microsoft.com/library/dn946891.aspx)以從支援的資料來源擷取文件。在下列任何「快速入門」教學課程中，都可以找到使用用於載入文件之索引子的程式碼範例：[.NET](search-get-started-dotnet.md)、[Java](search-get-started-java.md)、[Node.JS](search-get-started-nodejs.md)。
 
 第二個選項是使用 REST API 或載入文件的 .NET 程式庫來撰寫一個簡單的程式：
 
 - [新增、更新或刪除文件 (REST API)](https://msdn.microsoft.com/library/dn798930.aspx)
 - [DocumentOperationsExtensions 類別](https://msdn.microsoft.com/library/microsoft.azure.search.documentoperationsextensions.aspx)
 
-適用於極小資料庫的第三個選項是使用 [Fiddler](../search-fiddler/) 或 [Chrome Postman](../search-chrome-postman/) 上傳文件。
+適用於極小資料庫的第三個選項是使用 [Fiddler](search-fiddler.md) 或 [Chrome Postman](search-chrome-postman.md) 上傳文件。
 
 第四個選項 (可能是最簡單的選項) 是借用下列範例中的程式碼：[Adventure Works C# REST API 範例](https://azuresearchadventureworksdemo.codeplex.com/) (從解決方案的內嵌資料庫 (.mdf) 中載入文件) 或[評分設定檔 C# REST API 範例](https://azuresearchscoringprofiles.codeplex.com/) (從解決方案所包括的 JSON 資料檔中載入資料)。
 
@@ -83,7 +83,7 @@ Azure 搜尋是可透過 Azure 訂用帳戶取得的完全管理線上服務。[
 
 將文件載入索引之後，即可撰寫第一個查詢。
 
-從搜尋服務取回初始搜尋結果的最快速方式是使用 [Fiddler](../search-fiddler/) 或 [Chrome Postman](../search-chrome-postman/) 檢視回應，但實際上，您會想要撰寫一些簡單的 UI 程式碼，以可讀取的格式檢視結果。
+從搜尋服務取回初始搜尋結果的最快速方式是使用 [Fiddler](search-fiddler.md) 或 [Chrome Postman](search-chrome-postman.md) 檢視回應，但實際上，您會想要撰寫一些簡單的 UI 程式碼，以可讀取的格式檢視結果。
 
 搜尋作業的 API 包括：
 
@@ -100,19 +100,19 @@ Azure 搜尋中的查詢可以十分簡單。在 URI 上包括 `search=*` 將會
 
 現在您已有服務和索引，可以試驗功能進一步發展搜尋體驗。接下來會列出要調查的簡短功能清單。
 
-**搜尋頁面**通常會在結果集中包括文件計數，或使用分頁將結果細分成更容易管理的數字。如需詳細資料，請參閱[分頁](../search-pagination-page-layout/)。
+**搜尋頁面**通常會在結果集中包括文件計數，或使用分頁將結果細分成更容易管理的數字。如需詳細資料，請參閱[分頁](search-pagination-page-layout.md)。
 
 **searchMode=all** 是變更 Azure 搜尋評估 NOT 運算子方式的查詢參數。預設會展開包括 NOT (-) 的查詢，而非縮小結果範圍。您可以設定此參數，以變更運算子評估方式。它記載於[搜尋文件](https://msdn.microsoft.com/library/dn798927.aspx)或 [SearchMode 列舉](https://msdn.microsoft.com/library/microsoft.azure.search.models.searchmode.aspx)中。
 
-**評分設定檔**用來提升搜尋分數，讓符合預先定義準則的項目出現在搜尋結果中的較高位置。請參閱[開始使用評分設定檔](../search-get-started-scoring-profiles/)來逐步執行這項功能。
+**評分設定檔**用來提升搜尋分數，讓符合預先定義準則的項目出現在搜尋結果中的較高位置。請參閱[開始使用評分設定檔](search-get-started-scoring-profiles.md)來逐步執行這項功能。
 
 **篩選**用來透過提供選取項目的額外條件來縮小搜尋結果範圍。篩選運算式放在查詢內。如需詳細資料，請參閱[搜尋文件](https://msdn.microsoft.com/library/dn798927.aspx)。
 
-**多面向導覽**用於自我引導篩選。Azure 搜尋會建置並傳回結構，而您的程式碼會將多面向導覽結構呈現在搜尋結果頁面中。如需詳細資料，請參閱[多面向導覽](../search-faceted-navigation/)。
+**多面向導覽**用於自我引導篩選。Azure 搜尋會建置並傳回結構，而您的程式碼會將多面向導覽結構呈現在搜尋結果頁面中。如需詳細資料，請參閱[多面向導覽](search-faceted-navigation.md)。
 
 **建議工具**指的是自動提示或自動完成查詢，以在使用者輸入搜尋片語的第一個字元時傳回建議的搜尋術語。如需詳細資訊，請參閱 [Suggestions 作業](https://msdn.microsoft.com/library/dn798936.aspx)或 [Suggesters 類別](https://msdn.microsoft.com/library/microsoft.azure.search.models.suggester.aspx)。
 
-**語言分析器**提供文字分析期間所使用的語言規則。Azure 搜尋的預設語言分析器是 Lucene 英文，但是您可以使用不同甚至多個分析器，方法是在索引中指定它們。Lucene 分析器可用於所有 API 中。只有 [2015-02-28-Preview REST API](../search-api-2015-02-28-preview/) 才提供 Microsoft 自然語言處理器。如需詳細資訊，請參閱[語言支援](https://msdn.microsoft.com/library/dn879793.aspx)。
+**語言分析器**提供文字分析期間所使用的語言規則。Azure 搜尋的預設語言分析器是 Lucene 英文，但是您可以使用不同甚至多個分析器，方法是在索引中指定它們。Lucene 分析器可用於所有 API 中。只有 [2015-02-28-Preview REST API](search-api-2015-02-28-preview.md) 才提供 Microsoft 自然語言處理器。如需詳細資訊，請參閱[語言支援](https://msdn.microsoft.com/library/dn879793.aspx)。
 
 ###步驟 6：更新索引和文件
 
@@ -144,7 +144,7 @@ Azure 搜尋提供兩種程式設計模型：Managed 程式碼的 .NET 程式庫
 - [moreLikeThis 功能 - 僅限預覽](../search-api-2015-02-28-preview/)
 - [管理 API](https://msdn.microsoft.com/library/dn832684.aspx)
 
-您可以定期檢查[新增功能](../search-latest-updates/)文章，以監視功能狀態變更。
+您可以定期檢查[新增功能](search-latest-updates.md)文章，以監視功能狀態變更。
 
 ###決定資料同步處理方法：發送或提取
 
@@ -191,4 +191,4 @@ Azure 搜尋中其中一個較吸引人的功能是可以輕鬆地放大或縮�
 [1]: ./media/search-workflow/AzSearch-Workflow.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

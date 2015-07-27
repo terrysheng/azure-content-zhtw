@@ -171,10 +171,10 @@ ORDER BY 1,2,3
 
 
 ## 後續步驟
-如需更多開發秘訣，請參閱[開發概觀][]。
+如需更多開發祕訣，請參閱[開發概觀][]。
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-develop-group-by/sql-data-warehouse-develop-group-by-cube.png
+[1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
 
 <!--Article references-->
 [開發概觀]: sql-data-warehouse-overview-develop.md
@@ -185,4 +185,4 @@ ORDER BY 1,2,3
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

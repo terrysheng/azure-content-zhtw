@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/29/2015"
+   ms.date="07/08/2015"
    ms.author="juliako"/>
 
 
@@ -103,4 +103,4 @@ Azure SDK 2.6 重新提供針對收集 Azure 計算模擬器中的診斷記錄�
 	如果您仍會遇到上述問題，請針對 [VS 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409)、[VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) 或 [VS 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) 安裝最新版的 Azure 2.6 SDK。
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

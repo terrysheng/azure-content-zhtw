@@ -128,4 +128,4 @@
 [教學課程]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -66,4 +66,4 @@ Azure 備份與 SCDPM 結合後可以備份：
 + 造訪 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933) (英文)。
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

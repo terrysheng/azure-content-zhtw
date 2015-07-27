@@ -3,7 +3,7 @@
 	description="開始使用 SQL Database。了解如何建立 SQL Database 執行個體並使用 ADO.NET、ODBC 和 EntityClient Provider 進行連線。" 
 	services="sql-database" 
 	documentationCenter=".net" 
-	authors="jeffreyg" 
+	authors="jeffgoll" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,13 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="07/07/2015" 
 	ms.author="jeffreyg"/>
-
-
-
-
-
 
 
 # 如何在 .NET 應用程式中使用 Azure SQL Database
@@ -35,7 +30,7 @@ SQL Database 可為 Azure 提供關聯式資料庫管理系統，並以 SQL Serv
 
 ## 登入 Azure
 
-SQL Database 可在 Azure 上提供關聯式資料儲存體、存取和管理服務。若要加以使用，您必須要有 Azure 訂閱。
+SQL Database 可在 Azure 上提供關聯式資料儲存體、存取和管理服務。若要加以使用，您必須要有 Azure 訂用帳戶。
 
 1. 開啟網頁瀏覽器，並瀏覽到 [http://azure.microsoft.com/](http://azure.microsoft.com)。若要開始使用免費帳戶，請按一下右上角的 [免費試用]，並依照步驟進行。
 
@@ -46,11 +41,11 @@ SQL Database 可在 Azure 上提供關聯式資料儲存體、存取和管理服
 
 接著建立及設定資料庫和伺服器。在 Azure 管理入口網站中，經過修訂的工作流程可讓您先建立資料庫，然後再進行伺服器佈建。
 
-<h3 name="createsrvr">建立資料庫執行個體和邏輯伺服器</h3>
+**建立資料庫執行個體和邏輯伺服器：**
 
-1. 登入 [Azure 管理入口網站][]。
+1. 登入 [Azure 管理入口網站](http://manage.windowsazure.com)。
 
-2. 按一下頁面底部的 [+新增]。
+2. 按一下頁面底部的 [**新增**]。
 
 3. 按一下 [資料服務]。
 
@@ -66,7 +61,7 @@ SQL Database 可在 Azure 上提供關聯式資料儲存體、存取和管理服
 
 	MAXSIZE 會在第一次建立資料庫時指定，且後續可使用 ALTER DATABASE 加以變更。MAXSIZE 可用來限制資料庫的大小。
 
-	Azure 上的每個 SQL Database 實際上有三個複本。這是為了要確保高可用性。容錯移轉是透明的機制，且屬於服務的一部分。[服務等級協定][]提供 99.9% 的 SQL Database 運作時間。
+	Azure 上的每個 SQL Database 實際上有三個複本。這是為了要確保高可用性。容錯移轉是透明的機制，且屬於服務的一部分。
 
 8. 在 [伺服器] 中，選取 [New SQL Database server]。
 
@@ -91,16 +86,16 @@ SQL Database 可在 Azure 上提供關聯式資料儲存體、存取和管理服
 資料庫建立後，請按一下資料庫以開啟其儀表板。儀表板會提供可讓您在應用程式程式碼中複製及使用的連接字串。它也會顯示您從 Management Studio 或其他管理工具連接到資料庫時所需指定的管理 URL。
 
 
-![image](./media/sql-database-dotnet-how-to-use/SQLDbDashboard.PNG)
+![SQL Database 儀表板](./media/sql-database-dotnet-how-to-use/SQLDbDashboard.PNG)
 
 
 在下一個步驟中，您將設定防火牆，以允許在網路上執行之應用程式的連線存取。
 
-<h3 name="configFWLogical">設定邏輯伺服器的防火牆</h3>
+**設定邏輯伺服器的防火牆**
 
 1. 依序按一下 [SQL Database]、位於頁面頂端的 [伺服器]，以及您剛剛建立的伺服器。
 
-	![Image2](./media/sql-database-dotnet-how-to-use/SQLDBFirewall.PNG)
+	![設定防火牆](./media/sql-database-dotnet-how-to-use/SQLDBFirewall.PNG)
 
 2. 按一下 [設定]。
 
@@ -114,7 +109,7 @@ SQL Database 可在 Azure 上提供關聯式資料儲存體、存取和管理服
 
 6. 按一下規則旁的核取記號，以儲存規則。
 
-	![Image3](./media/sql-database-dotnet-how-to-use/SQLDBIPRange.PNG)
+	![防火牆設定的 IP 範圍](./media/sql-database-dotnet-how-to-use/SQLDBIPRange.PNG)
 
 7. 按一下頁面底部的 [儲存] 以完成此步驟。如果您沒有看到 [儲存]，請重新整理瀏覽器頁面。
 
@@ -126,7 +121,7 @@ SQL Database 可在 Azure 上提供關聯式資料儲存體、存取和管理服
 本節將說明如何使用不同的 .NET Framework 資料提供者連接到 SQL Database 執行個體。如需有關連接到 SQL Databse 伺服器與資料庫的重要建議，請參閱：
 
 
-- [連接 SQL Database：重要的建議](../sql-database-connect-central-recommendations/)。
+- [連接 SQL Database：重要的建議](../sql-database-connect-central-recommendations.md)。
 
 
 如果您選擇使用 Visual Studio，而您的組態並未包含作為前端的 Azure Web 應用程式，則在開發電腦上就無須安裝其他工具或 SDK。您可以直接開始開發應用程式。
@@ -209,35 +204,11 @@ Entity Framework 可讓開發人員對概念式的應用程式模型進行程式
 
     metadata=res://*/SchoolModel.csdl|res://*/SchoolModel.ssdl|res://*/SchoolModel.msl;provider=System.Data.SqlClient;provider connection string="Data Source=xxxxxxxxxx.database.windows.net;Initial Catalog=School;Persist Security Info=True;User ID=MyAdmin;Password=***********"
 
-如需詳細資訊，請參閱[適用於 Entity Framework 的 EntityClient 提供者][]。
+如需詳細資訊，請參閱[適用於 Entity Framework 的 EntityClient 提供者](http://msdn.microsoft.com/library/bb738561.aspx)。
 
 ## 後續步驟
 
-現在您已了解連接到 SQL Database 的基本概念，您可以參閱下列資源，以深入了解 SQL Database。
-
--   [開發：使用說明主題 (SQL Database)][]
--   [SQL Database][]
-
-
-  [What is SQL Database]: #WhatIs
-  [Sign in to Azure]: #PreReq1
-  [Create and Configure SQL Database]: #PreReq2
-  [Connect to SQL Database]: #connect-db
-  [Connect Using ADO.NET]: #using-sql-server
-  [Connect Using ODBC]: #using-ODBC
-  [Connect Using EntityClient Provider]: #using-entity
-  [Next Steps]: #next-steps
-  [Azure Free Trial]: {localLink:2187} "免費試用"
-  [Azure 管理入口網站]: http://manage.windowsazure.com
-  [How to Create a SQL Database Server]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-server.aspx
-  [Management Portal for SQL Database]: http://msdn.microsoft.com/library/windowsazure/gg442309.aspx
-  [SQL Database Firewall]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-firewall.aspx
-  [Tools and Utilities Support (SQL Database)]: http://msdn.microsoft.com/library/windowsazure/ee621784.aspx
-  [How to Create a SQL Database on Azure]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-database.aspx
-  [服務等級協定]: {localLink:1132} "SLA"
-  [適用於 Entity Framework 的 EntityClient 提供者]: http://msdn.microsoft.com/library/bb738561.aspx
-  [開發：使用說明主題 (SQL Database)]: http://msdn.microsoft.com/library/windowsazure/ee621787.aspx
-  [SQL Database]: http://msdn.microsoft.com/library/windowsazure/ee336279.aspx
+既然您了解連接到 SQL Database 的基本概念，請參閱[開發：作法主題 (SQL Database)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

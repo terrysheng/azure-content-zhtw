@@ -3,7 +3,6 @@
 	description="了解如何使用行動服務將資料儲存在資料表儲存體中。" 
 	documentationCenter="" 
 	authors="ysxu" 
-	writer="yuaxu" 
 	services="mobile-services" 
 	manager="dwrede" 
 	editor=""/>
@@ -24,4 +23,4 @@
 [行動服務和 Windows Azure 儲存體]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

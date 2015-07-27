@@ -44,7 +44,7 @@ ADF 是完全受管理的服務，它能將資料儲存體、資料處理及資�
 PolyBase 這項 Microsoft 技術可提供方法查詢 Hadoop 和 Azure 儲存體 blob 儲存體 (全都使用標準 Transact-SQL，而不使用 MapReduce)，進而簡化資料分析。PolyBase 也可從 Azure blob 儲存體將資料載入 SQL 資料倉儲。如要開始使用，請依照[使用 PolyBase 載入][]教學課程中的說明執行。
 
 ### SQL Server Integration Services (SSIS)
-[SSIS][] 是建置企業級資料整合和轉換解決方案的平台。如要建置可連接 SQL 資料倉儲的封裝，請使用標準的 [SQL Server 目的地配接器][]。
+[SSIS][] 是建置企業級資料整合和轉換解決方案的平台。若要建立連接到 SQL 資料倉儲的封裝，請使用標準 [OLE DB 目的地配接器] [] 使用 ADO.Net 連接管理員。
 
 ### 協力廠商工具
 SQL 資料倉儲可支援領導業界的資料載入解決方案。如需詳細資訊，請參閱我們的[解決方案合作夥伴][]清單。
@@ -63,10 +63,10 @@ SQL 資料倉儲可支援領導業界的資料載入解決方案。如需詳細�
 <!--MSDN references-->
 [受支援來源/接收]: https://msdn.microsoft.com/library/dn894007.aspx
 [複製活動]: https://msdn.microsoft.com/library/dn835035.aspx
-[SQL Server 目的地配接器]: https://msdn.microsoft.com/library/ms141095.aspx
+[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141237.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -47,7 +47,7 @@ Application Insights 的運作方式是將 SDK 加入至您的應用程式，並
 
 * 疑難排解與問題：
  * [疑難排解][qna]
- * [MSDN 論壇](https://social.msdn.microsoft.com/Forums/vstudio/zh-tw/home?forum=ApplicationInsights)
+ * [MSDN 論壇](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * 錯誤：
  * [連線](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -73,4 +73,4 @@ Application Insights 的運作方式是將 SDK 加入至您的應用程式，並
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

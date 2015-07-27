@@ -89,7 +89,7 @@ PolyBase 規定資料檔案必須為 UTF-8 編碼。這表示匯出資料時，�
 資料傳輸***之前***，任何使用 UFT-16 編碼的檔案都需要重新撰寫。
 
 ### 資料檔案的格式
-PolyBase 規定要有固定的資料列結束字元 \n 或新行。您的資料檔必須符合此標準。字串或資料行結束字元沒有任何限制。
+PolyBase 規定要有固定的資料列結束字元 \\n 或新行。您的資料檔必須符合此標準。字串或資料行結束字元沒有任何限制。
 
 在 PolyBase 中，您必須將檔案中的每個資料行定義為外部資料表的一部分。請確定所有匯出的資料行都是必要，且型別符合必要的標準。
 
@@ -172,9 +172,9 @@ PolyBase 也支援一項稱為「遞迴資料夾周遊」的功能。您可以�
 <!--Image references-->
 
 <!--Article references-->
-[AZCopy]: storage/storage-use-azcopy.md
-[ADF 複製]: storage/data-factory-copy-activity.md
-[ADF 複製範例]: data-factory/data-factory-copy-activity-examples.md
+[AZCopy]: ../storage/storage-use-azcopy.md
+[ADF 複製]: ../data-factory/data-factory-copy-activity.md
+[ADF 複製範例]: ../data-factory/data-factory-copy-activity-examples.md
 [開發概觀]: sql-data-warehouse-develop-overview.md
 [將您的解決方案移轉至 SQL 資料倉儲]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
@@ -193,4 +193,4 @@ PolyBase 也支援一項稱為「遞迴資料夾周遊」的功能。您可以�
 [預覽版本]: http://aka.ms/downloadazcopypr/
 [SSIS 文件]: https://msdn.microsoft.com/zh-tw/library/ms141026.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

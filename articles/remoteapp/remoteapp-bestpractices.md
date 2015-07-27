@@ -2,7 +2,7 @@
     pageTitle="Azure RemoteApp 最佳做法"
     description="設定和使用 Azure RemoteApp 的最佳做法。"
     services="remoteapp"
-    solutions="" documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -44,4 +44,4 @@
 	- 停用發佈之應用程式的自動軟體更新 - 改為手動套用至範本映像，並從範本部署之前測試它們。
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

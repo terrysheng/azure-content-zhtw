@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 # Microsoft Azure 應用程式服務中的企業連接器
+
+> [AZURE.NOTE]將淘汰此主題。請參閱[連接器和 API 應用程式清單](app-service-logic-connectors-list.md)以查看所有可用的內建連接器和 API 應用程式。
+
 Microsoft Azure 應用程式服務 (或簡稱應用程式服務) 包括數個適用於企業系統 (例如 SAP 和 Marketo) 的連接器 。使用這些連接器，您可以輕鬆地連接到企業系統，並完成不同的工作。
 
 這些企業連接器提供「觸發程序」或「動作」功能。觸發程序會根據特定事件 (例如更新 MongoDb 中的項目) 啟動新的執行個體。動作為結果，像是更新 MongoDB 中的項目之後，再從 MongoDB 取得項目。
@@ -113,7 +116,7 @@ SugarCRM | <ul><li>伺服器 URL</li><li>提供者名稱</li><li>模組名稱</l
 
 - 檢視資訊和錯誤事件
 - 檢視工作處理序 (w3wp) 的記憶體使用量和執行緒計數
-- 檢視應用程式和 Web 伺服器記錄檔\
+- 檢視應用程式和 Web 伺服器記錄檔\\
 
 另請參閱[監視邏輯應用程式](app-service-logic-monitor-your-logic-apps.md)以取得更多資訊。
 
@@ -152,6 +155,7 @@ Microsoft Azure 應用程式服務會公開可以使用這些連接器的不同�
 
 
 ## 其他連接器
-[BizTalk 整合連接器](app-service-logic-integration-connectors.md)<br/> [企業對企業連接器](app-service-logic-b2b-connectors.md)<br/> [社交連接器](app-service-logic-social-connectors.md)<br/> [通訊協定連接器](app-service-logic-protocol-connectors.md)<br/> [應用程式 + 資料服務連接器](app-service-logic-data-connectors.md)<br/> [連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/> [什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=62-->
+[連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/>[什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
+
+<!---HONumber=July15_HO3-->

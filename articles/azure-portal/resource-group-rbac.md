@@ -1,19 +1,19 @@
 <properties
    pageTitle="管理和稽核資源存取權"
    description="使用角色型存取控制 (RBAC) 來管理部署至 Azure 之資源的使用者權限。"
-   services="azure-portal"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="azure-portal"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="06/18/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # 管理和稽核資源存取權
@@ -59,7 +59,7 @@
 
 1. 使用您的認證登入您的 Azure 帳戶。命令會傳回您帳戶的相關資訊。
 
-        PS C:\> Add-AzureAccount
+        PS C:> Add-AzureAccount
           
         Id                             Type       ...
         --                             ----    
@@ -67,16 +67,16 @@
 
 2. 如果您有多個訂用帳戶，請提供您想要用於部署的訂用帳戶識別碼。
 
-        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+        PS C:> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
 
 3. 切換至 Azure 資源管理員模組。
 
-        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:> Switch-AzureMode AzureResourceManager
 
 ### 檢視可用的角色
 若要檢視訂用帳戶所有可用的角色，請執行 **Get-AzureRoleDefinition** 命令。
 
-    PS C:\> Get-AzureRoleDefinition
+    PS C:> Get-AzureRoleDefinition
 
     Name                          Id                            Actions                  NotActions
     ----                          --                            -------                  ----------
@@ -87,7 +87,7 @@
 ### 授與「讀取者」權限給訂用帳戶的群組。
 1. 執行 **Get-AzureRoleDefinition** 命令時，提供角色名稱以檢閱「讀取者」角色定義。檢查允許的動作是否是您要指派的動作。
 
-        PS C:\> Get-AzureRoleDefinition Reader
+        PS C:> Get-AzureRoleDefinition Reader
    
         Name            Id                            Actions           NotActions
         ----            --                            -------           ----------
@@ -95,11 +95,11 @@
 
 2. 執行 **Get-AzureADGroup** 命令以取得必要的安全性群組。提供訂用帳戶中群組的實際名稱。ExampleAuditorGroup 會顯示在下面。
 
-        PS C:\> $group = Get-AzureAdGroup -SearchString ExampleAuditorGroup
+        PS C:> $group = Get-AzureAdGroup -SearchString ExampleAuditorGroup
 
 3. 建立稽核員安全性群組的角色指派。當命令完成時，會傳回新的角色指派。
 
-        PS C:\> New-AzureRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
+        PS C:> New-AzureRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
 
         Mail               :
         RoleAssignmentId   : /subscriptions/####/providers/Microsoft.Authorization/roleAssignments/####
@@ -113,32 +113,32 @@
 ###授與資源群組的「參與者」角色給應用程式。
 1. 執行 **Get-AzureRoleDefinition** 命令時，提供角色名稱以檢閱「參與者」角色定義。檢查允許的動作是否是您要指派的動作。
 
-        PS C:\> Get-AzureRoleDefinition Contributor
+        PS C:> Get-AzureRoleDefinition Contributor
 
 2. 執行 **Get-AzureADServicePrincipal** 命令並提供訂用帳戶中應用程式的名稱，以取得服務主體物件識別碼。ExampleApplication 會顯示在下面。
 
-        PS C:\> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
+        PS C:> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
 
 3. 執行 **New-AzureRoleAssignment** 命令，以建立服務主體的角色指派。
 
-        PS C:\> New-AzureRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
+        PS C:> New-AzureRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
 
 如需設定 Azure Active Directory 應用程式和服務主體的更詳細說明，請參閱[使用 Azure 資源管理員驗證服務主體](../resource-group-authenticate-service-principal.md)。
 
 ###授與資源的「擁有者」權限給使用者。
 1. 執行 **Get-AzureRoleDefinition** 命令時，提供角色名稱以檢閱「擁有者」角色定義。檢查允許的動作是否是您要指派的動作。
 
-        PS C:\> Get-AzureRoleDefinition Owner
+        PS C:> Get-AzureRoleDefinition Owner
 
 2. 建立使用者的角色指派。
 
-        PS C:\> New-AzureRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
+        PS C:> New-AzureRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
 
 
 ###列出資源群組的稽核記錄檔。
 若要取得資源群組的稽核記錄檔，請執行 **Get-AzureResourceGroupLog** 命令。
 
-      PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
+      PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
 
 ## 如何使用適用於 Mac、Linux 和 Windows 的 Azure CLI
 
@@ -270,4 +270,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

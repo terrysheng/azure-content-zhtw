@@ -21,7 +21,7 @@
 
 Visual Studio Application Insights 提供兩種使用情況追蹤層級：
 
-* **使用者與工作階段資料** - 預設提供。  
+* **使用者、工作階段與頁面檢視資料** - 預設提供。  
 * **自訂遙測** - 您[撰寫程式碼][api]，透過應用程式的使用者體驗來追蹤您的使用者。 
 
 ## 設定
@@ -33,10 +33,6 @@ Web 應用程式的使用情況資料來自用戶端瀏覽器。
 Application Insights 資源是 Microsoft Azure 中用來分析和顯示應用程式遙測資料的位置。您可能已在 [ASP.NET][greenbrown] 或 [J2EE][java] 設定一個資源來顯示應用程式伺服器端的資料。如果還沒，您可以立即設定。
 
 通常來說，用來顯示 Web 用戶端使用情況資料的資源最好與用來顯示伺服器資料的資源相同。如此一來，您就可以輕易地相互關聯這兩端的診斷和度量資料。因此，如果您已經有資源，請跳至下一個步驟。
-
-但如果您想要對使用情況資料使用不同資源，只要登入 [Azure 入口網站][portal]並予以建立即可：
-
-![](./media/app-insights-web-track-usage/01-create.png)
 
 #### 在網頁中插入程式碼
 
@@ -57,50 +53,18 @@ Application Insights 資源是 Microsoft Azure 中用來分析和顯示應用程
 
 ![](./media/app-insights-web-track-usage/14-usage.png)
 
-* **使用者：**圖表的一段時間範圍內不同使用者的計數。(Cookie 是用來識別傳回的使用者。)
-* **工作階段：**當使用者未進行任何要求達 30 分鐘，就會計算為工作階段。
+* **使用者：**圖表的一段時間範圍內不同作用中使用者的計數。 
+* **工作階段：**使用中工作階段計數
 * **頁面檢視** 計算對 trackPageView() 呼叫的數目，通常在每個網頁中呼叫一次。
 
 逐一點選任何圖表以查看詳細資料。請注意，您可以變更圖表的時間範圍。
-
-
-### 最常讀取哪些頁面？
-
-按一下 [頁面檢視] 圖表以查看詳細資料。
-
-![](./media/app-insights-web-track-usage/appinsights-49usage.png)
-
-
-按一下圖表以查看您可以顯示的其他度量，或加入新圖表並選取它要顯示的度量。
-
-![](./media/app-insights-web-track-usage/appinsights-63usermetrics.png)
-
-> [AZURE.NOTE]度量只能以某種組合來顯示。當您選取度量時，不相容的度量會停用。
-
-
 
 ### 我的使用者住在何處？
 
 從使用方式刀鋒視窗中，按一下 [使用者] 圖表以查看詳細資料：
 
-![在 [概觀] 刀鋒視窗中，按一下 [工作階段] 圖表](./media/app-insights-web-track-usage/02-sessions.png)
+![在 [使用量] 刀鋒視窗中，按一下 [使用者] 圖表](./media/app-insights-web-track-usage/02-sessions.png)
  
-(此範例來自網站，但圖表看起來類似於在裝置上執行的應用程式。)
-
-### 這是否與上週相同？
-
-與前一週比較，看看是否有任何項目變更：
-
-![選取顯示單一度量的圖表，將前一週切換成開啟](./media/app-insights-web-track-usage/021-prior.png)
-
-
-### 使用者的哪個部分是新的？
-
-比較兩個度量，例如使用者和新使用者：
-
-![選取圖表，搜尋並勾選或取消勾選度量。](./media/app-insights-web-track-usage/031-dual.png)
-
-
 ### 他們使用什麼瀏覽器或作業系統？
 
 依屬性 (例如瀏覽器、作業系統或城市) 群組 (分段) 資料：
@@ -151,7 +115,7 @@ Application Insights 資源是 Microsoft Azure 中用來分析和顯示應用程
 
 特定間隔期間的**使用者計數**度量的定義是，在此間隔期間具有記錄活動的唯一使用者數目。因此，當您設定的時間範圍資料粒度小於一小時左右，具有長工作階段的使用者可能會計算多次。
 
-**新使用者**會計算應用程式的第一個工作階段發生在此間隔期間的使用者。如果使用依使用者和 cookie 進行計算的預設方法，則這也會包括已清除其 cookie 或是使用新裝置或瀏覽器第一次存取您的應用程式的使用者。
+**新使用者**會計算應用程式的第一個工作階段發生在此間隔期間的使用者。如果使用依使用者和 Cookie 進行計算的預設方法，則這也會包括已清除其 Cookie 或是使用新裝置或瀏覽器第一次存取您的應用程式的使用者。![從 [使用量] 刀鋒視窗中，按一下 [使用者] 圖表，即可檢查新的使用者。](./media/app-insights-web-track-usage/031-dual.png)
 
 ## 綜合流量
 
@@ -186,16 +150,16 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
 
 使用自訂事件可以進行作業。您可以從裝置應用程式、網頁或 Web 伺服器傳送事件：
 
-(JavaScript)
+*JavaScript*
 
     telemetryClient.trackEvent("GameEnd");
 
-(C#)
+*C#*
 
     var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
     tc.TrackEvent("GameEnd");
 
-(VB)
+*VB*
 
     Dim tc = New Microsoft.ApplicationInsights.TelemetryClient()
     tc.TrackEvent("GameEnd")
@@ -245,7 +209,9 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
 您可以附加任意標記和數值到事件。
  
 
-用戶端的 JavaScript
+*用戶端的 JavaScript*
+
+```JavaScript
 
     appInsights.trackEvent("WinGame",
         // String properties:
@@ -253,8 +219,11 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
         // Numeric measurements:
         {Score: currentGame.score, Opponents: currentGame.opponentCount}
     );
+```
 
-伺服器上的 C#
+*伺服器上的 C#*
+
+```C#
 
     // Set up some properties:
     var properties = new Dictionary <string, string> 
@@ -264,8 +233,11 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
 
     // Send the event:
     telemetry.TrackEvent("WinGame", properties, measurements);
+```
 
-伺服器上的 VB
+*伺服器上的 VB*
+
+```VB
 
     ' Set up some properties:
     Dim properties = New Dictionary (Of String, String)
@@ -278,14 +250,19 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
 
     ' Send the event:
     telemetry.TrackEvent("WinGame", properties, measurements)
+```
 
 以相同的方式將屬性附加至頁面檢視：
 
-用戶端的 JavaScript
+*用戶端的 JavaScript*
+
+```JS
 
     appInsights.trackPageView("Win", 
+        url,
         {Game: currentGame.Name}, 
         {Score: currentGame.Score});
+```
 
 在「診斷搜尋」中，逐一點選個別事件出現次數可檢視屬性。
 
@@ -306,7 +283,9 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
 
 在 Application Insights 入口網站中，您將可以依標記篩選並分組 (分段) 資料，以便比較不同版本。
 
-伺服器上的 C#
+*伺服器上的 C#*
+
+```C#
 
     using Microsoft.ApplicationInsights.DataContracts;
 
@@ -315,18 +294,24 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
     var telemetry = new TelemetryClient(context);
     // Now all telemetry will automatically be sent with the context property:
     telemetry.TrackEvent("WinGame");
+```
 
-伺服器上的 VB
+*伺服器上的 VB*
+
+```VB
 
     Dim context = New TelemetryContext
     context.Properties("Game") = currentGame.Name
     Dim telemetry = New TelemetryClient(context)
     ' Now all telemetry will automatically be sent with the context property:
     telemetry.TrackEvent("WinGame")
+```
 
 個別的遙測可以覆寫預設值。
 
 您可以設定全域初始設定式，使得所有新 TelemetryClients 會自動使用您的內容。
+
+```C#
 
     // Telemetry initializer class
     public class MyTelemetryInitializer : IContextInitializer
@@ -336,8 +321,11 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
             context.Properties["AppVersion"] = "v2.1";
         }
     }
+```
 
 在應用程式初始設定式例如 Global.asax.cs 中：
+
+```C#
 
     protected void Application_Start()
     {
@@ -345,6 +333,7 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
         TelemetryConfiguration.Active.ContextInitializers
         .Add(new MyTelemetryInitializer());
     }
+```
 
 
 ## 建置 - 測量 - 了解
@@ -360,7 +349,7 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
 
 ## 影片
 
-> [Azure.VIDEO usage-monitoring-application-insights]
+> [AZURE.VIDEO usage-monitoring-application-insights]
 
 
 <!--Link references-->
@@ -377,4 +366,4 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

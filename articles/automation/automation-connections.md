@@ -67,7 +67,7 @@
 
 ### 使用 Windows PowerShell 建立新連接
 
-透過 Windows PowerShell 使用 [New-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921825.aspx) Cmdlet 建立新連接。此 Cmdlet 具有名為 **ConnectionFieldValues** 的參數，對每個連接類型定義之屬性，預期會有[雜湊表](http://technet.microsoft.com/zh-tw/library/hh847780.aspx)定義值。
+透過 Windows PowerShell 使用 [New-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921825.aspx) Cmdlet 建立新連接。此 Cmdlet 具有名為 **ConnectionFieldValues** 的參數，對每個連接類型定義之屬性，預期會有[雜湊表](http://technet.microsoft.com/library/hh847780.aspx)定義值。
 
 
 下列範例命令會建立 [Twilio](http://www.twilio.com) 的新連線，這是一項可讓您傳送和接收簡訊的電話語音服務。包含 Twilio 連接類型的範例整合模組，可自[指令碼中心](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8)取得。這個連接類型會定義帳戶 SID 和授權權杖的屬性，連接到 Twilio 驗證您的帳戶時會需要。您必須[下載此模組](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8)並將它安裝在您的自動化帳戶中，此範例程式碼才能運作。
@@ -120,4 +120,4 @@
 - [圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

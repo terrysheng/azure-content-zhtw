@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="在 Microsoft Azure App Service 中使用 Oracle 連接器" 
-   description="如何使用 Oracle 連接器" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="在 Microsoft Azure App Service 中使用 Oracle 連接器"
+   description="如何使用 Oracle 連接器"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="06/22/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # Oracle 資料庫連接器
@@ -23,7 +23,7 @@
 
 - 使用 Web 或行動應用程式，公開位於 Oracle 資料庫中的部分資料。
 - 將資料插入 Oracle 資料庫資料表以儲存。例如，您可以輸入員工記錄、更新銷售訂單等等。
-- 從 Oracle 取得資料，以供商務程序使用。例如，您可以取得客戶記錄，並將這些客戶記錄放在 SalesForce 中。 
+- 從 Oracle 取得資料，以供商務程序使用。例如，您可以取得客戶記錄，並將這些客戶記錄放在 SalesForce 中。
 
 
 ## 觸發程序和動作
@@ -69,7 +69,7 @@ Oracle 資料庫連接器提供下列觸發程序和動作：
 讓我們以一個簡單的邏輯應用程式為例，它會輪詢 Oracle 資料表的資料、在另一個資料表中加入資料，以及更新資料。
 
 ### 加入觸發程序
-1. 建立或編輯邏輯應用程式時，請選取您建立的 Oracle 連接器做為觸發程序。這樣會列出可用的觸發程序：**輪詢資料 (JSON)** 和**輪詢資料 (XML)**：<br/> ![][5] 
+1. 建立或編輯邏輯應用程式時，請選取您建立的 Oracle 連接器做為觸發程序。這樣會列出可用的觸發程序：**輪詢資料 (JSON)** 和**輪詢資料 (XML)**：<br/> ![][5]
 
 2. 選取 [**輪詢資料 (JSON)**] 觸發程序，輸入頻率，然後按一下 ✓：<br/> ![][6]
 
@@ -80,7 +80,7 @@ Oracle 資料庫連接器提供下列觸發程序和動作：
 
 若要使用 Oracle 連接器做為動作，請輸入您建立 Oracle 連接器時所輸入的資料表及/或預存程序的名稱：
 
-1. 從元件庫選取相同的 Oracle 連接器做為動作。選取其中一個「插入」動作，例如*插入到 TempEmployeeDetails (JSON)*：<br/> ![][8] 
+1. 從元件庫選取相同的 Oracle 連接器做為動作。選取其中一個「插入」動作，例如*插入到 TempEmployeeDetails (JSON)*：<br/> ![][8]
 
 2. 輸入要插入的記錄的輸入值，然後按一下 ✓：<br/> ![][9]
 
@@ -99,9 +99,9 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 請參閱[使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
-您也可以檢閱連接器的效能統計資料和控制安全性。請參閱[管理和監視 API 應用程式和連接器](app-service-api-manage-in-portal.md)。
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視 API 應用程式和連接器](app-service-api-manage-in-portal.md)。
 
 
 <!--Image references-->
@@ -115,8 +115,4 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

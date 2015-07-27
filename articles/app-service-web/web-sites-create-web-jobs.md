@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="tdykstra" 
-	writer="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/26/2015" 
 	ms.author="tdykstra"/>
 
 # 使用 WebJob 執行背景工作
@@ -166,7 +165,7 @@ Azure 管理入口網站尚未具備建立排程 WebJob 的能力，但在加入
 
 ## <a name="WHPNotes"></a>注意
 	
-- 截至 2014 年 3 月為止，如果沒有對 scm (部署) 網站提出任何要求，則免費模式的 Web 應用程式可能會在 20 分鐘之後逾時，且 Web 應用程式在 Azure 中的入口網站也不會開啟。對實際網站的要求將不會重設此項目。
+- 如果沒有對 scm (部署) 網站提出任何要求，則免費模式的 Web 應用程式可能會在 20 分鐘之後逾時，且 Web 應用程式在 Azure 中的入口網站也不會開啟。對實際網站的要求將不會重設此項目。
 - 連續工作的程式碼需經過撰寫，才能以無限迴圈的形式執行。
 - 唯有當 Web 應用程式處於運作狀態時，連續工作才能連續執行。
 - [基本] 和 [標準] 模式能提供「永遠開啟」功能，此功能在啟用後能預防 Web 應用程式進入閒置狀態。
@@ -210,4 +209,4 @@ Azure 管理入口網站尚未具備建立排程 WebJob 的能力，但在加入
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

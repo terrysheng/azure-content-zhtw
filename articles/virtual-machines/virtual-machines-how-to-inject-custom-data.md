@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management" />
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2015"
+	ms.date="07/14/2015"
 	ms.author="rasquill"/>
 
 
@@ -27,11 +28,11 @@
 
 - 使用某些系統提供的特殊工具來自動偵測與處理自訂資料。
 
-> [AZURE.NOTE]本主題將以有關此功能的[這篇 Azure 部落格文章](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)為基礎加以擴充，並將隨著更多功能的出現而隨時更新。
+> [AZURE.NOTE]本文將說明如何使用建立的 VM 插入自訂資料以搭配 Azure 服務管理計算堆疊。若要了解如何使用 Azure 資源管理計算堆疊，請參閱[此處的範例範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata)。
 
 ## 將自訂資料插入 Azure 虛擬機器
 
-目前僅在 [Microsoft Azure 命令列介面](https://github.com/Azure/azure-sdk-tools-xplat)中支援此功能。雖然您可能會在 `azure vm create` 命令中使用任何選項，但是下列將示範一個非常基本的方法。
+目前僅在 [Microsoft Azure 命令列介面](https://github.com/Azure/azure-xplat-cli)中支援此功能。雖然您可能會在 `azure vm create` 命令中使用任何選項，但是下列將示範一個非常基本的方法。
 
 ```
     PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
@@ -63,7 +64,7 @@
 
 您可以在大部分的 Azure Linux 映像中編輯 "/etc/waagent.conf" 來設定暫存資源磁碟和交換檔。如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南](virtual-machines-linux-agent-user-guide.md)。
 
-不過，在 Ubuntu 雲端映像上，我們必須使用 cloud-init 設定資源磁碟 (也稱為「暫時」磁碟) 和交換資料分割。如需詳細資訊，請參閱 Ubuntu wiki 上的下列網頁：
+不過，在 Ubuntu 雲端映像上，您必須使用 cloud-init 設定資源磁碟 (也就是「暫時」磁碟) 和交換資料分割。如需詳細資訊，請參閱 Ubuntu wiki 上的下列網頁：
 
  - [Ubuntu Wiki：設定交換資料分割](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
 
@@ -79,4 +80,4 @@
 [Azure 命令列介面](https://github.com/Azure/azure-sdk-tools-xplat)
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

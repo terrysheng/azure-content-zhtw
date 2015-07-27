@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -40,6 +40,6 @@
 
 API 說明頁面包含 R、C# 和 Python 程式設計語言的範例。
 
-<!-- Add link to Derrick's articles on web services -->
+如需如何存取及使用 Web 服務的相關資訊，請參閱[如何使用已從機器學習服務實驗發佈的 Azure Machine Learning Web 服務](machine-learning-consume-web-services.md)。
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

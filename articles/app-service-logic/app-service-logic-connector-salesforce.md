@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Salesforce 連接器" 
-   description="如何使用 Salesforce 連接器" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="sutalasi" 
-   manager="dwrede" 
+<properties
+   pageTitle="Salesforce 連接器"
+   description="如何使用 Salesforce 連接器"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,22 +12,22 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #在邏輯應用程式中使用 Saleforce 連接器#
 
 邏輯應用程式可以根據各種資料來源和提供項目連接器觸發，以在流程中取得和處理資料。Salesforce 連接器可讓您建立和修改不同的實體，例如帳戶、潛在客戶等。以下是涉及 Salesforce 的典型整合案例。
 
-- Salesforce 和 ERP 系統 (例如 SAP 和 QuickBooks) 之間的帳戶同步處理	
+- Salesforce 和 ERP 系統 (例如 SAP 和 QuickBooks) 之間的帳戶同步處理
 
 - 從 Salesforce 到 ERP 系統的「下單至收款」流程
 
 
 屬於連接器封裝設定的一部分，使用者可以指定連接器可以管理的實體，而系統便會以動態方式填入動作、輸入和輸出參數。以下是 Salesforce 連接器中可用的不同動作。
- 
+
 - 建立實體 - 使用此動作建立新的 Salesforce 實體，例如帳戶、案例或自訂物件
 
 - 更新實體：使用此動作可更新現有的 Salesforce 實體
@@ -133,7 +133,4 @@
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

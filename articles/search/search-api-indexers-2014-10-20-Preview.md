@@ -1,10 +1,23 @@
-<properties title="" pageTitle="索引子作業 (Azure 搜尋服務 REST API：2014-10-20-Preview)" description="索引子作業 (Azure 搜尋服務 REST API：2014-10-20-Preview)" metaKeywords="" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" />
+<properties 
+	pageTitle="索引子作業 (Azure 搜尋服務 REST API：2014-10-20-Preview)" 
+	description="索引子作業 (Azure 搜尋服務 REST API：2014-10-20-Preview)" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe"/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="04/20/2015" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article"  
+	ms.tgt_pltfrm="na" 
+	ms.date="07/08/2015" 
+	ms.author="heidist" />
 
 #索引子作業 (Azure 搜尋服務 REST API：2014-10-20-Preview)
 
-> [AZURE.NOTE]本文說明 API 發行版中未含之新功能的原型。如需版本及支援性的詳細資訊，請參閱 MSDN 上的 [搜尋服務版本設定](http://msdn.microsoft.com/library/azure/dn864560.aspx)。如需此預覽版 API 中其他功能的詳細資訊，請參閱 [Azure 搜尋服務 REST API 版本：2014-10-20-Preview](../search-api-2014-10-20-preview/)。
+> [AZURE.NOTE]本文說明 API 發行版中未含之新功能的原型。如需版本及支援性的詳細資訊，請參閱 MSDN 上的 [搜尋服務版本設定](http://msdn.microsoft.com/library/azure/dn864560.aspx)。如需此預覽版 API 中其他功能的詳細資訊，請參閱 [Azure 搜尋服務 REST API 版本：2014-10-20-Preview](search-api-2014-10-20-preview.md)。
 
 ## 概觀
 
@@ -80,7 +93,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 - `Content-Type`：必要。請設為 `application/json`
 - `api-key`：必要。`api-key` 可用來驗證搜尋服務的要求。其為服務的唯一字串值。**建立資料來源**要求必須包含管理員金鑰 (相對於查詢金鑰) 上所設的 `api-key` 標頭。 
  
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[開始使用 Azure 搜尋服務](search-get-started.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
 <a name="CreateDataSourceRequestSyntax"></a> **要求本文的語法**
 
@@ -135,7 +148,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 **SQL 整合式變更偵測原則**
 
-如果您的 SQL 資料庫支援 [SQL 整合式變更追蹤](http://technet.microsoft.com/library/cc280462(v=SQL.105).aspx)，建議您使用 SQL 整合式變更追蹤原則。這項原則可保障最高效的變更追蹤，並讓 Azure 搜尋服務識別出已刪除的資料列，而不需在結構描述中具備明確的「虛刪除」資料行。
+如果您的 SQL Database 支援 [SQL 整合式變更追蹤](http://technet.microsoft.com/library/cc280462.aspx)，建議您使用 SQL 整合式變更追蹤原則。這項原則可保障最高效的變更追蹤，並讓 Azure 搜尋服務識別出已刪除的資料列，而不需在結構描述中具備明確的「虛刪除」資料行。
 
 從下列 SQL 資料庫版本開始，即支援 SQL 整合式變更追蹤：SQL Server 2008 R2 (若您使用 SQL IaaS VM) 及 Azure SQL Database V12 (若您使用 Azure SQL)。
 
@@ -657,4 +670,4 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 </tr>
 </table>
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

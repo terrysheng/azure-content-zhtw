@@ -44,4 +44,4 @@ Azure 自動化提供高度可靠、高度可用的工作流程執行引擎，�
 * 請參閱 [#Azure API 管理 REST API 的 PowerShell 模組](https://alexandrebrisebois.wordpress.com/2014/08/17/powershell-module-for-the-azure-api-management-rest-apis/)社群部落格文章。
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

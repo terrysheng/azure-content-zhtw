@@ -130,4 +130,4 @@ SQL Database 可為 Azure 提供關聯式資料庫管理系統，並以 SQL Serv
 [quick-create]: ./media/sql-database-php-how-to-use/create-new-sql.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

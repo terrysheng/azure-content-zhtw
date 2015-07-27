@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # 監視任何網站的可用性和回應性
@@ -74,15 +74,17 @@ Web 測試可分為兩種：
 
 ### <a name="monitor"></a>3.檢視可用性報告
 
-1-2 分鐘後，在 [可用性] 刀鋒視窗上按一下 [重新整理](它不會自動重新整理)。
+1-2 分鐘後，在 [可用性/Web 測試] 刀鋒視窗上按一下 [重新整理]。(它不會自動重新整理)。
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
-[可用性] 刀鋒視窗中的圖表會結合此應用程式的所有 Web 測試結果。
+按一下上方摘要圖表上的任何橫條，以取得該時段的更詳細檢視。
 
-#### 網頁元件
+這些圖表會結合此應用程式的所有 Web 測試的結果。
 
-在測試中會要求影像、樣式表、指令碼及其他靜態元件。
+#### 網頁的元件
+
+在測試中會要求您要測試的網頁的影像、樣式表、指令碼及其他靜態元件。
 
 記錄的回應時間是所有元件完成載入所花費的時間。
 
@@ -90,7 +92,11 @@ Web 測試可分為兩種：
 
 ## <a name="failures"></a>如果您看到失敗...
 
-在 [Web 測試] 刀鋒視窗中，向下捲動並按一下您看到的失敗測試。
+按一下一個紅點。
+
+![按一下一個紅點](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+
+或者，向下捲動並按一下您看到少於 100% 成功的測試。
 
 ![Click a specific webtest](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
 
@@ -123,7 +129,7 @@ Web 測試可分為兩種：
 
 若要建立多重步驟測試，您可以使用 Visual Studio 來記錄案例，然後將記錄結果上傳至 Application Insights。Application Insights 將會不時地重新執行案例，並確認回應。
 
-#### 1.記錄案例
+#### 1\.記錄案例
 
 使用 Visual Studio Ultimate 來記錄 Web 工作階段。
 
@@ -150,7 +156,7 @@ Web 測試可分為兩種：
 
 (請勿在 Web 測試程式碼中插入迴圈。)
 
-#### 2.將 Web 測試上傳至 Application Insights
+#### 2\.將 Web 測試上傳至 Application Insights
 
 1. 在 Application Insights 入口網站中，建立新的 Web 測試。
 
@@ -223,4 +229,4 @@ Web 測試外掛程式提供這種作法。
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

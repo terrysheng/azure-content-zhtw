@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/20/2015"
+   ms.date="07/01/2015"
    ms.author="rajram"/>
 
 # BizTalk XML 驗證器
@@ -75,4 +75,4 @@ BizTalk XML 驗證器會將結構描述納入其組態中。使用者可以直�
 [6]: ./media/app-service-logic-xml-validator/img1.PNG
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

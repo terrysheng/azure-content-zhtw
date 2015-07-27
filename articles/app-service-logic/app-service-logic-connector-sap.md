@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="SAP 連接器" 
-   description="如何使用 SAP 連接器" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="harishkragarwal" 
-   manager="dwrede" 
+<properties
+   pageTitle="SAP 連接器"
+   description="如何使用 SAP 連接器"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="harishkragarwal"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,14 +12,14 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="hariag"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # SAP 連接器 #
 
-在邏輯應用程式中，連接器可以在執行流程時用來擷取、處理或發送資料。在某些案例中，您可能需要用到在內部部署安裝並位於防火牆後面的 SAP。透過在流程中運用 SAP 連接器，您可以達到各種案例的目的。幾個範例：
+在邏輯應用程式中，連接器可以在執行流程時用來擷取、處理或發送資料。在某些案例中，您可能需要使用在內部部署安裝並位於防火牆後的 SAP。透過在流程中運用 SAP 連接器，您可以達到各種案例的目的。幾個範例：
 
 1.	透過 web 或行動使用者前端公開位於 SAP 上的部分資料。
 2.	處理到期後將資料發佈到 SAP
@@ -39,7 +39,9 @@
 2. 瀏覽至 [Web 與行動] > [API 應用程式]，並搜尋「SAP 連接器」。
 3. 進行下列設定：
 	1. 在第一個分頁中提供一般詳細資訊，例如名稱、應用程式服務方案等等
-	2. 封裝設定過程中必須提供 SAP 認證。並提供 Azure 服務匯流排連接字串。這可用來建置與內部部署 SAP 的混合式連線。 
+
+	2. 封裝設定過程中必須提供 SAP 認證。並提供 Azure 服務匯流排連接字串。這可用來建置與內部部署 SAP 的混合式連線。
+
 	3. RFC、TRFC、BAPI 和 IDOC 必須根據案例需求進行設定。如果需要多個值，則以逗號分隔的方式提供
 
 ![][1]
@@ -92,7 +94,4 @@
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

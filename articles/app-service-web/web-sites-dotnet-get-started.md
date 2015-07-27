@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="03/24/2015"
+	ms.date="06/26/2015"
 	ms.author="tdykstra"/>
 
 # 在 Azure App Service 中建立 ASP.NET Web 應用程式
@@ -58,7 +58,7 @@
 
 3. 確定已選取 [.NET Framework 4.5] 作為目標架構。
 
-4. 清除 [將 Application Insights 加入專案] 核取方塊。
+4.  [Application Insights](app-insights-overview.md) 會監視 Web 應用程式的可用性、效能和使用情形。如果您不想要試用，請清除 [將 Application Insights 加入專案] 核取方塊。
 
 4. 將應用程式命名為 **MyExample**，再按一下 [確定]。
 
@@ -242,7 +242,7 @@
 
 2. 按一下 [瀏覽] > [Web Apps]，然後按一下 Web 應用程式的名稱。
 
-	Web 應用程式{b>的 <b}[Web 應用程式] 刀鋒視窗會顯示常用 Web 應用程式管理功能的使用量統計資料和連結。
+	Web 應用程式的 [Web 應用程式] 刀鋒視窗會顯示常用 Web 應用程式管理功能的使用量統計資料和連結。
 
 	![Web 應用程式刀鋒視窗](./media/web-sites-dotnet-get-started/portaldashboard.png)-->
 
@@ -295,7 +295,7 @@
 
 * 如何避免閒置逾時之後的喚醒等待時間
 
-	根據預設，Web 應用程式如果閒置一段時間，就會卸載。其後的第一個要求必須等待 Web 應用程式重新載入。若要避免這種等待時間，您可以啟用 AlwaysOn 功能。如需詳細資訊，請參閱[如何設定 Web 應用程式](web-sites-configure.md)中的設定選項。
+	根據預設，Web 應用程式如果閒置一段時間，就會卸載。其後的第一個要求必須等待 Web 應用程式重新載入。若要避免這種等待時間，您可以啟用 AlwaysOn 功能。如需詳細資訊，請參閱[如何設定 Web 應用程式](web-sites-configure.md)中的組態選項。
 
 * 如何新增即時功能，例如交談
 
@@ -316,4 +316,4 @@
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

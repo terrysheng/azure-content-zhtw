@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Office 365 連接器" 
-   description="如何使用 Office 365 連接器" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="sutalasi" 
-   manager="dwrede" 
+<properties
+   pageTitle="Office 365 連接器"
+   description="如何使用 Office 365 連接器"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #在邏輯應用程式中使用 Office 365 連接器#
@@ -80,7 +80,7 @@
 	![][9]
 
 11. 隨即會設定 Office 365 的 [新增電子郵件] 觸發程序，而且您可以看到一同顯示的輸出參數。
-	
+
 	![][10]
 
 12.	從組件庫的 [最近使用的] 區段中選取 [Office 365 連接器]，即會新增 Office 365 動作。
@@ -157,7 +157,4 @@
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -345,4 +345,4 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

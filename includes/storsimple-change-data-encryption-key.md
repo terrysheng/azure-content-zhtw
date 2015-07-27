@@ -1,4 +1,3 @@
-
 ### 步驟 1：在管理入口網站中授權裝置以變更服務資料加密金鑰
 
 一般而言，裝置系統管理員將會要求服務管理員授權裝置，以變更服務資料加密金鑰。然後服務管理員就會授權裝置來變更金鑰。
@@ -73,4 +72,4 @@
 
 3. 提供您在[步驟 2：使用 Windows PowerShell for StorSimple 起始服務資料加密金鑰變更](##to-initiate-the-service-data-encryption-key-change)中取得的服務資料加密金鑰。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

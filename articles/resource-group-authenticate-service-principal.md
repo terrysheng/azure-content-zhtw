@@ -1,19 +1,19 @@
 <properties
    pageTitle="使用 Azure 資源管理員驗證服務主體"
    description="描述如何透過角色存取控制授與服務主體的存取權，並驗證服務主體。顯示如何使用 PowerShell 和 Azure CLI 執行這些工作。"
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/15/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員驗證服務主體
@@ -34,7 +34,7 @@
 
 1. 執行 **New-AzureADApplication** 命令，以建立新的 AAD 應用程式。提供應用程式的顯示名稱、描述應用程式之頁面的 URI (未確認連結)、識別應用程式的 URI，以及應用程式身分識別的密碼。
 
-        PS C:\> $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password "<Your_Password>"
+        PS C:> $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password "<Your_Password>"
 
      傳回 Azure AD 應用程式。需要有 **ApplicationId** 屬性，才能建立服務主體、角色指派以及取得 JWT 權杖。儲存輸出，或將它擷取到變數中。
 
@@ -68,23 +68,23 @@
 
 2. 建立應用程式的服務主體。
 
-        PS C:\> New-AzureADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+        PS C:> New-AzureADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
      您現在已在目錄中建立服務主體，但未將任何權限或範圍指派給服務。您必須明確地授與服務主體權限，才能在某個範圍執行作業。
 
 3. 授與服務主體對您訂用帳戶的權限。在此範例中，您會將讀取訂用帳戶中所有資源的權限授與服務主體。針對 **ServicePrincipalName** 參數，提供您在建立應用程式時所使用的 **ApplicationId** 或 **IdentifierUris**。如需角色存取控制的詳細資訊，請參閱[管理和稽核資源存取權](azure-portal/resource-group-rbac.md)。
 
-        PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
+        PS C:> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
 4. 擷取用來建立角色指派的訂用帳戶。稍後會使用此訂用帳戶，來取得服務主體角色指派所在租用戶的 **TenantId**。
 
-        PS C:\> $subscription = Get-AzureSubscription | where { $_.IsCurrent }
+        PS C:> $subscription = Get-AzureSubscription | where { $_.IsCurrent }
 
      如果您已在非目前所選取訂用帳戶的訂用帳戶中建立角色指派，則可以指定 **SubscriptoinId** 或 **SubscriptionName** 參數來擷取不同的訂用帳戶。
 
 5. 執行 **Get-Credential** 命令，以建立含有您認證的新 **PSCredential** 物件。
 
-        PS C:\> $creds = Get-Credential
+        PS C:> $creds = Get-Credential
 
      系統會提示您輸入認證。
 
@@ -94,7 +94,7 @@
 
 6. 使用您輸入的認證做為 **Add-AzureAccount** Cmdlet 的輸入，以將服務主體登入：
 
-        PS C:\> Add-AzureAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
+        PS C:> Add-AzureAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
 
      您現在應該驗證為您所建立 AAD 應用程式的服務主體。
 
@@ -180,4 +180,4 @@
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

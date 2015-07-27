@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | 清除超過保留週期的 BizTalk 服務備份的�
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

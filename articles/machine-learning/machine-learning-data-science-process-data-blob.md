@@ -2,7 +2,6 @@
 	pageTitle="處理使用進階分析的 Azure Blob 資料 | Microsoft Azure" 
 	description="處理 Azure Blob 儲存體中的資料。" 
 	services="machine-learning,storage" 
-	solutions="" 
 	documentationCenter="" 
 	authors="msolhab" 
 	manager="paulettm" 
@@ -186,4 +185,4 @@
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

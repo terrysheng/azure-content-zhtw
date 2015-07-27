@@ -50,10 +50,10 @@ Microsoft Azure StorSimple 解決方案包括下列元件：
 
 ## 後續步驟
 
-請閱讀 [StorSimple 元件](https://technet.microsoft.com/library/cc754482.aspx)並檢閱 [StorSimple 版本資訊](https://msdn.microsoft.com/library/azure/dn772367.aspx)
+閱讀 [StorSimple 元件](storsimple-components.md)。
 
 
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

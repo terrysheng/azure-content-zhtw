@@ -283,4 +283,4 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

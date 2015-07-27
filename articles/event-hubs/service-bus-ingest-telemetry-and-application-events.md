@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/18/2015" 
+	ms.date="07/02/2015" 
 	ms.author="sethm"/>
 
 # 大規模擷取遙測和應用程式事件
@@ -22,16 +22,18 @@
 
 
 ## 瀏覽
-- [事件中樞](http://msdn.microsoft.com/library/dn789973.aspx)
-- [事件中樞定價詳細資料](http://azure.microsoft.com/pricing/details/event-hubs/)
+- [事件中樞](event-hubs-overview.md)
+- [事件中樞價格詳細資料](http://azure.microsoft.com/pricing/details/event-hubs/)
+- [事件中樞可用性和支援常見問題集](event-hubs-availability-and-support-faq.md)
 - [事件來源模式](http://msdn.microsoft.com/library/dn589792.aspx)
  
 ## 建置
-- [事件中樞 REST API 參考](https://msdn.microsoft.com/library/dn790674.aspx)
+- [事件中樞 REST API 參考](https://msdn.microsoft.com/library/azure/dn790674.aspx)
 - [事件中樞程式碼範例](https://code.msdn.microsoft.com/windowsazure/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## 相關服務
 - [Azure 儲存體](http://azure.microsoft.com/documentation/services/storage/)
 - [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO3-->

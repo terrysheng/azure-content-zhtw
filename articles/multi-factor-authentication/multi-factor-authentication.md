@@ -4,8 +4,8 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	manager="swadwha" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
-# 為連線過的項目提供額外的安全性
-
+# 什麼是 Azure Multi-Factor Authentication？
 多因素驗證 (MFA) 是需要使用多種驗證方法，並在使用者登入和交易中新增重要的第二層安全性的驗證方法。其運作方式需要下列其中任何二或多個驗證方法：
 
 - 您知道的某些資訊 (通常是密碼)
@@ -26,7 +25,7 @@
 
 <center>![Username and Password](./media/multi-factor-authentication/pword.png) &#160;&#160;&#160;&#160;&#160;![Certificates](./media/multi-factor-authentication/phone.png) &#160;&#160;&#160;&#160;&#160;![Smart Phone](./media/multi-factor-authentication/hware.png) &#160;&#160;&#160;&#160;&#160;![Smart Card](./media/multi-factor-authentication/smart.png) &#160;&#160;&#160;&#160;&#160;![Virtual Smart Card](./media/multi-factor-authentication/vsmart.png) &#160;&#160;&#160;&#160;&#160;![Username and Password](./media/multi-factor-authentication/cert.png)</center>
 
-## 什麼是 Azure Multi-Factor Authentication？
+
 
 Azure Multi-Factor Authentication 是除了使用使用者名稱與密碼之外，需要再利用其他方法驗證您的身份的驗證方法。它可以為使用者登入和交易提供第二層安全性。
 
@@ -58,7 +57,8 @@ Azure Multi-Factor Authentication 是一個容易使用、可調整且可靠的�
 
 **其他資源**
 
-* [適用於使用者](multi-factor-authentication-end-user.md)
+* [Multi-Factor Authentication 對我有何意義？](multi-factor-authentication-end-user.md)
+* [設定 Multi-Factor Authentication for Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
 * [MSDN 上的 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

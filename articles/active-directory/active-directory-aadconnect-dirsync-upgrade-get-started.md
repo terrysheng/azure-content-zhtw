@@ -22,7 +22,8 @@
 
 ## 下載 Azure AD Connect
 
-若要開始使用 Azure AD Connect，您可以使用下列項目下載最新版本：[下載 Azure AD Connect Public Preview](http://connect.microsoft.com/site1164/program8612)
+若要開始使用 Azure AD Connect，您可以使用下列連結下載最新版本：[下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
 
 ## 安裝 Azure AD Connect 之前
 安裝 Azure AD Connect 並從 DirSync 升級之前，這裡是您需要的一些事項。
@@ -125,7 +126,7 @@
 1. 執行 Azure AD Connect Installer (MSI)
 2. 當您看到 [歡迎使用 Azure AD Connect] 畫面時。按一下視窗右上角的 "X"，以結束精靈。
 3. 開啟命令提示字元
-4. 從 Azure AD Connect 的安裝位置 (預設值：C:\Program Files\Microsoft Azure Active Directory Connect)，執行下列命令：
+4. 從 Azure AD Connect 的安裝位置 (預設值：C:\\Program Files\\Microsoft Azure Active Directory Connect)，執行下列命令：
     * AzureADConnect.exe /migrate
 
 Azure AD Connect 會連線並向您呈現下列 UI：
@@ -205,4 +206,4 @@ Azure AD Connect 會連線並向您呈現下列 UI：
 * [MSDN 上的 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

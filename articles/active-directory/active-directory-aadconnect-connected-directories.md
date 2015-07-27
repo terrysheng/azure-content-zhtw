@@ -46,4 +46,4 @@ Exchange 混合部署|請參閱 [Office 365 Exchange 混合 AAD Sync 寫回屬�
 * [MSDN 上的 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

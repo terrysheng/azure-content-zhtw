@@ -1,19 +1,19 @@
 <properties
    pageTitle="Azure 資源管理員範本函數"
    description="描述要在 Azure 資源管理員範本中用來擷取值、格式化字串，並擷取部署資訊的函數。"
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Azure 資源管理員範本函數
@@ -382,4 +382,4 @@
 - [使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
 - [Azure 資源管理員概觀](./resource-group-overview.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

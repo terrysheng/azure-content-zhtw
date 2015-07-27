@@ -80,7 +80,7 @@
 
 1. 在[管理入口網站](http://manage.windowsazure.com/)中，開啟雲端服務的 [**監視**] 頁面。
 
-	依預設，度量表會顯示一部份的可用度量。該圖顯示雲端服務的預設詳細資訊度量，這僅限於在角色層集彙總資料的記憶體\可用 MB 效能計數器。使用 [Add Metrics] 選取要在管理入口網站中監視的其他彙總和角色層級度量。
+	依預設，度量表會顯示一部份的可用度量。該圖顯示雲端服務的預設詳細資訊度量，這僅限於在角色層集彙總資料的記憶體\\可用 MB 效能計數器。使用 [Add Metrics] 選取要在管理入口網站中監視的其他彙總和角色層級度量。
 
 	![詳細資訊顯示](./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png)
  
@@ -124,7 +124,7 @@
 2. 使用 **DeploymentId/RoleName/RoleInstance** 模式瀏覽 blob 的路徑，尋找角色執行個體的組態。 
 
 	![Visual Studio 儲存體總管](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioStorage.png)
-3. 下載角色執行個體的組態檔，並更新該檔案以包含所有自訂效能計數器。例如若要監視 *C 磁碟機*的*磁碟寫入位元組/秒*，請在 **PerformanceCounters\Subscriptions** 節點下方加入下列字串
+3. 下載角色執行個體的組態檔，並更新該檔案以包含所有自訂效能計數器。例如若要監視 *C 磁碟機*的*磁碟寫入位元組/秒*，請在 **PerformanceCounters\\Subscriptions** 節點下方加入下列字串
 
 	```xml
 	<PerformanceCounterConfiguration>
@@ -192,4 +192,4 @@
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

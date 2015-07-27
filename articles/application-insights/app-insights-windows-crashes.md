@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2015" 
+	ms.date="07/01/2015" 
 	ms.author="awills"/>
 
 # 使用 Application Insights 偵測並診斷 Windows 市集和 Phone 應用程式中的使用量
@@ -21,7 +21,7 @@
 
 如果您的使用者在應用程式中遇到了損毀，您會想要快速得知，並且想知道發生的情況的詳細資料。利用 Application Insights，您可以監視損毀發生的頻率、在發生時收到警示，並且調查個別事件的報告。
 
-「損毀」表示應用程式因為未捕捉的例外狀況而終止。如果您的應用程式捕捉到例外狀況，您可以使用 TrackException() API 來報告，但繼續執行。在該情況下，將不會記錄為損毀。
+「損毀」表示應用程式因為未捕捉的例外狀況而終止。如果您的應用程式捕捉到例外狀況，您可以使用 [TrackException API][apiexceptions] 來報告，並繼續執行應用程式。在該情況下，將不會記錄為損毀。
 
 
 ## 監視損毀頻率
@@ -80,6 +80,8 @@
 
 [使用 Application Insights 刪除、分級和診斷][detect]
 
+[Application Insights API][api]
+
 [擷取診斷記錄][trace]
 
 [疑難排解](app-insights-windows-troubleshoot.md)
@@ -89,12 +91,15 @@
 
 <!--Link references-->
 
+[api]: app-insights-api-custom-events-metrics.md
+[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
+[platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

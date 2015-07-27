@@ -1,10 +1,9 @@
 <properties 
- pageTitle="使用 Azure PowerShell 管理 Azure Redis 快取" 
- description="了解如何使用 Azure PowerShell 執行 Azure Redis 快取的管理工作。" 
- services="redis-cache" 
+   pageTitle="使用 Azure PowerShell 管理 Azure Redis 快取" 
+   description="了解如何使用 Azure PowerShell 執行 Azure Redis 快取的管理工作。" 
+   services="redis-cache" 
    documentationCenter="" 
    authors="Rick-Anderson" 
-   writer="Rick-Anderson" 
    manager="wpickett" 
    editor=""/>
 
@@ -87,12 +86,13 @@
 		Remove-AzureRedisCache -Name $movieCache.Name -ResourceGroupName $movieCache.ResourceGroupName  -Force 
 
 ## 後續步驟
-深入了解如何使用 Windows Azure PowerShell：
+
+若要深入了解如何將 Windows PowerShell 與 Azure 搭配使用，請參閱下列資源：
  
-- [Azure 資源管理員 Cmdlet](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409)：深入了解在 AzureResourceManager 模組中使用 Cmdlet。
-- [使用資源群組以管理您的 Azure 資源](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups)：深入了解在 Azure 管理入口網站中建立和管理資源群組。
+- [Azure 資源管理員 Cmdlet](http://go.microsoft.com/fwlink/?LinkID=394765)：深入了解在 AzureResourceManager 模組中使用 Cmdlet。
+- [使用資源群組以管理您的 Azure 資源](../azure-portal/resource-group-portal)：深入了解在 Azure 管理入口網站中建立和管理資源群組。
 - [Azure 部落格](http://blogs.msdn.com/windowsazure)：深入了解 Azure 的新功能。
 - [Windows PowerShell 部落格](http://blogs.msdn.com/powershell)：深入了解 Windows PowerShell 的新功能。
 - ["Hey, Scripting Guy!" 部落格](http://blogs.technet.com/b/heyscriptingguy/)：從 Windows PowerShell 社群中取得實際的秘訣及訣竅。
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

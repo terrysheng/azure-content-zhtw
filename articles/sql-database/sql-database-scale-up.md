@@ -229,4 +229,4 @@ Azure PowerShell 參考 若要查看本主題中使用之 Azure PowerShell Cmdle
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

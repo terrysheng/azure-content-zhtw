@@ -1,13 +1,10 @@
 <properties 
-	pageTitle="指南：適用於機器學習服務的雲端資料科學程序 | Azure" 
+	pageTitle="在 Azure 中建置進階分析方案 | Microsoft Azure" 
 	description="使用本指南來了解針對雲端中的資料科學和機器學習服務使用 Azure 的步驟。" 
-	services="machine-learning" 
-	solutions="" 
+	services="machine-learning,hdinsight" 
 	documentationCenter="" 
-	authors="sidneyh;sachouks" 
-	videoId="" 
-	scriptId="" 
-	manager="jhubbard" />
+	authors="bradsev" 
+	manager="paulettm" />
 
 <tags 
 	ms.service="machine-learning" 
@@ -15,15 +12,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="required" 
-	ms.date="02/18/2015" 
-	ms.author="sidneyh" />
-# 適用於機器學習服務的雲端資料科學程序
+	ms.date="06/03/2015" 
+	ms.author="bradsev;sachouks" />
 
-這個雲端資料科學程序指南示範針對資料科學使用 Azure 平台的方式，以及使用 Azure Machine Learning 建置實際運作模型的方式。下圖將引導使用者逐步完成一般的資料科學工作，例如，吸取來自不同來源的資料、準備用於 Azure Machine Learning，以及使用 Azure Machine Learning 來建立使用者應用程式可以取用的實際執行模型 (以程式設計方式或其他方式)。儘管此圖會顯示一般端對端資料科學練習中所涉及的核心步驟，但並非所有步驟都是必要的，而它們的順序會根據資料的位置、大小及複雜度而有所不同。
+# 在 Azure 中建置進階分析方案
 
-標題為 **Azure 中的進階資料處理**的步驟會連結至第二個圖表。如果您是從該圖返回的，請繼續往下至該點，以吸取 Azure Machine Learning Studio 中處理的資料，並建立和部署模型。
+此進階分析程序和技術 (ADAPT) 指南概要說明使用 Azure Machine Learning 建置與部署預測性模型通常會涉及的資料科學工作。其中示範 Azure 平台如何啟動這些工作，例如擷取來自不同來源的資料、將資料準備用於 Azure Machine Learning，然後使用 Azure Machine Learning 實驗來建立使用者應用程式可以取用的操作化模型 (以程式設計方式或其他方式)。儘管此圖會示範一般端對端資料科學練習中所涉及的核心系列步驟，但並非所有步驟都是必要的，而它們的順序會根據資料的位置、大小及複雜度而有所不同。
 
-<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-how-to-create-ml-service.svg" width="100%" height="100%">
-</object>
+[AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
 
-<!--HONumber=49--> 
+標題為 **Azure 中的進階資料處理**的步驟會連結至第二個指南，該指南會逐步解說流程，以準備 Azure Machine Learning 實驗中要使用的資料。如果您從該指南返回，請從本指南的後續步驟繼續進行，以擷取在 Azure Machine Learning Studio 中處理過的資料，直到取用模型的最後一個步驟為止。
+
+<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-how-to-create-ml-service.svg" width="100%" height="100%"> </object>
+ 
+
+<!---HONumber=July15_HO3-->

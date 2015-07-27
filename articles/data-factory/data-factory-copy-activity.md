@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 複製資料 (複製活動)
@@ -40,23 +40,15 @@
 ## 支援的來源與接收器
 複製活動可支援下列資料移動案例：
 
-- 將資料從 Azure Blob 複製至 Azure Blob、Azure 資料表、Azure SQL Database、內部部署 SQL Server 或 IaaS 上的 SQL Server。
-- 將資料從 Azure SQL Database 複製至 Azure Blob、Azure 資料表、Azure SQL Database、內部部署 SQL Server 或 IaaS 上的 SQL Server。
-- 將資料從 Azure 資料表複製至 Azure Blob、Azure 資料表或 Azure SQL Database。
-- 將資料從內部部署 SQL Server/IaaS 上的 SQL Server 複製至 Azure Blob 或 Azure SQL Database
-- 將資料從內部部署 Oracle 資料庫複製至 Azure Blob
-- 將資料從內部部署檔案系統複製至 Azure Blob
- 
-
 <table border="1">	
 	<tr>
 		<th><i>來源/接收器<i></th>
 		<th>Azure Blob</th>
 		<th>Azure 資料表</th>
 		<th>Azure SQL Database</th>
-		<th>內部部署 SQL Server</th>
-		<th>IaaS 上的 SQL Server</th>
 		<th>Azure DocumentDB</th>
+		<th>在 Azure VM 上的 SQL Server</th>
+		<th>內部部署 SQL Server</th>
 	</tr>	
 
 	<tr>
@@ -74,11 +66,10 @@
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
-		<td></td>
-		<td></td>
+		<td>X</td>
+		<td>X</td>
 		<td>X</td>
 	</tr>	
-
 	<tr>
 		<td><b>Azure SQL Database</b></td>
 		<td>X</td>
@@ -88,108 +79,6 @@
 		<td>X</td>
 		<td>X</td>
 	</tr>
-
-
-	<tr>
-		<td><b>內部部署 SQL Server</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>IaaS 上的 SQL Server</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>內部部署檔案系統</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>內部部署 Oracle 資料庫</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>內部部署檔案系統</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>內部部署 MySQL 資料庫</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>內部部署 DB2 資料庫</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>內部部署 Teradata 資料庫</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>內部部署 Sybase 資料庫</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>內部部署 PostgreSQL 資料庫</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
 	<tr>
 		<td><b>Azure DocumentDB</b></td>
 		<td>X</td>
@@ -198,6 +87,106 @@
 		<td></td>
 		<td></td>
 		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>內部部署 SQL Server</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>在 Azure VM 上的 SQL Server</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>內部部署檔案系統</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>內部部署 Oracle 資料庫</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>內部部署檔案系統</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>內部部署 MySQL 資料庫</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>內部部署 DB2 資料庫</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>內部部署 Teradata 資料庫</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>內部部署 Sybase 資料庫</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>內部部署 PostgreSQL 資料庫</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
 	</tr>
 
 </table>
@@ -443,7 +432,7 @@ IaaS 上的 SQL Server 也可以當做來源和接收器受到支援。必須有
 
 若是 **Azure SQL Database**，明確要求加密的連線，且不要信任伺服器憑證，以避免「攔截式」攻擊。若要達到此目的，請在連接字串中使用 **Encrypt = True** 和 **TrustServerCertificate = False**。如需詳細資訊，請參閱 Azure [SQL Database 方針和限制](https://msdn.microsoft.com/library/azure/ff394108.aspx)。
 
-若是傳統的資料庫 (例如 **SQL Server**，尤其當執行個體位於 Azure 虛擬機器中時)，可透過設定簽署的憑證，並在連接字串中設定 **Encrypt = True** 和 **TrustServerCertificate = False** 來啟用加密的連接選項。如需詳細資訊，請參閱 [啟用 Database Engine 的加密連接 (SQL Server 組態管理員)](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) 和「[連接字串語法](https://msdn.microsoft.com/library/ms254500.aspx)」。
+若是傳統的資料庫 (例如 **SQL Server**，尤其當執行個體位於 Azure 虛擬機器中時)，可透過設定簽署的憑證，並在連接字串中設定 **Encrypt = True** 和 **TrustServerCertificate = False** 來啟用加密的連接選項。如需詳細資訊，請參閱 [啟用 Database Engine 的加密連接 (SQL Server 組態管理員)](https://msdn.microsoft.com/library/ms191192(v=sql.110)) 和「[連接字串語法](https://msdn.microsoft.com/library/ms254500.aspx)」。
 
 ## 進階案例
 - **使用結構定義的資料行篩選**。根據資料表的類型，您可以藉由在資料表定義的**結構**定義中指定比存在於基礎資料來源中的資料行還少的資料行，來指定資料行的子集。
@@ -486,4 +475,4 @@ IaaS 上的 SQL Server 也可以當做來源和接收器受到支援。必須有
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

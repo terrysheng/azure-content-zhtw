@@ -3,8 +3,8 @@
 	description="最新 Android SDK - 如何在 Android 上使用 Engagement API"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kapiteir" 
-	manager="dwrede" 
+	authors="kpiteira" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
@@ -18,7 +18,7 @@
 
 #如何在 Android 上使用 Engagement API
 
-本文件是[如何在 Android 上整合 Engagement](mobile-engagement-android-integrate-engagement.md)的附加說明：有關如何使用 Engagement API 來報告應用程式的統計資料，本文件提供了深入的詳細說明。
+本文件是[如何在 Android 上整合 Engagement](mobile-engagement-android-integrate-engagement.md) 文件的補充。它會提供關於如何使用 Engagement API 來回報您應用程式的統計資料之詳細資訊。
 
 請記住，如果您只想要 Engagement 向您報告應用程式的工作階段、活動、當機和技術資訊，那麼最簡單的方法是讓所有 `Activity` 子類別繼承自對應的 `EngagementActivity` 類別。
 
@@ -298,4 +298,4 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

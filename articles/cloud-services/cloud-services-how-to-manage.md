@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="如何管理雲端服務 - Azure" 
-	description="了解如何在 Azure 管理入口網站中管理雲端服務。" 
+	description="了解如何在 Azure 入口網站中管理雲端服務。" 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="07/01/2015"
 	ms.author="adegeo"/>
 
 
@@ -22,14 +22,18 @@
 
 # 如何管理雲端服務
 
-在 Azure 管理入口網站的 [雲端服務] 區域中，您可以更新服務角色或部署、將預備部署升級至生產部署、將資源連結至您的雲端服務 (以方便您查看資源依存性並將資源一起調整)，以及刪除雲端服務或部署。
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-how-to-manage.md)
+- [Azure Preview Portal](cloud-services-how-to-manage-portal.md)
+
+在 Azure 入口網站的 [**雲端服務**] 區域中，您可以更新服務角色或部署、將預備部署升級至生產部署、將資源連結至您的雲端服務 (以方便您查看資源依存性並將資源一起調整)，以及刪除雲端服務或部署。
 
 
 ## 作法：更新雲端服務角色或部署
 
 如果您需要更新雲端服務的應用程式程式碼，請使用儀表板上、[雲端服務] 頁面上或 [執行個體] 頁面上的 [更新]。您可以更新單一角色或所有角色。您將需要上傳新的服務套件和服務組態檔。
 
-1. 在 [Azure 管理入口網站](https://manage.windowsazure.com/)中，按一下儀表板上、[雲端服務] 頁面上或 [執行個體] 頁面上的 [更新]。
+1. 在 [Azure 入口網站](https://manage.windowsazure.com/)中，按一下儀表板上、[**雲端服務**] 頁面上或 [**執行個體**] 頁面上的 [**更新**]。
 
 	![UpdateDeployment](./media/cloud-services-how-to-manage/CloudServices_UpdateDeployment.png)
 
@@ -154,4 +158,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

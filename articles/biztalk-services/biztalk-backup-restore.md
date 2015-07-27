@@ -233,4 +233,4 @@ BizTalk 服務永遠還原成**暫止**狀態。在此狀態下，您可以在�
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="什麼是 Azure Machine Learning Studio？| Microsoft Azure" 
 	description="從已準備就緒可供使用之演算法與模組的程式庫快速建置模型的拖放工具 - Azure ML Studio 概觀。" 
-	keywords="azure machine learning,azure ml, ml studio"	
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 # 什麼是 Azure Machine Learning Studio？
@@ -92,4 +91,4 @@ Machine Learning Studio (有時稱為 Azure ML Studio) 是資料科學、預測�
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

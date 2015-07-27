@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="windows"
    ms.workload="web"
-   ms.date="03/31/2015"
+   ms.date="06/30/2015"
    ms.author="cfowler"/>
 
 # 透過 Memcache 通訊協定，將 Azure App Service 中的 Web 應用程式連線到 Redis Cache
@@ -83,7 +83,7 @@ Web Apps Memcache 填充碼可以搭配任何應用程式，只要應用程式�
 
 ### 啟用 php_memcache 延伸模組
 
-下載檔案之後，解壓縮並上傳 **php_memcache.dll** 至 **d:\home\site\wwwroot\bin\ext** 目錄。php_memcache.dll 上傳至 Web 應用程式之後，延伸模組必須啟用至 PHP 執行階段。若要在 Azure 入口網站中啟用 Memcache 延伸模組，請開啟 Web 應用程式的 [應用程式設定] 刀鋒視窗，然後新增索引鍵為 **PHP_EXTENSIONS** 且值為 **bin\ext\php_memcache.dll** 的應用程式設定。
+下載檔案之後，解壓縮並上傳 **php_memcache.dll** 至 **d:\\home\\site\\wwwroot\\bin\\ext\** 目錄。php_memcache.dll 上傳至 Web 應用程式之後，延伸模組必須啟用至 PHP 執行階段。若要在 Azure 入口網站中啟用 Memcache 延伸模組，請開啟 Web 應用程式的 [應用程式設定] 刀鋒視窗，然後新增索引鍵為 **PHP_EXTENSIONS** 且值為 **bin\\ext\\php_memcache.dll** 的應用程式設定。
 
 
 > 如果 Web 應用程式需要載入多個 PHP 延伸模組，PHP_EXTENSIONS 的值應該是 DLL 檔案相對路徑以逗號分隔的清單。
@@ -93,6 +93,8 @@ Web Apps Memcache 填充碼可以搭配任何應用程式，只要應用程式�
 完成後，按一下 [儲存]。
 
 ## 安裝 Memcache WordPress 外掛程式
+
+> 您也可以從 WordPress.org 下載 [Memcached Object Cache Plugin](https://wordpress.org/plugins/memcached/)。
 
 在 WordPress 外掛程式頁面上，按一下 [新增] 按鈕。
 
@@ -195,4 +197,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [13]: http://memcached.org
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

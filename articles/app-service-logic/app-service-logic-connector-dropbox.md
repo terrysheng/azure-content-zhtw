@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="Dropbox 連接器"
 	description="開始使用 Dropbox 連接器"
-	authors="anuragdalmia" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2015"
-	ms.author="adgoda"/>
+	ms.date="07/02/2015"
+	ms.author="sameerch"/>
 
 # 在邏輯應用程式中使用 Dropbox 連接器 #
 
@@ -28,15 +28,8 @@ Dropbox 連接器可讓您從 Dropbox 帳戶上傳或下載檔案。
 1.	使用 Azure 入口網站左下方的 [+新增] 選項開啟 Azure Marketplace。
 2.	瀏覽至 [Web 與行動] > [API Marketplace]，並搜尋「Dropbox 連接器」。
 3.	設定 Dropbox 連接器，如下所示：
- 
-	![][1] 
-	- **位置** - 選擇您要部署連接器的地理位置 
-	- **訂用帳戶** - 選擇您要在其中建立此連接器的訂用帳戶 
-	- **資源群組** - 選取或建立連接器所在的資源群組 
-	- **App Service 方案** - 選取或建立 Web 主控方案 
-	- **定價層** - 選擇用於連接器的定價層
-	- **位置** - 選擇您要部署連接器的地理位置
 
+	![][1] - **位置** - 選擇您要部署連接器的地理位置 - **訂用帳戶** - 選擇您要在其中建立此連接器的訂用帳戶 - **資源群組** - 選取或建立連接器所在的資源群組 - **App Service 方案** - 選取或建立 Web 主控方案 - **定價層** - 選擇用於連接器的定價層 - **位置** - 選擇您要部署連接器的地理位置
 4. 按一下 [建立]。將建立新的 Dropbox 連接器。
 5. 建立 API 應用程式執行個體後，您可以在相同的資源群組中建立邏輯應用程式，以便使用 Dropbox 連接器。
 
@@ -44,23 +37,20 @@ Dropbox 連接器可讓您從 Dropbox 帳戶上傳或下載檔案。
 建立 API 應用程式之後，您現在可以使用 Dropbox 連接器做為邏輯應用程式的動作。若要這樣做，您需要：
 
 1.	建立新的邏輯應用程式，並選擇具有 Dropbox 連接器的相同資源群組。
- 	
+
 	![][2]
-2.	開啟 [觸發程序和動作] 以開啟邏輯應用程式設計工具，並設定您的流程。 
- 	
+2.	開啟 [觸發程序和動作] 以開啟邏輯應用程式設計工具，並設定您的流程。
+
 	![][3]
 3.	Dropbox 接器就會出現在右側程式庫中的 [此資源群組中的 API 應用程式] 區段。
- 
+
 	![][4]
 4.	您可以在 [Dropbox 連接器] 上按一下來將 Dropbox 連接器 API 應用程式置入編輯器。按一下 [授權] 按鈕。提供您的 Dropbox 認證。按一下 [允許]
- 
-	![][5]
-	![][6]
-	![][7]
+
+	![][5] ![][6] ![][7]
 6.	您現在便可以在流程中使用 Dropbox 連接器。您可以使用 Dropbox 動作 [上傳檔案] 將檔案上傳到您的 Dropbox 帳戶。
- 
-	![][8]
-	![][9]
+
+	![][8] ![][9]
 
 設定 [上傳檔案] 的輸入屬性，如下所示：
 
@@ -80,6 +70,5 @@ Dropbox 連接器可讓您從 Dropbox 帳戶上傳或下載檔案。
 [7]: ./media/app-service-logic-connector-dropbox/img7.PNG
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
- 
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

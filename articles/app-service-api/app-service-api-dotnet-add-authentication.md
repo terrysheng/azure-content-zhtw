@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/26/2015" 
 	ms.author="tdykstra"/>
 
 # 保護 API 應用程式：新增 Azure Active Directory 或社交提供者驗證
@@ -31,6 +31,8 @@
 - 再次呼叫 API 應用程式，確認經過驗證的存取有作用。
 - 撰寫及測試程式碼，以擷取已登入使用者的宣告。
 
+如需有關 Azure App Service 中之驗證的詳細資訊，請參閱 [API 應用程式與行動裝置應用程式的驗證](../app-service/app-service-authentication-overview.md)。
+
 ## 必要條件
 
 本教學課程會使用您在[建立 API 應用程式](app-service-dotnet-create-api-app.md)中建立，以及在[部署 API 應用程式](app-service-dotnet-deploy-api-app.md)中部署的 API 應用程式 。
@@ -41,13 +43,13 @@
 
 1. 在瀏覽器中，移至 [Azure 預覽入口網站]。
 
-3. 從首頁按一下 [**瀏覽 > API 應用程式**]，然後按一下您要保護的 API 應用程式名稱。
+3. 從首頁按一下 [瀏覽] > [API Apps]，然後按一下您要保護的 API 應用程式名稱。
 
 	![瀏覽](./media/app-service-api-dotnet-add-authentication/browse.png)
 
 	![選取 API 應用程式](./media/app-service-api-dotnet-add-authentication/select.png)
 
-3. 在 [**API 應用程式**] 分頁中，按一下 [**URL**] 以開啟可呼叫 API 應用程式的瀏覽器視窗。
+3. 在 [**API 應用程式**] 刀鋒視窗中，按一下 [URL] 以開啟可呼叫 API App 的瀏覽器視窗。
 
 	![API 應用程式分頁](./media/app-service-api-dotnet-add-authentication/chooseapiappurl.png)
 
@@ -85,61 +87,13 @@
 
 若要將 API 應用程式設定為只接受已驗證的要求，您會將其可存取性設定為 [**公用 (已驗證)**]，而且您會將閘道設定為需要提供者 (例如 Azure Active Directory、Google 或 Facebook) 的驗證。
 
-1. 返回您要保護之 API 應用程式的 [**API 應用程式**] 分頁。
+[AZURE.INCLUDE [app-service-api-config-auth](../../includes/app-service-api-config-auth.md)]
 
-2. 在 [**API 應用程式**] 分頁中，按一下 [**設定**]，然後按一下 [**應用程式設定**]。
-
-	![按一下 [設定]](./media/app-service-api-dotnet-add-authentication/clicksettings.png)
-
-	![按一下 [應用程式設定]](./media/app-service-api-dotnet-add-authentication/clickbasicsettings.png)
-
-3. 在 [**應用程式設定**] 分頁中，將 [**存取層級**] 變更為 [**公用 (已驗證)**]，然後按一下 [**儲存**]。
-
-	![按一下 [基本設定]](./media/app-service-api-dotnet-add-authentication/setpublicauth.png)
-
-	您現已保護 API 應用程式，使其免於遭受未經驗證的存取。接下來，您必須設定閘道來指定要使用的驗證提供者。
+您現已保護 API 應用程式，使其免於遭受未經驗證的存取。接下來，您必須設定閘道來指定要使用的驗證提供者。
 
 ### <a id="gateway"></a>將閘道設定為使用驗證提供者
 
-4. 向左捲動回到 [**API 應用程式**] 分頁，然後按一下閘道的連結。
-
-	![按一下 [閘道]](./media/app-service-api-dotnet-add-authentication/gateway.png)
-
-7. 在 [**閘道**] 分頁中，按一下 [**設定**]，然後按一下 [**身分識別**]。
-
-	![按一下 [設定]](./media/app-service-api-dotnet-add-authentication/clicksettingsingateway.png)
-
-	![按一下 [身分識別]](./media/app-service-api-dotnet-add-authentication/clickidentity.png)
-
-	您可以從 [**身分識別**] 分頁導覽到不同的分頁，以使用 Azure Active Directory 和數個其他提供者設定驗證。
-
-	![身分識別分頁](./media/app-service-api-dotnet-add-authentication/identityblade.png)
-  
-3. 選擇您要使用的身分識別提供者，並遵循對應文章中的步驟，透過該提供者來設定您的 API 應用程式。這些文章是針對行動應用程式所撰寫的，但與 API 應用程式所用的程序相同。有些程序需要您使用 [Azure 入口網站]。
-
- - [Microsoft 帳戶](../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication-preview.md)
- - [Facebook 登入](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication-preview.md)
- - [Twitter 登入](../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication-preview.md)
- - [Google 登入](../app-service-mobile/app-service-mobile-how-to-configure-google-authentication-preview.md)
- - [Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication-preview.md)
-
-例如，下列螢幕擷取畫面顯示您在設定 Azure Active Directory 驗證之後，應在 [Azure 入口網站]頁面和 [Azure 預覽入口網站]分頁中看到的內容。
-
-在 Azure 預覽入口網站中， [**Azure Active Directory**] 分頁有來自您在 Azure 入口網站的 [Azure Active Directory] 索引標籤中建立之應用程式的 [**用戶端識別碼**]，而 [**允許的租用戶**] 有您的 Azure Active Directory 租用戶 (例如，"contoso.onmicrosoft.com")。
-
-![Azure Active Directory 分頁](./media/app-service-api-dotnet-add-authentication/tdinaadblade.png)
-
-在 Azure 入口網站中，您在 [**Azure Active Directory**] 索引標籤中建立之應用程式的 [**設定**] 索引標籤會有來自 Azure 預覽入口網站中 [**Azure Active Directory**] 分頁的 [**登入 URL**]、[**應用程式識別碼 URI**] 和 [**回覆 URL**]。
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal1.png)
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal2.png)
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal3.png)
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal4.png)
-
-(影像中的回覆 URL 會顯示相同 URL 兩次，一次搭配 `http:`，一次搭配 `https:`。)
+[AZURE.INCLUDE [app-service-api-gateway-config-auth](../../includes/app-service-api-gateway-config-auth.md)]
 
 ## 確認驗證可以運作
 
@@ -188,6 +142,8 @@
 	![登入完成](./media/app-service-api-dotnet-add-authentication/logincomplete.png)
 
 	![Chrome Get 回應](./media/app-service-api-dotnet-add-authentication/chromeget.png)
+
+	如果您已經啟用 Swagger UI，您現在也可以移至 Swagger UI 頁面。不過，您會在頁面右下角看到紅色的「錯誤」圖示，而如果按一下該圖示，您將會看到訊息指出無法存取 Swagger JSON 檔案。這是因為 Swagger 進行 AJAX 呼叫嘗試擷取 JSON 檔案，但未包含 Zumo 權杖。這不會造成 Swagger UI 頁面無法運作。
 
 ## 使用 Postman 傳送 Post 要求
 
@@ -307,12 +263,9 @@
 
 ## 後續步驟
 
-您已了解如何透過 Azure Active Directory 或社交提供者驗證來保護 Azure API 應用程式。如需詳細資訊，請參閱[什麼是 API 應用程式？](app-service-api-apps-why-best-platform.md)。
+您已了解如何透過 Azure Active Directory 或社交提供者驗證來保護 Azure API 應用程式。如需詳細資訊，請參閱 [API 應用程式與行動裝置應用程式的驗證](../app-service/app-service-authentication-overview.md)。
 
 [Azure 入口網站]: https://manage.windowsazure.com/
 [Azure 預覽入口網站]: https://portal.azure.com/
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

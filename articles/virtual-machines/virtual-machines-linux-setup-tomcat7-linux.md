@@ -303,4 +303,4 @@ tomcat7 伺服器將在您安裝時自動啟動。您也可以自行使用下列
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

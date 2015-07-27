@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/07/2015" 
 	ms.author="awills"/>
  
 # 疑難排解與問題：ASP.NET 的 Application Insights
@@ -128,7 +128,7 @@
 + 在 [概觀] 頁面中，按一下 [搜尋] 磚以開啟 [診斷搜尋]。這裡會先顯示資料。
 + 按一下 [重新整理] 按鈕。在目前版本中，刀鋒視窗的內容不會自動重新整理。
 + 在 Microsoft Azure 開始面板中，查看服務狀態對應。如果看到一些警示指示，請等待它們恢復 [正常]，然後關閉再重新開啟 Application Insights 應用程式刀鋒視窗。
-+ 也請查閱[我們的狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/archive/2015/04/14/data-latency-and-data-access-issue-with-data-storage-service-4-14-investigating.aspx)。
++ 也請查閱[我們的狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)。
 + 在防火牆中，您可能必須開啟 TCP 連接埠 80 和 443，以允許連出流量送往 dc.services.visualstudio.com 和 f5.services.visualstudio.com。
 + 如果您必須使用 Proxy 在貴公司網路之外傳送內容，請設定 Web.config 中的 [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx)
 + Windows Server 2008：確定您已安裝以下更新：[KB2468871](https://support.microsoft.com/kb/2468871)、[KB2533523](https://support.microsoft.com/kb/2533523)、[KB2600217](https://support.microsoft.com/kb/2600217)。
@@ -232,4 +232,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

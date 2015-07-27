@@ -33,4 +33,4 @@
 現在雲端服務容器已建立成功，您可以開始[建立和部署](cloud-services-how-to-create-deploy.md)雲端服務了。
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="05/22/2015" 
 	ms.author="stbaro"/>
 
 # 安全存取 DocumentDB 資料 #
 
-本文提供儲存於 [Microsoft Azure DocumentDB](../../services/documentdb/) 中資料的安全存取概觀。 
+本文提供儲存於 [Microsoft Azure DocumentDB](../../services/documentdb/) 中資料的安全存取概觀。
 
-閱讀本概觀後，您將能夠回答下列問題：  
+閱讀本概觀後，您將能夠回答下列問題：
 
 -	什麼是 DocumentDB 主要金鑰？
 -	什麼是 DocumentDB 唯讀金鑰？
@@ -54,18 +54,18 @@
 
 - 主要金鑰：建立 DocumentDB 帳戶時，系統會建立兩個主要金鑰 (主要和次要)。這些金鑰可提供 DocumentDB 帳戶內所有資源的完整系統管理存取權。
 
-![DocumentDB master keys illustration](./media/documentdb-secure-access-to-data/masterkeys.png)
+![DocumentDB 主要金鑰圖](./media/documentdb-secure-access-to-data/masterkeys.png)
 
 - 唯讀金鑰：建立 DocumentDB 帳戶時，系統會建立兩個唯讀金鑰 (主要和次要)。這些金鑰可提供 DocumentDB 帳戶內所有資源的唯讀存取權。
 
-![DocumentDB read-only keys illustration](./media/documentdb-secure-access-to-data/readonlykeys.png)
+![DocumentDB 唯讀金鑰圖](./media/documentdb-secure-access-to-data/readonlykeys.png)
 
 - 資源權杖：資源權杖會與 DocumentDB 權限資源相關聯，並擷取資料庫使用者與使用者所具備之特定 DocumentDB 應用程式資源 (例如集合、文件) 權限之間的關係。
 
-![DocumentDB resource tokens illustration](./media/documentdb-secure-access-to-data/resourcekeys.png)
+![DocumentDB 資源權杖圖](./media/documentdb-secure-access-to-data/resourcekeys.png)
 
 ##<a id="Sub2"></a>使用 DocumentDB 主要和唯讀金鑰 ##
-前面提過，DocumentDB 主要金鑰可提供 DocumentDB 帳戶內所有資源的完整系統管理存取權，而唯讀金鑰可提供帳戶內所有資源的讀取權限。下列程式碼片段說明如何使用 DocumentDB 帳戶端點和主要金鑰來具現化 DocumentClient，並建立新的資料庫。 
+前面提過，DocumentDB 主要金鑰可提供 DocumentDB 帳戶內所有資源的完整系統管理存取權，而唯讀金鑰可提供帳戶內所有資源的讀取權限。下列程式碼片段說明如何使用 DocumentDB 帳戶端點和主要金鑰來具現化 DocumentClient，並建立新的資料庫。
 
     //Read the DocumentDB endpointUrl and authorization keys from config.
     //These values are available from the Azure Management Portal on the DocumentDB Account Blade under "Keys".
@@ -85,7 +85,7 @@
 
 
 ##<a id="Sub3"></a>DocumentDB 資源權杖的概觀 ##
-若要對無法託付主要金鑰的用戶端提供 DocumentDB 帳戶內資源的存取權，您可以使用資源權杖 (方法是建立 DocumentDB 使用者和權限)。您的 DocumentDB 主要金鑰包括主要和次要金鑰，兩者皆可授與帳戶及帳戶內所有資源的系統管理存取權。提供任一主要金鑰都會讓您的帳戶受到惡意或粗心使用的可能性。 
+若要對無法託付主要金鑰的用戶端提供 DocumentDB 帳戶內資源的存取權，您可以使用資源權杖 (方法是建立 DocumentDB 使用者和權限)。您的 DocumentDB 主要金鑰包括主要和次要金鑰，兩者皆可授與帳戶及帳戶內所有資源的系統管理存取權。提供任一主要金鑰都會讓您的帳戶受到惡意或粗心使用的可能性。
 
 同樣地，DocumentDB 唯讀金鑰可提供 DocumentDB 帳戶內所有資源的讀取權限 (當然權限資源除外)，但無法用來提供特定 DocumentDB 資源的更細微存取權 。
 
@@ -102,7 +102,7 @@ DocumentDB 資源權杖提供一個安全的替代方式，無需主要或唯讀
 7. 電話應用程式可以繼續使用資源權杖，利用資源權杖所定義的權限並在資源權杖所允許的間隔內，直接存取 DocumentDB 資源。 
 8. 資源權杖過期時，後續要求將會收到 401 未經授權的例外狀況。此時，電話應用程式會重新建立身分識別，並要求新的資源權杖。
 
-![DocumentDB resource tokens workflow](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
+![DocumentDB 資源權杖工作流程](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
 ##<a id="Sub4"></a>使用 DocumentDB 使用者和權限 ##
 DocumentDB 使用者資源會與 DocumentDB 資料庫相關聯。每個資料庫可能包含零個或多個 DocumentDB 使用者。下列程式碼片段示範如何建立 DocumentDB 使用者資源。
@@ -115,16 +115,15 @@ DocumentDB 使用者資源會與 DocumentDB 資料庫相關聯。每個資料庫
 
     docUser = await client.CreateUserAsync(database.SelfLink, docUser);
 
-> [AZURE.NOTE] 每個 DocumentDB 使用者都具有 PermissionsLink 屬性，可用來擷取與使用者相關聯的權限清單。
+> [AZURE.NOTE]每個 DocumentDB 使用者都具有 PermissionsLink 屬性，可用來擷取與使用者相關聯的權限清單。
 
-DocumentDB 權限資源會與 DocumentDB 使用者相關聯。每位使用者可能包含零個或多個 DocumentDB 權限。當使用者嘗試存取特定的應用程式資源時，權限資源會提供使用者所需的安全性權杖存取權。
-權限資源可能會提供兩種可用的存取層級：
+DocumentDB 權限資源會與 DocumentDB 使用者相關聯。每位使用者可能包含零個或多個 DocumentDB 權限。當使用者嘗試存取特定的應用程式資源時，權限資源會提供使用者所需的安全性權杖存取權。權限資源可能會提供兩種可用的存取層級：
 
-- 所有：使用者具有資源的完整權限
+- 全部：使用者具有資源的完整權限
 - 讀取：使用者只能讀取資源的內容，但無法執行資源的寫入、更新或刪除作業。
 
 
-> [AZURE.NOTE] 為執行 DocumentDB 預存程序，使用者必須具備即將執行預存程序之集合的「所有」權限。
+> [AZURE.NOTE]為執行 DocumentDB 預存程序，使用者必須具備即將執行預存程序之集合的「所有」權限。
 
 
 下列程式碼片段示範如何建立權限資源，讀取權限資源的資源權杖 (token)，並將權限與先前所建立的使用者產生關聯。
@@ -155,12 +154,13 @@ DocumentDB 權限資源會與 DocumentDB 使用者相關聯。每位使用者可
             
     DocumentClient userClient = new DocumentClient(new Uri(endpointUrl),permList);
 
-> [AZURE.TIP] 資源權杖有 1 小時的預設有效時間範圍。不過，您可以明確指定權杖存留期，最多 5 個小時。
+> [AZURE.TIP]資源權杖有 1 小時的預設有效時間範圍。不過，您可以明確指定權杖存留期，最多 5 個小時。
 
-##<a name="NextSteps"></a>後續步驟
+##<a name="NextSteps"></a>接續步驟
 
 - 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
-- 若要了解如何管理主要和唯讀金鑰，請按一下 [這裡](documentdb-manage-account.md)。
-- 若要了解如何建構 DocumentDB 授權權杖，請按一下 [這裡](https://msdn.microsoft.com/library/azure/dn783368.aspx)
+- 若要了解如何管理主要和唯讀金鑰，請按一下[這裡](documentdb-manage-account.md)。
+- 若要了解如何建構 DocumentDB 授權權杖，請按一下[這裡](https://msdn.microsoft.com/library/azure/dn783368.aspx)
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO3-->

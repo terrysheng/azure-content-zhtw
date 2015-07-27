@@ -1,6 +1,6 @@
 <properties
 	pageTitle="在 Azure 應用程式服務中建立 PHP-MySQL Web 應用程式並使用 Git 部署"
-	description="示範如何建立 PHP Web 應用程式，將資料儲存於 MySQL 中並對 Azure 使用 Git 部署的教學課程。&quot;"
+	description="示範如何建立 PHP Web 應用程式，將資料儲存於 MySQL 中並對 Azure 使用 Git 部署的教學課程。";"
 	services="app-service\web"
 	documentationCenter="php"
 	authors="tfitzmac"
@@ -296,4 +296,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

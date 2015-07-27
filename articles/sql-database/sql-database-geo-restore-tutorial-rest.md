@@ -57,4 +57,4 @@
 [服務管理 REST API 參考](https://msdn.microsoft.com/library/azure/ee460799.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

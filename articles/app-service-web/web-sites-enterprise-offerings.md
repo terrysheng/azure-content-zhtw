@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="apwestgarth" 
-	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -154,4 +153,4 @@ App Service Web Apps 針對快速發展環境中的企業動態需求，提供�
  
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

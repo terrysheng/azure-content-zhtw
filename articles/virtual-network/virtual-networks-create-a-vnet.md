@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="07/06/2015"
    ms.author="telmosampaio"/>
 
 # 建立虛擬網路
@@ -48,15 +48,8 @@
 
 
 ## 後續步驟
--  [虛擬網路技術概觀](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
+-  深入了解 Azure 中的[虛擬網路](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)。 
 
--  [將虛擬機器新增至虛擬網路](virtual-machines-create-custom)
+-  [將虛擬機器新增至](../virtual-machines/virtual-machines-create-custom.md)虛擬網路。
 
--  [虛擬網路常見問題集](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
-
--  [使用網路組態檔設定虛擬網路](virtual-networks-using-network-configuration-file)
-
--  [Azure 名稱解析概觀](http://go.microsoft.com/fwlink/?LinkId=248097)
- 
-
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

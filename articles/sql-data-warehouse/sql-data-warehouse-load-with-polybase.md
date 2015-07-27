@@ -37,11 +37,11 @@ PolyBase 技術可讓您查詢和聯結多個來源的資料，且完全使用 T
 首先，您將建立當 PolyBase 連接到 Azure blob 儲存體和查詢資料時所需要的物件。
 
 ## 建立資料庫主要金鑰
-連接到伺服器上的主要資料庫來建立資料庫主要金鑰。這個金鑰在下一步用來加密認證密碼。
+連接到伺服器上的使用者資料庫來建立資料庫主要金鑰。這個金鑰在下一步用來加密認證密碼。
 
 ```
 -- Creating master key
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'S0me!nfo';
+CREATE MASTER KEY;
 ```
 
 參考主題：[CREATE MASTER KEY (Transact-SQL)][]。
@@ -49,8 +49,13 @@ CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'S0me!nfo';
 ## 建立資料庫範圍認證
 若要存取 Azure blob 儲存體，您需要建立資料庫範圍認證，其中儲存 Azure 儲存體帳戶的驗證資訊。連接到資料倉儲資料庫，並為您想要存取的每個 Azure 儲存體帳戶建立資料庫範圍認證。指定身分識別名稱和 Azure 儲存體帳戶金鑰做為密碼。身分識別名稱並不會影響到 Azure 儲存體的驗證。
 
+若要查看資料庫範圍的認證是否已存在，請使用 sys.database_credentials，而不是只顯示伺服器認證的 sys.credentials。
+
 ```
--- Creating credential
+-- Check for existing database-scoped credentials.
+SELECT * FROM sys.database_credentials;
+
+-- Create a database scoped credential
 CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe', 
 	Secret = 'myazurestoragekey==';
 ```
@@ -176,7 +181,7 @@ AS SELECT * from [ext].[CarSensor_Data];
 使用 PolyBase 載入時僅支援 UTF-8 編碼樣式。至於其他編碼樣式，例如 UTF-16，請考慮使用 bcp 公用程式、SSIS 或 Azure Data Factory，將資料載入 SQL 資料倉儲資料庫。
 
 ## 後續步驟
-如需更多開發秘訣，請參閱[開發概觀][]。
+如需更多開發祕訣，請參閱[開發概觀][]。
 
 <!--Image references-->
 
@@ -202,4 +207,4 @@ AS SELECT * from [ext].[CarSensor_Data];
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-tw/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-tw/library/ms189450.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

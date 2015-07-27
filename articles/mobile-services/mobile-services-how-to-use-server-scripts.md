@@ -96,7 +96,7 @@
 	
 	若要知道怎麼做，請參閱[使用伺服器指令碼驗證及修改行動服務中的資料]。
 
-+ 使用原始檔控制。啟用原始檔控制後，只要在 git 儲存機制的 .\service\table 子資料夾中建立名為 <em>`<table>`</em>.<em>`<operation>`</em>.js 的檔案，其中 <em>`<table>`</em> 是資料表的名稱，而 <em>`<operation>`</em> 是所註冊的資料表作業。如需詳細資訊，請參閱[原始檔控制與共用程式碼][Source control, shared code, and helper functions]。
++ 使用原始檔控制。啟用原始檔控制後，只要在 git 儲存機制的 .\\service\\table 子資料夾中建立名為 <em>`<table>`</em>.<em>`<operation>`</em>.js 的檔案，其中 <em>`<table>`</em> 是資料表的名稱，而 <em>`<operation>`</em> 是所註冊的資料表作業。如需詳細資訊，請參閱[原始檔控制與共用程式碼][Source control, shared code, and helper functions]。
 
 + 從命令提示字元使用 Azure 命令列工具。如需詳細資訊，請參閱[使用命令列工具]。
 
@@ -228,7 +228,7 @@
 `id` 的值必須是唯一的，且不可包含下列字元集中的字元：
 
 + 控制字元：[0x0000-0x001F] 和 [0x007F-0x009F]。如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set) (英文)。
-+  可列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?** (0x003F)、**** (0x005C)、**`** (0x0060)
++  可列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?** (0x003F)、**\** (0x005C)、**`** (0x0060)
 +  識別碼 "." 和 ".."
 
 您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表](../virtual-machines-command-line-tools.md#Mobile_Tables) (英文)。
@@ -343,7 +343,7 @@
 	
 	在 [權限] 索引標籤中指派對自訂 API 方法的存取權限。若要了解此自訂 API 是如何建立的，請參閱[從用戶端呼叫自訂 API]。
 
-+ 使用原始檔控制。啟用原始檔控制後，只要在 git 儲存機制的 .\service\api 子資料夾中建立名為 <em>`<custom_api>`</em>.js 的檔案，其中 <em>`<custom_api>`</em> 是所註冊之自訂 API 的名稱。此指令碼檔案包含 _exported_ 函數，用於自訂 API 公開的每個 HTTP 方法。權限是在伴隨的 .json 檔案中定義。如需詳細資訊，請參閱[原始檔控制與共用程式碼][Source control, shared code, and helper functions]。
++ 使用原始檔控制。啟用原始檔控制後，只要在 git 儲存機制的 .\\service\\api 子資料夾中建立名為 <em>`<custom_api>`</em>.js 的檔案，其中 <em>`<custom_api>`</em> 是所註冊之自訂 API 的名稱。此指令碼檔案包含 _exported_ 函數，用於自訂 API 公開的每個 HTTP 方法。權限是在伴隨的 .json 檔案中定義。如需詳細資訊，請參閱[原始檔控制與共用程式碼][Source control, shared code, and helper functions]。
 
 + 從命令提示字元使用 Azure 命令列工具。如需詳細資訊，請參閱[使用命令列工具]。
 
@@ -462,7 +462,7 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 
 + 從命令提示字元使用 Azure 命令列工具。如需詳細資訊，請參閱[使用命令列工具]。
 
->[AZURE.NOTE]啟用原始檔控制後，可以直接在 git 儲存機制的 .\service\scheduler 子資料夾中編輯排程工作指令碼。如需詳細資訊，請參閱[作法：使用原始檔控制共用程式碼]。
+>[AZURE.NOTE]啟用原始檔控制後，可以直接在 git 儲存機制的 .\\service\\scheduler 子資料夾中編輯排程工作指令碼。如需詳細資訊，請參閱[作法：使用原始檔控制共用程式碼]。
 
 ##<a name="shared-code"></a>原始檔控制、共用程式碼及協助程式函數
 
@@ -1081,4 +1081,4 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 [Azure 行動服務對 package.json 的支援]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -202,4 +202,4 @@ Azure SQL 資料同步可讓您選取要同步的資料表和資料欄。如果�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

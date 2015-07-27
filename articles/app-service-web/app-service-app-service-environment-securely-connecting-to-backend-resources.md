@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/30/2015" 
 	ms.author="stefsh"/>
 
 # 安全地從 App Service 環境連接到後端資源 #
@@ -27,6 +27,12 @@
 
 在上述這些案例中，在 App Service 環境上執行的應用程式將能夠安全地連接到各種伺服器和資源。從 App Service 環境中執行之應用程式送至相同虛擬網路中私密端點 (或連接到相同的虛擬網路) 的輸出流量，只會透過虛擬網路傳送。送至私密端點的輸出流量不會透過公用網際網路傳送。
 
+## 輸出連線和 DNS 需求 ##
+請注意，為了讓 App Service 環境正確運作，需要 Azure 儲存體以及相同 Azure 區域中 SQL Database 的輸出存取權。如果虛擬網路中封鎖輸出網際網路存取，則 App Service 環境將無法存取這些 Azure 端點。
+
+客戶可能也已在虛擬網路中設定自訂 DNS 伺服器。App Service 環境需要可以解析 *.database.windows.net、*.file.core.windows.net 和 *.blob.core.windows.net 下的 Azure 端點。
+
+也建議事先在虛擬網路上設定任何自訂 DNS 伺服器，再建立 App Service 環境。如果在建立 App Service 環境時變更虛擬網路的 DNS 組態，則會導致 App Service 環境建立程序失敗。
 
 ## 連接至 SQL Server
 常見的 SQL Server 組態會有在連接埠 1433 上接聽的端點：
@@ -104,4 +110,4 @@
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

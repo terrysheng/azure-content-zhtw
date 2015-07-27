@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
  
 # 在 Eclipse 中利用 Java 開始使用 Application Insights
@@ -100,9 +100,17 @@ Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您
 
 ## 用戶端遙測
 
-從 [概觀] 分頁上的 [快速入門] 磚，您可取得指令碼以加入至您的網頁。
+在 [快速啟動] 刀鋒視窗中，按一下 [取得程式碼] 來監視我的網頁：
 
-頁面檢視、使用者和工作階段度量將出現在 [概觀] 分頁上：
+![在您的應用程式概觀刀鋒視窗中，選擇 [快速入門]，取得程式碼以監視我的網頁。複製指令碼。](./media/app-insights-java-eclipse/02-monitor-web-page.png)
+
+在 HTML 檔案的標頭插入程式碼片段。
+
+#### 檢視用戶端資料
+
+開啟您已更新的網頁，並使用它們。等待一、兩分鐘，然後回到 Application Insights，並重新整理使用量刀鋒視窗。
+
+頁面檢視、使用者和工作階段度量將出現在 [使用量] 刀鋒視窗上：
 
 ![工作階段、使用者和頁面檢視](./media/app-insights-java-eclipse/appinsights-47usage-2.png)
 
@@ -110,7 +118,7 @@ Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您
 
 ## 可用性 Web 測試
 
-Application Insights 可讓您定期測試網站，以檢查網站運作中且正常回應。在 [概觀] 分頁上逐一點選空白 Web 測試圖表，並提供您的公用 URL。
+Application Insights 可讓您定期測試網站，以檢查網站運作中且正常回應。若要設定，請在 [概觀] 刀鋒視窗上逐一點選空白 Web 測試圖表，並提供您的公用 URL。
 
 您將取得回應時間的圖表，以及若網站關閉還會取得電子郵件通知。
 
@@ -156,9 +164,9 @@ Application Insights 可讓您定期測試網站，以檢查網站運作中且�
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-web-track-usage.md
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

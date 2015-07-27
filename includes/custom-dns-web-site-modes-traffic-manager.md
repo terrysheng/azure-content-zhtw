@@ -2,4 +2,4 @@
 
 如需 App Service 計劃模式的詳細資訊 (包括如何變更網站模式)，請參閱[如何調整網站規模](../article/app-service-web/web-sites-scale.md)。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

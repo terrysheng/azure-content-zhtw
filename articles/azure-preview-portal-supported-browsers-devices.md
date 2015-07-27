@@ -4,7 +4,6 @@
 	services="" 
 	documentationCenter="" 
 	authors="JustinBeckwith" 
-	writer="" 
 	manager="carolz" 
 	editor=""/>
 
@@ -26,11 +25,11 @@ Microsoft Azure 預覽入口網站可在所有最新的桌上型電腦和平板�
 ### 支援的瀏覽器
 可支援下列最新版的瀏覽器：
 
-- Internet Explorer (10 和更新版本)
+- Internet Explorer (11 和更新版本)
 - Safari (7 和更新版本)
 - Chrome (最新版本)
 - Firefox (最新版本)
 
 *不支援 Safari 6 和之前的版本。如果您使用的不是 OS X，您可以使用 Chrome、Firefox，或升級至 OS X Mavericks 以取得 Safari 7。*
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

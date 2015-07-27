@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/30/2015" 
 	ms.author="stefsh"/>
 
 # 如何控制 App Service 環境的輸入流量
@@ -41,6 +41,13 @@ App Service 環境必須一律建立於子網路中，因為子網路可提供�
 - 4016：用於 Visual Studio 2012 的遠端偵錯。如果未使用此功能，就可以安全地封鎖此連接埠。
 - 4018：用於 Visual Studio 2013 的遠端偵錯。如果未使用此功能，就可以安全地封鎖此連接埠。
 - 4020：用於 Visual Studio 2015 的遠端偵錯。如果未使用此功能，就可以安全地封鎖此連接埠。
+
+## 輸出連線和 DNS 需求 ##
+請注意，為了讓 App Service 環境正確運作，也需要 Azure 儲存體以及相同 Azure 區域中 SQL Database 的輸出存取權。如果虛擬網路中封鎖輸出網際網路存取，則 App Service 環境將無法存取這些 Azure 端點。
+
+客戶可能也已在虛擬網路中設定自訂 DNS 伺服器。App Service 環境需要可以解析 *.database.windows.net、*.file.core.windows.net 和 *.blob.core.windows.net 下的 Azure 端點。
+
+也建議事先在虛擬網路上設定任何自訂 DNS 伺服器，再建立 App Service 環境。如果在建立 App Service 環境時變更虛擬網路的 DNS 組態，則會導致 App Service 環境建立程序失敗。
 
 ## 建立網路安全性群組 ##
 如需有關網路安全性群組如何運作的完整詳細資訊，請參閱下列[資訊][NetworkSecurityGroups]。以下詳細資料是有關網路安全性群組的重點，著重於設定網路安全群組並套用到包含 App Service 環境的子網路。
@@ -123,4 +130,4 @@ App Service 環境必須一律建立於子網路中，因為子網路可提供�
 
 <!-- IMAGES -->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

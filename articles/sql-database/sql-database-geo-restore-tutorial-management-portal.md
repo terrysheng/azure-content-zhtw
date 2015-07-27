@@ -80,4 +80,4 @@
 
 [Azure SQL Database 地理還原 (部落格)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

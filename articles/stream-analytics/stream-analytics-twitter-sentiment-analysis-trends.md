@@ -1,7 +1,6 @@
 <properties
 	pageTitle="使用串流分析執行即時 Twitter 情感分析 | Microsoft Azure"
 	description="了解如何使用串流分析來執行即時 Twitter 情感分析。從事件產生到即時儀表板資料的逐步指導。"
-	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/28/2015"
+	ms.date="07/01/2015"
 	ms.author="jeffstok"/>
 
 
@@ -30,7 +29,7 @@
 
 ## 必要條件
 1.	本教學課程需要 Twitter 帳戶。  
-2.	這個逐步教學課程使用 GitHub 上的事件產生器。請到[這裡](https://github.com/streamanalytics/samples/tree/master/TwitterClient)下載，然後按照下列步驟設定您的解決方案。
+2.	此逐步教學課程使用位於 GitHub 上的 Twitter 用戶端應用程式。請到[這裡](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)下載，然後按照下列步驟設定您的解決方案。
 
 ## 建立事件中樞輸入和用戶群組
 
@@ -38,7 +37,7 @@
 
 請按照下列步驟建立事件中樞。
 
-1.	在 Azure 入口網站，按一下 [新增] > [應用程式服務] > [服務匯流排] > [事件中樞] > [快速建立] ，並提供名稱、區域和新的或現有命名空間來建立新的事件中樞。  
+1.	在 Azure 入口網站中，按一下 [**新增**] > [**應用程式服務**] > [**服務匯流排**] > [**事件中樞**] > [**快速建立**]，並提供名稱、區域和新的或現有命名空間來建立新的事件中樞。  
 2.	每一個 Stream Analytics 工作應該從單一事件中樞用戶群組讀取資料，這是最好的做法。我們會帶您逐步進行下方建立用戶群組的程序，您可以在這裡深入了解。若要建立用戶群組，請瀏覽至剛剛建立的事件中樞，然後依序按一下 [用戶群組] 索引標籤、頁面最下方的 [建立]，然後提供用戶群組的名稱。
 3.	為了授權存取事件中樞，我們需要建立一個共用存取原則。按一下事件中樞的 [設定] 索引標籤。
 4.	在 [共用存取原則] 下方，建立一個擁有**管理**權限的新原則。
@@ -49,9 +48,9 @@
 5.	按一下頁面底部的 [儲存]。
 6.	移至 [儀表板]，然後按一下頁面最下方的 [連線資訊] ，並複製和儲存連線資訊。(使用搜尋圖示下方的複製圖示)。
 
-## 設定並啟動事件產生器應用程式
+## 設定並啟動 Twitter 用戶端應用程式
 
-我們提供一個用戶端應用程式，它可以透過 [Twitter 的 REST API](https://dev.twitter.com/rest/public) 收集與參數化主題集有關的推文事件，這樣我們就可以運用 Twitter 資料。第 3 方開放原始碼工具 [Sentiment140](http://help.sentiment140.com/) 用來將感受值指派給每一則推文 (0：負值、2：中立，4：正值)，然後將推文事件推送至事件中樞。  
+我們提供一個用戶端應用程式，其可以透過 [Twitter 的串流 API](https://dev.twitter.com/streaming/overview) 收集與參數化主題集有關的推文事件，這樣我們就可以運用 Twitter 資料。第 3 方開放原始碼工具 [Sentiment140](http://help.sentiment140.com/) 用來將感受值指派給每一則推文 (0：負值、2：中立，4：正值)，然後將推文事件推送至事件中樞。  
 
 
 請遵循下列步驟來設定應用程式：
@@ -75,7 +74,7 @@
 
 ### 佈建資料流分析工作
 
-1.	在 [Azure 入口網站][](https://manage.windowsazure.com/) 中，依序按一下 [新增] > [資料服務] > [STREAM ANALYTICS] > [快速建立]。
+1.	在 [[Azure 入口網站](https://manage.windowsazure.com/)] 中，依序按一下 [**新增**] > [**資料服務**] > [**串流分析**] > [**快速建立**]。
 2.	指定下列值，然後按一下 [建立 STREAM ANALYTICS 工作]：
 
 	* **工作名稱**：輸入工作名稱。
@@ -154,7 +153,7 @@
 
 #### 識別熱門話題：滑動視窗
 
-要識別話題的趨勢，我們會找出各種在指定時間內，被提及的次數超過臨界值的話題。基於本教學課程的目的，我們會使用 [SlidingWindow](https://msdn.microsoft.com/library/azure/dn835051.aspx) 找出 5 秒鐘之內，被提及次數超過 20 次的話題。
+要識別話題的趨勢，我們會找出各種在指定時間內，被提及的次數超過臨界值的話題。基於本教學課程的目的，我們會使用 [SlidingWindow](https://msdn.microsoft.com/library/azure/dn835051.aspx) 找出最後 5 秒鐘之內，提及次數超過 20 次的話題。
 
 1.	在程式碼編輯器中，將查詢變更成：
 
@@ -184,7 +183,7 @@
 
 ## 建立輸出接收
 
-現在我們已經定義好一個事件資料流、一個負責擷取事件的事件中樞，以及一個進行資料流轉換處理的查詢，最後的步驟就是定義工作的輸出接收。我會編寫從工作查詢送往 Azure Blob 的推文事件彙總。您也可以根據應用程式需求，將結果推送至 SQL 資料庫、資料表存放區或事件中樞。
+現在我們已經定義好一個事件資料流、一個負責擷取事件的事件中樞，以及一個進行資料流轉換處理的查詢，最後的步驟就是定義工作的輸出接收。我會編寫從工作查詢送往 Azure Blob 的推文事件彙總。您也可以根據特定應用程式需求，將結果推送至 SQL Database、資料表存放區或事件中樞。
 
 請按照下列步驟來建立 Blob 儲存體的容器 (如果沒有的話)：
 
@@ -225,7 +224,7 @@
 ![社交媒體分析：Power BI 儀表板中的串流分析情感分析 (意見挖掘) 輸出。](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## 取得支援
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
 
 
 ## 後續步驟
@@ -237,4 +236,4 @@
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

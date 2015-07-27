@@ -420,4 +420,4 @@ SendGrid 提供了運用 'filters' 的其他電子郵件功能。這些設定可
   [sendgrid-php 程式庫]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

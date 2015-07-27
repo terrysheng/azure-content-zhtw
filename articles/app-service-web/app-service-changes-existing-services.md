@@ -2,7 +2,6 @@
 	pageTitle="Azure App Service 和它對現有 Azure 服務的影響" 
 	description="說明新的 Azure App Service 和其功能如何影響 Azure 中的現有服務。" 
 	authors="yochayk" 
-	writer="yochayk" 
 	editor="yochayk" 
 	manager="nirma" 
 	services="app-service\web" 
@@ -91,4 +90,4 @@ App Service 會將下列現有 Azure 服務 - [網站](http://azure.microsoft.co
 若要深入了解，請瀏覽 [App Service 文件](http://azure.microsoft.com/documentation/services/app-service/)。
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

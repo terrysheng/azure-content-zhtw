@@ -159,10 +159,14 @@
 		               "timeout":"02:00:00"
 		            }
 		         }
-		        ]
+		        ],
+
+				"start": "2015-02-13T00:00:00Z",
+        		"end": "2015-02-14T00:00:00Z"
 		    }
 		}
 
+	**開始**和**結束**日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**結束**時間是選擇性的。如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考](https://msdn.microsoft.com/library/dn835050.aspx)。
 
 ## Web 服務參數
 您可以使用 Azure Data Factory (ADF) 管線中已發佈 Azure Machine Learning Web 服務所公開的 Web 服務參數。您可以在 Azure Machine Learning 中建立實驗，並將它發佈為 Web 服務，然後透過 Web 服務參數傳入不同的輸入，以在多個 ADF 管線或活動中使用該 Web 服務。
@@ -182,7 +186,7 @@
 
 	transformation: {
     	webServiceParameters: {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = '{0:yyyy-MM-dd HH:mm:ss}'', Time.AddHours(SliceStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(SliceStart, 0))"
     	}
   	}
  
@@ -298,7 +302,7 @@
 - Data Factory 服務不會自動填入寫入器的參數 (尾碼為 '1' 的參數)。因此，您需要在活動 JSON 的 **webServiceParameters** 區段中指定這些參數的值。  
 - **客戶識別碼**、**評分標籤**和**評分機率**會儲存為以逗號分隔的資料行。 
 - 在此範例中，**資料表名稱**對應到輸出資料庫中的資料表。
-- **開始**和**結束**日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**end** 時間為選擇性項目，但在本教學課程中會用到。如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考](https://msdn.microsoft.com/library/dn835050.aspx)。
+- **開始**和**結束**日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**結束**時間是選擇性的。如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考](https://msdn.microsoft.com/library/dn835050.aspx)。
 
 
 
@@ -324,4 +328,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

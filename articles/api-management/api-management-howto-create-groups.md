@@ -106,4 +106,4 @@ API 管理具有下列不可變的系統群組。
 [建立 API 管理服務執行個體]: api-management-get-started.md
 [開始使用 Azure API 管理]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

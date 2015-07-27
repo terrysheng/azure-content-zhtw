@@ -118,7 +118,7 @@
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-###建立工作 \ 作業
+###建立工作 / 作業
 
 工作 (Job) 是一個實體，其中包含一組工作 (Task，例如編碼或編製索引) 的相關中繼資料。每一項工作 (Task) 會對輸入資產執行不可部分完成的作業。如需如何建立編碼工作 (Job) 的範例，請參閱：
 
@@ -220,4 +220,4 @@ Publish assets (by creating Locators) 使用 **Azure 管理入口網站**、**.N
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

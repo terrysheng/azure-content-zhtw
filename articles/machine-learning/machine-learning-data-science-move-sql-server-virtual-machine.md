@@ -2,7 +2,6 @@
 	pageTitle="將資料移至 Azure 上的 SQL Server | Microsoft Azure" 
 	description="將資料移至 Azure 上的 SQL Server" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="msolhab" 
 	manager="paulettm" 
@@ -43,7 +42,7 @@
   </td>
 </tr>
 <tr>
-  <td><b>內部部署的 SQL Server</b></td>
+  <td><b>內部部署 SQL Server</b></td>
   <td>
     1.<a href="#export-flat-file">匯出至一般檔案</a><br>
     2.<a href="#sql-migration">SQL Database 移轉精靈</a> <br>    
@@ -233,4 +232,4 @@ SQL Server Management Studio 的資料庫備份/還原選項的螢幕擷取畫�
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

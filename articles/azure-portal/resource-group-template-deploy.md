@@ -1,6 +1,6 @@
 <properties
    pageTitle="使用 Azure 資源管理員範本部署應用程式"
-   services="azure-portal"
+   services="azure-resource-manager"
    description="使用 Azure 資源管理員部署應用程式至 Azure。範本是 JSON 檔案，並可從入口網站、PowerShell、適用於 Mac、Linux 和 Windows 的 Azure 命令列介面，或 REST 來使用。"
    documentationCenter="na"
    authors="tfitzmac"
@@ -8,12 +8,12 @@
    editor=""/>
 
 <tags
-   ms.service="azure-portal"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員範本部署應用程式
@@ -58,7 +58,7 @@ Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在
 
 1. 登入您的 Azure 帳戶。提供您的認證之後，命令會傳回您的帳戶的相關資訊。
 
-        PS C:\> Add-AzureAccount
+        PS C:> Add-AzureAccount
 
         Id                             Type       ...
         --                             ----    
@@ -66,15 +66,15 @@ Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在
 
 2. 如果您有多個訂用帳戶，請提供您想要用於部署的訂用帳戶識別碼。
 
-        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+        PS C:> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
 
 3. 切換至 Azure 資源管理員模組。
 
-        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:> Switch-AzureMode AzureResourceManager
 
 4. 如果您沒有現有資源群組，請建立新的資源群組。提供您的解決方案所需的資源群組名稱和位置。隨即傳回新資源群組的摘要。
 
-        PS C:\> New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
+        PS C:> New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
    
         ResourceGroupName : ExampleResourceGroup
         Location          : westus
@@ -92,16 +92,16 @@ Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在
    
      - 使用內嵌參數。
 
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
+            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
      - 使用參數物件。
 
-            PS C:\> $parameters = @{"<ParameterName>"="<Parameter Value>"}
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
+            PS C:> $parameters = @{"<ParameterName>"="<Parameter Value>"}
+            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
 
      - 使用參數檔案。如需範本檔案的相關資訊，請參閱[參數檔案](./#parameter-file)。
 
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
+            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
 
      部署資源群組之後，您會看到部署的摘要。
 
@@ -114,11 +114,11 @@ Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在
 
 6. 取得部署失敗的相關資訊。
 
-        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
+        PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
 
 7. 取得部署失敗的詳細資訊。
 
-        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+        PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
 
 ## 以適用於 Mac、Linux 和 Windows 的 Azure CLI 部署
 
@@ -256,4 +256,4 @@ Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

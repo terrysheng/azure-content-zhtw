@@ -3,7 +3,7 @@
 	description="了解如何利用商業智慧元件和使用 Power Query for Excel 來存取 HDInsight 上的 Hadoop 中儲存的資料。"
 	services="hdinsight"
 	documentationCenter=""
-	authors="bradsev"
+	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
-	ms.author="bradsev"/>
+	ms.date="07/09/2015"
+	ms.author="jgao"/>
 
 
 #使用 Power Query 將 Excel 連接到 Hadoop
@@ -86,4 +86,4 @@ Power Query add-in for Excel 可協助您將 HDInsight 叢集中的資料匯入�
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,20 +14,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
 # 使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器
 
 > [AZURE.SELECTOR]
-- [Azure Portal](virtual-machines-linux-tutorial.md)
+- [Azure CLI](virtual-machines-linux-tutorial.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
-下列步驟將示範如何使用建置組塊自訂一組 Azure PowerShell 命令，建立和預先設定以 Linux 為基礎的 Azure 虛擬機器。您可以使用此程序，對於以 Linux 為基礎的新虛擬機器建立命令集合，並擴充現有部署，或建立快速建置自訂開發/測試或 IT 專業環境的多個命令集。
+下列步驟將示範如何使用建置組塊方法，自訂一組 Azure PowerShell 命令，用來在服務管理中建立和預先設定以 Linux 為基礎的 Azure 虛擬機器。您可以使用此程序，對於以 Linux 為基礎的新虛擬機器建立命令集合，並擴充現有部署，或建立快速建置自訂開發/測試或 IT 專業環境的多個命令集。
 
-這些步驟遵循建立 Azure PowerShell 命令集合的填空方法。如果您剛使用 PowerShell 或只想知道可指定哪些值來成功設定組態，這個方法相當實用。進階的 PowerShell 使用者可以使用命令並取代本身的變數值 (以「$」為開頭的行)。
+這些步驟遵循建立 Azure PowerShell 命令集合的填空方法。如果您剛使用 Azure PowerShell 或只想知道可指定哪些值來成功設定組態，這個方法相當實用。進階的 Azure PowerShell 使用者可以使用命令並取代本身的變數值 (以「$」為開頭的行)。
 
-如需設定以 Windows 為基礎的虛擬機器系列主題，請參閱[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)。
+如需設定以 Windows 為基礎的虛擬機器系列主題，請參閱《[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)》。
 
 ## 步驟 1：安裝 Azure PowerShell
 
@@ -257,8 +258,8 @@
 
 [如何登入執行 Linux 的虛擬機器](virtual-machines-linux-how-to-log-on.md)
 
-[使用 Azure PowerShell 建立和預先設定 Windows 型虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)
+[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

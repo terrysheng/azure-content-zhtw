@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="在 Azure 中使用 TFS 來連續傳遞雲端服務" 
-	description="了解如何設定 Azure 雲端應用程式的連續傳遞。MSBuild 命令列陳述式和 PowerShell 指令碼的程式碼範例。" 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="kempb" 
-	manager="douge" 
+<properties
+	pageTitle="在 Azure 中使用 TFS 來連續傳遞雲端服務"
+	description="了解如何設定 Azure 雲端應用程式的連續傳遞。MSBuild 命令列陳述式和 PowerShell 指令碼的程式碼範例。"
+	services="cloud-services"
+	documentationCenter=""
+	authors="kempb"
+	manager="douge"
 	editor="tglee"/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/07/2015"
 	ms.author="kempb"/>
 
 # Azure 中雲端服務的連續傳遞
@@ -33,7 +33,7 @@
 1.  在組建伺服器上，安裝 [.NET Framework 4][]、[.NET Framework 4.5][] 或 [.NET Framework 4.5.2][]，其包括 MSBuild。
 2.  安裝 [Azure 製作工具][] (尋找 MicrosoftAzureAuthoringTools-x86.msi 或 MicrosoftAzureAuthoringTools-x64.msi，視組建伺服器的處理器而定)。舊版檔案的檔案名稱中可能有 WindowsAzure。
 3. 安裝 [Azure 程式庫][] (尋找 MicrosoftAzureLibsForNet-x86.msi 或 MicrosoftAzureLibsForNet-x64.msi)。
-4.  將 Microsoft.WebApplication.targets 檔案從 Visual Studio 安裝複製至組建伺服器。在已安裝 Visual Studio 的電腦上，此檔案位於目錄 C:\Program Files(x86)\MSBuild\Microsoft\VisualStudio\v11.0\WebApplications (Visual Studio 2013 為 WebApplications V12.0)。您應該將它複製至組建伺服器上的相同目錄。
+4.  將 Microsoft.WebApplication.targets 檔案從 Visual Studio 安裝複製至組建伺服器。在已安裝 Visual Studio 的電腦上，此檔案位於目錄 C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications (Visual Studio 2013 為 WebApplications V12.0)。您應該將它複製至組建伺服器上的相同目錄。
 5.  安裝 [Azure Tools for Visual Studio][]。尋找 MicrosoftAzureTools.VS110.exe 來建置 Visual Studio 2012 專案，尋找 MicrosoftAzureTools.VS120.exe 來建置 Visual Studio 2013 專案，以及尋找 MicrosoftAzureTools.VS140.exe 來建置 Visual Studio 2015 預覽專案。
 
 ## 步驟 2：使用 MSBuild 命令建置封裝
@@ -42,7 +42,7 @@
 
 1.  如果組建伺服器上已安裝 Visual Studio，請按一下 [開始]、[所有程式]，然後在 [Visual Studio Tools] 資料夾中找出並按一下 [Visual Studio Commmand Prompt]。
 
-    如果組建伺服器上未安裝 Visual Studio，請開啟命令提示字元，並確定可在路徑上存取 MSBuild.exe。MSBuild 會與 .NET Framework 一起安裝在路徑 %WINDIR%\Microsoft.NET\Framework*Version* 中。例如，若要在已安裝 .NET Framework 4 時，將 MSBuild.exe 新增至 PATH 環境變數，請在命令提示字元中輸入下列命令：
+    如果組建伺服器上未安裝 Visual Studio，請開啟命令提示字元，並確定可在路徑上存取 MSBuild.exe。MSBuild 會與 .NET Framework 一起安裝在路徑 %WINDIR%\\Microsoft.NET\\Framework\\*Version* 中。例如，若要在已安裝 .NET Framework 4 時，將 MSBuild.exe 新增至 PATH 環境變數，請在命令提示字元中輸入下列命令：
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
@@ -56,7 +56,7 @@
 
     (選擇性) 您可以指定專案名稱作為 MSBuild 參數。如果未指定，則會使用目前目錄。如需 MSBuild 命令列選項的詳細資訊，請參閱 [MSBuild 命令列參考][1]。
 
-4.  尋找輸出。依預設，此命令會建立相對於專案根資料夾的目錄，例如 *ProjectDir*\bin*Configuration*\app.publish\。當您建置 Azure 專案時，會產生兩個檔案，即套件檔本身及伴隨的組態檔：
+4.  尋找輸出。依預設，此命令會建立相對於專案根資料夾的目錄，例如 *ProjectDir*\\bin\\*Configuration*\\app.publish\\。當您建置 Azure 專案時，會產生兩個檔案，即套件檔本身及伴隨的組態檔：
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -67,9 +67,9 @@
 
         MSBuild /t:Publish /p:TargetProfile=Cloud
 
-6.  指定輸出的位置。使用 /p:PublishDir=*Directory*\ 選項來設定路徑 (包括最後的反斜線分隔符號)，如下列範例所示：
+6.  指定輸出的位置。使用 /p:PublishDir=*Directory*\\ 選項來設定路徑 (包括最後的反斜線分隔符號)，如下列範例所示：
 
-        MSBuild /target:Publish /p:PublishDir=\myserver\drops\
+        MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
 
     一旦建構並測試出適當的 MSBuild 命令列來建置專案並將它們結合為 Azure 套件，就可以將此命令新增至組建指令碼。如果您的組建伺服器使用自訂指令碼，則此程序將視您自訂建置流程的特性而定。如果您是使用 TFS 作為組建環境，則可以遵循下一步中的指示，將 Azure 套件新增至組建程序。
 
@@ -79,7 +79,7 @@
 
 若要設定 TFS 來建置 Azure 套件，請執行下列步驟：
 
-1.  在開發電腦上的 Visual Studio 中，於 [檢視] 功能表上，選取 [**Team Explorer**] 或選取 Ctrl+\、Ctrl+M。在 Team Explorer 視窗中，展開 [**組建**] 節點或選擇 [**組建**] 頁面，然後選擇 [**新增組建定義**]。
+1.  在開發電腦上的 Visual Studio 中，於 [檢視] 功能表上，選取 [**Team Explorer**] 或選取 Ctrl+\\、Ctrl+M。在 Team Explorer 視窗中，展開 [**組建**] 節點或選擇 [**組建**] 頁面，然後選擇 [**新增組建定義**]。
 
     ![][0]
 
@@ -91,7 +91,7 @@
 
 5.  按一下 [處理序] 索引標籤。在 [處理序] 索引標籤上選擇預設範本，於 [**組建**] 下，選擇專案 (若尚未選取)，然後展開格線 [**組建**] 區段中的 [**進階**]。
 
-6.  選擇 [MSBuild 引數]，然後依上面步驟 2 所述，設定適當的 MSBuild 命令列引數。例如，輸入 **/t:Publish /p:PublishDir=\myserver\drops** 以建置套件，並將套件檔複製至位置 \myserver\drops\：
+6.  選擇 [MSBuild 引數]，然後依上面步驟 2 所述，設定適當的 MSBuild 命令列引數。例如，輸入 **/t:Publish /p:PublishDir=\\\\myserver\\drops\** 以建置套件，並將套件檔複製至位置 \\\\myserver\\drops\\：
 
     ![][2]
 
@@ -113,7 +113,7 @@
 
 4.  從 .publishsettings 檔匯入您的訂閱資訊，以確認可以連線至自己的 Azure 訂閱。
 
-    Import-AzurePublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings
+    Import-AzurePublishSettingsFile c:\\scripts\\WindowsAzure\\default.publishsettings
 
     然後，提供以下命令
 
@@ -121,7 +121,7 @@
 
     如此會顯示訂閱的相關資訊。確認一切正確無誤。
 
-4.  將[本文結尾][]提供的指令碼範本儲存至您的指令碼資料夾，如 c:\scripts\WindowsAzure**PublishCloudService.ps1**。
+4.  將[本文結尾][]提供的指令碼範本儲存至您的指令碼資料夾，如 c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**。
 
 5.  檢閱指令碼的參數區段。新增或修改任何預設值。您永遠可以傳遞明確參數來覆寫這些值。
 
@@ -295,7 +295,7 @@
 	            </Sequence.Variables>
 	            <mtbwa:ConvertWorkspaceItem DisplayName="Convert publish script filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_1" Input="[PublishScriptLocation]" Result="[PublishScriptFilePath]" Workspace="[Workspace]" />
 	            <mtbwa:ConvertWorkspaceItem DisplayName="Convert subscription filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_2" Input="[SubscriptionDataFileLocation]" Result="[SubscriptionDataFilePath]" Workspace="[Workspace]" />
-	            <mtbwa:InvokeProcess Arguments="[String.Format(&quot; -File &quot;&quot;{0}&quot;&quot; -serviceName {1}&#xD;&#xA;            -storageAccountName {2} -packageLocation &quot;&quot;{3}&quot;&quot;&#xD;&#xA;            -cloudConfigLocation &quot;&quot;{4}&quot;&quot; -subscriptionDataFile &quot;&quot;{5}&quot;&quot;&#xD;&#xA;            -selectedSubscription {6} -environment &quot;&quot;{7}&quot;&quot;&quot;,&#xD;&#xA;            PublishScriptFilePath, ServiceName, StorageAccountName,&#xD;&#xA;            PackageLocation, CloudConfigLocation,&#xD;&#xA;            SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="'Execute Publish Script'" FileName="[PowerShell]" sap2010:WorkflowViewState.IdRef="InvokeProcess_1">
+	            <mtbwa:InvokeProcess Arguments="[String.Format("; -File ";";{0}";"; -serviceName {1}&#xD;&#xA;            -storageAccountName {2} -packageLocation ";";{3}";";&#xD;&#xA;            -cloudConfigLocation ";";{4}";"; -subscriptionDataFile ";";{5}";";&#xD;&#xA;            -selectedSubscription {6} -environment ";";{7}";";";,&#xD;&#xA;            PublishScriptFilePath, ServiceName, StorageAccountName,&#xD;&#xA;            PackageLocation, CloudConfigLocation,&#xD;&#xA;            SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="'Execute Publish Script'" FileName="[PowerShell]" sap2010:WorkflowViewState.IdRef="InvokeProcess_1">
 	              <mtbwa:InvokeProcess.ErrorDataReceived>
 	                <ActivityAction x:TypeArguments="x:String">
 	                  <ActivityAction.Argument>
@@ -325,11 +325,11 @@
 
 9.  在 Misc 區段中設定如下參數屬性值：
 
-    1.  CloudConfigLocation ='c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg' *此值衍生自：($PublishDir)ServiceConfiguration.Cloud.cscfg*
+    1.  CloudConfigLocation ='c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg' *此值衍生自：($PublishDir)ServiceConfiguration.Cloud.cscfg*
 
-    2.  PackageLocation = 'c:\drops\app.publish\ContactManager.Azure.cspkg' *此值衍生自：($PublishDir)($ProjectName).cspkg*
+    2.  PackageLocation = 'c:\\drops\\app.publish\\ContactManager.Azure.cspkg' *此值衍生自：($PublishDir)($ProjectName).cspkg*
 
-    3.  PublishScriptLocation = 'c:\scripts\WindowsAzure\PublishCloudService.ps1'
+    3.  PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
 
     4.  ServiceName = 'mycloudservicename' *在這裡使用適當的雲端服務名稱*
 
@@ -337,7 +337,7 @@
 
     6.  StorageAccountName = 'mystorageaccountname' *在這裡使用適當的儲存體帳戶名稱*
 
-    7.  SubscriptionDataFileLocation = 'c:\scripts\WindowsAzure\Subscription.xml'
+    7.  SubscriptionDataFileLocation = 'c:\\scripts\\WindowsAzure\\Subscription.xml'
 
     8.  SubscriptionName = 'default'
 
@@ -349,7 +349,7 @@
 
 ### PublishCloudService.ps1 指令碼範本
 
-<pre>
+```
 Param(  $serviceName = "",
         $storageAccountName = "",
         $packageLocation = "",
@@ -362,41 +362,41 @@ Param(  $serviceName = "",
         $selectedsubscription = "default",
         $subscriptionDataFile = ""
      )
-      
+
 
 function Publish()
 {
-	$deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot -ErrorVariable a -ErrorAction silentlycontinue 
+	$deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot -ErrorVariable a -ErrorAction silentlycontinue
     if ($a[0] -ne $null)
     {
-        Write-Output "$(Get-Date -f $timeStampFormat) - No deployment is detected.Creating a new deployment. "
+        Write-Output "$(Get-Date -f $timeStampFormat) - No deployment is detected. Creating a new deployment. "
     }
     #check for existing deployment and then either upgrade, delete + deploy, or cancel according to $alwaysDeleteExistingDeployments and $enableDeploymentUpgrade boolean variables
 	if ($deployment.Name -ne $null)
 	{
 		switch ($alwaysDeleteExistingDeployments)
 	    {
-	        1 
+	        1
 			{
                 switch ($enableDeploymentUpgrade)
                 {
                     1  #Update deployment inplace (usually faster, cheaper, won't destroy VIP)
                     {
-                        Write-Output "$(Get-Date -f $timeStampFormat) - Deployment exists in $servicename. Upgrading deployment."
+                        Write-Output "$(Get-Date -f $timeStampFormat) - Deployment exists in $servicename.  Upgrading deployment."
 				        UpgradeDeployment
                     }
                     0  #Delete then create new deployment
                     {
-                        Write-Output "$(Get-Date -f $timeStampFormat) - Deployment exists in $servicename. Deleting deployment."
+                        Write-Output "$(Get-Date -f $timeStampFormat) - Deployment exists in $servicename.  Deleting deployment."
 				        DeleteDeployment
                         CreateNewDeployment
-                        
+
                     }
                 } # switch ($enableDeploymentUpgrade)
 			}
 	        0
 			{
-				Write-Output "$(Get-Date -f $timeStampFormat) - ERROR: Deployment exists in $servicename. Script execution cancelled."
+				Write-Output "$(Get-Date -f $timeStampFormat) - ERROR: Deployment exists in $servicename.  Script execution cancelled."
 				exit
 			}
 	    } #switch ($alwaysDeleteExistingDeployments)
@@ -411,13 +411,13 @@ function CreateNewDeployment()
 	Write-Output "$(Get-Date -f $timeStampFormat) - Creating New Deployment: In progress"
 
 	$opstat = New-AzureDeployment -Slot $slot -Package $packageLocation -Configuration $cloudConfigLocation -label $deploymentLabel -ServiceName $serviceName
-	    
+
     $completeDeployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
     $completeDeploymentID = $completeDeployment.deploymentid
 
     write-progress -id 3 -activity "Creating New Deployment" -completed -Status "Complete"
 	Write-Output "$(Get-Date -f $timeStampFormat) - Creating New Deployment: Complete, Deployment ID: $completeDeploymentID"
-    
+
 	StartInstances
 }
 
@@ -428,10 +428,10 @@ function UpgradeDeployment()
 
     # perform Update-Deployment
 	$setdeployment = Set-AzureDeployment -Upgrade -Slot $slot -Package $packageLocation -Configuration $cloudConfigLocation -label $deploymentLabel -ServiceName $serviceName -Force
-    
+
     $completeDeployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
     $completeDeploymentID = $completeDeployment.deploymentid
-    
+
     write-progress -id 3 -activity "Upgrading Deployment" -completed -Status "Complete"
 	Write-Output "$(Get-Date -f $timeStampFormat) - Upgrading Deployment: Complete, Deployment ID: $completeDeploymentID"
 }
@@ -447,7 +447,7 @@ function DeleteDeployment()
 
 	write-progress -id 2 -activity "Deleting Deployment: Complete" -completed -Status $removeDeployment
 	Write-Output "$(Get-Date -f $timeStampFormat) - Deleting Deployment: Complete"
-	
+
 }
 
 function StartInstances()
@@ -458,13 +458,13 @@ function StartInstances()
     $deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
     $runstatus = $deployment.Status
 
-    if ($runstatus -ne 'Running') 
+    if ($runstatus -ne 'Running')
     {
 	    $run = Set-AzureDeployment -Slot $slot -ServiceName $serviceName -Status Running
     }
 	$deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
 	$oldStatusStr = @("") * $deployment.RoleInstanceList.Count
-	
+
 	while (-not(AllInstancesRunning($deployment.RoleInstanceList)))
 	{
 		$i = 1
@@ -502,10 +502,10 @@ function StartInstances()
 
 		$i = $i + 1
 	}
-	
+
     $deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
-	$opstat = $deployment.Status 
-	
+	$opstat = $deployment.Status
+
 	write-progress -id 4 -activity "Starting Instances" -completed -status $opstat
 	Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instances: $opstat"
 }
@@ -519,7 +519,7 @@ function AllInstancesRunning($roleInstanceList)
 			return $false
 		}
 	}
-	
+
 	return $true
 }
 
@@ -538,7 +538,7 @@ $subscriptionname = $subscription.subscriptionname
 $subscriptionid = $subscription.subscriptionid
 $slot = $environment
 
-#main driver - publish &amp; write progress to activity log
+#main driver - publish & write progress to activity log
 Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy script started."
 Write-Output "$(Get-Date -f $timeStampFormat) - Preparing deployment of $deploymentLabel for $subscriptionname with Subscription ID $subscriptionid."
 
@@ -549,7 +549,7 @@ $deploymentUrl = $deployment.Url
 
 Write-Output "$(Get-Date -f $timeStampFormat) - Created Cloud Service with URL $deploymentUrl."
 Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy script finished."
-</pre>
+```
 
 ## 後續步驟
 
@@ -572,11 +572,10 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [Azure PowerShell Cmdlet]: http://go.microsoft.com/fwlink/?LinkId=256262
   [the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
   [本文結尾]: #script
-  
+
   [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png
   [4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

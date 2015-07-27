@@ -13,10 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/20/2015"
+   ms.date="07/07/2015"
    ms.author="prkumar"/>
 
 #連接器#
+
+> [AZURE.NOTE]將淘汰此主題。請參閱[連接器和 API 應用程式清單](app-service-logic-connectors-list.md)以查看所有可用的內建連接器和 API 應用程式。
+
+
 連接器是 API 應用程式，可讓您連接到執行於雲端或內部部署的資料和服務。連接器可讓您透過各種可在邏輯應用程式和其他應用程式中輕鬆存取的內建觸發程序和動作，來取得所需資料。
 
 Azure 應用程式服務提供許多現成連接器：
@@ -46,14 +50,16 @@ Azure 應用程式服務提供許多現成連接器：
 * [SugarCRM 連接器]
 * [Twilio 連接器]
 * [Twitter 連接器]
-* Wait 連接器
+* [Wait 連接器]
 * [Yammer 連接器]
+
 
 ##高階連接器和 API 應用程式##
 * [AS2 連接器]
 * [BizTalk EDIFACT]
 * [BizTalk 一般檔案編碼器]
-* BizTalk 轉換服務
+* [BizTalk JSON 編碼器]
+* [BizTalk 轉換服務]
 * [BizTalk 規則]
 * [BizTalk X12]
 * [BizTalk XPath 擷取程式]
@@ -112,7 +118,10 @@ Azure 應用程式服務提供許多現成連接器：
 [BizTalk XML 驗證器]: app-service-logic-xml-validator.md
 [BizTalk 規則]: app-service-logic-use-biztalk-rules.md
 [AS2 連接器]: app-service-logic-connector-as2.md
-[BizTalk EDIFACT]: app-service-logic-connector-edifact
+[BizTalk EDIFACT]: app-service-logic-connector-edifact.md
 [BizTalk X12]: app-service-logic-connector-x12.md
+[JSON Encoder]: app-service-logic-json-encoder.md
+[BizTalk 轉換服務]: app-service-logic-transform-xml-documents.md
+[Wait 連接器]: app-service-logic-wait.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

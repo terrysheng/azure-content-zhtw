@@ -65,7 +65,7 @@
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>每個訂用帳戶在每個區域的<a href="http://azure.microsoft.com/services/batch/">批次預覽</a>帳戶</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/services/batch/">批次</a>帳戶 (每一地區的每一訂用帳戶)</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>
 </tr>
@@ -73,4 +73,4 @@
 
 <sup>1</sup>雖然只使用部分核心，在計算核心限制時，仍會將超小型執行個體視為一個核心。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

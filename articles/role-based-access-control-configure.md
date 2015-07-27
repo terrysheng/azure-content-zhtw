@@ -1,28 +1,28 @@
-<properties 
-	pageTitle="Microsoft Azure 入口網站中的角色型存取控制" 
-	description="說明角色型存取控制的運作和設定方式" 
-	services="" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="terrylan" 
+<properties
+	pageTitle="Microsoft Azure 入口網站中的角色型存取控制"
+	description="說明角色型存取控制的運作和設定方式"
+	services=""
+	documentationCenter=""
+	authors="Justinha"
+	manager="terrylan"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="Ibiza" 
-	ms.workload="infrastructure-services" 
-	ms.date="05/05/2015" 
+<tags
+	ms.service="multiple"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="Ibiza"
+	ms.workload="infrastructure-services"
+	ms.date="06/29/2015"
 	ms.author="justinha"/>
 
-# Microsoft Azure 入口網站中的角色型存取控制 
+# Microsoft Azure 入口網站中的角色型存取控制
 
 我們在 Microsoft Azure 入口網站中新增了對角色型存取控制 (RBAC) 的支援，希望協助組織輕鬆又準確地滿足其存取管理需求。此[部落格文章](http://go.microsoft.com/fwlink/?LinkId=511576)將快速介紹各項功能，讓您有初步了解。本主題詳細說明各項概念，並涵蓋其他使用案例。
 
 
 ## Azure 中的 RBAC
-                                                                   
+
 每一個 Azure 訂閱都與 Azure Active Directory 相關聯。透過 Microsoft Azure 管理入口網站或是 Azure 資源管理員 API 來存取訂閱資源的使用者與服務，都必須先向 Azure Active Directory 進行驗證。
 
 ![][1]
@@ -43,7 +43,7 @@ Azure 角色型存取控制可讓您將角色指派給訂閱、資源群組或�
 
 + **使用者**：您可以將角色指派給 Azure AD 內與 Azure 訂閱相關聯的組織使用者。您也可以透過 Invite 動作為使用者指派 Azure 入口網站內的某個角色，以將角色指派給外部 Microsoft 帳戶使用者 (例如 joe@outlook.com)。將角色指派給外部 Microsoft 帳戶使用者會導致 Azure AD 中為該角色建立來賓帳戶。當目錄停用此來賓帳戶時，外部使用者將無法存取該使用者已經獲得存取授權的任何 Azure 資源。
 + **群組**：您可以將角色指派給 Azure AD 安全性群組。當使用者成為具有存取權限的群組成員時，系統會自動為該使用者授予資源存取權限。但當系統將該使用者從群組中移除時，該使用者也會自動喪失對資源的存取權限。將角色指派給群組並將使用者新增至這些群組，而非將角色直接指派給使用者，是透過群組來管理存取權限的最佳方式。Azure RBAC 不允許將角色指派給散佈清單。將角色指派給群組的能力，可讓組織將其現有的存取控制模型從內部部署目錄延伸到雲端，這樣您便可重複使用之前建立來控制存取內部部署環境的安全性群組來控制 Azure 入口網站中的資源存取權限。如需從內部部署目錄同步使用者與群組的不同選項詳細資訊，請參閱[目錄整合](http://technet.microsoft.com/library/jj573653.aspx)。Azure AD Premium 同時提供了[委派的群組管理功能](http://msdn.microsoft.com/library/azure/dn641267.aspx)相關文章，讓您得以建立並管理可以從 Azure AD 委派給非管理員使用者的群組。
-+ **服務主體**：目錄中會以服務主體來代表服務身分。這些身分負責向 Azure AD 驗證，並會安全地與彼此通訊。您可以透過 Azure module for Windows PowerShell，將角色指派給代表該服務的 Azure AD 服務主體，為服務授予 Azure 資源的存取權限。 
++ **服務主體**：目錄中會以服務主體來代表服務身分。這些身分負責向 Azure AD 驗證，並會安全地與彼此通訊。您可以透過 Azure module for Windows PowerShell，將角色指派給代表該服務的 Azure AD 服務主體，為服務授予 Azure 資源的存取權限。
 
 #### 資源範圍
 
@@ -73,7 +73,7 @@ Azure 角色型存取控制可讓您將角色指派給訂閱、資源群組或�
 
 以下摘要說明存取需求以及如何在 Azure 中設定這些存取需求。
 
-使用者/群組 | 存取需求 | 存取角色與範圍	
+使用者/群組 | 存取需求 | 存取角色與範圍
 ------------- | -------------  | ------------
 Jill Santos 的整個團隊 | 讀取所有 Azure 資源 | 將代表 Jill Santos 團隊的 AD 群組新增至 Azure 訂閱的讀取者角色
 Jill Santos 的整個團隊 | 建立並管理 Test 資源群組中的所有資源 | 將代表 Jill Santos 團隊的 AD 群組新增至 Test 資源群組的參與者角色
@@ -98,7 +98,7 @@ Brock | 建立並管理 Prod 資源群組中的所有資源 | 將 Brock 新增�
 
 角色指派也可以透過 Microsoft Azure module for Windows PowerShell 進行管理。以下舉例說明如何使用 New-AzureRoleAssignment Cmdlet (而非透過入口網站)，新增 Brock 帳戶：
 
-	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
+	PS C:> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
 如需使用 Windows PowerShell 來新增並移除存取權限的詳細資訊，請參閱[使用 Windows PowerShell 管理角色型存取控制](role-based-access-control-powershell.md) (英文)。
 
@@ -110,7 +110,7 @@ Brock | 建立並管理 Prod 資源群組中的所有資源 | 將 Brock 新增�
 
 以下舉例說明如何使用 Remove-AzureRoleAssignment Cmdlet 移除 Brad Adams：
 
-	PS C:\> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
+	PS C:> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
 
 ### 為外部使用者新增或移除存取權限
 
@@ -137,7 +137,296 @@ Brock | 建立並管理 Prod 資源群組中的所有資源 | 將 Brock 新增�
 當您新增外部使用者時，目錄會自動建立一位來賓。此後，系統會將該名來賓新增至群組或從群組中將之移除，或者您可以從角色中加以個別新增或移除，就像您對其他任何目錄使用者所做的處理一樣。
 
 您也可以從任何角色中移除來賓，就像您移除其他使用者一樣。從資源角色中移除來賓，並不會從目錄中一併移除該來賓。
- 
+
+## 如何追蹤角色指派的變更
+
+角色指派的變更都會記錄在[稽核記錄檔](http://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/)中，就如同其他事件。您可以使用 [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx) 或 [Azure 資源管理員 REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx) 來抓取角色指派變更的記錄檔。
+
+例如，若要抓取整個訂用帳戶的角色指派變更清單，請使用 Azure PowerShell 執行下列兩個 Cmdlet。第一個會切換為「Azure 資源管理員」模式。
+
+`Switch-AzureMode -name AzureResourceManager`
+
+`Get-AzureSubscriptionIdLog –DetailedOutput -StartTime '06-15-15' -EndTime '06-29-15'`
+
+系統會在 ResourceProviderName 為 `Microsoft.Authorization` 的事件中擷取角色指派變更。系統會在事件詳細資料擷取指派的實際詳細資料：已指派哪些主體、指派給哪些角色、針對哪些領域。瀏覽入口網站中的稽核記錄檔時，可以看到角色指派變更，但入口網站不會顯示事件詳細資料。若要檢視事件詳細資料，您必須使用 Azure PowerShell。
+
+###事件詳細資料
+
+以下是角色指派變更的事件詳細資料範例：
+
+```
+Authorization        :
+                       Scope     : /subscriptions/ff945b8d-441a-41ef-a9db-7bd5fcc99978/resourceGroups/Default-Storage-W
+                       estUS/providers/Microsoft.ClassicStorage/storageAccounts/authzwaes/providers/Microsoft.Authoriza
+                       tion/roleAssignments/531f036a-37ff-40c1-9bb9-aa580ebe7e78
+                       Action    : Microsoft.Authorization/roleAssignments/write
+                       Role      : Subscription Admin
+                       Condition :
+Caller               : William.Hennum@contoso.com
+Claims               :
+                       aud            : https://management.core.windows.net/
+                       iss            : https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/
+                       iat            : 1435333533
+                       nbf            : 1435333533
+                       exp            : 1435337433
+                       ver            : 1.0
+                       http://schemas.microsoft.com/identity/claims/tenantid: 72f988bf-86f1-41af-91ab-2d7cd011db47
+                       http://schemas.microsoft.com/identity/claims/objectidentifier:
+                       dda50086-5e3d-4a4b-b8bc-f54771104d89
+                       http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn: William.Hennum@contoso.com
+                       puid           : 10030000803CDC0B
+                       http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier:
+                       MJwntjqWaULfl30NJMiDRVSVCWMX5GzmMNU4oqitDXs
+                       http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname: William
+                       http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname: Hennum
+                       name           : William Hennum
+                       http://schemas.microsoft.com/claims/authnmethodsreferences: rsa,wia,mfa
+                       _claim_names   : {"groups":"src1"}
+                       _claim_sources : {"src1":{"endpoint":"https://graph.windows.net/72f988bf-86f1-41af-91ab-2d7cd011
+                       db47/users/dda50086-5e3d-4a4b-b8bc-f54771104d89/getMemberObjects"}}
+                       http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name: William.Hennum@contoso.com
+                       onprem_sid     : S-1-5-21-1721254763-462695806-1538882281-3175325
+                       appid          : c44b4083-3bb0-49c1-b47d-974e53cbdf3c
+                       appidacr       : 2
+                       http://schemas.microsoft.com/identity/claims/scope: user_impersonation
+                       http://schemas.microsoft.com/claims/authnclassreference: 1
+CorrelationId        : d724ffd0-31a4-4564-941b-f3a5d32ad8a4
+Description          :
+EventChannels        : Operation
+EventDataId          : ed8e79b6-c7d1-4332-adcf-70d37546c5a6
+EventName            : BeginRequest
+EventSource          : Administrative
+EventTimestamp       : 6/26/2015 3:53:34 PM
+HttpRequest          :
+                       ClientId        : F7272386-295A-4545-96BD-21F0856A43FE
+                       Method          : PUT
+                       Url             :
+                       ClientIpAddress : 23.99.81.159
+Id                   : /subscriptions/ff945b8d-441a-41ef-a9db-7bd5fcc99978/resourceGroups/Default-Storage-WestUS/provid
+                       ers/Microsoft.ClassicStorage/storageAccounts/authzwaes/providers/Microsoft.Authorization/roleAss
+                       ignments/531f036a-37ff-40c1-9bb9-aa580ebe7e78/events/ed8e79b6-c7d1-4332-adcf-70d37546c5a6/ticks/
+                       635709308140011864
+Level                : Informational
+OperationId          : d724ffd0-31a4-4564-941b-f3a5d32ad8a4
+OperationName        : Microsoft.Authorization/roleAssignments/write
+Properties           :
+                       requestbody    : {"Id":"531f036a-37ff-40c1-9bb9-aa580ebe7e78","Properties":{"PrincipalId":"dda50
+                       086-5e3d-4a4b-b8bc-f54771104d89","RoleDefinitionId":"/subscriptions/ff945b8d-441a-41ef-a9db-7bd5
+                       fcc99978/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7"
+                       ,"Scope":"/subscriptions/ff945b8d-441a-41ef-a9db-7bd5fcc99978/resourceGroups/Default-Storage-Wes
+                       tUS/providers/Microsoft.ClassicStorage/storageAccounts/authzwaes"}}
+ResourceGroupName    : Default-Storage-WestUS
+ResourceProviderName : Microsoft.Authorization
+ResourceId           : /subscriptions/ff945b8d-441a-41ef-a9db-7bd5fcc99978/resourceGroups/Default-Storage-WestUS/provid
+                       ers/Microsoft.ClassicStorage/storageAccounts/authzwaes/providers/Microsoft.Authorization/roleAss
+                       ignments/531f036a-37ff-40c1-9bb9-aa580ebe7e78
+Status               : Started
+SubmissionTimestamp  : 6/26/2015 3:53:50 PM
+SubscriptionId       : ff945b8d-441a-41ef-a9db-7bd5fcc99978
+SubStatus            :`
+```
+
+事件中資訊的解譯方式如下：
+
+| 欄位 | 值 | 詳細資料 |
+| --- | --- | --- |
+| 呼叫者 |	`William.Hennum@contoso.com` | 建立角色指派的主體。主體可以是使用者、群組或服務主體。
+| HttpRequest：方法 | `PUT` | 採取的動作。PUT 會授與指派，而 DELETE 會移除指派。 |
+| 屬性：PrincipalId | `dda50086-5e3d-4a4b-b8bc-f54771104d89` | 	指派給角色之主體的物件識別碼。主體可以是使用者、群組或服務主體。您可以使用 Azure PowerShell 查詢 Azure Active Directory 以判斷主體的名稱與類型。 |
+| 屬性：RoleDefinitionId |	`/subscriptions/ff945b8d-441a-41ef-a9db-7bd5fcc99978/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7	` | 指派的角色。您可以使用 Azure PowerShell 決定角色的顯示名稱。 |
+| 屬性：Scope | `/subscriptions/ff945b8d-441a-41ef-a9db-7bd5fcc99978/resourceGroups/Default-Storage-WestUS/providers/Microsoft.ClassicStorage/storageAccounts/authzwaes` |	接受角色指派的資源。這可以是資源、資源群組或訂用帳戶。 |
+
+###PowerShell 程式碼片段範例
+
+首先，以下是一些範例 Azure PowerShell 程式碼，此程式碼可將 PrincipalId 對應至名稱與類型：
+
+```
+# Sample - how to resolve a principal
+function Get-PrincipalDetails($principalId)
+{
+    $principalDetails = "" | select Name, Type
+    $user = Get-AzureADUser -ObjectId $principalId
+    if ($user) {
+        $principalDetails.Name = $user.DisplayName
+        $principalDetails.Type = "User"
+    } else {
+        $group = Get-AzureADGroup -ObjectId $principalId
+        if ($group) {
+            $principalDetails.Name = $group.DisplayName
+            $principalDetails.Type = "Group"
+        } else {
+            $servicePrincipal = Get-AZureADServicePrincipal -objectId $principalId
+            if ($servicePrincipal) {
+                $principalDetails.Name = $servicePrincipal.DisplayName
+                $principalDetails.Type = "Service Principal"
+            }
+        }
+    }
+
+    $principalDetails
+}
+```
+
+接下來，以下是一些範例 Azure PowerShell 程式碼，此程式碼可將 Scope 對應至資源名稱與類型：
+
+```
+# Sample - how to resolve a resource
+function Get-ResourceDetails($resourceId)
+{
+    $resourceDetails = "" | select Name, Type
+    $resource = Get-AzureResource -Id $resourceId -OutputObjectFormat New
+    if ($resource) {
+        if ($resource.ResourceName) {
+            $resourceDetails.Name = $resource.ResourceName
+            $resourceDetails.Type = "Resource"
+        } elseif ($resource.ResourceGroupName) {
+            $resourceDetails.Name = $resource.ResourceGroupName
+            $resourceDetails.Type = "Resource Group"
+        } elseif ($resource.SubscriptionId) {
+            $resourceDetails.Name = $resource.SubscriptionId
+            $resourceDetails.Type = "Subscription"
+        }
+    }
+    $resourceDetails
+}
+```
+接下來，以下是一些範例 Azure PowerShell 程式碼，此程式碼可將 RoleDefinitionId 對應至角色的顯示名稱：
+
+```
+
+# Get the name of a role
+function Get-AzureRoleDefinitionName($roleDefinitionId)
+{
+    if (!$Global:_azureRoleDefinitionCache) {
+        $Global:_azureRoleDefinitionCache = @{}
+        Get-AzureRoleDefinition | % { $Global:_azureRoleDefinitionCache[$_.Id] = $_; }
+    }
+
+    if ($Global:_azureRoleDefinitionCache[$roleDefinitionId]) {
+        return $Global:_azureRoleDefinitionCache[$roleDefinitionId].Name
+    } else {
+        return ""
+    }
+}
+
+```
+
+###Azure PowerShell 指令碼範例
+
+將上列範例結合在一起，以下範例指令碼會抓取指定日期範圍內的角色指派事件，並將它們輸出為表格：
+
+```
+# Sample - how to resolve a principal
+function Get-PrincipalDetails($principalId)
+{
+    $principalDetails = "" | select Name, Type
+    $user = Get-AzureADUser -ObjectId $principalId
+    if ($user) {
+        $principalDetails.Name = $user.DisplayName
+        $principalDetails.Type = "User"
+    } else {
+        $group = Get-AzureADGroup -ObjectId $principalId
+        if ($group) {
+            $principalDetails.Name = $group.DisplayName
+            $principalDetails.Type = "Group"
+        } else {
+            $servicePrincipal = Get-AZureADServicePrincipal -objectId $principalId
+            if ($servicePrincipal) {
+                $principalDetails.Name = $servicePrincipal.DisplayName
+                $principalDetails.Type = "Service Principal"
+            }
+        }
+    }
+
+    $principalDetails
+}
+# Sample - how to resolve a resource
+function Get-ResourceDetails($resourceId)
+{
+    $resourceDetails = "" | select Name, Type
+    $resource = Get-AzureResource -Id $resourceId -OutputObjectFormat New
+    if ($resource) {
+        if ($resource.ResourceName) {
+            $resourceDetails.Name = $resource.ResourceName
+            $resourceDetails.Type = "Resource"
+        } elseif ($resource.ResourceGroupName) {
+            $resourceDetails.Name = $resource.ResourceGroupName
+            $resourceDetails.Type = "Resource Group"
+        } elseif ($resource.SubscriptionId) {
+            $resourceDetails.Name = $resource.SubscriptionId
+            $resourceDetails.Type = "Subscription"
+        }
+    }
+    $resourceDetails
+}
+# Get the name of a role
+function Get-AzureRoleDefinitionName($roleDefinitionId)
+{
+    if (!$Global:_azureRoleDefinitionCache) {
+        $Global:_azureRoleDefinitionCache = @{}
+        Get-AzureRoleDefinition | % { $Global:_azureRoleDefinitionCache[$_.Id] = $_; }
+    }
+
+    if ($Global:_azureRoleDefinitionCache[$roleDefinitionId]) {
+        return $Global:_azureRoleDefinitionCache[$roleDefinitionId].Name
+    } else {
+        return ""
+    }
+}
+# Sample - output the list of role assignment events
+function Get-AzureRBACAuditLog($startDateTime, $endDateTime)
+{
+    $log = Get-AzureSubscriptionIdLog -DetailedOutput -StartTime $startDateTime -EndTime $endDateTime
+    $log = $log | ? { $_.ResourceProviderName -ieq "Microsoft.Authorization" }
+    $startEvents = $log | ? { $_.httpRequest -and $_.Status -ieq "Started" }
+    $endEvents = @{}
+    $log | ? { $_.httpRequest -and $_.Status -ne "Started" } | % { $endEvents[$_.OperationId] = $_ }
+
+    $startEvents | ? { $endEvents.ContainsKey($_.OperationId) } | % {
+        $endEvent = $endEvents[$_.OperationId];
+        $out = "" | select Timestamp, Caller, Action, PrincipalId, PrincipalName, PrincipalType, RoleName, Scope, ScopeName, ScopeType, RoleDefinitionId
+        $out.Timestamp = $endEvent.EventTimestamp
+        $out.Caller = $_.Caller
+        if ($_.HttpRequest.Method -ieq "PUT") {
+            $out.Action = "Granted"
+            if ($_.Properties.Content.ContainsKey("requestbody")) {
+                $messageBody = ConvertFrom-Json $_.Properties.Content["requestbody"]
+            }
+        }
+        elseif ($_.HttpRequest.Method -ieq "DELETE") {
+            $out.Action = "Revoked"
+            if ($endEvent.Properties.Content.ContainsKey("responseBody")) {
+                $messageBody = ConvertFrom-Json $endEvent.Properties.Content["responseBody"]
+            }
+        }
+
+        if ($messageBody) {
+            $out.PrincipalId = $messageBody.properties.principalId
+            $pd = Get-PrincipalDetails $out.PrincipalId
+            $out.PrincipalName = $pd.Name
+            $out.PrincipalType = $pd.Type
+            $out.RoleName = (Get-AzureRoleDefinitionName $messageBody.properties.roleDefinitionId)
+            $out.Scope = $messageBody.properties.Scope
+            $rd = Get-ResourceDetails $out.Scope
+            $out.ScopeName = $rd.Name
+            $out.ScopeType = $rd.Type
+            $out.RoleDefinitionId = $messageBody.properties.roleDefinitionId
+        }
+
+        $out
+    }
+}
+
+```
+
+以下則是執行指令碼的命令
+
+```
+$log = Get-AzureRBACAuditLog '2015-06-26' '2015-06-27'
+
+$log | Format-Table
+```
+
 ## 使用角色型存取控制的已知問題
 
 如果您在使用角色型存取控制功能時碰到問題，請參閱[為角色型存取控制進行疑難排解](role-based-access-control-troubleshooting.md)，了解與該問題相關的任何已知問題。
@@ -150,7 +439,7 @@ Azure 角色型存取控制會隨附三個內建的角色，供您指派給使�
 按一下對應的連結，請參閱角色定義的 [動作] 和 [非動作] 屬性。[動作] 屬性會指定 Azure 資源上允許的動作。動作字串可以使用萬用字元。角色定義的 [非動作] 屬性可指定必須從允許的動作中排除的動作。
 
 
-角色名稱 | 說明  	
+角色名稱 | 說明
 ------------- | -------------  
 [API 管理服務參與者](#api-management-service-contributor) | 可讓您管理 API 管理服務，但無法存取它們。
 [Application Insights 元件參與者](#application-insights-component-contributor) | 可讓您管理 Application Insights 元件，但無法存取它們。
@@ -1004,4 +1293,4 @@ Azure 角色型存取控制會隨附三個內建的角色，供您指派給使�
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

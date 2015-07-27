@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="07/14/2015" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中探索度量
@@ -29,18 +29,7 @@
 
 虛線顯示前一週度量的值。
 
-## 點值
 
-將滑鼠移至圖表上可顯示該點度量的值。
-
-
-![垂將滑鼠移至圖表上](./media/app-insights-metrics-explorer/02-focus.png)
-
-特定點的度量值會繼著前一個取樣間隔而彙總。這可能因整個圖表的時間範圍而變動。
-
-取樣間隔或「粒度」會顯示在分頁的頂端。
-
-![分頁的標題。](./media/app-insights-metrics-explorer/11-grain.png)
 
 ## 時間範圍
 
@@ -56,6 +45,23 @@
 
 ![拖曳過圖表的一部分。](./media/app-insights-metrics-explorer/12-drag.png)
 
+## 粒度和點值
+
+將滑鼠移至圖表上可顯示該點度量的值。
+
+![垂將滑鼠移至圖表上](./media/app-insights-metrics-explorer/02-focus.png)
+
+特定點的度量值會繼著前一個取樣間隔而彙總。
+
+取樣間隔或「粒度」會顯示在分頁的頂端。
+
+![分頁的標題。](./media/app-insights-metrics-explorer/11-grain.png)
+
+您可以調整時間範圍刀鋒視窗中的粒度：
+
+![分頁的標題。](./media/app-insights-metrics-explorer/grain.png)
+
+可用粒度取決於您選取的時間範圍。明確粒度是時間範圍「自動」粒度的替代方式。
 
 ## 計量瀏覽器
 
@@ -190,4 +196,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

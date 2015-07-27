@@ -79,7 +79,7 @@
 ### 使用 Msysgit ###
 
 1.	從下列位置下載並安裝 msysgit：[http://msysgit.github.com/](http://msysgit.github.com/)
-2.	從安裝目錄執行 `msys` (例如 c:\msysgit\msys.exe)
+2.	從安裝目錄執行 `msys` (例如 c:\\msysgit\\msys.exe)
 3.	輸入 `cd bin` 切換至 `bin` 目錄。
 
 
@@ -176,4 +176,4 @@
 5.	按一下 [開啟] 以連線到虛擬機器。
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

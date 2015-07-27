@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="使用標記來組織您的 Azure 資源" 
-	description="" 
-	services="" 
+	description="示範如何套用標記以針對計費及管理來組織資源。" 
+	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac"
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/15/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -30,7 +30,7 @@ Azure 入口網站和基礎資源管理員是用來組織您的資源及量身�
 
 在入口網站中標記資源和資源群組很簡單。使用 [瀏覽中樞] 瀏覽到您想要標記的資源或資源群組，然後按一下分頁頂端的 [概觀] 區段中的 [標記] 組件。
 
-![Tags part on resource and resource group blades](./media/resource-group-using-tags/rgblade.png)
+![資源與資源群組刀鋒視窗上的標記部分](./media/resource-group-using-tags/rgblade.png)
 
 這樣會開啟分頁，並列出一份已套用的標記。如果這是您的第一個標籤，則清單是空的。若要加入標記，只要指定名稱和值，然後按 Enter 即可。加入幾個標記之後，您會發現「自動完成」選項會根據既有的標記名稱和值，更加確保資源之間一致的分類法，並避免常見的錯誤，像是拼字錯誤。
 
@@ -121,4 +121,4 @@ Azure 入口網站和基礎資源管理員是用來組織您的資源及量身�
 - [使用 Azure 傳統入口網站建立新的 Azure 服務主體](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

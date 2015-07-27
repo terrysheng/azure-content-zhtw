@@ -3,7 +3,7 @@
    description="建立企業對企業程序的概觀" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="harishkragarwal" 
+   authors="rajram" 
    manager="dwrede" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/22/2015"
-   ms.author="hariag"/>
+   ms.date="07/01/2015"
+   ms.author="rajram"/>
 
 
 # 建立 B2B 程序
@@ -73,4 +73,4 @@ Contoso 和 Northwind 是兩個商業夥伴。Contoso (零售商) 會透過業�
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.jpg
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -72,4 +72,4 @@ Azure 資源管理員會完全稽核在 Azure 資源上執行的所有作業，�
 * [監視服務計量](insights-how-to-customize-monitoring.md)以確保您的服務可用且可回應。
 * [追蹤服務健康狀況](insights-service-health.md)可以找出 Azure 何時遭遇效能降低或服務中斷。  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

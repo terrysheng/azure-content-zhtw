@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/24/2015"
+   ms.date="06/29/2015"
    ms.author="juliako"/>
 
 
@@ -25,7 +25,7 @@
 
 以下是 Azure SDK for .NET 2.5.1 的新功能和更新。
 
-- **Web 工具延伸模組**的相關新功能\案例。 
+- **Web 工具延伸模組**的相關新功能\\案例。 
 
 	- Azure 網站已重新命名為 Azure 應用程式服務。如需詳細資訊，請參閱 [Azure 應用程式服務與現有的 Azure 服務](app-service-changes-existing-services.md)。
 	- 已加入 Azure API 應用程式 (預覽) 支援，讓客戶可以將 ASP.NET 專案發佈為 API 應用程式，然後在 C# 專案中使用 [新增] > [Azure API 應用程式用戶端] 筆勢，根據已部署的 API 應用程式結構產生程式碼。 
@@ -38,7 +38,7 @@
 	若想了解 Azure SDK .NET 2.5.1 中的已知問題和目前的限制，請參閱下方的[此](app-service-release-notes.md#known_issues_2_5_1)節。
 
 
-- 此版本啟用了 Visual Studio 中與 **HDInsight 工具**有關的新功能\案例。
+- 此版本啟用了 Visual Studio 中與 **HDInsight 工具**有關的新功能\\案例。
 	- hive 指令碼的本機驗證。在工具列中按一下 [驗證指令碼] 按鈕，查看您的指令碼中是否有任何錯誤。 
 	- 改善了 Hive 工作的偵錯功能。您現在可以藉由在 Visual Studio 中存取 Yarn 記錄檔，對 Hive 工作進行偵錯。如果您的應用程式有效能問題，調查 YARN 記錄檔將會提供有用的資訊。
 	- (公用預覽) 為 Hive 提供關鍵字自動完成和 IntelliSense 支援。為了協助您撰寫 Hive 指令碼、HDInsight Tools for Visual Studio 加入了 Hive 的關鍵字自動完成和 IntelliSense 支援。
@@ -68,4 +68,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

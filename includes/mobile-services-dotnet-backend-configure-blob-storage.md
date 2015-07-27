@@ -1,5 +1,5 @@
 
-##<a name="storage-client-server"></a>在行動服務專案中安裝儲存體用戶端
+##在行動服務專案中安裝儲存體用戶端
 
 若要產生可將映像上傳至 Blob 儲存體的 SAS，您必須首先新增可在行動服務專案中安裝儲存體用戶端程式庫的 NuGet 封裝。
 
@@ -11,7 +11,7 @@
 
   	這會將 Azure 儲存體服務的用戶端程式庫新增至行動服務專案。
 
-##<a name="update-data-model"></a>更新資料模型中的 TodoItem 定義
+##更新資料模型中的 TodoItem 定義
 
 TodoItem 類別可定義資料物件，您必須將相同屬性新增至此類別，就像在用戶端上一樣。
 
@@ -28,7 +28,7 @@ TodoItem 類別可定義資料物件，您必須將相同屬性新增至此類�
 
 	>[AZURE.NOTE]使用預設資料庫初始設定式時，當 Entity Framework 在 Code First 定義中偵測到資料模型變更時，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。無法針對 Azure 中的 SQL Database 使用預設的初始設定式。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型](../articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations.md) (英文)。
 
-##<a name="update-scripts"></a>更新 TodoItem 控制器以產生共用存取簽章 
+##更新 TodoItem 控制器以產生共用存取簽章 
 
 已更新現有的 **TodoItemController**，因此 **PostTodoItem** 方法會在插入新的 TodoItem 時產生 SAS。您也可以
 
@@ -132,4 +132,4 @@ TodoItem 類別可定義資料物件，您必須將相同屬性新增至此類�
 [如何建立儲存體帳戶]: ../articles/storage/storage-create-storage-account.md
 [應用程式設定]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

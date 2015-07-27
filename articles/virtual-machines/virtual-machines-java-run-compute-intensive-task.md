@@ -265,7 +265,7 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 	                restCities.add(i);
 	            distances = new double[numCities][numCities];
 	            cityNames = new String[numCities];
-	            buildDistances("c:\TSP\cities.txt", numCities);
+	            buildDistances("c:\\TSP\\cities.txt", numCities);
 	            minDistance = -1;
 	            bestOrder = new int[numCities];
 	            permutation(startCities, 0, restCities);
@@ -413,9 +413,9 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 ### 如何執行大量運算應用程式
 
 1. 登入虛擬機器。
-2. 建立將執行您應用程式的資料夾。例如 **c:\TSP**。
-3. 將 **TSPSolver.jar** 複製到 **c:\TSP**。
-4. 建立一個含有下列內容且名為 **c:\TSP\cities.txt** 的檔案：
+2. 建立將執行您應用程式的資料夾。例如 **c:\\TSP**。
+3. 將 **TSPSolver.jar** 複製到 **c:\\TSP**。
+4. 建立一個含有下列內容且名為 **c:\\TSP\\cities.txt** 的檔案：
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -468,7 +468,7 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
 	
-5. 在命令提示字元，將目錄切換至 c:\TSP。
+5. 在命令提示字元，將目錄切換至 c:\\TSP。
 6. 確定 JRE 的 bin 資料夾在 PATH 環境變數中。
 7. 您將需要在執行 TSP 求解器排列之前，先建立服務匯流排佇列。請執行下列命令來建立服務匯流排佇列：
 
@@ -484,10 +484,10 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
  
 ### 如何執行監視用戶端應用程式
 1. 登入您將執行用戶端應用程式的電腦。這不一定要是執行 **TSPSolver** 應用程式的同一部電腦，但也可以是同一部電腦。
-2. 建立將執行您應用程式的資料夾。例如 **c:\TSP**。
-3. 將 **TSPClient.jar** 複製到 **c:\TSP**。
+2. 建立將執行您應用程式的資料夾。例如 **c:\\TSP**。
+3. 將 **TSPClient.jar** 複製到 **c:\\TSP**。
 4. 確定 JRE 的 bin 資料夾在 PATH 環境變數中。
-5. 在命令提示字元，將目錄切換至 c:\TSP。
+5. 在命令提示字元，將目錄切換至 c:\\TSP。
 6. 執行以下命令：
 
         java -jar TSPClient.jar
@@ -519,4 +519,4 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

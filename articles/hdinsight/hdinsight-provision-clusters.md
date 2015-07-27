@@ -114,22 +114,19 @@ HDInsight 叢集會使用 Azure Blob 儲存體容器做為預設檔案系統。�
 		<td>選取 [Windows Server 2012 R2 Data Center]<b></b> 來佈建 Windows 叢集。若要佈建 Linux 叢集，請參閱<a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-provision-linux-clusters/" target="_blank">在 HDInsight 中佈建　Hadoop Linux 叢集</a>。</td></tr>
 	<tr><td>HDInsight 版本</td>
 		<td>選擇版本。若是 Hadoop，預設值為採用 Hadoop 2.4 的 HDInsight 3.1 版。</td></tr>
-	</table>
-	輸入或選取如資料表中所示的值，然後按一下向右箭頭。
+	</table>輸入或選取如資料表中所示的值，然後按一下向右箭頭。
 
 4. 在 [設定叢集] 頁面上，輸入或選取下列值：
 
 	![提供 Hadoop HDInsight 叢集詳細資料](./media/hdinsight-provision-clusters/HDI.CustomProvision.Page2.png)
 
 	<table border="1">
-	<tr><th>名稱</th><th>值</th></tr>
-	<tr><td>資料節點</td><td>您要部署的資料節點數。請建立單一節點叢集，以供測試之用。<br />叢集大小限制會隨著 Azure 訂用帳戶而不同。若要提高限制，請與 Azure 帳務支援人員連絡。</td></tr>
-	<tr><td>區域/虛擬網路</td><td><p>請選擇與您在前一個程序中建立的儲存體帳戶相同的區域。使用 HDInsight 時，儲存體帳戶必須位於相同的區域中。後續進行設定時，您只能選擇此處指定之相同區域中的儲存體帳戶。</p><p>可用的區域有：「東亞」<strong></strong>、「東南亞」<strong></strong>、「北歐」<strong></strong>、「西歐」<strong></strong>、「美國東部」<strong></strong>、「美國西部」<strong></strong>、「美國中北部」<strong></strong>和「美國中南部」<strong></strong>。<br/>如果您已建立 Azure 虛擬網路，您可以選取將設定 HDInsight 叢集為使用的網路。</p><p>如需建立 Azure 虛擬網路的詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/azure/jj156206.aspx">虛擬網路組態工作</a>。</p></td></tr>
-	<tr><td>前端節點大小</td><td><p>選取前端節點的虛擬機器 (VM) 大小。</p></td></tr>
-	<tr><td>資料節點大小</td><td><p>選取資料節點的 VM 大小。</p></td></tr>
-	</table>
-
-	>[AZURE.NOTE]根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
+<tr><th>名稱</th><th>值</th></tr>
+<tr><td>資料節點</td><td>您要部署的資料節點數。請建立單一節點叢集，以供測試之用。<br />叢集大小限制會隨著 Azure 訂用帳戶而不同。若要提高限制，請與 Azure 帳務支援人員連絡。</td></tr>
+<tr><td>區域/虛擬網路</td><td><p>請選擇與您在前一個程序中建立的儲存體帳戶相同的區域。使用 HDInsight 時，儲存體帳戶必須位於相同的區域中。後續進行設定時，您只能選擇此處指定之相同區域中的儲存體帳戶。</p><p>可用的區域有：「東亞」<strong></strong>、「東南亞」<strong></strong>、「北歐」<strong></strong>、「西歐」<strong></strong>、「美國東部」<strong></strong>、「美國西部」<strong></strong>、「美國中北部」<strong></strong>和「美國中南部」<strong></strong>。<br/>如果您已建立 Azure 虛擬網路，您可以選取將設定 HDInsight 叢集為使用的網路。</p><p>如需建立 Azure 虛擬網路的詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/azure/jj156206.aspx">虛擬網路組態工作</a>。</p></td></tr>
+<tr><td>前端節點大小</td><td><p>選取前端節點的虛擬機器 (VM) 大小。</p></td></tr>
+<tr><td>資料節點大小</td><td><p>選取資料節點的 VM 大小。</p></td></tr>
+</table>>[AZURE.NOTE]根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
 
 
 5. 在 [Configure Cluster User] 頁面上，提供下列值：
@@ -137,19 +134,17 @@ HDInsight 叢集會使用 Azure Blob 儲存體容器做為預設檔案系統。�
     ![提供 Hadoop HDInsight 叢集使用者和中繼存放區詳細資料](./media/hdinsight-provision-clusters/HDI.CustomProvision.Page3.png)
 
     <table border='1'>
-		<tr><th>屬性</th><th>值</th></tr>
-		<tr><td>HTTP 使用者名稱</td>
-			<td>指定 HDInsight 叢集使用者名稱。</td></tr>
-		<tr><td>HTTP 密碼/確認密碼</td>
-			<td>指定 HDInsight 叢集使用者密碼。</td></tr>
-		<tr><td>為叢集啟用遠端桌面</td>
-			<td>選取此核取方塊，以指定遠端桌面使用者的使用者名稱、密碼和到期日期，使其在佈建之後可以遠端進入叢集節點。您也可以稍後在叢集佈建後啟用遠端桌面。如需指示，請參閱<a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連接至 HDInsight 叢集</a>。</td></tr>
-		<tr><td>輸入 Hive/Oozie 中繼存放區</td>
-			<td>勾選此核取方塊，在與叢集相同的資料中心上指定 SQL 資料庫，以做為 Hive/Oozie 中繼存放區使用。如果您選取此核取方塊，則必須在精靈的後續頁面指定 Azure SQL Database 的詳細資料。即使在將叢集刪除之後，如果您想要保留 Hive/Oozie 工作的相關中繼資料，此選項將會很有幫助。</td></tr>
-		</td></tr>
-	</table>
-
-	按一下向右箭頭。
+	<tr><th>屬性</th><th>值</th></tr>
+	<tr><td>HTTP 使用者名稱</td>
+		<td>指定 HDInsight 叢集使用者名稱。</td></tr>
+	<tr><td>HTTP 密碼/確認密碼</td>
+		<td>指定 HDInsight 叢集使用者密碼。</td></tr>
+	<tr><td>為叢集啟用遠端桌面</td>
+		<td>選取此核取方塊，以指定遠端桌面使用者的使用者名稱、密碼和到期日期，使其在佈建之後可以遠端進入叢集節點。您也可以稍後在叢集佈建後啟用遠端桌面。如需指示，請參閱<a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連接至 HDInsight 叢集</a>。</td></tr>
+	<tr><td>輸入 Hive/Oozie 中繼存放區</td>
+		<td>勾選此核取方塊，在與叢集相同的資料中心上指定 SQL 資料庫，以做為 Hive/Oozie 中繼存放區使用。如果您選取此核取方塊，則必須在精靈的後續頁面指定 Azure SQL Database 的詳細資料。即使在將叢集刪除之後，如果您想要保留 Hive/Oozie 工作的相關中繼資料，此選項將會很有幫助。</td></tr>
+	</td></tr>
+</table>按一下向右箭頭。
 
 6. 在 [設定 Hive/Oozie 中繼存放區] 頁面上，提供下列值：
 
@@ -189,9 +184,7 @@ HDInsight 叢集會使用 Azure Blob 儲存體容器做為預設檔案系統。�
     </td></tr>
 	<tr><td>其他儲存體帳戶</td>
 		<td>HDInsight 支援多個儲存體帳戶。叢集可使用的其他儲存體帳戶沒有數量上的限制。但如果您使用 Azure 入口網站建立叢集，則會因為 UI 的限制而只能使用最多七個儲存體帳戶。您所指定的每個其他儲存體帳戶都會在精靈上另外加入一個 **儲存體帳戶** 頁面，您可在此指定帳戶資訊。以上方的螢幕擷取畫面為例，在選取一個其他儲存體帳戶後，對話方塊因此加入了頁面 5。</td></tr>
-	</table>
-
-	按一下向右箭頭。
+</table>按一下向右箭頭。
 
 7. 如果您選擇為叢集設定其他儲存體，請在 [儲存體帳戶] 頁面上，輸入其他儲存體帳戶的帳戶資訊：
 
@@ -215,9 +208,7 @@ HDInsight 叢集會使用 Azure Blob 儲存體容器做為預設檔案系統。�
 		<td>指定執行自訂指令碼的節點。您可以選擇 [所有節點]<b></b>、[僅限前端節點]<b></b> 或 [僅限資料節點]<b></b>。
 	<tr><td>參數</td>
 		<td>如果指令碼要求，請指定參數。</td></tr>
-	</table>
-
-	您可以加入一個以上的指令碼動作，以在叢集上安裝多個元件。加入指令碼之後，請按一下核取記號以開始佈建叢集。
+</table>您可以加入一個以上的指令碼動作，以在叢集上安裝多個元件。加入指令碼之後，請按一下核取記號以開始佈建叢集。
 
 ##<a id="powershell"></a> 使用 Azure PowerShell
 Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控制和自動化工作量的部署與管理。本節提供如何使用 Azure PowerShell 佈建 HDInsight 叢集的指示。如需設定工作站以執行 HDInsight Windows Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。如需搭配使用 Azure PowerShell 與 HDInsight 的詳細資訊，請參閱[使用 PowerShell 管理 HDInsight](hdinsight-administer-use-powershell.md)。如需 HDInsight Windows PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考資料][hdinsight-powershell-reference]。
@@ -446,7 +437,7 @@ Azure CLI 可使用 NPM 或 Windows Installer 進行安裝。Microsoft 建議您
 
 		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
-	> [AZURE.NOTE]如果您收到錯誤，指出找不到 NPM 命令，請驗證下列路徑是否在 PATH 環境變數中：<i>C:\Program Files (x86)\nodejs;C:\Users[username]\AppData\Roaming\npm</i> 或 <i>C:\Program Files\nodejs;C:\Users[username]\AppData\Roaming\npm</i>
+	> [AZURE.NOTE]如果您收到錯誤，指出找不到 NPM 命令，請驗證下列路徑是否在 PATH 環境變數中：<i>C:\\Program Files (x86)\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i> 或 <i>C:\\Program Files\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i>
 
 5.	執行下列命令以驗證安裝：
 
@@ -461,8 +452,7 @@ Azure CLI 可使用 NPM 或 Windows Installer 進行安裝。Microsoft 建議您
 
 **使用 Windows Installer 安裝 Azure CLI**
 
-1.	瀏覽至 **http://azure.microsoft.com/downloads/**
-2.	向下捲動至 [**命令列工具**] 區段，然後按一下 [**Azure 命令列介面**]，並依照 Web Platform Installer 精靈操作。
+1.	瀏覽至 **http://azure.microsoft.com/downloads/**2.	向下捲動至 [**命令列工具**] 區段，然後按一下 [**Azure 命令列介面**]，並依照 Web Platform Installer 精靈操作。
 
 **下載及匯入發佈設定**
 
@@ -613,19 +603,19 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 3. 在 [**新增專案**] 中，輸入或選取下列值：
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-	<tr>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">屬性</th>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">值</th></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">類別</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">範本/Visual C#/Windows</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">範本</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">主控台應用程式</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">名稱</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
-	</table>
+<tr>
+<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">屬性</th>
+<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">值</th></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">類別</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">範本/Visual C#/Windows</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">範本</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">主控台應用程式</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">名稱</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
+</table>
 
 4. 按一下 [確定] 以建立專案。
 
@@ -764,4 +754,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
   [89e2276a]: hdinsight-use-sqoop.md "搭配 HDInsight 使用 Sqoop"
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -293,4 +293,4 @@ API 管理中的產品可以是**開放**或**受保護**的。受保護產品�
 [設定使用量配額]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

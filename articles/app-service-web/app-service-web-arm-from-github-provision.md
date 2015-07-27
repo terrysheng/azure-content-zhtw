@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tomfitz"/>
 
 # 部署連結至 GitHub 儲存機制的 Web 應用程式
@@ -22,15 +22,37 @@
 
 如需關於建立範本的詳細資訊，請參閱[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)。
 
-如需完整的範本，請參閱[連結至 GitHub 的 Web 應用程式範本](https://github.com/tfitzmac/AppServiceTemplates/blob/master/WebAppLinkedToGithub.json)。
+如需完整的範本，請參閱[連結至 GitHub 的 Web 應用程式範本](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.json)。
 
 ## 部署內容
 
 使用此範本時，您將會部署 Web 應用程式，其中包含 GitHub 中之專案的程式碼。
 
+若要自動執行部署，請按一下下列按鈕：
+
+[![部署至 Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
+
 ## 參數
 
 [AZURE.INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
+
+### repoURL
+
+包含要部署之專案的 GitHub 儲存機制 URL。此參數包含預設值，但是這個值只用來示範如何提供儲存機制 URL。測試範本時，您可以使用此值，但您在使用範本時將會想要提供專屬儲存機制的 URL。
+
+    "repoURL": {
+        "type": "string",
+        "defaultValue": "https://github.com/davidebbo-test/Mvc52Application.git"
+    }
+
+### 分支
+
+要在部署應用程式時使用之儲存機制的分支。預設值是 master，但是您可以提供想要部署之儲存機制中任何分支的名稱。
+
+    "branch": {
+        "type": "string",
+        "defaultValue": "master"
+    }
     
 ## 要部署的資源
 
@@ -77,13 +99,13 @@
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/WebAppLinkedToGithub.json -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/WebAppLinkedToGithub.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

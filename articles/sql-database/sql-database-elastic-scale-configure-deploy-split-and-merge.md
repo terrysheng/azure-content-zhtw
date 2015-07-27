@@ -1,9 +1,8 @@
 <properties
-	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="彈性資料庫分割-合併工具教學課程 | Microsoft Azure"
 	description="使用彈性資料庫工具來分割及合併"
-	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter="" 
 	manager="jeffreyg"
 	authors="sidneyh"/>
 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="07/14/2015"
 	ms.author="sidneyh" />
 
 # 彈性資料庫分割合併工具教學課程
@@ -23,19 +22,19 @@
 2. 開啟命令提示字元並瀏覽至您下載 nuget.exe 的目錄。
 3. 使用下列命令，將最新的分割合併封裝下載到目前的目錄：`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
-上述步驟將分割合併檔案下載至目前的目錄。檔案會放在名為 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** 的目錄中，其中 *x.x.xxx.x* 反映版本號碼。在 **content\splitmerge\service** 子目錄中找出分割合併服務檔案，在 **content\splitmerge\powershell** 子目錄中找出分割合併 PowerShell 指令碼 (和必要的用戶端 .dll 檔)。
+上述步驟將分割合併檔案下載至目前的目錄。檔案會放在名為 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** 的目錄中，其中 *x.x.xxx.x* 反映版本號碼。在 **content\\splitmerge\\service** 子目錄中找出分割合併服務檔案，在 **content\\splitmerge\\powershell** 子目錄中找出分割合併 PowerShell 指令碼 (和必要的用戶端 .dll 檔)。
 
 ## 必要條件
 
-1. 建立用來作為分割合併狀態資料庫的 Azure SQL DB 資料庫。移至 [Azure Preview 入口網站](https://ms.portal.azure.com)。建立新的 **SQL Database**。填入資料庫名稱，並建立新的使用者名稱和密碼。請務必記錄名稱和密碼，以供稍後使用。
+1. 建立用來作為分割合併狀態資料庫的 Azure SQL DB 資料庫。移至 [Azure 入口網站](https://ms.portal.azure.com)。建立新的 **SQL Database**。填入資料庫名稱，並建立新的使用者名稱和密碼。請務必記錄名稱和密碼，以供稍後使用。
 
-2. 請確定您的 Azure SQL DB 伺服器允許 Azure 服務進行連接。在[預覽入口網站](https://ms.portal.azure.com)的 [防火牆] 設定中，請確定 [允許存取 Azure 服務] 設定為 [開啟]。按一下儲存圖示。
+2. 請確定您的 Azure SQL DB 伺服器允許 Azure 服務進行連接。在**防火牆設定**的入口網站中，確定 [**允許存取 Azure 服務**] 設定設為 [**開啟**]。按一下儲存圖示。
 
     ![允許的服務][1]
 
-3. 建立要用於診斷輸出的 Azure 儲存體帳戶。移至 [Azure 管理入口網站](https://manage.windowsazure.com)。在左下方按一下 [新增]，然後依序按一下 [資料服務]、[儲存體] 和 [快速建立]。
+3. 建立要用於診斷輸出的 Azure 儲存體帳戶。移至 Azure Preview 入口網站。在左列中，按一下 [**新增**]，按一下 [**資料 + 儲存體**]，然後按一下 [**儲存體**]。
 
-4. 建立將包含分割合併服務的 Azure 雲端服務。移至 [Azure 管理入口網站](https://manage.windowsazure.com)。在左下方按一下 [新增]，然後依序按一下 [計算]、[雲端服務] 和 [快速建立]。
+4. 建立將包含分割合併服務的 Azure 雲端服務。移至 Azure Preview 入口網站。在左列中，按一下 [**新增**]，然後按一下 [**計算**]、[**雲端服務**] 和 [**建立**]。
 
 
 ## 設定分割-合併服務
@@ -54,13 +53,13 @@
 5.    針對 **SplitMergeWorker** 角色，在 **WorkerRoleSynchronizationStorageAccountConnectionString** 設定中輸入有效的連接字串以連接至 Azure 儲存體。
         
 ### 設定安全性
-如需有關設定服務安全性的詳細指示，請參閱[分割合併安全性設定](../sql-database-elastic-scale-configure-security.md)。
+如需有關設定服務安全性的詳細指示，請參閱[分割合併安全性設定](sql-database-elastic-scale-split-merge-security-configuration.md)。
 
 為了執行適當的簡單測試部署以完成本教學課程，將會執行一組最基本的設定步驟，讓服務啟動並執行。這些步驟只會啟用一個電腦/帳戶來與服務通訊。
 
 ### 建立自我簽署憑證
 
-使用 [Visual Studio 開發人員命令提示字元][](http://msdn.microsoft.com/zh-tw/library/ms229859.aspx) 視窗建立新的目錄，並從這個目錄中執行下列命令：
+使用 [Visual Studio 開發人員命令提示字元][](http://msdn.microsoft.com/library/ms229859.aspx) 視窗建立新的目錄，並從這個目錄中執行下列命令：
 
     makecert ^
     -n "CN=*.cloudapp.net" ^
@@ -87,7 +86,7 @@
 
 ### 將 PFX 檔案上傳至雲端服務
 
-移至 [Azure 管理入口網站](https://manage.windowsazure.com)。
+移至 [Azure Preview 入口網站](https://portal.azure.com)。
 
 1. 選取 [雲端服務]。
 2. 選取您先前為分割/合併服務建立的雲端服務。
@@ -113,10 +112,11 @@
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 
-請注意，在實際執行部署中，CA、加密、伺服器憑證和用戶端憑證應該使用個別憑證。如需詳細指示，請參閱[安全性設定](../sql-database-elastic-scale-configure-security.md)。
+請注意，在實際執行部署中，CA、加密、伺服器憑證和用戶端憑證應該使用個別憑證。如需詳細指示，請參閱[安全性設定](sql-database-elastic-scale-split-merge-security-configuration.md)。
 
 ### 部署分割合併服務
-1. 移至 [Azure 管理入口網站](https://manage.windowsazure.com)。
+
+1. 移至 [Azure 入口網站](https://manage.windowsazure.com)。
 2. 按一下左邊的 [雲端服務] 索引標籤，選取您稍早建立的雲端服務。
 3. 按一下 [儀表板]。
 4. 選擇預備環境，然後按一下 [上傳新的預備部署]。
@@ -131,6 +131,7 @@
 
 
 ## 部署疑難排解
+
 如果 Web 角色無法上線，安全性設定可能有問題。請檢查 SSL 的設定如上所述。
 
 如果背景工作角色無法上線，但 Web 角色成功上線，很可能是無法連接至您稍早建立的狀態資料庫。
@@ -145,6 +146,7 @@
 * 請確定您的 Azure SQL DB 伺服器允許 Azure 服務進行連接。若要這樣做，請開啟 https://manage.windowsazure.com，按一下左邊的 [SQL Database]，按一下頂端的 [伺服器]，然後選取您的伺服器。按一下頂端的 [設定]，並確定 [Azure 服務] 設定已設為 [是]。(請參閱本文開頭的＜必要條件＞一節)。
 
 ## 測試您的分割合併服務部署
+
 ### 使用網頁瀏覽器連接
 
 決定分割合併服務的 Web 端點。您可以在 Azure 管理入口網站中找到此端點，請移至雲端服務的 [儀表板]，查看右邊的 [網站 URL]。將 **http://** 取代為 **https://**，因為預設安全性設定會停用 HTTP 端點。在瀏覽器中載入此 URL 的網頁。
@@ -327,4 +329,4 @@
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

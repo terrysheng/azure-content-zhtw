@@ -350,7 +350,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 如需使用 [CTAS][] 的詳細資訊，請參閱 MSDN。它是 Azure SQL 資料倉儲中最重要的陳述式之一。請確定您已徹底了解。
 
 ## 後續步驟
-如需更多開發秘訣，請參閱[開發概觀][]。
+如需更多開發祕訣，請參閱[開發概觀][]。
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-ctas/ctas-results.png
@@ -363,4 +363,4 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

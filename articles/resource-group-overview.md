@@ -1,19 +1,19 @@
 <properties
    pageTitle="Azure Resource Manager 概觀"
    description="描述如何使用 Azure 資源管理員在 Azure 上進行資源的部署、管理及存取控制。"
-   services="multiple"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager 概觀
@@ -67,6 +67,8 @@ Azure 資源管理員會以原生方式將存取控制整合到管理平台，�
 最後，範本會成為應用程式原始碼的一部分。您可以檢查您的原始程式碼存放庫，並隨著您的應用程式發展加以更新。您可以透過 Visual Studio 編輯範本。
 
 如需關於定義範本的詳細資訊，請參閱[編寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)。
+
+對於範本結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)。
 
 如需使用範本進行部署的相關資訊，請參閱 [利用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)和[如預期般在 Azure 中部署複雜的應用程式](app-service-web/app-service-deploy-complex-application-predictably.md)。
 
@@ -124,6 +126,7 @@ Azure 資源管理員透過 Azure PowerShell、Azure CLI for Mac、Linux 和 Win
 - [使用 .NET 程式庫和範本部署](virtual-machines/arm-template-deployment.md)
 - [範本函式](./resource-group-template-functions.md)
 - [進階範本作業](./resource-group-advanced-template.md)
+- [範本結構描述](https://github.com/Azure/azure-resource-manager-schemas)
 
 組織資源
 
@@ -136,4 +139,4 @@ Azure 資源管理員透過 Azure PowerShell、Azure CLI for Mac、Linux 和 Win
 - [驗證服務主體](./resource-group-authenticate-service-principal.md)
 - [使用 Azure 入口網站建立新的服務主體](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

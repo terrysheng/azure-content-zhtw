@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/27/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 # 在 Microsoft Azure 上管理搜尋服務
@@ -210,4 +210,4 @@ Azure 特別為透過 Preview 入口網站管理的所有服務，或在 Azure �
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

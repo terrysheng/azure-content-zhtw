@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2015" 
+	ms.date="06/30/2015" 
 	ms.author="tdykstra"/>
 
 # 從 .NET 用戶端使用 Azure App Service 中的 API 應用程式 
@@ -59,27 +59,9 @@
  
 2. 在 Visual Studio 中，建立主控台應用程式專案。
  
-### 加入 App Service SDK 產生的用戶端程式碼
+### <a id="addclient"></a>加入 App Service SDK 產生的用戶端程式碼
 
-3. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案 (而非方案)，並依序選取 [**加入 > Azure API 應用程式用戶端**]。 
-
-	![](./media/app-service-api-dotnet-consume/03-add-azure-api-client-v3.png)
-	
-3. 在 [**加入 Azure API 應用程式用戶端**] 對話方塊中，按一下 [**從 Azure API 應用程式下載**]。
-
-5. 在下拉式清單中，選取要呼叫的 API 應用程式。
-
-7. 按一下 [確定]。
-
-	![產生畫面](./media/app-service-api-dotnet-consume/04-select-the-api-v3.png)
-
-	精靈下載 API 中繼資料檔案，並產生具型別的介面來呼叫 API 應用程式。
-
-	![產生中](./media/app-service-api-dotnet-consume/05-metadata-downloading-v3.png)
-
-	程式碼產生完成之後，您會在 [**方案總管**] 中看到該 API 應用程式名稱的新資料夾。此資料夾包含實作用戶端類別和資料模型的程式碼。
-
-	![產生完成](./media/app-service-api-dotnet-consume/06-code-gen-output-v3.png)
+[AZURE.INCLUDE [app-service-api-dotnet-add-generated-client](../../includes/app-service-api-dotnet-add-generated-client.md)]
 
 ### 加入呼叫 API 應用程式的程式碼
 
@@ -116,9 +98,7 @@
 
 ## 從 Windows 桌面應用程式發出經驗證的呼叫
 
-本節中，您會建立 Windows 桌面應用程式專案並在其中加入程式碼，以在需要驗證的情況下呼叫 API 應用程式。此程式碼會實作 Oauth 2 *伺服器驗證流程*，這表示 API 應用程式閘道會從驗證提供者取得權杖，而不是用戶端應用程式。
-
-Azure API 應用程式也支援用戶端驗證流程。未來此教學課程中也會加入用戶端流程驗證案例。
+本節中，您會建立 Windows 桌面應用程式專案並在其中加入程式碼，以在需要驗證的情況下呼叫 API 應用程式。
 
 ### 設定 API 應用程式並建立專案
 
@@ -198,11 +178,31 @@ Azure API 應用程式也支援用戶端驗證流程。未來此教學課程中�
 
 	![](./media/app-service-api-dotnet-consume/formaftercall.png)
 
+### <a id="client-flow"></a>伺服器流程和用戶端流程
+
+此範例應用程式說明[伺服器流程](../app-service/app-service-authentication-overview.md#server-flow)，這表示閘道取得識別提供者的存取 Token。針對[用戶端流程](../app-service/app-service-authentication-overview.md#client-flow) (在其中，用戶端應用程式直接從識別提供者取得存取 Token，並將它傳送至閘道)，您會呼叫 `LoginAsync`，而非 `SetCurrentUser`。
+
+下列程式碼範例假設您有 `providerAccessToken` 字串變數中的識別提供者存取 Token，以及 `idProvider` 字串變數中的識別提供者指示器 ("aad"、"microsoftaccount"、"google"、"twitter" 或 "facebook")：
+
+		var appServiceClient = new AppServiceClient(GATEWAY_URL);
+		var providerAccessTokenJSON = new JObject();
+		providerAccessTokenJSON["access_token"] = providerAccessToken;
+		var appServiceUser = await appServiceClient.LoginAsync(idProvider, providerAccessTokenJSON);
+
+		var contactsListClient = appServiceClient.CreateContactsList();
+		var contacts = contactsListClient.Contacts.Get();
+		foreach (Contact contact in contacts)
+		{
+		    textBox1.Text += contact.Name + " " + contact.EmailAddress + System.Environment.NewLine;
+		}
+
 ## 後續步驟
 
 本文示範對於存取層級設為 [**公用 (驗證)**] 和 [**公用 (匿名)**] 的 API 應用程式，如何從 .NET 用戶端使用 API 應用程式。
 
 如需其他從 .NET 用戶端呼叫 API 應用程式的程式碼範例，請下載 [Azure Cards](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample) 範例應用程式。
+
+如需如何在 API 應用程式中使用驗證的相關資訊，請參閱 [Azure App Service 中 API 應用程式和行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,6 +1,6 @@
 <properties pageTitle="Azure 搜尋服務 REST API 版本 2014-07-31-Preview" description="Azure 搜尋服務 REST API：版本 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="05/21/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
 
 # Azure 搜尋服務 REST API 版本：2014-07-31-Preview
 
@@ -10,7 +10,7 @@
 
 與 **2014-07-31-Preview** 相關的其他 API 內容包含下列項目：
 
-- [評分設定檔 (Azure 搜尋服務 REST API：2014-07-31-Preview)](../search-api-scoring-profiles-2014-07-31-preview.md)
+- [評分設定檔 (Azure 搜尋服務 REST API：2014-07-31-Preview)](search-api-scoring-profiles-2014-07-31-preview.md)
 
 
 ##關於服務 REST API
@@ -37,7 +37,7 @@ GET /indexes?api-version=2014-07-31-Preview
 
 - 所有的 API 要求都可選擇性地設定 `Accept` HTTP 標頭。若未設定，即會假設預設值為 `application/json`。
 
-已針對服務管理提供個別的 API。服務管理操作的範例包含佈建服務或更改容量。如需此 API 的詳細資訊，請參閱＜Azure 搜尋管理 REST API＞。
+已針對服務管理提供個別的 API。服務管理操作的範例包含佈建服務或更改容量。如需此 API 的詳細資訊，請參閱＜Azure 搜尋服務管理 REST API＞。
 
 ### 端點
 
@@ -54,7 +54,7 @@ GET /indexes?api-version=2014-07-31-Preview
 
 驗證 Azure 搜尋服務時需要兩項資訊：搜尋服務 URL 和 `api-key`。`api-keys` 會在服務建立時產生，並且可在佈建服務之後視需求重新產生。`api-key` 可以是授與所有操作存取權的系統管理金鑰，或是僅驗證查詢要求的查詢金鑰。針對每個服務，您擁有 2 個系統管理金鑰，且最多可有 50 個查詢金鑰。
 
-存取控制僅限用於透過 Azure 預覽入口網站中提供的角色型取控制 (RBAC) 來執行的服務管理。角色可用來設定服務管理的存取層級。例如，檢視系統管理金鑰限用於擁有者和參與者角色，而檢視服務狀態則是所有角色的成員都可檢視。
+存取控制僅限用於透過 Azure Preview 入口網站中提供的角色型取控制 (RBAC) 來執行的服務管理。角色可用來設定服務管理的存取層級。例如，檢視系統管理金鑰限用於擁有者和參與者角色，而檢視服務狀態則是所有角色的成員都可檢視。
 
 對搜尋服務端點執行的資料操作 (包括索引管理、索引填入和查詢) 都是透過 `api-keys` 以獨佔方進行式存取。RBAC 不適用於索引或文件相關的操作。若要深入了解 Azure 搜尋服務中的 `api-keys` 或 RBAC，請參閱[在 Microsoft Azure 上管理您的搜尋服務](search-manage.md)。
 
@@ -170,7 +170,7 @@ ________________________________________
 - `api-key`：必要。`api-key` 可用來 
 - 驗證搜尋服務的要求。它是服務專屬的唯一字串值。**建立索引**要求必須包含已設為您系統管理金鑰 (相對於查詢金鑰) 的 `api-key` 標頭。 
  
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](../search-create-service.portal.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service.portal.md)。
 
 <a name="RequestData"></a> **要求本文的語法**
 
@@ -647,7 +647,7 @@ Azure 搜尋服務允許以各種語言來編製欄位的索引。這些語言�
 - `Content-Type`：必要。請設為 `application/json`
 - `api-key`：必要。`api-key` 可用來驗證搜尋服務的要求。它是服務專屬的唯一字串值。**更新索引**要求必須包含已設為您系統管理金鑰 (相對於查詢金鑰) 的 `api-key` 標頭。
  
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](../search-create-service.portal.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service.portal.md)。
 
 **要求本文的語法**
 
@@ -739,7 +739,7 @@ Azure 搜尋服務允許以各種語言來編製欄位的索引。這些語言�
  
 - `api-key`：必要。`api-key` 可用來驗證搜尋服務的要求。它是服務專屬的唯一字串值。**列出索引**要求必須包含已設為系統管理金鑰 (相對於查詢金鑰) 的 `api-key`。
  
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](../search-create-service.portal.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service.portal.md)。
 
 **要求本文**
 
@@ -806,7 +806,7 @@ Azure 搜尋服務允許以各種語言來編製欄位的索引。這些語言�
  
 - `api-key`：`api-key` 可用來驗證搜尋服務的要求。它是服務專屬的唯一字串值。**取得索引**要求必須包含已設為系統管理金鑰 (相對於查詢金鑰) 的 `api-key`。
 
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](../search-create-service.portal.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service.portal.md)。
 
 **要求本文**
 
@@ -840,7 +840,7 @@ Azure 搜尋服務允許以各種語言來編製欄位的索引。這些語言�
  
 - `api-key`：必要。`api-key` 可用來驗證搜尋服務的要求。它是服務 URL 專屬的唯一字串值。**刪除索引**要求必須包含已設為您系統管理金鑰 (相對於查詢金鑰) 的 `api-key` 標頭。
  
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](../search-create-service.portal.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service.portal.md)。
 
 **要求本文**
 
@@ -872,7 +872,7 @@ Azure 搜尋服務允許以各種語言來編製欄位的索引。這些語言�
  
 - `api-key`：`api-key` 可用來驗證搜尋服務的要求。它是服務專屬的唯一字串值。**取得索引統計資料**要求必須包含已設為系統管理金鑰 (相對於查詢金鑰) 的 `api-key`。
  
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](../search-create-service.portal.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service.portal.md)。
 
 **要求本文**
 
@@ -931,7 +931,7 @@ ________________________________________
 - `Content-Type`：必要。請設為 `application/json`
 - `api-key`：必要。`api-key` 可用來驗證搜尋服務的要求。它是服務專屬的唯一字串值。**新增文件**要求必須包含已設為您系統管理金鑰 (相對於查詢金鑰) 的 `api-key` 標頭。
  
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](../search-create-service.portal.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service.portal.md)。
 
 **要求本文**
 
@@ -1104,7 +1104,7 @@ ________________________________________
 
 - `api-key`：`api-key` 可用來驗證搜尋服務的要求。它是服務 URL 專屬的唯一字串值。**搜尋**要求可以為 `api-key` 指定系統管理金鑰或查詢金鑰。
  
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](../search-create-service.portal.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service.portal.md)。
 
 **要求本文**
 
@@ -1238,7 +1238,7 @@ ________________________________________
 
 - `api-key`：`api-key` 可用來驗證搜尋服務的要求。它是服務 URL 專屬的唯一字串值。**查閱文件**要求可以為 `api-key` 指定系統管理金鑰或查詢金鑰。
  
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](../search-create-service.portal.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service.portal.md)。
 
 **要求本文**
 
@@ -1286,7 +1286,7 @@ ________________________________________
 - `Accept`：此值必須設為 `text/plain`。
 - `api-key`：`api-key` 可用來驗證搜尋服務的要求。它是服務 URL 專屬的唯一字串值。**文件計數**要求可以為 `api-key` 指定系統管理金鑰或查詢金鑰。
  
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](../search-create-service.portal.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service.portal.md)。
 
 **要求本文**
 
@@ -1340,7 +1340,7 @@ ________________________________________
 
 - `api-key`：`api-key` 可用來驗證搜尋服務的要求。它是服務 URL 專屬的唯一字串值。**建議**要求可以指定系統管理金鑰或查詢金鑰來做為 `api-key`。
 
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](../search-create-service.portal.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure Preview 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service.portal.md)。
 
 **要求本文**
 
@@ -1384,4 +1384,4 @@ ________________________________________
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

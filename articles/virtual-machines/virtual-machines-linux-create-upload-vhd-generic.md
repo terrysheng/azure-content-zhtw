@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="在 Azure 中建立及上傳 Linux VHD" 
-	description="了解如何建立及上傳包含 Linux 作業系統的 Azure 虛擬硬碟 (VHD)。" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
+	pageTitle="在 Azure 中建立及上傳 Linux VHD"
+	description="了解如何建立及上傳包含 Linux 作業系統的 Azure 虛擬硬碟 (VHD)。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/15/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/15/2015"
 	ms.author="szarkos"/>
 
 
@@ -92,7 +92,7 @@ Azure 上的 VHD 映像必須具有與 1 MB 對應的虛擬大小。一般而言
 		echo "Rounded Size = $rounded_size"
 
  3. 依照上述指令碼中的設定，使用 $rounded_size 調整原始磁碟的大小：
- 
+
 		# qemu-img resize MyLinuxVM.raw $rounded_size
 
  4. 現在，將 RAW 磁碟轉換回固定大小的 VHD：
@@ -189,7 +189,4 @@ Azure 上的 VHD 映像必須具有與 1 MB 對應的虛擬大小。一般而言
 
 - 接著，您必須關閉虛擬機器，並將 VHD 上傳至 Azure。
 
-
- 
-
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

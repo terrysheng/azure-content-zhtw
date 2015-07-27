@@ -214,4 +214,4 @@
 - [共用存取簽章：了解 SAS 模型](storage-dotnet-shared-access-signature-part-1.md)
 - [使用共用存取簽章來委派存取權](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

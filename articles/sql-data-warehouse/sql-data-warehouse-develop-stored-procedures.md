@@ -81,7 +81,7 @@ SQL 資料倉儲不允許您透過 INSERT 陳述式取用預存程序的結果�
 - return 陳述式
 
 ## 後續步驟
-如需更多開發秘訣，請參閱[開發概觀][]。
+如需更多開發祕訣，請參閱[開發概觀][]。
 
 <!--Image references-->
 
@@ -94,4 +94,4 @@ SQL 資料倉儲不允許您透過 INSERT 陳述式取用預存程序的結果�
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

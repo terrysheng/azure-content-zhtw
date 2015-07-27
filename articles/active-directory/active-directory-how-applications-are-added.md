@@ -147,4 +147,4 @@
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/09/2015"
+    ms.date="07/02/2015"
     ms.author="banders"/>
 
 # 設定工作區和管理設定
@@ -34,7 +34,7 @@
 
 ## 將現有的工作區連結到 Azure 訂用帳戶
 
-您可以從 [opinsights.azure.com](http://opinsights.azure.com) 建立工作區。不過，這些工作區有某些限制，如果您使用免費帳戶，最明顯的限制是一天最多上傳 500MB 的資料。若要對此工作區進行變更，您必須**將您現有的工作區連結到 Azure 訂用帳戶**。
+您可以從 [microsoft.com/oms](https://microsoft.com/oms) 建立工作區。不過，這些工作區有某些限制，如果您使用免費帳戶，最明顯的限制是一天最多上傳 500MB 的資料。若要對此工作區進行變更，您必須**將您現有的工作區連結到 Azure 訂用帳戶**。
 
 >[AZURE.IMPORTANT]如果要連結工作區，您的 Azure 帳戶必須已經能夠存取您想要連結的工作區。換句話說，您用來存取 Azure 入口網站的帳戶必須與您用來存取 Operational Insights 工作區的帳戶**相同**。如果不是，請參閱[新增使用者到現有的工作區](#add-an-azure-active-directory-organization-to-an-existing-workspace)。
 
@@ -50,7 +50,7 @@
 
 ## 升級工作區為付費方案
 
-Operational Insights 有三種工作區方案類型：**免費**、**標準**和**進階**。如果您使用*免費*方案，有可能會達到 500MB 的資料容量。此時您將需要升級工作區為 '**隨用隨付**'，才能收集超過此限制的資料。您隨時都可以轉換您的方案類型。如需 Operational Insights 定價的詳細資訊，請參閱[定價詳細資料](http://azure.microsoft.com/pricing/operational-insights/)
+Operational Insights 有三種工作區方案類型：**免費**、**標準**和**進階**。如果您使用*免費*方案，有可能會達到 500MB 的資料容量。此時您將需要升級工作區為 '**隨用隨付**'，才能收集超過此限制的資料。您隨時都可以轉換您的方案類型。如需 Operational Insights 價格的詳細資訊，請參閱[價格詳細資料](http://azure.microsoft.com/pricing/operational-insights/)
 
 >[AZURE.IMPORTANT]工作區方案只有在*連結*到 Azure 訂用帳戶時才能變更。如果您在 Azure 中建立了工作區，或者如果您*已經*連結了工作區，可以忽略此訊息。如果您是從 [opinsights.azure.com](http://opinsights.azure.com) 建立工作區，就必須依照[連結現有的工作區到 Azure 訂用帳戶](#link-an-existing-workspace-to-an-Azure-subscription)的步驟。
 
@@ -179,6 +179,5 @@ Operational Insights 有三種工作區方案類型：**免費**、**標準**和
 2. 選取其中一個關閉工作區的原因，或者在文字方塊中輸入其他原因。
 
 3. 按一下 [關閉工作區]。
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

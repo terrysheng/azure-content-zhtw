@@ -206,4 +206,4 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 - [儲存體分析度量資料表結構描述](https://msdn.microsoft.com/library/hh343264.aspx) 
 - [儲存體分析記錄作業和狀態訊息](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

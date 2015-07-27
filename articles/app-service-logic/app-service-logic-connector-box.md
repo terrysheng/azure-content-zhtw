@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/20/2015"
-   ms.author="vagarw"/>
+   ms.date="07/02/2015"
+   ms.author="andalmia"/>
 
 # 在邏輯應用程式中使用 Box 連接器
 
@@ -43,13 +43,13 @@ Box 資源庫應用程式提供「動作」當做與 Box 互動的機制：
     <td>清單所在的資料夾路徑。</td>
     <td>是</td>
   </tr>
-</table>
+</table>>[AZURE.NOTE]它不會傳回任何檔案內容。
 
- >[AZURE.NOTE]它不會傳回任何檔案內容。
+
 
     b.*取得檔案：*這項作業會擷取檔案 (包括其內容和屬性)。以下是動作所需的參數清單：
 
-  <table>
+	<table>
   <tr>
     <td><b>參數名稱</b></td>
     <td><b>說明</b></td>
@@ -65,9 +65,9 @@ Box 資源庫應用程式提供「動作」當做與 Box 互動的機制：
     <td>指定檔案是文字或二進位檔。</td>
     <td>否</td>
   </tr>
-</table>
+</table>>[AZURE.NOTE]這項作業不會在讀取檔案後刪除檔案。
 
- >[AZURE.NOTE]這項作業不會在讀取檔案後刪除檔案。
+
 
     c.上傳檔案：顧名思義，此動作會將檔案上傳至 Box 帳戶。如果檔案已存在，則不會加以覆寫，而且會擲回錯誤。以下是動作所需的參數清單：
 
@@ -92,11 +92,9 @@ Box 資源庫應用程式提供「動作」當做與 Box 互動的機制：
     <td>內容的編碼類型，可以是 [Base64] 或 [無]。</td>
     <td> </td>
   </tr>
-</table>
+</table>d.刪除檔案：此動作會從資料夾中刪除指定的檔案。如果找不到檔案/資料夾，則會擲回例外狀況。以下是動作所需的參數清單：
 
-    d.刪除檔案：此動作會從資料夾中刪除指定的檔案。如果找不到檔案/資料夾，則會擲回例外狀況。以下是動作所需的參數清單：
-
-  <table>
+ 	<table>
   <tr>
     <td><b>參數名稱</b></td>
     <td><b>說明</b></td>
@@ -162,4 +160,4 @@ Box 資源庫應用程式提供「動作」當做與 Box 互動的機制：
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

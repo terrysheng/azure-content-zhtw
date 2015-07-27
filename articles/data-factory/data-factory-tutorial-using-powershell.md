@@ -30,7 +30,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 3.	您必須在電腦上下載並安裝 [Azure PowerShell][download-azure-powershell]。 
 2.	(建議) 檢閱並練習[開始使用 Azure Data Factory][adfgetstarted] 文章中的教學課程，透過簡易教學課程來熟悉入口網站和 Cmdlet。
 3.	(建議) 檢閱並練習[搭配 Azure Data Factory 使用 Pig 和 Hive][usepigandhive] 文章中的逐步解說，經由逐步解說建立管線，將資料從內部部署資料來源移至 Azure Blob 存放區。
-4.	將 [ADFWalkthrough][adfwalkthrough-download] 檔案下載至 **C:\ADFWalkthrough** 資料夾，**並保留資料夾結構**：
+4.	將 [ADFWalkthrough][adfwalkthrough-download] 檔案下載至 **C:\\ADFWalkthrough** 資料夾，**並保留資料夾結構**：
 	- **Pipelines：**包含 JSON 檔案，內有管線的定義。
 	- **Tables：**包含 JSON 檔案，內有資料表的定義。
 	- **LinkedServices：**包含 JSON 檔案，內有您的儲存體和計算 (HDInsight) 叢集的定義 
@@ -104,7 +104,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 
 將行銷活動有效性結果從 Azure Blob 儲存體移至 Azure SQL 資料庫時，會使用資料表、使用者定義型別和預存程序。
 
-1. 在您喜好的編輯器中，從 **C:\ADFWalkthrough** 資料夾 (或包含解壓縮檔案的資料夾) 開啟 **uploadSampleDataAndScripts.ps1**，以您的叢集資訊取代反白顯示部分，並儲存檔案。
+1. 在您喜好的編輯器中，從 **C:\\ADFWalkthrough** 資料夾 (或包含解壓縮檔案的資料夾) 開啟 **uploadSampleDataAndScripts.ps1**，以您的叢集資訊取代反白顯示部分，並儲存檔案。
 
 
 		$storageAccount = <storage account name>
@@ -116,10 +116,10 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
  
 	此指令碼要求您在電腦上安裝 sqlcmd 公用程式。如果您已安裝 SQL Server，則已具備。否則，請[下載][sqlcmd-install]並安裝此公用程式。
 	
-	或者，您可以使用資料夾 C:\ADFWalkthrough\Scripts 中的檔案，將 pig/hive 指令碼與範例檔案上傳至 Blob 儲存體中的 adfwalkthrough 容器，並在 MarketingCamapaigns Azure SQL 資料庫中建立 MarketingCampaignEffectiveness 資料表。
+	或者，您可以使用資料夾 C:\\ADFWalkthrough\\Scripts 中的檔案，將 pig/hive 指令碼與範例檔案上傳至 Blob 儲存體中的 adfwalkthrough 容器，並在 MarketingCamapaigns Azure SQL 資料庫中建立 MarketingCampaignEffectiveness 資料表。
    
 2. 確認您的本機電腦可以存取 Azure SQL Database。若要啟用存取，請使用 **Azure 管理入口網站**，或在 master 資料庫上使用 **sp_set_firewall_rule**，為您電腦的 IP 位址建立防火牆規則。可能需要五分鐘的時間，這項變更才會生效。請參閱[設定 Azure SQL 的防火牆規則][azure-sql-firewall]。
-4. 在 Azure PowerShell 中，瀏覽至您解壓縮範例的位置 (例如：**C:\ADFWalkthrough**)
+4. 在 Azure PowerShell 中，瀏覽至您解壓縮範例的位置 (例如：**C:\\ADFWalkthrough**)
 5. 執行 **uploadSampleDataAndScripts.ps1** 
 6. 一旦指令碼執行成功，您會看到下列項目：
 
@@ -246,7 +246,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 
 		Switch-AzureMode AzureResourceManager
 
-16. 瀏覽至 **C:\ADFWalkthrough** 中的 **LinkedServices** 子資料夾，或從您解壓縮檔案所在位置的資料夾。
+16. 瀏覽至 **C:\\ADFWalkthrough** 中的 **LinkedServices** 子資料夾，或從您解壓縮檔案所在位置的資料夾。
 17. 在您喜愛的編輯器中開啟 **HDInsightLinkedService.json**，並注意類型設為 **HDInsightOnDemandLinkedService**。
 
 
@@ -296,7 +296,7 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 
 ### 建立資料表
 
-1.	在 Azure PowerShell 中，從解壓縮範例的位置，瀏覽至 **Tables** 資料夾 (**C:\ADFWalkthrough\Tables**)。 
+1.	在 Azure PowerShell 中，從解壓縮範例的位置，瀏覽至 **Tables** 資料夾 (**C:\\ADFWalkthrough\\Tables**)。 
 2.	使用 Cmdlet **New-AzureDataFactoryTable**，針對 **RawGameEventsTable.json** 建立資料表，如下所示	
 
 
@@ -334,7 +334,7 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 ## <a name="MainStep5"></a> 步驟 5：建立和排程管線
 在此步驟中，您將建立下列管線：PartitionGameLogsPipeline、EnrichGameLogsPipeline 和 AnalyzeMarketingCampaignPipeline。
 
-1. 在 **Windows 檔案總管** 中，導覽至 **C:\ADFWalkthrough** 資料夾中的 **Pipelines** 子資料夾 (或從您解壓縮範例所在位置)。
+1. 在 **Windows 檔案總管** 中，導覽至 **C:\\ADFWalkthrough** 資料夾中的 **Pipelines** 子資料夾 (或從您解壓縮範例所在位置)。
 2.	在您喜好的編輯器中開啟 **PartitionGameLogsPipeline.json**，以您的資料儲存體帳戶的資訊取代反白顯示部分，並儲存檔案。
 			
 		"RAWINPUT": "wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/logs/rawgameevents/",
@@ -346,7 +346,7 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 
 	**重要事項：**確認您已用您的儲存體帳戶名稱取代所有 <storageaccountname>。
  
-4.  在 **Azure PowerShell** 中，導覽至 **C:\ADFWalkthrough** 資料夾的 **Pipelines** 子資料夾 (或從您解壓縮範例所在位置)。
+4.  在 **Azure PowerShell** 中，導覽至 **C:\\ADFWalkthrough** 資料夾的 **Pipelines** 子資料夾 (或從您解壓縮範例所在位置)。
 5.  使用 Cmdlet **New-AzureDataFactoryPipeline**，針對 **PartitionGameLogspeline**.json 建立管線，如下所示	 
 			
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionGameLogsPipeline.json
@@ -559,4 +559,4 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

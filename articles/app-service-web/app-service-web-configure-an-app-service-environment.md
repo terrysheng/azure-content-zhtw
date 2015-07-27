@@ -20,7 +20,7 @@
 
 ## 概觀 ##
 
-App Service 環境是目前以預覽狀態提供的新 Premium 層次功能。它還提供新的調整和網路存取功能。這項新的調整功能可讓您將 Azure App Service 的執行個體放入 VNET 中。如果您不熟悉 App Service 環境 (ASE) 功能，請閱讀此處的文件：[What is an App Service Environment](app-service-app-service-environment-intro.md)。如需有關如何建立 ASE 的資訊，請讀取文件：[如何建立 App Service 環境](app-service-web-how-to-create-an-app-service-environment.md)。
+App Service 環境是目前以預覽狀態提供的新 Premium 層次功能。它還提供新的調整和網路存取功能。這項新的調整功能可讓您將 Azure App Service 的執行個體放入 VNET 中。如果您不熟悉 App Service 環境 (ASE) 功能，請閱讀此處的文件：[What is an App Service Environment]/app-service-app-service-environment-intro.md)。如需有關如何建立 ASE 的資訊，請讀取文件：[如何建立 App Service 環境](app-service-web-how-to-create-an-app-service-environment.md)。
 
 App Service 環境是由數個主要元件所組成：
 
@@ -84,7 +84,7 @@ App Service 環境是由數個主要元件所組成：
 - 使用未使用的背景工作集區，以提出所需大小的必要執行個體
 - 將 App Service 方案調整為新的背景工作集區。  
  
-相較於變更具有執行中工作負載的計算資源大小，這麼做比較不會干擾執行中的應用程式。如需在 App Service 環境中調整 Web 應用程式的詳細資訊，請移至[在 App Service 環境中調整 Web Apps](app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+相較於變更具有執行中工作負載的計算資源大小，這麼做比較不會干擾執行中的應用程式。如需在 App Service 環境中調整 Web 應用程式的詳細資訊，請移至[在 App Service 環境中調整 Web 應用程式](app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 
 ## 虛擬網路 ##
 
@@ -131,4 +131,4 @@ App Service 環境是由數個主要元件所組成：
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

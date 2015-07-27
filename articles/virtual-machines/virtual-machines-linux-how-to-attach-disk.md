@@ -3,7 +3,7 @@
 	description="了解如何將資料磁碟附加至 Azure 虛擬機器，並初始化磁碟以便開始使用。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="dsk-2015"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/29/2015"
-	ms.author="kathydav"/>
+	ms.author="dkshir"/>
 
 # 如何將資料磁碟連接至 Linux 虛擬機器
 
@@ -140,6 +140,5 @@
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/02/2015"
 	ms.author="mwasson"/>
 
 
@@ -33,7 +33,7 @@ Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時�
 1.  下載 Socket.IO 專案 (版本 1.3.5 已用於此文件) 的 [ZIP 或 GZ 封存版本][release]
 
 
-3.  將此封存解壓縮並將 **examples\chat** 目錄複製到新的位置。例如，**\node\chat**。
+3.  將此封存解壓縮並將 **examples\\chat** 目錄複製到新的位置。例如，**\\node\\chat**。
 
 ## 修改 App.js 和安裝模組
 
@@ -57,7 +57,7 @@ Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時�
 		  "socket.io": "1.3.5"
 		}
 
-4. 從命令列中，切換至 **\node\chat** 目錄，然後使用 npm 來安裝此應用程式所需的模組：
+4. 從命令列中，切換至 **\\node\\chat** 目錄，然後使用 npm 來安裝此應用程式所需的模組：
 
         npm install
 
@@ -76,7 +76,7 @@ Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時�
 		azure site deployment user set [username] [password]
 
 
-3. 切換至 **\node\chat** 目錄，然後使用下列命令來建立新的 Azure Web 應用程式和本機 Git 儲存機制。這個命令也會建立名為 'azure' 的 Git 遠端。
+3. 切換至 **\\node\\chat** 目錄，然後使用下列命令來建立新的 Azure Web 應用程式和本機 Git 儲存機制。這個命令也會建立名為 'azure' 的 Git 遠端。
 
 		azure site create mysitename --git
 
@@ -91,7 +91,7 @@ Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時�
 
 		git push azure master
 
-	在伺服器上匯入模組時會顯示狀態訊息。此程序完成之後，應用程式將裝載於 Azure Web 應用程式上。
+	系統出現提示時，請輸入步驟 2 中的認證。在伺服器上匯入模組時會顯示狀態訊息。此程序完成之後，應用程式將裝載於 Azure Web 應用程式上。
 
  	> [AZURE.NOTE]在模組安裝期間，您可能會看到「找不到匯入的專案...」的錯誤。請放心忽略這項錯誤訊息。
 
@@ -125,7 +125,7 @@ Socket.IO 應用程式可以使用__配接器__來橫向擴充，以在多個應
 
 ###新增 redis 和 socket.io-redis 模組
 
-1. 從命令列中，切換至 __\node\cha__ 目錄，然後執行下列命令：
+1. 從命令列中，切換至 __\\node\\cha__ 目錄，然後執行下列命令：
 
 		npm install socket.io-redis@0.1.4 redis@0.12.1 --save
 
@@ -151,7 +151,7 @@ Socket.IO 應用程式可以使用__配接器__來橫向擴充，以在多個應
 
 ###認可變更並重新部署
 
-從 __\node\chat__ 目錄的命令列中，使用下列命令來認可變更並重新部署應用程式。
+從 __\\node\\chat__ 目錄的命令列中，使用下列命令來認可變更並重新部署應用程式。
 
 	git add .
 	git commit -m "implementing scale out"
@@ -260,7 +260,7 @@ Azure Web Apps 可用於多個 SKU，SKU 可以決定您網站適用的資源。
 		  </system.webServer>
 		</configuration>
 
-	> [AZURE.NOTE]如果您的應用程式使用非 **app.js** 的進入點，則必須將 **app.js** 的所有出現項目取代為正確的進入點。例如，將 **app.js** 取代為 **server.js**。
+	如果您的應用程式使用非 **app.js** 的進入點，則必須將 **app.js** 的所有出現項目取代為正確的進入點。例如，將 **app.js** 取代為 **server.js**。
 
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
@@ -283,4 +283,4 @@ Azure Web Apps 可用於多個 SKU，SKU 可以決定您網站適用的資源。
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

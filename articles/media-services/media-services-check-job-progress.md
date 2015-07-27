@@ -427,4 +427,4 @@ Microsoft Azure 媒體服務能夠在處理媒體工作時，傳送通知訊息�
 	
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -4,23 +4,23 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
-	manager="dwrede" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/07/2015"
 	ms.author="piyushjo" />
 	
 #Windows Phone Silverlight SDK 內容
 
 本文件列出及說明 SDK 在應用程式中部署的內容。
 
-##`/Resources` 資料夾
+##`/Resources` 資料夾 
 
 此資料夾包含 Mobile Engagement 需要的所有資源。您也可以自訂它們，以符合您的應用程式。
 
@@ -37,4 +37,4 @@
 - `EngagementConfiguration.xml`：Mobile Engagement 的組態檔，您可以在此自訂 Engagement 的設定 (Engagement 連接字串、報告當機等)。
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

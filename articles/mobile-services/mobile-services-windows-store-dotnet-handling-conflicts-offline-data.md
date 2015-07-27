@@ -51,7 +51,7 @@
 
 2. 如果您尚未安裝[開始使用離線資料]教學課程中所述的 SQLite for Windows 8.1 和 Windows Phone 8.1，請安裝這兩個執行階段。
 
-3. 在 Visual Studio 2013，開啟 *mobile-services-samples\TodoOffline\WindowsUniversal\TodoOffline-Universal.sln* 方案檔。請按 **F5** 鍵，以重新建置與執行專案。確認 NuGet 封裝已還原，並已正確設定參考。
+3. 在 Visual Studio 2013，開啟 *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln* 方案檔。請按 **F5** 鍵，以重新建置與執行專案。確認 NuGet 封裝已還原，並已正確設定參考。
 
     >[AZURE.NOTE]您可能需要刪除任何舊的 SQLite 執行階段參考，並以更新過的參考 (如[開始使用離線資料]教學課程中所述) 加以取代。
 
@@ -167,4 +167,4 @@
 [Todo 離線行動服務範例]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

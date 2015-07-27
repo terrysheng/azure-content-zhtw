@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Slack 連接器"
-	description="開始使用 Slack 連接器"
+	pageTitle="在 Azure App Service 中使用 Slack 連接器"
+	description="如何開始使用 Slack 連接器"
 	authors="anuragdalmia" 
 	manager="dwrede" 
 	editor="" 
@@ -13,71 +13,73 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2015"
+	ms.date="06/29/2015"
 	ms.author="andalmia"/>
 
-# 在邏輯應用程式中使用 Slack 連接器 #
+# Slack 連接器
 
-邏輯應用程式可以根據各種資料來源和提供項目連接器觸發，以在流程中取得和處理資料。
+連接至 Slack 通道，並將訊息張貼至您的小組。連接器可在邏輯應用程式中用做「工作流程」的一部分，以執行不同的工作。在工作流程中使用 Slack 連接器時，可以使用其他連接器來達到各種案例的目的。例如，您可以在工作流程中使用 [Facebook 連接器](app-service-logic-connector-facebook.md)，以將訊息張貼至 Slack 通道。
 
-Slack 連接器可讓您將訊息張貼至 Slack 通道。
+## 觸發程序和動作
+*觸發程序*是發生的事件。例如，訂單更新時或加入新客戶時。*動作*是觸發程序的結果。例如，當訂單更新時，傳送警示給銷售人員。或者，當加入新客戶時，傳送歡迎電子郵件給新客戶。
 
-## 建立邏輯應用程式的 Slack 連接器 ##
-若要使用 Slack 連接器，您必須先建立 Slack 連接器 API 應用程式的執行個體。如下所示，完成此作業：
+Slack 連接器可以在邏輯應用程式中用作動作，且支援 JSON 和 XML 格式的資料。Slack 連接器目前沒有觸發程序。
 
-1.	使用 Azure 入口網站左下方的 "+ 新增" 選項，開啟 Azure Marketplace。
-2.	瀏覽至 [Web 和行動] > [Azure Marketplace]，並搜尋 [Slack 連接器]。
-3.	如下所示，設定 Slack 連接器：
- 
-	![][1]
-	- **名稱** - 賦予 Slack 連接器的名稱
-	- **App Service 方案** - 選取或建立 App Service 方案
-	- **定價層** - 選擇連接器的定價層
-	- **資源群組** - 選取或建立連接器應該位於的資源群組
-	- **訂用帳戶** - 選擇您要在其中建立此連接器的訂用帳戶
-	- **位置** - 選擇您要部署連接器的地理位置
+Slack 連接器提供下列觸發程序和動作：
 
-4. 按一下 [建立]。將會建立新的 [Slack 連接器]。
-5. 建立 API 應用程式執行個體後，您可以在相同的資源群組中建立邏輯應用程式以使用 Slack 連接器。
+觸發程序 | 動作
+--- | ---
+無 | 張貼訊息
 
-## 在邏輯應用程式中使用 Slack 連接器 ##
-建立 API 應用程式後，您現在可以使用 Slack 連接器作為邏輯應用程式的動作。若要這麼做，您需要：
+## 建立 Slack 連接器
+連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
-1.	建立新的邏輯應用程式，並選擇具有 Slack 連接器的相同資源群組。請依照指示[建立新的邏輯應用程式]。  	
+1. 在 Azure 開始面板中，選取 [**Marketplace**]。
+2. 選取 [API 應用程式]，然後搜尋「Slack 連接器」。
+3. 輸入名稱、App Service 方案和其他屬性：<br/> ![][1] 
+
+4. 按一下 [建立]。
+
+## 在邏輯應用程式中使用連接器做為動作
+
+> [AZURE.IMPORTANT]連接器和邏輯應用程式應該一律建立於相同的資源群組中。
+
+建立 Slack 連接器之後，即可將它當做動作加入邏輯應用程式中：
+
+1.	在邏輯應用程式內，開啟 [觸發程序和動作]。[建立新的邏輯應用程式](app-service-logic-create-a-logic-app.md)
+
+2.	Slack 連接器會列在右邊的資源庫中：<br/> ![][2]
+
+3.	選取您建立的 Slack 連接器，以自動將它加入邏輯應用程式。
+4.	選取 [授權]。登入 Slack 帳戶。結束前，系統會要求您提供您連接器的權限，以存取您的 Slack 帳戶。選取 [授權]：<br/> ![][3] ![][4] ![][5] ![][6]
 	
-2.	在建立的邏輯應用程式中開啟 [觸發程序和動作]，以開啟 Logic Apps Designer 並設定您的流程。
-	
-3.	Slack 連接器會出現在右手邊組件庫的 [此資源群組中的 API 應用程式] 一節。
+5.	您現在可以在流程中使用 Slack 連接器。可以使用 [張貼訊息] 動作：<br/> ![][7]
+
+
+我們一起逐步體驗「張貼訊息」。您可以使用這個動作，將訊息張貼至任何 Slack 通道：
  
-	![][2]
-4.	您可以按一下 [Slack 連接器]，將 Slack 連接器 API 應用程式放入編輯器中。按一下 [授權] 按鈕。提供您的 Microsoft 認證 (如果未自動登入的話)。遵循下列步驟，登入您的 Slack 帳戶。結束前，系統會要求您提供您的連接器權限，以存取您的 Slack 帳戶。請按一下 [授權]
- 
-	![][3]
-	![][4]
-	![][5]
-	![][6]
-	
-5.	您現在可以在流程中使用 Slack 連接器。目前，觸發程序無法使用於 Slack 連接器。可用的動作：張貼訊息
- 
-	![][7]
+![][8]
 
-6.	我們一起逐步體驗「張貼訊息」。您可以使用這個動作，將訊息張貼至任何 Slack 通道。
- 
-	![][8]
+設定 [張貼訊息] 動作的輸入屬性：
 
-	如下所示，設定「張貼訊息」動作的輸入屬性：
+屬性 | 說明
+--- | ---
+文字 | 輸入要張貼的訊息文字。
+通道名稱 | 輸入要在其中張貼此訊息的 Slack 通道。如果未輸入通道，則會將訊息張貼至 #general。
+進階屬性 | <ul><li><strong>Bot 使用者名稱</strong>：要用於此訊息的 Bot 名稱。如果未輸入此屬性，則會將訊息張貼為 "Bot"。</li><li><strong>圖示 URL</strong>：要作為此訊息圖示的影像 URL。</li><li><strong>圖示 Emoji</strong>：要作為此訊息圖示的 Emoji。這個屬性會覆寫圖示 URL 屬性。</li></ul>
 
- - **文字** - 指定要張貼的訊息文字
- - **通道名稱** - 指定此訊息要上傳至的 Slack 通道。如果未提供此項目，則訊息會張於 #general
+Slack 連接器具有 REST API，因此您可以在邏輯應用程式外部使用連接器。開啟 Slack 連接器，然後選取 [API 定義]：
 
- 	**進階屬性** - **Bot 使用者名稱** - 要用於此訊息的 Bot 名稱。如果未指定此屬性，訊息將會張貼為 "Bot"。- **圖示 URL** - 要作為此訊息圖示的影像 URL - **圖示 Emoji** - 要作為此訊息圖示的 Emoji。覆寫圖示 URL
- 
+![][9]
 
-7. 若要使用邏輯應用程式外部的連接器，可以運用連接器所公開的 REST API。您可以使用 [瀏覽] -> [API 應用程式]-> [Slack 連接器]，檢視此 API 定義 。現在按一下 [摘要] 區段下的 [API 定義] 鏡頭，以檢視此連接器所公開的所有 API。
 
-	![][9]
+## 進一步運用您的連接器
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
-9. 在 [Slack API 定義]也可以找到 API 的詳細資訊。
+使用 REST API 建立 API 應用程式。請參閱[連接器和 API 應用程式參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)。
+
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)。
+
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-slack/img1.PNG
@@ -90,8 +92,4 @@ Slack 連接器可讓您將訊息張貼至 Slack 通道。
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!-- Links -->
-[建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
-[Slack API 定義]: https://msdn.microsoft.com/zh-tw/library/dn708020.aspx
-
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

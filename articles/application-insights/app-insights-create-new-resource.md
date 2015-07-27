@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="07/14/2015" 
 	ms.author="awills"/>
 
 # 建立新 Application Insights 資源
@@ -55,20 +55,20 @@ Visual Studio Application Insights 會在 Microsoft Azure *資源*中顯示您�
 若要在下次登入 Azure 時返回該應用程式，請在開始面板 (主畫面) 上尋找應用程式的快速啟動磚。或按一下 [瀏覽] 以尋找它。
 
 
-## 複製檢測金鑰。
+## 複製檢測金鑰
 
+檢測金鑰會識別您所建立的資源。您將需要它以提供給 SDK。
 
-稍後您會需要此金鑰，以便將應用程式中的資料從 SDK 導向至您剛建立的資源。
+![按一下 [基本功能]，按一下 [檢測金鑰]，CTRL+C](./media/app-insights-create-new-resource/02-props.png)
 
-![按一下 [屬性]，選取金鑰，然後按下 CTRL+C](./media/app-insights-create-new-resource/02-props.png)
+## 在應用程式中安裝 SDK
 
-## 設定 SDK
+在應用程式中安裝 Application Insights SDK 核心。此步驟高度仰賴於應用程式的類型。
 
 使用檢測金鑰來設定[您在應用程式中安裝的 SDK][start]。
 
-此步驟有很大程度是取決於您正在使用的應用程式類型。
+SDK 包含不需撰寫任何程式碼，即可傳送遙測資料的標準模組。若要追蹤使用者動作或更詳細診斷問題，請[使用 API][api] 來傳送您自己的遙測。
 
-在某些情況下，您可以安裝不需撰寫任何程式碼，即可傳送遙測資料的標準模組。但在所有情況下，您可以[使用 API][api] 傳送自己的遙測資料。
 
 ## <a name="monitor"> </a>查看遙測資料
 
@@ -92,4 +92,4 @@ Visual Studio Application Insights 會在 Microsoft Azure *資源*中顯示您�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

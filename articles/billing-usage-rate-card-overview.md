@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="06/14/2015"
+   ms.date="07/7/2015"
    ms.author="mobandyo;bryanla"/>
 
 # 深入瞭解 Microsoft Azure 資源耗用量 
@@ -29,7 +29,7 @@ Azure 資源使用情況和 RateCard API 會實作為資源提供者，並由 Az
 ### Azure 資源使用情況 API (預覽)
 客戶和合作夥伴可以使用 Azure 資源使用情況 API 來取得其預估的 Azure 消耗量資料。這些功能包括：
 	
-- **Azure 角色型存取控制** - 客戶和合作夥伴可以在 [Azure Preview 入口網站](https://portal.azure.com)上或透過 [Azure PowerShell cmdlet](https://azure.microsoft.com/zh-tw/documentation/articles/powershell-install-configure/) 設定其存取原則，以指定哪些使用者或應用程式可以存取訂用帳戶的使用情況資料。呼叫端必須使用標準的 Azure Active Directory 權杖進行驗證。呼叫端也必須加入至讀取者、擁有者或參與者等角色，才可存取特定 Azure 訂用帳戶的使用情況資料。
+- **Azure 角色型存取控制** - 客戶和合作夥伴可以在 [Azure Preview 入口網站](https://portal.azure.com)上或透過 [Azure PowerShell cmdlet](powershell-install-configure.md) 設定其存取原則，以指定哪些使用者或應用程式可以存取訂用帳戶的使用情況資料。呼叫端必須使用標準的 Azure Active Directory 權杖進行驗證。呼叫端也必須加入至讀取者、擁有者或參與者等角色，才可存取特定 Azure 訂用帳戶的使用情況資料。
 
 - **每小時或每日彙總** - 呼叫端可以指定要 Azure 使用情況資料的每小時值區或每日值區。預設值為每日值區。
 
@@ -42,7 +42,7 @@ Azure 資源使用情況和 RateCard API 會實作為資源提供者，並由 Az
 ### Azure 資源 RateCard API (預覽)
 客戶和合作夥伴可以使用 Azure 資源 RateCard API 來取得可用 Azure 資源的清單，連同每個資源的估計定價資訊。這些功能包括：
 
-- **Azure 角色型存取控制** - 客戶和合作夥伴可以在 [Azure 預覽入口網站](https://portal.azure.com)上或透過 [Azure PowerShell cmdlet](https://azure.microsoft.com/zh-tw/documentation/articles/powershell-install-configure/) 設定其存取原則，以指定哪些使用者或應用程式可以存取 RateCard 資料。呼叫端必須使用標準的 Azure Active Directory 權杖進行驗證。呼叫端也必須加入至讀取者、擁有者或參與者等角色，才可存取特定 Azure 訂用帳戶的使用情況資料。
+- **Azure 角色型存取控制** - 客戶和合作夥伴可以在 [Azure 預覽入口網站](https://portal.azure.com)上或透過 [Azure PowerShell cmdlet](powershell-install-configure.md) 設定其存取原則，以指定哪些使用者或應用程式可以存取 RateCard 資料。呼叫端必須使用標準的 Azure Active Directory 權杖進行驗證。呼叫端也必須加入至讀取者、擁有者或參與者等角色，才可存取特定 Azure 訂用帳戶的使用情況資料。
 	
 - **支援隨收隨付、MSDN、貨幣承諾、貨幣信用額度優惠 (不支援 EA)** - 此 API 提供 Azure 優惠層級費率資訊與訂用帳戶層級資訊。此 API 的呼叫端必須輸入優惠資訊以取得資源詳細資料和費率。由於 EA 優惠已自訂每個註冊的費率，所以我們無法在此時提供 EA 費率。
 
@@ -78,4 +78,4 @@ Azure 資源使用情況和 RateCard API 會實作為資源提供者，並由 Az
 + 請參閱 [Azure 資源管理員概觀](resource-group-overview.md)一文，以深入了解 Azure 資源管理員。
 + 如需協助了解雲端花費之必要工具套件的其他資訊，請參閱 Gartner 文章 [IT 財務管理 (ITFM) 工具的市場指南](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb)。
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

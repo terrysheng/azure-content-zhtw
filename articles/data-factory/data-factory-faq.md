@@ -22,7 +22,7 @@
 
 ### 問：什麼是 Azure Data Factory？
 
-資料處理站是完全受管理的服務，讓開發人員將資料儲存體、搬移和處理服務撰寫到高度可用的容錯資料管線。資料處理站可在內部部署和雲端資料儲存體上作業。管線是資料輸入、處理活動和資料輸出的集合，並以簡單的 JSON 指令碼定義，以及透過 PowerShell 命令啟動。一旦啟動後，資料處理站會使用代表使用者的自動叢集管理選項，來協調及排定管線在 HDInsight (Hadoop) 上的執行。資料處理站也會提供視覺化的管理和透過 Azure 預覽入口網站的監視經驗，利用一個儀表板中具有多項操作和服務的健康資訊，來監視所有的管線。
+資料處理站是完全受管理的服務，讓開發人員將資料儲存體、搬移和處理服務撰寫到高度可用的容錯資料管線。資料處理站可在內部部署和雲端資料儲存體上作業。管線是資料輸入、處理活動和資料輸出的集合，並以簡單的 JSON 指令碼定義，以及透過 PowerShell 命令啟動。一旦啟動後，資料處理站會使用代表使用者的自動叢集管理選項，來協調及排定管線在 HDInsight (Hadoop) 上的執行。資料處理站也會提供視覺化的管理和透過 Azure Preview 入口網站的監視經驗，利用一個儀表板中具有多項操作和服務的健康資訊，來監視所有的管線。
  
 ### 問：Data Factory 可解決何種客戶難題？
 
@@ -40,9 +40,9 @@ Azure 資料處理站藉由完全受管理之服務的控制和監視功能，�
 	- 必須跨越內部部署和雲端來管理計算資源和儲存體資源，以平衡成本和規模
 	- 必須快速加入多個來源和處理動作以處理新的商務需求，同時維護所有計算資產和儲存體資產的可見度
 
-###  問：哪裡可以找到 Azure Data Factory 的定價詳細資料？
+###  問：哪裡可以找到 Azure Data Factory 的價格詳細資料？
 
-請參閱 [Data Factory 定價詳細資料頁面][adf-pricing-details]以了解 Azure Data Factory 的定價詳細資料。
+請參閱 [Data Factory 價格詳細資料頁面][adf-pricing-details]以了解 Azure Data Factory 的價格詳細資料。
 
 ### 問：如何開始使用 Azure Data Factory？
 
@@ -71,7 +71,7 @@ Azure 資料處理站藉由完全受管理之服務的控制和監視功能，�
 
 您可以使用下列其中一項來撰寫/建立資料處理站：
 
-- **Azure Preview 入口網站**。Azure 預覽入口網站中的 Data Factory 刀鋒視窗提供豐富的使用者介面，讓您建立資料處理站和連結的服務。**Data Factory 編輯器**也是入口網站的一部分，讓您透過指定成品的 JSON 定義，輕鬆建立連結服務、資料表、資料集和管線。如需編輯器的概觀，請參閱 [Data Factory 編輯器][data-factory-editor]，如需使用入口網站/編輯器來建立和部署 Data Factory 的範例，請參閱[開始使用 Data Factory][datafactory-getstarted]。   
+- **Azure Preview 入口網站**。Azure Preview 入口網站中的 Data Factory 刀鋒視窗提供豐富的使用者介面，讓您建立資料處理站和連結的服務。**Data Factory 編輯器**也是入口網站的一部分，讓您透過指定成品的 JSON 定義，輕鬆建立連結服務、資料表、資料集和管線。如需編輯器的概觀，請參閱 [Data Factory 編輯器][data-factory-editor]，如需使用入口網站/編輯器來建立和部署 Data Factory 的範例，請參閱[開始使用 Data Factory][datafactory-getstarted]。   
 - **Azure PowerShell** (英文)。如果您是 PowerShell 使用者，而且想要使用 PowerShell，而不是入口網站 UI，則可以使用 Azure PowerShell 隨附的 Azure Data Factory Cmdlet 來建立和部署資料處理站。請參閱[使用 Azure PowerShell 建立和監視 Azure Data Factory][create-data-factory-using-powershell] 以取得簡單範例；以及[教學課程：使用 Data Factory 移動和處理記錄檔][adf-tutorial]，以取得使用 PowerShell Cmdlet 建立和部署 Data Factory 的進階範例。如需 Data Factory Cmdlet 的完整文件，請參閱 MSDN Library 上的 [Data Factory Cmdlet 參考][adf-powershell-reference]內容。  
 - **.NET 類別庫**。您可以使用 Data Factory .NET SDK，透過程式設計方式建立資料處理站。如需使用 .NET SDK 建立 Data Factory 的逐步解說，請參閱[使用 .NET SDK 建立、監視和管理 Data Factory][create-factory-using-dotnet-sdk]。如需 Data Factory .NET SDK 的完整文件，請參閱 [Data Factory 類別庫參考][msdn-class-library-reference]。  
 - **REST API**。您也可以使用 Azure Data Factory 服務所公開的 REST API 來建立和部署資料處理站。如需 Data Factory REST API 的完整文件，請參閱 [Data Factory REST API 參考][msdn-rest-api-reference]。 
@@ -107,16 +107,14 @@ Azure 資料處理站藉由完全受管理之服務的控制和監視功能，�
 ## 複製活動 - 常見問題集
 ### 問：複製活動支援哪些區域？
 
-複製活動支援將資料複製至下列區域：美國東部、美國東部 2、美國西部、美國中部、美國中北部、美國中南部、北歐、西歐和東南亞。
+複製活動支援將資料複製至下列區域：美國東部、美國東部 2、美國西部、美國中部、美國中北部、美國中南部、北歐、西歐、東南亞、日本東部和巴西南部。
 
 使用上述其中一個區域來路由資料，也可支援將資料複製到其他區域。複製作業會根據用於資料路由的地區計量付費。
 
 複製目的地的區域 | 用於路由的區域
 -------------------------- | -----------------------
 東亞 | 東南亞
-日本東部 | 美國西部
-日本西部 | 美國西部
-巴西南部 | 美國東部 2
+日本西部 | 日本東部
 
 ### 如何複製到多個輸出資料表？
 管線中可以有多個輸出資料表，如下列範例所示：
@@ -133,7 +131,7 @@ Azure 資料處理站藉由完全受管理之服務的控制和監視功能，�
 
 ### 問：HDInsight 支援哪些區域？
 
-請參閱下列文章中的＜各地區上市情況＞一節：或 [HDInsight 定價詳細資料][hdinsight-supported-regions]。
+請參閱下列文章中的＜各地區上市情況＞一節：或 [HDInsight 價格詳細資料][hdinsight-supported-regions]。
 
 ### 問：隨選 HDInsight 叢集使用哪一個區域？
 
@@ -217,4 +215,4 @@ Azure 資料處理站藉由完全受管理之服務的控制和監視功能，�
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

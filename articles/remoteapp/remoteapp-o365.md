@@ -3,7 +3,6 @@
     pageTitle="透過 Azure RemoteApp 使用 Office 365" 
     description="了解 Office 365 和 Azure RemoteApp 如何共同運作" 
     services="remoteapp" 
-    solutions="" 
 	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
@@ -49,4 +48,4 @@ RemoteApp 支援 Office 365 共用電腦啟用。當您啟用「共用電腦啟�
 如果您在試用期過後還未轉換成實際執行模式，將會停用您的 RemoteApp 收藏。別擔心，您的設定和使用者資料會持續儲存 90 天，因此，您仍可以啟用您的服務和切換到實際執行模式，不會遺失任何資料。
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

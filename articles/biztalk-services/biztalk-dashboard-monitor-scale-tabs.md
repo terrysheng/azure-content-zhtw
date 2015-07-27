@@ -28,10 +28,7 @@
 這樣會開啟新視窗並顯示下列索引標籤。本主題說明這些索引標籤。
 
 ## 快速入門 (![快速啟動][QuickStart])
-部分 BizTalk 服務版本可能並未提供下列所有選項。
-<table border="1">
-    <tr>
-        <td><strong>取得工具</strong></td>
+部分 BizTalk 服務版本可能並未提供下列所有選項。<table border="1"> <tr> <td><strong>取得工具</strong></td>
 
         <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
         <br/><br/>
@@ -236,20 +233,10 @@
 
 ##### 在圖表中移除或顯示度量：
 1. 選取 [**監視**] 索引標籤。
-2. 選取工作列中的 [**加入度量**]：
-<br/>
-![選取 [新增度量]][AddMetrics]
+2. 選取工作列中的 [**加入度量**]：<br/> ![選取 [新增度量]][AddMetrics]
 3. 勾選您要顯示的效能度量。
 4. 選取勾選記號以回到 [**監視**] 索引標籤。
-5. 選取度量旁邊的圓圈，將該度量的值顯示在圖表中。
-<br/>
-例如，**CPU 使用量**度量呈現灰色；其輸出未在圖表中顯示：
-<br/>
-![CPU 使用量度量呈現灰色][GrayedMetric]
-<br/>
-選取灰色圓圈，讓 **CPU 使用量**度量的輸出顯示在圖表中：
-<br/>
-![CPU 使用量度量已啟用][EnabledMetric]
+5. 選取度量旁邊的圓圈，將該度量的值顯示在圖表中。<br/> 例如，**CPU 使用量**度量呈現灰色；其輸出未在圖表中顯示：<br/> ![CPU 使用量度量呈現灰色][GrayedMetric] <br/> 選取灰色圓圈，讓 **CPU 使用量**度量的輸出顯示在圖表中：<br/> ![CPU 使用量度量已啟用][EnabledMetric]
 
 6. 若要從顯示圖表和清單中移除度量，請選取工作列中的 [**移除度量**]。若要將度量加回到清單中，請選取工作列的 [加入度量]，勾選度量，然後選取勾選記號以回到 [監視] 索引標籤。選取灰色圓圈以啟用度量。
 
@@ -368,4 +355,4 @@
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

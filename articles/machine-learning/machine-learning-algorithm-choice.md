@@ -1,8 +1,6 @@
 <properties 
-	title="" 
 	pageTitle="如何選擇機器學習演算法 | Microsoft Azure" 
 	description="如何在叢集、分類或迴歸實驗中選擇適用於經過指導和未經指導之學習的 Azure Machine Learning 演算法。" 
-	keywords="machine learning algorithms,types of machine learning algorithms,types of machine learning,clustering,clustering algorithm"	
 	services="machine-learning"
 	documentationCenter="" 
 	authors="garyericson" 
@@ -264,4 +262,4 @@ K-means 是最簡單的未經指導學習演算法之一，可用來解決已知
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2015" 
+	ms.date="06/17/2015" 
 	ms.author="awills"/>
  
 # Windows 裝置適用的 Application Insights 的疑難排解和問答集
@@ -120,4 +120,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

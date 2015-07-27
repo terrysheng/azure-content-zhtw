@@ -32,11 +32,10 @@
 ## 必要條件  
 
 * 安裝和設定 [Visual Studio 程式碼](http://code.visualstudio.com/Docs/setup)。
-* 安裝 [Node.js](http://nodejs.org/download/)。<br\>
-	[Node.js](http://nodejs.org/) 是一種平台，可使用 JavaScript 建置快速和可擴充的伺服器應用程式。節點是執行階段 (節點)，而 [npm](http://www.npmjs.com/) 是節點模組的封裝管理員。您將使用 npm，在本教學課程中建立 ASP.NET 5 API 應用程式的結構。
+* 安裝 [Node.js](http://nodejs.org/download/)。<br>[Node.js](http://nodejs.org/) 是一種平台，可使用 JavaScript 建置快速和可擴充的伺服器應用程式。節點是執行階段 (節點)，而 [npm](http://www.npmjs.com/) 是節點模組的封裝管理員。您將使用 npm，在本教學課程中建立 ASP.NET 5 API 應用程式的結構。
 
 ## 安裝 ASP.NET 5 和 DNX
-ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上執行的現代雲端和 Web 應用程式。已從頭建置，以將最佳化的開發架構提供給已部署至雲端或執行內部部署的應用程式。其由額外負荷最低的模組化元件組成，以便您可以在建構解決方案時保留彈性。
+ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上執行的現代雲端和 Web 應用程式。它已從頭建置，以將最佳化的開發架構提供給已部署至雲端或執行內部部署的應用程式。其由額外負荷最低的模組化元件組成，以便您可以在建構解決方案時保留彈性。
 
 > [AZURE.NOTE]OS X 和 Linux 上的 ASP.NET 5 和 DNX (.NET 執行環境) 處於早期 Beta/預覽狀態。
 
@@ -45,34 +44,29 @@ ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上�
 1. 若要在 Windows 中安裝 .NET 版本管理員 (DNVM)，請在 [命令視窗] 中執行下列命令。
 
 	<pre class="prettyprint">
-	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "&amp;{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
-	</pre> 
-	這將下載 DNVM 指令碼，並將它放在您的使用者設定檔中。
+@powershell -NoProfile -ExecutionPolicy unrestricted -Command "&amp;{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
+</pre>這將下載 DNVM 指令碼，並將它放在您的使用者設定檔中。
 
 2. 您可能需要在輸入上述命令之後登出，PATH 環境變數的變更才會生效。
 3. 在 [命令視窗] 中執行下列命令，以檢查 DNVM 的位置： 
 
 	<pre class="prettyprint">
-	where dnvm
-	</pre>
-
-	[命令視窗] 將顯示如下路徑：
+where dnvm
+</pre>[命令視窗] 將顯示如下路徑：
 
 	![dnvm 位置](./media/app-service-create-aspnet-api-app-using-vscode/00-where-dnvm.png)
 
 4. 現在您具有 DNVM，您需要使用其來下載 DNX，才能執行應用程式。從 [命令視窗] 中執行下列命令：
 
 	<pre class="prettyprint">
-	dnvm upgrade
-	</pre>
+dnvm upgrade
+</pre>
 
 5. 確認您的 DNVM，並在 [命令視窗] 中輸入下列命令，檢視使用中執行階段：
 
 	<pre class="prettyprint">
-	dnvm list
-	</pre>
-
-	[命令視窗] 將顯示使用中執行階段的詳細資料：
+dnvm list
+</pre>[命令視窗] 將顯示使用中執行階段的詳細資料：
 
 	![dnvm 位置](./media/app-service-create-aspnet-api-app-using-vscode/00b-dnvm-list.png)
 
@@ -86,23 +80,21 @@ ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上�
 2. 在命令視窗中輸入下列命令來安裝 Yeoman 和支援的工具：
 
 	<pre class="prettyprint">
-	npm install -g yo grunt-cli generator-aspnet bower
-	</pre>
+npm install -g yo grunt-cli generator-aspnet bower
+</pre>
 
 3. 在命令視窗中輸入下列命令來建立專案資料夾，並建立應用程式的結構：
 
 	<pre class="prettyprint">
-	yo aspnet
-	</pre>
+yo aspnet
+</pre>
 
 4. 捲動和選取 **Web API 應用程式**型別，以遵循產生器所提供的指示。
 
 	![Yoman - ASP.NET 5 產生器](./media/app-service-create-aspnet-api-app-using-vscode/01-yo-aspnet.png)
 
-5. 將新 ASP.NET API 應用程式的名稱設為 **ContactsList**。此名稱將用於本教學課程稍後提供的程式碼。<br>
-	Yeoman 將建立名為 **ContactsList** 的新資料夾，以及新應用程式必要的檔案。
-6. 開啟 **Visual Studio 程式碼**。<br> 
-	輸入 **code**，即可從 [命令視窗] 中開啟 VSCode。
+5. 將新 ASP.NET API 應用程式的名稱設為 **ContactsList**。此名稱將用於本教學課程稍後提供的程式碼。<br>Yeoman 將建立名為 **ContactsList** 的新資料夾，以及新應用程式必要的檔案。
+6. 開啟 **Visual Studio 程式碼**。<br> 輸入 **code**，即可從 [命令視窗] 中開啟 VSCode。
 7. 從 [**檔案**] 功能表中，選取 [**開啟資料夾**]，然後選取您 ASP.NET API 應用程式所在的資料夾。
 
 	![[選取資料夾] 對話方塊](./media/app-service-create-aspnet-api-app-using-vscode/02-open-folder.png)
@@ -115,10 +107,8 @@ ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上�
 9. 在 [**命令調色盤**] 中，輸入下列命令：
 
 	<pre class="prettyprint">
-	dnx:dnu restore - (ContactsList)
-	</pre>
-
-	當您開始輸入時，您將從清單中看到完整的命令列。
+dnx:dnu restore - (ContactsList)
+</pre>當您開始輸入時，您將從清單中看到完整的命令列。
 
 	![Restore 命令](./media/app-service-create-aspnet-api-app-using-vscode/04-dnu-restore.png)
 
@@ -135,53 +125,49 @@ ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上�
 2. 以滑鼠右鍵按一下 **Models** 資料夾，使用下列程式碼加入名為 *Contact.cs* 的新類別檔案：
 
 	<pre class="prettyprint">
-	namespace ContactsList.Models
-	{
-	    public class Contact
-	    {
-	        public int Id { get; set; }
-	        public string Name { get; set; }
-	        public string EmailAddress { get; set; }
-	    }
-	}
-	</pre>
-
-
+namespace ContactsList.Models
+{
+    public class Contact
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+    }
+}
+</pre>
 
 3. 以滑鼠右鍵按一下 **Controllers** 資料夾，並加入 *ContactsController.cs* 檔案使其出現，如下所示：
 
 	<pre class="prettyprint">
-	using System.Collections.Generic;
-	using Microsoft.AspNet.Mvc;
-	using ContactsList.Models;
+using System.Collections.Generic;
+using Microsoft.AspNet.Mvc;
+using ContactsList.Models;
 
-	namespace ContactsList.Controllers
-	{
-	    [Route("api/[controller]")]
-	    public class ContactsController : Controller
-	    {
-	        // GET: api/Contacts
-	        [HttpGet]
-	        public IEnumerable&lt;Contact> Get()
-	        {
-	            return new Contact[]{
-	                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
-	                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
-	                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
-	            };
-	        }
-	    }
-	}
-	</pre>
+namespace ContactsList.Controllers
+{
+    [Route("api/[controller]")]
+    public class ContactsController : Controller
+    {
+        // GET: api/Contacts
+        [HttpGet]
+        public IEnumerable&lt;Contact> Get()
+        {
+            return new Contact[]{
+                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+            };
+        }
+    }
+}
+</pre>
 
 4. 選取 [**檔案**] > [**全部儲存**]，確定儲存您的所有檔案。
 5. 從 [**命令調色盤**] 中，輸入下列命令以在本機執行應用程式：
 
 	<pre class="prettyprint">
-	dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001
-	</pre>
-
-	命令視窗將在其中顯示 [*已啟動*]。如果命令視窗未顯示 [*已啟動*]，請檢查 VSCode 左下角，找出專案中的錯誤。
+dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001
+</pre>命令視窗將在其中顯示 [*已啟動*]。如果命令視窗未顯示 [*已啟動*]，請檢查 VSCode 左下角，找出專案中的錯誤。
 
 5. 開啟瀏覽器，並巡覽至下列 URL：
 
@@ -195,23 +181,22 @@ ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上�
 可讓 ASP.NET API 專案部署為 API 應用程式的中繼資料必須包含在專案根目錄的 *apiapp.json* 檔案中。
 
 1. 在 VSCode 中，以滑鼠右鍵按一下 *wwwroot* 資料夾，然後選取 [**新增檔案**] 選項。
-2. 將新檔案命名為 *apiapp.json*。<br\>
-	請確定 *apiapp.json* 位於 *wwwroot* 資料夾中。
+2. 將新檔案命名為 *apiapp.json*。<br> 請確定 *apiapp.json* 位於 *wwwroot* 資料夾中。
 3. 將下列程式碼加入 *apiapp.json* 檔案：
 
 	<pre class="prettyprint">
-	{
-	    "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
-	    "id": "ContactsList",
-	    "namespace": "microsoft.com",
-	    "gateway": "2015-01-14",
-	    "version": "1.0.0",
-	    "title": "ContactsList",
-	    "summary": "",
-	    "author": "",
-	    "endpoints": null
-	}
-	</pre>
+{
+    "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
+    "id": "ContactsList",
+    "namespace": "microsoft.com",
+    "gateway": "2015-01-14",
+    "version": "1.0.0",
+    "title": "ContactsList",
+    "summary": "",
+    "author": "",
+    "endpoints": null
+}
+</pre>
 
 在 *apiapp.json* 檔案中，您可以指定動態 Swagger API 定義 JSON 的端點，但在本教學課程中，您將使用靜態 API 定義檔。如需使用動態 Swagger 產生的範例，請參閱[將 Web API 專案設定為 API 應用程式](app-service-dotnet-create-api-app-visual-studio.md)。
 
@@ -223,106 +208,106 @@ ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上�
 3. 將下列 json 語法加入新檔案中：
 
 	<pre class="prettyprint">
-	{
-	  "swagger": "2.0",
-	  "info": {
-	    "version": "v1",
-	    "title": "ContactsList"
-	  },
-	  "host": "MUST REPLACE THIS WITH YOUR HOST URL",
-	  "schemes": [
-	    "https"
-	  ],
-	  "paths": {
-	    "/api/Contacts": {
-	      "get": {
-	        "tags": [
-	          "Contacts"
-	        ],
-	        "operationId": "Contacts_Get",
-	        "consumes": [],
-	        "produces": [
-	          "application/json",
-	          "text/json",
-	          "application/xml",
-	          "text/xml"
-	        ],
-	        "responses": {
-	          "200": {
-	            "description": "OK",
-	            "schema": {
-	              "type": "array",
-	              "items": {
-	                "$ref": "#/definitions/Contact"
-	              }
-	            }
-	          }
-	        },
-	        "deprecated": false
-	      },
-	      "post": {
-	        "tags": [
-	          "Contacts"
-	        ],
-	        "operationId": "Contacts_Post",
-	        "consumes": [
-	          "application/json",
-	          "text/json",
-	          "application/xml",
-	          "text/xml",
-	          "application/x-www-form-urlencoded"
-	        ],
-	        "produces": [
-	          "application/json",
-	          "text/json",
-	          "application/xml",
-	          "text/xml"
-	        ],
-	        "parameters": [
-	          {
-	            "name": "contact",
-	            "in": "body",
-	            "required": true,
-	            "schema": {
-	              "$ref": "#/definitions/Contact"
-	            }
-	          }
-	        ],
-	        "responses": {
-	          "200": {
-	            "description": "OK",
-	            "schema": {
-	              "$ref": "#/definitions/Object"
-	            }
-	          }
-	        },
-	        "deprecated": false
-	      }
-	    }
-	  },
-	  "definitions": {
-	    "Contact": {
-	      "type": "object",
-	      "properties": {
-	        "Id": {
-	          "format": "int32",
-	          "type": "integer"
-	        },
-	        "Name": {
-	          "type": "string"
-	        },
-	        "EmailAddress": {
-	          "type": "string"
-	        }
-	      }
-	    },
-	    "Object": {
-	      "type": "object",
-	      "properties": {}
-	    }
-	  }
-	}
-	</pre>
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "ContactsList"
+  },
+  "host": "MUST REPLACE THIS WITH YOUR HOST URL",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/Contacts": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "operationId": "Contacts_Get",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Contact"
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "operationId": "Contacts_Post",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "contact",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "EmailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "Object": {
+      "type": "object",
+      "properties": {}
+    }
+  }
+}
+</pre>
 
 稍後，在本教學課程中，您會將上述的主機 URL 預留位置字串取代為您稍後將建立和複製的 Azure 主機 URL。
 
@@ -422,41 +407,38 @@ Git 是一個您可用來部署 Azure 網站的分散式版本控制系統。您
 7. 在 **GitBash** 中，將資料夾變更為 VSCode 專案資料夾。例如：
 
 	<pre class="prettyprint">
-	cd c:\VSCodeProjects\ContactsList
-	</pre>
+cd c:\VSCodeProjects\ContactsList
+</pre>
 
 7. 使用您稍早複製的 Git URL (結尾為 ".git")，建立遠端參考，以便將更新發送至之前建立的 Web 應用程式 (API 應用程式主機)：
 
 	<pre class="prettyprint">
-	git remote add azure [URL for remote repository]
-	</pre>
+git remote add azure [URL for remote repository]
+</pre>
 
 8. 輸入下列命令，將您的變更發送至 Azure：
 
 	<pre class="prettyprint">
-	git push azure master
-	</pre>
-
-	系統會提示您輸入先前建立的密碼。**注意：將看不到您的密碼。**
+git push azure master
+</pre>系統會提示您輸入先前建立的密碼。**注意：將看不到您的密碼。**
 
 	上述命令的輸出結尾會出現部署成功的訊息：
 
 	<pre class="prettyprint">
-	remote: Deployment successful.
-	 https://user@testsite.scm.azurewebsites.net/testsite.git
-	[new branch]      master -> master
-	</pre>
+remote: Deployment successful.
+To https://user@testsite.scm.azurewebsites.net/testsite.git
+[new branch]      master -> master
+</pre>
 
 > [AZURE.NOTE]如果您變更應用程式，則可以重新發佈，方法是在 VSCode 中選取 [**全部認可**] 核取方塊，然後在 **GitBash** 中輸入 **git push azure master** 命令。
 
 ## 在 Azure 預覽入口網站中檢視 API 定義
-現已將 API 部署到您的 API 應用程式，您可在 Azure 預覽入口網站中查看 API 定義。一開始要先重新啟動閘道器，這可讓 Azure 認可 API 應用程式的 API 定義已經變更。閘道器是一個 Web 應用程式，可處理資源群組中 API 應用程式的 API 管理和授權。
+現已將 API 部署到您的 API 應用程式，您可在 Azure 預覽入口網站中查看 API 定義。一開始要先重新啟動閘道器，這可讓 Azure 認可 API 應用程式的 API 定義已經變更。閘道是一個 Web 應用程式，可處理資源群組中 API 應用程式的 API 管理和授權。
 
 1. 在 Azure 預覽入口網站中，移至您稍早建立之 API 應用程式的 [**API 應用程式**] 刀鋒視窗，然後按一下 [**閘道器**] 連結。
 2. 在 [**閘道器**] 刀鋒視窗中，按一下 [**重新啟動**]。您現在可以關閉此刀鋒視窗。
 3. 在 [**API 應用程式**] 刀鋒視窗中，按一下 [**重新啟動**]。 
-4. 在 [**API 應用程式**] 刀鋒視窗中，按一下 [**API 定義**]。<br>
-	[API 定義] 刀鋒視窗會顯示兩種方法。如果您未立即看到 GET 和 POST 方法，請等候幾秒的時間，讓 Azure 重新整理應用程式。然後，在 [**API 應用程式**] 刀鋒視窗中，按一下 [**API 定義**]。
+4. 在 [**API 應用程式**] 刀鋒視窗中，按一下 [**API 定義**]。<br> [API 定義] 刀鋒視窗會顯示兩種方法。如果您未立即看到 GET 和 POST 方法，請等候幾秒的時間，讓 Azure 重新整理應用程式。然後，在 [**API 應用程式**] 刀鋒視窗中，按一下 [**API 定義**]。
 
 ## 在 Azure 中執行應用程式
 在 Azure 預覽入口網站中，移至 API 應用程式的 [**API 應用程式主機**] 刀鋒視窗，然後按一下 [**瀏覽**]。然後，在 URL 結尾加入 **api/Contacts**，以檢視連絡人詳細資料。
@@ -466,4 +448,4 @@ Git 是一個您可用來部署 Azure 網站的分散式版本控制系統。您
 在本教學課程中，您學到如何在 Visual Studio 程式碼中建立 API 應用程式。如需 Visual Studio 程式碼的詳細資訊，請參閱 [Visual Studio 程式碼](https://code.visualstudio.com/Docs/)。如需 API 應用程式的相關資訊，請參閱[什麼是 API 應用程式？](app-service-api-apps-why-best-platform.md)。
  
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

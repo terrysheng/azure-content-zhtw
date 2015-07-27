@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/24/2015" 
 	ms.author="riande"/>
 
 
@@ -24,10 +24,10 @@
 
 如果您的 ASP.NET Web 應用程式使用工作階段狀態，則將需要設定外部工作階段狀態提供者 (可為 Redis 快取服務或 SQL Server 工作階段狀態提供者)。如果您使用工作階段狀態，但並未使用外部提供者，則您的 Web 應用程式只能限定一個執行個體。Redis 快取服務是最快最簡單的啟用方式。
 
-<h2><a id="createcache"></a>建立快取</h2>
+##<a id="createcache"></a>建立快取
 遵循[這些指示](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache)以建立快取。
 
-<h2><a id="configureproject"></a>將 RedisSessionStateProvider NuGet 封裝新增至 Web 應用程式</h2>
+##<a id="configureproject"></a>將 RedisSessionStateProvider NuGet 封裝加入 Web 應用程式
 安裝 NuGet `RedisSessionStateProvider` 封裝。從封裝管理員主控台 (**Tools** > [NuGet 封裝管理員] > [封裝管理員主控台]) 中使用下列命令來安裝：
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
@@ -36,7 +36,7 @@
 
 如需詳細資訊，請參閱 [NuGet RedisSessionStateProvider 頁面](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/)和[設定快取用戶端](../cache-dotnet-how-to-use-azure-redis-cache.md#NuGet) 。
 
-<h2><a id="configurewebconfig"></a>修改 Web.Config 檔案</h2>
+##<a id="configurewebconfig"></a>修改 Web.Config 檔案
 除了對快取進行組件參考之外，NuGet 封裝還能在 *web.config* 檔案中加入虛設常式項目。
 
 1. 開啟 *web.config*，然後尋找 **sessionState** 元素。
@@ -74,8 +74,7 @@
   &lt;/system.web></pre>
 
 
-<h2><a id="usesessionobject"></a>在程式碼中使用工作階段物件</h2>
-最後一步，則是開始在您的 ASP.NET 程式碼中使用工作階段物件。您可以使用 **Session.Add** 方法，將物件新增至工作階段狀態。此方法使用機碼值組，將項目儲存到工作階段狀態快取。
+<a id="usesessionobject"></a>在程式碼中使用工作階段物件：最後一步，則是開始在您的 ASP.NET 程式碼中使用工作階段物件。您可以使用 **Session.Add** 方法，將物件新增至工作階段狀態。此方法使用機碼值組，將項目儲存到工作階段狀態快取。
 
     string strValue = "yourvalue";
 	Session.Add("yourkey", strValue);
@@ -109,4 +108,4 @@
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

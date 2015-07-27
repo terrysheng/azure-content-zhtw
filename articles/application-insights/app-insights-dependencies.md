@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中診斷相依性問題
@@ -31,7 +31,7 @@
 預設的相依性監視目前會回報這些相依性類型的呼叫：
 
 * SQL DATABASE
-* ASP.NET Web 和 WCF 服務
+* 使用 HTTP 式繫結的 ASP.NET Web 和 WCF 服務
 * 本機或遠端 HTTP 呼叫
 * Azure DocumentDb、資料表、Blob 儲存體和佇列
 
@@ -96,6 +96,32 @@
 ![按一下要求類型，按一下執行個體以取得同一個執行個體的不同檢視，按一下執行個體以取得例外狀況的詳細資料。](./media/app-insights-dependencies/07-faildetail.png)
 
 
+## 自訂相依性追蹤
+
+標準的相依性追蹤模組會自動探索外部相依性，例如資料庫和 REST API。但是您可能想以相同的方式對待一些其他元件。
+
+您可以使用標準模組所使用的相同 [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency) 來撰寫會傳送相依性資訊的程式碼。
+
+例如，如果您使用不是您自己撰寫的組件來建置程式碼，您可以計算對它的所有呼叫，以找出它對您的回應時間的貢獻。若要在 Application Insights 中的相依性圖表中顯示此資料，請使用 `TrackDependency` 傳送。
+
+```C#
+
+            var success = false;
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                success = dependency.Call();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+            }
+```
+
+如果您想要關閉標準的相依性追蹤模組，請移除 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 中 DependencyTrackingTelemetryModule 的參考。
+
 <!--Link references-->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

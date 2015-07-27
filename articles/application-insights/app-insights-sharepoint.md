@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
 
 # 使用 Application Insights 監視 SharePoint 網站
@@ -41,7 +41,7 @@ Visual Studio Application Insights 會監視應用程式的可用性、效能和
 
 ![](./media/app-insights-sharepoint/02-monitor-web-page.png)
 
-在您想要追蹤之每一個頁面的 &lt;/head&gt; 標記之前插入指令碼。如果您的網站有主版頁面，您可以那裡放入指令碼。例如，在 ASP.NET MVC 專案中，可放在 View\Shared_Layout.cshtml 中
+在您想要追蹤之每一個頁面的 &lt;/head&gt; 標記之前插入指令碼。如果您的網站有主版頁面，您可以那裡放入指令碼。例如，在 ASP.NET MVC 專案中，可放在 View\\Shared_Layout.cshtml 中
 
 指令碼包含檢測金鑰，會將遙測導向您的 Application Insights 資源。
 
@@ -73,6 +73,8 @@ Visual Studio Application Insights 會監視應用程式的可用性、效能和
 
 ## 檢視應用程式相關的資料
 
+重新部署您的應用程式。
+
 返回 [Azure 入口網站](http://portal.azure.com)中的應用程式刀鋒視窗。
 
 前幾個事件將出現在診斷搜尋中。
@@ -81,11 +83,11 @@ Visual Studio Application Insights 會監視應用程式的可用性、效能和
 
 如果您預期有更多資料，請在幾秒之後按一下 [重新整理]。
 
-**流量分析**提供快速的使用者、工作階段和頁面檢視快照集：
+**使用情況分析**連結至使用者、工作階段和頁面檢視的圖表：
 
 ![](./media/app-insights-sharepoint/06-usage.png)
 
-逐一點選 [頁面檢視] 以查看詳細資料：
+例如，按一下 [頁面檢視] 以查看更多詳細資料：
 
 ![](./media/app-insights-sharepoint/07-pages.png)
 
@@ -106,4 +108,4 @@ Visual Studio Application Insights 會監視應用程式的可用性、效能和
 
 <!--Link references-->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

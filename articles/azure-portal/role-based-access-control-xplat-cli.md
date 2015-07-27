@@ -118,7 +118,7 @@ Azure 入口網站以及 Azure 資源管理員 API 裡的角色型存取控制 (
 
 - 此舉會在資源群組層級中建立角色指派：
 
-    `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
+    `PS C:> azure role assignment create --upn <user's email> -o Contributor -g group1`
 
 - 此舉會在資源層級中建立角色指派：
 
@@ -128,8 +128,8 @@ Azure 入口網站以及 Azure 資源管理員 API 裡的角色型存取控制 (
 
 確認您的帳戶內含一些角色指派之後，就能執行下列指令來實際看到這些角色指派授予您的權限：
 
-    PS C:\> azure group list
-    PS C:\> azure resource list
+    PS C:> azure group list
+    PS C:> azure resource list
 
 這兩組 Cmdlet 只會傳回您擁有讀取權限的資源群組或資源。而且會同時顯示您擁有的權限。
 
@@ -148,4 +148,4 @@ Azure 入口網站以及 Azure 資源管理員 API 裡的角色型存取控制 (
 - [為角色型存取控制進行疑難排解](role-based-access-control-troubleshooting.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

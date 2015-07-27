@@ -28,7 +28,7 @@
 2.  已安裝 Azure SDK。
 3.  已安裝 Azure Libraries for Java 的 JAR 和任何適用的相依性 JAR，且位於 Java 編輯器所使用的組建路徑中。如需有關安裝 Azure Libraries for Java 的詳細資訊，請參閱 [下載 Azure SDK for Java] (英文)。
 4.  已設定 Azure 儲存體帳戶。以下程式碼將會使用此儲存體帳戶的帳戶名稱和帳戶金鑰。如需建立儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶] (英文)，如需擷取帳戶金鑰的詳細資訊，請參閱[如何管理儲存體帳戶] (英文)。
-5.  您已建立一個已命名並儲存於路徑 c:\myimages\image1.jpg 中的本機影像檔案。或者，修改範例中的 **FileInputStream** 建構函式以使用其他影像路徑和檔案名稱。
+5.  您已建立一個已命名並儲存於路徑 c:\\myimages\\image1.jpg 中的本機影像檔案。或者，修改範例中的 **FileInputStream** 建構函式以使用其他影像路徑和檔案名稱。
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -106,7 +106,7 @@
 
 使用 **File** 建構函式，來取得在本機建立且即將上傳之檔案的參照。(執行此程式碼之前，請確定您已建立此檔案。)
 
-    File fileReference = new File ("c:\myimages\image1.jpg");
+    File fileReference = new File ("c:\\myimages\\image1.jpg");
 
 透過呼叫 **CloudBlockBlob.upload** 方法來上傳本機檔案。**CloudBlockBlob.upload** 方法的第一個參數是 **FileInputStream** 物件，代表將上傳至 Azure 儲存體的本機檔案。第二個參數是檔案的大小 (位元組)。
 
@@ -237,7 +237,7 @@
                 // Upload an image file.
                 blob = container.getBlockBlobReference("image1.jpg");
 
-                File fileReference = new File("c:\myimages\image1.jpg");
+                File fileReference = new File("c:\\myimages\\image1.jpg");
                 blob.upload(new FileInputStream(fileReference), fileReference.length());
 
                 // At this point the image is uploaded.
@@ -368,4 +368,4 @@
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

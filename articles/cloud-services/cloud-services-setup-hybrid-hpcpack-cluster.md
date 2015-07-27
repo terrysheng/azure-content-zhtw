@@ -106,7 +106,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 	![Certificate Settings][upload_cert1]
 
-4. 瀏覽前端節點以找出 C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer 檔案。然後按一下 [**檢查**] 按鈕。
+4. 瀏覽前端節點以找出 C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer 檔案。然後按一下 [**檢查**] 按鈕。
 
 	![Upload Certificate][install_hpc10]
 
@@ -347,4 +347,4 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

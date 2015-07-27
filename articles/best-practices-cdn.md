@@ -176,7 +176,7 @@ CDN 較沒有用的案例括：
   <rewrite>
     <rules>
       <rule name="VersionedResource" stopProcessing="false">
-        <match url="(.*)_v(.*).(.*)" ignoreCase="true" />
+        <match url="(.*)_v(.*)\.(.*)" ignoreCase="true" />
         <action type="Rewrite" url="{R:1}.{R:3}" appendQueryString="true" />
       </rule>
       <rule name="CdnImages" stopProcessing="true">
@@ -219,4 +219,4 @@ CDN 較沒有用的案例括：
 + [整合雲端服務與 Azure CDN](cdn-cloud-service-with-cdn.md)
 + [Azure 內容傳遞網路的最佳作法](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/) (英文)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

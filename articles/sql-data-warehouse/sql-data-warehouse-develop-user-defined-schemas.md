@@ -111,7 +111,7 @@ FROM	[edw].customer
 > [AZURE.NOTE]結構描述策略如有任何變更，則需要檢閱資料庫的資訊安全模型。在許多情況下，您可以在結構描述層級指派權限，以簡化資訊安全模型。如果需要更細微的權限，您可以使用資料庫角色。
 
 ## 後續步驟
-如需更多開發秘訣，請參閱[開發概觀][]。
+如需更多開發祕訣，請參閱[開發概觀][]。
 
 <!--Image references-->
 
@@ -122,4 +122,4 @@ FROM	[edw].customer
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

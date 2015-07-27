@@ -91,7 +91,7 @@ X12 連接器可用做觸發程序或動作。
 動作傳回物件，其中包含 X12 裝載。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以使用邏輯應用程式將它加入商務流程。請參閱 [邏輯應用程式是什麼？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以使用邏輯應用程式將它加入商務流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
 您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視 API 應用程式和連接器](../app-service-api/app-service-api-manage-in-portal.md)。
 
@@ -109,4 +109,4 @@ X12 連接器可用做觸發程序或動作。
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

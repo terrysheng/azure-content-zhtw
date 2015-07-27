@@ -4,4 +4,4 @@
 
 [Active Directory Authentication Library Nuget 封裝]: http://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

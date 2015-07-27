@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Azure Machine Learning 常見問題集 | Microsoft Azure" 
 	description="Azure Machine Learning 簡介：常見問題集，涵蓋計費、功能，以及適用於簡化預測性模型化之雲端服務的限制。" 
-	keywords="machine learning introduction,predictive modeling,what is machine learning"
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="pablissima" 
@@ -93,8 +92,7 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 
 **可以從 Amazon S3 讀取資料嗎？**
 
-如果您有少量的資料，而且想要透過 HTTP URL 公開，則您可以使用[讀取器][reader]模組。若為任何較大量的資料，請先傳送至 Azure 儲存體，然後使用[讀取器][reader]模組將它帶入實驗中。
-<!--
+如果您有少量的資料，而且想要透過 HTTP URL 公開，則您可以使用[讀取器][reader]模組。若為任何較大量的資料，請先傳送至 Azure 儲存體，然後使用[讀取器][reader]模組將它帶入實驗中。<!--
 <SEE CLOUD DS PROCESS>
 -->
 
@@ -305,4 +303,4 @@ Azure Machine Learning 在 MSDN 上也設有社群論壇，可供您詢問 Azure
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

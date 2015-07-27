@@ -271,4 +271,4 @@
 [通知中樞 - Windows Universal 教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

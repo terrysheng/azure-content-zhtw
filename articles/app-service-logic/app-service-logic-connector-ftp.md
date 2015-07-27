@@ -1,7 +1,7 @@
 <properties
 	pageTitle="FTP 連接器"
 	description="開始使用 FTP 連接器"
-	authors="anuragdalmia"
+	authors="rajram"
 	manager="dwrede"
 	editor=""
 	services="app-service\logic"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/05/2015"
-	ms.author="rajeshramabathiran"/>
+	ms.date="07/01/2015"
+	ms.author="rajram"/>
 
 #FTP 連接器
 
@@ -29,9 +29,7 @@ FTP 連接器可讓您從 FTP 伺服器移入/移出資料。FTP 連接器的主
 - 依照需求在 FTP 伺服器上刪除檔案的能力
 
 ##建立新的 FTP 連接器
-若要建新的 FTP 連接器，請遵循下面提到的步驟。
-- 啟動 Azure 入口網站 
-- 使用 [+ 新增] (位於頁面底部) -> [Web + 行動] --> [Azure Marketplace] 開啟 Azure Marketplace
+若要建新的 FTP 連接器，請遵循下面提到的步驟。- 啟動 Azure 入口網站 - 使用 [+ 新增] (位於頁面底部) -> [Web + 行動] --> [Azure Marketplace] 開啟 Azure Marketplace
 
 	![Launch Azure Marketplace][1]
 
@@ -89,25 +87,13 @@ FTP 連接器具有一個觸發程序 -「檔案可用 (讀取然後刪除)」�
 
 ![基本輸入 FTP 觸發程序][7]
 
-輸入可協助您設定依排定的頻率輪詢特定資料夾路徑。基本輸入為 
-- 頻率 
-- 指定 FTP 輪詢的頻率 
-- 間隔 
-- 指定已排定頻率的間隔
-- 資料夾路徑 
-- 指定 FTP 伺服器中的資料夾路徑 
-- 檔案類型 
-- 指定檔案類型是文字還是二進位
+輸入可協助您設定依排定的頻率輪詢特定資料夾路徑。基本輸入為 - 頻率 - 指定 FTP 輪詢的頻率 - 間隔 - 指定已排定頻率的間隔 - 資料夾路徑 - 指定 FTP 伺服器中的資料夾路徑 - 檔案類型 - 指定檔案類型是文字還是二進位
 
 按一下省略符號 [...] 可顯示進階輸入。
 
 ![基本輸入 FTP 觸發程序][8]
 
-進階輸入為 
-- 檔案遮罩 
-- 指定輪詢時的檔案遮罩 
-- 排除檔案遮罩 
-- 指定輪詢時排除的檔案遮罩
+進階輸入為 - 檔案遮罩 - 指定輪詢時的檔案遮罩 - 排除檔案遮罩 - 指定輪詢時排除的檔案遮罩
 
 提供輸入，然後按一下核取記號以完成輸入設定。
 
@@ -192,4 +178,4 @@ FTP 連接器支援四個動作。包括
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

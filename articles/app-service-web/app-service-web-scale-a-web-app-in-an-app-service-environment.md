@@ -84,4 +84,4 @@
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

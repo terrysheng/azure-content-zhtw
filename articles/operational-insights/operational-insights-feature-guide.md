@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2015"
+	ms.date="07/02/2015"
 	ms.author="banders"/>
 
 # Operational Insights 功能指南
@@ -71,6 +71,5 @@ Operational Insights 環境組成項目包含：
 
 ### 可在何處取得 Operational Insights？
 Microsoft Azure Operational Insights 位於美國。雖然 Operational Insights 的語言是英文，但是數個其他市場都提供此服務。如需相關資訊，請參閱[國際可用性](http://go.microsoft.com/fwlink/?LinkId=229842)。
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

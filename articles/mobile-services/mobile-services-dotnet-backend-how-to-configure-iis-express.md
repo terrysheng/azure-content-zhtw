@@ -26,4 +26,4 @@ Azure 行動服務可讓您在 Visual Studio 中使用其中一個支援的 .NET
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

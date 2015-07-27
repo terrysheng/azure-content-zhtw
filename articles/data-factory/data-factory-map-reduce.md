@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 # 從 Data Factory 叫用 MapReduce 程式
@@ -123,4 +123,4 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

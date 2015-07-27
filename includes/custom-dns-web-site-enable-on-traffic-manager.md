@@ -26,4 +26,4 @@
 
 此時，您應該能夠在瀏覽器中輸入流量管理員網域名稱 (contoso.trafficmanager.net)，並且能成功移至您的 Web 應用程式。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

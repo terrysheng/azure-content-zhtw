@@ -7,14 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/12/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/02/2015" ms.author="sammehta"; "jimpark"/>
 
 # Azure DPM 備份簡介
 
@@ -51,65 +44,12 @@ System Center DPM 會備份檔案和應用程式資料。備份到 DPM 的資料
 2. **下載保存庫認證** — 在 Azure 備份中，將您建立的管理憑證上傳到保存庫。
 3. **安裝 Azure 備份代理程式並註冊伺服器** — 從 Azure 備份，在每一部 DPM 伺服器上安裝代理程式，並在備份保存庫中註冊 DPM 伺服器。
 
-### 建立備份保存庫
-若要開始備份您的 Azure 虛擬機器，您必須先建立備份保存庫。保存庫是一實體，儲存隨著時間建立的所有備份和復原點。保存庫也包含備份虛擬機器時將套用的備份原則。
+[AZURE.INCLUDE [backup-create-vault](../../includes/backup-create-vault.md)]
 
-1. 登入[管理入口網站](http://manage.windowsazure.com/)。
-2. 按一下 [**新增**] > [**資料服務**] > [**復原服務**] > [**備份保存庫**] > [**快速建立**]。如果您有多個與組織帳戶相關聯的訂用帳戶，請選擇與備份保存庫相關聯的正確訂用帳戶。每個 Azure 訂用帳戶皆能擁有多個備份保存庫，用以組織受保護的資料。
-3. 在 [名稱] 中，輸入保存庫的易記識別名稱。每個訂用帳戶皆需為唯一名稱。
-4. 在 [**區域**] 中，選取保存庫的地理區域。請注意，保存庫必須與您想要保護的虛擬機器位於相同區域。如果您的虛擬機器在不同區域，每個區域皆需建立保存庫。儲存備份資料不需指定儲存體帳戶，備份保存庫和 Azure 備份服務將自動處理。
-    > [AZURE.NOTE] 「使用 Azure 備份服務進行的虛擬機器備份僅在部份地區支援。如果您正在尋找的區域現在不[支援](http://azure.microsoft.com/regions/#services)，則建立保存庫時不會出現在下拉式清單中。」
+[AZURE.INCLUDE [backup-download-credentials](../../includes/backup-download-credentials.md)]
 
-5. 在 [訂閱] 中，輸入要與備份保存庫搭配使用的 Azure 訂閱。
-6. 按一下 [**建立保存庫**]。![建立備份保存庫](./media/backup-azure-dpm-introduction/backup_vaultcreate.png)
+[AZURE.INCLUDE [backup-install-agent](../../includes/backup-install-agent.md)]
 
-    要等備份保存庫建立好，可能需要一些時間。監視位於入口網站底部的狀態通知。![建立保存庫快顯通知](./media/backup-azure-dpm-introduction/creating-vault.png)
-
-    將有一則訊息確認保存庫已成功建立，並且該保存庫會在 [復原服務] 頁面中列為 [**使用中**] 狀態。
-
-    ![備份保存庫的清單](./media/backup-azure-dpm-introduction/backup_vaultslist.png)
-
-7. 按一下備份保存庫以前往 [**快速入門**] 頁面，上面將會顯示 DPM 伺服器的備份指示。![虛擬機器的備分指示在 [儀表板] 頁面上](./media/backup-azure-dpm-introduction/vmbackup-instructions.png)
-
-    > [AZURE.NOTE]請確定建立保存庫之後，立即選擇適當的儲存體備援選項。進一步了解[在備份保存庫中設定儲存體備援選項](http://azure.microsoft.com/documentation/articles/backup-azure-backup-create-vault/#azure-backup---storage-redundancy-options)。
-
-### 下載保存庫認證
-1. 按一下 [**復原服務**]，然後按一下備份保存庫。在 [**快速入門**] 頁面上，按一下 [**下載保存庫認證**] 以下載認證檔案，並儲存到安全的位置。您無法編輯認證，因此您不需要開啟位置。基於安全性理由，檔案中的金鑰會在 48 小時之後到期。
-
-2. 將檔案複製到安全的位置，並且要可供您想要在 Azure 備份保存庫中註冊 DPM 伺服器輕鬆地存取。安裝 Azure 備份代理程式時會需要選取此檔案。
-
-### 安裝 Azure 備份代理程式和註冊伺服器
-您將下載代理程式安裝檔案，並在包含您想要備份之資料的每一部 DPM 伺服器上執行它。代理程式儲存在 **Azure 下載中心**，且有自己的安裝程序。當您執行安裝程式時，就會安裝代理程式並向保存庫註冊 DPM 伺服器。請注意：
-
-- 要有 DPM 伺服器的系統管理權限才能安裝代理程式。
-- 若要安裝在多部 DPM 伺服器上，您可以將安裝程式檔案放在共用網路資源上，或是使用群組原則或管理產品 (例如 System Center Configuration Manager) 來安裝代理程式。
-- 安裝後不需要重新啟動 DPM 伺服器。
-
-#### 安裝備份代理程式和註冊伺服器
-
-1. 在 Azure 備份保存庫的 [**快速入門**] 頁面上，於 [**下載 Azure 備份代理程式**] 中選取 [**適用於 Windows Server 或 System Center Data Protection Manager 或 Windows 用戶端**]。將應用程式下載到要用來執行應用程式的 DPM 伺服器。
-2. 執行安裝程式檔案 **MARSAgentInstaller.exe**。接受服務條款，然後選取安裝任何遺漏的必備軟體。
-3. 在 [**安裝設定**] 頁面上選取 [**安裝資料夾**] 和 [**快取位置**]。
-
-    預設快取位置資料夾為 <system drive>:\Program Files\Azure Backup Agent。在快取位置中，安裝程序會在 **Azure Backup Agent** 資料夾建立名為 **Scratch** 的資料夾。快取位置必須至少有 2.5 GB (或將要備份至 Azure 之資料大小的 10%) 的可用空間。只有本機系統管理員和 Administrators 群組的成員可以存取快取目錄，以避免遭受阻絕服務攻擊。
-
-4. 在 [**Proxy 組態**] 頁面上，設定代理程式用來連線到 Azure 的自訂 Proxy 設定。如果未設定任何設定，將會使用 DPM 伺服器上預設的網際網路存取設定。請注意，若您使用的 Proxy 伺服器需要驗證，則應該在此頁面上輸入詳細資料。
-5. 在 [**選擇加入 Microsoft Update**] 頁面上，建議您啟用更新。如果伺服器已啟用自動更新，則會略過此步驟。請注意，Microsoft Update 設定適用於所有 Microsoft 產品的更新，而非只適用於 Azure 備份代理程式。
-6. [**安裝**] 頁面隨即顯示。安裝過程中會檢查是否已安裝所需軟體，並完成安裝程式。安裝完成後，您會收到一則訊息，指出已成功安裝 Azure 備份代理程式。此時，您可以選擇檢查是否有更新。建議您允許進行更新檢查。
-7. 按一下 [**前往註冊**]，在保存庫中註冊伺服器。
-8. 在 [**保存庫識別**] 頁面中，選取您在 Azure 備份保存庫中產生的保存庫註冊檔案。
-9. 在 [**加密設定**] 頁面中，指定複雜密碼的詳細資料，或自動產生複雜密碼。
-10. 按一下 [產生複雜密碼後複製到剪貼簿]。您會收到一則訊息，指出您的複雜密碼已複製到剪貼簿。此時很適合開啟記事本，貼上剪貼簿中的複雜密碼並儲存檔案，同時再列印檔案然後將檔案保存起來。按一下 [註冊] 在備份保存庫中註冊 DPM 伺服器。
-
-    > [AZURE.TIP] 在 [加密設定] 步驟中，請記得將複雜密碼複製到剪貼簿。
-11. 按一下 [註冊]。
-
-    完成註冊之後，DPM 主控台會顯示 Azure 備份的可用性。
-
-    Azure 備份一律會以指定的或自動產生的複雜密碼 (英數字元字串) 自動加密位於來源的資料。
-    >[AZURE.NOTE]Azure 備份永遠不會保存複雜密碼，若您遺失密碼，就無法還原或復原資料。強烈建議您將金鑰儲存到外部位置。
-
-當您指定複雜密碼，並按一下 [**完成**]，代理程式需要幾秒鐘的時間來將實際執行伺服器註冊到備份保存庫。在保存庫中註冊完成後，就會立即出現 [**伺服器註冊**] 摘要頁面。
 
 ## 需求 (和限制)
 
@@ -141,4 +81,4 @@ System Center DPM 會備份檔案和應用程式資料。備份到 DPM 的資料
 
 >[AZURE.NOTE]從 System Center 2012 DPM SP1 開始，您可以使用 Microsoft Azure 備份將受到 DPM 保護的工作負載備份至 Azure。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

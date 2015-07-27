@@ -3,7 +3,7 @@
     pageTitle="建立 RemoteApp 混合式集合疑難排解"
     description="了解如何疑難排解 RemoteApp 混合式集合建立失敗" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+    documentationCenter="" 
     authors="vkbucha" 
     manager="mbaldwin" />
 
@@ -83,4 +83,4 @@ RemoteApp 目前不支援使用已啟用強制通道的 VNET。如果您需要�
 
 建立或新增的網域名稱必須是內部網域名稱 (非 Azure AD 網域名稱)，而且必須是可解析的 DNS 格式 (contoso.local)。例如，您有 Active Directory 內部名稱 (contoso.local) 和 Active Directory UPN (contoso.com) - 您必須在建立集合時使用內部名稱。
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

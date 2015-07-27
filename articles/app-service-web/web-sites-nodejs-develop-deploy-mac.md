@@ -32,7 +32,7 @@
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 按一下入口網站左下方的 [+新增] 圖示
+2. 按一下入口網站左上方的 [+ 新增] 圖示。
 
 3. 依序按一下 [Web + 行動] 和 [Web 應用程式]。
 
@@ -134,7 +134,7 @@
 
 ##將變更發行至您的應用程式
 
-1. 在文字編輯器中開啟 **server.js** 檔案，然後將「Hello World\n」變更為「Hello Azure\n」。儲存檔案。
+1. 在文字編輯器中開啟 **server.js** 檔案，然後將「Hello World\\n」變更為「Hello Azure\\n」。儲存檔案。
 2. 從命令列中，將目錄位置變更至 **helloworld** 目錄，然後執行下列命令：
 
 		git add .
@@ -196,4 +196,4 @@ Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

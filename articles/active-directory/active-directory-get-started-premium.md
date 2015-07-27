@@ -4,7 +4,6 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
-	writer="Justinha" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
@@ -125,4 +124,4 @@ Microsoft 雲端服務的服務和功能可用性會依國家或地區而有所�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

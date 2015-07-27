@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/10/2015" 
 	ms.author="spelluru"/>
 
 # 啟用管線以使用內部部署資料
@@ -62,8 +62,8 @@
 2.	建議閘道器電腦的「組態」至少為 2 GHz、4 核心、8 GB RAM 和 80 GB 磁碟。
 3.	如果主機電腦休眠，閘道器即無法回應資料要求。因此，安裝閘道器之前，請先在電腦上設定適當的「電源計劃」。如果電腦已設定為休眠，安裝閘道器時會提示訊息。  
 
+資料管理閘道器會序列化和還原序列化託管之電腦上的來源與接收資料。它也會在複製資料時執行類型轉換。在複製作業期間，閘道器將資料從來源讀取至記憶體緩衝區，同時另一個寫入器執行緒會將緩衝區寫入接收。因為尖峰時間期間可以在閘道器主機電腦上同時執行多個複製活動，所以記憶體和 CPU 資源的耗用量比在閒置時間高出許多。因此，執行資料管理閘道器的主機電腦可能需要比上述建議的機器組態最小值更多的資源，或在閒置時間期間需要較少的資源。
 
- 
 
 ## 逐步介紹
 
@@ -111,13 +111,13 @@
 
 	![[建立閘道器] 刀鋒視窗][image-data-factory-create-gateway-blade]
 
-3. 在 [**設定**] 分頁中，按一下 [**直接安裝在此電腦上**]。這會下載閘道的安裝套件、在電腦上安裝、設定和註冊閘道。
+3. 在 [**設定**] 刀鋒視窗中，按一下 [**直接安裝在此電腦上**]。這會下載閘道的安裝套件、在電腦上安裝、設定和註冊閘道。
 
 	> [AZURE.NOTE]請使用 Internet Explorer 或 Microsoft ClickOnce 相容的 Web 瀏覽器。
 
 	![閘道器 - [設定] 刀鋒視窗][image-data-factory-gateway-configure-blade]
 
-	這是最簡單的方式 (一鍵)，透過單一步驟即可下載、安裝、設定和註冊閘道。您可以看到「Microsoft 資料管理閘道組態管理員」應用程式已安裝在電腦上。您也可以在此資料夾中找到執行檔 **ConfigManager.exe**：**C:\Program Files\Microsoft Data Management Gateway\1.0\Shared**。
+	這是最簡單的方式 (一鍵)，透過單一步驟即可下載、安裝、設定和註冊閘道。您可以看到「Microsoft 資料管理閘道組態管理員」應用程式已安裝在電腦上。您也可以在此資料夾中找到執行檔 **ConfigManager.exe**：**C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared**。
 
 	您也可以使用此刀鋒視窗中的連結手動下載與安裝閘道器，並使用 [**註冊金鑰**] 文字方塊中顯示的金鑰來加以註冊。
 	
@@ -166,7 +166,7 @@
 4.	在 JSON 窗格中，執行下列動作：
 	1.	在 **gatewayName** 屬性中，輸入 **adftutorialgateway** 取代雙引號內的所有文字。  
 	2.	如果您使用 **SQL 驗證**： 
-		1.	在 **connectionString** 屬性中，將 **<servername>**、**<databasename>**、**<username>** 和 **<password>** 分別取代為您的內部部署 SQL Server 名稱、資料庫名稱、使用者帳戶和密碼。	
+		1.	在 **connectionString** 屬性中，將 **<servername>**、**<databasename>**、**<username>** 和 **<password>** 分別取代為您的內部部署 SQL Server 名稱、資料庫名稱、使用者帳戶和密碼。若要指定執行個體名稱，請使用逸出字元：例如：**server\\instancename**。 	
 		2.	從 JSON 檔案中移除最後兩個屬性 (**username** 和 **password**)，並從剩餘的 JSON 指令碼中移除最後一行結尾的「逗號 (,)」 字元。
 		
 				{
@@ -487,7 +487,7 @@
 	**範例命令和輸出**：
 
 
-		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -509,12 +509,12 @@
 	**範例命令的輸出：**
 
 
-		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. 在 Azure PowerShell 中，切換到資料夾：**C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript**，然後執行與本機變數 **$Key** 相關聯的 **RegisterGateway.ps1** 指令碼 (如以下命令所示)，將您電腦上安裝的用戶端代理程式，註冊到您稍早建立的邏輯閘道器。
+4. 在 Azure PowerShell 中，切換到資料夾：**C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript**，然後執行與本機變數 **$Key** 相關聯的 **RegisterGateway.ps1** 指令碼 (如以下命令所示)，將您電腦上安裝的用戶端代理程式，註冊到您稍早建立的邏輯閘道器。
 
-		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
@@ -627,4 +627,4 @@
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

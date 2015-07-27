@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/20/2015"
+   ms.date="07/01/2015"
    ms.author="rajram"/>
 
 # BizTalk 一般檔案編碼器
@@ -100,4 +100,4 @@ BizTalk 一般檔案編碼器會將結構描述視為其組態的一部分。直
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

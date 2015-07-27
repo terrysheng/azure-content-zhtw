@@ -101,11 +101,11 @@
 
 1. 在您的部署機器 (不一定是您建立的虛擬機器) 上，下載 [Azure SDK for .NET](http://azure.microsoft.com/develop/net/)。
 2. 利用名為 **TSPSolver** 的專案建立 .NET 主控台應用程式。確定已針對 .**NET Framework 4** 或更新版本 (而非 **.NET Framework 4 用戶端設定檔**) 設定目標 Framework。執行下列動作，即可在您建立專案後設定此目標 Framework：在 Visual Studio 的功能表中，依序按一下 [專案]、[屬性]、[應用程式] 索引標籤，然後設定 [目標 Framework] 的值。
-3. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [TSPSolver]，然後依序按一下 [新增參考] 和 [瀏覽] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **C:\Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
+3. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [TSPSolver]，然後依序按一下 [新增參考] 和 [瀏覽] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **C:\\Program Files\\Microsoft SDKs\\Azure.NET SDK\\v2.5\\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
 4. 加入 System Runtime Serialization 程式庫中。在 Visual Studio 方案總管中，於 [TSPSolver] 上按一下滑鼠右鍵，按一下 [新增參考]、按一下 [.NET] 索引標籤，然後選取 **System.Runtime.Serialization** 作為參考。
 5. 將這一節結尾的範例程式碼使用於 **Program.cs** 的內容。
 6. 修改 **your_connection_string** 預留位置以使用服務匯流排 **connection string**。
-7. 編譯應用程式。這會在您專案的 **bin** 資料夾 (**bin\release** 或 **bin\debug**，視您的目標為版本或偵錯組建而定) 中建立 **TSPSolver.exe**。您稍後會將此可執行檔和 Microsoft.ServiceBus.dll 複製到您的虛擬機器。
+7. 編譯應用程式。這會在您專案的 **bin** 資料夾 (**bin\\release** 或 **bin\\debug**，視您的目標為版本或偵錯組建而定) 中建立 **TSPSolver.exe**。您稍後會將此可執行檔和 Microsoft.ServiceBus.dll 複製到您的虛擬機器。
 
 <p/>
 
@@ -326,11 +326,11 @@
 ## 如何建立 .NET 應用程式以便監控需密集運算之工作的進度
 
 1. 在開發電腦上，以 **TSPClient** 作為專案名稱來建立 .NET 主控台應用程式。確定已針對 .**NET Framework 4** 或更新版本 (而非 **.NET Framework 4 用戶端設定檔**) 設定目標 Framework。執行下列動作，即可在您建立專案後設定此目標 Framework：在 Visual Studio 的功能表中，依序按一下 [專案]、[屬性]、[應用程式] 索引標籤，然後設定 [目標 Framework] 的值。
-2. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [TSPClient]，然後依序按一下 [新增參考] 和 [瀏覽] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **C:\Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
+2. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [TSPClient]，然後依序按一下 [新增參考] 和 [瀏覽] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **C:\\Program Files\\Microsoft SDKs\\Azure.NET SDK\\v2.5\\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
 3. 加入 System Runtime Serialization 程式庫中。在 Visual Studio 方案總管中，於 [TSPClient] 上按一下滑鼠右鍵，按一下 [新增參考]、按一下 [.NET] 索引標籤，然後選取 **System.Runtime.Serialization** 作為參考。
 4. 將這一節結尾的範例程式碼使用於 **Program.cs** 的內容。
 5. 修改 **your_connection_string** 預留位置以使用服務匯流排 **connection string**。
-6. 編譯應用程式。這會在您專案的 **bin** 資料夾 (**bin\release** 或 **bin\debug**，視您的目標為版本或偵錯組建而定) 中建立 **TSPClient.exe**。您可以從部署機器執行此程式碼，或將此可執行檔和 Microsoft.ServiceBus.dll 複製到將執行用戶端應用程式的機器 (不一定要在您的虛擬機器上)。
+6. 編譯應用程式。這會在您專案的 **bin** 資料夾 (**bin\\release** 或 **bin\\debug**，視您的目標為版本或偵錯組建而定) 中建立 **TSPClient.exe**。您可以從部署機器執行此程式碼，或將此可執行檔和 Microsoft.ServiceBus.dll 複製到將執行用戶端應用程式的機器 (不一定要在您的虛擬機器上)。
 
 <p/>
 
@@ -443,9 +443,9 @@
 ### 如何執行大量運算應用程式
 
 1. 登入虛擬機器。
-2. 建立名為 **c:\TSP** 的資料夾。這就是您將執行應用程式的地方。
-3. 將 TSPSolver.exe 和 Microsoft.ServiceBus.dll (兩者均位於 TSPSolver 專案的 **bin** 資料夾中) 複製到 **c:\TSP**。
-4. 建立一個含有下列內容且名為 **c:\TSP\cities.txt** 的檔案：
+2. 建立名為 **c:\\TSP** 的資料夾。這就是您將執行應用程式的地方。
+3. 將 TSPSolver.exe 和 Microsoft.ServiceBus.dll (兩者均位於 TSPSolver 專案的 **bin** 資料夾中) 複製到 **c:\\TSP**。
+4. 建立一個含有下列內容且名為 **c:\\TSP\\cities.txt** 的檔案：
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -498,7 +498,7 @@
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
 
-5. 在命令提示字元，將目錄切換至 c:\TSP。
+5. 在命令提示字元，將目錄切換至 c:\\TSP。
 6. 您必須在執行 TSP solver 排列之前，先建立服務匯流排佇列。請執行下列命令來建立服務匯流排佇列：
 
         TSPSolver createqueue
@@ -515,9 +515,9 @@
 
 ### 如何執行監視用戶端應用程式
 1. 登入您將執行用戶端應用程式的電腦。這不一定要是執行 **TSPSolver** 應用程式的同一部電腦，但也可以是同一部電腦。
-2. 建立將執行您應用程式的資料夾。例如，**c:\TSP**。
-3. 將 **TSPClient.exe** 和 Microsoft.ServiceBus.dll (兩者均位於 TSPClient 專案的 **bin** 資料夾中) 複製到 c:\TSP 資料夾。
-4. 在命令提示字元中，將目錄變更為 c:\TSP。
+2. 建立將執行您應用程式的資料夾。例如，**c:\\TSP**。
+3. 將 **TSPClient.exe** 和 Microsoft.ServiceBus.dll (兩者均位於 TSPClient 專案的 **bin** 資料夾中) 複製到 c:\\TSP 資料夾。
+4. 在命令提示字元中，將目錄變更為 c:\\TSP。
 5. 執行以下命令：
 
         TSPClient
@@ -547,4 +547,4 @@
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

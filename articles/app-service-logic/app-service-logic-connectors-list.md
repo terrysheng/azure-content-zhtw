@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="07/12/2015" 
 	ms.author="mandia"/>
 
 
@@ -48,12 +48,12 @@ Azure WebJobs | 連接到 WebJobs。
 [QuickBooks](app-service-logic-connector-quickbooks.md) | 您可以使用此連接器建立、更新、讀取、刪除和查詢來自 Intuit QuickBooks (如客戶、項目、發票等等) 的不同實體。
 [SFTP](app-service-logic-connector-sftp.md) (SSH 檔案傳輸通訊協定)| 連接至 SFTP，還可以上傳檔案、取得檔案、刪除檔案、列出檔案，以及使用觸發程序來擷取檔案。
 [SMTP](app-service-logic-connector-smtp.md) (簡易郵件傳送通訊協定) | 連接至 SMTP 伺服器，還可以傳送帶有附件的電子郵件。
-[Slack](app-service-logic-connector-slack.md) | 
+[Slack](app-service-logic-connector-slack.md) | 連接至 Slack，並將訊息張貼至 Slack 通道。
 [Salesforce](app-service-logic-connector-salesforce.md) | Salesforce 連接器可管理 Salesforce 帳戶中的不同實體，例如帳戶、潛在客戶、商機、案例等等。您也可以建立、更新、更新插入、查詢和刪除各種實體。
 [SugarCRM](app-service-logic-connector-sugarcrm.md) | 連接至 SugarCRM Online，還可以建立、更新、讀取及刪除不同類型的模組 (如帳戶、連絡人、產品等等)。
 [Twilio](app-service-logic-connector-twilio.md) | 連接至 Twilio，還可以傳送訊息、取得訊息、列出訊息、列出使用狀況、取得可用的免付費電話、取得可用的行動電話號碼、取得可用的市內電話號碼、列出來電號碼、取得來電號碼，以及新增來電號碼。
 [Twitter](app-service-logic-connector-twitter.md) | 連接至 Twitter，還可以取得使用者時間軸、搜尋推文、取得粉絲、取得好友、搜尋使用者、取得首頁時間軸、取得資訊頁時間軸、張貼推文、張貼推文給使用者，以及傳送直接訊息。Twitter 連接器也可以使用觸發程序，例如依關鍵字取得推文、依使用者處理取得推文，以及依雜湊標記取得推文。
-等候 | 您可以使用這個連接器來延遲執行應用程式。您可以將應用程式延遲一段特定期間，或延遲到特定時刻發生為止。
+[等候](app-service-logic-connector-wait.md) | 您可以使用這個連接器來延遲執行應用程式。您可以將應用程式延遲一段特定期間，或延遲到特定時刻發生為止。
 
 
 ## 高階連接器
@@ -61,11 +61,11 @@ Azure WebJobs | 連接到 WebJobs。
 
 名稱 | 說明
 ------------- | -------------
-AS2 連接器 | 在企業對企業通訊中，AS2 連接器可以使用 AS2 傳輸通訊協定來接收和傳送訊息。系統會使用數位簽章和加密透過網際網路安全及可靠地傳輸資料。
-BizTalk EDIFACT | 在企業對企業通訊中，EDIFACT API 應用程式會使用 EDIFACT 通訊協定來接收和傳送訊息。
-BizTalk X12 | 在企業對企業通訊中，X12 API 應用程式會使用 X12 通訊協定來接收和傳送訊息。
-BizTalk 交易夥伴管理 | 交易夥伴管理 API 應用程式可定義並保存企業對企業關係，方法是使用夥伴、協議，結構描述及協議中所使用的憑證。使用 AS2、EDIFACT，及 X12 API 應用程式強制執行這些關係。
-BizTalk JSON 編碼器 | 協助您的應用程式在 JSON 和 XML 資料之間轉換的編碼器和解碼器。它可以將指定的 JSON 執行個體轉換成 XML，反之亦然。
+[AS2 連接器](app-service-logic-connector-as2.md) | 在企業對企業通訊中，AS2 連接器可以使用 AS2 傳輸通訊協定來接收和傳送訊息。系統會使用數位簽章和加密透過網際網路安全及可靠地傳輸資料。
+[BizTalk EDIFACT](app-service-logic-connector-edifact.md) | 在企業對企業通訊中，EDIFACT API 應用程式會使用 EDIFACT 通訊協定來接收和傳送訊息。
+[BizTalk X12](app-service-logic-connector-x12.md) | 在企業對企業通訊中，X12 API 應用程式會使用 X12 通訊協定來接收和傳送訊息。
+[BizTalk 交易夥伴管理](app-service-logic-connector-tpm.md) | 交易夥伴管理 API 應用程式可定義並保存企業對企業關係，方法是使用夥伴、協議，結構描述及協議中所使用的憑證。使用 AS2、EDIFACT，及 X12 API 應用程式強制執行這些關係。
+[BizTalk JSON 編碼器](app-service-logic-connector-jsonencoder.md) | 協助您的應用程式在 JSON 和 XML 資料之間轉換的編碼器和解碼器。它可以將指定的 JSON 執行個體轉換成 XML，反之亦然。
 [BizTalk 規則](app-service-logic-use-biztalk-rules.md) | BizTalk 規則可定義並控制組織的結構、作業和策略。您可以更新商務原則，而無需重新編譯和重新部署相關聯的應用程式。
 DB2 連接器 | 連接至內部部署和執行 Windows 作業系統的 Azure 虛擬機器上的 IBM DB2 資料庫。可將 Web API 和 OData API 作業對應至 Informix 結構化查詢語言命令。<br/><br/>沒有觸發程序。動作包含資料表選取、插入、更新、刪除和自訂陳述式<br/><br/>此連接器也包含 Microsoft Client for DRDA，可透過 TCP/IP 網路連接至 Informix 伺服器。
 Informix | 連接至內部部署和執行 Windows 作業系統的 Azure 虛擬機器上的 IBM Informix 資料庫。可將 Web API 和 OData API 作業對應至 Informix 結構化查詢語言命令。<br/><br/>沒有觸發程序。動作包括資料表選取、插入、更新、刪除和自訂陳述式。<br/><br/>使用內部部署時，可以使用 VPN 或 Azure ExpressRoute。此連接器也包括 Microsoft Client for DRDA，用來跨 TCP/IP 網路連接至 Informix 伺服器。
@@ -87,11 +87,11 @@ MQ | 連接至內部部署和執行 Windows 作業系統的 Azure 虛擬機器�
 連接器也可做為邏輯應用程式內的動作。動作很適合在邏輯應用程式中查閱可供執行時使用的資料。例如，在處理訂單時，您可能需要查閱 SQL 資料庫中的資料，以取得客戶的其他資訊。或者，您可能需要寫入、更新或刪除目的地的資料。您可以使用連接器所提供的動作來這樣做。動作對應至 API Apps 中的作業 (由其 Swagger 中繼資料所定義)。
 
 ## 建立專屬的連接器和 API 應用程式
-[連接器和 API Apps 參考](http://aka.ms/appservicesconnectorreference)<br/> [Azure App Service API 應用程式觸發程序](../app-service-api/app-service-api-dotnet-triggers.md)
+[連接器和 API 應用程式參考](http://aka.ms/appservicesconnectorreference)<br/> [Azure App Service API 應用程式觸發程序](../app-service-api/app-service-api-dotnet-triggers.md)<br/> [邏輯應用程式參考](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
 
-## 多個連接器
+## 連接器和 API 應用程式的詳細資訊
 
-[什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)<br/> [在 Azure App Service 中使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)
+[什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)<br/>[在 Azure App Service 中使用混合連線管理員](app-service-logic-hybrid-connection-manager.md)<br/>[管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

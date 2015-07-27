@@ -87,4 +87,4 @@ Microsoft Azure Preview 入口網站會徹底簡化建置及管理您在雲端�
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

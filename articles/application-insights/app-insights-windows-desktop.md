@@ -48,14 +48,9 @@ Windows 桌面應用程式與服務的支援是由 Application Insights 核心 S
 
     ![搜尋「Application Insights」](./media/app-insights-windows-desktop/04-core-nuget.png)
 
-3. 編輯 ApplicationInsights.config (已由 NuGet 安裝加入)。在結尾標記前面插入此內容：
+3. 在程式碼中透過 `TelemetryConfiguration.Active` 物件設定您的 InstrumentationKey。
 
-    `<InstrumentationKey>*the key you copied*</InstrumentationKey>`
-
-    或者，您也可以使用此程式碼來達成相同的效果：
-    
     `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
-
 
 ## <a name="telemetry"></a>插入遙測呼叫
 
@@ -178,4 +173,4 @@ Windows 桌面應用程式與服務的支援是由 Application Insights 核心 S
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

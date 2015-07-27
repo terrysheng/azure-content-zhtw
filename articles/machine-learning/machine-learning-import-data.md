@@ -1,7 +1,6 @@
 <properties
 	pageTitle="將資料匯入 Machine Learning Studio | Microsoft Azure"
 	description="如何從各種資料來源將訓練資料匯入 Azure Machine Learning Studio。了解支援的資料類型和資料格式。"
-	keywords="import data,data format,data types,data sources,training data"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -144,4 +143,4 @@ Machine Learning Studio 使用名為*資料表格*的內部資料類型以在模
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/15/2015"
+	ms.date="07/09/2015"
 	ms.author="tamram"/>
 
 
@@ -37,7 +37,7 @@ Azure 儲存體帳戶是可讓您存取 Azure 儲存體服務的安全帳戶。�
 - 交易是指對 Azure 儲存體進行的所有讀取和寫入作業。
 - 出口流量是指傳出 Azure 地區的資料。當您儲存體帳戶中的資料受不同地區中執行的應用程式存取時，不論該應用程式是雲端服務還是其他某類應用程式，您都要負擔出口流量的費用。(若為 Azure 服務，您可以採取步驟，將資料和服務群組在相同的資料中心，以減少或消除出口流量費用。)  
 
-[儲存體定價詳細資料](http://azure.microsoft.com/pricing/details/#storage)頁面提供了儲存體容量、複寫和交易的詳細定價資料。[資料傳輸定價詳細資料](http://azure.microsoft.com/pricing/details/data-transfers/)則提供了出口流量的詳細定價資訊。
+[儲存體價格詳細資料](http://azure.microsoft.com/pricing/details/#storage)頁面提供了儲存體容量、複寫和交易的詳細價格資料。[資料傳輸價格詳細資料](http://azure.microsoft.com/pricing/details/data-transfers/)則提供了出口流量的詳細價格資訊。
 
 如需儲存體帳戶容量和效能目標的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/library/azure/dn249410.aspx)。
 
@@ -51,13 +51,17 @@ Azure 儲存體帳戶是可讓您存取 Azure 儲存體服務的安全帳戶。�
 
 	![NewStorageAccount](./media/storage-create-storage-account/storage_NewStorageAccount.png)
 
-3. 在 [URL] 中，輸入儲存體帳戶的名稱。儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能使用數字和小寫字母。請參閱下方的[儲存體帳戶端點](#storage-account-endpoints)以深入了解此名稱如何用來解析 Azure 儲存體中的物件。
+3. 在 [URL] 中，輸入儲存體帳戶的名稱。
+	
+	> [AZURE.NOTE]儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。
+	>  
+	> 儲存體帳戶名稱必須在 Azure 中是獨一無二的。入口網站會指出您選取的儲存體帳戶名稱是否已使用。
+
+	請參閱下方的[儲存體帳戶端點](#storage-account-endpoints)以深入了解此儲存體帳戶名稱如何用來解析 Azure 儲存體中的物件。
 
 4. 在 [位置/同質群組] 中，為您的儲存體帳戶選取靠近您或客戶的位置。如果您將會從其他 Azure 服務 (例如 Azure 虛擬機器或雲端服務) 存取儲存體帳戶，您可以從清單中選取同質群組，以將相同資料中心內的儲存體帳戶與您用來改善效能和降低成本的其他 Azure 服務分組在一起。
 
-	> [AZURE.NOTE]請注意，您必須在儲存體帳戶建立時選取同質群組；您無法將現有的帳戶移至同質群組。
-
-	如需同質群組的詳細資訊，請參閱下方的[使用同質群組讓服務位於相同位置](#service-co-location-with-an-affinity-group)。
+	請注意，您必須在儲存體帳戶建立時選取同質群組；您無法將現有的帳戶移至同質群組。如需同質群組的詳細資訊，請參閱下方的[使用同質群組讓服務位於相同位置](#service-co-location-with-an-affinity-group)。
 
 5. 如果您有一個以上的 Azure 訂用帳戶，則會顯示 [訂用帳戶] 欄位。在 [訂用帳戶] 中，輸入您要使用儲存體帳戶的 Azure 訂用帳戶。您可以針對一項訂用帳戶建立多達 5 個儲存體帳戶。
 
@@ -163,4 +167,4 @@ Azure 儲存體帳戶是可讓您存取 Azure 儲存體服務的安全帳戶。�
 - 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

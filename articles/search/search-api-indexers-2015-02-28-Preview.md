@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="04/23/2015" 
+ms.date="07/08/2015" 
 ms.author="heidist" />
 
 #索引子作業 (Azure 搜尋服務 REST API：2015-02-28-Preview)
 
-> [AZURE.NOTE]本文說明 [2015-02-28-Preview](../search-api-2015-02-28-preview.md) 的索引子。目前， [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) 上記載的 `2015-02-28` 版本與此處所述的 `2015-02-28-Preview` 版本唯一差異是預覽版可提供 *fieldMappings* (如[建立索引子](#CreateIndexer)當中所述)。
+> [AZURE.NOTE]本文說明 [2015-02-28-Preview](search-api-2015-02-28-preview.md) 的索引子。目前， [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) 上記載的 `2015-02-28` 版本與此處所述的 `2015-02-28-Preview` 版本唯一差異是預覽版可提供 *fieldMappings* (如[建立索引子](#CreateIndexer)當中所述)。
 
 ## 概觀
 
@@ -775,4 +775,4 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 </tr>
 </table>
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

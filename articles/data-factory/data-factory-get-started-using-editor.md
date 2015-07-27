@@ -314,7 +314,7 @@
 5. 在 [資料集] 刀鋒視窗中，按一下 [EmpTableFromBlob]。這是 **ADFTutorialPipeline** 的輸入資料表。
 
 	![已選取 EmpTableFromBlob 的資料集][image-data-factory-get-started-datasets-emptable-selected]   
-5. 請注意，截至目前為止的資料配量都已產生，並已「就緒」，因為 **emp.txt** 檔案一直都存在於 Blob 容器中：**adftutorial\input**。確認下方的 [最近失敗的配量] 區段中沒有任何配量。
+5. 請注意，截至目前為止的資料配量都已產生，並已「就緒」，因為 **emp.txt** 檔案一直都存在於 Blob 容器中：**adftutorial\\input**。確認下方的 [最近失敗的配量] 區段中沒有任何配量。
 
 	[最近更新的配量] 和 [最近失敗的配量] 清單都依照 [上次更新時間] 排序。在下列情況中，配量的更新時間會變更。
     
@@ -506,4 +506,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

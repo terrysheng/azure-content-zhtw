@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/23/2015"
+	ms.date="07/01/2015"
 	ms.author="donnam"/>
 
 # 啟用 iOS 行動應用程式的離線同步處理
@@ -48,7 +48,7 @@
 
     若要取得同步處理資料表的參考，請使用 `syncTableWithName` 方法。若要移除離線同步處理功能，請改用 `tableWithName`。
 
-3. 必須先初始化本機存放區，才可以執行資料表作業。這是 `QSTodoService.init` 方法中的相關程式碼：
+2. 必須先初始化本機存放區，才可以執行資料表作業。這是 `QSTodoService.init` 方法中的相關程式碼：
 
         MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
 
@@ -58,9 +58,9 @@
 
     `initWithDelegate` 的第一個參數用來指定衝突處理常式。由於我們已傳遞 `nil`，所以我們會取得預設衝突處理常式，但該處理常式在任何衝突時都會失敗。
 
-<!-- For details on how to implement a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services]. -->
+	<!-- For details on how to implement a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services]. -->
 
-4. `pullData` 和 `syncData` 方法會執行實際同步處理作業︰`syncData` 會先推送新的變更，然後呼叫 `pullData` 以從遠端服務取得資料。
+3. `pullData` 和 `syncData` 方法會執行實際同步處理作業︰`syncData` 會先推送新的變更，然後呼叫 `pullData` 以從遠端服務取得資料。
 
         -(void)syncData:(QSCompletionBlock)completion
         {
@@ -98,7 +98,7 @@
 
     `pullWithQuery` 的第二個參數是用於*增量同步處理* 的查詢識別碼。增量同步處理會使用記錄的 `UpdatedAt` 時間戳記 (在本機存放區中稱為 `ms_updatedAt`)，僅擷取自上次同步處理後修改的記錄。對您應用程式中的每個邏輯查詢而言，查詢識別碼應該是唯一的描述性字串。若選擇不要增量同步處理，請傳遞 `nil` 做為查詢識別碼。請注意這可能是潛在效率不佳，因為它會擷取每項提取作業的所有記錄。
 
-<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
+	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
 
 5. 在 `QSTodoService` 類別中，`syncData` 方法會在修改資料的作業 (`addItem` 和 `completeItem`) 之後呼叫。此方法也會從 `QSTodoListViewController.refresh` 呼叫，以便使用者每次執行重新整理動作時都能取得最新的資料。應用程式也會在啟動時執行同步處理，因為 `QSTodoListViewController.init` 會呼叫 `refresh`。
@@ -212,13 +212,13 @@
 
 為了支援離線同步處理功能，我們使用了 `MSSyncTable` 介面，並對本機存放區初始化 `MSClient.syncContext`。在此案例中，本機存放區是以核心資料為基礎的資料庫。
 
-使用核心資料本機存放區時，您必須使用 [正確的系統屬性][檢閱核心資料模型]定義數個資料表。
+使用核心資料本機存放區時，您必須使用[正確的系統屬性](#review-core-data)定義數個資料表。
 
 正常情況下，在行動應用程式的 CRUD 作業執行時，應用程式會如同仍處於連線狀態，但所有的作業都會對本機存放區執行。
 
 當我們要同步處理本機存放區與伺服器時，我們使用了 `MSSyncTable.pullWithQuery` 和 `MSClient.syncContext.pushWithCompletion` 方法。
 
-*  為了將變更推送至伺服器，我們呼叫了 `Review the Core Data model`。此方法是 `MSSyncContext` 的成員之一 (而不是同步資料表)，因為它會在所有資料表之間推送變更。
+*  為了將變更推送至伺服器，我們呼叫了 `pushWithCompletion`。此方法是 `MSSyncContext` 的成員之一 (而不是同步資料表)，因為它會在所有資料表之間推送變更。
 
     只有以某種方式在本機上修改過的記錄 (透過 CUD 作業)，才會傳送至伺服器。
 
@@ -275,7 +275,7 @@
 [Soft Delete]: ../mobile-services-using-soft-delete.md
 
 [雲端報導：Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday：Azure 行動服務中的離線應用程式]: http://azure.microsoft.com/zh-tw/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday：Azure 行動服務中的離線應用程式]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

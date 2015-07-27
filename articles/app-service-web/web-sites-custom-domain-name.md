@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2015"
+	ms.date="07/13/2015"
 	ms.author="mwasson"/>
 
 # 在 Azure App Service 中設定自訂網域名稱
@@ -27,7 +27,7 @@
 
 當您建立 Web 應用程式時，Azure 會將它指派給 azurewebsites.net 的子網域。例如，如果您的 Web 應用程式名稱為 **contoso**，則 URL 會是 **contoso.azurewebsites.net**。Azure 也會指派虛擬 IP 位址。
 
-若是實際執行的 Web 應用程式，您可能想讓使用者看到自訂網域名稱。本文章說明如何利用 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 保留或設定自訂網域。(本文提供所有網域註冊機構的一般指示。本文最上方的索引標籤為特定註冊機構的部分文章連結。)
+若是實際執行的 Web 應用程式，您可能想讓使用者看到自訂網域名稱。本文章說明如何利用 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 保留或設定自訂網域。
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
@@ -70,7 +70,8 @@
 3.	按一下 [**Web Apps**] 刀鋒視窗。
 4.	按一下您的 Web 應用程式的名稱。
 5.	在 [**基本功能**] 頁面上，按一下 [**所有設定**]。
-6.	按一下 [**自訂網域和 SSL**]。IP 位址位於接近頁面底部的地方 (就在 [**SSL 繫結**] 區段正上方)。
+6.	按一下 [**自訂網域和 SSL**]。 
+7.	在 [自訂網域和 SSL] 分頁中，按一下 [帶出外部網域]。IP 位址位於此組件的底部。
 
 ## 建立 DNS 記錄
 
@@ -110,7 +111,7 @@
 
 >[AZURE.NOTE]您可以使用 Azure DNS 來裝載 web 應用程式所需的網域記錄。若要在 Azure DNS 設定您的自訂網域，並建立您的記錄，請參閱[建立 Web 應用程式的自訂 DNS 記錄](../dns-web-sites-custom-domain)。
 
-<a name="awverify" /></a>
+<a name="awverify" />
 ## 建立 awverify 記錄 (僅限 A 記錄)
 
 若您建立 A 記錄，Web 應用程式也會要求特定的 CNAME 記錄，用於確認您是否擁有嘗試使用的網域。此 CNAME 記錄必須具有下列形式。
@@ -129,7 +130,7 @@
 
 ## 後續步驟
 
-如需詳細資訊，請參閱：[開始使用 Azure DNS](http://azure.microsoft.com/zh-tw/documentation/articles/dns-getstarted-create-dnszone) 和[將網域委派給 Azure DNS](http://azure.microsoft.com/zh-tw/documentation/articles/dns-domain-delegation)
+如需詳細資訊，請參閱：[開始使用 Azure DNS](../dns/dns-getstarted-create-dnszone) 和[將網域委派給 Azure DNS](../dns/dns-domain-delegation)
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -146,4 +147,4 @@
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

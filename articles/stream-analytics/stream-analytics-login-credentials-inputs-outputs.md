@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/24/2015" 
+	ms.date="07/01/2015" 
 	ms.author="jeffstok"/>
 
 #替換輸入/輸出認證
@@ -56,7 +56,8 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 11. 繼續第 2 部分。  
 
 ###SQL Database
-[AZURE.NOTE]注意：您必須連接到 SQL 資料庫服務。為了示範整個過程，我們會借鑑 Azure 管理入口網站的管理經驗，不過您也可以選擇使用其他類似 SQL Server Management Studio 的用戶端工具。
+
+>[AZURE.NOTE]注意：您必須連接到 SQL 資料庫服務。為了示範整個過程，我們會借鑑 Azure 管理入口網站的管理經驗，不過您也可以選擇使用其他類似 SQL Server Management Studio 的用戶端工具。
 
 1.  在 Azure 管理入口網站中，瀏覽至 [SQL 資料庫] 擴充：![graphic14][graphic14]
 2.  找出工作使用的 SQL 資料庫，然後在同一行上**按一下伺服器**連結：![graphic15][graphic15]
@@ -136,7 +137,7 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 	Command(s) completed successfully.
 
 ## 取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟
 
@@ -192,4 +193,4 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

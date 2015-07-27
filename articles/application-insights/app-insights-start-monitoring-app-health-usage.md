@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
 
 
@@ -114,19 +114,54 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 請參閱[此疑難排解項目](app-insights-troubleshoot-faq.md#NuGetBuild)。
 
+## 加入相依性追蹤
+
+SDK 需要一些協助，才能取得某些資料的存取權。特別是，您需要這個額外步驟才能自動測量您的應用程式對資料庫、REST API 和其他外部元件的呼叫。這些相依性度量對於協助您診斷效能問題的價值難以衡量。
+
+#### 如果您的應用程式是在您的 IIS 伺服器中執行
+
+使用系統管理員權限登入您的伺服器，並安裝 [Application Insights 狀態監視器](http://go.microsoft.com/fwlink/?LinkId=506648)。
+
+(您也可以使用狀態監視器來[檢測已在執行的應用程式](app-insights-monitor-performance-live-website-now.md)，即使它不是使用 SDK 建置。)
+
+#### 如果您的應用程式是 Azure Web 應用程式
+
+在您的 Azure Web 應用程式的控制台中，加入 Application Insights 延伸模組。
+
+![在您的 Web 應用程式中，依序按一下 [設定]、[延伸模組]、[加入]、[Application Insights]](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+
+(延伸模組只能協助使用 SDK 建置的應用程式。與狀態監視器不同，它無法檢測現有的應用程式。)
+
+## 加入用戶端監視
+
+您已安裝會從應用程式的伺服器端傳送遙測資料的 SDK。現在您可以加入用戶端監視。這可提供有關在用戶端中發生的使用者、工作階段、頁面檢視和任何例外狀況或損毀的相關資料。
+
+您也可以撰寫自己的程式碼，來追蹤您的使用者使用您的應用程式，徹底得知詳細的點按和按鍵層級。
+
+#### 如果您的用戶端是 Web 瀏覽器
+
+如果您的應用程式顯示網頁，請在每一頁加入 JavaScript 程式碼片段。從您的 Application Insights 資源取得程式碼：
+
+![在您的 Web 應用程式中，開啟 [快速啟動]，然後按一下 [取得程式碼來監視我的網頁]](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
+
+請注意，此程式碼包含可識別您的應用程式資源的檢測金鑰。
+
+[進一步了解網頁追蹤。](app-insights-web-track-usage.md)
+
+#### 如果您的用戶端是裝置應用程式
+
+如果您的應用程式為用戶端 (例如電話或其他裝置) 提供服務，請加入[適當的 SDK](app-insights-platforms.md) 至您的裝置應用程式。
+
+如果您使用與伺服器 SDK 相同的檢測金鑰來設定用戶端 SDK，將整合兩個資料流，讓您同時看到。
+
 
 ## 完成安裝
 
-若要取得您的應用程式的完整 360 度檢視，您需要執行一些動作：
+若要取得您的應用程式的全方位檢視，您還可以執行一些動作：
 
-
-* [將 JavaScript SDK 加入至網頁][client]，以取得瀏覽器型遙測，例如使用者、工作階段和頁面檢視計數、頁面載入時間、指令碼例外狀況，並讓您在頁面指令碼中撰寫自訂遙測。
-* 加入相依性追蹤，診斷由資料庫或應用程式使用的其他元作所造成的問題：
- * [在您的 Azure Web 應用程式或 VM 中][azure]
- * [在您的內部部署 IIS 伺服器中][redfield]
+* [設定 Web 測試][availability]，以確認應用程式處於線上狀態且能夠回應。
 * 從您最喜愛的記錄架構[擷取記錄追蹤][netlogs]
 * 在用戶端、伺服器或兩者，[追蹤自訂事件和度量][api]，以深入了解應用程式的使用情況。
-* [設定 Web 測試][availability]，以確認應用程式處於線上狀態且能夠回應。
 
 ## <a name="ide"></a> 自動化方式
 
@@ -196,4 +231,4 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

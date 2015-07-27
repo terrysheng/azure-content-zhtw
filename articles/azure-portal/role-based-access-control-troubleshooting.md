@@ -4,7 +4,6 @@
 	services="azure-portal"
 	documentationCenter="na" 
 	authors="stepsic-microsoft-com" 
-	writer="" 
 	manager="terrylan" 
 	editor=""/>
 
@@ -83,4 +82,4 @@ Web 應用程式因為幾個互有關聯的資源而顯得複雜。以下是具�
     
 如果您無法存取上述任何一個磚，請洽詢您的系統管理員，取得資源群組的參與者存取權限。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -386,4 +386,4 @@
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

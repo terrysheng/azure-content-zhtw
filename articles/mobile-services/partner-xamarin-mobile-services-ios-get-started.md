@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/16/2015"
+	ms.date="07/09/2015"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>開始使用行動服務
@@ -98,6 +98,8 @@
 ## 後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
+* [開始使用資料] <br/>了解如何將新的資料表新增至行動服務，然後讀取和寫入該資料表。
+
 * [開始使用離線資料同步] <br/>了解快速入門如何使用離線資料同步，讓應用程式更穩健及具備回應力。
 
 * [開始使用驗證] <br/>了解如何向身分識別提供者驗證應用程式的使用者。
@@ -122,15 +124,14 @@
 
 
 <!-- URLs. -->
-[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[開始使用離線資料同步]: /develop/mobile/tutorials/mobile-services-xamarin-ios-get-started-offline-data
-[開始使用驗證]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[開始使用推播通知]: /develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[開始使用資料]: partner-xamarin-mobile-services-ios-get-started-data.md
+[開始使用離線資料同步]: mobile-services-xamarin-ios-get-started-offline-data.md
+[開始使用驗證]: partner-xamarin-mobile-services-ios-get-started-users.md
+[開始使用推播通知]: partner-xamarin-mobile-services-ios-get-started-push.md
 
 [Xamarin Studio]: http://xamarin.com/download
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

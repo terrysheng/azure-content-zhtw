@@ -3,7 +3,7 @@
 	description="了解如何使用 MongoLab 在 Azure 中建立 MongoDB 資料庫" 
 	documentationCenter="php" 
 	services="" 
-	authors="chrischang12" 
+	authors="chrischang127" 
 	manager="partners@mongolab.com" 
 	editor=""/>
 
@@ -18,4 +18,4 @@
 
 [AZURE.INCLUDE [create-mongolab-mongodb](../includes/create-mongolab-mongodb.md)]
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

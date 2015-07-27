@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="了解如何使用串流分析管理 .NET SDK | Microsoft Azure" 
 	description="Azure 串流分析管理 .NET SDK 入門。了解如何設定及執行分析工作：建立專案、輸入、輸出及轉換。" 
-	keywords=".net skd,analytics jobs,event hub"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/17/2015" 
+	ms.date="07/16/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -58,7 +57,7 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 1. 建立 Visual Studio C# .NET 主控台應用程式。
 2. 在 Package Manager Console 中，執行下列命令以安裝 NuGet 封裝。第一個是 Azure 串流分析管理 .NET SDK。第二個是驗證要使用的 Azure Active Directory 用戶端。
 
-		Install-Package Microsoft.Azure.Management.StreamAnalytics -Pre
+		Install-Package Microsoft.Azure.Management.StreamAnalytics
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
 4. 將下列 **appSettings** 區段加入 App.config 檔案：
@@ -70,8 +69,8 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 		  <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 		  <add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
 		  <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-		  <add key="SubscriptionId" value="<YOUR AZURE SUBSCRIPTION>" />
-		  <add key="ActiveDirectoryTenantId" value="<YOU TENANT ID>" />
+		  <add key="SubscriptionId" value="YOUR AZURE SUBSCRIPTION" />
+		  <add key="ActiveDirectoryTenantId" value="YOU TENANT ID" />
 		</appSettings>
 
 
@@ -326,7 +325,7 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 
 
 ## 取得支援
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
 
 
 ## 後續步驟
@@ -365,4 +364,4 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

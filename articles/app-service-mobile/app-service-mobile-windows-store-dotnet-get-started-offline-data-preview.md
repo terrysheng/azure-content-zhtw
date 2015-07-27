@@ -36,9 +36,9 @@
 本教學課程需要下列各項：
 
 * 執行於 Windows 8.1 的 Visual Studio 2013。
-* 完成[建立 Windows 應用程式]。
-* [Azure 行動服務 SDK 2.0.0 版 (或更新版本)][Azure Mobile App SDK Nuget]
-* [Azure 行動服務 SQLite Store 1.0.2 版 (或更新版本)][SQLite store Nuget]
+* 完成[建立 Windows 應用程式][create a windows app]。
+* [Azure 行動服務 SDK 2.0.0 版 (或更新版本)][azure mobile app sdk nuget]
+* [Azure 行動服務 SQLite Store 1.0.2 版 (或更新版本)][sqlite store nuget]
 * [SQLite for Windows 8.1](www.sqlite.org/downloads)
 
 >[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。
@@ -264,13 +264,14 @@ Azure 行動應用程式的離線功能可讓您在行動服務處於離線狀�
 
 
 <!-- URLs. -->
-[TodoList Offline Sample]: http://go.microsoft.com/fwlink/?LinkId=394777
+[todolist offline sample]: http://go.microsoft.com/fwlink/?LinkId=394777
+[create a windows app]: /documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/
 [建立 Windows 應用程式]: /documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/
-[SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
-[SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
+[sqlite for windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
+[sqlite for windows phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
 
-[Azure Mobile App SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
-[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
+[azure mobile app sdk nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
+[sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

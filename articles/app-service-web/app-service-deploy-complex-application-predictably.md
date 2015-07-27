@@ -1,6 +1,6 @@
 <properties
-	pageTitle="透過可預測方式在 Azure 中部署複雜應用程式"
-	description="了解在 Azure 中如何將複雜應用程式部署為一個單位，並且透過可預測方式使用 JSON 資源群組範本和 PowerShell 指令碼。"
+	pageTitle="透過可預測方式在 Azure 中佈建和部署微服務"
+	description="學習如何在 Azure App Service 中將包含微服務的應用程式佈建和部署為單一單位，並且使用 JSON 資源群組範本和 PowerShell 指令碼為可預測的方式。"
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="07/08/2015"
 	ms.author="cephalin"/>
 
 
-# 透過可預測方式在 Azure 中部署複雜應用程式 #
+# 透過可預測方式在 Azure 中佈建和部署微服務 #
 
-本教學課程示範在 Azure 中如何將複雜應用程式部署為一個單位，並且使用 JSON 資源群組範本和 PowerShell 指令碼的可預測方式。
+本教學課程示範如何在 [Azure App Service](/services/app-service/) 中將包含[微服務](https://en.wikipedia.org/wiki/Microservices)的應用程式佈建和部署為單一單位，並且使用 JSON 資源群組範本和 PowerShell 指令碼的可預測方式。
 
-在 DevOps 中，重複性和可預測性是成功部署高延展性複雜應用程式的關鍵。[Azure App Service](/services/app-service/) 可讓您建立複雜應用程式，其中包括 Web 應用程式、行動、API 和邏輯應用程式。[Azure 資源管理員](../resource-group-overview.md)可讓您將這類應用程式的所有元件管理為一個單位。現在，您也可以使用 JSON 範本和簡單 PowerShell 指令碼來部署這類複雜應用程式。
+佈建和部署包含高低耦合微服務的高級別應用程式時，重複性和可預測性是成功的重要關鍵。[Azure App Service](/services/app-service/) 可讓您建立微服務，其中包括 Web 應用程式、行動應用程式、API 應用程式和邏輯應用程式。[Azure 資源管理員](../resource-group-overview.md)可讓您將所有微服務當成一個單位來進行管理，以及管理資源相依性 (例如資料庫和原始檔控制設定)。現在，您也可以使用 JSON 範本和簡單 PowerShell 指令碼來部署這類應用程式。
 
 ## 將執行的作業 ##
 
 在教學課程中，您將部署的應用程式包括：
 
--	兩個 Web 應用程式
+-	兩個 Web 應用程式 (即兩個微服務)
 -	後端 SQL Database
 -	應用程式設定、連接字串和原始檔控制
 -	Application insights、警示、自動調整設定
@@ -90,7 +90,7 @@
 
 	![](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
  
-所有您剛剛在短短幾分鐘內看到的項目都是完整部署的複雜應用程式，以及所有元件、相依性、設定、資料庫和持續發佈 (由 Azure 資源管理員中的自動化協調流程所設定)。這項作業是透過兩件事完成：
+剛剛您在短短幾分鐘內看到的所有項目都是完整部署的雙微服務應用程式，以及所有元件、相依性、設定、資料庫和連續發行 (由 Azure 資源管理員中的自動化協調流程所設定)。這項作業是透過兩件事完成：
 
 -	[部署至 Azure] 按鈕
 -	儲存機制根目錄中的 azuredeploy.json
@@ -274,7 +274,7 @@ Web 應用程式與兩個不同的資源相依。這表示只有在建立 App Se
 2.	建立要與範本檔案一起使用的參數檔案
 3.	部署具有參數檔案的範本檔案
 
-最後一個步驟是透過 PowerShell Cmdlet 輕鬆完成。若要查看 Visual Studio 在部署您的應用程式時所執行的作業，請開啟 Scripts\Deploy-AzureResourceGroup.ps1。在該處有很多程式碼，但我只想要討論部署具有參數檔案之範本檔案所需的所有相關程式碼。
+最後一個步驟是透過 PowerShell Cmdlet 輕鬆完成。若要查看 Visual Studio 在部署您的應用程式時所執行的作業，請開啟 Scripts\\Deploy-AzureResourceGroup.ps1。在該處有很多程式碼，但我只想要討論部署具有參數檔案之範本檔案所需的所有相關程式碼。
 
 ![](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
 
@@ -282,7 +282,11 @@ Web 應用程式與兩個不同的資源相依。這表示只有在建立 App Se
 
 ## 摘要 ##
 
-在 DevOps 中，重複性和可預測性是成功部署高延展性複雜應用程式的關鍵。在本教學課程中，您已使用 Azure 資源管理員範本將應用程式部署至 Azure 以做為單一資源群組。希望這可讓您了解如何開始將 Azure 中的複雜應用程式轉換成範本，而且可以在 Azure 中透過可預測的方式部署它。
+在 DevOps 中，重複性和可預測性是任何成功部署包含微服務之高級別應用程式的關鍵。在本教學課程中，您已使用 Azure 資源管理員範本將雙微服務應用程式部署至 Azure 以做為單一資源群組。希望這可讓您了解如何開始將 Azure 中的應用程式轉換成範本，而且可以透過可預測方式進行佈建和部署。
+
+## 後續步驟 ##
+
+了解如何[輕鬆地套用敏捷式方法並連續發行微服務應用程式](app-service-agile-software-development.md)。
 
 <a name="resources"></a>
 ## 其他資源 ##
@@ -300,4 +304,4 @@ Web 應用程式與兩個不同的資源相依。這表示只有在建立 App Se
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

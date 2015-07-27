@@ -72,14 +72,14 @@
 
 若要開始，您需要建立 SQL Server 資料庫、資料表、使用者定義型別和預存程序。這些將用於從 Azure Blob 將 **MarketingCampaignEffectiveness** 結果移至 SQL Server 資料庫。
 
-1.	在 **Windows 檔案總管**中，導覽至 **C:\ADFWalkthrough** (或您解壓縮範例的位置) 中的 **OnPremises** 子資料夾。
+1.	在 **Windows 檔案總管**中，導覽至 **C:\\ADFWalkthrough** (或您解壓縮範例的位置) 中的 **OnPremises** 子資料夾。
 2.	在您喜好的編輯器中開啟 **prepareOnPremDatabase&Table.ps1**，將反白顯示部分取代為您的 SQL Server 資訊，並儲存檔案 (請提供 **SQL 驗證**詳細資訊)。針對教學課程的目的，為您的資料庫啟用 SQL 驗證。 
 			
 		$dbServerName = "<servername>"
 		$dbUserName = "<username>"
 		$dbPassword = "<password>"
 
-3. 在 **Azure PowerShell** 中，導覽至 **C:\ADFWalkthrough\OnPremises** 資料夾。
+3. 在 **Azure PowerShell** 中，導覽至 **C:\\ADFWalkthrough\\OnPremises** 資料夾。
 4.	執行 **prepareOnPremDatabase&Table.ps1** **(以雙引號括住 &，或如下所示)**。
 			
 		& '.\prepareOnPremDatabase&Table.ps1'
@@ -115,14 +115,14 @@
 ### 建立內部部署邏輯資料表
 
 1.	在 **Data Factory 編輯器**中，按一下工具列的 [**新增資料集**]，選取 [**內部部署 SQL**]。 
-2. 將右側窗格中的 JSON，取代為 **C:\ADFWalkthrough\OnPremises** 資料夾的 **MarketingCampaignEffectivenessOnPremSQLTable.json** 檔案中的 JSON 指令碼。
+2. 將右側窗格中的 JSON，取代為 **C:\\ADFWalkthrough\\OnPremises** 資料夾的 **MarketingCampaignEffectivenessOnPremSQLTable.json** 檔案中的 JSON 指令碼。
 3. 將連結服務的名稱 (**linkedServiceName** 屬性) 從 **OnPremSqlServerLinkedService** 變更為 **SqlServerLinkedService**。
 4. 按一下工具列的 [**部署**]，部署資料表。 
 	 
 #### 建立將資料從 Azure Blob 複製到 SQL Server 的管線
 
 1.	1. 在 **Data Factory 編輯器**中，按一下工具列的 [**新增管線**] 按鈕。如果沒看到此按鈕，請按一下工具列 **...(省略符號)**。或者，您也可以在樹狀檢視中，以滑鼠右鍵按一下 [**管線**]，再按一下 [**新增管線**]。
-2. 將右側窗格中的 JSON，取代為 **C:\ADFWalkthrough\OnPremises** 資料夾的 **EgressDataToOnPremPipeline.json** 檔案中的 JSON 指令碼。
+2. 將右側窗格中的 JSON，取代為 **C:\\ADFWalkthrough\\OnPremises** 資料夾的 **EgressDataToOnPremPipeline.json** 檔案中的 JSON 指令碼。
 3. 在 JSON 中，在**右方括弧 (']')** 尾端加上**逗點 (',')**，然後在右方括弧之後增加下列三行。 
 
         "start": "2014-05-01T00:00:00Z",
@@ -169,4 +169,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

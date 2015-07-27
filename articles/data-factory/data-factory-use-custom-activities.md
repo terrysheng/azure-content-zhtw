@@ -54,7 +54,7 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 ## 在管線中使用自訂活動
 若要在管線中使用自訂活動：
 
-1.	「壓縮」專案的 **bin\debug** 或 **bin\release** 輸出資料夾中的所有二進位檔案。 
+1.	「壓縮」專案的 **bin\\debug** 或 **bin\\release** 輸出資料夾中的所有二進位檔案。 
 2.	以 Blob 形式「上傳 zip」檔案至您的「Azure Blob 儲存體」。 
 3.	更新「管線 JSON」檔案，以參考 zip 檔案、自訂活動 DLL、活動類別，以及包含管線 JSON 中 zip 檔案的 Blob。在 JSON 檔案中：
 	<ol type ="a">
@@ -286,8 +286,8 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 
 
 10. 編譯專案。按一下功能表中的 [建置]，然後按一下 [建置方案]。
-11. 啟動「Windows 檔案總管」，瀏覽至 **bin\debug** 或 **bin\release** 資料夾，根據建置類型而定。
-12. 建立 zip 檔案 **MyDotNetActivity.zip**，檔案中包含 <project folder>\bin\Debug 資料夾中的所有二進位檔。
+11. 啟動「Windows 檔案總管」，瀏覽至 **bin\\debug** 或 **bin\\release** 資料夾，根據建置類型而定。
+12. 建立 zip 檔案 **MyDotNetActivity.zip**，檔案中包含 <project folder>\\bin\\Debug 資料夾中的所有二進位檔。
 13. 將 **MyDotNetActivity.zip** 當做 Blob 上傳至 Blob 容器：Azure Blob 儲存體中的 **customactvitycontainer**，由 **ADFTutorialDataFactory** 中的 **MyBlobStore** 連結服務使用。建立 Blob 容器 **blobcustomactivitycontainer** (如果不存在)。 
 
 
@@ -523,4 +523,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

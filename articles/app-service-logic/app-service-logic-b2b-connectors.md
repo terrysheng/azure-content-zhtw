@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 # Microsoft Azure App Service 中的企業對企業連接器和 API 應用程式
@@ -202,6 +202,7 @@ Microsoft Azure App Service 會公開可使用這些 B2B API 應用程式的不�
 
 
 ## 其他連接器
-[BizTalk 整合連接器](app-service-logic-integration-connectors.md)<br/> [企業連接器](app-service-logic-enterprise-connectors.md)<br/> [社交連接器](app-service-logic-social-connectors.md)<br/> [通訊協定連接器](app-service-logic-protocol-connectors.md)<br/> [應用程式 + 資料服務連接器](app-service-logic-data-connectors.md)<br/> [連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/> [什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=62-->
+[連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/>[什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
+
+<!---HONumber=July15_HO3-->

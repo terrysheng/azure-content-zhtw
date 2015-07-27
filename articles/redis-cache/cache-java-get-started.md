@@ -87,4 +87,4 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用安全 Redis 快�
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

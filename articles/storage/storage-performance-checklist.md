@@ -104,7 +104,10 @@ Azure 檔案服務目前為預覽版，我們將於日後加入以下的已經�
 -	如果您的應用程式達到延展性目標，那麼請確定使用指數輪詢進行重試 (請參閱[重試](#subheading14))。最好的方式是確保您一定不會達到延展性目標 (方法是使用上述其中一個方法)，但這可確保您的應用程式不會持續快速重試，而降低節流的效能。  
 
 ####有用資源
-下列連結提供延展性目標上的其他詳細資料：您可以在 [MSDN 上的 Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/library/azure/dn249410.aspx)頁面上檢視目前的延展性目標。您可以進一步了解 [Azure 儲存體備援選項和讀取異地備援儲存體](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)部落格文章中的儲存體備援選項。如需詳細資訊，請參閱下一節；如需 Azure 服務的目前價格資訊，請參閱 [Azure 價格概述](http://azure.microsoft.com/pricing/overview/)。
+下列連結提供延展性目標上的其他詳細資料：
+-	您可以在 [MSDN 上的 Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/library/azure/dn249410.aspx)
+-	頁面上檢視目前的延展性目標。您可以進一步了解 [Azure 儲存體備援選項和讀取異地備援儲存體](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)部落格文章中的儲存體備援選項。如需詳細資訊，請參閱下一節；
+-	如需 Azure 服務的目前定價資訊，請參閱 [Azure 定價概述](http://azure.microsoft.com/pricing/overview/)。
 
 ###網路
 雖然 API 呼叫非常重要，但應用程式的實體網路限制經常會對效能產生重大影響。下列說明了使用者可能會遇到的部分限制。
@@ -384,4 +387,4 @@ Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。在指定使用�
 本文討論一些最常見的已經實證做法，以便在使用 Azure 儲存體時將效能最佳化。我們鼓勵每位應用程式開發人員根據上述的每個做法來評估他們的應用程式，並考慮照著建議去做，為其使用 Azure 儲存體的應用程式取得最佳效能。
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

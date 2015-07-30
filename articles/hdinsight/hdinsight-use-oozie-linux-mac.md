@@ -485,7 +485,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 工作的狀態。它可讓
 
 2. 建立通道後，請在網頁瀏覽器中開啟 Ambari Web UI。Ambari 網站的 URI 是 **https://CLUSTERNAME.azurehdinsight.net**。請將 **CLUSTERNAME** 替換為您以 Linux 為基礎的 HDInsight 叢集名稱。
 
-3. 在頁面左邊選取 [Oozie]，然後依序選取 [Quick Links] (快速連結) 和 [Oozie Web UI]。
+3. 在頁面左邊選取 [Oozie]，然後依序選取 [Quick Links] \(快速連結\) 和 [Oozie Web UI]。
 
 	![功能表的圖](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
 

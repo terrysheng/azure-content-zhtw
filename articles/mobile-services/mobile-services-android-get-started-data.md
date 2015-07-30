@@ -101,7 +101,8 @@ Android 的**開始使用資料**教學課程到此結束。
 
 ## 舊版程式碼
 
-如果您想要查看本教學課程的 Eclipse 版本，請移至：[開始透過 Eclipse 使用資料](mobile-services-android-get-started-data-EC.md)。
+如果您想要查看本教學課程的 Eclipse 版本，請移至： 
+[開始透過 Eclipse 使用資料](mobile-services-android-get-started-data-EC.md)。
 
 若要查看 Eclipse 專案中完整版的原始程式碼，請移至<a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">這裡</a>。
 
@@ -113,15 +114,19 @@ Android 的**開始使用資料**教學課程到此結束。
 
 接下來，可考慮進入下列其中一個教學課程，這些教學課程都是以您在本教學課程中建立的 GetStartedWithData 應用程式為基礎：
 
-* [使用指令檔驗證與修改資料] <br/>深入了解在行動服務中使用伺服器指令檔，來驗證並變更從應用程式傳送出來的資料。
+* [使用指令檔驗證與修改資料]
+  <br/>深入了解在行動服務中使用伺服器指令檔，來驗證並變更從應用程式傳送出來的資料。
 
-* [使用分頁縮小查詢範圍] <br/>了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
+* [使用分頁縮小查詢範圍]
+  <br/>了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
 
 完成資料系列後，可試著閱讀這些另外的 Android 教學課程：
 
-* [開始使用驗證] <br/>了解如何驗證應用程式的使用者。
+* [開始使用驗證] 
+	<br/>了解如何驗證應用程式的使用者。
 
-* [開始使用推送通知] <br/>了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
+* [開始使用推送通知] 
+  <br/>了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
 
 <!-- Anchors. -->
 [Download the Android app project]: #download-app

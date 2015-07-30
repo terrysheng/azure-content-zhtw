@@ -113,7 +113,7 @@
 [開始使用驗證]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [開始使用推播通知]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[開始使用離線資料同步]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

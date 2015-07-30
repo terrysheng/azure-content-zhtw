@@ -369,10 +369,20 @@ Chrome 應用程式是使用 JavaScript 建立的，您可以使用任何慣用�
 		  }
 		}
 
-	上述指令碼有下列的輸出：- *window.onload* 定義 UI 上兩個按鈕的按鈕點擊事件 - 一個按鈕向 GCM 註冊，另一個在向 GCM 註冊後使用傳回的註冊識別碼向 Azure 通知中樞註冊。- *updateLog* 函數會定義簡單的記錄函數。- *registerWithGCM* 是第一個按鈕點擊處理常式，可向 GCM 進行 *chrome.gcm.register* 呼叫，以註冊此 Chrome 應用程式執行個體。- *registerCallback* 是回呼函數，會在上述 GCM 註冊呼叫傳回時受到呼叫。- *registerWithNH* 是第二個按鈕點擊處理常式，會向通知中樞進行註冊。它會取得使用者已指定的 *hubName* 和 *connectionString* 並製作通知中樞註冊 REST API 呼叫。- *splitConnectionString* 和 *generateSaSToken* 都是建立 SaS 權杖的 Javascript 實作，必須在所有的 REST API 呼叫中傳送。相關資訊請見 - http://msdn.microsoft.com/library/dn495627.aspx - *sendNHRegistrationRequest* 是發出 HTTP REST 呼叫的函數。- *registrationPayload* 會定義註冊 xml 裝載。相關資訊請見 - [建立註冊 NH REST API]。我們會以接收自 GCM 的項目來更新其中的註冊識別碼。- *client* 是我們用來發出 HTTP POST 要求的 *XMLHttpRequest* 執行個體。請注意，我們會使用 sasToken 更新 *Authorization* 標頭。成功完成此呼叫後，即會向 Azure 通知中樞註冊此 Chrome 應用程式執行個體。
+	上述指令碼有下列的輸出：
+	- *window.onload* 定義 UI 上兩個按鈕的按鈕點擊事件 - 一個按鈕向 GCM 註冊，另一個在向 GCM 註冊後使用傳回的註冊識別碼向 Azure 通知中樞註冊。
+	- *updateLog* 函數會定義簡單的記錄函數。
+	- *registerWithGCM* 是第一個按鈕點擊處理常式，可向 GCM 進行 *chrome.gcm.register* 呼叫，以註冊此 Chrome 應用程式執行個體。
+	- *registerCallback* 是回呼函數，會在上述 GCM 註冊呼叫傳回時受到呼叫。
+	- *registerWithNH* 是第二個按鈕點擊處理常式，會向通知中樞進行註冊。它會取得使用者已指定的 *hubName* 和 *connectionString* 並製作通知中樞註冊 REST API 呼叫。
+	- *splitConnectionString* 和 *generateSaSToken* 都是建立 SaS 權杖的 Javascript 實作，必須在所有的 REST API 呼叫中傳送。相關資訊請見 - http://msdn.microsoft.com/library/dn495627.aspx 
+	- *sendNHRegistrationRequest* 是發出 HTTP REST 呼叫的函數。
+	- *registrationPayload* 會定義註冊 xml 裝載。相關資訊請見 - [建立註冊 NH REST API]。我們會以接收自 GCM 的項目來更新其中的註冊識別碼。
+	- *client* 是我們用來發出 HTTP POST 要求的 *XMLHttpRequest* 執行個體。請注意，我們會使用 sasToken 更新 *Authorization* 標頭。成功完成此呼叫後，即會向 Azure 通知中樞註冊此 Chrome 應用程式執行個體。
 
 
-8. 您應該會在結尾處看見下列資料夾檢視：![][21]
+8. 您應該會在結尾處看見下列資料夾檢視：
+   	![][21]
 
 ###設定和測試 Chrome 應用程式
 
@@ -380,7 +390,7 @@ Chrome 應用程式是使用 JavaScript 建立的，您可以使用任何慣用�
 
    	![][16]
 
-2. 按一下 [**載入解壓縮的延伸模組**]，並導覽至您建立檔案的資料夾。您也可以選擇性地使用 [**Chrome 應用程式和延伸模組開發人員工具**] (這本身也是 Chrome 應用程式，且必須從 Chrome Web 市集安裝)，並提供您的 Chrome 應用程式開發所需的進階偵錯功能。
+2. 按一下 [**載入解壓縮的延伸模組**]，並導覽至您建立檔案的資料夾。您也可以選擇性地使用 [**Chrome 應用程式和延伸模組開發人員工具**] \(這本身也是 Chrome 應用程式，且必須從 Chrome Web 市集安裝)，並提供您的 Chrome 應用程式開發所需的進階偵錯功能。
 
    	![][17]
 
@@ -400,7 +410,8 @@ Chrome 應用程式是使用 JavaScript 建立的，您可以使用任何慣用�
 
 在本教學課程中，您透過 .NET 主控台應用程式傳送通知，不過您也可以從任何後端使用通知中樞，透過 <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 介面</a>來傳送通知。
 
-如需從整合通知中心之 Azure 行動服務後端傳送通知的範例，請參閱**開始在行動服務中使用推播通知** ([.NET backend](../mobile-services-javascript-backend-android-get-started-push.md) | [JavaScript backend](../mobile-services-javascript-backend-android-get-started-push.md))。如需如何使用 REST API 傳送通知的範例，請參閱**如何從 Java/PHP/Python 使用通知中樞** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md))。
+如需從整合通知中心之 Azure 行動服務後端傳送通知的範例，請參閱**開始在行動服務中使用推播通知** ([.NET backend](../mobile-services-javascript-backend-android-get-started-push.md) | [JavaScript backend](../mobile-services-javascript-backend-android-get-started-push.md))。  
+如需如何使用 REST API 傳送通知的範例，請參閱**如何從 Java/PHP/Python 使用通知中樞** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md))。
 
 1. 在 Visual Studio 中，從 [檔案] 功能表選取 [開新檔案]、[專案...]，然後按一下 [Visual C#] 下方的 [Windows] 和 [主控台應用程式]，再按一下 [確定]。這會建立新的主控台應用程式專案。
 
@@ -444,7 +455,9 @@ Chrome 應用程式是使用 JavaScript 建立的，您可以使用任何慣用�
 
 ## <a name="next-steps"> </a>後續步驟
 
-在此簡單範例中，您將通知廣播到您的 Chrome 應用程式。請在[通知中樞概觀]中深入了解通知中樞。若要以特定使用者為目標，請參閱 [Azure 通知中樞通知使用者]教學課程，在此同時，如果您想要按興趣群組分隔使用者，您可以參閱 [Azure 通知中樞即時新聞]。
+在此簡單範例中，您將通知廣播到您的 Chrome 應用程式。
+請在[通知中樞概觀]中深入了解通知中樞。
+若要以特定使用者為目標，請參閱 [Azure 通知中樞通知使用者]教學課程，在此同時，如果您想要按興趣群組分隔使用者，您可以參閱 [Azure 通知中樞即時新聞]。
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-chrome-get-started/GoogleConsoleCreateProject.PNG

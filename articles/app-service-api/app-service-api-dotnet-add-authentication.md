@@ -71,7 +71,8 @@
 
 ## 保護 API 應用程式
 
-當您部署 API 應用程式時，您會將它部署到資源群組。您可以將 Web 應用程式和其他 API 應用程式新增至相同的資源群組，而資源群組內的每個 API 應用程式可以有下列三個可存取性設定的其中一個：<!--todo: diagram showing different accessibility settings-->
+當您部署 API 應用程式時，您會將它部署到資源群組。您可以將 Web 應用程式和其他 API 應用程式新增至相同的資源群組，而資源群組內的每個 API 應用程式可以有下列三個可存取性設定的其中一個：
+<!--todo: diagram showing different accessibility settings-->
 
 - **公用 (匿名)** - 任何人都可以從資源群組外部呼叫 API 應用程式，而不需登入。
 - **公用 (已驗證)** - 只允許已驗證的使用者從資源群組外部呼叫 API 應用程式。
@@ -268,4 +269,4 @@
 [Azure 入口網站]: https://manage.windowsazure.com/
 [Azure 預覽入口網站]: https://portal.azure.com/
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

@@ -161,4 +161,4 @@ LoadBalancerDistribution 的值可以是 sourceIP (適用於 2-tuple 同質性)�
     Date: Thu, 16 Oct 2014 22:49:21 GMT
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -396,7 +396,7 @@
 1. 複製完整備份，然後使用 **NORECOVERY** 進行還原。
 1. 複製「超出使用者 DB 範圍」的相依物件，例如登入等項目。
 1. 建立新的內部負載平衡器 (ILB) 或使用外部負載平衡器 (ELB)，然後在這兩個新節點上設定負載平衡的端點。
-> [AZURE.NOTE] 繼續之前，請先檢查所有節點的端點設定是否正確
+> [AZURE.NOTE]
 
 1. 停止使用者/應用程式存取 SQL Server (如果正在使用儲存集區)。
 1. 停止所有節點上的 SQL Server 引擎服務 (如果正在使用儲存集區)。
@@ -1144,4 +1144,4 @@
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

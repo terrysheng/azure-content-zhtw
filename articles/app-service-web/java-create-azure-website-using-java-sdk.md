@@ -461,7 +461,7 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 
 1. 在 [**基本功能**] 之下，尋找並複製 [**FTP 主機名稱**]。這是類似於 `ftp://waws-prod-bay-NNN.ftp.azurewebsites.windows.net` 的 URI。
 
-2. 在 [**基本功能**] 之下，尋找並複製 [**FTP/部署使用者名稱**]。其格式為 *webappname\\deployment-username*；例如 `WebDemoWebApp\deployer77`
+2. 在 [**基本功能**] 之下，尋找並複製 [**FTP/部署使用者名稱**]。其格式為 *webappname\deployment-username*；例如 `WebDemoWebApp\deployer77`
 
 若要從發行設定檔取得 FTP 連線資訊：
 
@@ -542,7 +542,7 @@ FileZilla 是另一項可用來發佈應用程式的工具 ，這是具有便利
 1. 在 FileZilla 中，按一下 **[檔案] > [網站管理員]**。
 2. 在 [**網站管理員**] 對話方塊中，按一下 [**新增網站**]。[**選取項目**] 中將會出現新的空白 FTP 網站，提示您提供名稱。在此程序中，將它命名為 `AzureWebDemo-FTP`
 
-    在 [**一般**] 索引標籤上，指定下列設定： - **主機：**輸入您從儀表板複製的 [**FTP 主機名稱**]。 - **連接埠：** (將此空白，因為這是被動傳輸，伺服器將會決定要使用的連接埠。) - **通訊協定：** FTP 檔案傳輸通訊協定 - **加密：**使用一般 FTP - **登入類型：** 一般 - **使用者：**輸入您從儀表板複製的部署 / FTP 使用者。這是完整 FTP 使用者名稱，其格式為 *webappname\\username*。 - **密碼：**輸入您設定部署認證時指定的密碼。
+    在 [**一般**] 索引標籤上，指定下列設定： - **主機：**輸入您從儀表板複製的 [**FTP 主機名稱**]。 - **連接埠：** (將此空白，因為這是被動傳輸，伺服器將會決定要使用的連接埠。) - **通訊協定：** FTP 檔案傳輸通訊協定 - **加密：**使用一般 FTP - **登入類型：** 一般 - **使用者：**輸入您從儀表板複製的部署 / FTP 使用者。這是完整 FTP 使用者名稱，其格式為 *webappname\username*。 - **密碼：**輸入您設定部署認證時指定的密碼。
 
     在 [**傳輸設定**] 索引標籤上，選取 [**被動**]。
 
@@ -590,4 +590,4 @@ FileZilla 是另一項可用來發佈應用程式的工具 ，這是具有便利
   [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

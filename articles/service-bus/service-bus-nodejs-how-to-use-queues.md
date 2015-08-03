@@ -32,7 +32,7 @@
 
 ### 使用 Node Package Manager (NPM) 取得封裝
 
-1.  使用 **Windows PowerShell for Node.js** 命令視窗瀏覽至已建立範例應用程式的 **c:\\node\\sbqueues\\WebRole1** 資料夾。
+1.  使用 **Windows PowerShell for Node.js** 命令視窗瀏覽至已建立範例應用程式的 **c:\node\sbqueues\WebRole1** 資料夾。
 
 2.  在命令視窗中輸入 **npm install azure**，這應該會導致類似下列內容的輸出：
 
@@ -190,4 +190,4 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
   [使用儲存體的 Node.js Web 應用程式]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

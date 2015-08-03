@@ -22,4 +22,4 @@ Azure RemoteApp 服務限制與預設值的相關資訊已移至 [Azure 訂用�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

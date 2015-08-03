@@ -3,7 +3,7 @@
 	description="利用 Resource Manager 範本和 Azure PowerShell 建立新的 Windows 虛擬機器。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="davidmu1"
 	manager="timlt"
 	editor=""/>
 
@@ -14,23 +14,32 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/29/2015"
-	ms.author="josephd"/>
+	ms.author="davidmu"/>
 
-# 利用資源管理員範本和 Azure PowerShell 建立 Windows 虛擬機器
+# 利用 Resource Manager 範本和 PowerShell 建立 Windows 虛擬機器
 
-您可以使用資源管理員範本搭配 Azure PowerShell，輕鬆建立 Windows 架構的新 Azure 虛擬機器。這個範本建立的單一虛擬機器會採用 Windows ，而且是在新資源群組的單一子網路的新虛擬網路上執行。
+您可以使用 Resource Manager 範本搭配 Azure PowerShell，輕鬆建立新的 Windows 型 Azure 虛擬機器 (VM)。這個範本建立的單一虛擬機器會採用 Windows ，而且是在新資源群組的單一子網路的新虛擬網路上執行。
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template-simple/windowsvm.png)
 
-開始之前，請遵循這些指示，以確定您已設定 Azure、Windows PowerShell 和 Azure PowerShell，而且準備就緒：
+在開始之前，請確定您已設定好 Azure 和 PowerShell，而且準備就緒了。
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## 建立 Windows 虛擬機器
+## 建立 Windows VM
 
-依照下列步驟，搭配 Azure PowerShell 並使用 Github 範本儲存機制中的資源管理員範本來建立 Windows 虛擬機器。
+請依照下列步驟，搭配 Azure PowerShell 並使用 Github 範本儲存機制中的 Resource Manager 範本建立 Windows VM。
 
-針對下列每個範例執行命令，並提供您的 Azure 部署名稱、資源群組名稱，以及 Azure 資料中心位置。請注意，執行 **New-AzureResourceGroupDeployment** 命令時，系統會提示您提供 JSON 檔案 "parameters" 區段中的參數值。指定所有的參數值後，這個命令會建立資源群組和虛擬機器。
+填寫 Azure 部署名稱、資源群組名稱、Azure 資料中心位置，然後執行以下命令。
+
+	$deployName="<deployment name>"
+	$RGName="<resource group name>"
+	$locName="<Azure location, such as West US>"
+	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
+	New-AzureResourceGroup –Name $RGName –Location $locName
+	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+
+執行 **New-AzureResourceGroupDeployment** 命令時，會提示您提供 JSON 檔案 "parameters" 區段中的參數值。指定所有的參數值後，這個命令會建立資源群組和虛擬機器。
 
 	$deployName="TestDeployment"
 	$RGName="TestRG"
@@ -81,16 +90,16 @@
 
 ## 其他資源
 
-[Azure 資源管理員提供的 Azure 計算、網路和儲存體提供者](virtual-machines-azurerm-versus-azuresm.md)
+[Azure Resource Manager 提供的 Azure 運算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md)
 
-[Azure 資源管理員概觀](../resource-group-overview.md)
+[Azure Resource Manager 概觀](resource-group-overview.md)
 
-[利用 Azure 資源管理員和 Azure PowerShell 建立 Windows 虛擬機器](virtual-machines-create-windows-powershell-resource-manager.md)
+[利用 Azure Resource Manager 和 PowerShell 建立 Windows 虛擬機器](virtual-machines-create-windows-powershell-resource-manager.md)
 
-[利用 Azure PowerShell 和 Azure 服務管理員建立 Windows 虛擬機器](virtual-machines-create-windows-powershell-service-manager.md)
+[利用 PowerShell 和 Azure Service Manager 建立 Windows 虛擬機器](virtual-machines-create-windows-powershell-service-manager.md)
 
 [虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)
+[如何安裝和設定 Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

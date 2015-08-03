@@ -330,4 +330,4 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 
 * 〈[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)〉
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

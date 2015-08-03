@@ -81,4 +81,4 @@ Azure 管理入口網站提供一種方法來快速建立 Azure 媒體服務帳�
   [管理入口網站]: http://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

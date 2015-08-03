@@ -380,4 +380,4 @@
   [利用 Azure 上的自動調整減少 TechNet 和 MSDN 主控成本和環境影響]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

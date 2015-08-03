@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/08/2015"
+   ms.date="07/20/2015"
    ms.author="telmos" />
 
 # 虛擬網路常見問題集
@@ -23,4 +23,4 @@
 
 如需虛擬網路 VPN 的最新常見問題集，請參閱《[VPN 閘道常見問題集](vpn-gateway-vpn-faq.md)》。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

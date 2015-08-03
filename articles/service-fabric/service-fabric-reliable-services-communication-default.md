@@ -107,4 +107,4 @@ Console.WriteLine("Greeting is {0}", message.Content);
 >[AZURE.NOTE]通訊架構會負責處理服務在用戶端擲回的傳播例外狀況。因此在用戶端使用 ServiceProxy 的例外狀況處理邏輯，可以直接處理服務可能擲回的例外狀況。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

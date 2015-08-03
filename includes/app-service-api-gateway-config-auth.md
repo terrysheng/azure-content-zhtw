@@ -38,4 +38,4 @@
 
 (影像中的回覆 URL 會顯示相同 URL 兩次，一次搭配 `http:`，一次搭配 `https:`。)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

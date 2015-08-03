@@ -6,7 +6,7 @@
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
 	ms.service="search"
@@ -119,4 +119,4 @@
 [6]: ./media/search-chrome-postman/query.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

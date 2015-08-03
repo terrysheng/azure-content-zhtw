@@ -81,4 +81,4 @@
 如需其他有關 Azure CLI 搭配 **arm** 模式使用的範例，請參閱[搭配 Azure 資源管理使用適用於 Mac、Linux 和 Windows 的 Microsoft Azure CLI](../xplat-cli-resource-manager.md)。若要深入了解 Azure 資源和概念，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

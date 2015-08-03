@@ -498,4 +498,4 @@ Microsoft 提供 Azure 服務匯流排 SDK，以在 .NET 平台上傳送通知�
 [Azure 訊息元件]: http://components.xamarin.com/view/azure-messaging
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

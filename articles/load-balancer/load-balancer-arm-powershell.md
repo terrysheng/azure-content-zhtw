@@ -245,4 +245,4 @@ PS C:> $backendnic1
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

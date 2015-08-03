@@ -122,7 +122,7 @@ Hive 與 Pig 很適合在 Azure HDInsight 中處理資料，但您有時需要�
 
 6. 連按兩下此叢集的 [**預設容器**]。這會開啟顯示預設容器內容的新視窗。
 
-7. 按一下 [上傳] 圖示，然後瀏覽至 **HiveCSharp** 專案的 **bin\\debug** 資料夾。最後，選取 **HiveCSharp.exe** 檔案並按一下 [**確定**]。
+7. 按一下 [上傳] 圖示，然後瀏覽至 **HiveCSharp** 專案的 **bin\debug** 資料夾。最後，選取 **HiveCSharp.exe** 檔案並按一下 [**確定**]。
 
 	![上傳圖示](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
@@ -240,4 +240,4 @@ Hive 與 Pig 很適合在 Azure HDInsight 中處理資料，但您有時需要�
 
 * 〈[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)〉
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

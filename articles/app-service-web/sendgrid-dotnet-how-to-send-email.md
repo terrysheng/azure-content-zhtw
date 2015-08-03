@@ -240,4 +240,4 @@ SendGrid 提供的網頁式 API 與 Webhook 可供從 Azure 應用程式運用�
   [交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

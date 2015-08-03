@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="07/08/2015"
+ ms.date="07/17/2015"
  ms.author="danlep"/>
 
 # 關於 A8、A9、A10 和 A11 計算密集型執行個體
@@ -87,11 +87,11 @@ A10 和 A11 執行個體具有可連線至 Azure 服務和網際網路的單一 
 
 ### 從 Linux A8 和 A9 VM 進行存取
 
-在單一雲端服務或可用性設定組中，A8 和 A9 執行個體可以在執行 MPI 應用程式 (使用 Linux RDMA 驅動程式在執行個體之間進行通訊) 時，存取 Azure 中的 RDMA 網路。此時，Azure Linux RDMA 僅支援 [Intel MPI Library 5.0](https://software.intel.com/zh-TW/intel-mpi-library/)。
+在單一雲端服務或可用性設定組中，A8 和 A9 執行個體可以在執行 MPI 應用程式 (使用 Linux RDMA 驅動程式在執行個體之間進行通訊) 時，存取 Azure 中的 RDMA 網路。此時，Azure Linux RDMA 僅支援 [Intel MPI Library 5.0](https://software.intel.com/zh-tw/intel-mpi-library/)。
 
 >[AZURE.NOTE]目前無法透過驅動程式延伸模組來安裝 Azure Linux RDMA 驅動程式。只能透過使用來自 Azure Marketplace 之已啟用 RDMA 的 SLES 12 映像來使用它們。
 
-請參閱下表，以了解要在計算節點 (IaaS) 叢集中存取 RDMA 網路之 Linux MPI 應用程式的必要條件。
+請參閱下表，以了解要在計算節點 (IaaS) 叢集中存取 RDMA 網路之 Linux MPI 應用程式的必要條件。如需部署選項和設定步驟，請參閱[設定 Linux RDMA 叢集以執行 MPI 應用程式](virtual-machines-linux-cluster-rdma.md)。
 
 必要條件 | 虛擬機器 (IaaS)
 ------------ | -------------
@@ -100,7 +100,7 @@ MPI | Intel MPI Library 5.0
 
 ### 從 Windows A8 和 A9 執行個體進行存取
 
-在單一雲端服務或可用性設定組中，A8 和 A9 執行個體可在執行 MPI 應用程式 (使用 Microsoft Network Direct 介面在執行個體之間進行通訊) 時，存取 Azure 中的 RDMA 網路。此時 Microsoft 的 MS-MPI for Windows 只支援 Network Direct 。A10 和 A11 執行個體不包含 RDMA 網路的存取權。
+在單一雲端服務或可用性設定組中，A8 和 A9 執行個體可在執行 MPI 應用程式 (使用 Microsoft Network Direct 介面在執行個體之間進行通訊) 時，存取 Azure 中的 RDMA 網路。A10 和 A11 執行個體不包含 RDMA 網路的存取權。
 
 請參閱下表取得 MPI 應用程式的必要條件，以存取虛擬機器 (IaaS) 中的 RDMA 網路和 A8 或 A9 執行個體的雲端服務 (PaaS) 部署。若需典型的部署案例，請參閱 [A8 和 A9 計算密集型執行個體：HPC Pack 快速入門](https://msdn.microsoft.com/library/azure/dn594431.aspx)。
 
@@ -108,7 +108,7 @@ MPI | Intel MPI Library 5.0
 必要條件 | 虛擬機器 (IaaS) | 雲端服務 (PaaS)
 ---------- | ------------ | -------------
 作業系統 | Windows Server 2012 R2 或 Windows Server 2012 VM | Windows Server 2012 R2、Windows Server 2012 或 Windows Server 2008 R2 客體作業系統系列
-MPI | MS-MPI 2012 R2 或更新版本，獨立或透過 HPC Pack 2012 R2 或更新版本安裝 | MS-MPI 2012 R2 或更新版本，透過 HPC Pack 2012 R2 或更新版本安裝
+MPI | MS-MPI 2012 R2 或更新版本為獨立安裝或透過 HPC Pack 2012 R2 或更新版本安裝<br/><br/>Intel MPI Library 5.0 | MS-MPI 2012 R2 或更新版本會透過 HPC Pack 2012 R2 或更新版本安裝<br/><br/>Intel MPI Library 5.0
 
 
 >[AZURE.NOTE]針對 IaaS 案例，[HpcVmDrivers 延伸模組](https://msdn.microsoft.com/library/azure/dn690126.aspx)必須新增至 VM，才能安裝 RDMA 連線所需的 Windows 驅動程式。
@@ -122,10 +122,12 @@ MPI | MS-MPI 2012 R2 或更新版本，獨立或透過 HPC Pack 2012 R2 或更�
 
 * 目前無法使用屬於現有同質群組的雲端服務來部署 A8、A9、A10 和 A11 執行個體。同樣地，具有包含 A8、A9、A10 和 A11 執行個體之雲端服務的同質群組不能用來部署其他執行個體大小。如果您嘗試這些部署，您會看到類似 `Azure deployment failure (Compute.OverconstrainedAllocationRequest): The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints.` 的錯誤訊息
 
+* Azure 中的 RDMA 網路會保留位址空間 172.16.0.0/12。如果您打算在 Azure 虛擬網路中已部署的 A8 和 A9 執行個體上執行 MPI 應用程式，請確定虛擬網路位址空間不會與 RDMA 網路重疊。
 
 ## 後續步驟
 
 * 如需有關 A8、A9、A10 和 A11 執行個體的可用性和定價等詳細資料，請參閱[虛擬機器定價](http://azure.microsoft.com/pricing/details/virtual-machines/)和[雲端服務定價](http://azure.microsoft.com/pricing/details/cloud-services/)。
+* 若要使用 A8 和 A9 執行個體來部署和設定 Linux 叢集以存取 Azure RDMA 網路，請參閱[設定 Linux RDMA 叢集以執行 MPI 應用程式](virtual-machines-linux-cluster-rdma.md)。
 * 若要在 Windows 上開始部署和使用具備 HPC Pack 的 A8 和 A9 執行個體，請參閱 [A8 和 A9 計算密集型執行個體：HPC Pack 快速入門](https://msdn.microsoft.com/library/azure/dn594431.aspx)和[在 A8 和 A9 執行個體上執行 MPI 應用程式](https://msdn.microsoft.com/library/azure/dn592104.aspx)。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -3,7 +3,7 @@
    description="如何開始使用 Azure Active Directory 報告 API"
    services="active-directory"
    documentationCenter=""
-   authors="yossibanai"
+   authors="kenhoff"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/08/2015"
-   ms.author="yossib"/>
+   ms.date="07/17/2015"
+   ms.author="kenhoff;yossib"/>
 
 
 # 開始使用 Azure AD 報告 API
@@ -137,4 +137,4 @@ Azure AD 報告 API 透過一組以 REST 為基礎的 API (可從各種程式設
 - 如需稽核報告的詳細資訊，請參閱 [Azure AD 稽核報告事件](active-directory-reporting-audit-events.md)
 - 如需圖形 API REST 服務的詳細資訊，請參閱 [Azure AD 報告和事件 (預覽)](https://msdn.microsoft.com/library/azure/mt126081.aspx)。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

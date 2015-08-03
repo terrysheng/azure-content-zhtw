@@ -50,4 +50,4 @@
 現在已準備好部署您的 API 應用程式，而且您可以依照[部署 API 應用程式](app-service-dotnet-deploy-api-app.md)教學課程進行部署。
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

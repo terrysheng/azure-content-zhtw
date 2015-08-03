@@ -60,16 +60,16 @@
 
 ## 自訂追蹤和記錄資料
 
-若要取得您的應用程式的特定診斷資料，您可以插入程式碼以傳送您自己的遙測資料。這會隨著要求、頁面檢視和其他自動收集的資料顯示在診斷搜尋中。
+若要取得您的 app 的特定診斷資料，您可以插入程式碼以傳送您自己的遙測資料。這會隨著要求、頁面檢視和其他自動收集的資料顯示在診斷搜尋中。
 
-您有數個選項：
+您有幾種選項：
 
-* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) 通常用來監視使用模式，但它傳送的資料也會出現在診斷搜尋的自訂事件下。事件會被命名，並且可以承載字串屬性和數字度量，您可以對其[篩選診斷搜尋][diagnostic]。
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) 通常用來監視使用模式，但它傳送的資料也會出現在診斷搜尋的 [自訂事件] 下。事件會被命名，並且可以承載字串屬性和數字度量，您可以對其[篩選診斷搜尋][diagnostic]。
 * [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) 可讓您傳送較長的資料，例如 POST 資訊。
 * [TrackException()](#exceptions) 會傳送堆疊追蹤。[深入了解例外狀況](#exceptions)。
 * 如果您已經使用 Log4Net 或 NLog 之類的記錄架構，您可以[擷取這些記錄][netlogs]，並且在診斷搜尋中隨著要求和例外狀況資料查看記錄。
 
-若要查看這些事件，請開啟 [[搜尋][diagnostic]]，開啟 [篩選]，然後選擇 [自訂事件]、[追蹤] 或 [例外狀況]。
+若要查看這些事件，請開啟[搜尋][diagnostic]，開啟 [篩選]，然後選擇 [自訂事件]、[追蹤] 或 [例外狀況]。
 
 
 ![鑽研](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
@@ -441,4 +441,4 @@ VB
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

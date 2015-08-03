@@ -79,4 +79,4 @@ Chatter 連接器可讓您連線到 Chatter，並執行各種動作例如「張�
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

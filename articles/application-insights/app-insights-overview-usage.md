@@ -259,4 +259,4 @@ Web 工作階段在 30 分鐘無活動後會被計入。在電話或其他裝置
 [start]: app-insights-get-started.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

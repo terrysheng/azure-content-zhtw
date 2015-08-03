@@ -798,4 +798,4 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

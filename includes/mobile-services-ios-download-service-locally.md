@@ -26,4 +26,4 @@
 <!-- URLs. -->
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

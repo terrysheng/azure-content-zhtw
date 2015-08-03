@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # 使用系統更新來更新伺服器
@@ -34,4 +34,6 @@
 5. 網頁瀏覽器會開啟描述更新的知識庫文章。![更新頁面的影像](./media/operational-insights-updates/updates05.png)
 6. 使用您已經找到的資訊，您可以建立計畫以套用遺失的更新。
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

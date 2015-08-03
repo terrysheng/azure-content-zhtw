@@ -145,4 +145,4 @@ Azure CLI 所提供的大多數命令仍需要連接到 Azure 帳戶。有兩種
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

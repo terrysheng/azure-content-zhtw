@@ -147,4 +147,4 @@ SQL 資料倉儲在實作暫存資料表時的確有一些限制。
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

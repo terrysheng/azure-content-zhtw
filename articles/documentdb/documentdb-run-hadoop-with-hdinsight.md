@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="07/20/2015" 
 	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>使用 DocumentDB 和 HDInsight 執行 Hadoop 工作
@@ -40,17 +40,20 @@
 
 <table border='1'>
 	<tr><th>Hadoop 連接器版本</th>
-		<td>1.0.0</td></tr>
+		<td>1.1.0</td></tr>
 	<tr><th>指令碼 URI</th>
 		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v03.ps1</td></tr>
 	<tr><th>修改日期</th>
-		<td>06/11/2015</td></tr>
+		<td>07/20/2015</td></tr>
 	<tr><th>支援的 HDInsight 版本</th>
 		<td>3.1、3.2</td></tr>
 	<tr><th>變更記錄檔</th>
-		<td>與 <a href="https://www.microsoft.com/download/details.aspx?id=40886">Microsoft Hive ODBC 驅動程式</a>的固定連接器相容性</br>
+		<td>將 DocumentDB Java SDK 更新為 1.1.0</br>
+			移除自訂索引路徑的其他輸出參數</br>
+			加入自訂字串精確度 (預設為 -1) 的選擇性參數</br>
+			6/11/2015</br>
+			與 <a href="https://www.microsoft.com/download/details.aspx?id=40886">Microsoft Hive ODBC 驅動程式</a>的固定連接器相容性</br>
 			新增的功能，以變更輸出集合優惠類型 (預設為 S3 優惠)</br>
-			輕微錯誤修正</br>
 		</td></tr>
 </table>
 
@@ -79,7 +82,7 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 	
 	> [AZURE.NOTE]Azure 管理入口網站目前支援 Azure HDInsight，雖然 Azure DocumentDB 僅存在於 Microsoft Azure 入口網站中。
 
-2. 按一下左下角的 [**+ 新增**]，並指向 [**資料服務**]，接著指向 [**儲存體**]，然後按一下 [**快速建立**]。![Azure 入口網站，您可以在此入口網站中用「快速建立」設定新的儲存體帳戶。][image-storageaccount-quickcreate]
+2. 按一下左下角的 [**+ 新增**]，並指向 [**資料服務**]，接著指向 [**儲存體**]，然後按一下 [**快速建立**]。![Azure 入口網站，您可以在此入口網站中使用「快速建立」設定新的儲存體帳戶。][image-storageaccount-quickcreate]
 
 3. 輸入 [**URL**]，並依序選取 [**位置**] 和 [**複寫**] 值，然後按一下 [**建立儲存體帳戶**]。不支援同質群組。
 	
@@ -87,14 +90,14 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 
 	> [AZURE.IMPORTANT]為了達到最佳效能，請確定您的儲存體帳戶、HDInsight 叢集及 DocumentDB 帳戶位於相同的 Azure 區域。支援所有三個服務的 Azure 區域如下：**東亞**、**東南亞**、**北歐**、**西歐**、**美國東部**和**美國西部**。
 
-4. 等候新儲存體帳戶的 [狀態] 變更為 [線上]。
+4. 等候新儲存體帳戶的 [**狀態**] 變更為 [**線上**]。
 
 ## <a name="ProvisionHDInsight"></a>步驟 2：建立自訂的 HDInsight 叢集。
 本教學課程會使用 Azure 管理入口網站的指令碼動作，來自訂您的 HDInsight 叢集。在本教學課程中，我們將使用 Azure 管理入口網站來建立自訂的叢集。如需有關如何使用 PowerShell 指令程式或 HDInsight .NET SDK 的指示，請參閱[使用指令碼動作來自訂 HDInsight 叢集][hdinsight-custom-provision]一文。
 
 1. 登入 [Azure 管理入口網站][azure-classic-portal]。您可能已經在先前步驟中登入。
 
-2. 按一下頁面底部的 [+新增]，然後依序按一下 [資料服務]、[HDInsight]、[自訂建立]。
+2. 按一下頁面底部的 [**+新增**]，然後依序按一下 [**資料服務**]、[**HDInsight**]、[**自訂建立**]。
 
 3. 在 [叢集詳細資料] 頁面上，輸入或選擇下列值：
 
@@ -123,7 +126,7 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 <tr><td>區域/虛擬網路</td><td>選擇與您新建立<strong>儲存體帳戶</strong>和 <strong>DocumentDB 帳戶</strong>相同的區域。</br> 使用 HDInsight 時，儲存體帳戶必須位於相同的區域中。後續進行設定時，您只能選擇此處指定之相同區域中的儲存體帳戶。</td></tr>
 </table>按一下向右箭頭。
 
-5. 在 [Configure Cluster User] 頁面上，提供下列值：
+5. 在 [**Configure Cluster User**] 頁面上，提供下列值：
 
     <table border='1'>
 	<tr><th>屬性</th><th>值</th></tr>
@@ -188,7 +191,7 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 	1. 在主控台窗格中，輸入 **Add-AzureAccount**，並按一下 **Enter** 鍵。 
 	2. 輸入與您 Azure 訂用帳戶相關聯的電子郵件地址，並按一下 [**繼續**]。 
 	3. 輸入您 Azure 訂用帳戶的密碼。 
-	4. 按一下 [登入]。
+	4. 按一下 [**登入**]。
 
 4. 下圖將指出 Azure PowerShell 指令碼環境的重要部分。
 
@@ -424,8 +427,8 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 - [使用 Documentdb 開發 Java 應用程式][documentdb-java-application]
 - [在 HDInsight 上開發 Hadoop 的 Java MapReduce 程式][hdinsight-develop-deploy-java-mapreduce]
 - [開始在 HDInsight 中搭配 Hive 使用 Hadoop 以分析行動電話使用][hdinsight-get-started]
-- 〈[搭配 HDInsight 使用 MapReduce][hdinsight-use-mapreduce]〉
-- 〈[搭配 HDInsight 使用 Hivet][hdinsight-use-hive]〉
+- [搭配 HDInsight 使用 MapReduce][hdinsight-use-mapreduce]
+- [搭配 HDInsight 使用 Hivet][hdinsight-use-hive]
 - [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
 - [使用指令碼動作來自訂 HDInsight 叢集][hdinsight-hadoop-customize-cluster]
 
@@ -467,4 +470,4 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

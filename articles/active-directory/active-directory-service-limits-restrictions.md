@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="07/13/2015"
 	ms.author="curtand"/>
 
 # Azure Active Directory 服務限制
@@ -27,4 +27,4 @@
 - [Azure 訂用帳戶如何與 Azure AD 產生關聯](active-directory-how-subscriptions-associated-directory.md)
 - [Azure AD 術語](active-directory-terminology.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

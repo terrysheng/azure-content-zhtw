@@ -20,7 +20,7 @@
 
 ## 概觀
 
-本教學課程顯示如何在 [Azure App Service](/documentation/services/app-service/) 安裝、設定和測試[軟體即服務 (SaaS) 連接器](../app-service-logic-what-are-bizTalk-api-apps.md)，以便可用程式呼叫它，例如從行動裝置應用程式呼叫它。SaaS 連接器是一種 [API 應用程式](app-service-api-apps-why-best-platform.md)，可簡化與 SaaS 平台 (例如 Office 365、Salesforce、Facebook 和 Dropbox) 的互動。若要建立自訂的 .NET API 應用程式而不使用預先封裝的連接器，請參閱[從 ASP.NET API 應用程式連線到 SaaS 平台](app-service-api-dotnet-connect-to-saas.md)。
+本教學課程顯示如何在 [Azure App Service](/documentation/services/app-service/) 安裝、設定和測試[軟體即服務 (SaaS) 連接器](../app-service-logic-what-are-bizTalk-api-apps.md)，以便可用程式呼叫它，例如從行動應用程式呼叫它。SaaS 連接器是一種 [API 應用程式](app-service-api-apps-why-best-platform.md)，可簡化與 SaaS 平台 (例如 Office 365、Salesforce、Facebook 和 Dropbox) 的互動。若要建立自訂的 .NET API 應用程式而不使用預先封裝的連接器，請參閱[從 ASP.NET API 應用程式連線到 SaaS 平台](app-service-api-dotnet-connect-to-saas.md)。
 
 例如，如果您想要編碼 HTTP 要求，以您的 Dropbox 帳戶讀取和寫入檔案，則直接使用 Dropbox 的驗證程序很複雜。Dropbox 連接器會處理驗證的複雜性，以便您可以專注於撰寫商業特有程式碼。
 
@@ -236,4 +236,4 @@ Azure 現在正為您管理三個驗證權杖：
 [Azure 入口網站]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

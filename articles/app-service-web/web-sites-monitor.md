@@ -132,7 +132,7 @@ Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) 
 
 - 儲存應用程式記錄的位置，相對於 Web 根目錄。
 
-- 預設值：..\\..\\LogFiles\\Application
+- 預設值：....\LogFiles\Application
 
 **DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 
@@ -277,4 +277,4 @@ Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

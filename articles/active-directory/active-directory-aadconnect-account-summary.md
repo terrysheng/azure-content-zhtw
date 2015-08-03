@@ -33,7 +33,7 @@ Azure AD Connect 精靈提供兩種權限需求相異的不同路徑：
 精靈頁面 | 收集的認證 | 所需的權限| 用於 
 ------------- | ------------- |------------- |------------- |
 連線到 Azure AD| Azure AD 目錄認證 | Azure AD 中的全域管理員角色 | <li>啟用 Azure AD 目錄中的同步處理。</li> <li>建立將在 Azure AD 中用於持續同步處理作業的 Azure AD 帳戶。</li>
-連線到 AD DS | 內部部署 Active Directory 認證 | Active Directory 中 Enterprise Admins (EA) 群組成員| <li>建立將用於讀取持續同步處理作業之本機 AD 物件和屬性的本機 AD 帳戶。</li> <li>指派正確權限及同步處理和密碼同步處理存取控制設定至上述帳戶和 AD。</li> 
+連線到 AD DS | 內部部署 Active Directory 認證 | Active Directory 中 Enterprise Admins (EA) 群組成員| 做為本機 AD Connector 帳戶；也就是說，該帳戶會讀取和寫入目錄資訊供同步處理。
 NA|執行精靈之使用者的登入認證| 本機伺服器的系統管理員|精靈會建立 AD 帳戶，該帳戶將做為本機電腦上的同步處理服務登入帳戶。
 
 <br> <br>
@@ -90,4 +90,4 @@ AD FS:GMSA 帳戶 (aadcsvc$)|網域使用者|FS 服務登入帳戶
 * [MSDN 上的 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

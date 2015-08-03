@@ -209,4 +209,4 @@ Azure 管理入口網站尚未具備建立排程 WebJob 的能力，但在加入
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

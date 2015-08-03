@@ -24,7 +24,7 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 
 ### 必要條件
 1. 完成[開始使用 Azure Data Factory][adfgetstarted] 文章中的教學課程。
-2. 在 **C:\\ADFGetStarted** 下名為 **Hive** 的子資料夾中，使用下列內容建立 **hivequery.hql** 檔案。
+2. 在 **C:\ADFGetStarted** 下名為 **Hive** 的子資料夾中，使用下列內容建立 **hivequery.hql** 檔案。
     		
     	DROP TABLE IF EXISTS adftutorialhivetable; 
 		CREATE EXTERNAL TABLE  adftutorialhivetable
@@ -140,7 +140,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\\hivequery.hql",
+		                    "scriptpath": "adftutorial\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -258,7 +258,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
+    					"scriptpath": "adfwalkthrough\scripts\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
 						"extendedProperties":
 						{
@@ -353,4 +353,4 @@ Data Factory Pig 和 Hive 活動可讓您使用 **extendedProperties**，指定 
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

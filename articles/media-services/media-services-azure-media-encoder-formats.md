@@ -27,12 +27,12 @@
 本文件包含您可以在 Azure Media Encoder 中使用的常見匯入和匯出檔案格式清單。
 
 
-[媒體編碼器匯入格式](#import_formats)
+[Azure Media Encoder 匯入格式](#import_formats)
 
-[媒體編碼器匯出格式](#export_formats)
+[Azure Media Encoder 匯出格式](#export_formats)
 
 
-##<a id="import_formats"></a>媒體編碼器匯入格式 
+##<a id="import_formats"></a>Azure Media Encoder 匯入格式 
 
 下節會列出支援匯入的轉碼器和檔案格式清單。
 
@@ -102,7 +102,7 @@
 </table>
 
 
-##<a id="export_formats"></a>媒體編碼器匯出格式
+##<a id="export_formats"></a>Azure Media Encoder 匯出格式
 
 下表會列出支援匯出的轉碼器和檔案格式清單。
 
@@ -137,4 +137,4 @@ Azure 媒體服務提供匯入未壓縮視訊資料的支援。
 <tr><td>Indeo-produced YVU9 格式</td><td>Indeo-produced YVU9 格式，包含與最後一個影格的區別額外資訊。每個像素 9.5 位元，但回報為 9 位元。</td></tr>
 </table>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

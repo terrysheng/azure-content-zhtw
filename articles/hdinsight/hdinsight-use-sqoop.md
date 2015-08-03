@@ -352,7 +352,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 
 > [AZURE.NOTE]除了連接字串資訊以外，本節中的步驟應該可運用在 Azure SQL Database 或 SQL Server 上。這些步驟已使用下列組態進行測試：
 >
-> * **Azure 虛擬網路點對站組態**：在私人資料中心裡將 HDInsight 叢集連接到 SQL Server 的虛擬網路。如需詳細資訊，請參閱[使用管理入口網站設定點對站 VPN](http://msdn.microsoft.com/library/azure/dn133792.aspx)。
+> * **Azure 虛擬網路點對站組態**：在私人資料中心裡將 HDInsight 叢集連接到 SQL Server 的虛擬網路。如需詳細資訊，請參閱[使用管理入口網站設定點對站 VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md)。
 > * **Azure HDInsight 3.1**：請參閱[使用自訂選項在 HDInsight 上佈建 Hadoop 叢集](hdinsight-provision-clusters.md)，以取得在虛擬網路上建立叢集的相關資訊。
 > * **SQL Server 2014**：已設定成允許驗證，以及執行 VPN 用戶端組態套件以安全地連接到虛擬網路。
 
@@ -405,7 +405,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
-	請注意，欄位分隔符號為 **\\0x20**，即空格。此分隔符號定義於 sample.log 檔案的 Azure PowerShell 指令碼中。如需 **-m 1** 的相關資訊，請參閱 [Sqoop 使用者指南][sqoop-user-guide-1.4.4]。
+	請注意，欄位分隔符號為 **\0x20**，即空格。此分隔符號定義於 sample.log 檔案的 Azure PowerShell 指令碼中。如需 **-m 1** 的相關資訊，請參閱 [Sqoop 使用者指南][sqoop-user-guide-1.4.4]。
 
 5. 按一下 [執行指令碼] 或按 [F5]，以執行指令碼。
 6. 使用 [Azure 入口網站][azure-management-portal]檢查匯出的資料。
@@ -645,4 +645,4 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

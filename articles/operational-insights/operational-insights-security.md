@@ -49,7 +49,7 @@ Operational Insights 服務會使用下列方法安全地管理您的資料：
 
 ![Operational Insights 資料收集和安全性的影像](./media/operational-insights-security/security.png)
 
-### 1\.註冊 Operational Insights 並收集資料
+### 1.註冊 Operational Insights 並收集資料
 
 如果您的組織要將資料傳送給 Operational Insights 服務，您必須在直接連接到 Web 服務時設定 Microsoft Monitoring 代理程式，或使用 Operations Manager 中 Operations 主控台的組態精靈。使用者 (可能是您、其他個別使用者或一群人) 必須建立一或多個 Operational Insights 帳戶，並且使用下列其中一個帳戶註冊每個直接連接的代理程式或其 Operations Manager 環境：
 
@@ -140,20 +140,20 @@ Operational Insights 帳戶是資料收集、彙總、分析以及呈現的位�
     </table>
 
 
-### 2\.從代理程式傳送資料
+### 2.從代理程式傳送資料
 
 使用直接連接到 Web 服務的代理程式，您以金鑰進行註冊，並且使用連接埠 443 保護代理程式和 Operational Insights 服務之間建立之連線的安全。
 
 使用 Operations Manager，您以 Operational Insights 服務進行註冊，並且使用連接埠 443 保護 Operations Manager 管理伺服器與 Operational Insights 服務之間建立之 HTTPS 連線的安全。如果 Operations Manager 因為任何原因而無法與服務通訊，收集的資料會儲存在暫時快取，且管理伺服器在 2 個小時內每 8 分鐘會嘗試重新傳送資料。收集的資料會壓縮，並且傳送給 Operational Insights 服務，略過內部部署資料庫，因此不會對它們產生任何負載。傳送收集的資料之後，會從快取中移除。
 
-### 3\.Operational Insights 服務會收到資料並且處理
+### 3.Operational Insights 服務會收到資料並且處理
 
 Operational Insights 服務會確保內送資料是來自信任的來源，方法是驗證憑證和資料完整性。未處理的原始資料會儲存為 [Microsoft Azure 儲存體](http://azure.microsoft.com/documentation/services/storage/)中的 Blob。每個 Operational Insights 使用者都有專屬的 Azure Blob，只能由該使用者存取。所儲存的資料類型取決於匯入和用來收集資料的解決方案類型。
 
 Operational Insights 服務會處理原始資料，彙總資料會儲存在 SQL Database。Operational Insights 服務和 SQL Database 之間的通訊依賴 SQL Database 驗證。
 
-### 4\.使用 Operational Insights 存取資料
+### 4.使用 Operational Insights 存取資料
 
 您可以使用您先前設定的帳戶登入 Operational Insights。Operational Insights 和 Operational Insights 服務之間的所有流量是透過安全的 HTTPS 通道傳送的。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

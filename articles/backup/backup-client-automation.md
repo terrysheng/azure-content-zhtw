@@ -7,14 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/23/2015"
-	ms.author="aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # 使用 Azure PowerShell 部署和管理 Windows Server/Windows 用戶端的 Azure 備份
@@ -30,7 +23,7 @@ Azure PowerShell 可以自動化下列設定和註冊工作：
 - 網路
 
 ### 安裝 Azure 備份代理程式
-在安裝 Azure 備份代理程式之前，您必須先將安裝程式下載至 Windows Server 上。從 [Microsoft 下載中心](http://aka.ms/azurebackup_agent)可以取得最新版的安裝程式。請將此安裝程式儲存至容易存取的位置，例如 *C:\\Downloads*。
+在安裝 Azure 備份代理程式之前，您必須先將安裝程式下載至 Windows Server 上。從 [Microsoft 下載中心](http://aka.ms/azurebackup_agent)可以取得最新版的安裝程式。請將此安裝程式儲存至容易存取的位置，例如 *C:\Downloads*。
 
 若要安裝代理程式，請在已提升權限的 Azure PowerShell 主控台中執行下列命令：
 
@@ -56,7 +49,7 @@ PS C:> MARSAgentInstaller.exe /?
 
 | 選項 | 詳細資料 | 預設值 |
 | ---- | ----- | ----- |
-| /q | 無訊息安裝 | - | | /p:"location" | Azure 備份代理程式的安裝資料夾路徑。 | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"location" | Azure 備份代理程式的快取資料夾路徑。 | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | 選擇加入 Microsoft Update | - | | /nu | 安裝完成後不要檢查更新 | - | | /d | 解除安裝 Microsoft Azure 復原服務代理程式 | - | | /ph | Proxy 主機位址 | - | | /po | Proxy 主機連接埠號碼 | - | | /pu | Proxy 主機使用者名稱 | - | | /pw | Proxy 密碼 | - |
+| /q | 無訊息安裝 | - | | /p:"location" | Azure 備份代理程式的安裝資料夾路徑。 | C:\Program Files\Microsoft Azure Recovery Services Agent | | /s:"location" | Azure 備份代理程式的快取資料夾路徑。 | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch | | /m | 選擇加入 Microsoft Update | - | | /nu | 安裝完成後不要檢查更新 | - | | /d | 解除安裝 Microsoft Azure 復原服務代理程式 | - | | /ph | Proxy 主機位址 | - | | /po | Proxy 主機連接埠號碼 | - | | /pu | Proxy 主機使用者名稱 | - | | /pw | Proxy 密碼 | - |
 
 
 ### 向 Azure 備份服務進行註冊
@@ -64,7 +57,7 @@ PS C:> MARSAgentInstaller.exe /?
 
 - 具備有效的 Azure 訂用帳戶
 - 建立備份保存庫
-- 下載保存庫認證並將它儲存在方便的位置 (例如 *C:\\Downloads*)。為方便起見，您也可以重新命名保存庫認證。
+- 下載保存庫認證並將它儲存在方便的位置 (例如 *C:\Downloads*)。為方便起見，您也可以重新命名保存庫認證。
 使用 [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) Cmdlet 即可向保存庫註冊電腦：
 
 ```
@@ -375,7 +368,7 @@ PS C:> $item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyData
 ```
 
 ### 觸發還原程序
-為了觸發還原程序，我們首先需要指定復原選項。使用 [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) Cmdlet 可以完成這項工作。在此例中，我們假設要將檔案還原至 *C:\\temp*。我們也假設要略過目的地資料夾 *C:\\temp* 中已存在的檔案。為了建立此復原選項，使用下列命令：
+為了觸發還原程序，我們首先需要指定復原選項。使用 [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) Cmdlet 可以完成這項工作。在此例中，我們假設要將檔案還原至 *C:\temp*。我們也假設要略過目的地資料夾 *C:\temp* 中已存在的檔案。為了建立此復原選項，使用下列命令：
 
 ```
 PS C:> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
@@ -430,8 +423,8 @@ PS C:> Set-ExecutionPolicy unrestricted -force
 現在可以遠端管理電腦 - 從代理程式的安裝開始。例如，下列指令碼會將代理程式複製到遠端電腦並進行安裝。
 
 ```
-PS C:> $dloc = "\\REMOTESERVER01\c$\Windows\Temp"
-PS C:> $agent = "\\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
+PS C:> $dloc = "\REMOTESERVER01\c$\Windows\Temp"
+PS C:> $agent = "\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
 PS C:> $args = "/q"
 PS C:> Copy-Item "C:\Downloads\MARSAgentInstaller.exe" -Destination $dloc - force
 
@@ -442,4 +435,4 @@ PS C:> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePat
 ## 後續步驟
 如需 Windows Server/用戶端的 Azure 備份詳細資訊，請參閱 [Azure 備份的簡介](backup-introduction-to-azure-backup.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

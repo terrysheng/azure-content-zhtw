@@ -296,4 +296,4 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

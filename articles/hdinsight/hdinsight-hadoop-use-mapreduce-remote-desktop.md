@@ -38,7 +38,7 @@
 
 當您連線到 HDInsight 叢集的桌面時，請使用下列步驟，利用 Hadoop 命令來執行 MapReduce 工作：
 
-1. 從 HDInsight 桌面，啟動 **Hadoop 命令列**。這會在 **c:\\apps\\dist\\hadoop-&lt;version number>** 目錄中開啟新的命令提示字元。
+1. 從 HDInsight 桌面，啟動 **Hadoop 命令列**。這會在 **c:\apps\dist\hadoop-&lt;version number>** 目錄中開啟新的命令提示字元。
 
 	> [AZURE.NOTE]版本號碼會隨著 Hadoop 更新而變更。**HADOOP_HOME** 環境變數可用來尋找路徑。例如，`cd %HADOOP_HOME%` 會將目錄變更為 Hadoop 目錄，而您並不需要知道版本號碼。
 
@@ -95,4 +95,4 @@
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

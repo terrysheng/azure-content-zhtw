@@ -3,7 +3,7 @@
 	description="了解如何安裝和使用 R 來自訂 Hadoop 叢集。" 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 R
 
@@ -265,7 +265,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 應�
 
 ### <a name="runApp"></a>執行應用程式
 
-開啟 Azure PowerShell 主控台、瀏覽至您儲存專案的位置、瀏覽至專案內的 \\bin\\debug 目錄，然後執行下列命令：
+開啟 Azure PowerShell 主控台、瀏覽至您儲存專案的位置、瀏覽至專案內的 \bin\debug 目錄，然後執行下列命令：
 
 	.\CreateRCluster <cluster-name>
 
@@ -283,4 +283,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 應�
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

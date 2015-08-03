@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2015"
+   ms.date="07/17/2015"
    ms.author="ryanwi; mani-ramaswamy"/>
 
 
 # Service Fabric 應用程式生命週期
-類似於其他平台，Service Fabric 上的應用程式通常會經歷下列階段：設計、開發、測試、部署、升級、維護和移除。從開發到部署、到每日管理、維護，到最終的解除委任，Service Fabric 為雲端應用程式的完整應用程式生命週期提供第一等的支援。服務模型可以啟用數個不同的角色，在應用程式生命週期中獨立參與。本文章提供 API 的概觀，這些 API 是由不同的角色在 Service Fabric 應用程式生命週期的各個階段使用。
+類似於其他平台，Service Fabric 上的應用程式通常會經歷下列階段：設計、開發、測試、部署、升級、維護和移除。從開發到部署、到每日管理、維護，到最終的解除委任，Service Fabric 為雲端應用程式的完整應用程式生命週期提供第一等的支援。服務模型可以啟用數個不同的角色，在應用程式生命週期中獨立參與。本文章提供 API 的概觀以及其使用方式，這些 API 是由不同的角色在 Service Fabric 應用程式生命週期的各個階段使用。
 
 ## 服務模型角色
 服務模型角色是：
@@ -118,4 +118,4 @@
 - [REST 架構應用程式生命週期範例](service-fabric-rest-based-application-lifecycle-sample.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

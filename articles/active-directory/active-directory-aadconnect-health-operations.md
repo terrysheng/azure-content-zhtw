@@ -87,4 +87,4 @@
 1. 在確認方塊中輸入服務名稱以進行確認 (例如：sts.contoso.com)。 
 1. 按一下 [刪除] 按鈕。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

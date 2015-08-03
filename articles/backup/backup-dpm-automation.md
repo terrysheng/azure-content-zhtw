@@ -33,7 +33,7 @@ Full list of cmdlets: Get-Command Only DPM cmdlets: Get-DPMCommand Get general h
 
 ## 設定和註冊
 ### 在 DPM 伺服器上安裝 Azure 備份代理程式
-在安裝 Azure 備份代理程式之前，您必須在 Windows Server 上下載並提供安裝程式。從 [Microsoft 下載中心](http://aka.ms/azurebackup_agent)可以取得最新版的安裝程式。請將安裝程式儲存至容易存取的位置，例如 *C:\\Downloads*。
+在安裝 Azure 備份代理程式之前，您必須在 Windows Server 上下載並提供安裝程式。從 [Microsoft 下載中心](http://aka.ms/azurebackup_agent)可以取得最新版的安裝程式。請將安裝程式儲存至容易存取的位置，例如 *C:\Downloads*。
 
 若要安裝代理程式，請在 **DPM 伺服器**上已提升權限的 Azure PowerShell 主控台中執行下列命令：
 
@@ -58,14 +58,14 @@ PS C:> MARSAgentInstaller.exe /?
 
 | 選項 | 詳細資料 | 預設值 |
 | ---- | ----- | ----- |
-| /q | 無訊息安裝 | - | | /p:"location" | Azure 備份代理程式的安裝資料夾路徑。 | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"location" | Azure 備份代理程式的快取資料夾路徑。 | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | 選擇加入 Microsoft Update | - | | /nu | 安裝完成後不要檢查更新 | - | | /d | 解除安裝 Microsoft Azure 復原服務代理程式 | - | | /ph | Proxy 主機位址 | - | | /po | Proxy 主機連接埠號碼 | - | | /pu | Proxy 主機使用者名稱 | - | | /pw | Proxy 密碼 | - |
+| /q | 無訊息安裝 | - | | /p:"location" | Azure 備份代理程式的安裝資料夾路徑。 | C:\Program Files\Microsoft Azure Recovery Services Agent | | /s:"location" | Azure 備份代理程式的快取資料夾路徑。 | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch | | /m | 選擇加入 Microsoft Update | - | | /nu | 安裝完成後不要檢查更新 | - | | /d | 解除安裝 Microsoft Azure 復原服務代理程式 | - | | /ph | Proxy 主機位址 | - | | /po | Proxy 主機連接埠號碼 | - | | /pu | Proxy 主機使用者名稱 | - | | /pw | Proxy 密碼 | - |
 
 ### 向 Azure 備份服務進行註冊
 在可註冊 Azure 備份服務之前，您必須確定已符合[先決條件](backup-azure-dpm-introduction.md)。您必須：
 
 - 具備有效的 Azure 訂用帳戶
 - 建立備份保存庫
-- 下載保存庫認證並將它們儲存在方便的位置 (例如 *C:\\Downloads*)。為方便起見，您也可以重新命名保存庫認證。
+- 下載保存庫認證並將它們儲存在方便的位置 (例如 *C:\Downloads*)。為方便起見，您也可以重新命名保存庫認證。
 使用 [Start-DPMCloudRegistration](https://technet.microsoft.com/library/jj612787) Cmdlet 即可向保存庫註冊電腦：
 
 ```
@@ -109,7 +109,7 @@ PS C:> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscript
 PS C:> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
 ```
 
-在上述範例中，臨時區域將在 Azure PowerShell 物件 ```$setting``` 中設定為 *C:\\StagingArea*。請確保指定的資料夾已經存在，否則訂閱設定的最終認可將會失敗。
+在上述範例中，臨時區域將在 Azure PowerShell 物件 ```$setting``` 中設定為 *C:\StagingArea*。請確保指定的資料夾已經存在，否則訂閱設定的最終認可將會失敗。
 
 
 ### 加密設定
@@ -271,4 +271,4 @@ PS C:> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -RecoveryO
 ## 後續步驟
 如需 DPM 的 Azure 備份詳細資訊，請參閱 [Azure DPM 備份簡介](backup-azure-dpm-introduction.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

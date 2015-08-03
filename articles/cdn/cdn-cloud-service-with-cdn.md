@@ -170,14 +170,14 @@
 
 替代方法是在雲端服務中依個別情況決定從 Azure CDN 提供什麼內容。總之，您已了解如何從 CDN 端點存取個別的內容檔案。我將在[透過 Azure CDN 從控制器動作提供內容](#controller)中說明如何透過 CDN 端點提供特定的控制器動作。
 
-您可以指定更嚴格的 URL 重寫規則，以限制可透過 CDN 端點存取的內容。例如，若要限制 URL 重寫 [*\\Scripts*] 資料夾，請將變更上述重寫規則變更為下列內容：<pre class="prettyprint"> &lt;rule name=";RewriteIncomingCdnRequest"; stopProcessing=";true";&gt; &lt;match url=";^cdn/<mark>Scripts/</mark>(.*)$";/&gt; &lt;action type=";Rewrite"; url=";<mark>Scripts/</mark>{R:1}";/&gt; &lt;/rule&gt; </pre>
+您可以指定更嚴格的 URL 重寫規則，以限制可透過 CDN 端點存取的內容。例如，若要限制 URL 重寫 [*\Scripts*] 資料夾，請將變更上述重寫規則變更為下列內容：<pre class="prettyprint"> &lt;rule name=";RewriteIncomingCdnRequest"; stopProcessing=";true";&gt; &lt;match url=";^cdn/<mark>Scripts/</mark>(.*)$";/&gt; &lt;action type=";Rewrite"; url=";<mark>Scripts/</mark>{R:1}";/&gt; &lt;/rule&gt; </pre>
 
 <a name="caching"></a>
 ## 在雲端服務中設定靜態內容的快取設定 ##
 
 利用雲端服務中的 Azure CDN 整合，您可以指定如何在 CDN 端點中快取靜態內容。若要執行此動作，請從 Web 角色專案 (例如 WebRole1) 開啟 *Web.config*，將 `<staticContent>` 元素加入至 `<system.webServer>`。以下的 XML 將快取設為 3 天過期。<pre class="prettyprint"> &lt;system.webServer&gt; <mark>&lt;staticContent&gt; &lt;clientCache cacheControlMode=";UseMaxAge"; cacheControlMaxAge=";3.00:00:00";/&gt; &lt;/staticContent&gt;</mark> ... &lt;/system.webServer&gt; </pre>
 
-這樣做時，雲端服務中的所有靜態檔案會在您的 CDN 快取中遵守相同規則。若要更精確控制快取設定，請將 *Web.config* 檔案加入至資料夾，並在檔案中新增您的設定。例如，將 *Web.config* 檔案加入至 *\\Content* 資料夾，並將內容改成下列 XML：
+這樣做時，雲端服務中的所有靜態檔案會在您的 CDN 快取中遵守相同規則。若要更精確控制快取設定，請將 *Web.config* 檔案加入至資料夾，並在檔案中新增您的設定。例如，將 *Web.config* 檔案加入至 *\Content* 資料夾，並將內容改成下列 XML：
 
 	<?xml version="1.0"?>
 	<configuration>
@@ -188,7 +188,7 @@
 	  </system.webServer>
 	</configuration>
 
-此設定會將 *\\Content* 資料夾中的所有靜態檔案快取 15 天。
+此設定會將 *\Content* 資料夾中的所有靜態檔案快取 15 天。
 
 如需有關如何設定 `<clientCache>` 元素的詳細資訊，請參閱[用戶端快取 &lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache)。
 
@@ -207,7 +207,7 @@
 
 請依照上述步驟來設定此控制器動作：
 
-1. 在 *\\Controllers* 資料夾中，建立一個新的 .cs 檔案稱為 *MemeGeneratorController.cs*，並將內容改成下列程式碼。請務必以您的 CDN 名稱取代醒目提示的部分。  
+1. 在 *\Controllers* 資料夾中，建立一個新的 .cs 檔案稱為 *MemeGeneratorController.cs*，並將內容改成下列程式碼。請務必以您的 CDN 名稱取代醒目提示的部分。  
 	<pre class="prettyprint">
 using System;
 using System.Collections.Generic;
@@ -314,7 +314,7 @@ namespace WebRole1.Controllers
 
 	![](media/cdn-cloud-service-with-cdn/cdn-7-configureview.PNG)
 
-4. 開啟新的 *Views\\MemeGenerator\\Index.cshtml*，將內容改成下列簡單的 HTML 來提交笑梗：
+4. 開啟新的 *Views\MemeGenerator\Index.cshtml*，將內容改成下列簡單的 HTML 來提交笑梗：
 
 		<h2>Meme Generator</h2>
 		
@@ -371,7 +371,7 @@ namespace WebRole1.Controllers
 -	CDN 端點失敗時的後援機制
 -	儘可能不修改程式碼
 
-在＜**部署具有整合式 CDN 端點的雲端服務**＞一節所建立的 [WebRole1](#deploy) 專案中，開啟 *App_Start\\BundleConfig.cs*，查看 `bundles.Add()` 方法呼叫。
+在＜**部署具有整合式 CDN 端點的雲端服務**＞一節所建立的 [WebRole1](#deploy) 專案中，開啟 *App_Start\BundleConfig.cs*，查看 `bundles.Add()` 方法呼叫。
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -380,7 +380,7 @@ namespace WebRole1.Controllers
 		...
     }
 
-第一個 `bundles.Add()` 陳述式將指令碼套件組合加入至虛擬目錄 `~/bundles/jquery`。然後，開啟 *Views\\Shared_Layout.cshtml*，查看指令碼套件組合標籤如何轉譯。您應該可以找到下列這一行 Razor 程式碼：
+第一個 `bundles.Add()` 陳述式將指令碼套件組合加入至虛擬目錄 `~/bundles/jquery`。然後，開啟 *Views\Shared_Layout.cshtml*，查看指令碼套件組合標籤如何轉譯。您應該可以找到下列這一行 Razor 程式碼：
 
     @Scripts.Render("~/bundles/jquery")
 
@@ -396,7 +396,7 @@ namespace WebRole1.Controllers
 
 請遵循下列步驟來整合 ASP.NET 統合和縮製與 CDN 端點。
 
-1. 回到 *App_Start\\BundleConfig.cs*，修改 `bundles.Add()` 方法來使用不同的 [Bundle 建構函數](http://msdn.microsoft.com/library/jj646464.aspx) (此函數會指定 CDN 位址)。若要這樣做，請將 `RegisterBundles` 方法定義改成下列程式碼：  
+1. 回到 *App_Start\BundleConfig.cs*，修改 `bundles.Add()` 方法來使用不同的 [Bundle 建構函數](http://msdn.microsoft.com/library/jj646464.aspx) (此函數會指定 CDN 位址)。若要這樣做，請將 `RegisterBundles` 方法定義改成下列程式碼：  
 	<pre class="prettyprint">
 public static void RegisterBundles(BundleCollection bundles)
 {
@@ -438,7 +438,7 @@ public static void RegisterBundles(BundleCollection bundles)
 	
 	-	此 CDN URL 的來源是 `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`，事實上就是雲端服務中指令碼套件組合的虛擬目錄。
 	-	由於是使用 CDN 建構函式，套件組合的 CDN 指令碼標籤在轉譯的 URL 中已不再包含自動產生的版本字串。指令碼套件組合每次修改時，您都必須手動產生唯一的版本字串，以強制在 Azure CDN 上發生快取遺漏。同時，在部署套件組合之後，此唯一的版本字串在部署的整個存在期間內必須保持不變，讓 Azure CDN 的快取命中率達到最高。
-	-	查詢字串 v=<W.X.Y.Z> 會從 Web 角色專案的 *Properties\\AssemblyInfo.cs* 中提取。您的部署工作流程中可以包含每次發佈至 Azure 時就遞增組件版本。或者，您可以直接修改專案中的 *Properties\\AssemblyInfo.cs*，使用萬用字元 '*' 表示每次建置時就自動遞增版本字串。例如：
+	-	查詢字串 v=<W.X.Y.Z> 會從 Web 角色專案的 *Properties\AssemblyInfo.cs* 中提取。您的部署工作流程中可以包含每次發佈至 Azure 時就遞增組件版本。或者，您可以直接修改專案中的 *Properties\AssemblyInfo.cs*，使用萬用字元 '*' 表示每次建置時就自動遞增版本字串。例如：
 	
 			[assembly: AssemblyVersion("1.0.0.*")]
 	
@@ -490,7 +490,7 @@ public static void RegisterBundles(BundleCollection bundles)
 
 [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) 類別包含一個稱為 [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) 的屬性，可讓您設定 CDN 失敗時的後援機制。若要使用此屬性，請遵循下列步驟：
 
-1. 在 Web 角色專案中，開啟 *App_Start\\BundleConfig.cs* (您已在該檔案中，將 CDN URL 加入每個 [Bundle 建構函式](http://msdn.microsoft.com/library/jj646464.aspx))，透過下列醒目提示的變更將後援機制加入預設套件組合：  
+1. 在 Web 角色專案中，開啟 *App_Start\BundleConfig.cs* (您已在該檔案中，將 CDN URL 加入每個 [Bundle 建構函式](http://msdn.microsoft.com/library/jj646464.aspx))，透過下列醒目提示的變更將後援機制加入預設套件組合：  
 	<pre class="prettyprint">
 public static void RegisterBundles(BundleCollection bundles)
 {
@@ -535,7 +535,7 @@ public static void RegisterBundles(BundleCollection bundles)
 
 2. 若要使用 CSS 的因應措施，請在 Web 角色專案的 [*App_Start*] 資料夾中建立新的 .cs 檔案，命名為 *StyleBundleExtensions.cs*，並將其內容改成 [GitHub 的程式碼](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs)。
 
-4. 在 *App_Start\\StyleFundleExtensions.cs* 中，將命名空間重新命名為您的 Web 角色名稱 (例如 **WebRole1**)。
+4. 在 *App_Start\StyleFundleExtensions.cs* 中，將命名空間重新命名為您的 Web 角色名稱 (例如 **WebRole1**)。
 
 3. 回到 `App_Start\BundleConfig.cs`，將最後一個 `bundles.Add` 陳述式修改為下列醒目提示的程式碼：
 	<pre class="prettyprint">
@@ -596,4 +596,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 - [使用 Azure 的 CDN](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

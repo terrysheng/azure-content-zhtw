@@ -69,7 +69,7 @@
 
 	請注意，範例程式碼會有註解，指出需要更新的程式碼部分。此外，當指定要求承載中的 "output1" 位置時，"RelativeLocation" 的副檔名必須變更為 ".ileaner"，如下列輸出所示：{Global Parameters ... { "output1": { "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=mystorageacct;AccountKey=Dx9WbMIThAvXRQWap/aLnxT9LV5txxw==", "RelativeLocation": "mycontainer/output1results.ilearner"}}。
 
-	1. 提供 Azure 儲存體資訊：BES 的範例程式碼將從本機磁碟機上傳一個檔案 (例如 “C:\\temp\\CensusIpnput.csv”) 至 Azure 儲存體、加以處理後，再將結果寫回 Azure 儲存體。  
+	1. 提供 Azure 儲存體資訊：BES 的範例程式碼將從本機磁碟機上傳一個檔案 (例如 “C:\temp\CensusIpnput.csv”) 至 Azure 儲存體、加以處理後，再將結果寫回 Azure 儲存體。  
 
 		若要完成上述動作，您必須從 Azure 管理入口網站擷取您儲存體帳戶的儲存體帳戶名稱、金鑰以及容器資訊，然後更新這裡的程式碼。您還必須確保程式碼中指定的位置有輸入檔案可用。
 
@@ -107,4 +107,4 @@
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

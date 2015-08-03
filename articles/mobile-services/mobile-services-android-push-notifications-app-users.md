@@ -23,4 +23,4 @@
 + [將推播通知新增至行動服務應用程式](mobile-services-javascript-backend-android-get-started-push.md)<br/>更新 TodoList 行動服務來使用 Azure 通知中樞，將通知傳送給 TodoList 範例應用程式的使用者。
 + [將推播通知傳送給驗證的使用者](mobile-services-javascript-backend-android-push-notifications-app-users.md)<br/>擴充先前的教學課程，只允許登入的使用者註冊通知。 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

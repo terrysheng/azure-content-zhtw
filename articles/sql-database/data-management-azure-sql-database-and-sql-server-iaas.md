@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="07/15/2015" 
 	ms.author="selcint"/>
 
 # 了解 Azure SQL Database 和 Azure VM 中的 SQL Server
@@ -160,14 +160,14 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 
 **重要事項：**目前，Azure SQL Database 不支援 SQL Server 的所有功能。如需詳細的比較資訊，請參閱 [Azure SQL Database 方針和限制](http://msdn.microsoft.com/library/azure/ff394102.aspx)。當您要將現有的資料庫移至 Azure SQL Database 時請留意這個資訊，因為在資料庫重新設計上您可能需要一些額外預算。Azure SQL Database 是 Microsoft 平台即服務產品。當您將現有的內部部署 SQL Server 應用程式移轉至 Azure SQL Database 時，建議您更新應用程式以充分利用平台即服務產品的所有好處。例如，開始在應用程式層上使用 [Azure 網站](http://azure.microsoft.com/documentation/services/websites/)或 [Azure 雲端服務](http://azure.microsoft.com/services/cloud-services/)，以增加成本利益。此外，請針對不同的 Azure SQL Database 服務層驗證您的應用程式，並檢查哪一個最符合您的應用程式需求。此程序可協助您達到更佳的效能結果並將成本降到最低。如需詳細資訊，請參閱 [Azure SQL Database 服務層和效能層級](http://msdn.microsoft.com/library/azure/dn741336.aspx)。
 
-如需詳細的成本估計，請使用 [Azure 定價計算程式](http://azure.microsoft.com/pricing/calculator/)。
+如需詳細的成本估計，請使用 [Azure 價格計算程式](http://azure.microsoft.com/pricing/calculator/)。
 
-如需定價的詳細資訊，請參閱下列資源：
+如需價格的詳細資訊，請參閱下列資源：
 
-- [Azure SQL Database 定價詳細資料](http://azure.microsoft.com/pricing/details/sql-database/) 
-- [虛擬機器定價詳細資料](http://azure.microsoft.com/pricing/details/virtual-machines/)
-- [Azure VM 中的 SQL Server - 定價詳細資料](http://azure.microsoft.com/pricing/details/virtual-machines/#sql-server)
-- [Azure VM 中的 Windows Server - 定價詳細資料](http://azure.microsoft.com/pricing/details/virtual-machines/#windows) 
+- [Azure SQL Database 價格詳細資料](http://azure.microsoft.com/pricing/details/sql-database/) 
+- [虛擬機器價格詳細資料](http://azure.microsoft.com/pricing/details/virtual-machines/)
+- [Azure VM 中的 SQL Server - 價格詳細資料](http://azure.microsoft.com/pricing/details/virtual-machines/#sql-server)
+- [Azure VM 中的 Windows Server - 價格詳細資料](http://azure.microsoft.com/pricing/details/virtual-machines/#windows) 
 
 ###<a name="admin"></a>系統管理
 
@@ -186,9 +186,9 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 
 ###<a name="market"></a>產品上市時間
 
-當開發人員生產力和快速產品上市時間為關鍵所在時，[**Azure SQL Database**] 是雲端式設計應用程式的理想解決方案。有了程式設計 DBA 類似功能，此選項非常適合雲端架構設計人員和開發人員，因為它會降低管理基礎作業系統和資料庫的需求。它可協助開發人員了解與設定資料庫相關工作。例如，您可以使用 [REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) 和 [PowerShell Cmdlet](http://msdn.microsoft.com/library/azure/dn546726.aspx) 來自動化及管理數千個資料庫的管理作業。透過在雲端的彈性調整，您可以輕易地將重點放在應用程式層，並更快速地將應用程式上市。
+當開發人員生產力和快速產品上市時間為關鍵所在時，[**Azure SQL Database**] 是雲端式設計應用程式的理想解決方案。有了程式設計 DBA 類似功能，此選項非常適合雲端架構設計人員和開發人員，因為它會降低管理基礎作業系統和資料庫的需求。它可協助開發人員了解與設定資料庫相關工作。例如，您可以使用 [REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) 和 [PowerShell Cmdlet](http://msdn.microsoft.com/library/azure/dn546726.aspx) 來自動化及管理數千個資料庫的管理作業。透過在雲端的[彈性調整](sql-database-elastic-pool.md)，您可以輕易地將重點放在應用程式層，並更快速地將應用程式上市。
 
-如果現有和新的應用程式需要存取與控制 SQL Server 執行個體的所有功能，並想要依現狀將現有的內部部署應用程式和資料庫移轉至雲端，[**Azure VM 中執行的 SQL Server**] 會是理想選項。由於您無需變更簡報、應用程式和資料層，您會在重新架構現有解決方案時節省時間和預算。相反地，您可以將重點放在將您的所有方案套件移轉至 VM，並進行 Azure 平台所需的某些效能最佳化作業。如需相關資訊，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法](http://msdn.microsoft.com/library/azure/dn133149.aspx)。
+如果現有和新的應用程式需要存取與控制 SQL Server 執行個體的所有功能，並想要依現狀將現有的內部部署應用程式和資料庫移轉至雲端，**Azure VM 中執行的 SQL Server** 會是理想選項。由於您無需變更簡報、應用程式和資料層，您會在重新架構現有解決方案時節省時間和預算。相反地，您可以將重點放在將您的所有方案套件移轉至 VM，並進行 Azure 平台所需的某些效能最佳化作業。如需相關資訊，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法](http://msdn.microsoft.com/library/azure/dn133149.aspx)。
 
 ##<a name="summary"></a>摘要
 
@@ -207,6 +207,9 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 - 您有現有的內部部署應用程式，而且想要停止維護自己的硬體或考慮混合式解決方案。這種方法可讓您更快速地存取高資料庫容量，並透過安全通道將內部部署應用程式連接到雲端。
 
 - 您有現有的 IT 資源、需要 SQL Server 的完整系統管理權限，並需要與內部部署 SQL server 的完全相容 (例如，Azure SQL Database 不提供某些功能)。這種方法可讓您彈性地執行大部分的應用程式，將開發或修改現有應用程式的成本降至最低。此外，它還提供 VM、作業系統和資料庫組態的完整控制權。
+
+> [AZURE.NOTE]- 您要試用 SQL Server 2016 CTP2 嗎？ 註冊 Microsoft Azure，然後移至[這裡](http://aka.ms/sql2016vm "開始")以註冊已安裝 SQL Server 2016 CTP2 的虛擬機器。
+
 
 ##<a name="ack"></a>通知
 
@@ -250,4 +253,4 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

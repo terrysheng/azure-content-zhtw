@@ -3,9 +3,10 @@
 	description="了解如何使用 Azure PowerShell 在 Azure 中建立和預先設定 Windows 和以資源管理員為基礎的虛擬機器。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2015"
-	ms.author="josephd"/>
+	ms.date="07/09/2015"
+	ms.author="kathydav"/>
 
 # 利用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器
 
@@ -28,7 +29,7 @@
 
 ## 步驟 1：安裝 Azure PowerShell
 
-您也必須有 Azure PowerShell 0.9.0 版或更新版本。如果您尚未安裝和設定 Azure PowerShell，請按一下[這裡](../powershell-install-configure.md)以取得指示。
+您也必須有 Azure PowerShell 0.9.0 版或更新版本。如果您尚未安裝和設定 Azure PowerShell，請按一下[這裡](powershell-install-configure.md)以取得指示。
 
 您可以在 Azure PowerShell 提示字元下使用這個命令來檢查已安裝的 Azure PowerShell 版本。
 
@@ -40,7 +41,7 @@
 	-------
 	0.9.0
 
-如果您沒有 0.9.0 版或更新版本，則必須使用 [控制台] 中的 [程式和功能] 移除 Azure PowerShell，然後安裝最新版本。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
+如果您沒有 0.9.0 版或更新版本，則必須使用 [控制台] 中的 [程式和功能] 移除 Azure PowerShell，然後安裝最新版本。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
 
 ## 步驟 2：設定您的訂用帳戶
 
@@ -57,7 +58,7 @@
 
 接下來，將 Azure PowerShell 切換至資源管理員模式。
 
-	Switch-AzureMode AzureResourceManager 
+	Switch-AzureMode AzureResourceManager
 
 ## 步驟 3：建立所需的資源
 
@@ -95,7 +96,7 @@
 
 如果 Test-AzureName 命令顯示 "False"，表示您提出的名稱是唯一的。當您決定好唯一的名稱時，請利用此命令將 Azure PowerShell 切換回資源管理員模式。
 
-	Switch-AzureMode AzureResourceManager 
+	Switch-AzureMode AzureResourceManager
 
 以資源管理員為基礎的虛擬機器可以使用公用網域名稱標籤，其中只能包含字母、數字和連字號。欄位中的第一個和最後一個字元，必須是字母或數字。
 
@@ -103,8 +104,8 @@
 
 	$domName="<domain name label to test>"
 	$loc="<short name of an Azure location, for example, for West US, the short name is westus>"
-	Get-AzureCheckDnsAvailability -DomainQualifiedName $domName -Location $loc 
-	
+	Get-AzureCheckDnsAvailability -DomainQualifiedName $domName -Location $loc
+
 如果 DNSNameAvailability 為 "True"，表是您提出的名稱是全域唯一的。
 
 以資源管理員為基礎的虛擬機器可置於以資源管理員為基礎的可用性集。如果需要，請使用這些命令建立新虛擬機器的新可用性集。
@@ -144,14 +145,14 @@
 
 	$rgName="<resource group name>"
 	$vnetName="<virtual network name>"
-	Get-AzureVirtualNetwork -Name $vnetName -ResourceGroupName $rgName | Select Subnets 
+	Get-AzureVirtualNetwork -Name $vnetName -ResourceGroupName $rgName | Select Subnets
 
 子網路索引是此命令所顯示的子網路編號，從左至右依序為它們編號，從 0 開始。
 
 關於此範例：
 
 	PS C:> Get-AzureVirtualNetwork -Name TestNet -ResourceGroupName LOBServers | Select Subnets
-	
+
 	Subnets
 	-------
 	{frontendSubnet, backendSubnet}
@@ -201,7 +202,7 @@ FrontendSubnet 的子網路索引為 0，而 backendSubnet 的子網路索引為
 	$vmName="<VM name>"
 	$vmSize="<VM size string>"
 	$avName="<availability set name>"
-	$avSet=Get-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName 
+	$avSet=Get-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName
 	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
 
 若要判斷選項 2 之 VM 大小字串的可能值，請使用這些命令。
@@ -242,7 +243,7 @@ FrontendSubnet 的子網路索引為 0，而 backendSubnet 的子網路索引為
 	$pubName="<Image publisher name>"
 	$offerName="<Image offer name>"
 	$skuName="<Image SKU name>"
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName $pubName -Offer $offerName -Skus $skuName -Version "latest"
 	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
@@ -271,36 +272,36 @@ FrontendSubnet 的子網路索引為 0，而 backendSubnet 的子網路索引為
 - 使用 Windows Server 2012 R2 Datacenter 映像
 - 名稱為 LOB07，且位於現有的 WEB_AS 可用性集
 - 在現有 AZDatacenter 虛擬網路的 FrontEnd 子網路 (子網路索引 0) 中具有內附公用 IP 位址的 NIC
-- 有 200 GB 的額外資料磁碟 
+- 有 200 GB 的額外資料磁碟
 
 以下是建立這個虛擬機器的相對應 Azure PowerShell 命令集，以步驟 4 中所述的程序為基礎。
 
-	# Switch to the Resource Manager mode	
+	# Switch to the Resource Manager mode
 	Switch-AzureMode AzureResourceManager
-	
+
 	# Set values for existing resource group and storage account names
 	$rgName="LOBServers"
 	$locName="West US"
 	$saName="contosoLOBServersSA"
-	
+
 	# Set the existing virtual network and subnet index
 	$vnetName="AZDatacenter"
 	$subnetIndex=0
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
-	
+
 	# Create the NIC
 	$nicName="AzureInterface"
 	$domName="contoso-vm-lob07"
 	$pip=New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
-	
+
 	# Specify the name, size, and existing availability set
 	$vmName="LOB07"
 	$vmSize="Standard_A3"
 	$avName="WEB_AS"
 	$avSet=Get-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName
 	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
-	
+
 	# Add a 200 GB additional data disk
 	$diskSize=200
 	$diskLabel="APPStorage"
@@ -308,16 +309,16 @@ FrontendSubnet 的子網路索引為 0，而 backendSubnet 的子網路索引為
 	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
 	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + $diskName  + ".vhd"
 	Add-AzureVMDataDisk -VM $vm -Name $diskLabel -DiskSizeInGB $diskSize -VhdUri $vhdURI -CreateOption empty
-	
+
 	# Specify the image and local administrator account, and then add the NIC
 	$pubName="MicrosoftWindowsServer"
 	$offerName="WindowsServer"
 	$skuName="2012-R2-Datacenter"
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName $pubName -Offer $offerName -Skus $skuName -Version "latest"
 	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
-	
+
 	# Specify the OS disk name and create the VM
 	$diskName="OSDisk"
 	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
@@ -329,13 +330,12 @@ FrontendSubnet 的子網路索引為 0，而 backendSubnet 的子網路索引為
 
 [Azure Resource Manager 提供的 Azure 運算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md)
 
-[Azure 資源管理員概觀](../resource-group-overview.md)
+[Azure 資源管理員概觀](resource-group-overview.md)
 
 [使用資源管理員範本和 PowerShell 部署以及管理 Azure 虛擬機器](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [利用 Resource Manager 範本和 PowerShell 建立 Windows 虛擬機器](virtual-machines-create-windows-powershell-resource-manager-template-simple)
 
-[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
- 
+[如何安裝和設定 Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="07/20/2015" 
 	ms.author="mebha"/>
 
 
@@ -41,7 +41,7 @@
 
 
 	sudo npm init
-	sudp npm install tedious
+	sudo npm install tedious
 
 
 **npm init** 會建立節點專案。若要在專案建立期間保留預設值，請按 Enter 鍵直到專案建立為止。現在您會在專案目錄中看到 **package.json** 檔案。
@@ -171,4 +171,4 @@
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

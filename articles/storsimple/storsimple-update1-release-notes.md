@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/29/2015"
+    ms.date="07/15/2015"
     ms.author="v-sharos" />
 
 # StorSimple 8000 Series Update 1 版本資訊  
 
 ## 概觀
 
-下列版本資訊說明 StorSimple 8000 Series Update 1 的新功能，並識別未決的重要問題。其中也包含此版本隨附之 StorSimple 軟體與韌體更新的清單。這是 StorSimple 8000 系列發行版本於 2014 年 7 月公開上市之後的第一個主要版本。
+下列版本資訊說明 StorSimple 8000 Series Update 1 的新功能，並識別未決的重要問題。當中也包含此版本中隨附之 StorSimple 軟體與韌體更新的清單。這是 StorSimple 8000 系列發行版本於 2014 年 7 月公開上市之後的第一個主要版本。
 
 此更新會將裝置軟體變更為 StorSimple 8000 Series Update 1。在 StorSimple 方案中部署更新之前，請檢閱版本資訊中所包含的資訊。如需詳細資訊，請參閱如何[在 StorSimple 裝置上安裝 Update 1](storsimple-install-update-1.md)。
 
@@ -28,6 +28,7 @@
 >[AZURE.IMPORTANT]
 > 
 - 重大修補程式 Update 1.1 已於 6 月 23 日發行。此修補程式可解決備份引擎中的問題。如果您在 6 月 23 日之前已套用了 Update 1，而且目前使用的軟體版本為 **6.3.9600.17491**，請務必套用此重大更新，以避免備份發生問題。安裝更新之後，軟體版本會變更 **6.3.9600.17521**。
+- 如果您在 5 月 27 日到 7 月 10 日之間建立軟體版本為 6.3.9600.17481 的虛擬裝置，則請建立新的虛擬裝置，並從舊的虛擬裝置上的任何磁碟區容錯移轉到新的虛擬裝置。(這是因為較舊的虛擬裝置無法更新。) 如果您並未建立新的虛擬裝置，您可能會看到備份啟動失敗。如需容錯移轉和災害復原程序，請移至 [StorSimple 裝置的容錯移轉和災害復原](storsimple-device-failover-disaster-recovery.md)。
 - 使用 StorSimple Manager 服務 (而非 Windows PowerShell for StorSimple) 安裝 Update 1。
 - 此版本也包含只有在裝置處於 [維護] 模式時才能套用的磁碟韌體更新。這些都是干擾性更新，將會導致您的裝置停機。您可以在已計劃的維護期間套用這些更新。
 - 安裝此更新大約需要 5-10 小時 (包括 Windows Update)。 
@@ -84,7 +85,7 @@
 | 6 | Web Proxy | 如果您的 Web Proxy 組態設定將 HTTPS 做為指定的通訊協定，您的裝置對服務通訊將會受到影響並使裝置離線。同時會在程序中產生支援封裝，耗用裝置上的大量資源。 | 請確定 Web Proxy URL 指定的通訊協定為 HTTP。如需詳細資訊，請參閱[設定裝置的 Web Proxy](https://msdn.microsoft.com/library/azure/dn764937.aspx)。 | 是 | 否 |
 | 7 | Web Proxy | 如果您在註冊的裝置上設定並啟用 Web Proxy，將需要重新啟動裝置上的主動控制器。 | | 是 | 否 |
 | 8 | 雲端高延遲與高 I/O 工作負載 | 當 StorSimple 裝置同時出現雲端延遲情況嚴重 (大約數秒) 和 I/O 工作負載高的情況時，裝置磁碟區會進入降級的狀態，而且 I/O 可能會失敗，發生「裝置未就緒」錯誤。 | 您必須以手動方式將裝置控制器重新開機，或或執行裝置容錯移轉，才能從這種情況下復原。 | 是 | 否 |
-| 9 | Azure PowerShell | 當您使用 StorSimple Cmdlet **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** 選取第一個物件，讓您可以建立新的 **VolumeContainer** 物件時，此 Cmdlet 會傳回所有物件。 | 將此 Cmdlet 以括號括住，如下所示：**(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** | 是 | 是 |
+| 9 | Azure PowerShell | 當您使用 StorSimple Cmdlet **Get-AzureStorSimpleStorageAccountCredential | Select-Object -First 1 -Wait** 選取第一個物件，讓您可以建立新的 **VolumeContainer** 物件時，此 Cmdlet 會傳回所有物件。 | 將此 Cmdlet 以括號括住，如下所示：**(Get-Azure-StorSimpleStorageAccountCredential) | Select-Object -First 1 -Wait** | 是 | 是 |
 | 10| 移轉 | 傳遞多個磁碟區容器以進行移轉時，只有第一個磁碟區容器的最新備份的 ETA 正確。此外，在移轉第一個磁碟區容器中的前 4 個備份之後，將會開始進行平行移轉。 | 建議您一次移轉一個磁碟區容器。 | 是 | 否 |
 | 11| 移轉 | 還原之後，不會將磁碟區新增至備份原則或虛擬磁碟群組。 | 您必須將這些磁碟區新增至備份原則，才能建立備份。 | 是 | 是 |
 | 12| 移轉 | 完成移轉之後，5000/7000 系列裝置不得存取移轉的資料容器。 | 建議您在移轉完成並認可之後，刪除移轉的資料容器。 | 是 | 否 |
@@ -103,15 +104,15 @@
 
 - 如需有關韌體更新的詳細資訊，請參閱[適用於 Microsoft Azure StorSimple 應用裝置的韌體 Update 1](https://support.microsoft.com/kb/3063414)。
 
-- 如需有關磁碟韌體更新的詳細資訊，請參閱[適用於 Microsoft Azure StorSimple 應用裝置的磁碟韌體 Update 1](https://support.microsoft.com/zh-tw/kb/3063416)。
+- 如需有關磁碟韌體更新的詳細資訊，請參閱[適用於 Microsoft Azure StorSimple 應用裝置的磁碟韌體 Update 1](https://support.microsoft.com/kb/3063416)。
  
 ## Update 1 中的虛擬裝置更新
 
-這個版本不包含任何虛擬裝置的更新。套用此更新不會變更虛擬裝置的軟體版本。
+這項更新無法套用至虛擬裝置。不過，7 月 10 日之後建立的任何虛擬裝置會自動更新為這個版本。
 
 ## 後續步驟
 
 - [在您的裝置上安裝 Update 1](storsimple-install-update-1.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

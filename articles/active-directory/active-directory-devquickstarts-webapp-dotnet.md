@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="dastrock"/>
 
 # 使用 Azure AD 進行 Web 應用程式登入與登出
@@ -173,7 +173,7 @@ public ActionResult About()
 
 [使用 Azure AD 保護 Web API >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-如需其他資源，請參閱：- [GitHub 上的 AzureADSamples >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - [Azure.com 上的 Azure AD 文件 >>](http://azure.microsoft.com/documentation/services/active-directory/)
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

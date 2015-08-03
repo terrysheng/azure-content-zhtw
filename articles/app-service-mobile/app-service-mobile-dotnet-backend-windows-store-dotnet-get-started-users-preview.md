@@ -20,9 +20,15 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 本主題說明如何從用戶端應用程式驗證應用程式服務行動應用程式的使用者。在本教學課程中，您將使用應用程式服務支援的身分識別提供者，將驗證新增至快速入門專案。由行動應用程式成功驗證並授權之後，就會顯示使用者識別碼值。
 
 本教學課程以行動應用程式快速入門為基礎。您也必須先完成[開始使用行動應用程式]教學課程。
+
+##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
 
 ##<a name="register"></a>註冊應用程式進行驗證，並設定應用程式服務
 
@@ -32,7 +38,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-<ol start="7">
+<ol start="5">
 <li>在 Visual Studio 中，開啟用戶端應用程式專案，確定 App.xaml.cs 中的 <b>MobileServiceClient</b> 執行個體設定為使用行動應用程式資源的雲端 URL。</li>
 <li><p>按 F5 鍵執行此快速入門型應用程式；確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。</p>
 
@@ -69,4 +75,4 @@
 [開始使用行動應用程式]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

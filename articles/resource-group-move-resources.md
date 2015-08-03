@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="將資源移動到新的資源群組" 
 	description="使用 Azure PowerShell 或 REST API 將資源移動到至新的「Azure 資源管理員」資源群組。" 
-	services="" 
+	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
@@ -95,4 +95,4 @@
 - [使用 Azure 入口網站管理資源](azure-portal/resource-group-portal.md)
 - [使用標記組織您的資源](./resource-group-using-tags.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

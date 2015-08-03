@@ -54,7 +54,7 @@
 
    	![][0]
 
-   	「如此會顯示三個簡單步驟，用來建立與您行動服務連線的 PhoneGap 應用程式。」
+   	This displays the three easy steps to create a PhoneGap app connected to your mobile service.
 
   	![][1]
 
@@ -105,7 +105,7 @@
 
 3. 在前述其中一個行動模擬器中啟動應用程式後，在文字方塊中輸入文字，然後按一下 [新增]。
 
-	如此會傳送 POST 要求到 Azure 中代管的新行動服務。要求中的資料會插入 **TodoItem** 資料表中。行動服務會傳回資料表中儲存的項目，而該資料會顯示在清單中。
+	This sends a POST request to the new mobile service hosted in Azure.要求中的資料會插入 **TodoItem** 資料表中。行動服務會傳回資料表中儲存的項目，而該資料會顯示在清單中。
 
 	> [AZURE.IMPORTANT]如果使用 PhoneGap 工具重新建置主要專案，將會覆寫此平台專案的變更。因此，請依照下一節中的說明，在專案的根 www 目錄中進行變更。
 
@@ -171,4 +171,4 @@
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

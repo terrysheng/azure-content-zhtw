@@ -1,7 +1,9 @@
 <properties
 	pageTitle="將虛擬機器設定為 IPython Notebook 伺服器 | Microsoft Azure"
 	description="設定 Azure 虛擬機器，以在資料科學環境中搭配 IPython 伺服器進行進階分析。"
+	metaKeywords=""
 	services="machine-learning"
+	solutions="" 
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
@@ -145,4 +147,4 @@ Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

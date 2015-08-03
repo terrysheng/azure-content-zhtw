@@ -16,4 +16,4 @@
 
    	Notice that the saved text is stored in an in-memory collection and displayed in the list below.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

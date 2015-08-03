@@ -57,8 +57,8 @@ Azure Multi-Factor Authentication 是一個容易使用、可調整且可靠的�
 
 **其他資源**
 
+* [設定 Office 365 的多因素驗證](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
 * [Multi-Factor Authentication 對我有何意義？](multi-factor-authentication-end-user.md)
-* [設定 Multi-Factor Authentication for Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
 * [MSDN 上的 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

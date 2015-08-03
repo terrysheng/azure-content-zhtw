@@ -612,4 +612,4 @@ _圖 6.根據分析和儲存體需求分割資料_
 - Microsoft 網站上的＜[了解 Azure 中的監視警示和通知](https://msdn.microsoft.com/library/azure/dn306639.aspx)＞頁面。
 - Microsoft 網站上的＜[Application Insights](app-insights-get-started/)＞頁面。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

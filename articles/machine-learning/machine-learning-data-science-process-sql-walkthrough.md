@@ -44,7 +44,7 @@
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-聯結 trip\\_data and trip\\_fare 的唯一索引鍵是由下列欄位組成：medallion、hack\\_licence 和 pickup\\_datetime。
+聯結 trip_data and trip_fare 的唯一索引鍵是由下列欄位組成：medallion、hack_licence 和 pickup_datetime。
 
 ## <a name="mltasks"></a>預測工作的範例
 
@@ -113,7 +113,7 @@
 
 	![SSMS 連線][12]
 
-3. 如果您尚未變更 SQL Server 驗證模式，且尚未建立新的 SQL 登入使用者，請開啟 [**指令碼範例**] 資料夾中名為 **change\\_auth.sql** 的指令碼檔案。變更預設的使用者名稱和密碼。按一下工具列中的 [**!執行**] 執行指令碼。
+3. 如果您尚未變更 SQL Server 驗證模式，且尚未建立新的 SQL 登入使用者，請開啟 [**指令碼範例**] 資料夾中名為 **change_auth.sql** 的指令碼檔案。變更預設的使用者名稱和密碼。按一下工具列中的 [**!執行**] 執行指令碼。
 
 	![執行指令碼][13]
 
@@ -715,4 +715,4 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。特
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

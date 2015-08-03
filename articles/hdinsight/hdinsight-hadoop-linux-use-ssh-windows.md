@@ -278,4 +278,4 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

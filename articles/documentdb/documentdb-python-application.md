@@ -56,7 +56,7 @@
 
 ## 步驟 2：建立新的 Python Flask Web 應用程式
 
-1. 開啟 Visual Studio，並依序按一下 [**檔案**] -\\> [**新增專案**] -\\> [**Python**] -\\> [**Flask Web 專案**]，然後建立名為 **tutorial** 的新專案。
+1. 開啟 Visual Studio，並依序按一下 [**檔案**] -> [**新增專案**] -> [**Python**] -> [**Flask Web 專案**]，然後建立名為 **tutorial** 的新專案。
 
 	對於 Flask 的初學者而言，這個網路架構可協助我們在 Python 中更快速地建置 Web 應用程式。[按一下這裡可存取 Flask 教學課程][] (英文)。
 
@@ -350,4 +350,4 @@
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

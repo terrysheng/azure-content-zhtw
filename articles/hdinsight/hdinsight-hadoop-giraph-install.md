@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="07/11/2015" 
 	ms.author="nitinme"/>
 
 # 在 HDInsight Hadoop 叢集上安裝 Giraph，以及使用 Giraph 來處理大規模圖形
@@ -75,7 +75,7 @@
 
 	如果使用值 (或權數) 當做物件之間的距離繪製出來，上述資料可能如下圖所示：
 
-	![tiny_graph.txt drawn as circles with lines of varying distance between](.\media\hdinsight-hadoop-giraph-install\giraph-graph.png)
+	![tiny_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
 
 	
 
@@ -145,7 +145,7 @@
 	
 	顯現為圖形後，您可以走過識別碼 1 與其他所有物件之間的最短路徑來驗證結果。請注意，識別碼 1 和識別碼 4 之間的最短路徑為 5。這是<span style="color:orange">識別碼 1 和 3 之間</span>加上<span style="color:red">識別碼 3 和 4 之間</span>的總距離。
 
-	![Drawing of objects as circles with shortest paths drawn between](.\media\hdinsight-hadoop-giraph-install\giraph-graph-out.png)
+	![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
 
 ## <a name="usingPS"></a>使用 Azure PowerShell 在 HDInsight Hadoop 叢集上安裝 Giraph
@@ -329,7 +329,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
 
 **執行應用程式**
 
-開啟 Azure PowerShell 主控台、瀏覽至您儲存 Visual Studio 專案的位置、瀏覽至專案內的 \\bin\\debug 目錄，然後執行下列命令：
+開啟 Azure PowerShell 主控台、瀏覽至您儲存 Visual Studio 專案的位置、瀏覽至專案內的 \bin\debug 目錄，然後執行下列命令：
 
 	.\CreateGiraphCluster <cluster-name>
 
@@ -353,4 +353,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -89,4 +89,4 @@ Azure Multi-Factor Authentication 應用程式提供額外的頻外驗證選項�
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -143,4 +143,4 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Hiv
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

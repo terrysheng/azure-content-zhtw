@@ -5,8 +5,8 @@
   documentationCenter="virtual-machines"
   authors="ahmetalpbalkan"
   editor="squillace"
-  manager=""
-  tags=""/>
+  manager="" 
+  tags="" />
 
 <tags
   ms.service="virtual-machines"
@@ -92,4 +92,4 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

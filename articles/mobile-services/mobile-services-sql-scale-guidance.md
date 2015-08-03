@@ -476,4 +476,4 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 [該索引鍵的成本為何？]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

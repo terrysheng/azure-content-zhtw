@@ -84,7 +84,7 @@
 
 刪除資料表中的資料列。在傳回的 [Promise]() 物件上呼叫 [done]() 方法，以取得所插入物件的複本，並處理任何錯誤。
 
-	todoTable.delete(todoItem).done(function (item) {
+	todoTable.del(todoItem).done(function (item) {
 	    todoItems.splice(todoItems.indexOf(item), 1);
     }
 
@@ -92,4 +92,4 @@
 
 [深入了解行動服務](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

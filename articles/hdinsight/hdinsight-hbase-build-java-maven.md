@@ -42,9 +42,9 @@
 
 	* __pom.xml__：專案物件模型 ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) 包含用來建置專案之資訊和組態的詳細資料。
 
-	* __src__：您將在含有 __main\\java\\com\\microsoft\\examples__ 目錄的目錄處撰寫應用程式。
+	* __src__：您將在含有 __main\java\com\microsoft\examples__ 目錄的目錄處撰寫應用程式。
 
-3. 刪除 __src\\test\\java\\com\\microsoft\\examples\\apptest.java__ 檔案，因為此範例中不會用到。
+3. 刪除 __src\test\java\com\microsoft\examples\apptest.java__ 檔案，因為此範例中不會用到。
 
 ##更新專案物件模型
 
@@ -103,7 +103,7 @@
 		  </plugins>
 		</build>
 
-	這會設定 HBase 組態資訊的資源 (__conf\\hbase-site.xml__,)。
+	這會設定 HBase 組態資訊的資源 (__conf\hbase-site.xml__,)。
 
 	> [AZURE.NOTE]您也可以透過程式碼來設定組態值。相關作法請參閱接下來 __CreateTable__ 範例中的註解。
 
@@ -155,13 +155,13 @@
 
 	此檔案用來載入 HDInsight 叢集的 HBase 組態。
 
-	> [AZURE.NOTE]這是一個極小的 hbase-site.xml 檔案，其包含 HDInsight 叢集最低限度的設定。如需 HDInsight 所使用的 hbase-site.xml 組態檔完整版本，請參閱[使用 Azure 入口網站在 HDInsight 中管理 Hadoop 叢集](hdinsight-administer-use-management-portal.md#rdp)。hbase-site.xml 檔案位於 C:\\apps\\dist\\hbase-&lt;version number>-hadoop2\\conf 目錄中。檔案路徑的版本號碼部分會隨著 HBase 在叢集上更新而變更。
+	> [AZURE.NOTE]這是一個極小的 hbase-site.xml 檔案，其包含 HDInsight 叢集最低限度的設定。如需 HDInsight 所使用的 hbase-site.xml 組態檔完整版本，請參閱[使用 Azure 入口網站在 HDInsight 中管理 Hadoop 叢集](hdinsight-administer-use-management-portal.md#rdp)。hbase-site.xml 檔案位於 C:\apps\dist\hbase-&lt;version number>-hadoop2\conf 目錄中。檔案路徑的版本號碼部分會隨著 HBase 在叢集上更新而變更。
 
 3. 儲存 __hbase-site.xml__ 檔案。
 
 ##建立應用程式
 
-1. 移至 __hbaseapp\\src\\main\\java\\com\\microsoft\\examples__ 目錄，並將 app.java 檔案重新命名為 __CreateTable.java__。
+1. 移至 __hbaseapp\src\main\java\com\microsoft\examples__ 目錄，並將 app.java 檔案重新命名為 __CreateTable.java__。
 
 2. 開啟 __CreateTable.java__ 檔案，並以下列程式碼取代現有的內容：
 
@@ -231,7 +231,7 @@
 
 3. 儲存 __CreateTable.java__ 檔案。
 
-4. 在 __hbaseapp\\src\\main\\java\\com\\microsoft\\examples__ 目錄中，建立名為 __SearchByEmail.java__ 的新檔案。使用下列項目做為此檔案的內容：
+4. 在 __hbaseapp\src\main\java\com\microsoft\examples__ 目錄中，建立名為 __SearchByEmail.java__ 的新檔案。使用下列項目做為此檔案的內容：
 
 		package com.microsoft.examples;
 		import java.io.IOException;
@@ -308,7 +308,7 @@
 
 5. 儲存 __SearchByEmail.java__ 檔案。
 
-6. 在 __hbaseapp\\src\\main\\hava\\com\\microsoft\\examples__ 目錄中，建立名為 __DeleteTable.java__ 的新檔案。使用下列項目做為此檔案的內容：
+6. 在 __hbaseapp\src\main\hava\com\microsoft\examples__ 目錄中，建立名為 __DeleteTable.java__ 的新檔案。使用下列項目做為此檔案的內容：
 
 		package com.microsoft.examples;
 		import java.io.IOException;
@@ -344,7 +344,7 @@
 
 	這會清除任何先前的組建成品、下載任何尚未安裝的相依性，然後建置並封裝應用程式。
 
-3. 指令完成時，__hbaseapp\\target__ 目錄將包含一個名為 __hbaseapp-1.0-SNAPSHOT.jar__ 的檔案。
+3. 指令完成時，__hbaseapp\target__ 目錄將包含一個名為 __hbaseapp-1.0-SNAPSHOT.jar__ 的檔案。
 
 	> [AZURE.NOTE]__hbaseapp-1.0-SNAPSHOT.jar__ 檔案是一個 uber jar (有時稱為 fat jar)，內含執行應用程式所需的所有相依性。
 
@@ -591,4 +591,4 @@
 
 請使用 `-showErr` 參數，以檢視執行工作時所產生的標準錯誤 (STDERR)。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -308,4 +308,4 @@
 * [如何使用服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

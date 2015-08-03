@@ -33,7 +33,7 @@
 
 如果尚未建立雲端服務，請先閱讀[這裡](cloud-services-how-to-create-deploy.md)。
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+[AZURE.INCLUDE 〈[websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)〉]
 
 
 ## 步驟 1：取得 SSL 憑證
@@ -47,7 +47,7 @@
 -   憑證的主體名稱必須符合用來存取雲端服務的網域。您無法向憑證授權單位 (CA) 取得 cloudapp.net 網域的 SSL 憑證。您必須取得要在存取您的服務時使用的自訂網域名稱。當您向 CA 要求憑證時，憑證的主體名稱必須符合用來存取應用程式的自訂網域名稱。例如，如果您的自訂網域名稱為 **contoso.com**，則您需向 CA 要求 ***.contoso.com** 或 **www.contoso.com** 的憑證。
 -   憑證至少必須以 2048 位元加密。
 
-基於測試目的，您可以建立並使用自我簽署憑證。自我簽署憑證不是由 CA 驗證，因此可以使用 cloudapp.net 網域做為網站 URL。例如，以下工作即使用自我簽署憑證，該憑證中使用的一般名稱 (CN) 為 **sslexample.cloudapp.net**。如需關於如何使用 IIS 管理員建立自我簽署憑證的詳細資訊，請參閱[如何建立角色的憑證][] (英文)。
+基於測試目的，您可以[建立](cloud-services-certs-create.md)並使用自我簽署憑證。自我簽署憑證不是由 CA 驗證，因此可以使用 cloudapp.net 網域做為網站 URL。例如，以下工作即使用自我簽署憑證，該憑證中使用的一般名稱 (CN) 為 **sslexample.cloudapp.net**。如需關於如何使用 IIS 管理員建立自我簽署憑證的詳細資訊，請參閱 [如何建立角色的憑證][]。
 
 接下來，您必須在服務定義檔與服務組態檔中加入憑證的相關資訊。
 
@@ -67,7 +67,7 @@
         ...
         </WebRole>
 
-    **Certificates** 區段定義憑證的名稱、位置，以及其所在的存放區名稱。我們已選擇將憑證儲存在 CA (憑證授權單位) 存放區中，但是您也可以選擇其他選項。如需詳細資訊，請參閱[如何使憑證與服務產生關聯][] (英文)。
+    **Certificates** 區段定義憑證的名稱、位置，以及其所在的存放區名稱。我們已選擇將憑證儲存在 CA (憑證授權單位) 存放區中，但是您也可以選擇其他選項。如需詳細資訊，請參閱 [如何使憑證與服務產生關聯][]。
 
 2.  在服務定義檔中，於 **Endpoints** 區段內新增 **InputEndpoint** 元素，以啟用 HTTPS：
 
@@ -117,9 +117,9 @@
 您的部署套件已更新為使用該憑證，而且您已新增 HTTPS 端點。現在您可以利用管理入口網站將套件和憑證上傳至 Azure。
 
 1. 登入 [Azure 管理入口網站][]。 
-2. 按一下左邊瀏覽窗格的 [**雲端服務**]。
+2. 按一下左邊瀏覽窗格的 [雲端服務]。
 3. 按一下所需的雲端服務。
-4. 按一下 [**憑證**] 索引標籤。
+4. 按一下 [憑證] 索引標籤。
 
     ![按一下 [憑證] 索引標籤](./media/cloud-services-configure-ssl-certificate/click-cert.png)
 
@@ -127,7 +127,7 @@
 
     ![上傳](./media/cloud-services-configure-ssl-certificate/upload-button.png)
     
-6. 提供 [**檔案**]、[**密碼**]，然後按一下 [**完成**] (核取記號)。
+6. 提供 [檔案]、[密碼]，然後按一下 [完成] (核取記號)。
 
 ## 步驟 4：使用 HTTPS 來連線至角色執行個體
 
@@ -145,21 +145,11 @@
 
 若要對預備部署而不是對生產部署使用 SSL，首先您需要判定要在預備部署中使用的 URL。請將您的雲端服務部署至預備環境，但不包括憑證或任何憑證資訊。一旦部署好，您就可以判定 GUID 型 URL (這會列在管理入口網站的 [網站 URL] 欄位中)。建立一般名稱 (CN) 等於 GUID 型 URL (例如，**32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**) 的憑證、使用管理入口網站將該憑證新增至預備的雲端服務、將憑證資訊新增至 CSDEF 與 CSCFG 檔案、重新封裝套件，然後將預備部署更新為使用新的套件與 CSCFG 檔。
 
-## 其他資源
-
-* [如何使憑證與服務產生關聯][]
-
-* [如何在 HTTPS 端點上設定 SSL 憑證][]
-
-  [如何建立角色的憑證]: http://msdn.microsoft.com/library/azure/gg432987.aspx
-  [如何使憑證與服務產生關聯]: http://msdn.microsoft.com/library/azure/gg465718.aspx
   [Azure 管理入口網站]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
   [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
   [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
-  [如何在 HTTPS 端點上設定 SSL 憑證]: http://msdn.microsoft.com/library/azure/ff795779.aspx
- 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

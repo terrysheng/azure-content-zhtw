@@ -80,7 +80,7 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 
 當您第一次執行儲存體模擬器時，系統會為您初始化本機儲存體環境。初始化處理程序會在 LocalDB 中建立資料庫，並為每個本機儲存體服務保留 HTTP 連接埠。
 
-儲存體模擬器預設會安裝至 C:\\Program Files (x86)\\Microsoft SDKs\\Azure\\Storage Emulator 目錄。
+儲存體模擬器預設會安裝至 C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator 目錄。
 
 ### 初始化儲存體模擬器以使用不同的 SQL 資料庫
 
@@ -93,7 +93,7 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
     
 	您也可以使用下列命令，引導模擬器使用預設的 SQL Server 執行個體：
 
-    	AzureStorageEmulator init /server .\\ 
+    	AzureStorageEmulator init /server .\ 
 
 	或者，您也可以使用下列命令，將資料庫重新初始化至預設 LocalDB 執行個體：
 
@@ -127,8 +127,6 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 	Queue Service: http://127.0.0.1:10001/<account-name>/<resource-path>
 	Table Service: http://127.0.0.1:10002/<account-name>/<resource-path>
 
-> [AZURE.NOTE]雖然建議使用 HTTPS 通訊協定來存取 Azure 儲存體中的資源，但是您無法將 HTTPS 與儲存體模擬器搭配使用。
- 
 ### 使用 RA-GRS 為帳戶次要位址定址
 
 從 3.1 版開始，儲存體模擬器帳戶就支援讀取存取地理備援複寫 (RA-GRS)。針對同時位於雲端和本機模擬器中的儲存體資源，您可以藉由將 -secondary 附加到帳戶名稱來存取次要位置。例如，下列位址可能會用於在儲存體模擬器中使用唯讀的次要位置來存取 Blob：
@@ -153,8 +151,8 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 
 | 選項 | 說明 | 命令 | 引數 |
 |--------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| **Start** | 啟動儲存體模擬器。 | `AzureStorageEmulator start [-inprocess]` | *-inprocess*：在目前的處理序中啟動模擬器，而不是建立新的處理序。 |
-| **Stop** | 停止儲存體模擬器。 | `AzureStorageEmulator stop` | |
+| **啟動** | 啟動儲存體模擬器。 | `AzureStorageEmulator start [-inprocess]` | *-inprocess*：在目前的處理序中啟動模擬器，而不是建立新的處理序。 |
+| **停止** | 停止儲存體模擬器。 | `AzureStorageEmulator stop` | |
 | **狀態** | 列印儲存體模擬器的狀態。 | `AzureStorageEmulator status` | |
 | **Clear** | 清除命令列上指定的所有服務中的資料。 | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob*：清除 blob 資料。<br/>*queue*：清除佇列資料。<br/>*table*：清除資料表資料。<br/>*all*：清除所有服務中的所有資料。 |
 | **Init** | 執行一次初始化以設定模擬器。 | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server serverName*：指定裝載 SQL 執行個體的伺服器。<br/>*-sqlinstance instanceName*：指定要使用的 SQL 執行個體的名稱。<br/>*-forcecreate*：強制建立 SQL 資料庫，即使它已經存在。<br/>*-inprocess*：在目前的處理序中執行初始化，而不是繁衍新的處理序。必須以較高權限啟動目前的處理序，才能進行此動作。 |
@@ -206,7 +204,7 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 儲存體模擬器可執行檔已重新命名為 *AzureStorageEmulator.exe*。
 
 ### 3.2 版
-- 儲存體模擬器現在支援 Blob、佇列和資料表服務端點上的 2014-02-14 版儲存體服務。請注意，儲存體模擬器目前不支援檔案服務端點。如需有關 2014-02-14 版的詳細資訊，請參閱 [為 Windows Azure 中的 Blob、佇列和表格服務進行版本設定](https://msdn.microsoft.com/library/azure/dd894041.aspx)。
+- 儲存體模擬器現在支援 Blob、佇列和資料表服務端點上的 2014-02-14 版儲存體服務。請注意，儲存體模擬器目前不支援檔案服務端點。如需有關 2014-02-14 版的詳細資訊，請參閱 [Azure 儲存體服務版本控制](https://msdn.microsoft.com/library/azure/dd894041.aspx)。
 
 ### 3.1 版
 - 儲存體模擬器現在支援讀取權限異地備援儲存體 (RA-GRS)。針對次要帳戶支援 Get Blob Service Stats、Get Queue Service Stats 和 Get Table Service Stats API，且這些 API 一律會根據基礎 SQL Database 傳回 LastSyncTime 回應元素的值當成目前的時間。如需以程式設計方式使用儲存體模擬器來存取次要位置，請使用 Storage Client Library for.NET 3.2 版或更新版本。如需詳細資訊，請參閱＜儲存體用戶端程式庫參考＞。
@@ -222,4 +220,4 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

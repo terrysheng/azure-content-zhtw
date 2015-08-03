@@ -57,4 +57,4 @@
 [在來源控制中儲存伺服器指令碼]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

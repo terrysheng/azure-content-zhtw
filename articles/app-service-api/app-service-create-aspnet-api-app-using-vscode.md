@@ -125,26 +125,26 @@ dnx:dnu restore - (ContactsList)
 2. 以滑鼠右鍵按一下 **Models** 資料夾，使用下列程式碼加入名為 *Contact.cs* 的新類別檔案：
 
 	<pre class="prettyprint">
-namespace ContactsList.Models
-{
+	namespace ContactsList.Models
+	{
     public class Contact
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string EmailAddress { get; set; }
     }
-}
-</pre>
+	}
+	</pre>
 
 3. 以滑鼠右鍵按一下 **Controllers** 資料夾，並加入 *ContactsController.cs* 檔案使其出現，如下所示：
 
 	<pre class="prettyprint">
-using System.Collections.Generic;
-using Microsoft.AspNet.Mvc;
-using ContactsList.Models;
+	using System.Collections.Generic;
+	using Microsoft.AspNet.Mvc;
+	using ContactsList.Models;
 
-namespace ContactsList.Controllers
-{
+	namespace ContactsList.Controllers
+	{
     [Route("api/[controller]")]
     public class ContactsController : Controller
     {
@@ -159,8 +159,8 @@ namespace ContactsList.Controllers
             };
         }
     }
-}
-</pre>
+	}
+	</pre>
 
 4. 選取 [**檔案**] > [**全部儲存**]，確定儲存您的所有檔案。
 5. 從 [**命令調色盤**] 中，輸入下列命令以在本機執行應用程式：
@@ -448,4 +448,4 @@ To https://user@testsite.scm.azurewebsites.net/testsite.git
 在本教學課程中，您學到如何在 Visual Studio 程式碼中建立 API 應用程式。如需 Visual Studio 程式碼的詳細資訊，請參閱 [Visual Studio 程式碼](https://code.visualstudio.com/Docs/)。如需 API 應用程式的相關資訊，請參閱[什麼是 API 應用程式？](app-service-api-apps-why-best-platform.md)。
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

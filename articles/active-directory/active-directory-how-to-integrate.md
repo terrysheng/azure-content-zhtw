@@ -92,4 +92,4 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

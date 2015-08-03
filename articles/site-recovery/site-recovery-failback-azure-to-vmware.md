@@ -77,7 +77,7 @@ VContinuum 安裝程式將可在[下載位置](http://go.microsoft.com/fwlink/?l
 
 ![](./media/site-recovery-failback-azure-to-vmware/image5.png)
 
-3.  指定 CS 複雜密碼。您必須在 CS 註冊期間記下複雜密碼。您也必須在 MT 和 PS 部署期間使用複雜密碼。萬一您不記得複雜密碼，可以前往 Azure 上的 CS 伺服器，然後尋找儲存在 C:\\Program Files (x86)\\InMage Systems\\private\\connection.passphrase 下方的複雜密碼
+3.  指定 CS 複雜密碼。您必須在 CS 註冊期間記下複雜密碼。您也必須在 MT 和 PS 部署期間使用複雜密碼。萬一您不記得複雜密碼，可以前往 Azure 上的 CS 伺服器，然後尋找儲存在 C:\Program Files (x86)\InMage Systems\private\connection.passphrase 下方的複雜密碼
 
     ![](./media/site-recovery-failback-azure-to-vmware/image6.png)
 
@@ -365,7 +365,7 @@ wget-1.12-5.el6_6.1.x86_64.rpm
 
     e.一旦識別出要保護的 VM 之後，請逐一選取它們。
 
-4.  當您選取要保護的虛擬機器 (而且已經將它容錯移轉到 Azure) 時，即會出現快顯視窗來提供兩個適用於虛擬機器的項目。這是因為 CS 偵測到兩個已向其註冊的虛擬機器執行個體。您需要移除內部部署 VM 的項目，如此就能保護正確的 VM。請注意，您將會依項目的電腦主機名稱看到這些項目。若要在此處識別正確的 Azure VM 項目，您可以登入 Azure VM，然後移至 C:\\Program Files (x86)\\Microsoft Azure Site Recovery\\Application Data\\etc。在 drscout.conf 檔案中，識別主機識別碼。在 vContinuum 對話方塊中，保留可在 VM 中找到 hostID 的項目。刪除所有其他項目。
+4.  當您選取要保護的虛擬機器 (而且已經將它容錯移轉到 Azure) 時，即會出現快顯視窗來提供兩個適用於虛擬機器的項目。這是因為 CS 偵測到兩個已向其註冊的虛擬機器執行個體。您需要移除內部部署 VM 的項目，如此就能保護正確的 VM。請注意，您將會依項目的電腦主機名稱看到這些項目。若要在此處識別正確的 Azure VM 項目，您可以登入 Azure VM，然後移至 C:\Program Files (x86)\Microsoft Azure Site Recovery\Application Data\etc。在 drscout.conf 檔案中，識別主機識別碼。在 vContinuum 對話方塊中，保留可在 VM 中找到 hostID 的項目。刪除所有其他項目。
 
 ![](./media/site-recovery-failback-azure-to-vmware/image22.png)
 
@@ -604,4 +604,4 @@ a.您需要選取復原端 [資料存放區] - 這是要將 VM 還原到其中�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

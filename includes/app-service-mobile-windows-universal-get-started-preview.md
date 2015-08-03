@@ -7,4 +7,4 @@
 
 完成本教學課程是 Windows 市集及 Windows Phone 市集應用程式其他所有行動應用程式教學課程的先決條件。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

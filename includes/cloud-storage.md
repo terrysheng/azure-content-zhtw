@@ -181,4 +181,4 @@ Microsoft 也提供 Excel 適用的 HiveQL 驅動程式。商務分析師可以�
 [SQL-tblstor]: ./media/cloud-storage/Data_06_TblStorage.png
 [hadoop]: ./media/cloud-storage/Data_07_Hadoop.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

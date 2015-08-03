@@ -42,4 +42,4 @@
 [AZURE.INCLUDE [媒體-服務-選取器-連接](../../includes/media-services-selector-connect.md)]
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

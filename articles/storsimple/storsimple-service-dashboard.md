@@ -76,4 +76,4 @@ StorSimple Manager 服務儀表板會顯示下列資訊：
 
 了解如何[進行 StorSimple 裝置的疑難排解](storsimple-troubleshoot-operational-device.md)。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

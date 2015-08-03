@@ -207,4 +207,4 @@ AS SELECT * from [ext].[CarSensor_Data];
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-tw/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-tw/library/ms189450.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

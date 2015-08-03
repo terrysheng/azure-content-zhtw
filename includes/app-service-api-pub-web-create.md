@@ -29,8 +29,8 @@
 
 6. 按一下 [確認] 對話方塊上的 [**確定**]。
  
-	佈建程序會在您的 Azure 訂用帳戶中建立資源群組和 API 應用程式。Visual Studio 會在 [**Azure App Service 活動**] 視窗中顯示進度。
+	佈建程序會在您的 Azure 訂閱中建立資源群組和 API 應用程式。Visual Studio 會在 [**Azure App Service 活動**] 視窗中顯示進度。
 
 	![透過 Azure App Service 活動視窗的狀態通知](./media/app-service-api-pub-web-create/26-provisioning-success-v3.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

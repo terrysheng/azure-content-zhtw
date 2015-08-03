@@ -251,4 +251,4 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。它�
 ##更多關於 PostgreSQL 的內容
 立刻在 Microsoft Azure Linux VM 中完成 PostgreSQL 的安裝，並享受在 Microsoft Azure 中使用它的體驗。如需關於 PostgreSQL 的內容，請參閱[這裡](http://www.postgresql.org/)。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

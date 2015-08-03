@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article" 
-   ms.date="03/31/2015"
+   ms.date="07/09/2015"
    ms.author="jgao"/>
 
 # 使用 HDInsight Getting Started Gallery 了解 Hadoop
@@ -64,4 +64,4 @@ HDInsight Getting Started Gallery 在 HDInsight 中執行範例應用程式，�
 [azure.portal]: https://manage.windowsazure.com
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

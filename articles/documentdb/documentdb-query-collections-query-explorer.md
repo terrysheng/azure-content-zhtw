@@ -78,4 +78,4 @@
 - 若要深入了解 [查詢總管] 中支援的 DocumentDB SQL 文法，請按一下[這裡](documentdb-sql-query.md)。
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

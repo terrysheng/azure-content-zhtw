@@ -96,4 +96,4 @@ Web 應用程式還原功能可在 [Azure 預覽入口網站](http://portal.azur
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -5,7 +5,8 @@
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="07/21/2015" 
 	ms.author="josephd"/>
 
 # SharePoint 內部網路伺服器陣列工作負載第 5 階段：建立可用性群組並新增 SharePoint 資料庫。
@@ -35,14 +36,14 @@ SharePoint 會在初始組態中建立數個資料庫。您必須透過以下步
 
 若要啟用備份和還原，您必須能夠從次要 SQL Server VM 存取備份檔案 (.bak)。請使用下列程序：
 
-1.	以「[網域]**\\sp_farm_db**」登入主要 SQL Server 主機。 
-2.	導覽至 F:\\ 磁碟。 
+1.	以「[網域]**\sp_farm_db**」登入主要 SQL Server 主機。 
+2.	導覽至 F:\ 磁碟。 
 3.	以滑鼠右鍵按一下 [**備份**] 資料夾，然後按一下 [**共用對象**]，再按一下 [**特定人員**]。
-4.	在 [檔案共用] 對話方塊中，輸入「[網域]\\sqlservice」，然後按一下 [新增]。
+4.	在 [檔案共用] 對話方塊中，輸入「[網域]\sqlservice」，然後按一下 [新增]。
 5.	按一下 **sqlservice** 帳戶名稱的 [**權限等級**] 資料行，然後按一下 [**讀取/寫入**]。 
 6.	按一下 [**共用**]，然後按一下 [**完成**]。
 
-在次要 SQL Server 主機上執行上述程序，但在步驟 5 中，不需給予 F:\\Backup 資料夾 sqlservice 帳戶的 [**讀取**] 權限。
+在次要 SQL Server 主機上執行上述程序，但在步驟 5 中，不需給予 F:\Backup 資料夾 sqlservice 帳戶的 [**讀取**] 權限。
 
 ### 備份和還原資料庫
 
@@ -55,20 +56,20 @@ SharePoint 會在初始組態中建立數個資料庫。您必須透過以下步
 3.	在左側窗格中展開 [**資料庫**] 節點。
 4.	以滑鼠右鍵按一下資料庫以進行備份，指向 [**工作**]，然後按一下 [**備份**]。
 5.	在 [**目的地**] 區段中按一下 [**移除**]，移除備份檔案的預設檔案路徑。
-6.	按一下 [新增]。在 [檔案名稱] 中輸入 **\\[machineName]\\backup[databaseName].bak**，這裡的 machineName 是主要 SQL Server 電腦名稱，而 databaseName 是資料庫名稱。按一下 [**確定**]，待備份完成的對話方塊出現後，再按一下 [**確定**]。
+6.	按一下 [新增]。在 [檔案名稱] 中輸入 **[machineName]\backup[databaseName].bak**，這裡的 machineName 是主要 SQL Server 電腦名稱，而 databaseName 是資料庫名稱。按一下 [**確定**]，待備份完成的對話方塊出現後，再按一下 [**確定**]。
 7.	在左側窗格中以滑鼠右鍵按一下 [databaseName]，指向 [工作]，然後按一下 [備份]。
 8.	在 [**備份類型**] 中選取 [**交易紀錄**]，然後按兩下 [**確定**]。
 9.	讓此遠端桌面工作階段保持開啟。
 
 使用下列步驟還原資料庫。
 
-1.	以「[網域名稱]\\sp_farm_db」登入次要 SOL Server 電腦。
+1.	以「[網域名稱]\sp_farm_db」登入次要 SOL Server 電腦。
 2.	在 [開始] 畫面中輸入 **SQL Studio**，然後按一下 [**SQL Server Management Studio**]。
 3.	按一下 [連接]。
 4.	在左側窗格中，以滑鼠右鍵按一下 [**資料庫**]，然後按一下 [**還原資料庫**]。
 5.	在 [**來源**] 區段中選取 [**裝置**]，然後按一下省略符號 (…) 按鈕。
 6.	在 [**選取備份裝置**] 中按一下 [**新增**]。
-7.	在 [備份檔案位置] 中輸入 **\\[machineName]\\backup**，按下 **Enter**，選取 **[databaseName].bak**，然後按兩次 [確定]。您現在可以在 [**要還原的備份組**] 區段中看到完整備份和記錄備份。
+7.	在 [備份檔案位置] 中輸入 **[machineName]\backup**，按下 **Enter**，選取 **[databaseName].bak**，然後按兩次 [確定]。您現在可以在 [**要還原的備份組**] 區段中看到完整備份和記錄備份。
 8.	在 [**選取頁面**] 中按一下 [**選項**]。在 [**還原選項**] 區段的 [**復原狀態**] 中，選取 [**使用 NORECOVERY 還原**]，然後按一下 [**確定**]。 
 9.	出現提示時，按一下 [**確定**]。
 
@@ -124,4 +125,4 @@ SharePoint 會在初始組態中建立數個資料庫。您必須透過以下步
 [Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

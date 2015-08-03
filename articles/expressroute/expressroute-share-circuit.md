@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/25/2015"
+   ms.date="07/20/2015"
    ms.author="cherylmc" />
 
 # 在多個訂用帳戶中共用 ExpressRoute 電路
@@ -33,7 +33,7 @@
 
 ## 工作流程
 
-1. 電路擁有者可授權其他訂用帳戶管理員使用指定的電路。在以下範例中，電路管理員 (Contoso IT) 藉由指定另一位訂用帳戶管理員 (Contoso Sales) 的 Microsoft (Live) ID，使對方可以將最多 2 個 Vnet 連結至電路。此 Cmdlet 不會傳送電子郵件給指定的 Microsoft ID。電路擁有者必須明確通知其他訂用帳戶擁有者，告知授權已完成。
+1. 電路擁有者可授權其他訂用帳戶管理員使用指定的電路。在以下範例中，電路管理員 (Contoso IT) 藉由指定另一位訂用帳戶管理員 (Contoso Sales) 的 Microsoft ID，使對方可以將最多 2 個 Vnet 連結至電路。此 Cmdlet 不會傳送電子郵件給指定的 Microsoft ID。電路擁有者必須明確通知其他訂用帳戶擁有者，告知授權已完成。
 
 		PS C:> New-AzureDedicatedCircuitLinkAuthorization -ServiceKey '6ed7e310-1a02-4261-915f-6ccfedc416f1' -Description 'SalesTeam' -Limit 2 -MicrosoftIds 'salesadmin@contoso.com'
 		
@@ -102,4 +102,4 @@
 
 如需關於 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 概觀](expressroute-introduction.md)。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

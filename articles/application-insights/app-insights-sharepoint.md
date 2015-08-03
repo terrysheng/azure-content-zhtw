@@ -41,7 +41,7 @@ Visual Studio Application Insights 會監視應用程式的可用性、效能和
 
 ![](./media/app-insights-sharepoint/02-monitor-web-page.png)
 
-在您想要追蹤之每一個頁面的 &lt;/head&gt; 標記之前插入指令碼。如果您的網站有主版頁面，您可以那裡放入指令碼。例如，在 ASP.NET MVC 專案中，可放在 View\\Shared_Layout.cshtml 中
+在您想要追蹤之每一個頁面的 &lt;/head&gt; 標記之前插入指令碼。如果您的網站有主版頁面，您可以那裡放入指令碼。例如，在 ASP.NET MVC 專案中，可放在 View\Shared_Layout.cshtml 中
 
 指令碼包含檢測金鑰，會將遙測導向您的 Application Insights 資源。
 
@@ -108,4 +108,4 @@ Visual Studio Application Insights 會監視應用程式的可用性、效能和
 
 <!--Link references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

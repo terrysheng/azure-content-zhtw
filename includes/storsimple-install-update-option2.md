@@ -15,4 +15,4 @@
 
 7. 您現在可以[使用管理入口網站安裝 Update 1](#use-the-management-portal-to-install-update-1)。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

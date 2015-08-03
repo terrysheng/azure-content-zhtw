@@ -31,6 +31,10 @@
 
 如果這是您第一次接觸行動應用程式，先完成[建立 iOS 應用程式]教學課程。
 
+##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
+
 ## <a name="get-app"></a>取得離線 ToDo 應用程式範例
 
 在 [GitHub 上的行動應用程式範例儲存機制]中，複製此儲存機制並開啟 Xcode 中的[離線 iOS 範例]專案。
@@ -278,4 +282,4 @@
 [Azure Friday：Azure 行動服務中的離線應用程式]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

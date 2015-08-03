@@ -66,4 +66,4 @@
 * [MSDN 上的 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 * 適用於 [Windows Phone](http://www.windowsphone.com/zh-tw/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50)、[Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 和 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458) 的 Azure Authenticator 應用程式。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

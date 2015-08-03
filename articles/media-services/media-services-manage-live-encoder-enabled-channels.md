@@ -505,4 +505,4 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

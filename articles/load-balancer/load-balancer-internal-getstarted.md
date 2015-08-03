@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/15/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
 # 開始設定內部負載平衡器
@@ -102,7 +102,7 @@ Azure 內部負載平衡 (ILB) 可在位於雲端服務或虛擬網路 (具有�
 
 在 Get-AzureInternalLoadBalancer 命令的顯示中，請記下 IP 位址，並對伺服器或 DNS 記錄進行必要的變更，以確保流量會被傳送到 VIP。
 
->[AZURE.IMPORTANT]Microsoft Azure 平台會對各種管理案例使用靜態、可公開路由傳送的 IPv4 位址。IP 位址是 168.63.129.16。此 IP 位址不應該遭到任何防火牆封鎖，否則可能會造成非預期的行為。對於 Azure ILB，來自負載平衡器的監視探查會使用此 IP 位址，藉此判斷 VM 在負載平衡集的健全狀態。如果網路安全性群組已用來限制傳輸至內部負載平衡集中 Azure 虛擬機器的流量，或已套用至虛擬網路子網路，請確定您已新增網路安全性規則，允許來自 168.63.129.16 的流量。
+>[AZURE.NOTE]Microsoft Azure 平台會對各種管理案例使用靜態、可公開路由傳送的 IPv4 位址。IP 位址是 168.63.129.16。此 IP 位址不應該遭到任何防火牆封鎖，否則可能會造成非預期的行為。對於 Azure ILB，來自負載平衡器的監視探查會使用此 IP 位址，藉此判斷 VM 在負載平衡集的健全狀態。如果網路安全性群組已用來限制傳輸至內部負載平衡集中 Azure 虛擬機器的流量，或已套用至虛擬網路子網路，請確定您已新增網路安全性規則，允許來自 168.63.129.16 的流量。
 
 
 
@@ -224,15 +224,59 @@ Contoso Corporation 想要在 Azure 的一組 Web 伺服器上裝載特定業務
 
 虛擬機器和雲端服務都支援 ILB，在區域虛擬網路外的雲端服務中所建立的 ILB 端點將只能在雲端服務內進行存取。
 
-ILB 組態必須在雲端服務建立第一個部署的過程中進行設定，如以下的 Cmdlet 範例所示。
+ILB 組態必須在雲端服務建立第一個部署的過程中進行設定，如以下範例所示。
 
-### 建立本機 ILB 物件
-	$myilbconfig = New-AzureInternalLoadBalancerConfig -InternalLoadBalancerName "MyILB"
+>[AZURE.IMPORTANT]執行下列步驟的必要條件是已經為雲端部署建立虛擬網路。您需要虛擬網路名稱和子網路名才能建立 ILB。
 
-### 新增新服務的內部負載平衡器
+### 步驟 1
 
-	New-AzureVMConfig -Name "Instance1" -InstanceSize Small -ImageName <imagename> | Add-AzureProvisioningConfig -Windows -AdminUsername <username> -Password <password> | New-AzureVM -ServiceName "Website2" -InternalLoadBalancerConfig $myilbconfig -Location "West US"
+在 Visual Studio 中開啟雲端部署的服務組態檔 (.cscfg) 並新增下列區段以在網路組態的最後一個 "</Role>" 項目下建立 ILB。
 
+
+
+
+	<NetworkConfiguration>
+	  <LoadBalancers>
+	    <LoadBalancer name="name of the load balancer">
+	      <FrontendIPConfiguration type="private" subnet="subnet-name" staticVirtualNetworkIPAddress="static-IP-address"/>
+	    </LoadBalancer>
+	  </LoadBalancers>
+	</NetworkConfiguration>
+ 
+
+讓我們新增網路組態檔的值，以顯示看起來如何。在此範例中，假設您利用稱為 test_subnet 的子網路 10.0.0.0/24 和靜態 IP 10.0.0.4 建立稱為 "test_vnet" 的子網路。負載平衡器將會命名為 testLB。
+
+	<NetworkConfiguration>
+	  <LoadBalancers>
+	    <LoadBalancer name="testLB">
+	      <FrontendIPConfiguration type="private" subnet="test_subnet" staticVirtualNetworkIPAddress="10.0.0.4"/>
+	    </LoadBalancer>
+	  </LoadBalancers>
+	</NetworkConfiguration>
+
+如需負載平衡器結構描述的詳細資訊，請參閱[新增負載平衡器](https://msdn.microsoft.com/library/azure/dn722411.aspx)
+
+### 步驟 2
+
+
+變更服務定義 (.csdef) 檔案，以將端點新增至 ILB。建立角色執行個體時，服務定義檔會將角色執行個體新增至 ILB。
+
+
+	<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
+	  <Endpoints>
+	    <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancer="load-balancer-name" />
+	  </Endpoints>
+	</WorkerRole>
+
+遵循與上述範例相同的值，讓我們將值新增至服務定義檔
+
+	<WorkerRole name=WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
+	  <Endpoints>
+	    <InputEndpoint name="endpoint1" protocol="http" localPort="80" port="80" loadBalancer="testLB" />
+	  </Endpoints>
+	</WorkerRole>
+
+網路流量會使用 testLB 負載平衡器進行負載平衡，使用連接埠 80 進行連入要求，也在連接埠 80 上傳送背景工作角色執行個體。
 
 
 ## 移除 ILB 組態
@@ -266,6 +310,7 @@ ILB 組態必須在雲端服務建立第一個部署的過程中進行設定，�
 	Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 
+
 ## ILB Cmdlet 的其他資訊
 
 
@@ -286,4 +331,4 @@ ILB 組態必須在雲端服務建立第一個部署的過程中進行設定，�
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

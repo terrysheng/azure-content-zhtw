@@ -1,7 +1,7 @@
 <properties
    pageTitle="建立資源的多個執行個體"
    description="說明如何在部署資源時於「Azure 資源管理員」範本中使用 copy 作業，以進行多次逐一執行。"
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
@@ -16,7 +16,7 @@
    ms.date="07/14/2015"
    ms.author="tomfitz"/>
 
-# 在「Azure 資源管理員」中建立資源的多個執行個體
+# 在 Azure 資源管理員中建立資源的多個執行個體
 
 此主題說明如何逐一查看您的「Azure 資源管理員」範本，以建立資源的多個執行個體。
 
@@ -39,7 +39,7 @@
 
 - examplecopy-0
 - examplecopy-1
-- examplecopy-2.
+- examplecopy-2。
 
 使用下列範本：
 
@@ -114,4 +114,4 @@
 - [Azure 資源管理員範本函數](./resource-group-template-functions.md)
 - [使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

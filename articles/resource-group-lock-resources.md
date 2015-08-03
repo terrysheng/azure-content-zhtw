@@ -94,4 +94,4 @@ PowerShell 針對使用中的鎖定提供其他命令，例如 **Set-AzureResour
 - [使用標記組織您的資源](resource-group-using-tags.md)
 - [將資源移動到新的資源群組](resource-group-move-resources.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

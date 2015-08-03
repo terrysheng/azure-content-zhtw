@@ -449,4 +449,4 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

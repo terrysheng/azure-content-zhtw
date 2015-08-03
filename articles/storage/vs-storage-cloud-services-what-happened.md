@@ -46,4 +46,4 @@ Azure 儲存體 NuGet 封裝已加入至 Visual Studio 專案。這個封裝會�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

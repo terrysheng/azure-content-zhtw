@@ -121,4 +121,4 @@ StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀
 深入了解 [Windows PowerShell for StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx)。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

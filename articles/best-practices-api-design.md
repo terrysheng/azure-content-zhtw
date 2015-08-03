@@ -523,4 +523,4 @@ Content-Length: ...
 - [RESTful Cookbook](http://restcookbook.com/) (英文) 含有建置符合 REST 限制之 Web API 的簡介。
 - Web [API 檢查清單](https://mathieu.fenniak.net/the-api-checklist/) (英文) 含有在設計及實作 Web API 時應納入考量的實用項目清單。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

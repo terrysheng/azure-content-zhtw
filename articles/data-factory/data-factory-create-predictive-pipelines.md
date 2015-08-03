@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 和 Azure Machine Learning 來建立預測管線 
@@ -213,39 +213,11 @@
 #### Azure SQL 寫入器
 與 Azure SQL 讀取器相同，Azure SQL 寫入器的屬性也可以公開為 Web 服務參數。Azure SQL 寫入器使用與輸入資料表或輸出資料表相關聯之連結服務中的設定。下表描述何時使用輸入連結服務與輸出連結服務。
 
-<table>
-<tr>
-<td>輸出/輸入</td>
-<td><b>輸入是 Azure SQL</b></td>
-<td><b>輸入是 Azure Blob</b></td>
-</tr>
-<tr>
-<td><b>輸出是 Azure SQL</b></td>
-<td><p>Data Factory 服務會使用 INPUT 連結服務中的連接字串資訊，產生具有下列名稱的 Web 服務參數：「資料庫伺服器名稱」、「資料庫名稱」、「伺服器使用者帳戶名稱」、「伺服器使用者帳戶密碼」。請注意，在 Azure ML Studio 中必須使用這些 Web 服務參數的預設名稱。</p>
-<p>如果 Azure ML 模型中的 Azure SQL 讀取器和 Azure SQL 寫入器共用上述的相同 Web 服務參數，則是正確的。如果它們未共用相同的 Web 服務參數 (例如，如果 Azure SQL 寫入器使用參數名稱：資料庫伺服器名稱1、資料庫名稱1、伺服器使用者帳戶名稱1、伺服器使用者帳戶密碼1 (結尾為 '1' ))，您必須在活動 JSON 的 webServiceParameters 區段中傳遞這些 OUTPUT Web 服務參數的值。</p>
-<p>
-您可以使用活動 JSON 的 webServiceParameters 區段來傳遞任何其他 Web 服務參數的值。 
-</p>
-
-</td>
-<td>
-<p>Data Factory 服務會使用 OUTPUT 連結服務中的連接字串資訊，產生具有下列名稱的 Web 服務參數：「資料庫伺服器名稱」、「資料庫名稱」、「伺服器使用者帳戶名稱」、「伺服器使用者帳戶密碼」。請注意，在 Azure ML Studio 中必須使用這些 Web 服務參數的預設名稱。</p>
-<p>您可以使用活動 JSON 的 webServiceParameters 區段來傳遞任何其他 Web 服務參數的值。<p>輸入 Blob 會用做輸入位置。</p>
-</td>
-</tr>
-<tr>
-<td><b>輸出是 Azure Blob</b></td>
-<td>Data Factory 服務會使用 INPUT 連結服務中的連接字串資訊，產生具有下列名稱的 Web 服務參數：「資料庫伺服器名稱」、「資料庫名稱」、「伺服器使用者帳戶名稱」、「伺服器使用者帳戶密碼」。請注意，在 Azure ML Studio 中必須使用這些 Web 服務參數的預設名稱。
-</td>
-<td>
-<p>您必須使用活動 JSON 的 WebServiceParameters 區段來傳遞任何 Web 服務參數的值。</p> 
-
-<p>Blob 會用做輸入和輸出位置。</p>
-
-</td>
-<tr>
-
-</table>
+| 輸出/輸入 | 輸入是 Azure SQL | 輸入是 Azure Blob |
+| ------------ | ------------------ | ------------------- |
+| 輸出是 Azure SQL | <p>Data Factory 服務會使用 INPUT 連結服務中的連接字串資訊，產生具有下列名稱的 Web 服務參數：「資料庫伺服器名稱」、「資料庫名稱」、「伺服器使用者帳戶名稱」、「伺服器使用者帳戶密碼」。請注意，您必須在 Azure ML Studio 中使用 Web 服務參數的預設名稱。</p><p>如果 Azure ML 模型中的 Azure SQL 讀取器和 Azure SQL 寫入器共用上述的相同 Web 服務參數，則是正確的。如果它們未共用相同的 Web 服務參數 (例如，如果 Azure SQL 寫入器使用參數名稱：資料庫伺服器名稱1、資料庫名稱1、伺服器使用者帳戶名稱1、伺服器使用者帳戶密碼1 (結尾為 '1' ))，您必須在活動 JSON 的 webServiceParameters 區段中傳遞這些 OUTPUT Web 服務參數的值。</p><p>您可以使用活動 JSON 的 webServiceParameters 區段傳遞任何其他 Web 服務參數的值。</p> | <p>Data Factory 服務會使用 OUTPUT 連結服務中的連接字串資訊，產生具有下列名稱的 Web 服務參數：「資料庫伺服器名稱」、「資料庫名稱」、「伺服器使用者帳戶名稱」、「伺服器使用者帳戶密碼」。請注意，您必須在 Azure ML Studio 中使用這些 Web 服務參數的預設名稱。</p><p>您可以使用活動 JSON 的 webServiceParameters 區段傳遞任何其他 Web 服務參數的值。<p>輸入 Blob 會用做輸入位置。</p> |
+|輸出是 Azure Blob | Data Factory 服務會使用 INPUT 連結服務中的連接字串資訊，產生具有下列名稱的 Web 服務參數：「資料庫伺服器名稱」、「資料庫名稱」、「伺服器使用者帳戶名稱」、「伺服器使用者帳戶密碼」。請注意，在 Azure ML Studio 中必須使用這些 Web 服務參數的預設名稱。 | <p>您必須使用活動 JSON 的 WebServiceParameters 區段來傳遞任何 Web 服務參數的值。</p><p>Blob 會用做輸入和輸出位置。</p> |
+    
 
 > [AZURE.NOTE]Azure SQL 寫入器可能會在覆寫身分識別資料行時發生索引鍵違規。您應該確定輸出資料表的結構，以避免這種情況。
 > 
@@ -328,4 +300,4 @@
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

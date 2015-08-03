@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="07/20/2015" 
 	ms.author="andrela"/>
 
 
@@ -30,7 +30,6 @@
 	
     sudo apt-get --assume-yes update 
     sudo apt-get --assume-yes install freetds-dev freetds-bin
-
 
 如果您的電腦上還沒有 Ruby，請在利用 FreeTDS 設定您的電腦之後安裝 Ruby。
     
@@ -65,7 +64,9 @@ Ruby 範例依賴 AdventureWorks 範例資料庫。如果您還沒有 AdventureW
 [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) 函數可用來連接到 SQL Database。
 
     require 'tiny_tds' 
-    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', host: 'yourserver.database.windows.net', port: 1433, database: 'AdventureWorks', azure:true 
+    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', 
+    host: 'yourserver.database.windows.net', port: 1433, 
+    database: 'AdventureWorks', azure:true 
 
 ## 執行 SELECT 陳述式並擷取結果集
 
@@ -73,7 +74,9 @@ Ruby 範例依賴 AdventureWorks 範例資料庫。如果您還沒有 AdventureW
 
     require 'tiny_tds'  
     print 'test'     
-    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', host: 'yourserver.database.windows.net', port: 1433, database: 'AdventureWorks', azure:true 
+    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', 
+    host: 'yourserver.database.windows.net', port: 1433, 
+    database: 'AdventureWorks', azure:true 
     results = client.execute("select * from SalesLT.Product") 
     results.each do |row| 
     puts row 
@@ -94,10 +97,9 @@ Ruby 範例依賴 AdventureWorks 範例資料庫。如果您還沒有 AdventureW
 若要配合 Microsoft SQL Server [datetime](http://msdn.microsoft.com/library/ms187819.aspx) 格式，請使用 [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) 函數轉換成相對應的日期時間格式。
 
     require 'tiny_tds' 
-    require 'date'
-    t = Time.now
-    curr_date = t.strftime("%Y-%m-%d %H:%M:%S.%L") 
-    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', host: 'yourserver.database.windows.net', port: 1433, database: 'AdventureWorks', azure:true 
+    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', 
+    host: 'yourserver.database.windows.net', port: 1433, 
+    database: 'AdventureWorks', azure:true 
     results = client.execute("SET ANSI_NULLS ON")
     results = client.execute("SET CURSOR_CLOSE_ON_COMMIT OFF")
     results = client.execute("SET ANSI_NULL_DFLT_ON ON")
@@ -106,9 +108,13 @@ Ruby 範例依賴 AdventureWorks 範例資料庫。如果您還沒有 AdventureW
     results = client.execute("SET QUOTED_IDENTIFIER ON")
     results = client.execute("SET ANSI_WARNINGS ON")
     results = client.execute("SET CONCAT_NULL_YIELDS_NULL ON")
-    results = client.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, '#{curr_date}' )")
+    require 'date'
+    t = Time.now
+    curr_date = t.strftime("%Y-%m-%d %H:%M:%S.%L") 
+    results = client.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) 
+    OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, '#{curr_date}' )")
     results.each do |row| 
     puts row
     end 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

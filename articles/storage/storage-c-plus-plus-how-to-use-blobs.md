@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="07/19/2015" 
     ms.author="tamram"/>
 
 # 如何使用 C++ 的 Blob 儲存體  
@@ -165,6 +165,8 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 		}
 	}
 
+如需列出作業的詳細資訊，請參閱[以 C++ 列出 Azure 儲存體資源](storage-c-plus-plus-enumeration.md)。
+
 ## 作法：下載 Blob
 若要下載 Blob，請先擷取 Blob 參考，然後呼叫 **download_to_stream** 方法。下列範例使用 **download_to_stream** 方法將 Blob 內容傳送給資料流物件，您接著可將該物件永久儲存成本機檔案。
 
@@ -231,6 +233,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 
 -	[如何使用 C++ 的佇列儲存體](storage-c-plus-plus-how-to-use-queues.md)
 -	[如何使用 C++ 的資料表儲存體](storage-c-plus-plus-how-to-use-tables.md)
+-	[以 C++ 列出 Azure 儲存體資源](storage-c-plus-plus-enumeration.md)
 -	[Storage Client Library for C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
 -	[Azure 儲存體 MSDN 參考](https://msdn.microsoft.com/library/azure/gg433040.aspx)
 -	[Azure 儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
@@ -240,4 +243,4 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

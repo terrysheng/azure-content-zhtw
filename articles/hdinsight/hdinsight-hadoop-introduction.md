@@ -1,7 +1,6 @@
 <properties
 	pageTitle="HDInsight 中的 Hadoop 是什麼：雲端巨量資料分析 | Microsoft Azure"
 	description="雲端上的 HDInsight 中 Hadoop 元件的簡介。深入了解 HDInsight 如何使用 Hadoop 叢集以管理、分析及報告巨量資料。"
-	keywords="big data,big data analysis,hadoop,introduction to hadoop,what is hadoop"
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
@@ -247,4 +246,4 @@ Apache YARN 是新一代的 MapReduce (MapReduce 2.0，簡稱為 MRv2)，可將 
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -26,7 +26,7 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
 
 ## <a id="concepts"> </a>託管服務核心概念
 
-當您在 Azure 中部署應用程式作為託管服務後，該應用程式會以一或多個「角色」**的身分執行。 「角色」**其實就是指應用程式檔案和組態。您可以為應用程式定義一或多個角色，而每個角色都有自己專屬的一組應用程式檔案和組態。您可以針對應用程式中的每個角色，指定要執行的 VM (或「角色執行個體」**) 數目。下圖顯示以角色和角色執行個體將應用程式模型化為託管服務時的兩個簡單範例。
+當您在 Azure 中部署應用程式作為託管服務後，該應用程式會以一或多個「角色」的身分執行。 「角色」其實就是指應用程式檔案和組態。您可以為應用程式定義一或多個角色，而每個角色都有自己專屬的一組應用程式檔案和組態。您可以針對應用程式中的每個角色，指定要執行的 VM (或「角色執行個體」) 數目。下圖顯示以角色和角色執行個體將應用程式模型化為託管服務時的兩個簡單範例。
 
 ##### 圖 1：單一角色有三個執行個體 (VM) 在 Azure 資料中心內執行
 
@@ -36,7 +36,7 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
 
 ![image][1]
 
-角色執行個體通常會透過所謂的「輸入端點」**來處理進到資料中心的網際網路用戶端要求。一個角色可以有 0 個以上的輸入端點。每個端點皆指出一個通訊協定 (HTTP、HTTPS 或 TCP) 和一個連接埠。一個角色通常是設成具有兩個輸入端點：一個在連接埠 80 接聽 HTTP 要求，一個在連接埠 443 接聽 HTTPS 要求下圖的範例顯示兩個不同角色使用不同的輸入端點來將用戶端要求導向自己。
+角色執行個體通常會透過所謂的「輸入端點」來處理進到資料中心的網際網路用戶端要求。一個角色可以有 0 個以上的輸入端點。每個端點皆指出一個通訊協定 (HTTP、HTTPS 或 TCP) 和一個連接埠。一個角色通常是設成具有兩個輸入端點：一個在連接埠 80 接聽 HTTP 要求，一個在連接埠 443 接聽 HTTPS 要求下圖的範例顯示兩個不同角色使用不同的輸入端點來將用戶端要求導向自己。
 
 ![image][2]
 
@@ -262,11 +262,11 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
 </tr>
 </tbody>
 </table>
-您用作角色執行個體的每個 VM 會依每小時計費，而您的角色執行個體傳送到資料中心外的任何資料也都要計費。進入資料中心的資料則不需計費。如需詳細資訊，請參閱 [Azure 定價][]。一般會建議使用許多小型角色執行個體，而不是少數大型執行個體，這樣您的應用程式比較容易從失敗當中恢復。畢竟，您的角色執行個體愈少，要是其中一個角色執行個體發生災難性失敗，應用程式整體受到的影響就愈大。而且，如前所述，您必須為每個角色至少必須部署兩個執行個體，才能獲得 Microsoft 所訂 99.95% 的服務等級協定。
+您用作角色執行個體的每個 VM 會依每小時計費，而您的角色執行個體傳送到資料中心外的任何資料也都要計費。進入資料中心的資料則不需計費。如需詳細資訊，請參閱 [Azure 價格][]。一般會建議使用許多小型角色執行個體，而不是少數大型執行個體，這樣您的應用程式比較容易從失敗當中恢復。畢竟，您的角色執行個體愈少，要是其中一個角色執行個體發生災難性失敗，應用程式整體受到的影響就愈大。而且，如前所述，您必須為每個角色至少必須部署兩個執行個體，才能獲得 Microsoft 所訂 99.95% 的服務等級協定。
 
 在服務定義檔 (CSDEF) 中，您也會指定應用程式中每個角色的許多屬性。以下是一些對您較有用的項目：
 
--   **憑證**。如果您想要加密資料，或您的 Web 服務支援 SSL，您就會使用憑證。所有憑證都需要上傳至 Azure。如需詳細資訊，請參閱[在 Azure 中管理憑證][]。此 XML 設定會將先前上傳的憑證安裝至角色執行個體的憑證存放區中，供您的應用程式程式碼取使用。
+-   **憑證**。如果您想要加密資料，或您的 Web 服務支援 SSL，您就會使用憑證。所有憑證都需要上傳至 Azure。如需詳細資訊，請參閱 [在 Azure 中管理憑證][]。此 XML 設定會將先前上傳的憑證安裝至角色執行個體的憑證存放區中，供您的應用程式程式碼取使用。
 
 -   **組態設定名稱**。代表您想要應用程式在角色執行個體上執行時讀取的值。組態設定的實際值是設定於服務組態檔 (CSCFG) 中，您隨時都可以更新該檔案，而且不需要重新部署程式碼。事實上，您可以使用這類方式來編寫應用程式，以偵測變更的組態值，而不需要停機。
 
@@ -284,7 +284,7 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
 
 服務組態檔 (CSCFG) 是一個 XML 檔案，其中描述不需重新部署應用程式就能變更的設定。如需此 XML 檔案的完整結構描述，請至：[http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][]。CSCFG 檔案會針對您應用程式中的每個角色各包含一個 Role 元素。以下是一些您可以在 CSCFG 檔案中指定的項目：
 
--   **OS 版本**。此屬性可讓您選取要讓所有執行您應用程式程式碼之角色執行個體來使用的作業系統 (OS) 版本。此作業系統稱為「客體 OS」**，而且每個新版本都包含客體 OS 發行當時可用的最新安全性修補程式和更新。如果您將 osVersion 屬性值設定為 "*"，則 Azure 會在有新的客體 OS 版本可用時，自動更新每個角色執行個體上的客體 OS。不過，選取特定客體 OS 版本，即等於選擇略過自動更新。例如，將 osVersion 屬性設為值 "WA-GUEST-OS-2.8_201109-01"，會讓您的所有角色執行個體都取得下列網頁所述的內容：[http://msdn.microsoft.com/library/hh560567.aspx][]。如需客體 OS 版本的詳細資訊，請參閱[管理 Azure 客體 OS 的升級]。
+-   **OS 版本**。此屬性可讓您選取要讓所有執行您應用程式程式碼之角色執行個體來使用的作業系統 (OS) 版本。此作業系統稱為「客體 OS」，而且每個新版本都包含客體 OS 發行當時可用的最新安全性修補程式和更新。如果您將 osVersion 屬性值設定為 "*"，則 Azure 會在有新的客體 OS 版本可用時，自動更新每個角色執行個體上的客體 OS。不過，選取特定客體 OS 版本，即等於選擇略過自動更新。例如，將 osVersion 屬性設為值 "WA-GUEST-OS-2.8_201109-01"，會讓您的所有角色執行個體都取得下列網頁所述的內容：[http://msdn.microsoft.com/library/hh560567.aspx][]。如需客體 OS 版本的詳細資訊，請參閱 [管理 Azure 客體 OS 的升級]。
 
 -   **執行個體**。此元素的值指出您想要佈建來執行特定角色之程式碼的角色執行個體數目。因為您可以將新的 CSCFG 檔案上傳至 Azure (而不需要重新部署應用程式)，所以很簡單就可以變更此元素的值，並上傳新的 CSCFG 檔案，以動態增加或減少執行應用程式程式碼的角色執行個體數目。如此一來，您便可根據實際工作量需求，輕鬆地向上調整或向下調整應用程式，同時控制要為執行的角色執行個體負擔的費用。
 
@@ -316,33 +316,34 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
 
 </div>
 
-[Azure 應用程式模型優點]: #benefits
-[託管服務核心概念]: #concepts
-[託管服務設計考量]: #considerations
-[設計可調整的應用程式]: #scale
-[託管服務的定義和組態]: #defandcfg
-[服務定義檔]: #def
-[服務組態檔]: #cfg
-[建立和部署託管服務]: #hostedservices
-[參考]: #references
-[0]: ./media/application-model/application-model-3.jpg
-[1]: ./media/application-model/application-model-4.jpg
-[2]: ./media/application-model/application-model-5.jpg
-[在 Azure 中設定自訂網域名稱]: http://www.windowsazure.com/develop/net/common-tasks/custom-dns/
-[Azure 的資料儲存方案]: http://www.windowsazure.com/develop/net/fundamentals/cloud-storage/
-[3]: ./media/application-model/application-model-6.jpg
-[4]: ./media/application-model/application-model-7.jpg
-[Azure 定價]: http://www.windowsazure.com/pricing/calculator/
-[在 Azure 中管理憑證]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
-[http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
-[http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
-[Managing Upgrades to the Azure Guests OS]: http://msdn.microsoft.com/library/ee924680.aspx
-[Azure 管理入口網站]: http://manage.windowsazure.com/
-[5]: ./media/application-model/application-model-8.jpg
-[部署和更新 Azure 應用程式]: http://www.windowsazure.com/develop/net/fundamentals/deploying-applications/
-[建立 Azure 託管服務]: http://msdn.microsoft.com/library/gg432967.aspx
-[在 Azure 中管理託管服務]: http://msdn.microsoft.com/library/gg433038.aspx
-[將應用程式移轉到 Azure]: http://msdn.microsoft.com/library/gg186051.aspx
-[設定 Azure 應用程式]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
+  [Azure 應用程式模型優點]: #benefits
+  [託管服務核心概念]: #concepts
+  [託管服務設計考量]: #considerations
+  [設計可調整的應用程式]: #scale
+  [託管服務的定義和組態]: #defandcfg
+  [服務定義檔]: #def
+  [服務組態檔]: #cfg
+  [建立和部署託管服務]: #hostedservices
+  [參考]: #references
+  [0]: ./media/application-model/application-model-3.jpg
+  [1]: ./media/application-model/application-model-4.jpg
+  [2]: ./media/application-model/application-model-5.jpg
+  [在 Azure 中設定自訂網域名稱]: http://www.windowsazure.com/develop/net/common-tasks/custom-dns/
+  [Azure 的資料儲存方案]: http://www.windowsazure.com/develop/net/fundamentals/cloud-storage/
+  [3]: ./media/application-model/application-model-6.jpg
+  [4]: ./media/application-model/application-model-7.jpg
+  
+  [Azure 價格]: http://www.windowsazure.com/pricing/calculator/
+  [Managing Certificates in Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
+  [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+  [http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
+  [Managing Upgrades to the Azure Guests OS]: http://msdn.microsoft.com/library/ee924680.aspx
+  [Azure 管理入口網站]: http://manage.windowsazure.com/
+  [5]: ./media/application-model/application-model-8.jpg
+  [部署和更新 Azure 應用程式]: http://www.windowsazure.com/develop/net/fundamentals/deploying-applications/
+  [建立 Azure 託管服務]: http://msdn.microsoft.com/library/gg432967.aspx
+  [在 Azure 中管理託管服務]: http://msdn.microsoft.com/library/gg433038.aspx
+  [將應用程式移轉到 Azure]: http://msdn.microsoft.com/library/gg186051.aspx
+  [設定 Azure 應用程式]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
-<!--HONumber=52-->
+<!---HONumber=July15_HO4-->

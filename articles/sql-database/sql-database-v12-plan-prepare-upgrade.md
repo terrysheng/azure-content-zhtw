@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="07/15/2015"
 	ms.author="genemi"/>
 
 
@@ -244,4 +244,4 @@ Stop- Cmdlet 表示取消，不是暫停。升級一旦停止就沒有任何方�
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

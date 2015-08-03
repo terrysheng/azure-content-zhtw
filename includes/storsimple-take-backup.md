@@ -24,4 +24,4 @@
 
 您已經完成裝置設定。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

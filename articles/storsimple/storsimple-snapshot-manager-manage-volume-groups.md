@@ -142,4 +142,4 @@
 
 [使用 StorSimple Snapshot Manager 來建立和管理備份原則](storsimple-snapshot-manager-manage-backup-policies.md)。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

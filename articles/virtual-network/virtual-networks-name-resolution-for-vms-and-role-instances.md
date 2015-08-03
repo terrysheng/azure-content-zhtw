@@ -127,4 +127,4 @@
 
 [Azure 服務組態結構描述](https://msdn.microsoft.com/library/azure/ee758710) [虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100) [關於在管理入口網站中設定虛擬網路設定](https://msdn.microsoft.com/library/azure/jj156074.aspx) [使用網路組態檔設定虛擬網路](https://msdn.microsoft.com/library/azure/jj156097.aspx) [Azure 虛擬網路組態工作](https://msdn.microsoft.com/library/azure/jj156206.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

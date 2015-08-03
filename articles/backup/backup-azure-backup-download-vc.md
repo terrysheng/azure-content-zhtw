@@ -40,4 +40,4 @@
 ## 後續步驟
 [下載、註冊及安裝 Azure 備份代理程式](backup-azure-backup-download-register)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

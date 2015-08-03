@@ -111,7 +111,7 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API][svc-mgmt-rest-api] (其為 
 - 美國西部
 - 美國東部
 
-在下面的程式碼範例中，以字串形式將位置傳遞給方法。不過，您也可以使用 <code>WindowsAzure\\ServiceManagement\\Models\\Locations</code> 類別，以列舉形式傳遞位置。例如，您可以傳遞 <code>Locations::WEST_US</code>，而不是將「美國西部」傳遞給接受位置的方法。
+在下面的程式碼範例中，以字串形式將位置傳遞給方法。不過，您也可以使用 <code>WindowsAzure\ServiceManagement\Models\Locations</code> 類別，以列舉形式傳遞位置。例如，您可以傳遞 <code>Locations::WEST_US</code>，而不是將「美國西部」傳遞給接受位置的方法。
 
 ## 作法：建立雲端服務
 
@@ -558,4 +558,4 @@ Azure 提供兩個部署環境：預備和生產。一般而言，將服務部�
 
 [Azure 服務組態結構描述 (.cscfg 檔)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

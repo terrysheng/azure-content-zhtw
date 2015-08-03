@@ -83,7 +83,7 @@
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png)
 
-	> [AZURE.NOTE]在 Views\\Roles\\Index.cshtml 中，您將看到使用稱為 <code>AadPicker</code> 物件 (定義在 Scripts\\AadPickerLibrary.js) 的檢視，存取 <code>Roles</code> 控制器中的 <code>Search</code> 動作。<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>"; ... var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre> 在 Controllers\\RolesController.cs 中，您將看到 <code>Search</code> 動作，其會將實際要求傳送至 Azure Active Directory 圖形 API，並將回應傳田至頁面。稍後您將使用相同的方法，在您的應用程式中建立簡單的功能。
+	> [AZURE.NOTE]在 Views\Roles\Index.cshtml 中，您將看到使用稱為 <code>AadPicker</code> 物件 (定義在 Scripts\AadPickerLibrary.js) 的檢視，存取 <code>Roles</code> 控制器中的 <code>Search</code> 動作。<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>"; ... var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre> 在 Controllers\RolesController.cs 中，您將看到 <code>Search</code> 動作，其會將實際要求傳送至 Azure Active Directory 圖形 API，並將回應傳田至頁面。稍後您將使用相同的方法，在您的應用程式中建立簡單的功能。
 
 6.	從下拉式清單中選取使用者或群組，選取角色，然後按一下 [指派角色]。
 
@@ -146,6 +146,7 @@
 	-	索引鍵 (如果離開該頁面，您將無法再看到索引鍵)
 
 11. 在 Visual Studio 中，開啟專案中的 **Web.Release.config**。將下列 XML 插入 `<configuration>` 標記中，並以您為新 Azure Active Directory 應用程式儲存的資訊來取代每個索引鍵的值。
+	
 	<pre class="prettyprint">
 &lt;appSettings>
    &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
@@ -164,7 +165,7 @@
 <a name="bkmk_crud"></a>
 ## 將特定業務功能功能新增至範例應用程式
 
-在這部分的教學課程中，您將學習如何根據範例應用程式建立所需的特定業務功能。您將建立簡單 CRUD 工作項目追蹤程式，類似於 TaskTracker 控制器，但使用標準的 CRUD 建構和設計模式。您也會使用隨附的 Scripts\\AadPickerLibrary.js，使用 Azure Active Directory Graph API 的資料豐富您的應用程式。
+在這部分的教學課程中，您將學習如何根據範例應用程式建立所需的特定業務功能。您將建立簡單 CRUD 工作項目追蹤程式，類似於 TaskTracker 控制器，但使用標準的 CRUD 建構和設計模式。您也會使用隨附的 Scripts\AadPickerLibrary.js，使用 Azure Active Directory Graph API 的資料豐富您的應用程式。
 
 5.	在 Models 資料夾中，建立稱為 WorkItem.cs 的新模型，並以下列程式碼取代該程式碼：
 
@@ -191,7 +192,8 @@
 		    }
 		}
 
-6.	開啟 DAL\\GroupClaimContext.cs 並新增反白顯示的程式碼：
+6.	開啟 DAL\GroupClaimContext.cs 並新增反白顯示的程式碼：
+	
 	<pre class="prettyprint">
 public class GroupClaimContext : DbContext
 {
@@ -213,15 +215,16 @@ public class GroupClaimContext : DbContext
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/8-add-scaffolded-controller.png)
 
-9.	開啟 Controllers\\WorkItemsController.cs
+9.	開啟 Controllers\WorkItemsController.cs
 
 11. 將反白顯示的 [Authorize] 裝飾新增至下列的相應動作。
+	
 	<pre class="prettyprint">
-...
+	...
 
-<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-public class WorkItemsController : Controller
-{
+	<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+	public class WorkItemsController : Controller
+	{
 	...
 
     <mark>[Authorize(Roles = "Admin, Writer")]</mark>
@@ -251,7 +254,7 @@ public class WorkItemsController : Controller
 
 	> [AZURE.NOTE]您可能已經注意到某些動作上的 <code>[ValidateAntiForgeryToken]</code> 裝飾。由於 [Brock Allen](https://twitter.com/BrockLAllen) 在 [MVC 4、AntiForgeryToken 和宣告](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) 所描述的行為，HTTP POST 可能無法執行防偽語彙基元驗證，因為：+ Azure Active Directory 不會傳送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider，依預設防偽語彙基元需要此項。+ 如果 Azure Active Directory 是與 AD FS 進行同步處理的目錄，依預設 AD FS 信任不會傳送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 宣告，但是您可以手動設定 AD FS 來傳送此宣告。您會在下一步這麼做。
 
-12.  在 App_Start\\Startup.Auth.cs 中，在 `ConfigureAuth` 方法中加入下行程式碼：
+12.  在 App_Start\Startup.Auth.cs 中，在 `ConfigureAuth` 方法中加入下行程式碼：
 
 		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
 	
@@ -259,9 +262,9 @@ public class WorkItemsController : Controller
 
 13.	In Create() and Edit() add following code to make some variables available to your JavaScript later: ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value); ViewData["tenant"] = ConfigHelper.Tenant;
 
-14.	在 Views\\WorkItems\\Create.cshtml (自動建構的項目) 中尋找 `Html.BeginForm` Helper 方法，並如下所示修改它：
+14.	在 Views\WorkItems\Create.cshtml (自動建構的項目) 中尋找 `Html.BeginForm` Helper 方法，並如下所示修改它：
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
-{
+	{
     @Html.AntiForgeryToken()
 
     &lt;div class="form-horizontal">
@@ -331,11 +334,11 @@ public class WorkItemsController : Controller
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/9-create-workitem.png)
 
-16. 填寫表單的其餘部分，並按一下 [建立]。~/WorkItems/Index 頁面現在會顯示新建立的工作項目。您還會看到下面的螢幕擷取畫面，顯示我移除了 Views\\WorkItems\\Index.cshtml 中的 `AssignedToID` 資料行。
+16. 填寫表單的其餘部分，並按一下 [建立]。~/WorkItems/Index 頁面現在會顯示新建立的工作項目。您還會看到下面的螢幕擷取畫面，顯示我移除了 Views\WorkItems\Index.cshtml 中的 `AssignedToID` 資料行。
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/10-workitem-index.png)
 
-11.	現在，對 [編輯] 檢視做類似的變更。在 Views\\WorkItems\\Edit.cshtml 中，對 `Html.BeginForm` Helper 方法 (與上個步驟中 Views\\WorkItems\\Create.cshtml 的方法相同) 進行變更 (將上述反白顯示的程式碼中的 "Create" 取代成 "Edit")。
+11.	現在，對 [編輯] 檢視做類似的變更。在 Views\WorkItems\Edit.cshtml 中，對 `Html.BeginForm` Helper 方法 (與上個步驟中 Views\WorkItems\Create.cshtml 的方法相同) 進行變更 (將上述反白顯示的程式碼中的 "Create" 取代成 "Edit")。
 
 就這麼簡單！
 
@@ -362,4 +365,4 @@ public class WorkItemsController : Controller
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

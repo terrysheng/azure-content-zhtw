@@ -53,4 +53,4 @@
 
 請參閱[升級程序](mobile-engagement-windows-store-upgrade-procedure/)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

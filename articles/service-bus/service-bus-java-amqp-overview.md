@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/21/2015" 
 	ms.author="sethm"/>
 
 
@@ -70,30 +70,12 @@ Azure 服務匯流排中的 AMQP 1.0 支援代表您現在能夠從一組平台�
 
 目前已知下列用戶端程式庫可以使用服務匯流排：
 
-<table>
-  <tr>
-    <th>語言</th>
-    <th>程式庫</th>
-  </tr>
-  <tr>
-    <td>Java</td>
-    <td>Apache Qpid Java 訊息服務 (JMS) 用戶端<br/>
-        IIT Software SwiftMQ Java 用戶端</td>
-  </tr>
-  <tr>
-    <td>C</td>
-    <td>Apache Qpid Proton-C</td>
-  </tr>
-  <tr>
-    <td>PHP</td>
-    <td>Apache Qpid Proton-PHP</td>
-  </tr>
-  <tr>
-    <td>Python</td>
-    <td>Apache Qpid Proton-Python</td>
-  </tr>
-
-</table>
+| 語言 | 程式庫 |
+|----------|-------------------------------------------------------------------------------|
+| Java | Apache Qpid Java 訊息服務 (JMS) 用戶端<br/> IIT Software SwiftMQ Java 用戶端 |
+| C | Apache Qpid Proton-C |
+| PHP | Apache Qpid Proton-PHP |
+| Python | Apache Qpid Proton-Python |
 
 
 **圖 2：AMQP 1.0 用戶端程式庫的資料表**
@@ -117,4 +99,4 @@ Azure 服務匯流排中的 AMQP 1.0 支援代表您現在能夠從一組平台�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

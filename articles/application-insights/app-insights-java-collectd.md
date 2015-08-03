@@ -21,7 +21,7 @@
 
 若要在 [Application Insights](app-insights-overview.md) 中瀏覽 Unix 系統效能度量，請安裝 [collectd](http://collectd.org/) 以及其 Application Insights 外掛程式。這個開放原始碼解決方案會收集各種不同的系統和網路統計資料。
 
-如果您已[使用 Application Insights 檢測您的 Java Web 服務][java]，通常您會使用 collectd，使得您有更多資料可幫助您以增強您的應用程式效能或診斷問題。
+如果您已[使用 Application Insights 檢測您的 Java Web 服務][java]，通常您會使用 collectd，使得您有更多資料可幫助您增強您的應用程式效能或診斷問題。
 
 ![範例圖表](./media/app-insights-java-collectd/sample.png)
 
@@ -31,7 +31,7 @@
 
 取得一份可識別資源的檢測金鑰。
 
-![瀏覽全部，開啟您的資源，然後在 Esssentials 下拉式清單中，選取並複製檢測金鑰](./media/app-insights-java-collectd/02-props.png)
+![瀏覽全部，開啟您的資源，然後在 [Esssentials] 下拉式清單中，選取並複製檢測金鑰](./media/app-insights-java-collectd/02-props.png)
 
 
 
@@ -88,7 +88,7 @@
 
 設定其他 [collectd 外掛程式](https://collectd.org/wiki/index.php/Table_of_Plugins)，它可以從不同來源收集各種不同的資料。
 
-根據其[手冊](https://collectd.org/wiki/index.php/First_steps) 重新啟動 collectd。
+根據其[手冊](https://collectd.org/wiki/index.php/First_steps)重新啟動 collectd。
 
 ## 在 Application Insights 中檢視資料
 
@@ -96,14 +96,14 @@
 
 ![](./media/app-insights-java-collectd/result.png)
 
-根據預設，會對收集度量來源的所有主機電腦彙總度量。若要檢視每一主機的度量，在圖表的 [詳細資料] 刀鋒視窗中，開啟 [群組] 然後選擇依 CollectD 主機群組。
+根據預設，會對收集度量來源的所有主機電腦彙總度量。若要檢視每一主機的度量，在圖表的 [詳細資料] 刀鋒視窗中，開啟 [群組]，然後選擇依 CollectD-Host 群組。
 
 
 ## 排除特定統計資料的上傳
 
-根據預設，Application Insights 外掛程式會傳送所有啟用的 collectd「讀取」外掛程式所收集的所有資料。
+根據預設，Application Insights 外掛程式會傳送所有啟用的 collectd 'read' 外掛程式所收集的所有資料。
 
-若要從特定外掛程式或資料來源排除資料：
+若要排除特定外掛程式或資料來源的資料：
 
 * 編輯組態檔。 
 * 在 `<Plugin ApplicationInsightsWriter>` 中，加入指示詞行，如下所示：
@@ -111,7 +111,7 @@
 指示詞 | 效果
 ---|---
 `Exclude disk` | 排除 `disk` 外掛程式所收集的所有資料
-`Exclude disk:read,write` | 從 `disk` 外掛程式排除名為 `read` 和 `write` 的來源。
+`Exclude disk:read,write` | 排除來自 `disk` 外掛程式名為 `read` 和 `write` 的來源。
 
 以新行分隔個別指示詞。
 
@@ -120,7 +120,7 @@
 
 *我在入口網站中看不到任何資料*
 
-* 開啟 [[搜尋][diagnostic]] 以查看原始事件是否已抵達。有時需要較長的時間才會在計量瀏覽器中顯示。
+* 開啟[搜尋][diagnostic]以查看原始事件是否已抵達。有時需要較長的時間才會在計量瀏覽器中顯示。
 * 在 Application Insights 外掛程式中啟用追蹤。在 `<Plugin ApplicationInsightsWriter>` 內加入這一行：
  *  `SDKLogger true`
 * 開啟終端機，並以詳細資訊模式啟動 collectd，以查看所報告的任何問題：
@@ -143,4 +143,4 @@
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

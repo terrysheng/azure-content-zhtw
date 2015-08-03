@@ -46,15 +46,15 @@ Chef 包含三個主要架構元件。**Chef 伺服器、Chef 用戶端 (節點)
 
 首先準備工作站。使用標準的 Windows 工作站。我們需要建立可儲存組態檔和 cookbook 的目錄。
 
-首先，建立名為 **C:\\chef** 的目錄。
+首先，建立名為 **C:\chef** 的目錄。
 
-然後建立另一個目錄 **c:\\chef\\cookbooks**
+然後建立另一個目錄 **c:\chef\cookbooks**
 
 我們現在必須下載 Azure 設定檔，以便 Chef 與 Azure 訂閱進行通訊。
 
 從這裡下載您發行設定：<a href="https://manage.windowsazure.com/publishsettings/" target="_blank">https://manage.windowsazure.com/publishsettings/</a>
 
-將發行設定檔儲存在 **C:\\chef** 中
+將發行設定檔儲存在 **C:\chef** 中
 
 ##建立受管理的 Chef 帳戶
 
@@ -74,15 +74,15 @@ Chef 包含三個主要架構元件。**Chef 伺服器、Chef 用戶端 (節點)
 
 ##設定 Chef 工作站
 
-將 chef-starter.zip 的內容解壓縮到 **C:\\chef**
+將 chef-starter.zip 的內容解壓縮到 **C:\chef**
 
-將 **chef-starter\\chef-repo.chef** 下的所有檔案複製到您的 **c:\\chef**
+將 **chef-starter\chef-repo.chef** 下的所有檔案複製到您的 **c:\chef**
 
 您的目錄現在看起來應該會像這樣：
 
 ![][5]
 
-您現在應該會有 4 個檔案，包括 c:\\chef 根目錄中的 Azure 發行檔案
+您現在應該會有 4 個檔案，包括 c:\chef 根目錄中的 Azure 發行檔案
 
 PEM 檔案包含可進行通訊的組織和管理員私密金鑰，而 **knife.rb** 檔案則包含 knife 組態。我們將需要編輯 **knife.rb** 檔案。
 
@@ -98,7 +98,7 @@ PEM 檔案包含可進行通訊的組織和管理員私密金鑰，而 **knife.r
 
 ![][6]
 
-這幾行程式碼可確保 Knife 會參考 c:\\chef\\cookbooks 底下的 cookbooks 目錄，並在 Azure 作業期間使用 Azure 發行設定檔。
+這幾行程式碼可確保 Knife 會參考 c:\chef\cookbooks 底下的 cookbooks 目錄，並在 Azure 作業期間使用 Azure 發行設定檔。
 
 ## 安裝 Chef 開發套件
 
@@ -108,9 +108,9 @@ PEM 檔案包含可進行通訊的組織和管理員私密金鑰，而 **knife.r
 
 ![][7]
 
-這一點都不難。就讓它安裝在 c:\\opscode 預設位置。此安裝大約需要 10 分鐘的時間。
+這一點都不難。就讓它安裝在 c:\opscode 預設位置。此安裝大約需要 10 分鐘的時間。
 
-確認您的 PATH 變數包含 C:\\opscode\\chefdk\\bin、C:\\opscode\\chefdk\\embedded\\bin、c:\\users\\yourusername.chefdk\\gem\\ruby\\2.0.0\\bin 等項目
+確認您的 PATH 變數包含 C:\opscode\chefdk\bin、C:\opscode\chefdk\embedded\bin、c:\users\yourusername.chefdk\gem\ruby\2.0.0\bin 等項目
 
 如果沒有，請確定您已加入這些路徑 ！
 
@@ -143,15 +143,15 @@ PEM 檔案包含可進行通訊的組織和管理員私密金鑰，而 **knife.r
 
 Chef 會使用 Cookbook 來定義一組您想在受管理的用戶端上執行的命令。建立 Cookbook 非常簡單，我們可以使用 chef generate cookbook 命令來產生 Cookbook 範本。我會將 Cookbook 稱為 webserver，因為我需要可自動部署 IIS 的原則。
 
-在 C:\\Chef 目錄下，執行下列命令：
+在 C:\Chef 目錄下，執行下列命令：
 
 	chef generate cookbook webserver
 
-這會在 **C:\\Chef\\cookbooks\\webserver** 目錄下產生一組檔案。 我們現在需要定義一組需要 Chef 用戶端在受管理的 VM 上執行的命令。
+這會在 **C:\Chef\cookbooks\webserver** 目錄下產生一組檔案。 我們現在需要定義一組需要 Chef 用戶端在受管理的 VM 上執行的命令。
 
 這些命令會儲存在 **default.rb** 檔案中。 在這個檔案中，請定義一組用來安裝 IIS、啟動 IIS 並將範本檔案複製到 wwwroot 資料夾的命令。
 
-修改 **C:\\chef\\cookbooks\\webserver\\recipes\\default.rb** 並加入下列幾行程式碼：
+修改 **C:\chef\cookbooks\webserver\recipes\default.rb** 並加入下列幾行程式碼：
 
 	powershell_script 'Install IIS' do
  		action :run
@@ -177,7 +177,7 @@ Chef 會使用 Cookbook 來定義一組您想在受管理的用戶端上執行�
 
 	chef generate template webserver Default.htm
 
-現在瀏覽至檔案 **C:\\chef\\cookbooks\\webserver\\templates\\default\\Default.htm.erb** 並編輯該檔案。
+現在瀏覽至檔案 **C:\chef\cookbooks\webserver\templates\default\Default.htm.erb** 並編輯該檔案。
 
 加入一些簡單的 “Hello World” html 程式碼，然後儲存檔案。
 
@@ -238,4 +238,4 @@ Chef 會使用 Cookbook 來定義一組您想在受管理的用戶端上執行�
 
 <!--Link references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

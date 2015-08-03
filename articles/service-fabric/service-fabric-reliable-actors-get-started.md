@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/17/2015"
+   ms.date="07/10/2015"
    ms.author="claudioc"/>
 
 # 可靠動作項目：標準的 HelloWorld 逐步解說案例
@@ -36,14 +36,17 @@
 安裝 Visual Studio 專用的 Service Fabric 工具後，您可以建立新的專案類型。新專案類型位在 [新專案] 對話方塊的 [雲端] 類別下
 
 
-![][1]
+![適用於 VS 的 Service Fabric 工具 - 新專案][1]
 
+在下一個對話方塊中，您可選擇您要建立的專案類型。
+
+![Service Fabric 專案範本][5]
 
 讓我們為 HelloWorld 專案使用 Service Fabric 動作項目服務。
 
 建立專案之後，您應該會看到下列結構：
 
-![][2]
+![Service Fabric 專案結構][2]
 
 ## 可靠動作項目基本建置組塊
 
@@ -138,12 +141,12 @@ fabricRuntime.RegisterActor(typeof(MyNewActor));
 
 Visual Studio 專用的 Service Fabric 工具支援在本機機器上偵錯。您可以點擊 F5 開始偵錯工作階段。Visual Studio 會在本機 Service Fabric 叢集上 (視需要) 建置封裝與部署應用程式，並附加偵錯工具。會有與偵錯 ASP.NET 應用程式類似的經驗。在部署的過程中，您可在 [輸出視窗] 中查看進度
 
-![][3]
+![Service Fabric 偵錯輸出視窗][3]
 
 ## 應用程式部署
 從 Visual Studio，您也可以選取 Service Fabric 應用程式專案，然後以滑鼠按一下右鍵，在本機叢集中封裝與部署應用程式，無須啟動偵錯工具。
 
-![][4]
+![Service Fabric - 可供部署和封裝應用程式的專案功能表][4]
 
 * **部署**：封裝應用程式並啟動部署程序
 * **移除部署**：可用來從本機叢集移除應用程式
@@ -151,8 +154,7 @@ Visual Studio 專用的 Service Fabric 工具支援在本機機器上偵錯。�
 
 ## 後續步驟
 
-[Service Fabric Actor 簡介](service-fabric-reliable-actors-introduction.md)
-
+[Service Fabric 動作項目簡介](service-fabric-reliable-actors-introduction.md)[動作項目 API 參考文件](https://msdn.microsoft.com/library/azure/dn971626.aspx)[範例程式碼](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -160,6 +162,7 @@ Visual Studio 專用的 Service Fabric 工具支援在本機機器上偵錯。�
 [2]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-projectstructure.PNG
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
+[5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -115,6 +115,17 @@ Microsoft Azure 中的負載平衡服務可處理所有租用戶類型 (IaaS 或
 
 如需詳細資訊，請查看服務定義結構描述中的[健全狀況探查](https://msdn.microsoft.com/library/azure/jj151530.aspx)。
 
+## 使用 PowerShell 設定負載平衡器
+
+建立虛擬機器之後，您可以使用 PowerShell cmdlet，將負載平衡器新增至相同雲端服務內的虛擬機器。
+
+在下列範例中，您會將稱為 "webfarm" 的負載平衡器新增至雲端服務端點 "mycloudservice" (或 mycloudservice.cloudapp.net) 和虛擬機器名稱 myVM。負載平衡器會接收連接埠 80 上的流量，並使用 HTTP 負載平衡連接埠 8080 上虛擬機器之間的網路流量"
+
+	Get-AzureVM -ServiceName "mycloudservice" -Name "MyVM" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+
+
+
+
 ## 後續步驟
 
 [開始設定內部負載平衡器](load-balancer-internal-getstarted.md)
@@ -124,4 +135,4 @@ Microsoft Azure 中的負載平衡服務可處理所有租用戶類型 (IaaS 或
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

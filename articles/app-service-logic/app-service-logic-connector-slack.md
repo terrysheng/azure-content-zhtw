@@ -29,7 +29,7 @@ Slack 連接器提供下列觸發程序和動作：
 
 觸發程序 | 動作
 --- | ---
-無 | 張貼訊息
+None | 張貼訊息
 
 ## 建立 Slack 連接器
 連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
@@ -92,4 +92,4 @@ Slack 連接器具有 REST API，因此您可以在邏輯應用程式外部使�
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

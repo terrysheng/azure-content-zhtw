@@ -35,7 +35,7 @@ Azure 資源管理員 (ARM) 是 Azure 中新的服務管理架構。Azure 負載
 - 輸入 NAT 規則 - 定義流經前端 IP 並散發到後端 IP 之輸入流量的 NAT 規則。
 
 
-![](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/resource-groups-networking/20150429054039/figure5.png)
+![](./media/load-balancer-arm/load-balancer-arm.png)
 
 
 
@@ -77,4 +77,4 @@ Azure 資源管理員可讓您使用宣告式範本佈建應用程式。在單�
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="07/09/2015"
    ms.author="amanbha"/>
 
 
 #動作項目生命週期與廢棄項目收集
-當第一次呼叫動作項目時，及若動作項目一段時間未使用而停用時 (動作項目執行階段收集的廢棄項目)，會啟用動作項目。若要設定時間間隔，請參閱以下＜動作項目廢棄項目收集＞一節。
+當第一次呼叫動作項目時，及若動作項目一段時間未使用而停用時 (由動作項目執行階段回收記憶體)，會啟用動作項目。若要設定時間間隔，請參閱以下＜動作項目廢棄項目收集＞一節。
 
 動作項目啟用時會發生什麼事？
 
@@ -91,4 +91,4 @@ class HelloActor : Actor, IHello
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

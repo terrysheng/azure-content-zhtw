@@ -8,4 +8,4 @@
 
 下列的自動化範例示範如何利用 PowerShell 或 CLI 來使用 Azure 資源管理員範本和部署資源群組。
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="07/17/2015" 
 	ms.author="awills"/>
 
 # 監視 Azure Web 應用程式效能
@@ -27,7 +27,9 @@ Application Insights 和 New Relic 是兩個可用的效能監視延伸模組。
 
 1. 按一下 [**瀏覽**]，然後選取您要檢測的 Web 應用程式或虛擬機器。
 
-2. 加入 Application Insights 或 New Relic 延伸模組。如果您要檢測 Web 應用程式：
+2. 加入 Application Insights 或 New Relic 延伸模組。
+
+    如果您要檢測 Web 應用程式：
 
 ![設定、延伸模組、加入、Application Insights](./media/insights-perf-analytics/05-extend.png)
 
@@ -81,4 +83,4 @@ SDK 會提供 API 供您[撰寫自訂遙測](../app-insights-api-custom-events-m
 * 使用 Application Insights [監視任何網頁的可用性和回應性](../app-insights-monitor-web-app-availability.md)，讓您可以找出您的頁面是否關閉。
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

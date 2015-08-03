@@ -84,4 +84,4 @@ Facebook 連接器可讓您從 Facebook 帳戶擷取「使用者時間軸上的�
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

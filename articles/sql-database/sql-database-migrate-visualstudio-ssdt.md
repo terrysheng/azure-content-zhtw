@@ -13,26 +13,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/14/2015"
+   ms.date="07/17/2015"
    ms.author="pehteh"/>
 
 #就地更新資料庫，接著部署至 Azure SQL Database
 
 ![替代文字](./media/sql-database-migrate-visualstudio-ssdt/01VSSSDTDiagram.png)
 
-將資料庫移轉至 Azure SQL Database V12，需要使用 SQL Azure 移轉精靈 (SAMW) 無法處理的結構描述變更時，請使用此選項。如果資料庫使用 Azure SQL Database 不支援或尚未支援的 SQL Server 功能時，便會發生這樣的狀況。在此選項中，Visual Studio 會先用來從來源資料庫建立資料庫專案。專案的目標平台會設為 Azure SQL Database V12，且會建置專案以找出所有相容性問題。SAMW 能夠修正絕大部分的相容性問題，因此會用來處理專案中所有指令碼做為第一次傳遞。您可選擇是否使用 SAMW，但我們強烈建議您使用。在使用 SAMW 處理指令碼檔案後建置專案，將會找出剩下的問題，而這些問題必須隨後使用 Visual Studio 的 T-SQL 編輯工具來手動解決。一旦專案成功建置後，結構描述會發佈回來源資料庫複本 (建議選項)，以更新其結構描述和在原位上的資料。更新的資料庫接著會使用選項 1 中所述的技術部署至 Azure (直接部署或透過匯出和匯入 BACPAC 檔案進行)。
+將資料庫移轉至 Azure SQL Database V12，需要使用 SQL Azure 移轉精靈 (SAMW) 無法處理的結構描述變更時，請使用此選項，因為資料庫使用 Azure SQL Database 中不支援的 SQL Server 功能。在此選項中，Visual Studio 會先用來從來源資料庫建立資料庫專案。專案的目標平台會設為 Azure SQL Database V12，且會建置專案以找出所有相容性問題。SAMW 能夠修正絕大部分的相容性問題，因此會用來處理專案中所有指令碼做為第一次傳遞。您可選擇是否使用 SAMW，但我們強烈建議您使用。在使用 SAMW 處理指令碼檔案後建置專案，將會找出剩下的問題，而這些問題必須隨後使用 Visual Studio 的 Transact-SQL 編輯工具來手動解決。一旦專案成功建置後，結構描述會發佈回來源資料庫複本 (建議選項)，以更新其結構描述和在原位上的資料。更新的資料庫接著會使用選項 1 中所述的技術部署至 Azure (直接部署或透過匯出和匯入 BACPAC 檔案進行)。
  
 因為此選項涉及在將資料庫部署至 Azure 之前更新原位資料庫的結構描述，所以我們強烈建議在資料庫中的複本執行此選項。Visual Studio 結構描述比較工具可用來檢閱完整變更集合，此變更集會在發佈專案前套用至資料庫。
 
-您可選擇是否使用 SQL Azure 移轉精靈 (SAMW)，但我們建議您使用。SAMW 會先偵測函數主體、預存程序和觸發程序中的相容性問題，否則其在部署完成前將不會進行偵測。如果需要僅限結構描述的部署，則可以將更新的結構描述直接從 Visual Studio 發佈至 Azure SQL Database。
+您可選擇是否使用 SQL Azure 移轉精靈 (SAMW)，但我們建議您使用。SAMW 會先偵測函數主體、預存程序和觸發程序中的相容性問題，否則其在部署完成前將不會進行偵測。
+
+如果需要僅限結構描述的部署，則可以將更新的結構描述直接從 Visual Studio 發佈至 Azure SQL Database。
 
 ## 移轉步驟
 
-1.	開啟 Visual Studio 中的 [SQL Server 物件總管]。使用 [加入 SQL Server] 連接到包含移轉之資料庫的 SQL Server 執行個體。在總管中找出資料庫，以滑鼠右鍵按一下該資料庫，然後選取 [建立新專案...]。 
+1.	開啟 Visual Studio 中的 [SQL Server 物件總管]。使用 [加入 SQL Server] 連接到包含移轉之資料庫的 SQL Server 執行個體。在總管中找出資料庫，以滑鼠右鍵按一下該資料庫，然後選取 [**建立新專案...**]。 
 
 ![替代文字](./media/sql-database-migrate-visualstudio-ssdt/02MigrateSSDT.png)
 
-2.	將匯入設定設為 [僅匯入應用程式範圍的物件]。取消選取該選項，以匯入參考登入、權限和資料庫設定。
+2.	將匯入設定設為 [僅匯入應用程式範圍的物件]。取消核取該選項，以匯入參考登入、權限和資料庫設定。
 
 ![替代文字](./media/sql-database-migrate-visualstudio-ssdt/03MigrateSSDT.png)
 
@@ -59,9 +61,9 @@
 
 ![替代文字](./media/sql-database-migrate-visualstudio-ssdt/11MigrateSSDT.png)
 
->請注意，暫存複本是由處理之前的原始檔案，以及在頁面頂端指出之位置處理之後受到影響的檔案所組成。
+> [AZURE.NOTE]暫存複本是由處理之前的原始檔案，以及在頁面頂端指出之位置處理之後受到影響的檔案所組成。
 
-10.	按一下 [確認] 對話方塊中的 [覆寫] 及 [確定]，變更的檔案就會覆寫原始檔案。請注意，只有實際變更的檔案會被覆寫。
+10.	按一下確認對話方塊中的 [**覆寫**] 及 [**確定**]，變更的檔案就會覆寫原始檔案。只有實際變更的檔案會被覆寫。
 11.	選用。使用結構描述比較工具，將先前建立的快照集或原始資料庫與該專案做比較，即可了解精靈所做的變更。建議您也在此時建立另一個快照集。 
 
 ![替代文字](./media/sql-database-migrate-visualstudio-ssdt/12MigrateSSDT.png)
@@ -85,7 +87,7 @@
 
 2.	以滑鼠右鍵按一下資料庫，然後選取 [結構描述比較...]。這會開啟新的結構描述比較，而左側的 Azure 的資料庫會選取做為來源。使用右側的 [選取目標] 下拉式清單，以選取目標資料庫或快照集檔案進行比較。
 
-3.	選取來源和目標後，按一下 [比較] 觸發比較。從 Azure SQL Database 中的複雜資料庫載入結構描述可能需要相當長的時間。載入結構描述及執行 Azure SQL Database 上其他中繼資料工作的時間較短，且具有較高的定價層。
+3.	選取來源和目標後，按一下 [比較] 觸發比較。從 Azure SQL Database 中的複雜資料庫載入結構描述可能需要相當長的時間。載入結構描述及執行 Azure SQL Database 上其他中繼資料工作的時間較短，且具有較高的價格層。
 
 4.	當比較作業完成後，請檢閱其中差異。除非您有任何考量，否則不應該按照規則將變更套用至任何結構描述。
 
@@ -93,6 +95,4 @@
 
 ![替代文字](./media/sql-database-migrate-visualstudio-ssdt/13MigrateSSDT.png)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

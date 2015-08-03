@@ -4,8 +4,8 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	manager="swadhwa" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="07/14/2015" 
 	ms.author="billmath"/>
 
 # 部署 Azure Multi-factor Authentication Server 使用者入口網站
@@ -35,8 +35,14 @@
 
 ### 部署 Azure Multi-Factor Authentication Server 使用者入口網站
 
-<ol>
-<li>在 Azure Multi-Factor Authentication Server 內：按一下左側功能表中的 [使用者入口網站] 圖示，然後按一下 [安裝使用者入口網站] 按鈕。<li>按 [下一步]。<li>按 [下一步]。<li>如果電腦已加入網域，但保護使用者入口網站和 Azure Multi-Factor Authentication 服務間之通訊的 Active Directory 設定尚未完成，Active Directory 步驟將會出現。按 [下一步] 按鈕以自動完成此設定。<li>按 [下一步]。<li>按 [下一步]。<li>按一下 [關閉]。<li>從任何電腦開啟網頁瀏覽器，並瀏覽至安裝使用者入口網站的 URL (如 https://www.publicwebsite.com/MultiFactorAuth)。確定未出現任何憑證警告或錯誤。</li>
+1. 在 Azure Multi-Factor Authentication Server 內：按一下左側功能表中的 [使用者入口網站] 圖示，然後按一下 [安裝使用者入口網站] 按鈕。 
+1. 按 [下一步]。
+1. 按 [下一步]。
+1. 如果電腦已加入網域，但用來保護使用者入口網站和 Azure Multi-Factor Authentication 服務之間通訊的 Active Directory 設定尚未完成，Active Directory 步驟將會出現。按 [下一步] 按鈕以自動完成此設定。
+1. 按 [下一步]。
+1. 按 [下一步]。
+1. 按一下 [關閉]。
+1. 從任何電腦開啟網頁瀏覽器，並瀏覽至安裝使用者入口網站的 URL (如 https://www.publicwebsite.com/MultiFactorAuth)。確定未出現任何憑證警告或錯誤。
 
 <center>![Setup](./media/multi-factor-authentication-get-started-portal/portal.png)</center>
 
@@ -78,29 +84,42 @@
 
 #### 安裝使用者入口網站
 
-<ol>
+1. 在 Azure Multi-Factor Authentication Server 伺服器上開啟 Windows 檔案總管，接著瀏覽至安裝 Azure Multi-Factor Authentication Server 的資料夾 (如 C:\Program Files\Multi-Factor Authentication Server)。視需要為即將安裝使用者入口網站的伺服器選擇 32 位元或 64 位元版本的 MultiFactorAuthenticationUserPortalSetup 安裝檔案。將安裝檔案複製到網際網路對向伺服器。
+2. 在網際網路對向 Web 伺服器上，您必須以系統管理員權限執行安裝程式檔案。若要這樣做，最簡單的方式是以系統管理員身分開啟命令提示字元，再瀏覽至複製安裝檔案的位置。
+3. 執行 MultiFactorAuthenticationUserPortalSetup64 安裝檔案，視需要變更的網站和虛擬目錄名稱。
+4. 使用者入口網站安裝完成之後，瀏覽至 C:\inetpub\wwwroot\MultiFactorAuth (或根據虛擬目錄名稱瀏覽至適當目錄) 並編輯 web.config 檔案。
+5. 找出 USE_WEB_SERVICE_SDK 機碼，並將從 false 值變更為 true。找出 WEB_SERVICE_SDK_AUTHENTICATION_USERNAME 和 WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD 機碼，並將值設定為隸屬於 PhoneFactor Admins 安全性群組之服務帳戶的使用者名稱和密碼 (請參閱前文的＜需求＞一節)。請務必將使用者名稱和密碼輸入行尾的引號之間 (value=””/>)。建議您使用合格的使用者名稱 (如 domain\username 或 machine\username)。
+6. 找出 pfup_pfwssdk_PfWsSdk 設定，將值 "http://localhost:4898/PfWsSdk.asmx" 變更為 Azure Multi-Factor Authentication Server 上執行的 Web 服務 SDK 的 URL (例如 https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx)。由於此連接使用 SSL，所以您必須依據伺服器名稱參考 Web 服務 SDK，而不是 IP 位址，因為 SSL 憑證是針對伺服器名稱發行，所以使用的 URL 必須與憑證上的名稱相符。如果伺服器名稱無法解析為網際網路對向伺服器的 IP 位址，請在該伺服器上的主機檔案加入項目，讓 Azure Multi-Factor Authentication Server 的名稱能與其 IP 位址相對應。完成變更後，儲存 web.config 檔案。
+7. 如果安裝使用者入口網站的網站 (如預設網站) 尚未與公開簽署的憑證繫結，請在伺服器上安裝憑證 (如果尚未安裝)，開啟 IIS 管理員，然後將憑證繫結至網站。
+8. 從任何電腦開啟網頁瀏覽器，並瀏覽至安裝使用者入口網站的 URL (如 https://www.publicwebsite.com/MultiFactorAuth)。確定未出現任何憑證警告或錯誤。
 
 
-
-
-<li>在 Azure Multi-Factor Authentication Server 伺服器上開啟 Windows 檔案總管，接著瀏覽至安裝 Azure Multi-Factor Authentication Server 的資料夾 (如 C:\Program Files\Multi-Factor Authentication Server)。視需要為即將安裝使用者入口網站的伺服器選擇 32 位元或 64 位元版本的 MultiFactorAuthenticationUserPortalSetup 安裝檔案。將安裝檔案複製到網際網路對向伺服器。</li>
-
-<li>在網際網路對向 Web 伺服器上，您必須以系統管理員權限執行安裝程式檔案。若要這樣做，最簡單的方式是以系統管理員身分開啟命令提示字元，再瀏覽至複製安裝檔案的位置。</li>
-
-<li>執行 MultiFactorAuthenticationUserPortalSetup64 安裝檔案，視需要變更的網站和虛擬目錄名稱。</li>
-
-<li>使用者入口網站安裝完成之後，瀏覽至 C:\inetpub\wwwroot\MultiFactorAuth (或根據虛擬目錄名稱瀏覽至適當目錄) 並編輯 web.config 檔案。</li>
-
-<li>找出 USE_WEB_SERVICE_SDK 機碼，並將從 false 值變更為 true。找出 WEB_SERVICE_SDK_AUTHENTICATION_USERNAME 和 WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD 機碼，並將值設定為隸屬於 PhoneFactor Admins 安全性群組之服務帳戶的使用者名稱和密碼 (請參閱前文的＜需求＞一節)。請務必將使用者名稱和密碼輸入行尾的引號之間 (value=””/>)。建議您使用合格的使用者名稱 (如 domain\username 或 machine\username)。</li>
-
-<li>找出 pfup_pfwssdk_PfWsSdk 設定，並將值從 “http://localhost:4898/PfWsSdk.asmx” 變更為在 Azure Multi-Factor Authentication Server 上執行之 Web 服務 SDK 的 URL (如 https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx)。由於此連接使用 SSL，所以您必須依據伺服器名稱參考 Web 服務 SDK，而不是 IP 位址，因為 SSL 憑證是針對伺服器名稱發行，所以使用的 URL 必須與憑證上的名稱相符。如果伺服器名稱無法解析為網際網路對向伺服器的 IP 位址，請在該伺服器上的主機檔案加入項目，讓 Azure Multi-Factor Authentication Server 的名稱能與其 IP 位址相對應。完成變更後，儲存 web.config 檔案。</li>
-
-<li>如果安裝使用者入口網站的網站 (如預設網站) 尚未與公開簽署的憑證繫結，請在伺服器上安裝憑證 (如果尚未安裝)，開啟 IIS 管理員，然後將憑證繫結至網站。</li>
-
-<li>從任何電腦開啟網頁瀏覽器，並瀏覽至安裝使用者入口網站的 URL (如 https://www.publicwebsite.com/MultiFactorAuth)。確定未出現任何憑證警告或錯誤。</li>
 
 ## 在 Azure Multi-Factor Authentication Server 中配置使用者入口網站設定
 既然入口網站已安裝完成，您需要設定 Azure Multi-Factor Authentication Server，使其與入口網站搭配運作。
+
+Azure Multi-Factor Authentication 伺服器為使用者入口網站提供數個選項。下表提供這些選項及其用途說明的清單。
+
+使用者入口網站設定|說明|
+:------------- | :------------- | 
+使用者入口網站 URL| 可讓您輸入裝載入口網站的 URL。
+主要驗證| 可讓您指定登入入口網站時所使用的驗證類型。Windows、Radius 或 LDAP 驗證。
+允許使用者登入|可讓使用者在使用者入口網站的登入頁面輸入使用者名稱和密碼。如果未選取此項目，則會呈現灰色方塊。
+允許使用者註冊|在設定畫面中提示使用者輸入其他資訊，例如電話號碼，以允許使用者註冊多因素驗證。[提示輸入備用電話] 可讓使用者指定次要電話號碼。[提示輸入協力廠商 OATH 權杖] 可讓使用者指定協力廠商 OATH 權杖。
+允許使用者起始單次許可| 這可讓使用者起始單次許可。如果使用者設定此選項，則會在使用者下次登入時生效。[提示輸入許可秒數] 提供方塊讓使用者變更預設的 300 秒。否則 300 秒就很適合單次許可。
+允許使用者選取方法| 可讓使用者指定其主要連絡方法。這可以是通話、簡訊、行動應用程式或 OATH 權杖。
+允許使用者選取語言| 允許使用者變更用於通話、簡訊、行動應用程式或 OATH 權杖的語言。
+允許使用者啟用行動應用程式| 可讓使用者產生啟用代碼，以完成伺服器使用的行動應用程式啟動程序。您也可以設定允許使用者啟動此程序的裝置數目。介於 1 和 10 之間。
+使用遞補用的安全性問題|可讓您在多因素驗證失敗時使用安全性問題。您可以指定必須正確回答的安全性問題數目。
+允許使用者關聯協力廠商 OATH 權杖| 可讓使用者指定協力廠商 OATH 權杖。
+使用遞補用的 OATH 權杖|在多因素驗證未成功時允許使用 OATH 權杖。您也可以指定工作階段逾時 (以分鐘為單位)。
+啟用記錄|在使用者入口網站啟用記錄。記錄檔位於：C:\Program Files\Multi-Factor Authentication Server\Logs。
+
+這些設定啟用之後，當使用者登入使用者入口網站時，就能看到大部分的設定。
+
+![使用者入口網站設定](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
+
+
 
 ### 在 Azure Multi-Factor Authentication Server 中配置使用者入口網站設定
 
@@ -113,4 +132,61 @@
 
 <center>![Setup](./media/multi-factor-authentication-get-started-portal/config.png)</center>
 
-<!---HONumber=July15_HO2-->
+
+## [系統管理員] 索引標籤
+此索引標籤就是讓您加入將擁有系統管理權限的使用者。加入系統管理員時，您可以微調他們所得到的權限。如此就能確定只將必要的權限授與系統管理員。按一下 [新增] 按鈕，選取使用者及其權限，然後再按一下 [新增]。
+
+![使用者入口網站管理員](./media/multi-factor-authentication-get-started-portal/admin.png)
+
+
+## 安全性問題
+如果選取 [使用遞補用的安全性問題] 選項，此索引標籤可讓您指定使用者必須回答的安全性問題。Azure Multi-Factor Authenticaton Server 提供預設問題供您使用。您也可以變更順序，或加入您自己的問題。當加入您自己的問題時，您也可以指定用來顯示這些問題的語言。
+
+![使用者入口網站安全性問題](./media/multi-factor-authentication-get-started-portal/secquestion.png)
+
+
+## 已通過的工作階段
+
+## SAML
+可讓您設定使用者入口網站，以使用 SAML 接受來自身分識別提供者的宣告。您可以指定逾時工作階段、指定驗證憑證和登出重新導向 URL。
+
+![SAML](./media/multi-factor-authentication-get-started-portal/saml.png)
+
+## 信任的 IP
+此索引標籤可讓您指定單一 IP 位址或 IP 位址範圍，當使用者從這些 IP 位址的其中一個登入時，就會略過多重要素驗證。
+
+![使用者入口網站信任的 IP](./media/multi-factor-authentication-get-started-portal/trusted.png)
+
+## 自助式使用者註冊
+如果要讓使用者登入並註冊，您必須選取 [允許使用者登入] 和 [允許使用者註冊] 選項。請記住，您選取的設定會影響使用者的登入體驗。
+
+例如，當使用者登入使用者入口網站並按一下 [登入] 按鈕時，便會進入 [Azure Multi-Factor Authentication 使用者設定] 頁面。根據您如何設定 Azure Multi-Factor Authentication，使用者也許能夠選取驗證方法。
+
+如果他們選取 [語音通話] 驗證方法，或已預先設定為使用該方法，此頁面將提示使用者輸入主要電話號碼和分機 (如果有的話)。他們也可以輸入備用電話號碼。
+
+![使用者入口網站信任的 IP](./media/multi-factor-authentication-get-started-portal/backupphone.png)
+
+如果使用者驗證時需要使用 PIN，此頁面也會提示他們輸入 PIN。使用者輸入電話號碼和 PIN (如果需要的話) 之後，接著按一下 [立即撥打電話給我以進行驗證] 按鈕。Azure Multi-Factor Authentication 會撥打到使用者的主要電話號碼執行通話驗證。使用者必須接聽電話並輸入 PIN (如果需要的話)，然後按下 #，以進入自助式註冊程序的下一個步驟。
+
+如果使用者選取 [簡訊] 驗證方法，或已預先設定為使用該方法，此頁面將提示使用者輸入行動電話號碼。如果使用者驗證時需要使用 PIN，此頁面也會提示他們輸入 PIN。使用者輸入電話號碼和 PIN (如果需要的話) 之後，接著按一下 [立即傳簡訊給我以進行驗證] 按鈕。Azure Multi-Factor Authentication 會向使用者的行動電話發送簡訊驗證。使用者必須接收簡訊，其中包含單次密碼 (OTP)，然後以該 OTP 加上他們的 PIN (如果需要的話) 回覆訊息，以進入自助式註冊程序的下一個步驟。
+
+![使用者入口網站簡訊](./media/multi-factor-authentication-get-started-portal/text.png)
+
+如果使用者選取 [行動應用程式] 驗證方法，或已預先設定為使用該方法，此頁面將提示使用者在其裝置上安裝 Azure Multi-Factor Authentication 應用程式，並產生啟用代碼。使用者安裝 Azure Multi-Factor Authentication 應用程式之後，接著按一下 [產生啟用代碼] 按鈕。
+
+>[AZURE.NOTE]若要使用 Azure Multi-Factor Authentication 應用程式，使用者必須啟用其裝置的推播通知。
+
+此頁面接著會顯示啟用代碼和 URL，以及條碼圖片。如果使用者驗證時需要使用 PIN，此頁面也會提示他們輸入 PIN。使用者在 Azure Multi-Factor Authentication 應用程式中輸入啟用代碼和 URL，或使用條碼掃描器來掃描條碼圖片，並按一下 [啟用] 按鈕。
+
+啟用完成之後，使用者按一下 [立即驗證我的身分] 按鈕。Azure Multi-Factor Authentication 會對使用者的行動應用程式執行驗證。使用者必須輸入 PIN (如果需要的話)，並在其行動應用程式中按下 [驗證] 按鈕，以進入自助式註冊程序的下一個步驟。
+
+
+如果系統管理員已設定 Azure Multi-Factor Authentication Server 來收集安全性問題和答案，則使用者會進入 [安全性問題] 頁面。使用者必須選取四個安全性問題，並回答所選取的問題。
+
+![使用者入口網站安全性問題](./media/multi-factor-authentication-get-started-portal/secq.png)
+
+使用者自助式註冊現已完成，使用者也已登入使用者入口網站。只要系統管理員許可，使用者以後可隨時重新登入使用者入口網站來變更電話號碼、PIN、驗證方法和安全性問題。
+
+ 
+
+<!---HONumber=July15_HO4-->

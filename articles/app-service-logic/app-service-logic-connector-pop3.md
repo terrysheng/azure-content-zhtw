@@ -62,4 +62,4 @@ POP3 連接器可讓您連接到 POP3 伺服器，並提供擷取帶有附件的
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

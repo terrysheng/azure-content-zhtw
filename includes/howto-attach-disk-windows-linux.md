@@ -1,5 +1,5 @@
 
-如需有關磁碟的詳細資訊，請參閱[關於 Azure 中的虛擬機器磁碟](../articles/virtual-machines-disks-vhds.md)。
+如需有關磁碟的詳細資訊，請參閱[關於虛擬機器的磁碟和 VHD](../articles/virtual-machines-disks-vhds.md)。
 
 ##<a id="attachempty"></a>做法：連接空的磁碟
 新增資料磁碟的一個較為簡易方式是連接空的磁碟，因為 Azure 會為您建立 .vhd 檔案並將它儲存在儲存體帳戶中。
@@ -57,4 +57,4 @@
 
 > [AZURE.NOTE]新增資料磁碟之後，您必須登入虛擬機器並初始化磁碟，這樣虛擬機器才能使用磁碟來儲存資料。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

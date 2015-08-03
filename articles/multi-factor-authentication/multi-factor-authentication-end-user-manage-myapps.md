@@ -33,4 +33,4 @@
 
 <center>![Setup](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)</center>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -34,4 +34,4 @@ Azure 對於執行的應用程式提供不同的裝載模型。每個模型都�
 [虛擬機器]: ../virtual-machines-choose-me.md
 [雲端服務]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

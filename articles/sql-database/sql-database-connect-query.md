@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="04/14/2015"
+	ms.date="07/17/2015"
 	ms.author="cakarst"/>
 
 
@@ -137,4 +137,4 @@
 2. 程式會將查詢結果列印至主控台視窗。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

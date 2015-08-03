@@ -19,7 +19,7 @@
 
 網路存取控制清單 (ACL) 是適用於您 Azure 部署的安全性增強功能。ACL 提供針對虛擬機器端點選擇性允許或拒絕流量的功能。此封包篩選功能提供了一層額外的安全性。您可以僅針對端點指定網路 ACL。您無法針對虛擬網路或是包含在虛擬網路中的特定子網路指定 ACL。
 
-> [AZURE.IMPORTANT]建議在網路安全性群組 (NSG) 可用時，用其取代 ACL 的使用。若要深入了解 NSG，請參閱＜[什麼是網路安全性群組？](../virtual-network-nsg)＞。
+> [AZURE.IMPORTANT]建議在網路安全性群組 (NSG) 可用時，用其取代 ACL 的使用。若要深入了解 NSG，請參閱＜[什麼是網路安全性群組？](../virtual-networks-nsg)＞。
 
 您可以使用 PowerShell 或管理入口網站設定 ACL。若要使用 PowerShell 設定網路 ACL，請參閱＜[使用 PowerShell 管理端點的存取控制清單 (ACL)](https://msdn.microsoft.com/library/azure/dn376543.aspx)＞。若要使用管理入口網站來設定網路 ACL，請參閱＜[如何設定虛擬機器的端點](../virtual-machines-set-up-endpoints/)＞。
 
@@ -99,4 +99,4 @@ ACL 是包含規則清單的物件。當您建立 ACL 並將它套用到虛擬�
 
 [如何使用 PowerShell 管理存取控制清單 (ACL) 端點](../virtual-networks-acl-powershell)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

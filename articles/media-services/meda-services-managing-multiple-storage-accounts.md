@@ -53,7 +53,7 @@
 
 	using Microsoft.WindowsAzure.MediaServices.Client; using System; using System.Collections.Generic; using System.Configuration; using System.IO; using System.Linq; using System.Text; using System.Threading; using System.Threading.Tasks;
 	
-	namespace MultipleStorageAccounts { class Program { // 您想要進行編碼的媒體檔案位置。private static readonly string _singleInputFilePath = Path.GetFullPath(@"../..\\supportFiles\\multifile\\interview2.wmv");
+	namespace MultipleStorageAccounts { class Program { // 您想要進行編碼的媒體檔案位置。private static readonly string _singleInputFilePath = Path.GetFullPath(@"../..\supportFiles\multifile\interview2.wmv");
 	
 	        private static readonly string MediaServicesAccountName = 
 	            ConfigurationManager.AppSettings["MediaServicesAccountName"];
@@ -236,4 +236,4 @@
 	}
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

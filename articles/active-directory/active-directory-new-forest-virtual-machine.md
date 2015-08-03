@@ -42,7 +42,7 @@
 ------------- | -------------  | ------------
 **網域控制站的 IP 位址** | 在網路介面卡內容上指派靜態 IP 位址 | 執行 Set-AzureStaticVNetIP Cmdlet 以指派靜態 IP 位址
 **DNS 用戶端解析程式** | 在網域成員的網路介面卡內容上設定慣用與替代的 DNS 伺服器位址 | 在虛擬網路內容上設定 DNS 伺服器位址
-**Active Directory 資料庫儲存體** | 選擇性地將預設儲存位置變更為不是 C:\\ | 您需要將預設儲存位置變更為不是 C:\\
+**Active Directory 資料庫儲存體** | 選擇性地將預設儲存位置變更為不是 C:\ | 您需要將預設儲存位置變更為不是 C:\
 
 
 
@@ -79,7 +79,7 @@
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
-如需如何設定靜態 IP 位址的詳細資訊，請參閱[設定 VM 的靜態內部 IP 位址](https://msdn.microsoft.com/library/azure/dn630228.aspx)。
+如需如何設定靜態 IP 位址的詳細資訊，請參閱[設定 VM 的靜態內部 IP 位址](../virtual-network/virtual-networks-reserved-private-ip.md)。
 
 ## 安裝 Windows Server Active Directory
 
@@ -139,4 +139,4 @@
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

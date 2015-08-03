@@ -68,7 +68,7 @@
    3. 從下拉式清單中，選取 [**開始時間**]。這就是排程開始的時間。
    4. 從下拉式清單中，選取 [**結束時間**]。這就是排程結束的時間。
    
-         > [AZURE.NOTE] 不允許重疊的排程。如果開始和結束時間會產生重疊排程，您會看到錯誤訊息。
+         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
 
    5. 指定 **頻寬速率**。這是以 MB / 秒 (Mbps) 為單位的頻寬，由包含雲端之作業中的 StorSimple 裝置所使用。提供一個介於 1 到 1000 之間的數目給此欄位。
    
@@ -176,4 +176,4 @@
 
 深入了解 [StorSimple 元件](storsimple-components.md)。
 
-<!----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

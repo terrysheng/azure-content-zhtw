@@ -237,4 +237,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [40]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

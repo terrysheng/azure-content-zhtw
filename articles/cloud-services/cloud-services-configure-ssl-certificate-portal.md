@@ -46,7 +46,7 @@
 -   憑證的主體名稱必須符合用來存取雲端服務的網域。您無法向憑證授權單位 (CA) 取得 cloudapp.net 網域的 SSL 憑證。您必須取得要在存取您的服務時使用的自訂網域名稱。當您向 CA 要求憑證時，憑證的主體名稱必須符合用來存取應用程式的自訂網域名稱。例如，如果您的自訂網域名稱為 **contoso.com**，則您需向 CA 要求 ***.contoso.com** 或 **www.contoso.com** 的憑證。
 -   憑證至少必須以 2048 位元加密。
 
-基於測試目的，您可以建立並使用自我簽署憑證。自我簽署憑證不是由 CA 驗證，因此可以使用 cloudapp.net 網域做為網站 URL。例如，以下工作即使用自我簽署憑證，該憑證中使用的一般名稱 (CN) 為 **sslexample.cloudapp.net**。如需關於如何使用 IIS 管理員建立自我簽署憑證的詳細資訊，請參閱[如何建立角色的憑證][] (英文)。
+基於測試目的，您可以[建立](cloud-services-certs-create.md)並使用自我簽署憑證。自我簽署憑證不是由 CA 驗證，因此可以使用 cloudapp.net 網域做為網站 URL。例如，以下工作即使用自我簽署憑證，該憑證中使用的一般名稱 (CN) 為 **sslexample.cloudapp.net**。
 
 接下來，您必須在服務定義檔與服務組態檔中加入憑證的相關資訊。
 
@@ -67,7 +67,7 @@
         ...
         </WebRole>
 
-    **Certificates** 區段定義憑證的名稱、位置，以及其所在的存放區名稱。我們已選擇將憑證儲存在 CA (憑證授權單位) 存放區中，但是您也可以選擇其他選項。如需詳細資訊，請參閱[如何使憑證與服務產生關聯][] (英文)。
+    **Certificates** 區段定義憑證的名稱、位置，以及其所在的存放區名稱。我們已選擇將憑證儲存在 CA (憑證授權單位) 存放區中，但是您也可以選擇其他選項。如需詳細資訊，請參閱 [如何使憑證與服務產生關聯][]。
 
 2.  在服務定義檔中，於 **Endpoints** 區段內新增 **InputEndpoint** 元素，以啟用 HTTPS：
 
@@ -153,14 +153,6 @@
       
     >建立一般名稱 (CN) 等於 GUID 型 URL (例如，**328187776e774ceda8fc57609d404462.cloudapp.net**) 的憑證、使用入口網站將該憑證新增至預備雲端服務、將憑證資訊新增至 CSDEF 與 CSCFG 檔案、重新封裝應用程式，然後將預備部署更新為使用新的套件與 CSCFG 檔。
 
-## 後續步驟
-
-* [如何使憑證與服務產生關聯][]
-* [如何在 HTTPS 端點上設定 SSL 憑證][]
-
-[如何建立角色的憑證]: http://msdn.microsoft.com/library/azure/gg432987.aspx
-[如何使憑證與服務產生關聯]: http://msdn.microsoft.com/library/azure/gg465718.aspx
-[如何在 HTTPS 端點上設定 SSL 憑證]: http://msdn.microsoft.com/library/azure/ff795779.aspx
 [Azure Portal]: http://portal.azure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

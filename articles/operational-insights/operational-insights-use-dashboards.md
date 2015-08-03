@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="07/21/2015"
 	ms.author="evanhi"/>
 
 # Operational Insights 儀表板
@@ -75,4 +75,4 @@
 ## 移除磚
 若要移除磚，請瀏覽到 [我的儀表板] 檢視，然後按一下頁面底部的 [自訂] 齒輪，進入自訂模式。選取您想要移除的磚，然後在右側面板上選取 [移除磚]。![移除磚](./media/operational-insights-use-dashboards/remove-tile.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

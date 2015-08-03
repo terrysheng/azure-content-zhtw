@@ -2,6 +2,7 @@
 	pageTitle="建立並將資料從 Blob 儲存體載入 Hive 資料表 | Microsoft Azure" 
 	description="建立 Hive 資料表，並將 Blob 中的資料載入 Hive 資料表" 
 	services="machine-learning,storage" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="jacob.spoelstra" 
@@ -153,4 +154,4 @@ https://&#60;Hadoop 叢集名稱>.azurehdinsight.net/Home/HiveEditor
 
 依照此程序執行之後，您應該會有含 ORC 格式之資料的資料表可供使用。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -279,22 +279,29 @@ STRIDE 模式中的身分識別與存取相關弱點會讓您暴露在所有威�
 -   [現今的共用存取簽章非常簡單](http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days)
 
 
-##Azure SQL Database 身分識別與存取案例
+## Azure SQL Database 身分識別與存取案例
+
 
 SQL Database 僅支援 SQL Server 驗證。不支援 Windows 驗證 (整合式安全性)。使用者必須在每次連線到 SQL Database 時提供認證 (登入和密碼)。管理使用者名稱和密碼時請特別小心，以避免資訊外洩。
 
+
 ![][15]
 
-若要解決此案例，請參閱下列資源：
 
--   [安全性方針和限制 (SQL Database)](http://msdn.microsoft.com/library/windowsazure/ff394108.aspx#authentication)
--   [作法：使用 sqlcmd 連線到 SQL Database](http://msdn.microsoft.com/library/windowsazure/ee336280.aspx)
--   [作法：使用 ADO.NET 連線到 SQL Database](http://msdn.microsoft.com/library/windowsazure/ee336243.aspx)
--   [作法：透過 ASP.NET 連線到 SQL Database](http://msdn.microsoft.com/library/windowsazure/ee621781.aspx)
--   [作法：透過 WCF 資料服務連線到 SQL Database](http://msdn.microsoft.com/library/windowsazure/ee621789.aspx)
--  [作法：使用 PHP 連線到 SQL Database](http://msdn.microsoft.com/library/windowsazure/ff394110.aspx)
--   [作法：使用 JDBC 連線到 SQL Database](http://msdn.microsoft.com/library/windowsazure/gg715284.aspx)
--   [作法：使用 ADO.NET Entity Framework 連線到 SQL Database](http://msdn.microsoft.com/library/windowsazure/ff951633.aspx)
+若要解決這種情況，請參閱下列說明主題：<br/>[Azure SQL Database 開發：作法主題](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+
+
+或參閱其中一個子主題，其中包括：
+
+
+- [作法：使用 sqlcmd 連線到 SQL Database](http://msdn.microsoft.com/library/azure/ee336280.aspx)
+- [程式碼範例：使用 ADO.NET 連線到 Azure SQL Database 的重試邏輯](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+- [作法：使用 PHP 連線到 SQL Database](http://msdn.microsoft.com/library/azure/ff394110.aspx)
+- [作法：使用 JDBC 連線到 SQL Database](http://msdn.microsoft.com/library/azure/gg715284.aspx)
+
+
+或參閱：<br/> [Azure SQL Database 安全性方針和限制](http://msdn.microsoft.com/library/azure/ff394108.aspx#authentication)
+
 
 ##Azure 服務匯流排身分識別與存取案例
 
@@ -327,9 +334,9 @@ SQL Database 僅支援 SQL Server 驗證。不支援 Windows 驗證 (整合式�
 
 ###我要存取我的資料集
 
-在此案例中，您打算建立將使用 Marketplace 訂閱中之資料集的應用程式。您是應用程式的使用者。應用程式可能會部署到 Azure、內部部署或 Marketplace。
+在此案例中，您打算建立將使用 Marketplace 訂用帳戶中之資料集的應用程式。您是應用程式的使用者。應用程式可能會部署到 Azure、內部部署或 Marketplace。
 
-使用透過 Marketplace 訂閱取得的共用金鑰。您可以使用 Marketplace 入口網站來取得該共用金鑰。
+使用透過 Marketplace 訂用帳戶取得的共用金鑰。您可以使用 Marketplace 入口網站來取得該共用金鑰。
 
 ![][18]
 
@@ -444,4 +451,4 @@ SQL Database 僅支援 SQL Server 驗證。不支援 Windows 驗證 (整合式�
 [Web SSO Design]: http://technet.microsoft.com/library/dd807033(WS.10).aspx
 [Federated Web SSO Design]: http://technet.microsoft.com/library/dd807050(WS.10).aspx
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

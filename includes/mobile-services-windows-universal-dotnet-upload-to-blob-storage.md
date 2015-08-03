@@ -18,7 +18,7 @@
 
    	![](./media/mobile-services-windows-universal-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png)
  
-   	如此能確保您的應用程式可以使用連接至電腦的相機。Users will be requested to allow camera access the first time that the app is run.
+   	如此能確保您的應用程式可以使用連接至電腦的相機。第一次執行該應用程式時，系統會要求使用者允許u30456 相機進行存取。
 
 2. 針對 Windows Phone 應用程式專案重複上述步驟。
  
@@ -298,4 +298,4 @@
 
 您已完成上傳影像教學課程。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -55,7 +55,7 @@ Azure 儲存體帳戶是可讓您存取 Azure 儲存體服務的安全帳戶。�
 - 標準儲存體帳戶包含 Blob、資料表、佇列和檔案儲存體。
 - Premium 儲存體帳戶目前僅支援 Azure 虛擬機器磁碟。Azure Premium 儲存體可透過在 [Azure 預覽頁面](/services/preview/)上提出要求而取得。
 
-在建立儲存體帳戶之前，您必須擁有 Azure 訂用帳戶，訂用帳戶是指可讓您存取各種 Azure 服務的方案。[單一訂用帳戶可讓您建立最多 100 個唯一命名的儲存體帳戶。](../azure-subscription-service-limits.md) 如需批量價格的相關資訊，請參閱[儲存體價格詳細資料](http://azure.microsoft.com/pricing/details/storage/)。
+在建立儲存體帳戶之前，您必須擁有 Azure 訂閱，訂閱是指可讓您存取各種 Azure 服務的方案。[單一訂用帳戶可讓您建立最多 100 個唯一命名的儲存體帳戶。](../azure-subscription-service-limits.md) 如需批量價格的相關資訊，請參閱[儲存體定價詳細資料](http://azure.microsoft.com/pricing/details/storage/)。
 
 您可以利用[免費試用版](http://azure.microsoft.com/pricing/free-trial/)來開始使用 Azure。在決定購買方案之後，您便可以選擇各種[購買選項](http://azure.microsoft.com/pricing/purchase-options/)。如果您是 [MSDN 訂閱者](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)，您將取得可在 Azure 服務 (包括 Azure 儲存體) 中使用的每月免費額度。
 
@@ -141,13 +141,13 @@ Azure 檔案儲存體提供雲端架構的 SMB 2.1 檔案共用，可讓您快�
 
 [AZURE.INCLUDE [storage-replication-options-include](../../includes/storage-replication-options-include.md)]
 
-## 價格
+## 定價
 
 客戶的 Azure 儲存體費用依據 4 項因素進行計算：使用的儲存體容量、選取的複寫選項、針對服務所做的要求次數，以及出口流量。
 
 儲存體容量是指您用於儲存資料的儲存體帳戶配額。若只是儲存資料，則成本是由您所儲存的資料量和複寫資料的方式來決定。對 Azure 儲存體進行的每個讀取和寫入操作也會對服務提出要求。出口流量是指傳出 Microsoft Azure 區域的資料。當您儲存體帳戶中的資料受不同地區中執行的應用程式存取時，不論該應用程式是雲端服務還是其他某類應用程式，您都要負擔出口流量的費用。(若為 Microsoft Azure 服務，您可以採取步驟，將資料和服務群組在相同的資料中心，以減少或消除處理和出口流量費用)。
 
-[儲存體價格詳細資料](http://azure.microsoft.com/pricing/details/storage/)頁面提供了儲存體容量、複寫和交易的詳細價格資料。[資料傳輸價格詳細資料](http://azure.microsoft.com/pricing/details/data-transfers/)則提供了出口流量的詳細價格資訊。您可以使用 [Azure 儲存體價格計算機](http://azure.microsoft.com/pricing/calculator/?scenario=data-management)，以協助消除成本。
+[儲存體定價詳細資料](http://azure.microsoft.com/pricing/details/storage/)頁面提供了儲存體容量、複寫和交易的詳細定價資料。[資料傳輸定價詳細資料](http://azure.microsoft.com/pricing/details/data-transfers/)則提供了出口流量的詳細定價資訊。您可以使用 [Azure 儲存體定價計算機](http://azure.microsoft.com/pricing/calculator/?scenario=data-management)，以協助消除成本。
 
 ## 針對儲存體進行開發
 
@@ -224,4 +224,4 @@ Azure 儲存體可透過 [REST API](http://msdn.microsoft.com/library/azure/dd17
 - [如何使用 Python 的佇列儲存體](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

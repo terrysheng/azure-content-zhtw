@@ -24,4 +24,4 @@
  
 4. 重新發佈您的專案。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

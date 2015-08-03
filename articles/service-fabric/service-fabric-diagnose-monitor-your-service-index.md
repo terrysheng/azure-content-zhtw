@@ -40,4 +40,4 @@ Service Fabric 導入了健康狀態模型，可提供豐富、彈性且可延�
 - [新增自訂 Service Fabric 健康狀態報告](service-fabric-report-health.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

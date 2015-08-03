@@ -1,19 +1,12 @@
-<properties 
-	pageTitle="使用 Compute、Network 和 Storage .NET Library 部署 Azure 資源" 
-	description="了解如何使用 Compute、Storage 和 Network .NET Library 中的一些可用用戶端建立和刪除 Microsoft Azure 中的資源" 
-	services="virtual-machines,virtual-network,storage" 
-	documentationCenter="" 
-	authors="davidmu1" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties pageTitle="使用計算、網路和儲存體 .NET 程式庫來部署 Azure 資源" description="了解如何使用計算、儲存體和網路 .NET 程式庫中一些可用的用戶端來建立和刪除 Microsoft Azure 中的資源" services="virtual-machines,virtual-network,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="virtual-machines" 
+	ms.workload="multiple"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/27/2015"
 	ms.author="davidmu"/>
 
 # 使用 Compute、Network 和 Storage .NET Library 部署 Azure 資源
@@ -55,7 +48,7 @@
 
 5. 將 {application-id} 取代成您剛才記錄的識別碼，然後建立應用程式的服務主體：
 
-        New-AzureADServicePrincipal -ApplicationId {application-id} 
+        New-AzureADServicePrincipal -ApplicationId {application-id}
 
 6. 設定使用應用程式的權限：
 
@@ -108,7 +101,7 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
           ClientCredential cc = new ClientCredential("{application-id}", "{password}");
             var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
             var result = context.AcquireToken("https://management.azure.com/", cc);
-          
+
           if (result == null)
           {
             throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -141,7 +134,7 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 		public async static void CreateResourceGroup(TokenCloudCredentials credential)
 		{
 		  Console.WriteLine("Creating the resource group...");
-		  
+
           using (var resourceManagementClient = new ResourceManagementClient(credential))
 		  {
 		    var rgResult = await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync("mytestrg1", new ResourceGroup { Location = "West US" });
@@ -169,7 +162,7 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 		public async static void CreateStorageAccount(TokenCloudCredentials credential)
         {
           Console.WriteLine("Creating the storage account...");
-          
+
           using (var storageManagementClient = new StorageManagementClient(credential))
           {
             var saResult = await storageManagementClient.StorageAccounts.CreateAsync(
@@ -182,7 +175,7 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
         }
 
 3.	將下列程式碼加入至 Main 方法，以呼叫您剛才加入的方法：
-		
+
 		CreateStorageAccount(credential);
 		Console.ReadLine();
 
@@ -285,7 +278,7 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
                 Location = "West US"
               } );
             Console.WriteLine(avSetResponse.StatusCode);
-                
+
             var networkClient = new NetworkResourceProviderClient(credential);
             var nicResponse = await networkClient.NetworkInterfaces.GetAsync("mytestrg1", "mytestnic1");
 
@@ -334,7 +327,7 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
                   {
                     Name = "myosdisk1",
                     CreateOption = "FromImage",
-                    VirtualHardDisk = new VirtualHardDisk 
+                    VirtualHardDisk = new VirtualHardDisk
                     {
                       Uri = "http://mytestsa1.blob.core.windows.net/vhds/myosdisk1.vhd"
                     }
@@ -387,4 +380,4 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 	![建立 AD 應用程式](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

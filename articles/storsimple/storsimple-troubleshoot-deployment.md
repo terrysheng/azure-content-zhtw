@@ -3,7 +3,7 @@
    description="說明如何診斷和修正您第一次部署 StorSimple 時發生的錯誤。"
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
-   ms.author="v-sharos" />
+   ms.date="07/17/2015"
+   ms.author="alkohli" />
 
 # StorSimple 裝置部署問題的疑難排解
 
@@ -64,7 +64,7 @@
 - 設定裝置系統管理員和 StorSimple Snapshot Manager 密碼。 
 - 註冊裝置。 
 
-### 當您設定所需的網路設定時發生的錯誤
+## 所需的網路設定期間發生錯誤
 
 | 編號| 錯誤訊息 | 可能的原因 | 建議的動作 |
 | ---| ------------- | --------------- | ------------------ |
@@ -76,7 +76,7 @@
 | 6 | Invoke-HcsSetupWizard：無效的 IPv6 位址。 | 提供的 IP 位址格式不正確。| 檢查格式，然後再次提供您的 IP 位址。如需詳細資訊，請參閱 [Ipv6 定址][2]。|
 | 7 | Invoke-HcsSetupWizard：端點對應表中無更多可用的端點。(發生例外狀況於 HRESULT：0x800706D9) | 叢集功能無法運作。 | [連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)以進行後續步驟。
 
-### 當您設定選用的 Web Proxy 設定時發生的錯誤
+## 選用的 Web Proxy 設定期間發生錯誤
 
 | 編號| 錯誤訊息 | 可能的原因 | 建議的動作 |
 | ---| ------------- | --------------- | ------------------ |
@@ -86,7 +86,7 @@
 | 4 | Invoke-HcsSetupWizard：找不到叢集資源 (發生例外狀況於 HRESULT：0x8007138f) | 找不到叢集資源。若未正確安裝，即會發生此情況。 | 您可能需要將裝置重設為出廠預設設定。[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)以建立叢集資源。|
 | 5 | Invoke-HcsSetupWizard：叢集資源不在線上 (發生例外狀況於 HRESULT：0x8007138c)| 叢集資源不在線上。 | [連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)以進行後續步驟。|
 
-### 當您設定裝置系統管理員和 StorSimple Snapshot Manager 密碼時發生的錯誤
+## 關於裝置系統管理員和 StorSimple Snapshot Manager 密碼的錯誤
 
 預設裝置系統管理員密碼是 **Password1**。此密碼會在第一次登入之後過期。因此，您必須使用安裝精靈來變更它。當您第一次註冊裝置時，必須提供新的裝置系統管理員密碼。
 
@@ -124,7 +124,7 @@
 - [設定裝置系統管理員密碼](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec09)
 - [設定 StorSimple Snapshot Manager 密碼](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
 
-### 註冊裝置時發生的錯誤
+## 裝置註冊期間發生錯誤
 
 您使用在 Microsoft Azure 中執行的 StorSimple Manager 服務來註冊裝置。您可能會在裝置註冊期間遇到下列一或多個問題。
 
@@ -575,4 +575,4 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

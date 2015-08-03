@@ -333,4 +333,4 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

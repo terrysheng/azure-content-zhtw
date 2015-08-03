@@ -81,7 +81,7 @@ JSON 檔案來源匯入工具選項可讓您匯入一或多個單一文件 JSON 
 	dt.exe /s:JsonFile /s.Files:C:\Tweets*.*;C:\LargeDocs***.*;C:\TESessions\Session48172.json;C:\TESessions\Session48173.json;C:\TESessions\Session48174.json;C:\TESessions\Session48175.json;C:\TESessions\Session48177.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:subs /t.CollectionTier:S3
 
 	#Import a single JSON file and partition the data across 4 collections
-	dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
+	dt.exe /s:JsonFile /s.Files:D:\CompanyData\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
 
 ##<a id="MongoDB"></a>從 MongoDB 匯入 ##
 
@@ -303,9 +303,9 @@ DocumentDB 連接字串的格式如下：
 2. 您可以使用縮寫的語法：collection[3] 將發出一組與步驟 1 中所述相同的集合。
 3. 您可以提供一個以上的替代項目。例如，collection[0-1] [0-9] 將產生 20 個開頭為零的集合名稱 (collection01、..02、..03)。
 
-指定集合名稱之後，請選擇所需的集合價格層 (S1、S2 或 S3)。為了達到最佳的匯入效能，請選擇 S3。您可以在[這裡](documentdb-performance-levels.md)深入了解 DocumentDB 效能等級。
+指定集合名稱之後，請選擇所需的集合定價層 (S1、S2 或 S3)。為了達到最佳的匯入效能，請選擇 S3。您可以在[這裡](documentdb-performance-levels.md)深入了解 DocumentDB 效能等級。
 
-> [AZURE.NOTE]效能層設定僅適用於建立集合。如果指定的集合已經存在，將不會修改其價格層。
+> [AZURE.NOTE]效能層設定僅適用於建立集合。如果指定的集合已經存在，將不會修改其定價層。
 
 匯入到多個集合時，匯入工具支援以雜湊為基礎的分區化。在此案例中，指定您想要用來做為資料分割索引鍵的文件屬性 (如果資料分割索引鍵是空白的，文件就會跨目標集合隨機進行分區化)。
 
@@ -355,9 +355,9 @@ DocumentDB 連接字串的格式如下：
 2. 您可以使用縮寫的語法：collection[3] 將發出一組與步驟 1 中所述相同的集合。
 3. 您可以提供一個以上的替代項目。例如，collection[0-1] [0-9] 將產生 20 個開頭為零的集合名稱 (collection01、..02、..03)。
 
-指定集合名稱之後，請選擇所需的集合價格層 (S1、S2 或 S3)。為了達到最佳的匯入效能，請選擇 S3。您可以在[這裡](documentdb-performance-levels.md)深入了解 DocumentDB 效能等級。
+指定集合名稱之後，請選擇所需的集合定價層 (S1、S2 或 S3)。為了達到最佳的匯入效能，請選擇 S3。您可以在[這裡](documentdb-performance-levels.md)深入了解 DocumentDB 效能等級。
 
-> [AZURE.NOTE]效能層設定僅適用於建立集合。如果指定的集合已經存在，將不會修改其價格層。
+> [AZURE.NOTE]效能層設定僅適用於建立集合。如果指定的集合已經存在，將不會修改其定價層。
 
 匯入到多個集合時，匯入工具支援以雜湊為基礎的分區化。在此案例中，指定您想要用來做為資料分割索引鍵的文件屬性 (如果資料分割索引鍵是空白的，文件就會跨目標集合隨機進行分區化)。
 
@@ -476,4 +476,4 @@ DocumentDB JSON 匯出工具可讓您將任何可用的來源選項匯出至包�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

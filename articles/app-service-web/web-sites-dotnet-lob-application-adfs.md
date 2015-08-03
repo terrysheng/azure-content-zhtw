@@ -61,11 +61,11 @@
 
 	> [AZURE.NOTE][README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) 的指示說明如何使用 Azure Active Directory 設定應用程式，但在本教學課程，您將使用 AD FS 進行設定，因此請改為執行這裡的步驟。
 
-3.	開啟解決方案，然後在 [方案總管] 中開啟 Controllers\\AccountController.cs。
+3.	開啟解決方案，然後在 [方案總管] 中開啟 Controllers\AccountController.cs。
 
-	您會看到程式碼只是發出驗證挑戰，以使用 WS-同盟來驗證使用者。所有驗證都是在 App_Start\\Startup.Auth.cs 中設定。
+	您會看到程式碼只是發出驗證挑戰，以使用 WS-同盟來驗證使用者。所有驗證都是在 App_Start\Startup.Auth.cs 中設定。
 
-4.  開啟 App_Start\\Startup.Auth.cs。在 `ConfigureAuth` 方法中，請注意下列重點：
+4.  開啟 App_Start\Startup.Auth.cs。在 `ConfigureAuth` 方法中，請注意下列重點：
 
         app.UseWsFederationAuthentication(
             new WsFederationAuthenticationOptions
@@ -79,7 +79,7 @@
 	-	RP 識別碼：`https://contoso.com/MyLOBApp`
 	-	中繼資料位址：`http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 
-5.	在 App_Start\\Startup.Auth.cs 中變更靜態字串定義，如以下反白顯示：
+5.	在 App_Start\Startup.Auth.cs 中變更靜態字串定義，如以下反白顯示：
 	<pre class="prettyprint">
 private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
 <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
@@ -149,7 +149,7 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
 > [AZURE.NOTE]請確定為您的兩個環境重複下列步驟。
 
 4.	在 AD FS 伺服器上，使用具有 AD FS 之管理權限的認證登入。
-5.	開啟 [AD FS 管理]。以滑鼠右鍵按一下 [AD FS]\\[信任的關係]\\[信賴憑證者信任]，然後選取 [新增信賴憑證者信任]。
+5.	開啟 [AD FS 管理]。以滑鼠右鍵按一下 [AD FS][信任的關係][信賴憑證者信任]，然後選取 [新增信賴憑證者信任]。
 
 	![](./media/web-sites-dotnet-lob-application-adfs/1-add-rptrust.png)
 
@@ -175,7 +175,7 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
 
 7.	在 [設定識別碼] 頁面上，確認已列出專案 SSL URL，然後按 [下一步]。按 [下一步] 並選取預設選取項目，一直到精靈結束。
 
-	> [AZURE.NOTE]在 Visual Studio 專案的 App_Start\\Startup.Auth.cs，此識別碼會在同盟驗證期間比對 <code>WsFederationAuthenticationOptions.Wtrealm</code> 的值。根據預設，會加入上一個步驟的應用程式 URL 做為 RP 識別碼。
+	> [AZURE.NOTE]在 Visual Studio 專案的 App_Start\Startup.Auth.cs，此識別碼會在同盟驗證期間比對 <code>WsFederationAuthenticationOptions.Wtrealm</code> 的值。根據預設，會加入上一個步驟的應用程式 URL 做為 RP 識別碼。
 
 8.	您現在已經在 AD FS 中完成專案的 RP 應用程式設定。接下來，您將設定此應用程式來傳送應用程式所需的宣告。[編輯宣告規則] 對話方塊預設會在精靈結束時開啟，以便讓您立即啟動。讓我們至少設定下列宣告 (使用括號括住結構描述)：
 
@@ -249,7 +249,7 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 - AD FS 已成功驗證 AD 使用者，並將您重新導向回應用程式的首頁
 - AD FS 已將名稱宣告 (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) 成功傳送到您的應用程式，並在角落顯示使用者名稱。 
 
-如果缺少名稱宣告，您應該會看到「您好！」。如果您看一下 Views\\Shared\\_LoginPartial.cshtml，您會發現其使用 `User.Identity.Name` 來顯示使用者名稱。如前所述，若可在 SAML 權杖中取得，ASP.NET 會使用已驗證使用者的名稱宣告來產生這個屬性。若要查看 AD FS 傳送的所有宣告，請將中斷點放在索引動作方法的 Controllers\\HomeController.cs 中。驗證使用者後，檢查 `System.Security.Claims.Current.Claims` 集合。
+如果缺少名稱宣告，您應該會看到「您好！」。如果您看一下 Views\Shared_LoginPartial.cshtml，您會發現其使用 `User.Identity.Name` 來顯示使用者名稱。如前所述，若可在 SAML 權杖中取得，ASP.NET 會使用已驗證使用者的名稱宣告來產生這個屬性。若要查看 AD FS 傳送的所有宣告，請將中斷點放在索引動作方法的 Controllers\HomeController.cs 中。驗證使用者後，檢查 `System.Security.Claims.Current.Claims` 集合。
 
 ![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png)
 
@@ -258,24 +258,24 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 
 由於您已在 RP 信任組態中加入做為角色宣告的群組成員資格，因此您現在可以在 `[Authorize(Roles="...")]` 裝飾中，直接將這些規則運用於控制器和動作。在使用建立-讀取-更新-刪除 (CRUD) 模式的特定業務應用程式中，您可以授權特定角色來存取每個動作。現在，您只要在現有的主控制器上嘗試這項功能。
 
-1. 開啟 Controllers\\HomeController.cs。
+1. 開啟 Controllers\HomeController.cs。
 2. 使用已驗證使用者擁有的安全性群組成員資格來裝飾 `About` 和 `Contact` 動作方法 (類似下列作法)。  
 	<pre class="prettyprint">
-<mark>[Authorize(Roles="Test Group")]</mark>
-public ActionResult About()
-{
+	<mark>[Authorize(Roles="Test Group")]</mark>
+	public ActionResult About()
+	{
     ViewBag.Message = "Your application description page.";
 
     return View();
-}
+	}
 
-<mark>[Authorize(Roles="Domain Admins")]</mark>
-public ActionResult Contact()
-{
+	<mark>[Authorize(Roles="Domain Admins")]</mark>
+	public ActionResult Contact()
+	{
     ViewBag.Message = "Your contact page.";
 
     return View();
-}
+	}
 </pre>由於我在 AD FS 實驗室環境中將「測試使用者」新增至「測試群組」，我將在 `About` 上使用測試群組來測試授權。若為 `Contact`，我將測試「測試使用者」不屬於之 **Domain Admins** 的負面案例。
 
 3. 輸入 `F5` 開始偵錯工具並登入，然後按一下 [關於]。如果該動作已授權給已驗證的使用者，您現在應可順利檢視 `~/About/Index` 頁面。
@@ -343,4 +343,4 @@ Azure App Service Web Apps 可透過兩種方式支援存取在內部部署資�
  
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

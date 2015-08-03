@@ -93,4 +93,4 @@
 - 成為現有負載平衡集的成員
 - 靜態 IP 位址
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

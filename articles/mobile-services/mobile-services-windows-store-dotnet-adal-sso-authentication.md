@@ -217,4 +217,4 @@
 [開始使用行動服務]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Windows 開發人員中心儀表板]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

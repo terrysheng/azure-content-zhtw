@@ -86,4 +86,4 @@ BizTalk 配接器服務會使用服務匯流排簽發者名稱和簽發者金鑰
 - [BizTalk 服務：節流](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

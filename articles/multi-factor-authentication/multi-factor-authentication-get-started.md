@@ -87,4 +87,4 @@ MFA 報告 | ● | ●
 * [適用於使用者](multi-factor-authentication-end-user.md)
 * [MSDN 上的 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -20,4 +20,4 @@
 
 若要要求增加付費的集合或並行連接數目，請傳送電子郵件給 [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com)，並提供所需的詳細資料，包括您的訂用帳戶識別碼。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

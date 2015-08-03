@@ -110,4 +110,4 @@ Azure 將會組織一組區域配對。在虛擬機器使用單一執行個體�
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [了解計劃性與非計劃性維護]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -113,4 +113,4 @@ StorSimple Manager 登陸頁面會列出所有 StorSimple Manager 服務，您�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

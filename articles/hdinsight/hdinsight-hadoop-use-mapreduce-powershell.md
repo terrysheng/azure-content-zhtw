@@ -173,4 +173,4 @@ MapReduce 工作的輸出會儲存在名稱為 *part-r-#####* 的檔案中。使
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

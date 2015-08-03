@@ -2,4 +2,4 @@
 
 如需 Azure Redis 快取設定限制的相關資訊，請參閱[預設 Redis 伺服器組態](redis-cache/cache-configure.md#default-redis-server-configuration)。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

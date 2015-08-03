@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/16/2015" 
 	ms.author="mebha"/>
 
 
@@ -43,11 +43,11 @@
 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-**2) FreeTDS**：從您的終端機上執行下列命令：這會在您的電腦上下載 FreeTDS。pymmsql 需要 FreeTDS 才能工作。
+**2) FreeTDS**：從您的終端機執行下列命令。這會在您的電腦上下載 FreeTDS。pymmsql 需要 FreeTDS 才能工作。
 
     brew install FreeTDS
   
-**3) Pymmsql**：從您的終端機上執行下列命令：這將會在您的電腦上安裝 pymmsql
+**3) Pymmsql**：從您的終端機執行下列命令。這將會在您的電腦上安裝 pymmsql。
 
     sudo -H pip install pymssql
 
@@ -118,4 +118,4 @@
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

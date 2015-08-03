@@ -25,7 +25,7 @@
 
 以下為 Azure 媒體服務與 castLabs 整合架構概況圖。
 
-![Scale page](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
+![整合](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
 
 ##一般系統設定
 
@@ -114,4 +114,4 @@ castLabs 與 AMS 皆支援使用 JWT (JSON Web Token) 權杖格式進行授權�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

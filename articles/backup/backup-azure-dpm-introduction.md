@@ -3,11 +3,11 @@
 	description="使用 Azure 備份服務來備份 DPM 伺服器的簡介"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="SamirMehta"
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/02/2015" ms.author="sammehta"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/16/2015" ms.author="sammehta"; "jimpark"/>
 
 # Azure DPM 備份簡介
 
@@ -81,4 +81,4 @@ System Center DPM 會備份檔案和應用程式資料。備份到 DPM 的資料
 
 >[AZURE.NOTE]從 System Center 2012 DPM SP1 開始，您可以使用 Microsoft Azure 備份將受到 DPM 保護的工作負載備份至 Azure。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

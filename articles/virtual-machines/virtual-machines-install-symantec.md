@@ -1,20 +1,21 @@
-<properties 
-	pageTitle="如何在 Azure VM 上安裝和設定 Symantec Endpoint Protection" 
-	description="說明如何在 Azure 的新的或現有的 VM 上，安裝和設定 Symantec Endpoint Protection 安全性延伸模組" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor=""/>
+<properties
+	pageTitle="如何在 Azure VM 上安裝和設定 Symantec Endpoint Protection"
+	description="說明如何在 Azure 的新的或現有的 VM 上，安裝和設定 Symantec Endpoint Protection 安全性延伸模組"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dsk-2015"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/14/2015"
+	ms.author="dkshir"/>
 
 # 如何在 Azure VM 上安裝和設定 Symantec Endpoint Protection
 
@@ -45,17 +46,17 @@
 
 在開始之前，您將需要下列項目：
 
-- Azure PowerShell 模組 0.8.2 版或更新版本。您可以使用 **Get-Module azure | format-table version** 命令檢查已安裝的 Azure PowerShell 版本。如需最新版本的指示與連結，請參閱[如何安裝和設定 Azure PowerShell][PS]。  
+- 在本機電腦上安裝 Azure PowerShell 模組 0.8.2 版或更新版本。您可以使用 **Get-Module azure | format-table version** 命令，來檢查已安裝的 Azure PowerShell 版本。如需最新版本的指示與連結，請參閱[如何安裝和設定 Azure PowerShell][PS]。請確定登入您的 Azure 訂用帳戶。
 
-- VM 代理程式。
+- 在 Azure 虛擬機器上執行的 VM 代理程式。
 
-首先，確認已安裝 VM 代理程式。填寫雲端服務名稱和虛擬機器名稱，然後在系統管理員層級 Azure PowerShell 命令提示字元上執行下列命令。取代括弧內的所有項目，包括 < and > 字元。
+首先，請確認虛擬機器上已安裝 VM 代理程式。填寫雲端服務名稱和虛擬機器名稱，然後在系統管理員層級 Azure PowerShell 命令提示字元上執行下列命令。取代括弧內的所有項目，包括 < and > 字元。
 
 > [AZURE.TIP]如果您不知道雲端服務和虛擬機器的名稱，請執行 **Get-AzureVM** 以列出您目前訂閱中的所有虛擬機器的名稱。
 
 	$CSName = "<cloud service name>"
 	$VMName = "<virtual machine name>"
-	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName 
+	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName
 	write-host $vm.VM.ProvisionGuestAgent
 
 如果 **write-host** 命令顯示 **True**，則會安裝 VM 代理程式。如果顯示 **False**，請參閱 Azure 部落格文章 [VM 代理程式與延伸模組 - 第 2 部分][Agent]中的指示和下載連結。
@@ -63,6 +64,7 @@
 如果已安裝 VM 代理程式，請執行下列命令來安裝 Symantec Endpoint Protection 代理程式。
 
 	$Agent = Get-AzureVMAvailableExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection
+
 	Set-AzureVMExtension -Publisher Symantec –Version $Agent.Version -ExtensionName SymantecEndpointProtection -VM $vm | Update-AzureVM
 
 若要確認 Symantec 安全性延伸模組已安裝且是最新的：
@@ -93,6 +95,4 @@
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

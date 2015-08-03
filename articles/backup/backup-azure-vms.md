@@ -24,7 +24,7 @@
 
 ![備份 Azure 虛擬機器的三個步驟](./media/backup-azure-vms/3-steps-for-backup.png)
 
-## 1\.探索 Azure 虛擬機器
+## 1.探索 Azure 虛擬機器
 探索程序會在 Azure 中查詢訂用帳戶中的虛擬機器清單，以及其他資訊，例如雲端服務名稱、地區等。
 
 > [AZURE.NOTE]第一個步驟一定都是執行探索程序。這是為了確保識別任何加入至訂用帳戶的新虛擬機器。
@@ -41,7 +41,7 @@
 
 5. 探索程序完成時會出現快顯通知。![探索完成](./media/backup-azure-vms/discovery-complete.png)
 
-##  2\.註冊 Azure 虛擬機器
+##  2.註冊 Azure 虛擬機器
 虛擬機器必須先向 Azure 備份服務註冊，才能受到保護。註冊程序有兩個主要目標：
 
 1. 將備份擴充功能外掛到虛擬機器中的 VM 代理程式
@@ -70,7 +70,7 @@
 
 7. 作業完成時，入口網站中的狀態會改變來反映已註冊的狀態。![註冊狀態 2](./media/backup-azure-vms/register-status02.png)
 
-## 3\.保護：備份 Azure 虛擬機器
+## 3.保護：備份 Azure 虛擬機器
 此步驟涉及到設定虛擬機器的備份和保留原則。若要保護虛擬機器，請執行下列步驟：
 
 ### 備份 Azure 虛擬機器
@@ -142,7 +142,7 @@
 #### 驗證 VM 代理程式安裝
 如何檢查 Windows VM 上的 VM 代理程式版本：
 
-1. 登入 Azure 虛擬機器並巡覽至 *C:\\WindowsAzure\\Packages* 資料夾。您應該會發現 WaAppAgent.exe 檔案已存在。
+1. 登入 Azure 虛擬機器並巡覽至 *C:\WindowsAzure\Packages* 資料夾。您應該會發現 WaAppAgent.exe 檔案已存在。
 2. 以滑鼠右鍵按一下檔案，移至 [**屬性**]，然後選取 [**詳細資料**] 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更高版本
 
 ### 疑難排解網路問題
@@ -182,4 +182,4 @@
 - [還原虛擬機器](backup-azure-restore-vms.md)
 - [管理虛擬機器](backup-azure-manage-vms)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

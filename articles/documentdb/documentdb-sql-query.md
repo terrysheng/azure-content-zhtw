@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="07/16/2015" 
 	ms.author="mimig"/>
 
 #查詢 DocumentDB
@@ -615,6 +615,14 @@ IN 就相當於鏈結多個 OR 子句，不過因為可以使用單一索引，�
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
+###加上引號的屬性存取子
+您也可以使用加上引號的屬性運算子 `[]` 存取屬性。例如，`SELECT c.grade` 和 `SELECT c["grade"]` 是相等的。當您需要逸出包含空格、特殊字元的屬性，或剛好要共用和 SQL 關鍵字或保留字相同的名稱時，此語法很有用。
+
+    SELECT f["lastName"]
+    FROM Families f
+    WHERE f["id"] = "AndersenFamily"
+
+
 ##SELECT 子句
 SELECT 子句 (**`SELECT <select_list>`**) 是必要項目，並指定將從查詢中擷取的值 (就像在 ANSI-SQL 中)。在來源文件上篩選出來的子集會傳遞給投射階段，而在此階段中，會擷取指定的 JSON 值並建構新的 JSON 物件 (針對每個傳遞給它的輸入)。
 
@@ -638,7 +646,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是必要項目，並指定將從查�
 
 
 ###巢狀屬性
-在下列範例中，我們將投射巢狀屬性`f.address.state` 和 `f.address.city`：
+在下列範例中，我們將投射巢狀屬性 `f.address.state` 和 `f.address.city`：
 
 **查詢**
 
@@ -1172,7 +1180,7 @@ DocumentDB SQL 文法已延伸，可支援使用這些使用者定義函數的�
 	       collectionSelfLink/* link of the parent collection*/, 
 	       regexMatchUdf).Result;  
                                                                              
-上述範例會建立名為 `REGEX_MATCH` 的 UDF。它接受兩個 JSON 字串值 `input` 和`pattern`，並且會使用 JavaScript 的 string.match() 函數檢查第一個項目是否符合第二個項目中指定的模式。
+上述範例會建立名為 `REGEX_MATCH` 的 UDF。它接受兩個 JSON 字串值 `input` 和 `pattern`，並且會使用 JavaScript 的 string.match() 函數檢查第一個項目是否符合第二個項目中指定的模式。
 
 
 我們現在可以在投射的查詢中使用此 UDF。從查詢中呼叫 UDF 時，必須以區分大小寫的前置詞 "udf." 限定。
@@ -1936,7 +1944,7 @@ DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最�
 
 ####巢狀
 
-語法為 `input.SelectMany(x=>x.Q())`，其中 Q 是 `Select`、`SelectMany` 或 `Where` 運算子。
+語法為 `input.SelectMany(x=>x.Q())`，其中 Q 是 `Select`、`SelectMany` 或 `Where` 運算式。
 
 在巢狀查詢中，會將內部查詢套用至外部集合的每個項目。其中一個重要功能是內部查詢可以參照外部集合中項目的欄位 (例如自我聯結)。
 
@@ -2111,7 +2119,7 @@ DocumentDB 提供透過 HTTP 的開放 RESTful 程式設計模型。可以使用
 	}
 
 
-如果查詢的結果無法放入結果的單一頁面內，則 REST API 會透過 `x-ms-continuation-token` 回應標頭傳回接續 Token。用戶端可以透過在後續結果中包括標頭，以將結果分頁。每頁的結果數目也可以透過 `x-ms-max-item-count` 數字標頭控制。
+如果查詢的結果無法放入結果的單一頁面內，則 REST API 會透過 `x-ms-continuation-token` 傳回接續 Token。用戶端可以透過在後續結果中包括標頭，以將結果分頁。每頁的結果數目也可以透過 `x-ms-max-item-count` 控制。
 
 若要管理查詢的資料一致性原則，請使用 `x-ms-consistency-level` 標頭 (例如所有 REST API 要求)。針對工作階段一致性，也需要在查詢要求中回應最新的 `x-ms-session-token` Cookie 標頭。請注意，所查詢集合的索引原則也可能會影響查詢結果的一致性。運用預設索引原則設定，集合的索引一律會具有最新文件內容，而且查詢結果會符合針對資料所選擇的一致性。如果編索引原則放寬為 Lazy，則查詢可能會傳回過時的結果。如需詳細資訊，請參閱 [DocumentDB 一致性層級][consistency-levels]。
 
@@ -2205,7 +2213,7 @@ DocumentDB 提供透過 HTTP 的開放 RESTful 程式設計模型。可以使用
 
 
 
-.NET 用戶端會在 foreach 區塊中自動逐一查看查詢結果的所有頁面 (如上所示)。.NET SDK 中也提供 REST API 小節所介紹的查詢選項，方法是在 CreateDocumentQuery 方法中使用 `FeedOptions` 和 `FeedResponse` 類別。頁數可以使用 `MaxItemCount` 設定來控制。
+.NET 用戶端會在 foreach 區塊中自動逐一查看查詢結果的所有頁面 (如上所示)。.NET SDK 中也提供 REST API 小節所介紹的查詢選項，方法是在 CreateDocumentQuery 方法中使用 `FeedOptions` 和 `FeedResponse` 類別。頁數可以使用 `MaxItemCount` 設定控制。
 
 開發人員也可以明確地控制分頁，方法是使用 `IQueryable` 物件建立 `IDocumentQueryable`，然後讀取 ` ResponseContinuationToken` 值，並將它們以 `FeedOptions` 中的 `RequestContinuationToken` 傳回。`EnableScanInQuery` 可以設定為在設定的索引原則不支援查詢時啟用掃描。
 
@@ -2253,11 +2261,11 @@ DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序
 2.	[DocumentDB SQL 規格](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3.	[DocumentDB .NET 範例](https://github.com/Azure/azure-documentdb-net)
 4.	[DocumentDB 一致性層級][consistency-levels]
-5.	ANSI SQL 2011[http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-6.	JSON[http://json.org/](http://json.org/)
-7.	Javascript 規格[http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8.	LINQ[http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9.	大型資料庫的查詢評估技術[http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+5.	ANSI SQL 2011 - [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+6.	JSON [http://json.org/](http://json.org/)
+7.	Javascript 規格 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
+9.	大型資料庫的查詢評估技術 [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10.	平行關聯式資料庫系統中的查詢處理 (IEEE Computer Society Press，1994 年)
 11.	Lu, Ooi, Tan, 平行關聯式資料庫系統中的查詢處理 (IEEE Computer Society Press，1994 年)。
 12.	Christopher Olston、Benjamin Reed、Utkarsh Srivastava、Ravi Kumar、Andrew Tomkins：Pig Latin：資料處理的 Not-So-Foreign 語言，SIGMOD 2008。
@@ -2269,4 +2277,4 @@ DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -141,4 +141,4 @@ App Service Web Apps [相應增加和放大]的能力非常適合無法預期的
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

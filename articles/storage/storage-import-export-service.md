@@ -324,4 +324,4 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

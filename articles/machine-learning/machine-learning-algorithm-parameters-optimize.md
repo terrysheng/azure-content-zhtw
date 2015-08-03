@@ -3,7 +3,7 @@
 	description="說明如何為 Azure Machine Learning 中的演算法選擇最佳的參數設定。" 
 	services="machine-learning"
 	documentationCenter="" 
-	authors="garyericson" 
+	authors="bradsev" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
-	ms.author="bradsev;garye" />
+	ms.date="07/14/2015" 
+	ms.author="bradsev" />
 
 
 # 如何選擇參數來最佳化 Azure Machine Learning 中的演算法
@@ -70,4 +70,4 @@
 [sweep-parameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

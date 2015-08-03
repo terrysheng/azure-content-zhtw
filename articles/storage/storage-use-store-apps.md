@@ -94,4 +94,4 @@
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

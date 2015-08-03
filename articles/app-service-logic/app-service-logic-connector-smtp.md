@@ -32,7 +32,7 @@ SMTP 連接器提供下列觸發程序和動作：
 
 觸發程序 | 動作
 --- | ---
-無 | 傳送電子郵件
+None | 傳送電子郵件
 
 
 ## 建立 SMTP 連接器
@@ -70,16 +70,16 @@ SMTP 連接器提供下列觸發程序和動作：
 
 您現在可以設定要在工作流程中使用的 SMTP 連接器。選取 [傳送電子郵件] 動作，並設定輸入屬性：
 
-	Property | Description
+	屬性 | 說明
 	--- | ---
-	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Subject | Enter the subject of the email.
-	Body | Enter body of the email.
-	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
-	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
-	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
+	To | 輸入收件人的電子郵件地址。使用分號 (;) 分隔多個電子郵件地址。例如輸入： recipient1@domain.com;recipient2@domain.com。
+	Cc | 輸入副本收件人的電子郵件地址。使用分號 (;) 分隔多個電子郵件地址。例如輸入：recipient1@domain.com;recipient2@domain.com。
+	Subject | 輸入電子郵件主旨。
+	Body | 輸入電子郵件內文。
+	Is HTML | 當此屬性設為 true 時，內文內容會以 HTML 傳送。
+	Bcc | 輸入密件副本收件人的電子郵件地址。使用分號 (;) 分隔多個電子郵件地址。例如輸入：recipient1@domain.com;recipient2@domain.com。
+	Importance | 輸入電子郵件的重要性。選項為一般、低重要性和高重要性。
+	Attachments | 附件會連同電子郵件一併寄出。包含的欄位如下： <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
 	![][5]
 	![][6]
@@ -91,7 +91,7 @@ SMTP 連接器提供下列觸發程序和動作：
 
 您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)。
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-smtp/img1.PNG
 [2]: ./media/app-service-logic-connector-smtp/img2.PNG
 [3]: ./media/app-service-logic-connector-smtp/img3.png
@@ -99,4 +99,4 @@ SMTP 連接器提供下列觸發程序和動作：
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -105,4 +105,4 @@ Runbook 儀表板會顯示單一 Runbook 的摘要。針對經過指定的天數
 - [在 Azure 自動化中檢視 Runbook 工作的狀態](automation-viewing-the-status-of-a-runbook-job)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

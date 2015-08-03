@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/20/2015" 
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [目前的已知問題](#issues)
 - [REST API 版本歷程記錄](#rest_version_history)
+- [2015 年 7 月版本](#july_changes_15)
 - [2015 年 6 月版本](#june_changes_15)
 - [2015 年 5 月版本](#may_changes_15)
 - [2015 年 4 月版本](#april_changes_15)
@@ -62,6 +63,23 @@
 ##<a id="rest_version_history"></a>REST API 版本歷程記錄
 
 如需媒體服務 REST API 版本歷程記錄的相關資訊，請參閱 [Azure 媒體服務 REST API 參考]。
+
+##<a id="july_changes_15"></a>2015 年 7 月版本
+
+宣布 Media Encoder Standard 的一般可用性。如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
+
+Media Encoder Standard 使用[本](http://go.microsoft.com/fwlink/?LinkId=618336)節中所述的預設。請注意，使用 4k 編碼的預設時，您應該取得 **進階 ** 保留的單元類型。如需詳細資訊，請參閱[如何調整編碼](media-services-portal-encoding-units)。
+
+
+###媒體服務 .NET SDK 更新
+
+Azure 媒體服務 .NET SDK 現在是版本 3.4.0.0。此版本中加入了下列功能：
+
+- 即時封存的實作支援。請注意，您無法下載包含即時封存的資產。
+- 動態篩選的實作支援
+- 可讓使用者在刪除資產時保留儲存體容器的實作功能
+- 通道中重試原則的相關 Bug 修正
+- 以啟用的 **Media Encoder Premium Workflow**
 
 ##<a id="june_changes_15"></a>2015 年 6 月版本
 
@@ -170,7 +188,7 @@ Azure 媒體服務 .NET SDK 現在是版本 3.1.0.1。
 
 ### <a id="new_encoder_release"></a>Media Services Encoder 版本
 
-發表新版的 Media Services Azure Media Encoder。使用最新的 Azure Media Encoder 時，您只需要為輸出 GB 付費，除此之外，新編碼器也與舊編碼器的功能相容。如需詳細資訊，請參閱[行動服務定價詳細資料])。
+發表新版的 Media Services Azure Media Encoder。使用最新的 Azure Media Encoder 時，您只需要為輸出 GB 付費，除此之外，新編碼器也與舊編碼器的功能相容。如需詳細資訊，請參閱[行動服務價格詳細資料])。
 
 ### <a id="oct_sdk"></a>媒體服務 .NET SDK 
 
@@ -201,9 +219,9 @@ Media Services SDK for .NET 目前的版本為 3.0.0.7。
 ### <a id="sept_14_breaking_changes"></a>重大變更
 
 * **原始來源**已重新命名為 [StreamingEndpoint]。
-* 使用 **Azure 管理入口網站**編碼並發行 MP4 檔案的預設行為已有所變更。 
+* 使用 **Azure 管理入口網站**編碼並發佈 MP4 檔案的預設行為已有所變更。 
 
-	過去，在使用管理入口網站發行單一檔案 MP4 視訊資產時，會建立 SAS URL (SAS URL 可讓您從 Blob 儲存體下載視訊)。現在，當您使用管理入口網站編碼並發行單一檔案 MP4 視訊資產時，產生的 URL 會指向 Azure 媒體服務串流端點。這項變更並不會影響未由 Azure 媒體服務編碼、而直接上傳至媒體服務並發行的 MP4 視訊。
+	過去，在使用管理入口網站發佈單一檔案 MP4 視訊資產時，會建立 SAS URL (SAS URL 可讓您從 Blob 儲存體下載視訊)。現在，當您使用管理入口網站編碼並發佈單一檔案 MP4 視訊資產時，產生的 URL 會指向 Azure 媒體服務串流端點。這項變更並不會影響未由 Azure 媒體服務編碼、而直接上傳至媒體服務並發佈的 MP4 視訊。
 	
 	現在，您有下列兩個選項可以解決問題。
 	
@@ -301,7 +319,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 
 ### <a name="jan_fab_14_donnet_changes"></a>Azure 媒體服務 .NET SDK 3.0.0.1、3.0.0.2 和 3.0.0.3
 
-3\.0.0.1 和 3.0.0.2 中的變更包括：
+3.0.0.1 和 3.0.0.2 中的變更包括：
 
 * 修正了使用 OrderBy 陳述式進行 LINQ 查詢的用法相關問題。
 
@@ -309,7 +327,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 
 如需關於變更的詳細資料，請參閱：[Azure 媒體服務 .NET SDK 3.0.0.1 和 3.0.0.2 版本]。
 
-3\.0.0.3 中做了下列變更：
+3.0.0.3 中做了下列變更：
 
 * 已升級 Azure 儲存體相依性而使用 3.0.3.0 版。 
 
@@ -505,7 +523,7 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 <!-- URLs. -->
 [Azure 媒體服務 MSDN 論壇]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Azure 媒體服務 REST API 參考]: http://msdn.microsoft.com/library/azure/hh973617.aspx
-[行動服務定價詳細資料]: http://azure.microsoft.com/pricing/details/media-services/
+[行動服務價格詳細資料]: http://azure.microsoft.com/pricing/details/media-services/
 [輸入中繼資料]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [輸出中繼資料]: http://msdn.microsoft.com/library/azure/dn783217.aspx
 [傳遞內容]: http://msdn.microsoft.com/library/azure/hh973618.aspx
@@ -537,4 +555,4 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [處理媒體服務工作通知]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

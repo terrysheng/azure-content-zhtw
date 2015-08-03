@@ -149,4 +149,4 @@ Azure AD 所發佈之同盟中繼資料文件可以有多組簽署金鑰 (例如
 
 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

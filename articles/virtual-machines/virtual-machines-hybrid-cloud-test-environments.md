@@ -5,20 +5,23 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
 # Azure 混合式雲端測試環境
 
 開發/測試或概念證明，混合式雲端測試環境會使用本機的網際網路連線，以及其中一個公用 IP 位址，並引導您逐步設定正常運作，跨單位 Azure 虛擬網路 (VNet)。完成後，您可以進行應用程式的開發和測試、試驗簡化的 IT 工作負載，以及根據您在網際網路上的位置，評估相對的站對站虛擬私人網路 (VPN) 連線效率。
+
+> [AZURE.NOTE]這些文件目前會在服務管理中建立虛擬機器、虛擬網路和其他資源。
 
 ## 混合式雲端基本設定
 
@@ -47,7 +50,7 @@
 
 ## 其他資源
 
-[在 Azure 基礎結構服務中架設的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
+[裝載於 Azure 基礎結構服務中的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
 
 [立體 LOB 應用程式架構藍圖的 PDF 檔](http://download.microsoft.com/download/2/C/8/2C8EB75F-AC45-4A79-8A63-C1800C098792/MS_Arch_LOB_App_3D_pdf.pdf)
 
@@ -58,4 +61,4 @@
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

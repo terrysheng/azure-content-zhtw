@@ -92,4 +92,4 @@ Twitter 連接器提供下列觸發程序和動作：
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/actions.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

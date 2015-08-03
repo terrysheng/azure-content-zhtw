@@ -1,5 +1,18 @@
-<properties title="Prepare an Oracle Linux Virtual Machine for Azure" pageTitle="準備執行 Azure 的 Oracle Linux 虛擬機器" description="逐步完成在 Microsoft Azure 中執行 Linux 的 Oracle 虛擬機器設定。" services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+	pageTitle="準備執行 Azure 的 Oracle Linux 虛擬機器" 
+	description="逐步完成在 Microsoft Azure 中執行 Linux 的 Oracle 虛擬機器設定。" 
+	services="virtual-machines" 
+	authors="bbenz" documentationCenter=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+
 #準備執行 Azure 的 Oracle Linux 虛擬機器
 -   [準備執行 Azure 的 Oracle Linux 6.4+ 虛擬機器](virtual-machines-linux-create-upload-vhd-oracle.md)
 
@@ -202,4 +215,4 @@
 
 15.  在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

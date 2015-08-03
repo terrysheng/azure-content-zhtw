@@ -161,4 +161,4 @@
 - [開始使用適用於 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)  
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

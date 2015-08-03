@@ -45,4 +45,4 @@
 	- [透過 Exchange 提供者設定 ExpressRoute 連線](expressroute-configuring-exps.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

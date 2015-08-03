@@ -186,8 +186,8 @@
 ### 假設
 此範例的假設如下：
 
-- **主機** - 裝載檔案系統的伺服器名稱是：**\\contoso**。
-- **資料夾** - 含有輸入檔案的資料夾名稱是：**marketingcampaign\\regionaldata\\{slice}，裡面的檔案會在 {slice} 資料夾中分割，例如 2014121112 (2014 年 12 月 11 日 12 時)。
+- **主機** - 裝載檔案系統的伺服器名稱是：**\contoso**。
+- **資料夾** - 含有輸入檔案的資料夾名稱是：**marketingcampaign\regionaldata\{slice}，裡面的檔案會在 {slice} 資料夾中分割，例如 2014121112 (2014 年 12 月 11 日 12 時)。
 ### 建立內部部署檔案系統連結服務
 下列範例 JSON 可以用來建立名為 **FolderDataStore** 的連結服務，其類型為 **OnPremisesFileSystemLinkedService**。
 
@@ -195,14 +195,14 @@
 	    "name": "FolderDataStore",
 	    "properties": {
 	        "type": "OnPremisesFileSystemLinkedService",
-	        "host": "\\\\contoso",
+	        "host": "\contoso",
 	        "userId": "username",
 	        "password": "password",
 	        "gatewayName": "ContosoGateway"
 	    }
 	}
 
-> [AZURE.NOTE]JSON 檔案中的主機和資料夾名稱一定要使用逸出字元 ''。如果是 **\\Contoso**，請使用 **\\\\Contoso**。
+> [AZURE.NOTE]JSON 檔案中的主機和資料夾名稱一定要使用逸出字元 ''。如果是 **\Contoso**，請使用 **\Contoso**。
 
 如需定義內部部署檔案系統連結服務之 JSON 項目的詳細資料，請參閱[內部部署檔案系統連結服務](https://msdn.microsoft.com/library/dn930836.aspx)。
 
@@ -228,7 +228,7 @@
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\\regionaldata\\{Slice}",
+	            "folderPath": "marketingcampaign\regionaldata\{Slice}",
 	            "partitionedBy": [
 	                { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } }
 	            ],
@@ -321,7 +321,7 @@
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\\regionaldata\\na",
+	            "folderPath": "marketingcampaign\regionaldata\na",
 	            "linkedServiceName": "FolderDataStore"
 	        },
 	        ...
@@ -336,7 +336,7 @@
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\\regionaldata\\na",
+	            "folderPath": "marketingcampaign\regionaldata\na",
 	            "fileFilter": "*.csv",
 	            "linkedServiceName": "FolderDataStore"
 	        },
@@ -352,7 +352,7 @@
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\\regionaldata\\na",
+	            "folderPath": "marketingcampaign\regionaldata\na",
 	            "fileFilter": "201501.csv",
 	            "linkedServiceName": "FolderDataStore"
 	        },
@@ -491,4 +491,4 @@
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

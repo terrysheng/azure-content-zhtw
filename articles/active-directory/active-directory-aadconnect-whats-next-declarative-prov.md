@@ -28,4 +28,4 @@
 
 如需運算式語言的詳細資訊，請參閱[了解宣告式佈建運算式](https://msdn.microsoft.com/library/azure/dn801048.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

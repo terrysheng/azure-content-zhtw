@@ -108,4 +108,4 @@
 
 以星號 (*) 列出的配額[可以透過聯絡 Azure 支援人員來進行調整](../articles/documentdb/documentdb-increase-limits.md)。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

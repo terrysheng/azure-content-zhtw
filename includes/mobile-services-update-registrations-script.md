@@ -28,4 +28,4 @@
 
    這會註冊新的 insert 指令碼，此指令碼會將註冊資訊儲存在新資料表中。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -201,7 +201,7 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 
 1. 在 Visual Studio 的 [方案總管] 中以滑鼠右鍵按一下專案，再選取內容功能表中的 [發行]。![選取 [發佈]](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms05.png) [**發佈 Web**] 對話方塊隨即出現。  
 
-2. 在 [發行 Web] 對話方塊的 [設定檔] 索引標籤上，按一下 [Azure Web 應用程式]。
+2. 在 [發佈 Web] 對話方塊的 [設定檔] 索引標籤上，按一下 [Azure Web 應用程式]。
 	  
 3. 如果您尚未登入，請按一下 [**選取現有 Web 應用程式**] 對話方塊中的 [**登入**] 按鈕。完成登入後，請選取您在本教學課程第一個部分中所建立的 Web 應用程式。按一下 [確定] 以繼續。![選取 [現有網站] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms07.png) Visual Studio 將會下載您的發佈設定。
 4. 在 [發行 Web] 對話方塊中，按一下 [發行]。![Publish Web dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms08.png) 您會在 Visual Studio 的 [**Web 發佈活動**] 視窗中，看到整體的發佈狀態：![Web 發佈活動](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms09.png)  
@@ -272,7 +272,7 @@ enable-migrations
 	<pre class="prettyprint">
 add-migration Initial
 </pre>`add-migration Initial` 命令會在建立資料庫的 *Migrations* 資料夾中產生一個名為 <date_stamp>Initial 的檔案。第一個參數 ( Initial ) 是任意的，可用來建立檔案的名稱。您可以在 [方案總管] 中看到新的類別檔案。在 `Initial` 類別中，`Up` 方法會建立 `Contact` 資料表，`Down` 方法 (當您希望返回前個狀態時使用) 則會捨棄該資料表。  
-4. 開啟 *Migrations\\Configuration.cs* 檔案。 
+4. 開啟 *Migrations\Configuration.cs* 檔案。 
 5. 新增下列命名空間：  
 	<pre class="prettyprint">
 using ContactManager.Models;
@@ -375,7 +375,7 @@ ASP.NET Web Forms 提供成員資格和驗證的增強功能選項。這些增�
 
 下列步驟可新增 Google 驗證提供者。
 
-1. 開啟 *App_Start\\Startup.Auth.cs* 檔案。 
+1. 開啟 *App_Start\Startup.Auth.cs* 檔案。 
 2. 移除 `app.UseGoogleAuthentication()` 方法中的註解字元，然後此方法會顯示如下：  
 	<pre class="prettyprint">
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
@@ -697,4 +697,4 @@ Update-Database
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

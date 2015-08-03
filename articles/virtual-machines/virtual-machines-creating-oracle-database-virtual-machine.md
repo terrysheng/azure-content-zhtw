@@ -1,5 +1,19 @@
-<properties title="Creating an Oracle Database Virtual Machine in Azure" pageTitle="在 Azure 中建立 Oracle 資料庫虛擬機器" description="逐步執行在 Microsoft Azure 中建立 Oracle 虛擬機器，然後在其上建立 Oracle 資料庫的範例。" services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+	pageTitle="在 Azure 中建立 Oracle 資料庫虛擬機器" 
+	description="逐步執行在 Microsoft Azure 中建立 Oracle 虛擬機器，然後在其上建立 Oracle 資料庫的範例。" 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+
 #在 Azure 中建立 Oracle 資料庫虛擬機器
 以下範例說明如何在 Azure 中，根據 Microsoft 提供且在 Windows Server 2012 上執行的 Oracle 資料庫映像來建立虛擬機器。有兩個步驟：建立虛擬機器，然後在虛擬機器內建立 Oracle 資料庫。顯示的範例是 Oracle 資料庫版本 12c，但步驟幾乎與版本 11g 相同。
 
@@ -13,7 +27,7 @@
 
 4.	指定 VM 的 [主機名稱]。
 
-5.	指定 VM 的 [使用者名稱]。請注意，此使用者是用來從遠端登入 VM，而不是 Oracle 資料庫使用者名稱。
+5.	指定 VM 的 [使用者名稱]。注意，此使用者是用於從遠端登入 VM，這不是 Oracle 資料庫使用者名稱。
 
 6.	指定並確認 VM 的密碼，或提供 SSH 公用金鑰。
 
@@ -179,4 +193,4 @@
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

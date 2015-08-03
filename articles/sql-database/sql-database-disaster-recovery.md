@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/14/2015"
    ms.author="elfish"/>
 
 # 從中斷情況復原 Azure SQL Database
@@ -101,4 +101,4 @@ Azure SQL Database 提供幾項中斷復原功能：
 復原資料庫之後，您可以遵循[完成復原的資料庫](sql-database-recovered-finalize.md)指南，設定資料庫以供使用。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -2,4 +2,4 @@
 > 
 > 這些程式庫雖由 Azure 資料表儲存體類別使用，它們同時也是使用 Storage Client Library 進行程式設計的必要相依項目。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

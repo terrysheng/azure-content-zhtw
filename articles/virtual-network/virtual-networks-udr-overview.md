@@ -90,4 +90,4 @@
 - 了解如何[建立路由](../virtual-networks-udr-how-to#How-to-manage-routes)並將其關聯至子網路。
 - 了解如何針對做為虛擬設備執行之 VM [啟用 IP 轉送](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding)。 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

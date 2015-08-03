@@ -40,4 +40,4 @@
 
 - [安裝和設定您的工作區](operational-insights-setup-workspace.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

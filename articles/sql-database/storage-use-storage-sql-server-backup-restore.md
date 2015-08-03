@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="如何使用 Azure 儲存體進行 SQL Server 備份與還原 | Azure" 
-	description="將 SQL Server 和 SQL Database 備份到 Azure 儲存體。說明將 SQL 資料庫備份到 Azure 儲存體的優點，以及需要哪些 SQL Server 和 Azure 儲存體元件" 
-	services="sql-database, virtual-machines" 
-	documentationCenter="" 
-	authors="jeffgoll" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="如何使用 Azure 儲存體進行 SQL Server 備份與還原 | Azure"
+	description="將 SQL Server 和 SQL Database 備份到 Azure 儲存體。說明將 SQL 資料庫備份到 Azure 儲存體的優點，以及需要哪些 SQL Server 和 Azure 儲存體元件"
+	services="sql-database, virtual-machines"
+	documentationCenter=""
+	authors="carlrabeler"
+	manager="jeffreyg"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/06/2015" 
-	ms.author="jeffreyg"/>
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="vm-windows-sql-server"
+	ms.topic="article"
+	ms.date="07/16/2015"
+	ms.author="carlrab"/>
 
 
 
@@ -43,7 +43,7 @@
 
 如需有關建立儲存體帳戶及執行簡單還原的完整逐步解說，請參閱[開始使用 Azure 儲存體服務進行 SQL Server 備份與還原](http://go.microsoft.com/fwlink/?LinkId=271615)
 
-## Azure Blob 儲存體服務元件 
+## Azure Blob 儲存體服務元件
 
 * 儲存體帳戶：儲存體帳戶是所有儲存體服務的起點。若要存取 Azure Blob 儲存體服務，請先建立 Azure 儲存體帳戶。必須要有儲存體帳戶名稱及其存取金鑰屬性才能向 Azure Blob 儲存體服務及其元件進行驗證。如需 Azure Blob 儲存體服務的詳細資訊，請參閱[如何使用 Azure Blob 儲存體服務](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) (英文)
 
@@ -69,17 +69,7 @@
 [SQL Server 備份及還原至 Azure Blob 儲存體服務使用者入門](http://go.microsoft.com/fwlink/?LinkID=271615 "教學課程")
 
 **最佳作法、疑難排解：**
-	
+
 [備份與還原最佳作法 (Azure Blob 儲存體服務)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-
-
-
-	
-
-
-
-
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

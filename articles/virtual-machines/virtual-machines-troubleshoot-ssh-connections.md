@@ -166,4 +166,4 @@
 [疑難排解在 Azure 虛擬機器上執行的應用程式存取](virtual-machines-troubleshoot-access-application.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

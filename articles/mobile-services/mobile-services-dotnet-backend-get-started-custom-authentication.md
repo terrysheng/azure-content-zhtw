@@ -160,11 +160,11 @@
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[AZURE.IMPORTANT]任何用戶端均可經由 HTTP 存取此註冊端點。將這項服務發行至實際執行環境之前，您應該實作某種配置來驗證註冊，例如以簡訊或電子郵件為基礎的驗證。這有助於防止惡意使用者建立詐騙註冊。
+>[AZURE.IMPORTANT]任何用戶端均可經由 HTTP 存取此註冊端點。將這項服務發佈至實際執行環境之前，您應該實作某種配置來驗證註冊，例如以簡訊或電子郵件為基礎的驗證。這有助於防止惡意使用者建立詐騙註冊。
 
 ## 建立 LoginProvider
 
-**LoginProvider** 是行動服務驗證管線中的基礎建構之一。在本節中，您將建立自己的 `CustomLoginProvider`。它並不會像內建提供者一樣插入管線中，但會為您提供方便的功能。
+**LoginProvider** 是行動服務驗證管線中的基礎建構之一。在本節中，您將建立自己的 `CustomLoginProvider`。它並不會像內建提供者一樣插入管線中，但會為您提供方便的功能。如果您使用 Visual Studio 2013，您可能需要安裝 `WindowsAzure.MobileServices.Backend.Security` Nuget 封裝將參考新增至 `LoginProvider` 類別。
 
 1. 請建立衍生自 **LoginProvider** 的新類別 `CustomLoginProvider`，並新增下列 `using` 陳述式：
 
@@ -420,4 +420,4 @@
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

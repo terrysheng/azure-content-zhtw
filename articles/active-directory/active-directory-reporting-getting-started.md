@@ -156,4 +156,4 @@ Azure Active Directory 包括您的目錄的安全性、活動和稽核報告。
 
 > [AZURE.TIP]如需有關 Azure AD 報告的更多文件，請參閱[檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

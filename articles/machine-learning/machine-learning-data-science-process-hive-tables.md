@@ -2,6 +2,7 @@
 	pageTitle="在進階分析程序和技術中將 Hive 查詢提交至 Hadoop 叢集 | Microsoft Azure"
 	description="使用 Hive 查詢，處理來自 Hive 資料表的資料。"
 	services="machine-learning"
+	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -322,4 +323,4 @@ Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

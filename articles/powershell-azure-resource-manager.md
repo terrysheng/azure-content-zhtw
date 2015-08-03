@@ -71,7 +71,7 @@ Azure 資源管理員介紹一種看待 Azure 資源的嶄新方式。與其建�
 	Add-AzureKeyVaultKey                   Creates a key in a vault or imports a key into a vault.
         ...
 
-若要取得 Cmdlet 的完整說明，請使用下列格式輸入命令：
+To get full help for a cmdlet, type a command with the format:
 
 	Get-Help <cmdlet-name> -Full
 
@@ -108,7 +108,7 @@ cmdlet 會提示您 Azure 帳戶的登入認證。登入之後，它會下載您
 
 建立資源群組及其資源的方式有幾種，但最簡單的方式是使用資源群組範本。*resource group template* 是可定義資源群組中資源的 JSON 字串。此字串包含使用者定義值的預留位置 (稱為 "parameters")，例如名稱和大小。
 
-Azure 裝載一個資源群組範本的資源庫，您也可以從頭開始或透過編輯資源庫範本以建立自己的範本。在本教學課程中，我們將使用資源庫範本。
+Azure 主控一個資源群組範本的資源庫，您也可以從頭開始或透過編輯資源庫範本以建立自己的範本。在本教學課程中，我們將使用資源庫範本。
 
 若要查看 Azure 資源群組範本資源庫中的所有範本，請使用 **Get-AzureResourceGroupGalleryTemplate** cmdlet；不過，這個命令會傳回大量範本。若要查看更容易管理的範本數目，請指定發佈者參數。
 
@@ -397,4 +397,4 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 - [使用 Azure 資源管理員驗證服務主體](./resource-group-authenticate-service-principal.md)
 - [使用 Azure 傳統入口網站建立新的 Azure 服務主體](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

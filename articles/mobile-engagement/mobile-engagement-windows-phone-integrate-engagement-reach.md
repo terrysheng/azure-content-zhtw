@@ -113,15 +113,15 @@ EngagementReach 物件提供兩種方法來管理加入/退出、`EnableNativePu
 
 您也可以選擇透過 Engagement 組態 <windows-phone-sdk-reach-configuration> 來停用 MPNS。
 
-> 2\.9.1) 應用程式必須先描述所提供之通知的內容，並取得使用者明確的許可 (選擇加入)，且必須提供使用者可以選擇退出接收推播通知的機制。使用 Microsoft 推播通知服務提供的所有通知必須與提供給使用者的描述一致，且必須遵守所有適用的[應用程式原則][Content Policies]和[適用於特定應用程式類型的額外需求]。
+> 2.9.1) 應用程式必須先描述所提供之通知的內容，並取得使用者明確的許可 (選擇加入)，且必須提供使用者可以選擇退出接收推播通知的機制。使用 Microsoft 推播通知服務提供的所有通知必須與提供給使用者的描述一致，且必須遵守所有適用的[應用程式原則][Content Policies]和[適用於特定應用程式類型的額外需求]。
 
 2) 您不應該使用太多推播通知。Engagement 將為您處理通知。
 
-> 2\.9.2) 應用程式及其對 Microsoft 推播通知服務的使用不得過度使用 Microsoft 推播通知服務的網路容量或頻寬，或以過度的推播通知對 Windows Phone 或其他 Microsoft 裝置或服務造成大量的負荷 (由 Microsoft 之合理的處理權判斷)，且不得傷害或干擾任何 Microsoft 網路或伺服器，或任何協力廠商伺服器或連線至 Microsoft 推播通知服務的網路。
+> 2.9.2) 應用程式及其對 Microsoft 推播通知服務的使用不得過度使用 Microsoft 推播通知服務的網路容量或頻寬，或以過度的推播通知對 Windows Phone 或其他 Microsoft 裝置或服務造成大量的負荷 (由 Microsoft 之合理的處理權判斷)，且不得傷害或干擾任何 Microsoft 網路或伺服器，或任何協力廠商伺服器或連線至 Microsoft 推播通知服務的網路。
 
 3) 請勿依賴 MPNS 傳送重要資訊。Engagement 使用 MPNS，所以此規定也適用於在 Engagement 前端所建立的活動。
 
-> 2\.9.3) Microsoft 推播通知服務不得用來傳送緊急或攸關生命安全的通知，包括但不限於與醫療裝置或狀況相關的緊急通知。Microsoft 清楚聲明對於 Microsoft 推播通知服務或 Microsoft 推播通知服務之通知的傳送，不提供不會有任何中斷、錯誤，或為即時運作的任何擔保。
+> 2.9.3) Microsoft 推播通知服務不得用來傳送緊急或攸關生命安全的通知，包括但不限於與醫療裝置或狀況相關的緊急通知。Microsoft 清楚聲明對於 Microsoft 推播通知服務或 Microsoft 推播通知服務之通知的傳送，不提供不會有任何中斷、錯誤，或為即時運作的任何擔保。
 
 **如果您不遵守這些建議，我們無法保證您的應用程式會通過驗證程序。**
 
@@ -266,4 +266,4 @@ EngagementReach 物件提供兩種方法來管理加入/退出、`EnableNativePu
 [適用於特定應用程式類型的額外需求]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

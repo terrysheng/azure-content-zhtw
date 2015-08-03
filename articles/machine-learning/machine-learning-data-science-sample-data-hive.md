@@ -2,6 +2,7 @@
 	pageTitle="在 Azure HDInsight Hive 資料表中進行資料取樣 | Microsoft Azure"
 	description="在 Azure HDInsight Hive 資料表中進行資料向下取樣"
 	services="machine-learning,hdinsight"
+	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -95,4 +96,4 @@
 如需可在 Hive 中使用之更進階取樣方法的相關資訊，請參閱 [LanguageManual 取樣](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling)。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

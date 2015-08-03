@@ -17,4 +17,4 @@
 
 ![從多個地理區域登入](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

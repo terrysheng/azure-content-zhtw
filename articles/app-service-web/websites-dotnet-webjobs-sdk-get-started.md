@@ -165,7 +165,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 4. 開啟 ContosoAdsWebJob 專案中的 *App.config* 檔案。
 
-	此檔案有兩個儲存體連接字串，一個供應用程式使用，另一個供記錄使用。在本教學課程中，您將對兩者使用相同帳戶。連接字串包含儲存體帳戶金鑰的預留位置。<pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
+	此檔案有兩個儲存體連接字串，一個供應用程式使用，另一個供記錄使用。在本教學課程中，您將對兩者使用相同帳戶。連接字串包含儲存體帳戶金鑰的預留位置。<pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
 
 	依預設，WebJobs SDK 會尋找名為 AzureWebJobsStorage 和 AzureWebJobsDashboard 的連接字串。另一種方式是，您可以[任意儲存您要的連接字串，並將它明確傳遞至 `JobHost` 物件](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config)。
 
@@ -290,7 +290,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	您可以忽略有關未發行任何資料庫的警告。Entity Framework Code First 將建立資料庫；因此無需發行資料庫。
 
-	預覽視窗會顯示將複製 WebJob 專案的二進位和組態檔至 Web 應用程式的 *app_data\\jobs\\continuous* 資料夾中。
+	預覽視窗會顯示將複製 WebJob 專案的二進位和組態檔至 Web 應用程式的 *app_data\jobs\continuous* 資料夾中。
 
 	![WebJobs files in preview window](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)
 
@@ -479,9 +479,9 @@ WebJob 專案需要參考，才能使用映像及存取連接字串。
 	- *Web.config*
 	- *Global.asax.cs*  
 	- 在 *Controllers* 資料夾中，新增檔案︰*AdController.cs* 
-	- 在 *Views\\Shared* 資料夾中：<em>_Layout.cshtml</em> 檔案。 
-	- 在 *Views\\Home* 資料夾中：*Index.cshtml*。 
-	- 在 *Views\\Ad* 資料夾中 (先建立資料夾)：五個 *.cshtml* 檔案。<br/><br/>
+	- 在 *Views\Shared* 資料夾中：<em>_Layout.cshtml</em> 檔案。 
+	- 在 *Views\Home* 資料夾中：*Index.cshtml*。 
+	- 在 *Views\Ad* 資料夾中 (先建立資料夾)：五個 *.cshtml* 檔案。<br/><br/>
 
 3. 在 ContosoAdsWebJob 專案中，從所下載的專案加入下列檔案。
 
@@ -616,9 +616,9 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
 
 *_Layout.cshtml* 檔案可設定頁首與頁尾中的應用程式名稱，並建立 [廣告] 功能表項目。
 
-### ContosoAdsWeb - Views\\Home\\Index.cshtml
+### ContosoAdsWeb - Views\Home\Index.cshtml
 
-*Views\\Home\\Index.cshtml* 檔案在首頁上顯示類別連結。連結會將查詢字串變數中 `Category` 列舉的整數值傳遞至 [廣告索引] 頁面。
+*Views\Home\Index.cshtml* 檔案在首頁上顯示類別連結。連結會將查詢字串變數中 `Category` 列舉的整數值傳遞至 [廣告索引] 頁面。
 	
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -707,7 +707,7 @@ HttpPost `Edit` 方法的程式碼也是類似的，例外情況是如果使用�
 		    await blobToDelete.DeleteAsync();
 		}
  
-### ContosoAdsWeb - Views\\Ad\\Index.cshtml 和 Details.cshtml
+### ContosoAdsWeb - Views\Ad\Index.cshtml 和 Details.cshtml
 
 *Index.cshtml* 檔案會顯示縮圖與其他廣告資料：
 
@@ -717,7 +717,7 @@ HttpPost `Edit` 方法的程式碼也是類似的，例外情況是如果使用�
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\\Ad\\Create.cshtml 和 Edit.cshtml
+### ContosoAdsWeb - Views\Ad\Create.cshtml 和 Edit.cshtml
 
 *Create.cshtml* 和 *Edit.cshtml* 檔案可指定表單編碼，供控制器取得 `HttpPostedFileBase` 物件。
 
@@ -813,4 +813,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需 Azure 入口網站變更為 Azure 預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

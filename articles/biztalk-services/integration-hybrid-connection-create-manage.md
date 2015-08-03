@@ -124,8 +124,8 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 2. 將檔案解壓縮。
 3. 在修改群組原則的電腦上，執行下列動作： 
 
-	- 將 .ADMX 檔案複製到 *%WINROOT%\\PolicyDefinitions* 資料夾。
-	- 將 .ADML 檔案複製到 *%WINROOT%\\PolicyDefinitions\\zh-tw* 資料夾。
+	- 將 .ADMX 檔案複製到 *%WINROOT%\PolicyDefinitions* 資料夾。
+	- 將 .ADML 檔案複製到 *%WINROOT%\PolicyDefinitions\zh-tw* 資料夾。
 
 複製之後，您可以使用群組原則編輯器來變更原則。
 
@@ -146,4 +146,4 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

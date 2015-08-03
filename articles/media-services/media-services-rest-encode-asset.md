@@ -78,7 +78,7 @@
 
 	{ "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="CustomOutputAssetName">JobOutputAsset(0)</outputAsset></taskBody>"}
 
-##考量
+##注意事項
 
 - TaskBody 屬性必須使用 XML 常值來定義工作所使用的輸入或輸出資產數目。工作主題包含 XML 的 XML 結構描述定義。
 - 在 TaskBody 定義中，<inputAsset> 和 <outputAsset> 的每一個內部值必須設定為 JobInputAsset(value) 或 JobOutputAsset(value)。
@@ -262,4 +262,4 @@
 
 [取得媒體處理器](media-services-rest-get-media-processor.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

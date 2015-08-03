@@ -1,10 +1,10 @@
 <properties
-   pageTitle="設定 VNet 對 VNet 連線"
+   pageTitle="設定 VNet 對 VNet 連線 | Microsoft Azure"
    description="如何在相同或不同的訂用帳戶或區域中，將 Azure 虛擬網路連接在一起。"
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="adinah"
+   manager="jdial"
    editor="tysonn"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/28/2015"
+   ms.date="07/14/2015"
    ms.author="cherylmc"/>
 
 
@@ -102,7 +102,7 @@ VNet2： 位址空間 = 10.2.0.0/16；區域 = 日本東部
 
 2. 按一下螢幕左下角的 [新增]。在導覽窗格中依序按一下 [網路服務] 和 [虛擬網路]。按一下 [Custom Create] 開始組態精靈。
 
-在 [虛擬網路詳細資料] 頁面上，輸入下列資訊。如需詳細資料頁面上設定的詳細資訊，請參閱[虛擬網路詳細資料頁面](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails)。
+在 [虛擬網路詳細資料] 頁面上，輸入下列資訊。
 
   ![虛擬網路詳細資料](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
@@ -111,7 +111,7 @@ VNet2： 位址空間 = 10.2.0.0/16；區域 = 日本東部
 
 
 
-在 [DNS Servers and VPN Connectivity] 頁面上，輸入下列資訊，然後按一下右下角的下一步箭頭。如需此頁面上設定的詳細資訊，請參閱 [DNS 伺服器和 VPN 連線能力頁面](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS)。
+在 [**DNS 伺服器和 VPN 連線能力**] 頁面上，輸入下列資訊，然後按一下右下角的下一步箭頭。
 
   ![DNS 伺服器和 VPN 連線能力](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)
 
@@ -120,7 +120,7 @@ VNet2： 位址空間 = 10.2.0.0/16；區域 = 日本東部
 
   - 請不要選取任何核取方塊。只要按一下右下角的箭頭，就可以移到下一個畫面。
 
-在 [虛擬網路位址空間] 頁面上，指定您想要用於虛擬網路的位址範圍。這些是將指派給 VM 的動態 IP 位址 (DIP)，以及指派給您部署至此虛擬網路之其他角色執行個體的動態 IP 位址 (DIP)。有不少關於虛擬網路位址空間的規則，因此您將可以查看 [虛擬網路位址空間][](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) 頁面，以獲得詳細資訊。特別重要的是，選取的範圍不得與用於內部部署網路的任何範圍重疊。您將需要與網路管理員協調，他/她可能需要為您從內部部署網路位址空間規劃一個 IP 位址範圍，供您的虛擬網路使用。
+在 [**虛擬網路位址空間**] 頁面上，指定您想要用於虛擬網路的位址範圍。這些是將指派給 VM 的動態 IP 位址 (DIP)，以及指派給您部署至此虛擬網路之其他角色執行個體的動態 IP 位址 (DIP)。特別重要的是，選取的範圍不得與用於內部部署網路的任何範圍重疊。您將需要與網路管理員協調，他/她可能需要為您從內部部署網路位址空間規劃一個 IP 位址範圍，供您的虛擬網路使用。
 
 
   ![虛擬網路位址空間頁面](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
@@ -130,14 +130,14 @@ VNet2： 位址空間 = 10.2.0.0/16；區域 = 日本東部
   - **位址空間** - 包括起始 IP 和位址計數。請確認您指定的位址空間沒有與您在內部部署網路上所擁有的任何位址空間重疊。在此範例中，我們將為 VNet1 使用 10.1.0.0/16。
   - **新增子網路** - 包括起始 IP 和位址計數。不需要其他子網路，但是您可以為將擁有靜態 DIP 的 VM 建立個別的子網路。或者，您可以讓您的 VM 位於與其他角色執行個體不同的子網路中。
 
-**按一下頁面右下角的核取記號**，即會開始建立您的虛擬網路。完成時，您將在管理入口網站的 [*網路*] 頁面上看到 [*狀態*] 下列出 [*已建立*]。
+按一下頁面右下角的**核取記號**，即會開始建立您的虛擬網路。完成時，您將在管理入口網站的 [*網路*] 頁面上看到 [*狀態*] 下列出 [*已建立*]。
 
 ## 建立另一個虛擬網路
 
 接下來，請重複上述步驟以建立另一個虛擬網路。在這個練習中，您稍後將會連接這兩種虛擬網路。請注意，位址空間不能夠重複或重疊非常重要。基於本教學課程的目的，使用下列值：
 
 - **VNet2**：位址空間 = 10.2.0.0/16
-- **區域** = 日本東部
+- **區域**=日本東部
 
 ## 新增區域網路
 
@@ -216,11 +216,11 @@ VNet2： 位址空間 = 10.2.0.0/16；區域 = 日本東部
 
 如果您想要使用 RRAS 設定 VNet 連線，請參閱[使用 Windows Server 2012 路由及遠端存取服務 (RRAS) 設定站對站 VPN](https://msdn.microsoft.com/library/dn636917.aspx)。
 
-如需有關組態結構描述的相關資訊，請參閱 [Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)。
+如需組態結構描述的相關資訊，請參閱 [Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)。
 
 
 [1]: ../hdinsight-hbase-geo-replication-configure-vnets.md
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

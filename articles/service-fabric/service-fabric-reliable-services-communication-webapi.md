@@ -334,7 +334,7 @@ Web 伺服器 URL 將在此處設定。若要這樣做，您需要一些資訊�
 
 我們抓取 Web 伺服器的連接埠之前，必須了解 Service Fabric 提供一個應用程式層，做為您的應用程式與其執行所在之基礎作業系統之間的緩衝區。因此，Service Fabric 讓您能夠設定服務的端點。Service Fabric 會負責確定端點可供服務使用，因此您不需要在基礎作業系統環境自行設定。這可讓您輕鬆地在不同的環境裝載 Service Fabric 應用程式，而不必對應用程式進行任何變更 (例如，您可以在 Azure 或您自己的資料中心裝載相同的應用程式)。
 
-在 PackageRoot\\ServiceManifest.xml 中設定 HTTP 端點：
+在 PackageRoot\ServiceManifest.xml 中設定 HTTP 端點：
 
 ```xml
 
@@ -613,4 +613,4 @@ New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -Servi
 [在 Visual Studio 中偵錯 Service Fabric 應用程式](service-fabric-debugging-your-application.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

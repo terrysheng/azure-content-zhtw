@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # 設定 Operational Insights 的 Proxy 和防火牆設定
@@ -79,9 +79,23 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 ## 使用 Operations Manager 設定 Proxy 和防火牆設定
 
-如果要讓 Operations Manager 管理群組連接並且註冊 Operational Insights 服務，該群組必須具有您的網域之連接埠號碼和 URL 的存取權。如果您使用 Proxy 伺服器在 Operations Manager 管理伺服器和 Operational Insights 服務之間進行通訊，您必須確保可以存取適當的資源。如果您使用防火牆來限制網際網路存取，您需要設定防火牆以允許存取 Operational Insights。下表列出這些工作相關的連接埠。
+Operations Manager 管理群組必須能夠存取您的網域和 URL 的連接埠號碼，才能連接 Operational Insights 服務來註冊。如果您使用 Proxy 伺服器在 Operations Manager 管理伺服器和 Operational Insights 服務之間進行通訊，您必須確保可以存取適當的資源。如果您使用防火牆來限制網際網路存取，您需要設定防火牆以允許存取 Operational Insights。即使 Operations Manager 管理伺服器不在 Proxy 伺服器後方，但可能它的代理程式可能在後方。在此情況下，Proxy 伺服器和代理程式應該以相同方式設定，才能讓安全性與記錄管理解決方案資料傳送到作業的 Operational Insights Web 服務。
+
+為了讓 Operations Manager 代理程式與 Operational Insights 服務進行通訊，Operations Manager 基礎結構 (包括代理程式) 應該具有正確的 Proxy 設定和版本。代理程式的 Proxy 設定是在 Operations Manager 主控台中指定。您的版本必須是下列其中一項：
+
+- Operations Manager 2012 SP1 更新彙總套件 7 或更新版本
+- Operations Manager 2012 R2 更新彙總套件 3 或更新版本
+
+
+下表列出這些工作相關的連接埠。
 
 >[AZURE.NOTE]以下部分資源會提及 Advisor。不過，列出的資源將會在未來變更。
+
+|**代理程式資源**|**連接埠**|
+|--------------|-----|
+|*.ods.opinsights.azure.com|Port 443| |*.oms.opinsights.azure.com|連接埠 443|
+|ods.systemcenteradvisor.com|連接埠 443|
+|*.blob.core.windows.net *|連接埠 443|
 
 |**管理伺服器資源**|**連接埠**|
 |--------------|-----|
@@ -119,6 +133,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 
 ### 在 Proxy 伺服器需要驗證時指定認證
+ Proxy 伺服器認證和設定需要傳播到將向 Operational Insights 回報的受管理電腦。這些伺服器應該在 *Microsoft System Center Advisor 監控伺服器群組*中。認證在群組中的每個伺服器的登錄中會加密。
 
 1. 開啟 Operations Manager 主控台，然後選取 [**管理**] 工作區。
 
@@ -128,28 +143,10 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 4. 在 [執行身分設定檔精靈] 中，按一下 [**新增**] 以使用執行身分帳戶。您可以建立新的執行身分帳戶，或使用現有的帳戶。此帳戶必須有足夠的權限，才能通過 Proxy 伺服器。![[執行身份設定檔精靈] 的影像](./media/operational-insights-proxy-firewall/proxyacct2.png)
 
 5. 若要設定帳戶來管理，請選擇 [**選取的類別、群組或物件**] 來開啟 [物件搜尋] 方塊。![[執行身份設定檔精靈] 的影像](./media/operational-insights-proxy-firewall/proxyacct2-1.png)
-6. 搜尋，然後選取 [**Operations Manager 管理伺服器**]。![[物件搜尋] 方塊的影像](./media/operational-insights-proxy-firewall/proxyacct3.png)
-7. 按一下 [**確定**] 以關閉 [新增執行身份帳戶] 方塊![[執行身份設定檔精靈] 的影像](./media/operational-insights-proxy-firewall/proxyacct4.png)
+6. 搜尋並選取 [**Microsoft System Center Advisor 監控伺服器群組**]。![[物件搜尋] 方塊的影像](./media/operational-insights-proxy-firewall/proxyacct3.png)
+7. 按一下 [**確定**] 以關閉 [加入執行身分帳戶] 方塊 ![[執行身份設定檔精靈] 的影像](./media/operational-insights-proxy-firewall/proxyacct4.png)
 8. 完成精靈並儲存變更。![[執行身份設定檔精靈] 的影像](./media/operational-insights-proxy-firewall/proxyacct5.png)
 
-
-### 針對 WinHTTP 在每個管理伺服器上設定 Proxy 伺服器
-
-1. 如果 Operations Manager 尚未以 Operations Manager 2012 R2 更新彙總套件 3 或 Operations Manager 2012 SP1 更新彙總套件 7 或更新版本進行更新，請在 Operations Manager 管理伺服器上以系統管理員身分開啟命令提示字元視窗。否則，您不需要使用此程序。
-
-2. 輸入 **netsh winhttp set proxy myproxy:80**。
-
-3. 關閉 [命令提示字元] 視窗，並重新啟動 System Center 管理服務 (HealthService)。
-
-4. 在管理群組中的每個管理伺服器上執行步驟 2。
-
-### 在每個管理伺服器上設定 Proxy 伺服器
-
-1. 開啟 Operations Manager 主控台，然後選取 [**管理**] 工作區。
-
-2. 選取 [**裝置管理**]，然後按一下 [**管理伺服器**]。
-
-3. 以滑鼠右鍵按一下每部管理伺服器的名稱，按一下 [**屬性**]，然後在 [**Proxy 設定**] 索引標籤上設定資訊。![[Proxy 設定] 索引標籤](./media/operational-insights-proxy-firewall/proxyms.png)
 
 ### 驗證 Operational Insights 管理套件已下載
 
@@ -169,4 +166,4 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 3. 加入開頭為 **HTTP** 的所有計數器。![新增計數器](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. 如果您的 Operations Manager 組態良好，您會看到健康情況服務管理計數器的事件和其他資料項目的活動，根據您在 Operational Insights 中加入的管理套件和設定的記錄收集原則。![顯示活動的效能監視器](./media/operational-insights-proxy-firewall/sendingdata2.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

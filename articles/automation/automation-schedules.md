@@ -66,4 +66,4 @@
 - [在 Azure 自動化中排程 Runbook](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -192,4 +192,4 @@ StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和�
 - [部署 StorSimple 解決方案](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

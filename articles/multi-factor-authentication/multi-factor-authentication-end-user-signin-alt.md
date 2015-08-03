@@ -33,4 +33,4 @@
 
 <li>選擇替代方法並且登入。</li>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -55,7 +55,7 @@
 			<uses-permission android:name="android.permission.INTERNET"/>
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
--   對於幾種裝置型號，我們無法從 ANDROID\\_ID 產生 Engagement 裝置識別碼 (可能會出現錯誤或無法使用)。在此情況下，SDK 會產生隨機裝置識別碼，並嘗試將它儲存在裝置的外部儲存體上，讓其他 Engagement 應用程式可以共用相同的裝置識別碼 (它也會儲存為共用喜好設定，以確保萬一外部儲存體故障，應用程式本身仍可使用相同的裝置識別碼)。為了讓此機制正常運作，如有遺漏，您必須新增下列權限 (在 `<application>` 標記之前)：
+-   對於幾種裝置型號，我們無法從 ANDROID_ID 產生 Engagement 裝置識別碼 (可能會出現錯誤或無法使用)。在此情況下，SDK 會產生隨機裝置識別碼，並嘗試將它儲存在裝置的外部儲存體上，讓其他 Engagement 應用程式可以共用相同的裝置識別碼 (它也會儲存為共用喜好設定，以確保萬一外部儲存體故障，應用程式本身仍可使用相同的裝置識別碼)。為了讓此機制正常運作，如有遺漏，您必須新增下列權限 (在 `<application>` 標記之前)：
 
 			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
@@ -311,4 +311,4 @@ Engagement 在喜好設定檔案內會一律使用 `engagement:key` 布林值機
 [裝置 API]: http://go.microsoft.com/?linkid=9876094
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

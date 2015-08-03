@@ -54,4 +54,4 @@ SQL 資料倉儲支援稱為查詢標籤的概念。繼續進行之前，讓我�
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -3,7 +3,7 @@
 	description="了解如何使用 Azure PowerShell 在 Azure 建立和預先設定以 Windows 為基礎的虛擬機器。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="KBDAzure"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/10/2015"
-	ms.author="josephd"/>
+	ms.author="kathydav"/>
 
 # 使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器
 
@@ -173,8 +173,8 @@
 
 如果您將再次建立這個虛擬機器或類似的虛擬機器，您可以：
 
-- 將此命令集儲存為 PowerShell 指令碼檔案 (*.ps1)
-- 在 Azure 管理入口網站的 [自動化] 區段中，將這個命令集儲存為 Azure 自動化 Runbook。
+- 將此命令集儲存為 PowerShell 指令碼檔案 (*.ps1)。
+- 在 Azure 管理入口網站的 [**自動化**] 區段中，將這個命令集儲存為 Azure 自動化 Runbook。
 
 ## <a id="examples"></a>範例
 
@@ -184,13 +184,13 @@
 
 我需要 PowerShell 命令設定建立 Active Directory 網域控制站的初始虛擬機器：
 
-- 使用 Windows Server 2012 R2 Datacenter 映像
-- 名稱為 AZDC1
-- 是獨立的電腦
-- 有 20 GB 的額外資料磁碟
-- 靜態 IP 位址為 192.168.244.4
-- 在 AZDatacenter 虛擬網路的後端子網路中
-- 在 Azure TailspinToys 雲端服務中
+- 使用 Windows Server 2012 R2 Datacenter 映像。
+- 名稱為 AZDC1。
+- 屬於獨立電腦。
+- 有 20 GB 的額外資料磁碟。
+- 靜態 IP 位址為 192.168.244.4。
+- 位於 AZDatacenter 虛擬網路的後端子網路中。
+- 位於 Azure TailspinToys 雲端服務中。
 
 以下是建立這個虛擬機器的相對應 Azure PowerShell 命令集，各個區塊之間均有空白行，以求編排清晰。
 
@@ -221,12 +221,12 @@
 
 我需要 PowerShell 命令集建立企業營運伺服器的虛擬機器：
 
-- 使用 Windows Server 2012 R2 Datacenter 映像
-- 名稱為 LOB1
-- 是 corp.contoso.com 網域的成員
-- 有 200 GB 的額外資料磁碟
-- 在 AZDatacenter 虛擬網路的前端子網路中
-- 在 Azure TailspinToys 雲端服務中
+- 使用 Windows Server 2012 R2 Datacenter 映像。
+- 名稱為 LOB1。
+- 屬於 corp.contoso.com 網域的成員。
+- 具有 200 GB 的額外資料磁碟。
+- 位於 AZDatacenter 虛擬網路的前端子網路中。
+- 位於 Azure TailspinToys 雲端服務中。
 
 以下是建立這個虛擬機器的相對應 Azure PowerShell 命令集。
 
@@ -256,7 +256,7 @@
 
 
 ## 其他資源
-
+<!-- For section headings, use sentence-case caps -->
 [虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Azure 虛擬機器常見問題集](http://msdn.microsoft.com/library/azure/dn683781.aspx)
@@ -268,6 +268,5 @@
 [使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 [利用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

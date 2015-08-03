@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="MightyPen" 
 	manager="jeffreyg" 
-	editor="jeffreyg"/>
+	editor=""/>
 
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/10/2015" 
+	ms.date="07/21/2015" 
 	ms.author="genemi"/>
 
 
@@ -28,7 +28,7 @@
 
 
 - 篩選出 [SQL Database 服務](http://azure.microsoft.com/updates/?service=sql-database)。
-- 篩選出 SQL 資料庫功能的「正式運作 [(GA)」公告](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability)。
+- 篩選出 SQL Database 功能的「正式運作 [(GA)」公告](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability)。
 
 
 ## 提升與 SQL Server 的應用程式相容性
@@ -109,13 +109,24 @@ V12 提供大幅改進的復原點目標 (RPO) 與預估復原時間 (ERT)：
 - 大部分的新功能在發佈給 Microsoft SQL Server 之前，都已在 SQL Database V12 上發佈。
 
 
+## 閘道器不再提供 V12 中的重試邏輯
+
+
+在 V12 版之前，Azure SQL Database 具有可做為 Proxy 的閘道器，以緩衝資料庫和用戶端程式之間的所有互動。此閘道器提供了某些*暫時性錯誤*的自動化*重試邏輯*。
+
+ V12 已刪除此閘道器。您的程式現在必定能更完整地處理暫時性錯誤。如需詳細資料，請參閱：
+
+
+- [連接到 SQL Database：連結、最佳作法和設計方針](sql-database-connect-central-recommendations.md#gatewaynoretry)
+
+
 ## 您已經在使用 V12 了嗎？
 
 
 查看您是否已經具備執行較早版本 SQL Database 服務的資料庫或邏輯伺服器的一個簡單方法是執行下列動作：
 
 
-1. 移至 [Azure Preview 入口網站](http://portal.azure.com/)。
+1. 移至 [Azure 預覽入口網站](http://portal.azure.com/)。
 2. 按一下 [瀏覽]。
 3. 按一下 [SQL Server]。
 4. 您的伺服器或資料庫旁邊的圖示會告知詳情：
@@ -145,11 +156,11 @@ V12 已於 2014 年 12 月發行，但是僅以[預覽](http://azure.microsoft.c
 V12 在下列區域，僅提供「預覽」：
 
 
-| Azure 區域 | V12 的目前<br/>版本狀態 | 升級至 GA<br/> 的日期 |
+| Azure 區域 | V12 的目前<br/>版本狀態 | 升級至 GA<br/> 的日期 (估計) |
 | :--- | :--- | :--- |
-| 澳洲東部 | **預覽** | 2015 年第二季 (估計) |
-| 澳洲東南部 | **預覽** | 2015 年第二季 (估計) |
+| 澳洲東部 | **預覽** | 行事曆 2015 的第三季 (估計) |
+| 澳洲東南部 | **預覽** | 行事曆 2015 的第三季 (估計) |
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

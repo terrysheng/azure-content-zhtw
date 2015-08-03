@@ -21,8 +21,8 @@
 </tr>
 <tr>
    <td valign="middle"><p>每一訂用帳戶的<a href="http://azure.microsoft.com/documentation/articles/resource-group-overview/">資源群組</a></p></td>
-   <td valign="middle"><p>500</p></td>
-   <td valign="middle"><p>500</p></td>
+   <td valign="middle"><p>800</p></td>
+   <td valign="middle"><p>800</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>資源管理員 API 讀取</p></td>
@@ -52,4 +52,4 @@
 
 <sup>3</sup>Azure 資源群組和 Azure 資源管理員已不再需要這些功能。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

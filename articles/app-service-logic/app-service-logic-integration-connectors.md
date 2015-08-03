@@ -74,7 +74,7 @@ BIzTalk XPath 擷取程式 | **動作** API 應用程式。根據特定的 XPath
 2. 選取 API 應用程式。在新分頁中，選取 [**建立**]。 
 3. 輸入屬性： 
 
-	屬性 | 說明
+屬性 | 說明
 --- | ---
 名稱 | 輸入 API 應用程式的名稱。例如，您可以將其命名為 *RulesDiscountTaxCode* 或 *APIAppValidateXML*。
 應用程式服務方案 | 列出您的付款方案。如果需要增減資源，則可以變更它。
@@ -88,7 +88,7 @@ BIzTalk XPath 擷取程式 | **動作** API 應用程式。根據特定的 XPath
 ## 設定 BizTalk API 應用程式
 在 Azure 管理入口網站中，開啟您的 BizTalk API 應用程式。在 [**元件**] 區段中，您可以新增完成 API 應用程式所需的其他元件：
 
-	API App | Tasks
+API App | Tasks
 --- | ---
 BizTalk 一般檔案編碼器 | 輸入您要轉換成 XML 的一般檔案，例如 Excel 或 csv 檔案。或者，輸入您要轉換成一般檔案的 XML 檔案。
 BizTalk JSON 編碼器 | 輸入您要轉換成 XML 的 JSON 檔案。或者，輸入您要轉換成 JSON 的 XML 檔案。 
@@ -104,7 +104,7 @@ BIzTalk XPath 擷取程式 | 根據特定的 XPath 來查詢和擷取來自 XML 
 
 - 檢視資訊和錯誤事件
 - 檢視工作處理序 (w3wp) 的記憶體使用量和執行緒計數
-- 檢視應用程式和 Web 伺服器記錄檔\\
+- 檢視應用程式和 Web 伺服器記錄檔\
 
 另請參閱[監視邏輯應用程式](app-service-logic-monitor-your-logic-apps.md)以取得更多資訊。
 
@@ -139,4 +139,4 @@ Microsoft Azure 應用程式服務會公開可以使用這些整合 API 應用�
 
 [連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/>[什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

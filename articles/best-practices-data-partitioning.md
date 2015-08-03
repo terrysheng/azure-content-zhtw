@@ -477,4 +477,4 @@ _圖 10. - 記錄客戶訂單與其詳細資料的 Redis 儲存體中建議的�
 - Microsoft 網站上的[在 Azure 中的 CentOS Linux VM 上執行 Redis](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) 頁面會逐步解說範例，顯示如何建置和設定做為 Azure VM 執行的 Redis 節點。
 - Redis 網站上的[資料類型](http://redis.io/topics/data-types)頁面描述 Redis 和 Azure Redis Cache 皆可使用的資料類型。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

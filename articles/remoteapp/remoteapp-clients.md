@@ -1,3 +1,4 @@
+
 <properties
     pageTitle="存取應用程式"
     description="了解 Azure RemoteApp 支援哪些用戶端以及如何存取您的應用程式。"
@@ -207,4 +208,4 @@ Azure RemoteApp 的優點之一，就是您可以存取從任何裝置發佈給�
 ![Azure RemoteApp 的示範摘要](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

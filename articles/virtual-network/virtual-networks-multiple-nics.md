@@ -43,11 +43,11 @@
 |VM 大小 (標準 SKU)|NIC 數目 (每個 VM 允許的最大值)|
 |---|---|
 |所有基本大小|1|
-|A0\\超小型|1|
-|A1\\小型|1|
-|A2\\中型|1|
-|A3\\大型|2|
-|A4\\超大型|4|
+|A0\超小型|1|
+|A1\小型|1|
+|A2\中型|1|
+|A3\大型|2|
+|A4\超大型|4|
 |A5|1|
 |A6|2|
 |A7|4|
@@ -252,4 +252,4 @@ VM 上的任何 NIC 可能會關聯至網路安全性群組 (NSG)，包括已啟
 
 - 深入了解[在 Azure 中使用多個 VM NIC 和 VNet 設備](../multiple-vm-nics-and-network-virtual-appliances-in-azure)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

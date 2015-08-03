@@ -265,4 +265,4 @@ Set-AzureDnsRecordSet Cmdlet 使用 ‘etag’ 檢查，以確保不會覆寫並
 [開始建立記錄集和記錄](../dns-getstarted-create-recordset)<BR> [在 DNS 區域上執行作業](../dns-operations-dnszones)<BR> [使用 .NET SDK 將作業自動化](../dns-sdk)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

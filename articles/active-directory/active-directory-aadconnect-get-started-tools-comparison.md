@@ -88,4 +88,4 @@
 允許移除從 AD 流向 Azure AD 的屬性 | ● | ● | |  
 允許屬性流程的進階自訂 | ● | ● | | ●  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

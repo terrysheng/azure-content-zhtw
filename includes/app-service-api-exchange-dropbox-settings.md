@@ -26,4 +26,4 @@
 
 	![建立 Dropbox 應用程式](./media/app-service-api-exchange-dropbox-settings/dbappsettings2.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

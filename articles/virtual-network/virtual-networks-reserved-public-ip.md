@@ -123,4 +123,4 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 
 
 [保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/21/2015" 
+	ms.date="07/16/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -35,7 +35,7 @@
 2.	在 Package Manager Console 中，執行下列命令以安裝 NuGet 封裝。第一個是 Azure 串流分析管理 .NET SDK。第二個是啟用監視要使用的 Azure Insights SDK。最後一個是驗證要使用的 Azure Active Directory 用戶端。
 
     ```
-    Install-Package Microsoft.Azure.Management.StreamAnalytics –Pre
+    Install-Package Microsoft.Azure.Management.StreamAnalytics
     Install-Package Microsoft.Azure.Insights -Pre
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
@@ -48,12 +48,12 @@
     	<add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
     	<add key="JobName" value="YOUR JOB NAME" />
     	<add key="StorageAccountName" value="YOUR STORAGE ACCOUNT"/>
-    	<add key="ActiveDirectoryEndpoint" value="https://login.windows-ppe.net/" />
-    	<add key="ResourceManagerEndpoint" value="https://api-current.resources.windows-int.net/" />
+    	<add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+    	<add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
     	<add key="WindowsManagementUri" value="https://management.core.windows.net/" />
     	<add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
     	<add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-    	<add key="SubscriptionId" value="<YOUR AZURE SUBSCRIPTION ID>" />
+    	<add key="SubscriptionId" value="YOUR AZURE SUBSCRIPTION ID" />
     	<add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
     </appSettings>
 	```
@@ -166,7 +166,7 @@
 
 
 ## 取得支援
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)。
 
 
 ## 後續步驟
@@ -178,4 +178,4 @@
 - [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

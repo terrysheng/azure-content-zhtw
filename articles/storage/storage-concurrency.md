@@ -285,4 +285,4 @@ Microsoft Azure 儲存體服務的設計已符合最複雜的線上應用程式�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

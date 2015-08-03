@@ -4,7 +4,7 @@
 	services="hdinsight"
 	editor="cgronlun"
 	manager="paulettm"
-	authors="bradsev"
+	authors="mumian"
 	documentationCenter=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2015"
-	ms.author="bradsev"/>
+	ms.date="07/09/2015"
+	ms.author="jgao"/>
 
 
 #HDInsight 所提供 Hadoop 叢集版本的新功能
@@ -37,12 +37,13 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個�
 <tr><td>Storm</td><td>0.9.3</td><td>0.9.1</td><td></td><td></td></tr>
 <tr><td>Mahout</td><td>0.9.0</td><td>0.9.0</td><td></td><td></td></tr>
 <tr><td>Phoenix</td><td>4.2.0</td><td>4.0.0.2.1.7.0-2162</td><td></td><td></td></tr>
+<tr><td>Spark</td><td>1.3.1</td><td></td><td></td><td></td></tr>
 </table>
 
 
 **取得目前的元件版本資訊**
 
-在 HDInsight 的未來更新中，可能會變更 HDInsight 叢集版本相關的元件版本。若要判斷可用的元件和驗證叢集所使用的版本，有一個辦法就是使用 Ambari REST API。**GetComponentInformation** 命令可用來擷取服務元件的相關資訊。如需詳細資訊，請參閱＜[Ambari 文件][ambari-docs]＞(英文)。另一種取得此資訊的作法就是使用遠端桌面登入叢集，然後直接檢查 "C:\\apps\\dist" 目錄的內容。
+在 HDInsight 的未來更新中，可能會變更 HDInsight 叢集版本相關的元件版本。若要判斷可用的元件和驗證叢集所使用的版本，有一個辦法就是使用 Ambari REST API。**GetComponentInformation** 命令可用來擷取服務元件的相關資訊。如需詳細資訊，請參閱＜[Ambari 文件][ambari-docs]＞(英文)。另一種取得此資訊的作法就是使用遠端桌面登入叢集，然後直接檢查 "C:\apps\dist" 目錄的內容。
 
 
 **版本資訊**
@@ -58,6 +59,13 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個�
 ##功能要點
 一些 HDInsight 平台的突出功能包括：
 
+- **Spark** - Apache Spark 是一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。Spark 的記憶體內計算功能，使其成為機器學習和圖表計算中反覆演算法的絕佳選擇 。
+
+	Spark 也可用來執行傳統的磁碟型資料處理。Spark 以避免在中繼階段寫入磁碟的方式，改善傳統的 MapReduce 架構。此外，Spark 與 Hadoop 分散式檔案系統 (HDFS) 和 Azure Blob 儲存體相容，因此可以輕鬆地透過 Spark 來處理現有的資料。
+
+	也可以使用指令碼動作新增 Spark。指令碼動作會將 Spark 1.2.0 新增至 HDInsight 3.2 叢集或將 Spark 1.0.2 新增至 HDInsight 3.1 叢集。如需詳細資訊，請參閱[在 HDInsight Hadoop 叢集上安裝及使用 Spark](hdinsight-hadoop-spark-install.md)。
+
+ 
 - **Storm** - Azure HDInsight 上的 Storm 現在可供使用，只要一些點擊動作，就可以在幾分鐘內快速、輕易地部署即時分析。Azure HDInsight 上的 Apache Storm 是 Apache Hadoop 生態系統中的開放原始碼專案，提供能夠可靠地處理數百萬事件之分析平台的存取權。現在 Hadoop 使用者可以在事件發生時獲得深入見解，也能夠獲得過去發生之事件的深入見解。Microsoft 也提供與 Visual Studio 的內建整合，讓開發人員輕易地與 Storm 互動。您現在可以從 Visual Studio 開發、部署及偵錯 Storm 拓撲。
 
 - **Linux 上的 HDInsight (預覽)** - Azure HDInsight 提供佈建 Hadoop 叢集的選項，該叢集在 Linux (Ubuntu) 虛擬機器 (VM) 上執行。如果您熟悉 Linux 或 Unix、要從現有的以 Linux 為基礎的 Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，則可以使用此選項。您可以使用 Azure 入口網站、Azure CLI 或 HDInsight .NET SDK (僅限 Windows)，從執行 Windows 或 Linux 的用戶端電腦，在 Linux 上佈建 HDInsight 叢集。
@@ -153,4 +161,4 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

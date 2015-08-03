@@ -189,4 +189,4 @@ QueueInfo 有相關方法可讓您調整佇列的屬性 (例如，針對要在�
   [佇列、主題和訂用帳戶]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

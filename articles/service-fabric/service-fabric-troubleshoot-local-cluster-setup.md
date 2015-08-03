@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/09/2015"
    ms.author="seanmck"/>
 
 # 疑難排解本機開發叢集設定
@@ -85,6 +85,5 @@
 
 - [透過系統健康情況報告了解及疑難排解您的叢集](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [使用 Service Fabric 總管視覺化叢集](service-fabric-visualizing-your-cluster.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

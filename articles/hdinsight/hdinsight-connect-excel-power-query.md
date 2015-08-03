@@ -86,4 +86,4 @@ Power Query add-in for Excel 可協助您將 HDInsight 叢集中的資料匯入�
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -80,7 +80,7 @@
 
 2. 瀏覽至方案檔並開啟。<br/> ![][16]
 
-3. 在 [方案總管] 中，開啟檔案進行變更。例如，在 MVC Web 角色中，變更 Views\\Shared 資料夾下的 _Layout.cshtml 檔案。<br/> ![][17]
+3. 在 [方案總管] 中，開啟檔案進行變更。例如，在 MVC Web 角色中，變更 Views\Shared 資料夾下的 _Layout.cshtml 檔案。<br/> ![][17]
 
 4. 編輯網站的標誌，然後按一下 Ctrl+S 儲存檔案。<br/> ![][18]
 
@@ -239,4 +239,4 @@
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

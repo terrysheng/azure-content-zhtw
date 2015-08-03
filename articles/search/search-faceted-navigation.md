@@ -372,4 +372,4 @@ Azure Search 中有兩種地理空間函式，**geo.distance** 與 **geo.interse
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

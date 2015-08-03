@@ -3,7 +3,7 @@
    description="描述如何打開包裝、掛接機架，和佈線 StorSimple 8100 裝置。"
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carolz"
    editor="" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/08/2015"
-   ms.author="v-sharos" />
+   ms.date="07/20/2015"
+   ms.author="alkohli" />
 
 # 安裝您的 StorSimple 8100 裝置
 
@@ -297,4 +297,4 @@
 您現在已準備好[部署和設定您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/15/2015"
    ms.author="mihaelab"/>
 
 #執行嚴重損壞修復演練
@@ -81,6 +81,4 @@
 
 - 驗證復原後的應用程式完整性 (例如連接字串、登入、基本功能測試或標準應用程式登出程序的其他驗證部分)，完成演練。
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

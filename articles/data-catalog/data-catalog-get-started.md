@@ -222,4 +222,4 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

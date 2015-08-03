@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 複製資料 (複製活動)
@@ -40,161 +40,27 @@
 ## 支援的來源與接收器
 複製活動可支援下列資料移動案例：
 
-<table border="1">	
-	<tr>
-		<th><i>來源/接收器<i></th>
-		<th>Azure Blob</th>
-		<th>Azure 資料表</th>
-		<th>Azure SQL Database</th>
-		<th>Azure DocumentDB</th>
-		<th>在 Azure VM 上的 SQL Server</th>
-		<th>內部部署 SQL Server</th>
-	</tr>	
+| *來源/接收器* | Azure Blob | Azure 資料表 | Azure SQL Database | Azure DocumentDB | 在 Azure VM 上的 SQL Server | 內部部署 SQL Server |
+| ------------- | ---------- | ----------- | ------------------ | ---------------- | ------------------ | ------------------- |
+| Azure Blob | X | X | X | X | X | X |
+| Azure 資料表 | X | X | X | X | X | X |
+| Azure SQL Database | X | X | X | X | X | X |
+| Azure DocumentDB | X | X | X | | | |  
+| 內部部署 SQL Server | X | X | X | | X | X |
+| 在 Azure VM 上的 SQL Server | X | X | X | | X | X |
+| 內部部署檔案系統 | X | X | X | | X | X |
+| 內部部署 Oracle 資料庫 | X | X | X | | X | X |
+| 內部部署 MySQL 資料庫| X | X | X | | X | X |
+| 內部部署 DB2 資料庫 | X | X | X | | X | X |
+| 內部部署 Teradata 資料庫 | X | X | X | | X | X |
+| 內部部署 Sybase 資料庫 | X | X | X | | X | X |
+| 內部部署 PostgreSQL 資料庫 | X | X | X | | X | X |
 
-	<tr>
-		<td><b>Azure Blob</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Azure 資料表</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>	
-	<tr>
-		<td><b>Azure SQL Database</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-	<tr>
-		<td><b>Azure DocumentDB</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>內部部署 SQL Server</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>在 Azure VM 上的 SQL Server</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>內部部署檔案系統</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>內部部署 Oracle 資料庫</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>內部部署檔案系統</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>內部部署 MySQL 資料庫</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>內部部署 DB2 資料庫</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>內部部署 Teradata 資料庫</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>內部部署 Sybase 資料庫</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>內部部署 PostgreSQL 資料庫</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-</table>
 
 請參閱MSDN Library 上的「[支援的來源與接收](https://msdn.microsoft.com/library/dn894007.aspx)」主題，以了解詳細資料。
 
 ### 基礎架構即服務 (IaaS) 上的 SQL
-IaaS 上的 SQL Server 也可以當做來源和接收器受到支援。必須有資料管理閘道，才能與 IaaS 上的 SQL Server 建立連結服務。您應該考慮在裝載 SQL Server 外的其他虛擬機器上安裝資料管理閘道，以避免因 SQL Server 和閘道競爭資源所造成的效能降低。如需有關「資料管理閘道」的詳細資料，請參閱[讓您的管線使用內部部署資料][use-onpremises-datasources]。
+IaaS 上的 SQL Server 也可以當做來源和接收器受到支援。必須有資料管理閘道器，才能與 IaaS 上的 SQL Server 建立連結服務。您應該考慮在裝載 SQL Server 外的其他虛擬機器上安裝資料管理閘道器，以避免因 SQL Server 和閘道器競爭資源所造成的效能降低。如需有關「資料管理閘道器」的詳細資料，請參閱[讓您的管線使用內部部署資料][use-onpremises-datasources]。
 
 1.	具有公用 DNS 名稱以及靜態公用連接埠：私用連接埠對應的 VM
 2.	具有公用 DNS 名稱、但未公開 SQL 端點的 VM
@@ -249,57 +115,15 @@ IaaS 上的 SQL Server 也可以當做來源和接收器受到支援。必須有
 
 下表說明用於活動區段的標記。
 
-<table border="1">	
-	<tr>
-		<th align="left">標記</th>
-		<th align="left">描述</th>
-		<th align="left">必要</th>
-	</tr>	
-
-	<tr>
-		<td>名稱</td>
-		<td>活動的名稱。</td>
-		<td>Y</td>
-	</tr>	
-
-	<tr>
-		<td>說明</td>
-		<td>說明活動用途的文字。</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>類型</td>
-		<td>指定活動的類型。<br/><br/><b>type</b> 應設為 <b>CopyActivity</b>。</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>輸入</td>
-		<td>活動所使用的輸入資料表。只能為「複製活動」指定一個輸入資料表。</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>輸出</td>
-		<td>活動所使用的輸出資料表。只能為「複製活動」指定一個輸出資料表。</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>轉換</td>
-		<td>轉換中的屬性取決於類型。<b>複製活動</b>要求您指定 [<b>轉換</b>] 區段內的 [<b>來源</b>] 和 [<b>接收器</b>] 區段。本文後面提供更多的詳細資料。</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>原則</td>
-		<td>會影響活動之執行階段行為的原則。如果未指定，則會使用預設值。</td>
-		<td>N</td>
-	</tr>
-
-
-</table>
+| 標記 | 說明 | 必要 |
+|-----|-------------|----------|
+|名稱|活動的名稱。|Y|
+|說明|說明活動用途的文字|Y|
+|類型|指定活動的類型。類型應設為**複製**。 |Y|
+|輸入|活動所使用的輸入資料表。只能為「複製活動」指定一個輸入資料表 | Y
+|輸出|活動所使用的輸出資料表。只能為「複製活動」指定一個輸出資料表 | Y
+|轉換|轉換中的屬性取決於類型。複製活動要求您指定 [轉換] 區段內的 [來源] 和 [接收器] 區段。本文後面提供更多的詳細資料。|Y
+|原則| 會影響活動之執行階段行為的原則。如果未指定，則會使用預設值。 | N
 
 請參閱 [JSON 指令碼參考][json-script-reference]，以取得有關 JSON 屬性/標記的詳細資訊。
 
@@ -475,4 +299,4 @@ IaaS 上的 SQL Server 也可以當做來源和接收器受到支援。必須有
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,7 +1,9 @@
 <properties
 	pageTitle="Azure 中的資料科學虛擬機器 | Microsoft Azure"
 	description="設定資料科學虛擬機器"
+	metaKeywords=""
 	services="machine-learning"
+	solutions=""
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm" 
@@ -32,4 +34,4 @@
 > [AZURE.NOTE]Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費**」。若要確保未使用虛擬機器時不會被計費，其在 [Azure 管理入口網站](http://manage.windowsazure.com/)中的狀態必須是 [已停止 (已取消配置)]。如需逐步指示或如何取消配置虛擬機器的相關資訊，請參閱[關閉並取消配置未使用的虛擬機器](machine-learning-data-science-setup-virtual-machine.md#shutdown)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

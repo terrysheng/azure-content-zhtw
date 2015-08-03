@@ -8,4 +8,4 @@
 
 	這會下載實作行動服務的 Visual Studio 專案。請將壓縮的專案檔案儲存至本機電腦，並記下儲存位置。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

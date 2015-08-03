@@ -1,8 +1,7 @@
 <properties 
 	pageTitle="如何將使用者加入彈性資料庫集區" 
 	description="您必須將具有權限的使用者加入集區中的每個資料庫" 
-	services="sql-database" 
-	documentationCenter="" 
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -45,4 +44,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

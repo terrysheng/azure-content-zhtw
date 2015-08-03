@@ -3,7 +3,7 @@
 	description="利用提供的範例開始使用 Azure HDInsight 服務。使用 PowerShell 指令碼在資料叢集上執行 MapReduce 程式。"
 	services="hdinsight"
 	documentationCenter=""
-	authors="bradsev"
+	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015"
-	ms.author="bradsev"/>
+	ms.date="07/09/2015"
+	ms.author="jgao"/>
 
 
 
@@ -89,4 +89,4 @@ HDInsight 附有下列範例：
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

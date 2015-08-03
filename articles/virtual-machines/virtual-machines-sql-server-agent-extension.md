@@ -74,4 +74,4 @@ Get-AzureVMSqlServerExtension [[-VM] <IPersistentVM>] [[-Version] <string>] [<Co
 ### 語法
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

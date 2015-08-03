@@ -39,7 +39,7 @@ Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您
 
     ![[說明] -> [安裝新軟體]](./media/app-insights-java-eclipse/0-plugin.png)
 
-2. SDK 位在 Azure 工具組的 http://dl.msopentech.com/eclipse。
+2. SDK 位在 Azure 工具組的 http://dl.windowsazure.com/eclipse。
 3. 取消勾選 **[連絡所有更新網站...]**
 
     ![針對 Application Insights SDK，請清除 [連絡所有更新網站]](./media/app-insights-java-eclipse/1-plugin.png)
@@ -169,4 +169,4 @@ Application Insights 可讓您定期測試網站，以檢查網站運作中且�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

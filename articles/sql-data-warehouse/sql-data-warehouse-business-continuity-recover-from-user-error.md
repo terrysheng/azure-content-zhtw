@@ -108,8 +108,8 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 <!--Image references-->
 
 <!--Article references-->
-[Azure SQL Database 業務持續性概觀]: sql-database/sql-database-business-continuity/,d
-[完成復原的資料庫]: sql-database/sql-database-recovered-finalize/
+[Azure SQL Database 業務持續性概觀]: sql-database/sql-database-business-continuity.md
+[完成復原的資料庫]: sql-database/sql-database-recovered-finalize.md
 
 <!--MSDN references-->
 [建立資料庫還原要求]: http://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -120,4 +120,4 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

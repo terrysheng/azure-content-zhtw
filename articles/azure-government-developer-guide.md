@@ -118,4 +118,4 @@ Blob 儲存體</td><td>	*.blob.core.windows.net</td><td>	*.blob.core.usgovclouda
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

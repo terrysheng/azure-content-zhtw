@@ -71,4 +71,4 @@ Azure 資料目錄中的預覽是最多 20 筆記錄的快照集，可以在註�
 
 - [開始使用 Azure 資料目錄](data-catalog-get-started.md) - 這篇文章提供端對端教學課程，示範如何使用 Azure 資料目錄來探索資料來源。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

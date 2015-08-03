@@ -21,6 +21,8 @@
 
 **Visual Studio** - Visual Studio 的整合式程式碼編輯器和偵錯工具 SQL Server Data Tools (SSDT) 與 SQL DW 完全相容，可讓您輕鬆地連接、查詢及管理 SQL 資料倉儲。
 
+> [AZURE.NOTE]SQL 資料倉儲至少需要 SSDT 預覽版本 12.0.50623 或更新版本
+
 **sqlcmd** - sqlcmd 是一種命令列工具，可提供簡單的連線和查詢功能。
 
 完成本文後，您將會：
@@ -62,7 +64,9 @@
 這樣就完成 Visual Studio 2013 的更新。
 
 ### 更新 SSDT 
-您可能發現您也需要更新 SSDT。這很正常。SSDT 工程師經常以新功能更新其外掛程式，所以您會發現您必須隨時更新。這同樣是非常簡單的程序。若要檢查您是否需要更新 SSDT，請執行下列步驟：
+> [AZURE.IMPORTANT]SQL 資料倉儲至少需要 SSDT 預覽版本 12.0.50623 或更新版本。
+
+SSDT 工程師經常以新功能更新其外掛程式，所以您會發現您必須隨時更新。這同樣是非常簡單的程序。若要檢查您是否需要更新 SSDT，請執行下列步驟：
 
 1. 開啟 Visual Studio 2013。  
 2. 選擇 [工具] 功能表，然後選取 [擴充功能和更新...]
@@ -83,7 +87,7 @@
 
 您的桌面上現在有最新版的 Visual Studio 2013 以及最新的 SSDT 延伸模組。
 
-> [AZURE.NOTE]我們目前建議使用 [Visual Studio 2013 的 SSDT 預覽](http://go.microsoft.com/fwlink/?LinkID=616714&clcid=0x409)
+> [AZURE.NOTE]我們目前建議使用 [Visual Studio 2013 版本 12.0.50623 或更新版本的 SSDT 預覽](http://go.microsoft.com/fwlink/?LinkID=616714&clcid=0x409)
 
 ## 透過 Visual Studio 2013 連線
 如果您目前執行所需的 Visual Studio 版本，您將能夠利用兩個不同的方式來連接到 SQL 資料倉儲執行個體：
@@ -183,4 +187,4 @@ C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server 
 ## 後續步驟 ##
 [Start developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

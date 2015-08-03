@@ -43,7 +43,7 @@
 
 ### 新功能 
  
-* 已新增指令碼，以簡化將所有 Apache Hadoop 服務設為自動或手動啟動的設定。預設值仍將是自動啟動，但所有服務現在都已可透過 C:\\Hadoop 中安裝的 set-onebox-manualstart.cmd 或 set-onebox-autostart.cmd 指令碼進行變更。 
+* 已新增指令碼，以簡化將所有 Apache Hadoop 服務設為自動或手動啟動的設定。預設值仍將是自動啟動，但所有服務現在都已可透過 C:\Hadoop 中安裝的 set-onebox-manualstart.cmd 或 set-onebox-autostart.cmd 指令碼進行變更。 
 
 * 所需的安裝相依性數目已大幅降低，使安裝更為快速。
 
@@ -110,7 +110,7 @@
 
 	在儀表板中，您會看見名為 "local (hdfs)" 的預設本機叢集。如果您要以 Azure Blob 儲存體作為本機安裝的儲存體，請執行下列動作：
 
-	1. 在位於 C:\\Hadoop\\hadoop-1.1.0-SNAPSHOT\\conf 中的 core-site.xml 內新增帳戶標籤：       
+	1. 在位於 C:\Hadoop\hadoop-1.1.0-SNAPSHOT\conf 中的 core-site.xml 內新增帳戶標籤：       
 
 			<property>
         		<name>fs.azure.account.key.{AccountName}</name>
@@ -245,7 +245,7 @@
 
 * Temp 目錄
 	
-	hadoop.tmp.dir 檔案會指向錯誤的位置。它不會指向 C:\\hadoop\\hdfs，而是指向 c:\\hdfs。此錯誤將在下次更新 HDP 位元時修正。
+	hadoop.tmp.dir 檔案會指向錯誤的位置。它不會指向 C:\hadoop\hdfs，而是指向 c:\hdfs。此錯誤將在下次更新 HDP 位元時修正。
 
 * 作業系統限制
 
@@ -276,4 +276,4 @@
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

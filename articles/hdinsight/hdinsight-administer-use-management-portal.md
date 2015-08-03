@@ -202,4 +202,4 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

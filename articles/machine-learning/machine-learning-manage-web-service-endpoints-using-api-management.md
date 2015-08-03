@@ -272,8 +272,8 @@ AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 
 	storage_account_name = "<REPLACE WITH YOUR AZURE STORAGE ACCOUNT NAME>"
 	storage_account_key = "<REPLACE WITH YOUR AZURE STORAGE KEY>"
 	storage_container_name = "<REPLACE WITH YOUR AZURE STORAGE CONTAINER NAME>"
-	input_file = "<REPLACE WITH THE LOCATION OF YOUR INPUT FILE>" # Example: C:\\mydata.csv
-	output_file = "<REPLACE WITH THE LOCATION OF YOUR OUTPUT FILE>" # Example: C:\\myresults.csv
+	input_file = "<REPLACE WITH THE LOCATION OF YOUR INPUT FILE>" # Example: C:\mydata.csv
+	output_file = "<REPLACE WITH THE LOCATION OF YOUR OUTPUT FILE>" # Example: C:\myresults.csv
 	input_blob_name = "mydatablob.csv"
 	output_blob_name = "myresultsblob.csv"
 	def printHttpError(httpError):
@@ -384,4 +384,4 @@ AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

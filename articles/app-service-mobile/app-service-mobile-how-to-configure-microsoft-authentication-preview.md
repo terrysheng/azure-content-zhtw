@@ -18,6 +18,8 @@
 
 # 如何設定應用程式以使用 Microsoft 帳戶登入
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 本主題說明如何設定 Azure 應用程式服務，以使用 Microsoft 帳戶做為驗證提供者。
 
 ## <a name="register"> </a>使用 Microsoft 帳戶註冊您的應用程式
@@ -66,4 +68,4 @@
 [Azure 管理入口網站]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

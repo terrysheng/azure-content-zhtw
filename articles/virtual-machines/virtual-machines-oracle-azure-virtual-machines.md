@@ -5,7 +5,8 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 # 在 Azure 虛擬機器上託管的 Oracle 軟體
@@ -60,4 +61,4 @@
 
 [設定 Azure 的 Oracle GoldenGate](virtual-machines-configuring-oracle-goldengate.md) 帶您逐步完成資料庫與複寫設定。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

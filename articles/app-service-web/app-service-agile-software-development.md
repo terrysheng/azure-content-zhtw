@@ -87,7 +87,7 @@
 
 		git clone https://github.com/<your_fork>/ToDoApp.git 
 
-4.	具有本機複製品之後，請導覽至 *&lt;repository_root>*\\ARMTemplates，並執行 deploy.ps1 指令碼，如下所示：
+4.	具有本機複製品之後，請導覽至 *&lt;repository_root>*\ARMTemplates，並執行 deploy.ps1 指令碼，如下所示：
 
 		.\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git
 
@@ -97,7 +97,7 @@
 
 	![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
  
-	>[AZURE.TIP]請查看 *&lt;repository_root>*\\ARMTemplates\\Deploy.ps1，以查看它如何產生具有唯一識別碼的資源。您可以使用相同的方法來建立相同部署的複製品，而不需擔心衝突的資源名稱。
+	>[AZURE.TIP]請查看 *&lt;repository_root>*\ARMTemplates\Deploy.ps1，以查看它如何產生具有唯一識別碼的資源。您可以使用相同的方法來建立相同部署的複製品，而不需擔心衝突的資源名稱。
  
 6.	回到 Git Shell 工作階段，並執行：
 
@@ -109,7 +109,7 @@
  
 5.	登入 [Azure 預覽入口網站](https://portal.azure.com)，並查看建立的內容。
 
-	您應該可以在相同的資源群組中看到兩個 Web 應用程式，其中一個的名稱具有 `Api` 後置詞。如果您查看資源群組檢視，則也會看到 SQL Database 和伺服器、App Service 方案以及 Web 應用程式的預備位置。瀏覽不同的資源，並將它們與 *&lt;repository_root>*\\ARMTemplates\\ProdAndStage.json 比較以查看它們在範本中的設定方式。
+	您應該可以在相同的資源群組中看到兩個 Web 應用程式，其中一個的名稱具有 `Api` 後置詞。如果您查看資源群組檢視，則也會看到 SQL Database 和伺服器、App Service 方案以及 Web 應用程式的預備位置。瀏覽不同的資源，並將它們與 *&lt;repository_root>*\ARMTemplates\ProdAndStage.json 比較以查看它們在範本中的設定方式。
 
 	![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
 
@@ -174,7 +174,7 @@
 
 		git checkout Dev
 
-2.	變更程式碼以使用[啟動](http://getbootstrap.com/components/)清單，以對應用程式的 UI 層進行簡單的變更。開啟 *&lt;repository_root>*\\src\\MultiChannelToDo.Web\\app\\index.cshtml，並進行下面反白顯示的變更：
+2.	變更程式碼以使用[啟動](http://getbootstrap.com/components/)清單，以對應用程式的 UI 層進行簡單的變更。開啟 *&lt;repository_root>*\src\MultiChannelToDo.Web\app\index.cshtml，並進行下面反白顯示的變更：
 
 	![](./media/app-service-agile-software-development/commit-1-changes.png)
 
@@ -279,4 +279,4 @@
 -	[在 Azure AD 中建立或編輯使用者](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[專案 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

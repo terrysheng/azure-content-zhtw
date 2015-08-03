@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/19/2015"
+   ms.date="07/13/2015"
    ms.author="larryfr"/>
 
 #開發適用於 HDInsight 的 Python 串流程式
@@ -97,19 +97,19 @@ Python 可以使用 **sys** 模組從 STDIN 讀取資料並使用 **print** 來�
 建立名為 **reducer.py** 的新檔案並使用下列程式碼做為內容：
 
 	#!/usr/bin/env python
-	
+
 	# import modules
 	from itertools import groupby
 	from operator import itemgetter
 	import sys
-	
+
 	# 'file' in this case is STDIN
 	def read_mapper_output(file, separator='\t'):
 		# Go through each line
 	    for line in file:
 			# Strip out the separator character
 	        yield line.rstrip().split(separator, 1)
-	
+
 	def main(separator='\t'):
 	    # Read the data using read_mapper_output
 	    data = read_mapper_output(sys.stdin, separator=separator)
@@ -127,7 +127,7 @@ Python 可以使用 **sys** 模組從 STDIN 讀取資料並使用 **print** 來�
 	        except ValueError:
 	            # Count was not a number, so do nothing
 	            pass
-	
+
 	if __name__ == "__main__":
 	    main()
 
@@ -153,12 +153,12 @@ Python 可以使用 **sys** 模組從 STDIN 讀取資料並使用 **print** 來�
 
 2. 使用下列命令啟動 MapReduce 工作。
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/davinci.txt -output wasb:///example/wordcountout
+		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/gutenberg/davinci.txt -output wasb:///example/wordcountout
 
 	此命令有下列幾個部分：
 
 	* **hadoop-streaming.jar**：執行串流 MapReduce 作業時使用。它能連結 Hadoop 和您提供的外部 MapReduce 程式碼。
-	
+
 	* **-files**：告訴 Hadoop 此 MapReduce 工作需要指定的檔案，而且應複製到所有背景工作節點。
 
 	* **-mapper**：告訴 Hadoop 要做為對應器的檔案。
@@ -201,6 +201,5 @@ Python 可以使用 **sys** 模組從 STDIN 讀取資料並使用 **print** 來�
 * [搭配 HDInsight 使用 Hivet](hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

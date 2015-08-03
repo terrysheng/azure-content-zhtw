@@ -120,7 +120,7 @@ CloudBlobClient 物件可讓您取得容器和 Blob 的參考物件。下列程�
     	CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 			
         // Define the path to a local file.
-        final String filePath = "C:\\myimages\\myimage.jpg";
+        final String filePath = "C:\myimages\myimage.jpg";
 
     	// Create or overwrite the "myimage.jpg" blob with contents from a local file.
     	CloudBlockBlob blob = container.getBlockBlobReference("myimage.jpg");
@@ -186,7 +186,7 @@ Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更
 	       if (blobItem instanceof CloudBlob) {
 	           // Download the item and save it to a file with the same name.
     	        CloudBlob blob = (CloudBlob) blobItem;
-    	        blob.download(new FileOutputStream("C:\\mydownloads\" + blob.getName()));
+    	        blob.download(new FileOutputStream("C:\mydownloads\" + blob.getName()));
     	    }
     	}
     }
@@ -264,4 +264,4 @@ Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

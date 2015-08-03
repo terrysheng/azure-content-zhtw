@@ -289,4 +289,4 @@ Azure 搜尋服務 REST API 建立索引 (Azure 搜尋 API) ____________________
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

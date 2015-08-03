@@ -5,7 +5,7 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
-	authors="bradsev"/>
+	authors="mumian"/>
 
 <tags
 	ms.service="hdinsight"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/30/2014" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 # 在 HDInsight 上 Hadoop 中的 C# 串流字數統計 MapReduce 範例
 
@@ -204,4 +204,4 @@ wc.cs 檔案中的 reducer 程式碼會使用 [StreamReader][streamreader] 物�
 [hdinsight-use-pig]: hdinsight-use-pig.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

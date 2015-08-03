@@ -97,4 +97,4 @@
 如需詳細資訊，請參閱 [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)。
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

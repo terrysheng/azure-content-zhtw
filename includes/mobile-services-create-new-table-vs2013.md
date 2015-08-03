@@ -15,4 +15,4 @@
 	>
 	>新的資料表是使用 Id、__createdAt__、updatedAt 和 __version 等資料行建立而成。啟用動態結構描述時，行動服務會根據插入或更新要求中的 JSON 物件自動產生新資料行。如需詳細資訊，請參閱[動態結構描述](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx)。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

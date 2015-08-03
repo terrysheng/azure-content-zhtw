@@ -97,4 +97,4 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 - Dolby digital 加上 mp4 檔案。
 - Dolby digital 加上 smooth 檔案。 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

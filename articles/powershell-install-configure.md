@@ -123,7 +123,7 @@ Azure 模組包含可協助您下載和匯入憑證的 Cmdlet。
 
 4. 出現提示時，下載並儲存發佈設定檔，並記下 .publishsettings 檔案的路徑和名稱。當您執行 **Import-AzurePublishSettingsFile** Cmdlet 來匯入設定時，需要有這些資訊。預設位置和檔案名稱格式為：
 
-			C:\\Users<UserProfile>\\Download\[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
+			C:\Users<UserProfile>\Download[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
 
 5. 輸入類似如下的命令，將各預留位置替換成您的 Windows 帳戶名稱以及檔案路徑加名稱：
 
@@ -260,4 +260,4 @@ Azure 模組包含可協助您下載和匯入憑證的 Cmdlet。
 
   [Microsoft Online Services Customer Portal]: https://mocp.microsoftonline.com/site/default.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

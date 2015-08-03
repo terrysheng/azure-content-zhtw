@@ -77,11 +77,11 @@ Site Recovery 服務提供健全的商務持續性和災害復原 (BCDR) 解決�
 - 請使用 Windows PowerShell 撰寫指令碼。
 - 會在 Windows PowerShell 模組中傳遞 VMM Cmdlet。安裝 VMM 主控台時，會一併安裝 VMM Windows PowerShell 模組。系統可能使用指令碼的下列命令將 VMM 模組載入您的指令碼：Import-Module -Name virtualmachinemanager。[取得詳細資訊](hhttps://technet.microsoft.com/library/hh875013.aspx)。
 - 確認您的 VMM 部署中至少有一部程式庫伺服器。根據預設，VMM 伺服器的程式庫共用路徑位於本機的 VMM 伺服器上，資料夾名稱為 MSCVMMLibrary。
-- 如果您的程式庫共用路徑位於遠端 (或是位於本機上，但未與 MSCVMMLibrary 共用)，請依以下所示設為共用 (以 \\libserver2.contoso.com\\share\\ 為例)：
+- 如果您的程式庫共用路徑位於遠端 (或是位於本機上，但未與 MSCVMMLibrary 共用)，請依以下所示設為共用 (以 \libserver2.contoso.com\share\ 為例)：
 	- 開啟 [登錄編輯器]。
-	- 瀏覽至 HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft System Center Virtual Machine Manager Server\\DRAdapter\\Registration。
+	- 瀏覽至 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter\Registration。
 	- 編輯 ScriptLibraryPath 的值。
-	- 輸入值 \\libserver2.contoso.com\\share。指定完整的 FQDN。
+	- 輸入值 \libserver2.contoso.com\share。指定完整的 FQDN。
 	- 提供共用位置的權限。
 
 - 復原方案中的指令碼會依據 VMM 服務帳戶中的內容執行。請確認此帳戶具有指令碼所處位置之遠端共用讀取權限，並在 VMM 服務帳戶的權限層級測試要執行的指令碼。
@@ -96,9 +96,9 @@ Site Recovery 服務提供健全的商務持續性和災害復原 (BCDR) 解決�
 
 建立指令碼，如下所示：
 
-1. 在程式庫共用中建立新的資料夾，例如 <VMMServerName>\\MSSCVMMLibrary\\RPScripts。將資料夾放在來源和目標 VMM 伺服器上。
+1. 在程式庫共用中建立新的資料夾，例如 <VMMServerName>\MSSCVMMLibrary\RPScripts。將資料夾放在來源和目標 VMM 伺服器上。
 2. 建立指令碼 (例如 RPScript)，並檢查其能否如預期運作。
-3. 將指令碼放在來源和目標 VMM 伺服器的 <VMMServerName>\\MSSCVMMLibrary 位置。
+3. 將指令碼放在來源和目標 VMM 伺服器的 <VMMServerName>\MSSCVMMLibrary 位置。
 
 #### 建立 Azure 自動化 Runbook
 
@@ -110,7 +110,7 @@ Site Recovery 服務提供健全的商務持續性和災害復原 (BCDR) 解決�
 1. 開啟您要自訂的復原方案。
 2. 按一下以新增虛擬機器或新的群組。
 3. 若要新增指令碼或手動動作，請按一下 [步驟] 清單中的任意項目，然後按一下 [指令碼] 或 [手動動作]。指定要在已選取項目之前或之後新增指令碼或動作。使用 [上移] 和 [下移] 命令按鈕，上下移動指令碼的位置。
-4. 如果是新增 VMM 指令碼，請選取 [容錯移轉至 VMM 指令碼]，然後在 [指令碼路徑] 中輸入共用的相對路徑。這樣一來，範例的共用位置為 \<VMMServerName>\\MSSCVMMLibrary\\RPScripts，指定路徑：\\RPScripts\\RPScript.PS1。
+4. 如果是新增 VMM 指令碼，請選取 [容錯移轉至 VMM 指令碼]，然後在 [指令碼路徑] 中輸入共用的相對路徑。這樣一來，範例的共用位置為 \<VMMServerName>\MSSCVMMLibrary\RPScripts，指定路徑：\RPScripts\RPScript.PS1。
 5. 如果是新增 Azure 自動化 Runbook，請指定 Runbook 所在的 [Azure 自動化帳戶]，並選取適當的 [Azure Runbook 指令碼]。
 5. 執行復原方案容錯移轉，以確保指令碼可以正常運作。
 
@@ -122,4 +122,4 @@ Site Recovery 服務提供健全的商務持續性和災害復原 (BCDR) 解決�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

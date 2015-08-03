@@ -143,4 +143,4 @@ Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘�
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

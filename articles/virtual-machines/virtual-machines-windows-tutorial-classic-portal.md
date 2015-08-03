@@ -50,4 +50,4 @@
 若要深入了解您可以為 VM 設定什麼功能以及何時可以設定，請參閱[有關 Azure VM 設定](http://msdn.microsoft.com/library/azure/dn763935.aspx)。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

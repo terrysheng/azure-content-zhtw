@@ -43,7 +43,7 @@
 
 如需使用 AD FS 設定 Azure Multi-Factor Authentication 和 Azure Multi-Factor Authentication Server 的詳細資訊，請參閱下列各項：
 
-- [使用 Azure Multi-Factor Authentication 和 AD FS 保護雲端資源](multi-factor-authentication-get-started-adfs-cloud)
+- [使用 Azure Multi-Factor Authentication 和 AD FS 保護雲端資源](multi-factor-authentication-get-started-adfs-cloud.md)
 - [搭配 Windows Server 2012 R2 AD FS 使用 Azure Multi-Factor Authentication Server 保護雲端和內部部署資源](multi-factor-authentication-get-started-adfs-w2k12.md)
 - [搭配 AD FS 2.0 使用 Azure Multi-Factor Authentication Server 保護雲端和內部部署資源](multi-factor-authentication-get-started-adfs-adfs2.md)
 
@@ -55,4 +55,4 @@
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

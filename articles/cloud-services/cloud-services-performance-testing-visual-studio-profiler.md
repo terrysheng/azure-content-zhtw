@@ -195,4 +195,4 @@
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

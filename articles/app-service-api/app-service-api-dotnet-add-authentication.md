@@ -43,13 +43,13 @@
 
 1. 在瀏覽器中，移至 [Azure 預覽入口網站]。
 
-3. 從首頁按一下 [瀏覽] > [API Apps]，然後按一下您要保護的 API 應用程式名稱。
+3. 從首頁按一下 [**瀏覽 > API 應用程式**]，然後按一下您要保護的 API 應用程式名稱。
 
 	![瀏覽](./media/app-service-api-dotnet-add-authentication/browse.png)
 
 	![選取 API 應用程式](./media/app-service-api-dotnet-add-authentication/select.png)
 
-3. 在 [**API 應用程式**] 刀鋒視窗中，按一下 [URL] 以開啟可呼叫 API App 的瀏覽器視窗。
+3. 在 [**API 應用程式**] 分頁中，按一下 [**URL**] 以開啟可呼叫 API 應用程式的瀏覽器視窗。
 
 	![API 應用程式分頁](./media/app-service-api-dotnet-add-authentication/chooseapiappurl.png)
 
@@ -71,8 +71,7 @@
 
 ## 保護 API 應用程式
 
-當您部署 API 應用程式時，您會將它部署到資源群組。您可以將 Web 應用程式和其他 API 應用程式新增至相同的資源群組，而資源群組內的每個 API 應用程式可以有下列三個可存取性設定的其中一個：
-<!--todo: diagram showing different accessibility settings-->
+當您部署 API 應用程式時，您會將它部署到資源群組。您可以將 Web 應用程式和其他 API 應用程式新增至相同的資源群組，而資源群組內的每個 API 應用程式可以有下列三個可存取性設定的其中一個：<!--todo: diagram showing different accessibility settings-->
 
 - **公用 (匿名)** - 任何人都可以從資源群組外部呼叫 API 應用程式，而不需登入。
 - **公用 (已驗證)** - 只允許已驗證的使用者從資源群組外部呼叫 API 應用程式。
@@ -269,4 +268,4 @@
 [Azure 入口網站]: https://manage.windowsazure.com/
 [Azure 預覽入口網站]: https://portal.azure.com/
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

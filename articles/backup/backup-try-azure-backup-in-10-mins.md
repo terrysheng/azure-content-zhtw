@@ -45,4 +45,4 @@
 - 若要深入了解 Azure 備份，請參閱 [Azure 備份概觀](backup-introduction-to-azure-backup.md) (英文)。
 - 造訪 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933) (英文)。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

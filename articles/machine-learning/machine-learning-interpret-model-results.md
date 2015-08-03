@@ -3,7 +3,7 @@
 	description="如何針對使用和視覺化評分模型輸出的演算法選擇最佳的參數設定。" 
 	services="machine-learning"
 	documentationCenter="" 
-	authors="garyericson" 
+	authors="bradsev" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/14/2015" 
 	ms.author="bradsev" />
 
 
@@ -309,4 +309,4 @@ Azure Machine Learning 有不同的模組可以處理各種類型的分類。但
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

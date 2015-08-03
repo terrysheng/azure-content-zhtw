@@ -285,4 +285,4 @@
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [存取 Azure Active Directory Graph 資訊]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

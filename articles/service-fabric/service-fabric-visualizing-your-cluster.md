@@ -26,7 +26,7 @@ Service Fabric 總管是一種視覺工具，可檢查和管理 Microsoft Azure 
 
 請確定您的本機開發環境是依照以下指示而設定：[設定 Service Fabric 開發環境](service-fabric-get-started.md)。
 
-從您的本機安裝路徑 (%Program Files%\\Microsoft SDKs\\Service Fabric\\Tools\\ServiceFabricExplorer\\ServiceFabricExplorer.exe) 執行 Service Fabric 總管。此工具將自動連接至本機開發叢集 (如果存在)。它會顯示叢集上的資訊，例如：
+從您的本機安裝路徑 (%Program Files%\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe) 執行 Service Fabric 總管。此工具將自動連接至本機開發叢集 (如果存在)。它會顯示叢集上的資訊，例如：
 
 - 在叢集上執行的應用程式
 - 叢集節點的相關資訊
@@ -76,4 +76,4 @@ Service Fabric 總管可讓您探索在叢集上執行的應用程式。展開 [
 [servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

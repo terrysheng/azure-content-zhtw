@@ -119,7 +119,7 @@ EndpointUrl 和 AuthorizationKey 的值是 DocumentDB 帳戶的 URI 和主要金
 
 ##<a id="CreateColl"></a>步驟 5：建立集合  
 
-> [AZURE.WARNING]**CreateDocumentCollectionAsync** 會建立具有價格含意的新 S1 集合。如需詳細資訊，請造訪[價格頁面](https://azure.microsoft.com/pricing/details/documentdb/)。
+> [AZURE.WARNING]**CreateDocumentCollectionAsync** 會建立具有定價含意的新 S1 集合。如需詳細資訊，請造訪[定價頁面](https://azure.microsoft.com/pricing/details/documentdb/)。
 
 您可以使用 **DocumentClient** 類別的 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 方法建立[集合](documentdb-resources.md#collections)。集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。新建立的集合將會對應至 [S1 效能層級](documentdb-performance-levels.md)。在上一個步驟中建立的資料庫包含許多屬性，其中一個是 [CollectionsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.database.collectionslink.aspx) 屬性。憑著此資訊，我們現在可以在建立資料庫之後建立集合。
 
@@ -475,4 +475,4 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

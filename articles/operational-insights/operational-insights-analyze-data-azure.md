@@ -285,4 +285,4 @@ Operational Insights 目前能夠分析：
 
 [設定 Proxy 和防火牆設定 (選擇性)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

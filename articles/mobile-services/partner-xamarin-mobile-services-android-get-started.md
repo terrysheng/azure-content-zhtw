@@ -1,6 +1,5 @@
 <properties 
 	pageTitle="開始使用 Xamarin.Android 的行動服務" 
-	writer="craigd" 
 	description="了解如何透過 Xamarin.Android 應用程式使用 Azure 行動服務。" 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
@@ -137,4 +136,4 @@
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

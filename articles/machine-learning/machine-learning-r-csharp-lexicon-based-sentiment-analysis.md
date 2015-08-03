@@ -153,4 +153,4 @@ Azure Machine Learning 中已建立新的空白實驗。下圖說明語彙型情
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

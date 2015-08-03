@@ -356,4 +356,4 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 	
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

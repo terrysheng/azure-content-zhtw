@@ -91,4 +91,4 @@ Output:
 
 [在 Azure 網站上使用 Socket.IO 建置 Node.js 聊天應用程式]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

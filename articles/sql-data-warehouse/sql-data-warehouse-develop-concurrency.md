@@ -377,4 +377,4 @@ FROM	sys.dm_pdw_wait_stats w
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="07/16/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Data Factory .NET SDK 來建立、監視及管理 Azure Data Factory
@@ -43,7 +43,6 @@
 3.	在 [Package Manager Console]<b></b> 中，逐一執行下列命令。</b>。 
 
 		Install-Package Microsoft.Azure.Management.DataFactories –Pre
-		Install-Package Microsoft.DataFactories.Runtime –Pre
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 6. 將下列 **appSetttings** 區段加入 **App.config** 檔案。Helper 方法使用的是：**Microsoft.identitymodel.waad.preview.graph.graphinterface**。 
 
@@ -57,24 +56,26 @@
 		    <add key="AdfClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
 		    <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
 		    <!--Make sure to write your own tenenat id and subscription ID here-->
-		    <add key="SubscriptionId" value="49fb6e5f-3098-4fb2-ba2f-6d6eed843a65" />
-    		<add key="ActiveDirectoryTenantId" value="37330244-7828-4a28-99b7-c8c3a437c7ac" />
+		    <add key="SubscriptionId" value="<subscription ID>" />
+    		<add key="ActiveDirectoryTenantId" value="<tenant ID" />
 		</appSettings>
 6. 將下列 **using** 陳述式加入專案的原始程式檔 (Program.cs) 中。
 
 		using System.Threading;
 		using System.Configuration;
 		using System.Collections.ObjectModel;
-				
+		
 		using Microsoft.Azure.Management.DataFactories;
 		using Microsoft.Azure.Management.DataFactories.Models;
+		using Microsoft.Azure.Management.DataFactories.Common.Models;
+		
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.Azure; 
+		using Microsoft.Azure;
 6. 將下列會建立 **DataPipelineManagementClient** 類別執行個體的程式碼加入 **Main** 方法中。您將使用此物件來建立 Data Factory、連結的服務、輸入和輸出資料表，以及管線。您也將使用此物件來監視執行階段的資料表配量。    
 
-        // create data pipeline management client
+        // create data factory management client
         string resourceGroupName = "ADF";
-        string dataFactoryName = "APITutorialFactory";
+        string dataFactoryName = "APITutorialFactorySP";
 
         TokenCloudCredentials aadTokenCredentials =
             new TokenCloudCredentials(
@@ -83,7 +84,8 @@
 
         Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
-        DataPipelineManagementClient client = new DataPipelineManagementClient(aadTokenCredentials, resourceManagerUri);
+        DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
+
 7. 將下列會建立 **Data Factory** 的程式碼加入 **Main** 方法中。
 
         // create a data factory
@@ -99,10 +101,11 @@
                 }
             }
         );
-8. 將下列會建立**連結服務**的程式碼加入 **Main** 方法中。
-	> [AZURE.NOTE]**帳戶名稱****帳戶金鑰****ConnectionString** 
 
-		// create a linked service
+8. 將下列會建立**連結服務**的程式碼加入 **Main** 方法中。
+	> [AZURE.NOTE]使用您 Azure 儲存體帳戶的**帳戶名稱**和**帳戶金鑰**做為 **ConnectionString**
+
+        // create a linked service
         Console.WriteLine("Creating a linked service");
         client.LinkedServices.CreateOrUpdate(resourceGroupName, dataFactoryName,
             new LinkedServiceCreateOrUpdateParameters()
@@ -110,10 +113,10 @@
                 LinkedService = new LinkedService()
                 {
                     Name = "LinkedService-AzureStorage",
-                    Properties = new AzureStorageLinkedService()
-                    {
-                        ConnectionString = "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=account key",
-                    }
+                    Properties = new LinkedServiceProperties
+                    (
+                        new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=spestore;AccountKey=4VwviDOId32nYKABQy9NHsMG0vC/CXx9iuR02HJdGL+0kieqHqbT3ap+bM/c+aGnGoA7SqkwNFq90hqV1bmV0w==")
+                    )
                 }
             }
         );
@@ -137,17 +140,17 @@
                     Name = Table_Source,
                     Properties = new TableProperties()
                     {
-                        Location = new AzureBlobLocation()
+                        LinkedServiceName = "LinkedService-AzureStorage",
+                        TypeProperties = new AzureBlobDataset()
                         {
                             FolderPath = "adftutorial/",
-                            LinkedServiceName = "LinkedService-AzureStorage",
+                            FileName = "emp.txt"
                         },
-
+                        External = true,
                         Availability = new Availability()
                         {
                             Frequency = SchedulePeriod.Hour,
                             Interval = 1,
-                            WaitOnExternal = new WaitOnExternal()
                         },
 
                         Policy = new Policy()
@@ -169,7 +172,9 @@
                     Name = Table_Destination,
                     Properties = new TableProperties()
                     {
-                        Location = new AzureBlobLocation()
+
+                        LinkedServiceName = "LinkedService-AzureStorage",
+                        TypeProperties = new AzureBlobDataset()
                         {
                             FolderPath = "adftutorial/apifactoryoutput/{Slice}",
                             PartitionedBy = new Collection<Partition>()
@@ -183,8 +188,7 @@
                                         Format = "yyyyMMdd-HH"
                                     }
                                 }
-                            },
-                            LinkedServiceName = "LinkedService-AzureStorage",
+                            }
                         },
 
                         Availability = new Availability()
@@ -195,9 +199,10 @@
                     }
                 }
             });
-10. 將下列會**建立並啟用管線**的程式碼加入 **Main** 方法中。此管線有一個 **CopyActivity**，它以 **BlobSource** 為來源，**BlobSink** 為接收器。 
 
-        // create a pipeline
+11. 將下列會**建立並啟用管線**的程式碼加入 **Main** 方法中。此管線有一個 **CopyActivity**，它以 **BlobSource** 為來源，**BlobSink** 為接收器。
+
+            // create a pipeline
         Console.WriteLine("Creating a pipeline");
         DateTime PipelineActivePeriodStartTime = new DateTime(2014, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
         DateTime PipelineActivePeriodEndTime = PipelineActivePeriodStartTime.AddMinutes(60);
@@ -217,48 +222,36 @@
                         Start = PipelineActivePeriodStartTime,
                         End = PipelineActivePeriodEndTime,
 
-                        Activities = new List<BaseActivity>()
-                        {
-                            new CopyActivity()
-                            {
+                        Activities = new List<Activity>()
+                        {                                
+                            new Activity()
+                            {   
                                 Name = "BlobToBlob",
                                 Inputs = new List<ActivityInput>()
                                 {
-                                    new ActivityInput()
-                                    {
-                                        Name = Table_Source,
+                                    new ActivityInput() {
+                                        Name = Table_Source
                                     }
                                 },
-                        
                                 Outputs = new List<ActivityOutput>()
                                 {
                                     new ActivityOutput()
                                     {
-                                        Name = Table_Destination, 
+                                        Name = Table_Destination
                                     }
                                 },
-                     
-                                Transformation = new CopyActivityProperties()
+                                TypeProperties = new CopyActivity()
                                 {
                                     Source = new BlobSource()
                                     {
                                         BlobColumnSeparators = ",",
                                     },
-                            
+                        
                                     Sink = new BlobSink()
                                     {
                                         WriteBatchSize = 10000,
                                         WriteBatchTimeout = TimeSpan.FromMinutes(10)
-                                    },
-
-                                },
-
-                                Policy = new ActivityPolicy()
-                                {
-                                    ExecutionPriorityOrder = ExecutionPriorityOrder.NewestFirst,
-                                    Concurrency = 1,
-                                    Retry = 2,
-                                    Timeout = TimeSpan.FromMinutes(10),
+                                    }
                                 }
                             }
 
@@ -267,7 +260,9 @@
                 }
             });
 
-11. 將 **Main** 方法所使用的下列 Helper 方法加入 **Program** 類別中。此方法會顯示一個對話方塊，讓您提供登入 Azure 入口網站的**使用者名稱**和**密碼**。
+	
+
+12. 將 **Main** 方法所使用的下列 Helper 方法加入 **Program** 類別中。此方法會顯示一個對話方塊，讓您提供登入 Azure 入口網站的**使用者名稱**和**密碼**。
  
 		public static string GetAuthorizationHeader()
         {
@@ -334,13 +329,23 @@
             }
         }
 
-14. 將下列會取得資料配量之執行詳細資料的程式碼加入 **Main** 方法中。
+14. **(選用)**將下列會取得資料配量之執行詳細資料的程式碼加入 **Main** 方法中。
 
         Console.WriteLine("Getting run details of a data slice");
 
-        var datasliceRunListResponse = client.DataSliceRuns.List(resourceGroupName, dataFactoryName, Table_Destination,
-                PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString());
+		// give it a few minutes for the output slice to be ready
+        Console.ReadKey();
 
+        var datasliceRunListResponse = client.DataSliceRuns.List(
+                resourceGroupName,
+                dataFactoryName,
+                Table_Destination,
+                new DataSliceRunListParameters()
+                {
+                    DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
+                }
+            );
+        
         foreach (DataSliceRun run in datasliceRunListResponse.DataSliceRuns)
         {
             Console.WriteLine("Status: \t\t{0}", run.Status);
@@ -354,15 +359,14 @@
 
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
-    }
 
-15. 建置主控台應用程式。按一下功能表上的 [建置]，再按一下 [建置方案]。
+15. 建置主控台應用程式。按一下功能表上的 [建置]，再按一下 [建置方案]。如果您取得 **ConfigurationManager** 類別的相關錯誤，請將參考加入至 **System.Configuration** 組件並嘗試再次建置。
 16. 確認您 Azure Blob 儲存體之 adftutorial 容器中至少有一個檔案。如果沒有，請在「記事本」中以下列內容建立 Emp.txt 檔案，然後將它上傳至 adftutorial 容器。
 
         John, Doe
 		Jane, Doe
 	 
-17. 按一下功能表上的 [偵錯] -> [開始偵錯]，執行範例。
+17. 按一下功能表上的 [偵錯] -> [開始偵錯]，執行範例。當您看到**取得資料配量的執行詳細資料**，請等待數分鐘再按 **ENTER**。
 18. 使用 Azure Preview 入口網站確認 Data Factory：**APITutorialFactory** 是使用下列成品所建立： 
 	- 連結服務：**LinkedService_AzureStorage** 
 	- 資料表：**TableBlobSource** 和 **TableBlobDestination**。
@@ -388,4 +392,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -4,8 +4,7 @@
 	services="key-vault"
 	documentationCenter=""
 	authors="msmbaldwin"
-	manager="mbaldwin"
-	tags="azure-resource-manager"/>
+	manager="mbaldwin"tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -253,4 +252,4 @@
 
 如需程式設計參考，請參閱 [Azure 金鑰保存庫 REST API 參考](https://msdn.microsoft.com/library/azure/dn903609.aspx)和 [Azure 金鑰保存庫 C# 用戶端 API 參考](https://msdn.microsoft.com/library/azure/dn903628.aspx)。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

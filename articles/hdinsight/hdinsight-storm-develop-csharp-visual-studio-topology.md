@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/21/2015"
    ms.author="larryfr"/>
 
 # 使用 Visual Studio 的 Hadoop 工具開發 Apache Storm on HDInsight 的 C# 拓撲
@@ -30,15 +30,38 @@
 
 	-	Visual Studio 2013 (含 [Update 4](http://www.microsoft.com/download/details.aspx?id=44921)) 或 [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
-	-	[Visual Studio 2015 CTP6](http://visualstudio.com/downloads/visual-studio-2015-ctp-vs)
+	-	Visual Studio 2015 或 [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 
 -	Azure SDK 2.5.1 或更新版本
 
 -	HDInsight Tools for Visual Studio：請參閱[開始使用 HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) 以安裝及設定 HDInsight tools for Visual Studio。
 
+    > [AZURE.NOTE]Visual Studio Express 不支援 HDInsight Tools for Visual Studio
+
 -	Apache Storm on HDInsight 叢集：請參閱[開始使用 Apache Storm on HDInsight](hdinsight-storm-getting-started.md) 以取得建立叢集的步驟。
 
 	> [AZURE.NOTE]目前 HDInsight Tools for Visual Studio 只支援 Storm on HDInsight 3.2 版叢集。
+
+##範本
+
+HDInsight Tools for Visual Studio 提供下列範本::
+
+| 專案類型 | 示範 |
+| ------------ | ------------- |
+| Storm 應用程式 | 空白 Storm 拓樸專案 |
+| Storm Azure SQL 寫入器範例 | 如何寫入至 Azure SQL Database |
+| Storm DocumentDB 讀取器範例 | 如何從 Azure DocumentDB 讀取 |
+| Storm DocumentDB 寫入器範例 | 如何寫入至 Azure DocumentDB |
+| Storm EventHub 讀取器範例 | 如何從 Azure 事件中樞讀取 |
+| Storm EventHub 寫入器範例 | 如何寫入至 Azure 事件中樞 |
+| Storm HBase 讀取器範例 | 如何從 HDInsight 叢集上的 HBase 讀取 |
+| Storm HBase 寫入器範例 | 如何寫入至 HDInsight 叢集上的 HBase |
+| Storm 混合式範例 | 如何使用 Java 元件 |
+| Storm 範例 | 基本的字數統計拓撲 |
+
+> [AZURE.NOTE]HBase 讀取器和寫入器範例會使用 HBase REST API 與 HDInsight 叢集上的 HBase 通訊，而不是 HBase Java API。
+
+在這份文件的步驟中，您將使用基本 Storm 應用程式專案類型來建立新的拓樸。
 
 ##建立 C# 拓撲
 
@@ -352,7 +375,7 @@ Spout 和 Bolt 是以圖形方式排列，用以定義資料在元件之間的�
 
 1.	在**方案總管**中，於專案上按一下滑鼠右鍵，然後選取 [提交至 Storm on HDInsight]。
 
-	> [AZURE.NOTE]如果出現提示，請輸入您 Azure 訂閱的登入認證。如果您有多個訂用帳戶，請登入包含 Storm on HDInsight 叢集的訂用帳戶。
+	> [AZURE.NOTE]如果出現提示，請輸入您 Azure 訂用帳戶的登入認證。如果您有多個訂用帳戶，請登入包含 Storm on HDInsight 叢集的訂用帳戶。
 
 2.	從 [Storm 叢集] 下拉式清單中選取 Storm on HDInsight 叢集，然後選取 [提交]。您可以使用 [輸出] 視窗監視提交是否成功。
 
@@ -426,27 +449,20 @@ SCP.Net 版本 0.9.4.203 引進了專用於事件中樞 Spout (從事件中心�
 
 > [AZURE.NOTE]相較於其他 Java 元件，雖然這些可讓您更輕鬆地使用事件中樞 Spout，您仍然必須使用 CustomizedInteropJSONSerializer 來序列化 spout 所產生的資料。
 
+##如何更新 SCP.NET
+
+最新版 SCP.NET 支援透過 NuGet 進行封裝升級。當新的更新可用時，您會收到升級通知。若要手動檢查升級，請執行下列步驟：
+
+1. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案並選取 [**管理 NuGet 封裝**]。
+
+2. 從封裝管理員，選取 [**更新**]。如果有可用的更新，它會列出。按一下 [**更新**] 按鈕讓封裝來安裝它。
+
+> [AZURE.IMPORTANT]如果您的專案是利用其中一個未使用 NuGet 進行封裝更新的舊版 SCP.NET 建立，您必須執行下列步驟更新為新的版本：
+>
+> 1. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案並選取 [**管理 NuGet 封裝**]。
+> 2. 使用 [**搜尋**] 欄位，搜尋 **Microsoft.SCP.Net.SDK** 然後將其加入至專案。
+
 ##疑難排解
-
-###更新 SCP.Net 元件
-
-當您第一次建立 C# Storm 拓撲時，將會安裝最新版的 SCP.Net。不過，您必須執行手動步驟，將現有的專案更新為最新版本。
-
-1.	在 [**方案總管**] 中以滑鼠右鍵按一下專案名稱並選取 [**管理 NuGet 封裝**]。
-
-2.	當封裝管理員出現時，使用 [搜尋] 欄位來尋找並安裝最新版的 SCP.Net。
-
-	> [AZURE.IMPORTANT]安裝完成後，您就能夠在拓撲中使用更新後的 SCP.Net 版本，但是將拓撲部署至 HDInsight 叢集時，可能會收到錯誤。這是因為在部署期間使用的版本也必須更新。
-
-3.	安裝之後，請移至含有您的方案的目錄並開啟 **packages** 目錄。應該有一個名為 **Microsoft.SCP.Net.SDK.#.#.#.###** 的子目錄，其中 '#' 代表版本號碼。
-
-4.	開啟 **Microsoft.SCP.Net.SDK.#.#.#.###** 目錄，然後複製內容。
-
-5.	在含有您的方案的目錄中，開啟含有 C# Storm 拓樸專案的目錄，並找出 **Microsoft.SCP.Net.SDK** 資料夾。這包含將用來封裝應用程式並將其部署至 HDInsight 叢集的 SCP.Net 元件。
-
-6.	刪除 **Microsoft.SCP.Net.SDK** 目錄的現有內容，然後以從 **packages/Microsoft.SCP.Net.SDK.#.#.#.###** 複製的版本取代。
-
-此時，您的專案已更新為使用從 NuGet 安裝的版本，進行本機開發和部署至 HDInsight 叢集。
 
 ###在本機測試拓撲
 
@@ -579,7 +595,7 @@ SCP.Net 版本 0.9.4.203 引進了專用於事件中樞 Spout (從事件中心�
 
 6.	儲存變更，然後按一下 **F5** 或選取 [偵錯] > [開始偵錯] 啟動專案。應該會出現主控台視窗，並記錄測試進行的狀態。出現 [測試已完成] 時，請按任意鍵關閉視窗。
 
-7.	使用 **Windows 檔案總管**找到包含您專案的目錄，例如 **C:\\Users<your_user_name>\\Documents\\Visual Studio 2013\\Projects\\WordCount\\WordCount**。在此目錄中，開啟 [Bin]，然後按一下 [偵錯]。您應該會看到執行測試時所產生的文字檔：sentences.txt、counter.txt 和 splitter.txt。開啟每個文字檔，並檢查資料。
+7.	使用 **Windows 檔案總管**找到包含您專案的目錄，例如 **C:\Users<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**。在此目錄中，開啟 [Bin]，然後按一下 [偵錯]。您應該會看到執行測試時所產生的文字檔：sentences.txt、counter.txt 和 splitter.txt。開啟每個文字檔，並檢查資料。
 
 	> [AZURE.NOTE]字串資料會保存為這些檔案中的十進位值的陣列。例如，**splitter.txt** 檔案中的 [[97,103,111]] 是 'and' 這個字。
 
@@ -597,7 +613,7 @@ Context.Logger.Info("Component started");
 
 您可以從 [Hadoop 服務記錄] (位於**伺服器總管中**) 檢視記錄的資訊。展開 Storm on HDInsight 叢集的項目，然後展開 [Hadoop 服務記錄]。最後，選取要檢視的記錄檔。
 
-> [AZURE.NOTE]記錄會儲存在您叢集所使用的 Azure 儲存體帳戶中。如果此訂閱與您用來登入 Visual Studio 的訂閱不同，則必須登入含有儲存體帳戶的訂閱，才能檢視這項資訊。
+> [AZURE.NOTE]記錄會儲存在您叢集所使用的 Azure 儲存體帳戶中。如果此訂用帳戶與您用來登入 Visual Studio 的訂用帳戶不同，則必須登入含有儲存體帳戶的訂用帳戶，才能檢視這項資訊。
 
 ###檢視錯誤資訊
 
@@ -639,4 +655,4 @@ Context.Logger.Info("Component started");
 
 -	[開始使用 HBase on HDInsight](../hdinsight-hbase-get-started.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -94,4 +94,4 @@
 
 10. 以滑鼠右鍵按一下 Windows Phone 市集應用程式專案、按一下 [設定為啟始專案]，然後重複上一個步驟以驗證 Windows Phone 市集應用程式是否也能正常運作。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

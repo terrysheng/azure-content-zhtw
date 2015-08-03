@@ -24,7 +24,7 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及�
 
 在開始之前，您將需要下列項目：
 
-- Azure 訂用帳戶。Azure 是訂用帳戶型平台。如需取得訂用帳戶的詳細資訊，請參閱[購買選項]、[成員優惠]或[免費試用]。
+- Azure 訂用帳戶。Azure 是訂閱型平台。如需取得訂用帳戶的詳細資訊，請參閱[購買選項]、[成員優惠]或[免費試用]。
 
 - 具備 Azure PowerShell 的電腦。請參閱下一節的設定指示。
 
@@ -276,4 +276,4 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及�
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
 [服務匯流排的 .NET API]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

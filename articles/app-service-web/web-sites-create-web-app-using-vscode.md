@@ -256,4 +256,4 @@ Git 是一個您可用來部署 Azure App Service Web 應用程式的分散式�
 ## 摘要
 在本教學課程中，您學到如何在 VS Code 建立 Web 應用程式，並將其部署至 Azure。如需 VS Code 的詳細資訊，請參閱文章：[為什選擇 Visual Studio Code？](https://code.visualstudio.com/Docs/)。如需 App Service Web Apps 的相關資訊，請參閱 [Web 應用程式概觀](app-service-web-overview.md)。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

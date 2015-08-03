@@ -486,4 +486,4 @@ Azure 快取的輸出快取提供者為輸出快取資料的程序外儲存體�
 [適合我的 Azure 快取提供項目]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

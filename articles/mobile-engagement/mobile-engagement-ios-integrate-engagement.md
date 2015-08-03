@@ -43,7 +43,7 @@ Engagement 需要額外的架構才能運作：在專案總管中，開啟專案
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
-> [AZURE.NOTE] AdSupport 架構可以移除。Engagement 需要此架構來收集 IDFA。但您可以停用 IDFA 集合 \<ios-sdk-engagement-idfa\>，以符合關於此識別碼的新 Apple 原則。
+> [AZURE.NOTE]AdSupport 架構可以移除。Engagement 需要此架構來收集 IDFA。但您可以停用 IDFA 集合 <ios-sdk-engagement-idfa>，以符合關於此識別碼的新 Apple 原則。
 
 ##初始化 Engagement SDK
 
@@ -98,7 +98,7 @@ Engagement 需要額外的架構才能運作：在專案總管中，開啟專案
 
 如果您無法或不想要多載 `UIViewController` 類別，可以改用直接呼叫 `EngagementAgent` 的方法來開始活動。
 
-> [AZURE.IMPORTANT]iOS SDK 會在應用程式關閉時自動呼叫 `endActivity()` 方法。因此，*「強烈」*建議每當使用者的活動變更時便呼叫 `startActivity` 方法，並且「絕對不要」呼叫 `endActivity` 方法，因為呼叫此方法會強制結束目前的工作階段。
+> [AZURE.IMPORTANT]iOS SDK 會在應用程式關閉時自動呼叫 `endActivity()` 方法。因此，「強烈」建議每當使用者的活動變更時便呼叫 `startActivity` 方法，並且「絕對不要」呼叫 `endActivity` 方法，因為呼叫此方法會強制結束目前的工作階段。
 
 ##位置報告
 
@@ -125,7 +125,7 @@ Apple 服務條款不允許應用程式只為了統計資料的目的而使用�
 
 即時位置報告允許報告與裝置相關聯的緯度和經度。根據預設，這類位置報告只會使用網路位置 (根據基地台識別碼或 WIFI)，且只會在應用程式於前景中執行 (也就是在工作階段) 時，報告才會為作用中。
 
-即時位置「不會」用來計算統計資料。其唯一用途，是允許在觸達活動中使用即時地理圍欄 \<Reach-Audience-geofencing\> 準則。
+即時位置「不會」用來計算統計資料。其唯一用途，是允許在觸達活動中使用即時地理圍欄 <Reach-Audience-geofencing> 準則。
 
 若要啟用即時位置報告，請在初始化 Engagement 代理程式之後加入下面這一行：
 
@@ -208,4 +208,4 @@ Engagement API 可允許使用所有 Engagement 的進階功能，詳情請見�
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

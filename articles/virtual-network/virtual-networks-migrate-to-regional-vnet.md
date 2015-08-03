@@ -31,29 +31,7 @@
 
 ### 關於目前與同質群組相關聯的 VNet
 
-目前與同質群組相關聯的 VNet 在不久的未來將可移轉至區域 VNet。我們將更新此頁面，讓您知道目前進展的程序，以及何時執行下一步來完成移轉。
-
-請注意，同質群組仍然存在，即使我們不再建議針對 VNet 使用同質群組。因此，您可以選擇不要移轉您的 VNet，或延遲移轉。VNet 仍然可以正常運作。不過，您可能會遭遇某些限制，並且您將無法利用任何需要區域 VNet 的許多新功能。我們極力建議您啟用 VNet 時，將同質群組 VNet 移轉至區域 VNet。
-
-### 早期移轉
-
-早期移轉適用於具有支援合約的客戶。若要選擇早期移轉，請遵循下列步驟：
-
-1. 在**管理入口網站**中，從您的 VNet 的頁面右上角按一下 [**連絡 Microsoft 支援服務**]。
-
-	![VNet 區域移轉要求](./media/virtual-networks-migrate-to-regional-vnet/IC790447.png)
-
-1. 在**連絡Microsoft 支援服務**頁面上，選取下列選項：[訂用帳戶]：如果您有一個以上的訂用帳戶，請選取對應於您所要移轉 VNet 的訂用帳戶。[支援類型]：技術 [產品類型]：虛擬網路 (VNet) [問題類型]：將虛擬網路移轉至區域虛擬網路
-
-	- **訂用帳戶：**如果您有一個以上的訂用帳戶，請選取對應於您所要移轉 VNet 的訂用帳戶。
-
-	- **支援類型：***技術*
-
-	- **產品類型：***虛擬網路 (VNet)*
-
-	- **問題類型：***將虛擬網路移轉至區域虛擬網路*
-
-1. 必要條件：您的 VNet 必須已啟用可供移轉以執行下列步驟。當您收到確認訊息 (例如早期移轉要求)，或此頁面已更新以反映所有 Vnet 已啟用可供移轉時，您將會知道 VNet 已啟用。
+目前與同質群組相關聯的 VNet 可移轉至區域 VNet。若要移轉至區域 VNet，請遵循下列步驟：
 
 1. 匯出網路組態檔。您可以使用 PowerShell 或管理入口網站。如需使用管理入口網站的指示，請參閱＜[使用網路組態檔設定 VNet](../virtual-networks-using-network-configuration-file/)＞。
 
@@ -63,9 +41,9 @@
 	
 	在網路組態檔中編輯下列幾行，並取代為您需要的值：
 
-	**舊值：**\<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
+	**舊值：**<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
 
-	**新值：**\<VirtualNetworkSitename="VNetUSWest" Location="West US">
+	**新值：**<VirtualNetworkSitename="VNetUSWest" Location="West US">
 
 1. 儲存您的變更並網路組態[匯入](../virtual-networks-using-network-configuration-file/)至 Azure。
 
@@ -86,4 +64,4 @@
 一旦部署 VM，其會部署至單一的縮放單位。同質群組可針對新的 VM 部署限制可用的 VM 大小集合，但任何已部署的現有 VM 部署，已在 VM 所部署的位置限制縮放單位中可用的 VM 大小集合。因此，從同質群組中移除 VM 不會產生任何效果。
  
 
-<!----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

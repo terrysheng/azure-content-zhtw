@@ -219,7 +219,7 @@
 		        }
 		    }];
 
-	這個方法會取得推播通知的安裝識別碼及頻道，與裝置類型一併傳送給已驗證的 Web API 方法，此方法會在通知中樞中建立註冊。 此 Web API 定義於[使用通知中心來通知使用者]中。
+	This method gets both an installation ID and channel for push notifications and sends it, along with the device type, to the authenticated Web API method that creates a registration in Notification Hubs.此 Web API 定義於[使用通知中心來通知使用者]中。
 
 現在，用戶端應用程式已更新，請回到[使用通知中心來通知使用者]，並更新行動服務，以使用通知中心傳送通知。
 
@@ -236,4 +236,4 @@
 [開始使用通知中心]: /manage/services/notification-hubs/get-started-notification-hubs-ios
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

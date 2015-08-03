@@ -115,4 +115,4 @@
 - 如果您想要為相同虛擬網路設定站對站 VPN 連線和 ExpressRoute，請參閱[設定並存的 ExpressRoute 和站對站 VPN 連線](expressroute-coexist.md)。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

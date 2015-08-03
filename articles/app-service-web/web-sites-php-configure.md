@@ -120,7 +120,7 @@ PHP 5.5 和 PHP 5.6 版本同樣可供使用，但預設並未啟用。若要更
 	![Web 應用程式設定][settings-button]
 
 5. 從 [設定] 分頁中選取 [應用程式設定]，然後捲動至 [應用程式設定] 區段。
-6. 在 [應用程式設定] 區段中，建立 **PHP_EXTENSIONS** 索引鍵。此索引鍵的值是相對於網站根目錄的路徑：**bin\\your-ext-file**。
+6. 在 [應用程式設定] 區段中，建立 **PHP_EXTENSIONS** 索引鍵。此索引鍵的值是相對於網站根目錄的路徑：**bin\your-ext-file**。
 
 	![啟用應用程式設定中的擴充][php-extensions]
 
@@ -176,4 +176,4 @@ Zend 擴充功能也支援使用 **PHP_ZENDEXTENSIONS** 索引鍵。若要啟用
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

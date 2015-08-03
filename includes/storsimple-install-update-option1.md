@@ -37,7 +37,7 @@
     範例輸出如下所示。
 
         ````
-        Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
+        Controller0>Start-HcsHotfix -Path \10.100.100.100\share
         \hcsmdssoftwareupdate.exe -Credential contoso\John
       
         Confirm
@@ -97,4 +97,4 @@
 
     韌體狀態應該是 **UpToDate**。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

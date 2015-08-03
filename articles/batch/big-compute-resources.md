@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/09/2015"
+   ms.date="07/14/2015"
    ms.author="danlep"/>
 
 # 在 Azure 中的大量計算：批次和高效能計算 (HPC) 的技術資源
@@ -81,6 +81,8 @@
 
 Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)，包括計算密集的 [A8、A9、A10 和 A11 執行個體](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md)，以執行您的 Linux 和 Windows HPC 工作負載。
 
+* [設定 Linux RDMA 叢集以執行 MPI 應用程式](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
+
 * [A8 和 A9 執行個體：HPC Pack 快速入門](https://msdn.microsoft.com/library/azure/dn594431.aspx)
 
 * [在 A8 和 A9 執行個體上執行 MPI 應用程式](https://msdn.microsoft.com/library/azure/dn592104.aspx)
@@ -116,4 +118,4 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)�
 * 最新宣告請參閱 [Microsoft HPC 和批次的小組部落格](http://blogs.technet.com/b/windowshpc/)以及[Azure 部落格](http://azure.microsoft.com/blog/tag/hpc/)。
 * 另請參閱[批次的新功能](http://azure.microsoft.com/updates/?service=batch)或訂閱 [RSS 摘要](http://azure.microsoft.com/updates/feed/?service=batch)。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

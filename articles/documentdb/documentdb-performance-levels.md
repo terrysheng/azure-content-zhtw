@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/21/2015" 
 	ms.author="johnmac"/>
 
 #DocumentDB 中的效能等級
@@ -141,4 +141,4 @@ Azure Preview 入口網站是您在管理集合的效能層級的其中一個選
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

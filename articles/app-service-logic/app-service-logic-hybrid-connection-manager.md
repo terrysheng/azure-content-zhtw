@@ -48,7 +48,7 @@
 2. 選取 [**混合式連線**]。將會列出您先前輸入的服務匯流排連接字串。
 3. 複製 [**主要組態字串**]：<br/> ![][PrimaryConfigString]
 
-4. 在 [**內部部署混合式連線管理員**] 下，您可以下載混合式連線管理員，或直接從入口網站安裝它。<br/><br/> 若要直接從入口網站安裝，請移至內部部署 IIS 伺服器，瀏覽至入口網站，然後選取 [**下載及設定**]。<br/><br/> 若要下載混合式連線管理員，請移至內部部署 IIS 伺服器，並移至 **ClickOnce 應用程式** (http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application)。將會自動開始安裝讓您執行。
+4. 在 [**內部部署混合式連線管理員**] 下，您可以下載混合式連線管理員，或直接從入口網站安裝它。<br/><br/> 若要直接從入口網站安裝，請移至內部部署 IIS 伺服器，瀏覽至入口網站，然後選取 [**下載及設定**]。<br/><br/> 若要下載混合式連線管理員，請移至內部部署 IIS 伺服器，並移至 **ClickOnce 應用程式** (http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application)。 將會自動開始安裝讓您執行。
 
 5. 在 [**接聽程式設定**] 視窗中，輸入您先前 (在步驟 3) 貼上的 [**主要組態字串**]，然後選取 [**安裝**]。
 
@@ -133,4 +133,4 @@ TCP 連接埠 | 理由
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -179,4 +179,4 @@
 
 - 若為 8600 裝置，請移至[為 8600 裝置解除封裝，安裝機架和纜線](storsimple-8600-hardware-installation)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -20,7 +20,7 @@
 
 邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。
 
-OneDrive 連接器可讓您從 OneDrive 帳戶上傳\\下載\\刪除檔案。
+OneDrive 連接器可讓您從 OneDrive 帳戶上傳\下載\刪除檔案。
 
 ## 建立邏輯應用程式的 OneDrive 連接器 ##
 若要使用 OneDrive 連接器，您必須先建立 OneDrive 連接器 API 應用程式的執行個體。這可以直接從邏輯應用程式設計工具中進行，或在工具外進行。在設計工具外建立執行個體的作法如下：
@@ -84,4 +84,4 @@ OneDrive 連接器可讓您從 OneDrive 帳戶上傳\\下載\\刪除檔案。
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
 [OneDrive API 定義]: https://msdn.microsoft.com/zh-tw/library/dn974227.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

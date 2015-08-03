@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="07/11/2015" 
 	ms.author="nitinme"/>
 
 # 使用 HDInsight 上的 Hive 分析網站的記錄
@@ -31,7 +31,7 @@
 
 ##必要條件
 
-- 您必須已佈建 **HDInsight 叢集**。如需指示，請參閱＜[佈建 HDInsight 叢集][hdinsight-provision]＞。 
+- 您必須已在 Azure HDInsight 上佈建 Hadoop 叢集。如需指示，請參閱＜[佈建 HDInsight 叢集][hdinsight-provision]＞。 
 - 您必須已安裝 Microsoft Excel 2013 或 Excel 2010。
 - 您必須有 [Microsoft Hive ODBC 驅動程式](http://www.microsoft.com/download/details.aspx?id=40886)，才能從 Hive 將資料匯入 Excel 中。
 
@@ -58,4 +58,4 @@
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

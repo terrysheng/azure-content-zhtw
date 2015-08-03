@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/16/2015" 
 	ms.author="spelluru"/>
 
 # 在 Azure 資料處理站管線中使用自訂活動
@@ -21,65 +21,6 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 
 本文說明如何建立自訂活動，並在 Azure 資料處理站管線中使用它。本文也提供建立及使用自訂活動的詳細逐步解說與逐步指示。本逐步解說會使用 HDInsight 連結服務。若要改用 Azure Batch 連結服務，您需要建立 **AzureBatchLinkedService** 類型的連結服務，並將它用於管線 JSON 的活動區段 (**linkedServiceName**)。如需有關使用 Azure Batch 搭配自訂活動的詳細資訊，請參閱 [Azure Batch 連結服務](#AzureBatch)一節。
 
-## 必要條件
-下載並安裝 [Azure Data Factory 的 NuGet 封裝][nuget-package]最新版本。本文的[逐步解說](#SupportedSourcesAndSinks)中包含相關指示。
-
-## 建立自訂活動
-
-若要建立自訂活動：
- 
-1.	在 Visual Studio 2013 中建立「類別庫」專案。
-3. 在類別庫中原始程式檔的頂端加入下列 using 陳述式。
-	
-		using Microsoft.Azure.Management.DataFactories.Models;
-		using Microsoft.DataFactories.Runtime; 
-
-4. 更新類別以實作 **IDotNetActivity** 介面。
-	<ol type='a'>
-	<li>
-		從 <b>IDotNetActivity</b> 衍生類別。
-		<br/>
-		範例： <br/>
-		public class <b>MyDotNetActivity : IDotNetActivity</b>
-	</li>
-
-	<li>
-		實作 <b>IDotNetActivity</b> 介面的 <b>Execute</b> 方法
-	</li>
-
-</ol>
-5. 編譯專案。
-
-
-## 在管線中使用自訂活動
-若要在管線中使用自訂活動：
-
-1.	「壓縮」專案的 **bin\\debug** 或 **bin\\release** 輸出資料夾中的所有二進位檔案。 
-2.	以 Blob 形式「上傳 zip」檔案至您的「Azure Blob 儲存體」。 
-3.	更新「管線 JSON」檔案，以參考 zip 檔案、自訂活動 DLL、活動類別，以及包含管線 JSON 中 zip 檔案的 Blob。在 JSON 檔案中：
-	<ol type ="a">
-	<li>「活動類型」<b></b>應該設定為 <b>DotNetActivity</b>。</li>
-	<li><b>AssemblyName</b> 是 Visual Studio 專案的輸出 DLL 的名稱。</li>
-	<li><b>EntryPoint</b> 指定實作 <b>IDotNetActivity</b> 介面的「類別」<b></b>的「命名空間」<b></b>和「名稱」<b></b>。</li>
-	<li><b>PackageLinkedService</b> 是連結服務，參考包含 zip 檔案的 Blob。</li>
-	<li><b>PackageFile</b> 指定已上傳至 Azure Blob 儲存體的 zip 檔案的位置和名稱 。</li>
-	<li><b>LinkedServiceName</b> 是連結服務的名稱，此服務將 HDInsight 叢集 (隨選或您所有) 連結至 Data Factory。自訂活動在指定 HDInsight 叢集上以僅限對應的作業執行。</li>
-</ol>**部分 JSON 範例**
-
-		"Name": "MyDotNetActivity",
-    	"Type": "DotNetActivity",
-    	"Inputs": [{"Name": "EmpTableFromBlob"}],
-    	"Outputs": [{"Name": "OutputTableForCustom"}],
-		"LinkedServiceName": "myhdinsightcluster",
-    	"Transformation":
-    	{
-	    	"AssemblyName": "MyDotNetActivity.dll",
-    	    "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-    	    "PackageLinkedService": "MyBlobStore",
-    	    "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
-
-## 更新自訂活動
-如果您更新自訂活動的程式碼，請建置它，並將包含新二進位檔案的 zip 檔案上傳至 Blob 儲存體。
 
 ## <a name="walkthrough" /> 逐步解說：
 本逐步解說為您提供建立自訂活動以及在 Azure Data Factory 管線中使用該活動的逐步指示。本逐步解說延伸[開始使用 Azure Data Factory][adfgetstarted] 中的教學課程。如果您想要看自訂活動運作，您需要先依照入門教學課程操作，然後執行此逐步解說。
@@ -90,7 +31,7 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 - [開始使用 Azure Data Factory][adfgetstarted] 中的教學課程。您必須完成本文中的教學課程，再執行本逐步解說。
 - Visual Studio 2012 或 2013
 - 下載並安裝 [Azure .NET SDK][azure-developer-center]
-- 下載並安裝 [Azure Data Factory 的 NuGet 封裝][nuget-package]最新版本。逐步解說中包含相關指示。
+- 下載並安裝 [Azure Data Factory 的 NuGet 封裝](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories/)最新版本。逐步解說中包含相關指示。
 - 下載並安裝 Azure 儲存體的 NuGet 封裝。逐步解說中有指示，因此您可以略過此步驟。
 
 ## 步驟 1：建立自訂活動
@@ -110,10 +51,6 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 
 		Install-Package Microsoft.Azure.Management.DataFactories –Pre
 
-3.	在 [封裝管理員主控台]<b></b> 中，執行下列命令匯入 <b>Microsoft.DataFactories.Runtime</b>。資料夾以包含下載的資料處理站 NuGet 封裝的位置取代。
-
-		Install-Package Microsoft.DataFactories.Runtime –Pre
-
 4. 將 Azure 儲存體 NuGet 封裝匯入專案。
 
 		Install-Package Azure.Storage
@@ -125,8 +62,8 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 		using System.Diagnostics;
 	
 		using Microsoft.Azure.Management.DataFactories.Models;
-		using Microsoft.DataFactories.Runtime; 
-	
+		using Microsoft.Azure.Management.DataFactories.Runtime;
+
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
   
@@ -145,22 +82,22 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 	下列範例程式碼會計算輸入 Blob 中的行數，並在輸出 Blob 中產生下列內容：Blob 的路徑、Blob 中的行數、執行活動的電腦、目前的日期時間。
 
         public IDictionary<string, string> Execute(
-                    IEnumerable<ResolvedTable> inputTables, 
-                    IEnumerable<ResolvedTable> outputTables, 
-                    IDictionary<string, string> extendedProperties, 
-                    IActivityLogger logger)
+          IEnumerable<DataSet> inputTables,
+          IEnumerable<DataSet> outputTables,
+          IDictionary<string, string> extendedProperties,
+          IActivityLogger logger)
         {
             string output = string.Empty;
 
-            logger.Write(TraceEventType.Information, "Before anything...");
+            logger.Write("Before anything...");
 
-            logger.Write(TraceEventType.Information, "Printing dictionary entities if any...");
+            logger.Write("Printing dictionary entities if any...");
             foreach (KeyValuePair<string, string> entry in extendedProperties)
             {
-                logger.Write(TraceEventType.Information, "<key:{0}> <value:{1}>", entry.Key, entry.Value);
+                logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
             }
 
-            foreach (ResolvedTable inputTable in inputTables)
+            foreach (DataSet inputTable in inputTables)
             {
                 string connectionString = GetConnectionString(inputTable.LinkedService);
                 string folderPath = GetFolderPath(inputTable.Table);
@@ -171,7 +108,7 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
                     continue;
                 }
 
-                logger.Write(TraceEventType.Information, "Reading blob from: {0}", folderPath);
+                logger.Write("Reading blob from: {0}", folderPath);
 
                 CloudStorageAccount inputStorageAccount = CloudStorageAccount.Parse(connectionString);
                 CloudBlobClient inputClient = inputStorageAccount.CreateCloudBlobClient();
@@ -180,13 +117,13 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 
                 do
                 {
-                    BlobResultSegment result = inputClient.ListBlobsSegmented(folderPath, 
-												true, 
-												BlobListingDetails.Metadata, 
-												null, 
-												continuationToken, 
-												null, 
-												null);
+                    BlobResultSegment result = inputClient.ListBlobsSegmented(folderPath,
+                                                true,
+                                                BlobListingDetails.Metadata,
+                                                null,
+                                                continuationToken,
+                                                null,
+                                                null);
                     foreach (IListBlobItem listBlobItem in result.Results)
                     {
                         CloudBlockBlob inputBlob = listBlobItem as CloudBlockBlob;
@@ -200,7 +137,7 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
                                     string line = sr.ReadLine();
                                     if (count == 0)
                                     {
-                                        logger.Write(TraceEventType.Information, "First line: [{0}]", line);
+                                        logger.Write("First line: [{0}]", line);
                                     }
                                     count++;
                                 }
@@ -222,7 +159,7 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
                 } while (continuationToken != null);
             }
 
-            foreach (ResolvedTable outputTable in outputTables)
+            foreach (DataSet outputTable in outputTables)
             {
                 string connectionString = GetConnectionString(outputTable.LinkedService);
                 string folderPath = GetFolderPath(outputTable.Table);
@@ -233,7 +170,7 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
                     continue;
                 }
 
-                logger.Write(TraceEventType.Information, "Writing blob to: {0}", folderPath);
+                logger.Write("Writing blob to: {0}", folderPath);
 
                 CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
                 Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + Guid.NewGuid() + ".csv");
@@ -245,19 +182,21 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
             return new Dictionary<string, string>();
 
         }
+    } }
 
 9. 新增下列 Helper 方法。**Execute** 方法會叫用這些 Helper 方法。**GetConnectionString** 方法會擷取 Azure 儲存體連接字串，**GetFolderPath** 方法會擷取 Blob 位置。
 
 
         private static string GetConnectionString(LinkedService asset)
         {
-            AzureStorageLinkedService storageAsset;
+
             if (asset == null)
             {
                 return null;
             }
 
-            storageAsset = asset.Properties as AzureStorageLinkedService;
+            AzureStorageLinkedService storageAsset = asset.Properties.TypeProperties as AzureStorageLinkedService;
+          
             if (storageAsset == null)
             {
                 return null;
@@ -268,26 +207,25 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 
         private static string GetFolderPath(Table dataArtifact)
         {
-            AzureBlobLocation blobLocation;
             if (dataArtifact == null || dataArtifact.Properties == null)
             {
                 return null;
             }
 
-            blobLocation = dataArtifact.Properties.Location as AzureBlobLocation;
-            if (blobLocation == null)
+            AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+            if (blobDataset == null)
             {
                 return null;
             }
 
-            return blobLocation.FolderPath;
+            return blobDataset.FolderPath;
         }
    
 
 
 10. 編譯專案。按一下功能表中的 [建置]，然後按一下 [建置方案]。
-11. 啟動「Windows 檔案總管」，瀏覽至 **bin\\debug** 或 **bin\\release** 資料夾，根據建置類型而定。
-12. 建立 zip 檔案 **MyDotNetActivity.zip**，檔案中包含 <project folder>\\bin\\Debug 資料夾中的所有二進位檔。
+11. 啟動「Windows 檔案總管」，瀏覽至 **bin\debug** 或 **bin\release** 資料夾，根據建置類型而定。
+12. 建立 zip 檔案 **MyDotNetActivity.zip**，檔案中包含 <project folder>\bin\Debug 資料夾中的所有二進位檔。
 13. 將 **MyDotNetActivity.zip** 當做 Blob 上傳至 Blob 容器：Azure Blob 儲存體中的 **customactvitycontainer**，由 **ADFTutorialDataFactory** 中的 **MyBlobStore** 連結服務使用。建立 Blob 容器 **blobcustomactivitycontainer** (如果不存在)。 
 
 
@@ -358,11 +296,11 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 					"folderPath": "adftutorial/customactivityoutput/{Slice}",
 					"partitionedBy": [ { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } }],
 
-					"linkedServiceName": "MyBlobStore"
+					"linkedServiceName": "StorageLinkedService"
         		},
         		"availability": 
         		{
-            		"frequency": "hour",
+            		"frequency": "Hour",
             		"interval": 1
         		}   
     		}
@@ -396,7 +334,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
                      	{
                         	"AssemblyName": "MyDotNetActivity.dll",
                             "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-                            "PackageLinkedService": "MyBlobStore",
+                            "PackageLinkedService": "StorageLinkedService",
                             "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
                             "ExtendedProperties":
 							{
@@ -447,6 +385,9 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 	![從自訂活動下載記錄檔][image-data-factory-download-logs-from-custom-activity]
    
 如需有關監視資料集和管線的詳細步驟，請參閱[開始使用 Azure Data Factory][adfgetstarted]。
+
+## 更新自訂活動
+如果您更新自訂活動的程式碼，請建置它，並將包含新二進位檔案的 zip 檔案上傳至 Blob 儲存體。
     
 ## <a name="AzureBatch"></a> 使用 Azure Batch 連結服務 
 > [AZURE.NOTE]請參閱 [Azure Batch 技術概觀][batch-technical-overview]，以取得 Azure Batch 服務的概觀，另請參閱[開始使用適用於 .NET 的 Azure Batch 程式庫][batch-get-started]，以快速開始使用 Azure Batch 服務。
@@ -523,4 +464,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

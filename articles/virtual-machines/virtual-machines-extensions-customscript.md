@@ -80,4 +80,4 @@ Windows 的自訂指令碼延伸模組讓您能夠在遠端虛擬機器上執行
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

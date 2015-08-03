@@ -72,7 +72,7 @@ Get-SCOMManagementPack | where {$_.Name -match 'IntelligencePacks'} | Select Nam
 ### 程序 2：驗證是否將適當的解決方案下載到直接代理程式
 >[AZURE.NOTE]如果您只使用 Operations Manager，您可以忽略此程序。
 
-在直接代理程式中，應該會看到 **C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\Health Service State\\Management Packs** 下正在快取的解決方案集合原則
+在直接代理程式中，應該會看到 **C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs** 下正在快取的解決方案集合原則
 
 
 ### 程序 3：驗證是否正在將資料傳送至 Advisor 服務 (或在上一次嘗試)
@@ -145,4 +145,4 @@ DNS 名稱解析失敗。您的伺服器無法解析會將資料傳送到的網�
 
 這個頁面也提供了計量資訊 (這不會使用記錄搜尋索引而是使用計費系統，它會每隔幾小時重新整理)，其與傳送至服務的資料量有關，並且由解決方案細分。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

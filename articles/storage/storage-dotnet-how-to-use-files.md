@@ -39,7 +39,7 @@ Azure 檔案服務會公開使用標準 SMB 2.1 通訊協定的檔案共用。�
 
 Azure 檔案儲存體目前為預覽版。若要要求預覽版的存取權，請瀏覽至 [Microsoft Azure 預覽版頁面](/services/preview/)，然後要求 **Azure 檔案**的存取權。要求一經核准，您就會收到您可以存取檔案儲存體預覽版的通知。接著，您可以建立儲存體帳戶以存取檔案儲存體。
 
-> [AZURE.NOTE]檔案儲存體目前僅適用於新的儲存體帳戶。在您的訂用帳戶被賦予檔案儲存體的存取權之後，請建立新的儲存體帳戶以與本指南配合使用。
+> [AZURE.NOTE]檔案儲存體目前僅適用於新的儲存體帳戶。在您的訂閱被賦予檔案儲存體的存取權之後，請建立新的儲存體帳戶以與本指南配合使用。
 >
 > Azure 檔案儲存體目前不支援共用存取簽章。
 
@@ -121,14 +121,14 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
     net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name>
 
 	example :
-	net use z: \\samples.file.core.windows.net\logs
+	net use z: \samples.file.core.windows.net\logs
 
 > [AZURE.NOTE]由於您已在上一個步驟中保留儲存體帳戶認證，因此您無需使用 `net use` 命令提供這些認證。如果您尚未保留認證，則請將它們作為傳送到 `net use` 命令的參數包括在其中。
 
     net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
-	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
+	net use z: \samples.file.core.windows.net\logs /u:samples <storage-account-key>
 
 您現在可以從虛擬機器使用檔案儲存體共用，就好像操作任何其他磁碟機一樣。您可以從命令提示字元中發佈標準檔案命令，或從 [檔案總管] 中檢視掛接的共用及其內容。您也可以使用標準 Windows 檔案 I/O API，例如 .NET Framework 中 [System.IO namespaces](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) 所提供的那些 API，在可存取檔案共用的虛擬機器內執行程式碼。
 
@@ -218,7 +218,7 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 
 ## 從執行 Linux 的 Azure 虛擬機器掛接共用
 
-建立 Azure 虛擬機器時，您可以指定磁碟映像資源庫的 Ubuntu 映像，以確保支援 SMB 2.1。不過，任何支援 SMB 2.1 的 Linux 散發套件都可以掛接 Azure 檔案共用。
+建立 Azure 虛擬機器時，您可以指定磁碟映像組件庫的 Ubuntu 映像，以確保支援 SMB 2.1。不過，任何支援 SMB 2.1 的 Linux 散發套件都可以掛接 Azure 檔案共用。
 
 如需如何在 Linux 上掛接 Azure 檔案共用的示範，請參閱 [Linux 上透過 Azure 檔案預覽的共用儲存體 - 第 1 部分](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1) (第 9 頻道)。
 
@@ -237,4 +237,4 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 - [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

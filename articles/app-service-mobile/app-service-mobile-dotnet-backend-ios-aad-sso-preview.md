@@ -18,6 +18,8 @@ ms.author="mahender" />
 
 [AZURE.INCLUDE [app-service-mobile-selector-aad-sso](../../includes/app-service-mobile-selector-aad-sso.md)]
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 在本教學課程中，您會使用 Active Directory Authentication Library 將驗證新增至快速入門專案。
 
 為了能夠驗證使用者，您必須向 Azure Active Directory (AAD) 租用戶註冊您的應用程式。此作業有兩個階段。第一，您必須註冊應用程式服務，並公開其權限。第二，您必須註冊 iOS 應用程式，並為其授與對這些權限的存取權。
@@ -28,6 +30,10 @@ ms.author="mahender" />
 * 完成[開始使用行動應用程式]教學課程。
 * Microsoft Azure 行動服務 SDK
 * [Active Directory Authentication Library for iOS]
+
+##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
 
 ## <a name="register-application"></a>向 Azure Active Directory 註冊您的應用程式
 
@@ -117,4 +123,4 @@ ms.author="mahender" />
  [開始使用行動應用程式]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

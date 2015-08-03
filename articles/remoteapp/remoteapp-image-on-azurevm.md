@@ -59,4 +59,4 @@
 現在您已經準備好開始建立新的收藏 ([雲端](remoteapp-create-cloud-deployment.md)收藏或[混合式](remoteapp-create-hybrid-deployment.md))，視您的需求而定。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

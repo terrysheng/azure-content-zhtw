@@ -254,4 +254,4 @@
 [行動服務中使用 AAD 的角色型存取控制]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

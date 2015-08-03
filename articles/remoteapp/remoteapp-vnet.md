@@ -1,3 +1,4 @@
+
 <properties
     pageTitle="驗證要搭配 Azure RemoteApp 使用的 Azure VNET"
     description="了解如何確定 Azure VNET 已準備好搭配 Azure RemoteApp 使用"
@@ -36,4 +37,4 @@
 - [將 Azure RemoteApp 收藏部署到 Azure 虛擬網路 (支援 ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

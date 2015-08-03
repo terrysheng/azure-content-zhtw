@@ -218,4 +218,4 @@ Azure Service Fabric Actor 也負責動作項目的生命週期。不妨如此�
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

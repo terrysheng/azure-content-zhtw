@@ -75,4 +75,4 @@ BizTalk XML 驗證器會將結構描述納入其組態中。使用者可以直�
 [6]: ./media/app-service-logic-xml-validator/img1.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

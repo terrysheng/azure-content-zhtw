@@ -50,11 +50,10 @@
 *注意*：如需查詢中的引數之詳細資訊，請參閱 SugarCRM REST API 文件。
 
 ##建立 SugarCRM 連接器 API 應用程式##
-1.	使用 Azure 入口網站右下方的 [+新增] 選項開啟 Azure Marketplace。
-2.	瀏覽至 [Web 與行動] > [API 應用程式]，並搜尋「SugarCRM 連接器」。
-3.	設定 SugarCRM 連接器，提供「主控方案」及資源群組的詳細資料，並選取 API 應用程式的名稱。
-
-4. 設定 SugarCRM 連接器，並按一下 [建立]。下列是建立連接器所需提供的套件設定：
+1.	瀏覽至 portal.azure.com。使用 Azure 入口網站左上角的 [+新增] 選項開啟 Azure Marketplace。
+2.	瀏覽至 [Marketplace] > [所有項目]，然後搜尋 "SugarCRM"。
+3.	提供 App Service 方案、資源群組的詳細資料，並選取 API 應用程式的名稱，設定 SugarCRM 連接器。
+4. 設定 SugarCRM 連接器封裝設定。下列是建立連接器所需提供的套件設定：
 
 	<table>
   <tr>
@@ -125,11 +124,11 @@
 
 13.	從資源庫的 [最近使用的] 區段中選取[ SugarCRM 連接器]，即會新增新的 SugarCRM 動作。
 
-14.	從動作清單中選取 [更新帳戶]，[更新帳戶] 動作的輸入參數便會隨即顯示。
+14.	從動作清單中選取 [更新帳戶] (在進階動作 [...] 之下)，就會顯示 [更新帳戶] 動作的輸入參數。
 
 	![][6]
 
-15.	按一下 [記錄識別碼] 旁邊的 [+]，並從 [建立帳戶] 動作的輸出中挑選識別碼值。
+15.	按一下 [記錄識別碼] 旁邊的 [...]，並從 [建立帳戶] 動作的輸出中挑選 [識別碼] 值。
 
 	![][7]
 
@@ -139,7 +138,7 @@
 
 17. 按一下邏輯應用程式編輯器畫面上的 [確定]，然後按一下 [建立]。完成建立大約需要 30 秒的時間。
 
-18. 瀏覽剛建立的邏輯應用程式，然後按一下 [執行] 以啟動該應用程式。
+18. 瀏覽剛建立的邏輯應用程式，然後按一下 [立即執行] 以啟動該應用程式。
 
 19. 您可以查看名為「Microsoft 帳戶」的新帳戶已建立於您的 SugarCRM 帳戶，且同一個帳戶也跟新了帳單寄送地址資訊。
 
@@ -154,4 +153,4 @@
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

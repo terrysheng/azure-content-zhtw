@@ -68,7 +68,7 @@ SAS 金鑰名稱和值的值可以在 Azure 入口網站連接資訊中找到，
 	msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 	print(msg.body)
 
-如果將 **peek\\_lock** 參數設為 **False**，則當您讀取訊息後，訊息便會從佇列中刪除。您可以將參數 **peek\\_lock** 設為 **True**，來讀取 (查看) 並鎖定訊息，避免系統從佇列刪除訊息。
+如果將 **peek_lock** 參數設為 **False**，則當您讀取訊息後，訊息便會從佇列中刪除。您可以將參數 **peek_lock** 設為 **True**，來讀取 (查看) 並鎖定訊息，避免系統從佇列刪除訊息。
 
 隨著接收作業讀取及刪除訊息之行為是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
 
@@ -98,4 +98,4 @@ SAS 金鑰名稱和值的值可以在 Azure 入口網站連接資訊中找到，
 [佇列、主題和訂用帳戶]: http://msdn.microsoft.com/library/azure/hh367516.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

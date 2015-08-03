@@ -25,30 +25,35 @@
 預設的相依性監視目前適用於：
 
 * 在 IIS 伺服器或在 Azure 上執行的 ASP.NET Web 應用程式和服務
+* [Java Web 應用程式](app-insights-java-agent.md)
 
-若為其他類型，例如 Java Web 應用程式或裝置應用程式，則您可以使用 TrackDependency API 撰寫自己的監視。
+若為其他類型，例如裝置 app，您可以使用 TrackDependency API 撰寫自己的監視器。
 
 預設的相依性監視目前會回報這些相依性類型的呼叫：
 
-* SQL DATABASE
-* 使用 HTTP 式繫結的 ASP.NET Web 和 WCF 服務
-* 本機或遠端 HTTP 呼叫
-* Azure DocumentDb、資料表、Blob 儲存體和佇列
+* ASP.NET
+ * SQL DATABASE
+ * 使用 HTTP 式繫結的 ASP.NET Web 和 WCF 服務
+ * 本機或遠端 HTTP 呼叫
+ * Azure DocumentDb、資料表、Blob 儲存體和佇列
+* Java
+ * 透過 [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) 驅動程式，例如 MySQL、SQL Server、PostgreSQL 或 SQLite 呼叫資料庫。
 
 同樣地，您可以撰寫自己的 SDK 呼叫來監視其他相依性。
 
 ## 設定相依性監視
 
-為了取得相依性監視，您必須：
+為主機伺服器安裝適當的代理程式。
 
-* 在 IIS 伺服器上使用[狀態監視器](app-insights-monitor-performance-live-website-now.md)，並使用它來啟用監視
-* 將 [Application Insights 延伸模組](../insights-perf-analytics.md)加入至您的 Azure Web 應用程式或 VM
+平台 | 安裝
+---|---
+IIS 伺服器 | [狀態監視器](app-insights-monitor-performance-live-website-now.md)
+Azure Web 應用程式 | [Application Insights 延伸模組](../insights-perf-analytics.md)
+Java Web 伺服器 | [Java Web 應用程式](app-insights-java-agent.md)
 
-(若是 Azure VM，您可以從 Azure 控制台安裝延伸模組，或是像在任何電腦上一樣安裝狀態監視器)。
+IIS 伺服器的狀態監視器不需要您使用 Application Insights SDK 重新建置來源專案。
 
-您可以對已部署的 Web 應用程式執行上述步驟。若要取得標準相依性監視，就不必將 Application Insights 加入至您的來源專案。
-
-## 診斷相依性效能問題
+## <a name="diagnosis"></a> 診斷相依性效能問題
 
 若要評估伺服器上的要求效能：
 
@@ -100,9 +105,9 @@
 
 標準的相依性追蹤模組會自動探索外部相依性，例如資料庫和 REST API。但是您可能想以相同的方式對待一些其他元件。
 
-您可以使用標準模組所使用的相同 [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency) 來撰寫會傳送相依性資訊的程式碼。
+您可以使用標準模組所使用的相同 [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency) 來撰寫傳送相依性資訊的程式碼。
 
-例如，如果您使用不是您自己撰寫的組件來建置程式碼，您可以計算對它的所有呼叫，以找出它對您的回應時間的貢獻。若要在 Application Insights 中的相依性圖表中顯示此資料，請使用 `TrackDependency` 傳送。
+例如，如果您建置程式碼的組件不是您自己撰寫的，您可以計算對組件的所有呼叫，以找出它佔回應時間的比例。若要在 Application Insights 中的相依性圖表中顯示此資料，請使用 `TrackDependency` 傳送。
 
 ```C#
 
@@ -124,4 +129,4 @@
 
 <!--Link references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

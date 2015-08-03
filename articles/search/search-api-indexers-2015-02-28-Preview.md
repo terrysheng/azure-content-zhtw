@@ -775,4 +775,4 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 </tr>
 </table>
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -88,4 +88,4 @@ HTTP 動作的輸出會是標頭和主體，可進一步在流程的下游中使
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

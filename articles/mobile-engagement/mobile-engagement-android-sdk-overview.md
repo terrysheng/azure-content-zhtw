@@ -118,4 +118,4 @@
 
 內嵌新的 `res/layout/engagement_loading.xml` 檔案到您的專案。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

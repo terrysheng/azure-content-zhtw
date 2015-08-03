@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-Application Insights 是一項可延伸的分析服務，可幫助您了解即時應用程式的效能和使用情形。使用它來偵測及診斷效能問題和例外狀況，以及[撰寫程式碼][api]來追蹤使用者對應用程式執行的動作。
+[Application Insights](https://azure.microsoft.com/services/application-insights/) 是一項可延伸的分析服務，可幫助您了解即時應用程式的效能和使用情形。使用它可[偵測及診斷效能問題和例外狀況](app-insights-detect-triage-diagnose.md)，以及 [撰寫程式碼][api]來追蹤使用者對 app 執行的動作。
 
 ![範例資料](./media/app-insights-java-get-started/5-results.png)
 
@@ -32,10 +32,12 @@ Application Insights 是一項可延伸的分析服務，可幫助您了解即�
 * Oracle JRE 1.6 或更新版本，或 Zulu JRE 1.6 或更新版本
 * [Microsoft Azure](http://azure.microsoft.com/) 訂用帳戶。(您可以從[免費試用](http://azure.microsoft.com/pricing/free-trial/)開始。)
 
+*如果您有使用中的 Web 應用程式，您可以依照替代的程序[在執行階段將 SDK 加入 Web 伺服器](app-insights-java-live.md)。替代方法可避免重建程式碼，但您沒有選項可撰寫程式碼來追蹤使用者活動。*
 
-## 1\.取得 Application Insights 檢測金鑰
 
-1. 登入 [Microsoft Azure 入口網站](https://portal.azure.com)
+## 1.取得 Application Insights 檢測金鑰
+
+1. 登入 [Microsoft Azure 入口網站](https://portal.azure.com)。
 2. 建立新 Application Insights 資源
 
     ![按一下 + 並選擇 [Application Insights]](./media/app-insights-java-get-started/01-create.png)
@@ -46,7 +48,7 @@ Application Insights 是一項可延伸的分析服務，可幫助您了解即�
 
     ![在新資源概觀中，按一下 [屬性] 並複製檢測金鑰](./media/app-insights-java-get-started/03-key.png)
 
-## 2\.將 Java 適用的 Application Insights SDK 加入至專案
+## 2.將 Java 適用的 Application Insights SDK 加入至專案
 
 *選擇適合您的專案的方式。*
 
@@ -105,23 +107,23 @@ Application Insights 是一項可延伸的分析服務，可幫助您了解即�
 
 手動加入 SDK：
 
-1. 下載 [Java 適用的 Application Insights SDK](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)
-2. 從 ZIP 檔案擷取二進位檔案，然後加入至您的專案。
+1. 下載 [Java 適用的 Application Insights SDK](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip)
+2. 從 ZIP 檔案解壓縮二進位檔案，然後加入您的專案。
 
-問題...
+### 問題...
 
-* *壓縮檔中的 `-core` 和 `-web` 元件之間有何關係？*
+* *ZIP 中的 `-core` 和 `-web` 元件之間有何關係？*
 
  * `applicationinsights-core` 會提供裸機 API。您一律會需要它。
- * `applicationinsights-web` 提供追蹤 HTTP 要求計數和回應時間的度量。如果您不想要自動收集此遙測 - 例如，如果您想要撰寫自己自己的遙測，可以省略它。
+ * `applicationinsights-web` 提供追蹤 HTTP 要求計數和回應時間的度量。如果您不想要自動收集此遙測 - 例如，如果您想要撰寫自己的遙測，可以省略它。
 
-* 更新 SDK
- * 下載最新的 [Application Insights SDK for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) 並取代舊的。
+* *在我們發佈變更時更新 SDK*
+ * 下載最新的 [適用 Java 的 Application Insights SDK](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) 並取代舊的。
  * [SDK 版本資訊](app-insights-release-notes-java.md)中會說明變更內容。
 
 
 
-## 3\.加入 Application Insights XML 檔案
+## 3.加入 Application Insights XML 檔案
 
 請將 ApplicationInsights.xml 加入至專案的資源資料夾，否則請確定其已加入至您的專案部署類別路徑。複製到下列 XML。
 
@@ -162,7 +164,7 @@ Application Insights 是一項可延伸的分析服務，可幫助您了解即�
 * HTTP 要求元件是選用的。它會自動將要求和回應時間的遙測傳送到入口網站。
 * 事件相互關聯是 HTTP 要求元件的補充。它會指派識別碼給伺服器收到的每個要求，並將它加入為遙測的每個項目的屬性，作為 'Operation.Id' 屬性。它可讓您相互關聯與每個要求關聯的遙測，方法是在[診斷搜尋][diagnostic]中設定篩選器。
 
-## 4\.加入 HTTP 篩選器
+## 4.加入 HTTP 篩選器
 
 上一個組態步驟可讓 HTTP 要求元件記錄每個 Web 要求。(如果您只需要單純的 API，則非必要。)
 
@@ -205,7 +207,7 @@ Application Insights 是一項可延伸的分析服務，可幫助您了解即�
 
 (如果預設堆疊中定義了攔截器，可以將攔截器加入該堆疊。)
 
-## 5\.在伺服器上安裝
+## 5.在伺服器上安裝
 
 在 Windows 伺服器上，安裝：
 
@@ -213,11 +215,11 @@ Application Insights 是一項可延伸的分析服務，可幫助您了解即�
 
 (這會啟用效能計數器。)
 
-## 6\.執行您的應用程式
+## 6.執行您的應用程式
 
 在您的開發電腦上以偵錯模式執行應用程式，或發佈至您的伺服器。
 
-## 7\.在 Application Insights 中檢視遙測
+## 7.在 Application Insights 中檢視遙測
 
 返回 [Microsoft Azure 入口網站](https://portal.azure.com) 中的 Application Insights 資源。
 
@@ -258,12 +260,12 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 若要收集其他例外狀況的資料，您有兩個選項：
 
 * [在您的程式碼中插入 TrackException 的呼叫][apiexceptions]。
-* [在伺服器上安裝 Java 代理程式](app-insights-java-agent.md)。您指定您想要觀看的方法。
+* [在伺服器上安裝 Java 代理程式](app-insights-java-agent.md)。指定您想要觀看的方法。
 
 
 ## 監視方法呼叫和外部相依性
 
-[安裝 Java 代理程式](app-insights-java-agent.md)以記錄透過 JDBC 發出的指定內部方法和呼叫與計時資料。
+[安裝 Java 代理程式](app-insights-java-agent.md)以記錄指定的內部方法和透過 JDBC 發出的呼叫與計時資料。
 
 
 ## 效能計數器
@@ -327,7 +329,7 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
 ### Unix 效能計數器
 
-* [使用 Application Insights 安裝 collectd 外掛程式](app-insights-java-collectd.md)來取得各種不同的系統和網路資料。
+* [使用 Application Insights 外掛程式安裝 collectd ](app-insights-java-collectd.md) 來取得各種不同的系統和網路資料。
 
 ## 取得使用者與工作階段資料
 
@@ -371,4 +373,4 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

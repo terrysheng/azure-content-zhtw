@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/21/2015" 
 	ms.author="jgao"/>
 
 # 使用 Azure PowerShell 管理 HDInsight 上的 Hadoop 叢集
@@ -279,4 +279,4 @@ Hive 工作會先顯示叢集上所建立的 Hive 資料表，以及從 hivesamp
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
-# 在 Azure HDInsight 上使用 Apache Spark 建置機器學習應用程式
+# 在 Azure HDInsight 上使用 Apache Spark 建置機器學習服務應用程式
 
-了解如何在 HDInsight 中使用 Apache Spark 叢集建置機器學習應用程式。本文說明如何使用叢集隨附的 Jupyter Python Notebook 來建置及測試應用程式。應用程式使用所有叢集預設提供的範例 HVAC.csv 資料。
+了解如何在 HDInsight 中使用 Apache Spark 叢集建置機器學習應用程式。本文說明如何使用叢集隨附的 Jupyter Notebook 來建置及測試應用程式。應用程式使用所有叢集預設提供的範例 HVAC.csv 資料。
 
 **必要條件：**
 
@@ -32,7 +32,7 @@
 
 在開始建置應用程式之前，我們先來了解資料的結構，以及要針對資料執行哪種分析。
 
-在本文中，我們使用所有 HDInsight 叢集預設提供的範例 **HVAC.csv** 資料檔案，其路徑為 **\\HdiSamples\\SensorSampleData\\hvac**。下載及開啟 CSV 檔案，以取得資料的快照。
+在本文中，我們使用所有 HDInsight 叢集預設提供的範例 **HVAC.csv** 資料檔案，其路徑為 **\HdiSamples\SensorSampleData\hvac**。下載及開啟 CSV 檔案，以取得資料的快照。
 
 ![HVAC 資料快照](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.ML.Show.Data.png "HVAC 資料的快照")
 
@@ -44,7 +44,7 @@
 
 1. 啟動 [Jupyter](https://jupyter.org) Notebook。在 Azure 入口網站選取 Spark 叢集，接著在底部的入口網站工作列按一下 [**Jupyter Notebook**]。出現提示時，輸入 Spark 叢集的系統管理員認證。
 
-2. 建立新的 Notebook。按一下 [**新增**]，然後按一下 [**Python2**]。
+2. 建立新的 Notebook。按一下 [**新增**]，然後按一下 [**Python 2**]。
 
 	![建立新的 Jupyter Notebook](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Note.Jupyter.CreateNotebook.png "建立新的 Jupyter Notebook")
 
@@ -52,7 +52,7 @@
 
 	![提供 Notebook 的名稱](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Note.Jupyter.Notebook.Name.png "提供 Notebook 的名稱")
 
-3. 開始建置機器學習應用程式。在此應用程式中，我們會使用 Spark ML 管線來執行文件分類。在管線中，我們將文件分割成單字、將單字轉換成數值特性向量，最後再使用特性向量和標籤建立預測模型。
+3. 開始建置機器學習服務應用程式。在此應用程式中，我們會使用 Spark ML 管線來執行文件分類。在管線中，我們將文件分割成單字、將單字轉換成數值特性向量，最後再使用特性向量和標籤建立預測模型。
 
 	若要開始建置應用程式，您需要先匯入所需的模組，並將資源指派給應用程式。將以下程式碼片段貼入新 Notebook 中的空白儲存格，然後按下 **SHIFT + ENTER**。
 
@@ -211,7 +211,7 @@
 	![重新啟動 Jupyter 核心](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Jupyter.Restart.Kernel.png "重新啟動 Jupyter 核心")
 	  	   
 
-##<a name="anaconda"></a>使用適用於機器學習的 Anaconda scikit-learn 程式庫
+##<a name="anaconda"></a>使用適用於機器學習服務的 Anaconda scikit-learn 程式庫
 
 HDInsight 上的 Apache Spark 叢集包含 Anaconda 程式庫。其中也包含適用於機器學習的 **scikit-learn** 程式庫。此程式庫另包含用來直接從 Jupyter Notebook 建置範例應用程式的各種資料集。如需使用 scikit-learn 程式庫的範例，請參閱[http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html)。
 
@@ -240,4 +240,4 @@ HDInsight 上的 Apache Spark 叢集包含 Anaconda 程式庫。其中也包含�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

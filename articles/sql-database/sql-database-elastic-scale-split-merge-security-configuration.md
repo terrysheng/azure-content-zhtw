@@ -1,8 +1,7 @@
 <properties 
     pageTitle="Elastic Scale 安全性設定" 
     description="設定加密的 x409 憑證" 
-    services="sql-database" 
-	documentationCenter="" 
+    services="sql-database" documentationCenter="" 
     manager="jhubbard" 
     authors="sidneyh"/>
 
@@ -472,4 +471,4 @@
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

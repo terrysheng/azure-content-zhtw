@@ -64,4 +64,4 @@ Azure 流量管理員使用三種不同的負載平衡方法。下列清單說�
 如需將流量管理員與 Web Apps 搭配使用的詳細資訊，請參閱[將 Azure 流量管理員與 Azure 網站搭配使用](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx)和 [Azure 流量管理員現在可以與 Azure 網站整合](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/)部落格文章。
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

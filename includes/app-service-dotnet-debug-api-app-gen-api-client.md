@@ -84,4 +84,4 @@ Visual Studio 中的 API 應用程式工具可讓您輕鬆地產生 C# 程式碼
 
 5. 按 **Enter** 鍵以關閉主控台視窗。
 
-<!---HONumber=58-->
+<!---HONumber=July15_HO4-->

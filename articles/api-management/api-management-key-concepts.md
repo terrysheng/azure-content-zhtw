@@ -114,4 +114,4 @@ API 是 API 管理服務執行個體的基礎。每個 API 都代表可供開發
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

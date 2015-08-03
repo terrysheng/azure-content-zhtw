@@ -104,4 +104,4 @@ DocumentDB 可讓您將應用程式邏輯撰寫成完全以 JavaScript 撰寫的
 [1]: ./media/documentdb-introduction/intro.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

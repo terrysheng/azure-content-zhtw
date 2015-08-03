@@ -218,4 +218,4 @@ azure 模組會讀取環境變數 **AZURE_SERVICEBUS_NAMESPACE** 和 **AZURE_SER
 -	請造訪 GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 儲存機制 (英文)。
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -43,6 +43,10 @@
 
 >[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。
 
+##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
+
 ## <a name="enable-offline-app"></a>更新應用程式以支援離線功能
 
 Azure 行動應用程式的離線功能可讓您在行動服務處於離線狀態時，仍可與本機資料庫互動。若要在您的應用程式中使用這些功能，您必須將 `MobileServiceClient.SyncContext` 初始化至本機存放區。接著，請透過 `IMobileServiceSyncTable` 介面參考您的資料表。在本教學課程中，我們會在本機存放區使用 SQLite。
@@ -274,4 +278,4 @@ Azure 行動應用程式的離線功能可讓您在行動服務處於離線狀�
 [sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

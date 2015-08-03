@@ -273,4 +273,4 @@ IPython Notebook 為交互存取 Azure 上 Python 生態系統的功能提供強
 [openssl]: http://slproweb.com/products/Win32OpenSSL.html
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

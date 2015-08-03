@@ -95,4 +95,4 @@ Azure Preview 入口網站的 SharePoint Server 伺服器陣列功能會在服�
 
 [裝載於 Azure 基礎結構服務中的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

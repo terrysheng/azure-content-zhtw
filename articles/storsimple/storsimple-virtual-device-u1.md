@@ -73,12 +73,12 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 佈建虛擬裝置之前，您需要在 Azure 環境中做好下列準備：
 
 - 針對虛擬裝置，[在 Azure 中設定虛擬網路](https://msdn.microsoft.com/library/azure/jj156074.aspx)。 
-- 您可以使用 Azure 提供的預設 DNS 伺服器，而不必指定您自己的 DNS 伺服器名稱。 
+- 建議您使用 Azure 提供的預設 DNS 伺服器，而非指定您自己的 DNS 伺服器名稱。如果您的 DNS 伺服器名稱無效，則建立虛擬裝置將會失敗。
 - 點對站台及站台對站台都是選用的，但並非必要。如有需要，您可以針對更進階的案例設定這些選項。 
 
 >[AZURE.IMPORTANT]**請確定虛擬網路與您即將與虛擬裝置搭配使用的雲端儲存體帳戶位於相同區域中。**
 
-- 在虛擬網路中建立 [Azure 虛擬機器](https://msdn.microsoft.com/library/azure/jj156003.aspx) (主機伺服器)。這些伺服器必須符合下列需求： 							
+- 您可以在虛擬網路中建立 [Azure 虛擬機器](https://msdn.microsoft.com/library/azure/jj156003.aspx) (主機伺服器)，以便使用由虛擬裝置公開的磁碟區。這些伺服器必須符合下列需求： 							
 	- 是已安裝 iSCSI 啟動器軟體的 Windows 或 Linux VM
 	- 正在虛擬裝置所在的相同虛擬網路中執行
 	- 能夠透過虛擬裝置的內部 IP 位址連接到虛擬裝置的 iSCSI 目標
@@ -131,10 +131,10 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 	a.**名稱** - 虛擬裝置的唯一名稱。
 
 
-	b.**版本** - 選擇虛擬裝置的版本。如果您利用此服務註冊 Update 1 實體裝置，就不會有此選項。只有在您利用此服務註冊更新前 1 和 Update 1 的組合時，此欄位才會出現。給定版本的虛擬裝置會判斷您可以容錯移轉或從其複製的實體裝置，請務必建立適當版本的虛擬裝置。選取：
+	b.**版本** - 選擇虛擬裝置的版本。如果您利用此服務註冊 Update 1 (或以上版本) 實體裝置，就不會有此選項。只有在您利用此服務註冊更新前 1 和 Update 1 的組合時，此欄位才會出現。給定版本的虛擬裝置會判斷您可以容錯移轉或從其複製的實體裝置，請務必建立適當版本的虛擬裝置。選取：
 
 	- 如果您利用 GA 版本或 Update 0.1 到 0.3 從實體裝置容錯移轉或 DR，則為 Update 0.3 版。 
-	- 如果您利用 Update 1 從實體裝置容錯移轉或複製，則為 Update 1 版。 
+	- 如果您利用 Update 1 (或以上版本) 從實體裝置容錯移轉或複製，則為 Update 1 版。 
 
  
 	b.**虛擬網路** - 要與此虛擬裝置一起使用的虛擬網路名稱。
@@ -155,27 +155,29 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 執行下列步驟來設定和註冊 StorSimple 虛擬裝置。
 
 
-1. 選取 [StorSimple 虛擬裝置] 做為您的裝置，然後按兩下該裝置來存取 [快速入門]。
+1. 選取您剛才在 [裝置] 頁面中建立的 [**StorSimple 虛擬裝置**]。 
 
 - 按一下 [完成裝置設定]。這會啟動 [設定裝置] 精靈。
 
 - 在提供的空白處輸入 [服務資料加密金鑰]。
 
-- 按一下勾號來完成虛擬裝置的初始設定和註冊。裝置系統管理員密碼已預先設定預設值，必須在註冊裝置之後加以變更。
+- 以指定的長度和設定輸入 Snapshot Manager 和裝置系統管理員密碼。
+
+- 按一下勾號來完成虛擬裝置的初始設定和註冊。
 
 ### 修改裝置組態設定
 
-下節說明需要為 StorSimple 虛擬裝置設定的裝置組態設定。
+下一節說明如果您想要使用 CHAP、StorSimple Snapshot Manager 或變更裝置系統管理員密碼，可能會想要針對 StorSimple 虛擬裝置設定的裝置組態設定。
 
-#### 設定 CHAP 起始端
+#### 設定 CHAP 起始端 (選用)
 
 此參數包含您的虛擬裝置 (目標) 預期從嘗試存取磁碟區的起始端 (伺服器) 收到的認證。在這個驗證過程中，起始端將提供 CHAP 使用者名稱和 CHAP 密碼，以便向您的裝置識別其身分。
 
-#### 設定 CHAP 目標
+#### 設定 CHAP 目標 (選用)
 
-此參數包含具有 CHAP 功能的起始端要求相互或雙向驗證時，您的虛擬裝置所使用的認證。在這個驗證程序中，您的虛擬裝置將使用反向 CHAP 使用者名稱和反向 CHAP 密碼，向起始端識別其身分。請注意，CHAP 目標設定為全域設定。套用這些項目時，與虛擬裝置連接的所有磁碟區都將使用 CHAP 驗證。
+此參數包含具有 CHAP 功能的起始端要求相互或雙向驗證時，您的虛擬裝置所使用的認證。在這個驗證程序中，您的虛擬裝置將使用反向 CHAP 使用者名稱和反向 CHAP 密碼，向起始端識別其身分。請注意，CHAP 目標設定為全域設定。套用這些項目時，與虛擬裝置連接的所有磁碟區都將使用 CHAP 驗證。在 [裝置] 頁面中選取您的裝置。請移至您 [裝置] 頁面中的 [設定] 頁面，並向下捲動到＜尋找 CHAP＞一節。
 
-#### 設定 StorSimple Snapshot Manager
+#### 設定 StorSimple Snapshot Manager 密碼 (選用)
 
 StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓系統管理員以本機和雲端快照的形式管理 StorSimple 裝置的備份。
 
@@ -183,7 +185,7 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
 
 當您在 StorSimple Snapshot Manager 中設定裝置時，系統將提示您提供 StorSimple 裝置 IP 位址和密碼來驗證您的儲存裝置。
 
-將 StorSimple Snapshot Manager 和您的 StorSimple 虛擬裝置搭配使用時，執行下列步驟來設定它。
+執行下列步驟來變更 StorSimple Snapshot Manager 密碼。
 
 1. 在虛擬裝置上，移至 [裝置] > [設定]。
 
@@ -195,11 +197,11 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
 
 StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機時使用。
 
-#### 設定裝置系統管理員密碼
+#### 變更裝置系統管理員密碼
 
 當您使用 Windows PowerShell 介面來存取虛擬裝置時，需要輸入裝置系統管理員密碼。為了確保資料的安全性，您必須變更此密碼，才能使用虛擬裝置。
 
-執行下列步驟來設定 StorSimple 虛擬裝置的裝置系統管理員密碼。
+執行下列步驟來變更 StorSimple 虛擬裝置的裝置系統管理員密碼。
 
 1. 在虛擬裝置上，移至 [裝置] > [設定]。
  
@@ -211,7 +213,7 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 現在應該已更新裝置系統管理員密碼。您將使用此修改過的密碼來存取虛擬裝置上的 Windows PowerShell 介面。
 
-#### 設定遠端管理 
+#### 設定遠端管理 (選用)
 
 預設不會啟用透過 Windows PowerShell 介面遠端存取您的虛擬裝置。您需要先在虛擬裝置上啟用遠端管理，然後在將用來存取虛擬裝置的用戶端上啟用它。
 
@@ -386,4 +388,4 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 了解如何[從備份集還原](../storsimple-restore-from-backupset.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

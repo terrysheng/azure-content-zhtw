@@ -11,8 +11,10 @@
 
 雲端服務提供這兩個僅有些許差異的 VM 裝載選項的任意搭配組合：
 
-* **Web 角色**執行 Windows Server，且您的 Web 應用程式會自動部署至 IIS。
-* **背景工作角色**執行不含 IIS 的 Windows Server。
+* **Web 角色**
+  執行 Windows Server，且您的 Web 應用程式會自動部署至 IIS。
+* **背景工作角色**
+執行不含 IIS 的 Windows Server。
 
 例如，簡單的應用程式可以只使用 Web 角色，而較複雜的應用程式可以使用 Web 角色處理使用者的連入要求，然後將這些要求產生的工作傳送給背景工作角色進行處理。(此通訊會使用[服務匯流排](../articles/service-bus/fundamentals-service-bus-hybrid-solutions.md)或 [Azure 佇列](../articles/storage/storage-introduction.md))。
 
@@ -30,4 +32,4 @@
 
 雲端服務的 PaaS 性質也有其他意涵。其中一個最重要的意涵是，採用這項技術建立的應用程式應該在任何 Web 角色或背景工作角色執行個體故障時都能正常運作。為了實現這一點，雲端服務應用程式不應該在本身 VM 的檔案系統中保持狀態。和使用 Azure 虛擬機器建立的 VM 不一樣的是，對於雲端服務 VM 進行的寫入並不一致；不會出現類似虛擬機器資料磁碟的元件。雲端服務應用程式反而應該將所有狀態明確寫入 SQL 資料庫、Blob、表格或其他一些外部儲存體。以這種方式建立應用程式使得調整更簡單，而且更能夠因應故障，這是雲端服務的兩個重要目標。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

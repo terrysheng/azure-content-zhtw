@@ -275,4 +275,4 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -281,7 +281,7 @@ Azure CLI 可使用 NPM 或 Windows Installer 進行安裝。Microsoft 建議您
 
 		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
-	> [AZURE.NOTE]如果您收到錯誤，指出找不到 NPM 命令，請驗證下列路徑是否在 **PATH** 環境變數中：<i>C:\\Program Files (x86)\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i> 或 <i>C:\\Program Files\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i>
+	> [AZURE.NOTE]如果您收到錯誤，指出找不到 NPM 命令，請驗證下列路徑是否在 **PATH** 環境變數中：<i>C:\Program Files (x86)\nodejs;C:\Users[username]\AppData\Roaming\npm</i> 或 <i>C:\Program Files\nodejs;C:\Users[username]\AppData\Roaming\npm</i>
 
 
 5.	執行下列命令以驗證安裝：
@@ -758,4 +758,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

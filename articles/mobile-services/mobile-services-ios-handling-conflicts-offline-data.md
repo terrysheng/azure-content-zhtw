@@ -471,4 +471,4 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Get started with data]: mobile-services-ios-get-started-data.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

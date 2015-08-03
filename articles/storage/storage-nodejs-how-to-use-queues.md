@@ -85,7 +85,7 @@ Azure 模組會讀取環境變數 AZURE_STORAGE_ACCOUNT 及 AZURE_STORAGE_ACCESS
 
 ### 篩選器
 
-可以將選用性的篩選操作套用到使用 **QueueService** 執行的操作。篩選作業可包含記錄、自動重試等。篩選器是以簽章實作方法的物件：
+可以將選用性的篩選操作套用到使用 **QueueService** 執行的操作。篩選作業可包含記錄、自動重試等。篩選器是使用簽章實作方法的物件：
 
 		function handle (requestOptions, next)
 
@@ -332,4 +332,4 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
  [使用 WebMatrix 的網站]: ../web-sites-nodejs-use-webmatrix.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

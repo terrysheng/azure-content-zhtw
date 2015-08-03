@@ -205,4 +205,4 @@ Microsoft Azure App Service 會公開可使用這些 B2B API 應用程式的不�
 
 [連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/>[什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

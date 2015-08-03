@@ -224,4 +224,4 @@ SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGri
   [雲端架構電子郵件服務]: https://sendgrid.com/email-solutions
   [交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

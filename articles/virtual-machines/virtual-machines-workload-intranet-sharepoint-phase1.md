@@ -1,39 +1,40 @@
-<properties 
-	pageTitle="SharePoint 內部網路伺服器陣列工作負載第 1 階段：設定 Azure" 
-	description="第一個階段是在 Azure 基礎結構服務中，部署包含 SQL Server AlwaysOn 可用性群組且僅限內部網路的 SharePoint 2013 伺服器陣列，而您將在這個階段中建立 Azure 虛擬機器和其他 Azure 基礎結構元素。" 
+<properties
+	pageTitle="SharePoint 內部網路伺服器陣列工作負載第 1 階段：設定 Azure"
+	description="在 Azure 基礎結構服務內，使用 SQL Server AlwaysOn 可用性群組部署內部網路專用的 SharePoint 2013 伺服器陣列的第一個階段中，您需要建立 Azure 虛擬網路和其他 Azure 基礎結構元素。"
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""/>
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # SharePoint 內部網路伺服器陣列工作負載第 1 階段：設定 Azure
 
-這個階段是在 Azure 基礎結構服務中，部署包含 SQL Server AlwaysOn 可用性群組且僅限內部網路的 SharePoint 2013 伺服器陣列，而您將在這個階段中建置 Azure 網路功能與儲存體基礎結構。您必須先完成這個階段才能前往[第 2 階段](virtual-machines-workload-intranet-sharepoint-phase2.md)。如需所有階段的詳細資訊，請參閱[在 Azure 中部署包含 SQL Server AlwaysOn 可用性群組的 SharePoint](virtual-machines-workload-intranet-sharepoint-overview.md)。
+在 Azure 基礎結構服務內，使用 SQL Server AlwaysOn 可用性群組部署內部網路專用的 SharePoint 2013 伺服器陣列的這個階段中，您需要在 Azure 服務管理中建置 Azure 網路功能與儲存體基礎結構。您必須先完成這個階段才能前往[第 2 階段](virtual-machines-workload-intranet-sharepoint-phase2.md)。如需所有階段的詳細資訊，請參閱[在 Azure 中使用 SQL Server AlwaysOn 可用性群組部署 SharePoint](virtual-machines-workload-intranet-sharepoint-overview.md)。
 
 您必須使用下列基本網路元件來佈建 Azure：
 
-- 含有一個子網路的跨單位虛擬網路
-- 三個 Azure 雲端服務
-- 一個 Azure 儲存體帳戶，可用來儲存 VHD 磁碟映像和額外的資料磁碟
+- 含有一個子網路的跨單位虛擬網路。
+- 三個 Azure 雲端服務。
+- 一個 Azure 儲存體帳戶，可用來儲存 VHD 磁碟映像和額外的資料磁碟。
 
 ## 開始之前
 
-開始設定 Azure 元件之前，請先填寫下列表格：為了協助您進行設定 Azure 的程序，請列印本節並寫下必要資訊，或者將本節複製到文件並完成填寫。
+開始設定 Azure 元件之前，請先填寫下列表格。為了協助您進行設定 Azure 的程序，請列印本節並寫下必要資訊，或者將本節複製到文件並完成填寫。
 
 針對虛擬網路 (VNet) 的設定，請填寫表格 V。
 
-項目 | 設定元素 | 說明 | 值 
---- | --- | --- | --- 
+項目 | 設定元素 | 說明 | 值
+--- | --- | --- | ---
 1. | VNet 名稱 | 要指派給 Azure 虛擬網路的名稱 (例如 SPFarmNet)。 | __________________
 2. | VNet 位置 | 將包含虛擬網路的 Azure 資料中心。 | __________________
 3. | 區域網路名稱 | 要指派給組織網路的名稱。 | __________________
@@ -46,8 +47,8 @@
 
 針對這個解決方案的子網路填寫表格 S。為子網路指定易記名稱，根據虛擬網路位址空間來指定單一 IP 位址空間，並提供描述性用途。位址空間格式應該是無類別網域間路由選擇 (CIDR) 格式，亦稱為網路首碼格式。例如，10.24.64.0/20。與您的 IT 部門合作，從虛擬網路位址空間來決定這個位址空間。
 
-項目 | 子網路名稱 | 子網路位址空間 | 目的 
---- | --- | --- | --- 
+項目 | 子網路名稱 | 子網路位址空間 | 目的
+--- | --- | --- | ---
 1. | _______________ | _____________________________ | _________________________
 
 **表格 S：虛擬網路中的子網路**
@@ -56,10 +57,10 @@
 
 如果這兩部內部部署的 DNS 伺服器是您最初在虛擬網路上設定網域控制站時想要使用的伺服器，請填寫表格 D。請為每部 DNS 伺服器指定易記名稱和單一 IP 位址。這個易記名稱不需要與 DNS 伺服器的主機名稱或電腦名稱相符。請注意，其中列出兩個空白項目，但您可以增加更多項目。與您的 IT 部門合作來決定這份清單。
 
-項目 | DNS 伺服器易記名稱 | DNS 伺服器 IP 位址 
+項目 | DNS 伺服器易記名稱 | DNS 伺服器 IP 位址
 --- | --- | ---
 1. | ___________________________ | ___________________________
-2. | ___________________________ | ___________________________ 
+2. | ___________________________ | ___________________________
 
 **表格 D：內部部署 DNS 伺服器**
 
@@ -67,7 +68,7 @@
 
 針對本機網路位址空間組合，請填寫表格 L。請注意，其中列出三個空白項目，但您通常需要更多項目。與您的 IT 部門合作來決定這個位址空間清單。
 
-項目 | 區域網路位址空間 
+項目 | 區域網路位址空間
 --- | ---
 1. | ___________________________________
 2. | ___________________________________
@@ -82,7 +83,7 @@
 建立 Azure 虛擬網路之後，Azure 管理入口網站將會決定下列資訊：
 
 - 適用於您虛擬網路之 Azure VPN 閘道的公用 IPv4 位址。
-- 適用於網站間 VPN 連線的網際網路通訊協定安全性 (IPsec) 預先共用金鑰
+- 適用於網站間 VPN 連線的網際網路通訊協定安全性 (IPsec) 預先共用金鑰。
 
 若要在建立虛擬網路之後，於 Azure 管理入口網站中查看這些設定，請依序按一下 [網路]、虛擬網路的名稱，以及 [儀表板] 功能表選項。
 
@@ -103,7 +104,7 @@
 
 然後，建立這個 SharePoint 伺服器陣列所需的三個雲端服務。填寫表格 C。
 
-項目 | 目的 | 雲端服務名稱 
+項目 | 目的 | 雲端服務名稱
 --- | --- | ---
 1. | 網域控制站 | ___________________________
 2. | SQL Server | ___________________________
@@ -129,7 +130,7 @@
 
 	Test-AzureName -Storage <Proposed storage account name>
 
-如果這個命令傳回「False」，表示您設定的名稱不重複。然後，使用以下命令來建立儲存體帳戶，以及設定訂閱來使用儲存體帳戶。
+如果這個命令傳回「False」，表示您設定的名稱不重複。然後，使用以下命令來建立儲存體帳戶，以及設定訂用帳戶來使用儲存體帳戶。
 
 	$staccount="<Unique storage account name>"
 	New-AzureStorageAccount -StorageAccountName $staccount -Location "<Table V – Item 2 – Value column>"
@@ -137,8 +138,8 @@
 
 接著，定義四個可用性設定組的名稱。填寫表格 A。
 
-項目 | 目的 | 可用性設定組名稱 
---- | --- | --- 
+項目 | 目的 | 可用性設定組名稱
+--- | --- | ---
 1. | 網域控制站 | ___________________________
 2. | SQL Server | ___________________________
 3. | SharePoint 應用程式伺服器 | ___________________________
@@ -152,7 +153,7 @@
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-phase1/workload-spsqlao_01.png)
 
-## 下一步
+## 後續步驟
 
 若要繼續設定這個工作負載，請前往[第 2 階段：設定網域控制站](virtual-machines-workload-intranet-sharepoint-phase2.md)。
 
@@ -167,6 +168,5 @@
 [適用於 SharePoint 2013 的 Microsoft Azure 架構](https://technet.microsoft.com/library/dn635309.aspx)
 
 [Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

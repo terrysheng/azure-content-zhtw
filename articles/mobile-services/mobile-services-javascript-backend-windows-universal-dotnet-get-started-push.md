@@ -99,4 +99,4 @@
 [如何使用 Azure 行動服務的 .NET 用戶端]: mobile-services-windows-dotnet-how-to-use-client-library.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

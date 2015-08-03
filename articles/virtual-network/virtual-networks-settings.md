@@ -100,4 +100,4 @@
 
 [如何刪除虛擬網路 (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

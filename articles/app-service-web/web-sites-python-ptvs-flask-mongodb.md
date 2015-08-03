@@ -21,7 +21,7 @@
 
 # Azure 上採用 Python Tools 2.1 for Visual Studio 的 Flask 和 MongoDB
 
-  	<!-- The MongoLab workflow is not yet supported in the Preview Portal -->
+<!-- The MongoLab workflow is not yet supported in the Preview Portal -->
 
 在此教學課程中，我們將使用 [Python Tools for Visual Studio]，並使用其中一個 PTVS 範例範本來建立簡單的民調 Web 應用程式。本教學課程也提供[教學影片](https://www.youtube.com/watch?v=eql-crFgrAE)。
 
@@ -100,7 +100,7 @@
 
 1.  在 [Azure 管理入口網站]中，按一下 [MARKETPLACE]，然後按一下您先前建立的 MongoLab 服務。
 
-1.  按一下 [連線資訊]。您可以使用複製按鈕，將 **MONGOLAB\\_URI** 的值放在剪貼簿上。
+1.  按一下 [連線資訊]。您可以使用複製按鈕，將 **MONGOLAB\_URI** 的值放在剪貼簿上。
 
   	![連接資訊對話方塊](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabConnectionInfo.png)
 
@@ -130,17 +130,17 @@
 
 您可以使用 [RoboMongo] 之類的應用程式來查詢及編輯 MongoDB 資料庫。在這一節中，我們將使用 RoboMongo 來檢視民調應用程式資料庫的內容。
 
-1.  建立新連線。您會需要我們在上一節中擷取的 **MONGOLAB\\_URI**。
+1.  建立新連線。您會需要我們在上一節中擷取的 **MONGOLAB\_URI**。
 
     注意 URI 的格式：`mongodb://<name>:<password>@<address>:<port>/<name>`
 
     此名稱符合您使用 Azure 建立服務時輸入的名稱。該名稱同時用於資料庫名稱和使用者名稱。
 
-1.  在連線頁面中，將 [名稱] 設定為任何您要用於連線的名稱。此外，將 [位址] 和 [連接埠] 欄位設定為 **MONGOLAB\\_URI** 中的 *address* 和 *port*。
+1.  在連線頁面中，將 [名稱] 設定為任何您要用於連線的名稱。此外，將 [位址] 和 [連接埠] 欄位設定為 **MONGOLAB\_URI** 中的 *address* 和 *port*。
 
   	![連線設定對話方塊](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection1.png)
 
-1.  在驗證頁面中，將 [資料庫] 和 [使用者名稱] 設定為 **MONGOLAB\\_URI** 中的 *name*。此外，將 [密碼] 設定為 **MONGOLAB\\_URI** 中的 *password*。
+1.  在驗證頁面中，將 [資料庫] 和 [使用者名稱] 設定為 **MONGOLAB\_URI** 中的 *name*。此外，將 [密碼] 設定為 **MONGOLAB\_URI** 中的 *password*。
 
   	![連線設定對話方塊](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection2.png)
 
@@ -185,7 +185,7 @@ PTVS 提供簡單的方法將 Web 應用程式部署至 Azure App Service。
 
   	<!-- ![Top Menu](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteTopMenu.png) -->
 
-1.  向下捲動到 [應用程式設定] 區段，並如上一節所述設定 **REPOSITORY\\_NAME**、**MONGODB\\_HOST** 和 **MONGODB\\_DATABASE** 的值。
+1.  向下捲動到 [應用程式設定] 區段，並如上一節所述設定 **REPOSITORY\_NAME**、**MONGODB\_HOST** 和 **MONGODB\_DATABASE** 的值。
 
   	<!-- ![App Settings](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteConfigureSettingsMongoDB.png) -->
 
@@ -240,4 +240,4 @@ PTVS 提供簡單的方法將 Web 應用程式部署至 Azure App Service。
 [雲端服務專案]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

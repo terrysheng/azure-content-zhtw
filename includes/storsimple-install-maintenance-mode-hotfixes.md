@@ -17,4 +17,4 @@
 
 6. 套用 Hotfix 之後，結束維護模式。如需相關指示，請參閱[結束維護模式](#exit-maintenance-mode)。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

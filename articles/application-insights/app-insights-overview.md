@@ -102,7 +102,7 @@ SDK 有數個模組收集遙測，例如，計算使用者、工作階段和效�
 
 * 疑難排解與問題：
  * [疑難排解][qna]
- * [MSDN 論壇](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+ * [MSDN 論壇](https://social.msdn.microsoft.com/Forums/vstudio/zh-tw/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * 錯誤：
  * [連線](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -139,4 +139,4 @@ SDK 有數個模組收集遙測，例如，計算使用者、工作階段和效�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

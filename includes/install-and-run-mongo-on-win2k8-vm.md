@@ -10,7 +10,7 @@
 
 4. 尋找**目前的穩定版本**，在 Windows 資料行中選取最新的 **64 位元**版本，然後下載並執行 MSI 安裝程式。
 
-5. MongoDB 通常會安裝在 C:\\Program Files\\MongoDB。在桌面上搜尋環境變數，然後將 MongoDB 二進位檔路徑新增至 PATH 變數。例如，您可能會在電腦的 C:\\Program Files\\MongoDB\\Server\\3.0\\bin 發現二進位檔。
+5. MongoDB 通常會安裝在 C:\Program Files\MongoDB。在桌面上搜尋環境變數，然後將 MongoDB 二進位檔路徑新增至 PATH 變數。例如，您可能會在電腦的 C:\Program Files\MongoDB\Server\3.0\bin 發現二進位檔。
 
 6. 在您先前建立的資料磁碟中建立 MongoDB 資料和記錄目錄 (例如磁碟機 **F:**)。在 [開始] 功能表中，選取 [命令提示字元] 以開啟命令提示字元視窗。輸入：
 
@@ -23,7 +23,7 @@
 		F:> C:
 		C:> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
-	在 mongod.exe 伺服器啟動和預先配置日誌檔案時，所有記錄訊息都會傳送至 *F:\\MongoLogs\\mongolog.log* 檔案。MongoDB 可能需要花費數分鐘來預先配置日誌檔案，並開始接聽連線。
+	在 mongod.exe 伺服器啟動和預先配置日誌檔案時，所有記錄訊息都會傳送至 *F:\MongoLogs\mongolog.log* 檔案。MongoDB 可能需要花費數分鐘來預先配置日誌檔案，並開始接聽連線。
 
 8. 若要啟動 MongoDB 管理殼層，請從 [開始] 功能表中開啟另一個命令視窗，並輸入下列內容：
 
@@ -108,4 +108,4 @@
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

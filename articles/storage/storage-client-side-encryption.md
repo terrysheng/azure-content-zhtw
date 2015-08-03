@@ -234,4 +234,4 @@ Azure 金鑰保存庫 (預覽) 可協助保護雲端應用程式和服務所使�
 
 [Microsoft Azure 儲存體的用戶端加密 – 預覽 ](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview.aspx) 下載 [Azure Storage Client Library for .NET NuGet 封裝](http://www.nuget.org/packages/WindowsAzure.Storage/4.4.0-preview) 從 GitHub 下載 [Azure Storage Client Library for .NET 原始程式碼](https://github.com/Azure/azure-storage-net/tree/preview) 下載 Azure 金鑰保存庫 NuGet [核心](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[用戶端](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/)和[延伸模組](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/)封裝。請造訪 [Azure 金鑰保存庫文件](../articles/key-vault-whatis.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

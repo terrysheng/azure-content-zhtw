@@ -55,4 +55,4 @@
 ## 後續步驟
 - 如將資料和應用程式備份到 Azure 的詳細資訊，請參閱[排程備份](backup-azure-backup-and-recover.md)。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

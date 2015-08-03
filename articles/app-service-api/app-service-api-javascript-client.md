@@ -371,4 +371,4 @@ API 應用程式閘道可設定為使用 Azure Preview 入口網站啟用 CORS�
 
 此範例顯示對 API 應用程式的未經驗證存取權。如需 App Service 中驗證的相關資訊，請參閱 [API 應用程式和行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -262,4 +262,4 @@ K-means 是最簡單的未經指導學習演算法之一，可用來解決已知
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

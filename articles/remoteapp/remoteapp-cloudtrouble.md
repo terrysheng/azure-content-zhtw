@@ -3,7 +3,7 @@
     pageTitle="RemoteApp 雲端集合疑難排解 - 建立"
     description="了解如何疑難排解 RemoteApp 雲端集合建立失敗" 
     services="remoteapp" 
-    documentationCenter="" 
+	documentationCenter="" 
     authors="vkbucha" 
     manager="mbaldwin" />
 
@@ -38,4 +38,4 @@ Azure 管理入口網站中的常見錯誤：
 如果看到這個錯誤，通常表示您已經升級至付費帳戶，但您正在嘗試使用 Microsoft 提供的映像，而該映像只在服務的試用模式期間有效。在此情況下，請嘗試再次建立您的雲端集合，但務必指定正確的映像。
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

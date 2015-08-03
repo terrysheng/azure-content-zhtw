@@ -126,7 +126,7 @@ CNAME 記錄將*特定的*網域 (例如 **contoso.com** 或 **www.contoso.com**
 
 | 主機名稱/子網域 | IP 位址 |
 | ------------------- | -------------- |
-| @ | 137\.135.70.239 |
+| @ | 137.135.70.239 |
 
 
 此範例示範建立根網域的 A 記錄。如果想要建立萬用字元項目來涵蓋所有子網域，請輸入 '__*__' 作為子網域。
@@ -148,4 +148,4 @@ CNAME 記錄將*特定的*網域 (例如 **contoso.com** 或 **www.contoso.com**
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

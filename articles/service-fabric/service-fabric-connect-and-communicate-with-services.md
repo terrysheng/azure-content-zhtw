@@ -58,4 +58,4 @@ Service Fabric 通訊 API 代表用戶端-服務類型的互動，甚至包含�
 * [適用於可靠服務的 WCF 式通訊堆疊](service-fabric-reliable-services-communication-wcf.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

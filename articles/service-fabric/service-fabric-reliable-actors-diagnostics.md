@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/21/2015"
    ms.author="abhisram"/>
 
 # Fabric Actor 的診斷與效能監視
@@ -154,6 +154,5 @@ Fabric Actor 執行階段會發出下列與[動作項目啟動與停用](service
 |---|---|---|---|---|
 |ActorActivated|5|資訊|0x1|動作項目已啟動。|
 |ActorDeactivated|6|資訊|0x1|動作項目已停用。|
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

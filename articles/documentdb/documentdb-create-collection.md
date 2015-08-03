@@ -34,7 +34,7 @@
 
 5. 在 [**新增集合**] 刀鋒視窗中，輸入您的新集合的識別碼。驗證名稱時，[識別碼] 方塊中會出現綠色的核取記號。
 
-6. 選取新集合的價格層。您所建立的每個集合會是可計費的實體。如需可用效能層級的詳細資訊，請參閱 [DocumentDB 中的效能層級](documentdb-performance-levels.md)。
+6. 選取新集合的定價層。您所建立的每個集合會是可計費的實體。如需可用效能層級的詳細資訊，請參閱 [DocumentDB 中的效能層級](documentdb-performance-levels.md)。
 
 7. 選取下列其中一種**索引編製原則**。
 
@@ -62,4 +62,4 @@
 
 在集合中有了文件之後，您可以使用預覽入口網站中的[查詢總管](documentdb-query-collections-query-explorer.md)、[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 或其中一個 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)，針對文件使用 [DocumentDB SQL](documentdb-sql-query.md) 來[執行查詢](documentdb-sql-query.md#executing-queries)。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

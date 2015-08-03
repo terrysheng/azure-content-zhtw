@@ -90,4 +90,4 @@ Microsoft Azure Operational Insights 含有基礎組態評估模組。然而，�
 
 3. 在確認頁面中按一下 [**是**] 以移除解決方案。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

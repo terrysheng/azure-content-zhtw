@@ -243,4 +243,4 @@ API 區段有一些索引標籤。[**摘要**] 索引標籤顯示基本度量和
 [api-management-]: ./media/api-management-get-started/api-management-.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

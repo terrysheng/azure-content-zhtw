@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="設定和註冊裝置"
-   description="說明如何使用 Windows PowerShell for StorSimple 來設定和註冊 StorSimple 裝置 (執行 Update 1)。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
-
 
 ### 設定和註冊裝置
 
@@ -150,4 +133,4 @@
      
         
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

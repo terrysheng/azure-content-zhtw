@@ -34,4 +34,4 @@ API 應用程式的密碼。此值必須是 base64 編碼的字串。
       "type": "string"
     }
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -67,4 +67,4 @@
 * [如何登入執行 Linux 的虛擬機器](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

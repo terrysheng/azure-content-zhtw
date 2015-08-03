@@ -112,4 +112,4 @@
 [開始使用推播通知]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [範本]: https://msdn.microsoft.com/zh-tw/library/dn530748.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

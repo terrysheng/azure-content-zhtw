@@ -90,4 +90,4 @@ Azure 會評估 SQL Database 的歷程記錄資源使用狀況，藉此分析目
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

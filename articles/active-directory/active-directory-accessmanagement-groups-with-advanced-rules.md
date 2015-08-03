@@ -124,7 +124,7 @@ Azure 管理入口網站會為您提供設定更進階的規則的彈性，以�
 | passwordPolicies | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName | 任何字串值或 $null。 | (user.physicalDeliveryOfficeName -eq "value") |
 | postalCode | 任何字串值或 $null。 | (user.postalCode -eq "value") |
-| preferredLanguage | ISO 639-1 code | (user.preferredLanguage -eq "en-US") |
+| preferredLanguage | ISO 639-1 code | (user.preferredLanguage -eq "zh-tw") |
 | sipProxyAddress | 任何字串值或 $null。 | (user.sipProxyAddress -eq "value") |
 | state | 任何字串值或 $null。 | (user.state -eq "value") |
 | streetAddress | 任何字串值或 $null。 | (user.streetAddress -eq "value") |
@@ -158,4 +158,4 @@ Azure 管理入口網站會為您提供設定更進階的規則的彈性，以�
 
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -98,4 +98,4 @@ DocumentDB 支援預存程序，可提供有效率的方式執行批次插入。
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

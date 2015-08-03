@@ -70,4 +70,4 @@ Azure 會將已部署的子網路視為「使用中」。使用中的子網路�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -3,7 +3,7 @@
    description="了解如何在 Excel 中設定和使用 Microsoft Hive ODBC 驅動程式來查詢 HDInsight 叢集中的資料。"
    services="hdinsight"
    documentationCenter=""
-   authors="bradsev"
+   authors="mumian"
    manager="paulettm"
    editor="cgronlun"/>
 
@@ -13,11 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/08/2015"
-   ms.author="bradsev"/>
+   ms.date="07/09/2015"
+   ms.author="jgao"/>
 
 #使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 Hadoop
 
+[AZURE.INCLUDE [ODBC-JDBC-選取器](../../includes/hdinsight-selector-odbc-jdbc.md)]
 
 Microsoft 巨量資料方案會將 Microsoft 商業智慧 (BI) 元件與 Azure HDInsight 所部署的 Apache Hadoop 叢集相整合。舉例來說，此整合可讓您使用 Microsoft Hive 開放式資料庫連接 (ODBC) 驅動程式，將 Excel 連接到 HDInsight 上 Hadoop 叢集的 Hive 資料倉儲。
 
@@ -103,7 +104,7 @@ Microsoft 巨量資料方案會將 Microsoft 商業智慧 (BI) 元件與 Azure H
 12. 按一下 [確定] 以關閉 [匯入資料] 對話方塊。  
 13. 重新輸入密碼，然後按一下 [確定]。經過數秒後，資料即會匯入至 Excel。
 
-##<a id="nextsteps"></a>接續步驟
+##<a id="nextsteps"></a>後續步驟
 
 在本文中，您已了解到如何使用 Microsoft Hive ODBC 驅動程式將 HDInsight 服務中的資料擷取至 Excel。同樣地，您也可以將 HDInsight 服務中的資料擷取至 SQL Database。此外也可以將資料上傳至 HDInsight 服務。若要深入了解，請參閱：
 
@@ -125,6 +126,5 @@ Microsoft 巨量資料方案會將 Microsoft 商業智慧 (BI) 元件與 Azure H
 [img-HiveOdbc-DataSource-AdvancedOptions]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

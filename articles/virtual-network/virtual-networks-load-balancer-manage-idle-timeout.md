@@ -152,4 +152,4 @@ LoadBalancerDistribution 的值可以是 sourceIP (適用於 2-tuple 同質性)�
     </LoadBalancedEndpointList>
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

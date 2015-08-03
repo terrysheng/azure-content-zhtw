@@ -144,4 +144,4 @@ Microsoft Azure 媒體服務是以 REST 為基礎的服務，內建在 OData v3 
 	Host: media.windows.net
 	Content-Length: 0
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/15/2015"
+   ms.date="07/17/2015"
    ms.author="subramar"/>
 
 # Service Fabric 應用程式升級：進階主題
@@ -51,4 +51,4 @@ Service Fabric 應用程式可以藉由佈建完整、獨立式應用程式封�
 [疑難排解應用程式升級](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

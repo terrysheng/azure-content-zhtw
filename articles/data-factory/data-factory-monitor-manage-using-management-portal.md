@@ -221,4 +221,4 @@ ValidationInProgress | 正在執行配量的驗證 (根據 JSON 資料表中定�
 [image-data-factory-events]: ./media/data-factory-monitor-manage-using-management-portal/Events.png
 [DataSlicesBySliceTime]: ./media/data-factory-monitor-manage-using-management-portal/DataSlicesBySliceTime.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

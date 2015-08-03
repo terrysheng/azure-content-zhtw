@@ -1,9 +1,9 @@
 <properties
-	pageTitle="如何使用 SSMS 連接到 Azure SQL Database" metaKeywords=""
+	pageTitle="如何使用 SSMS 連接到 Azure SQL Database" 
 	description="了解如何使用 SSMS 連接到 Azure SQL Database。"
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh"
+	authors="sidneyh" 
 	manager="jhubbard" 
 	editor="" />
 
@@ -13,41 +13,56 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/25/2015"
+	ms.date="07/15/2015"
 	ms.author="sidneyh" />
 
-# 如何使用 SQL Server Management Studio 連接到 Azure SQL Database
+# 連接 SQL Server Management Studio
 
-以下是使用 SQL Server Management Studio (SSMS) 連接到 Microsoft Azure SQL Database 的步驟。
+以下是安裝 SQL Server Management Studio (SSMS) 和使用 SSMS 來連接並查詢 SQL Database 的步驟。
 
 ## 必要條件
-* 已佈建且在執行中的 Azure SQL Database。若要建立新的 SQL Database，請參閱[開始使用 Microsoft Azure SQL Database](sql-database-get-started.md)。
-* SQL Database 的系統管理員名稱和密碼。
-* SQL Server Management Studio 2014。若要取得工具，請參閱[下載 SQL Express](http://www.hanselman.com/blog/DownloadSQLServerExpress.aspx)。
-* 設定資料庫的防火牆設定。請參閱[作法：進行防火牆設定 (Azure SQL Database)](sql-database-configure-firewall-settings.md)
+* 如[開始使用 Microsoft Azure SQL Database](sql-database-get-started.md) 中所述的 SQL Database AdventureWorks 範例資料庫。
 
-## 連接到 SQL Database 的執行個體
-1. 登入 [Azure 管理入口網站](https://portal.azure.com)。
-2. 按一下 [瀏覽] 按鈕，然後按一下 [SQL Database] (b)。
+## 安裝並啟動 SQL Server Management Studio (SSMS)
+1. 移至 [SQL Server 2014 Express](http://www.microsoft.com/download/details.aspx?id=42299) 的下載頁面，按一下 [**下載**]，並選擇 32 位元版本 (x86) 或 64 位元版本 (x64) 的 MgmtStudio 下載。
 
-	![按一下 [瀏覽] 和 [SQL Database]][1]
-3. 在選取 [SQL Database] 時 (a)，按一下伺服器上您要連接的資料庫名稱 (b)。
+	![MgtmtStudio32BIT 或 MgmtStudio64BIT][1]
+2.	當您使用預設設定安裝 SSMS 時，請遵循相關提示。
+3.	下載之後，請在您的電腦上搜尋 SQL Server 2014 Management Studio，然後啟動 SSMS。
 
-	![按一下資料庫的名稱][2]
-4. 在選取名稱時 (a)，按一下 [屬性] (b)。複製伺服器的名稱 (c) 和系統管理員的名稱 (d)。系統管理員名稱和密碼是在建立 SQL Database 時所建立。您必須有密碼才能繼續進行下一個步驟。
 
-	![按一下 [SQL Server]、[設定] 和 [屬性]][3]
-5. 開啟 SQL Server Management Studio 2014。
-6. 在 [連接到伺服器] 對話方塊的 [伺服器名稱] 方塊 (a) 中貼上伺服器的名稱。將 [驗證] 設定為 [SQL Server 驗證] (b)。在 [登入] 方塊 (c) 中貼上伺服器系統管理員的名稱，然後輸入其密碼 (d)。然後按一下 [選項] (e)。
+## 連接到您的 SQL Database
+1. 開啟 SSMS。
+2. 在 [**連至到伺服器**] 視窗的 [**伺服器名稱**] 方塊中，輸入格式為 *&lt;servername>*.**database.windows.net** 的伺服器名稱。
+3. 在 [**驗證**] 下拉式方塊中，選取 [**SQL Server 驗證**]。
+4. 輸入您建立 SQL Database 伺服器時指定的 [**登入**] 和 [**密碼**]。
 
-	![SSMS 登入對話方塊][4]
-7. 在 [連接屬性] 索引標籤中，將 [連接到資料庫] 方塊設定為 [主要] (或您要連接的任何其他資料庫)。然後按一下 [連接]。
+	![[連接至伺服器] 對話方塊][2]
+5. 按一下 [**選項**] 按鈕。
+6. 在 [**連接至資料庫**] 方塊中輸入**AdventureWorks**，然後按一下 [**連接**]。
 
-	![設定為 [主要] 並按一下 [連接]][5]
+	![連接至資料庫][3]
 
-## 連接問題的疑難排解
+### 如果連接失敗
+確定您建立之邏輯伺服器的防火牆允許來自本機電腦的連線。請參閱[作法：進行防火牆設定 (Azure SQL Database)](https://msdn.microsoft.com/library/azure/jj553530.aspx)
 
-如果發生問題，請參閱 [Azure SQL Database 連接問題的疑難排解](https://support.microsoft.com/kb/2980233/)。如需可能的問題和解答清單，請參閱 [Microsoft Azure SQL Database 連接的疑難排解](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1)。
+## 執行範例查詢
+
+1. 在 [**物件總管**] 中，瀏覽至 **AdventureWorks** 資料庫。
+2. 在資料庫上按一下滑鼠右鍵，然後按一下 [**新增查詢**]。
+
+	![新增查詢][4]
+3. 在新開啟的查詢視窗中，複製並貼上下列程式碼：
+
+		SELECT 
+		CustomerId
+		,Title
+		,FirstName
+		,LastName
+		,CompanyName
+		FROM SalesLT.Customer;
+
+4. 然後按一下 [**執行**] 按鈕。成功時如下所示：![成功][5]
 
 
 ## 後續步驟
@@ -55,11 +70,11 @@
 
 <!--Image references-->
 
-[1]: ./media/sql-database-connect-to-database/browse-vms.png
-[2]: ./media/sql-database-connect-to-database/sql-databases.png
-[3]: ./media/sql-database-connect-to-database/blades.png
-[4]: ./media/sql-database-connect-to-database/ssms-connect-to-server.png
-[5]: ./media/sql-database-connect-to-database/ssms-master.png
+[1]: ./media/sql-database-connect-to-database/1-download.png
+[2]: ./media/sql-database-connect-to-database/2-connect.png
+[3]: ./media/sql-database-connect-to-database/3-connect-to-database.png
+[4]: ./media/sql-database-connect-to-database/4-run-query.png
+[5]: ./media/sql-database-connect-to-database/5-success.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

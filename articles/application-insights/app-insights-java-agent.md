@@ -21,7 +21,7 @@
 
 如果您已[使用 Application Insights 檢測您的 Java Web 應用程式][java]，您可以使用 Java 代理程式來取得更深入的見解，而不需變更任何程式碼：
 
-* **遠端相依性：**您的應用程式透過 [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) 驅動程式進行的呼叫的相關資料，例如 MySQL、SQL Server、PostgreSQL 或 SQLite。
+* **遠端相依性：**您的應用程式透過 [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) 驅動程式 (例如 MySQL、SQL Server、PostgreSQL 或 SQLite) 進行的呼叫的相關資料。
 * **攔截到例外狀況：**由您的程式碼處理的例外狀況的相關資料。
 * **方法執行時間：**執行特定的方法所花費的時間相關資料。
 
@@ -43,7 +43,7 @@
 
 ## 設定代理程式
 
-建立名為 `AI-Agent.xml` 的檔案，並將它放在與代理程式 JAR 檔相同的資料夾。
+建立名為 `AI-Agent.xml` 的檔案，並將它放在與代理程式 JAR 檔案相同的資料夾。
 
 設定 XML 檔案的內容。編輯下列範例以包含或省略您要的功能。
 
@@ -85,7 +85,9 @@
 
 在 Application Insights 資源中，彙總的遠端相依性和方法執行時間會出現[在效能磚下][metrics]。
 
-若要搜尋相依性、例外狀況及方法報告的個別執行個體，請開啟 [[搜尋][diagnostic]]。
+若要搜尋相依性、例外狀況及方法報告的個別執行個體，請開啟[搜尋][diagnostic]。
+
+[診斷相依性問題 - 深入了解](app-insights-dependencies.md#diagnosis)。
 
 ## 有疑問嗎？ 有問題嗎？
 
@@ -107,4 +109,4 @@
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

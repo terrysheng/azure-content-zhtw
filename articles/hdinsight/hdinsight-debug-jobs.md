@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	editor="cgronlun" 
 	manager="paulettm" 
-	authors="bradsev" 
+	authors="mumian" 
 	documentationCenter=""/>
 
 <tags 
@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
-	ms.author="bradsev"/>
+	ms.date="07/08/2015" 
+	ms.author="jgao"/>
 
 # 對 HDInsight 中的 Hadoop 偵錯：解譯錯誤訊息
 
-## 簡介
 本主題列舉的錯誤訊息可協助 Azure HDInsight 的 Hadoop 使用者了解，他們在使用 Azure PowerShell 來管理服務時可能遭遇的錯誤狀況，並建議一些步驟供他們從錯誤中回復。
 
 使用 Azure 入口網站管理 HDinsight 叢集時也可能會看到其中某些錯誤訊息。但由於此情況下可能採取的補救動作有其限制，您可能看到的其他錯誤訊息比較不詳細。在很顯然有緩和措施的情況下，則會提供其他錯誤訊息。舉例來說，如果違反參數的限制，則輸入值的方塊右上角會彈出訊息。以下是要求太多資料節點的例子。補救方法是將數量減少到 22 以下的允許值。
@@ -233,4 +232,4 @@
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

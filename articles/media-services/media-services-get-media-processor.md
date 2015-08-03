@@ -97,4 +97,4 @@
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [如何：以程式設計方式連接到媒體服務]: ../media-services-set-up-computer/
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

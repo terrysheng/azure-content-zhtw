@@ -79,7 +79,7 @@
 | elasticPoolId | 集區執行個體的 GUID。 |
 | elasticPoolName | 集區的名稱。此名稱是其父伺服器的唯一相對名稱。 |
 | location | 建立集區的資料中心位置。 |
-| state | 如果訂用帳戶的帳單付款有拖欠，則狀態為「已停用」，反之為「就緒」。 |
+| state | 如果訂閱的帳單付款有拖欠，則狀態為「已停用」，反之為「就緒」。 |
 | storageMB | 集區的儲存體限制 (MB)。集區中的任何單一資料庫可以使用的上限為標準版的儲存體限制 (250 GB)，但集區中的所有資料庫使用的儲存體總計不能超過此集區限制。 |
 
 
@@ -152,7 +152,7 @@ Azure SQL Database V12 伺服器位於資源群組中。
 | Get-Metrics | Get Metrics |
 
 
-## 計費和價格資訊
+## 計費和定價資訊
 
 彈性資料庫集區會依據下列特性計費：
 
@@ -164,7 +164,7 @@ Azure SQL Database V12 伺服器位於資源群組中。
 - 彈性集區的價格是以集區的 DTU 數和集區中的資料庫數目為計算基礎。
 - 價格的計算方式為 (集區的 DTU 數) x (每 DTU 的單價) + (資料庫數目) x (每個資料庫的單價)
 
-在同一個服務層中，彈性集區的 DTU 單價大於獨立資料庫的 DTU 單價。如需詳細資訊，請參閱 [SQL Database 價格](http://azure.microsoft.com/pricing/details/sql-database/)。
+在同一個服務層中，彈性集區的 DTU 單價大於獨立資料庫的 DTU 單價。如需詳細資訊，請參閱 [SQL Database 定價](http://azure.microsoft.com/pricing/details/sql-database/)。
 
 ## 彈性資料庫集區錯誤
 
@@ -191,4 +191,4 @@ Azure SQL Database V12 伺服器位於資源群組中。
 | 40891 | EX_USER | 每個資料庫的最小 DTU (%d) 不能超過每個資料庫的最大 DTU (%d)。 | 每個資料庫的最小 DTU、每個資料庫的最大 DTU。 | 試圖將每個資料庫的最小 DTU 設為超過每個資料庫的最大 DTU。 | 請確定每個資料庫的最小 DTU 並未超過每個資料庫的最大 DTU。 |
 | TBD | EX_USER | 彈性集區中個別資料庫的儲存體大小，不能超過 '%.*ls' 服務層彈性集區所允許的大小上限。 | 彈性集區服務層 | 資料庫的大小上限超過彈性集區服務層所允許的大小上限。 | 請將資料庫的大小上限設定在彈性集區服務層所允許的大小上限內。 |
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

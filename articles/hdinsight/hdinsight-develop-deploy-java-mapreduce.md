@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/01/2015"
+	ms.date="07/11/2015"
 	ms.author="nitinme"/>
 
 # 在 HDInsight 上開發 Hadoop 的 Java MapReduce 程式
@@ -26,7 +26,7 @@
 
 開始進行本教學課程之前，您必須完成下列工作：
 
-- 安裝 HDInsight Emulator。如需指示，請參閱＜[開始使用 HDInsight Emulator][hdinsight-emulator]＞。確定所有必要服務都在執行中。在已安裝 HDInsight Emulator 的電腦上，從桌面捷徑啟動 Hadoop 命令列，導覽至 **C:\\hdp**，然後執行命令 **start_local_hdp_services.cmd**。
+- 安裝 HDInsight Emulator。如需指示，請參閱＜[開始使用 HDInsight Emulator][hdinsight-emulator]＞。確定所有必要服務都在執行中。在已安裝 HDInsight Emulator 的電腦上，從桌面捷徑啟動 Hadoop 命令列，導覽至 **C:\hdp**，然後執行命令 **start_local_hdp_services.cmd**。
 - 在模擬器電腦上安裝 Azure PowerShell。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。
 - 在模擬器電腦上安裝 Java 平台 JDK 7 或更高版本。模擬器電腦上已有此版本。
 - 安裝和設定 [Apache Maven](http://maven.apache.org/)。
@@ -44,7 +44,7 @@
 
 **使用 Maven 建立專案**
 
-1. 建立目錄 **C:\\Tutorials\\WordCountJava**。2. 從開發環境的命令列中，將目錄切換至您建立的位置。
+1. 建立目錄 **C:\Tutorials\WordCountJava**。2. 從開發環境的命令列中，將目錄切換至您建立的位置。
 3. 使用隨 Maven 一起安裝的 __mvn__ 命令來產生專案的結構。
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -53,8 +53,8 @@
 
 	* __pom.xml__ - [專案物件模型 (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)，包含用來建置專案的資訊和組態詳細資料。
 
-	* __src__ - 含有 __main\\java\\org\\apache\\hadoop\\examples__ 目錄的目錄，您將在此撰寫應用程式。
-3. 刪除 __src\\test\\java\\org\\apache\\hadoop\\examples\\apptest.java__ 檔案，因為此範例中不會用到。
+	* __src__ - 含有 __main\java\org\apache\hadoop\examples__ 目錄的目錄，您將在此撰寫應用程式。
+3. 刪除 __src\test\java\org\apache\hadoop\examples\apptest.java__ 檔案，因為此範例中不會用到。
 
 **更新 POM**
 
@@ -112,7 +112,7 @@
 
 **建立字數統計應用程式**
 
-1. 移至 __wordcountjava\\src\\main\\java\\org\\apache\\hadoop\\examples__ 目錄，將 __app.java__ 檔案重新命名為 __WordCount.java__。
+1. 移至 __wordcountjava\src\main\java\org\apache\hadoop\examples__ 目錄，將 __app.java__ 檔案重新命名為 __WordCount.java__。
 2. 開啟記事本。
 2. 將下列程式複製並貼到記事本中：
 
@@ -199,7 +199,7 @@
 
 	這會清除任何先前的組建成品、下載任何尚未安裝的相依項目，然後建置並封裝應用程式。
 
-3. 命令完成時，__wordcountjava\\target__ 目錄將包含一個名為 __wordcountjava-1.0-SNAPSHOT.jar__ 的檔案。
+3. 命令完成時，__wordcountjava\target__ 目錄將包含一個名為 __wordcountjava-1.0-SNAPSHOT.jar__ 的檔案。
 
 	> [AZURE.NOTE]__wordcountjava-1.0-SNAPSHOT.jar__ 檔案是 uberjar。
 
@@ -305,7 +305,7 @@
 ##<a id="upload"></a>將資料和應用程式上傳至 Azure Blob 儲存體
 Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight 叢集時，Azure Blob 儲存體容器用來儲存系統檔案。您可以使用此預設容器或不同的容器 (在相同的 Azure 儲存體帳戶上，或與叢集相同的資料中心上的不同儲存體帳戶) 來儲存資料檔案。
 
-本教學課程中，您將在另一個儲存體帳戶上建立容器來儲存資料檔案和 MapReduce 應用程式。資料檔是模擬器工作站上的 **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\doc\\hadoop\\common** 目錄中的文字檔。
+本教學課程中，您將在另一個儲存體帳戶上建立容器來儲存資料檔案和 MapReduce 應用程式。資料檔是模擬器工作站上的 **C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common** 目錄中的文字檔。
 
 **建立 Blob 儲存體和容器**
 
@@ -351,7 +351,7 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
 
 	**$storageAccountName_Data** 和 **$containerName_Data** 變數與您在上一個程序中的定義相同。
 
-	請注意，來源檔案資料夾是 **c:\\Hadoop\\hadoop-1.1.0-SNAPSHOT**，目的地資料夾是 **WordCount/Input**。
+	請注意，來源檔案資料夾是 **c:\Hadoop\hadoop-1.1.0-SNAPSHOT**，目的地資料夾是 **WordCount/Input**。
 
 3. 執行下列命令來取得來源檔案資料夾中的 .txt 檔案清單：
 
@@ -546,7 +546,7 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
 **擷取輸出**
 
 1. 開啟 Azure PowerShell 視窗。
-2. 切換至 **C:\\Tutorials\\WordCountJava** 目錄。預設 Azure PowerShell 資料夾是 **C:\\Windows\\System32\\WindowsPowerShell\\v1.0**。您執行的 Cmdlet 會將輸出檔案下載至目前的資料夾。您沒有權限將檔案下載至系統資料夾。
+2. 切換至 **C:\Tutorials\WordCountJava** 目錄。預設 Azure PowerShell 資料夾是 **C:\Windows\System32\WindowsPowerShell\v1.0**。您執行的 Cmdlet 會將輸出檔案下載至目前的資料夾。您沒有權限將檔案下載至系統資料夾。
 2. 執行下列命令來設定值：
 
 		$subscriptionName = "<AzureSubscriptionName>"
@@ -609,4 +609,4 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

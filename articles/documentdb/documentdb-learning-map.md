@@ -23,4 +23,4 @@ Azure DocumentDB 是全新設計的 NoSQL 文件資料庫服務，目的是直�
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/DocumentDB.Content.Flow.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

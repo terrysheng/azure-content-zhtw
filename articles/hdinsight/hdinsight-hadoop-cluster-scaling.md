@@ -145,4 +145,4 @@ HDInsight 叢集上有提供 Storm Web UI：
 請參閱[使用自訂選項在 HDInsight 上佈建 Hadoop 叢集](hdinsight-provision-clusters.md)主題，以取得如何使用 HDInsight .NET SDK 的詳細資訊。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

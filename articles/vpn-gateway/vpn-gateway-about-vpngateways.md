@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/10/2015"
+   ms.date="07/13/2015"
    ms.author="cherylmc" />
 
 # 關於 VPN 閘道
@@ -53,7 +53,7 @@ VPN 閘道的 SKU 有 3 種類型；基本、標準以及高效能。下方資�
 
 | **屬性** | **靜態路由 VPN 閘道** | **動態路由 VPN 閘道** | **標準 VPN 閘道** | **高效能 VPN 閘道** |
 |-----------------------------------------|--------------------------------|-----------------------------------------------------------------------|-----------------------------------|----------------------------------|
-| 站台對站台連線 (S2S) | 原則式 VPN 組態 | 路由式 VPN 組態 | 路由式 VPN 組態 | 路由式 VPN 組態 |
+| 站對站連線能力 (S2S) | 原則式 VPN 組態 | 路由式 VPN 組態 | 路由式 VPN 組態 | 路由式 VPN 組態 |
 | 點對站台連線 (P2S) | 不支援 | 支援 (可與 S2S 並存) | 支援 (可與 S2S 並存) | 支援 (可與 S2S 並存) |
 | 驗證方法 | 預先共用金鑰 | -S2S 連線的預先共用金鑰 -P2S 連線的憑證 | -S2S 連線的預先共用金鑰 -P2S 連線的憑證 | -S2S 連線的預先共用金鑰 -P2S 連線的憑證 |
 | S2S 連接的數目上限 | 1 | 10 | 10 | 30 |
@@ -67,16 +67,16 @@ VPN 閘道的 SKU 有 3 種類型；基本、標準以及高效能。下方資�
 
 設定您的虛擬網路。針對跨單位連接，請參閱下列文章：
 
-- [設定 Azure 虛擬網路的跨單位站台對站台連接](vpn-gateway-site-to-site-create.md)
+- [設定 Azure 虛擬網路的跨單位站台對站台連線](vpn-gateway-site-to-site-create.md)
 - [設定 Azure 虛擬網路的點對站台 VPN 連接](vpn-gateway-point-to-site-create.md)
 - [使用 Windows Server 2012 路由及遠端存取服務 (RRAS) 設定站台對站台 VPN](https://msdn.microsoft.com/library/dn636917.aspx)
 
-如果您想要設定 VPN 閘道，請參閱＜[設定 VPN 閘道](http://go.microsoft.com/fwlink/p/?LinkId=615106)＞。
+如果您想要設定 VPN 閘道，請參閱＜[設定 VPN 閘道](vpn-gateway-configure-vpn-gateway-mp.md)＞。
 
-如果您想要變更 VPN 閘道類型，請參閱＜[變更虛擬網路 VPN 閘道類型](http://go.microsoft.com/fwlink/p/?LinkId=615109)＞。
+如果您想要變更 VPN 閘道類型，請參閱[變更虛擬網路 VPN 閘道路由類型](vpn-gateway-configure-vpn-gateway-mp.md)。
 
 如果您想要將多個網站連接至虛擬網路，請參閱＜[將多個內部部署網站連接至虛擬網路](http://go.microsoft.com/fwlink/p/?LinkID=615106)＞。
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

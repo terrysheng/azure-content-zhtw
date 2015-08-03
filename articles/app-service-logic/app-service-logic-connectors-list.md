@@ -94,4 +94,4 @@ MQ | 連接至內部部署和執行 Windows 作業系統的 Azure 虛擬機器�
 
 [什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)<br/>[在 Azure App Service 中使用混合連線管理員](app-service-logic-hybrid-connection-manager.md)<br/>[管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

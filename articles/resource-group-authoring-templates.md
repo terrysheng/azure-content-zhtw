@@ -405,4 +405,4 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 - [Azure 資源管理員概觀](./resource-group-overview.md)
 - [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -66,7 +66,7 @@
 
 ###新增程式碼
 
-1. 從<a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">此處</a>下載通知中樞 Android SDK。解壓縮 .zip 檔案，並將 **notificationhubs\\notification-hubs-0.4.jar** 和 **notifications\\notifications-1.0.1.jar** 複製到專案的 **app\\libs**。在 Android Studio 的 [Project View] 視窗中，將檔案直接拖曳到 **libs** 資料夾，即可完成此作業。重新整理 libs 資料夾。
+1. 從<a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">此處</a>下載通知中樞 Android SDK。解壓縮 .zip 檔案，並將 **notificationhubs\notification-hubs-0.4.jar** 和 **notifications\notifications-1.0.1.jar** 複製到專案的 **app\libs**。在 Android Studio 的 [Project View] 視窗中，將檔案直接拖曳到 **libs** 資料夾，即可完成此作業。重新整理 libs 資料夾。
 
 
 
@@ -511,4 +511,4 @@
 [使用通知中心傳送即時新聞]: notification-hubs-aspnet-backend-android-breaking-news.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

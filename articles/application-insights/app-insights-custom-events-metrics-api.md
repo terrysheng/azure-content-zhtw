@@ -630,4 +630,4 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -15,4 +15,4 @@ Azure 將會使用下列優先順序，決定要用於其虛擬環境的 Python 
 
 如果指定微版本 (第三個數字)，則會忽略它。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -133,4 +133,4 @@ call
 
 	IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

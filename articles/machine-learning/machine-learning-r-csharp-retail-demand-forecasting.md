@@ -137,4 +137,4 @@ Azure Machine Learning 中已建立新的空白實驗，並已使用預先定義
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

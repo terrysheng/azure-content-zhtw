@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # 在 Azure Data Factory 中使用複製活動的進階案例 
@@ -24,34 +24,11 @@
 ## 使用結構定義的資料行篩選
 根據資料表類型，您可以在資料表定義的**結構**定義中，指定比存在於基礎資料來源中的資料行還少的資料行，即可從來源指定資料行的子集。下表提供不同資料表類型之資料行篩選邏輯的相關資訊。
 
-<table>
-
-	<tr>
-		<th align="left">資料表類型</th>
-		<th align="left">資料行篩選邏輯</th>
-	<tr>
-
-	<tr>
-		<td>AzureBlobLocation</td>
-		<td>資料表 JSON 中的<b>結構</b>定義必須與 Blob 的結構相符。若要選取資料行的子集，請使用下一節中所述的資料行對應功能：轉換規則 - 資料行對應。</td>
-	<tr>
-
-	<tr>
-		<td>AzureSqlTableLocation 和 OnPremisesSqlServerTableLocation</td>
-		<td align="left">
-			如果複製活動定義中指定屬性 <b>SqlReaderQuery</b>，則資料表的<b>結構</b>定義應該與查詢中選取的資料行一致。<br/><br/>
-			如果未指定屬性 <b>SqlReaderQuery</b>，複製活動將會根據資料表定義的<b>結構</b>定義中指定的資料行，自動建構 SELECT 查詢。
-		</td>
-	<tr>
-
-	<tr>
-		<td>AzureTableLocation</td>
-		<td>
-			資料表定義中的<b>結構</b>區段可以包含基礎 Azure 資料表的全部或一部分資料行。
-		</td>
-	<tr>
-
-</table>
+| 資料表類型 | 資料行篩選邏輯 |
+|-------------------|----------------------- |
+| AzureBlobLocation |資料表 JSON 中的結構定義必須與 Blob 的結構相符。若要選取資料行的子集，請使用下一節中所述的資料行對應功能：轉換規則 - 資料行對應。 | 
+| AzureSqlTableLocation 和 OnPremisesSqlServerTableLocation | 如果屬性 SqlReaderQuery 指定為複製活動定義的一部分，資料表的結構定義應該配合查詢中選取的資料行。如果未指定 f 屬性 SqlReaderQuery，複製活動會自動根據資料表定義的結構定義中指定的資料行建構 SELECT 查詢 |
+| AzureTableLocation | 資料表定義中的「結構」區段可以包含基礎 Azure 資料表的全部或一部分資料行。
 
 ## 轉換規則 - 資料行對應
 資料行對應可以用來指定來源資料表中的資料行如何對應至接收器資料表中的資料行。它支援下列案例：
@@ -213,49 +190,14 @@
 
 資料表定義的「結構」區段中指定的資料類型，僅適用於 **BlobSource**。下表說明為其他類型的來源和接收器處理資料類型的方式。
 
-<table>	
-	<tr>
-		<th align="left">來源/接收器</th>
-		<th align="left">資料類型處理邏輯</th>
-	</tr>	
-
-	<tr>
-		<td>SqlSource</td>
-		<td>資料表定義的<b>結構</b>區段中定義的資料類型會被忽略。基礎 SQL 資料庫上定義的資料類型將在複製活動期間，用來擷取資料。</td>
-	</tr>
-
-	<tr>
-		<td>SqlSink</td>
-		<td>資料表定義的<b>結構</b>區段中定義的資料類型會被忽略。基礎來源和目的地上的資料類型將被比較，如果有類型不符的情況，就會以隱含方式進行類型轉換。</td>
-	</tr>
-
-	<tr>
-		<td>BlobSource</td>
-		<td>從 <b>BlobSource</b> 傳輸至 <b>BlobSink</b> 時，不會轉換類型。資料表定義的<b>結構</b>區段中定義的資料類型會被忽略。針對 <b>BlobSink</b> 以外的目的地，將會接受資料表定義的<b>結構</b>區段中定義的資料類型。<br/><br/>
-		如果資料表定義中未指定<b>結構</b>，則會根據 <b>BlobSource</b> 資料表的 <b>format</b> 屬性來處理類型：
-		<ul>
-			<li> <b>TextFormat：</b>所有資料行類型都視為字串，且所有資料行名稱都設為 "Prop_&lt;0-N>"</li> 
-			<li><b>AvroFormat：</b>使用 Avro 檔案中的內建資料行類型和名稱。</li> 
-		</ul>
-		</td>
-	</tr>
-
-	<tr>
-		<td>BlobSink</td>
-		<td>資料表定義的<b>結構</b>區段中定義的資料類型會被忽略。會使用定義於基礎輸入資料存放區的資料類型。資料行將針對 Avro 序列化指定為可為 Null。</td>
-	</tr>
-
-	<tr>
-		<td>AzureTableSource</td>
-		<td>資料表定義的<b>結構</b>區段中定義的資料類型會被忽略。將使用基礎 Azure 資料表上定義的資料類型。</td>
-	</tr>
-
-	<tr>
-		<td>AzureTableSink</td>
-		<td>資料表定義的<b>結構</b>區段中定義的資料類型會被忽略。會使用定義於基礎輸入資料存放區的資料類型。</td>
-	</tr>
-
-</table>
+| 來源/接收器 | 資料類型處理邏輯 |
+| ----------- | ------------------------ |
+| SqlSource | 資料表定義的「結構」區段中定義的資料類型會被忽略。基礎 SQL 資料庫上定義的資料類型將在複製活動期間，用來擷取資料。 |
+| SqlSink | 資料表定義的「結構」區段中定義的資料類型會被忽略。基礎來源和目的地上的資料類型將被比較，如果有類型不符的情況，就會以隱含方式進行類型轉換。 |
+| BlobSource | 從 BlobSource 傳輸至 BlobSink 時，不會轉換類型。資料表定義的「結構」區段中定義的資料類型會被忽略。針對 BlobSink 以外的目的地，將會接受資料表定義的「結構」區段中定義的資料類型。如果資料表定義中未指定結構，類型處理取決於 BlobSource 表格的格式屬性：TextFormat：所有資料行類型都視為字串，且所有資料行名稱都會設為 "Prop_<0-N>"。AvroFormat：使用 Avro 檔案中的內建資料行類型和名稱。
+| BlobSink | 資料表定義的「結構」區段中定義的資料類型會被忽略。會使用定義於基礎輸入資料存放區的資料類型。資料行將針對 Avro 序列化指定為可為 Null |
+| AzureTableSource | 資料表定義的「結構」區段中定義的資料類型會被忽略。將使用基礎 Azure 資料表上定義的資料類型。 |
+| AzureTableSink | 資料表定義的「結構」區段中定義的資料類型會被忽略。會使用定義於基礎輸入資料存放區的資料類型。 |
 
 **注意：**Azure 資料表僅支援一組有限的資料類型，請參閱[了解表格服務資料模型][azure-table-data-type]。
 
@@ -347,4 +289,4 @@
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

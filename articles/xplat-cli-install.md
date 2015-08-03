@@ -153,4 +153,4 @@ Azure CLI 是以 JavaScript 所撰寫，而且需要 [Node.js](https://nodejs.or
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

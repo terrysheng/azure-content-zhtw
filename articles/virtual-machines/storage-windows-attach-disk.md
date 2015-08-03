@@ -1,30 +1,31 @@
-<properties 
-	pageTitle="將磁碟附加至虛擬機器 | Azure" 
-	description="了解如何將資料磁碟附加至 Azure 虛擬機器，並初始化磁碟以便開始使用。" 
-	services="virtual-machines, storage" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="將磁碟附加至虛擬機器 | Azure"
+	description="了解如何將資料磁碟附加至 Azure 虛擬機器，並初始化磁碟以便開始使用。"
+	services="virtual-machines, storage"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/16/2015"
 	ms.author="kathydav"/>
 
 # 如何將資料磁碟附加至 Windows 虛擬機器
 
-您可以連結空的磁碟和含有資料的磁碟。在這兩種情況下，磁碟實際上是位於 Azure 儲存體帳戶中的 .vhd 檔案。另外，在這兩種情況下，當您附加磁碟之後，磁碟必須完成初始化才能使用。
+您可以附加空的磁碟和含有資料的磁碟。在這兩種情況下，磁碟實際上是位於 Azure 儲存體帳戶中的 .vhd 檔案。另外，在這兩種情況下，當您附加磁碟之後，磁碟必須完成初始化才能使用。
 
 > [AZURE.NOTE]最好使用一或多個不同的磁碟來儲存虛擬機器的資料。當您建立 Azure 虛擬機器時，它會有一個作業系統的磁碟對應至 C 磁碟機，還有一個暫存磁碟對應至 D 磁碟機。**請勿使用 D 磁碟機來儲存資料。** 顧名思義，它只提供暫存儲存空間。它並不提供備援或備份，因為它不在 Azure 儲存體內。
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-## <a id="initializeinWS"></a>做法：在 Windows Server 中初始化新的資料磁碟
+## <a id="initializeinWS"></a>作法：在 Windows Server 中初始化新的資料磁碟
 
 1. 連接至虛擬機器。如需指示，請參閱[如何登入執行 Windows Server 的虛擬機器][logon]。
 
@@ -42,8 +43,14 @@
 
 	![成功初始化磁碟區](./media/storage-windows-attach-disk/newvolumecreated.png)
 
-> [AZURE.NOTE]虛擬機器的大小會決定您可以連結的磁碟數目。如需詳細資訊，請參閱[雲端服務和虛擬機器大小](https://msdn.microsoft.com/library/azure/dn197896.aspx)。
+> [AZURE.NOTE]虛擬機器的大小會決定您可以連結的磁碟數目。如需詳細資訊，請參閱[虛擬機器的大小](virtual-machines-size-specs.md)。
+
+## 其他資源
+
+[如何從 Windows 虛擬機器卸離磁碟](storage-windows-detach-disk.md)
+
+[有關虛擬機器的磁碟和 VHD](virtual-machines-disks-vhds.md)
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

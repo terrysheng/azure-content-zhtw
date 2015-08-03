@@ -122,9 +122,9 @@ Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows Powe
 
 	- **$ContainerName：**使用指令碼中的指定名稱，或是為容器的輸入新名稱。
 
-	- **$ImageToUpload：**輸入位於本機電腦上的圖片的路徑，例如：「C:\\Images\\HelloWorld.png」。
+	- **$ImageToUpload：**輸入位於本機電腦上的圖片的路徑，例如：「C:\Images\HelloWorld.png」。
 
-	- **$DestinationFolder：**輸入本機目錄的路徑，以儲存從 Azure 儲存體下載的檔案，例如：「C:\\DownloadImages」。
+	- **$DestinationFolder：**輸入本機目錄的路徑，以儲存從 Azure 儲存體下載的檔案，例如：「C:\DownloadImages」。
 
 7.	更新「mystoragescript.ps1」檔案中的指令碼變數之後，請按一下 [**檔案**] > [**儲存**]。然後按一下 [**偵錯**] > [**執行**]，或按 **F5** 以執行指令碼。
 
@@ -421,17 +421,17 @@ Azure 資料表儲存體服務是 NoSQL 資料存放區，您可以用來儲存�
 下列範例示範如何將實體加入至資料表。此範例示範如何擷取員工資料表並在其中加入數個項實體。首先，它會先使用儲存體帳戶內容建立 Azure 儲存體的連線，其中包含儲存體帳戶名稱及其存取金鑰 。接著，再使用 [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) Cmdlet 擷取指定的資料表。如果資料表不存在，可使用 [New-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806417.aspx) Cmdlet 在 Azure 儲存體中建立資料表。接下來，此範例會定義 Add-Entity 自訂函數，經由指定每個實體的磁碟分割和資料列索引鍵，將實體加入至資料表。Add-Entity 函數會在 [Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.dynamictableentity.aspx) 類別上呼叫 [New-Object](http://technet.microsoft.com/library/hh849885.aspx) Cmdlet，以建立實體物件。之後，此範例會在此實體物件上呼叫 [Microsoft.WindowsAzure.Storage.Table.TableOperation.Insert](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.insert.aspx) 方法，以將它加入至資料表。
 
     #Function Add-Entity: Adds an employee entity to a table.
-    function Add-Entity()
-    {
-    param(
-       $table,
-       [String]$partitionKey,
-       [String]$rowKey,
-       [String]$name,
-       [Int]$id
-    )
+    function Add-Entity() {
+        [CmdletBinding()]
+        param(
+           $table,
+           [String]$partitionKey,
+           [String]$rowKey,
+           [String]$name,
+           [Int]$id
+        )
 
-      $entity = New-Object Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity $partitionKey, $rowKey
+      $entity = New-Object -TypeName Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity -ArgumentList $partitionKey, $rowKey
       $entity.Properties.Add("Name", $name)
       $entity.Properties.Add("ID", $id)
 
@@ -440,8 +440,8 @@ Azure 資料表儲存體服務是 NoSQL 資料存放區，您可以用來儲存�
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
     $TableName = "Employees"
 
     #Retrieve the table if it already exists.
@@ -454,19 +454,18 @@ Azure 資料表儲存體服務是 NoSQL 資料存放區，您可以用來儲存�
     }
 
     #Add multiple entities to a table.
-    Add-Entity $table "Partition1" "Row1" "Chris" 1
-    Add-Entity $table "Partition1" "Row2" "Jessie" 2
-    Add-Entity $table "Partition2" "Row1" "Christine" 3
-    Add-Entity $table "Partition2" "Row2" "Steven" 4
-
+    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row1 -Name Chris -Id 1
+    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Jessie -Id 2
+    Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row1 -Name Christine -Id 3
+    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Steven -Id 4
 
 #### 如何查詢資料表實體
 若要查詢資料表，請使用 [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx) 類別。下列範例假設您已執行本指南的「如何新增實體」一節中提供的指令碼。此範例會先使用儲存體內容建立 Azure 儲存體的連線，其中包含儲存體帳戶名稱及其存取金鑰 。接著，再使用 [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) Cmdlet 嘗試擷取先前建立的「員工」資料表。在 Microsoft.WindowsAzure.Storage.Table.TableQuery 類別上呼叫 [New-Object](http://technet.microsoft.com/library/hh849885.aspx) Cmdlet，可建立新的查詢物件。此範例會尋找 'ID' 資料行的值為 1 (如字串篩選條件中指定) 的實體。如需詳細資訊，請參閱 [查詢資料表和實體](http://msdn.microsoft.com/library/azure/dd894031.aspx)。當您執行此查詢時，它會傳回所有符合篩選準則的所有實體。
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary;
     $TableName = "Employees"
 
     #Get a reference to a table.
@@ -497,16 +496,15 @@ Azure 資料表儲存體服務是 NoSQL 資料存放區，您可以用來儲存�
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
     #Retrieve the table.
     $TableName = "Employees"
     $table = Get-AzureStorageTable -Name $TableName -Context $Ctx -ErrorAction Ignore
 
     #If the table exists, start deleting its entities.
-    if ($table -ne $null)
-    {
+    if ($table -ne $null) {
        #Together the PartitionKey and RowKey uniquely identify every  
        #entity within a table.
        $tableResult = $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Retrieve(“Partition2”, "Row1"))
@@ -527,8 +525,8 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
     $QueueName = "queuename"
     $Queue = New-AzureStorageQueue –Name $QueueName -Context $Ctx
 
@@ -560,18 +558,17 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
     #Retrieve the queue.
     $QueueName = "queuename"
     $Queue = Get-AzureStorageQueue -Name $QueueName -Context $ctx
 
     #If the queue exists, add a new message.
-    if ($Queue -ne $null)
-    {
+    if ($Queue -ne $null) {
        # Create a new message using a constructor of the CloudQueueMessage class.
-       $QueueMessage = New-Object "Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage" "MessageInfo"
+       $QueueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage -ArgumentList MessageInfo
 
        #Add a new message to the queue.
        $Queue.CloudQueue.AddMessage($QueueMessage)
@@ -583,8 +580,8 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
     #Retrieve the queue.
     $QueueName = "queuename"
@@ -739,4 +736,4 @@ Azure 環境是 Microsoft Azure 的獨立部署，例如[適用於美國政府�
 [Next Steps]: #next
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

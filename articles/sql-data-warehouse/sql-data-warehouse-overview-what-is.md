@@ -63,15 +63,15 @@ Polybase 讓查詢 Azure blob 儲存體或 Hadoop 檔案系統 (HDFS) 中的非�
 
 
 ## 後續步驟
-了解 [資料倉儲工作負載]。
+了解[資料倉儲工作負載]。
 
 <!--Image references-->
 
 <!--Article references-->
-[資料倉儲工作負載] sql-data-warehouse-overview-workload.md
+[資料倉儲工作負載]: ./sql-data-warehouse-overview-workload.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

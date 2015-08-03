@@ -307,4 +307,4 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

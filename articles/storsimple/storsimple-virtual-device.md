@@ -371,4 +371,4 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 - 按一下 [**刪除**]，然後選擇刪除所有的虛擬機器磁碟。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -63,7 +63,7 @@ Azure 備份與 Azure 匯入/匯出服務密切整合，可讓您快速傳輸初
 
 2. 解壓縮 *WAImportExport.zip* 檔案。執行 *WAImportExport* 工具，以格式化 SATA 磁碟機、將備份資料寫入 SATA 磁碟機並進行加密。執行下列命令之前請確定電腦上已啟用 BitLocker。<br/>
 
-    *.\\WAImportExport.exe PrepImport /j:<*JournalFile*>.jrn /id: <*SessionId*> /sk:<*StorageAccountKey*> /BlobType:**PageBlob** /t:<*TargetDriveLetter*> /format /encrypt /srcdir:<*staging location*> /dstdir: <*DestinationBlobVirtualDirectory*>/*
+    *.\WAImportExport.exe PrepImport /j:<*JournalFile*>.jrn /id: <*SessionId*> /sk:<*StorageAccountKey*> /BlobType:**PageBlob** /t:<*TargetDriveLetter*> /format /encrypt /srcdir:<*staging location*> /dstdir: <*DestinationBlobVirtualDirectory*>/*
 
 
 | 參數 | 說明
@@ -107,4 +107,4 @@ Azure 備份與 Azure 匯入/匯出服務密切整合，可讓您快速傳輸初
 - 若您有關於 Azure 匯入/匯出工作流程的任何問題，請參閱此[文章](../storage-import-export-service.md)。
 - 若您有關於工作流程的任何問題，請參閱 Azure 備份[常見問題集](backup-azure-backup-faq.md)的＜離線備份＞章節
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

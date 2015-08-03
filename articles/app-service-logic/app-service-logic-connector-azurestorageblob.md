@@ -28,7 +28,7 @@
 
 觸發程序 | 動作
 --- | ---
-無 | <ul><li>取得 Blob：從容器取得特定 Blob</li> <li>上傳 Blob：上傳新的 Blob 或更新現有 Blob</li> <li>刪除 Blob：刪除容器中的特定 Blob</li> <li>列出 Blob：在目錄中列出所有 Blob</li> <li>快照 Blob：建立特定 Blob 的唯讀快照</li><li>複製 Blob：從另一個 Blob 複製以建立新的 Blob。來源 Blob 可能位於相同的帳戶或另一個帳戶中。</li></ul>
+None | <ul><li>取得 Blob：從容器取得特定 Blob</li> <li>上傳 Blob：上傳新的 Blob 或更新現有 Blob</li> <li>刪除 Blob：刪除容器中的特定 Blob</li> <li>列出 Blob：在目錄中列出所有 Blob</li> <li>快照 Blob：建立特定 Blob 的唯讀快照</li><li>複製 Blob：從另一個 Blob 複製以建立新的 Blob。來源 Blob 可能位於相同的帳戶或另一個帳戶中。</li></ul>
 
 
 ## 建立 Azure 儲存體 Blob 連接器
@@ -110,4 +110,4 @@ Blob 寫入內容 | 輸入要上傳之 Blob 的內容和屬性。
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -178,4 +178,4 @@ FTP 連接器支援四個動作。包括
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

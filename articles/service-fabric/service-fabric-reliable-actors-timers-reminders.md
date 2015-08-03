@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="07/09/2015"
    ms.author="amanbha"/>
 
 
@@ -113,6 +113,5 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 ```
 
 如上所示，`UnregisterReminder` 方法會接受 `IActorReminder` 介面。動作項目基底類別支援 `GetReminder` 方法，在傳遞進提醒名稱時可以用來擷取 `IActorReminder` 介面。這很方便，因為動作項目不需保存從 `RegisterReminder` 方法呼叫傳回的 `IActorReminder` 介面。
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

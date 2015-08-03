@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器" 
-	description="了解如何使用 Azure PowerShell 在 Azure 建立和預先設定以 Linux 為基礎的虛擬機器。" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器"
+	description="了解如何使用 Azure PowerShell 在 Azure 建立和預先設定以 Linux 為基礎的虛擬機器。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
+	ms.author="kathydav"/>
 
 # 使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器
 
@@ -57,7 +57,7 @@
 - SUSE Linux Enterprise Server 12
 
 開啟您所選擇的文字編輯器的新執行個體，或是 PowerShell 整合式指令碼環境 (ISE) 的執行個體。將以下內容複製到新的文字檔或 PowerShell ISE 中，以取代 ImageFamily 值。
- 
+
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
@@ -84,7 +84,7 @@
 
 指定初始的 Linux 使用者名稱和密碼 (必要)。選擇強式密碼。要檢查密碼強度，請參閱[密碼檢查程式：使用強式密碼](https://www.microsoft.com/security/pc-security/password-checker.aspx)。
 
-	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."	
+	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
 也可選擇指定已在訂閱中部署的 SSH 金鑰組。
@@ -158,7 +158,7 @@
 如果您將再次建立這個虛擬機器或類似的虛擬機器，您可以：
 
 - 將此命令集儲存為 PowerShell 指令碼檔案 (*.ps1)
-- 在 Azure 管理入口網站的 [自動化] 區段中，將這個命令集儲存為 Azure 自動化 Runbook。 
+- 在 Azure 管理入口網站的 [自動化] 區段中，將這個命令集儲存為 Azure 自動化 Runbook。
 
 ## <a id="examples"></a>範例
 
@@ -169,7 +169,7 @@
 我需要 PowerShell 命令集建立 MySQL 伺服器的初始 Linux 虛擬機器：
 
 - 使用 Ubuntu Server 12.10 映像
-- 名稱為 AZMYSQL1 
+- 名稱為 AZMYSQL1
 - 有 500 GB 的額外資料磁碟
 - 靜態 IP 位址為 192.168.244.4
 - 在 AZDatacenter 虛擬網路的後端子網路中
@@ -184,7 +184,7 @@
 	$vmsize="Large"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."	
+	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
 	$vm1 | Set-AzureSubnet -SubnetNames "BackEnd"
@@ -207,7 +207,7 @@
 
 - 使用 SUSE Linux Enterprise Server 12 映像
 - 名稱為 LOB1
-- 有 50 GB 的額外資料磁碟 
+- 有 50 GB 的額外資料磁碟
 - 是標準 Web 流量的 LOBServers 負載平衡器集合成員
 - 在 AZDatacenter 虛擬網路的前端子網路中
 - 在 Azure TailspinToys 雲端服務中
@@ -221,7 +221,7 @@
 	$vmsize="Medium"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."	
+	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
 	$vm1 | Set-AzureSubnet -SubnetNames "FrontEnd"
@@ -260,6 +260,4 @@
 
 [使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
- 
-
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

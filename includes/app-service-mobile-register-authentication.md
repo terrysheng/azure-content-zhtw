@@ -23,4 +23,4 @@
 <!-- URLs. -->
 [Azure Preview 入口網站]: https://portal.azure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -80,4 +80,4 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

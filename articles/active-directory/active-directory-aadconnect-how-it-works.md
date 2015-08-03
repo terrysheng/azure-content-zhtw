@@ -48,4 +48,4 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

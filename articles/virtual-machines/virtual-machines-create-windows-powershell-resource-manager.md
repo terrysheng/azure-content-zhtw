@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="利用 Azure Resource Manager 和 PowerShell 建立 Windows 虛擬機器" 
-	description="使用 Azure PowerShell 的資源管理模式，輕鬆建立新的 Windows 虛擬機器。" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="利用 Azure Resource Manager 和 PowerShell 建立 Windows 虛擬機器"
+	description="使用 Azure PowerShell 的資源管理模式，輕鬆建立新的 Windows 虛擬機器。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/02/2015"
+	ms.author="davidmu"/>
 
 # 利用 Azure Resource Manager 和 PowerShell 建立 Windows 虛擬機器
 
@@ -30,7 +30,7 @@
 
 	Get-Module azure | format-table version
 
-如果您尚未這樣做，或者需要更新安裝的 Azure PowerShell 版本，請按照[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md) 中的操作方法，在本機電腦安裝 Azure PowerShell。然後，開啟 Azure PowerShell 命令提示字元。
+如果您尚未這樣做，或者需要更新安裝的 Azure PowerShell 版本，請按照[如何安裝和設定 Azure PowerShell](install-configure-powershell.md) 中的操作方法，在本機電腦安裝 Azure PowerShell。然後，開啟 Azure PowerShell 命令提示字元。
 
 首先，您必須使用此命令登入 Azure。
 
@@ -63,7 +63,7 @@
 
 現在，將以下的 PowerShell 命令區塊複製到文字編輯器中。填寫您選擇的儲存體帳戶和位置，取代引號中內容，包括 < and > 在內。
 
-	$stName="<chosen storage account name>"	
+	$stName="<chosen storage account name>"
 	$locName="<chosen Azure location name>"
 	$rgName="TestRG"
 	New-AzureResourceGroup -Name $rgName -Location $locName
@@ -79,7 +79,7 @@
 	$vm = Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
 	$osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/WindowsVMosDisk.vhd"
 	$vm = Set-AzureVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm 
+	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
 最後，將上述命令複製到剪貼簿，然後按滑鼠右鍵，開啟 Azure PowerShell 命令提示字元。這樣發出的命令集就像是一連串的 PowerShell 命令，系統會提示您輸入本機系統管理員帳戶的名稱和密碼，然後建立 Azure 虛擬機器。
 
@@ -90,8 +90,8 @@
 	PS C:> $rgName="TestRG"
 	PS C:> New-AzureResourceGroup -Name $rgName -Location $locName
 	VERBOSE: 12:45:15 PM - Created resource group 'TestRG' in location 'westus'
-	
-	
+
+
 	ResourceGroupName : TestRG
 	Location          : westus
 	ProvisioningState : Succeeded
@@ -100,10 +100,10 @@
 	                    Actions  NotActions
 	                    =======  ==========
 	                    *
-	
+
 	ResourceId        : /subscriptions/fd92919d-eeca-4f5b-840a-e45c6770d92e/resourceGroups/TestRG
-	
-	
+
+
 	PS C:> $storageAcc=New-AzureStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_GRS" -Location $locName
 	PS C:> $singleSubnet=New-AzureVirtualNetworkSubnetConfig -Name singleSubnet -AddressPrefix 10.0.0.0/24
 	PS C:> $vnet=New-AzurevirtualNetwork -Name TestNet3 -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
@@ -117,8 +117,8 @@
 	PS C:> $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/MyWindowsVMosDisk.vhd"
 	PS C:> $vm = Set-AzureVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
 	PS C:> New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
-	
-	
+
+
 	EndTime             : 4/28/2015 1:00:05 PM -07:00
 	Error               :
 	Output              :
@@ -132,7 +132,7 @@
 
 [Azure Resource Manager 提供的 Azure 運算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md)
 
-[Azure Resource Manager 概觀](../resource-group-overview.md)
+[Azure Resource Manager 概觀](resource-group-overview.md)
 
 [利用 Resource Manager 範本和 PowerShell 建立 Windows 虛擬機器](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
 
@@ -140,9 +140,6 @@
 
 [虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
+[如何安裝和設定 Azure PowerShell](install-configure-powershell.md)
 
-
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -6,15 +6,15 @@
 	authors="KBDAzure"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-resource-manager, azure-service-management"/>
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="06/19/2015"
+	ms.topic="get-started-article"
+	ms.date="07/14/2015"
 	ms.author="kathydav"/>
 
 #關於 Azure 虛擬機器
@@ -26,7 +26,7 @@ Azure 虛擬機器是由 Azure 所提供的隨選且可擴充的數種計算資�
 下表可協助您比較 Azure 所提供的選擇。
 
 [AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
- 
+
 ## 後續步驟
 
 藉由快速建立簡單的虛擬機器來試用虛擬機器。如需指示，請參閱下列教學課程︰
@@ -41,7 +41,7 @@ Azure 虛擬機器是由 Azure 所提供的隨選且可擴充的數種計算資�
 
 [建立 Windows 虛擬機器的不同方式](virtual-machines-windows-choices-create-vm.md)
 
-如果您是剛開始了解 Azure 虛擬機器，也請務必查看＜常見問題集＞。
+如果您是剛開始了解 Azure 虛擬機器，也請務必查看＜[常見問題集](virtual-machines-questions.md)＞。
 
 
 <!--links-->
@@ -49,4 +49,4 @@ Azure 虛擬機器是由 Azure 所提供的隨選且可擴充的數種計算資�
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

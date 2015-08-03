@@ -67,4 +67,4 @@ API 管理的 VPN 支援可讓您將 API 管理 Proxy 連接到 Azure 虛擬網�
 [如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫]: api-management-howto-api-inspector.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

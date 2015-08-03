@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 
@@ -56,4 +56,6 @@
 3. 在 [**搜尋**] 頁面中，按一下磚或任何項目來檢視其詳細資訊。
 4. 透過發現的資訊，您可以調查警示的成因，以及判斷解決警示需要採取的額外措施。
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

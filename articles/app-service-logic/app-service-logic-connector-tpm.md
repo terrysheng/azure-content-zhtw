@@ -30,4 +30,4 @@ TPM API 應用程式是 AS2 連接器以及 X12 或 EDIFACT API 應用程式的�
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -4,18 +4,11 @@
 	description="了解如何管理 Azure 虛擬機器"
 	services="backup"
 	documentationCenter=""
-	authors="jimpark"
-	manager="jwhit"
+	authors="aashishr"
+	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/28/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="aashishr"; "jimpark"/>
 
 # 管理虛擬機器
 
@@ -158,6 +151,5 @@
 在 [**儀表板**] 頁面中，您可以檢閱有關 Azure 虛擬機器、其儲存體和過去 24 小時內相關聯作業的資訊。您可以檢視備份狀態和任何相關聯的備份錯誤。
 
   ![儀表板](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
- 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

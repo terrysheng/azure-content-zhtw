@@ -259,4 +259,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [41]: ./media/mobile-engagement-windows-store-dotnet-get-started/campaign-activate.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

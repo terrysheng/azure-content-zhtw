@@ -96,4 +96,4 @@ Microsoft 不會在 Azure 或 Active Directory 品牌名稱上公開使用者，
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -373,4 +373,4 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 [使用通知中心傳送即時新聞]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -218,7 +218,7 @@
 	
 	編譯連接字串時，請留意下列事項：
 	
-	- 如果您要連接到指定的執行個體而非預設執行個體 (例如 YourServer\\SQLEXPRESS)，您必須將 SQL Server 設定成使用靜態連接埠。如需設定靜態連接埠的相關資訊，請參閱[如何將 SQL Server 設定成在特定連接埠上接聽](http://support.microsoft.com/kb/823938)。根據預設，指定的執行個體會使用 UDP 和動態連接埠，而混合式連線並不加以支援。 
+	- 如果您要連接到指定的執行個體而非預設執行個體 (例如 YourServer\SQLEXPRESS)，您必須將 SQL Server 設定成使用靜態連接埠。如需設定靜態連接埠的相關資訊，請參閱[如何將 SQL Server 設定成在特定連接埠上接聽](http://support.microsoft.com/kb/823938)。根據預設，指定的執行個體會使用 UDP 和動態連接埠，而混合式連線並不加以支援。 
 	
 	- 建議您指定連接埠 (依預設為 1433，如範例所示) 和連接字串，以確定您的本機 SQL Server 會啟用 TCP 並使用正確的連接埠。
 	
@@ -378,4 +378,4 @@
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

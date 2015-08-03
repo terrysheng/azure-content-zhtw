@@ -6,7 +6,7 @@
 	authors="HeidiSteen" 
 	manager="mblythe" 
 	editor=""
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags 
 	ms.service="search" 
@@ -378,4 +378,4 @@ Microsoft Azure 搜尋服務是一項可讓您將搜尋功能內嵌到自訂用�
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

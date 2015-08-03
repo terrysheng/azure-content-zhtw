@@ -76,9 +76,9 @@ HDInsight Emulator 提供本機部署環境，與 Hadoop 沙箱極為相似。�
 
 ![Hadoop 生態系統服務列在模擬器視窗中。][image-hdi-emulator-services]
 
-依預設不會啟動 HDInsight Emulator 的相關服務。若要啟動服務，請從 Hadoop 命令列執行 C:\\hdp 底下的 **start_local_hdp_services.cmd** (預設位置)。若要在電腦重新啟動之後自動啟動服務，請執行 **set-onebox-autostart.cmd**。
+依預設不會啟動 HDInsight Emulator 的相關服務。若要啟動服務，請從 Hadoop 命令列執行 C:\hdp 底下的 **start_local_hdp_services.cmd** (預設位置)。若要在電腦重新啟動之後自動啟動服務，請執行 **set-onebox-autostart.cmd**。
 
-對於安裝和執行 HDInsight Emulator 的已知問題，請參閱 [HDInsight Emulator 版本資訊](hdinsight-emulator-release-notes.md)。安裝記錄檔位於 **C:\\HadoopFeaturePackSetup\\HadoopFeaturePackSetupTools\\gettingStarted.winpkg.install.log**。
+對於安裝和執行 HDInsight Emulator 的已知問題，請參閱 [HDInsight Emulator 版本資訊](hdinsight-emulator-release-notes.md)。安裝記錄檔位於 **C:\HadoopFeaturePackSetup\HadoopFeaturePackSetupTools\gettingStarted.winpkg.install.log**。
 
 ##<a name="vstools"></a>使用 Emulator 與 HDInsight Tools for Visual Studio
 
@@ -108,9 +108,9 @@ HDInsight Emulator 提供本機部署環境，與 Hadoop 沙箱極為相似。�
 
 ## 疑難排解：連接 HDInsight 工具與 HDInsight Emulator
 
-1. 連接到 HDInsight Emulator 時，即使對話方塊顯示 HiveServer2 已成功連接，您還是必須在 C:\\hdp\\hive-*version*\\conf\\hive-site.xml 的 Hive 組態檔中，手動將 **hive.security.authorization.enabled** 屬性設為 **false**，然後重新啟動本機 Emulator。HDInsight Tools for Visual Studio 只會在您預覽資料表的前 100 列的情況下，連接到 HiveServer2。如果您不打算使用此類查詢，可以保留 Hive 組態的現狀。
+1. 連接到 HDInsight Emulator 時，即使對話方塊顯示 HiveServer2 已成功連接，您還是必須在 C:\hdp\hive-*version*\conf\hive-site.xml 的 Hive 組態檔中，手動將 **hive.security.authorization.enabled** 屬性設為 **false**，然後重新啟動本機 Emulator。HDInsight Tools for Visual Studio 只會在您預覽資料表的前 100 列的情況下，連接到 HiveServer2。如果您不打算使用此類查詢，可以保留 Hive 組態的現狀。
 
-2. 如果您在執行 HDInsight Emulator 的電腦上使用動態 IP 配置 (DHCP)，可能需要更新 C:\\hdp\\hadoop-*version*\\etc\\hadoop\\core-site.xml，並且將 **hadoop.proxyuser.hadoop.hosts** 屬性的值變更為 (*)。如此可以讓 Hadoop 使用者從所有主機進行連接，以模擬您在 Visual Studio 中輸入的使用者。
+2. 如果您在執行 HDInsight Emulator 的電腦上使用動態 IP 配置 (DHCP)，可能需要更新 C:\hdp\hadoop-*version*\etc\hadoop\core-site.xml，並且將 **hadoop.proxyuser.hadoop.hosts** 屬性的值變更為 (*)。如此可以讓 Hadoop 使用者從所有主機進行連接，以模擬您在 Visual Studio 中輸入的使用者。
 
 		<property>
 			<name>hadoop.proxyuser.hadoop.hosts</name>
@@ -123,7 +123,7 @@ HDInsight Emulator 提供本機部署環境，與 Hadoop 沙箱極為相似。�
 
 您現已在工作站上設定 HDInsight Emulator，請嘗試本 MapReduce 教學課程來測試安裝。您將先上傳一些資料檔到 HDFS，然後執行字數統計 MapReduce 工作，以統計這些檔案中特定單字出現的次數。
 
-字數統計 MapReduce 程式已封裝在 *hadoop-mapreduce-examples-2.4.0.2.1.3.0-1981.jar* 中。這個 jar 檔位於 *C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\hadoop\\mapreduce* 資料夾。
+字數統計 MapReduce 程式已封裝在 *hadoop-mapreduce-examples-2.4.0.2.1.3.0-1981.jar* 中。這個 jar 檔位於 *C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\hadoop\mapreduce* 資料夾。
 
 統計字數的 MapReduce 工作使用兩個引數：
 
@@ -209,7 +209,7 @@ W3C 案例會產生三種大小的 IIS W3C 記錄資料並匯入到 HDFS 或 Azu
 **匯入範例 W3C 記錄資料**
 
 1. 從桌面開啟 Hadoop 命令列。
-2. 切換至 **C:\\hdp\\GettingStarted** 目錄。
+2. 切換至 **C:\hdp\GettingStarted** 目錄。
 3. 執行下列命令產生資料並匯入到 HDFS：
 
 		powershell -File importdata.ps1 w3c -ExecutionPolicy unrestricted
@@ -243,12 +243,12 @@ MapReduce 是 Hadoop 的基本運算引擎。依預設，它是以 Java 實作�
 
 	hadoop jar <jarFileName>.jar <className> <inputFiles> <outputFolder>
 
-jar 檔及原始程式檔位在 C:\\Hadoop\\GettingStarted\\Java 資料夾。
+jar 檔及原始程式檔位在 C:\Hadoop\GettingStarted\Java 資料夾。
 
 **執行 MapReduce 工作計算網頁點擊數**
 
 1. 開啟 Hadoop 命令列。
-2. 切換至 **C:\\hdp\\GettingStarted** 目錄。
+2. 切換至 **C:\hdp\GettingStarted** 目錄。
 3. 執行下列命令在資料夾存在的情況下移除輸出目錄。如果輸出資料夾已經存在，MapReduce 工作將失敗。
 
 		hadoop fs -rm -r /w3c/output
@@ -257,7 +257,7 @@ jar 檔及原始程式檔位在 C:\\Hadoop\\GettingStarted\\Java 資料夾。
 
 		hadoop jar .\Java\w3c_scenarios.jar "microsoft.hadoop.w3c.TotalHitsForPage" "/w3c/input/small/data_w3c_small.txt" "/w3c/output"
 
-	下表說明命令的元素：<table border="1"> <tr><td>參數</td><td>附註</td></tr> <tr><td>w3c_scenarios.jar</td><td>此 jar 檔案位於 C:\\hdp\\GettingStarted\\Java 資料夾。</td></tr> <tr><td>microsoft.hadoop.w3c.TotalHitsForPage</td><td>類型可以由下列其中一個項目取代：<ul> <li>microsoft.hadoop.w3c.AverageTimeTaken</li> <li>microsoft.hadoop.w3c.ErrorsByPage</li> </ul></td></tr> <tr><td>/w3c/input/small/data_w3c_small.txt</td><td>輸入檔案可以由下列項目取代：<ul> <li>/w3c/input/medium/data_w3c_medium.txt</li> <li>/w3c/input/large/data_w3c_large.txt</li> </ul></td></tr> <tr><td>/w3c/output</td><td>這是輸出資料夾名稱。</td></tr> </table>
+	下表說明命令的元素：<table border="1"> <tr><td>參數</td><td>附註</td></tr> <tr><td>w3c_scenarios.jar</td><td>此 jar 檔案位於 C:\hdp\GettingStarted\Java 資料夾。</td></tr> <tr><td>microsoft.hadoop.w3c.TotalHitsForPage</td><td>類型可以由下列其中一個項目取代：<ul> <li>microsoft.hadoop.w3c.AverageTimeTaken</li> <li>microsoft.hadoop.w3c.ErrorsByPage</li> </ul></td></tr> <tr><td>/w3c/input/small/data_w3c_small.txt</td><td>輸入檔案可以由下列項目取代：<ul> <li>/w3c/input/medium/data_w3c_medium.txt</li> <li>/w3c/input/large/data_w3c_large.txt</li> </ul></td></tr> <tr><td>/w3c/output</td><td>這是輸出資料夾名稱。</td></tr> </table>
 
 4. 執行下列命令顯示輸出檔：
 
@@ -278,7 +278,7 @@ jar 檔及原始程式檔位在 C:\\Hadoop\\GettingStarted\\Java 資料夾。
 **執行 Hive 工作**
 
 1. 開啟 Hadoop 命令列。
-2. 切換至 **C:\\hdp\\GettingStarted** 目錄。
+2. 切換至 **C:\hdp\GettingStarted** 目錄。
 3. 執行下列命令在資料夾存在的情況下移除 **/w3c/hive/input** 資料夾。如果資料夾存在，Hive 工作將失敗。
 
 		hadoop fs -rmr /w3c/hive/input
@@ -315,7 +315,7 @@ jar 檔及原始程式檔位在 C:\\Hadoop\\GettingStarted\\Java 資料夾。
 
         C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ctotalhitsbypage.hql
 
-	下表說明命令的元素：<table border="1"> <tr><td>檔案</td><td>說明</td></tr> <tr><td>C:\\hdp\\hive-0.13.0.2.1.3.0-1981\\bin\\hive.cmd</td><td>Hive 命令指令碼。</td></tr> <tr><td>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3ctotalhitsbypage.hql</td><td>您可以使用下列其中一個項目取代 Hive 指令碼檔案：<ul> <li>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3caveragetimetaken.hql</li> <li>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3cerrorsbypage.hql</li> </ul> </td></tr>
+	下表說明命令的元素：<table border="1"> <tr><td>檔案</td><td>說明</td></tr> <tr><td>C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd</td><td>Hive 命令指令碼。</td></tr> <tr><td>C:\hdp\GettingStarted\Hive\w3c\w3ctotalhitsbypage.hql</td><td>您可以使用下列其中一個項目取代 Hive 指令碼檔案：<ul> <li>C:\hdp\GettingStarted\Hive\w3c\w3caveragetimetaken.hql</li> <li>C:\hdp\GettingStarted\Hive\w3c\w3cerrorsbypage.hql</li> </ul> </td></tr>
 
 	</table>
 
@@ -352,12 +352,12 @@ Pig 處理使用稱為 *Pig Latin* 的資料流程語言。Pig Latin 抽象提�
 **執行 pig 工作**
 
 1. 開啟 Hadoop 命令列。
-2. 將目錄切換至 **C:\\hdp\\GettingStarted** 資料夾。
+2. 將目錄切換至 **C:\hdp\GettingStarted** 資料夾。
 3. 執行下列命令提交 Pig 工作：
 
 		C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd -f ".\Pig\w3c\TotalHitsForPage.pig" -p "input=/w3c/input/small/data_w3c_small.txt"
 
-	下表顯示命令的元素：<table border="1"> <tr><td>檔案</td><td>說明</td></tr> <tr><td>C:\\hdp\\pig-0.12.1.2.1.3.0-1981\\bin\\pig.cmd</td><td>Pig 命令指令碼。</td></tr> <tr><td>C:\\hdp\\GettingStarted\\Pig\\w3c\\TotalHitsForPage.pig</td><td>您可以使用下列其中一個項目取代 Pig Latin 指令碼檔案：<ul> <li>C:\\hdp\\GettingStarted\\Pig\\w3c\\AverageTimeTaken.pig</li> <li>C:\\hdp\\GettingStarted\\Pig\\w3c\\ErrorsByPage.pig</li> </ul> </td></tr> <tr><td>/w3c/input/small/data_w3c_small.txt</td><td>您可以使用較大的檔案取代參數：
+	下表顯示命令的元素：<table border="1"> <tr><td>檔案</td><td>說明</td></tr> <tr><td>C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd</td><td>Pig 命令指令碼。</td></tr> <tr><td>C:\hdp\GettingStarted\Pig\w3c\TotalHitsForPage.pig</td><td>您可以使用下列其中一個項目取代 Pig Latin 指令碼檔案：<ul> <li>C:\hdp\GettingStarted\Pig\w3c\AverageTimeTaken.pig</li> <li>C:\hdp\GettingStarted\Pig\w3c\ErrorsByPage.pig</li> </ul> </td></tr> <tr><td>/w3c/input/small/data_w3c_small.txt</td><td>您可以使用較大的檔案取代參數：
 
 	<ul>
 <li>/w3c/input/medium/data_w3c_medium.txt</li>
@@ -406,7 +406,7 @@ HDInsight Emulator 使用 HDFS 做為預設檔案系統。不過，Azure HDInsig
 
 **設定 Azure 儲存體帳戶的連線**
 
-1. 在 [記事本] 中開啟 **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\etc\\hadoop\\core-site.xml**。
+1. 在 [記事本] 中開啟 **C:\hdp\hadoop-2.4.0.2.1.3.0-1981\etc\hadoop\core-site.xml**。
 2. 在另一個 <property> 標籤旁邊新增下列 <property> 標籤：
 
 		<property>
@@ -491,4 +491,4 @@ HDInsight Emulator 也支援部分 Azure PowerShell Cmdlet。這些 Cmdlet 包�
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

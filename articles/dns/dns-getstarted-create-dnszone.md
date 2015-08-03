@@ -147,4 +147,4 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 [開始建立記錄集與記錄](dns-getstarted-create-recordset.md)<BR> [如何管理 DNS 區域](dns-operations-dnszones.md)<BR> [如何管理 DNS 記錄](dns-operations-recordsets.md)<BR> [使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)<BR> [Azure DNS REST API 參考](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2015" 
+    ms.date="07/16/2015" 
     ms.author="elizapo" />
 
 
@@ -27,7 +27,7 @@
 如果在建立集合時發生問題，或集合未如您預期地運作，請參閱下列資訊。
 
 ## VNET 是否使用強制通道？ ##
-RemoteApp 目前不支援使用已啟用強制通道的 VNET。如果您需要這個功能，請連絡 RemoteApp 小組以要求支援。
+RemoteApp 目前不支援使用已啟用強制通道的 VNET。如果您需要這個功能，請連絡 [RemoteApp 小組](mailto:remoteappforum@microsoft.com)來請求支援。
 
 核准您的要求之後，請確定在您為 Azure RemoteApp 選擇的子網路以及該子網路的 VM 上開啟下列連接埠。子網路中的 VM 也應該可以存取有關網路安全性群組之小節中提及的 URL。
 
@@ -70,8 +70,6 @@ RemoteApp 目前不支援使用已啟用強制通道的 VNET。如果您需要�
 
 ![定義 DNS](./media/remoteapp-hybridtrouble/dnsvpn.png)
 
-如需詳細資訊，請參閱[使用專屬 DNS 伺服器的名稱解析](https://msdn.microsoft.com/library/azure/jj156088.aspx#bkmk_BYODNS)。
-
 ## 是否在您的集合中使用 Active Directory 網域控制站？ ##
 目前只有一個 Active Directory 網域才能與 Azure RemoteApp 相關聯。混合式集合僅支援已使用 Windows Server Active Directory 部署之 DirSync 工具同步的 Azure Active Directory 帳戶；更具體而言，就是已同步「密碼同步化」選項，或已同步設定 Active Directory Federation Services (AD FS) 同盟。您必須建立一個自訂網域，以符合內部部署之網域的 UPN 網域尾碼，並設定目錄整合。
 
@@ -83,4 +81,4 @@ RemoteApp 目前不支援使用已啟用強制通道的 VNET。如果您需要�
 
 建立或新增的網域名稱必須是內部網域名稱 (非 Azure AD 網域名稱)，而且必須是可解析的 DNS 格式 (contoso.local)。例如，您有 Active Directory 內部名稱 (contoso.local) 和 Active Directory UPN (contoso.com) - 您必須在建立集合時使用內部名稱。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -370,4 +370,4 @@
 [在 Linux 上叢集 MySQL 的另一種方法]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

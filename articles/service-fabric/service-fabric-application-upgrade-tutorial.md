@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/15/2015"
+   ms.date="07/17/2015"
    ms.author="subramar"/>
 
 
@@ -80,7 +80,7 @@ UpgradeTimeout = 3000
 
 ## 步驟 4：準備應用程式進行升級
 
-現在，應用程式已建置並且準備好進行升級。如果您以系統管理員身分開啟 PowerShell 視窗並且輸入 **Get-ServiceFabricApplication**，它應該會讓您知道它是已部署之 **VisualObjects** 的應用程式類型 1.0.0.0。應用程式封裝儲存在以下的相對路徑，您在其中解壓縮 Service Fabric SDK - *Samples\\Services\\Stateful\\VisualObjects\\VisualObjects\\obj\\x64\\Debug*。您應該會在該目錄中找到 "Package" 資料夾 - 這是應用程式封裝儲存的位置。請檢查時間戳記以確保它是最新組建 (您也可能需要適當地修改路徑)。
+現在，應用程式已建置並且準備好進行升級。如果您以系統管理員身分開啟 PowerShell 視窗並且輸入 **Get-ServiceFabricApplication**，它應該會讓您知道它是已部署之 **VisualObjects** 的應用程式類型 1.0.0.0。應用程式封裝儲存在以下的相對路徑，您在其中解壓縮 Service Fabric SDK - *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*。您應該會在該目錄中找到 "Package" 資料夾 - 這是應用程式封裝儲存的位置。請檢查時間戳記以確保它是最新組建 (您也可能需要適當地修改路徑)。
 
 現在讓我們將更新的應用程式封裝複製到 Service Fabric ImageStore (Service Fabric 在其中儲存應用程式封裝)。參數 *ApplicationPackagePathInImageStore* 會通知 Service Fabric 可以在哪裡找到應用程式封裝。使用下列命令將更新的應用程式放在 "VisualObjects_V2" (您可能需要再次適當地修改路徑)。
 
@@ -126,4 +126,4 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 [疑難排解應用程式升級](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

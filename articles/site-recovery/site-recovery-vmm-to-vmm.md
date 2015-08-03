@@ -365,4 +365,4 @@ VMM 伺服器上的提供者會收到來自服務的事件通知，並在 Hyper-
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

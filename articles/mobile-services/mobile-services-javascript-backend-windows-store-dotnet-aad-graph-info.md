@@ -181,4 +181,4 @@
 [行動服務中使用 AAD 的角色型存取控制]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [Azure Active Directory 圖形團隊部落格]: http://go.microsoft.com/fwlink/?LinkId=510536
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

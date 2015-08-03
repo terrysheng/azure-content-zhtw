@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="06/25/2015"
+	ms.date="07/22/2015"
 	ms.author="cabailey"/>
 
 # 開始使用 Azure 金鑰保存庫 #
-大部分地區均提供 Azure 金鑰保存庫。如需詳細資訊，請參閱[金鑰保存庫定價頁面](../../../../pricing/details/key-vault/)。
+大部分地區均提供 Azure 金鑰保存庫。如需詳細資訊，請參閱[金鑰保存庫價格頁面](../../../../pricing/details/key-vault/)。
 
 ## 簡介  
 使用本教學課程可協助您開始使用 Azure 金鑰保存庫，進而在 Azure 中建立強化的容器 (保存庫)，以儲存及管理 Azure 中的密碼編譯金鑰和密碼。本教學課程將逐步引導您完成使用 Windows PowerShell 建立包含金鑰或密碼 (稍後可用於 Azure 應用程式) 的保存庫程序。接著，它會說明應用程式後續可以如何使用該金鑰或密碼。
@@ -211,7 +211,7 @@
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
-如需有關如何產生此 BYOK 封包的詳細指示，請參閱[如何使用 Azure 金鑰保存庫中受 HSM 保護的金鑰](https://msdn.microsoft.com/library/azure/dn903624.aspx)。
+如需有關如何產生此 BYOK 封裝的詳細指示，請參閱[如何傳輸 Azure 金鑰保存庫的受 HSM 保護金鑰](key-vault-hsm-protected-keys.md)。
 
 ## <a id="delete"></a>刪除金鑰保存庫及相關聯的金鑰和密碼 ##
 
@@ -239,7 +239,7 @@
 
 
 
-## <a id="next"></a>接續步驟 ##
+## <a id="next"></a>後續步驟 ##
 
 如需在 Web 應用程式中使用 Azure 金鑰保存庫的後續教學課程，請參閱[從 Web 應用程式使用 Azure 金鑰保存庫](key-vault-use-from-web-application.md)。
 
@@ -248,4 +248,4 @@
 如需程式設計參考，請參閱 MSDN 上 Microsoft Azure 文件庫中的[金鑰保存庫](https://msdn.microsoft.com/library/azure/dn903625.aspx)。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

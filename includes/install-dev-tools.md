@@ -4,4 +4,4 @@
 
 >* 如果您使用的是 Mac 或 Linux，請從 <a href="http://nodejs.org">http://nodejs.org</a> 安裝 Node.js。Windows 安裝程式已包含 Node.js。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

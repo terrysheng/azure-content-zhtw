@@ -77,7 +77,7 @@ Microsoft Azure 媒體服務可讓您傳遞利用進階加密標準 (AES) (使�
 
 ##常見案例
 
-###保護儲存體中的內容、提供動態加密串流處理媒體、使用 AMS 金鑰\\授權傳遞服務  
+###保護儲存體中的內容、提供動態加密串流處理媒體、使用 AMS 金鑰\授權傳遞服務  
 
 1. 將高品質夾層檔內嵌到資產。將儲存體加密選項套用到資產。
 2. 設定串流端點。
@@ -141,4 +141,4 @@ Microsoft Azure 媒體服務可讓您傳遞利用進階加密標準 (AES) (使�
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

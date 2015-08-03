@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/20/2015" 
 	ms.author="juliako"/>
 
 
@@ -33,7 +33,8 @@
 
 可以使用設計工具來修改預設的工作流程檔案。您可在[這裡](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)取得預設的工作流程檔案。資料夾也包含這些檔案的說明。
 
+下列部落格提供有關如何使用設計工具的訓練影片：
 
->[AZURE.NOTE]更多資訊即將發表。
+[Azure Premium 編碼器工作流程設計工具訓練影片](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

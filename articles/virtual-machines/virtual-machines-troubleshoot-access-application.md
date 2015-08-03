@@ -110,4 +110,4 @@
 
 [疑難排解以 Linux 為基礎之 Azure 虛擬機器的安全殼層 (SSH) 連線](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

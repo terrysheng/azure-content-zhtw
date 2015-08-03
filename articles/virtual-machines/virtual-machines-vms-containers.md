@@ -1,13 +1,10 @@
 <properties 
-	title="Virtual Machines and Containers in Azure" 
 	pageTitle="Azure 中的虛擬機器和容器" 
 	description="描述虛擬機器、Docker 和 Linux 容器，以及它們各自在 Azure 中的群組使用方式，包括每一項的優點，以及每種方法順暢運作的案例。" 
 	services="virtual-machines" 
-	solutions="infrastructure" 
 	documentationCenter="virtual-machines" 
 	authors="squillace" 
-	manager="timlt" 
-/>
+	manager="timlt" />
 	
 
 <tags 
@@ -17,8 +14,7 @@
 	ms.tgt_pltfrm="infrastructure" 
 	ms.workload="infrastructure" 
 	ms.date="07/02/2015" 
-	ms.author="rasquill" 
-/>
+	ms.author="rasquill" />
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Azure 中的虛擬機器和容器
@@ -238,4 +234,4 @@ Linux 散發套件和 Azure 範例：
 [微服務]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

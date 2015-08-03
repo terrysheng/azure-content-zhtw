@@ -78,7 +78,7 @@
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
-如需如何設定靜態 IP 位址的詳細資訊，請參閱[設定 VM 的靜態內部 IP 位址](https://msdn.microsoft.com/library/azure/dn630228.aspx)。
+如需如何設定靜態 IP 位址的詳細資訊，請參閱[設定 VM 的靜態內部 IP 位址](../virtual-network/virtual-networks-reserved-private-ip.md)。
 
 ## 在 Azure VM 上安裝 AD DS
 
@@ -123,4 +123,4 @@
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -53,7 +53,7 @@
 
 1. 登入作業系統。
 
-2. 以系統管理員身分開啟 [命令提示字元] 視窗。切換至 **%windir%\\system32\\sysprep** 目錄，然後執行 `sysprep.exe`。
+2. 以系統管理員身分開啟 [命令提示字元] 視窗。切換至 **%windir%\system32\sysprep** 目錄，然後執行 `sysprep.exe`。
 
 	![開啟 [命令提示字元] 視窗](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
@@ -211,4 +211,4 @@
 [步驟 4：上傳 .vhd 檔案]: #upload
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

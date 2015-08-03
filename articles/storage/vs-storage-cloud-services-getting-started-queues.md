@@ -274,4 +274,4 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

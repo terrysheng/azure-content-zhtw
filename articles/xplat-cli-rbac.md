@@ -143,4 +143,4 @@
 - [將 Azure CLI 和資源管理員搭配使用](xplat-cli-azure-resource-manager.md)
 - [使用資源群組以管理您的 Azure 資源](resource-groups-overview.md)：深入了解在 Azure 管理入口網站中建立和管理資源群組。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

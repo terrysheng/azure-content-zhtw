@@ -64,4 +64,4 @@ Wait 連接器可用作動作。它並沒有任何觸發程序。
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

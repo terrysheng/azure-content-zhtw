@@ -89,4 +89,4 @@
 [.NET 後端版本]: mobile-services-dotnet-backend-ios-get-started.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

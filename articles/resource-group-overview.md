@@ -139,4 +139,4 @@ Azure 資源管理員透過 Azure PowerShell、Azure CLI for Mac、Linux 和 Win
 - [驗證服務主體](./resource-group-authenticate-service-principal.md)
 - [使用 Azure 入口網站建立新的服務主體](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

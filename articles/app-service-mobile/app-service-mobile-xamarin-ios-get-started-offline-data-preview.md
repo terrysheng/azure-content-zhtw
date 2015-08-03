@@ -36,6 +36,10 @@
 * Visual Studio 2013
 * Visual Studio [Xamarin 延伸] **或** [Xamarin Studio] (在 OS X 上)
 
+##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
+
 ## 檢閱行動應用程式同步處理程式碼
 
 行動應用程式離線同步處理可讓使用者在無法存取網路時，仍可與本機資料庫互動。若要在您的應用程式中使用這些功能，您必須將 `MobileServiceClient.SyncContext` 初始化至本機存放區。接著，請透過 `IMobileServiceSyncTable` 介面參考您的資料表。本節將逐步解說 `QSTodoService.cs` 中的離線同步處理相關程式碼。
@@ -85,9 +89,10 @@
 
     在此範例中，我們擷取遠端 `TodoItem` 資料表中的所有記錄，但也可以藉由傳遞查詢來篩選記錄。`PullAsync()` 的第一個參數是用於增量同步處理的查詢識別碼，會使用 `UpdatedAt` 時間戳記取得自從上次同步後修改過的記錄。對您應用程式中的每個邏輯查詢而言，查詢識別碼應該是唯一的描述性字串。若選擇不要增量同步處理，請傳遞 `null` 做為查詢識別碼。這會擷取每個提取作業的所有記錄，而可能降低效能。
 
-<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `IMobileServiceSyncTable.PurgeAsync()` to purge the local store.
+<!--     >[AZURE.NOTE] 如需在您的行動服務資料庫中刪除記錄時一併從裝置本機儲存體移除記錄，請啟用 [軟刪除]。否則您的應用程式會定期呼叫 `IMobileServiceSyncTable.PurgeAsync()` 以清除本機儲存體。
 
-    Note that the `MobileServicePushFailedException` can occur for both a push and a pull operation. The next tutorial, [Handling conflicts with offline support for Mobile Services], shows how to handle these sync related exceptions.
+    請注意 
+    `MobileServicePushFailedException` 會產生發送和提取作業。下一個教學課程 [透過行動服務的離線支援處理衝突] 會說明如何處理這些相關的例外況狀況。
 -->
 
 5. 在 `QSTodoService` 類別中，`SyncAsync()` 方法會在修改資料的作業 (`InsertTodoItemAsync()` 和 `CompleteItemAsync`) 之後呼叫。此方法也會從 `RefreshDataAsync()` 呼叫，以便使用者每次執行重新整理動作時都能取得最新的資料。應用程式也會在啟動時執行同步處理，因為 `QSTodoListViewController.ViewDidLoad()` 會呼叫 `RefreshDataAsync()`。
@@ -166,4 +171,4 @@
 [Xamarin 延伸]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

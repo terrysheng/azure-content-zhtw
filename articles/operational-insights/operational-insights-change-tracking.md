@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # 使用變更追蹤識別差異
@@ -51,6 +51,7 @@
 
 3. 您可以在任何 [記錄搜尋] 頁面上，按時間、詳細結果和您的記錄搜尋記錄來檢視結果。您也可以按 Facet 篩選以縮減結果。
 
-4. 您可以在 [記錄搜尋] 的任何頁面上，將結果詳細資料**匯出**到 CSV 檔，接著使用 Excel 或其他應用程式開啟該檔案以檢視或修改。
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

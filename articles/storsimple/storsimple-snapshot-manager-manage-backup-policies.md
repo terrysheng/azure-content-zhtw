@@ -118,4 +118,4 @@
 
 [使用 StorSimple Snapshot Manager 來檢視和管理備份作業](storsimple-snapshot-manager-manage-backup-jobs.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

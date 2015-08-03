@@ -113,4 +113,4 @@ Microsoft **資料管理閘道**是將內部部署資料來源連接至雲端服
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

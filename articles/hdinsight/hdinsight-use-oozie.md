@@ -94,7 +94,7 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。預
 此工作流程中的 Hive 動作會呼叫 HiveQL 指令碼檔案。此指令碼檔案包含三個 HiveQL 陳述式：
 
 1. **DROP TABLE 陳述式**會刪除 log4j Hive 資料表 (如果存在)。
-2. **CREATE TABLE 陳述式**會建立指向 log4j 記錄檔位置的 log4j Hive 外部資料表。欄位分隔符號為 ","。預設的行分隔符號為 "\\n"。Hive 外部資料表可讓您在需要執行 Oozie 工作流程多次時，避免資料檔案從原始位置遭到移除。
+2. **CREATE TABLE 陳述式**會建立指向 log4j 記錄檔位置的 log4j Hive 外部資料表。欄位分隔符號為 ","。預設的行分隔符號為 "\n"。Hive 外部資料表可讓您在需要執行 Oozie 工作流程多次時，避免資料檔案從原始位置遭到移除。
 3. **INSERT OVERWRITE 陳述式**可從 log4j Hive 資料表中計算每個記錄層級類型的出現次數，並將輸出儲存至 Azure 儲存體中的 Blob。
 
 Hive 路徑有已知問題。當您提交 Oozie 工作時會遇到此問題。如需修正此問題的指示，請參閱 TechNet Wiki：[HDInsight Hive 錯誤：無法重新命名][technetwiki-hive-error] (英文)。
@@ -115,7 +115,7 @@ Hive 路徑有已知問題。當您提交 Oozie 工作時會遇到此問題。�
 
 	工作流程定義檔 (在本教學課程中為 workflow.xml) 會在執行階段將這些值傳遞至此 HiveQL 指令碼。
 
-2. 使用 **ANSI (ASCII)** 編碼將檔案另存為 **C:\\Tutorials\\UseOozie\\useooziewf.hql**(如果您的文字編輯器沒有此選項，請使用「記事本」)。 此指令碼檔案將在本教學課程中部署至 HDInsight 叢集。
+2. 使用 **ANSI (ASCII)** 編碼將檔案另存為 **C:\Tutorials\UseOozie\useooziewf.hql**(如果您的文字編輯器沒有此選項，請使用「記事本」)。 此指令碼檔案將在本教學課程中部署至 HDInsight 叢集。
 
 
 
@@ -199,7 +199,7 @@ Hive 路徑有已知問題。當您提交 Oozie 工作時會遇到此問題。�
 <tr><td>${hiveOutputFolder}</td><td>指定 Hive INSERT OVERWRITE 陳述式的輸出資料夾。這和 Sqoop 匯出 (export-dir) 使用同一個資料夾。</td></tr>
 </table>如需關於 Oozie 工作流程和使用工作流程動作的詳細資訊，請參閱 [Apache Oozie 4.0 文件][apache-oozie-400] (英文，適用於 HDInsight 3.0 版) 或 [Apache Oozie 3.3.2 文件][apache-oozie-332] (英文，適用於 HDInsight 2.1 版)。
 
-2. 使用 ANSI (ASCII) 編碼將檔案另存為 **C:\\Tutorials\\UseOozie\\workflow.xml**(如果您的文字編輯器沒有此選項，請使用「記事本」)。
+2. 使用 ANSI (ASCII) 編碼將檔案另存為 **C:\Tutorials\UseOozie\workflow.xml**(如果您的文字編輯器沒有此選項，請使用「記事本」)。
 
 ##部署 Oozie 專案及進行教學課程前置工作
 
@@ -511,7 +511,7 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。�
 
 **檢查工作錯誤記錄**
 
-若要對工作流程進行疑難排解，您可以從叢集前端節點，找出位於 *C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log* 或 *C:\\apps\\dist\\oozie-4.0.0.2.0.7.0-1528\\oozie-win-distro\\logs\\Oozie.log* 的 Oozie 記錄檔。如需 RDP 的資訊，請參閱[使用 Azure 管理入口網站管理 HDInsight 上的 Hadoop 叢集][hdinsight-admin-portal]。
+若要對工作流程進行疑難排解，您可以從叢集前端節點，找出位於 *C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log* 或 *C:\apps\dist\oozie-4.0.0.2.0.7.0-1528\oozie-win-distro\logs\Oozie.log* 的 Oozie 記錄檔。如需 RDP 的資訊，請參閱[使用 Azure 管理入口網站管理 HDInsight 上的 Hadoop 叢集][hdinsight-admin-portal]。
 
 **重新執行教學課程**
 
@@ -614,4 +614,4 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

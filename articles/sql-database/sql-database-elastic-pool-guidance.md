@@ -402,4 +402,4 @@ STA 是在加入彈性集區至現有的伺服器時，於 Azure 入口網站中
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

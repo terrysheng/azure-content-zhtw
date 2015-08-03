@@ -3,19 +3,19 @@
    description="了解資源管理員的架構，以及計算、網路和儲存體資源提供者之間的關聯性。"
    services="virtual-machines"
    documentationCenter=""
-   authors="JoeDavies-MSFT"
+   authors="davidmu1"
    manager="timlt"
    editor=""
    tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/07/2015"
+	ms.author="davidmu"/>
 
 # Azure 資源管理員架構
 
@@ -32,8 +32,8 @@
 以下是 Azure 服務管理的元件及其關聯性。
 
 ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
- 
-## 資源管理員的架構 
+
+## 資源管理員的架構
 
 針對 Azure 資源管理員，資源提供者支援可用來在您所需的設定中建立可運作虛擬機器的個別資源。針對虛擬機器，有三個主要的資源提供者：
 
@@ -50,13 +50,13 @@
 - 負載平衡器執行個體會參考 IP 位址的後端集區，其中包含虛擬機器的 NIC (選擇性)，以及參考負載平衡器的公用或私人 IP 位址 (選擇性)。
 
 ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch2.png)
- 
+
 設定 Azure 中裝載之 IT 工作負載的基礎結構時，將資源元件化可具備更多彈性。Azure 資源管理員範本會善用此彈性，來建立特殊設定所需的相依資源組。執行範本時，資源管理員可確保系統會以正確的順序建立設定的資源，以保留相依性和參考。例如，資源管理員將不會在建立含有子網路與 IP 位址的虛擬網路之前建立虛擬機器的 NIC (網路安全性群組是選擇性的)。
 
 資源群組是一個邏輯容器，可保留應用程式的相關資源，其中可包含多個虛擬機器、NIC、IP 位址、負載平衡器、子網路和網路安全性群組。例如，您可以將應用程式的所有資源當成單一管理單位來管理。您可以一併建立、更新和刪除它們全部。以下是部署於單一資源群組中的應用程式範例。
 
 ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
- 
+
 這個應用程式包含下列各項：
 
 - 兩部虛擬機器，它們使用相同的儲存體帳戶、位於相同的可用性設定組中，且位於同一個虛擬網路的子網路上。
@@ -79,4 +79,4 @@
 
 [Azure 資源管理員概觀](resource-group-overview.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

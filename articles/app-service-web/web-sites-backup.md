@@ -139,7 +139,7 @@ Web Apps 可以備份下列資訊：
 
 2. 建立稱為 `_backup.filter` 的檔案，並將上述清單放入此檔案中，但移除 `D:\home`。一行列出一個目錄或檔案。因此，檔案的內容應該如下：
 
-    \\site\\wwwroot\\Logs \\LogFiles \\site\\wwwroot\\Images\\2013 \\site\\wwwroot\\Images\\2014 \\site\\wwwroot\\Images\\brand.png
+    \site\wwwroot\Logs \LogFiles \site\wwwroot\Images\2013 \site\wwwroot\Images\2014 \site\wwwroot\Images\brand.png
 
 3. 使用 [ftp](web-sites-deploy.md#ftp) 或任何其他方法，將此檔案上傳至網站的 `D:\home\site\wwwroot` 目錄。如果您希望，可以直接在 `http://{yourapp}.scm.azurewebsites.net/DebugConsole` 中建立檔案，並在其中插入內容。
 
@@ -219,4 +219,4 @@ Web 應用程式的資料庫備份則儲存在 .zip 檔案的根目錄中。若�
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

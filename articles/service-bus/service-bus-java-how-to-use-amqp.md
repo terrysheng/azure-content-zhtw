@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="07/21/2015" 
 	ms.author="sethm"/>
 
 
@@ -46,104 +46,65 @@
 
 JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱之間的區別。使用 JNDI 可以解析兩種 JMS 物件：ConnectionFactory 和 Destination。JNDI 使用提供者模型，您可以在其中插入不同的目錄服務處理名稱解析作業。Apache Qpid JMS AMQP 1.0 程式庫提供使用下列格式的內容檔案設定的簡單內容檔案型 JNDI 提供者：
 
-	# servicebus.properties – sample JNDI configuration
+```
+# servicebus.properties – sample JNDI configuration
 	
-	# Register a ConnectionFactory in JNDI using the form:
-	# connectionfactory.[jndi_name] = [ConnectionURL]
-	connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.windows.net
+# Register a ConnectionFactory in JNDI using the form:
+# connectionfactory.[jndi_name] = [ConnectionURL]
+connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.windows.net
 	
-	# Register some queues in JNDI using the form
-	# queue.[jndi_name] = [physical_name]
-	# topic.[jndi_name] = [physical_name]
-	queue.QUEUE = queue1
-
+# Register some queues in JNDI using the form
+# queue.[jndi_name] = [physical_name]
+# topic.[jndi_name] = [physical_name]
+queue.QUEUE = queue1
+```
 
 #### 設定 ConnectionFactory
 
 在 Qpid 內容檔案 JNDI 提供者中用來定義 **ConnectionFactory** 的項目使用下列格式：
 
-	connectionfactory.[jndi_name] = [ConnectionURL]
+```
+connectionfactory.[jndi_name] = [ConnectionURL]
+```
 
-其中 [jndi_name] 及 [ConnectionURL] 具有下列意義：
+其中 **[jndi_name]** 及 **[ConnectionURL]** 具有下列意義：
 
-<table>
-  <tr>
-    <td>[jndi_name]</td>
-    <td>ConnectionFactory 的邏輯名稱。這是使用 JNDI IntialContext.lookup() 方法在 Java 應用程式中解析的名稱。</td>
-  </tr>
-  <tr>
-    <td>[ConnectionURL]</td>
-    <td>將包含所需資訊的 JMS 程式庫提供給 AMQP 代理人的 URL。</td>
-  </tr>
-</table>
+- **[jndi_name]**：ConnectionFactory 的邏輯名稱。這是使用 JNDI IntialContext.lookup() 方法在 Java 應用程式中解析的名稱。
+- **[ConnectionURL]**：將包含所需資訊的 JMS 程式庫提供給 AMQP 代理人的 URL。
 
 **ConnectionURL** 的格式如下：
 
-	amqps://[username]:[password]@[namespace].servicebus.windows.net
+```
+amqps://[username]:[password]@[namespace].servicebus.windows.net
+```
 
-其中 [namespace]、[username] 及 [password] 具有下列意義：
+其中 **[namespace]**、**[username]** 及 **[password]** 具有下列意義：
 
-<table>
-  <tr>
-    <td>[namespace]</td>
-    <td>從 Azure 管理入口網站取得的服務匯流排命名空間。</td>
-  </tr>
-  <tr>
-    <td>[username]</td>
-    <td>從 Azure 管理入口網站取得的服務匯流排發行者名稱。</td>
-  </tr>
-  <tr>
-    <td>[password]</td>
-    <td>從 Azure 管理入口網站取得的服務匯流排發行者金鑰 URL 編碼格式。</td>
-  </tr>
-</table>
+- **[namespace]**：服務匯流排命名空間。
+- **[username]**：服務匯流排簽發者名稱。
+- **[password]**：服務匯流排簽發者金鑰的 URL 編碼形式。
 
-**注意**：您必須手動使用 URL 將密碼編碼。[http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp) 中提供實用的 URL 編碼公用程式。
-
-例如，如果從 Azure 管理入口網站取得的資訊如下：
-
-<table>
-  <tr>
-    <td>命名空間：</td>
-    <td>foo.servicebus.windows.net</td>
-  </tr>
-  <tr>
-    <td>發行者名稱：</td>
-    <td>owner</td>
-  </tr>
-  <tr>
-    <td>發行者金鑰：</td>
-    <td>j9VYv1q33Ea+cbahWsHFYnLkEzrF0yA5SAqcLNvU7KM=</td>
-  </tr>
-</table>
-
-接著，為了定義名為「SBCF」的 **ConnectionFactory**，即會出現組態字串，如下所示：
-
-	connectionfactory.SBCF = amqps://owner:j9VYv1q33Ea%2BcbahWsHFYnLkEzrF0yA5SAqcLNvU7KM%3D@foo.servicebus.windows.net
+> [AZURE.NOTE]您必須手動使用 URL 將密碼編碼。[http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp) 中提供實用的 URL 編碼公用程式。
 
 #### 設定目的地
 
 在 Qpid 內容檔案 JNDI 提供者中用來定義目的地的項目使用下列格式：
 
-	queue.[jndi_name] = [physical_name]
+```
+queue.[jndi_name] = [physical_name]
+```
 或
 
-	topic.[jndi_name] = [physical_name]
+```
+topic.[jndi_name] = [physical_name]
+```
 
-其中 [jndi_name] 及 [physical_name] 具有下列意義：
+其中 **[jndi_name]** 及 **[physical_name]** 具有下列意義：
 
-<table>
-  <tr>
-    <td>[jndi_name]</td>
-    <td>目的地的邏輯名稱。這是使用 JNDI IntialContext.lookup() 方法在 Java 應用程式中解析的名稱。</td>
-  </tr>
-  <tr>
-    <td>[physical_name]</td>
-    <td>應用程式傳送或接收訊息的服務匯流排實體名稱。</td>
-  </tr>
-</table>
+- **[jndi_name]**：目的地的邏輯名稱。這是使用 JNDI IntialContext.lookup() 方法在 Java 應用程式中解析的名稱。
+- **[physical_name]**：應用程式傳送或接收訊息的服務匯流排實體名稱。
 
-**注意**：從服務匯流排主題訂用帳戶收到時，JNDI 中指定的實體名稱應該是主題的名稱。以 JMS 應用程式程式碼建立持續性訂用帳戶時，將建立訂用帳戶名稱。[Service Bus AMQP 1.0 開發人員指南](http://msdn.microsoft.com/library/jj841071.aspx)提供處理 JMS 服務匯流排主題訂用帳戶的詳細資料。
+> [AZURE.NOTE]從服務匯流排主題訂用帳戶收到在 JNDI 中指定的實體名稱應該是主題的名稱。以 JMS 應用程式程式碼建立持續性訂用帳戶時，將建立訂用帳戶名稱。[Service Bus AMQP 1.0 開發人員指南](http://msdn.microsoft.com/library/jj841071.aspx)提供處理 JMS 服務匯流排主題訂用帳戶的詳細資料。
 
 ### 撰寫 JMS 應用程式
 
@@ -153,10 +114,12 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
 
 將組態資訊的雜湊表傳遞到 javax.naming.InitialContext 類別的建構函式，將設定 JNDI 環境。雜湊表中的兩個所需項目是 Initial Context Factory 和 Provider URL 的類別名稱。下列程式碼顯示如何使用名稱為 **servicebus.properties** 的內容檔案，設定 JNDI 環境使用 Qpid 內容檔案型 JNDI Provider。
 
-	Hashtable<String, String> env = new Hashtable<String, String>(); 
-	env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
-	env.put(Context.PROVIDER_URL, "servicebus.properties"); 
-	InitialContext context = new InitialContext(env); 
+```
+Hashtable<String, String> env = new Hashtable<String, String>(); 
+env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
+env.put(Context.PROVIDER_URL, "servicebus.properties"); 
+InitialContext context = new InitialContext(env);
+``` 
 
 ### 使用服務匯流排佇列的簡單 JMS 應用程式
 
@@ -261,18 +224,20 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
 
 執行應用程式會產生下列輸出：
 
-	> java SimpleSenderReceiver
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
+```
+> java SimpleSenderReceiver
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
 	
-	Sent message with JMSMessageID = ID:2867600614942270318
-	Received message with JMSMessageID = ID:2867600614942270318
+Sent message with JMSMessageID = ID:2867600614942270318
+Received message with JMSMessageID = ID:2867600614942270318
 	
-	Sent message with JMSMessageID = ID:7578408152750301483
-	Received message with JMSMessageID = ID:7578408152750301483
+Sent message with JMSMessageID = ID:7578408152750301483
+Received message with JMSMessageID = ID:7578408152750301483
 	
-	Sent message with JMSMessageID = ID:956102171969368961
-	Received message with JMSMessageID = ID:956102171969368961
-	exit
+Sent message with JMSMessageID = ID:956102171969368961
+Received message with JMSMessageID = ID:956102171969368961
+exit
+```
 
 ## JMS 與 .NET 之間的跨平台訊息
 
@@ -293,21 +258,25 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
 
 #### JMS 應用程式的輸出
 
-	> java SimpleSenderReceiver sendonly
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Sent message with JMSMessageID = ID:4364096528752411591
-	Sent message with JMSMessageID = ID:459252991689389983
-	Sent message with JMSMessageID = ID:1565011046230456854
-	exit
+```
+> java SimpleSenderReceiver sendonly
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Sent message with JMSMessageID = ID:4364096528752411591
+Sent message with JMSMessageID = ID:459252991689389983
+Sent message with JMSMessageID = ID:1565011046230456854
+exit
+```
 
 #### .NET 應用程式的輸出
 
-	> SimpleSenderReceiver.exe	
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Received message with MessageID = 4364096528752411591
-	Received message with MessageID = 459252991689389983
-	Received message with MessageID = 1565011046230456854
-	exit
+```
+> SimpleSenderReceiver.exe	
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Received message with MessageID = 4364096528752411591
+Received message with MessageID = 459252991689389983
+Received message with MessageID = 1565011046230456854
+exit
+```
 
 ### .NET 到 JMS
 
@@ -320,22 +289,25 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
 
 #### .NET 應用程式的輸出
 
-	> SimpleSenderReceiver.exe sendonly
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3	
-	Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
-	Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
-	exit
-
+```
+> SimpleSenderReceiver.exe sendonly
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3	
+Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
+Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
+exit
+```
 
 #### JMS 應用程式的輸出
 
-	> java SimpleSenderReceiver	
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
-	Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
-	Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
-	exit
+```
+> java SimpleSenderReceiver	
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
+Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
+Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
+exit
+```
 
 ## 不支援的功能和限制
 
@@ -361,4 +333,4 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
 * [如何使用服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -22,7 +22,7 @@
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-cloud/cloud2.png)</center>
 
-既然我們已經決定要在雲端中使用 Multi-Factor Authentication，現在就讓我們開始吧！ 請注意，如果您使用 Multi-Factor Authentication for Office 365 或適用於 Azure 系統管理員的 Multi-Factor Authentication，可以跳到步驟 3。
+既然我們已經決定要在雲端中使用 Multi-Factor Authentication，現在就讓我們開始吧！ 請注意，如果您使用 Multi-Factor Authentication for Office 365 或適用於 Azure 系統管理員的 Multi-Factor Authentication，可以跳到步驟 3。這份文件也說明
 
 
 1. **註冊 Azure 訂用帳戶**
@@ -156,4 +156,4 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 ## 後續步驟
 既然您已在雲端設定 Multi-Factor Authentication，接下來可以前往[設定 Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md) 來繼續進行後續步驟。 您將會瞭解有關報告、詐騙警示、自訂語音訊息，以及 Azure Multi-Factor Authentication 提供之所有功能的相關資訊。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

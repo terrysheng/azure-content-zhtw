@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="選用：為服務設定新的儲存體帳戶"
-   description="說明如何針對執行 Update 1 的 StorSimple Manager 服務設定儲存體帳戶。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/18/2015"
-   ms.author="alkohli" />
 
 #### 在 StorSimple 8000 系列 Update 1.0 中新增儲存體帳戶
 
@@ -62,4 +46,4 @@
 
 7. 新建立的儲存體帳戶將顯示於 [設定] 頁面上的 [儲存體帳戶] 下方。按一下 [**儲存**] 以儲存新的儲存體帳戶。系統提示您進行確認時，按一下 [確定]。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

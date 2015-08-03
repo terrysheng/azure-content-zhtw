@@ -262,4 +262,4 @@ N/A | 標記 | _**新增資料行。**_ Azure 中的新資源類型可讓您標�
 
 <!--Image references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -92,4 +92,4 @@ SDK 包含不需撰寫任何程式碼，即可傳送遙測資料的標準模組�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

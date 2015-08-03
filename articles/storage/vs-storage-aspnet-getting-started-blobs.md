@@ -27,60 +27,68 @@
 > - [Queues](vs-storage-aspnet-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
+>[AZURE.NOTE]本文描述如何在您使用 Visual Studio 的 [**新增連接的服務**] 對話方塊，建立或參考了 ASP.NET 應用程式中的 Azure 儲存體帳戶之後開始使用 Azure blob 儲存體。如需其他有關使用 Azure blob 儲存體的一般資訊，請參閱[如何從 .NET 使用 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)。
+
 Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非結構化資料的服務，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。單一 Blob 可以是任何大小。Blob 可以是影像、音訊和視訊檔、原始資料及文件檔案。
 
-若要開始，您需要建立 Azure 儲存體帳戶，然後在儲存體中建立一或多個容器。例如，您可以建立稱為 “Scrapbook” 的儲存體，然後在儲存體中建立稱為 “images” 的容器來儲存圖片，再建立另一個稱為 “audio” 的容器來儲存音訊檔。建立容器之後，就可以將個別的 Blob 檔案上傳至這些容器。如需以程式設計方式操作 Blob 的詳細資訊，請參閱[如何使用 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md/ "如何使用 .NET 的 Blob 儲存體")。
+就像檔案在資料夾中一樣，儲存體 Blob 位於容器中。在您已建立儲存體帳戶之後，您會在儲存體中建立一個或多個容器。例如，在稱為 “Scrapbook” 的儲存體中，您可以在此儲存體中建立稱為 “images” 的 blob 容器來儲存圖片，以及建立另一個稱為 “audio” 的 blob 容器來儲存音訊檔。建立容器之後，就可以將個別的 Blob 檔案上傳至這些容器。
 
-本文章將示範如何使用 Azure Blob 儲存體服務執行常見案例。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。
+
+本文會示範如何使用 Azure Blob 儲存體服務執行常見案例。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。
 
 如需 ASP.NET 專案的詳細資訊，請參閱 [ASP.NET](http://www.asp.net)。
 
-## 以程式設計方式存取 Blob 儲存體
+##在 Visual Studio 伺服器總管中建立 blob 容器
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
+[AZURE.INCLUDE [vs-create-blob-container-in-server-explorer](../../includes/vs-create-blob-container-in-server-explorer.md)]
 
-### 命名空間宣告
-將下列命名空間宣告，新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 C# 檔案內的頂端：
+##在程式碼中存取 blob 容器 
 
-    using Microsoft.Azure;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Blob;
+若要以程式設計方式存取 ASP.NET 專案中的 Blob，您需要加入下列項目 (如果尚不存在)。
 
-確定已參照 `Microsoft.WindowsAzure.Storage.dll` 組件。
+1. 將下列程式碼命名空間宣告，新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 C# 檔案內的頂端。
 
-[AZURE.INCLUDE [storage-dotnet-retrieve-conn-string](../../includes/storage-dotnet-retrieve-conn-string.md)]
+		using Microsoft.Framework.Configuration;
+		using Microsoft.WindowsAzure.Storage;
+		using Microsoft.WindowsAzure.Storage.Auth;
+		using Microsoft.WindowsAzure.Storage.Blob;
 
-**CloudBlobClient** 類型可讓您擷取物件，這些物件代表 Blob 儲存體服務中儲存的容器和 Blob。下列程式碼會使用我們在前面擷取的儲存體帳戶物件來建立 **CloudBlobClient** 物件：
 
+2. 取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。使用下列程式碼，從 Azure 服務組態取得您的儲存體連接字串和儲存體帳戶資訊。
+
+		CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+		   CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
+
+    **注意：**請在後續小節中的程式碼前面使用上述所有程式碼。
+
+
+3. 取得 **CloudBlobClient** 物件，來參考儲存體帳戶中的現有容器。
+
+		// Create a blob client.
+		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+        // Get a reference to a container named “mycontainer.”
+        CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
+
+**注意：**對外向 ASP.NET 5 中的 Azure 儲存體執行呼叫的一些 API 是非同步的。如需詳細資訊，請參閱[使用 Async 和 Await 進行非同步程式設計](http://msdn.microsoft.com/library/hh191443.aspx)。
+
+
+## 在程式碼中建立 blob 容器
+
+您也可以使用 **CloudBlobClient**，在儲存體帳戶中建立容器。您只需將呼叫加入至 `CreateIfNotExistsAsync()` 即可，如下列程式碼所示：
+
+	// Create a blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-[AZURE.INCLUDE [storage-dotnet-odatalib-dependencies](../../includes/storage-dotnet-odatalib-dependencies.md)]
+    // Get a reference to a container named “myNewContainer”.
+    CloudBlobContainer container = blobClient.GetContainerReference("myNewContainer");
 
-## 建立容器
+    // If “myNewContainer” doesn’t exist, create it.
+    await container.CreateIfNotExistsAsync();    
 
-儲存體 Blob 中的每個 Blob 必須位於一個容器中。此範例說明如何建立尚不存在的容器：
 
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the blob client.
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Retrieve a reference to a container. 
-    CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
-
-    // Create the container if it doesn't already exist.
-    container.CreateIfNotExists();
-
-根據預設，新容器屬私人性質，您必須指定儲存體存取金鑰才能從此容器下載 Blob。若要讓所有人都能使用容器中的檔案，您可以使用下列程式碼將容器設定為公用容器：
-
-    container.SetPermissions(
-        new BlobContainerPermissions { PublicAccess = 
- 	    BlobContainerPublicAccessType.Blob }); 
-
-網際網路上的任何人都可以看到公用容器中的 Blob，但要有適當的存取金鑰，才能修改或刪除這些 Blob。
 
 ## 將 Blob 上傳至容器
 
@@ -90,7 +98,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString));
 
     // Create the blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -113,7 +121,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
     // Create the blob client. 
 	CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -191,7 +199,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
     // Create the blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -290,7 +298,9 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 
 ## 後續步驟
 
-了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解有關更複雜的儲存工作。<ul> <li>檢視 Blob 服務參照文件以了解與可用 API 有關的完整詳細資料：<ul> <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731">.NET 的儲存體用戶端程式庫參考資料</a> </li> <li><a href="http://msdn.microsoft.com/library/azure/dd179355">REST API 參考資料</a></li> </ul> </li> <li>了解您可以使用 Azure 儲存體執行的更多進階工作 (位於<a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">在 Azure 中儲存及存取資料</a>)。</li> <li>了解如何使用 <a href="../websites-dotnet-webjobs-sdk/">Azure WebJobs SDK 簡化您要用來使用 Azure 儲存體之程式碼的撰寫程序。</li> <li>如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。<ul> <li>使用<a href="/documentation/articles/storage-dotnet-how-to-use-tables/">資料表儲存體</a>儲存結構化資料。</li> <li>使用<a href="/documentation/articles/storage-dotnet-how-to-use-queues/">佇列儲存體</a>儲存非結構化資料。</li> <li>使用 <a href="/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> 儲存關聯式資料。</li> </ul> </li> </ul>
+[AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
+
+
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -308,4 +318,4 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

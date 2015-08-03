@@ -74,4 +74,4 @@ Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

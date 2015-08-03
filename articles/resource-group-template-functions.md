@@ -382,4 +382,4 @@
 - [使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
 - [Azure 資源管理員概觀](./resource-group-overview.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

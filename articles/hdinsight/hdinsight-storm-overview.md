@@ -77,7 +77,7 @@ HDInsight Tools for Visual Studio 也提供了介面，讓您可以監視和管�
 
 如需關於使用 Storm 儀表板的詳細資訊，請參閱[部署和管理 HDInsight 上的 Apache Storm 拓撲](hdinsight-storm-deploy-monitor-topology.md)。
 
-Storm on HDInsight 也提供透過 **Event Hub Spout** 與 Azure 事件中樞輕鬆整合的功能。您可以在每個 Storm 叢集的 **%STORM_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 位置中使用這項功能。如需在 Storm 拓撲中使用此 Spout 的範例，請參閱[開始使用事件中樞](service-bus-event-hubs-c-storm-getstarted.MD)和[使用 Storm 和 HBase 分析感應器資料](hdinsight-storm-sensor-data-analysis.MD)。
+Storm on HDInsight 也提供透過 **Event Hub Spout** 與 Azure 事件中樞輕鬆整合的功能。您可以在每個 Storm 叢集的 **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 位置中使用這項功能。如需在 Storm 拓撲中使用此 Spout 的範例，請參閱[開始使用事件中樞](service-bus-event-hubs-c-storm-getstarted.MD)和[使用 Storm 和 HBase 分析感應器資料](hdinsight-storm-sensor-data-analysis.MD)。
 
 ###可靠性
 
@@ -156,7 +156,7 @@ HDInsight Tools for Visual Studio 可讓 .NET 開發人員以 C# 設計和實作
 
 如需關於 Trident 的詳細資訊，請參閱 apache.org 上的 [Trident 教學課程](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) (英文)。
 
-如需原始 Java 與 Trident 拓撲的範例，請移至 HDInsight Storm 叢集的 **%storm_home%\\contrib\\storm-starter** 目錄。
+如需原始 Java 與 Trident 拓撲的範例，請移至 HDInsight Storm 叢集的 **%storm_home%\contrib\storm-starter** 目錄。
 
 ##有哪些常見的開發模式？
 
@@ -209,4 +209,4 @@ Storm 可以提供不同程度的訊息處理保證。例如，基本的 Storm �
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

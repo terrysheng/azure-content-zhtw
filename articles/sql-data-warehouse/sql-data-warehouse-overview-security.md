@@ -78,4 +78,4 @@ ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 <!--Other Web references-->
 [Azure Preview 入口網站中的角色型存取控制]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

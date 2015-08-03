@@ -136,4 +136,4 @@
 
 [適用服務管理的 Azure CLI 命令](virtual-machines-command-line-tools.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

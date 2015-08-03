@@ -180,4 +180,4 @@
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

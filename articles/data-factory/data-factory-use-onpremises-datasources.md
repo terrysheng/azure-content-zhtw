@@ -111,13 +111,13 @@
 
 	![[建立閘道器] 刀鋒視窗][image-data-factory-create-gateway-blade]
 
-3. 在 [**設定**] 刀鋒視窗中，按一下 [**直接安裝在此電腦上**]。這會下載閘道的安裝套件、在電腦上安裝、設定和註冊閘道。
+3. 在 [**設定**] 分頁中，按一下 [**直接安裝在此電腦上**]。這會下載閘道的安裝套件、在電腦上安裝、設定和註冊閘道。
 
 	> [AZURE.NOTE]請使用 Internet Explorer 或 Microsoft ClickOnce 相容的 Web 瀏覽器。
 
 	![閘道器 - [設定] 刀鋒視窗][image-data-factory-gateway-configure-blade]
 
-	這是最簡單的方式 (一鍵)，透過單一步驟即可下載、安裝、設定和註冊閘道。您可以看到「Microsoft 資料管理閘道組態管理員」應用程式已安裝在電腦上。您也可以在此資料夾中找到執行檔 **ConfigManager.exe**：**C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared**。
+	這是最簡單的方式 (一鍵)，透過單一步驟即可下載、安裝、設定和註冊閘道。您可以看到「Microsoft 資料管理閘道組態管理員」應用程式已安裝在電腦上。您也可以在此資料夾中找到執行檔 **ConfigManager.exe**：**C:\Program Files\Microsoft Data Management Gateway\1.0\Shared**。
 
 	您也可以使用此刀鋒視窗中的連結手動下載與安裝閘道器，並使用 [**註冊金鑰**] 文字方塊中顯示的金鑰來加以註冊。
 	
@@ -166,7 +166,7 @@
 4.	在 JSON 窗格中，執行下列動作：
 	1.	在 **gatewayName** 屬性中，輸入 **adftutorialgateway** 取代雙引號內的所有文字。  
 	2.	如果您使用 **SQL 驗證**： 
-		1.	在 **connectionString** 屬性中，將 **<servername>**、**<databasename>**、**<username>** 和 **<password>** 分別取代為您的內部部署 SQL Server 名稱、資料庫名稱、使用者帳戶和密碼。若要指定執行個體名稱，請使用逸出字元：例如：**server\\instancename**。 	
+		1.	在 **connectionString** 屬性中，將 **<servername>**、**<databasename>**、**<username>** 和 **<password>** 分別取代為您的內部部署 SQL Server 名稱、資料庫名稱、使用者帳戶和密碼。若要指定執行個體名稱，請使用逸出字元：例如：**server\instancename**。 	
 		2.	從 JSON 檔案中移除最後兩個屬性 (**username** 和 **password**)，並從剩餘的 JSON 指令碼中移除最後一行結尾的「逗號 (,)」 字元。
 		
 				{
@@ -512,7 +512,7 @@
 		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. 在 Azure PowerShell 中，切換到資料夾：**C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript**，然後執行與本機變數 **$Key** 相關聯的 **RegisterGateway.ps1** 指令碼 (如以下命令所示)，將您電腦上安裝的用戶端代理程式，註冊到您稍早建立的邏輯閘道器。
+4. 在 Azure PowerShell 中，切換到資料夾：**C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript**，然後執行與本機變數 **$Key** 相關聯的 **RegisterGateway.ps1** 指令碼 (如以下命令所示)，將您電腦上安裝的用戶端代理程式，註冊到您稍早建立的邏輯閘道器。
 
 		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
 		
@@ -627,4 +627,4 @@
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

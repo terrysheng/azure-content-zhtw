@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # 探索 Operational Insights 安全性和稽核資料
@@ -39,6 +39,8 @@
 7. 在 [搜尋] 查詢方塊中，刪除處理序名稱和引號以外的所有內容，然後按一下搜尋圖示。![詳細搜尋資訊的影像](./media/operational-insights-security-audit/sec-audit-search04.png)
 8. 搜尋會顯示有關處理序的詳細資訊，包括處理序執行所在的電腦、執行處理序的使用者帳戶，以及針對處理序所建立之事件的日期和時間。
 9. 利用您找到的資訊，可以視需要採取修正的動作。例如，如果您判斷某個可執行檔是惡意程式碼，您可能會想要從所有它影響的電腦系統中採取動作將它移除。移除該可執行檔且 Operational Insights 收到電腦系統的更新日誌和稽核事件之後，[值得注意的問題] 刀鋒視窗中的值就會在隔天變更。
+
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
 ## 取證分析的最佳作法
 
@@ -98,4 +100,4 @@ Windows 運算環境可讓您設定安全性相關記錄的擷取層級。例如
 
 除了本機原則設定之外，如果您使用 AppLocker 收集稽核資料，Operational Insights 將會收集這些資料，然後您就可以加以檢視。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

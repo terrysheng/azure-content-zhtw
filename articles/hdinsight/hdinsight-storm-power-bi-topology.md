@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/28/2015"
+ ms.date="07/17/2015"
  ms.author="larryfr"/>
 
 # 使用 Power BI (預覽) 視覺化 Apache Storm 拓撲的資料
@@ -54,9 +54,9 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 ## 註冊 Power BI 應用程式
 
-1. 請遵循 [Power BI 快速入門](https://msdn.microsoft.com/en-US/library/dn931989.aspx)中的步驟註冊 Power BI。
+1. 請遵循 [Power BI 快速入門](https://msdn.microsoft.com/zh-tw/library/dn931989.aspx)中的步驟註冊 Power BI。
 
-2. 請遵循[註冊應用程式](https://msdn.microsoft.com/en-US/library/dn877542.aspx)中的步驟來建立應用程式註冊。這會在存取 Power BI REST API 時使用。
+2. 請遵循[註冊應用程式](https://msdn.microsoft.com/zh-tw/library/dn877542.aspx)中的步驟來建立應用程式註冊。這會在存取 Power BI REST API 時使用。
 
     > [AZURE.IMPORTANT]儲存 **用戶端識別碼** 以進行應用程式註冊。
 
@@ -137,6 +137,5 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 在本文件中，您已學會如何使用 REST 將資料從 Storm 拓撲傳送到 Power BI。如需如何使用其他 Azure 技術的資訊，請參閱下列項目：
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,9 +1,8 @@
 <properties
-    title="Azure SQL Database elastic database query overview"
     pageTitle="Azure SQL Database 彈性資料庫查詢概觀"
     description="彈性查詢功能的概觀"
     services="sql-database"
-    documentationCenter=""  
+    documentationCenter=""
     manager="jeffreyg"
     authors="sidneyh"/>
 
@@ -34,12 +33,14 @@
 
 資料層相應放大到許多使用通用結構描述的資料庫。這個方法也稱為水平資料分割或分區化。執行和管理資料分割時可以使用 (1) [彈性資料庫用戶端程式庫](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) 或 (2) 使用應用程式特定模型將資料分散到多個資料庫。使用此拓撲時，報表通常必須跨越多個資料庫。現在，透過彈性資料庫查詢，您可以連線到單一 SQL 資料庫，而來自遠端資料庫的查詢結果就如同從單一虛擬資料庫產生一樣。
 
+> [AZURE.NOTE]彈性資料庫查詢最適合可在資料層執行大部分處理的非經常性報告案例。對於繁重的報告工作負載或有更多複雜查詢的資料倉儲案例，也請考慮使用 [Azure SQL 資料倉儲](http://azure.microsoft.com/services/sql-data-warehouse/)。
+
 
 ## 彈性資料庫查詢案例
 
 使用彈性資料庫查詢在水平分割的資料層執行報表工作時，需要彈性擴縮分區對應來代表資料層的資料庫。一般而言，這種案例中只會使用單一分區對應，並以具有彈性資料庫查詢功能的專用資料庫做為報表查詢的進入點。只有這個專用資料庫必須設定彈性資料庫查詢物件，如下所述。圖 2 說明此拓撲及其彈性資料庫查詢資料庫和分區對應的組態。
 
-**注意** 專用彈性資料庫查詢資料庫必須是 SQL DB v12 資料庫，且最初僅支援「高階」層。分區本身沒有任何限制。
+> [AZURE.NOTE]專用彈性資料庫查詢資料庫必須是 SQL DB v12 資料庫，且最初僅支援「高階」層。分區本身沒有任何限制。
 
 **圖 2**
 
@@ -262,4 +263,4 @@ SP_EXECUTE_FANOUT 預存程序可存取分區對應所代表的資料庫。此�
 
 <!--anchors-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

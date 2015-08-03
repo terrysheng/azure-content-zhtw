@@ -88,4 +88,4 @@
 - [可設定狀態可靠服務診斷](service-fabric-reliable-services-diagnostics.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

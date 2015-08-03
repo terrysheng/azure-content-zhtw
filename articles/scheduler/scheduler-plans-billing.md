@@ -87,4 +87,4 @@
  [排程器輸出驗證](scheduler-outbound-authentication.md)
   
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -182,7 +182,7 @@
   
   
   [如何使憑證與服務產生關聯]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
-  [將憑證與服務產生關聯]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
+  
   [site-url]: ./media/cloud-services-nodejs-configure-ssl-certificate/site-url.png
   [8]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-08.png
   [如何在 HTTPS 端點上設定 SSL 憑證]: http://msdn.microsoft.com/library/windowsazure/ff795779.aspx
@@ -192,4 +192,4 @@
   [在 Azure 背景工作角色中設定 Node.js 應用程式的 SSL]: /develop/nodejs/common-tasks/enable-ssl-worker-role/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="07/21/2015" 
 	ms.author="genemi"/>
 
 
@@ -46,21 +46,6 @@
 - [Azure SQL Database 防火牆](https://msdn.microsoft.com/library/azure/ee621782.aspx)
 
 
-## 建議：連接
-
-
-- 在您的用戶端連線邏輯中，將預設的逾時覆寫為 30 秒。
- - 預設 15 秒對於依賴網際網路的連線而言太短。
-- 如果您使用的是[連線集區](http://msdn.microsoft.com/library/8xx3tyca.aspx)，請在程式未主動使用時即時關閉連線，而不只是準備重複使用連線。
- - 除非您的程式將立即重複使用其他作業的連線，而不暫停，否則我們建議使用下列模式：<br/><br/>開啟連線。<br/>透過連線執行一項作業。<br/>關閉連接。<br/><br/>
-- 使用重試邏輯搭配連線邏輯，但僅用於暫時性錯誤。使用 SQL Database 時，嘗試開啟連線或發出查詢都可能因為多種原因而失敗。
- - 失敗的其中一個持續性原因可能是您的連接字串格式錯誤。
- - 失敗的其中一個暫時性原因可能是 Azure SQL Database 系統需要平衡整體負載。暫時性原因會自己消失，這表示您的程式應該重試。
- - 重試查詢時，請先關閉連線，然後再開啟另一個連線。
-- 確定您的 [Azure SQL Database 防火牆](http://msdn.microsoft.com/library/ee621782.aspx)允許連接埠 1433 上的傳出 TCP 通訊。
- - 您可以在 SQL Database 伺服器上或個別的資料庫中設定[防火牆](http://msdn.microsoft.com/library/azure/ee621782.aspx)設定。
-
-
 ## 建議：驗證
 
 
@@ -73,7 +58,25 @@
  - 您無法在 SQL Database 上使用 Transact-SQL **USE myDatabaseName;** 陳述式。
 
 
-## 暫時性錯誤
+## 建議：連接
+
+
+- 在您的用戶端連線邏輯中，將預設的逾時覆寫為 30 秒。
+ - 預設 15 秒對於依賴網際網路的連線而言太短。
+- 確定您的 [Azure SQL Database 防火牆](http://msdn.microsoft.com/library/ee621782.aspx)允許連接埠 1433 上的傳出 TCP 通訊。
+ - 您可以在 SQL Database 伺服器上或個別的資料庫中設定[防火牆](http://msdn.microsoft.com/library/azure/ee621782.aspx)設定。
+- 如果您使用的是[連線集區](http://msdn.microsoft.com/library/8xx3tyca.aspx)，請在程式未主動使用時即時關閉連線，而不只是準備重複使用連線。
+ - 除非您的程式將立即重複使用其他作業的連線，而不暫停，否則我們建議使用下列模式：<br/><br/>開啟連線。<br/>透過連線執行一項作業。<br/>關閉連線。<br/><br/>
+- 使用重試邏輯搭配連線邏輯，但僅用於暫時性錯誤。使用 SQL Database 時，嘗試開啟連線或發出查詢都可能因為多種原因而失敗。
+ - 失敗的其中一個持續性原因可能是您的連接字串格式錯誤。
+ - 失敗的其中一個暫時性原因可能是 Azure SQL Database 系統需要平衡整體負載。暫時性原因會自己消失，這表示您的程式應該重試。
+ - 重試查詢時，請先關閉連線，然後再開啟另一個連線。
+
+
+下一節會更詳細說明重試邏輯和暫時性錯誤處理。
+
+
+## 暫時性錯誤和重試邏輯
 
 
 雲端服務 (例如 Azure 及其 SQL Database 服務) 有無止盡的平衡工作負載和資源管理挑戰。如果正在從同一部電腦提供的兩個資料庫同時進行極繁重的處理，則管理系統可能會偵測是否需要將一個資料庫的工作負載，轉移有多餘容量的另一個資源。
@@ -82,11 +85,12 @@
 在轉移期間，資料庫可能暫時無法使用。這可能會封鎖新連接，或可能會導致您的用戶端程式遺失其連接。但資源移轉是暫時的，而且它可能會在幾分鐘或幾秒鐘的時間內自行解決。完成移轉後，用戶端程式可重新建立連接，然後繼續執行其工作。與其讓用戶端程式發生可避免的失敗，不如在處理程序中暫停。
 
 
-發生任何 SQL Database 錯誤時，會擲回 [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx)。SqlException 在其 **Number** 屬性中包含一個數字錯誤碼。如果錯誤碼識別暫時性錯誤，您的程式應該重試呼叫。
+發生任何 SQL Database 錯誤時，會擲回 [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx)。`SqlException` 在其 **Number** 屬性中包含一個數字錯誤碼。如果錯誤碼識別暫時性錯誤，您的程式應該重試呼叫。
 
 
-- [錯誤訊息 (Azure SQL Database)](http://msdn.microsoft.com/library/azure/ff394106.aspx) - 其 [**連線中斷錯誤**] 區段是一個有理由自動重試的暫時性錯誤清單。
- - 例如，如果出現錯誤編號 40613，表示發生類似如下的狀況，則重試：<br/>* 伺服器 'theserver' 上的資料庫 'mydatabase' 目前無法使用。*
+- [錯誤訊息 (Azure SQL Database)](http://msdn.microsoft.com/library/azure/ff394106.aspx)
+ - 其 [**暫時性錯誤、連線中斷錯誤**] 區段是一個有理由自動重試的暫時性錯誤清單。
+ - 例如，如果出現錯誤編號 40613，表示發生類似如下的狀況，則重試：<br/>*伺服器 'theserver' 上的資料庫 'mydatabase' 目前無法使用。*
 
 
 暫時性*錯誤*有時也稱為暫時性*失敗*。本主題將這兩個詞彙視為同義字。
@@ -98,28 +102,56 @@
 - [疑難排解 Azure SQL Database 的連線問題](http://support.microsoft.com/kb/2980233/)
 
 
+如需示範重試邏輯之程式碼範例主題的連結，請參閱：
+
+
+- [SQL Database 的用戶端快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
+
+
+<a id="gatewaynoretry" name="gatewaynoretry">&nbsp;</a>
+
+
+## 閘道器不再提供 V12 中的重試邏輯
+
+
+在 V12 版之前，Azure SQL Database 具有可做為 Proxy 的閘道器，以緩衝資料庫和用戶端程式之間的所有互動。此閘道器是一個額外的網路躍點，有時會增加資料庫存取的延遲時間。
+
+
+V12 已刪除此閘道器。所以現在：
+
+
+- 您的用戶端程式會資料庫與*直接* 互動，這更有效率。
+- 已排除閘道器在錯誤訊息以及與您的程式的其他通訊方面的些微失真情況。
+ - 對您的程式而言，SQL Database 和 SQL Server 比較相似。
+
+
+#### 重試邏輯消失
+
+
+此閘道器為您提供了某些暫時性錯誤的重試邏輯。您的程式現在必定能更完整地處理暫時性錯誤。如需有關重試邏輯的程式碼範例，請參閱：
+
+
+- [SQL Database 的用戶端開發和快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
+ - 具有包含重試邏輯之程式碼範例的連結，以及更簡單的連接並查詢範例的連結。
+- [作法：可靠地連接到 Azure SQL Database](http://msdn.microsoft.com/library/azure/dn864744.aspx)
+- [作法：使用 ADO.NET 與 Enterprise Library 連接到 Azure SQL Database](http://msdn.microsoft.com/library/azure/dn961167.aspx)
+- [作法：使用 ADO.NET 連接到 Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+
+
 ## 技術
 
 
 下列主題包含數個語言和驅動程式技術的程式碼範例連結，可讓您從用戶端程式連接到 Azure SQL Database。
 
 
-會針對 Windows 和 Linux 上執行的用戶端提供各種程式碼範例。
+會針對在 Windows、Linux 和 Mac OS X 上執行的用戶端提供各種程式碼範例。
 
 
-**一般範例：**有各種不同的程式設計語言，包括 PHP、Python、Node.js 和 .NET CSharp 的程式碼範例。此外，也提供在 Windows 或 Linux 上執行的用戶端範例。
+**一般範例：**有各種不同的程式設計語言，包括 PHP、Python、Node.js 和 .NET CSharp 的程式碼範例。此外，也提供在 Windows、Linux 和 Mac OS X 上執行的用戶端範例。
 
 
 - [SQL Database 的用戶端開發和快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
 - [Azure SQL Database 開發：使用說明主題](http://msdn.microsoft.com/library/azure/ee621787.aspx)
-
-
-**重試邏輯：**有一些針對多樣化需求所設計的程式碼範例，可使用自動重試邏輯來處理暫時性錯誤。
-
-
-- [作法：可靠地連線到 Azure SQL Database](http://msdn.microsoft.com/library/azure/dn864744.aspx)
-- [作法：使用 ADO.NET 與 Enterprise Library 連接到 Azure SQL Database](http://msdn.microsoft.com/library/azure/dn961167.aspx)
-- [作法：使用 ADO.NET 連接到 Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336243.aspx)
 
 
 **彈性擴縮：**如需彈性擴縮資料庫的連線相關資訊，請參閱：
@@ -142,4 +174,4 @@
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

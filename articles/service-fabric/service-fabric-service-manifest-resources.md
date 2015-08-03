@@ -69,4 +69,4 @@ Service-Fabric 會自動將 HTTP 端點處理為 ACL。
 ```
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

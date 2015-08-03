@@ -340,4 +340,4 @@ Azure CLI 將使用預設的 VM 大小建立虛擬機器。它也會建立儲存
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

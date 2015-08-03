@@ -1,20 +1,21 @@
-<properties 
-	pageTitle="如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service" 
-	description="說明如何在 Azure 的 VM 上安裝和設定 Trend Micro 安全性" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor=""/>
+<properties
+	pageTitle="如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service"
+	description="說明如何在 Azure 的 VM 上安裝和設定 Trend Micro 安全性"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dsk-2015"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/17/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/15/2015"
+	ms.author="dkshir"/>
 
 
 # 如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service
@@ -43,7 +44,7 @@
 
 若要執行此作業，您將需要下列項目：
 
-- 在本機電腦上安裝 Azure PowerShell 模組 0.8.2 版或更新版本。您可以使用 **Get-Module azure | format-table version** 命令檢查已安裝的 Azure PowerShell 版本。如需最新版本的指示與連結，請參閱[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)。 
+- 在本機電腦上安裝 Azure PowerShell 模組 0.8.2 版或更新版本。您可以使用 **Get-Module azure | format-table version** 命令檢查已安裝的 Azure PowerShell 版本。如需最新版本的指示與連結，請參閱[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)。
 
 - 在目標虛擬機器上安裝 VM 代理程式。
 
@@ -51,7 +52,7 @@
 
 	$CSName = "<cloud service name>"
 	$VMName = "<virtual machine name>"
-	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName 
+	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName
 	write-host $vm.VM.ProvisionGuestAgent
 
 如果您不知道雲端服務和虛擬機器名稱，請執行 **Get-AzureVM** 以顯示目前訂用帳戶中所有虛擬機器的該項資訊。
@@ -61,6 +62,7 @@
 如果已安裝 VM 代理程式，請執行這些命令。
 
 	$Agent = Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA
+
 	Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity –Version $Agent.Version -ExtensionName TrendMicroDSA -VM $vm | Update-AzureVM
 
 ## 後續步驟
@@ -82,6 +84,4 @@
 [如何登入執行 Windows Server 的虛擬機器]: virtual-machines-log-on-windows-server.md
 [Azure VM 延伸模組與功能]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

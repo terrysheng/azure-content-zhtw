@@ -18,6 +18,8 @@
 
 # 如何設定應用程式以使用 Google 登入
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 本主題說明如何設定 Azure 應用程式服務，以使用 Google 做為驗證提供者。
 
 若要完成本主題的程序，您必須具有已通過電子郵件地址驗證的 Google 帳戶。若要建立新的 Google 帳戶，請前往 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>。
@@ -71,4 +73,4 @@
 [Azure 管理入口網站]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

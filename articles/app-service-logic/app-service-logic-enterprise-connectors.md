@@ -71,7 +71,7 @@ SAP | **動作**連接器。連接至內部部署 SAP 伺服器。叫用 RFC、B
 2. 選取連接器。在新分頁中，選取 [**建立**]。 
 3. 輸入屬性： 
 
-	屬性 | 說明
+屬性 | 說明
 --- | ---
 名稱 | 為您的連接器輸入任何名稱。例如，您可將它命名為 *SAPConnector*、*SalesForceGetAccounts* 或 *QuickBooksGetItems*。
 Package Settings | 輸入企業系統設定，如 *SAP 使用者名稱*或 *SugarCRM 伺服器 URL*。請參閱本主題中的[企業系統特有屬性](#AddProperties)。 
@@ -87,7 +87,7 @@ Package Settings | 輸入企業系統設定，如 *SAP 使用者名稱*或 *Suga
 
 > [AZURE.IMPORTANT]每個連接器都會有該企業系統特有的屬性。連接至 SAP 時，您必須輸入 SAP 特有的屬性。連接至 Salesforce 時，您必須輸入 Salesforce 特有的屬性，以此類推。下表列出必要的企業系統屬性。
 	
-	Enterprise System | Required Properties
+Enterprise System | Required Properties
 --- | ---
 Marketo | <ul><li>端點</li><li>提供者名稱</li></ul>
 MongoDB| <ul><li>連接字串</li><li>主機</li><li>埠</li><li>使用者名稱</li><li>密碼</li><li>資料庫</li><li>使用 SSL 加密</li><li>內部部署：如果是雲端架構，請輸入 False。如果 MongoDb 是內部部署系統，請輸入 True，並輸入下列屬性：<ul><li>共用的存取金鑰名稱</li><li>服務匯流排命名空間</li><li>轉送路徑</li><li>傳送金鑰</li></ul></li></ul>
@@ -116,7 +116,7 @@ SugarCRM | <ul><li>伺服器 URL</li><li>提供者名稱</li><li>模組名稱</l
 
 - 檢視資訊和錯誤事件
 - 檢視工作處理序 (w3wp) 的記憶體使用量和執行緒計數
-- 檢視應用程式和 Web 伺服器記錄檔\\
+- 檢視應用程式和 Web 伺服器記錄檔\
 
 另請參閱[監視邏輯應用程式](app-service-logic-monitor-your-logic-apps.md)以取得更多資訊。
 
@@ -158,4 +158,4 @@ Microsoft Azure 應用程式服務會公開可以使用這些連接器的不同�
 
 [連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/>[什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

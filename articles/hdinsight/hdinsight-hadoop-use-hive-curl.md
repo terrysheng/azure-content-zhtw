@@ -1,5 +1,5 @@
 <properties
-   pageTitle="在 HDInsight 中搭配使用 Hadoop Pig 與 Curl | Microsoft Azure"
+   pageTitle="在 HDInsight 中搭配使用 Hadoop Hive 與 Curl | Microsoft Azure"
    description="了解如何使用 Curl 從遠端提交 Pig 工作到 HDInsight。"
    services="hdinsight"
    documentationCenter=""
@@ -144,7 +144,7 @@
 
 如需本文中使用的 REST 介面的詳細資訊，請參閱 <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference" target="_blank">WebHCat 參照</a>。
 
-##<a id="nextsteps"></a>接續步驟
+##<a id="nextsteps"></a>後續步驟
 
 Hive 與 HDInsight 搭配使用的一般資訊：
 
@@ -189,4 +189,4 @@ Hive 與 HDInsight 搭配使用的一般資訊：
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

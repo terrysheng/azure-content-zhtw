@@ -92,4 +92,4 @@ LOB 的另一個案例是有站台對站台 VPN 至 ILB 端點設定所在的虛
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

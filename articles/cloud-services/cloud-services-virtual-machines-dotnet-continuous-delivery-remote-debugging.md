@@ -95,4 +95,4 @@ $vm | Update-AzureVM
 6. 將憑證 (.pfx) 匯入已安裝 Visual Studio with Azure SDK for .NET 的機器。
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

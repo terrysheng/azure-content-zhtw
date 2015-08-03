@@ -164,7 +164,7 @@ Certreq.exe 是一項用來建立憑證要求的 Windows 公用程式。自 Wind
 
 5. 從命令列、Bash 或終端機工作階段中，使用下列命令，將 **myserver.key** 和 **myserver.crt** 轉換為 **myserver.pfx** (Azure App Service 所需的格式)：
 
-		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+		openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
 	當系統提示時，輸入 .pfx 檔案的保護密碼。
 
@@ -541,4 +541,4 @@ Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTT
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

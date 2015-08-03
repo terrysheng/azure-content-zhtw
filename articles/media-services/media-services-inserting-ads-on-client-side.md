@@ -804,4 +804,4 @@ Microsoft 媒體平台：Player Framework for iOS 包含範例應用程式集合
 
 [開發視訊播放器應用程式](media-services-develop-video-players.md) [Azure Media Player Framework for iOS 的簡介](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

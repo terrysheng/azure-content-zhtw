@@ -118,7 +118,7 @@ result 將包含操作的相關資訊，包括容器的目前 **ETag**。
 
 ### 篩選器
 
-可以將選用的篩選作業套用到使用 **BlobService** 執行的作業。篩選作業可包含記錄、自動重試等。篩選器是以簽章實作方法的物件：
+可以將選用的篩選作業套用到使用 **BlobService** 執行的作業。篩選作業可包含記錄、自動重試等。篩選器是使用簽章實作方法的物件：
 
 		function handle (requestOptions, next)
 
@@ -376,4 +376,4 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
 [適用於節點 API 之 Azure 儲存體 SDK 的參考資料]: http://dl.windowsazure.com/nodestoragedocs/index.html
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -120,11 +120,11 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 	或者，您可以在登錄中設定或新增下列 DWORD 值：
 
 		HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
-9.	如果您是在 Azure 虛擬機器內建立映像，請重新命名 **\%windir%\\Panther\\Unattend.xml** 檔案，以免上傳指令碼稍後無法正常運作。將此檔案名稱變更為 Unattend.old，以便當您需要回復部署時，仍舊保有這個檔案可用。
+9.	如果您是在 Azure 虛擬機器內建立映像，請重新命名 **\%windir%\Panther\Unattend.xml** 檔案，以免上傳指令碼稍後無法正常運作。將此檔案名稱變更為 Unattend.old，以便當您需要回復部署時，仍舊保有這個檔案可用。
 10.	前往 Windows Update 並安裝所有重要的更新。您可能必須執行 Windows Update 很多次才能取得所有更新。(有時候您安裝更新，而該更新本身又需要另外的更新。)
 10.	進行映像的 SYSPREP 處理。在提高權限的命令提示字元上執行下列命令：
 
-	**C:\\Windows\\System32\\sysprep\\sysprep.exe /generalize /oobe /shutdown**
+	**C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**
 
 	**注意：**請不要使用 SYSPREP 命令的 **/mode:vm** 參數，即使這是虛擬機器亦然。
 
@@ -137,4 +137,4 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 - [如何建立 RemoteApp 的雲端收藏](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

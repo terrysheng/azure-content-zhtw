@@ -113,4 +113,4 @@ ADM 實際上不會傳送任何促銷活動資料，它只是告知應用程式�
 [此程序]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -129,7 +129,7 @@ Web 測試可分為兩種：
 
 若要建立多重步驟測試，您可以使用 Visual Studio 來記錄案例，然後將記錄結果上傳至 Application Insights。Application Insights 將會不時地重新執行案例，並確認回應。
 
-#### 1\.記錄案例
+#### 1.記錄案例
 
 使用 Visual Studio Ultimate 來記錄 Web 工作階段。
 
@@ -156,7 +156,7 @@ Web 測試可分為兩種：
 
 (請勿在 Web 測試程式碼中插入迴圈。)
 
-#### 2\.將 Web 測試上傳至 Application Insights
+#### 2.將 Web 測試上傳至 Application Insights
 
 1. 在 Application Insights 入口網站中，建立新的 Web 測試。
 
@@ -229,4 +229,4 @@ Web 測試外掛程式提供這種作法。
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

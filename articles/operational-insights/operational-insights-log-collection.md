@@ -93,4 +93,4 @@
 - [Azure Operational Insights 中的 IIS 記錄檔格式需求](http://blogs.technet.com/b/momteam/archive/2014/09/19/iis-log-format-requirements-in-system-center-advisor.aspx)
 - 請在[意見反應論壇](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy)中，參閱社群要求我們實作的記錄檔的其他資料來源和類型
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

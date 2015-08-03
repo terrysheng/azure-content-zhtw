@@ -137,7 +137,7 @@ Twitter 連接器現在便是工作流程的一部分。
 
 	這會將值 `@first(body('twitterconnector')).TweetText` 輸入文字方塊中。這個產生的值包含下列部分：
 
-	內容部分 | 說明
+內容部分 | 說明
 	------------------------------------------ | ------------
 	 `@` | 指出您正在輸入函數，而不是實際值。
 	`actions('twitterconnector').outputs.body` | 取得 Twitter 連接器查詢所傳回的推文。
@@ -172,4 +172,4 @@ Twitter 連接器現在便是工作流程的一部分。
 [使用邏輯應用程式功能]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

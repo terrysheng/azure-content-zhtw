@@ -3,7 +3,7 @@
 	description="了解適合用來在 Azure 基礎結構服務中部署 IT 工作負載的關鍵設計和實作指導方針。" 
 	documentationCenter=""
 	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
+	authors="squillace" 
 	manager="timlt" 
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
-	ms.author="josephd"/>
+	ms.date="07/09/2015" 
+	ms.author="rasquill"/>
 
 # Azure 基礎結構服務實作指導方針
  
@@ -73,11 +73,11 @@ Azure 元件、服務或產品 | Rg (適用於資源群組)、Svc (適用於雲�
 - 儲存體帳戶
 - 虛擬網路
 - 子網路
-- 可用性設定組 (Availability Sets)
+- 可用性設定組
 - Resource groups
 - 雲端服務
 - 虛擬機器
-- 端點
+- Endpoints
 - 網路安全性群組
 - 角色
 
@@ -168,7 +168,7 @@ Azure 會建立含有一個作業系統磁碟、一個暫存磁碟，以及零�
 ### 等量磁碟
 除了能夠建立大於 1023 GB 的磁碟，在許多情況下，針對資料磁碟使用等量，可藉由允許多個 Blob 備份單一磁碟區的儲存體來增強效能。這會與需要從單一磁碟讀取和寫入資料的 I/O 平行處理。
 
-根據虛擬機器的大小而定，Azure 會強制限制資料磁碟數量和可用頻寬。如需詳細資料，請參閱 [Azure 的虛擬機器和雲端服務大小](https://msdn.microsoft.com/library/azure/dn197896.aspx)。
+根據虛擬機器的大小而定，Azure 會強制限制資料磁碟數量和可用頻寬。如需詳細資料，請參閱[虛擬機器的大小](virtual-machines-size-specs.md)。
 
 如果您針對 Azure 資料磁碟使用磁碟等量，請考量下列指導方針：
 
@@ -288,9 +288,9 @@ Azure 訂用帳戶最多可支援 200 個雲端服務。
 - 定義適用於虛擬網路的位址空間。
 - 定義子網路組合以及適用於每個子網路的位址空間。
 - 針對跨單位的虛擬網路，定義適用於內部部署位置的區域網路位址空間組合，而虛擬網路中的虛擬機器需要連接這類位置。
-- 使用您的命名慣例來建立虛擬網路。您可以使用 Azure Preview 入口網站或 Azure 管理入口網站。
+- 使用您的命名慣例來建立虛擬網路。您可以使用 Azure Preview 入口網站或 Azure 入口網站。
 
-## 6.可用性設定組 (Availability Sets)
+## 6.可用性設定組
 
 在 Azure PaaS 中，雲端服務包含一或多個角色來執行應用程式程式碼。角色可擁有一或多個虛擬機器執行個體，而網狀架構會自動佈建這些執行個體。Azure 可能會在任何指定的時間更新這些角色中的執行個體，但是，由於它們屬於相同的角色，因此，Azure 知道不能同時更新它們全部，以防止角色的服務中斷。
 
@@ -312,7 +312,7 @@ Azure 訂用帳戶最多可支援 200 個雲端服務。
 
 在 Azure PaaS 中，Azure 會管理虛擬機器及其相關聯的磁碟。您必須建立雲端服務和角色並為其命名，然後 Azure 將會建立與這些角色相關聯的執行個體。在 Azure IaaS 的案例中，您可以決定是否要為雲端服務、虛擬機器及相關聯的磁碟提供名稱。
 
-為了降低管理負擔，Azure 管理入口網站將使用電腦名稱做為相關聯雲端服務的預設名稱建議 (在此案例中，客戶選擇建立新的雲端服務做為虛擬機器建立精靈的一部分)。
+為了降低管理負擔，Azure 入口網站將使用電腦名稱做為相關聯雲端服務的預設名稱建議 (在此案例中，客戶選擇建立新的雲端服務做為虛擬機器建立精靈的一部分)。
 
 此外，Azure 會使用雲端服務名稱、電腦名稱及建立日期的組合，來為磁碟及其支援的 VHD Blob 命名。
 
@@ -387,7 +387,7 @@ Contoso 判斷他們需要兩個儲存體帳戶：
 	- 名稱：BackEnd
 	- 位址空間：10.0.2.0/24
 
-### 可用性設定組 (Availability Sets)
+### 可用性設定組
 
 為了維持這四個財務分析引擎層級的高可用性，Contoso 決定使用四個可用性設定組：
 
@@ -430,7 +430,7 @@ Contoso 決定為其 Azure 虛擬機器使用下列名稱：
 
 [Microsoft Azure 訂用帳戶及服務限制、配額與限制](../azure-subscription-service-limits.md#storage-limits)
 
-[Azure 的虛擬機器和雲端服務大小](https://msdn.microsoft.com/library/azure/dn197896.aspx)
+[虛擬機器的大小](virtual-machines-size-specs.md)
 
 [Azure 儲存體的延展性與效能目標](../storage-scalability-targets.md)
 
@@ -438,7 +438,7 @@ Contoso 決定為其 Azure 虛擬機器使用下列名稱：
 
 [資料中心延伸模組參考架構圖表](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
-[Azure 資源管理員提供的 Azure 運算、網路和儲存提供者](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
+[Azure 資源管理員下的 Azure 計算、網路和儲存空間提供者](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

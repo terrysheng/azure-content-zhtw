@@ -1,6 +1,7 @@
 <properties
 	pageTitle="了解什麼是 Hive 以及如何使用 HiveQL |Microsoft Azure"
 	description="了解 Apache Hive 以及如何搭配 HDInsight 中的 Hadoop 使用它。選擇如何執行 Hive 工作，並使用 HiveQL 分析範例 Apache Log4j 檔案。"
+	keywords="hiveql,what is hive"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -162,4 +163,4 @@ HDInsight 可以使用各種方法執行 Hive QL 工作。請使用下表決定�
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

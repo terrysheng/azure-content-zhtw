@@ -29,4 +29,4 @@
 7. 按一下 [開啟] 以啟動序列工作階段。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

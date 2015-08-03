@@ -189,4 +189,4 @@ System Center 2012 R2 上的 VMM (建議選項) (叢集或獨立) | <p>使用 Hy
 - [利用單一 VMM 伺服器設定保護](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -264,4 +264,4 @@ Azure 排程器會實作以數個條件為基礎的配額。本節列出配額�
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

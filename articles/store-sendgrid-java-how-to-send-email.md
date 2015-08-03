@@ -136,7 +136,7 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
 
     // Local file name and path.
     String attachmentName = "myfile.zip";
-    String attachmentPath = "c:\\myfiles\"; 
+    String attachmentPath = "c:\myfiles\"; 
     MimeBodyPart attachmentPart = new MimeBodyPart();
     // Specify the local file to attach.
     DataSource source = new FileDataSource(attachmentPath + attachmentName);
@@ -228,4 +228,4 @@ SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGri
   [雲端架構電子郵件服務]: https://sendgrid.com/email-solutions
   [交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1293,4 +1293,4 @@ Azure 角色型存取控制會隨附三個內建的角色，供您指派給使�
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

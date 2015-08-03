@@ -37,6 +37,10 @@
 * 有效的 [Microsoft 市集帳戶](http://go.microsoft.com/fwlink/p/?LinkId=280045)。
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>。
 
+##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
+
 ##<a id="register"></a>針對推播通知註冊應用程式
 
 若要使用 Azure 應用程式服務將推播通知傳送至 Windows 通用應用程式，您必須將應用程式提交到 Windows 市集。接著，您必須設定行動應用程式推播通知服務認證，才能與 WNS 整合。
@@ -191,4 +195,4 @@
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

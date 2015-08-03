@@ -143,4 +143,4 @@ Azure SQL Database 彈性資料庫查詢 (預覽) 可讓您執行使用單一連
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -71,7 +71,7 @@
 4.	按一下您的 Web 應用程式的名稱。
 5.	在 [**基本功能**] 頁面上，按一下 [**所有設定**]。
 6.	按一下 [**自訂網域和 SSL**]。 
-7.	在 [自訂網域和 SSL] 分頁中，按一下 [帶出外部網域]。IP 位址位於此組件的底部。
+7.	在 [自訂網域和 SSL] 刀鋒視窗中，按一下 [帶出外部網域]。IP 位址位於此部分的底部。
 
 ## 建立 DNS 記錄
 
@@ -147,4 +147,4 @@
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

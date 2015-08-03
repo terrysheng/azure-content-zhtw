@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
-# 流量管理員概觀
+# 什麼是流量管理員？
 
 Microsoft Azure 流量管理員可讓您控制使用者流量，將流量分散到指定的端點，端點可以包括 Azure 雲端服務、網站和其他端點。Traffic Manager 的運作方式是在您的網際網路資源網域名稱的網域名稱系統 (DNS) 查詢上套用情報原則引擎。您的 Azure 雲端服務或網站可以在世界各地不同的資料中心間執行。
 
@@ -160,7 +160,7 @@ Microsoft Azure 流量管理員可讓您控制使用者流量，將流量分散�
 
 如果您要在流量管理員簡報中使用本主題的圖形用於 PowerPoint 投影片，或者依照自己的用途修改圖形，請參閱 [MSDN 文件中的流量管理員圖形](http://gallery.technet.microsoft.com/Traffic-Manager-figures-in-887e7c99)。
 
-## 另請參閱
+## 後續步驟
 
 [雲端服務](http://go.microsoft.com/fwlink/p/?LinkId=314074)
 
@@ -170,4 +170,4 @@ Microsoft Azure 流量管理員可讓您控制使用者流量，將流量分散�
 
 [Azure 流量管理員 Cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

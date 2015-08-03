@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
-	manager="wpickett" 
+	manager="jeffreyg" 
 	editor="jimbe"/>
 
 <tags 
@@ -726,4 +726,4 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -108,7 +108,7 @@
 2. [建立您的憑證](#Create-your-certificates)
 3. [設定 VPN 用戶端](#Configure-your-VPN-client)
 
-如需詳細資訊，請參閱[設定點對站 VPN 連線到 Azure 虛擬網路](https://msdn.microsoft.com/library/azure/dn133792.aspx)。
+如需詳細資訊，請參閱[設定點對站 VPN 連線到 Azure 虛擬網路](../vpn-gateway/vpn-gateway-point-to-site-create.md)。
 
 #### 設定虛擬網路和動態路由閘道
 
@@ -216,7 +216,7 @@
 2. 開啟/執行 jar 檔案。它需要 [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)。
 3. 按兩下 [**下一步**]。
 4. 指定您具有寫入權限的路徑，然後按 [**下一步**]。
-	>[AZURE.NOTE]預設的安裝資料夾位於 C:\\Program Files\\squirrel sql 3.6 資料夾中。若要寫入此路徑，必須將系統管理員權限授與安裝程式。您可以系統管理員身分開啟命令提示字元、瀏覽至 Java 的 bin 資料夾，然後再執行
+	>[AZURE.NOTE]預設的安裝資料夾位於 C:\Program Files\squirrel sql 3.6 資料夾中。若要寫入此路徑，必須將系統管理員權限授與安裝程式。您可以系統管理員身分開啟命令提示字元、瀏覽至 Java 的 bin 資料夾，然後再執行
 	>
 	>     java.exe -jar [the path of the SQuirreL jar file] 
 5. 按一下 [**確定**] 以確認建立目標目錄。
@@ -306,4 +306,4 @@ Phoenix 驅動程式 jar 檔案位於 HBase 叢集上。此路徑根據版本與
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -281,4 +281,4 @@ Entity Framework 應用程式可以輕易地受益於 Azure SQL Database 的彈�
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

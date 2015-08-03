@@ -57,4 +57,4 @@ Azure 備份和 System Center Data Protection Manager 的客戶可以：- 以最
 - [Azure 備份的簡介](backup-introduction-to-azure-backup.md)
 - [試用 Azure 備份](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="07/11/2015" 
 	ms.author="nitinme"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 Solr
@@ -62,7 +62,7 @@
 
 1. **使用遠端桌面通訊協定 (RDP) 遠端登入到已安裝 Solr 的 HDInsight 叢集**。從 Azure 入口網站，針對您所建立且已安裝 Solr 的叢集啟用遠端桌面，然後遠端登入到叢集。如需指示，請參閱<a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連線到 HDInsight 叢集</a>。
 
-2. **上傳資料檔案以對 Solr 編製索引**。在對 Solr 編製索引時，會在其中放置可能需要搜尋的文件。若要對 Solr 編製索引，請使用 RDP 遠端登入到叢集、瀏覽至桌面、開啟 Hadoop 命令列，然後瀏覽至 **C:\\apps\\dist\\solr-4.7.2\\example\\exampledocs**。執行以下命令：
+2. **上傳資料檔案以對 Solr 編製索引**。在對 Solr 編製索引時，會在其中放置可能需要搜尋的文件。若要對 Solr 編製索引，請使用 RDP 遠端登入到叢集、瀏覽至桌面、開啟 Hadoop 命令列，然後瀏覽至 **C:\apps\dist\solr-4.7.2\example\exampledocs**。執行以下命令：
 	
 		java -jar post.jar solr.xml monitor.xml
 
@@ -154,7 +154,7 @@
 			  <str name="status">OK</str>
 			</response>
 
-	2. 在遠端工作階段中，瀏覽至 {SOLR_HOME}{Collection}\\data。若是透過範例指令碼建立的叢集，則應該是 **C:\\apps\\dist\\solr-4.7.2\\example\\solr\\collection1\\data**。在此位置中，您應該會看到以類似 **snapshot.*timestamp*** 的名稱建立的快照資料夾。
+	2. 在遠端工作階段中，瀏覽至 {SOLR_HOME}{Collection}\data。若是透過範例指令碼建立的叢集，則應該是 **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**。在此位置中，您應該會看到以類似 **snapshot.*timestamp*** 的名稱建立的快照資料夾。
 	
 	3. 壓縮快照資料夾，並上傳至 Azure Blob 儲存體。從 Hadoop 命令列使用下列命令瀏覽至快照資料夾的位置：
 
@@ -344,7 +344,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 
 **執行應用程式**
 
-開啟 Windows PowerShell 或 Azure PowerShell 主控台、瀏覽至您儲存 Visual Studio 專案的位置、瀏覽至專案內的 \\bin\\debug 目錄，然後執行下列命令：
+開啟 Windows PowerShell 或 Azure PowerShell 主控台、瀏覽至您儲存 Visual Studio 專案的位置、瀏覽至專案內的 \bin\debug 目錄，然後執行下列命令：
 
 	.\CreateSolrCluster <cluster-name>
 
@@ -365,4 +365,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

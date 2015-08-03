@@ -152,4 +152,4 @@ Azure SQL Database 會監視共用資源的使用情況，例如交易記錄、I
 
 [避免拒絕要求或連接終止的 Azure SQL Database 最佳作法](https://msdn.microsoft.com/library/azure/dn338082.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -17,10 +17,6 @@
 	ms.author="mwasson"/>
 
 
-
-
-
-
 # 如何使用服務匯流排主題和訂用帳戶
 
 本指南說明如何從 Node.js 應用程式使用服務匯流排主題和訂用帳戶。所涵蓋的案例包括**建立主題和訂用帳戶、建立訂用帳戶篩選器、傳送訊息**至主題、**接收訂用帳戶的訊息**，及**刪除主題和訂用帳戶**。如需主題和訂用帳戶的詳細資訊，請參閱[後續步驟](#next-steps)一節。
@@ -99,7 +95,7 @@ Azure 模組會讀取環境變數 AZURE_SERVICEBUS_NAMESPACE 和 AZURE_SERVICEBU
 
 ### 篩選器
 
-您可以將選用的篩選作業套用至使用 **ServiceBusService** 執行的作業。篩選作業可包括記錄、自動重試等等。篩選器是以簽章實作方法的物件：
+您可以將選用的篩選作業套用至使用 **ServiceBusService** 執行的作業。篩選作業可包括記錄、自動重試等等。篩選器是使用簽章實作方法的物件：
 
 		function handle (requestOptions, next)
 
@@ -114,15 +110,15 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
 
-## 如何建立訂閱
+## 如何建立訂用帳戶
 
-**ServiceBusService** 物件也能用來建立主題訂閱。訂閱是具名的，它們能擁有選用的篩選器，以限制傳遞至訂閱之虛擬佇列的訊息集合。
+**ServiceBusService** 物件也能用來建立主題訂用帳戶。訂用帳戶是具名的，它們能擁有選用的篩選器，以限制傳遞至訂用帳戶之虛擬佇列的訊息集合。
 
-> [AZURE.NOTE]訂閱是持續性的，它們會持續存在，直到本身或相關的主題遭到刪除為止。如果應用程式含有建立訂閱的邏輯，它應該會先使用 **getSubscription** 方法檢查訂閱是否存在。
+> [AZURE.NOTE]訂用帳戶是持續性的，它們會持續存在，直到本身或相關的主題遭到刪除為止。如果應用程式含有建立訂用帳戶的邏輯，它應該會先使用 **getSubscription** 方法檢查訂用帳戶是否存在。
 
-### 使用預設 (MatchAll) 篩選器建立訂閱
+### 使用預設 (MatchAll) 篩選器建立訂用帳戶
 
-**MatchAll** 篩選器是預設篩選器，如果在建立新的訂閱時沒有指定篩選器，便會使用此篩選器。使用 **MatchAll** 篩選器時，所有發佈至主題的訊息都會被置於訂閱的虛擬佇列中。下列範例將建立名為 'AllMessages' 的訂閱，並使用預設的 **MatchAll** 篩選器。
+**MatchAll** 篩選器是預設篩選器，如果在建立新的訂用帳戶時沒有指定篩選器，便會使用此篩選器。使用 **MatchAll** 篩選器時，所有發佈至主題的訊息都會被置於訂用帳戶的虛擬佇列中。下列範例將建立名為 'AllMessages' 的訂用帳戶，並使用預設的 **MatchAll** 篩選器。
 
     serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
         if(!error){
@@ -130,19 +126,19 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
         }
     });
 
-### 使用篩選器建立訂閱
+### 使用篩選器建立訂用帳戶
 
-您也可以建立篩選器，讓您界定傳送至主題的哪些訊息應出現在特定主題訂閱中。
+您也可以建立篩選器，讓您界定傳送至主題的哪些訊息應出現在特定主題訂用帳戶中。
 
-訂閱所支援的最具彈性篩選器類型是實作 SQL92 子集的 **SqlFilter**。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用的運算式詳細資料，請檢閱 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 語法。
+訂用帳戶所支援的最具彈性篩選器類型是實作 SQL92 子集的 **SqlFilter**。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用的運算式詳細資料，請檢閱 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 語法。
 
-您可以使用 **ServiceBusService** 物件的 **createRule** 方法將篩選器新增至訂閱。此方法可讓您將篩選器新增至現有的訂閱中。
+您可以使用 **ServiceBusService** 物件的 **createRule** 方法將篩選器新增至訂用帳戶。此方法可讓您將篩選器新增至現有的訂用帳戶中。
 
 > [AZURE.NOTE]
 
-> 由於預設篩選器會自動套用至所有新訂用帳戶，因此您必須先移除預設篩選器，否則 <strong>MatchAll</strong> 會覆寫您指定的其他任何篩選器。您可以使用 <strong>ServiceBusService</strong> 物件的 <strong>deleteRule</strong> 方法移除預設規則。
+> 由於預設篩選器會自動套用至所有新訂用帳戶，因此您必須先移除預設篩選器，否則 **MatchAll** 會覆寫您指定的其他任何篩選器。您可以使用 **ServiceBusService** 物件的 **deleteRule** 方法移除預設規則。
 
-以下範例將建立名為 'HighMessages' 並帶有只選取自訂 **messagenumber** 屬性大於 3 的訊息之 **SqlFilter** 的訂閱：
+以下範例將建立名為 'HighMessages' 並帶有只選取自訂 **messagenumber** 屬性大於 3 的訊息之 **SqlFilter** 的訂用帳戶：
 
     serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error){
         if(!error){
@@ -175,7 +171,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
         }
     }
 
-同樣地，下列範例將建立名為 'LowMessages' 並帶有只選取 **messagenumber** 屬性小於或等於 3 的訊息之 **SqlFilter** 的訂閱：
+同樣地，下列範例將建立名為 'LowMessages' 並帶有只選取 **messagenumber** 屬性小於或等於 3 的訊息之 **SqlFilter** 的訂用帳戶：
 
     serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
         if(!error){
@@ -208,13 +204,13 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
         }
     }
 
-當訊息傳送到 "TestTopic" 時，一律會將該訊息傳遞到已訂閱 "AllMessages" 主題訂閱的接收者，並選擇性地將它傳遞到已訂閱 "HighMessages" 和 "LowMessages" 主題訂閱的接收者 (視訊息內容而定)。
+當訊息傳送到 "TestTopic" 時，一律會將該訊息傳遞到已訂閱 "AllMessages" 主題訂用帳戶的接收者，並選擇性地將它傳遞到已訂閱 "HighMessages" 和 "LowMessages" 主題訂用帳戶的接收者 (視訊息內容而定)。
 
 ## 如何傳送訊息至主題
 
 若要傳送訊息至服務匯流排主題，應用程式必須使用 **ServiceBusService** 物件的 **sendTopicMessage** 方法。傳送至服務匯流排主題的訊息是 **BrokeredMessage** 物件。**BrokeredMessage** 物件具有一組標準屬性 (例如 **Label** 和 **TimeToLive**)、一個用來保存自訂應用程式特定屬性的目錄，以及一堆字串資料。應用程式能將字串值傳遞至 **sendTopicMessage** 以設定訊息本文，系統會將預設值填入任何需要的標準屬性中。
 
-下列範例示範如何將五個測試訊息傳送至 'MyTopic'。請注意迴圈反覆運算上每個訊息的 **messagenumber** 屬性值的變化 (這可判斷接收訊息的訂閱為何)：
+下列範例示範如何將五個測試訊息傳送至 'MyTopic'。請注意迴圈反覆運算上每個訊息的 **messagenumber** 屬性值的變化 (這可判斷接收訊息的訂用帳戶為何)：
 
     var message = {
         body: '',
@@ -235,15 +231,15 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 服務匯流排主題支援 256 Kb 的訊息大小上限 (包含標準和自訂應用程式屬性的標頭可以容納 64 Kb 的大小上限)。主題中所保存的訊息數目沒有限制，但主題所保存的訊息大小總計會有最高限制。此主題大小會在建立時定義，上限是 5 GB。
 
-## 如何自訂閱接收訊息
+## 如何自訂用帳戶接收訊息
 
-您可以使用 **ServiceBusService** 物件的 **receiveSubscriptionMessage** 方法接收來自訂閱的訊息。依預設，當您讀取訊息後，系統便會從訂閱刪除訊息，不過您可以將選用參數 **isPeekLock** 設定為 **true**，藉此讀取 (查看) 並鎖定訊息，避免系統從訂閱將訊息刪除。
+您可以使用 **ServiceBusService** 物件的 **receiveSubscriptionMessage** 方法接收來自訂用帳戶的訊息。依預設，當您讀取訊息後，系統便會從訂用帳戶刪除訊息，不過您可以將選用參數 **isPeekLock** 設定為 **true**，藉此讀取 (查看) 並鎖定訊息，避免系統從訂用帳戶將訊息刪除。
 
 隨著接收作業讀取及刪除訊息之預設行為是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
 
-如果您將 **isPeekLock** 參數設定為 **true**，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可透過呼叫 **deleteMessage** 方法和以參數形式提供要刪除的訊息，完成接收程序的第二個階段。**deleteMessage** 方法會將訊息標示為已取用，並將其自訂閱移除。
+如果您將 **isPeekLock** 參數設定為 **true**，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可透過呼叫 **deleteMessage** 方法和以參數形式提供要刪除的訊息，完成接收程序的第二個階段。**deleteMessage** 方法會將訊息標示為已取用，並將其自訂用帳戶移除。
 
-以下範例將示範如何使用 **receiveSubscriptionMessage** 來接收與處理訊息。此範例會先接收來自 'LowMessages' 訂閱的訊息並加以刪除，然後再使用設定為 true 的 **isPeekLock** 接收來自 'HighMessages' 訂閱的訊息。接著再使用 **deleteMessage** 刪除訊息：
+以下範例將示範如何使用 **receiveSubscriptionMessage** 來接收與處理訊息。此範例會先接收來自 'LowMessages' 訂用帳戶的訊息並加以刪除，然後再使用設定為 true 的 **isPeekLock** 接收來自 'HighMessages' 訂用帳戶的訊息。接著再使用 **deleteMessage** 刪除訊息：
 
     serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
         if(!error){
@@ -266,15 +262,15 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 ## 如何處理應用程式當機與無法讀取的訊息
 
-服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。如果接收者應用程式因為某些原因無法處理訊息，它可以呼叫 **ServiceBusService** 物件上的 **unlockMessage** 方法。這將導致服務匯流排將訂閱中的訊息解除鎖定，讓此訊息可以被相同取用應用程式或其他取用應用程式重新接收。
+服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。如果接收者應用程式因為某些原因無法處理訊息，它可以呼叫 **ServiceBusService** 物件上的 **unlockMessage** 方法。這將導致服務匯流排將訂用帳戶中的訊息解除鎖定，讓此訊息可以被相同取用應用程式或其他取用應用程式重新接收。
 
-與在訂閱內鎖定訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
+與在訂用帳戶內鎖定訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
 
 如果應用程式在處理訊息之後，尚未呼叫 **deleteMessage** 方法時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。這通常稱為**至少處理一次**，也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。通常您可使用訊息的 **MessageId** 屬性來達到此目的，該屬性將在各個傳遞嘗試中會保持不變。
 
-## 如何刪除主題和訂閱
+## 如何刪除主題和訂用帳戶
 
-主題和訂閱是持續性的，您必須透過 Azure 管理入口網站或程式設計方法明確地加以刪除。下列範例示範如何刪除名為 'MyTopic' 的主題：
+主題和訂用帳戶是持續性的，您必須透過 Azure 管理入口網站或程式設計方法明確地加以刪除。下列範例示範如何刪除名為 'MyTopic' 的主題：
 
     serviceBusService.deleteTopic('MyTopic', function (error) {
         if (error) {
@@ -282,7 +278,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
         }
     });
 
-刪除主題也將會刪除對主題註冊的任何訂閱。您也可以個別刪除訂閱。下列程式碼將示範如何將名為 'HighMessages' 的訂閱從 'MyTopic' 主題中刪除：
+刪除主題也將會刪除對主題註冊的任何訂用帳戶。您也可以個別刪除訂用帳戶。下列程式碼將示範如何將名為 'HighMessages' 的訂用帳戶從 'MyTopic' 主題中刪除：
 
     serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
         if(error) {
@@ -309,4 +305,4 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
   [使用儲存體的 Node.js Web 應用程式]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

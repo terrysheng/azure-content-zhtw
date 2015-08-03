@@ -36,8 +36,7 @@
 
 	安裝 Git 所需的步驟會因作業系統而有所不同。如需作業系統特定的發佈和安裝指引，請參閱[安裝 Git]。
 
-	> [AZURE.NOTE]
-	> 在某些作業系統上，會同時提供例 Git 的命令列和 GUI 兩種版本。本文提供的指示將使用命令列版本。
+	> [AZURE.NOTE]在某些作業系統上，會同時提供例 Git 的命令列和 GUI 兩種版本。本文提供的指示將使用命令列版本。
 
 2. 開啟命令列，例如 **GitBash** (Windows) 或 **Bash** (Unix Shell)。在 OS X 系統上，您可以透過 **[終端機]** 應用程式來存取命令列。
 
@@ -98,9 +97,9 @@
 [安裝 Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [開始使用行動服務]: mobile-services-dotnet-backend-ios-get-started.md
 [將行動服務新增至現有的應用程式]: mobile-services-dotnet-backend-ios-get-started-data.md
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [如何對 .NET 後端行動服務進行資料模型變更]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

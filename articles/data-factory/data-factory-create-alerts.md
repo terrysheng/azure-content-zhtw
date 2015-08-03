@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/15/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # 針對 Azure 事件建立警示
@@ -109,62 +109,16 @@ StorageAccountName 指定儲存體帳戶來儲存已部署的警示 JSON 檔案�
 
 ## <a name="AvailableOperationsStatuses"></a>可用的作業名稱和狀態值
 
-<table>
-<th align="left">作業名稱</th>
-<th align="left">狀態</th>
-<th align="left">子狀態</th>
+| 作業名稱 | 狀態 | 子狀態 |
+| -------------- | ------ | ---------- |
+| RunStarted | 已啟動 | 啟動中 |
+| RunFinished | 失敗/成功 |	<p>FailedResourceAllocation </p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p>Canceled</p><p>FailedValidation</p><p>Abandoned</p> | 
+| SliceOnTime | In Progress | Ontime |
+| SliceDelayed | In Progress | Late |
+| OnDemandClusterCreateStarted | 已啟動 | |
+| OnDemandClusterCreateSuccessful | Succeeded | | 
+| OnDemandClusterDeleted | Succeeded | |
 
-<tr>
-<td>RunStarted</td>
-<td>已啟動</td>
-<td>啟動中</td>
-</tr>
-
-<tr>
-<td>RunFinished</td>
-<td>Failed / Succeeded</td>
-<td>
-	<p>FailedResourceAllocation </p>
-	<p>Succeeded</p>
-	<p>FailedExecution</p>
-	<p>TimedOut</p>
-	<p>Canceled</p>
-	<p>FailedValidation</p>
-	<p>Abandoned</p>
-</td>
-</tr>
-
-<tr>
-<td>SliceOnTime</td>
-<td>In Progress</td>
-<td>Ontime</td>
-</tr>
-
-<tr>
-<td>SliceDelayed</td>
-<td>In Progress</td>
-<td>Late</td>
-</tr>
-
-<tr>
-<td>OnDemandClusterCreateStarted</td>
-<td>已啟動</td>
-<td></td>
-</tr>
-
-<tr>
-<td>OnDemandClusterCreateSuccessful</td>
-<td>Succeeded</td>
-<td></td>
-</tr>
-
-<tr>
-<td>OnDemandClusterDeleted</td>
-<td>Succeeded</td>
-<td></td>
-</tr>
-
-</table>
 
 ## 使用者事件疑難排解
 執行下列命令以查看產生的事件：
@@ -172,4 +126,4 @@ StorageAccountName 指定儲存體帳戶來儲存已部署的警示 JSON 檔案�
 	Get-AzureResourceGroupLog –Name $ResourceGroup -All | Where-Object EventSource -eq "Microsoft.DataFactory"
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

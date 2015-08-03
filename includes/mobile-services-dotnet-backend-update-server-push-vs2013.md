@@ -46,4 +46,4 @@
 
 	>[AZURE.NOTE]任何具有應用程式金鑰的用戶端均可呼叫此 POST 方法，因此這並不安全。為了保護端點，請將 `[AuthorizeLevel(AuthorizationLevel.User)]` 屬性套用至方法或類別，以要求驗證。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

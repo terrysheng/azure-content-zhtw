@@ -77,4 +77,4 @@
 
 <sup>3</sup>GRS 是指異地備援儲存體，而 LRS 則是指本地備援儲存體。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

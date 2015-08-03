@@ -152,4 +152,4 @@ Microsoft Azure 系統管理員可以直接存取儲存體帳戶 (透過 Microso
 
 深入了解 [StorSimple 安全性](storsimple-security.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

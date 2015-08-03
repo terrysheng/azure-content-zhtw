@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
@@ -78,7 +78,7 @@
 
 	![Zeppelin Notebook 狀態](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.NewNote.Connected.png "Zeppelin Notebook 狀態")
 
-4. 將範例資料載入暫存資料表。當您在 HDInsight 中佈建 Spark 叢集時，系統會將範例資料檔案 **hvac.csv** 複製到相關聯的儲存體帳戶，其路徑為 **\\HdiSamples\\SensorSampleData\\hvac**。
+4. 將範例資料載入暫存資料表。當您在 HDInsight 中佈建 Spark 叢集時，系統會將範例資料檔案 **hvac.csv** 複製到相關聯的儲存體帳戶，其路徑為 **\HdiSamples\SensorSampleData\hvac**。
 
 	將以下程式碼片段貼入新 Notebook 中預設建立的空白段落。
 
@@ -140,9 +140,9 @@
 
 	![重新啟動 Zeppelin 解譯器](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Zeppelin.Restart.Interpreter.png "重新啟動 Zeppelin 解譯器")
 
-##<a name="jupyter"></a>使用以 Python 為基礎的 Jupyter Notebook 執行 Spark SQL 查詢
+##<a name="jupyter"></a>使用 Jupyter Notebook 執行 Spark SQL 查詢
 
-您也可以使用 Python 執行 Spark SQL 查詢。在本節中，您會使用 Jupyter Notebook 來針對 Spark 叢集執行 Spark SQL 查詢。
+在本節中，您會使用 Jupyter Notebook 來針對 Spark 叢集執行 Spark SQL 查詢。
 
 >[AZURE.NOTE]叢集也預設會提供遵循以下指示建立的 Notebook。啟動 Jupyter 後，您可以根據 **HVACTutorial.ipynb** 名稱來找到本 Notebook。
 
@@ -155,7 +155,7 @@
 
 	![提供 Notebook 的名稱](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.Jupyter.Notebook.Name.png "提供 Notebook 的名稱")
 
-4. 匯入所需的模組，然後建立 Spark 和 SQL 內容。將以下程式碼片段貼入空白儲存格，然後按 **SHIFT + ENTER**。
+4. 匯入所需的模組，然後建立 Spark 和 SQL 內容。將以下程式碼片段貼入空白儲存格，然後按下 **SHIFT + ENTER**。
 
 		from pyspark import SparkContext
 		from pyspark.sql import SQLContext
@@ -169,7 +169,7 @@
 
 	 ![Jupyter Notebook 工作的狀態](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Jupyter.Job.Status.png "Jupyter Notebook 工作的狀態")
 
-4. 將範例資料載入暫存資料表。當您在 HDInsight 中佈建 Spark 叢集時，系統會將範例資料檔案 **hvac.csv** 複製到相關聯的儲存體帳戶，其路徑為 **\\HdiSamples\\SensorSampleData\\hvac**。
+4. 將範例資料載入暫存資料表。當您在 HDInsight 中佈建 Spark 叢集時，系統會將範例資料檔案 **hvac.csv** 複製到相關聯的儲存體帳戶，其路徑為 **\HdiSamples\SensorSampleData\hvac**。
 
 	將以下程式碼片段貼入空白儲存格，然後按下 **SHIFT + ENTER**。此程式碼片段會將資料註冊到名為 **hvac** 的暫存資料表。
 
@@ -243,4 +243,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

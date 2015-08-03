@@ -59,4 +59,4 @@ Azure Machine Learning 為資料科學家提供一個管道，可像智慧型手
  
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

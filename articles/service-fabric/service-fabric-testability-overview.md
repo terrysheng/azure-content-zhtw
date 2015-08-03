@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="07/13/2015"
    ms.author="rsinha"/>
 
 # Testability 概觀
@@ -94,4 +94,4 @@ System.Fabric.Testability.dll 中有各種 Testability 功能。此 dll 位於 M
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

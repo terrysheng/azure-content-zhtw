@@ -32,4 +32,4 @@
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)</center>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

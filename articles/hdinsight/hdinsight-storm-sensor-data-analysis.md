@@ -258,7 +258,7 @@
 
 2. 網站建立後，前往 Azure 入口網站找到該網站，然後選取 [設定] 索引標籤。啟用 [Web 通訊端]，然後按一下頁面底部的 [儲存]。
 
-2. 開啟 **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts\\DashboardBolt.java**，然後變更下行內容，使其指向所發佈儀表板的 URL：
+2. 開啟 **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts\DashboardBolt.java**，然後變更下行內容，使其指向所發佈儀表板的 URL：
 
 		socket = IO.socket("http://mywebsite.azurewebsites.net");
 
@@ -362,13 +362,13 @@
 
 ### 啟用 HBase Bolt
 
-1. 開啟 **hdinsight-eventhub-example\\TemperatureMonitor\\conf\\hbase-site.xml**，然後使用先前取得的 HBase 叢集 DNS 尾碼取代下行中的 `suffix` 項目。完成變更後，請儲存檔案。
+1. 開啟 **hdinsight-eventhub-example\TemperatureMonitor\conf\hbase-site.xml**，然後使用先前取得的 HBase 叢集 DNS 尾碼取代下行中的 `suffix` 項目。完成變更後，請儲存檔案。
 
 		<value>zookeeper0.suffix,zookeeper1.suffix,zookeeper2.suffix</value>
 
 	HBase Bolt 將藉此與 HBase 叢集通訊。
 
-1. 以文字編輯器開啟 **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts**，並將開頭的 `//` 移除以取消以下行的註解。完成此項變更後，請儲存檔案。
+1. 以文字編輯器開啟 **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts**，並將開頭的 `//` 移除以取消以下行的註解。完成此項變更後，請儲存檔案。
 
 		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
@@ -385,7 +385,7 @@
 
 2. 從桌面上啟動 HDInsight 命令列，並輸入下列命令：
 
-    cd %HBASE_HOME% bin\\hbase shell
+    cd %HBASE_HOME% bin\hbase shell
 
 3. 在 HBase Shell 中輸入下列命令，以建立將儲存感應器資料的資料表：
 
@@ -420,4 +420,4 @@
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

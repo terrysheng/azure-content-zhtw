@@ -60,4 +60,4 @@
 - [如何登入執行 Linux 的虛擬機器](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [如何登入執行 Windows Server 的虛擬機器](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

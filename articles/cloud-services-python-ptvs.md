@@ -139,4 +139,4 @@ Azure 提供三種運算模型來執行應用程式：[Azure 網站][execution m
 [Python 2.7 32 位元]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32 位元]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

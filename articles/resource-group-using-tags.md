@@ -121,4 +121,4 @@ Azure 入口網站和基礎資源管理員是用來組織您的資源及量身�
 - [使用 Azure 傳統入口網站建立新的 Azure 服務主體](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

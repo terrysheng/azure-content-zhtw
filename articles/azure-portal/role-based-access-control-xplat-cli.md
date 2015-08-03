@@ -148,4 +148,4 @@ Azure 入口網站以及 Azure 資源管理員 API 裡的角色型存取控制 (
 - [為角色型存取控制進行疑難排解](role-based-access-control-troubleshooting.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

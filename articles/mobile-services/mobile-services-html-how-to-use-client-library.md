@@ -608,4 +608,4 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 [從用戶端呼叫自訂 API]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

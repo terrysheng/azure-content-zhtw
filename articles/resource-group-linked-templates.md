@@ -1,7 +1,7 @@
 <properties
    pageTitle="透過 Azure 資源管理員使用連結的範本"
    description="描述如何在「Azure 資源管理員」範本中使用連結的範本，以建立模組化範本方案。示範如何傳遞參數值、指定參數檔案，以及動態建立 URL。"
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
@@ -100,4 +100,4 @@
 - [撰寫範本](./resource-group-authoring-templates.md)
 - [部署範本](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

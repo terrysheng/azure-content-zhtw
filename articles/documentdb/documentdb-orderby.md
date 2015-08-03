@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="07/19/2015" 
 	ms.author="arramac"/>
 
 # 使用 Order By 排序 DocumentDB 資料
@@ -176,4 +176,4 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
 * [DocumentDB Order By 範例](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

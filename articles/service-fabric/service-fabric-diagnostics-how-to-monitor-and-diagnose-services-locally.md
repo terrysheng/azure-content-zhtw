@@ -72,4 +72,4 @@ Service Fabric Visual Studio 專案範本包含範例程式碼。程式碼示範
 * [可設定狀態可靠服務診斷](service-fabric-reliable-services-diagnostics.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

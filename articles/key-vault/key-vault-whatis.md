@@ -68,4 +68,4 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

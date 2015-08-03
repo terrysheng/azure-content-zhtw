@@ -137,7 +137,7 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
     當您首次開啟 Management Studio 時，它必須建立使用者 Management Studio 環境。這可能需要花費幾分鐘的時間。
 
-2.  當 Management Studio 開啟時，它會顯示 [**連接到伺服器**] 對話方塊。在 [**伺服器名稱**] 方塊中，輸入虛擬機器的名稱以利用物件總管連接 Database Engine。除了虛擬機器名稱之外，您還可以使用 [(本機)]，或將一個句點當做 [伺服器名稱]。選取 [Windows 驗證]，並保留 [使用者名稱] 方塊中的 [*your_VM_name*\\your_local_administrator]。按一下 [連接]。
+2.  當 Management Studio 開啟時，它會顯示 [**連接到伺服器**] 對話方塊。在 [**伺服器名稱**] 方塊中，輸入虛擬機器的名稱以利用物件總管連接 Database Engine。除了虛擬機器名稱之外，您還可以使用 [(本機)]，或將一個句點當做 [伺服器名稱]。選取 [Windows 驗證]，並保留 [使用者名稱] 方塊中的 [*your_VM_name*\your_local_administrator]。按一下 [連接]。
 
     ![連接到伺服器][6]
 
@@ -298,4 +298,4 @@ Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -54,4 +54,4 @@ Service Fabric 支援服務狀態的資料分割，並在總狀態子集上進�
 - [Service Fabric 服務的延展性](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

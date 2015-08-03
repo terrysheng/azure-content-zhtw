@@ -172,4 +172,4 @@ EBOD 機箱使用 580 W PCM，而主要機箱會使用 764 W PCM。下表列出�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -130,4 +130,4 @@ Azure Machine Learning 中已建立具有兩個[執行 R 指令碼][execute-r-sc
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

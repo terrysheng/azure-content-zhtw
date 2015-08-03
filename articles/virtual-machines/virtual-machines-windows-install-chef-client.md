@@ -47,4 +47,4 @@ Chef 是一個主從式架構系統。若要了解使用 Chef 伺服器的選項
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

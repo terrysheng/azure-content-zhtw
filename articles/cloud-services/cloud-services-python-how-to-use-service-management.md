@@ -74,7 +74,7 @@ Azure SDK for Python 含有 [Azure 服務管理 API][svc-mgmt-rest-api]，這是
 	from azure.servicemanagement import *
 
 	subscription_id = '<your_subscription_id>'
-	certificate_path = 'CURRENT_USER\\my\\AzureCertificate'
+	certificate_path = 'CURRENT_USER\my\AzureCertificate'
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -445,4 +445,4 @@ Azure SDK for Python 含有 [Azure 服務管理 API][svc-mgmt-rest-api]，這是
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

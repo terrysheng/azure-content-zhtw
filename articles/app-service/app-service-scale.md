@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="在 Azure App Service 中調整定價層" 
-	description="了解如何在 Azure App Service 中調整 Web、行動、API 和邏輯應用程式，包括自動調整。" 
+	description="了解如何在 Azure App Service 中調整 Web、Mobile、API 和 Logic Apps，包括自動調整。" 
 	services="app-service" 
 	documentationCenter="" 
 	authors="stepsic-microsoft-com" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="07/21/2015" 
 	ms.author="stepsic"/>
 
 # 在 Azure App Service 中調整定價層
@@ -25,6 +25,8 @@ App Service 方案的服務層級是以[方案的*定價層*](/pricing/details/a
 除了相應增加定價層以外，也可以增加您的服務具有的執行個體數目。這就稱為*相應放大* 或*相應縮小*。請參閱[自動或手動調整執行個體計數](../insights-how-to-scale.md)，以深入了解*相應放大* 和*相應縮小*。
 
 如需 App Service 方案的相關資訊，請參閱[什麼是 App Service 方案？](../web-sites-web-hosting-plan-overview.md)和 [Azure App Service 方案深入概觀](azure-web-sites-web-hosting-plans-in-depth-overview.md)。若想了解個別 App Service 方案的定價資訊及功能，請參閱 [App Service 定價詳細資料](/pricing/details/app-service/)。
+
+最後，如果您想要使用的專用的 [App Service 環境](app-service-app-service-environment-intro.md)，調整的運作方式會有所不同。如需詳細資訊，請參閱[在 App Service 環境中調整 Web Apps](app-service-web-scale-a-web-app-in-an-app-service-environment.md)。
 
 > [AZURE.NOTE]從 [**免費**] 模式切換為 [**基本**]、[**標準**] 或 [**高階**] 模式之前，您必須先適當地移除 Azure App Service 訂用帳戶的支出費用上限。若要檢視或變更 Microsoft Azure App Service 訂用帳戶的選項，請參閱 [Microsoft Azure 訂用帳戶][azuresubscriptions]。
 
@@ -42,8 +44,10 @@ App Service 方案的服務層級是以[方案的*定價層*](/pricing/details/a
 	
 4. 選擇定價層後，請按一下 [**選取**]。
 	
-	當作業完成時，[**通知**] 索引標籤會有綠色的 **成功**字樣閃爍顯示。
-		
+	當操作完成時，[通知] 索引標籤會有綠色的「成功」字樣閃爍顯示。
+ 
+您也可以[在此](http://go.microsoft.com/fwlink/?LinkId=309169)了解 Azure 中不同的計算層。
+	
 <a name="ScalingSQLServer"></a>
 ##調整相關資源
 如果您的應用程式相依於其他服務 (如 SQL 或儲存體)，您也可以根據需求調整這些服務。
@@ -127,4 +131,4 @@ App Service 方案的服務層級是以[方案的*定價層*](/pricing/details/a
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

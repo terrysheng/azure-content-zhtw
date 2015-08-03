@@ -1,3 +1,4 @@
+
 **注意**：本文所建立的虛擬機器並未連線到虛擬網路。如果您想要讓虛擬機器使用虛擬網路 (以便您日後能根據主機名稱來直接連線至虛擬機器) 或設定跨部署連線，請改用 [從藝廊] 方法，在建立虛擬機器時指定虛擬網路。如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](http://go.microsoft.com/fwlink/p/?LinkID=294063)。
 
 1. 使用您的 Azure 帳戶，登入 Azure 管理入口網站。
@@ -68,4 +69,4 @@
 
 [Image6]: ./media/create-and-configure-centos-vm-in-portal/putty.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

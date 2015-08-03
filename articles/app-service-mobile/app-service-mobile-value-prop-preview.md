@@ -56,4 +56,4 @@ Azure 應用程式服務是完全受管理的平台即服務 (PaaS) 產品，適
 [JavaScript backend version]: ../mobile-services-ios-get-started.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

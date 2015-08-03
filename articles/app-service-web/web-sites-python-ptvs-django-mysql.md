@@ -211,4 +211,4 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

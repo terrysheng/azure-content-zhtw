@@ -28,7 +28,8 @@
 
 請遵循下列步驟來建立 Web 應用程式，並啟用 Git 發佈。
 
-> [AZURE.NOTE]若要完成本教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](/zh-tw/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)或是[申請免費試用](/zh-tw/pricing/free-trial/?WT.mc_id=A261C142F)。
+> [AZURE.NOTE]
+> 若要完成本教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](/zh-tw/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)或是[申請免費試用](/zh-tw/pricing/free-trial/?WT.mc_id=A261C142F)。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -97,7 +98,8 @@
 
 		git init
 
-	> [AZURE.NOTE]**Git 命令無法使用？** [Git](http://git-scm.com/%20target="_blank) 是一個您可用來部署 Azure 網站的分散式版本控制系統。如需您的平台適用的安裝指示，請參閱 [Git 下載頁面](http://git-scm.com/download%20target="_blank")。
+	> [AZURE.NOTE]**Git 命令無法使用？** 
+	> [Git](http://git-scm.com/%20target="_blank) 是一個您可用來部署 Azure 網站的分散式版本控制系統。如需您的平台適用的安裝指示，請參閱 [Git 下載頁面](http://git-scm.com/download%20target="_blank")。
 
 2. 使用下列命令將檔案新增至儲存機制：
 
@@ -196,4 +198,4 @@ Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

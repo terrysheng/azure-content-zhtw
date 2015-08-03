@@ -149,4 +149,4 @@ LoadBalancerDistribution 的值可以是 sourceIP (適用於 2-tuple 同質性)�
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

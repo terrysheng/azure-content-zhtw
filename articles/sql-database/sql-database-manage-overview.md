@@ -44,4 +44,4 @@ Visual Studio 中的 SQL Server Management Studio (SSMS) 和 SQL Server Data Too
 如需使用命令列工具管理 Azure SQL Database 的詳細資訊，請[按一下這裡](sql-database-command-line-tools.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

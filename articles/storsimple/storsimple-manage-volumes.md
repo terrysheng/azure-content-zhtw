@@ -55,7 +55,7 @@ StorSimple Manager 服務是 Azure 管理入口網站的延伸模組，可讓您
 
 ## 新增磁碟區
 
-您已在部署 StorSimple 方案期間[建立磁碟區](storsimple-deployment-walkthrough.md#step-6:-create-a-volume)。新增磁碟區會是類似的程序。
+您已在部署 StorSimple 方案期間[建立磁碟區](storsimple-deployment-walkthrough.md#to-create-a-volume)。新增磁碟區會是類似的程序。
 
 ### 若要新增磁碟區
 
@@ -181,4 +181,4 @@ StorSimple Manager 服務是 Azure 管理入口網站的延伸模組，可讓您
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

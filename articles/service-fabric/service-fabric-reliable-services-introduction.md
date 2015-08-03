@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="masnider"
    manager="timlt"
-   editor="jessebenson"/>
+   editor="jessebenson; mani-ramaswamy"/>
 
 <tags
    ms.service="Service-Fabric"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/13/2015"
+   ms.date="07/17/2015"
    ms.author="masnider;jesseb"/>
 
 # 可靠的服務概觀
-Service Fabric 可簡化撰寫和管理可靠的無狀態與具狀態服務。本指南會討論：
+Service Fabric 可簡化撰寫和管理可靠的無狀態與具狀態服務。這份文件會討論：
 
-1. 無狀態和具狀態之服務的可靠的服務程式設計模型
-2. 撰寫可靠的服務時必須進行的不同選擇
+1. 無狀態和具狀態之服務的可靠的服務程式設計模型。
+2. 撰寫可靠的服務時必須進行的不同選擇。
 3. 可靠的服務使用時機及撰寫方式的一些不同案例和範例。
 
 可靠的服務是 Service Fabric 上可用的其中一種程式設計模型。如需可靠執行者程式設計模型的詳細資訊，請參閱[簡介](../service-fabric/service-fabric-reliable-actors-introduction.md)。
@@ -32,20 +32,20 @@ Service Fabric 透過 [Service Fabric 應用程式管理](../service-fabric/serv
 ## 什麼是可靠的服務？
 可靠的服務提供您簡單、功能強大、最上層的程式設計模型，以幫助您表達對您的應用程式而言重大的事情。使用可靠的服務程式設計模型，您得到：
 
-1. 對於具狀態服務，可靠的服務程式設計模型可讓您使用可靠的集合，一致且可靠地在服務內儲存您的狀態。可靠的集合是一組簡單的高可用性集合類別，使用過 C# 集合的人都會熟悉它。傳統上，服務需要外部系統來進行可靠狀態管理。有了可靠的集合，您可以將狀態儲存在您的計算旁邊，並且具有您預期高度可用的外部存放區會具備的相同高可用性和可靠性。
+1. 對於具狀態服務，可靠的服務程式設計模型可讓您使用可靠的集合，一致且可靠地在服務內儲存您的狀態。可靠的集合是一組簡單的高可用性集合類別，使用過 C# 集合的人都會熟悉它。傳統上，服務需要外部系統來進行可靠狀態管理。有了可靠的集合，您可以將狀態儲存在您的計算旁邊，並且具有您預期高度可用的外部存放區會具備的相同高可用性和可靠性，以及共置計算和狀態所提供的額外延遲改善。
 
 2. 執行您自己的程式碼的簡單模型，看起來就像您習慣的程式設計模型：您的程式碼具有定義完善的進入點和容易管理的生命週期。
 
 3. 隨插即用的通訊模型：使用您選擇的傳輸方式，如包含 [Web API](../service-fabric/service-fabric-reliable-services-communication-webapi.md) 的 HTTP、WebSockets、自訂 TCP 通訊協定等。可靠的服務提供一些很棒的現成選項供您使用，或允許您提供您自己的選項。
 
 ## 可靠的服務有什麼不同之處？
-Service Fabric 中的可靠的服務與您之前撰寫的服務不同。Service Fabric 有助於確保可靠性、可用性、一致性和延展性。
+Service Fabric 中的可靠的服務與您之前撰寫的服務不同。Service Fabric 提供可靠性、可用性、一致性和延展性。
 
-+ <u>可靠性</u>您的服務會維持啟動，即使環境中正發生如電腦故障或網路問題等情事時亦然。
++ <u>可靠性</u> - 即使在您的電腦可能會失敗或遭受網路問題的不可靠環境中，您的服務仍會保持運作。
 
-+ <u>可用性</u>您的服務實際上可連線且回應速度快 (您可能會有找不到或無法連線的已啟動服務)。
++ <u>可用性</u> - 您的服務可連線且回應速度快 (這表示您不能有找不到或無法從外部連線的服務)。
 
-+ <u>延展性</u> – 服務與特定硬體分離，可以視需要透過加入或移除硬體或虛擬資源而成長或壓縮。服務可以輕鬆分割 (特別是在具狀態的情況下) 以確保服務的獨立部分可以獨立調整和回應失敗。最後，Service Fabric 鼓勵輕量服務，它允許在單一處理序內佈建數千個服務，而不需要或讓整個作業系統執行個體專屬於特定工作負載的單一執行個體。
++ <u>延展性</u> – 服務與特定硬體分離，可以視需要透過加入或移除硬體或虛擬資源而成長或壓縮。服務可以輕鬆分割 (特別是在具狀態的情況下)，以確保服務的獨立部分可以獨立調整和回應失敗。最後，Service Fabric 鼓勵輕量服務，它允許在單一處理序內佈建數千個服務，而不需要或讓整個作業系統執行個體專屬於特定工作負載的單一執行個體。
 
 + <u>一致性</u>這表示此服務中儲存的任何資訊可以保證是一致的 (這只適用於具狀態服務，稍後有更多詳細資訊)
 
@@ -54,9 +54,20 @@ Service Fabric 中的可靠的服務與您之前撰寫的服務不同。Service 
 
 + CreateCommunicationListener ：這是服務定義它要使用之通訊堆疊的地方。通訊堆疊 (如 [Web API](../service-fabric/service-fabric-reliable-services-communication-webapi.md)) 定義服務的接聽端點 (用戶端如何連線服務)，以及顯示的訊息最後如何與服務程式碼的其餘部分互動。
 
-+ RunAsync：這是您的服務可以「工作」的地方。所提供的取消語彙基元是針對該工作何時應該停止的訊號。比方說，如果您的服務需要不斷從 ReliableQueue 提取訊息並加以處理，這會是該工作會發生的位置。
++ RunAsync：這是您的服務執行其商務邏輯的地方。所提供的取消語彙基元是針對該工作何時應該停止的訊號。比方說，如果您的服務需要不斷從 ReliableQueue 提取訊息並加以處理，這會是該工作會發生的位置。
 
-可靠的服務的生命週期中的主要事件如下： 1.建構服務物件 (衍生自 StatelessService 或 StatefulService 的項目)。2.呼叫 CreateCommunicationListener 方法，讓服務有機會傳回其選擇的通訊接聽程式。+ 請注意這是選擇性的，雖然大部分的服務會直接公開某個端點。3.一旦建立 CommunicationListener，它即會開啟 + CommunicationListener 有一個稱為 Open() 的方法，此時會呼叫它，且它會傳回服務的接聽位址。如果您的可靠的服務使用其中一個內建 ICommunicationListener，那麼便會為您處理。4.通訊接聽程式為 Open() 之後，會在主要服務上呼叫 RunAsync()。+ 請注意，RunAsync 是選擇性的，如果服務所有工作都只直接進行，以回應使用者呼叫，則它不需要實作 RunAsync()。
+可靠的服務的生命週期中的主要事件如下：
+
+1. 建構服務物件 (衍生自 StatelessService 或 StatefulService 的項目)。
+
+2. 呼叫 CreateCommunicationListener 方法，讓服務有機會傳回其選擇的通訊接聽程式。
+  + 請注意這是選擇性的，雖然大部分的服務會直接公開某個端點。
+
+3. 一旦建立 CommunicationListener，它即會開啟
+  + CommunicationListener 有一個稱為 Open() 的方法，此時會呼叫它，且它會傳回服務的接聽位址。如果您的可靠的服務使用其中一個內建 ICommunicationListener，那麼便會為您處理。
+
+4. 通訊接聽程式為 Open() 之後，會在主要服務上呼叫 RunAsync()。
+  + 請注意，RunAsync 是選擇性的，如果服務所有工作都只直接進行，以回應使用者呼叫，則它不需要實作 RunAsync()。
 
 當服務正在關閉 (無論是刪除或只是要從特定位置移走) 時，呼叫順序相同，會先對 CommunicationListener 呼叫 Close()，然後會取消傳遞給 RunAsync() 的取消語彙基元。
 
@@ -119,4 +130,4 @@ Service Fabric 中常見的無狀態服務使用範例是做為前端，其公�
 + [閱讀可靠執行者程式設計模型](../service-fabric/service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

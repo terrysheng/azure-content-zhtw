@@ -33,6 +33,10 @@
 
 Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動應用程式。遵循這些指示建立必要的憑證，並將憑證上傳至您的行動應用程式。如需正式的 APNS 功能文件，請參閱 [Apple 推播通知服務] (英文)。
 
+##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
+
 ## <a name="certificates"></a>產生憑證簽署要求檔案
 
 首先，您必須產生憑證簽署要求 (CSR) 檔案，這將由 Apple 用來產生簽署的憑證。
@@ -336,4 +340,4 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動應用程式。
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

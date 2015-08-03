@@ -45,4 +45,4 @@
 - [雲端服務](http://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

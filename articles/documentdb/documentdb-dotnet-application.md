@@ -441,13 +441,13 @@
 
 如果您現在執行應用程式，您可以前往 **HomeController** 及該控制器的 [**索引**] 檢視。這是我們在一開始時所選擇的 MVC 範本專案預設行為，但是我們不想要這樣的行為！ 讓我們變更此 MVC 應用程式上的路由以改變此行為。
 
-開啟 ***App_Start\\RouteConfig.cs***，並尋找以 "defaults:" 開頭的程式碼行，然後將它變更為如下所示。
+開啟 ***App_Start\RouteConfig.cs***，並尋找以 "defaults:" 開頭的程式碼行，然後將它變更為如下所示。
 
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
 如果您未在 URL 中指定控制路由行為的值，這會讓 ASP.NET MVC 知道改用 **Item** (**Home**) 作為控制器，並使用使用者**索引**作為檢視。
 
-如果您執行應用程式，它現在會呼叫至您的 **ItemController**，進而呼叫至儲存機制類別，並使用 GetItems 方法將所有未完成的項目傳回 **Views**\\**Item**\\**Index** 檢視。
+如果您執行應用程式，它現在會呼叫至您的 **ItemController**，進而呼叫至儲存機制類別，並使用 GetItems 方法將所有未完成的項目傳回 **Views****Item****Index** 檢視。
 
 如果建置並立即執行此專案，您現在應該會看到如下的內容。
 
@@ -658,4 +658,4 @@
 [ASP.NET MVC 中的基本 CRUD 作業]: http://go.microsoft.com/fwlink/?LinkId=317598
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

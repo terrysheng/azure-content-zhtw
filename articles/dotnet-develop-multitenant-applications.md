@@ -95,4 +95,4 @@ Azure 提供許多可為應用程式佈建新租用戶的方式。就租用戶�
 [在 Azure 上代管多租用戶應用程式]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -58,4 +58,4 @@ CPIF 描述組織、客戶及合作夥伴應如何使用 Azure、System Center �
 
 [批次處理層](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

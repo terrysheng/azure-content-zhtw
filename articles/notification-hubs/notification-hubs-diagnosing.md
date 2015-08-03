@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/14/2015" 
 	ms.author="wesmc"/>
 
 #Azure 通知中樞 - 診斷指導方針
@@ -239,4 +239,4 @@ Azure 通知中樞需要在開發人員應用程式的內容中自行驗證，�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

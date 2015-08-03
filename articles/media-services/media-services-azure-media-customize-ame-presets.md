@@ -458,9 +458,9 @@ Azure 媒體服務編碼器可讓您重疊影像 (jpg、bmp、gif、tif)、影�
 
 1. 將修改過的預設檔案儲存到本機硬碟機，並且使用如下的程式碼以自訂預設進行編碼：
 	
-	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\\TEMP\\Original.mp4");
+	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\TEMP\Original.mp4");
 	 
-	string inputPresetFile = @"C:\\TEMP\\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
+	string inputPresetFile = @"C:\TEMP\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
 	 
 	IJob job = _context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " + presetName);
 	
@@ -482,4 +482,4 @@ Azure 媒體服務編碼器可讓您重疊影像 (jpg、bmp、gif、tif)、影�
 
 [Azure Media Encoder XML 結構描述](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

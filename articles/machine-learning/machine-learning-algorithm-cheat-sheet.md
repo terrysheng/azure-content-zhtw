@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="機器學習演算法小祕技 | Microsoft Azure" 
 	description="可列印的機器學習演算法小密技可協助您在 Azure Machine Learning Studio 中選擇適合您預測模型的演算法。"
+	keywords="algorithm cheat sheet,cheat sheet,machine learning algorithm"	
 	services="machine-learning"
 	documentationCenter="" 
 	authors="brohrer" 
@@ -89,4 +90,4 @@ Here's an example from the [Azure Machine Learning Gallery](http://gallery.azure
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

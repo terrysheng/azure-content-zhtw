@@ -26,7 +26,7 @@ Premium 儲存體是將資料儲存在最新技術的固態硬碟 (SSD) 中，�
 ## 開始之前 
 
 ### 必要條件
-- 您將需要 Azure 訂用帳戶。如果您沒有訂用帳戶，可以建立一個月的[免費試用](http://azure.microsoft.com/pricing/free-trial/)訂用帳戶，或造訪 [Azure 定價](http://azure.microsoft.com/pricing/)以了解其他選項。 
+- 您將需要 Azure 訂用帳戶。如果您沒有訂用帳戶，可以建立一個月的[免費試用](http://azure.microsoft.com/pricing/free-trial/)訂用帳戶，或造訪 [Azure 價格](http://azure.microsoft.com/pricing/)以了解其他選項。 
 - 若要執行 PowerShell Cmdlet，您將需要 Microsoft Azure PowerShell 模組。若要下載此模組，請參閱 [Microsoft Azure 下載](http://azure.microsoft.com/downloads/)。
 - 當您計劃使用在 Premium 儲存體上執行的 Azure VM 時，您需要使用 DS 系列的虛擬機器。DS 系列的 VM 可同時搭配 Standard 和 Premium 儲存體磁碟使用。未來 Premium 儲存體磁碟將可搭配更多 VM 類型使用。如需可用 Azure VM 磁碟類型和大小的詳細資訊，請參閱 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)。 
 
@@ -179,13 +179,13 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](http://m
 2. 開啟 Azure PowerShell，並移至安裝 AzCopy 所在的資料夾。  
 3. 使用下列命令，將 VHD 檔案從「來源」複製到「目的地」。 
 
-		AzCopy /Source: <source> /SourceKey: <source-account-key> /Destination: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>  
+		AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>  
 
 	以下是有關用於 AzCopy 命令中之參數的描述：
 
  - **/Source: *&lt;source&gt;:*** 資料夾的位置，或包含 VHD 的儲存體容器 URL。    
  - **/SourceKey: *&lt;source-account-key&gt;:*** 來源儲存體帳戶的儲存體帳戶金鑰。  
- - **/Destination: *&lt;destination&gt;:*** 儲存所複製的 VHD 之目的地儲存體容器的 URL。
+ - **/Dest: *&lt;destination&gt;：***儲存複製的 VHD 的目的地儲存體容器 URL。
  - **/DestKey: *&lt;dest-account-key&gt;:*** 目的地儲存體帳戶的儲存體帳戶金鑰。
  - **/BlobType: page:** 將目的地指定為分頁 Blob。
  - **/Pattern: *&lt;file-name&gt;:*** 指定要複製的 VHD 的檔案名稱。
@@ -315,4 +315,4 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](http://m
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -191,4 +191,4 @@ Azure 搜尋中其中一個較吸引人的功能是可以輕鬆地放大或縮�
 [1]: ./media/search-workflow/AzSearch-Workflow.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

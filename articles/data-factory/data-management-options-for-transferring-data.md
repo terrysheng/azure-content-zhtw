@@ -3,8 +3,8 @@
 	description="提供將資料從非雲端來源的內部部署傳輸到 Microsoft Azure 以供進一步分析時，如何選擇最佳選項的指引。" 
 	services="data-factory, hdinsight, machine-learning, storage, sql-database" 
 	documentationCenter="" 
-	authors="cjgronlund" 
-	manager="paulettm" 
+	authors="spelluru" 
+	manager="jeffgoll" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="big-data" 
 	ms.date="01/07/2014" 
-	ms.author="cgronlun"/>
+	ms.author="spelluru"/>
 
 # 將儲存資料傳輸至 Azure 雲端的選項
 
@@ -270,4 +270,4 @@ Microsoft Azure 事件中心是事件攝入服務，它能提供大規模進入�
 [hybrid]: ../integration-hybrid-connection-overview.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

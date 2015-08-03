@@ -23,7 +23,7 @@
 ## 解除安裝服務元件
 
 1. 開啟 [Azure Preview 入口網站](https://ms.portal.azure.com/)。
-2. 巡覽至包含彈性工作的訂用帳戶。
+2. 巡覽至包含彈性工作的訂閱。
 3. 按一下 [瀏覽]，然後按一下 [資源群組]。
 4. 選取名為 "__ElasticDatabaseJob" 的資源群組。
 5. 刪除資源群組。
@@ -58,4 +58,4 @@
 [1]: ./media/sql-database-elastic-job-uninstall/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

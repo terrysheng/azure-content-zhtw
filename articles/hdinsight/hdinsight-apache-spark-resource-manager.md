@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
@@ -36,7 +36,7 @@
 HDInsight 中的 Apache Spark 叢集是專為多租用戶所設計，因此資源會分割成多個元件 (Notebook、作業伺服器等)。這可讓您同時使用所有 Spark 元件，而不必擔心有元件會無法取得執行所需的資源，但由於資源已分散，因此每個元件都會變慢。您可以根據需求進行調整。
 
 
-### 我只使用 IPython 搭配 Spark 叢集。該如何將所有資源配置給它？
+### 我只利用 Spark 叢集使用 Jupyter Notebook。該如何將所有資源配置給它？
 
 1. 在 [**Spark 儀表板**] 中，按一下 [**Spark UI**] 索引標籤以找出可配置給應用程式的核心數目和 RAM 上限。
 
@@ -79,4 +79,4 @@ HDInsight 中的 Apache Spark 叢集是專為多租用戶所設計，因此資�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

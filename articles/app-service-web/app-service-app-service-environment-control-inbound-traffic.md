@@ -130,4 +130,4 @@ App Service 環境必須一律建立於子網路中，因為子網路可提供�
 
 <!-- IMAGES -->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -205,4 +205,4 @@
 [啟動儲存體金鑰之後更新媒體服務定位器](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

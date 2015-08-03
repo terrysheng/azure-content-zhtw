@@ -152,4 +152,4 @@ azure 模組會讀取環境變數 **AZURE_SERVICEBUS_NAMESPACE** 和 **AZURE_SER
 若要比較本文所討論的 Azure 服務匯流排佇列與[如何使用 Azure 佇列服務](/develop/ruby/how-to-guides/queue-service/)一文中討論的 Azure 佇列，請參閱 [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)。
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

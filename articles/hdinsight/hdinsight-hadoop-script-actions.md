@@ -3,7 +3,7 @@
 	description="了解如何使用指令碼動作來自訂 Hadoop 叢集。" 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,55 +13,120 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
-	ms.author="bradsev"/>
+	ms.date="07/16/2015" 
+	ms.author="jgao"/>
 
-# 使用 HDInsight 開發指令碼動作 
+# 開發 HDInsight 的指令碼動作指令碼 
 
-指令碼動作可提供 Azure HDInsight 功能，以供用來安裝其他在 Hadoop 叢集上執行的軟體，或變更叢集上所安裝應用程式的組態。指令碼動作是在部署 HDInsight 叢集時，在叢集節點上執行的指令碼，一旦叢集中的節點完成 HDInsight 組態之後，就會執行這些指令碼動作。指令碼動作是依據系統管理員帳戶的權限來執行，並具有叢集節點的完整存取權限。您可對每個叢集提供一份依其指定順序來執行的指令碼動作清單。
-
-您可以從 Azure PowerShell 或使用 HDInsight .NET SDK 來部署「指令碼動作」。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]。
+指令碼動作可用來安裝其他在 Hadoop 叢集上執行的軟體，或變更叢集上所安裝應用程式的組態。指令碼動作是在部署 HDInsight 叢集時，在叢集節點上執行的指令碼，一旦叢集中的節點完成 HDInsight 組態之後，就會執行這些指令碼動作。指令碼動作是依據系統管理員帳戶的權限來執行，並具有叢集節點的完整存取權限。您可對每個叢集提供一份依其指定順序來執行的指令碼動作清單。
 
 
 
-## <a name="bestPracticeScripting"></a>指令碼開發的最佳做法
+
+## 呼叫指令碼動作
+
+HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
+
+名稱 | 指令碼
+----- | -----
+**安裝 Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Spark][hdinsight-install-spark]。
+**安裝 R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1。請參閱[在 HDInsight 叢集上安裝及使用 R][hdinsight-r-scripts]。
+**安裝 Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install.md)。
+- **安裝 Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install.md)。
+
+您可以從 Azure 入口網站、Azure PowerShell 或使用 HDInsight .NET SDK 來部署「指令碼動作」。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]。
+
+> [AZURE.NOTE]範例指令碼只能與 HDInsight 叢集版本 3.1 或更高版本搭配使用。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](../hdinsight-component-versioning/)。
+
+## 範例指令碼
+
+下列是設定網站組態檔的範例指令碼：
+
+	param (
+	    [parameter(Mandatory)][string] $ConfigFileName,
+	    [parameter(Mandatory)][string] $Name,
+	    [parameter(Mandatory)][string] $Value,
+	    [parameter()][string] $Description
+	)
+	
+	if (!$Description) {
+	    $Description = ""
+	}
+	
+	$hdiConfigFiles = @{
+	    "hive-site.xml" = "$env:HIVE_HOME\conf\hive-site.xml";
+	    "core-site.xml" = "$env:HADOOP_HOME\etc\hadoop\core-site.xml";
+	    "hdfs-site.xml" = "$env:HADOOP_HOME\etc\hadoop\hdfs-site.xml";
+	    "mapred-site.xml" = "$env:HADOOP_HOME\etc\hadoop\mapred-site.xml";
+	    "yarn-site.xml" = "$env:HADOOP_HOME\etc\hadoop\yarn-site.xml"
+	}
+	
+	if (!($hdiConfigFiles[$ConfigFileName])) {
+	    Write-HDILog "Unable to configure $ConfigFileName because it is not part of the HDI configuration files."
+	    return
+	}
+	
+	[xml]$configFile = Get-Content $hdiConfigFiles[$ConfigFileName]
+	
+	$existingproperty = $configFile.configuration.property | where {$_.Name -eq $Name}
+	    
+	if ($existingproperty) {
+	    $existingproperty.Value = $Value
+	    $existingproperty.Description = $Description
+	} else {
+	    $newproperty = @($configFile.configuration.property)[0].Clone()
+	    $newproperty.Name = $Name
+	    $newproperty.Value = $Value
+	    $newproperty.Description = $Description
+	    $configFile.configuration.AppendChild($newproperty)
+	}
+	
+	$configFile.Save($hdiConfigFiles[$ConfigFileName])
+	
+	Write-HDILog "$configFileName has been configured."
+
+指令碼檔案的複本位於 [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1)。當您從 Azure 入口網站呼叫指令碼時，您可以使用下列參數：
+
+	hive-site.xml hive.metastore.client.socket.timeout 90
+
+這些參數會在 hive-site.xml 檔案中將 hive.metastore.client.socket.timeout 值設定為 90。預設值為 60 秒。
+
+## 指令碼開發的最佳做法
 
 為 HDInsight 叢集開發自訂的指令碼時，有數個最佳做法需要牢記在心：
 
-* [檢查 Hadoop 版本](#bPS1)
-* [提供穩定的指令碼資源連結](#bPS2)
-* [確保叢集自訂指令碼具有等冪性](#bPS3)
-* [在最佳位置安裝自訂元件](#bPS4)
-* [確保叢集架構具有高可用性](#bPS5)
-* [設定自訂元件來使用 Azure Blob 儲存體](#bPS6)
+- 檢查 Hadoop 版本
 
-### <a name="bPS1"></a>檢查 Hadoop 版本
-只有 HDInsight 3.1 版 (Hadoop 2.4) 和以上版本才支援使用指令碼動作在叢集上安裝自訂元件。在自訂指令碼中，您必須使用 **Get-HDIHadoopVersion** 協助程式方法，先檢查 Hadoop 的版本，再繼續執行指令碼中的其他工作。
+	只有 HDInsight 3.1 版 (Hadoop 2.4) 和以上版本才支援使用指令碼動作在叢集上安裝自訂元件。在自訂指令碼中，您必須使用 **Get-HDIHadoopVersion** 協助程式方法，先檢查 Hadoop 的版本，再繼續執行指令碼中的其他工作。
 
 
-### <a name="bPS2"></a>提供穩定的指令碼資源連結 
-使用者應該確定在叢集的整個存留期間，於叢集自訂中使用的所有指令碼及其他成品都保持可用，並且這些檔案的版本在此持續時間內不會變更。如需為叢集中的節點重新製作映像，就必須有這些資源。最佳做法是下載並封存使用者所控制之儲存體帳戶中的所有項目。這可以是預設的儲存體帳戶，或是在部署時為自訂叢集指定的任何其他儲存體帳戶。例如，在文件中所提供的 Spark 和 R 自訂叢集範例中，我們已經在本機複製一份此儲存體帳戶中的資源：https://hdiconfigactions.blob.core.windows.net/
+- 提供穩定的指令碼資源連結
+
+	使用者應該確定在叢集的整個存留期間，於叢集自訂中使用的所有指令碼及其他成品都保持可用，並且這些檔案的版本在此持續時間內不會變更。如需為叢集中的節點重新製作映像，就必須有這些資源。最佳做法是下載並封存使用者所控制之儲存體帳戶中的所有項目。這可以是預設的儲存體帳戶，或是在部署時為自訂叢集指定的任何其他儲存體帳戶。例如，在文件中所提供的 Spark 和 R 自訂叢集範例中，我們已經在本機複製一份此儲存體帳戶中的資源：https://hdiconfigactions.blob.core.windows.net/
 
 
-### <a name="bPS3"></a>確保叢集自訂指令碼具有等冪性
-您必須預期在叢集存留期間將會為 HDInsight 叢集的節點重新製作映像。每當重新製作叢集映像時，都會執行叢集自訂指令碼。此指令碼必須設計成具有等冪性，意思就是在重新製作映像時，此指令碼應該確保叢集會回到與當初建立叢集時，指令碼剛剛第一次執行後相同的自訂狀態。例如，如果自訂指令碼在第一次執行時，在 D:\\AppLocation 中安裝了某個應用程式，則在後續每次的執行中，當重新製作映像時，此指令碼應該先檢查 D:\\AppLocation 位置中是否有該應用程式，再繼續執行指令碼中的其他步驟。
+- 確保叢集自訂指令碼具有等冪性
+
+	您必須預期在叢集存留期間將會為 HDInsight 叢集的節點重新製作映像。每當重新製作叢集映像時，都會執行叢集自訂指令碼。此指令碼必須設計成具有等冪性，意思就是在重新製作映像時，此指令碼應該確保叢集會回到與當初建立叢集時，指令碼剛剛第一次執行後相同的自訂狀態。例如，如果自訂指令碼在第一次執行時，在 D:\AppLocation 中安裝了某個應用程式，則在後續每次的執行中，當重新製作映像時，此指令碼應該先檢查 D:\AppLocation 位置中是否有該應用程式，再繼續執行指令碼中的其他步驟。
 
 
-### <a name="bPS4"></a>在最佳位置安裝自訂元件 
-重新製作叢集節點映像時，C:\\ 資源磁碟機和 D:\\ 系統磁碟機可能被重新格式化，而導致資料及安裝在這些磁碟機上的應用程式遺失。如果隸屬於叢集的 Azure 虛擬機器 (VM) 節點故障，而被新節點取代時，也可能發生這種情況。您可以將元件安裝在 D:\\ 磁碟機上，或叢集上的 C:\\apps 位置中。C:\\ 磁碟機上的所有其他位置則已預留他用。請在叢集自訂指令碼中指定要用來安裝應用程式或程式庫的位置。
+- 在最佳位置安裝自訂元件
+
+	重新製作叢集節點映像時，C:\ 資源磁碟機和 D:\ 系統磁碟機可能被重新格式化，而導致資料及安裝在這些磁碟機上的應用程式遺失。如果隸屬於叢集的 Azure 虛擬機器 (VM) 節點故障，而被新節點取代時，也可能發生這種情況。您可以將元件安裝在 D:\ 磁碟機上，或叢集上的 C:\apps 位置中。C:\ 磁碟機上的所有其他位置則已預留他用。請在叢集自訂指令碼中指定要用來安裝應用程式或程式庫的位置。
 
 
-### <a name="bPS5"></a>確保叢集架構具有高可用性
+- 確保叢集架構具有高可用性
 
-為了獲得高可用性，HDInsight 具備主動/被動架構，在此架構中，有一個處於使用中模式的前端節點 (此節點正在執行 HDInsight 服務)，以及另一個處於待命模式的前端節點 (此節點未執行 HDInsight 服務)。如果 HDInsight 服務中斷，這兩個節點就會切換主動和被動模式。如果為了獲得高可用性，而使用指令碼動作在這兩個前端節點安裝服務，請注意 HDInsight 的容錯移轉機制並無法自動容錯移轉這些由使用者所安裝的服務。因此使用者在 HDInsight 前端節點上所安裝的服務若想要有高可用性，則必須有自己的主動/被動模式時的容錯移轉機制，或是處於主動/被動模式。
+	為了獲得高可用性，HDInsight 具備主動/被動架構，在此架構中，有一個處於使用中模式的前端節點 (此節點正在執行 HDInsight 服務)，以及另一個處於待命模式的前端節點 (此節點未執行 HDInsight 服務)。如果 HDInsight 服務中斷，這兩個節點就會切換主動和被動模式。如果為了獲得高可用性，而使用指令碼動作在這兩個前端節點安裝服務，請注意 HDInsight 的容錯移轉機制並無法自動容錯移轉這些由使用者所安裝的服務。因此使用者在 HDInsight 前端節點上所安裝的服務若想要有高可用性，則必須有自己的主動/被動模式時的容錯移轉機制，或是處於主動/被動模式。
 
-當您指定前端節點角色做為 *ClusterRoleCollection* 參數的值時 (記載於下面的[如何執行指令碼動作](#runScriptAction)一節)，HDInsight 指令碼動作命令會同時在這兩個前端節點上執行。因此，當您設計自訂指令碼時，請確定您的指令碼知道這項設定。您不應該發生在這兩個前端節點上安裝並啟動相同的服務，而最終導致彼此競爭的問題。此外也請注意，重新製作映像時，資料將會遺失，因此透過指令碼動作所安裝的軟體必須要能夠從這類事件復原。應用程式在設計上應該要能夠與分散在眾多節點上的高可用性資料搭配運作。請注意，最多可同時為叢集中 1/5 的節點重新製作映像。
+	當您指定前端節點角色做為 *ClusterRoleCollection* 參數的值時 (記載於下面的[如何執行指令碼動作](#runScriptAction)一節)，HDInsight 指令碼動作命令會同時在這兩個前端節點上執行。因此，當您設計自訂指令碼時，請確定您的指令碼知道這項設定。您不應該發生在這兩個前端節點上安裝並啟動相同的服務，而最終導致彼此競爭的問題。此外也請注意，重新製作映像時，資料將會遺失，因此透過指令碼動作所安裝的軟體必須要能夠從這類事件復原。應用程式在設計上應該要能夠與分散在眾多節點上的高可用性資料搭配運作。請注意，最多可同時為叢集中 1/5 的節點重新製作映像。
 
 
-### <a name="bPS6"></a>設定自訂元件來使用 Azure Blob 儲存體
-您安裝在叢集節點上的自訂元件可能有使用 Hadoop 分散式檔案系統 (HDFS) 儲存體的預設組態。您應該變更此組態，使其改為使用 Azure Blob 儲存體。在重新製作叢集映像時，會格式化 HDFS 檔案系統，因此您會遺失儲存在其中的所有資料。改用 Azure Blob 儲存體可確保資料保留下來。
+- 設定自訂元件來使用 Azure Blob 儲存體
 
-## <a name="helpermethods"></a>自訂指令碼的協助程式方法 
+	您安裝在叢集節點上的自訂元件可能有使用 Hadoop 分散式檔案系統 (HDFS) 儲存體的預設組態。您應該變更此組態，使其改為使用 Azure Blob 儲存體。在重新製作叢集映像時，會格式化 HDFS 檔案系統，因此您會遺失儲存在其中的所有資料。改用 Azure Blob 儲存體可確保資料保留下來。
+
+## 自訂指令碼的協助程式方法 
 
 指令碼動作提供下列可在撰寫自訂指令碼時使用的協助程式方法。
 
@@ -85,7 +150,7 @@
 **Test-IsHDIDataNode** | 檢查執行指令碼的電腦是否為資料節點。
 **Edit-HDIConfigFile** | 編輯組態檔 hive-site.xml、core-site.xml、hdfs-site.xml、mapred-site.xml 或 yarn-site.xml。
 
-## <a name="commonusage"></a>常見使用模式
+## 常見使用模式
 
 本節指引您如何實作某些撰寫自訂指令碼時可能遇到的常見使用模式。
 
@@ -129,34 +194,19 @@
 	}
 
 
-## <a name="deployScript"></a>指令碼動作的部署檢查清單
+## 指令碼動作的部署檢查清單
 以下是我們在準備部署這些指令碼時所採取的步驟：
 
 1. 將包含自訂指令碼的檔案放在叢集節點可於部署期間存取的位置。此位置可以是部署叢集時所指定的預設或其他儲存體帳戶，或是其他任何可公開存取的儲存體容器。
 2. 在指令碼中加入檢查以確定它們以等冪方式執行，使得指令碼可以在相同的節點上執行多次。
 3. 使用 **Write-Output** Azure PowerShell Cmdlet 來列印至 STDOUT 以及 STDERR。請勿使用 **Write-Host**。
 4. 使用暫存檔案資料夾 (例如 $env:TEMP) 來存放指令碼所使用的下載檔案，然後在執行完指令碼之後將這些檔案清除。
-5. 安裝自訂軟體，位置只能是 D:\\ 或 C:\\apps。不應該使用 C: 磁碟機上的其他位置，因為它們已預留他用。請注意，如果將檔案安裝在 C: 磁碟機上 C:\\apps 資料夾以外的位置，可能會導致在重新製作節點映像期間設定失敗。
+5. 安裝自訂軟體，位置只能是 D:\ 或 C:\apps。不應該使用 C: 磁碟機上的其他位置，因為它們已預留他用。請注意，如果將檔案安裝在 C: 磁碟機上 C:\apps 資料夾以外的位置，可能會導致在重新製作節點映像期間設定失敗。
 6. 如果作業系統層級設定或 Hadoop 服務組態檔已變更，您可能會想要重新啟動 HDInsight 服務，讓它們可以載入任何作業系統層級設定，例如指令碼中設定的環境變數。
 
 
-## <a name="runScriptAction"></a>如何執行指令碼動作
 
-您可以透過 Azure 入口網站、Azure PowerShell 或 HDInsight .NET SDK，使用指令碼動作自訂 HDInsight 叢集。如需指示，請參閱[如何使用指令碼動作](../hdinsight-hadoop-customize-cluster/#howto)。
-
-
-## <a name="sampleScripts"></a>自訂指令碼範例
-
-Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。您可以在下方的連結中找到這些範例指令碼和其使用方式的說明：
-
-- [在 HDInsight 叢集上安裝及使用 Spark][hdinsight-install-spark]
-- [在 HDInsight Hadoop 叢集上安裝和使用 R][hdinsight-r-scripts]
-- [在 HDInsight 叢集上安裝及使用 Solr](../hdinsight-hadoop-solr-install)
-- [在 HDInsight 叢集上安裝及使用 Giraph](../hdinsight-hadoop-giraph-install)  
-
-> [AZURE.NOTE]範例指令碼只能與 HDInsight 叢集版本 3.1 或更高版本搭配使用。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](../hdinsight-component-versioning/)。
-
-## <a name="testScript"></a>如何使用 HDInsight Emulator 測試自訂指令碼
+## 使用 HDInsight Emulator 測試自訂指令碼
 
 在將自訂指令碼用於 HDInsight 指令碼動作命令前若要先進行測試，最簡單的方式是在 HDInsight Emulator 中執行看看。您可以將 HDInsight Emulator 安裝在本機上、安裝在 Azure 基礎結構即服務 (IaaS) Windows Server 2012 R2 VM 上，或安裝在本機機器上，然後看看指令碼執行起來是否正確。但請注意，Windows Server 2012 R2 VM 是 HDInsight 用於其節點的相同 VM。
 
@@ -187,11 +237,11 @@ Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。您�
 請注意，在某些情況下，自訂指令碼可能會實際依存於 HDInsight 元件，例如偵測特定 Hadoop 服務是否已啟動。在此情況下，您將必須把自訂指令碼部署到實際的 HDInsight 叢集，以測試這些自訂指令碼。
 
 
-## <a name="debugScript"></a>如何對自訂指令碼進行偵錯
+## 偵錯自訂指令碼
 
-指令碼錯誤記錄檔會與其他輸出一起儲存在您建立叢集時為其指定的預設儲存體帳戶中。記錄檔是以 *u<\\cluster-name-fragment><\\time-stamp>setuplog* 的名稱儲存在資料表中。這些是彙總的記錄檔，包含來自指令碼執行所在之所有叢集節點 (前端節點和背景工作節點) 的記錄。
+指令碼錯誤記錄檔會與其他輸出一起儲存在您建立叢集時為其指定的預設儲存體帳戶中。記錄檔是以 *u<\cluster-name-fragment><\time-stamp>setuplog* 的名稱儲存在資料表中。這些是彙總的記錄檔，包含來自指令碼執行所在之所有叢集節點 (前端節點和背景工作節點) 的記錄。
 
-您也可以遠端登入到叢集節點以查看 STDOUT 和 STDERR 中的自訂指令碼。每個節點上的記錄檔都只與該節點有關，並且會記錄到 **C:\\HDInsightLogs\\DeploymentAgent.log**。這些記錄檔會記錄自訂指令碼的所有輸出。Spark 指令碼動作的範例記錄程式碼片段看起來像這樣：
+您也可以遠端登入到叢集節點以查看 STDOUT 和 STDERR 中的自訂指令碼。每個節點上的記錄檔都只與該節點有關，並且會記錄到 **C:\HDInsightLogs\DeploymentAgent.log**。這些記錄檔會記錄自訂指令碼的所有輸出。Spark 指令碼動作的範例記錄程式碼片段看起來像這樣：
 
 	Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.; 
 	Version : 2.1.0.0; 
@@ -236,10 +286,13 @@ Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。您�
 如果發生執行失敗的情況，描述它的輸出也會包含在這個記錄檔中。對可能發生的指令碼問題進行偵錯時，這些記錄檔中提供的資訊應該很有幫助。
 
 
-## <a name="seeAlso"></a>另請參閱
+## 另請參閱
 
-[使用指令碼動作來自訂 HDInsight 叢集][hdinsight-cluster-customize]
-
+- [使用指令碼動作來自訂 HDInsight 叢集][hdinsight-cluster-customize] 
+- [在 HDInsight 叢集上安裝及使用 Spark][hdinsight-install-spark]
+- [在 HDInsight 叢集上安裝及使用 R][hdinsight-r-scripts]
+- [在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install.md)。
+- [在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install.md)。
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
@@ -251,4 +304,4 @@ Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。您�
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

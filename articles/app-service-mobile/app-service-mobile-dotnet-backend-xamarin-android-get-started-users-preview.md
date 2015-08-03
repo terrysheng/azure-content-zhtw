@@ -26,6 +26,10 @@
 
 本教學課程以行動應用程式快速入門為基礎。您也必須先完成[建立 Xamarin.Android 應用程式教學課程]。
 
+##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
+
 ##<a name="register"></a>註冊應用程式進行驗證，並設定應用程式服務
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -34,7 +38,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-<ol start="7">
+<ol start="5">
 <li><p>在 Visual Studio 或 Xamarin Studio 中，在裝置或模擬器上執行用戶端專案。確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。</p>
    
    	<p>這是因為應用程式嘗試以未驗證的使用者身分存取您的行動應用程式程式碼，但 <em>TodoItem</em> 資料表現在需要驗證。</p></li>
@@ -91,4 +95,4 @@
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

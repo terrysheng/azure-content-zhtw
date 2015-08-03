@@ -157,7 +157,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 請注意，如果您想要在適用於 Windows Server 2012 R2 的伺服器核心或獨立的 HYPER-V Server 2012 R2 上安裝提供者，請執行下列動作：
 
-1. 將提供者安裝檔案和註冊金鑰下載至資料夾，如 C:\\ASR。
+1. 將提供者安裝檔案和註冊金鑰下載至資料夾，如 C:\ASR。
 2. 輸入下列程式碼來解壓縮提供者安裝程式：
 
 	    C:\Windows\System32> CD C:\ASR
@@ -179,7 +179,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 		- /proxyUsername <username>：認證 (如果 Proxy 需要驗證)。
 		- proxyPassword <password>
 
->[AZURE.NOTE]您可以設定每個個別的 Hyper-V 主機以使用不同的網路頻寬設定，將虛擬機器複寫至 Azure。深入了解[如何管理內部部署至 Azure 保護網路頻寬使用](https://support.microsoft.com/zh-TW/kb/3056159) (英文)
+>[AZURE.NOTE]您可以設定每個個別的 Hyper-V 主機以使用不同的網路頻寬設定，將虛擬機器複寫至 Azure。深入了解[如何管理內部部署至 Azure 保護網路頻寬使用](https://support.microsoft.com/zh-tw/kb/3056159) (英文)
 
 
 ## 步驟 4：建立 Azure 資源
@@ -296,4 +296,4 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 在您的部署設定完成並開始執行之後，[深入了解](site-recovery-failover.md)容錯移轉。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -226,4 +226,4 @@ Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://
 
 - 上架到 Azure 自動化 DSC 的 DSC 節點一開始都會顯示為「相容」狀態，即使它們實際上不符合所對應的 DSC 節點組態。節點執行其第一次提取，並將其第一個 DSC 報表傳送到 Azure 自動化 DSC 之後，節點的狀態應該是正確的。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

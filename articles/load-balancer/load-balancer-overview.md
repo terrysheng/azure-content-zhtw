@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
 
@@ -77,7 +77,11 @@ Azure 負載平衡器組態支援 UDP 的完全錐形 NAT。在完全錐形 NAT 
 
 ![snat](./media/load-balancer-overview/load-balancer-snat.png)
 
-請注意，對於 VM 起始的每個新輸出連線，Azure 負載平衡器也會配置輸出連接埠。外部主機將會看到流量以「VIP：配置的連接埠」送來。如果您的案例需要大量輸出連線，則建議 VM 使用執行個體層級的公用 IP，以便有專用的輸出 IP 進行來源網路位址轉譯 (SNAT)。這會降低連接埠耗盡的風險。
+
+>[AZURE.NOTE]請注意，對於 VM 起始的每個新輸出連線，Azure 負載平衡器也會配置輸出連接埠。外部主機將會看到流量以「VIP：配置的連接埠」送來。如果您的案例需要大量輸出連線，則建議 VM 使用執行個體層級的公用 IP，以便有專用的輸出 IP 進行來源網路位址轉譯 (SNAT)。這會降低連接埠耗盡的風險。
+>
+>可供 VIP 或 ILPIP 使用的連接埠最大數目為 64k。這是 TCP 標準限制。
+
 
 **支援虛擬機器有多個負載平衡 IP**
 
@@ -95,4 +99,4 @@ Azure 負載平衡器組態支援 UDP 的完全錐形 NAT。在完全錐形 NAT 
 [開始使用 - 網際網路面向的負載平衡器](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -54,4 +54,4 @@ CDN 原點是 CDN 從中提取內容並快取於邊緣 POP 的位置。整合 Az
 [Azure 內容傳遞網路 (CDN) 概觀](cdn-overview.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

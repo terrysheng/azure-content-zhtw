@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/02/2015"
+   ms.date="07/08/2015"
    ms.author="jgao"/>
 
 # 在 HDInsight 中設定 HBase 地理複寫
@@ -311,4 +311,4 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

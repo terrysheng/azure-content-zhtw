@@ -43,4 +43,4 @@ Microsoft Azure 信任中心上的[資源](http://azure.microsoft.com/support/tr
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # 搜尋 Operational Insights 中的資料
@@ -50,9 +50,9 @@ Microsoft Azure Operational Insights 的核心是搜記錄尋功能，可讓您�
 
 ### 進行簡單搜尋
 1. 在 Operational Insights 入口網站中，按一下 [**搜尋資料總管**]。![搜尋磚](./media/operational-insights-search/overview-search.png)
-2. 在查詢欄位中，輸入 `error`，然後按一下 [**搜尋**]。![搜尋錯誤](./media/operational-insights-search/search-error.png) 例如，在下列映像中，`error` 的查詢會傳回 100,000 個 **Event** 記錄 (由記錄檔管理所收集)，18 個 **Alert** 記錄 (由組態評估所產生)，以及 12 個 **ConfigurationChange** 記錄 (由變更追蹤所擷取)。![搜尋結果](./media/operational-insights-search/results01.png)
+2. 在查詢欄位中，輸入 `error`，然後按一下 [**搜尋**]。![搜尋錯誤](./media/operational-insights-search/search-error.png) 例如，在下列影像中，`error` 的查詢會傳回 100,000 個 **Event** 記錄 (由記錄檔管理所收集)、18 個 **ConfigurationAlert** 記錄 (由組態評估所產生)，以及 12 個 **ConfigurationChange** 記錄 (由變更追蹤所擷取)。![搜尋結果](./media/operational-insights-search/results01.png)
 
-這些篩選器不一定是物件類型/類別。*類型*只是附加到資料片段的標記或屬性，或字串/名稱/類別。系統中的某些文件會標記為 **Type:Alert**，而某些會標記為 **Type:PerfHourly** 或標記為 **Type:Event**，依此類推。每個搜尋結果、文件、記錄或項目都會顯示所有未經處理的屬性及它們針對每個資料片段的値，當您只想擷取欄位在其中具有指定値的記錄時，您可以在篩選器中使用那些欄位名稱來指定。
+這些篩選器不一定是物件類型/類別。*類型*只是附加到資料片段的標記或屬性，或字串/名稱/類別。系統中的某些文件會標記為 **Type:ConfigurationAlert**，而某些會標記為 **Type:PerfHourly** 或 **Type:Event** 等等。每個搜尋結果、文件、記錄或項目都會顯示所有未經處理的屬性及它們針對每個資料片段的値，當您只想擷取欄位在其中具有指定値的記錄時，您可以在篩選器中使用那些欄位名稱來指定。
 
 *類型*其實只是所有記錄都有的欄位，與任何其他欄位並沒有不同。這是根據 [類型] 欄位的值所建立的。該記錄會有不同的圖形或形式。順帶一提，**Type=PerfHourly** 或 **Type=Event** 也是您需要了解以查詢每小時效能資料彙總或事件的語法。
 
@@ -251,36 +251,38 @@ SELECT 命令的行為類似 PowerShell 中的 Select-Object。它會傳回不�
 
 當您想要控制搜尋輸出，並且只選擇對探索真的很重要的資料部分 (通常不是完整記錄)，這會是特別有用的命令。當不同類型的記錄有*部分*共用的屬性，但不是*所有*屬性都共用時，這也非常有用。然後，您可以產生看起來就像資料表一般自然的輸出，或在匯出至 CSV 檔案，然後傳遞訊息至 Excel 中時正常運作。
 
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
 ## 使用 measure 命令
 
-Measure 是 Operational Insights 搜尋中最具彈性的命令之一。它可讓您將統計*函數*套用至資料，並彙總透過指定欄位分組的結果。Measure 支援多個統計函數。
+Measure 是 Operational Insights 搜尋中最具彈性的命令之一。它可讓您將統計*函數*套用至資料，並依照指定的欄位分組來彙總結果。Measure 支援多個統計函數。
 
 ### Measure count()
 
-第一個要使用的統計函數，也是最容易了解的統計含數之一就是 *count ()* 函數。
+第一個要使用的統計函數，也是最容易了解的統計函數就是 *count()* 函數。
 
-來自任何搜尋查詢的結果 (例如 `Type=Event`) 會在搜尋結果的左邊顯示稱為 facet 的篩選器。篩選器會在執行的搜尋中透過指定的結果欄位顯示值的分佈。
+來自任何搜尋查詢 (例如 `Type=Event`) 的結果會在搜尋結果的左邊顯示篩選，又稱為 Facet。篩選器會在執行的搜尋中透過指定的結果欄位顯示值的分佈。
 
 ![搜尋 measure count](./media/operational-insights-search/search-measure-count01.png)
 
-例如，在上述的映像中，您會看到 [**電腦**] 欄位，它會顯示在結果中將近 3 百萬個事件內，那些記錄中的 [**電腦**] 欄位有 20 個唯一且不同的值。磚只會顯示前 5 個値 (也就是會寫入 [**電腦**] 欄位中最常見的 5 個值)，根據在該欄位中指定値的文件數目來排序。在映像中，您可以看到 – 在將近 3 百萬個事件之中 - 88 萬個事件來自 DM 電腦，60 萬 2 千個事件來自 DE 電腦，依此類推。
+例如，在上面的影像中，您會看到 **Computer** 欄位，它指出在結果中將近 3 百萬個事件內，那些記錄中的 **Computer** 欄位有 20 個唯一且不同的值。磚只會顯示前 5 個値 (也就是最常寫入 **Computer** 欄位中的 5 個值)，依據在該欄位中含有該特定値的文件數目來排序。在映像中，您可以看到 – 在將近 3 百萬個事件之中 - 88 萬個事件來自 DM 電腦，60 萬 2 千個事件來自 DE 電腦，依此類推。
 
 
 由於磚只會顯示前 5 個値，如果要查看所有的值怎麼辦？
 
-measure 命令可以使用 count () 函數達成。此函數不會使用任何參數。您只需要指定您想要依其分組的欄位即可 – 在此案例中為 [**電腦**] 欄：
+measure 命令可以使用 count () 函數達成。此函數不會使用任何參數。您只需要指定想做為分組依據的欄位即可 – 在此案例中為 **Computer** 欄位：
 
 `Type=Event | Measure count() by Computer`
 
 ![搜尋 measure count](./media/operational-insights-search/search-measure-count-computer.png)
 
-不過，[**電腦**] 只是*在*資料片段中所使用的欄位 - 沒有相關的關聯式資料庫，而且沒有個別**電腦**物件在任何位置。只有*在*資料中的値可以描述產生它們的實體，以及資料的其他特性和方面的數目 - 因此也能描述 *facet* 一詞。不過，您也可以根據其他欄位分組。因為輸送到 measure 命令的將近 3 百萬個事件的原始結果也具有稱為 **EventID** 的欄位，所以您可以套用相同的技巧，以根據該欄位分組，並取得根據 EventID 的事件計數：
+不過，**Computer** 只是每個資料片段*中*使用的欄位 - 不涉及關聯式資料庫，其他地方也都沒有別的 **Computer** 物件。只有資料*中*的値可以描述哪個實體產生它們，以及資料的其他一些特性和面向 - 所以才稱為 *Facet*。不過，您也可以根據其他欄位分組。因為輸送到 measure 命令的將近 3 百萬個事件的原始結果也有一個稱為 **EventID** 的欄位，所以您可以套用相同的技巧，依據該欄位分組，並根據 EventID 取得事件計數：
 
 ```
 Type=Event | Measure count() by EventID
 ```
 
-如果您對實際的記錄計數 (包含特定値) 不感興趣，而是只想要值本身的清單，您可以在値的尾端加入 *Select* 命令，並只選取第一個資料行：
+如果您對包含特定値的實際記錄計數不感興趣，而只想要取得值本身的清單，您可以在尾端加上 *Select* 命令，並只選取第一個資料行：
 
 ```
 Type=Event | Measure count() by EventID | Select EventID
@@ -307,12 +309,12 @@ Type=Event | Measure count() by EventID | Select EventID | Sort EventID asc
 
 ## 透過 measure 命令使用 max 和 min 函數
 
-有 **Measure Max()** 和 **Measure Min()** 在其中很有用的各種案例。不過，由於每個函數彼此相反，我們將說明 Max ()，而您可以自己實驗 Min ()。
+在許多情況下，**Measure Max()** 和 **Measure Min()** 都很有用。不過，由於每個函數彼此相反，我們將說明 Max ()，而您可以自己實驗 Min ()。
 
-如果您查詢組態評估警示，他們具有分別代表資訊、警告和重要的**嚴重性**屬性 0、1 或 2。例如：
+如果您查詢組態評估警示，它們有一個 **Severity** 屬性，可以是 0、1 或 2，分別代表資訊、警告和重大。例如：
 
 ```
-Type=Alert
+Type=ConfigurationAlert
 ```
 
 ![搜尋 measure count 開始](./media/operational-insights-search/search-measure-max01.png)
@@ -320,15 +322,15 @@ Type=Alert
 如果您想要在指定共用「電腦」(根據欄位的分組) 的情況下，檢視所有警示的最高值，您可以使用
 
 ```
-Type=Alert | Measure Max(Severity) by Computer
+Type=ConfigurationAlert | Measure Max(Severity) by Computer
 ```
 
 ![搜尋 measure max 電腦](./media/operational-insights-search/search-measure-max02.png)
 
-它會像具有**警示**記錄的電腦顯示該警示，大部分的電腦都有至少一個重要警示，而且 Bacc 電腦會將警告視為其最差的嚴重性。
+它會顯示具有**警示**記錄的大部分電腦，至少都有一個重大警示，而 Bacc 電腦的最嚴重程度為警告。
 
 ```
-Type=Alert | Measure Max(Severity) by Computer
+Type=ConfigurationAlert | Measure Max(Severity) by Computer
 ```
 
 ![搜尋 measure max 時間產生電腦](./media/operational-insights-search/search-measure-max03.png)
@@ -363,7 +365,7 @@ Type=PerfHourly
 - **SampleValue** 是計數器的實際值
 - 在查詢中，**Type=PerfHourly** 為每小時的彙總
 - **TimeGenerated** 為 21:00，採用 24 小時制的時間格式。它是 20:00 到 21:00 之間，每小時的彙總。
-- **SampleCount** 是使用 12 個範例計算的彙總 (每隔 5 分鐘一個範例)
+- **SampleCount** 是使用 12 個樣本計算的彙總 (每隔 5 分鐘一個樣本)
 - 在此虛擬機器記憶體的範例中，每小時間隔的 **min**、**max** 和 **Percentile95** 為 6144 (MB)
 - **SampleValue** 為每小時的彙總，其中已填入每小時間隔的*平均*，並用來繪製效能圖表
 
@@ -408,7 +410,7 @@ Type=PerfHourly  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% 
 Type=PerfHourly  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer=”SERVER1.contoso.com” OR Computer=”SERVER2.contoso.com” OR Computer=”SERVER3.contoso.com”)
 ```
 
-因為您有非常特定的選取範圍，**measure Avg ()** 命令可能會傳回平均，不是由電腦進行，而是跨伺服器陣列，只根據 CounterName 分組。例如：
+因為您有非常明確的選取範圍，只要依據 CounterName 分組，**measure Avg ()** 命令可以傳回不是依電腦算出的平均，而是跨伺服器陣列算出的平均。例如：
 
 ```
 Type=PerfHourly  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer=”SERVER1.contoso.com” OR Computer=”SERVER2.contoso.com” OR Computer=”SERVER3.contoso.com”) | Measure Avg(SampleValue) by CounterName
@@ -419,13 +421,13 @@ Type=PerfHourly  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% 
 ![搜尋 avg grouping](./media/operational-insights-search/search-avg04.png)
 
 
-您可以在儀表板中輕鬆使用它。若要深入了解如何使用儀表板，請參閱 [Operational Insights 儀表板](operational-insights-use-dashboards)。
+您可以在儀表板中輕鬆使用它。若要深入了解使用儀表板，請參閱 [Operational Insights 儀表板](operational-insights-use-dashboards)。
 
 ![搜尋 avg 儀表板](./media/operational-insights-search/search-avg05.png)
 
 ### 透過 measure 命令使用 sum 函數
 
-sum 函數和 measure 命令的他函數類似。您可以在 [Microsoft Azure Operational Insights 中的 W3C IIS 記錄搜尋](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx)查看如何使用 sum 函數的範例。
+sum 函數和 measure 命令的他函數類似。您可以在 [Microsoft Azure Operational Insights 中的 W3C IIS 記錄搜尋](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx)看到如何使用 sum 函數的範例。
 
 您可以搭配使用 Max() 和 Min() 與數字、日期時間和文字字串。透過文字字串，它們會依字母順序排序，而您會取得第一個和最後一個。
 
@@ -449,7 +451,7 @@ Type=PerfHourly  CounterName="% Processor Time"  InstanceName="_Total" | Measure
 
 如果您已熟悉 Microsoft System Center Operations Manager，您可以考慮管理組件詞彙中的 where 命令。如果此範例是一項規則，查詢的第一個部分會是資料來源，而 where 命令會是條件偵測。
 
-您可以使用查詢做為 [**我的儀表板**] 中的磚，做為排序的監視器，可查看電腦 CPU 何時過度使用。若要深入了解儀表板，請參閱 [Operational Insights 儀表板](operational-insights-use-dashboards)。您也可以使用行動應用程式建立和使用儀表板。如需詳細資訊，請參閱 [Azure Operational Insights 行動應用程式](http://www.windowsphone.com/zh-tw/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)。在下列映像底部的兩個磚中，您可以看到監視器顯示清單並做為一個數字。基本上，您一定想要此數字為零且清單是空的。否則，它會指出警示條件。如有需要，您可以使用它來看看那些電腦承受壓力。
+您可以在 [**我的儀表板**] 中將查詢當做一個磚來使用，做為一種監視器來查看電腦 CPU 是否過度使用。若要深入了解儀表板，請參閱 [Operational Insights 儀表板](operational-insights-use-dashboards)。您也可以使用行動應用程式建立和使用儀表板。如需詳細資訊，請參閱 [Azure Operational Insights 行動應用程式](http://www.windowsphone.com/zh-tw/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)。在下列映像底部的兩個磚中，您可以看到監視器顯示清單並做為一個數字。基本上，您一定想要此數字為零且清單是空的。否則，它會指出警示條件。如有需要，您可以使用它來看看那些電腦承受壓力。
 
 ![行動儀表板](./media/operational-insights-search/search-mobile.png)
 
@@ -457,7 +459,7 @@ Type=PerfHourly  CounterName="% Processor Time"  InstanceName="_Total" | Measure
 
 下列關於搜尋語言的參考章節描述一般查詢語法選項，您可以在搜尋資料及篩選運算式時用來幫助您縮小搜尋範圍。它也會描述您可以用來在已擷取的資料上採取動作的命令。
 
-您可以在[搜尋欄位和 facet 參考](#Search-field-and-facet-reference)中閱讀搜尋中傳回的欄位，以及協助您深入鑽研相似資料類別的 facet。
+您可以在[搜尋欄位和 Facet 參考](#Search-field-and-facet-reference)中閱讀搜尋中傳回的欄位，以及協助您深入鑽研相似資料類別的 Facet。
 
 ### 一般查詢語法
 
@@ -483,7 +485,7 @@ filterExpression | command1 | command2 …
 
 	system error | sort ManagementGroupName, TimeGenerated desc | top 10
 
-此查詢會傳回包含 "system" 和 "error" 等單字的結果。 然後會根據 **ManagementGroupName** 欄位 (依遞增順序)，再以 **TimeGenerated** (依遞減順序) 排序結果。它只會採用前 10 個結果。
+此查詢會傳回包含 "system" 和 "error" 等單字的結果。 然後會依據 **ManagementGroupName** 欄位 (依遞增順序)，再依據 **TimeGenerated** (依遞減順序) 排序結果。它只會採用前 10 個結果。
 
 >[AZURE.IMPORTANT]所有的欄位名稱以及字串和文字欄位的值都會區分大小寫。
 
@@ -519,9 +521,9 @@ filterExpression | command1 | command2 …
 
 #### 日期/時間
 
-系統中的每個資料片段都有 **TimeGenerated** 屬性，代表記錄的原始日期和時間。某些資料類型可以另外有更多的日期/時間欄位 (例如，**LastModified**)。
+系統中的每個資料片段都有 **TimeGenerated** 屬性，代表記錄的原始日期和時間。某些資料類型可能另外有更多的日期/時間欄位 (例如，**LastModified**)。
 
-Operational Insights 中的時間表/時間選取器會顯示經過一段時間的結果分佈 (根據目前執行的查詢)，以 **TimeGenerated** 欄位為基礎。日期/時間欄位具有特定字串格式，可以在查詢中用來將查詢限制在特定時間範圍內。您也可以使用語法來參考相對的時間間隔 (例如，「3 天前和 2 小時前之間」)。
+Operational Insights 中的時間表/時間選取器會以 **TimeGenerated** 欄位為基礎，顯示經過一段時間的結果分佈 (根據目前執行的查詢)。日期/時間欄位具有特定字串格式，可以在查詢中用來將查詢限制在特定時間範圍內。您也可以使用語法來參考相對的時間間隔 (例如，「3 天前和 2 小時前之間」)。
 
 語法：
 
@@ -548,7 +550,7 @@ Operational Insights 中的時間表/時間選取器會顯示經過一段時間�
 
 	TimeGenerated:2013-10-01T12:20
 
-前一個命令只會傳回記錄與 2013 年 10 月 1 日 12:20 的精確 **TimeGenerated** 值。它不太可能會提供任何結果，但您可以了解這個概念。
+前一個命令只會傳回 **TimeGenerated** 值剛好等於 2013 年 10 月 1 日 12:20 的記錄。它不太可能會提供任何結果，但您可以了解這個概念。
 
 剖析器也支援助憶鍵的日期/時間值，NOW。
 
@@ -612,7 +614,7 @@ Operational Insights 中的時間表/時間選取器會顯示經過一段時間�
 
 下表列出受支援的日期/時間單位。
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>日期/時間單位 </th> <th>描述 </th> </tr> <tr> <td> <p>YEAR, YEARS</p> </td> <td> <p>四捨五入為目前的年份或位移指定的年數。</p> </td> </tr> <tr> <td> <p>MONTH, MONTHS</p> </td> <td> <p>四捨五入為目前的月份，或位移指定的月數。</p> </td> </tr> <tr> <td> <p>DAY, DAYS, DATE</p> </td> <td> <p>四捨五入為目前月份的日期，或位移指定的天數。</p> </td> </tr> <tr> <td> <p>HOUR, HOURS</p> </td> <td> <p>四捨五入為目前的小時或位移指定的小時數。</p> </td> </tr> <tr> <td> <p>MINUTE, MINUTES</p> </td> <td> <p>四捨五入為目前的分鐘數，或位移指定的分鐘數。</p> </td> </tr> <tr> <td> <p>SECOND、 SECONDS</p> </td> <td> <p>四捨五入為目前的秒數或位移指定的秒數。</p> </td> </tr> <tr> <td> <p>MILLISECOND, MILLISECONDS, MILLI, MILLIS</p> </td> <td> <p>四捨五入為目前的毫秒數，或位移指定的毫秒數。</p> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>日期/時間單位 </th> <th>描述 </th> </tr> <tr> <td> <p>YEAR、YEARS</p> </td> <td> <p>四捨五入為目前的年份，或位移指定的年數。</p> </td> </tr> <tr> <td> <p>MONTH、MONTHS</p> </td> <td> <p>四捨五入為目前的月份，或位移指定的月數。</p> </td> </tr> <tr> <td> <p>DAY、DAYS、DATE</p> </td> <td> <p>四捨五入為目前的月份日期，或位移指定的天數。</p> </td> </tr> <tr> <td> <p>HOUR、HOURS</p> </td> <td> <p>四捨五入為目前的小時，或位移指定的小時數。</p> </td> </tr> <tr> <td> <p>MINUTE、MINUTES</p> </td> <td> <p>四捨五入為目前的分鐘，或位移指定的分鐘數。</p> </td> </tr> <tr> <td> <p>SECOND、SECONDS</p> </td> <td> <p>四捨五入為目前的秒，或位移指定的秒數。</p> </td> </tr> <tr> <td> <p>MILLISECOND、MILLISECONDS、MILLI、MILLIS</p> </td> <td> <p>四捨五入為目前的毫秒，或位移指定的毫秒數。</p> </td> </tr> </table>
 
 
 #### 欄位 facet
@@ -688,7 +690,7 @@ Operational Insights 中的時間表/時間選取器會顯示經過一段時間�
 您可以略過最上層篩選引數的邏輯運算子。在此情況下，會假設採用 AND 運算子。
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>篩選運算式</th> <th>相當於</th> </tr> <tr> <td> <p>系統錯誤</p> </td> <td> <p>系統 AND 錯誤</p> </td> </tr> <tr> <td> <p>系統 &quot; Windows Server&quot; OR 嚴重性：1</p> </td> <td> <p>系統 AND (&quot; Windows Server &quot; OR 嚴重性：1)</p> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>篩選運算式</th> <th>相當於</th> </tr> <tr> <td> <p>system error</p> </td> <td> <p>system AND error</p> </td> </tr> <tr> <td> <p>system "; Windows Server"; OR Severity:1</p> </td> <td> <p>system AND (";Windows Server"; OR Severity:1)</p> </td> </tr> </table>
 
 
 
@@ -704,7 +706,7 @@ Operational Insights 中的時間表/時間選取器會顯示經過一段時間�
 
 	sort field1 asc|desc, field2 asc|desc, …
 
-依特定欄位排序結果。asc/desc 前置詞是選擇性的。如果將其省略，則會假設採用 "asc" 排序順序。如果查詢不明確使用 **Sort** 命令，Sort **TimeGenerated** desc 為預設行為，且一律會先傳回最新的結果。
+依特定欄位排序結果。asc/desc 前置詞是選擇性的。如果將其省略，則會假設採用 "asc" 排序順序。如果查詢未明確使用 **Sort** 命令，則 Sort **TimeGenerated** desc 為預設行為，且一律會先傳回最新的結果。
 
 #### Top/Limit
 
@@ -748,11 +750,11 @@ Operational Insights 中的時間表/時間選取器會顯示經過一段時間�
 
 	Type:Alert errors detected | select Name, Severity
 
-將傳回的結果欄位限制為**名稱**和**嚴重性**。
+將傳回的結果欄位限制為 **Name** 和 **Severity**。
 
 #### Measure
 
-**measure** 命令可用來將統計函數套用至未經處理的搜尋結果。對於透過資料取得*群組依據*而言，這是非常有用的。當您使用 **measure** 命令時，Operational Insights 會顯示內附彙總結果的資料表。
+**measure** 命令可用來將統計函數套用至未經處理的搜尋結果。需要取得資料的*群組依據*檢視時，這非常有用。當您使用 **measure** 命令時，Operational Insights 會顯示含有彙總結果的資料表。
 
 語法：
 
@@ -764,13 +766,13 @@ Operational Insights 中的時間表/時間選取器會顯示經過一段時間�
 根據 **groupField** 彙總結果，並使用 **aggregatedField** 計算彙總的測量值。
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Measure 統計函數 </th> <th>描述 </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>彙總函數的名稱 (不區分大小寫)。支援下列彙總函式：</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>彙總的欄位。對於 COUNT 彙總函式而言，此欄位是選擇性的，但必須是 SUM、MAX、MIN、AVG 或 STDDEV 的現有數值欄位。</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>計算的彙總值 (選擇性) 別名。如果未指定，欄位名稱就是 <em>AggregatedValue。</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>結果集以其為分組根據的欄位名稱。</p> </td> </tr> <tr> <td> <p><em>間隔</em> </p> </td> <td> <p>時間間隔的格式：</p> <p><em>nnnNAME</em> </p> <p></p> <p>其中：</p> <p>nnn 是正整數</p> <p><em>NAME</em> 是間隔名稱</p> <p>受支援的間隔名稱包含 (區分大小寫)：</p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li> <li class="unordered">SECOND[S]<br><br></li> <li class="unordered">MINUTE[S]<br><br></li> <li class="unordered">HOUR[S]<br><br></li> <li class="unordered">DAY[S]<br><br></li> <li class="unordered">MONTH[S]<br><br></li> <li class="unordered">YEAR[S]<br></li> </ul> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Measure 統計函數 </th> <th>描述 </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>彙總函數的名稱 (不區分大小寫)。支援下列彙總函數：</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>彙總的欄位。這是 COUNT 彙總函數的選擇性欄位，但必須是 SUM、MAX、MIN、AVG 或 STDDEV 的現有數值欄位。</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>計算的彙總值 (選擇性) 別名。如果未指定，欄位名稱就是 <em>AggregatedValue。</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>結果集分組依據的欄位名稱。</p> </td> </tr> <tr> <td> <p><em>Interval</em> </p> </td> <td> <p>時間間隔的格式：</p> <p><em>nnnNAME</em> </p> <p></p> <p>其中：</p> <p>nnn 是正整數</p> <p><em>NAME</em> 是間隔名稱</p> <p>支援的間隔名稱包括 (區分大小寫)：</p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li> <li class="unordered">SECOND[S]<br><br></li> <li class="unordered">MINUTE[S]<br><br></li> <li class="unordered">HOUR[S]<br><br></li> <li class="unordered">DAY[S]<br><br></li> <li class="unordered">MONTH[S]<br><br></li> <li class="unordered">YEAR[S]<br></li> </ul> </td> </tr> </table>
 
 
 
-間隔選項只用於日期/時間讓群組欄位中 (例如 **TimeGenerated** 和 **TimeCreated**)。目前，服務不會強制執行，但是沒有傳遞至後端之日期/時間的欄位會造成執行階段錯誤。實作結構描述驗證時，服務 API 會拒絕某些查詢，其使用的欄位沒有間隔彙總的日期/時間。目前的 **Measure** 實作只支援 **Count** 彙總函數的間隔分組。
+間隔選項只能用於日期/時間群組欄位中 (例如 **TimeGenerated** 和 **TimeCreated**)。目前，服務不會強制執行，但是沒有傳遞至後端之日期/時間的欄位會造成執行階段錯誤。實作結構描述驗證時，服務 API 會拒絕某些查詢，其使用的欄位沒有間隔彙總的日期/時間。目前的 **Measure** 實作只支援 **Count** 彙總函數的間隔分組。
 
-如果省略 BY 子句，但指定間隔 (做為第二個語法)，根據預設會假設採用 **TimeGenerated** 欄位。
+如果省略 BY 子句，但指定間隔 (做為第二個語法)，則預設採用 **TimeGenerated** 欄位。
 
 範例：
 
@@ -780,7 +782,7 @@ Operational Insights 中的時間表/時間選取器會顯示經過一段時間�
 
 *說明*
 
-根據 **ObjectID** 分組警示，並計算每個群組的警示數目。彙總的值會傳回做為 **Count** 欄位 (別名)。
+依據 **ObjectID** 將警示分組，並計算每個群組的警示數目。傳回的彙總值為 **Count** 欄位 (別名)。
 
 **範例 2**
 
@@ -788,7 +790,7 @@ Operational Insights 中的時間表/時間選取器會顯示經過一段時間�
 
 *說明*
 
-使用 **TimeGenerated** 欄位，根據 1 小時間隔分組警示，並傳回每個間隔中的警示數目。
+使用 **TimeGenerated** 欄位，依據 1 小時間隔將警示分組，並傳回每個間隔中的警示數目。
 
 **範例 3**
 
@@ -804,7 +806,7 @@ Operational Insights 中的時間表/時間選取器會顯示經過一段時間�
 
 *說明*
 
-使用 **TimeCreated** 欄位，根據 5 天間隔分組結果，並傳回每個間隔中的結果數目。
+使用 **TimeCreated** 欄位，依據 5 天間隔將結果分組，並傳回每個間隔中的結果數目。
 
 **範例 5**
 
@@ -858,9 +860,9 @@ Operational Insights 中的時間表/時間選取器會顯示經過一段時間�
 
 語法：
 
-**where** AggregatedValue > 20
+**where** AggregatedValue>20
 
-只用於 **Measure** 命令之後，以進一步篩選 **Measure** 彙總函數所產生的彙總結果。
+只能用於 **Measure** 命令之後，以進一步篩選 **Measure** 彙總函數所產生的彙總結果。
 
 範例：
 
@@ -1153,7 +1155,7 @@ Operational Insights 中的時間表/時間選取器會顯示經過一段時間�
 		<p>RequiredUpdate</p>
 		</td>
 		<td>
-		<p>更新何時在 Microsoft Update 上發行？</p>
+		<p>更新何時在 Microsoft Update 上發佈？</p>
 		</td>
 	</tr>
 	<tr>
@@ -1862,13 +1864,13 @@ Operational Insights 中的時間表/時間選取器會顯示經過一段時間�
 	</tr>
 	<tr>
 		<td>
-		<p>發行者 </p>
+		<p>發佈者 </p>
 		</td>
 		<td>
 		<p>ConfigurationChange</p>
 		</td>
 		<td>
-		<p>發行軟體的供應商 (僅適用於軟體變更)</p>
+		<p>發佈軟體的供應商 (僅適用於軟體變更)</p>
 		</td>
 	</tr>
 	<tr>
@@ -2028,12 +2030,12 @@ Operational Insights 中的時間表/時間選取器會顯示經過一段時間�
 </table>
 
 ## 部落格文章 - 搜尋使用案例
-- [Microsoft Azure Operational Insights 中的 W3C IIS 記錄檔搜尋](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx)
-- [使用 Azure Operational Insights 搜尋和儀表板監視 SQL 備份失敗](http://blogs.msdn.com/b/dmuscett/archive/2015/02/21/monitoring-sql-backup-failures-with-azure-operational-insights-search-and-dashboards.aspx)
-- [IIS 管理套件事件警示規則的 OpInsights 搜尋對等項目](http://blogs.msdn.com/b/dmuscett/archive/2014/11/05/iis-mp-event-alerting-rules-s-opinsights-searches-equivalents.aspx)
-- [有用的 Operational Insights 搜尋查詢集合](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-searches-collection.aspx)
+- [Microsoft Azure Operational Insights 中的 W3C IIS 記錄檔搜尋 (英文)](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx)
+- [使用 Azure Operational Insights 搜尋和儀表板監視 SQL 備份失敗 (英文)](http://blogs.msdn.com/b/dmuscett/archive/2015/02/21/monitoring-sql-backup-failures-with-azure-operational-insights-search-and-dashboards.aspx)
+- [IIS 管理套件事件警示規則的 OpInsights 搜尋對等項目 (英文)](http://blogs.msdn.com/b/dmuscett/archive/2014/11/05/iis-mp-event-alerting-rules-s-opinsights-searches-equivalents.aspx)
+- [有用的 Operational Insights 搜尋查詢集合 (英文)](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-searches-collection.aspx)
 
 ## 其他資源
-Stefan Roth 建立好用的搜尋小祕技。查看他的[部落格](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/)以深入了解並下載他的小祕技。
+Stefan Roth 建立好用的搜尋小祕技。請瀏覽他的[部落格](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/)，深入了解並下載他的小祕技。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

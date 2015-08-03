@@ -169,4 +169,4 @@ Visual Studio 可讓您輕鬆地建立新的資料表控制器，向用戶端應
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

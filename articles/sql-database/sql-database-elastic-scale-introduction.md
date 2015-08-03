@@ -96,4 +96,4 @@ Azure SQL Database 的彈性資料庫功能比以往更簡單且更有彈性地�
 [4]: ./media/sql-database-elastic-scale-introduction/h_versus_vert.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

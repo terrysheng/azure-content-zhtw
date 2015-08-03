@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # 利用評估解決方案最佳化環境
@@ -123,4 +123,6 @@
 
 4. 在 [**建議動作**] 中實施更正措施。當您解決某個項目後，後續評估會記錄您實施的建議動作並提高法務遵循分數。更正後的項目將呈現為 [**通過的物件**]。
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

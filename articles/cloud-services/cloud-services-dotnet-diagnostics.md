@@ -332,7 +332,7 @@ Azure 診斷可收集下列類型的遙測資料：
 
 ### 步驟 3：部署應用程式
 1.	在 [**方案總管**] 中以滑鼠右鍵按一下 **WadExampleVM** 專案，然後選擇 [**在檔案總管中開啟資料夾**]。
-2.	瀏覽至 *bin\\Debug* 資料夾並複製所有檔案 (WadExampleVM.*)。
+2.	瀏覽至 *bin\Debug* 資料夾並複製所有檔案 (WadExampleVM.*)。
 3.	在 [伺服器總管] 中，以滑鼠右鍵按一下虛擬機器並選擇 [使用遠端桌面連線]。
 4.	連線至 VM 之後，建立名為 WadExampleVM 的資料夾，並將您的應用程式檔案貼到資料夾中。
 5.	啟動 WadExampleVM.exe 應用程式。您應該會看見空白的主控台視窗。
@@ -397,7 +397,7 @@ Azure 診斷可收集下列類型的遙測資料：
 ### Azure 診斷未啟動
 診斷是由兩個元件所組成：客體代理程式外掛程式和監視代理程式。客體代理程式外掛程式的記錄檔位於下列檔案中：
 
-*%SystemDrive%\\ WindowsAzure\\Logs\\Plugins\\Microsoft.Azure.Diagnostics.PaaSDiagnostics<DiagnosticsVersion>*\\CommandExecution.log
+*%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics<DiagnosticsVersion>*\CommandExecution.log
 
 外掛程式會傳回下列錯誤碼：
 
@@ -777,4 +777,4 @@ Azure 診斷可收集下列類型的遙測資料：
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -175,4 +175,4 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -197,4 +197,4 @@
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

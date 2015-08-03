@@ -72,7 +72,7 @@ Azure AD Connect Health 要求在目標伺服器上安裝代理程式，以提�
 #### 啟用 AD FS 2.0 的稽核
 
 1. 按一下 [開始]，依序指向 [程式集] 和 [系統管理工具]，然後按一下 [本機安全性原則]。
-1. 瀏覽至 **Security Settings\\Local Policies\\User Rights Management** 資料夾，然後按兩下 [產生安全性稽核]。
+1. 瀏覽至 **Security Settings\Local Policies\User Rights Management** 資料夾，然後按兩下 [產生安全性稽核]。
 1. 在 [本機安全性設定] 索引標籤上，確認已列出 AD FS 2.0 服務帳戶。如果不存在，按一下 [新增使用者或群組]，並將其新增至清單中，然後按一下 [確定]。
 1. 使用提高的權限開啟命令提示字元，然後執行下列命令以啟用稽核。`auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable`
 1. 關閉 [本機安全性原則]，然後開啟 [管理嵌入式管理單元]。若要開啟 [管理嵌入式管理單元]，按一下 [開始]，依序指向 [程式集] 和 [系統管理工具]，然後按一下 [AD FS 2.0 管理]。
@@ -84,7 +84,7 @@ Azure AD Connect Health 要求在目標伺服器上安裝代理程式，以提�
 #### 在 Windows Server 2012 R2 上啟用 AD FS 的稽核
 
 1. 在 [開始] 畫面上開啟 [伺服器管理員]，或在桌面上的工作列中開啟 [伺服器管理員]，以開啟 [本機安全性原則]，然後按一下 [工具/本機安全性原則]。
-1. 瀏覽至 **Security Settings\\Local Policies\\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]。
+1. 瀏覽至 **Security Settings\Local Policies\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]。
 1. 在 [本機安全性設定] 索引標籤上，確認已列出 AD FS 服務帳戶。如果不存在，按一下 [新增使用者或群組]，並將其新增至清單中，然後按一下 [確定]。
 1. 使用提高的權限開啟命令提示字元，然後執行下列命令以啟用稽核：`auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.`
 1. 關閉 [本機安全性原則]，然後開啟 **AD FS 管理**嵌入式管理單元 (在 [伺服器管理員] 中，按一下 [工具]，然後選取 [AD FS 管理])。
@@ -155,4 +155,4 @@ Azure AD Connect Health 要求在目標伺服器上安裝代理程式，以提�
  
 ![驗證 Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install5.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

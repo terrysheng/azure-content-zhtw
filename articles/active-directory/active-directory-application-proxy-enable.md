@@ -41,7 +41,7 @@ Microsoft Azure AD 應用程式 Proxy 可讓您在私人網路內發行應用程
 9090 | 啟用連接器註冊 (只有在連接器註冊程序才需要)
 9091 | 啟用連接器信任憑證自動更新
  
-如果您的防火牆根據原始使用者強制執行流量，請針對來自當做網路服務執行的 Windows 服務的流量，開放這些連接埠。此外，請務必為 NT Authority\\System 啟用連接埠 8080。
+如果您的防火牆根據原始使用者強制執行流量，請針對來自當做網路服務執行的 Windows 服務的流量，開放這些連接埠。此外，請務必為 NT Authority\System 啟用連接埠 8080。
 
 
 ##步驟 1：在 Azure AD 中啟用應用程式 Proxy
@@ -70,4 +70,4 @@ Microsoft Azure AD 應用程式 Proxy 可讓您在私人網路內發行應用程
 * [以組織方式註冊 Azure](..sign-up-organization.md)
 * [Azure 身分識別](..fundamentals-identity.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

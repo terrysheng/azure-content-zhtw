@@ -23,11 +23,11 @@
 **預估完成時間：**10 分鐘。
 
 ## 必要條件
-* Azure 訂用帳戶。如需免費試用，請參閱[免費試用一個月](http://azure.microsoft.com/pricing/free-trial/)。
+* Azure 訂閱。如需免費試用，請參閱[免費試用一個月](http://azure.microsoft.com/pricing/free-trial/)。
 * 彈性資料庫集區。請參閱[建立 Azure SQL Database 彈性資料庫集區 (預覽)](sql-database-elastic-pool-portal.md)。
 
 ## 安裝服務元件
-請先登入 [Azure Preview 入口網站](https://ms.portal.azure.com/#)。
+請先登入 [Azure 預覽入口網站](https://ms.portal.azure.com/#)。
 
 
 1. 從彈性資料庫工作集區的儀表板檢視，按一下 [建立工作]。
@@ -63,4 +63,4 @@
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

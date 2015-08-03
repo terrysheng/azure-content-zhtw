@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Azure 備份的簡介"
-	description="這篇文章提供 Azure 備份服務的概觀，可讓客戶將資料備份至 Azure"
+	description="這篇文章提供 Azure 備份服務的概觀，Azure 備份可讓客戶將資料備份至 Azure，或在 Azure 中備份資料"
 	services="backup"
 	documentationCenter=""
-	authors="prvijay"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor="tysonn"/>
 
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2015"
-	ms.author="prvijay"/>
+	ms.date="07/13/2015"
+	ms.author="trinadhk"/>
 
 # Azure 備份的簡介
-本文提供 Microsoft 的雲端整合式備份解決方案的高階概觀，可讓客戶將內部部署資料備份至 Azure。
+本文提供 Microsoft 的雲端整合式備份解決方案的高階概觀，可讓客戶備份內部部署或 Azure 中的資料。
 
 ## 何謂 Azure 備份？
-Azure 備份是一個多租用戶的 Azure 服務，可讓您將您的內部部署資料備份至 Azure。它將以一個可靠、安全及具成本競爭力的雲端架構優惠，取代您現有的內部部署或異地備份解決方案。Azure 備份是以可調整、持久和高可用性的世界級基礎結構為建置基礎。您可以使用此解決方案，從 System Center Data Protection Manager (SCDPM) 伺服器、Windows 伺服器或 Windows 用戶端機器備份資料和應用程式。Azure 備份和 SCDPM 是構成 Microsoft 雲端整合式備份解決方案的基礎技術。
+Azure 備份是一個多租用戶的 Azure 服務，可讓您備份您任何位置 (內部部署或 Azure 中) 的資料。它將以一個可靠、安全及具成本競爭力的雲端架構優惠，取代您現有的內部部署或異地備份解決方案。同時也提供保護雲端執行資產的彈性。Azure 備份是以可調整、持久和高可用性的世界級基礎結構為建置基礎。您可以使用此解決方案，從 System Center Data Protection Manager (SCDPM) 伺服器、Windows 伺服器、Windows 用戶端機器或 Azure Iaas 虛擬機器。Azure 備份和 SCDPM 是構成 Microsoft 雲端整合式備份解決方案的基礎技術。
+
+> [AZURE.VIDEO what-is-azure-backup]
 
 ## 雲端設計點
 傳統的備份解決方案已演變成將雲端視為類似於磁碟或磁帶的端點。雖然這種方法簡單、容易部署並能提供一致的使用經驗，但除使用上受限，亦無法充分利用基礎平台。這對一般客戶而言即是效率不佳又昂貴的解決方案。若把 Azure 當作「只是一個儲存體端點」，備份解決方案將無法挖掘豐富和強大的公用雲端平台。相反地，Azure 備份提供真正的服務，也就是使用雲端建構來提供功能強大及價格合理的備份解決方案。其整合了內部部署備份解決方案 (SCDPM)，以提供端對端混合式解決方案。
@@ -47,23 +49,24 @@ Azure 備份是一個多租用戶的 Azure 服務，可讓您將您的內部部�
 
 6. **符合成本效益**：Azure 備份定價包含每次執行個體備份的管理費用，以及在 Azure 上耗用的儲存體 (區塊 Blob 價格) 成本。不同於其他雲端架構備份優惠，Azure 備份並不向客戶收取任何還原作業費用。此外，亦不會向客戶收取還原作業期間的資料傳送出口流量 (輸出) 費用。
 
+7. **在雲端中備份**：Azure 備份能對執行的 Azure IaaS 虛擬機器提供 VSS 型應用程式一致備份，而不需要關閉虛擬機器。它也可以使用檔案系統一致性備份 Azure 中的 Linux 虛擬機器。
 
-## 應用程式和工作負載可以備份至 Azure
-Azure 備份與 SCDPM 結合後可以備份：
 
-+ 企業用戶端和伺服器機器的檔案及資料夾
+## 應用程式和工作負載
 
-+ Microsoft HYPER-V VM 主機層級的虛擬機器備份
-
-+ Microsoft SQL Server
-
-+ Microsoft SharePoint
-
-+ Microsoft Exchange
+| 工作負載 | 來源機器 | Azure 備份方案 |
+| --- | --- |---|
+| 檔案及資料夾 | Windows Server、Windows 用戶端 | Azure 備份代理程式 |
+| 檔案及資料夾 | Windows Server、Windows 用戶端 | System Center DPM |
+| Hyper-V 虛擬機器 (Windows) | Windows Server | System Center DPM |
+| Hyper-V 虛擬機器 (Linux) | Windows Server | System Center DPM |
+| Microsoft SQL Server | Windows Server | System Center DPM |
+| Microsoft SharePoint | Windows Server | System Center DPM |
+| Microsoft Exchange | Windows Server | System Center DPM |
+| Azure IaaS VM (Windows)| - | Azure 備份 | | Azure IaaS VM (Linux) | - | Azure 備份 |
 
 ## 後續步驟
 + Azure 備份服務的常見問題集在[這裡](backup-azure-backup-faq.md)列出。
 + 造訪 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933) (英文)。
- 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

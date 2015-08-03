@@ -154,7 +154,7 @@ SerDe 是用來剖析巢狀 JSON 文件的最佳選擇，它可讓您定義 JSON
 
 	1. 從 Windows 畫面開啟 [檢視進階系統設定]。
 	2. 按一下 [環境變數]。  
-	3. 加入新的 **JAVA_HOME** 環境變數，其指向 **C:\\Program Files\\Java\\jdk1.7.0_55** 或任何安裝 JDK 的位置。
+	3. 加入新的 **JAVA_HOME** 環境變數，其指向 **C:\Program Files\Java\jdk1.7.0_55** 或任何安裝 JDK 的位置。
 
 	![為 JDK 設定正確的組態值][image-hdi-hivejson-jdk]
 
@@ -170,9 +170,9 @@ SerDe 是用來剖析巢狀 JSON 文件的最佳選擇，它可讓您定義 JSON
 
 4：移至您已將此封裝下載至其中的資料夾，並輸入 “mvn package”。這樣應該會建立您稍後會複製到叢集的必要 jar 檔案。
 
-5：移至根資料夾 (您已將封裝下載至其中) 下的目標資料夾。上傳 json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar 檔案到叢集的前端節點。我通常會將它放在 hive 二進位資料夾底下：C:\\apps\\dist\\hive-0.13.0.2.1.11.0-2316\\bin 或類似位置。
+5：移至根資料夾 (您已將封裝下載至其中) 下的目標資料夾。上傳 json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar 檔案到叢集的前端節點。我通常會將它放在 hive 二進位資料夾底下：C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin 或類似位置。
  
-6：在 hive 提示字元中，輸入 “add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar”。因為在我的案例中，jar 位於 C:\\apps\\dist\\hive-0.13.x\\bin 資料夾中，所以我可以直接以此名稱新增 jar，如下所示：
+6：在 hive 提示字元中，輸入 “add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar”。因為在我的案例中，jar 位於 C:\apps\dist\hive-0.13.x\bin 資料夾中，所以我可以直接以此名稱新增 jar，如下所示：
 
     add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 
@@ -261,4 +261,4 @@ SerDe 是用來剖析巢狀 JSON 文件的最佳選擇，它可讓您定義 JSON
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

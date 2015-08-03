@@ -27,4 +27,4 @@
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [如何使用 Azure Active Directory 設定行動應用程式]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

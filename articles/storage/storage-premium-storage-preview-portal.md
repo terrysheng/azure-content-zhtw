@@ -136,7 +136,7 @@ Azure 使用儲存體帳戶做為作業系統 (OS) 和資料磁碟的容器。�
 
 - 您可在 DS 系列的 VM 中同時使用 Premium 和 Standard 儲存體磁碟。
 - 使用 Premium 儲存體，您可以佈建 DS 系列 VM 並將幾個永久性的資料磁碟連接到 VM。如有需要，您可以跨磁碟等量磁碟區以增加磁碟區的容量和效能。如果您使用[儲存空間](http://technet.microsoft.com/library/hh831739.aspx)等量 Premium 儲存體資料磁碟，應該為所使用的每個磁碟，以一個資料行進行設定。否則，等量磁碟區的整體效能可能會因為磁碟流量分配不平均而比預期的效能還低。根據預設，伺服器管理員使用者介面 (UI) 可讓您設定最多 8 個磁碟的資料行。但是，如果您有 8 個以上的磁碟，您就必須使用 PowerShell 來建立磁碟區，並且手動指定資料行數目。否則，即使您擁有更多磁碟，伺服器管理員 UI 還是會繼續使用 8 個資料行。例如，如果您在單一等量磁碟區組有 32 個磁碟，您應該指定 32 個資料行。您可以使用 [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) PowerShell Cmdlet 的 *NumberOfColumns* 參數，指定虛擬磁碟所使用的資料行數目。如需詳細資訊，請參閱[儲存體空間概觀](http://technet.microsoft.com/library/jj822938.aspx)和[儲存體空間常見問題集](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)。
-- 請避免將 DS 系列 VM 加入包括非 DS 系列 VM 的現有雲端服務。可能的解決方法是將現有的 VHD 移轉到僅執行 DS 系列 VM 的新雲端服務。如果您想要為裝載 DS 系列 VM 的新雲端服務保留相同的虛擬 IP 位址 (VIP)，請使用[保留的 IP 位址](https://msdn.microsoft.com/library/azure/dn690120.aspx)功能。
+- 請避免將 DS 系列 VM 加入包括非 DS 系列 VM 的現有雲端服務。可能的解決方法是將現有的 VHD 移轉到僅執行 DS 系列 VM 的新雲端服務。如果您想要為裝載 DS 系列 VM 的新雲端服務保留相同的虛擬 IP 位址 (VIP)，請使用[保留的 IP 位址](virtual-networks-configure-vnet-to-vnet-connection.md)功能。
 - Azure 虛擬機器的 DS 系列可以設定為使用裝載在標準儲存體帳戶或 Premium 儲存體帳戶上的作業系統 (OS) 磁碟。如果您使用的作業系統磁碟僅供開機，您可以考慮使用標準儲存體的作業系統磁碟。在開機之後，它提供類似於 Premium 儲存體的成本效益和效能結果。如果您在作業系統磁碟上執行除了開機以外的任何其他工作，請使用 Premium 儲存體，因為它提供更好的效能結果。例如，如果您的應用程式從作業系統磁碟讀取或寫入至作業系統磁碟，使用 Premium 儲存體的作業系統磁碟可為您的 VM 提供更佳的效能。
 - 您可以對 Premium 儲存體使用 [Azure 命令列介面 (Azure CLI)](../xplat-cli.md)。若要使用 Azure CLI 變更其中一個磁碟上的快取原則，請執行下列命令：
 
@@ -391,4 +391,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

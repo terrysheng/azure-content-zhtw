@@ -139,7 +139,7 @@
 
 您也可以使用 [`NamespaceManager`](https://msdn.microsoft.com/library/microsoft.servicebus.namespacemanager.aspx) 類別來建立主題訂用帳戶。為訂用帳戶命名，且能包含選擇性篩選器，以用來限制傳遞至訂用帳戶的虛擬佇列的訊息集合。
 
-### 使用預設 (MatchAll) 篩選器建立訂用帳戶
+### 使用預設 (MatchAll) 篩選器建立訂閱
 
 **MatchAll** 篩選器是預設篩選器，如果在建立新的訂用帳戶時沒有指定篩選器，便會使用此篩選器。使用 **MatchAll** 篩選器時，所有發佈至主題的訊息都會被置於訂用帳戶的虛擬佇列中。下列範例將建立名為 "AllMessages" 的訂用帳戶，並使用預設的 **MatchAll** 篩選器。
 
@@ -238,7 +238,7 @@
     options.AutoComplete = false;
     options.AutoRenewTimeout = TimeSpan.FromMinutes(1);
 
-    subscriptionClientHigh.OnMessage((message) =>
+    Client.OnMessage((message) =>
     {
         try
         {
@@ -301,4 +301,4 @@
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

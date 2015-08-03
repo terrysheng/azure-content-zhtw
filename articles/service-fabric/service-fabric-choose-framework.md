@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/15/2015"
+   ms.date="07/09/2015"
    ms.author="seanmck"/>
 
 # 選擇您服務的架構
@@ -35,6 +35,5 @@ Service Fabric 提供兩個高階架構來建置服務：可靠動作項目 API 
 
 - [深入了解可靠動作項目 API](service-fabric-reliable-actors-introduction.md)
 - [深入了解可靠服務 API](../Service-Fabric/service-fabric-reliable-services-introduction.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

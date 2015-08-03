@@ -101,4 +101,4 @@ Windows 應用程式可以利用 Windows Communication Foundation (WCF) 來使�
 [relay]: ./media/hybrid-solutions/SvcBus_04_relay.png
 [事件中樞概觀]: https://msdn.microsoft.com/library/azure/dn836025.aspx
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="dastrock"/>
 
 
-# 從 Windows Phone 應用程式呼叫 Web API
+# 整合 Azure AD 與 Windows 市集應用程式
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -142,7 +144,7 @@ ADAL 可讓您輕鬆地將這些常見的身分識別功能全部納入您的應
 
 [使用 Azure AD 保護 .NET Web API >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-如需其他資源，請參閱：- [GitHub 上的 AzureADSamples >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - [Azure.com 上的 Azure AD 文件 >>](http://azure.microsoft.com/documentation/services/active-directory/)
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

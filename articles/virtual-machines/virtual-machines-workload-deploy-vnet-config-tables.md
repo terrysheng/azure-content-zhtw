@@ -5,7 +5,8 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # 使用設定表格建立跨單位虛擬網路
@@ -27,7 +28,7 @@
 
 這些表格通常是在下列主題中進行填寫：說明在 Azure 中設定 IT 工作負載的方法，並包含跨單位虛擬網路。如需範例，請參閱[第 1 階段：設定 Azure](virtual-machines-workload-intranet-sharepoint-phase1.md)。
 
-下列程序會參考這些表格中的資訊，引導您進行完整的虛擬網路設定程序。如果您尚未在其他主題中指定這些表格中的設定，但仍想要設定跨單位虛擬網路，請參閱[設定 Azure 虛擬網路的跨單位站對站連線](https://msdn.microsoft.com/library/dn133795.aspx)。
+下列程序會參考這些表格中的資訊，引導您在服務管理中進行完整的虛擬網路設定程序。如果您尚未在其他主題中指定這些表格中的設定，但仍想要設定跨單位虛擬網路，請參閱[設定 Azure 虛擬網路的跨單位站對站連線](https://msdn.microsoft.com/library/dn133795.aspx)。
 
 > [AZURE.NOTE]此程序將逐步引導您使用網站間 VPN 連線來建立虛擬網路。如需針對站對站連線使用 Azure ExpressRoute 的相關資訊，請參閱 [ExpressRoute 技術概觀](https://msdn.microsoft.com/library/dn606309.aspx)。
 
@@ -66,4 +67,4 @@
 
 [設定 Azure 虛擬網路的跨單位站對站連線](https://msdn.microsoft.com/library/dn133795.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

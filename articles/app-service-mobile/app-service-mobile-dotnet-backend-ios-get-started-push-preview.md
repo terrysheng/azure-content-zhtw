@@ -25,6 +25,10 @@
 
 > [AZURE.NOTE][IOS 模擬器不支援推播通知](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html)，所以您必須使用實體 iOS 裝置。您也必須註冊付費 [Apple Developer Program 成員資格](https://developer.apple.com/programs/ios/)。
 
+##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
+
 [AZURE.INCLUDE [啟用 Apple 推播通知](../../includes/enable-apple-push-notifications.md)]
 
 ## 設定 Azure 來傳送推播通知
@@ -123,4 +127,4 @@
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

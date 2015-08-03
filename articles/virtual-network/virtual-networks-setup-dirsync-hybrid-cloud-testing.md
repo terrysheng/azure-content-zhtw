@@ -62,7 +62,7 @@
 
 接著，註冊新的 Office 365 FastTrack 試用。
 
-1.	以 CORP\\User1 帳戶認證登入 CLIENT1。
+1.	以 CORP\User1 帳戶認證登入 CLIENT1。
 2.	開啟 Internet Explorer 並移至 **http://fasttrack.office.com**。3.	按一下 [開始使用 FastTrack]。
 4.	在 [開始使用 FastTrack] 頁面的 [首先，註冊 Office 365 試用] 下，按一下 [企業在此註冊]。
 5.	在 [步驟 1] 頁面上，填寫頁面，在 [公司電子郵件地址] 中指定新的 Microsoft 帳戶，然後按 [下一步]。
@@ -96,7 +96,7 @@
 3.	提示開啟 DS1.rdp 時，按一下 [開啟]。
 4.	顯示 [遠端桌面連線] 訊息方塊後，按一下 [連接]。
 5.	出現輸入認證的提示時，使用這些：
-	- 名稱：**CORP\\User1**
+	- 名稱：**CORP\User1**
 	- 密碼：[User1 帳戶密碼]
 6.	顯示憑證相關的 [遠端桌面連線] 訊息方塊提示時，按一下 [是]。
 
@@ -128,7 +128,7 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 4.	出現 [您想要啟動 Active Directory 同步處理？] 的提示時，按一下 [啟動]。啟動後，步驟 3 將顯示 [Active Directory 同步處理已啟動]。
 5.	讓 CLIENT1 保持 [設定和管理 Active Directory 同步處理] 頁面開啟。
 
-接著，以 CORP\\User1 帳戶登入 DC1，並開啟系統管理員層級 Windows PowerShell 命令提示字元。逐一執行這些命令，以建立名為 contoso_users 的新組織單位以及 Marci Kaufman 和 Lynda Meyer 兩個新的使用者帳戶。
+接著，以 CORP\User1 帳戶登入 DC1，並開啟系統管理員層級 Windows PowerShell 命令提示字元。逐一執行這些命令，以建立名為 contoso_users 的新組織單位以及 Marci Kaufman 和 Lynda Meyer 兩個新的使用者帳戶。
 
 	New-ADOrganizationalUnit -Name contoso_users -Path "DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
@@ -138,12 +138,12 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 
 接著，在 DS1 上設定 Directory 同步處理。
 
-1.	以 CORP\\User1 帳戶登入 DS1。
+1.	以 CORP\User1 帳戶登入 DS1。
 2.	在 [開始] 畫面上，輸入「Directory 同步處理」。
 3.	以滑鼠右鍵按一下 [Directory 同步處理組態]，然後按一下 [以系統管理員身分執行]。這將啟動組態精靈。
 4.	在 [歡迎] 頁面中按 [下一步]。
 5.	在 [Microsoft Azure Active Directory 認證] 頁面上，輸入您在階段 2 中設定 Office 365 FastTrack 試用時所建立之初始帳戶的電子郵件地址和密碼。按 [下一步]。 
-6.	在 [Active Directory 認證] 頁面中，於 [使用者名稱] 中輸入 **CORP\\User1**，並且於 [密碼] 中輸入 User1 帳戶密碼。按 [下一步]。
+6.	在 [Active Directory 認證] 頁面中，於 [使用者名稱] 中輸入 **CORP\User1**，並且於 [密碼] 中輸入 User1 帳戶密碼。按 [下一步]。
 7.	在 [混合式部署] 頁面上，選取 [啟用混合式部署]，然後按 [下一步]。
 8.	在 [密碼同步處理] 頁面上，選取 [啟用密碼同步處理]，然後按 [下一步]。
 9.	[組態] 頁面會顯示。組態完成時，按 [下一步]。
@@ -194,4 +194,4 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

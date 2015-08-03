@@ -133,4 +133,4 @@
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
 [Azure 入口網站]: https://portal.azure.com
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

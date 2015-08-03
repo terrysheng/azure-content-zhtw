@@ -116,4 +116,4 @@ SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用�
 [Image5]: ./media/sql-database-dynamic-data-masking-get-started-portal/5_DDM_Add_Masking_Rule_Classic_Portal.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

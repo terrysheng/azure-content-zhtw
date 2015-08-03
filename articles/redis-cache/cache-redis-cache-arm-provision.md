@@ -86,4 +86,4 @@ Redics 快取的位置。針對最佳效能，使用要與快取搭配使用之�
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

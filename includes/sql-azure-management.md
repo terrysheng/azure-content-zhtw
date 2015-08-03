@@ -166,4 +166,4 @@ SQL Database 支援數種動態管理檢視，您可用他們來監視個別資�
         GROUP BY query_stats.query_hash
         ORDER BY 2 DESC;
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

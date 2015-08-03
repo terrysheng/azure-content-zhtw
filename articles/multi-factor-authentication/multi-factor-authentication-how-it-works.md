@@ -102,4 +102,4 @@ Azure Multi-Factor Authentication 隨附於 Azure Active Directory Premium 和 E
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

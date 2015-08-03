@@ -163,9 +163,9 @@ Windows PowerShell 工作流程的優點之一是可平行執行一組命令，�
 
 例如，考慮下列 PowerShell 命令，它會將多個檔案複製到網路目的地。這些命令會循序執行，因此一個檔案必須完成複製才能開始複製下一個。
 
-	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
-	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
-	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
+	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \NetworkPath\File1.txt
+	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \NetworkPath\File2.txt
+	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \NetworkPath\File3.txt
 
 下列工作流程會平行執行這些相同的命令，讓它們在相同的時間全部開始複製。只有在全部完全複製之後，才會顯示完成訊息。
 
@@ -173,9 +173,9 @@ Windows PowerShell 工作流程的優點之一是可平行執行一組命令，�
 	{
 		Parallel 
 		{
-			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\NetworkPath"
 		}
 
 		Write-Output "Files copied."
@@ -199,7 +199,7 @@ Windows PowerShell 工作流程的優點之一是可平行執行一組命令，�
 
 		ForEach -Parallel ($File in $Files) 
 		{
-			$Copy-Item -Path $File -Destination \\NetworkPath
+			$Copy-Item -Path $File -Destination \NetworkPath
 			Write-Output "$File copied."
 		}
 		
@@ -231,7 +231,7 @@ Windows PowerShell 工作流程的優點之一是可平行執行一組命令，�
 
 		ForEach ($File in $Files) 
 		{
-			$Copy-Item -Path $File -Destination \\NetworkPath
+			$Copy-Item -Path $File -Destination \NetworkPath
 			Write-Output "$File copied."
 			Checkpoint-Workflow
 		}
@@ -249,4 +249,4 @@ Windows PowerShell 工作流程的優點之一是可平行執行一組命令，�
 
 - [開始使用 Windows PowerShell 工作流程](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

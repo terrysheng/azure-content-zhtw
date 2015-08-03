@@ -68,7 +68,8 @@
 2. 使用 New-AzureSqlDatabaseServerContext Cmdlet 設定伺服器內容。＜使用 Azure PowerShell 命令＞一節中有範例語法。
 3. 取得資料庫的控制代碼，然後鎖定效能等級。使用 Set-AzureSqlDatabase –ServiceObjective 指定效能等級
 
-使用範例 在此範例中：
+**使用範例**
+在此範例中：
 - 此範例示範如何升級至高階服務層。
 - 建立指向 "somedb" 資料庫名稱的 $db 控制代碼。
 - 建立指向高階效能等級 1 的 $P1 控制代碼。
@@ -208,7 +209,8 @@
 
 **必要條件**
 
-若要使用本主題中所述的 Azure PowerShell Cmdlet，您必須在執行 PowerShell 的電腦上安裝以下軟體。1.從 http://www.microsoft.com/zh-tw/download/details.aspx?id=34595 下載至少為 3.0 版的 Windows PowerShell。
+若要使用本主題中所述的 Azure PowerShell Cmdlet，您必須在執行 PowerShell 的電腦上安裝以下軟體。
+1. 從 http://www.microsoft.com/zh-tw/download/details.aspx?id=34595 下載至少為 3.0 版的 Windows PowerShell。
 
 2. 從 [Azure SDK 和工具下載](http://azure.microsoft.com/downloads/)的＜命令列工具＞一節下載 Azure PowerShell。
 
@@ -230,7 +232,8 @@
 		$serverContext = New-AzureSqlDatabaseServerContext -ServerName "myserver" -UseSubscription
 
 
-Azure PowerShell 參考 若要查看本主題中使用之 Azure PowerShell Cmdlet 的詳細資訊，請參閱 [Azure SQL Database Cmdlet](https://msdn.microsoft.com/library/dn546726.aspx)。
+**Azure PowerShell 參考**
+若要查看本主題中使用之 Azure PowerShell Cmdlet 的詳細資訊，請參閱 [Azure SQL Database Cmdlet](https://msdn.microsoft.com/library/dn546726.aspx)。
 
 [New-AzureSqlDatabaseServerContext](http://go.microsoft.com/fwlink/?LinkId=391026)
 
@@ -239,4 +242,4 @@ Azure PowerShell 參考 若要查看本主題中使用之 Azure PowerShell Cmdle
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -91,7 +91,8 @@
 	![Click OK][CreateBTScomplete]
 	
 6. 當程序完成時，入口網站中的通知區域會通知您已成功建立連線。
-	<!-- TODO
+
+<!-- TODO
 
 Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
 (full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
@@ -207,4 +208,4 @@ The error indicates it couldn't find the type, not the instance.
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

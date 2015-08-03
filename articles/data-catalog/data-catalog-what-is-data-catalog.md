@@ -117,4 +117,4 @@ Microsoft **Azure 資料目錄**是全面管理的雲端服務，可作為企業
  
 > [AZURE.NOTE]在 Azure 資料目錄的私人預覽中，僅直接支援 Microsoft Excel，[**連接**] 功能表中也只會顯示 Microsoft Excel。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,30 +1,31 @@
-<properties 
-	pageTitle="建立 Windows 虛擬機器的不同方式" 
-	description="列出建立 Windows 虛擬機器的不同方式，並提供指示的連結。" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor=""/>
+<properties
+	pageTitle="建立 Windows 虛擬機器的不同方式"
+	description="列出建立 Windows 虛擬機器的不同方式，並提供指示的連結。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="vm-windows" 
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="index-page"
+	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="05/14/2015" 
+	ms.date="07/15/2015"
 	ms.author="kathydav"/>
 
 # 建立 Windows 虛擬機器的不同方式
 
 Azure 提供建立 VM 的不同方式，因為 VM 適用於不同的使用者和用途。這表示您必須進行一些關於 VM 的選擇，並選擇建立它的方式。本文提供這些選項及指示連結的摘要說明。
 
-我們最近推出 Azure 資源管理員範本做為一種方式，用以建立虛擬機器，並將它與其不同資源當成一個邏輯部署單位來管理。以下提供這個可用方法的指示。若要深入了解 Azure 資源管理員，以及如何將資源當成一個單位來管理，請參閱[概觀][]。
+我們最近推出 Azure 資源管理員範本做為一種方式，用以建立虛擬機器，並將它與其不同資源當成一個邏輯部署單位來管理。以下提供這個可用方法的指示。若要深入了解 Azure 資源管理員，以及如何將資源當成一個單位來管理，請參閱此[概觀][]。
 
 ## 工具選項
 
-### GUI：Azure 入口網站或 Preview 入口網站 
+### GUI：Azure 入口網站或 Preview 入口網站
 
 Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器的簡單方法，特別是在您剛開始使用 Azure 時。使用 Azure 入口網站或 Azure Preview 入口網站來建立 VM：
 
@@ -34,9 +35,9 @@ Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器�
 
 如果您偏好在命令殼層中工作，可選擇適用於 Mac 和 Linux 使用者的 Azure 命令列介面 (CLI) 或 Azure PowerShell (其中具有適用於 Azure 和自訂主控台的 Windows PowerShell Cmdlet)。
 
-針對 Azure CLI，請參閱[在使用適用於 Mac、Linux 及 Windows 的 Azure CLI 的 VM 操作中的對等資源管理員和服務管理命令][]。若要使用範本，請參閱〈[使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器][]〉。
+針對 Azure CLI，請參閱[在使用適用於 Mac、Linux 及 Windows 的 Azure CLI 的 VM 操作中的對等資源管理員和服務管理命令][]。若要使用資源管理員範本，請參閱[使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器][]。
 
-針對 Azure PowerShell，請參閱＜[使用 Azure PowerShell 建立和預先設定 Windows 虛擬機器][]＞。若要使用範本，請參閱＜[使用 Azure 資源管理員範本和 PowerShell 部署和管理虛擬機器][]＞。
+若為 Azure PowerShell，請參閱[使用資源管理員和 Azure PowerShell 建立和預先設定 Windows 虛擬機器][]。若要使用範本，請參閱[使用 Azure 資源管理員範本和 PowerShell 部署和管理虛擬機器][]。若要在服務管理堆疊中建立虛擬機器，請參閱[使用 Azure PowerShell 建立和預先設定 Windows 虛擬機器][]。
 
 ### 開發環境：Visual Studio
 
@@ -54,9 +55,9 @@ Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器�
 
 ### 使用您自己的映像
 
-「*擷取*」現有的 Azure 虛擬機器，根據該 VM 來使用映像，或者，上傳您自己的映像 (儲存於虛擬硬碟 (VHD) 中)：
+「擷取」現有的 Azure 虛擬機器，根據該 VM 來使用映像，或者，上傳您自己的映像 (儲存於虛擬硬碟 (VHD) 中)：
 
-- [如何擷取 Windows 虛擬機器作為範本使用][]。
+- [如何擷取 Windows 虛擬機器][]。
 - [建立並上傳 Windows Server VHD 到 Azure][]
 
 ## 後續步驟
@@ -79,12 +80,12 @@ Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器�
 
 [在使用適用於 Mac、Linux 及 Windows 的 Azure CLI 的 VM 操作中的對等資源管理員和服務管理命令]: xplat-cli-azure-manage-vm-asm-arm.md
 [使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器]: virtual-machines-deploy-rmtemplates-azure-cli.md
+[使用資源管理員和 Azure PowerShell 建立和預先設定 Windows 虛擬機器]: virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md
 [使用 Azure 資源管理員範本和 PowerShell 部署和管理虛擬機器]: virtual-machines-deploy-rmtemplates-powershell.md
 [使用 Azure PowerShell 建立和預先設定 Windows 虛擬機器]: virtual-machines-ps-create-preconfigure-windows-vms.md
-
 [如何建立一個執行 Windows 的自訂虛擬機器]: virtual-machines-windows-create-custom.md
 
-[如何擷取 Windows 虛擬機器作為範本使用]: virtual-machines-capture-image-windows-server.md
+[如何擷取 Windows 虛擬機器]: virtual-machines-capture-image-windows-server.md
 
 [建立並上傳 Windows Server VHD 到 Azure]: virtual-machines-create-upload-vhd-windows-server.md
 
@@ -102,4 +103,4 @@ Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器�
 
 [Azure 混合式雲端測試環境]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

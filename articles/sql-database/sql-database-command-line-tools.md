@@ -137,4 +137,4 @@
 - [Azure SQL Database 服務管理 Cmdlet](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

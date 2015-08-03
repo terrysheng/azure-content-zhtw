@@ -399,4 +399,4 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

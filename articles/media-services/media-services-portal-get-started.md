@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="04/08/2015"
+	ms.date="07/16/2015"
 	ms.author="juliako"/>
 
 
@@ -94,7 +94,7 @@
 
 	>[AZURE.NOTE]目前，如果串流單元從任何正值到無，可能會停用串流長達一小時。
 	>
-	> 計算成本時會使用 24 小時內指定的最大單元數。如需定價詳細資料的相關資訊，請參閱＜[媒體服務定價詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)＞。
+	> 計算成本時會使用 24 小時內指定的最大單元數。如需價格詳細資料的相關資訊，請參閱[媒體服務價格詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)。
 
 ##上傳內容
 
@@ -173,9 +173,9 @@
 
 ###概觀
 
-如要想提供 URL 給使用者，讓使用者可以利用這個 URL 來傳送或下載內容，請您先建立定位器來發行您的資產。定位器可以存取資產中所含的檔案。媒體服務支援兩種類型的定位器：OnDemandOrigin 定位器，用於串流媒體 (例如，MPEG DASH、HLS 或 Smooth Streaming) 和存取簽章 (SAS) 定位器，用來下載媒體檔案。
+如要想提供 URL 給使用者，讓使用者可以利用這個 URL 來傳送或下載內容，請您先建立定位器來發佈您的資產。定位器可以存取資產中所含的檔案。媒體服務支援兩種類型的定位器：OnDemandOrigin 定位器，用於串流媒體 (例如，MPEG DASH、HLS 或 Smooth Streaming) 和存取簽章 (SAS) 定位器，用來下載媒體檔案。
 
-當您使用 Azure 管理入口網站發佈您的資產時，會為您建立定位器並提供 OnDemantOrigin 形式 URL (如果您的資產包含.ism 檔案) 或 SAS URL。
+當您使用 Azure 管理入口網站發佈您的資產時，會為您建立定位器並提供 OnDemand 形式 URL (如果您的資產包含.ism 檔案) 或 SAS URL。
 
 SAS URL 具有下列格式：
 
@@ -202,7 +202,7 @@ SAS URL 具有下列格式：
 
 ###Publish
 
-若要使用入口網站發行資產，請執行下列作業：
+若要使用入口網站發佈資產，請執行下列作業：
 
 1. 選取資產。
 2. 然後，按一下 [發佈] 按鈕。
@@ -255,4 +255,4 @@ SAS URL 具有下列格式：
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -293,7 +293,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
             const string template = "{"aps":{"alert":"$(message)"}}";
 
             var expiryDate = DateTime.Now.AddDays(90).ToString
-                (System.Globalization.CultureInfo.CreateSpecificCulture("en-US"));
+                (System.Globalization.CultureInfo.CreateSpecificCulture("zh-tw"));
 
             var push = client.GetPush();
 
@@ -846,4 +846,4 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 [完整的 Xamarin.Forms Azure 推播通知範例]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

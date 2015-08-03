@@ -161,4 +161,4 @@
 
 透過網路進行上傳所費不貲或不可行時，請使用 [Windows 匯入/匯出服務方法](../storage-import-export-service/)，將大量檔案資料移轉至 Azure Blob 儲存體。您可以使用此服務，將包含該資料的一個或多個硬碟送至 Azure 資料中心，而您的資料將會在此上傳至儲存體帳戶。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/14/2015"
    ms.author="elfish"/>
 
 #業務續航力的設計
@@ -99,4 +99,4 @@ SQL Database 預設提供每個資料庫的內建基本保護功能。其作法�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

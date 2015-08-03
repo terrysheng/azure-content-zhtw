@@ -1,13 +1,3 @@
-<properties services="virtual-machines" title="Setting up Azure CLI for service management" authors="squillace" solutions="" manager="timlt" editor="tysonn" />
-
-<tags
-   ms.service="virtual-machine"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="linux"
-   ms.workload="infrastructure"
-   ms.date="04/13/2015"
-   ms.author="rasquill" />
 
 ## 使用 Azure CLI
 
@@ -34,4 +24,4 @@
 
 > [AZURE.NOTE]如果您還沒有 Azure 帳戶，但是擁有 MSDN 訂用帳戶的訂用帳戶，您可以藉由啟用[此處的 MSDN 訂閱者權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)來取得免費的 Azure 點數，或者您可以使用免費帳戶。這其中一種方式將可用來存取 Azure。
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO4-->

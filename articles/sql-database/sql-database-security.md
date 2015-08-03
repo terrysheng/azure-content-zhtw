@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services" 
-   ms.date="04/02/2015"
+   ms.date="07/14/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -98,4 +98,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 除了上述可協助您的應用程式符合各種安全法規需求的特色和功能之外，Azure SQL Database 也定期參與稽核，並且經過認證符合許多法規標準。如需詳細資訊，請參閱 [Microsoft Azure 信任中心](http://azure.microsoft.com/support/trust-center/)，您可以在當中找到 [SQL Database 法規認證](http://azure.microsoft.com/support/trust-center/services/)的最新清單。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

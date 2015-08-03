@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # 管理伺服器和使用量資料
@@ -57,4 +57,6 @@ Operational Insights 會收集資料，並定期將資料傳送給 Operational I
 
 3. 如果目前有未傳送資料的管理群組，您可以按一下 [**疑難排解**] 以取得詳細的疑難排解資訊。如果您不想再保留管理群組及向他報告的所有代理程式，請按一下 [**移除**]。
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

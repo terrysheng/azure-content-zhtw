@@ -57,4 +57,4 @@
 [關於流量管理員的負載平衡方法](../about-traffic-manager-balancing-methods.md) [流量管理員組態工作](https://msdn.microsoft.com/library/azure/hh744830.aspx) [流量管理員](../traffic-manager.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -72,14 +72,14 @@
 
 若要開始，您需要建立 SQL Server 資料庫、資料表、使用者定義型別和預存程序。這些將用於從 Azure Blob 將 **MarketingCampaignEffectiveness** 結果移至 SQL Server 資料庫。
 
-1.	在 **Windows 檔案總管**中，導覽至 **C:\\ADFWalkthrough** (或您解壓縮範例的位置) 中的 **OnPremises** 子資料夾。
+1.	在 **Windows 檔案總管**中，導覽至 **C:\ADFWalkthrough** (或您解壓縮範例的位置) 中的 **OnPremises** 子資料夾。
 2.	在您喜好的編輯器中開啟 **prepareOnPremDatabase&Table.ps1**，將反白顯示部分取代為您的 SQL Server 資訊，並儲存檔案 (請提供 **SQL 驗證**詳細資訊)。針對教學課程的目的，為您的資料庫啟用 SQL 驗證。 
 			
 		$dbServerName = "<servername>"
 		$dbUserName = "<username>"
 		$dbPassword = "<password>"
 
-3. 在 **Azure PowerShell** 中，導覽至 **C:\\ADFWalkthrough\\OnPremises** 資料夾。
+3. 在 **Azure PowerShell** 中，導覽至 **C:\ADFWalkthrough\OnPremises** 資料夾。
 4.	執行 **prepareOnPremDatabase&Table.ps1** **(以雙引號括住 &，或如下所示)**。
 			
 		& '.\prepareOnPremDatabase&Table.ps1'
@@ -114,7 +114,7 @@
 
 ### 建立內部部署邏輯資料表
 
-1.	在 **Azure PowerShell** 中，切換至 **C:\\ADFWalkthrough\\OnPremises** 資料夾。 
+1.	在 **Azure PowerShell** 中，切換至 **C:\ADFWalkthrough\OnPremises** 資料夾。 
 2.	使用 Cmdlet **New-AzureDataFactoryTable** 來建立 **MarketingCampaignEffectivenessOnPremSQLTable.json** 的資料表，如下所示。
 
 			
@@ -170,4 +170,4 @@
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

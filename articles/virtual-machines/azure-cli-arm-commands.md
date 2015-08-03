@@ -1737,4 +1737,4 @@ Azure 資源管理可讓您建立資源群組，包含虛擬機器、網站、�
 	vm image list [options] <location> <publisher> [offer] [sku]
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

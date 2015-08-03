@@ -72,4 +72,4 @@ Operational Insights 環境組成項目包含：
 ### 可在何處取得 Operational Insights？
 Microsoft Azure Operational Insights 位於美國。雖然 Operational Insights 的語言是英文，但是數個其他市場都提供此服務。如需相關資訊，請參閱[國際可用性](http://go.microsoft.com/fwlink/?LinkId=229842)。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

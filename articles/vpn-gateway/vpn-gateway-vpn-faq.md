@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/15/2015"
+   ms.date="07/16/2015"
    ms.author="cherylmc" />
 
 # VPN 閘道常見問題集
@@ -27,7 +27,7 @@
 是。
 ### 是否可以從單一虛擬網路連接到多個網站？
 
-您可以使用 Windows PowerShell 和 Azure REST API 連接到多個網站。請參閱＜[多網站和 VNet 對 VNet 連線能力](#Multi-Site-and-VNet-to-VNet-Connectivity)＞常見問題集一節。
+您可以使用 Windows PowerShell 和 Azure REST API 連接到多個網站。請參閱＜[多網站和 VNet 對 VNet 連線能力](#multi-site-and-vnet-to-vnet-connectivity)＞常見問題集一節。
 ## 有哪些跨部署連線選項？
 
 虛擬網路支援下列跨部署連線：
@@ -162,7 +162,7 @@ Azure VPN 使用 PSK (預先共用金鑰) 驗證。當建立 VPN 通道時，就
 
 ### 是否可以設定強制通道？
 
-是。請參閱＜[有關強制通道](http://go.microsoft.com/fwlink/p/?LinkId=615153)＞。
+是。請參閱＜[有關強制通道](vpn-gateway-about-forced-tunneling.md)＞。
 
 ### 是否可以在 Azure 中設定自己的 VPN 伺服器，並用來連接到內部部署網路？
 
@@ -170,7 +170,7 @@ Azure VPN 使用 PSK (預先共用金鑰) 驗證。當建立 VPN 通道時，就
 
 ### 閘道類型、需求和輸送量的詳細資訊
 
-如需詳細資訊，請參閱＜[閘道](http://go.microsoft.com/fwlink/p/?LinkID=615098)＞。
+如需詳細資訊，請參閱[關於 VPN 閘道](vpn-gateway-about-vpngateways.md)。
 
 ## 多網站和 VNet 對 VNet 連線能力
 
@@ -244,4 +244,4 @@ Azure VPN 使用 PSK (預先共用金鑰) 驗證。當建立 VPN 通道時，就
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

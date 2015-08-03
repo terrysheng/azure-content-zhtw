@@ -80,4 +80,4 @@
 [將驗證新增至現有的行動服務應用程式]: mobile-services-dotnet-backend-ios-get-started-users.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

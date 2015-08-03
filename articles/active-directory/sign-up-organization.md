@@ -36,4 +36,4 @@
 * [在雲端中使用內部部署身分識別基礎結構](active-directory-aadconnect.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

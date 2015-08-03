@@ -2,6 +2,7 @@
 	pageTitle="進階分析程序和技術實務：使用 Hadoop 叢集 | Microsoft Azure" 
 	description="對採用 HDInsight Hadoop 叢集的端對端案例使用進階分析程序和技術 (ADAPT)，以使用公開可用的資料集來建置和部署模型。"  
 	services="machine-learning,hdinsight" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -23,7 +24,7 @@
 
 如需示範如何使用 HDInsight Hadoop 叢集，針對類似的案例處理更大 (1 TB) 資料集資料的逐步解說，請參閱[進階分析程序和技術實務 - 在 1 TB 資料集上使用 Azure HDInsight Hadoop 叢集](machine-learning-data-science-process-hive-criteo-walkthrough.md)。
 
-此外，也可以使用 1 TB 資料集，使用 iPython Notebook 來完成本逐步解說中說明的工作。想要嘗試這種方法的使用者，應該查閱[使用 Hive ODBC 連線的 Criteo 逐步解說](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb)主題。
+此外，也可以使用 1 TB 資料集，使用 IPython Notebook 來完成本逐步解說中說明的工作。想要嘗試這種方法的使用者，應該查閱[使用 Hive ODBC 連線的 Criteo 逐步解說](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb)主題。
 
 
 ## <a name="dataset"></a>NYC 計程車車程資料集說明
@@ -48,7 +49,7 @@
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-聯結 trip\_data and trip\_fare 的唯一索引鍵是由下列欄位組成：medallion、hack\_licence 和 pickup\_datetime。
+聯結 trip_data and trip_fare 的唯一索引鍵是由下列欄位組成：medallion、hack_licence 和 pickup_datetime。
 
 若要取得特定車程的所有詳細資訊，加入下列三個索引鍵便已足夠："medallion"、"hack_license" 和 "pickup_datetime"。
 
@@ -809,4 +810,4 @@ b.對於迴歸問題，我們會藉由查看預測中的平方誤差、決定係
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

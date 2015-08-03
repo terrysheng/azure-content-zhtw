@@ -1,3 +1,4 @@
+
 <properties 
     pageTitle="RemoteApp 的應用程式需求"
     description="深入了解您想要用於 RemoteApp 的應用程式需求" 
@@ -55,4 +56,4 @@ RemoteApp 支援從 Windows Server 2012 R2 安裝的資料流 32 位元或 64 �
 - 若要最佳化效能，讓應用程式[偵測](https://msdn.microsoft.com/library/aa380798.aspx)它們是否正在用戶端工作階段中執行是個好方法。 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

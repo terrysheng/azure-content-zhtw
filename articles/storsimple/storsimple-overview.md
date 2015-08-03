@@ -56,4 +56,4 @@ Microsoft Azure StorSimple 解決方案包括下列元件：
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

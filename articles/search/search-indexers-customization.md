@@ -123,4 +123,4 @@ Azure 搜尋服務會將文件索引鍵欄位內的字元限制為 URL 安全字
 目前是如此。如果您有任何未來內容的想法和建議，請使用 #AzureSearch 雜湊標記推文給我們，或者在我們的 [UserVoice 頁面](http://feedback.azure.com/forums/263029-azure-search)上提出您的想法。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

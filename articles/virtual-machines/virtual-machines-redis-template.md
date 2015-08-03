@@ -44,7 +44,7 @@ Redis 叢集是建立在子網路後面，因此，不會有可存取 Redis 叢�
 
 ### 步驟 1-a：使用 Azure PowerShell 下載範本檔案
 
-為 JSON 範本和其他相關聯的檔案建立本機資料夾 (例如，C:\\Azure\\Templates\\RedisCluster)。
+為 JSON 範本和其他相關聯的檔案建立本機資料夾 (例如，C:\Azure\Templates\RedisCluster)。
 
 使用您本機資料夾的資料夾名稱來替代，並執行下列命令：
 
@@ -96,7 +96,7 @@ $webclient.DownloadFile($url,$filePath)
 git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 ```
 
-複製完成時，尋找 C:\\Azure\\Templates 目錄中的 **redis-high-availability** 資料夾。
+複製完成時，尋找 C:\Azure\Templates 目錄中的 **redis-high-availability** 資料夾。
 
 ### 步驟 2：(選用) 了解範本參數
 
@@ -387,7 +387,7 @@ azure group deployment list TestRG
 
 本節將帶領您逐步了解 Redis 叢集的 azuredeploy.json 範本結構。
 
-如果您尚未下載範本檔案的複本，請指定本機資料夾做為該檔案的位置並建立它 (例如，C:\\Azure\\Templates\\RedisCluster)。填寫資料夾名稱，然後執行以下命令：
+如果您尚未下載範本檔案的複本，請指定本機資料夾做為該檔案的位置並建立它 (例如，C:\Azure\Templates\RedisCluster)。填寫資料夾名稱，然後執行以下命令：
 
 ```powershell
 $folderName="<folder name, such as C:\Azure\Templates\RedisCluster>"
@@ -666,4 +666,4 @@ $webclient.DownloadFile($url,$filePath)
 
 如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

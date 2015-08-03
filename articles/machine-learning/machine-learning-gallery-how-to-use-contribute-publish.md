@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="07/15/2015" 
 	ms.author="chhavib;cgronlun;garye"/>
 
 
@@ -58,7 +58,9 @@ Azure Machine Learning Gallery 讓您只要按一個按鍵，就可以輕鬆地�
 
 - 使用您的 Microsoft 帳戶登入 Studio (請確定您的 Microsoft 帳戶設定檔設定中的設定檔圖片和名稱如您所願的顯示)
 - 建立您的實驗並且執行
-- 當您準備將實驗發佈至資源庫時，按一下 Studio 下方黑色列的 [發佈到資源庫]。![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)盡情享受！
+- 當您準備將實驗發佈至資源庫時，按一下 Studio 下方黑色列的 [發佈到資源庫]。![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
+
+盡情享受！
 
 ## 歡迎您提供相關資訊！ 
 我們希望資源庫是由我們的使用者驅使，並且適合我們的使用者。使用右側的笑臉符號告訴我們您喜歡或不喜歡資源庫。
@@ -111,4 +113,4 @@ Azure Machine Learning Gallery 讓您只要按一個按鍵，就可以輕鬆地�
 **[帶領我到資源庫 >>](http://gallery.azureml.net)**
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

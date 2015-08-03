@@ -100,4 +100,4 @@ BizTalk 一般檔案編碼器會將結構描述視為其組態的一部分。直
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -2,6 +2,7 @@
 	pageTitle="在進階分析程序中將 Hive 查詢提交至 Hadoop 叢集 | Microsoft Azure" 
 	description="從 Hive 資料表處理資料" 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -13,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/29/2015" 
+	ms.date="07/17/2015" 
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> 在進階分析程序中將 Hive 查詢提交至 HDInsight Hadoop 叢集
 
-本文件將說明在 Azure 中，將 Hive 查詢提交至 HDInsight 服務所管理的 Hadoop 叢集的各種方式。您可以使用下列方法來提交 Hive 查詢：
+本文件說明在 Azure 中，將 Hive 查詢提交至 HDInsight 服務所管理的 Hadoop 叢集的各種方式。您可以使用下列方法來提交 Hive 查詢：
 
 * 叢集前端節點上的 Hadoop 命令列
 * IPython Notebook 
@@ -27,40 +28,44 @@
 
 提供泛型 Hive 查詢，可用來探索資料或產生使用內嵌 Hive 使用者定義函式 (UDF) 的功能。
 
-[GitHub 儲存機制](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)中也會提供 [NYC 計程車車程資料](http://chriswhong.com/open-data/foil_nyc_taxi/)案例特定的查詢範例。這些查詢已經具備指定的資料結構描述，且準備好進行提交來執行。
+[GitHub 儲存機制](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)中也會提供 [NYC 計程車車程資料](http://chriswhong.com/open-data/foil_nyc_taxi/)案例特定的查詢範例。這些查詢已經具備指定的資料結構描述，且準備好提交給次案例來執行。
 
-最後一節將討論使用者可以微調的參數，如此即可改善 Hive 查詢的效能。
+最後一節將討論使用者可以微調的參數，可改善 Hive 查詢的效能。
 
 ## 必要條件
 本文假設您已經：
  
-* 建立 Azure 儲存體帳戶。如需指示，請參閱[建立 Azure 儲存體帳戶](../hdinsight-get-started.md#storage)。 
+* 建立 Azure 儲存體帳戶。如需此工作的指示，請參閱[建立 Azure 儲存體帳戶](../hdinsight-get-started.md#storage)。 
 * 佈建含有 HDInsight 服務的 Hadoop 叢集。如需指示，請參閱[佈建 HDInsight 叢集](../hdinsight-get-started.md#provision)。
-* 已將資料上傳至 Azure HDInsight Hadoop 叢集中的 Hive 資料表。如果沒有，請遵循[建立資料並載入 Hive 資料表](machine-learning-data-science-hive-tables.md)，先將資料上傳至 Hive 資料表。
+* 已將資料上傳至 Azure HDInsight Hadoop 叢集中的 Hive 資料表。如果沒有，請遵循[建立資料並載入 Hive 資料表](machine-learning-data-science-hive-tables.md)所提供的指示，先將資料上傳至 Hive 資料表。
 * 啟用叢集的遠端存取。如需指示，請參閱[存取 Hadoop 叢集的前端節點](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess)。 
 
 
-- [如何提交 Hive 查詢](#submit)
-- [資料探索和特徵工程](#explore)
-- [進階主題：微調 Hive 參數以提升查詢速度](#tuning)
-
 ## <a name="submit"></a>如何提交 Hive 查詢
 
-###1.透過 Hadoop 叢集前端節點中的 Hadoop 命令列
+1. [透過 Hadoop 叢集前端節點中的 Hadoop 命令列提交 Hive 查詢](#headnode)
+2. [利用 Hive 編輯器提交 Hive 查詢](#hive-editor)
+3. [利用 Azure PowerShell 命令提交 Hive 查詢](#ps)
+ 
+###<a name="headnode"></a> 1.透過 Hadoop 叢集前端節點中的 Hadoop 命令列提交 Hive 查詢
 
-如果查詢相當複雜，在 Hadoop 叢集的前端節點中直接提交 Hive 查詢，通常會導致整備速度比使用 Hive 編輯器或 Azure PowerShell 指令碼進行提交還快。
+如果 Hive 查詢相當複雜，在 Hadoop 叢集的前端節點中直接提交 Hive 查詢，通常會導致整備速度比使用 Hive 編輯器或 Azure PowerShell 指令碼進行提交還快。
 
-登入 Hadoop 叢集的前端節點，在前端節點的桌面上開啟 Hadoop 命令列，然後輸入命令 `cd %hive_home%\bin`。
+登入 Hadoop 叢集的前端節點、在前端節點的桌面上開啟 Hadoop 命令列，然後輸入命令 `cd %hive_home%\bin`。
 
 使用者在 Hadoop 命令列中提交 Hive 查詢的方式有三種：
 
-####在 Hadoop 命令列中直接提交 Hive 查詢。 
+* 直接
+* 使用 .hql 檔案
+* 利用 Hive 命令主控台
 
-使用者可以執行類似 `hive -e "<your hive query>;` 的查詢，在 Hadoop 命令列中直接提交簡單的 Hive 查詢。在下列範例中，紅色方塊框起來的是提交 Hive 查詢的命令，而綠色方塊框起來的則是 Hive 查詢的輸出。
+#### 在 Hadoop 命令列中直接提交 Hive 查詢。 
+
+使用者可以執行類似 `hive -e "<your hive query>;` 的命令，在 Hadoop 命令列中直接提交簡單的 Hive 查詢。在下列範例中，紅色方塊框起來的是提交 Hive 查詢的命令，而綠色方塊框起來的則是 Hive 查詢的輸出。
 
 ![建立工作區][10]
 
-####提交 .hql 檔案中的 Hive 查詢。
+#### 提交 .hql 檔案中的 Hive 查詢。
 
 若 Hive 查詢更複雜且有多行，則在命令列或 Hive 命令主控台中編輯查詢並不實際。替代方法是在 Hadoop 叢集的前端節點中使用文字編輯器，將 Hive 查詢儲存於前端節點本機目錄上的 .hql 檔案中。然後可以使用 `-f` 引數提交 .hql 檔案中的 Hive 查詢，如下所示：
 	
@@ -69,14 +74,14 @@
 ![建立工作區][15]
 
 
-####隱藏 Hive 查詢的進度狀態畫面顯示
+**隱藏 Hive 查詢的進度狀態畫面顯示**
 
 根據預設，在 Hadoop 命令列中提交 Hive 查詢之後，Map/Reduce 工作的進度將顯示於螢幕上。若要隱藏 Map/Reduce 工作進度的畫面顯示，您可以在命令列中使用引數 `-S` (大寫的 "S")，如下所示：
 
 	hive -S -f "<path to the .hql file>"
 	hive -S -e "<Hive queries>"
 
-####在 Hive 命令主控台中提交 Hive 查詢。
+#### 在 Hive 命令主控台中提交 Hive 查詢。
 
 使用者也可以在 Hadoop 命令列中執行 `hive` 命令，先進入 Hive 命令主控台，然後在 Hive 命令主控台中提交 Hive 查詢。範例如下。在此範例中，這兩個紅色方塊反白顯示的命令分別是用來進入 Hive 命令主控台，以及在 Hive 命令主控台中提交 Hive 查詢。綠色方塊反白顯示的是 Hive 查詢的輸出。
 
@@ -84,7 +89,7 @@
 
 上述範例會在螢幕上直接輸出 Hive 查詢結果。使用者也可以將輸出寫入前端節點上的本機檔案，或寫入 Azure Blob。接著，使用者可以使用其他工具，進一步分析 Hive 查詢的輸出。
 
-####將 Hive 查詢結果輸出到本機檔案。 
+**將 Hive 查詢結果輸出到本機檔案。**
 
 若要將 Hive 查詢結果輸出到前端節點上的本機目錄，使用者必須在 Hadoop 命令列中提交 Hive 查詢，如下所示：
 
@@ -94,7 +99,7 @@
 
 ![建立工作區][12]
 
-####將 Hive 查詢結果輸出到 Azure Blob
+**將 Hive 查詢結果輸出到 Azure Blob**
 
 使用者也可以將 Hive 查詢結果輸出到 Hadoop 叢集預設容器內的 Azure Blob。Hive 查詢必須如下：
 
@@ -108,17 +113,20 @@
 
 ![建立工作區][14]
 
-###2.透過 Hive 編輯器或 Azure PowerShell 命令
+###<a name="hive-editor"></a> 2.利用 Hive 編輯器提交 Hive 查詢
 
-使用者也可以在 Web 瀏覽器中輸入 URL `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor` 來使用查詢主控台 (Hive 編輯器) (系統將要求您輸入 Hadoop 叢集認證以進行登入)，或者可以[使用 PowerShell 提交 Hive 工作](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell)。
+使用者也可以在 Web 瀏覽器 `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor` 中輸入 URL 來使用查詢主控台 (Hive 編輯器) (系統將要求您輸入 Hadoop 叢集認證以登入)，
 
-## <a name="explore"></a>資料探索、特徵工程及 Hive 參數微調
+###<a name="ps"></a> 3.利用 Azure PowerShell 命令提交 Hive 查詢
 
-我們將在本節中使用 Azure HDInsight Hadoop 叢集中的 Hive 來說明下列資料有爭議的工作，以及微調一些 Hive 參數來提升 Hive 查詢效能的更進階主題：
+使用者也可以使用 PowerShell 提交 Hive 查詢。如需指示，請參閱[使用 PowerShell 提交 Hive 工作](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell)。
+
+## <a name="explore"></a>資料探索、功能工程及 Hive 參數微調
+
+我們將在本節中使用 Azure HDInsight Hadoop 叢集中的 Hive，說明下列資料有爭議的工作：
 
 1. [資料探索](#hive-dataexploration)
 2. [功能產生](#hive-featureengineering)
-3. [進階主題：微調 Hive 參數以提升查詢速度](#tune-parameters)
 
 > [AZURE.NOTE]Hive 查詢範例假設資料已上傳至 Azure HDInsight Hadoop 叢集中的 Hive 資料表。如果沒有，請遵循[建立資料並載入 Hive 資料表](machine-learning-data-science-hive-tables.md)，先將資料上傳至 Hive 資料表。
 
@@ -165,16 +173,16 @@
 ###<a name="hive-featureengineering"></a>功能產生
 
 本節將說明使用 Hive 查詢產生功能的方式：
-
-> [AZURE.NOTE]一旦產生額外功能之後，就可以將它們當成資料行新增至現有資料表，或是建立具有額外功能和主索引鍵的新資料表 (可與原始資料表聯結)。
-
-1. [以頻率為基礎的特徵產生](#hive-frequencyfeature)
-2. [二元分類中類別變數的風險](#hive-riskfeature)
-3. [從日期時間欄位擷取特徵](#hive-datefeatures)
-4. [從文字欄位擷取特徵](#hive-textfeatures)
+  
+1. [以頻率為基礎的功能產生](#hive-frequencyfeature)
+2. [二進位分類中類別變數的風險](#hive-riskfeature)
+3. [從日期時間欄位擷取功能](#hive-datefeature)
+4. [從文字欄位擷取功能](#hive-textfeature)
 5. [計算 GPS 座標間的距離](#hive-gpsdistance)
 
-####<a name="hive-frequencyfeature"></a>以頻率為基礎的特徵產生
+> [AZURE.NOTE]一旦產生額外功能之後，就可以將它們當成資料行新增至現有資料表，或是建立具有額外功能和主索引鍵的新資料表 (後來可與原始資料表聯結)。
+
+####<a name="hive-frequencyfeature"></a> 以頻率為基礎的功能產生
 
 有時，計算類別變數層級的頻率，或是多個類別變數層級組合的頻率，是非常有用的。使用者可以使用下列指令碼來計算頻率：
 
@@ -189,7 +197,7 @@
 		order by frequency desc;
 	
 
-####<a name="hive-riskfeature"></a>二元分類中類別變數的風險
+####<a name="hive-riskfeature"></a> 二元分類中類別變數的風險
 
 在二進位分類中，有時我們需要使用數值風險來取代非數值層級 (因為某些模型可能只會採用數值功能)，將非數值類別變數轉換成數值功能。本節將示範一些計算類別變數風險值 (記錄機率) 的泛型 Hive 查詢。
 
@@ -216,7 +224,7 @@
 
 計算出風險資料表之後，使用者就可以藉由將資料表聯結至風險資料表，來將風險值指派給該資料表。Hive 聯結查詢已於上一節提供。
 
-####<a name="hive-datefeature"></a>從日期時間欄位擷取特徵
+####<a name="hive-datefeature"></a> 從日期時間欄位擷取功能
 
 Hive 會和一組 UDF 一起出現，用以處理日期時間欄位。在 Hive 中，預設的日期時間格式是 'yyyy-MM-dd 00:00:00' (例如 '1970-01-01 12:21:32')。本節將顯示擷取月份日期及來自日期時間欄位的月份範例，以及將預設格式以外格式的日期時間字串轉換為預設格式的日期時間字串範例。
 
@@ -230,7 +238,7 @@ Hive 會和一組 UDF 一起出現，用以處理日期時間欄位。在 Hive �
 		select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
 		from <databasename>.<tablename>;
 
-在這個查詢中，如果 `<datetime field>` 具有類似 `'<pattern of the datetime field>'` 的模式，則 `03/26/2015 12:04:39` 應為 `'MM/dd/yyyy HH:mm:ss'`。若要進行測試，使用者可以執行
+在這個查詢中，如果 `<datetime field>` 具有類似 `03/26/2015 12:04:39` 的模式，則 `'<pattern of the datetime field>'` 應為 `'MM/dd/yyyy HH:mm:ss'`。若要進行測試，使用者可以執行
 
 		select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
 		from hivesampletable limit 1;
@@ -238,14 +246,14 @@ Hive 會和一組 UDF 一起出現，用以處理日期時間欄位。在 Hive �
 在這個查詢中，`hivesampletable` 預設會在佈建叢集時，隨附於所有 Azure HDInsight Hadoop 叢集中。
 
 
-####<a name="hive-textfeature"></a>從文字欄位擷取特徵
+####<a name="hive-textfeature"></a> 從文字欄位擷取功能
 
 假設 Hive 資料表有一個文字欄位，而其是以空格分隔的文字字串，則下列查詢會擷取字串長度，以及字串中的字數。
 
     	select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num 
 		from <databasename>.<tablename>;
 
-####<a name="hive-gpsdistance"></a>計算 GPS 座標間的距離
+####<a name="hive-gpsdistance"></a> 計算 GPS 座標間的距離
 
 本節中提供的查詢可直接在「NYC 計程車車程資料」上加以套用。此查詢的目的是示範如何在 Hive 中套用內嵌的數學函式來產生功能。
 
@@ -273,7 +281,7 @@ Hive 會和一組 UDF 一起出現，用以處理日期時間欄位。在 Hive �
 
 您可以在[這裡](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions)找到 Hive 內嵌 UDF 的完整清單。
 
-## <a name="tuning"></a>進階主題：微調 Hive 參數以提升查詢速度
+## <a name="tuning"></a> 進階主題：微調 Hive 參數以提升查詢速度
 
 Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處理的資料。本節將討論一些使用者可以微調的參數，如此便可提升 Hive 查詢的效能。使用者需要在處理資料的查詢之前新增參數微調查詢。
 
@@ -318,4 +326,4 @@ Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

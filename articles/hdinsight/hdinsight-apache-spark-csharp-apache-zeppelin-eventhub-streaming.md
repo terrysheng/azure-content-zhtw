@@ -27,7 +27,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 您必須滿足以下條件：
 
-- Azure 訂用帳戶。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- Azure 訂閱。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - Apache Spark 叢集。如需相關指示，請參閱[在 Azure HDInsight 中佈建 Apache Spark 叢集](hdinsight-apache-spark-provision-clusters.md)。
 - [Azure 事件中樞](service-bus-event-hubs-csharp-ephcs-getstarted.md)。
 - 安裝 Microsoft Visual Studio 2013 的工作站。如需指示，請參閱[安裝 Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx)。
@@ -164,4 +164,4 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

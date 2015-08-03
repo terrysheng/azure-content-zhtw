@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 # 概觀：Azure HDInsight 上的 Apache Spark 
@@ -66,7 +66,7 @@ HDInsight 中的 Apache Spark 會將資料儲存在 Azure Blob 內。商務專�
 
 [觀看教學課程](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-Apache Spark 附有 [MLlib](http://spark.apache.org/mllib/)，它是建置於 Spark 之上的機器學習程式庫。此外，HDInsight 上的 Spark 也包含 Anaconda，它是提供多種機器學習封裝的 Python 散發。搭配上內建的 IPython Notebook 支援，您將擁有最先進的機器學習應用程式建立環境。
+Apache Spark 附有 [MLlib](http://spark.apache.org/mllib/)，它是建置於 Spark 之上的機器學習程式庫。此外，HDInsight 上的 Spark 也包含 Anaconda，它是提供多種機器學習封裝的 Python 散發。搭配上內建的 Jupyter Notebook 支援，您將擁有最先進的機器學習應用程式建立環境。
 
 ### 串流和即時資料分析
 
@@ -82,7 +82,7 @@ Apache Spark 附有 [MLlib](http://spark.apache.org/mllib/)，它是建置於 Sp
 - [Anaconda](http://docs.continuum.io/anaconda/)
 - [Spark 作業伺服器](https://github.com/spark-jobserver/spark-jobserver)
 - [Zeppelin Notebook](https://zeppelin.incubator.apache.org)
-- [IPython Notebook](https://jupyter.org)
+- [Jupyter Notebook](https://jupyter.org)
 
 HDInsight 中的 Spark 另提供 [ODBC 驅動程式](http://go.microsoft.com/fwlink/?LinkId=616229)，它能讓您從 Microsoft Power BI 和 Tableau 等 BI 工具連接 HDInsight 中的 Spark 叢集。
 
@@ -99,4 +99,4 @@ HDInsight 中的 Spark 另提供 [ODBC 驅動程式](http://go.microsoft.com/fwl
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

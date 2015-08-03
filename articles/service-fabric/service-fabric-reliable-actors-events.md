@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="07/09/2015"
    ms.author="amanbha"/>
 
 
@@ -55,7 +55,7 @@ class GameEventsHandler : IGameEvents
 }
 ```
 
-在用戶端上，對發佈事件的動作項目建立 Proxy，並訂閱事件。
+在用戶端上，對發佈事件的動作項目建立 Proxy，並訂閱其事件。
 
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
@@ -63,7 +63,7 @@ var proxy = ActorProxy.Create<IGameActor>(
 proxy.SubscribeAsync(new GameEventsHandler()).Wait();
 ```
 
-發生容錯移轉時，動作項目會容錯移轉至不同的程序或節點。動作項目 Proxy 會管理使用中的訂用帳戶，並自動重新訂閱。您可以透過 `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API 控制重新訂閱間隔。若要取消訂閱，請使用 `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API。
+發生容錯移轉時，動作項目會容錯移轉至不同的程序或節點。動作項目 Proxy 會管理使用中的訂用帳戶，並自動重新訂閱。您可以透過 `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API 控制重新訂閱間隔。若要取消訂閱，請使用`ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API。
 
 在動作項目上，當事件發生時只發佈事件。如果有訂閱者訂閱事件，動作項目執行階段會將事件傳送至通知。
 
@@ -71,6 +71,5 @@ proxy.SubscribeAsync(new GameEventsHandler()).Wait();
 var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), State.Status.Score);
 ```
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

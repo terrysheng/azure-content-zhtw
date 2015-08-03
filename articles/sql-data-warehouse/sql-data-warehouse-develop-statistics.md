@@ -3,8 +3,8 @@
    description="在 Azure SQL 資料倉儲中管理統計資料以便開發解決方案的秘訣。"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
+   authors="jrowlandjones"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -280,13 +280,13 @@ prc_sqldw_create_stats;
 使用下列語法來更新特定統計資料物件：
 
 ```
-UPDATE STATISTICS ON [schema_name].[table_name]([stat_name]);
+UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
 例如：
 
 ```
-UPDATE STATISTICS ON [dbo].[table1] ([stats_col1]);
+UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
 藉由更新特定統計資料物件，即可減少管理統計資料所需的時間和資源。這需要經過思考，才能選擇要更新的最佳統計資料物件。
@@ -296,13 +296,13 @@ UPDATE STATISTICS ON [dbo].[table1] ([stats_col1]);
 這顯示一個簡單的方法來更新資料表上的所有統計資料物件。
 
 ```
-UPDATE STATISTICS ON [schema_name].[table_name];
+UPDATE STATISTICS [schema_name].[table_name];
 ```
 
 例如：
 
 ```
-UPDATE STATISTICS ON dbo.table1;
+UPDATE STATISTICS dbo.table1;
 ```
 
 此陳述式很容易使用。只要記住這會更新資料表上的所有統計資料，因此可能會執行超出所需的更多工作。如果效能不成問題，這絕對是保證擁有最新統計資料的最簡單且最完整的方式。
@@ -452,4 +452,4 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 [sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [更新統計資料]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

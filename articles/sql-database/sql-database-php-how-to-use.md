@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
-	manager="wpickett" 
+	manager="jeffreyg" 
 	editor="mollybos"/>
 
 <tags 
@@ -130,4 +130,4 @@ SQL Database 可為 Azure 提供關聯式資料庫管理系統，並以 SQL Serv
 [quick-create]: ./media/sql-database-php-how-to-use/create-new-sql.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

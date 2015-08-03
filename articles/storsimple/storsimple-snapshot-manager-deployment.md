@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="部署 StorSimple Snapshot Manager |Microsoft Azure"
+   pageTitle="部署 StorSimple Snapshot Manager | Microsoft Azure"
    description="描述如何下載及安裝 StorSimple Snapshot Manager。"
    services="storsimple"
    documentationCenter="NA"
@@ -71,7 +71,7 @@ StorSimple Snapshot Manager 可以安裝在執行 Windows Server® 2008 R2 SP1�
 >
 >- 對於 StorSimple 虛擬裝置，主機必須是 Microsoft Azure 虛擬機器。 
 >
->- 主機必須執行 Windows 2008 R2、 Windows Server 2012 或 Windows Server 2012 R2。如果您的伺服器執行 Windows Server 2008 R2，您也必須安裝 Windows Server 2008 SP1 和 Windows Management Framework 3.0。
+>- 主機必須執行 Windows 2008 R2、Windows Server 2012 或 Windows Server 2012 R2。如果您的伺服器執行 Windows Server 2008 R2，您也必須安裝 Windows Server 2008 SP1 和 Windows Management Framework 3.0。
 >
 >- 將裝置連接至 StorSimple Snapshot Manager 之前，您必須設定從主機到 StorSimple 裝置的 iSCSI 連接。
 
@@ -89,11 +89,11 @@ StorSimple Snapshot Manager 可以安裝在執行 Windows Server® 2008 R2 SP1�
 
 1. 下載 StorSimple Snapshot Manager 軟體 (移至 Microsoft 下載中心的 [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220)) 並將它儲存在本機主機上。
 
-2. 在 [檔案總管] 中，以滑鼠右鍵按一下壓縮的資料夾，然後按一下 [**全部擷取**]。
+2. 在 [檔案總管] 中，以滑鼠右鍵按一下壓縮的資料夾，然後按一下 [**全部解壓縮**]。
 
 3. 在 [**解壓縮壓縮 (壓縮) 資料夾**] 視窗的 [**選取目的地並解壓縮檔案**] 方塊中，輸入或瀏覽至您想要解壓縮檔案的路徑。
 
-    >[AZURE.IMPORTANT]您必須在 C: 磁碟機上安裝 StorSimple Snapshot Manager。
+      >[AZURE.IMPORTANT]您必須在 C: 磁碟機上安裝 StorSimple Snapshot Manager。
  
 4. 選取 [**完成時顯示解壓縮檔案**] 核取方塊，然後再按一下 [**解壓縮**]。
 
@@ -201,7 +201,7 @@ StorSimple Snapshot Manager 可以安裝在執行 Windows Server® 2008 R2 SP1�
 
         ![Stop the StorSimple Manager service](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 
-2. 瀏覽至 C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog。
+2. 瀏覽至 C:\ProgramData\Microsoft\StorSimple\BACatalog。
 
     >[AZURE.NOTE]ProgramData 是隱藏的資料夾。
 
@@ -233,7 +233,7 @@ StorSimple Snapshot Manager 可以安裝在執行 Windows Server® 2008 R2 SP1�
 
     4. 在右窗格中的 [**Microsoft StorSimple 管理服務**] 下，按一下 [**停止服務**]。
 
-2. 瀏覽至 C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog。
+2. 瀏覽至 C:\ProgramData\Microsoft\StorSimple\BACatalog。
 
      >[AZURE.NOTE]ProgramData 是隱藏的資料夾。
 
@@ -253,4 +253,4 @@ StorSimple Snapshot Manager 可以安裝在執行 Windows Server® 2008 R2 SP1�
 
 若要深入了解 StorSimple Snapshot Manager 使用者介面，請移至 [StorSimple Snapshot Manager 使用者介面](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -568,7 +568,7 @@ namespace Microsoft.ServiceBus.Samples
 
 建置解決方案後，請執行下列命令以執行應用程式：
 
-1. 從命令提示字元中執行服務 (ImageListener\\bin\\Debug\\ImageListener.exe)。
+1. 從命令提示字元中執行服務 (ImageListener\bin\Debug\ImageListener.exe)。
 
 2. 將位址從命令提示字元複製並貼到瀏覽器以查看映像。
 
@@ -580,4 +580,4 @@ namespace Microsoft.ServiceBus.Samples
 
 - [如何使用服務匯流排轉送服務](service-bus-dotnet-how-to-use-relay.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

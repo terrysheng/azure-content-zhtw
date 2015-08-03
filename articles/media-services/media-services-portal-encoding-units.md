@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="07/16/2015" 
 	ms.author="juliako"/>
 
 
@@ -41,13 +41,13 @@
 	![Processors page](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
 
 	  
-	>[Azure.Note]下列資料中心不提供 Premium 保留單位類型：新加坡、香港特別行政區、大阪、北京、上海。
+	>[AZURE.NOTE]下列資料中心不提供 Premium 保留單位類型：新加坡、香港特別行政區、大阪、北京、上海。
 
 3. 按 [儲存] 以儲存您的變更。
 
 	新的編碼保留單元會在您按 [儲存] 後立即配置。
 
-	>[Azure.Note]計算成本時會使用 24 小時內指定的最大單位數。
+	>[AZURE.NOTE]計算成本時會使用 24 小時內指定的最大單位數。
 
 ##配額和限制
 
@@ -58,4 +58,4 @@
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

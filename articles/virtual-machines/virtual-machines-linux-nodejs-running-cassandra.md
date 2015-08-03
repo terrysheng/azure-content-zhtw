@@ -250,7 +250,7 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 	echo "installation is complete"
 
 
-如果您將此指令碼貼到 vim 視窗，請務必使用下列命令移除歸位字元 (‘\\r”)：
+如果您將此指令碼貼到 vim 視窗，請務必使用下列命令移除歸位字元 (‘\r”)：
 
 	tr -d '\r' <infile.sh >outfile.sh
 
@@ -700,4 +700,4 @@ Microsoft Azure 是一個富彈性的平台，可以執行 Microsoft 與開放�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

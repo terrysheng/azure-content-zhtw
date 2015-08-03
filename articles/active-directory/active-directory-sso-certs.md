@@ -80,4 +80,4 @@
 
 [在 Azure AD 中的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

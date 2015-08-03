@@ -238,4 +238,4 @@ Azure 資料目錄使用兩種授權機制：
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

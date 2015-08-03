@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="設定和註冊裝置"
-   description="說明如何使用 Windows PowerShell for StorSimple 來設定和註冊裝置。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="06/19/2015"
-   ms.author="v-sharos" />
-
 
 #### 設定和註冊裝置
 
@@ -79,4 +62,4 @@
   
       >[AZURE.NOTE]如果裝置狀態為 [離線]，請等待數分鐘，讓裝置上線。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

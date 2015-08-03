@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
-	writer="Rick-Anderson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -78,7 +77,7 @@
 ### 設定頁首及頁尾
 
 
-1. 在 [方案總管]，開啟 *Views\\Shared* 資料夾中的 *Layout.cshtml* 檔案。
+1. 在 [方案總管]，開啟 *Views\Shared* 資料夾中的 *Layout.cshtml* 檔案。
 
 	![方案總管中的 _Layout.cshtml][newapp004]
 
@@ -275,7 +274,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 
 	**add-migration Initial** 命令會在建立資料庫的 *Migrations* 資料夾中產生名為 **&lt;date_stamp&gt;Initial** 的檔案。第一個參數 (**Initial**) 是任意的，用於建立檔案的名稱。您可以在 [方案總管] 中看到新的類別檔案。在 **Initial** 類別中，**Up** 方法會建立 Contacts 資料表，**Down** 方法 (當您希望返回前個狀態時使用) 則會捨棄該資料表。
-3. 開啟 *Migrations\\Configuration.cs* 檔案。 
+3. 開啟 *Migrations\Configuration.cs* 檔案。 
 4. 新增下列命名空間。 
 
     	 using ContactManager.Models;
@@ -365,7 +364,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 ## 使用成員資格 API
 在本節中，您會將本機使用者和 *canEdit* 角色新增至成員資格資料庫。只有 *canEdit* 角色中的使用者才能編輯資料。最佳做法是依角色可執行的動作來命名角色，因此將角色命名為 *canEdit* 會較命名為 *admin* 更好。隨著應用程式發展，您可以新增如 *canDeleteMembers* 等新角色，而非新增較欠缺描述性的 *superAdmin*。
 
-1. 開啟 *migrations\\configuration.cs* 檔案並新增下列 `using` 陳述式：
+1. 開啟 *migrations\configuration.cs* 檔案並新增下列 `using` 陳述式：
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
@@ -410,7 +409,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 ## 使用暫時程式碼，將新的社交登入使用者新增至 canEdit 角色  ##
 在本節中，您將在帳戶控制器中暫時修改 **ExternalLoginConfirmation** 方法，以將使用 OAuth 提供者註冊的新使用者新增至 *canEdit* 角色。我們會暫時修改 **ExternalLoginConfirmation** 方法，以將新使用者自動新增至管理角色。在我們提供工具來新增及管理角色前，我們將暫時使用以下的自動註冊程式碼。我們希望將來能提供類似 [WSAT](http://msdn.microsoft.com/library/ms228053.aspx) 的工具，讓您能建立及編輯使用者帳戶與角色。
 
-1. 開啟 **Controllers\\AccountController.cs** 檔案並瀏覽到 **ExternalLoginConfirmation** 方法。
+1. 開啟 **Controllers\AccountController.cs** 檔案並瀏覽到 **ExternalLoginConfirmation** 方法。
 1. 將下列呼叫新增至就在 **SignInAsync** 呼叫前面的 **AddToRoleAsync**。
 
                 await UserManager.AddToRoleAsync(user.Id, "canEdit");
@@ -429,7 +428,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 在本節中，您將套用 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 屬性來限制對動作方法的存取。匿名使用者只能檢視首頁控制器的 **Index** 動作方法。註冊的使用者能夠查看連絡人資料 (Cm 控制器的 [索引] 和 [詳細資料] 頁面)、[關於] 和 [連絡人] 頁面。只有 *canEdit* 角色中的使用者才能存取用來變更資料的動作方法。
 
-1. 將 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 篩選器和 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 篩選器新增至應用程式。替代的方法是將 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 屬性和 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 屬性新增至每個控制器，但將這些屬性套用至整個應用程式是最安全的做法。藉由全面新增這些屬性，您所新增的每個新控制器和動作方法都會自動受到保護，而不需要您記得哪些已套用、哪些未套用。如需詳細資訊，請參閱[保護您的 ASP.NET MVC 應用程式和新 AllowAnonymous 屬性](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)。開啟 *App_Start\\FilterConfig.cs* 檔案，並使用以下程式碼 (新增兩個篩選器) 取代 *RegisterGlobalFilters* 方法：<pre> public static void RegisterGlobalFilters(GlobalFilterCollection filters) { filters.Add(new HandleErrorAttribute()); <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute()); filters.Add(new RequireHttpsAttribute());</mark> } </pre>
+1. 將 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 篩選器和 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 篩選器新增至應用程式。替代的方法是將 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 屬性和 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 屬性新增至每個控制器，但將這些屬性套用至整個應用程式是最安全的做法。藉由全面新增這些屬性，您所新增的每個新控制器和動作方法都會自動受到保護，而不需要您記得哪些已套用、哪些未套用。如需詳細資訊，請參閱[保護您的 ASP.NET MVC 應用程式和新 AllowAnonymous 屬性](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)。開啟 *App_Start\FilterConfig.cs* 檔案，並使用以下程式碼 (新增兩個篩選器) 取代 *RegisterGlobalFilters* 方法：<pre> public static void RegisterGlobalFilters(GlobalFilterCollection filters) { filters.Add(new HandleErrorAttribute()); <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute()); filters.Add(new RequireHttpsAttribute());</mark> } </pre>
 
 
 
@@ -627,4 +626,4 @@ Tom Dykstra 見解精闢的[開始使用 EF 和 MVC](http://www.asp.net/mvc/tuto
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

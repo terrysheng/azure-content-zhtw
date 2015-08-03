@@ -55,7 +55,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 **元件** | **部署** | **詳細資料**
 --- | --- | ---
 **設定伺服器** | <p>在與 Site Recovery 相同的訂用帳戶中部署為 Azure 標準 A3 虛擬機器。</p> <p>您在 Site Recovery 入口網站中設定</p> | 這個伺服器可在 Azure 中的受保護機器、處理序伺服器與主要目標伺服器之間協調通訊。它會在容錯移轉發生時在 Azure 中設定複寫並協調復原。
-**主要目標伺服器** | <p>部署為 Azure 虛擬機器－做為以 Windows Server 2012 R2 資源庫映像為基礎的 Windows 伺服器 (以保護 Windows 機器)，或做為以 OpenLogic CentOS 6.6 組件庫映像為基礎的 Linux 伺服器 (以保護 Linux 機器)。</p> <p>共有兩種大小選項可供使用－標準 A3 及標準 D14。<p><p>此伺服器與相同的 Azure 網路連接，以做為設定伺服器。</p><p>您會在 Site Recovery 入口網站中設定</p> | <p>它會使用在您的 Azure 儲存體帳戶之 Blob 儲存體上所建立的附加 VHD，從您的受保護機器接收並保留複寫的資料。</p>   
+**主要目標伺服器** | <p>部署為 Azure 虛擬機器－做為以 Windows Server 2012 R2 資源庫映像為基礎的 Windows 伺服器 (以保護 Windows 機器)，或做為以 OpenLogic CentOS 6.6 組件庫映像為基礎的 Linux 伺服器 (以保護 Linux 機器)。</p> <p>共有兩種大小選項可供使用－標準 A4 及標準 D14。<p><p>此伺服器與相同的 Azure 網路連接，以做為設定伺服器。</p><p>您會在 Site Recovery 入口網站中設定</p> | <p>它會使用在您的 Azure 儲存體帳戶之 Blob 儲存體上所建立的附加 VHD，從您的受保護機器接收並保留複寫的資料。</p>   
 **處理序伺服器** | <p>部署做為執行 Windows Server 2012 R2 的內部部署虛擬或實體伺服器</p> <p>建議您將它放置在與您要保護之機器相同的網路與 LAN 區段上，但只要受保護的機器具有 L3 網路可見性，它就可以在不同的網路上運作。<p>您會在 Site Recovery 入口網站中設定它，並向設定伺服器註冊。</p> | <p>受保護的機器會傳送複寫資料給內部部署處理序伺服器。它具有磁碟快取功能，可快取本身接收的複寫資料。它會對該資料執行數個動作。</p><p>它藉由在傳送資料到主要目標伺服器之前，快取、壓縮和加密資料來將資料最佳化。</p><p>它會處理行動服務的推送安裝。</p><p>它會執行 VMware 虛擬機器的自動探索。</p>
 **內部部署機器** | 內部部署機器是在 VMware Hypervisor 上執行的虛擬機器，或是執行 Windows 或 Linux 的實體伺服器。 | 您會設定適用虛擬機器和伺服器的複寫設定。您可以讓個別機器容錯移轉，或更常見地，隨著包含多個虛擬機器的復原方案一起容錯移轉。
 **行動服務** | <p>在您想要保護的每個虛擬機器或實體伺服器上安裝</p><p>可以手動安裝或推入並由處理序伺服器自動安裝。 | 服務會取得每個受保護的電腦上資料的 VSS 快照集，並將其移至處理序伺服器，接著將它複製到主要目標伺服器。
@@ -169,8 +169,8 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 **主要目標伺服器** | <p>Azure 虛擬機器，標準 A4 或 D14。</p><p>安裝路徑應該只有英文字元。例如，執行 Linux 的主要目標伺服器之路徑應為 **/usr/local/ASR**。</p></p>
 **處理序伺服器** | <p>您可以在執行最新版更新之 Windows Server 2012 R2 的實體或虛擬機器上部署處理序伺服器。在 C:/ 上安裝。</p><p>建議您將此伺服器放在與您要保護的機器相同的網路與子網路上。</p><p>在程序伺服器上安裝 VMware vSphere CLI 5.5.0。處理序伺服器上需要 VMware vSphere CLI 元件，才能探索 由 vCenter 伺服器管理的虛擬機器或 ESXi 主機上執行的虛擬機器。</p><p>安裝路徑應該只有英文字元。</p>
 **VMware** | <p>VMware vCenter 伺服器，管理您的 VMware vSphere Hypervisor。它應該執行 vCenter 5.1 或 5.5 版，並且具備最新的更新。</p><p>一或多個 vSphere Hypervisor，包含您要保護的 VMware 虛擬機器。Hypervisor 應該執行 ESX/ESXi 5.1 或 5.5 版或更新版本並且具備最新的更新。</p><p>VMware 虛擬機器應該已安裝並執行 VMware 工具。</p>
-**Windows 機器** | <p>受保護的實體伺服器或執行 Windows 的 VMware 虛擬機器有一些需求。</p><p>支援的 64 位元作業系統：**Windows Server 2012 R2**、**Windows Server 2012** 或 **Windows Server 2008 R2 包含至少 SP1**。</p><p>主機名稱、掛接點、裝置名稱、Windows 系統路徑 (例如：C:\\Windows) 應該僅使用英文。</p><p>作業系統應該安裝在 C:\\ 磁碟機上。</p><p>僅支援基本磁碟。不支援動態磁碟。</p><p><Firewall rules on protected machines should allow them to reach the configuration and master target servers in Azure.p><p>您必須提供系統管理員帳戶 (必須是 Windows 機器上的本機系統管理員)，才能在 Windows 伺服器上推入安裝行動服務。如果提供的帳戶是非網域帳戶，您必須停用本機電腦上的遠端使用者存取控制。若要執行此動作，請在 HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System 下加入值為 1 的 LocalAccountTokenFilterPolicy DWORD 登錄項目。若要加入登錄項目，請從 CLI 開啟 cmd 或 PowerShell，然後輸入 **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**。[深入了解](https://msdn.microsoft.com/library/aa826699.aspx)關於存取控制。</p><p>容錯移轉之後，如果您想要使用遠端桌面連線到 Azure 中的 Windows 虛擬機器，請確認內部部署機器的遠端桌面已啟用。如果您不透過 VPN 防火牆連線，規則應該允許透過網際網路的遠端桌面連線。</p>
-**Linux 機器** | <p> 支援的 64 位元作業系統：**Centos 6.4、6.5、6.6**；**Oracle Enterprise Linux 6.4、6.5，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3)**、**SUSE Linux Enterprise Server 11 SP3**。</p><p>受保護機器上的防火牆規則應該允許它們連線到 Azure 中的設定與主要目標伺服器。</p><p>在受保護機器上的 /etc/hosts 檔案，應該包含將本機主機名稱對應至所有 NIC 相關聯的 IP 位址的項目 </p><p>如果您想要在容錯移轉之後使用安全殼層用戶端 (ssh) 連接到執行 Linux 的 Azure 虛擬機器，請確定在受保護電腦上的安全殼層服務是設定為在系統開機時自動啟動，而且防火牆規則允許使用 ssh 對其連線。</p><p>主機名稱、掛接點、裝置名稱和 Linux 系統路徑和檔案名稱 (例如 /etc/、/usr) 應該僅使用英文。</p><p>可以對內部部署機器的下列儲存體啟用保護：檔案系統：EXT3、ETX4、ReiserFS、XFS/Multipath 軟體-裝置對應工具 (多重路徑)/磁碟區管理員：不支援使用 HP CCISS 控制器儲存體的 LVM2\\實體伺服器。</p>
+**Windows 機器** | <p>受保護的實體伺服器或執行 Windows 的 VMware 虛擬機器有一些需求。</p><p>支援的 64 位元作業系統：**Windows Server 2012 R2**、**Windows Server 2012** 或 **Windows Server 2008 R2 包含至少 SP1**。</p><p>主機名稱、掛接點、裝置名稱、Windows 系統路徑 (例如：C:\Windows) 應該僅使用英文。</p><p>作業系統應該安裝在 C:\ 磁碟機上。</p><p>僅支援基本磁碟。不支援動態磁碟。</p><p><Firewall rules on protected machines should allow them to reach the configuration and master target servers in Azure.p><p>您必須提供系統管理員帳戶 (必須是 Windows 機器上的本機系統管理員)，才能在 Windows 伺服器上推入安裝行動服務。如果提供的帳戶是非網域帳戶，您必須停用本機電腦上的遠端使用者存取控制。若要執行此動作，請在 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 下加入值為 1 的 LocalAccountTokenFilterPolicy DWORD 登錄項目。若要加入登錄項目，請從 CLI 開啟 cmd 或 PowerShell，然後輸入 **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**。[深入了解](https://msdn.microsoft.com/library/aa826699.aspx)關於存取控制。</p><p>容錯移轉之後，如果您想要使用遠端桌面連線到 Azure 中的 Windows 虛擬機器，請確認內部部署機器的遠端桌面已啟用。如果您不透過 VPN 防火牆連線，規則應該允許透過網際網路的遠端桌面連線。</p>
+**Linux 機器** | <p> 支援的 64 位元作業系統：**Centos 6.4、6.5、6.6**；**Oracle Enterprise Linux 6.4、6.5，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3)**、**SUSE Linux Enterprise Server 11 SP3**。</p><p>受保護機器上的防火牆規則應該允許它們連線到 Azure 中的設定與主要目標伺服器。</p><p>在受保護機器上的 /etc/hosts 檔案，應該包含將本機主機名稱對應至所有 NIC 相關聯的 IP 位址的項目 </p><p>如果您想要在容錯移轉之後使用安全殼層用戶端 (ssh) 連接到執行 Linux 的 Azure 虛擬機器，請確定在受保護電腦上的安全殼層服務是設定為在系統開機時自動啟動，而且防火牆規則允許使用 ssh 對其連線。</p><p>主機名稱、掛接點、裝置名稱和 Linux 系統路徑和檔案名稱 (例如 /etc/、/usr) 應該僅使用英文。</p><p>可以對內部部署機器的下列儲存體啟用保護：檔案系統：EXT3、ETX4、ReiserFS、XFS/Multipath 軟體-裝置對應工具 (多重路徑)/磁碟區管理員：不支援使用 HP CCISS 控制器儲存體的 LVM2\實體伺服器。</p>
 **第三方** | 在這個案例中某些部署元件取決於第三方廠商軟體才能正常運作。如須完整清單，請參閱[第三方廠商軟體注意事項和資訊](#third-party)
 
 ## Deployment
@@ -193,7 +193,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 4. 在 [名稱] 中，輸入保存庫的易記識別名稱。
 
-5. 在 [區域] 中，選取保存庫的地理區域。若要查看支援的區域，請參閱 [Azure Site Recovery 定價詳細資料](pricing/details/site-recovery/) (英文) 中的＜各區域上市情況＞。
+5. 在 [區域] 中，選取保存庫的地理區域。若要查看支援的區域，請參閱 [Azure Site Recovery 價格詳細資料](pricing/details/site-recovery/) (英文) 中的＜各區域上市情況＞。
 
 6. 按一下 [建立保存庫]。
 
@@ -228,9 +228,9 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 6.  部署設定伺服器之後，請在 Azure 入口網站的 [**虛擬機器**] 頁面中注意指派給此伺服器的公用 IP 位址。然後在 [**端點**] 索引標籤上注意對應至私人連接埠 443 的公用 HTTPS 連接埠。稍後當您在主要目標與處理序伺服器上註冊此設定伺服器的時候，您會需要這個資訊。這個設定伺服器利用這些端點進行部署：
 
-	- HTTPS：公用連接埠是用於透過網際網路協調元件伺服器與 Azure 之間的通訊。私人連接埠 443 是用於透過 VPN 協調元件伺服器與 Azure 之間的通訊。
-	- 自訂：公用連接埠用於透過網際網路的容錯回復工具通訊。
-	- 私人連接埠 9443 是用於透過 VPN 的容錯回復工具通訊。
+	- HTTPS：公用連接埠是用於透過網際網路協調元件伺服器與 Azure 之間的通訊。私用連接埠 443 是用來透過 VPN 協調元件伺服器與 Azure 之間的通訊。
+	- 自訂：公用連接埠用於透過網際網路的容錯回復工具通訊
+	- 。私人連接埠 9443 是用於透過 VPN 的容錯回復工具通訊。
 	- PowerShell：私人連接埠 5986
 	- 遠端桌面：私人連接埠 3389
 	
@@ -238,11 +238,11 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
     >[AZURE.WARNING]切勿刪除或變更設定伺服器部署期間建立的任何端點的公用或私用通訊埠編號。
 
-設定伺服器使用保留的 IP 位址部署在自動建立的 Azure 雲端服務。需要保留的位址才能確保雲端服務上的虛擬機器 (包括設定伺服器) 重新開機後，設定伺服器雲端服務 IP 位址仍是相同的。當解除委任設定伺服器時，將必須手動將保留的公用 IP 位址取消保留，否貝它仍將維持保留。每一訂用帳戶保留的公用 IP 位址預設限制為 20。[深入了解](https://msdn.microsoft.com/library/azure/dn630228.aspx)有關保留的 IP 位址。
+設定伺服器使用保留的 IP 位址部署在自動建立的 Azure 雲端服務。需要保留的位址才能確保雲端服務上的虛擬機器 (包括設定伺服器) 重新開機後，設定伺服器雲端服務 IP 位址仍是相同的。當解除委任設定伺服器時，將必須手動將保留的公用 IP 位址取消保留，否貝它仍將維持保留。每一訂用帳戶保留的公用 IP 位址預設限制為 20。[深入了解](../virtual-network/virtual-networks-reserved-private-ip.md)有關保留的 IP 位址。
 
 ### 在保存庫中註冊設定伺服器
 
-1. 在 [**快速入門**] 頁面上，按一下 [**準備目標資源**] > [**下載註冊金鑰**]。金鑰檔案會隨即自動產生。該金鑰在產生後會維持 5 天有效。將它複製到設定伺服器。
+1. 在 [**快速啟動**] 頁面上，按一下 [**準備目標資源**] > [**下載註冊金鑰**]。金鑰檔案會隨即自動產生。該金鑰在產生後會維持 5 天有效。將它複製到設定伺服器。
 2. 在 [**虛擬機器**] 中，從虛擬機器清單選取設定伺服器。開啟 [**儀表板**] 索引標籤，然後按一下 [**連接**]。[**開啟**] 下載的 RDP 檔案以使用遠端桌面登入設定伺服器。當您第一次登入時，Azure Site Recovery 設定伺服器安裝精靈會自動執行。
 
 	![註冊](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationSplashscreen.png)
@@ -265,7 +265,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 	- 當您按 [**下一步**] 時，將會執行測試來檢查 Proxy 連線。
 	- 如果您使用自訂 Proxy，或者您的預設 Proxy 需要驗證，您必須輸入 Proxy 詳細資料，包含位址、連接埠和認證。
 	- 下列 URL 應可透過 Proxy 存取：
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - 如果您有 IP 位址式防火牆規則，請確保規則設定為允許來自設定伺服器對 [Azure 資料中心 IP 範圍](https://msdn.microsoft.com/zh-TW/library/azure/dn175718.aspx)中所述的 IP 位址和 HTTPS (443) 通訊協定通訊。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
+		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - 如果您有 IP 位址式防火牆規則，請確保規則設定為允許來自設定伺服器對 [Azure 資料中心 IP 範圍](https://msdn.microsoft.com/zh-tw/library/azure/dn175718.aspx)中所述的 IP 位址和 HTTPS (443) 通訊協定通訊。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
 
 	![Proxy 註冊](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationProxy.png)
 
@@ -323,19 +323,6 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 - VPN 連線會使用伺服器的內部 IP 位址與端點私人連接埠。
 - 它是一次性的決策，決定是否要從您的內部部署伺服器透過 VPN 連線或網際網路連接 (控制和複寫資料) 到在 Azure 中執行的各種元件伺服器 (設定伺服器、主要目標伺服器)。您之後無法變更此設定。如果您這樣做，將需要重新部署案例並重新保護您的機器。  
 
-#### 設定 VPN 連線 (選擇性) 
-
-如果您想使用 VPN 或 ExpressRoute 連線，請執行下列：
-
-1. 如果您目前尚未設定連線，請在此處深入瞭解：
-
-	- [ExpressRoute 或 VPN - 哪一個最適合我](http://azure.microsoft.com/blog/2014/06/10/expressroute-or-virtual-network-vpn-whats-right-for-me/)
-	- [設定與 Azure 虛擬機器的站對站連線](../vpn-gateway-site-to-site-create.md)
-	- [設定 ExpressRoute](../expressroute-configuring-exps.md)
-2. 在保存庫中，按一下 [**伺服器**] > [**設定伺服器**] > [設定伺服器] > [**設定**]。
-3. 在 [**連線設定**] 中，確定 [**連線類型**] 設為 **VPN**。請注意，如果您已設定 VPN 且沒有內部部署站台的網際網路存取，請確認您已選取 VPN 選項。如果您未選取，處理序伺服器就無法傳送複寫資料給其公用端點上的主要目標伺服器。
-
-	![啟用 VPN](./media/site-recovery-vmware-to-azure/ASRVMWare_EnableVPN.png)
 
 ## 步驟 3：部署主要目標伺服器
 
@@ -394,18 +381,18 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 >[AZURE.NOTE]建議您在處理序伺服器上設定靜態 IP 位址，以保障在重新開機後可持續使用相同位址。
 
-1. 按一下 [快速入門] > [**安裝處理序伺服器內部部署**] > [**下載與安裝處理序伺服器**]。
+1. 按一下 [快速啟動] > [**安裝處理序伺服器內部部署**] > [**下載與安裝處理序伺服器**]。
 
 	![安裝處理序伺服器](./media/site-recovery-vmware-to-azure/ASRVMWare_PSDeploy.png)
 
 2. 將下載的 zip 檔案複製到您要安裝處理序伺服器的伺服器。zip 檔案包含兩個安裝檔案：
 
-	- Microsoft-ASR_CX_TP_8.2.0.0_Windows*
-	- Microsoft-ASR_CX_8.2.0.0_Windows*
+	- Microsoft-ASR_CX_TP_8.3.0.0_Windows*
+	- Microsoft-ASR_CX_8.3.0.0_Windows*
 
 3. 解壓縮封存，並將安裝檔案複製到伺服器上的位置。
-4. 執行 **Microsoft-ASR_CX_TP_8.2.0.0_Windows*** 安裝檔案，然後遵循指示。這樣可以安裝部署所需第三方廠商元件。
-5. 然後執行 **Microsoft-ASR_CX_8.2.0.0_Windows***。
+4. 執行 **Microsoft-ASR_CX_TP_8.3.0.0_Windows*** 安裝檔案，然後遵循指示。這樣可以安裝部署所需第三方廠商元件。
+5. 然後執行 **Microsoft-ASR_CX_8.3.0.0_Windows***。
 6. 在 [**伺服器模式**] 頁面上，選取 [**處理序伺服器**]。
 
 	![伺服器選取模式](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerSelection.png)
@@ -450,7 +437,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 如果您在註冊處理序伺服器的時候未停用簽章驗證，您可以稍後再依下列說明停用簽章：
 
-1. 以系統管理員身分登入處理序伺服器，並開啟 C:\\pushinstallsvc\\pushinstaller.conf 檔案進行編輯。在 **[PushInstaller.transport]** 區段下加入這一行：**SignatureVerificationChecks=”0”**。儲存並關閉檔案。
+1. 以系統管理員身分登入處理序伺服器，並開啟 C:\pushinstallsvc\pushinstaller.conf 檔案進行編輯。在 **[PushInstaller.transport]** 區段下加入這一行：**SignatureVerificationChecks=”0”**。儲存並關閉檔案。
 2. 重新啟動 InMage PushInstall 服務。
 
 
@@ -467,11 +454,11 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 如果是執行已安裝行動服務的虛擬機器或實體伺服器，您可以取得服務的更新，如下所示：
 
 - 下載服務的更新，如下所示：
-	- [Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)
-	- [RHELP6-64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)
-	- [OL6-64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)
-	- [SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)
-- 或者，在更新處理序伺服器之後，您可以從處理序伺服器上的 C:\\pushinstallsvc\\repository 資料夾取得行動服務的更新版本。
+	- [Windows Server (僅限 64 位元)](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)
+	- [CentOS 6.4,6.5,6.6 (僅限 64 位元)](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)
+	- [Oracle Enterprise Linux 6.4,6.5 (僅限 64 位元)](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)
+	- [SUSE Linux Enterprise Server SP3 (僅限 64 位元)](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)
+- 或者，在更新處理序伺服器之後，您可以從處理序伺服器上的 C:\pushinstallsvc\repository 資料夾取得行動服務的更新版本。
 
 
 ## 步驟 6：加入 vCenter 伺服器或 ESXi 主機
@@ -534,18 +521,18 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 **自動推入會在 Windows 伺服器上安裝行動服務：**
 
-1. 如 [步驟 5：安裝最新的更新] (\#最新的更新) 中所述，安裝程序伺服器的最新更新，並確定處理序伺服器可用。 
+1. 如 [步驟 5：安裝最新的更新] (#最新的更新) 中所述，安裝程序伺服器的最新更新，並確定處理序伺服器可用。 
 2. 確保來源機器和處理序伺服器之間具有網路連線，且可從處理序伺服器存取來源機器。  
 3. 設定 Windows 防火牆，允許**檔案及印表機共用**和 **Windows Management Instrumentation**。在 Windows 防火牆設定中，選取 [允許應用程式或功能通過防火牆] 選項，並選取應用程式，如下圖所示。針對隸屬於網域中的機器，您可以利用群組原則物件設定防火牆原則。
 
 	![防火牆設定](./media/site-recovery-vmware-to-azure/ASRVMWare_PushInstallFirewall.png)
 
 4. 用來執行推入安裝的帳戶必須在您要保護之機器的系統管理員群組中。這些認證僅適用於推入行動服務的安裝，並且您會在將電腦加入保護群組時提供它們。
-5. 如果提供的帳戶不是網域帳戶，您必須停用本機電腦上的遠端使用者存取控制。若要執行此動作，請在 HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System 下加入值為 1 的 LocalAccountTokenFilterPolicy DWORD 登錄項目。若要加入登錄項目，請從 CLI 開啟 cmd 或 PowerShell，然後輸入 **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**。 
+5. 如果提供的帳戶不是網域帳戶，您必須停用本機電腦上的遠端使用者存取控制。若要執行此動作，請在 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 下加入值為 1 的 LocalAccountTokenFilterPolicy DWORD 登錄項目。若要加入登錄項目，請從 CLI 開啟 cmd 或 PowerShell，然後輸入 **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**。 
 
 **自動推入會在 Linux 伺服器上安裝行動服務：**
 
-1. 如 [步驟 5：安裝最新的更新] (\#最新的更新) 中所述，安裝程序伺服器的最新更新，並確定處理序伺服器可用。
+1. 如 [步驟 5：安裝最新的更新] (#最新的更新) 中所述，安裝程序伺服器的最新更新，並確定處理序伺服器可用。
 2. 確保來源機器和處理序伺服器之間具有網路連線，且可從處理序伺服器存取來源機器。  
 3. 確認帳戶是來源 Linux 伺服器上的根使用者。
 4. 確保來源 Linux 伺服器上的 /etc/hosts 檔案包含將本機主機名稱對應到所有 NIC 相關聯之 IP 位址的項目。
@@ -567,7 +554,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
  
 ### 手動安裝行動服務
 
-用來安裝行動服務使用的軟體套件位於處理序伺服器上的 C:\\pushinstallsvc\\repository 中。登入處理序伺服器，並將適當的安裝套件複製到來源電腦，根據下表：
+用來安裝行動服務使用的軟體套件位於處理序伺服器上的 C:\pushinstallsvc\repository 中。登入處理序伺服器，並將適當的安裝套件複製到來源電腦，根據下表：
 
 | 來源作業系統 | 處理序伺服器上的行動服務封裝 |
 |---------------------------------------------------	|------------------------------------------------------------------------------------------------------	|
@@ -598,7 +585,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 **若要從命令列執行：**
 
-1. 將複雜密碼從 CX 複製到伺服器上的 "C:\\connection.passphrase" 檔案，並執行此命令。在我們的範例中，CX 是 104.40.75.37 和 HTTPS 連接埠是 62519：
+1. 將複雜密碼從 CX 複製到伺服器上的 "C:\connection.passphrase" 檔案，並執行此命令。在我們的範例中，CX 是 104.40.75.37 和 HTTPS 連接埠是 62519：
 
     `C:\Microsoft-ASR_UA_8.2.0.0_Windows_PREVIEW_20Mar2015_Release.exe" -ip 104.40.75.37 -port 62519 -mode UA /LOG="C:\stdout.txt" /DIR="C:\Program Files (x86)\Microsoft Azure Site Recovery" /VERYSILENT  /SUPPRESSMSGBOXES /norestart  -usesysvolumes  /CommunicationMode https /PassphrasePath "C:\connection.passphrase"`
 
@@ -750,14 +737,14 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 ## 第三方廠商軟體注意事項和資訊
 
-Do Not Translate or Localize
+無須翻譯或當地語系化
 
-The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”).  Microsoft is the not original author of the Third Party Code.  The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
+Microsoft 產品或服務中執行的軟體和韌體根據或整合以下列出專案中的資料 (以下合稱「 第三方廠商程式碼」)。Microsoft 不是原始的第三方廠商程式碼作者。Microsoft 收到這類第三方廠商程式碼所根據之原始著作權標示及授權如下所示。
 
-The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only.  This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.  
+區段 A 中的資訊是關於以下所列專案的第三方廠商程式碼元件。這類授權和資訊之提供僅供參考用途。Microsoft 根據其產品或服務之軟體授權條款，將此第三方廠商程式碼重新授權給您。
 
-The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
+區段 B 中的資訊是關於 Microsoft 根據原始的授權條款提供給您的第三方廠商程式碼元件。
 
 完整的檔案可以在 [Microsoft 下載中心](http://go.microsoft.com/fwlink/?LinkId=530254)取得。Microsoft 保留未在此處明確授與的所有權利，無論是隱含、禁止反悔或其他方式皆然。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

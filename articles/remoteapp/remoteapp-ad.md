@@ -3,7 +3,7 @@
     pageTitle="設定 Azure RemoteApp 的 Active Directory" 
     description="了解如何設定 Active Directory 以使用 Azure RemoteApp。" 
     services="remoteapp" 
-    documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -108,4 +108,4 @@ RemoteApp 在內部部署的 Active Directory 中需要兩個物件：
 現在啟動 Azure 目錄同步化工具，然後在第一次提示時使用 **myAzureSyncUser@mydomain.com** 憑證 (Microsoft Azure Active Directory 管理員憑證)，然後在第二次提示時使用 **myDomainSyncUser@mydomain.com**。
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

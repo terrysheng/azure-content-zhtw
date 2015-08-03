@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
@@ -41,7 +41,7 @@
 
 1. 啟動 Jupyter Notebook。在 Azure 入口網站選取 Spark 叢集，接著在底部的入口網站工作列按一下 [**Jupyter Notebook**]。出現提示時，輸入 Spark 叢集的系統管理員認證。
 
-2. 建立新的 Notebook。按一下 [**新增**]，然後按一下 [**Python2**]。
+2. 建立新的 Notebook。按一下 [**新增**]，然後按一下 [**Python 2**]。
 
 	![建立新的 Jupyter Notebook](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Note.Jupyter.CreateNotebook.png "建立新的 Jupyter Notebook")
 
@@ -49,7 +49,7 @@
 
 	![提供 Notebook 的名稱](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Note.Jupyter.Notebook.Name.png "提供 Notebook 的名稱")
 
-4. 匯入所需的模組，然後建立 Spark 和 Hive 內容。將以下程式碼片段貼入空白儲存格，然後按 **SHIFT + ENTER**。
+4. 匯入所需的模組，然後建立 Spark 和 Hive 內容。將以下程式碼片段貼入空白儲存格，然後按下 **SHIFT + ENTER**。
 
 		from pyspark import SparkContext
 		from pyspark.sql import *
@@ -63,7 +63,7 @@
 
 	 ![Jupyter Notebook 工作的狀態](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Job.Status.png "Jupyter Notebook 工作的狀態")
 
-4. 將範例資料載入暫存資料表。當您在 HDInsight 中佈建 Spark 叢集時，系統會將範例資料檔案 **hvac.csv** 複製到相關聯的儲存體帳戶，其路徑為 **\\HdiSamples\\SensorSampleData\\hvac**。
+4. 將範例資料載入暫存資料表。當您在 HDInsight 中佈建 Spark 叢集時，系統會將範例資料檔案 **hvac.csv** 複製到相關聯的儲存體帳戶，其路徑為 **\HdiSamples\SensorSampleData\hvac**。
 
 	將以下程式碼片段貼入空白儲存格，然後按下 **SHIFT + ENTER**。此程式碼片段會將資料註冊到名為 **hvac** 的 Hive 資料表。
 
@@ -205,4 +205,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

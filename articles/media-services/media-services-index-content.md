@@ -343,4 +343,4 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

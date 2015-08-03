@@ -188,7 +188,7 @@ This command creates a new affinity group
 
 ![Azure Technical Diagram](./media/virtual-machines-command-line-tools/architecturediagram.jpg)
 
-**create-new** 會在 Blob 儲存體 (也就是圖中的 e:\\) 建立磁碟機；**attach** 會將已建立但未連接的磁碟連接至虛擬機器。
+**create-new** 會在 Blob 儲存體 (也就是圖中的 e:) 建立磁碟機；**attach** 會將已建立但未連接的磁碟連接至虛擬機器。
 
 **vm create [options] &lt;dns-name> &lt;image> &lt;userName> [password]**
 
@@ -2346,4 +2346,4 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

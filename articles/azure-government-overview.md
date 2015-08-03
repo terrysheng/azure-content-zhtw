@@ -31,7 +31,7 @@ Azure Government 是一個政府社群雲端 (GCC)，設計來支援美國政府
 
 ![][2]
 
-Azure Government 包括基礎設施即服務 (IaaS) 和平台即服務 (PaaS) 的核心元件。這包括基礎結構、網路、儲存體、資料管理、身分識別管理和許多其他服務。Azure Government 支援公用 Azure 客戶所運用的相同絕佳功能，例如同步通信資料複寫和自動調整。Microsoft 藉由領導業界的分析師，已經視為是 <a href="https://www.gartner.com/doc/2575715/magic-quadrant-cloud-infrastructure-service" target="_new">IaaS</a> 和 <a href="https://www.gartner.com/doc/2645317/magic-quadrant-enterprise-application-platform" target="_new">PaaS<a/> 兩者的領導者。
+Azure Government 包括基礎設施即服務 (IaaS) 和平台即服務 (PaaS) 的核心元件。這包括基礎結構、網路、儲存體、資料管理、身分識別管理和許多其他服務。Azure Government 支援公用 Azure 客戶所運用的相同絕佳功能，例如同步通信資料複寫和自動調整。Microsoft 藉由領導業界的分析師，已經視為是 <a href="https://www.gartner.com/doc/2575715/magic-quadrant-cloud-infrastructure-service" target="_new">IaaS</a> 和 <a href="https://www.gartner.com/doc/2645317/magic-quadrant-enterprise-application-platform" target="_new">PaaS</a> 兩者的領導者。
 
 除了提供公用 Azure 的強固服務和功能，Azure Government 為了確保美國政府實體及其資料的安全性，還提供了許多功能：
 
@@ -103,4 +103,4 @@ Azure Government 目前在在「美國政府愛荷華州」(US GOV IOWA) 及「�
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

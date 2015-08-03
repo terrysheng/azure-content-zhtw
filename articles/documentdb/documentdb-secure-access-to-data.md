@@ -163,4 +163,4 @@ DocumentDB 權限資源會與 DocumentDB 使用者相關聯。每位使用者可
 - 若要了解如何建構 DocumentDB 授權權杖，請按一下[這裡](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

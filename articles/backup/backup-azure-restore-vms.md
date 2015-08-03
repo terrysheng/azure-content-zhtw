@@ -8,14 +8,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/27/2015"
-	ms.author="trinadhk"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="trinadhk"; "jimpark"/>
 
 # 還原虛擬機器
 您可以使用還原動作，利用儲存在 Azure 備份保存庫的備份，將虛擬機器還原至新的 VM。
@@ -38,7 +31,7 @@
 
     ![選取復原點](./media/backup-azure-restore-vms/select-recovery-point.png)
 
-2. 若要挑選較舊的時間，請選擇下拉式清單中的 [**選取日期**] 選項，並透過按一下行事曆圖示後，在行事曆控制項中選取一個日期。在控制項中，所有擁有復原點的日期會以淺灰色陰影填滿，並可供使用者選取。
+2. 若要挑選較舊的時間，請選擇下拉式清單中的 [選取日期] 選項，然後透過按一下行事曆圖示後，在行事曆控制項中選取一個日期。在控制項中，所有擁有復原點的日期會以淺灰色陰影填滿，並可供使用者選取。
 
     ![選取日期](./media/backup-azure-restore-vms/select-date.png)
 
@@ -46,7 +39,7 @@
 
     ![復原點](./media/backup-azure-restore-vms/recovery-points.png)
 
-3. 從 [**復原點**] 資料表中選取復原點，然後按一下 [下一步] 箭號以移至下一個畫面。
+3. 從 [復原點] 資料表中選取復原點，然後按一下 [下一步] 箭號以移至下一個畫面。
 
 ## 指定目的地位置
 
@@ -55,9 +48,9 @@
   - 指定虛擬機器名稱：在指定的雲端服務中，虛擬機器名稱應該是唯一的。如果您打算使用相同的名稱取代現有的 VM，先刪除現有的 VM 和資料磁碟，然後從 Azure 備份還原資料。
   - 選取 VM 的雲端服務：這是建立 VM 的必要步驟。您可以選擇使用現有的雲端服務，或建立新的雲端服務。
 
-        Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
+        請挑選全球唯一的雲端服務名稱。一般來說，雲端服務會與公眾對應 URL 的形式 [cloudservice].cloudapp.net 相關聯。如果該名稱已經有其他雲端服務使用，則 Azure 不會允許您建立新的雲端服務。
 
-        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](https://msdn.microsoft.com/zh-tw/library/azure/jj156085.aspx).
+        如果您選擇建立新的雲端服務，會以虛擬機器相同的名稱加以命名；如此一來，該 VM 的名稱就必須夠獨特，才能套用到相關聯的雲端服務。我們只會顯示不與同質群組的還原執行個體詳細資料相關的雲端服務和虛擬網路。[深入了解](https://msdn.microsoft.com/en-us/library/azure/jj156085.aspx)。
 
 2. 選取 VM 的儲存體帳戶：這是建立 VM 的必要步驟。您可以選取與 Azure 備份保存庫位於相同區域的現有儲存體帳戶。我們不支援區域備援或進階儲存體類型的儲存體帳戶。
 
@@ -75,14 +68,14 @@
 
     ![選取子網路](./media/backup-azure-restore-vms/select-subnet.png)
 
-5. 按一下精靈中的 [**提交**] 圖示以提交詳細資料和建立還原工作。
+5. 按一下精靈中的 [提交] 圖示以提交詳細資料和建立還原工作。
 
 ## 追蹤還原作業
 一旦您輸入還原精靈中的所有資訊和提交，Azure 備份將會嘗試建立一項工作以追蹤還原作業。
 
 ![正在建立還原工作](./media/backup-azure-restore-vms/create-restore-job.png)
 
-如果成功建立工作，您會看到快顯通知指出工作已建立。您可以按一下 [**檢視工作**] 按鈕進入 [**工作**] 索引標籤取得更多詳細資料。
+如果成功建立工作，您會看到快顯通知指出工作已建立。您可以按一下 [檢視工作] 按鈕進入 [工作] 索引標籤取得更多詳細資料。
 
 ![已建立還原工作](./media/backup-azure-restore-vms/restore-job-created.png)
 
@@ -102,6 +95,4 @@
 ## 後續步驟
 - [管理虛擬機器](backup-azure-manage-vms)
 
- 
-
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

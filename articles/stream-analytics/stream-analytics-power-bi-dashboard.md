@@ -185,7 +185,7 @@ Power BI 同時採用並行處理和輸送量的條件約束，如下所述：[h
 
 
 ## 取得說明 ##
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟 ##
 
@@ -208,4 +208,4 @@ Power BI 同時採用並行處理和輸送量的條件約束，如下所述：[h
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

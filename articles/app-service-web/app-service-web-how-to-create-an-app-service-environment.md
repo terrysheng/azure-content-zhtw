@@ -143,4 +143,4 @@ App Service 環境的定價是根據指派的計算資源。無論是否裝載�
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

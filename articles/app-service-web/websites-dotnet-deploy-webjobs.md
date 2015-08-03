@@ -200,4 +200,4 @@
 * 如需 Azure 入口網站變更為 Azure 預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

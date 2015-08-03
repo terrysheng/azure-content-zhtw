@@ -265,4 +265,4 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 
 如果您的輸入視訊不包含隱藏式字幕，輸出資產仍然會包含空白 TTML 檔案。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

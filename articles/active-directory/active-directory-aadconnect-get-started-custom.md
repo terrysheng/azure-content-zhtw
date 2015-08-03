@@ -161,7 +161,7 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 
 > [AZURE.WARNING]如果您目前啟用 DirSync 或 Azure AD Sync，請不要在 Azure AD Connect 中啟動任何回寫功能。
 
-裝置回寫功能可讓您取得在雲端中 (例如在 Intune 中) 註冊的裝置，並將它納入 AD DS 中以供有條件的存取。若要啟用此功能，必須備妥 AD DS。如果您安裝 AD FS 與裝置註冊服務 (DRS)，則 DRS 會提供 PowerShell Cmdlet，讓您準備要用於裝置回寫的 AD。如果沒有安裝 DRS，可以企業系統管理員的身分執行 C:\\Program Files\\Microsoft Azure Active Directory Connect\\AdPrep\\AdSyncAdPrep.psm1。
+裝置回寫功能可讓您取得在雲端中 (例如在 Intune 中) 註冊的裝置，並將它納入 AD DS 中以供有條件的存取。若要啟用此功能，必須備妥 AD DS。如果您安裝 AD FS 與裝置註冊服務 (DRS)，則 DRS 會提供 PowerShell Cmdlet，讓您準備要用於裝置回寫的 AD。如果沒有安裝 DRS，可以企業系統管理員的身分執行 C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1。
 
 在您可以執行 PowerShell Cmdlet 之前，必須先匯入它。
 
@@ -273,4 +273,4 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 * [深入了解](active-directory-aadconnect-learn-more.md)
 * [MSDN 上的 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

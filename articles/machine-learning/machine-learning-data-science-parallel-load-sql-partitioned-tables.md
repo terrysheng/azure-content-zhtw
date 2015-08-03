@@ -184,4 +184,4 @@
 如需使用公開資料集之進階分析程序和技術 (ADAPT) 的端對端逐步解說範例，請參閱[進階分析程序和技術實務：使用 SQL Server](machine-learning-data-science-process-sql-walkthrough.md)。
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

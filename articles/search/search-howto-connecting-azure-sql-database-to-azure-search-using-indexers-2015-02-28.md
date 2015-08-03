@@ -68,7 +68,21 @@ Azure 搜尋服務可以輕鬆地提供強大的搜尋體驗，但您必須先�
 
 然後，建立目標 Azure 搜尋服務索引 (如果您尚未建立)。您可以從 [Azure 入口網站 UI](https://portal.azure.com) 或使用[建立索引 API](https://msdn.microsoft.com/library/azure/dn798941.aspx) 來執行此作業。確保您的目標索引結構敘述與來源資料表結構敘述相容。請參閱下列資料表，對應 SQL 及 Azure 搜尋服務間的資料類型。
 
-**在 SQL 資料類型及 Azure 搜尋服務資料類型間比對** <table style="font-size:12"> <tr> <td>SQL 資料類型</td> <td>允許的目標索引欄位類型</td> <td>注意</td> </tr> <tr> <td>bit</td> <td>Edm.Boolean、Edm.String</td> <td></td> </tr> <tr> <td>int、smallint、tinyint</td> <td>Edm.Int32、Edm.Int64、 Edm.String</td> <td></td> </tr> <tr> <td>bigint</td> <td>Edm.Int64、 Edm.String</td> <td></td> </tr> <tr> <td>real、 float</td> <td>Edm.Double、 Edm.String</td> <td></td> </tr> <tr> <td>smallmoney、 money<br/>decimal<br/>numeric </td> <td>Edm.String</td> <td>Azure 搜尋服務不支援將 decimal 類型轉換為 Edm.Double，因為這可能會失去精確度</td> </tr> <tr> <td>char、 nchar、varchar、 nvarchar</td> <td>Edm.String<br/>Collection(Edm.String)</td> <td>將字串資料行轉換為 Collection (Edm.String) 需要使用預覽 API 版本 2015-02-28-預覽。請參閱 [本文](search-api-indexers-2015-02-28-Preview.md#create-indexer) 了解詳細資訊</td> </tr> <tr> <td>smalldatetime、datetime、datetime2、date、datetimeoffset</td> <td> Edm.DateTimeOffset、Edm.String</td> <td></td> </tr> <tr> <td> uniqueidentifer</td> <td>Edm.String</td> <td></td> </tr> <tr> <td>geography</td> <td>Edm.GeographyPoint</td> <td>僅支援使用 SRID 4326 (預設) 之 POINT 類型的 geography執行個體</td> </tr> <tr> <td>rowversion</td> <td>N/A</td> <td> 資料列版本的資料行無法儲存在搜尋索引中，但可用於變更追蹤</td> </tr> <tr> <td>time、 timespan<br>binary、varbinary、image、<br>xml、 geometry、CLR 類型</td> <td>N/A</td> <td>不支援</td> </tr> </table>
+**SQL 資料類型與 Azure 搜尋服務資料類型之間的對應**
+
+|SQL 資料類型 | 允許的目標索引欄位類型 |注意事項 
+|------|-----|----|
+|bit|Edm.Boolean、Edm.String| |
+|int、smallint、tinyint |Edm.Int32、Edm.Int64、Edm.String| |
+| bigint | Edm.Int64、Edm.String | |
+| real、float |Edm.Double、Edm.String | |
+| smallmoney、money 十進位數值 | Edm.String| Azure 搜尋服務不支援將十進位類型轉換為 Edm.Double，因為這麼做會降低準確度。 |
+| char、nchar、varchar、nvarchar | Edm.String<br/>Collection(Edm.String)|將字串資料行轉換成 Collection(Edm.String) 需要使用預覽 API 2015-02-28-Preview 版本。如需詳細資訊，請參閱[這篇文章](search-api-indexers-2015-02-28-Preview.md#create-indexer)| 
+|smalldatetime、datetime、datetime2、date、datetimeoffset |Edm.DateTimeOffset、Edm.String| |
+|uniqueidentifer | Edm.String | |
+|geography | Edm.GeographyPoint | 僅支援使用 SRID 4326 (預設) 之 POINT 類型的 geography 執行個體。 | | 
+|rowversion| N/A |資料列版本的資料行無法儲存在搜尋索引中，但可用於追蹤變更。 | |
+| time、timespan、binary、varbinary、image、xml、geometry、CLR 類型 | N/A |不支援 |
 
 最後，利用命名及參考資料來源和目標索引建立索引子。
 
@@ -263,4 +277,4 @@ Azure 搜尋服務可以輕鬆地提供強大的搜尋體驗，但您必須先�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

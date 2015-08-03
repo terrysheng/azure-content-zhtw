@@ -106,4 +106,4 @@ Dash.js 是以 JavaScript 撰寫的開放原始碼 MPEG-DASH 視訊播放程式�
 
 [GitHub dash.js 存放庫](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

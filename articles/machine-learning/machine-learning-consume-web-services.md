@@ -2,6 +2,7 @@
 	pageTitle="使用機器學習 Web 服務 | Microsoft Azure" 
 	description="機器學習服務發佈之後，就可以使用 RESTFul Web 服務做為要求-回應服務或批次執行服務。" 
 	services="machine-learning" 
+	solutions="big-data" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -433,4 +434,4 @@ RRS 範例驗證應用程式的真確性。您可以將絕大多數應用程式�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

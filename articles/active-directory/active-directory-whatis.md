@@ -92,4 +92,4 @@ Azure AD 有多租用戶、地理位置分散且具有高可用性的設計，�
 - [利用雲端增強並監視內部部署身分識別系統](https://msdn.microsoft.com/library/azure/dn906722.aspx)
 - [適合開發人員的豐富標準型平台](https://msdn.microsoft.com/library/azure/ff800682.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

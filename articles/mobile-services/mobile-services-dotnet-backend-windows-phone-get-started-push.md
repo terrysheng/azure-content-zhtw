@@ -103,7 +103,7 @@
 
    	![][1]
 
-   	如此可確保您的應用程式能夠引發快顯通知。
+   	This makes sure that your app can raise toast notifications.
 
 ##更新伺服器以傳送推播通知
 
@@ -204,4 +204,4 @@
 [Azure 管理入口網站]: https://manage.windowsazure.com/
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

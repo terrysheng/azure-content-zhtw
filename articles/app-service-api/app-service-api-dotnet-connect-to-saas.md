@@ -121,7 +121,7 @@
 	 
 			install-package DropboxRestAPI  
 
-1. 開啟 *Controllers\\ValuesController.cs*，並以下列程式碼取代檔案中的所有程式碼。
+1. 開啟 *Controllers\ValuesController.cs*，並以下列程式碼取代檔案中的所有程式碼。
 
 		using DropboxRestAPI;
 		using Microsoft.Azure.AppService.ApiApps.Service;
@@ -447,4 +447,4 @@ Dropbox 登入之後的重新導向 URL 可能與此範例類似：
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

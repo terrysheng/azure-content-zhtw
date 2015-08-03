@@ -149,8 +149,8 @@ Site Recovery 元件會隨保護案例稍微改變。
 
 - **Windows 伺服器**：
 	-  64 位元作業系統： Windows Server 2012 R2、Windows Server 2012，或 Windows Server 2008 R2 (至少為 SP1)。
-	-  主機名稱、掛接點、裝置名稱、Windows 系統路徑 (例如：C:\\Windows)，僅限英文。
-	-  C:\\ 磁碟機上的作業系統。
+	-  主機名稱、掛接點、裝置名稱、Windows 系統路徑 (例如：C:\Windows)，僅限英文。
+	-  C:\ 磁碟機上的作業系統。
 	-  僅支援基本磁碟。不支援動態磁碟。
 
 - **Linux 伺服器**：
@@ -169,10 +169,10 @@ Site Recovery 元件會隨保護案例稍微改變。
 --- | --- 
 <p>**VMM 的 Azure Site Recovery 提供者**</p><p>**Azure 復原服務代理程式**</p> | <p></p>**首次安裝**：從 [快速入門] 頁面下載最新版<p></p>**進行中**：您可以從 Site Recovery 的儀表板下載最新 (和前一個) 版本。此外，如果您選擇 Microsoft Updates，會自動在伺服器上安裝最新版的提供者和代理程式。
 <p>**處理序伺服器**</p><p>**設定伺服器**</p><p>**主要目標伺服器**</p> | 在 Site Recovery 儀表板上檢查更新。 
-**行動服務** | <p>確定想要保護的每部機器上都有最新的行動服務更新：<p><p>可以下載最新的更新：</p><p>[Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)</p><p>[RHELP6-64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)</p><p>[OL6-64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)</p><p>[SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)</p><p>此外，在確保有最新的處理序伺服器後，您可以從處理序伺服器的 C:\\pushinstallsvc\\repository 資料夾下載最新版的行動服務</p>  
+**行動服務** | <p>確定想要保護的每部機器上都有最新的行動服務更新：<p><p>可以下載最新的更新：</p><p>[Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)</p><p>[RHELP6-64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)</p><p>[OL6-64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)</p><p>[SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)</p><p>此外，在確保有最新的處理序伺服器後，您可以從處理序伺服器的 C:\pushinstallsvc\repository 資料夾下載最新版的行動服務</p>  
 
 ## 後續步驟
 
 開始設定您的部署案例的元件。[深入了解](site-recovery-overview.md)。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

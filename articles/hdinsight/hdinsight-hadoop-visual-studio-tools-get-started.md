@@ -14,14 +14,14 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/08/2015"
+	ms.date="07/21/2015"
 	ms.author="jgao"/>
 
 # 開始使用適用於 HDInsight 的 Visual Studio Hadoop 工具來執行 Hive 查詢
 
 了解如何使用 HDInsight Tools for Visual Studio 來連線到 HDInsight 叢集並提交 Hive 查詢。如需使用 HDInsight 的詳細資訊，請參閱 [HDInsight 簡介][hdinsight.introduction]和[開始使用 HDInsight][hdinsight.get.started]。如需連線到 Storm 叢集的詳細資訊，請參閱[使用 Visual Studio 開發 HDInsight 上 Apache Storm 的 C# 拓撲][hdinsight.storm.visual.studio.tools]。
 
->[AZURE.NOTE]最新版本引進了一些新功能，例如 Hive 編輯器 Intellisense 支援、Hive 指令碼本機驗證，以及 YARN 記錄存取。
+>[AZURE.NOTE]最新版本引進了一些新功能，例如 Hive 編輯器支援、Hive 指令碼本機驗證，以及 YARN 記錄存取。
 
 
 ## 必要條件
@@ -39,12 +39,12 @@
 	- Visual Studio (下列其中一個版本)：
 		- Visual Studio 2012 Professional/Premium/Ultimate，含 [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 		- Visual Studio 2013 Community/Professional/Premium/Ultimate，含 [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
-		- Visual Studio 2015 RC (Community/Enterprise)
+		- Visual Studio 2015 (Community/Enterprise)
 
 	>[AZURE.NOTE]HDInsight Tools for Visual Studio 目前只有英文版。
 
 
-## 安裝適用於 Visual Studio 的 Hadoop 工具
+## Install HDInsight tools for Visual Studio
 
 HDInsight Tools for Visual Studio 封裝在 Microsoft Azure SDK for .NET 2.5.1 版或更新版本內。您可以使用 [Web Platform Installer](http://go.microsoft.com/fwlink/?LinkId=255386) 來進行安裝。您必須選擇與 Visual Studio 版本相符的封裝。此 Hadoop 工具套件也會安裝 Microsoft Hive ODBC 驅動程式 (32 位元和 64 位元)。
 
@@ -53,7 +53,7 @@ HDInsight Tools for Visual Studio 封裝在 Microsoft Azure SDK for .NET 2.5.1 �
 
 >[AZURE.NOTE]如果您有 Visual Studio 2015 或 2012，並且已安裝 Azure SDK 2.5，則必須先手動移除舊版本，再安裝最新版本。Visual Studio 2013 支援直接更新。
 
-## 連線到 Azure 訂閱
+## 連線到 Azure 訂用帳戶
 「適用於 Visual Studio 的 HDInsight 工具」可讓您連線到您的 HDInsight 叢集、執行一些基本管理作業，以及執行 Hive 查詢。
 
 >[AZURE.NOTE]如需連線到 HDInsight Emulator 的相關資訊，請參閱[開始使用 HDInsight Emulator](../hdinsight-get-started-emulator.md/#vstools)。
@@ -135,11 +135,11 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 
 1. 從 [**伺服器總管**] 中，展開 [**Azure**]，然後展開 [**HDInsight 叢集**]。
 2. 在您想要執行查詢的叢集上按一下滑鼠右鍵，然後按一下 [**撰寫 Hive 查詢**]。
-3. 輸入 Hive 查詢。請注意，Hive 編輯器支援 Intellisense。HDInsight Tools for Visual Studio 支援在編輯 Hive 指令碼時載入遠端中繼資料。例如，當您輸入 "SELECT * FROM"，Intellisense 會列出所有建議的資料表名稱。在指定了資料表名稱時，Intellisense 會列出資料行名稱。
+3. 輸入 Hive 查詢。請注意，Hive 編輯器支援 Intellisense。HDInsight Tools for Visual Studio 支援在編輯 Hive 指令碼時載入遠端中繼資料。例如，當您輸入 "SELECT * FROM"，IntelliSense 會列出所有建議的資料表名稱。在指定了資料表名稱時，IntelliSense 會列出資料行名稱。此工具幾乎支援所有的 Hive DML 陳述式、子查詢以及內建 UDF。 
 
-	![Hadoop 工具：HDInsight Visual Studio 工具 Intellisense][13]
+	![Hadoop 工具：HDInsight Visual Studio 工具 IntelliSense][13]
 
-	![Hadoop 工具：HDInsight Visual Studio 工具 Intellisense][14]
+	![Hadoop 工具：HDInsight Visual Studio 工具 IntelliSense][14]
 
 	> [AZURE.NOTE]
 4. (選擇性)：按一下 [**驗證指令碼**] 檢查指令碼語法錯誤。
@@ -181,6 +181,18 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 
 	![Hadoop 工具：HDInsight Visual Studio 工具檢視 Hive 工作][12]
 
+### Tez Hive 工作效能圖表
+
+HDInsight Visual Studio 工具支援顯示由 Tez 執行引擎執行之 Hive 工作的效能圖形。如需啟用 Tez 的資訊，請參閱[使用 HDInsight 中的 Hive][hdinsight.hive]。您提交 Visual Studio 中的 Hive 工作之後，Visual Studio 會在工作完成時顯示圖形。您可能需要按一下 [重新整理] 按鈕，以取得最新的工作狀態。
+
+> [AZURE.NOTE]此功能只適用於高於 3.2.4.593 版的 HDInsight 叢集，且只能用於已完成的工作。這適用於以 Windows 和 Linux 為基礎的叢集。
+
+![hadoop hive tez 效能圖表](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
+
+## 執行 Pig 指令碼
+
+HDInsight Tools for Visual Studio 支援建立 Pig 指令碼並提交至 HDInsight 叢集。使用者可以從範本建立 Pig 專案，然後再提交指令碼至 HDInsight 叢集。
+
 ## 後續步驟
 在本文中，您已經學會如何使用 Hadoop 工具套件從 Visual Studio 連線到 HDInsight 叢集，以及如何執行 Hive 查詢。如需詳細資訊，請參閱：
 
@@ -211,6 +223,7 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 [13]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.table.names.png
 [14]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.column.names.png
 
+
 <!--Link references-->
 [hdinsight-provision]: ../hdinsight/hdinsight-provision-clusters.md
 [hdinsight.introduction]: ../hdinsight-introduction.md
@@ -223,4 +236,4 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

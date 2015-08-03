@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2015"
+	ms.date="07/10/2015"
 	ms.author="ningk"/>
 
 #如何使用 Microsoft Azure 建立 LAMP 堆疊
@@ -32,9 +32,7 @@
 
 除了本主題以外，如果您已經有虛擬機器，而只是想了解在不同 Linux 散發套件上安裝 LAMP 堆疊的基本概念，請參閱[在 Azure 中的 Linux 虛擬機器上安裝 LAMP 堆疊](virtual-machines-linux-install-lamp-stack.md)。
 
-您也可以部署 Azure Marketplace 預先設定的 LAMP 映像。下列 10 分鐘的影片將介紹如何部署 Azure Marketplace 預先建立的 LAMP 映像：
-
-> [AZURE.VIDEO lamp-stack-on-azure-vms-with-guy-bowerman]
+您也可以部署 Azure Marketplace 預先設定的 LAMP 映像。下列 10 分鐘的影片將介紹如何部署 Azure Marketplace 預先建立的 LAMP 映像：(Azure VM 上的 LAMP 堆疊](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman)。
 
 ##第 1 階段：建立映像。
 在這個階段，您將在 Azure 中使用 Linux 映像建立虛擬機器。
@@ -44,27 +42,27 @@ SSH 對系統管理員而言是很重要的工具。因為無論如何，依賴�
 
 依照下列步驟來產生 SSH 驗證金鑰。
 
--	從下列位置下載並安裝 puttygen： [http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
+-	從下列位置下載並安裝 Puttygen：[http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
 -	執行 puttygen.exe。
 -	按一下 [產生] 來產生金鑰。在這個程序中，您可以在視窗中的空白區域移動滑鼠來提高隨機性。![][1]
 -	在產生程序之後，Puttygen.exe 會顯示產生的金鑰。例如：![][2]
--	選取並複製 [金鑰] 中的公開金鑰，並將它儲存在名為 **publicKey.pem** 的檔案中。不要按 [儲存公開金鑰]，因為儲存的公開金鑰檔案格式與我們想要的公開金鑰不同。
--	按一下 [儲存私密金鑰]，並將它儲存在名為 **privateKey.ppk** 的檔案中。
+-	選取並複製 [**金鑰**] 中的公開金鑰，並將它儲存在名為 **publicKey.pem** 的檔案中。不要按 [儲存公開金鑰]，因為儲存的公開金鑰檔案格式與我們想要的公開金鑰不同。
+-	按一下 [**儲存私密金鑰**]，並將它儲存在名為 **privateKey.ppk** 的檔案中。
 
-###步驟 2：在 Azure Preview 入口網站中建立映像。
-在 [Azure Preview 入口網站](https://portal.azure.com/)中，按一下工作列中的 [新增]，然後遵循下列指示，根據您的需求選擇 Linux 映像來建立映像。此範例使用 Ubuntu 14.04 映像。
+###步驟 2：在 Azure 入口網站中建立映像。
+在 [Azure 入口網站](https://portal.azure.com/)中，按一下工作列中的 [**新增**]，然後遵循下列指示，根據您的需求選擇 Linux 映像來建立映像。此範例使用 Ubuntu 14.04 映像。
 
 ![][3]
 
-對於 [主機名稱]，指定您和網際網路用戶端將用來存取此虛擬機器的 URL 名稱。定義 DNS 名稱的最後一個部分，例如 LAMPDemo，然後 Azure 會產生如 Lampdemo.cloudapp.net 的 URL。
+對於 [**主機名稱**]，指定您和網際網路用戶端將用來存取此虛擬機器的 URL 名稱。定義 DNS 名稱的最後一個部分，例如 LAMPDemo，然後 Azure 會產生如 Lampdemo.cloudapp.net 的 URL。
 
-對於 [使用者名稱]，挑選您稍後將用來登入虛擬機器的名稱。
+對於 [**使用者名稱**]，挑選您稍後將用來登入虛擬機器的名稱。
 
-對於 [SSH 驗證金鑰]，從 **publicKey.pem** 檔案複製金鑰值，其中包含 puttygen 所產生的公開金鑰。
+對於 [**SSH 驗證金鑰**]，從 **publicKey.pem** 檔案複製金鑰值，其中包含 puttygen 所產生的公開金鑰。
 
 ![][4]
 
-視需要設定其他設定，然後按一下 [建立]。
+視需要設定其他設定，然後按一下 [**建立**]。
 
 ##第 2 階段：準備用於 LAMP 堆疊的虛擬機器
 在這個階段，您將設定 Web 流量的端點，然後連線到新的虛擬機器。
@@ -74,11 +72,11 @@ Azure 中的端點是由一種通訊協定 (TCP 或 UDP) 以及公用和私用�
 
 TCP 連接埠 80 是 Apache 接聽的預設連接埠號碼。在 Azure 端點開啟這個連接埠，可讓您和其他網際網路用戶端存取 Apache Web 伺服器。
 
-在 Azure Preview 入口網站中，按一下 [瀏覽] -> [虛擬機器]，然後按一下您建立的虛擬機器。
+在 Azure 入口網站中，按一下 [**瀏覽] -> [虛擬機器**]，然後按一下您建立的虛擬機器。
 
 ![][5]
 
-若要將端點新增至虛擬機器，請按一下 [端點] 方塊。
+若要將端點新增至虛擬機器，請按一下 [**端點**] 方塊。
 
 ![][6]
 
@@ -86,9 +84,9 @@ TCP 連接埠 80 是 Apache 接聽的預設連接埠號碼。在 Azure 端點開
 
 設定端點：
 
-1.	在 [端點] 中輸入端點的名稱。
-2.	在 [公用連接埠] 中輸入 80。如果您變更了 Apache 的預設接聽連接埠，則必須更新私用連接埠與 Apache 接聽連接埠相同。
-3.	在 [公用連接埠] 中輸入 80。根據預設，HTTP 流量使用連接埠 80。如果設定為 80，不需要在 URL 中包含連接埠號碼就可讓您存取 Apache Web 服務。例如，http://lampdemo.cloudapp.net。如果您將 Apache 接聽連接埠設定為另一個值 (例如 81)，您就必須將此連接埠號碼加入 URL 才能存取 Apache Web 服務。例如，http://lampdemo.cloudapp.net:81/。
+1.	在 [**端點**] 中輸入端點的名稱。
+2.	在 [**公用連接埠**] 中輸入 80。如果您變更了 Apache 的預設接聽連接埠，則必須更新私用連接埠與 Apache 接聽連接埠相同。
+3.	在 [**公用連接埠**] 中輸入 80。根據預設，HTTP 流量使用連接埠 80。如果設定為 80，不需要在 URL 中包含連接埠號碼就可讓您存取 Apache Web 服務。例如，http://lampdemo.cloudapp.net。如果您將 Apache 接聽連接埠設定為另一個值 (例如 81)，您就必須將此連接埠號碼加入 URL 才能存取 Apache Web 服務。例如，http://lampdemo.cloudapp.net:81/。
 
 ![][7]
 
@@ -100,7 +98,7 @@ TCP 連接埠 80 是 Apache 接聽的預設連接埠號碼。在 Azure 端點開
 ###步驟 2：連線到您建立的映像
 您可以選擇任何 SSH 工具來連線到新的虛擬機器。在此範例中，我們使用 Putty。
 
-首先，從 Azure Preview 入口網站取得您虛擬機器的 DNS 名稱。按一下 [瀏覽] -> [虛擬機器] -> [您的虛擬機器名稱] -> [內容]，然後查看 [內容] 磚的 [網域名稱] 欄位。
+首先，從 Azure 入口網站取得您虛擬機器的 DNS 名稱。按一下 [**瀏覽] -> [虛擬機器**] -> 您的虛擬機器名稱 -> [**內容**]，然後查看 [**內容**] 磚的 [**網域名稱**] 欄位。
 
 從 [SSH] 欄位取得 SSH 連線的連接埠號碼。範例如下。
 
@@ -112,11 +110,11 @@ TCP 連接埠 80 是 Apache 接聽的預設連接埠號碼。在 Azure 端點開
 
 ![][9]
 
-在左窗格中，按一下 [連線] -> [SSH] -> [驗證]，然後按一下 [瀏覽] 來指定 **privateKey.ppk** 檔案的位置，其中包含 puttygen 在＜第 1 階段：建立映像＞中產生的私密金鑰。下列是一個範例：
+在左窗格中，按一下 [**連接] -> [SSH] -> [驗證**]，然後按一下 [**瀏覽**] 來指定 **privateKey.ppk** 檔案的位置，其中包含 puttygen 在＜第 1 階段：建立映像＞中產生的私密金鑰。下列是一個範例：
 
 ![][10]
 
-按一下 [開啟]。您可能會收到警告訊息方塊。如果您已正確設定 DNS 名稱和連接埠號碼，按一下 [是]。
+按一下 [開啟]。您可能會收到警告訊息方塊。如果您已正確設定 DNS 名稱和連接埠號碼，按一下 [**是**]。
 
 ![][11]
 
@@ -265,7 +263,7 @@ PHP 是一種開放原始碼 Web 指令碼語言，廣泛用來建立動態網�
 
 Ubuntu 是根據 Debian。您可以採用與 Red Hat 系列相同的方式安裝 LAMP 堆疊。若要簡化步驟，請使用 Tasksel 工具。
 
-Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相關套件到您的系統上。如需詳細資訊，請參閱 [Tasksel - 社群協助 Wiki](https://help.ubuntu.com/community/Tasksel) (英文)。
+Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相關套件到您的系統上。如需詳細資料，請參閱 [Tasksel - 社群協助 Wiki](https://help.ubuntu.com/community/Tasksel)。
 
 使用 tasksel 安裝 LAMP 堆疊所需的軟體。
 
@@ -277,7 +275,7 @@ Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相
 		sudo apt-get install tasksel
 		sudo tasksel install lamp-server
 
-接著依照精靈指示，選擇您的 **MySQL root 密碼**。
+接著依照精靈指示，選擇您的 **MySQL 根密碼**。
 
 ![][15]
 
@@ -454,4 +452,4 @@ Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

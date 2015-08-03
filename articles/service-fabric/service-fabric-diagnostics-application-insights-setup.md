@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/20/2015"
    ms.author="mattrow"/>
 
 # 設定 Service Fabric 應用程式的 Application Insights
@@ -41,7 +41,7 @@
     Microsoft.ServiceFabric.Telemetry.ApplicationInsights.Listener.Enable(EventLevel.Verbose);
 ```
  
-### StatefulActor\\Program.cs 的範例：
+### StatefulActor\Program.cs 的範例：
 
 ```csharp
     public static void Main(string[] args)
@@ -89,4 +89,4 @@
 - [了解如何建立您自己的自訂事件和計量](../app-insights-custom-events-metrics-api.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

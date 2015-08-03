@@ -113,7 +113,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 1. 從命令列將目錄變更至 **tasklist** 目錄。如果 **tasklist** 目錄不存在，請予以建立。
 
-	> [AZURE.NOTE]本教學課程參考 **tasklist** 資料夾。在此忽略此資料夾的完整路徑，是因為不同作業系統有不同的路徑語義。您應該在本機檔案系統中易於存取的位置建立此資料夾，例如 **~/node/tasklist** 或 **c:\\node\\tasklist**
+	> [AZURE.NOTE]本教學課程參考 **tasklist** 資料夾。在此忽略此資料夾的完整路徑，是因為不同作業系統有不同的路徑語義。您應該在本機檔案系統中易於存取的位置建立此資料夾，例如 **~/node/tasklist** 或 **c:\node\tasklist**
 
 2. 輸入以下命令以安裝 express 命令。
 
@@ -571,4 +571,4 @@ Azure CLI 可讓您執行 Azure 服務的管理作業。若您的開發環境尚
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

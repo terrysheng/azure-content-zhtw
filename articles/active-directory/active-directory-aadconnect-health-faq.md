@@ -68,7 +68,7 @@ ADFS 伺服器上安裝 Microsoft Identity Health 代理程式對於 CPU、記�
 - 步驟 1 – 將項目加入至 machine.config 檔案中
 
 
-找出 machine.config 檔案。此檔案位於 %windir%\\Microsoft.NET\\Framework64[version]\\config\\machine.config</li>
+找出 machine.config 檔案。此檔案位於 %windir%\Microsoft.NET\Framework64[version]\config\machine.config</li>
 
 在 machine.config 檔案的 <configuration></configuration> 元素底下加入下列項目。
  
@@ -125,4 +125,4 @@ Azure AD Connect Health 警示會在成功情況下獲得解決。Azure AD Conne
 
 您必須開放 TCP/UDP 連接埠 80 和 443，Azure AD Connect Health 代理程式才能夠與 Azure AD Health 服務端點進行通訊。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

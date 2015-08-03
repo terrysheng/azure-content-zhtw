@@ -74,7 +74,7 @@
 
 ## <a name="format"></a> 資料格式
 
-* 每個 Blob 是包含多個以 '\\n' 分隔的列的文字檔案。
+* 每個 Blob 是包含多個以 '\n' 分隔的列的文字檔案。
 * 每列是未格式化的 JSON 文件。如果您想要坐一旁並盯著它，請嘗試使用 Notepad++ 之類的檢視器搭配 JSON 外掛程式：
 
 ![使用合適的工具檢視遙測](./media/app-insights-export-telemetry/06-json.png)
@@ -183,4 +183,4 @@
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

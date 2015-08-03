@@ -84,4 +84,4 @@
 
 [透過 Azure Media Services 編碼的隨選內容](media-services-encode-asset.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

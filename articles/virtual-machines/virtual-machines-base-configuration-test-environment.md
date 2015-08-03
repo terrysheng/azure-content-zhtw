@@ -283,4 +283,4 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

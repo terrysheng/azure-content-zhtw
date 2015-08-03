@@ -2,6 +2,7 @@
 	pageTitle="針對進階分析程序和技術自訂 Hadoop 叢集 | Microsoft Azure" 
 	description="自訂 Azure HDInsight Hadoop 叢集中提供熱門 Python 模組。"
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -97,4 +98,4 @@
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

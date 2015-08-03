@@ -228,4 +228,4 @@ Open a PowerShell window and run the following script after you’ve updated it 
 
 如果您想要分析來自不同地理位置的伺服器資料，請考慮在每個位置設定一個管理群組。這可以改善從代理程式到管理群組傳輸資料的效能。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

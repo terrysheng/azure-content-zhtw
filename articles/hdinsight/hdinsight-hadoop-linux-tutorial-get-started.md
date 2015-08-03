@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/13/2015"
+   ms.date="07/11/2015"
    ms.author="nitinme"/>
 
 # Hadoop 教學課程：在 Linux 開始在 HDInsight 中搭配 Hive 使用 Hadoop (預覽)
@@ -22,13 +22,13 @@
 - [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-本 Hadoop 教學課程將示範如何在 Linux 上佈建 Hadoop 叢集並執行 Hive 查詢，以從非結構化資料擷取有意義的資訊，讓您快速地在 Linux 上開始使用 Azure HDInsight。
+本 Hadoop 教學課程將示範如何在 Linux 上佈建 Hadoop 叢集並執行 Hive 查詢，讓您快速地在 Linux 上開始使用 Azure HDInsight。
 
 
 > [AZURE.NOTE]如果您是 Hadoop 和巨量資料的新使用者，您可以進一步了解這些術語：<a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a><a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>、<a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">Hadoop 分散式檔案系統 (HDFS)</a> 及 <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>。若要了解 HDInsight 如何在 Azure 中啟用 Hadoop，請參閱 [HDInsight 中 Hadoop 的簡介](hdinsight-hadoop-introduction.md)。
 
 
-## 本教學課程要達成什麼目標？ ##
+## 本教學課程要達成什麼目標？ 
 
 假設您有一個大型的非結構化資料集，而且您想要在此資料集上執行查詢以擷取一些有用資訊。以下是要達成此目標的作法：
 
@@ -69,7 +69,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 
 3. 輸入 [**URL**]、[**位置**] 和 [**複寫**] 資訊，然後按一下 [**建立儲存體帳戶**]。不支援同質群組。您將在儲存體清單中看見新的儲存體帳戶。
 
-	>[AZURE.NOTE]佈建 HDInsight Linux 叢集的快速建立選項 (如在本教學課程中所使用的選項) 在佈建叢集時並不會詢問位置。依預設，它會將叢集並存於與儲存體帳戶相同的資料中心內。因此請務必在叢集支援的位置中建立儲存體帳戶，這些位置包括：**東亞**、**東南亞**、**北歐**、**西歐**、**美國東部**、**美國西部**、**美國中北部**、**美國中南部**。
+	>[AZURE.NOTE]佈建 HDInsight Linux 叢集的快速建立選項 (如在本教學課程中所使用的選項) 在佈建叢集時並不會詢問位置。依預設，它會將叢集並存於與儲存體帳戶相同的資料中心內。
 
 4. 等候新儲存體帳戶的 [**狀態**] 變更為 [**線上**]。
 5. 從清單中選取新儲存體帳戶，並按一下頁面底部的 [**管理存取金鑰**]。
@@ -98,7 +98,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 	<table border="1">
 <tr><th>名稱</th><th>值</th></tr>
 <tr><td>叢集名稱</td><td>叢集的名稱。</td></tr>
-<tr><td>叢集大小</td><td>您要部署的資料節點數。預設值為 4。但您也可以從下拉式清單中選擇使用 1 或 2 個資料節點。使用 [自訂建立]<strong></strong> 選項可以指定任何數目的叢集節點。另外也提供各種叢集大小的費率定價詳細資料。按一下下拉式方塊正上方的 [<strong>?</strong>]，並按一下快顯功能表上的連結。</td></tr>
+<tr><td>叢集大小</td><td>您要部署的資料節點數。預設值為 4。但您也可以從下拉式清單中選擇使用 1 或 2 個資料節點。使用 [自訂建立]<strong></strong> 選項可以指定任何數目的叢集節點。另外也提供各種叢集大小的費率價格詳細資料。按一下下拉式方塊正上方的 [<strong>?</strong>]，並按一下快顯功能表上的連結。</td></tr>
 <tr><td>密碼</td><td><i>HTTP</i> 帳戶 (預設使用者名稱：admin) 和 <i>SSH</i> 帳戶 (預設使用者名稱：hdiuser) 的密碼。請注意，這些「不是」指佈建叢集所在虛擬機器的系統管理員帳戶。</td></tr>
 
 <tr><td>儲存體帳戶</td><td>從下拉式方塊中，選取您建立的儲存體帳戶。<br/>
@@ -235,7 +235,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 	傳回的資料應該會全都對應至 [ERROR] 記錄檔。
 
 
-## <a name="nextsteps"></a>接續步驟
+## <a name="nextsteps"></a>後續步驟
 在本 Linux 教學課程中，您已經學會如何使用 HDInsight 在 Linux 上佈建 Hadoop 叢集並使用 SSH 在叢集上執行 Hive 查詢。若要深入了解，請參閱下列文章：
 
 - [使用自訂選項在 Linux 上佈建 HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
@@ -271,4 +271,4 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

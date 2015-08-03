@@ -4,6 +4,7 @@
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
+	writer="Rick-Anderson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -75,10 +76,10 @@
 ### 設定頁首及頁尾
 
 
-1. 在 [方案總管]中，展開 *Views\\Shared* 資料夾並開啟 *_Layout.cshtml* 檔案。
+1. 在 [方案總管]中，展開 *Views\Shared* 資料夾並開啟 *_Layout.cshtml* 檔案。
 	![[方案總管] 中的 _Layout.cshtml][newapp004]
 
-1. 以下列程式碼取代 *Views\\Shared_Layout.cshtml* 檔案中的內容：
+1. 以下列程式碼取代 *Views\Shared_Layout.cshtml* 檔案中的內容：
 
 
 		<!DOCTYPE html>
@@ -235,7 +236,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 	在 **Initial** 類別中，**Up** 方法會建立 Contacts 資料表，**Down** 方法 (當您希望返回前個狀態時使用) 則會捨棄該資料表。
 
-3. 開啟 *Migrations\\Configuration.cs* 檔案。
+3. 開啟 *Migrations\Configuration.cs* 檔案。
 
 4. 新增下列命名空間。
 
@@ -318,7 +319,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 ## 編輯檢視
 
-1. 開啟 *Views\\Home\\Index.cshtml* 檔案。在下一個步驟中，我們會將產生的標記取代為使用 [jQuery](http://jquery.com/) 和 [Knockout.js](http://knockoutjs.com/) 的程式碼。這個新的程式碼會使用 Web API 和 JSON 來擷取連絡人清單，然後再使用 knockout.js 使連絡人資料與 UI 繫結。如需詳細資訊，請參閱本教學課程結尾處的[後續步驟](#nextsteps)一節。 
+1. 開啟 *Views\Home\Index.cshtml* 檔案。在下一個步驟中，我們會將產生的標記取代為使用 [jQuery](http://jquery.com/) 和 [Knockout.js](http://knockoutjs.com/) 的程式碼。這個新的程式碼會使用 Web API 和 JSON 來擷取連絡人清單，然後再使用 knockout.js 使連絡人資料與 UI 繫結。如需詳細資訊，請參閱本教學課程結尾處的[後續步驟](#nextsteps)一節。 
 
 
 2. 以下列程式碼取代檔案的內容。
@@ -475,7 +476,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 	我們會將此樣式表用於 Contact Manager 應用程式所用的版面配置、色彩及樣式。
 
-6. 開啟 *App_Start\\BundleConfig.cs* 檔案。
+6. 開啟 *App_Start\BundleConfig.cs* 檔案。
 
 
 7. 新增以下程式碼以註冊 [Knockout](http://knockoutjs.com/index.html "KO") 外掛程式。
@@ -628,7 +629,7 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 
 	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
 
-1. 更新 *Views\\Home\\Index.cshtml* 檔案的 *Scripts* 區段，使其包含取得 XSRF 權杖的程式碼。
+1. 更新 *Views\Home\Index.cshtml* 檔案的 *Scripts* 區段，使其包含取得 XSRF 權杖的程式碼。
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -809,4 +810,4 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

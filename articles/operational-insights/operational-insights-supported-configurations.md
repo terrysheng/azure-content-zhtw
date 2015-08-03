@@ -100,4 +100,4 @@
 
 此外，也支援在 WOW64 實作中執行的 32 位元版本 SQL Server。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

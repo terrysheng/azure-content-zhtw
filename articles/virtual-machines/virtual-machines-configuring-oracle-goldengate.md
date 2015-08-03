@@ -1,5 +1,19 @@
-<properties title="Configuring Oracle GoldenGate for Azure" pageTitle="設定適用於 Azure 的 Oracle GoldenGate" description="在 Azure 虛擬機器上逐步執行設定和實作高可用性和嚴重損壞修復之 Oracle GoldenGate 的教學課程。" services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+	pageTitle="設定適用於 Azure 的 Oracle GoldenGate" 
+	description="在 Azure 虛擬機器上逐步執行設定和實作高可用性和嚴重損壞修復之 Oracle GoldenGate 的教學課程。" 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+
 #設定適用於 Azure 的 Oracle GoldenGate
 本教學課程示範如何設定適用於 Azure 虛擬機器環境的 Oracle GoldenGate，以取得高可用性並進行嚴重損壞修復 。本教學課程著重於非 RAC Oracle 資料庫的[雙向複寫](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_about_gg.htm)，而且要求這兩個站台必須是作用中的站台。
 
@@ -116,7 +130,7 @@ Oracle GoldenGate 包含下列主要元件：擷取、資料幫浦、複寫、�
 	      grant delete any table to ggate;
 	      grant drop any table to ggate;
 
-接著，在站台 A 和站台 B 上的 %ORACLE_HOME%\\database 資料夾中找到 INIT<DatabaseSID>.ORA 檔案，並將下列資料庫參數附加到 INITTEST.ora：
+接著，在站台 A 和站台 B 上的 %ORACLE_HOME%\database 資料夾中找到 INIT<DatabaseSID>.ORA 檔案，並將下列資料庫參數附加到 INITTEST.ora：
 
 	UNDO_MANAGEMENT=AUTO
 	UNDO_RETENTION=86400
@@ -189,7 +203,7 @@ Oracle GoldenGate 包含下列主要元件：擷取、資料幫浦、複寫、�
 ##3.建立所有必要的物件來支援 DDL 複寫
 本節列出您用來建立所有必要物件以支援 DDL 複寫所需的指令碼。您需要在站台 A 和站台 B 上執行本節中指定的指令碼。
 
-開啟 Windows 命令提示字元並巡覽至 Oracle GoldenGate 資料夾，例如 C:\\OracleGG。在站台 A 和站台 B 上，使用資料庫管理員權限來啟動 SQL*Plus 命令提示字元，例如使用 **SYSDBA**：
+開啟 Windows 命令提示字元並巡覽至 Oracle GoldenGate 資料夾，例如 C:\OracleGG。在站台 A 和站台 B 上，使用資料庫管理員權限來啟動 SQL*Plus 命令提示字元，例如使用 **SYSDBA**：
 
 然後，執行下列指令碼：
 	
@@ -277,7 +291,7 @@ Oracle GoldenGate 管理員會執行一些像是啟動其他 GoldenGate 程序�
 	GGSCI (MachineGG1) 17> add rmttrail C:\OracleGG\dirdat\ab extract dpump1
 	RMTTRAIL added.
 
-使用 EDIT PARAMS 命令來開啟參數檔案，然後附加下列資訊：GGSCI (MachineGG1) 18> edit params ext1 EXTRACT ext1 USERID ggate, PASSWORD ggate EXTTRAIL C:\\OracleGG\\dirdat\\aa TRANLOGOPTIONS EXCLUDEUSER ggate TABLE scott.inventory, GETBEFORECOLS ( ON UPDATE KEYINCLUDING (prod_category,qty_in_stock, last_dml), ON DELETE KEYINCLUDING (prod_category,qty_in_stock, last_dml));
+使用 EDIT PARAMS 命令來開啟參數檔案，然後附加下列資訊：GGSCI (MachineGG1) 18> edit params ext1 EXTRACT ext1 USERID ggate, PASSWORD ggate EXTTRAIL C:\OracleGG\dirdat\aa TRANLOGOPTIONS EXCLUDEUSER ggate TABLE scott.inventory, GETBEFORECOLS ( ON UPDATE KEYINCLUDING (prod_category,qty_in_stock, last_dml), ON DELETE KEYINCLUDING (prod_category,qty_in_stock, last_dml));
 
 使用 EDIT PARAMS 命令來開啟參數檔案，然後附加下列資訊：
 
@@ -583,4 +597,4 @@ Oracle GoldenGate 管理員會執行一些像是啟動其他 GoldenGate 程序�
 ##其他資源
 [適用於 Azure 的 Oracle 虛擬機器映像](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

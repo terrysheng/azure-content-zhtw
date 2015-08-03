@@ -102,4 +102,4 @@
 [行動服務標準層]: /pricing/details/mobile-services/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

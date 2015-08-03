@@ -23,20 +23,19 @@
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 
-Visual Studio Application Insights 監視您的即時應用程式，協助您[偵測並診斷效能問題和例外狀況][detect]，同時[探索應用程式的使用情況][knowUsers]。它可以搭配各種不同的應用程式類型。這適用於裝載在專屬內部部署 IIS 伺服器或 Azure VM 上的應用程式，以及 Azure Web 應用程式。([也涵蓋裝置應用程式和 Java 伺服器][start]。)
+[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) 會監視您的即時應用程式，協助您[偵測並診斷效能問題和例外狀況][detect]，同時 [探索應用程式的使用情況][knowUsers]。它可以搭配各種不同的應用程式類型。這適用於裝載在專屬內部部署 IIS 伺服器或 Azure VM 上的應用程式，以及 Azure Web 應用程式。([也涵蓋裝置應用程式和 Java 伺服器][start]。)
 
 ![範例效能監視圖表](./media/app-insights-asp-net/10-perf.png)
 
-對於許多應用程式類型，[Visual Studio 可以將 Application Insights 加入至您的應用程式](#ide)，而且您幾乎不會察覺。為了讓您清楚了解整個運作情形，本文將帶您手動完成這些步驟。
 
 #### 開始之前
 
 您需要：
 
 * [Microsoft Azure](http://azure.com) 訂用帳戶。如果您的小組或組織擁有 Azure 訂用帳戶，擁有者就可以使用您的 [Microsoft 帳戶](http://live.com)將您加入。
-* Visual Studio 2013 或更新版本。
+* Visual Studio 2013 Update 3 或更新版本。
 
-## <a name="ide"></a> 在 Visual Studio 中將 Application Insights 加入至專案
+## <a name="ide"></a> 在 Visual Studio 中將 Application Insights 加入專案
 
 #### 對於新專案
 
@@ -63,12 +62,13 @@ Visual Studio Application Insights 監視您的即時應用程式，協助您[�
 如果此應用程式是更大應用程式的一部分，您可以使用 [**組態設定**]，將它放在與其他元件相同的資源群組中。
 
 
-#### 「加入 Application Insights」的作用為何？
+####<a name="land"></a>「加入 Application Insights」執行了哪些動作？
 
-此命令會執行兩件事 (如果想要的話，您也可以手動執行)：
+命令執行了下列步驟 (如果想要的話，可以改為手動執行)：
 
-* 在 [Azure 入口網站][portal]中建立 Application Insights 資源。這是您會看到您的資料的位置。它會擷取可識別資源的*檢測金鑰*。
-* 將 Application Insights Web SDK NuGet 封裝加入至您的專案，並將金鑰放在 `ApplicationInsights.config`。
+* 在 [Azure 入口網站][portal]中建立 Application Insights 資源。這是您會看到您的資料的位置。它會擷取可識別資源的「檢測金鑰」。
+* 將 Application Insights Web SDK NuGet 封裝加入您的專案。若要在 Visual Studio 中看到它，請以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。
+* 將檢測金鑰放在 `ApplicationInsights.config` 中。
 
 
 ## <a name="run"></a>執行專案
@@ -115,21 +115,21 @@ Visual Studio Application Insights 監視您的即時應用程式，協助您[�
 
 ![選擇 [新增]、[開發人員服務]、[Application Insights]。](./media/app-insights-asp-net/16-page-views.png)
 
-您也可以撰寫自己的程式碼，來追蹤您的使用者使用您的應用程式，徹底得知詳細的點按和按鍵層級。
+您也可以撰寫自己的程式碼，來追蹤您的使用者如何使用您的應用程式，徹底得知詳細的點按和按鍵層級。
 
-#### 如果您的用戶端是 Web 瀏覽器
+#### 如果您的用戶端是網頁瀏覽器
 
-如果您的應用程式顯示網頁，請在每一頁加入 JavaScript 程式碼片段。從您的 Application Insights 資源取得程式碼：
+如果您的 app 顯示網頁，請在每一頁加入 JavaScript 程式碼片段。從您的 Application Insights 資源取得程式碼：
 
-![在您的 Web 應用程式中，開啟 [快速啟動]，然後按一下 [取得程式碼來監視我的網頁]](./media/app-insights-asp-net/02-monitor-web-page.png)
+![在您的 Web 應用程式中，開啟 [快速入門]，然後按一下 [取得程式碼來監視我的網頁]](./media/app-insights-asp-net/02-monitor-web-page.png)
 
 請注意，此程式碼包含可識別您的應用程式資源的檢測金鑰。
 
-[進一步了解網頁追蹤。](app-insights-web-track-usage.md)
+[深入了解網頁追蹤。](app-insights-web-track-usage.md)
 
-#### 如果您的用戶端是裝置應用程式
+#### 如果您的用戶端是裝置 app
 
-如果您的應用程式為用戶端 (例如電話或其他裝置) 提供服務，請加入[適當的 SDK](app-insights-platforms.md) 至您的裝置應用程式。
+如果您的應用程式為用戶端 (例如電話或其他裝置) 提供服務，請將[適當的 SDK](app-insights-platforms.md) 加入您的裝置 app。
 
 如果您使用與伺服器 SDK 相同的檢測金鑰來設定用戶端 SDK，將整合兩個資料流，讓您同時看到。
 
@@ -146,7 +146,7 @@ Visual Studio Application Insights 監視您的即時應用程式，協助您[�
 
 ## 發佈您的應用程式
 
-如果您尚未發行您的應用程式 (因為您加入了 Application Insights)，請立即發行您的應用程式。隨著人們使用您的應用程式觀看圖表中的資料成長。
+如果您尚未發佈您的 app (因為您加入了 Application Insights)，請立即發佈您的 app。隨著人們使用您的 app，您會在圖表中看到資料成長。
 
 ### 針對開發、測試和發行保持個別的資源
 
@@ -156,23 +156,23 @@ Visual Studio Application Insights 監視您的即時應用程式，協助您[�
 
 ## 加入相依性追蹤
 
-[相依性度量](app-insights-dependencies.md)對於協助您診斷效能問題的價值難以衡量。它們會測量從您的應用程式對資料庫、REST API 和其他外部元件的呼叫。
+[相依性度量](app-insights-dependencies.md)對於協助您診斷效能問題非常有價值。它們會測量您的 app 對資料庫、REST API 和其他外部元件的呼叫。
 
 ![](./media/app-insights-asp-net/04-dependencies.png)
 
-#### 如果您的應用程式是在您的 IIS 伺服器中執行
+#### 如果您的 app 是在您的 IIS 伺服器中執行
 
 使用系統管理員權限登入您的伺服器，並安裝 [Application Insights 狀態監視器](http://go.microsoft.com/fwlink/?LinkId=506648)。
 
-(您也可以使用狀態監視器來[檢測已在執行的應用程式](app-insights-monitor-performance-live-website-now.md)，即使它不是使用 SDK 建置。)
+(您也可以使用狀態監視器來[檢測已在執行的 app](app-insights-monitor-performance-live-website-now.md)，即使它不是使用 SDK 建置)。
 
-#### 如果您的應用程式是 Azure Web 應用程式
+#### 如果您的 app 是 Azure Web 應用程式
 
 在您的 Azure Web 應用程式的控制台中，加入 Application Insights 延伸模組。
 
 ![在您的 Web 應用程式中，依序按一下 [設定]、[延伸模組]、[加入]、[Application Insights]](./media/app-insights-asp-net/05-extend.png)
 
-(延伸模組只能協助使用 SDK 建置的應用程式。與狀態監視器不同，它無法檢測現有的應用程式。)
+(延伸模組只能協助使用 SDK 建置的 app。與狀態監視器不同，它無法檢測現有的 app)。
 
 ## 可用性 Web 測試
 
@@ -220,4 +220,4 @@ Visual Studio Application Insights 監視您的即時應用程式，協助您[�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

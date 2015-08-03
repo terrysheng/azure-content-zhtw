@@ -18,4 +18,4 @@ CNAME 記錄將*特定的*網域 (例如 **mail.contoso.com** 或 **www.contoso.
 
 > [AZURE.NOTE]使用 CNAME 記錄時，某些網域註冊機構只允許您對應子網域 (如 **www.contoso.com**)，而不是根名稱 (如 **contoso.com**)。如需 CNAME 記錄的詳細資訊，請參閱註冊機構提供的文件、<a href="http://en.wikipedia.org/wiki/CNAME_record">維基百科 CNAME 記錄條目</a>，或 <a href="http://tools.ietf.org/html/rfc1035">IETF 網域名稱 - 實作與規格</a>文件。
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

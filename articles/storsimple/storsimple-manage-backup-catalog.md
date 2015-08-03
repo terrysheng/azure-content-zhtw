@@ -117,4 +117,4 @@
 
 了解如何使用備份類別目錄以[從備份組還原裝置](storsimple-restore-from-backup-set.md)。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -65,4 +65,4 @@ Windows VM：
 -  [擷取 Windows 虛擬機器](virtual-machines-capture-image-windows-server.md)
 -  [中斷連結磁碟](storage-windows-detach-disk.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="php" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/17/2015" 
 	ms.author="yuaxu"/>
 
 # 如何從 PHP 使用通知中樞
@@ -257,4 +257,4 @@
 [開始使用教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

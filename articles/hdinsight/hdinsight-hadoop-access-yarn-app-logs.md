@@ -3,7 +3,7 @@
 	description="在 HDInsight 中的 Hadoop 叢集上以程式設計方式存取應用程式記錄檔" 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 # 在 HDInsight 中的 Hadoop 上，以程式設計方式存取 YARN 應用程式記錄檔
 
@@ -115,7 +115,7 @@ YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程�
 您現在可以使用「應用程式歷程記錄用戶端」來列出已完成的應用程式、根據您的條件篩選應用程式，以及下載相關的應用程式記錄檔。下列程式碼片段示範如何以程式設計方式執行這項操作：
 
 	// Local download folder location where the logs will be placed
-	string downloadLocation = "E:\\YarnApplicationLogs";
+	string downloadLocation = "E:\YarnApplicationLogs";
 	
 	// List completed applications on your cluster that were submitted in the last 24 hours but failed
 	// Search for applications based on application name
@@ -173,4 +173,4 @@ YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程�
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

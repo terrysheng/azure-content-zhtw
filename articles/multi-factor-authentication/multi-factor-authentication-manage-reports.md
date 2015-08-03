@@ -50,4 +50,4 @@ Azure Multi-Factor Authentication 提供數個供您和貴組織使用的報告�
 * [MSDN 上的 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

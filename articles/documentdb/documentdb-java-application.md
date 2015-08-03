@@ -13,7 +13,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="04/29/2015" 
+	ms.date="07/21/2015" 
 	ms.author="andrl"/>
 
 # 使用 DocumentDB 來建置 Java Web 應用程式 #
@@ -88,7 +88,7 @@
 4. 在 [**選取相依性**] 視窗中，執行下列動作：
  - 在 [**GroupId**] 方塊中，輸入 com.microsoft.azure。
  - 在 [**成品 ID**] 方塊中，輸入 azure documentdb。
- - 在 [**版本**] 方塊中，輸入 1.0.0。
+ - 在 [**版本**] 方塊中，輸入 1.1.0。
 
 	![](./media/documentdb-java-application/image13.png)
 
@@ -97,7 +97,7 @@
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.0.0</version>
+		    <version>1.1.0</version>
 	    </dependency>
 
 5. 按一下 [**確定**]，Maven 便會開始安裝 DocumentDB Java SDK。
@@ -662,7 +662,7 @@
 		      var id = checkboxElement.attr('id');
 		      var isComplete = checkboxElement.is(':checked');
 		
-		      // Togle table row color
+		      // Toggle table row color
 		      if (isComplete) {
 		        rowElement.addClass("active");
 		        rowElement.removeClass("warning");
@@ -763,7 +763,7 @@
 8. 在 [**本機目的地**] 畫面上，按一下 [**瀏覽**] 以選取可以複製儲存機制的資料夾，然後按 [**下一步**]。
 9. 在 [**選取要用於匯入專案的精靈**] 畫面上，確定已選取 [**匯入現有的專案**]，然後按 [**下一步**]。
 10. 在 [**匯入專案**] 畫面上，取消選取 **DocumentDB** 專案，然後按一下 [**完成**]。DocumentDB 專案包含 DocumentDB Java SDK，我們將會改為相依性新增。
-11. 在 [**專案總管**] 中，瀏覽至 azure-documentdb-java-sample\\src\\com.microsoft.azure.documentdb.sample.dao\\DocumentClientFactory.java，並將 [主機] 和 [MASTER_KEY] 值取代為您 DocumentDB 帳戶的 [URI] 和 [主要金鑰]，然後儲存檔案。如需詳細資訊，請參閱[步驟 1。建立 DocumentDB 資料庫帳戶](#CreateDB)。
+11. 在 [**專案總管**] 中，瀏覽至 azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java，並將 [主機] 和 [MASTER_KEY] 值取代為您 DocumentDB 帳戶的 [URI] 和 [主要金鑰]，然後儲存檔案。如需詳細資訊，請參閱[步驟 1。建立 DocumentDB 資料庫帳戶](#CreateDB)。
 12. 在 [**專案總管**] 中，以滑鼠右鍵按一下 **azure-documentdb-java-sample**，按一下 [**組建路徑**]，然後按一下 [**設定組建路徑**]。
 13. 在 [**Java 組建路徑**] 畫面的右側窗格中，選取 [**程式庫**] 索引標籤，然後按一下 [**新增外部 JAR**]。瀏覽至 lombok.jar 檔案的位置，按一下 [**開啟**]，然後按一下 [**確定**]。
 14. 使用步驟 12 重新開啟 [**屬性**] 視窗，然後在左側窗格中按一下 [**目標執行階段**]。
@@ -779,4 +779,4 @@
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

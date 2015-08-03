@@ -49,7 +49,7 @@
 
 1. 按一下[取得支援](https://manage.windowsazure.com/?getsupport=true)。如果您未登入，系統會提示您輸入認證。
 
-1. 選取您的訂用帳戶。
+1. 選取您的訂閱。
  
 1. 在支援類型下，選取 [技術]。
  
@@ -66,4 +66,4 @@
 1. 按一下 [提交] 來建立票證。
   
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

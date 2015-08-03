@@ -1,19 +1,12 @@
-<properties 
-	pageTitle="使用範本部署 Azure 資源" 
-	description="了解如何使用 Azure 資源管理程式庫中可用的部分用戶端，以部署虛擬機器、虛擬網路和儲存體帳戶。" 
-	services="virtual-machines,virtual-networks,storage" 
-	documentationCenter="" 
-	authors="davidmu1" 
-	manager="timlt" 
-	editor="tysonn"/>
+<屬性 pageTitle =「使用範本部署 Azure 資源」描述 =「了解如何使用 Azure 資源管理程式庫中一些可用的用戶端部署虛擬機器、虛擬網路和儲存體帳戶」服務 =「虛擬機器、虛擬網路、儲存體」documentationCenter="" 作者 ="davidmu1" 管理員 ="timlt" 編輯器 ="tysonn" 標記 ="azure-資源-管理員/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="vm-windows" 
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.topic="article"
+	ms.date="06/15/2015"
 	ms.author="davidmu"/>
 
 # 使用 .NET 程式庫和範本部署 Azure 資源
@@ -55,7 +48,7 @@
 
 5. 將 {application-id} 取代成您剛才記錄的識別碼，然後建立應用程式的服務主體：
 
-        New-AzureADServicePrincipal -ApplicationId {application-id} 
+        New-AzureADServicePrincipal -ApplicationId {application-id}
 
 6. 設定使用應用程式的權限：
 
@@ -186,7 +179,7 @@
           "resources": [ {
             "apiVersion": "2014-12-01-preview",
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('newStorageAccountName')]",       
+            "name": "[parameters('newStorageAccountName')]",
             "location": "[parameters('location')]",
             "properties": { "accountType": "[parameters('storageAccountType')]" }
           },
@@ -195,7 +188,7 @@
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "[parameters('publicIPAddressName')]",
             "location": "[parameters('location')]",
-            "properties": { 
+            "properties": {
               "publicIPAllocationMethod": "[parameters('publicIPAddressType')]",
               "dnsSettings": { "domainNameLabel": "[parameters('dnsName')]" }
             }
@@ -256,7 +249,7 @@
                 "adminPassword": "[parameters('adminPassword')]",
                 "windowsProfile": { "provisionVMAgent": "true" }
               },
-              "storageProfile": { 
+              "storageProfile": {
                 "sourceImage": { "id": "[variables('sourceImageName')]" },
                 "destinationVhdsContainer" : "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',parameters('vmStorageAccountContainerName'),'/')]"
               },
@@ -283,7 +276,7 @@
 
         {
           "contentVersion": "1.0.0.0",
-          "parameters": { 
+          "parameters": {
             "vmName": { "value": "mytestvm1" },
             "newStorageAccountName": { "value": "mytestsa1" },
             "storageAccountType": { "value": "Standard_LRS" },
@@ -296,8 +289,8 @@
             "adminUserName": { "value": "mytestacct1" },
             "adminPassword": { "value": "mytestpass1" },
             "virtualNetworkName": { "value": "mytestvn1" },
-            "dnsName": { "value": "mytestdns1" }, 
-            "nicName": { "value": "mytestnic1" } 
+            "dnsName": { "value": "mytestdns1" },
+            "nicName": { "value": "mytestnic1" }
           }
         }
 
@@ -450,4 +443,4 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 	![建立 AD 應用程式](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2015"
+   ms.date="07/09/2015"
    ms.author="ryanwi"/>
 
 # 管理 Service Fabric 服務
@@ -30,6 +30,7 @@
 - [服務資訊清單資源](service-fabric-service-manifest-resources.md)
 - [封裝應用程式](service-fabric-application-model.md)
 - [部屬與移除應用程式](service-fabric-deploy-remove-applications.md)
+- [部署現有的應用程式](service-fabric-deploy-existing-app.md)
 - [在 Visual Studio 中管理 Service Fabric 應用程式](service-fabric-manage-application-in-visual-studio.md)
 
 ## 升級應用程式
@@ -49,4 +50,4 @@
 - [調整 Service Fabric 應用程式](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

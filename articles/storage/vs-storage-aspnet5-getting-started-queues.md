@@ -105,4 +105,4 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 [深入了解 Azure 儲存體](http://azure.microsoft.com/documentation/services/storage/)另請參閱[在伺服器總管中瀏覽儲存體資源](http://msdn.microsoft.com/library/azure/ff683677.aspx)和 [ASP.NET 5](http://www.asp.net/vnext)。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

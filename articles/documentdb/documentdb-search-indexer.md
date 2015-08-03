@@ -304,4 +304,4 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 DocumentDB) 和操�
  - 若要深入了解 Azure 搜尋服務，請按一下[這裡](/services/search/)。
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

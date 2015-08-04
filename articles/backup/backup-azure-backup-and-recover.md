@@ -3,7 +3,7 @@
 	description="了解如何從 Windows Server 或 Windows 用戶端備份和還原。本文章也涵蓋替代伺服器復原" 
 	services="backup" 
 	documentationCenter="" 
-	authoers="Jim-Parker" 
+	authors="Jim-Parker" 
 	manager="jwhit" 
 	editor=""/>
 	

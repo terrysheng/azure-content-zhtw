@@ -346,7 +346,8 @@
 
 3. 每個訂閱即時新聞的裝置都會收到您剛剛傳送的即時新聞通知。
 
-	![][4] ![][5]
+	![][4]
+	![][5]
 
 
 ## 後續步驟
@@ -385,6 +386,6 @@
 [通知中心指引]: http://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
- 
 
-<!---HONumber=July15_HO4-->
+
+<!-----HONumber=July15_HO4-->

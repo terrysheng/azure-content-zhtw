@@ -78,16 +78,21 @@
 		</script>
 
 
-###3.1.限制和瀏覽器支援
+###3.1.	限制和瀏覽器支援
 這是參考實作並依現況提供。其應該支援所有主要瀏覽器。
 
-###3.2.事件類型
+###3.2.	事件類型
 程式庫一共支援 5 種類型的事件：點選 (Click)、建議點選 (Recommendation Click)、加入購物車 (Add to Shop Cart)、從購物車移除 (Remove from Shop Cart) 以及購買 (Purchase)。另外還有一種用來設定使用者內容的事件，稱為登入 (Login)。
 
 ####3.2.1.點選事件
 每當使用者點選項目時，都應該會使用這個事件。當使用者點選項目時，通常會開啟含有該項目詳細資料的新頁面。在這個頁面中，應該會觸發此事件。
 
-參數：- event (字串，強制) – “click” - item (字串，強制) – 項目的唯一識別碼 - itemName (字串，選擇性) – 項目的名稱 - itemDescription (字串，選擇性) – 項目的描述 - itemCategory (字串，選擇性) – 項目的類別
+參數：
+- event (字串，強制) – “click”
+- item (字串，強制) – 項目的唯一識別碼
+- itemName (字串，選擇性) – 項目的名稱
+- itemDescription (字串，選擇性) – 項目的描述
+- itemCategory (字串，選擇性) – 項目的類別
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
@@ -105,7 +110,14 @@
 ####3.2.2.建議點選事件
 每當使用者點選項目 (從 Azure ML Recommendations 接收當成建議的項目) 時，都應該會使用這個事件。當使用者點選項目時，通常會開啟含有該項目詳細資料的新頁面。在這個頁面中，應該會觸發此事件。
 
-參數：- event (字串，強制) – “recommendationclick” - item (字串，強制) – 項目的唯一識別碼 - itemName (字串，選擇性) – 項目的名稱 - itemDescription (字串，選擇性) – 項目的描述 - itemCategory (字串，選擇性) – 項目的類別 - seeds (字串陣列，選擇性) – 產生建議查詢的種子。- recoList (字串陣列，選擇性) – 產生所點選項目之建議要求的結果。
+參數
+- event (字串，強制) – “recommendationclick”
+- item (字串，強制) – 項目的唯一識別碼
+- itemName (字串，選擇性) – 項目的名稱
+- itemDescription (字串，選擇性) – 項目的描述
+- itemCategory (字串，選擇性) – 項目的類別
+- seeds (字串陣列，選擇性) – 產生建議查詢的種子。
+- recoList (字串陣列，選擇性) – 產生所點選項目之建議要求的結果。
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -121,7 +133,12 @@
 
 
 ####3.2.3.加入購物車事件
-當使用者將項目加入購物車時，應該會使用這個事件。參數：* event (字串，強制) – “addshopcart” * item (字串，強制) – 項目的唯一識別碼 * itemName (字串，選擇性) – 項目的名稱 * itemDescription (字串，選擇性) – 項目的描述 * itemCategory (字串，選擇性) – 項目的類別
+當使用者將項目加入購物車時，應該會使用這個事件。參數：
+* event (字串，強制)– “addshopcart”
+* item (字串，強制) – 項目的唯一識別碼
+* itemName (字串，選擇性) – 項目的名稱
+* itemDescription (字串，選擇性) – 項目的描述
+* itemCategory (字串，選擇性) – 項目的類別
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
@@ -131,7 +148,12 @@
 ####3.2.4.移除購物車事件
 當使用者移除購物車中的項目時，應該會使用這個事件。
 
-參數：* event (字串，強制) – “removeshopcart” * item (字串，強制) – 項目的唯一識別碼 * itemName (字串，選擇性) – 項目的名稱 * itemDescription (字串，選擇性) – 項目的描述 * itemCategory (字串，選擇性) – 項目的類別
+參數：
+* event (字串，強制) – “removeshopcart”
+* item (字串，強制) – 項目的唯一識別碼
+* itemName (字串，選擇性) – 項目的名稱
+* itemDescription (字串，選擇性) – 項目的描述
+* itemCategory (字串，選擇性) – 項目的類別
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -141,7 +163,13 @@
 ####3.2.5.購買事件
 當使用者購買購物車中的項目時，應該會使用這個事件。
 
-參數：* event (字串) - “purchase” * items (已購買項目) - 陣列會為購買的每個項目保留一個項目。<br><br> 已購買項目的格式：* item (字串) – 項目的唯一識別碼。* count (整數或字串) – 已購買的項目數量。* price (浮點數或字串) – 選擇性欄位 – 項目的價格。
+參數：
+* event (字串) - “purchase”
+* items (已購買項目) - 陣列會為購買的每個項目保留一個項目。<br><br>
+已購買項目的格式：
+	* item (字串) – 項目的唯一識別碼。
+	* count (整數或字串) – 已購買的項目數量。
+	* price (浮點數或字串) – 選擇性欄位 – 項目的價格。
 
 以下範例顯示總共購買 3 個項目 (33, 34, 35)，已填入其中兩個的所有欄位 (item, count, price)，還有一個 (item 34) 沒有價格。
 
@@ -155,7 +183,12 @@ Azure ML Recommendations 事件程式庫會建立並使用 Cookie，以識別來
 
 在使用者登入您的網站後，應該會使用這個事件。
 
-參數：* event (字串) - “userlogin” * user (字串) - 使用者的唯一識別。<script> if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); </script>
+參數：
+* event (字串) - “userlogin”
+* user (字串) - 使用者的唯一識別。		<script>
+			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
+			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
+		</script>
 
 ##4.透過 JavaScript 取用建議
 取用建議的程式碼是由用戶端網頁的某些 JavaScript 事件所觸發。建議回應包含建議項目識別碼、其名稱及評等。最好只有在以清單顯示建議的項目時，才使用這個選項 – 較複雜的處理 (例如，新增項目的中繼資料) 應該在伺服器端整合完成。
@@ -165,7 +198,14 @@ Azure ML Recommendations 事件程式庫會建立並使用 Cookie，以識別來
 
 若要取用一或多個項目的建議，您必須呼叫以下方法： AzureMLRecommendationsGetI2IRecommendation。
 
-參數：* items (字串的陣列) – 要取得建議的一或多個項目。如果您取用 Fbt 組件，那麼您在這裡只能設定項目。* numberOfResults (int) – 必要結果的數目。* includeMetadata (布林值，選擇性) – 如果設為 ‘true’，代表結果中必須填入中繼資料欄位。* 處理函式 – 將會處理所傳回建議的函式。資料是以陣列形式傳回：* Item – 項目的唯一識別碼 * name – 項目名稱 (如果存在於目錄中) * rating – 建議評等 * metadata – 代表項目中繼資料的字串
+參數：
+* items (字串的陣列) – 要取得建議的一或多個項目。如果您取用 Fbt 組件，那麼您在這裡只能設定項目。
+* numberOfResults (int) – 必要結果的數目。
+* includeMetadata (布林值，選擇性) – 如果設為 ‘true’，代表結果中必須填入中繼資料欄位。* 處理函式 – 將會處理所傳回建議的函式。資料是以陣列形式傳回：
+	* Item – 項目的唯一識別碼
+	* name – 項目名稱 (如果存在於目錄中)
+	* rating – 建議評等
+	* metadata – 代表項目中繼資料的字串
 
 範例：下列程式碼要求項目 "64f6eb0d-947a-4c18-a16c-888da9e228ba" (而不指定 includeMetadata – 即暗示不需要任何中繼資料) 提供 8 個建議，然後將結果串連到緩衝區。
 
@@ -185,4 +225,4 @@ Azure ML Recommendations 事件程式庫會建立並使用 Cookie，以識別來
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

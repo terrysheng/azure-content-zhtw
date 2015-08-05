@@ -87,7 +87,7 @@
 [將驗證新增至您的應用程式]: mobile-services-windows-store-javascript-get-started-users.md
 [將推播通知新增至您的應用程式]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure 管理入口網站]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

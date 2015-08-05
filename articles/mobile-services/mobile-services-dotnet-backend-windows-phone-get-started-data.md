@@ -266,10 +266,10 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[Developer Code Samples site]: https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72
+[開發人員程式碼範例網站]: https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72
 [行動服務 .NET 作法概念參考資料]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 [How to add a new Windows Firewall port rule]: http://go.microsoft.com/fwlink/?LinkId=392240
    
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

@@ -36,7 +36,8 @@
 **Framework 版本**。如果您的應用程式使用下列任何 Framework，請設定下列選項：
 
 - **.NET Framework**：設定 .NET framework 版本。 
-- **PHP**：設定 PHP 版本，或設為 **[關閉] **以停用 PHP。- **Java**：選取 Java 版本，或設為 [**關閉**] 以停用 Java 。使用 [**Web 容器**] 選項來選擇 Tomcat 或 Jetty 版本。
+- **PHP**：設定 PHP 版本，或設為 **[關閉] **以停用 PHP。
+- **Java**：選取 Java 版本，或設為 [**關閉**] 以停用 Java 。使用 [**Web 容器**] 選項來選擇 Tomcat 或 Jetty 版本。
 - **Python**：選取 Python 版本，或設為 [**關閉**] 以停用 Python.
 
 在技術上，針對您的應用程式啟用 Java 就會停用 .NET、PHP 與 Python 選項。

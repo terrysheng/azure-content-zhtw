@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="使用 REST API 傳遞點播視訊 (VoD) 使用者入門" 
-	description="本教學課程將逐步引導您使用 REST API 完成利用 Azure 媒體服務來實作點播視訊 (VoD) 內容傳遞應用程式。" 
+	description="本教學課程將逐步引導您使用 REST API 完成利用 Azure 媒體服務來實作點播視訊 (VoD) 內容傳遞應用程式" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -84,7 +84,7 @@
 	
 	>[AZURE.NOTE]成功連線至 https://media.windows.net 後，您會收到指定另一個媒體服務 URI 的 301 重新導向。後續的呼叫必須送到新的 URI。
 	> 
-	> 
+	> 您也可能會收到 HTTP/1.1 200 回應，其中包含 ODATA API 中繼資料描述。
 3. 將後續的 API 呼叫張貼到新的 URL。 
 	
 	例如，如果您在嘗試進行連接之後得到下列結果：
@@ -1285,4 +1285,4 @@ MPEG DASH 的串流 URL 具有下列格式：
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

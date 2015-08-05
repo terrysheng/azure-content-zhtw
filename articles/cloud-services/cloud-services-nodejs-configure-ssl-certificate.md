@@ -181,7 +181,7 @@
   [Azure Management Portal]: http://manage.windowsazure.com
   
   
-  [如何使憑證與服務產生關聯]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
+  [將憑證與服務產生關聯]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
   
   [site-url]: ./media/cloud-services-nodejs-configure-ssl-certificate/site-url.png
   [8]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-08.png

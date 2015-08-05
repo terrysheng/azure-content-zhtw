@@ -53,7 +53,7 @@
 
     ![][1]
 
-    This creates a new Windows Store registration for your app.
+    這會為您的應用程式建立新的 Windows 市集註冊。
 
 4. 在 [方案總管] 中，以滑鼠右鍵按一下 Windows 市集應用程式專案，然後依序按一下 [市集] 和 [將應用程式與市集建立關聯...]。
 
@@ -195,4 +195,4 @@
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

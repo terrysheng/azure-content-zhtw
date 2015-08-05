@@ -196,7 +196,7 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
       });
     });
 
-In "views/index.ejs", add another form under the first one to submit a number and a text message:
+在 "views/index.ejs" 中的第一個項目下新增其他資料表，以便提交號碼及簡訊：
 
     <form action="/sms" method="POST">
       <input placeholder="Enter a phone number" name="number"/>
@@ -233,4 +233,4 @@ In "views/index.ejs", add another form under the first one to submit a number an
 [pair]: http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
 [azure-admin-console]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

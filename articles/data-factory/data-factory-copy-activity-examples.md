@@ -195,14 +195,14 @@
 	    "name": "FolderDataStore",
 	    "properties": {
 	        "type": "OnPremisesFileSystemLinkedService",
-	        "host": "\contoso",
+	        "host": "\\\\contoso",
 	        "userId": "username",
 	        "password": "password",
 	        "gatewayName": "ContosoGateway"
 	    }
 	}
 
-> [AZURE.NOTE]JSON 檔案中的主機和資料夾名稱一定要使用逸出字元 ''。如果是 **\Contoso**，請使用 **\Contoso**。
+> [AZURE.NOTE]JSON 檔案中的主機和資料夾名稱一定要使用逸出字元 '\'。如果是 **\\Contoso**，請使用 **\\\\Contoso**。
 
 如需定義內部部署檔案系統連結服務之 JSON 項目的詳細資料，請參閱[內部部署檔案系統連結服務](https://msdn.microsoft.com/library/dn930836.aspx)。
 

@@ -98,8 +98,8 @@
 
 		git init
 
-	> [AZURE.NOTE]**Git 命令無法使用？** 
-	> [Git](http://git-scm.com/%20target="_blank) 是一個您可用來部署 Azure 網站的分散式版本控制系統。如需您的平台適用的安裝指示，請參閱 [Git 下載頁面](http://git-scm.com/download%20target="_blank")。
+	> [AZURE.NOTE]**Git 命令無法使用？**
+	[Git](http://git-scm.com/%20target="_blank) 是一個您可用來部署 Azure 網站的分散式版本控制系統。如需您的平台適用的安裝指示，請參閱 [Git 下載頁面](http://git-scm.com/download%20target="_blank")。
 
 2. 使用下列命令將檔案新增至儲存機制：
 

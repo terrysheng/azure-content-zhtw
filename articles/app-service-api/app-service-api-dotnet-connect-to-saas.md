@@ -121,7 +121,7 @@
 	 
 			install-package DropboxRestAPI  
 
-1. 開啟 *Controllers\ValuesController.cs*，並以下列程式碼取代檔案中的所有程式碼。
+1. 開啟 *Controllers\\ValuesController.cs*，並以下列程式碼取代檔案中的所有程式碼。
 
 		using DropboxRestAPI;
 		using Microsoft.Azure.AppService.ApiApps.Service;
@@ -376,7 +376,12 @@
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	以下是用於其他提供者的值：* "microsoftaccount" * "facebook" * "twitter" * "google" <br/><br/>
+	以下是用於其他提供者的值：
+	* "microsoftaccount"
+	* "facebook"
+	* "twitter"
+	* "google"
+<br/><br/>
 
 * `GetConsentLinkAsync()` 方法的第二個參數是回呼 URL，而同意伺服器會在使用者登入 Dropbox 並同意存取使用者帳戶之後，重新導向至該回呼 URL。
 
@@ -445,6 +450,8 @@ Dropbox 登入之後的重新導向 URL 可能與此範例類似：
 您已了解如何為連接至 SaaS 平台的 API 應用程式編寫程式碼及進行設定。如需如何處理 API 應用程式中驗證之其他教學課程的連結，請參閱 [API 應用程式和行動應用程式的驗證 - 後續步驟](../app-service/app-service-authentication-overview.md#next-steps)。
 
 [Azure preview portal]: https://portal.azure.com/
+[Azure Preview 入口網站]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
+[Azure 入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

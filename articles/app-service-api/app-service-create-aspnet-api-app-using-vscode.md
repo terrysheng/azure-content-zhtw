@@ -32,10 +32,11 @@
 ## 必要條件  
 
 * 安裝和設定 [Visual Studio 程式碼](http://code.visualstudio.com/Docs/setup)。
-* 安裝 [Node.js](http://nodejs.org/download/)。<br>[Node.js](http://nodejs.org/) 是一種平台，可使用 JavaScript 建置快速和可擴充的伺服器應用程式。節點是執行階段 (節點)，而 [npm](http://www.npmjs.com/) 是節點模組的封裝管理員。您將使用 npm，在本教學課程中建立 ASP.NET 5 API 應用程式的結構。
+* 安裝 [Node.js](http://nodejs.org/download/)。<br\>
+	[Node.js](http://nodejs.org/) 是一種平台，可使用 JavaScript 建置快速和可擴充的伺服器應用程式。節點是執行階段 (節點)，而 [npm](http://www.npmjs.com/) 是節點模組的封裝管理員。您將使用 npm，在本教學課程中建立 ASP.NET 5 API 應用程式的結構。
 
 ## 安裝 ASP.NET 5 和 DNX
-ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上執行的現代雲端和 Web 應用程式。它已從頭建置，以將最佳化的開發架構提供給已部署至雲端或執行內部部署的應用程式。其由額外負荷最低的模組化元件組成，以便您可以在建構解決方案時保留彈性。
+ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上執行的現代雲端和 Web 應用程式。已從頭建置，以將最佳化的開發架構提供給已部署至雲端或執行內部部署的應用程式。其由額外負荷最低的模組化元件組成，以便您可以在建構解決方案時保留彈性。
 
 > [AZURE.NOTE]OS X 和 Linux 上的 ASP.NET 5 和 DNX (.NET 執行環境) 處於早期 Beta/預覽狀態。
 
@@ -45,14 +46,16 @@ ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上�
 
 	<pre class="prettyprint">
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "&amp;{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
-</pre>這將下載 DNVM 指令碼，並將它放在您的使用者設定檔中。
+	</pre> 
+	這將下載 DNVM 指令碼，並將它放在您的使用者設定檔中。
 
 2. 您可能需要在輸入上述命令之後登出，PATH 環境變數的變更才會生效。
 3. 在 [命令視窗] 中執行下列命令，以檢查 DNVM 的位置： 
 
 	<pre class="prettyprint">
 where dnvm
-</pre>[命令視窗] 將顯示如下路徑：
+	</pre>
+	[命令視窗] 將顯示如下路徑：
 
 	![dnvm 位置](./media/app-service-create-aspnet-api-app-using-vscode/00-where-dnvm.png)
 
@@ -66,7 +69,8 @@ dnvm upgrade
 
 	<pre class="prettyprint">
 dnvm list
-</pre>[命令視窗] 將顯示使用中執行階段的詳細資料：
+	</pre>
+	[命令視窗] 將顯示使用中執行階段的詳細資料：
 
 	![dnvm 位置](./media/app-service-create-aspnet-api-app-using-vscode/00b-dnvm-list.png)
 
@@ -93,8 +97,10 @@ yo aspnet
 
 	![Yoman - ASP.NET 5 產生器](./media/app-service-create-aspnet-api-app-using-vscode/01-yo-aspnet.png)
 
-5. 將新 ASP.NET API 應用程式的名稱設為 **ContactsList**。此名稱將用於本教學課程稍後提供的程式碼。<br>Yeoman 將建立名為 **ContactsList** 的新資料夾，以及新應用程式必要的檔案。
-6. 開啟 **Visual Studio 程式碼**。<br> 輸入 **code**，即可從 [命令視窗] 中開啟 VSCode。
+5. 將新 ASP.NET API 應用程式的名稱設為 **ContactsList**。此名稱將用於本教學課程稍後提供的程式碼。<br>
+	Yeoman 將建立名為 **ContactsList** 的新資料夾，以及新應用程式必要的檔案。
+6. 開啟 **Visual Studio 程式碼**。<br> 
+	輸入 **code**，即可從 [命令視窗] 中開啟 VSCode。
 7. 從 [**檔案**] 功能表中，選取 [**開啟資料夾**]，然後選取您 ASP.NET API 應用程式所在的資料夾。
 
 	![[選取資料夾] 對話方塊](./media/app-service-create-aspnet-api-app-using-vscode/02-open-folder.png)
@@ -108,7 +114,8 @@ yo aspnet
 
 	<pre class="prettyprint">
 dnx:dnu restore - (ContactsList)
-</pre>當您開始輸入時，您將從清單中看到完整的命令列。
+	</pre>
+	當您開始輸入時，您將從清單中看到完整的命令列。
 
 	![Restore 命令](./media/app-service-create-aspnet-api-app-using-vscode/04-dnu-restore.png)
 
@@ -167,7 +174,8 @@ dnx:dnu restore - (ContactsList)
 
 	<pre class="prettyprint">
 dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001
-</pre>命令視窗將在其中顯示 [*已啟動*]。如果命令視窗未顯示 [*已啟動*]，請檢查 VSCode 左下角，找出專案中的錯誤。
+	</pre>
+	命令視窗將在其中顯示 [*已啟動*]。如果命令視窗未顯示 [*已啟動*]，請檢查 VSCode 左下角，找出專案中的錯誤。
 
 5. 開啟瀏覽器，並巡覽至下列 URL：
 
@@ -181,7 +189,8 @@ dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server
 可讓 ASP.NET API 專案部署為 API 應用程式的中繼資料必須包含在專案根目錄的 *apiapp.json* 檔案中。
 
 1. 在 VSCode 中，以滑鼠右鍵按一下 *wwwroot* 資料夾，然後選取 [**新增檔案**] 選項。
-2. 將新檔案命名為 *apiapp.json*。<br> 請確定 *apiapp.json* 位於 *wwwroot* 資料夾中。
+2. 將新檔案命名為 *apiapp.json*。<br\>
+	請確定 *apiapp.json* 位於 *wwwroot* 資料夾中。
 3. 將下列程式碼加入 *apiapp.json* 檔案：
 
 	<pre class="prettyprint">
@@ -420,7 +429,8 @@ git remote add azure [URL for remote repository]
 
 	<pre class="prettyprint">
 git push azure master
-</pre>系統會提示您輸入先前建立的密碼。**注意：將看不到您的密碼。**
+	</pre>
+	系統會提示您輸入先前建立的密碼。**注意：將看不到您的密碼。**
 
 	上述命令的輸出結尾會出現部署成功的訊息：
 
@@ -438,7 +448,8 @@ To https://user@testsite.scm.azurewebsites.net/testsite.git
 1. 在 Azure 預覽入口網站中，移至您稍早建立之 API 應用程式的 [**API 應用程式**] 刀鋒視窗，然後按一下 [**閘道器**] 連結。
 2. 在 [**閘道器**] 刀鋒視窗中，按一下 [**重新啟動**]。您現在可以關閉此刀鋒視窗。
 3. 在 [**API 應用程式**] 刀鋒視窗中，按一下 [**重新啟動**]。 
-4. 在 [**API 應用程式**] 刀鋒視窗中，按一下 [**API 定義**]。<br> [API 定義] 刀鋒視窗會顯示兩種方法。如果您未立即看到 GET 和 POST 方法，請等候幾秒的時間，讓 Azure 重新整理應用程式。然後，在 [**API 應用程式**] 刀鋒視窗中，按一下 [**API 定義**]。
+4. 在 [**API 應用程式**] 刀鋒視窗中，按一下 [**API 定義**]。<br>
+	[API 定義] 刀鋒視窗會顯示兩種方法。如果您未立即看到 GET 和 POST 方法，請等候幾秒的時間，讓 Azure 重新整理應用程式。然後，在 [**API 應用程式**] 刀鋒視窗中，按一下 [**API 定義**]。
 
 ## 在 Azure 中執行應用程式
 在 Azure 預覽入口網站中，移至 API 應用程式的 [**API 應用程式主機**] 刀鋒視窗，然後按一下 [**瀏覽**]。然後，在 URL 結尾加入 **api/Contacts**，以檢視連絡人詳細資料。

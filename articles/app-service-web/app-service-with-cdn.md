@@ -39,7 +39,9 @@ Azure App Service 可以與 [Azure CDN](http://azure.microsoft.com/services/cdn/
 -	使用中的 [Microsoft Azure 帳戶](http://azure.microsoft.com/account/)
 -	Visual Studio 2013 (含 [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409))
 
-> [AZURE.NOTE]您需要 Azure 帳戶才能完成本教學課程：+ 您可以[免費申請 Azure 帳戶](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如 Web 應用程式。+ 您可以[啟用 MSDN 訂用帳戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - 您的 MSDN 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
+> [AZURE.NOTE]您需要 Azure 帳戶才能完成本教學課程：
+> + 您可以[免費申請 Azure 帳戶](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如 Web 應用程式。
+> + 您可以[啟用 MSDN 訂用帳戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - 您的 MSDN 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
 
 <a name="deploy"></a>
 ## 部署具有整合式 CDN 端點的 Azure Web 應用程式 ##
@@ -125,7 +127,15 @@ Azure App Service 可以與 [Azure CDN](http://azure.microsoft.com/services/cdn/
 <a name="caching"></a>
 ## 在 Azure Web 應用程式中設定靜態檔案的快取設定 ##
 
-利用 Azure Web 應用程式中的 Azure CDN 整合，您可以指定如何在 CDN 端點中快取靜態內容。若要這樣做，請從 ASP.NET 專案 (例如 **cdnwebapp**) 開啟 *Web.config*，將 `<staticContent>` 元素加入至 `<system.webServer>`。以下的 XML 將快取設為 3 天過期。<pre class="prettyprint"> &lt;system.webServer&gt; <mark>&lt;staticContent&gt; &lt;clientCache cacheControlMode=";UseMaxAge"; cacheControlMaxAge=";3.00:00:00";/&gt; &lt;/staticContent&gt;</mark> ... &lt;/system.webServer&gt; </pre>
+利用 Azure Web 應用程式中的 Azure CDN 整合，您可以指定如何在 CDN 端點中快取靜態內容。若要這樣做，請從 ASP.NET 專案 (例如 **cdnwebapp**) 開啟 *Web.config*，將 `<staticContent>` 元素加入至 `<system.webServer>`。以下的 XML 將快取設為 3 天過期。  
+<pre class="prettyprint">
+&lt;system.webServer&gt;
+  <mark>&lt;staticContent&gt;
+    &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt;
+  &lt;/staticContent&gt;</mark>
+  ...
+&lt;/system.webServer&gt;
+</pre>
 
 這樣做時，Azure Web 應用程式中的所有靜態檔案會在您的 CDN 快取中遵守相同規則。若要更精確控制快取設定，請將 *Web.config* 檔案加入至資料夾，並在檔案中新增您的設定。例如，將 *Web.config* 檔案加入至 *\Content* 資料夾，並將內容改成下列 XML：
 
@@ -278,7 +288,16 @@ namespace cdnwebapp.Controllers
 
 5. 重新發佈至 Azure Web 應用程式，然後在瀏覽器中瀏覽至 **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index**。
 
-當您將表單值提交至 `/MemeGenerator/Index` 時，`Index_Post` 動作方法會傳回 `Show` 動作方法的連結及個別的輸入識別碼。當您按一下連結時，您會連到下列程式碼：<pre class="prettyprint"> [OutputCache(VaryByParam = ";*";, Duration = 1, Location = OutputCacheLocation.Downstream)] public ActionResult Show(string id) { Tuple&lt;string, string&gt; data = null; if (!Memes.TryGetValue(id, out data)) { return new HttpStatusCodeResult(HttpStatusCode.NotFound); }
+當您將表單值提交至 `/MemeGenerator/Index` 時，`Index_Post` 動作方法會傳回 `Show` 動作方法的連結及個別的輸入識別碼。當您按一下連結時，您會連到下列程式碼：  
+<pre class="prettyprint">
+[OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
+public ActionResult Show(string id)
+{
+    Tuple&lt;string, string&gt; data = null;
+    if (!Memes.TryGetValue(id, out data))
+    {
+        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+    }
 
     if (Debugger.IsAttached) // Preserve the debug experience
     {
@@ -288,7 +307,8 @@ namespace cdnwebapp.Controllers
     {
         return Redirect(string.Format(";http://<mark>&lt;yourCDNName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}";, data.Item1, data.Item2));
     }
-} </pre>
+}
+</pre>
 
 如果已附加本機偵錯程式，您將經由本機重新導向而享有一般的偵錯體驗。如果是在 Azure Web 應用程式中執行，則會重新導向至：
 
@@ -373,8 +393,9 @@ public static void RegisterBundles(BundleCollection bundles)
     bundles.Add(new StyleBundle("~/Content/css"<mark>, string.Format(cdnUrl, "Content/css")</mark>).Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
-}
-</pre>請記得將 `<yourCDNName>` 取代為您的 Azure CDN 名稱。
+	}
+	</pre>
+	請記得將 `<yourCDNName>` 取代為您的 Azure CDN 名稱。
 
 	簡單地說，您正在設定 `bundles.UseCdn = true`，且已在每一個套件組合中加入謹慎建構的 CDN URL。例如，程式碼的第一個建構函式：
 
@@ -472,7 +493,8 @@ public static void RegisterBundles(BundleCollection bundles)
     bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
-}</pre>當 `CdnFallbackExpression` 不是 null 時，指令碼會插入 HTML 中來測試是否已成功載入套件組合，如果不是，則直接從原始 Web 伺服器存取套件組合。此屬性必須設為 JavaScript 運算式來測試個別的 CDN 套件組合是否正確載入。測試每一個套件組合所需的運算式根據內容而不同。在以上的預設套件組合中：
+	}</pre>
+	當 `CdnFallbackExpression` 不是 null 時，指令碼會插入 HTML 中來測試是否已成功載入套件組合，如果不是，則直接從原始 Web 伺服器存取套件組合。此屬性必須設為 JavaScript 運算式來測試個別的 CDN 套件組合是否正確載入。測試每一個套件組合所需的運算式根據內容而不同。在以上的預設套件組合中：
 	
 	-	`window.jquery` 定義於 jquery-{version}.js 中
 	-	`$.validator` 定義於 jquery.validate.js 中
@@ -494,7 +516,8 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
     .Include(
           "~/Content/bootstrap.css",
           "~/Content/site.css"));
-</pre>這個新的延伸方法採用相同的概念，將指令碼插入 HTML 中來檢查 DOM，尋找 CSS 套件組合中定義的相符類別名稱、規則名稱和規則值，而如果找不到相符項，則退一步存取原始 Web 伺服器。
+	</pre>
+	這個新的延伸方法採用相同的概念，將指令碼插入 HTML 中來檢查 DOM，尋找 CSS 套件組合中定義的相符類別名稱、規則名稱和規則值，而如果找不到相符項，則退一步存取原始 Web 伺服器。
 
 4. 重新發佈至 Azure Web 應用程式並存取首頁。
 5. 檢視頁面的 HTML 程式碼。您應該會發現類似下方的插入指令碼：    
@@ -532,7 +555,8 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 <mark>&lt;script>($.fn.modal)||document.write('&lt;script src="/bundles/bootstrap">&lt;/script>');&lt;/script></mark>
 
 ...
-</pre>請注意，針對 CSS 套件組合插入的指令碼，仍在這一行中包含 `CdnFallbackExpression` 屬性殘留的遊蕩部分：
+	</pre>
+	請注意，針對 CSS 套件組合插入的指令碼，仍在這一行中包含 `CdnFallbackExpression` 屬性殘留的遊蕩部分：
 
         }())||document.write('<script src="/Content/css"></script>');</script>
 

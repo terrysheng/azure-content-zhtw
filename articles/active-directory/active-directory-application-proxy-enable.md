@@ -17,7 +17,7 @@
 	ms.author="rkarlin"/>
 
 # 啟用 Azure AD 應用程式 Proxy
-> [AZURE.NOTE]應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](https://msdn.microsoft.com/library/azure/dn532272.aspx)。
+> [AZURE.NOTE] 應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](https://msdn.microsoft.com/library/azure/dn532272.aspx)。
 
 Microsoft Azure AD 應用程式 Proxy 可讓您在私人網路內發行應用程式 (例如 SharePoint 網站、Outlook Web Access 和 IIS 應用程式)，並提供網路外部使用者的安全存取。員工可以從家裡使用自己的裝置登入您的應用程式，並透過這個雲端 Proxy 進行驗證
 
@@ -41,7 +41,7 @@ Microsoft Azure AD 應用程式 Proxy 可讓您在私人網路內發行應用程
 9090 | 啟用連接器註冊 (只有在連接器註冊程序才需要)
 9091 | 啟用連接器信任憑證自動更新
  
-如果您的防火牆根據原始使用者強制執行流量，請針對來自當做網路服務執行的 Windows 服務的流量，開放這些連接埠。此外，請務必為 NT Authority\System 啟用連接埠 8080。
+如果您的防火牆根據原始使用者強制執行流量，請針對來自當做網路服務執行的 Windows 服務的流量，開放這些連接埠。此外，請務必為 NT Authority\\System 啟用連接埠 8080。
 
 
 ##步驟 1：在 Azure AD 中啟用應用程式 Proxy
@@ -56,7 +56,10 @@ Microsoft Azure AD 應用程式 Proxy 可讓您在私人網路內發行應用程
 1. 在您準備好的伺服器上執行 AADApplicationProxyConnectorInstaller.exe (請參閱「應用程式 Proxy 必要條件」)。
 2. 依照精靈中的指示進行安裝。
 3. 在安裝期間，系統將提示您使用有效的應用程式 Proxy 帳戶註冊連接器。
-<p>為您提供 Azure AD 全域管理員認證。請確定註冊連接器的系統管理員與您啟用應用程式 Proxy 服務所在位於相同的目錄，例如，如果租用戶網域為 contoso.com，則系統管理員應該是 admin@contoso.com，或在該網域上的其他別名。此外，您要是 Azure AD 租用戶的全域管理員。您的全域管理員租用戶可能不同於 Microsoft Azure 認證。如果 [IE 增強式安全性設定] 在您安裝 Azure AD 連接器所在的伺服器上設為 [開啟]，可能會封鎖註冊畫面。如果發生這種情況，請依照錯誤訊息中的指示允許存取。請確定 Internet Explorer 增強式安全性已關閉。如果連接器註冊不成功，請參閱「疑難排解應用程式 Proxy」。
+<p>為您提供 Azure AD 全域管理員認證。
+- 請確定註冊連接器的系統管理員與您啟用應用程式 Proxy 服務所在位於相同的目錄，例如，如果租用戶網域為 contoso.com，則系統管理員應該是 admin@contoso.com，或在該網域上的其他別名。此外，您要是 Azure AD 租用戶的全域管理員。您的全域管理員租用戶可能不同於 Microsoft Azure 認證。
+- 如果 [IE 增強式安全性設定] 在您安裝 Azure AD 連接器所在的伺服器上設為 [開啟]，可能會封鎖註冊畫面。如果發生這種情況，請依照錯誤訊息中的指示允許存取。請確定 Internet Explorer 增強式安全性已關閉。
+- 如果連接器註冊不成功，請參閱「疑難排解應用程式 Proxy」。
 
 4. 安裝完成後，兩個新的服務會新增到您的伺服器中，如下所示。這些是允許連線的連接器服務，以及可定期檢查連接器新版本，並在需要時更新連接器的自動更新服務。按一下安裝視窗中的 [完成]，以完成安裝 ![應用程式 Proxy 連接器服務](http://i.imgur.com/zsVJKOz.png)<p>
 5. 您現在已經準備好使用應用程式 Proxy 發佈應用程式。
@@ -70,4 +73,4 @@ Microsoft Azure AD 應用程式 Proxy 可讓您在私人網路內發行應用程
 * [以組織方式註冊 Azure](..sign-up-organization.md)
 * [Azure 身分識別](..fundamentals-identity.md)
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

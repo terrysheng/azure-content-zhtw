@@ -4,8 +4,9 @@
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
+	writer="Rick-Anderson" 
 	manager="wpickett" 
-	editor=""/>
+	editor="mollybos"/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -273,7 +274,8 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 		add-migration Initial
 
 
-	**add-migration Initial** 命令會在建立資料庫的 *Migrations* 資料夾中產生名為 **&lt;date_stamp&gt;Initial** 的檔案。第一個參數 (**Initial**) 是任意的，用於建立檔案的名稱。您可以在 [方案總管] 中看到新的類別檔案。在 **Initial** 類別中，**Up** 方法會建立 Contacts 資料表，**Down** 方法 (當您希望返回前個狀態時使用) 則會捨棄該資料表。
+	**add-migration Initial** 命令會在建立資料庫的 *Migrations* 資料夾中產生名為 **&lt;date_stamp&gt;Initial** 的檔案。第一個參數 (**Initial**) 是任意的，用於建立檔案的名稱。您可以在 [方案總管] 中看到新的類別檔案。
+	在 **Initial** 類別中，**Up** 方法會建立 Contacts 資料表，**Down** 方法 (當您希望返回前個狀態時使用) 則會捨棄該資料表。
 3. 開啟 *Migrations\Configuration.cs* 檔案。 
 4. 新增下列命名空間。 
 
@@ -414,7 +416,44 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
                 await UserManager.AddToRoleAsync(user.Id, "canEdit");
 
-   上述程式碼將新註冊的使用者新增至「canEdit」角色，使用者因此能存取用來變更 (編輯) 資料的動作方法。 <pre> // POST: /Account/ExternalLoginConfirmation [HttpPost] [AllowAnonymous] [ValidateAntiForgeryToken] public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl) { if (User.Identity.IsAuthenticated) { return RedirectToAction("Index", "Manage"); } if (ModelState.IsValid) { // 從外部登入提供者取得使用者資訊 var info = await AuthenticationManager.GetExternalLoginInfoAsync(); if (info == null) { return View("ExternalLoginFailure"); } var user = new ApplicationUser { UserName = model.Email, Email = model.Email }; var result = await UserManager.CreateAsync(user); if (result.Succeeded) { result = await UserManager.AddLoginAsync(user.Id, info.Login); if (result.Succeeded) { <mark>await UserManager.AddToRoleAsync(user.Id, "canEdit");</mark> await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false); return RedirectToLocal(returnUrl); } } AddErrors(result); } ViewBag.ReturnUrl = returnUrl; return View(model); } </pre>
+   上述程式碼將新註冊的使用者新增至「canEdit」角色，使用者因此能存取用來變更 (編輯) 資料的動作方法。
+	<pre>
+	      // POST: /Account/ExternalLoginConfirmation
+	      [HttpPost]
+	      [AllowAnonymous]
+	      [ValidateAntiForgeryToken]
+	      public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+	      {
+	         if (User.Identity.IsAuthenticated)
+	         {
+	            return RedirectToAction("Index", "Manage");
+	         }
+	         if (ModelState.IsValid)
+	         {
+	            // 從外部登入提供者取得使用者資訊
+	            var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+	            if (info == null)
+	            {
+	               return View("ExternalLoginFailure");
+	            }
+	            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+	            var result = await UserManager.CreateAsync(user);
+	            if (result.Succeeded)
+	            {
+	               result = await UserManager.AddLoginAsync(user.Id, info.Login);
+	               if (result.Succeeded)
+	               {
+	                  <mark>await UserManager.AddToRoleAsync(user.Id, "canEdit");</mark>
+	                  await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+	                  return RedirectToLocal(returnUrl);
+	               }
+	            }
+	            AddErrors(result);
+	         }
+	         ViewBag.ReturnUrl = returnUrl;
+	         return View(model);
+	      }
+	</pre>
 
 稍後在本教學課程中，您會將應用程式部署至 Azure，並在後者使用 Google 或其他協力廠商驗證提供者來登入。這會將您新註冊的帳戶新增至 *canEdit* 角色。任何人只要有您 Web 應用程式的 URL 和 Google ID，就可以註冊及更新您的資料庫。若要防止其他人這麼做，您可以停止網站。您可以檢查資料庫來確認 *canEdit* 角色中有誰。
 
@@ -428,26 +467,88 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 在本節中，您將套用 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 屬性來限制對動作方法的存取。匿名使用者只能檢視首頁控制器的 **Index** 動作方法。註冊的使用者能夠查看連絡人資料 (Cm 控制器的 [索引] 和 [詳細資料] 頁面)、[關於] 和 [連絡人] 頁面。只有 *canEdit* 角色中的使用者才能存取用來變更資料的動作方法。
 
-1. 將 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 篩選器和 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 篩選器新增至應用程式。替代的方法是將 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 屬性和 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 屬性新增至每個控制器，但將這些屬性套用至整個應用程式是最安全的做法。藉由全面新增這些屬性，您所新增的每個新控制器和動作方法都會自動受到保護，而不需要您記得哪些已套用、哪些未套用。如需詳細資訊，請參閱[保護您的 ASP.NET MVC 應用程式和新 AllowAnonymous 屬性](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)。開啟 *App_Start\FilterConfig.cs* 檔案，並使用以下程式碼 (新增兩個篩選器) 取代 *RegisterGlobalFilters* 方法：<pre> public static void RegisterGlobalFilters(GlobalFilterCollection filters) { filters.Add(new HandleErrorAttribute()); <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute()); filters.Add(new RequireHttpsAttribute());</mark> } </pre>
+1. 將 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 篩選器和 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 篩選器新增至應用程式。替代的方法是將 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 屬性和 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 屬性新增至每個控制器，但將這些屬性套用至整個應用程式是最安全的做法。藉由全面新增這些屬性，您所新增的每個新控制器和動作方法都會自動受到保護，而不需要您記得哪些已套用、哪些未套用。如需詳細資訊，請參閱[保護您的 ASP.NET MVC 應用程式和新 AllowAnonymous 屬性](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)。開啟 *App_Start\FilterConfig.cs* 檔案，並使用以下程式碼 (新增兩個篩選器) 取代 *RegisterGlobalFilters* 方法：
+		<pre>
+        public static void
+        RegisterGlobalFilters(GlobalFilterCollection filters)
+        {
+            filters.Add(new HandleErrorAttribute());
+            <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute());
+            filters.Add(new RequireHttpsAttribute());</mark>
+        }
+		</pre>
 
 
 
 
 	上述程式碼中套用的 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 篩選器將防止匿名使用者存取應用程式中的任何方法。您將使用 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性來選擇略過一些方法中的授權需求，讓匿名使用者可登入及檢視首頁。使用 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 時，所有對 Web 應用程式的存取都必須透過 HTTPS 進行。
 
-1. 將 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性新增至首頁控制器的 **Index** 方法。[AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性能讓您將想要選擇略過授權的方法加到白名單。<pre> public class HomeController : Controller { <mark>[AllowAnonymous]</mark> public ActionResult Index() { return View(); } </pre>
+1. 將 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性新增至首頁控制器的 **Index** 方法。[AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性能讓您將想要選擇略過授權的方法加到白名單。
+		<pre>
+	public class HomeController : Controller
+   {
+      <mark>[AllowAnonymous]</mark>
+      public ActionResult Index()
+      {
+         return View();
+      }
+	</pre>
 
 2. 全面搜尋 *AllowAnonymous*，您會發現帳戶控制器的登入與註冊方法中都使用了它。
-1. 在 *CmController.cs* 中，將 `[Authorize(Roles = "canEdit")]` 新增至 *Cm* 控制器中用來變更資料的 HttpGet 和 HttpPost 方法 (Create、Edit、Delete，也就是 Index 和 Details 外的每個動作方法)。以下顯示完整程式碼的部分內容：<pre> // GET: Cm/Create <mark>[Authorize(Roles = "canEdit")]</mark> public ActionResult Create() { return View(new Contact { Address = "123 N 456 W", City="Great Falls", Email = "ab@cd.com", Name="Joe Smith", State="MT", Zip = "59405"}); } // POST: Cm/Create // 若要防範 overposting 攻擊，請啟用您想繫結的特定屬性，如需 // 更多詳細資料，請參閱 http://go.microsoft.com/fwlink/?LinkId=317598。 [HttpPost] [ValidateAntiForgeryToken] <mark>[Authorize(Roles = "canEdit")]</mark> public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact) { if (ModelState.IsValid) { db.Contacts.Add(contact); db.SaveChanges(); return RedirectToAction("Index"); } return View(contact); } // GET: Cm/Edit/5 <mark>[Authorize(Roles = "canEdit")]</mark> public ActionResult Edit(int? id) { if (id == null) { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); } Contact contact = db.Contacts.Find(id); if (contact == null) { return HttpNotFound(); } return View(contact); } </pre>
+1. 在 *CmController.cs* 中，將 `[Authorize(Roles = "canEdit")]` 新增至 *Cm* 控制器中用來變更資料的 HttpGet 和 HttpPost 方法 (Create、Edit、Delete，也就是 Index 和 Details 外的每個動作方法)。以下顯示完整程式碼的部分內容： 
+		<pre>
+	// GET: Cm/Create
+       <mark>[Authorize(Roles = "canEdit")]</mark>
+        public ActionResult Create()
+        {
+           return View(new Contact { Address = "123 N 456 W",
+            City="Great Falls", Email = "ab@cd.com", Name="Joe Smith", State="MT",
+           Zip = "59405"});
+        }
+        // POST: Cm/Create
+        // 若要防範 overposting 攻擊，請啟用您想繫結的特定屬性，如需 
+        // 更多詳細資料，請參閱 http://go.microsoft.com/fwlink/?LinkId=317598。
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+         <mark>[Authorize(Roles = "canEdit")]</mark>
+        public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Contacts.Add(contact);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(contact);
+        }
+        // GET: Cm/Edit/5
+       <mark>[Authorize(Roles = "canEdit")]</mark>
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Contact contact = db.Contacts.Find(id);
+            if (contact == null)
+            {
+                return HttpNotFound();
+            }
+            return View(contact);
+        }
+		</pre>
 
 1. 如果您在前個工作階段仍保持登入狀態，請點擊 [登出] 連結。
 1. 按一下 [關於] 或 [連絡人] 連結。因為匿名使用者無法檢視那些頁面，所以系統會將您重新導向至登入頁面。 
 1. 按一下 [**註冊為新使用者**] 連結並使用電子郵件 *joe@contoso.com* 新增本機使用者。確認 *Joe* 可檢視 [首頁]、[關於] 和 [連絡人] 頁面。
+
 	![登入](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
-1. 按一下 [CM Demo] 連結並確認看到資料。
+1. 按一下 *[CM Demo]* 連結並確認看到資料。
 1. 按一下頁面上的編輯連結，系統會將您重新導向至登入頁面 (因為未將新的本機使用者新增至 *canEdit* 角色)。
-1. 使用 *user1@contoso.com* 的身分和密碼 "P_assw0rd1" (word 中的「0」是數字零) 登入。系統隨即將您重新導向到先前選取的編輯頁面。<br/> 如果無法以該帳戶和密碼登入，請嘗試複製並貼上原始程式碼中的密碼。如果仍然無法登入，請檢查 **AspNetUsers** 資料表的 **UserName** 欄以確認已新增 *user1@contoso.com*。
+1. 使用 *user1@contoso.com* 的身分和密碼 "P_assw0rd1" (word 中的「0」是數字零) 登入。系統隨即將您重新導向到先前選取的編輯頁面。<br/>
+   如果無法以該帳戶和密碼登入，請嘗試複製並貼上原始程式碼中的密碼。如果仍然無法登入，請檢查 **AspNetUsers** 資料表的 **UserName** 欄以確認已新增 *user1@contoso.com*。
+
 1. 確認您可進行資料變更。
 
 ## 將應用程式部署至 Azure
@@ -468,7 +569,8 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 	![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc3.png)
 
 1. 按一下 [發行]。
-1. 以 *user1@contoso.com* (使用密碼 "P_assw0rd1") 身分登入，並確認您可以編輯資料。1. 登出。
+1. 以 *user1@contoso.com* (使用密碼 "P_assw0rd1") 身分登入，並確認您可以編輯資料。
+1. 登出。
 1. 請移至 [[Google Developers Console](https://console.developers.google.com/)]，並在 [**認證**] 索引標籤上更新 [重新導向 URI] 和 [JavaScript Orgins] 以使用 Azure URL。
 1. 使用 Google 或 Facebook 登入。如此將使 Google 或 Facebook 帳戶新增至 **canEdit** 角色。如果您收到 HTTP 400 錯誤訊息：*要求中的重新導向 URI：https://contactmanager{my https://contactmanager{my version}.azurewebsites.net/signin-google 與已註冊的重新導向 URI 不符。*，您必須等到您所做的變更都已傳播為止。如果您是在超過數分鐘之後收到此錯誤，請確認 URI 是正確的。
 

@@ -1,6 +1,8 @@
 <properties 
 	pageTitle="計算 Azure 所提供的裝載選項" 
 	description="了解 Azure 計算裝載選項以及其運作方式：虛擬機器、網站、雲端服務等。" 
+	headerExpose="" 
+	footerExpose="" 
 	services="cloud-services,virtual-machines"
 	authors="Thraka" 
 	documentationCenter=""

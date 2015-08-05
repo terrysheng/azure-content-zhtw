@@ -33,7 +33,7 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 
 ## 建立 Azure 串流分析工作 ##
 
-在 [Azure 入口網站][](https://manage.windowsazure.com) 中，依序按一下 [新增]、[資料服務]、[Stream Analytics]、[快速建立]。
+在 [Azure 入口網站](https://manage.windowsazure.com) 中，依序按一下 [新增]、[資料服務]、[Stream Analytics]、[快速建立]。
 
 指定下列值，然後按一下 [建立 Stream Analytics 工作]：
 
@@ -165,7 +165,8 @@ Power BI 同時採用並行處理和輸送量的條件約束，如下所述：[h
 
 由於這些 Power BI 本身以最自然的方式符合案例需求，其中 Azure 串流分析會大量降低資料載入的作業。我們建議使用 TumblingWindow 或 HoppingWindow 來確保資料推送最多 1 推送/秒，且查詢會落在輸送量需求之中 – 您可以使用下列方程式來計算每秒提供給視窗的值：![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)。
 
-在此範例中 – 如果您有 1,000 個每秒傳送資料的裝置，且位於支援每小時 1,000,000 個資料列的 Power BI Pro SKU 上，而您想要在 Power BI 上取得每個裝置的平均資料，則每個裝置最多可以每 4 秒執行一次推送 (如下所示)：![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+在此範例中 – 如果您有 1,000 個每秒傳送資料的裝置，且位於支援每小時 1,000,000 個資料列的 Power BI Pro SKU 上，而您想要在 Power BI 上取得每個裝置的平均資料，則每個裝置最多可以每 4 秒執行一次推送 (如下所示)：
+![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
 
 這表示我們會將原始查詢變更為：
 

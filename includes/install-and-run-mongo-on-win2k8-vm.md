@@ -14,23 +14,24 @@
 
 6. 在您先前建立的資料磁碟中建立 MongoDB 資料和記錄目錄 (例如磁碟機 **F:**)。在 [開始] 功能表中，選取 [命令提示字元] 以開啟命令提示字元視窗。輸入：
 
-		C:> F:
+		C:\> F:
 		F:> mkdir \MongoData
 		F:> mkdir \MongoLogs
 
 7. 若要執行資料庫，執行：
 
 		F:> C:
-		C:> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
+		C:\> cd \MongoDB\bin
+		C:\my_mongo_dir\bin> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
 	在 mongod.exe 伺服器啟動和預先配置日誌檔案時，所有記錄訊息都會傳送至 *F:\MongoLogs\mongolog.log* 檔案。MongoDB 可能需要花費數分鐘來預先配置日誌檔案，並開始接聽連線。
 
 8. 若要啟動 MongoDB 管理殼層，請從 [開始] 功能表中開啟另一個命令視窗，並輸入下列內容：
 
-		C:> cd \my_mongo_dir\bin  
+		C:\> cd \my_mongo_dir\bin  
 		C:\my_mongo_dir\bin> mongo  
 		>db  
-		test
+		test  	  
 		> db.foo.insert( { a : 1 } )  
 		> db.foo.find()  
 		{ _id : ..., a : 1 }  

@@ -92,9 +92,8 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 
 **可以從 Amazon S3 讀取資料嗎？**
 
-如果您有少量的資料，而且想要透過 HTTP URL 公開，則您可以使用[讀取器][reader]模組。若為任何較大量的資料，請先傳送至 Azure 儲存體，然後使用[讀取器][reader]模組將它帶入實驗中。<!--
-<SEE CLOUD DS PROCESS>
--->
+如果您有少量的資料，而且想要透過 HTTP URL 公開，則您可以使用[讀取器][reader]模組。若為任何較大量的資料，請先傳送至 Azure 儲存體，然後使用[讀取器][reader]模組將它帶入實驗中。
+<!--<SEE CLOUD DS PROCESS>-->
 
 **有內建的影像輸入功能嗎？**
 

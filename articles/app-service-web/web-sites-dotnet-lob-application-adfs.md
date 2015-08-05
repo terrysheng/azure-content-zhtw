@@ -81,30 +81,31 @@
 
 5.	在 App_Start\Startup.Auth.cs 中變更靜態字串定義，如以下反白顯示：
 	<pre class="prettyprint">
-private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
-<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
-<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
-<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
-<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
+	private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
+    <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
+    <mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
+    <mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
+    <mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
 
-<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
-</pre>
+    <mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
+    </pre>
 
 6.	您現在要在 Web.config 中進行對應的變更。開啟 Web.config 並修改應用程式設定，如下列反白顯示：
 	<pre class="prettyprint">
-&lt;appSettings>
-  &lt;add key="webpages:Version" value="3.0.0.0" />
-  &lt;add key="webpages:Enabled" value="false" />
-  &lt;add key="ClientValidationEnabled" value="true" />
-  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
-  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
-  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
-  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
-  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
-  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
+	&lt;appSettings>
+	  &lt;add key="webpages:Version" value="3.0.0.0" />
+	  &lt;add key="webpages:Enabled" value="false" />
+	  &lt;add key="ClientValidationEnabled" value="true" />
+	  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
+	  <mark><del>&lt;add key="ida:Wtrealm" value="[輸入 WebApp-WSFederation-DotNet 的應用程式識別碼 URI https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
+	  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
+	  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
+	  <mark>&lt;add key="ida:RPIdentifier" value="[輸入在 AD FS 中設定的信賴憑證者識別碼，例如 https://localhost:44320/]" /></mark>
+	  <mark>&lt;add key="ida:ADFS" value="[輸入 AD FS 服務的 FQDN，例如 adfs.contoso.com]" /></mark>
 
-&lt;/appSettings>
-</pre>根據您的對應環境填寫索引鍵值。
+	&lt;/appSettings>
+	</pre>
+	根據您的對應環境填寫索引鍵值。
 
 7.	建置應用程式，確定沒有任何錯誤。
 
@@ -197,18 +198,19 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
 10.	選取 [使用自訂規則傳送宣告] 並按 [下一步]。
 11.	將下列規則語言貼到 [自訂規則] 方塊，將規則命名為 [每個工作階段識別碼] 並按一下 [完成]。  
 	<pre class="prettyprint">
-c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
-c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
-	=> add(
-		store = "_OpaqueIdStore",
-		types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
-		query = "{0};{1};{2};{3};{4}",
-		param = "useEntropy",
-		param = c1.Value,
-		param = c1.OriginalIssuer,
-		param = "",
-		param = c2.Value);
-</pre>您的自訂規則看起來應該像這樣：
+	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
+	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
+		=> add(
+			store = "_OpaqueIdStore",
+			types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
+			query = "{0};{1};{2};{3};{4}",
+			param = "useEntropy",
+			param = c1.Value,
+			param = c1.OriginalIssuer,
+			param = "",
+			param = c2.Value);
+	</pre>
+	您的自訂規則看起來應該像這樣：
 
 	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
 
@@ -261,29 +263,38 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 1. 開啟 Controllers\HomeController.cs。
 2. 使用已驗證使用者擁有的安全性群組成員資格來裝飾 `About` 和 `Contact` 動作方法 (類似下列作法)。  
 	<pre class="prettyprint">
-	<mark>[Authorize(Roles="Test Group")]</mark>
-	public ActionResult About()
-	{
-    ViewBag.Message = "Your application description page.";
+    <mark>[Authorize(Roles="Test Group")]</mark>
+    public ActionResult About()
+    {
+        ViewBag.Message = "Your application description page.";
 
-    return View();
-	}
+        return View();
+    }
 
-	<mark>[Authorize(Roles="Domain Admins")]</mark>
-	public ActionResult Contact()
-	{
-    ViewBag.Message = "Your contact page.";
+    <mark>[Authorize(Roles="Domain Admins")]</mark>
+    public ActionResult Contact()
+    {
+        ViewBag.Message = "Your contact page.";
 
-    return View();
-	}
-</pre>由於我在 AD FS 實驗室環境中將「測試使用者」新增至「測試群組」，我將在 `About` 上使用測試群組來測試授權。若為 `Contact`，我將測試「測試使用者」不屬於之 **Domain Admins** 的負面案例。
+        return View();
+    }
+	</pre>
+
+	由於我在 AD FS 實驗室環境中將**測試使用者**新增至**測試群組**，我將在 `About` 上使用測試群組來測試授權。若為 `Contact`，我將測試**測試使用者**不屬於之 **Domain Admins** 的負面案例。
 
 3. 輸入 `F5` 開始偵錯工具並登入，然後按一下 [關於]。如果該動作已授權給已驗證的使用者，您現在應可順利檢視 `~/About/Index` 頁面。
 4. 現在按一下 [連絡人]，在我的案例中應該不會將該動作授權給「測試使用者」。不過，瀏覽器會重新導向至 AD FS，最後會顯示這則訊息：
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	如果您在 AD FS 伺服器的事件檢視器中調查此錯誤，您會看到這則例外狀況訊息：<pre class="prettyprint"> Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made '6' requests in the last '11' seconds.</mark> Contact your administrator for details. at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) </pre>
+	如果您在 AD FS 伺服器的事件檢視器中調查此錯誤，您會看到這則例外狀況訊息：
+	<pre class="prettyprint">
+	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made '6' requests in the last '11' seconds.</mark> Contact your administrator for details.
+	   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) 
+	   at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) 
+	</pre>
 
 	發生這種情況的原因是，在未授權使用者的角色時，MVC 預設會傳回「401 未授權」。這樣會針對您的身分識別提供者 (AD FS) 觸發重新驗證要求。因為使用者已通過驗證，AD FS 會返回相同的頁面，然後發出另一個 401，從而建立重新導向迴圈。您會使用簡單的邏輯來覆寫 AuthorizeAttribute 的 `HandleUnauthorizedRequest` 方法，從而顯示有意義的資訊而非持續出現重新導向迴圈。
 
@@ -343,4 +354,4 @@ Azure App Service Web Apps 可透過兩種方式支援存取在內部部署資�
  
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

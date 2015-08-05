@@ -33,7 +33,7 @@
 
 在設定期間，您必須指定 Azure Blob 儲存體帳戶和預設容器。叢集以此做為預設儲存位置。您可以選擇性地指定將與叢集相關聯的其他 Azure 儲存體帳戶。
 
->[AZURE.NOTE]請不要讓多個叢集共用一個 Blob 儲存體容器。不支援此做法。
+>[AZURE.NOTE] 請不要讓多個叢集共用一個 Blob 儲存體容器。不支援此做法。
 
 如需使用次要 Blob 存放區的詳細資訊，請參閱[搭配使用 Azure Blob 儲存體與 HDInsight](hdinsight-use-blob-storage.md)。
 
@@ -66,7 +66,7 @@ Spark 可讓您透過原始資料定義結構描述和 Hive 資料表。您可�
 
 如需虛擬網路特性、優點和功能的詳細資訊，請參閱＜[虛擬網路概觀](http://msdn.microsoft.com/library/azure/jj156007.aspx)＞。
 
-> [AZURE.NOTE]您必須先建立 Azure 虛擬網路，才能佈建叢集。如需詳細資訊，請參閱＜[虛擬網路組態工作](http://msdn.microsoft.com/library/azure/jj156206.aspx)＞。
+> [AZURE.NOTE] 您必須先建立 Azure 虛擬網路，才能佈建叢集。如需詳細資訊，請參閱＜[虛擬網路組態工作](http://msdn.microsoft.com/library/azure/jj156206.aspx)＞。
 >
 > Azure HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。
 >
@@ -98,7 +98,8 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 		<td>選取 [Windows Server 2012 R2 Data Center]<b></b> 來佈建於 Windows 上執行的 Spark 叢集。</td></tr>
 	<tr><td>HDInsight 版本</td>
 		<td>選擇版本。對於 Spark 來說，唯一可用的版本選項是 <b>HDInsight 3.2</b>，其使用 Spark 1.3.1。</td></tr>
-	</table>輸入或選取如資料表中所示的值，然後按一下向右箭頭。
+	</table>
+	輸入或選取如資料表中所示的值，然後按一下向右箭頭。
 
 4. 在 [設定叢集] 頁面上，輸入或選取下列值：
 
@@ -110,7 +111,8 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 <tr><td>區域/虛擬網路</td><td><p>請選擇與您在前一個程序中建立的儲存體帳戶相同的區域。使用 HDInsight 時，儲存體帳戶必須位於相同的區域中。後續進行設定時，您只能選擇此處指定之相同區域中的儲存體帳戶。</p>。<br/>如果您已建立 Azure 虛擬網路，您可以選取將設定 HDInsight 叢集為使用的網路。</p><p>如需建立 Azure 虛擬網路的詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/azure/jj156206.aspx">虛擬網路組態工作</a>。</p></td></tr>
 <tr><td>前端節點大小</td><td><p>選取前端節點的虛擬機器 (VM) 大小。</p></td></tr>
 <tr><td>資料節點大小</td><td><p>選取資料節點的 VM 大小。</p></td></tr>
-</table>>[AZURE.NOTE]根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
+</table>
+	>[AZURE.NOTE] 根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 價格</a>。
 
 
 5. 在 [Configure Cluster User] 頁面上，提供下列值：
@@ -128,7 +130,8 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 	<tr><td>輸入 Hive/Oozie 中繼存放區</td>
 		<td>勾選此核取方塊，在與叢集相同的資料中心上指定 SQL 資料庫，以做為 Hive/Oozie 中繼存放區使用。如果您選取此核取方塊，則必須在精靈的後續頁面指定 Azure SQL Database 的詳細資料。即使在將叢集刪除之後，如果您想要保留 Hive/Oozie 工作的相關中繼資料，此選項將會很有幫助。如需建立 metastore 的指示，請參閱<a href="https://azure.microsoft.com/zh-tw/documentation/articles/sql-database-get-started/" target="_blank">建立您的第一個 Azure SQL Database</a>。</td></tr>
 	</td></tr>
-</table>>[AZURE.NOTE]用於 metastore 的 Azure SQL Database 必須能夠連線至其他 Azure 服務 (包括 Azure HDInsight)。在 Azure SQL Database 儀表板中，按一下右側的伺服器名稱。這是指執行 SQL Database 執行個體的伺服器。一旦進入伺服器檢視後，按一下 [設定]，然後在 [Windows Azure 服務] 中，依序按一下 [是] 和 [儲存]。
+</table>
+	>[AZURE.NOTE] 用於 metastore 的 Azure SQL Database 必須能夠連線至其他 Azure 服務 (包括 Azure HDInsight)。在 Azure SQL Database 儀表板中，按一下右側的伺服器名稱。這是指執行 SQL Database 執行個體的伺服器。一旦進入伺服器檢視後，按一下 [設定]，然後在 [Windows Azure 服務] 中，依序按一下 [是] 和 [儲存]。
 
     按一下向右箭頭。
 
@@ -138,7 +141,7 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 
 	指定要做為 Hive/OOzie Metastore 的 Azure SQL Database。您可以為 Hive 和 Oozie Metastore 指定相同的資料庫。此 SQL 資料庫必須與 HDInsight 叢集位於相同的資料中心內。清單方塊只會列出與您在 [叢集詳細資料]<strong></strong> 頁面上指定之相同資料中心內的 SQL 資料庫。同時請指定使用者名稱及密碼以連線到所選取的 Azure SQL Database。
 
-    >[AZURE.NOTE]用於 metastore 的 Azure SQL Database 必須能夠連線至其他 Azure 服務 (包括 Azure HDInsight)。在 Azure SQL Database 儀表板中，按一下右側的伺服器名稱。這是指執行 SQL Database 執行個體的伺服器。一旦進入伺服器檢視後，按一下 [**設定**]，然後在 [**Azure 服務**] 按一下 [**是**]，再按 [**儲存**]。
+    >[AZURE.NOTE] 用於 metastore 的 Azure SQL Database 必須能夠連線至其他 Azure 服務 (包括 Azure HDInsight)。在 Azure SQL Database 儀表板中，按一下右側的伺服器名稱。這是指執行 SQL Database 執行個體的伺服器。一旦進入伺服器檢視後，按一下 [**設定**]，然後在 [**Azure 服務**] 按一下 [**是**]，再按 [**儲存**]。
 
     按一下向右箭頭。
 
@@ -169,7 +172,8 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
     </td></tr>
 	<tr><td>其他儲存體帳戶</td>
 		<td>HDInsight 支援多個儲存體帳戶。叢集可使用的其他儲存體帳戶沒有數量上的限制。但如果您使用 Azure 入口網站建立叢集，則會因為 UI 的限制而只能使用最多七個儲存體帳戶。您所指定的每個其他儲存體帳戶都會在精靈上另外加入一個 **儲存體帳戶** 頁面，您可在此指定帳戶資訊。以上方的螢幕擷取畫面為例，在選取一個其他儲存體帳戶後，對話方塊因此加入了頁面 5。</td></tr>
-</table>按一下向右箭頭。
+</table>
+	按一下向右箭頭。
 
 8. 如果您選擇為叢集設定其他儲存體，請在 [儲存體帳戶] 頁面上，輸入其他儲存體帳戶的帳戶資訊：
 
@@ -177,7 +181,7 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 
     在這裡，您可以選擇現有儲存體、建立新儲存體或使用其他 Azure 訂用帳戶的儲存體。提供值的程序會與上個步驟類似。
 
-    > [AZURE.NOTE]在您為 HDInsight 叢集選擇 Azure 儲存體帳戶後，您將無法刪除帳戶，也無法將帳戶變更為不同的帳戶。
+    > [AZURE.NOTE] 在您為 HDInsight 叢集選擇 Azure 儲存體帳戶後，您將無法刪除帳戶，也無法將帳戶變更為不同的帳戶。
 
 8. 若要在建立叢集時自訂叢集，請在 [指令碼動作] 頁面上，按一下 [加入指令碼動作] 並提供有關您將執行的自訂指令碼詳細資料。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集][hdinsight-customize-cluster]。
 
@@ -193,7 +197,8 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 		<td>指定執行自訂指令碼的節點。您可以選擇 [<b>所有節點</b>]、[<b>僅限前端節點</b>] 或 [<b>僅限背景工作節點</b>]。
 	<tr><td>參數</td>
 		<td>如果指令碼要求，請指定參數。</td></tr>
-</table>您可以加入一個以上的指令碼動作，以在叢集上安裝多個元件。加入指令碼之後，請按一下核取記號以開始佈建叢集。
+</table>
+	您可以加入一個以上的指令碼動作，以在叢集上安裝多個元件。加入指令碼之後，請按一下核取記號以開始佈建叢集。
 
 
 
@@ -201,7 +206,7 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 
 本節提供如何使用 Azure PowerShell 在 Azure HDInsight 中佈建 Apache Spark 叢集的指示。如需設定工作站以執行 HDInsight Windows Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。如需搭配使用 Azure PowerShell 與 HDInsight 的詳細資訊，請參閱[使用 PowerShell 管理 HDInsight][hdinsight-admin-powershell]。如需 HDInsight Windows PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考資料][hdinsight-powershell-reference]。
 
-> [AZURE.NOTE]本節的指令碼可用來設定 Azure 虛擬網路上的 HDInsight 叢集，但不會建立 Azure 虛擬網路。如需建立 Azure 虛擬網路的相關資訊，請參閱[虛擬網路組態工作](http://msdn.microsoft.com/library/azure/jj156206.aspx)。
+> [AZURE.NOTE] 本節的指令碼可用來設定 Azure 虛擬網路上的 HDInsight 叢集，但不會建立 Azure 虛擬網路。如需建立 Azure 虛擬網路的相關資訊，請參閱[虛擬網路組態工作](http://msdn.microsoft.com/library/azure/jj156206.aspx)。
 
 以下是使用 Azure PowerShell 佈建 HDInsight 叢集時所需執行的程序：
 
@@ -273,7 +278,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -Name $clusterName -Credential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName -ClusterSizeInNodes $clusterNodes -Version "3.2" -ClusterType Spark
 
-	>[AZURE.NOTE]您指定的認證會用來建立叢集的 Hadoop 使用者帳戶。您將使用此帳戶來連接到叢集並執行工作。如果從 Azure 入口網站使用快速建立選項佈建叢集，則預設 Hadoop 使用者名稱是 "admin"。請不要將此帳戶與遠端桌面通訊協定 (RDP) 使用者帳戶相混淆。RDP 使用者帳戶必須與 Hadoop 使用者帳戶不同。如需詳細資訊，請參閱[使用 Azure 管理入口網站在 HDInsight 上管理 Hadoop 叢集][hdinsight-admin-portal]。
+	>[AZURE.NOTE] 您指定的認證會用來建立叢集的 Hadoop 使用者帳戶。您將使用此帳戶來連接到叢集並執行工作。如果從 Azure 入口網站使用快速建立選項佈建叢集，則預設 Hadoop 使用者名稱是 "admin"。請不要將此帳戶與遠端桌面通訊協定 (RDP) 使用者帳戶相混淆。RDP 使用者帳戶必須與 Hadoop 使用者帳戶不同。如需詳細資訊，請參閱[使用 Azure 管理入口網站在 HDInsight 上管理 Hadoop 叢集][hdinsight-admin-portal]。
 
 	叢集佈建可能需要幾分鐘的時間才會完成。
 
@@ -284,7 +289,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 佈建叢集時，您可以使用其他組態選項，例如連線到多個 Azure Blob 儲存體容器，或使用 Azure SQL Database 來處理 Hive 和 Oozie Metastore。這可讓您區隔資料和中繼資料的存留期與叢集的存留期。
 
-> [AZURE.NOTE]Windows PowerShell Cmdlet 是唯一建議用來在 HDInsight 叢集中變更組態變數的方法。透過遠端桌面連接至叢集時對 Hadoop 組態檔所做的變更，可能會在叢集修補時遭到覆寫。透過 Azure PowerShell 所設定的組態值在叢集修補時會保留下來。
+> [AZURE.NOTE] Windows PowerShell Cmdlet 是唯一建議用來在 HDInsight 叢集中變更組態變數的方法。透過遠端桌面連接至叢集時對 Hadoop 組態檔所做的變更，可能會在叢集修補時遭到覆寫。透過 Azure PowerShell 所設定的組態值在叢集修補時會保留下來。
 
 - 從 Windows PowerShell 視窗執行下列命令：
 
@@ -324,7 +329,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 		# Provision the cluster with custom configuration                
 		New-AzureHDInsightCluster -Name $clusterName -Config $config -Credential $clusterCredentials -Location $location -Version "3.2"
 
-	>[AZURE.NOTE]用於 metastore 的 Azure SQL Database 必須能夠連線至其他 Azure 服務 (包括 Azure HDInsight)。在 Azure SQL Database 儀表板中，按一下右側的伺服器名稱。這是指執行 SQL Database 執行個體的伺服器。一旦進入伺服器檢視後，按一下 [設定]，然後在 [Windows Azure 服務] 中，依序按一下 [是] 和 [儲存]。
+	>[AZURE.NOTE] 用於 metastore 的 Azure SQL Database 必須能夠連線至其他 Azure 服務 (包括 Azure HDInsight)。在 Azure SQL Database 儀表板中，按一下右側的伺服器名稱。這是指執行 SQL Database 執行個體的伺服器。一旦進入伺服器檢視後，按一下 [設定]，然後在 [Windows Azure 服務] 中，依序按一下 [是] 和 [儲存]。
 
 	叢集佈建可能需要幾分鐘的時間才會完成。
 
@@ -497,4 +502,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

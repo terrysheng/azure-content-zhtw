@@ -30,7 +30,7 @@ Web 測試可分為兩種：
 * [URL Ping 測試](#set-up-a-url-ping-test)：您可以在 Azure 入口網站中建立的簡單測試。
 * [多步驟 Web 測試](#multi-step-web-tests)：您可以在 Visual Studio Ultimate 或 Visual Studio Enterprise 中建立並上傳至入口網站的測試。
 
-這是 Azure Web 應用程式嗎？ 只是[在 Web 應用程式刀鋒視窗中建立 Web 測試][azure-availability]。
+*這是 Azure Web 應用程式嗎？ 只是[在 Web 應用程式刀鋒視窗中建立 Web 測試][azure-availability]。*
 
 
 

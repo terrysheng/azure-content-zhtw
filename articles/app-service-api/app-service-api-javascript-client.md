@@ -310,7 +310,7 @@ API 應用程式閘道可設定為使用 Azure Preview 入口網站啟用 CORS�
             $scope.refresh();
         });
 
-1，在您剛才加入至 index.html 的程式碼中，將基底 URL (`http://localhost:1578`) 中的通訊埠編號替換成 API 專案的實際通訊埠編號。
+1, 在您剛才加入至 index.html 的程式碼中，將基底 URL (`http://localhost:1578`) 中的通訊埠編號替換成 API 專案的實際通訊埠編號。
 
 	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
 

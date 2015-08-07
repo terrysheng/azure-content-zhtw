@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="深入瞭解 Microsoft Azure 資源耗用量"
    description="提供 Azure 計費使用情況和 RateCard API 的概念性概觀，可用來提供 Azure 資源耗用量和趨勢的見解。"
    services="billing"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="07/7/2015"
+   ms.date="07/07/2015"
    ms.author="mobandyo;bryanla"/>
 
 # 深入瞭解 Microsoft Azure 資源耗用量 

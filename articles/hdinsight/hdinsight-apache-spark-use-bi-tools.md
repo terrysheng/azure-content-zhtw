@@ -131,7 +131,7 @@
 
 	![建立視覺效果](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Visual.1.png "建立視覺效果")
 
-	此外，請選取 [**區域對應**] (顯示為紅色) 以視覺化資料。
+	此外，請選取 **區域對應** \(顯示為紅色) 以視覺化資料。
 
 8. 依預設，視覺效果會顯示 **ActualTemp** 和 **TargetTemp** 的總和。對於這兩個欄位，從下拉式清單選取 [**平均**] 可取得這兩項建置之實際和目標溫度的平均值。
 
@@ -205,4 +205,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->

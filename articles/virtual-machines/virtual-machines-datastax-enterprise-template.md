@@ -500,4 +500,4 @@ vm-disk-utils-0.1.sh 是 azure-quickstart-tempates github 儲存機制中 shared
 
 如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)。
 
-<!-----HONumber=July15_HO4-->
+<!-----------HONumber=July15_HO4-->

@@ -345,7 +345,7 @@ Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相
 		sudo chgrp lampappgroup /var/www/html/  # Change the ownership to group lampappgroup
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
-	>[AZURE.NOTE]
+	>[AZURE.NOTE] 如果您想要修改 /var/www/html/ 中的檔案，您可能需要重新登入。
 -	使用任何 SFTP 用戶端 (例如 FileZilla) 連線到您虛擬機器的 DNS 名稱 (例如 lampdemo.cloudapp.net)，並瀏覽至 /**var/www/html** 發佈您的網站。![][18]
 
 
@@ -452,4 +452,4 @@ Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
  
 
-<!---HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->

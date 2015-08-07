@@ -255,4 +255,4 @@ StorSimple Snapshot Manager 可以安裝在執行 Windows Server® 2008 R2 SP1�
 
 若要深入了解 StorSimple Snapshot Manager 使用者介面，請移至 [StorSimple Snapshot Manager 使用者介面](storsimple-use-snapshot-manager.md)
 
-<!----HONumber=July15_HO4-->
+<!----------HONumber=July15_HO4-->

@@ -34,11 +34,14 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：[**快�
 ## 概念
 需要三個元件才能部署應用程式成為 Azure 中的雲端服務：
 
-- **服務定義** 雲端服務定義檔 (.csdef) 定義服務模型，包括角色數目。
+- **服務定義**  
+  雲端服務定義檔 (.csdef) 定義服務模型，包括角色數目。
 
-- **服務組態** 雲端服務組態檔 (.cscfg) 提供雲端服務和個別角色的組態設定，包括角色執行個體數。
+- **服務組態**  
+  雲端服務組態檔 (.cscfg) 提供雲端服務和個別角色的組態設定，包括角色執行個體數。
 
-- **服務封裝** 服務封裝 (.cspkg) 包含應用程式程式碼和組態以及服務定義檔。
+- **服務封裝**  
+  服務封裝 (.cspkg) 包含應用程式程式碼和組態以及服務定義檔。
   
 您可以在[這裡](cloud-services-model-and-package.md)深入了解這些內容，以及如何建立封裝。
 
@@ -125,7 +128,7 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：[**快�
 
     如果每個角色至少有兩個執行個體，Azure 只能保證在維護和服務更新期間存取雲端服務的成功率為 99.95%。若有需要，您可以在部署雲端服務後，在 [Scale] 頁面上新增其他角色執行個體。如需詳細資訊，請參閱[服務等級協定](http://azure.microsoft.com/support/legal/sla/)。
 
-6. 按一下 [確定] (核取記號) 開始雲端服務部署。
+6. 按一下 [確定] \(核取記號) 開始雲端服務部署。
 
 	![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
 
@@ -147,4 +150,4 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：[**快�
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->

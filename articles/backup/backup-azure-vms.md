@@ -33,13 +33,17 @@
 
 1. 瀏覽至備份保存庫 (位於 Azure 入口網站的 [**復原服務**] 下)，按一下 [**註冊的項目**] 索引標籤。
 
-2. 在下拉式功能表中選擇工作負載類型 [**Azure 虛擬機器**]，按一下 [**選取**] 按鈕。![選取工作負載](./media/backup-azure-vms/discovery-select-workload.png)
+2. 在下拉式功能表中選擇工作負載類型 [**Azure 虛擬機器**]，按一下 [**選取**] 按鈕。
+  ![選取工作負載](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. 按一下頁面底部的 [**探索**] 按鈕。![探索按鈕](./media/backup-azure-vms/discover-button-only.png)
+3. 按一下頁面底部的 [**探索**] 按鈕。
+  ![探索按鈕](./media/backup-azure-vms/discover-button-only.png)
 
-4. 在列表顯示虛擬機器時，探索程序可能會執行幾分鐘。探索程序執行時，畫面底部會出現快顯通知。![探索 VM](./media/backup-azure-vms/discovering-vms.png)
+4. 在列表顯示虛擬機器時，探索程序可能會執行幾分鐘。探索程序執行時，畫面底部會出現快顯通知。
+  ![探索 VM](./media/backup-azure-vms/discovering-vms.png)
 
-5. 探索程序完成時會出現快顯通知。![探索完成](./media/backup-azure-vms/discovery-complete.png)
+5. 探索程序完成時會出現快顯通知。
+  ![探索完成](./media/backup-azure-vms/discovery-complete.png)
 
 ##  2.註冊 Azure 虛擬機器
 虛擬機器必須先向 Azure 備份服務註冊，才能受到保護。註冊程序有兩個主要目標：
@@ -54,9 +58,11 @@
 
 1. 瀏覽至備份保存庫 (位於 Azure 入口網站的 [**復原服務**] 下)，按一下 [**註冊的項目**] 索引標籤。
 
-2. 在下拉式功能表中選擇工作負載類型 [**Azure 虛擬機器**]，按一下 [選取] 按鈕。![選取工作負載](./media/backup-azure-vms/discovery-select-workload.png)
+2. 在下拉式功能表中選擇工作負載類型 [**Azure 虛擬機器**]，按一下 [選取] 按鈕。
+  ![選取工作負載](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. 按一下頁面底部的 [**註冊**] 按鈕。![註冊按鈕](./media/backup-azure-vms/register-button-only.png)
+3. 按一下頁面底部的 [**註冊**] 按鈕。
+  ![註冊按鈕](./media/backup-azure-vms/register-button-only.png)
 
 4. 在 [**註冊的項目**] 快顯功能表中，選擇您想要註冊的虛擬機器。如果有兩個以上同名的虛擬機器，請使用雲端服務來區別虛擬機器。
 
@@ -64,18 +70,22 @@
 
     >[AZURE.NOTE]只會顯示未註冊且與備份保存庫位於相同區域的虛擬機器。
 
-5. 每一個應該註冊的虛擬機器都會建立一項工作。快顯通知會顯示此活動的狀態。按一下 [**檢視工作**] 以移至 [**工作**] 頁面。![註冊工作](./media/backup-azure-vms/register-create-job.png)
+5. 每一個應該註冊的虛擬機器都會建立一項工作。快顯通知會顯示此活動的狀態。按一下 [**檢視工作**] 以移至 [**工作**] 頁面。          
+  ![註冊工作](./media/backup-azure-vms/register-create-job.png)
 
-6. 虛擬機器也會出現在註冊的項目清單中，還會顯示註冊作業的狀態。![註冊狀態 1](./media/backup-azure-vms/register-status01.png)
+6. 虛擬機器也會出現在註冊的項目清單中，還會顯示註冊作業的狀態。
+  ![註冊狀態 1](./media/backup-azure-vms/register-status01.png)
 
-7. 作業完成時，入口網站中的狀態會改變來反映已註冊的狀態。![註冊狀態 2](./media/backup-azure-vms/register-status02.png)
+7. 作業完成時，入口網站中的狀態會改變來反映已註冊的狀態。
+  ![註冊狀態 2](./media/backup-azure-vms/register-status02.png)
 
 ## 3.保護：備份 Azure 虛擬機器
 此步驟涉及到設定虛擬機器的備份和保留原則。若要保護虛擬機器，請執行下列步驟：
 
 ### 備份 Azure 虛擬機器
 1. 瀏覽至備份保存庫 (位於 Azure 入口網站的 [**復原服務**] 下)，按一下 [**註冊的項目**] 索引標籤。
-2. 在下拉式功能表中選擇工作負載類型 [**Azure 虛擬機器**]，按一下 [**選取**] 按鈕。![在入口網站中選取工作負載](./media/backup-azure-vms/select-workload.png)
+2. 在下拉式功能表中選擇工作負載類型 [**Azure 虛擬機器**]，按一下 [**選取**] 按鈕。
+  ![在入口網站中選取工作負載](./media/backup-azure-vms/select-workload.png)
 
 3. 按一下頁面底部的 [**保護**] 按鈕。
 
@@ -93,17 +103,21 @@
 
     每一個備份原則可以有多個相關聯的虛擬機器。無論何時，虛擬機器只能與一個原則相關聯。
 
-6. 每個虛擬機器會建立一項工作，以設定保護原則並將虛擬機器與原則相關聯。按一下 [**工作**] 索引標籤，選擇正確的篩選器來檢視 [**設定保護**] 工作清單。![設定保護工作](./media/backup-azure-vms/protect-configureprotection.png)
+6. 每個虛擬機器會建立一項工作，以設定保護原則並將虛擬機器與原則相關聯。按一下 [**工作**] 索引標籤，選擇正確的篩選器來檢視 [**設定保護**] 工作清單。
+  ![設定保護工作](./media/backup-azure-vms/protect-configureprotection.png)
 
-7. 完成之後，虛擬機器就受到原則保護，必須等到排程的備份時間讓初始備份完成為止。現在，虛擬機器出現在 [**受保護的項目**] 索引標籤下，且 [保護狀態] 為 [*受保護*] (擱置中的初始備份)。
+7. 完成之後，虛擬機器就受到原則保護，必須等到排程的備份時間讓初始備份完成為止。現在，虛擬機器出現在 [**受保護的項目**] 索引標籤下，且 [保護狀態] 為 *受保護* (擱置中的初始備份)。
     >[AZURE.NOTE]目前還無法在設定保護之後立即啟動初始備份。
 
-8. 在排程時間，Azure 備份服務會為每個需要備份的虛擬機器建立備份工作。按一下 [**工作**] 索引標籤來檢視 [**備份**] 工作清單。在備份工作進行時，Azure 備份服務會發出命令給每個虛擬機器中的備份擴充功能，以排清所有寫入並取得一致的快照。![備份進行中](./media/backup-azure-vms/protect-inprogress.png)
+8. 在排程時間，Azure 備份服務會為每個需要備份的虛擬機器建立備份工作。按一下 [**工作**] 索引標籤來檢視 [**備份**] 工作清單。在備份工作進行時，Azure 備份服務會發出命令給每個虛擬機器中的備份擴充功能，以排清所有寫入並取得一致的快照。
+  ![備份進行中](./media/backup-azure-vms/protect-inprogress.png)
 
-9. 完成之後，[**受保護的項目**] 索引標籤中的虛擬機器 [保護狀態] 會顯示成 [*受保護*]。![搭配復原點備份虛擬機器](./media/backup-azure-vms/protect-backedupvm.png)
+9. 完成之後，[**受保護的項目**] 索引標籤中的虛擬機器 [保護狀態] 會顯示成 [*受保護*]。
+  ![搭配復原點備份虛擬機器](./media/backup-azure-vms/protect-backedupvm.png)
 
 ## 檢視備份狀態和詳細資料
-虛擬機器受到保護後，[**儀表板**] 頁面摘要中的虛擬機器計數也會遞增。此外，[儀表板] 頁面還會顯示過去 24 小時內成功、失敗和仍在進行中的工作數目。按一下任何一個類別可在 [**工作**] 頁面中深入查看該類別。![儀表板頁面中的備份狀態](./media/backup-azure-vms/dashboard-protectedvms.png)
+虛擬機器受到保護後，[**儀表板**] 頁面摘要中的虛擬機器計數也會遞增。此外，[儀表板] 頁面還會顯示過去 24 小時內成功、失敗和仍在進行中的工作數目。按一下任何一個類別可在 [**工作**] 頁面中深入查看該類別。  
+  ![儀表板頁面中的備份狀態](./media/backup-azure-vms/dashboard-protectedvms.png)
 
 ## 錯誤疑難排解
 您可以疑難排解將 Azure 備份使用於下表所列資訊時發生的錯誤。
@@ -182,4 +196,4 @@
 - [還原虛擬機器](backup-azure-restore-vms.md)
 - [管理虛擬機器](backup-azure-manage-vms)
 
-<!---HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->

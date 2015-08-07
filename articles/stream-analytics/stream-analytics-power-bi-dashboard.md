@@ -209,4 +209,4 @@ Power BI 同時採用並行處理和輸送量的條件約束，如下所述：[h
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
  
 
-<!---HONumber=July15_HO4-->
+<!---------HONumber=July15_HO4-->

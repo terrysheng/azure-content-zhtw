@@ -53,7 +53,7 @@
 
 	要讓 Azure 保證服務在雲端服務更新期間有 99.95% 的可用性，每個角色都至少必須有兩個角色執行個體 (虛擬機器)。如此才能讓一個虛擬機器在受到更新時，還有另一個虛擬機器可以處理用戶端要求。
 
-8. 按一下 [確定] (核取記號) 開始更新服務。
+8. 按一下 [確定] \(核取記號) 開始更新服務。
 
 
 
@@ -95,19 +95,19 @@
 
 1. 在[管理入口網站](http://manage.windowsazure.com/)中，按一下 [雲端服務]。然後按一下雲端服務的名稱以開啟儀表板。
 
-2. 按一下 [Linked Resources]。
+2. 按一下 [連結的資源]。
 
-	[Linked Resources] 頁面隨即開啟。
+	[連結的資源] 頁面隨即開啟。
 
 	![LinkedResourcesPage](./media/cloud-services-how-to-manage/CloudServices_LinkedResourcesPage.png)
 
-3. 按一下 [Link a Resource] 或 [連結]。
+3. 按一下 [連結資源] 或 [連結]。
 
-	[Link Resource] 精靈隨即啟動。
+	[連結資源] 精靈隨即啟動。
 
 	![Link Page1](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png)
 
-4. 按一下 [建立新的資源] 或 [Link an existing resource]。
+4. 按一下 [建立新的資源] 或 [連結現有資源]。
 
 5. 選擇要連結的資源類型。在[管理入口網站](http://manage.windowsazure.com/)中，按一下 [SQL Database]。(預覽版管理入口網站不支援將儲存體帳戶連結到雲端服務。)
 
@@ -123,7 +123,7 @@
 
 1. 在[管理入口網站](http://manage.windowsazure.com/)中，按一下 [雲端服務]。然後按一下雲端服務的名稱以開啟儀表板。
 
-2. 按一下 [Linked Resources]，然後選取資源。
+2. 按一下 [連結的資源]，然後選取資源。
 
 3. 按一下 [取消連結]。然後在確認提示處按一下 [是]。
 
@@ -158,4 +158,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->

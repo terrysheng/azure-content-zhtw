@@ -7,7 +7,14 @@
 	authors="dlepow"
 	services="virtual-machines"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services"" ms.tgt\_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="06/09/2015" ms.author="danlep"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services""
+	ms.tgt_pltfrm="command-line-interface"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # 搭配使用 Mac、Linux 和 Windows 適用的 Azure CLI 與 Azure 資源管理員
 
@@ -339,4 +346,4 @@ Azure CLI 將使用預設的 VM 大小建立虛擬機器。它也會建立儲存
 [clisetup]: ../xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

@@ -5,7 +5,15 @@
    documentationCenter=""
    authors="aashishr"
    manager="shreeshd"
-   editor=""/> <tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt\_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/14/2015" ms.author="aashishr"; "jimpark"/>
+   editor=""/>
+<tags
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="07/14/2015"
+   ms.author="aashishr"; "jimpark"/>
 
 # 在 Azure 備份中離線備份工作流程
 
@@ -107,4 +115,4 @@ Azure 備份與 Azure 匯入/匯出服務密切整合，可讓您快速傳輸初
 - 若您有關於 Azure 匯入/匯出工作流程的任何問題，請參閱此[文章](../storage-import-export-service.md)。
 - 若您有關於工作流程的任何問題，請參閱 Azure 備份[常見問題集](backup-azure-backup-faq.md)的＜離線備份＞章節
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

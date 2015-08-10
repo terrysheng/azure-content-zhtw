@@ -1,13 +1,20 @@
 <properties
-   pageTitle="Azure 備份只需 10 分鐘 | Microsoft Azure"
-   description="10 分鐘後即可開始使用 Azure 備份"
+   pageTitle="Azure Backup in 10mins | Microsoft Azure"
+   description="Get started with Azure Backup in 10mins"
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="07/06/2015" ms.author="aashishr"; "jimpark"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="get-started-article"
+	 ms.date="07/06/2015"
+	 ms.author="aashishr"; "jimpark"/>
 
 # 10 分鐘內即可試用 Azure 備份
 安裝 Azure 備份非常容易，而下列的示範影片應該可以協助您開始著手。
@@ -45,4 +52,4 @@
 - 若要深入了解 Azure 備份，請參閱 [Azure 備份概觀](backup-introduction-to-azure-backup.md) (英文)。
 - 造訪 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933) (英文)。
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

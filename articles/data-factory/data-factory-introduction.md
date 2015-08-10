@@ -25,7 +25,9 @@ Data Factory 是雲端架構資訊管理服務，會自動移動和轉換資料�
 
 Data Factory 會在內部部署、雲端資料來源和 SaaS 之間運作，以便擷取、準備、轉換、分析及發行您的資料。利用 [Azure HDInsight (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) 和 [Azure Batch](http://azure.microsoft.com/documentation/services/batch/) 這類的服務，使用 Data Factory 將服務撰寫到所管理的資料流程管線，以符合計算巨量資料的需求，另外也可以使用 [Azure Machine Learning](http://azure.microsoft.com/documentation/services/machine-learning/) 實施您的分析解決方案。不僅僅是表格式的監視檢視，還使用了豐富的視覺效果呈現 Data Factory，來快速顯示歷程和資料管線之間的相依性。從單一的統一檢視來監視所有的資料流程管線，輕鬆找出問題並設定監視警示。
 
-![概觀](./media/data-factory-introduction/overview.png) **圖 1。** 從許多不同的內部部署資料來源收集資料、擷取和準備資料，透過各種轉換來組織並分析資料，然後發行隨時可用的資料以供使用。
+![概觀](./media/data-factory-introduction/data-factory-overview.png)
+
+**圖 1。** 從許多不同的內部部署資料來源收集資料、擷取和準備資料，透過各種轉換來組織並分析資料，然後發行隨時可用的資料以供使用。
 
 您可以視需求隨時使用 Data Factory，在可靠的排程下收集各種外型和大小的資料，並加以轉換和發行，以便得到深入的了解。對於讓線上零售商可以根據客戶瀏覽行為而產生個人化產品建議這類的案例，您可使用 Data Factory 建立高度可用的資料流程管線。
 
@@ -34,7 +36,9 @@ Data Factory 會在內部部署、雲端資料來源和 SaaS 之間運作，以�
 
 Azure Data Factory 有幾個主要實體會共同運作，來定義輸入和輸出資料、處理事件以及執行指定之資料流程所需的排程和資源。
 
-![重要概念](./media/data-factory-introduction/key-concepts.png) **圖 2。** 資料集、活動、管線和連結服務之間的關聯性。
+![重要概念](./media/data-factory-introduction/key-concepts.png)
+
+**圖 2。** 資料集、活動、管線和連結服務之間的關聯性。
 
 
 ### 活動
@@ -54,4 +58,4 @@ Azure Data Factory 有幾個主要實體會共同運作，來定義輸入和輸�
 
 有了資料集、活動、管線和連結的服務這四個簡單的概念之後，您隨時可以開始使用！ 您可以從頭開始[建置您的第一個管線](data-factory-build-your-first-pipeline.md)，或是依照我們[部落格文章](https://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/)中的指示，部署現成的樣本。
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

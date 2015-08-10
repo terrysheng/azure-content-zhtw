@@ -1,45 +1,29 @@
-<properties 
- pageTitle="排程器限制、預設值和錯誤碼" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="排程器限制、預設值和錯誤碼"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="04/22/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="07/28/2015"
  ms.author="krisragh"/>
- 
+
 # 排程器限制、預設值和錯誤碼
 
 ## 排程器配額、限制、預設值和節流
 
-下表描述 Azure 排程器中的每一個主要配額、限制、預設值和節流。
-
-|資源|限制說明|
-|---|---|
-|**工作大小**|工作大小上限為 16k。如果 PUT 或 PATCH 導致工作大於這些限制，則會傳回「400 要求錯誤」狀態碼。|
-|**要求 URL 大小**|要求 URL 的大小上限為 2048 個字元。|
-|**彙總標頭大小**|彙總標頭大小上限為 4096 個字元。|
-|**標頭計數**|標頭計數上限為 50 個標頭。|
-|**內文大小**|內文大小上限為 8192 個字元。|
-|**週期範圍**|週期範圍上限為 18 個月。|
-|**開始時間**|「開始時間」上限為 18 個月。|
-|**工作歷程記錄**|工作歷程記錄中儲存的最大回應本文為 2048 個位元組。|
-|**頻率**|在可用工作集合中，預設最大頻率配額為 1 小時，而在標準工作集合中，則為 1 分鐘。最大頻率可在工作集合上設定為低於最大值。工作集合中的所有工作都限制為工作集合上設定的值。如果您嘗試在工作集合上建立頻率高於最大頻率的工作，則要求將失敗，並顯示「409 衝突」狀態碼。|
-|**工作**|在可用工作集合中，預設最大工作配額為 5 個工作，而在標準工作集合中，則為 50 個工作。可在工作集合上設定工作數上限。工作集合中的所有工作都限制為工作集合上設定的值。如果您嘗試建立的工作數超過最大工作配額，則要求會失敗，並顯示「409 衝突」狀態碼。|
-|**保留工作歷程記錄**|工作歷程記錄最多保留 2 個月。|
-|**保留已完成和發生錯誤的工作**|已完成和發生錯誤的工作保留 60 天。|
-|**逾時**|HTTP 動作有 30 秒的靜態 (不可設定) 要求逾時。對於執行時間較長的作業，請依照 HTTP 非同步通訊協定；例如，立即傳回 202，但在背景中繼續工作。|
+[AZURE.INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
 ## x-ms-request-id 標頭
 
-每一個對排程器服務提出的要求都會傳回名為 **x-ms-request-id** 的回應標頭。此標頭包含專門識別要求的不透明值。
+每一個對排程器服務提出的要求都會傳回名為 \*\*x-ms-request-id\*\* 的回應標頭。此標頭包含專門識別要求的不透明值。
 
 如果要求一直失敗，而且您已確認要求表達正確，則可以使用此值將錯誤回報給 Microsoft。在您的報告中，包括值 ofx-ms-request-id、提出要求的大約時間、訂用帳戶的識別碼、雲端服務、工作集合及/或工作，以及要求所嘗試的作業類型。
 
@@ -76,19 +60,17 @@ API 作業也可能傳回管理服務所定義的其他錯誤資訊。此其他�
 ## 另請參閱
 
  [排程器概念、術語及實體階層](scheduler-concepts-terms.md)
- 
+
  [在管理入口網站中開始使用排程器](scheduler-get-started-portal.md)
- 
+
  [Azure 排程器的計劃和計費](scheduler-plans-billing.md)
- 
+
  [如何使用 Azure 排程器建立複雜的排程和進階週期](scheduler-advanced-complexity.md)
- 
+
  [排程器 REST API 參考](https://msdn.microsoft.com/library/dn528946)
- 
+
  [排程器高可用性和可靠性](scheduler-high-availability-reliability.md)
- 
+
  [排程器輸出驗證](scheduler-outbound-authentication.md)
 
-  
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

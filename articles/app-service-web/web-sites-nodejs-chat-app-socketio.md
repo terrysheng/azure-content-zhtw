@@ -33,7 +33,7 @@ Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時�
 1.  下載 Socket.IO 專案 (版本 1.3.5 已用於此文件) 的 [ZIP 或 GZ 封存版本][release]
 
 
-3.  將此封存解壓縮並將 **examples\chat** 目錄複製到新的位置。例如，**\node\chat**。
+3.  將此封存解壓縮並將 **examples\\chat** 目錄複製到新的位置。例如，**\\node\\chat**。
 
 ## 修改 App.js 和安裝模組
 
@@ -57,11 +57,11 @@ Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時�
 		  "socket.io": "1.3.5"
 		}
 
-4. 從命令列中，切換至 **\node\chat** 目錄，然後使用 npm 來安裝此應用程式所需的模組：
+4. 從命令列中，切換至 **\\node\\chat** 目錄，然後使用 npm 來安裝此應用程式所需的模組：
 
         npm install
 
-    這會將模組安裝至名為 **node_modules** 的子資料夾。
+    這會將模組安裝至名為 **node\_modules** 的子資料夾。
 
 ## 建立 Azure Web 應用程式
 
@@ -76,7 +76,7 @@ Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時�
 		azure site deployment user set [username] [password]
 
 
-3. 切換至 **\node\chat** 目錄，然後使用下列命令來建立新的 Azure Web 應用程式和本機 Git 儲存機制。這個命令也會建立名為 'azure' 的 Git 遠端。
+3. 切換至 **\\node\\chat** 目錄，然後使用下列命令來建立新的 Azure Web 應用程式和本機 Git 儲存機制。這個命令也會建立名為 'azure' 的 Git 遠端。
 
 		azure site create mysitename --git
 
@@ -125,7 +125,7 @@ Socket.IO 應用程式可以使用__配接器__來橫向擴充，以在多個應
 
 ###新增 redis 和 socket.io-redis 模組
 
-1. 從命令列中，切換至 __\node\cha__ 目錄，然後執行下列命令：
+1. 從命令列中，切換至 __\\node\\cha__ 目錄，然後執行下列命令：
 
 		npm install socket.io-redis@0.1.4 redis@0.12.1 --save
 
@@ -151,7 +151,7 @@ Socket.IO 應用程式可以使用__配接器__來橫向擴充，以在多個應
 
 ###認可變更並重新部署
 
-從 __\node\chat__ 目錄的命令列中，使用下列命令來認可變更並重新部署應用程式。
+從 __\\node\\chat__ 目錄的命令列中，使用下列命令來認可變更並重新部署應用程式。
 
 	git add .
 	git commit -m "implementing scale out"
@@ -231,7 +231,7 @@ Azure Web Apps 可用於多個 SKU，SKU 可以決定您網站適用的資源。
 		      <rules>
 		        <!-- Do not interfere with requests for node-inspector debugging -->
 		        <rule name="NodeInspector" patternSyntax="ECMAScript" stopProcessing="true">
-		          <match url="^app.js/debug[/]?" />
+		          <match url="^app.js\/debug[\/]?" />
 		        </rule>
 
 		        <!-- First we consider whether the incoming URL matches a physical file in the /public folder -->
@@ -283,4 +283,4 @@ Azure Web Apps 可用於多個 SKU，SKU 可以決定您網站適用的資源。
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

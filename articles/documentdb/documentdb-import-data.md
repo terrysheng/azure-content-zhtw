@@ -360,7 +360,7 @@ DocumentDB 大量匯入工具具有下列其他進階選項：
 
 ![DocumentDB 大量匯入進階選項的螢幕擷取畫面](./media/documentdb-import-data/docdbbulkoptions.png)
 
-> [AZURE.TIP]匯入工具會預設 DirectTcp 連線模式。如果您遇到防火牆問題，請切換到閘道器連線模式，因為它只需要連接埠 443。
+> [AZURE.TIP] 匯入工具會預設 DirectTcp 連線模式。如果您遇到防火牆問題，請切換到閘道器連線模式，因為它只需要連接埠 443。
 
 ##<a id="DocumentDBSeqTarget"></a>匯入到 DocumentDB (循序記錄匯入) ##
 
@@ -372,7 +372,7 @@ DocumentDB 連接字串的格式如下：
 
 	AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
 
-> [AZURE.NOTE]若要確定可以存取連接字串欄位中指定的 DocumentDB 執行個體，請使用 Verify 命令。
+> [AZURE.NOTE] 若要確定可以存取連接字串欄位中指定的 DocumentDB 執行個體，請使用 Verify 命令。
 
 若要匯入到單一集合，請輸入要匯入資料的目標集合名稱，然後按一下 [新增] 按鈕。若要匯入到多個集合，請分別輸入每個集合的名稱，或使用下列語法來指定多個集合： *collection_prefix*[開始索引 - 結束索引]。透過上述語法指定多個集合時，請記住下列事項：
 
@@ -406,7 +406,7 @@ DocumentDB 循序記錄匯入工具具有下列其他進階選項：
 
 ![DocumentDB 循序記錄匯入進階選項的螢幕擷取畫面](./media/documentdb-import-data/documentdbsequentialoptions.png)
 
-> [AZURE.TIP]匯入工具會預設 DirectTcp 連線模式。如果您遇到防火牆問題，請切換到閘道器連線模式，因為它只需要連接埠 443。
+> [AZURE.TIP] 匯入工具會預設 DirectTcp 連線模式。如果您遇到防火牆問題，請切換到閘道器連線模式，因為它只需要連接埠 443。
 
 ##<a id="IndexingPolicy"></a>建立 DocumentDB 集合時指定索引編製原則 ##
 
@@ -425,7 +425,7 @@ DocumentDB 循序記錄匯入工具具有下列其他進階選項：
 
 ![DocumentDB 索引編製原則進階選項的螢幕擷取畫面](./media/documentdb-import-data/indexingpolicy2.png)
 
-> [AZURE.NOTE]如果未指定索引編製原則，將會套用預設原則。您可以在[這裡](documentdb-indexing-policies.md)深入了解 DocumentDB 索引編製原則。
+> [AZURE.NOTE] 如果未指定索引編製原則，將會套用預設原則。您可以在[這裡](documentdb-indexing-policies.md)深入了解 DocumentDB 索引編製原則。
 
 
 ## 匯出至 JSON 檔案
@@ -501,4 +501,4 @@ DocumentDB JSON 匯出工具可讓您將任何可用的來源選項匯出至包�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

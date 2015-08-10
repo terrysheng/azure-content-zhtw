@@ -75,31 +75,18 @@ Azure Government 目前在在「美國政府愛荷華州」(US GOV IOWA) 及「�
 
 將公用 Microsoft Azure 與 SQL Database 端點對應至 Azure Government 特定端點時，可使用下表做為指南。
 
-<table>
-<tr style='font-weight:bold'><td>
-服務類型</td><td>	Azure 公用</td><td>	Azure Government
-</td></tr><tr><td>
-Azure Government 首頁</td><td>	windowsazure.com	</td><td>microsoftazure.us
-</td></tr><tr><td>
-管理入口網站</td><td>	manage.windowsazure.com</td><td>	manage.windowsazure.us
-</td></tr><tr><td>
-一般</td><td>	*.windows.net	</td><td>*.usgovcloudapi.net
-</td></tr><tr><td>
-核心	</td><td>*.core.windows.net	</td><td>*.core.usgovcloudapi.net
-</td></tr><tr><td>
-計算	</td><td>*.cloudapp.net	</td><td>*.usgovcloudapp.net
-</td></tr><tr><td>
-Blob 儲存體</td><td>	*.blob.core.windows.net</td><td>	*.blob.core.usgovcloudapi.net
-</td></tr><tr><td>
-佇列儲存體	</td><td>*.queue.core.windows.net</td><td>	*.queue.core.usgovcloudapi.net
-</td></tr><tr><td>
-資料表儲存體</td><td>	*.table.core.windows.net	</td><td>*.table.core.usgovcloudapi.net
-</td></tr><tr><td>
-服務管理</td><td>	management.core.windows.net</td><td>	management.core.usgovcloudapi.net
 
-</td></tr>
-<tr><td>SQL Database</td><td>	*.database.windows.net	</td><td>*.database.usgovcloudapi.net</td></tr>
-</table>
+服務類型|Azure 公用|Azure Government
+---|---|---
+Azure Government 首頁|windowsazure.com|microsoftazure.us
+管理入口網站|manage.windowsazure.com|manage.windowsazure.us
+一般|*.windows.net|*.usgovcloudapi.net
+核心|*.core.windows.net|*.core.usgovcloudapi.net
+計算|*.cloudapp.net|*.usgovcloudapp.net
+Blob 儲存體|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net Queue Storage|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
+資料表儲存體|*.table.core.windows.net|*.table.core.usgovcloudapi.net
+服務管理|management.core.windows.net|management.core.usgovcloudapi.net
+SQL Database|*.database.windows.net|*.database.usgovcloudapi.net
 
 ## <a name="next"></a>接續步驟
 如果您有興趣進一步了解 Azure Government 以及您組織如何取得存取資格，請到 <A href="http://azure.com/gov">http://www.azure.com/gov</a>
@@ -118,4 +105,4 @@ Blob 儲存體</td><td>	*.blob.core.windows.net</td><td>	*.blob.core.usgovclouda
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

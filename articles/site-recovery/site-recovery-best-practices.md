@@ -31,7 +31,7 @@
 ## 準備 Azure
 
 - Azure 帳戶：您需要一個 [Microsoft Azure](http://azure.microsoft.com/) 帳戶。如果您沒有此帳戶，請先前往[免費試用](pricing/free-trial/)。
-- 閱讀有關 Site Recovery 的[定價](pricing/details/site-recovery/)。 
+- 閱讀有關 Site Recovery 的[價格](pricing/details/site-recovery/)。 
 - Azure 儲存體：如果要將具有複寫功能的 Site Recovery 部署至 Azure，就需要 Azure 儲存體帳戶。您可以於部署期間設定，或在開始之前先準備好此帳戶。此帳戶應啟用異地複寫。應該與 Azure Site Recovery 保存庫位於相同的區或，且與相同的訂用帳戶相關聯。請參閱 [Microsoft Azure 儲存體簡介](../storage/storage-introduction.md)。 
 
 ## 虛擬機器
@@ -147,11 +147,11 @@ System Center 2012 R2 上的 VMM (建議選項) (叢集或獨立) | <p>使用 Hy
 	- 在 VMM 中正確設定邏輯和 VM 網路。請參閱[邏輯網路](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx)和 [VM 網路](https://technet.microsoft.com/library/jj721575.aspx)的相關資訊。
 	- 確認來源 VMM 伺服器上的虛擬機器已連接到 VM 網路。
 	- 檢查該 VM 網路是否已連結到與雲端相關聯的邏輯網路。
-	- 如果您複寫至 Azure，請在 Azure 中建立虛擬網路。請注意，多個 VM 網路可對應至單一 Azure 網路。請參閱[虛擬網路組態工作](https://msdn.microsoft.com/library/azure/dn133795.aspx)。
+	- 如果您複寫至 Azure，請在 Azure 中建立虛擬網路。請注意，多個 VM 網路可對應至單一 Azure 網路。請參閱[虛擬網路組態工作](../vpn-gateway/vpn-gateway-site-to-site-create.md)。
 
 ## 最佳化效能
 
-- 作業系統磁碟區大小：當您將虛擬機器複寫到 Azure 時，作業系統磁碟區必須小於 127 GB。如果磁碟區大小超過此值，您可以在開始部署之前，手動將磁碟區移動至不同的磁碟。
+- **作業系統磁碟區大小**：當您將虛擬機器複寫到 Azure 時，作業系統磁碟區必須小於 1TB。如果磁碟區大小超過此值，您可以在開始部署之前，手動將磁碟區移動至不同的磁碟。
 - 資料磁碟大小：如果複寫至 Azure，您可以在虛擬機器上擁有最多 32 個資料磁碟，每個資料磁碟的上限為 1 TB。您可以有效地複寫及容錯移轉最多 32 TB 的虛擬機器。
 - 復原方案限制：Site Recovery 可擴充至數千個虛擬機器。復原方案是設計做為應用程式的模型，而由於應用程式應該一起進行容錯移轉，因此我們將一個復原方案中的機器數目限制為 50。
 - Azure 服務限制：每個 Azure 訂用帳戶均隨附一組對核心、雲端服務等的預設限制。我們建議您執行容錯移轉測試，以驗證您訂用帳戶中的資源可用性。您可以透過 Azure 支援修改這些限制。
@@ -189,4 +189,4 @@ System Center 2012 R2 上的 VMM (建議選項) (叢集或獨立) | <p>使用 Hy
 - [利用單一 VMM 伺服器設定保護](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

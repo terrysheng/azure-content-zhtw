@@ -310,9 +310,9 @@ API 應用程式閘道可設定為使用 Azure Preview 入口網站啟用 CORS�
             $scope.refresh();
         });
 
-1, 在您剛才加入至 index.html 的程式碼中，將基底 URL (`http://localhost:1578`) 中的通訊埠編號替換成 API 專案的實際通訊埠編號。
+1，在您剛才加入至 index.html 的程式碼中，將基底 URL (`http://localhost:1578`) 中的通訊埠編號替換成 API 專案的實際通訊埠編號。
 
-	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
+	> **請注意不要使用** HTML 用戶端專案的連接埠號碼。您可以在 API 專案上按一下滑鼠右鍵，再按一下 [偵錯] > [啟動新執行個體]，就能看到顯示連接埠號碼的瀏覽器視窗
 
 1. 執行 HTML 用戶端時，請確定 API 應用程式專案也在執行中，否則 JavaScript HTML 將無法正常運作。以滑鼠右鍵按一下方案，然後選取 [**屬性**]。然後將這兩個 Web 專案設定為 [**啟動但不偵錯**]，而且先執行 API 專案。 
 
@@ -371,4 +371,4 @@ API 應用程式閘道可設定為使用 Azure Preview 入口網站啟用 CORS�
 
 此範例顯示對 API 應用程式的未經驗證存取權。如需 App Service 中驗證的相關資訊，請參閱 [API 應用程式和行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
 
-<!-------HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

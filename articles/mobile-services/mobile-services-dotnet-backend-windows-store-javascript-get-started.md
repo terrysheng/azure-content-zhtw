@@ -21,9 +21,12 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
+##概觀
 本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到通用 Windows 應用程式。在本教學課程中，您將以 HTML 和 JavaScript 建立新的行動服務，以及可在新的行動服務中儲存應用程式資料的簡易「待辦事項」應用程式。您建立的行動服務會使用受支援的 .NET 語言，使用 Visual Studio 來處理伺服器端商務邏輯，以及管理行動服務。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 JavaScript 版本。
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../../includes/mobile-services-windows-universal-get-started.md)]
+
+##必要條件
 
 若要完成此教學課程，您需要下列項目：
 
@@ -68,26 +71,22 @@
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-<ol start="4">
-<li><p>在共用程式碼專案中，開啟 default.js 檔案，找出建立 <a href="http://msdn.microsoft.com/library/azure/jj554219.aspx" target="_blank">WindowsAzure.MobileServiceClient</a> 執行個體的程式碼，使用 <em>localhost</em> 將建立此用戶端的程式碼註解化，然後使用遠端行動服務 URL，將建立用戶端的程式碼取消註解，如下所示：</p>
+&nbsp;&nbsp;4.在共用程式碼專案中，開啟 default.js 檔案，找出建立 [WindowsAzure.MobileServiceClient](http://msdn.microsoft.com/library/azure/jj554219.aspx) 執行個體的程式碼，使用 *localhost* 將建立此用戶端的程式碼註解化，然後使用遠端行動服務 URL，將建立用戶端的程式碼取消註解，如下所示：
 
         <pre><code>var client = new WindowsAzure.MobileServiceClient(
             "https://todolist.azure-mobile.net/",
             "XXXXXX-APPLICATION-KEY-XXXXXX"
         );</code></pre>
 
-	<p>此時，用戶端會存取發佈至 Azure 的行動服務。</p></li>
+&nbsp;&nbsp;此時，用戶端會存取發佈至 Azure 的行動服務。
 
-<li><p>按 <strong>F5</strong> 鍵，以重建專案並啟動應用程式。</p></li>
+&nbsp;&nbsp;5.按 **F5** 鍵，以重建專案並啟動應用程式。
 
-<li><p>在應用程式的 [插入 TodoItem]<em></em> 中輸入有意義的文字，例如<strong>完成教學課程</strong>，然後按一下 [儲存]<strong></strong>。</p>
+&nbsp;&nbsp;6.在應用程式的 [Insert a TodoItem] 中輸入有意義的文字，例如**完成教學課程**，然後按一下 [儲存]。
 
-<p>如此會傳送 POST 要求到 Azure 中代管的新行動服務。</p>
-</li>
-<li><p>(選用) 在通用 Windows 方案中，將預設的啟動專案變更為其他應用程式，再按一次 <strong>F5</strong> 鍵。</p>
+&nbsp;&nbsp;如此會傳送 POST 要求到 Azure 中代管的新行動服務。
 
-	<p>請注意，從先前步驟中儲存的資料，會在應用程式啟動後從行動服務載入。</p></li>
-</ol>
+&nbsp;&nbsp;7.(選擇性) 在通用 Windows 解決方案中，將預設的起始專案變更為其他應用程式並再次按下 **F5**；請注意，應用程式啟動後，系統會從行動服務載入上個步驟中儲存的資料。
 
 如需通用 Windows 應用程式的詳細資訊，請參閱[從單一行動服務支援多個裝置平台](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs) (英文)。
 
@@ -121,4 +120,4 @@
 [Get started with data in Mobile Services using Visual Studio 2012]: ../mobile-services-windows-store-dotnet-get-started-data-vs2012.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

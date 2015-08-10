@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="如何傳遞媒體資產" 
-	description="了解在 Azure 中，已上傳至媒體服務的媒體資產有哪些傳遞選項。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
+	pageTitle="下載媒體資產" 
+	description="了解如何將資產下載到您的電腦。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="05/23/2015" 
 	ms.author="juliako"/>
 
 #作法：透過下載來傳遞資產
-
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)系列的一部分。
 
 此主題將討論已上傳至媒體服務的媒體資產有哪些傳遞選項。您可以透過多種應用程式案例來傳遞媒體服務內容。您可以下載媒體資產，或使用定位器加以存取。您可以將媒體內容傳送至另一個應用程式，或是另一個內容提供者。若要改善效能和延展性，您也可以使用內容傳遞網路 (CDN) 傳遞內容。
 
@@ -74,5 +72,8 @@
 	    Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
 	}
    
+##另請參閱 
 
-<!---HONumber=July15_HO4-->
+[傳遞串流內容](media-services-deliver-streaming-content.md)
+
+<!---HONumber=July15_HO5-->

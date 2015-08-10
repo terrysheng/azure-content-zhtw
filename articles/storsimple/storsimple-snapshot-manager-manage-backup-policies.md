@@ -47,7 +47,7 @@
 
    1. 在 [**名稱**] 文字方塊中，輸入原則的名稱。
 
-   2. 在** [**碟區群組] 文字方塊中，輸入與原則相關聯的磁碟區群組名稱。
+   2. 在\*\* [**碟區群組] 文字方塊中，輸入與原則相關聯的磁碟區群組名稱。
 
    3. 選取 [**本機快照**] 或 [**雲端快照**]。
 
@@ -118,4 +118,4 @@
 
 [使用 StorSimple Snapshot Manager 來檢視和管理備份作業](storsimple-snapshot-manager-manage-backup-jobs.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

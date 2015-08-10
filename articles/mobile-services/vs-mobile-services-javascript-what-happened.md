@@ -22,7 +22,7 @@
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
 > - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
-###<span id="whathappened">我的專案發生什麼情形？</id>
+###我的專案發生什麼情形？</id>
 
 #####已加入 NuGet 封裝
 
@@ -46,4 +46,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

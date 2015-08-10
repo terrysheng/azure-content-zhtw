@@ -84,7 +84,7 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 
 **以近接性為基礎的部署：**清除租用戶使用者與區域對應的多租用戶應用程式，可以因為多地區叢集的低延遲而受益。例如，適用於教育機構的學習管理系統可以在美國東部和美國西部區域部署分散式叢集，分別做為適用於交易與分析的校園。資料可以在讀取和寫入期間維持本機一致性，而且最終可在這兩個區域間維持一致性。其他的範例還有媒體發佈、電子商務，以及可為地理位置集中之使用者提供服務的一切 (這是此部署模型的絕佳使用案例)。
 
-**高可用性：**備援是取得軟體和硬體高可用性的關鍵因數；如需詳細資訊，請參閱＜在 Microsoft Azure 上建置可靠的雲端系統＞。在 Microsoft Azure 上，實現真正備援的唯一可靠方式就是部署多區域叢集。應用程式可部署於主動/主動或主動/被動模式中，如果其中一個區域已關閉，Azure 流量管理員就能將流量重新導向至作用中的區域。使用單一區域部署時，如果可用性是 99.9，則兩個區域的部署可以達到 99.9999 的可用性，計算公式如下：(1-(1-0.999) * (1-0.999)) * 100)。如需詳細資訊，請參閱上述文件。
+**高可用性：**備援是取得軟體和硬體高可用性的關鍵因數；如需詳細資訊，請參閱＜在 Microsoft Azure 上建置可靠的雲端系統＞。在 Microsoft Azure 上，實現真正備援的唯一可靠方式就是部署多區域叢集。應用程式可部署於主動/主動或主動/被動模式中，如果其中一個區域已關閉，Azure 流量管理員就能將流量重新導向至作用中的區域。使用單一區域部署時，如果可用性是 99.9，則兩個區域的部署可以達到 99.9999 的可用性，計算公式如下：(1-(1-0.999) \* (1-0.999)) \* 100)。如需詳細資訊，請參閱上述文件。
 
 **災害復原：**如果設計正確，多區域的 Cassandra 叢集就能承受重大的資料中心中斷。如果某個區域已關閉，部署到其他區域的應用程式就能開始為使用者提供服務。和所有其他的商務持續實作一樣，應用程式必須能對非同步管線中的資料所產生的部分資料遺失進行容錯。不過，相較於傳統資料庫復原程序所花費的時間，Cassandra 能夠更快速地進行復原。圖 2 顯示每個區域中有八個節點的典型多區域部署模型。這兩個區域是彼此具備相同對稱性的鏡映影像。真實世界的設計取決於工作負載類型 (例如，交易或分析)、RPO、RTO、資料一致性，以及可用性需求。
 
@@ -96,7 +96,7 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 部署至私人網路、位於兩個區域的虛擬機器設定組使用 VPN 通道彼此通訊。VPN 通道連線在網路部署程序期間佈建的兩個軟體閘道。這兩個區域有類似的網路架構，分別稱為 "Web" 和「資料」子網路。Azure 網路功能允許建立多個子網路，以及根據網路安全性的需要套用 ACL。設計資料中心之間的叢集拓撲時，需要考量網路流量的通訊延遲與經濟影響。
 
 ### 多重資料中心部署的資料一致性
-分散式部署需要留意叢集拓撲對輸送量和高可用性的影響。選取 RF 和一致性層級時，也必須以不需根據所有資料中心可用性進行仲裁的這種方式。對於需要高度一致性的系統，LOCAL_QUORUM 的一致性層級 (針對讀取和寫入) 可確保來自本機節點的本機讀取和寫入達到要求，同時資料會以非同步方式複寫到遠端資料中心。表 2 摘要多重區域叢集 (稍後詳細說明) 的設定詳細資料。
+分散式部署需要留意叢集拓撲對輸送量和高可用性的影響。選取 RF 和一致性層級時，也必須以不需根據所有資料中心可用性進行仲裁的這種方式。對於需要高度一致性的系統，LOCAL\_QUORUM 的一致性層級 (針對讀取和寫入) 可確保來自本機節點的本機讀取和寫入達到要求，同時資料會以非同步方式複寫到遠端資料中心。表 2 摘要多重區域叢集 (稍後詳細說明) 的設定詳細資料。
 
 **兩個區域的 Cassandra 叢集組態**
 
@@ -105,8 +105,8 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 | ----------------- | ----- | ------- |
 | 節點數目 (N) | 8 + 8 | 叢集中的節點總數 |
 | 複寫因素 (RF) | 3 | 指定資料列的複本數目 |
-| 一致性層級 (寫入) | LOCAL_QUORUM [(sum(RF)/2) +1) = 4] 公式結果無條件捨去 | 2 個節點會以同步方式寫入第一個資料中心；仲裁所需的其他 2 個節點會以非同步方式寫入第二個資料中心。 |
-| 一致性層級 (讀取) | LOCAL_QUORUM ((RF/2) +1) = 2 公式結果無條件捨去 | 只會達到來自一個區域的讀取要求；在回應傳送回用戶端之前，會讀取 2 個節點。 |
+| 一致性層級 (寫入) | LOCAL\_QUORUM [(sum(RF)/2) +1) = 4] 公式結果無條件捨去 | 2 個節點會以同步方式寫入第一個資料中心；仲裁所需的其他 2 個節點會以非同步方式寫入第二個資料中心。 |
+| 一致性層級 (讀取) | LOCAL\_QUORUM ((RF/2) +1) = 2 公式結果無條件捨去 | 只會達到來自一個區域的讀取要求；在回應傳送回用戶端之前，會讀取 2 個節點。 |
 | 複寫策略 | 如需 NetworkTopologyStrategy 的詳細資訊，請參閱 Cassandra 文件中的[資料複寫](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) (英文) | 了解部署拓撲並將複本放在節點上，最後所有複本就不會都位於相同的機架上 |
 | Snitch | 如需 GossipingPropertyFileSnitch 的詳細資訊，請參閱 Cassandra 文件中的 [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) (英文) | NetworkTopologyStrategy 使用 Snitch 的概念來了解拓撲。GossipingPropertyFileSnitch 在將各個節點對應到資料中心與機架時提供較好的控制。叢集再使用 Gossip 來散佈這項資訊。相對於 PropertyFileSnitch，這在動態 IP 設定中簡單許多 | 
  
@@ -124,7 +124,7 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 
 由於下載 JRE 時需要手動接受 Oracle 授權，為了簡化部署，請將所有必要的軟體下載到桌面，稍後上傳到我們要建立來做為叢集部署初期使用的 Ubuntu 範本映像。
 
-將上述軟體下載到本機桌面上已知的下載目錄 (例如 Windows 上的 %TEMP%/downloads 或者 Linux 或 Mac 上的 ~/downloads)。
+將上述軟體下載到本機桌面上已知的下載目錄 (例如 Windows 上的 %TEMP%/downloads 或者 Linux 或 Mac 上的 \~/downloads)。
 
 ### 建立 UBUNTU VM
 在此步驟的程序中，我們將建立包含必要軟體的 Ubuntu 映像，讓映像可以重複用於佈建多個 Cassandra 節點。
@@ -165,7 +165,7 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 
 ###安裝必要軟體
 ####步驟 1：上傳 tarball 
-使用 scp 或 pscp，並使用下列命令格式將先前下載的軟體複製到 ~/downloads 目錄中：
+使用 scp 或 pscp，並使用下列命令格式將先前下載的軟體複製到 \~/downloads 目錄中：
 
 #####pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
 
@@ -250,7 +250,7 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 	echo "installation is complete"
 
 
-如果您將此指令碼貼到 vim 視窗，請務必使用下列命令移除歸位字元 (‘\r”)：
+如果您將此指令碼貼到 vim 視窗，請務必使用下列命令移除歸位字元 (‘\\r”)：
 
 	tr -d '\r' <infile.sh >outfile.sh
 
@@ -267,7 +267,7 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 ####步驟 4：安裝適用於實際執行系統的 JNA
 使用下列命令序列：下列命令會將 jna-3.2.7.jar 和 jna-platform-3.2.7.jar 安裝到 /usr/share.java 目錄：sudo apt-get install libjna-java
 
-在 $CASS_HOME/lib 目錄中建立符號連結，以便 Cassandra 啟動指令碼可以找到這些 jar：
+在 $CASS\_HOME/lib 目錄中建立符號連結，以便 Cassandra 啟動指令碼可以找到這些 jar：
 
 	ln -s /usr/share/java/jna-3.2.7.jar $CASS_HOME/lib/jna.jar
 
@@ -289,7 +289,7 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 使用先前建立的主機名稱 (hk-ca-template.cloudapp.net) 和 SSH 私密金鑰登入虛擬機器。請參閱「如何在 Azure 上使用 SSH 搭配 Linux」了解如何使用命令 ssh 或 putty.exe 登入的詳細資訊。
 
 執行下列動作擷取映像：
-#####1.取消佈建
+#####1\.取消佈建
 使用命令 “sudo waagent –deprovision+user” 移除虛擬機器執行個體的特定資訊。請參閱[如何擷取 Linux 虛擬機器作為範本使用](virtual-machines-linux-capture-image.md)，以了解映像擷取程序的詳細資訊。
 
 #####2：將 VM 關機
@@ -409,7 +409,7 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 
 登入 VM 並執行下列項目：
 
-* 編輯 $CASS_HOME/conf/cassandra-rackdc.properties 指定資料中心和機架內容：
+* 編輯 $CASS\_HOME/conf/cassandra-rackdc.properties 指定資料中心和機架內容：
       
        dc =EASTUS, rack =rack1
 
@@ -442,7 +442,7 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 
 1.    使用 Powershell 命令 Get-AzureInternalLoadbalancer Cmdlet 取得內部負載平衡器的 IP 位址 (例如10.1.2.101)。命令的語法如下所示：Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us” [顯示內部負載平衡器以及其 IP 位址的詳細資訊]
 2.	使用 Putty 或 ssh 登入 Web 伺服陣列 VM (例如 hk-w1-west-us)
-3.	執行 $CASS_HOME/bin/cqlsh 10.1.2.101 9160 
+3.	執行 $CASS\_HOME/bin/cqlsh 10.1.2.101 9160 
 4.	使用下列 CQL 命令來確認叢集是否正常運作：
 
 		CREATE KEYSPACE customers_ks WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };	
@@ -461,7 +461,7 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
   <tr><td> 2 </td><td> Jane </td><td> Doe </td></tr>
 </table>
 
-請注意，在步驟 4 中建立的關鍵值空間 (keyspace) 使用 replication_factor 為 3 的 SimpleStrategy。如果是單一資料中心部署，建議使用 SimpleStrategy，如果是多重資料中心部署，則建議使用 NetworkTopologyStrategy。replication_factor 為 3 將針對節點失敗提供容錯。
+請注意，在步驟 4 中建立的關鍵值空間 (keyspace) 使用 replication\_factor 為 3 的 SimpleStrategy。如果是單一資料中心部署，建議使用 SimpleStrategy，如果是多重資料中心部署，則建議使用 NetworkTopologyStrategy。replication\_factor 為 3 將針對節點失敗提供容錯。
 
 ##<a id="tworegion"> </a>多區域部署程序
 我們將運用已經完成的單一區域部署，然後重複相同程序安裝第二個區域。單一和多重區域部署之間的主要差異在於區域間通訊的 VPN 通道設定。我們將從網路安裝開始、佈建 VM 以及設定 Cassandra。
@@ -485,14 +485,14 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 
 
 ###步驟 2：建立區域網路
-Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，對應至包括私人雲端或其他 Azure 區域的遠端站台。此 Proxy 位址空間繫結至一個遠端閘道，將網路路由到正確的網路功能目的地。請參閱[設定 VNet 對 VNet 連線](http://msdn.microsoft.com/library/azure/dn690122.aspx)，以取得建立 VNET 對 VNET 連線的指示。
+Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，對應至包括私人雲端或其他 Azure 區域的遠端站台。此 Proxy 位址空間繫結至一個遠端閘道，將網路路由到正確的網路功能目的地。請參閱[設定 VNet 對 VNet 連線](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)，以取得建立 VNET 對 VNET 連線的指示。
 
 根據下列詳細資料建立兩個區域網路：
 
 | 網路名稱 | VPN 閘道位址 | 位址空間 | 備註 |
 | ------------ | ------------------- | ------------- | ------- |
-| hk-lnet-map-to-east-us | 23.1.1.1 | 10.2.0.0/16 | 建立區域網路時，提供預留位置閘道位址。建立閘道之後，就會填入真實的閘道位址。請確定位址空間完全符合相對的遠端 VNET。在此案例中是在美國東部地區建立的 VNET。 |
-| hk-lnet-map-to-west-us | 23.2.2.2 | 10.1.0.0/16 | 建立區域網路時，提供預留位置閘道位址。建立閘道之後，就會填入真實的閘道位址。請確定位址空間完全符合相對的遠端 VNET。在此案例中是在美國西部地區建立的 VNET。 |
+| hk-lnet-map-to-east-us | 23\.1.1.1 | 10\.2.0.0/16 | 建立區域網路時，提供預留位置閘道位址。建立閘道之後，就會填入真實的閘道位址。請確定位址空間完全符合相對的遠端 VNET。在此案例中是在美國東部地區建立的 VNET。 |
+| hk-lnet-map-to-west-us | 23\.2.2.2 | 10\.1.0.0/16 | 建立區域網路時，提供預留位置閘道位址。建立閘道之後，就會填入真實的閘道位址。請確定位址空間完全符合相對的遠端 VNET。在此案例中是在美國西部地區建立的 VNET。 |
 
 
 ###步驟 3：將「區域」網路對應至個別 VNET
@@ -528,25 +528,25 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
 
 | 機器名稱 | 子網路 | IP 位址 | 可用性集合 | DC/機架 | 是否為種子？ |
 | ------------ | ------ | ---------- | ---------------- | ------- | ----- |
-| hk-c1-east-us | data | 10.2.2.4 | hk-c-aset-1 | dc=EASTUS 機架=rack1 | 是 |
-| hk-c2-east-us | data | 10.2.2.5 | hk-c-aset-1 | dc=EASTUS 機架=rack1 | 否 |
-| hk-c3-east-us | data | 10.2.2.6 | hk-c-aset-1 | dc=EASTUS 機架=rack2 | 是 |
-| hk-c5-east-us | data | 10.2.2.8 | hk-c-aset-2 | dc=EASTUS 機架=rack3 | 是 |
-| hk-c6-east-us | data | 10.2.2.9 | hk-c-aset-2 | dc=EASTUS 機架=rack3 | 否 |
-| hk-c7-east-us | data | 10.2.2.10 | hk-c-aset-2 | dc=EASTUS 機架=rack4 | 是 |
-| hk-c8-east-us | data | 10.2.2.11 | hk-c-aset-2 | dc=EASTUS 機架=rack4 | 否 |
-| hk-w1-east-us | Web | 10.2.1.4 | hk-w-aset-1 | N/A | N/A |
-| hk-w2-east-us | Web | 10.2.1.5 | hk-w-aset-1 | N/A | N/A |
+| hk-c1-east-us | data | 10\.2.2.4 | hk-c-aset-1 | dc=EASTUS 機架=rack1 | 是 |
+| hk-c2-east-us | data | 10\.2.2.5 | hk-c-aset-1 | dc=EASTUS 機架=rack1 | 否 |
+| hk-c3-east-us | data | 10\.2.2.6 | hk-c-aset-1 | dc=EASTUS 機架=rack2 | 是 |
+| hk-c5-east-us | data | 10\.2.2.8 | hk-c-aset-2 | dc=EASTUS 機架=rack3 | 是 |
+| hk-c6-east-us | data | 10\.2.2.9 | hk-c-aset-2 | dc=EASTUS 機架=rack3 | 否 |
+| hk-c7-east-us | data | 10\.2.2.10 | hk-c-aset-2 | dc=EASTUS 機架=rack4 | 是 |
+| hk-c8-east-us | data | 10\.2.2.11 | hk-c-aset-2 | dc=EASTUS 機架=rack4 | 否 |
+| hk-w1-east-us | Web | 10\.2.1.4 | hk-w-aset-1 | N/A | N/A |
+| hk-w2-east-us | Web | 10\.2.1.5 | hk-w-aset-1 | N/A | N/A |
 
 
 依照與第 1 個區域相同的指示，但是使用 10.2.xxx.xxx 位址空間。
 ###步驟 8：在每個 VM 上設定 Cassandra
 登入 VM 並執行下列項目：
 
-1. 編輯 $CASS_HOME/conf/cassandra-rackdc.properties，以下列格式指定資料中心和機架內容：dc =EASTUS rack =rack1
+1. 編輯 $CASS\_HOME/conf/cassandra-rackdc.properties，以下列格式指定資料中心和機架內容：dc =EASTUS rack =rack1
 2. 編輯 cassandra.yaml 設定種子節點：種子："10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
 ###步驟 9：啟動 Cassandra
-登入每個 VM，執行下列命令在背景啟動 Cassandra：$CASS_HOME/bin/cassandra
+登入每個 VM，執行下列命令在背景啟動 Cassandra：$CASS\_HOME/bin/cassandra
 
 ## 測試多重區域叢集
 現在 Cassandra 已部署 16 個節點，每個 Azure 區域中有 8 個節點。這些節點如果有共通的叢集名稱和種子節點設定，就是位於相同的叢集中。使用下列程序測試叢集：
@@ -557,7 +557,7 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
     請注意顯示的 IP 位址 (例如西部 - 10.1.2.101，東部 - 10.2.2.101)。
 
 ###步驟 2：登入 hk-w1-west-us 後，在西部區域執行下列命令
-1.    執行 $CASS_HOME/bin/cqlsh 10.1.2.101 9160 
+1.    執行 $CASS\_HOME/bin/cqlsh 10.1.2.101 9160 
 2.	執行下列 CQL 命令：
 
 		CREATE KEYSPACE customers_ks
@@ -570,14 +570,14 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
 
 您應該會看到如下顯示：
 
-| customer_id | firstname | lastname |
+| customer\_id | firstname | lastname |
 | ----------- | --------- | -------- |
 | 1 | John | Doe |
 | 2 | Jane | Doe |
 
 
 ###步驟 3：登入 hk-w1-east-us 後，在東部區域執行下列命令
-1.    執行 $CASS_HOME/bin/cqlsh 10.2.2.101 9160 
+1.    執行 $CASS\_HOME/bin/cqlsh 10.2.2.101 9160 
 2.	執行下列 CQL 命令：
 
 		USE customers_ks;
@@ -589,7 +589,7 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
 您應該會看到針對西部區域執行時相同的顯示畫面：
 
 
-| customer_id | firstname | lastname |
+| customer\_id | firstname | lastname |
 |------------ | --------- | ---------- |
 | 1 | John | Doe |
 | 2 | Jane | Doe |
@@ -700,4 +700,4 @@ Microsoft Azure 是一個富彈性的平台，可以執行 Microsoft 與開放�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

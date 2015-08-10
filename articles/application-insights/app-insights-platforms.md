@@ -12,14 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="07/22/2015" 
 	ms.author="awills"/>
  
 # Application Insights：平台
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
-#### 我是否可以使用 Application Insights 搭配...？
 
 
 ## 語言
@@ -27,7 +25,7 @@
 + [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
 + [C#|VB (Windows 市集)](app-insights-windows-get-started.md)
 + [C++ (Windows 市集)](app-insights-windows-cpp.md)
-+ [Java](../app-insights-java.md)
++ [Java](../app-insights-java-get-started.md)
 + [JavaScript web pages](app-insights-web-track-usage.md)
 + [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
@@ -40,10 +38,11 @@
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Azure Web Apps 和 VM](../insights-perf-analytics.md)
-+ [Azure 雲端服務](app-insights-cloudservices.md)包括 Web 和背景工作角色
++ [Azure 雲端服務](app-insights-cloudservices.md)同時包含 Web 與背景工作角色
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
++ [Microsoft CRM](app-insights-sample-mscrm.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [SharePoint](app-insights-sharepoint.md)
@@ -73,4 +72,4 @@
 
 <!--Link references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

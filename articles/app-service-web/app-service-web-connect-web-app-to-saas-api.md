@@ -30,7 +30,7 @@
 
 ## 將 API 應用程式設為可公開存取
 
-在 [Azure 預覽入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中，選取 API 應用程式。按一下命令列中的 [**設定**] 按鈕。在 [**應用程式設定**] 刀鋒視窗中，將 [**存取層級**] 變更為 [**公用 (匿名)**]。
+在 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中，選取 API 應用程式。按一下命令列中的 [**設定**] 按鈕。在 [**應用程式設定**] 刀鋒視窗中，將 [**存取層級**] 變更為 [**公用 (匿名)**]。
 
 ![](./media/app-service-web-connect-web-app-to-saas-api/4-5-Change-Access-Level-To-Public.png)
 
@@ -71,16 +71,16 @@
 
 1. 使用下面的程式碼來更新 `Contact` 檢視，以反映連絡人動態清單：
 	<pre>// Add to the very top of the view file
-	@model IList&lt;MyContactsList.Web.Models.Contact>
+@model IList&lt;MyContactsList.Web.Models.Contact>
 
-	// Replace the default email addresses with the following
-	&lt;h3>Public Contacts&lt;/h3>
-	&lt;ul>
+// Replace the default email addresses with the following
+&lt;h3>Public Contacts&lt;/h3>
+&lt;ul>
     @foreach (var contact in Model)
     {
         &lt;li>&lt;a href="mailto:@contact.EmailAddress">@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a>&lt;/li>
     }
-	&lt;/ul> 
+&lt;/ul> 
 </pre>![Contact.cshtml 程式碼更新](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
 ## 將 Web 應用程式部署到應用程式服務中的 Web 應用程式
@@ -94,4 +94,4 @@
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

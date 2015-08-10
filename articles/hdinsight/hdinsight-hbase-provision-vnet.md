@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="在虛擬網路上佈建 HBase 叢集 | Microsoft Azure" 
-	description="開始在 Azure HDInsight 中使用 HBase。了解如何在 Azure 虛擬網路上建立 HDInsight HBase 叢集。" 
-	keywords=""	
+	description="開始在 Azure HDInsight 中使用 HBase。了解如何在 Azure 虛擬網路上建立 HDInsight HBase 叢集。"	
 	services="hdinsight,virtual-network" 
 	documentationCenter="" 
 	authors="mumian" 
@@ -26,6 +25,13 @@
 - Web 應用程式可以直接連接到 HBase 叢集節點，因而能夠使用 HBase Java 遠端程序呼叫 (RPC) API 來進行通訊。
 - 透過使流量不須經過多個閘道器及負載平衡器，以提升其效能。
 - 能夠以更安全的方式處理敏感資訊，而不會暴露公用端點。
+
+>[AZURE.NOTE]Azure HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。使用 Azure PowerShell Cmdlet Get-AzureVNetConfig 來檢查現有的 Azure 虛擬網路是否以位置為基礎。如果您的虛擬網路不是以位置為基礎，您會有下列選項：
+>
+> - 將現有的虛擬網路組態匯出並建立新的虛擬網路。依預設，所有新的虛擬網路都是以位置為基礎。
+> - 移轉到以位置為基礎的虛擬網路。請參閱[將現有服務移轉到區域範圍](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)。
+
+
 
 ##必要條件
 開始進行本教學課程之前，您必須具備下列條件：
@@ -123,13 +129,15 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 	![提供 HBase 叢集的詳細資料](./media/hdinsight-hbase-provision-vnet/hbasewizard2.png)
 
 	<table border='1'>
-	<tr><th>屬性</th><th>值</th></tr>
-	<tr><td>資料節點</td><td>選取您要部署的資料節點數。請建立單一節點叢集，以供測試之用。<br />叢集大小限制會隨著 Azure 訂用帳戶而不同。若要提高限制，請與 Azure 帳務支援人員連絡。</td></tr>
-	<tr><td>區域/虛擬網路</td><td><p>如果您已建立區域或 Azure 虛擬網路，請選取其一。針對本教學課程，請選取您先前建立的網路，接著選取對應的子網路。預設名稱為 <b>Subnet-1</b>。</p></td></tr>
-	<tr><td>前端節點大小</td><td><p>選取前端節點的 VM 大小。</p></td></tr>
-	<tr><td>資料節點大小</td><td><p>選取資料節點的 VM 大小。</p></td></tr>
-	<tr><td>Zookeeper 大小</td><td><p>選取 Zookeeper 節點的 VM 大小。</p></td></tr>
-</table>>[AZURE.NOTE]根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
+		<tr><th>屬性</th><th>值</th></tr>
+		<tr><td>資料節點</td><td>選取您要部署的資料節點數。請建立單一節點叢集，以供測試之用。<br />叢集大小限制會隨著 Azure 訂用帳戶而不同。若要提高限制，請與 Azure 帳務支援人員連絡。</td></tr>
+		<tr><td>區域/虛擬網路</td><td><p>如果您已建立區域或 Azure 虛擬網路，請選取其一。針對本教學課程，請選取您先前建立的網路，接著選取對應的子網路。預設名稱為 <b>Subnet-1</b>。</p></td></tr>
+		<tr><td>前端節點大小</td><td><p>選取前端節點的 VM 大小。</p></td></tr>
+		<tr><td>資料節點大小</td><td><p>選取資料節點的 VM 大小。</p></td></tr>
+		<tr><td>Zookeeper 大小</td><td><p>選取 Zookeeper 節點的 VM 大小。</p></td></tr>
+    </table>
+
+	>[AZURE.NOTE]根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
 
 	按一下向右按鈕。
 
@@ -145,7 +153,7 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 		<td>指定 HDInsight 叢集使用者密碼。</td></tr>
 	<tr><td>為叢集啟用遠端桌面</td>
 		<td>選取此核取方塊，以指定遠端桌面使用者的使用者名稱、密碼和到期日期，使其在佈建之後可以遠端進入叢集節點。您也可以稍後在叢集佈建後啟用遠端桌面。如需指示，請參閱<a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連接至 HDInsight 叢集</a>。</td></tr>
-</table>
+    </table>
 
 6. 在 [儲存體帳戶] 頁面上，提供下列值：
 
@@ -174,7 +182,9 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
     </td></tr>
 	<tr><td>其他儲存體帳戶</td>
 		<td>視需要指定叢集的其他儲存體帳戶。HDInsight 支援多個儲存體帳戶。叢集可使用的其他儲存體帳戶沒有數量上的限制。但如果您使用 Azure 入口網站建立叢集，則會因為 UI 的限制而只能使用最多七個儲存體帳戶。您所指定的每個其他儲存體帳戶都會在精靈上另外加入一個 [儲存體帳戶]<strong></strong> 頁面，您可在此指定帳戶資訊。以上面的螢幕擷取畫面為例，其未選取其他儲存體帳戶，因此沒有在精靈上加入額外頁面。</td></tr>
-</table>按一下向右箭頭。
+	</table>
+
+	按一下向右箭頭。
 
 7. 在 [指令碼動作] 頁面上，選取右下角的核取記號。請不要點選 [加入指令碼動作] 按鈕，因為本教學課程不需要自訂叢集設定。
 	
@@ -427,4 +437,4 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "使用指令碼動作以自訂 HBase 叢集"
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

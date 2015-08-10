@@ -155,4 +155,4 @@
 
 - [應用程式存取](https://msdn.microsoft.com/library/azure/dn308590.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

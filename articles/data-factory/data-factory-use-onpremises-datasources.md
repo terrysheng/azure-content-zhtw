@@ -117,7 +117,7 @@
 
 	![閘道器 - [設定] 刀鋒視窗][image-data-factory-gateway-configure-blade]
 
-	這是最簡單的方式 (一鍵)，透過單一步驟即可下載、安裝、設定和註冊閘道。您可以看到「Microsoft 資料管理閘道組態管理員」應用程式已安裝在電腦上。您也可以在此資料夾中找到執行檔 **ConfigManager.exe**：**C:\Program Files\Microsoft Data Management Gateway\1.0\Shared**。
+	這是最簡單的方式 (一鍵)，透過單一步驟即可下載、安裝、設定和註冊閘道。您可以看到「Microsoft 資料管理閘道組態管理員」應用程式已安裝在電腦上。您也可以在此資料夾中找到執行檔 **ConfigManager.exe**：**C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared**。
 
 	您也可以使用此刀鋒視窗中的連結手動下載與安裝閘道器，並使用 [**註冊金鑰**] 文字方塊中顯示的金鑰來加以註冊。
 	
@@ -166,29 +166,33 @@
 4.	在 JSON 窗格中，執行下列動作：
 	1.	在 **gatewayName** 屬性中，輸入 **adftutorialgateway** 取代雙引號內的所有文字。  
 	2.	如果您使用 **SQL 驗證**： 
-		1.	在 **connectionString** 屬性中，將 **<servername>**、**<databasename>**、**<username>** 和 **<password>** 分別取代為您的內部部署 SQL Server 名稱、資料庫名稱、使用者帳戶和密碼。若要指定執行個體名稱，請使用逸出字元：例如：**server\instancename**。 	
-		2.	從 JSON 檔案中移除最後兩個屬性 (**username** 和 **password**)，並從剩餘的 JSON 指令碼中移除最後一行結尾的「逗號 (,)」 字元。
+		1.	在 **connectionString** 屬性中，將 **<servername>**、**<databasename>**、**<username>** 和 **<password>** 分別取代為您的內部部署 SQL Server 名稱、資料庫名稱、使用者帳戶和密碼。若要指定執行個體名稱，請使用逸出字元：例如：**server\\instancename**。 	
+		2.	從 JSON 檔案中移除最後兩個屬性 (\*\*username\*\* 和 **password**)，並從剩餘的 JSON 指令碼中移除最後一行結尾的「逗號 (,)」 字元。
 		
 				{
-	    			"name": "SqlServerLinkedService",
-	    			"properties": {
-		        		"type": "OnPremisesSqlLinkedService",
-		        		"ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
-		        		"gatewayName": "adftutorialgateway"
-	    			}
+				  "name": "SqlServerLinkedService",
+				  "properties": {
+				    "type": "OnPremisesSqlServer",
+				    "typeProperties": {
+				      "ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
+				      "gatewayName": "adftutorialgateway"
+				    }
+				  }
 				}
 	3.	如果您使用「Windows 驗證」：
 		1. 在 **connectionString** 屬性中，將 **<servername>** 和 **<databasename>** 分別取代為您的內部部署 SQL Server 名稱和資料庫名稱。將 **Integrated Security** 設定為 **True**。從連接字串中移除 **ID** 和 **Password**。
 			
 				{
-    				"name": "SqlServerLinkedService",
-    				"properties": {
-        				"type": "OnPremisesSqlLinkedService",
-        				"ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
-		   				"gatewayName": "adftutorialgateway",
-				        "username": "<Specify user name if you are using Windows Authentication>",
-				        "password": "<Specify password for the user account>"
-    				}
+				  "name": "SqlServerLinkedService",
+				  "properties": {
+				    "type": "OnPremisesSqlServer",
+				    "typeProperties": {
+				      "ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
+				      "gatewayName": "adftutorialgateway",
+				      "username": "<Specify user name if you are using Windows Authentication>",
+				      "password": "<Specify password for the user account>"
+				    }
+				  }
 				}		
 		
 6. 按一下工具列上的 [**部署**]，部署 SqlServerLinkedService。確認您在標題列看到 [**已成功建立連結服務**] 訊息。在左邊的樹狀檢視中，您也應該會看到 **SqlServerLinkedService**。
@@ -223,7 +227,7 @@
 
 ### 準備用於教學課程的內部部署 SQL Server
 
-1. 在您指定用於內部部署 SQL Server 連結服務 (**SqlServerLinkedService**) 的資料庫中，使用下列 SQL 指令碼在資料庫中建立 **emp** 資料表。
+1. 在您指定用於內部部署 SQL Server 連結服務 (\*\*SqlServerLinkedService\*\*) 的資料庫中，使用下列 SQL 指令碼在資料庫中建立 **emp** 資料表。
 
 
         CREATE TABLE dbo.emp
@@ -249,37 +253,35 @@
 1.	在 [Data Factory 編輯器] 中，按一下命令列的 [新增資料集]，然後按一下 [內部部署 SQL]。 
 2.	使用下列文字取代右窗格中的 JSON：    
 
-        {
-    		"name": "EmpOnPremSQLTable",
-    		"properties":
-    		{
-        		"location":
-        		{
-            		"type": "OnPremisesSqlServerTableLocation",
-            		"tableName": "emp",
-            		"linkedServiceName": "SqlServerLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Hour",
-            		"interval": 1,       
-	    			"waitOnExternal":
-	    			{
-        				"retryInterval": "00:01:00",
-	        			"retryTimeout": "00:10:00",
-	        			"maximumRetry": 3
-	    			}
-		  
-        		}
-    		}
+		{
+		  "name": "EmpOnPremSQLTable",
+		  "properties": {
+		    "type": "SqlServerTable",
+		    "linkedServiceName": "SqlServerLinkedService",
+		    "typeProperties": {
+		      "tableName": "emp"
+		    },
+		    "external": true,
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    },
+		    "policy": {
+		      "externalData": {
+		        "retryInterval": "00:01:00",
+		        "retryTimeout": "00:10:00",
+		        "maximumRetry": 3
+		      }
+		    }
+		  }
 		}
 
 	請注意：
 	
-	- location **type** 設定為 **OnPremisesSqlServerTableLocation**。
+	- **type** 設為 **SqlServerTable**。
 	- **tableName** 設定為 **emp**。
 	- **linkedServiceName** 設定為 **OnPremSqlLinkedService** (您已在步驟 2 中建立此連結服務)。
-	- 針對不是由 Azure Data Factory 中的另一個管線產生的輸入資料表，您必須在 JSON 中指定 **waitOnExternal** 區段。它代表輸入資料產生於 Azure Data Factory 服務外部。   
+	- 針對不是由 Azure Data Factory 中的另一個管線產生的輸入資料表，您必須將 **external** 屬性設為 **true**。您可以選擇性地在 **externalData** 區段中指定原則。   
 
 	如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考][json-script-reference]。
 
@@ -292,36 +294,32 @@
 2.	使用下列文字取代右窗格中的 JSON： 
 
 		{
-    		"name": "OutputBlobTable",
-    		"properties":
-    		{
-        		"location": 
-        		{
-            		"type": "AzureBlobLocation",
-            		"folderPath": "adftutorial/outfromonpremdf",
-            		"format":
-            		{
-                		"type": "TextFormat",
-                		"columnDelimiter": ","
-            		},
-            		"linkedServiceName": "StorageLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Hour",
-            		"interval": 1
-        		}
-    		}
+		  "name": "OutputBlobTable",
+		  "properties": {
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "adftutorial/outfromonpremdf",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
   
 	請注意：
 	
-	- location **type** 設為 **AzureBlobLocation**。
+	- **type** 設為 **AzureBlob**。
 	- **linkedServiceName** 設定為 **StorageLinkedService** (您已在步驟 2 中建立此連結服務)。
 	- **folderPath** 設定為 **adftutorial/outfromonpremdf**，其中 outfromonpremdf 是 adftutorial 容器中的資料夾。您只需要建立 **adftutorial** 容器。
-	- **availability** 設定為**每小時**，且 (**frequency** 設定為**小時**，**interval** 設定為 **1**)。Data Factory 服務會每小時在 Azure SQL Database 的 **emp** 資料表中產生輸出資料配量。 
+	- **availability** 設定為**每小時**，且 (\*\*frequency\*\* 設定為**小時**，**interval** 設定為 **1**)。Data Factory 服務會每小時在 Azure SQL Database 的 **emp** 資料表中產生輸出資料配量。 
 
-	如果您沒有指定**輸入資料表**的 **fileName**，則輸入資料夾 (**folderPath**) 中的所有檔案/Blob 都會視為輸入。如果您在 JSON 中指定 fileName，則只有指定的檔案/Blob 會被視為輸入。如需範例，請參閱[教學課程][adf-tutorial]中的範例檔案。
+	如果您沒有指定**輸入資料表**的 **fileName**，則輸入資料夾 (\*\*folderPath\*\*) 中的所有檔案/Blob 都會視為輸入。如果您在 JSON 中指定 fileName，則只有指定的檔案/Blob 會被視為輸入。如需範例，請參閱[教學課程][adf-tutorial]中的範例檔案。
  
 	如果您未指定**輸出資料表**的 **fileName**，**folderPath** 中產生的檔案會依照下列格式命名：<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.)。
 
@@ -351,57 +349,57 @@
 2.	使用下列文字取代右窗格中的 JSON：   
 
 
-        {
-			"name": "ADFTutorialPipelineOnPrem",
-    		"properties":
-    		{
-        		"description" : "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
-	       		 "activities":
-	        	[
-			    	{
-						"name": "CopyFromSQLtoBlob",
-						"description": "Copy data from on-prem SQL server to blob",		
-						"type": "CopyActivity",
-						"inputs": [ {"name": "EmpOnPremSQLTable"} ],
-						"outputs": [ {"name": "OutputBlobTable"} ],
-						"transformation":
-						{
-							"source":
-							{                               
-								"type": "SqlSource",
-								"sqlReaderQuery": "select * from emp"
-							},
-							"sink":
-							{
-								"type": "BlobSink"
-							}	
-						},
-						"Policy":
-						{
-							"concurrency": 1,
-							"executionPriorityOrder": "NewestFirst",
-							"style": "StartOfInterval",
-							"retry": 0,
-							"timeout": "01:00:00"
-						}		
-
-				     }
-	        	],
-				"start": "2015-02-13T00:00:00Z",
-        		"end": "2015-02-14T00:00:00Z",
-        		"isPaused": false
-			}
+		{
+		  "name": "ADFTutorialPipelineOnPrem",
+		  "properties": {
+		    "description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
+		    "activities": [
+		      {
+		        "name": "CopyFromSQLtoBlob",
+		        "description": "Copy data from on-prem SQL server to blob",
+		        "type": "Copy",
+		        "inputs": [
+		          {
+		            "name": "EmpOnPremSQLTable"
+		          }
+		        ],
+		        "outputs": [
+		          {
+		            "name": "OutputBlobTable"
+		          }
+		        ],
+		        "typeProperties": {
+		          "source": {
+		            "type": "SqlSource",
+		            "sqlReaderQuery": "select * from emp"
+		          },
+		          "sink": {
+		            "type": "BlobSink"
+		          }
+		        },
+		        "Policy": {
+		          "concurrency": 1,
+		          "executionPriorityOrder": "NewestFirst",
+		          "style": "StartOfInterval",
+		          "retry": 0,
+		          "timeout": "01:00:00"
+		        }
+		      }
+		    ],
+		    "start": "2015-02-13T00:00:00Z",
+		    "end": "2015-02-14T00:00:00Z",
+		    "isPaused": false
+		  }
 		}
-
 	請注意：
  
-	- 在 activities 區段中，只會有一個活動的 **type** 設為 **CopyActivity**。
+	- 在 activities 區段中，只會有 **type** 設為 **Copy** 的活動。
 	- 活動的**輸入**設定為 **EmpOnPremSQLTable**，活動的**輸出**則設定為 **OutputBlobTable**。
-	- 在 **transformation** 區段中，「來源類型」指定為 **SqlSource**，「接收類型」指定為 **BlobSink**。 - **SqlSource** 的 **sqlReaderQuery** 屬性指定 SQL 查詢 **select * from emp**。
+	- 在 **transformation** 區段中，「來源類型」指定為 **SqlSource**，「接收類型」指定為 **BlobSink**。 - **SqlSource** 的 **sqlReaderQuery** 屬性指定 SQL 查詢 **select \* from emp**。
 
 	將 **start** 屬性的值取代為目前日期，並將 **end** 值取代為隔天的日期。開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**end** 時間為選擇性項目，但在本教學課程中會用到。
 	
-	如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。若要無限期地執行管線，請指定 **9/9/9999** 做為 **end** 屬性的值。
+	如果您未指定 **end** 屬性的值，則會以「\*\*start + 48 小時\*\*」計算。若要無限期地執行管線，請指定 **9/9/9999** 做為 **end** 屬性的值。
 	
 	您定義將根據為每個 Azure Data Factory 資料表定義的 **Availability** 屬性來處理資料配量的持續時間。
 	
@@ -465,7 +463,7 @@
 	![[活動執行詳細資料] 刀鋒視窗][image-data-factory-activity-run-details]
 
 11. 按一下 **X** 關閉所有刀鋒視窗，直到您回到 **ADFTutorialOnPremDF** 的起始刀鋒視窗。
-14. (選用) 依序按一下 [管線] 及 [ADFTutorialOnPremDF]，然後逐步深入輸入資料表 (**已使用**) 或輸出資料表 (**已產生**)。
+14. (選用) 依序按一下 [管線] 及 [ADFTutorialOnPremDF]，然後逐步深入輸入資料表 (\*\*已使用\*\*) 或輸出資料表 (\*\*已產生\*\*)。
 15. 使用「Azure 儲存體總管」之類的工具來驗證輸出。
 
 	![Azure 儲存體總管][image-data-factory-stroage-explorer]
@@ -487,7 +485,7 @@
 	**範例命令和輸出**：
 
 
-		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -509,12 +507,12 @@
 	**範例命令的輸出：**
 
 
-		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. 在 Azure PowerShell 中，切換到資料夾：**C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript**，然後執行與本機變數 **$Key** 相關聯的 **RegisterGateway.ps1** 指令碼 (如以下命令所示)，將您電腦上安裝的用戶端代理程式，註冊到您稍早建立的邏輯閘道器。
+4. 在 Azure PowerShell 中，切換到資料夾：**C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript\*\*，然後執行與本機變數 **$Key** 相關聯的 **RegisterGateway.ps1** 指令碼 (如以下命令所示)，將您電腦上安裝的用戶端代理程式，註冊到您稍早建立的邏輯閘道器。
 
-		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
@@ -627,4 +625,4 @@
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

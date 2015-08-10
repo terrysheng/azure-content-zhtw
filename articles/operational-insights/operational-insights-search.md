@@ -65,7 +65,7 @@ Microsoft Azure Operational Insights 的核心是搜記錄尋功能，可讓您�
 ### 搜尋處理器時間效能資料
 - 在搜尋查詢欄位中，輸入 `Type=PerfHourly CounterName="% Processor Time"`
 
-您也可以更明確，並在查詢中使用 **InstanceName=_'Total'**，此為 Windows 效能計數器。您也可以選取 facet 和另一個 **field:value**。篩選器會自動加入至查詢列的篩選器中。您可以在下列映像中看到此情況。它會向您顯示要在哪裡按一下，以將 **InstanceName:’_Total’** 加入至查詢而不需要輸入任何項目。
+您也可以更明確，並在查詢中使用 **InstanceName=\_'Total'**，此為 Windows 效能計數器。您也可以選取 facet 和另一個 **field:value**。篩選器會自動加入至查詢列的篩選器中。您可以在下列映像中看到此情況。它會向您顯示要在哪裡按一下，以將 **InstanceName:’\_Total’** 加入至查詢而不需要輸入任何項目。
 
 ![搜尋 facet](./media/operational-insights-search/search-facet.png)
 
@@ -467,7 +467,7 @@ Type=PerfHourly  CounterName="% Processor Time"  InstanceName="_Total" | Measure
 
 filterExpression | command1 | command2 …
 
-篩選運算式 (**filterExpression**) 會定義查詢的 "where" 條件。命令會套用至查詢所傳回的結果。多個命令必須以縱線字元 ( | ) 分隔。
+篩選運算式 (\*\*filterExpression\*\*) 會定義查詢的 "where" 條件。命令會套用至查詢所傳回的結果。多個命令必須以縱線字元 ( | ) 分隔。
 
 #### 一般語法範例
 
@@ -614,7 +614,15 @@ Operational Insights 中的時間表/時間選取器會以 **TimeGenerated** 欄
 
 下表列出受支援的日期/時間單位。
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>日期/時間單位 </th> <th>描述 </th> </tr> <tr> <td> <p>YEAR、YEARS</p> </td> <td> <p>四捨五入為目前的年份，或位移指定的年數。</p> </td> </tr> <tr> <td> <p>MONTH、MONTHS</p> </td> <td> <p>四捨五入為目前的月份，或位移指定的月數。</p> </td> </tr> <tr> <td> <p>DAY、DAYS、DATE</p> </td> <td> <p>四捨五入為目前的月份日期，或位移指定的天數。</p> </td> </tr> <tr> <td> <p>HOUR、HOURS</p> </td> <td> <p>四捨五入為目前的小時，或位移指定的小時數。</p> </td> </tr> <tr> <td> <p>MINUTE、MINUTES</p> </td> <td> <p>四捨五入為目前的分鐘，或位移指定的分鐘數。</p> </td> </tr> <tr> <td> <p>SECOND、SECONDS</p> </td> <td> <p>四捨五入為目前的秒，或位移指定的秒數。</p> </td> </tr> <tr> <td> <p>MILLISECOND、MILLISECONDS、MILLI、MILLIS</p> </td> <td> <p>四捨五入為目前的毫秒，或位移指定的毫秒數。</p> </td> </tr> </table>
+日期/時間單位|說明
+---|--- 
+YEAR, YEARS|四捨五入為目前的年份，或位移指定的年數。
+MONTH, MONTHS|四捨五入為目前的月份，或位移指定的月數。
+DAY, DAYS, DATE|四捨五入為目前的月份日期，或位移指定的天數。
+HOUR, HOURS|四捨五入為目前的小時，或位移指定的小時數。
+MINUTE, MINUTES|四捨五入為目前的分鐘，或位移指定的分鐘數。
+SECOND, SECONDS|四捨五入為目前的秒，或位移指定的秒數。
+MILLISECOND, MILLISECONDS, MILLI, MILLIS|四捨五入為目前的毫秒，或位移指定的毫秒數。
 
 
 #### 欄位 facet
@@ -690,7 +698,10 @@ Operational Insights 中的時間表/時間選取器會以 **TimeGenerated** 欄
 您可以略過最上層篩選引數的邏輯運算子。在此情況下，會假設採用 AND 運算子。
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>篩選運算式</th> <th>相當於</th> </tr> <tr> <td> <p>system error</p> </td> <td> <p>system AND error</p> </td> </tr> <tr> <td> <p>system "; Windows Server"; OR Severity:1</p> </td> <td> <p>system AND (";Windows Server"; OR Severity:1)</p> </td> </tr> </table>
+篩選運算式|相當於
+---|---
+system error|system AND error
+system "Windows Server" OR Severity:1|system AND ("Windows Server" OR Severity:1)
 
 
 
@@ -798,7 +809,7 @@ Operational Insights 中的時間表/時間選取器會以 **TimeGenerated** 欄
 
 *說明*
 
-如同上述範例，但使用彙總欄位別名 (**AlertsPerHour**)。
+如同上述範例，但使用彙總欄位別名 (\*\*AlertsPerHour\*\*)。
 
 **範例 4**
 
@@ -2038,4 +2049,4 @@ Operational Insights 中的時間表/時間選取器會以 **TimeGenerated** 欄
 ## 其他資源
 Stefan Roth 建立好用的搜尋小祕技。請瀏覽他的[部落格](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/)，深入了解並下載他的小祕技。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

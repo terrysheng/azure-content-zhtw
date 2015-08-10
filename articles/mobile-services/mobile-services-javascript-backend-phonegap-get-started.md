@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始搭配使用行動服務與 PhoneGap | 行動開發人員中心"
+	pageTitle="開始為 PhoneGap/cordova 應用程式使用 Azure 行動服務"
 	description="遵循此教學課程，可開始使用 Azure 行動服務進行 iOS、Android 和 Windows Phone 的 PhoneGap 開發。"
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="04/24/2015"
+	ms.date="07/21/2015"
 	ms.author="ggailey777"/>
 
 # 開始使用行動服務
@@ -50,19 +50,19 @@
 
 1.  在管理入口網站中，按一下 **[行動服務]**，然後按一下您剛剛建立的行動服務。
 
-2. 在 [快速入門] 索引標籤中，按一下 [選擇平台] 下的 [PhoneGap]，然後展開 [建立新的 PhoneGap 應用程式]。
+2. 在 [快速入門] 索引標籤中，按一下 [選擇平台] 下的 [PhoneGap]，然後展開 [Create a new PhoneGap app]。
 
    	![][0]
 
-   	這將顯示三個簡單步驟，可用來建立連接到您行動服務的 PhoneGap 應用程式。
+   	「如此會顯示三個簡單步驟，用來建立與您行動服務連線的 PhoneGap 應用程式。」
 
   	![][1]
 
 3. 如果您尚未下載並安裝 PhoneGap 和至少其中一項平台開發工具 (Windows Phone、iOS 或 Android)，請於此時執行。
 
-4. 按一下 [建立 TodoItem 資料表] 以建立儲存應用程式資料的資料表。
+4. 按一下 [Create TodoItem table] 以建立儲存應用程式資料的資料表。
 
-5. 在 [下載和執行您的應用程式] 下，按 [下載]。
+5. 在 [Download and run your app] 下，按 [下載]。
 
 	這會下載與您的行動服務連接的範例應用程式_待辦事項_ 的專案，以及行動服務 JavaScript SDK。請將壓縮的專案檔案儲存至本機電腦，並記下儲存位置。
 
@@ -171,4 +171,4 @@
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

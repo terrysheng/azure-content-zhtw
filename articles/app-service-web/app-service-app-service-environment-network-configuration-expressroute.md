@@ -28,7 +28,7 @@ App Service 環境需要下列所有項目，才能正確運作：
 
 
 -  與 App Service 環境位於相同區域之 Azure 儲存體和 SQL 資料庫資源的輸出網路連線。這個網路路徑無法通過內部公司 Proxy，因為，這麼做可能會變更輸出網路流量的有效 NAT 位址。變更在 Azure 儲存體和 SQL 資料庫端點上導向之 App Service 環境輸出網路流量的 NAT 位址會導致連線失敗。
--  虛擬網路的 DNS 組態必須可以解析下列 Azure 控制網域內的端點：**.file.core.windows.net*、**.blob.core.windows.net*、**.database.windows.net*。-  在建立 App Service 環境後，以及重新設定和調整 App Service 環境變更的期間，虛擬網路的 DNS 組態必須保持穩定。   
+-  虛擬網路的 DNS 組態必須可以解析下列 Azure 控制網域內的端點：**.file.core.windows.net\*、**.blob.core.windows.net\*、**.database.windows.net\*。-  在建立 App Service 環境後，以及重新設定和調整 App Service 環境變更的期間，虛擬網路的 DNS 組態必須保持穩定。   
 -  必須如本[文章][requiredports]所述，允許 App Service 環境之必要連接埠的輸入網路存取。
 
 確定虛擬網路的有效 DNS 組態，即可符合 DNS 需求。
@@ -120,4 +120,4 @@ App Service 環境需要下列所有項目，才能正確運作：
 
 <!-- IMAGES -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

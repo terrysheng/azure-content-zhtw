@@ -94,7 +94,7 @@ Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) 
 
 您可以同時啟用 [Application diagnostics (file system)]、[Application diagnostics (table storage)] 及 [Application diagnostics (blob storage)]，且它們可以擁有各自的記錄層級組態。例如，您也許會想要將錯誤和警告記錄在儲存體並做為長期的記錄解決方案，同時在檢測應用程式程式碼後啟用檔案系統記錄並搭配詳細資訊層級，以供疑難排解問題之用。
 
-您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
+您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂用帳戶，請參閱[如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
 
 > [AZURE.NOTE]應用程式記錄功能仰賴應用程式產生的記錄資訊。用來產生記錄資訊的方法和資訊的格式取決於應用程式的撰寫語言。如需有關使用應用程式記錄功能的語言特有資訊，請參閱以下文章：
 >
@@ -122,25 +122,25 @@ Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) 
 
 啟用 Web 應用程式的診斷之後，按一下 [設定] 管理頁面底部的 [儲存] 圖示，以套用您設定的選項。
 
-> [AZURE.IMPORTANT]記錄和追蹤等功能會使網站的資源需求大增。建議您在重製欲疑難排解的問題後關閉記錄和追蹤功能。
+> [AZURE.IMPORTANT]「詳細的錯誤訊息」與「失敗的要求追蹤」會使 Web 應用程式的資源需求大增。建議您在重製欲疑難排解的問題後關閉這些功能。
 
 ### 進階組態 ###
 
 您可以在 [設定] 管理頁面的 [應用程式設定] 區段中新增索引鍵/值配對，進一步修改診斷功能。以下是可在 [應用程式設定] 中配置的設定：
 
-**DIAGNOSTICS_TEXTTRACELOGDIRECTORY**
+**DIAGNOSTICS\_TEXTTRACELOGDIRECTORY**
 
 - 儲存應用程式記錄的位置，相對於 Web 根目錄。
 
-- 預設值：....\LogFiles\Application
+- 預設值：..\\..\\LogFiles\\Application
 
-**DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
+**DIAGNOSTICS\_TEXTTRACEMAXBUFFERSIZEBYTES**
 
 - 擷取應用程式記錄時，使用的緩衝區大小上限。剛開始時，系統會先將資訊寫入緩衝區，然後再排清到檔案或儲存體。如果系統將新資訊寫入緩衝區，然後再予以排清，您便會遺失先前記錄的資訊。如果應用程式突然產生大量的記錄資訊，請考慮增加緩衝區的大小。
 
 - 預設值：10MB
 
-**DIAGNOSTICS_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
+**DIAGNOSTICS\_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
 
 - **Application** 資料夾的大小上限，其為寫入檔案之應用程式診斷的儲存位置。
 
@@ -271,10 +271,10 @@ Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) 
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需 Azure 入口網站變更為 Azure 預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+* 如需 Azure 入口網站變更為 Azure Preview 入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

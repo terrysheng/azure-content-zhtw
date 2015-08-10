@@ -40,9 +40,9 @@
 
 示範程式經過設計，會使嘗試連接期間的暫時性錯誤導致重試。但是，查詢命令期間的暫時性錯誤會導致程式捨棄連線並建立新的連線，然後再重試查詢命令。我們不建議也不反對這種設計選擇。示範程式會說明一些您可使用的設計彈性。
 
-<br>此程式碼範例的長度主要歸因於 catch 例外狀況邏輯。此 Program.cs 檔案的簡短版本可在[這裡](https://azure.microsoft.com/zh-tw/documentation/articles/sql-database-develop-php-simple-windows/)取得。<br>Main 方法在 Program.cs 中。呼叫堆疊的執行方式如下：* Main 呼叫 ConnectAndQuery。* ConnectAndQuery 呼叫 EstablishConnection。* EstablishConnection 呼叫 IssueQueryCommand。
+<br>此程式碼範例的長度主要歸因於 catch 例外狀況邏輯。此 Program.cs 檔案的簡短版本可在[這裡](sql-database-develop-php-simple-windows.md)取得。<br>Main 方法在 Program.cs 中。呼叫堆疊的執行方式如下：\* Main 呼叫 ConnectAndQuery。\* ConnectAndQuery 呼叫 EstablishConnection。\* EstablishConnection 呼叫 IssueQueryCommand。
 
-[sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) 函式可用來擷取對 SQL Database 查詢的結果集。這個函式基本上會接受任何查詢與連線物件並傳回結果集，您可以使用 [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php) 反覆查詢結果集。
+[sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) 函式可用來擷取對 SQL Database 查詢的結果集。這個函式基本上會接受任何查詢與連線物件並傳回結果集，您可以使用 [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php) 反覆查詢結果集。
 
 	<?php
 		// Variables to tune the retry logic.  
@@ -137,4 +137,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

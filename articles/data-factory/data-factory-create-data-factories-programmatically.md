@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/22/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Data Factory .NET SDK 來建立、監視及管理 Azure Data Factory
@@ -74,7 +74,7 @@
 6. 將下列會建立 **DataPipelineManagementClient** 類別執行個體的程式碼加入 **Main** 方法中。您將使用此物件來建立 Data Factory、連結的服務、輸入和輸出資料表，以及管線。您也將使用此物件來監視執行階段的資料表配量。    
 
         // create data factory management client
-        string resourceGroupName = "ADF";
+        string resourceGroupName = "resourcegroupname";
         string dataFactoryName = "APITutorialFactorySP";
 
         TokenCloudCredentials aadTokenCredentials =
@@ -85,6 +85,8 @@
         Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
         DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
+
+	> [AZURE.NOTE]用您的 Azure 資源群組名稱取代 **resourcegroupname**。若要建立資源群組，請使用 [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) Cmdlet。
 
 7. 將下列會建立 **Data Factory** 的程式碼加入 **Main** 方法中。
 
@@ -103,7 +105,7 @@
         );
 
 8. 將下列會建立**連結服務**的程式碼加入 **Main** 方法中。
-	> [AZURE.NOTE]使用您 Azure 儲存體帳戶的**帳戶名稱**和**帳戶金鑰**做為 **ConnectionString**
+	> [AZURE.NOTE]使用您 Azure 儲存體帳戶的**帳戶名稱**和**帳戶金鑰**做為 **ConnectionString**。
 
         // create a linked service
         Console.WriteLine("Creating a linked service");
@@ -329,7 +331,7 @@
             }
         }
 
-14. **(選用)**將下列會取得資料配量之執行詳細資料的程式碼加入 **Main** 方法中。
+14. **(選用)** 將下列會取得資料配量之執行詳細資料的程式碼加入 **Main** 方法中。
 
         Console.WriteLine("Getting run details of a data slice");
 
@@ -360,7 +362,7 @@
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
 
-15. 建置主控台應用程式。按一下功能表上的 [建置]，再按一下 [建置方案]。如果您取得 **ConfigurationManager** 類別的相關錯誤，請將參考加入至 **System.Configuration** 組件並嘗試再次建置。
+15. 建置主控台應用程式。按一下功能表上的 [建置]，再按一下 [建置方案]。如果您取得 **ConfigurationManager** 類別的相關錯誤，請將參考加入 **System.Configuration** 組件並嘗試再次建置。
 16. 確認您 Azure Blob 儲存體之 adftutorial 容器中至少有一個檔案。如果沒有，請在「記事本」中以下列內容建立 Emp.txt 檔案，然後將它上傳至 adftutorial 容器。
 
         John, Doe
@@ -368,7 +370,7 @@
 	 
 17. 按一下功能表上的 [偵錯] -> [開始偵錯]，執行範例。當您看到**取得資料配量的執行詳細資料**，請等待數分鐘再按 **ENTER**。
 18. 使用 Azure Preview 入口網站確認 Data Factory：**APITutorialFactory** 是使用下列成品所建立： 
-	- 連結服務：**LinkedService_AzureStorage** 
+	- 連結服務：**LinkedService\_AzureStorage** 
 	- 資料表：**TableBlobSource** 和 **TableBlobDestination**。
 	- 管線：**PipelineBlobSample** 
 18. 確認輸出檔案已建立在 **adftutorial** 容器的 **apifactoryoutput** 資料夾中。
@@ -392,4 +394,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

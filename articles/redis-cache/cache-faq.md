@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/09/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis 快取常見問題集
@@ -95,6 +95,11 @@
 ## 我應該在哪個區域找到快取？
 
 為獲得最佳效能和最低延遲，請在與快取用戶端應用程式相同的區域中找到 Azure Redis 快取。
+
+<a name="cache-billing"></a>
+## Azure Redis 快取如何收費？
+
+[這裡](http://azure.microsoft.com/pricing/details/cache/)是 Azure Redis 快取的價格。定價頁面所列的價格為每小時的費率。快取是根據從建立快取到刪除快取的時間，以分鐘為單位來收費。沒有用於停止或暫停快取收費的選項。
 
 <a name="cache-timeouts"></a>
 ## 為什麼看到逾時？
@@ -204,12 +209,14 @@ Redis 工具 (例如 `redis-cli`) 未使用 SSL 連接埠，但您可以遵循[�
 <a name="cache-commands"></a>
 ## 如何執行 Redis 命令？
 
-您可以使用 [Redis 命令](http://redis.io/commands#)中所列的任何命令。若要執行這些命令，您可以使用下列工具。
+您可以使用在 [Redis 命令](http://redis.io/commands#) 中列出的任何的命令，但不包含 [Azure Redis 快取中不支援的 Redis 命令](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache)中列出的命令。您有幾種方式可以執行 Redis 命令。
 
--	下載 [Redis 命令列工具](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip)。
--	使用 `redis-cli.exe` 連線至快取。使用-h 參數傳入快取端點，以及使用 -a 傳入索引鍵 (如下列範例所示)。
-	-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
--	請注意，Redis 命令列工具未使用 SSL 連接埠，但您可以遵循[宣佈 Redis 預覽版本的 ASP.NET 工作階段狀態提供者](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)部落格文章中的指示，使用公用程式 (例如 `stunnel`) 將工具安全地連線至 SSL 連接埠。
+-	如果您有標準快取，您可以使用 [Redis 主控台](cache-configure.md#redis-console)執行 Redis 命令。這可提供在 Azure 入口網站中執行 Redis 命令的安全方式。
+-	您也可以使用 Redis 命令列工具。若要使用那些工具，請執行下列步驟。
+	-	下載 [Redis 命令列工具](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip)。
+	-	使用 `redis-cli.exe` 連線至快取。使用-h 參數傳入快取端點，以及使用 -a 傳入索引鍵 (如下列範例所示)。
+		-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
+	-	請注意，Redis 命令列工具未使用 SSL 連接埠，但您可以遵循[宣佈 Redis 預覽版本的 ASP.NET 工作階段狀態提供者](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)部落格文章中的指示，使用公用程式 (例如 `stunnel`) 將工具安全地連線至 SSL 連接埠。
 
 <a name="cache-common-patterns"></a>
 ## 一些常見的快取模式和考量為何？
@@ -226,4 +233,4 @@ Microsoft Azure Redis 快取是基於受歡迎的開放原始碼 Redis 快取，
 
 因為每個用戶端都不同，所以 MSDN 上沒有一個集中式類別參考；而是每個用戶端都會維護其專屬的參考文件。除了參考文件之外，Azure.com 上還會有數個教學課程，可顯示如何使用 [[Redis 快取文件](http://azure.microsoft.com/documentatgion/services/redis-cache/)] 頁面上的不同語言和快取用戶端來開始使用 Azure Redis 快取。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

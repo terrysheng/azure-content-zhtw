@@ -462,7 +462,7 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
 
-請注意，如果指定的虛擬目錄不存在，則 AzCopy 將上傳檔案並在其名稱中加上此虛擬目錄 (*例如*，上述範例中的 `vd/abc.txt`)。
+請注意，如果指定的虛擬目錄不存在，則 AzCopy 將上傳檔案並在其名稱中加上此虛擬目錄 (\*例如\*，上述範例中的 `vd/abc.txt`)。
 
 ### 將 Blob 下載到新的資料夾
 
@@ -682,7 +682,7 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z
 
-如果省略 `/Z`，或指定 `/Z` 選項但沒有指定資料夾路徑 (如上所示)，則 AzCopy 會在預設位置上建立日誌檔案，預設位置是 `%SystemDrive%\Users%username%\AppData\Local\Microsoft\Azure\AzCopy`。如果日誌檔案已存在，則 AzCopy 會根據此日誌檔案繼續作業。
+如果省略 `/Z`，或指定 `/Z` 選項但沒有指定資料夾路徑 (如上所示)，則 AzCopy 會在預設位置上建立日誌檔案，預設位置是 `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`。如果日誌檔案已存在，則 AzCopy 會根據此日誌檔案繼續作業。
 
 **指定日誌檔案的自訂位置**
 
@@ -703,7 +703,7 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V
 
-如果指定 `/V` 選項，但沒有提供詳細資訊記錄的檔案路徑，則 AzCopy 會在預設位置上建立記錄檔，預設位置是 `%SystemDrive%\Users%username%\AppData\Local\Microsoft\Azure\AzCopy`。
+如果指定 `/V` 選項，但沒有提供詳細資訊記錄的檔案路徑，則 AzCopy 會在預設位置上建立記錄檔，預設位置是 `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`。
 
 **在自訂位置中寫入詳細資訊記錄檔**
 
@@ -741,7 +741,7 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 
 根據預設，AzCopy 會以非同步方式在兩個儲存體端點之間複製資料。因此，複製作業會在背景中執行，並使用在 blob 複製速度方面沒有 SLA 的備用頻寬容量，而 AzCopy 會定期檢查複製狀態，直到複製完成或失敗為止。
 
-3.1.0 版中新增的 `/SyncCopy` 選項可確保複製作業達到一致的速度。AzCopy 執行同步複製的方式是先將要複製的 blob，從指定的來源下載到本機記憶體，再上傳至 Blob 儲存體目的地。
+3\.1.0 版中新增的 `/SyncCopy` 選項可確保複製作業達到一致的速度。AzCopy 執行同步複製的方式是先將要複製的 blob，從指定的來源下載到本機記憶體，再上傳至 Blob 儲存體目的地。
 
 	AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
 
@@ -765,7 +765,7 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 
 	AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-請注意，如果指定的來源是 Azure 檔案共用，則您必須指定確切檔案名稱 (*例如* `abc.txt`) 以複製單一檔案，或指定 `/S` 選項以遞迴方式複製共用中的所有檔案。嘗試同時指定檔案模式和 `/S` 選項將會造成錯誤。
+請注意，如果指定的來源是 Azure 檔案共用，則您必須指定確切檔案名稱 (\*例如\* `abc.txt`) 以複製單一檔案，或指定 `/S` 選項以遞迴方式複製共用中的所有檔案。嘗試同時指定檔案模式和 `/S` 選項將會造成錯誤。
 
 ### 將 Azure 檔案共用中的檔案和資料夾以遞迴方式下載到檔案系統
 
@@ -819,7 +819,7 @@ AzCopy 將會使用下列命令慣例，在本機資料夾或 Blob 容器中產�
 
 產生的 JSON 資料檔案會遵循基本中繼資料的裝載格式。如需此裝載格式的詳細資訊，請參閱[資料表服務作業的裝載格式](http://msdn.microsoft.com/library/azure/dn535600.aspx)。
 
-請注意，將儲存體資料表實體匯出到儲存體 Blob 時，AzCopy 會先將資料表實體匯出到本機暫存資料檔，然後再上傳至 Blob，這些暫存資料檔會放入日誌檔案資料夾中，預設路徑為 “<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>”，您可以指定 /Z:[journal-file-folder] 選項來變更日誌檔案資料夾位置，從而變更暫存資料檔位置。暫存資料檔大小取決於資料表實體大小和您使用 /SplitSize 選項所指定的大小，雖然本機磁碟中的暫存資料檔在上傳至 Blob 之後就立即刪除，但請確定您有足夠的本機磁碟空間，可儲存這些尚未刪除的暫存資料檔。
+請注意，將儲存體資料表實體匯出到儲存體 Blob 時，AzCopy 會先將資料表實體匯出到本機暫存資料檔，然後再上傳至 Blob，這些暫存資料檔會放入日誌檔案資料夾中，預設路徑為 “<code>%LocalAppData%\\Microsoft\\Azure\\AzCopy</code>”，您可以指定 /Z:[journal-file-folder] 選項來變更日誌檔案資料夾位置，從而變更暫存資料檔位置。暫存資料檔大小取決於資料表實體大小和您使用 /SplitSize 選項所指定的大小，雖然本機磁碟中的暫存資料檔在上傳至 Blob 之後就立即刪除，但請確定您有足夠的本機磁碟空間，可儲存這些尚未刪除的暫存資料檔。
 
 ### 分割匯出檔案
 
@@ -911,4 +911,4 @@ AzCopy 設計為充分利用電腦資源來加速資料傳輸，建議您在一�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

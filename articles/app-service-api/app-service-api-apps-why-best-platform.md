@@ -76,4 +76,4 @@ API 應用程式另外包含 [App Service Web Apps 的功能](../app-service-web
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

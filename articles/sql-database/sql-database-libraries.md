@@ -39,12 +39,12 @@
 
 | 平台 | 作業系統 | 下載的<br/>程式庫 | 驅動程式<br/>版本 | 驅動程式<br/>描述 | 更多<br/>資訊 |
 | :--- | :--- | :--- | :--- | :--- | :-- |
-| .NET | 跨平台 (.NET) | [ADO.NET、System.Data.SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4.5 以上 | .NET Framework 的 SQL Server 提供者 | 。 |
-| PHP | Windows | [PHP for SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2.0 以上 | SQL Server 適用的 PHP 驅動程式 | [連結](http://msdn.microsoft.com/library/dn865013.aspx) |
-| Java | Windows | [JDBC for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2.0 以上 | Type 4 JDBC 驅動程式，提供透過標準 JDBC API 的資料庫連接 | [連結](http://msdn.microsoft.com/library/dn425070.aspx) |
-| ODBC | Windows | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11.0 以上 | SQL Server 適用的 Microsoft ODBC 驅動程式 | [連結](http://msdn.microsoft.com/library/jj730308.aspx) |
-| ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0 以上 | SQL Server 適用的 Microsoft ODBC 驅動程式 | 。 |
-| ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0 以上 | SQL Server 適用的 Microsoft ODBC 驅動程式 | 。 |
+| .NET | 跨平台 (.NET) | [ADO.NET、System.Data.SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4\.5 以上 | .NET Framework 的 SQL Server 提供者 | 。 |
+| PHP | Windows | [PHP for SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2\.0 以上 | SQL Server 適用的 PHP 驅動程式 | [連結](http://msdn.microsoft.com/library/dn865013.aspx) |
+| Java | Windows | [JDBC for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2\.0 以上 | Type 4 JDBC 驅動程式，提供透過標準 JDBC API 的資料庫連接 | [連結](http://msdn.microsoft.com/library/dn425070.aspx) |
+| ODBC | Windows | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11\.0 以上 | SQL Server 適用的 Microsoft ODBC 驅動程式 | [連結](http://msdn.microsoft.com/library/jj730308.aspx) |
+| ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 以上 | SQL Server 適用的 Microsoft ODBC 驅動程式 | 。 |
+| ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 以上 | SQL Server 適用的 Microsoft ODBC 驅動程式 | 。 |
 
 
 ### 適用於 DB2 和 SQL Server 及 DRDA 設計的 OLEDB
@@ -82,4 +82,4 @@ Microsoft OLE DB Provider for DB2 Version 5.0 (資料提供者) 可讓您建立�
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

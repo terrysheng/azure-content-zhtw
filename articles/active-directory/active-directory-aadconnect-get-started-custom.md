@@ -21,7 +21,7 @@
 
 以下文件提供有關使用 Azure AD Connect 自訂安裝選項的資訊。如果您有其他組態選項，或需要未涵蓋在快速安裝中的選用功能，就可以使用此選項。
 
-如需快速安裝的資訊，請參閱[快速安裝](active-directory-aadconnect-get-started/#express-installation-of-azure-ad-connect)。如需從 DirSync 升級至 Azure AD Connect 的資訊，請參閱[升級 DirSync 至 Azure Active Directory Connect](active-directory-aadconnect-dirsync-upgrade-get-started.md)。
+如需快速安裝的資訊，請參閱[快速安裝](active-directory-aadconnect/#getting-started-with-azure-ad-connect)。如需從 DirSync 升級至 Azure AD Connect 的資訊，請參閱[升級 DirSync 至 Azure Active Directory Connect](active-directory-aadconnect-dirsync-upgrade-get-started.md)。
 
 
 
@@ -29,7 +29,8 @@
 
 安裝同步處理服務時，您可以將選用組態區段保持未核取狀態，Azure AD Connect 會自動設定所有項目。這包括設定 SQL Server 2012 Express 執行個體，以及建立適當的群組與指派其權限。如果您想要變更預設值，則可以使用下表了解可用的選用組態選項。
 
-<center>![必要的元件](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png)</center>
+![必要的元件](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png)
+
 
 選用組態 | 說明 
 ------------- | ------------- |
@@ -41,7 +42,8 @@ SQL Server 名稱 |可讓您指定 SQL Server 名稱和執行個體名稱。如�
 ## 使用者登入
 安裝必要的元件後，系統會要求您指定使用者要使用的單一登入方法。下表提供可用選項的簡短說明。
 
-<center>![使用者登入](./media/active-directory-aadconnect-get-started-custom/usersignin.png) </center>
+![使用者登入](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
+
 
 
 單一登入選項 | 說明 
@@ -55,18 +57,21 @@ SQL Server 名稱 |可讓您指定 SQL Server 名稱和執行個體名稱。如�
 ## 連接至 Azure AD
 在 [連接至 Azure AD] 畫面中，輸入全域系統管理員的帳戶和密碼。請確定此帳戶沒有啟用多因素驗證。這會導致驗證失敗。請注意，此帳戶只會用來在 Azure AD 中建立服務帳戶，而且在精靈完成後便不會使用。
 
-<center>![使用者登入](./media/active-directory-aadconnect-get-started-custom/connectaad.png) </center>
+![使用者登入](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
+
 
 ### 連接您的目錄
 若要連接到您的 Active Directory 網域服務，Azure AD Connect 需要具有足夠權限的帳戶認證。此帳戶可以是一般使用者帳戶，因為我們只需要預設的讀取權限。不過，視您的情況而定，可能會需要其他權限。如需詳細資訊，請參閱 [Azure AD Connect 帳戶摘要](active-directory-aadconnect-account-summary.md)
 
-<center>![使用者登入](./media/active-directory-aadconnect-get-started-custom/connectdir.png) </center>
+![使用者登入](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
+
 
 ### 唯一識別您的使用者
 
 跨樹系比對功能可讓您定義 AD DS 樹系中的使用者在 Azure AD 中的顯示方式。使用者可能會在整個樹系中只顯示一次，或是具有啟用和停用帳戶的組合。
 
-<center>![使用者登入](./media/active-directory-aadconnect-get-started-custom/unique.png) </center>
+![使用者登入](./media/active-directory-aadconnect-get-started-custom/unique.png)
+
 
 設定 | 說明 
 ------------- | ------------- |
@@ -87,7 +92,8 @@ sAMAccountName 與 MailNickName|此選項會在預期可以找到使用者登入
 ### 根據群組進行同步處理篩選
 篩選群組功能可讓您執行小型的試驗，試驗中應該只會在 Azure AD 和 Office 365 內建立一小群物件子集。若要使用這項功能，請在您的 Active Directory 中建立一個群組，並新增應該以直接成員的身分與 Azure AD 進行同步處理的使用者和群組。您稍後可以在此群組中新增和移除使用者，藉此維護應該要顯示在 Azure AD 中的物件清單。若要使用這項功能，您會在自訂路徑中看見此頁面：
 
-<center>![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/filter2.png) </center>
+![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/filter2.png)
+
 
 ### 選用功能
 
@@ -114,15 +120,18 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 ## 目錄擴充屬性同步處理
 您可以使用目錄擴充，利用您組織新增的自訂屬性，或 Active Directory 中的其他屬性，在 Azure AD 中擴充結構描述。若要使用這項功能，請選取 [選用功能] 頁面上的 [目錄擴充屬性同步處理]。如此可讓您進入此頁面，並在其中選取其他屬性。
 
-<center>![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/extension2.png) </center>
+![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/extension2.png)
+
 
 這裡只支援有單一值的屬性，且值不能超過 250 個字元。Metaverse 和 Azure AD 結構描述會使用選取的屬性來擴充。在 Azure AD 中，新的應用程式會和屬性一起新增。
 
-<center>![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/extension3.png) </center>
+![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/extension3.png)
+
 
 現在可以透過圖形提供這些屬性：
 
-<center>![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/extension4.png) </center>
+![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/extension4.png)
+
 
 ## 使用者回寫 (預覽功能)
 
@@ -130,7 +139,8 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 
 使用者回寫可讓您取得 Azure AD 中建立的使用者 (透過入口網站、圖形、PowerShell 或任何其他方法)，然後將使用者寫回內部部署 AD DS。若要啟用此功能，請在 [選用功能] 頁面上選取 [使用者回寫]。您現在會看到要在其中建立這些使用者的位置。預設組態會將所有使用者建立在 AD DS 中的同一個位置。
 
-<center>![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/writeback2.png) </center>
+![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/writeback2.png)
+
 使用者將會和隨機密碼一起建立，因此您必須重設 AD DS 中的密碼，讓使用者能夠實際登入。
 
 >[AZURE.NOTE]密碼同步處理和密碼回寫與此預覽功能不相容。
@@ -142,10 +152,12 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 選用功能中的群組回寫選項可讓您將「Office 365 中的群組」回寫至安裝 Exchange 的樹系。這是永遠在雲端中受控制的新群組類型。您可以在 outlook.office365.com 或 myapps.microsoft.com 中找到此群組類型，如下所示：
 
 
-<center>![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/office365.png) </center>
+![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/office365.png)
 
 
-<center>![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/myapps.png) </center>
+
+![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/myapps.png)
+
 
 此群組將會在內部部署 AD DS 中顯示為通訊群組。您的內部部署 Exchange 伺服器必須是 Exchange 2013 累積更新 8 (2015 年 3 月發行)，才能辨識這個新的群組類型。
 
@@ -161,7 +173,7 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 
 > [AZURE.WARNING]如果您目前啟用 DirSync 或 Azure AD Sync，請不要在 Azure AD Connect 中啟動任何回寫功能。
 
-裝置回寫功能可讓您取得在雲端中 (例如在 Intune 中) 註冊的裝置，並將它納入 AD DS 中以供有條件的存取。若要啟用此功能，必須備妥 AD DS。如果您安裝 AD FS 與裝置註冊服務 (DRS)，則 DRS 會提供 PowerShell Cmdlet，讓您準備要用於裝置回寫的 AD。如果沒有安裝 DRS，可以企業系統管理員的身分執行 C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1。
+裝置回寫功能可讓您取得在雲端中 (例如在 Intune 中) 註冊的裝置，並將它納入 AD DS 中以供有條件的存取。若要啟用此功能，必須備妥 AD DS。如果您安裝 AD FS 與裝置註冊服務 (DRS)，則 DRS 會提供 PowerShell Cmdlet，讓您準備要用於裝置回寫的 AD。如果沒有安裝 DRS，可以企業系統管理員的身分執行 C:\\Program Files\\Microsoft Azure Active Directory Connect\\AdPrep\\AdSyncAdPrep.psm1。
 
 在您可以執行 PowerShell Cmdlet 之前，必須先匯入它。
 
@@ -174,14 +186,16 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 ## 預備模式
 在預備模式中，可以同時設定新的同步處理伺服器與現有的伺服器。系統僅支援讓一部同步處理伺服器與雲端中的一個目錄連接。但如果想要從另一部伺服器移動，例如執行 DirSync 的伺服器，則可以啟用預備模式中的 Azure AD Connect。啟用後，同步處理引擎時會照常匯入並同步處理資料，但不會匯出任何項目至 Azure AD，且會關閉密碼同步處理和密碼回寫。
 
-<center>![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/stagingmode.png) </center>
+![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/stagingmode.png)
+
 
 在預備模式中，可以對同步處理引擎進行所需的變更，並檢閱要匯出的項目。當此組態看起來設定良好時，請再次執行安裝精靈，並停用預備模式。這麼做可將資料匯出至 Azure AD。同時請務必停用其他伺服器，如此才能只讓一部伺服器主動匯出。
 
 ### 防止意外刪除
 安裝 Azure AD Connect 時，就會依預設啟用防止意外刪除的功能，並設定為不允許超過 500 個刪除項目的匯出。500 是預設值，可加以變更。啟用這項功能後，如果有太多刪除項目，就不會繼續匯出，且您會收到一封電子郵件，內容看起來像這樣：
 
-<center>![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/email.png) </center>
+![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/email.png)
+
 
 如果這是非預期的結果，請進行調查，並採取任何修正動作。
 
@@ -200,7 +214,8 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 ### 建立新的 AD FS 伺服器陣列或使用現有的 AD FS 伺服器陣列
 您可以使用現有的 AD FS 伺服器陣列，或選擇建立新的 AD FS 伺服器陣列。如果您選擇建立新的伺服器陣列，就必須提供 SSL 憑證。如果 SSL 憑證有密碼保護，則系統會提示您輸入密碼。
 
-<center>![AD FS 伺服器陣列](./media/active-directory-aadconnect-get-started-custom/adfs1.png) </center>
+![AD FS 伺服器陣列](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
+
 **注意：**如果選擇使用現有的 AD FS 伺服器陣列，會略過幾個頁面將您直接導向至一個畫面，以設定 AD FS 與 Azure AD 的之間的信任關係。
 
 ### 指定 AD FS 伺服器
@@ -210,18 +225,24 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 
 > [AZURE.NOTE]請先確認所有伺服器均已加入 AD 網域，再執行這項設定。
 
-<center>![AD FS 伺服器](./media/active-directory-aadconnect-get-started-custom/adfs2.png) </center>
+![AD FS 伺服器](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
+
+
+ 
 ### 指定 Web 應用程式 Proxy 伺服器
 您會在這裡輸入您要做為 Web 應用程式 Proxy 伺服器的特定伺服器。Web 應用程式 Proxy 伺服器會部署在您的 DMZ (外部網路對應) 中，且支援來自外部網路的驗證要求。您可以根據容量規劃需求，加入一或多部伺服器。我們建議安裝一部用於測試和試驗部署的 Web 應用程式 Proxy 伺服器，並開啟 Azure AD Connect 以部署其他伺服器，然後將 Web 應用程式 Proxy 部署至其他伺服器。我們通常建議準備一部同樣數目的 Proxy 伺服器，以滿足來自內部網路的驗證需求。
 
 > [AZURE.NOTE]<li>如果您用來安裝 Azure AD Connect 的帳戶不是 AD FS 伺服器上的本機系統管理員，則系統會提示您提供具有足夠的權限的帳戶認證。</li><li>設定此步驟前，請先確認 Azure AD Connect 伺服器與 Web 應用程式 Proxy 伺服器之間的 HTTP/HTTPS 連線能力。</li><li> 此外，亦請確認 Web 應用程式伺服器和 AD FS 伺服器之間的 HTTP/HTTPS 連線是否允許流入驗證要求。</li>
 
 
-<center>![Web 應用程式](./media/active-directory-aadconnect-get-started-custom/adfs3.png) </center>
+![Web 應用程式](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
+
 
 系統會提示您輸入認證，讓 Web 應用程式伺服器可以建立與 AD FS 伺服器的安全連線。這些認證必須是 AD FS 伺服器上的本機系統管理員。
 
-<center>![Proxy](./media/active-directory-aadconnect-get-started-custom/adfs4.png) </center>
+![Proxy](./media/active-directory-aadconnect-get-started-custom/adfs4.png)
+
+ 
 ### 指定 AD FS 服務的服務帳戶
 AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Directory 中查閱使用者資訊。它可支援 2 種類型的服務帳戶：
 
@@ -230,13 +251,16 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 
 如果您以網域系統管理員的身分登入，Azure AD Connect 會自動建立群組受管理服務帳戶。
  
-<center>![AD FS 服務帳戶](./media/active-directory-aadconnect-get-started-custom/adfs5.png) </center>
+![AD FS 服務帳戶](./media/active-directory-aadconnect-get-started-custom/adfs5.png)
+
 
 ### 選取您想要建立同盟的 Azure AD 網域
 此組態會用來設定 AD FS 與 Azure AD 之間的同盟關係。它會設定 AD FS 將安全性權杖簽發給 Azure AD，並將 Azure AD 設定為信任來自此特定 AD FS 執行個體的權杖。此頁面只會讓您在第一次使用時設定單一網域。您可以隨時再次開啟 Azure AD Connect，並執行這項工作，以設定其他網域。
 
  
-<center>![Azure AD 網域](./media/active-directory-aadconnect-get-started-custom/adfs6.png) </center>
+![Azure AD 網域](./media/active-directory-aadconnect-get-started-custom/adfs6.png)
+
+ 
 ### 執行其他工作來完成同盟組態
 必須完成下列額外的工作才能完成同盟組態。
 
@@ -248,7 +272,9 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 
 當您按一下 [驗證] 按鈕時，Azure AD Connect 會為您驗證 DNS 設定。
 
-<center>![完成](./media/active-directory-aadconnect-get-started-custom/adfs7.png) </center>
+![完成](./media/active-directory-aadconnect-get-started-custom/adfs7.png)
+ 
+ 
 此外，請執行下列驗證步驟：
 
 - 驗證來自內部網路中使用 Internet Explorer 之加入網域電腦的瀏覽器登入：連接到 https://myapps.microsoft.com，並使用您已登入的帳戶驗證登入。
@@ -260,17 +286,4 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-
-
-
-
-
-**其他資源**
-
-* [在雲端中使用內部部署身分識別基礎結構](active-directory-aadconnect.md)
-* [Azure AD Connect 運作方式](active-directory-aadconnect-how-it-works.md)
-* [使用 Azure AD Connect 的下一步](active-directory-aadconnect-whats-next.md)
-* [深入了解](active-directory-aadconnect-learn-more.md)
-* [MSDN 上的 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

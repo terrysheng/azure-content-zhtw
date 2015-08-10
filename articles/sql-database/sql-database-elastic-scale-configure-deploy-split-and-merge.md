@@ -1,7 +1,8 @@
 <properties
 	pageTitle="彈性資料庫分割-合併工具教學課程 | Microsoft Azure"
 	description="使用彈性資料庫工具來分割及合併"
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter="" 
 	manager="jeffreyg"
 	authors="sidneyh"/>
 
@@ -21,7 +22,7 @@
 2. 開啟命令提示字元並瀏覽至您下載 nuget.exe 的目錄。
 3. 使用下列命令，將最新的分割合併封裝下載到目前的目錄：`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
-上述步驟將分割合併檔案下載至目前的目錄。檔案會放在名為 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** 的目錄中，其中 *x.x.xxx.x* 反映版本號碼。在 **content\splitmerge\service** 子目錄中找出分割合併服務檔案，在 **content\splitmerge\powershell** 子目錄中找出分割合併 PowerShell 指令碼 (和必要的用戶端 .dll 檔)。
+上述步驟將分割合併檔案下載至目前的目錄。檔案會放在名為 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** 的目錄中，其中 *x.x.xxx.x* 反映版本號碼。在 **content\\splitmerge\\service** 子目錄中找出分割合併服務檔案，在 **content\\splitmerge\\powershell** 子目錄中找出分割合併 PowerShell 指令碼 (和必要的用戶端 .dll 檔)。
 
 ## 必要條件
 
@@ -328,4 +329,4 @@
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

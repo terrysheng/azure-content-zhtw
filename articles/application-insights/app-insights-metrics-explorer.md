@@ -179,8 +179,13 @@
 
 *匯出動作目前僅適用於 Internet Explorer 和 Chrome。我們正努力新增其他瀏覽器的支援。*
 
+### 連續匯出
+
 如果您想要連續匯出資料以在外部處理，請考慮使用[連續匯出](app-insights-export-telemetry.md)。
 
+### Power BI
+
+如果您希望更完整地檢視您的資料，您可以[匯出至 Power BI](app-insights-export-power-bi.md)。
 
 ## 後續步驟
 
@@ -196,4 +201,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

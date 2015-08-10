@@ -208,7 +208,7 @@ Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://
 
 - Azure 自動化不支援並存使用 PowerShell 模組。這表示在自動化帳戶內的所有組態，必須與匯入到該自動化帳戶的最後一個版本 PowerShell 模組，以及該模組包含的組態所使用的任何 PowerShell DSC 資源搭配使用。
 
-- 傳統的 PowerShell DSC 提取伺服器預期模組 Zip 會以格式 **ModuleName_Version.zip** 放置在提取伺服器上。Azure 自動化預期 PowerShell 模組會以 **ModuleName.zip** 名稱格式匯入。請參閱[此部落格文章](http://azure.microsoft.com/blog/2014/12/15/authoring-integration-modules-for-azure-automation/)，以取得將模組匯入至 Azure 自動化所需的整合模組格式的詳細資訊。
+- 傳統的 PowerShell DSC 提取伺服器預期模組 Zip 會以格式 **ModuleName\_Version.zip** 放置在提取伺服器上。Azure 自動化預期 PowerShell 模組會以 **ModuleName.zip** 名稱格式匯入。請參閱[此部落格文章](http://azure.microsoft.com/blog/2014/12/15/authoring-integration-modules-for-azure-automation/)，以取得將模組匯入至 Azure 自動化所需的整合模組格式的詳細資訊。
 
 - 指定 DSC 資源在模組內並存且使用「每個資料夾的版本」格式的 PowerShell 模組，目前將無法在 Azure 自動化中運作。
 
@@ -226,4 +226,4 @@ Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://
 
 - 上架到 Azure 自動化 DSC 的 DSC 節點一開始都會顯示為「相容」狀態，即使它們實際上不符合所對應的 DSC 節點組態。節點執行其第一次提取，並將其第一個 DSC 報表傳送到 Azure 自動化 DSC 之後，節點的狀態應該是正確的。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

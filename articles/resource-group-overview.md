@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Resource Manager 概觀"
+   pageTitle="Azure 資源管理員概觀"
    description="描述如何使用 Azure 資源管理員在 Azure 上進行資源的部署、管理及存取控制。"
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
-# Azure Resource Manager 概觀
+# Azure 資源管理員概觀
 
 應用程式通常由許多元件組成 – 也許是 web 應用程式、資料庫、資料庫伺服器、儲存體和協力廠商服務。您看不到這些元件做為個別的實體，而是看到它們做為單一實體相關且彼此相依的組件。您會想要將其當成群組來部署、管理和監視。Azure 資源管理員可讓您將應用程式中的資源做為群組使用。您可以透過單一、協調的作業來部署、更新或刪除應用程式的所有資源。您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。您可以檢視整個群組的彙總成本，為您的組織釐清計費。
 
@@ -38,13 +38,15 @@ Azure 資源管理員會以原生方式將存取控制整合到管理平台，�
 
 在 Azure Preview 入口網站中，所有新的資源都會建立在資源群組中。即使您只建立單一資源 (例如網站)，您也必須決定是否要將該資源新增至現有的群組，或為該資源建立新的群組。
 
-下圖顯示具有網站、資料庫與 Application Insights 的資源群組。
+下圖顯示使用 Application Insights 的資源群組、資料庫伺服器、資料庫、應用程式服務計劃和網站。
 
-![資源群組摘要](./media/resource-group-overview/resourcegroupsummary.png)
+![資源群組摘要](./media/resource-group-overview/resourcegroupsummary2.png)
 
-資源群組也可以連結至另一個資源群組中的資源。當不同資源群組中的資源之間存在著部署相依性時，資源會被視為已連結。例如，如果一個資源群組中的 web 應用程式連接到另一個資源群組中的資料庫，這些資源則為已連結。
+資源群組也可以連結至另一個資源群組中的資源。當不同資源群組中的資源之間存在著部署相依性時，資源會被視為已連結。例如，如果一個資源群組中的 web 應用程式連接到另一個資源群組中的資料庫，這些資源則為已連結。您也可以明確地定義其他資源群組中的資源之間的連結。
 
-![已連結的資源](./media/resource-group-overview/linkedresource.png)
+如需連結資源的詳細資訊，請參閱[在 Azure 資源管理員中連結資源](resource-group-link-resources.md)
+
+如果您需要將資源移至新的資源群組，請參閱[將資源移動到新的資源群組或訂用帳戶](resource-group-move-resources.md)。
 
 從預覽入口網站中，您可以輕鬆檢視成本、監視事件，並管理警示。下圖顯示群組的合併計費。
 
@@ -68,9 +70,11 @@ Azure 資源管理員會以原生方式將存取控制整合到管理平台，�
 
 如需關於定義範本的詳細資訊，請參閱[編寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)。
 
-對於範本結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)。
+如需範本結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)。
 
 如需使用範本進行部署的相關資訊，請參閱 [利用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)和[如預期般在 Azure 中部署複雜的應用程式](app-service-web/app-service-deploy-complex-application-predictably.md)。
+
+如需如何建構您的範本的相關指引，請參閱[設計 Azure 資源管理員範本的最佳作法](best-practices-resource-manager-design-templates.md)。
 
 ## 標記
 
@@ -94,11 +98,13 @@ Azure 資源管理員可讓您控制哪些人能存取組織的特定動作。�
 
 Azure 資源管理員會自動記錄使用者的動作以進行稽核。
 
-您也可以明確地鎖定重要的資源，以防止使用者刪除或修改它們。
+您也可以明確地鎖定重要的資源，以防止使用者刪除或修改它們。如需詳細資訊，請參閱[使用 Azure 資源管理員來鎖定資源](resource-group-lock-resources.md)。
 
 如需角色型存取控制的詳細資訊，請參閱 [Microsoft Azure Preview 入口網站中的角色型存取控制](./role-based-access-control-configure.md)。
 
 如需設定存取原則的範例，請參閱[管理與稽核資源存取權](azure-portal/resource-group-rbac.md)。
+
+如需最佳作法，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)
 
 ## 一致的管理層
 
@@ -110,33 +116,13 @@ Azure 資源管理員透過 Azure PowerShell、Azure CLI for Mac、Linux 和 Win
 
 如需 REST API 的相關資訊，請參閱 [Azure 資源管理員 REST API 參考](https://msdn.microsoft.com/library/azure/dn790568.aspx)。
 
+如需使用預覽入口網站的相關資訊，請參閱[使用 Azure Preview 入口網站來管理您的 Azure 資源](azure-portal/resource-group-portal.md)。
+
 ## 後續步驟
-開始使用
 
-- [Azure PowerShell 搭配資源管理員使用](./powershell-azure-resource-manager.md)
-- [Azure CLI 搭配資源管理員使用](./virtual-machines/xplat-cli-azure-resource-manager.md)
-- [使用 Azure 入口網站管理資源](azure-portal/resource-group-portal.md)
+- 若要了解如何建立範本，請參閱[撰寫範本](./resource-group-authoring-templates.md)
+- 若要部署您所建立的範本，請參閱[部署範本](azure-portal/resource-group-template-deploy.md)
+- 若要了解您可以在範本中使用的函數，請參閱[範本函數](./resource-group-template-functions.md)
+- 如需設計您的範本的指導，請參閱[設計 Azure 資源管理員範本的最佳作法](best-practices-resource-manager-design-templates.md)
 
-建立和部署應用程式
-
-- [撰寫範本](./resource-group-authoring-templates.md)
-- [部署範本](azure-portal/resource-group-template-deploy.md)
-- [疑難排解部署](virtual-machines/resource-group-deploy-debug.md)
-- [透過可預測方式在 Azure 中部署複雜應用程式](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [使用 .NET 程式庫和範本部署](virtual-machines/arm-template-deployment.md)
-- [範本函式](./resource-group-template-functions.md)
-- [進階範本作業](./resource-group-advanced-template.md)
-- [範本結構描述](https://github.com/Azure/azure-resource-manager-schemas)
-
-組織資源
-
-- [使用標記組織您的資源](./resource-group-using-tags.md)
-
-管理和稽核存取權
-
-- [管理和稽核資源存取權](azure-portal/resource-group-rbac.md)
-- [預覽入口網站中的角色型存取控制](./role-based-access-control-configure.md)
-- [驗證服務主體](./resource-group-authenticate-service-principal.md)
-- [使用 Azure 入口網站建立新的服務主體](./resource-group-create-service-principal-portal.md)
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

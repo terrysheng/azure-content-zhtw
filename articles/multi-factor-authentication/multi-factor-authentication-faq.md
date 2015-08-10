@@ -145,4 +145,4 @@ Azure Multi-Factor Authentication 服務會透過簡訊彙總工具傳送簡訊�
 
 此種情況的因應措施是使用不同的使用者帳戶進行系統管理相關作業和非系統管理作業。您稍後可以連結系統管理帳戶與非系統管理帳戶之間的信箱，以便使用非系統管理帳戶登入 Outlook。如需詳細資訊，請參閱 [讓系統管理員能夠開啟及檢視使用者信箱的內容] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

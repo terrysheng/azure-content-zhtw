@@ -100,7 +100,9 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
  
 - Azure 訂用帳戶或 [Azure 試用訂用帳戶](http://azure.microsoft.com/pricing/free-trial/) - 這僅需要用來存取 Azure 入口網站，而不會用於 Azure AD Connect。如果您正在使用 PowerShell 或 Office 365，則您不需要 Azure 訂用帳戶來使用 Azure AD Connect。
 - 想要與其整合之 Azure AD 租用戶的 Azure AD 全域管理員帳戶
-- AD 網域控制站或成員伺服器 (含 Windows Server 2008 或更新版本)
+- Azure AD Connect 必須安裝於 Windows Server 2008 或更新版本上。此伺服器可能是網域控制站或成員伺服器。
+- AD 結構描述版本與樹系層級必須是 Windows Server 2003 或更新版本。只要符合結構描述和樹系層級需求，網域控制站就能執行任何版本。
+- 如果正在部署 Active Directory 同盟服務，則將安裝 AD FS 的伺服器必須是 Windows Server 2012 或更新版本。
 - 本機 Active Directory 的企業系統管理員帳戶
 - 選用：測試使用者帳戶來驗證同步處理。 
 
@@ -109,13 +111,13 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 
 | Active Directory 中的物件數目 | CPU | 記憶體 | 硬碟大小 |
 | ------------------------------------- | --- | ------ | --------------- |
-| 少於 10,000 個 | 1.6 GHz | 4 GB | 70 GB |
-| 10,000–50,000 個 | 1.6 GHz | 4 GB | 70 GB |
-| 50,000–100,000 個 | 1.6 GHz | 16 GB | 100 GB |
+| 少於 10,000 個 | 1\.6 GHz | 4 GB | 70 GB |
+| 10,000–50,000 個 | 1\.6 GHz | 4 GB | 70 GB |
+| 50,000–100,000 個 | 1\.6 GHz | 16 GB | 100 GB |
 | 若有 100,000 個以上的物件，則需要完整版本的 SQL Server| | | |
-| 100,000–300,000 個 | 1.6 GHz | 32 GB | 300 GB |
-| 300,000–600,000 個 | 1.6 GHz | 32 GB | 450 GB |
-| 超過 600,000 個 | 1.6 GHz | 32 GB | 500 GB |
+| 100,000–300,000 個 | 1\.6 GHz | 32 GB | 300 GB |
+| 300,000–600,000 個 | 1\.6 GHz | 32 GB | 450 GB |
+| 超過 600,000 個 | 1\.6 GHz | 32 GB | 500 GB |
 
 
 
@@ -181,7 +183,7 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 1. 以系統管理員身分登入 Azure 入口網站。
 2. 選取左邊的 [Active Directory]。
 3. 在 [Active Directory] 頁面上，在有您要啟用的使用者之目錄上按兩下。
-4. 在 [目錄] 頁面的頂端，選取 [授權]。
+4. 在目錄頁面頂端，選取 [授權]。
 5. 在 [授權] 頁面上，選取 [Active Directory Premium] 或 [Enterprise Mobility Suite]，然後按一下 [指派]。
 6. 在對話方塊中，選取您要對其指派授權的使用者，然後按一下核取記號圖示，以儲存變更。
 
@@ -245,6 +247,8 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 
 [Azure AD Connect Health](active-directory-aadconnect-health.md) - 監控內部部署 AD FS 基礎結構的健全狀況。
 
+[Azure AD Connect 常見問題集](active-directory-aadconnect-faq.md) - 關於 Azure AD Connect 的常見問題集。
+
 
 
 
@@ -252,4 +256,4 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

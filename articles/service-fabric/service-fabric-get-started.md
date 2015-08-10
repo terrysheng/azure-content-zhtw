@@ -13,11 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/04/2015"
+   ms.date="07/24/2015"
    ms.author="seanmck"/>
 
 # 設定 Service Fabric 開發環境
  本文章涵蓋所有開始建置 [Service Fabric][1] 應用程式的所需資訊，包環安裝執行階段、SDK 和工具，以及設定本機叢集。
+
+ >[AZURE.NOTE]這些指示是針對設定新的電腦。如果您已在您的電腦上安裝舊版的 Service Fabric，請遵循[指示來更新您的開發環境](service-fabric-update-your-development-environment.md)。
 
 ## 必要條件
 ### 支援的作業系統版本
@@ -29,15 +31,15 @@
 
 ### Visual Studio 2015
 
-適用於 Service Fabric Preview 1 的工具取決於 Visual Studio 2015 RC，您可以在[這裡][2]找到。
+適用於 Service Fabric 的工具取決於 Visual Studio 2015，您可以在[這裡][2]找到。
 
-> [AZURE.NOTE]若您並未執行其中一個支援的作業系統版本，或不想在您的電腦上安裝 Visual Studio 2015 RC，則您可以[設定 Azure 虛擬機器][3] 搭配 Windows Server 2012 R2 和從 VM 資源庫使用映像預先安裝的 Visual Studio 2015。
+> [AZURE.NOTE]若您並未執行其中一個支援的作業系統版本，或不想在您的電腦上安裝 Visual Studio 2015，則您可以設定 Azure 虛擬機器 搭配 Windows Server 2012 R2 和從 VM 資源庫使用映像預先安裝的 Visual Studio 2015。
 
 ## 安裝執行階段、SDK 和工具
 
 Service Fabric 元件的安裝是由 Web Platform Installer 所完成。遵循這些指示來進行安裝：
 
-1. 按一下[這裡][4] 以下載使用 Web Platform Installer 的 SDK。
+1. 使用 Web Platform Installer [下載 SDK][3]。
 
 2. 按一下 [安裝] 開始安裝程序。
 
@@ -89,8 +91,6 @@ Service Fabric 會使用 Windows PowerShell 指令碼，以便建立本機開發
 
 [1]: http://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric 活動頁面"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[3]: http://blogs.msdn.com/b/visualstudioalm/archive/2014/06/04/visual-studio-14-ctp-now-available-in-the-virtual-machine-azure-gallery.aspx "Azure VM"
-[4]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 連結"
- 
+[3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 連結"
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

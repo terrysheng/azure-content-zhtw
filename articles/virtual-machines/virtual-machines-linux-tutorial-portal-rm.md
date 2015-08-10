@@ -31,7 +31,7 @@
 
 ## 選取映像
 
-請移至 Preview 入口網站中的 Azure Marketplace 以尋找您想要的 Windows Server VM 映像。
+移至 Preview 入口網站中的 Azure Marketplace，以尋找您想要的 Windows Server VM 映像。
 
 1. 登入 [Preview 入口網站](https://portal.azure.com)。
 
@@ -126,4 +126,4 @@
 
 - [Azure 上 Linux 的 Docker 虛擬機器擴充程式](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

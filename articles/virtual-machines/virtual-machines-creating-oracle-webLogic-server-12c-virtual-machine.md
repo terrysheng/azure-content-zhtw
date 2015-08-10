@@ -1,19 +1,5 @@
-<properties 
-	pageTitle="在 Azure 中建立 Oracle WebLogic Server 12c 虛擬機器" 
-	description="逐步完成在 Microsoft Azure 中建立執行 Windows Server 2012 之 Oracle WebLogic Server 12c 虛擬機器的範例。" 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-
+<properties pageTitle="在 Azure 中建立 Oracle WebLogic Server 12c 虛擬機器" description="逐步完成在 Microsoft Azure 中建立執行 Windows Server 2012 之 Oracle WebLogic Server 12c 虛擬機器的範例。" services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #在 Azure 中建立 Oracle WebLogic Server 12c 虛擬機器
 以下範例會向您說明如何在 Azure 中以由 Microsoft 所提供並在 Windows Server 2012 上執行的 Oracle WebLogic Server 12c 映像為基礎，建立虛擬機器。
 
@@ -100,13 +86,13 @@
 15.	就會啟動 **startWebLogic.cmd** 的命令提示字元。出現提示時，請提供您的 WebLogic 使用者名稱與密碼。
 
 ##在 Azure 中於 Oracle WebLogic Server 12c 虛擬機器上安裝應用程式
-1.	仍然是登入您的虛擬機器，複製在 http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war 本機可用的 shoppingcart.war 範例。例如，建立名為 **c:\mywar** 的資料夾，然後將位於 http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war 的 WAR 儲存至 **c:\mywar**。
+1.	仍然是登入您的虛擬機器，複製在 http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war 本機可用的 shoppingcart.war 範例。例如，建立名為 **c:\\mywar** 的資料夾，然後將位於 http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war 的 WAR 儲存至 **c:\\mywar**。
 
 2.	開啟 [WebLogic Server 管理主控台] (http://localhost:7001/console)。出現提示時，請提供您的 WebLogic 使用者名稱與密碼。
 
 3.	在 [WebLogic Server 管理主控台] 中，依序按一下 [鎖定與編輯]、[部署] 及 [安裝]。
 
-4.	對於 [路徑]，請輸入 **c:\mywar\shoppingcart.war**。
+4.	對於 [路徑]，請輸入 **c:\\mywar\\shoppingcart.war**。
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image18.png)
 
@@ -168,7 +154,7 @@
 
 	8.	指定規則的名稱並選擇性指定描述，然後按一下 [完成]。
 
-12.	若要查看在網際網路上執行的購物車應用程式，請開啟瀏覽器並連線至格式為 `http://<<unique_domain_name>>/shoppingcart` 的 URL。(您可以按一下 [虛擬機器]，然後選取您用來執行 Orable WebLogic Server 的虛擬機器來決定 [Azure 入口網站](https://ms.portal.azure.com/) 中 <<*unique_domain_name*>> 的值)。
+12.	若要查看在網際網路上執行的購物車應用程式，請開啟瀏覽器並連線至格式為 `http://<<unique_domain_name>>/shoppingcart` 的 URL。(您可以按一下 [虛擬機器]，然後選取您用來執行 Orable WebLogic Server 的虛擬機器來決定 [Azure 入口網站](https://ms.portal.azure.com/) 中 <<\*unique\_domain\_name\*>> 的值)。
 
 
 ##其他資源
@@ -182,4 +168,4 @@
 
 -	[適用於 Azure 的 Oracle 虛擬機器映像](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

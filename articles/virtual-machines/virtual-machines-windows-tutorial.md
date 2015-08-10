@@ -19,12 +19,12 @@
 # 在 Azure Preview 入口網站中建立執行 Windows 的虛擬機器#
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](virtual-machines-windows-tutorial.md)
-- [Azure Portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell - Resource Manager](virtual-machines-deploy-rmtemplates-powershell.md)
-- [PowerShell - Service Management](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Azure preview portal](virtual-machines-windows-tutorial.md)
+- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell - Resource manager](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell - Service management](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-本教學課程示範在 Azure Preview 入口網站中建立 Azure 虛擬機器 (VM) 有多麼容易，只需數分鐘。我們將使用 Windows Server 2012 R2 Datacenter 映像做為範例，在 Azure 資源管理員中建立 VM，但這只是 Azure 提供的眾多映像的其中一個。請注意，您可以選擇何種映像取決於您的訂用帳戶。例如，桌面映像可能可供 MSDN 訂閱者使用。
+本教學課程示範在 Preview 入口網站中建立 Azure 虛擬機器 (VM) 有多麼容易，只需數分鐘。我們將使用 Windows Server 2012 R2 Datacenter 映像做為範例，在 Azure 資源管理員中建立 VM，但這只是 Azure 提供的眾多映像的其中一個。請注意，您可以選擇何種映像取決於您的訂用帳戶。例如，桌面映像可能可供 MSDN 訂閱者使用。
 
 您也可以使用自己的映像，搭配資源管理員範本或搭配自動化工具來建立 VM。若要深入瞭解不同的方法，請參閱[建立 Windows 虛擬機器的不同方式](virtual-machines-windows-choices-create-vm.md)。
 
@@ -37,13 +37,13 @@
 
 1. 登入 [Preview 入口網站](https://portal.azure.com)。
 
-2. 在 [中樞] 功能表上，依序按一下 [**新增**] > [**計算**] > [**Windows Server 2012 R2 Datacenter**]。
+2. 在 [中樞] 功能表上，依序按一下 [**新增**] > [**運算**] > [**Windows Server 2012 R2 Datacenter**]。
 
 	![Marketplace](./media/virtual-machines-windows-tutorial/marketplace_new.png)
 
 	>[AZURE.TIP]若要尋找其他映像，請按一下 [**Marketplace**]，然後搜尋或篩選可用的項目。
 
-3. 在 [**Windows Server 2012 R2 Datacenter**] 頁面上，選取 [**使用資源管理員堆疊**]，以在 Azure 資源管理員中建立 VM。(對於大多數新的工作負載，我們建議使用 [資源管理員] 堆疊。如需考量事項，請參閱 [Azure 資源管理員下的 Azure 計算、網路和儲存體提供者](virtual-machines-azurerm-versus-azuresm.md))。 然後按一下 [**建立**]。
+3. 在 [**Windows Server 2012 R2 Datacenter**] 頁面上，選取 [**使用資源管理員堆疊**]，以在 Azure 資源管理員中建立 VM。(對於大多數新的工作負載，我們建議使用 [資源管理員] 堆疊。如需考量事項，請參閱 [Azure 資源管理員下的 Azure 運算、網路和儲存體提供者](virtual-machines-azurerm-versus-azuresm.md))。 然後按一下 [**建立**]。
 
 	![Marketplace 中的搜尋](./media/virtual-machines-windows-tutorial/marketplace_search_select.png)
 
@@ -55,7 +55,7 @@
 
 	![設定 VM 基本概念](./media/virtual-machines-windows-tutorial/create_vm_basics.PNG)
 
-	>[AZURE.NOTE]**使用者名稱** 是指要用來管理伺服器的系統管理帳戶。建立一個很難讓人猜到，但您可以記住的密碼。**您將需要使用者名稱和密碼才能登入虛擬機器**。
+	>[AZURE.NOTE]\*\*使用者名稱\*\* 是指要用來管理伺服器的系統管理帳戶。建立一個很難讓人猜到，但您可以記住的密碼。**您將需要使用者名稱和密碼才能登入虛擬機器**。
 
 2. 按一下 [**大小**]，然後選取適當的 VM 大小以符合您需求。每個大小會指定計算核心、記憶體和其他功能的數目，例如支援將會影響價格的進階儲存體。Azure 會自動根據您選擇的映像來建議特定大小。
 
@@ -102,4 +102,4 @@
 * 使用 Azure PowerShell 和 Azure CLI [尋找並選取 VM 映像](resource-groups-vm-searching.md)。
 * 使用 [Azure 資源管理員](virtual-machines-how-to-automate-azure-resource-manager.md)和 [Azure 資源管理員範本](http://azure.microsoft.com/documentation/templates/)，自動部署和管理 VM 和工作負載。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

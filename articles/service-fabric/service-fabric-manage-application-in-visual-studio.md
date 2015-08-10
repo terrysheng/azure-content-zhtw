@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/14/2015"
+   ms.date="07/22/2015"
    ms.author="jesseb"/>
 
 # 在 Visual Studio 中管理 Service Fabric 應用程式
@@ -34,13 +34,8 @@
 4. 移除任何執行中的應用程式執行個體
 5. 建立新的應用程式執行個體
 
-在 Visual Studio 的 [**方案總管**] 中，以滑鼠右鍵按一下 Service Fabric 應用程式，然後按一下 [**部署**]，即完成部署。按下 **F5** 也會部署應用程式，並將偵錯工具附加到所有應用程式執行個體。
+在 Visual Studio 中，您可以透過在 [建置] 功能表選擇 [部署方案] 來部署應用程式。按下 **F5** 也會部署應用程式，並將偵錯工具附加到所有應用程式執行個體。
 
-使用 [**移除部署**] 可移除部署。這會還原上述的部署步驟。
-
-1. 移除任何執行中的應用程式執行個體
-2. 取消註冊應用程式類型
-3. 移除映像存放區中的應用程式封裝
 
 ## 新增服務至 Service Fabric 應用程式
 
@@ -60,6 +55,16 @@
 
 必須先建立應用程式封裝，才能將應用程式及其服務部署至叢集。封裝會以特定的配置來組織應用程式資訊清單、服務資訊清單和其他必要的檔案。Visual Studio 會在 'pkg' 目錄的應用程式專案資料夾中設定與管理封裝。按一下 [**封裝**] 建立或更新應用程式封裝。如果您使用自訂的 Powershell 指令碼部署應用程式，您可能會想要這麼做。
 
+## 移除應用程式
+
+您可以使用伺服器總管從本機叢集移除應用程式。這會還原上述的部署步驟：
+
+1. 移除任何執行中的應用程式執行個體
+2. 取消註冊應用程式類型
+3. 移除映像存放區中的應用程式封裝
+
+![移除應用程式](./media/service-fabric-manage-application-in-visual-studio/removeapplication.png)
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
 
@@ -73,6 +78,5 @@
 [manageservicefabric]: ./media/service-fabric-manage-application-in-visual-studio/manageservicefabric.png
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

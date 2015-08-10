@@ -43,4 +43,4 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 映像來主控您要與使用�
 - 不支援從快照鏈結上傳您 VHD。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

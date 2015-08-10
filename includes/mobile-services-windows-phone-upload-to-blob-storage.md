@@ -3,7 +3,7 @@
 
 在本節中，您會從[開始使用行動服務] (英文) 教學課程中更新專案，以便拍照並將相片上傳至 Azure Blob 儲存體。為了擷取影像，此教學課程從 `Microsoft.Phone.Tasks` 命名空間使用 [CameraCaptureTask]。此類別會啟動 Windows Phone 裝置的相機 UI 以擷取相片，並將影像自動儲存到 Windows Phone 裝置上的相機相簿。如果不希望將影像儲存至相機相簿，請改用 `Microsoft.Devices` 命名空間的 [PhotoCamera] 類別。
 
-1. 在 Visual Studio 的 [方案總管] 中，展開專案下方的 [屬性]。接下來開啟 WMAppManifest.xml 檔案，然後在 [功能] 索引標籤上按一下 [ID_CAP_ISV_CAMERA] 以啟用相機。關閉檔案以儲存您的變更。
+1. 在 Visual Studio 的 [方案總管] 中，展開專案下方的 [屬性]。接下來開啟 WMAppManifest.xml 檔案，然後在 [功能] 索引標籤上按一下 [ID\_CAP\_ISV\_CAMERA] 以啟用相機。關閉檔案以儲存您的變更。
 
    	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png)
 
@@ -183,4 +183,4 @@
 [CameraCaptureTask]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
 [PhotoCamera]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -71,10 +71,10 @@ Azure 所使用的憑證可以包含私密或公開金鑰。憑證具有指紋�
 
 ## 後續步驟
 
-[將服務憑證上傳至 Azure 入口網站](cloud-services-configure-ssl-certificate.md) (或 [Preview 入口網站](cloud-services-configure-ssl-certificate-portal.md))，並針對雲端服務進行設定。
- 
-將您[管理 API 憑證](../azure-api-management-certs.md)上傳至 Azure 入口網站。
+[將服務憑證上傳至 Azure 入口網站](cloud-services-configure-ssl-certificate.md) (或 [Preview 入口網站](cloud-services-configure-ssl-certificate-portal.md))，並針對雲端服務[進行設定](cloud-services-xml-certs.md)。
+
+將[管理 API 憑證](../azure-api-management-certs.md)上傳至 Azure 入口網站。
 
 >[AZURE.NOTE]Azure Preview 入口網站不會使用管理憑證存取 API，但是會使用使用者帳戶。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -4,11 +4,11 @@
 
 您可以透過採用安全通訊端層 (SSL) 加密的 HTTPS 來保護 Web 應用程式與瀏覽器之間的通訊。這是最常用來保護在網際網路上傳送之資料的方法，並可讓訪客安心知道其與您應用程式進行的交易正受到安全保護。本文討論如何在 Azure App Service 中設定 Web 應用程式的 HTTPS。這份文件未涵蓋用戶端憑證驗證，如需相關資訊，請參閱[如何設定 Web 應用程式的 TLS 相互驗證](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md)。
 
-##<a name="bkmk_azurewebsites"></a>適用於 *.azurewebsites.net 網域的 HTTPS
+##<a name="bkmk_azurewebsites"></a>適用於 \*.azurewebsites.net 網域的 HTTPS
 
-如果您不打算使用自訂網域名稱，而是打算使用 Azure 指派至您 Web 應用程式的 *.azurewebsites.net 網域 (例如，contoso.azurewebsites.net)，則系統已利用 Microsoft 提供的憑證在您的網站上啟用 HTTPS。您可以使用 **https://mywebsite.azurewebsites.net** 存取您的應用程式。不過，*.azurewebsites.net 是萬用字元網域。如同[所有萬用字元網域](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)，這並不像使用自訂網域搭配自己的憑證那麼安全。
+如果您不打算使用自訂網域名稱，而是打算使用 Azure 指派至您 Web 應用程式的 \*.azurewebsites.net 網域 (例如，contoso.azurewebsites.net)，則系統已利用 Microsoft 提供的憑證在您的網站上啟用 HTTPS。您可以使用 **https://mywebsite.azurewebsites.net** 存取您的應用程式。不過，\*.azurewebsites.net 是萬用字元網域。如同[所有萬用字元網域](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)，這並不像使用自訂網域搭配自己的憑證那麼安全。
 
-本文件的其餘內容提供關於為自訂網域 (如 **contoso.com**、**www.contoso.com** 或 ***.contoso.com**) 啟用 HTTPS 的詳細資料。
+本文件的其餘內容提供關於為自訂網域 (如 **contoso.com**、**www.contoso.com** 或 **\*.contoso.com**) 啟用 HTTPS 的詳細資料。
 
 ##<a name="bkmk_domainname"></a>為自訂網域啟用 SSL
 
@@ -38,7 +38,7 @@
 - [使用 OpenSSL 取得 SubjectAltName 憑證](#bkmk_subjectaltname)
 - [產生自我簽署的憑證 (僅供測試)](#bkmk_selfsigned) 
 
-> [AZURE.NOTE]遵循步驟時，系統會提示您輸入 [**一般名稱**]，例如 `www.contoso.com`。對於萬用字元憑證，這個值應該是 *.domainname (例如，*.contoso.com)。如果您需要同時支援萬用字元名稱 (如 *.contoso.com) 和根網域名稱 (如 contoso.com)，則可以使用萬用字元 subjectAltName 憑證。
+> [AZURE.NOTE]遵循步驟時，系統會提示您輸入 [**一般名稱**]，例如 `www.contoso.com`。對於萬用字元憑證，這個值應該是 \*.domainname (例如，\*.contoso.com)。如果您需要同時支援萬用字元名稱 (如 \*.contoso.com) 和根網域名稱 (如 contoso.com)，則可以使用萬用字元 subjectAltName 憑證。
 >
 > Azure App Service 支援橢圓曲線密碼編譯 (ECC) 憑證；不過，它們相對而言比較新，您應該在具體步驟中使用 CA 來建立 CSR。
 
@@ -164,7 +164,7 @@ Certreq.exe 是一項用來建立憑證要求的 Windows 公用程式。自 Wind
 
 5. 從命令列、Bash 或終端機工作階段中，使用下列命令，將 **myserver.key** 和 **myserver.crt** 轉換為 **myserver.pfx** (Azure App Service 所需的格式)：
 
-		openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
 	當系統提示時，輸入 .pfx 檔案的保護密碼。
 
@@ -174,7 +174,7 @@ Certreq.exe 是一項用來建立憑證要求的 Windows 公用程式。自 Wind
 	>
 	>
 	`````
-	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
+	openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
 	`````
 
 	執行此命令之後，您應該會有適合搭配 Azure App Service 使用的 **myserver.pfx** 檔案。
@@ -236,7 +236,7 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 
 		subjectAltName=DNS:sales.contoso.com,DNS:support.contoso.com,DNS:fabrikam.com
 
-	您不需要變更 commonName_default 欄位，因為系統會在下列其中一個步驟中提示您輸入一般名稱。
+	您不需要變更 commonName\_default 欄位，因為系統會在下列其中一個步驟中提示您輸入一般名稱。
 
 2. 儲存 __sancert.cnf__ 檔案。
 
@@ -293,7 +293,7 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 	>
 	> 
 	`````
-	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
+	openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
 	`````
 
 	執行此命令之後，您應該會有適合搭配 Azure App Service 使用的 **myserver.pfx** 檔案。
@@ -445,7 +445,7 @@ Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTT
 
 您可以在儲存於應用程式根目錄的 **web.config** 檔案中定義 URL Rewrite 規則。下列範例包含可強制所有連入流量使用 HTTPS 的基本 URL Rewrite 規則。
 
-<a name="example"></a>**URL Rewrite 範例 Web.Config**
+<a name="example"></a>\*\*URL Rewrite 範例 Web.Config\*\*
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<configuration>
@@ -541,4 +541,4 @@ Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTT
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

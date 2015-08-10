@@ -49,7 +49,7 @@ CREATE MASTER KEY;
 ## 建立資料庫範圍認證
 若要存取 Azure blob 儲存體，您需要建立資料庫範圍認證，其中儲存 Azure 儲存體帳戶的驗證資訊。連接到資料倉儲資料庫，並為您想要存取的每個 Azure 儲存體帳戶建立資料庫範圍認證。指定身分識別名稱和 Azure 儲存體帳戶金鑰做為密碼。身分識別名稱並不會影響到 Azure 儲存體的驗證。
 
-若要查看資料庫範圍的認證是否已存在，請使用 sys.database_credentials，而不是只顯示伺服器認證的 sys.credentials。
+若要查看資料庫範圍的認證是否已存在，請使用 sys.database\_credentials，而不是只顯示伺服器認證的 sys.credentials。
 
 ```
 -- Check for existing database-scoped credentials.
@@ -207,4 +207,4 @@ AS SELECT * from [ext].[CarSensor_Data];
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-tw/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-tw/library/ms189450.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

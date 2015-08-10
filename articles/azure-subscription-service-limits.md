@@ -103,6 +103,10 @@
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
+## 排程器限制
+
+[AZURE.INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
+
 ## 批次限制
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
@@ -198,4 +202,4 @@
 
 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

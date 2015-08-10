@@ -142,7 +142,7 @@ Azure 入口網站的左下角有一個 [新增] 按鈕。[新增] 按鈕是在 
 
     請在此執行幾個動作。它們是：- 替您的防火牆規則命名 - 提供一個 IP 範圍 (如果您沒有靜態 IP 位址)
 
-    > [AZURE.NOTE]您必須包含的用戶端 IP 位址範圍是您的外部或對外公開的 IP 位址。若要尋找外部 IP 位址，您可以利用數個網站，例如 <a href="http://www.whatismyip.com" target="_blank">www.whatismyip.com</a>
+    > [AZURE.NOTE]您必須包含的用戶端 IP 位址範圍是您的外部或對外公開的 IP 位址。若要尋找外部 IP 位址，您可以利用數個網站，例如 <a href="http://www.whatismyip.com" target="\_blank">www.whatismyip.com</a>
 
 7. 儲存您的防火牆規則
 
@@ -166,4 +166,4 @@ Azure 入口網站的左下角有一個 [新增] 按鈕。[新增] 按鈕是在 
 [免費試用]: https://azure.microsoft.com/zh-tw/pricing/free-trial/
 [Azure 入口網站]: https://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

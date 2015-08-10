@@ -20,7 +20,9 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-在本教學課程中，您可以使用支援的識別提供者，將驗證加入至[行動服務快速入門教學課程]。您必須先完成[行動服務快速入門教學課程]。
+在本教學課程中，您可以使用支援的識別提供者，將驗證加入至[行動服務快速入門教學課程]。
+
+我們建議您先完成[行動服務快速入門教學課程]。或者，下載快速入門的 iOS 專案：按一下 Azure 入口網站 > [行動服務] > 您的行動服務 > 左上方的雲端圖示 > [iOS] > [建立新的 iOS 應用程式] > [下載並執行應用程式] > [Objective-C] > [下載]。在您按一下 [下載] 之前，請務必按一下 [建立 TodoItem 資料表] (如果您尚未建立資料表的話)。
 
 ##<a name="register"></a>註冊應用程式以進行驗證
 
@@ -82,4 +84,4 @@
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

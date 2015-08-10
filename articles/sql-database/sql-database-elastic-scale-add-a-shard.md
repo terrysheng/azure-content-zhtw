@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 # 使用彈性資料庫工具加入分區
@@ -25,7 +25,7 @@
 如果索引鍵值的新範圍尚不屬於現有的對應，則新增分區並將新的索引鍵或範圍與該分區產生關聯就非常簡單。
 
 ### 範例：將分區及其範圍加入至現有的分區對應
-在下列範例中，已建立名為 **sample_shard_2** 的資料庫及其中的所有必要結構描述物件，以保存範圍 [300, 400)。
+在下列範例中，已建立名為 **sample\_shard\_2** 的資料庫及其中的所有必要結構描述物件，以保存範圍 [300, 400)。
 
     // sm is a RangeShardMap object.
     // Add a new shard to hold the range being added. 
@@ -47,7 +47,7 @@
 
 ### 範例：分割範圍並將空白部分指派給新增的分區
 
-已建立名為 "sample_shard_2" 的資料庫，及其中所有必要的結構描述物件。
+已建立名為 "sample\_shard\_2" 的資料庫，及其中所有必要的結構描述物件。
 
  
     // sm is a RangeShardMap object.
@@ -78,4 +78,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

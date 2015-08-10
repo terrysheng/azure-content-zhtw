@@ -151,15 +151,15 @@ VAST 檔案會指定要顯示的廣告。下列 XML 是線性廣告的 VAST 檔�
 	</Creative>
 
  
-**<NonLinearAds>** 元素可以包含一或多個 **<NonLinear>** 元素，其中每一個元素可以說明非線性廣告。**<NonLinear>** 元素會指定非線性廣告的資源。資源可以是 **<StaticResouce>**、**<IFrameResource>** 或 **<HTMLResouce>**。**<StaticResource>** 會說明非 HTML 資源，並且定義 creativeType 屬性，該屬性會指定資源的顯示方式：
+**<NonLinearAds>** 元素可以包含一或多個 **<NonLinear>** 元素，其中每一個元素可以說明非線性廣告。**<NonLinear>** 元素會指定非線性廣告的資源。資源可以是 **<StaticResouce>**、**<IFrameResource>** 或 **<HTMLResouce>**。\*\*<StaticResource>\*\* 會說明非 HTML 資源，並且定義 creativeType 屬性，該屬性會指定資源的顯示方式：
 
 image/gif、image/jpeg、image/png – 資源在 HTML **<img>** 標記中顯示。
 
-Application/x-javascript – 資源在 HTML <**script**> 標記中顯示。
+Application/x-javascript – 資源在 HTML <\*\*script\*\*> 標記中顯示。
 
 Application/x-shockwave-flash – 資源在 Flash Player 中顯示。
 
-**<IFrameResource>** 說明 HTML 資源，可以在 IFrame 中顯示。**<HTMLResource>** 說明 HTML 程式碼的片段，可以插入至網頁。**<TrackingEvents>** 指定追蹤事件以及當發生事件時要求的 URI。在此範例中，會追蹤 acceptInvitation 和 collapse 事件。如需有關 **<NonLinearAds>** 元素和其子系的詳細資訊，請參閱 IAB.NET/VAST。請注意，**<TrackingEvents>** 元素是位於 * * <NonLinearAds>* * 元素內，而非 **<NonLinear>** 元素。
+**<IFrameResource>** 說明 HTML 資源，可以在 IFrame 中顯示。**<HTMLResource>** 說明 HTML 程式碼的片段，可以插入至網頁。**<TrackingEvents>** 指定追蹤事件以及當發生事件時要求的 URI。在此範例中，會追蹤 acceptInvitation 和 collapse 事件。如需有關 **<NonLinearAds>** 元素和其子系的詳細資訊，請參閱 IAB.NET/VAST。請注意，**<TrackingEvents>** 元素是位於 \* \* <NonLinearAds>\* \* 元素內，而非 **<NonLinear>** 元素。
 
 隨播廣告會在 <CompanionAds> 元素內定義。<CompanionAds> 元素可以包含一或多個 <Companion> 元素。每個 <Companion> 元素都會說明隨播廣告，而且可以包含 <StaticResource>、<IFrameResource> 或 <HTMLResource>，其指定方式與非線性廣告相同。VAST 檔案可以包含多個隨播廣告，而且播放器應用程式可以選擇要顯示的最適當廣告。如需 VAST 的詳細資訊，請參閱 [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf)。
 
@@ -221,13 +221,13 @@ VMAP 檔案開頭為 <VMAP> 元素，包含一或多個 <AdBreak> 元素，每�
 1. 開始/結束 – 指定廣告應該在視訊顯示之前或之後顯示
 1. 位置 – 指定當廣告插播的時機為未知時 (例如即時串流)，廣告插播的順序。每個廣告插播的順序是以 #n 格式指定，其中 n 是大於或等於 1 的整數。1 表示廣告應該在第一個機會時播放，2 表示廣告應該在第二個機會時播放，依此類推。
 
-在 <**AdBreak**> 元素內可以有一個 <**AdSource**> 元素。<**AdSource**> 元素包含下列屬性：
+在 <\*\*AdBreak\*\*> 元素內可以有一個 <\*\*AdSource\*\*> 元素。<\*\*AdSource\*\*> 元素包含下列屬性：
 
 1. Id – 指定廣告來源的識別碼
 1. allowMultipleAds – 布林值，指定在廣告插播期間是否可以顯示多個廣告
 1. followRedirects – 選用布林值，指定視訊播放器是否應該接受廣告回應內的重新導向
 
-<**AdSource**> 元素會提供播放器內嵌廣告回應或廣告回應的參考。可以包含下列其中一個元素：
+<\*\*AdSource\*\*> 元素會提供播放器內嵌廣告回應或廣告回應的參考。可以包含下列其中一個元素：
 
 - <VASTAdData> 表示 VAST 廣告回應內嵌在 VMAP 檔案
 - <AdTagURI> 從另一個系統參考廣告回應的 URI
@@ -235,7 +235,7 @@ VMAP 檔案開頭為 <VMAP> 元素，包含一或多個 <AdBreak> 元素，每�
 
 在這個範例中，內嵌廣告回應是以 <VASTAdData> 元素指定，該元素包含 VAST 廣告回應。如需其他元素的詳細資訊，請參閱 [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap)。
 
-<**AdBreak**> 元素也可以包含一個 <**TrackingEvents**> 元素。<**TrackingEvents**> 元素可讓您追蹤廣告插播的開頭或結束，或廣告插播期間是否發生錯誤。<**TrackingEvents**> 元素包含一或多個 <**Tracking**> 元素，每個元素會指定追蹤事件和追蹤 URI。可能的追蹤事件如下：
+<\*\*AdBreak\*\*> 元素也可以包含一個 <\*\*TrackingEvents\*\*> 元素。<\*\*TrackingEvents\*\*> 元素可讓您追蹤廣告插播的開頭或結束，或廣告插播期間是否發生錯誤。<\*\*TrackingEvents\*\*> 元素包含一或多個 <\*\*Tracking\*\*> 元素，每個元素會指定追蹤事件和追蹤 URI。可能的追蹤事件如下：
 
 1. breakStart – 追蹤廣告插播的開始
 1. breakEnd – 追蹤廣告插播的完成
@@ -264,7 +264,7 @@ VMAP 檔案開頭為 <VMAP> 元素，包含一或多個 <AdBreak> 元素，每�
 	  </vmap:AdBreak>
 	</vmap:VMAP>
 
-如需 <**TrackingEvents**> 元素及其子系的詳細資訊，請參閱 http://iab.org/VMAP.pdf
+如需 <\*\*TrackingEvents\*\*> 元素及其子系的詳細資訊，請參閱 http://iab.org/VMAP.pdf
 
 ###使用 Media Abstract Sequencing Template (MAST) 檔案
 
@@ -804,4 +804,4 @@ Microsoft 媒體平台：Player Framework for iOS 包含範例應用程式集合
 
 [開發視訊播放器應用程式](media-services-develop-video-players.md) [Azure Media Player Framework for iOS 的簡介](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

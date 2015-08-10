@@ -135,7 +135,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 
 > [AZURE.NOTE]某些記錄緩衝區類型會寫入記錄檔中，進而造成串流中的事件順序錯亂。例如，使用者造訪某個網頁所產生的應用程式記錄項目，可能會比頁面要求的對應 HTTP 記錄項目優先顯示在串流中。
 
-> [AZURE.NOTE]記錄串流也會將串流資訊寫入儲存於 **D:\home\LogFiles** 資料夾中的任何文字檔。
+> [AZURE.NOTE]記錄串流也會將串流資訊寫入儲存於 **D:\\home\\LogFiles\\** 資料夾中的任何文字檔。
 
 ### 使用 Azure PowerShell 來串流
 
@@ -335,4 +335,4 @@ Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](http://msdn.microsoft.c
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

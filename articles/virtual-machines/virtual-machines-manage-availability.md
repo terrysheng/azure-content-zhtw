@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/13/2015"
+	ms.date="07/23/2015"
 	ms.author="kenazk"/>
 
 #管理虛擬機器的可用性
@@ -69,4 +69,4 @@ FD 定義共用通用電源和網路交換器的虛擬機器群組。根據預�
 [避免可用性設定組中只有一部執行個體虛擬機器]: #avoid-single-instance-virtual-machines-in-availability-sets
 [如何設定虛擬機器的可用性設定組]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

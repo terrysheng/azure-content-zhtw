@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="07/29/2015" 
 	ms.author="femila"/>
 
 
@@ -59,7 +59,7 @@ Azure 管理入口網站會為您提供設定更進階的規則的彈性，以�
 |----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 錯誤：不支援屬性。 | (user.invalidProperty -eq "Value") | (user.department-eq"value") 屬性應該符合上述支援的屬性清單中的一個屬性。 |
 | 錯誤：屬性不支援運算子。 | (user.accountEnabled -contains true) | (user.accountEnabled -eq true) 屬性屬於布林型別。使用上述清單中的布林型別支援的運算子 (-eq 或-ne)。 |
-| 錯誤：查詢編譯錯誤。 | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing") 邏輯運算子應該符合上述支援的屬性清單中的一個屬性。(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$") 規則運算式中發生錯誤。 |
+| 錯誤：查詢編譯錯誤。 | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "\*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing") 邏輯運算子應該符合上述支援的屬性清單中的一個屬性。(user.userPrincipalName -match ".\*@domain.ext")or(user.userPrincipalName -match "@domain.ext$") 規則運算式中發生錯誤。 |
 | 錯誤：二進位運算式不是正確的格式。 | (user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain") 查詢有多個錯誤。括號不在正確的位置。 |
 | 錯誤：設定動態成員資格時發生未知的錯誤。 | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain") 查詢有多個錯誤。括號不在正確的位置。 |
 
@@ -148,14 +148,24 @@ Azure 管理入口網站會為您提供設定更進階的規則的彈性，以�
 | otherMails | 任何字串值 | (user.otherMails -contains "alias@domain") |
 | proxyAddresses | SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
 
-以下是將提供一些 Azure Active Directory 的其他相關資訊的部分主題
+## 屬下規則
+您現在可以根據使用者的經理屬性在群組中填入成員。
+設定群組為「經理」群組
+--------------------------------------------------------------------------------
+1. 在管理員入口網站上按一下 [設定] 索引標籤，然後選取 [進階規則]。 
+2. 使用下列語法輸入規則：*Direct Reports for {UserID_of_manager}* 的屬下
+3. 儲存這項規則時，符合規則的所有使用者都會加入成為群組的成員。請注意，一開始填入群組可能需要幾分鐘的時間。 
+
+
+## 其他資訊
+以下是一些可提供有關 Azure Active Directory 額外資訊的主題
 
 * [疑難排解群組的動態成員資格](active-directory-accessmanagement-troubleshooting.md)
 
-* [使用 Azure Active Directory 群組管理資源的存取權](active-directory-manage-groups.md)
+* [使用 Azure Active Directory 群組來管理資源的存取權](active-directory-manage-groups.md)
 
 * [什麼是 Azure Active Directory？](active-directory-whatis.md)
 
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

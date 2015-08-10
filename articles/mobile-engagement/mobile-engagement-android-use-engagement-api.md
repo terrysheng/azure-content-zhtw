@@ -252,7 +252,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-這表示索引鍵必須至少以一個字母開頭，後面連接字母、數字或底線 (_)。
+這表示索引鍵必須至少以一個字母開頭，後面連接字母、數字或底線 (\_)。
 
 #### 大小
 
@@ -260,7 +260,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 在上述範例中，傳送到伺服器的 JSON 會是 58 個字元：
 
-			{"ref_click":"http://foobar.com/blog","video_id":"123"}
+			{"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
 
 ##報告應用程式資訊
 
@@ -287,7 +287,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-這表示索引鍵必須至少以一個字母開頭，後面連接字母、數字或底線 (_)。
+這表示索引鍵必須至少以一個字母開頭，後面連接字母、數字或底線 (\_)。
 
 #### 大小
 
@@ -298,4 +298,4 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

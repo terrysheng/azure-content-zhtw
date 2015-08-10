@@ -60,4 +60,4 @@ StorSimple Snapshot Manager 中央管理主控台可讓您建立一致、 時間
 
 [下載 StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,32 +1,34 @@
 <properties 
-   pageTitle="如何容錯移轉 StorSimple 裝置"
+   pageTitle="StorSimple 裝置的容錯移轉和災害復原 | Microsoft Azure"
    description="了解如何將 StorSimple 裝置容錯移轉至其本身、另一個實體裝置或虛擬裝置。"
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/29/2015"
+   ms.date="07/23/2015"
    ms.author="alkohli" />
 
 # StorSimple 裝置的容錯移轉與災害復原
 
 ## 概觀
 
-本教學課程將說明 StorSimple 裝置發生災害時要容錯移轉所需的步驟。容錯移轉可讓您將資料中心的來源裝置資料移轉至位於相同或不同地理位置的另一個實體或甚至是虛擬裝置。裝置容錯移轉是透過災害復原 (DR) 功能協調，並從 [裝置] 頁面起始。此頁面會以表格列出與 StorSimple Manager 服務連接的所有 StorSimple 裝置。顯示每個裝置的易記名稱、狀態、佈建與最大容量、類型及模型。
+本教學課程說明發生災害時容錯移轉 StorSimple 裝置所需的步驟。容錯移轉可讓您將資料中心的來源裝置資料移轉至位於相同或不同地理位置的另一個實體或甚至是虛擬裝置。裝置容錯移轉是透過災害復原 (DR) 功能協調，並從 [裝置] 頁面起始。此頁面會以表格列出與 StorSimple Manager 服務連接的所有 StorSimple 裝置。顯示每個裝置的易記名稱、狀態、佈建與最大容量、類型及模型。
 
 ![[裝置] 頁面](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
 ## 災害復原 (DR) 與裝置容錯移轉
+
 在災害復原 (DR) 案例中，主要裝置會停止運作。在此情況下，您可以使用主要裝置當做「來源」，並將另一個裝置指定為「目標」，將與失敗裝置相關聯的雲端資料移至另一個裝置。您可以選取一或多個磁碟區容器來移轉到目標裝置。這個程序就稱為「容錯移轉」。在容錯移轉期間，來源裝置的磁碟區容器會變更擁有權，並移轉到目標裝置。
 
 ## 裝置容錯移轉考量
+
 萬一發生災害，您可以選擇將 StorSimple 裝置容錯移轉到：
 
 - 實體裝置 
@@ -57,7 +59,7 @@
 
 	1. 在磁碟區容器清單中，選取您要容錯移轉的磁碟區容器。
 
-		>[AZURE.NOTE]**只會顯示與雲端快照和離線磁碟區相關的磁碟區容器。**
+		>[AZURE.NOTE]**只會顯示與雲端快照集和離線磁碟區相關聯的磁碟區容器。**
 
 	1. 在 [為所選取容器中的磁碟區選擇目標裝置] 中，從可用裝置的下拉式清單中選取目標裝置。下拉式清單中只會顯示具有可用容量的裝置。
 
@@ -113,11 +115,11 @@
 													
 	a.在磁碟區容器清單中，選取您要容錯移轉的磁碟區容器。
 
-	>[AZURE.NOTE]**只會顯示與雲端快照和離線磁碟區相關的磁碟區容器。**
+	>[AZURE.NOTE]**只會顯示與雲端快照集和離線磁碟區相關聯的磁碟區容器。**
 
 	b.在 [為所選取容器中的磁碟區選擇目標裝置] 下，從可用裝置的下拉式清單中選取 StorSimple 虛擬裝置。下拉式清單中只會顯示具有足夠容量的裝置。
 	
-	>[AZURE.NOTE]**如果您的實體裝置正在執行 Update 1，您可以進行容錯移轉至只執行 Update 1 的虛擬裝置。如果目標虛擬裝置正在執行較舊的軟體版本，您會看到錯誤，表示目標裝置軟體需要更新。**
+	>[AZURE.NOTE]**如果您的實體裝置正在執行 Update 1，您只能容錯移轉到執行 Update 1 的虛擬裝置。如果目標虛擬裝置正在執行較舊的軟體版本，您會看到錯誤，表示目標裝置軟體需要更新。**
 
 1. 最後，檢閱 [確認容錯移轉] 下的所有容錯移轉設定。按一下核取圖示 ![核取圖示](./media/storsimple-device-failover-disaster-recovery/IC740895.png)。
 
@@ -125,14 +127,20 @@
 													
 	a.為容錯移轉程序選取要用來做為目標裝置的 StorSimple 虛擬裝置。
 	
-	b.移至 [磁碟區容器] 頁面。此時這裡應會列出所有磁碟區容器以及舊裝置中的磁碟區。
+	b.移至 [磁碟區容器] 頁面。此時應會列出所有磁碟區容器，以及舊裝置中的磁碟區。
 
+## 業務持續性災害復原 (BCDR)
 
-## 另請參閱
+當整個 Azure 資料中心停止運作時，就構成業務持續性災害復原 (BCDR) 狀況。這會影響您的 StorSimple Manager 服務和相關聯的 StorSimple 裝置。
+
+如果 StorSimple 裝置在發生災害的前一刻才剛註冊，這些 StorSimple 裝置可能需要進行原廠重設。災害發生後，StorSimple 裝置會顯示為離線。必須從入口網站刪除 StorSimple 裝置，進行原廠重設，然後重新註冊。
+
+## 後續步驟
+
 在執行容錯移轉之後，您可能需要：
 
-- [更新您的 StorSimple 裝置](https://msdn.microsoft.com/library/azure/dn772379.aspx#deactivate)
-- [刪除您的 StorSimple 裝置](https://msdn.microsoft.com/library/azure/dn772379.aspx#delete)
+- [更新您的 StorSimple 裝置](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
+- [刪除您的 StorSimple 裝置](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
 如需如何使用 StorSimple Manager 服務管理裝置的詳細資訊，請參閱：
 
@@ -140,4 +148,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

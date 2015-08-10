@@ -39,31 +39,31 @@ Web Apps Memcache 填充碼可以搭配任何應用程式，只要應用程式�
 
 ![Azure Redis 快取設定刀鋒視窗](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
-### 新增 REDIS_HOST 應用程式設定
+### 新增 REDIS\_HOST 應用程式設定
 
-您必須建立的第一個應用程式設定是 **REDIS_HOST** 應用程式設定。此設定會設定目的地，供填充碼轉送快取資訊至此目的地。REDIS_HOST 應用程式設定所需要的值，可擷取自 Redis 快取執行個體的 [屬性] 刀鋒視窗。
+您必須建立的第一個應用程式設定是 **REDIS\_HOST** 應用程式設定。此設定會設定目的地，供填充碼轉送快取資訊至此目的地。REDIS\_HOST 應用程式設定所需要的值，可擷取自 Redis 快取執行個體的 [屬性] 刀鋒視窗。
 
 ![Azure Redis 快取主機名稱](./media/web-sites-connect-to-redis-using-memcache-protocol/2-azure-redis-cache-hostname.png)
 
-將應用程式設定的索引鍵設定為 **REDIS_HOST**，應用程式設定的值設定為 Redis 快取執行個體的 [主機名稱]。
+將應用程式設定的索引鍵設定為 **REDIS\_HOST**，應用程式設定的值設定為 Redis 快取執行個體的 [主機名稱]。
 
-![Web 應用程式 AppSetting REDIS_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
+![Web 應用程式 AppSetting REDIS\_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
 
-### 新增 REDIS_KEY 應用程式設定
+### 新增 REDIS\_KEY 應用程式設定
 
-您必須建立的第二個應用程式設定是 **REDIS_KEY** 應用程式設定。此設定提供安全存取 Redis Cache 執行個體所需的驗證權杖。REDIS_KEY 應用程式設定所需要的值，可擷取自 Redis 快取執行個體的 [存取索引鍵] 刀鋒視窗。
+您必須建立的第二個應用程式設定是 **REDIS\_KEY** 應用程式設定。此設定提供安全存取 Redis Cache 執行個體所需的驗證權杖。REDIS\_KEY 應用程式設定所需要的值，可擷取自 Redis 快取執行個體的 [存取索引鍵] 刀鋒視窗。
 
 ![Azure Redis 快取主要索引鍵](./media/web-sites-connect-to-redis-using-memcache-protocol/4-azure-redis-cache-primarykey.png)
 
-將應用程式設定的索引鍵設定為 **REDIS_KEY**，應用程式設定的值設定為 Redis 快取執行個體的 [主要索引鍵]。
+將應用程式設定的索引鍵設定為 **REDIS\_KEY**，應用程式設定的值設定為 Redis 快取執行個體的 [主要索引鍵]。
 
-![Azure 網站 AppSetting REDIS_KEY](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
+![Azure 網站 AppSetting REDIS\_KEY](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
 
-### 新增 MEMCACHESHIM_REDIS_ENABLE 應用程式設定
+### 新增 MEMCACHESHIM\_REDIS\_ENABLE 應用程式設定
 
-最後的應用程式設定可用來在 Web 應用程式中啟用 Memcache 填充碼，它將使用 REDIS_HOST 和 REDIS_KEY 來連線到 Azure Redis Cache 並轉送快取呼叫。將應用程式設定的索引鍵設定為 **MEMCACHESHIM_REDIS_ENABLE**，值設定為 **true**。
+最後的應用程式設定可用來在 Web 應用程式中啟用 Memcache 填充碼，它將使用 REDIS\_HOST 和 REDIS\_KEY 來連線到 Azure Redis Cache 並轉送快取呼叫。將應用程式設定的索引鍵設定為 **MEMCACHESHIM\_REDIS\_ENABLE**，值設定為 **true**。
 
-![Web 應用程式 AppSetting MEMCACHESHIM_REDIS_ENABLE](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
+![Web 應用程式 AppSetting MEMCACHESHIM\_REDIS\_ENABLE](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
 
 完成新增三 (3) 項應用程式設定後，按一下 [儲存]。
 
@@ -71,7 +71,7 @@ Web Apps Memcache 填充碼可以搭配任何應用程式，只要應用程式�
 
 為了讓應用程式得以使用 Memcache 通訊協定，必須安裝適用於 PHP (WordPress 網站語言架構) 的 Memcache 延伸模組。
 
-### 下載 php_memcache 延伸模組
+### 下載 php\_memcache 延伸模組
 
 瀏覽至 [PECL][6]，在快取類別底下按一下 [memcache][7]。在下載欄中，按一下 DLL 連結。
 
@@ -81,14 +81,14 @@ Web Apps Memcache 填充碼可以搭配任何應用程式，只要應用程式�
 
 ![PHP PECL 網站 Memcache 封裝](./media/web-sites-connect-to-redis-using-memcache-protocol/8-php-pecl-memcache-package.png)
 
-### 啟用 php_memcache 延伸模組
+### 啟用 php\_memcache 延伸模組
 
-下載檔案之後，解壓縮並上傳 **php_memcache.dll** 至 **d:\home\site\wwwroot\bin\ext** 目錄。php_memcache.dll 上傳至 Web 應用程式之後，延伸模組必須啟用至 PHP 執行階段。若要在 Azure 入口網站中啟用 Memcache 延伸模組，請開啟 Web 應用程式的 [應用程式設定] 刀鋒視窗，然後新增索引鍵為 **PHP_EXTENSIONS** 且值為 **bin\ext\php_memcache.dll** 的應用程式設定。
+下載檔案之後，解壓縮並上傳 **php\_memcache.dll** 至 **d:\\home\\site\\wwwroot\\bin\\ext\\** 目錄。php\_memcache.dll 上傳至 Web 應用程式之後，延伸模組必須啟用至 PHP 執行階段。若要在 Azure 入口網站中啟用 Memcache 延伸模組，請開啟 Web 應用程式的 [應用程式設定] 刀鋒視窗，然後新增索引鍵為 **PHP\_EXTENSIONS** 且值為 **bin\\ext\\php\_memcache.dll** 的應用程式設定。
 
 
-> 如果 Web 應用程式需要載入多個 PHP 延伸模組，PHP_EXTENSIONS 的值應該是 DLL 檔案相對路徑以逗號分隔的清單。
+> 如果 Web 應用程式需要載入多個 PHP 延伸模組，PHP\_EXTENSIONS 的值應該是 DLL 檔案相對路徑以逗號分隔的清單。
 
-![Web 應用程式 AppSetting PHP_EXTENSIONS](./media/web-sites-connect-to-redis-using-memcache-protocol/9-azure-website-appsettings-php-extensions.png)
+![Web 應用程式 AppSetting PHP\_EXTENSIONS](./media/web-sites-connect-to-redis-using-memcache-protocol/9-azure-website-appsettings-php-extensions.png)
 
 完成後，按一下 [儲存]。
 
@@ -197,4 +197,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [13]: http://memcached.org
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

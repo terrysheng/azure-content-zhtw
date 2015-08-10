@@ -86,7 +86,7 @@
 	</Module>
 
  
-請注意，XML 檔案中之 **Input** 和 **Arg** 元素的 **id** 屬性值必須完全符合 R 程式碼的函數參數名稱 (在本例中為 *dataset1*、*dataset2* 和 *swap*)。同樣地，**Language** 元素的 **entryPoint** 屬性值必須完全符合 R 指令碼中的函數名稱 (在本例中為 *CustomAddRows*)。相反地，**Output** 元素的 **id** 屬性不會對應至 R 指令碼中的任何變數。如果需要多個輸入，請直接從 R 函數傳回清單，其中包含的結果會依照輸出在 XML 檔案中宣告的順序來排列。
+請注意，XML 檔案中之 **Input** 和 **Arg** 元素的 **id** 屬性值必須完全符合 R 程式碼的函數參數名稱 (在本例中為 \*dataset1\*、*dataset2* 和 *swap*)。同樣地，**Language** 元素的 **entryPoint** 屬性值必須完全符合 R 指令碼中的函數名稱 (在本例中為 \*CustomAddRows\*)。相反地，**Output** 元素的 **id** 屬性不會對應至 R 指令碼中的任何變數。如果需要多個輸入，請直接從 R 函數傳回清單，其中包含的結果會依照輸出在 XML 檔案中宣告的順序來排列。
 
 將這兩個檔案另存為 *CustomAddRows.R* 和 *CustomAddRows.xml*，然後一起壓縮成 *CustomAddRows.zip* 檔案。
 
@@ -114,7 +114,7 @@
 * **Description** 元素的內容長度不能超過 128 個字元。
 * **Owner** 元素的內容長度不能超過 32 個字元。
 
-** 表示模組的結果具決定性或不具決定性
+\*\* 表示模組的結果具決定性或不具決定性
 
 預設會將所有模組視為具決定性。也就是說，如果提供一組不變的參數，模組每次執行時都應該傳回相同的結果。在這個行為下，除非參數或輸入資料有所變更，否則 Azure Machine Learning Studio 不會重新執行標示為具決定性的模組。傳回的快取結果會使實驗執行更快。
 
@@ -325,7 +325,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。�
 
 ### 輔助檔案
 
-放在自訂模組 ZIP 檔案中的所有檔案在執行期間都可供使用。如果沒有出現目錄結構，將會保留該檔案。也就是說，檔案的獲得在本機和在 Azure Machine Learning 執行中的運作相同。
+放在自訂模組 ZIP 檔案中的所有檔案在執行期間都可供使用。如果沒有出現目錄結構，將會保留該檔案。也就是說，檔案的獲得在本機和在 Azure Machine Learning 執行中的運作相同。請注意，所有檔案都會解壓縮到 ‘src’ 目錄中，因此所有路徑應該都有 ‘src/’ 前置詞。
 
 例如，假設您要先移除資料集中包含 NA 的所有資料列，並移除所有重複的資料列，然後才將該資料集輸出到 CustomAddRows 中，而且您已經撰寫一個在 RemoveDupNARows.R 檔案中執行該操作的 R 函數：
 
@@ -339,7 +339,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。�
 您可以使用 CustomAddRows 函數獲得 removeDupNARows.R 輔助檔案：
 
 	CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
-		source(“RemoveDupNARows.R”)
+		source("src/RemoveDupNARows.R")
 			if (swap) { 
 				dataset <- rbind(dataset2, dataset1))
 	 		} else { 
@@ -363,4 +363,4 @@ R 指令碼的執行環境使用與 **Execute R Script** 模組相同的 R 版�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

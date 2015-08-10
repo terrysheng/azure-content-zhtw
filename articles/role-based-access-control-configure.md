@@ -84,7 +84,7 @@ Brock | 建立並管理 Prod 資源群組中的所有資源 | 將 Brock 新增�
 
 ![][3]
 
-按一下 [*您的訂閱名稱* ** > 讀取者 > 新增**]。從使用者與群組清單中，選取或是輸入 Active Directory 群組的名稱。
+按一下 [*您的訂閱名稱* \*\* > 讀取者 > 新增\*\*]。從使用者與群組清單中，選取或是輸入 Active Directory 群組的名稱。
 
 ![][4]
 
@@ -98,7 +98,7 @@ Brock | 建立並管理 Prod 資源群組中的所有資源 | 將 Brock 新增�
 
 角色指派也可以透過 Microsoft Azure module for Windows PowerShell 進行管理。以下舉例說明如何使用 New-AzureRoleAssignment Cmdlet (而非透過入口網站)，新增 Brock 帳戶：
 
-	PS C:> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
+	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
 如需使用 Windows PowerShell 來新增並移除存取權限的詳細資訊，請參閱[使用 Windows PowerShell 管理角色型存取控制](role-based-access-control-powershell.md) (英文)。
 
@@ -110,7 +110,7 @@ Brock | 建立並管理 Prod 資源群組中的所有資源 | 將 Brock 新增�
 
 以下舉例說明如何使用 Remove-AzureRoleAssignment Cmdlet 移除 Brad Adams：
 
-	PS C:> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
+	PS C:\> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
 
 ### 為外部使用者新增或移除存取權限
 
@@ -1293,4 +1293,4 @@ Azure 角色型存取控制會隨附三個內建的角色，供您指派給使�
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

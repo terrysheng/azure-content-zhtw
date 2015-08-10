@@ -24,7 +24,7 @@
 
 當 Visual Studio 部署具有 WebJobs 功能的主控台應用程式專案時，它會執行兩個工作：
 
-* 將執行階段檔案複製到 Web 應用程式中的適當資料夾 (若是連續 WebJobs，則是 *App_Data/jobs/continuous*，若是排程和隨選 WebJobs，則是 *App_Data/jobs/triggered*)。
+* 將執行階段檔案複製到 Web 應用程式中的適當資料夾 (若是連續 WebJobs，則是 \*App\_Data/jobs/continuous\*，若是排程和隨選 WebJobs，則是 *App\_Data/jobs/triggered*)。
 * 為已排定在特定時間執行的 WebJobs 設定 [Azure 排程器工作](#scheduler)。(無需為連續 WebJobs 執行此動作。)
 
 具有 WebJobs 功能的專案會新增下列項目：
@@ -200,4 +200,4 @@
 * 如需 Azure 入口網站變更為 Azure 預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

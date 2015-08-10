@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="開始使用驗證 (Windows Phone) | 行動開發人員中心" 
-	description="了解如何使用行動服務透過眾多識別提供者驗證 Windows Phone 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" 
+	pageTitle="將驗證新增至 Windows Phone Silverlight 應用程式 | Azure 行動服務" 
+	description="了解如何使用行動服務透過眾多識別提供者驗證 Windows Phone Silverlight 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft 帳戶。" 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # 在您的行動服務應用程式中新增驗證
@@ -38,12 +38,9 @@
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-<ol start="6">
-<li>在 Visual Studio 中，開啟用戶端應用程式專案，確定 App.xaml.cs 中的 <strong>MobileServiceClient</strong> 執行個體設定為使用行動服務的雲端 URL。</li> 
-<li><p>按 F5 鍵執行此快速入門型應用程式；確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。</p>
-   
-   	<p>這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 <em>TodoItem</em> 資料表現在需要驗證。</p></li>
-</ol>
+&nbsp;&nbsp;6.在 Visual Studio 中，開啟用戶端應用程式專案，確定 App.xaml.cs 中的 **MobileServiceClient** 執行個體設定為使用行動服務的雲端 URL。
+
+&nbsp;&nbsp;7.按 F5 鍵執行此快速入門型應用程式；確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 *TodoItem* 資料表現在需要驗證。
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
@@ -79,4 +76,4 @@
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

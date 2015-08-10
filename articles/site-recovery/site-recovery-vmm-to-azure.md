@@ -82,7 +82,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 
 2. 展開
-3. [*資料服務*] 和 [*復原服務*]，然後按一下 [*Site Recovery 保存庫*]。*
+3. [*資料服務*] 和 [*復原服務*]，然後按一下 [*Site Recovery 保存庫*]。\*
 3. 按一下 [建立新項目]，然後按一下 [快速建立]。
 
 
@@ -321,4 +321,4 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 <LI>若有任何問題，請造訪 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 復原服務論壇</a> (英文)。</LI></UL>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

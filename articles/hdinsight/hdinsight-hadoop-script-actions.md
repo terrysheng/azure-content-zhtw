@@ -32,7 +32,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 **安裝 Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Spark][hdinsight-install-spark]。
 **安裝 R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1。請參閱[在 HDInsight 叢集上安裝及使用 R][hdinsight-r-scripts]。
 **安裝 Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install.md)。
-- **安裝 Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install.md)。
+\- **安裝 Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install.md)。
 
 您可以從 Azure 入口網站、Azure PowerShell 或使用 HDInsight .NET SDK 來部署「指令碼動作」。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]。
 
@@ -107,12 +107,12 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
 - 確保叢集自訂指令碼具有等冪性
 
-	您必須預期在叢集存留期間將會為 HDInsight 叢集的節點重新製作映像。每當重新製作叢集映像時，都會執行叢集自訂指令碼。此指令碼必須設計成具有等冪性，意思就是在重新製作映像時，此指令碼應該確保叢集會回到與當初建立叢集時，指令碼剛剛第一次執行後相同的自訂狀態。例如，如果自訂指令碼在第一次執行時，在 D:\AppLocation 中安裝了某個應用程式，則在後續每次的執行中，當重新製作映像時，此指令碼應該先檢查 D:\AppLocation 位置中是否有該應用程式，再繼續執行指令碼中的其他步驟。
+	您必須預期在叢集存留期間將會為 HDInsight 叢集的節點重新製作映像。每當重新製作叢集映像時，都會執行叢集自訂指令碼。此指令碼必須設計成具有等冪性，意思就是在重新製作映像時，此指令碼應該確保叢集會回到與當初建立叢集時，指令碼剛剛第一次執行後相同的自訂狀態。例如，如果自訂指令碼在第一次執行時，在 D:\\AppLocation 中安裝了某個應用程式，則在後續每次的執行中，當重新製作映像時，此指令碼應該先檢查 D:\\AppLocation 位置中是否有該應用程式，再繼續執行指令碼中的其他步驟。
 
 
 - 在最佳位置安裝自訂元件
 
-	重新製作叢集節點映像時，C:\ 資源磁碟機和 D:\ 系統磁碟機可能被重新格式化，而導致資料及安裝在這些磁碟機上的應用程式遺失。如果隸屬於叢集的 Azure 虛擬機器 (VM) 節點故障，而被新節點取代時，也可能發生這種情況。您可以將元件安裝在 D:\ 磁碟機上，或叢集上的 C:\apps 位置中。C:\ 磁碟機上的所有其他位置則已預留他用。請在叢集自訂指令碼中指定要用來安裝應用程式或程式庫的位置。
+	重新製作叢集節點映像時，C:\\ 資源磁碟機和 D:\\ 系統磁碟機可能被重新格式化，而導致資料及安裝在這些磁碟機上的應用程式遺失。如果隸屬於叢集的 Azure 虛擬機器 (VM) 節點故障，而被新節點取代時，也可能發生這種情況。您可以將元件安裝在 D:\\ 磁碟機上，或叢集上的 C:\\apps 位置中。C:\\ 磁碟機上的所有其他位置則已預留他用。請在叢集自訂指令碼中指定要用來安裝應用程式或程式庫的位置。
 
 
 - 確保叢集架構具有高可用性
@@ -161,7 +161,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 	Write-HDILog "Starting environment variable setting at: $(Get-Date)";
 	[Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-此陳述式將環境變數 **MDS_RUNNER_CUSTOM_CLUSTER** 設為 'true' 值，並將此變數的範圍設為整個機器。有時候您必須將環境變數設定在適當範圍 – 機器或使用者。如需設定環境變數的詳細資訊，請參閱[這裡][1]。
+此陳述式將環境變數 **MDS\_RUNNER\_CUSTOM\_CLUSTER** 設為 'true' 值，並將此變數的範圍設為整個機器。有時候您必須將環境變數設定在適當範圍 – 機器或使用者。如需設定環境變數的詳細資訊，請參閱[這裡][1]。
 
 ### 存取自訂指令碼儲存所在位置
 
@@ -201,7 +201,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 2. 在指令碼中加入檢查以確定它們以等冪方式執行，使得指令碼可以在相同的節點上執行多次。
 3. 使用 **Write-Output** Azure PowerShell Cmdlet 來列印至 STDOUT 以及 STDERR。請勿使用 **Write-Host**。
 4. 使用暫存檔案資料夾 (例如 $env:TEMP) 來存放指令碼所使用的下載檔案，然後在執行完指令碼之後將這些檔案清除。
-5. 安裝自訂軟體，位置只能是 D:\ 或 C:\apps。不應該使用 C: 磁碟機上的其他位置，因為它們已預留他用。請注意，如果將檔案安裝在 C: 磁碟機上 C:\apps 資料夾以外的位置，可能會導致在重新製作節點映像期間設定失敗。
+5. 安裝自訂軟體，位置只能是 D:\\ 或 C:\\apps。不應該使用 C: 磁碟機上的其他位置，因為它們已預留他用。請注意，如果將檔案安裝在 C: 磁碟機上 C:\\apps 資料夾以外的位置，可能會導致在重新製作節點映像期間設定失敗。
 6. 如果作業系統層級設定或 Hadoop 服務組態檔已變更，您可能會想要重新啟動 HDInsight 服務，讓它們可以載入任何作業系統層級設定，例如指令碼中設定的環境變數。
 
 
@@ -239,9 +239,9 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
 ## 偵錯自訂指令碼
 
-指令碼錯誤記錄檔會與其他輸出一起儲存在您建立叢集時為其指定的預設儲存體帳戶中。記錄檔是以 *u<\cluster-name-fragment><\time-stamp>setuplog* 的名稱儲存在資料表中。這些是彙總的記錄檔，包含來自指令碼執行所在之所有叢集節點 (前端節點和背景工作節點) 的記錄。
+指令碼錯誤記錄檔會與其他輸出一起儲存在您建立叢集時為其指定的預設儲存體帳戶中。記錄檔是以 *u<\\cluster-name-fragment><\\time-stamp>setuplog* 的名稱儲存在資料表中。這些是彙總的記錄檔，包含來自指令碼執行所在之所有叢集節點 (前端節點和背景工作節點) 的記錄。
 
-您也可以遠端登入到叢集節點以查看 STDOUT 和 STDERR 中的自訂指令碼。每個節點上的記錄檔都只與該節點有關，並且會記錄到 **C:\HDInsightLogs\DeploymentAgent.log**。這些記錄檔會記錄自訂指令碼的所有輸出。Spark 指令碼動作的範例記錄程式碼片段看起來像這樣：
+您也可以遠端登入到叢集節點以查看 STDOUT 和 STDERR 中的自訂指令碼。每個節點上的記錄檔都只與該節點有關，並且會記錄到 **C:\\HDInsightLogs\\DeploymentAgent.log**。這些記錄檔會記錄自訂指令碼的所有輸出。Spark 指令碼動作的範例記錄程式碼片段看起來像這樣：
 
 	Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.; 
 	Version : 2.1.0.0; 
@@ -304,4 +304,4 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

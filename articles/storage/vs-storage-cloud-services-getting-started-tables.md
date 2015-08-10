@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # 開始使用 Azure 儲存體 (雲端服務專案)
@@ -31,9 +31,7 @@
 
 Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服務是一個 NoSQL 資料存放區，接受來自 Azure 雲端內外經過驗證的呼叫。Azure 資料表很適合儲存結構化、非關聯式資料。
 
-本文描述如何在您使用 Visual Studio 的 [**新增連接的服務**] 對話方塊，建立或參考了 Cl 專案中的 Azure 儲存體帳戶之後開始在 Visual Studio 使用 Azure 資料表儲存體。
-
-[**新增連接的服務**] 作業會安裝適當的 NuGet 封裝，以存取專案中的 Azure 儲存體，並將儲存體帳戶的連接字串新增至您的專案組態檔。
+本文描述如何在您使用 Visual Studio 的 [**新增連接的服務**] 對話方塊，建立或參考了雲端服務專案中的 Azure 儲存體帳戶之後開始在 Visual Studio 使用 Azure 資料表儲存體。[**新增連接的服務**] 作業會安裝適當的 NuGet 封裝，以存取專案中的 Azure 儲存體，並將儲存體帳戶的連接字串新增至您的專案組態檔。
 
 如需其他有關使用 Azure 資料表儲存體的一般資訊，請參閱[如何從.NET 使用資料表儲存體](storage-dotnet-how-to-use-tables.md)。
 
@@ -120,7 +118,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 ##插入實體批次
 
-您可以在單一寫入操作中將多個項目插入至資料表。下列程式碼範例會建立兩個實體物件 (「Jeff Smith」和「Ben Smith」)，並利用 Insert 方法將它們加入至 **TableBatchOperation** 物件，然後透過呼叫 CloudTable.ExecuteBatchAsync 開始啟動作業。
+您可以在單一寫入操作中將多個項目插入至資料表。下列程式碼範例會建立兩個實體物件 ("Jeff Smith" 和 "Ben Smith")，並利用 Insert 方法將它們加入至 **TableBatchOperation** 物件，然後透過呼叫 CloudTable.ExecuteBatchAsync 開始啟動作業。
 
 	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code"
 	
@@ -223,4 +221,4 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 [深入了解 Azure 儲存體](http://azure.microsoft.com/documentation/services/storage/)另請參閱[在伺服器總管中瀏覽儲存體資源](http://msdn.microsoft.com/library/azure/ff683677.aspx)和 [ASP.NET 5](http://www.asp.net/vnext)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,51 +1,34 @@
-<properties 
-   pageTitle="StorSimple Adapter for SharePoint - garbage collection | Microsoft Azure"
-   description="Describes how to delete BLOBs immediately when using StorSimple Adapter for SharePoint."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="07/10/2015"
-   ms.author="v-sharos" />
+在此程序中，您將會：
 
-In this procedure, you will:
+1. [準備執行維護程式可執行檔](#to-prepare-to-run-the-maintainer)。
 
-1. [Prepare to run the Maintainer executable](#to-prepare-to-run-the-maintainer) .
+2. [為立即刪除被遺棄的 BLOB 準備內容資料庫和資源回收筒](#to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs)。
 
-2. [Prepare the content database and Recycle Bin for immediate deletion of orphaned BLOBs](#to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs).
+3. [執行 Maintainer.exe](#to-run-the-maintainer)。
 
-3. [Run Maintainer.exe](#to-run-the-maintainer).
+4. [還原內容資料庫和資源回收筒設定](to-revert-the-content-database-and-recycle-bin-settings)。
 
-4. [Revert the content database and Recycle Bin settings](#to-revert-the-content-database-and-recycle-bin-settings).
+#### 準備執行維護程式
 
-#### To prepare to run the Maintainer
+1. 在 Web 前端伺服器上，以系統管理員身分開啟 SharePoint 2013 管理命令介面。
 
-1. On the Web front-end server, open the SharePoint 2013 Management Shell as an administrator.
+2. 瀏覽至資料夾 <boot drive>:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer。
 
-2. Navigate to the folder <boot drive>:\Program Files\Microsoft SQL Remote Blob Storage 10.50\Maintainer\.
+3. 將 **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** 重新命名為 **web.config**。
 
-3. Rename **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** to **web.config**.
+4. 使用 `aspnet_regiis -pdf connectionStrings` 解密 web.config 檔案。
 
-4. Use `aspnet_regiis -pdf connectionStrings` to decrypt the web.config file.
-
-5. In the decrypted web.config file, under the **<connectionStrings>** node, add the connection string for your SQL server instance and the content database name. See the following example.
+5. 在解密的 web.config 檔案中的 **<connectionStrings>** 節點下，為您的 SQL Server 執行個體和內容資料庫名稱新增連接字串。請參閱下列範例。
 
     `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=&quot;Remote Blob Storage Maintainer for WSS_Content&quot;" providerName="System.Data.SqlClient" />`
 
-6. Use `aspnet_regiis –pef connectionStrings` to re-encrypt the web.config file. 
+6. 使用 `aspnet_regiis –pef connectionStrings` 重新加密 web.config 檔案。
 
-7. Rename web.config to Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config. 
+7. 將 web.config 重新命名為 Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config。
 
-#### To prepare the content database and Recycle Bin to immediately delete orphaned BLOBs
+#### 為立即刪除被遺棄的 BLOB 準備內容資料庫和資源回收筒
 
-1. On the SQL Server, in SQL Management Studio, run the following update queries for the target content database: 
+1. 在 SQL Server 上的 SQL Management Studio 中，為目標內容資料庫執行下列更新查詢： 
 
        `use WSS_Content`
 
@@ -53,21 +36,21 @@ In this procedure, you will:
 
        `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
 
-2. On the web front-end server, under **Central Administration**, edit the **Web Application General Settings** for the desired content database to temporarily disable the Recycle Bin. This action will also empty the Recycle Bin for any related site collections. To do this, click **Central Administration** -> **Application Management** -> **Web Applications (Manage web applications)** -> **SharePoint - 80** -> **General Application Settings**. Set the **Recycle Bin Status** to **OFF**.
+2. 在 web 前端伺服器上的**管理中心**下，為所需的內容資料庫編輯 **Web 應用程式一般設定**以暫時停用資源回收筒。這個動作將同時清空任何相關網站集合的資源回收筒。若要這樣做，請按一下 [**管理中心**] -> [**應用程式管理**] -> [**Web 應用程式 (管理 web 應用程式)**] -> [**SharePoint - 80**] -> [**一般應用程式設定**]。將**資源回收筒狀態**設為 **OFF**。
 
-    ![Web Application General Settings](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
+    ![Web 應用程式一般設定](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
 
-#### To run the Maintainer
+#### 執行維護程式
 
-- On the web front-end server, in the SharePoint 2013 Management Shell, run the Maintainer as follows:
+- 在 web 前端伺服器上的 SharePoint 2013 管理命令介面中，執行維護程式，如下所示：
 
       `Microsoft.Data.SqlRemoteBlobs.Maintainer.exe -ConnectionStringName RBSMaintainerConnectionWSSContent -Operation GarbageCollection -GarbageCollectionPhases rdo`
 
-    >[AZURE.NOTE] Only the `GarbageCollection` operation is supported for StorSimple at this time. Also note that the parameters issued for Microsoft.Data.SqlRemoteBlobs.Maintainer.exe are case sensitive. 
+    >[AZURE.NOTE]此時 StorSimple 只支援 `GarbageCollection` 作業。此外請注意，針對 Microsoft.Data.SqlRemoteBlobs.Maintainer.exe 所發出的參數會區分大小寫。
  
-#### To revert the content database and Recycle Bin settings
+#### 還原內容資料庫和資源回收筒設定
 
-1. On the SQL Server, in SQL Management Studio, run the following update queries for the target content database:
+1. 在 SQL Server 上的 SQL Management Studio 中，為目標內容資料庫執行下列更新查詢：
 
       `use WSS_Content`
 
@@ -77,4 +60,6 @@ In this procedure, you will:
 
       `exec mssqlrbs.rbs_sp_set_config_value ‘orphan_scan_period’ , ’days 30’`
 
-2. On the web front-end server, in **Central Administration**, edit the **Web Application General Settings** for the desired content database to re-enable the Recycle Bin. To do this, click **Central Administration** -> **Application Management** -> **Web Applications (Manage web applications)** -> **SharePoint - 80** -> **General Application Settings**. Set the Recycle Bin Status to **ON**.
+2. 在 web 前端伺服器上的**管理中心**中，為所需的內容資料庫編輯 **Web 應用程式一般設定**以重新啟用資源回收筒。若要這樣做，請按一下 [**管理中心**] -> [**應用程式管理**] -> [**Web 應用程式 (管理 web 應用程式)**] -> [**SharePoint - 80**] -> [**一般應用程式設定**]。將資源回收筒狀態設為 **ON**。
+
+<!---HONumber=July15_HO5-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在命令列上管理行動服務 - Azure 教學課程" 
+	pageTitle="從命令列管理行動服務 | Azure 行動服務" 
 	description="了解如何使用命令列工具建立、部署和管理 Azure 行動服務。" 
 	services="mobile-services" 
 	documentationCenter="Mobile" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 # 使用命令列工具將行動服務自動化 
@@ -25,10 +25,6 @@
 這些個別的命令結合為一個指令碼或批次檔後，即可將行動服務的建立、確認和刪除程序自動化。
 
 本主題涵蓋 Azure 命令列工具支援的一些常用管理工作。如需詳細資訊，請參閱 [Azure 命令列工具文件][reference-docs]。
-
-<!--+  You must download and install the Azure command-line tools to your local machine. To do this, follow the instructions in the first section of this topic. 
-
-+ (Optional) To be able to execute HTTP requests directly from the command-line, you must use cURL or an equivalent tool. cURL runs on a variety of platforms. Locate and install cURL for your specific platform from the <a href=http://go.microsoft.com/fwlink/p/?LinkId=275676 target="_blank">cURL download  page</a>.-->
 
 ##安裝 Azure 命令列工具
 
@@ -110,11 +106,7 @@
 
 下表顯示指令碼權限值與 [Azure 管理入口網站]中之權限值的比較。
 
-<table border="1" width="100%"><tr><th>指令碼值</th><th>管理入口網站值</th></tr>
-<tr><td><code>public</code></td><td>所有人</td></tr>
-<tr><td><code>application</code> (預設值)</td><td>具有應用程式金鑰的任何人</td></tr>
-<tr><td><code>user</code></td><td>僅限通過驗證的使用者</td></tr>
-<tr><td><code>admin</code></td><td>僅限指令碼和管理員</td></tr></table>
+|指令碼值|管理入口網站值| |========|========| |`public`|所有人| |`application`(預設值)|具有應用程式金鑰的任何人| |`user`|僅限通過驗證的使用者| |`admin`|僅限指令碼和管理員|
 
 如果指定的資料表已存在，`mobile table create` 命令將失敗。在您的自動化指令碼中，您應該嘗試先刪除再重新建立資料表。
 
@@ -192,4 +184,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

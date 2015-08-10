@@ -5,20 +5,21 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="07/22/2015"
 	ms.author="josephd"/>
 
 # 在 Azure 中使用 SQL Server AlwaysOn 可用性群組部署 SharePoint
 
-本主題包含在 Azure 基礎結構服務中，部署包含 SQL Server AlwaysOn 可用性群組且僅限內部網路的 SharePoint 2013 伺服器陣列的逐步指示連結。此伺服器陣列包含下列電腦：
+本主題包含的逐步指示連結，可供使用 Azure 服務管理部署包含 SQL Server AlwaysOn 可用性群組且僅限內部網路的 SharePoint 2013 伺服器陣列。此伺服器陣列包含下列電腦：
 
 - 兩部 SharePoint Web 伺服器
 - 兩部 SharePoint 應用程式伺服器
@@ -30,7 +31,7 @@
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-overview/workload-spsqlao_05.png)
 
-兩部適用於每個角色的機器可確保高可用性。所有的虛擬機器都位於單一區域中。適用於特定角色的每個虛擬機器群組都位於它自己的可用性設定組中。
+兩部適用於每個角色的機器可確保高可用性。所有的虛擬機器都位於單一區域中。適用於特定角色的每個虛擬機器群組都位於它自己的可用性集合中。
 
 您可以在下列階段中部署這個設定：
 
@@ -69,4 +70,4 @@
 
 [Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

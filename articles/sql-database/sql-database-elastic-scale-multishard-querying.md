@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 # 多分區查詢
 
 ## 概觀
 
-**多分區查詢**用於資料收集/報告等工作，這些工作需要跨越數個分區執行查詢。(這與在單一分區上執行所有工作的[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)相反。)
+**多分區查詢**用於資料收集/報告等工作，這些工作需要跨越數個分區執行查詢。(這與在單一分區上執行所有工作的[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)相反。) 若要使用 SQL Server Management Studio，請參閱[開始使用彈性資料庫查詢](sql-database-elastic-query-getting-started.md)。
 
 彈性資料庫用戶端程式庫引進一個新的命名空間，稱為 **Microsoft.Azure.SqlDatabase.ElasticScale.Query**，可讓您使用單一查詢和結果來查詢多個分區。它提供一組分區的查詢抽象方法。它也提供替代執行原則，特別是部分結果，以處理查詢許多分區時的失敗。
 
@@ -67,4 +67,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

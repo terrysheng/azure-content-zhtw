@@ -232,4 +232,4 @@ SQL Server Management Studio 的資料庫備份/還原選項的螢幕擷取畫�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

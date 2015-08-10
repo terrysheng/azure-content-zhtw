@@ -1,7 +1,8 @@
 <properties 
     pageTitle="Elastic Scale 安全性設定" 
     description="設定加密的 x409 憑證" 
-    services="sql-database" documentationCenter="" 
+    services="sql-database" 
+	documentationCenter="" 
     manager="jhubbard" 
     authors="sidneyh"/>
 
@@ -195,7 +196,7 @@
 
 自訂：
 
-*    -n 與服務 URL。支援萬用字元 ("CN=*.cloudapp.net") 和替代名稱 ("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net")。
+*    -n 與服務 URL。支援萬用字元 ("CN=\*.cloudapp.net") 和替代名稱 ("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net")。
 *    -e 與憑證到期日 建立強式密碼，並於提示時指定它。
 
 ## 建立自我簽署 SSL 憑證的 PFX 檔案
@@ -204,7 +205,7 @@
 
         pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
 
-輸入密碼，然後使用這些選項匯出憑證：* [是，匯出私密金鑰] * [匯出所有延伸內容]
+輸入密碼，然後使用這些選項匯出憑證：\* [是，匯出私密金鑰] \* [匯出所有延伸內容]
 
 ## 從憑證存放區匯出 SSL 憑證
 
@@ -344,7 +345,7 @@
     * 核取 [包含所有延伸內容]
 
 ## 複製用戶端憑證指紋
-用戶端憑證已發給的每個人必須依照下列步驟，以取得將加入至服務組態檔的憑證指紋：* 執行 certmgr.exe * 選取 [個人] 索引標籤 * 按兩下要用於驗證的用戶端憑證 * 在開啟的 [憑證] 對話方塊中，選取 [詳細資料] 索引標籤 * 確定 [顯示] 中顯示 [全部] * 在清單中選取名為 [憑證指紋] 的欄位 * 複製憑證指紋的值 ** 刪除第一個數字前面不可見的 Unicode 字元 ** 刪除所有空格
+用戶端憑證已發給的每個人必須依照下列步驟，以取得將加入至服務組態檔的憑證指紋：\* 執行 certmgr.exe \* 選取 [個人] 索引標籤 \* 按兩下要用於驗證的用戶端憑證 \* 在開啟的 [憑證] 對話方塊中，選取 [詳細資料] 索引標籤 \* 確定 [顯示] 中顯示 [全部] \* 在清單中選取名為 [憑證指紋] 的欄位 \* 複製憑證指紋的值 \*\* 刪除第一個數字前面不可見的 Unicode 字元 \*\* 刪除所有空格
 
 ## 在服務組態檔中設定允許的用戶端
 
@@ -368,7 +369,7 @@
 
     MyID.pvk and MyID.cer with the filename for the encryption certificate
 
-輸入密碼，然後使用這些選項匯出憑證：* [是，匯出私密金鑰] * [匯出所有延伸內容] * 將憑證上傳至雲端服務時，您將需要密碼。
+輸入密碼，然後使用這些選項匯出憑證：\* [是，匯出私密金鑰] \* [匯出所有延伸內容] \* 將憑證上傳至雲端服務時，您將需要密碼。
 
 ## 從憑證存放區匯出加密憑證
 
@@ -471,4 +472,4 @@
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

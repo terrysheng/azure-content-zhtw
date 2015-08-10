@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="開始使用驗證 (HTML 5) | 行動開發人員中心" 
-	description="了解如何使用行動服務透過眾多識別提供者驗證 HTML 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" 
+	pageTitle="將驗證新增至 HTML/JavaScript 應用程式 | Azure 行動服務" 
+	description="了解如何使用行動服務透過眾多識別提供者驗證 HTML 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft 帳戶。" 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # 在您的行動服務應用程式中新增驗證 
@@ -53,7 +53,7 @@
 
 ##<a name="add-authentication"></a>將驗證新增至應用程式
 
->[AZURE.NOTE]因為是在快顯視窗中執行登入，所以您應該從按鈕的 click 事件中叫用 <strong>login</strong> 方法。否則，許多瀏覽器會阻擋登入視窗。
+>[AZURE.NOTE]因為是在快顯中執行登入，您應該從按鈕的 click 事件中叫用 **login** 方法。否則，許多瀏覽器會阻擋登入視窗。
 
 1. 開啟專案檔案 index.html，找出 H1 元素，在它下面加入下列程式碼片段：
 
@@ -109,7 +109,7 @@
 
 	   成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
 
-	>[AZURE.NOTE]若是使用 Internet Explorer，登入之後可能會出現錯誤：<code>Cannot reach window opener.It may be on a different Internet Explorer zone</code>。這是因為快顯是在不同於 localhost (內部網路) 的安全性區域 (網際網路) 中執行。這只會在開發期間使用 localhost 時影響到應用程式。解決方法是開啟 [網際網路選項]<strong></strong> 的 [安全性]<strong></strong> 索引標籤，依序按一下 [近端內部網路]<strong></strong>、[網站]<strong></strong>，然後停用 [自動偵測內部網路]<strong></strong>。完成測試時，請記得恢復此設定。
+	>[AZURE.NOTE]若是使用 Internet Explorer，登入之後可能會出現錯誤：<code>Cannot reach window opener.It may be on a different Internet Explorer zone</code>。這是因為快顯是在不同於 localhost (內部網路) 的安全性區域 (網際網路) 中執行。這只會在開發期間使用 localhost 時影響到應用程式。解決方法是開啟 [網際網路選項] 的 [安全性] 索引標籤，按一下 [近端內部網路]，按一下 [網站]，然後停用 [自動偵測內部網路]。完成測試時，請記得恢復此設定。
 
 ## <a name="next-steps"> </a>後續步驟
 
@@ -138,4 +138,4 @@
 [行動服務 HTML/JavaScript 作法概念性參考]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

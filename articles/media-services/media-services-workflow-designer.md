@@ -33,8 +33,40 @@
 
 可以使用設計工具來修改預設的工作流程檔案。您可在[這裡](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)取得預設的工作流程檔案。資料夾也包含這些檔案的說明。
 
-下列部落格提供有關如何使用設計工具的訓練影片：
+下列影片示範如何使用設計工具。
+
+###第 1 天 – 開始使用
+
+第 1 天影片涵蓋：
+
+- 設計工具概觀
+- 基本工作流程 – "Hello World"
+- 建立多個搭配 Azure 媒體服務串流的輸出 MP4 檔案
+
+> [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-1]
+
+###第 2 天
+
+第 2 天影片涵蓋：
+
+- 不同來源檔案的案例 – 處理音訊
+- 使用進階邏輯的工作流程
+- 圖形階段
+
+> [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-2]
+
+###第 3 天
+
+第 3 天影片涵蓋：
+
+- 工作流程/藍圖中的指令碼處理
+- 目前編碼器的限制
+- 問答集
+ 
+> [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-3]
+
+##另請參閱
 
 [Azure Premium 編碼器工作流程設計工具訓練影片](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -54,7 +54,7 @@
 
 	記下匯出憑證的檔案名稱和位置。
 
-	>[AZURE.NOTE]本教學課程會建立 QuickStart.p12 檔案。Your file name and location might be different.
+	>[AZURE.NOTE]本教學課程會建立 QuickStart.p12 檔案。您的檔案名稱和位置可能不同。
 
 2. 登入 [Azure 管理入口網站]，並按一下畫面底部的 [+新增]。
 
@@ -70,7 +70,7 @@
 
    	![][4]
 
-6. 按一下頂端的 [Notification Hubs] 索引標籤，然後按一下您剛才建立的通知中心。
+6. 按一下頂端的 [通知中樞] 索引標籤，然後按一下您剛才建立的通知中心。
 
    	![][5]
 
@@ -511,4 +511,4 @@
 [本機和推播通知程式設計指南]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

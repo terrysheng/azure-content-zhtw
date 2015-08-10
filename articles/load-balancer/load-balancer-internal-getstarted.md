@@ -12,10 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="07/22/2015"
    ms.author="joaoma" />
 
 # 開始設定內部負載平衡器
+
+> [AZURE.SELECTOR]
+- [Azure Classic steps](load-balancer-internal-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-internal-arm-powershell.md)
 
 Azure 內部負載平衡 (ILB) 可在位於雲端服務或虛擬網路 (具有區域範圍) 中的虛擬機器之間提供負載平衡。如需使用和設定具有區域範圍之虛擬網路的相關資訊，請參閱 Azure 部落格中的[區域虛擬網路](../regional-virtual-networks.md)。已針對同質群組設定的現有虛擬網路無法使用 ILB。
 
@@ -230,7 +234,7 @@ ILB 組態必須在雲端服務建立第一個部署的過程中進行設定，�
 
 ### 步驟 1
 
-在 Visual Studio 中開啟雲端部署的服務組態檔 (.cscfg) 並新增下列區段以在網路組態的最後一個 "</Role>" 項目下建立 ILB。
+在 Visual Studio 中開啟雲端部署的服務組態檔 (.cscfg) 並新增下列區段，以在網路組態的最後一個 "`</Role>`" 項目下建立 ILB。
 
 
 
@@ -244,7 +248,7 @@ ILB 組態必須在雲端服務建立第一個部署的過程中進行設定，�
 	</NetworkConfiguration>
  
 
-讓我們新增網路組態檔的值，以顯示看起來如何。在此範例中，假設您利用稱為 test_subnet 的子網路 10.0.0.0/24 和靜態 IP 10.0.0.4 建立稱為 "test_vnet" 的子網路。負載平衡器將會命名為 testLB。
+讓我們新增網路組態檔的值，以顯示看起來如何。在此範例中，假設您利用稱為 test\_subnet 的子網路 10.0.0.0/24 和靜態 IP 10.0.0.4 建立稱為 "test\_vnet" 的子網路。負載平衡器將會命名為 testLB。
 
 	<NetworkConfiguration>
 	  <LoadBalancers>
@@ -254,7 +258,7 @@ ILB 組態必須在雲端服務建立第一個部署的過程中進行設定，�
 	  </LoadBalancers>
 	</NetworkConfiguration>
 
-如需負載平衡器結構描述的詳細資訊，請參閱[新增負載平衡器](https://msdn.microsoft.com/library/azure/dn722411.aspx)
+如需關於負載平衡器結構描述的詳細資訊，請參閱[新增負載平衡器](https://msdn.microsoft.com/library/azure/dn722411.aspx)
 
 ### 步驟 2
 
@@ -331,4 +335,4 @@ ILB 組態必須在雲端服務建立第一個部署的過程中進行設定，�
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

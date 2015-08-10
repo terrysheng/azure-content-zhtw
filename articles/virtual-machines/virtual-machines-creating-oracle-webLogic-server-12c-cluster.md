@@ -1,19 +1,5 @@
-<properties 
-	pageTitle="在 Azure 中建立 Oracle WebLogic Server 12c 叢集" 
-	description="逐步執行在 Microsoft Azure 中建立 Oracle WebLogic Server 12c 叢集的範例。" 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-
+<properties pageTitle="在 Azure 中建立 Oracle WebLogic Server 12c 叢集" description="逐步執行在 Microsoft Azure 中建立 Oracle WebLogic Server 12c 叢集的範例。" services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #在 Azure 中建立 Oracle WebLogic Server 12c 叢集
 以下範例會向您說明如何在 Azure 中以由 Microsoft 所提供並在 Windows Server 2012 上執行的 Oracle WebLogic Server 12c 映像為基礎，建立 Oracle WebLogic Server 叢集。
 
@@ -133,7 +119,7 @@ WebLogic Server 叢集中的每個執行個體都必須執行相同版本的 Ora
 
 9. 繼續在 WebLogic Server 管理主控台中，按一下 [啟用變更]。
 
-10. 在管理虛擬機器上，建立名為 **SERVER_HOME** 的環境變數，並將其值設為 **C:\Oracle\Middleware\Oracle_Home\wlserver**。 您可以使用下列步驟建立環境變數：
+10. 在管理虛擬機器上，建立名為 **SERVER\_HOME** 的環境變數，並將其值設為 **C:\\Oracle\\Middleware\\Oracle\_Home\\wlserver**。 您可以使用下列步驟建立環境變數：
 
 	1. 按一下 [Windows 開始]，輸入**控制台**，按一下 [控制台] 圖示，然後依序按一下 [系統及安全性]、[系統] 及 [進階系統設定]。
 
@@ -141,13 +127,13 @@ WebLogic Server 叢集中的每個執行個體都必須執行相同版本的 Ora
 
 	3. 在 [系統變數] 區段底下，按一下 [新增] 來建立變數。
 
-	4. 在 [新增系統變數] 對話方塊中，輸入 **SERVER_HOME** 做為變數名稱，然後輸入 **C:\Oracle\Middleware\Oracle_Home\wlserver** 做為變數。
+	4. 在 [新增系統變數] 對話方塊中，輸入 **SERVER\_HOME** 做為變數名稱，然後輸入 **C:\\Oracle\\Middleware\\Oracle\_Home\\wlserver** 做為變數。
 
 	5. 按一下 [確定] 來儲存新的環境變數並關閉 [新增系統變數] 對話方塊。
 
 	6. 關閉由控制台開啟的其他對話方塊。
 
-11. 開啟新的命令提示字元 (**SERVER_HOME** 環境變數才會生效)。
+11. 開啟新的命令提示字元 (**SERVER\_HOME** 環境變數才會生效)。
 
 	>[AZURE.NOTE]在您登入您的虛擬機器之後，部分其餘步驟需使用命令提示字元。若要了解您是登入哪一部機器，請在您開啟命令提示字元之後，執行 **title %COMPUTERNAME%**。
 	>
@@ -155,9 +141,9 @@ WebLogic Server 叢集中的每個執行個體都必須執行相同版本的 Ora
 
 12. 執行以下命令：
 
-		%SERVER_HOME%\common\bin\pack.cmd -managed=true -domain=C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain -template=c:\mytestdomain.jar -template_name="mytestdomain" 
+		%SERVER\_HOME%\\common\\bin\\pack.cmd -managed=true -domain=C:\\Oracle\\Middleware\\Oracle\_Home\\user\_projects\\domains\\base\_domain -template=c:\\mytestdomain.jar -template\_name="mytestdomain" 
 
-	此命令會建立名為 **c:\mytestdomain.jar** 的 JAR。 您稍後將會把這個 JAR 複製到您叢集中的受管理虛擬機器。
+	此命令會建立名為 **c:\\mytestdomain.jar** 的 JAR。 您稍後將會把這個 JAR 複製到您叢集中的受管理虛擬機器。
 
 13. 允許透過防火牆輸入連線至連接埠 7001。
 
@@ -179,19 +165,19 @@ WebLogic Server 叢集中的每個執行個體都必須執行相同版本的 Ora
 
 	1. 登入虛擬機器。
 
-	2. 建立名為 **SERVER_HOME** 的環境變數，並將其值設為 **C:\Oracle\Middleware\Oracle_Home\wlserver**。
+	2. 建立名為 **SERVER\_HOME** 的環境變數，並將其值設為 **C:\\Oracle\\Middleware\\Oracle\_Home\\wlserver**。
 
-	3. 將 c:\mytestdomain.jar 從管理虛擬機器複製到受管理虛擬機器上的 c:\mytestdomain.jar。
+	3. 將 c:\\mytestdomain.jar 從管理虛擬機器複製到受管理虛擬機器上的 c:\\mytestdomain.jar。
 
 	4. 開啟命令提示字元 (並請記得在命令提示字元執行 **title %COMPUTERNAME%**，以讓它清除正在存取的電腦)。
 
 	5. 執行以下命令：
 
-			%SERVER_HOME%\common\bin\unpack.cmd -domain=C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain -template=c:\mytestdomain.jar
+			%SERVER\_HOME%\\common\\bin\\unpack.cmd -domain=C:\\Oracle\\Middleware\\Oracle\_Home\\user\_projects\\domains\\base\_domain -template=c:\\mytestdomain.jar
 
-	6. 將命令提示字元目前目錄變更至 **C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain\bin**。
+	6. 將命令提示字元目前目錄變更至 **C:\\Oracle\\Middleware\\Oracle\_Home\\user\_projects\\domains\\base\_domain\\bin**。
 
-	7. 執行 start<<*MACHINENAME*>>.cmd，其中 <<*MACHINENAME*>> 為受管理電腦的名稱。例如，**startMYVM2-MANAGED**。
+	7. 執行 start<<\*MACHINENAME\*>>.cmd，其中 <<\*MACHINENAME\*>> 為受管理電腦的名稱。例如，**startMYVM2-MANAGED**。
 
 	8. 出現提示時，請提供 WebLogic Server 使用者名稱與密碼。
 
@@ -252,13 +238,13 @@ WebLogic Server 叢集中的每個執行個體都必須執行相同版本的 Ora
 
 1. 請都入您用於管理 WebLogic Server 叢集的虛擬機器 (例如 **MYVM1-ADMIN**)。 
 
-2. 將 shoppingcart.war 複製到本機。例如，建立名為 **c:\mywar** 的資料夾，然後將位於 <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war> 的 WAR 儲存至 **c:\mywar**。
+2. 將 shoppingcart.war 複製到本機。例如，建立名為 **c:\\mywar** 的資料夾，然後將位於 <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war> 的 WAR 儲存至 **c:\\mywar**。
 
 3. 開啟 [WebLogic Server 管理主控台] (<http://localhost:7001/console>)。出現提示時，請提供您的 WebLogic 使用者名稱與密碼。
 
 4. 在 [WebLogic Server 管理主控台] 中，依序按一下 [鎖定與編輯]、[部署] 及 [安裝]。
 
-5. 對於 [路徑]，請輸入 **c:\myway\shoppingcart.war**。
+5. 對於 [路徑]，請輸入 **c:\\myway\\shoppingcart.war**。
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image004.png)
 
@@ -319,4 +305,4 @@ WebLogic Server 叢集中的每個執行個體都必須執行相同版本的 Ora
 
 - [Microsoft Azure 上使用 Linux 的 Oracle WebLogic Server 12c](http://www.oracle.com/technetwork/middleware/weblogic/learnmore/oracle-weblogic-on-azure-wp-2020930.pdf)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

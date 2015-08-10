@@ -49,4 +49,4 @@
 
 <sup>2</sup>如果交易鎖定基礎系統工作所需的資源，則最大持續時間為 20 秒。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -39,16 +39,19 @@ Application Insights 是一項可延伸的分析服務，可幫助您了解即�
 
 ![製作使用者活動統計資料的圖表，或深入特定事件。](./media/app-insights-overview/00-sample.png)
 
+想要進一步分析嗎？ 將您的資料[匯出](app-insights-export-telemetry.md)到 [SQL](app-insights-code-sample-export-telemetry-sql-database.md)、[Power BI](app-insights-export-power-bi.md)，或是您自己的工具。
+
+![在 Power BI 中檢視資料](./media/app-insights-overview/210.png)
 
 ## 平台和語言
 
 針對範圍日益成長的平台提供了 SDK。目前此清單包括：
 
- * 在 Azure 或您的 IIS 伺服器上的 [ASP.NET 伺服器][greenbrown]
+ * Azure 或您 IIS 伺服器上的 [ASP.NET 伺服器][greenbrown]
  * [Azure 雲端服務](app-insights-cloudservices.md)
  * [J2EE 伺服器][java]
  * [網頁][client]：HTML+JavaScript
- * [Windows Phone、Windows 市集、Windows 10 通用應用程式，並與 Windows 10 開發人員入口網站直接整合][windows]
+ * [Windows Phone、Windows 市集、Windows 10 通用 App，並與 Windows 10 開發人員入口網站直接整合][windows]
  * [Windows 桌面][desktop]
  * [iOS][ios]
  * [Android][android]
@@ -72,14 +75,17 @@ SDK 有數個模組收集遙測，例如，計算使用者、工作階段和效�
 * 監視 Web 應用程式，而不需要重新建立或重新安裝它。
 * 追蹤對相依模組的呼叫。
 
+
+
 ### 負荷為何？
 
 對您的效能的影響很小。追蹤會呼叫非封鎖性，並且批次處理要求並在另一個執行緒中傳送。
 
 
+
 ## 若要開始使用
 
-1. 您將需要 [Microsoft Azure](http://azure.com) 訂用帳戶。註冊免費，且您可以選擇 Application Insights 的免費[定價層](https://azure.microsoft.com/pricing/details/application-insights/)。
+1. 您將需要 [Microsoft Azure](http://azure.com) 訂用帳戶。您可以免費註冊，並選擇 Application Insights 的免費[定價層](https://azure.microsoft.com/pricing/details/application-insights/)。
 
 2. 登入 [Azure Preview 入口網站](http://portal.azure.com)
 3. 建立 Application Insights 資源。這是您會看到來自您的應用程式資料的位置。
@@ -139,4 +145,4 @@ SDK 有數個模組收集遙測，例如，計算使用者、工作階段和效�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

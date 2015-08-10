@@ -36,7 +36,7 @@
 
 若要使用服務匯流排，除了其他的 WebJobs SDK 封裝之外，您還必須安裝 [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) NuGet 封裝。
 
-除了儲存體連接字串之外，您也必須設定 AzureWebJobsServiceBus 連接字串。您可以在 Web.config 檔案的 `connectionStrings` 區段中執行這個動作，如下列範例所示：
+除了儲存體連接字串之外，您也必須設定 AzureWebJobsServiceBus 連接字串。您可以在 App.config 檔案的 `connectionStrings` 區段中執行這個動作，如下列範例所示：
 
 		<connectionStrings>
 		    <add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/>
@@ -44,7 +44,9 @@
 		    <add name="AzureWebJobsServiceBus" connectionString="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[yourKey]"/>
 		</connectionStrings>
 
-如需範例專案，請參閱[服務匯流排範例](https://github.com/Azure/azure-webjobs-sdk-samples/tree/master/BasicSamples/ServiceBus)。如需詳細資訊，請參閱[開始使用 WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)。
+如需包含 App.config 檔案中服務匯流排連接字串設定的範例專案，請參閱[服務匯流排範例](https://github.com/Azure/azure-webjobs-sdk-samples/tree/master/BasicSamples/ServiceBus)。
+
+連接字串也可以在 Azure 執行階段環境中設定，然後會在 Azure 中執行 WebJob 時覆寫 App.config。如需詳細資訊，請參閱[開始使用 WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md#configure-the-web-app-to-use-your-azure-sql-database-and-storage-account)。
 
 ## <a id="trigger"></a> 如何在收到服務匯流排佇列訊息時觸發函數
 
@@ -157,4 +159,4 @@ SDK 會針對 POCO ([純舊 CLR 物件](http://en.wikipedia.org/wiki/Plain_Old_C
 本指南提供了程式碼範例，示範如何處理使用 Azure Service Bus 的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

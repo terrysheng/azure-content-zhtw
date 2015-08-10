@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="在 Azure 中安裝複本網域控制站" 
-	description="此教學課程說明如何從 Azure 的虛擬機器上的內部部署 Active Directory 樹系中安裝網域控制站。" 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"
+<properties
+	pageTitle="在 Azure 中安裝複本網域控制站 | Microsoft Azure"
+	description="此教學課程說明如何從 Azure 的虛擬機器上的內部部署 Active Directory 樹系中安裝網域控制站。"
+	services="virtual-network"
+	documentationCenter=""
+	authors="curtand"
+	manager="swadwha"
+	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
+	ms.author="curtand"/>
 
 
 # 在 Azure 虛擬網路中安裝複本 Active Directory 網域控制台
@@ -30,9 +30,9 @@
 
 ## 案例圖表
 
-在此案例中，外部使用者需要存取在加入網域的伺服器上執行的應用程式。執行應用程式伺服器和複本 DC 的 VM 安裝在 Azure 虛擬網路中。虛擬網路可透過[站對站 VPN](https://msdn.microsoft.com/library/azure/dn133795.aspx) 連線方式來連線到內部部署網路，如下圖所示，或者您可以使用 [ExpressRoute](../../services/expressroute/) 進行更快速的連線。
+在此案例中，外部使用者需要存取在加入網域的伺服器上執行的應用程式。執行應用程式伺服器和複本 DC 的 VM 安裝在 Azure 虛擬網路中。虛擬網路可透過[站對站 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) 連線方式來連線到內部部署網路，如下圖所示，或者您可以使用 [ExpressRoute](../../services/expressroute/) 進行更快速的連線。
 
-應用程式伺服器和網域控制站會部署在個別[雲端服務](../cloud-services-what-is.md)內分散運算處理，以及在[可用性設定組](../virtual-machines/virtual-machines-manage-availability.md)內改良容錯功能。網域控制站會使用 Active Directory 複寫功能，在彼此之間以及與內部部署網域控制站互相複寫。不需要任何同步處理工具。
+應用程式伺服器和網域控制站會部署在個別[雲端服務](../cloud-services-what-is.md)內分散運算處理，以及在[可用性集合](../virtual-machines/virtual-machines-manage-availability.md)內改良容錯功能。網域控制站會使用 Active Directory 複寫功能，在彼此之間以及與內部部署網域控制站互相複寫。不需要任何同步處理工具。
 
 ![][1]
 
@@ -53,9 +53,9 @@
 	**虛擬網路詳細資料** | <p>名稱：輸入虛擬網路的名稱，例如 WestUSVNet。</p><p>區域：選擇最近的區域。</p>
 	**DNS 和 VPN 連線能力** | <p>DNS 伺服器：指定一或多個內部部署 DNS 伺服器的名稱與 IP 位址。</p><p>連線能力：選取 [設定站對站 VPN]。</p><p>區域網路：指定新的區域網路。</p><p>如果您使用 ExpressRoute 而不是 VPN，請參閱 [透過 Exchange 提供者設定 ExpressRoute 連線](https://msdn.microsoft.com/library/azure/dn606306.aspx)。</p>
 	**站對站連線能力** | <p>名稱：輸入內部部署網路的名稱。</p><p>VPN 裝置 IP 位址：指定將連線到虛擬網路的裝置公用 IP 位址。VPN 裝置不能位於 NAT 後方。</p><p>位址：指定內部部署網路的位址範圍 (例如案例圖表中的 192.168.0.0/16)。</p>
-	**虛擬網路位址空間** | <p>位址空間：指定您想要在 Azure 虛擬網路中執行的 VM IP 位址範圍 (例如案例圖表中的 10.1.0.0/16)。此位址範圍不得與內部部署網路的位址範圍重疊。</p><p>子網路：指定應用程式伺服器的子網路名稱和位址 (例如前端 10.1.1.0/24) 以及網域控制站的子網路名稱和位址 (例如後端 10.1.2.0/24)。</p><p>按一下 [加入閘道子網路]。</p>
+	**虛擬網路位址空間** | <p>位址空間：指定您想要在 Azure 虛擬網路中執行的 VM IP 位址範圍 (例如案例圖表中的 10.1.0.0/16)。此位址範圍不得與內部部署網路的位址範圍重疊。</p><p>子網路：指定應用程式伺服器的子網路名稱和位址 (例如前端 10.1.1.0/24) 以及網域控制站的子網路名稱和位址 (例如後端 10.1.2.0/24)。</p><p>按一下 [加入閘道器子網路]。</p>
 
-2. 接著，您要設定虛擬網路閘道來建立安全的站台對站台 VPN 連線。如需指示，請參閱[設定虛擬網路閘道](https://msdn.microsoft.com/library/azure/jj156210.aspx)。
+2. 接著，您要設定虛擬網路閘道器來建立安全的站台對站台 VPN 連線。如需指示，請參閱[設定虛擬網路閘道](https://msdn.microsoft.com/library/azure/jj156210.aspx)。
 3. 在新的虛擬網路與內部部署 VPN 裝置之間建立站台對站台 VPN 連線。如需指示，請參閱[設定虛擬網路閘道](https://msdn.microsoft.com/library/azure/jj156210.aspx)。
 
 
@@ -64,13 +64,13 @@
 
 重複下列步驟，視需要建立裝載 DC 角色的 VM。您應該至少部署兩部虛擬網域控制站以提供容錯和冗餘。如果 Azure 虛擬網路包含至少兩個類似設定的 DC (亦即，它們都是 GC、執行 DNS 伺服器，並且未持有任何 FSMO 角色等等)，那麼可將執行這些 DC 的 VM 放在可用性集合以獲得改善的容錯。若要使用 Windows PowerShell 而非 UI 建立 VM，請參閱[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](../virtual-machines/virtual-machines-ps-create-preconfigure-windows-vms.md)。
 
-1. 在 Azure 傳統入口網站中，按一下 [新增] > [計算] > [虛擬機器] > [從組件庫]。使用下列值來完成精靈。除非建議或需要另一個值，否則請接受設定的預設值。
+1. 在 Azure 傳統入口網站中，按一下 [新增] > [運算] > [虛擬機器] > [從組件庫]。使用下列值來完成精靈。除非建議或需要另一個值，否則請接受設定的預設值。
 
     在此精靈頁面上… | 指定這些值
 	------------- | -------------
 	**選擇映像** | Windows Server 2012 R2 Datacenter
 	**虛擬機器組態** | <p>虛擬機器名稱：輸入單一標籤名稱 (例如 AzureDC1)。</p><p>新的使用者名稱：輸入使用者的名稱。此使用者將會是 VM 上本機 Administrators 群組的成員。第一次登入 VM 時，您將需要此名稱。內建的系統管理員帳戶會無法運作。</p><p>新密碼/確認：輸入密碼</p>
-	**虛擬機器組態** | <p>雲端服務：針對第一個 VM 選擇<b>建立新的雲端服務</b>，然後在建立更多將主控 DC 角色的 VM 時選取該相同雲端服務名稱。</p><p>雲端服務 DNS 名稱：指定全域唯一的名稱</p><p>區域/同質群組/虛擬網路：指定虛擬網路名稱 (例如 WestUSVNet)。</p><p>儲存體帳戶：針對第一個 VM 選擇<b>使用自動產生的儲存體帳戶</b>，然後在建立更多將主控 DC 角色的 VM 時選取該相同儲存體帳戶名稱。</p><p>可用性設定組：選擇<b>建立可用性設定組</b>。</p><p>可用性設定組名稱：在建立第一個 VM 時輸入可用性設定組的名稱，然後在建立更多 VM 時輸入該相同名稱。</p>
+	**虛擬機器組態** | <p>雲端服務：針對第一個 VM 選擇<b>建立新的雲端服務</b>，然後在建立更多將主控 DC 角色的 VM 時選取該相同雲端服務名稱。</p><p>雲端服務 DNS 名稱：指定全域唯一的名稱</p><p>區域/同質群組/虛擬網路：指定虛擬網路名稱 (例如 WestUSVNet)。</p><p>儲存體帳戶：針對第一個 VM 選擇<b>使用自動產生的儲存體帳戶</b>，然後在建立更多將主控 DC 角色的 VM 時選取該相同儲存體帳戶名稱。</p><p>可用性設定組：選擇<b>建立可用性集合</b>。</p><p>可用性集合名稱：在建立第一個 VM 時輸入可用性集合的名稱，然後在建立更多 VM 時輸入該相同名稱。</p>
 	**虛擬機器組態** | <p>選取<b>安裝 VM 代理程式</b>以及您所需的任何其他延伸模組。</p>
 2. 將磁碟連接至將執行 DC 伺服器角色的每個 VM。需要額外的磁碟來儲存 AD 資料庫、記錄檔和 SYSVOL。指定磁碟的大小 (例如 10 GB) 並保留 [**主機快取喜好設定**] 設為 [**無**]。如需相關步驟，請參閱[如何將資料磁碟連接至 Windows 虛擬機器](../virtual-machines/storage-windows-attach-disk.md)。
 3. 在您第一次登入 VM 之後，請開啟 [**伺服器管理員**] > [**檔案和儲存體服務**]，以在磁碟上使用 NTFS 建立磁碟區。
@@ -87,7 +87,7 @@
 ## 重新設定虛擬網路的 DNS 伺服器
 
 1. 在 Azure 的傳統網站中，按一下虛擬網路的名稱，然後按一下 [設定] 索引標籤[重新設定虛擬網路的 DNS 伺服器 IP 位址](https://msdn.microsoft.com/library/azure/dn275925.aspx)，以使用指派給複本網域控制站的靜態 IP 位址，而不是內部部署 DNS 伺服器的 IP 位址。
- 
+
 2. 若要確保虛擬網路上的所有複本 DC VM 都已設定使用虛擬網路上的 DNS 伺服器，請按一下 [虛擬機器]，按一下每個 VM 的狀態欄，然後按一下 [重新啟動]。請等到 VM 顯示 [執行中] 狀態，再嘗試登入。
 
 ## 建立應用程式伺服器的 VM
@@ -121,6 +121,5 @@
 
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

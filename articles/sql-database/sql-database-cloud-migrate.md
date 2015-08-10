@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="移轉至 Azure SQL Database" 
+   pageTitle="將資料庫移轉至 Azure SQL Database" 
    description="Microsoft Azure SQL Database、資料庫部署、資料庫移轉、匯入資料庫，匯出資料庫、移轉精靈" 
    services="sql-database" 
    documentationCenter="" 
@@ -16,7 +16,8 @@
    ms.date="07/17/2015"
    ms.author="pehteh"/>
 
-# 概觀
+# 將資料庫移轉至 Azure SQL Database
+
 Azure SQL Database V12 提供與 SQL Server 2014 幾乎完全的引擎相容性，因此可大幅簡化將大多數資料庫從 SQL Server 移轉至 Azure SQL Database 的工作。許多資料庫的移轉是直接移動作業，對結構描述的變更很少 (如果有的話)，而且重新設計應用程式的幅度也很小或甚至不需要。如果需要變更資料庫，這些變更的範圍會更侷限。
 
 根據設計，SQL Server 的伺服器範圍功能不受 SQL Database 的支援，因此依賴這些功能的資料庫和應用程式仍然需要稍微重新設計，才能移轉。雖然 SQL Database V12 改善了與 SQL Server 的相容性，但是您仍然需要謹慎規劃及執行移轉，特別是針對較大且較複雜的資料庫。
@@ -81,4 +82,4 @@ Visual Studio 的 SQL Server 工具可用來建立及管理資料庫專案，該
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

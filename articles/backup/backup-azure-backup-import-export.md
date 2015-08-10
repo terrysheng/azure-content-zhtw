@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="aashishr"
    manager="shreeshd"
-   editor=""/> <tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/14/2015" ms.author="aashishr"; "jimpark"/>
+   editor=""/> <tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt\_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/14/2015" ms.author="aashishr"; "jimpark"/>
 
 # 在 Azure 備份中離線備份工作流程
 
@@ -63,20 +63,20 @@ Azure 備份與 Azure 匯入/匯出服務密切整合，可讓您快速傳輸初
 
 2. 解壓縮 *WAImportExport.zip* 檔案。執行 *WAImportExport* 工具，以格式化 SATA 磁碟機、將備份資料寫入 SATA 磁碟機並進行加密。執行下列命令之前請確定電腦上已啟用 BitLocker。<br/>
 
-    *.\WAImportExport.exe PrepImport /j:<*JournalFile*>.jrn /id: <*SessionId*> /sk:<*StorageAccountKey*> /BlobType:**PageBlob** /t:<*TargetDriveLetter*> /format /encrypt /srcdir:<*staging location*> /dstdir: <*DestinationBlobVirtualDirectory*>/*
+    *.\\WAImportExport.exe PrepImport /j:<\*JournalFile*>.jrn /id: <\*SessionId\*> /sk:<\*StorageAccountKey\*> /BlobType:*\*PageBlob\*\* /t:<\*TargetDriveLetter\*> /format /encrypt /srcdir:<\*staging location\*> /dstdir: <\*DestinationBlobVirtualDirectory\*>/\*
 
 
 | 參數 | 說明
 |-------------|-------------|
-| /j:<*JournalFile*>| 日誌檔案的路徑。每個磁碟機必須只有一個日誌檔案。請注意，日誌檔案不得位於目標磁碟機上。日誌檔案的副檔名是 .jrn，且作為執行此命令的一部分而建立。|
-|/id:<*SessionId*> | 工作階段識別碼會識別*複製工作階段*。其用來確保正確復原中斷的複製工作階段。在複製工作階段中複製的檔案會儲存在以目標磁碟機上工作階段識別碼命名的目錄。|
-| /sk:<*StorageAccountKey*> | 資料將要匯入儲存體帳戶的帳戶金鑰。 |
+| /j:<\*JournalFile\*>| 日誌檔案的路徑。每個磁碟機必須只有一個日誌檔案。請注意，日誌檔案不得位於目標磁碟機上。日誌檔案的副檔名是 .jrn，且作為執行此命令的一部分而建立。|
+|/id:<\*SessionId\*> | 工作階段識別碼會識別*複製工作階段*。其用來確保正確復原中斷的複製工作階段。在複製工作階段中複製的檔案會儲存在以目標磁碟機上工作階段識別碼命名的目錄。|
+| /sk:<\*StorageAccountKey\*> | 資料將要匯入儲存體帳戶的帳戶金鑰。 |
 | /BlobType | 指定 **PageBlob**，此工作流程僅在指定 PageBlob 選項時才會成功。這不是預設選項，且應該在此命令中進行描述。 |
-|/t:<*TargetDriveLetter*> | 目前複製工作階段中目標硬碟的磁碟機代號，不包含結尾的冒號。|
+|/t:<\*TargetDriveLetter\*> | 目前複製工作階段中目標硬碟的磁碟機代號，不包含結尾的冒號。|
 |/format | 當磁碟機需要進行格式化時請指定此參數；否則請省略。此工具格式化磁碟機之前，會提示您從主控台進行確認。若要隱藏確認，請指定 /silentmode 參數。|
 |/encrypt | 當磁碟機尚未使用 BitLocker 加密，且需要透過工具加密時，請指定此參數。若已使用 BitLocker 加密磁碟機，則省略此參數並指定 /bk 參數，以提供現有的 BitLocker 金鑰。若您指定 /format 參數，則您也必須指定 /encrypt 參數。 |
-|/srcdir:<*SourceDirectory*> | 包含檔案的來源目錄會複製至目標磁碟機。目錄路徑必須是絕對路徑 (而非相對路徑)。|
-|/dstdir:<*DestinationBlobVirtualDirectory*> | Microsoft Azure 儲存體帳戶中的目的地虛擬目錄路徑。指定目的地虛擬目錄或 blob 時，請確定使用有效的容器名稱。請記住容器名稱必須是小寫。|
+|/srcdir:<\*SourceDirectory\*> | 包含檔案的來源目錄會複製至目標磁碟機。目錄路徑必須是絕對路徑 (而非相對路徑)。|
+|/dstdir:<\*DestinationBlobVirtualDirectory\*> | Microsoft Azure 儲存體帳戶中的目的地虛擬目錄路徑。指定目的地虛擬目錄或 blob 時，請確定使用有效的容器名稱。請記住容器名稱必須是小寫。|
 
   >[AZURE.NOTE]日誌檔案會在擷取整個工作流程資訊的 WAImportExport 資料夾中進行建立。在 Azure 入口網站中建立匯入工作時，您將需要此檔案。
 
@@ -107,4 +107,4 @@ Azure 備份與 Azure 匯入/匯出服務密切整合，可讓您快速傳輸初
 - 若您有關於 Azure 匯入/匯出工作流程的任何問題，請參閱此[文章](../storage-import-export-service.md)。
 - 若您有關於工作流程的任何問題，請參閱 Azure 備份[常見問題集](backup-azure-backup-faq.md)的＜離線備份＞章節
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

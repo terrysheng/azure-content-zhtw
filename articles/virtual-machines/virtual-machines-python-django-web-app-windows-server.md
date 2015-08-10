@@ -76,7 +76,7 @@
 
 1. 安裝含 FastCGI 支援的 IIS。執行的時間可能需要幾分鐘。
 
-		start /wait %windir%\System32\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
+		start /wait %windir%\System32\\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
 
 
 ### Python 2.7
@@ -148,7 +148,7 @@
 ## 建立新的 Django 應用程式
 
 
-1.  在 *C:\inetpub\wwwroot* 中，輸入下列命令以建立新的 Django 專案。
+1.  在 *C:\\inetpub\\wwwroot* 中，輸入下列命令以建立新的 Django 專案。
 
     針對 Python 2.7，請使用下列命令。
 
@@ -162,13 +162,13 @@
 
 1.  **django-admin** 命令會為 Django 型網站產生一個基本結構：
 
-  -   **helloworld\manage.py** 可協助您開始裝載及停止裝載 Django 型網站。
-  -   **helloworld\helloworld\settings.py** 包含應用程式的 Django 設定。
-  -   **helloworld\helloworld\urls.py** 包含每個 URL 與其檢視之間的對應碼。
+  -   **helloworld\\manage.py** 可協助您開始裝載及停止裝載 Django 型網站。
+  -   **helloworld\\helloworld\\settings.py** 包含應用程式的 Django 設定。
+  -   **helloworld\\helloworld\\urls.py** 包含每個 URL 與其檢視之間的對應碼。
 
 
 
-1.  在 **C:\inetpub\wwwroot\helloworld\helloworld** 目錄中，建立名為 *views.py* 的新檔案。這將包含轉譯 "hello world" 頁面的檢視。啟動您的編輯器並輸入下列程式碼。
+1.  在 **C:\\inetpub\\wwwroot\\helloworld\\helloworld** 目錄中，建立名為 *views.py* 的新檔案。這將包含轉譯 "hello world" 頁面的檢視。啟動您的編輯器並輸入下列程式碼。
 
 		from django.http import HttpResponse
 		def home(request):
@@ -198,4 +198,4 @@
 
 [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

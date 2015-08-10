@@ -18,7 +18,7 @@
 
 # 分區彈性 
 
-**分區彈性**可讓應用程式開發人員根據需求，動態地放大和縮小資料庫資源，以最佳化其應用程式的效能並降低成本。Azure SQL Database 的**彈性資料庫工具**結合 [Basic、Standard 和 Premium 服務層](http://msdn.microsoft.com/library/azure/dn741340.aspx)，提供令人信服的彈性案例。彈性資料庫工具支援水平縮放 - 一種設計模式，從分區集加入或移除資料庫 (也稱為[分區](sql-database-elastic-scale-glossary.md))，以放大或縮小容量。同樣地，SQL Database 服務層提供**垂直縮放**功能，單一資料庫的資源可以相應增加或減少，以適當地配合需求。單一分區的垂直縮放和許多分區的水平縮放結合起來，為應用程式開發人員提供非常有彈性的環境，可以調整以符合效能、容量和成本最佳化的需求。
+**分區彈性**可讓應用程式開發人員根據需求，動態地放大和縮小資料庫資源，以最佳化其應用程式的效能並降低成本。Azure SQL Database 的**彈性資料庫工具**結合[基本、標準和進階服務層](http://msdn.microsoft.com/library/azure/dn741340.aspx)，提供令人信服的彈性案例。彈性資料庫工具支援水平縮放 - 一種設計模式，從分區集加入或移除資料庫 (也稱為[分區](sql-database-elastic-scale-glossary.md))，以放大或縮小容量。同樣地，SQL Database 服務層提供**垂直縮放**功能，單一資料庫的資源可以相應增加或減少，以適當地配合需求。單一分區的垂直縮放和許多分區的水平縮放結合起來，為應用程式開發人員提供非常有彈性的環境，可以調整以符合效能、容量和成本最佳化的需求。
 
 搭配新引進的**彈性資料庫集區**功能，更容易達成垂直縮放。集區允許在整個集區共享的預算內，讓個別資料庫的資源耗用*自動*擴大或縮小。對於選擇不利用彈性資料庫集區的應用程式，這篇文章將說明實作以原則為基礎的機制來管理垂直縮放的其他技術，以及水平縮放作業自動化的一些常見案例。
 
@@ -55,10 +55,10 @@
 #### 遙測資料來源
 就 Azure SQL DB 來說，有很多重要來源都可以作為分區彈性的資料來源。
 
-1. **效能遙測**在 **sys.resource_stats** 檢視表中以五分鐘的持續時間呈現 
-2. 每小時**資料庫容量遙測**是透過 **sys.resource_usage** 檢視表來呈現。  
+1. **效能遙測**在 **sys.resource\_stats** 檢視表中以五分鐘的持續時間呈現 
+2. 每小時**資料庫容量遙測**是透過 **sys.resource\_usage** 檢視表來呈現。  
 
-您可以使用下列查詢來查詢 master DB，以分析效能資源使用狀況，其中 ‘Shard_20140623’ 是目標資料庫的名稱。
+您可以使用下列查詢來查詢 master DB，以分析效能資源使用狀況，其中 ‘Shard\_20140623’ 是目標資料庫的名稱。
 
     SELECT TOP 10 *  
     FROM sys.resource_stats  
@@ -81,7 +81,7 @@
     FROM sys.resource_stats  
     WHERE database_name = ' Shard_20140623' AND start_time > DATEADD(day, -7, GETDATE()); 
 
-**資料庫容量**可以透過對 **sys.resource_usage** 檢視表執行類似的查詢來測量。**storage_in_megabytes** 資料行的最大值決定目前的資料庫大小。當特定分區達到容量上限時，這類遙測適用於水平縮放應用程式。
+**資料庫容量**可以透過對 **sys.resource\_usage** 檢視表執行類似的查詢來測量。**storage\_in\_megabytes** 資料行的最大值決定目前的資料庫大小。當特定分區達到容量上限時，這類遙測適用於水平縮放應用程式。
 
     SELECT TOP 10 * 
     FROM [sys].[resource_usage] 
@@ -155,4 +155,4 @@
 [Action]: #action
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

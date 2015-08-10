@@ -94,7 +94,7 @@ Azure 資料目錄強化技術性和非技術性使用者的能力，包括：
 
 <br/>
 
-> [AZURE.NOTE]如果資料來源 (例如 SQL Server Analysis Services) 有第一級的 **Description** 屬性，**Azure 資料目錄**發佈應用程式會擷取該屬性值。對於 SQL Server 關聯式資料庫，因為缺少第一級的 **Description** 屬性，**Azure 資料目錄**發佈應用程式會從物件和資料行的 ms_description 擴充屬性擷取值。如需詳細資訊，請參閱 TechNet [在資料庫物件上使用擴充屬性](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx)。
+> [AZURE.NOTE]如果資料來源 (例如 SQL Server Analysis Services) 有第一級的 **Description** 屬性，**Azure 資料目錄**發佈應用程式會擷取該屬性值。對於 SQL Server 關聯式資料庫，因為缺少第一級的 **Description** 屬性，**Azure 資料目錄**發佈應用程式會從物件和資料行的 ms\_description 擴充屬性擷取值。如需詳細資訊，請參閱 TechNet [在資料庫物件上使用擴充屬性](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx)。
 
 ## 問：新註冊的資產經過多久才會出現在 Azure 資料目錄中？
 
@@ -157,4 +157,4 @@ Azure 資料目錄強化技術性和非技術性使用者的能力，包括：
 
 請前往 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)。那裡提出的問題會在這裡找到答案。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

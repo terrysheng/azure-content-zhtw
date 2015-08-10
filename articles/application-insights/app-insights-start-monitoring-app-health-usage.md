@@ -124,13 +124,13 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 (您也可以使用狀態監視器來[檢測已在執行的應用程式](app-insights-monitor-performance-live-website-now.md)，即使它不是使用 SDK 建置。)
 
-#### 如果您的應用程式是 Azure Web 應用程式
+#### 如果您的 app 是 Azure Web 應用程式
 
 在您的 Azure Web 應用程式的控制台中，加入 Application Insights 延伸模組。
 
-![在您的 Web 應用程式中，依序按一下 [設定]、[延伸模組]、[加入]、[Application Insights]](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+![在您的 Web 應用程式中，[工具]、[效能監視]、[新增]、[Application Insights]](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
-(延伸模組只能協助使用 SDK 建置的應用程式。與狀態監視器不同，它無法檢測現有的應用程式。)
+(延伸模組只能協助使用 SDK 建置的 app。與狀態監視器不同，它無法檢測現有的應用程式。)
 
 ## 加入用戶端監視
 
@@ -138,17 +138,17 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 您也可以撰寫自己的程式碼，來追蹤您的使用者使用您的應用程式，徹底得知詳細的點按和按鍵層級。
 
-#### 如果您的用戶端是 Web 瀏覽器
+#### 如果您的用戶端是網頁瀏覽器
 
-如果您的應用程式顯示網頁，請在每一頁加入 JavaScript 程式碼片段。從您的 Application Insights 資源取得程式碼：
+如果您的 app 顯示網頁，請在每一頁加入 JavaScript 程式碼片段。從您的 Application Insights 資源取得程式碼：
 
-![在您的 Web 應用程式中，開啟 [快速啟動]，然後按一下 [取得程式碼來監視我的網頁]](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
+![在您的 Web 應用程式中，開啟 [快速入門]，然後按一下 [取得程式碼來監視我的網頁]](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
 
 請注意，此程式碼包含可識別您的應用程式資源的檢測金鑰。
 
 [進一步了解網頁追蹤。](app-insights-web-track-usage.md)
 
-#### 如果您的用戶端是裝置應用程式
+#### 如果您的用戶端是裝置 app
 
 如果您的應用程式為用戶端 (例如電話或其他裝置) 提供服務，請加入[適當的 SDK](app-insights-platforms.md) 至您的裝置應用程式。
 
@@ -192,7 +192,7 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 
 #### 設定選項
 
-如果這是您第一次使用，系統會要求您登入或註冊 Microsoft Azure 預覽(該帳戶與 Visual Studio Online 帳戶彼此獨立)。
+如果這是您第一次使用，系統會要求您登入或註冊 Microsoft Azure Preview。(該帳戶與 Visual Studio Online 帳戶彼此獨立)。
 
 如果此應用程式是更大應用程式的一部分，您可以使用 [**組態設定**]，將它放在與其他元件相同的資源群組中。
 
@@ -231,4 +231,4 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

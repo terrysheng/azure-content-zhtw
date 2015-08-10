@@ -157,7 +157,7 @@
 
 如果您將再次建立這個虛擬機器或類似的虛擬機器，您可以：
 
-- 將此命令集儲存為 PowerShell 指令碼檔案 (*.ps1)
+- 將此命令集儲存為 PowerShell 指令碼檔案 (\*.ps1)
 - 在 Azure 管理入口網站的 [自動化] 區段中，將這個命令集儲存為 Azure 自動化 Runbook。
 
 ## <a id="examples"></a>範例
@@ -260,4 +260,4 @@
 
 [使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

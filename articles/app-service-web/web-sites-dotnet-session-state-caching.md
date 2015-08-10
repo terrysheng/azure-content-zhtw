@@ -28,7 +28,7 @@
 遵循[這些指示](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache)以建立快取。
 
 ##<a id="configureproject"></a>將 RedisSessionStateProvider NuGet 封裝加入 Web 應用程式
-安裝 NuGet `RedisSessionStateProvider` 封裝。從封裝管理員主控台 (**Tools** > [NuGet 封裝管理員] > [封裝管理員主控台]) 中使用下列命令來安裝：
+安裝 NuGet `RedisSessionStateProvider` 封裝。從封裝管理員主控台 (\*\*Tools\*\* > [NuGet 封裝管理員] > [封裝管理員主控台]) 中使用下列命令來安裝：
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
   
@@ -108,4 +108,4 @@
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

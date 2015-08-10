@@ -20,7 +20,7 @@
 
 在本文中，您將學習如何使用 [Azure Active Directory](/services/active-directory/) 作為識別提供者，在 [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 中建立 ASP.NET MVC 特定業務應用程式。您也將學習如何在應用程式中使用 [Azure Active Directory Graph 用戶端程式庫](http://blogs.msdn.com/b/aadgraphteam/archive/2014/06/02/azure-active-directory-graph-client-library-1-0-publish.aspx) 來查詢目錄資料。
 
-您使用的Azure Active Directory 租用戶可以擁有純 Azure 目錄，或可以是與您的內部部署 Active Directory (AD) 同步處理的目錄，以便為內部部署或遠端的工作者建立單一登入體驗。
+您使用的Azure Active Directory 租用戶可以是純 Azure 目錄，或可以是與您的內部部署 Active Directory (AD) 同步處理的目錄，以便為內部部署或遠端的工作者建立單一登入體驗。
 
 >[AZURE.NOTE]Azure 應用程式服務 Web 應用程式中的簡單驗證功能可讓您設定 Azure Active Directory 租用戶的簡單驗證，只需要按幾下按鈕。如需詳細資訊，請參閱[在 Azure App Service 中使用 Active Directory 進行驗證](web-sites-authentication-authorization.md)。
 
@@ -374,4 +374,4 @@ public class GroupClaimContext : DbContext
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -142,4 +142,4 @@
 
    	>[AZURE.NOTE]將新項目的 <code>imageUri</code> 屬性繫結至 <strong>Image</strong> 控制項時，會從 Blob 儲存體服務自動下載影像。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

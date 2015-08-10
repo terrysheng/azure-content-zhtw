@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 # 搭配使用彈性資料庫用戶端程式庫與 Entity Framework 
@@ -53,7 +53,7 @@ Entity Framework 開發人員依賴下列四種工作流程來建置應用程式
 
 ## 彈性資料庫工具假設 
 
-關於詞彙定義，請參閱 [Elastic Scale 名詞解釋](sql-database-elastic-scale-glossary.md)。
+關於詞彙定義，請參閱[彈性資料庫工具字彙](sql-database-elastic-scale-glossary.md)。
 
 在彈性資料庫用戶端程式庫中，您會定義應用程式資料的資料分割，稱為 Shardlet。Shardlet 以分區化索引鍵來識別，而且會對應到特定的資料庫。根據目前的商務需求，應用程式可依需要而有無數個資料庫，並散發 Shardlet 來提供足夠的容量或效能。分區化索引鍵值到資料庫的對應，由彈性資料庫用戶端 API 所提供的分區對應來儲存。我們將這項功能稱為**分區對應管理**，簡稱為 SMM。對於攜帶分區化索引鍵的要求，分區對應也充當資料庫連接的代理人。我們將這項功能稱為**資料相依路由**。
  
@@ -238,7 +238,7 @@ MyContext(DbConnection, DbCompiledModel,bool) |ElasticScaleContext(ShardMap, TKe
         } 
  
 
-這個範例示範 **RegisterNewShard** 方法，此方法會在分區對應中註冊分區、透過 EF 移轉部署結構描述，並將分區化索引鍵的對應儲存至分區。它依賴 **DbContext** 子類別 (範例中的 **ElasticScaleContext**) 的建構函式 (接受 SQL 連接字串做為輸入)。這個建構函式的程式碼簡單易懂，如下列範例所示：
+這個範例示範 **RegisterNewShard** 方法，此方法會在分區對應中註冊分區、透過 EF 移轉部署結構描述，並將分區化索引鍵的對應儲存至分區。它依賴 **DbContext** 子類別 (範例中的 \*\*ElasticScaleContext\*\*) 的建構函式 (接受 SQL 連接字串做為輸入)。這個建構函式的程式碼簡單易懂，如下列範例所示：
 
 
         // C'tor to deploy schema and migrations to a new shard 
@@ -281,4 +281,4 @@ Entity Framework 應用程式可以輕易地受益於 Azure SQL Database 的彈�
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

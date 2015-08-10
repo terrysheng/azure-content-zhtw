@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="07/29/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -51,7 +51,7 @@
 
 ## 設定 Azure 儲存體連接
 
-azure 模組會讀取環境變數 **AZURE_STORAGE_ACCOUNT** 及 **AZURE_STORAGE_ACCESS_KEY**，以取得連接 Azure 儲存體帳戶所需的資訊。若未設定這些環境變數，您必須使用下列程式碼，在使用 **Azure::QueueService** 之前指定帳戶資訊：
+azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORAGE\_ACCESS\_KEY**，以取得連接 Azure 儲存體帳戶所需的資訊。若未設定這些環境變數，您必須使用下列程式碼，在使用 **Azure::QueueService** 之前指定帳戶資訊：
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your Azure storage access key>"
@@ -69,7 +69,7 @@ azure 模組會讀取環境變數 **AZURE_STORAGE_ACCOUNT** 及 **AZURE_STORAGE_
 
 	azure_queue_service = Azure::QueueService.new
 
-使用 **create_queue()** 方法，建立具有指定名稱的佇列。
+使用 **create\_queue()** 方法，建立具有指定名稱的佇列。
 
 	begin
 	  azure_queue_service.create_queue("test-queue")
@@ -79,13 +79,13 @@ azure 模組會讀取環境變數 **AZURE_STORAGE_ACCOUNT** 及 **AZURE_STORAGE_
 
 ## 作法：將訊息插入佇列中
 
-若要將訊息插入佇列中，請使用 **create_message()** 方法建立新訊息，並將其新增至佇列。
+若要將訊息插入佇列中，請使用 **create\_message()** 方法建立新訊息，並將其新增至佇列。
 
 	azure_queue_service.create_message("test-queue", "test message")
 
 ## 作法：預覽下一個訊息
 
-您可以呼叫 **peek_messages()** 方法，以在佇列前面查看訊息，而無需將它從佇列中移除。根據預設，**peek_messages()** 會查看單一訊息。您也可以指定所要查看的訊息數。
+您可以呼叫 **peek\_messages()** 方法，以在佇列前面查看訊息，而無需將它從佇列中移除。根據預設，**peek\_messages()** 會查看單一訊息。您也可以指定所要查看的訊息數。
 
 	result = azure_queue_service.peek_messages("test-queue",
 	  {:number_of_messages => 10})
@@ -94,11 +94,11 @@ azure 模組會讀取環境變數 **AZURE_STORAGE_ACCOUNT** 及 **AZURE_STORAGE_
 
 您可以使用兩個步驟將訊息從佇列中移除。
 
-1. 根據預設，在呼叫 **list_messages()** 時，您會取得佇列中的下一個訊息。您也可以指定您要取得的訊息數。從 **list_messages()** 傳回的訊息，對於從此佇列讀取訊息的任何其他程式碼而言將會是不可見的。您可以傳入以秒為單位的可見性逾時，作為參數。
+1. 根據預設，在呼叫 **list\_messages()** 時，您會取得佇列中的下一個訊息。您也可以指定您要取得的訊息數。從 **list\_messages()** 傳回的訊息，對於從此佇列讀取訊息的任何其他程式碼而言將會是不可見的。您可以傳入以秒為單位的可見性逾時，作為參數。
 
-2. 若要完成從佇列中移除訊息的作業，您還必須呼叫 **delete_message()**。
+2. 若要完成從佇列中移除訊息的作業，您還必須呼叫 **delete\_message()**。
 
-這個移除訊息的兩步驟程序可確保您的程式碼因為硬體或軟體故障而無法處理訊息時，另一個程式碼的執行個體可以取得相同訊息並再試一次。您的程式碼會在處理完訊息之後立即呼叫 **delete_message()**。
+這個移除訊息的兩步驟程序可確保您的程式碼因為硬體或軟體故障而無法處理訊息時，另一個程式碼的執行個體可以取得相同訊息並再試一次。您的程式碼會在處理完訊息之後立即呼叫 **delete\_message()**。
 
 	messages = azure_queue_service.list_messages("test-queue", 30)
 	azure_queue_service.delete_message("test-queue", 
@@ -106,7 +106,7 @@ azure 模組會讀取環境變數 **AZURE_STORAGE_ACCOUNT** 及 **AZURE_STORAGE_
 
 ## 作法：變更佇列訊息的內容
 
-您可以在佇列中就地變更訊息內容。以下程式碼會使用 **update_message()** 方法來更新訊息。此方法會傳回一個 Tuple (其中包含佇列訊息的 pop receipt) 和一個 UTC 日期時間值 (代表訊息將會顯示在佇列上的時間)。
+您可以在佇列中就地變更訊息內容。以下程式碼會使用 **update\_message()** 方法來更新訊息。此方法會傳回一個 Tuple (其中包含佇列訊息的 pop receipt) 和一個 UTC 日期時間值 (代表訊息將會顯示在佇列上的時間)。
 
 	message = azure_queue_service.list_messages("test-queue", 30)
 	pop_receipt, time_next_visible = azure_queue_service.update_message(
@@ -121,7 +121,7 @@ azure 模組會讀取環境變數 **AZURE_STORAGE_ACCOUNT** 及 **AZURE_STORAGE_
 
 2. 您可以設定較長或較短的可見度逾時，讓您的程式碼有較長或較短的時間可以完全處理每個訊息。
 
-下列程式碼範例將使用 **list_messages()** 方法，在一次呼叫中取得 15 個訊息。接著，它會列出每個訊息，並加以刪除。它也會將可見度逾時設定為每個訊息五分鐘。
+下列程式碼範例將使用 **list\_messages()** 方法，在一次呼叫中取得 15 個訊息。接著，它會列出每個訊息，並加以刪除。它也會將可見度逾時設定為每個訊息五分鐘。
 
 	azure_queue_service.list_messages("test-queue", 300
 	  {:number_of_messages => 15}).each do |m|
@@ -131,14 +131,14 @@ azure 模組會讀取環境變數 **AZURE_STORAGE_ACCOUNT** 及 **AZURE_STORAGE_
 
 ## 作法：取得佇列長度
 
-您可以取得佇列中的估計訊息數目。**get_queue_metadata()** 方法會要求佇列服務傳回約略的訊息計數和佇列的相關中繼資料。
+您可以取得佇列中的估計訊息數目。**get\_queue\_metadata()** 方法會要求佇列服務傳回約略的訊息計數和佇列的相關中繼資料。
 
 	message_count, metadata = azure_queue_service.get_queue_metadata(
 	  "test-queue")
 
 ## 作法：刪除佇列
 
-若要刪除佇列及其內含的所有訊息，請呼叫佇列物件的 **delete_queue()** 方法。
+若要刪除佇列及其內含的所有訊息，請呼叫佇列物件的 **delete\_queue()** 方法。
 
 	azure_queue_service.delete_queue("test-queue")
 
@@ -153,4 +153,4 @@ azure 模組會讀取環境變數 **AZURE_STORAGE_ACCOUNT** 及 **AZURE_STORAGE_
 若要比較本文所討論的 Azure 佇列服務與[如何使用服務匯流排佇列](/develop/ruby/how-to-guides/service-bus-queues/)一文中討論的 Azure 服務匯流排佇列，請參閱 [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照](http://msdn.microsoft.com/library/azure/hh767287.aspx)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,18 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 #作法：傳遞串流內容
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md)系列的一部分。
+> [AZURE.SELECTOR]
+- [.NET](media-services-deliver-streaming-content.md)
+- [REST](media-services-rest-deliver-streaming-content.md)
+- [Portal](media-services-manage-content.md#publish)
 
 ##概觀
 
 
-您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。[為資產編碼](media-services-rest-encode-asset.md)主題說明如何編碼為調適性位元速率 MP4 集。建立定位器之前，您應該如[此](media-services-rest-configure-asset-delivery-policy.md)主題所述設定資產傳遞原則。
+您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。[為資產編碼](media-services-rest-encode-asset.md)主題說明如何編碼為調適性位元速率 MP4 集。如果您的內容已加密，請在建立定位器之前設定資產傳遞原則 (如[這個](media-services-rest-configure-asset-delivery-policy.md)主題中所述)。
 
 您也可以使用隨選串流定位器來建置指向可漸進式下載之 MP4 檔案的 URL。
 
@@ -37,7 +40,7 @@
 若要建立隨選串流定位器並取得 URL，您需要執行下列動作：
 
 
-   1. 定義存取原則。
+   1. 如果內容已加密，請定義存取原則。
    2. 建立隨選串流定位器。
    3. 如果您想要串流處理，請取得資產內的串流資訊清單檔案 (.ism)。 
    		
@@ -175,4 +178,4 @@ URL：**Path** + 資產檔案 MP4 名稱
         OnDemandOrigin = 2,
     } 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

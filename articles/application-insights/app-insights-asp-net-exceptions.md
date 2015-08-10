@@ -160,7 +160,7 @@ VB
 
 對於 Web Form，HTTP 模組能夠在未使用 CustomErrors 設定重新導向時收集例外狀況。
 
-但是，如果您有使用中的重新導向，將下列程式碼新增至 Global.asax.cs 中的 Application_Error 函式。(如果您還沒有檔案，請加入 Global.asax 檔案。)
+但是，如果您有使用中的重新導向，將下列程式碼新增至 Global.asax.cs 中的 Application\_Error 函式。(如果您還沒有檔案，請加入 Global.asax 檔案。)
 
 *C#*
 
@@ -441,4 +441,4 @@ VB
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="07/24/2015" 
 	ms.author="genemi"/>
 
 
@@ -88,9 +88,9 @@
 發生任何 SQL Database 錯誤時，會擲回 [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx)。`SqlException` 在其 **Number** 屬性中包含一個數字錯誤碼。如果錯誤碼識別暫時性錯誤，您的程式應該重試呼叫。
 
 
-- [錯誤訊息 (Azure SQL Database)](http://msdn.microsoft.com/library/azure/ff394106.aspx)
+- [SQL Database 用戶端程式的錯誤訊息](sql-database-develop-error-messages.md)
  - 其 [**暫時性錯誤、連線中斷錯誤**] 區段是一個有理由自動重試的暫時性錯誤清單。
- - 例如，如果出現錯誤編號 40613，表示發生類似如下的狀況，則重試：<br/>*伺服器 'theserver' 上的資料庫 'mydatabase' 目前無法使用。*
+ - 例如，如果出現錯誤編號 40613，表示發生類似如下的狀況，則重試：<br/>\*伺服器 'theserver' 上的資料庫 'mydatabase' 目前無法使用。\*
 
 
 暫時性*錯誤*有時也稱為暫時性*失敗*。本主題將這兩個詞彙視為同義字。
@@ -135,7 +135,7 @@ V12 已刪除此閘道器。所以現在：
  - 具有包含重試邏輯之程式碼範例的連結，以及更簡單的連接並查詢範例的連結。
 - [作法：可靠地連接到 Azure SQL Database](http://msdn.microsoft.com/library/azure/dn864744.aspx)
 - [作法：使用 ADO.NET 與 Enterprise Library 連接到 Azure SQL Database](http://msdn.microsoft.com/library/azure/dn961167.aspx)
-- [作法：使用 ADO.NET 連接到 Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+- [程式碼範例：C# 中用於連接到 SQL Database 的重試邏輯](sql-database-develop-csharp-retry-windows.md)
 
 
 ## 技術
@@ -174,4 +174,4 @@ V12 已刪除此閘道器。所以現在：
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

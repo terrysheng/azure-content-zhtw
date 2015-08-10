@@ -13,13 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 # 使用 Azure Media Indexer 編輯媒體檔案索引
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)系列的一部分。
+> [AZURE.SELECTOR]
+- [Portal](media-services-manage-content.md#index)
+- [.NET](media-services-index-content.md)
+
 
 Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。您可以處理一份媒體檔或是批次處理多個媒體檔案。
 
@@ -38,7 +41,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 	如需詳細資訊，請參閱[搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)。
 
 
-本主題示範如何建立索引工作**建立資產的索引**和**建立多個檔案的索引**。
+本主題示範如何建立索引工作以**建立資產的索引**和**建立多個檔案的索引**。
 
 如需最新的 Azure Media Indexer 更新，請參閱[媒體服務部落格](http://azure.microsoft.com/blog/topics/media-services/)。
 
@@ -343,4 +346,4 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

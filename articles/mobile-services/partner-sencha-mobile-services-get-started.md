@@ -20,13 +20,13 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>本教學課程展示如何將 Azure 行動服務運用在 Sencha Touch 應用程式中。您將會使用 Sencha Touch 建立簡易的待辦事項應用程式，該應用程式乃使用透過管理入口網站定義的行動服務。本教學課程的目標觀眾為瞭解 JavaScript 及熟悉 Sencha Touch 架構的中級到進階 Web 應用程式開發人員。</p>
-<p>如果想要看影片，右邊片段播放的步驟與本教學課程相同。在影片中，Arthur Kay 會說明如何組建使用 Azure 行動服務後端的 Sencha Touch 應用程式。</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="label">觀賞教學課程</a> <a style="background-image: url('/media/partner-sencha-mobile-services-get-started/mobile-sencha-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="dev-onpage-video"><span class="icon">播放視訊</span></a> <span class="time">14:37</span></div>
-</div>
+##概觀
+
+本教學課程展示如何將 Azure 行動服務運用在 Sencha Touch 應用程式中。您將會使用 Sencha Touch 建立簡易的待辦事項應用程式，該應用程式乃使用透過管理入口網站定義的行動服務。本教學課程的目標觀眾為瞭解 JavaScript 及熟悉 Sencha Touch 架構的中級到進階 Web 應用程式開發人員。
+
+如果您想要觀看影片，此片段播放的步驟與本教學課程相同。在影片中，Arthur Kay 會說明如何組建使用 Azure 行動服務後端的 Sencha Touch 應用程式。
+
+> [AZURE.VIDEO getting-started-with-sencha-touch]
 
 
 已完成應用程式的螢幕擷取畫面如下：
@@ -35,9 +35,9 @@
 
 ##需求
 
-- 下載及安裝 [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="_blank")。
+- 下載及安裝 [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="\_blank")。
 
-- 下載及安裝 [Sencha Cmd 工具](http://www.sencha.com/products/sencha-cmd/download" target="_blank")。
+- 下載及安裝 [Sencha Cmd 工具](http://www.sencha.com/products/sencha-cmd/download" target="\_blank")。
 
 - Java Runtime Environment (JRE) 或 Java Development Kit (如果您要建立 Android 應用程式)
 
@@ -712,4 +712,4 @@ Sencha Touch Extension for Azure 套件備有此處簡述的範例，其位於 B
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

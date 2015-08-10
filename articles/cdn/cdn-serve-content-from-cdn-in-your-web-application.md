@@ -165,7 +165,7 @@
 		cd <ProjectFolder>
 		.\UploadContentToAzureBlobs.ps1 -StorageAccount "<yourStorageAccountName>" -StorageContainer "<yourContainerName>"
 
-此指令碼會從 *\Content* 和 *\Scripts* 資料夾中將所有檔案上傳至指定的儲存體帳戶和容器。優點如下：
+此指令碼會從 *\\Content* 和 *\\Scripts* 資料夾中將所有檔案上傳至指定的儲存體帳戶和容器。優點如下：
 
 -	自動複寫 Visual Studio 專案的檔案結構
 -	視需要自動建立 Blob 容器
@@ -174,7 +174,7 @@
 
 針對 `-StorageContainer` 參數，必須使用 Web 應用程式名稱或 Visual Studio 的專案名稱。我先前使用一般的 "cdn" 作為容器名稱，但使用 Web 應用程式的名稱可將相關內容組織在同一個很容易辨識的容器中。
 
-內容下載完成後，您可以使用 HTML 程式碼連結至 [*\Content*] 和 [*\Scripts*] 資料夾中任何的內容，例如在 .cshtml 檔案中使用 `http://<yourCDNName>.vo.msecnd.net/<containerName>`。以下是我在 Razor 檢視中可使用某個項目的例子：
+內容下載完成後，您可以使用 HTML 程式碼連結至 [*\\Content*] 和 [*\\Scripts*] 資料夾中任何的內容，例如在 .cshtml 檔案中使用 `http://<yourCDNName>.vo.msecnd.net/<containerName>`。以下是我在 Razor 檢視中可使用某個項目的例子：
 
 	<img alt="Mugshot" src="http://az623979.vo.msecnd.net/MyMvcApp/Content/cephas_lin.png" />
 
@@ -218,9 +218,9 @@
 <a name="query"></a>
 ## 使用查詢字串來立即提供最新內容 ##
 
-在 Azure CDN 中，您可以啟用查詢字串，以個別快取從 URL 中以特定查詢字串傳回的內容。如果您想要立即將某些內容更新推送至用戶端瀏覽器，而不想等待快取的 CDN 內容到過，則這會是一個很實用的功能。假設現在發佈了一個 URL 中有版本號碼的網頁。<pre class="prettyprint"> &lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.0.0</mark>"; rel=";stylesheet";/&gt; </pre>
+在 Azure CDN 中，您可以啟用查詢字串，以個別快取從 URL 中以特定查詢字串傳回的內容。如果您想要立即將某些內容更新推送至用戶端瀏覽器，而不想等待快取的 CDN 內容到過，則這會是一個很實用的功能。假設現在發佈了一個 URL 中有版本號碼的網頁。<pre class="prettyprint"> &lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.0.0</mark>&quot; rel=&quot;stylesheet&quot;/&gt; </pre>
 
-發佈 CSS 更新，並在 CSS URL 加入了其他版本號碼時：<pre class="prettyprint"> &lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.1.1</mark>"; rel=";stylesheet";/&gt; </pre>
+發佈 CSS 更新，並在 CSS URL 加入了其他版本號碼時：<pre class="prettyprint"> &lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.1.1</mark>&quot; rel=&quot;stylesheet&quot;/&gt; </pre>
 
 對於已啟用查詢字串的 CDN 端點，這兩個 URL 彼此各不相同，將會對 Web 伺服器送出新的要求來擷取新的 *bootstrap.css*。不過，對於未啟用查詢字串的 CDN 端點，這些就是相同的 URL，將會直接提供快取的 *bootstrap.css*。
 
@@ -228,9 +228,9 @@
 
 ...
 
-&lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=@cdnVersion</mark>"; rel=";stylesheet";/&gt; </pre>
+&lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=@cdnVersion</mark>&quot; rel=&quot;stylesheet&quot;/&gt; </pre>
 
-如果您在每次的發行週期中變更組件號碼，則同樣可確定每次發行 Web 應用程式時會取得唯一的版本號碼，而這在下次發行週期之前會保持不變。透過在 Visual Studio 專案中開啟 *Properties\AssemblyInfo.cs*，並在 `AssemblyVersion` 中使用 `*`，您也可以讓 Visual Studio 在每次建置 Web 應用程式時自動遞增組件號碼。例如：
+如果您在每次的發行週期中變更組件號碼，則同樣可確定每次發行 Web 應用程式時會取得唯一的版本號碼，而這在下次發行週期之前會保持不變。透過在 Visual Studio 專案中開啟 *Properties\\AssemblyInfo.cs*，並在 `AssemblyVersion` 中使用 `*`，您也可以讓 Visual Studio 在每次建置 Web 應用程式時自動遞增組件號碼。例如：
 
 	[assembly: AssemblyVersion("1.0.0.*")]
 
@@ -261,4 +261,4 @@ Azure App Service 與 Azure CDN 或 Azure 雲端服務與 Azure CDN 整合將帶
 - [使用 Azure 的 CDN](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

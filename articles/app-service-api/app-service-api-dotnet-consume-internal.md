@@ -265,4 +265,4 @@ App Service SDK 取決於 Swagger API 定義來產生用戶端類別。如果您
 如需 App Service 中驗證的相關資訊，請參閱 [API 應用程式和行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

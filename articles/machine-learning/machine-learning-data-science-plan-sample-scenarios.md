@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="07/22/2015"
 	ms.author="msolhab;bradsev" />
 
 
-# Azure Machine Learning 中進階分析程序和技術的案例
+# 在 Azure 機器學習中的進階分析案例
 
 本文概述可以運用 Azure Machine Learning 中的進階分析程序和技術 (ADAPT) 來加以處理的各種範例資料來源和目標案例。本文將根據資料特性、來源位置和在 Azure 中的目標儲存機制，來說明處理順序中可用的選項。
 
@@ -316,4 +316,4 @@
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

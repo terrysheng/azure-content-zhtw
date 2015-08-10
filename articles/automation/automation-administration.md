@@ -60,4 +60,4 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 
 您無法從 Azure 自動化匯出憑證。您必須確定 Azure 外部有任何憑證可供使用。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

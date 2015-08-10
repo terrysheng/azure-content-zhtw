@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="06/29/2015"
+   ms.date="07/24/2015"
    ms.author="sdanie" />
 
 # 如何設定 Azure Redis 快取
@@ -122,7 +122,9 @@
 |lua-event-limit|500|這是指令碼事件佇列的最大大小。|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|用戶端輸出緩衝區限制可用來強制中斷基於某些原因而無法足夠快地從伺服器讀取資料之用戶端的連線 (常見的原因是 Pub/Sub 用戶端使用訊息的速度無法與發佈者產生這些訊息的速度一樣快)。如需詳細資訊，請參閱 [http://redis.io/topics/clients](http://redis.io/topics/clients)。|
 
->[AZURE.IMPORTANT]因為 Azure Redis 快取執行個體的設定與管理是使用 Azure 入口網站來進行，所以會停用下列命令。如果嘗試叫用它們，您會收到與 `"(error) ERR unknown command"` 類似的錯誤訊息。
+## Azure Redis 快取中不支援的 Redis 命令
+
+>[AZURE.IMPORTANT]因為 Azure Redis 快取執行個體的設定與管理是使用 Azure 入口網站來進行，所以會停用下列命令。如果嘗試叫用它們，您會收到類似 `"(error) ERR unknown command"` 的錯誤訊息。
 >
 >-	BGREWRITEAOF
 >-	BGSAVE
@@ -135,7 +137,21 @@
 
 如需 Redis 命令的詳細資訊，請參閱 [http://redis.io/commands](http://redis.io/commands)。
 
+## Redis 主控台
+
+您可以使用 [Redis 主控台] (可供標準快取使用) 安全地發出命令至您的 Azure Redis 快取執行個體。若要存取 Redis 主控台，請從 [Redis 快取] 刀鋒視窗按一下 [主控台]。
+
+![Redis 主控台](./media/cache-configure/redis-console-menu.png)
+
+>[AZURE.IMPORTANT]「Redis 主控台」只能供標準快取使用。
+
+只需在主控台中輸入想要的命令，即可對您的快取執行個體發出命令。
+
+![Redis 主控台](./media/cache-configure/redis-console.png)
+
+如需針對 Azure Redis 快取停用之 Redis 命令的清單，請參閱之前的 [Azure Redis 快取中不支援的 Redis 命令](#redis-commands-not-supported-in-azure-redis-cache)一節。如需 Redis 命令的詳細資訊，請參閱 [http://redis.io/commands](http://redis.io/commands)。
+
 ## 後續步驟
 -	如需使用 Redis 命令的詳細資訊，請參閱[如何執行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

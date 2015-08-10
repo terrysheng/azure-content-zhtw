@@ -235,7 +235,7 @@
 
     ![動態磁碟轉換訊息](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png)
 
-10. 在 [磁碟管理] 中，請確認 [磁碟 1] 和 [磁碟 2] 顯示為動態鏡像磁碟區。(** 動態** 應該會出現在狀態欄中，而且容量列顏色應該會變成紅色，以指出鏡像磁碟區)。
+10. 在 [磁碟管理] 中，請確認 [磁碟 1] 和 [磁碟 2] 顯示為動態鏡像磁碟區。(\*\* 動態\*\* 應該會出現在狀態欄中，而且容量列顏色應該會變成紅色，以指出鏡像磁碟區)。
 
     ![磁碟管理的鏡像動態磁碟](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png)
  
@@ -270,4 +270,4 @@
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

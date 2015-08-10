@@ -69,4 +69,4 @@ Azure App Service 是專為專業開發人員提供的完全受管理的 PaaS (�
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -49,7 +49,7 @@ Azure Marketplace 提供受歡迎網站內容管理系統 (CMS) 的範本，例�
 
 免費使用 App Service Web Apps 網域或對應至註冊的網域名稱，然後利用 CA 簽署的 SSL 憑證保護品牌安全。
 
-當您在 Web Apps 執行網站時，可免費使用 ***.azurewebsites.net** 網域。或者，您可以將網站對應至從任何 DNS 登錄取得 (例如 GoDaddy) 的[自訂網域] (例如 contoso.com)。
+當您在 Web Apps 執行網站時，可免費使用 **\*.azurewebsites.net** 網域。或者，您可以將網站對應至從任何 DNS 登錄取得 (例如 GoDaddy) 的[自訂網域] (例如 contoso.com)。
 
 如果您收集任何使用者資訊、執行電子商務或管理任何其他機密資料，您可以使用 [HTTPS] 來保護品牌信譽與客戶。**.azurewebsites.net** 網域名稱已經隨附 SSL 憑證，而如果您使用自訂網域，可以在 Web Apps 使用該網域的 SSL 憑證。每個月都會收取與各個 SSL 憑證相關聯的費用 (每小時依比例)。如需詳細資訊，請參閱 [App Service 定價詳細資料]。
 
@@ -140,4 +140,4 @@ App Service Web Apps 具有[相應增加和放大]的功能，不論您的工作
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

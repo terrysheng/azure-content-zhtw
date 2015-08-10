@@ -58,9 +58,9 @@
 
 ## 作法：將 Blob 上傳到容器中
 
-若要將資料上傳至 Blob，請使用 **put_block_blob_from_path**、**put_block_blob_from_file**、**put_block_blob_from_bytes** 或 **put_block_blob_from_text** 方法。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
+若要將資料上傳至 Blob，請使用 **put\_block\_blob\_from\_path**、**put\_block\_blob\_from\_file**、**put\_block\_blob\_from\_bytes** 或 **put\_block\_blob\_from\_text** 方法。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
 
-**put_block_blob_from_path** 會從指定的路徑上傳檔案的內容，**put_block_blob_from_file** 會從已開啟的檔案/串流上傳內容，**put_block_blob_from_bytes** 會上傳位元組陣列，**put_block_blob_from_text** 會使用指定的編碼 (預設為 UTF-8) 上傳指定的文字值。
+**put\_block\_blob\_from\_path** 會從指定的路徑上傳檔案的內容，**put\_block\_blob\_from\_file** 會從已開啟的檔案/串流上傳內容，**put\_block\_blob\_from\_bytes** 會上傳位元組陣列，**put\_block\_blob\_from\_text** 會使用指定的編碼 (預設為 UTF-8) 上傳指定的文字值。
 
 下列範例會將 **sunset.png** 檔案的內容上傳至 **myblob** blob 中。
 
@@ -73,24 +73,36 @@
 
 ## 作法：列出容器中的 Blob
 
-若要列出容器中的 Blob，請搭配使用 **list_blobs** 方法與 **for** 迴圈，顯示容器中每個 Blob 的名稱。下列程式碼將容器中每個 Blob 的 **name** 和 **url** 輸出到主控台。
+若要列出容器中的 Blob，請搭配使用 **list\_blobs** 方法與 **for** 迴圈，顯示容器中每個 Blob 的名稱。下列程式碼會將容器中每個 blob 的 **name** 輸出到主控台。
 
 	blobs = blob_service.list_blobs('mycontainer')
 	for blob in blobs:
 		print(blob.name)
-		print(blob.url)
+
+**list\_blobs** 最多只傳回 5000 個 blob。如果容器包含超過 5000 個 blob，請使用下列程式碼。
+
+	blobs = []
+	marker = None
+	while True:
+		batch = blob_service.list_blobs('mycontainer', marker=marker)
+		blobs.extend(batch)
+		if not batch.next_marker:
+			break
+		marker = batch.next_marker
+	for blob in blobs:
+		print(blob.name)
 
 ## 作法：下載 Blob
 
-若要從 Blob 下載資料，請使用 **get_blob_to_path**、**get_blob_to_file**、**get_blob_to_bytes** 或 **get_blob_to_text**。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
+若要從 Blob 下載資料，請使用 **get\_blob\_to\_path**、**get\_blob\_to\_file**、**get\_blob\_to\_bytes** 或 **get\_blob\_to\_text**。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
 
-下列範例示範如何使用 **get_blob_to_path** 下載 **myblob** blob 的內容，並將其儲存至 **out-sunset.png** 檔案：
+下列範例示範如何使用 **get\_blob\_to\_path** 下載 **myblob** blob 的內容，並將其儲存至 **out-sunset.png** 檔案：
 
 	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
 
 ## 作法：刪除 Blob
 
-最後，若要刪除 Blob，請呼叫 **delete_blob**。
+最後，若要刪除 Blob，請呼叫 **delete\_blob**。
 
 	blob_service.delete_blob('mycontainer', 'myblob') 
 
@@ -98,12 +110,12 @@
 
 了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解有關更複雜的儲存工作。
 
--   請參閱 MSDN 參考資料：[儲存和存取在 Azure 中的資料][]
+-   請參閱 MSDN 參考資料：[在 Azure 中儲存和存取資料][]
 -   造訪 [Azure 儲存體團隊部落格][] (英文)。
 
-[儲存和存取在 Azure 中的資料]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 [Python Azure 封裝]: https://pypi.python.org/pypi/azure
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,11 +1,12 @@
 <properties
-   pageTitle="設定站台對站台虛擬網路連線 |Microsoft Azure"
+   pageTitle="使用管理入口網站建立具有站對站 VPN 連線的虛擬網路 | Microsoft Azure"
    description="對跨部署與混合式組態建立虛擬網路與站台對站台 VPN 連線。"
    services="vpn-gateway"
    documentationCenter=""
    authors="cherylmc"
-   manager="adinah"
-   editor=""/>
+   manager="carolz"
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="vpn-gateway"
@@ -13,12 +14,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="07/23/2015"
    ms.author="cherylmc"/>
 
-# 設定虛擬網路與站台對站台 VPN 連線
+# 使用管理入口網站建立具有站對站 VPN 連線的虛擬網路
+
+> [AZURE.SELECTOR]
+- [Azure Portal](vpn-gateway-site-to-site-create.md)
+- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 您可以建立站台對站台 VPN 連線，來連接您的內部部署位置與虛擬網路。此程序將逐步引導您建立虛擬網路，並在新建立的 VNet 與您的內部部署位置之間建立站台對站台 VPN 連線。
+
+Azure 目前有兩種管理模式：Azure 服務管理和 Azure 資源管理員 (ARM)。視建立的虛擬網路模式而定，站對站設定會有所不同。這些指示會套用至 Azure 服務管理。如果您想要改為建立 Azure 資源管理員站對站 VPN 連線，請參閱[使用 Azure 資源管理員和 PowerShell 建立站對站 VPN 連線](vpn-gateway-create-site-to-site-rm-powershell.md)。
 
 
 ## 開始之前
@@ -70,7 +77,7 @@
 
 - **位址空間**：包括起始 IP 和位址計數。請確認您指定的位址空間沒有與您在內部部署網路上所擁有的任何位址空間重疊。
 - **新增子網路**：包括起始 IP 和位址計數。不需要其他子網路，但是您可以為將擁有靜態 DIP 的 VM 建立個別的子網路。或者，您可以讓您的 VM 位於與其他角色執行個體不同的子網路中。
-- **新增閘道子網路**：按一下以新增閘道子網路。閘道子網路僅用於虛擬網路閘道，而且為這個組態的必要項目。
+- **新增閘道器子網路**：按一下以新增閘道器子網路。閘道器子網路僅用於虛擬網路閘道，而且為這個組態的必要項目。
 
 按一下頁面底部的核取記號，然後您的虛擬網路即會開始建立。完成時，您將在管理入口網站的 [**網路**] 頁面上看到 [**狀態**] 下列出 [**已建立**]。建立了 VNet 之後，您便可設定虛擬網路閘道。
 
@@ -89,4 +96,4 @@
 如果您想要使用 RRAS 設定 VNet 連線，請參閱[使用 Windows Server 2012 路由及遠端存取服務 (RRAS) 設定站對站 VPN](https://msdn.microsoft.com/library/dn636917.aspx)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/23/2015"
    ms.author="larryfr"/>
 
 # 使用查詢主控台執行 Hive 查詢
@@ -23,6 +23,7 @@
 在本文中，您將學習如何使用 HDInsight 查詢主控台，透過瀏覽器在 HDInsight Hadoop 叢集上執行 Hive 查詢。
 
 > [AZURE.NOTE]只有在 Windows 型 HDInsight 叢集上才能使用查詢主控台。
+
 
 ##<a id="prereq"></a>必要條件
 
@@ -34,9 +35,7 @@
 
 ##<a id="run"></a>使用查詢主控台執行 Hive 查詢
 
-1. 開啟 [Azure 入口網站](https://manage.windowsazure.com)，然後選取您的 HDInsight 叢集。選取頁面底部的 [**查詢主控台**]。出現提示時，輸入您建立叢集時所輸入的使用者名稱和密碼。
-
-    > [AZURE.NOTE]在瀏覽器中輸入 **https://CLUSTERNAME.azurehdinsight.net**，也可以到達查詢主控台。
+1. 開啟網頁瀏覽器並瀏覽至 __https://CLUSTERNAME.azurehdinsight.net__，其中 __CLUSTERNAME__ 是您的 HDInsight 叢集名稱。出現提示時，輸入您建立叢集時所使用的使用者名稱和密碼。
 
 2. 在頁面頂端的連結中，選取 [**Hive 編輯器**]。這會顯示一個表單，而此表單可用來輸入您要在 HDInsight 叢集中執行的 HiveQL 陳述式。
 
@@ -120,4 +119,4 @@
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

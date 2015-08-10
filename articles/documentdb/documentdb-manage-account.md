@@ -112,4 +112,4 @@ DocumentDB 支援四個定義完善的使用者可設定資料一致性層級，
  
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -152,7 +152,7 @@
 
 3. 在 [**結果**] 窗格中，以滑鼠右鍵按一下裝置的名稱，然後按一下 [**詳細資料**]。
 
-4.[**裝置詳細資料**] 對話方塊隨即出現。此方塊會顯示名稱、型號、版本、序號、狀態、目標 iSCSI 合格名稱 (IQN)，以及上次同步處理日期和時間。
+4\.[**裝置詳細資料**] 對話方塊隨即出現。此方塊會顯示名稱、型號、版本、序號、狀態、目標 iSCSI 合格名稱 (IQN)，以及上次同步處理日期和時間。
 
    - 按一下 [**重新同步處理**] 以同步處理裝置。
 
@@ -238,7 +238,7 @@
 
 3. 移除與舊裝置相關的組態資訊：
 
-    1. 在 [檔案總管] 中，瀏覽至 C:\ProgramData\Microsoft\StorSimple\BACatalog. 
+    1. 在 [檔案總管] 中，瀏覽至 C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog. 
 
     2. 刪除 BACatalog 資料夾中的檔案。
 
@@ -262,4 +262,4 @@
 
 [使用 StorSimple Snapshot Manager 來檢視和管理磁碟區](storsimple-snapshot-manager-manage-volumes.md)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

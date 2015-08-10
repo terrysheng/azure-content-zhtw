@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.date="07/22/2015" 
 	ms.author="awills"/>
  
 # 疑難排解與問題：ASP.NET 的 Application Insights
@@ -46,11 +46,18 @@
 
 #### <a name="q02"></a>我已建立新的 Web 專案，但加入 Application Insights 時失敗。
 
-如果與 Application Insights 入口網站通訊失敗，或您的帳戶有問題，就可能發生此情形。
+這可能發生在：
 
-+ 請檢查您為正確的 Azure 帳戶提供登入認證。Microsoft Azure 認證 (在 [新增專案] 對話方塊中) 與 Visual Studio Online 認證 (在 Visual Studio 右上方) 可能不同。
-+ 請稍候，再[將 Application Insights 加入至現有的專案][start]。
-+ 移至 Microsoft Azure 帳戶設定來檢查限制。檢查您是否可以手動加入 Application Insights 應用程式。
+* 與 Application Insights 入口網站通訊失敗；或者
+* 您的帳戶發生問題；
+* 您只具備[您嘗試建立新資源之訂用帳戶或群組的讀取權限](app-insights-resources-roles-access-control.md)。
+
+補救方法：
+
++ 請檢查您為正確的 Azure 帳戶提供登入認證。在部分舊版工具中，Microsoft Azure 認證 (在 [新增專案] 對話方塊中) 與 Visual Studio Online 認證 (在 Visual Studio 右上方) 可能不同。
++ 在瀏覽器中，檢查您是否可以存取 [Azure 入口網站](https://portal.azure.com)。開啟 [設定] 並查看是否有任何限制。
++ [將 Application Insights 加入至您現有的專案][start]：在 [方案總管] 中以滑鼠右鍵按一下您的專案並選擇 [加入 Application Insights]。
++ 如果仍然無法運作，請依照下列[手動程序](app-insights-start-monitoring-app-health-usage.md)，在入口網站中加入資源，然後將 SDK 加入至您的專案。 
 
 #### <a name="emptykey"></a>我收到「檢測金鑰不能是空白」的錯誤
 
@@ -90,7 +97,7 @@
 
  - packages.config
 
-+ (僅限新專案 - 如果您[將 Application Insights 加入至現有的專案][start]，則必須手動執行。) 將程式碼片段插入至用戶端和伺服器程式碼中，以使用 Application Insights 資源識別碼將這些片段初始化。例如，在 MVC 應用程式中，程式碼會插入至主版頁面 Views/Shared/_Layout.cshtml
++ (僅限新專案 - 如果您[將 Application Insights 加入至現有的專案][start]，則必須手動執行。) 將程式碼片段插入至用戶端和伺服器程式碼中，以使用 Application Insights 資源識別碼將這些片段初始化。例如，在 MVC 應用程式中，程式碼會插入至主版頁面 Views/Shared/\_Layout.cshtml
 
 ####<a name="NuGetBuild"></a> 我的組建伺服器收到「缺少 NuGet 封裝」的訊息，但在我的開發電腦上，一切組建均正常
 
@@ -158,7 +165,7 @@
 
 ## 入口網站
 
-#### <a name="q05"></a>我正在查看 Microsoft Azure 預覽開始面板。我如何在 Application Insights 中尋找我的資料？
+#### <a name="q05"></a>我正在查看 Microsoft Azure Preview 開始面板。我如何在 Application Insights 中尋找我的資料？
 
 下列其中一種方法：
 
@@ -172,7 +179,7 @@
 在 [方案總管] 中，以滑鼠右鍵按一下 `ApplicationInsights.config`，然後選擇 [**更新 Application Insights**]。您可以將資料傳送至 Azure 中的現有資源或新資源。更新精靈會變更 ApplicationInsights.config 中的檢測機碼，這決定伺服器 SDK 將您的資料送往何處。除非您取消選取 [全部更新]，否則它也會變更機碼出現在您網頁中的位置。
 
 
-#### <a name="q06"></a>在 Microsoft Azure 預覽主畫面上，該對應會顯示我的應用程式狀態嗎？
+#### <a name="q06"></a>在 Microsoft Azure Preview 主畫面上，該對應會顯示我的應用程式狀態嗎？
 
 不會！ 它是顯示 Azure 服務的狀態。若要查看 Web 測試結果，請選擇 [瀏覽] > [Application Insights] > (您的應用程式)，然後查看 Web 測試結果。
 
@@ -232,4 +239,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

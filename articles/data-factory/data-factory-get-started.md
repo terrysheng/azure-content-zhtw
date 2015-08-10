@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用 Azure Data Factory"
+	pageTitle="教學課程：從 Azure Blob 複製資料到 Azure SQL"
 	description="此教學課程說明如何建立將資料從 Blob 複製到 Azure SQL 資料庫儲存個體的範例資料管線。"
 	services="data-factory"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="07/17/2015"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
-# 開始使用 Azure Data Factory
+# 教學課程：從 Azure Blob 複製資料到 Azure SQL
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
@@ -67,7 +67,7 @@
 ### 準備教學課程所需的 Azure Blob 儲存體和 Azure SQL 資料庫
 現在，請執行下列步驟，準備本教學課程中的 Azure Blob 儲存體和 Azure SQL Database。
 
-1. 啟動 [記事本]，並貼上下列文字，然後將它以 **emp.txt** 的形式儲存至您硬碟上的 **C:\ADFGetStarted** 資料夾。
+1. 啟動 [記事本]，並貼上下列文字，然後將它以 **emp.txt** 的形式儲存至您硬碟上的 **C:\\ADFGetStarted** 資料夾。
 
         John, Doe
 		Jane, Doe
@@ -110,4 +110,4 @@
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database-create-configure.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

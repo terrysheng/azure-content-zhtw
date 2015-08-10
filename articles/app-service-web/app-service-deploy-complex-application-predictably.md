@@ -274,7 +274,7 @@ Web 應用程式與兩個不同的資源相依。這表示只有在建立 App Se
 2.	建立要與範本檔案一起使用的參數檔案
 3.	部署具有參數檔案的範本檔案
 
-最後一個步驟是透過 PowerShell Cmdlet 輕鬆完成。若要查看 Visual Studio 在部署您的應用程式時所執行的作業，請開啟 Scripts\Deploy-AzureResourceGroup.ps1。在該處有很多程式碼，但我只想要討論部署具有參數檔案之範本檔案所需的所有相關程式碼。
+最後一個步驟是透過 PowerShell Cmdlet 輕鬆完成。若要查看 Visual Studio 在部署您的應用程式時所執行的作業，請開啟 Scripts\\Deploy-AzureResourceGroup.ps1。在該處有很多程式碼，但我只想要討論部署具有參數檔案之範本檔案所需的所有相關程式碼。
 
 ![](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
 
@@ -304,4 +304,4 @@ Web 應用程式與兩個不同的資源相依。這表示只有在建立 App Se
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

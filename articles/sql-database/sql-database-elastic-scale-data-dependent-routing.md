@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 #資料相依路由
 
 在分區化環境中，**ShardMapManager** 類別可讓 ADO.NET 應用程式輕鬆地將資料庫查詢和命令指向適當的實體資料庫。這稱為**資料相依路由**，也是使用分區化資料庫時的一種基本模式。在使用資料相依路由的應用程式中，每個特定的查詢或交易會限制每個要求只能存取單一資料庫。
 
-使用資料相依路由時，應用程式在分區化環境中不需要追蹤不同的連接字串，或與不同資料片段相關聯的 DB 位置。相反地，[分區對應管理員](sql-database-elastic-scale-shard-map-management.md)會根據分區對應中的資料和分區化索引鍵的值 (應用程式要求的目標)，負責在必要時提供正確資料庫的開啟連接。(此索引鍵通常是 *customer_id*、*tenant_id*、*date_key*，或作為資料庫要求基本參數的其他一些特定的識別項)。
+使用資料相依路由時，應用程式在分區化環境中不需要追蹤不同的連接字串，或與不同資料片段相關聯的 DB 位置。相反地，[分區對應管理員](sql-database-elastic-scale-shard-map-management.md)會根據分區對應中的資料和分區化索引鍵的值 (應用程式要求的目標)，負責在必要時提供正確資料庫的開啟連接。(此索引鍵通常是 *customer\_id*、*tenant\_id*、*date\_key*，或作為資料庫要求基本參數的其他一些特定的識別項)。
 
 ## 在資料相依路由應用程式中使用 ShardMapManager 
 
@@ -117,4 +117,4 @@ int newPersonId = 4321;
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

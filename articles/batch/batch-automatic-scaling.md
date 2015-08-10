@@ -149,16 +149,16 @@
 - 字串
 - timestamp
 - timeinterval
-	- TimeInterval_Zero
-	- TimeInterval_100ns
-	- TimeInterval_Microsecond
-	- TimeInterval_Millisecond
-	- TimeInterval_Second
-	- TimeInterval_Minute
-	- TimeInterval_Hour
-	- TimeInterval_Day
-	- TimeInterval_Week
-	- TimeInterval_Year
+	- TimeInterval\_Zero
+	- TimeInterval\_100ns
+	- TimeInterval\_Microsecond
+	- TimeInterval\_Millisecond
+	- TimeInterval\_Second
+	- TimeInterval\_Minute
+	- TimeInterval\_Hour
+	- TimeInterval\_Day
+	- TimeInterval\_Week
+	- TimeInterval\_Year
 
 ### 作業
 
@@ -359,8 +359,8 @@
           <li><p><b>doubleVec GetSample(double count)</b>：指定最近範例中所需範例的數目。</p>
 				  <p>一個範例值得 5 秒的度量資料。GetSample(1) 會傳回最後一個可用的範例，但是您不得對 $CPUPercent 之類的度量使用這個函式，因為您無法得知收集範例的時間。此範例可能是最新的，也可能因為系統問題，是更舊的。最好使用如下所示的時間間隔。</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b>：指定收集範例資料的時間範圍，並選擇性地指定必須在要求的範圍內的範例百分比。</p>
-          <p>如果 CPU Percent 歷程記錄中有最後十分鐘的所有範例，則 $CPUPercent.GetSample(TimeInterval_Minute*10) 應該會傳回 200 個範例。如果最新的歷程記錄仍不存在，則只會傳回 180 個範例。</p>
-					<p>$CPUPercent.GetSample (TimeInterval_Minute\ * 10，80) 成功，且 $CPUPercent.GetSample(TimeInterval_Minute*10,95) 失敗。</p></li>
+          <p>如果 CPU Percent 歷程記錄中有最後十分鐘的所有範例，則 $CPUPercent.GetSample(TimeInterval\_Minute\*10) 應該會傳回 200 個範例。如果最新的歷程記錄仍不存在，則只會傳回 180 個範例。</p>
+					<p>$CPUPercent.GetSample (TimeInterval\_Minute\ * 10，80) 成功，且 $CPUPercent.GetSample(TimeInterval_Minute\*10,95) 失敗。</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b>：使用開始時間和結束時間指定收集資料的時間範圍。</p></li></ul></td>
   </tr>
   <tr>
@@ -407,9 +407,9 @@
       <li>$NetworkInBytes</li>
       <li>$NetworkOutBytes</li></ul></p>
     <p>此範例所顯示的公式是在過去 10 分鐘的平均 CPU 使用量下限高於 70% 時，用於將集區中的運算節點數目設定為目前節點目標數目的 110%：</p>
-    <p><b>totalTVMs = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;</b></p>
+    <p><b>totalTVMs = (min($CPUPercent.GetSample(TimeInterval\_Minute\*10)) > 0.7) ? ($CurrentDedicated \* 1.1) : $CurrentDedicated;</b></p>
     <p>此範例所顯示的公式是在過去 60 分鐘的平均 CPU 使用量低於 20% 時，用於將集區中的運算節點數目設定為目前節點目標數目的 90%：</p>
-    <p><b>totalTVMs = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) &lt; 0.2) ? ($CurrentDedicated * 0.9) : totalTVMs;</b></p>
+    <p><b>totalTVMs = (avg($CPUPercent.GetSample(TimeInterval\_Minute\*60)) &lt; 0.2) ? ($CurrentDedicated \* 0.9) : totalTVMs;</b></p>
     <p>此範例將專用運算節點的目標數目設定為上限 400 個：</p>
     <p><b>$TargetDedicated = min(400, totalTVMs);</b></p></td>
   </tr>
@@ -424,7 +424,7 @@
       <li>$FailedTasks</li>
       <li>$CurrentDedicated</li></ul></p>
     <p>此範例所顯示的公式會偵測是否已在過去 15 分鐘內記錄 70% 的範例。如果沒有，它會使用最後一個範例。它會嘗試增加運算節點的數目 (最多 3 個) 以符合作用中工作的數目。由於集區的 MaxTasksPerVM 屬性設為 4，因此，它會將節點數目設定為作用中工作數目的四分之一。它也會將 Deallocation 選項設定為 "taskcompletion" 以保留機器，直到工作完成為止。</p>
-    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15))); $Cores = $TargetDedicated * 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $TVMDeallocationOption = taskcompletion;</b></p></td>
+    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute \* 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute \* 15))); $Cores = $TargetDedicated \* 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $TVMDeallocationOption = taskcompletion;</b></p></td>
   </tr>
 </table>
 
@@ -476,4 +476,4 @@
 	- [Get AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx)：此 Cmdlet 會從指定的運算節點取得 RDP 檔案，並將其儲存至指定的檔案位置或資料流。
 2.	有些應用程式會產生可能難以處理的大量資料。解決這個問題的其中一種方式是透過[有效率的清單查詢](batch-efficient-list-queries.md)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

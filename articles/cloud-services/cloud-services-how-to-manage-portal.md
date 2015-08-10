@@ -106,4 +106,4 @@ Azure Preview 入口網站不會像目前 Azure 入口網站一樣將資源連�
 
 [Azure Preview 入口網站]: https://portal.azure.com
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

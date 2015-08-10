@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="05/18/2015"
+   ms.date="07/23/2015"
    ms.author="vturecek"/>
 
 # 開始使用 Microsoft Azure Service Fabric Web API 服務與 OWIN 自我裝載
@@ -35,9 +35,11 @@ Web API 應用程式本身不會在此處變更，它與您過去撰寫的 Web A
 
 ## 設定 Web API 應用程式
 
-先在 Visual Studio 2015 中建立新的無狀態服務：
+從在 Visual Studio 2015 中，使用單一無狀態服務建立新的應用程式開始：
 
-![](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+![建立新的 Service Fabric 應用程式](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+
+![建立單一無狀態服務](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
 
 這讓我們有空的無狀態服務，它會裝載 Web API 應用程式。我們將從頭設定應用程式，看看它如何全部放在一起。
 
@@ -47,11 +49,11 @@ Web API 應用程式本身不會在此處變更，它與您過去撰寫的 Web A
 
 安裝封裝後，我們就可以馬上開始建置出基本的 Web API 專案結構。如果您已使用 Web API，專案結構看起來應該很熟悉。從建立基本的 Web API 目錄開始：
 
- + App_Start
+ + App\_Start
  + Controllers
  + Models
 
-在 App_Start 目錄中加入基本的 Web API 組態類別：
+在 App\_Start 目錄中加入基本的 Web API 組態類別：
 
  + FormatterConfig.cs
 
@@ -334,7 +336,7 @@ Web 伺服器 URL 將在此處設定。若要這樣做，您需要一些資訊�
 
 我們抓取 Web 伺服器的連接埠之前，必須了解 Service Fabric 提供一個應用程式層，做為您的應用程式與其執行所在之基礎作業系統之間的緩衝區。因此，Service Fabric 讓您能夠設定服務的端點。Service Fabric 會負責確定端點可供服務使用，因此您不需要在基礎作業系統環境自行設定。這可讓您輕鬆地在不同的環境裝載 Service Fabric 應用程式，而不必對應用程式進行任何變更 (例如，您可以在 Azure 或您自己的資料中心裝載相同的應用程式)。
 
-在 PackageRoot\ServiceManifest.xml 中設定 HTTP 端點：
+在 PackageRoot\\ServiceManifest.xml 中設定 HTTP 端點：
 
 ```xml
 
@@ -447,7 +449,7 @@ protected override ICommunicationListener CreateCommunicationListener()
 
 ```
 
-這是 Web API 應用程式和 OWIN 主機最後相會的地方：會給予主機 (**OwinCommunicationListener**) 應用程式的執行個體 (透過 **Startup** 的 Web API)，且 Service Fabric 會管理其生命週期。通常可以針對任何通訊堆疊運用相同的模式。
+這是 Web API 應用程式和 OWIN 主機最後相會的地方：會給予主機 (\*\*OwinCommunicationListener\*\*) 應用程式的執行個體 (透過 **Startup** 的 Web API)，且 Service Fabric 會管理其生命週期。通常可以針對任何通訊堆疊運用相同的模式。
 
 ## 總整理
 
@@ -611,6 +613,5 @@ New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -Servi
 ## 後續步驟
 
 [在 Visual Studio 中偵錯 Service Fabric 應用程式](service-fabric-debugging-your-application.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

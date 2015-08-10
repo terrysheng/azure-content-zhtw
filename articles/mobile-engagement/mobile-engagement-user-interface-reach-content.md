@@ -50,7 +50,7 @@
 
 - **Android + iOS 動作**
     - 開啟網頁
-    - http://[web-site-domain] 
+    - http://[web-site-domain\] 
     - 範例：http://www.azure.com
     - 傳送電子郵件
     - mailto:[收件者]?subject=[主旨]&body=[訊息] 
@@ -74,7 +74,7 @@
     - 範例：http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Windows 動作
     - 開啟網頁
-    - http://[web-site-domain] 
+    - http://[web-site-domain\] 
     - 範例：http://www.azure.com
     - 傳送電子郵件
     - mailto:[收件者]?subject=[主旨]&body=[訊息] 
@@ -230,4 +230,4 @@
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

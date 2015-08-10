@@ -35,7 +35,7 @@ Azure CLI 是以 JavaScript 所撰寫，而且需要 Node.js。它是使用 Azur
 
 
 <a id="configure"></a>
-## 如何連線至您的 Azure 訂閱
+## 如何連線至您的 Azure 訂用帳戶
 
 雖然 Azure CLI 提供的某些命令在沒有 Azure 訂用帳戶的情況下仍可運作，們大多數命令仍需要訂用帳戶。若要了解如何設定 Azure CLI 以使用您的訂用帳戶，請瀏覽[從 Azure CLI 連線到 Azure 訂用帳戶](xplat-cli-connect.md)。
 
@@ -47,8 +47,8 @@ Azure CLI 是以 JavaScript 所撰寫，而且需要 Node.js。它是使用 Azur
 
 	info:             _    _____   _ ___ ___
 	info:            /_\  |_  / | | | _ \ __|
-	info:      _ ___/ _ __/ /| |_| |   / _|___ _ _
-	info:    (___  /_/ _/___|___/|_|____| _____)
+	info:      _ ___/ _ \__/ /| |_| |   / _|___ _ _
+	info:    (___  /_/ \_\/___|\___/|_|_\___| _____)
 	info:       (_______ _ _)         _ ______ _)_ _
 	info:              (______________ _ )   (___ _ _)
 	info:
@@ -83,11 +83,11 @@ Azure CLI 是以 JavaScript 所撰寫，而且需要 Node.js。它是使用 Azur
 
 大多數命令都採用 `azure <command> <operation> [parameters]` 的格式，並對服務或物件 (例如您的帳戶組態) 執行作業。其他命令提供子命令，並採用 `azure <command> <subcommand> <operation> [parameters]` 格式。以下列舉可與您的帳戶組態搭配運作的命令範例：
 
-* 若要檢視您所匯入的訂閱，請使用：
+* 若要檢視您所匯入的訂用帳戶，請使用：
 
 		azure account list
 
-* 如果您已匯入訂閱，請使用以下命令，將其中一個訂閱設為預設值：
+* 如果您已匯入訂用帳戶，請使用以下命令，將其中一個訂用帳戶設為預設值：
 
 		azure account set <subscription>
 
@@ -137,7 +137,7 @@ Azure CLI 可讓您輕鬆地管理 Azure 服務。在下列範例中，您將學
 
 	> [AZURE.NOTE]如果遇到錯誤指出 'site' 不是 Azure 命令，則 Azure CLI 很可能處於資源群組模式。如果要切換回資源模式，請使用 `azure config mode asm` 命令。
 
-2. 使用下列命令可列出您所訂閱的網站：
+2. 使用下列命令可列出您所訂用帳戶的網站：
 
 		azure site list
 
@@ -252,9 +252,7 @@ Azure CLI 可讓您輕鬆地管理 Azure 服務。在下列範例中，您將學
 
 ## 其他資源
 
-* [詳細的服務管理命令清單][Using the Azure CLI]
-
-* [使用適用於 Mac、Linux 和 Windows 的 Azure CLI](cli-cli-azure-resource-manager)
+* [搭配使用 Azure CLI 與服務管理][Using the Azure CLI]
 
 * [將 Azure CLI 和資源管理員搭配使用][cliarm]
 
@@ -283,4 +281,4 @@ Azure CLI 可讓您輕鬆地管理 Azure 服務。在下列範例中，您將學
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [Using the Azure CLI]: virtual-machines-command-line-tools.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

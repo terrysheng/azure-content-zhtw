@@ -46,4 +46,4 @@
 
 [設定 Proxy 和防火牆設定 (選擇性)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

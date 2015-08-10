@@ -68,7 +68,7 @@
 
 宣布 Media Encoder Standard 的一般可用性。如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
 
-Media Encoder Standard 使用[本](http://go.microsoft.com/fwlink/?LinkId=618336)節中所述的預設。請注意，使用 4k 編碼的預設時，您應該取得 **進階 ** 保留的單元類型。如需詳細資訊，請參閱[如何調整編碼](media-services-portal-encoding-units)。
+Media Encoder Standard 使用[本](http://go.microsoft.com/fwlink/?LinkId=618336)節中所述的預設。請注意，使用 4k 編碼的預設時，您應該取得 **進階 \*\* 保留的單元類型。如需詳細資訊，請參閱[如何調整編碼](media-services-portal-encoding-units)。
 
 
 ###媒體服務 .NET SDK 更新
@@ -76,10 +76,10 @@ Media Encoder Standard 使用[本](http://go.microsoft.com/fwlink/?LinkId=618336
 Azure 媒體服務 .NET SDK 現在是版本 3.4.0.0。此版本中加入了下列功能：
 
 - 即時封存的實作支援。請注意，您無法下載包含即時封存的資產。
-- 動態篩選的實作支援
-- 可讓使用者在刪除資產時保留儲存體容器的實作功能
-- 通道中重試原則的相關 Bug 修正
-- 以啟用的 **Media Encoder Premium Workflow**
+- 動態篩選的實作支援。
+- 實作功能，可讓使用者在刪除資產時保留儲存體容器的。
+- 通道中重試原則的相關 Bug 修正。
+- 啟用的**媒體編碼器高階工作流程**。
 
 ##<a id="june_changes_15"></a>2015 年 6 月版本
 
@@ -319,7 +319,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 
 ### <a name="jan_fab_14_donnet_changes"></a>Azure 媒體服務 .NET SDK 3.0.0.1、3.0.0.2 和 3.0.0.3
 
-3.0.0.1 和 3.0.0.2 中的變更包括：
+3\.0.0.1 和 3.0.0.2 中的變更包括：
 
 * 修正了使用 OrderBy 陳述式進行 LINQ 查詢的用法相關問題。
 
@@ -327,11 +327,11 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 
 如需關於變更的詳細資料，請參閱：[Azure 媒體服務 .NET SDK 3.0.0.1 和 3.0.0.2 版本]。
 
-3.0.0.3 中做了下列變更：
+3\.0.0.3 中做了下列變更：
 
 * 已升級 Azure 儲存體相依性而使用 3.0.3.0 版。 
 
-* 修正 3.0.*.* 版本的回溯相容性問題。
+* 修正 3.0.\*.\* 版本的回溯相容性問題。
 
 
 ##<a id="december_changes_13"></a>2013 年 12 月版本
@@ -555,4 +555,4 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [處理媒體服務工作通知]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

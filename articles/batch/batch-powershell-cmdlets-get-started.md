@@ -53,7 +53,7 @@
 New-AzureResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-然後，在資源群組中建立新的批次帳戶，同時為 < * account_name * > 指定帳戶名稱和批次服務可用的位置。建立帳戶可能需要幾分鐘才能完成。例如：
+然後，在資源群組中建立新的批次帳戶，同時為 < \* account\_name \* > 指定帳戶名稱和批次服務可用的位置。建立帳戶可能需要幾分鐘才能完成。例如：
 
 ```
 New-AzureBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -156,4 +156,4 @@ Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 * [Azure 批次 Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [有效率的清單查詢](batch-efficient-list-queries.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

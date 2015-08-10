@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
-#使用 Media Encoder Premium Workflow 進行進階編碼 (公用預覽版)
+#使用 Media Encoder Premium Workflow 進行進階編碼
 
 **注意** 本主題中討論的 Media Encoder Premium Workflow 媒體編碼器不適用於中國。
 
 ##概觀
 
-Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處理器公用預覽版。此處理器為高階隨選工作流程提供先進的編碼功能。
+Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處理器。此處理器為高階隨選工作流程提供先進的編碼功能。
 
 以下主題說明 **Media Encoder Premium Workflow** 的相關詳細資料：
 
@@ -265,4 +265,4 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 
 如果您的輸入視訊不包含隱藏式字幕，輸出資產仍然會包含空白 TTML 檔案。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

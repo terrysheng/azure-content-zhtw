@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 #透過 Azure Media Services 編碼的隨選內容
@@ -26,7 +26,7 @@
 
 - [Media Encoder Standard](#media_encoder_standard)
 - [Azure Media Encoder](#azure_media_encoder)
-- [Media Encoder Premium Workflow](#media_encoder_premium_workflow) (公用預覽版)
+- [Media Encoder Premium Workflow](#media_encoder_premium_workflow)
 
 [下列章節](#compare_encoders)會比較受支援編碼器的編碼功能。
 
@@ -61,7 +61,7 @@
 [使用 Dolby Digital Plus 將您的媒體編碼](media-services-encode-with-dolby-digital-plus.md) – 描述如何使用 Dolby Digital Plus 編碼技術進行曲目的編碼。
 
 
-##<a id="media_encoder_premium_wokrflow"></a>Media Encoder Premium Workflow (預覽版)
+##<a id="media_encoder_premium_wokrflow"></a>媒體編碼器高階工作流程 
 
 **注意** 本主題中討論的 Media Encoder Premium Workflow 媒體編碼器不適用於中國。
 
@@ -195,4 +195,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

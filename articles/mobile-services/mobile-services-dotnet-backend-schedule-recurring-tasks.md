@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用排程器來排程後端工作 - 行動服務" 
+	pageTitle="在 Azure 行動服務中為週期性工作排程" 
 	description="使用 Azure 行動服務排程工具排程行動應用程式的工作。" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # 在行動服務中為週期性工作排程 
@@ -36,16 +36,14 @@
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../../includes/mobile-services-register-twitter-access.md)]
 
-<ol start="7">
-<li><p>在 Visual Studio 的 [方案總管] 中，開啟行動服務專案的 web.config 檔案，找出 <strong>MS_TwitterConsumerKey</strong> 和 <strong>MS_TwitterConsumerSecret</strong> 應用程式設定，並將這些金鑰的值取代為您在入口網站中設定的 Twitter 消費者金鑰值和消費者密碼值。</p></li>
+&nbsp;&nbsp;7.在 Visual Studio 的 [方案總管] 中，開啟行動服務專案的 web.config 檔案，找出 `MS_TwitterConsumerKey` 和 `MS_TwitterConsumerSecret` 應用程式設定，並將這些金鑰的值替換為您在入口網站中設定的 Twitter 消費者金鑰值和消費者密碼值。
 
-<li><p>在相同的區段中新增下列應用程式設定，並將預留位置取代為您在入口網站中設為應用程式設定的 Twitter 存取權杖和存取權杖密碼值：</p>
+&nbsp;&nbsp;8.在相同的區段中新增下列應用程式設定，並將預留位置取代為您在入口網站中設為應用程式設定的 Twitter 存取權杖和存取權杖密碼值：
 
-<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
-&lt;add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" /></code></pre>
+	<add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
+	<add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" />
 
-<p>行動服務在執行於本機電腦時會使用這些儲存的設定，讓您能夠先測試排定工作，再加以發佈。在 Azure 中執行時，行動服務會改用在入口網站中設定的值，並忽略這些專案設定。 </p></li>
-</ol>
+行動服務在執行於本機電腦時會使用這些儲存的設定，讓您能夠先測試排定工作，再加以發佈。在 Azure 中執行時，行動服務會改用在入口網站中設定的值，並忽略這些專案設定。
 
 ##<a name="install-linq2twitter"></a>下載並安裝 LINQ to Twitter 程式庫
 
@@ -65,7 +63,7 @@
 
 	這會為 Updates 類別建立新的專案檔案。
 
-2. 以滑鼠右鍵按一下 [參考]，按一下 [加入參考...]，選取 [組件] 下的 [架構]，核取 [System.ComponentModel.DataAnnotations]，然後按一下 [確定]。
+2. 以滑鼠右鍵按一下 [參考] > [加入參考...] > [組件] 下的 [架構]，然後核取 [System.ComponentModel.DataAnnotations]，並按一下 [確定]。
 
 	![][7]
 
@@ -88,7 +86,7 @@
 	        public DateTime Date { get; set; }
     	}
 
-4. 展開 Models 資料夾，開啟資料模型內容檔案 (名為 <em>service_name</em>Context.cs)，然後新增下列會傳回型別 **DbSet** 的屬性：
+4. 展開 Models 資料夾，開啟資料模型內容檔案 (名為 *service\_name\*Context.cs)，然後新增下列會傳回型別 **DbSet** 的屬性：
 
 		public DbSet<Updates> Updates { get; set; }
 
@@ -127,7 +125,8 @@
 		        private string accessToken;
 		        private string accessTokenSecret;
 		
-		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, CancellationToken cancellationToken)
+		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, 
+					CancellationToken cancellationToken)
 		        {
 		            base.Initialize(scheduledJobDescriptor, cancellationToken);
 		
@@ -214,7 +213,7 @@
 		    }
 		}
 
-	在上述程式碼中，您必須將字串 _todolistService_ 和 _todolistContext_ 替換為您已下載之專案的命名空間和 DbContext，分別是 <em>mobile&#95;service&#95;name</em>Service 和 <em>mobile&#95;service&#95;name</em>Context。
+	在上述程式碼中，您必須將字串 _todolistService_ 和 _todolistContext_ 替換為您已下載之專案的命名空間和 DbContext，分別是 *mobile&#95;service&#95;name\*Service 和 *mobile&#95;service&#95;name\*Context。
    	
 	在上述程式碼中，**ExecuteAsync** 覆寫方法會使用儲存的認證來呼叫 Twitter 查詢 API，以要求包含 # 標籤 `#mobileservices` 的最新推文。在重複的推文和回覆被儲存於資料表之前，系統會先將它們從結果中移除。
 
@@ -301,4 +300,4 @@
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ to Twitter CodePlex 專案]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

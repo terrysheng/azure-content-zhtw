@@ -79,4 +79,4 @@
 
 * [關於 Kerberos 限制委派](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

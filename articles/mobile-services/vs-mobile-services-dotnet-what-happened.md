@@ -22,7 +22,7 @@
 > - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
 > - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
-###<span id="whathappened">我的專案發生什麼情形？</span>
+###我的專案發生什麼情形？</span>
 
 #####加入參考
 
@@ -45,4 +45,4 @@ Azure 行動服務 NuGet 封裝加入至專案。因此，下列 .NET 參考已�
 
 [深入了解行動服務](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

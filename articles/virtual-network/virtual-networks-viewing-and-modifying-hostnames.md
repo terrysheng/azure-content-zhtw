@@ -71,4 +71,4 @@
 
 [使用網路組態檔設定虛擬網路](http://go.microsoft.com/fwlink/?LinkId=248094)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

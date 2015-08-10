@@ -49,9 +49,8 @@ var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 
 動作的輸入包括：- **JavaScript 運算式** - 要評估的運算式。您必須包含 `return` 陳述式來取得任何內容。- **內容物件** - 可傳入觸發程序的選擇性物件。您可以定義任意數目的屬性，但最上層實體必須是物件，例如 `{ "bar" : 0}`。
 
-例如，假設您使用 Office 365 觸發程序**新增電子郵件**。該觸發程序傳回下列物件：
-```
-	{
+例如，假設您使用 Office 365 觸發程序**新增電子郵件**。該觸發程序傳回下列物件：```
+{
 	...
 	"Attachments" : [
 		{
@@ -92,4 +91,4 @@ return Attachments.map(function(obj){var a = obj.Content; a.FileName = obj.Name;
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

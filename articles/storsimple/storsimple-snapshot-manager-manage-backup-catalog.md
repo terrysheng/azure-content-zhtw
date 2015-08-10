@@ -181,7 +181,7 @@ StorSimple Snapshot Manager 在建立預防措施備份時，會顯示下列訊�
 
     4. 在右窗格中的 [**Microsoft StorSimple 管理服務**] 下，按一下 [**停止服務**]。
 
-2. 在主機電腦上，瀏覽至 C:\ProgramData\Microsoft\StorSimple\BACatalog。
+2. 在主機電腦上，瀏覽至 C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog。
 
     >[AZURE.NOTE]ProgramData 是隱藏的資料夾。
  
@@ -197,7 +197,7 @@ StorSimple Snapshot Manager 在建立預防措施備份時，會顯示下列訊�
 
     3. 在右窗格中的 [**Microsoft StorSimple 管理服務**] 下，按一下 [**重新啟動服務**]。
 
-5. 在主機電腦上，瀏覽至 C:\ProgramData\Microsoft\StorSimple\BACatalog。
+5. 在主機電腦上，瀏覽至 C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog。
 
 6. 刪除目錄 XML 檔案，並以您所建立的備份版本取代它。
 
@@ -207,4 +207,4 @@ StorSimple Snapshot Manager 在建立預防措施備份時，會顯示下列訊�
 
 請參閱可用的 [StorSimple Snapshot Manager 工作和工作流程](storsimple-what-is-snapshot-manager.md#storsimple-snapshot-manager-tasks-and-workflows)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="將行動服務新增至現有的應用程式 (Windows 通用) | 行動開發人員中心" 
-	description="了解如何開始使用行動服務，在您的通用 Windows 應用程式中使用資料。" 
+	pageTitle="將行動服務新增至現有的通用 Windows 應用程式 | Azure 行動服務" 
+	description="了解如何將現有的通用 Windows 應用程式連接至 Azure 行動服務。" 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/02/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 # 將行動服務新增至現有的應用程式
@@ -31,7 +31,7 @@
 若要完成此教學課程，您需要下列項目：
 
 * 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-universal-dotnet-get-started-data%2F)。
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Express 2013 for Windows</a> (Update 2 或更新版本)。 
+* [Visual Studio Express 2013 for Windows](https://go.microsoft.com/fwLink/p/?LinkID=257546) (Update 2 或更新版本)。 
 
 ##<a name="download-app"></a>下載 GetStartedWithData 專案
 
@@ -42,19 +42,16 @@
 
 [AZURE.INCLUDE [mobile-services-create-new-service-vs2013](../../includes/mobile-services-create-new-service-vs2013.md)]
 
-<ol start="7"><li><p>在 [解決方案總管] 中，於 [GetStartedWithData.Shared] 專案資料夾中開啟 App.xaml.cs 程式碼檔案，並注意在 Windows 市集應用程式條件式編譯區塊裡，新增至 <strong>App</strong> 類別的全新靜態欄位，如以下範例所示：</p> 
+&nbsp;&nbsp;7.在 [解決方案總管] 中，於 [GetStartedWithData.Shared] 專案資料夾中開啟 App.xaml.cs 程式碼檔案，並注意在 Windows 市集應用程式條件式編譯區塊裡，新增至 **App** 類別的全新靜態欄位，如以下範例所示：
 
-		<pre><code>public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
-		    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
-		        "https://todolist.azure-mobile.net/",
-		        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-		</code></pre>
+	public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
+	    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+	        "https://todolist.azure-mobile.net/",
+	        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 
-	<p>本程式碼透過使用 <a href="http://go.microsoft.com/fwlink/p/?LinkId=302030">MobileServiceClient 類別</a>的執行個體，提供對應用程式中新行動服務的存取權。用戶端是利用提供新行動服務的 URI 和應用程式金鑰來建立。應用程式中的所有頁面都可以使用此靜態資料行。</p>
-</li>
-<li><p>以滑鼠右鍵按一下 [Windows Phone] 應用程式專案，然後依據按一下 [新增]、[已連接服務]<strong></strong><strong></strong>，並選取您剛建立的行動服務，然後按一下 [確定]<strong></strong>。</p>
-<p>相同的程式碼會新增到共用 App.xaml.cs 檔案，但是這次是新增到 Windows Phone 應用程式條件式編譯區塊。</p></li>
-</ol>
+&nbsp;&nbsp;此程式碼使用 [MobileServiceClient ]類別的執行個體，藉此提供對應用程式中新行動服務的存取權。用戶端是利用提供新行動服務的 URI 和應用程式金鑰來建立。應用程式中的所有頁面都可以使用此靜態資料行。
+
+&nbsp;&nbsp;8.以滑鼠右鍵按一下 [Windows Phone] 應用程式專案，然後依據按一下 [新增]、[已連接服務]，並選取您剛建立的行動服務，然後按一下 [確定]。相同的程式碼會新增到共用 App.xaml.cs 檔案，但是這次是新增到 Windows Phone 應用程式條件式編譯區塊。
 
 這時，Windows 市集與 Windows Phone 市集應用程式都會同時連接到新的行動服務。下一步則是在行動服務中建立新的 TodoItem 資料表。
 
@@ -72,11 +69,10 @@
 
 [AZURE.INCLUDE [mobile-services-windows-universal-test-app](../../includes/mobile-services-windows-universal-test-app.md)]
 
-<ol start="4">
-<li><p>在<a href="https://manage.windowsazure.com/" target="_blank">管理入口網站</a>中按一下 [行動服務]<strong></strong>，然後按一下您的行動服務。<p></li>
-<li><p>按一下 [資料]<strong></strong> 索引標籤，然後按一下 [瀏覽]<strong></strong>。</p>
-<p>請注意，[TodoItem]<strong></strong> 資料表現在包含資料和行動服務產生的識別碼值，且資料行已自動新增至資料表，以符合應用程式中的 TodoItem 類別。</p></li>
-</ol>
+&nbsp;&nbsp;4.在 [Azure 管理入口網站]中，按一下 [行動服務]，然後按一下您的行動服務。
+
+&nbsp;&nbsp;5.依序按一下 [資料] > [瀏覽]，請注意，**TodoItem** 資料表現在包含資料和行動服務產生的識別碼值，且資料行已自動新增至資料表，以符合應用程式中的 TodoItem 類別。
+     
 本教學課程到此結束。
 
 ## <a name="next-steps"> </a>後續步驟
@@ -110,12 +106,12 @@
 [開始使用推播通知]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure 管理入口網站]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[開發人員程式碼範例網站]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 
-[MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+[MobileServiceClient ]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

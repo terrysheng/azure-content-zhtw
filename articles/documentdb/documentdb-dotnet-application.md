@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="04/29/2015" 
+	ms.date="07/24/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>使用 DocumentDB 建置具有 ASP.NET MVC 的 Web 應用程式
@@ -202,7 +202,7 @@
 	- 在 [**範本**] 方塊中，選取 [***清單***]。
 	- 在 [**模型類別**] 方塊中，選取 [***項目 (todo.Models)***]。
 	- 將 [**資料內容類別**] 方塊保留空白。 
-	- 在 [版面配置頁面] 方塊中，輸入 ***~/Views/Shared/_Layout.cshtml***。
+	- 在 [版面配置頁面] 方塊中，輸入 ***\~/Views/Shared/\_Layout.cshtml***。
 	
 	![顯示 [新增檢視] 對話方塊的螢幕擷取畫面](./media/documentdb-dotnet-application/image18.png)
 
@@ -219,7 +219,7 @@
     - 在 [**範本**] 方塊中，選取 [***建立***]。
     - 在 [**模型類別**] 方塊中，選取 [***項目 (todo.Models)***]。
     - 將 [**資料內容類別**] 方塊保留空白。
-    - 在 [版面配置頁面] 方塊中，輸入 ***~/Views/Shared/_Layout.cshtml***。
+    - 在 [版面配置頁面] 方塊中，輸入 ***\~/Views/Shared/\_Layout.cshtml***。
     - 按一下 [新增]。
 
 #### <a name="_Toc395888515"></a>新增編輯項目檢視
@@ -233,7 +233,7 @@
     - 在 [**範本**] 方塊中，選取 [***編輯***]。
     - 在 [**模型類別**] 方塊中，選取 [***項目 (todo.Models)***]。
     - 將 [**資料內容類別**] 方塊保留空白。 
-    - 在 [版面配置頁面] 方塊中，輸入 ***~/Views/Shared/_Layout.cshtml***。
+    - 在 [版面配置頁面] 方塊中，輸入 ***\~/Views/Shared/\_Layout.cshtml***。
     - 按一下 [新增]。
 
 完成這項作業之後，請將 Visual Studio 中的所有 cshtml 文件關閉，我們稍後會回頭使用這些檢視。
@@ -441,13 +441,13 @@
 
 如果您現在執行應用程式，您可以前往 **HomeController** 及該控制器的 [**索引**] 檢視。這是我們在一開始時所選擇的 MVC 範本專案預設行為，但是我們不想要這樣的行為！ 讓我們變更此 MVC 應用程式上的路由以改變此行為。
 
-開啟 ***App_Start\RouteConfig.cs***，並尋找以 "defaults:" 開頭的程式碼行，然後將它變更為如下所示。
+開啟 ***App\_Start\\RouteConfig.cs***，並尋找以 "defaults:" 開頭的程式碼行，然後將它變更為如下所示。
 
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
 如果您未在 URL 中指定控制路由行為的值，這會讓 ASP.NET MVC 知道改用 **Item** (**Home**) 作為控制器，並使用使用者**索引**作為檢視。
 
-如果您執行應用程式，它現在會呼叫至您的 **ItemController**，進而呼叫至儲存機制類別，並使用 GetItems 方法將所有未完成的項目傳回 **Views****Item****Index** 檢視。
+如果您執行應用程式，它現在會呼叫至您的 **ItemController**，進而呼叫至儲存機制類別，並使用 GetItems 方法將所有未完成的項目傳回 **Views**\\\*\*Item\*\*\\\*\*Index\*\* 檢視。
 
 如果建置並立即執行此專案，您現在應該會看到如下的內容。
 
@@ -650,7 +650,7 @@
 7. 您現在可以[在本機執行您的應用程式](#_Toc395637773)，然後[將它部署到 Azure 網站](#_Toc395637774)。
 
 
-[*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
+[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
@@ -658,4 +658,4 @@
 [ASP.NET MVC 中的基本 CRUD 作業]: http://go.microsoft.com/fwlink/?LinkId=317598
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

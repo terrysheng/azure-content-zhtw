@@ -86,7 +86,7 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
 如需詳細資訊，請參閱 [DocumentDB 索引編制原則](documentdb-indexing-policies.md)。
 
 ### 針對所有屬性編製 Order By 的索引
-以下是您如何針對出現在 JSON 文件內的任何/所有數字或字串屬性，以 Order By 的「所有範圍」索引建立集合。其中，"/*" 代表集合內的所有 JSON 屬性/路徑，-1 代表最大精確度。
+以下是您如何針對出現在 JSON 文件內的任何/所有數字或字串屬性，以 Order By 的「所有範圍」索引建立集合。其中，"/\*" 代表集合內的所有 JSON 屬性/路徑，-1 代表最大精確度。
                    
     booksCollection.IndexingPolicy.IncludedPaths.Add(
         new IncludedPath { 
@@ -176,4 +176,4 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
 * [DocumentDB Order By 範例](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/01/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #使用 Ambari 管理 HDInsight 叢集 (預覽)
@@ -40,9 +40,7 @@
 
 ##Ambari Web UI
 
-您可以在所建立的每一個以 Linux 為基礎的 HDInsight 叢集上，於 **https://&lt;clustername>.azurehdinsight.net** 取得 Ambari Web UI。您也可以透過 Azure 入口網站的叢集儀表板底部的 [**Ambari Web**] 按鈕來抵達此頁面。
-
-![ambari web 圖示](./media/hdinsight-hadoop-manage-ambari/ambari-web.png)
+您可以在所建立的每一個以 Linux 為基礎的 HDInsight 叢集上，於 **https://&lt;clustername>.azurehdinsight.net** 取得 Ambari Web UI。
 
 系統會提示您驗證頁面兩次。第一個提示是驗證 HDInsight 叢集，第二個則是驗證 Ambari。
 
@@ -252,4 +250,4 @@ Ambari Web 依賴基礎 REST API，供您運用於建立自己的管理和監視
 
 如需 REST API 的完整參考，請參閱 [Ambari API 參考 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

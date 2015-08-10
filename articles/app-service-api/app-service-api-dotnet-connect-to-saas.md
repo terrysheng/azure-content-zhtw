@@ -454,4 +454,4 @@ Dropbox 登入之後的重新導向 URL 可能與此範例類似：
 [Azure portal]: https://manage.windowsazure.com/
 [Azure 入口網站]: https://manage.windowsazure.com/
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

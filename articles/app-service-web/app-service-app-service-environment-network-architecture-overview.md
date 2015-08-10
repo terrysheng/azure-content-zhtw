@@ -57,6 +57,13 @@ App Service 環境進行輸出呼叫時，IP 位址一律會與輸出呼叫相�
 - 因為 App Service 環境的公用 VIP 是 192.23.1.2，所以這是呼叫「網域網路」端點時所使用的輸出 IP 位址。
 - App Service 環境所含子網路的 CIDR 範圍是 10.0.1.0/26。相同虛擬網路基礎結構內的其他端點，將會看到源自此位址範圍內某處之應用程式的呼叫。
 
+## App Service 環境之間的呼叫 ##
+如果您在相同的虛擬網路中部署多個 App Service 環境，並從一個 App Service 環境傳出呼叫至另一個 App Service 環境，則可能產生更複雜的案例。這些跨 App Service 環境的呼叫也會被視為「網際網路」呼叫。
+
+使用上述的 App Service 環境 (輸出 IP 位址為 192.23.1.2) 做為範例：如果 App Service 環境上執行的應用程式，對位於相同虛擬網路中第二個 App Service 環境上執行的應用程式進行輸出呼叫，到達第二個 App Service 環境之輸出呼叫的來源會顯示為 192.23.1.2 (也就是說，非第一個 App Service 環境的子網路位址範圍)。
+
+即使不同 App Service 環境之間的呼叫會視為「網際網路」呼叫，當兩個 App Service 環境同時位於相同的 Azure 區域時，網路流量會維持在 Azure 區域網路上，而不會實際在公用網際網路流動。因此，您可以使用第二個 App Service 環境的子網路上的網路安全性群組，僅允許來自 192.23.1.2 的傳入呼叫，因而確保 App Service 環境之間的通訊安全。
+
 ## 其他連結和資訊 ##
 如需 App Service 環境所使用輸入連接埠以及使用網路安全性群組來控制輸入流量的詳細資料，請參閱[這裡][controllinginboundtraffic]。
 
@@ -72,4 +79,4 @@ App Service 環境進行輸出呼叫時，IP 位址一律會與輸出呼叫相�
 [GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

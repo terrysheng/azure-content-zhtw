@@ -48,7 +48,7 @@ Azure WebJobs SDK 能簡化許多 WebJobs 程式設計工作。如需詳細資�
 	
 	![新增 WebJob 刀鋒視窗](./media/web-sites-create-web-jobs/addwjblade.png)
 	
-2. 在 [**名稱**] 下方提供 WebJob 的名稱。名稱的開頭必須是字母或數字，而且不能含有 "-" 和 "_" 之外的任何特殊字元。
+2. 在 [**名稱**] 下方提供 WebJob 的名稱。名稱的開頭必須是字母或數字，而且不能含有 "-" 和 "\_" 之外的任何特殊字元。
 	
 4. 在 [How to Run] 方塊中選擇 [Run on Demand]。
 	
@@ -209,4 +209,4 @@ Azure 管理入口網站尚未具備建立排程 WebJob 的能力，但在加入
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

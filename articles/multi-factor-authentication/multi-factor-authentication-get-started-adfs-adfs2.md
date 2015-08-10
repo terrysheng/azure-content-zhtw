@@ -56,8 +56,8 @@
 23. 如果 LDAP 連接測試成功，請按一下 [確定] 按鈕。
 24. 接著，按一下 [公司設定] 圖示，然後選取 [使用者名稱解析] 索引標籤。
 25. 選取 [使用 LDAP 唯一識別碼屬性來比對使用者名稱] 按鈕。
-26. 如果使用者以"domain\username" 格式將其使用者名稱輸入 ADFS Proxy 登入表單中，伺服器則需能夠在建立 LDAP 查詢時，刪除使用者名稱中的網域。這個動作可透過登錄設定完成。
-27. 開啟登錄編輯程式並移至 64 位元伺服器上的 HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor。如果在 32 位元伺服器上，請拿掉路徑中的 "Wow6432Node"。建立名為 "UsernameCxz_stripPrefixDomain" 的新 DWORD 登錄機碼，並將值設定為 1。Azure Multi-Factor Authentication 現已保護 ADFS Proxy。確定已將使用者從 Active Directory 匯入伺服器中。如果您想要將內部 IP 位址列入白名單，以便從這些位置登入網站時不需進行雙因素驗證，請參閱以下「信任的 IP」一節。
+26. 如果使用者以"domain\\username" 格式將其使用者名稱輸入 ADFS Proxy 登入表單中，伺服器則需能夠在建立 LDAP 查詢時，刪除使用者名稱中的網域。這個動作可透過登錄設定完成。
+27. 開啟登錄編輯程式並移至 64 位元伺服器上的 HKEY\_LOCAL\_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor。如果在 32 位元伺服器上，請拿掉路徑中的 "Wow6432Node"。建立名為 "UsernameCxz\_stripPrefixDomain" 的新 DWORD 登錄機碼，並將值設定為 1。Azure Multi-Factor Authentication 現已保護 ADFS Proxy。確定已將使用者從 Active Directory 匯入伺服器中。如果您想要將內部 IP 位址列入白名單，以便從這些位置登入網站時不需進行雙因素驗證，請參閱以下「信任的 IP」一節。
 
 <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/reg.png)</center>
 
@@ -93,4 +93,4 @@
 
 <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

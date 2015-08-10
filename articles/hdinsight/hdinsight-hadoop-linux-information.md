@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 # 在 Linux 上使用 HDInsight 的相關資訊 (預覽)
@@ -84,9 +84,7 @@ HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要�
 
 ### 叢集所使用的 Blob 儲存體為何？
 
-叢集建立期間，您會選取使用現有 Azure 儲存體帳戶和容器，或是建立新的。之後您可能就忘得一乾二淨。如果要尋找儲存體帳戶和容器，您可以使用下列方法。
-
-**Ambari API**
+叢集建立期間，您會選取使用現有 Azure 儲存體帳戶和容器，或是建立新的。之後您可能就忘得一乾二淨。您可以使用 Ambari REST API 尋找預設的儲存體帳戶和容器。
 
 1. 請使用以下命令來擷取 HDFS 組態資訊：
 
@@ -110,16 +108,6 @@ HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要�
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
-
-**Azure 入口網站**
-
-1. 在 [Azure 入口網站](https://manage.windowsazure.com/)中，選取您的 HDInsight 叢集。
-
-2. 選取頁面頂端的 [**儀表板**]。
-
-3. 頁面的 [**連結的資源**] 區段就會列出儲存體帳戶和容器。
-
-	![連結的資源](./media/hdinsight-hadoop-linux-information/storageportal.png)
 
 ### 如何存取 Blob 儲存體？
 
@@ -150,6 +138,5 @@ HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要�
 * [搭配 HDInsight 使用 Hivet](hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

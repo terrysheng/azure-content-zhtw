@@ -106,4 +106,4 @@ Azure AD 會藉由連接到每個應用程式廠商所提供的佈建端點，�
 
 若要連絡 Azure AD 工程小組以要求對於其他應用程式的佈建支援，請透過 [Azure Active Directory 意見反應論壇](http://feedback.azure.com/forums/169401-azure-active-directory)提交訊息。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -103,7 +103,7 @@ ASR 中的每個作業都會被稽核，並且在 [工作] 索引標籤底下追
 
 ### HYPER-V 複寫記錄選項
 
-與 Hyper-V 複本有關的所有事件都會記錄在位於 **Applications and Services Logs\Microsoft\Windows** 底下的 Hyper-V-VMMS\Admin 記錄檔。此外，可以針對 Hyper-V-VMMS 啟用分析記錄檔。若要啟用此記錄檔，先讓 [分析] 與 [偵錯] 記錄檔可在 [事件檢視器] 中檢視。開啟 [事件檢視器]，然後在 [**檢視**] 功能表中，按一下 [**顯示分析與偵錯記錄檔**]。
+與 Hyper-V 複本有關的所有事件都會記錄在位於 **Applications and Services Logs\\Microsoft\\Windows** 底下的 Hyper-V-VMMS\\Admin 記錄檔。此外，可以針對 Hyper-V-VMMS 啟用分析記錄檔。若要啟用此記錄檔，先讓 [分析] 與 [偵錯] 記錄檔可在 [事件檢視器] 中檢視。開啟 [事件檢視器]，然後在 [**檢視**] 功能表中，按一下 [**顯示分析與偵錯記錄檔**]。
 
 ![疑難排解內部部署 Hyper-V 問題](media/site-recovery-monitoring-and-troubleshooting/image14.png)
 
@@ -133,7 +133,7 @@ ASR 中的每個作業都會被稽核，並且在 [工作] 索引標籤底下追
 
 對於 VMware/實體案例，請參考 [VMware 和實體網站保護的 Azure Site Recovery 記錄檔收集](http://social.technet.microsoft.com/wiki/contents/articles/30677.azure-site-recovery-log-collection-for-vmware-and-physical-site-protection.aspx)，以收集必要的記錄檔。
 
-SDP 工具會在本機收集記錄檔，您也可以在 **%LocalAppData%\ElevatedDiagnostics** 底下隨機命名的子資料夾底下找到
+SDP 工具會在本機收集記錄檔，您也可以在 **%LocalAppData%\\ElevatedDiagnostics** 底下隨機命名的子資料夾底下找到
 
 ### 開啟支援票證
 
@@ -164,25 +164,17 @@ SDP 工具會在本機收集記錄檔，您也可以在 **%LocalAppData%\Elevate
 
 ### 設定
 
--   [無法驗證選取的憑證。請選取不同的憑證。](http://social.technet.microsoft.com/wiki/contents/articles/25569.the-selected-certificate-cannot-be-validated-please-select-a-different-certificate.aspx)
-
 -   [無法註冊 VMM 伺服器，因為發生內部錯誤。如需錯誤的詳細資訊，請參閱 Site Recovery 入口網站中的工作檢視。再次執行安裝程式以註冊伺服器。](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
 
--   [無法連線到 HYPER-V 復原管理員保存庫。請確認 Proxy 設定，或稍後再試一次。](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
+-   [無法連線到 Hyper-V 復原管理員保存庫。請確認 Proxy 設定，或稍後再試一次。](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
 
 ### 組態
 
 -   [Hyper-V 主機叢集至少包含一個靜態網路介面卡，或未設定連線的介面卡來使用 DHCP。](http://social.technet.microsoft.com/wiki/contents/articles/25498.hyper-v-host-cluster-contains-at-least-one-static-network-adapter-or-no-connected-adapters-are-configured-to-use-dhcp.aspx)
 
--   [未在功能設定檔中為雲端啟用 Hyper-V 設定檔](http://social.technet.microsoft.com/wiki/contents/articles/25499.the-hyper-v-profile-isn-t-enabled-in-the-capability-profiles-for-cloud.aspx)
-
--   [無法套用 '%Cloudname;' 的保護組態。無法設定新增的 Hyper-V 主機或叢集，因為未設定雲端保護。](http://social.technet.microsoft.com/wiki/contents/articles/25500.protection-configuration-for-cloudname-couldn-t-be-applied-a-newly-added-hyper-v-host-or-cluster-couldn-t-be-configured-because-cloud-protection-isn-t-configured.aspx)
-
 -   [VMM 沒有完成動作的權限](http://social.technet.microsoft.com/wiki/contents/articles/31110.vmm-does-not-have-permissions-to-complete-an-action.aspx)
 
 ### 保護
-
--   [不支援的作業系統](http://social.technet.microsoft.com/wiki/contents/articles/31103.the-operating-system-is-not-supported.aspx)
 
 -   [啟用保護失敗，因為主機機器上未安裝代理程式](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
 
@@ -220,9 +212,6 @@ SDP 工具會在本機收集記錄檔，您也可以在 **%LocalAppData%\Elevate
 
     -   [無法起始容錯移轉，因為正在進行測試容錯移轉](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
 
--   特定復原到 Azure
-
-    -   [無法啟動容錯移轉，因為 VM 名稱有不支援的字元](http://social.technet.microsoft.com/wiki/contents/articles/31107.failover-could-not-be-started-due-to-unsupported-characters-in-the-vm-name.aspx)
 
 ### 設定伺服器、處理序伺服器、主要目標
 
@@ -230,4 +219,7 @@ SDP 工具會在本機收集記錄檔，您也可以在 **%LocalAppData%\Elevate
 
 -   [將 PS/CS 做為 VM 加以管理的 ESXi 主機失敗，並且出現紫色的當機螢幕。](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
-<!---HONumber=July15_HO4-->
+### 容錯移轉之後的遠端桌面疑難排解
+許多客戶面臨在 Azure 中連接到容錯移轉的 VM 的問題。使用疑難排解文件 RDP 至 VM。[文件連結](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
+
+<!---HONumber=July15_HO5-->

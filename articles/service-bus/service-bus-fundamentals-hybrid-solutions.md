@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/25/2015" 
 	ms.author="sethm"/>
 
 # Azure 服務匯流排
@@ -25,7 +25,7 @@
 
 服務匯流排是多租用戶的雲端服務，亦即，由多位使用者共用服務。每個使用者 (例如應用程式開發人員) 可建立*命名空間*，然後在該命名空間內定義所需的通訊機制。圖 1 顯示運作架構。
 
-![Azure 服務匯流排圖表][svc-bus]
+![][1]
  
 **圖 1：服務匯流排提供多租用戶服務，可透過雲端連接應用程式。**
 
@@ -42,12 +42,11 @@ Windows 應用程式可以利用 Windows Communication Foundation (WCF) 來使�
 
 請務必了解，雖然服務匯流排本身是在雲端執行 (亦即，在 Microsoft 的 Azure 資料中心)，但用到服務匯流排的應用程式可在任何地方執行。舉例來說，您可以使用服務匯流排來連接 Azure 上執行的應用程式，或您自己的資料中心內執行的應用程式。服務匯流排也可讓您將 Azure 或其他雲端平台上執行的應用程式，與內部部署應用程式連接，或與平板電腦和電話連接。甚至可以將家電產品、感應器和其他裝置，連接至中央應用程式或其他應用程式。服務匯流排是雲端中通用的通訊機制，幾乎從任何地方都能存取。用途視應用程式的需求而定。
 
-
 ## 佇列
 
 假設您決定使用服務匯流排佇列來連接兩個應用程式。圖 2 顯示此情形。
 
-![服務匯流排佇列的圖表][queues]
+![][2]
  
 **圖 2：服務匯流排佇列提供單向非同步的佇列作業。**
 
@@ -67,12 +66,11 @@ Windows 應用程式可以利用 Windows Communication Foundation (WCF) 來使�
 
 佇列在許多情況下都很有用。即使兩個應用程式未同時都在執行，佇列仍可讓應用程式通訊，這尤其適用於批次和行動應用程式。如果佇列有多個接收者，由於傳送的訊息會襲捲這些接收者，此佇列也提供自動的負載平衡。
 
-
 ## 主題
 
 佇列雖然很實用，但不見得是最適當的解決方案。有時，服務匯流排主題更適合。圖 3 闡明此概念。
 
-![服務匯流排主題和訂用帳戶的圖表][topics-subs]
+![][3]
  
 **圖 3：根據訂閱端應用程式所指定的篩選，應用程式可以接收部分或所有傳送至服務匯流排主題的訊息。**
 
@@ -84,12 +82,11 @@ Windows 應用程式可以利用 Windows Communication Foundation (WCF) 來使�
 
 如同佇列一樣，主題的訂閱者也可以使用 ReceiveAndDelete 或 PeekLock 來讀取訊息。但與佇列不同，傳送至主題的單一訊息可以由多個訂閱者接收。每當多個應用程式可能都需要存取相同的訊息時，此方法很有用，這個方法通常稱為*發佈和訂閱*。每個訂閱者只要定義正確的篩選，即可只存取所需的訊息資料流部分。
 
-
 ## 轉送
 
 佇列和主題都是透過代理人來提供單向非同步通訊。流量只往一個方向流動，傳送者和接收者之間並未直接連接。但如果不想要這種方式又該如何？ 假設應用程式同時需要傳送和接收訊息，或您可能希望應用程式之間直接連結，而不需要代理人來儲存訊息。為了處理此種案例，服務匯流排會提供轉送 (如圖 4 所示)。
 
-![服務匯流排轉送的圖表][relay]
+![][4]
  
 **圖 4：服務匯流排轉送在應用程式之間提供同步、雙向的通訊。**
 
@@ -128,4 +125,9 @@ Windows 應用程式可以利用 Windows Communication Foundation (WCF) 來使�
 [relay]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_04_relay.png
 [MSDN]: https://msdn.microsoft.com/library/dn194201.aspx
 
-<!---HONumber=July15_HO4-->
+[1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
+[2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
+[3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
+[4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
+
+<!---HONumber=July15_HO5-->

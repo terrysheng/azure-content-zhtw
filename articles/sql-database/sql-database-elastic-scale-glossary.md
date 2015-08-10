@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/08/2015" 
+    ms.date="07/24/2015" 
     ms.author="sidneyh"/>
 
-#彈性資料庫工具字彙
+# 彈性資料庫工具字彙
 以下是針對 Azure SQL Database 功能之一彈性資料庫工具所定義的詞彙。這些工具包括用戶端程式庫、分割合併工具、彈性集區和查詢。
 
 ![彈性擴縮詞彙][1]
@@ -80,4 +80,4 @@
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

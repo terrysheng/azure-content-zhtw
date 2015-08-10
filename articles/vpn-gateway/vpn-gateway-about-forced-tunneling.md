@@ -144,4 +144,4 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 
 您可以將虛擬機器加入您的虛擬網路。請參閱＜[如何建立自訂虛擬機器](../virtual-machines/virtual-machines-create-custom.md)＞。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

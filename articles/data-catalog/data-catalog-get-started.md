@@ -69,7 +69,7 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 
     ![register4][4]
 
-    c.按一下移動選取項目箭號 (**>**)。這會將所有 Product 物件移至 [**準備註冊**] 清單。
+    c.按一下移動選取項目箭號 (\*\*>\*\*)。這會將所有 Product 物件移至 [**準備註冊**] 清單。
 
     ![register5][5]
 
@@ -222,4 +222,4 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

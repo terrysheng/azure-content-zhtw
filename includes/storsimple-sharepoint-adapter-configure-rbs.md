@@ -1,75 +1,58 @@
-<properties 
-   pageTitle="Configure RBS for the StorSimple Adapter for SharePoint | Microsoft Azure"
-   description="Describes how to install the StorSimple Adapter for SharePoint in a SharePoint server farm."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="07/17/2015"
-   ms.author="v-sharos" />
+>[AZURE.NOTE]變更 StorSimple Adapter for SharePoint 的 RBS 組態時，您必須利用屬於 Domain Admins 群組的使用者帳戶登入。此外，您必須從瀏覽器 (在和管理中心相同的主機上執行) 存取組態頁面。
 
->[AZURE.NOTE] When making changes to the StorSimple Adapter for SharePoint RBS configuration, you must be logged on with a user account that belongs to the Domain Admins group. Additionally, you must access the configuration page from a browser running on the same host as Central Administration.
+#### 設定 RBS
 
-#### To configure RBS
+1. 開啟 [SharePoint 管理中心] 頁面，並瀏覽至**系統設定**。 
 
-1. Open the SharePoint Central Administration page, and browse to **System Settings**. 
+2. 在 [**Azure StorSimple**] 區段中，按一下 [**設定 StorSimple Adapter**]。
 
-2. In the **Azure StorSimple** section, click **Configure StorSimple Adapter**.
+    ![設定 StorSimple Adapter](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS1-include.png)
 
-    ![Configure the StorSimple Adapter](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS1-include.png) 
+3. 在 [**設定 StorSimple Adapter**] 頁面上：
 
-3. On the **Configure StorSimple Adapter** page:
+    1. 請確定已選取 [**啟用編輯路徑**] 核取方塊。
 
-    1. Make sure that the **Enable editing path** check box is selected.
+    2. 在文字方塊中，輸入 BLOB 存放區的通用命名慣例 (UNC) 路徑。
 
-    2. In the text box, type the Universal Naming Convention (UNC) path of the BLOB store.
+          >[AZURE.NOTE]BLOB 存放區磁碟區必須裝載在設定於 StorSimple 裝置上的 iSCSI 磁碟區。
 
-          >[AZURE.NOTE] The BLOB store volume must be hosted on an iSCSI volume configured on the StorSimple device.
+    3. 按一下**啟用**每個您想要設定遠端存放的內容資料庫下方的按鈕。
 
-    3. Click the **Enable** button below each of the content databases that you want to configure for remote storage.
+          >[AZURE.NOTE]BLOB 存放區必須由所有 web 前端 (WFE) 伺服器共用，而且已針對 SharePoint 伺服器陣列設定的使用者帳戶必須可存取此共用權限。
 
-          >[AZURE.NOTE] The BLOB store must be shared and reachable by all web front-end (WFE) servers, and the user account that is configured for the SharePoint server farm must have access to the share.
+          ![啟用 RBS 提供者](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS2-include.png)
 
-          ![Enable the RBS provider](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS2-include.png)
+           當您啟用或停用 RBS 時，也會看到下列訊息。
 
-           When you enable or disable RBS, you will also see the following message.
+          ![設定 StorSimple Adapter 啟用停用](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
 
-          ![Configure StorSimple Adapter Enable Disable](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
+    4. 按一下 [**更新**] 按鈕以套用組態。當您按一下 [更新] 按鈕時，所有 WFE 伺服器上的 RBS 組態狀態將會更新，且整個伺服器陣列將會啟用 RBS 功能。下列訊息隨即出現。
 
-    4. Click the **Update** button to apply the configuration. When you click the **Update** button, the RBS configuration status will be updated on all WFE servers, and the entire farm will be RBS-enabled. The following message appears.
+           ![配接器組態訊息](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
 
-           ![Adapter configuration message](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
-
-           >[AZURE.NOTE] If you are configuring RBS for a SharePoint farm with a very large number of databases (greater than 200), the SharePoint Central Administration web page might time out. If that occurs, refresh the page. This does not affect the configuration process.
+           >[AZURE.NOTE]如果要設定 RBS 的 SharePoint 伺服器陣列有非常大量的資料庫 (超過 200 個)，SharePoint 管理中心網頁可能會逾時。如果發生這種情況，請重新整理頁面。這不會影響設定程序。
  
-4. Verify the configuration:
+4. 驗證組態：
 
-    1. Log on to the SharePoint Central Administration website, and browse to the **Configure StorSimple Adapter** page.
+    1. 登入 SharePoint 管理中心網站，並瀏覽至 [**設定 StorSimple Adapter**] 頁面。
 
-    2. Check the configuration details to make sure that they match the settings that you entered. 
+    2. 請檢查組態詳細資料以確定它們符合您所輸入的設定。
 
-5. Verify that RBS works correctly:
+5. 確認 RBS 正確地運作：
 
-    1. Upload a document to SharePoint. 
+    1. 將文件上傳至 SharePoint。 
 
-    2. Browse to the UNC path that you configured. Make sure that the RBS directory structure was created and that it contains the uploaded object.
+    2. 瀏覽至您所設定的 UNC 路徑。請確定已建立 RBS 目錄結構，且它包含已上傳的物件。
 
-6. (Optional) You can use the Microsoft RBS `Migrate()` PowerShell cmdlet included with SharePoint to migrate existing BLOB content to the StorSimple device. For more information, see [Migrate content into or out of RBS in SharePoint 2013][6] or [Migrate content into or out of RBS (SharePoint Foundation 2010)][7].
+6. (選擇性) 您可以使用隨附於 SharePoint 的 Microsoft RBS `Migrate()` PowerShell cmdlet 以移轉現有的 BLOB 內容至 StorSimple 裝置。如需詳細資訊，請參閱[移轉內容出或入 SharePoint 2013 中的 RBS][6] 或[移轉內容出或入 RBS (SharePoint Foundation 2010)][7]。
 
-7. (Optional) On test installations, you can verify that the BLOBs were moved out of the content database as follows: 
+7. (選擇性) 在測試安裝上，您可以確認已將 Blob 移出內容資料庫，如下所示：
 
-    1. Start SQL Management Studio.
+    1. 啟動 SQL Management Studio
 
-    2. Run the ListBlobsInDB_2010.sql or ListBlobsInDB_2013.sql query, as follows.
+    2. 執行 ListBlobsInDB\_2010.sql 或 ListBlobsInDB\_2013.sql 查詢，如下所示。
 
-     **ListBlobsInDB_2013.sql**
+     **ListBlobsInDB\_2013.sql**
 
          USE WSS_Content
          GO
@@ -87,7 +70,7 @@
          ORDER BY TimeLastModified DESC
          GO
 
-     **ListBlobsInDB_2010.sql**
+     **ListBlobsInDB\_2010.sql**
 
          USE WSS_Content
          GO
@@ -104,17 +87,19 @@
          ORDER BY TimeLastModified DESC
          GO
 
-     If RBS was configured correctly, a NULL value should appear in the SizeOfContentInDB column for any object that was uploaded and successfully externalized with RBS.
+     如果已正確設定 RBS，NULL 值應該會出現在已上傳並使用 RBS 順利外部化之任何物件的 SizeOfContentInDB 資料行。
 
-8. (Optional) After you configure RBS and move all BLOB content to the StorSimple device, you can move the content database to the device. If you choose to move the content database, we recommend that you configure the content database storage on the device as a primary volume. Then, use established SQL Server best practices to migrate the content database to the StorSimple device. 
+8. (選擇性) 設定 RBS 並將所有 BLOB 內容都移至 StorSimple 裝置之後，您可以將內容資料庫移至裝置。如果您選擇移動內容資料庫，建議您在裝置上將內容資料庫儲存體設定為主要磁碟區。然後使用以建立的 SQL Server 最佳作法，將內容資料庫移轉至 StorSimple 裝置。
 
-     >[AZURE.NOTE] Moving the content database to the device is only supported for the StorSimple 8000 series (it is not supported for the 5000 or 7000 series).
+     >[AZURE.NOTE]只有 StorSimple 8000 系列支援將內容資料庫移至裝置 (5000 或 7000 系列並不支援)。
  
-     If you store BLOBs and the content database in separate volumes on the StorSimple device, we recommend that you configure them in the same volume container. This ensures that they will be backed up together.
+     如果您在 StorSimple 裝置上的個別磁碟區中儲存 BLOB 和內容資料庫，建議您在相同的磁碟區容器中設定它們。這樣可確保它們將一起進行備份。
 
-       >[AZURE.WARNING] If you have not enabled RBS, we do not recommend moving the content database to the StorSimple device. This is an untested configuration.
+     >[AZURE.WARNING]如果您尚未啟用 RBS，我們不建議您將內容資料庫移至 StorSimple 裝置。這是未經過測試的設定。
  
-9. Go to the next step: [Configure garbage collection](#configure-garbage-collection).
+9. 移至下一個步驟：[設定記憶體回收](#configure-garbage-collection)。
 
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx
+
+<!---HONumber=July15_HO5-->

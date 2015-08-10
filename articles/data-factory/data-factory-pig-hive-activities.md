@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="07/26/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Pig 和 Hive 搭配 Data Factory
@@ -24,7 +24,7 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 
 ### 必要條件
 1. 完成[開始使用 Azure Data Factory][adfgetstarted] 文章中的教學課程。
-2. 在 **C:\ADFGetStarted** 下名為 **Hive** 的子資料夾中，使用下列內容建立 **hivequery.hql** 檔案。
+2. 在 **C:\\ADFGetStarted** 下名為 **Hive** 的子資料夾中，使用下列內容建立 **hivequery.hql** 檔案。
     		
     	DROP TABLE IF EXISTS adftutorialhivetable; 
 		CREATE EXTERNAL TABLE  adftutorialhivetable
@@ -39,7 +39,7 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 		FROM hivesampletable 
 		group by country, state;
 
-	> [AZURE.NOTE]若要在 HQL 檔案中使用 **Tez** 引擎執行 Hive 查詢，請在檔案頂端加入 "**set hive.execution.engine=tez**;"。
+	> [AZURE.NOTE]若要在 HQL 檔案中使用 **Tez** 引擎執行 Hive 查詢，請在檔案頂端加入 "\*\*set hive.execution.engine=tez\*\*;"。
 		
 3.  將 **hivequery.hql** 上傳至 Blob 儲存體中的 **adftutorial** 容器
 
@@ -133,14 +133,14 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 						"transformation":
 						{
                     		"type": "Hive",
-                    		"extendedProperties":
+                    		"defines":
                     		{
                         		"RESULTOUTPUT": "wasb://adftutorial@<your storage account>.blob.core.windows.net/hiveoutput/",
 		                        "Year":"$$Text.Format('{0:yyyy}',SliceStart)",
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\hivequery.hql",
+		                    "scriptpath": "adftutorial\\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -184,7 +184,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 		{
 			"type": "Pig",
 			"script": "pig script",
-			"extendedProperties":
+			"defines":
 			{	
 				"param1": "param1Value"
  			}
@@ -197,7 +197,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 - **linkedServiceName** 設為 **MyHDInsightLinkedService**。如需建立 HDInsight 連結服務的詳細資訊，請參閱下方的 HDInsight 連結服務區段。
 - **transformation** 的 **type** 設為 **Pig**。
 - 您可以為 **script** 屬性指定 Pig 內嵌指令碼，或將指令碼檔案儲存在 Azure Blob 儲存體，然後使用 **scriptPath** 屬性來參考該檔案，本文後面會加以說明。 
-- 您可以使用 **extendedProperties** 指定 Pig 指令碼的參數。本文後面提供更多的詳細資料。 
+- 您可以使用 **defines** 指定 Pig 指令碼的參數。本文後面提供更多的詳細資料。 
 
 
 ## Hive JSON 範例
@@ -214,7 +214,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 		{
 			"type": "Hive",
 			"script": "Hive script",
-			"extendedProperties":
+			"defines":
 			{	
 				"param1": "param1Value"
             }
@@ -227,7 +227,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 - **linkedServiceName** 設為 **MyHDInsightLinkedService**。 
 - **transformation** 的 **type** 設為 **Hive**。
 - 您可以為 **script** 屬性指定 Hive 內嵌指令碼，或將指令碼檔案儲存在 Azure Blob 儲存體，然後使用 **scriptPath** 屬性來參考該檔案，本文後面會加以說明。 
-- 您可以使用 **extendedProperties** 指定 Hive 指令碼的參數。本文後面提供更多的詳細資料。 
+- 您可以使用 **defines** 指定 Hive 指令碼的參數。本文後面提供更多的詳細資料。 
 
 > [AZURE.NOTE]如需關於 Cmdlet、JSON 結構描述和結構描述中之屬性的詳細資訊，請參閱[開發人員參考](http://go.microsoft.com/fwlink/?LinkId=516908)。
 
@@ -258,9 +258,9 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\scripts\transformdata.hql",    		
+    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
-						"extendedProperties":
+						"defines":
 						{
 						}		
 					},
@@ -277,16 +277,16 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 	}
 
 
-> [AZURE.NOTE]若要使用 **Tez** 引擎執行 Hive 查詢，請在執行 Hive 查詢之前，先執行 "**set hive.execution.engine=tez**;"。
+> [AZURE.NOTE]若要使用 **Tez** 引擎執行 Hive 查詢，請在執行 Hive 查詢之前，先執行 "\*\*set hive.execution.engine=tez\*\*;"。
 > 
 > 如需關於 Cmdlet、JSON 結構描述和結構描述中之屬性的詳細資訊，請參閱[開發人員參考](http://go.microsoft.com/fwlink/?LinkId=516908)。
 
 ## 參數化的 Pig 和 Hive 查詢
-Data Factory Pig 和 Hive 活動可讓您使用 **extendedProperties**，指定 Pig 和 Hive 指令碼中所使用的參數值。ExtendedProperties 區段包含參數的名稱和參數的值。
+Data Factory Pig 和 Hive 活動可讓您使用 **defines**，指定 Pig 和 Hive 指令碼中所使用的參數值。defines 區段包含參數的名稱和參數的值。
 
-請參閱以下範例，了解如何使用 **extendedProperties** 指定 Hive 指令碼的參數。若要使用參數化的 Hive 指令碼，請執行下列動作：
+請參閱以下範例，了解如何使用 **defines** 指定 Hive 指令碼的參數。若要使用參數化的 Hive 指令碼，請執行下列動作：
 
-1.	定義 **extendedProperties** 中的參數。
+1.	定義 **defines** 中的參數。
 2.	在內嵌 Hive 指令碼 (或) 儲存在 Blog 儲存體中的 Hive 指令碼檔案中，請使用 **${hiveconf:parameterName}** 來參考參數。
 
    
@@ -307,7 +307,7 @@ Data Factory Pig 和 Hive 活動可讓您使用 **extendedProperties**，指定 
 				  		"transformation":
 				  		{
 							"type": "Hive", 
-							"extendedProperties":
+							"defines":
 							{
 								"Param1": "$$Text.Format('{0:yyyy-MM-dd}', SliceStart)",
 								"Param2": "value"
@@ -353,4 +353,4 @@ Data Factory Pig 和 Hive 活動可讓您使用 **extendedProperties**，指定 
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

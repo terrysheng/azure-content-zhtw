@@ -124,4 +124,4 @@ Azure 應用程式服務提供許多現成連接器：
 [BizTalk 轉換服務]: app-service-logic-transform-xml-documents.md
 [Wait 連接器]: app-service-logic-wait.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

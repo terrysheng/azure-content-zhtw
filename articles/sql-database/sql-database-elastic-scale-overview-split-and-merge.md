@@ -1,6 +1,6 @@
 <properties 
     pageTitle="使用彈性資料庫分割合併工具來縮放" 
-    description="說明如何使用彈性資料庫 API 透過自我主控服務操作分區和移動資料。" 
+    description="說明如何使用彈性資料庫 API 透過自我託管服務操作分區和移動資料。" 
     services="sql-database" 
     documentationCenter="" 
     manager="jeffreyg" 
@@ -12,24 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/24/2015" 
+    ms.date="07/29/2015" 
     ms.author="sidneyh" />
 
 # 使用彈性資料庫分割合併工具來縮放
 
-Azure SQL Database 提供各種方式，隨商務需求變更而縮放應用程式的資料層。例如，情況可能是處理熱門的應用程式，或將資料庫運用到極限的特定租用戶。縮放選項包括：
+如果您選擇不使用簡單的模型來配置不同資料庫給每個 Shardlet (租用戶)，當容量需要變動時，您的應用程式可能需要靈活地在資料庫之間重新分配資料。彈性資料庫工具包含客戶裝載的分割合併工具，可重新平衡資料分佈及管理分區化應用程式的作用區。它根據一項基礎功能在不同資料庫之間隨需求移動 Shardlet，並與分區對應管理整合來維持一致的對應。
 
-* 彈性資料庫集區可讓集區內的資料庫根據需求而個別擴大或縮減耗用的資源，同時將整個集區維持在一個可預測的總價格內。集區中也可以加入或移除資料庫，以支援新的或離開的租用戶。如需詳細資訊，請參閱 [Azure SQL Database 彈性集區 (預覽)](sql-database-elastic-pool.md)。 
+分割合併工具管理相應縮小和相應放大。您可以在分區集加入或移除資料庫，並使用分割合併工具重新平衡它們之間的 Shardlet 分佈。(關於詞彙定義，請參閱 [Elastic Scale 名詞解釋](sql-database-elastic-scale-glossary.md))。
 
-* 手動或根據原則變更版本或效能層，以明確地增加或減少資料庫的資源 (請參閱[分區彈性](sql-database-elastic-scale-elasticity.md))
-
-* 變更資料在分區之間的分佈 – 通常配合擴大或縮減分區售的資料庫總數。這稱為分割合併，在相同分區內管理多個終端客戶 (租用戶) 時通常有此需要。
-
-這最後一個案例由**彈性資料庫分割合併工具**解決，當較簡單的垂直縮放替代方案，或只是為新的租用戶加入新的資料庫仍嫌不足時，就很重要。分割合併工具管理相應縮小和相應放大。您可以在分區集加入或移除資料庫，並使用分割合併工具重新平衡它們之間的 Shardlet 分佈。(關於詞彙定義，請參閱 [Elastic Scale 名詞解釋](sql-database-elastic-scale-glossary.md))。
-
-根據目前在 Azure SQL Database 層之間的選擇，也可以相應增加或減少單一 Azure SQL DB 資料庫的容量來管理容量。分割合併不討論彈性容量管理的相應增加/減少大小 – 請改以參閱[分區彈性](sql-database-elastic-scale-elasticity.md)。
-
- 
 ## 分割合併的新功能
 
 分割合併工具的最新版本提供下列改進：
@@ -74,7 +65,7 @@ Azure SQL Database 提供各種方式，隨商務需求變更而縮放應用程�
 
 ## 概念和重要功能
 
-**客戶主控式服務**：分割合併以客戶主控式服務提供。您必須將服務部署並裝載於 Microsoft Azure 訂閱中。您從 NuGet 下載的封裝包含設定範本，可加入您特定部署的資訊而使之完備。如需詳細資訊，請參閱[分割合併教學課程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)。因為服務是在您的 Azure 訂閱中執行，您可以控制和設定服務的大部分安全性層面。預設範本包含設定 SSL、以憑證為基礎的用戶端驗證、加密儲存的認證、DoS 防護及 IP 限制等選項。您可以在下列文件中找到安全性層面的詳細資訊：[Split-Merge 安全性設定](sql-database-elastic-scale-split-merge-security-configuration.md)。
+**客戶託管服務**：分割合併以客戶主控式服務提供。您必須將服務部署並裝載於 Microsoft Azure 訂用帳戶中。您從 NuGet 下載的封裝包含設定範本，可加入您特定部署的資訊而使之完備。如需詳細資訊，請參閱[分割合併教學課程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)。因為服務是在您的 Azure 訂用帳戶中執行，您可以控制和設定服務的大部分安全性層面。預設範本包含設定 SSL、以憑證為基礎的用戶端驗證、加密儲存的認證、DoS 防護及 IP 限制等選項。您可以在下列文件中找到安全性層面的詳細資訊：[Split-Merge 安全性設定](sql-database-elastic-scale-split-merge-security-configuration.md)。
 
 預設部署服務以一個背景工作角色和一個 Web 角色執行。各角色在 Azure 雲端服務中使用 A1 VM 大小。雖然您無法在部署封裝時修改這些設定，但可以在部署成功後在執行中的雲端服務中變更它們 (透過 Azure 入口網站)。請注意，基於技術原因，不可以將背景工作角色設定多個執行個體。
 
@@ -84,7 +75,7 @@ Azure SQL Database 提供各種方式，隨商務需求變更而縮放應用程�
 
 **管理 Shardlet 可用性**：如上所述，只限制終止目前 Shardlet 批次的連接，可將無法使用的範圍限制在一次一批 Shardlet。這比分割或合併作業過程中整個分區對其所有 Shardlet 仍保持離線的作法更好。批次大小 (定義為一次要移動的相異 Shardlet 數目) 是組態參數。每個分割和合併作業中都可定義它，視應用程式的可用性和效能需求而定。請注意，分區對應中鎖定的範圍可能大於指定的批次大小。這是因為服務挑選範圍大小時，都希望資料中的分區化索引鍵值的實際數大約符合批次大小。對於稀疏填入的分區化索引鍵，尤其要記住這一點。
 
-**中繼資料儲存體**：分割合併服務使用資料庫來維護其狀態，並在要求處理期間保留記錄檔。使用者在其訂閱中建立此資料庫，並在服務部署的組態檔中提供連接字串。使用者組織的系統管理員也可以連接到此資料庫來檢閱要求進度，並調查關於潛在失敗的詳細資訊。
+**中繼資料儲存體**：分割合併服務使用資料庫來維護其狀態，並在要求處理期間保留記錄檔。使用者在其訂用帳戶中建立此資料庫，並在服務部署的組態檔中提供連接字串。使用者組織的系統管理員也可以連接到此資料庫來檢閱要求進度，並調查關於潛在失敗的詳細資訊。
 
 **分區化感知**：分割合併服務會區別 (1) 分區化資料表、(2) 參考資料表和 (3) 一般資料表。分割/合併移動作業的語意視使用的資料表類型而定，定義如下：
 
@@ -110,7 +101,7 @@ Azure SQL Database 提供各種方式，隨商務需求變更而縮放應用程�
     // Publish 
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo); 
 
-資料表 '‘region’ 及 ‘nation’ 定義為參考資料表，將透過分割/合併/移動作業來複製。‘customer’ 和 ‘orders’ 接著定義為分區化資料表。C_CUSTKEY 和 O_CUSTKEY 作為分區化索引鍵。
+資料表 '‘region’ 及 ‘nation’ 定義為參考資料表，將透過分割/合併/移動作業來複製。‘customer’ 和 ‘orders’ 接著定義為分區化資料表。C\_CUSTKEY 和 O\_CUSTKEY 作為分區化索引鍵。
 
 **參考完整性**：分割合併服務會分析資料表之間的相依性，並使用外部主索引鍵關聯性來接移作業，以移動參考資料表和 Shardlet。一般而言會先根據相依性順序複製參考資料表，然後在每個批次中再根據相依性順序複製 Shardlet。這是必要的，當新資料到達時，才能符合目標分區的 FK PK 條件約束。
 
@@ -252,4 +243,4 @@ Azure SQL Database 提供各種方式，隨商務需求變更而縮放應用程�
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

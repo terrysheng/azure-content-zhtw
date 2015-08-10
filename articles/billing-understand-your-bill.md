@@ -9,7 +9,7 @@
    tags="billing"/>
 
 <tags
-   ms.service="na"
+   ms.service="billing"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -262,4 +262,4 @@ N/A | 標記 | _**新增資料行。**_ Azure 中的新資源類型可讓您標�
 
 <!--Image references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

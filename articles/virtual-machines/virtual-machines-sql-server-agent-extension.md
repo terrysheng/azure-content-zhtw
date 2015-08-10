@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 虛擬機器上的 SQL Server" 
+	pageTitle="SQL Server IaaS 代理程式延伸模組" 
 	description="描述 SQL Server 代理程式延伸模組，可讓在 Azure 上的雲端中執行 SQL Server 的虛擬機器，使用自動化功能，並描述如果尚未自動安裝代理程式，如何加以安裝。" 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -74,4 +74,4 @@ Get-AzureVMSqlServerExtension [[-VM] <IPersistentVM>] [[-Version] <string>] [<Co
 ### 語法
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

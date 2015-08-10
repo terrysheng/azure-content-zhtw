@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
-# 授權 Azure 資源管理員範本
+# 編寫 Azure 資源管理員範本
 
 Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網站等) 結合在一起，以達到所需的目標。您不是分開部署與管理每個資源，而是建立一個 Azure 資源管理員範本，藉此經由單一、協調的作業署與佈建應用程式有的資源。在範本中，您會定義應用程式所需的資源，並指定部署參數以針對不同的環境輸入值。範本由 JSON 與運算式所組成，可讓您用來為部署建構值。
 
@@ -218,7 +218,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 | 元素名稱 | 必要 | 說明
 | :----------------------: | :------: | :----------
-| apiVersion | 是 | 支援資源的 API 版本。
+| apiVersion | 是 | 支援資源的 API 版本。如需資源的可用版本及結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)。
 | 類型 | 是 | 資源類型。這個值是資源提供者的命名空間與資源提供者所支援資源類型的組合。
 | 名稱 | 是 | 資源名稱。此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。
 | location | 否 | 所提供資源的支援地理位置。
@@ -311,7 +311,9 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 ## 進階案例。
 本主題介紹範本。然而，您的案例可能需要更進階的工作。
 
-您可能必須將兩個範本合併在一起，或在上層範本中使用下層範本。如需詳細資訊，請參閱[巢狀範本](../resource-group-advanced-template#nested-template)。
+您可能必須將兩個範本合併在一起，或在上層範本中使用下層範本。如需詳細資訊，請參閱[透過 Azure 資源管理員使用連結的範本](resource-group-linked-templates.md)。
+
+建立資源類型時若要逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
 
 您可能需要使用不同資源群組內的資源。這常見於使用多個資源群組之間所共用的儲存體帳戶或虛擬網路時。如需詳細資訊，請參閱 [resourceId 函式](../resource-group-template-functions#resourceid)。
 
@@ -319,7 +321,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 下列範本會部署 Web 應用程式，並使用 .zip 檔中的程式碼來佈建。
 
     {
-       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "siteName": {
@@ -398,11 +400,9 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
     }
 
 ## 後續步驟
-- [Azure 資源管理員範本函數](./resource-group-template-functions.md)
-- [使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
-- [進階範本作業](./resource-group-advanced-template.md)
-- [透過可預測方式在 Azure 中部署複雜應用程式](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Azure 資源管理員概觀](./resource-group-overview.md)
-- [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)
+- 如需有關您可以在範本內使用之函數的詳細資訊，請參閱 [Azure 資源管理員範本函數](resource-group-template-functions.md)
+- 若要了解如何部署您建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
+- 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)
+- 若要查看可用的結構描述，請參閱[Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

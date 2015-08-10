@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/27/2015"
    ms.author="tomfitz"/>
 
 # Azure 資源管理員範本函數
@@ -51,6 +51,12 @@
           "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
         }
     }
+
+## copyIndex
+
+**copyIndex(offset)**
+
+傳回反覆項目迴圈目前的索引。如需使用此函數的範例，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
 
 ## 部署
 
@@ -188,7 +194,7 @@
 
 **reference** 函數會從執行階段狀態衍生其值，因此不能用在 variables 區段中。它可以用於範本的 outputs 區段中。
 
-如果在相同的範本內佈建所參考的資源，則可使用 reference 運算式來宣告一個資源相依於另一個資源。
+如果在相同的範本內佈建所參考的資源，則可使用 reference 運算式來隱含宣告一個資源相依於另一個資源。您也不需要使用 **dependsOn** 屬性。所參考的資源完成部署之前不會評估運算式。
 
     "outputs": {
       "siteUri": {
@@ -265,7 +271,7 @@
 通常，在替代資源群組中使用儲存體帳戶或虛擬網路時，需要使用此函數。儲存體帳戶或虛擬網路可能用於多個資源群組中；因此，您不想要在刪除單一資源群組時刪除它們。下列範例顯示如何輕鬆地使用外部資源群組中的資源：
 
     {
-      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
           "virtualNetworkName": {
@@ -377,9 +383,9 @@
 
 
 ## 後續步驟
-- [編寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)
-- [進階範本作業](./resource-group-advanced-template.md)
-- [使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
-- [Azure 資源管理員概觀](./resource-group-overview.md)
+- 如需 Azure 資源管理員範本中各節的說明，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
+- 若要合併多個範本，請參閱[透過 Azure 資源管理員使用連結的範本](resource-group-linked-templates.md)
+- 建立資源類型時若要逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)
+- 若要了解如何部署您建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

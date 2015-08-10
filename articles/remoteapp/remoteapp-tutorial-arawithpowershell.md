@@ -99,4 +99,4 @@ Other RemoteApp cmdlets:
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

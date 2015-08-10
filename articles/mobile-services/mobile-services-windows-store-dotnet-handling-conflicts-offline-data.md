@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="處理行動服務 (Windows 市集) 中的離線資料衝突 | 行動開發人員中心" 
-	description="了解您在 Windows 市集應用程式中同步離線資料時應如何使用 Azure 行動服務處理衝突" 
+	pageTitle="處理通用 Windows 應用程式中的離線資料衝突 | Azure 行動服務" 
+	description="了解您在通用 Windows 應用程式中同步離線資料時應如何使用 Azure 行動服務處理衝突" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
-	ms.author="wesmc"/>
+	ms.date="07/23/2015" 
+	ms.author="glenga"/>
 
 
 # 處理行動服務中的離線資料同步衝突
@@ -23,15 +23,13 @@
 
 ##概觀
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>本主題將說明在使用 Azure 行動服務的離線功能時，應如何同步處理資料及處理衝突。</p>
-<p>如果想要看影片，右邊片段播放的步驟與本教學課程相同。</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="label">觀看教學課程</a> <a style="background-image: url('http://video.ch9.ms/ch9/ea1c/ffed2371-4db1-4a8e-8869-80013859ea1c/BuildOfflineAppsAzureMobileServices_220.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">播放影片</span></a> <span class="time">下午 02:36:00</span></div>
-</div>
+本主題將說明在使用 Azure 行動服務的離線功能時，應如何同步處理資料及處理衝突。
 
-在本教學課程中，您將會為支援處理離線同步處理衝突的應用程式，下載 Windows Universal C# 解決方案。您將在應用程式中整合行動服務，然後執行 Windows 市集 8.1 和 Windows Phone 8.1 用戶端以產生同步衝突，並加以解決。
+如果您想要看影片，下方片段播放的步驟與本教學課程相同。
+
+> [AZURE.VIDEO build-offline-apps-azure-mobile-services]
+
+在本教學課程中，您會為支援處理離線同步處理衝突的應用程式，下載通用的 Windows C# 解決方案。您將在應用程式中整合行動服務，然後執行 Windows 市集 8.1 和 Windows Phone 8.1 用戶端以產生同步衝突，並加以解決。
 
 本教學課程會以先前的教學課程[開始使用資料]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您應該先完成[開始使用離線資料]。
 
@@ -51,7 +49,7 @@
 
 2. 如果您尚未安裝[開始使用離線資料]教學課程中所述的 SQLite for Windows 8.1 和 Windows Phone 8.1，請安裝這兩個執行階段。
 
-3. 在 Visual Studio 2013，開啟 *mobile-services-samples\TodoOffline\WindowsUniversal\TodoOffline-Universal.sln* 方案檔。請按 **F5** 鍵，以重新建置與執行專案。確認 NuGet 封裝已還原，並已正確設定參考。
+3. 在 Visual Studio 2013，開啟 *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln* 方案檔。請按 **F5** 鍵，以重新建置與執行專案。確認 NuGet 封裝已還原，並已正確設定參考。
 
     >[AZURE.NOTE]您可能需要刪除任何舊的 SQLite 執行階段參考，並以更新過的參考 (如[開始使用離線資料]教學課程中所述) 加以取代。
 
@@ -167,4 +165,4 @@
 [Todo 離線行動服務範例]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

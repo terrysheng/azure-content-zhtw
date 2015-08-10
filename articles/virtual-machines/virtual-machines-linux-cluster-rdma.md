@@ -137,7 +137,7 @@ $ ssh-keygen
 $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
-在 /.ssh 目錄中編輯或建立 ssh_config 檔案。提供您將在 Azure 中使用的私人網路 IP 位址範圍：
+在 \~/.ssh 目錄中編輯或建立 ssh\_config 檔案。提供您將在 Azure 中使用的私人網路 IP 位址範圍：
 
 ```
 host 10.32.0.*
@@ -256,9 +256,7 @@ private ip address2:16
 您可以執行下列 Intel MPI 命令，透過使用 pingpong 基準測試來驗證叢集組態。
 
 ```
-/opt/intel/impi_latest/bin64/mpirun -hosts <host1>, <host2> -ppn 1 -n 2 -env I_MPI_FABRICS dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0
-
-/opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
+/opt/intel/impi_latest/bin64/mpirun -hosts <host1>, <host2> -ppn 1 -n 2 -env I_MPI_FABRICS dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 /opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
 ```
 
 您應該會在包含兩個節點的工作中叢集上看到類似下列的輸出：
@@ -341,4 +339,4 @@ private ip address2:16
 
 * 如需 Intel MPI 的指引，請參閱＜[Intel MPI Library 文件](https://software.intel.com/zh-tw/articles/intel-mpi-library-documentation/)＞。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -35,7 +35,7 @@
 + Visual Studio 2013
 + [Mobile Engagement Windows Phone SDK]
 
-> [AZURE.IMPORTANT]完成本教學課程是與 Windows Phone Silverlight 應用程式有關之所有其他 Mobile Engagement 教學課程的先決條件，而且若要完成本教學課程，您必須擁有有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
+> [AZURE.IMPORTANT]完成本教學課程是與 Windows Phone Silverlight 應用程式有關之所有其他 Mobile Engagement 教學課程的先決條件，而且若要完成本教學課程，您必須擁有有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
 
 ##<a id="setup-azme"></a>設定適用於 Windows Phone Silverlight 應用程式的 Mobile Engagement
 
@@ -50,7 +50,7 @@
    	![][8]
 
 	- **應用程式名稱**：輸入您應用程式的名稱。可自由使用任何字元。
-	- **平台**：選取該應用程式 (如果您的應用程式是以多個平台為目標，請針對每個平台重複參與本教學課程) 的目標平台 (**Windows Phone Silverlight**)。
+	- **平台**：選取該應用程式 (如果您的應用程式是以多個平台為目標，請針對每個平台重複參與本教學課程) 的目標平台 (\*\*Windows Phone Silverlight\*\*)。
 	- **應用程式資源名稱**：這是此應用程式可透過 API 與 URL 存取時的名稱。您只可以使用 傳統 URL 自字元。自動產生的名稱應該能提供您強健的基礎。建議您附加平台名稱，以避免發生名稱衝突，因為名稱必須是唯一的。
 	- **位置**：選取將裝載此應用程式 (更重要的是其「集合」) 的資料中心 。
 	- **集合**：如果您已經有建立應用程式，請選取之前建立的集合，若沒有則選取 [新集合]。
@@ -237,4 +237,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [40]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

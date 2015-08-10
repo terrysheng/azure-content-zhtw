@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 # 使用 Azure Management Portal 利用 Azure 媒體服務管理內容
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)系列的一部分。
 
 本主題說明如何使用 Azure 管理入口網站在媒體服務帳戶中管理媒體內容。
 
@@ -37,6 +36,9 @@
 ##<a id="upload"></a>做法：上傳內容 
 
 
+[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
+
+
 1. 在[管理入口網站](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409)中按一下 [媒體服務]，然後按一下媒體服務帳戶名稱。
 2. 選取 [內容] 頁面。 
 3. 按一下頁面或入口網站底部的 [上傳] 按鈕。 
@@ -49,13 +51,17 @@
 
 	![JobStatus][status]
 
-上傳完成之後，您將會看到新資產列在 [內容] 清單中。依照慣例，名稱的結尾會附加 "**-Source**"，以協助追蹤新的內容作為編碼工作的來源內容。
+上傳完成之後，您將會看到新資產列在 [內容] 清單中。依照慣例，名稱的結尾會附加 "\*\*-Source\*\*"，以協助追蹤新的內容作為編碼工作的來源內容。
 
 ![ContentPage][contentpage]
 
 如果上傳程序停止之後檔案大小值未更新，請按 [Sync Metadata] 按鈕。這樣會以儲存體中的實際檔案大小同步處理資產檔案大小，並重新整理 [內容] 頁面上的值。
 
 ##<a id="index"></a>做法：建立內容索引
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-index-content.md)
+- [Portal](media-services-manage-content.md#index)
 
 Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。您可以使用管理入口網站並遵循以下所示的步驟，來編製內容的索引。不過，如果您想要更充分掌控哪些檔案和如何執行索引工作，可以使用適用於 .NET 或 REST API 的媒體服務 SDK。如需詳細資訊，請參閱[使用 Azure Media Indexer 編製媒體檔案的索引](media-services-index-content.md)。
 
@@ -69,6 +75,11 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 	![Process][process]
 
 ##<a id="encode"></a>做法：編碼內容
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-encode-asset.md)
+- [REST](media-services-rest-encode-asset.md)
+- [Portal](media-services-manage-content.md#encode)
 
 若要透過網際網路傳遞數位視訊，您必須壓縮媒體。媒體服務提供媒體編碼程式，可讓您指定要如何為您的內容編碼 (例如，要使用的轉碼器、檔案格式、解析度及位元速率)。
 
@@ -88,7 +99,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 本章節描述您可以採取的步驟，以使用管理入口網站，透過 Azure Media Encoder 編碼您的內容。
 
 1.  選取您想要編碼的檔案。如果支援此檔案類型的編碼，[內容] 頁面底部的 [處理] 按鈕將會啟用。
-4. 在 [處理] 對話方塊選取 ** Azure Media Encoder **處理器。5. 選擇其中一種**編碼組態**。
+4. 在 [處理] 對話方塊選取 \*\* Azure Media Encoder **處理器。5. 選擇其中一種**編碼組態**。
 
 	![Process2][process2]
 
@@ -132,9 +143,14 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 
 ##<a id="publish"></a>做法：發佈內容
 
+> [AZURE.SELECTOR]
+- [.NET](media-services-deliver-streaming-content.md)
+- [REST](media-services-rest-deliver-streaming-content.md)
+- [Portal](media-services-manage-content.md#publish)
+
 ###概觀
 
-如要想提供 URL 給使用者，讓使用者可以利用這個 URL 來傳送或下載內容，請您先建立定位器來發行您的資產。定位器可以存取資產中所含的檔案。媒體服務支援兩種類型的定位器：OnDemandOrigin 定位器，用於串流媒體 (例如，MPEG DASH、HLS 或 Smooth Streaming) 和存取簽章 (SAS) 定位器，用來下載媒體檔案。
+如要想提供 URL 給使用者，讓使用者可以利用這個 URL 來傳送或下載內容，請您先建立定位器來發佈您的資產。定位器可以存取資產中所含的檔案。媒體服務支援兩種類型的定位器：OnDemandOrigin 定位器，用於串流媒體 (例如，MPEG DASH、HLS 或 Smooth Streaming) 和存取簽章 (SAS) 定位器，用來下載媒體檔案。
 
 當您使用 Azure 管理入口網站發佈您的資產時，會為您建立定位器並提供 OnDemantOrigin 形式 URL (如果您的資產包含.ism 檔案) 或 SAS URL。
 
@@ -163,7 +179,7 @@ SAS URL 具有下列格式：
 
 ###Publish
 
-若要使用入口網站發行資產，請執行下列作業：
+若要使用入口網站發佈資產，請執行下列作業：
 
 1. 選取資產。 
 2. 然後，按一下 [發佈] 按鈕。 
@@ -198,4 +214,4 @@ SAS URL 具有下列格式：
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

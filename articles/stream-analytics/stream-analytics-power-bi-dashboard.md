@@ -28,20 +28,21 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 
 ## 必要條件 ##
 
-* 使用組織識別碼的 Microsoft Azure 帳戶 (限 Power BI 搭配組織識別碼。組織識別碼是公司或企業的電子郵件地址，例如 xyz@mycompany.com。xyz@hotmail.com 此類的個人電子郵件，則不是組織識別碼。您可以在[這裡](https://msdn.microsoft.com/subscriptions/dn531048.aspx)詳細了解組織識別碼，而且也可以從[這裡](http://go.microsoft.com/fwlink/?linkid=331007&clcid=0x409)下載常見問題集)。
+* Microsoft Azure 帳戶
 * 串流分析工作從中使用串流資料的輸入。串流分析可接收來自 Azure 事件中樞或 Azure Blob 儲存體的輸入。  
+* Microsoft Power BI 組織識別碼
 
 ## 建立 Azure 串流分析工作 ##
 
-在 [Azure 入口網站](https://manage.windowsazure.com) 中，依序按一下 [新增]、[資料服務]、[Stream Analytics]、[快速建立]。
+在 [Azure 入口網站][](https://manage.windowsazure.com) 中，依序按一下 [新增]、[資料服務]、[串流分析]、[快速建立]。
 
-指定下列值，然後按一下 [建立 Stream Analytics 工作]：
+指定下列值，然後按一下 [建立串流分析工作]：
 
 * **工作名稱** - 輸入工作名稱。例如 **DeviceTemperatures**。
 * **區域** - 選取要執行此工作的區域。請考慮將工作和事件中樞放在相同的區域以確保更好的效能，以及在區域之間傳輸資料時無須付費。
-* **儲存體帳戶** - 選擇您為在此區域內執行的所有 Stream Analytics 工作儲存監視資料時所要使用的儲存體帳戶。您可以選擇現有的儲存體帳戶，或建立新帳戶。
+* **儲存體帳戶** - 選擇您為在此區域內執行的所有串流分析工作儲存監視資料時所要使用的儲存體帳戶。您可以選擇現有的儲存體帳戶，或建立新帳戶。
 
-按一下左窗格中的 [Stream Analytics]，以列出 Stream Analytics 工作。
+按一下左窗格中的 [串流分析]，以列出串流分析工作。
 
 ![graphic1][graphic1]
 
@@ -49,7 +50,7 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 
 ## 指定工作輸入 ##
 
-在本教學課程中，我們假設您搭配 JSON 序列化與 utf-8 編碼使用 EventHub 做為輸入。
+在本教學課程中，我們假設您搭配 JSON 序列化與 UTF-8 編碼使用事件中樞做為輸入。
 
 * 按一下工作名稱。
 * 按一下頁面頂端的 [輸入]，然後按一下 [新增輸入]。開啟的對話方塊會逐步引導您完成設定輸入。
@@ -57,20 +58,20 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 *	選取 [事件中樞]，然後按一下右鍵。
 *	在第三頁上輸入或選取下列值：
   *	**輸入別名** - 輸入此工作輸入的易記名稱。請注意，此名稱將用於後續的查詢。
-  * **事件中樞** - 如果您建立的事件中樞與 Stream Analytics 工作位於相同的訂閱中，請選取事件中樞所在的命名空間。
-*	如果事件中樞位於不同的訂閱中，請選取 [使用其他訂閱中的事件中樞]，並手動輸入 [服務匯流排命名空間]、[事件中樞名稱]、[事件中樞原則名稱]、[事件中樞原則索引鍵] 和 [事件中樞資料分割計數] 的資訊。
+  * **事件中樞** - 如果您建立的事件中樞與串流分析工作位於相同的訂用帳戶中，請選取事件中樞所在的命名空間。
+*	如果事件中樞位於不同的訂用帳戶中，請選取 [使用其他訂用帳戶中的事件中樞]，並手動輸入 [服務匯流排命名空間]、[事件中樞名稱]、[事件中樞原則名稱]、[事件中樞原則索引鍵] 和 [事件中樞資料分割計數] 的資訊。
 
 > [AZURE.NOTE]此範例會使用預設的 16 個資料分割數目。
 
 * **事件中樞名稱** - 選取 Azure 事件中樞的名稱。
-* **事件中樞原則名稱** - 為目前使用中的 eventhub 選取事件中樞原則。請確定此原則具有管理權限。
-*	**事件中樞用戶群組** – 您可以保留空白，或指定事件中樞的用戶群組。請注意，事件中樞的每個用戶群組一次只能有 5 個讀取器。因此，請為您的工作選擇正確的用戶群組。如果您將欄位保留空白，它會使用預設的用戶群組。
+* **事件中樞原則名稱** - 為目前使用中的事件中樞選取事件中樞原則。請確定此原則具有管理權限。
+*	**事件中樞用戶群組** – 您可以保留空白，或指定事件中樞上的用戶群組。請注意，事件中樞的每個用戶群組一次只能有 5 個讀取器。因此，請為您的工作選擇正確的用戶群組。如果您將欄位保留空白，它會使用預設的用戶群組。
 
 *	按一下向右按鈕。
 *	指定下列值：
   *	**事件序列化程式格式** - JSON
   *	**編碼** - UTF8
-*	按一下核取按鈕以新增此來源，並確認 Stream Analytics 可成功連接到事件中樞。
+*	按一下核取按鈕以新增此來源，並確認資料流分析可成功連接到事件中心。
 
 ## 新增 Power BI 輸出 ##
 
@@ -78,14 +79,15 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 
 ![graphic2][graphic2]
 
-> [AZURE.NOTE]Power BI 輸出僅適用於使用組織識別碼的 Azure 帳戶。如果您的 Azure 帳戶不使用組織識別碼 (例如，即時識別碼/個人 Microsoft 帳戶)，就不會看到 Power BI 輸出選項。
-
 2.  選取 [Power BI]，然後按一下右鍵。
 3.  您會看到類似下列畫面：
 
 ![graphic3][graphic3]
 
-4.  在這個步驟中，必須小心使用您用於串流分析工作的相同組織識別碼。目前，Power BI 輸出必須和串流分析工作使用相同的組織識別碼。如果 Power BI 帳戶已經使用相同的組織識別碼，請選取 [立即授權]。如果沒有，請在申請 Power BI 時，選擇 [立即註冊]，然後使用和 Azure 帳戶相同的組織識別碼。[下面的部落格文章為您逐步解說如何註冊 Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx)。
+4.  在此步驟中，提供資料流分析工作輸出的 Ord 識別碼。如果您已具有 Power BI 帳戶，請選取 [**立即授權**]。如果沒有，請選擇 [**立即註冊**]。[下面的部落格文章為您逐步解說如何註冊 Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx)。
+
+![graphic11][graphic11]
+
 5.  接下來您會看到一個畫面，如下所示：
 
 ![graphic4][graphic4]
@@ -96,11 +98,11 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 * **資料集名稱** - 提供一個 Power BI 輸出應該要有的資料集名稱。例如，"pbidemo"。
 *	**資料表名稱** - 提供 Power BI 輸出資料集的資料表名稱。暫時稱之為 "pbidemo"。目前，串流分析工作的 Power BI 輸出中，一個資料集只能有一個資料表。
 
->	[AZURE.NOTE] 您不應該在 Power BI 帳戶中明確地建立資料集和資料表，這些資料集和資料表會在您啟動串流分析工作時自動建立，且串流分析工作會將輸出提取至 Power BI。如果您的工作佇列並未傳回任何結果，則不會建立資料集和資料表。
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	依序按一下 [確定]、[測試連線]，輸出組態就已經完成。
 
->	[AZURE.WARNING] 也請注意 Power BI 是否已經具有與您在串流分析工作中提供的名稱相同皂資料集和資料表名稱；若是如此，可能會覆寫現有的資料。
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## 撰寫查詢 ##
@@ -186,14 +188,14 @@ Power BI 同時採用並行處理和輸送量的條件約束，如下所述：[h
 
 
 ## 取得說明 ##
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟 ##
 
-- [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
-- [開始使用 Azure Stream Analytics](stream-analytics-get-started.md)
-- [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-- [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure 串流分析介紹](stream-analytics-introduction.md)
+- [開始使用 Azure 串流分析](stream-analytics-get-started.md)
+- [調整 Azure 串流分析工作](stream-analytics-scale-jobs.md)
+- [Azure 串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
@@ -207,6 +209,6 @@ Power BI 同時採用並行處理和輸送量的條件約束，如下所述：[h
 [graphic8]: ./media/stream-analytics-power-bi-dashboard/8-stream-analytics-power-bi-dashboard.png
 [graphic9]: ./media/stream-analytics-power-bi-dashboard/9-stream-analytics-power-bi-dashboard.png
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
- 
+[graphic11]: ./media/stream-analytics-power-bi-dashboard/11-stream-analytics-power-bi-dashboard.png
 
-<!---------HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

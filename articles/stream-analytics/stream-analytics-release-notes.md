@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Stream Analytics 版本資訊 |Azure" 
-	description="Azure Stream Analytics 版本資訊" 
+	pageTitle="Azure 串流分析版本資訊 |Azure" 
+	description="Azure 串流分析版本資訊" 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,10 +13,41 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/09/2015" 
+	ms.date="07/30/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft 串流分析版本資訊
+
+## 串流分析 07/30/2015 版本的注意事項 ##
+
+此版本包含下列更新。
+
+<table border="1">
+<tr>
+<th>課程名稱</th>
+<th>說明</th>
+</tr>
+<tr>
+<td>與 Azure 識別碼分離的 Power BI 組織識別碼</td>
+<td>此功能可在任何 Azure 帳戶類型 (Live Id 或組織識別碼) 下啟用 ASA 工作的 Power BI 輸出。此外，您可以擁有 Azure 帳戶的組織識別碼，並使用另一個識別碼用於授權 Power BI 輸出。</td>
+</tr>
+<tr>
+<td>服務匯流排佇列輸出的支援</td>
+<td>服務匯流排佇列輸出現在可用於資料流分析工作。</td>
+</tr>
+<tr>
+<td>服務匯流排主題輸出的支援</td>
+<td>服務匯流排主題輸出現在可用於資料流分析工作。</td>
+</tr>
+<tr>
+<td>新的陣列函數</td>
+<td>新增的陣列函數 GetArrayElement、GetArrayElements、GetArrayLength</td>
+</tr>
+<tr>
+<td>新的記錄函數</td>
+<td>新增的記錄函數 GetRecordProperties 和 GetRecordPropertyValue</td>
+</tr>
+</table>
 
 ## 串流分析 2015/07/09 版本的注意事項 ##
 
@@ -65,12 +96,12 @@
 
 <tr>
 <td>Azure 儲存體帳戶組態的延遲</td>
-<td>第一次在某個區域中建立 Stream Analytics 工作時，系統會提示您建立新的儲存體帳戶或指定現有帳戶，以監視該區域中的 Stream Analytics 工作。由於設定監視作業會有所延遲，若在 30 分鐘內於相同區域中建立另一個 Stream Analytics 工作，系統將提示您指定第二個儲存體帳戶，而不會在 [監視儲存體帳戶] 下拉式清單中顯示最近設定的帳戶。若要避免建立不必要的儲存體帳戶，請在第一次於某地區中建立工作的 30 分鐘後，再於該區域中佈建其他工作。</td>
+<td>第一次在某個區域中建立串流分析工作時，系統會提示您建立新的儲存體帳戶或指定現有帳戶，以監視該區域中的串流分析工作。由於設定監視作業會有所延遲，若在 30 分鐘內於相同區域中建立另一個串流分析工作，系統將提示您指定第二個儲存體帳戶，而不會在 [監視儲存體帳戶] 下拉式清單中顯示最近設定的帳戶。若要避免建立不必要的儲存體帳戶，請在第一次於某區域中建立工作的 30 分鐘後，再於該區域中佈建其他工作。</td>
 </tr>
 
 <tr>
 <td>工作升級</td>
-<td>Stream Analytics 目前無法對執行中工作的定義或組態進行即時編輯。若要變更執行中工作的輸入、輸出、查詢、調整或組態，您必須先停止工作。</td>
+<td>串流分析目前無法對執行中工作的定義或組態進行即時編輯。若要變更執行中工作的輸入、輸出、查詢、調整或組態，您必須先停止工作。</td>
 </tr>
 
 <tr>
@@ -90,17 +121,17 @@
 
 <tr>
 <td>記憶體不足問題</td>
-<td>Stream Analytics 工作如果可以容忍大量的失控事件和/或存在大量狀態的複雜查詢，可能會導致工作耗盡記憶體，進而造成工作重新開始。啟動作業和停止作業會顯示在工作的作業記錄中。若要避免此行為，請將查詢橫向擴充至多個資料分割。在未來版本中，將會藉由降低受影響之工作的效能 (而不是加以重新啟動)，來解決這項限制。</td>
+<td>串流分析工作如果可以容忍大量的失控事件和/或存在大量狀態的複雜查詢，可能會導致工作耗盡記憶體，進而造成工作重新開始。啟動作業和停止作業會顯示在工作的作業記錄中。若要避免此行為，請將查詢橫向擴充至多個資料分割。在未來版本中，將會藉由降低受影響之工作的效能 (而不是加以重新啟動)，來解決這項限制。</td>
 </tr>
 
 <tr>
 <td>沒有裝載時間戳記的大型 Blob 輸入，可能會造成記憶體不足問題</td>
-<td>Blob 儲存體用於大量的檔案時，如果未透過 TIMESTAMP BY 指定時間戳記欄位，則可能會造 Stream Analytics 工作崩潰。要避免此問題，請讓每個 Blob 的大小保持在 10 MB 以下。</td>
+<td>Blob 儲存體用於大量的檔案時，如果未透過 TIMESTAMP BY 指定時間戳記欄位，則可能會造串流分析工作崩潰。要避免此問題，請讓每個 Blob 的大小保持在 10 MB 以下。</td>
 </tr>
 
 <tr>
 <td>SQL 資料庫事件容量限制</td>
-<td>使用 SQL 資料庫做為輸出來源時，非常大量的輸出資料可能會導致 Stream Analytics 工作無法在限定的時間內完成。要解決這個問題，請使用彙總或篩選運算子減少輸出量，或改以 Azure Blob 儲存體或事件中樞做為輸出來源。</td>
+<td>使用 SQL 資料庫做為輸出來源時，非常大量的輸出資料可能會導致串流分析工作無法在限定的時間內完成。要解決這個問題，請使用彙總或篩選運算子減少輸出量，或改以 Azure Blob 儲存體或事件中樞做為輸出來源。</td>
 </tr>
 
 <tr>
@@ -110,15 +141,15 @@
 </table>
 
 ## 取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟
 
-- [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
-- [開始使用 Azure Stream Analytics](../stream.analytics.get.started.md)
-- [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-- [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Azure 串流分析介紹](stream-analytics-introduction.md)
+- [開始使用 Azure 串流分析](../stream.analytics.get.started.md)
+- [調整 Azure 串流分析工作](stream-analytics-scale-jobs.md)
+- [Azure 串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -139,4 +139,4 @@ App Service API 應用程式是具有額外功能 (用於裝載 Web 服務) 的 
 任何人皆可公開呼叫您在此系列中所建立的 API 應用程式。如需如何保護 API 應用程式使得只有已驗證使用者可加以呼叫的相關資訊，請參閱 [Azure App Service 中 API 應用程式和行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

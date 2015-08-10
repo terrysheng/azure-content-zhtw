@@ -19,7 +19,7 @@
 
 當您建立 VNet 時，您在 VNet 中的服務和 VM 可以安全地與彼此通訊，而不必經過網際網路。如果不想要 VNet 連接至其他 Vnet 或您的內部部署網路，則建立 Azure VNet 的程序相對較為快速且輕鬆，因為您將不需要取得和設定 VPN 裝置，或與其他 Vnet 或區域網路協調您選擇的 IP 位址。
 
->[AZURE.WARNING]請勿使用此程序來建立稍後將連接其他 VNet 或內部部署網路的 VNet。如果想要建立安全的跨單位或混合式連接，請參閱＜[關於虛擬網路安全的跨單位連接](https://msdn.microsoft.com/library/azure/dn133798.aspx)＞。如果您想要建立連接至另一個 VNet 的 VNet，請參閱＜[設定 VNet 對 VNet 連接](https://msdn.microsoft.com/library/azure/dn690122.aspx)＞。
+>[AZURE.WARNING]請勿使用此程序來建立稍後將連接其他 VNet 或內部部署網路的 VNet。如果想要建立安全的跨單位或混合式連接，請參閱＜[關於虛擬網路安全的跨單位連接](https://msdn.microsoft.com/library/azure/dn133798.aspx)＞。如果您想要建立連接至另一個 VNet 的 VNet，請參閱＜[設定 VNet 對 VNet 連接](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)＞。
 
 ## 設定您的 VNet
 
@@ -66,4 +66,4 @@
 [如何刪除虛擬網路 (VNet)](../virtual-networks-delete-vnet)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

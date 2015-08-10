@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Azure 混合式雲端測試環境" 
-	description="瀏覽重要主題並了解如何建立測試環境，讓您您可以用於 Azure 混合式雲端的開發/測試概念證明。" 
-	documentationCenter="" 
+<properties
+	pageTitle="Azure 混合式雲端測試環境"
+	description="瀏覽重要主題並了解如何建立測試環境，讓您您可以用於 Azure 混合式雲端的開發/測試概念證明。"
+	documentationCenter=""
 	services="virtual-machines"
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 # Azure 混合式雲端測試環境
 
-開發/測試或概念證明，混合式雲端測試環境會使用本機的網際網路連線，以及其中一個公用 IP 位址，並引導您逐步設定正常運作，跨單位 Azure 虛擬網路 (VNet)。完成後，您可以進行應用程式的開發和測試、試驗簡化的 IT 工作負載，以及根據您在網際網路上的位置，評估相對的站對站虛擬私人網路 (VPN) 連線效率。
+開發/測試或概念證明，混合式雲端測試環境會使用本機的網際網路連線，以及其中一個公用 IP 位址，並引導您逐步設定正常運作，跨單位 Azure 虛擬網路 (VNet)。完成後，您可以開發和測試應用程式、試驗簡化的 IT 工作負載，以及根據您在網際網路上的位置，評估相對的站對站虛擬私人網路 (VPN) 連線效率。
 
 > [AZURE.NOTE]這些文件目前會在服務管理中建立虛擬機器、虛擬網路和其他資源。
 
@@ -27,7 +27,7 @@
 
 [混合式雲端基本設定](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)包括：
 
-- 簡化的內部部署網路與 4 個虛擬機器 (網域控制站、應用程式伺服器、用戶端電腦以及執行 Windows Server 和「路由及遠端存取」的 VPN 裝置)
+- 簡化的內部部署網路與 4 個虛擬機器 (網域控制器、應用程式伺服器、用戶端電腦以及執行 Windows Server 和「路由及遠端存取」的 VPN 裝置)
 - Azure 虛擬網路與複本網域控制站
 - 站對站 VPN 連線
 
@@ -37,7 +37,7 @@
 
 ## 混合式雲端中的網頁型 LOB 應用程式
 
-[混合式雲端測試環境中的網頁型 LOB 應用程式](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)會將 SQL Server 2014 伺服器和網際網路資訊服務 (IIS) 伺服器加入至混合式雲端基本設定。這樣會在裡面建立基礎結構，讓您可以部署和測試分層式網頁型 LOB 應用程式。
+[混合式雲端測試環境中的網頁型 LOB 應用程式](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)會將 SQL Server 2014 伺服器和網際網路資訊服務 (IIS) 伺服器加入至混合式雲端基本設定。這樣會建立基礎結構，讓您可以在其中部署和測試分層式網頁型 LOB 應用程式。
 
 ## 混合式雲端中的 Office 365 目錄同步作業 (DirSync) 伺服器
 
@@ -50,7 +50,7 @@
 
 ## 其他資源
 
-[裝載於 Azure 基礎結構服務中的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
+[在 Azure 基礎結構服務中架設的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
 
 [立體 LOB 應用程式架構藍圖的 PDF 檔](http://download.microsoft.com/download/2/C/8/2C8EB75F-AC45-4A79-8A63-C1800C098792/MS_Arch_LOB_App_3D_pdf.pdf)
 
@@ -58,7 +58,4 @@
 
 [Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -206,8 +206,8 @@ Azure 對於 Web 角色，僅允許一個進入點。這表示所有流量都是
 ###### CSPack 工具的位置 (在 Windows 上)
 | SDK 版本 | Path |
 | ----------- | ---- |
-| 1.7+ | C:\Program Files\Microsoft SDKs\Azure.NET SDK[sdk-version]\bin\ |
-| &lt;1.6 | C:\Program Files\Azure SDK[sdk-version]\bin\ |
+| 1\.7+ | C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\[sdk-version]\\bin\\ |
+| &lt;1.6 | C:\\Program Files\\Azure SDK\\[sdk-version]\\bin\\ |
 
 >[AZURE.NOTE]CSPack.exe (在 Windows 上) 可以透過執行隨 SDK 一起安裝的 **Microsoft Azure 命令提示字元**捷徑來使用。
 >  
@@ -274,4 +274,4 @@ Azure 對於 Web 角色，僅允許一個進入點。這表示所有流量都是
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
 [vs_create]: https://msdn.microsoft.com/zh-tw/library/ee405487.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

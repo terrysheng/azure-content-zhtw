@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2015" 
+	ms.date="07/24/2015" 
 	ms.author="larryfr"/>
 
 #在 HDInsight 的 Hadoop 上使用 Hive 查詢主控台分析感應器資料
@@ -43,7 +43,7 @@
 
 ##執行範例
 
-1. 從 Azure 入口網站，按一下您要執行範例的叢集，然後按一下底部的 [查詢主控台]。或者，您也可以使用下列 URL 直接開啟查詢主控台：
+1. 請使用網頁瀏覽器瀏覽至下列 URL。將 `<clustername>` 替換為 HDInsight 叢集的名稱。
 
 	 	https://<clustername>.azurehdinsight.net
 
@@ -53,4 +53,4 @@
 
 3. 依照網頁上提供的指示完成範例。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

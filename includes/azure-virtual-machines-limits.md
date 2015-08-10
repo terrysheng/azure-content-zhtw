@@ -20,4 +20,4 @@
 
 <sup>2</sup>輸入端點可從虛擬機器的雲端服務外部通訊某個虛擬機器。在相同雲端服務或虛擬網路中的虛擬機器可自動彼此通訊。請參閱[如何設定虛擬機器的端點](../virtual-machines/virtual-machines-set-up-endpoints.md)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

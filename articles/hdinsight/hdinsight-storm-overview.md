@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Apache Storm on HDInsight 簡介 | Microsoft Azure"
 	description="取得 Apache Storm 的簡介，並了解如何使用 Storm on HDInsight 在雲端中建置即時資料分析解決方案。"
-	keywords="apache storm,real time analytics"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #Apache Storm on HDInsight 簡介：Hadoop 的即時分析
@@ -51,9 +50,7 @@ Apache Storm on HDInsight 是已和 Azure 環境整合的受管理叢集。它�
 
 只要花數分鐘即可佈建新的 Storm on HDInsight 叢集。指定叢集名稱、大小、管理員帳戶和儲存體帳戶。Azure 即會建立叢集，包括範例拓撲和 Web 管理儀表板。
 
-以下是使用 Azure 入口網站佈建 Storm on HDInsight 叢集的範例。您也可以使用 [Azure PowerShell](../install-configure-powershell.md) 佈建 Storm 叢集。
-
-![入口網站中的快速建立叢集表單範例](./media/hdinsight-storm-overview/quick-create.png)
+> [AZURE.NOTE]您也可以使用 [Azure CLI](../xplat-cli.md) 或 [Azure PowerShell](../powershell-install-configure.md) 佈建 Storm 叢集。
 
 提交要求後，15 分鐘內您就會有一個新的執行中 Storm 叢集，並準備好讓您進行第一次即時分析管線。
 
@@ -77,7 +74,7 @@ HDInsight Tools for Visual Studio 也提供了介面，讓您可以監視和管�
 
 如需關於使用 Storm 儀表板的詳細資訊，請參閱[部署和管理 HDInsight 上的 Apache Storm 拓撲](hdinsight-storm-deploy-monitor-topology.md)。
 
-Storm on HDInsight 也提供透過 **Event Hub Spout** 與 Azure 事件中樞輕鬆整合的功能。您可以在每個 Storm 叢集的 **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 位置中使用這項功能。如需在 Storm 拓撲中使用此 Spout 的範例，請參閱[開始使用事件中樞](service-bus-event-hubs-c-storm-getstarted.MD)和[使用 Storm 和 HBase 分析感應器資料](hdinsight-storm-sensor-data-analysis.MD)。
+Storm on HDInsight 也提供透過 **Event Hub Spout** 與 Azure 事件中樞輕鬆整合的功能。您可以在每個 Storm 叢集的 **%STORM\_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 位置中使用這項功能。如需在 Storm 拓撲中使用此 Spout 的範例，請參閱[開始使用事件中樞](service-bus-event-hubs-c-storm-getstarted.MD)和[使用 Storm 和 HBase 分析感應器資料](hdinsight-storm-sensor-data-analysis.MD)。
 
 ###可靠性
 
@@ -93,7 +90,7 @@ Apache Storm 的預設組態只有一個 Nimbus 節點。Storm on HDInsight 會�
 
 雖然您可以在建立時指定叢集的節點數，但您可以擴大或縮小叢集以配合工作負載。即使在處理資料期間，所有 HDInsight 叢集均可讓您變更叢集中的節點數。
 
-![入口網站中的資料節點執行個體計數](./media/hdinsight-storm-overview/scale.png)
+> [AZURE.NOTE]若要利用透過調整所加入的新節點，您必須重新平衡在叢集大小增加之前啟動的拓撲。
 
 ###支援
 
@@ -156,7 +153,7 @@ HDInsight Tools for Visual Studio 可讓 .NET 開發人員以 C# 設計和實作
 
 如需關於 Trident 的詳細資訊，請參閱 apache.org 上的 [Trident 教學課程](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) (英文)。
 
-如需原始 Java 與 Trident 拓撲的範例，請移至 HDInsight Storm 叢集的 **%storm_home%\contrib\storm-starter** 目錄。
+如需原始 Java 與 Trident 拓撲的範例，請移至 HDInsight Storm 叢集的 **%storm\_home%\\contrib\\storm-starter** 目錄。
 
 ##有哪些常見的開發模式？
 
@@ -209,4 +206,4 @@ Storm 可以提供不同程度的訊息處理保證。例如，基本的 Storm �
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

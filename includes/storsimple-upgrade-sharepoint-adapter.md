@@ -1,51 +1,36 @@
-<properties 
-   pageTitle="Upgrade the StorSimple Adapter for SharePoint | Microsoft Azure"
-   description="Describes how to upgrade SharePoint and then install a new version of the StorSimple Adapter for SharePoint."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="07/13/2015"
-   ms.author="v-sharos" />
+### 將 SharePoint 2010 升級至 SharePoint 2013 然後再安裝 StorSomple Adapter for SharePoint
 
-### Upgrade SharePoint 2010 to SharePoint 2013 and then install the StorSomple Adapter for SharePoint
-
->[AZURE.IMPORTANT] Any files that were previously moved to external storage via RBS will not be available until the upgrade is finished and the RBS feature is enabled again. To limit user impact, perform any upgrade or reinstallation during a planned maintenance window.
+>[AZURE.IMPORTANT]先前透過 RBS 移到外部儲存體的任何檔案，必須等到升級完成並重新啟用 RBS 功能之後才能使用。為了限制使用者受影響的程度，請在規劃的維護期間執行任何升級或重新安裝。
 
 [AZURE.INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
  
-#### To upgrade SharePoint 2010 to SharePoint 2013 and then install the adapter
+#### 將 SharePoint 2010 升級為 SharePoint 2013，然後安裝配接器
 
-1. In the SharePoint 2010 farm, note the BLOB store path for the externalized BLOBs and the content databases for which RBS is enabled. 
+1. 在 SharePoint 2010 伺服陣列中，記下外部化 BLOB 的 BLOB 存放區路徑和在其中啟用 RBS 的內容資料庫。 
 
-2. Install and configure the new SharePoint 2013 farm. 
+2. 安裝和設定新的 SharePoint 2013 伺服器陣列。
 
-3. Move databases, applications, and site collections from the SharePoint 2010 farm to the new SharePoint 2013 farm. For instructions, go to Overview of the upgrade process to SharePoint 2013.
+3. 將資料庫、應用程式和網站集合從 SharePoint 2010 伺服器陣列移至新的 SharePoint 2013 伺服器陣列。如需指示，請移至 SharePoint 2013 升級程序的概觀。
 
-4. Install the StorSimple Adapter for SharePoint on the new farm. Go to [Install the StorSimple Adapter for SharePoint](#install-the-storsimple-adapter-for-sharepoint) for procedures.
+4. 在新的伺服器陣列上安裝 StorSimple Adapter for SharePoint移至[安裝 StorSimple Adapter for SharePoint](#install-the-storsimple-adapter-for-sharepoint) 以了解程序。
 
-5. Using the information that you noted in step 1, enable RBS for the same set of content databases and provide the same BLOB store path that was used in the SharePoint 2010 installation. Go to [Configure RBS](#configure-rbs) for procedures. After you complete this step, previously externalized files should be accessible from the new farm. 
+5. 使用您在步驟 1 記下的資訊，為同一組內容資料庫啟用 RBS 並提供 BLOB 存放區路徑，需與 SharePoint 2010 安裝中所使用的路徑相同。移至[設定 RBS](#configure-rbs) 以了解程序。完成這個步驟之後，先前已外部化的檔案必須能夠從新的伺服器陣列存取。
 
-### Upgrade the StorSimple Adapter for SharePoint
+### 升級 StorSimple Adapter for SharePoint
 
->[AZURE.IMPORTANT] You should schedule this upgrade to occur during a planned maintenance window for the following reasons:
+>[AZURE.IMPORTANT]基於下列原因，您應該將此升級排程於規劃的維護視窗期間：
 >
->- Previously externalized content will not be available until the adapter is reinstalled.
+>- 在重新安裝配接器之前，先前已外部化的內容將無法使用。
 >
->- Any content uploaded to the site after you uninstall the previous version of the StorSimple Adapter for SharePoint, but before you install the new version, will be stored in the content database. You will need to move that content to the StorSimple device after you install the new adapter. 
+>- 在您解除安裝舊版 StorSimple Adapter for SharePoint 之後，安裝新版之前，任何上傳至網站的內容都將儲存在內容資料庫中。安裝新的配接器之後，您必須將該內容移至 StorSimple 裝置。
 
 
-#### To upgrade the StorSimple Adapter for SharePoint 
+#### 升級 StorSimple Adapter for SharePoint 
 
-1. Uninstall the previous version of StorSimple Adapter for SharePoint.
+1. 解除安裝舊版 StorSimple Adapter for SharePoint。
 
-    >[AZURE.NOTE] This will automatically disable RBS on the content databases. However, existing BLOBs will remain on the StorSimple device. Because RBS is disabled and the BLOBs have not been migrated back to the content databases, any requests for those BLOBs will fail. 
+    >[AZURE.NOTE]這會自動停用內容資料庫上的 RBS。不過，現有的 BLOB 會保留在 StorSimple 裝置上。因為已停用 RBS 且 BLOB 尚未移轉回內容資料庫，對這些 BLOB 的任何要求都會失敗。
  
-2. Install the new StorSimple Adapter for SharePoint. The new adapter will automatically recognize the content databases that were previously enabled or disabled for RBS and will use the previous settings.
+2. 安裝新的 StorSimple Adapter for SharePoint。新的配接器會自動辨識先前已為 RBS 啟用或停用的內容資料庫，並使用先前的設定。
+
+<!---HONumber=July15_HO5-->

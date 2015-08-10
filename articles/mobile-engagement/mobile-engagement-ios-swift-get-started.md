@@ -19,10 +19,10 @@
 # 開始使用適用於 iOS 應用程式 (Swift) 的 Azure Mobile Engagement
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Universal Windows](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS - Obj C](mobile-engagement-ios-get-started.md)
-- [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
+- [iOS | Obj C](mobile-engagement-ios-get-started.md)
+- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md)
 - [Cordova](mobile-engagement-cordova-get-started.md)
 
@@ -59,7 +59,7 @@
    	![][8]
 
 	- **應用程式名稱**：輸入您應用程式的名稱。可自由使用任何字元。
-	- **平台**：為應用程式選取目標平台 (**iOS**。如果您的應用程式是針對多種平台，請針對每種平台重複參與此教學課程)。
+	- **平台**：為應用程式選取目標平台 (\*\*iOS\*\*。如果您的應用程式是針對多種平台，請針對每種平台重複參與此教學課程)。
 	- **應用程式資源名稱**：這是此應用程式可透過 API 與 URL 存取時的名稱。您只可以使用 傳統 URL 自字元。自動產生的名稱應該能提供您強健的基礎。建議您附加平台名稱，以避免發生名稱衝突，因為名稱必須是唯一的。
 	- **位置**：選取將裝載此應用程式 (更重要的是其「集合」) 的資料中心 。
 	- **集合**：如果您已經有建立應用程式，請選取之前建立的集合，若沒有則選取 [新集合]。
@@ -337,4 +337,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [41]: ./media/mobile-engagement-ios-swift-get-started/AddHeaderFile.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

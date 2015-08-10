@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/23/2015"
    ms.author="vturecek"/>
 
 # 開始使用 Microsoft Azure Service Fabric 可靠的服務
@@ -30,14 +30,18 @@ Service Fabric 還導入一種新的具狀態服務：可以在服務本身內�
 
 現在讓我們著手無狀態的服務。
 
-以**管理員**身分啟動 Visual Studio 2015 RC，並建立新的 **Service Fabric 無狀態服務**專案，命名為 *HelloWorld*：
+以**管理員**身分啟動 Visual Studio 2015 RC，並建立新的 **Service Fabric Application** 專案，命名為 *HelloWorld*：
 
-![使用 [新增專案] 對話方塊來建立新的 Service Fabric 無狀態服務](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+![使用 [新增專案] 對話方塊來建立新的 Service Fabric 應用程式](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-您會在建立的方案中看到 2 個專案：
+然後建立名為 *HelloWorldStateless*的**無狀態服務**專案：
 
- + **HelloWorldApplication** 這是包含您*服務*的*應用程式*專案。它也包含描述應用程式的應用程式資訊清單，以及一些幫助您部署應用程式的 PowerShell 指令碼。
- + **HelloWorld** 這是服務專案，其中包含無狀態服務實作。
+![在第二個對話方塊中，建立無狀態服務](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
+
+您的方案現在包含 2 個專案：
+
+ + **HelloWorld** 這是包含您*服務*的*應用程式*專案。它也包含描述應用程式的應用程式資訊清單，以及一些幫助您部署應用程式的 PowerShell 指令碼。
+ + **HelloWorldStateless** 這是服務專案，其中包含無狀態服務實作。
 
 
 ## 實作服務
@@ -88,11 +92,11 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 - 系統可能為了資源平衡四處移動您的服務執行個體。
 - 程式碼中發生錯誤。
 - 在應用程式或系統升級期間。
-- 當基礎硬體發生中斷。 
+- 當基礎硬體發生中斷。
 
 此協調流程是由系統管理，為了讓您的服務維持高度可用且正確平衡。
 
-`RunAsync()` 在它自己的**工作**中執行。請注意，在上述的程式碼片段中，我們直接跳入 **while** 迴圈，不需要為您的工作負載排定個別的工作。取消您的工作負載是由所提供的取消語彙基元協調的協同努力。系統會先等待您工作結束 (成功完成、取消或錯誤) 再繼續。所以系統要求取消時，請**務必**接受取消語彙基元、完成任何工作，並儘快結束 `RunAsync()`。
+`RunAsync()` 在它自己的**工作**中執行。請注意，在上述的程式碼片段中，我們直接跳入 **while** 迴圈，不需要為您的工作負載排定個別的工作。取消您的工作負載是由所提供的取消語彙基元協調的協同努力。系統會先等待您工作結束 (成功完成、取消或錯誤) 再繼續。系統要求取消時，**務必**接受取消權杖、完成任何工作，並儘快結束 `RunAsync()`。
 
 在這個無狀態服務範例中，計數會儲存在本機變數。但是，因為這是無狀態服務，所儲存的值只針對它所在服務執行個體的目前生命週期而存在。當服務移動或重新啟動時，值將會遺失。
 
@@ -155,7 +159,7 @@ var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<str
  1. Service Fabric 藉由在節點之間複寫狀態，並將它儲存到本機磁碟，來使您的狀態高度可用。這表示所有儲存在可靠的集合中的項目必須可序列化。根據預設，可靠的集合使用 [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) 進行序列化，因此在使用預設序列化程式時，請務必確定您的類型受到[資料合約序列化程式支援](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx)。
 
  2. 當您在可靠的集合上認可交易時，物件會複寫以獲得高可用性。可靠的集合中儲存的物件會保留在服務的本機記憶體中，這表示您具有物件的本機參考。
- 
+
     很重要的一點是，您不要改變那些物件的本機執行個體而不在交易中的可靠的集合上執行更新作業，因為那些變更不會自動複寫。
 
 *StateManager* 會負責為您管理可靠的集合。在您的服務中隨時隨地，只需要以名稱向 StateManager 要求可靠的集合，它都會確保您取回參考。我們不建議將可靠的集合執行個體的參考儲存在類別成員變數或屬性中，因為必須特別小心，以確保參考在服務生命週期中的所有時間都設定為執行個體。StateManager 會為您處理這項工作，並且針對重複造訪最佳化。
@@ -199,6 +203,5 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 [管理 Service Fabric 服務](service-fabric-manage-your-service-index.md)
 
 [可靠的服務的開發人員參考資料](https://msdn.microsoft.com/library/azure/dn706529.aspx)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

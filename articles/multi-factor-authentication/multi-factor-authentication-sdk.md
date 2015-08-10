@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="07/21/2015" 
 	ms.author="billmath"/>
 
 # 在自訂應用程式中建置 Multi-Factor Authentication (SDK)
@@ -33,16 +33,15 @@ Multi-Factor Authentication SDK 中的 API 結構相當簡單。您可以使用�
 
 ## 下載 Azure Multi-Factor Authentication SDK 
 
-下載 Azure Multi-Factor Authentication Server 的方法有兩種。第一個方法是登入 Azure 入口網站，第二個方法是直接從 [https://pfweb.phonefactor.net](https://pfweb.phonefactor.net) 下載。您需要 Azure 訂用帳戶才能下載 SDK。
+下載 Azure Multi-Factor Authentication SDK 的方法有兩種。兩者都是透過 Azure 入口網站來完成。第一個是藉由直接管理 Multi-Factor Auth Provider。第二個是透過服務設定。第二個選項需要 Multi-Factor Auth Provider或 Azure AD Premium 授權。
 
 
+### 從 Azure 入口網站下載 Azure Multi-Factor Authentication SDK
 
-### 從 Azure 入口網站下載 Azure Multi-Factor Authentication Server
---------------------------------------------------------------------------------
 
 1. 以系統管理員身分登入 Azure 入口網站。
 2. 在左側選取 [Active Directory]。
-3. 在 [Active Directory] 頁面頂端，按一下 [**多因素驗證提供者**]
+3. 在 [Active Directory] 頁面頂端，按一下 [**Multi-Factor Auth Provider**]
 4. 在底部按一下 [**管理**]
 5. 這會開啟新的頁面。在左下方按一下 [SDK]。
 <center>![下載](./media/multi-factor-authentication-sdk/download.png)</center>
@@ -51,14 +50,18 @@ Multi-Factor Authentication SDK 中的 API 結構相當簡單。您可以使用�
 
 
 
-### 直接下載 Azure Multi-Factor Authentication Server
---------------------------------------------------------------------------------
+### 透過服務設定下載 Azure Multi-Factor Authentication SDK
 
-1. 登入 [https://pfweb.phonefactor.net](https://pfweb.phonefactor.net)。
-2. 在左下方按一下 [SDK]。
-3. 選取您想要的語言，然後按一下其中一個相關聯的下載連結。
-4. 儲存下載內容。
 
+1. 以系統管理員身分登入 Azure 入口網站。
+2. 在左側選取 [Active Directory]。
+3. 按兩下您的 Azure AD 的執行個體。
+4. 在頂端按一下 [**設定**]
+5. 在 Multi-Factor Authentication 底下選取 [**管理服務設定**] ![下載](./media/multi-factor-authentication-sdk/download2.png)
+6. 在 [服務設定] 頁面上，於畫面底部按一下 [**移至入口網站**]。![下載](./media/multi-factor-authentication-sdk/download3.png)
+7. 這會開啟新的頁面。在左下方按一下 [SDK]。
+8. 選取您想要的語言，然後按一下其中一個相關聯的下載連結。
+9. 儲存下載內容。
 
 ## Azure Multi-Factor Authentication Server SDK 的內容
 在 SDK 內，您會找到下列項目：
@@ -67,8 +70,8 @@ Multi-Factor Authentication SDK 中的 API 結構相當簡單。您可以使用�
 - Multi-Factor Authentication 的**原始程式檔**
 - 您用來與 Multi-Factor Authentication 服務進行通訊的**用戶端憑證**
 - 憑證的**私密金鑰**
-- **呼叫結果**。 呼叫結果碼的清單。若要開啟此檔案，請使用可設定文字格式的應用程式，例如 WordPad。使用呼叫結果碼來測試及疑難排解您在應用程式中的 Multi-Factor Authentication 實作。它們不是驗證狀態碼。
-- **範例**。 Multi-Factor Authentication 基本工作實作的範例程式碼。
+- **呼叫結果。** 呼叫結果碼的清單。若要開啟此檔案，請使用可設定文字格式的應用程式，例如 WordPad。使用呼叫結果碼來測試及疑難排解您在應用程式中的 Multi-Factor Authentication 實作。它們不是驗證狀態碼。
+- **範例。** Multi-Factor Authentication 基本工作實作的範例程式碼。
 
 
 >[AZURE.WARNING]用戶端憑證是特別為您產生的唯一私人憑證。請勿分享或遺失此檔案。它是您與 Multi-Factor Authentication 通訊時確保安全性的關鍵。
@@ -88,7 +91,7 @@ Multi-Factor Authentication SDK 中的 API 結構相當簡單。您可以使用�
 
 伺服器端程式碼在步驟 2 新增標準模式驗證。它使用標準模式驗證所需的參數建立 PfAuthParams 物件：使用者名稱、電話號碼、模式，以及每個呼叫都需要的用戶端憑證的路徑 (CertFilePath)。如需 PfAuthParams 中的所有參數的示範，請參閱 SDK 中的範例檔案。
 
-接下來，程式碼將 PfAuthParams 物件傳遞至 pf_authenticate() 函式。傳回值指出驗證成功或失敗。Out 參數 callStatus 和 errorID 包含其他通話結果資訊。通話結果碼會記錄在 SDK 中的通話結果檔案。
+接下來，程式碼將 PfAuthParams 物件傳遞至 pf\_authenticate() 函式。傳回值指出驗證成功或失敗。Out 參數 callStatus 和 errorID 包含其他通話結果資訊。通話結果碼會記錄在 SDK 中的通話結果檔案。
 
 只需要幾行就能撰寫這個最小實作。不過，在實際執行的程式碼中，將會包含更複雜的錯誤處理、其他資料庫程式碼和強化的使用者經驗。
 
@@ -130,7 +133,7 @@ Multi-Factor Authentication SDK 中的 API 結構相當簡單。您可以使用�
 
 ### 伺服器端程式碼
 
-在下列伺服器端程式碼中，步驟 2 中設定並執行 Multi-Factor Authentication。標準模式 (MODE_STANDARD) 是指使用者按下 # 鍵來回應通話。
+在下列伺服器端程式碼中，步驟 2 中設定並執行 Multi-Factor Authentication。標準模式 (MODE\_STANDARD) 是指使用者按下 # 鍵來回應通話。
 
 	using System;
 	using System.Collections.Generic;
@@ -167,7 +170,7 @@ Multi-Factor Authentication SDK 中的 API 結構相當簡單。您可以使用�
 	            // NOTE: This file contains the private key for the client
 	            // certificate. It must be stored with appropriate file 
 	            // permissions.
-	            pfAuthParams.CertFilePath = "c:\cert_key.p12";
+	            pfAuthParams.CertFilePath = "c:\\cert_key.p12";
 	
 	            // Perform phone-based authentication
 	            int callStatus;
@@ -188,4 +191,4 @@ Multi-Factor Authentication SDK 中的 API 結構相當簡單。您可以使用�
 	    }
 	}
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

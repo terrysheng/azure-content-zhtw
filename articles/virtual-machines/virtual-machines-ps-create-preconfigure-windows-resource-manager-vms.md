@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="07/22/2015"
 	ms.author="kathydav"/>
 
 # 利用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器
@@ -29,7 +29,7 @@
 
 ## 步驟 1：安裝 Azure PowerShell
 
-您也必須有 Azure PowerShell 0.9.0 版或更新版本。如果您尚未安裝和設定 Azure PowerShell，請按一下[這裡](powershell-install-configure.md)以取得指示。
+您也必須有 Azure PowerShell 0.9.0 版或更新版本。如果您尚未安裝和設定 Azure PowerShell，請按一下[這裡](../powershell-install-configure.md)以取得指示。
 
 您可以在 Azure PowerShell 提示字元下使用這個命令來檢查已安裝的 Azure PowerShell 版本。
 
@@ -41,7 +41,7 @@
 	-------
 	0.9.0
 
-如果您沒有 0.9.0 版或更新版本，則必須使用 [控制台] 中的 [程式和功能] 移除 Azure PowerShell，然後安裝最新版本。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
+如果您沒有 0.9.0 版或更新版本，則必須使用 [控制台] 中的 [程式和功能] 移除 Azure PowerShell，然後安裝最新版本。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 
 ## 步驟 2：設定您的訂用帳戶
 
@@ -108,16 +108,18 @@
 
 如果 DNSNameAvailability 為 "True"，表是您提出的名稱是全域唯一的。
 
-以資源管理員為基礎的虛擬機器可置於以資源管理員為基礎的可用性集。如果需要，請使用這些命令建立新虛擬機器的新可用性集。
+以資源管理員為基礎的虛擬機器可置於以資源管理員為基礎的可用性集合。如果需要，請使用這些命令建立新虛擬機器的新可用性集合。
 
 	$avName="<availability set name>"
 	$rgName="<resource group name>"
 	$locName="<location name, such as West US>"
 	New-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
 
-使用此命令列出現有的可用性集。
+使用此命令列出現有的可用性集合。
 
 	Get-AzureAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
+
+使用輸入 NAT 規則可設定以資源管理員為基礎的虛擬機器，允許來自網際網路的連入流量並放在負載平衡集中。在這兩種情況下，您必須指定負載平衡器執行個體和其他設定。如需詳細資料，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
 
 以資源管理員為基礎的虛擬機器需要以資源管理員為基礎的虛擬網路。如果需要，請使用新虛擬機器的至少一個子網路建立以資源管理員為基礎的新虛擬網路。以下是具有兩個名為 frontendSubnet 和 backendSubnet 之子網路的新虛擬網路範例。
 
@@ -151,7 +153,7 @@
 
 關於此範例：
 
-	PS C:> Get-AzureVirtualNetwork -Name TestNet -ResourceGroupName LOBServers | Select Subnets
+	PS C:\> Get-AzureVirtualNetwork -Name TestNet -ResourceGroupName LOBServers | Select Subnets
 
 	Subnets
 	-------
@@ -165,26 +167,73 @@ FrontendSubnet 的子網路索引為 0，而 backendSubnet 的子網路索引為
 	$subnetIndex=<index of the subnet on which to create the NIC for the virtual machine>
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
-接下來，您要建立網路介面卡 (NIC)、要求公用 IP 位址，以及選擇性地指派 DNS 網域名稱標籤給它。將下列兩個選項的其中一個複製到命令集，並填入 NIC 名稱和 DNS 網域名稱標籤。
+接下來，建立網路介面卡 (NIC)。將下列其中一個選項複製到命令集，並填入所需的資訊。
 
-選項 1：指定 NIC 名稱。
+### 選項 1：指定 NIC 名稱並指派公用 IP 位址
 
-將這幾行複製到您的命令集，並指定 NIC 的名稱。
+將下列幾行複製到您的命令集，並指定 NIC 的名稱。
 
 	$nicName="<name of the NIC of the VM>"
 	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
 
-選項 2：指定 NIC 名稱和 DNS 網域名稱標籤。
+### 選項 2：指定 NIC 名稱和 DNS 網域名稱標籤
 
-將這幾行複製到您的命令集，並指定 NIC 的名稱與全域唯一的網域名稱標籤。當您以 Azure PowerShell 的服務管理模式建立虛擬機器時，Azure 會自動完成這些步驟。
+將下列幾行複製到您的命令集，並指定 NIC 的名稱與全域唯一的網域名稱標籤。當您以 Azure PowerShell 的服務管理模式建立虛擬機器時，Azure 會自動完成這些步驟。
 
 	$nicName="<name of the NIC of the VM>"
 	$domName="<domain name label>"
 	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
 
-接下來，建立本機 VM 物件，並選擇性地將它新增至可用性集。將下列兩個選項的其中一個複製到命令集，並填入名稱、大小和可用性集名稱。
+### 選項 3：指定 NIC 名稱並指派靜態、私人 IP 位址
+
+將下列幾行複製到您的命令集，並指定 NIC 的名稱。
+
+	$nicName="<name of the NIC of the VM>"
+	$staticIP="<available static IP address on the subnet>"
+	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id -PrivateIpAddress $staticIP
+
+### 選項 4：指定 NIC 名稱和輸入 NAT 規則的負載平衡器執行個體。
+
+若要建立 NIC 並將它指派給輸入 NAT 規則的負載平衡器執行個體，您需要：
+
+- 先前建立的負載平衡器執行個體名稱，其具有轉送至虛擬機器之流量適用的輸入 NAT 規則。
+- 要指派給 NIC 的負載平衡器執行個體的後端位址集區的索引編號
+- 要指派給 NIC 之輸入 NAT 規則的索引編號。
+
+如需有關如何使用輸入 NAT 規則建立負載平衡器執行個體的資訊，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
+
+將這幾行複製到您的命令集，並指定所需的名稱和索引編號。
+
+	$nicName="<name of the NIC of the VM>"
+	$lbName="<name of the load balancer instance>"
+	$bePoolIndex=<index of the back end pool, starting at 0>
+	$natRuleIndex=<index of the inbound NAT rule, starting at 0>
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
+
+$NicName 字串必須是資源群組中獨特的字串。最佳作法是將虛擬機器名稱併入字串中，例如 "LOB07-NIC"。
+
+### 選項 5：指定 NIC 名稱和負載平衡集的負載平衡器執行個體。
+
+若要建立 NIC 並將它新增至負載平衡集的負載平衡器執行個體，您需要：
+
+- 先前建立的負載平衡器執行個體名稱，其具有負載平衡流量適用的規則。
+- 要指派給 NIC 的負載平衡器執行個體的後端位址集區的索引編號
+
+如需有關如何使用負載平衡流量適用規則建立負載平衡器執行個體的資訊，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
+
+將這幾行複製到您的命令集，並指定所需的名稱和索引編號。
+
+	$nicName="<name of the NIC of the VM>"
+	$lbName="<name of the load balancer instance>"
+	$bePoolIndex=<index of the back end pool, starting at 0>
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
+
+接下來，建立本機 VM 物件，並選擇性地將它新增至可用性集合。將下列兩個選項的其中一個複製到命令集，並填入名稱、大小和可用性集合名稱。
 
 選項 1：指定虛擬機器名稱和大小。
 
@@ -197,7 +246,7 @@ FrontendSubnet 的子網路索引為 0，而 backendSubnet 的子網路索引為
 	$locName="<Azure location of your resource group>"
 	Get-AzureVMSize -Location $locName | Select Name
 
-選項 2：指定虛擬機器名稱和大小，並將它新增至可用性集。
+選項 2：指定虛擬機器名稱和大小，並將它新增至可用性集合。
 
 	$vmName="<VM name>"
 	$vmSize="<VM size string>"
@@ -211,7 +260,7 @@ FrontendSubnet 的子網路索引為 0，而 backendSubnet 的子網路索引為
 	$avName="<availability set name>"
 	Get-AzureVMSize -ResourceGroupName $rgName -AvailabilitySetName $avName | Select Name
 
-> [AZURE.NOTE]利用資源管理員，您目前只能在建立虛擬機器期間，將其新增至可用性集。
+> [AZURE.NOTE]利用資源管理員，您目前只能在建立虛擬機器期間，將其新增至可用性集合。
 
 若要將其他資料磁碟新增至 VM，請將這幾行複製到您的命令集，並指定磁碟設定。
 
@@ -262,7 +311,7 @@ FrontendSubnet 的子網路索引為 0，而 backendSubnet 的子網路索引為
 
 如果您讓命令位於文字編輯器中，請將命令集複製到剪貼簿，然後以滑鼠右鍵按一下 [開啟 Azure PowerShell 提示字元]。這將發出命令集作為一系列的 PowerShell 命令，並建立 Azure 虛擬機器。或者，從 Azure PowerShell ISE 執行命令集。
 
-如果您將再次建立這個虛擬機器或類似的虛擬機器，您可以將這個命令集儲存為 PowerShell 指令碼檔案 (*.ps1)。
+如果您將再次建立這個虛擬機器或類似的虛擬機器，您可以將這個命令集儲存為 PowerShell 指令碼檔案 (\*.ps1)。
 
 ## 範例
 
@@ -270,7 +319,7 @@ FrontendSubnet 的子網路索引為 0，而 backendSubnet 的子網路索引為
 
 - 位於現有的 LOBServers 資源群組
 - 使用 Windows Server 2012 R2 Datacenter 映像
-- 名稱為 LOB07，且位於現有的 WEB_AS 可用性集
+- 名稱為 LOB07，且位於現有的 WEB\_AS 可用性集合
 - 在現有 AZDatacenter 虛擬網路的 FrontEnd 子網路 (子網路索引 0) 中具有內附公用 IP 位址的 NIC
 - 有 200 GB 的額外資料磁碟
 
@@ -282,7 +331,7 @@ FrontendSubnet 的子網路索引為 0，而 backendSubnet 的子網路索引為
 	# Set values for existing resource group and storage account names
 	$rgName="LOBServers"
 	$locName="West US"
-	$saName="contosoLOBServersSA"
+	$saName="contosolobserverssa"
 
 	# Set the existing virtual network and subnet index
 	$vnetName="AZDatacenter"
@@ -290,7 +339,7 @@ FrontendSubnet 的子網路索引為 0，而 backendSubnet 的子網路索引為
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
 	# Create the NIC
-	$nicName="AzureInterface"
+	$nicName="LOB07-NIC"
 	$domName="contoso-vm-lob07"
 	$pip=New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
@@ -328,14 +377,14 @@ FrontendSubnet 的子網路索引為 0，而 backendSubnet 的子網路索引為
 
 ## 其他資源
 
-[Azure Resource Manager 提供的 Azure 運算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md)
+[Azure 資源管理員提供的 Azure 運算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md)
 
-[Azure 資源管理員概觀](resource-group-overview.md)
+[Azure 資源管理員概觀](../resource-group-overview.md)
 
 [使用資源管理員範本和 PowerShell 部署以及管理 Azure 虛擬機器](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [利用 Resource Manager 範本和 PowerShell 建立 Windows 虛擬機器](virtual-machines-create-windows-powershell-resource-manager-template-simple)
 
-[如何安裝和設定 Azure PowerShell](install-configure-powershell.md)
+[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

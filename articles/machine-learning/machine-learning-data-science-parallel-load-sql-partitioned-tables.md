@@ -58,7 +58,7 @@
 
 **若要建立資料分割資料表，您需要：**
 
-- [建立資料分割函數](https://msdn.microsoft.com/library/ms187802.aspx)，以定義要在每個個別資料分割資料表中包含的值/界限範圍，例如，若要依 2013 年的月份來限制資料分割 (some_datetime_field)：
+- [建立資料分割函數](https://msdn.microsoft.com/library/ms187802.aspx)，以定義要在每個個別資料分割資料表中包含的值/界限範圍，例如，若要依 2013 年的月份來限制資料分割 (some\_datetime\_field)：
 
 	    CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
 	    AS RANGE RIGHT FOR VALUES (
@@ -95,7 +95,7 @@
 
 - 您可以使用 BCP、BULK INSERT 或其他方法，例如 [SQL Server 移轉精靈](http://sqlazuremw.codeplex.com/)。所提供的範例會使用 BCP 方法。
 
-- [改變資料庫](https://msdn.microsoft.com/library/bb522682.aspx)，將交易記錄配置變更為 BULK_LOGGED，以便將記錄額外負荷降到最低，例如：
+- [改變資料庫](https://msdn.microsoft.com/library/bb522682.aspx)，將交易記錄配置變更為 BULK\_LOGGED，以便將記錄額外負荷降到最低，例如：
 
 	    ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
 
@@ -184,4 +184,4 @@
 如需使用公開資料集之進階分析程序和技術 (ADAPT) 的端對端逐步解說範例，請參閱[進階分析程序和技術實務：使用 SQL Server](machine-learning-data-science-process-sql-walkthrough.md)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

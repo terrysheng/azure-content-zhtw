@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # 開始使用 Azure 儲存體 (ASP.NET 專案)
@@ -42,12 +42,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 ##在程式碼中存取資料表 
 
-## 以程式設計方式存取資料表儲存體
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
-
-### 命名空間宣告
-將下列程式碼命名空間宣告，新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 C# 檔案內的頂端：
 
 1. 確定 C# 檔案頂端的命名空間宣告包含這些 `using` 陳述式。
 
@@ -92,7 +87,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 ##插入實體批次
 
-您可以在單一寫入操作中將多個項目插入至資料表。下列程式碼範例會建立兩個實體物件 (「Jeff Smith」和「Ben Smith」)，並利用 Insert 方法將它們加入至 **TableBatchOperation** 物件，然後透過呼叫 CloudTable.ExecuteBatchAsync 開始啟動作業。
+您可以在單一寫入操作中將多個項目插入至資料表。下列程式碼範例會建立兩個實體物件 ("Jeff Smith" 和 "Ben Smith")，並利用 Insert 方法將它們加入至 **TableBatchOperation** 物件，然後透過呼叫 CloudTable.ExecuteBatchAsync 開始啟動作業。
 
 	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code"
 	
@@ -188,7 +183,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 ## 後續步驟
 
-[AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
+[AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
 
 
@@ -215,4 +210,4 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

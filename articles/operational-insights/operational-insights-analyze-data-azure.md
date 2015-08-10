@@ -87,54 +87,18 @@ Azure 診斷是 Azure 擴充功能，可讓您從 Azure 中執行的背景工作
 
 Azure 診斷可收集下列類型的遙測資料：
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>資料來源</b></td>
-		<td><b> 說明 </b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>IIS 記錄檔</td>
-		<td>IIS 網站的相關資訊。</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Azure 診斷基礎結構記錄檔</td>
-		<td>診斷本身的相關資訊。</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>IIS 失敗要求記錄檔 </td>
-		<td>IIS 網站或應用程式之失敗要求的相關資訊。</td>
-    </tr>
-	    <tr align="left" valign="top">
-		<td>Windows 事件記錄檔</td>
-		<td>傳送至 Windows 事件記錄系統的資訊。</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>效能計數器</td>
-		<td>作業系統和自訂效能計數器。</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>損毀傾印</td>
-		<td>應用程式損毀時之處理序狀態的相關資訊。</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>自訂錯誤記錄檔</td>
-		<td>您的應用程式或服務所建立的記錄檔。</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>NET EventSource</td>
-		<td>您的程式碼使用 .NET <a href="https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx">EventSource 類別所產生的事件。</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>以資訊清單為基礎的 ETW</td>
-		<td>任何處理序所產生的 ETW 事件。</td>
-    &lt;/tr
-    <tr align="left" valign="top">
-		<td>Syslog</td>
-		<td>傳送至 Syslog 或 Rsyslog 精靈的事件</td>
-    </tr>
-    </tbody>
-    </table>
+資料來源|說明
+ ---|--- 
+IIS 記錄檔|IIS 網站的相關資訊。
+Azure 診斷基礎結構記錄檔|診斷本身的相關資訊。
+IIS 失敗要求記錄檔 |IIS 網站或應用程式之失敗要求的相關資訊。
+Windows 事件記錄檔|傳送至 Windows 事件記錄系統的資訊。
+效能計數器|作業系統和自訂效能計數器。
+損毀傾印|應用程式損毀時之處理序狀態的相關資訊。
+自訂錯誤記錄檔|您的應用程式或服務所建立的記錄檔。
+NET EventSource|您的程式碼使用 .NET [EventSource 類別](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx) 所產生的事件
+以資訊清單為基礎的 ETW|任何處理序所產生的 ETW 事件
+Syslog|傳送至 Syslog 或 Rsyslog 精靈的事件
 
 
 Operational Insights 目前能夠分析：
@@ -151,7 +115,7 @@ Operational Insights 目前能夠分析：
 
  >[AZURE.NOTE]的 IIS 記錄檔，以啟用額外的見解。
 
-若為虛擬機器，您也可以選擇將 [Microsoft Monitoring Agent ](http://go.microsoft.com/fwlink/?LinkId=517269)安裝於虛擬機器以啟用其他見解。除了分析 IIS 記錄檔和事件記錄檔之外，您也能夠執行其他分析，包括組態變更追蹤、SQL 評估及更新評估。
+若為虛擬機器，您也可以選擇將 [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) 安裝於虛擬機器以啟用其他見解。除了分析 IIS 記錄檔和事件記錄檔之外，您也能夠執行其他分析，包括組態變更追蹤、SQL 評估及更新評估。
 
 您可以幫助我們為 Operational Insights 排定其他記錄檔的優先順序，按[意見反應頁面](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy)的投票進行分析。
 
@@ -268,10 +232,10 @@ Operational Insights 目前能夠分析：
 ### 由 Operational Insights 啟用分析
 
 1. 在預設的 Azure 入口網站中，瀏覽至 Operational Insights 工作區，然後選取 [**儲存體**] 索引標籤。![工作區儲存體索引標籤](./media/operational-insights-analyze-data-azure/workspace-storage-tab.png)
-2. 按一下 [**新增儲存體帳戶**] 開啟 [**加入儲存體帳戶**] 方塊。
+2. 按一下 [**新增儲存體帳戶**] 開啟 [**新增儲存體帳戶**] 方塊。
 3. 選取您要使用的儲存體帳戶。
-4. 在**資料類型**清單中選取資料類型：任何 **事件**、**IIS 記錄檔**或 **Syslog (Linux)**。
-5. 按一下 [**確定**] 映像。![儲存體帳戶方塊](./media/operational-insights-analyze-data-azure/storage-account.png)
+4. 在 [**資料類型**] 清單中選取資料類型：任何**事件**、**IIS 記錄檔**或 **Syslog (Linux)**。
+5. 按一下 [**確定**] 影像。<br> ![儲存體帳戶方塊](./media/operational-insights-analyze-data-azure/storage-account.png)
 6. 為您想要收集的每一個資料類型和儲存體帳戶組合重複上述步驟。
 
 大約 1 小時後，您會開始看到來自儲存體帳戶的資料，這些資訊可在 Operational Insights 中進行分析。
@@ -285,4 +249,4 @@ Operational Insights 目前能夠分析：
 
 [設定 Proxy 和防火牆設定 (選擇性)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

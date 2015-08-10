@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # 開始使用 Azure Active Directory (.NET 專案)
@@ -22,13 +22,13 @@
 > - [Getting Started](vs-active-directory-dotnet-getting-started.md)
 > - [What Happened](vs-active-directory-dotnet-what-happened.md)
  
-#####存取控制器之前需要驗證 
+##存取控制器之前需要驗證 
 
 專案中的所有控制器都加上 **Authorize** 屬性做裝飾。此屬性要求使用者必須經過驗證才能存取這些控制器。若要允許以匿名方式存取控制器，請從控制器中移除此屬性。如果您要以更精確地設定權限，請將此屬性套用至每一個需要授權的方法，而非套用至控制器類別。
  
-#####加入 SignIn / SignOut 控制項 
+##加入 SignIn / SignOut 控制項 
 
-若要將 SignIn/SignOut 控制項加入至檢視，您可以使用 **_LoginPartial.cshtml** 部分檢視將此功能加入至您的其中一個檢視。以下是加入至標準 **_Layout.cshtml** 檢視的功能範例(請注意 div 中具有類別 navbar-collapse 的最後一個元素)：
+若要將 SignIn/SignOut 控制項加入至檢視，您可以使用 **_LoginPartial.cshtml\*\* 部分檢視將此功能加入至您的其中一個檢視。以下是加入至標準 **_Layout.cshtml\*\* 檢視的功能範例(請注意 div 中具有類別 navbar-collapse 的最後一個元素)：
 
 <PRE class="prettyprint">
     &lt;!DOCTYPE html&gt; 
@@ -77,4 +77,4 @@
 
 [深入了解 Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

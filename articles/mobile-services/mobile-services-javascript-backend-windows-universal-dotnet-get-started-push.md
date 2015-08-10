@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用 JavaScript 後端行動服務開始使用推播通知" 
-	description="了解如何使用 Azure 行動服務及通知中心傳送推播通知至通用 Windows 應用程式。" 
+	pageTitle="將推播通知新增至通用 Windows 8.1 應用程式 | Azure 行動服務" 
+	description="了解如何使用 Azure 通知中樞從 JavaScript 後端行動服務，傳送推播通知給通用 Windows 8.1 應用程式。" 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 
@@ -40,12 +40,13 @@
 
 [AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../../includes/mobile-services-create-new-push-vs2013.md)]
 
-<ol start="6">
-<li><p>瀏覽至 <code>\Services\MobileServices\your_service_name</code> 專案資料夾，開啟產生的 push.register.cs 程式碼檔案，然後檢查用來將裝置通道 URL 向通知中樞註冊的 <strong>UploadChannel</strong> 方法。</p></li> 
-<li><p>開啟 shared App.xaml.cs 程式碼檔案，並注意新的 <strong>UploadChannel</strong> 方法呼叫已經新增到 <strong>OnLaunched</strong> 事件處理常式。</p> <p>這可確保在每次啟動應用程式時嘗試註冊裝置。</p></li>
-<li><p>重複上述步驟將所有推播通知新增至 Windows Phone 市集應用程式專案，然後從共用的 App.xaml.cs 檔案中移除額外的 <strong>UploadChannel</strong> 呼叫與剩餘的 <code>#if...#endif</code> 條件式包裝函式。</p> <p>這兩個專案現在都會共用 <strong>UploadChannel</strong> 的單一呼叫。</p>
-<p>請注意，您可以將使用 <code>#if...#endif</code> 包裝的 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> 定義統一至單一未包裝的定義以供這兩個應用程式版本使用，藉此簡化產生的程式碼。</p></li>
-</ol>
+&nbsp;&nbsp;6.瀏覽至 [`\Services\MobileServices\your_service_name`] 專案資料夾並開啟產生的 push.register.cs 程式碼檔案，然後檢查用來將裝置通道 URL 向通知中心註冊的 **UploadChannel** 方法。
+
+&nbsp;&nbsp;7.開啟 shared App.xaml.cs 程式碼檔案，並注意新的 **UploadChannel** 方法呼叫已經新增到 **OnLaunched** 事件處理常式。這可確保在每次啟動應用程式時嘗試註冊裝置。
+
+&nbsp;&nbsp;8.重複上述步驟將推播通知新增至 Windows Phone 市集應用程式專案，然後從共用 App.xaml.cs 檔案中移除額外的 **UploadChannel** 呼叫與剩餘的 `#if...#endif` 條件式包裝函式。這兩個專案現在都會共用 **UploadChannel** 的單一呼叫。
+
+&nbsp;&nbsp;請注意，您也可以將使用 `#if...#endif` 包裝的 [MobileServiceClient] 定義統一至單一未包裝的定義，以供這兩個應用程式版本使用，藉此簡化產生的程式碼。
 
 現在應用程式已經啟用了推播通知，您必須更新行動服務以傳送推播通知。
 
@@ -97,6 +98,7 @@
 [什麼是通知中心？]: ../notification-hubs-overview.md
 
 [如何使用 Azure 行動服務的 .NET 用戶端]: mobile-services-windows-dotnet-how-to-use-client-library.md
+[MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

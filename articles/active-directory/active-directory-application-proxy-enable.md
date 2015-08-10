@@ -73,4 +73,4 @@ Microsoft Azure AD 應用程式 Proxy 可讓您在私人網路內發行應用程
 * [以組織方式註冊 Azure](..sign-up-organization.md)
 * [Azure 身分識別](..fundamentals-identity.md)
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

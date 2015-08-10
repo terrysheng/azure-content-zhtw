@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="07/29/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -43,7 +43,7 @@
 
 若要使用 Azure 資料表服務 API，您必須：
 
-1. 參考使用 [require_once][require_once] 陳述式的自動換片器檔案，以及
+1. 參考使用 [require\_once][require_once] 陳述式的自動換片器檔案，以及
 2. 參考任何您可能使用的類別。
 
 下列範例顯示如何納入自動換片器檔案及參考 **ServicesBuilder** 類別。
@@ -218,7 +218,7 @@
 
 ## 作法：擷取資料分割中的所有實體
 
-實體查詢使用篩選條件建構而成 (如需詳細資訊，請參閱[查詢資料表和實體][filters])。若要擷取資料分割中的所有實體，請使用 "PartitionKey eq *partition_name*" 篩選條件。下列範例示範如何透過將篩選條件傳遞給 **queryEntities** 方法來擷取 `tasksSeattle` 分割中的所有實體。
+實體查詢使用篩選條件建構而成 (如需詳細資訊，請參閱[查詢資料表和實體][filters])。若要擷取資料分割中的所有實體，請使用 "PartitionKey eq *partition\_name*" 篩選條件。下列範例示範如何透過將篩選條件傳遞給 **queryEntities** 方法來擷取 `tasksSeattle` 分割中的所有實體。
 
 	require_once 'vendor\autoload.php';
 
@@ -479,4 +479,4 @@
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

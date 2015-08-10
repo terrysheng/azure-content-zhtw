@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="連接器和 API 應用程式清單 | Azure" 
-	description="閱讀有關在 Azure 應用程式服務中的連接器和 API 應用程式；微服務架構" 
-	services="app-service\logic" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+<properties
+	pageTitle="連接器和 API 應用程式清單 | Azure"
+	description="閱讀有關在 Azure 應用程式服務中的連接器和 API 應用程式；微服務架構"
+	services="app-service\logic"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/12/2015" 
+<tags
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2015"
 	ms.author="mandia"/>
 
 
@@ -31,7 +31,6 @@
 [Azure HDInsight](app-service-logic-connector-hdinsight.md) | 使用這個連接器在 Azure 上建立 Hadoop 叢集，並提交不同的 Hadoop 工作，例如 Hive、Pig、MapReduce 和 Streaming MapReduce。您也可以使用此連接器微調叢集、提交工作，以及等待工作完成。
 [Azure 服務匯流排](app-service-logic-connector-azureservicebus.md) | 使用此連接器，您可以從服務匯流排實體 (如佇列和主題) 傳送訊息，並接收來自服務匯流排實體 (例如佇列和訂閱) 的訊息。
 [Azure 儲存體 Blob](app-service-logic-connector-azurestorageblob.md) | 連接至 Blob 儲存體，還可以上傳 Blob、取得 Blob、刪除 Blob、列出容器中的 Blob、快照 Blob、複製 Blob，以及使用觸發程序來擷取 Blob。
-Azure WebJobs | 連接到 WebJobs。
 [Box](app-service-logic-connector-box.md) | 連接至 Box，還可以上傳檔案、取得檔案、刪除檔案、列出檔案，以及使用觸發程序來擷取檔案。
 [Chatter](app-service-logic-connector-chatter.md) | 連接至 Chatter，還可以張貼訊息、搜尋，以及使用觸發程序來擷取新的訊息。
 [Dropbox](app-service-logic-connector-dropbox.md) | 連接至 Dropbox，還可以上傳檔案、取得檔案、刪除檔案、列出檔案，以及使用觸發程序來擷取檔案。
@@ -92,6 +91,6 @@ MQ | 連接至內部部署和執行 Windows 作業系統的 Azure 虛擬機器�
 
 ## 連接器和 API 應用程式的詳細資訊
 
-[什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)<br/>[在 Azure App Service 中使用混合連線管理員](app-service-logic-hybrid-connection-manager.md)<br/>[管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)
+[什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)<br/> [在 Azure App Service 中使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)<br/> [管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

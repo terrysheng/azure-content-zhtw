@@ -103,4 +103,4 @@ Slack 連接器具有 REST API，因此您可以在邏輯應用程式外部使�
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

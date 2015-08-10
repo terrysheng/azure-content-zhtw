@@ -1,8 +1,8 @@
 <properties
 	pageTitle="在 Azure 虛擬機器上託管的 Oracle 軟體"
-	description="瀏覽重要主題說明如何在 Windows 或 Linux 架構的 Azure 虛擬機器設定 Oracle 軟體。"
-	documentationCenter=""
+	description="瀏覽重要主題說明如何在 Windows 架構或 Linux 架構的 Azure 虛擬機器設定 Oracle 軟體。"
 	services="virtual-machines"
+	documentationCenter=""
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
@@ -19,11 +19,11 @@
 
 # 在 Azure 虛擬機器上託管的 Oracle 軟體
 
-在 Microsoft Azure 基礎結構服務中，設定在虛擬機器中執行的第一個或下一個開發/測試或實際執行的 Oracle 資料庫。利用簡化設定的優點以及快速擴展 Oracle 資料庫工作負載的功能，來使其增加新的容量。
+在 Azure 基礎結構服務中，設定在虛擬機器中執行的第一個或下一個開發/測試或實際執行的 Oracle 資料庫。利用簡化設定的優點以及快速擴展 Oracle 資料庫工作負載的功能，來使其增加新的容量。
 
 ## Oracle 虛擬機器映像
 
-如需最新的 Windows 與 Linux 架構之虛擬機器映像集，請參閱 [Oracle 虛擬機器映像清單](virtual-machines-oracle-list-oracle-virtual-machine-images.md)。
+如需最新的 Windows 架構與 Linux 架構之虛擬機器映像集，請參閱 [Oracle 虛擬機器映像清單](virtual-machines-oracle-list-oracle-virtual-machine-images.md)。
 
 ## Windows 架構虛擬機器的考量
 
@@ -61,4 +61,4 @@
 
 [設定 Azure 的 Oracle GoldenGate](virtual-machines-configuring-oracle-goldengate.md) 帶您逐步完成資料庫與複寫設定。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

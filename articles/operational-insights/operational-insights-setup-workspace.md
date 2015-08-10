@@ -50,7 +50,7 @@
 
 ## 升級工作區為付費方案
 
-Operational Insights 有三種工作區方案類型：**免費**、**標準**和**進階**。如果您使用*免費*方案，有可能會達到 500MB 的資料容量。此時您將需要升級工作區為 '**隨用隨付**'，才能收集超過此限制的資料。您隨時都可以轉換您的方案類型。如需 Operational Insights 定價的詳細資訊，請參閱[定價詳細資料](http://azure.microsoft.com/pricing/operational-insights/)
+Operational Insights 有三種工作區方案類型：**免費**、**標準**和**進階**。如果您使用*免費*方案，有可能會達到 500MB 的資料容量。此時您將需要升級工作區為 '\*\*隨用隨付\*\*'，才能收集超過此限制的資料。您隨時都可以轉換您的方案類型。如需 Operational Insights 定價的詳細資訊，請參閱[定價詳細資料](http://azure.microsoft.com/pricing/operational-insights/)
 
 >[AZURE.IMPORTANT]工作區方案只有在*連結*到 Azure 訂用帳戶時才能變更。如果您在 Azure 中建立了工作區，或者如果您*已經*連結了工作區，可以忽略此訊息。如果您是從 [opinsights.azure.com](http://opinsights.azure.com) 建立工作區，就必須依照[連結現有的工作區到 Azure 訂用帳戶](#link-an-existing-workspace-to-an-Azure-subscription)的步驟。
 
@@ -180,4 +180,4 @@ Operational Insights 有三種工作區方案類型：**免費**、**標準**和
 
 3. 按一下 [關閉工作區]。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

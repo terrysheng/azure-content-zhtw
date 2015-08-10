@@ -52,7 +52,7 @@ PowerShell 工作流程程式碼看起來幾乎類似於 PowerShell 指令碼，
 
 活動是工作流程中的特定工作。就像指令碼是由一或多個命令所組成，工作流程是由序列中執行的一或多個活動所組成。執行工作流程時，Windows PowerShell 工作流程會自動將許多 Windows PowerShell Cmdlet 轉換為活動。在 Runbook 中指定其中一個 Cmdlet 時，對應的活動實際上是由 Windows Workflow Foundation 執行。針對沒有對應活動的 Cmdlet，Windows PowerShell 工作流程會自動在 [InlineScript](#inlinescript) 活動內執行 Cmdlet。有一組 Cmdlet 被排除，除非您明確在 InlineScript 區塊中將其納入，否則無法用在工作流程中。如需這些概念的詳細資訊，請參閱[在指令碼工作流程中使用活動](http://technet.microsoft.com/library/jj574194.aspx)。
 
-工作流程活動共用一組通用參數來設定其作業。如需有關工作流程通用參數的詳細資訊，請參閱[about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx)。
+工作流程活動共用一組通用參數來設定其作業。如需有關工作流程通用參數的詳細資訊，請參閱[about\_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx)。
 
 ### 位置參數
 
@@ -144,7 +144,7 @@ InlineScript 使用如下所示的語法。
 - 您不能在 InlineScriptBlock 內使用[平行執行](#parallel-execution)。
 - InlineScript 會影響工作流程的延展性，因為它會保留 InlineScript 區塊的整個長度的 Windows PowerShell 工作階段。
 
-如需使用 InlineScript 的進一步詳細資訊，請參閱[在工作流程中執行 Windows PowerShell 命令](http://technet.microsoft.com/library/jj574197.aspx)和[about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx)。
+如需使用 InlineScript 的進一步詳細資訊，請參閱[在工作流程中執行 Windows PowerShell 命令](http://technet.microsoft.com/library/jj574197.aspx)和[about\_InlineScript](http://technet.microsoft.com/library/jj649082.aspx)。
 
 
 ## 平行處理
@@ -163,9 +163,9 @@ Windows PowerShell 工作流程的優點之一是可平行執行一組命令，�
 
 例如，考慮下列 PowerShell 命令，它會將多個檔案複製到網路目的地。這些命令會循序執行，因此一個檔案必須完成複製才能開始複製下一個。
 
-	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \NetworkPath\File1.txt
-	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \NetworkPath\File2.txt
-	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \NetworkPath\File3.txt
+	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
+	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
+	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
 
 下列工作流程會平行執行這些相同的命令，讓它們在相同的時間全部開始複製。只有在全部完全複製之後，才會顯示完成訊息。
 
@@ -173,9 +173,9 @@ Windows PowerShell 工作流程的優點之一是可平行執行一組命令，�
 	{
 		Parallel 
 		{
-			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\\NetworkPath"
 		}
 
 		Write-Output "Files copied."
@@ -199,7 +199,7 @@ Windows PowerShell 工作流程的優點之一是可平行執行一組命令，�
 
 		ForEach -Parallel ($File in $Files) 
 		{
-			$Copy-Item -Path $File -Destination \NetworkPath
+			$Copy-Item -Path $File -Destination \\NetworkPath
 			Write-Output "$File copied."
 		}
 		
@@ -231,7 +231,7 @@ Windows PowerShell 工作流程的優點之一是可平行執行一組命令，�
 
 		ForEach ($File in $Files) 
 		{
-			$Copy-Item -Path $File -Destination \NetworkPath
+			$Copy-Item -Path $File -Destination \\NetworkPath
 			Write-Output "$File copied."
 			Checkpoint-Workflow
 		}
@@ -249,4 +249,4 @@ Windows PowerShell 工作流程的優點之一是可平行執行一組命令，�
 
 - [開始使用 Windows PowerShell 工作流程](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

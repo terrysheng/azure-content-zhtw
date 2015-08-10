@@ -69,4 +69,4 @@ SQL 資料倉儲可支援領導業界的資料載入解決方案。如需詳細�
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

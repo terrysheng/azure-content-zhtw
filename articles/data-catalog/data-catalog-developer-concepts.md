@@ -162,15 +162,15 @@ Azure 資料目錄使用兩種授權機制：
 
 ## REST API
 
-**PUT** 和 **POST** 檢視項目要求可用於控制角色和權限：除了項目裝載，還可指定兩個系統屬性：**__roles** 和 **__permissions**。
+**PUT** 和 **POST** 檢視項目要求可用於控制角色和權限：除了項目裝載，還可指定兩個系統屬性：**__roles\*\* 和 **__permissions\*\*。
 
 > [AZURE.NOTE]
 >
-> **__permissions** 僅適用於根項目。
+> **__permissions\*\* 僅適用於根項目。
 >
 > **Owner** 角色僅適用於根項目。
 >
-> 根據預設，在目錄中建立項目時，其 **Contributor** 會設定為目前已驗證的使用者。如果項目應該可由每個人更新，則第一次發行項目時，應該在 **__roles** 屬性中，將 **Contributor** 設定為 <Everyone> 特殊安全性主體 (請參閱下面範例)。**參與者**無法變更，而且在項目存留期間都維持不變 (也就是即使**管理員**或**擁有者**沒有權限變更**參與者**)。明確設定 **Contributor** 時，唯一支援的值是 <Everyone>：亦即 **Contributor** 只能是建立項目的使用者，或是 <Everyone>。
+> 根據預設，在目錄中建立項目時，其 **Contributor** 會設定為目前已驗證的使用者。如果項目應該可由每個人更新，則第一次發行項目時，應該在 **__roles\*\* 屬性中，將 **Contributor** 設定為 <Everyone> 特殊安全性主體 (請參閱下面範例)。**參與者**無法變更，而且在項目存留期間都維持不變 (也就是即使**管理員**或**擁有者**沒有權限變更**參與者**)。明確設定 **Contributor** 時，唯一支援的值是 <Everyone>：亦即 **Contributor** 只能是建立項目的使用者，或是 <Everyone>。
 
 ###範例
 **發行項目時將 Contributor 設定為 <Everyone>** 特殊安全性主體 <Everyone> 具有 objectId "00000000-0000-0000-0000-000000000201"。**POST** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/?api-version=2015-07.1.0-Preview **內文**
@@ -238,4 +238,4 @@ Azure 資料目錄使用兩種授權機制：
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

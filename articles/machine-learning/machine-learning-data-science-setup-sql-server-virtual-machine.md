@@ -61,7 +61,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
     -   在 [**可用性設定組**] 方塊中，選取 [**(無)**]。
     -   閱讀並接受定價資訊。
 
-6.	在 [**端點**] 區段中，按一下 [**名稱**] 底下的空白下拉式清單並選取 [**MSSQL**]，然後鍵入 Database Engine 執行個體的連接埠號碼 (預設執行個體的連接埠號碼是 **1433**)。
+6.	在 [**端點**] 區段中，按一下 [**名稱**] 底下的空白下拉式清單並選取 [**MSSQL**]，然後鍵入 Database Engine 執行個體的連接埠號碼 (預設執行個體的連接埠號碼是 \*\*1433\*\*)。
 
 7.  您的 SQL Server VM 也可以用來做為 IPython Notebook 伺服器 (將在稍後步驟中設定)。新增端點以指定可供 IPython Notebook 伺服器使用的連接埠。在 [**名稱**] 資料行中輸入名稱、選取您為公用連接埠選擇的連接埠號碼，然後針對私用連接埠選取 9999。
 
@@ -137,7 +137,7 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
     當您首次開啟 Management Studio 時，它必須建立使用者 Management Studio 環境。這可能需要花費幾分鐘的時間。
 
-2.  當 Management Studio 開啟時，它會顯示 [**連接到伺服器**] 對話方塊。在 [**伺服器名稱**] 方塊中，輸入虛擬機器的名稱以利用物件總管連接 Database Engine。除了虛擬機器名稱之外，您還可以使用 [(本機)]，或將一個句點當做 [伺服器名稱]。選取 [Windows 驗證]，並保留 [使用者名稱] 方塊中的 [*your_VM_name*\your_local_administrator]。按一下 [連接]。
+2.  當 Management Studio 開啟時，它會顯示 [**連接到伺服器**] 對話方塊。在 [**伺服器名稱**] 方塊中，輸入虛擬機器的名稱以利用物件總管連接 Database Engine。除了虛擬機器名稱之外，您還可以使用 [(本機)]，或將一個句點當做 [伺服器名稱]。選取 [Windows 驗證]，並保留 [使用者名稱] 方塊中的 [*your\_VM\_name*\\your\_local\_administrator]。按一下 [連接]。
 
     ![連接到伺服器][6]
 
@@ -298,4 +298,4 @@ Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -104,7 +104,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 	$VaultName = "<testvault123>"
 	$VaultGeo  = "<Southeast Asia>"
-	$OutputPathForSettingsFile = "<c:>"
+	$OutputPathForSettingsFile = "<C:\>"
 
 ```
 
@@ -125,7 +125,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 	
 		$VaultName = "<testvault123>"
 		$VaultGeo  = "<Southeast Asia>"
-		$OutputPathForSettingsFile = "<c:>"
+		$OutputPathForSettingsFile = "<C:\>"
 	
 		$VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
 	
@@ -307,7 +307,7 @@ New-AzureStorageAccount -StorageAccountName $StorageAccountName -Label $StorageA
 
 ```
 
-PS C:> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
+PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
 
 ```
 
@@ -354,7 +354,7 @@ PS C:> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSu
 
 ### 建立復原計畫
 
-1. 使用下列資料，建立 .xml 檔案做為復原計劃範本，然後將它儲存為 "C:\RPTemplatePath.xml"。
+1. 使用下列資料，建立 .xml 檔案做為復原計劃範本，然後將它儲存為 "C:\\RPTemplatePath.xml"。
 2. 變更 RecoveryPlan 節點識別碼、Name、PrimaryServerId 和 SecondaryServerId。
 3. 變更 ProtectionEntity 節點 PrimaryProtectionEntityId (來自 VMM 的 vmid)。
 4. 您可以新增更多 ProtectionEntity 節點來新增更多 VM。
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>若有任何問題，請造訪 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 復原服務論壇</a> (英文)。</LI></UL>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -74,7 +74,7 @@
 
 ## <a name="format"></a> 資料格式
 
-* 每個 Blob 是包含多個以 '\n' 分隔的列的文字檔案。
+* 每個 Blob 是包含多個以 '\\n' 分隔的列的文字檔案。
 * 每列是未格式化的 JSON 文件。如果您想要坐一旁並盯著它，請嘗試使用 Notepad++ 之類的檢視器搭配 JSON 外掛程式：
 
 ![使用合適的工具檢視遙測](./media/app-insights-export-telemetry/06-json.png)
@@ -110,17 +110,7 @@
 
 如需較大型的程式碼範例，請參閱[使用背景工作角色][exportasa]。
 
-#### 匯出至 SQL
 
-另一種選擇是將資料移動至 SQL Database，您可以在其中執行更強大的分析功能。
-
-以下範例說明，要將 Blob 儲存體中的資料移至資料庫，有兩種替代方法可以選擇：
-
-* [使用背景工作角色匯出至 SQL][exportcode]
-* [使用串流分析匯出至 SQL][exportasa]
-
-
-就更大型規模而言，請考慮 [HDInsight](http://azure.microsoft.com/services/hdinsight/) - 雲端中的 Hadoop 叢集。HDInsight 提供各種技術，用於管理和分析巨量資料。
 
 ## <a name="delete"></a>刪除舊資料
 請注意，您負責管理儲存容量，以及在必要時刪除舊資料。
@@ -134,6 +124,27 @@
 ![編輯連續匯出，開啟並關閉匯出目的地。](./media/app-insights-export-telemetry/07-resetstore.png)
 
 連續匯出將重新開始。
+
+## 匯出至 Power BI
+
+[Microsoft Power BI](https://powerbi.microsoft.com/) 以豐富多元的視覺方式呈現您的資料，以及將多個來源的資訊整合的能力。您可以將有關您應用程式效能與使用量的遙測資料，從 Application Insights 串流處理到 Power BI。
+
+[從 Application Insights 串流處理到 Power BI](app-insights-export-power-bi.md)
+
+![Application Insights 使用量資料的 Power BI 檢視範例](./media/app-insights-export-telemetry/210.png)
+
+## 匯出至 SQL
+
+另一種選擇是將資料移動至 SQL Database，您可以在其中執行更強大的分析功能。
+
+以下範例說明，要將 Blob 儲存體中的資料移至資料庫，有兩種替代方法可以選擇：
+
+* [使用背景工作角色匯出至 SQL][exportcode]
+* [使用串流分析匯出至 SQL][exportasa]
+
+
+就更大型規模而言，請考慮 [HDInsight](http://azure.microsoft.com/services/hdinsight/) - 雲端中的 Hadoop 叢集。HDInsight 提供各種技術，用於管理和分析巨量資料。
+
 
 
 ## 問答集
@@ -183,4 +194,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

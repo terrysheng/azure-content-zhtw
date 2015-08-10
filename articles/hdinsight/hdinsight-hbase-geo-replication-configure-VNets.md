@@ -29,7 +29,7 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 - 具有嚴密隔離界限的區域性多層式應用程式 
 - 在 Azure 中的跨訂用帳戶、組織間通訊
 
-如需詳細資訊，請參閱[設定 VNet 對 VNet 連線](https://msdn.microsoft.com/library/azure/dn690122.aspx)。
+如需詳細資訊，請參閱[設定 VNet 對 VNet 連線](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)。
 
 若要觀看相關影片：
 
@@ -271,4 +271,4 @@ Vnet 閘道會使用共用金鑰來驗證虛擬網路之間的連線。此金鑰
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

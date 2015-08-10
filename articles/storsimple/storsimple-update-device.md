@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/15/2015"
+   ms.date="07/28/2015"
    ms.author="v-sharos" />
 
 # 更新您的 StorSimple 裝置
@@ -52,7 +52,6 @@ StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀
 
 您可以使用管理入口網站，將更新套用到 StorSimple 裝置。
 
-
 [AZURE.INCLUDE [storsimple-install-updates-manually](../../includes/storsimple-install-updates-manually.md)]
 
 ## 透過 Windows PowerShell for StorSimple 安裝一般更新
@@ -91,8 +90,7 @@ StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀
 接下來，安裝您的更新。
 
 [AZURE.INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
-
-    
+ 
 ### 步驟 4：結束維護模式
 
 最後，結束維護模式。
@@ -121,4 +119,4 @@ StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀
 深入了解 [Windows PowerShell for StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
 #  透過 Exchange 提供者設定 ExpressRoute 連線
@@ -60,7 +60,7 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
 	建立線路之前，您需要有服務提供者、支援的位置和每個位置的頻寬選項等清單。下列 PowerShell Cmdlet 會傳回此資訊，在稍後的步驟中將會用到。
 
-    	PS C:> Get-AzureDedicatedCircuitServiceProvider
+    	PS C:\> Get-AzureDedicatedCircuitServiceProvider
 		**The information returned will look similar to the example below:**
 
 
@@ -117,7 +117,7 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
 	您隨時可以使用 Get-AzureCircuit Cmdlet 擷取此資訊。執行呼叫時，若未指定任何參數，將會列出所有線路。ServiceKey 欄位會列出您的服務金鑰。
 
-		PS C:> Get-AzureDedicatedCircuit
+		PS C:\> Get-AzureDedicatedCircuit
 
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
@@ -136,7 +136,7 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
 	這樣可讓您知道提供者已啟用您的線路。線路啟用之後，*ServiceProviderProvisioningState* 會顯示為 *Provisioned*，如下列範例所示。
 
-		PS C:> Get-AzureDedicatedCircuit
+		PS C:\> Get-AzureDedicatedCircuit
 
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
@@ -170,7 +170,7 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
 	下列回應提供後續步驟所需的資訊。請使用對等 ASN，在路由器的 VRF 上設定 BGP。
 
-		PS C:> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
+		PS C:\> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
 
 		AzureAsn            : 12076
 		PeerAsn             : 65001
@@ -205,7 +205,7 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
 	下列回應提供後續步驟所需的資訊。請使用對等 ASN，在路由器的 VRF 上設定 BGP。
 
-		PS C:> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
+		PS C:\> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
 
 		AzureAsn            : 12076
 		PeerAsn             : 65001
@@ -218,14 +218,17 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
 8. **設定虛擬網路和閘道。**
 
-	請參閱[設定 ExpressRoute 的虛擬網路和閘道器](https://msdn.microsoft.com/library/azure/dn643737.aspx)。請注意，閘道器子網路必須是 /28，才能使用 ExpressRoute 連線。
+	請參閱[設定 ExpressRoute 的虛擬網路和閘道器](expressroute-configuring-vnet-gateway.md)。請注意，閘道器子網路必須是 /28，才能使用 ExpressRoute 連線。
 
 9. **將網路連結至線路。** 必須確認線路處於下列狀態和情況，才能繼續執行下列指示：
 	- ServiceProviderProvisioningState: Provisioned
 	- Status: Enabled
 
-			PS C:> $Vnet = "MyTestVNet"
+			PS C:\> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
  
+## 後續步驟
 
-<!---HONumber=July15_HO4-->
+- 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
+
+<!---HONumber=July15_HO5-->

@@ -1,12 +1,20 @@
-<properties pageTitle="使用計算、網路和儲存體 .NET 程式庫來部署 Azure 資源" description="了解如何使用計算、儲存體和網路 .NET 程式庫中一些可用的用戶端來建立和刪除 Microsoft Azure 中的資源" services="virtual-machines,virtual-network,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
+<properties
+	pageTitle="使用 Compute、Network 和 Storage .NET Library 部署 Azure 資源"
+	description="了解如何使用 Compute、Storage 和 Network .NET Library 中的一些可用用戶端建立和刪除 Microsoft Azure 中的資源"
+	services="virtual-machines,virtual-network,storage"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2015"
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # 使用 Compute、Network 和 Storage .NET Library 部署 Azure 資源
@@ -338,7 +346,7 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
           }
         }
 
-	>[AZURE.NOTE]映像庫中的映像 VHD 名稱會定期變更，因此您必須取得目前的映像名稱，才能部署虛擬機器。若要這樣做，請參閱[使用 Windows PowerShell 管理映像 Windows](https://msdn.microsoft.com/library/azure/dn790330.aspx)，然後將 {source-image-name} 取代成您想要使用的 VHD 檔案的名稱。例如，"a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd"。
+	>[AZURE.NOTE]映像庫中的映像 VHD 名稱會定期變更，因此您必須取得目前的映像名稱，才能部署虛擬機器。若要這樣做，請參閱[使用 Windows PowerShell 管理映像 Windows](https://msdn.microsoft.com/library/azure/dn790330.aspx)，然後將 {source-image-name} 取代成您想要使用的 VHD 檔案的名稱。例如，"a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201411.01-en.us-127GB.vhd"。
 
 	將 {subscription-id} 取代成您的訂用帳戶的識別碼。
 
@@ -380,4 +388,4 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 	![建立 AD 應用程式](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

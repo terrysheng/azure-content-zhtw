@@ -1,6 +1,6 @@
 <properties 
    pageTitle="設定負載平衡器分配模式 | Microsoft Azure"
-   description="如何設定 Azure 負載平衡器分配模式，以支援來源 IP 同質性 (也稱為黏性工作階段)"
+   description="如何設定 Azure 負載平衡器分配模式以支援來源 IP 同質性"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -47,7 +47,7 @@
 
 擷取端點負載平衡器分配模式組態
 
-	PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
 
 	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 	LBSetName : MyLoadBalancedSet
@@ -149,4 +149,4 @@ LoadBalancerDistribution 的值可以是 sourceIP (適用於 2-tuple 同質性)�
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

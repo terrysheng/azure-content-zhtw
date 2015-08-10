@@ -224,4 +224,4 @@ Azure 儲存體可透過 [REST API](http://msdn.microsoft.com/library/azure/dd17
 - [如何使用 Python 的佇列儲存體](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -313,4 +313,4 @@ handling a request with the automatically generated `RequestTelemetry.Id`。
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

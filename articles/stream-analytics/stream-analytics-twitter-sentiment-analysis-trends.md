@@ -56,13 +56,13 @@
 請遵循下列步驟來設定應用程式：
 
 1.	[下載 TwitterClient 解決方案](https://github.com/streamanalytics/samples/tree/master/TwitterClient)
-2.	開啟 App.config，然後將 oauth_consumer_key、oauth_consumer_secret、oauth_token、oauth_token_secret 換成您的 Twitter 權杖。  
+2.	開啟 App.config，然後將 oauth\_consumer\_key、oauth\_consumer\_secret、oauth\_token、oauth\_token\_secret 換成您的 Twitter 權杖。  
 
 	[產生 OAuth 存取權杖的步驟](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	請注意，您必須建立一個空白應用程式，才能產生權杖。  
 3.	將 App.config 中的 EventHubConnectionString 和 EventHubName 值換成事件中樞連接字串和名稱。
-4.	*選用：*調整搜尋關鍵字。根據預設，這個應用程式會尋找 Azure、Skype、XBox、Microsoft、Seattle。如有需要，您可以調整 App.config 的 twitter_keywords 值。
+4.	*選用：*調整搜尋關鍵字。根據預設，這個應用程式會尋找 Azure、Skype、XBox、Microsoft、Seattle。如有需要，您可以調整 App.config 的 twitter\_keywords 值。
 5.	建立解決方案
 6.	啟動應用程式。您會看到推文事件連同 CreatedAt、Topic 和 SentimentScore 值，一起傳送到事件中樞：
 
@@ -236,4 +236,4 @@
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="davidmu1"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # 三部伺服器的 SharePoint 伺服器陣列資源管理員範本
 
 本主題逐步講解三部伺服器的 SharePoint 伺服器陣列的 azuredeploy.json 範本檔案結構。您可以從[此處](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json)在瀏覽器中查看這個範本的內容。
 
-或者，若要檢查 azuredeploy.json 檔案的本機複本，請指定本機資料夾做為該檔案的位置並建立它 (例如，C:\Azure\Templates\SharePointFarm)。填入資料夾名稱，然後在本機電腦的 Azure PowerShell 命令提示字元上執行這些命令。
+或者，若要檢查 azuredeploy.json 檔案的本機複本，請指定本機資料夾做為該檔案的位置並建立它 (例如，C:\\Azure\\Templates\\SharePointFarm)。填入資料夾名稱，然後在本機電腦的 Azure PowerShell 命令提示字元上執行這些命令。
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
@@ -376,4 +377,4 @@
 
 [虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

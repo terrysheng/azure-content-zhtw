@@ -48,7 +48,7 @@ DocumentDB 資源可支援下列 HTTP 動詞命令及其標準解釋：
 ## 使用 POST 建立新的資源 
 為了更加了解互動模型，我們來看一下建立新資源 (也稱為 INSERT) 的情況。為了建立新資源，您必須發出 HTTP POST 要求，而且此要求的本文內要包含以資源所屬容器摘要的 URI 表示資源的程式碼。此要求唯一的必要屬性是資源識別碼。
 
-舉例來說，為了建立新資料庫，您需要對 /dbs 發佈 (POST) 資料庫資源 (透過設定具有唯一名稱的 id 屬性)。同樣地，為了建立新集合，您需要對 /dbs/_rid/colls/ 發佈 (POST) 集合資源，以此類推。回應將會包含具有系統所產生屬性 (包括可供導覽到其他資源的 _self 資源連結) 的完全認可資源。以下是簡單的 HTTP 互動模型範例，用戶端可以發出 HTTP 要求，以在帳戶內建立新資料庫。
+舉例來說，為了建立新資料庫，您需要對 /dbs 發佈 (POST) 資料庫資源 (透過設定具有唯一名稱的 id 屬性)。同樣地，為了建立新集合，您需要對 /dbs/\_rid/colls/ 發佈 (POST) 集合資源，以此類推。回應將會包含具有系統所產生屬性 (包括可供導覽到其他資源的 _self 資源連結) 的完全認可資源。以下是簡單的 HTTP 互動模型範例，用戶端可以發出 HTTP 要求，以在帳戶內建立新資料庫。
 
 	POST https://fabrikam.documents.azure.com/dbs
 	{
@@ -82,7 +82,7 @@ DocumentDB 服務的回應是產生成功回應和狀態碼，指出已成功建
         response.setBody("Hello, World");
      }
 
-對 /dbs/_rid-db/colls/_rid-coll/sprocs 發出 POST，即可向 MyDb 下轄的集合註冊預存程序。
+對 /dbs/\_rid-db/colls/\_rid-coll/sprocs 發出 POST，即可向 MyDb 下轄的集合註冊預存程序。
 
 	POST https://fabrikam.documents.azure.com/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs HTTP/1.1
 	
@@ -253,13 +253,13 @@ DocumentDB 服務將做出下列回應。
 - [DocumentDB SQL 參考](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 - [DocumentDB 程式設計：預存程序、觸發程序和 UDF](../documentdb-programming/)
 - [DocumentDB 參考文件](https://msdn.microsoft.com/library/azure/dn781482.aspx)
-- REST[http://en.wikipedia.org/wiki/Representational_state_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
+- REST[http://en.wikipedia.org/wiki/Representational\_state\_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
 - JSON 規格[http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
 - HTTP 規格[http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
-- 實體標記[http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
+- 實體標記[http://en.wikipedia.org/wiki/HTTP\_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
 
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

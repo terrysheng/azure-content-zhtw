@@ -35,7 +35,7 @@ Visual Studio Application Insights 可讓您監視已發佈的應用程式在以
 * [Microsoft Azure][azure] 訂用帳戶。
 * Visual Studio 2013 或更新版本。
 
-## 1.建立 Application Insights 資源 
+## 1\.建立 Application Insights 資源 
 
 在 [Azure 入口網站][portal] 中，建立新的 Application Insights 資源。
 
@@ -50,7 +50,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 ![開啟 Essentials 下拉式抽屜，選取檢測金鑰](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2.將 Application Insights SDK 加入至應用程式
+## 2\.將 Application Insights SDK 加入至應用程式
 
 在 Visual Studio 中，將適當的 SDK 加入至專案。
 
@@ -66,18 +66,20 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 3. 選擇**適用於 Windows 應用程式的 Application Insights**
 
-4. 將 ApplicationInsights.config 檔案加入至您方案的根目錄，並插入以上複製的檢測金鑰。此組態檔的範例 XML 如下所示。**務必將 ApplicationInsights.config 檔案的「建置動作」標示為「內容」並將「複製到輸出目錄」標示為「一律複製」**。
+4. 將 ApplicationInsights.config 檔案加入至您專案的根目錄，並插入從入口網站複製的檢測金鑰。此組態檔的範例 XML 如下所示。
 
 	```xml
 		<?xml version="1.0" encoding="utf-8" ?>
 		<ApplicationInsights>
-			<InstrumentationKey>YOUR COPIED KEY FROM ABOVE</InstrumentationKey>
+			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
 		</ApplicationInsights>
 	```
+
+    設定 ApplicationInsights.config 檔案的屬性：[建置動作] == [內容] 而 [複製到輸出目錄] == [一律複製]。
 	
 	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
 
-5. 加入下列初始化程式碼。建議您將這個程式碼加入至 `App()` 建構函式。如果這項初始化未在應用程式建構函式中完成，您可能會遺漏初始頁面檢視的自動收集。
+5. 加入下列的初始化程式碼。最好是將此程式碼加入至 `App()` 建構函式。如果您在其他地方加入，您可能會遺漏第一個 PageViews 的自動集合。
 
 ```C#
 	public App()
@@ -90,7 +92,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 	}  
 ```
 
-**Windows Universal 應用程式**：對 Phone 和市集專案重複這些步驟。[Windows 8.1 通用應用程式的範例](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal)。
+**Windows 通用 App**：對 [手機] 和 [市集] 專案重複這些步驟。[Windows 8.1 通用 App 的範例](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal)。
 
 ## <a name="network"></a>3.對應用程式啟用網路存取
 
@@ -141,7 +143,7 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 
 #### 傳送您自己的遙測資料
 
-使用 [API][api] 來傳送事件、度量和診斷資料至 Application Insights。簡言之：
+使用 [API][api] 將事件、度量和診斷資料傳送至 Application Insights。簡言之：
 
 ```C#
 
@@ -194,7 +196,7 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 
 ## 升級到新版的 SDK
 
-當[新的 SDK 版本發行時](app-insights-release-notes-windows.md)：* 在您的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。* 選取已安裝的 Application Insights 封裝，然後選擇 [動作：升級]。
+當[新的 SDK 版本發行時](app-insights-release-notes-windows.md)：\* 在您的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。\* 選取已安裝的 Application Insights 封裝，然後選擇 [動作：升級]。
 
 
 ## <a name="usage"></a>後續步驟
@@ -227,4 +229,4 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -63,4 +63,4 @@ Microsoft 建立彈性資料庫集區的目的，便是為了協助您解決這�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

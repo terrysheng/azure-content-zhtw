@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/10/2015"
+   ms.date="07/23/2015"
    ms.author="claudioc"/>
 
 # 可靠動作項目：標準的 HelloWorld 逐步解說案例
@@ -143,14 +143,6 @@ Visual Studio 專用的 Service Fabric 工具支援在本機機器上偵錯。�
 
 ![Service Fabric 偵錯輸出視窗][3]
 
-## 應用程式部署
-從 Visual Studio，您也可以選取 Service Fabric 應用程式專案，然後以滑鼠按一下右鍵，在本機叢集中封裝與部署應用程式，無須啟動偵錯工具。
-
-![Service Fabric - 可供部署和封裝應用程式的專案功能表][4]
-
-* **部署**：封裝應用程式並啟動部署程序
-* **移除部署**：可用來從本機叢集移除應用程式
-* **封裝**：封裝應用程式。此動作對於將應用程式準備好部署在不同的叢集上很有幫助，例如部署在 Azure 上。
 
 ## 後續步驟
 
@@ -163,6 +155,5 @@ Visual Studio 專用的 Service Fabric 工具支援在本機機器上偵錯。�
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

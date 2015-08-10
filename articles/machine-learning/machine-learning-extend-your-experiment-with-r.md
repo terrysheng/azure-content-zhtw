@@ -272,7 +272,7 @@
 | lmPerm | 線性模型的排列檢定 |
 | lmtest | 檢定線性迴歸模型 |
 | locfit | 區域迴歸、 概度和密度估計 |
-| lpSolve | Lp_solve v. 5.5 的介面，用以求解線性/整數程式 |
+| lpSolve | Lp\_solve v. 5.5 的介面，用以求解線性/整數程式 |
 
 
 ###開頭為 M 到 R 的 R 模組
@@ -503,4 +503,4 @@
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

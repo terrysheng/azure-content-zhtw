@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="07/28/2015" 
 	ms.author="jroth"/>
 
 # 在 Azure 上佈建 SQL Server 虛擬機器 #
@@ -62,7 +62,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 	- 在 [Cloud Service DNS Name] 方塊中，提供選擇之 DNS 名稱的第一個部分，使其形成 **TESTNAME.cloudapp.net** 格式的名稱 
 	- 如果您有多個訂用帳戶可供選擇，請選取 [訂用帳戶]。此選擇會決定可用的**儲存體帳戶**。- 在 [REGION/AFFINITY GROUP/VIRTUAL NETWORK] 方塊中，選取代管這個虛擬映像的所在區域。
 	- 在 [儲存體帳戶] 中，可以自動產生帳戶，或從清單中選取一個帳戶。變更 [訂用帳戶] 以查看更多帳戶。 
-	- 在 [可用性設定組] 方塊中，選取 [(無)]。
+	- 在 [可用性集合] 方塊中，選取 [(無)]。
 	- 閱讀及接受法律條款。
 	
 
@@ -143,7 +143,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 3. 在 [新增輸入規則精靈] 對話方塊的 [規則類型] 下方， 選取 [連接埠]，然後按 [下一步]。
 
-4. 在 [通訊協定及連接埠] 對話方塊中，使用預設的 [TCP]。接著在 [特定本機連接埠] 方塊中，輸入 Database Engine 執行個體的連接埠號碼 (預設執行個體的連接埠號碼為 **1433**，也可以是在端點步驟中選擇的私人連接埠)。
+4. 在 [通訊協定及連接埠] 對話方塊中，使用預設的 [TCP]。接著在 [特定本機連接埠] 方塊中，輸入 Database Engine 執行個體的連接埠號碼 (預設執行個體的連接埠號碼為 \*\*1433\*\*，也可以是在端點步驟中選擇的私人連接埠)。
 
 	![TCP 連接埠 1433][Image14]
 
@@ -180,7 +180,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 	![啟用 TCP][Image10]
 
-5. 在主控台窗格中，按一下 [SQL Server 服務]。在詳細資料窗格中，以滑鼠右鍵按一下 [SQL Server (_instance name_)] (預設執行個體是 **SQL Server (MSSQLSERVER)**)，然後按一下 [重新啟動]，以停止並重新啟動 SQL Server 執行個體。
+5. 在主控台窗格中，按一下 [SQL Server 服務]。在詳細資料窗格中，以滑鼠右鍵按一下 [SQL Server (\_instance name\_)] (預設執行個體是 **SQL Server (MSSQLSERVER)**)，然後按一下 [重新啟動]，以停止並重新啟動 SQL Server 執行個體。
 
 	![重新啟動 Database Engine][Image11]
 
@@ -200,7 +200,7 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 	當您首次開啟 Management Studio 時，它必須建立使用者 Management Studio 環境。這可能需要花費幾分鐘的時間。
 
-2. Management Studio 會出現 [連接到伺服器] 對話方塊。在 [伺服器名稱] 方塊中，輸入虛擬機器的名稱以利用物件總管連接 Database Engine。除了虛擬機器名稱之外，您還可以使用 [(本機)]，或將一個句點當做 [伺服器名稱]。選取 [Windows 驗證]，並保留 [使用者名稱] 方塊中的 [_your_VM_name_\your_local_administrator]。按一下 [連接]。
+2. Management Studio 會出現 [連接到伺服器] 對話方塊。在 [伺服器名稱] 方塊中，輸入虛擬機器的名稱以利用物件總管連接 Database Engine。除了虛擬機器名稱之外，您還可以使用 [(本機)]，或將一個句點當做 [伺服器名稱]。選取 [Windows 驗證]，並保留 [使用者名稱] 方塊中的 [_your\_VM\_name_\\your\_local\_administrator]。按一下 [連接]。
 
 	![連接到伺服器][Image19]
 
@@ -274,7 +274,7 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 ### <a id="cde">從另一部電腦連接到 Database Engine</a>
  
 1. 在連接網際網路的電腦上開啟 SQL Server Management Studio。
-2. 在 [連接到伺服器] 或 [連接到 Database Engine] 對話方塊的 [伺服器名稱]**** 方塊中，輸入虛擬機器的 DNS 名稱 (於上一個工作中決定) 和 *DNSName,portnumber* 格式的公用端點連接埠名稱 (例如 **tutorialtestVM.cloudapp.net,57500**)。若要取得連接埠號碼，請登入 Azure 管理入口網站並尋找虛擬機器。在儀表板上，按一下 [端點]，然後使用指派給 [MSSQL] 的 [公用連接埠]。![公用連接埠][Image36]
+2. 在 [連接到伺服器] 或 [連接到 Database Engine] 對話方塊的 [伺服器名稱]\*\*\*\* 方塊中，輸入虛擬機器的 DNS 名稱 (於上一個工作中決定) 和 *DNSName,portnumber* 格式的公用端點連接埠名稱 (例如 **tutorialtestVM.cloudapp.net,57500**)。若要取得連接埠號碼，請登入 Azure 管理入口網站並尋找虛擬機器。在儀表板上，按一下 [端點]，然後使用指派給 [MSSQL] 的 [公用連接埠]。![公用連接埠][Image36]
 3. 在 [驗證] 方塊中，選取 [SQL Server 驗證]。
 5. 在 [登入] 方塊中，輸入於先前工作中建立之登入的名稱。
 6. 在 [密碼] 方塊中，輸入於先前工作中建立之登入的密碼。
@@ -291,7 +291,9 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 如需詳細資訊，請參閱[如何疑難排解 SQL Server Database Engine 連線](http://social.technet.microsoft.com/wiki/contents/articles/how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx) (英文)。
 
 ##<a id="Optional">後續步驟</a>
-您已了解如何使用平台映像來建立及設定 Azure 虛擬機器上的 SQL Server。在 Azure 虛擬機器中使用 SQL Server 時，建議您遵循文件庫中 [Azure 虛擬機器中的 SQL Server](http://go.microsoft.com/fwlink/p/?LinkId=294719) 文件的詳細指引。此文件集含有一系列提供詳細指引的文章和教學課程。這一系列的內容包括以下小節：
+您已了解如何使用平台映像來建立及設定 Azure 虛擬機器上的 SQL Server。在許多情況下下，下一個步驟是將資料庫移轉到這個新的 SQL Server VM。如需資料庫移轉指引，請參閱[將資料庫移轉至 Azure VM 上的 SQL Server](virtual-machines-migrate-onpremises-database.md)。
+
+除了這些資源，建議您遵循文件庫中 [Azure 虛擬機器中的 SQL Server](http://go.microsoft.com/fwlink/p/?LinkId=294719) 文件的詳細指引。此文件集含有一系列提供詳細指引的文章和教學課程。這一系列的內容包括以下小節：
 
 [Azure 虛擬機器中的 SQL Server](http://go.microsoft.com/fwlink/p/?LinkId=294719)
 
@@ -362,4 +364,4 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

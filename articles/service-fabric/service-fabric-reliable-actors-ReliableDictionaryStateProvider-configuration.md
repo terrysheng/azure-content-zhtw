@@ -38,7 +38,7 @@ Service-Fabric 執行階段會查尋 "settings.xml" 檔案中預先定義的區�
 
 |名稱|單位|預設值|備註|
 |----|----|-------------|-------|
-|BatchAcknowledgementInterval|秒|0.05|次要複寫器收到作業後，將通知傳回給主要複寫器前所等待的時間間隔。任何要在此間隔內傳送給作業處理的其他通知，會集中以一個回應傳送。||
+|BatchAcknowledgementInterval|秒|0\.05|次要複寫器收到作業後，將通知傳回給主要複寫器前所等待的時間間隔。任何要在此間隔內傳送給作業處理的其他通知，會集中以一個回應傳送。||
 |ReplicatorEndpoint|N/A|N/A - RequiredParameter|主要/次要複寫器將用於與複本集中其他複寫器通訊的 IP 位址與連接埠。這應該參考服務資訊清單中的 TCP 資源端點。請參閱＜[服務資訊清單資源](service-fabric-service-manifest-resources.md)＞，深入瞭解如何在服務資訊清單中定義端點資源。 |
 |RetryInterval|秒|5|複寫器若未收到作業通知，在重新傳輸訊息前的時間間隔。|
 |MaxReplicationMessageSize|位元組|50MB|單一訊息可傳輸的複寫資料大小上限。|
@@ -88,4 +88,4 @@ MaxRecordSizeInKB 定義複寫器可以寫入記錄檔的記錄大小上限。�
 SharedLogId 和 SharedLogPath 設定永遠會一起使用，並允許服務使用與節點預設共用記錄檔不同的共用記錄檔。如需最佳效率，請儘可能讓所有服務指定相同的共用記錄檔。共用記錄檔應該放在共用記錄檔專用的磁碟上，以減少磁頭移動爭用情形。預期只會在極少數的情況下需要變更。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

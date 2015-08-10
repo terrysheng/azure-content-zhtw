@@ -13,7 +13,7 @@
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA" 
-	ms.date="07/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sstein"/>
 
 
@@ -64,12 +64,12 @@
 
 - 如需連接到 SQL Database 的其他資訊，請參閱[以程式設計方式連接到 Azure SQL Database 的方針](https://msdn.microsoft.com/library/azure/ee336282.aspx)。   
 
-- 如需特定連接錯誤的詳細資訊，請參閱[錯誤訊息 (Azure SQL Database)](https://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors) 中的**連接遺失錯誤**一節。
+- 如需特定連接錯誤的詳細資訊，請參閱[Azure SQL Database 的錯誤訊息](sql-database-develop-error-messages.md#bkmk_connection_errors)中的**暫時性錯誤、連接遺失錯誤**一節。
 
-- 連接事件資料可透過使用 [**sys.event_log (Azure SQL Database)**](https://msdn.microsoft.com/library/dn270018.aspx) 檢視查詢連接事件來存取。
+- 連接事件資料可透過使用 [**sys.event\_log (Azure SQL Database)**](https://msdn.microsoft.com/library/dn270018.aspx) 檢視查詢連接事件來存取。
 
-- 資料庫連接事件的度量可透過查詢 [**sys.database_connection_stats (Azure SQL Database)**](https://msdn.microsoft.com/library/dn269986.aspx) 檢視來存取。
+- 資料庫連接事件的度量可透過查詢 [**sys.database\_connection\_stats (Azure SQL Database)**](https://msdn.microsoft.com/library/dn269986.aspx) 檢視來存取。
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

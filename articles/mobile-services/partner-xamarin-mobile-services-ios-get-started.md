@@ -78,7 +78,7 @@
 
 2. 按 [執行] 按鈕以建立專案，並在 iPhone 模擬器中啟動應用程式 (此專案的預設選項)。
 
-3. 在應用程式中輸入有意義的文字 (例如 _Complete the tutorial_)，然後按一下加號 (**+**) 圖示。
+3. 在應用程式中輸入有意義的文字 (例如 _Complete the tutorial_)，然後按一下加號 (\*\*+\*\*) 圖示。
 
 	![][10]
 
@@ -134,4 +134,4 @@
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

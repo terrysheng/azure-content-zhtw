@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # 使用 Azure 入口網站建立新的 Azure 服務主體
@@ -21,7 +21,7 @@
 ## 概觀
 服務主體是需要存取其他資源的自動化程序、應用程式或服務。使用 Azure 資源管理員，您可以授與服務主體的存取權並驗證服務主體，以讓它對存在於訂用帳戶或做為租用戶的資源執行允許的管理動作。
 
-本主題顯示如何使用 Azure 入口網站建立新的服務主體。目前，您必須使用 Microsoft Azure 入口網站來建立新的服務主體。在更新的版本中，會將這項功能加入至 Azure 預覽入口網站。
+本主題顯示如何使用 Azure 入口網站建立新的服務主體。目前，您必須使用 Microsoft Azure 入口網站來建立新的服務主體。在更新的版本中，會將這項功能加入至 Azure Preview 入口網站。
 
 ## 概念
 1. Azure Active Directory (AAD) - 雲端的身分識別與存取管理服務組建。如需詳細資料，請參閱：[什麼是 Azure Active Directory](./active-directory-whatis/)。
@@ -94,30 +94,12 @@
 * **金鑰** - 做為密碼。
 
 ## 後續步驟
-開始使用
 
-- [Azure 資源管理員概觀](./resource-group-overview.md)  
-- [搭配使用 Azure PowerShell 與 Azure 資源管理員](./powershell-azure-resource-manager.md)
-- [搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [使用 Azure 入口網站管理 Azure 資源](azure-portal/resource-group-portal.md)  
-  
-建立和部署應用程式
-  
-- [編寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)  
-- [使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)  
-- [Azure 中的資源群組部署疑難排解](virtual-machines/resource-group-deploy-debug.md)  
-- [Azure 資源管理員範本函數](./resource-group-template-functions.md)  
-- [進階範本作業](./resource-group-advanced-template.md)  
-- [使用 .NET 程式庫和範本部署 Azure 資源](virtual-machines/arm-template-deployment.md)
-  
-組織資源
-  
-- [使用標記來組織您的 Azure 資源](./resource-group-using-tags.md)  
-  
-管理和稽核存取權
-  
-- [管理和稽核資源存取權](azure-portal/resource-group-rbac.md)  
-- [使用 Azure 資源管理員驗證服務主體](./resource-group-authenticate-service-principal.md)  
+- 若要深入了解指定安全性原則，請參閱[管理和稽核資源存取權](azure-portal/resource-group-rbac.md)  
+- 如需允許服務主體存取資源的步驟，請參閱[使用 Azure 資源管理員驗證服務主體](./resource-group-authenticate-service-principal.md)  
+- 如需角色型存取控制的概觀，請參閱 [Microsoft Azure 入口網站中的角色型存取控制](role-based-access-control-configure.md)
+- 如需實作 Azure 資源管理員安全性的指導，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)
+
 
 <!-- Images. -->
 [1]: ./media/resource-group-create-service-principal-portal/active-directory.png
@@ -134,4 +116,4 @@
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

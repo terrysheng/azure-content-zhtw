@@ -62,23 +62,23 @@ Azure Multi-Factor Authentication | Azure Multi-Factor Authentication 提供最�
 
 功能 | Multi-Factor Authentication for Office 365 (隨附於 Office 365 SKU 中)|適用於 Azure 系統管理員的 Multi-Factor Authentication (隨附於 Azure 訂用帳戶中) | Azure Multi-Factor Authentication (隨附於 Azure AD Premium 和 Enterprise Mobility Suite 中) 
 ------------- | :-------------: |:-------------: |:-------------: |
-系統管理員可以透過 MFA 保護帳戶| * | * (僅適用於 Azure 系統管理員帳戶)|*
-以行動應用程式做為第二個因素|* | * | *
-以撥打電話做為第二個因素|* | * | *
-以 SMS 做為第二個因素|* | * | *
-用戶端應用程式密碼不支援 MFA|* | * | *
-系統管理員控制驗證方法| | | *
-PIN 模式| | | *
-詐騙警示| | | *
-MFA 報告| | | *
-一次性略過| | | *
-通話的自訂問候語| | | *
-自訂通話來電者 ID| | | *
-事件確認| | | *
-信任的 IP| | | *
-暫停對已記住的裝置進行 MFA (公開預覽)| | | *
-MFA SDK| | | *
-對使用 MFA Server 的內部部署應用程式進行 MFA| | | *
+系統管理員可以透過 MFA 保護帳戶| \* | \* (僅適用於 Azure 系統管理員帳戶)|\*
+以行動應用程式做為第二個因素|\* | \* | \*
+以撥打電話做為第二個因素|\* | \* | \*
+以 SMS 做為第二個因素|\* | \* | \*
+用戶端應用程式密碼不支援 MFA|\* | \* | \*
+系統管理員控制驗證方法| | | \*
+PIN 模式| | | \*
+詐騙警示| | | \*
+MFA 報告| | | \*
+一次性略過| | | \*
+通話的自訂問候語| | | \*
+自訂通話來電者 ID| | | \*
+事件確認| | | \*
+信任的 IP| | | \*
+暫停對已記住的裝置進行 MFA (公開預覽)| | | \*
+MFA SDK| | | \*
+對使用 MFA Server 的內部部署應用程式進行 MFA| | | \*
 
 
 ##如何取得 Azure Multi-Factor Authentication
@@ -102,4 +102,4 @@ Azure Multi-Factor Authentication 隨附於 Azure Active Directory Premium 和 E
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

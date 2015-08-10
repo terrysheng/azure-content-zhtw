@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="azure-government" 
-   ms.date="03/13/2015"
+   ms.date="07/22/2015"
    ms.author="john.harvey@microsoft.com"/>
 
 #  Microsoft Azure Government 概觀 
 
-<p> Microsoft Azure Government 是 Microsoft Azure 的實體及網路隔離執行個體。此開發人員指南將針對應用程式開發人員和系統管理員需要與這些 Azure 個別區域互動及處理的差異，提供相關提供詳細資料。
+<p> Microsoft Azure Government 是 Microsoft Azure 的實體及網路隔離執行個體。本概觀將提供環境和服務的簡介以及其他資訊的連結。
 
 
 ## <a name="Overview"></a>概觀
@@ -31,7 +31,7 @@ Azure Government 是一個政府社群雲端 (GCC)，設計來支援美國政府
 
 ![][2]
 
-Azure Government 包括基礎設施即服務 (IaaS) 和平台即服務 (PaaS) 的核心元件。這包括基礎結構、網路、儲存體、資料管理、身分識別管理和許多其他服務。Azure Government 支援公用 Azure 客戶所運用的相同絕佳功能，例如同步通信資料複寫和自動調整。Microsoft 藉由領導業界的分析師，已經視為是 <a href="https://www.gartner.com/doc/2575715/magic-quadrant-cloud-infrastructure-service" target="_new">IaaS</a> 和 <a href="https://www.gartner.com/doc/2645317/magic-quadrant-enterprise-application-platform" target="_new">PaaS</a> 兩者的領導者。
+Azure Government 包括基礎設施即服務 (IaaS) 和平台即服務 (PaaS) 的核心元件。這包括基礎結構、網路、儲存體、資料管理、身分識別管理和許多其他服務。Azure Government 支援公用 Azure 客戶所運用的相同絕佳功能，例如同步通信資料複寫和自動調整。Microsoft 藉由領導業界的分析師，已經視為是 <a href="https://www.gartner.com/doc/2575715/magic-quadrant-cloud-infrastructure-service" target="_new">IaaS</a> 和 <a href="https://www.gartner.com/doc/2645317/magic-quadrant-enterprise-application-platform" target="_new">PaaS<a/> 兩者的領導者。
 
 除了提供公用 Azure 的強固服務和功能，Azure Government 為了確保美國政府實體及其資料的安全性，還提供了許多功能：
 
@@ -73,6 +73,7 @@ Azure Government 目前在在「美國政府愛荷華州」(US GOV IOWA) 及「�
 - 媒體服務
 - 流量管理員
 - 服務匯流排
+- StorSimple
 
 有其他服務可用，並且會持續新增更多服務。如需最新的服務清單，請參閱[區域頁面](http://azure.microsoft.com/regions/#services)，當中將醒目提示每個可用的區域及其服務。
 
@@ -103,4 +104,4 @@ Azure Government 目前在在「美國政府愛荷華州」(US GOV IOWA) 及「�
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

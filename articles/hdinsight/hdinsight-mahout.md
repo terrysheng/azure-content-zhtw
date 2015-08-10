@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="07/24/2015"
 	ms.author="larryfr"/>
 
 #透過在 HDInsight 上將 Apache Mahout 與 Hadoop 搭配使用來產生電影推薦
@@ -78,7 +78,7 @@ Mahout 提供的其中一項功能是推薦引擎。這個引擎接受 `userID``
 
 3. 將 __u.data__ 檔案上傳至 HDInsight 叢集上的 __example/data/u.data__。如果您有 [Azure PowerShell][aps]，則可以使用 [HDInsight-Tools][tools] 模組進行檔案上傳。關於其他檔案上傳方式，請參閱[將資料上傳至 HDInsight][upload]。下列命令使用 `Add-HDInsightFile` 進行檔案上傳：
 
-    	PS C:> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
+    	PS C:\> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
 
     這會將 __u.data__ 檔案上傳至叢集之預設儲存體中的 __example/data/u.data__。接著您便可以從 HDInsight 工作使用 __wasb:///example/data/u.data__ URI 來存取此資料。
 
@@ -92,7 +92,7 @@ Mahout 提供的其中一項功能是推薦引擎。這個引擎接受 `userID``
 	# NOTE: The version number portion of the file path
 	# may change in future versions of HDInsight.
 	# So dynamically grab it using Hive.
-	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar' | where {$_.startswith("C:\apps\dist")}
+	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar' | where {$_.startswith("C:\apps\dist")}
 	$noCRLF = $mahoutPath -replace "`r`n", ""
 	$cleanedPath = $noCRLF -replace "\", "/"
 	$jarFile = "file:///$cleanedPath"
@@ -234,7 +234,7 @@ Mahout 工作不會將輸出傳回 STDOUT。相反地，其會將該輸出儲存
 
 若要使用此指令碼，您必須有先前已解壓縮的 __ml-100k__ 資料夾，以及 Mahout 工作產生之 __part-r-00000__ 輸出檔的本機複本。以下是執行此指令碼的範例：
 
-	PS C:> show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txt
+	PS C:\> show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txt
 
 輸出應該類似下列所示：
 
@@ -285,21 +285,13 @@ Mahout 可用的其中一個分類方法是建置[隨機森林][forest]。這是
 
 ###執行工作
 
-1. 此工作需要 Hadoop 命令列，因此您必須先透過 [Azure 入口網站][management]啟用遠端桌面。在入口網站中，選取 HDInsight 叢集，然後在 [組態] 頁面底部選取 [啟用遠端]：
-
-    ![enable remote][enableremote]
-
-    出現提示時，輸入要用於遠端工作階段的使用者名稱和密碼。
-
-2. 啟用遠端存取之後，選取 [連接] 開始連線。這樣會下載 __.rdp__ 檔案，其可用以啟動遠端桌面工作階段。
-
-    ![connect][connect]
+1. 這項工作需要 Hadoop 命令列。依照[使用 RDP 連線到 HDInsight 叢集](hdinsight-administer-use-management-portal.md#rdp)中的指示，為 HDInsight 叢集啟用遠端桌面，然後進行連線。
 
 3. 連線之後，使用 [Hadoop 命令列] 圖示開啟 Hadoop 命令列：
 
 	![hadoop cli][hadoopcli]
 
-3. 使用下列命令，並利用 Mahout 產生檔案描述元 (__KDDTrain+.info__)。
+3. 使用下列命令，並利用 Mahout 產生檔案描述元 (\_\_KDDTrain+.info\_\_)。
 
 		hadoop jar "c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar" org.apache.mahout.classifier.df.tools.Describe -p "wasb:///example/data/KDDTrain+.arff" -f "wasb:///example/data/KDDTrain+.info" -d N 3 C 2 N C 4 N C 8 N 2 C 19 N L
 
@@ -353,7 +345,7 @@ Mahout 安裝於 HDInsight 3.1 叢集上，且可使用下列步驟來手動安�
 
 1. 使用的 Mahout 版本視叢集的 HDInsight 版本而定。您可以使用下列 [Azure PowerShell][aps] 命令來找出叢集版本：
 
-    	PS C:> Get-AzureHDInsightCluster -Name YourClusterName | Select version
+    	PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select version
 
 
   * __針對 HDInsight 2.1__，您可以下載包含 [Mahout 0.9](http://repo2.maven.org/maven2/org/apache/mahout/mahout-core/0.9/mahout-core-0.9-job.jar) 的 Java 封存 (JAR) 檔案。
@@ -368,7 +360,7 @@ Mahout 安裝於 HDInsight 3.1 叢集上，且可使用下列步驟來手動安�
 
 2. 將 jar 檔案上傳至叢集預設儲存庫中的 __example/jars__。下列範例會使用 [HDInsight-Tools][tools] 的 add-hdinsightfile 來上載檔案：
 
-    	PS C:> .\Add-HDInsightFile -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
+    	PS C:\> .\Add-HDInsightFile -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
 
 ###無法覆寫檔案
 
@@ -381,7 +373,7 @@ Mahout 工作不會清除在處理期間所建立的暫存檔。此外，工作�
 HDInsight 3.1 叢集包含 Mahout。路徑和檔案名稱包含叢集上安裝之 Mahout 的版本號碼。本教學課程中的 Windows PowerShell 範例指令碼使用在 2014 年 7 月時有效的路徑，但版本號碼將隨著未來 HDInsight 更新而有所變更。若要判斷您叢集的 Mahout JAR 檔案的目前路徑，請使用下列 Windows PowerShell 命令，然後將指令碼修改為參考傳回的檔案路徑：
 
 	Use-AzureHDInsightCluster -Name $clusterName
-	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar'
+	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar'
 
 ###<a name="nopowershell"></a>不適用於 Windows PowerShell 的類別
 
@@ -429,4 +421,4 @@ HDInsight 3.1 叢集包含 Mahout。路徑和檔案名稱包含叢集上安裝�
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

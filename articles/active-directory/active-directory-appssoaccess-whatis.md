@@ -78,7 +78,7 @@ Azure AD 可以對具有 HTML 登入頁面的任何雲端應用程式支援密�
 
 密碼 SSO 依賴瀏覽器延伸從 Azure AD 安全擷取應用程式和使用者特定資訊，並將它套用至服務。Azure AD 支援的大多數協力廠商 SaaS 應用程式都支援這項功能。
 
-如果使用密碼 SSO，使用者的瀏覽器可以是：* 在 Windows 7 或更新版本上的 IE 8、IE9 和 IE10 *在 Windows 7 或更新版本或 MacOS X 或更新版本上的 Chrome
+如果使用密碼 SSO，使用者的瀏覽器可以是：\* 在 Windows 7 或更新版本上的 IE 8、IE9 和 IE10 \*在 Windows 7 或更新版本或 MacOS X 或更新版本上的 Chrome
 
 ###現有單一登入
 
@@ -212,4 +212,4 @@ https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

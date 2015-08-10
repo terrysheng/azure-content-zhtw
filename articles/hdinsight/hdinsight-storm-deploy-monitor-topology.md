@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #部署和管理 HDInsight 上的 Apache Storm 拓撲
@@ -42,9 +42,7 @@ HDInsight Tools 的 Storm Dashboard 和 Storm 功能依賴 Storm REST API，此 
 
 ##Storm Dashboard
 
-Storm Dashboard 可以在 Storm 叢集上使用。URL 是 **https://&lt;clustername>.azurehdinsight.net/**，其中 **clustername** 是 Storm on HDInsight 叢集的名稱。在 Azure 入口網站中，您也可以使用叢集儀表板中的 **Storm Dashboard** 連結來存取儀表板。
-
-![反白顯示 Storm Dashboard 的入口網站][hdinsight-dashboard]
+Storm Dashboard 是可以在 Storm 叢集上使用的網頁。URL 是 **https://&lt;clustername>.azurehdinsight.net/**，其中 **clustername** 是 Storm on HDInsight 叢集的名稱。
 
 從 Storm Dashboard 的頂端，選取 [提交拓撲]。依照頁面上的指示來執行範例拓撲，或者上傳及執行您已建立的拓撲。
 
@@ -128,7 +126,7 @@ HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。�
 
 1. 在**方案總管**中，於專案上按一下滑鼠右鍵，然後選取 [提交至 Storm on HDInsight]。
 
-	> [AZURE.NOTE]如果出現提示，請輸入您 Azure 訂閱的登入認證。如果您有多個訂用帳戶，請登入包含 Storm on HDInsight 叢集的訂用帳戶。
+	> [AZURE.NOTE]如果出現提示，請輸入您 Azure 訂用帳戶的登入認證。如果您有多個訂用帳戶，請登入包含 Storm on HDInsight 叢集的訂用帳戶。
 
 2. 從 [Storm 叢集] 下拉式清單中選取 Storm on HDInsight 叢集，然後選取 [提交]。您可以使用 [輸出] 視窗監視提交是否成功。
 
@@ -178,4 +176,4 @@ REST API 的要求必須使用**基本驗證**，因此請使用 HDInsight 叢�
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

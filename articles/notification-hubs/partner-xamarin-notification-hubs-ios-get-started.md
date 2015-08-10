@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="04/14/2015"
+	ms.date="07/28/2015"
 	ms.author="yuaxu"/>
 
 # 開始使用通知中心
@@ -128,9 +128,9 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
   	![][9]
 
-    > [AZURE.NOTE]依預設，下載的檔案 (開發憑證) 的名稱會是 **aps_development.cer**。
+    > [AZURE.NOTE]依預設，下載的檔案 (開發憑證) 的名稱會是 **aps\_development.cer**。
 
-7. 按兩下下載的推播憑證 **aps_development.cer**。
+7. 按兩下下載的推播憑證 **aps\_development.cer**。
 
 	這樣會將新的憑證安裝在金鑰鏈中，如下所示：
 
@@ -480,4 +480,4 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

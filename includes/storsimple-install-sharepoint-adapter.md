@@ -1,42 +1,27 @@
-<properties 
-   pageTitle="Install StorSimple Adapter for SharePoint | Microsoft Azure"
-   description="Describes how to install the StorSimple Adapter for SharePoint in a SharePoint server farm."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="07/17/2015"
-   ms.author="v-sharos" />
+#### 安裝 StorSimple Adapter for SharePoint
 
-#### To install the StorSimple Adapter for SharePoint
+1. 將安裝程式複製到也設定成執行 SharePoint 管理中心 Web 應用程式的 Web 前端 (WFE) 伺服器。 
 
-1. Copy the installer to the web front end (WFE) server that is also configured to run the SharePoint Central Administration web application. 
+2. 使用具有系統管理員權限的帳戶登入 WFE 伺服器。
 
-2. Use an account with administrator privileges to log on to the WFE server.
+3. 按兩下安裝程式。StorSimple Adapter for SharePoint 安裝精靈隨即啟動。按 [**下一步**] 開始安裝。
 
-3. Double-click the installer. The StorSimple Adapter for SharePoint Setup Wizard starts. Click **Next** to begin the installation.
+    ![StorSimple 配接器安裝開始頁面](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup1-include.png)
 
-    ![StorSimple adapter setup start page](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup1-include.png)
+4. 在 StorSimple Adapter for SharePoint 安裝程式設定頁面中，選取安裝位置，輸入 StorSimple 裝置上的 DATA 0 網路介面的 IP 位址，然後按 [**下一步**]。
 
-4. In the StorSimple Adapter for SharePoint setup configuration page, select an installation location, type the IP address for the DATA 0 network interface on your StorSimple device, and then click **Next**. 
+    ![StorSimple 配接器安裝設定頁面](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup2-include.png)
 
-    ![StorSimple adapter setup configuration page](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup2-include.png) 
+5. 在安裝確認頁面中，按一下 [**安裝**]。
 
-5. In the setup confirmation page, click **Install**.
+    ![StorSimple 配接器安裝確認頁面](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Confirm_Setup-include.png)
 
-    ![StorSimple adapter setup confirmation page](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Confirm_Setup-include.png) 
+6. 按一下 [**完成**] 以關閉安裝精靈。
 
-6. Click **Finish** to close the Setup Wizard.
+    ![StorSimple 配接器安裝完成頁面](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup_finish-include.png)
 
-    ![StorSimple adapter setup finished page](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup_finish-include.png) 
+7. 開啟 [SharePoint 管理中心] 頁面。您應該會看到一個包含 StorSimple Adapter for SharePoint 連結的 StorSimple 設定群組。
 
-7. Open the SharePoint Central Administration page. You should see a StorSimple Configuration group that contains the StorSimple Adapter for SharePoint links.
+8. 移至下一個步驟：[設定 RBS](#configure-rbs)。
 
-8. Go to the next step: [Configure RBS](#configure-rbs).
+<!---HONumber=July15_HO5-->

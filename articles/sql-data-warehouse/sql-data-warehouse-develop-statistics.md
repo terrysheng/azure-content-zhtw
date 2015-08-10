@@ -31,7 +31,7 @@
 
 多重資料行統計資料是對一份資料行清單建立的統計資料。其中包含清單中第一個資料行的單一資料行統計資料，再加上一些跨資料行關聯性資訊 (稱為密度)。多重資料行統計資料可以改善某些作業 (例如複合 joins 和 group by) 的查詢效能。
 
-如需詳細資訊，請參閱 MSDN 上的 [DBCC SHOW_STATISTICS][]。
+如需詳細資訊，請參閱 MSDN 上的 [DBCC SHOW\_STATISTICS][]。
 
 ## 為何需要統計資料？
 若無正確的統計資料，您將無法獲得 SQL 資料倉儲預計提供的效能。資料表和資料行都沒有 SQL 資料倉儲自動產生的統計資料，所以您需要自行建立。在建立資料表時建立統計資料，然後在您填入統計資料後予以更新是個不錯的主意。
@@ -152,13 +152,13 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 
 > [AZURE.NOTE]用來估計查詢結果中資料列數目的長條圖，只適用於統計資料物件定義中所列的第一個資料行。
 
-在此範例中，長條圖位於 *product_category*。跨資料行統計資料會依據 *product_category* 和 *product_sub_category* 計算：
+在此範例中，長條圖位於 *product\_category*。跨資料行統計資料會依據 *product\_category* 和 *product\_sub\_category* 計算：
 
 ```
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-因為 *product_category* 和 *product_sub_category* 之間有關聯性，所以多重資料行統計資料在同時存取這些資料行時相當實用。
+因為 *product\_category* 和 *product\_sub\_category* 之間有關聯性，所以多重資料行統計資料在同時存取這些資料行時相當實用。
 
 ### G.對資料表中的所有資料行建立統計資料
 
@@ -177,14 +177,14 @@ WITH
   )
 ;
 
-CREATE STATISTICS stats_col1 on dbo.table1;
-CREATE STATISTICS stats_col2 on dbo.table2;
-CREATE STATISTICS stats_col3 on dbo.table3;
+CREATE STATISTICS stats_col1 on dbo.table1 (col1);
+CREATE STATISTICS stats_col2 on dbo.table2 (col2);
+CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
 ### H.使用預存程序對資料庫中的所有資料行建立統計資料
 
-SQL 資料倉儲沒有相當於 SQL Server 中 [sp_create_stats][] 的系統預存程序。此預存程序會對資料庫中還沒有統計資料的每個資料行建立單一資料行統計資料物件。
+SQL 資料倉儲沒有相當於 SQL Server 中 [sp\_create\_stats][] 的系統預存程序。此預存程序會對資料庫中還沒有統計資料的每個資料行建立單一資料行統計資料物件。
 
 這會協助您開始進行資料庫設計。請放心地依照您的需求進行調整。
 
@@ -325,9 +325,9 @@ UPDATE STATISTICS dbo.table1;
 | [sys.objects][] | 資料庫中每個物件有一個資料列。 | |
 | [sys.schemas][] | 資料庫中每個結構描述有一個資料列。 | |
 | [sys.stats][] | 每個統計資料物件有一個資料列。 |
-| [sys.stats_columns][] | 統計資料物件中每個資料行有一個資料列。連結回到 sys.columns。 |
+| [sys.stats\_columns][] | 統計資料物件中每個資料行有一個資料列。連結回到 sys.columns。 |
 | [sys.tables][] | 每個資料表 (包括外部資料表) 有一個資料列。 |
-| [sys.table_types][] | 每個資料類型有一個資料列。 |
+| [sys.table\_types][] | 每個資料類型有一個資料列。 |
 
 
 ### 統計資料的系統函式
@@ -335,12 +335,12 @@ UPDATE STATISTICS dbo.table1;
 
 | 系統函式 | 說明 |
 | :-------------- | :---------- |
-| [STATS_DATE][] | 上次更新統計資料物件的日期。 |
-| [DBCC SHOW_STATISTICS][] | 提供有關統計資料物件所理解之值散發的摘要層級和詳細資訊。 |
+| [STATS\_DATE][] | 上次更新統計資料物件的日期。 |
+| [DBCC SHOW\_STATISTICS][] | 提供有關統計資料物件所理解之值散發的摘要層級和詳細資訊。 |
 
 ### 將統計資料資料行和函式結合成一個檢視
 
-此檢視會一起顯示與統計資料相關的資料行，以及 [STATS_DATE()][] 函式的結果。
+此檢視會一起顯示與統計資料相關的資料行，以及 [STATS\_DATE()][] 函式的結果。
 
 ```
 CREATE VIEW dbo.vstats_columns
@@ -378,9 +378,9 @@ AND     sts.[user_created] = 1
 ;
 ```
 
-## DBCC SHOW_STATISTICS() 範例
+## DBCC SHOW\_STATISTICS() 範例
 
-DBCC SHOW_STATISTICS() 顯示統計資料物件中保存的資料。此資料來自三個部分。
+DBCC SHOW\_STATISTICS() 顯示統計資料物件中保存的資料。此資料來自三個部分。
 
 1. 標頭
 2. 密度向量
@@ -402,7 +402,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### 顯示 DBCC SHOW_STATISTICS(); 的一或多個部分
+### 顯示 DBCC SHOW\_STATISTICS(); 的一或多個部分
 
 如果您只想要檢視特定部分，請使用 `WITH` 子句並指定您要查看哪些部分：
 
@@ -416,13 +416,13 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## DBCC SHOW_STATISTICS() 差異
-相較於 SQL Server，DBCC SHOW_STATISTICS() 在 SQL 資料倉儲中會更嚴格地實作。
+## DBCC SHOW\_STATISTICS() 差異
+相較於 SQL Server，DBCC SHOW\_STATISTICS() 在 SQL 資料倉儲中會更嚴格地實作。
 
 1. 不支援未記載的功能
-- 無法使用 Stats_stream
-- 無法聯結特定統計資料子集的結果，例如 (STAT_HEADER JOIN DENSITY_VECTOR)
-2. 無法針對訊息隱藏項目設定 NO_INFOMSGS
+- 無法使用 Stats\_stream
+- 無法聯結特定統計資料子集的結果，例如 (STAT\_HEADER JOIN DENSITY\_VECTOR)
+2. 無法針對訊息隱藏項目設定 NO\_INFOMSGS
 3. 無法使用統計資料名稱前後的方括號
 4. 無法使用資料行名稱來識別統計資料物件
 5. 不支援自訂錯誤 2767
@@ -440,16 +440,16 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 <!-- External Links -->
 [基數估計]: https://msdn.microsoft.com/library/dn600374.aspx
 [CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
+[DBCC SHOW\_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
 [統計資料]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
+[STATS\_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
 [sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
 [sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
 [sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
 [sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
+[sys.stats\_columns]: https://msdn.microsoft.com/library/ms187340.aspx
 [sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
+[sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [更新統計資料]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

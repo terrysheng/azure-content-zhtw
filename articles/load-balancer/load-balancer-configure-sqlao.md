@@ -15,7 +15,7 @@
    ms.date="05/01/2015"
    ms.author="joaoma" />
 
-# SQL 一律開啟
+# 設定負載平衡器使用 SQL 一律開啟
 
 SQL Server AlwaysOn 可用性群組現在可以與 ILB 搭配執行。可用性群組是 SQL Server 針對高可用性和災難復原的旗艦解決方案。不論組態中的複本數目為何，可用性群組接聽程式可讓用戶端應用程式順暢地連接到主要複本。
 
@@ -28,7 +28,7 @@ SQL Server AlwaysOn 可用性群組現在可以與 ILB 搭配執行。可用性�
 
 服務和位於相同虛擬網路服務的 VM、連接內部部署網路服務的 VM，和內部連接 VNet 的 VM
 
-![ILB_SQLAO_NewPic](./media/load-balancer-configure-sqlao/sqlao1.jpg)
+![ILB\_SQLAO\_NewPic](./media/load-balancer-configure-sqlao/sqlao1.jpg)
 
 
 內部負載平衡器只能透過 PowerShell 進行設定。
@@ -47,8 +47,9 @@ SQL Server AlwaysOn 可用性群組現在可以與 ILB 搭配執行。可用性�
 ## 為每個 VM 上的 ILB 新增負載平衡端點
 
 	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc1 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –
-	DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM 
-	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
+	DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
+
+ 	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
 
 
 ## 另請參閱
@@ -62,4 +63,4 @@ SQL Server AlwaysOn 可用性群組現在可以與 ILB 搭配執行。可用性�
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

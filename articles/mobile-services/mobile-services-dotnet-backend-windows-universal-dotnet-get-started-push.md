@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # 將推播通知新增至行動服務應用程式
@@ -34,14 +34,13 @@
 
 [AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../../includes/mobile-services-create-new-push-vs2013.md)]
 
-<ol start="6">
-<li><p>瀏覽至 <code>\Services\MobileServices\your_service_name</code> 專案資料夾，開啟產生的 push.register.cs 程式碼檔案，然後檢查用來將裝置通道 URL 向通知中樞註冊的 <strong>UploadChannel</strong> 方法。</p></li> 
-<li><p>開啟 shared App.xaml.cs 程式碼檔案，並注意新的 <strong>UploadChannel</strong> 方法呼叫已經新增到 <strong>OnLaunched</strong> 事件處理常式。</p> <p>這可確保在每次啟動應用程式時嘗試註冊裝置。</p></li>
-<li><p>重複上述步驟將所有推播通知新增至 Windows Phone 市集應用程式專案，然後從共用的 App.xaml.cs 檔案中移除額外的 <strong>UploadChannel</strong> 呼叫與剩餘的 <code>#if...#endif</code> 條件式包裝函式。</p> <p>這兩個專案現在都會共用 <strong>UploadChannel</strong> 的單一呼叫。</p>
-</li>
-</ol>
+&nbsp;&nbsp;6.瀏覽至 [`\Services\MobileServices\your_service_name`] 專案資料夾並開啟產生的 push.register.cs 程式碼檔案，然後檢查用來將裝置通道 URL 向通知中心註冊的 **UploadChannel** 方法。
+ 
+&nbsp;&nbsp;7.開啟 shared App.xaml.cs 程式碼檔案，並注意新的 **UploadChannel** 方法呼叫已經新增到 **OnLaunched** 事件處理常式。這可確保在每次啟動應用程式時嘗試註冊裝置。
 
-> [AZURE.NOTE]您可以將使用 <code>#if...#endif</code> 包裝的 [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 定義統一至單一未包裝的定義以供這兩個應用程式版本使用，藉此簡化產生的程式碼。
+&nbsp;&nbsp;8.重複上述步驟將推播通知新增至 Windows Phone 市集應用程式專案，然後從共用 App.xaml.cs 檔案中移除額外的 **UploadChannel** 呼叫與剩餘的 `#if...#endif` 條件式包裝函式。這兩個專案現在都會共用 **UploadChannel** 的單一呼叫。
+
+> [AZURE.NOTE]您可以將使用 `#if...#endif` 包裝的 [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 定義統一至單一未包裝的定義以供這兩個應用程式版本使用，藉此簡化產生的程式碼。
 
 現在應用程式已經啟用了推播通知，您必須更新行動服務以傳送推播通知。
 
@@ -59,16 +58,17 @@
 
 >[AZURE.NOTE]切勿使用生產環境的行動服務來進行測試與開發作業。請一律將您的行動服務專案發佈至個別的預備服務以利測試。
 
-<ol start="5">
-<li><p>開啟共用 App.xaml.cs 專案檔案，並找到任何可為 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> 類別建立新的執行個體的程式碼字行，以存取 Azure 上執行的行動服務。</p></li>
-<li><p>註解化此程式碼，並新增一段用來建立同名程式碼的全新 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> 類別 (但使用建構函式中本機主機 URL)，如下列所示：</p>
-<pre><code>// 此 MobileServiceClient 已基於偵錯目的，設定為與您的本機
-// 測試專案通訊。
-public static MobileServiceClient todolistClient = new MobileServiceClient(
-	"http://localhost:4584"
-);
-</code></pre><p>透過這個 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a>，應用程式將連接到本機服務，而非 Azure 上代管的版本。當您想要改為在 Azure 中代管的行動服務上執行應用程式時，請換為原來的 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> 定義。</p></li>
-</ol>
+&nbsp;&nbsp;5.開啟共用 App.xaml.cs 專案檔案，並找到任何可為 [MobileServiceClient] 類別建立新的執行個體的程式碼字行，以存取 Azure 上執行的行動服務。
+
+&nbsp;&nbsp;6.註解化此程式碼，並新增一段用來建立同名程式碼的全新 [MobileServiceClient] 類別 (但使用建構函式中本機主機 URL)，如下列所示：
+
+	// This MobileServiceClient has been configured to communicate with your local
+	// test project for debugging purposes.
+	public static MobileServiceClient todolistClient = new MobileServiceClient(
+		"http://localhost:4584"
+	);
+
+&nbsp;&nbsp;透過這個 [MobileServiceClient]，應用程式將連接到本機服務，而非 Azure 上代管的版本。當您想要改為在 Azure 中代管的行動服務上執行應用程式時，請換為原來的 [MobileServiceClient] 定義。
 
 ##<a id="test"></a>在應用程式中測試推播通知
 
@@ -107,6 +107,6 @@ public static MobileServiceClient todolistClient = new MobileServiceClient(
 [什麼是通知中樞？]: ../notification-hubs-overview.md
 
 [如何使用 Azure 行動服務的 .NET 用戶端]: mobile-services-windows-dotnet-how-to-use-client-library.md
- 
+[MobileServiceClient]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

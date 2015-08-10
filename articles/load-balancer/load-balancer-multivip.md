@@ -3,7 +3,7 @@
    description="MultiVIP 的概觀以及如何在雲端服務上設定多重 VIP"
    services="load-balancer"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/01/2015"
-   ms.author="telmos" />
+   ms.date="07/23/2015"
+   ms.author="joaoma" />
 
 # 每一雲端服務有多重 VIP
 您可以使用 Azure 所提供的 IP 位址，透過公用網際網路存取 Azure 雲端服務。此公用 IP 位址也稱為 VIP (虛擬 IP)，因為它會連結至 Azure 負載平衡器，而且不是雲端服務中真正的 VM 執行個體。您可以使用單一 VIP 來存取雲端服務中的任何 VM 執行個體。
@@ -38,7 +38,6 @@ VIP 預設是動態的，這表示指派給雲端服務的實際 IP 位址會隨
 
 - **僅限 IaaS**。您只能針對包含 VM 的雲端服務啟用多重 VIP。您無法在 PaaS 案例中將多重 VIP 與角色執行個體搭配使用。
 - **僅限 PowerShell**。您只能使用 PowerShell 來管理多重 VIP。
-- **不支援 ARM**。Azure 資源管理員中不支援多重 VIP。
 
 >[AZURE.IMPORTANT]這些限制都是暫時的，隨時可能變更。請務必再次瀏覽此頁面，以確認未來變更。
 
@@ -156,4 +155,4 @@ VIP 預設是動態的，這表示指派給雲端服務的實際 IP 位址會隨
 [保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

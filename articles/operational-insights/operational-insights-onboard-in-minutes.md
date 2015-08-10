@@ -97,4 +97,4 @@
 - 熟悉[搜尋](operational-insights-search.md)
 - 使用[儀表板](operational-insights-use-dashboards.md)來儲存及顯示自訂搜尋
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

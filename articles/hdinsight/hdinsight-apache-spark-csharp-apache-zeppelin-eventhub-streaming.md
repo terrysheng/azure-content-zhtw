@@ -27,7 +27,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 您必須滿足以下條件：
 
-- Azure 訂閱。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- Azure 訂用帳戶。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - Apache Spark 叢集。如需相關指示，請參閱[在 Azure HDInsight 中佈建 Apache Spark 叢集](hdinsight-apache-spark-provision-clusters.md)。
 - [Azure 事件中樞](service-bus-event-hubs-csharp-ephcs-getstarted.md)。
 - 安裝 Microsoft Visual Studio 2013 的工作站。如需指示，請參閱[安裝 Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx)。
@@ -52,7 +52,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 <tr><th>名稱</th><th>權限</th></tr>
 <tr><td>mysendpolicy</td><td>傳送</td></tr>
 <tr><td>myreceivepolicy</td><td>接聽</td></tr>
-</table>建立權限之後，在頁面底部選取**儲存**圖示。這樣會建立共用存取原則，可用來傳送 (**mysendpolicy**) 和接聽 (**myreceivepolicy**) 此事件中樞的訊息。
+</table>建立權限之後，在頁面底部選取**儲存**圖示。這樣會建立共用存取原則，可用來傳送 (\*\*mysendpolicy\*\*) 和接聽 (\*\*myreceivepolicy\*\*) 此事件中樞的訊息。
 
 	![原則](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policies.png "建立事件中樞原則")
 
@@ -164,4 +164,4 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -44,7 +44,7 @@
 
 - 對應根網域。根網域是您透過網域註冊機構保留的網域。例如 **contoso.com**。
 - 對應子網域。例如 **blogs.contoso.com**。您可以將不同的子網域對應至不同的 Web 應用程式。
-- 對應萬用字元。例如，***.contoso.com**。萬用字元項目會套用至網域的所有子網域。
+- 對應萬用字元。例如，**\*.contoso.com**。萬用字元項目會套用至網域的所有子網域。
 
 [AZURE.INCLUDE [模式](../../includes/custom-dns-web-site-modes.md)]
 
@@ -147,4 +147,4 @@
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

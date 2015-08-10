@@ -68,4 +68,4 @@ Microsoft 出版了數個與架構相關的海報/資訊圖。其中包括[建�
 
 ![Azure 架構資訊圖](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

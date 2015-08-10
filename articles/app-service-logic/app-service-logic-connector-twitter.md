@@ -75,7 +75,6 @@ Twitter 連接器提供下列觸發程序和動作：
 
 	![][7]
 	![][8]
-
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
@@ -93,4 +92,4 @@ Twitter 連接器提供下列觸發程序和動作：
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/actions.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

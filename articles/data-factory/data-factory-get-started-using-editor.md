@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="開始使用 Azure Data Factory" 
+	pageTitle="教學課程：從 Azure Blob 複製資料到 Azure SQL" 
 	description="此教學課程說明如何建立將資料從 Blob 複製到 Azure SQL 資料庫儲存個體的範例資料管線。" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # 教學課程：使用 Data Factory 編輯器建立和監視 Data Factory
@@ -111,47 +111,49 @@
 1. 在 Data Factory 的 [編輯器] 中，按一下工具列上的 [新增資料集] 按鈕，然後按下拉式功能表中的 [Blob 資料表]。 
 2. 將右窗格中的 JSON 替換為以下 JSON 片段： 
 
-        {
-     	    "name": "EmpTableFromBlob",
-		    "properties":
-    		{
-        		"structure":  
-       			 [ 
-            		{ "name": "FirstName", "type": "String"},
-            		{ "name": "LastName", "type": "String"}
-        		],
-        		"location": 
-        		{
-            		"type": "AzureBlobLocation",
-            		"folderPath": "adftutorial/",
-            		"format":
-            		{
-                		"type": "TextFormat",
-                		"columnDelimiter": ","
-            		},
-            		"linkedServiceName": "StorageLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "hour",
-            		"interval": 1,
-            		"waitOnExternal": {}
-       		 	}
-    		}
+		{
+		  "name": "EmpTableFromBlob",
+		  "properties": {
+		    "structure": [
+		      {
+		        "name": "FirstName",
+		        "type": "String"
+		      },
+		      {
+		        "name": "LastName",
+		        "type": "String"
+		      }
+		    ],
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "adftutorial/",
+			  "fileName": "emp.txt",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "external": true,
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
 
 		
      請注意：
 	
-	- 位置 **type** 設為 **AzureBlobLocation**。
+	- 位置 **type** 設為 **AzureBlob**。
 	- **linkedServiceName** 設為 **StorageLinkedService**。您已在步驟 2 中建立此連結服務。
 	- **folderPath** 設為 **adftutorial** 容器。您也可以指定資料夾內的 Blob 的名稱。由於您未指定 Blob 的名稱，容器中所有 Blob 的資料都會被視為輸入資料。  
 	- 格式 **type** 設為 **TextFormat**
-	- 文字檔中有兩個欄位 (**FirstName** 和 **LastName**)，以逗號字元分隔 (**columnDelimiter**)	
-	- **availability** 設為 **hourly** (**frequency** 設為 **hour** 且 **interval** 設為 **1**)，因此 Data Factory 服務會每隔一小時在您指定之 Blob 容器 (**adftutorial**) 的根資料夾中尋找輸入資料。 
+	- 文字檔中有兩個欄位 (**FirstName** 和 **LastName**)，以逗號字元分隔 (\*\*columnDelimiter\*\*)	
+	- **availability** 設為 **hourly** (\*\*frequency\*\* 設為 **hour** 且 **interval** 設為 **1**)，因此 Data Factory 服務會每隔一小時在您指定之 Blob 容器 (\*\*adftutorial\*\*) 的根資料夾中尋找輸入資料。 
 	
 
-	如果您未指定輸入資料表的 **fileName**，則輸入資料夾 (**folderPath**) 中的所有檔案/Blob 都會被視為輸入。如果您在 JSON 中指定 fileName，則只有指定的檔案/Blob 會被視為輸入。如需範例，請參閱此[教學課程][adf-tutorial]中的範例檔案。
+	如果您未指定輸入資料表的 **fileName**，則輸入資料夾 (\*\*folderPath\*\*) 中的所有檔案/Blob 都會被視為輸入。如果您在 JSON 中指定 fileName，則只有指定的檔案/Blob 會被視為輸入。如需範例，請參閱此[教學課程][adf-tutorial]中的範例檔案。
  
 	如果您未指定輸出資料表的 **fileName**，**folderPath** 中產生的檔案會依照下列格式命名：Data.&lt;Guid&gt;.txt (範例：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt)。
 
@@ -177,29 +179,30 @@
 1. 在 Data Factory 的 [編輯器] 中，按一下工具列上的 [新增資料集] 按鈕，然後按下拉式功能表中的 [Azure SQL 資料表]。 
 2. 將右窗格中的 JSON 替換為以下 JSON 片段：
 
-        {
-    		"name": "EmpSQLTable",
-    		"properties":
-    		{
-        		"structure":
-        		[
-                	{ "name": "FirstName", "type": "String"},
-                	{ "name": "LastName", "type": "String"}
-        		],
-        		"location":
-        		{
-            		"type": "AzureSqlTableLocation",
-            		"tableName": "emp",
-            		"linkedServiceName": "AzureSqlLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Hour",
-            		"interval": 1            
-        		}
-    		}
+		{
+		  "name": "EmpSQLTable",
+		  "properties": {
+		    "structure": [
+		      {
+		        "name": "FirstName",
+		        "type": "String"
+		      },
+		      {
+		        "name": "LastName",
+		        "type": "String"
+		      }
+		    ],
+		    "type": "AzureSqlTable",
+		    "linkedServiceName": "AzureSqlLinkedService",
+		    "typeProperties": {
+		      "tableName": "emp"
+		    },
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
-
 
 		
      請注意：
@@ -208,7 +211,7 @@
 	* **linkedServiceName** 設為 **AzureSqlLinkedService** (您已在步驟 2 中建立此連結服務)。
 	* **tablename** 設為 **emp**。
 	* 資料庫的 emp 資料表中有三個資料行 (**ID**、**FirstName** 和 **LastName**)，但 ID 是身分識別資料行，所以您在此處只需要指定 **FirstName** 和 **LastName**。
-	* **availability** 設為 **hourly** (**frequency** 設為 **hour** 且 **interval** 設為 **1**)。Data Factory 服務會每隔一小時在 Azure SQL Database 的 **emp** 資料表中產生輸出資料配量。
+	* **availability** 設為 **hourly** (\*\*frequency\*\* 設為 **hour** 且 **interval** 設為 **1**)。Data Factory 服務會每隔一小時在 Azure SQL Database 的 **emp** 資料表中產生輸出資料配量。
 
 
 3. 按一下工具列上的 [部署]，建立並部署 **EmpSQLTable** 資料表。
@@ -222,46 +225,48 @@
 	![編輯器 [新增管線] 按鈕][image-editor-newpipeline-button]
  
 2. 將右窗格中的 JSON 替換為以下 JSON 片段：
-
-         {
-			"name": "ADFTutorialPipeline",
-			"properties":
-			{	
-				"description" : "Copy data from a blob to Azure SQL table",
-				"activities":	
-				[
-					{
-						"name": "CopyFromBlobToSQL",
-						"description": "Push Regional Effectiveness Campaign data to Azure SQL database",
-						"type": "CopyActivity",
-						"inputs": [ {"name": "EmpTableFromBlob"} ],
-						"outputs": [ {"name": "EmpSQLTable"} ],		
-						"transformation":
-						{
-							"source":
-							{                               
-								"type": "BlobSource"
-							},
-							"sink":
-							{
-								"type": "SqlSink"
-							}	
-						},
-						"Policy":
-						{
-							"concurrency": 1,
-							"executionPriorityOrder": "NewestFirst",
-							"style": "StartOfInterval",
-							"retry": 0,
-							"timeout": "01:00:00"
-						}		
-					}
-        		],
-
-				"start": "2015-02-13T00:00:00Z",
-        		"end": "2015-02-14T00:00:00Z",
-        		"isPaused": false
-      		}
+		
+		{
+		  "name": "ADFTutorialPipeline",
+		  "properties": {
+		    "description": "Copy data from a blob to Azure SQL table",
+		    "activities": [
+		      {
+		        "name": "CopyFromBlobToSQL",
+		        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+		        "type": "Copy",
+		        "inputs": [
+		          {
+		            "name": "EmpTableFromBlob"
+		          }
+		        ],
+		        "outputs": [
+		          {
+		            "name": "EmpSQLTable"
+		          }
+		        ],
+		        "typeProperties": {
+		          "source": {
+		            "type": "BlobSource"
+		          },
+		          "sink": {
+		            "type": "SqlSink",
+		            "writeBatchSize": 10000,
+		            "writeBatchTimeout": "60:00:00"
+		          }
+		        },
+		        "Policy": {
+		          "concurrency": 1,
+		          "executionPriorityOrder": "NewestFirst",
+		          "style": "StartOfInterval",
+		          "retry": 0,
+		          "timeout": "01:00:00"
+		        }
+		      }
+		    ],
+		    "start": "2015-07-12T00:00:00Z",
+		    "end": "2015-07-13T00:00:00Z"
+		  }
 		} 
 
 	請注意：
@@ -274,7 +279,7 @@
 	
 	開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**end** 時間為選擇性項目，但在本教學課程中會用到。
 	
-	如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。
+	如果您未指定 **end** 屬性的值，則會以「\*\*start + 48 小時\*\*」計算。若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。
 	
 	在上述範例中，由於每小時即產生一個資料配量，共會有 24 個資料配量。
 	
@@ -316,7 +321,7 @@
 5. 在 [資料集] 刀鋒視窗中，按一下 [EmpTableFromBlob]。這是 **ADFTutorialPipeline** 的輸入資料表。
 
 	![已選取 EmpTableFromBlob 的資料集][image-data-factory-get-started-datasets-emptable-selected]   
-5. 請注意，截至目前為止的資料配量都已產生，並已「就緒」，因為 **emp.txt** 檔案一直都存在於 Blob 容器中：**adftutorial\input**。確認下方的 [最近失敗的配量] 區段中沒有任何配量。
+5. 請注意，截至目前為止的資料配量都已產生，並已「就緒」，因為 **emp.txt** 檔案一直都存在於 Blob 容器中：**adftutorial\\input**。確認下方的 [最近失敗的配量] 區段中沒有任何配量。
 
 	[最近更新的配量] 和 [最近失敗的配量] 清單都依照 [上次更新時間] 排序。在下列情況中，配量的更新時間會變更。
     
@@ -358,7 +363,7 @@
 
 	
 12. 按一下 **X** 關閉所有刀鋒視窗，直到您回到 **ADFTutorialDataFactory** 的起始刀鋒視窗。
-14. (選擇性) 在 **ADFTutorialDataFactory** 的起始刀鋒視窗上按一下 [管線]，再按一下 [管線] 刀鋒視窗中的 **ADFTutorialPipeline**，然後深入檢視輸入資料表 (**已取用**) 或輸出資料表 (**已產生**)。
+14. (選擇性) 在 **ADFTutorialDataFactory** 的起始刀鋒視窗上按一下 [管線]，再按一下 [管線] 刀鋒視窗中的 **ADFTutorialPipeline**，然後深入檢視輸入資料表 (\*\*已取用\*\*) 或輸出資料表 (\*\*已產生\*\*)。
 15. 啟動 **SQL Server Management Studio**，並連接到 Azure SQL Database，然後確認資料列已插入資料庫的 **emp** 資料表中。
 
 	![SQL 查詢結果][image-data-factory-get-started-sql-query-results]
@@ -508,4 +513,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

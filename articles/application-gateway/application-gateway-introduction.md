@@ -18,7 +18,7 @@
 # 應用程式閘道技術概觀 
 
 
-Microsoft Azure 應用程式閘道是類似 Azure VPN 閘道的 Azure 管理服務。應用程式閘道會根據 IIS 應用程式要求路由 (ARR) 來提供 Azure 管理的 HTTP 負載平衡解決方案。應用程式閘道服務高度可用且計量。如需 SLA 和價格的詳細資訊，請參閱 [SLA](http://azure.microsoft.com/support/legal/sla/) 和[價格](https://azure.microsoft.com/pricing/details/application-gateway/)頁面。
+Microsoft Azure 應用程式閘道提供了以第 7 層負載平衡為基礎的 Azure 管理 HTTP 負載平衡解決方案。應用程式負載平衡可讓 IT 系統管理員與開發人員建立以 HTTP 為基礎的網路流量路由規則。應用程式閘道服務高度可用且計量。如需 SLA 和價格的詳細資訊，請參閱 [SLA](http://azure.microsoft.com/support/legal/sla/) 和[價格](https://azure.microsoft.com/pricing/details/application-gateway/)頁面。
 
 應用程式閘道目前支援下列的第 7 層應用程式傳遞：
 
@@ -29,8 +29,12 @@ Microsoft Azure 應用程式閘道是類似 Azure VPN 閘道的 Azure 管理服�
 ![應用程式閘道](./media/application-gateway-introduction/appgateway1.png)
 
 ## HTTP 第 7 層負載平衡
-Azure 透過軟體負載平衡器提供第 4 層負載平衡。針對具有負載平衡 VIP (公用或內部) 的每個雲端服務，會隱含地發生這種情況。不過，有許多可以使用第 7 層 (HTTP) 式負載平衡的應用程式。
 
+Azure 透過在傳輸層級 (TCP/UDP) 執行的 Azure 負載平衡器，並讓所有連入的網路流量負載平衡到應用程式閘道服務，提供第 4 層負載平衡。然後應用程式閘道會將路由規則套用至 HTTP 流量，提供第 7 層 (HTTP) 負載平衡。當您建立應用程式閘道時，會與一個端點 (VIP) 相關聯，並做為輸入網路流量的公用 IP。
+
+應用程式閘道會根據其設定 (無論是虛擬機器、雲端服務、Web App 或外部 IP 位址) 路由傳送 HTTP 流量。
+
+下圖說明應用程式閘道流量的流動方式：![應用程式閘道2](./media/application-gateway-introduction/appgateway2.png)
 
 HTTP 第 7 層負載平衡可用於：
 
@@ -55,4 +59,4 @@ HTTP 第 7 層負載平衡可用於：
 
 設定 SSL 卸載。請參閱[使用應用程式閘道設定 SSL 卸載](application-gateway-ssl.md)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="07/29/2015" 
 	ms.author="tomfitz"/>
 
 # 如何使用 PHP 的佇列儲存體
@@ -42,7 +42,7 @@
 
 若要使用 Azure 佇列服務 API，您必須：
 
-1. 參考使用 [require_once][require_once] 陳述式的自動換片器檔案，以及
+1. 參考使用 [require\_once][require_once] 陳述式的自動換片器檔案，以及
 2. 參考任何您可能使用的類別。
 
 下列範例顯示如何納入自動換片器檔案及參考 **ServicesBuilder** 類別。
@@ -384,4 +384,4 @@
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

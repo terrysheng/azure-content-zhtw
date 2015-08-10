@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員範本部署應用程式
@@ -48,9 +48,12 @@ Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在
 
 ## 使用 Preview 入口網站部署
 
-您知道嗎？ 資源庫中的每個應用程式的基礎都是 Azure 資源管理員範本！ 只要透過入口網站建立虛擬機器、虛擬網路、儲存體帳戶、App Service 或資料庫，您就已經充分利用 Azure 資源管理員的優點，不多費心力。
+您知道嗎？ 經由[預覽入口網站](https://portal.azure.com/)建立的每個應用程式均受到 Azure 資源管理員範本的支援！ 只要透過入口網站建立虛擬機器、虛擬網路、儲存體帳戶、App Service 或資料庫，您就已經充分利用 Azure 資源管理員的優點，不多費心力。只要選取 [**新增**] 圖示，您就會進入透過 Azure 資源管理員部署應用程式的程序。
 
-若要透過 Preview 入口網站疑難排解部署，請按一下 [瀏覽] -> [資源群組] -> 您的資源群組名稱。在這裡，按一下 [監視] 鏡頭底下的 [事件] 標題。最後，您可以選取個別的 [作業] 和 [事件] 來檢視詳細資料。
+![新增](./media/resource-group-template-deploy/new.png)
+
+如需使用預覽入口網站與 Azure 資源管理員的相關資訊，請參閱[使用Azure Preview 入口網站來管理您的 Azure 資源](resource-group-portal.md)。
+
 
 ## 使用 PowerShell 部署
 
@@ -58,7 +61,7 @@ Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在
 
 1. 登入您的 Azure 帳戶。提供您的認證之後，命令會傳回您的帳戶的相關資訊。
 
-        PS C:> Add-AzureAccount
+        PS C:\> Add-AzureAccount
 
         Id                             Type       ...
         --                             ----    
@@ -66,15 +69,15 @@ Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在
 
 2. 如果您有多個訂用帳戶，請提供您想要用於部署的訂用帳戶識別碼。
 
-        PS C:> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
 
 3. 切換至 Azure 資源管理員模組。
 
-        PS C:> Switch-AzureMode AzureResourceManager
+        PS C:\> Switch-AzureMode AzureResourceManager
 
 4. 如果您沒有現有資源群組，請建立新的資源群組。提供您的解決方案所需的資源群組名稱和位置。隨即傳回新資源群組的摘要。
 
-        PS C:> New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
+        PS C:\> New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
    
         ResourceGroupName : ExampleResourceGroup
         Location          : westus
@@ -92,16 +95,16 @@ Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在
    
      - 使用內嵌參數。
 
-            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
+            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
      - 使用參數物件。
 
-            PS C:> $parameters = @{"<ParameterName>"="<Parameter Value>"}
-            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
+            PS C:\> $parameters = @{"<ParameterName>"="<Parameter Value>"}
+            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
 
      - 使用參數檔案。如需範本檔案的相關資訊，請參閱[參數檔案](./#parameter-file)。
 
-            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
+            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
 
      部署資源群組之後，您會看到部署的摘要。
 
@@ -114,11 +117,11 @@ Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在
 
 6. 取得部署失敗的相關資訊。
 
-        PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
+        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
 
 7. 取得部署失敗的詳細資訊。
 
-        PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
 
 ## 以適用於 Mac、Linux 和 Windows 的 Azure CLI 部署
 
@@ -247,13 +250,11 @@ Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在
     }
 
 ## 後續步驟
-- [Azure 資源管理員概觀](../resource-group-overview.md)
-- [使用 .NET 程式庫和範本部署資源](../arm-template-deployment.md)
-- [透過可預測方式在 Azure 中部署複雜應用程式](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- [撰寫範本](../resource-group-authoring-templates.md)
-- [範本函式](../resource-group-template-functions.md)
-- [進階範本作業](../resource-group-advanced-template.md)  
+- 如需透過 .NET 用戶端程式庫部署資源的範例，請參閱[使用 .NET 程式庫和範本部署資源](../arm-template-deployment.md)
+- 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](../app-service-web/app-service-deploy-complex-application-predictably.md)
+- 若要了解 Azure 資源管理員範本的區段，請參閱[編寫範本](../resource-group-authoring-templates.md)。
+- 如需您可以在 Azure 資源管理員範本中使用的函數的清單，請參閱[範本函數](../resource-group-template-functions.md)
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

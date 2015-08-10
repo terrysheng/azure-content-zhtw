@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/14/2015"
+   ms.date="07/28/2015"
    ms.author="danlep"/>
 
-# 在 Azure 中的大量計算：批次和高效能計算 (HPC) 的技術資源
+# Azure 中的大量運算：批次和高效能運算 (HPC) 的技術資源
 這是技術資源的指南，將幫助您在 Azure 中執行您的大規模平行、批次和 HPC 工作負載。使用各種 Azure 服務擴充您現有的批次或 HPC 工作負載至 Azure 雲端，或在 Azure 中建置新的大量計算解決方案。
 
 ## 方案選項
@@ -25,7 +25,7 @@
 
 * [批次和 HPC 解決方案](batch-hpc-solutions.md)
 
-* [影片：Azure 和 HPC 在雲端的大量計算](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
+* [影片：Azure 和 HPC 在雲端的大量運算](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
 
 
 ## Azure 批次
@@ -36,9 +36,9 @@
 
 * [API 參考資料](https://msdn.microsoft.com/library/azure/dn820177.aspx)
 
-* [批次論壇](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
-
 * [教學課程：開始使用適用於 .NET 的 Azure 批次程式庫](batch-dotnet-get-started.md)
+
+* [批次論壇](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 
 * [批次影片](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -48,18 +48,46 @@
 
 ### Microsoft HPC Pack
 
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) 是 Microsoft 的免費叢集管理程式，以及內部部署、混合式和以雲端架構的 HPC 工作排程解決方案。
+HPC Pack 是建置在 Microsoft Azure 和 Windows Server 技術上的 Microsoft 免費 HPC 解決方案。
 
-* [使用 HPC Pack 將量擴大到 Azure](https://technet.microsoft.com/library/gg481749.aspx)
+* [下載 HPC Pack 2012 R2 Update 2](https://www.microsoft.com/zh-tw/download/details.aspx?id=47755)
 
-* [Azure VM 中的 HPC Pack](https://msdn.microsoft.com/library/azure/dn518135.aspx)
+* [說明文件](https://technet.microsoft.com/library/jj899572.aspx)
 
-* [教學課程：在 Azure 中使用 HPC Pack 設定混合式叢集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
+* **Azure VM 映像**
+
+    * [Windows Server 2012 R2 上的 HPC Pack](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
+
+    * [Windows Server 2012 R2 上的 HPC Pack 運算節點](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
+
+    * [Windows Server 2012 R2 上含 Excel 的 HPC Pack 運算節點](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
+
+* **Azure 快速入門範本和指令碼**
+
+    * [建立 HPC 叢集](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
+
+    * [使用自訂的運算節點映像建立 HPC 叢集](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
+
+    * [部署 HPC Pack IaaS 的 PowerShell 指令碼](https://www.microsoft.com/download/details.aspx?id=44949)
+
+* **Azure 教學課程**
+
+    * [教學課程：開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點](../virtual-machines/virtual-machines-linux-cluster-hpcpack.md)
+
+    * [教學課程：開始使用 Azure 中的 HPC Pack 叢集執行 Excel 和 SOA 工作負載](../virtual-machines/virtual-machines-excel-cluster-hpcpack.md)
+
+    * [教學課程：在 Azure 中使用 HPC Pack 設定混合式叢集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
+
+    * [Azure VM 中的 HPC Pack](https://msdn.microsoft.com/library/azure/dn518135.aspx)
+
+    * [使用 HPC Pack 將量擴大到 Azure](https://technet.microsoft.com/library/gg481749.aspx)
+
 
 * [Windows HPC 論壇](https://social.microsoft.com/Forums/home?category=windowshpc)
 
-### Linux 叢集解決方案
-使用這些 Azure 資源管理員範本來部署 Linux HPC 叢集。
+### Linux 與 OSS 叢集解決方案
+
+透過開放原始碼工具使用 Azure 快速入門範本部署 Linux HPC 叢集。
 
 * [加速 SLURM 叢集](http://azure.microsoft.com/documentation/templates/slurm/)和[部落格文章](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 
@@ -72,14 +100,14 @@
 
 * [下載 MS-MPI](http://go.microsoft.com/FWLink/p/?LinkID=389556)
 
-* [MS-MPI 參考](https://msdn.microsoft.com/library/dn473458.aspx)
+* [MS-MPI 參考資料](https://msdn.microsoft.com/library/dn473458.aspx)
 
 * [MPI 論壇](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
 
 
 ## 計算密集型執行個體
 
-Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)，包括計算密集的 [A8、A9、A10 和 A11 執行個體](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md)，以執行您的 Linux 和 Windows HPC 工作負載。
+Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)，包括運算密集的 [A8、A9、A10 和 A11 執行個體](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md)，以執行您的 Linux 和 Windows HPC 工作負載。
 
 * [設定 Linux RDMA 叢集以執行 MPI 應用程式](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
@@ -89,7 +117,7 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)�
 
 ## 架構藍圖
 
-* [大規模計算 - 金融服務](http://go.microsoft.com/fwlink/?LinkId=536378) (PDF) 會示範風險管理、報告和模擬如何在雲端有可操作性，並協調大規模計算和資料分析。
+* [大規模運算 - 金融服務](http://go.microsoft.com/fwlink/?LinkId=536378) (PDF，英文) 會示範風險管理、報告和模擬如何在雲端有可操作性，並協調大規模運算和資料分析。
 
 ## 範例和示範
 
@@ -118,4 +146,4 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)�
 * 最新宣告請參閱 [Microsoft HPC 和批次的小組部落格](http://blogs.technet.com/b/windowshpc/)以及[Azure 部落格](http://azure.microsoft.com/blog/tag/hpc/)。
 * 另請參閱[批次的新功能](http://azure.microsoft.com/updates/?service=batch)或訂閱 [RSS 摘要](http://azure.microsoft.com/updates/feed/?service=batch)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

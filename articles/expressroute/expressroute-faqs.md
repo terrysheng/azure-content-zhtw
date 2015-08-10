@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/26/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
 # ExpressRoute 常見問題集
@@ -124,7 +124,7 @@ ExpressRoute 支援大多數的 Azure 雲端服務。
 ### 我有多個含有虛擬網路的 Azure 訂用帳戶。我可以將各個訂用帳戶的虛擬網路連線到單一 ExpressRoute 電路嗎？
 是。您最多可以向 10 個其他 Azure 訂用帳戶授權使用單一 ExpressRoute 電路。您可透過啟用 ExpressRoute 進階功能來提高此限制。
 
-如需詳細資訊，請參閱[在多個訂用帳戶中共用 ExpressRoute 電路](https://msdn.microsoft.com/library/azure/dn835110.aspx)。
+如需詳細資訊，請參閱[在多個訂用帳戶中共用 ExpressRoute 電路](expressroute-share-circuit.md)。
 
 ### 連線到相同電路的虛擬網路會相互隔離嗎？
 否。從路由的觀點來看，所有連結至相同 ExpressRoute 電路的虛擬網路會屬於相同的路由網域，且不會相互隔離。如果需要路由隔離，您必須建立個別的 ExpressRoute 電路。
@@ -286,4 +286,4 @@ ExpressRoute Premium 是下面所列功能的集合。
 是。即使 ExpressRoute 已設定供我的組織使用，您仍可以透過網際網路存取 Office 365 服務端點。如果所處位置已設定透過 ExpressRoute 連線到 Office 365 服務，您將會透過 ExpressRoute 進行連線。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

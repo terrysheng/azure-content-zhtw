@@ -347,6 +347,11 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
 * 與您的使用者討論！ 單單分析是不足夠的，但可以補充以保有良好的客戶關係。
 
 
+## 參考
+
+* [使用 API - 概觀][api]
+* [JavaScript API 參考](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+
 ## 影片
 
 > [AZURE.VIDEO usage-monitoring-application-insights]
@@ -366,4 +371,4 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

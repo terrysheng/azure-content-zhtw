@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="有效率的清單查詢" 
-	description="了解如何減少傳回清單項目的數目，以及減少每個項目傳回的資訊量。" 
-	services="batch" 
-	documentationCenter="" 
-	authors="davidmu1" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="有效率的清單查詢"
+	description="了解如何減少傳回清單項目的數目，以及減少每個項目傳回的資訊量。"
+	services="batch"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="vm-windows" 
+<tags
+	ms.service="multiple"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="05/09/2015" 
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # 有效率的清單查詢
@@ -80,4 +81,4 @@ ODataDetailLevel 物件有三個公用屬性，可以在建構函式中指定或
 
 > [AZURE.NOTE]建議您一律為清單 API 呼叫使用篩選和 Select 子句，以確保您的應用程式有最高效率和最佳效能。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

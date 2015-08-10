@@ -71,7 +71,7 @@
 
 ### 替代架構
 
-WebJob 會在 Web 應用程式的內容中執行，且無法單獨擴充。例如，如果您擁有一個標準的 Web 應用程式執行個體，則您的背景程序只有一個執行中的執行個體，而且它會使用亦可用來提供 Web 內容的部分伺服器資源 (CPU、記憶體等)。
+WebJob 會在 Web 應用程式的內容中執行，且無法單獨調整。例如，如果您擁有一個標準的 Web 應用程式執行個體，則您的背景程序只有一個執行中的執行個體，而且它會使用亦可用來提供 Web 內容的部分伺服器資源 (CPU、記憶體等)。
 
 如果流量會因為一天中的某個時段或一週中的某天而有所不同，而且如果必須執行的後端處理可以暫緩的話，您可以排程 WebJobs 在低流量時段中執行。如果負載對該解決方案而言仍然太高的話，您可以考慮為您的後端程式選擇替代環境，範例如下：
 
@@ -165,7 +165,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 4. 開啟 ContosoAdsWebJob 專案中的 *App.config* 檔案。
 
-	此檔案有兩個儲存體連接字串，一個供應用程式使用，另一個供記錄使用。在本教學課程中，您將對兩者使用相同帳戶。連接字串包含儲存體帳戶金鑰的預留位置。<pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
+	此檔案有兩個儲存體連接字串，一個供應用程式使用，另一個供記錄使用。在本教學課程中，您將對兩者使用相同帳戶。連接字串包含儲存體帳戶金鑰的預留位置。<pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
 
 	依預設，WebJobs SDK 會尋找名為 AzureWebJobsStorage 和 AzureWebJobsDashboard 的連接字串。另一種方式是，您可以[任意儲存您要的連接字串，並將它明確傳遞至 `JobHost` 物件](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config)。
 
@@ -252,7 +252,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 9. 在 [資料庫伺服器] 下拉式清單中，選擇 [Create new server]。
 
-	或者，如果您的訂閱已有伺服器，您可以從下拉式清單選取該伺服器。
+	或者，如果您的訂用帳戶已有伺服器，您可以從下拉式清單選取該伺服器。
 
 1. 輸入資料庫伺服器名稱 (例如 ContosoAdsServer)。
 
@@ -290,7 +290,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	您可以忽略有關未發行任何資料庫的警告。Entity Framework Code First 將建立資料庫；因此無需發行資料庫。
 
-	預覽視窗會顯示將複製 WebJob 專案的二進位和組態檔至 Web 應用程式的 *app_data\jobs\continuous* 資料夾中。
+	預覽視窗會顯示將複製 WebJob 專案的二進位和組態檔至 Web 應用程式的 *app\_data\\jobs\\continuous* 資料夾中。
 
 	![WebJobs files in preview window](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)
 
@@ -302,7 +302,9 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 ### 設定 Web 應用程式來使用您的 Azure SQL Database 和儲存體帳戶。
 
-[避免將敏感資訊 (例如連接字串) 放在儲存於原始程式碼儲存機制的檔案](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets) (英文) 會是安全性最佳作法。Azure 提供實作上述最佳做法的方式：您可以在 Azure 環境中設定連接字串和其他設定值，當應用程式在 Azure 中執行時，ASP.NET 組態 API 便會自動挑選這些值。在本節中，您將在 Azure 中設定連接字串值。
+[避免將敏感資訊 (例如連接字串) 放在儲存於原始程式碼儲存機制的檔案](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets) (英文) 會是安全性最佳作法。Azure 提供實作上述最佳做法的方式：您可以在 Azure 環境中設定連接字串和其他設定值，當應用程式在 Azure 中執行時，ASP.NET 組態 API 便會自動挑選這些值。您也可以使用 [**伺服器總管**]、入口網站、Windows PowerShell 或跨平台命令列介面，在 Azure 中設定這些值。如需詳細資訊，請參閱[應用程式字串與連接字串的運作方式](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)。
+
+在本節中，您會使用 [**伺服器總管**] 在 Azure 中設定連接字串值。
 
 7. 在 [伺服器總管] 中，在 [Web Apps] 節點下的 Web 應用程式上按一下滑鼠右鍵，然後按一下 [檢視設定]。
 
@@ -359,7 +361,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	此頁面上的 [轉送函數] 按鈕會造成 WebJobs SDK 架構再次呼叫此函數，這可提供您一個機會來變更首先傳送至函數的資料。
 
->[AZURE.NOTE]當您完成測試時，請刪除 Web 應用程式和 SQL Database 執行個體。Web 應用程式是免費提供的，但 SQL Database 執行個體和儲存體帳戶則會累算費用 (由於是小規模，因此將收取基本費用)。另外，如果您持續執行 Web 應用程式，那麼，找到您 URL 的任何人都可以建立和檢視廣告。在 Azure 入口網站中，移至 Web 應用程式的 [儀表板] 索引標籤，然後按一下頁面底端的 [刪除] 按鈕。您可以接著勾選核取方塊，以同時刪除 SQL Database 執行個體。如果您只想暫時避免他人存取 Web 應用程式，請改為按一下 [停止]。在此情況下，將會繼續累算 SQL Database 和儲存體帳戶的費用。當您不再需要 SQL 資料庫和儲存體帳戶時，可以遵循類似程序來加以刪除。
+>[AZURE.NOTE]當您完成測試時，請刪除 Web 應用程式和 SQL Database 執行個體。Web 應用程式是免費提供的，但 SQL Database 執行個體和儲存體帳戶則會累算費用 (由於是小規模，因此將收取基本費用)。另外，如果您持續執行 Web 應用程式，那麼，找到您 URL 的任何人都可以建立和檢視廣告。在 Azure 入口網站中，移至 Web 應用程式的 [**儀表板**] 索引標籤，然後按一下頁面底端的 [**刪除**] 按鈕。您可以接著勾選核取方塊，以同時刪除 SQL Database 執行個體。如果您只想暫時避免他人存取 Web 應用程式，請改為按一下 [停止]。在此情況下，將會繼續累算 SQL Database 和儲存體帳戶的費用。當您不再需要 SQL 資料庫和儲存體帳戶時，可以遵循類似程序來加以刪除。
 
 ### 對長時間執行的程序啟用 AlwaysOn
 
@@ -479,9 +481,9 @@ WebJob 專案需要參考，才能使用映像及存取連接字串。
 	- *Web.config*
 	- *Global.asax.cs*  
 	- 在 *Controllers* 資料夾中，新增檔案︰*AdController.cs* 
-	- 在 *Views\Shared* 資料夾中：<em>_Layout.cshtml</em> 檔案。 
-	- 在 *Views\Home* 資料夾中：*Index.cshtml*。 
-	- 在 *Views\Ad* 資料夾中 (先建立資料夾)：五個 *.cshtml* 檔案。<br/><br/>
+	- 在 *Views\\Shared* 資料夾中：<em>\_Layout.cshtml</em> 檔案。 
+	- 在 *Views\\Home* 資料夾中：*Index.cshtml*。 
+	- 在 *Views\\Ad* 資料夾中 (先建立資料夾)：五個 *.cshtml* 檔案。<br/><br/>
 
 3. 在 ContosoAdsWebJob 專案中，從所下載的專案加入下列檔案。
 
@@ -614,11 +616,11 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
 
 ### ContosoAdsWeb - _Layout.cshtml
 
-*_Layout.cshtml* 檔案可設定頁首與頁尾中的應用程式名稱，並建立 [廣告] 功能表項目。
+*_Layout.cshtml\* 檔案可設定頁首與頁尾中的應用程式名稱，並建立 [廣告] 功能表項目。
 
-### ContosoAdsWeb - Views\Home\Index.cshtml
+### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
-*Views\Home\Index.cshtml* 檔案在首頁上顯示類別連結。連結會將查詢字串變數中 `Category` 列舉的整數值傳遞至 [廣告索引] 頁面。
+*Views\\Home\\Index.cshtml* 檔案在首頁上顯示類別連結。連結會將查詢字串變數中 `Category` 列舉的整數值傳遞至 [廣告索引] 頁面。
 	
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -707,7 +709,7 @@ HttpPost `Edit` 方法的程式碼也是類似的，例外情況是如果使用�
 		    await blobToDelete.DeleteAsync();
 		}
  
-### ContosoAdsWeb - Views\Ad\Index.cshtml 和 Details.cshtml
+### ContosoAdsWeb - Views\\Ad\\Index.cshtml 和 Details.cshtml
 
 *Index.cshtml* 檔案會顯示縮圖與其他廣告資料：
 
@@ -717,7 +719,7 @@ HttpPost `Edit` 方法的程式碼也是類似的，例外情況是如果使用�
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\Ad\Create.cshtml 和 Edit.cshtml
+### ContosoAdsWeb - Views\\Ad\\Create.cshtml 和 Edit.cshtml
 
 *Create.cshtml* 和 *Edit.cshtml* 檔案可指定表單編碼，供控制器取得 `HttpPostedFileBase` 物件。
 
@@ -787,7 +789,7 @@ WebJobs SDK 會在收到佇列訊息時呼叫此方法。此方法會建立縮�
 * [如何透過 WebJobs SDK 使用 Azure 資料表儲存體](websites-dotnet-webjobs-sdk-storage-tables-how-to.md) (英文)
 * [如何搭配使用 Azure 服務匯流排與 WebJobs SDK](websites-dotnet-webjobs-sdk-service-bus.md) (英文)
 
->[AZURE.NOTE]* 如果您的 Web 應用程式在多個 VM 上執行，則此程式將在每部機器上執行，而每部機器將會等待觸發程序並嘗試執行函數。在某些案例中，這會導致部分函數處理相同的資料兩次，因此函數應是以等冪的方式 (寫入，因此使用相同輸入資料重複呼叫函數才不會產生重複的結果)。* 如需如何實作正常關機的詳細資訊，請參閱[正常關機](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful)。* 為求簡化，`ConvertImageToThumbnailJPG` 方法 (未顯示) 中的程式碼會使用 `System.Drawing` 命名空間中的類別。不過，此命名空間中類別的設計原意是要與 Windows Form 搭配使用。不支援將它們用於 Windows 或 ASP.NET 服務。如需影像處理選項的詳細資訊，請參閱[動態影像產生](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx)和[深入調整影像大小](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na)。
+>[AZURE.NOTE]\* 如果您的 Web 應用程式在多個 VM 上執行，則此程式將在每部機器上執行，而每部機器將會等待觸發程序並嘗試執行函數。在某些案例中，這會導致部分函數處理相同的資料兩次，因此函數應是以等冪的方式 (寫入，因此使用相同輸入資料重複呼叫函數才不會產生重複的結果)。\* 如需如何實作正常關機的詳細資訊，請參閱[正常關機](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful)。\* 為求簡化，`ConvertImageToThumbnailJPG` 方法 (未顯示) 中的程式碼會使用 `System.Drawing` 命名空間中的類別。不過，此命名空間中類別的設計原意是要與 Windows Form 搭配使用。不支援將它們用於 Windows 或 ASP.NET 服務。如需影像處理選項的詳細資訊，請參閱[動態影像產生](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx)和[深入調整影像大小](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na)。
 
 ### WebJobs SDK 與雲端服務背景工作角色 (沒有 WebJobs SDK) 的比較
 
@@ -797,7 +799,7 @@ WebJobs SDK 會在收到佇列訊息時呼叫此方法。此方法會建立縮�
 
 ### 在 WebJobs 外部使用 WebJobs SDK
 
-使用 WebJobs SDK 的程式無需在 Azure 的 WebJob 中執行。它可以在本機執行，也可以在如雲端服務背景工作角色或 Windows 服務等其他環境中執行。不過，您僅能透過 Azure Web 應用程式來存取 WebJobs SDK 儀表板。若要使用儀表板，您必須將 Web 應用程式與正在使用的儲存體帳戶連線，方法是在 Azure 入口網站的 [設定] 索引標籤上設定 AzureWebJobsDashboard 連接字串。然後，您可以使用下列 URL 來進入儀表板：
+使用 WebJobs SDK 的程式無需在 Azure 的 WebJob 中執行。它可以在本機執行，也可以在如雲端服務背景工作角色或 Windows 服務等其他環境中執行。不過，您僅能透過 Azure Web 應用程式來存取 WebJobs SDK 儀表板。若要使用儀表板，您必須將 Web 應用程式與正在使用的儲存體帳戶連線，方法是在 Azure 入口網站的 [**設定**] 索引標籤上設定 AzureWebJobsDashboard 連接字串。然後，您可以使用下列 URL 來進入儀表板：
 
 https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
@@ -811,6 +813,6 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需 Azure 入口網站變更為 Azure 預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+* 如需 Azure 入口網站變更為 Azure Preview 入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

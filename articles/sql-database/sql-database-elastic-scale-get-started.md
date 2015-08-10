@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh@microsoft.com"/>
 
 #開始使用彈性資料庫工具
 
-隨需擴大和縮小容量，是雲端運算的重要功能之一。對於資料庫應用程式，用於建置此類型可擴充方案的重要技術是稱為「分區化」的模式 – 資料以實體分割方式分割至幾個架構完全相同的資料庫。但傳統上，使用分區化建置和管理應用程式需要在應用程式商業邏輯外撰寫大量的程式碼。
+隨需擴大和縮小容量，是雲端運算的重要功能之一。對於資料庫應用程式，用於建置此類型可調整方案的重要技術是稱為「分區化」的模式 – 資料以實體分割方式分割至幾個架構完全相同的資料庫。但傳統上，使用分區化建置和管理應用程式需要在應用程式商業邏輯外撰寫大量的程式碼。
 
 彈性資料庫工具使用 Azure SQL DB 中的資料庫分區化，簡化建立和管理應用程式。這些工具包括彈性資料庫用戶端程式庫和分割合併工具。它們可在結合之後實作分區化的基礎結構層面，並且可讓您改為專注在應用程式的商業邏輯上。
 
@@ -26,25 +26,25 @@
 
 如需有關彈性資料庫工具如何運作的詳細資訊，請參閱[彈性資料庫工具概觀](sql-database-elastic-scale-introduction.md)。
 
-如需彈性資料庫工具所有相關主題的清單，請參閱[文件地圖](sql-database-elastic-scale-documentation-map.md)
+如需彈性資料庫工具所有相關主題的清單，請參閱[學習地圖](sql-database-elastic-scale-documentation-map.md)
 
 ## 彈性資料庫範例應用程式
 
-範例會建立簡易的分區化應用程式，並探討彈性資料庫工具的主要功能。若要下載並執行應用程式，請遵循下方或視訊 [Elastic Scale - 開始使用](http://channel9.msdn.com/Blogs/Windows-Azure/Elastic-Scale-with-Azure-SQL-Database-Getting-Started)中顯示的步驟。
+範例會建立簡易的分區化應用程式，並探討彈性資料庫工具的主要功能。若要下載並執行應用程式，請遵循下方或 [Elastic Scale - 開始使用影片](http://channel9.msdn.com/Blogs/Windows-Azure/Elastic-Scale-with-Azure-SQL-Database-Getting-Started)中顯示的步驟。
 
-### 必要條件
-若要執行範例應用程式，您必須使用 Visual Studio，並且有權存取在 Azure 上執行的 Azure SQL Database。如果您還沒有 Azure 訂閱，請註冊[試用訂閱](http://azure.microsoft.com/pricing/free-trial/)。
-#### Visual Studio 和 Nuget
+## 必要條件
+若要執行範例應用程式，您必須使用 Visual Studio，並且有權存取在 Azure 上執行的 Azure SQL Database。如果您還沒有 Azure 訂用帳戶，請註冊[試用訂用帳戶](http://azure.microsoft.com/pricing/free-trial/)。
+### Visual Studio 和 Nuget
 
 1. 需要具有 C# 的 Visual Studio 2012 或更新版本。請在 [Visual Studio 下載](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)上下載免費版本。
 2. Nuget 2.7 或更新版本。若要取得最新版本，請參閱[安裝 NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)
-#### 建立 Azure SQL 資料庫
+### 建立 Azure SQL 資料庫
 
 * 請參閱[開始使用 Microsoft Azure SQL Database](sql-database-get-started.md)。
 
 ## 下載及執行範例應用程式
 
-[Azure SQL 與彈性資料庫 - 開始使用] 範例應用程式會解說使用 Azure SQL 彈性資料庫工具開發分區化應用程式時最重要的開發經驗層面。範例應用程式著重在[分區對應管理](sql-database-elastic-scale-shard-map-management.md)、[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)和[多分區查詢](sql-database-elastic-scale-multishard-querying.md)的主要使用案例。若要下載及執行範例，請遵循下列步驟：
+[**Azure SQL 與彈性資料庫 - 開始使用**] 範例應用程式會解說使用 Azure SQL 彈性資料庫工具開發分區化應用程式時最重要的開發經驗層面。範例應用程式著重在[分區對應管理](sql-database-elastic-scale-shard-map-management.md)、[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)和[多分區查詢](sql-database-elastic-scale-multishard-querying.md)的主要使用案例。若要下載及執行範例，請遵循下列步驟：
 
 1. 開啟 Visual Studio，然後選取 [檔案] -> [新增] -> [專案]。
 2. 在對話方塊中，按一下 [線上]。
@@ -87,7 +87,7 @@
 
 例如，範例應用程式會建立新資料庫。其費用將取決於您所選擇的 Azure SQL DB 資料庫版本，以及您的應用程式的 Azure 使用量。
 
-如需定價資訊，請參閱 [SQL Database 定價詳細資料](http://azure.microsoft.com/pricing/details/sql-database/)。
+如需價格資訊，請參閱 [SQL Database 價格詳細資料](http://azure.microsoft.com/pricing/details/sql-database/)。
 
 ## 後續步驟
 如需有關彈性資料庫工具的詳細資訊，請參閱：
@@ -115,4 +115,4 @@
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

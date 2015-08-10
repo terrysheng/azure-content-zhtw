@@ -32,9 +32,8 @@
 ## 建立和管理彈性資料庫集區的必要條件
 
 
-- 只有 Azure SQL Database V12 伺服器才可以使用彈性集區。   
-- 只有 Azure 資源管理員 (ARM) 支援彈性集區的 PowerShell 和 REST API；不支援服務管理命令 (RDFE)。 
-- 只有 [Microsoft Azure 入口網站](https:portal.azure.com)中支援建立和管理彈性集區。 
+- 只有 Azure SQL Database V12 伺服器才可以使用彈性資料庫集區。   
+- 只有在 Azure 資源管理員 (ARM) 上使用 [Microsoft Azure 入口網站](https://portal.azure.com)、PowerShell 和 REST API 才支援建立和管理彈性資料庫集區；[傳統入口網站](https://manage.windowsazure.com/)和服務管理命令 (RDFE) 不受支援。 
 
 
 ## 目前的預覽版本限制
@@ -93,7 +92,7 @@
 | Dtu | 100 | 100、200、400、800、1200 |
 | databaseDtuMax | 100 | 10、20、50、100 |
 | databaseDtuMin | 0 | 0、10、20、50 |
-| storageMB | 100 GB* | 100 GB、200 GB、400 GB、800 GB、1200 GB |
+| storageMB | 100 GB\* | 100 GB、200 GB、400 GB、800 GB、1200 GB |
 
 *API 中單位為 MB，而非 GB
 
@@ -192,4 +191,4 @@ Azure SQL Database V12 伺服器位於資源群組中。
 | 40891 | EX_USER | 每個資料庫的最小 DTU (%d) 不能超過每個資料庫的最大 DTU (%d)。 | 每個資料庫的最小 DTU、每個資料庫的最大 DTU。 | 試圖將每個資料庫的最小 DTU 設為超過每個資料庫的最大 DTU。 | 請確定每個資料庫的最小 DTU 並未超過每個資料庫的最大 DTU。 |
 | TBD | EX_USER | 彈性集區中個別資料庫的儲存體大小，不能超過 '%.*ls' 服務層彈性集區所允許的大小上限。 | 彈性集區服務層 | 資料庫的大小上限超過彈性集區服務層所允許的大小上限。 | 請將資料庫的大小上限設定在彈性集區服務層所允許的大小上限內。 |
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

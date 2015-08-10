@@ -37,7 +37,7 @@ App Service 環境必須一律建立於子網路中，因為子網路可提供�
 - 80：對於在 App Service 環境的 App Service 方案中執行的應用程式，其輸入 HTTP 流量的預設連接埠。
 - 443：對於在 App Service 環境的 App Service 方案中執行的應用程式，其輸入 SSL 流量的預設連接埠。
 - 21：FTP 的控制通道。如果未使用 FTP，就可以安全地封鎖此連接埠。
-- 10001-10020：FTP 的資料通道。在控制通道中，如果未使用 FTP，就可以安全地封鎖這些連接埠 (** 注意：** FTP 資料通道可能會在預覽期間變更。)
+- 10001-10020：FTP 的資料通道。在控制通道中，如果未使用 FTP，就可以安全地封鎖這些連接埠 (\*\* 注意：\*\* FTP 資料通道可能會在預覽期間變更。)
 - 4016：用於 Visual Studio 2012 的遠端偵錯。如果未使用此功能，就可以安全地封鎖此連接埠。
 - 4018：用於 Visual Studio 2013 的遠端偵錯。如果未使用此功能，就可以安全地封鎖此連接埠。
 - 4020：用於 Visual Studio 2015 的遠端偵錯。如果未使用此功能，就可以安全地封鎖此連接埠。
@@ -78,7 +78,7 @@ App Service 環境必須一律建立於子網路中，因為子網路可提供�
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 
-(**注意：** 資料通道連接埠範圍可能會在預覽期間變更。)
+(\*\*注意：\*\* 資料通道連接埠範圍可能會在預覽期間變更。)
 
 如果使用 Visual Studio 遠端偵錯，則下列規則會示範如何授與存取權。因為每個支援的 Visual Studio 版本使用不同的連接埠進行遠端偵錯，所以每個版本會有個別的規則。如同 FTP 存取，遠端偵錯流量可能不會透過傳統 WAF 或 Proxy 裝置正確傳送。可將 *SourceAddressPrefix* 改為設定成執行 Visual Studio 之開發人員電腦的 IP 位址範圍。
 
@@ -130,4 +130,4 @@ App Service 環境必須一律建立於子網路中，因為子網路可提供�
 
 <!-- IMAGES -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

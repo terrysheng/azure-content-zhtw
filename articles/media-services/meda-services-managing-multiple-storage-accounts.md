@@ -35,7 +35,7 @@
 
 其他考量：
 
-媒體服務在建置串流內容的 URL 時使用 **IAssetFile.Name** 屬性的值 (例如，http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) 基於這個理由，不允許 percent-encoding。Name 屬性的值不能有下列任何[保留的百分比編碼字元](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#"。而且，副檔名只能有一個 ‘.’。
+媒體服務在建置串流內容的 URL 時使用 **IAssetFile.Name** 屬性的值 (例如，http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) 基於這個理由，不允許 percent-encoding。Name 屬性的值不能有下列任何[保留的百分比編碼字元](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!\*'();:@&=+$,/?%#"。而且，副檔名只能有一個 ‘.’。
 
 ##使用 Azure 服務管理 REST API 附加儲存體帳戶
 
@@ -53,7 +53,7 @@
 
 	using Microsoft.WindowsAzure.MediaServices.Client; using System; using System.Collections.Generic; using System.Configuration; using System.IO; using System.Linq; using System.Text; using System.Threading; using System.Threading.Tasks;
 	
-	namespace MultipleStorageAccounts { class Program { // 您想要進行編碼的媒體檔案位置。private static readonly string _singleInputFilePath = Path.GetFullPath(@"../..\supportFiles\multifile\interview2.wmv");
+	namespace MultipleStorageAccounts { class Program { // 您想要進行編碼的媒體檔案位置。private static readonly string _singleInputFilePath = Path.GetFullPath(@"../..\\supportFiles\\multifile\\interview2.wmv");
 	
 	        private static readonly string MediaServicesAccountName = 
 	            ConfigurationManager.AppSettings["MediaServicesAccountName"];
@@ -236,4 +236,4 @@
 	}
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

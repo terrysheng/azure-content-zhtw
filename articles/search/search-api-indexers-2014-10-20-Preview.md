@@ -1,19 +1,6 @@
-<properties 
-	pageTitle="索引子作業 (Azure 搜尋服務 REST API：2014-10-20-Preview)" 
-	description="索引子作業 (Azure 搜尋服務 REST API：2014-10-20-Preview)" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" />
+<properties pageTitle="索引子作業 (Azure 搜尋服務 REST API：2014-10-20-Preview)" description="索引子作業 (Azure 搜尋服務 REST API：2014-10-20-Preview)" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" />
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article"  
-	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
-	ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
 
 #索引子作業 (Azure 搜尋服務 REST API：2014-10-20-Preview)
 
@@ -670,4 +657,4 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 </tr>
 </table>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

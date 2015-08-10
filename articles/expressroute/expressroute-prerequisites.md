@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn"/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
 
@@ -40,9 +40,9 @@
 ## 後續步驟
 
 - 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
-- 如需如何設定 ExpressRoute 連線的詳細資訊，請參閱
+- 如需如何設定 ExpressRoute 連線的資訊，請參閱：
 	- [透過網路服務提供者設定 ExpressRoute 連線](expressroute-configuring-nsps.md)
 	- [透過 Exchange 提供者設定 ExpressRoute 連線](expressroute-configuring-exps.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

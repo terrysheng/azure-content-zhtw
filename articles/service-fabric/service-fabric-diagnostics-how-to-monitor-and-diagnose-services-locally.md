@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/22/2015"
    ms.author="kunalds"/>
 
 
@@ -36,14 +36,22 @@ Service Fabric 會發出 ETW 事件，以協助應用程式開發人員了解平
 1. 您必須安裝下列必要條件。
    * Visual Studio 2015
    * Service Fabric SDK
-2. 以系統管理員身分啟動 Visual Studio。
-3. 建立 (或開啟現有的) 專案，以取得可設定狀態或無狀態動作項目或服務。![建立 Service Fabric 專案](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject.png)
 
-4. 按 F5 偵錯應用程式。Service Fabric 事件應該會出現在 [診斷事件] 視窗中。每個事件皆有標準的中繼資料資訊，可告訴您事件所來自的節點、應用程式和服務。您也可以使用視窗上方的 [篩選事件] 方塊來篩選事件清單，例如您可以篩選 [節點名稱] 或 [服務名稱]。![Visual Studio 診斷事件檢視器](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
+2. 以系統管理員身分啟動 Visual Studio。
+
+3. 建立 (或開啟現有的) 專案，以取得可設定狀態或無狀態動作項目或服務。
+
+  ![建立 Service Fabric 應用程式](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject.png)
+
+  ![建立 Service Fabric 服務](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject-2.png)
+
+4. 按 F5 偵錯應用程式。Service Fabric 事件應該會出現在 [診斷事件] 視窗中。每個事件皆有標準的中繼資料資訊，可告訴您事件所來自的節點、應用程式和服務。您也可以使用視窗上方的 [篩選事件] 方塊來篩選事件清單，例如您可以篩選 [節點名稱] 或 [服務名稱]。
+
+  ![Visual Studio 診斷事件檢視器](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
 
 5. 若 [診斷事件] 視窗不會自動顯示，請移至 Visual Studio 中的 [伺服器總管] 索引標籤，以滑鼠右鍵按一下 [Service Fabric 叢集]，並選擇內容功能表中的 [檢視診斷事件]。
 
-![開啟 Visual Studio 診斷事件檢視器](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
+  ![開啟 Visual Studio 診斷事件檢視器](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
 
 ## 將您自己自訂的追蹤新增至應用程式程式碼
 Service Fabric Visual Studio 專案範本包含範例程式碼。程式碼示範如何新增自訂的應用程式程式碼 ETW 追蹤，其會與來自 Service Fabric 的系統追蹤一併顯示在 Visual Studio ETW 檢視器中。這個方法的優點是中繼資料會自動新增至追蹤，且 Visual Studio 診斷檢視器已設定為顯示追蹤。
@@ -70,6 +78,5 @@ Service Fabric Visual Studio 專案範本包含範例程式碼。程式碼示範
 * [Application Insights 設定](service-fabric-diagnostics-application-insights-setup.md)
 * [Azure Service Fabric 動作項目診斷與效能監視](service-fabric-reliable-actors-diagnostics.md)
 * [可設定狀態可靠服務診斷](service-fabric-reliable-services-diagnostics.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -24,7 +24,7 @@
 
 http://&lt;*StorageAccount*&gt;.blob.core.windows.net/&lt;*Container*&gt;/&lt;*BlobName*&gt;
 
-&lt;*StorageAccount*&gt; 是建立新儲存體帳戶時對其指派的唯一識別碼，而 &lt;*Container*&gt; 和 &lt;*BlobName*&gt; 分別是特定容器的名稱以及該容器內的 Blob。
+&lt;\*StorageAccount\*&gt; 是建立新儲存體帳戶時對其指派的唯一識別碼，而 &lt;\*Container\*&gt; 和 &lt;\*BlobName\*&gt; 分別是特定容器的名稱以及該容器內的 Blob。
 
 Azure 提供兩種不同類型的 Blob。選擇如下：
 
@@ -181,4 +181,4 @@ Microsoft 也提供 Excel 適用的 HiveQL 驅動程式。商務分析師可以�
 [SQL-tblstor]: ./media/cloud-storage/Data_06_TblStorage.png
 [hadoop]: ./media/cloud-storage/Data_07_Hadoop.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="07/25/2015" 
 	ms.author="glenga"/>
 
 
@@ -21,13 +21,12 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../../includes/mobile-services-selector-get-started-data-legacy.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
+##概觀
 
-<p>本主題將示範如何使用 Azure 行動服務，進而運用 Windows Phone 8 應用程式中的資料。在本教學課程中，您將下載應用程式，並在記憶體中儲存資料、建立新的行動服務、將行動服務與該應用程式整合，然後登入 Azure 管理入口網站查看執行應用程式時所做的資料變更。</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="label">觀看教學課程</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-data-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="dev-onpage-video"><span class="icon">播放影片</span></a> <span class="time">下午 12:54:00</span></div>
-</div>
+本主題將示範如何使用 Azure 行動服務，進而運用 Windows Phone 8 應用程式中的資料。在本教學課程中，您將下載應用程式，並在記憶體中儲存資料、建立新的行動服務、將行動服務與該應用程式整合，然後登入 Azure 管理入口網站查看執行應用程式時所做的資料變更。
+
+您也可以觀看 Nick Harris 在以下影片中的教學示範：
+>[AZURE.VIDEO mobile-get-started-with-data-windows-phone]
 
 ##必要條件 
 
@@ -120,9 +119,9 @@
         private IMobileServiceTable<TodoItem> todoTable = 
 			App.MobileService.GetTable<TodoItem>();
 
-   	此程式碼會建立行動服務感知繫結集合 (**items**)，和 SQL 資料庫資料表 **TodoItem** (**todoTable**) 的 Proxy 類別。
+   	此程式碼會建立行動服務感知繫結集合 (\*\*items\*\*)，和 SQL 資料庫資料表 **TodoItem** (\*\*todoTable\*\*) 的 Proxy 類別。
 
-7. 在 **InsertTodoItem** 方法中，移除設定 **TodoItem**.**Id** 屬性的程式碼行，將 **async** 修正詞新增至方法，並取消註解下列程式碼行：
+7. 在 **InsertTodoItem** 方法中，移除設定 **TodoItem**.\*\*Id\*\* 屬性的程式碼行，將 **async** 修正詞新增至方法，並取消註解下列程式碼行：
 
         await todoTable.InsertAsync(todoItem);
 
@@ -194,4 +193,4 @@
 [開發人員程式碼範例網站]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

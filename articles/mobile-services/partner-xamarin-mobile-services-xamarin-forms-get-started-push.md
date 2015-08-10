@@ -162,9 +162,9 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
     ![][9]
 
-    注意：根據預設，下載的檔案 (開發憑證) 的名稱會是 <strong>aps_development.cer</strong>。
+    注意：根據預設，下載的檔案 (開發憑證) 的名稱會是 <strong>aps\_development.cer</strong>。
 
-7. 按兩下下載的推播憑證 **aps_development.cer**。
+7. 按兩下下載的推播憑證 **aps\_development.cer**。
 
     這樣會將新的憑證安裝在金鑰鏈中，如下所示：
 
@@ -689,7 +689,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
 	>[AZURE.NOTE]在本教學課程中，行動服務會傳送快顯通知給裝置。傳送磚通知時，您必須在通道上改為呼叫 **BindToShellTile** 方法。
 
-4. 在 App.xaml.cs 中的 **Application_Launching** 事件處理常式最前面，在新的 **AcquirePushChannel** 方法中新增下列呼叫：
+4. 在 App.xaml.cs 中的 **Application\_Launching** 事件處理常式最前面，在新的 **AcquirePushChannel** 方法中新增下列呼叫：
 
         AcquirePushChannel();
 
@@ -697,7 +697,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
 5. 按 **F5** 鍵以執行應用程式。包含註冊金鑰的快顯對話方塊隨即顯示。
   
-6.	在 [方案總管] 中展開 [屬性]，開啟 WMAppManifest.xml 檔案，按一下 [功能] 索引標籤，確定已核取 **ID___CAP___PUSH_NOTIFICATION** 功能。
+6.	在 [方案總管] 中展開 [屬性]，開啟 WMAppManifest.xml 檔案，按一下 [功能] 索引標籤，確定已核取 **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION** 功能。
 
    	![在 VS 中啟用通知](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-app-enable-push-wp8.png)
 
@@ -846,4 +846,4 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 [完整的 Xamarin.Forms Azure 推播通知範例]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

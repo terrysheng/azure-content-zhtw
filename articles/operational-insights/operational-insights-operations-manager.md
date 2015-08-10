@@ -81,23 +81,10 @@ Operational Insights 不支援將執行 Windows Server 的電腦 (屬於相同�
 
 例如，如果您假設每個代理程式在預設的保存期間內，每日上傳的大小為 100 KB，您需要為管理群組準備下列儲存體：
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>代理程式數目</b></td>
-		<td><b>管理群組所需的估計空間</b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>5</td>
-		<td>~2.5 MB (5 個代理程式 x 100 KB 資料/天 x 5 天 = 2,500 KB)</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>50</td>
-		<td>~25 MB (50 個代理程式 x 100 KB 資料/天 x 5 天 = 25,000 KB)</td>
-    </tr>
-
-    </tbody>
-    </table>
+代理程式數目|管理群組所需的估計空間
+---|---
+5|\~2.5 MB (5 個代理程式 x 100 KB 資料/天 x 5 天 = 2,500 KB)
+50|\~25 MB (50 個代理程式 x 100 KB 資料/天 x 5 天 = 25,000 KB)
 
 ## Operational Insights 的 Operations Manager 執行身分帳戶
 
@@ -228,4 +215,4 @@ Open a PowerShell window and run the following script after you’ve updated it 
 
 如果您想要分析來自不同地理位置的伺服器資料，請考慮在每個位置設定一個管理群組。這可以改善從代理程式到管理群組傳輸資料的效能。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

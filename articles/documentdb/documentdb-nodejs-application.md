@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="04/29/2015" 
+	ms.date="07/24/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>使用 DocumentDB 建置 Node.js Web 應用程式
@@ -389,7 +389,7 @@
 		
 		module.exports = config;
 
-3. 在 **config.js** 檔案中，使用在 [Microsoft Azure Preview 入口網站](http://portal.azure.com) DocumentDB 帳戶的 [金鑰] 刀鋒視窗上找到的值來更新 [主機] 和 [AUTH_KEY] 的值：
+3. 在 **config.js** 檔案中，使用在 [Microsoft Azure Preview 入口網站](http://portal.azure.com) DocumentDB 帳戶的 [金鑰] 刀鋒視窗上找到的值來更新 [主機] 和 [AUTH\_KEY] 的值：
 
 4. 儲存並關閉 **config.js** 檔案。
  
@@ -498,7 +498,7 @@
 	
 	這應該就是要讓應用程式開始運作所需的所有程式碼。
 
-5. 開啟 **public\stylesheets** 目錄中的 **style.css** 檔案，然後使用下列內容取代程式碼：
+5. 開啟 **public\\stylesheets** 目錄中的 **style.css** 檔案，然後使用下列內容取代程式碼：
 
 		body {
 		  padding: 50px;
@@ -559,4 +559,4 @@
   [Git]: http://git-scm.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

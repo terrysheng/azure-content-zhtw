@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="07/22/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中建立和使用群組來管理開發人員帳戶
@@ -26,7 +26,7 @@ API 管理具有下列不可變的系統群組。
 -	**開發人員** - 已驗證開發人員入口網站使用者屬於此群組。開發人員是使用您的 API 建置應用程式的客戶。開發人員獲授與開發人員入口網站的存取權，並建置呼叫 API 作業的應用程式。
 -	**來賓** - 未經驗證的開發人員入口網站使用者 (例如，造訪 API 管理執行個體之開發人員入口網站的潛在客戶) 屬於此群組。他們可獲得特定唯讀存取權限，例如他們可檢視 API 但無法進行呼叫。
 
-除了這些系統群組以外，管理員還可以建立自訂群組，或使用[使用 Azure Active Directory 相關租用戶中的外部群組](api-management-howto-aad.md/#how-to-add-an-external-azure-active-directory-group)。自訂群組和外部群組可以與系統群組一起使用，提供開發人員 API 產品的能見度及存取權。例如，您可以為與特定夥伴組織有關的開發人員建立一個自訂群組，並只允許他們存取來自含相關 API 之產品的 API。使用者可以是多個群組的成員。
+除了這些系統群組以外，管理員還可以建立自訂群組，或使用[使用 Azure Active Directory 相關租用戶中的外部群組][]。自訂群組和外部群組可以與系統群組一起使用，提供開發人員 API 產品的能見度及存取權。例如，您可以為與特定夥伴組織有關的開發人員建立一個自訂群組，並只允許他們存取來自含相關 API 之產品的 API。使用者可以是多個群組的成員。
 
 本指南說明 API 管理執行個體的管理員如何加入新的群組，並將這些群組與產品和開發人員建立關聯。
 
@@ -105,5 +105,6 @@ API 管理具有下列不可變的系統群組。
 
 [建立 API 管理服務執行個體]: api-management-get-started.md
 [開始使用 Azure API 管理]: api-management-get-started.md#create-service-instance
+[使用 Azure Active Directory 相關租用戶中的外部群組]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -576,4 +576,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 - [使用 Azure 的 CDN](../cdn-how-to-use.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

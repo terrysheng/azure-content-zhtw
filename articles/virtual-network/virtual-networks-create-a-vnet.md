@@ -52,4 +52,4 @@
 
 -  [將虛擬機器新增至](../virtual-machines/virtual-machines-create-custom.md)虛擬網路。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

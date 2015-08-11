@@ -273,7 +273,12 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 	- 當您按 [**下一步**] 時，將會執行測試來檢查 Proxy 連線。
 	- 如果您使用自訂 Proxy，或者您的預設 Proxy 需要驗證，您必須輸入 Proxy 詳細資料，包含位址、連接埠和認證。
 	- 下列 URL 應可透過 Proxy 存取：
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - 如果您有 IP 位址式防火牆規則，請確保規則設定為允許來自設定伺服器對 [Azure 資料中心 IP 範圍](https://msdn.microsoft.com/zh-TW/library/azure/dn175718.aspx)中所述的 IP 位址和 HTTPS (443) 通訊協定通訊。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
+	- 如果您有 IP 位址式防火牆規則，請確保規則設定為允許來自設定伺服器對 [Azure 資料中心 IP 範圍](https://msdn.microsoft.com/zh-TW/library/azure/dn175718.aspx)中所述的 IP 位址和 HTTPS (443) 通訊協定通訊。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
 
 	![Proxy 註冊](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationProxy.png)
 
@@ -547,7 +552,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 **自動推入會在 Linux 伺服器上安裝行動服務：**
 
-1. 如 [步驟 5：安裝最新的更新] (\#最新的更新) 中所述，安裝程序伺服器的最新更新，並確定處理序伺服器可用。
+1. 如 [步驟 5：安裝最新的更新](#最新的更新) 中所述，安裝程序伺服器的最新更新，並確定處理序伺服器可用。
 2. 確保來源機器和處理序伺服器之間具有網路連線，且可從處理序伺服器存取來源機器。  
 3. 確認帳戶是來源 Linux 伺服器上的根使用者。
 4. 確保來源 Linux 伺服器上的 /etc/hosts 檔案包含將本機主機名稱對應到所有 NIC 相關聯之 IP 位址的項目。
@@ -765,4 +770,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 完整的檔案可以在 [Microsoft 下載中心](http://go.microsoft.com/fwlink/?LinkId=529428)取得。Microsoft 保留未在此處明確授與的所有權利，無論是隱含、禁止反悔或其他方式皆然。
 
-<!----HONumber=July15_HO5-->
+<!-------HONumber=July15_HO5-->

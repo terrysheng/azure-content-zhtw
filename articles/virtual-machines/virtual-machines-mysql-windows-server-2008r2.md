@@ -54,7 +54,9 @@
 > [AZURE.NOTE]這些步驟適用於 MySQL 5.6.23.0 社群版本和 Windows Server 2012 R2。對於 MySQL 或 Windows Server 的不同版本，操作方式可能不同。
 
 1.	使用遠端桌面連線到虛擬機器之後，按一下 [開始] 畫面中的 [Internet Explorer]。
-2.	選取右上角的 [工具] 按鈕 (齒輪圖示)，然後按一下 [網際網路選項]。依序按一下 [安全性] 索引標籤和[信任的網站] 圖示，然後按一下 [網站] 按鈕。將 **http://*.mysql.com** 新增至受信任的網站清單。按一下 [關閉]，然後按一下 [確定]。3.	在 Internet Explorer 的網址列中，輸入 **http://dev.mysql.com/downloads/mysql/**。4.	使用 MySQL 網站尋找並下載 Windows 版 MySQL 最新版安裝程式。選擇 MySQL 安裝程式時，下載的版本都有完整的檔案集 (例如，mysql-installer-community-5.6.23.0.msi 的檔案大小為 282.4 MB)，並且將安裝程式檔案儲存到 Windows 桌面。
+2.	選取右上角的 [工具] 按鈕 (齒輪圖示)，然後按一下 [網際網路選項]。依序按一下 [安全性] 索引標籤和[信任的網站] 圖示，然後按一下 [網站] 按鈕。將 **http://*.mysql.com** 新增至受信任的網站清單。按一下 [關閉]，然後按一下 [確定]。
+3.	在 Internet Explorer 的網址列中，輸入 **http://dev.mysql.com/downloads/mysql/**。
+4.	使用 MySQL 網站尋找並下載 Windows 版 MySQL 最新版安裝程式。選擇 MySQL 安裝程式時，下載的版本都有完整的檔案集 (例如，mysql-installer-community-5.6.23.0.msi 的檔案大小為 282.4 MB)，並且將安裝程式檔案儲存到 Windows 桌面。
 5.	從桌面上，按兩下安裝程式檔案即可開始安裝。
 6.	在 [授權合約] 頁面上接受授權合約，然後按 [下一步]。
 7.	在 [選擇安裝類型] 頁面上，按一下所需的安裝類型，然後按 [下一步]。下列步驟假設選取 [僅限伺服器] 安裝類型。
@@ -128,4 +130,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

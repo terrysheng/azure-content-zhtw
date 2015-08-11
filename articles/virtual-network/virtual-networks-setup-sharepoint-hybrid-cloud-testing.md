@@ -173,16 +173,18 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 2.	在 [歡迎使用 SharePoint 產品] 頁面中按一下 [**下一步**]。 
 3.	在通知可能需要在組態期間重新啟動某些服務的對話方塊中，按一下 [是]。
 4.	在 [連接到伺服器陣列] 頁面上，按一下 [建立新的伺服器陣列]，然後按 [下一步]。
-5.	在 [指定組態資料庫設定] 頁面上，於 [資料庫伺服器] 中輸入 **sql1.corp.contoso.com**，於 [使用者名稱] 中輸入 **CORP\SPFarmAdmin**，於 [密碼] 中輸入 SPFarmAdmin 帳戶密碼，然後按 [下一步]。
-6.	在 [指定伺服器陣列安全性設定] 頁面的 [複雜密碼] 和 [確認複雜密碼] 中，輸入 **P@ssphrase**，然後按 [下一步]。7.	在 [設定 SharePoint 管理中心 Web 應用程式] 頁面中，按 [**下一步**]。
+5.	在 [指定組態資料庫設定] 頁面上，於 [資料庫伺服器] 中輸入 **sql1.corp.contoso.com**，於 [使用者名稱] 中輸入 **CORP\\SPFarmAdmin**，於 [密碼] 中輸入 SPFarmAdmin 帳戶密碼，然後按 [下一步]。
+6.	在 [指定伺服器陣列安全性設定] 頁面的 [複雜密碼] 和 [確認複雜密碼] 中，輸入 **P@ssphrase**，然後按 [下一步]。
+7.	在 [設定 SharePoint 管理中心 Web 應用程式] 頁面中，按 [**下一步**]。
 8.	在 [完成 SharePoint 產品組態精靈] 頁面上，按 [下一步]。SharePoint 產品組態精靈可能需要幾分鐘才能完成。
 9.	在 [組態成功] 頁面中，按一下 [**完成**]。完成之後，Internet Explorer 會啟動，並顯示名稱為「初始伺服器陣列組態精靈」的索引標籤。
 10.	在 [協助改善 SharePoint] 對話方塊中，按一下 [否，我不想參加]，然後按一下 [確定]。
 11.	對於 [要如何設定 SharePoint 伺服器陣列？]，按一下 [啟動精靈]。
 12.	在 [設定您的 SharePoint 伺服器陣列] 頁面的 [服務帳戶] 中，按一下 [使用現有受管理帳戶]。
 13.	在 [服務] 中，清除 [狀態服務] 旁邊的方塊以外的所有方塊，然後按 [下一步]。在其網頁上的 [工作] 可能顯示一段時間才會完成。
-14.	在 [建立網站集合] 頁面中，於 [標題和描述] 中輸入 **Contoso Corporation**，並且於 [標題] 中指定 URL **http://sp1**/，然後按一下 [確定]。在其網頁上的 [工作] 可能顯示一段時間才會完成。這個步驟會在 URL http://sp1 建立團隊網站。15.	在 [這將完成伺服器陣列組態精靈] 頁面中，按一下 [完成]。[Internet Explorer] 索引標籤將顯示 SharePoint 2013 管理中心網站。
-16.	以 CORP\User1 帳戶認證登入 CLIENT1 電腦，然後啟動 Internet Explorer。
+14.	在 [建立網站集合] 頁面中，於 [標題和描述] 中輸入 **Contoso Corporation**，並且於 [標題] 中指定 URL **http://sp1**/，然後按一下 [確定]。在其網頁上的 [工作] 可能顯示一段時間才會完成。這個步驟會在 URL http://sp1 建立團隊網站。
+15.	在 [這將完成伺服器陣列組態精靈] 頁面中，按一下 [完成]。[Internet Explorer] 索引標籤將顯示 SharePoint 2013 管理中心網站。
+16.	以 CORP\\User1 帳戶認證登入 CLIENT1 電腦，然後啟動 Internet Explorer。
 17.	在網址列中，輸入 **http://sp1/**，然後按下 ENTER。您應該會看見 Contoso Corporation 的 SharePoint 團隊網站。網站可能需要一些時間才會呈現。
 這是您目前的組態。
 
@@ -209,4 +211,4 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 [Azure 基礎結構服務實作指導方針](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

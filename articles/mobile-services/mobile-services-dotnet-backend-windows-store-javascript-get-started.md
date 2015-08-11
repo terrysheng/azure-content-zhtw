@@ -88,7 +88,7 @@
 
 &nbsp;&nbsp;7.(選擇性) 在通用 Windows 解決方案中，將預設的起始專案變更為其他應用程式並再次按下 **F5**；請注意，應用程式啟動後，系統會從行動服務載入上個步驟中儲存的資料。
 
-如需通用 Windows 應用程式的詳細資訊，請參閱[從單一行動服務支援多個裝置平台](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs) (英文)。
+如需通用 Windows 應用程式的詳細資訊，請參閱[從單一行動服務支援多個裝置平台](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs) \(英文)。
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started

@@ -40,13 +40,13 @@
 
 您已建立行動服務，接著請下載可在您的本機電腦或虛擬機器上執行的個人化行動服務專案。
 
-1. 按一下您剛剛建立的行動服務，然後在 [快速入門] 索引標籤中，按一下 [選擇平台] 下的 [Android]，並展開 [Create a new Android app]。
+1. 按一下您剛剛建立的行動服務，然後在 [快速入門] 索引標籤中，按一下 [選擇平台] 下的 [Android]，並展開 [建立新的 Android 應用程式]。
 
 	![][1]
 
 2. 下載並安裝 [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) 或更新版本 (若您尚未這麼做)。
 
-3. 在 [Download and publish your service to the cloud] 下，按一下 [下載]。
+3. 在 [下載您的服務並發佈至雲端] 下，按一下 [下載]。
 
 	這會下載實作行動服務的 Visual Studio 專案。請將壓縮的專案檔案儲存至本機電腦，並記下儲存位置。
 
@@ -66,13 +66,13 @@
 
 1. 在[管理入口網站]中，按一下 [行動服務]，然後按一下您剛剛建立的行動服務。
 
-2. 在快速入門索引標籤中，按一下 [Choose platform] 下的 [Android]，並展開 [Create a new Android app]。
+2. 在快速入門索引標籤中，按一下 [選擇平台] 下的 [Android]，並展開 [建立新的 Android 應用程式]。
  
 	![][2]
 
 3. 如果您尚未這麼做，請在您的本機電腦或虛擬機器下載並安裝 [Android Developer Tools][Android SDK]。
 
-4. 在 [Download and run your app] 下，按 [下載]。
+4. 在 [下載和執行您的應用程式] 下，按 [下載]。
 
   	這將會下載與行動服務連接的範例_待辦事項_應用程式專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
 
@@ -102,7 +102,7 @@
 
    	![][10]
 
-   	如此會傳送 POST 要求到 Azure 中代管的新行動服務。要求中的資料會插入 TodoItem 資料表中。Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+   	如此會傳送 POST 要求到 Azure 中代管的新行動服務。要求中的資料會插入 TodoItem 資料表中。行動服務會傳回資料表中儲存的項目，而該資料會顯示在清單中。
 
 	> [AZURE.NOTE]您可以檢閱存取行動服務來查詢和插入資料的程式碼，這可以在 ToDoActivity.java 檔案中找到。
 
@@ -111,11 +111,14 @@
 ## <a name="next-steps"> </a>後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
-* [開始使用驗證] <br/>了解如何向身分識別提供者驗證應用程式的使用者。
+* [開始使用驗證]
+  <br/>了解如何向身分識別提供者驗證應用程式的使用者。
 
-* [開始使用推播通知] <br/>了解如何將非常基本的推播通知傳送到應用程式。
+* [開始使用推播通知] 
+  <br/>了解如何將非常基本的推播通知傳送到應用程式。
 
-* [行動服務 .NET 後端疑難排解]<br/> 了解如何診斷及修復行動服務 .NET 後端可能發生的問題。
+* [行動服務 .NET 後端疑難排解]
+  <br/> 了解如何診斷及修復行動服務 .NET 後端可能發生的問題。
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -151,4 +154,4 @@
 [管理入口網站]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->

@@ -89,7 +89,8 @@
 ### 建立專案
 範例應用程式將先使用 Visual Studio 範本。務必使用 .NET Framework 4.5。
 
-1. 選取 [檔案] > [新增專案]。[新增專案] 對話方塊隨即顯示：![NewProject][dialog-mongolab-csharp-newproject]
+1. 選取 [檔案] > [新增專案]。[新增專案] 對話方塊隨即顯示：    
+	![NewProject][dialog-mongolab-csharp-newproject]
 
 1. 選取 [已安裝] > [範本] > [Visual C#] > [Web]。
 
@@ -100,7 +101,8 @@
 1. 輸入 _mongoNotes_ 做為**專案名稱**。如果您選擇不同的名稱，您需要修改整個教學課程中提供的程式碼。
 
 1. 選取 [工具] > [Library Package Manager] > [Package Manager Console]。在 PM 主控台上，輸入 **Install-Package mongocsharpdriver**，並按下 **Enter**。
-	![PMConsole][focus-mongolab-csharp-pmconsole]MongoDB C# 驅動程式隨即整合到專案中，而且下列一行將自動新增至 _packages.config_ 檔案：
+	![PMConsole][focus-mongolab-csharp-pmconsole]
+	MongoDB C# 驅動程式隨即整合到專案中，而且下列一行將自動新增至 _packages.config_ 檔案：
 
         < package id="mongocsharpdriver" version="1.9.2" targetFramework="net45" / >
 
@@ -498,4 +500,4 @@
 
  
 
-<!----HONumber=July15_HO4-->
+<!-------HONumber=July15_HO4-->

@@ -36,7 +36,8 @@
 
 	安裝 Git 所需的步驟會因作業系統而有所不同。如需作業系統特定的發佈和安裝指引，請參閱[安裝 Git]。
 
-	> [AZURE.NOTE]在某些作業系統上，會同時提供例 Git 的命令列和 GUI 兩種版本。本文提供的指示將使用命令列版本。
+	> [AZURE.NOTE]
+	> 在某些作業系統上，會同時提供例 Git 的命令列和 GUI 兩種版本。本文提供的指示將使用命令列版本。
 
 2. 開啟命令列，例如 **GitBash** (Windows) 或 **Bash** (Unix Shell)。在 OS X 系統上，您可以透過 **[終端機]** 應用程式來存取命令列。
 
@@ -59,7 +60,7 @@
 
 	在此案例中，會建立以此行動服務的名稱命名的新目錄，這裡就是資料服務的本機儲存機制。
 
-7. 開啟 .\service\table 子資料夾並注意其中包含 TodoItem.json 檔案，這是 TodoItem 資料表上操作權限的 JSON 表示。
+7. 開啟 .\\service\\table 子資料夾並注意其中包含 TodoItem.json 檔案，這是 TodoItem 資料表上操作權限的 JSON 表示。
 
 	當在此資料表上定義伺服器指令碼時，您也會有一或多個名為 <code>TodoItem._&lt;operation&gt;_.js</code> 的檔案，檔案中包含了指定資料表作業的指令碼。排程器和自訂 API 指令碼會在名為排程器和自訂 API 指令碼的個別資料夾中分別進行維護。如需詳細資訊，請參閱[原始檔控制]。
 
@@ -67,7 +68,7 @@
 
 ##<a name="deploy-scripts"></a>將更新指令碼檔案部署到行動服務
 
-1. 瀏覽至 .\service\table 子資料夾，如果 todoitem.insert.js 檔案不存在，請立即建立此檔案。
+1. 瀏覽至 .\\service\\table 子資料夾，如果 todoitem.insert.js 檔案不存在，請立即建立此檔案。
 
 2. 在文字編輯器中開啟新檔案 todoitem.insert.js，貼上下列程式碼並儲存變更：
 
@@ -109,7 +110,7 @@
 
 	>[AZURE.NOTE]此項 package.json 檔案更新會導致在推送認可後重新啟動您的行動服務。
 
-4. 現在，請瀏覽到 .\service\table 子資料夾，開啟並修改 todoitem.insert.js 檔案，如下所示：
+4. 現在，請瀏覽到 .\\service\\table 子資料夾，開啟並修改 todoitem.insert.js 檔案，如下所示：
 
 		function insert(item, user, request) {
 		    var uuid = require('node-uuid');
@@ -132,9 +133,11 @@
 
 現在，您已完成本教學課程，您知道如何在原始檔控制中儲存指令碼。請考慮了解更多有關使用伺服器指令碼和自訂 API 的詳細資料：
 
-+ [在行動服務中使用伺服器指令碼] <br/>說明如何使用伺服器指令碼、工作排程器和自訂 API。
++ [在行動服務中使用伺服器指令碼]
+	<br/>說明如何使用伺服器指令碼、工作排程器和自訂 API。
 
-+ [從用戶端呼叫自訂 API] <br/>說明如何建立可從用戶端呼叫的自訂 API。
++ [從用戶端呼叫自訂 API] 
+	<br/>說明如何建立可從用戶端呼叫的自訂 API。
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -154,10 +157,10 @@
 [開始使用行動服務]: mobile-services-ios-get-started.md
 [將行動服務新增至現有的應用程式]: mobile-services-ios-get-started-data.md
 [在行動服務中使用伺服器指令碼]: mobile-services-how-to-use-server-scripts.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure 管理入口網站]: https://manage.windowsazure.com/
 [從用戶端呼叫自訂 API]: mobile-services-ios-call-custom-api.md
 [模組]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

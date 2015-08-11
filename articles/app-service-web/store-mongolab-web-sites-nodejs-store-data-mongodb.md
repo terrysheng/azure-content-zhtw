@@ -49,16 +49,16 @@
 
 1. 按一下 [新增] > [Markeplace] 來開啟 Azure Marketplace。  
 <!-- ![Store][button-store] -->
-2. 按一下 **MongoLab** 附加元件。
+2. 按一下 **MongoLab** 附加元件。  
 ![MongoLab][entry-mongolab]
-3. 在 [附加元件] 清單中按一下您的 **MongoLab** 附加元件，然後按一下 [連線資訊]。
+3. 在 [附加元件] 清單中按一下您的 **MongoLab** 附加元件，然後按一下 [連線資訊]。  
 ![ConnectionInfoButton][button-connectioninfo]  
-4. 將 **MONGOLAB_URI** 複製到剪貼簿。
+4. 將 **MONGOLAB_URI** 複製到剪貼簿。  
 ![ConnectionInfoScreen][screen-connectioninfo]
 
 	>[AZURE.NOTE]此 URI 包含您的資料庫使用者名稱和密碼。這是機密資訊，請勿洩露。
 
-5. 在 Azure App Service 中 Web 應用程式的 [組態] 功能表中，將這個值新增到 [連接字串] 清單：
+5. 在 Azure App Service 中 Web 應用程式的 [組態] 功能表中，將這個值新增到 [連接字串] 清單：  
 ![WebAppConnectionStrings][focus-website-connectinfo]
 6. 在 [名稱] 中，輸入 **MONGOLAB_URI**。
 7. 在 [值] 中，貼上我們在上一節取得的連接字串。
@@ -575,4 +575,4 @@
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!----HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->

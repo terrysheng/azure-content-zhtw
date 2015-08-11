@@ -22,7 +22,8 @@
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 免費試用</a>。
+>[AZURE.NOTE]
+> 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 免費試用</a>。
 
 本教學課程會逐步完成使用 Azure Media Services (AMS) SDK for .NET 實作點播視訊 (VoD) 內容傳遞應用程式。
 
@@ -146,7 +147,7 @@
 		using Microsoft.WindowsAzure.MediaServices.Client;
 		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
 
-6. 在 projects 目錄下建立新的資料夾，並複製您想要編碼和串流處理或漸進式下載的 .mp4 或 .wmv 檔案。在此範例中，使用 "C:\VideoFiles" 路徑。
+6. 在 projects 目錄下建立新的資料夾，並複製您想要編碼和串流處理或漸進式下載的 .mp4 或 .wmv 檔案。在此範例中，使用 "C:\\VideoFiles" 路徑。
 
 ##連線到媒體服務帳戶
 
@@ -253,7 +254,8 @@
 
 下列程式碼顯示如何提交編碼工作。此工作 (Job) 包含一項工作 (Task)，指定使用 **Azure Media Encoder** 將夾層檔轉碼為一組調適性位元速率 MP4。此程式碼會提交工作，並等到工作完成。
 
-工作完成之後，就可以串流處理資產，或漸進式下載轉碼後所建立的 MP4 檔案。請注意，您不需要擁有任何串流單元，即可漸進式下載 MP4 檔案。
+工作完成之後，就可以串流處理資產，或漸進式下載轉碼後所建立的 MP4 檔案。
+請注意，您不需要擁有任何串流單元，即可漸進式下載 MP4 檔案。
 
 
 將下列方法新增至 Program 類別。
@@ -462,4 +464,4 @@ MPEG DASH
   [管理入口網站]: http://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

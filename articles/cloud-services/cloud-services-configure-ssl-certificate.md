@@ -33,7 +33,7 @@
 
 如果尚未建立雲端服務，請先閱讀[這裡](cloud-services-how-to-create-deploy.md)。
 
-[AZURE.INCLUDE 〈[websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)〉]
+[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 
 ## 步驟 1：取得 SSL 憑證

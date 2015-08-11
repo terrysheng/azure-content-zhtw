@@ -8,7 +8,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="trinadhk"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/17/2015"
+	ms.author="trinadhk"; "jimpark"/>
 
 # 還原虛擬機器
 您可以使用還原動作，利用儲存在 Azure 備份保存庫的備份，將虛擬機器還原至新的 VM。
@@ -96,4 +103,4 @@
 ## 後續步驟
 - [管理虛擬機器](backup-azure-manage-vms)
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

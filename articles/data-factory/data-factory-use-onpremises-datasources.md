@@ -397,7 +397,7 @@
 	- 活動的**輸入**設定為 **EmpOnPremSQLTable**，活動的**輸出**則設定為 **OutputBlobTable**。
 	- 在 **transformation** 區段中，「來源類型」指定為 **SqlSource**，「接收類型」指定為 **BlobSink**。 - **SqlSource** 的 **sqlReaderQuery** 屬性指定 SQL 查詢 **select \* from emp**。
 
-	將 **start** 屬性的值取代為目前日期，並將 **end** 值取代為隔天的日期。開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**end** 時間為選擇性項目，但在本教學課程中會用到。
+	將 **start** 屬性的值取代為目前日期，並將 **end** 值取代為隔天的日期。開始和結束日期時間都必須是 [ISO 格式](http://zh.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**end** 時間為選擇性項目，但在本教學課程中會用到。
 	
 	如果您未指定 **end** 屬性的值，則會以「\*\*start + 48 小時\*\*」計算。若要無限期地執行管線，請指定 **9/9/9999** 做為 **end** 屬性的值。
 	

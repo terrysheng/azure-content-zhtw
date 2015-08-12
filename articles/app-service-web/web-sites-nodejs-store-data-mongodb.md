@@ -113,13 +113,13 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 1. 從命令列將目錄變更至 **tasklist** 目錄。如果 **tasklist** 目錄不存在，請予以建立。
 
-	> [AZURE.NOTE]本教學課程參考 **tasklist** 資料夾。在此忽略此資料夾的完整路徑，是因為不同作業系統有不同的路徑語義。您應該在本機檔案系統中易於存取的位置建立此資料夾，例如 **~/node/tasklist** 或 **c:\node\tasklist**
+> [AZURE.NOTE]本教學課程參考 **tasklist** 資料夾。在此忽略此資料夾的完整路徑，是因為不同作業系統有不同的路徑語義。您應該在本機檔案系統中易於存取的位置建立此資料夾，例如 **~/node/tasklist** 或 **c:\node\tasklist**
 
 2. 輸入以下命令以安裝 express 命令。
 
 	npm install express-generator -g
 
-	> [AZURE.NOTE]在某些作業系統上使用 '-g' 參數時，您可能會收到___錯誤：EPERM, chmod '/usr/local/bin/express'___ 的錯誤，要求您以系統管理員身分執行該帳戶。若發生這個情況，使用 `sudo` 命令以更高的權限層級執行 npm。
+> [AZURE.NOTE]在某些作業系統上使用 '-g' 參數時，您可能會收到___錯誤：EPERM, chmod '/usr/local/bin/express'___ 的錯誤，要求您以系統管理員身分執行該帳戶。若發生這個情況，使用 `sudo` 命令以更高的權限層級執行 npm。
 
     此命令的輸出應類似這樣：
 
@@ -571,4 +571,4 @@ Azure CLI 可讓您執行 Azure 服務的管理作業。若您的開發環境尚
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

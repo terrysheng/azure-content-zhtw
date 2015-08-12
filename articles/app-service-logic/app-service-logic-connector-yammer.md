@@ -32,12 +32,12 @@ Yammer 連接器可讓您連線到 Yammer 並執行「張貼訊息」動作和�
 
  ![][1]
 
-	- **Location** - choose the geographic location where you would like the connector to be deployed
-	- **Subscription** - choose a subscription you want this connector to be created in
-	- **Resource group** - select or create a resource group where the connector should reside
-	- **App Service plan** - select or create a web hosting plan
-	- **Pricing tier** - choose a pricing tier for the connector
-	- **Name** - give a name for your Yammer Connector
+	- **位置** - 选择要将连接器部署到的地理位置
+	- **订阅** - 选择要在其中创建此连接器的订阅
+	- **资源组** - 选择或创建连接器应位于的资源组
+	- **应用服务计划** - 选择或创建 Web 托管计划
+	- **定价层** - 选择连接器的定价层
+	- **名称** - 为你的 Yammer 连接器提供一个名称
 
 4.	按一下 [建立]。將建立新的 Yammer 連接器。
 5.	建立 API 應用程式執行個體後，您可以在相同的資源群組中建立邏輯應用程式，以便使用 Yammer 連接器。
@@ -79,7 +79,7 @@ Yammer 連接器可讓您連線到 Yammer 並執行「張貼訊息」動作和�
 
 ## 使用 Yammer 連接器張貼訊息
 
-6.	您也可以在邏輯應用程式中使用 Yammer 連接器做為動作。首先，指定邏輯應用程式的觸發程序，或核取 [手動執行此邏輯] (如下所示)。加入 yammer 連接器，適當地授權，然後選擇 [張貼訊息] 動作。設定 [張貼訊息] 動作，如下所示：
+6.	您也可以在邏輯應用程式中使用 Yammer 連接器做為動作。首先，指定邏輯應用程式的觸發程序，或核取 [手動執行此邏輯] &nbsp;(如下所示)。加入 yammer 連接器，適當地授權，然後選擇 [張貼訊息] 動作。設定 [張貼訊息] 動作，如下所示：
 
 	- **訊息文字** - 要張貼之訊息的文字內容
 	- **群組識別碼** - 指定應該張貼新訊息之群組的識別碼。如果未提供群組識別碼，訊息將會張貼到「所有公司摘要」。群組識別碼可以從 Yammer 中的群組 URL 擷取。範例：下列 URL 中的群組識別碼為 "5453203" https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
@@ -102,4 +102,4 @@ Yammer 連接器可讓您連線到 Yammer 並執行「張貼訊息」動作和�
 [10]: ./media/app-service-logic-connector-yammer/img10.PNG
 [11]: ./media/app-service-logic-connector-yammer/img11.PNG
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

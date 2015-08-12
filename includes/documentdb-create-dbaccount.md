@@ -10,7 +10,7 @@
 
 3. 在 [**新增 DocumentDB 帳戶**] 刀鋒視窗中，指定想要的 DocumentDB 帳戶組態。
  
-	![[新增 DocumentDB] 刀鋒視窗的螢幕擷取畫面][3]
+	![新增 DocumentDB 刀鋒視窗的螢幕擷取畫面][3]
 
 
 	- 在 [**識別碼**] 方塊中，輸入用來識別 DocumentDB 帳戶的名稱。驗證 [**識別碼**] 時，[**識別碼**] 方塊中會出現綠色的核取記號。[**識別碼**] 值會變成 URI 中的主機名稱。此 [**識別碼**] 只能包含小寫字母、數字及 '-' 字元，且長度必須為 3 到 50 個字元。請注意，*documents.azure.com* 會附加至您選擇的端點名稱後面，產生的結果將成為您的 DocumentDB 帳戶端點。
@@ -34,7 +34,7 @@
 
 5.	建立 DocumentDB 帳戶之後，即可在線上入口網站中使用預設設定。請注意，DocumentDB 帳戶的預設一致性會設定為 [**工作階段**]。您可以藉由按一下 [**DocumentDB 帳戶**] 刀鋒視窗上的 [**預設一致性**] 磚，調整預設一致性設定。
 
-    ![[資源群組] 刀鋒視窗的螢幕擷取畫面][7]  
+    ![資源群組 刀鋒視窗的螢幕擷取畫面][7]  
 
 <!--Image references-->
 [1]: media/documentdb-create-dbaccount/ca1.png
@@ -49,4 +49,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=July15_HO5-->
+<!-------HONumber=July15_HO5-->

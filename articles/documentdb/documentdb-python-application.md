@@ -42,7 +42,7 @@
 - [這裡][]的 Python Tools for Visual Studio。
 - [這裡][1]提供的 Azure SDK for Visual Studio 2013 2.4 版或更高版本。
 - [這裡][2]的 Python 2.7。
-- [這裡][3]的 Microsoft Visual C++ Compiler for Python 2.7。
+- [這裡][90]的 Microsoft Visual C++ Compiler for Python 2.7。
 
 ## 步驟 1：建立 DocumentDB 資料庫帳戶
 
@@ -352,9 +352,9 @@ Flask 封裝，包括 pydocumentdb (DocumentDB 的 python 封裝)。
   [這裡]: http://aka.ms/ptvs
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
   [2]: https://www.python.org/downloads/windows/
-  [3]: http://aka.ms/vcpython27
+  [90]: http://aka.ms/vcpython27
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!------HONumber=July15_HO5-->
+<!--------HONumber=July15_HO5-->

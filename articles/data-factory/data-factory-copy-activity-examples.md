@@ -191,16 +191,16 @@
 ### 建立內部部署檔案系統連結服務
 下列範例 JSON 可以用來建立名為 **FolderDataStore** 的連結服務，其類型為 **OnPremisesFileSystemLinkedService**。
 
-	{
-	    "name": "FolderDataStore",
-	    "properties": {
-	        "type": "OnPremisesFileSystemLinkedService",
-	        "host": "\\\\contoso",
-	        "userId": "username",
-	        "password": "password",
-	        "gatewayName": "ContosoGateway"
-	    }
-	}
+		{
+		    "name": "FolderDataStore",
+		    "properties": {
+		        "type": "OnPremisesFileSystemLinkedService",
+		        "host": "\\\\contoso",
+		        "userId": "username",
+		        "password": "password",
+		        "gatewayName": "ContosoGateway"
+		    }
+		}
 
 > [AZURE.NOTE]JSON 檔案中的主機和資料夾名稱一定要使用逸出字元 '\'。如果是 **\\Contoso**，請使用 **\\\\Contoso**。
 
@@ -491,4 +491,4 @@
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=July15_HO4-->
+<!-------HONumber=July15_HO4-->

@@ -394,8 +394,10 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 3.	按一下 [**Web Apps**] 刀鋒視窗。
 4.	按一下您的 Web 應用程式的名稱。
 5.	在 [**基本功能**] 頁面中，按一下 [**設定**]。
-6.	按一下 [**調整**]。![調整索引標籤][scale]
-7.	在 [**調整**] 區段中，按一下 [**選取**]，設定 App Service 的方案模式。![The Pricing tier][sslreserved]
+6.	按一下 [**調整**]。
+	![調整索引標籤][scale]
+7.	在 [**調整**] 區段中，按一下 [**選取**]，設定 App Service 的方案模式。
+	![The Pricing tier][sslreserved]
 
 	> [AZURE.NOTE]如果發生「設定 Web 應用程式 '&lt;應用程式名稱&gt;' 的規模失敗」錯誤，您可以利用詳細資料按鈕來取得詳細資訊。您可能會收到 [可用標準執行個體伺服器不足，無法滿足此要求] 錯誤。如果您收到此錯誤，請連絡 [Azure 支援](/support/options/)。
 
@@ -409,9 +411,11 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 3.	按一下 [**Web Apps**] 刀鋒視窗。
 4.	按一下您的 Web 應用程式的名稱。
 5.	在 [**基本功能**] 頁面中，按一下 [**設定**]。	
-6.	按一下 [**自訂網域和 SSL**]。![The config tab][sslconfig]
+6.	按一下 [**自訂網域和 SSL**]。
+	![The config tab][sslconfig]
 7.	在 [**憑證**] 區段中，按一下 [**上傳**]。
-8.	使用 [上傳憑證] 對話方塊，選取之前以 IIS 管理員或 OpenSSL 建立的 .pfx 憑證檔案。指定當初用來保護 .pfx 檔案的密碼 (如果有的話)。最後，按一下 [**儲存**]，以上傳憑證。![ssl upload][ssluploadcert]
+8.	使用 [上傳憑證] 對話方塊，選取之前以 IIS 管理員或 OpenSSL 建立的 .pfx 憑證檔案。指定當初用來保護 .pfx 檔案的密碼 (如果有的話)。最後，按一下 [**儲存**]，以上傳憑證。
+	![ssl upload][ssluploadcert]
 9. 在 [**SSL 設定**] 索引標籤的 [**SSL 繫結**] 區段中，使用下拉式清單選取要以 SSL 保護的網域名稱，以及要使用的憑證。您也可以選擇使用[伺服器名稱指示][sni] (SNI) 還是 IP SSL。
 
 	![SSL 繫結][sslbindings]
@@ -541,4 +545,4 @@ Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTT
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

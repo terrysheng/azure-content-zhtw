@@ -21,4 +21,4 @@
 
 6. 重複步驟 3 和 4 以確認範例的行為相同。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

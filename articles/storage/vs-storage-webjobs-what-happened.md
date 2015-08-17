@@ -42,4 +42,4 @@ Azure 儲存體 NuGet 封裝已加入至 Visual Studio 專案或在其中更新�
 
 如需詳細資訊，請參閱 [Azure WebJobs 建議資源](http://go.microsoft.com/fwlink/?linkid=390226)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -34,7 +34,7 @@
 
 ## 允許多網站
 
-您需要先在 `wp-config.php` 檔案中使用 **WP_ALLOW_MULTISITE** 常數來啟用多網站。有兩種方法可以編輯您的 Web 應用程式檔案：第一種是透過 FTP，第二種是透過 Git。如果不熟悉如何設定這些方法，請參閱下列教學課程：
+您需要先在 `wp-config.php` 檔案中使用 **WP\_ALLOW\_MULTISITE** 常數來啟用多網站。有兩種方法可以編輯您的 Web 應用程式檔案：第一種是透過 FTP，第二種是透過 Git。如果不熟悉如何設定這些方法，請參閱下列教學課程：
 
 * [PHP 網站與 MySQL 和 FTP][website-w-mysql-and-ftp-ftp-setup]
 
@@ -93,7 +93,7 @@
 
 * 登入網域的 DNS 管理員
 * 建立新的 CNAME *awverify*
-* 將 *awverify* 指向 *awverify.YOUR_DOMAIN.azurewebsites.net*
+* 將 *awverify* 指向 *awverify.YOUR\_DOMAIN.azurewebsites.net*
 
 DNS 變更需要一些時間才會完全生效，如果無法立即執行下列步驟，請休息一下，稍後再回來重試。
 
@@ -113,7 +113,7 @@ DNS 變更需要一些時間才會完全生效，如果無法立即執行下列�
 
 如果其他步驟成功，則現在可透過 DNS A 記錄，將網域指派給 Azure Web 應用程式。
 
-在此必須注意，Azure Web 應用程式接受 CNAME 與 A 記錄，但您「必須」使用 A 記錄，才能啟用適當的網域對應。CNAME 無法轉送至另一個 CNAME，即 Azure 以 YOUR_DOMAIN.azurewebsites.net 為您建立的記錄。
+在此必須注意，Azure Web 應用程式接受 CNAME 與 A 記錄，但您「必須」使用 A 記錄，才能啟用適當的網域對應。CNAME 無法轉送至另一個 CNAME，即 Azure 以 YOUR\_DOMAIN.azurewebsites.net 為您建立的記錄。
 
 回到 DNS 管理員，設定 A 記錄來指向您在上一步記下的 IP 位址。
 
@@ -154,4 +154,4 @@ Azure Web Apps 可讓您將不限數量的網域加入至 Web 應用程式。若
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

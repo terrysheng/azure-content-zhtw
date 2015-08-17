@@ -100,4 +100,4 @@
 
 深入了解 [Microsoft Azure StorSimple](storsimple-overview.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

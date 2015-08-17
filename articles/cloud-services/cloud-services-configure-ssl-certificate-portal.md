@@ -43,7 +43,7 @@
 
 -   憑證必須包含私密金鑰。
 -   憑證必須是為了進行金鑰交換而建立，且可匯出成個人資訊交換檔 (.pfx)。
--   憑證的主體名稱必須符合用來存取雲端服務的網域。您無法向憑證授權單位 (CA) 取得 cloudapp.net 網域的 SSL 憑證。您必須取得要在存取您的服務時使用的自訂網域名稱。當您向 CA 要求憑證時，憑證的主體名稱必須符合用來存取應用程式的自訂網域名稱。例如，如果您的自訂網域名稱為 **contoso.com**，則您需向 CA 要求 ***.contoso.com** 或 **www.contoso.com** 的憑證。
+-   憑證的主體名稱必須符合用來存取雲端服務的網域。您無法向憑證授權單位 (CA) 取得 cloudapp.net 網域的 SSL 憑證。您必須取得要在存取您的服務時使用的自訂網域名稱。當您向 CA 要求憑證時，憑證的主體名稱必須符合用來存取應用程式的自訂網域名稱。例如，如果您的自訂網域名稱為 **contoso.com**，則您需向 CA 要求 ****.contoso.com** 或 **www.contoso.com** 的憑證。
 -   憑證至少必須以 2048 位元加密。
 
 基於測試目的，您可以[建立](cloud-services-certs-create.md)並使用自我簽署憑證。自我簽署憑證不是由 CA 驗證，因此可以使用 cloudapp.net 網域做為網站 URL。例如，以下工作即使用自我簽署憑證，該憑證中使用的一般名稱 (CN) 為 **sslexample.cloudapp.net**。
@@ -117,7 +117,7 @@
 連線到入口網站和...
 
 1. 使用下列方法選取您的雲端服務：
-    - 在入口網站中，選取您的**雲端服務**。(位於**全部瀏覽/最近區域**。)
+    - 在入口網站中，選取您的 [**雲端服務**]。(位於**全部瀏覽/最近區域**。)
     
         ![發佈您的雲端服務](media/cloud-services-configure-ssl-certificate-portal/browse.png)
     
@@ -151,8 +151,8 @@
 
     >[AZURE.TIP]若要對預備部署而不是對生產部署使用 SSL，首先您需要判定要在預備部署中使用的 URL。部署雲端服務之後，預備環境的 URL 即由**部署 ID** GUID 決定，格式如下：`https://deployment-id.cloudapp.net/`
       
-    >建立一般名稱 (CN) 等於 GUID 型 URL (例如，**328187776e774ceda8fc57609d404462.cloudapp.net**) 的憑證、使用入口網站將該憑證新增至預備雲端服務、將憑證資訊新增至 CSDEF 與 CSCFG 檔案、重新封裝應用程式，然後將預備部署更新為使用新的套件與 CSCFG 檔。
+    >建立與 GUID 型 URL 相同的一般名稱 (CN) (例如，**328187776e774ceda8fc57609d404462.cloudapp.net**) 的憑證、使用入口網站將該憑證新增至預備雲端服務、將憑證資訊新增至 CSDEF 與 CSCFG 檔案、重新封裝應用程式，然後將預備部署更新為使用新的套件與 CSCFG 檔。
 
 [Azure Portal]: http://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

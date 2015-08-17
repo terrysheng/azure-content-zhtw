@@ -77,7 +77,7 @@ Azure 會評估 SQL Database 的歷程記錄資源使用狀況，藉此分析目
 
 ## 後續步驟
 
-視特定資料庫的詳細資料而定，系統通常不會立即執行升級或降級。管理入口網站會在資料庫轉換到新層時提供通知，或者您可以藉由查詢 SQL Database Server 的主資料庫中的 [sys.dm_operation_status (Azure SQL Database)](https://msdn.microsoft.com/library/dn270022.aspx) 檢視，來監視升級狀態。
+視特定資料庫的詳細資料而定，系統通常不會立即執行升級或降級。管理入口網站會在資料庫轉換到新層時提供通知，或者您可以藉由查詢 SQL Database Server 的主資料庫中的 [sys.dm\_operation\_status (Azure SQL Database)](https://msdn.microsoft.com/library/dn270022.aspx) 檢視，來監視升級狀態。
 
 
 <!--Image references-->
@@ -90,4 +90,4 @@ Azure 會評估 SQL Database 的歷程記錄資源使用狀況，藉此分析目
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

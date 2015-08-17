@@ -69,7 +69,7 @@ PHP 5.5 和 PHP 5.6 版本同樣可供使用，但預設並未啟用。若要更
 
 對於任一個內建的 PHP 執行階段，您可以遵循下列步驟，來變更任何組態選項。(如需 php.ini 指示詞的資訊，請參閱 [php.ini 指示詞的清單] (英文))。
 
-### 變更 PHP_INI_USER、PHP_INI_PERDIR、PHP_INI_ALL 組態設定
+### 變更 PHP\_INI\_USER、PHP\_INI\_PERDIR、PHP\_INI\_ALL 組態設定
 
 1. 將 [.user.ini] 檔案新增至根目錄。
 2. 使用在 `php.ini` 檔案中使用的相同語法，將組態設定新增至 `.user.ini` 檔案。例如，如果您要啟動 `display_errors` 設定，並將 `upload_max_filesize` 設定設為 10M，則 `.user.ini` 檔案將包含下列文字：
@@ -81,9 +81,9 @@ PHP 5.5 和 PHP 5.6 版本同樣可供使用，但預設並未啟用。若要更
 3. 部署 Web 應用程式。
 4. 重新啟動 Web 應用程式。(必須重新啟動，因為 PHP 讀取 `.user.ini` 檔案的頻率是由 `user_ini.cache_ttl` 設定所控制，這是系統層級設定，預設為 300 秒 (5 分鐘)。重新啟動 Web 應用程式將強制 PHP 讀取 `.user.ini` 檔案中的新設定。)
 
-除了使用 `.user.ini` 檔案之外，您也可以在指令碼中使用 [ini_set()] 函數，設定非系統層級指示詞的組態選項。
+除了使用 `.user.ini` 檔案之外，您也可以在指令碼中使用 [ini\_set()] 函數，設定非系統層級指示詞的組態選項。
 
-### 變更 PHP_INI_SYSTEM 組態設定
+### 變更 PHP\_INI\_SYSTEM 組態設定
 
 1. 使用機碼 `PHP_INI_SCAN_DIR` 和值 `d:\home\site\ini` 將應用程式設定新增至 Web 應用程式
 2. 使用 Kudo 主控台 (http://&lt;site-name&gt;.scm.azurewebsite.net) 在 `d:\home\site\ini` 目錄中建立 `settings.ini` 檔案
@@ -120,7 +120,7 @@ PHP 5.5 和 PHP 5.6 版本同樣可供使用，但預設並未啟用。若要更
 	![Web 應用程式設定][settings-button]
 
 5. 從 [設定] 分頁中選取 [應用程式設定]，然後捲動至 [應用程式設定] 區段。
-6. 在 [應用程式設定] 區段中，建立 **PHP_EXTENSIONS** 索引鍵。此索引鍵的值是相對於網站根目錄的路徑：**bin\your-ext-file**。
+6. 在 [應用程式設定] 區段中，建立 **PHP\_EXTENSIONS** 索引鍵。此索引鍵的值是相對於網站根目錄的路徑：**bin\\your-ext-file**。
 
 	![啟用應用程式設定中的擴充][php-extensions]
 
@@ -128,7 +128,7 @@ PHP 5.5 和 PHP 5.6 版本同樣可供使用，但預設並未啟用。若要更
 
 	![儲存組態設定。][save-button]
 
-Zend 擴充功能也支援使用 **PHP_ZENDEXTENSIONS** 索引鍵。若要啟用多個擴充功能，請針對應用程式設定值包含以逗號分隔的 `.dll` 檔案清單。
+Zend 擴充功能也支援使用 **PHP\_ZENDEXTENSIONS** 索引鍵。若要啟用多個擴充功能，請針對應用程式設定值包含以逗號分隔的 `.dll` 檔案清單。
 
 
 ## 做法：使用自訂 PHP 執行階段
@@ -162,7 +162,7 @@ Zend 擴充功能也支援使用 **PHP_ZENDEXTENSIONS** 索引鍵。若要啟用
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [php.ini 指示詞的清單]: http://www.php.net/manual/en/ini.list.php
 [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
-[ini_set()]: http://www.php.net/manual/en/function.ini-set.php
+[ini\_set()]: http://www.php.net/manual/en/function.ini-set.php
 [application-settings]: ./media/web-sites-php-configure/application-settings.png
 [settings-button]: ./media/web-sites-php-configure/settings-button.png
 [save-button]: ./media/web-sites-php-configure/save-button.png
@@ -176,4 +176,4 @@ Zend 擴充功能也支援使用 **PHP_ZENDEXTENSIONS** 索引鍵。若要啟用
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -92,4 +92,4 @@ Azure Active Directory 的存取管理解決方案的重點是安全性群組。
 
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

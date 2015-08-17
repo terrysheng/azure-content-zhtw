@@ -50,10 +50,10 @@ SSH 是用來登入遠端伺服器並在其中遠端執行命令的公用程式�
 
 	在目錄清單中尋找下列檔案。以下是公用 SSH 金鑰的常見名稱。
 
-	* id_dsa.pub
-	* id_ecdsa.pub
-	* id_ed25519.pub
-	* id_rsa.pub
+	* id\_dsa.pub
+	* id\_ecdsa.pub
+	* id\_ed25519.pub
+	* id\_rsa.pub
 
 2. 如果不想使用現有檔案或沒有現有 SSH 金鑰，請用下列命令產生新的檔案：
 
@@ -61,12 +61,12 @@ SSH 是用來登入遠端伺服器並在其中遠端執行命令的公用程式�
 
 	系統將會提示您輸入下列資訊：
 
-	* 檔案位置 - 預設位置為 ~/.ssh/id_rsa。
+	* 檔案位置 - 預設位置為 \~/.ssh/id\_rsa。
 	* 複雜密碼 - 系統會提示您再次輸入此密碼。
 
 		> [AZURE.NOTE]強烈建議您對此金鑰使用安全的複雜密碼。不過如果您忘記此複雜密碼，將無法加以復原。
 
-	命令完成後，您會擁有兩個新檔案，即私密金鑰 (例如 **id_rsa**) 和公開金鑰 (例如 **id_rsa.pub**)。
+	命令完成後，您會擁有兩個新檔案，即私密金鑰 (例如 **id\_rsa**) 和公開金鑰 (例如 **id\_rsa.pub**)。
 
 ##建立以 Linux 為基礎的 HDInsight 叢集
 
@@ -295,4 +295,4 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

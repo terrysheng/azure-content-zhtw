@@ -1,7 +1,6 @@
 <properties
 	pageTitle="HBase 教學課程：開始在 Hadoop 中使用 HBase |Microsoft Azure"
 	description="遵循本 HBase 教學課程，開始在 HDInsight 中搭配 Hadoop 使用 Apache HBase。使用 Hive 從 HBase Shell 建立資料表並加以查詢。"
-	keywords="apache hbase,hbase,hbase shell,hbase tutorial"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
@@ -44,7 +43,7 @@
 1. 登入 [Azure 入口網站][azure-management-portal]。
 2. 按一下左下角的 [**新增**]，再按 [**資料服務**] > [**HDInsight**] > [**HBase**]。
 
-	>[AZURE.NOTE]**自訂建立**
+	>[AZURE.NOTE]您也可以使用 [**自訂建立**] 選項。
 3. 輸入 [**叢集名稱**]、[**叢集大小**]、[叢集使用者密碼] 和 [**儲存體帳戶**]。
 
 	![在 HDInsight 中佈建 HBase 叢集][img-hdinsight-hbase-cluster-quick-create]
@@ -357,4 +356,4 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="04/29/2015"
 	ms.author="tdykstra"/>
 
@@ -79,7 +79,7 @@ Azure App Service 可讓您輕鬆地省去移轉舊版 IIS6 應用程式時相�
 
 ### <a id="smallbusiness"></a>我是小型企業業主，需要有便宜的方式來裝載網站，但又想顧及網站未來成長的可能性。
 
-Azure App Service 是此案例的絕佳解決方案，因為您可先免費使用它，等到需要更多功能時再新增功能即可。每一個免費 Web 應用程式都隨附 Azure 提供的網域 (*your_company*.azurewebsites.net)，且平台包含整合式部署和管理工具及應用程式庫，輕鬆地就能開始使用。另外還有其他許多服務與調整選項，可讓網站隨使用者需求的增加來發展。使用 Azure App Service，您可以：
+Azure App Service 是此案例的絕佳解決方案，因為您可先免費使用它，等到需要更多功能時再新增功能即可。每一個免費 Web 應用程式都隨附 Azure 提供的網域 (*your\_company*.azurewebsites.net)，且平台包含整合式部署和管理工具及應用程式資源庫，輕鬆地就能開始使用。另外還有其他許多服務與調整選項，可讓網站隨使用者需求的增加來發展。使用 Azure App Service，您可以：
 
 - 從免費版本開始，視需要進行向上調整。
 - 使用應用程式庫迅速設定熱門的 Web 應用程式，例如 WordPress。
@@ -140,197 +140,34 @@ HTTP 型 Web 服務可讓您支援各種用戶端，包括行動用戶端。ASP.
 
 下表比較 App Service、「雲端服務」與「虛擬機器」的功能，以協助您做出最佳選擇。如需每個選項目前的 SLA 資訊，請參閱＜[Azure 服務等級協定](/support/legal/sla/)＞。
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">功能</th>
-   <th align="left" valign="middle">App Service (Web 應用程式)</th>
-   <th align="left" valign="middle">雲端服務 (Web 角色)</th>
-   <th align="left" valign="middle">虛擬機器</th>
-   <th align="left" valign="middle">注意事項</th>
-</tr>
-<tr>
-   <td valign="middle"><p>近乎即時的部署</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle">將應用程式或應用程式更新部署到雲端服務，或建立 VM，至少需要幾分鐘的時間；將應用程式部署到 Web 應用程式只需要幾秒鐘。</td>
-</tr>
-<tr>
-   <td valign="middle"><p>向上調整至更大的機器而不重新部署</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Web 伺服器執行個體會共用內容和組態，這表示您在調整規模時不需要重新部署或重新設定。</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>多個部署環境 (生產環境和預備環境)</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>自動管理 OS 更新</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>順暢切換平台 (輕鬆地切換到 32 位元或 64 位元)</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>利用 GIT、FTP 來部署程式碼</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>利用 Web Deploy 來部署程式碼</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">雲端服務支援使用 Web Deploy 將更新部署到個別角色的執行個體。不過，您無法將它用於角色的初始部署，如果使用 Web Deploy 來部署更新，則必須分別地部署到角色的每一個執行個體。需要有多個執行個體，才能符合生產環境的雲端服務 SLA。</td>
-</tr>
-<tr>
-   <td valign="middle"><p>支援 WebMatrix</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>存取服務匯流排、儲存體、SQL Database 等服務。</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>裝載多層式架構的 Web 或 Web 服務層</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>裝載多層式架構的中間層</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">App Service Web 應用程式可以輕易裝載 REST API 中間層，而 <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> 功能可以裝載背景處理工作。您可以在專用網站中執行 WebJobs，以實現此層的獨立擴充性。預覽 [API 應用程式] (../app-service-api/app-service-api-apps-why-best-platform.md) 功能提供了更多裝載 REST 服務的功能。</td>
-</tr>
-<tr>
-   <td valign="middle"><p>整合 MySQL 即服務的支援</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">雲端服務可透過 ClearDB 的供應項目來整合 MySQL 即服務，而不需要在管理入口網站工作流程中進行。</td>
-</tr>
-<tr>
-   <td valign="middle"><p>支援 ASP.NET、傳統 ASP、Node.js、PHP、Python</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>向外延展至多個執行個體而不重新部署</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">「虛擬機器」可向外延展至多個執行個體，但這些機器上執行的服務必須設計成應付這個向外延展情況。您必須設定負載平衡器來將要求路由傳送到各機器，並建立同質群組，以避免在維護或硬體故障時所有執行個體同時重新啟動。</td>
-</tr>
-<tr>
-   <td valign="middle"><p>支援 SSL</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">在 App Service Web 應用程式中，只有基本和標準模式才支援自訂網域名稱的 SSL。如需 Web 應用程式使用 SSL 的相關資訊，請參閱＜<a href="../web-sites-configure-ssl-certificate/">設定 Azure 網站的 SSL 憑證</a>＞。</td>
-</tr>
-<tr>
-   <td valign="middle"><p>整合 Visual Studio</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>遠端偵錯</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>利用 TFS 來部署程式碼</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>利用 <a href="/services/virtual-network/">Azure 虛擬網路</a>進行網路隔離</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">另請參閱＜<a href="/blog/2014/09/15/azure-websites-virtual-network-integration/">Azure 網站虛擬網路整合</a>＞</td>
-</tr>
-<tr>
-   <td valign="middle"><p>支援 <a href="/services/traffic-manager/">Azure 流量管理員</a></p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>整合式端點監視</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>透過桌面遠端來存取伺服器</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>安裝任何自訂 MSI</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>能夠定義/執行啟動工作</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>可接聽 ETW 事件</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-</table>
+功能|App Service (Web 應用程式)|雲端服務 (Web 角色)|虛擬機器|注意事項
+---|---|---|---|---
+近乎即時的部署|X|||將應用程式或應用程式更新部署到雲端服務，或建立 VM，至少需要幾分鐘的時間；將應用程式部署到 Web 應用程式只需要幾秒鐘。
+向上調整至更大的機器而不重新部署|X|||
+Web 伺服器執行個體會共用內容和組態，這表示您在調整規模時不需要重新部署或重新設定。|X|||
+多個部署環境 (生產環境和預備環境)|X|X||
+自動管理 OS 更新|X|X||
+順暢切換平台 (輕鬆地切換到 32 位元或 64 位元)|X|X||
+利用 GIT、FTP 來部署程式碼|X||X|
+利用 Web Deploy 來部署程式碼|X||X|雲端服務支援使用 Web Deploy 將更新部署到個別角色的執行個體。不過，您無法將它用於角色的初始部署，如果使用 Web Deploy 來部署更新，則必須分別地部署到角色的每一個執行個體。需要有多個執行個體，才能符合生產環境的雲端服務 SLA。
+支援 WebMatrix|X||X|
+存取服務匯流排、儲存體、SQL Database 等服務。|X|X|X|
+裝載多層式架構的 Web 或 Web 服務層|X|X|X|
+裝載多層式架構的中間層|X|X|X|App Service Web 應用程式可以輕易裝載 REST API 中間層，而 [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) 功能可以裝載背景處理工作。您可以在專用網站中執行 WebJobs，以實現此層的獨立擴充性。預覽 [API 應用程式](../app-service-api/app-service-api-apps-why-best-platform/)功能提供了更多裝載 REST 服務的功能。
+整合 MySQL 即服務的支援|X|X|X|雲端服務可透過 ClearDB 的供應項目來整合 MySQL 即服務，而不需要在管理入口網站工作流程中進行。
+支援 ASP.NET、傳統 ASP、Node.js、PHP、Python|X|X|X|
+向外延展至多個執行個體而不重新部署|X|X|X|「虛擬機器」可向外延展至多個執行個體，但這些機器上執行的服務必須設計成應付這個向外延展情況。您必須設定負載平衡器來將要求路由傳送到各機器，並建立同質群組，以避免在維護或硬體故障時所有執行個體同時重新啟動。
+支援 SSL|X|X|X|在 App Service Web 應用程式中，只有基本和標準模式才支援自訂網域名稱的 SSL。如需 Web 應用程式使用 SSL 的相關資訊，請參閱＜[設定 Azure 網站的 SSL 憑證](../app-service-web/web-sites-configure-ssl-certificate/)＞。
+整合 Visual Studio|X|X|X|
+遠端偵錯|X|X|X|
+利用 TFS 來部署程式碼|X|X|X|
+利用 [Azure 虛擬網路](../services/virtual-network/)進行網路隔離|X|X|X|另請參閱＜[Azure 網站虛擬網路整合](../blog/2014/09/15/azure-websites-virtual-network-integration/)＞
+支援 [Azure 流量管理員](../services/traffic-manager/)|X|X|X|
+整合式端點監視|X|X|X|
+透過桌面遠端來存取伺服器||X|X|
+安裝任何自訂 MSI||X|X|
+能夠定義/執行啟動工作||X|X|
+可接聽 ETW 事件||X|X|
 
 
 > [AZURE.NOTE]如果您要在註冊帳戶前開始使用 Azure App Service，請移至 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>，您可以在 Azure App Service 中立即建立短期的免費簡易版應用程式。不需要信用卡，沒有承諾。
@@ -367,4 +204,4 @@ HTTP 型 Web 服務可讓您支援各種用戶端，包括行動用戶端。ASP.
   [儲存體]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

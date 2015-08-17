@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Microsoft Azure 應用程式的 Application Insights" 
-	description="使用 Application Insights 分析 Azure 應用程式的使用量和效能。" 
+	pageTitle="Application Insights：程式碼範例和逐步解說" 
+	description="您可以針對自己的應用程式調整的範例。" 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
-#  Application Insights：程式碼範例
+#  Application Insights：程式碼範例和逐步解說
 
 *Application Insights 目前僅供預覽。*
 
@@ -24,13 +24,16 @@
 ## Web 服務
 
 * [將遙測功能加入 Azure Web 和背景工作角色](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) (英文)。
+* [Windows 8.1 通用應用程式](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal/)
 
 ## 連續匯出
 
 若要使用自己的工具分析遙測資料，請[將遙測資料匯出](app-insights-export-telemetry.md)至儲存體，並在其中進行剖析和處理。
 
+* [匯出至 Power BI](app-insights-export-power-bi.md) 
 * [使用背景工作角色匯出至 SQL](app-insights-code-sample-export-telemetry-sql-database.md)
 * [使用串流分析匯出至 SQL](app-insights-code-sample-export-sql-stream-analytics.md)
+* [針對 Microsoft CRM 啟用遙測](app-insights-sample-mscrm.md)
 
 
 ## 自動化工作
@@ -46,4 +49,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

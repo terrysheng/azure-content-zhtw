@@ -35,8 +35,7 @@ Azure 在管理入口網站和各種視覺輔助工具 (如[什麼是 Azure 資�
 
 本文將使用**不同的組織**來討論採用類似功能的服務，並叫出屬於大型服務一部分的重要子服務。
 
-![Azure 元件](./media/fundamentals-introduction-to-azure/AzureComponentsIntroNew780.png) 
-*圖：Azure 提供可存取網際網路、在 Azure 資料中心執行的應用程式服務。*
+![Azure 元件](./media/fundamentals-introduction-to-azure/AzureComponentsIntroNew780.png) *圖：Azure 提供可存取網際網路、在 Azure 資料中心執行的應用程式服務。*
 
 ## 管理入口網站
 Azure 有個稱為[管理入口網站](http://manage.windowsazure.com)的 Web 介面，可供系統管理員存取與管理大部分 (但並非全部) 的 Azure 功能。Microsoft 通常會推出 Beta 版的新版 UI 入口網站之後，才會淘汰舊版的 UI 入口網站。新版的入口網站稱為[「Azure Preview 入口網站」](https://portal.azure.com/)。
@@ -54,8 +53,7 @@ Azure 有個稱為[管理入口網站](http://manage.windowsazure.com)的 Web �
 
 ### Azure 虛擬機器
 
-![Azure 虛擬機器 ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) 
-*圖：Azure 虛擬機器可讓您完全控制雲端中的虛擬機器執行個體。*
+![Azure 虛擬機器 ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *圖：Azure 虛擬機器可讓您完全控制雲端中的虛擬機器執行個體。*
 
 不論從標準映像或從您提供的映像，視需要建立虛擬機器的功能都極為實用。這種方法 (通常稱為「基礎結構即服務」(IaaS)) 就是 Azure 虛擬機器所提供的方法。圖 2 顯示虛擬機器 (VM) 如何執行以及如何從 VHD 建立虛擬機器的組合。
 
@@ -77,8 +75,7 @@ Azure 有個稱為[管理入口網站](http://manage.windowsazure.com)的 Web �
 
 ### Web 應用程式
 
-![Azure Web Apps ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) 
-圖：Azure Web Apps 可在雲端中執行網站應用程式，而無需管理底層 Web 伺服器。
+![Azure Web Apps ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) 圖：Azure Web Apps 可在雲端中執行網站應用程式，而無需管理底層 Web 伺服器。
 
 人們在雲端最常做的其中一件事就是執行網站和 Web 應用程式。Azure 虛擬機器雖允許這麼做，但您仍需負責管理一或多部 VM 及基礎作業系統。雲端服務 Web 角色可以辦得到，但部署與管理他們仍需進行管理工作。如果您只想要一個有人可為您處理管理工作的網站，該怎麼辦？
 
@@ -92,8 +89,7 @@ Azure 有個稱為[管理入口網站](http://manage.windowsazure.com)的 Web �
 Web Apps 主要適用於公司、開發人員和 Web 設計機構。對於公司行號而言，這是一個易於管理、可擴充、高度安全且高度可用的解決方案，很適合用於執行平台服務網站。當您必須設定網站時，最佳的方式是從 Azure Web Apps 開始，並在您需要無法提供的功能時延伸到「雲端服務」。請參閱「計算」一節的結尾部分，以取得可協助您在選項間進行選擇的更多連結。
 
 ### 雲端服務
-![Azure 雲端服務](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png) 
-*圖：Azure 雲端服務提供一個地方，可讓您在平台即服務 (PaaS) 環境上執行高擴充性的自訂程式碼*
+![Azure 雲端服務](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png) *圖：Azure 雲端服務提供一個地方，可讓您在平台即服務 (PaaS) 環境上執行高擴充性的自訂程式碼*
 
 假設您要建置的雲端應用程式可支援眾多同時使用的使用者、不需要太多的管理，而且永不中斷。您有可能是一家穩固的軟體廠商，已決定採用「軟體即服務」(SaaS) 模式，所以在雲端建置您其中一個應用程式的版本。或者，您可能才剛開始建立一個預計能快速成長的消費者應用程式。如果您在 Azure 上建置，則應使用哪一個執行模型？
 
@@ -158,8 +154,7 @@ SQL Database 不僅是雲端的 DBMS，也是一項 PaaS 服務。您仍可控�
 
 
 ### Blob
-![Azure 儲存體 Blob](./media/fundamentals-introduction-to-azure/StorageBlobsIntroNew.png) 
-*圖：Azure Blob 提供非結構化二進位資料。*
+![Azure 儲存體 Blob](./media/fundamentals-introduction-to-azure/StorageBlobsIntroNew.png) *圖：Azure Blob 提供非結構化二進位資料。*
 
 Azure Blob (再強調一次，「Blob 儲存體」和「儲存體 Blob」是相同的東西) 是專為儲存非結構化二進位資料所設計的。如同資料表，二進位大型物件提供了便宜的儲存體，單一 Blob 可以多達 1TB 的容量。Azure 應用程式也可以使用 Azure 磁碟機，讓 Blob 得以為 Azure 執行個體中掛接的 Windows 檔案系統提供永續性儲存體。應用程式可看見一般 Windows 檔案，但看不見 Blob 中實際儲存的內容。
 
@@ -184,9 +179,9 @@ Blob 儲存體可用於許多其他 Azure 功能 (包括虛擬機器)，所以�
 
 
 ### 檔案服務
-![Azure 檔案服務](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *圖：Azure 檔案服務提供 SMB \server\share 路徑給在雲端中執行的應用程式。*
+![Azure 檔案服務](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *圖：Azure 檔案服務提供 SMB \\\\server\\share 路徑給在雲端中執行的應用程式。*
 
-在內部部署中，通常會透過伺服器訊息區 (SMB) 通訊協定 (使用 \Server\share 格式) 存取大量檔案儲存體。Azure 現在擁有可讓您在雲端中使用此通訊協定的服務。在 Azure 中執行的應用程式可使用此服務，在使用類似檔案系統 API (如 ReadFile 和 WriteFile) 的 VM 之間共用檔案。此外，還可透過 REST 介面同時存取檔案，若您同時也設定了虛擬網路，這還可讓您從內部部署中存取共用。Azure 檔案會架構在 Blob 服務上，因此它會繼承內建於 Azure 儲存體的相同可用性、持久性和異地備份。
+在內部部署中，通常會透過伺服器訊息區 (SMB) 通訊協定 (使用 \\\\Server\\share 格式) 存取大量檔案儲存體。Azure 現在擁有可讓您在雲端中使用此通訊協定的服務。在 Azure 中執行的應用程式可使用此服務，在使用類似檔案系統 API (如 ReadFile 和 WriteFile) 的 VM 之間共用檔案。此外，還可透過 REST 介面同時存取檔案，若您同時也設定了虛擬網路，這還可讓您從內部部署中存取共用。Azure 檔案會架構在 Blob 服務上，因此它會繼承內建於 Azure 儲存體的相同可用性、持久性和異地備份。
 
 **Azure 檔案的案例**
 
@@ -448,8 +443,7 @@ Azure 備份會將資料從執行 Windows Server 的內部部署伺服器備份�
 透過服務匯流排通訊的應用程式有可能是在其他雲端平台上執行的 Azure 應用程式或軟體。但是，也可能是在雲端以外執行的應用程式。例如，假設有一家航空公司在自有資料中心內的電腦中提供訂位服務。這家航空公司需要向許多用戶端公開這些服務，包括機場的自助報到機、訂位人員終端機，甚至是客戶的手機。該公司可使用服務匯流排來進行，以在各種應用程式之間建立鬆散偶合的互動。
 
 #### 服務匯流排主題和訂用帳戶
-![Azure 服務匯流排主題](./media/fundamentals-introduction-to-azure/ServiceBusTopicsSubsIntroNew.png) 
-*圖：服務匯流排主題允許多個應用程式張貼訊息，其他應用程式可訂閱以接收符合特定條件的訊息。*
+![Azure 服務匯流排主題](./media/fundamentals-introduction-to-azure/ServiceBusTopicsSubsIntroNew.png) *圖：服務匯流排主題允許多個應用程式張貼訊息，其他應用程式可訂閱以接收符合特定條件的訊息。*
 
 服務匯流排提供一個稱為主題和訂用帳戶的發佈與訂用帳戶機制。透過發佈與訂用帳戶，應用程式可將訊息傳送到某個主題，而其他應用程式則可建立此主題的訂用帳戶。如此一來，在一組應用程式當中的一對多通訊，可讓多位收件者讀取相同的訊息。
 
@@ -459,8 +453,7 @@ Azure 備份會將資料從執行 Windows Server 的內部部署伺服器備份�
   
 
 ### BizTalk 服務
-![BizTalk 服務](./media/fundamentals-introduction-to-azure/BizTalkServicesIntroNew.png) 
-*圖：BizTalk 服務提供在雲端轉換 XML 訊息格式的能力。*
+![BizTalk 服務](./media/fundamentals-introduction-to-azure/BizTalkServicesIntroNew.png) *圖：BizTalk 服務提供在雲端轉換 XML 訊息格式的能力。*
 
 有時候，您會需要連接使用不同訊息格式進行通訊的系統。即使在可以使用常用標準的情況下，企業有不同的資料庫結構描述和 XML 訊息格式是很普遍的作法。與其撰寫大量自訂程式碼，您可以使用內部部署的 BizTalk 伺服器整合各種系統。Azure BizTalk 服務提供相同類型的服務，但會在雲端中。您只需就所使用的服務付費，而無需擔心必須像內部部署一樣擴充。
  
@@ -475,8 +468,7 @@ Azure 為不需要持續執行的服務提供協助。
 
 ### 排程器
 
-![Azure 排程器](./media/fundamentals-introduction-to-azure/SchedulerIntroNew.png) 
-*圖：Azure 排程器提供一個方式，可在特定時間排程特定期間的工作。*
+![Azure 排程器](./media/fundamentals-introduction-to-azure/SchedulerIntroNew.png) *圖：Azure 排程器提供一個方式，可在特定時間排程特定期間的工作。*
 
 有時候，應用程式只需要在特定時間執行。在 Azure 上，您可以使用此類型的應用程式來節省開支，而非讓應用程式全天候持續執行，等待要處理的資料。Azure 排程器可讓您根據間隔時間或行事曆，排定應用程式應該執行的時間。它非常可靠，並確認即使網路、機器和資料中心發生故障，程序也會照樣執行。您可以使用排程器 REST API 來管理這些動作。
 
@@ -502,8 +494,7 @@ Azure 為不需要持續執行的服務提供協助。
 
 ### Azure 快取
 
-![Azure 快取](./media/fundamentals-introduction-to-azure/AzureCacheIntroNew.png) 
-**圖：Azure 應用程式可以快取記憶體內部資料，並甚至在許多不同的背景工作角色中將其分割**
+![Azure 快取](./media/fundamentals-introduction-to-azure/AzureCacheIntroNew.png) **圖：Azure 應用程式可以快取記憶體內部資料，並甚至在許多不同的背景工作角色中將其分割**
 
 存取在任何 Azure 資料管理服務 (SQL Database、資料表或 Blob) 中儲存的資料時，速度會相當快。但存取記憶體內部儲存的資料時，速度則更加快速。因此，保留經常存取之資料的記憶體內部複本，可以改善應用程式效能。您可以使用 Azure 的記憶體內部快取來進行。
 
@@ -518,8 +509,7 @@ Azure 具備許多不同的快取技術，而這些技術已隨著時間出現�
 使用此種快取，可讓重複讀取產品目錄的應用程式因而受惠，例如，將可更快取得其所需的資料。這項技術也支援鎖定，使其使用於可讀寫及唯讀資料。ASP.NET 應用程式只需變更組態，即可使用此服務來儲存工作階段資料。
 
 ### 內容傳遞網路
-![Azure CDN](./media/fundamentals-introduction-to-azure/CDNIntroNew.png) 
-**圖：Blob 複本可在全球各地站台進行快取。**
+![Azure CDN](./media/fundamentals-introduction-to-azure/CDNIntroNew.png) **圖：Blob 複本可在全球各地站台進行快取。**
 
 假設您需要儲存將由全球各地使用者存取的 Blob 資料。這或許是最近世界盃比賽的影片、驅動程式更新或熱門的電子書。在多個 Azure 資料中心儲存一份資料將有所幫助，但如果有太多使用者，則可能有所不足。為了獲得更好的效能，您可以使用 Azure CDN。
 
@@ -534,8 +524,7 @@ CDN 在全球各地有許多網站，每個網站都能儲存 Azure 二進位大
 ## 大數據與大量運算
 
 ### HDInsight (Hadoop)
-![HDInsight](./media/fundamentals-introduction-to-azure/HDInsightIntroNew.png) 
-**圖：HDInsight 可協助巨量資料的大量處理**
+![HDInsight](./media/fundamentals-introduction-to-azure/HDInsightIntroNew.png) **圖：HDInsight 可協助巨量資料的大量處理**
 
 多年以來，已對用關聯式 DBMS 建置的資料倉儲中儲存的關聯式資料進行大量的資料分析。此種商務分析仍然很重要，而且將持續很長一段時間。但如果您要分析的資料非常大量，以致關聯式資料庫無法處理，該怎麼辦？ 而假設此資料沒有關聯式，則會如何？ 舉例來說，此資料可能是資料中心的伺服器記錄檔，或感應器過去的事件資料，或是其他資料。在這類情況下，您會有所謂的巨量資料問題。您需要其他方法。
 
@@ -559,8 +548,7 @@ Azure 還為大量計算應用程式開發人員和合作夥伴提供一組完�
 
 ## 媒體
 
-![Azure 媒體服務](./media/fundamentals-introduction-to-azure/MediaServicesIntroNew.png) 
-**圖：媒體服務是一個平台，可讓應用程式將視訊和其他媒體提供給全球各地的用戶端。**
+![Azure 媒體服務](./media/fundamentals-introduction-to-azure/MediaServicesIntroNew.png) **圖：媒體服務是一個平台，可讓應用程式將視訊和其他媒體提供給全球各地的用戶端。**
 
 視訊構成了現今網際網路流量的一大部分，其所佔的比例日益提高。但是在 Web 上提供視訊並不簡單。有很多變數，例如編碼演算法及使用者畫面的顯示解析度。視訊的需求也很容易暴增，例如有許多人決定觀賞線上電影時的週六夜晚尖峰。
 
@@ -587,8 +575,7 @@ Azure 媒體服務可處理此問題。其提供一組雲端元件，讓人們�
 
 「軟體即服務」的興起改變了我們建立應用程式的方式。同時也改變我們銷售應用程式的方式。因為 SaaS 應用程式存在於雲端，所以其潛在客戶會在線上尋找解決方案。這種改變可適用於資料和應用程式。人們為何不能在雲端尋找可購得的資料集？ Microsoft 透過 [Azure Marketplace](http://datamarket.azure.com/) 和 [Azure Store](../articles/overview.md) 解決這兩個考量。
 
-![Azure 商業](./media/fundamentals-introduction-to-azure/CommerceIntroNew.png) 
-**圖：您可利用 Azure Marketplace 和 Azure Store 尋找和購買 Azure 應用程式和商業資料集，並將他們當作 Azure 應用程式的一部分使用。**
+![Azure 商業](./media/fundamentals-introduction-to-azure/CommerceIntroNew.png) **圖：您可利用 Azure Marketplace 和 Azure Store 尋找和購買 Azure 應用程式和商業資料集，並將他們當作 Azure 應用程式的一部分使用。**
 
 兩者的差異在於 Marketplace 在 Azure 管理入口網站外部，而 Store 則可從入口網站內部存取。潛在客戶可以搜尋以找到符合其需求的 Azure 應用程式。客戶也可以搜尋商業資料集，包括人口統計資料、財務資料、地理資料等。當客戶尋找自己喜歡的資料時，可以經由廠商、直接透過 Marketplace 或 Store Web 位置，或者經由管理入口網站進行存取。應用程式可以透過 Marketplace 使用 Bing 搜尋 API，並可供存取 Web 搜尋的結果。
 
@@ -605,4 +592,4 @@ SendGrid 是 Azure Store 中可讓您傳送電子郵件的應用程式。它提�
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

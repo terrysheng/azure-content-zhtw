@@ -27,7 +27,7 @@
 * 在 IIS 伺服器或在 Azure 上執行的 ASP.NET Web 應用程式和服務
 * [Java Web 應用程式](app-insights-java-agent.md)
 
-若為其他類型，例如裝置 app，您可以使用 TrackDependency API 撰寫自己的監視器。
+若為其他類型，例如裝置應用程式，您可以使用 [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency) 撰寫自己的監視器。
 
 預設的相依性監視目前會回報這些相依性類型的呼叫：
 
@@ -129,4 +129,4 @@ IIS 伺服器的狀態監視器不需要您使用 Application Insights SDK 重�
 
 <!--Link references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

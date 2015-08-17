@@ -18,7 +18,9 @@
 
 # 使用 Azure 命令列介面 (Azure CLI) 管理角色型存取控制 #
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/role-based-access-control-powershell.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/role-based-access-control-../xplat-cli.md" title="Azure CLI">Azure CLI</a></div>
+> [AZURE.SELECTOR]
+- [Windows PowerShell](role-based-access-control-powershell.md)
+- [Azure CLI](/role-based-access-control-xplat-cli.md)
 
 Azure 入口網站以及 Azure 資源管理員 API 裡的角色型存取控制 (RBAC) 功能，可讓您深入地管理訂用帳戶與資源的存取。透過這項功能，您可以為 Active Directory 使用者、群組或是服務主體指派特定範圍的一些角色，藉此賦予其存取權限。
 
@@ -118,7 +120,7 @@ Azure 入口網站以及 Azure 資源管理員 API 裡的角色型存取控制 (
 
 - 此舉會在資源群組層級中建立角色指派：
 
-    `PS C:> azure role assignment create --upn <user's email> -o Contributor -g group1`
+    `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
 
 - 此舉會在資源層級中建立角色指派：
 
@@ -128,8 +130,8 @@ Azure 入口網站以及 Azure 資源管理員 API 裡的角色型存取控制 (
 
 確認您的帳戶內含一些角色指派之後，就能執行下列指令來實際看到這些角色指派授予您的權限：
 
-    PS C:> azure group list
-    PS C:> azure resource list
+    PS C:\> azure group list
+    PS C:\> azure resource list
 
 這兩組 Cmdlet 只會傳回您擁有讀取權限的資源群組或資源。而且會同時顯示您擁有的權限。
 
@@ -148,4 +150,4 @@ Azure 入口網站以及 Azure 資源管理員 API 裡的角色型存取控制 (
 - [為角色型存取控制進行疑難排解](role-based-access-control-troubleshooting.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

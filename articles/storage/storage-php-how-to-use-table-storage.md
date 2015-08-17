@@ -479,4 +479,4 @@
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

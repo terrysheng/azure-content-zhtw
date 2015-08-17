@@ -63,4 +63,4 @@
 - 將 LDAP 逾時設定為 30 至 60 秒，以保留足夠的時間向 LDAP 目錄驗證使用者的認證、執行第二個因素驗證、接收回應，然後回應 LDAP 存取要求。 
 - 如果使用 LDAPS，則提出 LDAP 查詢的應用裝置或伺服器必須信任安裝在 Azure Multi-Factor Authentication Server 上的 SSL 憑證。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

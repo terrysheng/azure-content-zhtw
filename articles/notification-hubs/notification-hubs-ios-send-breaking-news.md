@@ -36,7 +36,7 @@
 
 第一個步驟是在您現有的腳本上新增 UI 元素，以便使用者選取要註冊的類別。使用者所選取的類別會儲存在裝置上。啟動應用程式時，您的通知中心內會建立以所選取類別作為標籤的裝置註冊。
 
-1. 在您的 MainStoryboard_iPhone.storyboard 中，從物件程式庫新增下列元件：
+1. 在您的 MainStoryboard\_iPhone.storyboard 中，從物件程式庫新增下列元件：
 	+ 具有「即時新聞」文字的標籤，
 	+ 具有「世界」、「政治」、「商業」、「技術」、「科學」、「體育」等類別文字的標籤，
 	+ 六個參數 (一個類別一個)，預設會將每個參數 [狀態] 設為 [關閉]。
@@ -346,8 +346,7 @@
 
 3. 每個訂閱即時新聞的裝置都會收到您剛剛傳送的即時新聞通知。
 
-	![][4]
-	![][5]
+	![][4] ![][5]
 
 
 ## 後續步驟
@@ -386,6 +385,6 @@
 [通知中心指引]: http://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
+ 
 
-
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

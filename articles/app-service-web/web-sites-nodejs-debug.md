@@ -54,7 +54,7 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 
 	azure site restart [sitename]
 
-> [AZURE.NOTE]雖然 loggingEnabled 和 devErrorsEnabled 是最常用來擷取診斷資訊的 IISNode.yml 組態選項，但 IISNode.yml 也能用來為主控環境設定各種選項。如需完整的組態選項清單，請參閱 [iisnode_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml) 檔案。
+> [AZURE.NOTE]雖然 loggingEnabled 和 devErrorsEnabled 是最常用來擷取診斷資訊的 IISNode.yml 組態選項，但 IISNode.yml 也能用來為主控環境設定各種選項。如需完整的組態選項清單，請參閱 [iisnode\_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml) 檔案。
 
 <a id="viewlogs"></a>
 ## 存取記錄檔
@@ -125,4 +125,4 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

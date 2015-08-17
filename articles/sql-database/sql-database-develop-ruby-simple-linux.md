@@ -117,4 +117,4 @@ Ruby 範例依賴 AdventureWorks 範例資料庫。如果您還沒有 AdventureW
     puts row
     end 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

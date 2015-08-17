@@ -315,4 +315,4 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](http://m
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

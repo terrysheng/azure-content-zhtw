@@ -265,7 +265,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 應�
 
 ### <a name="runApp"></a>執行應用程式
 
-開啟 Azure PowerShell 主控台、瀏覽至您儲存專案的位置、瀏覽至專案內的 \bin\debug 目錄，然後執行下列命令：
+開啟 Azure PowerShell 主控台、瀏覽至您儲存專案的位置、瀏覽至專案內的 \\bin\\debug 目錄，然後執行下列命令：
 
 	.\CreateRCluster <cluster-name>
 
@@ -283,4 +283,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 應�
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -103,4 +103,4 @@
 [如何對 .NET 後端行動服務進行資料模型變更]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
  
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

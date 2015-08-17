@@ -45,4 +45,4 @@
 進一步了解 Azure 入口網站：http://azure.microsoft.com。
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

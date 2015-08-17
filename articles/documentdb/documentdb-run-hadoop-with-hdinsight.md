@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 DocumentDB 和 HDInsight 執行 Hadoop 工作 | Azure" 
+	pageTitle="使用 DocumentDB 和 HDInsight 執行 Hadoop 工作 | Microsoft Azure" 
 	description="了解如何使用 DocumentDB 和 Azure HDInsight 來執行簡單的 Hive、Pig 和 MapReduce 工作。"
 	services="documentdb" 
 	authors="AndrewHoh" 
@@ -489,4 +489,4 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

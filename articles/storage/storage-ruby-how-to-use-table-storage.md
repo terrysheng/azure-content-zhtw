@@ -159,4 +159,4 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 - 請造訪 GitHub 上的 [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) 儲存機制 (英文)。
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

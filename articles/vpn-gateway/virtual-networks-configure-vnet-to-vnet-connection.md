@@ -195,11 +195,11 @@ VNet2： 位址空間 = 10.2.0.0/16；區域 = 日本東部
 
 對於 Vnet1
 
-	PS C:> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4
+	PS C:\> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4
 
 對於 VNet2
 
-	PS C:> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4
+	PS C:\> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4
 
 等待連線初始化。一旦閘道完成初始化之後，將會如下圖所示，而且您的虛擬網路已連線。
 
@@ -223,4 +223,4 @@ VNet2： 位址空間 = 10.2.0.0/16；區域 = 日本東部
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

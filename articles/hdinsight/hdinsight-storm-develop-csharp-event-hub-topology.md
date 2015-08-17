@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/29/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 # 利用 Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)
@@ -532,17 +532,17 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 
 * 拓撲遭終止並**使用相同名稱**重新啟動。
 
-您也可以匯出及匯入保存的檢查點到 WASB (您的 HDInsight 叢集所使用的 Azure 儲存體)。 要執行此步驟的指令碼位於 Storm on HDInsight 叢集的 **c:\apps\dist\storm-0.9.3.2.2.1.0-2340\zkdatatool-1.0\bin**。
+您也可以匯出及匯入保存的檢查點到 WASB (您的 HDInsight 叢集所使用的 Azure 儲存體)。 要執行此步驟的指令碼位於 Storm on HDInsight 叢集的 **c:\\apps\\dist\\storm-0.9.3.2.2.1.0-2340\\zkdatatool-1.0\\bin**。
 
 >[AZURE.NOTE]路徑中的版本號碼可能不同，因為叢集上安裝的 Storm 版本可能會在未來變更。
 
 此目錄中的指令碼有：
 
-* **stormmeta_import.cmd**：將所有 Storm 中繼資料從叢集預設儲存體容器匯入到 Zookeeper。
+* **stormmeta\_import.cmd**：將所有 Storm 中繼資料從叢集預設儲存體容器匯入到 Zookeeper。
 
-* **stormmeta_export.cmd**：將所有 Storm 中繼資料從 Zookeeper 匯出到叢集預設儲存體容器。
+* **stormmeta\_export.cmd**：將所有 Storm 中繼資料從 Zookeeper 匯出到叢集預設儲存體容器。
 
-* **stormmeta_delete.cmd**：從 Zookeeper 刪除所有 Storm 中繼資料。
+* **stormmeta\_delete.cmd**：從 Zookeeper 刪除所有 Storm 中繼資料。
 
 匯出匯入可讓您在需要刪除叢集，但又想要在讓新的叢集回到線上時從中樞的目前位移繼續處理時，保存檢查點資料。
 
@@ -557,4 +557,4 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

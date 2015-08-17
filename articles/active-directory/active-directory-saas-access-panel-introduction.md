@@ -38,7 +38,7 @@
 
 - 檢視和啟動 Azure AD 系統管理員已授與您存取權的雲端應用程式。如需有關從使用者的觀點來看存取面板的詳細資訊，請參閱[使用存取面板](https://msdn.microsoft.com/library/azure/dn756411.aspx)。
 
-- 自我管理群組。更具體地說，您可以在 Azure AD 中建立及管理安全性群組，並要求安全性群組成員資格。如需詳細資訊，請參閱 [Azure AD 中使用者的自助式群組管理](https://msdn.microsoft.com/library/azure/dn641267.aspx)與[管理群組](https://msdn.microsoft.com/library/azure/dn641268.aspx)。
+- 自我管理群組。更具體地說，您可以在 Azure AD 中建立及管理安全性群組，並要求安全性群組成員資格。如需詳細資訊，請參閱 [Azure AD 中使用者的自助群組管理](active-directory-accessmanagement-self-service-group-management.md)與[管理群組](active-directory-manage-groups.md)。
 
 
 
@@ -46,9 +46,9 @@
 ## 存取存取面板
 
 
-使用者可以使用網頁瀏覽器瀏覽以下 URL 以存取存取面板：<br> **http://myapps.microsoft.com**
+使用者可以使用網頁瀏覽器瀏覽以下 URL 以存取「存取面板」：<br> ****http://myapps.microsoft.com**
 
-如果您已經為您的登入頁面設定自訂商標，在預設情況下，您可以將您組織的網域附加到 URL 結尾以載入此商標：<br> **http://myapps.microsoft.com/contosobuild.com**
+如果您已經為您的登入頁面設定自訂商標，在預設情況下，您可以將您組織的網域附加到 URL 結尾以載入此商標：<br> ****http://myapps.microsoft.com/contosobuild.com**
 
 在此情況下，可能會使用已經在 Azure 管理入口網站中您目錄的 [網域] 索引標籤底下設定的任何作用中網域名稱或已驗證的網域名稱，如以下螢幕擷取畫面所示。
 
@@ -68,7 +68,7 @@
 
 如果使用者具備 Azure 或 Office 365 的訂用帳戶，而且已經在使用 Azure 管理入口網站或 Office 365 應用程式，則他們將會看到應用程式清單，而不需要再次登入。系統將會提示未經過驗證的使用者在 Azure AD 中使用其帳戶的使用者名稱和密碼登入。如果組織已設定同盟，則輸入使用者名稱已經足夠。
 
-驗證之後，使用者將能夠與系統管理員已經整合到目錄中的應用程式互動。若要了解如何使用 Azure AD 整合應用程式，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
+驗證之後，使用者將能夠與系統管理員已經整合到目錄中的應用程式互動。若要了解如何整合應用程式與 Azure AD，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
  
 
 
@@ -95,7 +95,7 @@
 ### My Apps for Android
 
 
-執行 Android 4.1 版和更新版本的任何 Android 裝置都支援 My Apps for Android，而且現在在 [Google Play 商店](https://play.google.com/store/apps/details?id=com.microsoft.myapps)中有提供。
+執行 Android 4.1 版和更新版本的任何 Android 裝置都支援 My Apps for Android，而且現在已在 [Google Play 商店](https://play.google.com/store/apps/details?id=com.microsoft.myapps)中提供。
 
 
 ![My Apps][3]
@@ -128,52 +128,41 @@
 
 **以不同的使用者帳戶測試：**
 
-1. 按一下 Azure 入口網站或存取面板右上角的使用者功能表，並選取 [\*\*登出\*\*]。這可將您登出 Azure AD。
+1. 按一下 Azure 入口網站或存取面板右上角的使用者功能表，並選取 [**登出**]。這可將您登出 Azure AD。
 
-2. 前往位於 **http://myapps.microsoft.com** 的存取面板。
+2. 前往位於 ****http://myapps.microsoft.com** 的存取面板。
 
 3. 在登入頁面中，輸入您目錄中想要測試的帳戶的使用者名稱和密碼。
-
-
-
  
 ## 啟動應用程式
 
 可能出現在存取面板上的應用程式有數種。
  
-
 ### Office 365 應用程式
 
 如果組織打算使用 Office 365 應用程式，且使用者有授權，則 Office 365 應用程式將會出現在使用者的存取面板上。
 
 當使用者按一下 Office 365 應用程式的應用程式磚時，會將他們重新導向至該應用程式，並自動登入。
- 
-
 
 ### 以同盟 SSO 設定的 Microsoft 及協力廠商應用程式
 
-這些是系統管理員在單一登入模式設定為 [\*Azure AD 單一登入\*] 的情況下，新增到 Azure 管理入口網站的 Active Directory 區段中的應用程式。只有在系統管理員明確地為使用者授與應用程式的存取權時，他們才會看到這些應用程式。
+這些是系統管理員在單一登入模式設定為 [*Azure AD 單一登入*] 的情況下，新增到 Azure 管理入口網站的 Active Directory 區段中的應用程式。只有在系統管理員明確地為使用者授與應用程式的存取權時，他們才會看到這些應用程式。
 
 當使用者按一下這些其中一個應用程式的應用程式磚時，會將他們重新導向至該應用程式，並自動登入。
- 
 
 ### 不含身分識別佈建的密碼 SSO
 
-這些是系統管理員在單一登入模式設定為 [\*密碼單一登入\*] 的情況下，新增到 Azure 管理入口網站的 Active Directory 區段中的應用程式。<br>目錄中的所有使用者都會看到已在此模式下設定的所有應用程式。
+這些是系統管理員在單一登入模式設定為 [*密碼單一登入*] 的情況下，新增到 Azure 管理入口網站的 Active Directory 區段中的應用程式。<br>目錄中的所有使用者都會看到已在此模式下設定的所有應用程式。
 
 當使用者第一次按一下這些其中一個應用程式的應用程式磚時，系統會提示他們安裝適用於 Internet Explorer 或 Chrome 的密碼 SSO 外掛程式，安裝後可能需要重新啟動網頁瀏覽器。當使用者返回存取面板並再按一下應用程式磚時，系統將會提示他們輸入應用程式的使用者名稱和密碼。一旦輸入使用者名稱和密碼之後，這些認證將會安全地儲存在 Azure AD 中，並連結至他們在 Azure AD 中的帳戶，且存取面板將會使用這些認證，自動將使用者登入應用程式。
 
 下一次使用者按一下應用程式磚時，他們將會自動登入應用程式而不需要再次輸入認證，也不需要再次安裝密碼 SSO 外掛程式。
 
 如果使用者的認證在目標協力廠商應用程式中已變更，則使用者也必須更新他們儲存在 Azure AD 中的認證。若要更新認證，使用者必須選取應用程式磚右下方的圖示，然後選取 [更新認證] 以重新輸入該應用程式的使用者名稱與密碼。
- 
-
-
-
 
 ### 含身分識別佈建的密碼 SSO
 
-這些是系統管理員在單一登入模式設定為 [\*密碼單一登入\*] 以及身分識別佈建的情況下，新增到 Azure 管理入口網站的 Active Directory 區段中的應用程式。
+這些是系統管理員在單一登入模式設定為 [*密碼單一登入*] 以及身分識別佈建的情況下，新增到 Azure 管理入口網站的 Active Directory 區段中的應用程式。
 
 當使用者第一次按一下這些其中一個應用程式的應用程式磚時，系統會提示他們安裝適用於 Internet Explorer 或 Chrome 的密碼 SSO 外掛程式，安裝後可能需要重新啟動網頁瀏覽器。當使用者返回存取面板並再按一下應用程式磚時，他們將會自動登入應用程式。
 
@@ -184,18 +173,12 @@
 設定應用程式的單一登入時，Azure 管理入口網站提供「現有單一登入」的第三個選項。這個選項只允許系統管理員建立應用程式的連結，並將連結放在選定使用者的存取面板上。例如，如果有一個應用程式設定為使用 Active Directory Federation Services 2.0 來驗證使用者，系統管理員可以使用 [現有單一登入] 選項在存取面板上建立應用程式的連結。當使用者存取此連結時，會使用 Active Directory Federation Services 2.0，或由應用程式提供的任何現有單一登入解決方案來驗證使用者。
 
 
-
-
-
-## 其他資源
-
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/ic767166.png
 [2]: ./media/active-directory-saas-access-panel-introduction/ic767167.png
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

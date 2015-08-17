@@ -3,7 +3,7 @@
 	description="使用 Azure Preview 入口網站或 PowerShell 命令，快速重設 Windows 虛擬機器的本機系統管理員密碼或遠端桌面服務。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
-	ms.author="josephd"/>
+	ms.author="dkshir"/>
 
 # 如何重設 Windows 虛擬機器的密碼或遠端桌面服務
 
@@ -113,4 +113,4 @@ VMAccess 延伸項目會在虛擬機器上執行這兩個命令：
 
 [疑難排解以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

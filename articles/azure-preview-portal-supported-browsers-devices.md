@@ -32,4 +32,4 @@ Microsoft Azure 入口網站可在所有最新的桌上型電腦和平板電腦�
 
 *不支援 Safari 6 和之前的版本。如果您使用的是 OS X，您可以使用 Chrome、Firefox，或升級至 OS X Mavericks 以取得 Safari 7。*
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

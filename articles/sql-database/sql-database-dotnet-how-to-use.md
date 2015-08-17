@@ -211,4 +211,4 @@ Entity Framework 可讓開發人員對概念式的應用程式模型進行程式
 既然您了解連接到 SQL Database 的基本概念，請參閱[開發：作法主題 (SQL Database)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

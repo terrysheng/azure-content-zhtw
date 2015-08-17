@@ -168,7 +168,7 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
 
 </td>
 <td>
-~5 Mbps
+\~5 Mbps
 
 </td>
 </tr>
@@ -190,7 +190,7 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
 
 </td>
 <td>
-~100 Mbps
+\~100 Mbps
 
 </td>
 </tr>
@@ -212,7 +212,7 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
 
 </td>
 <td>
-~200 Mbps
+\~200 Mbps
 
 </td>
 </tr>
@@ -234,7 +234,7 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
 
 </td>
 <td>
-~400 Mbps
+\~400 Mbps
 
 </td>
 </tr>
@@ -256,7 +256,7 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
 
 </td>
 <td>
-~800 Mbps
+\~800 Mbps
 
 </td>
 </tr>
@@ -284,7 +284,7 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
 
 服務組態檔 (CSCFG) 是一個 XML 檔案，其中描述不需重新部署應用程式就能變更的設定。如需此 XML 檔案的完整結構描述，請至：[http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][]。CSCFG 檔案會針對您應用程式中的每個角色各包含一個 Role 元素。以下是一些您可以在 CSCFG 檔案中指定的項目：
 
--   **OS 版本**。此屬性可讓您選取要讓所有執行您應用程式程式碼之角色執行個體來使用的作業系統 (OS) 版本。此作業系統稱為「客體 OS」，而且每個新版本都包含客體 OS 發行當時可用的最新安全性修補程式和更新。如果您將 osVersion 屬性值設定為 "*"，則 Azure 會在有新的客體 OS 版本可用時，自動更新每個角色執行個體上的客體 OS。不過，選取特定客體 OS 版本，即等於選擇略過自動更新。例如，將 osVersion 屬性設為值 "WA-GUEST-OS-2.8_201109-01"，會讓您的所有角色執行個體都取得下列網頁所述的內容：[http://msdn.microsoft.com/library/hh560567.aspx][]。如需客體 OS 版本的詳細資訊，請參閱 [管理 Azure 客體 OS 的升級]。
+-   **OS 版本**。此屬性可讓您選取要讓所有執行您應用程式程式碼之角色執行個體來使用的作業系統 (OS) 版本。此作業系統稱為「客體 OS」，而且每個新版本都包含客體 OS 發行當時可用的最新安全性修補程式和更新。如果您將 osVersion 屬性值設定為 "*"，則 Azure 會在有新的客體 OS 版本可用時，自動更新每個角色執行個體上的客體 OS。不過，選取特定客體 OS 版本，即等於選擇略過自動更新。例如，將 osVersion 屬性設為值 "WA-GUEST-OS-2.8\_201109-01"，會讓您的所有角色執行個體都取得下列網頁所述的內容：[http://msdn.microsoft.com/library/hh560567.aspx][]。如需客體 OS 版本的詳細資訊，請參閱 [管理 Azure 客體 OS 的升級]。
 
 -   **執行個體**。此元素的值指出您想要佈建來執行特定角色之程式碼的角色執行個體數目。因為您可以將新的 CSCFG 檔案上傳至 Azure (而不需要重新部署應用程式)，所以很簡單就可以變更此元素的值，並上傳新的 CSCFG 檔案，以動態增加或減少執行應用程式程式碼的角色執行個體數目。如此一來，您便可根據實際工作量需求，輕鬆地向上調整或向下調整應用程式，同時控制要為執行的角色執行個體負擔的費用。
 
@@ -346,4 +346,4 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
   [將應用程式移轉到 Azure]: http://msdn.microsoft.com/library/gg186051.aspx
   [設定 Azure 應用程式]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

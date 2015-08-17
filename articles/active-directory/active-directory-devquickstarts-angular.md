@@ -111,7 +111,7 @@ adalProvider.init(
 ...
 ```
 
-您現在有一個安全的單一頁面應用程式，能夠將使用者登入，並發出以持有人權杖保護的要求至其後端 API。當使用者按一下 `TodoList` 連結時，需要的話，adal.js 會自動重新導向至 Azure AD 進行登入。此外，adal.js 將會自動將 access_token 附加至任何傳送至應用程式後端的 ajax 要求。以上是以 adal.js 建置 SPA 時最起碼的條件，但 SPA 中還有其他許多有用的功能：
+您現在有一個安全的單一頁面應用程式，能夠將使用者登入，並發出以持有人權杖保護的要求至其後端 API。當使用者按一下 `TodoList` 連結時，需要的話，adal.js 會自動重新導向至 Azure AD 進行登入。此外，adal.js 將會自動將 access\_token 附加至任何傳送至應用程式後端的 ajax 要求。以上是以 adal.js 建置 SPA 時最起碼的條件，但 SPA 中還有其他許多有用的功能：
 
 - 若要明確發出登入和登出要求，您可以在控制器中定義函式來叫用 adal.js。在 `App/Scripts/homeCtrl.js` 中：
 
@@ -151,4 +151,4 @@ Aaal.js 可讓您輕鬆地將這些常見的身分識別功能全部納入您的
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

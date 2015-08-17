@@ -245,7 +245,7 @@ MongoDB C# 驅動程式現已安裝。**MongoDB.Driver.dll** 和 **MongoDB.Bson.
 	}
 
 ## 新增控制器 ##
-在 [方案總管] 中開啟 **Controllers\HomeController.cs** 檔案，然後以下列程式碼取代現有程式碼：
+在 [方案總管] 中開啟 **Controllers\\HomeController.cs** 檔案，然後以下列程式碼取代現有程式碼：
 
 	using System;
 	using System.Collections.Generic;
@@ -326,11 +326,11 @@ MongoDB C# 驅動程式現已安裝。**MongoDB.Driver.dll** 和 **MongoDB.Bson.
 	}
 
 ## 設定樣式 ##
-若要變更頁面最上方的標題，請在 [方案總管] 中開啟 **Views\Shared_Layout.cshtml** 檔案，並以 "My Task List Application" 取代導覽列中的 "Application name"，使其看起來如下：
+若要變更頁面最上方的標題，請在 [方案總管] 中開啟 *Views\\Shared\\\_Layout.cshtml* 檔案，並以 "My Task List Application" 取代導覽列標題中的 "Application name"，使其看起來如下：
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
-若要設定 Task List 功能表，請開啟 *\Views\Home\Index.cshtml* 檔案並以下列程式碼取代現有程式碼：
+若要設定 Task List 功能表，請開啟 *\\Views\\Home\\Index.cshtml* 檔案並以下列程式碼取代現有程式碼：
 	
 	@model IEnumerable<MyTaskListApp.Models.MyTask>
 	
@@ -367,7 +367,7 @@ MongoDB C# 驅動程式現已安裝。**MongoDB.Driver.dll** 和 **MongoDB.Bson.
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-若要新增建立新工作的功能，請在 *Views\Home* 資料夾上按一下滑鼠右鍵，然後 [新增] 一個 [檢視]。將檢視命名為 *Create*。使用下列程式碼來取代此程式碼：
+若要新增建立新工作的功能，請在 *Views\\Home\* 資料夾上按一下滑鼠右鍵，然後 [新增] 一個 [檢視]。將檢視命名為 *Create*。使用下列程式碼來取代此程式碼：
 
 	@model MyTaskListApp.Models.MyTask
 	
@@ -499,4 +499,4 @@ MongoDB C# 驅動程式現已安裝。**MongoDB.Driver.dll** 和 **MongoDB.Bson.
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

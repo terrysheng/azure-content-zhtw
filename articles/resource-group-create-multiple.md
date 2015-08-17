@@ -114,4 +114,4 @@
 - [Azure 資源管理員範本函數](./resource-group-template-functions.md)
 - [使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

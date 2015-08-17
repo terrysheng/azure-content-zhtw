@@ -167,7 +167,7 @@
 
 3. 然後執行 Get-MsolDomainVerificationDns Cmdlet 來建立挑戰：
 
-	Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
+	Get-MsolDomainVerificationDns –DomainName *your\_domain\_name* –Mode DnsTxtRecord
 
 	例如：
 
@@ -185,7 +185,7 @@
 
 6. 執行 onfirm-MsolDomain Cmdlet 來驗證挑戰：
 
-	Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
+	Confirm-MsolEmailVerifiedDomain -DomainName *your\_domain\_name*
 
 	例如：
 
@@ -236,4 +236,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

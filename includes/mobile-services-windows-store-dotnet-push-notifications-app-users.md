@@ -29,7 +29,7 @@
 
 	這樣就能確定已使用具有已通過驗證之使用者認證的相同用戶端執行個體完成註冊。否則，註冊將會失敗，並產生「未經授權」(401) 的錯誤。
 
-3. 開啟共用的 MainPage.cs 專案檔案，並將 **ButtonLogin_Click** 處理常式取代為：
+3. 開啟共用的 MainPage.cs 專案檔案，並將 **ButtonLogin\_Click** 處理常式取代為：
 
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -44,7 +44,7 @@
 
 	這樣可確保在嘗試推送註冊之前先進行驗證。
 
-4. 	在上一段程式碼中，使用精靈產生的類別名稱取代所產生的推送類別名稱 (`todolistPush`)，格式通常是 <code><em>mobile_service</em>Push</code>。
+4. 	在上一段程式碼中，使用精靈產生的類別名稱取代所產生的推送類別名稱 (`todolistPush`)，格式通常是 <code><em>mobile\_service</em>Push</code>。
 
 ###手動啟用推播通知		
 
@@ -54,7 +54,7 @@
  
 2. 將 **InitNotificationsAsync** 方法的存取設定從 `private` 變更為 `public`，然後新增 `static` 修飾詞。
 
-3. 開啟共用的 MainPage.cs 專案檔案，並將 **ButtonLogin_Click** 處理常式取代為：
+3. 開啟共用的 MainPage.cs 專案檔案，並將 **ButtonLogin\_Click** 處理常式取代為：
 
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -69,4 +69,4 @@
 	
 	這樣可確保在嘗試推送註冊之前先進行驗證。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

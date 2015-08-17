@@ -46,11 +46,11 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
     ![選取 [**包括發行前版本**]，然後搜尋「Application Insights」](./media/app-insights-windows-cpp/04-nuget.png)
 
 3. 在專案的版本與偵錯設定中：
-  - 將 $(SolutionDir)packages\ApplicationInsights-CPP.1.0.0-Beta\src\inc 加入至 [專案屬性] -> [VC + + 目錄] -> [包含目錄]
-  - 將$(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<PLATFORM TYPE>\release\AppInsights_Win10-UAP 加入至 [專案屬性] -> [VC + + 目錄] -> [資源庫目錄]
+  - 將 $(SolutionDir)packages\\ApplicationInsights-CPP.1.0.0-Beta\\src\\inc 加入至 [專案屬性] -> [VC + + 目錄] -> [包含目錄]
+  - 將$(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<PLATFORM TYPE>\\release\\AppInsights\_Win10-UAP 加入至 [專案屬性] -> [VC + + 目錄] -> [資源庫目錄]
 
-4. 從 $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<PLATFORM TYPE>\release\ApplicationInsights 中，以參考形式將 ApplicationInsights.winmd 加入至專案
-5. 從 $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<PLATFORM TYPE>\release\AppInsights_Win10-UAP 加入 AppInsights_Win10-UAP.dll。移至 [屬性]，並將內容設為 [是]。這會將 dll 複製到組建目錄。
+4. 從 $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<PLATFORM TYPE>\\release\\ApplicationInsights 中，以參考形式將 ApplicationInsights.winmd 加入至專案
+5. 從 $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<PLATFORM TYPE>\\release\\AppInsights\_Win10-UAP 加入 AppInsights\_Win10-UAP.dll。移至 [屬性]，並將內容設為 [是]。這會將 dll 複製到組建目錄。
 
 
 #### 將 SDK 更新為未來版本
@@ -73,7 +73,7 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 	
      `// this will do automatic session tracking and automatic page view collection` `m_session = ref new ApplicationInsights::CX::SessionTracking();`
 
-  - 一旦建立根框架 (通常是在 App::OnLaunched 結尾)，請初始化 m_session：
+  - 一旦建立根框架 (通常是在 App::OnLaunched 結尾)，請初始化 m\_session：
 	
     ```
     String^ iKey = L"<YOUR INSTRUMENTATION KEY>";
@@ -139,4 +139,4 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

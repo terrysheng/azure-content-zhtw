@@ -70,7 +70,7 @@
 
 以下是您會在初始的 Git 儲存機制中找到的檔案概觀，我們將在下一節中複製。
 
-    \FlaskWebProject__init__.py
+    \FlaskWebProject\__init__.py
     \FlaskWebProject\views.py
     \FlaskWebProject\static\content\
     \FlaskWebProject\static\fonts\
@@ -401,4 +401,4 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 [Flask 說明文件]: http://flask.pocoo.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -25,7 +25,7 @@
 
 > [AZURE.NOTE]要確認版本號碼，最簡單的方式是在 [新增/移除程式] 中查看 **Microsoft HDInsight Emulator for Azure** (1.0.0.0 或更新版本) 或 **Microsoft HDInsight 開發人員預覽** (1.0.0.0 之前的版本) 的項目。
 
-## 2.0.0.0 版，2014 年 8 月 29 日發行
+## 2\.0.0.0 版，2014 年 8 月 29 日發行
 
 * 此版本將 HDInsight Emulator 更新為以 3.1 版的服務中目前存在的同一組 Hadoop 專案為目標。    
 
@@ -35,7 +35,7 @@
  
 * [HDInsight 所提供叢集版本的新功能](hdinsight-component-versioning.md)，對應至 3.1 版的服務。其中包括 Hive 0.13 和 Tez 支援。
 
-## 1.0.0.0 版，2013 年 10 月 28 日發行
+## 1\.0.0.0 版，2013 年 10 月 28 日發行
 
 * 這是 Microsoft HDInsight Emulator for Azure (先前稱為 Microsoft HDInsight Developer Preview) 的正式發行版 (GA)。 
 
@@ -43,7 +43,7 @@
 
 ### 新功能 
  
-* 已新增指令碼，以簡化將所有 Apache Hadoop 服務設為自動或手動啟動的設定。預設值仍將是自動啟動，但所有服務現在都已可透過 C:\Hadoop 中安裝的 set-onebox-manualstart.cmd 或 set-onebox-autostart.cmd 指令碼進行變更。 
+* 已新增指令碼，以簡化將所有 Apache Hadoop 服務設為自動或手動啟動的設定。預設值仍將是自動啟動，但所有服務現在都已可透過 C:\\Hadoop 中安裝的 set-onebox-manualstart.cmd 或 set-onebox-autostart.cmd 指令碼進行變更。 
 
 * 所需的安裝相依性數目已大幅降低，使安裝更為快速。
 
@@ -51,7 +51,7 @@
 
 * 此版本包含與 Azure HDInsight 叢集 1.6 版提供的 Hortonworks Data Platform 服務相符的 Hortonworks Data Platform (HDP) 1.1 版的更新。
 
-## 0.11.0.0 版，2013 年 9 月 30 日發行
+## 0\.11.0.0 版，2013 年 9 月 30 日發行
 
 ### 新功能 
 		
@@ -59,19 +59,19 @@
 
 * 此版本包含與 Azure HDInsight 上的 Hortonworks Data Platform Preview 相符的 Hortonworks Data Platform Developer Preview。
 
-## 0.10.0.0 版，2013 年 8 月 9 日發行
+## 0\.10.0.0 版，2013 年 8 月 9 日發行
 
 ### 新功能 
 	
 * 此版本包含與 Azure HDInsight 上的 Hortonworks Data Platform Preview 相符的 Hortonworks Data Platform Developer Preview。
 
-## 0.8.0.0 版，2013 年 6 月 7 日發行
+## 0\.8.0.0 版，2013 年 6 月 7 日發行
 
 ### 新功能 
 
 * 此版本包含與 Azure HDInsight 上的 Hortonworks Data Platform Preview 相符的 Hortonworks Data Platform Developer Preview。
 
-## 0.6.0.0 版，2013 年 5 月 13 日發行
+## 0\.6.0.0 版，2013 年 5 月 13 日發行
 
 ### 新功能 
 
@@ -79,7 +79,7 @@
 
 * 所有服務都會設為自動啟動，因此在機器重新開機後無須再手動啟動各項服務。
 
-## 0.4.0.0 版，2013 年 3 月 25 日發行
+## 0\.4.0.0 版，2013 年 3 月 25 日發行
 
 ### 新功能 
 
@@ -110,7 +110,7 @@
 
 	在儀表板中，您會看見名為 "local (hdfs)" 的預設本機叢集。如果您要以 Azure Blob 儲存體作為本機安裝的儲存體，請執行下列動作：
 
-	1. 在位於 C:\Hadoop\hadoop-1.1.0-SNAPSHOT\conf 中的 core-site.xml 內新增帳戶標籤：       
+	1. 在位於 C:\\Hadoop\\hadoop-1.1.0-SNAPSHOT\\conf 中的 core-site.xml 內新增帳戶標籤：       
 
 			<property>
         		<name>fs.azure.account.key.{AccountName}</name>
@@ -159,7 +159,7 @@
 	4. 刪除目前註冊的本機叢集，然後以新的 Azure Blob 儲存體認證加以重新註冊。
 
 
-## 0.3.0.0 版，2012 年 12 月 13 日發行 
+## 0\.3.0.0 版，2012 年 12 月 13 日發行 
 
 * 儀表板網站已變更為匿名驗證，而不使用 Windows 認證。如此，就不會有舊版的版本資訊中提及的登入提示問題。 
 
@@ -181,7 +181,7 @@
 		git commit id 3befda0a456124684768348bd652b0542b002895 
 		Compiled by  on Thu 11/29/2012- 3:26:26.10
 
-## 0.2.0.0 版，2012 年 12 月 3 日發行
+## 0\.2.0.0 版，2012 年 12 月 3 日發行
 
 * Windows Installer 的語法版本簡介 
 
@@ -204,7 +204,7 @@
 	* 有使用者回報在瀏覽至 HDInsight 儀表板時會引發登入對話方塊。此時，您可以提供現行使用者的登入資訊，如此即應可瀏覽至儀表板。 
 
 
-## 1.0.0.0 版，2012 年 10 月 23 日發行
+## 1\.0.0.0 版，2012 年 10 月 23 日發行
 
 * 初始版本 
 
@@ -245,7 +245,7 @@
 
 * Temp 目錄
 	
-	hadoop.tmp.dir 檔案會指向錯誤的位置。它不會指向 C:\hadoop\hdfs，而是指向 c:\hdfs。此錯誤將在下次更新 HDP 位元時修正。
+	hadoop.tmp.dir 檔案會指向錯誤的位置。它不會指向 C:\\hadoop\\hdfs，而是指向 c:\\hdfs。此錯誤將在下次更新 HDP 位元時修正。
 
 * 作業系統限制
 
@@ -276,4 +276,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

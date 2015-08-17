@@ -135,4 +135,4 @@ Azure Machine Learning Studio 中有針對特性選取而提供的模組。如�
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

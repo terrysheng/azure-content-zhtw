@@ -38,7 +38,8 @@
 8. 在 [大小] 清單中，選擇虛擬機器的大小。
 9. 指定此虛擬機器的登入認證。請記下這些資訊，因為您在透過遠端桌面存取機器時將會需要這些資訊。
 10. 在 [位置] 清單中，選擇要裝載虛擬機器的區域。
-11. 選擇 [確定] 按鈕開始建立虛擬機器。您可以在**輸出 ** 視窗中查看作業的進度。
+11. 選擇 [確定] 按鈕開始建立虛擬機器。您可以在 ** 輸出 ** 視窗中查看作業的進度。
+
 	![][3]
 
 12. 佈建虛擬機器時，系統會在解決方案的 **PublishScripts** 節點中建立發佈指令碼。發佈指令碼會在 Azure 中執行與佈建虛擬機器。[輸出] 視窗會顯示狀態。指令碼會執行下列動作以設定虛擬機器。
@@ -67,4 +68,4 @@
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

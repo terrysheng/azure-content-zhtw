@@ -119,9 +119,9 @@
         private IMobileServiceTable<TodoItem> todoTable = 
 			App.MobileService.GetTable<TodoItem>();
 
-   	此程式碼會建立行動服務感知繫結集合 (\*\*items\*\*)，和 SQL 資料庫資料表 **TodoItem** (\*\*todoTable\*\*) 的 Proxy 類別。
+   	此程式碼會建立行動服務感知繫結集合 (**items**)，和 SQL 資料庫資料表 **TodoItem** (**todoTable**) 的 Proxy 類別。
 
-7. 在 **InsertTodoItem** 方法中，移除設定 **TodoItem**.\*\*Id\*\* 屬性的程式碼行，將 **async** 修正詞新增至方法，並取消註解下列程式碼行：
+7. 在 **InsertTodoItem** 方法中，移除設定 **TodoItem**.**Id** 屬性的程式碼行，將 **async** 修正因子新增至方法，並取消註解下列程式碼行：
 
         await todoTable.InsertAsync(todoItem);
 
@@ -193,4 +193,4 @@
 [開發人員程式碼範例網站]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

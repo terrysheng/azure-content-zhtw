@@ -102,7 +102,7 @@ ms.author="adegeo"/>
 ### 使用 Visual Studio 下載 RDP 檔案
 在 Visual Studio 中，您可以使用 [伺服器總管] 建立遠端桌面連線。
 
-1.  在 [伺服器總管] 中，展開 **Azure\Cloud Services[cloud service name]** 節點。
+1.  在 [伺服器總管] 中，展開 **Azure\\Cloud Services\\[cloud service name]** 節點。
 2.  展開**預備**或**生產**。
 3.  展開個別角色。
 4.  以滑鼠右鍵按一下其中一個角色執行個體，按一下 [**使用遠端桌面連線...**]，然後輸入使用者名稱和密碼。
@@ -113,4 +113,4 @@ ms.author="adegeo"/>
 ## 後續步驟
 您可能需要[封裝](cloud-services-model-and-package.md)或[上傳 (部署)](cloud-services-how-to-create-deploy-portal.md) 您的應用程式。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

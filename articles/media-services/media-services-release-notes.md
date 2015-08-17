@@ -54,11 +54,19 @@
 
 ### <a id="general_issues"></a>媒體服務一般問題
 
-<table border="1"> <tr><th>問題</th><th>說明</yt></tr> <tr><td>REST API 中缺少幾個常用的 HTTP 標頭。</td><td>如果您使用 REST API 開發媒體服務應用程式，您會發現有些常用的 HTTP 標頭欄位 (包括 CLIENT-REQUEST-ID、REQUEST-ID 和 RETURN-CLIENT-REQUEST-ID) 不受支援。這些標頭將在未來的更新中加入。</td></tr> <tr><td>使用包含逸出字元 (例如 %20) 的檔案名稱為資產編碼時，作業會失敗，並出現「MediaProcessor：找不到檔案」。</td><td>要新增至資產並編碼的檔案名稱只能包含英數字元和空格。此問題將在未來的更新中修正。</td></tr> <tr><td>屬於 Azure Storage SDK 3.x 版的 ListBlobs 方法無法運作。</td><td>媒體服務產生 SAS URL 時是根據 <a href="http://msdn.microsoft.com/library/azure/dn592123.aspx">2012-02-12</a> 版本。如果您要使用 Azure Storage SDK 列出 Blob 容器中的 Blob，請使用屬於 Azure Storage SDK 2.x 版的 <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx">CloudBlobContainer.ListBlobs</a> 方法。屬於 Azure Storage SDK 3.x 版的 ListBlobs 方法將會失敗。</td></tr> <tr><td>媒體服務節流機制會對向服務發出過多要求的應用程式限制資源使用量。服務可能會傳回「服務無法使用 (503)」HTTP 狀態碼。</td><td>如需詳細資訊，請在 <a href="http://msdn.microsoft.com/library/azure/dn168949.aspx">Azure 媒體服務錯誤碼</a>主題中參閱 503 HTTP 狀態碼的說明。</td></tr></table><br/>
- 
+問題|說明
+---|---
+有幾個常用的 HTTP 標頭未提供於 REST API 中。|如果您使用 REST API 開發媒體服務應用程式，您會發現有些常用的 HTTP 標頭欄位 (包括 CLIENT-REQUEST-ID、REQUEST-ID 和 RETURN-CLIENT-REQUEST-ID) 不受支援。這些標頭將在未來的更新中加入。
+使用包含逸出字元 (例如 %20) 的檔案名稱為資產編碼時，作業會失敗，並出現「MediaProcessor：找不到檔案。」|要新增至資產並編碼的檔案，其名稱只能包含英數字元和空格。此問題將在未來的更新中修正。
+屬於 Azure Storage SDK 3.x 版的 ListBlobs 方法無法運作。|媒體服務會根據 [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx) 版本產生 SAS URL。如果您要使用 Azure Storage SDK 列出 Blob 容器中的 Blob，請使用屬於 Azure Storage SDK 2.x 版的 [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) 方法。屬於 Azure Storage SDK 3.x 版的 ListBlobs 方法將會失敗。
+媒體服務節流機制會針對向服務發出過多要求的應用程式限制資源使用量。服務可能會傳回「服務無法使用 (503)」HTTP 狀態碼。|如需詳細資訊，請在 [Azure 媒體服務錯誤碼](http://msdn.microsoft.com/library/azure/dn168949.aspx)主題中參閱 503 HTTP 狀態碼的說明。
+
+
 ### <a id="dotnet_issues"></a>Media Services SDK for .NET 問題
 
-<table border="1"> <tr><th>問題</th><th>說明</yt></tr> <tr><td>SDK 中的媒體服務物件無法序列化，因此無法與 Azure 快取搭配運作。</td><td>如果您嘗試序列化 SDK AssetCollection 物件以將其新增至 Azure 快取，將會擲回例外狀況。</td></tr> </table><br/>
+問題|說明
+---|---
+SDK 中的媒體服務物件無法序列化，因此無法與 Azure 快取搭配運作。|如果您嘗試序列化 SDK AssetCollection 物件以將其新增至 Azure 快取，將會擲回例外狀況。
 
 ##<a id="rest_version_history"></a>REST API 版本歷程記錄
 
@@ -68,7 +76,7 @@
 
 宣布 Media Encoder Standard 的一般可用性。如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
 
-Media Encoder Standard 使用[本](http://go.microsoft.com/fwlink/?LinkId=618336)節中所述的預設。請注意，使用 4k 編碼的預設時，您應該取得 **進階 \*\* 保留的單元類型。如需詳細資訊，請參閱[如何調整編碼](media-services-portal-encoding-units)。
+Media Encoder Standard 使用[本](http://go.microsoft.com/fwlink/?LinkId=618336)節中所述的預設。請注意，使用 4k 編碼的預設時，您應該取得**進階**保留單元類型。如需詳細資訊，請參閱[如何調整編碼](media-services-portal-encoding-units)。
 
 
 ###媒體服務 .NET SDK 更新
@@ -90,7 +98,7 @@ Azure 媒體服務 .NET SDK 現在是版本 3.3.0.0。此版本中加入了下�
 - 支援 OpenId Connect 探索規格
 - 支援處理識別提供者端的金鑰變換 
 
-如果您使用的識別提供者會公開 OpenID Connect 探索文件 (如同下列提供者：Azure Active Directory、Google、Salesforce)，您可以指示 Azure 媒體服務從 OpenID Connect 探索規格取得 JWT 權杖驗證的簽署金鑰。
+如果您使用的身分識別提供者會公開 OpenID Connect 探索文件 (如同下列提供者：Azure Active Directory、Google、Salesforce)，您可以指示 Azure 媒體服務從 OpenID Connect 探索規格取得 JWT 權杖驗證的簽署金鑰。
 
 如需詳細資訊，請參閱[在 Azure 媒體服務中使用 OpenID Connect 探索規格的 Json Web 金鑰來處理 JWT 權杖驗證](http://gtrifonov.com/2015/06/07/using-json-web-keys-from-openid-connect-discovery-spec-to-work-with-jwt-token-authentication-in-azure-media-services/)。
 
@@ -188,7 +196,7 @@ Azure 媒體服務 .NET SDK 現在是版本 3.1.0.1。
 
 ### <a id="new_encoder_release"></a>Media Services Encoder 版本
 
-發表新版的 Media Services Azure Media Encoder。使用最新的 Azure Media Encoder 時，您只需要為輸出 GB 付費，除此之外，新編碼器也與舊編碼器的功能相容。如需詳細資訊，請參閱[行動服務價格詳細資料])。
+發表新版的 Media Services Azure Media Encoder。使用最新的 Azure Media Encoder 時，您只需要為輸出 GB 付費，除此之外，新編碼器也與舊編碼器的功能相容。如需詳細資訊，請參閱[行動服務定價詳細資料])。
 
 ### <a id="oct_sdk"></a>媒體服務 .NET SDK 
 
@@ -219,7 +227,7 @@ Media Services SDK for .NET 目前的版本為 3.0.0.7。
 ### <a id="sept_14_breaking_changes"></a>重大變更
 
 * **原始來源**已重新命名為 [StreamingEndpoint]。
-* 使用 **Azure 管理入口網站**編碼並發佈 MP4 檔案的預設行為已有所變更。 
+* 使用 **Azure 管理入口網站**編碼並發行 MP4 檔案的預設行為已有所變更。 
 
 	過去，在使用管理入口網站發佈單一檔案 MP4 視訊資產時，會建立 SAS URL (SAS URL 可讓您從 Blob 儲存體下載視訊)。現在，當您使用管理入口網站編碼並發佈單一檔案 MP4 視訊資產時，產生的 URL 會指向 Azure 媒體服務串流端點。這項變更並不會影響未由 Azure 媒體服務編碼、而直接上傳至媒體服務並發佈的 MP4 視訊。
 	
@@ -282,7 +290,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 
 ### <a id="may_14_changes"></a>一般媒體服務更新
 
-您現在可以使用[動態封裝]來串流處理 HTTP 即時資料流 (HLS) v3。若要串流處理 HLS v3，請將下列格式新增至原始定位器路徑：*.ism/manifest(format=m3u8-aapl-v3)。如需詳細資訊，請參閱 [Nick Drouin 的部落格]。
+您現在可以使用[動態封裝]來串流處理 HTTP 即時資料流 (HLS) v3。若要串流處理 HLS v3，請將下列格式新增至原始定位器路徑：* .ism/manifest(format=m3u8-aapl-v3)。如需詳細資訊，請參閱 [Nick Drouin 的部落格]。
 
 動態封裝現在也支援根據使用 PlayReady 靜態加密的 Smooth Streaming，來傳遞使用 PlayReady 加密的 HLS (v3 和 v4)。如需如何使用 PlayReady 為 Smooth Streaming 加密的相關資訊，請參閱[使用 PlayReady 保護 Smooth Stream]。
 
@@ -331,7 +339,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 
 * 已升級 Azure 儲存體相依性而使用 3.0.3.0 版。 
 
-* 修正 3.0.\*.\* 版本的回溯相容性問題。
+* 已修正 3.0.*.* 版的回溯相容性問題。
 
 
 ##<a id="december_changes_13"></a>2013 年 12 月版本
@@ -523,7 +531,7 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 <!-- URLs. -->
 [Azure 媒體服務 MSDN 論壇]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Azure 媒體服務 REST API 參考]: http://msdn.microsoft.com/library/azure/hh973617.aspx
-[行動服務價格詳細資料]: http://azure.microsoft.com/pricing/details/media-services/
+[行動服務定價詳細資料]: http://azure.microsoft.com/pricing/details/media-services/
 [輸入中繼資料]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [輸出中繼資料]: http://msdn.microsoft.com/library/azure/dn783217.aspx
 [傳遞內容]: http://msdn.microsoft.com/library/azure/hh973618.aspx
@@ -555,4 +563,4 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [處理媒體服務工作通知]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -226,7 +226,7 @@ HDInsight 會使用 Azure 儲存體中的 Blob 來儲存資料。如需詳細資
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE]只有 HDInsight 3.0 版叢集才支援 *wasb://* 語法。HDInsight 2.1 和 1.6 叢集支援較舊的 *asv://* 語法，但 HDInsight 3.0 叢集已不支援該語法。
+> [AZURE.NOTE]只有 HDInsight 3.0 版叢集才支援 *wasb://* 語法。HDInsight 2.1 和 1.6 版叢集支援較舊的 *asv://* 語法，但 HDInsight 3.0 版叢集已不支援該語法。
 
 > [AZURE.NOTE]wasb:// 路徑為虛擬路徑。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]。
 
@@ -622,4 +622,4 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

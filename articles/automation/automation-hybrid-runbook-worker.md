@@ -9,7 +9,7 @@
 <tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/10/2015"
@@ -136,4 +136,4 @@ Runbook 將在混合式 Runbook 背景工作上的本機系統帳戶內容中執
 - [在 Azure 自動化中編輯 Runbook](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

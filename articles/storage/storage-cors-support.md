@@ -134,40 +134,12 @@ CORS 規則的評估，如下所示：
 
 接下來，請考慮下列 CORS 要求：
 
-<table>
-<tr>
-<td colspan=3><b>要求</b></td>
-<td colspan=2><b>回應</b></td>
-</tr>
-<tr>
-<td><b>方法</b></td>
-<td><b>原始</b></td>
-<td><b>要求標頭</b></td>
-<td><b>規則相符</b></td>
-<td><b>結果</b></td>
-</tr>
-<tr>
-<td><b>PUT</b></td>
-<td>http://www.contoso.com</td>
-<td>x-ms-blob-content-type</td>
-<td>第一個規則</td>
-<td>成功</td>
-</tr>
-<tr>
-<td><b>GET</b></td>
-<td>http://www.contoso.com</td>
-<td>x-ms-blob-content-type</td>
-<td>第二個規則</td>
-<td>成功</td>
-</tr>
-<tr>
-<td><b>GET</b></td>
-<td>http://www.contoso.com</td>
-<td>x-ms-blob-content-type</td>
-<td>第二個規則</td>
-<td>失敗</td>
-</tr>
-</table>
+要求||| Response||
+---|---|---|---|---
+ | | | |
+ | http://www.contoso.com |x-ms-blob-content-type | 第一個規則 |成功
+ | http://www.contoso.com| x-ms-blob-content-type | 第二個規則 |成功
+ | http://www.contoso.com| x-ms-blob-content-type | 第二個規則 | 失敗
 
 第一個要求符合第一個規則 (原始網域符合允許的原始網域、方法符合允許的方法，而且標頭符合允許的標頭)，因而成功。
 
@@ -185,7 +157,7 @@ CORS 規則的評估，如下所示：
 
 在下列情況下，Azure 儲存體會將實際 GET/HEAD 要求的 *Vary* 標頭設為 **Origin**：
 
-- 當要求的原始網域完全符合 CORS 規則所定義的允許來源。若要完全符合，CORS 規則不能包含萬用字元 '*'。
+- 當要求的原始網域完全符合 CORS 規則所定義的允許來源。若要完全符合，CORS 規則不能包含萬用字元 ' * '。
 
 - 沒有比對要求原始網域的規則，但會啟用儲存體服務的 CORS。
 
@@ -195,85 +167,17 @@ CORS 規則的評估，如下所示：
 
 下表指出 Azure 儲存體如何根據先前所述的案例來回應 GET/HEAD 要求：
 
-<table>
-<tr>
-<td><b>要求</b></td>
-<td colspan=3><b>帳戶設定和規則評估的結果</b></td>
-<td colspan=3><b>回應</b></td>
-</tr>
-<tr>
-<td><b>要求上存在的 Origin 標頭</b></td>
-<td><b>針對此服務指定的 CORS 規則</b></td>
-<td><b>有允許所有原始網域的比對規則存在 (*)</b></td>
-<td><b>有完全符合原始網域的比對規則存在</b></td>
-<td><b>回應包含已設為 Origin 的 Vary 標頭</b></td>
-<td><b>回應包含 Access-Control-Allowed-Origin：“*”</b></td>
-<td><b>回應包含 Access-Control-Exposed-Headers</b></td>
-</tr>
-<tr>
-<td>否</td>
-<td>否</td>
-<td>否</td>
-<td>否</td>
-<td>否</td>
-<td>否</td>
-<td>否</td>
-</tr>
-<tr>
-<td>否</td>
-<td>是</td>
-<td>否</td>
-<td>否</td>
-<td>是</td>
-<td>否</td>
-<td>否</td>
-</tr>
-<tr>
-<td>否</td>
-<td>是</td>
-<td>是</td>
-<td>否</td>
-<td>否</td>
-<td>是</td>
-<td>是</td>
-</tr>
-<tr>
-<td>是</td>
-<td>否</td>
-<td>否</td>
-<td>否</td>
-<td>否</td>
-<td>否</td>
-<td>否</td>
-</tr>
-<tr>
-<td>是</td>
-<td>是</td>
-<td>否</td>
-<td>是</td>
-<td>是</td>
-<td>否</td>
-<td>是</td>
-</tr>
-<tr>
-<td>是</td>
-<td>是</td>
-<td>否</td>
-<td>否</td>
-<td>是</td>
-<td>否</td>
-<td>否</td>
-</tr>
-<tr>
-<td>是</td>
-<td>是</td>
-<td>是</td>
-<td>否</td>
-<td>否</td>
-<td>是</td>
-<td>是</td>
-</tr>
-</table>
+要求|帳戶設定和規則評估的結果|||Response|||
+---|---|---|---|---|---|---|---|---
+**要求上存在的 Origin 標頭** | **針對此服務指定的 CORS 規則** | **有允許所有原始網域的比對規則存在 (*)** | **有完全符合原始網域的比對規則存在** | **回應包含已設為 Origin 的 Vary 標頭** | **回應包含 Access-Control-Allowed-Origin：“*”** | **回應包含 Access-Control-Exposed-Headers**
+否|否|否|否|否|否|否
+否|是|否|否|是|否|否
+否|是|是|否|否|是|是
+是|否|否|否|否|否|否
+是|是|否|是|是|否|是
+是|是|否|否|是|否|否
+是|是|是|否|否|是|是
+
 
 ## CORS 要求的計費方式
 
@@ -292,4 +196,4 @@ CORS 規則的評估，如下所示：
 [W3C 跨原始資源共用規格](http://www.w3.org/TR/cors/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

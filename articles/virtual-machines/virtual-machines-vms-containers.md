@@ -5,8 +5,6 @@
 	documentationCenter="virtual-machines" 
 	authors="squillace" 
 	manager="timlt" />
-	
-
 <tags 
 	ms.service="virtual-machines" 
 	ms.devlang="na" 
@@ -234,4 +232,4 @@ Linux 散發套件和 Azure 範例：
 [微服務]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

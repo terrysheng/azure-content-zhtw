@@ -57,7 +57,7 @@
 
     您也會想要將某些 using 陳述式傳輸至 **MainPage.cs**。
 
-2. 在 **ButtonLogin_Click** 中的 **AuthenticateAsync** 呼叫之後，緊接著使用此方法。
+2. 在 **ButtonLogin\_Click** 中的 **AuthenticateAsync** 呼叫之後，緊接著使用此方法。
 
         await AuthenticateAsync();
         InitNotificationAsync();
@@ -107,4 +107,4 @@
 [範本]: https://msdn.microsoft.com/zh-tw/library/dn530748.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

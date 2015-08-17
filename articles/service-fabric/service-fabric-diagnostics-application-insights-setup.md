@@ -41,7 +41,7 @@
     Microsoft.ServiceFabric.Telemetry.ApplicationInsights.Listener.Enable(EventLevel.Verbose);
 ```
  
-### StatefulActor\Program.cs 的範例：
+### StatefulActor\\Program.cs 的範例：
 
 ```csharp
     public static void Main(string[] args)
@@ -89,4 +89,4 @@
 - [了解如何建立您自己的自訂事件和計量](../app-insights-custom-events-metrics-api.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

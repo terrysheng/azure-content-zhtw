@@ -50,4 +50,4 @@ CNAME 記錄將*特定的*網域 (例如 **mail.contoso.com** 或 **www.contoso.
 
 	![](./media/custom-dns-web-site/managecustomdomains.png)
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

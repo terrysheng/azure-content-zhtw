@@ -30,7 +30,6 @@
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-
 ## 選取映像
 
 移至 Preview 入口網站中的 Azure Marketplace，以尋找您想要的 Windows Server VM 映像。
@@ -55,7 +54,7 @@
 
 	![設定 VM 基本概念](./media/virtual-machines-windows-tutorial/create_vm_basics.PNG)
 
-	>[AZURE.NOTE]\*\*使用者名稱\*\* 是指要用來管理伺服器的系統管理帳戶。建立一個很難讓人猜到，但您可以記住的密碼。**您將需要使用者名稱和密碼才能登入虛擬機器**。
+	>[AZURE.NOTE]**使用者名稱** 是指要用來管理伺服器的系統管理帳戶。建立一個很難讓人猜到，但您可以記住的密碼。**您將需要使用者名稱和密碼才能登入虛擬機器**。
 
 2. 按一下 [**大小**]，然後選取適當的 VM 大小以符合您需求。每個大小會指定計算核心、記憶體和其他功能的數目，例如支援將會影響價格的進階儲存體。Azure 會自動根據您選擇的映像來建議特定大小。
 
@@ -102,4 +101,4 @@
 * 使用 Azure PowerShell 和 Azure CLI [尋找並選取 VM 映像](resource-groups-vm-searching.md)。
 * 使用 [Azure 資源管理員](virtual-machines-how-to-automate-azure-resource-manager.md)和 [Azure 資源管理員範本](http://azure.microsoft.com/documentation/templates/)，自動部署和管理 VM 和工作負載。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

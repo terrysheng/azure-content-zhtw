@@ -59,7 +59,7 @@
 
 ### 選取您的 Azure 訂用帳戶
 
-若要選取所需的訂用帳戶，您必須提供訂用帳戶 ID 或訂用帳戶名稱 (\*\*-SubscriptionName\*\*)。您可以複製上一個步驟中的資訊，或者，如果您有多個訂用帳戶，則可以執行 **Get-AzureSubscription** Cmdlet，然後複製結果集中所需的訂用帳戶資訊。當您的訂用帳戶執行了以下 Cmdlet 之後：
+若要選取所需的訂用帳戶，您必須提供訂用帳戶 ID 或訂用帳戶名稱 (**-SubscriptionName**)。您可以複製上一個步驟中的資訊，或者，如果您有多個訂用帳戶，則可以執行 **Get-AzureSubscription** Cmdlet，然後複製結果集中所需的訂用帳戶資訊。當您的訂用帳戶執行了以下 Cmdlet 之後：
 
 	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -234,4 +234,4 @@
 
 如需關於彈性資料庫和彈性資料庫集區的詳細資訊，包括 API 和錯誤詳細資料，請參閱[彈性資料庫集區參考](sql-database-elastic-pool-reference.md)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

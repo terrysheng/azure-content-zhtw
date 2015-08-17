@@ -139,4 +139,4 @@ Spout **TwitterSpout** 會使用 <a href="http://twitter4j.org/en/" target="_bla
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

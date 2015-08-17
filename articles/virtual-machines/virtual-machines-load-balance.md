@@ -83,4 +83,4 @@ Azure 也可在雲端服務或虛擬網路中進行負載平衡。這稱為內�
 
 <!-- LINKS -->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

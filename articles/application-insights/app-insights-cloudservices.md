@@ -122,12 +122,12 @@ Application Insights 資源是您在其中分析和顯示遙測資料的位置�
 
 根據預設會收集下列計數器：
 
-    * \Process(??APP_WIN32_PROC??)% Processor Time
+    * \Process(??APP_WIN32_PROC??)\% Processor Time
 	* \Memory\Available Bytes
-	* .NET CLR Exceptions(??APP_CLR_PROC??)# of Exceps Thrown / sec
+	* \.NET CLR Exceptions(??APP_CLR_PROC??)# of Exceps Thrown / sec
 	* \Process(??APP_WIN32_PROC??)\Private Bytes
 	* \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
-	* \Processor(_Total)% Processor Time
+	* \Processor(_Total)\% Processor Time
 
 此外，也會為 Web 角色收集下列計數器：
 
@@ -196,4 +196,4 @@ Application Insights 資源是您在其中分析和顯示遙測資料的位置�
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -40,11 +40,11 @@
 
 若要取得可用的訂用帳戶清單，執行下列 cmdlet：
 
-	PS C:> Get-AzureSubscription
+	PS C:\> Get-AzureSubscription
 
 然後，選取其中一個，方法如下：
 
-	PS C:> Select-AzureSubscription "TestSubscription"
+	PS C:\> Select-AzureSubscription "TestSubscription"
 
  
 ##取得儲存體帳戶名稱
@@ -77,14 +77,14 @@ Azure 媒體服務使用 Azure 儲存體來儲存媒體內容。建立新的媒�
 若要建立新的 Azure 媒體服務帳戶，請使用 [New-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx) Cmdlet，它可以提供媒體服務帳戶名稱、資料中心建立位置以及儲存體帳戶名稱。
 
 
-	PS C:> New-AzureMediaServicesAccount -Name "amstestaccount001" -StorageAccountName "storagetest001" -Location "East US"
+	PS C:\> New-AzureMediaServicesAccount -Name "amstestaccount001" -StorageAccountName "storagetest001" -Location "East US"
 
 ##取得媒體服務帳戶
 
 建立一個或多個媒體服務帳戶後，您可以使用 [Get-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx) 來列出資訊。
 
 	
-	PS C:> Get-AzureMediaServicesAccount
+	PS C:\> Get-AzureMediaServicesAccount
 	
 	AccountId		Name				State
 	---------       ----       			 -----
@@ -92,7 +92,7 @@ Azure 媒體服務使用 Azure 儲存體來儲存媒體內容。建立新的媒�
 
 您可以提供 Name 參數，這樣就可以得到更詳細的資訊，其中包括帳戶金鑰。
 
-	PS C:> Get-AzureMediaServicesAccount -Name amstestaccount001
+	PS C:\> Get-AzureMediaServicesAccount -Name amstestaccount001
 
 ##重新產生媒體服務存取金鑰
 
@@ -100,14 +100,14 @@ Azure 媒體服務使用 Azure 儲存體來儲存媒體內容。建立新的媒�
 
 如果不希望 PowerShell 詢問確認問題，可以使用 -Force 參數。
 
-	PS C:> New-AzureMediaServicesKey -Name "amstestaccount001" -KeyType "Primary" -Force
+	PS C:\> New-AzureMediaServicesKey -Name "amstestaccount001" -KeyType "Primary" -Force
 
 ##移除媒體服務帳戶
 
 準備好刪除 Azure 媒體帳戶時，可以使用 [Remove-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495220.aspx)。
 
-	PS C:> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
+	PS C:\> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

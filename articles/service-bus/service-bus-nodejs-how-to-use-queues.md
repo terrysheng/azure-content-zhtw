@@ -32,7 +32,7 @@
 
 ### 使用 Node Package Manager (NPM) 取得封裝
 
-1.  使用 **Windows PowerShell for Node.js** 命令視窗瀏覽至已建立範例應用程式的 **c:\node\sbqueues\WebRole1** 資料夾。
+1.  使用 **Windows PowerShell for Node.js** 命令視窗瀏覽至已建立範例應用程式的 **c:\\node\\sbqueues\\WebRole1** 資料夾。
 
 2.  在命令視窗中輸入 **npm install azure**，這應該會導致類似下列內容的輸出：
 
@@ -48,7 +48,7 @@
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
 
-3.  您可以手動執行 **ls** 命令，確認已建立 **node_modules** 資料夾。在該資料夾內找到 **azure** 封裝，其中包含您存取儲存體所需的服務匯流排佇列。
+3.  您可以手動執行 **ls** 命令，確認已建立 **node\_modules** 資料夾。在該資料夾內找到 **azure** 封裝，其中包含您存取儲存體所需的服務匯流排佇列。
 
 ### 匯入模組
 
@@ -58,7 +58,7 @@
 
 ### 設定 Azure 服務匯流排連接
 
-Azure 模組會讀取環境變數 AZURE_SERVICEBUS_NAMESPACE 和 AZURE_SERVICEBUS_ACCESS_KEY 以取得連接服務匯流排所需的資訊。如果您未設定這些環境變數，必須在呼叫 **createServiceBusService** 時指定帳戶資訊。
+Azure 模組會讀取環境變數 AZURE\_SERVICEBUS\_NAMESPACE 和 AZURE\_SERVICEBUS\_ACCESS\_KEY 以取得連接服務匯流排所需的資訊。如果您未設定這些環境變數，必須在呼叫 **createServiceBusService** 時指定帳戶資訊。
 
 如需在 Azure 雲端服務組態檔中設定環境變數的範例，請參閱[使用儲存體的 Node.js 雲端服務]。
 
@@ -190,4 +190,4 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
   [使用儲存體的 Node.js Web 應用程式]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

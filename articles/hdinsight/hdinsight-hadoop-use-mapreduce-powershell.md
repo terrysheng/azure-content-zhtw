@@ -104,7 +104,7 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Map
 
 ##<a id="results"></a>檢視工作輸出
 
-MapReduce 工作已將作業結果儲存至 Azure Blob 儲存體 (位於指定為工作之引數的 **wasb:///example/data/WordCountOutput** 路徑中)。Azure Blob 儲存體可以透過 Azure PowerShell 存取，但是您必須知道儲存體帳戶名稱、金鑰，以及 HDInsight 叢集用來直接存取檔案的容器。
+MapReduce 工作已將作業結果儲存至 Azure Blob 儲存體 (位於指定為工作之引數的 ****wasb:///example/data/WordCountOutput** 路徑中)。Azure Blob 儲存體可以透過 Azure PowerShell 存取，但是您必須知道儲存體帳戶名稱、金鑰，以及 HDInsight 叢集用來直接存取檔案的容器。
 
 幸運的是，您可以使用下列 Azure PowerShell Cmdlet 取得這項資訊：
 
@@ -113,7 +113,7 @@ MapReduce 工作已將作業結果儲存至 Azure Blob 儲存體 (位於指定�
 * **Get-AzureStorageBlob**：如果指定內容物件和容器名稱，則會傳回容器內的 blob 清單。
 * **Get-AzureStorageBlobContent**：如果指定內容物件、檔案路徑和名稱以及容器名稱 (從 **Get-AzureHDinsightCluster** 傳回)，則會從 Azure Blob 儲存體下載檔案。
 
-下列範例會擷取儲存體資訊，然後從 **wasb:///example/data/WordCountOutput** 下載輸出。將 **CLUSTERNAME** 取代為 HDInsight 叢集的名稱。
+下列範例會擷取儲存體資訊，然後從 ****wasb:///example/data/WordCountOutput** 下載輸出。將 **CLUSTERNAME** 取代為 HDInsight 叢集的名稱。
 
 		#Login to your Azure subscription
 		# Is there an active Azure subscription?
@@ -173,4 +173,4 @@ MapReduce 工作的輸出會儲存在名稱為 *part-r-#####* 的檔案中。使
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

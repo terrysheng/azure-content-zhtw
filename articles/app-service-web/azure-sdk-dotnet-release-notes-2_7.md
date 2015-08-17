@@ -2,7 +2,7 @@
 <properties 
    pageTitle="Azure SDK for .NET 2.7 版本資訊" 
    description="Azure SDK for .NET 2.7 版本資訊" 
-   services="app-service/web" 
+   services="app-service\web" 
    documentationCenter=".net" 
    authors="Juliako" 
    manager="dwrede" 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/20/2015"
+   ms.date="08/04/2015"
    ms.author="juliako"/>
 
 
@@ -112,4 +112,4 @@ Azure 資源管理員工具已更新為使用角色型存取控制 (RBAC) 和新
 
 [Azure SDK 2.7 公告文章](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

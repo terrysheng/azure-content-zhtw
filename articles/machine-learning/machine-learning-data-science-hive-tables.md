@@ -2,7 +2,6 @@
 	pageTitle="建立並將資料從 Blob 儲存體載入 Hive 資料表 | Microsoft Azure" 
 	description="建立 Hive 資料表，並將 Blob 中的資料載入 Hive 資料表" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -146,4 +145,4 @@ Hive 查詢可以在 Hadoop 叢集前端節點上的 Hadoop 命令列中提交�
 現在會有一個含 ORC 格式之資料的資料表可供使用。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

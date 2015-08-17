@@ -233,4 +233,4 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
 [pair]: http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
 [azure-admin-console]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

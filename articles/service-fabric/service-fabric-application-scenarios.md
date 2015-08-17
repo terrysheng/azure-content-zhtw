@@ -68,4 +68,4 @@ Azure 中的 Service Fabric 平台適用於下列應用程式和服務的類別�
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

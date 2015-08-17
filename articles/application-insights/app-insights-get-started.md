@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="04/26/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
 # 開始使用 Visual Studio Application Insights
@@ -41,7 +41,8 @@ Application Insights 的運作方式是將 SDK 加入至您的應用程式，並
 <a href="app-insights-java-get-started.md">![Java](./media/app-insights-get-started/appinsights-gs-i-11-java.png)</a>|<a href="app-insights-java-get-started.md">將 SDK 加入至您的 Java 專案</a><br/>![取得](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-java-get-started.md">![效能與使用情形監視](./media/app-insights-get-started/appinsights-gs-r-10-java.png)</a>
 <a href="app-insights-web-track-usage.md">![JavaScript](./media/app-insights-get-started/appinsights-gs-i-02-usage.png)</a>|<a href="app-insights-web-track-usage.md">將 Application Insights 指令碼插入至您的網頁</a><br/>![取得](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-web-track-usage.md">![頁面檢視與瀏覽器效能](./media/app-insights-get-started/appinsights-gs-r-02-usage.png)</a>
 <a href="app-insights-monitor-web-app-availability.md">![Availability](./media/app-insights-get-started/appinsights-gs-i-05-avail.png)</a>|<a href="app-insights-monitor-web-app-availability.md">建立 Web 測試</a><br/>![取得](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-web-app-availability.md">![Availability](./media/app-insights-get-started/appinsights-gs-r-05-avail.png)</a>
-<a href="app-insights-windows-get-started.md">![Windows 與 Windows Phone](./media/app-insights-get-started/appinsights-gs-i-06-device.png)</a>|<a href="app-insights-windows-get-started.md">將 Application Insights 加入至您的裝置應用程式專案</a><br/>![取得](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-windows-get-started.md">![當機與使用狀況資料](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
+<a href="app-insights-windows-get-started.md">![Windows 與 Windows Phone](./media/app-insights-get-started/appinsights-gs-i-06-device.png)</a>|<a href="app-insights-windows-get-started.md">將 Application Insights 加入至您的 Windows 應用程式專案</a><br/>![取得](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-windows-get-started.md">![當機與使用狀況資料](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
+<a href="app-insights-platforms.md">![iOS 和 Android 等](./media/app-insights-get-started/appinsights-gs-i-07-device.png)</a>|<a href="app-insights-platforms.md">將 Application Insights 加入至您的 iOS 或 Android 應用程式</a><br/>![取得](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-platforms.md">![當機與使用狀況資料](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
 
 ## 支援與意見反應
 
@@ -73,4 +74,4 @@ Application Insights 的運作方式是將 SDK 加入至您的應用程式，並
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

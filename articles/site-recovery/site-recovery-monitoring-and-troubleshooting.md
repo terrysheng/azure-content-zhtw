@@ -142,7 +142,7 @@ SDP 工具會在本機收集記錄檔，您也可以在 **%LocalAppData%\\Elevat
 ## 知識庫文章
 
 -   [如何保留受保護的虛擬機器的磁碟機代號
-    > http://support.microsoft.com/kb/3031135
+    > (容錯移轉或移轉到 Azure) ] (http://support.microsoft.com/kb/3031135)
 
 -   [如何疑難排解 Azure 復原
     > 服務](http://support.microsoft.com/kb/3005185)
@@ -166,7 +166,7 @@ SDP 工具會在本機收集記錄檔，您也可以在 **%LocalAppData%\\Elevat
 
 -   [無法註冊 VMM 伺服器，因為發生內部錯誤。如需錯誤的詳細資訊，請參閱 Site Recovery 入口網站中的工作檢視。再次執行安裝程式以註冊伺服器。](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
 
--   [無法連線到 Hyper-V 復原管理員保存庫。請確認 Proxy 設定，或稍後再試一次。](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
+-   [無法連接到 Hyper-V 復原管理員保存庫。請確認 Proxy 設定，或稍後再試一次。](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
 
 ### 組態
 
@@ -222,4 +222,4 @@ SDP 工具會在本機收集記錄檔，您也可以在 **%LocalAppData%\\Elevat
 ### 容錯移轉之後的遠端桌面疑難排解
 許多客戶面臨在 Azure 中連接到容錯移轉的 VM 的問題。使用疑難排解文件 RDP 至 VM。[文件連結](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

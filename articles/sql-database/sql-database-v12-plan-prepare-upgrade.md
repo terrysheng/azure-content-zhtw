@@ -48,8 +48,8 @@
 本文件是關於將 Microsoft Azure SQL Database 從 V11 升級至 V12 版。更正式的版本編號接近 Transact-SQL 陳述式 **SELECT @@version;** 報告的下列兩個值：
 
 
-- 12.0.2000.8 *(或更新的版本，V12)*
-- 11.0.9228.18 *(V11)*
+- 12\.0.2000.8 *(或更新的版本，V12)*
+- 11\.0.9228.18 *(V11)*
  - 有時 V11 也稱為 SAWA v2。
 
 ### 服務層規劃
@@ -244,4 +244,4 @@ Stop- Cmdlet 表示取消，不是暫停。升級一旦停止就沒有任何方�
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

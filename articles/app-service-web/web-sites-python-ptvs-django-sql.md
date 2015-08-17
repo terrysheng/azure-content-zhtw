@@ -139,7 +139,7 @@
 
 1.  在 [方案總管] 的 [Python 環境] 之下，在虛擬環境上按一下滑鼠右鍵並選取 [安裝 Python 封裝]。
 
-1.  使用 **easy_install** 安裝 `pyodbc` 封裝。
+1.  使用 **easy\_install** 安裝 `pyodbc` 封裝。
 
   	![安裝 Python 封裝對話方塊](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
 
@@ -221,4 +221,4 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 [SQL Database]: /documentation/services/sql-database/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -17,10 +17,12 @@
 	ms.author="yuaxu"/>
 
 # 如何透過 Python 使用通知中樞
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
-</div>
-
+> [AZURE.SELECTOR] 
+- [Java](notification-hubs-php-backend-how-to.md)
+- [PHP](notification-hubs-python-backend-how-to.md)
+- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+		
 您可以透過 Java/PHP/Python/Ruby 後端使用通知中樞 REST 介面來存取所有通知中樞功能，如 MSDN 主題[通知中樞 REST API](http://msdn.microsoft.com/library/dn223264.aspx) 所述。
 
 > [AZURE.NOTE]這是在 Python 實作通知傳送的範例參考實作，並非正式支援的通知中樞 Python SDK。
@@ -222,7 +224,7 @@
 
 	hub = NotificationHub("myConnectionString", "myNotificationHubName")
 
-然後根據您的目標行動平台新增傳送程式碼。此範例也會新增更高層級的方法以依據平台傳送通知，例如，Windows 為 send_windows_notification；Apple 為 send_apple_notification 等等。
+然後根據您的目標行動平台新增傳送程式碼。此範例也會新增更高層級的方法以依據平台傳送通知，例如，Windows 為 send\_windows\_notification；Apple 為 send\_apple\_notification 等等。
 
 ### Windows 市集和 Windows Phone 8.1 (非 Silverlight)
 
@@ -350,4 +352,4 @@
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

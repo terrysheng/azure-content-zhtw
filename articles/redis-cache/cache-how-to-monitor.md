@@ -80,7 +80,7 @@ Azure Redis 快取可讓您將診斷資料儲存在儲存體帳戶中，因此�
 | 設定 | 所指定報告間隔期間的快取 set 作業數目。這個值是 Redis INFO all 命令的下列值總和：`cmdstat_set`、`cmdstat_hset``cmdstat_hmset`、`cmdstat_hsetnx`、`cmdstat_lset`、`cmdstat_mset`、`cmdstat_msetnx`、`cmdstat_setbit`、`cmdstat_setex`、`cmdstat_setrange` 和 `cmdstat_setnx` |
 | 總作業數 | 所指定報告間隔期間，快取伺服器所處理命令的總數。這個值會對應至 Redis INFO `total_commands_processed` 命令。請注意，Azure Redis 快取純粹用於發佈/訂閱時，則沒有 `Cache Hits`、`Cache Misses`、`Gets` 或 `Sets` 的度量但是會有 `Total Operations` 度量可反映發佈/訂閱作業的快取使用量。 |
 | 已使用的記憶體 | 所指定報告間隔期間的已使用快取記憶體數量 (MB)。這個值會對應至 Redis INFO `used_memory` 命令。 |
-| CPU | 所指定報告間隔期間的 Azure Redis 快取伺服器 CPU 使用率 (百分比)。這個值會對應至作業系統 `\Processor(_Total)% Processor Time` 效能計數器。 |
+| CPU | 所指定報告間隔期間的 Azure Redis 快取伺服器 CPU 使用率 (百分比)。這個值會對應至作業系統 `\Processor(_Total)\% Processor Time` 效能計數器。 |
 | 快取讀取 | 所指定報告間隔期間，從快取讀取的資料量 (KB/s)。這個值衍生自網路介面卡，而網路介面卡支援裝載快取且非 Redis 特有的虛擬機器。 |
 | 快取寫入 | 所指定報告間隔期間，寫入至快取的資料量 (KB/s)。這個值衍生自網路介面卡，而網路介面卡支援裝載快取且非 Redis 特有的虛擬機器。 |
 
@@ -221,4 +221,4 @@ Azure Redis 快取可讓您將診斷資料儲存在儲存體帳戶中，因此�
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

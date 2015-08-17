@@ -119,4 +119,4 @@ Azure 流量管理員會在管理入口網站中顯示設定檔和端點服務�
 [疑難排解 Azure 流量管理員上的已降級狀態](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

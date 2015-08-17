@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric 動作項目計時器和提醒"
-   description="Azure Service Fabric Actor 的計時器和提醒簡介。"
+   pageTitle="Reliable Actor 計時器和提醒"
+   description="Service Fabric Reliable Actor 計時器和提醒簡介。"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/05/2015"
    ms.author="amanbha"/>
 
 
@@ -114,4 +114,4 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 
 如上所示，`UnregisterReminder` 方法會接受 `IActorReminder` 介面。動作項目基底類別支援 `GetReminder` 方法，在傳遞進提醒名稱時可以用來擷取 `IActorReminder` 介面。這很方便，因為動作項目不需保存從 `RegisterReminder` 方法呼叫傳回的 `IActorReminder` 介面。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

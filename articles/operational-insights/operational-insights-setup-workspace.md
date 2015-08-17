@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/02/2015"
+    ms.date="08/05/2015"
     ms.author="banders"/>
 
 # 設定工作區和管理設定
@@ -22,10 +22,144 @@
 
 若要建立新的 Microsoft Azure Operational Insights 工作區，您要選擇工作區名稱、將工作區與您的帳戶關聯，然後選擇地理位置。Operational Insights 工作區本質上是一個容器，包含帳戶資訊和帳戶的簡單組態資訊。您或組織的其他成員可能會使用多個 Operational Insights 工作區來管理從所有或部份 IT 基礎結構收集而來的不同資料。
 
-工作區建立之後，您就可以使用工作區執行其他工作，例如管理 Operational Insights、在儀表板中檢視您的使用方式資料、選取儲存體帳戶，以及直接連線代理程式或連線到 System Center Operations Manager。而且，您還可以管理每個工作區的設定。
+工作區建立之後，您就可以使用工作區執行其他工作，例如管理 Operational Insights、新增解決方案、連接資料來源、新增記錄檔、選取儲存體帳戶、在儀表板中檢視您的使用量資料，以及可以為每個工作區管理設定。
+
+[在幾分鐘內上架](./operational-insights-onboard-in-minutes.md)文章會向您說明如何快速啟動和執行，本文章的其餘部分則會更詳細地描述您在開始使用並管理您的工作區時需要完成的一些動作。
+
+在下列各節中，我們將會說明您使用的所有常用工作：
+
+1. 新增解決方案
+2. 連接資料來源
+3. 新增和管理記錄檔
+4. 管理帳戶和使用者
+
+![步驟](./media/operational-insights-setup-workspace/steps.png)
+## 1 新增解決方案
+
+Microsoft Azure Operational Insights 含有基底組態評估功能，因此您不需要安裝解決方案來啟動它。不過，您可以透過從 [設定] 或 [解決方案資源庫] 頁面新增解決方案來取得其他功能。
+
+加入解決方案後，系統會從基礎結構中的伺服器收集資料，然後再傳送到 Operational Insights 服務。Operational Insights 服務的處理時間少則幾分鐘，多則達數小時之久。待服務處理完資料後，您可以在 Operational Insights 中予以檢視。
+
+當您不再需要解決方案時，您可以輕易地將它移除。移除解決方案後，系統不會將資料傳送到 Operational Insights，因此可減少每日配額所使用的資料量。
+
+### Microsoft Monitoring Agent 支援的解決方案
+
+在現階段，使用 Microsoft Monitoring Agent 直接連接 Microsoft Azure Operational Insights 的伺服器可使用目前可用的大多數解決方案，包括：
+
+- [系統更新](operational-insights-updates.md)
+- [反惡意程式碼](operational-insights-antimalware.md)
+- [變更追蹤](operational-insights-change-tracking.md)
+- [SQL 和 Active Directory 評估](operational-insights-assessment.md)
+
+然而，Microsoft Monitoring Agent 並「不」支援下列解決方案，且需要 System Center Operations Manager (SCOM)。
+
+- [產能管理](operational-insights-capacity.md)
+- [警示管理](operational-insights-alerts.md)
+- [組態評估](operational-insights-solutions.md#configuration-assessment)
+
+如需搭配使用這些解決方案和 Operations Manager 的指引，請參閱 [Operational Insights 的 Operations Manager 考量](operational-insights-operations-manager.md)。
+
+安裝以下作業系統的電腦支援 IIS 記錄檔收集：
+
+- Windows Server 2012
+- Windows Server 2012 R2
+
+### 使用 [設定] 頁面新增解決方案
+
+- 選取要新增的解決方案，然後按一下 [新增選取的解決方案]。並非所有可用的解決方案都會顯示在這裡。如果您想新增的解決方案並未列出，請使用下一個程序。![新增解決方案](./media/operational-insights-setup-workspace/settings-add-sol.png)
+
+### 使用 [解決方案資源庫] 新增解決方案
+
+1. 在 Operational Insights 的 [概觀] 頁面中按一下 [解決方案資源庫] 磚。![解決方案圖示的影像](./media/operational-insights-setup-workspace/sol-gallery.png)
+2. 在 [Operational Insights 解決方案資源庫] 頁面中，您可以了解每個可用的解決方案。按一下要加入 Operational Insights 之解決方案的名稱。
+3. 在所選解決方案的頁面中，該解決方案的詳細資料會顯示於此。按一下 [新增]。
+4. 在確認頁面中，按一下 [**接受**] 以同意隱私權聲明和使用條款。
+5. 加入解決方案而新建立的磚會出現在 Operational Insights 的 [概觀] 頁面中；待 Operational Insights 服務處理資料後，您便可以開始使用解決方案。
+
+### 使用 [解決方案資源庫] 移除解決方案
+
+1. 在 Operational Insights 的 [概觀] 頁面中按一下 [**解決方案資源庫**] 磚。
+2. 在 [Operational Insights 解決方案資源庫] 頁面中，於要移除的解決方案下方按一下 [**移除**]。
+3. 在確認頁面中按一下 [**是**] 以移除解決方案。
+
+## 2 連接資料來源
+
+有三種方式可連接資料來源：
+
+- 直接將電腦連接至 Operational Insights。如需詳細資訊，請參閱[直接將電腦連接至 Operational Insights](./operational-insights-direct-agent.md)。![直接連接](./media/operational-insights-setup-workspace/attach-directly.png)
+- 連接 Operations Manager 管理群組。如需詳細資訊，請參閱[從 System Center Operations Manager 連接到 Operational Insights](./operational-insights-connect-scom.md)。![連接 Operations Manager](./media/operational-insights-setup-workspace/attach-om.png)
+- 連接 Azure 儲存體帳戶。如需詳細資訊，請參閱[在 Microsoft Azure 中分析來自伺服器的資料](./operational-insights-analyze-data-azure.md)。![連接 Azure](./media/operational-insights-setup-workspace/attach-azure.png)
+
+## 3 新增和管理記錄檔
+
+新增記錄檔之前，您需要安裝會使用記錄資料的解決方案。接著您可以加入新的記錄檔來收集事件，並選擇要針對記錄檔收集哪些事件層級或嚴重性。您可以收集：
+
+- Windows 事件記錄檔
+- IIS 記錄檔
+- 您已新增的其他記錄檔
+
+![新增記錄檔](./media/operational-insights-setup-workspace/collect-logs.png)
+
+### IIS 記錄檔格式
+
+目前支援的唯一 IIS 記錄檔格式是 W3C。別擔心，它是最常見的格式，而且是 IIS 7 和 IIS 8 中的預設格式。因此，如果您登入 NCSA 或 IIS 原生格式，Operational Insights 完全不會收取這些記錄檔。即使是 W3C 格式，預設也不會記錄所有欄位。您可以在 [選取要記錄的 W3C 欄位至記錄檔 (IIS 7)] 閱讀更多有關格式的資訊 (https://technet.microsoft.com/library/cc754702(v=WS.10).aspx)。
 
 
-## 我需要多少工作區？
+> [AZURE.TIP]如需最佳的記錄搜尋經驗，建議您使用 IIS 中的 [記錄]，為每個網站選取所有記錄欄位。我們也建議您將新記錄檔的 [記錄檔變換] 排程變更為 [每小時]，讓較小的檔案可上傳至雲端來節省頻寬。
+
+
+### 從 Operations Manager 或直接連接的代理程式收集 Windows 事件記錄檔
+
+1. 在 [概觀] 頁面上，按一下 [設定] 磚，然後按一下 [記錄] 索引標籤。
+2. 輸入您想要從中收集資訊之事件記錄檔的名稱。如果您不確定要使用的名稱，請在 [事件檢視器] 中選取 Windows 事件記錄檔的屬性，在 [全名] 欄位中複製名稱，並在 [從下列事件記錄檔收集事件] 方塊中貼上名稱。
+3. 按一下 [**+**] 加入記錄檔。
+4. 選取要針對記錄檔收集哪些事件層級或嚴重性。這個版本不支援 [稽核成功] 和 [稽核失敗] 事件。
+5. 針對您要從中收集資訊的每個記錄檔重複上述步驟，然後按一下 [儲存]。
+6. Operational Insights 應該在幾分鐘內顯示事件，接著您就可以搜尋資料。
+
+### 從 Operations Manager 或直接連接的代理程式收集 IIS 記錄檔
+
+1. 在 [概觀] 頁面上，按一下 [設定] 磚，然後按一下 [記錄] 索引標籤。
+2. 在 [記錄] 索引標籤上的 [事件記錄] 底下選取 [從 Operations Manager 收集記錄檔]。
+
+
+### 從 Azure 診斷收集 IIS 記錄檔和/或 Windows 事件
+這可從 Azure 管理入口網站中設定，而不必在 Operational Insights 入口網站中設定，方法是在工作區下，移至 [儲存體] 索引標籤，即可從該儲存體帳戶啟用記錄檔收集。
+
+### 設定記錄檔收集之後
+設定記錄檔收集之後，您的記錄檔收集原則會傳送至代理程式或透過管理群組傳送至代理程式，服務就會開始收集事件。
+
+您可以藉由檢視 [使用量] 頁面，存取從受監視伺服器收集之記錄檔事件的一些初始細項。
+
+![使用量頁面磚的影像](./media/operational-insights-setup-workspace/usage.png)
+
+
+## 4 管理帳戶和使用者
+您可以使用 [設定] 頁面中的 [帳戶] 索引標籤來管理帳戶和使用者。您可以在其中執行下列工作。
+
+![帳戶索引標籤](./media/operational-insights-setup-workspace/manage-users.png)
+
+## 新增使用者到現有的工作區
+
+
+使用下列步驟新增使用者或群組到 Operational Insights 工作區。使用者或群組就能夠檢視與此工作區關聯的所有警示並處理警示。
+
+>[AZURE.NOTE]如果您想要從 Azure Active Directory 組織帳戶新增使用者或群組，您必須先確定您已經將 Operational Insights 帳戶與 Active Directory 網域關聯。請參閱[新增 Azure Active Directory 組織到現有的工作區](#)。
+
+### 新增使用者到現有的工作區
+1. 在 Operational Insights 中，按一下 [設定] 磚。
+2. 按一下 [帳戶] 索引標籤。
+3. 在 [管理使用者] 區段中，選擇要新增的帳戶類型：[組織帳戶] 或 [Microsoft 帳戶]。
+    - 如果您選擇 [Microsoft 帳戶]，請輸入與該 Microsoft 帳戶相關聯的使用者電子郵件地址。
+    - 如果您選擇 [組織帳戶]，您可以輸入使用者或群組的部分名稱或電子郵件別名，系統將會顯示使用者和群組的清單。選取使用者或群組。
+        >[AZURE.NOTE]為了獲得最佳的效能結果，請將與單一 Operational Insights 帳戶關聯的 Active Directory 群組數目限制為兩個，一個給管理員，一個給使用者。使用太多群組可能會影響 Operational Insights 的效能。
+7. 選擇要新增的使用者或群組類型：[系統管理員] 或 [使用者]。  
+8. 按一下 [新增]。
+
+  如果您新增 Microsoft 帳戶，系統將會傳送一封加入工作區的邀請至您提供的電子郵件。使用者依照邀請中的指示加入 Operational Insights 之後，使用者就可以檢視此 Operational Insights 帳戶的警示和帳戶資訊，而且您將能夠在 [設定] 頁面上的 [帳戶] 索引標籤中檢視使用者資訊。如果您新增組織帳戶，使用者就能夠立即存取 Operational Insights。![邀請](./media/operational-insights-setup-workspace/manage-users04.png)
+
+
+### 我需要多少工作區？
 在 Azure 管理入口網站中，一個工作區被視為是一項 Azure 資源。
 
 您可以建立新的工作區，或連結到您先前使用 System Center Operations Manager 所開啟的現有工作區，但是您尚未與 Azure 訂用帳戶關聯 (必須關聯才能計費)。工作區代表資料在 Operational Insights 入口網站中進行收集、彙總、分析以及呈現的層級。您可以選擇有多個工作區，區分來自不同環境和系統的資料；每個 Operations Manager 管理群組 (和所有其代理程式) 或個別 VM/代理程式可以分別只與一個工作區連線。
@@ -48,9 +182,9 @@
 
   ![連結帳戶](./media/operational-insights-setup-workspace/link-account.png) <p> 6.填寫剩下的欄位，然後選取 [建立工作區]。
 
-## 升級工作區為付費方案
+## 升級工作區為付費資料方案
 
-Operational Insights 有三種工作區方案類型：**免費**、**標準**和**進階**。如果您使用*免費*方案，有可能會達到 500MB 的資料容量。此時您將需要升級工作區為 '\*\*隨用隨付\*\*'，才能收集超過此限制的資料。您隨時都可以轉換您的方案類型。如需 Operational Insights 定價的詳細資訊，請參閱[定價詳細資料](http://azure.microsoft.com/pricing/operational-insights/)
+Operational Insights 有三種工作區資料方案類型：**免費**、**標準**和**高級**。如果您使用*免費*方案，有可能會達到 500MB 的資料容量。此時您將需要將工作區升級為 '**隨用隨付方案**'，才能收集超過此限制的資料。您隨時都可以轉換您的方案類型。如需 Operational Insights 定價的詳細資訊，請參閱[定價詳細資料](http://azure.microsoft.com/pricing/operational-insights/)
 
 >[AZURE.IMPORTANT]工作區方案只有在*連結*到 Azure 訂用帳戶時才能變更。如果您在 Azure 中建立了工作區，或者如果您*已經*連結了工作區，可以忽略此訊息。如果您是從 [opinsights.azure.com](http://opinsights.azure.com) 建立工作區，就必須依照[連結現有的工作區到 Azure 訂用帳戶](#link-an-existing-workspace-to-an-Azure-subscription)的步驟。
 
@@ -68,76 +202,19 @@ Operational Insights 有三種工作區方案類型：**免費**、**標準**和
 
 ![選取方案](./media/operational-insights-setup-workspace/plan-select.png)
 
-## 變更工作區名稱
-
-如果您是 Microsoft Azure Operational Insights 工作區的管理員，可以變更工作區的名稱。
-
-### 變更工作區名稱
-
-1. 按一下您的工作區名稱。![工作區名稱](./media/operational-insights-setup-workspace/settings01.png)
-2. 按一下設定圖示。![設定圖示](./media/operational-insights-setup-workspace/settings02.png)
-3. 在 Operational Insights [設定] 頁面上的 [管理使用者帳戶] 區段，按一下 [管理使用者]。![管理使用者](./media/operational-insights-setup-workspace/settings03.png)
-4. 在 Operational Insights 入口網站中，在 [設定] 頁面的 [工作區名稱] 欄位中輸入新的名稱。
-5. 按一下 [儲存]。
-
-## 變更使用者資訊
-
-您可以變更與 Operational Insights 使用者關聯的名稱，但是您無法變更與該使用者關聯的 Microsoft 帳戶名稱。
-
-如果是有 Microsoft 帳戶的使用者，您也可以變更通知設定。如果您在整個 Azure Active Directory 中使用了組織帳戶，則在 Operational Insights 中目前無法使用**通知**功能。
-
-### 變更使用者資訊
-1. 在 Operational Insights [設定] 頁面的 [使用者資訊] 區段，在 [名字] 和 [姓氏] 欄位中輸入名稱。
-
-2. 如果是 Microsoft 帳戶使用者，變更您的通知設定。根據預設，當有警示產生時，會通知所有帳戶使用者。如果您要讓使用者停止接收這些通知，請清除 [接收新 Operational Insights 警示的電子郵件通知] 選項。
-
-3. 按一下 [儲存]。
-
-## 變更通知設定
-
-根據預設，與 Operational Insights 工作區關聯的所有者都會接收到電子郵件，其中摘要出過去七天所產生的任何組態評估警示。在 [設定] 頁面上，使用者可以控制他們是否要接收這些電子郵件通知。
-
->[AZURE.NOTE]只有具有 Microsoft 帳戶的使用者才能使用通知。如果您在整個 Azure Active Directory 中使用了組織帳戶，則在 Operational Insights 中目前無法使用**通知**功能。
-
-沒有看到認為應該有的電子郵件？ 請檢查垃圾郵件篩選器。確定來自 *operationalinsights@opinsights.azure.com* 的電子郵件沒有被篩選掉。
-
-1. 在 Operational Insights [設定] 頁面的 [使用者資訊] 區段，清除 [接收新 Operational Insights 警示的電子郵件通知] 選項。
-
-2. 按一下 [儲存]。
-
-## 新增使用者到現有的工作區
-
-
-使用下列步驟新增使用者或群組到 Operational Insights 工作區。使用者或群組就能夠檢視與此工作區關聯的所有警示並處理警示。
-
->[AZURE.NOTE]如果您想要從 Azure Active Directory 組織帳戶新增使用者或群組，您必須先確定您已經將 Operational Insights 帳戶與 Active Directory 網域關聯。請參閱[新增 Azure Active Directory 組織到現有的工作區](#)。
-
-### 新增使用者到現有的工作區
-1. 按一下您的工作區名稱。
-2. 按一下設定圖示。
-3. 在 Operational Insights [設定] 頁面上的 [管理使用者帳戶] 區段，按一下 [管理使用者]。![管理使用者](./media/operational-insights-setup-workspace/settings04.png)
-4. 在 [管理使用者] 視窗中，按一下 [新增]。![設定頁面](./media/operational-insights-setup-workspace/manage-users01.png)
-5. 如果您的 Operational Insights 帳戶與 Azure Active Directory 關聯，請指定 [組織帳戶]。>[AZURE.NOTE]如果您的 Operational Insights 帳戶只使用 Microsoft 帳戶，則不會看到這個步驟。 ![新增使用者帳戶類型](./media/operational-insights-setup-workspace/manage-users02.png)
-6. 輸入 Microsoft 帳戶或組織帳戶的新使用者資訊。如果您要新增組織帳戶，可以輸入部份使用者或群組名稱或電子郵件別名，然後按一下 [檢查名稱] 找出特定的使用者或群組。>[AZURE.NOTE]為了獲得最佳的效能結果，請將與單一 Operational Insights 帳戶關聯的 Active Directory 群組數目限制為兩個，一個給管理員，一個給使用者。使用太多群組可能會影響 Operational Insights 的效能。
-7. 為這位新的使用者選取角色：[管理員] 或 [使用者]。![新增使用者工作區角色](./media/operational-insights-setup-workspace/manage-users03.png)
-8. 按一下 [確定]。
-
-  如果您新增 Microsoft 帳戶，系統將會傳送一封加入您的帳戶的邀請至您提供的電子郵件。使用者依照邀請中的指示加入 Operational Insights 之後，使用者就可以檢視此 Operational Insights 帳戶的警示和帳戶資訊，而且您將能夠在 [管理使用者] 視窗中檢視使用者資訊。如果您新增組織帳戶，使用者就能夠立即存取 Operational Insights。![邀請](./media/operational-insights-setup-workspace/manage-users04.png)
-
-
 ## 新增 Azure Active Directory 組織到現有的工作區
 
 您可以將您的 Operational Insights 工作區與 Azure Active Directory 網域關聯。這樣可讓您直接從 Active Directory 新增使用者到您的 Operational Insights 工作區，不需要另外有 Microsoft 帳戶。
 
 ### 新增 Azure Active Directory 組織到現有的工作區
 
-1. 在 Operational Insights 的 [設定] 頁面上，按一下 [新增組織]。![邀請](./media/operational-insights-setup-workspace/add-org.png)
+1. 在 Operational Insights 的 [設定] 頁面上，按一下 [帳戶]，然後按一下 [新增組織]。![邀請](./media/operational-insights-setup-workspace/add-org.png)
 2. 複查有關組織帳戶的資訊，然後按 [下一步]。
 3. 輸入您 Azure Active Directory 網域之管理員的識別資訊，然後按一下 [登入]。
 4. 按一下 [授與存取權] 讓 Operational Insights 使用您 Active Directory 網域中的識別資訊。![已連結](./media/operational-insights-setup-workspace/ad-existing01.png)
 
 
-## 編輯現有的使用者帳戶
+## 編輯現有的使用者類型
 
 您可以為與您的 Operational Insights 帳戶關聯的使用者變更帳戶角色。您有下列角色選項：
 
@@ -146,13 +223,8 @@ Operational Insights 有三種工作區方案類型：**免費**、**標準**和
  - *使用者*：可以檢視和處理所有警示，以及新增和移除伺服器
 
 ### 編輯帳戶
-1. 在 Operational Insights [設定] 頁面上的 [管理使用者帳戶] 區段，按一下 [管理使用者]。
-
-2. 在 [管理使用者] 視窗中，選取您要變更的使用者名稱，然後按一下 [編輯使用者]。
-
-3. 為這位使用者選取角色：[管理員] 或 [使用者]。
-
-4. 按一下 [確定]。
+1. 在 Operational Insights 中 [帳戶] 索引標籤的 [設定] 頁面上，為使用者選取您要變更的角色。
+2. 按一下 [確定]。
 
 ## 從 Operational Insights 工作區移除使用者
 
@@ -160,11 +232,8 @@ Operational Insights 有三種工作區方案類型：**免費**、**標準**和
 
 ### 從工作區移除使用者
 
-1. 在 Operational Insights [設定] 頁面上的 [管理使用者帳戶] 區段，按一下 [管理使用者]。
-
-2. 在 [管理使用者] 視窗中，按一下您要移除的使用者名稱，然後按一下 [移除使用者]。
-
-3. 按一下 [確定] 確認您要移除該使用者。
+1. 在 Operational Insights 之 [帳戶] 索引標籤的 [設定] 頁面上，按一下您想移除之使用者名稱旁邊的 [移除]。
+2. 按一下 [確定] 確認您要移除該使用者。
 
 ## 關閉 Operational Insights 工作區
 
@@ -174,10 +243,14 @@ Operational Insights 有三種工作區方案類型：**免費**、**標準**和
 
 ### 關閉 Operational Insights 工作區
 
-1. 在 Operational Insights [設定] 頁面上的 [關閉工作區] 區段，按一下 [關閉工作區]。
+1. 在 Operational Insights 之 [帳戶] 索引標籤中的 [設定] 頁面上，按一下 [關閉工作區]。
 
 2. 選取其中一個關閉工作區的原因，或者在文字方塊中輸入其他原因。
 
 3. 按一下 [關閉工作區]。
 
-<!---HONumber=July15_HO5-->
+## 其他資源
+- [Azure Operational Insights 中的 IIS 記錄檔格式需求](http://blogs.technet.com/b/momteam/archive/2014/09/19/iis-log-format-requirements-in-system-center-advisor.aspx)
+- 請在[意見反應論壇](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy)中，參閱社群要求我們實作的記錄檔的其他資料來源和類型
+
+<!---HONumber=August15_HO6-->

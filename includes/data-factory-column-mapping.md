@@ -1,22 +1,22 @@
-## Column mapping with translator rules
-Column mapping can be used to specify how columns specified in the “structure” of source table map to columns specified in the “structure” of sink table. The **columnMapping** property is available in the **typeProperties** section of the Copy activity.
+## 使用轉譯程式規則的資料行對應
+資料行對應可用於指定將來源資料表「 結構 」中指定資料行對應至接收器資料表 「 結構 」 中指定資料行的方式。複製活動的 **typeProperties** 區段中可使用 **ColumnMapping** 屬性。
 
-Column mapping supports the following scenarios:
+資料行對應支援下列案例：
 
-1.	All columns in the source table “structure” are mapped to all columns in the sink table “structure”.
-2.	A subset of the columns in the source table “structure” are mapped to all columns in the sink table “structure”.
+1.	來源資料表「結構」中的所有資料行皆對應至接收器資料表「結構」中的所有資料行。
+2.	來源資料表「結構」中的資料行子集對應至接收器資料表「結構」中的所有資料行。
 
-The following are error conditions and will result in an exception:
+下列狀況為錯誤狀況，且將導致例外狀況：
 
-1.	Either fewer columns or more columns in the “structure” of sink table than specified in the mapping.
-2.	Duplicate mapping.
-3.	SQL query result does not have a column name that is specified in the mapping.
+1.	接收器資料表「結構」中的資料行數量多於或少於對應中所指定的數量。
+2.	重複的對應。
+3.	SQL 查詢結果中沒有對應中所指定的資料行名稱。
 
-## Column mapping samples
-> [AZURE.NOTE] The samples below are for Azure SQL and Azure Blob but are applicable in the same way for any data store that supports rectangular tables. You will have to adjust dataset and linked service definitions in examples below to point to data in the relevant data source.
+## 資料行對應範例
+> [AZURE.NOTE]下面的範例是針對 Azure SQL 和 Azure Blob，但同樣也適用於任何支援矩形資料表的資料存放區。您必須調整下面範例中的資料集與連結服務定義，以指向相關資料來源中的資料。
 
-### Sample 1 – column mapping from Azure SQL to Azure blob
-In this sample, the input table has a structure and it points to a SQL table in an Azure SQL database.
+### 範例 1 – 從 Azure SQL 到 Azure Blob 的資料行對應
+在此範例中，輸入資料表有一個結構，且指向 Azure SQL 資料庫中的 SQL 資料表。
 
 	{
 	    "name": "AzureSQLInput",
@@ -47,7 +47,7 @@ In this sample, the input table has a structure and it points to a SQL table in 
 	    }
 	}
 
-In this sample, the output table has a structure and it points to a blob in an Azure blob storage.
+在此範例中，輸出資料表有一個結構，且指向 Azure Blob 儲存體中的 Blob。
 
 	{
 	    "name": " AzureBlobOutput",
@@ -78,7 +78,7 @@ In this sample, the output table has a structure and it points to a blob in an A
 	    }
 	}
 
-The JSON for the activity is shown below. The columns from source mapped to columns in sink (**columnMappings**) by using **Translator** property.
+活動的 JSON 如下所示。來源的資料行使用 **Translator** 屬性，對應至接收器中的資料行 (**columnMappings**)。
 
 	{
 	    "name": "CopyActivity",
@@ -107,12 +107,12 @@ The JSON for the activity is shown below. The columns from source mapped to colu
 	        }
 	}
 
-**Column mapping flow:**
+**資料行對應流程：**
 
-![Column mapping flow](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
+![資料行對應流程](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
 
-### Sample 2 – column mapping with SQL query from Azure SQL to Azure blob
-In this sample, a SQL query is used to extract data from Azure SQL instead of simply specifying the table name and the column names in “structure” section. 
+### 範例 2 – 利用 SQL 查詢從 Azure SQL 至 Azure Blob 的資料行對應
+在此範例中，使用 SQL 查詢從 Azure SQL 擷取資料，而非只在 「 結構 」 區段中指定資料表名稱和資料行名稱。
 
 	{
 	    "name": "CopyActivity",
@@ -143,15 +143,10 @@ In this sample, a SQL query is used to extract data from Azure SQL instead of si
 	        }
 	}
 
-In this case, the query results are first mapped to columns specified in “structure” of source. Next, the columns from source “structure” are mapped to columns in sink “structure” with rules specified in columnMappings.  Suppose the query returns 5 columns, two additional columns then those specified in the “structure” of source.
+在此情況下，查詢結果會先對應至來源「 結構 」 中所指定的資料行。接下來，來源 「 結構 」 中的資料行會使用 columnMappings 中指定的規則對應至接收器 「 結構 」 中的資料行。假設該查詢傳回 5 個資料行、 2 個額外的資料行 ，之後才是來源 「 結構 」 中所指定的資料行。
 
-**Column mapping flow**
+**資料行對應流程**
 
-![Column mapping flow-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
+![資料行對應流程 -2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-
-
-
-
-
-
+<!---HONumber=August15_HO6-->

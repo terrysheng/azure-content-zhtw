@@ -101,4 +101,4 @@ Azure SQL Database 提供幾項中斷復原功能：
 復原資料庫之後，您可以遵循[完成復原的資料庫](sql-database-recovered-finalize.md)指南，設定資料庫以供使用。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

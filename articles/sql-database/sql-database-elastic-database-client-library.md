@@ -18,10 +18,7 @@
 
 # 彈性資料庫用戶端程式庫概觀
 
-**彈性資料庫用戶端程式庫**，可讓您建立可管理裝載於 Microsoft Azure 上的 Azure SQL Database 數百或甚至上千個集合的用戶端應用程式。這類集合通常用於軟體即服務 (SaaS) 應用程式，其通常為單一租用戶架構 -- 其中每個租用戶是使用資料庫佈建。建立和管理這類應用程式是程式庫的目標。
-
-用戶端程式庫是可以安裝到使用 Visual Studio 和 Nuget 的任何應用程式專案的 .NET Framework 程式庫。用戶端程式庫是一組[彈性資料庫工具](sql-azure-database-elastic-scale-introduction.md)的一部分。
-
+**彈性資料庫用戶端程式庫**，可讓您使用 Microsoft Azure 上的 Azure SQL Database 數百或甚至上千個集合的用戶端應用程式，來輕鬆開發分區化應用程式。這類設計通常用於軟體即服務 (SaaS) 應用程式，其通常為單一租用戶架構 -- 其中每個租用戶是使用資料庫佈建。建立和管理這類應用程式是程式庫的目標。 用戶端程式庫是可以安裝到使用[ Visual Studio](sql-database-elastic-scale-add-references-visual-studio.md) 和 [Nuget](http://go.microsoft.com/?linkid=9862605) 的任何應用程式專案的 .NET Framework 程式庫。用戶端程式庫會特別去的彈性資料庫工具組件[彈性資料庫功能](sql-database-elastic-scale-introduction.md)。
 
 ## 用戶端功能
 
@@ -54,4 +51,4 @@
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

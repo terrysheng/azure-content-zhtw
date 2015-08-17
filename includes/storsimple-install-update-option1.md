@@ -20,7 +20,7 @@
  
         ![檢視購物籃](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png)
 
-    6. 按一下 [下載]。指定或瀏覽至您想要儲存下載項目的本機位置。更新 (all-hcsmdssoftwareupdate_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) 將下載到所選位置的 StorSimple Update 1.0 Appliance Update 套件組合 (KB3063418) 資料夾中。資料夾也可以複製到裝置可連線的網路共用位置。
+    6. 按一下 [下載]。指定或瀏覽至您想要儲存下載項目的本機位置。更新 (all-hcsmdssoftwareupdate\_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) 將下載到所選位置的 StorSimple Update 1.0 Appliance Update 套件組合 (KB3063418) 資料夾中。資料夾也可以複製到裝置可連線的網路共用位置。
         
 2. 若要安裝軟體更新，請存取 StorSimple 裝置序列主控台上的 Windows PowerShell 介面。請依照[使用 PuTTy 連接到序列主控台](#use-putty-to-connect-to-the-serial-console)中的詳細指示執行作業。
 
@@ -37,7 +37,7 @@
     範例輸出如下所示。
 
         ````
-        Controller0>Start-HcsHotfix -Path \10.100.100.100\share
+        Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
         \hcsmdssoftwareupdate.exe -Credential contoso\John
       
         Confirm
@@ -97,4 +97,4 @@
 
     韌體狀態應該是 **UpToDate**。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

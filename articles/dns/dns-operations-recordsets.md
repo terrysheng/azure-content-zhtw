@@ -47,7 +47,7 @@ New-AzureDnsRecordSet 傳回本機物件，代表 Azure DNS 中建立的記錄�
 ### 萬用字元記錄
 Azure DNS 支援[萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS_record)。會針對具有相符名稱的任何查詢傳回 (除非有來自非萬用字元記錄集的更接近相符項目)。
 
->[AZURE.NOTE]若要建立萬用字元記錄集，請使用記錄集名稱 "\*"，或其第一個標籤為 "\*" 的名稱，例如 "\*.foo"。
+>[AZURE.NOTE]若要建立萬用字元記錄集，請使用記錄集名稱 "*"，或其第一個標籤為 "*" 的名稱，例如 "*.foo"。
 
 >針對所有記錄類型支援 NS 和 SOA 以外的所有萬用字元記錄集。
 
@@ -122,7 +122,7 @@ Get-AzureDnsRecordSet 傳回本機物件，代表 Azure DNS 中建立的記錄�
 	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
 ### 建立含有單一記錄的 SRV 記錄集
 
-如果在區域的根部建立 SRV 記錄，只需要在記錄名稱中指定 _service 和 _protocol — 記錄名稱不需要同時包含 '.@'
+如果在區域的根部建立 SRV 記錄，只需要在記錄名稱中指定 service 和 protocol — 記錄名稱不需要同時包含 '.@'
 
 	PS C:\> $rs = New-AzureDnsRecordSet -Name "_sip._tls" -RecordType SRV -Zone $zone -Ttl 60
 	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
@@ -265,4 +265,4 @@ Set-AzureDnsRecordSet Cmdlet 使用 ‘etag’ 檢查，以確保不會覆寫並
 [開始建立記錄集和記錄](../dns-getstarted-create-recordset)<BR> [在 DNS 區域上執行作業](../dns-operations-dnszones)<BR> [使用 .NET SDK 將作業自動化](../dns-sdk)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

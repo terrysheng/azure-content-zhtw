@@ -67,7 +67,7 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
  
 ### 密碼到期原則
 
-如果使用者在密碼同步處理範圍內，則雲端帳戶的密碼會設為「永不到期」。這表示使用者的密碼可能在內部部署環境中已到期，但他們仍可以繼續使用到期的密碼登入雲端服務。
+如果使用者位於密碼同步處理範圍內，則雲端帳戶的密碼會設為「永不到期」。這表示使用者的密碼可能在內部部署環境中已到期，但他們仍可以繼續使用到期的密碼登入雲端服務。
 
 雲端密碼會於下一次使用者在內部部署環境中變更密碼時更新。
 
@@ -90,7 +90,7 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 
 您可以在執行 Azure AD Connect 設定精靈時啟用密碼同步處理。
 
-在 [選用功能] 對話方塊頁面上，選取 [密碼同步處理]。
+在 [選用功能] 對話方塊頁面上，選取 [密碼同步處理]“****”。
  
 ![選用功能][1]
 
@@ -122,7 +122,7 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 
 在事件中，受影響的物件是藉由其錨點和 DN 值識別。錨點值會與透過 Get-MsoUser Cmdlet 針對使用者傳回的 **ImmutableId** 值相對應。
 
-除了物件識別碼之外，「**事件識別碼 656**」也會提供在內部部署 Active Directory 中變更使用者密碼的日期：
+除了物件識別碼之外，**事件識別碼 656** 也會提供在內部部署 Active Directory 中變更使用者密碼的日期：
 
 ![密碼變更要求][4]
 
@@ -156,4 +156,4 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 [4]: ./media/active-directory-aadsync-implement-password-synchronization/IC662506.png
 [5]: ./media/active-directory-aadsync-implement-password-synchronization/IC662507.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

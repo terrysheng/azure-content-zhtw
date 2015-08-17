@@ -31,7 +31,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司：遊戲主機、手持裝
 3.	您必須在電腦上下載並安裝 [Azure PowerShell][download-azure-powershell]。您將會執行 Data Factory Cmdlet 將範例資料和 Pig/Hive 指令碼上傳至 Blob 儲存體。 
 2.	(建議) 檢閱並練習[開始使用 Azure Data Factory][adfgetstarted] 文章中的教學課程，透過簡易教學課程來熟悉入口網站和 Cmdlet。
 3.	(建議) 檢閱並練習[搭配 Azure Data Factory 使用 Pig 和 Hive][usepigandhive] 文章中的逐步解說，經由逐步解說建立管線，將資料從內部部署資料來源移至 Azure Blob 存放區。
-4.	將 [ADFWalkthrough][adfwalkthrough-download] 檔案下載至 **C:\ADFWalkthrough** 資料夾，**並保留資料夾結構**：
+4.	將 [ADFWalkthrough][adfwalkthrough-download] 檔案下載至 **C:\\ADFWalkthrough** 資料夾，**並保留資料夾結構**：
 	- **Pipelines：**包含 JSON 檔案，內有管線的定義。
 	- **Tables：**包含 JSON 檔案，內有資料表的定義。
 	- **LinkedServices：**包含 JSON 檔案，內有您的儲存體和計算 (HDInsight) 叢集的定義 
@@ -106,7 +106,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司：遊戲主機、手持裝
 
 將行銷活動有效性結果從 Azure Blob 儲存體移至 Azure SQL 資料庫時，會使用資料表、使用者定義型別和預存程序。
 
-1. 在您喜好的編輯器中，從 **C:\ADFWalkthrough** 資料夾 (或包含解壓縮檔案的資料夾) 開啟 **uploadSampleDataAndScripts.ps1**，以您的叢集資訊取代反白顯示部分，並儲存檔案。
+1. 在您喜好的編輯器中，從 **C:\\ADFWalkthrough** 資料夾 (或包含解壓縮檔案的資料夾) 開啟 **uploadSampleDataAndScripts.ps1**，以您的叢集資訊取代反白顯示部分，並儲存檔案。
 
 
 		$storageAccount = <storage account name>
@@ -118,10 +118,10 @@ Contoso 是為多個平台建立遊戲的遊戲公司：遊戲主機、手持裝
  
 	此指令碼要求您在電腦上安裝 sqlcmd 公用程式。如果您已安裝 SQL Server，則已具備。否則，請[下載][sqlcmd-install]並安裝此公用程式。
 	
-	或者，您可以使用資料夾 C:\ADFWalkthrough\Scripts 中的檔案，將 pig/hive 指令碼與範例檔案上傳至 Blob 儲存體中的 adfwalkthrough 容器，並在 MarketingCamapaigns Azure SQL 資料庫中建立 MarketingCampaignEffectiveness 資料表。
+	或者，您可以使用資料夾 C:\\ADFWalkthrough\\Scripts 中的檔案，將 pig/hive 指令碼與範例檔案上傳至 Blob 儲存體中的 adfwalkthrough 容器，並在 MarketingCamapaigns Azure SQL 資料庫中建立 MarketingCampaignEffectiveness 資料表。
    
-2. 確認您的本機電腦可以存取 Azure SQL Database。若要啟用存取，請使用 **Azure 管理入口網站**，或在 master 資料庫上使用 **sp_set_firewall_rule**，為您電腦的 IP 位址建立防火牆規則。可能需要五分鐘的時間，這項變更才會生效。請參閱[設定 Azure SQL 的防火牆規則][azure-sql-firewall]。
-4. 在 Azure PowerShell 中，瀏覽至您解壓縮範例的位置 (例如：**C:\ADFWalkthrough**)
+2. 確認您的本機電腦可以存取 Azure SQL Database。若要啟用存取，請使用 **Azure 管理入口網站**，或在 master 資料庫上使用 **sp\_set\_firewall\_rule**，為您電腦的 IP 位址建立防火牆規則。可能需要五分鐘的時間，這項變更才會生效。請參閱[設定 Azure SQL 的防火牆規則][azure-sql-firewall]。
+4. 在 Azure PowerShell 中，瀏覽至您解壓縮範例的位置 (例如：**C:\\ADFWalkthrough**)
 5. 執行 **uploadSampleDataAndScripts.ps1** 
 6. 一旦指令碼執行成功，您會看到下列項目：
 
@@ -227,7 +227,8 @@ Contoso 是為多個平台建立遊戲的遊戲公司：遊戲主機、手持裝
 
 ### 建立 AzureSqlLinkedService
 1. 在 [**Data Factory 編輯器**] 中，按一下工具列上的 [**新增資料存放區**] 按鈕，然後從下拉式功能表中選取 [**Azure SQL Database**]。在右窗格中，您應該會看到用來建立 Azure SQL 連結服務的 JSON 範本。
-2. 將 **servername**、**username@servername** 和 **password** 取代為您的 Azure SQL 伺服器名稱、使用者帳戶和密碼。3. 將 **databasename** 取代為 **MarketingCampaigns**。這是您在步驟 1 中執行的指令碼所建立的 Azure SQL Database。您應該確認這些指令碼確實已建立此資料庫 (以避免有錯誤)。 
+2. 以您的 Azure SQL 伺服器名稱、使用者帳戶和密碼取代 **servername**、****username@servername** 和 **password**。
+3. 將 **databasename** 取代為 **MarketingCampaigns**。這是您在步驟 1 中執行的指令碼所建立的 Azure SQL Database。您應該確認這些指令碼確實已建立此資料庫 (以避免有錯誤)。 
 3. 按一下工具列上的 [**部署**]，建立並部署 AzureSqlLinkedService。
 
 ### 建立 HDInsightLinkedService
@@ -292,7 +293,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 ### 建立資料表
 	
 1. 在 Data Factory 的**編輯器**中，按一下工具列上的 [**新增資料集**] 按鈕，然後從下拉式功能表中選取 [**Azure Blob 儲存體**]。 
-2. 將右側窗格中的 JSON，取代為 **C:\ADFWalkthrough\Tables** 資料夾的 **RawGameEventsTable.json** 檔案中的 JSON 指令碼。
+2. 將右側窗格中的 JSON，取代為 **C:\\ADFWalkthrough\\Tables** 資料夾的 **RawGameEventsTable.json** 檔案中的 JSON 指令碼。
 3. 按一下工具列上的 [**部署**]，建立並部署資料表。確認您在編輯器的標題列看到 [已成功建立資料表] 訊息。
 4. 使用下列檔案的內容，重複步驟 1 到 3： 
 	1. PartitionedGameEventsTable.json
@@ -314,7 +315,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 ### 若要建立管線
 
 1. 在 **Data Factory 編輯器**中，按一下工具列的 [**新增管線**] 按鈕。如果沒看到此按鈕，請按一下工具列 **...(省略符號)**。或者，您也可以在樹狀檢視中，以滑鼠右鍵按一下 [**管線**]，再按一下 [**新增管線**]。
-2. 將右側窗格中的 JSON，取代為 **C:\ADFWalkthrough\Pipelines** 資料夾的 **PartitionGameLogsPipeline.json** 檔案中的 JSON 指令碼。
+2. 將右側窗格中的 JSON，取代為 **C:\\ADFWalkthrough\\Pipelines** 資料夾的 **PartitionGameLogsPipeline.json** 檔案中的 JSON 指令碼。
 3. 在 JSON 中，在**右方括弧 (']')** 尾端加上**逗點 (',')**，然後在右方括弧之後增加下列三行。 
 
         "start": "2014-05-01T00:00:00Z",
@@ -328,6 +329,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 	1. EnrichGameLogsPipeline.json
 	2. AnalyzeMarketingCampaignPipeline.json
 4. 按下 **X** (右上角) 關閉 Data Factory 刀鋒視窗，以顯示 Data Factory 的首頁 (**DATA FACTORY **刀鋒視窗)。
+
 ### 圖表檢視
 
 1. 在 **LogProcessingFactory** 的 **DATA FACTORY** 刀鋒視窗中，按一下 [**圖表**]。 
@@ -392,7 +394,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 	![RawGameEventsTable [資料配量] 刀鋒視窗][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	如果發生錯誤，您在這裡會看到 [Failed]**** 狀態。您也可能會看到兩個配量的狀態都是 [就緒]，或都是 [PendingValidation]，根據處理配量的速度而定。
+	如果發生錯誤，您在這裡會看到 **[Failed] **狀態。您也可能會看到兩個配量的狀態都是 [**就緒**]，或都是 [**PendingValidation**]，根據處理配量的速度而定。
 
 	如果配量不是 [就緒] 狀態，您可以在 [未就緒的上游配量] 清單中看到未就緒且阻礙目前配量執行的上游配量。
  
@@ -525,4 +527,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

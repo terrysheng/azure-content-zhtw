@@ -33,9 +33,9 @@
 
 從組件庫中受歡迎的 CMS 快速建立新網站，或在 App Service Web 應用程式中沿用現有各種不同語言與架構的 Web 資產。
 
-Azure Marketplace 提供受歡迎網站內容管理系統 (CMS) 的範本，例如 [Orchard]、[Umbraco]、[Drupal] 以及 [WordPress]。您可以使用喜愛的 CMS 風格來建立 Web 應用程式。您可以根據自己的需求從各種不同的資料庫後端中選擇，包括 [Azure SQL Database] 和 [MySQL]。
+Azure Marketplace 提供受歡迎網站內容管理系統 (CMS) 的範本，例如 [Orchard]、[Umbraco]、Drupal 以及 [WordPress]。您可以使用喜愛的 CMS 風格來建立 Web 應用程式。您可以根據自己的需求從各種不同的資料庫後端中選擇，包括 [Azure SQL Database] 和 [MySQL]。
 
-您現有的 Web 資產 (無論是 .NET、PHP、Java、Node.js 或 Python) 都可以在 App Service Web Apps 上執行。您可以使用熟悉的 [FTP] 工具或原始檔控制管理系統，將它們移至 Web Apps。Web 應用程式支援從 [Visual Studio]、[Visual Studio Online] 以及 [Git] - 本機、GitHub、BitBucket、DropBox、Mercurial 等受歡迎的原始檔控制選項直接發行。
+您現有的 Web 資產 (無論是 .NET、PHP、Java、Node.js 或 Python) 都可以在 App Service Web 應用程式上執行。您可以使用熟悉的 [FTP] 工具或原始檔控制管理系統，將它們移至 Web Apps。Web Apps 支援從 [Visual Studio]、[Visual Studio Online] 以及 [Git] - 本機、GitHub、BitBucket、DropBox、Mercurial 等受歡迎的原始檔控制選項直接發佈。
 
 ## 可靠地發行
 
@@ -49,7 +49,7 @@ Azure Marketplace 提供受歡迎網站內容管理系統 (CMS) 的範本，例�
 
 免費使用 App Service Web Apps 網域或對應至註冊的網域名稱，然後利用 CA 簽署的 SSL 憑證保護品牌安全。
 
-當您在 Web Apps 執行網站時，可免費使用 **\*.azurewebsites.net** 網域。或者，您可以將網站對應至從任何 DNS 登錄取得 (例如 GoDaddy) 的[自訂網域] (例如 contoso.com)。
+當您在 Web Apps 執行網站時，可免費使用 ***.azurewebsites.net** 網域。或者，您可以將網站對應至從任何 DNS 登錄取得 (例如 GoDaddy) 的[自訂網域] (例如 contoso.com)。
 
 如果您收集任何使用者資訊、執行電子商務或管理任何其他機密資料，您可以使用 [HTTPS] 來保護品牌信譽與客戶。**.azurewebsites.net** 網域名稱已經隨附 SSL 憑證，而如果您使用自訂網域，可以在 Web Apps 使用該網域的 SSL 憑證。每個月都會收取與各個 SSL 憑證相關聯的費用 (每小時依比例)。如需詳細資訊，請參閱 [App Service 定價詳細資料]。
 
@@ -99,7 +99,6 @@ App Service Web Apps 具有[相應增加和放大]的功能，不論您的工作
 
 [Orchard]: web-sites-dotnet-orchard-cms-gallery.md
 [Umbraco]: web-sites-gallery-umbraco.md
-[Drupal]: web-sites-php-migrate-drupal.md
 [WordPress]: web-sites-php-web-site-gallery.md
 [MySQL]: web-sites-php-mysql-deploy-use-git.md
 [Azure SQL Database]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
@@ -140,4 +139,4 @@ App Service Web Apps 具有[相應增加和放大]的功能，不論您的工作
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

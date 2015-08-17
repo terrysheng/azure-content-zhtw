@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="07/29/2015" 
 	ms.author="szark"/>
 
 
@@ -23,7 +23,7 @@
 
 
 ## 連接資料磁碟
-設定 RAID 裝置通常需要兩個以上的空白資料磁碟。本文將不會詳細說明如何將資料磁碟連接至 Linux 虛擬機器。請參閱 Windows Azure 文章[連接磁碟](storage-windows-attach-disk.md#attachempty)，以取得如何在 Azure 上將空白資料磁碟連接至 Linux 虛擬機器的詳細指示。
+設定 RAID 裝置通常需要兩個以上的空白資料磁碟。本文將不會詳細說明如何將資料磁碟連接至 Linux 虛擬機器。請參閱 Microsoft Azure 文章[連接磁碟](storage-windows-attach-disk.md#attachempty)，取得如何在 Azure 上將空白資料磁碟連接至 Linux 虛擬機器的詳細指示。
 
 >[AZURE.NOTE]ExtraSmall VM 大小不支援將多個資料磁碟連接到虛擬機器。如需支援的 VM 大小與資料磁碟數目的詳細資訊，請參閱 [Microsoft Azure 的虛擬機器和雲端服務大小](https://msdn.microsoft.com/library/azure/dn197896.aspx)。
 
@@ -108,20 +108,20 @@
 
 2. 在新的 RAID 裝置上建立檔案系統
 
-	**CentOS、Oracle Linux、openSUSE 和 Ubuntu**
+	**CentOS、Oracle Linux、SLES 12、openSUSE 和 Ubuntu**
 
 		# sudo mkfs -t ext4 /dev/md127
 
-	**SLES**
+	**SLES 11**
 
 		# sudo mkfs -t ext3 /dev/md127
 
-3. **SLES 和 openSUSE** - 啟用 boot.md 並建立 mdadm.conf
+3. **SLES 11 和 openSUSE** - 啟用 boot.md 並建立 mdadm.conf
 
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[AZURE.NOTE]在 SUSE 系統上進行這些變更之後，可能需要重新開機。
+	>[AZURE.NOTE]在 SUSE 系統上進行這些變更之後，可能需要重新開機。針對 SLES 12，這在並*非*必要步驟。
 
 
 ## 將新的檔案系統新增至 /etc/fstab
@@ -142,7 +142,7 @@
 
 		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
 
-	或者在 **SLES 和 openSUSE** 上：
+	或者在 **SLES 11 和 openSUSE** 上：
 
 		/dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
 
@@ -178,4 +178,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

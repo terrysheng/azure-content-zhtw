@@ -38,4 +38,4 @@ Service Fabric 資源平衡器是由單一的集中式資源平衡服務和存�
 [Image1]: media/service-fabric-resource-balancer-architecture/Service-Fabric-Resource-Balancer-Architecture.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

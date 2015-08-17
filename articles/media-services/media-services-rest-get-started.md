@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="使用 REST API 傳遞點播視訊 (VoD) 使用者入門" 
-	description="本教學課程將逐步引導您使用 REST API 完成利用 Azure 媒體服務來實作點播視訊 (VoD) 內容傳遞應用程式" 
+	description="本教學課程將逐步引導您使用 REST API 完成利用 Azure 媒體服務來實作點播視訊 (VoD) 內容傳遞應用程式。" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -1285,4 +1285,4 @@ MPEG DASH 的串流 URL 具有下列格式：
 
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

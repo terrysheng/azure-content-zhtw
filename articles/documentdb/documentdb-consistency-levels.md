@@ -89,4 +89,4 @@
 -	Werner Vogels。再論最終一致。[http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

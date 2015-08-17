@@ -80,7 +80,7 @@
 3.	提示開啟 SQL1.rdp 時，按一下 [開啟]。
 4.	顯示 [遠端桌面連線] 訊息方塊後，按一下 [連接]。
 5.	出現輸入認證的提示時，使用這些：
-	- 名稱：**SQL1**[本機系統管理員帳戶名稱]
+	- 名稱：**SQL1\**[本機系統管理員帳戶名稱]
 	- 密碼：[本機系統管理員帳戶密碼]
 6.	顯示憑證相關的 [遠端桌面連線] 訊息方塊提示時，按一下 [是]。
 
@@ -118,14 +118,14 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 3.	在 [物件總管] 樹狀結構窗格中，以滑鼠右鍵按一下 [SQL1]，然後按一下 [內容]。
 4.	在 [伺服器內容] 視窗中，按一下 [資料庫設定]。
 5.	找出 [資料庫預設位置] 並設定下列值： 
-	- 對於 [資料]，輸入路徑 **f:\Data**。
-	- 對於 [記錄]，輸入路徑 **f:\Log**。
-	- 對於 [備份]，輸入路徑 **f:\Backup**。
+	- 對於 [資料]，輸入路徑 **f:\\Data**。
+	- 對於 [記錄]，輸入路徑 **f:\\Log**。
+	- 對於 [備份]，輸入路徑 **f:\\Backup**。
 	- 注意：只有新的資料庫才會使用這些位置。
 6.	按一下 [確定] 關閉視窗。
 7.	在 [物件總管] 樹狀結構窗格中，開啟 [安全性]。
 8.	以滑鼠右鍵按一下 [登入]，然後按一下 [新增登入]。
-9.	在 [登入名稱] 中，輸入 **CORP\User1**。
+9.	在 [登入名稱] 中，輸入 **CORP\\User1**。
 10.	在 [伺服器角色] 頁面上，按一下 [sysadmin]，然後按一下 [確定]。
 11.	關閉 Microsoft SQL Server Management Studio。
 
@@ -146,7 +146,7 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
-然後，以 CORP\User1 帳戶認證連接到 LOB1 虛擬機器。
+然後，以 CORP\\User1 帳戶認證連接到 LOB1 虛擬機器。
 
 接著，設定 Windows 防火牆規則，允許基本連線測試的流量。從 LOB1 的系統管理員層級 Windows PowerShell 命令提示字元下，執行這些命令。
 
@@ -168,8 +168,9 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 9.	在 [選取角色服務] 頁面上，選取或清除測試 LOB 應用程式所需服務的核取方塊，然後按 [下一步]。
 10.	在 [確認安裝選項] 頁面上，按一下 [安裝]。
 11.	等候元件安裝完成，然後按一下 [關閉]。
-12.	以 CORP\User1 帳戶認證登入 CLIENT1 電腦，然後啟動 Internet Explorer。
-13.	在網址列中，輸入 **http://lob1/**，然後按下 ENTER。您應該會看見預設的 IIS 8 網頁。
+12.	以 CORP\\User1 帳戶認證登入 CLIENT1 電腦，然後啟動 Internet Explorer。
+13.	在網址列中，鍵入 ****http://lob1/**，然後按 ENTER。您應該會看見預設的 IIS 8 網頁。
+
 這是您目前的組態。
 
 ![](./media/virtual-networks-setup-lobapp-hybrid-cloud-testing/CreateLOBAppHybridCloud_3.png)
@@ -195,4 +196,4 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 [Azure 基礎結構服務實作指導方針](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

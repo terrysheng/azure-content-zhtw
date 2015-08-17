@@ -1,32 +1,32 @@
-Data factory is a multi-tenant service that has the following default limits in place to make sure customer subscriptions are protected from each others workloads. Many of the limits can be easily raised for your subscription up to the maximum limit by contacting support. 
+資料處理站是一種多租用戶服務，並具有以下的預設限制以確保客戶訂用帳戶不會受到彼此工作負載的影響。您只要連絡支援人員，即可將您訂用帳戶的大部分限制調整至其最大限制。
 
-**Resource** | **Default Limit** | **Maximum Limit**
+**Resource** | **預設限制** | **上限**
 -------- | ------------- | -------------
-pipelines within a data factory | 100 | 2500
-datasets within a data factory | 500 | 5000
-concurrent slices per dataset | 10 | 10
-bytes per object for pipeline objects <sup>1</sup> | 200 KB | 2000 KB
-bytes per object for dataset and linkedservice objects <sup>1</sup> | 30 KB | 2000 KB
-fields per object | 100 | [Contact support](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-bytes per field name or identifier | 2 KB | [Contact support](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-bytes per field | 30 KB | [Contact support](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-HDInsight on-demand cluster cores within a subscription <sup>2</sup> | 48 | [Contact support](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-Retry count for pipeline activity runs | 1000 | MaxInt (32 bit)
+資料處理站中的管線 | 100 | 2500
+資料處理站中的資料集 | 500 | 5000
+每個資料集的並行配量 | 10 | 10
+管線物件的每個物件位元組大小<sup>1</sup> | 200 KB | 2000 KB
+資料集和 linkedservice 物件的每個物件位元組大小<sup>1</sup> | 30 KB | 2000 KB
+物件的欄位數目 | 100 | [請連絡支援人員](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+每一欄位名稱或識別碼的位元組大小 | 2 KB | [請連絡支援人員](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+每一欄位的位元組大小 | 30 KB | [請連絡支援人員](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+訂用帳戶中的 HDInsight 隨選叢集核心<sup>2</sup> | 48 | [請連絡支援人員](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+管線活動執行的重試計數 | 1000 | MaxInt (32 位元)
 
-<sup>1</sup> Pipeline, dataset, and linked service objects represent a logical grouping of your workload. Limits for these objects do not relate to amount of data you can move and process with the Azure Data Factory service. Data factory is designed to scale to handle petabytes of data.
+<sup>1</sup>管線、 資料集和連結的服務物件代表您工作負載的邏輯群組。這些物件的限制與您可使用 Azure Data Factory 服務移動或處理的資料量無關。資料處理站可視需要調整以處理數 PB 的資料。
 
-<sup>2</sup>On-demand HDInsight cores are allocated out of the subscription that contains the data factory. As a result, the above limit is the Data Factory enforced core limit for on-demand HDInsight cores and is different from the core limit associated with your Azure subscription.
+<sup>2</sup>隨選 HDInsight 核心並非配置在包含資料處理站的訂用帳戶之中。因此，上述限制為 Data Factory 針對隨選 HDInsight 核心所強制的核心限制，不同於您 Azure 訂用帳戶相關聯的核心限制。
 
 
-**Resource** | **Default lower limit** | **Minimum limit**
+**Resource** | **預設下限** | **下限**
 -------- | ------------------- | -------------
-Scheduling interval | 15 minutes | 5 minutes
-Interval between retry attempts | 1 second | 1 second
-Retry timeout value | 1 second | 1 second
+排程間隔 | 15 Minuten | 5 分鐘
+重試嘗試間的間隔 | 1 秒 | 1 秒
+重試逾時值 | 1 秒 | 1 秒
 
 
-### Web service call limits
+### Web 服務呼叫限制
 
-Azure resource manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](azure-subscription-service-limits/#resource-group-limits). 
+Azure 資源管理員有 API 呼叫限制。您可使用 [Azure 資源管理員 API 限制](azure-subscription-service-limits/#resource-group-limits)內的速率進行 API 呼叫。
 
-
+<!---HONumber=August15_HO6-->

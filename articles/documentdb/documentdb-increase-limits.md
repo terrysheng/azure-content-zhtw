@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="要求增加 DocumentDB 帳戶限制 | Azure" 
+	pageTitle="要求增加 DocumentDB 帳戶限制 | Microsoft Azure" 
 	description="了解如何要求調整 DocumentDB 限制，包括允許的集合數目、預存程序和查詢子句。" 
 	services="documentdb" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="07/28/2015" 
 	ms.author="stbaro"/>
 
 # 要求增加 DocumentDB 帳戶限制
@@ -91,4 +91,4 @@
 - 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

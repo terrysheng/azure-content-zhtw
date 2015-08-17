@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="07/09/2015"
 	ms.author="joseidz"/>
 
@@ -23,7 +23,7 @@
 
 ## 必要條件
 - 已佈建且在執行中的 Azure SQL Database。若要建立新的 SQL Database，請參閱[開始使用 Microsoft Azure SQL Database](sql-database-get-started.md)。
-- [Microsoft Excel 2013](https://products.office.com/zh-tw/) (或 Microsoft Excel 2010)
+- [Microsoft Excel 2013](https://products.office.com/en-US/) (或 Microsoft Excel 2010)
 
 ## 連接至 SQL Database 並建立報告
 1.	開啟 Excel。
@@ -63,4 +63,4 @@
 [4]: ./media/sql-database-connect-excel/power-pivot-results.png
 [5]: ./media/sql-database-connect-excel/select-database-and-table.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

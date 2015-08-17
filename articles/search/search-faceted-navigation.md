@@ -259,7 +259,7 @@ Azure 搜尋服務中的多面向導覽實作在建置要求的應用程式程�
 <a name="rangefacets"></a>
 ##根據範圍值的多面向導覽
 
-透過範圍進行面向化是常見的搜尋應用程式需求。範圍支援數值資料與日期時間值。您可以在[搜尋文件 (Azure 搜尋服務 API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) 中閱讀各方法的相關資訊。
+透過範圍進行面向化是常見的搜尋應用程式需求。範圍支援數值資料與日期時間值。您可以在[搜尋文件 (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) 中閱讀各方法的相關資訊。
 
 Azure Search 透過提供兩種方法進行範圍運算，來簡化範圍建構。針對這兩種方法，Azure Search 會依照您提供的輸入建立適當的範圍。例如，如果您指定 10|20|30 的值範圍，它會自動建立 0-10、10-20、20-30 的範圍。範例應用程式會移除任何空的間隔。
 
@@ -295,7 +295,7 @@ Azure Search 中有兩種地理空間函式，**geo.distance** 與 **geo.interse
 
 - **geo.intersects** 函式在給定點位於給定多邊形中時會傳回 true，其中該給定點會是欄位，且多邊形會指定為做為篩選條件一部分所傳送的座標常數清單。
 
-您可以在 [OData 運算式語法 (Azure Search)](http://msdn.microsoft.com/library/azure/dn798921.aspx) 中找到篩選條件範例。若要深入了解地理空間搜尋，請參閱[在 Azure 搜尋服務中建立地理空間搜尋應用程式](search-create-geospatial.md)。
+您可以在 [OData 運算式語法 (Azure Search)](http://msdn.microsoft.com/library/azure/dn798921.aspx) 中找到篩選條件範例。若要深入了解地理空間搜尋，請參閱[在 Azure Search 中建立地理空間搜尋應用程式](search-create-geospatial.md)。
 
 <a name="tryitout"></a>
 ##立即試用
@@ -372,4 +372,4 @@ Azure Search 中有兩種地理空間函式，**geo.distance** 與 **geo.interse
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="08/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -395,8 +395,7 @@ Microsoft 對這種設計選擇不置可否。示範程式會說明一些您可�
 	        static Custom_SqlDatabaseTransientErrorDetectionStrategy()
 	        {
 	            int[] arrayOfTransientErrorNumbers =
-	                {4060, 10928, 10929, 40197, 40501, 40613
-	};
+	                {4060, 10928, 10929, 40197, 40501, 40613 };
 	
 	            M_listTransientErrorNumbers = new G.List<int>(arrayOfTransientErrorNumbers);
 	        }
@@ -413,10 +412,10 @@ Microsoft 對這種設計選擇不置可否。示範程式會說明一些您可�
 ## Program.cs 的簡短版本
 
 
-本節中的原始程式碼重複稍早所呈現的 `Program.cs` 檔案的縮短版。已移除所有重試邏輯以及所有 `Exception` 處理。
+本節中的原始程式碼重複稍早所呈現的 `Program.cs` 檔案的縮短版。已移除所有重試邏輯以及所有例外狀況處理。
 
 
-簡短版本讓您輕鬆查看 ADO.NET 呼叫，知道它們一般都能運作。通常不會發生暫時性的錯誤於且不會擲回 `Exception`。而且通常跳傘運動員不需要備用降落傘。
+簡短版本讓您輕鬆查看 ADO.NET 呼叫，知道它們一般都能運作。通常不會發生暫時性的錯誤於且不會擲回例外狀況。而且通常跳傘運動員不需要備用降落傘。
 
 
 	using     System;  // C#, pure ADO.NET, no retry logic, no Exception handling.
@@ -497,4 +496,4 @@ Microsoft 對這種設計選擇不置可否。示範程式會說明一些您可�
 
 - [SQL Database 的用戶端快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

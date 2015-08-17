@@ -45,14 +45,14 @@
 
 服務匯流排使用連接字串來儲存端點和認證。您可以將連接字串置於設定檔中，而非硬式編碼它：
 
-- 使用 Azure 雲端服務時，建議您使用 Azure 服務設定系統 (***.csdef** 和 ***.cscfg** 檔案) 來儲存連接字串。
+- 使用 Azure 雲端服務時，建議您使用 Azure 服務設定系統 (****.csdef** 和 ****.cscfg** 檔案) 來儲存連接字串。
 - 使用 Azure 網站或 Azure 虛擬機器時，建議您使用 .NET 設定系統 (例如 **Web.config** 檔案) 來儲存連接字串。
 
 在這兩種情況下，您都可以使用 `CloudConfigurationManager.GetSetting` 方法擷取連接字串，如本指南稍後所示範。
 
 ### 在使用雲端服務時設定連接字串
 
-服務設定機制為 Azure 雲端服務專案所獨有，可讓您從 Azure 管理入口網站動態變更組態設定，而無需重新部署應用程式。例如，在您的服務定義 (***.csdef**) 檔案中新增 `Setting` 標籤，如下所示：
+服務設定機制為 Azure 雲端服務專案所獨有，可讓您從 Azure 管理入口網站動態變更組態設定，而無需重新部署應用程式。例如，在您的服務定義 (****.csdef**) 檔案中新增 `Setting` 標籤，如下所示：
 
     <ServiceDefinition name="Azure1">
     ...
@@ -64,7 +64,7 @@
     ...
     </ServiceDefinition>
 
-接著您可以在服務組態 (***.cscfg**) 檔案中指定值：
+接著您可以在服務組態 (****.cscfg**) 檔案中指定值：
 
     <ServiceConfiguration serviceName="Azure1">
     ...
@@ -170,11 +170,11 @@
 
 ## 如何從佇列接收訊息
 
-從佇列接收訊息的建議方式是使用 [`QueueClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) 物件。`QueueClient` 物件可在兩種不同模式中運作： [`ReceiveAndDelete` 和 `PeekLock`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)。
+從佇列接收訊息的建議方式是使用 [`QueueClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) 物件。`QueueClient` 物件可在兩種不同模式中運作：[`ReceiveAndDelete` 和 `PeekLock`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)。
 
 使用 **ReceiveAndDelete** 模式時，接收是一次性作業；也就是說，當服務匯流排在佇列中收到訊息的讀取要求時，會將此訊息標示為已取用，並將它傳回應用程式。**ReceiveAndDelete** 是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
 
-在 **PeekLock** 模式 (此為預設模式) 中，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它會在已接收的訊息上呼叫 [`Complete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)，以完成接收程序的第二個階段。當匯流排看到 `Complete` 呼叫時，它會將訊息標示為已取用，並將它從佇列中移除。
+在 **PeekLock** 模式 (此為預設模式) 中，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它會在已接收的訊息上呼叫 [`Complete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)，以完成接收程序的第二個階段。當服務匯流排看到 `Complete` 呼叫時，它會將訊息標示為已取用，並將它從佇列中移除。
 
 以下範例將示範如何使用預設的 **PeekLock** 模式來接收與處理訊息。若要指定不同 [`ReceiveMode`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) 值，您可以使用 [`CreateFromConnectionString`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.createfromconnectionstring.aspx) 的另一個多載。這個範例會使用 [`OnMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.onmessage.aspx) 回呼在訊息抵達 **TestQueue** 時處理訊息。
 
@@ -225,7 +225,7 @@
 
 -   請參閱 MSDN 概觀：[佇列、主題和訂用帳戶。][]
 -   建立一個可行的應用程式，往返傳送或接收服務匯流排佇列的訊息：[服務匯流排代理傳訊 .NET 教學課程]。
--   服務匯流排範例： 從 [Azure 範例][]下載，或參閱 [MSDN][] 上的概觀。
+-   服務匯流排範例：從 [Azure 範例][]下載，或參閱 [MSDN][] 上的概觀。
 
   [What are Service Bus Queues]: #what-queues
   [Create a Service Namespace]: #create-namespace
@@ -245,4 +245,4 @@
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

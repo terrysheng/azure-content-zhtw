@@ -239,4 +239,4 @@ MySQL 支援 3 種安裝方法：二進位套件、rpm 套件和來源套件。�
            #mysql-test:~ # insserv mysql
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

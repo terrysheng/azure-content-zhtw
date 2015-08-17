@@ -449,7 +449,7 @@ protected override ICommunicationListener CreateCommunicationListener()
 
 ```
 
-這是 Web API 應用程式和 OWIN 主機最後相會的地方：會給予主機 (\*\*OwinCommunicationListener\*\*) 應用程式的執行個體 (透過 **Startup** 的 Web API)，且 Service Fabric 會管理其生命週期。通常可以針對任何通訊堆疊運用相同的模式。
+這是 Web API *應用程式*和 OWIN *主機*最後相會的地方：會給予*主機* (**OwinCommunicationListener**) *應用程式*的執行個體 (透過 **Startup** 的 Web API)，且 Service Fabric 會管理其生命週期。通常可以針對任何通訊堆疊運用相同的模式。
 
 ## 總整理
 
@@ -570,7 +570,7 @@ namespace WebApi
 如果您尚未這麼做，請[設定開發環境](service-fabric-get-started.md)。
 
 
-您現在可以建置並部署您的服務。在 Visual Studio 中按 **F5** 以建置及部署應用程式。在 [診斷事件] 視窗中，您應該會看到一則訊息指出 Web 伺服器在 **http://localhost:80/api** 中開啟
+您現在可以建置並部署您的服務。在 Visual Studio 中按 **F5** 以建置及部署應用程式。在 [診斷事件] 視窗中，您應該會看到一則訊息指出 Web 伺服器在 ****http://localhost:80/api** 中開啟
 
 
 ![](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
@@ -614,4 +614,4 @@ New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -Servi
 
 [在 Visual Studio 中偵錯 Service Fabric 應用程式](service-fabric-debugging-your-application.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

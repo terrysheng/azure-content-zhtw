@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="整合內部部署身分識別與 Azure Active Directory。" 
 	description="這就是 Azure AD Connect，說明它是什麼及使用的理由。" 
-	services="active-directory" 
+	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
+	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -191,4 +191,4 @@ Multi-Factor Authentication SDK 中的 API 結構相當簡單。您可以使用�
 	    }
 	}
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

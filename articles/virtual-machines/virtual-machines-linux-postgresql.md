@@ -93,7 +93,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。它�
     >[Azure.NOTE]基於安全性理由，PostgreSQL 會使用非根使用者初始化、啟動或關閉資料庫。
 
 
-4. 輸入下列命令以編輯 *bash_profile*。這幾行將會加入至 *bash_profile* 檔案的結尾：
+4. 輸入下列命令以編輯 *bash\_profile*。這幾行將會加入至 *bash\_profile* 檔案的結尾：
 
 		cat >> ~/.bash_profile <<EOF
 		export PGPORT=1999
@@ -108,7 +108,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。它�
 		alias ll='ls -lh'
 		EOF
 
-5. 執行 *bash_profile* 檔案：
+5. 執行 *bash\_profile* 檔案：
 
 		$ source .bash_profile
 
@@ -142,7 +142,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。它�
 
 	# cp linux /etc/init.d/postgresql
 
-修改 /etc/init.d/postgresql 檔案中的兩個變數。前置詞設為 PostgreSQL 的安裝路徑：**/opt/pgsql**。PGDATA 設為 PostgreSQL 的資料儲存路徑：**/opt/pgsql_data**。
+修改 /etc/init.d/postgresql 檔案中的兩個變數。前置詞設為 PostgreSQL 的安裝路徑：**/opt/pgsql**。PGDATA 設為 PostgreSQL 的資料儲存路徑：**/opt/pgsql\_data**。
 
 	# sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
 
@@ -251,4 +251,4 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。它�
 ##更多關於 PostgreSQL 的內容
 立刻在 Microsoft Azure Linux VM 中完成 PostgreSQL 的安裝，並享受在 Microsoft Azure 中使用它的體驗。如需關於 PostgreSQL 的內容，請參閱[這裡](http://www.postgresql.org/)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -233,4 +233,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [服務對服務間通訊的失敗案例](service-fabric-testability-scenarios-service-communication.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

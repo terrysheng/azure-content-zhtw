@@ -765,4 +765,4 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤](http://www.iis.net/lear
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

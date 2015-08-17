@@ -11,7 +11,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="05/03/2015"
 	ms.author="awills"/>
 
@@ -259,4 +259,4 @@ Web 工作階段在 30 分鐘無活動後會被計入。在電話或其他裝置
 [start]: app-insights-get-started.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

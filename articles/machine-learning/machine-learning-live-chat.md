@@ -31,4 +31,4 @@
 
 [AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

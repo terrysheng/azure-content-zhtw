@@ -126,4 +126,4 @@ StorageAccountName 指定儲存體帳戶來儲存已部署的警示 JSON 檔案�
 	Get-AzureResourceGroupLog –Name $ResourceGroup -All | Where-Object EventSource -eq "Microsoft.DataFactory"
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

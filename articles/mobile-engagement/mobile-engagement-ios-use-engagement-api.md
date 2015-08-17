@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="如何在 iOS 上使用 Engagement API" 
+<properties
+	pageTitle="如何在 iOS 上使用 Engagement API"
 	description="最新的 iOS SDK - 如何在 iOS 上使用 Engagement API"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="na" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/24/2015" 
-	ms.author="kapiteir" />
+	ms.date="01/24/2015"
+	ms.author="piyushjo" />
 
 
 #如何在 iOS 上使用 Engagement API
@@ -61,34 +61,34 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 **不含額外資料的範例：**
 
-			@implementation MyViewController {
-			   [...]
-			   - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-			   {
-			    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-			        ...
-			    [[EngagementAgent shared] sendSessionEvent:@"will_rotate" extras:nil];
-			        ...
-			   }
-			   [...]
-			}
+	@implementation MyViewController {
+	   [...]
+	   - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+	   {
+	    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+	        ...
+	    [[EngagementAgent shared] sendSessionEvent:@"will_rotate" extras:nil];
+	        ...
+	   }
+	   [...]
+	}
 
 **含額外資料的範例：**
 
-			@implementation MyViewController {
-			   [...]
-			   - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-			   {
-			    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-			        ...
-			    NSMutableDictionary* extras = [NSMutableDictionary dictionary];
-			    [extras setObject:[NSNumber numberWithInt:toInterfaceOrientation] forKey:@"to_orientation_id"];
-			    [extras setObject:[NSNumber numberWithDouble:duration] forKey:@"duration"];
-			    [[EngagementAgent shared] sendSessionEvent:@"will_rotate" extras:extras];
-			        ...
-			   }
-			   [...]
-			}
+	@implementation MyViewController {
+	   [...]
+	   - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+	   {
+	    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+	        ...
+	    NSMutableDictionary* extras = [NSMutableDictionary dictionary];
+	    [extras setObject:[NSNumber numberWithInt:toInterfaceOrientation] forKey:@"to_orientation_id"];
+	    [extras setObject:[NSNumber numberWithDouble:duration] forKey:@"duration"];
+	    [[EngagementAgent shared] sendSessionEvent:@"will_rotate" extras:extras];
+	        ...
+	   }
+	   [...]
+	}
 
 ### 獨立事件
 
@@ -96,7 +96,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 **範例：**
 
-			[[EngagementAgent shared] sendEvent:@"received_notification" extras:nil];
+	[[EngagementAgent shared] sendEvent:@"received_notification" extras:nil];
 
 ##報告錯誤
 
@@ -106,17 +106,17 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 **範例：**
 
-			/** The user has entered invalid data in a form */
-			@implementation MyViewController {
-			  [...]
-			  -(void)onMyFormSubmitted:(MyForm*)form {
-			    [...]
-			    /* The user has entered an invalid email address */
-			    [[EngagementAgent shared] sendSessionError:@"sign_up_email" extras:nil]
-			    [...]
-			  }
-			  [...]
-			}
+	/** The user has entered invalid data in a form */
+	@implementation MyViewController {
+	  [...]
+	  -(void)onMyFormSubmitted:(MyForm*)form {
+	    [...]
+	    /* The user has entered an invalid email address */
+	    [[EngagementAgent shared] sendSessionError:@"sign_up_email" extras:nil]
+	    [...]
+	  }
+	  [...]
+	}
 
 ### 獨立錯誤
 
@@ -124,7 +124,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 **範例：**
 
-			[[EngagementAgent shared] sendError:@"something_failed" extras:nil];
+	[[EngagementAgent shared] sendError:@"something_failed" extras:nil];
 
 ##報告工作
 
@@ -132,18 +132,18 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 假設您想要報告登入程序的持續時間：
 
-			[...]
-			-(void)signIn 
-			{
-			  /* Start job */
-			  [[EngagementAgent shared] startJob:@"sign_in" extras:nil];
-			
-			  [... sign in ...]
-			
-			  /* End job */
-			  [[EngagementAgent shared] endJob:@"sign_in"];
-			}
-			[...]
+	[...]
+	-(void)signIn
+	{
+	  /* Start job */
+	  [[EngagementAgent shared] startJob:@"sign_in" extras:nil];
+
+	  [... sign in ...]
+
+	  /* End job */
+	  [[EngagementAgent shared] endJob:@"sign_in"];
+	}
+	[...]
 
 ### 報告工作期間的錯誤
 
@@ -153,35 +153,35 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 假設您想要報告您登入程序期間的錯誤：
 
-			[...]
-			-(void)signin
-			{
-			  /* Start job */
-			  [[EngagementAgent shared] startJob:@"sign_in" extras:nil];
-			
-			  BOOL success = NO;
-			  while (!success) {
-			    /* Try to sign in */
-			    NSError* error = nil;
-			    [self trySigin:&error];
-			    success = error == nil;
-			
-			    /* If an error occured report it */
-			    if(!success)
-			    {
-			      [[EngagementAgent shared] sendJobError:@"sign_in_error"
-			                     jobName:@"sign_in"
-			                      extras:[NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]];
-			
-			      /* Retry after a moment */
-			      [NSThread sleepForTimeInterval:20];
-			    }
-			  }
-			
-			  /* End job */
-			  [[EngagementAgent shared] endJob:@"sign_in"];
-			};
-			[...]
+	[...]
+	-(void)signin
+	{
+	  /* Start job */
+	  [[EngagementAgent shared] startJob:@"sign_in" extras:nil];
+
+	  BOOL success = NO;
+	  while (!success) {
+	    /* Try to sign in */
+	    NSError* error = nil;
+	    [self trySigin:&error];
+	    success = error == nil;
+
+	    /* If an error occured report it */
+	    if(!success)
+	    {
+	      [[EngagementAgent shared] sendJobError:@"sign_in_error"
+	                     jobName:@"sign_in"
+	                      extras:[NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]];
+
+	      /* Retry after a moment */
+	      [NSThread sleepForTimeInterval:20];
+	    }
+	  }
+
+	  /* End job */
+	  [[EngagementAgent shared] endJob:@"sign_in"];
+	};
+	[...]
 
 ### 工作期間的事件
 
@@ -191,25 +191,25 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 假設我們有社交網路，且使用工作來報告使用者連接到伺服器這段期間的總時間。使用者可以接收來自朋友的訊息，這就是工作事件。
 
-			[...]
-			- (void) signin
-			{
-			  [...Sign in code...]
-			  [[EngagementAgent shared] startJob:@"connection" extras:nil];
-			}
-			[...]
-			- (void) signout
-			{
-			  [...Sign out code...]
-			  [[EngagementAgent shared] endJob:@"connection"];
-			}
-			[...]
-			- (void) onMessageReceived 
-			{
-			  [...Notify user...]
-			  [[EngagementAgent shared] sendJobEvent:@"connection" jobName:@"message_received" extras:nil];
-			}
-			[...]
+	[...]
+	- (void) signin
+	{
+	  [...Sign in code...]
+	  [[EngagementAgent shared] startJob:@"connection" extras:nil];
+	}
+	[...]
+	- (void) signout
+	{
+	  [...Sign out code...]
+	  [[EngagementAgent shared] endJob:@"connection"];
+	}
+	[...]
+	- (void) onMessageReceived
+	{
+	  [...Notify user...]
+	  [[EngagementAgent shared] sendJobEvent:@"connection" jobName:@"message_received" extras:nil];
+	}
+	[...]
 
 ##額外的參數
 
@@ -221,16 +221,16 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 > [AZURE.NOTE]額外的參數會以 JSON 序列化。如果您想要傳遞與上述不同的物件，必須在類別中實作以下方法：
 >
-			 -(NSString*)JSONRepresentation; 
+			 -(NSString*)JSONRepresentation;
 >
 > 方法應傳回您物件的 JSON 表示法。
 
 ### 範例
 
-			NSMutableDictionary* extras = [NSMutableDictionary dictionaryWithCapacity:2];
-			[extras setObject:[NSNumber numberWithInt:123] forKey:@"video_id"];
-			[extras setObject:@"http://foobar.com/blog" forKey:@"ref_click"];
-			[[EngagementAgent shared] sendEvent:@"video_clicked" extras:extras];
+	NSMutableDictionary* extras = [NSMutableDictionary dictionaryWithCapacity:2];
+	[extras setObject:[NSNumber numberWithInt:123] forKey:@"video_id"];
+	[extras setObject:@"http://foobar.com/blog" forKey:@"ref_click"];
+	[[EngagementAgent shared] sendEvent:@"video_clicked" extras:extras];
 
 ### 限制
 
@@ -240,7 +240,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-這表示索引鍵必須至少以一個字母開頭，後面連接字母、數字或底線 (_)。
+這表示索引鍵必須至少以一個字母開頭，後面連接字母、數字或底線 (\_)。
 
 #### 大小
 
@@ -248,7 +248,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 在上述範例中，傳送到伺服器的 JSON 會是 58 個字元：
 
-			{"ref_click":"http://foobar.com/blog","video_id":"123"}
+	{"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
 
 ##報告應用程式資訊
 
@@ -260,10 +260,10 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 **範例：**
 
-			NSMutableDictionary* appInfo = [NSMutableDictionary dictionaryWithCapacity:2];
-			[appInfo setObject:@"female" forKey:@"gender"];
-			[appInfo setObject:@"1983-12-07" forKey:@"birthdate"]; // December 7th 1983
-			[[EngagementAgent shared] sendAppInfo:appInfo];
+	NSMutableDictionary* appInfo = [NSMutableDictionary dictionaryWithCapacity:2];
+	[appInfo setObject:@"female" forKey:@"gender"];
+	[appInfo setObject:@"1983-12-07" forKey:@"birthdate"]; // December 7th 1983
+	[[EngagementAgent shared] sendAppInfo:appInfo];
 
 ### 限制
 
@@ -273,7 +273,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-這表示索引鍵必須至少以一個字母開頭，後面連接字母、數字或底線 (_)。
+這表示索引鍵必須至少以一個字母開頭，後面連接字母、數字或底線 (\_)。
 
 #### 大小
 
@@ -281,8 +281,6 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 在上述範例中，傳送到伺服器的 JSON 會是 44 個字元：
 
-			{"birthdate":"1983-12-07","gender":"female"}
+	{"birthdate":"1983-12-07","gender":"female"}
 
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

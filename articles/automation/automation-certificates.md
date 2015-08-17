@@ -98,7 +98,7 @@
 
 下圖顯示在圖形化 Runbook 中使用憑證的範例。這是如上所示，用於從文字式 Runbook 加入憑證至雲端服務的相同範例。
 
-這個範例會對使用連接物件向服務驗證的 Send-**TwilioSMS 活動** 使用 **UseConnectionObject** 參數集。必須在這裡使用[管線連結](automation-graphical-authoring-intro.md#links-and-workflow)，因為順序連結將會傳回一個集合，其中包含 Connection 參數未預期的單一物件。
+這個範例會對 Send-**TwilioSMS 活動** 使用 **UseConnectionObject** 參數集，使用連接物件向服務的進行驗證。必須在這裡使用[管線連結](automation-graphical-authoring-intro.md#links-and-workflow)，因為順序連結將會傳回一個集合，其中包含 Connection 參數未預期的單一物件。
 
 ![](media/automation-certificates/add-certificate.png)
 
@@ -107,4 +107,4 @@
 
 - [圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

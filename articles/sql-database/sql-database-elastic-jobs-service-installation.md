@@ -63,4 +63,4 @@
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

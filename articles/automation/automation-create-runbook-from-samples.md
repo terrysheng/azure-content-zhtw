@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/19/2015"
 	ms.author="bwren"/>
 
@@ -26,7 +26,7 @@ Microsoft Azure 自動化可讓使用者將執行於雲端環境中的手動、�
 ## 教學課程
 本教學課程將逐步引導您建立自動化帳戶、將範例 "Hello World" Runbook 匯入 Azure 自動化中、執行該 Runbook 並檢視其輸出。
 
-若要完成此教學課程，您需要 Azure 訂用帳戶。如果您沒有這類帳戶，可以<a href="/pricing/member-offers/msdn-benefits-details/" target="_blank">啟用自己的 MSDN 訂戶權益</a> 或<a href="/pricing/free-trial/" target="_blank">申請免費試用</a>。
+若要完成此教學課程，您需要 Azure 訂用帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](../pricing/member-offers/msdn-benefits-details/)或[申請免費試用](../pricing/free-trial.md)</a>。
 
 [AZURE.INCLUDE [automation-note-authentication](../../includes/automation-note-authentication.md)]
 
@@ -138,7 +138,7 @@ Microsoft 和 Azure 自動化社群會提供範例 Runbook，協助您開始建�
 
 ## 意見反應
 
-<strong>請不吝提供意見！</strong> 如果您要尋找 Azure 自動化 Runbook 解決方案或整合模組，請在指令碼中心提出指令碼要求。如果您有關於 Azure 自動化的任何意見或功能要求，請張貼在 [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback) 上。感謝您！
+**請不吝提供意見。** 如果您要尋找 Azure 自動化 Runbook 解決方案或整合模組，請在指令碼中心提出指令碼要求。如果您有關於 Azure 自動化的任何意見或功能要求，請張貼在 [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback) 上。感謝您！
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

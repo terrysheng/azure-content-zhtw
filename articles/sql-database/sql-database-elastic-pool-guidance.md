@@ -119,7 +119,7 @@ Azure SQL Database 中的彈性資料庫集區可讓 SaaS ISV 將一組資料庫
 
 3. 計算集區的價格，如下所示：
 
-    集區價格 = (*集區 DTU* * *集區 DTU 單價*) + (*資料庫數目總計* * *集區資料庫單價*)
+    集區價格 = (*集區* DTU * *集區 DTU 單價*) + (*資料庫數目總計* * *集區資料庫單價*)
 
     如需定價資訊，請參閱 [SQL Database 定價詳細資料](http://azure.microsoft.com/pricing/details/sql-database/)。
 
@@ -165,7 +165,7 @@ STA 是在加入彈性集區至現有的伺服器時，於 Azure 入口網站中
 
 ### 使用動態管理檢視 (DMV) 預估彈性集區大小 
 
-[Sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV 會測量個別資料庫的資源使用量。此 DMV 會提供 CPU、IO、記錄與資料庫的記錄檔使用量，做為資料庫的效能層級限制的百分比。此資料可以用來計算在任何指定 15 秒間隔中，資料庫的 DTU 使用量。
+[Sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV 會測量個別資料庫的資源使用量。此 DMV 會提供 CPU、IO、記錄與資料庫的記錄檔使用量，做為資料庫的效能層級限制的百分比。此資料可以用來計算在任何指定 15 秒間隔中，資料庫的 DTU 使用量。
 
 可以估計彈性集區在 15 秒的間隔中彙總的 DTU 使用量，方法是彙總在該時段的所有候選資料庫的 DTU 使用量。視特定的效能目標而定，捨棄少數百分比的範例資料亦合適。例如，可以套用跨所有時間間隔的彙總 DTU 第 99 個百分位值，以排除極端值並提供彈性集區 DTU 以符合 99% 的取樣時間間隔。
 
@@ -402,4 +402,4 @@ STA 是在加入彈性集區至現有的伺服器時，於 Azure 入口網站中
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

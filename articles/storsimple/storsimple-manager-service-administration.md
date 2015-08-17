@@ -109,4 +109,4 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 
 -  [連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

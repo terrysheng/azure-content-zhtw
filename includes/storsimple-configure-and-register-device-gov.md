@@ -1,3 +1,6 @@
+
+
+
 ### 設定和註冊裝置
 
 1. 存取 StorSimple 裝置序列主控台上的 Windows PowerShell 介面。如需相關指示，請參閱[使用 PuTTY 來連接至裝置序列主控台](#use-putty-to-connect-to-the-device-serial-console)。**請務必確實依照此程序，否則將無法存取主控台。**
@@ -89,7 +92,7 @@
 
      `Set-CloudPlatform -AzureGovt_US`
 
-    您將會看見確認訊息。接受預設值 (\*\*Y\*\*)。
+    您將會看見確認訊息。接受預設值 (**Y**)。
 
 11. 執行下列 Cmdlet 以繼續設定：
 
@@ -132,4 +135,4 @@
      
         
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

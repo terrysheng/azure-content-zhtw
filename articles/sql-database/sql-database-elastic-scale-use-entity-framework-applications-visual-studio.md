@@ -238,7 +238,7 @@ MyContext(DbConnection, DbCompiledModel,bool) |ElasticScaleContext(ShardMap, TKe
         } 
  
 
-這個範例示範 **RegisterNewShard** 方法，此方法會在分區對應中註冊分區、透過 EF 移轉部署結構描述，並將分區化索引鍵的對應儲存至分區。它依賴 **DbContext** 子類別 (範例中的 \*\*ElasticScaleContext\*\*) 的建構函式 (接受 SQL 連接字串做為輸入)。這個建構函式的程式碼簡單易懂，如下列範例所示：
+這個範例示範 **RegisterNewShard** 方法，此方法會在分區對應中註冊分區、透過 EF 移轉部署結構描述，並將分區化索引鍵的對應儲存至分區。它依賴 **DbContext** 子類別 (範例中的 **ElasticScaleContext**) 的建構函式 (接受 SQL 連接字串做為輸入)。這個建構函式的程式碼簡單易懂，如下列範例所示：
 
 
         // C'tor to deploy schema and migrations to a new shard 
@@ -281,4 +281,4 @@ Entity Framework 應用程式可以輕易地受益於 Azure SQL Database 的彈�
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

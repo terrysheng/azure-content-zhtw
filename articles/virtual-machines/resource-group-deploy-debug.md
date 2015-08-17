@@ -387,4 +387,4 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 [msn]: http://search.msn.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

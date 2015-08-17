@@ -60,4 +60,4 @@
 - 能夠藉由將 ```SyntheticSource``` 屬性加入至報告項目，將遙測項目標記為綜合。
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

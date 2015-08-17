@@ -127,4 +127,4 @@
 
 [深入了解 StorSimple Snapshot Manager 使用者介面](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

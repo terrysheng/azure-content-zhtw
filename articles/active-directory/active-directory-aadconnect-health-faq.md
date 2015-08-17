@@ -43,8 +43,7 @@ ADFS 伺服器上安裝 Microsoft Identity Health 代理程式對於 CPU、記�
 - CPU 耗用量：增加約 1%
 - 記憶體耗用量：最多 10% 的系統總記憶體
 - 網路頻寬使用量：每 1000 個 ADFS 要求約 1 MB
->[AZURE.NOTE]如果發生代理程式無法與 Azure 溝通的情況，代理程式會將資料儲存在本機 (最多佔用總系統記憶體的 10%)。一旦達到了總實際記憶體的 10%，若代理程式無法將資料上傳至服務，新的 ADFS 交易就會以「最近送至服務的資料」為基準，覆寫所有「已快取」的交易。
-
+>[AZURE.NOTE]若代理程式無法與 Azure 進行通訊，代理程式會在本機儲存資料，上限為系統記憶體總計的 10%。當代理程式達到實體記憶體總計的 10% 時，若代理程式無法將資料上傳至服務，則新的 ADFS 交易將會以「近期服務最少」為基礎來覆寫任何「快取」交易。
 
 - AD Health 代理程式的本機緩衝區儲存體：約 20 MB
 - 稽核通道所需的資料存放區
@@ -85,7 +84,7 @@ ADFS 伺服器上安裝 Microsoft Identity Health 代理程式對於 CPU、記�
 
  
 
-可以找到額外的 <defaultProxy> 資訊 [在這裡] (https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx)。
+您可以在 [這裡] (https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx) 找到額外的 <defaultProxy> 資訊。
 
 此設定會設定整個 .NET 應用程式系統在提出 http.NET 要求時，使用明確定義的 Proxy。不建議修改每個個別的 app.config，因為在自動更新期間，將會復原這個檔案。如果您只修改 machine.config，您只需要變更一個檔案，它就會透過更新保存。
 
@@ -129,4 +128,4 @@ Azure AD Connect Health 警示會在成功情況下獲得解決。Azure AD Conne
 
 您必須開放 TCP/UDP 連接埠 80 和 443，Azure AD Connect Health 代理程式才能夠與 Azure AD Health 服務端點進行通訊。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -148,4 +148,4 @@ Azure 可依據 VM 的大小和作業系統，以每小時價格方式收費。�
 
 [建立 Windows 虛擬機器的不同方式](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

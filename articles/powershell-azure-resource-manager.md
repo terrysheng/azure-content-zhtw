@@ -228,7 +228,7 @@ Save-AzureResourceGroupGalleryTemplate 會儲存範本，並傳回 JSON 範本�
 
 ### 步驟 5：建立資源群組
  
-在此步驟中，我們將使用群組範本建立資源群組。如需參考，請開啟磁碟上的 New_WebSite_And_Database.json 檔案，並依照指示進行。範本檔案可以非常有助於決定要傳遞的參數值，例如資源的正確 ApiVersion。
+在此步驟中，我們將使用群組範本建立資源群組。如需參考，請開啟磁碟上的 New\_WebSite\_And\_Database.json 檔案，並依照指示進行。範本檔案可以非常有助於決定要傳遞的參數值，例如資源的正確 ApiVersion。
 
 若要建立資源群組，請使用 **New-AzureResourceGroup** Cmdlet。
 
@@ -372,29 +372,9 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 
 
 ## 後續步驟
-開始使用
 
-- [Azure 資源管理員概觀](./resource-group-overview.md)
-- [搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](./xplat-cli-azure-resource-manager.md)
-- [使用 Azure 入口網站管理 Azure 資源](./resource-group-portal.md)
+- 若要了解如何建立資源管理員範本，請參閱〈[撰寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)〉。
+- 若要了解如何部署範本，請參閱〈[使用 Azure 資源管理員範本部署應用程式](./resource-group-template-deploy.md)〉。
+- 如需部署專案的詳細範例，請參閱〈[透過可預測方式在 Azure 中部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)〉。
 
-建立和部署應用程式
-
-- [編寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)
-- [使用 Azure 資源管理員範本部署應用程式](./resource-group-template-deploy.md)
-- [透過可預測方式在 Azure 中部署複雜應用程式](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Azure 中的資源群組部署疑難排解](./resource-group-deploy-debug.md)
-- [Azure 資源管理員範本函數](./resource-group-template-functions.md)
-- [進階範本作業](./resource-group-advanced-template.md)
-
-組織資源
-
-- [使用標記來組織您的 Azure 資源](./resource-group-using-tags.md)
-
-管理和稽核存取權
-
-- [管理和稽核資源存取權](./resource-group-rbac.md)
-- [使用 Azure 資源管理員驗證服務主體](./resource-group-authenticate-service-principal.md)
-- [使用 Azure 傳統入口網站建立新的 Azure 服務主體](./resource-group-create-service-principal-portal.md)
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="manage-vms-azure-powershell"
-   description="使用 Azure PowerShell 管理您的 VM"
+   pageTitle="使用 Azure PowerShell 管理虛擬機器 | Microsoft Azure"
+   description="了解可用來自動執行管理虛擬機器工作的命令。"
    services="virtual-machines"
    documentationCenter="windows"
    authors="singhkay"
@@ -18,9 +18,9 @@
 
 # 使用 Azure PowerShell 管理您的虛擬機器
 
-當您進行 VM 的日常管理時，可以使用 Azure PowerShell Cmdlet 自動完成許多工作。這篇文章提供了幾個簡單工作的範例命令，另外也提供顯示用來完成更複雜的工作之命令的文章連結。
+可以使用 Azure PowerShell Cmdlet 自動執行許多 VM 的日常管理工作。這篇文章提供了幾個簡單工作的範例命令，另外也提供顯示用來完成更複雜的工作之命令的文章連結。
 
->[AZURE.NOTE]如果您尚未安裝和設定 Azure PowerShell，請按一下[這裡](../install-configure-powershell.md)以取得操作方法。
+>[AZURE.NOTE]如果您尚未安裝和設定 Azure PowerShell，可以參考「[如何安裝及設定 Azure PowerShell](../install-configure-powershell.md)」文章中的指示。
 
 ## 如何使用範例命令
 命令中的某些文字必須換成適合您環境的文字。 < and > 符號表示您需要取代的文字。當您取代文字時，請移除符號，但將引號保留在原處。
@@ -28,7 +28,7 @@
 ## 取得 VM
 這是您會經常使用的基本工作。使用它來取得 VM 的相關資訊、在 VM 上執行工作，或取得輸出以儲存至變數中。
 
-若要取得 VM 的相關資訊，請執行這個命令並取代引號中的任何內容，包括 < and > 字元：
+若要取得 VM 的相關資訊，請執行此命令並取代引號中的所有內容 (包括 < and > 字元)：
 
      Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
@@ -36,7 +36,7 @@
 
     $vm = Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-## 登入 Windows 型虛擬機器
+## 登入以 Windows 為基礎的 VM
 
 執行以下命令：
 
@@ -62,10 +62,10 @@
 
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-## 附加資料磁碟
-這項工作需要幾個步驟。首先，請使用 ****Add-AzureDataDisk**** Cmdlet，將磁碟新增至 $vm 物件，然後使用 Update-AzureVM Cmdlet 更新 VM 的設定。
+## 連接資料磁碟
+這項工作需要幾個步驟。首先，請使用 ****Add-AzureDataDisk**** Cmdlet 將磁碟新增至 $vm 物件。然後使用 **Update-AzureVM** Cmdlet 更新 VM 的組態。
 
-您也需要決定是否要附加新的磁碟或附加已經包含資料的磁碟。如果是新的磁碟，這個命令會建立 .vhd 檔案，然後將它附加在同一個命令中。
+您也需要決定是否要附加新的磁碟或附加已經包含資料的磁碟。如果是新的磁碟，此命令會建立 .vhd 檔案，並附加該檔案。
 
 若要附加新的磁碟，請執行這個命令：
 
@@ -84,13 +84,13 @@
               -DiskLabel "<main>" -LUN <0> `
               | Update-AzureVM
 
-## 建立 Windows VM
+## 建立以 Windows 為基礎的 VM
 
-若要在 Azure 中建立新的 Windows 型虛擬機器，請按照[使用 Azure PowerShell 建立和預先設定 Windows 型虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)的操作方法執行。本主題會逐步教您建立 PowerShell 命令集，然後利用這些命令建立一個預先設定了下列軟件的 Windows 虛擬機器：
+若要在 Azure 中建立以 Windows 為基礎的新虛擬機器，請依照[使用 Azure PowerShell 建立和預先設定建立以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)中的指示執行。本主題會逐步教您建立 Azure PowerShell 命令集，然後利用這些命令建立可預先設定的以 Windows 為基礎的 VM：
 
-- Active Directory 網域成員資格
-- 額外的磁碟
-- 成為現有負載平衡集的成員
-- 靜態 IP 位址
+- 具有 Active Directory 網域成員資格。
+- 具有額外的磁碟。
+- 成為現有負載平衡集的成員。
+- 具有靜態 IP 位址。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

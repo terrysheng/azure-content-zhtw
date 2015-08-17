@@ -81,4 +81,4 @@
 - [C++ 儲存體用戶端程式庫的原始程式碼](https://github.com/Azure/azure-storage-cpp)
 - [C++ 用戶端程式庫參考](http://azure.github.io/azure-storage-cpp/) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

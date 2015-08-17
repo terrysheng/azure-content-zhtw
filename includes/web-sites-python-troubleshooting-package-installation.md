@@ -28,26 +28,26 @@ Mac/Linux 使用者：如果您無法存取 Windows 電腦，請參閱[建立執
 
     env\scripts\pip wheel azure==0.8.4
 
-這會在 \wheelhouse 資料夾中建立一個 .whl 檔。將 \wheelhouse 資料夾與 Wheel 檔案加入至您的儲存機制。
+這會在 \\wheelhouse 資料夾中建立一個 .whl 檔。將 \\wheelhouse 資料夾與 Wheel 檔案加入至您的儲存機制。
 
 編輯 requirements.txt 以便在頂端加入 `--find-links` 選項。這會告訴 PIP 尋找本機資料夾中完全相符的項目，才能進入 Python 封裝索引。
 
     --find-links wheelhouse
     azure==0.8.4
 
-如果您想要在 \wheelhouse 資料夾中包含所有相依性，而且完全不使用 Python 封裝索引，您可以將 `--no-index` 加入至 requirements.txt 的頂端，以強制 PIP 忽略封裝索引。
+如果您想要在 \\wheelhouse 資料夾中包含所有相依性，而且完全不使用 Python 封裝索引，您可以將 `--no-index` 加入至 requirements.txt 的頂端，以強制 PIP 忽略封裝索引。
 
     --no-index
 
 ### 自訂安裝
 
-您可以自訂部署指令碼，以使用替代的安裝程式 (例如 easy_install) 在虛擬環境中安裝封裝。如需已標成註解的範例，請參閱 deploy.cmd。請確定這類封裝未列在 requirements.txt 中，以避免 PIP 安裝這類封裝。
+您可以自訂部署指令碼，以使用替代的安裝程式 (例如 easy\_install) 在虛擬環境中安裝封裝。如需已標成註解的範例，請參閱 deploy.cmd。請確定這類封裝未列在 requirements.txt 中，以避免 PIP 安裝這類封裝。
 
 將以下加入至部署指令碼：
 
     env\scripts\easy_install somepackage
 
-您也可以使用 easy_install，從 exe 安裝程式 (某些與 zip 相容，因此 easy_install 支援它們) 安裝。將安裝程式加入至您的儲存機制，並傳遞可執行檔的路徑以叫用 easy_install。
+您也可以使用 easy\_install，從 exe 安裝程式 (某些與 zip 相容，因此 easy\_install 支援它們) 安裝。將安裝程式加入至您的儲存機制，並傳遞可執行檔的路徑以叫用 easy\_install。
 
 將以下加入至部署指令碼：
 
@@ -68,4 +68,4 @@ Mac/Linux 使用者：如果您無法存取 Windows 電腦，請參閱[建立執
 [Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

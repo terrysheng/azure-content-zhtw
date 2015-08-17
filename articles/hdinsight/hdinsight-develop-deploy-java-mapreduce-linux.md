@@ -38,13 +38,13 @@
 
 當您安裝 Java 和 JDK 時可能會設定下列環境變數。不過，您應該檢查它們是否存在，以及它們是否包含您系統的正確值。
 
-* **JAVA_HOME** - 應該指向已安裝 Java 執行階段環境 (JRE) 的目錄。例如，在 OS X、Unix 或 Linux 系統上，它的值應該類似 `/usr/lib/jvm/java-7-oracle`。在 Windows 中，它的值應該類似 `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA\_HOME** - 應該指向已安裝 Java 執行階段環境 (JRE) 的目錄。例如，在 OS X、Unix 或 Linux 系統上，它的值應該類似 `/usr/lib/jvm/java-7-oracle`。在 Windows 中，它的值應該類似 `c:\Program Files (x86)\Java\jre1.7`
 
 * **PATH** - 應該包含下列路徑：
 
-	* **JAVA_HOME** (或對等的路徑)
+	* **JAVA\_HOME** (或對等的路徑)
 
-	* **JAVA_HOME\bin** (或對等的路徑)
+	* **JAVA\_HOME\\bin** (或對等的路徑)
 
 	* 已安裝 Maven 的目錄
 
@@ -56,7 +56,7 @@
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
-	這會在目前的目錄中建立新目錄，名稱由 __artifactID__ 參數指定 (此範例中為 **wordcountjava**)。 此目錄包含下列項目：
+	這會在目前的目錄中建立新目錄，名稱由 __artifactID__ 參數指定 (此範例中為 **wordcountjava**)。 此目錄將包含下列項目：
 
 	* __pom.xml__ - [專案物件模型 (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)，包含用來建置專案的資訊和組態詳細資料。
 
@@ -249,7 +249,7 @@
 
 		hadoop jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
 
-	這麼做可使用 WordCount MapReduce 應用程式來統計 davinci.txt 檔案中的字數，並將結果儲存至 __wasb:///example/data/wordcountout__。輸入檔和輸出都會儲存至叢集的預設儲存體中。
+	這麼做可使用 WordCount MapReduce 應用程式來統計 davinci.txt 檔案中的字數，並將結果儲存至 \_\___wasb:///example/data/wordcountout__。輸入檔和輸出都會儲存至叢集的預設儲存體中。
 
 3. 工作完成後，請使用下列命令來檢視結果：
 
@@ -297,4 +297,4 @@
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

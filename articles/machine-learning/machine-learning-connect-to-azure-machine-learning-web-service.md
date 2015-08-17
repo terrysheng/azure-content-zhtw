@@ -106,4 +106,4 @@ Azure Machine Learning 有兩種類型的服務：
 	
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

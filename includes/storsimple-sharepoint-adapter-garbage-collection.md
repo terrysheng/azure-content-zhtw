@@ -1,3 +1,5 @@
+
+
 在此程序中，您將會：
 
 1. [準備執行維護程式可執行檔](#to-prepare-to-run-the-maintainer)。
@@ -6,7 +8,7 @@
 
 3. [執行 Maintainer.exe](#to-run-the-maintainer)。
 
-4. [還原內容資料庫和資源回收筒設定](to-revert-the-content-database-and-recycle-bin-settings)。
+4. [還原內容資料庫和資源回收筒設定](#to-revert-the-content-database-and-recycle-bin-settings)。
 
 #### 準備執行維護程式
 
@@ -20,7 +22,7 @@
 
 5. 在解密的 web.config 檔案中的 **<connectionStrings>** 節點下，為您的 SQL Server 執行個體和內容資料庫名稱新增連接字串。請參閱下列範例。
 
-    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=&quot;Remote Blob Storage Maintainer for WSS_Content&quot;" providerName="System.Data.SqlClient" />`
+    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=";Remote Blob Storage Maintainer for WSS_Content";" providerName="System.Data.SqlClient" />`
 
 6. 使用 `aspnet_regiis –pef connectionStrings` 重新加密 web.config 檔案。
 
@@ -62,4 +64,4 @@
 
 2. 在 web 前端伺服器上的**管理中心**中，為所需的內容資料庫編輯 **Web 應用程式一般設定**以重新啟用資源回收筒。若要這樣做，請按一下 [**管理中心**] -> [**應用程式管理**] -> [**Web 應用程式 (管理 web 應用程式)**] -> [**SharePoint - 80**] -> [**一般應用程式設定**]。將資源回收筒狀態設為 **ON**。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

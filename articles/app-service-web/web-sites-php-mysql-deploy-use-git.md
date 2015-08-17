@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="tomfitz"/>
 
 #在 Azure 應用程式服務中建立 PHP-MySQL Web 應用程式並使用 Git 部署
@@ -41,17 +41,11 @@
 請遵循以下步驟來建立 Web 應用程式與 MySQL 資料庫：
 
 1. 登入 [Azure 入口網站][management-portal]。
-2. 按一下入口網站左下方的 [新增] 圖示。
-
-	![建立新的 Azure 網站][new-website]
+2. 按一下 [**新增**] 圖示。
 
 3. 依序按一下 [Web + 行動]、[Azure Marketplace]。
 
-	![自訂建立新的 Web 應用程式][custom-create]
-
 4. 依序按一下 [Web 應用程式] 和 [Web 應用程式 + MySQL]。然後按一下 [建立]。
-
-	![](./media/web-sites-php-mysql-deploy-use-git/create_marketplace.png)
 
 4. 輸入資源群組的有效名稱。
 
@@ -67,11 +61,9 @@
 
 7. 建立 Web 應用程式之後，您將會看到新的資源群組。按一下 Web 應用程式名稱以進行設定。
 
-	![開啟 Web 應用程式][go-to-webapp]
-
 7. 按一下 [設定連續部署]。
 
-	![Set up Git publishing][setup-publishing]
+	![設定 Git 發佈][setup-publishing]
 
 8. 針對來源選取 [本機 Git 儲存機制]。
 
@@ -210,7 +202,7 @@
 		</body>
 		</html>
 
-您現在可以瀏覽至 **http://localhost/registration/index.php** 測試應用程式。
+您現在可以瀏覽至 ****http://localhost/registration/index.php** 測試應用程式。
 
 
 ##發佈您的應用程式
@@ -296,4 +288,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

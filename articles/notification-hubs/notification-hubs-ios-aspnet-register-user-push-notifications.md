@@ -17,9 +17,11 @@
 	ms.author="wesmc"/>
 # 使用 ASP.NET 來註冊目前使用者以取得推播通知
 
-<div class="dev-center-tutorial-selector sublanding">
-    <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows 市集 C#">Windows 市集 C#</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iiOS" class="current">iOS</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Store C#](notification-hubs-windows-store-aspnet-register-user-push-notifications.md)
+- [iOS](notification-hubs-ios-aspnet-register-user-push-notifications.md)
+
+
 
 ##概觀
 
@@ -236,4 +238,4 @@
 [開始使用通知中心]: /manage/services/notification-hubs/get-started-notification-hubs-ios
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -4,7 +4,7 @@
 
 		var todoTable = <yourClient>.getTable('TodoItem');
 
-   	此程式碼會使用快取篩選器來為新的資料庫資料表建立 Proxy 物件 (**todoTable**)。
+   	此程式碼會使用快取篩選為新的資料庫資料表建立 Proxy 物件 (**todoTable**)。
 
 2. 使用下列程式碼來取代 **InsertTodoItem** 函數：
 
@@ -45,4 +45,4 @@
 
 應用程式現已更新為使用行動服務進行後端儲存，我們可以開始在行動服務中測試應用程式。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

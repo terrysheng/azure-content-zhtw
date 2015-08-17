@@ -125,9 +125,9 @@
 
 詞彙|*不*符合|但這些符合
 ---|---|---
-HomeController.About|about<br/>home|h\*about<br/>home\*
-IsLocal|local<br/>is<br/>\*local|isl\*<br/>islocal<br/>i\*l\*
-New Delay|w d|new<br/>delay<br/>n\* AND d\*
+HomeController.About|about<br/>home|h*about<br/>home*
+IsLocal|local<br/>is<br/>*local|isl*<br/>islocal<br/>i*l*
+New Delay|w d|new<br/>delay<br/>n* AND d*
 
 
 以下是您可以使用搜尋運算式：
@@ -136,12 +136,12 @@ New Delay|w d|new<br/>delay<br/>n\* AND d\*
 ---|---
 slow|在日期範圍中尋找欄位含有詞彙 "slow" 的所有事件
 database??|比對 database01、databaseAB、...<br/>? 不允許出現在搜尋詞彙的開頭。
-database\*|比對 database、database01、databaseNNNN<br/>\* 不允許出現在搜尋詞彙的開頭
+database*|比對 database、database01、databaseNNNN<br/>* 不允許出現在搜尋詞彙的開頭
 apple AND banana|尋找同時含有這些詞彙的事件。請使用大寫 "AND"，而不是 "and"。
 apple OR banana<br/>apple banana|尋找含有任一詞彙的事件。請使用 "OR"，而不是 "or"。</br/>簡短格式。
 apple NOT banana<br/>apple -banana|尋找含有一個詞彙但不含另一個詞彙的事件。<br/>簡短格式。
-app\* AND banana -(grape pear)|邏輯運算子和括號。
-"Metric": 0 TO 500<br/>"Metric" : 500 TO \* | 尋找在值範圍內包含指定度量的事件。
+app* AND banana -(grape pear)|邏輯運算子和括號。
+"Metric": 0 TO 500<br/>"Metric" : 500 TO * | 尋找在值範圍內包含指定度量的事件。
 
 
 ## 儲存搜尋
@@ -198,4 +198,4 @@ app\* AND banana -(grape pear)|邏輯運算子和括號。
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

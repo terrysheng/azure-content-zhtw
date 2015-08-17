@@ -103,7 +103,7 @@ GCM 實際上不會傳送任何促銷活動資料，它只是告知應用程式�
 -   選取 [伺服器金鑰]。
 -   在下一個畫面上保留空白 (沒有 IP 限制)，然後按一下 [建立]。
 -   複製所產生的 API 金鑰。
--   移至 $/#application/YOUR_ENGAGEMENT_APPID/native-push。
+-   移至 $/#application/YOUR\_ENGAGEMENT\_APPID/native-push。
 -   在 GCM 區段中，以您剛剛產生並複製的 API 金鑰進行編輯。
 
 現在，您在建立 Reach 公告與輪詢時可以選取 [任何時間]。
@@ -123,4 +123,4 @@ GCM 實際上不會傳送任何促銷活動資料，它只是告知應用程式�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

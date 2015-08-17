@@ -154,4 +154,4 @@
 ## 後續步驟
 -	如需使用 Redis 命令的詳細資訊，請參閱[如何執行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

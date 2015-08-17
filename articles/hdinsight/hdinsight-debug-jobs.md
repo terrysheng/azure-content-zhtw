@@ -197,10 +197,12 @@
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 - **描述**：無法解析 DNS *yourDnsUrl*。請確定您提供 Blob 端點的完整 URL。  
-- **緩和**：提供有效的 Blob URL。URL「必須」完全有效，包括以 *http://* 開頭，以 *.com* 結尾。通常可在 manage.windowsazure.com 入口網站的儲存體索引標籤中找到完整 URL。
+- **緩和**：提供有效的 Blob URL。URL「必須」完全有效，包括以 **http://* 開頭，以 *.com* 結尾。通常可在 manage.windowsazure.com 入口網站的儲存體索引標籤中找到完整 URL。
+
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 - **描述**：無法驗證資源的 *yourDnsUrl* 的位置。請確定您提供 Blob 端點的完整 URL。  
-- **緩和**：提供有效的 Blob URL。URL「必須」完全有效，包括以 *http://* 開頭，以 *.com* 結尾。通常可在 manage.windowsazure.com 入口網站的儲存體索引標籤中找到完整 URL。
+- **緩和**：提供有效的 Blob URL。URL「必須」完全有效，包括以 **http://* 開頭，以 *.com* 結尾。通常可在 manage.windowsazure.com 入口網站的儲存體索引標籤中找到完整 URL。
+
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 - **描述**：版本 *specifiedVersion* 和訂用帳戶識別碼 *yourSubscriptionId* 無法使用版本功能。  
 - **緩和**：請選擇可用的版本，然後重試作業。 
@@ -232,4 +234,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

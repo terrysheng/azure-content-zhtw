@@ -76,4 +76,4 @@ Azure 媒體服務允許透過 Windows Media 平台插入廣告：Player Framewo
 [GitHub dash.js 存放庫](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

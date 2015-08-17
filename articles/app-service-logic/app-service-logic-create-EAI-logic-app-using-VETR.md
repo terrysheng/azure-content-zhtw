@@ -10,7 +10,7 @@
 <tags
    ms.service="app-service-logic"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
    ms.date="06/24/2015"
@@ -109,4 +109,4 @@ HTTP -> 驗證 -> 轉換 -> 服務匯流排
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

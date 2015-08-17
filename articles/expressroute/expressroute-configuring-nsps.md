@@ -58,11 +58,11 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
 	建立線路之前，您需要有服務提供者、支援的位置和每個位置的頻寬選項等清單。下列 PowerShell Cmdlet 會傳回此資訊，在稍後的步驟中將會用到。
 
-		PS C:> Get-AzureDedicatedCircuitServiceProvider
+		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
 	傳回的資訊將與以下範例相似：
 
-		PS C:> Get-AzureDedicatedCircuitServiceProvider
+		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 	
 		Name                 DedicatedCircuitLocations      DedicatedCircuitBandwidths                                                                                                                                                                                   
 		----                 -------------------------      --------------------------                                                                                                                                                                                   
@@ -118,7 +118,7 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
 	您隨時可以使用 Get-AzureCircuit Cmdlet 擷取此資訊。執行呼叫時，若未指定任何參數，將會列出所有線路。ServiceKey 欄位會列出您的服務金鑰。
 
-		PS C:> Get-AzureDedicatedCircuit
+		PS C:\> Get-AzureDedicatedCircuit
 		
 		Bandwidth                        : 500
 		CircuitName                      : NetBondSVTest
@@ -145,9 +145,9 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
 	請確認您至少已建立一個含有一個閘道器的 Azure 虛擬網路。該閘道器必須處於運作狀態。
 
-		PS C:> $Vnet = "MyTestVNet"
+		PS C:\> $Vnet = "MyTestVNet"
 		New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
 		
 		Provisioned 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

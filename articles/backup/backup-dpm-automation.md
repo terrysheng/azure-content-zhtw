@@ -24,7 +24,7 @@
 在可以使用 Azure PowerShell 來管理 Data Protection Manager 的 Azure 備份之前，您必須在 Azure PowerShell 中具備適當的環境。在 Azure PowerShell 工作階段開始時，請確定您執行下列命令來匯入正確的模組並可讓您正確地參考 DPM Cmdlet：
 
 ```
-PS C:> & "C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin\DpmCliInitScript.ps1"
+PS C:\> & "C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin\DpmCliInitScript.ps1"
 
 Welcome to the DPM Management Shell!
 
@@ -38,7 +38,7 @@ Full list of cmdlets: Get-Command Only DPM cmdlets: Get-DPMCommand Get general h
 若要安裝代理程式，請在 **DPM 伺服器**上已提升權限的 Azure PowerShell 主控台中執行下列命令：
 
 ```
-PS C:> MARSAgentInstaller.exe /q
+PS C:\> MARSAgentInstaller.exe /q
 ```
 
 這會以所有預設選項安裝代理程式。安裝作業會在背景中進行幾分鐘。如果您沒有指定 */nu* 選項，則安裝結束時會開啟 **Windows Update** 視窗以檢查是否有任何更新。
@@ -51,7 +51,7 @@ PS C:> MARSAgentInstaller.exe /q
 若要查看所有可透過命令列執行的選項，請使用下列命令：
 
 ```
-PS C:> MARSAgentInstaller.exe /?
+PS C:\> MARSAgentInstaller.exe /?
 ```
 
 可用的選項包括：
@@ -75,10 +75,11 @@ PS C:> MARSAgentInstaller.exe /?
 - 具備有效的 Azure 訂用帳戶
 - 建立備份保存庫
 - 下載保存庫認證並將它們儲存在方便的位置 (例如 *C:\Downloads*)。為方便起見，您也可以重新命名保存庫認證。
+
 使用 [Start-DPMCloudRegistration](https://technet.microsoft.com/library/jj612787) Cmdlet 即可向保存庫註冊電腦：
 
 ```
-PS C:> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredentialsFilePath "C:\Downloads\REGISTER.VaultCredentials"
+PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredentialsFilePath "C:\Downloads\REGISTER.VaultCredentials"
 ```
 
 此命令會使用指定的保存庫認證向 Microsoft Azure 保存庫註冊名為 “TestingServer” 的 DPM 伺服器。
@@ -95,27 +96,27 @@ $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 所有修改都會對此本機 Azure PowerShell 物件 ```$setting``` 進行，然後使用 [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) Cmdlet 將完整物件認可到 DPM 和 Azure 備份以加以儲存。您必須使用 ```–Commit``` 旗標，以確保會保存所做的變更。除非已認可，否則 Azure 備份將不會套用並使用設定。
 
 ```
-PS C:> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
+PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
 ### 網路
 如果 DPM 機器對在網際網路上的 Azure 備份服務的連線是透過 Proxy 伺服器，則應該提供 Proxy 伺服器設定，備份才能成功。這是使用 ```-ProxyServer```、```-ProxyPort```、```-ProxyUsername``` 和 ```ProxyPassword``` 參數搭配 [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) Cmdlet 完成。本範例未使用 Proxy 伺服器，因此會明確地清除任何 Proxy 相關資訊。
 
 ```
-PS C:> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoProxy
+PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoProxy
 ```
 
 您也可以針對給定的一組當週天數，使用 ```-WorkHourBandwidth``` 和 ```-NonWorkHourBandwidth``` 的選項來控制頻寬使用情形。本範例未設定任何節流。
 
 ```
-PS C:> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoThrottle
+PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoThrottle
 ```
 
 ### 設定臨時區域
 在 DPM 伺服器上執行的 Azure 備份代理程式需要暫存儲存體，以供存放從雲端還原的資料 (本機臨時區域)。使用 [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) Cmdlet 和 ```-StagingAreaPath``` 參數來設定臨時區域。
 
 ```
-PS C:> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
+PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
 ```
 
 在上述範例中，臨時區域將在 Azure PowerShell 物件 ```$setting``` 中設定為 *C:\StagingArea*。請確保指定的資料夾已經存在，否則訂閱設定的最終認可將會失敗。
@@ -127,9 +128,9 @@ PS C:> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscript
 在下面的範例中，第一個命令會將字串 ```passphrase123456789``` 轉換為安全字串，並將安全字串指派給名為 ```$Passphrase``` 的變數。第二個命令會將 ```$Passphrase``` 中的安全字串設定為加密備份的密碼。
 
 ```
-PS C:> $Passphrase = ConvertTo-SecureString -string "passphrase123456789" -AsPlainText -Force
+PS C:\> $Passphrase = ConvertTo-SecureString -string "passphrase123456789" -AsPlainText -Force
 
-PS C:> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -EncryptionPassphrase $Passphrase
+PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -EncryptionPassphrase $Passphrase
 ```
 
 > [AZURE.IMPORTANT]一旦設定，就請保管好此複雜密碼。若沒有此複雜密碼，您將無法從 Azure 還原資料。
@@ -137,7 +138,7 @@ PS C:> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscript
 此時，您應該已對 ```$setting``` 物件進行所有必要的變更。記得要認可變更。
 
 ```
-PS C:> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
+PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
 ## 保護 Azure 備份的資料
@@ -152,13 +153,13 @@ PS C:> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscript
 從使用 [Add-DPMProtectionGroup](https://technet.microsoft.com/library/hh881722) Cmdlet 來建立新的保護群組開始。
 
 ```
-PS C:> $PG = New-DPMProtectionGroup -DPMServerName " TestingServer " -Name "ProtectGroup01"
+PS C:\> $PG = New-DPMProtectionGroup -DPMServerName " TestingServer " -Name "ProtectGroup01"
 ```
 
 以上 Cmdlet 會建立名為 *ProtectGroup01* 的保護群組。也可以修改稍後現有的保護群組，以加入備份至 Azure 雲端。不過，若要對保護群組 - 新的或現有的- 進行任何變更，我們需要使用 [Get-DPMModifiableProtectionGroup](https://technet.microsoft.com/library/hh881713) Cmdlet 來取得 *modifiable* 物件上的控制代碼。
 
 ```
-PS C:> $MPG = Get-ModifiableProtectionGroup $PG
+PS C:\> $MPG = Get-ModifiableProtectionGroup $PG
 ```
 
 ### 將群組成員加入至保護群組
@@ -172,15 +173,15 @@ PS C:> $MPG = Get-ModifiableProtectionGroup $PG
 安裝 DPM 代理程式且受 DPM 伺服器管理所在的伺服器清單是使用 [Get-DPMProductionServer](https://technet.microsoft.com/library/hh881600) Cmdlet 取得。在此範例中，我們將篩選並只設定名稱為 *productionserver01* 的 PS 來進行備份。
 
 ```
-PS C:> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) –contains “productionserver01”
+PS C:\> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) –contains “productionserver01”
 ```
 
 現在使用 [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) Cmdlet 擷取 ```$server``` 上的資料來源清單。在此範例中，我們要篩選要設定備份的磁碟區 *D:*。然後此資料來源會使用 [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732) Cmdlet 加入至保護群組。記得使用 *modifable* 保護群組物件 ```$MPG``` 以進行新增。
 
 ```
-PS C:> $DS = Get-Datasource -ProductionServer $server -Inquire | where { $_.Name -contains “D:\” }
+PS C:\> $DS = Get-Datasource -ProductionServer $server -Inquire | where { $_.Name -contains “D:\” }
 
-PS C:> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
+PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 ```
 
 視需要重複此步驟，直到您已加入所有選取的資料來源至保護群組中為止。您也可以從只有一個資料來源開始，並完成建立保護群組的工作流程，然後稍後將更多的資料來源加入至保護群組。
@@ -189,7 +190,7 @@ PS C:> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 資料來源加入至保護群組之後，下一步是使用 [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725) Cmdlet 指定保護方法。此範例中，將為本機磁碟和雲端備份設定保護群組。
 
 ```
-PS C:> Set-DPMProtectionType -ProtectionGroup $PG -ShortTerm Disk –LongTerm Online
+PS C:\> Set-DPMProtectionType -ProtectionGroup $MPG -ShortTerm Disk –LongTerm Online
 ```
 
 ### 設定保留範圍
@@ -198,30 +199,30 @@ PS C:> Set-DPMProtectionType -ProtectionGroup $PG -ShortTerm Disk –LongTerm On
 在下面的範例中，此 Cmdlet 會設定磁碟備份的保留參數。這將會保留 10 天備份，並每隔 6 小時同步處理實際執行伺服器和 DPM 伺服器之間的資料。```SynchronizationFrequencyMinutes``` 不會定義建立備份點的頻率，只會定有資料複製到 DPM 伺服器的頻率；這可防止備份變得太大。
 
 ```
-PS C:> Set-DPMPolicyObjective –ProtectionGroup $MPG -RetentionRangeInDays 10 -SynchronizationFrequencyMinutes 360
+PS C:\> Set-DPMPolicyObjective –ProtectionGroup $MPG -RetentionRangeInDays 10 -SynchronizationFrequencyMinutes 360
 ```
 
 針對移至 Azure 的備份 (DPM 將這些稱為線上備份)，保留範圍可設定為[使用 Grandfather-Father-Son 配置 (GFS) 的長期保留](backup-azure-backup-cloud-as-tape.md)。也就是說，您可以定義結合的保留原則，包含每日、每週、每月和每年保留原則。在此範例中，我們會建立陣列，表示我們需要的複雜保留配置，然後使用 [Set-DPMPolicyObjective](https://technet.microsoft.com/library/hh881762) Cmdlet 設定保留範圍。
 
 ```
-PS C:> $RRlist = @()
-PS C:> $RRList += (New-Object -TypeName Microsoft.Internal.EnterpriseStorage.Dls.UI.ObjectModel.OMCommon.RetentionRange -ArgumentList 180, Days)
-PS C:> $RRList += (New-Object -TypeName Microsoft.Internal.EnterpriseStorage.Dls.UI.ObjectModel.OMCommon.RetentionRange -ArgumentList 104, Weeks)
-PS C:> $RRList += (New-Object -TypeName Microsoft.Internal.EnterpriseStorage.Dls.UI.ObjectModel.OMCommon.RetentionRange -ArgumentList 60, Month)
-PS C:> $RRList += (New-Object -TypeName Microsoft.Internal.EnterpriseStorage.Dls.UI.ObjectModel.OMCommon.RetentionRange -ArgumentList 10, Years)
-PS C:> Set-DPMPolicyObjective –ProtectionGroup $MPG -OnlineRetentionRangeList $RRlist
+PS C:\> $RRlist = @()
+PS C:\> $RRList += (New-Object -TypeName Microsoft.Internal.EnterpriseStorage.Dls.UI.ObjectModel.OMCommon.RetentionRange -ArgumentList 180, Days)
+PS C:\> $RRList += (New-Object -TypeName Microsoft.Internal.EnterpriseStorage.Dls.UI.ObjectModel.OMCommon.RetentionRange -ArgumentList 104, Weeks)
+PS C:\> $RRList += (New-Object -TypeName Microsoft.Internal.EnterpriseStorage.Dls.UI.ObjectModel.OMCommon.RetentionRange -ArgumentList 60, Month)
+PS C:\> $RRList += (New-Object -TypeName Microsoft.Internal.EnterpriseStorage.Dls.UI.ObjectModel.OMCommon.RetentionRange -ArgumentList 10, Years)
+PS C:\> Set-DPMPolicyObjective –ProtectionGroup $MPG -OnlineRetentionRangeList $RRlist
 ```
 
 ### 設定備份排程
 如果您使用 ```Set-DPMPolicyObjective``` Cmdlet 指定保護目標，DPM 會自動設定預設的備份排程。若要變更預設排程，請依序使用 [Get-DPMPolicySchedule](https://technet.microsoft.com/library/hh881749) Cmdlet 和 [Set-DPMPolicySchedule](https://technet.microsoft.com/library/hh881723) Cmdlet。
 
 ```
-PS C:> $onlineSch = Get-DPMPolicySchedule -ProtectionGroup $mpg -LongTermOnline
-PS C:> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[0] -TimesOfDay 02:00
-PS C:> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[1] -TimesOfDay 02:00 -DaysOfWeek Sa,Su –Interval 1
-PS C:> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[2] -TimesOfDay 02:00 -RelativeIntervals First,Third –DaysOfWeek Sa
-PS C:> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[3] -TimesOfDay 02:00 -DaysOfMonth 2,5,8,9 -Months Jan,Jul
-PS C:> Set-DPMProtectionGroup -ProtectionGroup $MPG
+PS C:\> $onlineSch = Get-DPMPolicySchedule -ProtectionGroup $mpg -LongTerm Online
+PS C:\> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[0] -TimesOfDay 02:00
+PS C:\> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[1] -TimesOfDay 02:00 -DaysOfWeek Sa,Su –Interval 1
+PS C:\> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[2] -TimesOfDay 02:00 -RelativeIntervals First,Third –DaysOfWeek Sa
+PS C:\> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[3] -TimesOfDay 02:00 -DaysOfMonth 2,5,8,9 -Months Jan,Jul
+PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 
 在上述範例中，```$onlineSch``` 是具有四個元素的陣列，其中包含 GFS 配置中保護群組的現有線上保護排程：
@@ -237,23 +238,23 @@ PS C:> Set-DPMProtectionGroup -ProtectionGroup $MPG
 第一次備份資料來源時，DPM 就需要建立初始複本，以建立要在 DPM 複本磁碟區上保護的資料來源複本。此活動可以排定在特定的時間，或可以使用 [Set-DPMReplicaCreationMethod](https://technet.microsoft.com/library/hh881715) Cmdlet 搭配參數 ```-NOW``` 手動觸發。
 
 ```
-PS C:> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
+PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
 
 ### 將變更認可到保護群組
 最後，需要先認可變更，DPM 才可以根據每個新保護群組組態進行備份。這是使用 [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758) Cmdlet 來完成。
 
 ```
-PS C:> Set-DPMProtectionGroup -ProtectionGroup $MPG
+PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 
 ## 檢視備份點
 您可以使用 [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) Cmdlet 來取得資料來源所有復原點的清單。在此範例中，我們：- 擷取 DPM 伺服器上所有將儲存在陣列 ```$PG``` 中的 PG - 取得對應至 ```$PG[0]``` 的資料來源 - 取得資料來源的所有復原點。
 
 ```
-PS C:> $PG = Get-DPMProtectionGroup –DPMServerName "TestingServer"
-PS C:> $DS = Get-DPMDatasource -ProtectionGroup $PG[0]
-PS C:> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
+PS C:\> $PG = Get-DPMProtectionGroup –DPMServerName "TestingServer"
+PS C:\> $DS = Get-DPMDatasource -ProtectionGroup $PG[0]
+PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
 ```
 
 ## 還原在 Azure 上保護的資料
@@ -266,13 +267,13 @@ PS C:> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
 - 選擇要從中還原的備份點。
 
 ```
-PS C:> $RecoveryOption = New-DPMRecoveryOption -HyperVDatasource -TargetServer "HVDCenter02" -RecoveryLocation AlternateHyperVServer -RecoveryType Recover -TargetLocation “C:\VMRecovery”
+PS C:\> $RecoveryOption = New-DPMRecoveryOption -HyperVDatasource -TargetServer "HVDCenter02" -RecoveryLocation AlternateHyperVServer -RecoveryType Recover -TargetLocation “C:\VMRecovery”
 
-PS C:> $PG = Get-DPMProtectionGroup –DPMServerName "TestingServer"
-PS C:> $DS = Get-DPMDatasource -ProtectionGroup $PG[0]
-PS C:> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
+PS C:\> $PG = Get-DPMProtectionGroup –DPMServerName "TestingServer"
+PS C:\> $DS = Get-DPMDatasource -ProtectionGroup $PG[0]
+PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
 
-PS C:> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -RecoveryOption $RecoveryOption
+PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -RecoveryOption $RecoveryOption
 ```
 
 命令可以很容易地針對任何資料來源類型擴充。
@@ -280,4 +281,4 @@ PS C:> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -RecoveryO
 ## 後續步驟
 如需 DPM 的 Azure 備份詳細資訊，請參閱 [Azure DPM 備份簡介](backup-azure-dpm-introduction.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

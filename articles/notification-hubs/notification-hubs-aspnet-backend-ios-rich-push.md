@@ -18,15 +18,15 @@
 
 #Azure 通知中心豐富內容推播
 
-<div class="dev-center-tutorial-selector sublanding">
-        <a href="/documentation/articles/notification-hubs-aspnet-backend-ios-rich-push/" title="iOS" class="current">iOS</a>
-</div>
 
 ##概觀
 
 為了與使用者進行即時豐富內容交流，應用程式可能會想要推播純文字以外的內容。這些通知可提高使用者互動，並呈現如 URL、音效、影像/優待券等內容。本教學課程會以[通知使用者](notification-hubs-aspnet-backend-ios-notify-users.md)主題為基礎，說明如何傳送包含裝載 (例如影像) 的推播通知。
 
-本教學課程適用於 iOS 7 和 8。![][IOS1]
+
+本教學課程適用於 iOS 7 和 8。
+
+    ![][IOS1]
 
 概括而言：
 
@@ -382,4 +382,4 @@
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

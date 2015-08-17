@@ -205,52 +205,52 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
-  ```
+```
 
-Supported methods: GET PUT DELETE
+支援的方法：GET PUT DELETE
 
-Supported collection methods: GET
+支援的收集方法：GET
 
-The following table describes the properties that are available.
+下表描述可用的屬性。
 
-|Property|Description|
+|屬性|說明|
 |---|---|
-|Id|The unique identifier.|
-|Etag|**Required for Patch**. Updated by server on each write. Value must be equal to the current stored value or ‘*’ to update. 409 returned for old/invalid values.|
-|properties.query|**Required**. The search query.|
-|properties.displayName|**Required**. The user defined display name of the query. If modeled as an Azure resource, this would be a Tag.|
-|properties.category|**Required**. The user defined category of the query. If modeled as an Azure resource this would be a Tag.|
+|識別碼|唯一識別碼。|
+|Etag|**修補程式的必要項目**。每次寫入時由伺服器進行更新。值必須等於目前儲存的值或 ‘\*’ 才能進行更新。舊值/無效值時會傳回 409。|
+|properties.query|**必要**。搜尋查詢。|
+|properties.displayName|**必要**。使用者定義的查詢顯示名稱。如果模型化為 Azure 資源，則這會是標記。|
+|properties.category|**必要**。使用者定義的查詢類別。如果模型化為 Azure 資源，則這會是標記。|
 
->[AZURE.NOTE]The Operational Insights Search API currently returns user-created saved searches when polled for saved searches in a workspace. The API will not return saved searches provided by solutions at this time. This functionality will be added at a later date.
+>[AZURE.NOTE]當儲存搜尋的輪詢位於工作區時，Operational Insights Search API 目前會傳回使用者建立的儲存搜尋。API 不會傳回目前解決方案所提供的儲存搜尋。這項功能將會在之後加入。
 
-### Delete saved searches
+### 刪除儲存搜尋
 
-**Request:**
+**要求：**
 
 ```
 	armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10
 ```
 
-### Update saved searches
+### 更新儲存搜尋
 
- **Request:**
+ **要求：**
 
 ```
 	$savedSearchParametersJson = "{'etag': 'W/`"datetime\'2015-04-16T23%3A35%3A35.3182423Z\'`"', 'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
 	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10 $savedSearchParametersJson
 ```
 
-### Metadata - JSON only
+### 中繼資料 - 僅限 JSON
 
-Here’s a way to see the fields for all log types for the data collected in your workspace. For example, if you want you know if the Event type has a field named Computer, then this is one way to look up and confirm.
+以下的方法可讓您看到工作區中所收集資料的所有記錄類型欄位。例如，如果您想知道事件類型是否具有名為「電腦」的欄位，這會是一個查詢和確認的方法。
 
-**Request for Fields:**
+**欄位要求：**
 
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/schema?api-version=2014-10-10
 ```
 
-**Response:**
+**回應：**
 
 ```
 	{
@@ -281,29 +281,28 @@ Here’s a way to see the fields for all log types for the data collected in you
 	}
 ```
 
-The following table describes the properties that are available.
+下表描述可用的屬性。
 
-|**Property**|**Description**|
+|**屬性**|**說明**|
 |---|---|
-|name|Field name.|
-|displayName|The display name of the field.|
-|type|The Type of the field value.|
-|facetable|Combination of current ‘indexed’, ‘stored ‘and ‘facet’ properties.|
-|display|Current ‘display’ property. True if field is visible in search.|
-|ownerType|Reduced to only Types belonging to onboarded IP’s.|
+|名稱|欄位名稱。|
+|displayName|欄位的顯示名稱。|
+|類型|欄位值的類型。|
+|可面向化|目前 ‘indexed’、‘stored ‘和 ‘facet’ 屬性的組合。|
+|顯示|目前 ‘display’ 屬性。如果欄位顯示在搜尋中，則為 True。|
+|ownerType|減少至僅屬於 onboarded IP 的類型。|
 
 
-## Optional parameters
-The following information describes optional parameters available.
+## 選擇性參數
+下列資訊描述可用的選擇性參數。
 
-### Highlighting
+### 醒目提示
 
-The “Highlight” parameter is an optional parameter you may use to request the search subsystem include a set of markers in its response.
+“Highlight” 參數是一種選擇性參數，您可以用來要求搜尋子系統，包含其回應中的一組標記。
 
-These markers indicate the start and end highlighted text that matches the terms provided in your search query.
-You may specify the start and end markers that will be used by search to wrap the highlighted term.
+這些標記表示開頭與結尾的醒目提示文字，以符合您在搜尋查詢中所提供的詞彙。您可以指定開頭與結尾的標記，讓搜尋用來包裝醒目提示的詞彙。
 
-**Example search query**
+**範例搜尋查詢**
 
 ```
 	$savedSearchParametersJson =
@@ -320,7 +319,7 @@ You may specify the start and end markers that will be used by search to wrap th
 	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2014-10-10 $searchParametersJson
 ```
 
-**Sample result:**
+**範例結果：**
 
 ```
 	{
@@ -346,4 +345,4 @@ You may specify the start and end markers that will be used by search to wrap th
 
 請注意，上述結果包含已具有前置詞及附加詞的錯誤訊息。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

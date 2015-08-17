@@ -1,19 +1,5 @@
-<properties 
-	pageTitle="針對 Oracle 虛擬機器映像的其他考量" 
-	description="在 Microsoft Azure 中部署 Oracle 虛擬機器前先了解其他考量。" 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-
+<properties title="Miscellaneous Considerations for Oracle Virtual Machine Images" pageTitle="針對 Oracle 虛擬機器映像的其他考量" description="在 Microsoft Azure 中部署 Oracle 虛擬機器前先了解其他考量。" services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #針對 Oracle 虛擬機器映像的其他考量
 本文章涵蓋針對 Azure 上 Oracle 虛擬機器的考量，此虛擬機器以 Microsoft 提供的 Oracle 軟體映像為基礎，且作業系統為 Windows Server。
 
@@ -101,4 +87,4 @@ Azure 上的 Oracle Database Enterprise Edition (不含 RAC) 高可用性和災�
 ##其他資源
 [Azure 的 Oracle 虛擬機器影像](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

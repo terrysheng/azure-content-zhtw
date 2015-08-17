@@ -76,7 +76,7 @@
 >這項 Web 服務是使用 Azure Machine Learning 所建立。如需免費試用版，以及有關建立實驗和[發佈 Web 服務](machine-learning-publish-a-machine-learning-web-service.md)的簡介影片，請參閱 [azure.com/ml](http://azure.com/ml)。以下是建立 Web 服務之實驗的螢幕擷取畫面，以及實驗內每個模組的範例程式碼。
 
 
-Azure Machine Learning 中已建立新的空白實驗。下圖說明語彙型情感分析的實驗流程。“sent_dict.csv” 檔案是 MPQA 主觀性詞典，並已設定為[執行 R 指令碼][execute-r-script]的其中一個輸入。另一個輸入是來自 Amazon 評論測試資料集的取樣評論，我們在這個資料集中執行範圍選取、資料行名稱修改和分割作業。我們使用雜湊封裝將主觀性詞典儲存在記憶體中，以加快計分程序的速度。“tm” 封裝會將整個文字語彙基元化，並與情感字典中的單字進行比較。最後，分數的計算方式是在文字中加上每個主觀字的加權。
+Azure Machine Learning 中已建立新的空白實驗。下圖說明語彙型情感分析的實驗流程。“sent\_dict.csv” 檔案是 MPQA 主觀性詞典，並已設定為[執行 R 指令碼][execute-r-script]的其中一個輸入。另一個輸入是來自 Amazon 評論測試資料集的取樣評論，我們在這個資料集中執行範圍選取、資料行名稱修改和分割作業。我們使用雜湊封裝將主觀性詞典儲存在記憶體中，以加快計分程序的速度。“tm” 封裝會將整個文字語彙基元化，並與情感字典中的單字進行比較。最後，分數的計算方式是在文字中加上每個主觀字的加權。
 
 ###實驗流程：
 
@@ -89,7 +89,7 @@ Azure Machine Learning 中已建立新的空白實驗。下圖說明語彙型情
     sent_dict_data<- maml.mapInputPort(1) # class: data.frame
     dataset2 <- maml.mapInputPort(2) # class: data.frame
  
-   # 安裝雜湊封裝 install.packages("src/hash_2.2.6.zip", lib = ".", repos = NULL, verbose = TRUE) success <- library("hash", lib.loc = ".", logical.return = TRUE, verbose = TRUE) library(tm) library(stringr)
+   # 安裝雜湊封裝 install.packages("src/hash\_2.2.6.zip", lib = ".", repos = NULL, verbose = TRUE) success <- library("hash", lib.loc = ".", logical.return = TRUE, verbose = TRUE) library(tm) library(stringr)
 
     #create sentiment dictionary
     negation_word <- c("not","nor", "no")
@@ -153,4 +153,4 @@ Azure Machine Learning 中已建立新的空白實驗。下圖說明語彙型情
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

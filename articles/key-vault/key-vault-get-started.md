@@ -110,7 +110,7 @@
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
 
-不過，如果您的 C:\ 槽中已儲存一個包含現有軟體防護金鑰，且檔案名稱為 softkey.pfx 的 .PFX 檔案，且您想要將它上傳至 Azure 金鑰保存庫，則請輸入下列內容來設定 **securepfxpwd** 變數，以將 .PFX 檔案的密碼設為 **123**：
+不過，如果您的 C:\\ 槽中已儲存一個包含現有軟體防護金鑰，且檔案名稱為 softkey.pfx 的 .PFX 檔案，且您想要將它上傳至 Azure 金鑰保存庫，則請輸入下列內容來設定 **securepfxpwd** 變數，以將 .PFX 檔案的密碼設為 **123**：
 
     $securepfxpwd = ConvertTo-SecureString –String '123' –AsPlainText –Force
 
@@ -119,7 +119,7 @@
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-透過使用其 URI，您現在可以參照您所建立或上傳至 Azure 金鑰保存庫的金鑰。使用 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** 可一律取得最新的版本，使用 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 可取得此特定版本。
+透過使用其 URI，您現在可以參照您所建立或上傳至 Azure 金鑰保存庫的金鑰。使用 ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** 可一律取得最新的版本，使用 ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 可取得此特定版本。
 
 若要顯示此金鑰的 URI，請輸入：
 
@@ -133,7 +133,7 @@
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-透過使用其 URI，您現在可以參照您新增至 Azure 金鑰保存庫的密碼。使用 **https://ContosoVault.vault.azure.net/secrets/SQLPassword** 可一律取得最新的版本，使用 **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** 可取得此特定版本。
+透過使用其 URI，您現在可以參照您新增至 Azure 金鑰保存庫的密碼。使用 ****https://ContosoVault.vault.azure.net/secrets/SQLPassword** 可一律取得最新的版本，使用 ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** 可取得此特定版本。
 
 若要顯示此密碼的 URI，請輸入：
 
@@ -239,7 +239,7 @@
 
 
 
-## <a id="next"></a>後續步驟 ##
+## <a id="next"></a>接續步驟 ##
 
 如需在 Web 應用程式中使用 Azure 金鑰保存庫的後續教學課程，請參閱[從 Web 應用程式使用 Azure 金鑰保存庫](key-vault-use-from-web-application.md)。
 
@@ -248,4 +248,4 @@
 如需程式設計參考，請參閱 MSDN 上 Microsoft Azure 文件庫中的[金鑰保存庫](https://msdn.microsoft.com/library/azure/dn903625.aspx)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

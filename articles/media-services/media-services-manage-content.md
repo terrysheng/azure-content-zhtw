@@ -51,7 +51,7 @@
 
 	![JobStatus][status]
 
-上傳完成之後，您將會看到新資產列在 [內容] 清單中。依照慣例，名稱的結尾會附加 "\*\*-Source\*\*"，以協助追蹤新的內容作為編碼工作的來源內容。
+上傳完成之後，您將會看到新資產列在 [內容] 清單中。依照慣例，名稱的結尾會附加 "**-Source**"，以協助追蹤新的內容作為編碼工作的來源內容。
 
 ![ContentPage][contentpage]
 
@@ -99,7 +99,8 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 本章節描述您可以採取的步驟，以使用管理入口網站，透過 Azure Media Encoder 編碼您的內容。
 
 1.  選取您想要編碼的檔案。如果支援此檔案類型的編碼，[內容] 頁面底部的 [處理] 按鈕將會啟用。
-4. 在 [處理] 對話方塊選取 \*\* Azure Media Encoder **處理器。5. 選擇其中一種**編碼組態**。
+4. 在 [**處理**] 對話方塊選取 ** Azure 媒體編碼器 **處理器。
+5. 選擇其中一種**編碼組態**。
 
 	![Process2][process2]
 
@@ -214,4 +215,4 @@ SAS URL 具有下列格式：
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

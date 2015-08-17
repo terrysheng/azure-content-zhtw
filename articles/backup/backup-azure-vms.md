@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 虛擬機器備份 - 備份"
+	pageTitle="Azure 虛擬機器備份 - 備份 | Microsoft Azure"
 	description="了解如何在註冊之後備份 Azure 虛擬機器"
 	services="backup"
 	documentationCenter=""
@@ -7,14 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="07/06/2015"
-	ms.author="aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="07/30/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # 備份 Azure 虛擬機器
@@ -34,16 +27,19 @@
 1. 瀏覽至備份保存庫 (位於 Azure 入口網站的 [**復原服務**] 下)，按一下 [**註冊的項目**] 索引標籤。
 
 2. 在下拉式功能表中選擇工作負載類型 [**Azure 虛擬機器**]，按一下 [**選取**] 按鈕。
-  ![選取工作負載](./media/backup-azure-vms/discovery-select-workload.png)
+
+    ![選取工作負載](./media/backup-azure-vms/discovery-select-workload.png)
 
 3. 按一下頁面底部的 [**探索**] 按鈕。
   ![探索按鈕](./media/backup-azure-vms/discover-button-only.png)
 
 4. 在列表顯示虛擬機器時，探索程序可能會執行幾分鐘。探索程序執行時，畫面底部會出現快顯通知。
-  ![探索 VM](./media/backup-azure-vms/discovering-vms.png)
+
+    ![探索 VM](./media/backup-azure-vms/discovering-vms.png)
 
 5. 探索程序完成時會出現快顯通知。
-  ![探索完成](./media/backup-azure-vms/discovery-complete.png)
+
+    ![探索完成](./media/backup-azure-vms/discovery-complete.png)
 
 ##  2.註冊 Azure 虛擬機器
 虛擬機器必須先向 Azure 備份服務註冊，才能受到保護。註冊程序有兩個主要目標：
@@ -59,7 +55,8 @@
 1. 瀏覽至備份保存庫 (位於 Azure 入口網站的 [**復原服務**] 下)，按一下 [**註冊的項目**] 索引標籤。
 
 2. 在下拉式功能表中選擇工作負載類型 [**Azure 虛擬機器**]，按一下 [選取] 按鈕。
-  ![選取工作負載](./media/backup-azure-vms/discovery-select-workload.png)
+
+    ![選取工作負載](./media/backup-azure-vms/discovery-select-workload.png)
 
 3. 按一下頁面底部的 [**註冊**] 按鈕。
   ![註冊按鈕](./media/backup-azure-vms/register-button-only.png)
@@ -70,14 +67,17 @@
 
     >[AZURE.NOTE]只會顯示未註冊且與備份保存庫位於相同區域的虛擬機器。
 
-5. 每一個應該註冊的虛擬機器都會建立一項工作。快顯通知會顯示此活動的狀態。按一下 [**檢視工作**] 以移至 [**工作**] 頁面。          
-  ![註冊工作](./media/backup-azure-vms/register-create-job.png)
+5. 每一個應該註冊的虛擬機器都會建立一項工作。快顯通知會顯示此活動的狀態。按一下 [**檢視工作**] 以移至 [**工作**] 頁面。
+
+    ![註冊工作](./media/backup-azure-vms/register-create-job.png)
 
 6. 虛擬機器也會出現在註冊的項目清單中，還會顯示註冊作業的狀態。
-  ![註冊狀態 1](./media/backup-azure-vms/register-status01.png)
+
+    ![註冊狀態 1](./media/backup-azure-vms/register-status01.png)
 
 7. 作業完成時，入口網站中的狀態會改變來反映已註冊的狀態。
-  ![註冊狀態 2](./media/backup-azure-vms/register-status02.png)
+
+    ![註冊狀態 2](./media/backup-azure-vms/register-status02.png)
 
 ## 3.保護：備份 Azure 虛擬機器
 此步驟涉及到設定虛擬機器的備份和保留原則。若要保護虛擬機器，請執行下列步驟：
@@ -85,7 +85,8 @@
 ### 備份 Azure 虛擬機器
 1. 瀏覽至備份保存庫 (位於 Azure 入口網站的 [**復原服務**] 下)，按一下 [**註冊的項目**] 索引標籤。
 2. 在下拉式功能表中選擇工作負載類型 [**Azure 虛擬機器**]，按一下 [**選取**] 按鈕。
-  ![在入口網站中選取工作負載](./media/backup-azure-vms/select-workload.png)
+
+    ![在入口網站中選取工作負載](./media/backup-azure-vms/select-workload.png)
 
 3. 按一下頁面底部的 [**保護**] 按鈕。
 
@@ -104,20 +105,24 @@
     每一個備份原則可以有多個相關聯的虛擬機器。無論何時，虛擬機器只能與一個原則相關聯。
 
 6. 每個虛擬機器會建立一項工作，以設定保護原則並將虛擬機器與原則相關聯。按一下 [**工作**] 索引標籤，選擇正確的篩選器來檢視 [**設定保護**] 工作清單。
-  ![設定保護工作](./media/backup-azure-vms/protect-configureprotection.png)
 
-7. 完成之後，虛擬機器就受到原則保護，必須等到排程的備份時間讓初始備份完成為止。現在，虛擬機器出現在 [**受保護的項目**] 索引標籤下，且 [保護狀態] 為 *受保護* (擱置中的初始備份)。
+    ![設定保護工作](./media/backup-azure-vms/protect-configureprotection.png)
+
+7. 完成之後，虛擬機器就受到原則保護，必須等到排程的備份時間讓初始備份完成為止。現在，虛擬機器出現在 [**受保護的項目**] 索引標籤下，且 [保護狀態] 為 [*受保護*] (擱置中的初始備份)。
     >[AZURE.NOTE]目前還無法在設定保護之後立即啟動初始備份。
 
 8. 在排程時間，Azure 備份服務會為每個需要備份的虛擬機器建立備份工作。按一下 [**工作**] 索引標籤來檢視 [**備份**] 工作清單。在備份工作進行時，Azure 備份服務會發出命令給每個虛擬機器中的備份擴充功能，以排清所有寫入並取得一致的快照。
-  ![備份進行中](./media/backup-azure-vms/protect-inprogress.png)
+
+    ![備份進行中](./media/backup-azure-vms/protect-inprogress.png)
 
 9. 完成之後，[**受保護的項目**] 索引標籤中的虛擬機器 [保護狀態] 會顯示成 [*受保護*]。
-  ![搭配復原點備份虛擬機器](./media/backup-azure-vms/protect-backedupvm.png)
+
+    ![搭配復原點備份虛擬機器](./media/backup-azure-vms/protect-backedupvm.png)
 
 ## 檢視備份狀態和詳細資料
-虛擬機器受到保護後，[**儀表板**] 頁面摘要中的虛擬機器計數也會遞增。此外，[儀表板] 頁面還會顯示過去 24 小時內成功、失敗和仍在進行中的工作數目。按一下任何一個類別可在 [**工作**] 頁面中深入查看該類別。  
-  ![儀表板頁面中的備份狀態](./media/backup-azure-vms/dashboard-protectedvms.png)
+虛擬機器受到保護後，[**儀表板**] 頁面摘要中的虛擬機器計數也會遞增。此外，[儀表板] 頁面還會顯示過去 24 小時內成功、失敗和仍在進行中的工作數目。按一下任何一個類別可在 [**工作**] 頁面中深入查看該類別。
+
+    ![儀表板頁面中的備份狀態](./media/backup-azure-vms/dashboard-protectedvms.png)
 
 ## 錯誤疑難排解
 您可以疑難排解將 Azure 備份使用於下表所列資訊時發生的錯誤。
@@ -156,8 +161,8 @@
 #### 驗證 VM 代理程式安裝
 如何檢查 Windows VM 上的 VM 代理程式版本：
 
-1. 登入 Azure 虛擬機器並巡覽至 *C:\WindowsAzure\Packages* 資料夾。您應該會發現 WaAppAgent.exe 檔案已存在。
-2. 以滑鼠右鍵按一下檔案，移至 [**屬性**]，然後選取 [**詳細資料**] 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更高版本
+1. 登入 Azure 虛擬機器並瀏覽至 *C:\WindowsAzure\Packages* 資料夾。您應該會發現 WaAppAgent.exe 檔案已存在。
+2. 在檔案上按一下滑鼠右鍵，移至 [**屬性**]，然後選取 [**詳細資料**] 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更高版本
 
 ### 疑難排解網路問題
 如同所有的延伸模組，備份延伸模組需要存取公用網際網路才能運作。沒有公用網際網路的存取權可能會以各種方式顯現：
@@ -188,12 +193,12 @@
 |-------------|-----------|---------|
 | 應用程式一致性 | 是 | 這是 Microsoft 工作負載的理想位置，因為可確保：<ol><li>VM *啟動*、<li>*不會損毀*、<li>不會*遺失資料*，以及<li>對於使用資料的應用程式，資料維持一致，亦即備份時將應用程式納入考量 - 使用 VSS。</ol> 磁碟區快照服務 (VSS) 確保資料正確寫入儲存體。大部分 Microsoft 工作負載都有 VSS 寫入器，負責執行與資料一致性有關的工作負載特定動作。例如，Microsoft SQL Server 的 VSS 寫入器可確保正確寫入交易記錄檔和資料庫。<br><br> 對於 Azure VM 備份，取得應用程式一致復原點表示備份擴充功能可以叫用 VSS 工作流程，並在取得 VM 快照之前*正確*完成。當然，這表示也都已叫用 Azure VM 中所有應用程式的 VSS 寫入器。<br><br>了解 [VSS 的基本知識](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx)深入[運作方式](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)的詳細資料。 |
 | 檔案系統一致性 | 是 - 適用於 Windows 電腦 | 有兩種情況，復原點具有檔案系統一致性：<ul><li>在 Azure 中備份 Linux VM，因為 Linux 沒有相當於 VSS 的平台。<li>在 Azure 中備份 Windows VM 期間 VSS 失敗。</li></ul> 在這兩種情況下，最佳做法是確保：<ol><li>VM *啟動*、<li>不會*損毀*和<li>不會*遺失資料*。</ol> 應用程式需要在還原的資料上實作自己的「修正」機制。|
-| 損毀一致性 | 否 | 此狀況相當於電腦「當機」(經由軟體重設或硬體重設)。這通常發生於 Azure 虛擬機器在備份期間關閉時。對於 Azure 虛擬機器備份，取得損毀一致復原點表示 Azure 備份不保證儲存媒體上的資料一致性 - 無論從作業系統還是應用程式的觀點來說都一樣。只有備份時已存在磁碟上的資料才會擷取並備份。<br/><br/>雖然不保證，但在大部分情況下作業系統會開機。隨後通常是執行磁碟檢查程序 (如 chkdsk) 以修正任何損毀錯誤。記憶體中任何未完全排清到磁碟的資料或寫入將會遺失。如果需要進行資料復原，應用程式通常會接著進行其本身的驗證機制。對於 Azure VM 備份，取得損毀一致復原點表示 Azure 備份不保證儲存體上的資料一致性 - 無論從 OS 還是應用程式的觀點來說都一樣。這通常發生在備份時 Azure VM 關閉。<br><br>例如，如果交易記錄中有項目不存在資料庫中，則資料庫軟體會執行復原，直到資料變成一致為止。在處理跨多個虛擬磁碟的資料時 (例如跨距磁碟區)，損毀一致復原點不保證資料的正確性。|
+| 損毀一致性 | 否 | 此狀況相當於電腦「當機」(經由軟體重設或硬體重設)。這通常發生於 Azure 虛擬機器在備份期間關閉時。對於 Azure 虛擬機器備份，取得損毀一致復原點表示 Azure 備份不保證儲存媒體上的資料一致性 - 無論從作業系統還是應用程式的觀點來說都一樣。只有備份時已存在磁碟上的資料才會擷取並備份。<br/><br/>雖然不保證，但在大部分情況下 OS 會開機。隨後通常是執行磁碟檢查程序 (如 chkdsk) 以修正任何損毀錯誤。記憶體中任何未完全排清到磁碟的資料或寫入將會遺失。如果需要進行資料復原，應用程式通常會接著進行其本身的驗證機制。對於 Azure VM 備份，取得損毀一致復原點表示 Azure 備份不保證儲存體上的資料一致性 - 無論從 OS 還是應用程式的觀點來說都一樣。這通常發生在備份時 Azure VM 關閉。<br><br>例如，如果交易記錄中有項目不存在資料庫中，則資料庫軟體會執行復原，直到資料變成一致為止。在處理跨多個虛擬磁碟的資料時 (例如跨距磁碟區)，損毀一致復原點不保證資料的正確性。|
 
 ## 後續步驟
 若要深入了解開始使用 Azure 備份，請參閱：
 
 - [還原虛擬機器](backup-azure-restore-vms.md)
-- [管理虛擬機器](backup-azure-manage-vms)
+- [管理虛擬機器](backup-azure-manage-vms.md)
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

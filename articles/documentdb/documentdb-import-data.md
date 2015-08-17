@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="將資料匯入 DocumentDB | Azure" 
+	pageTitle="將資料匯入 DocumentDB | Microsoft Azure" 
 	description="深入了解如何使用開放原始碼 DocumentDB 資料移轉工具，將資料從各種來源 (包括 JSON 檔案、CSV 檔案、SQL、MongoDB、Azure 資料表儲存體、Amazon DynamoDB，以及 DocumentDB 集合) 匯入到 DocumentDB。" 
 	services="documentdb" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
 
@@ -501,4 +501,4 @@ DocumentDB JSON 匯出工具可讓您將任何可用的來源選項匯出至包�
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

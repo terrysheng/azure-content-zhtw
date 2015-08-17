@@ -12,7 +12,7 @@
 	ms.service="search"
 	ms.devlang="NA"
 	ms.workload="search"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="na"
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
@@ -131,4 +131,4 @@ REST API 由 HTTP 要求和回應組成，其內容以 JSON 格式表示。有�
 
 [如何在 .NET 中使用 Azure 搜尋服務](search-howto-dotnet-sdk.md) [開始使用 Azure 搜尋服務 .NET](search-get-started-dotnet.md) [Azure 搜尋服務：教學課程、影片示範和範例](https://msdn.microsoft.com/library/azure/dn818681.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

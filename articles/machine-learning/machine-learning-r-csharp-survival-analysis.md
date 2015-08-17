@@ -34,10 +34,10 @@
 
 - trainingdata - 字元字串。資料列會以逗號分隔，而資料行會以分號分隔。每個資料列包含「時間」維度、「事件」維度和預測變數。
 - testingdata - 包含特定物件之預測變數的一列資料。
-- time_of_interest - 興趣 n 的經過時間。
-- index_time -「時間」維度的資料行索引 (從 1 開始)。
-- index_event -「事件」維度的資料行索引 (從 1 開始)。
-- variable_types - 以分號做為分隔符號的字元字串。0 表示連續變數，而 1 表示因子變數。
+- time\_of\_interest - 興趣 n 的經過時間。
+- index\_time -「時間」維度的資料行索引 (從 1 開始)。
+- index\_event -「事件」維度的資料行索引 (從 1 開始)。
+- variable\_types - 以分號做為分隔符號的字元字串。0 表示連續變數，而 1 表示因子變數。
 
 
 輸出是在特定時間前發生事件的機率。
@@ -87,7 +87,7 @@
 
 >這項 Web 服務是使用 Azure Machine Learning 所建立。如需免費試用版，以及有關建立實驗和[發佈 Web 服務](machine-learning-publish-a-machine-learning-web-service.md)的簡介影片，請參閱 [azure.com/ml](http://azure.com/ml)。以下是建立 Web 服務之實驗的螢幕擷取畫面，以及實驗內每個模組的範例程式碼。
 
-Azure Machine Learning 中已建立新的空白實驗，並將兩個[執行 R 指令碼][execute-r-script]模組提取到工作區。資料結構描述是以簡單[執行 R 指令碼][execute-r-script]建立的，其定義 Web 服務的輸入資料結構描述。這個模組會接著連結至執行主要工作的第二個[執行 R 指令碼][execute-r-script]模組。此模組會進行資料前處理、模型建立和預測。在資料前處理步驟中，長字串所表示的輸入資料會轉換成資料框架。在模型建立步驟中，首次安裝外部 R 套件 "survival_2.37-7.zip" 以進行存活分析。然後會在序列資料處理工作之後執行 "coxph" 函數。在 R 文件中可以讀取存活分析的 "coxph" 函數詳細資料。在預測步驟中，會利用 "surfit" 函數在定型模型中提供測試執行個體，而且此測試執行個體的存活曲線會產生成為 “curve” 變數。最後會取得感興趣時間的機率。
+Azure Machine Learning 中已建立新的空白實驗，並將兩個[執行 R 指令碼][execute-r-script]模組提取到工作區。資料結構描述是以簡單[執行 R 指令碼][execute-r-script]建立的，其定義 Web 服務的輸入資料結構描述。這個模組會接著連結至執行主要工作的第二個[執行 R 指令碼][execute-r-script]模組。此模組會進行資料前處理、模型建立和預測。在資料前處理步驟中，長字串所表示的輸入資料會轉換成資料框架。在模型建立步驟中，首次安裝外部 R 套件 "survival\_2.37-7.zip" 以進行存活分析。然後會在序列資料處理工作之後執行 "coxph" 函數。在 R 文件中可以讀取存活分析的 "coxph" 函數詳細資料。在預測步驟中，會利用 "surfit" 函數在定型模型中提供測試執行個體，而且此測試執行個體的存活曲線會產生成為 “curve” 變數。最後會取得感興趣時間的機率。
 
 ###實驗流程：
 
@@ -207,4 +207,4 @@ Azure Machine Learning 中已建立新的空白實驗，並將兩個[執行 R �
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

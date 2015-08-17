@@ -5,9 +5,9 @@
 
 	如此會顯示 [Push setup is almost complete] 頁面 (如果您尚未開啟的話)。「步驟 3：修改 Web 組態」區段中含有通知中心連線資訊。
 
-2. 在 Visual Studio 的行動服務專案中，開啟服務的 Web.config 檔案，接著在 **connectionStrings** 中新增 [Push setup is almost complete] 頁面中的 **MS_NotificationHubConnectionString** 連接字串。
+2. 在 Visual Studio 的行動服務專案中，開啟服務的 Web.config 檔案，接著在 **connectionStrings** 中新增 [Push setup is almost complete] 頁面中的 **MS\_NotificationHubConnectionString** 連接字串。
 
-3. 在 **appSettings** 中，將 **MS_NotificationHubName** 應用程式設定的值取代為 [Push setup is almost complete] 頁面中的通知中心名稱。
+3. 在 **appSettings** 中，將 **MS\_NotificationHubName** 應用程式設定的值取代為 [Push setup is almost complete] 頁面中的通知中心名稱。
 
 4. 以滑鼠右鍵按一下行動服務專案，並依序按一下 [偵錯] 和 [開始新執行個體]，然後記下瀏覽器顯示之開始頁面的服務根目錄 URL。
 
@@ -15,4 +15,4 @@
 
 現在，已設定行動服務專案在本機執行時連接至 Azure 的通知中樞。注意，請務必使用相同的通知中心名稱和連接字串作為入口網站，因為在 Azure 執行時，入口網站設定會覆寫 Web.config 檔案中的這些專案設定。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

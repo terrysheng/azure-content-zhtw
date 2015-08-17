@@ -1,3 +1,4 @@
+
 #### 完成最小的 StorSimple 裝置安裝
 
 1. 選取裝置，然後按一下 [快速入門]。按一下 [完成裝置設定] 以啟動設定裝置精靈。
@@ -28,4 +29,4 @@
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

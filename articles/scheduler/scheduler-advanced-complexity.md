@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="05/15/2015" 
+ ms.date="08/04/2015" 
  ms.author="krisragh"/>
 
 # 如何使用 Azure 排程器建立複雜的排程和進階週期  
@@ -132,7 +132,7 @@ Azure 排程器工作中的日期時間參考遵循 [ISO 8601 規格](http://en.
 |:---|:---|:---|
 |**minutes**|一小時內工作將執行的分鐘數|<ul><li>整數或</li><li>一連串整數</li></ul>|
 |**hours**|一天內工作將執行的小時數|<ul><li>整數或</li><li>一連串整數</li></ul>|
-|**weekDays**|工作將執行的星期幾。只能搭配 weekly 頻率指定。|<ul><li>"Monday"、"Tuesday"、"Wednesday"、"Thursday"、"Friday"、"Saturday" 或 "Sunday"</li><li>一連串上述值 (最多 7 個)</li></ul>_Not_ case-sensitive|
+|**weekDays**|工作將執行的星期幾。只能搭配 weekly 頻率指定。|<ul><li>"Monday"、"Tuesday"、"Wednesday"、"Thursday"、"Friday"、"Saturday" 或 "Sunday"</li><li>一連串上述值 (最多 7 個)</li></ul>\_Not\_ case-sensitive|
 |**monthlyOccurrences**|決定將在當月哪幾天執行工作。只能搭配 monthly 頻率指定。|<ul><li>一連串 monthlyOccurence 物件：</li></ul> <pre>{ "day": _day_,<br /> "occurrence": _occurence_<br />}</pre><p> _day_ 是工作將執行的星期幾，例如，{Sunday} 是當月的每個星期日。必要。</p><p>週期是月日的 _occurrence_，例如 {Sunday, -1} 是當月的最後一個星期日。選用。</p>|
 |**monthDays**|工作將執行的月日。只能搭配 monthly 頻率指定。|<ul><li>任何 < =-1 和 > =-31 的值。</li><li>任何 > = 1 和 < = 31 的值。</li><li>一連串上述值</li></ul>|
 
@@ -198,4 +198,4 @@ Azure 排程器工作中的日期時間參考遵循 [ISO 8601 規格](http://en.
  
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

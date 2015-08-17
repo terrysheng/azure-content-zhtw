@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="06/08/2015"
 	ms.author="tdykstra"/>
 
@@ -270,7 +270,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 	![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)
 
-6. 選取 **StorageConnectionString** 項目，該行的最右邊即會顯示一個省略符號 (**...**) 按鈕。按一下省略符號按鈕，開啟 [**建立儲存體帳戶連接字串**] 對話方塊。
+6. 選取 **StorageConnectionString** 項目，該行右端就會出現省略符號 (**...**) 按鈕。按一下省略符號按鈕，開啟 [**建立儲存體帳戶連接字串**] 對話方塊。
 
 	![Open Connection String Create box](./media/cloud-services-dotnet-get-started/opencscreate.png)
 
@@ -467,10 +467,10 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 3. 在 ContosoAdsWeb 專案中，從所下載的專案加入下列檔案。
 	- *Global.asax.cs*  
-	- *Views\Shared* 資料夾中的 <em>_Layout.cshtml</em> 檔案。
-	- *Views\Home* 資料夾中的 *Index.cshtml*。
+	- *Views\\Shared* 資料夾中的 <em>\_Layout.cshtml</em> 檔案。
+	- *Views\\Home* 資料夾中的 *Index.cshtml*。
 	- *Controllers* 資料夾中的 *AdController.cs*。
-	- *Views\Ad* 資料夾中 (請先建立此資料夾) 的五個 *.cshtml* 檔案。
+	- *Views\\Ad* 資料夾中 (請先建立此資料夾) 的五個 *.cshtml* 檔案。
 
 3. 在 ContosoAdsWorker 專案中，從所下載的專案加入 *WorkerRole.cs*。
 
@@ -571,13 +571,13 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
 		var imagesQueue = queueClient.GetQueueReference("images");
 		imagesQueue.CreateIfNotExists();
 
-### ContosoAdsWeb - _Layout.cshtml
+### ContosoAdsWeb - \_Layout.cshtml
 
-*_Layout.cshtml* 檔案可設定頁首與頁尾中的應用程式名稱，並建立 [廣告] 功能表項目。
+*\_Layout.cshtml* 檔案可設定頁首與頁尾中的應用程式名稱，並建立 "Ads" 功能表項目。
 
-### ContosoAdsWeb - Views\Home\Index.cshtml
+### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
-*Views\Home\Index.cshtml* 檔案在首頁上顯示類別連結。連結會將查詢字串變數中 `Category` 列舉的整數值傳遞至 [廣告索引] 頁面。
+*Views\\Home\\Index.cshtml* 檔案在首頁上顯示類別連結。連結會將查詢字串變數中 `Category` 列舉的整數值傳遞至 [廣告索引] 頁面。
 
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -666,7 +666,7 @@ HttpPost `Edit` 方法的程式碼也是類似的，不同的是如果使用者�
 		    await blobToDelete.DeleteAsync();
 		}
 
-### ContosoAdsWeb - Views\Ad\Index.cshtml 和 Details.cshtml
+### ContosoAdsWeb - Views\\Ad\\Index.cshtml 和 Details.cshtml
 
 *Index.cshtml* 檔案會顯示縮圖與其他廣告資料：
 
@@ -676,7 +676,7 @@ HttpPost `Edit` 方法的程式碼也是類似的，不同的是如果使用者�
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\Ad\Create.cshtml 和 Edit.cshtml
+### ContosoAdsWeb - Views\\Ad\\Create.cshtml 和 Edit.cshtml
 
 *Create.cshtml* 和 *Edit.cshtml* 檔案可指定表單編碼，供控制器取得 `HttpPostedFileBase` 物件。
 
@@ -812,4 +812,4 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。�
 * [Azure 儲存體](/documentation/services/storage/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -31,4 +31,4 @@
 
 	請注意，從先前步驟中儲存的資料，會在 Windows 應用程式啟動後從行動應用程式載入。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

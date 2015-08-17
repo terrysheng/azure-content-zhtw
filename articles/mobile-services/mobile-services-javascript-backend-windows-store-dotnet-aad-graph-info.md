@@ -88,7 +88,7 @@
             });
         }
 
-    在給定 *tenant_domain*、整合的應用程式*用戶端識別碼*和應用程式*金鑰*的情況下，此函數會提供用來讀取目錄資訊的圖形存取權杖。
+    在給定 *tenant\_domain*、整合的應用程式*用戶端識別碼*和應用程式*金鑰*的情況下，此函數會提供用來讀取目錄資訊的圖形存取權杖。
 
 4. 新增下列使用圖形 API 傳回使用者資訊的 `getUser` 函數。
 
@@ -181,4 +181,4 @@
 [行動服務中使用 AAD 的角色型存取控制]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [Azure Active Directory 圖形團隊部落格]: http://go.microsoft.com/fwlink/?LinkId=510536
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

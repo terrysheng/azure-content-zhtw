@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="08/05/2015"
    ms.author="banders"/>
 # 在 Microsoft Azure 中分析來自伺服器的資料
 
@@ -21,9 +21,9 @@
 
 Operational Insights 會在內部部署或雲端基礎結構中使用來自伺服器的資料。您可以在 Azure 診斷產生電腦資料時，從 Azure 儲存體加以收集。
 
-利用收集自 Azure 儲存體的資料，您可以藉由啟用 [Azure 診斷](operational-insights-log-collection.md)來快速搜尋雲端服務和虛擬機器的事件與 IIS 記錄檔。您也可以安裝 Microsoft Monitoring Agent，從您的虛擬機器取得額外的見解。
+利用收集自 Azure 儲存體的資料，您快速搜尋雲端服務和虛擬機器的事件與 IIS 記錄檔。您也可以安裝 Microsoft Monitoring Agent，從您的虛擬機器取得額外的見解。
 
-更新評估、變更追蹤和 SQL 評估解決方案皆可搭配使用 Microsoft Monitoring Agent，在您的虛擬機器上提供更深入的見解。如果您還沒有這麼做，您可以在登入 [Operational Insights 入口網站](https://preview.opinsights.azure.com/)時[新增解決方案](operational-insights-add-solution.md)。
+更新評估、變更追蹤和 SQL 評估解決方案皆可搭配使用 Microsoft Monitoring Agent，在您的虛擬機器上提供更深入的見解。如果您還沒有這麼做，您可以在登入 [Operational Insights 入口網站](https://www.microsoft.com/oms/)時[新增解決方案](operational-insights-setup-workspace.md)。
 
 若為 Azure 虛擬機器，有兩個簡單的方法可啟用代理程式型資料收集：
 
@@ -31,7 +31,7 @@ Operational Insights 會在內部部署或雲端基礎結構中使用來自伺�
 
 - 使用 PowerShell
 
-使用記錄資料的代理程式型集合時，您必須在 [Operational Insights 入口網站](https://preview.opinsights.azure.com/)的記錄管理組態頁面中設定要收集的記錄檔。
+使用記錄資料的代理程式型集合時，您必須在 [Operational Insights 入口網站](https://www.microsoft.com/oms/)的記錄管理組態頁面中設定要收集的記錄檔。
 
  >[AZURE.NOTE]如果您已設定 Operational Insights 使用 Azure 診斷來索引記錄資料，並設定代理程式以收集記錄檔，則相同的記錄檔會編製索引兩次。這兩個資料來源會依照一般資料費率向您收費。如果您已安裝代理程式，您應該使用代理程式收集記錄資料，而不將 Azure 診斷所收集的記錄檔編製索引。
 
@@ -88,7 +88,7 @@ Azure 診斷是 Azure 擴充功能，可讓您從 Azure 中執行的背景工作
 Azure 診斷可收集下列類型的遙測資料：
 
 資料來源|說明
- ---|--- 
+ ---|---
 IIS 記錄檔|IIS 網站的相關資訊。
 Azure 診斷基礎結構記錄檔|診斷本身的相關資訊。
 IIS 失敗要求記錄檔 |IIS 網站或應用程式之失敗要求的相關資訊。
@@ -249,4 +249,4 @@ Operational Insights 目前能夠分析：
 
 [設定 Proxy 和防火牆設定 (選擇性)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

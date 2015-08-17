@@ -84,7 +84,7 @@ Azure AD 會藉由連接到每個應用程式廠商所提供的佈建端點，�
  - 如果使用者最近指派至應用程式，而且他們已經在 SaaS 應用程式中有帳戶，則該帳戶會標示為已啟用，如果相較於目錄是過時的，則可能會更新某些使用者屬性。
  - 如果使用者的資訊 (例如電話號碼、辦公室位置等等) 在目錄中已變更，則該資訊也會在 SaaS 應用程式中更新。
 
-如需有關如何在 Azure AD 和 SaaS 應用程式之間對應屬性的詳細資訊，請參閱[自訂屬性對應](https://msdn.microsoft.com/library/azure/dn872469.aspx)上的文章。
+如需有關如何在 Azure AD 和 SaaS 應用程式之間對應屬性的詳細資訊，請參閱[自訂屬性對應](active-directory-saas-customizing-attribute-mappings.md)上的文章。
 
 ##支援自動化使用者佈建的應用程式清單
 
@@ -106,4 +106,6 @@ Azure AD 會藉由連接到每個應用程式廠商所提供的佈建端點，�
 
 若要連絡 Azure AD 工程小組以要求對於其他應用程式的佈建支援，請透過 [Azure Active Directory 意見反應論壇](http://feedback.azure.com/forums/169401-azure-active-directory)提交訊息。
 
-<!---HONumber=July15_HO5-->
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+
+<!---HONumber=August15_HO6-->

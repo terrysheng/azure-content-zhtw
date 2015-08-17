@@ -98,4 +98,4 @@ Azure 服務匯流排中的 AMQP 1.0 支援代表您現在能夠從一組平台�
 [0]: ./media/service-bus-amqp-overview/Example1.png
 [服務匯流排 AMQP 開發人員指南]: http://msdn.microsoft.com/library/jj841071.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

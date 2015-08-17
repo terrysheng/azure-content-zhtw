@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/15/2015"
+	ms.date="08/04/2015"
 	ms.author="tamram"/>
 
 # 如何使用 .NET 的佇列儲存體
@@ -24,7 +24,7 @@
 
 本指南將示範如何使用 Azure 佇列儲存服務執行一般案例。這些範例均以 C# 程式碼撰寫，並使用 Azure Storage Client for .NET。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。
 
-> [AZURE.NOTE]本指南以 Azure .NET Storage Client Library 2.x 和更新版本為對象。建議的版本是儲存體用戶端程式庫 4.x，可透過 [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) 或從 [Azure SDK for .NET](/downloads/) 中取得。請參閱[以程式設計方式存取佇列儲存體](#programmatically-access-queue-storage)，以詳細了解如何取得儲存體用戶端程式庫。
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -241,24 +241,15 @@
 
 了解佇列儲存體的基礎概念之後，請參考下列連結以了解有關更複雜的儲存工作。
 
-<ul>
-<li>如需可用 API 的完整詳細資訊，請檢視佇列服務參考文件：
-  <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET 參考資料</a>
-    </li>
-    <li><a href="http://msdn.microsoft.com/library/azure/dd179355">REST API 參考資料</a></li>
-  </ul>
-</li>
-<li>請參閱<a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">在 Azure 中儲存和存取資料</a>，深入了解可使用 Azure 儲存體執行的更多進階工作。</li>
-<li>了解如何使用 <a href="../websites-dotnet-webjobs-sdk/">Azure WebJobs SDK，來簡化撰寫使用 Azure 儲存體的程式碼。</li>
-<li>如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
-  <ul>
-    <li>使用<a href="/documentation/articles/storage-dotnet-how-to-use-tables/">資料表儲存體</a>儲存結構化資料。</li>
-    <li>使用 <a href="/documentation/articles/storage-dotnet-how-to-use-blobs/">Blog 儲存體</a>儲存非結構化資料。</li>
-    <li>使用 <a href="/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> 儲存關聯式資料。</li>
-  </ul>
-</li>
-</ul>
+- 如需可用 API 的完整詳細資訊，請檢視佇列服務參考文件：
+    - [Storage Client Library for .NET 參考資料](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    - [REST API 參考資料](http://msdn.microsoft.com/library/azure/dd179355)
+- 請參閱[在 Azure 中儲存和存取資料](http://msdn.microsoft.com/library/azure/gg433040.aspx)，深入了解可使用 Azure 儲存體執行的更多進階工作。
+- 了解如何使用 [Azure WebJobs SDK](../websites-dotnet-webjobs-sdk/)，來簡化您撰寫以使用 Azure 儲存體的程式碼。
+- 如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
+    - 使用[資料表儲存體](storage-dotnet-how-to-use-tables.md)儲存結構化資料。 
+    - 使用 [Blog 儲存體](storage-dotnet-how-to-use-blobs.md)儲存非結構化資料。
+    - 使用 [SQL Database](sql-database-dotnet-how-to-use.md) 儲存關聯式資料。
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
@@ -272,4 +263,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

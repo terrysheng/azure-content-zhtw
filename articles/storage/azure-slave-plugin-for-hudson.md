@@ -213,4 +213,4 @@ Hudson 就會使用上一節建立的範本建立從屬節點，並執行您針�
 
   
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -91,4 +91,4 @@ Metaverse 是鄰近連接器空間中所有聯結的身份識別的合併檢視�
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

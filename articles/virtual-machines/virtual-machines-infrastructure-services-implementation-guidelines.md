@@ -441,4 +441,4 @@ Contoso 決定為其 Azure 虛擬機器使用下列名稱：
 [Azure 資源管理員下的 Azure 運算、網路和儲存空間提供者](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

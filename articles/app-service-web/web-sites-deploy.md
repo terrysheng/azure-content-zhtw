@@ -226,4 +226,4 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

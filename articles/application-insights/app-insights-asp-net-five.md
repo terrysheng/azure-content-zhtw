@@ -118,7 +118,7 @@ Visual Studio Application Insights 可讓您監視 Web 應用程式的可用性�
 
 ## 新增 JavaScript 用戶端檢測
 
-如果您有 _Layout.cshtml 檔案，在其中插入下列程式碼。否則，將程式碼放在您想要追蹤的任何頁面中。
+如果您有 \_Layout.cshtml 檔案，在其中插入下列程式碼。否則，將程式碼放在您想要追蹤的任何頁面中。
 
 在檔案的最上層定義插入：
 
@@ -171,4 +171,4 @@ Visual Studio Application Insights 可讓您監視 Web 應用程式的可用性�
 [start]: app-insights-get-started.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

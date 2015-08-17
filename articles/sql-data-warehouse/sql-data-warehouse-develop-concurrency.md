@@ -39,13 +39,13 @@ SQL 資料倉儲必須存在於兩個臨界值內。如果有 32 個以上的並
 | Concurrency Slot Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | :----- | :----- |
 | Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
-| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
+| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 32     | 32     | 32     | 32     | 32    | 32     |
 -->
 
 | 並行存取插槽耗用量 | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | 
 | 並行查詢上限 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 
-| 並行存取插槽上限 | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 | 
+| 並行存取插槽上限 | 4 | 8 | 12 | 16 | 20 | 24 | 32 | 32 | 32 | 32 | 
 
 資源類別是 SQL 資料倉儲工作負載管理中不可或缺的一部分，因為它們也會控制配置給查詢的運算資源。這些會涵蓋在下列的工作負載管理一節中。
 
@@ -223,7 +223,7 @@ CREATE USER newperson for LOGIN newperson
 CREATE USER newperson FOR LOGIN newperson
 ```
 
-完成之後，必須授與權限給使用者。下列範例會在 SQL 資料倉儲資料庫上授與 `CONTROL`。在資料庫層級的 `CONTROL` 相當於 SQL Server 中的 db_owner。
+完成之後，必須授與權限給使用者。下列範例會在 SQL 資料倉儲資料庫上授與 `CONTROL`。在資料庫層級的 `CONTROL` 相當於 SQL Server 中的 db\_owner。
 
 ```
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
@@ -377,4 +377,4 @@ FROM	sys.dm_pdw_wait_stats w
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

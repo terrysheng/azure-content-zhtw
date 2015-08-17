@@ -56,7 +56,7 @@
 1.	在 Visual Studio 中，開啟名為 **AdventureWorksCatalog.sln** 的 Azure 搜尋服務示範方案。  
 2.	在 [方案總管] 中以滑鼠右鍵按一下 **CatalogIndexer**，然後選取 [設為起始專案]，使您在按 **F5** 時會執行此應用程式，而不是 **AdventureWorksWeb** 專案。
 3.	開啟此專案中的 **App.config**，然後將 "SearchServiceName" 和 "SearchServiceApiKey" 的值更新為您 Azure Search 服務的值。在搜尋服務名稱上，如果您的服務是 "mysearch.search.windows.net"，則您需要輸入 "mysearch"。
-4.	App.config 會選擇性地包含採用 SQL Server 2014 Express LocalDB (Server=(LocalDB)\v11.0) 的 "SourceSqlConnectionString" 項目。如果您使用不同版本的 SQL Server，請據以更新伺服器名稱。例如，如果您具有本機預設執行個體，您可以使用 local 或 localhost。
+4.	App.config 會選擇性地包含採用 SQL Server 2014 Express LocalDB (Server=(LocalDB)\\v11.0) 的 "SourceSqlConnectionString" 項目。如果您使用不同版本的 SQL Server，請據以更新伺服器名稱。例如，如果您具有本機預設執行個體，您可以使用 local 或 localhost。
 5.	儲存 **App.config**。
 6.	按 **F5** 鍵啟動專案。
 
@@ -206,4 +206,4 @@
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

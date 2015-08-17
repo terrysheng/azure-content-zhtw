@@ -39,7 +39,7 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 		FROM hivesampletable 
 		group by country, state;
 
-	> [AZURE.NOTE]若要在 HQL 檔案中使用 **Tez** 引擎執行 Hive 查詢，請在檔案頂端加入 "\*\*set hive.execution.engine=tez\*\*;"。
+	> [AZURE.NOTE]若要在 HQL 檔案中使用 **Tez** 引擎執行 Hive 查詢，請在檔案頂端加入 "**set hive.execution.engine=tez**;"。
 		
 3.  將 **hivequery.hql** 上傳至 Blob 儲存體中的 **adftutorial** 容器
 
@@ -140,7 +140,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\\hivequery.hql",
+		                    "scriptPath": "adftutorial\\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -258,7 +258,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
+    					"scriptPath": "adfwalkthrough\\scripts\\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
 						"defines":
 						{
@@ -277,7 +277,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 	}
 
 
-> [AZURE.NOTE]若要使用 **Tez** 引擎執行 Hive 查詢，請在執行 Hive 查詢之前，先執行 "\*\*set hive.execution.engine=tez\*\*;"。
+> [AZURE.NOTE]若要使用 **Tez** 引擎執行 Hive 查詢，請在執行 Hive 查詢之前，先執行 "**set hive.execution.engine=tez**;"。
 > 
 > 如需關於 Cmdlet、JSON 結構描述和結構描述中之屬性的詳細資訊，請參閱[開發人員參考](http://go.microsoft.com/fwlink/?LinkId=516908)。
 
@@ -353,4 +353,4 @@ Data Factory Pig 和 Hive 活動可讓您使用 **defines**，指定 Pig 和 Hiv
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

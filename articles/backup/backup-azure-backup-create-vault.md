@@ -7,22 +7,23 @@
    manager="shreeshd"
    editor=""/>
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="07/28/2015"
-	 ms.author="prvijay"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/28/2015" ms.author="prvijay"; "jimpark"/>
 
 # 建立備份保存庫
 若要將 Windows Server 或 System Center Data Protection Manager (SCDPM) 的檔案和資料備份至 Azure，或將 IaaS VM 備份至 Azure，您必須在要儲存資料的地區區域中建立一個備份保存庫。
 
 本教學課程將引導您建立用來儲存備份的保存庫。
 
+## 逐步解說
+
+以下是本教學課程的逐步解說。
+
+[AZURE.VIDEO azure-backup-vault-creation]
+
+## 建立備份保存庫
+
 1. 登入[管理入口網站](https://manage.windowsazure.com/)
-2. 按一下 [新增] -> [資料服務] -> [復原服務] -> [備份保存庫] 並選擇 [快速建立]
+2. 按一下 [**新增**] -> [**資料服務**] -> [**復原服務**] -> [**備份保存庫**] -> 並選擇 [**快速建立**]。
 
   ![建立保存庫][1]
 
@@ -30,7 +31,7 @@
 
 4. 針對 [**區域**] 參數，選取備份保存庫的地區區域。您的選擇會決定備份資料所要傳送的地區。透過選擇靠近您位置的地區，您可以在備份至 Azure 時減少網路延遲。
 
-5. 按一下 [建立保存庫] 以完成工作流程。要等備份保存庫建立好，可能需要一些時間。若要檢查狀態，可以監控位於入口網站底部的通知。
+5. 按一下 [**建立保存庫**] 以完成工作流程。要等備份保存庫建立好，可能需要一些時間。若要檢查狀態，可以監控位於入口網站底部的通知。
 
   ![正在建立保存庫][2]
 
@@ -43,7 +44,7 @@
 
 識別儲存體備援選項的最佳時機，在於保存庫建立之後，以及任何電腦註冊至保存庫之前。一旦項目已註冊至保存庫，儲存體備援選項即遭到鎖定且無法修改。
 
-您的業務需求會決定 Azure 備份後端儲存體的儲存體備援性。如果您使用 Azure 作為主要的備份儲存體端點 (例如您正從 Windows Server 備份至 Azure)，您應該考慮挑選 (預設值) 異地備援儲存體選項。您會在備份保存庫的 [設定] 選項下方看到此選項。
+您的業務需求會決定 Azure 備份後端儲存體的儲存體備援性。如果您使用 Azure 作為主要的備份儲存體端點 (例如您正從 Windows Server 備份至 Azure)，您應該考慮挑選 (預設值) 異地備援儲存體選項。您會在備份保存庫的 [**設定**] 選項下方看到此選項。
 
 ![GRS][4]
 
@@ -69,4 +70,4 @@ GRS 可維護六個資料複本。有了 GRS，您的資料會在主要區域內
 [4]: ./media/backup-azure-backup-create-vault/grs.png
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
 
-<!------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

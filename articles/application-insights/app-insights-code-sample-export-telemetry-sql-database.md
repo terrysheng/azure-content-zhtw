@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # 程式碼範例：使用背景工作角色從 Application Insignts 匯出至 SQL
@@ -134,7 +134,7 @@
  * EntityFramework 6.1.2 或更新版本 - 根據 Blob 中的 JSON 內容，我們將使用此封裝即時產生資料庫的資料表結構描述。
  * JsonFx - 我們將使用此封裝來簡維 C# 類別屬性的 JSON。
 
-使用此工具從單一 JSON 文件中產生 C# 類別。此外，還需要一些微幅變更，例如在資料庫資料表 (例如 urlData_port) 中將 JSON 陣列簡維成單一 C# 屬性，再簡維成單一資料行
+使用此工具從單一 JSON 文件中產生 C# 類別。此外，還需要一些微幅變更，例如在資料庫資料表 (例如 urlData\_port) 中將 JSON 陣列簡維成單一 C# 屬性，再簡維成單一資料行
 
  * [JSON C# 類別產生器](http://jsonclassgenerator.codeplex.com/)
 
@@ -519,6 +519,7 @@
 * [使用背景工作角色匯出至 SQL](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Application Insights 中的連續匯出](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
+* [更多範例和逐步解說](app-insights-code-samples.md)
 
 <!--Link references-->
 
@@ -530,4 +531,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

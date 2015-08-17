@@ -91,9 +91,9 @@
 
 5.	(選用) 如果 Ubuntu 系統遇到問題並重新開機，它通常會在 grub 開機提示時等候使用者輸入，這會阻止系統正常開機。若要防止此情況發生，請完成下列步驟：
 
-	a) 開啟 /etc/grub.d/00_header 檔案。
+	a) 開啟 /etc/grub.d/00\_header 檔案。
 
-	b) 在函數 **make_timeout()** 中，搜尋 **if ["${recordfail}" = 1 ]; then**
+	b) 在函數 **make\_timeout()** 中，搜尋 **if ["${recordfail}" = 1 ]; then**
 
 	c) 將此行下的陳述式變更為 **set timeout=5**。
 
@@ -125,4 +125,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

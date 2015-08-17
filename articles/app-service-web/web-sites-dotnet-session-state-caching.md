@@ -28,7 +28,7 @@
 遵循[這些指示](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache)以建立快取。
 
 ##<a id="configureproject"></a>將 RedisSessionStateProvider NuGet 封裝加入 Web 應用程式
-安裝 NuGet `RedisSessionStateProvider` 封裝。從封裝管理員主控台 (\*\*Tools\*\* > [NuGet 封裝管理員] > [封裝管理員主控台]) 中使用下列命令來安裝：
+安裝 NuGet `RedisSessionStateProvider` 封裝。從封裝管理員主控台 ([工具] > [NuGet 封裝管理員] > [封裝管理員主控台]) 中使用下列命令來安裝：
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
   
@@ -44,14 +44,14 @@
 1. 輸入 `host`、`accessKey`、`port` (SSL 連接埠應為 6380)，然後將 `SSL` 設定為 `true`。這些值可以從快取執行個體的 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)分頁中取得。如需詳細資訊，請參閱[連線至快取](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache)。請注意，預設會為新的快取停用非 SSL 連接埠。如需啟用非 SSL 連接埠的詳細資訊，請參閱[在 Azure Redis 快取中設定快取](https://msdn.microsoft.com/library/azure/dn793612.aspx)主題中的[存取連接埠](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts)一節。下列標記顯示 *web.config* 檔案的變更。
 
 
-  <pre class="prettyprint">  
-    &lt;system.web>
-    &lt;customErrors mode="Off" />
-    &lt;authentication mode="None" />
-    &lt;compilation debug="true" targetFramework="4.5" />
-    &lt;httpRuntime targetFramework="4.5" />
-  &lt;sessionState mode="Custom" customProvider="RedisSessionProvider">
-      &lt;providers>  
+```  
+    &lt;system.web&gt;
+    &lt;customErrors mode="Off" /&gt;
+    &lt;authentication mode="None" /&gt;
+    &lt;compilation debug="true" targetFramework="4.5" /&gt;
+    &lt;httpRuntime targetFramework="4.5" /&gt;
+  &lt;sessionState mode="Custom" customProvider="RedisSessionProvider"&gt;
+      &lt;providers&gt;  
           &lt;!--&lt;add name="RedisSessionProvider" 
             host = "127.0.0.1" [String]
             port = "" [number]
@@ -61,20 +61,23 @@
             retryTimeoutInMilliseconds = "0" [number]
             databaseId = "0" [number]
             applicationName = "" [String]
-          />-->
+          /&gt;--&gt;
          &lt;add name="RedisSessionProvider" 
               type="Microsoft.Web.Redis.RedisSessionStateProvider" 
               <mark>port="6380"
               host="movie2.redis.cache.windows.net" 
               accessKey="m7PNV60CrvKpLqMUxosC3dSe6kx9nQ6jP5del8TmADk=" 
-              ssl="true"</mark> />
-      &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" />-->
-      &lt;/providers>
-    &lt;/sessionState>
-  &lt;/system.web></pre>
+              ssl="true"</mark> /&gt;
+      &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" /&gt;--&gt;
+      &lt;/providers&gt;
+    &lt;/sessionState&gt;
+  &lt;/system.web&gt;
+```
 
 
-<a id="usesessionobject"></a>在程式碼中使用工作階段物件：最後一步，則是開始在您的 ASP.NET 程式碼中使用工作階段物件。您可以使用 **Session.Add** 方法，將物件新增至工作階段狀態。此方法使用機碼值組，將項目儲存到工作階段狀態快取。
+
+##<a id="usesessionobject"></a> 在程式碼中使用工作階段物件
+最後一步，則是開始在您的 ASP.NET 程式碼中使用工作階段物件。您可以使用 **Session.Add** 方法，將物件新增至工作階段狀態。此方法使用機碼值組，將項目儲存到工作階段狀態快取。
 
     string strValue = "yourvalue";
 	Session.Add("yourkey", strValue);
@@ -108,4 +111,4 @@
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

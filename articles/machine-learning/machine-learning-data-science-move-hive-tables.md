@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="jacob.spoelstra" 
-	editor="cgronlun" />
+	editor="cgronlun"  />
 
 <tags 
 	ms.service="machine-learning" 
@@ -153,4 +153,4 @@ https://&#60;Hadoop 叢集名稱>.azurehdinsight.net/Home/HiveEditor
 
 依照此程序執行之後，您應該會有含 ORC 格式之資料的資料表可供使用。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

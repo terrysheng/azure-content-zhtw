@@ -86,15 +86,15 @@
 	</Module>
 
  
-請注意，XML 檔案中之 **Input** 和 **Arg** 元素的 **id** 屬性值必須完全符合 R 程式碼的函數參數名稱 (在本例中為 \*dataset1\*、*dataset2* 和 *swap*)。同樣地，**Language** 元素的 **entryPoint** 屬性值必須完全符合 R 指令碼中的函數名稱 (在本例中為 \*CustomAddRows\*)。相反地，**Output** 元素的 **id** 屬性不會對應至 R 指令碼中的任何變數。如果需要多個輸入，請直接從 R 函數傳回清單，其中包含的結果會依照輸出在 XML 檔案中宣告的順序來排列。
+請注意，XML 檔案中之 **Input** 和 **Arg** 元素的 **id** 屬性值必須完全符合 R 程式碼的函數參數名稱 (在本例中為 *dataset1*、*dataset2* 和 *swap*)。同樣地，**Language** 元素的 **entryPoint** 屬性值必須完全符合 R 指令碼中的函數名稱 (在本例中為 *CustomAddRows*)。相反地，**Output** 元素的 **id** 屬性不會對應至 R 指令碼中的任何變數。如果需要多個輸入，請直接從 R 函數傳回清單，其中包含的結果會依照輸出在 XML 檔案中宣告的順序來排列。
 
 將這兩個檔案另存為 *CustomAddRows.R* 和 *CustomAddRows.xml*，然後一起壓縮成 *CustomAddRows.zip* 檔案。
 
-若要在 Machine Learning 工作區中註冊這兩個檔案，請移至 Machine Learning Studio 中的工作區，按一下底部的 [+ 新增] 按鈕，然後選擇 [模組 -> 從 ZIP 封裝]，以上傳新的自訂 [加入資料列] 模組。
+若要在機器學習服務工作區中註冊這兩個檔案，請移至 Machine Learning Studio 中的工作區，按一下底部的 [+ 新增] 按鈕，然後選擇 [模組] -> [從 ZIP 封裝]，以上傳新的 [自訂新增資料列] 模組。
 
 ![](http://i.imgur.com/RFJhCls.png)
 
-**自訂 [加入資料列]** 模組現在已經準備好，可供 Machine Learning 實驗存取。
+[自訂新增資料列] 模組現在已經準備好，可供機器學習服務實驗存取。
 
 ## XML 定義檔中的元素
 
@@ -106,7 +106,7 @@
 		<Description>Appends one dataset to another...</Description>/> 
 
 
-在 **Module** 元素中，您可以指定選擇性 **Owner** 元素和 **Description** 元素，前者是內嵌在模組中的元素，後者是顯示在模組快速說明中的文字，也是當滑鼠停留在 Machine Learning UI 中的模組上時所顯示的文字。
+在 **Module** 元素中，您可以指定選擇性 **Owner** 元素和 **Description** 元素，前者是內嵌在模組中的元素，後者是顯示在模組快速說明中的文字，也是當滑鼠停留在機器學習服務 UI 中的模組上時所顯示的文字。
 
 **Module 元素中的字元限制規則**：
 
@@ -114,7 +114,7 @@
 * **Description** 元素的內容長度不能超過 128 個字元。
 * **Owner** 元素的內容長度不能超過 32 個字元。
 
-\*\* 表示模組的結果具決定性或不具決定性
+** 表示模組的結果具決定性或不具決定性
 
 預設會將所有模組視為具決定性。也就是說，如果提供一組不變的參數，模組每次執行時都應該傳回相同的結果。在這個行為下，除非參數或輸入資料有所變更，否則 Azure Machine Learning Studio 不會重新執行標示為具決定性的模組。傳回的快取結果會使實驗執行更快。
 
@@ -127,7 +127,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。�
 
 
 ### 連接埠
-自訂模組的輸入和輸出連接埠是在 XML 定義檔之 **Ports** 區段的子元素中所指定。這些元素的順序會決定使用者所經歷的配置 (UX)。列於 XML 檔案之 **Ports** 元素中的第一個子 **input** 或 **output**，將是 Machine Learning UX 中最左側的輸入連接埠。每個輸入和輸出連接埠可能會有一個選擇性 **Description** 子元素，以指定當滑鼠游標停留在 Machine Learning UI 中的連接埠上時所顯示的文字。
+自訂模組的輸入和輸出連接埠是在 XML 定義檔之 **Ports** 區段的子元素中所指定。這些元素的順序會決定使用者所經歷的配置 (UX)。列於 XML 檔案之 **Ports** 元素中的第一個子 **input** 或 **output**，將是機器學習服務 UX 中最左側的輸入連接埠。每個輸入和輸出連接埠可能會有一個選擇性 **Description** 子元素，以指定當滑鼠游標停留在機器學習服務 UI 中的連接埠上時所顯示的文字。
 
 **連接埠規則**：
 
@@ -136,7 +136,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。�
 ### Input 元素
 輸入連接埠可讓使用者將資料傳遞至 R 函數和工作區。輸入連接埠支援的**資料類型**如下所示：
 
-**DataTable：**這個類型會當做 data.frame 傳遞至 R 函數。事實上，Machine Learning 支援之所有與 **DataTable** 相容的類型 (例如 CSV 檔案或 ARFF 檔案)，都會自動轉換成 data.frame。
+**DataTable：**這個類型會當做 data.frame 傳遞至 R 函數。事實上，機器學習服務支援之所有與 **DataTable** 相容的類型 (例如 CSV 檔案或 ARFF 檔案)，都會自動轉換成 data.frame。
 
 		<Input id="dataset1" name="Input 1" type="DataTable" isOptional="false">
         	<Description>Input Dataset 1</Description>
@@ -163,17 +163,17 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。�
 
 ### Output 元素
 
-**標準輸出連接埠：**輸出連接埠會對應至 R 函數中的傳回值，後續模組可以接著使用這些值。*DataTable* 是目前唯一支援的標準輸出連接埠類型(即將推出 *Learners* 和 *Transforms* 的支援)。 *DataTable* 輸出的定義如下：
+**標準輸出連接埠：**輸出連接埠會對應至 R 函數中的傳回值，後續模組可以接著使用這些值。*DataTable* 是目前唯一支援的標準輸出連接埠類型。(即將推出 *Learners* 和 *Transforms* 的支援)。 *DataTable* 輸出的定義如下：
 
 	<Output id="dataset" name="Dataset" type="DataTable">
 		<Description>Combined dataset</Description>
 	</Output>
 
-對於自訂 R 模組中的輸出，**id** 屬性不一定要對應至 R 指令碼中的任何項目，但它必須是唯一的。對於單一模組輸出，R 函數中的傳回值必須是 *data.frame*。若要輸出多個支援的資料類型的物件，必須在 XML 定義檔中指定適當的輸出連接埠，而且必須以清單形式傳回物件。輸出物件將從左到右指派給輸出連接埠，以反映物件置於傳回清單中的順序。
+對於自訂 R 模組中的輸出，**id** 屬性值不一定要對應至 R 指令碼中的任何項目，但它必須是唯一的。對於單一模組輸出，R 函數中的傳回值必須是 *data.frame*。若要輸出多個支援的資料類型的物件，必須在 XML 定義檔中指定適當的輸出連接埠，而且必須以清單形式傳回物件。輸出物件將從左到右指派給輸出連接埠，以反映物件置於傳回清單中的順序。
  
 例如，如果您要將 dataset、Dataset1 和 Dataset2 從左到右分別輸出到輸出連接埠 dataset、dataset1 和 dataset2，請在 ‘CustomAddRows.xml’ 檔案中定義輸出連接埠，如下所示：
 
-例如，如果您要修改**自訂 [加入資料列]** 模組，使其除了新加入的資料集 *dataset* 之外，還要輸出兩個原始資料集 *dataset1* 和 *dataset2* (依照從左到右的順序：*dataset*、*dataset1*、*dataset2*)，請在 CustomAddRows.xml 檔案中定義輸出連接埠，如下所示：
+例如，如果您要修改 [自訂新增資料列] 模組，使其除了新加入的資料集 *dataset* 之外，還要輸出兩個原始資料集 *dataset1* 和 *dataset2* (依照從左到右的順序：*dataset*、*dataset1*、*dataset2*)，請在 CustomAddRows.xml 檔案中定義輸出連接埠，如下所示：
 
 	<Ports> 
 		<Output id="dataset" name="Dataset Out" type="DataTable"> 
@@ -203,7 +203,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。�
 	return (list(dataset, dataset1, dataset2)) 
 	} 
 	
-**視覺效果輸出：**您也可以指定 *Visualization* 類型的輸出連接埠，以顯示 R 圖形裝置的輸出和主控台輸出。這個連接埠不是 R 函數輸出的一部分，而且不會干擾其他輸出連接埠類型的順序。若要將視覺效果連接埠加入自訂模組，請針對其 **type** 屬性加入 *Visualization* 值的 **Output** 元素：
+**視覺效果輸出：**您也可以指定 *Visualization* 類型的輸出連接埠，以顯示 R 圖形裝置的輸出和主控台輸出。這個連接埠不是 R 函數輸出的一部分，而且不會干擾其他輸出連接埠類型的順序。若要將視覺效果連接埠新增至自訂模組，請針對其 **type** 屬性新增 *Visualization* 值的 **Output** 元素：
 
 	<Output id="deviceOutput" name="View Port" type="Visualization">
       <Description>View the R console graphics device output.</Description>
@@ -217,7 +217,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。�
 * **Output** 元素的 **type** 屬性值必須是 *Visualization*。
 
 ### 引數
-您可以透過 **Arguments** 元素中定義的模組參數，將其他資料傳遞至 R 函數。選取模組時，這些參數會出現在 Machine Learning UI 最右側的屬性窗格中。引數可以是任何支援的類型，或者您可以視需要建立自訂列舉。類似於 **Ports** 元素，**Arguments** 元素可以有選擇性 **Description** 元素，以指定當滑鼠停留在參數名稱上時所顯示的文字。您可以將模組的選擇性屬性 (例如 defaultValue、minValue 和 maxValue) 加入任何引數，做為 **Properties** 元素的屬性。**Properties** 元素的有效屬性取決於引數類型，以下將說明這些有效屬性和支援的引數類型。如同輸入和輸出，每個參數都必須有與其相關聯的 id 值。此外，id 值必須對應到 R 函數中的具名參數。在我們的快速入門範例中，相關聯的 id/參數是 *swap*。
+您可以透過 **Arguments** 元素中定義的模組參數，將其他資料傳遞至 R 函數。選取模組時，這些參數會出現在 Machine Learning UI 最右側的屬性窗格中。引數可以是任何支援的類型，或者您可以視需要建立自訂列舉。類似於 **Ports** 元素，**Arguments** 元素可以有選擇性 **Description** 元素，以指定當滑鼠停留在參數名稱上時所顯示的文字。您可以將模組的選擇性屬性 (例如 defaultValue、minValue 和 maxValue) 新增到任何引數，做為 **Properties** 元素的屬性。**Properties** 元素的有效屬性取決於引數類型，以下將說明這些有效屬性和支援的引數類型。如同輸入和輸出，每個參數都必須有與其相關聯的 id 值。此外，id 值必須對應到 R 函數中的具名參數。在我們的快速入門範例中，相關聯的 id/參數是 *swap*。
 
 ### Arg 元素
 模組參數是使用 XML 定義檔之 **Arguments** 區段的 **Arg** 子元素所定義。如同在 **Ports** 區段中的子元素，**Arguments** 區段中的參數順序會定義 UX 中遇到的配置。參數會依照其在 XML 檔案中定義的相同順序，由上而下顯示在 UI 中。Machine Learning 所支援的參數類型列示如下。
@@ -363,4 +363,4 @@ R 指令碼的執行環境使用與 **Execute R Script** 模組相同的 R 版�
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

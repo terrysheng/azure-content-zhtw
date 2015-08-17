@@ -300,4 +300,4 @@ Azure 將與所選儲存機制建立關聯，然後從指定的分支提取檔�
 [使用 Dropbox 分享 Git 儲存機制]: https://gist.github.com/trey/2722927
 [使用 Visual Studio Online 持續傳遞至 Azure]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -169,9 +169,10 @@
 2. 修改 **startup.cmd**，以將 TwilioCloud WAR 解壓縮。
 3. 針對計算模擬器編譯您的應用程式。
 4. 在計算模擬器中開始進行部署。
-5. 開啟瀏覽器，並執行 **http://localhost:8080/TwilioCloud/callform.jsp**。 6. 輸入表單中的值，按一下 [Make this call]，然後在 makecall.jsp 中檢視結果。
+5. 開啟瀏覽器，並執行 ****http://localhost:8080/TwilioCloud/callform.jsp**。
+6. 輸入表單中的值，按一下 [Make this call]，然後在 makecall.jsp 中檢視結果。
 
-當您做好部署至 Azure 的準備後，您可以針對雲端重新編譯部署、部署至 Azure，以及在瀏覽器中執行 http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp (請將 *your_hosted_name* 取代為您的值)。
+當您做好部署至 Azure 的準備後，您可以針對雲端重新編譯部署、部署至 Azure，以及在瀏覽器中執行 http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp (請將 *your\_hosted\_name* 取代為您的值)。
 
 ## 後續步驟
 此程式可說明在 Azure 上的 Java 中使用 Twilio 的基本功能。在部署至生產環境中的 Azure 之前，您可以新增更多錯誤處理或其他功能。例如：
@@ -208,4 +209,4 @@
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

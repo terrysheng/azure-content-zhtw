@@ -91,7 +91,7 @@ None | 傳送電子郵件
 
 您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)。
 
-<!--Image references-->
+	<!--Image references-->
 [1]: ./media/app-service-logic-connector-smtp/img1.PNG
 [2]: ./media/app-service-logic-connector-smtp/img2.PNG
 [3]: ./media/app-service-logic-connector-smtp/img3.png
@@ -99,4 +99,4 @@ None | 傳送電子郵件
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

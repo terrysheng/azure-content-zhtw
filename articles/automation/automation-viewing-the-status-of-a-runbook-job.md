@@ -86,4 +86,4 @@ Runbook 儀表板會顯示單一 Runbook 的摘要。針對經過指定的天數
 
 - [在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

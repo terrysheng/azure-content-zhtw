@@ -110,10 +110,10 @@ OR  y.[is_user_defined] = 1
 - **image**、**text**、**ntext**，使用 varchar/nvarchar (越小越好)
 - **nvarchar(max)**，使用 varchar(4000) 或更小，效能更好
 - **numeric**，使用 decimal
-- **sql_variant**，將資料行分割成數個強型別資料行
+- **sql\_variant**，將資料行分割成數個強型別資料行
 - **sysname**，使用 nvarchar(128)
 - **table**，轉換成暫時資料表
-- **timestamp**，修改程式碼來使用 datetime2 和 `CURRENT_TIMESTAMP` 函式。請注意，您不能以 current_timestamp 做為預設條件約束，因為值不會自動更新。如果您需要從 timestamp 類型資料行移轉 rowversion 值，請對 NOT NULL 或 NULL 資料列版本值使用 binary(8) 或 varbinary(8)。
+- **timestamp**，修改程式碼來使用 datetime2 和 `CURRENT_TIMESTAMP` 函式。請注意，您不能以 current\_timestamp 做為預設條件約束，因為值不會自動更新。如果您需要從 timestamp 類型資料行移轉 rowversion 值，請對 NOT NULL 或 NULL 資料列版本值使用 binary(8) 或 varbinary(8)。
 - **varchar(max)**，使用 varchar(8000) 或更小，效能更好
 - **uniqueidentifier**，使用 varbinary(8)
 - **使用者定義型別**，可能的話，轉換回原生型別
@@ -145,4 +145,4 @@ OR  y.[is_user_defined] = 1
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

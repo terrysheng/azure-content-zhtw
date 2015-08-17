@@ -2,7 +2,7 @@
 <properties 
     pageTitle="設定 Azure RemoteApp 的 Active Directory" 
     description="了解如何設定 Active Directory 以使用 Azure RemoteApp。" 
-    services="remoteapp" 
+    services="remoteapp"  
 	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/28/2015" 
+    ms.date="08/03/2015" 
     ms.author="elizapo" />
 
 
@@ -21,7 +21,7 @@
 # 設定 Azure RemoteApp 的 Active Directory
 
 
-對於 RemoteApp 的混合式收藏，您必須設定內部部署的 Active Directory 網域基礎結構和具備目錄整合的 Azure Active Directory 租用戶 (及選擇性的單一登入)。此外，您必須在內部部署的目錄中建立一些 Active Directory 物件。請使用下列資訊設定內部部署的 Active Directory 和 Azure AD，然後將兩者整合。
+對於 Azure RemoteApp 的混合式收藏，您必須設定內部部署的 Active Directory 網域基礎結構和具備目錄整合的 Azure Active Directory 租用戶 (及選擇性的單一登入)。此外，您必須在內部部署的目錄中建立一些 Active Directory 物件。請使用下列資訊設定內部部署的 Active Directory 和 Azure AD，然後將兩者整合。
 
 ## 設定內部部署的 Active Directory
 請先從設定內部部署的 Active Directory 開始。您必須識別要使用的 UPN 網域尾碼，然後為 RemoteApp 建立 Active Directory 物件。
@@ -105,7 +105,7 @@ RemoteApp 在內部部署的 Active Directory 中需要兩個物件：
 -	在 [Active Directory] -> [預設目錄] -> [使用者] 下，您在該網域下新增新的使用者 (例如 myAzureSyncUser@mydomain.com))。
 -	在 Active Directory 中的網域，您已新增新的網域使用者，並且將它設定為 Enterprise Admin 的成員 (例如 myDomainSyncUser@mydomain.com))。
 
-現在啟動 Azure 目錄同步化工具，然後在第一次提示時使用 **myAzureSyncUser@mydomain.com** 憑證 (Microsoft Azure Active Directory 管理員憑證)，然後在第二次提示時使用 **myDomainSyncUser@mydomain.com**。
+現在啟動 Azure 目錄同步化工具，然後在第一次提示時使用 ****myAzureSyncUser@mydomain.com** 憑證 (Microsoft Azure Active Directory 管理員憑證)，然後在第二次提示時使用 ****myDomainSyncUser@mydomain.com**。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

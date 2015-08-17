@@ -40,7 +40,8 @@ Azure 自動化提供高度可靠、高度可用的工作流程執行引擎，�
 現在您已了解 Azure 自動化的基本概念以及如何用來管理 Azure HDInsight，依循此連結可深入了解 Azure 自動化。
 
 * 請參閱 Azure 自動化[快速入門教學課程](../automation-create-runbook-from-samples.md)。
+* 檢視[指令碼中心](http://aka.ms/scriptcentergallery)中的範例：  
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

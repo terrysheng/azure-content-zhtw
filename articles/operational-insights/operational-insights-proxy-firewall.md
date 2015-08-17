@@ -9,7 +9,7 @@
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/21/2015"
@@ -102,13 +102,13 @@ Operations Manager 管理群組必須能夠存取您的網域和 URL 的連接�
 |*.ods.opinsights.azure.com|Port 443| |service.systemcenteradvisor.com|Port 443| |scadvisor.accesscontrol.windows.net|Port 443| |scadvisorservice.accesscontrol.windows.net|Port 443| |*.blob.core.windows.net/*|連接埠 443|
 |data.systemcenteradvisor.com|連接埠 443|
 |ods.systemcenteradvisor.com|連接埠 443|
-|*.systemcenteradvisor.com|Port 443|
+|**.systemcenteradvisor.com|Port 443|
 
 
 |**Operational Insights 和 Operations Manager 主控台資源**|**連接埠**|
 |---|---|
 |*.systemcenteradvisor.com|Port 80 and 443| |*.live.com|連接埠 80 和 443|
-|*.microsoftonline.com|Port 80 and 443| |login.windows.net|Port 80 and 443|
+|**.microsoftonline.com|Port 80 and 443| |login.windows.net|Port 80 and 443|
 
 
 使用下列程序以將您的 Operations Manager 管理群組註冊至 Operational Insights 服務。如果您有管理群組和 Operational Insights 服務之間的通訊問題，請使用驗證程序來疑難排解對 Operational Insights 的資料傳輸。
@@ -166,4 +166,4 @@ Operations Manager 管理群組必須能夠存取您的網域和 URL 的連接�
 3. 加入開頭為 **HTTP** 的所有計數器。![新增計數器](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. 如果您的 Operations Manager 組態良好，您會看到健康情況服務管理計數器的事件和其他資料項目的活動，根據您在 Operational Insights 中加入的管理套件和設定的記錄收集原則。![顯示活動的效能監視器](./media/operational-insights-proxy-firewall/sendingdata2.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

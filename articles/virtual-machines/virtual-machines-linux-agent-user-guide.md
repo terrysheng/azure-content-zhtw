@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/30/2015" 
 	ms.author="szark"/>
 
 
@@ -211,7 +211,7 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 
 這可讓使用者啟用或停用代理程式的佈建功能。有效值為 "y" 或 "n"。如果停用佈建，則會保留映像檔中的 SSH 主機金鑰和使用者金鑰，並忽略 Azure 佈建 API 中指定的任何組態。
 
-	Note that this parameter defaults to "n" on Ubuntu Cloud Images that use cloud-init for provisioning.
+**注意：**針對使用 cloud-init 執行佈建工作的 Ubuntu 雲端映像，此參數的預設值為「n」。
 
 **Provisioning.DeleteRootPassword：**
 
@@ -317,4 +317,4 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

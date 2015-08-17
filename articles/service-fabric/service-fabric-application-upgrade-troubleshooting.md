@@ -225,4 +225,4 @@ Service Fabric 將所有百分比轉譯為健康狀態評估的實體實際數�
 [資料序列化](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

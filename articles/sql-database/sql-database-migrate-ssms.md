@@ -71,4 +71,4 @@
 ##替代項目
 您也可以使用命令列公用程式 sqlpackage.exe 部署資料庫或匯出和匯入 BACPAC。Sqlpackage.exe 和 SSMS 同樣使用 DAC 技術，因此結果會是一樣的。如需詳細資訊，請參閱 [MSDN 上的 SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

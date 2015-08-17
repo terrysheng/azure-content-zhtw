@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/22/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # 開始使用 Azure Active Directory (.NET 專案)
 
@@ -28,9 +28,9 @@
  
 ##加入 SignIn / SignOut 控制項 
 
-若要將 SignIn/SignOut 控制項加入至檢視，您可以使用 **_LoginPartial.cshtml\*\* 部分檢視將此功能加入至您的其中一個檢視。以下是加入至標準 **_Layout.cshtml\*\* 檢視的功能範例(請注意 div 中具有類別 navbar-collapse 的最後一個元素)：
+若要將 SignIn/SignOut 控制項加入至檢視，您可以使用 **\_LoginPartial.cshtml** 部分檢視將此功能加入至您的其中一個檢視。以下是加入至標準 **\_Layout.cshtml** 檢視的功能範例(請注意 div 中具有類別 navbar-collapse 的最後一個元素)：
 
-<PRE class="prettyprint">
+```
     &lt;!DOCTYPE html&gt; 
      &lt;html&gt; 
      &lt;head&gt; 
@@ -73,8 +73,8 @@
         @RenderSection("scripts", required: false) 
     &lt;/body&gt; 
     &lt;/html&gt;
-</PRE>
+```
 
 [深入了解 Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

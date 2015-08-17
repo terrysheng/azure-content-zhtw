@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/05/2015"
 	ms.author="alfran"/>
 
 # Operational Insights 中的解決方案
@@ -24,7 +24,7 @@
 
 本指南將引導您逐步執行各種可用的解決方案及其用途。
 
->[AZURE.NOTE]如需有關*加入*解決方案的詳細資訊，請參閱[加入解決方案](operational-insights-add-solution.md)
+>[AZURE.NOTE]如需有關*加入*解決方案的詳細資訊，請參閱[加入解決方案](operational-insights-setup-workspace.md)
 
 ## SQL 評估
 
@@ -129,4 +129,4 @@ SQL 評估需要在每個代理程式上執行 .NET 4。它支援 Standard、Dev
 - 上次更新後至今的天數
 - Windows Update 代理程式版本
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -33,8 +33,8 @@
    
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id.png)
 
-4. 瀏覽回您的行動服務組態頁面，並新增物件識別碼做為名稱為 **AAD_SALES_GROUP_ID** 的應用程式設定。本教學課程使用群組的物件識別碼做為應用程式設定，而不是根據群組名稱查閱識別碼。這是因為群組名稱可能會變更，但識別碼會保持相同。
+4. 瀏覽回您的行動服務組態頁面，並新增物件識別碼做為名稱為 **AAD\_SALES\_GROUP\_ID** 的應用程式設定。本教學課程使用群組的物件識別碼做為應用程式設定，而不是根據群組名稱查閱識別碼。這是因為群組名稱可能會變更，但識別碼會保持相同。
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id-app-setting.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

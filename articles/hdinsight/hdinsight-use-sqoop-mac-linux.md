@@ -49,7 +49,7 @@
 
 ##了解案例
 
-HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable** 的 Hive 資料表，該資料表會參考位於 **wasb:///hive/warehouse/hivesampletable** 的資料檔案。此資料表包含某些行動裝置資料。Hive 資料表的結構描述為：
+HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable** 的 Hive 資料表，該資料表會參考位於 **wasb:///hive/warehouse/hivesampletable** 的資料檔案。此資料表包含某些行動裝置資料。此 Hive 資料表的結構描述為：
 
 | 欄位 | 資料類型 |
 | ----- | --------- |
@@ -244,9 +244,6 @@ HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable*
 
 
 
-
-[azure-management-portal]: https://manage.windowsazure.com/
-
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: ../hdinsight-get-started.md
@@ -265,4 +262,4 @@ HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable*
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

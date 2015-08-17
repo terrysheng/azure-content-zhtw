@@ -63,7 +63,7 @@
 
 ## 變更 sourceAnchor
 
-當物件匯出到 Azure AD 之後，則不允許再變更 sourceAnchor。當物件匯出之後，Metaverse 屬性 **cloudSourceAnchor** 就會設為 Azure AD 所接受的 **sourceAnchor** 值。如果 **sourceAnchor** 經過變更且不符合 **cloudSourceAnchor**，則規則 \*\*Out to AAD – User Join\*\* 將會擲回「sourceAnchor 屬性已經變更」錯誤。在此情況下，必須先更正組態或資料，讓 Metaverse 中再度具有相同的 sourceAnchor，才能再次同步處理物件。
+當物件匯出到 Azure AD 之後，則不允許再變更 sourceAnchor。當物件匯出之後，Metaverse 屬性 **cloudSourceAnchor** 就會設為 Azure AD 所接受的 **sourceAnchor** 值。如果 **sourceAnchor** 經過變更且不符合 **cloudSourceAnchor**，則規則 **Out to AAD – User Join** 將會擲回「sourceAnchor 屬性已經變更」錯誤。在此情況下，必須先更正組態或資料，讓 Metaverse 中再度具有相同的 sourceAnchor，才能再次同步處理物件。
 
 
 
@@ -75,4 +75,4 @@
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

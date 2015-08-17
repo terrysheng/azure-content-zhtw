@@ -230,4 +230,4 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 * ＜[撰寫使用 WebAPI 通訊堆疊的可靠服務 API 服務](service-fabric-reliable-services-communication-webapi.md)＞
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

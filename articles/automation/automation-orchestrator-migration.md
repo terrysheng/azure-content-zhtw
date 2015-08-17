@@ -9,7 +9,7 @@
 <tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/22/2015"
@@ -81,4 +81,4 @@ Microsoft 提供[整合套件](http://technet.microsoft.com/library/hh295851.asp
 - [Orchestrator 標準活動](http://technet.microsoft.com/library/hh403832.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

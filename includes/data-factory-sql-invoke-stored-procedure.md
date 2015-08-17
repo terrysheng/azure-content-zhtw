@@ -1,14 +1,14 @@
-## Invoking stored procedure for SQL Sink
+## 叫用 SQL 接收器的預存程序
 
-When copying data into SQL Server or Azure SQL/SQL Server Database, a user specified stored procedure could be configured and invoked with additional parameters. 
+將資料複製到 SQL Server 或 Azure SQL/SQL Server 資料庫時，可以設定指定的預存程序並搭配其他參數來叫用。
 
-A stored procedure can be leveraged when built-in copy mechanisms do not serve the purpose. This is typically leveraged when extra processing (merging columns, looking up additional values, insertion into multiple tables…) needs to be done before the final insertion of source data in the destination table. 
+內建的複製機制無法使用時，可利用預存程序。必須在最後一次將來源資料插入目的地資料表前完成額外處理 (合併資料行、查閱其他值、插入至多個資料表等) 時，通常會利用此程序。
 
-You may invoke a stored procedure of choice. The following sample shows how to use a stored procedure to do a simple insertion into a table in the database. 
+您可以叫用所選的預存程序。下列範例示範如何使用預存程序來執行簡單插入至資料庫中的資料表。
 
-**Output dataset**
+**輸出資料集**
 
-In this example, type is set to: SqlServerTable. Set it to AzureSqlTable to use with an Azure SQL database. 
+在此範例中，type 設為：SqlServerTable。將它設定為 AzureSqlTable，以配合 Azure SQL 資料庫使用。
 
 	{
 	  "name": "SqlOutput",
@@ -25,7 +25,7 @@ In this example, type is set to: SqlServerTable. Set it to AzureSqlTable to use 
 	  }
 	}
 	
-Define the SqlSink section in copy activity JSON as follows. To call a stored procedure while insert data, both SqlWriterStoredProcedureName and SqlWriterTableType properties are needed.
+在複製活動 JSON 中定義 SqlSink 區段如下。若要在插入資料時呼叫預存程序，則需要 SqlWriterStoredProcedureName 和 SqlWriterTableType 屬性。
 
 	"sink":
 	{
@@ -41,7 +41,7 @@ Define the SqlSink section in copy activity JSON as follows. To call a stored pr
 	            }
 	}
 
-In your database, define the stored procedure with the same name as SqlWriterStoredProcedureName. It handles input data from your specified source, and insert into the output table. Notice that the parameter name of the stored procedure should be the same as the tableName defined in Table JSON file.
+在資料庫中，使用與 SqlWriterStoredProcedureName 相同的名稱定義預存程序。它會處理來自指定來源的輸入資料，並插入至輸出資料表。請注意，預存程序的參數名稱應該與資料表 JSON 檔案中定義的 tableName 相同。
 
 	CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
 	AS
@@ -51,11 +51,13 @@ In your database, define the stored procedure with the same name as SqlWriterSto
 	    SELECT * FROM @Marketing
 	END
 
-In your database, define the table type with the same name as SqlWriterTableType. Notice that the schema of the table type should be same as the schema returned by your input data.
+在資料庫中，使用與 SqlWriterTableType 相同的名稱定義資料表類型。請注意，資料表類型的結構描述應該與輸入資料所傳回的結構描述相同。
 
 	CREATE TYPE [dbo].[MarketingType] AS TABLE(
 	    [ProfileID] [varchar](256) NOT NULL,
 	    [State] [varchar](256) NOT NULL,
 	)
 
-The stored procedure feature takes advantage of [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+預存程序功能使用[資料表值參數](https://msdn.microsoft.com/library/bb675163.aspx)。
+
+<!---HONumber=August15_HO6-->

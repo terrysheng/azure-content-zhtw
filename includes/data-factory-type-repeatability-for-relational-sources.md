@@ -1,21 +1,21 @@
-## Repeatability during Copy
+## 在複製期間的重複性
 
-When copying data from and to relational stores, you need to keep repeatability in mind to avoid unintended outcomes. 
+複製資料自/至關聯式存放區時，您需要留意重複性以避免非預期的結果。
 
-**Note:** A slice can be re-run automatically in Azure Data Factory as per the retry policy specified. It is recommended to set a retry policy to guard against transient failures. Hence repeatability is an important aspect to take care of during data movement. 
+**注意：**可以根據指定的重試原則在 Azure Data Factory 中自動重新執行配量。建議您設定重試原則，以防止暫時性失敗。由此可知，重複性是移動資料時的重要層面。
 
-**As a source:**
+**做為來源：**
 
-In most cases when reading from relational stores, you would want to read only the data corresponding to that slice. A way to do so would be by using the WindowStart and WindowEnd variables available in Azure Data Factory. Read about the variables and functions in Azure Data Factory here in the [Scheduling and Execution](data-factory-scheduling-and-execution.md) article. Example: 
+在多數情況下，從關聯式存放區讀取時，您會希望只讀取對應該配量的資料。使用 Azure Data Factory 中提供的 WindowStart 和 WindowEnd 變數即可達到此目的。請在此[「排程和執行」](data-factory-scheduling-and-execution.md)文章中閱讀關於 Azure Data Factory 中的變數和函數。範例：
 	
 	  "source": {
 	    "type": "SqlSource",
 	    "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
 	  },
 
-The above query will read data from ‘MyTable’ that falls in the slice duration range. Re-run of this slice would also always ensure this behavior. 
+上述查詢會讀取落在配量持續時間範圍的「MyTable」資料。重新執行此配量也能確保此行為。
 
-In other cases, you may wish to read the entire Table (suppose for one time move only) and may define the sqlReaderQuery as follows:
+在其他情況下，您可能想要閱讀整份資料表 (假設只是單次移動)，並可能會如下所示定義 sqlReaderQuery：
 
 	
 	"source": {
@@ -23,3 +23,5 @@ In other cases, you may wish to read the entire Table (suppose for one time move
 	            "sqlReaderQuery": "select * from MyTable"
 	          },
 	
+
+<!---HONumber=August15_HO6-->

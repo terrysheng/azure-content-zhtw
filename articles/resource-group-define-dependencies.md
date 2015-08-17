@@ -62,4 +62,4 @@ reference 函式可讓運算式從其他 JSON 名稱和值組或執行階段資�
 - 若要了解如何建立 Azure 資源管理員範本，請參閱[撰寫範本](resource-group-authoring-templates.md)。 
 - 如需在範本中可用函式的清單，請參閱[範本函式](resource-group-template-functions.md)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

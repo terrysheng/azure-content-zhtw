@@ -65,7 +65,7 @@
 	warn:   Remember to delete it now that it has been imported.
 	info:   Account publish settings imported successfully
 
-> [AZURE.NOTE]publishsettings 檔可能包含多個訂閱的詳細資料 (也就是訂閱名稱和 ID)。當您匯入 publishsettings 檔時，第一個訂閱將作為預設訂閱。若要使用不同的訂用帳戶，請執行下列命令。<code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
+> [AZURE.NOTE]publishsettings 檔可能包含多個訂閱的詳細資料 (也就是訂閱名稱和 ID)。當您匯入 publishsettings 檔時，第一個訂閱將作為預設訂閱。若要使用不同的訂用帳戶，請執行下列命令。<code>\~$ azure config set subscription &lt;other-subscription-id&gt;</code>
 
 **account clear [options]**
 
@@ -188,7 +188,7 @@ This command creates a new affinity group
 
 ![Azure Technical Diagram](./media/virtual-machines-command-line-tools/architecturediagram.jpg)
 
-**create-new** 會在 Blob 儲存體 (也就是圖中的 e:) 建立磁碟機；**attach** 會將已建立但未連接的磁碟連接至虛擬機器。
+**create-new** 會在 Blob 儲存體 (也就是圖中的 e:\\) 建立磁碟機；**attach** 會將已建立但未連接的磁碟連接至虛擬機器。
 
 **vm create [options] &lt;dns-name> &lt;image> &lt;userName> [password]**
 
@@ -206,9 +206,9 @@ This command creates a new affinity group
 
 此命令可支援下列選用參數：
 
-**-c, --connect** 於主機服務中已建立的部署內建立虛擬機器。如果使用這個選項時並未加上 -vmname，則會自動產生新虛擬機器的名稱。<br /> **-n, --vm-name** 指定虛擬機器的名稱。此參數預設使用主機服務名稱。如果未指定 -vmname，則會以 &lt;service-name>&lt;id> 格式產生新虛擬機器的名稱，其中 &lt;id> 是服務中現有虛擬機器的編號加 1。例如，如果您使用這個命令將新的虛擬機器加入至已有一個虛擬機器的主機服務 MyService，則新虛擬機器的名稱會是 MyService2。<br /> **-u, --blob-url** 指定要在其中建立虛擬機器系統磁碟的目標 Blob 儲存體 URL。<br /> **-z, --vm-size** 指定虛擬機器的大小。有效值為："ExtraSmall"、"Small"、"Medium"、"Large"、"ExtraLarge"、"A5"、"A6"、"A7"、"A8"、"A9"、"A10"、"A11"、"Basic_A0"、"Basic_A1"、"Basic_A2"、"Basic_A3"、"Basic_A4"、"Standard_D1"、"Standard_D2"、"Standard_D3"、"Standard_D4"、"Standard_D11"、"Standard_D12"、"Standard_D13"、"Standard_D14"、"Standard_DS1"、"Standard_DS2"、"Standard_DS3"、"Standard_DS4"、"Standard_DS11"、"Standard_DS12"、"Standard_DS13"、"Standard_DS14"、"Standard_G1"、"Standard_G2"、"Standard_G3"、"Standard_G4"、"Standard_G55"。預設值為 "Small"。<br /> **-r** 將 RDP 連線功能新增至 Windows 虛擬機器。<br /> **-e, --ssh** 將 SSH 連線功能新增至 Windows 虛擬機器。<br /> **-t, --ssh-cert** 指定 SSH 憑證。<br /> **-s** 訂用帳戶 <br /> **-o, --community** 所指定的影像為社群影像 <br /> **-w** 虛擬網路名稱 <br/> **-l, --location** 指定位置 (例如，「美國中北部」)。<br /> **-a, --affinity-group** 指定同質群組。<br /> **-w, --virtual-network-name** 指定要將虛擬機器新增到的虛擬網路。若要設定和管理虛擬網路，可以從 Azure 入口網站進行。<br /> **-b, --subnet-names** 指定要對虛擬機器指派的子網路名稱。
+**-c, --connect** 於主機服務中已建立的部署內建立虛擬機器。如果使用這個選項時並未加上 -vmname，則會自動產生新虛擬機器的名稱。<br /> **-n, --vm-name** 指定虛擬機器的名稱。此參數預設使用主機服務名稱。如果未指定 -vmname，則會以 &lt;service-name>&lt;id> 格式產生新虛擬機器的名稱，其中 &lt;id> 是服務中現有虛擬機器的編號加 1。例如，如果您使用這個命令將新的虛擬機器加入至已有一個虛擬機器的主機服務 MyService，則新虛擬機器的名稱會是 MyService2。<br /> **-u, --blob-url** 指定要在其中建立虛擬機器系統磁碟的目標 Blob 儲存體 URL。<br /> **-z, --vm-size** 指定虛擬機器的大小。有效值為："ExtraSmall"、"Small"、"Medium"、"Large"、"ExtraLarge"、"A5"、"A6"、"A7"、"A8"、"A9"、"A10"、"A11"、"Basic\_A0"、"Basic\_A1"、"Basic\_A2"、"Basic\_A3"、"Basic\_A4"、"Standard\_D1"、"Standard\_D2"、"Standard\_D3"、"Standard\_D4"、"Standard\_D11"、"Standard\_D12"、"Standard\_D13"、"Standard\_D14"、"Standard\_DS1"、"Standard\_DS2"、"Standard\_DS3"、"Standard\_DS4"、"Standard\_DS11"、"Standard\_DS12"、"Standard\_DS13"、"Standard\_DS14"、"Standard\_G1"、"Standard\_G2"、"Standard\_G3"、"Standard\_G4"、"Standard\_G55"。預設值為 "Small"。<br /> **-r** 將 RDP 連線功能新增至 Windows 虛擬機器。<br /> **-e, --ssh** 將 SSH 連線功能新增至 Windows 虛擬機器。<br /> **-t, --ssh-cert** 指定 SSH 憑證。<br /> **-s** 訂用帳戶 <br /> **-o, --community** 所指定的影像為社群影像 <br /> **-w** 虛擬網路名稱 <br/> **-l, --location** 指定位置 (例如，「美國中北部」)。<br /> **-a, --affinity-group** 指定同質群組。<br /> **-w, --virtual-network-name** 指定要將虛擬機器新增到的虛擬網路。若要設定和管理虛擬網路，可以從 Azure 入口網站進行。<br /> **-b, --subnet-names** 指定要對虛擬機器指派的子網路名稱。
 
-在此範例中，MSFT__Win2K8R2SP1-120514-1520-141205-01-zh-tw-30GB 是由平台所提供的映像。如需作業系統映像的詳細資訊，請參閱 vm image list。
+在此範例中，MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-zh-tw-30GB 是由平台所提供的映像。如需作業系統映像的詳細資訊，請參閱 vm image list。
 
 	~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "West US" -r
 	info:   Executing command vm create
@@ -787,7 +787,7 @@ Azure Web 應用程式是一種可透過 URI 存取的 Web 組態。Web 應用�
 
 此命令還支援下列其他選項：
 
-**-q or **--quiet**：不顯示確認提示。請在自動化指令碼中使用此選項。
+****-q 或 **--quiet**：不顯示確認提示。請在自動化指令碼中使用此選項。
 
 
 **site start [options] [name]**
@@ -810,7 +810,7 @@ Azure Web 應用程式是一種可透過 URI 存取的 Web 組態。Web 應用�
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-**site restart [options] [name]
+****site restart [options] [name]
 
 這個命令會停止再啟動指定的 Web 應用程式。
 
@@ -2346,4 +2346,4 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

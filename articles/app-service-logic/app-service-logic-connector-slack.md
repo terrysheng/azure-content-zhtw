@@ -77,7 +77,8 @@ None | 張貼訊息
 --- | ---
 文字 | 輸入要張貼的訊息文字。
 通道名稱 | 輸入要在其中張貼此訊息的 Slack 通道。如果未輸入通道，則會將訊息張貼至 #general。
-進階屬性 | <ul><li><strong>Bot 使用者名稱</strong>：要用於此訊息的 Bot 名稱。如果未輸入此屬性，則會將訊息張貼為 "Bot"。</li><li><strong>圖示 URL</strong>：要作為此訊息圖示的影像 URL。</li><li><strong>圖示 Emoji</strong>：要作為此訊息圖示的 Emoji。這個屬性會覆寫圖示 URL 屬性。</li></ul>
+進階屬性 | **Bot 使用者名稱**：要用於此訊息的 Bot 名稱。如果未輸入此屬性，則會將訊息張貼為 "Bot"。<p><p>**圖示 URL**：要作為此訊息圖示的影像 URL。<p><p>**圖示 Emoji**：要作為此訊息圖示的 Emoji。這個屬性會覆寫圖示 URL 屬性。
+
 
 Slack 連接器具有 REST API，因此您可以在邏輯應用程式外部使用連接器。開啟 Slack 連接器，然後選取 [API 定義]：
 
@@ -103,4 +104,4 @@ Slack 連接器具有 REST API，因此您可以在邏輯應用程式外部使�
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

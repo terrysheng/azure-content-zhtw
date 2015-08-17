@@ -39,4 +39,4 @@
 - 澳大利亞資料中心的可用性
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

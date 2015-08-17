@@ -57,7 +57,7 @@
     * **-u** - 用來驗證要求的使用者名稱和密碼。
     * **-G** - 指出這是 GET 要求。
 
-    所有要求的 URL 開頭 (**https://CLUSTERNAME.azurehdinsight.net/templeton/v1**) 都會相同。路徑 **/status** 指出要求是要傳回伺服器之 WebHCat (也稱為 Templeton) 的狀態。您也可以使用下列命令要求 Hive 的版本：
+    所有要求的 URL 開頭 (****https://CLUSTERNAME.azurehdinsight.net/templeton/v1**) 都會相同。路徑 **/status** 指出要求是要傳回伺服器之 WebHCat (也稱為 Templeton) 的狀態。您也可以使用下列命令要求 Hive 的版本：
 
         curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
 
@@ -93,7 +93,7 @@
 
     * **STORED AS TEXTFILE LOCATION** - 將資料的儲存位置告訴 Hive (example/data 目錄)，且資料儲存為文字。
 
-    * **SELECT** - 選取其資料行 **t4** 包含 **[ERROR]** 值的所有資料列計數。這應該會傳回值 **3**，因為有 3 個資料列包含此值。
+    * **SELECT** - 選擇其資料欄 **t4** 包含值 [**ERROR**] 的所有資料列計數。這應該會傳回值 **3**，因為有 3 個資料列包含此值。
 
     > [AZURE.NOTE]請注意，在搭配 Curl 使用時，會以 `+` 字元取代 HiveQL 陳述式之間的空格。加上引號的值若包含空格，例如分隔符號，則不應以 `+` 取代。
 
@@ -109,7 +109,7 @@
 
     > [AZURE.NOTE]此 Curl 要求會傳回含有工作資訊的 JavaScript Object Notation (JSON) 文件；jq 可用來僅擷取狀態值。
 
-4. 工作狀態變更為 [**成功**] 之後，即可從 Azure Blob 儲存體擷取工作結果。隨查詢一起傳送的 `statusdir` 參數包含輸出檔案的位置；在此案例中為 **wasb:///example/curl**。此位址會將工作輸出儲存至 HDInsight 叢集所使用之預設儲存體容器的 **example/curl** 目錄中。
+4. 工作狀態變更為 [**成功**] 之後，即可從 Azure Blob 儲存體擷取工作結果。隨查詢一起傳送的 `statusdir` 參數包含輸出檔案的位置；在此案例中為 ****wasb:///example/curl**。此位址會將工作輸出儲存至 HDInsight 叢集所使用之預設儲存體容器的 **example/curl** 目錄中。
 
     您可以使用[適用於 Mac、Linux 和 Windows 的 Azure CLI](xplat-cli.md) 來列出並下載這些檔案。例如，若要列出 **example/curl** 中的檔案，請使用下列命令：
 
@@ -119,7 +119,7 @@
 
 		azure storage blob download <container-name> <blob-name> <destination-file>
 
-	> [AZURE.NOTE]您必須使用 `-a` 和 `-k` 參數指定包含 Blob 的儲存體帳戶名稱，或是設定 **AZURE_STORAGE_ACCOUNT** 和 **AZURE_STORAGE_ACCESS_KEY** 環境變數。如需詳細資訊，請參閱 <a href="hdinsight-upload-data.md" target="_blank"。
+	> [AZURE.NOTE]您必須使用 `-a` 和 `-k` 參數指定包含 Blob 的儲存體帳戶名稱，或是設定 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORAGE\_ACCESS\_KEY** 環境變數。如需詳細資訊，請參閱 <a href="hdinsight-upload-data.md" target="\_blank"。
 
 6. 使用下列陳述式來建立名為 **errorLogs** 的新「內部」資料表：
 
@@ -132,7 +132,7 @@
 		> [AZURE.NOTE]與外部資料表不同，捨棄內部資料表也會同時刪除基礎資料。
 
     * **STORED AS ORC** - 以最佳化資料列單欄式 (Optimized Row Columnar, ORC) 格式儲存資料。這是高度最佳化且有效率的 Hive 資料儲存格式。
-    * **INSERT OVERWRITE ...SELECT**：從包含 **[ERROR]** 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表。
+    * **INSERT OVERWRITE ...SELECT**- 從包含 **[ERROR]** 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表
     * **SELECT** - 從新的 **errorLogs** 資料表選取所有資料列。
 
 7. 使用傳回的工作識別碼檢查工作的狀態。成功後，如先前所述使用適用於 Mac、Linux 和 Windows 的 Azure CLI 下載並檢視結果。輸出應包含三行，其中都包含 **[ERROR]**。
@@ -144,7 +144,7 @@
 
 如需本文中使用的 REST 介面的詳細資訊，請參閱 <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference" target="_blank">WebHCat 參照</a>。
 
-##<a id="nextsteps"></a>後續步驟
+##<a id="nextsteps"></a>接續步驟
 
 Hive 與 HDInsight 搭配使用的一般資訊：
 
@@ -189,4 +189,4 @@ Hive 與 HDInsight 搭配使用的一般資訊：
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

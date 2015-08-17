@@ -11,7 +11,7 @@
     ms.workload="tbd" 
     ms.tgt_pltfrm="ibiza" 
     ms.devlang="na" 
-    ms.topic="article" 
+    ms.topic="get-started-article" 
     ms.date="04/27/2015" 
     ms.author="awills"/>
 
@@ -141,4 +141,4 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

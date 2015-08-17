@@ -40,9 +40,9 @@
 
 * 每個訂用帳戶的模型數上限是 10。
 * 一個目錄可以保留的項目數上限是 100,000。
-* 保留的使用點數上限是 ~5,000,000。如果將上傳或回報新的點，就會將最舊的點刪除。
+* 保留的使用點數上限是 \~5,000,000。如果將上傳或回報新的點，就會將最舊的點刪除。
 * POST 中可以傳送的資料大小上限 (例如：匯入目錄資料、匯入使用資料) 是 200 MB。
-* 非作用中建議模型組建的每秒交易數目是 ~ 2TPS。作用中建議模型組建可以保留高達 20TPS。
+* 非作用中建議模型組建的每秒交易數目是 \~ 2TPS。作用中建議模型組建可以保留高達 20TPS。
 
 ##整合
 
@@ -88,9 +88,7 @@ Azure Machine Learning 建議 API 的服務根 URI 在[這裡。](https://api.da
 
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
-|	modelName |	只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (_)。<br>最大長度：20 |
-|	apiVersion | 1.0 |
-||| | 要求主體 | 無 |
+|	modelName |	只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：20 | | apiVersion | 1.0 | ||| | 要求主體 | 無 |
 
 
 **回應**：
@@ -141,9 +139,7 @@ OData XML
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼 (區分大小寫) |
-| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (_)。<br>最大長度：50 |
-|	apiVersion | 1.0 |
-||| | 要求本文 | 目錄資料。格式：<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>項目識別碼</td><td>是</td><td>英數字元，最大長度 50</td><td>項目的唯一識別碼</td></tr><tr><td>項目名稱</td><td>是</td><td>英數字元，最大長度 255</td><td>項目名稱</td></tr><tr><td>項目類別</td><td>是</td><td>英數字元，最大長度 255</td><td>這個項目所屬類別 (例如烹飪書籍、戲劇‧‧‧)</td></tr><tr><td>描述</td><td>否</td><td>英數字元，最大長度 4000</td><td>這個項目的描述</td></tr></table><br>檔案大小上限為 200 MB。<br><br>範例：<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：50 | | apiVersion | 1.0 | ||| | 要求主體 | 目錄資料。格式：<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>項目識別碼</td><td>是</td><td>英數字元，最大長度 50</td><td>項目的唯一識別碼</td></tr><tr><td>項目名稱</td><td>是</td><td>英數字元，最大長度 255</td><td>項目名稱</td></tr><tr><td>項目類別</td><td>是</td><td>英數字元，最大長度 255</td><td>這個項目所屬類別 (例如烹飪書籍、戲劇‧‧‧)</td></tr><tr><td>描述</td><td>否</td><td>英數字元，最大長度 4000</td><td>這個項目的描述</td></tr></table><br>檔案大小上限為 200 MB。<br><br>範例：<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
 **回應**：
@@ -189,9 +185,7 @@ OData XML
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼 (區分大小寫) |
-| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (_)。<br>最大長度：50 |
-|	apiVersion | 1.0 |
-||||要求本文 |使用狀況資料。格式：<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>使用者識別碼</td><td>是</td><td>英數字元</td><td>使用者的唯一識別碼</td></tr><tr><td>項目識別碼</td><td>是</td><td>英數字元，最大長度 50</td><td>項目的唯一識別碼</td></tr><tr><td>時間</td><td>否</td><td>日期格式：YYYY/MM/DDTHH:MM:SS (例如 2013/06/20T10:00:00)</td><td>資料的時間</td></tr><tr><td>事件</td><td>否；如果提供，也必須註明日期</td><td>下列其中之一：<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>檔案大小上限為 200 MB。<br><br>範例<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：50 | | apiVersion | 1.0 | ||| | 要求主體 | 使用狀況資料。格式：<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>使用者識別碼</td><td>是</td><td>英數字元</td><td>使用者的唯一識別碼</td></tr><tr><td>項目識別碼</td><td>是</td><td>英數字元，最大長度 50</td><td>項目的唯一識別碼</td></tr><tr><td>時間</td><td>否</td><td>日期格式：YYYY/MM/DDTHH:MM:SS (例如 2013/06/20T10:00:00)</td><td>資料的時間</td></tr><tr><td>事件</td><td>否；如果提供，也必須註明日期</td><td>下列其中之一：<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>檔案大小上限為 200 MB。<br><br>範例：<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **回應**：
 
@@ -236,7 +230,7 @@ OData XML
 
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
-|	apiVersion | 1.0 |
+|	apiVersion | 1\.0 |
 ||| |要求本文| 您要傳送之每個事件的事件資料項目。您應該為相同的使用者或瀏覽器工作階段在 SessionId 欄位中傳送相同的識別碼。(請參閱下面的事件本文範例。)|
 
 
@@ -326,7 +320,7 @@ OData XML
 |:--------			|:--------								|
 | modelId |	模型的唯一識別碼 (區分大小寫) |
 | userDescription | 目錄的文字識別碼。請注意，如果您使用空格，必須將其編碼改成 %20。請參閱上面的範例。<br>最大長度：50 |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 ||| | 要求主體 | 無 |
 
 **回應**：
@@ -401,7 +395,7 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼 (區分大小寫) |
 |	onlyLastBuild |	指出是要傳回模型的所有組建歷程記錄，還是只傳回最近一個組建的狀態。 |
-|	apiVersion |	1.0 |
+|	apiVersion |	1\.0 |
 
 
 **回應**：
@@ -475,10 +469,10 @@ OData XML
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 | modelId | 模型的唯一識別碼 (區分大小寫) |
-| itemIds | 以逗號分隔的建議項目清單。<br>最大長度：1024 |
+| itemIds | 要建議之項目的清單 (以逗號分隔)。<br>最大長度：1024 |
 | numberOfResults | 必要結果的數目 |
 | includeMetatadata | 未來使用，永遠為 false |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 
 **回應：**
 
@@ -486,7 +480,7 @@ HTTP 狀態碼：200
 
 回應會包含每個建議項目的一個項目。每個項目都有下列資料：
 
-- `Feed\entry\content\properties\Id` -建議項目識別碼。
+- `Feed\entry\content\properties\Id` - 建議項目識別碼。
 - `Feed\entry\content\properties\Name` - 項目的名稱。
 - `Feed\entry\content\properties\Rating` - 建議的評等，數字越高表示信賴度越高。
 - `Feed\entry\content\properties\Reasoning` - 建議推論 (例如建議說明)。
@@ -645,7 +639,7 @@ OData XML
 	</feed>
 
 ###更新模型
-您可以更新模型描述或作用中組建識別碼。*作用中組建識別碼* - 每個模型的每個組建都有一個組建識別碼。作用中組建識別碼是每個新模型的第一個成功組建。一旦您有作用中組建識別碼，而且您執行相同模型的其他組建，您必須是需要將它明確設為預設組建識別碼。當您取用建議時，如果您未指定想要使用的組建識別碼，則會自動使用預設值。
+您可以更新模型描述或作用中組建識別碼。*作用中組建識別碼* - 每個模型的每個組建都有組建識別碼。作用中組建識別碼是每個新模型的第一個成功組建。一旦您有作用中組建識別碼，而且您執行相同模型的其他組建，您必須是需要將它明確設為預設組建識別碼。當您取用建議時，如果您未指定想要使用的組建識別碼，則會自動使用預設值。
 
 此機制可讓您在生產環境中有建議模型時建置新模型，並先加以測試，再將其提升至生產環境。
 
@@ -657,7 +651,7 @@ OData XML
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 | id | 模型的唯一識別碼 (區分大小寫) |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 ||||要求本文 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>請注意，XML 標記說明和 ActiveBuildId 是選擇性的。如果您不想設定 Description 或 ActiveBuildId，請移除整個標記。|
 
 **回應**：
@@ -679,4 +673,4 @@ OData XML
 這份文件係依 「現狀」提供。本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實的人、事、物。本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。您可以複製並使用這份文件，供內部參考之用。© 2014 Microsoft.著作權所有，並保留一切權利。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

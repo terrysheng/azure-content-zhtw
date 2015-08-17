@@ -32,6 +32,18 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 * 與舊的複本比較 ApplicationInsights.config。您看到的變更大部分是因為我們移除了部分模組，並讓其他的模組可參數化。恢復您對舊檔案做的任何自訂。
 * 重建您的方案。
 
+## 1\.2 版
+
+- 在 ASP.NET 程式庫沒有相依性的遙測初始設定式會從 `Microsoft.ApplicationInsights.Web` 移動至新的相依性 NuGet `Microsoft.ApplicationInsights.WindowsServer`
+- 在 `Microsoft.AI.Web.dll` 上的 `Microsoft.ApplicationInsights.Web.dll` 已重新命名
+- 在 `Microsoft.WindowsServer.TelemetryChannel` 上的 `Microsoft.Web.TelemetryChannel` NuGet 已重新命名。在 `Microsoft.AI.ServerTelemetryChannel.dll` 上的 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 組件已重新命名。在 `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` 上的 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 類別已重新命名。
+- 所有屬於 Web SDK 一部分的命名空間已變更為排除 `Extensibility` 組件。其中包含所有 ApplicationInsights.config 中的遙測初始設定式和 web.config 中的 `ApplicationInsightsWebTracking` 模組。
+- 如果執行緒上沒有 HttpContext.Current，則使用執行階段檢測代理程式 (透過狀態監視器或 Azure 網站的延伸模組來啟用) 所收集的相依性將不會標示為非同步。
+- 屬性 `DependencyTrackingTelemetryModule` 的 `SamplingRatio` 不會執行任何動作且會標記為過時。
+- 在 `Microsoft.AI.PerfCounterCollector` 上的 `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector` 組件已重新命名
+- Web 角色和裝置 SDK 中的數個輕微錯誤修正
+
+
 ## 1\.1 版
 
 - 加入了新遙測類型 `DependencyTelemetry`，它可以用來傳送來自應用程式的相依性呼叫 (如 SQL、HTTP 呼叫等) 的相關資訊。
@@ -74,4 +86,4 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

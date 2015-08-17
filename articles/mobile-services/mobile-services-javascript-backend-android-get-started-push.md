@@ -178,4 +178,4 @@ To see a completed version of the source code in an Eclipse project, go <a href=
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

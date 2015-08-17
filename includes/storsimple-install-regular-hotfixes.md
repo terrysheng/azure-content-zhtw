@@ -14,4 +14,4 @@
 
 5. 系統將提示您進行確認。輸入 **Y** 繼續安裝 Hotfix。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

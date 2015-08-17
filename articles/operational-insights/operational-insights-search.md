@@ -467,7 +467,7 @@ Type=PerfHourly  CounterName="% Processor Time"  InstanceName="_Total" | Measure
 
 filterExpression | command1 | command2 …
 
-篩選運算式 (\*\*filterExpression\*\*) 會定義查詢的 "where" 條件。命令會套用至查詢所傳回的結果。多個命令必須以縱線字元 ( | ) 分隔。
+篩選運算式 (**filterExpression**) 會定義查詢的 "where" 條件。命令會套用至查詢所傳回的結果。多個命令必須以縱線字元 ( | ) 分隔。
 
 #### 一般語法範例
 
@@ -809,7 +809,7 @@ system "Windows Server" OR Severity:1|system AND ("Windows Server" OR Severity:1
 
 *說明*
 
-如同上述範例，但使用彙總欄位別名 (\*\*AlertsPerHour\*\*)。
+如同上述範例，但使用彙總欄位別名 (**AlertsPerHour**)。
 
 **範例 4**
 
@@ -2049,4 +2049,4 @@ system "Windows Server" OR Severity:1|system AND ("Windows Server" OR Severity:1
 ## 其他資源
 Stefan Roth 建立好用的搜尋小祕技。請瀏覽他的[部落格](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/)，深入了解並下載他的小祕技。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

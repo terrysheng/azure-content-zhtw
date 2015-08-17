@@ -12,7 +12,7 @@
 	ms.workload="core"
 	ms.tgt_pltfrm="csharp"
 	ms.devlang="csharp"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="sethm"/>
 
@@ -107,4 +107,4 @@
 [佇列訊息解決方案]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

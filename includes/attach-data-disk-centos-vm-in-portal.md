@@ -1,4 +1,4 @@
-1. 在 Azure [管理入口網站](http://manage.windowsazure.com)中，按一下 [**虛擬機器**]，然後選取剛剛建立的虛擬機器 (**testlinuxvm**)。
+1. 在 Azure [管理入口網站](http://manage.windowsazure.com)中，按一下 [虛擬機器]，然後選取剛剛建立的虛擬機器 (**testlinuxvm**)。
 
 2. 在命令列上，按一下 [連接]，然後按一下 [連接空的磁碟]。
 
@@ -114,4 +114,4 @@
 [Image8]: ./media/attach-data-disk-centos-vm-in-portal/fdisk4.png
 [Image9]: ./media/attach-data-disk-centos-vm-in-portal/mkfs.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

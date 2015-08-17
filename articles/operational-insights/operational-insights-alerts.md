@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
-在 Microsoft Azure Operational Insights 中使用警示管理之前，您必須安裝解決方案。如需閱讀安裝解決方案的更多資訊，請參閱[使用解決方案資源庫來新增或移除解決方案](operational-insights-add-solution.md)。唯有當您的伺服器受 Operations Manager 代理程式監視時，解決方案才能發揮作用。如需有關搭配使用 Operations Manager 與 Operational Insights 的資訊，請參閱[從System Center Operations Manager 連接到 Operational Insights](operational-insights-connect-scom.md)。
+在 Microsoft Azure Operational Insights 中使用警示管理之前，您必須安裝解決方案。若要進一步閱讀安裝方案，請參閱[設定您的工作區](operational-insights-setup-workspace.md)。唯有當您的伺服器受 Operations Manager 代理程式監視時，解決方案才能發揮作用。如需有關搭配使用 Operations Manager 與 Operational Insights 的資訊，請參閱[從System Center Operations Manager 連接到 Operational Insights](operational-insights-connect-scom.md)。
 
 安裝解決方案後，您可以在 Operational Insights 中使用 [**概觀**] 儀表板上的 [**警示管理**] 磚檢視受監視伺服器的警示。
 
@@ -58,4 +58,4 @@
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

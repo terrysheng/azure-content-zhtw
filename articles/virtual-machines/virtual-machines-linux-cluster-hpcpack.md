@@ -25,7 +25,7 @@ ms.service="virtual-machines"
 
 ## 部署具有 Linux 運算節點的 HPC Pack 叢集
 
-您將使用 Microsoft HPC Pack IaaS 部署指令碼 (\*\*New-HpcIaaSCluster.ps1\*\*)，在 Azure 基礎結構服務 (IaaS) 中自動進行叢集部署。此 Azure PowerShell 指令碼使用 Azure Marketplace 中的 HPC Pack VM 映像進行快速部署，並提供一組完整的組態參數，讓部署變得簡單且有彈性。您可以使用指令碼來部署 Azure 虛擬網路、儲存體帳戶、雲端服務、網域控制站、不同的選用 SQL Server 資料庫伺服器、叢集前端節點、運算節點、代理程式節點、Azure PaaS (“高載”) 節點和 Linux 運算節點 ([HPC Pack 2012 R2 Update 2](https://technet.microsoft.com/library/mt269417.aspx) 中引入的 Linux 支援)。
+您將使用 Microsoft HPC Pack IaaS 部署指令碼 (**New-HpcIaaSCluster.ps1**)，在 Azure 基礎結構服務 (IaaS) 中自動進行叢集部署。此 Azure PowerShell 指令碼使用 Azure Marketplace 中的 HPC Pack VM 映像進行快速部署，並提供一組完整的組態參數，讓部署變得簡單且有彈性。您可以使用指令碼來部署 Azure 虛擬網路、儲存體帳戶、雲端服務、網域控制站、不同的選用 SQL Server 資料庫伺服器、叢集前端節點、運算節點、代理程式節點、Azure PaaS (“高載”) 節點和 Linux 運算節點 ([HPC Pack 2012 R2 Update 2](https://technet.microsoft.com/library/mt269417.aspx) 中引入的 Linux 支援)。
 
 如需 HPC Pack 叢集部署選項的概觀，請參閱 [HPC Pack 2012 R2 和 HPC Pack 2012 的入門指南](https://technet.microsoft.com/library/jj884144.aspx)。
 
@@ -42,7 +42,7 @@ ms.service="virtual-machines"
 * **核心配額** - 您可能需要增加核心的配額，特別是如果您選擇部署多核心 VM 大小的數個叢集節點。對於本文中的範例，您需要至少 24 個核心。若要增加配額，請[開啟線上客戶支援要求](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)，不另外加收費用。
 
 ### 建立組態檔
-HPC Pack IaaS 部署指令碼會使用 XML 組態檔做為輸入，可描述 HPC 叢集的基礎結構。若要部署由一個前端節點和 2 個 Linux 運算節點所組成的小型叢集，請將環境的值取代為下列範例組態檔。如需有關組態檔的詳細資訊，請參閱指令碼資料夾中的 Manual.rtf 檔案或[指令碼文件](https://msdn.microsoft.com/library/azure/dn864734.aspx)。
+HPC Pack IaaS 部署指令碼會使用 XML 組態檔做為輸入，可描述 HPC 叢集的基礎結構。若要部署由一個前端節點和 2 個 Linux 運算節點所組成的小型叢集，請將環境的值取代為下列範例組態檔。如需組態檔的詳細資訊，請參閱指令碼資料夾中的 Manual.rtf 檔案或[指令碼文件](https://msdn.microsoft.com/library/azure/dn864734.aspx)。
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -92,7 +92,7 @@ HPC Pack IaaS 部署指令碼會使用 XML 組態檔做為輸入，可描述 HPC
 
     >[AZURE.NOTE]或者，您可以使用訂用帳戶 ID 來指定您要使用的訂用帳戶。請參閱指令碼資料夾中的 Manual.rtf 檔案。
 
-* **StorageAccount** - HPC Pack 叢集的所有持續性資料將儲存至指定的儲存體帳戶 (在此例中為 allvhdsje)。如果此儲存體帳戶不存在，則指令碼會在 [**位置**] 中指定的區域中加以建立。
+* **StorageAccount** - HPC Pack 叢集的所有持續性資料將儲存至指定的儲存體帳戶 (在此例中為 allvhdsje)。如果此儲存體帳戶不存在，則指令碼會在 [位置] 中指定的區域中加以建立。
 
 * **位置** - 您將部署 HPC Pack 叢集的 Azure 區域 (在此例中為日本東部)。
 
@@ -116,10 +116,10 @@ HPC Pack IaaS 部署指令碼會使用 XML 組態檔做為輸入，可描述 HPC
 
     尋找您需要的映像並取代組態檔中的 **ImageName** 值。
 
-* 針對大小 A8 和 A9 VM 支援 RDMA 連線能力的 Linux 映像。如果您指定已安裝並啟用 Linux RDMA 驅動程式的映像，HPC Pack IaaS 部署指令碼將會部署這些驅動程式。例如，您可以在 Marketplace 中為目前的 SUSE Linux Enterprise Server 12 – Optimized for High Performance Compute 映像指定映像名稱 `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708`。
+* 針對大小 A8 和 A9 VM 支援 RDMA 連線能力的 Linux 映像。如果您指定已安裝並啟用 Linux RDMA 驅動程式的映像，HPC Pack IaaS 部署指令碼將會部署這些驅動程式。例如，您可以在 Marketplace 中為目前的 SUSE Linux Enterprise Server 12 (針對高效能運算最佳化) 映像指定映像名稱 `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708`。
 
 
-* 若要在從支援的映像建立的 Linux VM 上啟用 Linux RDMA 以執行 MPI 工作，請在叢集部署之後，根據您的應用程式需求在 Linux 節點上安裝並設定特定 MPI 程式庫。如需有關如何在 Azure 上的 Linux 節點中使用 RDMA 的詳細資訊，請參閱[設定 Linux RDMA 叢集以執行 MPI 應用程式](virtual-machines-linux-cluster-rdma.md)。
+* 若要在從支援的映像建立的 Linux VM 上啟用 Linux RDMA 以執行 MPI 工作，請在叢集部署之後，根據您的應用程式需求在 Linux 節點上安裝並設定特定 MPI 程式庫。如需如何在 Azure 上的 Linux 節點中使用 RDMA 的詳細資訊，請參閱[設定 Linux RDMA 叢集以執行 MPI 應用程式](virtual-machines-linux-cluster-rdma.md)。
 
 * 請確定您部署一個服務內的所有 Linux RDMA 節點，以便 RDMA 網路連線在節點之間運作。
 
@@ -148,7 +148,7 @@ cd E:\IaaSClusterScript
 
     ![驗證][validate]
 
-    c.通過驗證之後，指令碼會列出將要針對 HPC 叢集建立的資源。輸入 *Y* 才能繼續。
+    c.通過驗證之後，指令碼會列出將要針對 HPC 叢集建立的資源。輸入 *Y* 繼續。
 
     ![資源][resources]
 
@@ -178,7 +178,7 @@ cd E:\IaaSClusterScript
 
 [Azure 檔案](https://azure.microsoft.com/services/storage/files/)服務會公開使用標準 SMB 2.1 通訊協定的檔案共用。Azure VM 和雲端服務可以透過掛接的共用，在應用程式元件之間共用檔案資料，而內部部署應用程式可以透過檔案儲存體 API，存取共用中的檔案資料。如需詳細資訊，請參閱[如何搭配 PowerShell 與 .NET 使用 Azure 檔案儲存體](../storage/storage-dotnet-how-to-use-files.md)。
 
-若要建立 Azure 檔案共用，請參閱 [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)中的詳細步驟。若要設定持續性連接，請參閱 [Microsoft Azure 檔案的持續性連接](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)。
+若要建立 Azure 檔案共用，請參閱 [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)中的詳細步驟。若要設定持續性連線，請參閱 [Microsoft Azure 檔案的持續性連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)。
 
 在此範例中，我們會在儲存體帳戶 allvhdsje 上建立名為 rdma 的 Azure 檔案共用。若要在前端節點上裝載共用，我們會開啟 [命令] 視窗並輸入下列命令:
 
@@ -230,7 +230,7 @@ PS > clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS7RDMA-HN/OpenFOAM /open
 
 NFS 服務可讓使用者使用 SMB 通訊協定在執行 Windows Server 2012 作業系統的電腦間共用和移轉檔案，以及使用 NFS 通訊協定在 Linux 架構電腦間共用和移轉檔案。NFS 伺服器和其他所有節點都必須部署在相同的虛擬網路中。這可提供更好的 Linux 節點相容性 (相較於 SMB 共用)；例如，支援檔案連結。
 
-1. 若要安裝並設定 NFS 伺服器，請依照 [Server for Network File System 首次端對端共用](http://blogs.technet.com/b/filecab/archive/2012/10/08/server-for-network-file-system-first-share-end-to-end.aspx)中的步驟。
+1. 若要安裝並設定 NFS 伺服器，請依照[網路檔案系統伺服器首次端對端共用](http://blogs.technet.com/b/filecab/archive/2012/10/08/server-for-network-file-system-first-share-end-to-end.aspx)中的步驟。
 
     例如，使用下列屬性建立名為 nfs 的 NFS 共用。
 
@@ -262,11 +262,11 @@ PS > clusrun /nodegroup:LinuxNodes mount CentOS7RDMA-HN:/nfs /nfsshared
 
 透過 HPC Pack GUI 工具和 Web 入口網站將工作提交至 Azure 中的叢集，與提交至 Windows 運算節點相同。請參閱 [HPC Pack 工作管理員](https://technet.microsoft.com/library/ff919691.aspx)和[如何從內部部署用戶端提交工作](https://msdn.microsoft.com/library/azure/dn689084.aspx)。
 
-若要透過 REST API 提交工作，請參閱[在 Microsoft HPC Pack 中使用 REST API 建立和提交工作](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx)。另請參閱 [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756) 中的 Python 範例從 Linux 用戶端提交工作。
+若要透過 REST API 提交工作，請參閱[在 Microsoft HPC Pack 中使用 REST API 建立和提交工作](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx)。另請參閱 [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756) 中的 Python 範例，從 Linux 用戶端提交工作。
 
 ## 適用於 Linux 節點的 Clusrun
 
-HPC Pack**clusrun** 工具可透過 [命令] 視窗或 HPC 叢集管理員用來在 Linux 節點上執行命令。以下有一些範例。
+HPC Pack **clusrun** 工具可透過 [命令] 視窗或 HPC 叢集管理員用來在 Linux 節點上執行命令。以下有一些範例。
 
 * 顯示叢集中所有節點的目前使用者名稱
 
@@ -311,4 +311,4 @@ HPC Pack**clusrun** 工具可透過 [命令] 視窗或 HPC 叢集管理員用來
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

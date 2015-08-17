@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 DocumentDB 建置 Node.js Web 應用程式 | Azure" 
+	pageTitle="使用 DocumentDB 來建置 Node.js Web 應用程式 | Microsoft Azure" 
 	description="了解如何使用 Microsoft Azure DocumentDB 來儲存和存取託管於 Azure 網站上的 Node.js Express Web 應用程式資料。" 
 	services="documentdb" 
 	documentationCenter="nodejs" 
@@ -559,4 +559,4 @@
   [Git]: http://git-scm.com/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

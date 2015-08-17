@@ -127,7 +127,7 @@
 ## 步驟 4：以真正的連接資訊取代
 
 
-- 在您貼上的原始程式碼中，以連接字串取代 *[Your_Connection_String]* 預留位置，並請務必以您的實際密碼取代該字串中的 *your_password_here*。
+- 在您貼上的原始程式碼中，以連接字串取代 *[Your\_Connection\_String]* 預留位置，並請務必以您的實際密碼取代該字串中的 *your\_password\_here*。
 
 
 ## 步驟 5：執行應用程式
@@ -137,4 +137,4 @@
 2. 程式會將查詢結果列印至主控台視窗。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

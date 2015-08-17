@@ -24,7 +24,7 @@
 
 如果想要看影片，右邊片段播放的步驟與本教學課程相同。
 
-> [AZURE.VIDEO build-offline-apps-azure-mobile-services]
+> [AZURE.VIDEO build-offline-apps-with-mobile-services]
 
 在本教學課程中，您會更新[開始使用行動服務]教學課程中的通用應用程式專案，以支援 Azure 行動服務的離線功能。接著，您會在中斷連線的離線狀態下新增資料、將這些項目同步處理至線上資料庫，然後登入 Azure 管理入口網站，以檢視執行應用程式時對資料所做的變更。
 
@@ -180,7 +180,7 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
     在此範例中，我們擷取遠端 `todoTable` 中的所有記錄，但也可以藉由傳遞查詢來篩選記錄。`PullAsync` 的第一個參數是用於增量同步處理的查詢識別碼，會使用 `UpdatedAt` 時間戳記取得自從上次同步後修改過的記錄。對您應用程式中的每個邏輯查詢而言，查詢識別碼應該是唯一的描述性字串。若選擇不要增量同步處理，請傳遞 `null` 做為查詢識別碼。這會擷取每個提取作業的所有記錄，而可能降低效能。
 
-    >[AZURE.NOTE]\* 若要從裝置本機存放區中移除已在您行動服務資料庫中刪除的記錄，請啟用[虛刪除]。否則，您的應用程式應定期呼叫 `IMobileServiceSyncTable.PurgeAsync()` 才能清除本機存放區。
+    >[AZURE.NOTE]* 若要從裝置本機存放區中移除已在您行動服務資料庫中刪除的記錄，請啟用[虛刪除]。否則，您的應用程式應定期呼叫 `IMobileServiceSyncTable.PurgeAsync()` 才能清除本機存放區。
 
     請注意，推送和提取作業可能會發生 `MobileServicePushFailedException`。它可能發生於提取，因為提取作業會在內部執行推入，以確定所有資料表及任何關聯性都一致。下一個教學課程[處理行動服務的離線支援衝突]示範如何處理這些同步處理相關的例外狀況。
 
@@ -283,4 +283,4 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

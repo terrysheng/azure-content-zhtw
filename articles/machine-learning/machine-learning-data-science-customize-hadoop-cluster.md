@@ -1,8 +1,7 @@
 <properties 
 	pageTitle="針對進階分析程序和技術自訂 Hadoop 叢集 | Microsoft Azure" 
 	description="自訂 Azure HDInsight Hadoop 叢集中提供熱門 Python 模組。"
-	services="machine-learning" 
-	solutions="" 
+	services="machine-learning"  
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -52,7 +51,8 @@
  
 * **名稱** - 可做為這個指令碼動作名稱的任何字串。 
 * **節點類型** - 選取 [所有節點]。 
-* **指令碼 URI** - *http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1* 	* *publicscripts* 是儲存體帳戶中的公用容器 
+* **指令碼 URI** - **http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
+	* *publicscripts* 是儲存體帳戶中的公用容器 
 	* *getgoing* 可用來共用 PowerShell 指令碼檔案，以協助使用者在 Azure 中工作。 
 * **PARAMETERS** - (保留空白)
 
@@ -64,11 +64,11 @@
 
 使用者必須先在 Azure 中啟用 Hadoop 叢集的遠端存取，才能透過 RDP 存取 Hadoop 叢集的前端節點。
 
-1. 登入 [**Azure 管理入口網站**](https://manage.windowsazure.com/)，選取左側的 [HDInsight]，從叢集清單中選取您的 Hadoop 叢集，按一下 [設定] 索引標籤，然後按一下頁面底部的**啟用遠端**圖示。
+1. 登入 [**Azure 管理入口網站**](https://manage.windowsazure.com/)，選取左側的 [**HDInsight**]，從叢集清單中選取您的 Hadoop 叢集，按一下 [**設定**] 索引標籤，然後按一下頁面底部的**啟用遠端**圖示。
 	
 	![建立工作區][7]
 
-2. 在 [設定遠端桌面] 視窗中，輸入 [使用者名稱] 和 [密碼] 欄位，然後選取遠端存取的到期日。接著，按一下勾號，啟用對 Hadoop 叢集前端節點的遠端存取。
+2. 在 [**設定遠端桌面**] 視窗中，輸入 [使用者名稱] 和 [密碼] 欄位，然後選取遠端存取的到期日。接著，按一下勾號，啟用對 Hadoop 叢集前端節點的遠端存取。
 	
 	>[AZURE.NOTE]
 	>
@@ -78,7 +78,7 @@
 
 	![建立工作區][8]
 
-3. 啟用遠端存取之後，按一下頁面底部的 [連接]，遠端連至前端節點。您登入 Hadoop 叢集前端節點的方式是針對稍早指定的遠端存取使用者輸入認證。
+3. 啟用遠端存取之後，按一下頁面底部的 [**連接**]，遠端連至前端節點。您登入 Hadoop 叢集前端節點的方式是針對稍早指定的遠端存取使用者輸入認證。
 
 	 ![建立工作區][9]
 
@@ -98,4 +98,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

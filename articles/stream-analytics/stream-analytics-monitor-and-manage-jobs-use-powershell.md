@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/17/2015" 
+	ms.date="08/04/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -258,7 +258,7 @@
 此 PowerShell 命令會測試 StreamingJob 中 Output 輸出的連接狀態。
 
 ## 取得支援
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
 
 
 ## 後續步驟
@@ -287,4 +287,4 @@
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

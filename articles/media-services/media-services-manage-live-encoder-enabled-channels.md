@@ -175,7 +175,7 @@
 	- Mpeg-2 AAC-LC 音訊
 
 		- 單聲道、立體聲、環繞 (5.1、7.1)
-		- 44.1 kHz 範例速率
+		- 44\.1 kHz 範例速率
 		- MPEG-2 樣式 ADTS 封裝
 	
 - 建議的編碼器包括：
@@ -278,16 +278,16 @@
 
 ####輸出視訊串流
 
-<table border="1">
-<tr><th>位元速率</th><th>寬度</th><th>高度</th><th>MaxFPS</th><th>設定檔</th><th>輸出串流名稱</th></tr>
-<tr><td>3500</td><td>1280</td><td>720</td><td>30</td><td>高</td><td>Video_1280x720_30fps_3500kbps</td></tr>
-<tr><td>2200</td><td>960</td><td>540</td><td>30</td><td>主要區段</td><td>Video_960x540_30fps_2200kbps</td></tr>
-<tr><td>1350</td><td>704</td><td>396</td><td>30</td><td>主要區段</td><td>Video_704x396_30fps_1350kbps</td></tr>
-<tr><td>850</td><td>512</td><td>288</td><td>30</td><td>主要區段</td><td>Video_512x288_30fps_850kbps</td></tr>
-<tr><td>550</td><td>384</td><td>216</td><td>30</td><td>主要區段</td><td>Video_384x216_30fps_550kbps</td></tr>
-<tr><td>350</td><td>340</td><td>192</td><td>30</td><td>基準</td><td>Video_340x192_30fps_350kbps</td></tr>
-<tr><td>200</td><td>340</td><td>192</td><td>30</td><td>基準</td><td>Video_340x192_30fps_200kbps</td></tr>
-</table>
+位元速率|寬度|高度|MaxFPS|設定檔|輸出串流名稱
+---|---|---|---|---|---
+3500|1280|720|30|高|Video\_1280x720\_30fps\_3500kbps
+2200|960|540|30|主要區段|Video\_960x540\_30fps\_2200kbps
+1350|704|396|30|主要區段|Video\_704x396\_30fps\_1350kbps
+850|512|288|30|主要區段|Video\_512x288\_30fps\_850kbps
+550|384|216|30|主要區段|Video\_384x216\_30fps\_550kbps
+350|340|192|30|基準|Video\_340x192\_30fps\_350kbps
+200|340|192|30|基準|Video\_340x192\_30fps\_200kbps
+
 
 ####輸出音訊串流
 
@@ -333,15 +333,16 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 
 設為 true 時，此設定會將即時編碼器設為在廣告插播期間插入 slate 映像。預設值為 true。
 
-###<a id="default_slate"></a>預設 slate 資產識別碼
+###<a id="default_slate"></a>預設靜態圖像資產識別碼
 
 選用。指定包含 slate 映像之媒體服務資產的資產識別碼。預設值為 null。
 
-**注意**：建立通道之前，具有下列限制的 slate 映像應上傳做為專用的資產 (此資產中應該沒有其他檔案)。
+**注意**：建立通道之前，具有下列限制的靜態圖像映像應上傳做為專用的資產 (此資產中應該沒有其他檔案)。
 
 - 最多 1920 x 1080 的解析度。
 - 最多 3 Mb 的大小。
-- 檔案名稱必須有 *.jpg 副檔名。- 影像必須上傳到資產做為唯一的 AssetFile，資產和此 AssetFile 應該標示為主要檔案。此資產不可為加密的儲存體。
+- 檔案名稱必須有 *.jpg 副檔名。
+- 影像必須上傳到資產做為唯一的 AssetFile，資產和此 AssetFile 應該標示為主要檔案。此資產不可為加密的儲存體。
 
 如果未指定**預設 slate 資產識別碼**，且 **ad 標記上的插入 slate** 設為 **true**，將使用預設 Azure 媒體服務來隱藏輸入視訊串流。在 slate 期間也要使音訊靜音。
 
@@ -383,13 +384,12 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 
 下表顯示通道狀態如何對應至計費模式。
  
-<table border="1">
-<tr><th>通道狀態</th><th>入口網站 UI 指標</th><th>是否計費？</th></tr>
-<tr><td>啟動中</td><td>啟動中</td><td>無 (暫時性狀態)</td></tr>
-<tr><td>執行中</td><td>就緒 (沒有執行中的程式)<br/>或<br/>串流 (至少一個執行中的程式)</td><td>是</td></tr>
-<tr><td>停止中</td><td>停止中</td><td>無 (暫時性狀態)</td></tr>
-<tr><td>已停止</td><td>已停止</td><td>否</td></tr>
-</table>
+通道狀態|入口網站 UI 指標|是否計費？
+---|---|---
+啟動中|啟動中|無 (暫時性狀態)
+執行中|就緒 (沒有執行中的程式)<br/>或<br/>串流 (至少一個執行中的程式)|是
+停止中|停止中|無 (暫時性狀態)
+已停止|已停止|否
 
 
 >[AZURE.NOTE]目前在預覽中，通道啟動可能需要 20 分鐘以上。重設通道可能需要最多 5 分鐘。
@@ -408,7 +408,7 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 
 - 通道啟動時可能需要 20 分鐘以上。
 - 為專業的廣播者建立 RTP 支援。請先檢閱[這個](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/)部落格中的 RTP 注意事項。
-- Slate 映像應該符合[這裡](media-services-manage-live-encoder-enabled-channels.md#default_slate)所述的限制。如果您嘗試建立預設 slate 大於 1920 x 1080 的通道，要求最後將會發生錯誤。
+- 靜態圖像映像應該符合[這裡](media-services-manage-live-encoder-enabled-channels.md#default_slate)所述的限制。如果您嘗試建立預設 slate 大於 1920 x 1080 的通道，要求最後將會發生錯誤。
 
 
 ##<a id="tasks"></a>與即時串流相關的工作
@@ -505,4 +505,4 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

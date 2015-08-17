@@ -141,7 +141,8 @@
 本章節描述您可以採取的步驟，以使用管理入口網站，透過 Azure Media Encoder 編碼您的內容。
 
 1.  選取您想要編碼的檔案。如果支援此檔案類型的編碼，[內容] 頁面底部的 [處理] 按鈕將會啟用。
-4. 在 [處理] 對話方塊選取 ** Azure Media Encoder **處理器。5. 選擇其中一種**編碼組態**。
+4. 在 [**處理**] 對話方塊選取 ** Azure 媒體編碼器 **處理器。
+5. 選擇其中一種**編碼組態**。
 
 	![Process2][process2]
 
@@ -255,4 +256,4 @@ SAS URL 具有下列格式：
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

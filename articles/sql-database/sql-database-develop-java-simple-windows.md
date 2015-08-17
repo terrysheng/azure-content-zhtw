@@ -128,10 +128,10 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 當然，若要實際執行上述 Java 程式碼範例，您必須將實際值放入連接字串以取代下列預留位置：
 
 
-- your_server
-- your_database
-- your_user
-- your_password
+- your\_server
+- your\_database
+- your\_user
+- your\_password
 
 
 ## 將兩個資料列插入資料表
@@ -144,7 +144,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
  - 我們包含參數 `Statement.RETURN_GENERATED_KEYS`，以便稍後可以取得為 **id** 索引鍵值自動產生的值。
 2. 在 `PreparedStatement` 物件上呼叫 `execute` 方法。
 3. 使用 `PreparedStatement` 物件取得為主索引鍵自動產生的數值。
- - 這與 Person 資料表中的 **id** 資料行上的 AUTO_INCREMENT 規格相關。
+ - 這與 Person 資料表中的 **id** 資料行上的 AUTO\_INCREMENT 規格相關。
 
 
 將這個簡短的 Java 程式碼片段，複製並貼到主要程式碼範例中出現註解 `// INSERT two rows into the table.` 的位置。
@@ -225,4 +225,4 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

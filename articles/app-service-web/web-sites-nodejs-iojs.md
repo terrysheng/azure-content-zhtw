@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/23/2015" 
+	ms.date="08/03/2015"
 	ms.author="mwasson" />
 
 # 如何搭配使用 io.js 和 Azure App Service Web Apps
@@ -61,4 +61,4 @@
 [Io.js 部署指令碼]: https://github.com/felixrieseberg/iojs-azure
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

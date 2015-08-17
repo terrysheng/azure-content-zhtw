@@ -111,4 +111,4 @@ DocumentDB 透過 JavaScript 預存程序和觸發程序，支援語言整合式
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

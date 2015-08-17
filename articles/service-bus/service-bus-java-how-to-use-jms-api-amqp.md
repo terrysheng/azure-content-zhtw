@@ -35,11 +35,11 @@
 
 ## 下載 AMQP 1.0 JMS 用戶端程式庫
 
-如需哪裡下載最新版 Apache Qpid JMS AMQP 1.0 用戶端程式庫的資訊，請造訪 [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)。
+如需哪裡下載最新版 Apache Qpid JMS AMQP 1.0 用戶端程式庫的資訊，請造訪 [http://people.apache.org/\~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)。
 
 您使用服務匯流排建立和執行 JMS 應用程式時，必須從 Apache Qpid JMS AMQP 1.0 散發封裝將下列 4 個 JAR 檔加入 Java CLASSPATH：
 
-*    geronimo-jms_1.1_spec-1.0.jar
+*    geronimo-jms\_1.1\_spec-1.0.jar
 *    qpid-amqp-1-0-client-[version].jar
 *    qpid-amqp-1-0-client-jms-[version].jar
 *    qpid-amqp-1-0-common-[version].jar
@@ -71,9 +71,9 @@ queue.QUEUE = queue1
 connectionfactory.[jndi_name] = [ConnectionURL]
 ```
 
-其中 **[jndi_name]** 及 **[ConnectionURL]** 具有下列意義：
+其中 **[jndi\_name]** 及 **[ConnectionURL]** 具有下列意義：
 
-- **[jndi_name]**：ConnectionFactory 的邏輯名稱。這是使用 JNDI IntialContext.lookup() 方法在 Java 應用程式中解析的名稱。
+- **[jndi\_name]**：ConnectionFactory 的邏輯名稱。這是使用 JNDI IntialContext.lookup() 方法在 Java 應用程式中解析的名稱。
 - **[ConnectionURL]**：將包含所需資訊的 JMS 程式庫提供給 AMQP 代理人的 URL。
 
 **ConnectionURL** 的格式如下：
@@ -87,7 +87,7 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 - **[username]**：服務匯流排簽發者名稱。
 - **[password]**：服務匯流排簽發者金鑰的 URL 編碼形式。
 
-> [AZURE.NOTE]您必須手動使用 URL 將密碼編碼。[http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp) 中提供實用的 URL 編碼公用程式。
+> [AZURE.NOTE]您必須手動使用 URL 將密碼編碼。[http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp) 中提供實用的 URL 編碼公用程式。
 
 #### 設定目的地
 
@@ -103,10 +103,10 @@ queue.[jndi_name] = [physical_name]
 topic.[jndi_name] = [physical_name]
 ```
 
-其中 **[jndi_name]** 及 **[physical_name]** 具有下列意義：
+其中 **[jndi\_name]** 及 **[physical\_name]** 具有下列意義：
 
-- **[jndi_name]**：目的地的邏輯名稱。這是使用 JNDI IntialContext.lookup() 方法在 Java 應用程式中解析的名稱。
-- **[physical_name]**：應用程式傳送或接收訊息的服務匯流排實體名稱。
+- **[jndi\_name]**：目的地的邏輯名稱。這是使用 JNDI IntialContext.lookup() 方法在 Java 應用程式中解析的名稱。
+- **[physical\_name]**：應用程式傳送或接收訊息的服務匯流排實體名稱。
 
 > [AZURE.NOTE]從服務匯流排主題訂用帳戶收到在 JNDI 中指定的實體名稱應該是主題的名稱。以 JMS 應用程式程式碼建立持續性訂用帳戶時，將建立訂用帳戶名稱。[Service Bus AMQP 1.0 開發人員指南](http://msdn.microsoft.com/library/jj841071.aspx)提供處理 JMS 服務匯流排主題訂用帳戶的詳細資料。
 
@@ -338,4 +338,4 @@ exit
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

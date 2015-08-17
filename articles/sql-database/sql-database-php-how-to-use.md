@@ -73,7 +73,7 @@ SQL Database 可為 Azure 提供關聯式資料庫管理系統，並以 SQL Serv
 
 ##<a id="Connect"></a>作法：連接到 SQL 資料庫執行個體
 
-以下範例示範如何使用 **SQLSRV** 和 **PDO_SQLSRV** 擴充功能連接名為 `testdb` 的 SQL Database。如需 **SQLSRV** 和 **PDO_SQLSRV** API 的相關資訊，請參閱 [Microsoft Drivers for PHP for SQL Server 文件][driver-docs] (英文)。您將需要從上述區段取得的資訊。將 `SERVER_ID` 取代為 10 位數的伺服器 ID (自上述區段取得之 SERVER 值的前 10 個字元)，然後將正確的值 (您的使用者名稱和密碼) 指派給 `$user` 和 `$pwd` 等變數。
+以下範例示範如何使用 **SQLSRV** 和 **PDO\_SQLSRV** 擴充功能連接名為 `testdb` 的 SQL Database。如需 **SQLSRV** 和 **PDO\_SQLSRV** API 的相關資訊，請參閱 [Microsoft Drivers for PHP for SQL Server 文件][driver-docs] (英文)。您將需要從上述區段取得的資訊。將 `SERVER_ID` 取代為 10 位數的伺服器 ID (自上述區段取得之 SERVER 值的前 10 個字元)，然後將正確的值 (您的使用者名稱和密碼) 指派給 `$user` 和 `$pwd` 等變數。
 
 #####SQLSRV
 
@@ -88,7 +88,7 @@ SQL Database 可為 Azure 提供關聯式資料庫管理系統，並以 SQL Serv
 		die(print_r(sqlsrv_errors()));
 	}
 
-#####PDO_SQLSRV
+#####PDO\_SQLSRV
 
 	$server = "tcp:<value of SERVER from section above>";
 	$user = "<value of USERNAME from section above>"@SERVER_ID;
@@ -105,7 +105,7 @@ SQL Database 可為 Azure 提供關聯式資料庫管理系統，並以 SQL Serv
 
 
 ##<a id="NextSteps"></a>接續步驟
-如前文提及，SQL Database 的使用方法與 SQL Server 非常類似。一旦建立 SQL Database 連線 (如前文所示) 後，您便可以使用 **SQLSRV** 或 **PDO_SQLSRV** API 來插入、擷取、更新及刪除資料。然而，SQL Database 和 SQL Server 之間存在某些可能會影響應用程式的差異。如需詳細資訊，請參閱 [Azure SQL Database 指導方針和限制][limitations]。
+如前文提及，SQL Database 的使用方法與 SQL Server 非常類似。一旦建立 SQL Database 連線 (如前文所示) 後，您便可以使用 **SQLSRV** 或 **PDO\_SQLSRV** API 來插入、擷取、更新及刪除資料。然而，SQL Database 和 SQL Server 之間存在某些可能會影響應用程式的差異。如需詳細資訊，請參閱 [Azure SQL Database 指導方針和限制][limitations]。
 
 示範如何在 Azure 上搭配使用 SQL 資料庫和 PHP 的範例，位於 <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-sqlazure>。
 
@@ -130,4 +130,4 @@ SQL Database 可為 Azure 提供關聯式資料庫管理系統，並以 SQL Serv
 [quick-create]: ./media/sql-database-php-how-to-use/create-new-sql.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

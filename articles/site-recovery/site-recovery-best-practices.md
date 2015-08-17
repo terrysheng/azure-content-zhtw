@@ -103,7 +103,12 @@ System Center 2012 R2 上的 VMM (建議選項) (叢集或獨立) | <p>使用 Hy
 
 	- 先設定自訂的 Proxy 伺服器，再安裝提供者。
 	- 允許這些 URL 通過防火牆：
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 	- 如果您要部署含 VMM 的 Site Recovery，且您使用自訂 Proxy，則會使用您在 Site Recovery 入口網站的自訂 Proxy 設定中指定的 Proxy 認證，自動建立 VMM RunAs 帳戶 (DRAProxyAccount)。您必須設定 Proxy 伺服器，才能成功驗證此帳戶。
 
 
@@ -189,4 +194,4 @@ System Center 2012 R2 上的 VMM (建議選項) (叢集或獨立) | <p>使用 Hy
 - [利用單一 VMM 伺服器設定保護](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

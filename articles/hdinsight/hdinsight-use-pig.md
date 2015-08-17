@@ -62,7 +62,7 @@ Pig Latin 也支援使用者定義函數 (UDF)，此函數讓您可用叫用外�
 
 由於 WASB 是 HDInsight 的預設儲存體，因此您也可以從 Pig Latin 使用 **/example/data/sample.log** 存取此檔案。
 
-> [AZURE.NOTE]語法 **wasb:///** 是用來存取 HDInsight 叢集的預設儲存容器所儲存的檔案。如果您在佈建叢集時指定其他儲存體帳戶，並想要存取儲存這些帳戶上的檔案，您可以指定容器名稱和儲存體帳戶位址來存取資料，例如：**wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**。
+> [AZURE.NOTE]語法 ****wasb:///** 是用來存取 HDInsight 叢集的預設儲存體容器所儲存的檔案。如果您在佈建叢集時指定其他儲存體帳戶，並想要存取儲存這些帳戶上的檔案，您可以指定容器名稱和儲存體帳戶位址來存取資料，例如：****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**。
 
 
 ##<a id="job"></a>關於範例工作
@@ -127,4 +127,4 @@ HDInsight 可以使用各種方法執行 Pig Latin 工作。請使用下表決�
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

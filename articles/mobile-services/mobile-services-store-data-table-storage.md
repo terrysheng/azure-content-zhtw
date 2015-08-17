@@ -23,4 +23,4 @@
 [行動服務和 Windows Azure 儲存體]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

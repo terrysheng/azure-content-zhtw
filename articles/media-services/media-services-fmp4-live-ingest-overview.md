@@ -49,7 +49,7 @@
 5. [1] 中的 3.3.6 節定義名為 MovieFragmentRandomAccessBox ('mfra') 的方塊，此方塊「可能」會在即時內嵌結束時傳送，以表示通道 EOS (結束資料流)。Azure 媒體服務的摘要邏輯使得 EOS (結束資料流) 的使用方式已被取代，「不應該」傳送即時內嵌的 ‘mfra’ 方塊。如果已傳送，Azure 媒體服務會無訊息地將其忽略。建議使用[重設通道](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels)來重設內點的狀態，也建議使用[程式停止](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs)結束簡報與資料流。
 6. MP4 片段持續時間「應該」是固定的，才能減少用戶端資訊清單的大小，並透過使用重複標記來改善用戶端下載啟發學習法。為了補償非整數的畫面播放速率，持續時間「可能」會變動。
 7. MP4 片段持續期間「應該」大約在 2 到 6 秒之間。
-8. 「應該」以遞增順序送達 MP4 片段時間戳記和索引 (TrackFragmentExtendedHeaderBox fragment_absolute_time 和 fragment_index)。雖然 Azure 媒體服務在複製片段方面很有彈性，但是其在根據媒體時間軸將片段重新排列的功能非常有限。
+8. 「應該」以遞增順序送達 MP4 片段時間戳記和索引 (TrackFragmentExtendedHeaderBox fragment\_absolute\_time 和 fragment\_index)。雖然 Azure 媒體服務在複製片段方面很有彈性，但是其在根據媒體時間軸將片段重新排列的功能非常有限。
 
 ##通訊協定格式 – HTTP
 
@@ -139,7 +139,7 @@ Microsoft Azure 媒體服務的 ISO 分散 MP4 即時內嵌使用標準的長時
 3. 新編碼器的 POST 要求「必須」包含與故障執行個體相同的分散 MP4 標頭方塊。
 4. 新編碼器「必須」與所有其他的執行中編碼器正確地同步化，相同的即時簡報才能產生與符合的片段界限同步化的音訊/視訊範例。
 5. 新的資料流「必須」在語意上等同上一個資料流，並可在標頭與片段層級互換。
-6. 新的編碼器「應該」嘗試減少資料遺失。媒體片段的 fragment_absolute_time 與 fragment_index「應該」從編碼器上次停止的點開始增加。fragment_absolute_time 與 fragment_index「應該」連續增加，但允許視需要造成不連續。Azure 媒體服務將忽略已收到並處理的片段，因此因重新傳送片段端而發生錯誤，會勝過在媒體時間軸上造成不連續。 
+6. 新的編碼器「應該」嘗試減少資料遺失。媒體片段的 fragment\_absolute\_time 與 fragment\_index「應該」從編碼器上次停止的點開始增加。fragment\_absolute\_time 與 fragment\_index「應該」連續增加，但允許視需要造成不連續。Azure 媒體服務將忽略已收到並處理的片段，因此因重新傳送片段端而發生錯誤，會勝過在媒體時間軸上造成不連續。 
 
 ##編碼器備援 
 
@@ -206,4 +206,4 @@ Microsoft Azure 媒體服務的 ISO 分散 MP4 即時內嵌使用標準的長時
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

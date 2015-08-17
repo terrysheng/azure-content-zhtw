@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="06/30/2015"
 	ms.author="adegeo"/>
 
@@ -150,4 +150,4 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：[**快�
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric 動作項目事件"
-   description="Azure Service Fabric Actor 事件簡介。"
+   pageTitle="Reliable Actor 事件"
+   description="Service Fabric Reliable Actor 事件簡介。"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/05/2015"
    ms.author="amanbha"/>
 
 
@@ -72,4 +72,4 @@ var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), State.Status.Score);
 ```
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

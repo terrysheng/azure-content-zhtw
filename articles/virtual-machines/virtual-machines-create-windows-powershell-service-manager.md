@@ -74,7 +74,7 @@
 
 接下來，您需要雲端服務。如果您沒有雲端服務，必須建立一個。選取的名稱不可以和其他名稱重複，而且只能使用小寫字母、數字和連字號。欄位中的第一個和最後一個字元，必須是字母或數字。
 
-例如，您可以將它命名為 TestCS-*UniqueSequence*，其中的 *UniqueSequence* 是貴公司的縮寫。例如，如果貴公司名稱為 Tailspin Toys，您可以將雲端服務命名為 TestCS-Tailspin。
+例如，您可以將它命名為 TestCS-*UniqueSequence*，其中 *UniqueSequence* 是貴公司的縮寫。例如，如果貴公司名稱為 Tailspin Toys，您可以將雲端服務命名為 TestCS-Tailspin。
 
 您可以使用這個 Azure PowerShell 命令測試名稱的唯一性：
 
@@ -101,17 +101,17 @@
 
 最後，將命令集複製到剪貼簿，然後在 [開啟 Azure PowerShell 命令提示字元] 上按右鍵。這樣發出的命令集就像是一連串的 Azure PowerShell 命令，系統會提示您輸入本機系統管理員帳戶的名稱和密碼，然後建立 Azure 虛擬機器。以下是執行這個命令集之後，您會看到的範例：
 
-	PS C:> $vmName="PSTest"
-	PS C:> $csName=" TestCS-Tailspin"
-	PS C:> $locName="West US"
-	PS C:> $image=Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	PS C:\> $vmName="PSTest"
+	PS C:\> $csName=" TestCS-Tailspin"
+	PS C:\> $locName="West US"
+	PS C:\> $image=Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	VERBOSE: 3:01:17 PM - Begin Operation: Get-AzureVMImage
 	VERBOSE: 3:01:22 PM - Completed Operation: Get-AzureVMImage
 	VERBOSE: 3:01:22 PM - Begin Operation: Get-AzureVMImage
 	VERBOSE: 3:01:23 PM - Completed Operation: Get-AzureVMImage
-	PS C:> $vm=New-AzureVMConfig -Name $vmName -InstanceSize Medium -ImageName $image
-	PS C:> $cred=Get-Credential -Message "Type the name and password of the local administrator account."
-	PS C:> $vm | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.
+	PS C:\> $vm=New-AzureVMConfig -Name $vmName -InstanceSize Medium -ImageName $image
+	PS C:\> $cred=Get-Credential -Message "Type the name and password of the local administrator account."
+	PS C:\> $vm | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.
 	GetNetworkCredential().Password
 
 
@@ -134,7 +134,7 @@
 	DataVirtualHardDisksToBeDeleted   :
 	VMImageInput                      :
 
-	PS C:> New-AzureVM -ServiceName $csName -Location $locName -VMs $vm
+	PS C:\> New-AzureVM -ServiceName $csName -Location $locName -VMs $vm
 	VERBOSE: 3:01:46 PM - Begin Operation: New-AzureVM - Create Deployment with VM PSTest
 	VERBOSE: 3:02:49 PM - Completed Operation: New-AzureVM - Create Deployment with VM PSTest
 
@@ -209,4 +209,4 @@
 
 [使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

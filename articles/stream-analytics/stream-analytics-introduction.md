@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/17/2015" 
+	ms.date="08/04/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -107,7 +107,7 @@ Azure 資料流分析提供多種運算子，從簡單的篩選到複雜的相�
 ![供後續串流處理使用的 Azure 串流分析事件封存。][img.stream.analytics.scenario3]
  
 ## 取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟
 以上就是串流分析 (物聯網資料串流分析專用的受管理服務) 的簡介。若要深入了解此服務，請參閱：
@@ -133,4 +133,4 @@ Azure 資料流分析提供多種運算子，從簡單的篩選到複雜的相�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,4 +1,4 @@
-<properties pageTitle="在 Azure 中建立 Oracle WebLogic Server 12c 與 Oracle Database 12c 虛擬機器" description="逐步完成在 Microsoft Azure 中建立於 Windows Server 2012 上執行之 Oracle WebLogic Server 12c 和 Oracle Database 12c 映像的範例。" services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties title="Creating an Oracle WebLogic Server 12c and Oracle Database 12c virtual machine in Azure" pageTitle="在 Azure 中建立 Oracle WebLogic Server 12c 與 Oracle Database 12c 虛擬機器" description="逐步完成在 Microsoft Azure 中建立於 Windows Server 2012 上執行之 Oracle WebLogic Server 12c 和 Oracle Database 12c 映像的範例。" services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 
 #在 Azure 中建立 Oracle WebLogic Server 12c 與 Oracle Database 12c 虛擬機器
@@ -54,4 +54,4 @@
 
 [Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

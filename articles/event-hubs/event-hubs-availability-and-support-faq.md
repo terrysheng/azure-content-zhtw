@@ -111,4 +111,4 @@
 [佇列訊息解決方案]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

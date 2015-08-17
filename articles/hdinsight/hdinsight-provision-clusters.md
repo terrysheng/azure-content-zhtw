@@ -529,7 +529,8 @@ Azure CLI 可使用 NPM 或 Windows Installer 進行安裝。Microsoft 建議您
 
 **使用 Windows Installer 安裝 Azure CLI**
 
-1.	瀏覽至 **http://azure.microsoft.com/downloads/**2.	向下捲動至 [**命令列工具**] 區段，然後按一下 [**Azure 命令列介面**]，並依照 Web Platform Installer 精靈操作。
+1.	瀏覽至 ****http://azure.microsoft.com/downloads/**。
+2.	向下捲動至 [**命令列工具**] 區段，然後按一下 [**Azure 命令列介面**]，並依照 Web Platform Installer 精靈操作。
 
 **下載及匯入發佈設定**
 
@@ -781,4 +782,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

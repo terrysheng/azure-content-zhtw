@@ -3,7 +3,7 @@
 	description="如果您無法連線以 Linux 為基礎的 Azure 虛擬機器，請使用下列步驟來隔離問題的來源。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
-	ms.author="josephd"/>
+	ms.author="dkshir"/>
 
 # 疑難排解以 Linux 為基礎之 Azure 虛擬機器的安全殼層 (SSH) 連線
 
@@ -86,7 +86,7 @@
 如果您使用憑證驗證，請確認您在主目錄中擁有 ssh 資料夾的下列權限：
 
 - Chmod 700 \~/.ssh
-- Chmod 644 \~/.ssh/\*.pub
+- Chmod 644 \~/.ssh/*.pub
 - Chmod 600 \~/.ssh/id\_rsa (或您儲存私密金鑰的任何其他檔案)
 - Chmod 644 \~/.ssh/known\_hosts (包含您已透過 SSH 連接的主機)
 
@@ -165,4 +165,4 @@
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

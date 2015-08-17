@@ -133,4 +133,4 @@
 [Azure 管理入口網站]: http://manage.windowsazure.com
 [開始使用行動服務]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

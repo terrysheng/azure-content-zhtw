@@ -38,7 +38,7 @@ Service-Fabric 執行階段會查尋 "settings.xml" 檔案中預先定義的區�
 
 |名稱|單位|預設值|備註|
 |----|----|-------------|-------|
-|BatchAcknowledgementInterval|秒|0.05|次要複寫器收到作業後，將通知傳回給主要複寫器前所等待的時間間隔。任何要在此間隔內傳送給作業處理的其他通知，會集中以一個回應傳送。|
+|BatchAcknowledgementInterval|秒|0\.05|次要複寫器收到作業後，將通知傳回給主要複寫器前所等待的時間間隔。任何要在此間隔內傳送給作業處理的其他通知，會集中以一個回應傳送。|
 |ReplicatorEndpoint|N/A|N/A - RequiredParameter|主要/次要複寫器將用於與複本集中其他複寫器通訊的 IP 位址與連接埠。這應該參考服務資訊清單中的 TCP 資源端點。請參閱＜[服務資訊清單資源](service-fabric-service-manifest-resources.md)＞，深入瞭解如何在服務資訊清單中定義端點資源。 |
 |RetryInterval|秒|5|複寫器若未收到作業通知，在重新傳輸訊息前的時間間隔。|
 |MaxReplicationMessageSize|位元組|50MB|單一訊息可傳輸的複寫資料大小上限。|
@@ -84,4 +84,4 @@ Service-Fabric 執行階段會查尋 "settings.xml" 檔案中預先定義的區�
 BatchAcknowledgementInterval 會控制複寫延遲性。值為 '0' 時延遲可能性最低，但代價是降低輸送量 (隨著必須傳送與處理的通知訊息增加，每個訊息包含的通知會變少)。BatchAcknowledgementInterval 的值越大，整體複寫輸送量越高，代價是作業延遲變高。這可直接解讀為交易認可延遲。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

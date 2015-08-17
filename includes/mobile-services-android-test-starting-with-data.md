@@ -23,4 +23,4 @@
 
 Android 的**開始使用資料**教學課程到此結束。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

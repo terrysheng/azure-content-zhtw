@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="與 DocumentDB 資源進行 RESTful 互動 | Azure" 
+	pageTitle="與 DocumentDB 資源進行 RESTful 互動 | Microsoft Azure" 
 	description="了解如何使用 HTTP 動詞命令來執行與 Microsoft Azure DocumentDB 資源之間的 RESTful 互動。" 
 	services="documentdb" 
 	authors="h0n" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="08/03/2015" 
 	ms.author="h0n"/>
 
 # 與 DocumentDB 資源進行 RESTful 互動 
@@ -48,7 +48,7 @@ DocumentDB 資源可支援下列 HTTP 動詞命令及其標準解釋：
 ## 使用 POST 建立新的資源 
 為了更加了解互動模型，我們來看一下建立新資源 (也稱為 INSERT) 的情況。為了建立新資源，您必須發出 HTTP POST 要求，而且此要求的本文內要包含以資源所屬容器摘要的 URI 表示資源的程式碼。此要求唯一的必要屬性是資源識別碼。
 
-舉例來說，為了建立新資料庫，您需要對 /dbs 發佈 (POST) 資料庫資源 (透過設定具有唯一名稱的 id 屬性)。同樣地，為了建立新集合，您需要對 /dbs/\_rid/colls/ 發佈 (POST) 集合資源，以此類推。回應將會包含具有系統所產生屬性 (包括可供導覽到其他資源的 _self 資源連結) 的完全認可資源。以下是簡單的 HTTP 互動模型範例，用戶端可以發出 HTTP 要求，以在帳戶內建立新資料庫。
+舉例來說，為了建立新資料庫，您需要對 /dbs 發佈 (POST) 資料庫資源 (透過設定具有唯一名稱的 id 屬性)。同樣地，為了建立新集合，您需要對 /dbs/\_rid/colls/ 發佈 (POST) 集合資源，以此類推。回應將會包含具有系統所產生屬性 (包括可供導覽到其他資源的 \_self 資源連結) 的完全認可資源。以下是簡單的 HTTP 互動模型範例，用戶端可以發出 HTTP 要求，以在帳戶內建立新資料庫。
 
 	POST https://fabrikam.documents.azure.com/dbs
 	{
@@ -153,7 +153,7 @@ DocumentDB 服務將做出下列回應。
 
 
 ## 使用 PUT、GET、和 DELETE
-取代或讀取資源分別等同於對資源的 _self 連結發出 PUT (具有有效要求本文) 和 GET 動詞命令。同樣地，刪除資源等同於對資源的 _self 連結發出 DELETE 動詞命令。必須指出的一點是，要想在 DocumentDB 的資源模型中以階層方式組織資源，就必須支援串聯刪除功能，以便只要刪除擁有者的資源就能刪除相依資源。相依資源可能會散佈在擁有者資源以外的其他節點，因此，刪除作業可能進展緩慢。不論記憶體回收的機制為何，資源一經刪除，就會立即釋出配額供您使用。請注意，系統會保留參考完整性。例如，您不可以將集合插入至已刪除的資料庫，或者取代或查詢不再存在之集合的文件。
+取代或讀取資源分別等同於對資源的 \_self 連結發出 PUT (具有有效要求本文) 和 GET 動詞命令。同樣地，刪除資源等同於對資源的 \_self 連結發出 DELETE 動詞命令。必須指出的一點是，要想在 DocumentDB 的資源模型中以階層方式組織資源，就必須支援串聯刪除功能，以便只要刪除擁有者的資源就能刪除相依資源。相依資源可能會散佈在擁有者資源以外的其他節點，因此，刪除作業可能進展緩慢。不論記憶體回收的機制為何，資源一經刪除，就會立即釋出配額供您使用。請注意，系統會保留參考完整性。例如，您不可以將集合插入至已刪除的資料庫，或者取代或查詢不再存在之集合的文件。
  
 對資源的 feed 發出 GET 或是查詢集合都可能會導致產生數百萬個項目，因此這兩部伺服器根本不可能有辦法顯示這些項目，用戶端也不可能在一次往返/要求和回應交換內就完全取用這些項目。為了解決此問題，DocumentDB 允許用戶端以一次一頁的方式對大型摘要進行分頁處理。用戶端可以使用 [x-ms-continuation] 回應標頭做為資料指標，以導覽到下一頁。
 
@@ -164,7 +164,7 @@ DocumentDB 服務將做出下列回應。
 2.	如果用戶端提出舊版資源 (透過 [if-match] 要求標頭來指定)，則會拒絕其要求。  
 
 ## 連線選項
-在 DocumentDB 所公開的邏輯定址模型中，每個資源都具有可透過其 _self 連結來加以識別的邏輯和穩定 URI。做為遍布多個區域的分散式儲存體系統，DocumentDB 中的各種資料庫帳戶所下轄的資源會分割給多部電腦，並且會複寫每個資料分割以提供高可用性。管理給定資料分割資源的複本會註冊實體位址。雖然實體位址在一段時間後就會因為失敗而有所變更，但是其邏輯位址仍會維持不變。同時以資源形式在內部提供使用的路由表，會保存將邏輯位址轉譯為實體位址的方法。DocumentDB 公開兩種連線模式：
+在 DocumentDB 所公開的邏輯定址模型中，每個資源都具有可透過其 \_self 連結來加以識別的邏輯和穩定 URI。做為遍布多個區域的分散式儲存體系統，DocumentDB 中的各種資料庫帳戶所下轄的資源會分割給多部電腦，並且會複寫每個資料分割以提供高可用性。管理給定資料分割資源的複本會註冊實體位址。雖然實體位址在一段時間後就會因為失敗而有所變更，但是其邏輯位址仍會維持不變。同時以資源形式在內部提供使用的路由表，會保存將邏輯位址轉譯為實體位址的方法。DocumentDB 公開兩種連線模式：
 
 1.	**閘道器模式**：用戶端不會接觸到邏輯位址與實體位址的轉換過程或是路由細節；他們只會處理邏輯 URI，並以符合 REST 限制的方式導覽資源模型。用戶端使用邏輯 URI 發出要求，而 Edge 電腦會將邏輯 URI 轉譯為負責管理資源及轉送要求之複本的實體位址。由於有 Edge 電腦在快取 (並定期重新整理) 路由表，路由作業會十分有效率。 
 2.	**直接連線模式**：用戶端直接在其程序空間中管理路由表，並定期進行重新整理。用戶端可以略過 Edge 電腦，直接與複本連線。   
@@ -253,13 +253,13 @@ DocumentDB 服務將做出下列回應。
 - [DocumentDB SQL 參考](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 - [DocumentDB 程式設計：預存程序、觸發程序和 UDF](../documentdb-programming/)
 - [DocumentDB 參考文件](https://msdn.microsoft.com/library/azure/dn781482.aspx)
-- REST[http://en.wikipedia.org/wiki/Representational\_state\_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
-- JSON 規格[http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
-- HTTP 規格[http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
-- 實體標記[http://en.wikipedia.org/wiki/HTTP\_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
+- REST [http://en.wikipedia.org/wiki/Representational\_state\_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
+- JSON 規格 [http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
+- HTTP 規格 [http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
+- 實體標記 [http://en.wikipedia.org/wiki/HTTP\_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
 
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

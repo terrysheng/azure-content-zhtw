@@ -32,7 +32,7 @@
 
 ##版本資訊
 
-###3.1.0 (05/21/2015)
+###3\.1.0 (05/21/2015)
 
 -   Mobile Engagement 裝置識別碼現在是根據在安裝時產生的 GUID。
 
@@ -53,4 +53,4 @@
 
 請參閱[升級程序](mobile-engagement-windows-store-upgrade-procedure/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

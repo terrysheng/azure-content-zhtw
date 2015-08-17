@@ -91,4 +91,4 @@ OneDrive 連接器可讓您從 OneDrive 帳戶上傳\下載\刪除檔案。
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
 [OneDrive API 定義]: https://msdn.microsoft.com/zh-tw/library/dn974227.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

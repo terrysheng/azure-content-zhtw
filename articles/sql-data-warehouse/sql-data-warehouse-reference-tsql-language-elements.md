@@ -51,7 +51,7 @@
 - [\+ (字串串連)](https://msdn.microsoft.com/library/ms177561.aspx)
 - [\- (負)](https://msdn.microsoft.com/library/ms189480.aspx)
 - [\- (減)](https://msdn.microsoft.com/library/ms189518.aspx)
-- [\* (乘)](https://msdn.microsoft.com/library/ms176019.aspx)
+- [* (乘)](https://msdn.microsoft.com/library/ms176019.aspx)
 - [/ (除)](https://msdn.microsoft.com/library/ms175009.aspx)
 - [模數](https://msdn.microsoft.com/library/ms190279.aspx)
 
@@ -290,4 +290,4 @@
 
 <!--MSDN references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

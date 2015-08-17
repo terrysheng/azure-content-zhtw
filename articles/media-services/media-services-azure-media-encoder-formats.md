@@ -56,65 +56,60 @@
 
 ###視訊檔案格式
  
-<table border="1">
-<tr><th>檔案格式</th><th>檔案副檔名</th></tr>
-<tr><td>3GPP、3GPP2</td><td>.3gp、.3g2、.3gp2</td></tr>
-<tr><td>進階系統格式 (ASF)</td><td>.asf</td></tr>
-<tr><td>進階視訊編碼高畫質 (AVCHD) [MPEG-2 傳輸資料流]</td><td>.mts、.m2ts</td></tr>
-<tr><td>音訊視訊交錯格式 (AVI)</td><td>.avi</td></tr>
-<tr><td>數位攝影機 MPEG-2 (MOD)</td><td>.mod</td></tr>
-<tr><td>DVD 傳輸串流 (TS) 檔案</td><td>.ts</td></tr>
-<tr><td>DVD 視訊物件 (VOB) 檔案</td><td>.vob</td></tr>
-<tr><td>Expression Encoder 螢幕擷取轉碼器檔案</td><td>.xesc</td></tr>
-<tr><td>MP4</td><td>.mp4</td></tr>
-<tr><td>MPEG-1 系統資料流</td><td>.mpeg、.mpg</td></tr>
-<tr><td>MPEG-2 視訊檔案</td><td>.m2v</td></tr>
-<tr><td>Smooth Streaming 檔案格式 (PIFF 1.3)</td><td>.ismv</td></tr>
-<tr><td>Windows Media 視訊 (WMV)</td><td>.wmv</td></tr>
-</table>
+檔案格式|檔案副檔名
+---|---
+3GPP、3GPP2|.3gp、.3g2、.3gp2
+進階系統格式 (ASF)|.asf
+進階視訊編碼高畫質 (AVCHD) [MPEG-2 傳輸資料流]|.mts、.m2ts
+音訊視訊交錯格式 (AVI)|.avi
+數位攝影機 MPEG-2 (MOD)|.mod
+DVD 傳輸串流 (TS) 檔案|.ts
+DVD 視訊物件 (VOB) 檔案|.vob
+Expression Encoder 螢幕擷取轉碼器檔案|.xesc
+MP4|.mp4
+MPEG-1 系統資料流|.mpeg、.mpg
+MPEG-2 視訊檔案|.m2v
+Smooth Streaming 檔案格式 (PIFF 1.3)|.ismv
+Windows Media 視訊 (WMV)|.wmv
+
 
 支援部分未壓縮格式。如需詳細資訊，請參閱[支援的未壓縮視訊格式](#uncompressed)
 
 ###音訊檔案格式
 
-<table border="1">
-<tr><th>檔案格式</th><th>檔案副檔名</th></tr>
-<tr><td>AC-3 (Dolby Digital) 音訊</td><td>.ac3</td></tr>
-<tr><td>音訊交換檔案格式 (AIFF)</td><td>.aiff</td></tr>
-<tr><td>廣播聲波格式</td><td>.bwf</td></tr>
-<tr><td>MP3 (MPEG-1 音訊層 3)</td><td>.mp3</td></tr>
-<tr><td>MP4 音訊</td><td>.m4A</td></tr>
-<tr><td>MPEG-4 有聲書</td><td>.m4b</td></tr>
-<tr><td>WAVE 檔案</td><td>.wav</td></tr>
-<tr><td>Windows Media 音訊</td><td>.wma</td></tr>   
-</table>
+檔案格式|檔案副檔名
+---|---
+AC-3 (Dolby Digital) 音訊|.ac3
+音訊交換檔案格式 (AIFF)|.aiff
+廣播聲波格式|.bwf
+MP3 (MPEG-1 音訊層 3)|.mp3
+MP4 音訊|.m4A
+MPEG-4 有聲書|.m4b
+WAVE 檔案|.wav
+Windows Media 音訊|.wma
 
 ###影像檔案格式
 
-<table border="1">
-<tr><th>檔案格式</th><th>檔案副檔名</th></tr>
-<tr><td>Bitmap</td><td>.bmp</td></tr>
-<tr><td>GIF、動畫 GIF</td><td>.gif</td></tr>
-<tr><td>JPEG</td><td>.jpeg、.jpg</td></tr>
-<tr><td>PNG</td><td>.png</td></tr>
-<tr><td>TIFF</td><td>.tif</td></tr>
-<tr><td>WPF 畫布 XAML</td><td>.xaml</td></tr>
-</table>
+檔案格式|檔案副檔名
+---|---
+Bitmap|.bmp
+GIF、動畫 GIF|.gif
+JPEG|.jpeg、.jpg
+PNG|.png
+TIFF|.tif
+WPF 畫布 XAML|.xaml
 
 
-##<a id="export_formats"></a>Azure Media Encoder 匯出格式
+##<a id="export_formats"></a>Azure 媒體編碼器匯出格式
 
 下表會列出支援匯出的轉碼器和檔案格式清單。
 
 
-<table border="1">
-<tr><th>檔案格式</th><th>視訊轉碼器</th><th>音訊轉碼器</th></tr>
-<tr><td>Windows Media (*.wmv、*.wma)</td><td>VC-1 (進階、主要和簡易設定檔)</td><td>Windows Media Audio Standard、Windows Media Audio Professional、Windows Media Audio Voice、Windows Media Audio Lossless</td></tr>
-<tr><td>MP4 (*.mp4)</td><td>H.264 (高、主要和基準設定檔)</td><td>AAC-LC、HE-AAC v1、HE-AAC v2、Dolby Digital Plus</td></tr>
-<tr><td>Smooth Streaming 檔案格式 (PIFF 1.1) (*.ismv、*.isma)</td><td>VC-1 (進階設定檔)<br/><br/>
-H.264 (高、主要和基準設定檔)</td><td>Windows Media Audio Standard、Windows Media Audio Professional<br/><br/>
-AAC-LC、HE-AAC v1、HE-AAC v2</td></tr>
-</table>
+檔案格式|視訊轉碼器|音訊轉碼器
+---|---|---
+Windows Media (* .wmv、* .wma)|VC-1 (進階、主要和簡易設定檔)|Windows Media Audio Standard、Windows Media Audio Professional、Windows Media Audio Voice、Windows Media Audio Lossless
+MP4 (* .mp4)|H.264 (高、主要和基準設定檔)|AAC-LC、HE-AAC v1、HE-AAC v2、Dolby Digital Plus
+Smooth Streaming 檔案格式 (PIFF 1.1) (* .ismv、* .isma)|VC-1 (進階設定檔)<p>H.264 (高、主要和基準設定檔) |Windows Media Audio Standard、Windows Media Audio Professional<p><p>AAC-LC、HE-AAC v1、HE-AAC v2
 
 如需媒體服務中其他支援的轉碼器和篩選器，請參閱 [Windows DirectShow 篩選](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx)。
 
@@ -124,17 +119,16 @@ Azure 媒體服務提供匯入未壓縮視訊資料的支援。
 
 以下是支援的未壓縮格式部分清單。
 
-<table border="1">
-<tr><th>未壓縮的視訊格式</th><th>說明</th></tr>
-<tr><td>標準 YVU9 格式未壓縮資料</td><td>平面 YUV 格式。每行的每個水平像素都是 Y 樣本，每第四個水平像素是 U 和 V 樣本。每條垂直線上的像素都是 Y 樣本，每第四條垂直線上的像素是 U 和 V 樣本。每像素 9 位元。</td></tr>
-<tr><td>YUV 411 格式資料</td><td>每行的每個水平像素都是 Y 樣本，每第四個水平像素是 U 和 V 樣本。每條垂直線都會進行取樣。位元組順序 (從低到高) 會是 U0、Y0、V0、Y1、U4、Y2、V4、Y3、Y4、Y5、Y6、Y7，其中尾碼 0 是會最左邊的像素，而逐漸增加的數字是從左到右逐漸增加的像素。每個 12 位元組的區塊有 8 個影像像素。</td></tr>
-<tr><td>Y41P 格式資料</td><td>每行的每個水平像素都是 Y 樣本，每第四個水平像素是 U 和 V 樣本。每條垂直線都會進行取樣。位元組順序 (從低到高) 會是 U0、Y0、V0、Y1、U4、Y2、V4、Y3、Y4、Y5、Y6、Y7，其中尾碼 0 是會最左邊的像素，而逐漸增加的數字是從左到右逐漸增加的像素。每個 12 位元組的區塊有 8 個影像像素。</td></tr>
-<tr><td>YUY2 格式資料</td><td>與 UYVY 相同，但有不同的像素順序。位元組順序 (從低到高) 會是 Y0、U0、Y1、V0、Y2、U2、Y3、V2、Y4、U4、Y5、V4，其中尾碼 0 是會最左邊的像素，而逐漸增加的數字是從左到右逐漸增加的像素。每個 4 位元組的區塊有 2 個影像像素。</td></tr>
-<tr><td>YVYU 格式資料</td><td>壓縮 YUV 格式。與 UYVY 相同，但有不同的像素順序。位元組順序 (從低到高) 會是 Y0、V0、Y1、U0、Y2、V2、Y3、U2、Y4、V4、Y5、U4，其中尾碼 0 是會最左邊的像素，而逐漸增加的數字是從左到右逐漸增加的像素。每個 4 位元組的區塊有 2 個影像像素。</td></tr>
-<tr><td>UYVY 格式資料</td><td>壓縮 YUV 格式。每行的每個水平像素都是 Y 樣本，每第二個水平像素是 U 和 V 樣本。每條垂直線都會進行取樣。最常用的各種 YUV 4:2:2 格式。位元組順序 (從低到高) 會是 U0、Y0、V0、Y1、U2、Y2、V2、Y3、U4、Y4、V4、Y5，其中尾碼 0 是會最左邊的像素，而逐漸增加的數字是從左到右逐漸增加的像素。每個 4 位元組的區塊有 2 個影像像素。</td></tr>
-<tr><td>YUV 211 格式資料</td><td>壓縮 YUV 格式。每行的每第二個水平像素都是 Y 樣本，每第四個水平像素是 U 和 V 樣本。每條垂直線都會進行取樣。位元組順序 (從低到高) 會是 U0、Y0、V0、Y1、U4、Y2、V4、Y3、Y4、Y5、Y6、Y7，其中尾碼 0 是會最左邊的像素，而逐漸增加的數字是從左到右逐漸增加的像素。每個 4 位元組的區塊有 4 個影像像素。</td></tr>
-<tr><td>Cirrus Logic Jr YUV 411 格式</td><td>Cirrus Logic Jr YUV 411 格式， 每個 Y、U 和 V 樣本小於 8 位元。每行的每個水平像素都是 Y 樣本，每第四個水平像素是 U 和 V 樣本。每條垂直線都會進行取樣。</td></tr>
-<tr><td>Indeo-produced YVU9 格式</td><td>Indeo-produced YVU9 格式，包含與最後一個影格的區別額外資訊。每個像素 9.5 位元，但回報為 9 位元。</td></tr>
-</table>
+未壓縮的視訊格式|說明
+---|---
+標準 YVU9 格式未壓縮資料|平面 YUV 格式。每行的每個水平像素都是 Y 樣本，每第四個水平像素是 U 和 V 樣本。每條垂直線上的像素都是 Y 樣本，每第四條垂直線上的像素是 U 和 V 樣本。每像素 9 位元。
+YUV 411 格式資料|每行的每個水平像素都是 Y 樣本，每第四個水平像素是 U 和 V 樣本。每條垂直線都會進行取樣。位元組順序 (從低到高) 會是 U0、Y0、V0、Y1、U4、Y2、V4、Y3、Y4、Y5、Y6、Y7，其中尾碼 0 是會最左邊的像素，而逐漸增加的數字是從左到右逐漸增加的像素。每個 12 位元組的區塊有 8 個影像像素。
+Y41P 格式資料|每行的每個水平像素都是 Y 樣本，每第四個水平像素是 U 和 V 樣本。每條垂直線都會進行取樣。位元組順序 (從低到高) 會是 U0、Y0、V0、Y1、U4、Y2、V4、Y3、Y4、Y5、Y6、Y7，其中尾碼 0 是會最左邊的像素，而逐漸增加的數字是從左到右逐漸增加的像素。每個 12 位元組的區塊有 8 個影像像素。
+YUY2 格式資料|與 UYVY 相同，但有不同的像素順序。位元組順序 (從低到高) 會是 Y0、U0、Y1、V0、Y2、U2、Y3、V2、Y4、U4、Y5、V4，其中尾碼 0 是會最左邊的像素，而逐漸增加的數字是從左到右逐漸增加的像素。每個 4 位元組的區塊有 2 個影像像素。
+YVYU 格式資料|壓縮 YUV 格式。與 UYVY 相同，但有不同的像素順序。位元組順序 (從低到高) 會是 Y0、V0、Y1、U0、Y2、V2、Y3、U2、Y4、V4、Y5、U4，其中尾碼 0 是會最左邊的像素，而逐漸增加的數字是從左到右逐漸增加的像素。每個 4 位元組的區塊有 2 個影像像素。
+UYVY 格式資料|壓縮 YUV 格式。每行的每個水平像素都是 Y 樣本，每第二個水平像素是 U 和 V 樣本。每條垂直線都會進行取樣。最常用的各種 YUV 4:2:2 格式。位元組順序 (從低到高) 會是 U0、Y0、V0、Y1、U2、Y2、V2、Y3、U4、Y4、V4、Y5，其中尾碼 0 是會最左邊的像素，而逐漸增加的數字是從左到右逐漸增加的像素。每個 4 位元組的區塊有 2 個影像像素。
+YUV 211 格式資料|壓縮 YUV 格式。每行的每第二個水平像素都是 Y 樣本，每第四個水平像素是 U 和 V 樣本。每條垂直線都會進行取樣。位元組順序 (從低到高) 會是 U0、Y0、V0、Y1、U4、Y2、V4、Y3、Y4、Y5、Y6、Y7，其中尾碼 0 是會最左邊的像素，而逐漸增加的數字是從左到右逐漸增加的像素。每個 4 位元組的區塊有 4 個影像像素。
+Cirrus Logic Jr YUV 411 格式|Cirrus Logic Jr YUV 411 格式， 每個 Y、U 和 V 樣本小於 8 位元。每行的每個水平像素都是 Y 樣本，每第四個水平像素是 U 和 V 樣本。每條垂直線都會進行取樣。
+Indeo-produced YVU9 格式|Indeo-produced YVU9 格式，包含與最後一個影格的區別額外資訊。每個像素 9.5 位元，但回報為 9 位元。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

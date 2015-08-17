@@ -55,7 +55,7 @@
 ## 從現有 OpenSSH 相容金鑰產生金鑰
 上一個範例說明如何建立用於 Azure 的新金鑰。在某些情況下，您可能已經有現有的 OpenSSH 相容公用與私密金鑰組，並希望對 Azure 使用相同的金鑰。
 
-`openssl` 公用程式可以直接讀取 OpenSSH 私密金鑰。下列命令將使用現有的 SSH 私密金鑰 (在下例中為 id_rsa)，並建立 Azure 所需的 `.pem` 公開金鑰：
+`openssl` 公用程式可以直接讀取 OpenSSH 私密金鑰。下列命令將使用現有的 SSH 私密金鑰 (在下例中為 id\_rsa)，並建立 Azure 所需的 `.pem` 公開金鑰：
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
@@ -79,7 +79,7 @@
 ### 使用 Msysgit ###
 
 1.	從下列位置下載並安裝 msysgit：[http://msysgit.github.com/](http://msysgit.github.com/)
-2.	從安裝目錄執行 `msys` (例如 c:\msysgit\msys.exe)
+2.	從安裝目錄執行 `msys` (例如 c:\\msysgit\\msys.exe)
 3.	輸入 `cd bin` 切換至 `bin` 目錄。
 
 
@@ -133,14 +133,14 @@
 
 ## 建立 Putty 的 PPK ##
 
-1. 從下列位置下載並安裝 Puttygen： [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. 從下列位置下載並安裝 Puttygen： [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 2. Puttygen 可能無法讀取稍早建立的私密金鑰 (`myPrivateKey.key`)。執行下列命令以將它轉譯成 Puttygen 可認得的 RSA 私密金鑰：
 
 		# openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
 		# chmod 600 ./myPrivateKey_rsa
 
-	上述命令應會產生一個名為 myPrivateKey_rsa 的新私密金鑰。
+	上述命令應會產生一個名為 myPrivateKey\_rsa 的新私密金鑰。
 
 3. 執行 `puttygen.exe`
 
@@ -163,7 +163,7 @@
 
 ## 使用 Putty 連線到 Linux 機器 ##
 
-1.	從下列位置下載並安裝 putty： [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1.	從下列位置下載並安裝 putty： [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2.	執行 putty.exe
 3.	使用管理入口網站的 IP 來填入主機名稱：
 
@@ -176,4 +176,4 @@
 5.	按一下 [開啟] 以連線到虛擬機器。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

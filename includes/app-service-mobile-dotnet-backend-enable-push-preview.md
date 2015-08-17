@@ -6,4 +6,4 @@
 
 * 在 WebApiConfig.cs 中的 MobileAppConfiguration 物件上呼叫 `UseDefaultConfiguration()` 方法。這樣會接著呼叫上述的 NuGet 封裝所提供的 `AddPushNotifications()` 擴充方法。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

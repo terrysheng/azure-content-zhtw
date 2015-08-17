@@ -9,7 +9,7 @@
 <tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="hero-article" 
+   ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/28/2015"
@@ -231,4 +231,4 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
 - 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

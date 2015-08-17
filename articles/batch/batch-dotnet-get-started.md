@@ -164,10 +164,10 @@
 	  	CloudBlockBlob dataprocessor = container.GetBlockBlobReference("ProcessTaskData.exe");
 	  	CloudBlockBlob storageassembly =
 			container.GetBlockBlobReference("Microsoft.WindowsAzure.Storage.dll");
-		  taskData1.UploadFromFile("....\taskdata1.txt", FileMode.Open);
-		  taskData2.UploadFromFile("....\taskdata2.txt", FileMode.Open);
-	  	taskData3.UploadFromFile("....\taskdata3.txt", FileMode.Open);
-		  dataprocessor.UploadFromFile("......\ProcessTaskData\bin\debug\ProcessTaskData.exe", FileMode.Open);
+		  taskData1.UploadFromFile("..\\..\\taskdata1.txt", FileMode.Open);
+		  taskData2.UploadFromFile("..\\..\\taskdata2.txt", FileMode.Open);
+	  	taskData3.UploadFromFile("..\\..\\taskdata3.txt", FileMode.Open);
+		  dataprocessor.UploadFromFile("..\\..\\..\\ProcessTaskData\\bin\\debug\\ProcessTaskData.exe", FileMode.Open);
 		  storageassembly.UploadFromFile("Microsoft.WindowsAzure.Storage.dll", FileMode.Open);
 		  Console.WriteLine("Uploaded the files. Press Enter to continue.");
 		  Console.ReadLine();
@@ -208,7 +208,7 @@
 			  newPool.Commit();
 			  Console.WriteLine("Created the pool. Press Enter to continue.");
 			  Console.ReadLine();
-		  }
+		  	}
 
 4. 將此程式碼加入至可呼叫您剛才加入的方法的 Main 中：
 
@@ -266,7 +266,7 @@
 				Console.WriteLine("Job id: " + job.Id);
 				Console.WriteLine("   Job status: " + job.State);
 			}
-			Console.WriteLine("Press Enter to continue.")
+			Console.WriteLine("Press Enter to continue.");
 			Console.ReadLine();
 		}
 
@@ -316,7 +316,7 @@
 			{
 				Console.WriteLine("Task " + task.Id + " says:\n" + task.GetNodeFile(Constants.StandardOutFileName).ReadAsString());
 			}
-			Console.WriteLine("Press Enter to continue.")
+			Console.WriteLine("Press Enter to continue.");
 			Console.ReadLine();
 		}
 
@@ -377,7 +377,7 @@
 
 			static void DeleteJob(BatchClient client)
 			{
-				client.JobOperations.DeleteJob("davidmujob1");
+				client.JobOperations.DeleteJob("testjob1");
 				Console.WriteLine("Job was deleted.");
 				Console.ReadLine();
 			}
@@ -394,7 +394,7 @@
 
 		static void DeletePool (BatchClient client)
 		{
-			client.PoolOperations.DeletePool("davidmupl1");
+			client.PoolOperations.DeletePool("testpool1");
 			Console.WriteLine("Pool was deleted.");
 			Console.ReadLine();
 		}
@@ -475,4 +475,4 @@
 
 2. 有些應用程式會產生可能難以處理的大量資料。解決這個問題的其中一種方式是透過[有效率的清單查詢](batch-efficient-list-queries.md)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

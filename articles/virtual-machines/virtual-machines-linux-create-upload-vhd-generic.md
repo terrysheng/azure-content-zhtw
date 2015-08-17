@@ -91,7 +91,7 @@ Azure 上的 VHD 映像必須具有與 1 MB 對應的虛擬大小。一般而言
 		rounded_size=$((($size/$MB + 1)*$MB))
 		echo "Rounded Size = $rounded_size"
 
- 3. 依照上述指令碼中的設定，使用 $rounded_size 調整原始磁碟的大小：
+ 3. 依照上述指令碼中的設定，使用 $rounded\_size 調整原始磁碟的大小：
 
 		# qemu-img resize MyLinuxVM.raw $rounded_size
 
@@ -123,9 +123,9 @@ Azure 上的 VHD 映像必須具有與 1 MB 對應的虛擬大小。一般而言
 
 至少，我們已知缺少下列修補程式有可能會在 Azure 上造成問題，因此這些修補程式必須包含在核心內。這絕對不是詳盡或完整的所有散發套件清單：
 
-- [ata_piix：依預設將磁碟委託給 Hyper-V 驅動程式](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
+- [ata\_piix：依預設將磁碟委託給 Hyper-V 驅動程式](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
 - [storvsc：負責 RESET 路徑中的在途封包](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
-- [storvsc：避免使用 WRITE_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
+- [storvsc：避免使用 WRITE\_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
 - [storvsc：針對 RAID 和虛擬主機介面卡驅動程式停用 WRITE SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
 - [storvsc：NULL 指標取值修正](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 - [storvsc：信號緩衝區失敗可能導致 I/O 凍結](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
@@ -189,4 +189,4 @@ Azure 上的 VHD 映像必須具有與 1 MB 對應的虛擬大小。一般而言
 
 - 接著，您必須關閉虛擬機器，並將 VHD 上傳至 Azure。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

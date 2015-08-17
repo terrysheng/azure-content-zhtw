@@ -99,4 +99,4 @@ Azure 負載平衡器組態支援 UDP 的完全錐形 NAT。在完全錐形 NAT 
 [開始使用 - 網際網路面向的負載平衡器](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

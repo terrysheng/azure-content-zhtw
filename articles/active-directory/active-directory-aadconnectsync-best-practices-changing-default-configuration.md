@@ -55,4 +55,4 @@ Azure AD Connect 所建立的組態適用於大部分同步內部部署 Active D
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

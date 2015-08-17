@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/13/2015"
+   ms.date="07/22/2015"
    ms.author="bwren" />
 
 # 備份 Azure 自動化
@@ -44,4 +44,4 @@
 - [自動化資產](https://msdn.microsoft.com/library/dn939988.aspx)
 - [Azure Cmdlet](https://msdn.microsoft.com/library/dn690262.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -83,7 +83,7 @@ Azure 搜尋服務是 service-plus-data [PaaS](https://en.wikipedia.org/wiki/Pla
 
 
 ##如何開始
-由於搜尋索引可完全運作，良好的第一個步驟就是嘗試幾個查詢。Azure 搜尋服務支援所有標準搜尋運算子 (+、-、 |)、代表常值相符項目的引號、萬用字元 (\*) 和優先順序運算子。您可以檢閱運算子完整清單的查詢語法參考。
+由於搜尋索引可完全運作，良好的第一個步驟就是嘗試幾個查詢。Azure 搜尋服務支援所有標準搜尋運算子 (+、-、 |)、代表常值相符項目的引號、萬用字元 (*) 和優先順序運算子。您可以檢閱運算子完整清單的查詢語法參考。
 
 - 藉由加入星號 (`*`) 開始萬用字元搜尋。這會告訴您在索引中找到多少文件：2,262,578。
 - 接下來，輸入 "Yellowstone"，然後加入 "+ center" 和 "+building" 和 "-ND"，漸進式將搜尋結果縮小成只有 Yellowstone 訪客中心，排除那些在北達科他的結果：`Yellowstone +center +building -ND`。  
@@ -157,7 +157,7 @@ Azure 搜尋服務具有可設定的 **searchMode** 屬性，可用來控制搜�
 
 3. 開啟應用程式。
 
-4. 輸入萬用字元 (\*) 以傳回計數。請注意，結果現在會限制為 42,411 個項目，也就是華盛頓州中所有地理功能的所有文件。
+4. 輸入萬用字元 (*) 以傳回計數。請注意，結果現在會限制為 42,411 個項目，也就是華盛頓州中所有地理功能的所有文件。
 
    ![][12]
 
@@ -529,4 +529,4 @@ Azure 搜尋服務具有可設定的 **searchMode** 屬性，可用來控制搜�
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

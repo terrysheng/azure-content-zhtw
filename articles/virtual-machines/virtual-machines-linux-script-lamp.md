@@ -64,11 +64,11 @@
 
 **上傳**
 
-將指令碼儲存為文字檔 (例如 *lamp_install.sh*)，然後將它上傳到 Azure 儲存體。您可以使用 Azure CLI，輕鬆執行這個動作。下列範例會將檔案上傳到名為 "scripts" 的儲存體容器中。注意：如果此容器不存在，您必須先建立它。
+將指令碼儲存為文字檔 (例如 *lamp\_install.sh*)，然後將它上傳到 Azure 儲存體。您可以使用 Azure CLI，輕鬆執行這個動作。下列範例會將檔案上傳到名為 "scripts" 的儲存體容器中。注意：如果此容器不存在，您必須先建立它。
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
-此外，還會建立 JSON 檔案，此檔案會描述如何從 Azure 儲存體下載指令碼。將此檔案儲存為 *public_config.json* (使用您的儲存體帳戶名稱來取代 "mystorage")：
+此外，還會建立 JSON 檔案，此檔案會描述如何從 Azure 儲存體下載指令碼。將此檔案儲存為 *public\_config.json* (使用您的儲存體帳戶名稱來取代 "mystorage")：
 
     {"fileUris":["https://mystorage.blob.core.windows.net/scripts/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
 
@@ -79,7 +79,7 @@
 
     azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
 
-這樣將會在名為 *lamp-vm* 的 VM 上下載並執行 *lamp_install.sh* 指令碼。
+這樣將會在名為 *lamp-vm* 的 VM 上下載並執行 *lamp\_install.sh* 指令碼。
 
 因為該應用程式包含 Web 伺服器，所以請記得在遠端 VM 上開啟 HTTP 接聽連接埠：
 
@@ -92,7 +92,7 @@
     cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
     tail -f extension.log
 
-一旦完成執行 CustomScript 延伸模組之後，就可以瀏覽到您建立的 PHP 頁面，在此範例中為：*http://lamp-vm.cloudapp.net/phpinfo.php*。
+完成執行 CustomScript 延伸模組之後，就可以瀏覽到您建立的 PHP 頁面，在此範例中為：**http://lamp-vm.cloudapp.net/phpinfo.php*。
 
 ## 其他資源
 
@@ -107,4 +107,4 @@
 [Azure 上的 Linux 和開放原始碼運算](virtual-machines-linux-opensource.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

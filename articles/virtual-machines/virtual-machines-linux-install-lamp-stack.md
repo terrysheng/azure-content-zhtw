@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2015"
+	ms.date="07/29/2015"
 	ms.author="szark"/>
 
 
@@ -76,7 +76,7 @@ LAMP 堆疊由下列不同元素組成：
 
 - apache2
 - mysql
-- apache2-mod_php53
+- apache2-mod\_php53
 - php53-mysql
 
 您可以使用單一 `zypper install` 命令來安裝這些封裝：
@@ -125,4 +125,4 @@ LAMP 堆疊由下列不同元素組成：
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

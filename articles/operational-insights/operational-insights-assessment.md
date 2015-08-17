@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # 利用評估解決方案最佳化環境
@@ -105,7 +105,7 @@
 
 ## 使用評估焦點區域建議
 
-在使用 Microsoft Azure Operational Insights 中的評估解決方案之前，您必須先安裝解決方案。如需閱讀安裝解決方案的更多資訊，請參閱[使用解決方案資源庫來新增或移除解決方案](operational-insights-add-solution.md)。安裝智慧套件後，您可以在 Operational Insights 中使用 [概觀] 頁面上的 [評估] 磚檢視建議摘要。
+在使用 Microsoft Azure Operational Insights 中的評估解決方案之前，您必須先安裝解決方案。如需閱讀安裝解決方案的更多資訊，請參閱[使用解決方案資源庫來新增或移除解決方案](operational-insights-setup-workspace.md)。安裝智慧套件後，您可以在 Operational Insights 中使用 [概觀] 頁面上的 [評估] 磚檢視建議摘要。
 
 您可以總結基礎結構的法務遵循評估結果，然後再深入鑽研建議事項。
 
@@ -125,4 +125,4 @@
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

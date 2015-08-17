@@ -55,33 +55,32 @@
  
 ###格式
 
-<table border="1">
-<tr><th>檔案格式</th><th>檔案副檔名</th></tr>
-<tr><td>FLV (使用 H.264 和 AAC 轉碼器) </td><td>.flv</td></tr>
-<tr><td>MP4/ISMV</td><td>*.ismv</td></tr>
-<tr><td>MPEG2-PS、MPEG2-TS、3GP</td><td>.ts、.ps、.3gp</td></tr>
-<tr><td>MXF</td><td>.mxf</td></tr>
-<tr><td>WMV/ASF</td><td>.mwv、.asf</td></tr>
-<tr><td>DVR-MS</td><td>.dvr-ms </td></tr>
-<tr><td>AVI</td><td>.avi</td></tr>
-<tr><td>Matroska</td><td>.mkv</td></tr>
-<tr><td>GXF</td><td>.gxf</td></tr>
-<tr><td>WAVE/WAV </td><td>.wav</td></tr>
-</table>
+檔案格式|檔案副檔名
+---|---
+FLV (使用 H.264 和 AAC 轉碼器) |.flv
+MP4/ISMV|* .ismv
+MPEG2-PS、MPEG2-TS、3GP|.ts、.ps、.3gp
+MXF|.mxf
+WMV/ASF|.mwv、.asf
+DVR-MS|.dvr-ms 
+AVI|.avi
+Matroska|.mkv
+GXF|.gxf
+WAVE/WAV |.wav
+
 
 ##<a id="export_formats"></a>Media Encoder 匯出格式
 
 下表會列出支援匯出的轉碼器和檔案格式清單。
 
 
-<table border="1">
-<tr><th>檔案格式</th><th>視訊轉碼器</th><th>音訊轉碼器</th></tr>
-<tr><td>MP4 (*.mp4)<br/><br/>(包括多位元速率 MP4 容器) </td><td>H.264 (高、主要和基準設定檔)</td><td>AAC-LC、HE-AAC v1、HE-AAC v2 </td></tr>
-<tr><td>MPEG2-TS </td><td>H.264 (高、主要和基準設定檔)</td><td>AAC-LC、HE-AAC v1、HE-AAC v2 </td></tr>
-</table>
+檔案格式|視訊轉碼器|音訊轉碼器
+---|---|---
+MP4 (* .mp4)<br/><br/>(包括多位元速率 MP4 容器) |H.264 (高、主要和基準設定檔)|AAC-LC、HE-AAC v1、HE-AAC v2 
+MPEG2-TS |H.264 (高、主要和基準設定檔)|AAC-LC、HE-AAC v1、HE-AAC v2 
 
 ##另請參閱
 
 [透過 Azure Media Services 編碼的隨選內容](media-services-encode-asset.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

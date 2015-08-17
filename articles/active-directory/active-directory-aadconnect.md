@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/13/2015" 
 	ms.author="billmath"/>
 
@@ -149,7 +149,8 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 8. 當安裝完成時，按一下 [結束]。
 
 
-<br> <br>
+
+
 
 如需使用快速安裝的影片，請參閱下列內容：
 
@@ -183,8 +184,8 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 1. 以系統管理員身分登入 Azure 入口網站。
 2. 選取左邊的 [Active Directory]。
 3. 在 [Active Directory] 頁面上，在有您要啟用的使用者之目錄上按兩下。
-4. 在目錄頁面頂端，選取 [授權]。
-5. 在 [授權] 頁面上，選取 [Active Directory Premium] 或 [Enterprise Mobility Suite]，然後按一下 [指派]。
+4. 在 [目錄] 頁面頂端，選取 [**授權**]。
+5. 在 [授權] 頁面上，選取 [Active Directory Premium] 或 [Enterprise Mobility Suite]，然後按一下 [**指派**]。
 6. 在對話方塊中，選取您要對其指派授權的使用者，然後按一下核取記號圖示，以儲存變更。
 
 
@@ -247,7 +248,7 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 
 [Azure AD Connect Health](active-directory-aadconnect-health.md) - 監控內部部署 AD FS 基礎結構的健全狀況。
 
-[Azure AD Connect 常見問題集](active-directory-aadconnect-faq.md) - 關於 Azure AD Connect 的常見問題集。
+〈[Azure AD Connect 常見問題集](active-directory-aadconnect-faq.md)〉- 關於 Azure AD Connect 的常見問題集。
 
 
 
@@ -256,4 +257,4 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

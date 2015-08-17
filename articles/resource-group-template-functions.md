@@ -388,4 +388,4 @@
 - 建立資源類型時若要逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)
 - 若要了解如何部署您建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

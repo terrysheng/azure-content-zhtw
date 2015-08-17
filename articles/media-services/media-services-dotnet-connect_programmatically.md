@@ -171,14 +171,14 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 下列 App.config 檔案包含必要的連線值。<appSettings> 元素中的值是您在媒體服務帳戶設定程序中取得的必要值。
 
 
-<pre><code>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</code></pre>
+```
+&lt;configuration&gt;
+    &lt;appSettings&gt;
+	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
+    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
+    &lt;/appSettings&gt;
+&lt;/configuration&gt;
+```
 
 若要從組態擷取連線值，可以使用 **ConfigurationManager** 類別，然後將值指派至程式碼中的欄位：
 	
@@ -191,4 +191,4 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -20,4 +20,4 @@
 
 您現在已經建立可供行動應用程式使用的新行動服務。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

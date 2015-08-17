@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="物聯網專用的 Azure Service Fabric Actor"
-   description="Azure Service Fabric Actor 是系統中的主要建置組塊 (作為中介層)，結合了支援多個傳輸 (例如 HTTPS、MQTT 或 AMQP) 的傳訊系統前端，然後與代表個別裝置的動作項目通訊。"
+   pageTitle="物聯網 Reliable Actor"
+   description="Service Fabric Reliable Actor 是系統中的主要建置組塊 (作為中介層)，結合了支援多個傳輸 (例如 HTTPS、MQTT 或 AMQP) 的傳訊系統前端，然後與代表個別裝置的動作項目通訊。"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -14,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/01/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Service Fabric Actor 設計模式：物聯網
-隨著科技進步 IoT 已成為裝置與雲端服務的新趨勢，因此開發人員開始尋找夠用來開發系統的主要建置組塊。下圖說明使用 Azure Service Fabric Actor 可達成的重要案例：
+# Reliable Actor 設計模式：物聯網
+隨著科技進步 IoT 已成為裝置與雲端服務的新趨勢，因此開發人員開始尋找夠用來開發系統的主要建置組塊。下圖說明使用 Service Fabric Reliable Actor 可達成的重要案例：
 
 ![][1]
 
-Azure Service Fabric Actor 是系統中的主要建置組塊 (作為中介層)，結合了支援多個傳輸 (例如 HTTPS、MQTT 或 AMQP) 的傳訊系統前端，然後與代表個別裝置的動作項目通訊。由於動作項目能夠維持狀態，因此依裝置製作資料流的模型與彙總是很簡單的，尤其是可設定狀態的資料流處理。如果必須保存資料，我們便能夠輕鬆地依需求或按計時器排清，同時仍能輕鬆地在另一個變數中維護最後 N 位元的資料，以供快速查詢。請注意在我們的範例中，我們刻意省略讓動作項目能與裝置通訊的事件/傳訊層詳細資料，以專注在動作項目模型上。基本上通常會將兩個案例組合在一起：
+Service Fabric Reliable Actor 是系統中的主要建置組塊 (作為中介層)，結合了支援多個傳輸 (例如 HTTPS、MQTT 或 AMQP) 的傳訊系統前端，然後與代表個別裝置的動作項目通訊。由於動作項目能夠維持狀態，因此依裝置製作資料流的模型與彙總是很簡單的，尤其是可設定狀態的資料流處理。如果必須保存資料，我們便能夠輕鬆地依需求或按計時器排清，同時仍能輕鬆地在另一個變數中維護最後 N 位元的資料，以供快速查詢。請注意在我們的範例中，我們刻意省略讓動作項目能與裝置通訊的事件/傳訊層詳細資料，以專注在動作項目模型上。基本上通常會將兩個案例組合在一起：
 
 * *收集一個或一組裝置的遙測與狀態資料，並維護其狀態*。想一想成千上萬個會傳送資訊的補鼠器 (是的，這是真實的客戶案例)，這和裝置是否已補獲到老鼠一樣的基本。資料會依照區域彙總，當一個區域補獲到足夠的老鼠，便會派遣工程師清除裝置。將補鼠器比做動作項目？ 當然。將各區域的群組動作項目作為彙總者？ 沒錯。
 
@@ -216,6 +216,5 @@ Azure Service Fabric Actor 也負責動作項目的生命週期。不妨如此�
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

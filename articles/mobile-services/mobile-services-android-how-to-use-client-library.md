@@ -299,7 +299,7 @@
 `id` 的值必須是唯一的，且不可包含下列字元集中的字元：
 
 + 控制字元：[0x0000-0x001F] 和 [0x007F-0x009F]。如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1] (英文)。
-+  可列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?** (0x003F)、**** (0x005C)、**`** (0x0060)
++  可列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?** (0x003F)、**\** (0x005C)、**`** (0x0060)
 +  識別碼 "." 和 ".."
 
 另外，您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱「使用 CLI 管理行動服務資料表」。
@@ -562,7 +562,7 @@
     </ListView>
 	
 
-在上述程式碼中，*listitem* 屬性會指定清單中個別資料列的配置 ID。以下提供會指定核取方塊及其相關文字的程式碼。清單中的每個項目會分別使其具現化一次。更複雜的配置將會指定顯示畫面中的其他欄位。此程式碼位於 *row_list_to_do.xml* 檔案中。
+在上述程式碼中，*listitem* 屬性會指定清單中個別資料列的配置 ID。以下提供會指定核取方塊及其相關文字的程式碼。清單中的每個項目會分別使其具現化一次。更複雜的配置將會指定顯示畫面中的其他欄位。此程式碼位於 *row\_list\_to\_do.xml* 檔案中。
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -579,7 +579,7 @@
 
 ### <a name="adapter"></a>作法：定義配接器
 	
-由於我們的檢視資料來源是 *ToDoItem* 的陣列，因此我們將配接器設為 *ArrayAdapter&lt;ToDoItem&gt;* 類別的子類別。這個子類別會為每個使用 *row_list_to_do* 配置的 *ToDoItem* 產生一個檢視。
+由於我們的檢視資料來源是 *ToDoItem* 的陣列，因此我們將配接器設為 *ArrayAdapter&lt;ToDoItem&gt;* 類別的子類別。這個子類別會為每個使用 *row\_list\_to\_do* 配置的 *ToDoItem* 產生一個檢視。
 
 我們在程式碼中定義了下列類別，這是 *ArrayAdapter&lt;E&gt;* 類別的擴充功能：
 
@@ -928,4 +928,4 @@
 [ASCII 控制碼 C0 和 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

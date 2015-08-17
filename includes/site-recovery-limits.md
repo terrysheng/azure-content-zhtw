@@ -1,3 +1,4 @@
+
 下列限制適用於 Azure Site Recovery：
 
 
@@ -10,4 +11,4 @@
 |每個保護群組的伺服器數目|沒有限制|
 |每個復原計畫的伺服器數目|50|
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

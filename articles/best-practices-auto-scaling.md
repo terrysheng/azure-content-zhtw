@@ -133,4 +133,4 @@ Azure 自動調整可讓您設定解決方案的相應放大和相應縮小選�
 - [Microsoft.WindowsAzure.Management.Monitoring.Autoscale 命名空間](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.monitoring.autoscale.aspx)
 - MSDN 上的[自動調整應用程式區塊](http://msdn.microsoft.com/library/hh680892%28v=pandp.50%29.aspx)文件和重要案例。
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

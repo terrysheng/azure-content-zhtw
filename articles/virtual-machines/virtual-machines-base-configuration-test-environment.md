@@ -84,7 +84,7 @@
 
 您必須為雲端服務選擇唯一的名稱。*雲端服務名稱可以包含字母、數字和連字號。欄位中的第一個和最後一個字元，必須是字母或數字。*
 
-例如，雲端服務的名稱可以是 TestVNET-\*UniqueSequence\*，其中的 *UniqueSequence* 是貴公司的縮寫。例如，如果貴公司名稱是 Tailspin Toys，則可以將雲端服務命名為 TestVNET-Tailspin。
+例如，雲端服務可命名為 TestLab-*UniqueSequence*，其中 *UniqueSequence* 是貴公司的縮寫。例如，如果貴公司名稱是 Tailspin Toys，則可以將雲端服務命名為 TestVNET-Tailspin。
 
 您可以使用這個 Azure PowerShell 命令，測試名稱是否重複。
 
@@ -134,7 +134,7 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 3.	提示開啟 DC1.rdp 時，按一下 [開啟]。
 4.	顯示 [遠端桌面連線] 訊息方塊後，按一下 [連接]。
 5.	出現輸入認證的提示時，使用下列：
-- 名稱：**DC1\\**[本機系統管理員帳戶名稱]
+- 名稱：**DC1\**[本機系統管理員帳戶名稱]
 - 密碼：[本機系統管理員帳戶密碼]
 6.	顯示憑證相關的 [遠端桌面連線] 訊息方塊提示時，按一下 [是]。
 
@@ -163,7 +163,7 @@ DC1 重新啟動之後，重新連接到 DC1 的虛擬機器。
 3.	提示開啟 DC1.rdp 時，按一下 [開啟]。
 4.	顯示 [遠端桌面連線] 訊息方塊後，按一下 [連接]。
 5.	出現輸入認證的提示時，使用下列：
-- 名稱：**CORP\\**[本機系統管理員帳戶名稱]
+- 名稱：**CORP\**[本機系統管理員帳戶名稱]
 - 密碼：[本機系統管理員帳戶密碼]
 6.	顯示憑證相關的 [遠端桌面連線] 訊息方塊提示時，按一下 [是]。
 
@@ -242,7 +242,8 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 2.	在 [CLIENT1 的屬性] 中，按一下 [IE 增強式安全性設定] 旁的 [開啟]。
 3.	在 [Internet Explorer 增強式安全性設定] 中，按一下 [系統管理員] 和 [使用者] 的 [關閉]，然後按一下 [確定]。
 4.	從 [開始] 畫面中，按一下 [Internet Explorer]，然後按一下 [確定]。
-5.	在網址列中，輸入 **http://app1.corp.contoso.com/**，然後按下 ENTER。您應該會看到 APP1 的預設網際網路資訊服務網頁。6.	按一下桌面工作列中的 [檔案總管] 圖示。
+5.	在網址列中，鍵入 ****http://app1.corp.contoso.com/**，然後按下 ENTER。您應該會看到 APP1 的預設網際網路資訊服務網頁。
+6.	按一下桌面工作列中的 [檔案總管] 圖示。
 7.	在網址列中，輸入 **\\\\app1\\Files**，然後按下 ENTER。
 8.	您應該會看到一個資料夾視窗，裡面有檔案共用資料夾的內容。
 9.	在 [檔案] 共用資料夾視窗中，按兩下 **Example.txt** 檔案。您應該會看到 Example.txt 檔案的內容。
@@ -288,4 +289,4 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

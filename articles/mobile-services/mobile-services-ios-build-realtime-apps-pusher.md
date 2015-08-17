@@ -18,9 +18,6 @@
 
 
 # 使用行動服務和 Pusher 建立即時應用程式
-<div class="dev-center-tutorial-selector sublanding">
-	<a href="" title="iOS" class="current">iOS</a>
-</div>
 
 本主題將示範如何在您的 Azure 行動服務型應用程式中新增即時功能。完成時，您的 TodoList 資料將在您應用程式所有執行中的執行個體上即時同步。
 
@@ -76,11 +73,11 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 	- Security.framework
 	- SystemConfiguration.framework
 
-9. 最後，在 [組建設定] 中，找出目標組建設定 [Other Linker Flags]，並新增 **-all_load** 旗標。
+9. 最後，在 [組建設定] 中，找出目標組建設定 [Other Linker Flags]，並新增 **-all\_load** 旗標。
 
 	![][add-linker-flag]
 
-	這會顯示對偵錯組建目標設定的 **-all_load** 旗標。
+	這會顯示對偵錯組建目標設定的 **-all\_load** 旗標。
 
 程式庫現已安裝好可供使用。
 
@@ -240,7 +237,7 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 		    }];
 		}
 
-11. 以稍早從 [連線資訊] 對話方塊複製的 app_key 值，來取代 `**your_app_key**` 預留位置。
+11. 以稍早從 [連線資訊] 對話方塊複製的 app\_key 值，來取代 `**your_app_key**` 預留位置。
 
 12. 以下列程式碼取代 **onAdd** 方法：
 
@@ -444,4 +441,4 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 [行動服務伺服器指令碼參照]: http://go.microsoft.com/fwlink/p/?LinkId=262293
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # 使用系統更新來更新伺服器
@@ -23,7 +23,7 @@
 
 ## 使用系統更新來更新伺服器
 
-在 Microsoft Azure Operational Insights 中使用系統更新之前，您必須安裝解決方案。如需閱讀安裝解決方案的更多資訊，請參閱[使用解決方案資源庫來新增或移除解決方案](operational-insights-add-solution.md)。安裝後，您可以檢視受監視伺服器缺少的更新，方法是在 Operational Insights 的 [**概觀**] 頁面上使用 [**系統更新評估**] 磚。
+在 Microsoft Azure Operational Insights 中使用系統更新之前，您必須安裝解決方案。如需閱讀安裝解決方案的更多資訊，請參閱[使用解決方案資源庫來新增或移除解決方案](operational-insights-setup-workspace.md)。安裝後，您可以檢視受監視伺服器缺少的更新，方法是在 Operational Insights 的 [**概觀**] 頁面上使用 [**系統更新評估**] 磚。
 
 ### 使用更新
 
@@ -36,4 +36,4 @@
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

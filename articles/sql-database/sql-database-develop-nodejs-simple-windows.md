@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="07/30/2015" 
 	ms.author="mebha"/>
 
 
@@ -33,7 +33,7 @@
 用戶端開發電腦上必須有下列軟體項目。
 
 
--  Node.js - [0.8.9 版 (32 位元版本)](http://blog.nodejs.org/2012/09/11/node-v0-8-9-stable/)。捲動並按一下適用於 32 位元 x86 的 Window Installer 下載連結，而不是 Windows x64 Installer 64 位元。
+-  Node.js - [0\.8.9 版 (32 位元版本)](http://blog.nodejs.org/2012/09/11/node-v0-8-9-stable/)。捲動並按一下適用於 32 位元 x86 的 Window Installer 下載連結，而不是 Windows x64 Installer 64 位元。
 - [Python 2.7.6](https://www.python.org/download/releases/2.7.6/)，適用於 x86 或 x64 的安裝程式。 
 - [Visual C++ 2010](https://app.vssps.visualstudio.com/profile/review?download=true&family=VisualStudioCExpress&release=VisualStudio2010&type=web&slcid=0x409&context=eyJwZSI6MSwicGMiOjEsImljIjoxLCJhbyI6MCwiYW0iOjEsIm9wIjpudWxsLCJhZCI6bnVsbCwiZmEiOjAsImF1IjpudWxsLCJjdiI6OTY4OTg2MzU1LCJmcyI6MCwic3UiOjAsImVyIjoxfQ2) - Microsoft 免費提供的 Express 版。
 - SQL Server Native Client 11.0 - 以 [SQL Server 2012 功能套件](http://www.microsoft.com/download/details.aspx?id=29065)中的 Microsoft SQL Server 2012 Native Client 提供。
@@ -41,25 +41,12 @@
 
 ### 安裝必要的模組
 
+在您達成需求後，請確定您是在 Node.js 版本 0.8.9 上。您可以從您的命令列終端機，使用下列命令：node -v.。<br>在 **cmd.exe** 命令列視窗中，瀏覽至您的專案目錄，例如：C:\\NodeJSSQLProject。請依照顯示的順序輸入下列命令。
 
-在 **cmd.exe** 命令列視窗中，巡覽至 msnodesql 所在的目錄。請依照顯示的順序輸入下列命令。
-
-
+	npm init
 	npm install msnodesql
-	npm install -g node-gyp
 
-
-安裝 node-gyp 之後，請巡覽至您的目錄 *您的專案目錄*，再巡覽至 **node_modules\msnodesql**。然後在您的 **cmd.exe** 視窗中發出下列命令。
-
-
-	node-gyp configure 
-	node-gyp build
-
-
-接下來，巡覽至目錄 **build\release**。複製 **sqlserver.node** 檔案並貼到 **msnodesql\lib** 目錄中。如有必要，請取代舊的檔案。
-
-請查看我們的[小組部落格](http://blogs.msdn.com/b/sqlphp/archive/2015/05/12/getting-started-with-node-js-and-microsoft-sql-server-and-azure-sql-database.aspx)和[影片](https://www.youtube.com/watch?v=kQo_L-D_zk8)，以了解如何安裝及設定上述需求。
-
+接著瀏覽至 node\_modules\\msnodesql 資料夾，並執行 **msnodesql 0.2.1-v0.8 ia32** 可執行檔。請遵循安裝精靈的步驟，並在完成時叫按一下 [完成]。此時您應已安裝 Node.js SQL Server 驅動程式。請依照後續步驟以取得連接字串，然後您應能從 Node.js 應用程式連接到 Azure SQL DB。
 
 ### 建立資料庫並擷取您的連接字串
  
@@ -234,4 +221,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

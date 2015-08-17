@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/05/2015" 
 	ms.author="Justinha"/>
 
@@ -187,4 +187,4 @@ Azure AD 中的部分可自訂元素有多個使用案例。公司標誌可以�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB 資源模型和概念 | Azure" 
+	pageTitle="DocumentDB 資源模型和概念 | Microsoft Azure" 
 	description="Microsoft Azure DocumentDB 是完全受到管理的 NoSQL 文件資料庫，其使用由資料庫帳戶、資料庫、集合、預存程序、觸發程序、UDF、文件、附件、媒體、使用者及權限所組成的階層式模型來管理資源。"  
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="08/03/2015" 
 	ms.author="anhoh"/>
 
 #DocumentDB 資源模型和概念
@@ -118,9 +118,9 @@ DocumentDB 不會要求您提供用於 JSON 標準或特殊編碼的專屬延伸
   
 資源也具有使用者定義的唯一名稱，並透過資源的 id 屬性公開。id 是使用者定義的字串，最多 256 個字元，且在特定父系資源的內容中會是唯一的。例如，給定集合內所有文件的 id 屬性值都是唯一的，但是在不同集合中則不一定如此。同樣地，給定使用者之所有權限的 id 屬性值是唯一的，但是在所有使用者中則不一定如此。rid 屬性可用來建構資源的可定址 self 連結。
 
-每個資源還會擁有系統產生的階層式資源識別碼 (也稱為 RID)，其可透過 rid 屬性取得。_RID 會對給定資源的整個階層進行編碼，此內部表示法十分方便，可透過分散方式強制執行參考完整性。RID 在資料庫帳戶內是唯一的，由 DocumentDB 在內部使用，以進行有效率的路由，而不需要跨資料分割進行查閱。
+每個資源還會有系統產生的階層式資源識別碼 (也稱為 RID)，其可透過 _rid 屬性取得。RID 會對給定資源的整個階層進行編碼，此內部表示法十分方便，可透過分散方式強制執行參考完整性。RID 在資料庫帳戶內是唯一的，DocumentDB 會在內部使用，以進行有效率的路由，而不需要跨資料分割進行查閱。
 
-self 和 rid 屬性值都是用來表示資源的標準方法，並可互相替代。
+_self 和 _rid 屬性值都是用來表示資源的標準方法，並可互相替代。
 
 ##資料庫帳戶
 您可以使用 Azure 訂用帳戶佈建一或多個 DocumentDB 資料庫帳戶。系統將會為每個標準層資料庫帳戶提供一個 S1 集合中的最小容量。
@@ -431,7 +431,7 @@ DocumentDB 可讓您將二進位 Blob/媒體儲存至 DocumentDB 或您自己的
 
 請注意，範例使用易記 ID 來傳達資源階層。資源是透過 REST API 以根據唯一資源 ID 進行存取。
 
-針對 DocumentDB 所管理的媒體，附件的 media 屬性將會依媒體的 URI 來參考媒體。_DocumentDB 將會在捨棄所有未完成的參考時，確保回收媒體的記憶體，如果您上傳新的媒體並填入 media 以指向新增的媒體，則 DocumentDB 會自動產生附件。_如果您選擇將媒體儲存在您所管理的遠端 Blob 存放區中 (例如 OneDrive、Azure Storage、DropBox 等)，則還是可以使用附件來參考媒體。在此情況下，您將自行建立附件，並填入其 media 屬性中。
+針對 DocumentDB 所管理的媒體，附件的 _media 屬性將會依媒體的 URI 來參考媒體。DocumentDB 將會在捨棄所有未完成的參考時，確保回收媒體的記憶體，如果您上傳新的媒體並填入 _media 以指向新增的媒體，則 DocumentDB 會自動產生附件。如果您選擇將媒體儲存在您所管理的遠端 Blob 存放區中 (例如 OneDrive、Azure Storage、DropBox 等)，則還是可以使用附件來參考媒體。在此情況下，您將自行建立附件，並填入其 _media 屬性中。
 
 與所有其他資源相同，使用 REST API 或任何用戶端 SDK，即可輕鬆地建立、取代、刪除、讀取或列舉附件。與文件相同，附件的讀取一致性層級會遵循資料庫帳戶的一致性原則。根據您應用程式的資料一致性需求，可以覆寫每個要求的這個原則。查詢附件時，讀取一致性會遵循集合上所設定的索引模式。為求「一致」，這會遵循帳戶的一致性原則。
 ##使用者
@@ -468,4 +468,4 @@ DocumentDB 使用者代表用於分組權限的邏輯命名空間。DocumentDB �
 [3]: media/documentdb-resources/resources3.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

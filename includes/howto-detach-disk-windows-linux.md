@@ -31,4 +31,4 @@
 
 磁碟仍留在儲存體中，但不再連接至虛擬機器。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

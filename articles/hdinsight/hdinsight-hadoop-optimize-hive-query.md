@@ -27,8 +27,8 @@
 
 - 在佈建階段，您可以使用 Azure 入口網站、Azure PowerShell 或跨平台命令列介面指定背景工作節點的數目。如需詳細資訊，請參閱[佈建 HDInsight 叢集](hdinsight-provision-clusters.md)。下列畫面顯示 Azure 入口網站上的工作者節點組態：
 
-	![scaleout_1][image-hdi-optimize-hive-scaleout_1]
-- 在執行階段，您可以也相應放大叢集，而不需重新一個叢集。這如以下所示。![scaleout_1][image-hdi-optimize-hive-scaleout_2]
+	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
+- 在執行階段，您可以也相應放大叢集，而不需重新一個叢集。這如以下所示。![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
 
 如需 HDInsight 支援的各種虛擬機器的詳細資訊，請參閱 [HDInsight 定價](http://azure.microsoft.com/pricing/details/hdinsight/)。
 
@@ -36,7 +36,7 @@
 
 [Apache Tez](http://hortonworks.com/hadoop/tez/) 是 MapReduce 引擎的替代執行引擎：
 
-![tez_1][image-hdi-optimize-hive-tez_1]
+![tez\_1][image-hdi-optimize-hive-tez_1]
 
 
 Tez 比較迅速，因為：
@@ -215,4 +215,4 @@ ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方�
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

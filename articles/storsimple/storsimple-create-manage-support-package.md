@@ -199,4 +199,4 @@
 
 了解如何[使用支援封裝和裝置記錄對裝置部署進行疑難排解](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

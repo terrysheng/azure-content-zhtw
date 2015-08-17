@@ -221,4 +221,4 @@ Azure Data Factory 編輯器是 Azure Preview 入口網站中的簡易型 Web �
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

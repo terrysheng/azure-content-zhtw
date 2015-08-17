@@ -30,7 +30,7 @@
 
 1. 啟動 [登錄編輯器]。<br> ![執行](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy01.png)
 
-2. 瀏覽至或建立下列登錄機碼：<br> **HKLM_LOCAL_MACHINE\\Software\\Microsoft\\Cloud App Discovery\\Endpoint**
+2. 瀏覽至或建立下列登錄機碼：<br> **HKLM\_LOCAL\_MACHINE\\Software\\Microsoft\\Cloud App Discovery\\Endpoint**
 
 3. 建立新的**多字串**值，稱為**連接埠**。![新增](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy02.png)
 
@@ -48,4 +48,4 @@
 
 * [如何探索組織內使用未經批准的雲端應用程式](active-directory-cloudappdiscovery-whatis.md) 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

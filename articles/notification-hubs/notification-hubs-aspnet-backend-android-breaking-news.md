@@ -36,7 +36,7 @@
 
 第一個步驟是在您現有的主要活動上新增 UI 元素，以便使用者選取要註冊的類別。使用者所選取的類別會儲存在裝置上。啟動應用程式時，您的通知中心內會建立以所選取類別作為標籤的裝置註冊。
 
-1. 開啟您的 res/layout/activity_main.xml 檔案，並將內容取代為下列項目：
+1. 開啟您的 res/layout/activity\_main.xml 檔案，並將內容取代為下列項目：
 			
 		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		    xmlns:tools="http://schemas.android.com/tools"
@@ -96,7 +96,7 @@
 	    <string name="label_science">Science</string>
 	    <string name="label_sports">Sports</string>
 
-	您的 main_activity.xml 圖形配置看起來應該如下所示：
+	您的 main\_activity.xml 圖形配置看起來應該如下所示：
 
 	![][A1]
 
@@ -319,4 +319,4 @@
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

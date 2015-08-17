@@ -262,4 +262,4 @@
 
 [使用 StorSimple Snapshot Manager 來檢視和管理磁碟區](storsimple-snapshot-manager-manage-volumes.md)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

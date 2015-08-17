@@ -35,7 +35,8 @@
 
 ##<a id="run"></a>使用查詢主控台執行 Hive 查詢
 
-1. 開啟網頁瀏覽器並瀏覽至 __https://CLUSTERNAME.azurehdinsight.net__，其中 __CLUSTERNAME__ 是您的 HDInsight 叢集名稱。出現提示時，輸入您建立叢集時所使用的使用者名稱和密碼。
+1. 開啟網頁瀏覽器並瀏覽至 \_\___https://CLUSTERNAME.azurehdinsight.net__，其中 __CLUSTERNAME__ 是您的 HDInsight 叢集名稱。出現提示時，輸入您建立叢集時所使用的使用者名稱和密碼。
+
 
 2. 在頁面頂端的連結中，選取 [**Hive 編輯器**]。這會顯示一個表單，而此表單可用來輸入您要在 HDInsight 叢集中執行的 HiveQL 陳述式。
 
@@ -119,4 +120,4 @@
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -100,4 +100,4 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

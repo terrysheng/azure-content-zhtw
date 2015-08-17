@@ -18,10 +18,11 @@
 
 #Azure 通知中心安全推播
 
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a> <a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android" class="current">Android</a>
-</div>
-
+> [AZURE.SELECTOR]
+- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
+- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+    
 ##概觀
 
 Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播基礎結構，而大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。
@@ -131,4 +132,4 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 4. 在 Android 應用程式 UI 中，按一下 [登入]。然後按一下 [傳送推播]。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

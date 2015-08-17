@@ -105,4 +105,4 @@ SDK 的情況十分類似。使用 SDK 建立與佈建叢集的說明已記錄�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

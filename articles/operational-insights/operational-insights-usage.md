@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # 管理伺服器和使用量資料
@@ -27,7 +27,7 @@ Operational Insights 會收集資料，並定期將資料傳送給 Operational I
 
 ![伺服器和使用量磚的影像](./media/operational-insights-usage/overview-servers-usage.png)
 
-如果您已超過每日使用量上限，或如果接近限制，您可以選擇性地移除解決方案來減少傳送至 Operational Insights 服務的資料量。如需移除解決方案的詳細資訊，請參閱[使用解決方案資源庫來新增或移除解決方案](operational-insights-add-solution.md)。
+如果您已超過每日使用量上限，或如果接近限制，您可以選擇性地移除解決方案來減少傳送至 Operational Insights 服務的資料量。如需移除解決方案的詳細資訊，請參閱[使用解決方案資源庫來新增或移除解決方案](operational-insights-setup-workspace.md)。
 
 如果 Operations Manager 管理群組將資料傳送至 Operational Insights 服務時發生問題，您可以疑難排解問題，或在需要時從 Operational Insights 移除群組。
 
@@ -59,4 +59,4 @@ Operational Insights 會收集資料，並定期將資料傳送給 Operational I
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

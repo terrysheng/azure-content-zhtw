@@ -54,4 +54,4 @@ Service Fabric 是分散式系統平台，可讓您輕鬆建置可擴充、可�
 - [應用程式案例](service-fabric-application-scenarios.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -161,4 +161,4 @@ Android 的**開始使用資料**教學課程到此結束。
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

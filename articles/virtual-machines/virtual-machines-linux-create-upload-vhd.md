@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="07/29/2015"
 	ms.author="dkshir"/>
 
 # 建立及上傳包含 Linux 作業系統的虛擬硬碟
@@ -66,6 +66,8 @@ Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](../linux-en
 
 ### 如果使用 Azure CLI
 
+使用 Azure AD 方法登入：
+
 1. 開啟 Azure CLI 視窗
 
 2. 輸入：
@@ -74,7 +76,7 @@ Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](../linux-en
 
 	出現提示時，輸入您的使用者名稱和密碼。
 
-**或者**，若要改為使用 PublishSettings 檔案：
+**或者**，改為使用 PublishSettings 檔案：
 
 1. 開啟 Azure CLI 視窗
 
@@ -92,8 +94,22 @@ Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](../linux-en
 
 	其中 `<PathToFile>` 是 .publishsettings 檔案的完整路徑。
 
+	如需詳細資訊，請參閱[從 Azure CLI 連接至 Azure](../xplat-cli-connect.md)。
+
 
 ### 如果使用 Azure PowerShell
+
+使用 Azure AD 方法登入：
+
+1. 開啟 Azure PowerShell 視窗。
+
+2. 輸入：
+
+	`Add-AzureAccount`
+
+	出現提示時，請鍵入貴組織的使用者識別碼和密碼。
+
+**或者**，改為使用 PublishSettings 檔案。
 
 1. 開啟 Azure PowerShell 視窗。
 
@@ -113,6 +129,7 @@ Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](../linux-en
 
 	如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)
 
+> [AZURE.NOTE]建議您使用更新的 Azure Active Directory 方法，從 Azure CLI 或 Azure PowerShell 登入您的 Azure 訂用帳戶。
 
 ## <a id="upload"> </a>步驟 3：將映像上傳至 Azure ##
 
@@ -141,4 +158,4 @@ Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](../linux-en
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

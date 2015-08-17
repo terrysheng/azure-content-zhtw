@@ -154,7 +154,7 @@ Azure 儲存體帳戶是可讓您存取 Azure 儲存體中 Blob、佇列、資�
 
 2. 在儲存體帳戶項目中名稱以外的任何位置，然後按一下 [刪除]。
 
-	 -或-
+	 \-或-
 
 	按一下儲存體帳戶名稱以開啟儀表板，然後按一下 [刪除]。
 
@@ -167,4 +167,4 @@ Azure 儲存體帳戶是可讓您存取 Azure 儲存體中 Blob、佇列、資�
 - 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

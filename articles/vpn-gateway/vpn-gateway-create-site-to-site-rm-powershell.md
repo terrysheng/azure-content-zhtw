@@ -123,7 +123,7 @@ Azure 目前有兩種部署模型：傳統部署模型和 Azure 資源管理員�
 在此步驟中，您將建立虛擬網路閘道。輸入下列值：
 
 - 閘道類型為 *Vpn*。
-- VpnType 可以是 RouteBased \* (在某些文件中稱為動態閘道)，或*以原則為基礎* (在某些文件中稱為靜態閘道)。如需 VPN 閘道類型的詳細資訊，請參閱[關於 VPN 閘道](vpn-gateway-about-vpngateways.md)。 	
+- VpnType 可以是 RouteBased * (在某些文件中稱為動態閘道)，或*以原則為基礎* (在某些文件中稱為靜態閘道)。如需 VPN 閘道類型的詳細資訊，請參閱[關於 VPN 閘道](vpn-gateway-about-vpngateways.md)。 	
 
 		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
@@ -152,4 +152,4 @@ Azure 目前有兩種部署模型：傳統部署模型和 Azure 資源管理員�
 
 將虛擬機器新增至虛擬網路。[建立虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

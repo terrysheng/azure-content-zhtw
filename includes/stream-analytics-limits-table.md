@@ -1,8 +1,9 @@
+
 | 限制識別碼 | 限制 | 註解 |
 |----------------- | ------------|--------- |
 | 每個區域的每個訂用帳戶串流單位數目上限 | 50 | 如需要求將訂用帳戶的串流單位數目增加至 50 個以上，請連絡 [Microsoft 支援](https://support.microsoft.com/zh-tw)。 |
-| 串流單位的最大輸送量 | 1 MB/秒\* | 每個 SU 的最大輸送量取決於視案例。實際的輸送量可能較低，而且取決於查詢複雜性和資料分割。可在[調整 Azure 串流分析工作以增加輸送量](../articles/stream-analytics/stream-analytics-scale-jobs.md)文章中找到進一步的詳細資料。 |
+| 串流單位的最大輸送量 | 1 MB/秒* | 每個 SU 的最大輸送量取決於視案例。實際的輸送量可能較低，而且取決於查詢複雜性和資料分割。可在[調整 Azure 串流分析工作以增加輸送量](../articles/stream-analytics/stream-analytics-scale-jobs.md)文章中找到進一步的詳細資料。 |
 | SELECT 陳述式查詢限制 | 每個查詢 5 個輸出 | 未來可能會增加此限制。 |
 | SELECT 陳述式的子查詢限制 | 每個子查詢 14 個彙總 | 未來可能會增加此限制。 |
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

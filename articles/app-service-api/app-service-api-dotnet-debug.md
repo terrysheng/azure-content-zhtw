@@ -95,15 +95,15 @@
 	![API 應用程式主機針對本機偵錯的應用程式設定](./media/app-service-api-dotnet-debug/ld-app-settings-for-local-debugging.png)
 
 9. 在 [應用程式設定] 中，找出下列每個值，並將這些值加入 *web.config* 檔案的 **appSettings** 區段。
-	- **EMA_MicroserviceId**
-	- **EMA_Secret**
-	- **EMA_RuntimeUrl**
+	- **EMA\_MicroserviceId**
+	- **EMA\_Secret**
+	- **EMA\_RuntimeUrl**
 
 	完成之後，*web.config* 的 **appSettings** 區段應該會類似以下螢幕擷取畫面。
 
 	![API 應用程式主機針對本機偵錯的應用程式設定](./media/app-service-api-dotnet-debug/ld-debug-settings.png)
 
-	**注意：**您在本節中新增至 *web.config* 檔案的 *EMA_* 值包含機密的授權資訊。因此，將此檔案送到公開的原始檔控制媒介時 (例如 *github*)，請務必謹慎小心，因為其他人會看見這些機密資訊。如需詳細資訊，請參閱[將密碼和其他機密資料部署到 ASP.NET 和 Azure App Service 的最佳作法](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) (英文)。
+	**注意：**您在本節中新增至 *web.config* 檔案的 *EMA\_* 值包含機密的授權資訊。因此，將此檔案送到公開的原始檔控制媒介時 (例如 *github*)，請務必謹慎小心，因為其他人會看見這些機密資訊。如需詳細資訊，請參閱[將密碼和其他機密資料部署到 ASP.NET 和 Azure App Service 的最佳作法](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) (英文)。
 
 10. 在 API 應用程式的控制器程式碼中，放置一個或多個中斷點 (在 `Get` 和 `Post` 方法中)。
 
@@ -139,4 +139,4 @@ App Service API 應用程式是具有額外功能 (用於裝載 Web 服務) 的 
 任何人皆可公開呼叫您在此系列中所建立的 API 應用程式。如需如何保護 API 應用程式使得只有已驗證使用者可加以呼叫的相關資訊，請參閱 [Azure App Service 中 API 應用程式和行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

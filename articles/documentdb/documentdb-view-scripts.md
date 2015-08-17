@@ -3,7 +3,7 @@
 	description="了解 DocumentDB [指令碼總管]，它是讓您檢視 DocumentDB 伺服器端程式設計成品 (包括預存程序、觸發程序和使用者定義函數) 的 Azure 預覽入口網站工具。"
 	services="documentdb"
 	authors="stephbaron"
-	manager="johnmac"
+	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
 
@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="06/10/2015"
 	ms.author="stbaro"/>
 
@@ -75,11 +75,11 @@
 
 	![[指令碼總管] 指令碼屬性檢視螢幕擷取畫面](./media/documentdb-view-scripts/scriptproperties.png)
 
-	> [AZURE.NOTE]時間戳記 (_ts) 屬性在內部會以 Epoch 時間表示，但是 [指令碼總管] 會以一般人可判讀的 GMT 格式顯示此值。
+	> [AZURE.NOTE]時間戳記 (\_ts) 屬性在內部會以 Epoch 時間表示，但是 [指令碼總管] 會以一般人可判讀的 GMT 格式顯示此值。
 
 ## 後續步驟
 
 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

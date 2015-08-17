@@ -1,4 +1,4 @@
-<properties pageTitle="在 Azure 中建立 Oracle WebLogic Server 12c 虛擬機器" description="逐步完成在 Microsoft Azure 中建立執行 Windows Server 2012 之 Oracle WebLogic Server 12c 虛擬機器的範例。" services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties title="Creating an Oracle WebLogic Server 12c Virtual Machine in Azure" pageTitle="在 Azure 中建立 Oracle WebLogic Server 12c 虛擬機器" description="逐步完成在 Microsoft Azure 中建立執行 Windows Server 2012 之 Oracle WebLogic Server 12c 虛擬機器的範例。" services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #在 Azure 中建立 Oracle WebLogic Server 12c 虛擬機器
 以下範例會向您說明如何在 Azure 中以由 Microsoft 所提供並在 Windows Server 2012 上執行的 Oracle WebLogic Server 12c 映像為基礎，建立虛擬機器。
@@ -154,7 +154,7 @@
 
 	8.	指定規則的名稱並選擇性指定描述，然後按一下 [完成]。
 
-12.	若要查看在網際網路上執行的購物車應用程式，請開啟瀏覽器並連線至格式為 `http://<<unique_domain_name>>/shoppingcart` 的 URL。(您可以按一下 [虛擬機器]，然後選取您用來執行 Orable WebLogic Server 的虛擬機器來決定 [Azure 入口網站](https://ms.portal.azure.com/) 中 <<\*unique\_domain\_name\*>> 的值)。
+12.	若要查看在網際網路上執行的購物車應用程式，請開啟瀏覽器並連線至格式為 `http://<<unique_domain_name>>/shoppingcart` 的 URL。(您可以按一下 [**虛擬機器**]，然後選取您用來執行 Orable WebLogic Server 的虛擬機器來決定 [Azure 入口網站](https://ms.portal.azure.com/)中 <<*unique\_domain\_name*>> 的值)。
 
 
 ##其他資源
@@ -168,4 +168,4 @@
 
 -	[適用於 Azure 的 Oracle 虛擬機器映像](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

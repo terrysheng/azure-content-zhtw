@@ -73,7 +73,10 @@
 下列程式碼範例會執行下列工作：
 
 1. 建立 CloudMediaContext 執行個體。 
-1. 建立 CloudStorageAccount 執行個體：_sourceStorageAccount 和 _destinationStorageAccount。1. 將 Smooth Streaming 檔案從本機目錄上傳至位於 _sourceStorageAccount 的 blob 容器中。1. 建立新資產。為此資產建立的 blob 容器位於 _destinationStorageAccount 中。1. 使用 Azure 儲存體 SDK 將指定的 blob 複製到與資產相關聯的容器。
+1. 建立 CloudStorageAccount 執行個體：\_sourceStorageAccount 和 \_destinationStorageAccount。
+1. 將 Smooth Streaming 檔案從本機目錄上傳至位於 \_sourceStorageAccount 的 blob 容器中。
+1. 建立新資產。為此資產建立的 blob 容器位於 \_destinationStorageAccount 中。
+1. 使用 Azure 儲存體 SDK 將指定的 blob 複製到與資產相關聯的容器。
 
 >[AZURE.NOTE]如果定位器已過期，複製作業不會擲回例外狀況。
 
@@ -283,4 +286,4 @@
 		}
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

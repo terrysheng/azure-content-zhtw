@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article" 
- ms.date="05/12/2015"
+ ms.date="08/04/2015"
  ms.author="krisragh"/>
 
 # 排程器概念、術語及實體階層
@@ -208,4 +208,4 @@
  [排程器輸出驗證](scheduler-outbound-authentication.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

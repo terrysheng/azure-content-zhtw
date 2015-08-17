@@ -39,7 +39,7 @@ Node.js 包含核心執行時期的一組最低功能。開發人員在開發 No
 
 	[AZURE.INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
 
-2. 切換至 **c:\node** 目錄，然後輸入下列命令來建立名為 **expressapp** 的新方案和名為 **WebRole1** 的 Web 角色：
+2. 切換至 **c:\\node** 目錄，然後輸入下列命令來建立名為 **expressapp** 的新方案和名為 **WebRole1** 的 Web 角色：
 
 		PS C:\node> New-AzureServiceProject expressapp
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
@@ -135,4 +135,4 @@ Node.js 包含核心執行時期的一組最低功能。開發人員在開發 No
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -71,7 +71,7 @@
 
 **注意：**如果您啟用 Swagger UI，並將 API 應用程式部署為「匿名公用」，則任何人都能夠使用 Swagger UI 探索及呼叫您的 API。
 
-1. 開啟 *App_Start/SwaggerConfig.cs* 檔案，並搜尋 **EnableSwaggerUI**：
+1. 開啟 *App\_Start/SwaggerConfig.cs* 檔案，並搜尋 **EnableSwaggerUI**：
 
 	![](./media/app-service-api-define-api-app/12-enable-swagger-ui-with-box.png)
 
@@ -97,4 +97,4 @@
 
 	![](./media/app-service-api-define-api-app/15-swagger-ui-post-test.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

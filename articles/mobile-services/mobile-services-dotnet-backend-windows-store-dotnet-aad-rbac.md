@@ -393,4 +393,4 @@
 [存取 Azure Active Directory Graph 資訊]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [適用於 .NET 的 ADAL]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

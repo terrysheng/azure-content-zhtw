@@ -14,8 +14,8 @@
 
     ![](./media/mobile-services-dotnet-backend-test-local-service-data/local-item-checked.png)
 
-5. 在 Visual Studio 中，您可以開啟 [伺服器總管] 並展開 [資料連線]，以檢視您為後端服務建立之資料庫中的變更。以滑鼠右鍵按一下 [MS_TableConnectionString] 下的 TodoItems 資料表，然後按一下 [顯示資料表資料]。
+5. 在 Visual Studio 中，您可以開啟 [伺服器總管] 並展開 [資料連線]，以檢視您為後端服務建立之資料庫中的變更。以滑鼠右鍵按一下 [MS\_TableConnectionString] 下的 TodoItems 資料表，然後按一下 [顯示資料表資料]。
 
     ![](./media/mobile-services-dotnet-backend-test-local-service-data/vs-show-local-table-data.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

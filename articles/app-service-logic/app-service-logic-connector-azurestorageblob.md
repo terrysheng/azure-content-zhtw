@@ -110,4 +110,4 @@ Blob 寫入內容 | 輸入要上傳之 Blob 的內容和屬性。
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

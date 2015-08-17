@@ -13,10 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/03/2015"
    ms.author="joaoma" />
 
 # 開始設定網際網路面向的負載平衡器
+
+> [AZURE.SELECTOR]
+- [Azure classic steps](load-balancer-internet-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
 
 Microsoft Azure 中的負載平衡服務可處理所有租用戶類型 (IaaS 或 PaaS) 和各種作業系統 (Windows 或任何以 Linux 為基礎的作業系統)。
 
@@ -135,4 +139,4 @@ Microsoft Azure 中的負載平衡服務可處理所有租用戶類型 (IaaS 或
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

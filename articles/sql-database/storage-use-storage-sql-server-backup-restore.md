@@ -53,8 +53,9 @@
 
 ## SQL Server 元件
 
-* URL：URL 指定唯一備份檔案的統一資源識別碼 (URI)。URL 用來提供 SQL Server 備份檔的位置和名稱。在此實作中，唯一有效的 URL 是指向 Azure 儲存體帳戶中分頁 Blob 的 URL。URL 必須指向實際的 Blob，而不只是指向容器。如果 Blob 不存在，便會建立它。如果指定現有的 Blob，則 BACKUP 會失敗，除非指定了 > WITH FORMAT 選項。以下是您會在 BACKUP 命令中指定的 URL 範例：**`http[s]://ACCOUNTNAME.Blob.core.windows.net/<CONTAINER>/<FILENAME.bak>` 
-<b>注意：</b> HTTPS 不是必要，但建議使用。<b>重要事項</b> 如果您選擇複製及上傳備份檔到 Azure Blob 儲存體服務，則必須使用分頁 Blob 類型作為儲存體選項 (如果您計劃使用此檔案進行還原作業的話)。從區塊 Blob 類型進行 RESTORE 會失敗並發生錯誤。
+* URL：URL 指定唯一備份檔案的統一資源識別碼 (URI)。URL 用來提供 SQL Server 備份檔的位置和名稱。在此實作中，唯一有效的 URL 是指向 Azure 儲存體帳戶中分頁 Blob 的 URL。URL 必須指向實際的 Blob，而不只是指向容器。如果 Blob 不存在，便會建立它。如果指定現有的 Blob，則 BACKUP 會失敗，除非指定了 > WITH FORMAT 選項。以下是您會在 BACKUP 命令中指定的 URL 範例：****`http[s]://ACCOUNTNAME.Blob.core.windows.net/<CONTAINER>/<FILENAME.bak>`
+
+<b>注意：</b>HTTPS 不是必要，但建議使用。<b>重要事項</b> 如果您選擇複製及上傳備份檔到 Azure Blob 儲存體服務，則必須使用分頁 Blob 類型作為儲存體選項 (如果您計劃使用此檔案進行還原作業的話)。從區塊 Blob 類型進行 RESTORE 會失敗並發生錯誤。
 
 * 認證：連接到 Azure Blob 儲存體服務進行驗證所需的資訊會儲存為認證。為了讓 SQL Server 將備份寫入 Azure Blob 或從 Azure Blob 還原，必須建立 SQL Server 認證。認證會存放儲存體帳戶的名稱以及儲存體帳戶存取金鑰。建立認證之後，發出 BACKUP/RESTORE 陳述式時，它必須指定在 WITH CREDENTIAL 選項中。如需如何建立 SQL Server 認證的逐步指示，請參閱 [SQL Server 備份及還原至 Azure Blob 儲存體服務使用者入門](http://go.microsoft.com/fwlink/?LinkId=271615)。
 
@@ -72,4 +73,4 @@
 
 [備份與還原最佳作法 (Azure Blob 儲存體服務)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

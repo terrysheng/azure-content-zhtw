@@ -115,7 +115,7 @@ YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程�
 您現在可以使用「應用程式歷程記錄用戶端」來列出已完成的應用程式、根據您的條件篩選應用程式，以及下載相關的應用程式記錄檔。下列程式碼片段示範如何以程式設計方式執行這項操作：
 
 	// Local download folder location where the logs will be placed
-	string downloadLocation = "E:\YarnApplicationLogs";
+	string downloadLocation = "E:\\YarnApplicationLogs";
 	
 	// List completed applications on your cluster that were submitted in the last 24 hours but failed
 	// Search for applications based on application name
@@ -137,7 +137,7 @@ YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程�
 
 上述程式碼會使用「應用程式歷程記錄用戶端」來列出/尋找感興趣的應用程式，然後將這些應用程式的記錄檔下載到本機資料夾。
 
-或者，也可以使用以下程式碼片段，針對已知其應用程式識別碼的應用程式來下載記錄檔。應用程式識別碼是 RM 指派給應用程式的全域唯一識別碼。其建構方式是使用 RM 的開始時間，連同提交給它之應用程式的依序遞增計數器，來進行建構。應用程式識別碼的格式為 "application_&lt;RM-start-time&gt;_&lt;Counter&gt;"。請注意，應用程式識別碼與工作識別碼截然不同。工作識別碼是 MapReduce 架構特定的概念，而應用程式識別碼則是跨架構的 YARN 概念。在 YARN 中，工作識別碼可識別特定的 MapReduce 工作，此工作是由提交給 RM 之 MapReduce 應用程式的 AM 處理。
+或者，也可以使用以下程式碼片段，針對已知其應用程式識別碼的應用程式來下載記錄檔。應用程式識別碼是 RM 指派給應用程式的全域唯一識別碼。其建構方式是使用 RM 的開始時間，連同提交給它之應用程式的依序遞增計數器，來進行建構。應用程式識別碼的格式為 "application\_&lt;RM-start-time&gt;\_&lt;Counter&gt;"。請注意，應用程式識別碼與工作識別碼截然不同。工作識別碼是 MapReduce 架構特定的概念，而應用程式識別碼則是跨架構的 YARN 概念。在 YARN 中，工作識別碼可識別特定的 MapReduce 工作，此工作是由提交給 RM 之 MapReduce 應用程式的 AM 處理。
 
 	// Download application logs for an application whose application ID is known
 	string applicationId = "application_1416017767088_0028";
@@ -173,4 +173,4 @@ YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程�
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

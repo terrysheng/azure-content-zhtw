@@ -1,9 +1,7 @@
 <properties 
 	pageTitle="在 Machine Learning 中使用線性迴歸 | Microsoft Azure" 
 	description="在 Excel 和 Azure Machine Learning Studio 中的線性迴歸模型的比較" 
-	metaKeywords="" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="garyericson" 
 	manager="paulettm" 
@@ -158,4 +156,4 @@
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

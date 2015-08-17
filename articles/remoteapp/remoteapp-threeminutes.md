@@ -3,7 +3,7 @@
     pageTitle="只需 3 分鐘或以下的時間便可在您的裝置上嘗試 Azure RemoteApp"
     description="在無需安裝服務的情況下測試磁碟機 Azure RemoteApp 功能。" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -37,4 +37,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

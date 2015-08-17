@@ -94,4 +94,4 @@ SQL 資料倉儲不允許您透過 INSERT 陳述式取用預存程序的結果�
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

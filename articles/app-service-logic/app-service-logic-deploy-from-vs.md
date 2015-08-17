@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2015"
+	ms.date="07/30/2015"
 	ms.author="stepsic"/>
 	
 # 從 Visual Studio 部署
@@ -23,7 +23,7 @@
 - 將邏輯應用程式連同其他資產一起儲存在方案中，因此可含括應用程式的所有層面。
 - 保持邏輯應用程式簽入原始檔控制中，讓您利用 TFS 或 Git 來追蹤它的修訂 
 
-您必須安裝 Azure SDK 2.6 才能執行下列步驟。在這裡尋找[最新版的 SDK for VS](http://azure.microsoft.com/downloads/)。
+您必須安裝 Azure SDK 2.7 或更新版本才能執行下列步驟。在這裡尋找[最新版的 SDK for VS](http://azure.microsoft.com/downloads/)。
 
 ## 建立專案
 
@@ -45,7 +45,7 @@
 
 目前，Visual Studio 沒有內建的設計工具，如果想要使用圖形介面 (而不是撰寫 JSON)，您需要使用 Azure 入口網站。
 
-如果您先前在 Azure 入口網站內建立邏輯應用程式，現在想要將它簽入原始檔控制中，您可以：移至入口網站中的 [**程式碼檢視**]，並複製定義。- 使用邏輯應用程式 [REST API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 取得定義。- 使用 [Azure 資源管理員 PowerShell](../powershell-azure-resource-manager.md) (特別是 [`Get-AzureResource` 命令](https://msdn.microsoft.com/library/dn654579.aspx)) 下載定義。
+如果您先前在 Azure 入口網站內建立邏輯應用程式，現在想要將它簽入原始檔控制中，您可以透過 3 種不同方法的其中之一來進行：移至入口網站中的 [**程式碼檢視**]，並複製定義。- 使用邏輯應用程式 [REST API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 取得定義。- 使用 [Azure 資源管理員 PowerShell](../powershell-azure-resource-manager.md) (特別是 [`Get-AzureResource` 命令](https://msdn.microsoft.com/library/dn654579.aspx)) 下載定義。
 
 ## 部署邏輯應用程式
 
@@ -65,4 +65,4 @@
 
 如果您不想使用 Visual Studio，但仍想有工具從原始檔控制來部署邏輯應用程式，您永遠都能直接利用 [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 或 [Powershell](../powershell-azure-resource-manager.md) 來自動化部署。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

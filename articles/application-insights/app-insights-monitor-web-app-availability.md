@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
@@ -69,7 +69,7 @@ Web 測試可分為兩種：
 
 #### 測試更多 URL
 
-您可以隨意為更多 URL 加入測試。例如，除了測試首頁，您也可以測試搜尋的 URL 來確定資料庫在執行中。
+加入更多測試。例如，除了測試首頁，您也可以測試搜尋的 URL 來確定資料庫在執行中。
 
 
 ### <a name="monitor"></a>3.檢視可用性報告
@@ -207,6 +207,16 @@ Web 測試外掛程式提供這種作法。
 
 當您在服務上進行維護時，您可能會想要停用 Web 測試。
 
+## 有疑問嗎？ 有問題嗎？
+
+* 在某些情況下我收到「無效的字元」相關錯誤 
+
+* **「Web 測試」和「可用性」之間有任何差異嗎？
+
+    我們會交替使用這兩個詞彙。
+
+
+
 ## <a name="video"></a>影片
 
 > [AZURE.VIDEO monitoring-availability-with-application-insights]
@@ -229,4 +239,4 @@ Web 測試外掛程式提供這種作法。
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

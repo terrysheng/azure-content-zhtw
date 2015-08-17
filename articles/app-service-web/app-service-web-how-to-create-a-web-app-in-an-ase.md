@@ -91,4 +91,4 @@ App Service 方案是一組受管理的 Web 應用程式。當您選取定價時
 [HowtoConfigureASE]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

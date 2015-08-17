@@ -96,4 +96,4 @@
 - [使用 Azure 入口網站管理資源](azure-portal/resource-group-portal.md)
 - [使用標記組織您的資源](./resource-group-using-tags.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

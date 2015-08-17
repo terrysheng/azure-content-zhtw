@@ -51,7 +51,7 @@
 2. 確認要求來自 Azure API 管理 (選擇性，但基於安全性理由，強烈建議這麼做)
 
 	* 根據 **returnUrl** 和 **salt** 查詢參數，計算字串的 HMAC-SHA512 雜湊 ([以下提供範例程式碼])：
-        > **returnUrl**
+        > HMAC(**salt** + '\\n' + **returnUrl**)
 		 
 	* 比較以上計算的雜湊和 **sig** 查詢參數的值。如果兩個雜湊相符，則繼續下一步，否則拒絕要求。
 
@@ -107,7 +107,7 @@
 2. 確認要求來自 Azure API 管理 (選擇性，但基於安全性理由，強烈建議這麼做)
 
 	* 根據 **productId**、**userId** 和 **salt** 查詢字串，計算字串的 HMAC-SHA512：
-		> **productId****userId**
+		> HMAC(**salt** + '\\n' + **productId** + '\\n' + **userId**)
 		 
 	* 比較以上計算的雜湊和 **sig** 查詢參數的值。如果兩個雜湊相符，則繼續下一步，否則拒絕要求。
 	
@@ -168,4 +168,4 @@
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

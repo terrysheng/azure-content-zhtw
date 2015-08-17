@@ -9,17 +9,17 @@
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
+   ms.date="08/03/2015"
    ms.author="joaoma" />
 
 # 開始使用 Azure 資源管理員設定網際網路面向的負載平衡器
 
 
 > [AZURE.SELECTOR]
-- [Service Manager steps](load-balancer-internet-getstarted.md)
+- [Azure Classic steps](load-balancer-internet-getstarted.md)
 - [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
 
 
@@ -251,4 +251,4 @@ PS C:\> $backendnic1
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -203,4 +203,4 @@ ADAL 可讓您輕鬆地將常見的身分識別功能納入您的應用程式。
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

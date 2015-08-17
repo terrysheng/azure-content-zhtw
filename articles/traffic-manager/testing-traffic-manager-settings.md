@@ -21,11 +21,11 @@
 
 ## 基本測試步驟
 
--**設定非常低的 DNS TTL**，方便快速傳播變更 - 例如 30 秒。
+\-**設定非常低的 DNS TTL**，方便快速傳播變更 - 例如 30 秒。
 
--**知道正在測試的設定檔中您 Azure 雲端服務和網站的 IP 位址**。
+\-**知道正在測試的設定檔中您 Azure 雲端服務和網站的 IP 位址**。
 
--**使用可讓您將 DNS 名稱解析成 IP 位址的工具**，並顯示該位址。您正查看公司網域名稱是否解析成設定檔中端點的 IP 位址。他們的解析方法應與流量管理員設定檔的負載平衡方法一致。如果您是使用執行 Windows 的電腦，您可以從命令或 Windows PowerShell 命令提示字元使用 Nslookup.exe 工具。可讓您「挖掘」IP 位址的其他公開可用工具在網際網路上隨手可得。
+\-**使用可讓您將 DNS 名稱解析成 IP 位址的工具**，並顯示該位址。您正查看公司網域名稱是否解析成設定檔中端點的 IP 位址。他們的解析方法應與流量管理員設定檔的負載平衡方法一致。如果您是使用執行 Windows 的電腦，您可以從命令或 Windows PowerShell 命令提示字元使用 Nslookup.exe 工具。可讓您「挖掘」IP 位址的其他公開可用工具在網際網路上隨手可得。
 
 ### 使用 nslookup 檢查流量管理員設定檔
 
@@ -57,4 +57,4 @@
 [關於流量管理員的負載平衡方法](../about-traffic-manager-balancing-methods.md) [流量管理員組態工作](https://msdn.microsoft.com/library/azure/hh744830.aspx) [流量管理員](../traffic-manager.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

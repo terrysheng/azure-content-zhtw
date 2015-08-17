@@ -30,7 +30,7 @@
 
 ## 取得 docker-machine -- 或建置它
 
-開始使用 **docker-machine** 的最快速方式是直接從[版本共用](https://github.com/docker/machine/releases)中下載適當的版本。本教學課程中的用戶端電腦是在 x64 電腦上執行 Ubuntu，因此，會用到 **docker-machine_linux-amd64** 映像。
+開始使用 **docker-machine** 的最快速方式是直接從[版本共用](https://github.com/docker/machine/releases)中下載適當的版本。本教學課程中的用戶端電腦是在 x64 電腦上執行 Ubuntu，因此，會用到 **docker-machine\_linux-amd64** 映像。
 
 您也可以依照[參與 machine 建置](https://github.com/docker/machine#contributing)的步驟，自行建置 **docker-machine**。您應該已準備好下載最多可達 1 GB 或以上來執行組建，不過這樣做，您就可以精確自訂所需的方式。
 
@@ -38,7 +38,7 @@
 
 <br />
 
->  不論您選擇哪一個方法，都必須在命令列上直接呼叫二進位檔，或者放置二進位檔的路徑，例如 **/usr/local/bin**。請記得輸入 `chmod +x` &lt;*`binaryName`*&gt; 來確定已將它標記為可執行檔，其中 &lt;*`binaryName`*&gt; 是 Docker machine 可執行檔的名稱。本教學課程使用 **docker-machine_linux-amd64**。
+>  不論您選擇哪一個方法，都必須在命令列上直接呼叫二進位檔，或者放置二進位檔的路徑，例如 **/usr/local/bin**。請記得輸入 `chmod +x` &lt;*`binaryName`*&gt; 來確定已將它標記為可執行檔，其中 &lt;*`binaryName`*&gt; 是 Docker machine 可執行檔的名稱。本教學課程使用 **docker-machine\_linux-amd64**。
 
 ## 建立適用於 docker、machine 及 Azure 的憑證和金鑰檔
 
@@ -210,4 +210,4 @@
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -3,7 +3,7 @@
 	description="深入了解 DocumentDB Document Explorer 是一項 Azure 預覽入口網站工具，可用來檢視、編輯、建立和上傳使用 DocumentDB 的 JSON 文件。"
 	services="documentdb"
 	authors="stephbaron"
-	manager="johnmac"
+	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
 
@@ -113,7 +113,7 @@ Document Explorer 可讓您輕鬆地建立、編輯和刪除文件。
 
 	![[Document Explorer] 文件屬性檢視的螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/documentproperties.png)
 
-	> [AZURE.NOTE]時間戳記 (_ts) 屬性在內部會以 Epoch 時間表示，但是 Document Explorer 會以一般人可判讀的 GMT 格式顯示此值。
+	> [AZURE.NOTE]時間戳記 (\_ts) 屬性在內部會以 Epoch 時間表示，但是 Document Explorer 會以一般人可判讀的 GMT 格式顯示此值。
 
 ##<a id="BulkAdd"></a>使用 Document Explorer 大量新增文件##
 
@@ -140,4 +140,4 @@ Document Explorer 支援大量擷取一或多個現有 JSON 文件。
 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

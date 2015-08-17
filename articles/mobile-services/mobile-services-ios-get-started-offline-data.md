@@ -30,7 +30,7 @@
 * 跨多個裝置同步資料
 * 在兩個裝置修改同一筆記錄時偵測到衝突
 
-> [AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得[免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務](http://azure.microsoft.com/pricing/details/mobile-services/)。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="_blank")。
+> [AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得[免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務](http://azure.microsoft.com/pricing/details/mobile-services/)。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank")。
 
 本教學課程以[行動服務快速入門教學課程]為基礎，您必須先完成該教學課程。我們先來檢閱在＜快速入門＞中與離線同步相關的程式碼。
 
@@ -110,10 +110,10 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
 - 開啟 **QSDataModel.xcdatamodeld**。已定義了四個資料表，其中三個由 SDK 使用，一個供 todo 項目本身使用：
 
-      * MS_TableOperations：用來追蹤要與伺服器同步處理的項目
-      * MS_TableOperationErrors：用來追蹤在離線同步處理期間發生的錯誤
-      * MS_TableConfig：用來追蹤所有提取作業最後一次同步處理作業的上次更新時間
-      * TodoItem：用來儲存 todo 項目。系統資料行 **ms_createdAt**、**ms_updatedAt** 和 **ms_version** 為選擇性系統屬性。
+      * MS\_TableOperations：用來追蹤要與伺服器同步處理的項目
+      * MS\_TableOperationErrors：用來追蹤在離線同步處理期間發生的錯誤
+      * MS\_TableConfig：用來追蹤所有提取作業最後一次同步處理作業的上次更新時間
+      * TodoItem：用來儲存 todo 項目。系統資料行 **ms\_createdAt**、**ms\_updatedAt** 和 **ms\_version** 為選擇性系統屬性。
 
 >[AZURE.NOTE]行動服務 SDK 會保留以 "**`ms_`**" 開頭的資料行名稱。請不要在系統資料行以外的項目使用此前置詞。否則，您的資料行名稱會在使用遠端服務時被修改。
 
@@ -121,7 +121,7 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
     ### 系統資料表
 
-    #### MS_TableOperations
+    #### MS\_TableOperations
 
     | 屬性 | 類型 |
     |-------------- |   ------    |
@@ -131,7 +131,7 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
     | 資料表 | String |
     | tableKind | 整數 16 |
 
-    #### MS_TableOperationErrors
+    #### MS\_TableOperationErrors
 
     | 屬性 | 類型 |
     |-------------- | ----------  |
@@ -140,7 +140,7 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
     | properties | 二進位資料 |
     | tableKind | 整數 16 |
 
-    #### MS_TableConfig
+    #### MS\_TableConfig
 
 
     | 屬性 | 類型 |
@@ -160,7 +160,7 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
     | 識別碼 (必要) | String | 遠端存放區中的主要金鑰 |
     | 完成 | Boolean | todo 項目欄位 |
     | 文字 | String | todo 項目欄位 |
-    | ms_createdAt | 日期 | (選用) 對應至 __createdAt 系統屬性 | | ms_updatedAt | 日期 | (選用) 對應至 __updatedAt 系統屬性 | | ms_version | 字串 | (選用) 用於偵測衝突，對應至 __version |
+    | ms\_createdAt | Date | (選用) 對應至 \_\_createdAt 系統屬性 | | ms\_updatedAt | 日期 | (選用) 對應至 \_\_updatedAt 系統屬性 | | ms\_version | 字串 | (選用) 用於偵測衝突，對應至 \_\_version |
 
 
 
@@ -271,4 +271,4 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
 [行動服務快速入門教學課程]: mobile-services-ios-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

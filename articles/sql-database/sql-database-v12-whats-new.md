@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/21/2015" 
+	ms.date="08/05/2015" 
 	ms.author="genemi"/>
 
 
@@ -150,17 +150,14 @@ V12 資料庫只能裝載在 V12 邏輯伺服器上。而 V12 只可以裝載 V1
 ## <a name="V12AzureSqlDbPreviewGaTable"></a>預覽區域
 
 
-V12 已於 2014 年 12 月發行，但是僅以[預覽](http://azure.microsoft.com/support/legal/preview-supplemental-terms/)狀態提供。到了 2015 年 4 月，V12 幾乎在所有的地理區域中都已「公開上市 (GA)」。
+V12 已於 2014 年 12 月發行，但是僅以預覽狀態提供。
 
 
-V12 在下列區域，僅提供「預覽」：
+- [Microsoft Azure 預覽專用的使用補充條款](http://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 
-| Azure 區域 | V12 的目前<br/>版本狀態 | 升級至 GA<br/> 的日期 (估計) |
-| :--- | :--- | :--- |
-| 澳洲東部 | **預覽** | 行事曆 2015 的第三季 (估計) |
-| 澳洲東南部 | **預覽** | 行事曆 2015 的第三季 (估計) |
+2015 年 7 月 31，所有地區都已升級至公開上市 (GA)。
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

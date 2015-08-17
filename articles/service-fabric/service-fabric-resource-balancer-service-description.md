@@ -78,7 +78,7 @@ Task t = fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 - 不能跨無狀態與具狀態的服務使用。
 - 無法跨含不同執行個體計數的無狀態服務使用，例如，兩個無狀態服務在建立時都應具有相同的 InstanceCount 屬性。
 - 不能跨含不同複本數目的變動性或持續性具狀態服務使用，例如，兩個服務都應指定相同的 Target 和 Min ReplicaSetSizes 值。
-- 不能搭配分割服務使用。每個服務皆必須有 FABRIC_PARTITION_SCHEME_SINGLETON 資料分割配置。
+- 不能搭配分割服務使用。每個服務皆必須有 FABRIC\_PARTITION\_SCHEME\_SINGLETON 資料分割配置。
 - 同質關聯性和服務描述的其他屬性一樣，都會在建立服務時設定，而且無法修改。
 - 不允許服務的鏈結。如果有多個服務必須帶入同質關聯性，則必須使用「星型」模型。
 
@@ -229,4 +229,4 @@ Task t = fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 [Image3]: media/service-fabric-resource-balancer-service-description/MW.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

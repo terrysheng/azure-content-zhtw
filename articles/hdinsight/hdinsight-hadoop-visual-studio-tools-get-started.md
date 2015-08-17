@@ -1,7 +1,6 @@
 <properties
 	pageTitle="學習使用適用於 HDInsight 的 Visual Studio Hadoop 工具 | Microsoft Azure"
 	description="了解如何安裝和使用適用於 HDInsight 的 Visual Studio Hadoop 工具來連線到 Hadoop 叢集和執行 Hive 查詢。"
-	keywords="hadoop tools,hive query,visual studio"
 	services="HDInsight"
 	documentationCenter=""
 	authors="mumian"
@@ -67,7 +66,7 @@ HDInsight Tools for Visual Studio 封裝在 Microsoft Azure SDK for .NET 2.5.1 �
 2.	從 [**檢視**] 功能表中，按一下 [**伺服器總管**] 以開啟 [伺服器總管] 視窗。
 3.	展開 [**Azure**]，然後展開 [**HDInsight**]。
 
-	>[AZURE.NOTE]**HDInsight 工作清單****其他視窗****檢視****HDInsight 工作清單視窗**  
+	>[AZURE.NOTE]請注意，應會開啟 [**HDInsight 工作清單**] 視窗。如果沒看見，請從 [**檢視**] 功能表中按一下 [**其他視窗**]，然後按一下 [**HDInsight 工作清單視窗**]，即可開啟此視窗。  
 4.	輸入您的 Azure 訂用帳戶認證，然後按一下 [**登入**]。只有當您從未在此工作站上從 Visual Studio 連線到 Azure 訂用帳戶時，才需要這樣做。
 5.	在 [伺服器總管] 中，您會看到現有 HDInsight 叢集的清單。如果您沒有任何叢集，您可以使用 Azure 入口網站、Azure PowerShell 或 HDInsight SDK 來佈建一個。如需詳細資訊，請參閱[佈建 HDInsight 叢集][hdinsight-provision]。
 
@@ -141,7 +140,7 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 
 	![Hadoop 工具：HDInsight Visual Studio 工具 IntelliSense][14]
 
-	> [AZURE.NOTE]
+	> [AZURE.NOTE]只會建議 HDInsight [工具列] 中已選取的叢集中繼資料。
 4. (選擇性)：按一下 [**驗證指令碼**] 檢查指令碼語法錯誤。
 
 	![Hadoop 工具：HDInsight Tools for Visual Studio 本機驗證][10]
@@ -236,4 +235,4 @@ HDInsight Tools for Visual Studio 支援建立 Pig 指令碼並提交至 HDInsig
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

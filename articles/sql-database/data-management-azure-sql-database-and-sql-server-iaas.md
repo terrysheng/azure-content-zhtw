@@ -140,7 +140,7 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 
 目前，您可以在數個服務層中使用 [**Azure SQL Database**]。若是基本、標準和高階服務層，我們會根據您所選擇的服務層和效能層級，以固定費率向您收取每小時的費用。基本、標準和高階服務層的設計目的在於提供多個效能層級的可預測效能，以滿足應用程式的尖峰需求。您可以在服務層和效能層級之間進行變更，以滿足應用程式的不同輸送量需求。如需目前支援的服務層最新資訊，請參閱 [Azure SQL Database 服務層 (版本)](http://msdn.microsoft.com/library/azure/dn741340.aspx)。
 
-有了 [**Azure SQL Database**]，世界各地資料中心內的 Microsoft Azure 便會自動設定、修補和升級資料庫軟體。因此，您就能降低管理成本。此外，它[內建的備份](http://msdn.microsoft.com/library/azure/jj650016.aspx)功能可協助您達到有效節省成本，尤其是當您擁有為數眾多的資料庫時效果更為顯著。使用 Azure SQL Database 時，您不必支付針對 Azure SQL Database 執行的個別查詢或傳入/傳出網際網路流量費用。如果您的資料庫具有高交易量，且必須支援許多並行使用者，建議您使用高階 (而不是基本或標準) 服務層。
+有了 [**Azure SQL Database**]，世界各地資料中心內的 Microsoft Azure 便會自動設定、修補和升級資料庫軟體。因此，您就能降低管理成本。此外，它[內建的備份](http://msdn.microsoft.com/library/azure/jj650016.aspx)功能可協助您達到有效節省成本，尤其是當您擁有為數眾多的資料庫時效果更為顯著。使用 Azure SQL Database 時，您不必支付針對 Azure SQL Database 執行的個別查詢或傳入網際網路流量費用。您需要支付[網際網路傳出流量](http://azure.microsoft.com/pricing/details/data-transfers/)。如果您的資料庫具有高交易量，且必須支援許多並行使用者，建議您使用高階 (而不是基本或標準) 服務層。
 
 有了 [**Azure VM 中的 SQL Server**]，您可以利用傳統的 SQL Server 授權。您可以使用平台所提供的 SQL Server 映像，或在 Azure 中使用您的 SQL Server 授權。使用 SQL Server 平台所提供的映像時，成本會取決於您所選擇的 VM 大小以及 SQL Server 版本。基本上，您須支付 SQL Server 的每分鐘授權成本、Windows Server 每分鐘授權和 Azure 儲存體成本。每分鐘計費選項可讓您隨時使用 SQL Server，而無需購買完整的 SQL Server 授權。如果在 Azure 中使用自己的 SQL Server 授權，您僅需支付 Azure 計算和儲存體成本。如需詳細資訊，請參閱 [Azure 上透過軟體保證的授權機動性](http://azure.microsoft.com/pricing/license-mobility/)。
 
@@ -175,7 +175,7 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 
 相反地，您可能有內部專業人員，並想保持只由機器本身控制資料庫位置。有了 [**Azure VM 中執行的 SQL Server**]，您可以完全掌控作業系統和 SQL Server 執行個體組態。有了 VM，您可以決定何時更新/升級作業系統與資料庫軟體，以及何時安裝任何其他軟體 (例如防毒和備份工具)。此外，您還可以控制 VM 的大小、磁碟的數目及其儲存體組態。例如，Azure 可讓您視需要變更正在執行的 VM 大小。如需相關資料，請參閱 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)。
 
-###<a name="sla"></a>服務等級協定 (SLA)
+###<a name="sla"></a>服務等級協定 (SLA)：
 
 對於某些人而言，達到服務等級協定 (SLA) 的正常運作時間義務是首要任務。在本節中，我們將瞭解 SLA 對每個資料庫主控選項所代表的意義。
 
@@ -253,4 +253,4 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

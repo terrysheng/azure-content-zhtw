@@ -285,4 +285,4 @@ Azure 虛擬機器可用來執行完整而連續的 SharePoint 部署。Azure �
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

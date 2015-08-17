@@ -112,4 +112,4 @@ Mellanox 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以�
 
 [深入了解 StorSimple 硬體元件](https://msdn.microsoft.com/library/azure/dn757755.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

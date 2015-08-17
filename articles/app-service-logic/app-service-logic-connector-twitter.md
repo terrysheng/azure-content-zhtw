@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/14/2015"
+   ms.date="07/28/2015"
    ms.author="sameerch"/>
 
 
@@ -23,10 +23,11 @@
 
 - 取得與指定的關鍵字或文字相關聯的新推文。擷取到新推文時，它會觸發工作流程的新執行個體，並將資料傳遞到工作流程中的下一個連接器。例如，您可建立 Twitter 連接器，並使用 [搜尋新推文] 觸發程序監視 #peanutbutterandjelly。只要 #peanutbutterandjelly 有新的推文，就會自動啟動您的工作流程 (也稱為邏輯應用程式)。
 - 使用不同的動作 (例如 [搜尋推文])，您可以取得回應，並在您的工作流程內加以使用。例如，您可以在推文中搜尋您公司的名稱。找到時，您可以使用邏輯應用程式將此資料寫入 SQL Server 資料庫。然後，使用 SQL Server 資料判斷有關貴公司的推文。 
+- 在 [Twitter 搜尋](https://twitter.com/search) 中使用所有運算子。選取**運算子**連結。Twitter 連接器支援所有列出的運算子。
 
 
 ## 觸發程序和動作
-*觸發程序*是發生的事件。例如，新的推文可以觸發或啟動工作流程或程序。「動作」是某項目的結果。例如，您可以搜尋特定推文，並在找到時，傳送電子郵件或更新資料庫。
+*觸發程序*是發生的事件。例如，新的推文可以觸發或啟動工作流程或程序。*動作*是某項目的結果。例如，您可以搜尋特定推文，並在找到時，傳送電子郵件或更新資料庫。
 
 Twitter 連接器可以在邏輯應用程式中用作觸發程序或動作，且支援 JSON 和 XML 格式的資料。
 
@@ -92,4 +93,4 @@ Twitter 連接器提供下列觸發程序和動作：
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/actions.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -40,7 +40,7 @@ RemoteApp 會利用遠端桌面通訊協定 (RDP) 與 RemoteFX 來提供重新�
 - USB 重新導向：您可以在遠端工作階段期間使用與本機電腦連接的 USB 裝置。
 
 ## 在 RemoteApp 中變更重新導向設定
-您可以使用 Microsoft Azure PowerShell 搭配 SDK，變更集合的裝置重新導向設定。在您安裝新的 PowerShell 與 SDK 之後，請先依照[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)中所述進行設定以管理您的訂用帳戶。
+您可以使用 Microsoft Azure PowerShell 搭配 SDK，變更集合的裝置重新導向設定。在您安裝新的 PowerShell 與 SDK 之後，請先依照[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)中所述進行設定以管理您的訂閱。
 
 接著使用和下面類似的命令來設定自訂 RDP 屬性：
 
@@ -83,7 +83,7 @@ RemoteApp 會利用遠端桌面通訊協定 (RDP) 與 RemoteFX 來提供重新�
 若要在電腦設定 USB 重新導向設定：
 
 1. 開啟本機群組原則編輯器 (GPEDIT.MSC)。(從命令提示字元中執行 gpedit.msc)。
-2. 開啟 [電腦設定][原則][系統管理範本][Windows 元件][遠端桌面服務][遠端桌面連線用戶端][RemoteFX USB 裝置重新導向]。
+2. 開啟 [電腦設定]\\[原則]\\[系統管理範本]\\[Windows 元件]\\[遠端桌面服務]\\[遠端桌面連線用戶端]\\[RemoteFX USB 裝置重新導向]。
 3. 按兩下 [允許 RDP 重新導向這部電腦中其他支援的 RemoteFX USB 裝置]。
 4. 選取 [已啟用]，然後在 [RemoteFX USB 重新導向存取權限] 中選取系統管理員與使用者。
 5. 以系統管理權限開啟命令提示字元，然後執行下列命令： 
@@ -97,9 +97,9 @@ RemoteApp 會利用遠端桌面通訊協定 (RDP) 與 RemoteFX 來提供重新�
 2. 開啟 [群組原則管理主控台]。(按一下 [開始] > [系統管理工具] > [群組員則管理]。)
 3. 瀏覽到您想要建立原則的網域或組織單位。
 4. 右键单击 **默认域策略**, ，然后单击 **编辑**。
-5. 開啟 [電腦設定][原則][系統管理範本][Windows 元件][遠端桌面服務][遠端桌面連線用戶端][RemoteFX USB 裝置重新導向]。
+5. 開啟 [電腦設定]\\[原則]\\[系統管理範本]\\[Windows 元件]\\[遠端桌面服務]\\[遠端桌面連線用戶端]\\[RemoteFX USB 裝置重新導向]。
 6. 按兩下 [允許 RDP 重新導向這部電腦中其他支援的 RemoteFX USB 裝置]。
 7. 選取 [已啟用]，然後在 [RemoteFX USB 重新導向存取權限] 中選取系統管理員與使用者。
 8. 按一下 [確定]。  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

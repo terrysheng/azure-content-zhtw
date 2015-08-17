@@ -103,4 +103,4 @@ FROM dbo.DimProduct;
 <!--Other Web references-->
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

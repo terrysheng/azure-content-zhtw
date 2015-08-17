@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tamram"/>
 
 # Microsoft Azure 儲存體簡介
@@ -93,7 +93,9 @@ Azure Premium 儲存體目前僅支援 Azure 虛擬機器磁碟。透過 [Azure 
 
 每個 Blob 會組織成一個容器。容器也提供對物件群組指派安全原則的實用方式。儲存體帳戶可包含任意數目的容器，而容器可包含任意數目的 Blob，儲存體帳戶的容量限制高達 500 TB。
 
-Blob 儲存體提供兩種 Blob 類型：區塊 Blob 和頁面 Blob (磁碟)。區塊 Blob 已針對串流和儲存雲端物件進行最佳化，是儲存文件、媒體檔案、備份等的不錯選擇。區塊 Blob 的大小上限為 200 GB。頁面 Blob 已針對顯示 IaaS 磁碟與支援隨機寫入進行最佳化，且大小可能可以高達 1 TB。Azure 虛擬機器網路附加 IaaS 磁碟是以頁面 Blob 方式儲存的 VHD。
+Blob 儲存體提供三種類型的 Blob，包括區塊 Blob、附加 Blob 及分頁 Blob (磁碟)。區塊 Blob 已針對串流和儲存雲端物件進行最佳化，是儲存文件、媒體檔案、備份等的不錯選擇。附加 Blob 和區塊 Blob 類似，但已針對附加作業最佳化。附加 Blob 只能透過在結尾加入新的區塊來更新。對於如記錄等僅需要將新資料寫入 Blob 結尾的情況，附加 Blob 是不錯的選擇。
+
+頁面 Blob 已針對顯示 IaaS 磁碟與支援隨機寫入進行最佳化，且大小可能可以高達 1 TB。Azure 虛擬機器網路附加 IaaS 磁碟是以頁面 Blob 方式儲存的 VHD。
 
 若是超大型資料集，網路限制會使得透過線路上傳或下載資料至 Blob 儲存體變得不切實際，您可以將硬碟送至 Microsoft，以便使用 [Azure 匯入/匯出服務](storage-import-export-service.md)直接從資料中心匯入或匯出資料。您也可以複製儲存體帳戶或跨不同儲存體帳戶內的 Blob 資料。
 
@@ -171,6 +173,7 @@ Azure 儲存體可透過 [REST API](http://msdn.microsoft.com/library/azure/dd17
 - [Azure 儲存體 NuGet 封裝 - .NET、Windows Phone 和 Windows Runtime 的用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Azure SDK 及工具](http://azure.microsoft.com/downloads/)
 - [Azure 儲存體模擬器](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
+- [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409)
 
 ### 原始程式碼
 
@@ -183,7 +186,9 @@ Azure 儲存體可透過 [REST API](http://msdn.microsoft.com/library/azure/dd17
 - [AzCopy 命令列工具參考](storage-use-azcopy.md)
 
 ### 針對 PowerShell 使用者
-- [Azure 儲存體 Cmdlet](http://msdn.microsoft.com/library/azure/dn806401.aspx)
+- [搭配使用 Azure PowerShell 與 Azure 儲存體](storage-powershell-guide-full.md)
+- [適用服務管理的 Azure 儲存體 Cmdlets](http://msdn.microsoft.com/library/azure/dn806401.aspx)
+- [適用 Azure 資源管理員的 Azure 儲存體 Cmdlets](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
 ### 針對 .NET 開發人員
 
@@ -191,6 +196,7 @@ Azure 儲存體可透過 [REST API](http://msdn.microsoft.com/library/azure/dd17
 - [如何使用 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)
 - [如何使用 .NET 的資料表儲存體](storage-dotnet-how-to-use-tables.md)
 - [如何使用 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md)
+- [如何搭配 PowerShell 與 .NET 使用檔案儲存體](storage-dotnet-how-to-use-files.md)
 
 ### 針對 Java/Android 開發人員
 
@@ -224,4 +230,4 @@ Azure 儲存體可透過 [REST API](http://msdn.microsoft.com/library/azure/dd17
 - [如何使用 Python 的佇列儲存體](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -4,7 +4,7 @@
 
 # 管理 API：版本 2014-07-31-Preview
 
-本文說明 **2014-07-31-Preview** 版本的 Azure 搜尋管理 REST API。它之後已取代為 MSDN 上的公開上市版本：[Azure 搜尋管理 REST API 2015-02-28](https://msdn.microsoft.com/library/dn832684.aspx)。________________________________________
+本文說明 **2014-07-31-Preview** 版本的 Azure 搜尋管理 REST API。它之後已取代為 MSDN 上的公開上市版本：[Azure 搜尋管理 REST API 2015-02-28](https://msdn.microsoft.com/library/dn832684.aspx)。\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ## 服務管理作業
 
@@ -815,4 +815,4 @@ Azure 資源管理員的存取控制會使用內建擁有者、參與者和讀�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

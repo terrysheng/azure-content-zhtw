@@ -114,18 +114,18 @@
 在使用「核心資料離線」存放區時，您需要在資料模型中定義特定資料表和欄位。範例應用程式已經包含具有正確格式的資料模型。本這一節中，我們將逐步介紹這些資料表以及其使用方式。
 
 - 開啟 **QSDataModel.xcdatamodeld**。已定義四個資料表--其中三個由 SDK 使用，而一個適用於 todo 項目本身：
-      * MS_TableOperations：用於追蹤需要與伺服器同步的項目
-      * MS_TableOperationErrors：用於追蹤在離線同步處理期間發生的任何錯誤
-      * MS_TableConfig：用於追蹤所有提取作業的最後一次同步處理作業的上次更新時間
-      * TodoItem：用來儲存 todo 項目。系統資料行 **ms_createdAt**、**ms_updatedAt** 和 **ms_version** 為選擇性系統屬性。
+      * MS\_TableOperations：用於追蹤需要與伺服器同步的項目
+      * MS\_TableOperationErrors：用於追蹤在離線同步處理期間發生的任何錯誤
+      * MS\_TableConfig：用於追蹤所有提取作業的最後一次同步處理作業的上次更新時間
+      * TodoItem：用來儲存 todo 項目。系統資料行 **ms\_createdAt**、**ms\_updatedAt** 和 **ms\_version** 為選擇性系統屬性。
 
->[AZURE.NOTE]行動應用程式 SDK 會保留以 "**`ms_`**" 開頭的資料行名稱。您不得在系統資料行以外的任何項目上使用此前置詞，否則會在使用遠端後端時修改您的資料行名稱。
+>[AZURE.NOTE]Mobile App SDK 會保留以 "**`ms_`**" 開頭的資料行名稱。您不得在系統資料行以外的任何項目上使用此前置詞，否則會在使用遠端後端時修改您的資料行名稱。
 
 - 使用離線同步功能時，您必須先定義系統資料表，如下所示。
 
     ### 系統資料表
 
-    **MS_TableOperations**
+    **MS\_TableOperations**
 
     ![][defining-core-data-tableoperations-entity]
 
@@ -137,7 +137,7 @@
     | 資料表 | String |
     | tableKind | 整數 16 |
 
-    <br>**MS_TableOperationErrors**
+    <br>**MS\_TableOperationErrors**
 
     ![][defining-core-data-tableoperationerrors-entity]
 
@@ -148,7 +148,7 @@
     | properties | 二進位資料 |
     | tableKind | 整數 16 |
 
-    <br>**MS_TableConfig**
+    <br>**MS\_TableConfig**
 
     ![][defining-core-data-tableconfig-entity]
 
@@ -172,7 +172,7 @@
     | id | String | 遠端存放區中的主索引鍵 |
     | 完成 | Boolean | todo 項目欄位 |
     | 文字 | String | todo 項目欄位 |
-    | ms_createdAt | 日期 | (選用) 對應至 __createdAt 系統屬性 | | ms_updatedAt | 日期 | (選用) 對應至 __updatedAt 系統屬性 | | ms_version | 字串 | (選用) 用於偵測衝突，對應至 __version |
+    | ms\_createdAt | Date | (選用) 對應至 \_\_createdAt 系統屬性 | | ms\_updatedAt | 日期 | (選用) 對應至 \_\_updatedAt 系統屬性 | | ms\_version | 字串 | (選用) 用於偵測衝突，對應至 \_\_version |
 
 
 ## <a name="setup-sync"></a>變更應用程式的同步處理行為
@@ -282,4 +282,4 @@
 [Azure Friday：Azure 行動服務中的離線應用程式]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

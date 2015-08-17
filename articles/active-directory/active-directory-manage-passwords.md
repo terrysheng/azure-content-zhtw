@@ -47,4 +47,4 @@
 - [在 Azure AD 中建立或編輯使用者](active-directory-create-users.md)
 - [在 Azure AD 中管理群組](active-directory-manage-groups.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

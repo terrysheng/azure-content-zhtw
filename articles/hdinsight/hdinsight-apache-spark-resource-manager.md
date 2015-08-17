@@ -79,4 +79,4 @@ HDInsight 中的 Apache Spark 叢集是專為多租用戶所設計，因此資�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

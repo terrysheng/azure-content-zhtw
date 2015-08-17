@@ -162,7 +162,7 @@
 
     1.  在 Azure 管理入口網站中，按一下 [**雲端服務**]。
 
-    2.  在雲端服務清單中，按一下主控您要在其中使用自動調整之應用程式的服務，然後按一下 [執行個體]。**[角色*] 資料欄顯示目標角色的名稱。
+    2.  在雲端服務清單中，按一下主控您要在其中使用自動調整之應用程式的服務，然後按一下 [執行個體]。**角色* 資料行顯示目標角色的名稱。
 
         ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling07.png)
 
@@ -236,7 +236,7 @@
       </reactiveRules>
       <operands>
         <performanceCounter alias="WebRoleA_CPU_Avg_5m"
-          performanceCounterName="\Processor(_Total)% Processor Time"
+          performanceCounterName="\Processor(_Total)\% Processor Time"
           source ="AutoscalingApplicationRole"
           timespan="00:05:00" aggregate="Average"/>
       </operands>
@@ -246,7 +246,7 @@
 
 -   限制規則永遠作用中，並將角色執行個體的數目下限設為二，而將角色執行個體的數目上限設為六。
 
--   這兩個重新啟動規則會使用名稱為 **WebRoleA_CPU_Avg_5m** 的**運算元**，計算名稱為 **AutoscalingApplicationRole** 的 Azure 角色最後五分鐘的平均 CPU 使用率。 此角色定義在**服務模型**中。
+-   這兩個重新啟動規則會使用名稱為 **WebRoleA\_CPU\_Avg\_5m** 的**運算元**，計算名稱為 **AutoscalingApplicationRole** 的 Azure 角色最後五分鐘的平均 CPU 使用率。 此角色定義在**服務模型**中。
 
 -   如果過去五分鐘的平均 CPU 使用率大於或等於 60%，則名稱為 **ScaleUpOnHighUtilization** 的重新啟動規則會增加目標角色的執行個體計數。
 
@@ -380,4 +380,4 @@
   [利用 Azure 上的自動調整減少 TechNet 和 MSDN 主控成本和環境影響]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

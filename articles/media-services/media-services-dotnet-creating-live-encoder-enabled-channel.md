@@ -501,4 +501,4 @@
 [使用執行從單一位元速率到多位元速率串流之即時編碼的通道](media-services-manage-live-encoder-enabled-channels.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

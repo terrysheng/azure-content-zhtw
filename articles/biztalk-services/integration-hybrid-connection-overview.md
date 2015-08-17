@@ -12,7 +12,7 @@
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/14/2015" 
 	ms.author="mandia"/>
 
@@ -85,7 +85,7 @@
 --- | ---
 9350 - 9354 | 這些連接埠用於資料傳輸。服務匯流排轉送管理員會探查連接埠 9350，以判斷 TCP 連線是否可用。如果可用的話，則會假設連接埠 9352 也是可用。資料流量會經過連接埠 9352。<br/><br/>允許對這些連接埠的輸出連線。
 5671 | 當連接埠 9352 用於資料流量時，連接埠 5671 就做為控制通道。<br/><br/>允許對此連接埠的輸出連線。 
-80、443 | 如果連接埠 9352 和 5671 無法使用，*則*連接埠 80 和 443 可做為資料傳輸和控制通道的後援連接埠。<br/><br/>允許連接至這些連接埠的輸出連接。<br/><br/>\*\*注意\*\* 不建議使用這些後援連接埠代替其他 TCP 連接埠。HTTP/WebSocket 是做為通訊協定使用，而非資料通道的原生 TCP。這可能會導致效能變低。
+80、443 | 如果連接埠 9352 和 5671 無法使用，*則*連接埠 80 和 443 可做為資料傳輸和控制通道的後援連接埠。<br/><br/>允許連接至這些連接埠的輸出連接。<br/><br/>**注意** 不建議使用這些後援連接埠代替其他 TCP 連接埠。HTTP/WebSocket 是做為通訊協定使用，而非資料通道的原生 TCP。這可能會導致效能變低。
 
 
 
@@ -103,4 +103,4 @@
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

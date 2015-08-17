@@ -42,15 +42,15 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 	您可以使用下列 PowerShell Cmdlet 取得 ExpressRoute 電路的詳細資料：
 		
 
-    	PS C:> Get-AzureDedicatedCircuit
+    	PS C:\> Get-AzureDedicatedCircuit
 	
 	此命令會傳回訂用帳戶中所有已建立的電路清單。如果您擁有服務金鑰，可以使用下列命令取得特定 ExpressRoute 電路的詳細資料：
 
-		 PS C:> Get-AzureDedicatedCircuit -ServiceKey <skey>
+		 PS C:\> Get-AzureDedicatedCircuit -ServiceKey <skey>
 
 	將 <skey> 取代為實際的服務金鑰。
 	
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -66,7 +66,7 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 	
 	請查閱 [ExpressRoute 常見問題集](expressroute-faqs.md)頁面，以取得提供者支援的頻寬選項。您可以挑選任何比現有電路規模還大的大小。一旦決定需要的大小後，您可以使用下列命令來調整電路大小。
 
-		PS C:> Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
+		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
 		
 		Bandwidth                        : 1000
 		CircuitName                      : TestCircuit
@@ -85,4 +85,4 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

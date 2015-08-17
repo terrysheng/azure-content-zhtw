@@ -98,9 +98,9 @@
 
     	hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
 
-    系統會從 **wasb:///example/data/gutenberg/davinci.txt** 讀取這項工作的輸入。
+    系統會從 ****wasb:///example/data/gutenberg/davinci.txt** 讀取這項工作的輸入。
 
-    此範例的輸出會儲存在 **wasb:///example/data/davinciwordcount**。
+    此範例的輸出會儲存在 ****wasb:///example/data/davinciwordcount**。
 
     > [AZURE.NOTE]如 wordcount 範例的說明所述，您也可以指定多個輸入檔。例如，`hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` 會計算 davinci.txt 和 ulysses.txt 中的字數。
 
@@ -185,7 +185,7 @@ GraySort 是一種效能評定排序，其度量為排序極大資料量時 (通
 
 - **TeraGen**：MapReduce 程式，產生要排序的資料列
 
-- **TeraSort**：可取樣輸入資料，並利用 MapReduce 將資料排列為全序
+- **TeraSort** 可取樣輸入資料並利用 MapReduce 將資料依全序排列
 
     TeraSort 是 MapReduce 函數的標準排序，但自訂分割器除外，它使用 N-1 個樣本索引鍵的排序清單來定義每次歸納的索引鍵範圍。尤其是，會傳送使得 sample[i-1] <= key < sample[i] 的所有索引鍵給歸納 i。這保證歸納 i 的輸出全都小於歸納 i+1 的輸出。
 
@@ -195,10 +195,11 @@ GraySort 是一種效能評定排序，其度量為排序極大資料量時 (通
 
 使用下列步驟來產生資料、排序，並驗證輸出：
 
-1. 產生 10 GB 的資料，這些資料稍後會儲存在 HDInsight 叢集上預設儲存體的 **wasb:///example/data/10GB-sort-input** 中：
+1. 產生 10 GB 的資料，這些資料稍後會儲存在 HDInsight 叢集上預設儲存體的 ****wasb:///example/data/10GB-sort-input** 中：
+
         hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 
-	`-Dmapred.map.tasks` 會告訴 Hadoop 在這項工作中要使用多少 map 工作。最後兩個參數會指示工作建立 10 GB 的資料量，並將資料儲存在 **wasb:///example/data/10GB-sort-input**。
+	`-Dmapred.map.tasks` 會告訴 Hadoop 在這項工作中要使用多少 map 工作。最後兩個參數會指示工作建立 10 GB 的資料量，並將資料儲存在 ****wasb:///example/data/10GB-sort-input**。
 
 2. 使用以下命令來排序資料：
 
@@ -241,4 +242,4 @@ GraySort 是一種效能評定排序，其度量為排序極大資料量時 (通
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

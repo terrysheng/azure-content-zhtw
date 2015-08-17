@@ -6,14 +6,7 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
-<tags
-   ms.service="backup"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage-backup-recovery"
-   ms.date="07/01/2015"
-   ms.author="jimpark"; "aashishr"/>
+<tagsms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
 
 # 使用 Azure 備份來取代您的磁帶基礎結構
 Azure 備份和 System Center Data Protection Manager 的客戶可以：- 以最適合其組織需求的排程備份資料 - 長期保留備份資料 - 將 Azure 融入其長期保留需求中 (而不是磁帶)。
@@ -65,4 +58,4 @@ Azure 備份和 System Center Data Protection Manager 的客戶可以：- 以最
 - [Azure 備份的簡介](backup-introduction-to-azure-backup.md)
 - [試用 Azure 備份](backup-try-azure-backup-in-10-mins)
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

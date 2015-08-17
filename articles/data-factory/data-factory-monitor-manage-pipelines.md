@@ -31,14 +31,14 @@ Data Factory 服務提供一個可靠且完整的儲存、處理和資料移動�
 	![全部瀏覽 -> 資料處理站](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 
 	您應該會在 [Data Factory] 刀鋒視窗中看到所有 Data Factory。 
-4. 在 Data Factory 刀鋒視窗中，選取您感興趣的 Data Factory，接著您應該會看到該 Data Factory 的首頁 (\*\*Data Factory\*\*刀鋒視窗)。
+4. 在 Data Factory 刀鋒視窗中，選取您感興趣的 Data Factory，接著您應該會看到該 Data Factory 的首頁 (**Data Factory** 刀鋒視窗)。
 
 	![Data Factory 刀鋒視窗](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
 #### Data Factory 的圖表檢視
 Data Factory 的圖表檢視提供單一窗格，可用來監視和管理 Data Factory 及其資產。
 
-按一下上述之 Data Factory 首頁上的 [圖表]，就能看到 Data Factory 的圖表檢視。
+按一下上述之 Data Factory 首頁上的 [**圖表**]，就能看到 Data Factory 的圖表檢視。
 
 ![圖表檢視](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
@@ -46,7 +46,7 @@ Data Factory 的圖表檢視提供單一窗格，可用來監視和管理 Data F
  
 
 ### 管線中的活動 
-1. 在管線上按一下滑鼠右鍵，然後按一下 [開啟管線]，就能查看所有管線中的活動，以及活動的輸入和輸出資料集。當您的管線有超過 1 個以上的活動且您想了解單一管線的作業歷程時，這個功能會非常有用。
+1. 在管線上按一下滑鼠右鍵，然後按一下 [**開啟管線**]，就能查看所有管線中的活動，以及活動的輸入和輸出資料集。當您的管線有超過 1 個以上的活動且您想了解單一管線的作業歷程時，這個功能會非常有用。
 
 	![開啟管線功能表](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)	 
 2. 在下列範例中，您會看到管線中的兩個活動及其輸入和輸出。本管線範例內的兩個活動名為 **JoinData** HDInsight Hive 活動類型和 **EgressDataAzure** 複製活動類型。 
@@ -63,7 +63,7 @@ Data Factory 的圖表檢視提供單一窗格，可用來監視和管理 Data F
 
 ![管線的狀態](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
-按兩次圖表檢視中的 **PartitionedProductsUsageTable**，會展示管線中各種不同的活動執行時所產生的所有配量。您可以看到 **BlobPartitionHiveActivity** 過去八個月來每個月都執行成功，所產生的配量都處於**就緒**狀態。
+按兩次圖表檢視中的 **PartitionedProductsUsageTable**，會展示管線中各種不同的活動執行時所產生的所有配量。您可以看到 **BlobPartitionHiveActivity** 過去 8 個月來每個月都執行成功，所產生的配量都處於**就緒**狀態。
 
 Data Factory 中的資料集配量可以有下列狀態之一：
 
@@ -75,7 +75,7 @@ Failed | | 配量處理失敗。參考錯誤記錄檔，找出造成錯誤的原
 Ready | | 配量處理成功。配量已就緒，可供取用。
 Skip | | 不會處理此配量
 
-按一下 [最近更新的配量] 刀鋒視窗中的配量項目，就可以檢視有關配量的詳細資料。
+按一下 [**最近更新的配量**] 刀鋒視窗中的配量項目，就可以檢視有關配量的詳細資料。
 
 ![配量的詳細資料](./media/data-factory-monitor-manage-pipelines/slice-details.png)
  
@@ -87,7 +87,7 @@ Skip | | 不會處理此配量
 
 ![活動執行詳細資料](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-如果配量不是**就緒**狀態，您可以在**未就緒的上游配量**清單中，看到未就緒且阻礙目前配量執行的上游配量。當您的配量處於**等候**狀態且您想要了解配量等候的上游相依性時，此做法相當有用。
+如果配量不是 [**就緒**] 狀態，您可以在 [**未就緒的上游配量**] 清單中看到未就緒且阻礙目前配量執行的上游配量。當您的配量處於**等候**狀態且您想要了解配量等候的上游相依性時，此做法相當有用。
 
 ![尚未就緒的上游配量](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -138,16 +138,16 @@ Azure Data Factory 透過 Azure 入口網站和 Azure PowerShell 提供許多功
 
 #### 使用 Azure 入口網站偵錯錯誤：
 
-1.	在資料處理站首頁的**資料集**磚上按一下 [發生錯誤]。
+1.	在資料處理站首頁的**資料集**磚上按一下 [**發生錯誤**]。
 	
 	![發生錯誤的資料集磚](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
-2.	在 **[發生錯誤的資料集]** 刀鋒視窗中，按一下您感興趣的資料表。
+2.	在 [**發生錯誤的資料集**] 刀鋒視窗中，按一下您感興趣的資料表。
 
 	![[發生錯誤的資料集] 刀鋒視窗](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
-3.	在 **[資料表]** 刀鋒視窗中，按一下 [狀態] 設為 [失敗] 的問題配量。
+3.	在 [**資料表**] 刀鋒視窗中，按一下 [**狀態**] 設為 [**失敗**] 的問題配量。
 
 	![含有問題配量的資料表刀鋒視窗](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
-4.	在 **[資料配量]** 刀鋒視窗中，按一下失敗的活動執行。
+4.	在 [**資料配量**] 刀鋒視窗中，按一下失敗的活動執行。
 	
 	![發生錯誤的資料配量](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
 5.	在 [**活動執行詳細資料**] 刀鋒視窗中，您可以下載與 HDInsight 處理相關聯的檔案。按一下 Status/stderr 中的 [下載] 以下載包含錯誤詳細資料的錯誤記錄檔。
@@ -214,11 +214,11 @@ Azure Data Factory 透過 Azure 入口網站和 Azure PowerShell 提供許多功
 
 ### 使用 Azure 入口網站
 
-一旦您疑難排解和偵錯管線中的失敗，您可以瀏覽到錯誤配量並按一下命令列上的 [執行] 按鈕，重新執行失敗。
+一旦您疑難排解和偵錯管線中的失敗，您可以瀏覽到錯誤配量並按一下命令列上的 [**執行**] 按鈕，重新執行失敗。
 
 ![重新執行失敗的配量](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
-萬一原則失敗而導致配量驗證失敗 (例如：沒有可用資料)，您可以修正失敗並重新驗證，方法是按一下命令列上的 [驗證] 按鈕。![修正錯誤並進行驗證](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
+萬一原則失敗而導致配量驗證失敗 (例如：沒有可用資料)，您可以修正失敗並重新驗證，方法是按一下命令列上的 [**驗證**] 按鈕。![修正錯誤並進行驗證](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### 使用 Azure PowerShell
 
@@ -337,7 +337,7 @@ OnDemandClusterDeleted | Succeeded
 
 
 #### 使用者事件疑難排解
-您可以看到按一下 [作業] 磚後所產生的所有事件，而且也可以在 **[事件]** 刀鋒視窗中針對這些作業設定顯示警示：
+您可以看到按一下 [**作業**] 磚後所產生的所有事件，而且也可以在 [**事件**] 刀鋒視窗中針對這些作業設定顯示警示：
 
 ![作業](./media/data-factory-monitor-manage-pipelines/operations.png)
 
@@ -369,9 +369,9 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 #### 啟用度量：
 若要啟用度量，請從 Data Factory 的刀鋒視窗按一下下列選項：
 
-[監視] -> [度量] -> [診斷設定] -> [診斷]
+[**監視**] -> [**度量**] -> [**診斷設定**] -> [**診斷**]
 
-在 **[診斷]** 刀鋒視窗中，按一下 [啟用]，然後選取儲存體帳戶並儲存。
+在 [**診斷**] 刀鋒視窗中，按一下 [**啟用**]，然後選取儲存體帳戶並儲存。
 
 ![啟用度量](./media/data-factory-monitor-manage-pipelines/enable-metrics.png)
 
@@ -380,9 +380,9 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 
 ### 設定度量警示：
 
-若要設定度量警示，請從 Data Factory 刀鋒視窗按一下下列選項：[監視] -> [度量] -> [新增警示] -> [新增警示規則]。
+若要設定度量警示，請從 Data Factory 刀鋒視窗按一下下列選項：[**監視**] -> [**度量**] -> [**新增警示**] -> [**新增警示規則**]。
 
-填入警示規則的詳細資料、指定電子郵件並按一下 [確定]。
+填入警示規則的詳細資料、指定電子郵件並按一下 [**確定**]。
 
 
 ![設定度量警示](./media/data-factory-monitor-manage-pipelines/setting-up-alerts-on-metrics.png)
@@ -443,7 +443,7 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
  
 以適當的值取代上述範例中的 subscriptionId、resourceGroupName、和 dataFactoryName。
 
-*metricName* 目前支援兩個值：- FailedRuns - SuccessfulRuns。
+*metricName* 目前支援 2 個值：- FailedRuns - SuccessfulRuns。
 
 **部署警示：**
 
@@ -467,4 +467,4 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 	Parameters        :
 	Outputs           
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

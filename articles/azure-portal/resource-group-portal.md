@@ -66,32 +66,13 @@
 ## 後續步驟
 開始使用
 
-- [Azure 資源管理員概觀](../resource-group-overview.md)  
-- [搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)
-- [搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](../xplat-cli-azure-resource-manager.md)  
-  
-建立和部署應用程式
-  
-- [編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)  
-- [使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)
-- [透過可預測方式在 Azure 中部署複雜應用程式](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Azure 中的資源群組部署疑難排解](../resource-group-deploy-debug.md)  
-- [Azure 資源管理員範本函數](../resource-group-template-functions.md)  
-- [進階範本作業](../resource-group-advanced-template.md)  
-- [使用 .NET 程式庫和範本部署 Azure 資源](../arm-template-deployment.md)
-  
-組織資源
-  
-- [使用標記來組織您的 Azure 資源](../resource-group-using-tags.md)  
-  
-管理和稽核存取權
-  
-- [管理和稽核資源存取權](resource-group-rbac.md)  
-- [使用 Azure 資源管理員驗證服務主體](../resource-group-authenticate-service-principal.md)  
-- [使用 Azure 傳統入口網站建立新的 Azure 服務主體](../resource-group-create-service-principal-portal.md)  
+- 如需資源管理員中的概念簡介，請參閱〈[Azure 資源管理員概觀](../resource-group-overview.md)〉。  
+- 如需部署資源時使用 Azure PowerShell 的簡介，請參閱〈[Azure PowerShell 搭配 Azure 資源管理員使用](../powershell-azure-resource-manager.md)〉。
+- 如需部署資源時使用 Azure CLI 的簡介，請參閱〈[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](../xplat-cli-azure-resource-manager.md)〉。 
+- 若要了解如何以邏輯方式組織資源，請參閱〈[使用標記來組織 Azure 資源](../resource-group-using-tags.md)〉。
   
 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

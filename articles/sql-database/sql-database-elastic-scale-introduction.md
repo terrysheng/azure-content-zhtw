@@ -13,16 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/29/2015"
+    ms.date="08/03/2015"
     ms.author="sidneyh"/>
 
 # 彈性資料庫功能概觀
 
 **彈性資料庫**功能可讓您使用 **Azure SQL Database** 中幾乎不受限制的資料庫資源，建立交易式工作負載的解決方案，尤其是軟體即服務 (SaaS) 應用程式。彈性資料庫功能的組成如下：
 
-* 彈性資料庫工具：這兩個工具簡化分區化資料庫解決方案的開發與管理。這些工具是：[彈性資料庫用戶端程式庫](sql-database-elastic-client-overview.md)和[彈性資料庫分割合併工具](sql-database-elastic-scale-overview-split-and-merge.md)。 
+* 彈性資料庫工具：這兩個工具簡化分區化資料庫解決方案的開發與管理。這些工具是：[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)和[彈性資料庫分割合併工具](sql-database-elastic-scale-overview-split-and-merge.md)。 
 * [彈性資料庫集區](sql-database-elastic-pool-guidance.md) (預覽)：集區是可讓您隨時新增或移除資料庫的資料庫集合。集區中的資料庫共用固定數量的資源 (稱為資料庫輸送量單位，簡稱 DTU)。您對資源支付固定費用，在管理效能時很容易計算成本。 
-* [彈性資料庫工作](sql-database-elastic-jobs-overview.md) (預覽)：使用工作來管理大量的 Azure SQL 資料庫。**工作**是針對一組預先定義的資料庫執行的等冪 T-SQL 指令碼。失敗時會自動重試 (可設定)，所有錯誤都會記錄以方便偵錯。 
+* [彈性資料庫工作](sql-database-elastic-jobs-overview.md) (預覽)：使用工作來管理大量的 Azure SQL 資料庫。輕鬆執行系統管理作業，例如結構描述變更、認證管理、參考資料更新、效能資料收集，或使用工作的租用戶 (客戶) 遙測收集。
 * [彈性資料庫查詢](sql-database-elastic-query-overview.md) (預覽)：可讓您跨多個 Azure SQL 資料庫執行 Transact-SQL 查詢。這可讓您連接至報告工具，例如 Excel、PowerBI、Tableau 等等。
 
 下圖顯示的架構包含與資料庫集合有關的**彈性資料庫功能**。
@@ -102,4 +102,4 @@
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

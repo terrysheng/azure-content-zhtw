@@ -71,7 +71,7 @@ GO
 20150101,1,3
 ```
 
-將此檔案儲存到本機暫存目錄，C:\Temp\DimDate2.txt。
+將此檔案儲存到本機暫存目錄，C:\\Temp\\DimDate2.txt。
 
 > [AZURE.NOTE]請務必記得 bcp.exe 不支援 UTF-8 檔案編碼。使用 bcp.exe 時，請對您的檔案使用 ASCII 編碼檔案或 UTF-16 編碼方式。
 
@@ -107,7 +107,7 @@ DateId |CalendarQuarter |FiscalQuarter
 20151201 |4 |2
 
 ## 從 SQL 資料倉儲匯出資料
-在本教學課程中，您將從 Azure SQL 資料倉儲中的資料表建立資料檔案。我們會將上面建立的資料匯出至新的資料檔案，稱為 DimDate2_export.txt。
+在本教學課程中，您將從 Azure SQL 資料倉儲中的資料表建立資料檔案。我們會將上面建立的資料匯出至新的資料檔案，稱為 DimDate2\_export.txt。
 
 ### 步驟 1：匯出資料
 
@@ -152,4 +152,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Microsoft 下載中心]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

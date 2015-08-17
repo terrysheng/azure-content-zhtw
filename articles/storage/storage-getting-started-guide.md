@@ -12,7 +12,7 @@
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
+	ms.topic="article" 
 	ms.date="05/28/2015" 
 	ms.author="tamram;selcint"/>
 
@@ -45,9 +45,9 @@
 1. 啟動 Visual Studio。
 2. 從 [檔案] 功能表，按一下 [新增專案]。
 3. 在 [新增專案] 對話方塊中，按一下 [已安裝] > [範本] > [Visual C#] > [雲端] > [快速入門] > [資料服務]。
-	- 3.a.選擇下列其中一個範本：Azure Blob 儲存體、Azure 資料表儲存體或 Azure 儲存體佇列。 
-	- 3.b.確定已選取 [.NET Framework 4.5] 作為目標架構。	
-	- 3.c.指定您專案的名稱，並建立新的 Visual Studio 方案，如下所示：
+	- 3\.a.選擇下列其中一個範本：Azure Blob 儲存體、Azure 資料表儲存體或 Azure 儲存體佇列。 
+	- 3\.b.確定已選取 [.NET Framework 4.5] 作為目標架構。	
+	- 3\.c.指定您專案的名稱，並建立新的 Visual Studio 方案，如下所示：
 	
 	![Azure 快速入門][Image1]
 
@@ -71,9 +71,9 @@
 1. 啟動 Visual Studio。
 2. 從 [檔案] 功能表，按一下 [新增專案]。
 3. 在 [新增專案] 對話方塊中，按一下 [已安裝] > [範本] > [Visual C#] > [雲端] > [快速入門] > [資料服務]。
-	- 3.a.選擇下列其中一個範本：Azure Blob 儲存體、Azure 資料表儲存體或 Azure 儲存體佇列。
-	- 3.b.確定已選取 [.NET Framework 4.5] 作為目標架構。
-	- 3.c.指定您專案的名稱，並建立新的 Visual Studio 方案。 
+	- 3\.a.選擇下列其中一個範本：Azure Blob 儲存體、Azure 資料表儲存體或 Azure 儲存體佇列。
+	- 3\.b.確定已選取 [.NET Framework 4.5] 作為目標架構。
+	- 3\.c.指定您專案的名稱，並建立新的 Visual Studio 方案。 
 
 您可能想要在執行應用程式前檢閱原始程式碼。若要檢閱程式碼，請在 Visual Studio 中選取 [檢視] 功能表上的 [方案總管]。然後，按兩下 Program.cs 檔案。
 
@@ -107,4 +107,4 @@
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

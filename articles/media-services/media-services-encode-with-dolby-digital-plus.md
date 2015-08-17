@@ -592,17 +592,17 @@ Azure Media Encoder 可以使用 DPLM SDK 來測量輸入音訊的對話音量�
 此屬性決定音量計量模式。允許的值包括：
 
  
-**ITU_R_BS_1770_2_DI** (預設值) - 表示 ITU-R BS.1770-2 plus Dialogue Intelligence
+**ITU\_R\_BS\_1770\_2\_DI** (預設值) - 表示 ITU-R BS.1770-2 plus Dialogue Intelligence
 
-**ITU_R_BS_1770_1_DI** - 表示 ITU-R BS.1770-1 plus Dialogue Intelligence
+**ITU\_R\_BS\_1770\_1\_DI** - 表示 ITU-R BS.1770-1 plus Dialogue Intelligence
 
-**ITU_R_BS_1770_2** - 表示 ITU-R BS.1770-2
+**ITU\_R\_BS\_1770\_2** - 表示 ITU-R BS.1770-2
 
-**LEQA_DI** - 表示 Leq(A) plus Dialogue Intelligence
+**LEQA\_DI** - 表示 Leq(A) plus Dialogue Intelligence
 
 **注意：**
 
-** EBU R128** 模式可透過 **ITU_R_BS_1770_2_DI** 達到
+** EBU R128** 模式可透過 **ITU\_R\_BS\_1770\_2\_DI** 達到
 
 納入 **Leq(A)** 純粹為考量舊版，僅應用於特定的舊版工作流程
 
@@ -610,7 +610,7 @@ Azure Media Encoder 可以使用 DPLM SDK 來測量輸入音訊的對話音量�
 
 ###SpeechThreshold 屬性
 
-指定由 DPLM 用來產生整合音量結果的語音閾值 (例如，可選取語音閘控、等級閘控及無閘控)。語音閾值設定範圍從 0%到 100%，每次增加 1%。只有當 DPLM 設定為使用 Dialogue Intelligence 的模式時，此參數才有作用，這表示只有在 Mode 設定為 ITU_R_BS_1770_2_DI 或 ITU_R_BS_1770_1_DI 時，才能指定此參數。Mode 為 ITU_R_BS_1770_2_DI 或 ITU_R_BS_1770_1_DI 時的預設值為 20%。此屬性的值必須設定在 0、1 – 100 的範圍內。
+指定由 DPLM 用來產生整合音量結果的語音閾值 (例如，可選取語音閘控、等級閘控及無閘控)。語音閾值設定範圍從 0%到 100%，每次增加 1%。只有當 DPLM 設定為使用 Dialogue Intelligence 的模式時，此參數才有作用，這表示只有在 Mode 設定為 ITU\_R\_BS\_1770\_2\_DI 或 ITU\_R\_BS\_1770\_1\_DI 時，才能指定此參數。Mode 為 ITU\_R\_BS\_1770\_2\_DI 或 ITU\_R\_BS\_1770\_1\_DI 時的預設值為 20%。此屬性的值必須設定在 0、1 – 100 的範圍內。
 
 ###TruePeakDCBlock 屬性
 
@@ -640,7 +640,7 @@ Azure Media Encoder 可以使用 DPLM SDK 來測量輸入音訊的對話音量�
 
 **DialogNormalization** - DialNorm 的值，以分貝為單位，從輸入音訊測量，會嵌入至輸出 DD+ 串流，範圍為 {-31, -30, …, -1} dB。
 
-**IntegratedLoudness** - 由 DPLM 測量的整合音量，範圍從 -70 到 +10 LKFS/dBFS (僅在 Mode 設為 LEQA_DI 時才使用 dBFS)。
+**IntegratedLoudness** - 由 DPLM 測量的整合音量，範圍從 -70 到 +10 LKFS/dBFS (僅在 Mode 設為 LEQA\_DI 時才使用 dBFS)。
 
 **IntegratedLoudnessGatingMethod** - 有效值為：0 – 無/未閘控；1 – 使用語音閘控； 2 – 使用等級閘控。
 
@@ -651,4 +651,4 @@ Azure Media Encoder 可以使用 DPLM SDK 來測量輸入音訊的對話音量�
 **TruePeak** - 此結果包含計量重設後任何聲道中的最大絕對實際峰值。如需實際峰值的說明，請參閱 ITU‐R BS.1770‐2。值的範圍從 -70 到 12.04 dBTP。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

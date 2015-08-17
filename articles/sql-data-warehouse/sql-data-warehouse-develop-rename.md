@@ -17,7 +17,7 @@
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # 在 SQL 資料倉儲中重新命名
-SQL Server 支援分別透過預存程序 sp_rename 和 sp_renamedb 重新命名物件和資料庫。
+SQL Server 支援分別透過預存程序 sp\_rename 和 sp\_renamedb 重新命名物件和資料庫。
 
 SQL 資料倉儲使用 DDL 語法達成相同的目標。DDL 命令為 RENAME OBJECT 和 RENAME DATABASE。
 
@@ -80,4 +80,4 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 <!--Other Web references-->
 [Azure management portal]: http://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

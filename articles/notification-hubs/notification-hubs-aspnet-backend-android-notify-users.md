@@ -35,7 +35,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 1. 依照[開始使用通知中心 (Android)](notification-hubs-android-get-started.md) 教學課程來建立並設定您的應用程式，以接收來自 GCM 的推播通知。
 
-2. 開啟您的 **res/layout/activity_main.xml** 檔案，並以下列內容定義取代。
+2. 開啟您的 **res/layout/activity\_main.xml** 檔案，並以下列內容定義取代。
  
     這會加入新的 EditText 控制項，以便以使用者身分登入。此外，也會針對將成為您傳送的通知一部分的使用者名稱標記加入欄位：
 			
@@ -133,7 +133,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 			Recipient username tag
 		</string>
 
-	您的 main_activity.xml 圖形版面配置此時應如下所示：
+	您的 main\_activity.xml 圖形版面配置此時應如下所示：
 
 	![][A1]
 
@@ -434,4 +434,4 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

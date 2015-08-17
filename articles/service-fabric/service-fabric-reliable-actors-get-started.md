@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/23/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
 # 可靠動作項目：標準的 HelloWorld 逐步解說案例
@@ -146,7 +146,7 @@ Visual Studio 專用的 Service Fabric 工具支援在本機機器上偵錯。�
 
 ## 後續步驟
 
-[Service Fabric 動作項目簡介](service-fabric-reliable-actors-introduction.md)[動作項目 API 參考文件](https://msdn.microsoft.com/library/azure/dn971626.aspx)[範例程式碼](https://github.com/Azure/servicefabric-samples)
+[Service Fabric Reliable 動作項目簡介](service-fabric-reliable-actors-introduction.md)[動作項目 API 參考文件](https://msdn.microsoft.com/library/azure/dn971626.aspx)[範例程式碼](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -156,4 +156,4 @@ Visual Studio 專用的 Service Fabric 工具支援在本機機器上偵錯。�
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -499,4 +499,4 @@ Chrome 應用程式是使用 JavaScript 建立的，您可以使用任何慣用�
 [Azure 通知中樞即時新聞]: notification-hubs-windows-store-dotnet-send-breaking-news.md
  
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

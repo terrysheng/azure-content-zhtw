@@ -57,7 +57,7 @@ Blob 可包含任意數目的快照集。系統會保存快照集，直到您將
 
 - 高階儲存體帳戶中分頁 Blob 的快照集可能每十分鐘擷取一次。如果超出該頻率，此快照集 Blob 作業就會傳回錯誤碼 409 (**SnaphotOperationRateExceeded**)。
 
-- 不支援透過取得 Blob 來讀取高階儲存體帳戶中分頁 Blob 的快照集。在高階儲存體帳戶的快照集上呼叫 [取得 Blob] 會傳回錯誤碼 400 (**InvalidOperation**)。不過，支援針對快照集呼叫取得 Blob 屬性和取得 Blob 中繼資料。
+- 不支援透過取得 Blob 來讀取高階儲存體帳戶中分頁 Blob 的快照集。在進階儲存體帳戶的快照集上呼叫 [取得 Blob] 會傳回錯誤碼 400 (**InvalidOperation**)。不過，支援針對快照集呼叫取得 Blob 屬性和取得 Blob 中繼資料。
 
 - 若要讀取快照集，您可以使用複製 Blob 作業，將快照集複製到帳戶中的其他分頁 Blob。複製作業的目的地 Blob 不可以包含任何現有的快照集。如果目的地 Blob 具有快照集，則複製 Blob 會傳回錯誤碼 409 (**SnapshotsPresent**)。
 
@@ -125,4 +125,4 @@ Blob 可包含任意數目的快照集。系統會保存快照集，直到您將
 
 ![Azure 儲存體資源](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -18,9 +18,11 @@
 
 #Azure 通知中心安全推播
 
-<div class="dev-center-tutorial-selector sublanding">
-    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a> <a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
+- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+
 
 ##概觀
 
@@ -63,6 +65,7 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 3. 然後在實作區段中新增下列程式碼，並以先前為後端取得的端點取代預留位置 `{back-end endpoint}`：
 
+```
 		NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
@@ -107,8 +110,9 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 		    }];
 		    [dataTask resume];
 		}
+```
 
-	此方法會呼叫應用程式後端，使用儲存在共用喜好設定中的認證來擷取通知內容。
+	This method calls your app back-end to retrieve the notification content using the credentials stored in the shared preferences.
 
 4. 現在，我們必須處理內送通知，並使用上述方法擷取要顯示的內容。首先，我們必須啟用您的 iOS 應用程式，可在接收推播通知時於背景中執行。在 **XCode** 中，在左側面板中選取您的應用程式專案，然後在中央窗格的 [目標] 區段中，按一下您的主要應用程式目標。
 
@@ -155,4 +159,4 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

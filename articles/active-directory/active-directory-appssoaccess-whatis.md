@@ -78,7 +78,9 @@ Azure AD 可以對具有 HTML 登入頁面的任何雲端應用程式支援密�
 
 密碼 SSO 依賴瀏覽器延伸從 Azure AD 安全擷取應用程式和使用者特定資訊，並將它套用至服務。Azure AD 支援的大多數協力廠商 SaaS 應用程式都支援這項功能。
 
-如果使用密碼 SSO，使用者的瀏覽器可以是：\* 在 Windows 7 或更新版本上的 IE 8、IE9 和 IE10 \*在 Windows 7 或更新版本或 MacOS X 或更新版本上的 Chrome
+如果使用密碼 SSO，使用者的瀏覽器可以是：在 Windows 7 或更新版本上的 IE 8、IE9 和 IE10；在 Windows 7 或更新版本或 MacOS X 或更新版本上的 Chrome
+
+**注意：**當瀏覽器延伸模組可以支援 Edge 時，密碼 SSO 擴充功能將可提供 Windows 10 中的 Edge 使用。
 
 ###現有單一登入
 
@@ -92,7 +94,7 @@ Azure AD 可以對具有 HTML 登入頁面的任何雲端應用程式支援密�
 
 當使用者被刪除，或其資訊在 Azure AD 中有所變更時，這些變更也會反映在 SaaS 應用程式中。這表示，設定自動化的身分識別週期管理，可讓系統管理員控制和提供 SaaS 應用程式的自動化佈建和解除佈建。在 Azure AD 中，使用者佈建已啟用此自動化身分識別週期管理。
 
-若要深入了解，請參閱 [SaaS 應用程式的自動化使用者佈建和解除佈建](active-directory-saas-app-provisioning.md)
+若要深入了解，請參閱〈[SaaS 應用程式的自動化使用者佈建和解除佈建](active-directory-saas-app-provisioning.md)〉
 
 ##開始使用 Azure AD 應用程式庫
 
@@ -100,13 +102,13 @@ Azure AD 可以對具有 HTML 登入頁面的任何雲端應用程式支援密�
 
 ###使用 Azure AD 應用程式庫
 
-[Azure Active Directory 應用程式庫](http://azure.microsoft.com/marketplace/active-directory/all/)提供一份已知能支援單一登入搭配 Azure Active Directory 的應用程式清單。
+[Azure Active Directory 應用程式資源庫](http://azure.microsoft.com/marketplace/active-directory/all/)提供一份已知能支援單一登入搭配 Azure Active Directory 的應用程式清單。
 
 ![][1]
 
 以下是尋找應用程式支援哪些功能的一些提示：
 
-*	Azure AD 支援自動佈建和解除佈建 [Azure Active Directory 應用程式庫](http://azure.microsoft.com/marketplace/active-directory/all/)中所有「精選的」應用程式。
+*	Azure AD 支援自動佈建和解除佈建 [Azure Active Directory 應用程式資源庫](http://azure.microsoft.com/marketplace/active-directory/all/)中所有「精選的」應用程式。
 
 *	在[這裡](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx)則可以找到特別支援使用如 SAML，WS-同盟或 OpenID Connect 通訊協定之同盟單一登入的同盟應用程式清單。
 
@@ -116,16 +118,16 @@ Azure AD 可以對具有 HTML 登入頁面的任何雲端應用程式支援密�
 
 如果 Azure AD 應用程式庫中找不到您的應用程式，您可以選擇：
 
-*	**新增您正在使用但未列出的應用程式** - 使用 Azure 管理入口網站內應用程式庫中的自訂類別目錄，連接您的組織正在使用但未列出的應用程式。您可以加入支援 SAML 2.0 的任何應用程式做為同盟應用程式，或者加入具有 HTML 登入頁面的任何應用程式做為密碼 SSO 應用程式。如需詳細資訊，請參閱[加入自己的應用程式](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)這篇文章。
+*	**新增您正在使用但未列出的應用程式** - 使用 Azure 管理入口網站內應用程式資源庫中的自訂類別目錄，連接您的組織正在使用但未列出的應用程式。您可以加入支援 SAML 2.0 的任何應用程式做為同盟應用程式，或者加入具有 HTML 登入頁面的任何應用程式做為密碼 SSO 應用程式。如需詳細資訊，請參閱〈[加入自己的應用程式](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)〉這篇文章。
 
 
-*	**新增您正在開發的專屬應用程式** - 如果您自己開發了應用程式，請依照 Azure AD 開發人員文件中的指導方針來實作同盟單一登入或使用 Azure AD 圖形 API 佈建。如需詳細資訊，請參閱下列資源：
-  * https://msdn.microsoft.com/library/azure/dn499820.aspx
-  * https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet
-  * https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet
-  * https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore
+*	**新增您正在開發的專屬應用程式** - 如果您自己開發了應用程式，請依照 Azure AD 開發人員文件中的指導方針來實作同盟單一登入或使用 Azure AD 圖形 API 的佈建。如需詳細資訊，請參閱這些資源：
+  * [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)
+  * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
+  * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
+  * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 
-*	**要求應用程式整合** - 使用 [Azure AD 意見反應論壇](http://feedback.azure.com/forums/169401-azure-active-directory) 要求支援您需要的應用程式。
+*	**要求應用程式整合** - 使用 [Azure AD 意見反應論壇](http://feedback.azure.com/forums/169401-azure-active-directory)要求支援您需要的應用程式。
 
 ###使用 Azure 管理入口網站
 
@@ -162,21 +164,21 @@ Azure AD 提供幾種可自訂的方式，來對您組織中的使用者部署�
 
 ###Azure AD 存取面板
 
-位於 https://myapps.microsoft.com 的 [存取面板] 是一種 Web 入口網站，可讓 Azure Active Directory 中擁有組織帳戶的使用者檢視和啟動 Azure AD 系統管理員已授與他們存取權的雲端應用程式。如果您是使用 [Azure Active Directory Premium](https://msdn.microsoft.com/library/azure/dn532272.aspx) 的使用者，您也可以透過 [存取面板] 使用自助式群組管理功能。
+位於 https://myapps.microsoft.com 的 [存取面板] 是一種 Web 入口網站，可讓 Azure Active Directory 中擁有組織帳戶的使用者檢視和啟動 Azure AD 系統管理員已授與他們存取權的雲端應用程式。如果您是使用 [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/) 的使用者，您也可以透過 [存取面板] 使用自助式群組管理功能。
 
 ![][3]
 
 存取面板與 Azure 管理入口網站不同，使用者不需要具備 Azure 訂用帳戶或 Office 365 訂用帳戶。
 
-如需有關 Azure AD 存取面板的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/azure/dn308586.aspx)。
+如需有關 Azure AD 存取面板的詳細資訊，請參閱〈[存取面板簡介](active-directory-saas-access-panel-introduction.md)〉。
 
 ###Office 365 應用程式啟動程式
 
-如果是已部署 Office 365 的組織，透過 Azure AD 指派給使用者的應用程式也會出現在位於 https://portal.office.com/myapps 的 Office 365 入口網站中。這對於組織中的使用者來說，能夠啟動應用程式又不需要使用第二個入口網站，非常簡單而且方便，建議使用 Office 365 的組織採取這個應用程式啟動解決方案。
+如果是已部署 Office 365 的組織，透過 Azure AD 指派至使用者的應用程式也會出現在位於 https://portal.office.com/myapps 的 Office 365 入口網站中。這對於組織中的使用者來說，能夠啟動應用程式又不需要使用第二個入口網站，非常簡單而且方便，建議使用 Office 365 的組織採取這個應用程式啟動解決方案。
 
 ![][4]
 
-如需有關 Office 365 應用程式啟動程式的詳細資訊，請參閱[讓您的應用程式出現在 Office 365 應用程式啟動程式中](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher)。
+如需有關 Office 365 應用程式啟動程式的詳細資訊，請參閱〈[讓您的應用程式出現在 Office 365 應用程式啟動程式中](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher)〉。
 
 ###直接登入同盟應用程式
 
@@ -194,15 +196,17 @@ Azure AD 也支援對支援密碼單一登入、現有單一登入，以及任�
 
 您可以複製這些連結，然後貼到任何您想要提供選取應用程式登入連結的位置。可以是在電子郵件中，或是任何您已設定使用者應用程式存取權的自訂網頁型入口網站中。以下是 Azure AD 直接單一登入 Twitter 的 URL 範例：
 
-https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced
+`https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
 類似於存取面板的組織特定 URL，您可以在 myapps.microsoft.com 網域之後加入其中一個作用中或經過驗證的網域做為您的目錄，進一步自訂這個 URL。這樣可以確保使用者不需要先輸入其使用者識別碼，登入頁面就可以立即載入任何組織品牌：
 
-https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced
+`https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
 當授權的使用者按一下其中一個應用程式特定連結時，他們會先看到其組織登入頁面 (假設他們尚未登入)，登入之後會重新導向至該應用程式而不會先停在存取面板。如果使用者遺漏存取應用程式所需的先決條件，例如密碼單一登入瀏覽器延伸，則連結將會提示使用者安裝遺漏的延伸。如果應用程式的單一登入組態有變更，連結 URL 也會維持不變。
 
 這些連結使用與存取面板和 Office 365 相同的存取控制機制，只有在 Azure 管理入口網站中已指派到應用程式的使用者或群組能夠順利通過驗證。不過，任何未經授權的使用者都會看到一個訊息，說明他們未獲得存取權，且會獲得一個載入存取面板的連結，以檢視可存取的應用程式。
+
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-appssoaccess-whatis/onlineappgallery.png
@@ -212,4 +216,4 @@ https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -125,4 +125,4 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

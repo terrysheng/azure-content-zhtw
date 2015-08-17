@@ -69,7 +69,7 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 
     ![register4][4]
 
-    c.按一下移動選取項目箭號 (\*\*>\*\*)。這會將所有 Product 物件移至 [**準備註冊**] 清單。
+    c.按一下移動選取項目箭號 (**>**)。這會將所有 Product 物件移至 [**準備註冊**] 清單。
 
     ![register5][5]
 
@@ -93,7 +93,7 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 
 ### 以下說明如何探索已註冊的資料資產
 
-**Azure 資料目錄**提供簡單但功能強大的搜尋語法，可讓您輕鬆建立查詢來傳回使用者需要的資料。如需 **Azure 資料目錄**的詳細資訊，請參閱＜搜尋語法參考＞。
+**Azure 資料目錄**提供簡單但功能強大的搜尋語法，可讓您輕鬆建立查詢來傳回使用者需要的資料。如需 **Azure 資料目錄**的詳細資訊，請參閱〈搜尋語法參考〉。
 
 **Azure 資料目錄**具有下列搜尋選項：
 
@@ -109,7 +109,7 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 
 在此範例中，您將使用關鍵字搜尋。**Azure 資料目錄**搜尋有幾種查詢技巧。此範例將使用**分組**搜尋查詢。
 
-**查詢技巧** <table><tr><td><b>技巧</b></td><td><b>使用</b></td><td><b>範例</b></td></tr><tr><td>屬性範圍</td><td>只傳回搜尋詞彙符合指定屬性的資料來源</td><td>name:product</td></tr><tr><td>邏輯運算子</td><td>使用布林值運算擴大或縮小搜尋，如本頁的＜布林運算子＞一節所述</td><td>finance NOT corporate</td></tr><tr><td>使用括號分組</td><td>使用括號將查詢各部分予以分組，達到邏輯隔離，尤其是結合布林運算子</td><td>name:product AND (tags:illustration OR tags:photo)</td></tr><tr><td>比較運算子</td><td>對具有數值和日期資料類型的屬性使用比較而非等式</td><td>creationTime:&gt;11/05/14</td></tr></table>
+**查詢技巧** <table><tr><td><b>技巧</b></td><td><b>使用</b></td><td><b>範例</b></td></tr><tr><td>屬性範圍</td><td>只傳回搜尋詞彙符合指定屬性的資料來源</td><td>name:product</td></tr><tr><td>邏輯運算子</td><td>使用布林值運算擴大或縮小搜尋，如本頁的〈布林運算子〉一節所述</td><td>finance NOT corporate</td></tr><tr><td>使用括號分組</td><td>使用括號將查詢各部分予以分組，達到邏輯隔離，尤其是結合布林運算子</td><td>name:product AND (tags:illustration OR tags:photo)</td></tr><tr><td>比較運算子</td><td>對具有數值和日期資料類型的屬性使用比較而非等式</td><td>creationTime:&gt;11/05/14</td></tr></table>
 
 在此範例中，您對資料資產執行**分組**搜尋，其中 name 等於 product 且 tags 等於 illustration 或 tags 等於 photo。
 
@@ -130,7 +130,7 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 
 1.	登入 **Azure 資料目錄**入口網站。
 2.	按一下 [**探索**]。
-3.	選擇一或多個 [**資料資產**]。在此範例中，選擇 [**ProductPhoto**]，並輸入「行銷資料的產品相片」。
+3.	選擇一或多個**資料資產**。在此範例中，選擇 [**ProductPhoto**]，並輸入「行銷資料的產品相片」。
 4.	輸入 [**描述**]，幫助其他人探索並了解為何及如何使用選取的資料資產。例如，輸入「產品影像」。您也可以加入更多的標記，並檢視資料行。
 5.	現在您可以使用已加入至目錄的描述性中繼資料，嘗試搜尋和篩選來探索資料資產。
 
@@ -150,7 +150,7 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 
 在本練習中，您探索 Azure 資料目錄的中繼資料群眾外包功能，任何目錄使用者都可以加註他找到的資料資產。練習：連接到資料來源。在本練習中，您將使用 **Azure 資料目錄**入口網站，透過 Microsoft Excel 連接到資料來源。
 
-> [AZURE.NOTE]請務必記得，**Azure 資料目錄**不會讓使用者存取實際的資料來源 – 只是讓使用者更容易探索和了解它們。當使用者連接到資料來源時，他們所選擇的用戶端應用程式會使用其 Windows 認證，或在必要時提示他們提供認證。如果先前未授權使用者存取資料來源，則他必須先獲得授權才能連線。
+> [AZURE.NOTE]請務必記得，**Azure 資料目錄**不會讓使用者存取實際的資料來源，這只會讓使用者更容易探索和了解它們。當使用者連接到資料來源時，他們所選擇的用戶端應用程式會使用其 Windows 認證，或在必要時提示他們提供認證。如果先前未授權使用者存取資料來源，則他必須先獲得授權才能連線。
 
 ### 以下說明如何從 Excel 連接到資料來源
 
@@ -205,7 +205,7 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 
 ## 摘要
 
-在本教學課程中，您瀏覽 **Azure 資料目錄**預覽的基本功能，包括註冊、加註、探索和管理企業資料來源。既然您已經完成本教學課程，現在可以開始使用。您可以立即開始註冊您和小組所依賴的資料來源，並邀請同事使用目錄。
+在本教學課程中，您已瀏覽 **Azure 資料目錄**預覽的基本功能，包括註冊、加註、探索和管理企業資料來源。既然您已經完成本教學課程，現在可以開始使用。您可以立即開始註冊您和小組所依賴的資料來源，並邀請同事使用目錄。
 
 
 <!--Image references-->
@@ -222,4 +222,4 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

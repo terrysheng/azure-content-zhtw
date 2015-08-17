@@ -12,25 +12,29 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="07/06/2015"
+      ms.date="08/04/2015"
       ms.author="tamram" />
 
 # 如何搭配 PowerShell 與 .NET 使用 Azure 檔案儲存體
 
 ## 概觀
 
-Azure 檔案服務會公開使用標準 SMB 2.1 通訊協定的檔案共用。在 Azure 中執行的應用程式可使用標準和類似的檔案系統 API (如 ReadFile 和 WriteFile) 在 VM 之間輕鬆共用檔案。此外，檔案也可以同時透過 REST 介面存取，這樣會開啟各種混合式案例。最後，Azure 檔案會根據和 Blob、資料表和佇列服務相同的技術建置，這表示 Azure 檔案可以運用現有的可用性、持續性、延展性和建置在平台上的異地備援。
+Azure 檔案服務會公開使用標準 SMB 2.1 通訊協定的檔案共用。在 Azure 中執行的應用程式可使用標準和類似的檔案系統 API (如 ReadFile 和 WriteFile) 在 VM 之間輕鬆共用檔案。此外，檔案也可以同時透過 REST 介面存取，這樣會開啟各種混合式案例。最後，Azure 檔案服務是使用與 Blob、資料表和佇列服務相同的技術所建置，這表示 Azure 檔案服務能夠運用現有的可用性、持續性、延展性和建置於 Azure 儲存體平台內的異地備援。
 
 ## 關於本教學課程
 
 本入門教學課程將說明使用 Microsoft Azure 檔案儲存體的基本概念。在此教學課程中，我們將：
 
-- 使用 PowerShell 說明如何建立新的 Azure 檔案共用、新增目錄、上傳本機檔案至共用，及列出目錄中的檔案。
-- 從 Azure 虛擬機器掛接檔案共用，就好像您掛接任何 SMB 共用一樣。
+- 使用 PowerShell 示範如何建立新的 Azure 檔案服務共用、新增目錄、將本機檔案上傳至共用及列出目錄中的檔案。
+- 從 Azure 虛擬機器裝載檔案共用，就如同您裝載任何 SMB 共用一樣。
+- 使用 .NET 適用的 Azure 儲存體用戶端程式庫，從內部部署應用程式存取檔案共用。建立主控台應用程式，並使用檔案共用執行這些動作：
+	- 將共用中的檔案內容寫入主控台視窗
+	- 設定檔案共用的配額 (大小上限)
+	- 為使用共用上所定義之共用存取原則的檔案建立共用存取簽章
+	- 將檔案複製到相同儲存體帳戶中的另一個檔案
+	- 將檔案複製到相同儲存體帳戶中的 Blob
 
-針對想要從內部部署應用程式，以及 Azure 虛擬機器或雲端服務中存取共用中檔案的使用者，我們將說明如何使用 Azure .NET 儲存體用戶端程式庫，從桌面應用程式中使用檔案共用。
-
-> [AZURE.NOTE]若要執行本指南中的 .NET 程式碼範例，您需要 Azure .NET 儲存體用戶端程式庫 4.x 或更新版本。您可透過 [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) 取得儲存體用戶端程式庫。
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
@@ -123,14 +127,14 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 	example :
 	net use z: \\samples.file.core.windows.net\logs
 
-> [AZURE.NOTE]由於您已在上一個步驟中保留儲存體帳戶認證，因此您無需使用 `net use` 命令提供這些認證。如果您尚未保留認證，則請將它們作為傳送到 `net use` 命令的參數包括在其中。
+由於您已在上一個步驟中保留儲存體帳戶認證，因此您無需使用 `net use` 命令提供這些認證。如果您尚未保存認證，則請將它們當作傳送到 `net use` 命令的參數包括在其中，如此範例所示：
 
     net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
 
-您現在可以從虛擬機器使用檔案儲存體共用，就好像操作任何其他磁碟機一樣。您可以從命令提示字元中發佈標準檔案命令，或從 [檔案總管] 中檢視掛接的共用及其內容。您也可以使用標準 Windows 檔案 I/O API，例如 .NET Framework 中 [System.IO namespaces](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) 所提供的那些 API，在可存取檔案共用的虛擬機器內執行程式碼。
+您現在可以從虛擬機器使用檔案儲存體共用，就好像操作任何其他磁碟機一樣。您可以從命令提示字元中發佈標準檔案命令，或從 [檔案總管] 中檢視掛接的共用及其內容。您也可以使用標準 Windows 檔案 I/O API (例如 .NET Framework 中 [System.IO namespaces](http://msdn.microsoft.com/library/gg145019.aspx) 所提供的那些 API)，在可存取檔案共用的虛擬機器內執行程式碼。
 
 您也可以從在 Azure 雲端服務上執行的角色來掛接檔案共用，方法是透過遠端進入此角色。
 
@@ -171,16 +175,19 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 
 	using Microsoft.WindowsAzure;
 	using Microsoft.WindowsAzure.Storage;
+	using Microsoft.WindowsAzure.Storage.Blob;
 	using Microsoft.WindowsAzure.Storage.File;
 
 ### 以程式設計的方法擷取連接字串
 
-您可以使用 `Microsoft.WindowsAzure.CloudConfigurationManager` 類別或 `System.Configuration.ConfigurationManager ` 類別，從 app.config 檔案中擷取所儲存的認證。此處的範例說明如何使用 `CloudConfigurationManager` 類別來擷取認證，並將他們包含在 `CloudStorageAccount` 類別中。在 program.cs 的 `Main()` 方法中新增下列程式碼：
+您可以使用 `Microsoft.WindowsAzure.CloudConfigurationManager` 類別或 `System.Configuration.ConfigurationManager ` 類別，從 app.config 檔案中擷取所儲存的認證。Microsoft Azure Configuration Manager 套件包含 `Microsoft.WindowsAzure.CloudConfigurationManager` 類別，並且可在 [Nuget](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 上使用。
+
+此處的範例說明如何使用 `CloudConfigurationManager` 類別來擷取認證，並將他們包含在 `CloudStorageAccount` 類別中。在 program.cs 的 `Main()` 方法中新增下列程式碼：
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    	CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    	CloudConfigurationManager.GetSetting("StorageConnectionString")); 
 
-### 以程式設計的方式存取檔案儲存體共用
+### 以程式設計方式存取檔案共用
 
 接著，在 `Main()` 方法的上述程式碼後面加入下列程式碼，以擷取連接字串。此程式碼會取得稍早所建立檔案的參考，並將其內容輸出到主控台視窗。
 
@@ -216,20 +223,204 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 
 執行主控台應用程式以查看此輸出。
 
-## 從執行 Linux 的 Azure 虛擬機器掛接共用
+## 設定檔案共用的大小上限
 
-建立 Azure 虛擬機器時，您可以指定磁碟映像組件庫的 Ubuntu 映像，以確保支援 SMB 2.1。不過，任何支援 SMB 2.1 的 Linux 散發套件都可以掛接 Azure 檔案共用。
+從 Azure 儲存體用戶端程式庫 5.x 版開始，您可以設定以 GB 為單位的共用配額 (或大小上限)。藉由設定共用的配額，您可以限制儲存在共用上的檔案大小總計。
 
-如需如何在 Linux 上掛接 Azure 檔案共用的示範，請參閱 [Linux 上透過 Azure 檔案預覽的共用儲存體 - 第 1 部分](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1) (第 9 頻道)。
+如果共用上的檔案大小總計超過共用上設定的配額，則用戶端將無法增加現有檔案的大小或建立新的檔案，除非其為空白。
+
+下列範例示範如何設定現有檔案共用的配額。
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("logs");
+
+    //Ensure that the share exists.
+    if (share.Exists())
+    {
+		//Specify the maximum size of the share, in GB.
+	    share.Properties.Quota = 100;
+	    share.SetProperties();
+	}
+
+若要取得共用的任何現有配額值，請呼叫 **FetchAttributes()** 方法來擷取共用的屬性。
+
+## 產生檔案或檔案共用的共用存取簽章
+
+從 Azure 儲存體用戶端程式庫 5.x 版開始，您可以產生檔案共用或個別檔案的共用存取簽章。您也可以在檔案共用上建立共用存取原則，以管理共用存取簽章。建議您建立共用存取原則，因為如果必須洩漏 SAS，它提供了一種撤銷 SAS 的方式。
+
+下列範例會在共用上建立共用存取原則，然後使用該原則為共用中檔案上的 SAS 提供條件約束。
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("logs");
+
+    //Ensure that the share exists.
+    if (share.Exists())
+    {
+        string policyName = "sampleSharePolicy" + DateTime.UtcNow.Ticks;
+
+        //Create a new shared access policy and define its constraints.
+        SharedAccessFilePolicy sharedPolicy = new SharedAccessFilePolicy()
+            {
+                SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
+                Permissions = SharedAccessFilePermissions.Read | SharedAccessFilePermissions.Write
+            };
+
+        //Get existing permissions for the share.
+        FileSharePermissions permissions = share.GetPermissions();
+
+        //Add the shared access policy to the share's policies. Note that each policy must have a unique name.
+        permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
+        share.SetPermissions(permissions);
+
+        //Generate a SAS for a file in the share and associate this access policy with it.
+        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+        CloudFile file = sampleDir.GetFileReference("Log1.txt");
+        string sasToken = file.GetSharedAccessSignature(null, policyName);
+        Uri fileSasUri = new Uri(file.StorageUri.PrimaryUri.ToString() + sasToken);
+
+        //Create a new CloudFile object from the SAS, and write some text to the file. 
+        CloudFile fileSas = new CloudFile(fileSasUri);
+        fileSas.UploadText("This write operation is authenticated via SAS.");
+        Console.WriteLine(fileSas.DownloadText());
+    }
+
+如需建立與使用共用存取簽章的詳細資訊，請參閱[共用存取簽章：了解 SAS 模型](storage-dotnet-shared-access-signature-part-1.md)和[透過 Blob 服務建立與使用 SAS](storage-dotnet-shared-access-signature-part-2.md)。
+
+## 複製檔案
+
+從 Azure 儲存體用戶端程式庫 5.x 版開始，您可以將檔案複製到另一個檔案、將檔案複製到 Blob 或將 Blob 複製到檔案。下列示範如何以程式設計方式執行這些複製作業。
+
+您也可以使用 AzCopy 將檔案複製到另一個檔案，或將 Blob 複製到檔案或反向操作。如需使用 AzCopy 複製檔案的詳細資訊，請參閱[如何搭配使用 AzCopy 與 Microsoft Azure 儲存體](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy-preview-version-only)。
+
+> [AZURE.NOTE]如果要將 Blob 複製到檔案，或將檔案複製到 Blob，您必須使用共用存取簽章 (SAS) 驗證來源物件，即使是在相同的儲存體帳戶內進行複製也一樣。
+
+### 將檔案複製到另一個檔案
+
+下列範例會將檔案複製到相同共用中的另一個檔案。由於此複製作業是在相同儲存體帳戶中的檔案間進行複製，所以您可以使用共用金鑰驗證執行複製。
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("logs");
+
+    //Ensure that the share exists.
+    if (share.Exists())
+    {
+        //Get a reference to the root directory for the share.
+        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+
+        //Get a reference to the directory we created previously.
+        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+
+        //Ensure that the directory exists.
+        if (sampleDir.Exists())
+        {
+            //Get a reference to the file we created previously.
+            CloudFile sourceFile = sampleDir.GetFileReference("Log1.txt");
+
+            //Ensure that the source file exists.
+            if (sourceFile.Exists())
+            {
+                //Get a reference to the destination file.
+                CloudFile destFile = sampleDir.GetFileReference("Log1Copy.txt");
+
+                //Start the copy operation.
+                destFile.StartCopy(sourceFile);
+
+                //Write the contents of the destination file to the console window.
+                Console.WriteLine(destFile.DownloadText());
+            }
+        }
+    }
+
+
+### 將檔案複製到 Blob
+
+下列範例會建立檔案，並將其複製到相同儲存體帳戶內的 Blob。此範例會建立來源檔案的 SAS，供服務用來在複製作業期間驗證來源檔案存取權。
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Create a new file share, if it does not already exist.
+    CloudFileShare share = fileClient.GetShareReference("sample-share");
+    share.CreateIfNotExists();
+
+    //Create a new file in the root directory.
+    CloudFile sourceFile = share.GetRootDirectoryReference().GetFileReference("sample-file.txt");
+    sourceFile.UploadText("A sample file in the root directory.");
+
+    //Get a reference to the blob to which the file will be copied.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
+    container.CreateIfNotExists();
+    CloudBlockBlob destBlob = container.GetBlockBlobReference("sample-blob.txt");
+
+    //Create a SAS for the file that's valid for 24 hours.
+    //Note that when you are copying a file to a blob, or a blob to a file, you must use a SAS
+    //to authenticate access to the source object, even if you are copying within the same 
+    //storage account.
+    string fileSas = sourceFile.GetSharedAccessSignature(new SharedAccessFilePolicy()
+    {
+        //Only read permissions are required for the source file.
+        Permissions = SharedAccessFilePermissions.Read,
+        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24)
+    });
+
+    //Construct the URI to the source file, including the SAS token. 
+    Uri fileSasUri = new Uri(sourceFile.StorageUri.PrimaryUri.ToString() + fileSas);
+
+    //Copy the file to the blob.
+    destBlob.StartCopy(fileSasUri);
+
+    //Write the contents of the file to the console window.
+    Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
+    Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
+
+您可以用相同方式將 Blob 複製到檔案。如果來源物件為 Blob，則請建立 SAS，以便在複製作業期間驗證該 Blob 存取權。
+
+## 透過 Linux 使用檔案儲存體
+
+若要從 Linux 建立並管理檔案共用，請使用 Azure CLI。如需透過檔案儲存體使用 Azure CLI 的相關資訊，請參閱[搭配 Azure 儲存體使用 Azure CLI](storage-azure-cli.md#create-and-manage-file-shares)。
+
+您可以從執行 Linux 的虛擬機器裝載 Azure 檔案共用。當您建立 Azure 虛擬機器時，可以從 Azure 映像庫指定支援 SMB 2.1 的 Linux 映像，例如 Ubuntu 最新版。不過，任何支援 SMB 2.1 的 Linux 發行版本都可裝載 Azure 檔案共用。
+
+若要深入了解如何在 Linux 上裝載 Azure 檔案服務共用，請參閱 Cannel 9 上的[透過 Azure 檔案預覽在 Linux 上使用共用儲存體 - 第 1 部分](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1)。
 
 ## 後續步驟
 
 請參閱這些連結以取得 Azure 檔案儲存體的相關詳細資訊。
 
-### 參考
+### 教學課程與參考
 
 - [Storage Client Library for .NET 參考資料](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 - [檔案服務 REST API 參考](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+- [搭配使用 AzCopy 與 Microsoft Azure 儲存體](storage-use-azcopy.md)
+- [搭配使用 Azure PowerShell 與 Azure 儲存體](storage-powershell-guide-full.md)
+- [使用 Azure CLI 搭配 Azure 儲存體](storage-azure-cli.md)
 
 ### 部落格文章
 
@@ -237,4 +428,4 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 - [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

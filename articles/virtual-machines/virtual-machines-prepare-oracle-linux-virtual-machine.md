@@ -1,18 +1,5 @@
-<properties 
-	pageTitle="準備執行 Azure 的 Oracle Linux 虛擬機器" 
-	description="逐步完成在 Microsoft Azure 中執行 Linux 的 Oracle 虛擬機器設定。" 
-	services="virtual-machines" 
-	authors="bbenz" documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-
+<properties title="Prepare an Oracle Linux Virtual Machine for Azure" pageTitle="準備執行 Azure 的 Oracle Linux 虛擬機器" description="逐步完成在 Microsoft Azure 中執行 Linux 的 Oracle 虛擬機器設定。" services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #準備執行 Azure 的 Oracle Linux 虛擬機器
 -   [準備執行 Azure 的 Oracle Linux 6.4+ 虛擬機器](virtual-machines-linux-create-upload-vhd-oracle.md)
 
@@ -175,9 +162,9 @@
 		# sudo yum clean all
 		# sudo yum -y update
 
-9.  修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。作法是，在文字編輯器中開啟 "/etc/default/grub" 並編輯 GRUB_CMDLINE_LINUX 參數，例如：
+9.  修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。作法是，在文字編輯器中開啟 "/etc/default/grub" 並編輯 GRUB\_CMDLINE\_LINUX 參數，例如：
 
-		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
+		GRUB\_CMDLINE\_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
 	這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。除了上述以外，我們還建議您*移除*下列參數：
 
@@ -215,4 +202,4 @@
 
 15.  在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

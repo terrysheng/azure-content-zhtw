@@ -27,4 +27,4 @@
 - [Azure 訂用帳戶如何與 Azure AD 產生關聯](active-directory-how-subscriptions-associated-directory.md)
 - [Azure AD 術語](active-directory-terminology.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

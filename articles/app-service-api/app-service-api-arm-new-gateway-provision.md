@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="08/04/2015" 
 	ms.author="tomfitz"/>
 
 # 以新的閘道佈建 API 應用程式
@@ -42,6 +42,14 @@
 
 [AZURE.INCLUDE [app-service-api-deploy-parameters](../../includes/app-service-api-deploy-parameters.md)]
 
+### hostingPlanName
+
+App Service 方案的名稱。
+
+    "hostingPlanName": {
+      "type": "string"
+    }
+
 ### hostingPlanSettings
 
 新的虛擬主機方案設定。
@@ -65,7 +73,7 @@
       "packageId": "Microsoft.ApiApp"
     }
     
-下方使用的值為 **variables('packageId')**。
+下方使用的值為 **variables('packageId')**。它包含 API 應用程式的 NuGet 套件 ID。
 
 ## 要部署的資源
 
@@ -91,7 +99,7 @@
 
 建立主控閘道的 Web 應用程式。
 
-請注意，請將 **kind** 設為 **gateway**，這麼做會通知 Azure 入口網站此 Web 應用程式正在主控某個閘道。入口網站會在瀏覽 Web 應用程式刀鋒視窗中隱藏此 Web 應用程式。裝載的 Web 應用程式與閘道之間會定義一個連結。應用程式設定區段中會包含主控 API 應用程式的必要值。
+請注意，請將 **kind** 設為 **gateway**，這麼做會通知 Azure 入口網站此 Web 應用程式正在主控某個閘道。入口網站會在瀏覽 Web 應用程式刀鋒視窗中隱藏此 Web 應用程式。裝載的 Web 應用程式與閘道之間會定義一個連結。應用程式設定區段中會包含主控 API 應用程式的必要值。**serverFarmId** 包含您在 **hostingPlanName** 參數中提供的 App Service 方案名稱。
 
 
     {
@@ -178,7 +186,7 @@
 
 建立主控 API 應用程式的 Web 應用程式。
 
-請注意，**kind** 是設定為 **apiApp**，這樣會通知 Azure 入口網站此 Web 應用程式裝載某個 API 應用程式。入口網站會在瀏覽 Web 應用程式刀鋒視窗中隱藏此 Web 應用程式。此應用程式包含可安裝預設空白 API 應用程式封裝的延伸模組。API 應用程式與主控 Web 應用程式之間會定義一個連結。應用程式設定區段中會包含主控 API 應用程式的必要值。
+請注意，**kind** 是設定為 **apiApp**，這樣會通知 Azure 入口網站此 Web 應用程式正在主控某個 API 應用程式。入口網站會在瀏覽 Web 應用程式刀鋒視窗中隱藏此 Web 應用程式。此應用程式包含可安裝預設空白 API 應用程式封裝的延伸模組。API 應用程式與主控 Web 應用程式之間會定義一個連結。應用程式設定區段中會包含主控 API 應用程式的必要值。**serverFarmId** 包含您在 **hostingPlanName** 參數中提供的 App Service 方案名稱。
 
     {
       "type": "Microsoft.Web/sites",
@@ -300,4 +308,4 @@
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

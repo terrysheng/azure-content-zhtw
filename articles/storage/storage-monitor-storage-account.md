@@ -72,7 +72,7 @@
 	
 	- 若要隱藏圖表上繪製的度量，請清除度量標頭旁邊彩色的核取方塊。
 	
-		![Monitoring_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
+		![Monitoring\_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
   
 3. 圖表預設會顯示趨勢，且只顯示每個度量的目前值 (圖表頂端的 [相對] 選項)。若要顯示 Y 軸以看到絕對值，請選取 [絕對]。
 
@@ -99,7 +99,7 @@
 	即會開啟 [監視] 頁面。依預設，度量表會顯示一部份可用於監視的度量。下圖顯示所有三個服務都設定詳細資訊監視的儲存體帳戶預設 [監視] 顯示。請使用 [Add Metrics] 從所有可用度量中選取您要監視的度量。
 
 
-	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
+	![Monitoring\_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
 	> [AZURE.NOTE]選取度量時請考慮成本。重新整理監視顯示時有相關的交易和出口流量成本。如需詳細資訊，請參閱[儲存體分析及計費](http://msdn.microsoft.com/library/azure/hh360997.aspx)。
 
@@ -159,4 +159,4 @@
 診斷記錄檔儲存在儲存體帳戶中的 $logs Blob 容器。如需存取 $logs 容器的詳細資訊，請參閱[關於儲存體分析記錄](http://msdn.microsoft.com/library/azure/hh343262.aspx)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

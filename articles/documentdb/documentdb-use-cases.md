@@ -79,4 +79,4 @@ Azure 事件中樞可以擷取暴增的資料量，因為它提供高輸送量�
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667)。未來存放區的運作基礎會是快速搜尋和簡單資料流程。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

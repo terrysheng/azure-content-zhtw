@@ -459,4 +459,4 @@ To https://user@testsite.scm.azurewebsites.net/testsite.git
 在本教學課程中，您學到如何在 Visual Studio 程式碼中建立 API 應用程式。如需 Visual Studio 程式碼的詳細資訊，請參閱 [Visual Studio 程式碼](https://code.visualstudio.com/Docs/)。如需 API 應用程式的相關資訊，請參閱[什麼是 API 應用程式？](app-service-api-apps-why-best-platform.md)。
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

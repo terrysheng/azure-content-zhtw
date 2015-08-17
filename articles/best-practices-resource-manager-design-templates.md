@@ -245,7 +245,7 @@
 
 **選擇性資源範本**
 
-例如，您可以使用選擇性資源範本來設定 Jumpbox，以便從公用網際網路間接存取部署的環境。您會使用參數或變數來識別是否應啟用 Jumpbox，並使用 *concat* 函式來建置範本的目標名稱，例如 *jumpbox_enabled.json*。範本連結會使用產生的變數來安裝 Jumpbox。
+例如，您可以使用選擇性資源範本來設定 Jumpbox，以便從公用網際網路間接存取部署的環境。您會使用參數或變數來識別是否應啟用 Jumpbox，並使用 *concat* 函式來建置範本的目標名稱，例如 *jumpbox\_enabled.json*。範本連結會使用產生的變數來安裝 Jumpbox。
 
 您可以從多個位置連結選擇性資源範本：
 
@@ -309,7 +309,7 @@
 
 您會建立名為 shared-resources.json 的共用資源範本
 
-您會建立選擇性資源範本來啟用 Jumpbox 的部署 (名為 jumpbox_enabled.json)
+您會建立選擇性資源範本來啟用 Jumpbox 的部署 (名為 jumpbox\_enabled.json)
 
 Redis 只會使用單一節點類型，因此您將建立名為 node-resources.json 的單一成員資源範本。
 
@@ -319,9 +319,9 @@ Redis 只會使用單一節點類型，因此您將建立名為 node-resources.j
 
 使用範本連結時，主要的範本會向外連結到共用的資源範本，以建立虛擬網路。
 
-邏輯會新增到主要的範本內，讓範本的取用者能夠指定是否應該部署 Jumpbox。*EnableJumpbox* 參數的 *enabled* 值表示客戶想要部署 Jumpbox。提供此值時，範本會串連 *_enabled* 做為 Jumpbox 功能之基底範本名稱的尾碼。
+邏輯會新增到主要的範本內，讓範本的取用者能夠指定是否應該部署 Jumpbox。*EnableJumpbox* 參數的 *enabled* 值表示客戶想要部署 Jumpbox。提供此值時，範本會串連 *\_enabled* 做為 Jumpbox 功能之基底範本名稱的尾碼。
 
-主要的範本會套用 *large* 參數值做為 T 恤尺寸之基底範本名稱的尾碼，然後在向外連到 *technology_on_os_large.json* 的範本連結中使用該值。
+主要的範本會套用 *large* 參數值做為 T 恤尺寸之基底範本名稱的尾碼，然後在向外連到 *technology\_on\_os\_large.json* 的範本連結中使用該值。
 
 拓撲會類似下圖。
 
@@ -377,8 +377,8 @@ Redis 只會使用單一節點類型，因此您將建立名為 node-resources.j
 
 ## 後續步驟
 
-- 若要查看如何實作本主題所提供之設計原理的內容相關範例，請參閱[實作範本的最佳做法內容範例](best-practices-resource-manager-examples.md)。
-- 如需如何在 Azure 資源管理員中處理安全性的建議，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)
-- 若要了解進出範本的共用狀態，請參閱 [Azure 資源管理員範本中的共用狀態](best-practices-resource-manager-state.md)。
+- 若要查看如何實作本主題所提供之設計原理的內容相關範例，請參閱〈[實作範本的最佳做法內容範例](best-practices-resource-manager-examples.md)〉。
+- 如需如何在 Azure 資源管理員中處理安全性的建議，請參閱〈[Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)〉。
+- 若要了解進出範本的共用狀態，請參閱〈[Azure 資源管理員範本中的共用狀態](best-practices-resource-manager-state.md)〉。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

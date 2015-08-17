@@ -110,4 +110,4 @@ ExpressRoute 提供者可分類為網路服務提供者 (NSP) 和 Exchange 提�
 - 尋找服務提供者。請參閱 [ExpressRoute 服務提供者和位置](expressroute-locations.md)。
 - 設定 ExpressRoute 連線。如需相關指示，請參閱[透過網路服務提供者設定 ExpressRoute 連線](expressroute-configuring-nsps.md)或[透過 Exchange 提供者設定 ExpressRoute 連線](expressroute-configuring-exps.md)。 
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

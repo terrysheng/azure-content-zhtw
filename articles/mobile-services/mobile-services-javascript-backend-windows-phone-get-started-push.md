@@ -66,7 +66,7 @@
 
 	>[AZURE.NOTE]在本教學課程中，行動服務會傳送快顯通知給裝置。傳送磚通知時，您必須在通道上改為呼叫 **BindToShellTile** 方法。
 
-4. 在 App.xaml.cs 中的 **Application_Launching** 事件處理常式最前面，在新的 **AcquirePushChannel** 方法中新增下列呼叫：
+4. 在 App.xaml.cs 中的 **Application\_Launching** 事件處理常式最前面，在新的 **AcquirePushChannel** 方法中新增下列呼叫：
 
         AcquirePushChannel();
 
@@ -74,7 +74,7 @@
 
 5. 按 **F5** 鍵以執行應用程式。包含註冊金鑰的快顯對話方塊隨即顯示。
   
-6.	在 [方案總管] 中展開 [屬性]，開啟 WMAppManifest.xml 檔案，按一下 [功能] 索引標籤，確定已核取 **ID___CAP___PUSH_NOTIFICATION** 功能。
+6.	在 [方案總管] 中展開 [屬性]，開啟 WMAppManifest.xml 檔案，按一下 [功能] 索引標籤，確定已核取 **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION** 功能。
 
    	![在 VS 中啟用通知](./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png)
 
@@ -180,4 +180,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

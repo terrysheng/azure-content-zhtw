@@ -102,7 +102,7 @@ ADM 實際上不會傳送任何促銷活動資料，它只是告知應用程式�
 
 ##授與 Engagement OAuth 認證
 
-在 $/#application/YOUR_APPID/native-push 提交您的 OAuth 認證 (用戶端識別碼和用戶端密碼)。
+在 $/#application/YOUR\_APPID/native-push 提交您的 OAuth 認證 (用戶端識別碼和用戶端密碼)。
 
 現在，您在建立 Reach 公告與輪詢時可以選取 [任何時間]。
 
@@ -113,4 +113,4 @@ ADM 實際上不會傳送任何促銷活動資料，它只是告知應用程式�
 [此程序]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

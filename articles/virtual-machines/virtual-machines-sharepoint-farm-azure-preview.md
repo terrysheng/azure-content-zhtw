@@ -45,7 +45,7 @@
 4. 如果您需要高可用性伺服器陣列，請按一下 [啟用高可用性]。
 5. 若要設定網域控制站，請按一下箭頭。您可以指定主機名稱首碼 (預設值為資源群組名稱)、樹系根網域名稱 (預設值為 contoso.com)，和網域控制站的大小 (預設值為 A1)。
 6. 若要設定 SQL Server，請按一下箭頭。您可以指定主機名稱首碼 (預設值為資源群組名稱)、SQL Server 的大小 (預設值為 A5)、資料庫存取帳戶名稱和密碼 (預設值是使用系統管理員帳戶)，以及 SQL Server 服務帳戶名稱 (預設值為 sqlservice) 和密碼 (預設值是使用與系統管理員帳戶相同的密碼)。
-7. 若要設定 SharePoint 伺服器，請按一下箭頭。您可以指定主機名稱首碼 (預設值為資源群組名稱)、SharePoint 伺服器的大小 (預設值為 A2)、SharePoint 使用者帳戶 (預設值為 sp_setup) 和密碼、SharePoint 伺服器陣列帳戶名稱 (預設值為 sp_farm) 和密碼，以及 SharePoint 伺服器陣列複雜密碼。預設值是將系統管理員密碼用於 SharePoint 使用者帳戶、伺服器陣列帳戶和複雜密碼。
+7. 若要設定 SharePoint 伺服器，請按一下箭頭。您可以指定主機名稱首碼 (預設值為資源群組名稱)、SharePoint 伺服器的大小 (預設值為 A2)、SharePoint 使用者帳戶 (預設值為 sp\_setup) 和密碼、SharePoint 伺服器陣列帳戶名稱 (預設值為 sp\_farm) 和密碼，以及 SharePoint 伺服器陣列複雜密碼。預設值是將系統管理員密碼用於 SharePoint 使用者帳戶、伺服器陣列帳戶和複雜密碼。
 8. 若要設定適用於虛擬網路、儲存體帳戶或診斷的選用組態設定，請按一下對應的箭頭。
 9. 若要指定訂閱，請按一下箭頭。
 10. 完成之後，請按一下 [建立]。
@@ -95,4 +95,4 @@ Azure Preview 入口網站的 SharePoint Server 伺服器陣列功能會在服�
 
 [裝載於 Azure 基礎結構服務中的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

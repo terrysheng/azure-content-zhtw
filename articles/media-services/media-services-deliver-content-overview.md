@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
@@ -130,7 +130,7 @@
 若要利用動態封裝，您需要執行下列動作：
 
 - 將您的夾層 (來源) 檔編碼成一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案。
-- 為您計畫從該處傳遞內容的串流端點取得至少一個隨選串流單元。如需詳細資訊，請參閱[如何調整隨選串流保留單元](media-services-manage-origins.md#scale_streaming_endpoints/)。
+- 為您計畫從該處傳遞內容的串流端點取得至少一個隨選串流單元。如需詳細資訊，請參閱[如何調整隨選串流保留單元](media-services-manage-origins.md#scale_streaming_endpoints)。 
 
 使用動態封裝，您只需要以單一儲存格式儲存及播放檔案，媒體服務會根據來自用戶端的要求建置及傳遞適當的回應。
 
@@ -205,4 +205,4 @@
 [啟動儲存體金鑰之後更新媒體服務定位器](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

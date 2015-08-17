@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用 Xamarin iOS 用戶端將推播通知傳送至特定使用者";" 
-	description="description=";了解如何將推播通知傳送至使用者的所有裝置";" 
+	pageTitle="使用 Xamarin iOS 用戶端將推播通知傳送至特定使用者&quot;" 
+	description="description=&quot;了解如何將推播通知傳送至使用者的所有裝置&quot;" 
 	services="app-service\mobile" 
 	documentationCenter="windows" 
 	authors="ysxu" 
@@ -112,4 +112,4 @@
 [開始使用推播通知]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [範本]: https://msdn.microsoft.com/zh-tw/library/dn530748.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

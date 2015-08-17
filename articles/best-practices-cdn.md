@@ -49,7 +49,20 @@ CDN 的典型用法包括：
 
 - 下表顯示來自不同地理位置的第一個位元組的時間中間值範例。目標 Web 角色會部署到 Azure 美國西部。因為 CDN 很接近 CDN 節點，所以較大的暴增之間有更強的關聯性。如需 Azure CDN 節點位置清單，請參閱 [Azure 內容傳遞網路 (CDN) POP 位置](http://msdn.microsoft.com/library/azure/gg680302.aspx)。
 
-<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><a name="_MailEndCompose" href="#"><span /></a><br /></th><th><p>第一個位元組時間 (原始)</p></th><th><p>第一個位元組時間 (CDN)</p></th><th><p>對 CDN 快上 %</p></th></tr><tr><td><p>* San Jose, CA</p></td><td><p>47.5</p></td><td><p>46.5</p></td><td><p>2 %</p></td></tr><tr><td><p>** Dulles, VA</p></td><td><p>109</p></td><td><p>40.5</p></td><td><p>169 %</p></td></tr><tr><td><p>Buenos Aires, AR</p></td><td><p>210</p></td><td><p>151</p></td><td><p>39 %</p></td></tr><tr><td><p>* London, UK</p></td><td><p>195</p></td><td><p>44</p></td><td><p>343 %</p></td></tr><tr><td><p>Shanghai, CN</p></td><td><p>242</p></td><td><p>206</p></td><td><p>17 %</p></td></tr><tr><td><p>* Singapore</p></td><td><p>214</p></td><td><p>74</p></td><td><p>189%</p></td></tr><tr><td><p>* Tokyo, JP</p></td><td><p>163</p></td><td><p>48</p></td><td><p>240 %</p></td></tr><tr><td><p>Seoul, KR</p></td><td><p>190</p></td><td><p>190</p></td><td><p>0 %</p></td></tr></table>* 在相同的城市中有 Azure CDN 節點。 * 鄰近城市中具有 Azure CDN 節點。
+
+
+|City |距第一位元組時間 (來源) |距第一位元組時間 (CDN) | % 更快的速度，適用於 CDN|
+|---|---|---|---|
+|加州聖荷西<sub>1</sub> |47\.5 |46\.5 |2%|
+|維吉尼亞州杜勒斯<sub>2</sub> |109 |40\.5 |169%|
+|阿根廷布宜諾斯艾利斯 |210 |151 |39%|
+|英國倫敦<sub>1</sub> |195 |44 |343%|
+|中國上海 |242 |206 |17%|
+|新加坡<sub>1</sub> |214 |74 |189%|
+|日本東京<sub>1</sub> |163 |48 |240%|
+|韓國首爾 |190 |190 |0%|
+
+在同一城市中具有 Azure CDN 節點。<sub>1</sub>在鄰近城市中具有 Azure CDN 節點。<sub>2</sub>
 
 
 ## 挑戰  
@@ -85,7 +98,8 @@ CDN 較沒有用的案例括：
 
 使用 CDN 是最小化應用程式負載，及最大化可用性與效能的好方法。您應該為應用程式使用的所有適當內容和資源考量此方案。設計使用 CDN 的策略時，請考慮下列幾點：
 
-- **原點 ** 透過 CDN 部署內容時，只需要指定 CDN 服務將用來存取及快取內容的 HTTP (連接埠 80) 端點。+ 端點可指定 Azure blob 儲存體容器，包含您要透過 CDN 傳遞的靜態內容。容器必須標示為公用。只能透過 CDN 取得公用容器中具有公用讀取權限的 blob。
+- **來源** 透過 CDN 部署內容時，只需要指定 CDN 服務將用來存取及快取內容的 HTTP (連接埠 80) 端點。+ 端點可指定 Azure blob 儲存體容器，包含您要透過 CDN 傳遞的靜態內容。容器必須標示為公用。只能透過 CDN 取得公用容器中具有公用讀取權限的 blob。
+
 - 端點可在其中一個應用程式之計算層級的根目錄中，指定名為 **cdn** 的資料夾 (例如 Web 角色或虛擬機器)。將在 CDN 上快取資源要求的結果，包括動態資源，例如 ASPX 頁面。最小快取性期間為 300 秒。任何較短的期間會防止內容部署到 CDN (如需詳細資訊，請參閱＜<a href="#cachecontrol" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">快取控制</a>＞一節)。
 
 - 如果您使用 Azure 網站，可在建立 CDN 執行個體時選取網站，將端點設為該網站的根資料夾。可透過 CDN 取得網站的所有內容。
@@ -176,7 +190,7 @@ CDN 較沒有用的案例括：
   <rewrite>
     <rules>
       <rule name="VersionedResource" stopProcessing="false">
-        <match url="(.*)_v(.*).(.*)" ignoreCase="true" />
+        <match url="(.*)_v(.*)\.(.*)" ignoreCase="true" />
         <action type="Rewrite" url="{R:1}.{R:3}" appendQueryString="true" />
       </rule>
       <rule name="CdnImages" stopProcessing="true">
@@ -203,7 +217,8 @@ CDN 較沒有用的案例括：
 
 加入重寫規則會執行下列重新導向：
 
-- 第一個規則可讓您在資源的檔案名稱中內嵌版本，接著會略過。例如，**Filename_v123.jpg **重寫為 **Filename.jpg**。
+- 第一個規則可讓您在資源的檔案名稱中內嵌版本，接著會略過。例如，**Filename\_v123.jpg** 重寫為 **Filename.jpg**。
+
 - 接下來四個規則將顯示當您不想將資源儲存在 Web 角色的根目錄中名為 **cdn** 的資料夾時，如何重新導向要求。規則會將 **cdn/Images**、**cdn/Content**、**cdn/Scripts** 和 **cdn/bundles** URL 對應到他們在 web 角色中各自的根資料夾。使用 URL 重寫需要對資源的統合進行一些變更。
 
 
@@ -219,4 +234,4 @@ CDN 較沒有用的案例括：
 + [整合雲端服務與 Azure CDN](cdn-cloud-service-with-cdn.md)
 + [Azure 內容傳遞網路的最佳作法](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/) (英文)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

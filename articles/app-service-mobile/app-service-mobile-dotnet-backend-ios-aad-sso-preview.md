@@ -20,9 +20,9 @@ ms.author="mahender" />
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-在本教學課程中，您會使用 Active Directory Authentication Library 將驗證新增至快速入門專案。
+在本教學課程中，您會使用 Active Directory Authentication Library (ADAL) 將驗證新增至快速入門專案。您也可以透過使用〈[將驗證新增至您的應用程式]〉教學課程中涵蓋的 Mobile Apps SDK，啟用使用較少組態的驗證。本主題用於 ADAL 上可針對使用者提供整合性更高的驗證體驗，且 ADAL 提供更豐富的功能，以便存取其他受 AAD 保護的資源。
 
-為了能夠驗證使用者，您必須向 Azure Active Directory (AAD) 租用戶註冊您的應用程式。此作業有兩個階段。第一，您必須註冊應用程式服務，並公開其權限。第二，您必須註冊 iOS 應用程式，並為其授與對這些權限的存取權。
+為了能夠驗證使用 ADAL 的使用者，您必須向 Azure Active Directory (AAD) 租用戶註冊您的應用程式。此作業有兩個階段。第一，您必須註冊應用程式服務，並公開其權限。第二，您必須註冊 iOS 應用程式，並為其授與對這些權限的存取權。
 
 本教學課程需要下列各項：
 
@@ -121,6 +121,6 @@ ms.author="mahender" />
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
  [開始使用行動應用程式]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
- 
+ [將驗證新增至您的應用程式]: app-service-mobile-dotnet-backend-ios-get-started-users-preview.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

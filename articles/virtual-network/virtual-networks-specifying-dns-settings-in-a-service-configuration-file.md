@@ -41,4 +41,4 @@
 
 [關於管理入口網站中的虛擬網路設定](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

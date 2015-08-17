@@ -11,8 +11,8 @@
  ms.workload="infrastructure-services"
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
- ms.topic="get-started-article" 
- ms.date="05/12/2015"
+ ms.topic="hero-article" 
+ ms.date="08/04/2015"
  ms.author="krisragh"/>
 
 # 在管理入口網站中開始使用排程器
@@ -264,4 +264,4 @@ Azure 排程器會實作以數個條件為基礎的配額。本節列出配額�
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

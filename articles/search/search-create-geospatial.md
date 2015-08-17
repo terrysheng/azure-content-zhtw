@@ -166,4 +166,4 @@
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

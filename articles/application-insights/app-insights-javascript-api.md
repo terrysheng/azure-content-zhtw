@@ -218,4 +218,4 @@ SDK 嘗試從環境擷取有關裝置、位置和使用者的資訊。
 
 閱讀或參與 [SDK 的程式碼](https://github.com/Microsoft/ApplicationInsights-js)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

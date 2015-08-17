@@ -43,7 +43,7 @@ Azure Data Factory 可讓資料在內部部署來源與不同的 Azure 服務之
 
 <!--Article references-->
 
-[使用 Azure Data Factory 複製資料]: ./data-factory-copy-activity/
+[Copy data with Azure Data Factory]: ./data-factory-copy-activity/
 [SQL 資料倉儲開發概觀]: ./sql-data-warehouse-overview-develop/
 [SQL 資料倉儲整合概觀]: ./sql-data-warehouse-overview-integration/
 
@@ -51,5 +51,6 @@ Azure Data Factory 可讓資料在內部部署來源與不同的 Azure 服務之
 
 <!--Other Web references-->
 [Azure Data Factory 文件]: https://azure.microsoft.com/documentation/services/data-factory/
+[使用 Azure Data Factory 複製資料]: https://azure.microsoft.com/zh-tw/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

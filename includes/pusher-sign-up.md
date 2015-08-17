@@ -68,4 +68,4 @@
 [Azure 管理入口網站]: https://manage.windowsazure.com
 [了解 Pusher]: http://pusher.com/docs
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

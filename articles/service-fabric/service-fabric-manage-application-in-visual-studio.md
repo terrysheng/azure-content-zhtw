@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/22/2015"
+   ms.date="08/05/2015"
    ms.author="jesseb"/>
 
 # 在 Visual Studio 中管理 Service Fabric 應用程式
@@ -68,10 +68,10 @@
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
 
-- [Service Fabric 應用程式模型](../service-fabric-application-model)
-- [Service Fabric 應用程式部署](../service-fabric-deploy-remove-applications)
-- [偵錯 Service Fabric 應用程式](../service-fabric-debugging-your-application)
-- [使用 Service Fabric 總管視覺化叢集](../service-fabric-visualizing-your-cluster)
+- [Service Fabric 應用程式模型](service-fabric-application-model.md)
+- [Service Fabric 應用程式部署](service-fabric-deploy-remove-applications.md)
+- [偵錯 Service Fabric 應用程式](service-fabric-debugging-your-application.md)
+- [使用 Service Fabric 總管視覺化叢集](service-fabric-visualizing-your-cluster.md)
 
 <!--Image references-->
 [addserviceproject]: ./media/service-fabric-manage-application-in-visual-studio/addserviceproject.png
@@ -79,4 +79,4 @@
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

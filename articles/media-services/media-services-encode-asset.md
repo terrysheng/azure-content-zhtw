@@ -78,114 +78,108 @@
 
 ###<a id="billing"></a>每個編碼器所使用的帳單計量表
 
-<table border="1">
-<tr><th>媒體處理器名稱</th><th>適用的價格</th><th>注意事項</th></tr>
-<tr><td><b>Windows Azure Media Encoder</b></td><td>LEGACY ENCODER</td><td>在 LEGACY ENCODER 資料行之下，編碼工作會以<a href="http://azure.microsoft.com/pricing/details/media-services/">這裡</a>指定的費率，根據輸入資產和輸出資產的總大小 (以 GB 為單位) 收費。</td></tr>
-<tr><td><b>Azure Media Encoder</b></td><td>ENCODER</td><td>在 ENCODER 資料行之下，編碼工作會以<a href="http://azure.microsoft.com/pricing/details/media-services/">這裡</a>指定的費率，根據輸出資產的大小 (以 GB 為單位) 收費。</td></tr>
-<tr><td><b>Media Encoder Standard</b></td><td>ENCODER</td><td>在 ENCODER 資料行之下，編碼工作會以<a href="http://azure.microsoft.com/pricing/details/media-services/">這裡</a>指定的費率，根據輸出資產的大小 (以 GB 為單位) 收費。</td></tr>
-<tr><td><b>Media Encoder Premium Workflow</b></td><td>PREMIUM ENCODER</td><td>在 PREMIUM ENCODER 資料行之下，編碼工作會以<a href="http://azure.microsoft.com/pricing/details/media-services/">這裡</a>指定的費率，根據輸出資產的大小 (以 GB 為單位) 收費。</td></tr>
-</table>
+媒體處理器名稱|適用的價格|注意事項
+---|---|---
+**Windows Azure Media Encoder** |LEGACY ENCODER|在 LEGACY ENCODER 資料行之下，編碼工作會以[這裡][1]指定的費率，根據輸入資產和輸出資產的總大小 (以 GB 為單位) 收費。
+**Azure Media Encoder** |ENCODER|在 ENCODER 資料行之下，編碼工作會以[這裡][1]指定的費率，根據輸出資產的大小 (以 GB 為單位) 收費。
+**Media Encoder Standard** |ENCODER|在 ENCODER 資料行之下，編碼工作會以[這裡][1]指定的費率，根據輸出資產的大小 (以 GB 為單位) 收費。
+**Media Encoder Premium Workflow** |PREMIUM ENCODER|在 PREMIUM ENCODER 資料行之下，編碼工作會以[這裡][1]指定的費率，根據輸出資產的大小 (以 GB 為單位) 收費。
 
 
-本節比較 **Azure Media Encoder**、**Media Encoder Premium Workflow** 和 **Media Encoder Standard** 的編碼功能。
+
+本節比較 **Azure 媒體編碼器**、**Media Encoder Premium Workflow** 和 **Media Encoder Standard** 的編碼功能。
 
 
 ###輸入格式
 
 輸入容器/檔案格式
 
-<table border="1">
-<tr><th>輸入容器/檔案格式</th><th>Media Encoder Premium Workflow</th><th>Azure Media Encoder
-</th><th>Media Encoder Standard</th></tr>
-<tr><td>Adobe® Flash® F4V</td><td>是</td><td>否</td><td>是</td></tr>
-<tr><td>MXF/SMPTE 377M</td><td>是</td><td>限制</td><td>是</td></tr>
-<tr><td>GXF</td><td>是</td><td>否</td><td>是</td></tr>
-<tr><td>MPEG-2 傳輸資料流</td><td>是</td><td>是</td><td>是</td></tr>
-<tr><td>MPEG-2 程式資料流</td><td>是</td><td>是</td><td>是</td></tr>
-<tr><td>MPEG-4/MP4</td><td>是</td><td>是</td><td>是</td></tr>
-<tr><td>Windows Media/ASF</td><td>是</td><td>是</td><td>是</td></tr>
-<tr><td>AVI (未壓縮 8 位元/10 位元)</td><td>是</td><td>是</td><td>是</td></tr>
-<tr><td>3GPP/3GPP2</td><td>否</td><td>是</td><td>是</td></tr>
-<tr><td>Smooth Streaming 檔案格式 (PIFF 1.3)</td><td>否</td><td>是</td><td>是</td></tr>
-<tr><td><a href="https://msdn.microsoft.com/zh-tw/library/windows/desktop/dd692984(v=vs.85).aspx">Microsoft Digital Video Recording (DVR-MS)</a></td><td>否</td><td>否</td><td>是</td></tr>
-<tr><td>Matroska/WebM</td><td>否</td><td>否</td><td>是</td></tr></table>
+輸入容器/檔案格式|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
+---|---|---|---
+Adobe® Flash® F4V|是|否|是
+MXF/SMPTE 377M|是|限制|是
+GXF|是|否|是
+MPEG-2 傳輸資料流|是|是|是
+MPEG-2 程式資料流|是|是|是
+MPEG-4/MP4|是|是|是
+Windows Media/ASF|是|是|是
+AVI (未壓縮 8 位元/10 位元)|是|是|是
+3GPP/3GPP2|否|是|是
+Smooth Streaming 檔案格式 (PIFF 1.3)|否|是|是
+[Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|否|否|是
+Matroska/WebM|否|否|是
 
 輸入視訊轉碼器
 
-<table border="1">
-<tr><th>輸入視訊轉碼器</th><th>Media Encoder Premium Workflow</th><th>Azure Media Encoder</th><th>Media Encoder Standard</th></tr>
-<tr><td>AVC 8 位元/10 位元，高達 4:2:2，包括 AVCIntra</td><td>是</td><td>唯一的 8 位元 4:2:0</td><td>8 位元 4:2:0 和 4:2:2</td></tr>
-<tr><td>Avid DNxHD (使用 MXF)</td><td>是</td><td>否</td><td>是</td></tr>
-<tr><td>DVCPro/DVCProHD (使用 MXF)</td><td>是</td><td>否</td><td>是</td></tr>
-<tr><td>JPEG2000</td><td>是</td><td>否</td><td>是</td></tr>
-<tr><td>MPEG-2 (高達 422 Profile 和 High Level，包括 XDCAM、XDCAM HD、XDCAM IMX、CableLabs ® 和 D10 等變種)</td><td>是</td><td>最高 422 設定檔</td><td>最高 422 設定檔</td></tr>
-<tr><td>MPEG-1</td><td>是</td><td>是</td><td>是</td></tr>
-<tr><td>Windows Media 視訊/VC-1</td><td>是</td><td>是</td><td>是</td></tr>
-<tr><td>Canopus HQ/HQX</td><td>否</td><td>是</td><td>否</td></tr>
-<tr><td>Mpeg-4 第 2 部分</td><td>否</td><td>否</td><td>是</td></tr>
-<tr><td><a href="https://en.wikipedia.org/wiki/Theora">Theora</a></td><td>否</td><td>否</td><td>是</td></tr>
-</table>
+輸入視訊轉碼器|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
+---|---|---|---
+AVC 8 位元/10 位元，高達 4:2:2，包括 AVCIntra|是|唯一的 8 位元 4:2:0|8 位元 4:2:0 和 4:2:2
+Avid DNxHD (使用 MXF)|是|否|是
+DVCPro/DVCProHD (使用 MXF)|是|否|是
+JPEG2000|是|否|是
+MPEG-2 (高達 422 Profile 和 High Level，包括 XDCAM、XDCAM HD、XDCAM IMX、CableLabs ® 和 D10 等變種)|是|最高 422 設定檔|最高 422 設定檔
+MPEG-1|是|是|是
+Windows Media 視訊/VC-1|是|是|是
+Canopus HQ/HQX|否|是|否
+Mpeg-4 第 2 部分|否|否|是
+[Theora](https://en.wikipedia.org/wiki/Theora)|否|否|是
 
 輸入音訊轉碼器
 
-<table border="1">
-<tr><th>輸入音訊轉碼器</th><th>Media Encoder Premium Workflow</th><th>Azure Media Encoder</th><th>Media Encoder Standard</th></tr>
-<tr><td>AES (SMPTE 331M 和 302M，AES3-2003)</td><td>是</td><td>否</td><td>否</td></tr>
-<tr><td>Dolby® E</td><td>是</td><td>否</td><td>否</td></tr>
-<tr><td>Dolby® Digital (AC3)</td><td>是</td><td>是</td><td>否</td></tr>
-<tr><td>Dolby® Digital Plus (E-AC3)</td><td>是</td><td>否</td><td>否</td></tr>
-<tr><td>AAC (AAC-LC、AAC-HE 和 AAC-HEv2；高達 5.1)</td><td>是</td><td>是</td><td>是</td></tr>
-<tr><td>MPEG Layer 2</td><td>是</td><td>是</td><td>是</td></tr>
-<tr><td>MP3 (MPEG-1 音訊層 3)</td><td>是</td><td>是</td><td>是</td></tr>
-<tr><td>Windows Media 音訊</td><td>是</td><td>是</td><td>是</td></tr>
-<tr><td>WAV/PCM</td><td>是</td><td>是</td><td>是</td></tr>
-<tr><td><a href="https://en.wikipedia.org/wiki/FLAC">FLAC</a></td><td>否</td><td>否</td><td>是</td></tr>
-<tr><td><a href="https://en.wikipedia.org/wiki/Opus_(audio_format)">Opus</a></td><td>否</td><td>否</td><td>是</td></tr>
-<tr><td><a href="https://en.wikipedia.org/wiki/Vorbis">Vorbis</a></td><td>否</td><td>否</td><td>是</td></tr>
-</table>
+輸入音訊轉碼器|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
+---|---|---|---
+AES (SMPTE 331M 和 302M，AES3-2003)|是|否|否
+Dolby® E|是|否|否
+Dolby® Digital (AC3)|是|是|否
+Dolby® Digital Plus (E-AC3)|是|否|否
+AAC (AAC-LC、AAC-HE 和 AAC-HEv2；高達 5.1)|是|是|是
+MPEG Layer 2|是|是|是
+MP3 (MPEG-1 音訊層 3)|是|是|是
+Windows Media 音訊|是|是|是
+WAV/PCM|是|是|是
+[FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|否|否|是
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |否|否|是
+[Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|否|否|是
 
 ###輸出格式
 
 輸出容器/檔案格式
 
-<table border="1">
-<tr><th>輸出容器/檔案格式</th><th>Media Encoder Premium Workflow</th><th>Azure Media Encoder</th><th>Media Encoder Standard</th></tr>
-<tr><td>Adobe® Flash® F4V</td><td>是</td><td>否</td><td>否</td></tr>
-<tr><td>MXF (OP1a、XDCAM 和 AS02)</td><td>是</td><td>否</td><td>否</td></tr>
-<tr><td>DPP (包括 AS11)</td><td>是</td><td>否</td><td>否</td></tr>
-<tr><td>GXF</td><td>是</td><td>否</td><td>否</td></tr>
-<tr><td>MPEG-4/MP4</td><td>是</td><td>是</td><td>是</td></tr>
-<tr><td>MPEG-TS</td><td>是</td><td>否</td><td>是</td></tr>
-<tr><td>Windows Media/ASF</td><td>是</td><td>是</td><td>否</td></tr>
-<tr><td>AVI (未壓縮 8 位元/10 位元)</td><td>是</td><td>否</td><td>否</td></tr>
-<tr><td>Smooth Streaming 檔案格式 (PIFF 1.3)</td><td>是</td><td>是</td><td>否</td></tr>
-</table>
+輸出容器/檔案格式|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
+---|---|---|---
+Adobe® Flash® F4V|是|否|否
+MXF (OP1a、XDCAM 和 AS02)|是|否|否
+DPP (包括 AS11)|是|否|否
+GXF|是|否|否
+MPEG-4/MP4|是|是|是
+MPEG-TS|是|否|是
+Windows Media/ASF|是|是|否
+AVI (未壓縮 8 位元/10 位元)|是|否|否
+Smooth Streaming 檔案格式 (PIFF 1.3)|是|是|否
 
 輸出視訊轉碼器
 
-<table border="1">
-<tr><th>輸出視訊轉碼器</th><th>Media Encoder Premium Workflow</th><th>Azure Media Encoder</th><th>Media Encoder Standard</th></tr>
-<tr><td>AVC (H.264；8 位元；高達 High Profile、Level 5.2；4K Ultra HD；AVC Intra)</td><td>是</td><td>僅限高達 1080p 的 8 位元 4:2:0</td><td>僅限 8 位元 4:2:0</td></tr>
-<tr><td>Avid DNxHD (使用 MXF)</td><td>是</td><td>否</td><td>否</td></tr>
-<tr><td>DVCPro/DVCProHD (使用 MXF)</td><td>是</td><td>否</td><td>否</td></tr>
-<tr><td>MPEG-2 (高達 422 Profile 和 High Level，包括 XDCAM、XDCAM HD、XDCAM IMX、CableLabs ® 和 D10 等變種)</td><td>是</td><td>否</td><td>否</td></tr>
-<tr><td>MPEG-1</td><td>是</td><td>否</td><td>否</td></tr>
-<tr><td>Windows Media 視訊/VC-1</td><td>是</td><td>是</td><td>否</td></tr>
-<tr><td>JPEG 縮圖建立</td><td>是</td><td>是</td><td>否</td></tr>
-</table>
+輸出視訊轉碼器|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
+---|---|---|---
+AVC (H.264；8 位元；高達 High Profile、Level 5.2；4K Ultra HD；AVC Intra)|是|僅限高達 1080p 的 8 位元 4:2:0|僅限 8 位元 4:2:0
+Avid DNxHD (使用 MXF)|是|否|否
+DVCPro/DVCProHD (使用 MXF)|是|否|否
+MPEG-2 (高達 422 Profile 和 High Level，包括 XDCAM、XDCAM HD、XDCAM IMX、CableLabs ® 和 D10 等變種)|是|否|否
+MPEG-1|是|否|否
+Windows Media 視訊/VC-1|是|是|否
+JPEG 縮圖建立|是|是|否
 
 輸出音訊轉碼器
 
-<table border="1">
-<tr><th>輸出音訊轉碼器</th><th>Media Encoder Premium Workflow</th><th>Azure Media Encoder</th><th>Media Encoder Standard</th></tr>
-<tr><td>AES (SMPTE 331M 和 302M，AES3-2003)</td><td>是</td><td>否</td><td>否</td></tr>
-<tr><td>Dolby® Digital (AC3)</td><td>是</td><td>是</td><td>否</td></tr>
-<tr><td>Dolby® Digital Plus (E-AC3) 高達 7.1</td><td>是</td><td>最高 5.1</td><td>否</td></tr>
-<tr><td>AAC (AAC-LC、AAC-HE 和 AAC-HEv2；高達 5.1)</td><td>是</td><td>是</td><td>是</td></tr>
-<tr><td>MPEG Layer 2</td><td>是</td><td>否</td><td>否</td></tr>
-<tr><td>MP3 (MPEG-1 音訊層 3)</td><td>是</td><td>否</td><td>否</td></tr>
-<tr><td>Windows Media 音訊</td><td>是</td><td>是&lt;/td<td>否</td></tr>
-</table>
+輸出音訊轉碼器|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
+---|---|---|---
+AES (SMPTE 331M 和 302M，AES3-2003)|是|否|否
+Dolby® Digital (AC3)|是|是|否
+Dolby® Digital Plus (E-AC3) 高達 7.1|是|最高 5.1|否
+AAC (AAC-LC、AAC-HE 和 AAC-HEv2；高達 5.1)|是|是|是
+MPEG Layer 2|是|否|否
+MP3 (MPEG-1 音訊層 3)|是|否|否
+Windows Media 音訊|是|是|否
 
 ##相關文章
 
@@ -194,5 +188,7 @@
 - [配額和限制](media-services-quotas-and-limitations.md)
 
  
+<!--Reference links in article-->
+[1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -73,4 +73,4 @@
 >[AZURE.NOTE]如果您看到「新增工作帳戶」，這是針對「加入工作場所」而非多因素驗證。您可以忽略此項目。
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

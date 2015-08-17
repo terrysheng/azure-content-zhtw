@@ -26,7 +26,7 @@ Azure 媒體服務現在提供一種服務，來傳遞 Microsoft PlayReady 授�
 - 授權過期的 DateTime 值。 
 - 針對要儲存在用戶端上永續性儲存體的授權。永續性授權通常會用來允許離線播放內容。
 - 播放器播放您的內容必須具有的最低安全性層級。 
-- audio\video 內容的輸出控制輸出保護層級。 
+- audio\\video 內容的輸出控制輸出保護層級。 
 - 如需詳細資訊，請參閱 [PlayReady 法規規則](https://www.microsoft.com/playready/licensing/compliance/)文件中的「輸出控制」區段 (3.5)。
 
 >[AZURE.NOTE]目前，您只能設定 PlayReady 授權的 PlayRight (這是必要權限)。PlayRight 可讓用戶端播放內容。PlayRight 也可讓設定限制專屬於播放。如需詳細資訊，請參閱 [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight)。
@@ -301,4 +301,4 @@ XML 符合 PlayReady 授權範本 XML 結構描述，該結構描述是在 PlayR
 	  <xs:element name="ScmsRestriction" nillable="true" type="tns:ScmsRestriction" />
 	</xs:schema>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

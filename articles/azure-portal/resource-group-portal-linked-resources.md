@@ -34,4 +34,4 @@
 - 若要深入了解在資源之間建立連結的詳細資料，請參閱[在 Azure 資源管理員中連結資源](../resource-group-link-resources.md)。
 - 若要深入了解透過 Preview 入口網站使用資源群組，請參閱[使用 Azure Preview 入口網站管理 Azure 資源](resource-group-portal.md)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -85,7 +85,7 @@
 
 您可以在 Azure PowerShell 使用 **New-AzureResourceLock** 鎖定已部署的資源，如下所示。
 
-    PS C:> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
+    PS C:\> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
 
 PowerShell 針對使用中的鎖定提供其他命令，例如 **Set-AzureResourceLock** 可以更新鎖定，而 **Remove-AzureResourceLock** 可以刪除鎖定。
 
@@ -94,4 +94,4 @@ PowerShell 針對使用中的鎖定提供其他命令，例如 **Set-AzureResour
 - [使用標記組織您的資源](resource-group-using-tags.md)
 - [將資源移動到新的資源群組](resource-group-move-resources.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

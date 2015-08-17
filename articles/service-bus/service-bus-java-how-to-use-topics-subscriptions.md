@@ -247,4 +247,4 @@
   [服務匯流排佇列、主題和訂用帳戶]: http://msdn.microsoft.com/library/hh367516.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

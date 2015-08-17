@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/31/2015" 
 	ms.author="stefsh"/>
 
 # App Service 環境簡介
@@ -79,4 +79,4 @@ App Service 環境可以設定為單一背景工作集區中最多有 50 個計�
 
 <!-- IMAGES -->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

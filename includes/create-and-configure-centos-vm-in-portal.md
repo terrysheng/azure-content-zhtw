@@ -69,4 +69,4 @@
 
 [Image6]: ./media/create-and-configure-centos-vm-in-portal/putty.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

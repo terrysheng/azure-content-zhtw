@@ -80,7 +80,7 @@
 
 | 編號| 錯誤訊息 | 可能的原因 | 建議的動作 |
 | ---| ------------- | --------------- | ------------------ |
-| 1 | Invoke-HcsSetupWizard：無效的參數 (發生例外狀況於 HRESULT：0x80070057) | 針對 Proxy 設定提供的其中一個參數無效。| 未使用正確格式提供 URI。請使用下列格式： http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
+| 1 | Invoke-HcsSetupWizard：無效的參數 (發生例外狀況於 HRESULT：0x80070057) | 針對 Proxy 設定提供的其中一個參數無效。| 未使用正確格式提供 URI。使用下列格式：http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
 | 2 | Invoke-HcsSetupWizard：RPC 伺服器無法使用 (發生例外狀況於 HRESULT：0x800706ba) | 根本原因是下列其中之一：<ol><li>叢集尚未啟動。</li><li>被動控制器無法與主動控制器通訊，而且命令是從被動控制器執行。</li></ol> | 視根本原因而定：<ol><li>[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)，以確定叢集已啟動。</li><li>從主動控制器執行命令。如果您想要從被動控制器執行命令，就必須確保被動控制器能與主動控制器通訊。如果此連線已中斷，您必須[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)。</li></ol> |
 | 3 | Invoke-HcsSetupWizard：RPC 呼叫失敗 (發生例外狀況於 HRESULT：0x800706be) | 叢集已關閉。 | [連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)以確定叢集已啟動。|
 | 4 | Invoke-HcsSetupWizard：找不到叢集資源 (發生例外狀況於 HRESULT：0x8007138f) | 找不到叢集資源。若未正確安裝，即會發生此情況。 | 您可能需要將裝置重設為出廠預設設定。[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)以建立叢集資源。|
@@ -167,8 +167,8 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
 
 5. 在事件檢視器中開啟記錄時，尋找下列包含裝置設定相關問題的記錄：
 
-  - hcs_pfconfig/Operational Log
-  - hcs_pfconfig/Config
+  - hcs\_pfconfig/Operational Log
+  - hcs\_pfconfig/Config
 
 6. 在記錄檔中，搜尋與安裝精靈所呼叫的 Cmdlet 相關的字串。如需這些 Cmdlet 的清單，請參閱[第一次安裝精靈程序](#first-time-setup-wizard-process) 。 
 
@@ -575,4 +575,4 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

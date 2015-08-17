@@ -17,10 +17,12 @@
 	ms.author="yuaxu"/>
 
 # 如何從 Java 使用通知中樞
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
-</div>
-
+> [AZURE.SELECTOR] 
+- [Java](notification-hubs-php-backend-how-to.md)
+- [PHP](notification-hubs-python-backend-how-to.md)
+- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+		
 本主題說明最新完整支援的官方 Azure 通知中樞 Java SDK 有哪些主要功能。這是開放原始碼專案，您可以在 [Java SDK] 檢視完整的 SDK 程式碼。
 
 一般而言，您可以使用通知中心 REST 介面，存取 Java/PHP/Python/Ruby 後端的所有通知中心功能，如 MSDN 主題[通知中樞 REST API](http://msdn.microsoft.com/library/dn223264.aspx) 中所述。此 Java SDK 透過 Java 中的這些 REST 介面提供了精簡型包裝函式。
@@ -305,4 +307,4 @@ CreateOrUpdate、Patch 和 Delete 最終都會與 Get 一致。您要求的作�
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

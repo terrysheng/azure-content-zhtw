@@ -90,7 +90,7 @@
 
 4. 按一下新的 **TodoItem** 資料表，並驗證其中不含資料列。
 
-	>[AZURE.NOTE]新的資料表是使用 Id、__createdAt__、updatedAt 和 __version 等資料行建立而成。啟用動態結構描述時，行動服務會根據插入或更新要求中的 JSON 物件自動產生新資料行。如需詳細資訊，請參閱[動態結構描述](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx)。
+	>[AZURE.NOTE]新的資料表是使用 Id、\_\_createdAt、\_\_updatedAt 和 \_\_version 等資料行建立而成。啟用動態結構描述時，行動服務會根據插入或更新要求中的 JSON 物件自動產生新資料行。如需詳細資訊，請參閱[動態結構描述](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx)。
 
 6. 在 [設定] 索引標籤中，確認 `localhost` 已列在 [跨原始資源共用 (CORS)] 的 [允許來自主機名稱的要求] 清單中。否則，請在 [主機名稱] 欄位中輸入 `localhost`，然後按一下 [儲存]。
 
@@ -257,4 +257,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

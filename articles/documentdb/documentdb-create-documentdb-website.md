@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="使用 Azure 資源管理員範本部署 DocumentDB 和 Azure App Service Web Apps | Azure" 
+	pageTitle="使用 Azure 資源管理員範本部署 DocumentDB 和 Azure App Service Web Apps | Microsoft Azure" 
 	description="了解如何使用 Azure 資源管理員範本的部署 DocumentDB 帳戶、Azure App Service Web Apps，以及範例 Web 應用程式。" 
 	services="documentdb, app-service\web" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/28/2015" 
 	ms.author="stbaro"/>
 
 # 使用 Azure 資源管理員範本部署 DocumentDB 和 Azure App Service Web Apps #
@@ -38,9 +38,9 @@
 ##<a id="CreateDB"></a>步驟 1：下載並解壓縮範例檔案 ##
 讓我們從下載範例檔案開始，我們將在本教學課程中使用。
 
-1. 將[建立 DocumentDB 帳戶、Web Apps 和部署示範應用程式範例](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip)下載至本機資料夾 (例如 C:\DocumentDBTemplates) 並解壓縮檔案。此範例將會部署 DocumentDB 帳戶、App Service Web 應用程式和 Web 應用程式。它還會自動設定 Web 應用程式，以連線到 DocumentDB 帳戶。
+1. 將[建立 DocumentDB 帳戶、Web Apps 和部署示範應用程式範例](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip)下載至本機資料夾 (例如 C:\\DocumentDBTemplates) 並解壓縮檔案。此範例將會部署 DocumentDB 帳戶、App Service Web 應用程式和 Web 應用程式。它還會自動設定 Web 應用程式，以連線到 DocumentDB 帳戶。
 
-2. 將[建立 DocumentDB 帳戶和 Web 應用程式範例](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip)下載至本機資料夾 (例如 C:\DocumentDBTemplates) 並解壓縮檔案。此範例會將部署 DocumentDB 帳戶、App Service Web 應用程式，並將修改 Web 應用程式的組態來輕鬆地呈現 DocumentDB 連接資訊，但不包含 Web 應用程式。
+2. 將[建立 DocumentDB 帳戶和 Web 應用程式範例](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip)下載至本機資料夾 (例如 C:\\DocumentDBTemplates) 並解壓縮檔案。此範例會將部署 DocumentDB 帳戶、App Service Web 應用程式，並將修改 Web 應用程式的組態來輕鬆地呈現 DocumentDB 連接資訊，但不包含 Web 應用程式。
 
 > [AZURE.TIP]請注意，根據您電腦的安全性設定，您可能需要解除封鎖所擷取的檔案，方法是按一下滑鼠右鍵，並按一下 [**內容**]，然後按一下 [**解除封鎖**]。
 
@@ -53,7 +53,7 @@
 
 > [AZURE.TIP]範本不會驗證下面輸入的 Web 應用程式名稱和 DocumentDB 帳戶名稱 a) 是否有效且 b) 可用。強烈建議您在執行 PowerShell 部署指令碼之前，先確認您打算提供之名稱的可用性。
 
-1. 開啟 Microsoft Azure PowerShell，然後瀏覽至您下載並解壓縮[建立 DocumentDB 帳戶、App Service Web 應用程式和部署示範應用程式範例](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip)的資料夾 (例如 C:\DocumentDBTemplates\CreateDocDBWebsiteTodo)。
+1. 開啟 Microsoft Azure PowerShell，然後瀏覽至您下載並解壓縮[建立 DocumentDB 帳戶、App Service Web 應用程式和部署示範應用程式範例](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip)的資料夾 (例如 C:\\DocumentDBTemplates\\CreateDocDBWebsiteTodo)。
 
 
 2. 我們即將執行 CreateDocDBWebsiteTodo.ps1 PowerShell 指令碼。指令碼採用下列必要參數：
@@ -153,7 +153,7 @@
 
 > [AZURE.TIP]範本不會驗證下面輸入的 Web 應用程式名稱和 DocumentDB 帳戶名稱 a) 是否有效且 b) 可用。強烈建議您在執行 PowerShell 部署指令碼之前，先確認您打算提供之名稱的可用性。
 
-1. 開啟 Microsoft Azure PowerShell，然後瀏覽至您下載並解壓縮[建立 DocumentDB 帳戶和 Web 應用程式範例](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip)的資料夾 (例如 C:\DocumentDBTemplates\CreateDocDBWebsite)。
+1. 開啟 Microsoft Azure PowerShell，然後瀏覽至您下載並解壓縮[建立 DocumentDB 帳戶和 Web 應用程式範例](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip)的資料夾 (例如 C:\\DocumentDBTemplates\\CreateDocDBWebsite)。
 
 
 2. 我們即將執行 CreateDocDBWebsite.ps1 PowerShell 指令碼。指令碼採用與我們部署的第一個範本相同的參數，即：
@@ -207,7 +207,7 @@
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[瀏覽 Azure 入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡，無需承諾。
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

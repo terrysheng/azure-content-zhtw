@@ -110,7 +110,7 @@ PolyBase 可以處理壓縮和未壓縮的資料，包括分隔的文字、Hive 
 
 外部資料表定義類似於關聯式資料表定義。主要的差異在於資料的位置和格式。外部資料表定義儲存在 SQL 資料倉儲資料庫。資料儲存在資料來源所指定的位置。
 
-LOCATION 選項指定從資料來源根目錄到資料的路徑。在此範例中，資料位於 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'。
+LOCATION 選項指定從資料來源根目錄到資料的路徑。在此範例中，資料位於 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'。相同資料表的所有檔案都必須在 Azure BLOB 中相同的邏輯資料夾底下。
 
 ```
 -- Creating external table pointing to file stored in Azure Storage
@@ -129,7 +129,6 @@ WITH (LOCATION='/Demo/',
 
 > [AZURE.NOTE]請注意，您目前無法在外部資料表上建立統計資料。
 
-相同資料表的所有檔案都必須在 Azure BLOB 中相同的邏輯資料夾底下。最佳做法是將 Azure 儲存體資料分成不超過 1 GB 的檔案，以利於 SQL 資料倉儲進行平行處理。
 
 參考主題：[CREATE EXTERNAL TABLE (Transact-SQL)][]。
 
@@ -207,4 +206,4 @@ AS SELECT * from [ext].[CarSensor_Data];
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-tw/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-tw/library/ms189450.aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

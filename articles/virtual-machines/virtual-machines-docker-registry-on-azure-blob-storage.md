@@ -1,4 +1,4 @@
-<properties 
+<properties title="Deploying Your Own Private Docker Registry on Azure"
   pageTitle="在 Azure 上部署您自己的私用 Docker Registry"
   description="描述如何使用 Docker Registry 裝載 Azure Blob 儲存體服務上的容器映像。"
   services="virtual-machines"
@@ -92,4 +92,4 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

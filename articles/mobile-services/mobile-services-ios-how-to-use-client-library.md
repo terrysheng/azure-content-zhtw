@@ -326,4 +326,4 @@ Azure 行動服務支援兩個驗證工作流程：
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [衝突處理常式]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -38,15 +38,15 @@
 
 當您連線到 HDInsight 叢集的桌面時，請使用下列步驟，利用 Hadoop 命令來執行 MapReduce 工作：
 
-1. 從 HDInsight 桌面，啟動 **Hadoop 命令列**。這會在 **c:\apps\dist\hadoop-&lt;version number>** 目錄中開啟新的命令提示字元。
+1. 從 HDInsight 桌面，啟動 **Hadoop 命令列**。這會在 **c:\\apps\\dist\\hadoop-&lt;version number>** 目錄中開啟新的命令提示字元。
 
-	> [AZURE.NOTE]版本號碼會隨著 Hadoop 更新而變更。**HADOOP_HOME** 環境變數可用來尋找路徑。例如，`cd %HADOOP_HOME%` 會將目錄變更為 Hadoop 目錄，而您並不需要知道版本號碼。
+	> [AZURE.NOTE]版本號碼會隨著 Hadoop 更新而變更。**HADOOP\_HOME** 環境變數可用來尋找路徑。例如，`cd %HADOOP_HOME%` 會將目錄變更為 Hadoop 目錄，而您並不需要知道版本號碼。
 
 2. 若要使用 **Hadoop** 命令執行範例 MapReduce 工作，請使用下列命令：
 
 		hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
-	這樣會啟動 **wordcount** 類別 (內含於目前目錄的 **hadoop-mapreduce-examples.jar** 檔案中)。它使用 **wasb://example/data/gutenberg/davinci.txt** 文件作為輸入，輸出則儲存在：**wasb:///example/data/WordCountOutput**。
+	這樣會啟動 **wordcount** 類別 (內含於目前目錄的 **hadoop-mapreduce-examples.jar** 檔案中)。它使用 ****wasb://example/data/gutenberg/davinci.txt** 文件作為輸入，輸出則儲存在 ****wasb:///example/data/WordCountOutput**。
 
 	> [AZURE.NOTE]如需有關此 MapReduce 工作和範例資料的詳細資訊，請參閱<a href="hdinsight-use-mapreduce.md">在 HDInsight Hadoop 上使用 MapReduce</a>。
 
@@ -57,11 +57,11 @@
 		File Output Format Counters
         Bytes Written=337623
 
-3. 工作完成時，使用下列命令列出儲存在 **wasb://example/data/WordCountOutput** 的輸出檔案：
+3. 工作完成時，使用下列命令列出儲存在 ****wasb://example/data/WordCountOutput** 的輸出檔案：
 
 		hadoop fs -ls wasb:///example/data/WordCountOutput
 
-	這應該會顯示兩個檔案：**_SUCCESS** 和 **part-r-00000**。**part-r-00000** 檔案包含這項工作的輸出。
+	這應該會顯示兩個檔案：**SUCCESS** 和 **part-r-00000**。**part-r-00000** 檔案包含這項工作的輸出。
 
 	> [AZURE.NOTE]某些 MapReduce 工作可能會將結果分成多個 **part-r-#####** 檔案。若是如此，請使用 ##### 尾碼指出檔案的順序。
 
@@ -69,7 +69,7 @@
 
 		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-	這會顯示 **wasb://example/data/gutenberg/davinci.txt** 檔案中所含的單字清單，以及每個單字的出現次數。以下是要包含在檔案中之資料的範例：
+	這會顯示 ****wasb://example/data/gutenberg/davinci.txt** 檔案中所含的單字清單，以及每個單字的出現次數。以下是要包含在檔案中之資料的範例：
 
 		wreathed        3
 		wreathing       1
@@ -95,4 +95,4 @@
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

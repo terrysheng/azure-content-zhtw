@@ -140,7 +140,7 @@
 
 	在結果對話方塊中，瀏覽至您稍早下載的檔案，全部選取，然後按一下 [開啟舊檔]。出現提示時，選擇取代 `index.php` 檔案。
 
-7. 接下來，您需要將本機 MySQL 資料庫連接資訊加入至 `taskmodel.php` 檔案。按兩下以開啟 `taskmodel.php` 檔案，然後在 `connect` 函數中更新資料庫連接資訊。(**注意**：如果不要在本機測試應用程式，而想要直接發行至 Azure App Service Web Apps，請跳至 [發行您的應用程式][](#Publish)。)
+7. 接下來，您需要將本機 MySQL 資料庫連接資訊加入至 `taskmodel.php` 檔案。按兩下以開啟 `taskmodel.php` 檔案，然後在 `connect` 函數中更新資料庫連接資訊。(**注意**：如果不要在本機測試應用程式，而想要直接發佈至 Azure App Service Web Apps，請跳至[發佈應用程式](#Publish)。)
 
 		// DB connection info
 		$host = "localhost";
@@ -261,4 +261,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/12/2015" 
 	ms.author="Justinha"/>
 
@@ -58,7 +58,8 @@ Office 365 使用者可能對以下相關主題有興趣：
 ### 使用 Azure 管理入口網站新增和驗證網域
 
 1. 在入口網站中，按一下 [**Active Directory**]，然後按一下您的組織目錄的名稱。您可以執行下列其中一項：
-    1. 在預設目錄頁面上，按一下 [**改善使用者登入經驗**] 區段中的 [**新增網域**]。2. 按一下 [**網域**]，然後按一下 [**新增客戶網域**] 或 [**新增**] 按鈕。
+    1. 在預設 [目錄] 頁面上，按一下 **[改善使用者登入經驗]** 區段中的 [**新增網域**]。
+2. 按一下 [**網域**]，然後按一下 [**新增客戶網域**] 或 [**新增**] 按鈕。
 2. 在 [**新增網域**] 頁面上，輸入您想要新增的網域名稱，並執行下列其中一項：
     1. 如果您不想要整合內部部署 Active Directory 與 Azure AD，請執行下列動作：
         1. 保留 [**我計劃將這個網域設定為可使用我的本機 Active Directory 進行單一登入**] 核取方塊的未核取狀態，然後按一下 [**新增**] 按鈕。
@@ -211,4 +212,4 @@ Office 365 具有 [[常見網域註冊機構的特定指示](https://support.off
 - [以組織身分註冊 Azure](sign-up-organization.md)
 - [在 Azure AD 中管理網域](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

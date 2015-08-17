@@ -124,7 +124,7 @@ Azure 會在每個子網路中保留一些 IP 位址。子網路的第一個和�
 
 ### 適用於 VNet 的 DNS 選項為何？
 
-使用[VM 和角色執行個體的名稱解析](https://msdn.microsoft.com/library/azure/jj156088.aspx)頁面上的決策資料表來引導您完成所有可用的 DNS 選項。
+使用 [[VM 和角色執行個體的名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)] 頁面上的決策資料表來引導您完成所有可用的 DNS 選項。
 
 ### 我可以指定適用於 VNet 的 DNS 伺服器嗎？
 
@@ -264,4 +264,4 @@ VNet 會與另一個 VNet，以及其他裝載於 Azure 基礎結構中的服務
 
 是。您可以針對各種平台使用 PowerShell 和命令列工具。如需詳細資訊，請參閱[這裡](http://go.microsoft.com/fwlink/?LinkId=317721)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

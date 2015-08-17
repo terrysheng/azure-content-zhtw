@@ -22,4 +22,4 @@
 
 4. 按一下核取圖示 ![核取圖示](./media/storsimple-create-volume/HCS_CheckIcon-include.png)。使用指定的設定來建立磁碟區。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

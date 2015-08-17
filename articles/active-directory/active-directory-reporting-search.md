@@ -55,4 +55,4 @@ Azure Active Directory 可以讓目錄管理員跨多個報告搜尋使用者安
  - [Azure Active Directory 報告](active-directory-view-access-usage-reports.md)
  - [Azure Active Directory 報告稽核事件](active-directory-reporting-audit-events.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

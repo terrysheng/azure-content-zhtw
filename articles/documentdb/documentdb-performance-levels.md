@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB 中的效能等級 | Azure" 
+	pageTitle="DocumentDB 中的效能等級 | Microsoft Azure" 
 	description="了解 DocumentDB 中的效能等級如何可讓您依每個集合為基礎保留輸送量。" 
 	services="documentdb" 
 	authors="johnfmacintyre" 
@@ -141,4 +141,4 @@ Azure Preview 入口網站是您在管理集合的效能層級的其中一個選
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

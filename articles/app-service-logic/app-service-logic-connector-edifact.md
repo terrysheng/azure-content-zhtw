@@ -65,68 +65,19 @@ Edifact 連接器可以當作觸發程序或動作使用。
 
 	![已設定編碼][10]
 
-<table>
-	<tr>
-		<th>參數</th>
-		<th>類型</th>
-		<th>參數說明</th>
-	</tr>
-	<tr>
-		<td>內容</td>
-		<td>字串</td>
-		<td>XML 訊息</td>
-	</tr>
-	<tr>
-		<td>協議識別碼</td>
-		<td>integer</td>
-		<td>協議識別碼</td>
-	</tr>
-	<tr>
-		<td>是批次訊息</td>
-		<td>布林值</td>
-		<td>是批次訊息</td>
-	</tr>
-	<tr>
-		<td>資料元素分隔符號</td>
-		<td>字串</td>
-		<td>資料元素分隔符號</td>
-	</tr>
-	<tr>
-		<td>元件分隔符號</td>
-		<td>字串</td>
-		<td>元件分隔符號</td>
-	</tr>
-	<tr>
-		<td>區段結束字元</td>
-		<td>字串</td>
-		<td>區段結束字元</td>
-	</tr>
-	<tr>
-		<td>小數點指示器</td>
-		<td>字串</td>
-		<td>小數點指示器</td>
-	</tr>
-	<tr>
-		<td>重複分隔符號</td>
-		<td>字串</td>
-		<td>重複分隔符號</td>
-	</tr>
-	<tr>
-		<td>逸出字元</td>
-		<td>字串</td>
-		<td>逸出字元</td>
-	</tr>
-	<tr>
-		<td>取代字元</td>
-		<td>字串</td>
-		<td>取代字元</td>
-	</tr>
-	<tr>
-		<td>區段結束字元尾碼</td>
-		<td>字串</td>
-		<td>區段結束字元尾碼</td>
-	</tr>
-</table>
+參數|類型|參數說明
+---|---|---
+內容|字串|XML 訊息
+協議識別碼|integer|協議識別碼
+是批次訊息|布林值|是批次訊息
+資料元素分隔符號|字串|資料元素分隔符號
+元件分隔符號|字串|元件分隔符號
+區段結束字元|字串|區段結束字元
+小數點指示器|字串|小數點指示器
+重複分隔符號|字串|重複分隔符號
+逸出字元|字串|逸出字元
+取代字元|字串|取代字元
+區段結束字元尾碼|字串|區段結束字元尾碼
 
 動作傳回物件，其中包含成功完成的 EDIFACT 承載。
 
@@ -148,4 +99,4 @@ Edifact 連接器可以當作觸發程序或動作使用。
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

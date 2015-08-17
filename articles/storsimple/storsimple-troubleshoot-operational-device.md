@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/28/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos" />
 
 # 可運作的 StorSimple 裝置疑難排解
@@ -63,4 +63,4 @@
 
 如果您無法解決問題，請[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)，尋求協助。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

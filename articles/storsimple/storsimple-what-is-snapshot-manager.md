@@ -148,4 +148,4 @@ VSS 的 StorSimple Snapshot Manager 實作會使用 SQL Server 和一般 NTFS �
 
 [下載 StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

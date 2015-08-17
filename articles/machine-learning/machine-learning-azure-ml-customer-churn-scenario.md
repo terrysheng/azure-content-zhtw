@@ -239,4 +239,4 @@ Azure Machine Learning 中另一項吸引人的功能是可以將自訂模組加
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

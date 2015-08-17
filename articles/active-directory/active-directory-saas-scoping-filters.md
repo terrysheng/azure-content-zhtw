@@ -70,15 +70,11 @@
 3. 他們必須在舊金山或加拿大工作。
 
 
-## 其他資源
-
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-scoping-filters/ic782811.png
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
 [3]: ./active-directory-saas-scoping-filters/ic782813.png
 
- 
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

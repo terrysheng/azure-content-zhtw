@@ -61,7 +61,12 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 - 您應該執行最新版本的提供者和代理程式。
 - 保存庫中的所有 Hyper-V 伺服器版本應該都一樣。
 - 提供者必須透過網際網路連接到 Azure Site Recovery。您不需要使用 Poxy 就能選擇執行這個動作，方法是使用目前設定於 VMM 伺服器上的 Poxy 設定，或使用您在提供者安裝期間所設定的自訂 Poxy 設定。若要使用現有的 Poxy 伺服器，請確定允許 URL 透過防火牆連接到 Azure：
-	- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+	- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 - 若要使用自訂的 Proxy，請先安裝 Proxy 伺服器，然後再安裝提供者。在提供者安裝期間，您需要指定 Proxy 伺服器的位址和連接埠，以及可用於存取的認證。
 
 下圖顯示 Azure Site Recovery 為協調流程與複寫所使用的不同通訊通道與連接埠
@@ -81,7 +86,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 4. 在 [名稱] 中，輸入保存庫的易記識別名稱。
 
-5. 在 [區域] 中，選取保存庫的地理區域。若要查看支援的區域，請參閱 [Azure Site Recovery 定價詳細資料](pricing/details/site-recovery/)中的＜各區域上市情況＞。
+5. 在 [地區] 中，選取保存庫的地理區域。若要查看支援的區域，請參閱 [Azure Site Recovery 定價詳細資料](pricing/details/site-recovery/)中的＜各地區上市情況＞。
 
 6. 按一下 [建立保存庫]。
 
@@ -139,7 +144,12 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 	- 如果 Hyper-V 伺服器上的預設 Proxy 需要驗證，則您應該選取使用自訂的 Proxy 伺服器。輸入預設的 Proxy 詳細資料，然後指定認證。
 	- 如果您想要使用自訂的 Proxy 伺服器，請在安裝提供者之前先設定它。 
 	- 下列 URL 應可從 Hyper-v 主機存取
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 	- 允許 [Azure 資料中心 IP 範圍](http://go.microsoft.com/fwlink/?LinkId=511094)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
 
 9. 在 [保存庫設定] 頁面上，按一下 [瀏覽] 來選取金鑰檔案。指定 Azure Site Recovery 訂用帳戶、保存庫名稱，以及 Hyper-V 伺服器所屬的 Hyper-V 站台。
@@ -157,7 +167,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 請注意，如果您想要在適用於 Windows Server 2012 R2 的伺服器核心或獨立的 HYPER-V Server 2012 R2 上安裝提供者，請執行下列動作：
 
-1. 將提供者安裝檔案和註冊金鑰下載至資料夾，如 C:\ASR。
+1. 將提供者安裝檔案和註冊金鑰下載至資料夾，如 C:\\ASR。
 2. 輸入下列程式碼來解壓縮提供者安裝程式：
 
 	    C:\Windows\System32> CD C:\ASR
@@ -218,13 +228,13 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 	「啟用保護」工作隨即開始。您可以在 [工作] 索引標籤上追蹤進度。執行「完成保護」工作之後，虛擬機器即準備好進行容錯移轉。 
 3. 設定保護之後，您可以：
 
-	- 在 [受保護的項目] > [保護群組] > *protectiongroup_name* > [虛擬機器] 中檢視虛擬機器。您可以在 [屬性] 索引標籤中向下切入到機器詳細資料。
-	- 在 [受保護的項目] > [保護群組] > *protectiongroup_name* > [虛擬機器] *virtual_machine_name* > [設定] 中，設定虛擬機器的容錯移轉屬性。您可以設定：
+	- 在 [受保護的項目] > [保護群組] > *protectiongroup\_name* > [虛擬機器] 中檢視虛擬機器。您可以在 [屬性] 索引標籤中向下切入到機器詳細資料。
+	- 在 [受保護的項目] > [保護群組] > *protectiongroup\_name* > [虛擬機器] *virtual\_machine\_name* > [設定] 中，設定虛擬機器的容錯移轉屬性。您可以設定：
 		- **名稱**：Azure 中的虛擬機器名稱。
 		- **大小**：要容錯移轉之虛擬機器的目標大小。
 
 		![設定虛擬機器屬性](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
-	- 在 [受保護的項目] > [保護群組] > *protectiongroup_name* > [虛擬機器] *virtual_machine_name* > [設定] 中，設定其他的虛擬機器設定，包括：
+	- 在 [受保護的項目] > [保護群組] > *protectiongroup\_name* > [虛擬機器] *virtual\_machine\_name* > [設定] 中，設定其他的虛擬機器設定，包括：
 
 		- **網路介面卡**：網路介面卡的數目取決於您針對目標虛擬機器所指定的大小。 
 			- 大型 (A3) 和 A6：2
@@ -296,4 +306,4 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 在您的部署設定完成並開始執行之後，[深入了解](site-recovery-failover.md)容錯移轉。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

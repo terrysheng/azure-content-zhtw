@@ -1,4 +1,3 @@
-
 # 建立執行 Windows Server 的虛擬機器 #
 
 本教學課程說明如何使用 Azure 管理入口網站中的映像庫輕鬆建立執行 Windows Server 的 Azure 虛擬機器。映像庫提供多種映像，包括 Windows 作業系統、Linux 架構的作業系統和應用程式映像。
@@ -126,4 +125,4 @@
 [How to attach a data disk to the new virtual machine]: #attachdisk
 [How to set up communication with the virtual machine]: #endpoints
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

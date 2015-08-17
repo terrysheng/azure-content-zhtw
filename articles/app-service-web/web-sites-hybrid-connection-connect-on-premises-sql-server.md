@@ -49,25 +49,11 @@
 
 - 必須有透過下列連接埠的 Azure 輸出連線：
 
-> <table border="1">
-    <tr>
-       <th><strong>連接埠</strong></th>
-        <th>理由</th>
-    </tr>
-    <tr>
-        <td>80</td>
-        <td><strong>必要</strong>可供 HTTP 連接埠進行憑證驗證以及可供進行資料連線 (選用)。</td>
-    </tr>
-    <tr>
-        <td>443</td>
-        <td><strong>選用</strong>可供進行資料連線。如果無法使用 443 的輸出連線，則使用 TCP 連接埠 80。</td>
-    </tr>
-	<tr>
-        <td>5671 和 9352</td>
-        <td><strong>建議</strong>但可供進行資料連線 (選用)。請注意，此模式通常會產生較高的輸送量。如果無法使用這些連接埠的輸出連線，則使用 TCP 連接埠 443。</td>
-	</tr>
-</table>
-
+連接埠|理由
+---|---
+80|**必要**可供 HTTP 連接埠進行憑證驗證以及可供進行資料連線 (選用)。
+443|**選用**可供進行資料連線。如果無法使用 443 的輸出連線，則使用 TCP 連接埠 80。
+5671 和 9352|**建議**但可供進行資料連線 (選用)。請注意，此模式通常會產生較高的輸送量。如果無法使用這些連接埠的輸出連線，則使用 TCP 連接埠 443。
 - 必須能夠連繫內部部署資源的 *hostname*:*portnumber*。 
 
 本文中的步驟假設您使用將主控內部部署混合式連線代理程式之電腦中的瀏覽器。
@@ -81,7 +67,7 @@
 
 ### 安裝 SQL Server Express ###
 
-1. 若要安裝 SQL Server Express，請執行您已下載的 **SQLEXPRWT_x64_ENU.exe** 或 **SQLEXPR_x86_ENU.exe** 檔案。[SQL Server 安裝中心] 精靈會隨即出現。
+1. 若要安裝 SQL Server Express，請執行您已下載的 **SQLEXPRWT\_x64\_ENU.exe** 或 **SQLEXPR\_x86\_ENU.exe** 檔案。[SQL Server 安裝中心] 精靈會隨即出現。
 	
 	![SQL Server Install][SQLServerInstall]
 	
@@ -218,7 +204,7 @@
 	
 	編譯連接字串時，請留意下列事項：
 	
-	- 如果您要連接到指定的執行個體而非預設執行個體 (例如 YourServer\SQLEXPRESS)，您必須將 SQL Server 設定成使用靜態連接埠。如需設定靜態連接埠的相關資訊，請參閱[如何將 SQL Server 設定成在特定連接埠上接聽](http://support.microsoft.com/kb/823938)。根據預設，指定的執行個體會使用 UDP 和動態連接埠，而混合式連線並不加以支援。 
+	- 如果您要連接到指定的執行個體而非預設執行個體 (例如 YourServer\\SQLEXPRESS)，您必須將 SQL Server 設定成使用靜態連接埠。如需設定靜態連接埠的相關資訊，請參閱[如何將 SQL Server 設定成在特定連接埠上接聽](http://support.microsoft.com/kb/823938)。根據預設，指定的執行個體會使用 UDP 和動態連接埠，而混合式連線並不加以支援。 
 	
 	- 建議您指定連接埠 (依預設為 1433，如範例所示) 和連接字串，以確定您的本機 SQL Server 會啟用 TCP 並使用正確的連接埠。
 	
@@ -378,4 +364,4 @@
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

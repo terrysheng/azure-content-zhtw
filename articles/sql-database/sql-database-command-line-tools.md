@@ -49,7 +49,7 @@
 
 ## 選取您的 Azure 訂用帳戶
 
-若要選取使用的訂用帳戶，您必須提供訂用帳戶識別碼 (\*\*-SubscriptionId\*\*) 或訂用帳戶名稱 (\*\*-SubscriptionName\*\*)。您可以複製上一個步驟中的資訊，或者，如果您有多個訂用帳戶，則可以執行 **Get-AzureSubscription** Cmdlet，然後複製結果集中所需的訂用帳戶資訊。
+若要選取使用的訂用帳戶，您必須提供訂用帳戶識別碼 (**-SubscriptionId**) 或訂用帳戶名稱 (**-SubscriptionName**)。您可以複製上一個步驟中的資訊，或者，如果您有多個訂用帳戶，則可以執行 **Get-AzureSubscription** Cmdlet，然後複製結果集中所需的訂用帳戶資訊。
 
 使用您的訂用帳戶資訊執行下列 Cmdlet，以設定您目前的訂用帳戶：
 
@@ -118,7 +118,7 @@
 
 如果您將再次建立這些 Azure SQL 資源或類似的資源，您可以：
 
-- 將這個命令集儲存為 PowerShell 指令碼檔案 (\*.ps1)
+- 將這個命令集儲存為 PowerShell 指令碼檔案 (*.ps1)
 - 在 Azure 管理入口網站的 [自動化] 區段中，將這個命令集儲存為 Azure 自動化 Runbook 
 
 ## 後續步驟
@@ -137,4 +137,4 @@
 - [Azure SQL Database 服務管理 Cmdlet](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

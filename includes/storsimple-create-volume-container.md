@@ -15,4 +15,4 @@
 
   新建立的磁碟區容器將列於 [磁碟區容器] 頁面上。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

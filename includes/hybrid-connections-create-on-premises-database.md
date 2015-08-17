@@ -5,7 +5,7 @@
 
 若要透過混合式連線使用內部部署 SQL Server 或 SQL Server Express 資料庫，必須在靜態連接埠上啟用 TCP/IP。SQL Server 上的預設執行個體會使用靜態連接埠 1433，但指定的執行個體則否。因此，我們將會安裝預設執行個體。如果您已經安裝 SQL Server Express 的預設執行個體，您可以略過本節。
 
-1. 若要安裝 SQL Server Express，請執行您已下載的 **SQLEXPRWT_x64_ENU.exe** 或 **SQLEXPR_x86_ENU.exe** 檔案。[SQL Server 安裝中心] 精靈會隨即出現。
+1. 若要安裝 SQL Server Express，請執行您已下載的 **SQLEXPRWT\_x64\_ENU.exe** 或 **SQLEXPR\_x86\_ENU.exe** 檔案。[SQL Server 安裝中心] 精靈會隨即出現。
 	
 2. 選擇 [**新的 SQL Server 獨立安裝或將功能加入到現有安裝**]、遵循指示、接受預設選項和設定，直到您進入 [**執行個體組態**] 頁面。
 	
@@ -78,4 +78,4 @@
 
 4. **執行**查詢以在內部部署資料庫中建立新的登入，並且授與必要的權限。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

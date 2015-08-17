@@ -30,7 +30,7 @@
 
 Swashbuckle 會藉由串連控制器名稱與方法名稱來產生 Swagger 作業識別碼。當一個方法的多個多載時，此模式會產生問題：Swashbuckle 會產生重複的作業識別碼，這是無效的 Swagger JSON。
 
-例如，下列控制器程式碼會導致 Swashbuckle 產生三個 Contact_Get 作業識別碼。
+例如，下列控制器程式碼會導致 Swashbuckle 產生三個 Contact\_Get 作業識別碼。
 
 ![](./media/app-service-api-dotnet-swashbuckle-customize/multiplegetsincode.png)
 
@@ -74,7 +74,7 @@ Swashbuckle 會藉由串連控制器名稱與方法名稱來產生 Swagger 作�
 		    }
 		}
 
-2. 在 *App_Start\SwaggerConfig.cs* 檔案中，呼叫 `OperationFilter` 方法，讓 Swashbuckle 使用新的 `IOperationFilter` 實作。
+2. 在 *App\_Start\\SwaggerConfig.cs* 檔案中，呼叫 `OperationFilter` 方法，讓 Swashbuckle 使用新的 `IOperationFilter` 實作。
 
 		c.OperationFilter<MultipleOperationsWithSameVerbFilter>();
 
@@ -250,4 +250,4 @@ Swashbuckle 提供兩種方法 (使用 XML 註解或 `SwaggerResponse` 屬性) �
 本文已經示範如何自訂 Swashbuckle 產生作業識別碼和有效回應碼的方式。如需詳細資訊，請參閱 [GitHub 上的 Swashbuckle](https://github.com/domaindrivendev/Swashbuckle)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

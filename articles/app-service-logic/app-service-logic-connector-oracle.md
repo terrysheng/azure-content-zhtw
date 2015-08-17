@@ -57,10 +57,10 @@ Oracle 資料庫連接器提供下列觸發程序和動作：
 預存程序 | 否 | 輸入資料庫中可供連接器呼叫的預存程序。例如，輸入 *IsEmployeeEligible,CalculateOrderDiscount*。
 函式 | 否 | 輸入資料庫中可供連接器呼叫的函式。例如，輸入 *IsEmployeeEligible,CalculateOrderDiscount*。
 套件實體 | 否 | 輸入資料庫中可供連接器呼叫的封裝。例如，輸入 *PackageOrderProcessing.CompleteOrder,PackageOrderProcessing.GenerateBill*。
-資料提供陳述式 | 否 | 輸入陳述式以判斷是否有任何資料可供輪詢。例如，輸入 *SELECT * from table_name*。
+資料提供陳述式 | 否 | 輸入陳述式以判斷是否有任何資料可供輪詢。例如，輸入 *SELECT * from table\_name*。
 輪詢類型 | 否 | 輸入輪詢類型。允許的值為「Select」、「Procedure」、「Function」、「Package」。
-輪詢陳述式 | 否 | 輸入輪詢 Oracle Server 資料庫的陳述式。例如，輸入 *SELECT * from table_name*。
-後輪詢陳述式 | 否 | 輸入輪詢後要執行的陳述式。例如，輸入 *DELETE * from table_name*。
+輪詢陳述式 | 否 | 輸入輪詢 Oracle Server 資料庫的陳述式。例如，輸入 *SELECT * from table\_name*。
+後輪詢陳述式 | 否 | 輸入輪詢後要執行的陳述式。例如，輸入 *DELETE * from table\_name*。
 
 5. 完成時，[封裝設定] 看起來如下：<br/> ![][1]
 
@@ -115,4 +115,4 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

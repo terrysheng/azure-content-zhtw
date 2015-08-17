@@ -1,9 +1,7 @@
 <properties 
 	pageTitle="進階分析程序和技術實務 - 在 1 TB 資料集上使用 HDInsight Hadoop 叢集 | Azure" 
 	description="對採用 HDInsight Hadoop 叢集來建置和部署使用大型 (1 TB) 公開可用資料集模型的端對端案例使用進階分析程序和技術 (ADAPT) 使用" 
-	metaKeywords="" 
 	services="machine-learning,hdinsight" 
-	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -27,7 +25,7 @@
 
 ## <a name="dataset"></a>Criteo 資料集說明
 
-Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 檔案 (~1.3 TB 未壓縮)，包含超過 43 億筆記錄。它取自 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 提供的 24 天點選資料。為了方便資料科學家，我們已將可供試驗的資料解壓縮。
+Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 檔案 (\~1.3 TB 未壓縮)，包含超過 43 億筆記錄。它取自 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 提供的 24 天點選資料。為了方便資料科學家，我們已將可供試驗的資料解壓縮。
 
 在此資料集中的每一筆記錄包含 40 個資料行：
 
@@ -86,11 +84,11 @@ Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 
 
 1. 這個公用 Blob 儲存體中的資料是由所解壓縮資料的三個子資料夾所組成。
 		
-	1. 子資料夾 *raw/count/* 包含前 21 天的資料 - 從 day_00 到 day_20
-	2. 子資料夾 *raw/train/* 由單一天 day_21 的資料組成
-	3. 子資料夾 *raw/test/* 由兩天 day_22 和 day_23 的資料組成
+	1. 子資料夾 *raw/count/* 包含前 21 天的資料 - 從 day\_00 到 day\_20
+	2. 子資料夾 *raw/train/* 由單一天 day\_21 的資料組成
+	3. 子資料夾 *raw/test/* 由兩天 day\_22 和 day\_23 的資料組成
 
-2. 對於想要從原始 gzip 資料開始的使用者，這些也可以在主要資料夾 *raw/* 取得，形式為 day_NN.gz，其中 NN 從 00 到 23。
+2. 對於想要從原始 gzip 資料開始的使用者，這些也可以在主要資料夾 *raw/* 取得，形式為 day\_NN.gz，其中 NN 從 00 到 23。
 
 本逐步解說中稍後會在我們建立 Hive 資料表時說明存取、瀏覽和模型化此資料而不需要任何本機下載的另一種方法。
 
@@ -114,16 +112,16 @@ Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 
 
 **重要事項**：**請從上述的 Hive bin/ 目錄提示執行此逐步解說中的所有 Hive 命令。如此可自動處理路徑相關問題。我們將使用交替使用詞彙「Hive 目錄提示」、「Hive bin/ 目錄提示」和「Hadoop 命令列」。**
 
-**重要事項 2**：**若要執行任何 Hive 查詢，使用者一律可以執行下列 ** cd %hive_home%\bin hive
+**重要事項 2**：**若要執行任何 Hive 查詢，使用者一律可以執行下列 ** cd %hive\_home%\\bin hive
 
 Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 下列程式碼會建立資料庫 "criteo"，然後產生 4 個資料表：
 
 
-* 建置於 day_00 到 day_20 *用於產生計數的資料表*、 
-* 建置於 day_21 *用來做為訓練資料集的資料表*，以及 
-* 分別建置於 day_22 和 day_23 的兩個*用來做為測試資料集的資料表*。 
+* 建置於 day\_00 到 day\_20 *用於產生計數的資料表*、 
+* 建置於 day\_21 *用來做為訓練資料集的資料表*，以及 
+* 分別建置於 day\_22 和 day\_23 的兩個*用來做為測試資料集的資料表*。 
 
 因為其中一天是假日，而且我們想要判斷模型是否可以偵測到假日與非假日之間點選率的差異，我們將我們的測試資料集分割成兩個不同資料表。
 
@@ -234,7 +232,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 		hive -f C:\temp\sample_hive_count_criteo_test_day_22_table_examples.hql
 
-最後，我們將檢查以 day_23 為基礎的測試資料集內的測試範例的數目。
+最後，我們將檢查以 day\_23 為基礎的測試資料集內的測試範例的數目。
 
 要執行此動作的命令類似於上述程式碼 (請參閱 [sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;23&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql))：
 
@@ -261,7 +259,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 		
 ### 訓練資料集中一些數值變數的長條圖分佈
 
-我們可以使用 Hive 的原生 "histogram_numeric" 函式，來了解數值變數分佈的外觀。[sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql) 的內容如下所示：
+我們可以使用 Hive 的原生 "histogram\_numeric" 函式，來了解數值變數分佈的外觀。[sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql) 的內容如下所示：
 
 		SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM 
 			(SELECT
@@ -299,7 +297,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 ### 訓練資料集中一些數值變數的近似百分比
 
-數值變數是近似百分比的計算也值得一提。Hive 的原生 "percentile_approx" 會為我們執行此動作。[sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) 的內容為：
+數值變數是近似百分比的計算也值得一提。Hive 的原生 "percentile\_approx" 會為我們執行此動作。[sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) 的內容為：
 
 		SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
 
@@ -382,7 +380,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 		Time taken: 12.22 seconds
 		Time taken: 298.98 seconds
 
-指令碼 [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;22&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) 會為測試資料 day_22 執行此動作：
+指令碼 [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;22&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) 會為測試資料 day\_22 執行此動作：
 
 		--- Now for test data (day_22)
 
@@ -400,7 +398,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 		Time taken: 317.66 seconds
 
 
-最後，指令碼 [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;23&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) 會為測試資料 day_23 執行此動作：
+最後，指令碼 [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;23&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) 會為測試資料 day\_23 執行此動作：
 
 		--- Finally test data day_23
 		CREATE TABLE criteo.criteo_test_day_23_downsample_1perc (
@@ -452,7 +450,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 針對**讀取器**模組，在圖形中提供的參數值都只是您必須提供之該類值的範例。以下是如何填寫**讀取器**模組之參數集的一些一般指引。
 
 1. 對**資料來源**選擇「Hive 查詢」
-2. 在 [**Hive 資料庫查詢**] 方塊中，簡單的 SELECT * FROM <your_database_name.your_table_name> - 就已經足夠。
+2. 在 [**Hive 資料庫查詢**] 方塊中，簡單的 SELECT * FROM <your\_database\_name.your\_table\_name> - 就已經足夠。
 3. **Hcatalog 伺服器 URI**：如果您的叢集是 "abc"，那麼這就是：https://abc.azurehdinsight.net
 4. **Hadoop 使用者帳戶名稱**：委任叢集時選擇的使用者名稱。(非遠端存取使用者名稱！)
 5. **Hadoop 使用者帳戶密碼**：委任叢集時選擇之上述使用者名稱的密碼。(非遠端存取密碼！)
@@ -540,7 +538,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 ![](http://i.imgur.com/91wvcwN.png)
 
-在這個簡單的 R 指令碼中，我們使用 "pos_neg_ratio" 設定正與負類別之間的平衡數目。這是很重要的動作，因為改善類別失衡通常會具有效能優勢，可處理類別散發扭曲的分類問題 (請記得在我們的案例中，我們有 3.3% 正類別和 96.7% 負類別)。
+在這個簡單的 R 指令碼中，我們使用 "pos\_neg\_ratio" 設定正與負類別之間的平衡數目。這是很重要的動作，因為改善類別失衡通常會具有效能優勢，可處理類別散發扭曲的分類問題 (請記得在我們的案例中，我們有 3.3% 正類別和 96.7% 負類別)。
 
 ##### 在我們的資料上套用計數轉換
 
@@ -658,4 +656,4 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 這包含我們的端對端逐步解說，示範如何使用 Azure Machine Learning 處理大型資料集。我們開始使用 1 TB 的資料、建構預測模型，並將其部署為雲端中的 Web 服務。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

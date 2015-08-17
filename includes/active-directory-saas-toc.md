@@ -1,19 +1,21 @@
-##Related Articles
+##相關文章
 
-This article is part of a series on how to manage SaaS applications with Azure Active Directory. Below are all of the articles in the series:
+本文屬於如何使用 Azure Active Directory 管理 SaaS 應用程式的系列文章。以下為該系列中所有文章：
 
-- [Introduction to Single Sign-On and Managing App Access with Azure Active Directory](active-directory-appssoaccess-whatis.md)
-- [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md)
-- [Automate User Provisioning and Deprovisioning to SaaS Applications](active-directory-saas-app-provisioning.md)
-	- [Customizing Attribute Mappings for User Provisioning](active-directory-saas-customizing-attribute-mappings.md)
-	- [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-	- [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
-	- [Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md)
-- [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)
-	- [How to integrate Salesforce](active-directory-saas-salesforce-tutorial.md)
-	- [How to integrate Google Apps](active-directory-saas-google-apps-tutorial.md)
-	- [How to integrate Box](https://msdn.microsoft.com/library/azure/dn308589.aspx)
-	- [How to integrate ServiceNow](https://msdn.microsoft.com/library/azure/dn510971.aspx)
-	- [How to integrate Dropbox for Business](https://msdn.microsoft.com/en-us/library/azure/dn510978.aspx)
-	- [How to integrate Workday](https://msdn.microsoft.com/en-us/library/azure/dn510972.aspx) 
-	- [More SaaS App Tutorials...](active-directory-saas-tutorial-list.md)
+- [單一登入及使用 Azure Active directory 管理應用程式存取的簡介](active-directory-appssoaccess-whatis.md)
+- [存取面板簡介](active-directory-saas-access-panel-introduction.md)
+- [SaaS 應用程式的自動化使用者佈建和解除佈建](active-directory-saas-app-provisioning.md)
+	- [自訂使用者佈建的屬性對應](active-directory-saas-customizing-attribute-mappings.md)
+	- [撰寫屬性對應的運算式](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+	- [適用於使用者佈建的範圍篩選器](active-directory-saas-scoping-filters.md)
+	- [帳戶佈建通知](active-directory-saas-account-provisioning-notifications.md)
+- [如何整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
+	- [如何整合 Salesforce](active-directory-saas-salesforce-tutorial.md)
+	- [如何整合 Google Apps](active-directory-saas-google-apps-tutorial.md)
+	- [如何整合 Box](https://msdn.microsoft.com/library/azure/dn308589.aspx)
+	- [如何整合 ServiceNow](https://msdn.microsoft.com/library/azure/dn510971.aspx)
+	- [如何整合 Dropbox for Business](https://msdn.microsoft.com/zh-tw/library/azure/dn510978.aspx)
+	- [如何整合 Workday](https://msdn.microsoft.com/zh-tw/library/azure/dn510972.aspx) 
+	- [更多 SaaS 應用程式教學課程...](active-directory-saas-tutorial-list.md)
+
+<!---HONumber=August15_HO6-->

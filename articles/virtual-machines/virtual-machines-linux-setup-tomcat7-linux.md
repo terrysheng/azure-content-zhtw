@@ -46,7 +46,7 @@ SSH 對系統管理員而言是很重要的工具。不過，依據人為決定�
 
 依照下列步驟來產生 SSH 驗證金鑰。
 
-1.	從下列位置下載並安裝 puttygen： [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 
+1.	從下列位置下載並安裝 puttygen： [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 
 2.	執行 PUTTYGEN.EXE。
 3.	按一下 [產生] 來產生金鑰。在這個程序中，您可以在視窗中的空白區域移動滑鼠來提高隨機性。![][1]
 4.	在產生程序之後，Puttygen.exe 會顯示產生的金鑰。例如：![][2]
@@ -303,4 +303,4 @@ tomcat7 伺服器將在您安裝時自動啟動。您也可以自行使用下列
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

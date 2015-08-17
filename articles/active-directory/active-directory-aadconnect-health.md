@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/12/2015" 
 	ms.author="billmath"/>
 
@@ -155,4 +155,4 @@ Azure AD Connect Health 使用情況分析會分析您的同盟伺服器的驗�
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

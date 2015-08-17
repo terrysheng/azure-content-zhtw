@@ -38,7 +38,7 @@
 
 若要使用 Azure 服務匯流排佇列 API，請執行下列動作：
 
-1. 參考使用 [require_once][require_once] 陳述式的自動換片器檔案。
+1. 參考使用 [require\_once][require_once] 陳述式的自動換片器檔案。
 2. 參考任何您可能使用的類別。
 
 下列範例顯示如何納入自動換片器檔案及參考 **ServicesBuilder** 類別。
@@ -213,4 +213,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

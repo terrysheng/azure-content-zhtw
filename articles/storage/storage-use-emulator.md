@@ -49,7 +49,7 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 
 1. 如果尚未安裝 Azure PowerShell，請先安裝。建議使用最新版的 Azure PowerShell Cmdlet。如需安裝指示，請參閱[如何安裝和設定 Azure PowerShell](../articles/powershell-install-configure.md#Install)。
 
-2. 開啟 Azure PowerShell 並執行下列命令。請務必以您自己的認證取代 *ACCOUNT_NAME* 和 *ACCOUNT_KEY = =*。以您選擇的名稱取代 *CONTAINER_NAME*。
+2. 開啟 Azure PowerShell 並執行下列命令。請務必以您自己的認證取代 *ACCOUNT\_NAME* 和 *ACCOUNT\_KEY = =*。以您選擇的名稱取代 *CONTAINER\_NAME*。
 
 		$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
 		
@@ -80,7 +80,7 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 
 當您第一次執行儲存體模擬器時，系統會為您初始化本機儲存體環境。初始化處理程序會在 LocalDB 中建立資料庫，並為每個本機儲存體服務保留 HTTP 連接埠。
 
-儲存體模擬器預設會安裝至 C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator 目錄。
+儲存體模擬器預設會安裝至 C:\\Program Files (x86)\\Microsoft SDKs\\Azure\\Storage Emulator 目錄。
 
 ### 初始化儲存體模擬器以使用不同的 SQL 資料庫
 
@@ -89,11 +89,11 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 1. 按一下 [**開始**] 按鈕或按下 [**Windows**] 鍵。先輸入 `Azure Storage Emulator`，並在開始帶出儲存體模擬器命令列工具時加以選取。
 2. 在命令提示字元視窗中，輸入下列命令，其中 `<SQLServerInstance>` 是 SQL Server 執行個體的名稱。若要使用 LocalDb，請指定 `(localdb)\v11.0` 做為 SQL Server 執行個體。
 
-		AzureStorageEmulator init /sqlInstance <SQLServerInstance> 
+		AzureStorageEmulator init /server <SQLServerInstance> 
     
 	您也可以使用下列命令，引導模擬器使用預設的 SQL Server 執行個體：
 
-    	AzureStorageEmulator init /server .\ 
+    	AzureStorageEmulator init /server .\\ 
 
 	或者，您也可以使用下列命令，將資料庫重新初始化至預設 LocalDB 執行個體：
 
@@ -143,7 +143,7 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 
 ### 命令列語法
 
-	AzureStorageEmulator [/start] [/stop] [/status] [/clear] [/init] [/help]
+	AzureStorageEmulator [start] [stop] [status] [clear] [init] [help]
 
 ### 選項
 
@@ -155,7 +155,7 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 | **停止** | 停止儲存體模擬器。 | `AzureStorageEmulator stop` | |
 | **狀態** | 列印儲存體模擬器的狀態。 | `AzureStorageEmulator status` | |
 | **Clear** | 清除命令列上指定的所有服務中的資料。 | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob*：清除 blob 資料。<br/>*queue*：清除佇列資料。<br/>*table*：清除資料表資料。<br/>*all*：清除所有服務中的所有資料。 |
-| **Init** | 執行一次初始化以設定模擬器。 | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server serverName*：指定裝載 SQL 執行個體的伺服器。<br/>*-sqlinstance instanceName*：指定要使用的 SQL 執行個體的名稱。<br/>*-forcecreate*：強制建立 SQL 資料庫，即使它已經存在。<br/>*-inprocess*：在目前的處理序中執行初始化，而不是繁衍新的處理序。必須以較高權限啟動目前的處理序，才能進行此動作。 |
+| **Init** | 執行一次初始化以設定模擬器。 | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server serverName\\instanceName*：指定裝載 SQL 執行個體的伺服器。<br/>*-sqlinstance instanceName*：指定在預設伺服器執行個體中使用之 SQL 執行個體的名稱。<br/>*-forcecreate*：強制建立 SQL 資料庫，即使它已經存在。<br/>*-inprocess*：在目前的處理序中執行初始化，而不是繁衍新的處理序。您必須以更高權限啟動目前的處理序，才能執行初始化。 |
                                                                                                                   
 ## 儲存體模擬器和 Azure 儲存體之間的差異
 
@@ -173,6 +173,8 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 
 - 儲存體模擬器目前不支援檔案服務和 SMB 通訊協定服務端點。
 
+- 如果您使用的模擬器版本尚不支援您使用的儲存體服務版本，該儲存體模擬器就會傳回 VersionNotSupportedByEmulator 錯誤 (HTTP 狀態碼 400-不正確的要求)。
+
 ### Blob 儲存體的差異 
 
 下列差異適用於模擬器中的 Blob 儲存體：
@@ -181,11 +183,13 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 
 - 針對存在於儲存體模擬器中的 blob 進行的 Put Blob 作業會成功，並擁有作用中的租用 (即使要求中並未指定租用識別碼)。
 
+- 模擬器不支援附加 Blob 作業。在附加 Blob 上嘗試作業會傳回 FeatureNotSupportedByEmulator 錯誤 (HTTP 狀態碼 400-不正確的要求)。
+
 ### 資料表儲存體的差異 
 
 下列差異適用於模擬器中的資料表儲存體：
 
-- 在儲存體模擬器中，資料表服務的日期屬性只支援 SQL Server 2005 所支援的範圍 (也就是必須晚於 1753 年 1 月 1 日)。1753 年 1 月 1 日之前的所有日期都會變成此值。日期的精確度受限於 SQL Server 2005 的精確度，也就是會精確度達到 1/300 秒。
+- 在儲存體模擬器中，表格服務的日期屬性只支援 SQL Server 2005 所支援的範圍 (*也就是*必須晚於 1753 年 1 月 1 日)。1753 年 1 月 1 日之前的所有日期都會變成此值。日期的精確度受限於 SQL Server 2005 的精確度，也就是會精確度達到 1/300 秒。
 
 - 儲存體模擬器支援屬性值小於 512 個位元組的資料分割索引鍵與資料列索引鍵。此外，帳戶名稱、資料表名稱和索引鍵屬性名稱的大小總計不得超過 900 個位元組。
 
@@ -199,25 +203,29 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 
 ## 儲存體模擬器版本資訊
 
-### 4.0 版
+### 4\.1 版
 
-儲存體模擬器可執行檔已重新命名為 *AzureStorageEmulator.exe*。
+- 除了新的附加 Blob 功能，儲存體模擬器現在支援 Blob、佇列和表格服務端點上的 2015-02-21 版儲存體服務。 
 
-### 3.2 版
-- 儲存體模擬器現在支援 Blob、佇列和資料表服務端點上的 2014-02-14 版儲存體服務。請注意，儲存體模擬器目前不支援檔案服務端點。如需有關 2014-02-14 版的詳細資訊，請參閱 [Azure 儲存體服務版本控制](https://msdn.microsoft.com/library/azure/dd894041.aspx)。
+- 如果您使用的儲存體模擬器版本尚不支援您使用的儲存體服務版本，該模擬器會傳回有意義的錯誤訊息。我們建議使用最新版本的模擬器。如果您遇到 VersionNotSupportedByEmulator 錯誤 (HTTP 狀態碼 400-不正確的要求)，請下載最新版的儲存體模擬器。
 
-### 3.1 版
+- 修正競爭情形造成資料表實體資料在並行合併作業期間會不正確的 bug。
+
+### 4\.0 版
+
+- 儲存體模擬器可執行檔已重新命名為 *AzureStorageEmulator.exe*。
+
+### 3\.2 版
+- 儲存體模擬器現在支援 Blob、佇列和資料表服務端點上的 2014-02-14 版儲存體服務。請注意，儲存體模擬器目前不支援檔案服務端點。如需有關 2014-02-14 版本的詳細資訊，請參閱 [為 Windows Azure 中的 Blob、佇列和表格服務進行版本設定](https://msdn.microsoft.com/library/azure/dd894041.aspx)。
+
+### 3\.1 版
 - 儲存體模擬器現在支援讀取權限異地備援儲存體 (RA-GRS)。針對次要帳戶支援 Get Blob Service Stats、Get Queue Service Stats 和 Get Table Service Stats API，且這些 API 一律會根據基礎 SQL Database 傳回 LastSyncTime 回應元素的值當成目前的時間。如需以程式設計方式使用儲存體模擬器來存取次要位置，請使用 Storage Client Library for.NET 3.2 版或更新版本。如需詳細資訊，請參閱＜儲存體用戶端程式庫參考＞。
 
-### 3.0 版
+### 3\.0 版
 - Azure 儲存體模擬器不再隨附於計算模擬器封裝。
 
 - 儲存體模擬器圖形化使用者介面已由可編寫指令碼的命令列介面取代。如需有關命令列介面的詳細資訊，請參閱儲存體模擬器命令列工具參考。3.0 版仍將提供圖形化介面，除非在系統匣圖示按一下滑鼠右鍵並選取 [顯示儲存體模擬器 UI] 的方式安裝計算模擬器，否則無法存取圖形化介面。
 
 - 現在完全支援 2013-08-15 版的 Azure 儲存體服務。(先前只有儲存體模擬器 2.2.1 版預覽才支援此版本)。
 
-
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

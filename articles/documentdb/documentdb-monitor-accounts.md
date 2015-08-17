@@ -90,4 +90,4 @@ Azure Preview 入口網站可讓您建立並排度量圖表。
 若要深入了解 DocumentDB 容量，請參閱[管理 DocumentDB 容量](documentdb-manage.md)。
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

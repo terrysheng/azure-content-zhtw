@@ -251,7 +251,7 @@
 
 	此方法會將 [ClaimsIdentity] 轉譯為在驗證權杖發行階段使用的 [ProviderCredentials] 物件。此時，您可以再次以此方法擷取任何其他宣告。
 	
-6. 在 **ConfigOptions** 建立之後開啟 App_Start 資料夾中的 WebApiConfig.cs 專案檔案及下列程式碼行：
+6. 在 **ConfigOptions** 建立之後開啟 App\_Start 資料夾中的 WebApiConfig.cs 專案檔案及下列程式碼行：
 		
 		options.LoginProviders.Add(typeof(CustomLoginProvider));
 
@@ -346,7 +346,7 @@
 
 	這麼做會啟動行動服務後端專案的新偵錯執行個體。成功啟動服務之後，您會看到說明「此行動服務已啟動且在執行中」的起始頁。
 
-2. 在服務起始頁中，按一下 [試用]，然後在驗證對話方塊中，輸入您於 web.config 檔案的 **MS_ApplicationKey** 應用程式設定中設定的密碼，並將使用者名稱保留空白。
+2. 在服務起始頁中，按一下 [試用]，然後在驗證對話方塊中，輸入您於 web.config 檔案的 **MS\_ApplicationKey** 應用程式設定中設定的密碼，並將使用者名稱保留空白。
 
 3. 在說明頁面中，按一下 [CustomRegistration] 端點，然後按一下 [試用]。
 
@@ -420,4 +420,4 @@
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

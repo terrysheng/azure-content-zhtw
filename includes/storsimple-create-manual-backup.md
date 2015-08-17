@@ -21,4 +21,4 @@
 
   備份應該會出現在類別目錄中顯示的備份組清單中。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

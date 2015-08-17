@@ -113,4 +113,4 @@ Azure Machine Learning Gallery 讓您只要按一個按鍵，就可以輕鬆地�
 **[帶領我到資源庫 >>](http://gallery.azureml.net)**
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

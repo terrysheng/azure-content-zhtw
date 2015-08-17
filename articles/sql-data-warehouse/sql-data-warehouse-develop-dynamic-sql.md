@@ -31,7 +31,7 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-如果字串不是特別長，則您可以一如往常使用 [sp_executesql][]。
+如果字串不是特別長，則您可以一如往常使用 [sp\_executesql][]。
 
 
 ## 後續步驟
@@ -43,8 +43,8 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 [開發概觀]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[sp_executesql]: https://msdn.microsoft.com/zh-tw/library/ms188001.aspx
+[sp\_executesql]: https://msdn.microsoft.com/zh-tw/library/ms188001.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

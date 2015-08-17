@@ -97,4 +97,4 @@ Azure 會將此範本視為映像，並將其儲存在 [**映像**] 下。這也
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [如何建立執行 Linux 的虛擬機器]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

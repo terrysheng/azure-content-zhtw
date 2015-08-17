@@ -61,7 +61,7 @@
 
 我們使用 SimpleShortestPathsComputation 範例來示範在圖形中的物件之間找出最短路徑的基本<a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> 實作。請使用下列步驟來上傳範例資料及範例 jar，使用 SimpleShortestPathsComputation 範例執行工作，然後檢視結果。
 
-1. 將範例資料檔案上傳至 Azure Blob 儲存體。在本機工作站上，建立名為 **tiny_graph.txt** 的新檔案。應該包含下列幾行：
+1. 將範例資料檔案上傳至 Azure Blob 儲存體。在本機工作站上，建立名為 **tiny\_graph.txt** 的新檔案。應該包含下列幾行：
 
 		[0,0,[[1,1],[3,3]]]
 		[1,0,[[0,1],[2,2],[3,1]]]
@@ -69,17 +69,17 @@
 		[3,0,[[0,3],[1,1],[4,4]]]
 		[4,0,[[3,4],[2,4]]]
 
-	將 tiny_graph.txt 檔案上傳至 HDInsight 叢集的主要儲存體。如需有關如何上傳資料的指示，請參閱[在 HDInsight 上將 Hadoop 工作的資料上傳](hdinsight-upload-data.md)。
+	將 tiny\_graph.txt 檔案上傳至 HDInsight 叢集的主要儲存體。如需有關如何上傳資料的指示，請參閱[在 HDInsight 上將 Hadoop 工作的資料上傳](hdinsight-upload-data.md)。
 
-	這項資料會使用 [source_id, source_value,[[dest_id], [edge_value],...]] 格式，描述一個有向圖形中物件之間的關聯性。每一行代表 **source_id** 物件和一或多個 **dest_id** 物件之間的關聯性。**edge_value** (或權數) 可以視為 **source_id** 和 **dest_id** 之間的連線強度或距離。
+	這項資料會使用 [source\_id, source\_value,[[dest\_id], [edge\_value],...]] 格式，描述一個有向圖形中物件之間的關聯性。每一行代表 **source\_id** 物件和一或多個 **dest\_id** 物件之間的關聯性。**edge\_value** (或權數) 可以視為 **source\_id** 和 **dest\_id** 之間的連線強度或距離。
 
 	如果使用值 (或權數) 當做物件之間的距離繪製出來，上述資料可能如下圖所示：
 
-	![tiny_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
+	![tiny\_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
 
 	
 
-4. 執行 SimpleShortestPathsComputation 範例。使用 tiny_graph.txt 檔案做為輸入，即可使用下列 Azure PowerShell Cmdlet 來執行此範例。您必須已安裝和設定 [Azure PowerShell][powershell-install]。
+4. 執行 SimpleShortestPathsComputation 範例。使用 tiny\_graph.txt 檔案做為輸入，即可使用下列 Azure PowerShell Cmdlet 來執行此範例。您必須已安裝和設定 [Azure PowerShell][powershell-install]。
 
 		$clusterName = "clustername"
 		# Giraph examples jar
@@ -109,7 +109,7 @@
 
 	在上述範例中，利用您已安裝 Giraph 的 HDInsight 叢集名稱取代 **clustername**。
 
-5. 檢視結果。一旦工作完成，結果會儲存在 __wasb:///example/out/shotestpaths__ 資料夾中的兩個輸出檔中。這些檔案稱為 __part-m-00001__ 和 __part-m-00002__。執行下列步驟來下載和檢視輸出：
+5. 檢視結果。一旦工作完成，結果會儲存在 \_\___wasb:///example/out/shotestpaths__ 資料夾中的兩個輸出檔中。這些檔案稱為 __part-m-00001__ 和 __part-m-00002__。執行下列步驟來下載和檢視輸出：
 
 		$subscriptionName = "<SubscriptionName>"       # Azure subscription name
 		$storageAccountName = "<StorageAccountName>"   # Azure Storage account name
@@ -329,7 +329,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
 
 **執行應用程式**
 
-開啟 Azure PowerShell 主控台、瀏覽至您儲存 Visual Studio 專案的位置、瀏覽至專案內的 \bin\debug 目錄，然後執行下列命令：
+開啟 Azure PowerShell 主控台、瀏覽至您儲存 Visual Studio 專案的位置、瀏覽至專案內的 \\bin\\debug 目錄，然後執行下列命令：
 
 	.\CreateGiraphCluster <cluster-name>
 
@@ -353,4 +353,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

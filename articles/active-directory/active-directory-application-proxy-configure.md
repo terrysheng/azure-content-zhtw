@@ -32,4 +32,4 @@ Azure AD 應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Ac
 [Microsoft Azure 部落格](http://azure.microsoft.com/blog/) [啟用應用程式 Proxy 服務](https://msdn.microsoft.com/library/azure/dn768214.aspx) [使用應用程式 Proxy 發行應用程式](https://msdn.microsoft.com/library/azure/dn768220.aspx) [疑難排解應用程式 Proxy](https://msdn.microsoft.com/library/azure/dn768218.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure Mobile Engagement iOS SDK 整合" 
+<properties
+	pageTitle="Azure Mobile Engagement iOS SDK 整合"
 	description="Azure Mobile Engagement iOS SDK 的最新更新與程序"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="MehrdadMzfr"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 #如何在 iOS 上整合 Engagement
 
@@ -26,7 +26,7 @@
 
 此程序描述在您的 iOS 應用程式中，啟動 Engagement 的分析和監視功能時，最簡單的方法。
 
-> [AZURE.IMPORTANT]Engagement SDK 需要 iOS4 以上：應用程式的部署目標必須至少為 iOS 4。
+> [AZURE.IMPORTANT]Engagement SDK 需要 iOS5 以上：應用程式的部署目標必須至少為 iOS 5。
 
 下列步驟便足以啟用計算與使用者、工作階段、活動、當機和技術相關之所有統計資料時所需要的記錄檔報告。用來計算事件、錯誤及工作等其他統計資料所需的記錄檔報告必須使用 Engagement API 手動完成 (請參閱[如何在 iOS 應用程式中使用進階的 Mobile Engagement 標記 API](mobile-engagement-ios-use-engagement-api.md))，因為這些是與應用程式相依的統計資料。
 
@@ -43,7 +43,7 @@ Engagement 需要額外的架構才能運作：在專案總管中，開啟專案
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
-> [AZURE.NOTE] AdSupport 架構可以移除。Engagement 需要此架構來收集 IDFA。但您可以停用 IDFA 集合 \<ios-sdk-engagement-idfa\>，以符合關於此識別碼的新 Apple 原則。
+> [AZURE.NOTE]AdSupport 架構可以移除。Engagement 需要此架構來收集 IDFA。但您可以停用 IDFA 集合 <ios-sdk-engagement-idfa>，以符合關於此識別碼的新 Apple 原則。
 
 ##初始化 Engagement SDK
 
@@ -206,6 +206,5 @@ Engagement API 可允許使用所有 Engagement 的進階功能，詳情請見�
 [NSLocationAlwaysUsageDescription]: https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
- 
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

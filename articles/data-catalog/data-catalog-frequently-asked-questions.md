@@ -157,4 +157,4 @@ Azure 資料目錄強化技術性和非技術性使用者的能力，包括：
 
 請前往 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)。那裡提出的問題會在這裡找到答案。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

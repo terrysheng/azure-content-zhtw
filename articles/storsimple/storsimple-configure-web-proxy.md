@@ -147,4 +147,4 @@ Web Proxy 設定已透過 Windows PowerShell 介面設定，無法從管理入�
 ## 後續步驟
 如果您在部署裝置或設定 Web Proxy 設定時遇到任何問題，請參閱 [StorSimple 裝置疑難排解](storsimple-troubleshoot-deployment.md)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

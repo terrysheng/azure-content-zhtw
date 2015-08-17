@@ -204,8 +204,7 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 |比較準則|Azure 佇列|服務匯流排佇列|
 |---|---|---|
 |管理通訊協定|**REST over HTTP/HTTPS**|**REST over HTTPS**|
-|執行階段通訊協定|**REST over HTTP/HTTPS**|**REST over HTTPS**<br/><br/>**AMQP 1.0 標準 (TCP 和 TLS)**|
-|.NET Managed API|**是**<br/><br/>(.NET Managed 儲存體用戶端 API)|**是**<br/><br/>(.NET Managed 代理傳訊 API)|
+|執行階段通訊協定|**REST over HTTP/HTTPS**|**REST over HTTPS**<br/><br/>** AMQP 1.0 標準 (TCP 和 TLS)**| |NET Managed API|**是**<br/><br/>(.NET Managed 儲存體用戶端 API)|**是**<br/><br/>(.NET Managed 代理傳訊 API)|
 |Native C++|**是**|**否**|
 |Java API|**是**|**是**|
 |PHP API|**是**|**是**|
@@ -225,7 +224,7 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 
 - Azure 佇列名稱長度可以是 3-63 個字元，而且可以包含小寫字母、數字和連字號。如需詳細資訊，請參閱[為佇列和中繼資料命名](https://msdn.microsoft.com/library/dd179349.aspx)。
 
-- 服務匯流排佇列名稱長度最多 260 個字元，而且命名規則的限制較少。服務匯流排佇列名稱可以包含字母、數字、句號 (.)、連字號 (-) 和底線 (_)。
+- 服務匯流排佇列名稱長度最多 260 個字元，而且命名規則的限制較少。服務匯流排佇列名稱可以包含字母、數字、句號 (.)、連字號 (-) 和底線 (\_)。
 
 ## 效能
 
@@ -318,4 +317,4 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 - [了解 Azure 儲存體計費 - 頻寬、交易和容量](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

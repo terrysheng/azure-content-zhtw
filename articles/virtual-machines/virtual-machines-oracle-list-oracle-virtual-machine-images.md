@@ -1,4 +1,4 @@
-<properties 
+<properties title="List of Oracle virtual machine images"
 pageTitle="Oracle 虛擬機器映像清單"
 description="在 Azure 資源庫中取得 Oracle 映像清單，並了解如何以其中一個映像為基礎建立 Oracle 虛擬機器。"
 services="virtual-machines"
@@ -67,4 +67,4 @@ ms.author="bbenz" />
 
 [Oracle 虛擬機器映像 - 其他考量](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

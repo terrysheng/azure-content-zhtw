@@ -96,4 +96,4 @@ Azure 目前有兩種管理模式：Azure 服務管理和 Azure 資源管理員 
 如果您想要使用 RRAS 設定 VNet 連線，請參閱[使用 Windows Server 2012 路由及遠端存取服務 (RRAS) 設定站對站 VPN](https://msdn.microsoft.com/library/dn636917.aspx)。
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -74,4 +74,4 @@ Service Fabric 資源平衡器的常見組態是為了讓每個節點上的每�
 [Image1]: media/service-fabric-resource-balancer-proactive-metric-packing/PMP.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

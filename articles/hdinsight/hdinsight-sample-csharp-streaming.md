@@ -87,7 +87,7 @@ Hadoop 提供 MapReduce 一個串流 API，可讓您以 Java 以外的語言撰�
 		Select-AzureSubscription $subscriptionName
 
 		# Blob storage container and account name
-      $storageAccountKey = Get-AzureStorageKey -StorageAccountName $storageAccountName | %{ $_.Primary } $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+      $storageAccountKey = Get-AzureStorageKey -StorageAccountName $storageAccountName | %{ $\_.Primary } $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
 		# Retrieve the output
 		Get-AzureStorageBlobContent -Container $containerName -Blob "example/data/StreamingOutput/wc.txt/part-00000" -Context $storageContext -Force
@@ -204,4 +204,4 @@ wc.cs 檔案中的 reducer 程式碼會使用 [StreamReader][streamreader] 物�
 [hdinsight-use-pig]: hdinsight-use-pig.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

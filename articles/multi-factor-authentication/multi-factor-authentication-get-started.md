@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/02/2015" 
 	ms.author="billmath"/>
 
@@ -33,11 +33,11 @@
 
 您想要保護什麼| 雲端中的 Multi-Factor Authentication|Multi-Factor Authentication Server 
 ------------- | :-------------: | :-------------: |
-第一方 Microsoft 應用程式|\* |\* |
-應用程式資源庫中的 Saas 應用程式|\* |\* |
-透過 Azure AD App Proxy 發佈的 IIS 應用程式|\* |\* |
-非透過 Azure AD App Proxy 發佈的 IIS 應用程式 | |\* |
-VPN、RDG 等遠端存取| |\* |
+第一方 Microsoft 應用程式|* |* |
+應用程式資源庫中的 Saas 應用程式|* |* |
+透過 Azure AD App Proxy 發佈的 IIS 應用程式|* |* |
+非透過 Azure AD App Proxy 發佈的 IIS 應用程式 | |* |
+VPN、RDG 等遠端存取| |* |
 
 
 
@@ -87,4 +87,4 @@ MFA 報告 | ● | ●
 * [適用於使用者](multi-factor-authentication-end-user.md)
 * [MSDN 上的 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

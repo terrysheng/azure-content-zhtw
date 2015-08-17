@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actor 的動作項目類型序列化註解"
-   description="定義可用於定義 Azure Fabric Reliable Actor 狀態與介面其可序列化類別的基本需求"
+   pageTitle="Reliable Actor 的動作項目類型序列化註解"
+   description="說明定義可用於定義 Service Fabric Reliable Actor 狀態與介面其可序列化類別的基本需求"
    services="service-fabric"
    documentationCenter=".net"
    authors="clca"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/02/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
 
-# Azure Service Fabric Actor 類型序列化註解
+# Service Fabric Reliable Actor 類型序列化的注意事項
 
 定義動作項目介面和狀態時，須記住一些重要事項：必須資料合約序列化的類型。如需資料合約的詳細資訊，請參閱 [MSDN](https://msdn.microsoft.com/library/ms731923.aspx)。
 
@@ -82,6 +82,5 @@ public class VoicemailBox
 }
 
 ```
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

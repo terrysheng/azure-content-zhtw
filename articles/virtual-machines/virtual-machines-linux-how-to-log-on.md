@@ -53,4 +53,4 @@
 <!-- LINKS -->
 [如何為 Linux 虛擬機器重設密碼或 SSH]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

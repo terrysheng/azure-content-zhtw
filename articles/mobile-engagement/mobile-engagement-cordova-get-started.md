@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="07/02/2015"
 	ms.author="piyushjo" />
 
@@ -233,7 +233,7 @@ Mobile Engagement 可讓您使用「推播通知」和「應用程式內傳訊�
 
 **[iOS]**
 
-1. 我們將使用 XCode 在裝置上建置及部署應用程式，以測試推播通知，因為 iOS 只允許推播通知到實際裝置。請移至您建立 Cordova 專案的位置，並瀏覽至 **...\platforms\ios** 位置。在 XCode 中開啟原生 .xcodeproj 檔案。 
+1. 我們將使用 XCode 在裝置上建置及部署應用程式，以測試推播通知，因為 iOS 只允許推播通知到實際裝置。請移至您建立 Cordova 專案的位置，並瀏覽至 **...\\platforms\\ios** 位置。在 XCode 中開啟原生 .xcodeproj 檔案。 
 	
 2. 建置 Cordova 應用程式並部署至 iOS 裝置，方法是使用具有佈建設定檔的帳戶，該設定檔包含憑證 (您剛剛上傳至 Mobile Engagement 入口網站) 和應用程式識別碼 (符合您在建立 Cordova 應用程式時提供的識別碼)。您可以在 XCode 中的 **Resources*-info.plist** 檔案檢查 [*套件組合識別碼*] 以進行配對。
 
@@ -273,9 +273,9 @@ Mobile Engagement 可讓您使用「推播通知」和「應用程式內傳訊�
 
 	![][15]
 
-5. [選用] 您也可以提供動作 URL。請確定它會使用在設定外掛程式的 **AZME 重新導向 URL** 變數 (例如 *myapp://test*) 時提供的 URL 配置。
+5. [選用] 您也可以提供動作 URL。請確定它會使用在設定外掛程式的 **AZME 重新導向 URL** 變數 (例如 **myapp://test*) 時提供的 URL 配置。
 
-5. 您已經完成設定一個盡可能最基本的活動，現在向下捲動並**建立**您的活動以儲存它。
+5. 您已經完成設定一個盡可能最基本的活動，現在向下捲動並**建立**您的活動以儲存它！
 	
 	![][16]
 
@@ -312,4 +312,4 @@ Mobile Engagement 可讓您使用「推播通知」和「應用程式內傳訊�
 [20]: ./media/mobile-engagement-cordova-get-started/native-push-settings.png
 [21]: ./media/mobile-engagement-cordova-get-started/api-key.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

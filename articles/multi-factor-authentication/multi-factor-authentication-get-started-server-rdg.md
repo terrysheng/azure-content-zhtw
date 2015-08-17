@@ -59,4 +59,4 @@ Azure Multi-Factor Authentication Server 設定為 RD 閘道器和 NPS 之間的
 
 ![Radius 驗證](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

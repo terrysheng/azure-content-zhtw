@@ -124,7 +124,7 @@ ClusterHealth clusterHealth = fabricClient.HealthManager.GetClusterHealthAsync(q
 以下 Cmdlet 會使用預設的健康情況原則，取得叢集健康情況。彙總健康情況狀態為「警告」，因為 fabric:/WordCount 應用程式處於「警告」狀態。請注意健康情況不佳的評估，會如何詳細顯示觸發彙總健康情況的條件。
 
 ```xml
-PS C:> Get-ServiceFabricClusterHealth
+PS C:\> Get-ServiceFabricClusterHealth
 
 AggregatedHealthState   : Warning
 UnhealthyEvaluations    :
@@ -174,7 +174,7 @@ HealthEvents            : None
 以下 Powershell Cmdlet 會使用自訂的應用程式原則，取得叢集的健康情況。它會篩選結果，以取得只有「錯誤」或「警告」的應用程式和節點。如此一來，就不會傳回任何狀況良好的節點。只有 fabric:/WordCount 應用程式符合應用程式篩選。由於自訂原則針對 fabric:/WordCount 應用程式，指定將警告視為錯誤，因此應用程式以及叢集，均被評估為「錯誤」。
 
 ```powershell
-PS c:> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
+PS C:\> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
 $appHealthPolicy.ConsiderWarningAsError = $true
 $appHealthPolicyMap = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicyMap
 $appUri1 = New-Object -TypeName System.Uri -ArgumentList "fabric:/WordCount"
@@ -242,7 +242,7 @@ NodeHealth nodeHealth = fabricClient.HealthManager.GetNodeHealthAsync(queryDescr
 取得節點健康情況的 Cmdlet 是 Get-ServiceFabricNodeHealth。首先會使用 Connect-ServiceFabricCluster Cmdlet 連接到叢集。以下 Cmdlet 會使用預設的健康情況原則，取得節點健康情況。
 
 ```powershell
-PS C:> Get-ServiceFabricNodeHealth -NodeName Node.1
+PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
 
 NodeName              : Node.1
 AggregatedHealthState : Ok
@@ -263,7 +263,7 @@ HealthEvents          :
 以下 Cmdlet 會取得叢集中所有節點的健康情況。
 
 ```powershell
-PS C:> Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, AggregatedHealthState | ft -AutoSize
+PS C:\> Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, AggregatedHealthState | ft -AutoSize
 
 NodeName AggregatedHealthState
 -------- ---------------------
@@ -326,7 +326,7 @@ ApplicationHealth applicationHealth = fabricClient.HealthManager.GetApplicationH
 以下 Cmdlet 會傳回 fabric:/WordCount 應用程式的健康情況。
 
 ```powershell
-PS c:> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Warning
@@ -390,7 +390,7 @@ HealthEvents                    :
 以下 Powershell 會傳入自訂原則，並篩選子系和事件。
 
 ```powershell
-PS C:> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error.value__
+PS C:\> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error.value__
 Get-ServiceFabricApplicationHealth -ApplicationName fabric:/WordCount -ConsiderWarningAsError $true -ServicesHealthStateFilter $errorFilter -EventsHealthStateFilter $errorFilter -DeployedApplicationsHealthStateFilter $errorFilter
 
 ApplicationName                 : fabric:/WordCount
@@ -448,7 +448,7 @@ ServiceHealth serviceHealth = fabricClient.HealthManager.GetServiceHealthAsync(q
 以下 Cmdlet 會使用預設的健康情況原則，取得服務健康情況。
 
 ```powershell
-PS C:> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCount.Service
+PS C:\> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCount.Service
 
 
 ServiceName           : fabric:/WordCount/WordCount.Service
@@ -500,7 +500,7 @@ PartitionHealth partitionHealth = fabricClient.HealthManager.GetPartitionHealthA
 以下 Cmdlet 會取得字數統計服務之所有分割區的健康情況。
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricPartitionHealth
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricPartitionHealth
 
 PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
 AggregatedHealthState : Warning
@@ -559,7 +559,7 @@ ReplicaHealth replicaHealth = fabricClient.HealthManager.GetReplicaHealthAsync(p
 以下 Cmdlet 會針對服務的所有分割區取得主要複本健康情況。
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 
 PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
 ReplicaId             : 130740415502123433
@@ -601,7 +601,7 @@ DeployedApplicationHealth health = fabricClient.HealthManager.GetDeployedApplica
 以下 Cmdlet 會取得部署在 Node.1 節點上的 fabric:/WordCount 應用程式健康情況。
 
 ```powershell
-PS C:> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName Node.1
+PS C:\> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName Node.1
 ApplicationName                    : fabric:/WordCount
 NodeName                           : Node.1
 AggregatedHealthState              : Ok
@@ -651,7 +651,7 @@ DeployedServicePackageHealth health = fabricClient.HealthManager.GetDeployedServ
 以下 Cmdlet 會取得部署在 Node.1 節點上 fabric:/WordCount 應用程式的 WordCount.Service 服務封裝健康情況。此實體的 System.Hosting 報告具有成功的服務封裝和進入點啟用，以及成功的服務類型註冊。
 
 ```powershell
-PS C:> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName Node.1 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCount.Service
+PS C:\> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName Node.1 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCount.Service
 
 ApplicationName       : fabric:/WordCount
 ServiceManifestName   : WordCount.Service
@@ -738,7 +738,7 @@ var applications = fabricClient.QueryManager.GetApplicationListAsync().Result.Wh
 以下 Cmdlet 會取得 fabric:/WordCount 應用程式的應用程式詳細資料。請注意，健康情況狀態為「警告」。
 
 ```powershell
-PS C:> Get-ServiceFabricApplication -ApplicationName fabric:/WordCount
+PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/WordCount
 
 ApplicationName        : fabric:/WordCount
 ApplicationTypeName    : WordCount
@@ -751,7 +751,7 @@ ApplicationParameters  : { "_WFDebugParams_" = "[{"ServiceManifestName":"WordCou
 以下 Cmdlet 會取得健康情況狀態為「警告」的服務。
 
 ```powershell
-PS C:> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Warning"}
+PS C:\> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Warning"}
 
 ServiceName            : fabric:/WordCount/WordCount.Service
 ServiceKind            : Stateful
@@ -771,7 +771,7 @@ HealthState            : Warning
 以下顯示修改後的 fabric:/WordCount 應用程式的應用程式升級狀態。監視程式回報了它其中一個複本的錯誤。因為健康情況檢查未通過，所以會將升級回復。
 
 ```powershell
-PS C:> Get-ServiceFabricApplicationUpgrade fabric:/WordCount
+PS C:\> Get-ServiceFabricApplicationUpgrade fabric:/WordCount
 
 ApplicationName               : fabric:/WordCount
 ApplicationTypeName           : WordCount
@@ -836,4 +836,4 @@ UpgradeReplicaSetCheckTimeout : 00:15:00
 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

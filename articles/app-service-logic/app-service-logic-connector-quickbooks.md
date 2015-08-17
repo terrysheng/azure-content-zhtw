@@ -21,12 +21,27 @@
 
 邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。QuickBooks 連接器可讓您建立和修改不同的 QuickBooks 實體。以下清單是 QuickBooks 連接器支援的 QuickBooks 實體。
 
-<Table>
-<TR><TD><B>實體</TD><TD><B>描述</TR> <TR> <TD> 帳戶 </TD> <TD> 帳戶是一種會計科目表元件，而且是總帳表的一部分。用來記錄配置給特定用途的總金額 </TD> </TR> <TR> <TD> CreditMemo </TD> <TD> CreditMemo 是代表退貨或信用卡付款或已售出商品或服務付款一部分的財務交易。</TD> </TR> <TR> <TD> 客戶 </TD> <TD> 客戶是您的企業提供之服務或產品的消費者。</TD> </TR> <TR> <TD> 估價 </TD> <TD> 估價代表企業向客戶提出之銷售貨品或服務的財務交易提案，包括建議定價。</TD> </TR> <TR> <TD> 發票 </TD> <TD> 發票代表銷售表單，客戶稍後會據以針對產品或服務付費。Invoice 資料模型的其他資訊可參考此處。</TD> </TR> <TR> <TD> 項目 </TD> <TD> 項目是您的公司購買、銷售或重新銷售的東西，例如產品、寄送及處理費用、折扣和營業稅 (如果適用)。Item 會在發票或其他銷售表單上列為一行。</TD> </TR> <TR> <TD> SalesReceipt </TD> <TD> 此實體表示提供給客戶的銷售收據。</TD> </TR> </Table>
+實體|說明
+---|---
+帳戶|Account 是組成 Chart Of Accounts 的元件，而且也是 Ledger 的一部分。用來記錄配置給特定用途的貨幣總數
+CreditMemo|CreditMemo 是代表退貨或信用卡付款，或已售出的商品或服務之部分付款的財務交易。
+Customer|Customer 是您公司提供服務或產品的客戶。
+Estimate|Estimate 代表公司對客戶提議之販售商品或服務的商業交易 (包括提議的售價)。
+Invoice|Invoice 代表客戶之後必須針對產品或服務付款的銷售表單。Invoice 資料模型的其他資訊可參考此處。
+項目|Item 是您公司購買、銷售，或重新銷售的項目，例如產品、運送與處理費用、折扣及營業稅 (如果適用)。Item 會在發票或其他銷售表單上列為一行。
+SalesReceipt|此實體代表提供給客戶的銷售收據。
+
 
 
 ##QuickBooks 動作 ##
-以下是 QuickBooks 連接器中可使用的不同動作。<table> <tbody> <tr><td> <strong>動作</strong> </td> <td> <strong>描述</strong> </td> </tr> <tr> <td> 讀取實體 </td> <td> 讀取實體物件。</td> </tr> <tr> <td> 建立或更新實體 </td> <td> 建立或更新的實體物件。如果物件已存在會更新物件，若不存在則會建立新物件。</td> </tr> <tr> <td> 刪除 </td> <td> 這個動作會從選定的實體刪除指定的物件。</td> </tr> <tr> <td> 查詢 </td> <td> 查詢作業是針對實體建立引導式查詢的方法。</td> </tr> </tbody> </table>
+以下是 QuickBooks 連接器中可使用的不同動作。
+
+動作|說明
+---|---
+讀取實體|讀取實體物件
+建立或更新實體|建立或更新實體物件。如果物件已存在會更新物件，若不存在則會建立新物件
+刪除|此動作會從選取的實體刪除指定的物件
+查詢|查詢作業是針對實體建立引導示查詢的方法。
 
 ##建立 QuickBooks 連接器 API 應用程式##
 1.	使用 Azure 入口網站右下方的 [+新增] 選項開啟 Azure Marketplace。
@@ -119,4 +134,4 @@
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

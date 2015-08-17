@@ -1,6 +1,6 @@
 在本節中，我們將新增名為 **CompleteDate** 的新時間戳記欄位來修改資料庫的模型。此欄位將記錄前次完成的 Todo 項目時間。Entity Framework 將使用從 [DropCreateDatabaseIfModelChanges](http://go.microsoft.com/fwlink/?LinkId=394621) 衍生的預設資料庫初始設定式類別，根據我們的模型變更來更新資料庫。
 
-1. 在 Visual Studio 的 [方案總管] 中，展開 todolist 服務專案中的 **App_Start** 資料夾。開啟 WebApiConfig.cs 檔案。
+1. 在 Visual Studio 的 [方案總管] 中，展開 todolist 服務專案中的 **App\_Start** 資料夾。開啟 WebApiConfig.cs 檔案。
 
 2. 在 WebApiConfig.cs 檔案中，注意您的預設資料庫初始設定式類別是衍生自 `DropCreateDatabaseIfModelChanges` 類別。這意味對模型的任何變更都會導致資料表捨棄，並重新建立以容納新模型。因此資料表的資料將流失，並且將重新植入資料表。修改資料庫初始設定式的 Seed 方法，以便如下所示將種子資料儲存至 WebApiConfig.cs 檔案。
 
@@ -40,4 +40,4 @@
 
 接下來，您將更新用戶端應用程式以顯示新 **CompleteDate** 資料。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

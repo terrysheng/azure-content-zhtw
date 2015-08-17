@@ -45,17 +45,17 @@
 
 	![新增 Data Factory 刀鋒視窗](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT] 
+	> [AZURE.IMPORTANT]Azure Data Factory 名稱必須是全域唯一的。您必須在 Data Factory 的名稱前面加上您的名稱，才能成功建立 Factory。 
 3.	如果您尚未建立任何資源群組，您必須建立資源群組。作法：
-	1.	按一下 [資源群組名稱]。
-	2.	在 [資源群組] 刀鋒視窗中，選取 [建立新的資源群組]。
-	3.	在 [建立資源群組] 刀鋒視窗中，輸入 **ADF** 做為 [名稱]。
+	1.	按一下 [**資源群組名稱**]。
+	2.	在 [**資源群組**] 刀鋒視窗中，選取 [**建立新的資源群組**]。
+	3.	在 [**建立資源群組**] 刀鋒視窗中，輸入 **ADF** 做為 [**名稱**]。
 	4.	按一下 [確定]。
 	
 		![建立資源群組](./media/data-factory-build-your-first-pipeline-using-editor/create-resource-group.png)
 4.	選取資源群組之後，請確認您使用的是要在其中建立 Data Factory 的正確訂用帳戶。
-5.	按一下 [新增 Data Factory] 刀鋒視窗上的 [建立]。
-6.	您會看到 Data Factory 建立在 Azure Preview 入口網站的 [開始面板] 中，如下所示：   
+5.	按一下 [**新增 Data Factory**] 刀鋒視窗上的 [**建立**]。
+6.	您會看到 Data Factory 建立在 Azure Preview 入口網站的 [**開始面板**] 中，如下所示：   
 
 	![建立 Data Factory 狀態](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 7. 恭喜！ 您已成功建立您的第一個 Data Factroy。在 Data Factory 成功建立後，您會看到 Data Factory 頁面，顯示 Data Factory 的內容。 	
@@ -68,10 +68,10 @@
 在此步驟中，您會將您的 Azure 儲存體帳戶和隨選 Azure HDInsight 叢集連結至 Data Factory，然後建立資料集以表示由 Hive 處理的輸出資料。
 
 ### 建立 Azure 儲存體連結服務
-1.	在 **DataFactoryFirstPipeline** 的 [DATA FACTORY] 刀鋒視窗中按一下 [製作和部署]。這會啟動 Data Factory 編輯器。 
+1.	在 **DataFactoryFirstPipeline** 的 [**DATA FACTORY**] 刀鋒視窗中按一下 [**製作和部署**]。這會啟動 Data Factory 編輯器。 
 	 
 	![[製作和部署] 磚](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
-2.	按一下 [新增資料存放區] 並選擇 [Azure 儲存體]
+2.	按一下 [**新增資料存放區**] 並選擇 [**Azure 儲存體**]
 	
 	![Azure 儲存體連結服務](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
@@ -84,7 +84,7 @@
 ### 建立 Azure HDInsight 連結服務
 現在，您將為用來執行 Hive 指令碼的隨選 HDInsight 叢集建立連結服務。
 
-1. 在 [Data Factory 編輯器] 中，按一下命令列上的 [新增運算]，然後選取 [隨選 HDInsight 叢集]。
+1. 在 [**Data Factory 編輯器**] 中，按一下命令列上的 [**新增運算**]，然後選取 [**隨選 HDInsight 叢集**]。
 
 	![新增運算](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 2. 複製下列程式碼片段並貼到 Draft-1 視窗。此 JSON 程式碼片段描述將用來建立隨選 HDInsight 叢集的屬性。 
@@ -120,7 +120,7 @@
 ### 建立輸出資料集
 現在，您將建立輸出資料集來代表 Azure Blob 儲存體中儲存的資料。
 
-1. 在 [Data Factory 編輯器] 中，按一下命令列的 [新增資料集]，然後選取 [Azure Blob 儲存體]。  
+1. 在 [**Data Factory 編輯器**] 中，按一下命令列的 [**新增資料集**]，然後選取 [**Azure Blob 儲存體**]。  
 
 	![新增資料集](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 2. 複製下列程式碼片段並貼到 Draft-1 視窗。在 JSON 程式碼片段中，建立名為 **AzureBlobOutput** 的資料集，並指定將由 Hive 指令碼產生的資料結構。此外，指定結果儲存在名為 **data** 的 blob 容器及名為 **partitioneddata** 的資料夾中。**availability** 區段指定每個月產生一次輸出資料集。
@@ -144,7 +144,7 @@
 		  }
 		}
 
-3. 按一下命令列的 [部署] 以部署新建立的資料集。
+3. 按一下命令列的 [**部署**] 以部署新建立的資料集。
 4. 驗證資料集已成功建立。
 
 	![含連結服務的樹狀檢視](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
@@ -152,7 +152,7 @@
 ## 步驟 3：建立您的第一個管線
 在此步驟中，您將建立您的第一個管線。
 
-1. 在 [Data Factory 編輯器] 中，按一下 […] (省略符號) 然後按一下 [新增管線]。
+1. 在 [**Data Factory 編輯器**] 中，按一下 [**…**] (省略符號) 然後按一下 [**新增管線**]。
 	
 	![新增管線按鈕](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. 複製下列程式碼片段並貼到 Draft-1 視窗。
@@ -178,6 +178,10 @@
 		            "name": "AzureBlobOutput"
 		          }
 		        ],
+                "scheduler": {
+                    "frequency": "Month",
+                    "interval": 1
+                },
 		        "policy": {
 		          "concurrency": 1,
 		          "retry": 3
@@ -205,19 +209,19 @@
 
 	![管線的樹狀檢視](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 5. 恭喜，您已經成功建立您的第一個管線！
-6. 按一下[X] 關閉 [Data Factory 編輯器] 刀鋒視窗，並瀏覽回 [Data Factory] 刀鋒視窗，然後按一下 [圖表]。
+6. 按一下 **X** 關閉 [Data Factory 編輯器] 刀鋒視窗，並瀏覽回 [Data Factory] 刀鋒視窗，然後按一下 [**圖表**]。
   
 	![[圖表] 磚](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
 7. 在 [圖表檢視] 中，您會看到管線的概觀，以及在本教學課程中使用的資料集。
 	
 	![圖表檢視](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png) 
-8. 在 [圖表檢視] 中，按兩下 [**AzureBlobOutput**] 資料集。您會看到目前正在處理的配量。
+8. 在 [圖表檢視] 中，按兩下 **AzureBlobOutput** 資料集。您會看到目前正在處理的配量。
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. 當處理完成時，您會看到配量處於「就緒」狀態。請注意，建立隨選 HDInsight 叢集通常需要一些時間。 
+9. 當處理完成時，您會看到配量處於 [**就緒**] 狀態。請注意，建立隨選 HDInsight 叢集通常需要一些時間。 
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)	
-10. 當配量處於「就緒」狀態時，檢查您 blob 儲存體中 **data** 容器內 **partitioneddata** 資料夾的輸出資料。  
+10. 當配量處於 [**就緒**] 狀態時，檢查您 blob 儲存體中 **data** 容器內 **partitioneddata** 資料夾的輸出資料。  
  
 
  
@@ -226,4 +230,4 @@
 在本文中，您已經建立可在隨選 HDInsight 叢集上執行 Hive 指令碼，含有轉換活動 (HDInsight 活動) 的管線。若要了解如何使用「複製活動」從 Azure Blob 複製資料到 Azure SQL，請參閱[教學課程：從 Azure Blob 複製資料到 Azure SQL](./data-factory-get-started.md)。
   
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

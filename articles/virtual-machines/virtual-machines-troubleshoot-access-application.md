@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="疑難排解存取在 Azure 虛擬機器上執行的應用程式" 
+<properties
+	pageTitle="疑難排解存取在 Azure 虛擬機器上執行的應用程式"
 	description="如果您無法存取在 Azure 虛擬機器上執行的應用程式，請使用下列步驟釐清問題的來源。"
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dsk-2015"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/01/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/01/2015"
+	ms.author="dkshir"/>
 
 # 疑難排解存取在 Azure 虛擬機器上執行的應用程式
 
@@ -26,7 +26,7 @@
 有四個主要區域來疑難排解在 Azure 虛擬機器執行上之應用程式的存取。
 
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access1.png)
- 
+
 1.	在 Azure 虛擬機器上執行的應用程式。
 2.	Azure 虛擬機器
 3.	Azure 雲端服務的端點包含虛擬機器 (適用於服務管理中建立的虛擬機器)、輸入 NAT 規則 (適用於資源管理員中建立的虛擬機器)，以及網路安全性群組。
@@ -37,7 +37,7 @@
 ## 步驟 1：您可以從目標虛擬機器存取應用程式嗎？
 
 請使用本機主機名稱、本機 IP 位址，或迴路位址 (127.0.0.1)，嘗試以適當的用戶端程式從正在執行應用程式的虛擬機器存取應用程式。
- 
+
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access2.png)
 
 例如，如果應用程式是 Web 伺服器，則在虛擬機器上執行瀏覽器，並嘗試存取在虛擬機器上託管的網頁。
@@ -54,7 +54,7 @@
 ## <a id="step2"></a>步驟 2：您可以從相同虛擬網路中的另一部虛擬機器存取應用程式嗎？
 
 請使用正在執行應用程式之虛擬機器使用的虛擬機器主機名稱、或 Azure 指派之公開、私人，或提供者 IP 位址，嘗試從相同虛擬網路中的其他虛擬機器存取應用程式。針對在服務管理中建立的虛擬機器，請勿使用雲端服務的公開 IP 位址。
- 
+
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access3.png)
 
 例如，如果應用程式是 Web 伺服器，請嘗試在相同虛擬網路中其他的虛擬機器使用瀏覽器存取網頁。
@@ -75,7 +75,7 @@
 請嘗試從位於虛擬網路之外執行應用程式之虛擬機器的電腦存取應用程式，但該電腦與您原始用戶端的電腦在不同的網路上。
 
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access4.png)
- 
+
 例如，如果應用程式是 Web 伺服器，請嘗試從虛擬網路外的電腦執行瀏覽器來存取網頁。
 
 如果您無法存取應用程式，請檢查下列項目：
@@ -110,4 +110,4 @@
 
 [疑難排解以 Linux 為基礎之 Azure 虛擬機器的安全殼層 (SSH) 連線](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

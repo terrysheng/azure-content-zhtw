@@ -712,4 +712,4 @@ Sencha Touch Extension for Azure 套件備有此處簡述的範例，其位於 B
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

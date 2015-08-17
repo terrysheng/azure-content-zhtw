@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="07/29/2015" 
 	ms.author="szark"/>
 
 
@@ -42,7 +42,7 @@
 	#/etc/sudoers.d/waagent
 	azureuser ALL = (ALL) NOPASSWD: ALL
 
-這項變更將允許 azureuser 使用者的 passwordless sudo。
+這項變更將允許「azureuser」使用者的 passwordless sudo。
 
 ## 僅 SSH 金鑰
 
@@ -54,4 +54,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

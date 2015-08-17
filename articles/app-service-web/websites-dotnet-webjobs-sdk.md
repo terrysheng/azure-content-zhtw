@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/05/2015" 
 	ms.author="tdykstra"/>
 
 # 什麼是 Azure WebJobs SDK
@@ -46,6 +46,8 @@ WebJobs SDK 包含下列元件：
 
 * 其他您想要在背景執行序中執行的長時間執行工作，例如[傳送電子郵件](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure)。
 
+在這些許多情況中，您可能會想要擴充 Web 應用程式以便在多個 VM 上執行，這會同時執行多個 WebJobs。在某些情況下，這可能會導致相同資料多次進行處理，但當您使用內建佇列、blob 和 WebJobs SDK 的服務匯流排觸發程序時，這不會造成問題。SDK 可確保您的函式針對每個訊息或 blob 僅會處理一次。
+
 ## <a id="code"></a> 程式碼範例
 
 使用 Azure 儲存體的處理傳統工作程式碼十分簡單。在主控台應用程式中，您可以針對您要執行的背景工作寫入方法，然後使用 WebJobs SDK 的屬性加以裝飾。您的 `Main` 方法將建立可在寫入方法中協調呼叫的 `JobHost` 物件。WebJobs SDK 架構會根據方法中所用的 WebJobs SDK 屬性，知道何時呼叫方法。
@@ -66,15 +68,12 @@ WebJobs SDK 包含下列元件：
 
 `JobHost` 物件是一組背景功能的容器。`JobHost` 物件可監視功能、注意可觸發功能的事件，以及發生觸發事件時執行功能。您可以呼叫 `JobHost` 方法，指出您要在目前執行緒或背景執行緒上執行容器程序。在此範例中，`RunAndBlock` 方法會在目前執行緒上持續執行程序。
 
-由於此範例中的 `ProcessQueueMessage` 方法具有 `QueueTrigger` 屬性，接收新的佇列訊息時便會觸發該功能。`JobHost` 物件會注意指定佇列 (在此範例中是 "webjobsqueue") 上的新佇列訊息，找到新佇列訊息時，此物件便會呼叫 `ProcessQueueMessage`。`QueueTrigger` 屬性也會通知架構，將 `inputText` 參數繫結到佇列訊息的值：
+由於此範例中的 `ProcessQueueMessage` 方法具有 `QueueTrigger` 屬性，接收新的佇列訊息時便會觸發該功能。`JobHost` 物件會注意指定佇列 (在此範例中是 "webjobsqueue") 上的新佇列訊息，找到新佇列訊息時，此物件便會呼叫 `ProcessQueueMessage`。
 
-<pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] <mark>string inputText</mark>,
-    [Blob("containername/blobname")]TextWriter writer)</pre>
+`QueueTrigger` 屬性會將 `inputText` 參數繫結至佇列訊息的值。且 `Blob` 屬性也會將 `TextWriter` 物件繫結至 "containername" 容器中名為 "blobname" 的 Blob。
 
-架構也會將 `TextWriter` 物件繫結至 "containername" 容器中名為 "blobname" 的 Blob：
-
-<pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] string inputText,
-    <mark>[Blob("containername/blobname")]TextWriter writer</mark>)</pre>
+		public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] string inputText, 
+		    [Blob("containername/blobname")]TextWriter writer)
 
 此功能會接著使用這些參數來將佇列訊息的值寫入 Blob：
 
@@ -105,4 +104,4 @@ WebJobs SDK 提供多種使用 Azure 儲存體的方法。例如，如果使用 
 如需 WebJobs SDK 的詳細資訊，請參閱 [Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

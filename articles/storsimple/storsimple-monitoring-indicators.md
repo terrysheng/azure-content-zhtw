@@ -264,4 +264,4 @@ StorSimple 裝置包含和主要機箱與 EBOD 機箱相關聯的有聲警報器
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

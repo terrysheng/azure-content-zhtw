@@ -20,7 +20,10 @@
 
 社群網站是驅使採用巨量資料的其中一個主要動力。像 Twitter 之類的網站所提供的公開 API，是分析和了解流行趨勢的一項實用的資料來源。在本教學課程中，您將使用 Twitter 串流 API 取得推文，然後使用 Apache Hive on Azure HDInsight 取得傳送了最多內含特定文字之推文的 Twitter 使用者清單。
 
-> [AZURE.NOTE]HDInsight 範例資源庫中有類似範例。觀看 Channel 9 影片：<a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">使用 Apache Hive in HDInsight 分析 Twitter 趨勢</a>
+> [AZURE.NOTE]本篇文章中的步驟是以使用 Windows 型 HDInsight 叢集為基礎。如需 Linux 型叢集的特定步驟，請參閱[在 HDInsight 中使用 Hive 分析 Twitter 資料](hdinsight-analyze-twitter-data-linux.md)。
+
+HDInsight 範例資源庫中有類似範例。觀看 Channel 9 影片：<a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">使用 Apache Hive in HDInsight 分析 Twitter 趨勢</a>
+
 
 ###必要條件
 
@@ -52,7 +55,7 @@ Azure Blob 儲存體語法：
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE]HDInsight 3.0 版叢集僅支援 *wasb://* 語法。HDInsight 2.1 和 1.6 支援舊的 *asv://* 語法，但在 HDInsight 3.0 叢集中已不受支援，未來的版本也不加以支援。
+> [AZURE.NOTE]只有 HDInsight 叢集 3.0 版才支援 **wasb://* 語法。HDInsight 2.1 和 1.6 支援舊的 **asv://* 語法，但在 HDInsight 3.0 叢集中已不受支援，未來的版本也不加以支援。
 
 > Azure Blob 儲存體路徑為虛擬路徑。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]。
 
@@ -113,7 +116,7 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。OAuth 是一項驗證
 
 **取得推文**
 
-1. 開啟 Windows PowerShell 整合式指令碼環境 (ISE)。(在 Windows 8 的 [開始] 畫面上輸入 **PowerShell_ISE**，然後按一下 [**Windows PowerShell ISE**]。請參閱 [在 Windows 8 和 Windows 上啟動 Windows PowerShell][powershell-start])。
+1. 開啟 Windows PowerShell 整合式指令碼環境 (ISE)。(在 Windows 8 的 [開始] 畫面上輸入 **PowerShell\_ISE**，然後按一下 [**Windows PowerShell ISE**]。請參閱 [在 Windows 8 和 Windows 上啟動 Windows PowerShell][powershell-start])。
 
 2. 將下列指令碼複製到指令碼窗格中：
 
@@ -269,11 +272,11 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。OAuth 是一項驗證
 
 HiveQL 指令碼將執行下列作業：
 
-1. **捨棄 tweets_raw 資料表** (若此資料表已存在)。
-2. **建立 tweets_raw Hive 資料表**。這個暫時的 Hive 結構化資料表會保存要進一步進行擷取、轉換和載入 (ETL) 處理的資料。如需資料分割的相關資訊，請參閱 [Hive 教學課程][apache-hive-tutorial]。  
+1. **捨棄 tweets\_raw 資料表** (若此資料表已存在)。
+2. **建立 tweets\_raw Hive 資料表**。這個暫時的 Hive 結構化資料表會保存要進一步進行擷取、轉換和載入 (ETL) 處理的資料。如需資料分割的相關資訊，請參閱 [Hive 教學課程][apache-hive-tutorial]。  
 3. 從來源資料夾 /tutorials/twitter/data **載入資料**。巢狀 JSON 格式的大型 Tweets 資料集現在已轉換成暫時的 Hive 資料表結構。
 3. **捨棄 tweets 資料表** (若此資料表已存在)。
-4. **建立 tweets 資料表**。您必須先執行另一個 ETL 程序，才能使用 Hive 來查詢 Tweets 資料集。此 ETL 程序針對您在 "twitter_raw" 資料表中儲存的資料，定義了更詳細的資料表結構描述。  
+4. **建立 tweets 資料表**。您必須先執行另一個 ETL 程序，才能使用 Hive 來查詢 Tweets 資料集。此 ETL 程序針對您在 "twitter\_raw" 資料表中儲存的資料，定義了更詳細的資料表結構描述。  
 5. **插入覆寫資料表**。這個複雜的 Hive 指令碼會啟動一組冗長的 MapReduce 工作 (由 Hadoop 叢集執行)。根據資料集和叢集大小而定，這可能需要 10 分鐘。
 6. **插入覆寫目錄**。執行查詢，並將資料集輸出至檔案。此查詢會傳回一份 Twitter 使用者清單，這些使用者傳送了最多含有 "Azure" 一字的推文。
 
@@ -520,7 +523,7 @@ HiveQL 指令碼將執行下列作業：
 	Write-Host "==================================" -ForegroundColor Green
 	#end region
 
-> [AZURE.NOTE]Hive 資料表會使用 \001 做為欄位分隔符號。此分隔符號不會顯示在輸出中。
+> [AZURE.NOTE]Hive 資料表會使用 \\001 做為欄位分隔符號。此分隔符號不會顯示在輸出中。
 
 分析結果列示在 Azure Blob 儲存體之後，您可以將資料匯出至 Azure SQL Database/SQL Server，使用 Power Query 將資料匯出至 Excel，或使用 Hive ODBC 驅動程式將應用程式連接到資料。如需詳細資訊，請參閱[搭配 HDInsight 使用 Sqoop][hdinsight-use-sqoop]、[使用 HDInsight 分析航班延誤資料][hdinsight-analyze-flight-delay-data]、[使用 Power Query 將 Excel 連接到 HDInsight][hdinsight-power-query] 和[使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 HDInsight][hdinsight-hive-odbc]。
 
@@ -559,4 +562,4 @@ HiveQL 指令碼將執行下列作業：
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

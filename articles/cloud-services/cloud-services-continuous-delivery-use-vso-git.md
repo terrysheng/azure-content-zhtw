@@ -137,7 +137,7 @@ Team Explorer 會顯示簽入已觸發的組建。<br/>
 <tr><td><b>屬性</b></td><td><b>預設值</b></td></tr>
 ><tr><td>允許未受信任的憑證</td><td>如果為 false，SSL 憑證必須經過根授權單位簽署。</td></tr>
 <tr><td>允許升級</td><td>允許部署更新現有的部署而非建立新的部署。保留 IP 位址。</td></tr>
-><tr><td>不要刪除</td><td>如果為 true，則不要覆寫現有不相關的部署 (允許升級)。</td></tr>
+<tr><td>不要刪除</td><td>如果為 true，則不要覆寫現有不相關的部署 (允許升級)。</td></tr>
 <tr><td>部署設定的路徑</td><td>Web 應用程式的 .pubxml 檔的路徑，這是儲存機制之根資料夾的相對路徑。雲端服務則會忽略。</td></tr>
 <tr><td>SharePoint 部署環境</td><td>與服務名稱相同</td></tr>
 <tr><td>Azure 部署環境</td><td>Web 應用程式或雲端服務的名稱</td></tr>
@@ -260,4 +260,4 @@ Team Explorer 會顯示簽入已觸發的組建。<br/>
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

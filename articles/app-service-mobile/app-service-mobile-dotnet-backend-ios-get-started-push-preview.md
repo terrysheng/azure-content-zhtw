@@ -37,7 +37,7 @@
 
 ##<a id="update-server"></a>更新後端程式碼以傳送推播通知
 
-* 下載後端程式碼的 Visual Studio 專案。在入口網站中，按一下 [**瀏覽**] > 應用程式名稱 > [**新增用戶端**] > [**iOS**] (Objective-C 或 Swift) > [**下載並執行您的伺服器專案**]。開啟 [**Controllers**] > [TodoItemController.cs]，然後新增下列 using 陳述式：
+* 下載後端程式碼的 Visual Studio 專案。在入口網站中，按一下 [**瀏覽**] > 應用程式名稱 > [**新增用戶端**] > [**iOS**] \(Objective-C 或 Swift) > [**下載並執行您的伺服器專案**]。開啟 [**Controllers**] > [TodoItemController.cs]，然後新增下列 using 陳述式：
 
 ```
 			using Microsoft.Azure.Mobile.Server.Config;
@@ -127,4 +127,4 @@
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

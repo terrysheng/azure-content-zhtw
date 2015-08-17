@@ -24,7 +24,7 @@
 
 彈性資料庫用戶端程式庫引進一個新的命名空間，稱為 **Microsoft.Azure.SqlDatabase.ElasticScale.Query**，可讓您使用單一查詢和結果來查詢多個分區。它提供一組分區的查詢抽象方法。它也提供替代執行原則，特別是部分結果，以處理查詢許多分區時的失敗。
 
-多分區查詢的主要進入點是 **MultiShardConnection** 類別。如同資料相依路由一樣，API 的用法類似於 **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)** 類別和方法。使用 **SqlClient** 程式庫時，第一個步驟是建立 **SqlConnection**，再建立連接的 **SqlCommand**，然後透過其中一個 **Execute** 方法執行命令。最後，**SqlDataReader** 逐一查看從命令執行傳回的結果集。多分區查詢 API 的用法依照下列步驟：
+多分區查詢的主要進入點是 **MultiShardConnection** 類別。如同資料相依路由一樣，API 的用法類似於 ****[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)** 類別和方法。使用 **SqlClient** 程式庫時，第一個步驟是建立 **SqlConnection**，再建立連接的 **SqlCommand**，然後透過其中一個 **Execute** 方法執行命令。最後，**SqlDataReader** 逐一查看從命令執行傳回的結果集。多分區查詢 API 的用法依照下列步驟：
 
 1. 建立 **MultiShardConnection**。
 2. 建立 **MultiShardConnection** 的 **MultiShardCommand**。
@@ -67,4 +67,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

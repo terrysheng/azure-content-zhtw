@@ -20,7 +20,7 @@
 
 ### apiAppSecret
 
-API 應用程式的密碼。此值必須是 base64 編碼的字串。
+API 應用程式的密碼。此值必須是 base64 編碼的字串。它應該是具有 64 個字元的隨機字串，且僅由整數和小寫字元所組成。
 
     "apiAppSecret": {
       "type": "securestring"
@@ -28,10 +28,10 @@ API 應用程式的密碼。此值必須是 base64 編碼的字串。
 
 ### location
 
-新 API 應用程式的位置。
+新 API 應用程式的位置。您可以透過執行 PowerShell 指令 `Get-AzureLocation` 或 Azure CLI 指令 `azure location list` 取得有效的位置。
 
     "location": {
       "type": "string"
     }
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

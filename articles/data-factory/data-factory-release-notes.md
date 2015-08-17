@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory 版本資訊
@@ -115,16 +115,16 @@ Dataset | RelationTableLocation | RelationalTable
 	        },
 	        "availability": {
 	            "frequency": "Hour",
-	            "interval": "1"
+	            "interval": 1
 	        }
 	    }
 	}
 
 請注意：
 
-- **類型**屬性向上移動一個層級，且類型名稱 **AzureTableLocation** 已變更為 **AzureTable**。
+- **type** 屬性向上移動一個層級，且類型名稱 **AzureTableLocation** 已變更為 **AzureTable**。
 - **LinkedServiceName** 向上移動一個層級。 
-- **位置**元素目前已移除，且先前在 [**位置**] 區段中指定的類型特定屬性 (例如 **tableName**) 會在新的 [**typeProperties**] 區段中指定。  
+- **location** 元素目前已移除，且先前在 [**位置**] 區段中指定的類型特定屬性 (例如 **tableName**) 會在新的 [**typeProperties**] 區段中指定。  
 
 ### 舊活動 JSON
 
@@ -172,10 +172,10 @@ Dataset | RelationTableLocation | RelationalTable
 
 請注意：
 
-- 請注意，**轉換**元素已取代為新 **typeProperties** 元素。
+- 請注意，**transformation** 元素已由新的 **typeProperties** 元素取代。
 
 ## waitOnExternal 元素已移除
-**WaitOnExternal** 元素已取代為新的 **external** 和 **externalData** 屬性。
+**WaitOnExternal** 元素已由新的 **external** 和 **externalData** 屬性取代。
 
 ### 舊 JSON
 	{
@@ -239,7 +239,7 @@ Dataset | RelationTableLocation | RelationalTable
 
 - **WaitOnExternal** 屬性已從 [**可用性**] 區段移除 
 - 新的 **external** 屬性向上移動一個層級，而且對外部資料表設為 **true**。 
-- **waitOnExternal** 元素的屬性 (例如 **retryInterval**) 會加入至**原則**元素中新的 [**externalData**] 區段。
+- **waitOnExternal** 元素的屬性 (例如 **retryInterval**) 會加入至 **Policy** 元素中新的 [**externalData**] 區段。
 - **ExternalData** 元素是選擇性元素。 
 - 當您使用 **externalData** 元素時，您必須具有設為 **true** 的 **external** 屬性。 
  
@@ -247,7 +247,7 @@ Dataset | RelationTableLocation | RelationalTable
 ## BlobSink 的新 copyBehavior 屬性
 **BlobSink** 支援的新屬性名為：**copyBehavior**。當來源為 **BlobSource** 或 **FileSystem** 時，這個屬性會定義複製行為。**copyBehavior** 屬性有三種可能值。
 
-**PreserveHierarchy**:: 保留目標資料夾中的檔案階層，亦即，來源資料夾的來源檔案相對路徑與目標資料夾的目標檔案相對路徑相同。
+**PreserveHierarchy**:: 保留目標資料夾中的檔案階層，亦即，來源資料夾與來源檔案相對路徑以及目標資料夾與目標檔案相對路徑相同。
 
 
 **FlattenHierarchy**:: 來源資料夾的所有檔案都會在第一層的目標資料夾。目標檔案會有自動產生的名稱。
@@ -274,7 +274,7 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 但是，如果重新執行較舊的配量，即使這可能是使用者最感興趣的配量，也不會顯示在此清單頂端。
 
 ## Data Factory 2015/3/31 版本的注意事項
-- [Microsoft 下載中心][adf-gateway-download]已公佈更新的「資料管理閘道器」安裝套件。
+- [Microsoft 下載中心][adf-gateway-download]已公佈更新的「資料管理閘道」安裝套件。
 - 現在支援從內部部署檔案系統至 Azure Blob 的複製作業。如需詳細資訊，請參閱下列主題。
 	-  [內部部署檔案系統連結服務](https://msdn.microsoft.com/library/dn930836.aspx)
 	-  [資料表 JSON 中的 OnPremisesFileSystemLocation 屬性](https://msdn.microsoft.com/library/dn894089.aspx#OnPremFileSystem)
@@ -298,7 +298,7 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 ## Data Factory 2015/1/26 版本的注意事項 ##
 
 ### 變更
-- [Microsoft 下載中心][adf-gateway-download]已公佈更新的「資料管理閘道器」安裝套件。從這個版本開始，您可以在此下載位置找到搭配 Azure Data Factory 使用的最新「資料管理閘道器」。此安裝套件支援 Azure Data Factory 和 Power BI for Office 365 服務。如果您同時使用這兩種服務，請注意，Data Factory 和 Power BI 的閘道器必須安裝在不同電腦上，並根據 Data Factory 或 Power BI 文件的指導方針，以不同方式加以設定。
+- [Microsoft 下載中心][adf-gateway-download]已公佈更新的「資料管理閘道」安裝套件。從這個版本開始，您可以在此下載位置找到搭配 Azure Data Factory 使用的最新「資料管理閘道器」。此安裝套件支援 Azure Data Factory 和 Power BI for Office 365 服務。如果您同時使用這兩種服務，請注意，Data Factory 和 Power BI 的閘道器必須安裝在不同電腦上，並根據 Data Factory 或 Power BI 文件的指導方針，以不同方式加以設定。
 - 複製活動現在支援在內部部署 SQL Server 和 Azure SQL Database 之間複製資料。如需詳細資訊，請參閱[複製活動][adf-copy-activity]，如需 JSON 範例，請瀏覽 [GitHub][adf-github-samples]。
 - **SqlSink** 支援新的屬性：**WriteBatchTimeout**。這個屬性可讓您彈性地設定在批次插入作業逾時之前，要等候多久讓作業完成。若要執行混合式複製 (複製作業涉及內部部署資料來源和雲端資料來源)，您必須有 1.4 版或更新版本的閘道器，才能使用這個屬性。 
 - SQL Server 連結服務現在支援 Windows 驗證。 
@@ -355,4 +355,4 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

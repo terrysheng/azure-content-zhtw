@@ -36,7 +36,7 @@
 1. 從 [GitHub][php-sdk-github] 下載含有程式庫的 .zip 封存檔。或者，分岔儲存機制並複製到本機電腦後面這個選項需要有 GitHub 帳戶並在本機安裝 Git。
 
 	
-	> [AZURE.NOTE]PHP Client Libraries for Azure 相依於 [HTTP_Request2](http://pear.php.net/package/HTTP_Request2)、[Mail_mime](http://pear.php.net/package/Mail_mime) 和 [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode) PEAR 封裝。建議使用 [PEAR 封裝管理員](http://pear.php.net/manual/en/installation.php)來安裝這些封裝，以解決這些相依性。
+	> [AZURE.NOTE]PHP Client Libraries for Azure 相依於 [HTTP\_Request2](http://pear.php.net/package/HTTP_Request2)、[Mail\_mime](http://pear.php.net/package/Mail_mime) 和 [Mail\_mimeDecode](http://pear.php.net/package/Mail_mimeDecode) PEAR 封裝。建議使用 [PEAR 封裝管理員](http://pear.php.net/manual/en/installation.php)來安裝這些封裝，以解決這些相依性。
 
 
 2. 將已下載之封存檔的 `WindowsAzure` 目錄複製到應用程式目錄結構中。
@@ -49,4 +49,4 @@
 [download-SDK-PHP]: ../articles/php-download-sdk.md
 [composer-phar]: http://getcomposer.org/composer.phar
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

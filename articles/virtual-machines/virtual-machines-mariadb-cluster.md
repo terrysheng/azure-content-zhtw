@@ -206,7 +206,7 @@
 
 	- 編輯 **[mariadb]** 區段，並且附加下列內容
 
-	> [AZURE.NOTE]建議 **innodb_buffer_pool_size** 是您的 VM 記憶體的 70%。這裡為 3.5 GB RAM 的中型 Azure VM 設定為 2.45 GB。
+	> [AZURE.NOTE]建議 **innodb\_buffer\_pool\_size** 是您的 VM 記憶體的 70%。這裡為 3.5 GB RAM 的中型 Azure VM 設定為 2.45 GB。
 
 	        innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
             innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
@@ -370,4 +370,4 @@
 [在 Linux 上叢集 MySQL 的另一種方法]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

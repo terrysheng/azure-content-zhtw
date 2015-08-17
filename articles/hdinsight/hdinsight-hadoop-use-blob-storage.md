@@ -1,7 +1,6 @@
 <properties
 	pageTitle="從 HDFS 相容的 Blob 儲存體查詢資料 | Microsoft Azure"
 	description="HDInsight 使用 Blob 儲存體作為 HDFS 的大量資料存放區。了解如何從 Blob 儲存體查詢資料並儲存分析的結果。"
-	keywords="blob storage,hdfs,structured data,unstructured data"
 	services="hdinsight,storage"
 	documentationCenter=""
 	authors="mumian"
@@ -13,7 +12,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="06/10/2015"
 	ms.author="jgao"/>
 
@@ -26,7 +25,7 @@ Azure Blob 儲存體是強大的一般用途儲存體解決方案，其完美整
 
 將資料儲存在 Blob 儲存體中，您便可安全地刪除用於計算的 HDInsight 叢集，而不會遺失使用者資料。
 
-> [AZURE.NOTE]在 HDInsight 3.0 版叢集中不支援 *asv://* 語法。這表示任何提交至 HDInsight 3.0 版叢集且明確使用 *asv://* 語法的工作都會失敗。請改用 *wasb://* 語法。另外，如果工作提交至任何以現有中繼存放區建立的 HDInsight 3.0 版叢集，且中繼存放區中使用 asv:// 語法來明確參考資源，也會失敗。必須使用 wasb:// 語法來定址資源，以重新建立這些中繼存放區。
+> [AZURE.NOTE]在 HDInsight 3.0 版叢集中不支援 **asv://* 語法。這表示任何提交至 HDInsight 3.0 版叢集且明確使用 **asv://* 語法的工作都會失敗。請改用 **wasb://* 語法。另外，如果工作提交至任何以現有中繼存放區建立的 HDInsight 3.0 版叢集，且中繼存放區中使用 asv:// 語法來明確參考資源，也會失敗。必須使用 wasb:// 來定址資源以重新建立這些中繼存放區。
 
 > HDInsight 目前僅支援區塊 Blob。
 
@@ -62,7 +61,7 @@ Hadoop 支援預設檔案系統的概念。預設檔案系統意指預設配置�
 - **儲存體帳戶中未連線至叢集的私人容器：**除非在提交 WebHCat 工作時定義儲存體帳戶，否則不能存取容器中的 Blob。稍後在本文中會加以說明。
 
 
-佈建程序及其金鑰中定義的儲存體帳戶會儲存在叢集節點的 %HADOOP_HOME%/conf/core-site.xml 中。HDInsight 的預設行為是使用 core-site.xml 檔案中定義的儲存體帳戶。因為叢集前端節點 (主要) 有可能會隨時重新安裝映像或進行移轉，屆時將會遺失對這些檔案所做的任何變更，所以我們不建議您編輯 core-site.xml 檔案。
+佈建程序及其金鑰中定義的儲存體帳戶會儲存在叢集節點的 %HADOOP\_HOME%/conf/core-site.xml 中。HDInsight 的預設行為是使用 core-site.xml 檔案中定義的儲存體帳戶。因為叢集前端節點 (主要) 有可能會隨時重新安裝映像或進行移轉，屆時將會遺失對這些檔案所做的任何變更，所以我們不建議您編輯 core-site.xml 檔案。
 
 多個 WebHCat 工作 (包括 Hive、MapReduce、Hadoop 資料流和 Pig) 可隨身夾帶儲存體帳戶的說明和中繼資料(目前適用於含儲存體帳戶的 Pig，但不適用於中繼資料)。 在本文的[使用 Azure PowerShell 存取 Blob](#powershell) 一節中，提供了此功能的範例。如需詳細資訊，請參閱[在其他儲存體帳戶和 Metastores 上使用 HDInsight 叢集](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)。
 
@@ -328,4 +327,4 @@ URI 配置提供未加密存取 (使用*wasb:* 首碼) 和 SSL 加密存取 (使
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

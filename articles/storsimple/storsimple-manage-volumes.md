@@ -181,4 +181,4 @@ StorSimple Manager 服務是 Azure 管理入口網站的延伸模組，可讓您
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

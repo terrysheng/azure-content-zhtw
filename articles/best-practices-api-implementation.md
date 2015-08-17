@@ -46,11 +46,11 @@
 	);
 	```
 
-	路由可以是泛型，由常值 (如 _api_) 和變數 (如 _{controller}_ 和 _{id}_) 所組成。以慣例為基礎的路由可讓路由的一些項目成為選擇性項目。Web API 架構會比對要求中的 HTTP 方法與 API 中方法名稱的初始部分，然後比對任何選擇性參數，以決定要在控制器中叫用的方法。例如，如果名為 _orders_ 的控制器包含 _GetAllOrders()_ 或 _GetOrderByInt(int id)_ 方法，則 GET 要求 _http://www.adventure-works.com/api/orders/_ 會被導向至 _GetAlllOrders()_ 方法，而 GET 要求 _http://www.adventure-works.com/api/orders/99_ 會被路由傳送至 _GetOrderByInt(int id)_ 方法。如果控制器中沒有以前置詞 Get 開頭的相符方法，則 Web API 架構會以 HTTP 405 (不允許的方法) 訊息回覆。此外，路由表中指定的參數 (id) 名稱必須與 _GetOrderById_ 方法的參數名稱相同，否則為 Web API 架構將會以 HTTP 404 (找不到) 回應回覆。
+	路由可以是泛型，由常值 (如 _api_) 和變數 (如 _{controller}_ 和 _{id}_) 所組成。以慣例為基礎的路由可讓路由的一些項目成為選擇性項目。Web API 架構會比對要求中的 HTTP 方法與 API 中方法名稱的初始部分，然後比對任何選擇性參數，以決定要在控制器中叫用的方法。例如，如果名為 _orders_ 的控制器包含 _GetAllOrders()_ 或 _GetOrderByInt(int id)_ 方法，則 GET 要求 \__http://www.adventure-works.com/api/orders/_ 會導向至 _GetAlllOrders()_ 方法，而 GET 要求 \__http://www.adventure-works.com/api/orders/99_ 會路由至 _GetOrderByInt(int id)_ 方法。如果控制器中沒有以前置詞 Get 開頭的相符方法，則 Web API 架構會以 HTTP 405 (不允許的方法) 訊息回覆。此外，路由資料表中指定的參數 (id) 名稱必須與 _GetOrderById_ 方法的參數名稱相同，否則 Web API 架構將會以 HTTP 404 (找不到) 回應回覆。
 
-	相同的規則適用於 POST、PUT 和 DELETE HTTP 要求；更新訂單 101 詳細資料的 PUT 要求會被導向至 URI _http://www.adventure-works.com/api/orders/101_，訊息內文會包含訂單的新詳細資料，而此資訊將會當作參數傳遞至 orders 控制器中以前置詞 _Put_ 開頭的方法 (例如 _PutOrder_)。
+	相同的規則適用於 POST、PUT 和 DELETE HTTP 要求；更新訂單 101 詳細資料的 PUT 要求會被導向至 URI \__http://www.adventure-works.com/api/orders/101_，訊息內文會包含訂單的新詳細資料，而此資訊將會當作參數傳遞至 orders 控制器中以前置詞 _Put_ 開頭的方法 (例如 _PutOrder_)。
 
-	預設路由表不會比對參考 RESTful Web API 中子資源的要求，例如 _http://www.adventure-works.com/api/customers/1/orders_ (尋找由客戶 1 所下的所有訂單的詳細資料)。若要處理這些情況，您可以將自訂路由加入至路由表：
+	預設路由資料表不會比對參考 RESTful Web API 中子資源的要求，例如 \__http://www.adventure-works.com/api/customers/1/orders_ (尋找所有由客戶 1 所下訂單的詳細資料)。若要處理這些情況，您可以將自訂路由加入至路由資料表：
 
 	```C#
 	config.Routes.MapHttpRoute(
@@ -145,7 +145,7 @@
 
 - **請考慮將 API 置於子網域中的優缺點**。
 
-	根據預設，ASP.NET Web API 會組織成網域中的 _/api_ 目錄，例如 _http://www.adventure-works.com/api/orders_。此目錄位於與相同主機所公開的任何其他服務相同的網域中。將 Web API 分割出來成為自己在個別主機上執行的子網域 (其 URI 如 _http://api.adventure-works.com/orders_) 很有助益。這種區隔可讓您更有效率地分割和調整 Web API，而不會影響在 _www.adventure-works.com_ 網域中執行的任何其他 Web 應用程式或服務。。
+	根據預設，ASP.NET Web API 會組織成網域中的 _/api_ 目錄，例如 \__http://www.adventure-works.com/api/orders_。此目錄位於與相同主機所公開的任何其他服務相同的網域中。將 Web API 分割出來成為自己在個別主機上執行的子網域 (其 URI 如 \__http://api.adventure-works.com/orders_) 很有助益。這種區隔可讓您更有效率地分割和調整 Web API，而不會影響在 _www.adventure-works.com_ 網域中執行的任何其他 Web 應用程式或服務。
 
 	不過，將 Web API 放在不同的子網域中也可能造成安全性問題。任何裝載於 _www.adventure-works.com_ 的 Web 應用程式或服務若叫用在他處執行的 Web API，可能會違反許多網頁瀏覽器的同源原則。在此情況下，必須啟用主機間的跨來源資源共用 (CORS)。如需詳細資訊，請參閱＜API 安全性指引＞文件。
 
@@ -302,14 +302,15 @@
 
 	範例 HTTP 回應中所示的 HATEOAS 連結表示用戶端應用程式可以執行下列作業：
 
-	- 對 URI _http://adventure-works.com/customers/2_ 的 HTTP GET 要求，用以 (再次) 擷取客戶的詳細資料。此資料可以 XML 或 JSON 格式傳回。
-	- 對 URI _http://adventure-works.com/customers/2_ 的 HTTP PUT 要求，用以修改客戶的詳細資料。新資料必須在要求訊息中以 x-www-form-urlencoded 格式提供。
+	- 對 URI \__http://adventure-works.com/customers/2_ 的 HTTP GET 要求，用以 (再次) 擷取客戶的詳細資料。此資料可以 XML 或 JSON 格式傳回。
 
-	- 對 URI _http://adventure-works.com/customers/2_ 的 HTTP DELETE 要求，用以刪除客戶。此要求並不預期有任何其他資訊或在回應訊息內文中傳回資料。
+	- 對 URI \__http://adventure-works.com/customers/2_ 的 HTTP PUT 要求，用以修改客戶的詳細資料。新資料必須在要求訊息中以 x-www-form-urlencoded 格式提供。
 
-	- 對 URI _http://adventure-works.com/customers/2/orders_ 的 HTTP GET 要求，用以尋找客戶的訂單。此資料可以 XML 或 JSON 格式傳回。
+	- 對 URI \__http://adventure-works.com/customers/2_ 的 HTTP DELETE 要求，用以刪除客戶。此要求並不預期有任何其他資訊或在回應訊息內文中傳回資料。
 
-	- 對 URI _http://adventure-works.com/customers/2/orders_ 的 HTTP PUT 要求，用以建立此客戶的新訂單。此資料必須在要求訊息中以 x-www-form-urlencoded 格式提供。
+	- 對 URI \__http://adventure-works.com/customers/2/orders_ 的 HTTP GET 要求，用以尋找客戶的訂單。此資料可以 XML 或 JSON 格式傳回。
+
+	- 對 URI \__http://adventure-works.com/customers/2/orders_ 的 HTTP PUT 要求，用以建立此客戶的新訂單。此資料必須在要求訊息中以 x-www-form-urlencoded 格式提供。
 
 ## 處理例外狀況的考量
 根據預設，在 ASP.NET Web API 架構中，如果作業擲回未攔截到的例外狀況，則架構會傳回包含 HTTP 狀態碼 500 (內部伺服器錯誤) 的回應訊息。在許多情況下，這個過於簡單的方法並不適用於隔離，而且讓例外狀況原因的判斷變困難。因此，您應該採用更完善的方法來處理例外狀況，請考慮下列幾點：
@@ -923,7 +924,7 @@
 	}
 	```
 
-	用戶端應用程式可以發出要求，使用 URI _http://www.adventure-works.com/api/orders?limit=30&offset=50_ 來擷取從位移 50 開始的 30 張訂單。
+	用戶端應用程式可以發出要求，使用 URI \__http://www.adventure-works.com/api/orders?limit=30&offset=50_ 來擷取從位移 50 開始的 30 張訂單。
 
 	> [AZURE.TIP]避免讓用戶端應用程式指定會導致長度超過 2000 個字元的 URI 的查詢字串。許多 Web 用戶端和伺服器都無法處理此種長度的 URI。
 
@@ -954,7 +955,7 @@
 
 	6. 當工作正在執行時，用戶端可以繼續執行自己的處理。它可以定期將要求傳送至 URI _/polling/{guid}_，其中 _{guid}_ 是 Web API 在 202 回應訊息中傳回的 GUID。
 
-	7. 位於 _/polling{guid}_ URI 的 Web API 會查詢資料表中對應工作的狀態，並傳回具有 HTTP 狀態碼 200 (確定) 的回應訊息，其中包含此狀態 (_執行中_、_完成_ 或_失敗_)。如果工作已完成或失敗，回應訊息也可以包含處理的結果或任何有關失敗原因的可用資訊。
+	7. 位於 _/polling{guid}_ URI 的 Web API 會查詢資料表中對應工作的狀態，並傳回具有 HTTP 狀態碼 200 (確定) 的回應訊息，其中包含此狀態 (_執行中_、_完成_ 或 _失敗_)。如果工作已完成或失敗，回應訊息也可以包含處理的結果或任何有關失敗原因的可用資訊。
 
 	如果您偏向實作通知，可用的選項包括：
 
@@ -1151,4 +1152,4 @@ Microsoft 網站上的 [Application Insights - 開始監控應用程式的健全
 - Microsoft 網站上的[驗證使用單位測試的程式碼](https://msdn.microsoft.com/library/dd264975.aspx)頁面提供有關使用 Visual Studio 建立和管理單位測試的詳細資訊。
 - Microsoft 網站上的[在發行前執行應用程式的效能測試](https://msdn.microsoft.com/library/dn250793.aspx)頁面說明如何使用 Visual Studio Ultimate 建立 Web 效能和負載測試專案。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

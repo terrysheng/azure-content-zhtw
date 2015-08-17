@@ -80,9 +80,9 @@ Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用�
 
     - **<container_name>** 使用指令碼中的指定名稱或為您的容器輸入新名稱。
 
-    - **<image_to_upload>** 輸入您本機電腦上的圖片路徑，例如："~/images/HelloWorld.png"。
+    - **<image_to_upload>** 輸入您本機電腦上的圖片路徑，例如："\~/images/HelloWorld.png"。
 
-    - **<destination_folder>** 輸入本機目錄的路徑，以儲存從 Azure 儲存體下載的檔案，例如："~/downloadImages"。
+    - **<destination_folder>** 輸入本機目錄的路徑，以儲存從 Azure 儲存體下載的檔案，例如："\~/downloadImages"。
 
 7. 在 vim 中更新必要變數之後，請按下按鍵組合 "Esc, : , wq!" 儲存指令碼。
 
@@ -189,7 +189,7 @@ Azure 檔案共用是在 Azure 中的 SMB 2.1 檔案共用。所有目錄和檔�
 
 ### 上傳本機檔案至目錄
 
-下列範例將從 **~/temp/samplefile.txt** 上傳檔案至 **myDir** 目錄。編輯檔案路徑，以指向本機機器上的有效檔案：
+下列範例將從 **\~/temp/samplefile.txt** 上傳檔案至 **myDir** 目錄。編輯檔案路徑，以指向本機機器上的有效檔案：
 
         azure storage file upload '~/temp/samplefile.txt' myshare myDir
 
@@ -214,4 +214,4 @@ Azure 檔案共用是在 Azure 中的 SMB 2.1 檔案共用。所有目錄和檔�
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -48,19 +48,9 @@ BizTalk XML 驗證器會將結構描述納入其組態中。使用者可以直�
 
 ![BizTalk XML 驗證器驗證 Xml][5]
 
-<table>
-	<tr>
-		<th>參數</th>
-		<th>類型</th>
-		<th>參數說明</th>
-	</tr>
-	<tr>
-		<td>輸入 Xml</td>
-		<td>字串</td>
-		<td>輸入要驗證的 Xml</td>
-	</tr>
-</table>
-
+參數|類型|參數說明
+---|---|---
+輸入 Xml|字串|輸入要驗證的 Xml
 
 此動作會以物件形式傳回輸出。輸出包含代表 Xml 驗證器回應的模型。它包含結果、結構描述名稱、根節點和錯誤描述。
 
@@ -75,4 +65,4 @@ BizTalk XML 驗證器會將結構描述納入其組態中。使用者可以直�
 [6]: ./media/app-service-logic-xml-validator/img1.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

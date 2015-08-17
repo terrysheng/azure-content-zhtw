@@ -390,14 +390,13 @@
 ![DeploymentUseAlwaysOn2][7]
 
 > [AZURE.NOTE]您應該停止 SQL Server 的所有執行個體，您會在驗證執行之前在其中使用儲存集區。
-
 ##### 高階步驟
 
 1. 在新的雲端服務中，使用連結的高階儲存體來建立兩部新的 SQL Server。
 1. 複製完整備份，然後使用 **NORECOVERY** 進行還原。
 1. 複製「超出使用者 DB 範圍」的相依物件，例如登入等項目。
 1. 建立新的內部負載平衡器 (ILB) 或使用外部負載平衡器 (ELB)，然後在這兩個新節點上設定負載平衡的端點。
-> [AZURE.NOTE] 繼續之前，請先檢查所有節點的端點設定是否正確
+> [AZURE.NOTE]請先檢查所有節點的端點組態是否正確再繼續進行
 
 1. 停止使用者/應用程式存取 SQL Server (如果正在使用儲存集區)。
 1. 停止所有節點上的 SQL Server 引擎服務 (如果正在使用儲存集區)。
@@ -1145,4 +1144,4 @@
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

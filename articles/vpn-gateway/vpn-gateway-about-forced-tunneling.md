@@ -1,4 +1,5 @@
-<properties pageTitle="針對 Microsoft Azure VPN 閘道設定強制通道" description="如果您擁有使用跨單位 VPN 閘道的虛擬網路，您可以重新導向或「強制」所有網際網路繫結流量傳回內部部署位置。" services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="jdial" editor="tysonn" /> <tags 
+<properties pageTitle="針對 Microsoft Azure VPN 閘道設定強制通道" description="如果您擁有使用跨單位 VPN 閘道的虛擬網路，您可以重新導向或「強制」所有網際網路繫結流量傳回內部部署位置。" services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="jdial" editor="tysonn" />
+<tags
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
@@ -144,4 +145,4 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 
 您可以將虛擬機器加入您的虛擬網路。請參閱＜[如何建立自訂虛擬機器](../virtual-machines/virtual-machines-create-custom.md)＞。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

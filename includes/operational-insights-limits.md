@@ -11,4 +11,4 @@
 
 <sup>1</sup>當客戶達到每日 500MB 資料傳輸限制時，資料分析會停止，並在次日開始時繼續。一天是以 UTC 為基礎。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

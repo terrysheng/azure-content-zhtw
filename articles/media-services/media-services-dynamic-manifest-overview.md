@@ -163,7 +163,7 @@
 
 
 
-![livebackoff_filter][livebackoff_filter]
+![livebackoff\_filter][livebackoff_filter]
 
 
 ###將多個規則結合成單一篩選器
@@ -209,4 +209,4 @@
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

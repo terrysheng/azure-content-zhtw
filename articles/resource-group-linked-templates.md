@@ -94,10 +94,10 @@
 
 ## 從連結的範本傳回值
 
-如果您需要從連結的範本將值傳遞給主要範本，您可以在連結的範本之 **outputs** 區段中建立一個值。如需範例，請參閱[在 Azure 資源管理員範本中共用狀態](best-practices-resource-manager-state.md)。
+如果您需要從連結的範本將值傳遞給主要範本，您可以在連結的範本之 **outputs** 區段中建立一個值。如需範例，請參閱〈[在 Azure 資源管理員範本中共用狀態](best-practices-resource-manager-state.md)〉。
 
 ## 後續步驟
 - [撰寫範本](./resource-group-authoring-templates.md)
 - [部署範本](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

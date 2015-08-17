@@ -51,4 +51,4 @@ Service Fabric 服務可能是可設定狀態或無狀態。本文章概述 Serv
 - [定義和管理狀態](service-fabric-concepts-state.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

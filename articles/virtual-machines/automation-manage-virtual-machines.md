@@ -42,4 +42,4 @@ Azure 自動化提供非常可靠且高度可用的工作流程執行引擎，�
 
 [開始使用 Azure 自動化](../automation-create-runbook-from-samples.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

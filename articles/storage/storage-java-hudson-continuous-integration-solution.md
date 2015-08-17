@@ -110,16 +110,16 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
  
 5. 在工作組態的 [Post-build Actions] 區段中，按一下 [Upload artifacts to Microsoft Azure Blob storage]。
 6. 在 [儲存體帳戶名稱] 中，選取要使用的儲存體帳戶。
-7. 在 [Container Name] 中，指定容器名稱。(如果上傳組建成品時該容器尚未存在，將會建立該容器。) 您可以使用環境變數，就這個範例而言，請輸入 **${JOB_NAME}** 作為容器名稱。
+7. 在 [Container Name] 中，指定容器名稱。(如果上傳組建成品時該容器尚未存在，將會建立該容器。) 您可以使用環境變數，就這個範例而言，請輸入 **${JOB\_NAME}** 作為容器名稱。
 
     **秘訣**
     
-    在您為 [Execute Windows batch command] 輸入指令碼的 [命令] 區段下方是個連結，可連結到 Hudson 認可的環境變數。按一下該連結即可了解各環境變數名稱和描述。請注意，含有特殊字元的環境變數 (例如 **BUILD_URL** 環境變數) 不能當做容器名稱或共同虛擬路徑。
+    在您為 [Execute Windows batch command] 輸入指令碼的 [命令] 區段下方是個連結，可連結到 Hudson 認可的環境變數。按一下該連結即可了解各環境變數名稱和描述。請注意，含有特殊字元的環境變數 (例如 **BUILD\_URL** 環境變數) 不能當做容器名稱或共同虛擬路徑。
 
 8. 在此範例中，請按一下 [Make new container public by default]。(如果您想要使用私用容器，則需要建立共用存取簽章來允許存取。這已超出本主題的範圍。若要深入了解共用存取簽章，請參閱[建立共用存取簽章](http://go.microsoft.com/fwlink/?LinkId=279889)。)
 9. [選擇性] 如果您要在上傳組建成品之前清除容器的內容，請按一下 [Clean container before uploading] (若不想清除容器的內容，請維持不核取)。
 10. 在 [List of Artifacts to upload]，輸入 **text/*.txt**。
-11. 在 [Common virtual path for uploaded artifacts]，輸入 **${BUILD_ID}/${BUILD_NUMBER}**。
+11. 在 [Common virtual path for uploaded artifacts]，輸入 **${BUILD\_ID}/${BUILD\_NUMBER}**。
 12. 按一下 [Save] 儲存您的設定。
 13. 在 Hudson 儀表板中，按一下 [Build Now] 以執行 **MyJob**。檢查主控台輸出中的狀態。當建置後動作開始上傳組建成品時，主控台輸出中將會包含 Azure 儲存體的狀態訊息。
 14. 順利完成作業時，您就可以開啟公用 Blob 來檢查組建成品。
@@ -158,7 +158,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
     
     (上述格式適用於公用 Azure 雲端。如果您使用不同的 Azure 雲端，請使用 Azure 管理入口網站中的端點來判斷您的 URL 端點。)
 
-    在上述格式中，`storageaccount` 代表您的儲存體帳戶名稱，`container_name` 代表您的容器名稱，而 `blob_name` 代表您的 Blob 名稱。容器名稱中可以有多個路徑，這些路徑彼此以正斜線 **/** 分隔。本教學課程中的範例容器名稱為 **MyJob**，使用的共同虛擬路徑則是 **${BUILD_ID}/${BUILD_NUMBER}**，產生的 Blob URL 格式如下：
+    在上述格式中，`storageaccount` 代表您的儲存體帳戶名稱，`container_name` 代表您的容器名稱，而 `blob_name` 代表您的 Blob 名稱。容器名稱中可以有多個路徑，這些路徑彼此以正斜線 **/** 分隔。本教學課程中的範例容器名稱為 **MyJob**，使用的共同虛擬路徑則是 **${BUILD\_ID}/${BUILD\_NUMBER}**，產生的 Blob URL 格式如下：
 
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
@@ -168,4 +168,4 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -189,4 +189,4 @@
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

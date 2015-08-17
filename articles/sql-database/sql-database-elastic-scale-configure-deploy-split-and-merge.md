@@ -2,7 +2,7 @@
 	pageTitle="彈性資料庫分割-合併工具教學課程 | Microsoft Azure"
 	description="使用彈性資料庫工具來分割及合併"
 	services="sql-database" 
-	documentationCenter="" 
+	documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
 
@@ -142,14 +142,14 @@
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 
-* 請確定伺服器名稱並不是以 **https://** 開頭。
+* 請確定伺服器名稱並不是以 ****https://** 開頭。
 * 請確定您的 Azure SQL DB 伺服器允許 Azure 服務進行連接。若要這樣做，請開啟 https://manage.windowsazure.com，按一下左邊的 [SQL Database]，按一下頂端的 [伺服器]，然後選取您的伺服器。按一下頂端的 [設定]，並確定 [Azure 服務] 設定已設為 [是]。(請參閱本文開頭的＜必要條件＞一節)。
 
 ## 測試您的分割合併服務部署
 
 ### 使用網頁瀏覽器連接
 
-決定分割合併服務的 Web 端點。您可以在 Azure 管理入口網站中找到此端點，請移至雲端服務的 [儀表板]，查看右邊的 [網站 URL]。將 **http://** 取代為 **https://**，因為預設安全性設定會停用 HTTP 端點。在瀏覽器中載入此 URL 的網頁。
+決定分割合併服務的 Web 端點。您可以在 Azure 管理入口網站中找到此端點，請移至雲端服務的 [儀表板]，查看右邊的 [網站 URL]。將 ****http://** 取代為 ****https://**，因為預設安全性設定會停用 HTTP 端點。在瀏覽器中載入此 URL 的網頁。
 
 ### 使用 PowerShell 指令碼進行測試
 
@@ -329,4 +329,4 @@
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

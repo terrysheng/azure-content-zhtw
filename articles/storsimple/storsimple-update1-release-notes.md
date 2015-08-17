@@ -85,7 +85,7 @@
 | 6 | Web Proxy | 如果您的 Web Proxy 組態設定將 HTTPS 做為指定的通訊協定，您的裝置對服務通訊將會受到影響並使裝置離線。同時會在程序中產生支援封裝，耗用裝置上的大量資源。 | 請確定 Web Proxy URL 指定的通訊協定為 HTTP。如需詳細資訊，請參閱[設定裝置的 Web Proxy](https://msdn.microsoft.com/library/azure/dn764937.aspx)。 | 是 | 否 |
 | 7 | Web Proxy | 如果您在註冊的裝置上設定並啟用 Web Proxy，將需要重新啟動裝置上的主動控制器。 | | 是 | 否 |
 | 8 | 雲端高延遲與高 I/O 工作負載 | 當 StorSimple 裝置同時出現雲端延遲情況嚴重 (大約數秒) 和 I/O 工作負載高的情況時，裝置磁碟區會進入降級的狀態，而且 I/O 可能會失敗，發生「裝置未就緒」錯誤。 | 您必須以手動方式將裝置控制器重新開機，或或執行裝置容錯移轉，才能從這種情況下復原。 | 是 | 否 |
-| 9 | Azure PowerShell | 當您使用 StorSimple Cmdlet **Get-AzureStorSimpleStorageAccountCredential | Select-Object -First 1 -Wait** 選取第一個物件，讓您可以建立新的 **VolumeContainer** 物件時，此 Cmdlet 會傳回所有物件。 | 將此 Cmdlet 以括號括住，如下所示：**(Get-Azure-StorSimpleStorageAccountCredential) | Select-Object -First 1 -Wait** | 是 | 是 |
+| 9 | Azure PowerShell | 當您使用 StorSimple Cmdlet **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** 選取第一個物件，讓您可以建立新的 **VolumeContainer** 物件時，此 Cmdlet 會傳回所有物件。 | 將此 Cmdlet 以括號括住，如下所示：**(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** | 是 | 是 |
 | 10| 移轉 | 傳遞多個磁碟區容器以進行移轉時，只有第一個磁碟區容器的最新備份的 ETA 正確。此外，在移轉第一個磁碟區容器中的前 4 個備份之後，將會開始進行平行移轉。 | 建議您一次移轉一個磁碟區容器。 | 是 | 否 |
 | 11| 移轉 | 還原之後，不會將磁碟區新增至備份原則或虛擬磁碟群組。 | 您必須將這些磁碟區新增至備份原則，才能建立備份。 | 是 | 是 |
 | 12| 移轉 | 完成移轉之後，5000/7000 系列裝置不得存取移轉的資料容器。 | 建議您在移轉完成並認可之後，刪除移轉的資料容器。 | 是 | 否 |
@@ -115,4 +115,4 @@
 - [在您的裝置上安裝 Update 1](storsimple-install-update-1.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

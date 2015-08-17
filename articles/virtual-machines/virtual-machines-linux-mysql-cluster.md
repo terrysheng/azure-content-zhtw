@@ -310,15 +310,15 @@ Pacemaker 會使用叢集來監視資源，定義在主要故障時將這些資�
 
 下列螢幕擷取畫面顯示 `crm_mon`，且其中一個節點已停止 (使用 Control-C 結束)
 
-![crm_mon node stopped](media/virtual-machines-linux-mysql-cluster/image002.png)
+![crm\_mon node stopped](media/virtual-machines-linux-mysql-cluster/image002.png)
 
 此快照說明兩個節點 (一個主要和一個從屬)：
 
-![crm_mon operational master/slave](media/virtual-machines-linux-mysql-cluster/image003.png)
+![crm\_mon operational master/slave](media/virtual-machines-linux-mysql-cluster/image003.png)
 
 ## 測試
 
-我們已準備好開始自動容錯移轉模擬。作法有二：軟式和硬式。軟式方法是使用叢集的關機功能：``crm_standby -U `uname -n` -v on``。在主要 VM 上使用此選項，從屬 VM 便會取代主要 VM。請務必將此選項設回關閉 (否則 crm_mon 將通知您某個節點正在待命中)
+我們已準備好開始自動容錯移轉模擬。作法有二：軟式和硬式。軟式方法是使用叢集的關機功能：``crm_standby -U `uname -n` -v on``。在主要 VM 上使用此選項，從屬 VM 便會取代主要 VM。請務必將此選項設回關閉 (否則 crm\_mon 將通知您某個節點正在待命中)
 
 硬式方法是透過入口網站將主要 VM (hadb01) 關機，或變更 VM 上的執行層級 (例如，終止、關機)，然後發出主要 VM 出現故障的訊號來協助 Corosync 和 Pacemaker。我們可以測試這個方法 (在維護期間非常有用)，但我們也可以透過凍結 VM 來強制執行此案例。
 
@@ -348,4 +348,4 @@ Pacemaker 會使用叢集來監視資源，定義在主要故障時將這些資�
 - VM 互連中的寫入效能將會取決於虛擬開關，因為虛擬開關是 DRBD 用來複寫裝置的機制。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

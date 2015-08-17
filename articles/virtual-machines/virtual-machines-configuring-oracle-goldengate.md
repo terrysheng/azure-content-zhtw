@@ -1,19 +1,5 @@
-<properties 
-	pageTitle="設定適用於 Azure 的 Oracle GoldenGate" 
-	description="在 Azure 虛擬機器上逐步執行設定和實作高可用性和嚴重損壞修復之 Oracle GoldenGate 的教學課程。" 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-
+<properties title="Configuring Oracle GoldenGate for Azure" pageTitle="設定適用於 Azure 的 Oracle GoldenGate" description="在 Azure 虛擬機器上逐步執行設定和實作高可用性和嚴重損壞修復之 Oracle GoldenGate 的教學課程。" services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #設定適用於 Azure 的 Oracle GoldenGate
 本教學課程示範如何設定適用於 Azure 虛擬機器環境的 Oracle GoldenGate，以取得高可用性並進行嚴重損壞修復 。本教學課程著重於非 RAC Oracle 資料庫的[雙向複寫](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_about_gg.htm)，而且要求這兩個站台必須是作用中的站台。
 
@@ -35,7 +21,7 @@ Oracle GoldenGate 包含下列主要元件：擷取、資料幫浦、複寫、�
 
 - 您已經在站台 A 上建立測試資料庫 “TestGG1”，並在站台 B 上建立 “TestGG2”。
 
-- 您使用 Administrators 群組的成員身分或 **ORA_DBA** 群組的成員身分來登入 Windows Server。
+- 您使用 Administrators 群組的成員身分或 **ORA\_DBA** 群組的成員身分來登入 Windows Server。
 
 在本教學課程中，您將：
 
@@ -87,7 +73,7 @@ Oracle GoldenGate 包含下列主要元件：擷取、資料幫浦、複寫、�
 
 針對 Oracle 資料庫和 Oracle GoldenGate 的後續版本，可能會有一些您需要實作的其他變更。如需最新的版本特定資訊，請參閱 Oracle 網站上的 [Oracle GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) 和 [Oracle 資料庫](http://www.oracle.com/us/corporate/features/database-12c/index.html)文件。例如，針對版本 11.2.0.4 來源資料庫及更新版本，擷取 DDL 是透過記錄採礦伺服器以非同步方式來執行，並且不需要安裝任何特定的觸發程序、資料表或其他資料庫物件。您可以執行 Oracle GoldenGate 升級，而不需停止使用者應用程式。若擷取是處於與 Oracle 11g 來源資料庫 (版本早於 11.2.0.4) 整合的模式中，就需要使用 DDL 觸發程序和支援物件。如需詳細指引，請參閱[安裝和設定適用於 Oracle 資料庫的 Oracle GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/GIORA.pdf)。
 
-##1.在站台 A 和站台 B 上設定資料庫
+##1\.在站台 A 和站台 B 上設定資料庫
 本節說明如何在站台 A 和站台 B 上執行資料庫的必要條件。您必須在下列兩個站台上執行本節的所有步驟：站台 A 和站台 B。
 
 首先，透過管理入口網站，使用遠端桌面功能連至站台 A 和站台 B。開啟 Windows 命令提示字元，並建立適用於 Oracle GoldenGate 安裝檔案的主目錄：
@@ -96,7 +82,7 @@ Oracle GoldenGate 包含下列主要元件：擷取、資料幫浦、複寫、�
 
 接著解壓縮，並將 Oracle GoldenGate 軟體安裝於此資料夾。完成此步驟之後，您可以執行下列命令來起始 GoldenGate 軟體命令直譯器 (GGSCI)：
 
-	C:\OracleGG.\ggsci
+	C:\OracleGG\.\ggsci
 
 您可以使用 [GGSCI](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_gettingstarted.htm) 來執行數個命令，以設定、控制和監視 Oracle GoldenGate。
 
@@ -130,10 +116,10 @@ Oracle GoldenGate 包含下列主要元件：擷取、資料幫浦、複寫、�
 	      grant delete any table to ggate;
 	      grant drop any table to ggate;
 
-接著，在站台 A 和站台 B 上的 %ORACLE_HOME%\database 資料夾中找到 INIT<DatabaseSID>.ORA 檔案，並將下列資料庫參數附加到 INITTEST.ora：
+接著，在站台 A 和站台 B 上的 %ORACLE\_HOME%\\database 資料夾中找到 INIT<DatabaseSID>.ORA 檔案，並將下列資料庫參數附加到 INITTEST.ora：
 
-	UNDO_MANAGEMENT=AUTO
-	UNDO_RETENTION=86400
+	UNDO\_MANAGEMENT=AUTO
+	UNDO\_RETENTION=86400
 
 如需所有 Oracle GoldenGate GGSCI 命令的完整清單，請參閱[適用於 Windows 的 Oracle GoldenGate 參考資訊 ](http://docs.oracle.com/goldengate/1212/gg-winux/GWURF/ggsci_commands.htm)。
 
@@ -159,7 +145,7 @@ Oracle GoldenGate 包含下列主要元件：擷取、資料幫浦、複寫、�
 
 	grant all on scott.inventory to ggate;
 
-接下來，在新建立的資料表上建立並啟用資料庫觸發程序 INVENTORY_CDR_TRG，藉此確定如果使用者不是 ggate，就會記錄新資料表的所有交易。在站台 A 和站台 B 上執行此操作。
+接下來，在新建立的資料表上建立並啟用資料庫觸發程序 INVENTORY\_CDR\_TRG，藉此確定如果使用者不是 ggate，就會記錄新資料表的所有交易。在站台 A 和站台 B 上執行此操作。
 
 	CREATE OR REPLACE TRIGGER INVENTORY_CDR_TRG
 	BEFORE UPDATE
@@ -175,7 +161,7 @@ Oracle GoldenGate 包含下列主要元件：擷取、資料幫浦、複寫、�
 	/ 
 
 
-##2.準備站台 A 和站台 B 以進行資料庫複寫
+##2\.準備站台 A 和站台 B 以進行資料庫複寫
 本節說明如何準備站台 A 和站台 B 以進行資料庫複寫。您必須在下列兩個站台上執行本節的所有步驟：站台 A 和站台 B。
 
 首先，透過 Azure 入口網站，使用遠端桌面功能連至站台 A 和站台 B。使用 SQL*Plus 命令視窗，將資料庫切換到 archivelog 模式：
@@ -200,10 +186,10 @@ Oracle GoldenGate 包含下列主要元件：擷取、資料幫浦、複寫、�
 	sql>startup
 
 
-##3.建立所有必要的物件來支援 DDL 複寫
+##3\.建立所有必要的物件來支援 DDL 複寫
 本節列出您用來建立所有必要物件以支援 DDL 複寫所需的指令碼。您需要在站台 A 和站台 B 上執行本節中指定的指令碼。
 
-開啟 Windows 命令提示字元並巡覽至 Oracle GoldenGate 資料夾，例如 C:\OracleGG。在站台 A 和站台 B 上，使用資料庫管理員權限來啟動 SQL*Plus 命令提示字元，例如使用 **SYSDBA**：
+開啟 Windows 命令提示字元並巡覽至 Oracle GoldenGate 資料夾，例如 C:\\OracleGG。在站台 A 和站台 B 上，使用資料庫管理員權限來啟動 SQL*Plus 命令提示字元，例如使用 **SYSDBA**：
 
 然後，執行下列指令碼：
 	
@@ -226,7 +212,7 @@ Oracle GoldenGate 工具需要資料表層級的登入，以支援 DDL (資料�
 
 	GGSCI(Hostname) 6> add trandata scott.inventory
 
-##4.在站台 A 和站台 B 上設定 GoldenGate 管理員
+##4\.在站台 A 和站台 B 上設定 GoldenGate 管理員
 Oracle GoldenGate 管理員會執行一些像是啟動其他 GoldenGate 程序、追蹤記錄檔案管理和報告等功能。
 
 您必須在站台 A 和站台 B 上設定 Oracle GoldenGate 管理員程序。若要這樣做，請在站台 A 和站台 B 上執行下列步驟。
@@ -276,7 +262,7 @@ Oracle GoldenGate 管理員會執行一些像是啟動其他 GoldenGate 程序�
 	GGSCI (HostName) 48> start manager
 	Manager started.
 
-##5.在站台 A 和站台 B 上建立擷取群組及資料幫浦程序
+##5\.在站台 A 和站台 B 上建立擷取群組及資料幫浦程序
 
 ###在站台 A 上建立擷取及資料幫浦程序
 
@@ -291,7 +277,7 @@ Oracle GoldenGate 管理員會執行一些像是啟動其他 GoldenGate 程序�
 	GGSCI (MachineGG1) 17> add rmttrail C:\OracleGG\dirdat\ab extract dpump1
 	RMTTRAIL added.
 
-使用 EDIT PARAMS 命令來開啟參數檔案，然後附加下列資訊：GGSCI (MachineGG1) 18> edit params ext1 EXTRACT ext1 USERID ggate, PASSWORD ggate EXTTRAIL C:\OracleGG\dirdat\aa TRANLOGOPTIONS EXCLUDEUSER ggate TABLE scott.inventory, GETBEFORECOLS ( ON UPDATE KEYINCLUDING (prod_category,qty_in_stock, last_dml), ON DELETE KEYINCLUDING (prod_category,qty_in_stock, last_dml));
+使用 EDIT PARAMS 命令來開啟參數檔案，然後附加下列資訊：GGSCI (MachineGG1) 18> edit params ext1 EXTRACT ext1 USERID ggate, PASSWORD ggate EXTTRAIL C:\\OracleGG\\dirdat\\aa TRANLOGOPTIONS EXCLUDEUSER ggate TABLE scott.inventory, GETBEFORECOLS ( ON UPDATE KEYINCLUDING (prod\_category,qty\_in\_stock, last\_dml), ON DELETE KEYINCLUDING (prod\_category,qty\_in\_stock, last\_dml));
 
 使用 EDIT PARAMS 命令來開啟參數檔案，然後附加下列資訊：
 
@@ -546,7 +532,7 @@ Oracle GoldenGate 管理員會執行一些像是啟動其他 GoldenGate 程序�
 	GGSCI (MachineGG2) 27> status replicat rep2
 	REPLICAT REP2: RUNNING
 
-##6.確認雙向複寫程序
+##6\.確認雙向複寫程序
 
 若要確認 Oracle GoldenGate 設定，請在站台 A上的資料庫中插入資料列。使用遠端桌面功能連至站台 A。開啟 SQL*Plus 命令視窗，然後執行：SQL> select name from v$database;
 	
@@ -597,4 +583,4 @@ Oracle GoldenGate 管理員會執行一些像是啟動其他 GoldenGate 程序�
 ##其他資源
 [適用於 Azure 的 Oracle 虛擬機器映像](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -25,4 +25,4 @@
 
 [如何將資料磁碟連接至 Linux 虛擬機器](virtual-machines-linux-how-to-attach-disk.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

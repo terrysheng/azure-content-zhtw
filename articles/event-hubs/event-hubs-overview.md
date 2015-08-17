@@ -167,4 +167,4 @@ Azure 事件中樞提供超規模事件和遙測處理服務，該服務適用�
 [佇列訊息解決方案]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

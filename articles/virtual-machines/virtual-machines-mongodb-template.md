@@ -42,7 +42,7 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
 
 ### 步驟 1-a：使用 PowerShell 下載範本檔案
 
-為 JSON 範本和其他相關聯的檔案建立本機資料夾 (例如，C:\Azure\Templates\MongoDB)。
+為 JSON 範本和其他相關聯的檔案建立本機資料夾 (例如，C:\\Azure\\Templates\\MongoDB)。
 
 使用您本機資料夾的資料夾名稱來替代，並執行下列命令：
 
@@ -103,7 +103,7 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
 
     git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-完成時，尋找 C:\Azure\Templates 目錄中的 **mongodb-high-availability** 資料夾。
+完成時，尋找 C:\\Azure\\Templates 目錄中的 **mongodb-high-availability** 資料夾。
 
 ### 步驟 2：(選用) 了解範本參數
 
@@ -655,7 +655,7 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
 
     bash ./vm-disk-utils-0.1.sh -b $DATA_DISKS -s
 
-**vm-disk-utils-0.1.sh** 是 **shared_scripts\ubuntu** 資料夾的一部分 (位於 azure-quickstart-tempates github 儲存機制內)，其中包含適用於磁碟掛接、格式設定及等量的非常實用的功能，每當您在建立範本期間需要執行類似工作時就能重複使用。
+**vm-disk-utils-0.1.sh** 是 **shared\_scripts\\ubuntu** 資料夾的一部分 (位於 azure-quickstart-tempates github 儲存機制內)，其中包含適用於磁碟掛接、格式設定及等量的非常實用的功能，每當您在建立範本期間需要執行類似工作時就能重複使用。
 
 我們繼續探索另一個與 CustomScriptForLinux VM 擴充功能有關而且很有趣的程式碼片段。這些都能安裝為獨立的資源類型，而且在每一個叢集節點部署範本上都具有相依性，請參閱這個位於每個 **member-resources-Dx.json** 檔案結尾處的片段：
 
@@ -692,4 +692,4 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
 如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

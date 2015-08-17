@@ -80,19 +80,19 @@ UpgradeTimeout = 3000
 
 ## 步驟 4：準備應用程式進行升級
 
-現在，應用程式已建置並且準備好進行升級。如果您以系統管理員身分開啟 PowerShell 視窗並且輸入 **Get-ServiceFabricApplication**，它應該會讓您知道它是已部署之 **VisualObjects** 的應用程式類型 1.0.0.0。應用程式封裝儲存在以下的相對路徑，您在其中解壓縮 Service Fabric SDK - *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*。您應該會在該目錄中找到 "Package" 資料夾 - 這是應用程式封裝儲存的位置。請檢查時間戳記以確保它是最新組建 (您也可能需要適當地修改路徑)。
+現在，應用程式已建置並且準備好進行升級。如果您以系統管理員身分開啟 PowerShell 視窗並且輸入 **Get-ServiceFabricApplication**，它應該會讓您知道它是已部署之 **VisualObjects** 的應用程式類型 1.0.0.0。應用程式封裝儲存在以下的相對路徑，您在其中解壓縮 Service Fabric SDK - *Samples\\Services\\Stateful\\VisualObjects\\VisualObjects\\obj\\x64\\Debug*。您應該會在該目錄中找到 "Package" 資料夾 - 這是應用程式封裝儲存的位置。請檢查時間戳記以確保它是最新組建 (您也可能需要適當地修改路徑)。
 
-現在讓我們將更新的應用程式封裝複製到 Service Fabric ImageStore (Service Fabric 在其中儲存應用程式封裝)。參數 *ApplicationPackagePathInImageStore* 會通知 Service Fabric 可以在哪裡找到應用程式封裝。使用下列命令將更新的應用程式放在 "VisualObjects_V2" (您可能需要再次適當地修改路徑)。
+現在讓我們將更新的應用程式封裝複製到 Service Fabric ImageStore (Service Fabric 在其中儲存應用程式封裝)。參數 *ApplicationPackagePathInImageStore* 會通知 Service Fabric 可以在哪裡找到應用程式封裝。使用下列命令將更新的應用程式放在 "VisualObjects\_V2" (您可能需要再次適當地修改路徑)。
 
 ```powershell
 Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package
--ImageStoreConnectionString fabric:ImageStore   -ApplicationPackagePathInImageStore "VisualObjects_V2"
+-ImageStoreConnectionString fabric:ImageStore   -ApplicationPackagePathInImageStore "VisualObjects\_V2"
 ```
 
 下一步是將此應用程式註冊至 Service Fabric，可以使用下列命令來執行：
 
 ```powershell
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObjects_V2"
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObjects\_V2"
 ```
 
 如果上述命令不成功，很可能是您需要重新建置所有服務。如步驟 2 中所述，您可能也必須更新您的 WebService 版本。
@@ -126,4 +126,4 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 [疑難排解應用程式升級](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -118,7 +118,7 @@
 
 2. 在 [**範圍**] 窗格中，展開 [**磁碟區群組**] 節點，以滑鼠右鍵按一下磁碟區群組名稱，然後按一下 [**編輯**]。
 
-3. [**建立磁碟區群組**] 對話方塊隨即出現。您可以變更 [**名稱**]、[**應用程式**] 和 [**磁碟區**] 項目。
+3. ** [建立磁碟區群組] **對話方塊隨即出現。您可以變更 [**名稱**]、[**應用程式**] 和 [**磁碟區**] 項目。
 
 4. 按一下 [**確定**] 以儲存變更。
 
@@ -140,6 +140,6 @@
 
 ## 後續步驟
 
-[使用 StorSimple Snapshot Manager 來建立和管理備份原則](storsimple-snapshot-manager-manage-backup-policies.md)。
+[使用 StorSimple Snapshot Manager 建立和管理備份原則](storsimple-snapshot-manager-manage-backup-policies.md)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

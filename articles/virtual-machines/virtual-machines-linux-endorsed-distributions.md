@@ -31,61 +31,14 @@ Azure 映像庫中的 Linux 映像是由許多合作夥伴所提供，而我們�
 
 Azure Linux 代理程式已預先安裝於 Azure 組件庫映像上，而且通常可透過散發套件的封裝儲存機制來取得。您可以在 [GitHub](https://github.com/azure/walinuxagent) 上找到原始程式碼。
 
-<table border="1" width="600">
-  <tr bgcolor="#E9E7E7">
-		<th>配送映像</th>		
-	    <th>版本</th>
-	    <th>驅動程式</th>
-		<th>代理程式</th>
-			</tr>
-	<tr>
-		<th>  Canonical Ubuntu </th>
-		<td> Ubuntu 12.04、14.04、14.10 和 15.04 </td>
-		<td>在核心中</td>
-		<td>封裝：在 "walinuxagent" 下的儲存機制中 <br />
-			來源：<a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-			</tr>
-	<tr>
-		<th> OpenLogic 的 CentOS </th>
-		<td> CentOS 6.3+、7.0+</td>
-	    <td> CentOS 6.3：<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 下載</a><br/>
-	        CentOS 6.4 +：在核心中</td>
-		<td>封裝：在 "WALinuxAgent" 下的 <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic 儲存機制</a>中<br />
-			來源：<a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
- 		
-	</tr>
-	<tr>
-		<th> <a href="https://coreos.com/docs/running-coreos/cloud-providers/azure/">CoreOS</a> </th>
-		<td> 494.4.0+ </td>
-        <td> 在核心中 </td>
-		<td> 來源：<a href="https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> Oracle Linux </th>
-		<td> 6.4+、7.0+ </td>
-        <td>在核心中</td>
-		<td>封裝：在 "WALinuxAgent" 下的儲存機制中<br />
-			來源：<a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> SUSE Linux Enterprise </th>
-		<td> SLES 11 SP3+、SLES 12+ 和 <br /> SLES for SAP 11.3+ </td>
-        <td>在核心中</td>
-		<td>封裝：在 "WALinuxAgent" 下的<a href="https://build.opensuse.org/project/show/Cloud:Tools">雲端：工具</a>儲存機制中<br />
-			來源：<a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> openSUSE </th>
-		<td> openSUSE 13.1+</td>
-		<td>在核心中</td>
-		<td>封裝：在 "WALinuxAgent" 下的<a href="https://build.opensuse.org/project/show/Cloud:Tools" >雲端：工具</a>儲存機制中<br />
-			原始程式碼：<a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-</table>
+配送映像|版本|驅動程式|代理程式
+---|---|---|---
+Canonical Ubuntu|Ubuntu 12.04、14.04、14.10 和 15.04|在核心中|封裝：在「walinuxagent」下的儲存機制中<p>來源：<p>[GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+OpenLogic 的 CentOS |CentOS 6.3+、7.0+| CentOS 6.3：[LIS 下載](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +：在核心中|封裝：在<a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">「WALinuxAgent」下的 OpenLogic 儲存機制中<p><p>來源：[GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+|494\.4.0+ |在核心中|來源：[GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
+Oracle Linux| 6\.4+、7.0+|在核心中|封裝：在「WALinuxAgent」下的儲存機制中<p><p>來源：[GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+SUSE Linux Enterprise |SLES 11 SP3 +、SLES 12 + 和 <p><p> SLES for SAP 11.3+ |在核心中|封裝：在「WALinuxAgent」下的[雲端：工具](https://build.opensuse.org/project/show/Cloud:Tools)儲存機制中<p><p>來源：[GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+openSUSE |openSUSE 13.1+|在核心中|封裝：在「WALinuxAgent」下的[雲端：工具](https://build.opensuse.org/project/show/Cloud:Tools)儲存機制中<p><p>原始程式碼：[GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 
 ## 合作夥伴
 
@@ -124,4 +77,4 @@ Azure 上的 SUSE Linux Enterprise Server 是一個經證實可為雲端運算�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

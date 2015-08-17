@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/30/2015" 
 	ms.author="stepsic"/>
 
 
@@ -47,7 +47,7 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 
 ## 步驟 1.建立 New Relic 帳戶
 
-1. 登入 [Azure 預覽入口網站](https://portal.azure.com)，然後按一下左下角的 [新增]。
+1. 登入 [Azure Preview 入口網站](https://portal.azure.com)，然後按一下角落的 [**新增**]。
 3. 按一下 [開發人員服務] > [New Relic APM]。
 4. 指定下列各項來設定 New Relic 帳戶，然後按一下 [建立]。
 	- **Name**
@@ -63,8 +63,12 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 
 ## 步驟 2：設定 Web 應用程式的 New Relic 整合
 
-2. 在 [Azure 預覽入口網站](https://portal.azure.com)中，開啟 Web 應用程式的刀鋒視窗。
-3. 按一下 [應用程式監視] > [New Relic]。選取您在前一個步驟中建立的檔案，然後按一下 [確定]。 
+1. 在 [Azure 預覽入口網站](https://portal.azure.com)中，開啟 Web 應用程式的刀鋒視窗。
+2. 按一下刀鋒視窗頂端的 [...] 功能表，並選取**加入磚**。
+3. 在 [**監視**] 索引標籤上選取**應用程式摘要**，並將它拖曳到您想要讓磚出現在 Web 應用程式刀鋒視窗上的位置。
+4. 按一下 [完成] 以完成加入磚。
+5. 按一下 [**應用程式監視**] 磚，並選取 [**New Relic**]。
+6. 選取您在前一個步驟中建立的檔案，然後按一下 [確定]。 
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/configure-new-relic-integration.png)
 
@@ -176,4 +180,4 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

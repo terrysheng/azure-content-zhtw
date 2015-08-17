@@ -8,4 +8,4 @@
 [將行動服務新增至現有的應用程式]: ../articles/mobile-services-android-get-started-data.md
 -->
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

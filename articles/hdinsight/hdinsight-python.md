@@ -111,11 +111,11 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 
 1. 使用 **Jython** 來註冊含有 Python 指令碼 (**jython.py**) 的檔案，然後以 **myfuncs** 公開給 Pig。Jython 是以 Java 撰寫的 Python 實作，在與 Pig 相同的 Java 虛擬機器中執行。這樣可讓我們將 Python 指令碼視同傳統的函數呼叫，而不是 Hive 使用的串流方法。
 
-2. 下一行將範例資料檔 **sample.log** 載入 **LOGS** 中。因為此記錄檔沒有一致的結構描述，所以將每一筆記錄 (此案例中為 **LINE**) 定義為 **chararray**。Chararray 基本上就是字串。
+2. 下一行將範例資料檔 **sample.log** 載入 **LOGS** 中。因為此記錄檔沒有一致的結構描述，所以也將每一筆記錄 (此案例中的 **LINE**) 定義為 **chararray**。Chararray 基本上就是字串。
 
 3. 第三行濾除任何 null 值，然後將操作的結果儲存至 **LOG**。
 
-4. 接下來，逐一查看 **LOG** 中的記錄，並使用 **GENERATE** 叫用以 **myfuncs** 載入的 **jython.py** 指令碼所包含的 **create_structure** 方法。**LINE** 用來將目前的記錄傳給函數。
+4. 接下來，逐一查看 **LOG** 中的記錄，並使用 **GENERATE** 叫用以 **myfuncs** 載入的 **jython.py** 指令碼所包含的 **create\_structure** 方法。**LINE** 用來將目前的記錄傳給函數。
 
 5. 最後，使用 **DUMP** 指令將輸出傾印至 STDOUT。這只是為了在操作完成之後立即顯示結果，在實際的指令碼中，通常是將資料 **STORE** (儲存) 到新檔案中。
 
@@ -138,9 +138,9 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 	* level - 記錄層級
 	* detail - 記錄項目的詳細資料
 
-2. 接下來，**def create_structure(input)** 定義可供 Pig 傳入行項目的函數。
+2. 接下來，**def create\_structure(input)** 定義可供 Pig 傳入行項目的函數。
 
-3. 範例資料 **sample.log** 大致上符合我們想要傳回的 date、time、classname、level 和 detail 結構描述。但也有幾行是以字串 '*java.lang.Exception*' 開頭，其必須修改以符合結構描述。**if** 陳述式檢查這幾行，然後調整輸入資料將 '*java.lang.Exception*' 字串移至尾端，使資料符合我們預期的輸出結構描述。
+3. 範例資料 **sample.log** 大致上符合我們想要傳回的 date、time、classname、level 和 detail 結構描述。但也有幾行是以字串 '*java.lang.Exception*' 開頭，需要修改為符合結構描述。**if** 陳述式檢查這幾行，然後調整輸入資料將 '*java.lang.Exception*' 字串移至尾端，使資料符合我們預期的輸出結構描述。
 
 4. 接下來，使用 **split** 命令，在前四個空白字元處分割資料。這樣就產生五個值，分別指派給 **date**、**time**、**classname**、**level** 和 **detail**。
 
@@ -330,4 +330,4 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 
 * 〈[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)〉
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

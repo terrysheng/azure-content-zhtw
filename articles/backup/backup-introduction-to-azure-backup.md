@@ -69,4 +69,4 @@ Azure 備份是一個多租用戶的 Azure 服務，可讓您備份您任何位�
 + Azure 備份服務的常見問題集在[這裡](backup-azure-backup-faq.md)列出。
 + 造訪 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933) (英文)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

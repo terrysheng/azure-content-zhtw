@@ -45,4 +45,4 @@ X12 和 EDIFACT 具有類似的追蹤檢視。
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.jpg
 [2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.jpg
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

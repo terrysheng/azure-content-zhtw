@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="SQL Database 的用戶端快速入門程式碼範例 | Microsoft Azure" 
-	description="提供適用於 Linux 上的 Node.js、Mac OS 上的 Python、Java 與 Windows，以及 Azure SQL Database 用戶端的程式碼範例與驅動程式。"
+	description="提供適用於 Linux 上的 Node.js、Mac OS 上的 Python、Java 與 Windows、企業程式庫，以及 Azure SQL Database 用戶端的程式碼範例與驅動程式。"
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="08/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -75,7 +75,7 @@
 
 | 語言 | 簡短的範例 | 重試範例 | 關聯式到物件 |
 | :-- | :-- | :-- | :-- |
-| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET 自訂](sql-database-develop-csharp-retry-windows.md)<br/><br/>[ADO.NET 與企業程式庫](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
+| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET 自訂](sql-database-develop-csharp-retry-windows.md)<br/><br/>[企業程式庫](sql-database-develop-entlib-csharp-retry-windows.md) | Entity Framework |
 | C++ | [ODBC 驅動程式](http://msdn.microsoft.com/library/azure/hh974312.aspx) | 。 | 。 |
 | Java | [Java。JDBC、JDK。Insert、Transaction、Select。](sql-database-develop-java-simple-windows.md)<br/><br/>[Java。Eclipse](sql-data-java-how-to-use-sql-database.md)<br/><br/>[Java。JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx) | 。 | 。 |
 | Node.js | [msnodesql](sql-database-develop-nodejs-simple-windows.md) | 。 | 。 |
@@ -92,5 +92,6 @@
 - [Azure SQL Database 開發：使用說明主題](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 - [連接到 SQL Database：連結、最佳作法和設計方針](sql-database-connect-central-recommendations.md)
 - [建立您的第一個 Azure SQL Database](sql-database-get-started.md)
+- [Entity Framework 6 在此處，EF 7 在 GitHub 上](http://entityframework.codeplex.com/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

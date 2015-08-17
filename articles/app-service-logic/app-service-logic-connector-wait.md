@@ -40,18 +40,9 @@ Wait 連接器可用作動作。它並沒有任何觸發程序。
 
 	![已設定的動作][3]
 
-<table>
-	<tr>
-		<th>參數</th>
-		<th>類型</th>
-		<th>參數說明</th>
-	</tr>
-	<tr>
-		<td>持續時間 (分鐘)</td>
-		<td>integer</td>
-		<td>延遲持續時間 (分鐘)</td>
-	</tr>
-</table>
+參數|類型|參數說明
+---|---|---
+持續時間 (分鐘)|integer|延遲持續時間 (分鐘)
 
 
 ## 進一步運用您的連接器
@@ -64,4 +55,4 @@ Wait 連接器可用作動作。它並沒有任何觸發程序。
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

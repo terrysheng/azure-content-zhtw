@@ -24,7 +24,7 @@ Azure 虛擬機器可讓您在雲端中建立和使用虛擬機器。提供所�
 
 虛擬機器是使用虛擬硬碟 (VHD) 來儲存其作業系統 (OS) 和資料。VHD 也能夠使用於您可以選擇用來安裝 OS 的映像。下圖說明此特點，以及用來建立及管理您的 VM 的兩項工具。
 
-<a name="fig_createvms"></a> ![vm_diagram](./media/virtual-machines-choose-me-content/diagram.png)
+<a name="fig_createvms"></a> ![vm\_diagram](./media/virtual-machines-choose-me-content/diagram.png)
 
 **圖：Azure 虛擬機器提供「基礎結構即服務」。**
 
@@ -42,4 +42,4 @@ VM 應考量的其他優點包括：
 
 **恢復功能** -- Azure 會監視裝載各個執行中 VM 的實體硬體。如果執行 VM 的實體伺服器失敗，Azure 會在發現這個狀況時，將 VM 移至新硬體並重新啟動 VM。此程序有時稱為服務修復。Azure 也會透過在 Blob 儲存體中保留 VHD 的備援複本，以保護虛擬機器的資料。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

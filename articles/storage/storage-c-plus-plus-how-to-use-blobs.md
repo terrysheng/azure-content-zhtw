@@ -62,12 +62,12 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 下列範例假設您已經使用這兩個方法之一來取得儲存體連接字串。
 
 ## 擷取連接字串
-您可以使用 **cloud_storage_account** 類別來代表儲存體帳戶資訊。若要從儲存體連接字串擷取儲存體帳戶資訊，您可以使用 **parse** 方法。
+您可以使用 **cloud\_storage\_account** 類別來代表儲存體帳戶資訊。若要從儲存體連接字串擷取儲存體帳戶資訊，您可以使用 **parse** 方法。
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-接著，取得 **cloud_blob_client** 類別的參考，因為這可讓您擷取代表 Blob 儲存體服務中儲存的容器和 Blob 的物件。下列程式碼會使用我們在前面擷取的儲存體帳戶物件，建立 **cloud_blob_client** 物件：
+接著，取得 **cloud\_blob\_client** 類別的參考，因為這可讓您擷取代表 Blob 儲存體服務中儲存的容器和 Blob 的物件。下列程式碼會使用我們在前面擷取的儲存體帳戶物件，建立 **cloud\_blob\_client** 物件：
 
 	// Create the blob client.
 	azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
@@ -109,7 +109,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 ## 作法：將 Blob 上傳到容器中
 Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，建議使用區塊 Blob 的類型。
 
-若要將檔案上傳至區塊 Blob，請取得容器參照，並使用該參照來取得區塊 Blob 參照。取得 Blob 參考後，即可藉由呼叫 **upload_from_stream** 方法，將任何資料流上傳至 Blob。此操作會建立 Blob (如果其並不存在) 或覆寫 Blob (如果其已存在)。下列範例顯示如何將 Blob 上傳到容器，並假設已建立該容器。
+若要將檔案上傳至區塊 Blob，請取得容器參照，並使用該參照來取得區塊 Blob 參照。取得 Blob 參考後，即可藉由呼叫 **upload\_from\_stream** 方法，將任何資料流上傳至 Blob。此操作會建立 Blob (如果其並不存在) 或覆寫 Blob (如果其已存在)。下列範例顯示如何將 Blob 上傳到容器，並假設已建立該容器。
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -137,10 +137,10 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 	azure::storage::cloud_block_blob blob3 = container.get_block_blob_reference(U("my-directory/my-sub-directory/my-blob-3"));
 	blob3.upload_text(U("other text"));  
 
-或者，您可以使用 **upload_from_file** 方法，將檔案上傳至區塊 Blob。
+或者，您可以使用 **upload\_from\_file** 方法，將檔案上傳至區塊 Blob。
 
 ## 作法：列出容器中的 Blob
-若要列出容器中的 Blob，請先取得容器參照。然後，您可以使用容器的 **list_blobs** 方法來擷取 blob 和 (或) 其中的目錄。若要存取傳回的 **list_blob_item** 中豐富的屬性和方法，您必須呼叫 **list_blob_item.as_blob** 方法來取得 **cloud_blob** 物件，或呼叫 **list_blob.as_directory** 方法來取得 cloud_blob_directory 物件。下列程式碼示範如何擷取和輸出 **my-sample-container** 容器中每個項目的 URI：
+若要列出容器中的 Blob，請先取得容器參照。然後，您可以使用容器的 **list\_blobs** 方法來擷取 blob 和 (或) 其中的目錄。若要存取傳回的 **list\_blob\_item** 中豐富的屬性和方法，您必須呼叫 **list\_blob\_item.as\_blob** 方法來取得 **cloud\_blob** 物件，或呼叫 **list\_blob.as\_directory** 方法來取得 cloud\_blob\_directory 物件。下列程式碼示範如何擷取和輸出 **my-sample-container** 容器中每個項目的 URI：
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -168,7 +168,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 如需列出作業的詳細資訊，請參閱[以 C++ 列出 Azure 儲存體資源](storage-c-plus-plus-enumeration.md)。
 
 ## 作法：下載 Blob
-若要下載 Blob，請先擷取 Blob 參考，然後呼叫 **download_to_stream** 方法。下列範例使用 **download_to_stream** 方法將 Blob 內容傳送給資料流物件，您接著可將該物件永久儲存成本機檔案。
+若要下載 Blob，請先擷取 Blob 參考，然後呼叫 **download\_to\_stream** 方法。下列範例使用 **download\_to\_stream** 方法將 Blob 內容傳送給資料流物件，您接著可將該物件永久儲存成本機檔案。
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -193,7 +193,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 	outfile.write((char *)&data[0], buffer.size());
 	outfile.close();  
 
-或者，您可以使用 **download_to_file** 方法，將 Blob 的內容下載到檔案。此外，您也可以使用 **download_text** 方法，將 Blob 的內容當成文字字串下載。
+或者，您可以使用 **download\_to\_file** 方法，將 Blob 的內容下載到檔案。此外，您也可以使用 **download\_text** 方法，將 Blob 的內容當成文字字串下載。
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -211,7 +211,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 	utility::string_t text = text_blob.download_text();
 
 ## 作法：刪除 Blob
-若要刪除 Blob，請先取得 Blob 參考，然後針對該參考呼叫 **delete_blob** 方法。
+若要刪除 Blob，請先取得 Blob 參考，然後針對該參考呼叫 **delete\_blob** 方法。
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -243,4 +243,4 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

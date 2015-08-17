@@ -12,7 +12,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/19/2015" 
 	ms.author="mazha"/>
 
@@ -45,7 +45,7 @@ CDN 原點是 CDN 從中提取內容並快取於邊緣 POP 的位置。整合 Az
 
 ## 步驟 4：存取 CDN 內容
 
-若要存取 CDN 上快取的內容，請使用入口網站中提供的 CDN URL。例如，快取 Blob 的位址會與下面類似： http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
+若要存取 CDN 上快取的內容，請使用入口網站中提供的 CDN URL。例如，快取 blob 的位址會與下面類似：http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 
 
 
@@ -54,4 +54,4 @@ CDN 原點是 CDN 從中提取內容並快取於邊緣 POP 的位置。整合 Az
 [Azure 內容傳遞網路 (CDN) 概觀](cdn-overview.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

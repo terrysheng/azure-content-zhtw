@@ -2,7 +2,7 @@
 <properties 
     pageTitle="Azure RemoteApp 中的使用者設定檔資料"
 	description="了解如何在 Azure RemoteApp 中儲存和存取使用者資料"
-	services="remoteapp" 
+	services="remoteapp"
 	documentationCenter="" 
 	authors="lizap" 
 	manager="mbaldwin" />
@@ -39,11 +39,11 @@ Azure RemoteApp 跨越裝置和工作階段儲存使用者身分識別和自訂�
 
 ## 使用者如何在伺服器端查看 UPD？
 
-每位使用者在伺服器上都有對應至其 UPD 的專屬目錄：c:\Users\username。
+每位使用者在伺服器上都有對應至其 UPD 的專屬目錄：c:\\Users\\username。
 
 ## 使用 Outlook 和 UPD 的最佳方式為何？
 
-Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若要啟用此功能，我們需要將 PST 儲存在使用者設定檔資料 (c:\users<username>) 中。這是資料的預設位置，只要您不變更位置，資料將會在工作階段之間保存。
+Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若要啟用此功能，我們需要將 PST 儲存在使用者設定檔資料 (c:\\users<username>) 中。這是資料的預設位置，只要您不變更位置，資料將會在工作階段之間保存。
 
 我們也建議您在 Outlook 中使用「快取」模式，並使用「伺服器/線上」模式進行搜尋。
 
@@ -115,7 +115,7 @@ Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若�
 
 ## 將啟動指令碼置於 [開始] 功能表？ 可行嗎？
 
-換句話說，我可以建立一個可執行 config 視窗指令碼的 .bat 檔並將它儲存至 c:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp 資料夾，然後讓該指令碼在使用者每次啟動 RemoteApp 工作階段時執行嗎？
+換句話說，我可以建立一個可執行 config 視窗指令碼的 .bat 檔並將它儲存至 c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp 資料夾，然後讓該指令碼在使用者每次啟動 RemoteApp 工作階段時執行嗎？
 
 不行，Azure RemoteApp 不支援，會使用 RDSH，也不支援 [開始] 功能表中的啟動指令碼。
 
@@ -123,4 +123,4 @@ Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若�
 
 不行，Azure RemoteApp 不支援。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

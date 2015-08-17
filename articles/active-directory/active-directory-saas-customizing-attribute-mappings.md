@@ -69,7 +69,7 @@ SaaS 應用程式需要有幾個屬性對應才能正確運作。在屬性資料
 - **常數** - 目標屬性會填入您所指定的特定字串。
 
 
-- **運算式** - 目標屬性會根據類似指令碼的運算式結果填入。如需詳細資訊，請參閱〈在 Azure Active Directory 中撰寫屬性對應的運算式〉。
+- **運算式** - 目標屬性會根據類似指令碼的運算式結果填入。如需詳細資訊，請參閱〈[在 Azure Active Directory 中撰寫屬性對應的運算式](active-directory-saas-writing-expressions-for-attribute-mappings.md)〉。
 
 
 - **無** - 目標屬性保留未修改。不過，如果目標屬性是空的，就會填入您所指定的預設值。
@@ -82,16 +82,12 @@ Microsoft Azure AD 提供非常有效率的同步處理程序實作。在初始�
 
 
 
-
-## 其他資源
-
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-customizing-attribute-mappings/ic765497.png
 [2]: ./media/active-directory-saas-customizing-attribute-mappings/ic775419.png
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

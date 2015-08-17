@@ -199,7 +199,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 在本節中您將會建置 Windows 市集應用程式封裝，以將應用程式安裝至第二部機器或虛擬機器。接著，您將同時在兩部機器上執行應用程式而產生寫入衝突，以測試程式碼。兩個應用程式執行個體將會嘗試更新相同項目的 `text` 屬性，而讓使用者必須解決衝突。
 
 
-1. 建立 Windows 市集應用程式封裝，以安裝在第二部機器或虛擬機器上。若要執行此動作，請在 Visual Studio 中依序按一下 [專案] -> [市集] -> [建立應用程式套件]。
+1. 建立 Windows 市集應用程式封裝，以安裝在第二部機器或虛擬機器上。若要執行此動作，請在 Visual Studio 中按一下 [專案]->[市集]->[建立應用程式套件]。
 
 	![][0]
 
@@ -215,11 +215,11 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
    	![][11]
 
-5. 將封裝資料夾 "todolist_1.0.0.0_AnyCPU_Debug_Test" 複製到第二部機器。在該機器上開啟封裝資料夾，以滑鼠右鍵按一下 **Add-AppDevPackage.ps1** PowerShell 指令碼，然後按一下 [用 PowerShell 執行]，如下所示。依照提示安裝應用程式。
+5. 將封裝資料夾 "todolist\_1.0.0.0\_AnyCPU\_Debug\_Test" 複製到第二部機器。在該機器上開啟封裝資料夾，以滑鼠右鍵按一下 **Add-AppDevPackage.ps1** PowerShell 指令碼，然後按一下 [用 PowerShell 執行]，如下所示。依照提示安裝應用程式。
 
 	![][12]
   
-5. 依序按一下 [偵錯] -> [開始偵錯]，在 Visual Studio 中執行應用程式的執行個體 1。在第二部機器的 [開始] 畫面上按一下向下箭頭，以依名稱檢視應用程式。接著，按一下 **todolist** 應用程式，以執行應用程式的執行個體 2。
+5. 按一下 [偵錯]->[開始偵錯]，在 Visual Studio 中執行應用程式的執行個體 1。在第二部機器的 [開始] 畫面上按一下向下箭頭，以依名稱檢視應用程式。接著，按一下 **todolist** 應用程式，以執行應用程式的執行個體 2。
 
 	應用程式執行個體 1 ![][2]
 
@@ -366,4 +366,4 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [系統屬性]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

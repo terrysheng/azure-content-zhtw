@@ -21,4 +21,4 @@
 
 如果您已自訂部署指令碼，可以變更 deploy.cmd 中的程式碼，以強制它刪除 env 資料夾。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,16 +1,16 @@
-## Specifying structure definition for rectangular datasets
-The structure section in the datasets JSON is an **optional** section for rectangular tables (with rows & columns) and contains a collection of columns for the table. You will use the structure section for either providing type information for type conversions or doing column mappings. The following sections describe these features in detail. 
+## 指定矩形資料集的結構定義
+在資料集 JSON 中的結構區段 (“structure”) 是矩形資料表 (有資料列和資料行) 的**選擇性**區段，並包含該資料表的資料行集合。結構區段將用於提供類型轉換的類型資訊或執行資料行對應。下列各節更詳細說明這些功能。
 
-Each column contains the following properties:
+各資料行包含下列屬性：
 
-| Property | Description | Required |
+| 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- |
-| name | Name of the column. | Yes |
-| type | Data type of the column. See type conversions section below for more details regarding when should you specify type information | No |
-| culture | .NET based culture to be used when type is specified and is .NET type Datetime or Datetimeoffset. Default is “en-us”.  | No |
-| format | Format string to be used when type is specified and is .NET type Datetime or Datetimeoffset. | No |
+| 名稱 | 資料行的名稱。 | 是 |
+| 類型 | 資料行的資料類型。有關何時應指定類型資訊的詳細資訊，請參閱下文類型轉換的部份 | 否 |
+| culture | 當有指定 type (類型) 時要使用的 .NET 型文化特性，且是 .NET 類型的 Datetime 或 Datetimeoffset。預設值為 “zh-tw”。 | 否 |
+| format | 當有指定 type (類型) 時要使用的格式字串，且是 .NET 類型的 Datetime 或 Datetimeoffset。 | 否 |
 
-The following sample shows the structure section JSON for a table that has three columns userid, name, and lastlogindate.
+下列範例顯示具有 userid、name、lastlogindate 三個資料行的資料表的結構區段 JSON。
 
     "structure": 
     [
@@ -19,25 +19,25 @@ The following sample shows the structure section JSON for a table that has three
         { "name": "lastlogindate"}
     ],
 
-Please use the following guidelines for when to include “structure” information and what to include in the **structure** section.
+有關何時要包括 “structure” 資訊以及在**結構**區段中要包含哪些資訊，請遵循下列準則。
 
-1.	**For structured data sources** that store data schema and type information along with the data itself (sources like SQL Server, Oracle, Azure table etc.), you should specify the “structure” section only if you want do column mapping of specific source columns to specific columns in sink and their names are not the same (see details in column mapping section below). 
+1.	針對儲存資料結構描述、類型資訊以及資料本身的**結構化的資料來源** (如 SQL Server、Oracle、Azure 資料表等來源)，只有當您想要進行資料行對應將特定來源資料行對應至接收中的特定資料行且其名稱不相同時，才應該指定 “structure” 區段 (詳細資訊請參閱下文資料行對應的部份)。 
 
-	As mentioned above, the type information is optional in “structure” section. For structured sources, type information is already available as part of dataset definition in the data store, so you should not include type information when you do include the “structure” section.
-2. **For schema on read data sources (specifically Azure blob)**  you can chose to store data without storing any schema or type information with the data. For these types of data sources you should include “structure” in the following 2 cases:
-	1. You want to do column mapping.
-	2. When the dataset is a source in a Copy activity, you can provide type information in “structure” and data factory will use this type information for conversion to native types for the sink. See [Move data to and from Azure Blob](../articles/data-factory/data-factory-azure-blob-connector.md) article for more information.
+	如上所述，“structure” 區段中的類型資訊是選擇性的。針對結構化的來源，類型資訊已可使用做為資料存放區中的資料集定義的一部分，因此當您包含 “structure” 區段時不應包含類型資訊。
+2. 針對**讀取的資料來源 (尤其是 Azure blob) 的結構描述**，您可以選擇儲存資料但不儲存任何結構描述或類型資訊。針對這些類型的資料來源，在以下 2 種案例中應包含 “structure”：
+	1. 您想要進行對應。
+	2. 當資料集是「複製」活動中的來源時，您可以在 “structure” 中提供類型資訊，資料處理站轉換為原生類型以利接收時會使用此類型資訊。如需詳細資訊請參閱[移動資料進出 Azure Blob](../articles/data-factory/data-factory-azure-blob-connector.md)的文章。
 
-### Supported .NET-based types 
-Data factory supports the following CLS compliant .NET based type values for providing type information in “structure” for schema on read data sources like Azure blob.
+### 支援 .NET 型的類型 
+資料處理站支援下列符合 CLS 標準的 .NET 型類型，以利針對讀取的資料來源 (如 Azure blob) 的結構描述在 “structure” 中提供類型資訊。
 
 - Int16
 - Int32 
 - Int64
-- Single
-- Double
-- Decimal
-- Byte[]
+- 單一
+- 兩倍
+- 十進位
+- 位元組
 - Bool
 - String 
 - Guid
@@ -45,5 +45,6 @@ Data factory supports the following CLS compliant .NET based type values for pro
 - Datetimeoffset
 - Timespan 
 
-For Datetime & Datetimeoffset you can also optionally specify “culture” & “format” string to facilitate parsing of your custom Datetime string. See sample for type conversion below.
+針對 Datetime 和 Datetimeoffset，您可以選擇性地指定 “culture” 和 “format” 字串以幫助剖析您的自訂 Datetime 字串。請參閱下方的類型轉換範例。
 
+<!---HONumber=August15_HO6-->

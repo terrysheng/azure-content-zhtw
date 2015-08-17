@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/10/2015" 
 	ms.author="awills"/>
  
@@ -137,7 +137,7 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
 選取任一事件以查看詳細資料。在詳細資料頁面中，按一下 "..." 來查看更多詳細資料。
 
-> [AZURE.NOTE]如果您使用[搜尋][diagnostic]，請注意，您必須比對完整字詞："Abou" 和 "bout" 與 "About" 不相符，但是 "Abou\* " 相符。此外，您不能將萬用字元當做搜尋詞彙的開頭。例如，搜尋 "\*bou" 將無法與 "About" 相符。
+> [AZURE.NOTE]如果您使用[搜尋][diagnostic]，請注意，您必須比對完整字詞："Abou" 和 "bout" 與 "About" 不相符，但是 "Abou* " 相符。此外，您不能將萬用字元當做搜尋詞彙的開頭。例如，搜尋 "*bou" 將無法與 "About" 相符。
 
 > [深入了解診斷搜尋][diagnostic]
 
@@ -182,4 +182,4 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

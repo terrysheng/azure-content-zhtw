@@ -8,4 +8,4 @@
 2. 瀏覽器會提示您儲存 .csv 檔案。開啟或儲存檔案。
 3. 在 Excel 或其他應用程式中開啟檔案。檢閱並依照自己的喜好來自訂資料。![Excel 結果](./media/operational-insights-export/export-excel.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

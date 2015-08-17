@@ -2,7 +2,7 @@
     pageTitle="在 RemoteApp 中發佈應用程式"
     description="了解如何在 RemoteApp 中發佈應用程式和資源。"
     services="remoteapp"
-	documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -27,4 +27,4 @@
 > [AZURE.NOTE]如果您想要從 [開始] 功能表新增您的應用程式，您必須*先在您範本映像上將該應用程式新增至 [開始] 功能表。* 否則，RemoteApp 只會看到*實際*在 [開始] 功能表上的項目，而您會覺得很困惑。如果您忘記在建立範本時將應用程式新增到 [**開始**] 功能表，請選擇新增路徑到應用程式。(或者重新建立您的範本映像，但是這會比較費工。)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

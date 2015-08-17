@@ -49,7 +49,7 @@ Azure 所使用的憑證可以包含私密或公開金鑰。憑證具有指紋�
 * 包含一個私密金鑰。
 * 針對金鑰交換 (.pfx 檔案) 而建立。
 * 主體名稱必須符合用來存取雲端服務的網域。
-    > **contoso.net****contoso.cloudapp.net**
+    > 您無法取得 cloudapp.net 網域 (或針對任何 Azure 相關網域) 的 SSL 憑證；憑證的主體名稱必須符合用來存取應用程式的自訂網域名稱。例如，**contoso.net**，而非**contoso.cloudapp.net**。
 * 至少為 2048 位元加密。
 * **僅限服務憑證**：用戶端憑證必須位於*個人*憑證存放區。
 
@@ -77,4 +77,4 @@ Azure 所使用的憑證可以包含私密或公開金鑰。憑證具有指紋�
 
 >[AZURE.NOTE]Azure Preview 入口網站不會使用管理憑證存取 API，但是會使用使用者帳戶。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

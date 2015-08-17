@@ -3,7 +3,7 @@
     pageTitle="Azure RemoteApp 映像需求"
     description="深入了解建立可用於 Azure RemoteApp 的映像需求" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -43,4 +43,4 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 映像來主控您要與使用�
 - 不支援從快照鏈結上傳您 VHD。
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

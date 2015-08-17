@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="08/04/2015" 
 	ms.author="sidneyh"/>
 
 # 在彈性資料庫用戶端程式庫中管理認證
@@ -60,4 +60,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

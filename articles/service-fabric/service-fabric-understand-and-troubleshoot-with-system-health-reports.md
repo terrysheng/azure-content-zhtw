@@ -54,7 +54,7 @@ System.FM (代表容錯移轉管理員服務) 是管理叢集節點相關資訊�
 
 ```powershell
 
-PS C:> Get-ServiceFabricNodeHealth -NodeName Node.1
+PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
 NodeName              : Node.1
 AggregatedHealthState : Ok
 HealthEvents          :
@@ -74,7 +74,7 @@ HealthEvents          :
 
 
 ### 憑證到期
-當節點所使用的憑證即將到期時，System.FabricNode 會回報警告。每個節點有三個憑證：Certificate_cluster、 Certificate_server 和 Certificate_default_client。如果過期時間至少超過兩週，報告類型就會是正常；如果過期時間在兩週內，則報告類型會是警告。這些事件的 TTL 是無限制的，只有節點離開叢集時才會被移除。
+當節點所使用的憑證即將到期時，System.FabricNode 會回報警告。每個節點有三個憑證：Certificate\_cluster、 Certificate\_server 和 Certificate\_default\_client。如果過期時間至少超過兩週，報告類型就會是正常；如果過期時間在兩週內，則報告類型會是警告。這些事件的 TTL 是無限制的，只有節點離開叢集時才會被移除。
 
 - 來源識別碼：System.FabricNode
 - 屬性：以 "Certificate" 為開頭，且包含關於憑證類型的詳細資訊。
@@ -100,7 +100,7 @@ System.CM (代表叢集管理員服務) 是管理應用程式相關資訊的授�
 以下說明 fabric:/WordCount 應用程式上的狀態事件。
 
 ```powershell
-PS C:> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None) -DeployedApplicationsHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None) -DeployedApplicationsHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Ok
@@ -132,7 +132,7 @@ System.FM (代表容錯移轉管理員服務) 是管理服務相關資訊的授�
 以下說明 fabric:/WordCount/WordCountService 服務上的狀態事件。
 
 ```powershell
-PS C:> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountService
+PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountService
 
 ServiceName           : fabric:/WordCount/WordCountService
 AggregatedHealthState : Ok
@@ -174,7 +174,7 @@ System.FM (代表容錯移轉管理員服務) 是管理服務分割區相關資�
 以下顯示狀況良好的分割區。
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/StatelessPiApplication/StatelessPiService | Get-ServiceFabricPartitionHealth
+PS C:\> Get-ServiceFabricPartition fabric:/StatelessPiApplication/StatelessPiService | Get-ServiceFabricPartitionHealth
 PartitionId           : 29da484c-2c08-40c5-b5d9-03774af9a9bf
 AggregatedHealthState : Ok
 ReplicaHealthStates   : None
@@ -195,7 +195,7 @@ HealthEvents          :
 以下顯示分割區的健康情況低於目標複本計數。後續步驟：取得分割區說明，其中會說明設定方式：MinReplicaSetSize 為 2，TargetReplicaSetSize 為 7。接著取得叢集中的節點數：5。因此在此情況下，不能放置 2 個複本。
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
 
 PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
 AggregatedHealthState : Warning
@@ -216,7 +216,7 @@ HealthEvents          :
                         IsExpired             : False
                         Transitions           : Ok->Warning = 4/24/2015 6:13:31 PM
 
-PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCountService
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService
 
 PartitionId            : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
 PartitionKind          : Int64Range
@@ -231,7 +231,7 @@ DataLossNumber         : 130743727710830900
 ConfigurationNumber    : 8589934592
 
 
-PS C:> @(Get-ServiceFabricNode).Count
+PS C:\> @(Get-ServiceFabricNode).Count
 5
 ```
 
@@ -253,7 +253,7 @@ System.RA (代表重新設定代理程式元件) 是複本狀態的授權單位�
 以下顯示狀況良好的複本：
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
 ReplicaId             : 130743727717237310
 AggregatedHealthState : Ok
@@ -288,7 +288,7 @@ HealthEvents          :
 下列範例說明處於仲裁遺失狀態的分割區，以及調查原因時需進行的步驟。若其中一項複本健康情況狀態為警告，我們就會取得其健康情況。它會顯示服務作業所花費的時間超過預期 (由 System.RAP 回報事件)。查看完此資訊後，下一步就是查看服務程式碼並詳加調查。在此情況下，具狀態服務的 RunAsync 實作會擲回未處理的例外狀況。請注意，因為複本會進行回收，所以您可能不會看到任何處於警告狀態的複本。請嘗試重新取得健康情況，然後查看複本識別碼中是否有任何差異，如此可在特定情況下提供您線索。
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth
+PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth
 
 PartitionId           : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
 AggregatedHealthState : Error
@@ -321,7 +321,7 @@ HealthEvents          :
                         IsExpired             : False
                         Transitions           : Warning->Error = 4/24/2015 6:51:31 PM
 
-PS C:> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful
+PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful
 
 PartitionId            : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
 PartitionKind          : Int64Range
@@ -335,7 +335,7 @@ HealthState            : Error
 DataLossNumber         : 130743746152927699
 ConfigurationNumber    : 227633266688
 
-PS C:> Get-ServiceFabricReplica 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
+PS C:\> Get-ServiceFabricReplica 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
 
 ReplicaId           : 130743746195428808
 ReplicaAddress      : PartitionId: 72a0fb3e-53ec-44f2-9983-2f272aca3e38, ReplicaId: 130743746195428808
@@ -345,7 +345,7 @@ ReplicaStatus       : Ready
 LastInBuildDuration : 00:00:01
 HealthState         : Warning
 
-PS C:> Get-ServiceFabricReplicaHealth 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
+PS C:\> Get-ServiceFabricReplicaHealth 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
 
 PartitionId           : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
 ReplicaId             : 130743746195428808
@@ -407,7 +407,7 @@ System.Hosting 是已部署實體的授權單位。
 以下說明成功啟用的情況：
 
 ```powershell
-PS C:> Get-ServiceFabricDeployedApplicationHealth -NodeName Node.1 -ApplicationName fabric:/WordCount
+PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName Node.1 -ApplicationName fabric:/WordCount
 
 ApplicationName                    : fabric:/WordCount
 NodeName                           : Node.1
@@ -463,7 +463,7 @@ System.Hosting 是已部署實體的授權單位。
 以下顯示狀況良好的已部署服務封裝。
 
 ```powershell
-PS C:> Get-ServiceFabricDeployedServicePackageHealth -NodeName Node.1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
+PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName Node.1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
 
 
 ApplicationName       : fabric:/WordCount
@@ -530,4 +530,4 @@ HealthEvents          :
 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

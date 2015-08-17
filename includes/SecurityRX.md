@@ -451,4 +451,4 @@ SQL Database 僅支援 SQL Server 驗證。不支援 Windows 驗證 (整合式�
 [Web SSO Design]: http://technet.microsoft.com/library/dd807033(WS.10).aspx
 [Federated Web SSO Design]: http://technet.microsoft.com/library/dd807050(WS.10).aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -3,7 +3,7 @@
     pageTitle="Azure RemoteApp 有哪些新功能？"
     description="深入了解對 Azure RemoteApp 所做的變更和改進" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -51,4 +51,4 @@ RemoteApp 的優點之一是我們不斷地努力改進 RemoteApp。每當 Remot
 
 感謝您持續關注我們 - 下個月還會有其他更新。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

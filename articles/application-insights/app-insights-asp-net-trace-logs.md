@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中探索 .NET 追蹤記錄  
@@ -61,7 +61,7 @@ NuGet 封裝會安裝必要的組件，並修改 web.config 或 app.config。
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
-
+TrackTrace 的優點在於您可以將較長的資料放在訊息中。例如，您可以在該處編碼 POST 資料。
 
 
 ## 探索記錄
@@ -124,4 +124,4 @@ NuGet 封裝會安裝必要的組件，並修改 web.config 或 app.config。
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

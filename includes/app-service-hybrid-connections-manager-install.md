@@ -11,7 +11,7 @@
 
 		start HybridConnectionManager.msi
  
-7. 執行安裝程式之後，請按一下 [**不是現在**]，然後瀏覽至 %ProgramFiles%\Microsoft\HybridConnectionManager 資料夾，並執行 HCMConfigWizard.exe，然後按一下 [**使用者帳戶控制**] 對話方塊中的 [**是**]。
+7. 執行安裝程式之後，請按一下 [**不是現在**]，然後瀏覽至 %ProgramFiles%\\Microsoft\\HybridConnectionManager 資料夾，並執行 HCMConfigWizard.exe，然後按一下 [**使用者帳戶控制**] 對話方塊中的 [**是**]。
 		
 7. 貼上您之前複製的混合式連接字串，然後按一下 [**確定**]。
 	
@@ -25,4 +25,4 @@
 	
 	![Connected Status](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

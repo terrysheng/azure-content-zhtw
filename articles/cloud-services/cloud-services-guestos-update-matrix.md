@@ -326,4 +326,4 @@ Microsoft Azure 正持續發行更新。客體作業系統只是這過程中的�
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

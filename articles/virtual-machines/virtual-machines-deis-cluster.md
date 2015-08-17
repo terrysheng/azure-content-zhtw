@@ -162,7 +162,7 @@
 
 ## 部署及調整 Hello World 應用程式
 
-以下步驟說明如何將 Go 應用程式「Hello World」部署到叢集。步驟是以 [Deis 文件](http://docs.deis.io/en/latest/using_deis/using-dockerfiles/#using-dockerfiles) (英文) 為基礎。
+以下步驟說明如何將 Go 應用程式「Hello World」部署到叢集。步驟皆是根據 [Deis 文件](http://docs.deis.io/en/latest/using_deis/using-dockerfiles/#using-dockerfiles) (英文)。
 
 1. 為了讓路由網狀結構正確運作，您指向負載平衡器公用 IP 的網域必須有萬用字元 A 記錄。以下螢幕擷取畫面顯示在 GoDaddy 上註冊之範例網域的 A 記錄：
 
@@ -180,7 +180,7 @@
         cd ~/.ssh
         ssh-keygen (press [Enter]s to use default file names and empty passcode)
 
-4. 在 GitHub 加入 id_rsa.pub，或您自行選擇的公用金鑰。您可以使用 SSH 金鑰設定畫面上的 [Add SSH key] 按鈕來加入。
+4. 在 GitHub 加入 id\_rsa.pub，或您自行選擇的公用金鑰。您可以使用 SSH 金鑰設定畫面上的 [Add SSH key] 按鈕來加入。
 
   ![Github 金鑰](media/virtual-machines-deis-cluster/github-key.png) <p /> 5.註冊新的使用者：
 
@@ -254,4 +254,4 @@
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

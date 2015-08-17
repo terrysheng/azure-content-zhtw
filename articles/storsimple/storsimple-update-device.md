@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/28/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos" />
 
 # 更新您的 StorSimple 裝置
@@ -58,7 +58,7 @@ StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀
 
 或者，您可以使用 Windows PowerShell for StorSimple 來套用一般 (標準模式) 更新。
 
-> [AZURE.IMPORTANT]雖然可以經由 Windows PowerShell for StorSimple 安裝定期更新，但是我們強烈建議您透過管理入口網站安裝。從 Update 1 開始，透過入口網站安裝更新時，我們會先執行預先檢查，這可防止失敗並確保提供更順暢的體驗。
+> [AZURE.IMPORTANT]雖然可以經由 Windows PowerShell for StorSimple 安裝定期更新，但是我們強烈建議您透過管理入口網站安裝。從 Update 1 開始，自入口網站安裝更新前將執行前置檢查。這些前置檢查可防止失敗，並確保提供更順暢的體驗。
 
 [AZURE.INCLUDE [storsimple-install-regular-updates-powershell](../../includes/storsimple-install-regular-updates-powershell.md)]
 
@@ -119,4 +119,4 @@ StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀
 深入了解 [Windows PowerShell for StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx)。
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

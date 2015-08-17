@@ -562,7 +562,7 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次嘗試�
  
 ![按一下切換輸出](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
 
-在連續的 WebJob 中，應用程式記錄檔顯示在 Web 應用程式檔案系統中的 /data/jobs/continuous/*{webjobname}*/job_log.txt。
+在連續的 WebJob 中，應用程式記錄檔顯示在 Web 應用程式檔案系統中的 /data/jobs/continuous/*{webjobname}*/job\_log.txt。
 
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
 		[09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
@@ -581,4 +581,4 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次嘗試�
 本指南提供的程式碼範例示範如何處理使用 Azure 佇列的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

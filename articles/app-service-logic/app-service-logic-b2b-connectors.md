@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/04/2015" 
 	ms.author="mandia"/>
 
 # Microsoft Azure App Service 中的企業對企業連接器和 API 應用程式
@@ -49,10 +49,10 @@ BizTalk X12 | 使用 X12 通訊協定接收和傳送訊息的 API 應用程式�
 
 需求 | 說明
 --- | ---
-Azure SQL Database | 儲存 B2B 項目，包括夥伴、結構描述、憑證及協議。每一個 B2B API 應用程式需要專屬 Azure SQL Database。<br/><br/>\*\*注意\*\* 將連接字串複製至這個資料庫。<br/><br/>[建立 Azure SQL Database](../sql-database-create-configure.md)
-Azure Blob 儲存體容器 | 啟用 AS2 封存功能時，可儲存訊息屬性。如果您不需要 AS2 訊息封存，則儲存體容器不是必要的容器。<br/><br/>\*\*注意\*\* 如果您是啟用封存，請將連接字串複製至這個 Blob 儲存體。<br/><br/>[關於 Azure 儲存體帳戶](../storage-create-storage-account.md)
-服務匯流排命名空間及其金鑰值 | 會儲存 X12 和 EDIFACT 批次資料。如果您不需要批次處理，則服務匯流排命名空間不是必要的命名空間。<br/><br/>\*\*注意\*\* 如果您是啟用批次處理，請複製這些值。<br/><br/>[建立服務匯流排命名空間](http://msdn.microsoft.com/library/azure/hh690931.aspx)
-TPM 執行個體 | 建立 AS2 連接器和 X12 或 EDIFACT API 應用程式時，需要 BizTalk 交易夥伴管理 (TPM) 執行個體。當您建立 TPM API 應用程式時，表示您正在建立 TPM 執行個體。<br/><br/>\*\*注意\*\* 知道您的 TPM API 應用程式名稱。 
+Azure SQL Database | 儲存 B2B 項目，包括夥伴、結構描述、憑證及協議。每一個 B2B API 應用程式需要專屬 Azure SQL Database。<br/><br/>**注意** 將連接字串複製至這個資料庫。<br/><br/>[建立 Azure SQL Database](../sql-database-get-started.md)
+Azure Blob 儲存體容器 | 啟用 AS2 封存功能時，可儲存訊息屬性。如果您不需要 AS2 訊息封存，則儲存體容器不是必要的容器。<br/><br/>**注意** 如果您是啟用封存，請將連接字串複製至這個 Blob 儲存體。<br/><br/>[關於 Azure 儲存體帳戶](../storage-create-storage-account.md)
+服務匯流排命名空間及其金鑰值 | 會儲存 X12 和 EDIFACT 批次資料。如果您不需要批次處理，則服務匯流排命名空間不是必要的命名空間。<br/><br/>**注意** 如果您是啟用批次處理，請複製這些值。<br/><br/>[建立服務匯流排命名空間](http://msdn.microsoft.com/library/azure/hh690931.aspx)
+TPM 執行個體 | 建立 AS2 連接器和 X12 或 EDIFACT API 應用程式時，需要 BizTalk 交易夥伴管理 (TPM) 執行個體。當您建立 TPM API 應用程式時，表示您正在建立 TPM 執行個體。<br/><br/>**注意** 知道您的 TPM API 應用程式名稱。 
 
 
 ## 建立 API 應用程式
@@ -205,4 +205,4 @@ Microsoft Azure App Service 會公開可使用這些 B2B API 應用程式的不�
 
 [連接器和 API 應用程式清單](app-service-logic-connectors-list.md)<br/><br/>[什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

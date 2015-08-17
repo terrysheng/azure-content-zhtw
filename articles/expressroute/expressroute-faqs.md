@@ -9,7 +9,7 @@
 <tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="get-started-article" 
+   ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/28/2015"
@@ -286,4 +286,4 @@ ExpressRoute Premium 是下面所列功能的集合。
 是。即使 ExpressRoute 已設定供我的組織使用，您仍可以透過網際網路存取 Office 365 服務端點。如果所處位置已設定透過 ExpressRoute 連線到 Office 365 服務，您將會透過 ExpressRoute 進行連線。
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

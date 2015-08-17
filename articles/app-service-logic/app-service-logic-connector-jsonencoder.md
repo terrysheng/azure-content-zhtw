@@ -39,24 +39,10 @@ BizTalk JSON 編碼器解碼器連接器協助您的應用程式在 JSON 和 XML
 
 	![編碼和傳送已設定][6]
 
-<table>
-	<tr>
-		<th>參數</th>
-		<th>類型</th>
-		<th>參數說明</th>
-	</tr>
-	<tr>
-		<td>輸入 Xml</td>
-		<td>物件</td>
-		<td>輸入 Xml 內容</td>
-	</tr>
-	<tr>
-		<td>移除外部信封</td>
-		<td>字串</td>
-		<td>旗標設為從 Xml 內容移除根節點</td>
-	</tr>
-</table>
-
+參數|類型|參數說明
+---|---|---
+輸入 Xml|物件|輸入 Xml 內容
+移除外部信封|字串|旗標設為從 Xml 內容移除根節點
 
 動作傳回輸入內容的 json 表示法。
 
@@ -76,4 +62,4 @@ BizTalk JSON 編碼器解碼器連接器協助您的應用程式在 JSON 和 XML
 <!--Links -->
 [建立邏輯應用程式]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

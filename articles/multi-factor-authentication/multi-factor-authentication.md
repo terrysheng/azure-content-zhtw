@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
@@ -61,4 +61,4 @@ Azure Multi-Factor Authentication 是一個容易使用、可調整且可靠的�
 * [Multi-Factor Authentication 對我有何意義？](multi-factor-authentication-end-user.md)
 * [MSDN 上的 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

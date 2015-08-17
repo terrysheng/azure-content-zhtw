@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/05/2015" 
 	ms.author="Justinha"/>
 
@@ -147,4 +147,4 @@ Azure AD 需要符合特定條件才能刪除目錄。這可降低刪除目錄�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

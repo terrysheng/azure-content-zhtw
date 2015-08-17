@@ -13,6 +13,6 @@
 
 	>[AZURE.NOTE]應用程式金鑰會與應用程式一起散發。因為這個金鑰不會安全地散發，所以無法將它視為安全性 Token。若要確保行動服務資料的存取安全，您必須改在存取之前驗證使用者。如需詳細資訊，請參閱[權限](http://msdn.microsoft.com/library/windowsazure/jj193161.aspx)。
 	>
-	>新的資料表是使用 Id、__createdAt__、updatedAt 和 __version 等資料行建立而成。啟用動態結構描述時，行動服務會根據插入或更新要求中的 JSON 物件自動產生新資料行。如需詳細資訊，請參閱[動態結構描述](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx)。
+	>新的資料表是使用 Id、\_\_createdAt、\_\_updatedAt 和 \_\_version 等資料行建立而成。啟用動態結構描述時，行動服務會根據插入或更新要求中的 JSON 物件自動產生新資料行。如需詳細資訊，請參閱[動態結構描述](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

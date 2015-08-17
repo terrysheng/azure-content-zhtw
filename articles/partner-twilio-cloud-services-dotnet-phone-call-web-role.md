@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/25/2014" 
+	ms.date="08/02/2015" 
 	ms.author="microsofthelp@twilio.com"/>
 
 
@@ -23,7 +23,7 @@
 
 本指南將說明如何從 Azure 代管的網頁上使用 Twilio 撥打電話。產生的應用程式會提示使用者提供電話值，如下列螢幕擷取畫面所示。
 
-![使用 Twilio 和 ASP.NET 的 Azure 呼叫表單][twilio_dotnet_basic_f
+![Azure call form using Twilio and ASP.NET][twilio_dotnet_basic_form]
 
 ## <a name="twilio-prereqs"></a>必要條件
 
@@ -151,7 +151,7 @@
 
 通話建立後，會顯示 Twilio 端點、API 版本和通話狀態。下列螢幕擷取畫面顯示執行範例的輸出。
 
-![使用 Twilio 與 ASP.NET 的 Azure 呼叫回應][twilio_dotnet_basic_form_output]
+![Azure call response using Twilio and ASP.NET][twilio_dotnet_basic_form_output]
 
 如需 TwiML 的相關資訊，請參閱 [http://www.twilio.com/docs/api/twiml][twiml]。如需 &lt;Say&gt; 和其他 Twilio 動詞的詳細資訊，請參閱 [http://www.twilio.com/docs/api/twiml/say][twilio_say]。
 
@@ -192,4 +192,4 @@
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -54,4 +54,4 @@
 
 > [AZURE.NOTE]您可以輸入 `azure config mode asm`，切換回使用 Azure 服務管理命令。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

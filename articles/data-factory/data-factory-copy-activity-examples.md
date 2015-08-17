@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="08/03/2015" 
 	ms.author="spelluru"/>
 
 # 在 Azure Data Factory 中使用「複製活動」的範例
@@ -33,18 +33,19 @@
 在此步驟中，您建立指向內部部署 SQL Server 資料庫的連結服務，名為 **MyOnPremisesSQLDB**。
 
 	{
-	    "name": "MyOnPremisesSQLDB",
-	    "properties":
-	    {
-	        "type": "OnPremisesSqlLinkedService",
-	        "connectionString": "Data Source=<servername>;Initial Catalog=<database>;Integrated Security=False;User ID=<username>;Password=<password>;",
-	        "gatewayName": "mygateway"
+	  "name": "MyOnPremisesSQLDB",
+	  "properties": {
+	    "type": "OnPremisesSqlServer",
+	    "typeProperties": {
+	      "connectionString": "Data Source=<servername>;Initial Catalog=<database>;Integrated Security=False;User ID=<username>;Password=<password>;",
+	      "gatewayName": "mygateway"
 	    }
+	  }
 	}
 
 請注意：
 
-- **type** 設為 **OnPremisesSqlLinkedService**。
+- **type** 設為 **OnPremisesSqlServer**。
 - **connectionString** 設為 SQL Server 資料庫的連接字串。 
 - **gatewayName** 設定為安裝在內部部署電腦，並向 Azure Data Factory 服務入口網站註冊過的資料管理閘道名稱。 
 
@@ -54,17 +55,18 @@
 在此步驟中，您建立指向 Azure Blob 儲存體的連結服務，名為 **MyAzureStorage**。
 
 	{
-	    "name": "MyAzureStorage",
-	    "properties":
-	    {
-	        "type": "AzureStorageLinkedService",
-	        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>" "
+	  "name": "MyAzureStorage",
+	  "properties": {
+	    "type": "AzureStorage",
+	    "typeProperties": {
+	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
 	    }
+	  }
 	}
 
 請注意：
 
-- **type** 設為 **AzureStorageLinkedService**。
+- **type** 設為 **AzureStorage**。
 - **connectionString** - 指定 Azure 儲存體的帳戶名稱和帳戶金鑰。
 
 如需定義 Azure 儲存體連結服務之 JSON 項目的詳細資料，請參閱 [Azure 儲存體連結服務](https://msdn.microsoft.com/library/dn893522.aspx)。
@@ -72,71 +74,64 @@
 ### 輸入資料表 JSON
 下列 JSON 指令碼定義參照 SQL 資料表的輸入資料表：**MyTable** 是由 **MyOnPremisesSQLDB** 連結服務定義的內部部署 SQL Server 資料庫。請注意，**name** 是 Azure Data Factory 資料表的名稱，而 **tableName** 是 SQL Server 資料庫中的 SQL 資料表名稱。
 
-         
+	         
 	{
-		"name": "MyOnPremTable",
-    	"properties":
-   		{
-			"location":
-    		{
-    			"type": "OnPremisesSqlServerTableLocation",
-    			"tableName": "MyTable",
-    			"linkedServiceName": "MyOnPremisesSQLDB"
-    		},
-    		"availability":
-   			{
-    			"frequency": "Hour",
-    			"interval": 1
-   			}
- 		}
+	  "name": "MyOnPremTable",
+	  "properties": {
+	    "type": "SqlServerTable",
+	    "linkedServiceName": "MyOnPremisesSQLDB",
+	    "typeProperties": {
+	      "tableName": "MyTable"
+	    },
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    }
+	  }
 	}
 
 請注意：
 
-- **type** 設為 **OnPremisesSqlServerTableLocation**。
+- **type** 設為 **SqlServerTable**。
 - **tableName** 設為 **MyTable**，其中包含來源資料。 
 - **linkedServiceName** 設為 **MyOnPremisesSQLDB**，這是您為內部部署 SQL 資料庫建立的連結服務。
 
-如需定義 Data Factory 資料表 (其參照 SQL Server 資料表) 之 JSON 項目的詳細資料，請參閱[內部部署 SQL 位置屬性](https://msdn.microsoft.com/library/dn894089.aspx#OnPremSQL)。
+如需定義 Data Factory 資料表 (其參照 SQL Server 資料表) 之 JSON 項目的詳細資料，請參閱〈[內部部署 SQL 類型屬性](https://msdn.microsoft.com/library/mt185722.aspx#OnPremSQL)〉。
 
 ### 輸出資料表 JSON
 下列 JSON 指令碼定義輸出資料表：**MyAzureBlob** (這指的是 Azure Blob)：**MyBlob** (位於 Blob 資料夾)：**MySubFolder** (位於 Blob 容器)：**MyContainer**。
          
 	{
-   		"name": "MyAzureBlob",
-	    "properties":
-    	{
-    		"location":
-    		{
-        		"type": "AzureBlobLocation",
-        		"folderPath": "MyContainer/MySubFolder",
-        		"fileName": "MyBlob",
-        		"linkedServiceName": "MyAzureStorage",
-        		"format":
-        		{
-            		"type": "TextFormat",
-            		"columnDelimiter": ",",
-            		"rowDelimiter": ";",
-             		"EscapeChar": "$",
-             		"NullValue": "NaN"
-        		}
-    		},
-        	"availability":
-      		{
-       			"frequency": "Hour",
-       			"interval": 1
-      		}
-   		}
+	  "name": "MyAzureBlob",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "MyAzureStorage",
+	    "typeProperties": {
+	      "folderPath": "MyContainer/MySubFolder",
+	      "fileName": "MyBlob",
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";",
+	        "EscapeChar": "$",
+	        "NullValue": "NaN"
+	      }
+	    },
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    }
+	  }
 	}
 
 請注意：
  
-- **type** 設為 **AzureBlobLocation**。
+- **type** 設為 **AzureBlob**。
 - **folderPath** 設為 **MyContainer/MySubFolder**，其中包含存放已複製資料的 Blob。 
 - **fileName** 設為 **MyBlob** (將存放輸出資料的 Blob)。
 - **linkedServiceName** 設為 **MyAzureStorge** (您為 Azure 儲存體建立的連結服務)。    
 
-如需定義 Data Factory 資料表 (其參照 Azure Blob) 之 JSON 項目的詳細資料，請參閱 [Azure Blob 位置屬性](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob)。
+如需定義 Data Factory 資料表 (其參照 Azure Blob) 之 JSON 項目的詳細資料，請參閱〈[Azure blob 類型屬性](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob)〉。
 
 ### 管線 (具有複製活動) JSON
 在此範例中，管線：**CopyActivityPipeline** 使用下列屬性定義：
@@ -148,33 +143,36 @@
 
          
 		{
-		    "name": "CopyActivityPipeline",
-    		"properties":
-    		{
-				"description" : "This is a sample pipeline to copy data from SQL Server to Azure Blob",
-        		"activities":
-        		[
-      				{
-						"name": "CopyActivity",
-						"description": "description", 
-						"type": "CopyActivity",
-						"inputs":  [ { "name": "MyOnPremTable"  } ],
-						"outputs":  [ { "name": "MyAzureBlob" } ],
-						"transformation":
-	    				{
-							"source":
-							{
-								"type": "SqlSource",
-                    			"sqlReaderQuery": "select * from MyTable"
-							},
-							"sink":
-							{
-                        		"type": "BlobSink"
-							}
-	    				}
-      				}
-        		]
-    		}
+		  "name": "CopyActivityPipeline",
+		  "properties": {
+		    "description": "This is a sample pipeline to copy data from SQL Server to Azure Blob",
+		    "activities": [
+		      {
+		        "name": "CopyActivity",
+		        "description": "description",
+		        "type": "Copy",
+		        "inputs": [
+		          {
+		            "name": "MyOnPremTable"
+		          }
+		        ],
+		        "outputs": [
+		          {
+		            "name": "MyAzureBlob"
+		          }
+		        ],
+		        "typeProperties": {
+		          "source": {
+		            "type": "SqlSource",
+		            "sqlReaderQuery": "select * from MyTable"
+		          },
+		          "sink": {
+		            "type": "BlobSink"
+		          }
+		        }
+		      }
+		    ]
+		  }
 		}
 
 請參閱[管線 JSON 參考](https://msdn.microsoft.com/library/dn834988.aspx)，以了解定義 Data Factory 管線之 JSON 項目的詳細資料；以及[支援的來源和接收](https://msdn.microsoft.com/library/dn894007.aspx)，以了解 SqlSource (例如：在此範例中為 **sqlReaderQuery **) 和 BlobSink 的屬性。
@@ -189,18 +187,20 @@
 - **主機** - 裝載檔案系統的伺服器名稱是：**\contoso**。
 - **資料夾** - 含有輸入檔案的資料夾名稱是：**marketingcampaign\regionaldata\{slice}，裡面的檔案會在 {slice} 資料夾中分割，例如 2014121112 (2014 年 12 月 11 日 12 時)。
 ### 建立內部部署檔案系統連結服務
-下列範例 JSON 可以用來建立名為 **FolderDataStore** 的連結服務，其類型為 **OnPremisesFileSystemLinkedService**。
+下列範例 JSON 可以用來建立名為 **FolderDataStore** 的連結服務，其類型為 **OnPremisesFileServer**。
 
-		{
-		    "name": "FolderDataStore",
-		    "properties": {
-		        "type": "OnPremisesFileSystemLinkedService",
-		        "host": "\\\\contoso",
-		        "userId": "username",
-		        "password": "password",
-		        "gatewayName": "ContosoGateway"
-		    }
-		}
+	{
+	  "name": "FolderDataStore",
+	  "properties": {
+	    "type": "OnPremisesFileServer",
+	    "typeProperties": {
+	      "host": "\\\\contoso",
+	      "userId": "username",
+	      "password": "password",
+	      "gatewayName": "ContosoGateway"
+	    }
+	  }
+	}
 
 > [AZURE.NOTE]JSON 檔案中的主機和資料夾名稱一定要使用逸出字元 '\'。如果是 **\\Contoso**，請使用 **\\\\Contoso**。
 
@@ -210,12 +210,13 @@
 下列範例 JSON 可以用來建立名為 **MyAzureStorage** 的連結服務，其類型為 **AzureStorageLinkedSerivce**。
 
 	{
-	    "name": "MyAzureStorage",
-	    "properties":
-	    {
-	        "type": "AzureStorageLinkedService",
-	        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>" "
+	  "name": "MyAzureStorage",
+	  "properties": {
+	    "type": "AzureStorage",
+	    "typeProperties": {
+	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
 	    }
+	  }
 	}
 
 如需定義 Azure 儲存體連結服務之 JSON 項目的詳細資料，請參閱 [Azure 儲存體連結服務](https://msdn.microsoft.com/library/dn893522.aspx)。
@@ -224,85 +225,96 @@
 下列 JSON 指令碼定義的輸入資料表，是參照先前所建立的內部部署檔案系統連結服務。
 
 	{
-	    "name": "OnPremFileSource",
-	    "properties": {
-	        "location": {
-	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\{Slice}",
-	            "partitionedBy": [
-	                { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } }
-	            ],
-	            "linkedServiceName": "FolderDataStore"
-	        },
-	        "availability": {
-	            "waitOnExternal": { },
-	            "frequency": "Hour",
-	            "interval": 24
+	  "name": "OnPremFileSource",
+	  "properties": {
+	    "type": "FileShare",
+	    "linkedServiceName": "FolderDataStore",
+	    "typeProperties": {
+	      "folderPath": "marketingcampaign\\regionaldata\\{Slice}",
+	      "partitionedBy": [
+	        {
+	          "name": "Slice",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "yyyyMMddHH"
+	          }
 	        }
+	      ]
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 24
 	    }
+	  }
 	}
 
-如需定義 Data Factory 資料表 (其參照內部部署檔案系統) 之 JSON 項目的詳細資料，請參閱[內部部署檔案系統位置屬性](https://msdn.microsoft.com/library/dn894089.aspx#OnPremFileSystem)。
+如需定義 Data Factory 資料表 (其參照內部部署檔案系統) 之 JSON 項目的詳細資料，請參閱〈[內部部署檔案系統類型屬性](https://msdn.microsoft.com/library/mt185722.aspx#OnPremFileSystem)〉。
 
 ### 建立輸出資料表
 下列 JSON 指令碼定義輸出資料表：**AzureBlobDest** (這指的是 Azure Blob)：**MyBlob** (位於 Blob 資料夾)：**MySubFolder** (位於 Blob 容器)：**MyContainer**。
          
 	{
-   		"name": "AzureBlobDest",
-	    "properties":
-    	{
-    		"location":
-    		{
-        		"type": "AzureBlobLocation",
-        		"folderPath": "MyContainer/MySubFolder",
-        		"fileName": "MyBlob",
-        		"linkedServiceName": "MyAzureStorage",
-        		"format":
-        		{
-            		"type": "TextFormat",
-            		"columnDelimiter": ",",
-            		"rowDelimiter": ";",
-             		"EscapeChar": "$",
-             		"NullValue": "NaN"
-        		}
-    		},
-        	"availability":
-      		{
-       			"frequency": "Hour",
-       			"interval": 1
-      		}
-   		}
+	  "name": "AzureBlobDest",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "MyAzureStorage",
+	    "typeProperties": {
+	      "folderPath": "MyContainer/MySubFolder",
+	      "fileName": "MyBlob",
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";",
+	        "EscapeChar": "$",
+	        "NullValue": "NaN"
+	      }
+	    },
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    }
+	  }
 	}
 
-如需定義 Data Factory 資料表 (其參照 Azure Blob) 之 JSON 項目的詳細資料，請參閱 [Azure Blob 位置屬性](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob)。
+如需定義 Data Factory 資料表 (其參照 Azure Blob) 之 JSON 項目的詳細資料，請參閱〈[Azure Blob 類型屬性](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob)〉。
 
 ### 建立管線
 下列管線 JSON 定義具有「複製活動」的管線，可將資料從內部部署檔案系統複製至目的地 Azure Blob。
  
 	{
-	    "name": "CopyFileToBlobPipeline",
-	    "properties": {
-	        "activities": [
-	            {
-	                "name": "Ingress",
-	                "type": "CopyActivity",
-	                "inputs": [ { "name": "OnPremFileSource" } ],
-	                "outputs": [ { "name": "AzureBlobDest" } ],
-	                "transformation": {
-	                    "source": {
-	                        "type": "FileSystemSource"
-	                    },
-	                    "sink": {
-	                        "type": "BlobSink"
-	                    }
-	                },
-	                "policy": {
-	                    "concurrency": 4,
-	                    "timeout": "00:05:00"
-	                }
-	            }
-	        ]
-	    }
+	  "name": "CopyFileToBlobPipeline",
+	  "properties": {
+	    "activities": [
+	      {
+	        "name": "Ingress",
+	        "type": "Copy",
+	        "inputs": [
+	          {
+	            "name": "OnPremFileSource"
+	          }
+	        ],
+	        "outputs": [
+	          {
+	            "name": "AzureBlobDest"
+	          }
+	        ],
+	        "typeProperties": {
+	          "source": {
+	            "type": "FileSystemSource"
+	          },
+	          "sink": {
+	            "type": "BlobSink"
+	          }
+	        },
+	        "policy": {
+	          "concurrency": 4,
+	          "timeout": "00:05:00"
+	        }
+	      }
+	    ]
+	  }
 	}
 
 在此範例中，管線會將內容複製為二進位，而不需要進行任何剖析或執行任何轉換。請注意，您可以利用**並行**，平行複製檔案的配量。當您想要移動過去已發生的配量時，這非常有用。
@@ -316,167 +328,151 @@
 #### 複製特定資料夾下的所有檔案
 請注意，範例 JSON 中只指定 **folderPath**。
 
-	{
-	    "name": "OnPremFileSource",
-	    "properties": {
-	        "location": {
-	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\na",
-	            "linkedServiceName": "FolderDataStore"
-	        },
-	        ...
-	    }
+	"typeProperties": {
+		"folderPath": "marketingcampaign\\regionaldata\\na",
 	}
  
 #### 複製特定資料夾下的所有 CSV 檔案
-請注意，**fileFilter** 設為 ***.csv**。
+請注意，**fileFilter** 設為 ****.csv**。
 
-	{
-	    "name": "OnPremFileSource",
-	    "properties": {
-	        "location": {
-	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\na",
-	            "fileFilter": "*.csv",
-	            "linkedServiceName": "FolderDataStore"
-	        },
-	        ...
-	    }
-	}
+    "typeProperties": {
+        "folderPath": "marketingcampaign\\regionaldata\\na",
+        "fileFilter": "*.csv",
+    }
 
 #### 複製特定檔案
 請注意，**fileFiter** 設定為特定檔案：**201501.csv**。
 
-	{
-	    "name": "OnPremFileSource",
-	    "properties": {
-	        "location": {
-	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\na",
-	            "fileFilter": "201501.csv",
-	            "linkedServiceName": "FolderDataStore"
-	        },
-	        ...
-	    }
-	}
+    "typeProperties": {
+        "folderPath": "marketingcampaign\\regionaldata\\na",
+        "fileFilter": "201501.csv",
+    }
 
 ## 將資料從內部部署 Oracle 資料庫複製至 Azure Blob
 您可以使用「複製活動」，將檔案從內部部署 Oracle 資料庫複製至 Azure Blob。
 
 ### 建立內部部署 Oracle 資料庫的連結服務
-下列 JSON 可以用來建立指向內部部署 Oracle 資料庫的連結服務。請注意，**type** 設為 **OnPremisesOracleLinkedService**。
+下列 JSON 可以用來建立指向內部部署 Oracle 資料庫的連結服務。請注意，**type** 設為 **OnPremisesOracle**。
 
 	{
 	    "name": "OnPremOracleSource",
 	    "properties": {
-	        "type": "OnPremisesOracleLinkedService",
-	        "ConnectionString": "data source=ds;User Id=uid;Password=pwd;",
-	        "gatewayName": "SomeGateway"
+	        "type": "OnPremisesOracle",
+			"typeProperties": {			
+	        	"ConnectionString": "data source=ds;User Id=uid;Password=pwd;",
+	        	"gatewayName": "SomeGateway"	
+			}
 	    }
 	}
 
 如需定義內部部署 Oracle 連結服務之 JSON 項目的詳細資料，請參閱[內部部署 Oracle 連結服務](https://msdn.microsoft.com/library/dn948537.aspx)。
 
 ### 建立目的地 Azure Blob 的連結服務
-下列範例 JSON 可以用來建立名為 **MyAzureStorage** 的連結服務，其類型為 **AzureStorageLinkedSerivce**。
+下列範例 JSON 可以用來建立名為 **MyAzureStorage** 的連結服務，其類型為 **AzureStorage**。
 
 	{
 	    "name": "AzureBlobDest",
 	    "properties":
 	    {
-	        "type": "AzureStorageLinkedService",
-	        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>" "
+	        "type": "AzureStorage",
+			"typeProperties": {
+	        	"connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>" "
+			}
 	    }
 	}
 
 如需定義 Azure 儲存體連結服務之 JSON 項目的詳細資料，請參閱 [Azure 儲存體連結服務](https://msdn.microsoft.com/library/dn893522.aspx)。
 
 ### 建立輸入資料表
-下列範例 JSON 可以用來建立 Azure Data Factory 資料表，而此資料表參照內部部署 Oracle 資料庫中的資料表。請注意，**位置類型**設為 **OnPremisesOracleTableLocation**。
+下列範例 JSON 可以用來建立 Azure Data Factory 資料表，而此資料表參照內部部署 Oracle 資料庫中的資料表。請注意，**type** 設為 **OracleTable**。
 
 	{
-	    "name": "TableOracle",
-	    "properties": {
-	        "location": {
-	            "type": "OnPremisesOracleTableLocation",
-	            "tableName": "LOG",
-	            "linkedServiceName": "OnPremOracleSource"
-	        },
-	        "availability": {
-	            "frequency": "Day",
-	            "interval": "1",
-	            "waitOnExternal": {}
-	        },
-	        "policy": {}
-	    }
-	} 
+	  "name": "TableOracle",
+	  "properties": {
+	    "type": "OracleTable",
+	    "linkedServiceName": "OnPremOracleSource",
+	    "typeProperties": {
+	      "tableName": "LOG"
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Day",
+	      "interval": "1"
+	    },
+	    "policy": {}
+	  }
+	}
 
-如需定義 Data Factory 資料表 (其參照內部部署 Oracle 資料庫中的資料表) 之 JSON 項目的詳細資料，請參閱[內部部署 Oracle 位置屬性](https://msdn.microsoft.com/library/dn894089.aspx#Oracle)。
+如需定義 Data Factory 資料表 (其參照內部部署 Oracle 資料庫中的資料表) 之 JSON 項目的詳細資料，請參閱〈[內部部署 Oracle 類型屬性](https://msdn.microsoft.com/library/mt185722.aspx#Oracle)〉。
 
 ### 建立輸出資料表
 下列 JSON 指令碼定義輸出資料表：**MyAzureBlob** (這指的是 Azure Blob)：**MyBlob** (位於 Blob 資料夾)：**MySubFolder** (位於 Blob 容器)：**MyContainer**。
          
 	{
-   		"name": "MyAzureBlob",
-	    "properties":
-    	{
-    		"location":
-    		{
-        		"type": "AzureBlobLocation",
-        		"folderPath": "MyContainer/MySubFolder",
-        		"fileName": "MyBlob",
-        		"linkedServiceName": "AzureBlobDest",
-        		"format":
-        		{
-            		"type": "TextFormat",
-            		"columnDelimiter": ",",
-            		"rowDelimiter": ";",
-             		"EscapeChar": "$",
-             		"NullValue": "NaN"
-        		}
-    		},
-        	"availability":
-      		{
-       			"frequency": "Hour",
-       			"interval": 1
-      		}
-   		}
+	  "name": "MyAzureBlob",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "AzureBlobDest",
+	    "typeProperties": {
+	      "folderPath": "MyContainer/MySubFolder",
+	      "fileName": "MyBlob",
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";",
+	        "EscapeChar": "$",
+	        "NullValue": "NaN"
+	      }
+	    },
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    }
+	  }
 	}
 
-如需定義 Data Factory 資料表 (其參照 Azure Blob) 之 JSON 項目的詳細資料，請參閱 [Azure Blob 位置屬性](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob)。
+如需定義 Data Factory 資料表 (其參照 Azure Blob) 之 JSON 項目的詳細資料，請參閱〈[Azure blob 類型屬性](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob)〉。
 
 ### 建立管線
 下列範例管線有一個「複製活動」，會將資料從 Oracle 資料庫資料表複製至 Azure 儲存體 Blob。
-
+	
 	{
-	    "name": "PipelineCopyOracleToBlob",
-	    "properties": {
-	        "activities": [
-	            {
-	                "name": "CopyActivity",
-	                "description": "copy slices of oracle records to azure blob",
-	                "type": "CopyActivity",
-	                "inputs": [ { "name": "TableOracle" } ],
-	                "outputs": [ { "name": "TableAzureBlob" } ],
-	                "transformation": {
-	                    "source": {
-	                        "type": "OracleSource",
-	                        "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date(\'{0:yyyy-MM-dd}\', \'YYYY-MM-DD\') AND "Timestamp" < to_date(\'{1:yyyy-MM-dd}\', \'YYYY-MM-DD\')', SliceStart, SliceEnd)"
-	                    },
-	                    "sink": {
-	                        "type": "BlobSink"
-	                    }
-	                },
-	                "policy": {
-	                    "concurrency": 3,
-	                    "timeout": "00:05:00"
-	                }
-	            }
+	  "name": "PipelineCopyOracleToBlob",
+	  "properties": {
+	    "activities": [
+	      {
+	        "name": "CopyActivity",
+	        "description": "copy slices of oracle records to azure blob",
+	        "type": "Copy",
+	        "inputs": [
+	          {
+	            "name": "TableOracle"
+	          }
 	        ],
-	        "start": "2015-03-01T00:00:00Z",
-	        "end": "2015-03-15T00:00:00Z",
-	        "isPaused": false
-	    }
+	        "outputs": [
+	          {
+	            "name": "TableAzureBlob"
+	          }
+	        ],
+	        "typeProperties": {
+	          "source": {
+	            "type": "OracleSource",
+	            "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date(\\'{0:yyyy-MM-dd}\\', \\'YYYY-MM-DD\\') AND "Timestamp" < to_date(\\'{1:yyyy-MM-dd}\\', \\'YYYY-MM-DD\\')', WindowStart, WindowEnd)"
+	          },
+	          "sink": {
+	            "type": "BlobSink"
+	          }
+	        },
+	        "policy": {
+	          "concurrency": 3,
+	          "timeout": "00:05:00"
+	        }
+	      }
+	    ],
+	    "start": "2015-03-01T00:00:00Z",
+	    "end": "2015-03-15T00:00:00Z",
+	    "isPaused": false
+	  }
 	}
 
 請參閱[管線 JSON 參考](https://msdn.microsoft.com/library/dn834988.aspx)，以了解定義 Data Factory 管線之 JSON 項目的詳細資料；以及[支援的來源和接收](https://msdn.microsoft.com/library/dn894007.aspx)，以了解 OracleSource 和 BlobSink 的屬性。
@@ -491,4 +487,4 @@
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!-------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

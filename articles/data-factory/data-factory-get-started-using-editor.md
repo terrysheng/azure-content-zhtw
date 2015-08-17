@@ -98,8 +98,8 @@
 
 	![編輯器 Azure SQL 設定][image-editor-azure-sql-settings]
 
-2. 將 **servername**、**databasename**、**username@servername** 和 **password** 替換為您的 Azure SQL 伺服器名稱、資料庫名稱、使用者帳戶和密碼。
-3. 按一下工具列上的 [部署]，建立並部署 AzureSqlLinkedService。 
+2. 將 **servername**、**databasename**、****username@servername** 和 **password** 替換為您的 Azure SQL 伺服器名稱、資料庫名稱、使用者帳戶和密碼。
+3. 按一下工具列上的 [**部署**]，建立並部署 AzureSqlLinkedService。 
    
 
 ## <a name="CreateInputAndOutputDataSets"></a>步驟 3：建立輸入和輸出資料表
@@ -145,15 +145,15 @@
 		
      請注意：
 	
-	- 位置 **type** 設為 **AzureBlob**。
+	- 資料集 **type** 設為 **AzureBlob**。
 	- **linkedServiceName** 設為 **StorageLinkedService**。您已在步驟 2 中建立此連結服務。
 	- **folderPath** 設為 **adftutorial** 容器。您也可以指定資料夾內的 Blob 的名稱。由於您未指定 Blob 的名稱，容器中所有 Blob 的資料都會被視為輸入資料。  
 	- 格式 **type** 設為 **TextFormat**
-	- 文字檔中有兩個欄位 (**FirstName** 和 **LastName**)，以逗號字元分隔 (\*\*columnDelimiter\*\*)	
-	- **availability** 設為 **hourly** (\*\*frequency\*\* 設為 **hour** 且 **interval** 設為 **1**)，因此 Data Factory 服務會每隔一小時在您指定之 Blob 容器 (\*\*adftutorial\*\*) 的根資料夾中尋找輸入資料。 
+	- 文字檔中有兩個欄位 (**FirstName** 和 **LastName**)，以逗號字元分隔 (**columnDelimiter**)	
+	- **availability** 設為 **hourly** (**frequency** 設為 **hour** 且 **interval** 設為 **1**)，因此 Data Factory 服務會每隔一小時在您指定之 blob 容器 (**adftutorial**) 的根資料夾中尋找輸入資料。 
 	
 
-	如果您未指定輸入資料表的 **fileName**，則輸入資料夾 (\*\*folderPath\*\*) 中的所有檔案/Blob 都會被視為輸入。如果您在 JSON 中指定 fileName，則只有指定的檔案/Blob 會被視為輸入。如需範例，請參閱此[教學課程][adf-tutorial]中的範例檔案。
+	如果您沒有指定**輸入****資料表**的 **fileName**，則輸入資料夾 (**folderPath**) 中的所有檔案/blob 都會視為輸入。如果您在 JSON 中指定 fileName，則只有指定的檔案/Blob 會被視為輸入。如需範例，請參閱此[教學課程][adf-tutorial]中的範例檔案。
  
 	如果您未指定輸出資料表的 **fileName**，**folderPath** 中產生的檔案會依照下列格式命名：Data.&lt;Guid&gt;.txt (範例：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt)。
 
@@ -207,11 +207,11 @@
 		
      請注意：
 	
-	* 位置 **type** 設為 **AzureSQLTableLocation**。
+	* 資料集 **type** 設為 **AzureSQLTable**。
 	* **linkedServiceName** 設為 **AzureSqlLinkedService** (您已在步驟 2 中建立此連結服務)。
 	* **tablename** 設為 **emp**。
 	* 資料庫的 emp 資料表中有三個資料行 (**ID**、**FirstName** 和 **LastName**)，但 ID 是身分識別資料行，所以您在此處只需要指定 **FirstName** 和 **LastName**。
-	* **availability** 設為 **hourly** (\*\*frequency\*\* 設為 **hour** 且 **interval** 設為 **1**)。Data Factory 服務會每隔一小時在 Azure SQL Database 的 **emp** 資料表中產生輸出資料配量。
+	* **availability** 設為 **hourly** (**frequency** 設為 **hour** 且 **interval** 設為 **1**)。Data Factory 服務會每隔一小時在 Azure SQL Database 的 **emp** 資料表中產生輸出資料配量。
 
 
 3. 按一下工具列上的 [部署]，建立並部署 **EmpSQLTable** 資料表。
@@ -258,7 +258,6 @@
 		        "Policy": {
 		          "concurrency": 1,
 		          "executionPriorityOrder": "NewestFirst",
-		          "style": "StartOfInterval",
 		          "retry": 0,
 		          "timeout": "01:00:00"
 		        }
@@ -279,7 +278,7 @@
 	
 	開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**end** 時間為選擇性項目，但在本教學課程中會用到。
 	
-	如果您未指定 **end** 屬性的值，則會以「\*\*start + 48 小時\*\*」計算。若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。
+	如果您未指定 **end** 屬性的值，則會以「**開始 + 48 小時**」計算。若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。
 	
 	在上述範例中，由於每小時即產生一個資料配量，共會有 24 個資料配量。
 	
@@ -363,7 +362,7 @@
 
 	
 12. 按一下 **X** 關閉所有刀鋒視窗，直到您回到 **ADFTutorialDataFactory** 的起始刀鋒視窗。
-14. (選擇性) 在 **ADFTutorialDataFactory** 的起始刀鋒視窗上按一下 [管線]，再按一下 [管線] 刀鋒視窗中的 **ADFTutorialPipeline**，然後深入檢視輸入資料表 (\*\*已取用\*\*) 或輸出資料表 (\*\*已產生\*\*)。
+14. (選擇性) 在 **ADFTutorialDataFactory** 的起始刀鋒視窗上按一下 [**管線**]，再按一下 [**管線**] 刀鋒視窗中的 **ADFTutorialPipeline**，然後深入檢視輸入資料表 (**已取用**) 或輸出資料表 (**已產生**)。
 15. 啟動 **SQL Server Management Studio**，並連接到 Azure SQL Database，然後確認資料列已插入資料庫的 **emp** 資料表中。
 
 	![SQL 查詢結果][image-data-factory-get-started-sql-query-results]
@@ -513,4 +512,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

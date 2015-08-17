@@ -92,4 +92,4 @@ Service Fabric 可靠的服務可能是具狀態或無狀態。每一種服務�
 [可靠的服務組態](../Service-Fabric/service-fabric-reliable-services-configuration.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

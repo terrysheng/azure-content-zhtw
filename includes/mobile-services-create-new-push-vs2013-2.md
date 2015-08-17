@@ -45,4 +45,4 @@
 		
 	現在當您插入新的 TodoItem 時，所有已註冊裝置都會收到推送通知。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="串流分析上的 Power BI 儀表板 | Microsoft Azure" 
-	description="使用即時串流 Power BI 儀表板來收集商業智慧及分析來自串流分析工作的大量資料。" 
+	description="使用即時串流 Power BI 儀表板來收集商業智慧及分析來自串流分析工作的大量資料。" 	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/30/2015" 
+	ms.date="08/03/2015" 
 	ms.author="jeffstok"/>
 	
 # Azure 串流分析與 Power BI：用於串流資料即時分析的即時儀表板
@@ -30,7 +30,7 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 
 * Microsoft Azure 帳戶
 * 串流分析工作從中使用串流資料的輸入。串流分析可接收來自 Azure 事件中樞或 Azure Blob 儲存體的輸入。  
-* Microsoft Power BI 組織識別碼
+* Power BI 的公司帳戶或學校帳戶
 
 ## 建立 Azure 串流分析工作 ##
 
@@ -77,20 +77,20 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 
 1.  按一下頁面頂端的 [輸出]，然後按一下 [新增輸出]。您會看到 Power BI 被列為輸出選項。
 
-![graphic2][graphic2]
+    ![graphic2][graphic2]
 
 2.  選取 [Power BI]，然後按一下右鍵。
 3.  您會看到類似下列畫面：
 
-![graphic3][graphic3]
+    ![graphic3][graphic3]
 
-4.  在此步驟中，提供資料流分析工作輸出的 Ord 識別碼。如果您已具有 Power BI 帳戶，請選取 [**立即授權**]。如果沒有，請選擇 [**立即註冊**]。[下面的部落格文章為您逐步解說如何註冊 Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx)。
+4.  在此步驟中，提供串流分析工作輸出的公司帳戶或學校帳戶。如果您已具有 Power BI 帳戶，請選取 [**立即授權**]。如果沒有，請選擇 [**立即註冊**]。[下面的部落格文章為您逐步解說如何註冊 Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx)。
 
-![graphic11][graphic11]
+    ![graphic11][graphic11]
 
 5.  接下來您會看到一個畫面，如下所示：
 
-![graphic4][graphic4]
+    ![graphic4][graphic4]
 
 提供值，如下所示：
 
@@ -128,7 +128,7 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 
 ## 在 Power BI 中建立儀表板 ##
 
-移至 [Powerbi.com](https://powerbi.com)，然後輸入組織識別碼登入如果串流分析工作查詢輸出任何結果，就會看到您的資料集已經建立完成：
+移至 [Powerbi.com](https://powerbi.com)，然後輸入組公司帳戶或學校帳戶登入。如果串流分析工作查詢輸出任何結果，就會看到您的資料集已經建立完成：
 
 ![graphic5][graphic5]
 
@@ -165,7 +165,7 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 ## 限制和最佳作法 ##
 Power BI 同時採用並行處理和輸送量的條件約束，如下所述：[https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Power BI 價格")
 
-由於這些 Power BI 本身以最自然的方式符合案例需求，其中 Azure 串流分析會大量降低資料載入的作業。我們建議使用 TumblingWindow 或 HoppingWindow 來確保資料推送最多 1 推送/秒，且查詢會落在輸送量需求之中 – 您可以使用下列方程式來計算每秒提供給視窗的值：![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)。
+由於這些 Power BI 本身以最自然的方式符合案例需求，其中 Azure 串流分析會大量降低資料載入的作業。我們建議使用 TumblingWindow 或 HoppingWindow 來確保資料推送最多 1 推送/秒，且查詢會落在輸送量需求之中 – 您可以使用下列方程式來運算每秒提供給視窗的值：![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)。
 
 在此範例中 – 如果您有 1,000 個每秒傳送資料的裝置，且位於支援每小時 1,000,000 個資料列的 Power BI Pro SKU 上，而您想要在 Power BI 上取得每個裝置的平均資料，則每個裝置最多可以每 4 秒執行一次推送 (如下所示)：
 ![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
@@ -211,4 +211,4 @@ Power BI 同時採用並行處理和輸送量的條件約束，如下所述：[h
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
 [graphic11]: ./media/stream-analytics-power-bi-dashboard/11-stream-analytics-power-bi-dashboard.png
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -72,14 +72,14 @@
 
 若要開始，您需要建立 SQL Server 資料庫、資料表、使用者定義型別和預存程序。這些將用於從 Azure Blob 將 **MarketingCampaignEffectiveness** 結果移至 SQL Server 資料庫。
 
-1.	在 **Windows 檔案總管**中，導覽至 **C:\ADFWalkthrough** (或您解壓縮範例的位置) 中的 **OnPremises** 子資料夾。
+1.	在 **Windows 檔案總管**中，導覽至 **C:\\ADFWalkthrough** (或您解壓縮範例的位置) 中的 **OnPremises** 子資料夾。
 2.	在您喜好的編輯器中開啟 **prepareOnPremDatabase&Table.ps1**，將反白顯示部分取代為您的 SQL Server 資訊，並儲存檔案 (請提供 **SQL 驗證**詳細資訊)。針對教學課程的目的，為您的資料庫啟用 SQL 驗證。 
 			
 		$dbServerName = "<servername>"
 		$dbUserName = "<username>"
 		$dbPassword = "<password>"
 
-3. 在 **Azure PowerShell** 中，導覽至 **C:\ADFWalkthrough\OnPremises** 資料夾。
+3. 在 **Azure PowerShell** 中，導覽至 **C:\\ADFWalkthrough\\OnPremises** 資料夾。
 4.	執行 **prepareOnPremDatabase&Table.ps1** **(以雙引號括住 &，或如下所示)**。
 			
 		& '.\prepareOnPremDatabase&Table.ps1'
@@ -106,7 +106,8 @@
 7.	針對 [資料庫] 輸入 **MarketingCampaigns**。 
 8.	按一下 [**認證**]。 
 9.	在 [**認證**] 刀鋒視窗中，按一下 [**按一下這裡以安全地設定認證**]。
-10.	第一次時會安裝一鍵式應用程式，並啟動 [**設定認證]**對話方塊。11.	在 [**設定認證**] 對話方塊中，輸入 [**使用者名稱**] 和 [**密碼**]，然後按一下 [**確定**]。請稍候，待對話方塊關閉。 
+10.	它會在第一次時安裝按一次應用程式，並啟動 **設定認證** 對話方塊。
+11.	在 [**設定認證**] 對話方塊中，輸入 [**使用者名稱**] 和 [**密碼**]，然後按一下 [**確定**]。請稍候，待對話方塊關閉。 
 12.	按一下 [**新增資料存放區**] 刀鋒視窗中的 [**確定**]。 
 13.	在 [**連結服務**] 刀鋒視窗中，確認 **OnPremSqlLinkedService** 顯示在清單中，且連結服務的 [**狀態**] 為 [**良好**]。
 
@@ -114,7 +115,7 @@
 
 ### 建立內部部署邏輯資料表
 
-1.	在 **Azure PowerShell** 中，切換至 **C:\ADFWalkthrough\OnPremises** 資料夾。 
+1.	在 **Azure PowerShell** 中，切換至 **C:\\ADFWalkthrough\\OnPremises** 資料夾。 
 2.	使用 Cmdlet **New-AzureDataFactoryTable** 來建立 **MarketingCampaignEffectivenessOnPremSQLTable.json** 的資料表，如下所示。
 
 			
@@ -170,4 +171,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

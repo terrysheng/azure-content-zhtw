@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article" 
- ms.date="05/12/2015"
+ ms.date="08/04/2015"
  ms.author="krisragh"/>
 
 # 排程器是什麼？
@@ -51,4 +51,4 @@ Azure 排程器會排程工作，保留使用者可以詢問的工作執行結�
  [排程器輸出驗證](scheduler-outbound-authentication.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

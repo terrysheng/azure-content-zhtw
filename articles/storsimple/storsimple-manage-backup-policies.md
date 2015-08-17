@@ -28,7 +28,7 @@
 - **原則名稱** – 與原則相關聯的名稱。不同類型的原則包括：
 
    - 已排程的原則 (由使用者明確建立)。
-   - 自動原則 (建立磁碟區時啟用此磁碟區選項的預設備份時所建立)。這些原則會被命名為 VolumeName_Default，其中磁碟區名稱指的是管理入口網站使用者所設定之 StorSimple 磁碟區的名稱。自動原則會導致每日雲端快照於 22:30 裝置時間開始。
+   - 自動原則 (建立磁碟區時啟用此磁碟區選項的預設備份時所建立)。這些原則會被命名為 VolumeName\_Default，其中磁碟區名稱指的是管理入口網站使用者所設定之 StorSimple 磁碟區的名稱。自動原則會導致每日雲端快照於 22:30 裝置時間開始。
    - 匯入的原則 (原先是在 StorSimple Snapshot Manager 中所建立)。這些包含說明從中匯入原則之 StorSimple Snapshot Manager 主機的標記。
 
 - **磁碟區** – 與原則相關聯的磁碟區。建立備份時，會將與備份原則相關聯的所有磁碟區群組在一起。
@@ -84,4 +84,4 @@
 
 了解如何使用 [StorSimple Snapshot Manager](https://msdn.microsoft.com/library/azure/dn772365.aspx) 管理 StorSimple 備份。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

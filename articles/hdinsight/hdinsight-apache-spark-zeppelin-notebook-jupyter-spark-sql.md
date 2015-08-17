@@ -12,7 +12,7 @@
 	ms.workload="big-data" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
@@ -243,4 +243,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

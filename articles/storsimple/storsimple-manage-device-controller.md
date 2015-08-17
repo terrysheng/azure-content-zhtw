@@ -221,4 +221,4 @@
 
 如果您遇到無法使用本教學課程中所列之程序解決的 StorSimple 裝置控制器相關問題，[請連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

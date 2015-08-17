@@ -1,49 +1,57 @@
 <properties
-   pageTitle="設定並存的 ExpressRoute 和站對站 VPN 連線"
-   description="本教學課程會引導您設定要並存的 ExpressRoute 和站對站 VPN 連線。"
+   pageTitle="設定可以並存的 ExpressRoute 和站對站 VPN 連線"
+   description="本教學課程會引導您設定可以並存的 ExpressRoute 和站對站 VPN 連線。"
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="jdial"
+   manager="carolz"
    editor="tysonn" />
 <tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article" 
+   ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/20/2015"
+   ms.date="08/05/2015"
    ms.author="cherylmc"/>
 
 # 設定並存的 ExpressRoute 和站對站 VPN 連線
 
 您現在可以將 ExpressRoute 和站對站 VPN 連線到相同的虛擬網路。有兩種不同案例和兩個不同設定程序可供您選擇。
 
-### 案例
+## 案例
 
-有兩種不同的案例。下圖顯示了這兩個案例。
+### 案例 1
 
-- **案例 1** - 如果您有一個區域網路，ExpressRoute 就會變成作用中連結，而站對站 VPN 會變成備份。如果 ExpressRoute 連線失敗，站對站 VPN 連線就會變成作用中。這種案例最適合用於高可用性。
+在此案例中，您有一個區域網路。ExpressRoute 是作用中的連結，而且您的站對站 VPN 是備用的。如果 ExpressRoute 連線失敗，站對站 VPN 連線就會變成作用中。這種案例最適合用於高可用性。
 
-- **案例 2** - 如果您有兩個區域網路，可以透過 ExpressRoute 將一個連線到 Azure，而另一個則透過站對站 VPN 連線到 Azure。在此情況下，這兩個連線就能同時作用。
-
-
-![並存](media/expressroute-coexist/coexist1.jpg)
+![並存](media/expressroute-coexist/scenario1.jpg)
 
 
-### 設定程序
 
-有兩個個別設定程序可供您選擇。無論您已經有想要連線的現有虛擬網路，或者想要建立新的虛擬網路，都將決定您所選取的設定程序。
+### 案例 2
+
+在此案例中，您有兩個區域網路。您可以透過 ExpressRoute 將一個連線到 Azure，而另一個則透過站對站 VPN 連線到 Azure。在此情況下，這兩個連線就能同時作用。
+
+![並存](media/expressroute-coexist/scenario2.jpg)
 
 
-- [使用並存連線建立新的 VNet](#create-a-new-vnet-with-coexisting-connections)：如果您還沒有虛擬網路，這個程序將會引導您建立新的虛擬網路，並建立新的 ExpressRoute 和站對站 VPN 連線。  
+## 建立和設定
+
+有兩組不同的程序可供選擇，以便將您的連線設定為並存。您所選取的設定程序取決於您是已經有想要連線的現有虛擬網路，還是想要建立新的虛擬網路。
+
+- **建立新的虛擬網路以及並存的連線：** 
+	
+	如果您還沒有虛擬網路，這個程序將會引導您建立新的虛擬網路，並建立新的 ExpressRoute 和站對站 VPN 連線。若要設定，請依照[建立新的虛擬網路及連線](#create-a-new-virtual-network-and-connections-that-coexist)的步驟進行。
+
+- **設定現有的虛擬網路讓連線並存：**
+	
+	您可能已經有虛擬網路，而且使用現有的站對站 VPN 連線或 ExpressRoute 連線。[為您現有的虛擬網路設定並存的連線](#configure-connections-that-coexist-for-your-existing-virtual-network)程序將會引導您刪除閘道器，然後建立新的 ExpressRoute 和站對站 VPN 連線。請注意，建立新的連線時，您必須以非常特定的順序來完成這些步驟。請勿使用其他文章中的指示建立閘道器和連線。
+
+	在此程序中，建立可以並存的連線將會要求您刪除閘道器，然後設定新的閘道器。這表示當您刪除和重新建立閘道器與連線時，將會有跨設備連線的停機時間，但您不需要將任何 VM 或服務移轉至新的虛擬網路。您的 VM 和服務仍能透過負載平衡器對外通訊，而您能夠在這兩者設定為這樣做時進行閘道器設定。
 
 
-- [設定並存連線的現有 VNet](#configure-your-existing-vnet-for-coexisting-connections)：您可能已經有虛擬網路，而且使用現有的站對站 VPN 連線或 ExpressRoute 連線。建立並存連線將需要您刪除閘道器，然後設定能夠並存的新閘道器。這表示當您刪除和重新建立閘道器與連線時，將會有跨設備連線的停機時間，但您不需要將任何 VM 或服務移轉至新的虛擬網路。您的 VM 和服務仍能透過負載平衡器對外通訊，而您能夠在這兩者設定為這樣做時進行閘道器設定。
-
-	此程序將會引導您刪除閘道器，然後建立新的 ExpressRoute 和站對站 VPN 連線。請注意，建立新的連線時，您必須以非常特定的順序來完成這些步驟。請勿使用其他文章中的指示建立閘道器和連線。
-
-### 附註和限制
+## 附註和限制
 
 - 您將無法在透過站對站 VPN 連線的區域網路，以及透過 ExpressRoute 連線的區域網路之間，進行路由傳送 (透過 Azure)。
 - 您無法啟用連結到 ExpressRoute 之相同 VNet 的點對站 VPN 連線。點對站 VPN 和 ExpressRoute 不能共存在相同的 VNet。
@@ -56,7 +64,9 @@
 	- [透過 Exchange 提供者 (EXP) 設定 ExpressRoute 連線](expressroute-configuring-exps.md)
 
 
-## 建立使用並存連線的新 VNet
+## 建立新的虛擬網路以及並存的連線
+
+此程序會引導您建立虛擬網路，以及建立將並存的站對站和 ExpressRoute 連線。
 
 1. 請確認您擁有最新版本的 PowerShell Cmdlet。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 PowerShell 區段下載並安裝最新版本的 PowerShell Cmdlet。
 2. 建立虛擬網路的結構描述。如需關於使用網路組態檔的詳細資訊，請參閱[使用網路組態檔設定虛擬網路](../virtual-network/virtual-networks-using-network-configuration-file.md)。如需關於組態結構描述的詳細資訊，請參閱 [Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)。
@@ -163,14 +173,14 @@
 	`New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>`
 
 
-## 設定並存連線的現有 VNet
+## 為您現有的虛擬網路設定並存的連線
 
 如果您現有的虛擬網路已透過 ExpressRoute 或站對站 VPN 連線進行連線，則為了啟用這兩個連線以連接到現有虛擬網路，您必須先刪除現有閘道器。這表示當您進行此設定時，本機設備將會與使用該閘道器的虛擬網路中斷連線。
 
 **開始設定之前：**請確認您的虛擬網路中有足夠的 IP 位址，才能夠增加閘道器子網路的大小。
 
 
-1. 請確認您擁有最新版本的 PowerShell Cmdlet。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 PowerShell 區段下載並安裝最新版本的 PowerShell Cmdlet。
+1. 下載最新版的 PowerShell Cmdlet。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 PowerShell 區段下載並安裝最新版本的 PowerShell Cmdlet。
  
 2. 刪除現有的站對站 VPN 閘道。使用下列 Cmdlet，將該值替換為您自己的值。
 
@@ -185,7 +195,7 @@
           <Subnet name="GatewaySubnet">
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
           </Subnet>
-4. 如果您先前的閘道器是站對站 VPN，則必須將連線類型變更為**專用**。
+4. 如果您先前的閘道器是站對站 VPN，則也必須將連線類型變更為 [專用]。
 
 		         <Gateway>
 		          <ConnectionsToLocalNetwork>
@@ -194,7 +204,7 @@
 		            </LocalNetworkSiteRef>
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
-5. 此時，您必須使用沒有閘道器的 VNet。您可以繼續進行[使用並存連線建立新的 VNet](#create-a-new-vnet-with-coexisting-connections) 文章中的**步驟 3**，以建立新的閘道器並完成連線。
+5. 此時，您必須使用沒有閘道器的 VNet。您可以繼續進行[建立新的虛擬網路及連線](#create-a-new-virtual-network-and-connections-that-coexist)文章中的**步驟 3**，以建立新的閘道器並完成連線。
 
 
 
@@ -204,4 +214,4 @@
 
 深入了解 VPN 閘道。請參閱[關於 VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

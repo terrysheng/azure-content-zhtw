@@ -47,7 +47,7 @@ Blitline 是雲端影像處理服務，可提供企業級的影像處理，而�
 
 - Blitline 不接受影像上傳，您無法將影像直接推送至 Blitline。您必須將影像推送至 Azure 儲存體或其他 Blitline 支援的位置，然後通知 Blitline 取得這些影像的位置。
 
-- Blitline 可大量平行處理，但無法執行任何同步處理。這表示您必須提供 postback_url 給我們，我們會在處理完成時通知您。
+- Blitline 可大量平行處理，但無法執行任何同步處理。這表示您必須提供 postback\_url 給我們，我們會在處理完成時通知您。
 
 ## <a id="createaccount"></a>建立 Blitline 帳戶
 
@@ -95,11 +95,11 @@ Blitline 使用 JSON 定義您要對影像採取的動作。此 JSON 是由幾�
     }
 
 
-這代表 Blitline 已收到您的要求，它已將您的要求置入處理佇列，以及當它完成影像時的影像位置：**https://s3.amazonaws.com/dev.blitline/2011110722/YOUR_APP_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
+這代表 Blitline 已收到您的要求，它已將您的要求置入處理佇列，以及當它完成映像時的位置：****https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
 ## <a id="saveazure"></a>如何將影像儲存至您的 Azure 儲存體帳戶
 
-如果您有 Azure 儲存體帳戶，您可以輕易地要求 Blitline 將已處理的影像推送到 Azure 容器。透過新增 "azure_destination"，您可以定義 Blitline 要推送的位置和權限。
+如果您有 Azure 儲存體帳戶，您可以輕易地要求 Blitline 將已處理的影像推送到 Azure 容器。透過新增 "azure\_destination"，您可以定義 Blitline 要推送的位置和權限。
 
 下列是一個範例：
 
@@ -150,4 +150,4 @@ SAS 必須包含整個 SAS URL，包括目的地檔案的檔案名稱。
   [如何建立 Blitline 工作]: #createjob
   [如何將影像儲存至您的 Azure 儲存體]: #saveazure
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

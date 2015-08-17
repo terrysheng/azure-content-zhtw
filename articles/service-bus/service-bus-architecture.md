@@ -69,4 +69,4 @@
 - [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 - [使用服務匯流排佇列的佇列訊息解決方案](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

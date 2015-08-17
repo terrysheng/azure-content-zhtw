@@ -4,9 +4,8 @@
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
-	writer="Rick-Anderson" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -84,52 +83,52 @@
 
 1. 使用下列程式碼來取代 *Layout.cshtml* 檔案中的標記。變更重點如下。
 
-<pre>
-			&lt;!DOCTYPE html>
-			&lt;html>
-			&lt;head>
-			    &lt;meta charset="utf-8" />
-			    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
-			    &lt;title>@ViewBag.Title - <mark>Contact Manager</mark>&lt;/title>
+```
+			&lt;!DOCTYPE html&gt;
+			&lt;html&gt;
+			&lt;head&gt;
+			    &lt;meta charset="utf-8" /&gt;
+			    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+			    &lt;title&gt;@ViewBag.Title - <mark>Contact Manager</mark>&lt;/title&gt;
 			    @Styles.Render("~/Content/css")
 			    @Scripts.Render("~/bundles/modernizr")
 			
-			&lt;/head>
-			&lt;body>
-			    &lt;div class="navbar navbar-inverse navbar-fixed-top">
-			        &lt;div class="container">
-			            &lt;div class="navbar-header">
-			                &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			                    &lt;span class="icon-bar">&lt;/span>
-			                    &lt;span class="icon-bar">&lt;/span>
-			                    &lt;span class="icon-bar">&lt;/span>
-			                &lt;/button>
+			&lt;/head&gt;
+			&lt;body&gt;
+			    &lt;div class="navbar navbar-inverse navbar-fixed-top"&gt;
+			        &lt;div class="container"&gt;
+			            &lt;div class="navbar-header"&gt;
+			                &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"&gt;
+			                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
+			                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
+			                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
+			                &lt;/button&gt;
 			                @Html.ActionLink("<mark>CM Demo</mark>", "Index", "<mark>Cm</mark>", new { area = "" }, new { @class = "navbar-brand" })
-			            &lt;/div>
-			            &lt;div class="navbar-collapse collapse">
-			                &lt;ul class="nav navbar-nav">
-			                    &lt;li>@Html.ActionLink("Home", "Index", "Home")&lt;/li>
-			                    &lt;li>@Html.ActionLink("About", "About", "Home")&lt;/li>
-			                    &lt;li>@Html.ActionLink("Contact", "Contact", "Home")&lt;/li>
-			                &lt;/ul>
+			            &lt;/div&gt;
+			            &lt;div class="navbar-collapse collapse"&gt;
+			                &lt;ul class="nav navbar-nav"&gt;
+			                    &lt;li&gt;@Html.ActionLink("Home", "Index", "Home")&lt;/li&gt;
+			                    &lt;li&gt;@Html.ActionLink("About", "About", "Home")&lt;/li&gt;
+			                    &lt;li&gt;@Html.ActionLink("Contact", "Contact", "Home")&lt;/li&gt;
+			                &lt;/ul&gt;
 			                @Html.Partial("_LoginPartial")
-			            &lt;/div>
-			        &lt;/div>
-			    &lt;/div>
-			    &lt;div class="container body-content">
+			            &lt;/div&gt;
+			        &lt;/div&gt;
+			    &lt;/div&gt;
+			    &lt;div class="container body-content"&gt;
 			        @RenderBody()
-			        &lt;hr />
-			        &lt;footer>
-			            &lt;p>&amp;copy; @DateTime.Now.Year - <mark>Contact Manager</mark>&lt;/p>
-			        &lt;/footer>
-			    &lt;/div>
+			        &lt;hr /&gt;
+			        &lt;footer&gt;
+			            &lt;p&gt;&amp;copy; @DateTime.Now.Year - <mark>Contact Manager</mark>&lt;/p&gt;
+			        &lt;/footer&gt;
+			    &lt;/div&gt;
 			
 			    @Scripts.Render("~/bundles/jquery")
 			    @Scripts.Render("~/bundles/bootstrap")
 			    @RenderSection("scripts", required: false)
-			&lt;/body>
-			&lt;/html>
-</pre>
+			&lt;/body&gt;
+			&lt;/html&gt;
+```
 
 ### 在本機執行應用程式
 
@@ -416,8 +415,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
                 await UserManager.AddToRoleAsync(user.Id, "canEdit");
 
-   上述程式碼將新註冊的使用者新增至「canEdit」角色，使用者因此能存取用來變更 (編輯) 資料的動作方法。
-	<pre>
+   上述程式碼會將新註冊的使用者新增至 "canEdit" 角色，讓這些使用者能存取用來變更 (編輯) 資料的動作方法。```
 	      // POST: /Account/ExternalLoginConfirmation
 	      [HttpPost]
 	      [AllowAnonymous]
@@ -453,7 +451,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 	         ViewBag.ReturnUrl = returnUrl;
 	         return View(model);
 	      }
-	</pre>
+```
 
 稍後在本教學課程中，您會將應用程式部署至 Azure，並在後者使用 Google 或其他協力廠商驗證提供者來登入。這會將您新註冊的帳戶新增至 *canEdit* 角色。任何人只要有您 Web 應用程式的 URL 和 Google ID，就可以註冊及更新您的資料庫。若要防止其他人這麼做，您可以停止網站。您可以檢查資料庫來確認 *canEdit* 角色中有誰。
 
@@ -461,14 +459,15 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 		Update-Database
 
-執行 **Update-Database** 命令，以執行 **Seed** 方法並進而執行您剛剛新增的 **AddUserAndRole**。**AddUserAndRole** 將建立使用者，*user1@contoso.com*並將她新增至 *canEdit* 角色。
+執行 **Update-Database** 命令，以執行 **Seed** 方法並進而執行您剛剛新增的 **AddUserAndRole**。**AddUserAndRole** 將建立使用者 *user1@contoso.com*，並將她新增至 *canEdit* 角色。
 
 ## 使用 SSL 和 Authorize 屬性保護應用程式 ##
 
 在本節中，您將套用 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 屬性來限制對動作方法的存取。匿名使用者只能檢視首頁控制器的 **Index** 動作方法。註冊的使用者能夠查看連絡人資料 (Cm 控制器的 [索引] 和 [詳細資料] 頁面)、[關於] 和 [連絡人] 頁面。只有 *canEdit* 角色中的使用者才能存取用來變更資料的動作方法。
 
-1. 將 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 篩選器和 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 篩選器新增至應用程式。替代的方法是將 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 屬性和 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 屬性新增至每個控制器，但將這些屬性套用至整個應用程式是最安全的做法。藉由全面新增這些屬性，您所新增的每個新控制器和動作方法都會自動受到保護，而不需要您記得哪些已套用、哪些未套用。如需詳細資訊，請參閱[保護您的 ASP.NET MVC 應用程式和新 AllowAnonymous 屬性](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)。開啟 *App_Start\FilterConfig.cs* 檔案，並使用以下程式碼 (新增兩個篩選器) 取代 *RegisterGlobalFilters* 方法：
-		<pre>
+1. 將 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 篩選器和 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 篩選器新增至應用程式。替代的方法是將 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 屬性和 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 屬性新增至每個控制器，但將這些屬性套用至整個應用程式是最安全的做法。藉由全面新增這些屬性，您所新增的每個新控制器和動作方法都會自動受到保護，而不需要您記得哪些已套用、哪些未套用。如需詳細資訊，請參閱[保護您的 ASP.NET MVC 應用程式和新 AllowAnonymous 屬性](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)。開啟 *App_Start\FilterConfig.cs* 檔案，並以下列程式碼 (其會新增兩個篩選器) 取代 *RegisterGlobalFilters* 方法：
+
+```
         public static void
         RegisterGlobalFilters(GlobalFilterCollection filters)
         {
@@ -476,15 +475,16 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
             <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute());
             filters.Add(new RequireHttpsAttribute());</mark>
         }
-		</pre>
+```
 
 
 
 
 	上述程式碼中套用的 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 篩選器將防止匿名使用者存取應用程式中的任何方法。您將使用 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性來選擇略過一些方法中的授權需求，讓匿名使用者可登入及檢視首頁。使用 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 時，所有對 Web 應用程式的存取都必須透過 HTTPS 進行。
 
-1. 將 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性新增至首頁控制器的 **Index** 方法。[AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性能讓您將想要選擇略過授權的方法加到白名單。
-		<pre>
+1. 將 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性新增至首頁控制器的 **Index** 方法。[AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性能讓您將想要選擇略過授權的方法加到白名單。 
+
+```
 	public class HomeController : Controller
    {
       <mark>[AllowAnonymous]</mark>
@@ -492,11 +492,10 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
       {
          return View();
       }
-	</pre>
+```
 
 2. 全面搜尋 *AllowAnonymous*，您會發現帳戶控制器的登入與註冊方法中都使用了它。
-1. 在 *CmController.cs* 中，將 `[Authorize(Roles = "canEdit")]` 新增至 *Cm* 控制器中用來變更資料的 HttpGet 和 HttpPost 方法 (Create、Edit、Delete，也就是 Index 和 Details 外的每個動作方法)。以下顯示完整程式碼的部分內容： 
-		<pre>
+1. 在 *CmController.cs* 中，將 `[Authorize(Roles = "canEdit")]` 新增至 *Cm* 控制器中用來變更資料的 HttpGet 和 HttpPost 方法 (Create、Edit、Delete，也就是 Index 和 Details 外的每個動作方法)。以下顯示完整程式碼的片段內容：```
 	// GET: Cm/Create
        <mark>[Authorize(Roles = "canEdit")]</mark>
         public ActionResult Create()
@@ -536,7 +535,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
             }
             return View(contact);
         }
-		</pre>
+```
 
 1. 如果您在前個工作階段仍保持登入狀態，請點擊 [登出] 連結。
 1. 按一下 [關於] 或 [連絡人] 連結。因為匿名使用者無法檢視那些頁面，所以系統會將您重新導向至登入頁面。 
@@ -544,7 +543,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 	![登入](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
-1. 按一下 *[CM Demo]* 連結並確認看到資料。
+1. 按一下 [CM Demo] 連結並確認看到資料。
 1. 按一下頁面上的編輯連結，系統會將您重新導向至登入頁面 (因為未將新的本機使用者新增至 *canEdit* 角色)。
 1. 使用 *user1@contoso.com* 的身分和密碼 "P_assw0rd1" (word 中的「0」是數字零) 登入。系統隨即將您重新導向到先前選取的編輯頁面。<br/>
    如果無法以該帳戶和密碼登入，請嘗試複製並貼上原始程式碼中的密碼。如果仍然無法登入，請檢查 **AspNetUsers** 資料表的 **UserName** 欄以確認已新增 *user1@contoso.com*。
@@ -568,7 +567,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 	![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc3.png)
 
-1. 按一下 [發行]。
+1. 按一下 [發佈]。
 1. 以 *user1@contoso.com* (使用密碼 "P_assw0rd1") 身分登入，並確認您可以編輯資料。
 1. 登出。
 1. 請移至 [[Google Developers Console](https://console.developers.google.com/)]，並在 [**認證**] 索引標籤上更新 [重新導向 URI] 和 [JavaScript Orgins] 以使用 Azure URL。
@@ -728,4 +727,4 @@ Tom Dykstra 見解精闢的[開始使用 EF 和 MVC](http://www.asp.net/mvc/tuto
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

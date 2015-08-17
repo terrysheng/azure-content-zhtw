@@ -86,7 +86,7 @@
 	        public DateTime Date { get; set; }
     	}
 
-4. 展開 Models 資料夾，開啟資料模型內容檔案 (名為 *service\_name\*Context.cs)，然後新增下列會傳回型別 **DbSet** 的屬性：
+4. 展開 Models 資料夾，開啟資料模型內容檔案 (名為 *service\_name*Context.cs)，然後新增下列會傳回型別 DbSet 的屬性：**DbSet**：
 
 		public DbSet<Updates> Updates { get; set; }
 
@@ -213,7 +213,7 @@
 		    }
 		}
 
-	在上述程式碼中，您必須將字串 _todolistService_ 和 _todolistContext_ 替換為您已下載之專案的命名空間和 DbContext，分別是 *mobile&#95;service&#95;name\*Service 和 *mobile&#95;service&#95;name\*Context。
+	在上述程式碼中，您必須將字串 _todolistService_ 和 _todolistContext_ 替換為您已下載之專案的命名空間和 DbContext，分別是 *mobile&#95;service&#95;name*Service 和 *mobile&#95;service&#95;name*Context。
    	
 	在上述程式碼中，**ExecuteAsync** 覆寫方法會使用儲存的認證來呼叫 Twitter 查詢 API，以要求包含 # 標籤 `#mobileservices` 的最新推文。在重複的推文和回覆被儲存於資料表之前，系統會先將它們從結果中移除。
 
@@ -300,4 +300,4 @@
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ to Twitter CodePlex 專案]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

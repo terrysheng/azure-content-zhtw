@@ -87,4 +87,4 @@ Azure 媒體服務提供一些工具，供您用來建立適用於大部分平�
 [overview]: ./media/media-services-overview/media-services-overview.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

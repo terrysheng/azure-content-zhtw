@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
-	editor="cgronlun" />
+	editor="cgronlun"  />
 
 <tags
 	ms.service="machine-learning"
@@ -106,7 +106,7 @@ Hive 查詢類似 SQL。熟悉 SQL 的使用者可能會發現 <a href="http://h
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-在下列範例中，Hive 查詢的輸出會寫入 Hadoop 叢集預設容器內的 Blob 目錄 `queryoutputdir`。在此處，您應該只提供目錄名稱，而不需提供 Blob 名稱。如果您同時提供目錄和 Blob 名稱 (例如 *wasb:///queryoutputdir/queryoutput.txt*)，則會擲回錯誤。
+在下列範例中，Hive 查詢的輸出會寫入 Hadoop 叢集預設容器內的 Blob 目錄 `queryoutputdir`。在此處，您應該只提供目錄名稱，而不需提供 Blob 名稱。如果您同時提供目錄和 Blob 名稱 (例如 **wasb:///queryoutputdir/queryoutput.txt*)，則會擲回錯誤。
 
 ![建立工作區][13]
 
@@ -167,7 +167,7 @@ Hive 查詢的輸出會顯示於 Blob 儲存體中，方法是使用 Azure 儲�
 
 本節將說明使用 Hive 查詢產生功能的方式。
 
-> [AZURE.NOTE]本節中的 Hive 查詢範例假設資料已上傳至 Azure HDInsight Hadoop 叢集中的 Hive 資料表。如果沒有，請遵循[建立資料並載入至 Hive 資料表](machine-learning-data-science-hive-tables.md)，先將資料上傳至 Hive 資料表。
+> [AZURE.NOTE]本節中的 Hive 查詢範例假設資料已上傳至 Azure HDInsight Hadoop 叢集中的 Hive 資料表。如果沒有，請遵循[建立資料並載入 Hive 資料表](machine-learning-data-science-hive-tables.md)，先將資料上傳至 Hive 資料表。
 
 一旦產生額外功能之後，就可以將它們當成資料行新增至現有的資料表，或是建立具有其他功能和主索引鍵的新資料表 (然後與原始資料表聯結)。
 
@@ -177,7 +177,7 @@ Hive 查詢的輸出會顯示於 Blob 儲存體中，方法是使用 Azure 儲�
 4. [從文字欄位擷取功能](#hive-textfeatures)
 5. [計算 GPS 座標間的距離](#hive-gpsdistance)
 
-###<a name="hive-frequencyfeature"></a>以頻率為基礎的功能產生
+###<a name="hive-frequencyfeature"></a> 以頻率為基礎的功能產生
 
 計算類別變數層級的頻率，或是來自多個類別變數之特定層級組合的頻率，通常很實用。使用者可以使用下列指令碼來計算這些頻率：
 
@@ -192,7 +192,7 @@ Hive 查詢的輸出會顯示於 Blob 儲存體中，方法是使用 Azure 儲�
 		order by frequency desc;
 
 
-###<a name="hive-riskfeature"></a>二進位分類中類別變數的風險
+###<a name="hive-riskfeature"></a> 二元分類中類別變數的風險
 
 在二進位分類中，若使用的模型只會採用數值功能，我們就需要將非數值類別變數轉換成數值功能。您可以使用數值風險來取代每個非數值層級，藉以完成這個動作。在本節中，我們將說明一些計算類別變數風險值 (記錄機率) 的泛型 Hive 查詢。
 
@@ -241,7 +241,7 @@ Hive 會和一組 UDF 一起出現，用來處理日期時間欄位。在 Hive �
 佈建叢集時，這個查詢中的 *hivesampletable* 預設會預先安裝於所有 Azure HDInsight Hadoop 叢集中。
 
 
-###<a name="hive-textfeatures"></a> 從文字欄位擷取功能
+###<a name="hive-textfeatures"></a>從文字欄位擷取功能
 
 當 Hive 資料表具有一個文字欄位且其中包含以空格分隔的文字字串時，下列查詢便會擷取字串長度，以及字串中的字數。
 
@@ -270,7 +270,7 @@ Hive 會和一組 UDF 一起出現，用來處理日期時間欄位。在 Hive �
 		and dropoff_latitude between 30 and 90
 		limit 10;
 
-您可以在<a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">可移動的類型指令碼</a>網站 (英文，作者為 Peter Lapisu) 上找到計算兩個 GPS 座標間之距離的數學方程式。在他的 Javascript 中，函數 `toRad()` 僅為 *lat\_or\_lon\*pi/180*，可將角度轉換為弧度。在此，*lat\_or\_lon* 為緯度或經度。由於 Hive 不提供函數 `atan2`，但提供函數 `atan`，因此 `atan2` 函數是由上述 Hive 查詢中的 `atan` 函數以 <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a> 中提供的定義來實作。
+您可以在<a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">可移動的類型指令碼</a>網站 (英文，作者為 Peter Lapisu) 上找到計算兩個 GPS 座標間之距離的數學方程式。在他的 Javascript 中，函數 `toRad()` 僅為 *lat\_or\_lon*pi/180*，可將角度轉換為弧度。在此，*lat\_or\_lon* 為緯度或經度。由於 Hive 不提供函數 `atan2`，但提供函數 `atan`，因此 `atan2` 函數是由上述 Hive 查詢中的 `atan` 函數以 <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a> 中提供的定義來實作。
 
 ![建立工作區][1]
 
@@ -302,7 +302,7 @@ Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處
 
 	一般而言，*mapred.min.split.size* 的預設值為 0，*mapred.max.split.size* 的預設值是 **Long.MAX**，而 *dfs.block.size* 的預設值則是 64 MB。誠如所見，若指定了資料大小，則藉由「設定」這些參數來微調它們，讓我們能夠微調所使用的對應程式數目。
 
-5. 以下將提及最佳化 Hive 效能的其他數個更**進階選項**。這些選項讓您能夠設定配置的記憶體來對應和縮減工作，而且在調整效能時非常實用。請記住，*mapreduce.reduce.memory.mb* 不能大於 Hadoop 叢集中每個背景工作節點的實際記憶體大小。
+5. 以下將提及最佳化 Hive 效能的其他數個更**進階選項**。這些選項讓您能夠設定配置的記憶體來對應和縮減工作，而且在調整效能時非常實用。請記住，*mapreduce.reduce.memory.mb* 不能大於 Hadoop 叢集中每個背景工作角色節點的實際記憶體大小。
 
 		set mapreduce.map.memory.mb = 2048;
 		set mapreduce.reduce.memory.mb=6144;
@@ -319,4 +319,4 @@ Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

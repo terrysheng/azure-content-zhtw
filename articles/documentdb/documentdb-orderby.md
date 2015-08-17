@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 Order By 排序 DocumentDB 資料 | Azure" 
+	pageTitle="使用 Order By 排序 DocumentDB 資料 | Microsoft Azure" 
 	description="了解如何以 LINQ 和 SQL 在 DocumentDB 查詢中使用 ORDER BY，以及如何指定 ORDER BY 查詢的索引編製原則。" 
 	services="documentdb" 
 	authors="arramac" 
@@ -86,7 +86,7 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
 如需詳細資訊，請參閱 [DocumentDB 索引編制原則](documentdb-indexing-policies.md)。
 
 ### 針對所有屬性編製 Order By 的索引
-以下是您如何針對出現在 JSON 文件內的任何/所有數字或字串屬性，以 Order By 的「所有範圍」索引建立集合。其中，"/\*" 代表集合內的所有 JSON 屬性/路徑，-1 代表最大精確度。
+以下是您如何針對出現在 JSON 文件內的任何/所有數字或字串屬性，以 Order By 的「所有範圍」索引建立集合。其中，"/*" 代表集合內的所有 JSON 屬性/路徑，-1 代表最大精確度。
                    
     booksCollection.IndexingPolicy.IncludedPaths.Add(
         new IncludedPath { 
@@ -160,7 +160,8 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
 
 您無法執行以下工作：
  
-- 將 Order By 用於內部字串屬性，如 id、_rid 及 _self (即將推出)。- 將 Order By 用於衍生自文件內部聯結之結果的屬性 (即將推出)。
+- 將 Order By 用於內部字串屬性，如 id、\_rid, and \_self (即將推出)。
+- 將 Order By 用於衍生自文件內部聯結之結果的屬性 (即將推出)。
 - 依多個屬性執行 Order By (即將推出)。
 - 將 Order By 用於針對資料庫、集合、使用者、權限或附件的查詢 (即將推出)。
 - 將 Order By 用於計算的屬性 (如運算式或 UDF/內建函數的結果)。
@@ -176,4 +177,4 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
 * [DocumentDB Order By 範例](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

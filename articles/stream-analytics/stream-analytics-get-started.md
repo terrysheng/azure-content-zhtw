@@ -1,7 +1,6 @@
 <properties
 	pageTitle="開始使用串流分析：即時詐騙偵測 | Microsoft Azure"
 	description="了解如何使用串流分析建立即時詐騙偵測解決方案。使用事件中樞以即時處理事件。"
-	keywords="event hub,fraud detection,real-time,real-time processing"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/28/2015"
+	ms.date="08/04/2015"
 	ms.author="jeffstok" />
 
 
@@ -246,7 +245,7 @@ Azure 串流分析是完全受管理的服務，可用來對雲端中的串流�
 ![詐騙偵測：即時檢視的詐騙事件](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## 取得支援
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
 
 
 ## 後續步驟
@@ -258,4 +257,4 @@ Azure 串流分析是完全受管理的服務，可用來對雲端中的串流�
 - [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

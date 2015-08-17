@@ -133,4 +133,4 @@ Android 的**開始使用資料**教學課程到此結束。
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
    
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

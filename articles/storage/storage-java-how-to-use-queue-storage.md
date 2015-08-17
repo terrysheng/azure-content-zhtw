@@ -392,4 +392,4 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -67,18 +67,18 @@ Azure 流量管理員使用名為「流量管理員設定檔」的設定集合�
 ### 步驟 2
 切換 PowerShell 來使用 ARM Cmdlet。如需詳細資訊，可在＜搭配使用 Windows PowerShell 與資源管理員＞取得。
 
-	PS C:> Switch-AzureMode -Name AzureResourceManager
+	PS C:\> Switch-AzureMode -Name AzureResourceManager
 ### 步驟 3
 登入您的 Azure 帳戶。
 
-	PS C:> Add-AzureAccount
+	PS C:\> Add-AzureAccount
 
 系統會提示使用您的認證進行驗證。
 
 ### 步驟 4
 選擇要使用哪一個 Azure 訂用帳戶。
 
-	PS C:> Select-AzureSubscription -SubscriptionName "MySubscription"
+	PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 若要查看可用訂用帳戶的清單，請使用 ‘Get-AzureSubscription’ Cmdlet。
 
@@ -86,12 +86,12 @@ Azure 流量管理員使用名為「流量管理員設定檔」的設定集合�
 
  流量管理員服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂用帳戶必須先註冊以使用此資源提供者，才能透過 ARM 使用流量管理員。每個訂用帳戶只需執行一次此作業。
 
-	PS C:> Register-AzureProvider –ProviderNamespace Microsoft.Network
+	PS C:\> Register-AzureProvider –ProviderNamespace Microsoft.Network
 
 ### 步驟 6
 建立資源群組 (如果是使用現有的資源群組，請略過此步驟)
 
-	PS C:> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
+	PS C:\> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
 
 Azure 資源管理員需要所有的資源群組指定一個位置。這用來作為該資源群組中資源的預設位置。然而，因為流量管理員設定檔的所有資源是全域而非區域，資源群組位置的選擇不會影響 Azure 流量管理員。
 
@@ -99,7 +99,7 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 若要建立流量管理員設定檔，請使用 New-AzureTrafficManagerProfile Cmdlet：
 
-	PS C:> $profile = New-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $profile = New-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 
 參數如下所示：
 
@@ -125,7 +125,7 @@ Cmdlet 在 Azure 流量管理員中建立流量管理員設定檔，並傳回對
 
 若要擷取現有的流量管理員設定檔物件，請使用 Get-AzureTrafficManagerProfle Cmdlet：
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
 
 此 Cmdlet 會傳回流量管理員設定檔物件。
 
@@ -145,9 +145,9 @@ Cmdlet 在 Azure 流量管理員中建立流量管理員設定檔，並傳回對
 
 使用 ‘Add-AzureTrafficManagerEndpointConfig’ Cmdlet 可新增端點到流量管理員設定檔：
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> Add-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target site1.contoso.com –EndpointStatus Enabled –Weight 10 –Priority 1 –EndpointLocation “West US”
-	PS C:> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Add-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target site1.contoso.com –EndpointStatus Enabled –Weight 10 –Priority 1 –EndpointLocation “West US”
+	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 Add-AzureTrafficManagerEndpointConfig 的參數如下所示：
 
@@ -173,36 +173,36 @@ EndpointStatus、Weight 和 Priority 是選擇性的參數。如果省略，Powe
 
 若要從設定檔移除端點，請使用 ‘Remove-AzureTrafficmanagerEndpointConfig’，指定要移除的端點名稱：
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile
-	PS C:> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile
+	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 新增或移除端點的作業順序也可以「輸送」，透過管道而非作為參數來傳送設定檔物件。例如：
 
-	PS C:> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 | Set-AzureTrafficManagerProfile
+	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 | Set-AzureTrafficManagerProfile
 
 ### 變更設定檔或端點的設定
 
 設定檔和端點參數都可以離線變更，並使用 Set-AzureTrafficManagerProfile 認可變更。唯一的例外是設定檔 RelativeDnsName 無法在設定檔建立後變更 (若要變更這個值，請刪除然後重新建立設定檔)。例如，若要變更設定檔 TTL 和第一個端點的狀態：
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> $profile.Ttl = 300
-	PS C:> $profile.Endpoints[0].EndpointStatus = "Disabled"
-	PS C:> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile.Ttl = 300
+	PS C:\> $profile.Endpoints[0].EndpointStatus = "Disabled"
+	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 ### 刪除流量管理員設定檔
 若要刪除流量管理員設定檔，請使用 Remove-AzureTrafficManagerProfile Cmdlet，指定設定檔名稱和資源群組名稱：
 
-	PS C:> Remove-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup [-Force]
+	PS C:\> Remove-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup [-Force]
 
 這個 Cmdlet 會提示進行確認。選擇性的 ’-Force’ 參數可用來隱藏這個提示。要刪除的設定檔也可以使用設定檔物件來指定：
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> Remove-AzureTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Remove-AzureTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
 
 也可輸送以下順序：
 
-	PS C:> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
+	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
 
 
 ## 另請參閱
@@ -212,4 +212,4 @@ EndpointStatus、Weight 和 Priority 是選擇性的參數。如果省略，Powe
 [Azure Cmdlet 使用者入門](https://msdn.microsoft.com/library/jj554332.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

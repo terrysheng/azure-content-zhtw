@@ -88,9 +88,7 @@ Azure Machine Learning 建議 API 的服務根 URI 在[這裡。](https://api.da
 
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
-|	modelName |	只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：20 |
-|	apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+|	modelName |	只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：20 | | apiVersion | 1.0 | ||| | 要求主體 | 無 |
 
 
 **回應**：
@@ -140,8 +138,7 @@ OData XML
 |:--------			|:--------								|
 |	id |	模型的唯一識別碼 (區分大小寫) |
 |	apiVersion | 1\.0 |
-||| 
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
@@ -938,15 +935,11 @@ HTTP 狀態碼：200
 
 注意：檔案大小上限為 200 MB。
 
-\*\*格式詳細資料\*\*
+**格式詳細資料**
 
 | 名稱 | 強制 | 類型 | 說明 |
 |:---|:---|:---|:---|
-| 項目識別碼 |是 | [A-z]、[a-z]、[0-9]、[\_] &#40;底線&#41;、[-] &#40;虛線&#41;<br> 最大長度：50 | 項目的唯一識別碼。 |
-| 項目名稱 | 是 | 任何英數字元<br> 最大長度：255 | 項目名稱。 | 
-| 項目類別 | 是 | 任何英數字元 <br> 最大長度：255 | 此項目所屬類別 (例如烹飪書籍、劇本...) 可以是空的。 |
-| 說明 | 否，除非顯示功能 (但可能是空的) | 任何英數字元 <br> 最大長度：4000 | 此項目的說明。 |
-| 功能清單 | 否 | 任何英數字元 <br> 最大長度：4000 | 以逗號分隔的功能名稱清單 = 功能值，可用來增強模型建議；請參閱[進階主題](#2-advanced-topics)一節。 |
+| 項目識別碼 |是 | [A-z]、[a-z]、[0-9]、[\_] &#40;底線&#41;、[-] &#40;虛線&#41;<br> 最大長度： 50 | 項目的唯一識別碼。 | | 項目名稱 | 是 | 任何英數字元<br> 最大長度：255 | 項目名稱。 | | 項目類別 | 是 | 任何英數字元 <br> 最大長度：255 | 此項目所屬類別 (例如烹飪書籍、劇本…) 可以是空的。 | | 描述 | 否，除非顯示功能 (但也可能是空的) | 任何英數字元 <br> 最大長度：4000 | 此項目的說明 | | 功能清單 | 否 | 任何英數字元 <br> 最大長度：4000 | 以逗號分隔的功能名稱清單 = 功能值，可用來增強模型建議；請參閱[進階主題](#2-advanced-topics)一節。 |
 
 
 | HTTP 方法 | URI |
@@ -956,9 +949,7 @@ HTTP 狀態碼：200
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼 |
-| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：50 |
-|	apiVersion | 1\.0 |
-||| | 要求本文 |範例 (包含功能)：<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：50 | | apiVersion | 1.0 | ||| | 要求本文 | 範例 (包含功能)：<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **回應**：
@@ -1157,9 +1148,7 @@ OData XML
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼 |
-| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：50 |
-|	apiVersion | 1\.0 |
-||||要求本文 |使用狀況資料。格式：<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>使用者識別碼</td><td>是</td><td>[A-z]、[a-z]、[0-9]、[\_] &#40;底線&#41;、[-] &#40;虛線&#41;<br> 最大長度：255 </td><td>使用者的唯一識別碼。</td></tr><tr><td>項目識別碼</td><td>是</td><td>[A-z]、[a-z]、[0-9]、[&#95;] &#40;底線&#41;、[-] &#40;虛線&#41;<br> 最大長度：50</td><td>項目的唯一識別碼。</td></tr><tr><td>時間</td><td>否</td><td>日期格式：YYYY/MM/DDTHH:MM:SS (例如 2013/06/20T10:00:00)</td><td>資料的時間。</td></tr><tr><td>事件</td><td>否；如果提供，也必須註明日期</td><td>下列其中之一：<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>檔案大小上限：200 MB<br><br>範例：<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (_)。<br>最大長度：50 | | apiVersion | 1.0 | ||| | 要求主體 | 使用狀況資料。格式：<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>使用者識別碼</td><td>是</td><td>[A-z]、[a-z]、[0-9]、[_] &#40;底線&#41;、[-] &#40;虛線&#41;<br> 最大長度：255 </td><td>使用者的唯一識別碼。</td></tr><tr><td>項目識別碼</td><td>是</td><td>[A-z]、[a-z]、[0-9]、[&#95;] &#40;底線&#41;、[-] &#40;虛線&#41;<br> 最大長度：50</td><td>項目的唯一識別碼。</td></tr><tr><td>時間</td><td>否</td><td>日期格式：YYYY/MM/DDTHH:MM:SS (例如 2013/06/20T10:00:00)</td><td>資料的時間。</td></tr><tr><td>事件</td><td>否；如果提供，也必須註明日期</td><td>下列其中之一：<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>檔案大小上限：200MB<br><br>範例：<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **回應**：
 
@@ -1677,7 +1666,7 @@ OData
 
   本節說明和組建相關的不同 API。有 3 個類型的組建：建議組建、排名組建和 FBT (通常會一起購買) 組建。
 
-建議組建的用途是產生用於預測的建議模型。這種組建類型的預測可分為兩種類別：\* I2I - 又稱為項目對項目的建議 - 這個選項會根據指定的一個項目或項目清單，來預測可能高度感興趣的項目清單。\* U2I - 又稱為使用者對項目的建議 - 這個選項會根據指定的使用者識別碼 (及選擇性的項目清單)，來預測指定使用者 (及針對額外選擇的項目) 可能高度感興趣的項目清單。U2I 建議是根據使用者在建置模型前感興趣之項目的歷程記錄。
+建議組建的用途是產生用於預測的建議模型。這種組建類型的預測可分為兩種類別：* I2I - 又稱為項目對項目的建議 - 這個選項會根據指定的一個項目或項目清單，來預測可能高度感興趣的項目清單。* U2I - 又稱為使用者對項目的建議 - 這個選項會根據指定的使用者識別碼 (及選擇性的項目清單)，來預測指定使用者 (及針對額外選擇的項目) 可能高度感興趣的項目清單。U2I 建議是根據使用者在建置模型前感興趣之項目的歷程記錄。
 
 排名組建為技術組建，可讓您了解功能的效益。通常，若要取得包含功能之建議模型的最佳結果，您應該採取下列步驟：- 觸發排名組建 (除非功能的分數很穩定)，並等待直到取得功能分數。- 藉由呼叫 [取得功能資訊](#101-get-features-info-for-last-rank-build) API 擷取功能的排名。- 以下列參數設定建議組建：- `useFeatureInModel` - 設定為 True。- `ModelingFeatureList` - 設定為分數 2.0 以上的逗號分隔功能清單 (根據您在上一個步驟中擷取到的排名)。- `AllowColdItemPlacement` - 設定為 True。- 您可以選擇性地設定 `EnableFeatureCorrelation` 為 True 和 `ReasoningFeatureList` 設定為您想要用於說明的功能清單 (通常是使用於模型化的相同功能清單或子清單)。- 以設定的參數觸發建議組建。
 
@@ -1827,7 +1816,7 @@ OData XML
 | userDescription | 目錄的文字識別碼。請注意，如果您使用空格，必須將其編碼改成 %20。請參閱上面的範例。<br>最大長度：50 |
 | buildType | 要叫用的組建類型：<br/> - 'Recommendation' 為建議組建 <br> - 'Ranking' 為排名組建 <br/> - 'Fbt' 為 FBT 組建
 | apiVersion | 1\.0 |
-||| | 要求本文 | 如果保留空白，則組建會以預設組建參數執行。<br><br>如果您想要設定組建參數，請將參數當做 XML 傳送至本文，如下列範例所示。(如需組建參數的說明和完整的參數清單，請參閱＜組建參數＞一節)。`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
+||| | 要求主體 | 如果保留空白，則組建會以預設組建參數執行。<br><br>如果您想要設定組建參數，請將參數當做 XML 傳送至本文，如下列範例所示。(如需參數的說明和完整清單，請參閱＜組建參數＞一節)。`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **回應**：
 
@@ -2872,4 +2861,4 @@ HTTP 狀態碼：200
 這份文件係依 「現狀」提供。本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更， 恕不另行通知。<br><br> 此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實人事物。<br><br> 本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。您可以複製並使用這份文件，供內部參考之用。<br><br> © 2015 Microsoft.著作權所有，並保留一切權利。
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

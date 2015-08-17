@@ -81,7 +81,7 @@
 	
 	SELECT * FROM StudentsOneLine
 
-原始 JSON 檔案位於 **wasb://processjson@hditutorialdata.blob.core.windows.net/**。*StudentsRaw* Hive 資料表指向原始未簡維的 JSON 文件。
+原始 JSON 檔案位於 ****wasb://processjson@hditutorialdata.blob.core.windows.net/**。*StudentsRaw* Hive 資料表指向原始未簡維的 JSON 文件。
 
 *StudentsOneLine* Hive 資料表會將資料儲存在 HDInsight 預設檔案系統的 */json/students/* 路徑下。
 
@@ -126,7 +126,7 @@ get-json\_object UDF 有幾項限制。
 
 ### 使用 JSON\_TUPLE UDF
 
-Hive 所提供的另一個 UDF 稱為 [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple)，其效能比 [get\_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object)) 更高。這個方法會採用一組索引鍵和 JSON 字串，並使用一個函式傳回值的 tuple。下列查詢會從 JSON 文件傳回學生識別碼以及年級：
+Hive 所提供的另一個 UDF 稱為 [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple)，其效能比 [get\_ json \_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) 更高。這個方法會採用一組索引鍵和 JSON 字串，並使用一個函式傳回值的 tuple。下列查詢會從 JSON 文件傳回學生識別碼以及年級：
 
     SELECT q1.StudentId, q1.Grade 
       FROM StudentsOneLine jt
@@ -152,8 +152,8 @@ SerDe 是用來剖析巢狀 JSON 文件的最佳選擇，它可讓您定義 JSON
 
 	安裝完成之後，請加入新的使用者環境變數：
 
-	1. 從 Windows 畫面開啟 [檢視進階系統設定]。
-	2. 按一下 [環境變數]。  
+	1. 從 Windows 畫面開啟 [**檢視進階系統設定**]。
+	2. 按一下 [**環境變數**]。  
 	3. 加入新的 **JAVA\_HOME** 環境變數，其指向 **C:\\Program Files\\Java\\jdk1.7.0\_55** 或任何安裝 JDK 的位置。
 
 	![為 JDK 設定正確的組態值][image-hdi-hivejson-jdk]
@@ -261,4 +261,4 @@ SerDe 是用來剖析巢狀 JSON 文件的最佳選擇，它可讓您定義 JSON
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

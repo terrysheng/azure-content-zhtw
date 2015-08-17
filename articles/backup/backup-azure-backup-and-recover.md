@@ -1,20 +1,6 @@
-<properties
-   pageTitle="Azure 備份 - 自 Windows Server 或 Windows 用戶端的備份與還原 | Microsoft Azure"
-   description="了解如何從 Windows Server 或 Windows 用戶端備份和還原。本文章也涵蓋替代伺服器復原"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
-   editor=""/>
+<properties pageTitle="Azure 備份 - 自 Windows Server 或 Windows 用戶端的備份與還原" | Microsoft Azure 描述="了解如何從 Windows Server 或 Windows 用戶端備份和還原。本文章也涵蓋替代伺服器復原" 服務="backup" documentationCenter="" 作者="Jim-Parker" 管理員="jwhit" editor=""/>
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="07/01/2015"
-	 ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
 
 # 從 Windows Server 或 Windows 用戶端電腦進行備份和還原
 本文涵蓋從 Windows Server 或 Windows 用戶端電腦進行備份所需的步驟。也包含在相同電腦上還原備份檔案，以及在任何其他電腦上還原備份檔案所需的步驟。
@@ -56,7 +42,7 @@
 
     ![復原資料](./media/backup-azure-backup-and-recover/recover.png)
 
-3. 選取 **這台伺服器 (\*yourmachinename\*)** 選項，若您打算還原備份在同一部電腦上的檔案。
+3. 選取 **這台伺服器 (*yourmachinename*)** 選項，若您打算還原備份在同一部電腦上的檔案。
 
     ![相同電腦](./media/backup-azure-backup-and-recover/samemachine.png)
 
@@ -85,7 +71,7 @@
 ## 還原至其他電腦
 若您遺失整個伺服器，您仍可將檔案/磁碟區回復至不同的電腦。下列步驟說明工作流程。
 
-以下是步驟中使用的術語表：-*來源機器* – 執行備份及目前無法使用的原始電腦。- *目標電腦* – 正在擷取的資料所在的電腦。- *範例保存庫* – 註冊*來源電腦*和*目標電腦*的備份保存庫。<br/>
+以下是步驟中使用的術語表： - *來源機器* – 執行備份及目前無法使用的原始電腦。 - *目標電腦* – 正在擷取的資料所在的電腦。 - *範例保存庫* – 註冊*來源電腦*和*目標電腦*的備份保存庫。<br/>
 
 > [AZURE.NOTE]從電腦進行的備份無法在執行舊版作業系統的電腦上進行還原。例如，如果從 Windows 7 電腦進行備份，則可以在 Windows 8 或更新版電腦上進行還原。不過若情況相反，便無法進行還原。
 
@@ -128,4 +114,4 @@
 ## 後續步驟
 - [Azure 備份常見問題集](backup-azure-backup-faq.md)
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

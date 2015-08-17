@@ -1,7 +1,9 @@
 
-| Resource	| Default limit 
+| 資源 | 預設限制 
 --- | ---
-| Zones per subscription | 50
-| Record sets per zone| 1000
-| Records per record set| 20
+| 每一訂用帳戶的區域 | 50
+| 每一區域的記錄集| 1000
+| 每一記錄集的記錄| 20
  
+
+<!---HONumber=August15_HO6-->

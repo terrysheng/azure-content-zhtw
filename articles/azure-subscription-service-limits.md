@@ -3,9 +3,9 @@
 	description="提供通用的 Azure 訂用帳戶和服務限制、配額和條件約束的清單。這包括如何增加限制和最大值的詳細資訊。"
 	services=""
 	documentationCenter=""
-	authors="jeffstokes72"
-	manager="paulettem"
-	editor="cgronlun"/>
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
 	ms.service="multiple"
@@ -67,17 +67,17 @@
 
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
+### 流量管理員限制
 
-### 網路限制 - Azure 資源管理員
+[AZURE.INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
 
-使用 Azure 資源管理員和 Azure 資源群組時，適用下列限制。使用 Azure 資源管理員時未變更的限制不會在以下列出。請參閱先前的資料表來瞭解這些限制。
+### DNS 限制
 
-[AZURE.INCLUDE [azure-virtual-network-limits-azure-resource-manager](../includes/azure-virtual-network-limits-azure-resource-manager.md)]
-
+[AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ## 儲存體限制
 
-### 標準儲存體限制 
+### 標準儲存體限制
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
@@ -151,6 +151,11 @@
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
+## Data Factory 限制
+
+[AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
+
+
 ## 串流分析限制
 
 [AZURE.INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
@@ -202,4 +207,4 @@
 
 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -27,4 +27,4 @@
 
 您現在可以從遠端使用虛擬機器。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

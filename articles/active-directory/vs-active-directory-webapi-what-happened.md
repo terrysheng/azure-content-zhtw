@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/22/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # 我的專案發生什麼情形？
 
@@ -50,7 +50,7 @@
 
 ###程式碼檔案加入至專案
 
-驗證啟動類別 **App_Start/Startup.Auth.cs** 加入至專案，內含 Azure AD 驗證的啟動邏輯。
+驗證啟動類別 **App\_Start/Startup.Auth.cs** 加入至專案，內含 Azure AD 驗證的啟動邏輯。
 
 ###啟動程式碼已加入至專案
 
@@ -59,11 +59,13 @@
 
 ###app.config 或 web.config 檔案有新的組態值。
 
-已加入下列組態項目。<pre> `<appSettings>
+已加入下列組態項目。```
+	`<appSettings>
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
     		<add key="ida:Audience" value="The App ID Uri from the wizard" />
-	</appSettings>` </pre>
+	</appSettings>` 
+```
 
 ###已建立 Azure AD 應用程式
 
@@ -101,13 +103,17 @@ NuGet 封裝參考會被移除，檔案也會移除並加以備份。根據您�
 
 ###app.config 或 web.config 已進行其他變更
 
-已加入下列其他組態項目。<pre> `<appSettings>
+已加入下列其他組態項目。
+
+```
+	`<appSettings>
 	    <add key="ida:Password" value="Your Azure AD App's new password" />
-	</appSettings>` </pre>
+	</appSettings>` 
+```
 
 ###Azure Active Directory 應用程式已更新
 Azure Active Directory 應用程式已更新為包含*讀取目錄資料* 權限，並已建立其他的金鑰做為 `web.config` 檔案中的 *ida:Password*。
 
 [深入了解 Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

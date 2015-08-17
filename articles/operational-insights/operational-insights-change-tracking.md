@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # 使用變更追蹤識別差異
@@ -25,7 +25,7 @@
 
 ## 使用變更追蹤
 
-在 Operational Insights 中使用 [變更追蹤] 之前，您必須安裝解決方案。如需閱讀安裝解決方案的更多資訊，請參閱[使用解決方案資源庫來新增或移除解決方案](operational-insights-add-solution.md)。
+在 Operational Insights 中使用 [變更追蹤] 之前，您必須安裝解決方案。如需閱讀安裝解決方案的更多資訊，請參閱[使用解決方案資源庫來新增或移除解決方案](operational-insights-setup-workspace.md)。
 
 安裝之後，您可以在 Operational Insights 的 [**概觀**] 頁面，使用 [**變更追蹤**] 磚來檢視受監視伺服器的變更摘要。
 
@@ -54,4 +54,4 @@
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="06/01/2015"
 	ms.author="mwasson"/>
 
@@ -192,4 +192,4 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

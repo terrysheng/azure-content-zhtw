@@ -40,4 +40,4 @@
 - [瀏覽立即可用的應用程式](https://datamarket.azure.com/browse?query=machine+learning)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

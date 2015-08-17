@@ -166,4 +166,4 @@ Box 資源庫應用程式提供「動作」當做與 Box 互動的機制：
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

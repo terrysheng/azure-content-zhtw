@@ -94,7 +94,7 @@ Windows 與 Linux 叢集的叢集和作業排程工具，或獨立開發的工�
 
 Azure 有某個範圍的計算、資料、網路和相關服務，您可將其使用於大量運算解決方案和工作流程。如需每一個服務的詳細指引，請參閱 Azure 服務文件。如需包含批次和 HPC 應用程式的一些常見方法，請參閱[解決方案案例](#solution-scenarios)。
 
->[AZURE.NOTE]新服務會定期導入 Azure 平台，且可能適用於您的案例。建議僅將預覽服務運用於測試或證明概念部署，而非生產工作負載。如果您有疑問，請連絡 [Azure 合作夥伴](https://pinpoint.microsoft.com/zh-tw/search?keyword=azure)或寄電子郵件到 *bigcompute@microsoft.com*。
+>[AZURE.NOTE]新服務會定期導入 Azure 平台，且可能適用於您的案例。建議僅將預覽服務運用於測試或證明概念部署，而非生產工作負載。如果您有疑問，請連絡 [Azure 合作夥伴](https://pinpoint.microsoft.com/zh-tw/search?keyword=azure)或寄電子郵件到 **bigcompute@microsoft.com*。
 
 ### 計算服務
 
@@ -105,14 +105,14 @@ Azure 中的計算服務是大運算解決方案的核心。下表是經常使�
 服務 | 說明
 ------------- | -----------
 **[雲端服務](http://azure.microsoft.com/documentation/services/cloud-services)**<br/><br/> |• 可以在背景工作角色執行個體中執行大量運算應用程式，這是執行 Windows Server 版本，而且完全受 Azure 管理的虛擬機器<br/><br/>• 啟用含低管理負擔，在平台即服務 (PaaS) 模型中執行的可調整、可靠的應用程式<br/><br/>• 可能需要額外的工具或開發以整合內部部署 HPC 叢集解決方案
-**[虛擬機器](http://azure.microsoft.com/documentation/services/virtual-machines)**<br/><br/> |• 使用 Microsoft Hyper-V 技術來提供計算基礎結構即服務 (IaaS)<br/><br/>• 可讓您從標準的 Windows Server 或 Linux 映像，或您提供或從[Azure Marketplace](https://azure.microsoft.com/marketplace/) 的映像和資料磁碟中，更靈活地佈建和管理永續性雲端電腦<br/><br/>• 在雲端中完全執行內部部署計算叢集工具和應用程式
+**[虛擬機器](http://azure.microsoft.com/documentation/services/virtual-machines)**<br/><br/> |• 使用 Microsoft Hyper-V 技術來提供運算基礎結構即服務 (IaaS)<br/><br/>• 可讓您從標準的 Windows Server 或 Linux 映像、您自行提供或從[Azure Marketplace](https://azure.microsoft.com/marketplace/) 的映像和資料磁碟中，更靈活地佈建和管理永續性雲端電腦<br/><br/>• 在雲端中完全執行內部部署運算叢集工具和應用程式
 **[批次](http://azure.microsoft.com/documentation/services/batch)**<br/><br/> |• 在完全受管理的服務中執行大規模的平行與批次工作負載，例如影像轉譯和媒體編碼及轉碼<br/><br/>• 提供虛擬機器之受管理集區的作業排程和自動調整<br/><br/>• 允許開發人員建置和執行做為服務的應用程式，或啟用雲端的現有應用程式<br/>
 
 ### 儲存體服務
 
 大量運算解決方案通常會在一組輸入資料上操作，並產生其結果的資料。許多大量運算解決方案中使用的部分 Azure 儲存體服務包括：
 
-* [Blob、資料表和佇列儲存體](http://azure.microsoft.com/documentation/services/storage) - 分別管理大量非結構化資料、NoSQL 資料，和工作流程和通訊的訊息。例如，您可以為大型技術資料集，或應用程式處理的輸入影像或媒體檔案使用 blob 儲存體。您可以在解決方案中使用佇列以速行非同步通訊。如需這些儲存體解決方案的詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](../storage/storage-introduction.md)。
+* [Blob、資料表和佇列儲存體](http://azure.microsoft.com/documentation/services/storage) - 分別管理大量非結構化資料、NoSQL 資料，和工作流程和通訊的訊息。例如，您可以為大型技術資料集，或應用程式處理的輸入影像或媒體檔案使用 blob 儲存體。您可以在解決方案中使用佇列以速行非同步通訊。如需這些儲存體解決方案的詳細資訊，請參閱〈[Microsoft Azure 儲存體簡介](../storage/storage-introduction.md)〉。
 
 * [Azure 檔案儲存體](http://azure.microsoft.com/services/storage/files/) - 在 Azure 中使用標準 SMB 通訊協定 (為一些 HPC 叢集解決方案必備) 來共用一般檔案和資料。
 
@@ -120,11 +120,11 @@ Azure 中的計算服務是大運算解決方案的核心。下表是經常使�
 
 若干大量運算案例牽涉到大型資料流，或會產生需要進一步處理或分析的資料。為了處理這種情況，Azure 提供許多資料和分析服務，包括：
 
-* [Data Factory](http://azure.microsoft.com/documentation/services/data-factory) - 建置資料導向的工作流程 (管線)，以聯結、彙總和轉換來自內部部署、雲端型和網際網路資料存放區的資料。
+* [Data Factory](http://azure.microsoft.com/documentation/services/data-factory) - 建置資料導向的工作流程 (管線)，以聯結、彙總和轉換源自內部部署、雲端型和網際網路資料存放區的資料。
 
-* [SQL Database](http://azure.microsoft.com/documentation/services/sql-database) - 提供受管理平台服務中的 Microsoft SQL Server 關聯式資料庫管理系統的主要功能。
+* [SQL Database](http://azure.microsoft.com/documentation/services/sql-database) - 在受管理平台服務中提供 Microsoft SQL Server 關聯式資料庫管理系統的主要功能。
 
-* [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight) - 在雲端中部署和佈建 Windows Server 或 Linux 架構的 Apache Hadoop 叢集，以管理、分析和報告高度可靠與可用的大數據。
+* [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight) - 在雲端中部署和佈建 Windows Server 或 Linux 架構的 Apache Hadoop 叢集，以管理、分析和報告高度可靠與可用的巨量資料。
 
 * [機器學習服務](http://azure.microsoft.com/documentation/services/machine-learning) - 可幫助您在完全管理的平台服務中建立、測試、操作和管理預測分析解決方案。
 
@@ -132,9 +132,9 @@ Azure 中的計算服務是大運算解決方案的核心。下表是經常使�
 
 大量運算解決方案可能需要包含其他 Azure 基礎結構和平台服務，才能連線至內部部署或其他環境中的資源。範例包括：
 
-* [虛擬網路](http://azure.microsoft.com/documentation/services/virtual-network) - 在 Azure 中建立邏輯隔離的區段，以使用 IPSec 將 Azure 資源連接到您的內部部署資料中心或單一用戶端電腦；可讓大量運算應用程式存取內部資料、Active Directory 服務和授權伺服器
+* [虛擬網路](http://azure.microsoft.com/documentation/services/virtual-network) - 在 Azure 中建立邏輯隔離的區段，以使用 IPSec 將 Azure 資源連接到您的內部部署資料中心或單一用戶端電腦；可讓大量運算應用程式存取內部部署資料、Active Directory 服務和授權伺服器
 
-* [ExpressRoute](http://azure.microsoft.com/documentation/services/expressroute) - 比一般網際網路連線更高的安全性、更可靠、更快的速度及更低的延遲，在 Microsoft 資料中心與內部部署基礎結構之間，或共置環境中建立私人連線。
+* [ExpressRoute](http://azure.microsoft.com/documentation/services/expressroute) - 比一般網際網路連接更高的安全性、更可靠、更快的速度及更低的延遲，在 Microsoft 資料中心與內部部署基礎結構之間，或共置環境中建立私人連接。
 
 * [服務匯流排](http://azure.microsoft.com/documentation/services/service-bus) - 提供數種機制，讓應用程式進行通訊或交換資料，不管它們位於 Azure、其他雲端平台，還是資料中心。
 
@@ -146,13 +146,13 @@ Azure 中的計算服務是大運算解決方案的核心。下表是經常使�
 
 ### 案例 1.高載至 Azure 的內部部署 HPC 叢集
 
-**選擇此選項的時機為何？** - 您可能已經有執行運算密集之工作負載的內部部署 HPC 叢集，但它在尖峰期間需要額外的計算資源，例如月底報告或特殊專案。不需要購買、部署和管理在大部分情況下可能處於閒置狀態的額外軟硬體，您可以使用 Azure，將隨選計算能力新增至現有的叢集。
+**選擇此選項的時機為何？** - 您可能已經有執行運算密集之工作負載的內部部署 HPC 叢集，但它在尖峰期間需要額外的運算資源，例如月底報告或特殊專案。不需要購買、部署和管理在大部分情況下可能處於閒置狀態的額外軟硬體，您可以使用 Azure，將隨選計算能力新增至現有的叢集。
 
-例如，如果您現有的內部部署 HPC 叢集是使用 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 建置，您可以雲端服務中執行的 Azure 背景工作角色執行個體的形式，加入額外的計算資源。請參閱下圖。如需詳細資訊和逐步指示，請參閱[使用 Microsoft HPC Pack 將量擴大到 Azure](https://technet.microsoft.com/library/gg481749.aspx) (英文)。
+例如，如果您現有的內部部署 HPC 叢集是使用 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 建置，您可以雲端服務中執行的 Azure 背景工作角色執行個體的形式，加入額外的運算資源。請參閱下圖。如需詳細資訊和逐步指示，請參閱〈[使用 Microsoft HPC Pack 將量擴大到 Azure](https://technet.microsoft.com/library/gg481749.aspx)〉。
 
 ![叢集高載][burst_cluster]
 
->[AZURE.NOTE]如果您想要將 HPC Pack 叢集使用量降到最低，您可以將內部部署叢集減少到只剩 HPC Pack 前端節點。然後，在 Azure 中隨選加入所有計算資源。如需逐步說明這個案例的教學課程，請參閱[使用 Microsoft HPC Pack 設定混合式計算叢集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)。
+>[AZURE.NOTE]如果您想要將 HPC Pack 叢集使用量降到最低，您可以將內部部署叢集減少到只剩 HPC Pack 前端節點。然後，在 Azure 中隨選加入所有計算資源。如需逐步說明這個案例的教學課程，請參閱〈[使用 Microsoft HPC Pack 設定混合式運算叢集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)〉。
 
 此混合式解決方案會運用內部部署叢集中的現有投資，但可讓您為一般 (非尖峰) 工作負載調整固定的內部部署基礎結構。如果您需要存取內部部署授權伺服器或資料存放區，您可以設定 Azure 虛擬網路，將內部部署叢集連線至 Azure。
 
@@ -164,15 +164,15 @@ Azure 中的計算服務是大運算解決方案的核心。下表是經常使�
 
 >[AZURE.NOTE]請洽詢您的內部部署叢集解決方案和應用程式廠商，了解在提供基礎結構即服務 (IaaS) 的公用雲端中執行時的其他需求和最佳作法。
 
-例如，您可以在 Azure 基礎結構服務虛擬機器 (IaaS) 中，使用 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 建立 Windows Server 架構 HPC 叢集來執行工作負載，如以下簡圖所示。叢集使用者可透過用戶端電腦上執行的標準 HPC Pack 作業提交工具，將作業安全地提交至雲端叢集。如需詳細資料和部署選項，請參閱 [ Azure VM 中的 Microsoft HPC Pack](https://msdn.microsoft.com/library/azure/dn518135.aspx)。
+例如，您可以在 Azure 基礎結構服務虛擬機器 (IaaS) 中，使用 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 建立 Windows Server 架構 HPC 叢集來執行工作負載，如以下簡圖所示。叢集使用者可透過用戶端電腦上執行的標準 HPC Pack 作業提交工具，將作業安全地提交至雲端叢集。如需詳細資料和部署選項，請參閱〈[ Azure VM 中的 Microsoft HPC Pack](https://msdn.microsoft.com/library/azure/dn518135.aspx)〉。
 
 ![IaaS 中的叢集][iaas_cluster]
 
 **自動化部署** - 若要部署大量 Windows Server 或 Linux VM，您可以使用標準或自訂 VM 映像和 Azure 自動化工具，例如 [Azure 命令列介面](../xplat-cli.md)或 [Azure PowerShell](../powershell-install-configure.md)。範例包括：
 
-* 若要在 Azure 基礎結構服務中部署 HPC Pack 叢集，您可以從用戶端電腦執行彈性的 [Azure PowerShell 指令碼](https://msdn.microsoft.com/library/azure/dn864734.aspx)；此指令碼使用預先安裝了 HPC Pack 的 Windows Server VM 映像。您也可以使用 Azure [快速啟動範本](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)與 Azure PowerShell 或 Azure CLI 來部署 HPC Pack 叢集。
+* 若要在 Azure 基礎結構服務中部署 HPC Pack 叢集，您可以從用戶端電腦執行彈性的 [Azure PowerShell 指令碼](https://msdn.microsoft.com/library/azure/dn864734.aspx)；此指令碼使用預先安裝了 HPC Pack 的 Windows Server VM 映像。您也可以使用 Azure [快速啟動範本](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)搭配 Azure PowerShell 或 Azure CLI 來部署 HPC Pack 叢集。
 
-* 您可以使用 Azure [快速啟動範本](https://azure.microsoft.com/documentation/templates/slurm/)與 Azure PowerShell 或 Azure CLI，以部署執行 [SLURM](https://computing.llnl.gov/linux/slurm/) 開放原始碼工作負載管理員的 Linux 叢集。
+* 您可以使用 Azure [快速啟動範本](https://azure.microsoft.com/documentation/templates/slurm/)搭配 Azure PowerShell 或 Azure CLI，以部署執行 [SLURM](https://computing.llnl.gov/linux/slurm/) 開放原始碼工作負載管理員的 Linux 叢集。
 
 將整個 HPC 叢集放在雲端中可享有具大優勢。
 
@@ -182,7 +182,7 @@ Azure 中的計算服務是大運算解決方案的核心。下表是經常使�
 
 * 相較於可將內部部署叢集擴充至雲端的混合式解決方案，完全在雲端中執行應用程式可以簡化資料存取。不需分割雲端和內部部署安裝之間的資料，或從應用程式中遠端存取資料，所有應用程式資料可以儲存在雲端。
 
-* 有些軟體廠商會最佳化他們的應用程式，以便在雲端叢集中執行。例如，藉由在 Azure 虛擬機器中從 MathWorks 部署 [MATLAB Distributed Computing Server](http://www.mathworks.com/products/distriben/)，您可以使用雲端計算資源完全且平行地執行 MATLAB 作業。
+* 有些軟體廠商會最佳化他們的應用程式，以便在雲端叢集中執行。例如，藉由在 Azure 虛擬機器 HPC Pack 叢集中的 MathWorks 部署 [MATLAB Distributed Computing Server](http://www.mathworks.com/products/distriben/)，您可以使用雲端運算資源完全且平行地執行 MATLAB 作業。
 
 ### 案例 3.將平行應用程式相應放大至 Azure
 
@@ -190,7 +190,7 @@ Azure 中的計算服務是大運算解決方案的核心。下表是經常使�
 
 根據工作負載，您可能會利用 Azure 中的現有大量計算服務 (由 Microsoft 或其他服務廠商裝載)，以簡化您解決方案的基礎結構和應用程式管理。某些服務會為所選業界的客戶裝載特定應用程式。某些服務會插入內部部署應用程式，提供混合式解決方案。此外，像 [Azure 媒體服務](http://azure.microsoft.com/documentation/services/media-services)是專用的平台服務。
 
-為了輕鬆地從雲端啟用並相應放大您目前執行的應用程式，[批次](http://azure.microsoft.com/documentation/services/batch)提供 API，可用來排程作業和管理服務中的計算資源。批次可管理虛擬機器的部署和自動調整、作業排程、嚴重損壞修復、資料移動、相依性管理、應用程式部署，及在雲端中執行作業所需的所有其他配管作業。批次目前適合本質平行應用程式，例如，影像轉譯、財務風險模型，和 Windows Server 計算資源中執行的 Monte Carlo 模擬。
+為了輕鬆地從雲端啟用並相應放大您目前執行的應用程式，[Batch](http://azure.microsoft.com/documentation/services/batch) 提供之 API 可用來排程作業和管理服務中的運算資源。批次可管理虛擬機器的部署和自動調整、作業排程、嚴重損壞修復、資料移動、相依性管理、應用程式部署，及在雲端中執行作業所需的所有其他配管作業。批次目前適合本質平行應用程式，例如，影像轉譯、財務風險模型，和 Windows Server 計算資源中執行的 Monte Carlo 模擬。
 
 請參閱下圖，了解開發人員可使用批次建立的一般工作流程。
 
@@ -211,7 +211,7 @@ Azure 中的計算服務是大運算解決方案的核心。下表是經常使�
 
 ## 後續步驟
 
-* 請參閱[批次和 HPC 的技術資源](big-compute-resources.md)來尋找您的解決方案技術指導。
+* 請參閱〈[Batch 和 HPC 的技術資源](big-compute-resources.md)〉來尋找您的解決方案技術指導。
 
 * 最新宣告請參閱 [Microsoft HPC 和批次的小組部落格](http://blogs.technet.com/b/windowshpc/)以及[Azure 部落格](http://azure.microsoft.com/blog/tag/hpc/)。
 
@@ -222,4 +222,4 @@ Azure 中的計算服務是大運算解決方案的核心。下表是經常使�
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

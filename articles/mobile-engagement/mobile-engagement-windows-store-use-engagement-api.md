@@ -315,7 +315,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。您可以透過 `Engageme
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-這表示索引鍵必須至少以一個字母開頭，後面連接字母、數字或底線 (_)。
+這表示索引鍵必須至少以一個字母開頭，後面連接字母、數字或底線 (\_)。
 
 #### 大小
 
@@ -349,7 +349,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。您可以透過 `Engageme
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-這表示索引鍵必須至少以一個字母開頭，後面連接字母、數字或底線 (_)。
+這表示索引鍵必須至少以一個字母開頭，後面連接字母、數字或底線 (\_)。
 
 #### 大小
 
@@ -360,4 +360,4 @@ Engagement API 是由 `EngagementAgent` 類別提供。您可以透過 `Engageme
 			{"birthdate":"1983-12-07","gender":"female"}
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

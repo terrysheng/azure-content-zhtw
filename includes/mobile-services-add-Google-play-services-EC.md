@@ -23,8 +23,8 @@
 7. 在 [專案建置目標] 下，確定已針對適當的 SDK 層級選取 `Google APIs x86` (或 `Google APIs`，依您的開發平台而定)。
 
  
-8. 在 [程式庫] 區段中，選擇 [新增]，然後選取 Google Play 服務專案 (*google-play-services-lib*)，再按一下 [確定]。
+8. 在 [程式庫] 區段中，選擇 [新增]，然後選取 Google Play 服務專案 (*google-play-services-lib*) 並按一下 [確定]。
 
 9. 依序按一下 [套用] 及 [確定]。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

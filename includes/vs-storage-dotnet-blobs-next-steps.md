@@ -5,12 +5,8 @@
 - 請參閱[在 Azure 中儲存和存取資料](https://msdn.microsoft.com/library/azure/gg433040.aspx)，深入了解可使用 Azure 儲存體執行的更多進階工作。    
 - 了解如何使用 [Azure WebJobs SDK](../app-service/websites-dotnet-webjobs-sdk.md)，來簡化您撰寫以使用 Azure 儲存體的程式碼。
 - 如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
-<ul> 
- <ul>
-    <li>使用<a href="https://azure.microsoft.com/zh-tw/documentation/articles/vs-storage-aspnet5-getting-started-tables/">資料表儲存體</a>儲存結構化資料。</li>
-    <li>使用<a href="https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/">佇列儲存體</a>儲存非結構化資料。</li>
-    <li>使用 <a href="https://azure.microsoft.com/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> 儲存關聯式資料。</li>
-  </ul>
-</ul>
+  - 使用[資料表儲存體](./storage-dotnet-how-to-use-tables.md)儲存結構化資料。
+  - 使用[佇列儲存體](./storage-dotnet-how-to-use-queues.md)儲存非結構化資料。
+  - 使用 [SQL Database](../sql-database/sql-database-dotnet-how-to-use.md) 儲存關聯式資料。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

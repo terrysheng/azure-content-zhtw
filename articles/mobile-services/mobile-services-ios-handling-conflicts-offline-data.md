@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="mobile-services"
-	ms.workload="mobile"c
+	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
@@ -51,7 +51,7 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
 
 ### <a name="update-list-view"></a>更新待辦事項清單檢視控制器
 
-1. 在 Xcode 的 [專案導覽] 中選取 [MainStoryboard_iPhone.storyboard]，然後選取 [待辦事項清單檢視控制器]。選取資料表檢視儲存格，並將其 [配件] 模式設為 [公開指標]。公開指標會為使用者指出如果他們點選了相關聯的資料表檢視控制器，就會顯示新的檢視。公開指標不會產生事件。
+1. 在 Xcode 的 [專案導覽] 中選取 [MainStoryboard\_iPhone.storyboard]，然後選取 [待辦事項清單檢視控制器]。選取資料表檢視儲存格，並將其 [配件] 模式設為 [公開指標]。公開指標會為使用者指出如果他們點選了相關聯的資料表檢視控制器，就會顯示新的檢視。公開指標不會產生事件。
 
       ![][update-todo-list-view-controller-2]
 
@@ -145,7 +145,7 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
 
 ### <a name="add-segue"></a>將待辦事項檢視控制器和 Segue 新增至腳本
 
-1. 使用 [專案導覽] 返回 **MainStoryboard_iPhone.storyboard** 檔案。
+1. 使用 [專案導覽] 返回 **MainStoryboard\_iPhone.storyboard** 檔案。
 
 2. 在腳本中現有的 [待辦事項清單檢視控制器] 右側，為待辦事項新增檢視控制器。將此新檢視控制器的自訂類別設為 **QSItemViewController**。若要深入了解，請參閱[將場景新增至腳本]。
 
@@ -471,4 +471,4 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Get started with data]: mobile-services-ios-get-started-data.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

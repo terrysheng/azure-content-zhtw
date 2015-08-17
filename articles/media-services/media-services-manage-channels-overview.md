@@ -125,12 +125,12 @@
 
 下表顯示如何計算區段持續時間：
 
-<table border="1">
-<tr><th>主要畫面格間隔</th><th>HLS 區段封裝比例 (FragmentsPerSegment)</th><th>範例</th></tr>
-<tr><td>小於或等於 3 秒</td><td>3:1</td><td>如果 KeyFrameInterval (或 GOP) 為 2 秒鐘，則預設 HLS 區段封裝比例就會是 3 比 1，這將會建立 6 秒鐘的 HLS 區段。</td></tr>
-<tr><td>3 到 5 秒</td><td>2:1</td><td>如果 KeyFrameInterval (或 GOP) 為 4 秒鐘，則預設 HLS 區段封裝比例就會是 2 比 1，這將會建立 8 秒鐘的 HLS 區段。</td></tr>
-<tr><td>大於 5 秒</td><td>1:1</td><td>如果 KeyFrameInterval (或 GOP) 為 6 秒鐘，則預設 HLS 區段封裝比例就會是 1 比 1，這將會建立 6 秒鐘的 HLS 區段。</td></tr>
-</table>
+主要畫面格間隔|HLS 區段封裝比例 (FragmentsPerSegment)|範例
+---|---|---
+小於或等於 3 秒|3:1|如果 KeyFrameInterval (或 GOP) 為 2 秒鐘，則預設 HLS 區段封裝比例就會是 3 比 1，這將會建立 6 秒鐘的 HLS 區段。
+3 到 5 秒|2:1|如果 KeyFrameInterval (或 GOP) 為 4 秒鐘，則預設 HLS 區段封裝比例就會是 2 比 1，這將會建立 8 秒鐘的 HLS 區段。
+大於 5 秒|1:1|如果 KeyFrameInterval (或 GOP) 為 6 秒鐘，則預設 HLS 區段封裝比例就會是 1 比 1，這將會建立 6 秒鐘的 HLS 區段。
+
 
 您可以設定通道的輸出並在 ChannelOutputHls 上設定 FragmentsPerSegment，即可變更每個區段比例的片段。
 
@@ -201,24 +201,23 @@
 
 下表顯示通道狀態如何對應至計費模式。
  
-<table border="1">
-<tr><th>通道狀態</th><th>入口網站 UI 指標</th><th>是否計費？</th></tr>
-<tr><td>啟動中</td><td>啟動中</td><td>無 (暫時性狀態)</td></tr>
-<tr><td>執行中</td><td>就緒 (沒有執行中的程式)<br/>或<br/>串流 (至少一個執行中的程式)</td><td>是</td></tr>
-<tr><td>停止中</td><td>停止中</td><td>無 (暫時性狀態)</td></tr>
-<tr><td>已停止</td><td>已停止</td><td>否</td></tr>
-</table>
+通道狀態|入口網站 UI 指標|是否計費？
+---|---|---|---
+啟動中|啟動中|無 (暫時性狀態)
+執行中|就緒 (沒有執行中的程式)<p>或<p>串流 (至少一個執行中的程式)|是
+停止中|停止中|無 (暫時性狀態)
+已停止|已停止|否
 
 ###隱藏式字幕和廣告插入 
 
 下表示範支援的隱藏式字幕和廣告插入標準。
 
-<table border="1">
-<tr><th>標準</th><th>注意事項</th></tr>
-<tr><td>CEA-708 和 EIA-608 (708/608)</td><td>CEA-708 和 EIA-608 是美國和加拿大的隱藏式字幕標準。<br/>目前只有編碼的輸入資料流附帶字幕時，才能播放字幕。您使用的即時媒體編碼器，必須可以將 608 或 708 字幕插入至已傳送至媒體服務的已編碼資料流。媒體服務會將內含字幕的內容傳遞給您的檢視器。</td></tr>
-<tr><td>.ismt 裡面附帶字幕 (Smooth Streaming 文字播放軌)</td><td>媒體服務動態封裝功能可讓您的用戶端傳送以下任何格式的內容：MPEG DASH、HLS 或 Smooth Streaming。不過，如果您內嵌 Fragmented MP4 (Smooth Streaming) 而且在 .ismt 裡面附帶字幕 (Smooth Streaming 文字播放軌)，您就只能將資料流傳遞至 Smooth Streaming 用戶端。</td></tr>
-<tr><td>SCTE-35</td><td>數位訊號系統，用來提示廣告插入。下游接收端會使用信號並根據分配的時間，將廣告切割成資料流。SCTE 35 必須以鬆散播放軌的形式傳送至輸入資料流中。<br/>請注意，目前唯一支援附帶廣告訊號的輸入資料流格式是 Fragmented MP4 (Smooth Streaming)。唯一支援的輸出格式也是 Smooth Streaming。</td></tr>
-</table>
+標準|注意事項
+---|---
+CEA-708 和 EIA-608 (708/608)|CEA-708 和 EIA-608 是美國和加拿大的隱藏式字幕標準。<p><p>目前只有編碼的輸入資料流附帶字幕時，才能播放字幕。您使用的即時媒體編碼器，必須可以將 608 或 708 字幕插入至已傳送至媒體服務的已編碼資料流。媒體服務會將內含字幕的內容傳遞給您的檢視器。
+.ismt 裡面附帶字幕 (Smooth Streaming 文字播放軌)|媒體服務動態封裝功能可讓您的用戶端傳送以下任何格式的內容：MPEG DASH、HLS 或 Smooth Streaming。不過，如果您內嵌 Fragmented MP4 (Smooth Streaming) 而且在 .ismt 裡面附帶字幕 (Smooth Streaming 文字播放軌)，您就只能將資料流傳遞至 Smooth Streaming 用戶端。
+SCTE-35|數位訊號系統，用來提示廣告插入。下游接收端會使用信號並根據分配的時間，將廣告切割成資料流。SCTE 35 必須以鬆散播放軌的形式傳送至輸入資料流中。<p><p>請注意，目前唯一支援的附帶廣告訊號之輸入資料流格式為分散 MP4 (平滑串流)。唯一支援的輸出格式也是 Smooth Streaming。
+
 
 ##<a id="Considerations"></a>考量
 
@@ -331,4 +330,4 @@
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -246,4 +246,4 @@ Apache YARN 是新一代的 MapReduce (MapReduce 2.0，簡稱為 MRv2)，可將 
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

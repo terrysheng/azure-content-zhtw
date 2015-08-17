@@ -227,4 +227,4 @@
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

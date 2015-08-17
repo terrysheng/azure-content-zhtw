@@ -220,4 +220,4 @@ DNS 伺服器需要靜態 IP 位址。此步驟無法在 Azure 入口網站中�
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

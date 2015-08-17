@@ -35,6 +35,11 @@
    <td valign="middle"><p>每小時 1200</p></td>
 </tr>
 <tr>
+   <td valign="middle"><p>資源管理員 API 要求的大小</p></td>
+   <td valign="middle"><p>4194304 個位元組</p></td>
+   <td valign="middle"><p>4194304 個位元組</p></td>
+</tr>
+<tr>
    <td valign="middle"><p>每一訂用帳戶的<a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">雲端服務</a></p></td>
    <td valign="middle"><p>已被取代<sup>3</sup></p></td>
    <td valign="middle"><p>已被取代<sup>3</sup></p></td>
@@ -52,4 +57,4 @@
 
 <sup>3</sup>Azure 資源群組和 Azure 資源管理員已不再需要這些功能。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

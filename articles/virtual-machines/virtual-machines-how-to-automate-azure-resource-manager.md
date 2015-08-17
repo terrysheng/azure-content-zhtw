@@ -72,4 +72,4 @@ Azure 資源管理員會簡化在 Azure 基礎結構服務上所執行複雜應�
 
 [虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

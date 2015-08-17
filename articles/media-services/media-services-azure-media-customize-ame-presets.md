@@ -70,7 +70,7 @@ Azure 媒體服務編碼器可讓您將自訂的預設檔案傳遞至 Azure 媒�
 	   </OutputFormat>
 	</MediaFile>
 
-編碼器將會在每個巨集之間插入底線，例如上述設定會產生像這樣的檔案名稱：MyVideo_H264_4500kpbs_AAC_und_ch2_128kbps.mp4.
+編碼器將會在每個巨集之間插入底線，例如上述設定會產生像這樣的檔案名稱：MyVideo\_H264\_4500kpbs\_AAC\_und\_ch2\_128kbps.mp4.
 
 
 ##建立疊加層
@@ -243,7 +243,7 @@ Azure 媒體服務編碼器可讓您重疊影像 (jpg、bmp、gif、tif)、影�
 
 ##編結影片區段
 
-媒體服務編碼器提供將一組影片編結在一起的支援。影片可以端對端編結在一起，或者您可以指定要編結在一起的一部影片或兩部影片的部分。編結的結果是單一輸出資產，其中包含輸入資產的指定影片。要編結的影片可以包含在多個資產或單一資產中。編結是由傳送至編碼器的預設 XML 控制。如需預設結構描述的完整說明，請參閱 [Azure Media Encoder 結構描述](https://msdn.microsoft.com/library/azure/dn584702.aspx)。
+媒體服務編碼器提供將一組影片編結在一起的支援。影片可以端對端編結在一起，或者您可以指定要編結在一起的一部影片或兩部影片的部分。編結的結果是單一輸出資產，其中包含輸入資產的指定影片。要編結的影片可以包含在多個資產或單一資產中。編結是由傳送至編碼器的預設 XML 控制。如需預設結構描述的完整說明，請參閱 [Azure 媒體編碼器結構描述](https://msdn.microsoft.com/library/azure/dn584702.aspx)。
 
 ###使用媒體服務編碼器編結
 
@@ -458,11 +458,11 @@ Azure 媒體服務編碼器可讓您重疊影像 (jpg、bmp、gif、tif)、影�
 
 1. 將修改過的預設檔案儲存到本機硬碟機，並且使用如下的程式碼以自訂預設進行編碼：
 	
-	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\TEMP\Original.mp4");
+	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\\TEMP\\Original.mp4");
 	 
-	string inputPresetFile = @"C:\TEMP\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
+	string inputPresetFile = @"C:\\TEMP\\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
 	 
-	IJob job = _context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " + presetName);
+	IJob job = \_context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " + presetName);
 	
 	Console.WriteLine("Encode Job for " + asset.Name + ", encoded using " + presetName);
 	
@@ -482,4 +482,4 @@ Azure 媒體服務編碼器可讓您重疊影像 (jpg、bmp、gif、tif)、影�
 
 [Azure Media Encoder XML 結構描述](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -62,7 +62,7 @@
 
 ## 執行查詢並擷取結果集
 
-[sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) 函式可用來擷取對 SQL Database 查詢的結果集。這個函式基本上會接受任何查詢與連線物件並傳回結果集，您可以使用 [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php) 反覆查詢結果集。
+[sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) 函式可用來擷取對 SQL Database 查詢的結果集。這個函式基本上會接受任何查詢與連線物件並傳回結果集，您可以使用 [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php) 反覆查詢結果集。
 
 	function ReadData()
 	{
@@ -126,11 +126,11 @@
 
 這個程式碼範例示範如何使用交易，您將：
 
--開始交易
+\-開始交易
 
--插入一列資料，更新另一列資料
+\-插入一列資料，更新另一列資料
 
--確認您的交易中插入與更新是否成功，如果其中一項沒有成功就復原交易
+\-確認您的交易中插入與更新是否成功，如果其中一項沒有成功就復原交易
 
 
 	function Transactions()
@@ -180,4 +180,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

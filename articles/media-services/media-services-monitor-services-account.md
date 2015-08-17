@@ -34,7 +34,7 @@ Azure 媒體服務儀表板會顯示可用來管理媒體服務帳戶的使用�
 
 1. 在[管理入口網站](http://go.microsoft.com/fwlink/?LinkID=256666)中，按一下 [媒體服務]，然後按一下媒體服務帳戶名稱來開啟儀表板。 
 
-	![MediaServices_Dashboard][dashboard]
+	![MediaServices\_Dashboard][dashboard]
 
 2. 若要監視您的編碼工作或資料，只要開始將編碼工作提交至媒體服務即可，或利用 Azure 媒體隨選串流將內容串流傳輸給客戶。大約一小時過後，您在儀表板上應該就會開始看到監視資料。
 
@@ -67,4 +67,4 @@ Azure 媒體服務儀表板會顯示可用來管理媒體服務帳戶的使用�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

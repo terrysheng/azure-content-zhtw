@@ -10,7 +10,7 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/23/2015"
@@ -105,9 +105,7 @@ SSDT 工程師經常以新功能更新其外掛程式，所以您會發現您必
 
 3. 按一下 [SQL Server 物件總管] 的 [新增伺服器] 按鈕。這已在下圖中反白顯示：
 
-4. 填入 [連接到伺服器] 對話方塊
-
-使用您建立邏輯伺服器時選擇的值。
+4. 請在 [連接到伺服器] 對話方塊中，填入建立邏輯伺服器時所選的值。此外，在連接之前，請按一下 [選項] 按鈕並指定您要連接到 (您的 SQL Data Warehouse 執行個體) 的資料庫。
 
 請隨意核取 [記住密碼] 勾選方塊。它是一個不錯的省時裝置，但記住這會讓任何人都能實際存取您的設定檔，進而使用此帳戶來執行查詢。
 
@@ -145,13 +143,13 @@ SSDT 工程師經常以新功能更新其外掛程式，所以您會發現您必
 因此若要連接到 SQL DW 執行個體，您要輸入下列資訊：
 
 ```
-C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
 ```
 
 連線之後，您可以對執行個體發出任何支援的 Transact-SQL 陳述式。例如，下列陳述式利用 [CREATE TABLE](https://msdn.microsoft.com/library/azure/dn268335.aspx) 陳述式來建立新的資料表
 
 ```
-C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
 1> CREATE TABLE table1 (Col1 int, Col2 varchar(20));
 2> GO
 3> QUIT
@@ -185,6 +183,7 @@ C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server 
 	若要執行查詢，請按一下下方的綠色箭頭，或使用下列快速鍵 `CTRL`+`SHIFT`+`F5`：
 
 ## 後續步驟 ##
+[Load sample data.]: ./sql-data-warehouse-get-started-load-samples.md
 [Start developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

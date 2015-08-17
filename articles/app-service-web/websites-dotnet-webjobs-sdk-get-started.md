@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
@@ -800,7 +800,13 @@ WebJobs SDK 會在收到佇列訊息時呼叫此方法。此方法會建立縮�
 * [如何透過 WebJobs SDK 使用 Azure 資料表儲存體](websites-dotnet-webjobs-sdk-storage-tables-how-to.md) (英文)
 * [如何搭配使用 Azure 服務匯流排與 WebJobs SDK](websites-dotnet-webjobs-sdk-service-bus.md) (英文)
 
->[AZURE.NOTE]* 如果您的 Web 應用程式在多個 VM 上執行，則此程式將在每部機器上執行，而每部機器將會等待觸發程序並嘗試執行函數。在某些案例中，這會導致部分函數處理相同的資料兩次，因此函數應是以等冪的方式 (寫入，因此使用相同輸入資料重複呼叫函數才不會產生重複的結果)。* 如需如何實作正常關機的詳細資訊，請參閱[正常關機](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful)。* 為求簡化，`ConvertImageToThumbnailJPG` 方法 (未顯示) 中的程式碼會使用 `System.Drawing` 命名空間中的類別。不過，此命名空間中類別的設計原意是要與 Windows Form 搭配使用。不支援將它們用於 Windows 或 ASP.NET 服務。如需影像處理選項的詳細資訊，請參閱[動態影像產生](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx)和[深入調整影像大小](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na)。
+> [AZURE.NOTE]
+>
+> * 如果您的 Web 應用程式在多個 VM 上執行，則系統將同時執行多個 WebJobs，且在某些情況下，這會導致相同的資料多次進行處理。如果您使用內建佇列、blob 和服務匯流排觸發程序，這不會造成問題。SDK 可確保您的函式針對每個訊息或 blob 僅會處理一次。
+>
+> * 如需如何實作順利關機的詳細資訊，請參閱〈[順利關機](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful)〉。
+>
+> * 為求簡化，`ConvertImageToThumbnailJPG` 方法 (未顯示) 中的程式碼會使用 `System.Drawing` 命名空間中的類別。不過，此命名空間中類別的設計原意是要與 Windows Form 搭配使用。不支援將它們用於 Windows 或 ASP.NET 服務。如需影像處理選項的詳細資訊，請參閱[動態影像產生](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx)和[深入調整影像大小](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na)。
 
 ### WebJobs SDK 與雲端服務背景工作角色 (沒有 WebJobs SDK) 的比較
 
@@ -824,6 +830,6 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需 Azure 入口網站變更為 Azure Preview 入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+* 如需 Azure 入口網站變更為 Azure 預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

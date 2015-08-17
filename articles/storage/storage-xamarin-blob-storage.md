@@ -38,16 +38,16 @@ Xamarin 可讓開發人員使用共用的 C# 程式碼基底，使用其原生�
 
 接著，開啟 Azure PowerShell 並執行下列命令。請記得將 `ACCOUNT_NAME` 和 `ACCOUNT_KEY== ` 取代為您的儲存體帳戶認證。將 `CONTAINER_NAME` 取代為您選擇的名稱。
 
-    PS C:> $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
-	PS C:> New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
-	PS C:> $now = Get-Date
-	PS C:> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+    PS C:\> $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+	PS C:\> New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
+	PS C:\> $now = Get-Date
+	PS C:\> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
 
 新容器的共用存取簽章 URI 應該會類似下列項目：
 
 	https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 
-您在容器上建立的共用存取簽章將在隔天內有效。簽章會授與容器內 Blob 的完整存取權限 (例如，讀取、寫入、刪除和清單)。
+您在容器上建立的共用存取簽章將在隔天內有效。簽章會將完整存取權限 (*例如*，讀取、寫入、刪除和列出) 授與容器中 Blob。
 
 如需共用存取簽章的詳細資訊，請參閱[適用於 .NET 的 SAS 教學課程](storage-dotnet-shared-access-signature-part-2.md)。
 
@@ -179,4 +179,4 @@ Xamarin 可讓開發人員使用共用的 C# 程式碼基底，使用其原生�
 [如何使用 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md)
  
 
-<!-------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

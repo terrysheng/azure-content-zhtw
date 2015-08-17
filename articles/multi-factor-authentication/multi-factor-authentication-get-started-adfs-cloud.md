@@ -93,4 +93,4 @@
 
 這樣就大功告成了！ 現在，當宣告來自公司內部網路之外時，Office 365 使用者同盟只需要使用 MFA。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

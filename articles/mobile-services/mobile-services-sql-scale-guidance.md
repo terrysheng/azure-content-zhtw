@@ -263,27 +263,27 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 
 #### 進階度量
 
-如果您使用 Basic、Standard 和 Premium 等層，則管理入口網站會使特定度量可供使用。但如果使用 Web 和 Business 層，則只有儲存體度量可透過入口網站使用。所幸無論您使用的層為何，都可以使用 **[sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx)** 管理檢視輕鬆取得這些度量和其他度量。請考量下列查詢：
+如果您使用 Basic、Standard 和 Premium 等層，則管理入口網站會使特定度量可供使用。但如果使用 Web 和 Business 層，則只有儲存體度量可透過入口網站使用。所幸無論您使用的層為何，都可以使用 **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)** 管理檢視輕鬆取得這些度量和其他度量。請考量下列查詢：
 
     SELECT TOP 10 * 
     FROM sys.resource_stats 
     WHERE database_name = 'todoitem_db' 
     ORDER BY start_time DESC
 
-> [AZURE.NOTE]請在伺服器的 **master** 資料庫上執行此查詢，**sys.resource_stats** 檢視只會出現在該資料庫上。
+> [AZURE.NOTE]請在伺服器的 **master** 資料庫上執行此查詢，**sys.resource\_stats** 檢視只會出現在該資料庫上。
 
 結果將會包含下列好用的度量：CPU (層限制百分比)、儲存體 (MB)、實體資料讀取 (層限制百分比)、記錄寫入 (層限制百分比)、記憶體 (層限制百分比)、背景工作計數、工作階段計數等。
 
 #### SQL 連線事件
 
-**[sys.event_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** 檢視包含連線相關事件的詳細資料。
+**[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** 檢視包含連線相關事件的詳細資料。
 
     select * from sys.event_log 
     where database_name = 'todoitem_db'
     and event_type like 'throttling%'
     order by start_time desc
 
-> [AZURE.NOTE]請在伺服器的 **master** 資料庫上執行此查詢，**sys.event_log** 檢視只會出現在該資料庫上。
+> [AZURE.NOTE]請在伺服器的 **master** 資料庫上執行此查詢，**sys.event\_log** 檢視只會出現在該資料庫上。
 
 <a name="AdvancedIndexing" />
 ### 進階索引
@@ -296,7 +296,7 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 
 提供實際比喻：試想書籍或技術手冊。每一頁的內容都是一筆記錄，頁碼是叢集索引，而書後的主題索引則是非叢集索引。主題索引中的每個項目都會指向叢集索引，即頁碼。
 
-> [AZURE.NOTE]根據預設，Azure 行動服務的 JavaScript 後端會將 **_createdAt** 設為叢集索引。如果您移除此資料行，或是想要有不同的叢集索引，請務必遵循下方的[叢集索引設計指引](#ClusteredIndexes)。在 .NET 後端中，類別 `EntityData` 會使用註解 `[Index(IsClustered = true)]` 將 `CreatedAt` 定義為叢集索引。
+> [AZURE.NOTE]根據預設，Azure 行動服務的 JavaScript 後端會將 **\_createdAt** 設為叢集索引。如果您移除此資料行，或是想要有不同的叢集索引，請務必遵循下方的[叢集索引設計指引](#ClusteredIndexes)。在 .NET 後端中，類別 `EntityData` 會使用註解 `[Index(IsClustered = true)]` 將 `CreatedAt` 定義為叢集索引。
 
 <a name="ClusteredIndexes"></a>
 #### 叢集索引設計指引
@@ -476,4 +476,4 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 [該索引鍵的成本為何？]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

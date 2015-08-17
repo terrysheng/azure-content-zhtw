@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/02/2015"
 	ms.author="sethm"/>
 
@@ -340,11 +340,11 @@
             }
         }
 
-3.  在 [方案總管] 中，展開 Views\Shared：
+3.  在 [方案總管] 中，展開 Views\\Shared：
 
     ![][18]
 
-4.  接著，按兩下 _Layout.cshtml，以在 Visual Studio 編輯器中開啟它。
+4.  接著，按兩下 \_Layout.cshtml，以在 Visual Studio 編輯器中開啟它。
 
 5.  將所有出現的 **My ASP.NET Application** 變更為 **LITWARE's Products**。
 
@@ -352,7 +352,7 @@
 
 	![][41]
 
-7.  在 [方案總管] 中，展開 Views\Home：
+7.  在 [方案總管] 中，展開 Views\\Home：
 
     ![][20]
 
@@ -503,7 +503,7 @@
 
 ## 將應用程式部署至 Azure
 
-1.  在 [**方案總管**] 的 **ProductsPortal** 專案上按一下滑鼠右鍵，然後按一下 [**發佈到 Azure**]。
+1.  在 [**方案總管**] 的 **ProductsPortal** 專案上按一下滑鼠右鍵，然後按一下 [**發佈到 Microsoft Azure**]。
 
 2.  您可能必須登入，才能看到所有訂用帳戶。
 
@@ -620,4 +620,4 @@ Azure 會就每小時伺服器時間所使用的 Web 角色執行個體數進行
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

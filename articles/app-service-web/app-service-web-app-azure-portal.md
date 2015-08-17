@@ -68,7 +68,7 @@ Azure 網站現在稱為[應用程式服務 Web 應用程式](http://go.microsof
 
 ![](./media/app-service-web-app-azure-portal/AppSettingsPreview.png)
 
-入口網站中有些項目已使用不同的方式重新命名或分組，讓您更輕鬆地找到它們，而不是品牌名稱。例如，下面是舊入口網站中應用程式設定之對應頁面的螢幕擷取畫面 (設定)。
+入口網站中有些項目已使用不同的方式重新命名或分組，讓您更輕鬆地找到它們，而不是品牌名稱。例如，下面是舊入口網站中應用程式設定之對應頁面的螢幕擷取畫面 (**設定**)。
 
 ![](./media/app-service-web-app-azure-portal/AppSettings.png)
 
@@ -86,4 +86,4 @@ Azure 網站現在稱為[應用程式服務 Web 應用程式](http://go.microsof
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽新入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

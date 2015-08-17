@@ -95,12 +95,12 @@ Azure 受管理快取服務是一種分散式、記憶體內的可擴充解決�
 
 您可以在 Azure PowerShell 視窗中監視建立進度。快取可供使用之後，[New-AzureManagedCache][] Cmdlet 會顯示快取資訊，如下列範例所示。
 
-	PS C:> Add-AzureAccount
+	PS C:\> Add-AzureAccount
 	VERBOSE: Account "user@domain.com" has been added.
 	VERBOSE: Subscription "MySubscription" is selected as the default subscription.
 	VERBOSE: To view all the subscriptions, please use Get-AzureSubscription.
 	VERBOSE: To switch to a different subscription, please use Select-AzureSubscription.
-	PS C:> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
+	PS C:\> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
 	VERBOSE: Intializing parameters...
 	VERBOSE: Creating prerequisites...
 	VERBOSE: Verify cache service name...
@@ -116,7 +116,7 @@ Azure 受管理快取服務是一種分散式、記憶體內的可擴充解決�
 
 
 
-	PS C:>
+	PS C:\>
 
 
 
@@ -486,4 +486,4 @@ Azure 快取的輸出快取提供者為輸出快取資料的程序外儲存體�
 [適合我的 Azure 快取提供項目]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

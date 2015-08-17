@@ -71,4 +71,4 @@
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -20,7 +20,7 @@
 
 本主題說明如何使用 Entity Framework Code First 移轉對現有的 Azure SQL Database 進行資料模型變更，以避免遺失現有的資料。此程序假設您已將行動服務專案發佈至 Azure、您的資料庫中目前已有資料，且遠端與本機資料模型仍保持同步。本主題同時說明 Azure 行動服務實作的預設 Code First 初始設定式，開發期間將會用到這些初始設定式。當您不必保有現有的資料時，這些初始設定式可讓您輕鬆地進行結構描述變更，而不需要使用 Code First 移轉。
 
->[AZURE.NOTE]要在 SQL Database 中的資料表上當作前置詞的結構描述名稱，已由 web.config 檔案中的 MS_MobileServiceName 應用程式設定加以定義。當您從入口網站下載入門專案後，此值已設為行動服務名稱。當您的結構描述名稱符合行動服務時，多個行動服務即可安全地共用同一個資料庫執行個體。
+>[AZURE.NOTE]要在 SQL Database 中的資料表上當作前置詞的結構描述名稱，已由 web.config 檔案中的 MS\_MobileServiceName 應用程式設定加以定義。當您從入口網站下載入門專案後，此值已設為行動服務名稱。當您的結構描述名稱符合行動服務時，多個行動服務即可安全地共用同一個資料庫執行個體。
 
 ## 更新資料模型
 
@@ -74,7 +74,7 @@ Visual Studio 可讓您輕鬆地建立新的資料表控制器，向用戶端應
 
 	這會建立名為*初始*的新移轉。移轉程式碼會儲存在 Migrations 專案資料夾中。
 
-5. 展開 App_Start 資料夾，開啟 WebApiConfig.cs 專案檔案，然後新增下列 **using** 陳述式：
+5. 展開 App\_Start 資料夾，開啟 WebApiConfig.cs 專案檔案，然後新增下列 **using** 陳述式：
 
 		using System.Data.Entity.Migrations;
 		using todolistService.Migrations;
@@ -169,4 +169,4 @@ Visual Studio 可讓您輕鬆地建立新的資料表控制器，向用戶端應
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

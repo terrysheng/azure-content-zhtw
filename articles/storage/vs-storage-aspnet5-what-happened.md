@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/22/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # 我的專案發生什麼情形？
 
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-aspnet5-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
-###我的專案發生什麼情形？</span>
+###我的專案發生什麼情形？
 
 ##### 加入參考
 
@@ -50,4 +50,4 @@ Azure 儲存體 NuGet 封裝已加入至 Visual Studio 專案。這個封裝會�
 如需詳細資訊，請參閱 [ASP.NET 5](http://www.asp.net/vnext)。
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

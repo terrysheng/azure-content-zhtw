@@ -73,4 +73,4 @@ documentationCenter=""/>
 * 使用 Application Insights [監視任何網頁的可用性和回應性](../app-insights-monitor-web-app-availability.md)，讓您可以找出您的頁面是否關閉。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -299,4 +299,4 @@ IaaS 上的 SQL Server 也可以當做來源和接收器受到支援。必須有
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

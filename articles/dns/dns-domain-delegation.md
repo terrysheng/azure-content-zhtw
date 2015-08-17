@@ -10,7 +10,7 @@
 <tags
    ms.service="dns"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/28/2015"
@@ -72,7 +72,7 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 
 您可以使用 Azure PowerShell 擷取授權 NS 記錄，如下所示 (記錄名稱 "@" 用來參考區域頂點的記錄)：
 
-	PS C:\> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> $zone = Get-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
 	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
@@ -161,4 +161,4 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 [Azure DNS REST API 參考](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

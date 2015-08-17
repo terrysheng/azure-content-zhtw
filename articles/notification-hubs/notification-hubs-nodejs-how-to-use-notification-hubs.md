@@ -17,9 +17,11 @@
 	ms.author="wesmc"/>
 
 # 如何從 Node.js 使用通知中樞
-<div class="dev-center-tutorial-selector sublanding">
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js" class="current">Node.js</a>
-</div>
+
+> [AZURE.SELECTOR]
+- [Java](notification-hubs-java-backend-how-to.md)
+- [PHP](notification-hubs-php-backend-how-to.md)
+- [Python](notification-hubs-python-backend-how-to)
 
 ##概觀
 
@@ -55,7 +57,7 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
 		|-- xml2js@0.2.6 (sax@0.4.2)
 		|-- request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
 
-3.  您可以手動執行 **ls** 或 **dir** 命令，以確認 **node_modules** 資料夾是否已建立。在該資料夾內找到 **Azure** 套件，其中包含您存取通知中樞所需的程式庫。
+3.  您可以手動執行 **ls** 或 **dir** 命令，以確認 **node\_modules** 資料夾是否已建立。在該資料夾內找到 **Azure** 套件，其中包含您存取通知中樞所需的程式庫。
 
 ### 匯入模組
 
@@ -216,4 +218,4 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

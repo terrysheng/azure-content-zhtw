@@ -333,4 +333,4 @@
 
 [如何安裝和設定 Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

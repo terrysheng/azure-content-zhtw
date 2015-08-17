@@ -50,7 +50,7 @@ Converting plain text "CREATE ASSEMBLY" into a link to the MSDN topic, ms189524.
 5. T-SQL SELECT 陳述式用於呼叫並測試函數。
 
 
-上述清單並未提到...<br/> **execute sp_configure 'clr enabled', 1;**<br/> ...因為即使 Microsoft SQL Server 需要用到，但 Azure SQL Database 並不需要。
+上述清單並未提到...<br/> **execute sp\_configure 'clr enabled', 1;**<br/> ...因為即使 Microsoft SQL Server 需要用到，但 Azure SQL Database 並不需要。
 
 
 如果需要重新執行，卸除函數與組件的 T-SQL 程式碼為以下的：
@@ -328,4 +328,4 @@ Transact-SQL 程式碼的以下區塊包含數個不重要的 SELECT 陳述式�
 
 <!-- EndOfFile -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

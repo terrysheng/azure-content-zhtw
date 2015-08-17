@@ -2,7 +2,7 @@
 
 版本不符合的兩個徵兆為：
 
-1. 建立或重新建置專案時，您可能會收到如「**找不到目標 Google Inc.:Google APIs:n**」之類的 Gradle 錯誤訊息。
+1. 建置或重新建置專案時，您可能會收到如「**找不到目標 Google Inc.:Google APIs:n**」之類的 Gradle 錯誤訊息。
 
 2. 錯誤訊息可能是程式碼中必須根據 `import` 陳述式解析的標準 Android 物件所產生。
 
@@ -20,4 +20,4 @@
 
 4. 與 Eclipse 的情況不同，在 Android Studio 中，不再使用資訊清單檔案來指定目標 SDK 和最低的 SDK 版本。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

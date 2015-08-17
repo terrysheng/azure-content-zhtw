@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="使用彈性資料庫工具和資料列層級安全性的多租用戶應用程式" 
 	description="了解如何搭配資料列層級安全性使用彈性資料庫工具建置應用程式，且讓此應用程式在 Azure SQL Database 上具有可支援多租用戶分區的高度可擴充資料層。" 
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter=""  
 	manager="jeffreyg" 
 	authors="tmullaney"/>
 
@@ -46,17 +47,17 @@
 
 請注意，因為分區資料庫中尚未啟用 RLS，所以這些測試都會顯現出一個問題：租用戶能夠查看不屬於自己的部落格，且應用程式無法阻止插入錯誤的租用戶部落格。本文的其餘部分會說明，如何藉由 RLS 強制執行租用戶隔離來解決這些問題。有兩個步驟：
 
-1. **應用程式層**：修改應用程式程式碼，一律在開啟連接之後將 CONTEXT_INFO 設為目前的 TenantId。範例專案已經完成此步驟。 
-2. 資料層：在每個分區資料庫中建立 RLS 安全性原則，以根據 CONTEXT_INFO 值篩選資料列。您需要對每個分區資料庫執行這個動作，否則將不會篩選多租用戶分區中的資料列。 
+1. **應用程式層**：修改應用程式程式碼，一律在開啟連接之後將 CONTEXT\_INFO 設為目前的 TenantId。範例專案已經完成此步驟。 
+2. 資料層：在每個分區資料庫中建立 RLS 安全性原則，以根據 CONTEXT\_INFO 值篩選資料列。您需要對每個分區資料庫執行這個動作，否則將不會篩選多租用戶分區中的資料列。 
 
 
-## 步驟 1) 應用程式層：將 CONTEXT_INFO 設為 TenantId
+## 步驟 1) 應用程式層：將 CONTEXT\_INFO 設為 TenantId
 
-在使用彈性資料庫用戶端程式庫的資料依存路由 API 連接到分區資料庫後，應用程式仍需告訴資料庫哪個 TenantId 使用該連接，然後 RLS 安全性原則才能篩選掉屬於其他租用戶的資料列。建議使用將 [CONTEXT_INFO](https://msdn.microsoft.com/library/ms180125) 設為該連接目前的 TenantId 的方式，來傳遞此資訊。請注意，在 Azure SQL Database 上，CONTEXT_INFO 中會預先填入工作階段專屬 GUID，因此在新的連接上執行任何查詢之前，您*必須*將 CONTEXT_INFO 設為正確的 TenantId，以確保不會不小心遺漏任何資料列。
+在使用彈性資料庫用戶端程式庫的資料依存路由 API 連接到分區資料庫後，應用程式仍需告訴資料庫哪個 TenantId 使用該連接，然後 RLS 安全性原則才能篩選掉屬於其他租用戶的資料列。建議使用將 [CONTEXT\_INFO](https://msdn.microsoft.com/library/ms180125) 設為該連接目前的 TenantId 的方式，來傳遞此資訊。請注意，在 Azure SQL Database 上，CONTEXT\_INFO 中會預先填入工作階段專屬 GUID，因此在新的連接上執行任何查詢之前，您*必須*將 CONTEXT\_INFO 設為正確的 TenantId，以確保不會不小心遺漏任何資料列。
 
 ### Entity Framework
 
-對於使用 Entity Framework 的應用程式而言，最簡單的方法是在[使用 EF DbContext 的資料依存路由](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext)所述的 ElasticScaleContext 覆寫中設定 CONTEXT_INFO。在透過資料依存路由的代理而傳回連接之前，只要建立並執行可將 CONTEXT_INFO 設為指定用於該連接之 shardingKey (TenantId) 的 SqlCommand 即可。此方法讓您只需要撰寫一次程式碼，就能設定 CONTEXT_INFO。
+對於使用 Entity Framework 的應用程式而言，最簡單的方法是在[使用 EF DbContext 的資料依存路由](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext)所述的 ElasticScaleContext 覆寫中設定 CONTEXT\_INFO。在透過資料依存路由的代理而傳回連接之前，只要建立並執行可將 CONTEXT\_INFO 設為指定用於該連接之 shardingKey (TenantId) 的 SqlCommand 即可。此方法讓您只需要撰寫一次程式碼，就能設定 CONTEXT\_INFO。
 
 ```
 // ElasticScaleContext.cs 
@@ -102,7 +103,7 @@ public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, 
 // ... 
 ```
 
-現在叫用 ElasticScaleContext 時，CONTEXT_INFO 會自動設為指定的 TenantId：
+現在叫用 ElasticScaleContext 時，CONTEXT\_INFO 會自動設為指定的 TenantId：
 
 ```
 // Program.cs 
@@ -125,7 +126,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### ADO.NET SqlClient 
 
-針對使用 ADO.NET SqlClient 的應用程式，建議在 ShardMap.OpenConnectionForKey() 周圍建立包裝函式，在傳回連接之前自動將 CONTEXT_INFO 設為正確的 TenantId。為了確保 CONTEXT_INFO 一定正確設定，您應該只使用此包裝函式開啟連接。
+針對使用 ADO.NET SqlClient 的應用程式，建議在 ShardMap.OpenConnectionForKey() 周圍建立包裝函式，在傳回連接之前自動將 CONTEXT\_INFO 設為正確的 TenantId。為了確保 CONTEXT\_INFO 一定正確設定，您應該只使用此包裝函式開啟連接。
 
 ```
 // Program.cs
@@ -187,9 +188,9 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### 建立安全性原則以篩選 SELECT、UPDATE 和 DELETE 查詢 
 
-現在應用程式會在查詢前，將 CONTEXT_INFO 設為目前的 TenantId，RLS 安全性原則也會篩選查詢，並排除具有不同 TenantId 的資料列。
+現在應用程式會在查詢前，將 CONTEXT\_INFO 設為目前的 TenantId，RLS 安全性原則也會篩選查詢，並排除具有不同 TenantId 的資料列。
 
-T-SQL 中已實作 RLS：使用者定義的述詞函數會定義篩選邏輯，而安全性原則會將此函數繫結至任意數目的資料表。就此專案而言，述詞函數只會確認該應用程式 (而非其他的 SQL 使用者) 是否連接至資料庫，且 CONTEXT_INFO 值是否符合給定資料列的 TenantId。符合這些條件的資料列將可篩選 SELECT、UPDATE 和 DELETE 查詢。如果尚未設定 CONTEXT_INFO，則不會傳回任何資料列。
+T-SQL 中已實作 RLS：使用者定義的述詞函數會定義篩選邏輯，而安全性原則會將此函數繫結至任意數目的資料表。就此專案而言，述詞函數只會確認該應用程式 (而非其他的 SQL 使用者) 是否連接至資料庫，且 CONTEXT\_INFO 值是否符合給定資料列的 TenantId。符合這些條件的資料列將可篩選 SELECT、UPDATE 和 DELETE 查詢。如果尚未設定 CONTEXT\_INFO，則不會傳回任何資料列。
 
 若要啟用 RLS，可以使用 Visual Studio (SSDT)、SSMS 或包含在專案中的 PowerShell 指令碼，在所有分區上執行以下 T-SQL (或者，如果您使用[彈性資料庫工作](sql-database-elastic-jobs-overview.md)，您可以用它在所有分區上自動執行此 T-SQL)：
 
@@ -261,7 +262,7 @@ GO
 
 ### 加入預設條件約束來為插入自動填入 TenantId 
 
-除了使用檢查條件約束封鎖插入錯誤的租用戶外，您也可以在每個資料表上放置預設條件約束，以在插入資料列時，自動將 CONTEXT_INFO 的現有值填入 TenantId。例如：
+除了使用檢查條件約束封鎖插入錯誤的租用戶外，您也可以在每個資料表上放置預設條件約束，以在插入資料列時，自動將 CONTEXT\_INFO 的現有值填入 TenantId。例如：
 
 ```
 -- Create default constraints to auto-populate TenantId with the value of CONTEXT_INFO for inserts 
@@ -290,7 +291,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 }); 
 ```
 
-> [AZURE.NOTE]如果您需要針對 Entity Framework 專案使用預設條件約束，建議您「不要」在 EF 資料模型中包含 TenantId 資料行。這是因為 Entity Framework 查詢會自動提供預設值，此預設值會覆寫 T-SQL 中使用 CONTEXT_INFO 建立的預設條件約束。若要使用範例專案中的預設條件約束，舉例來說，您可以從 DataClasses.cs 移除 TenantId (並在 Package Manager Console 中執行 Add-Migration)，然後使用 T-SQL 確保欄位只存在於資料庫資料表中。如此一來，EF 就不會在插入資料時，自動提供不正確的預設值。
+> [AZURE.NOTE]如果您需要針對 Entity Framework 專案使用預設條件約束，建議您「不要」在 EF 資料模型中包含 TenantId 資料行。這是因為 Entity Framework 查詢會自動提供預設值，此預設值會覆寫 T-SQL 中使用 CONTEXT\_INFO 建立的預設條件約束。若要使用範例專案中的預設條件約束，舉例來說，您可以從 DataClasses.cs 移除 TenantId (並在 Package Manager Console 中執行 Add-Migration)，然後使用 T-SQL 確保欄位只存在於資料庫資料表中。如此一來，EF 就不會在插入資料時，自動提供不正確的預設值。
 
 ### (選擇性) 啟用「進階使用者」來存取所有資料列
 有些應用程式可能需要建立一個能夠存取所有資料列的「進階使用者」，比方說，為了跨所有分區上的所有租用戶來產生報表，或在牽涉到資料庫之間移動租用戶資料列的分區上執行分割/合併作業。為了達成此目的，您應該在每個分區資料庫中建立新的 SQL 使用者 (在本例中為 "superuser")。然後使用新的述詞函式修改安全性原則，允許此使用者存取所有資料列：
@@ -339,4 +340,4 @@ GO
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -139,4 +139,4 @@ Azure Preview 入口網站的 SharePoint Server 伺服器陣列功能會在服�
 
 [在混合式雲端中設定用於測試的 SharePoint 內部網路伺服器陣列](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

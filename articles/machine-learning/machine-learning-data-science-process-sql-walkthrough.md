@@ -26,7 +26,7 @@
 
 「NYC 計程車車程」資料大約是 20GB 的 CSV 壓縮檔 (未壓縮時可達 48GB)，其中包含超過 1 億 7300 萬筆個別車程及針對每趟車程支付的費用。每趟車程記錄包括上車和下車的位置與時間、匿名的計程車司機駕照號碼，以及圓形徽章 (計程車的唯一識別碼) 號碼。資料涵蓋 2013 年的所有車程，並且每月會在下列兩個資料集中加以提供：
 
-1. 「trip_data」CSV 檔案包含車程的詳細資訊，例如，乘客數、上車和下車地點、車程持續時間，以及車程長度。以下是一些範例記錄：
+1. 「trip\_data」CSV 檔案包含車程的詳細資訊，例如，乘客數、上車和下車地點、車程持續時間，以及車程長度。以下是一些範例記錄：
 
 		medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
 		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -35,7 +35,7 @@
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
 
-2. 「trip_fare」CSV 檔案包含針對每趟車程所支付之費用的詳細資訊，例如付款類型、費用金額、銷售稅和稅金、小費和服務費，以及支付的總金額。以下是一些範例記錄：
+2. 「trip\_fare」CSV 檔案包含針對每趟車程所支付之費用的詳細資訊，例如付款類型、費用金額、銷售稅和稅金、小費和服務費，以及支付的總金額。以下是一些範例記錄：
 
 		medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
 		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -44,15 +44,15 @@
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-聯結 trip_data and trip_fare 的唯一索引鍵是由下列欄位組成：medallion、hack_licence 和 pickup_datetime。
+聯結 trip\\\_data and trip\\\_fare 的唯一索引鍵是由下列欄位組成：medallion、hack\\\_licence 和 pickup\\\_datetime。
 
 ## <a name="mltasks"></a>預測工作的範例
 
-我們將根據 *tip_amount* 編寫三個預測問題的公式，公式如下：
+我們將根據 *tip\_amount* 編寫三個預測問題的公式，公式如下：
 
-1. 二進位分類：預測是否已支付某趟車程的小費，例如大於 $0 的 *tip_amount* 為正面範例，等於 $0 的 *tip_amount* 為負面範例。
+1. 二進位分類：預測是否已支付某趟車程的小費，例如大於 $0 的 *tip\_amount* 為正面範例，等於 $0 的 *tip\_amount* 為負面範例。
 
-2. 多類別分類：預測已針對該車程支付的小費的金額範圍。我們將 *tip_amount* 分成五個分類收納組或類別：
+2. 多類別分類：預測已針對該車程支付的小費的金額範圍。我們將 *tip\_amount* 分成五個分類收納組或類別：
 	
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -99,9 +99,9 @@
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-	當 AzCopy 完成時，資料的資料夾中總共應該有 24 壓縮的 CSV 檔案 (12 個檔案是 trip_data，12 個檔案是 trip_fare)。
+	當 AzCopy 完成時，資料的資料夾中總共應該有 24 壓縮的 CSV 檔案 (12 個檔案是 trip\_data，12 個檔案是 trip\_fare)。
 
-4. 將下載的檔案解壓縮。請注意未壓縮檔案所在的資料夾。此資料夾將稱為 <path_to_data_files>。
+4. 將下載的檔案解壓縮。請注意未壓縮檔案所在的資料夾。此資料夾將稱為 <path\_to\_data\_files>。
 
 ## <a name="dbload"></a>將資料大量匯入到 SQL Server 資料庫
 
@@ -113,7 +113,7 @@
 
 	![SSMS 連線][12]
 
-3. 如果您尚未變更 SQL Server 驗證模式，且尚未建立新的 SQL 登入使用者，請開啟 [**指令碼範例**] 資料夾中名為 **change_auth.sql** 的指令碼檔案。變更預設的使用者名稱和密碼。按一下工具列中的 [**!執行**] 執行指令碼。
+3. 如果您尚未變更 SQL Server 驗證模式，且尚未建立新的 SQL 登入使用者，請開啟 [**指令碼範例**] 資料夾中名為 **change\\\_auth.sql** 的指令碼檔案。變更預設的使用者名稱和密碼。按一下工具列中的 [**!執行**] 執行指令碼。
 
 	![執行指令碼][13]
 
@@ -129,22 +129,22 @@
 	
 		![SQL Database 的預設值][15]
 
-5. 若要建立新資料庫與一組檔案群組來保留資料分割資料表，請開啟指令碼範例 **create_db_default.sql**。指令碼將會在預設資料位置中建立名為 **TaxiNYC** 的新資料庫和 12 個檔案群組。每個檔案群組都將保留一個月內的 trip_data 和 trip_fare 資料。視需要修改資料庫名稱。按一下 [**!執行**]，執行指令碼。
+5. 若要建立新資料庫與一組檔案群組來保留資料分割資料表，請開啟指令碼範例 **create\_db\_default.sql**。指令碼將會在預設資料位置中建立名為 **TaxiNYC** 的新資料庫和 12 個檔案群組。每個檔案群組都將保留一個月內的 trip\_data 和 trip\_fare 資料。視需要修改資料庫名稱。按一下 [**!執行**]，執行指令碼。
 
-6. 接下來，建立兩個資料分割資料表，一個用於 trip_data，另一個用於 trip_fare。開啟指令碼範例 **create_partitioned_table.sql**，其功用如下：
+6. 接下來，建立兩個資料分割資料表，一個用於 trip\_data，另一個用於 trip\_fare。開啟指令碼範例 **create\_partitioned\_table.sql**，其功用如下：
 
 	- 建立資料分割函式，以依月份分割資料。
 	- 建立資料分割配置，將每個月的資料對應至不同的檔案群組。
-	- 建立兩個對應至資料分割配置的資料分割資料表： **nyctaxi_trip** 會保留 trip_data，**nyctaxi_fare** 則會保留 trip_fare 資料。
+	- 建立兩個對應至資料分割配置的資料分割資料表： **nyctaxi\_trip** 會保留 trip\_data，**nyctaxi\_fare** 則會保留 trip\_fare 資料。
 
 	按一下 [**!執行**] 執行指令碼，並建立資料分割資料表。
 
 7. [**指令碼範例**] 資料夾提供兩個 PowerShell 指令碼範例，可用來示範將資料平行大量匯入 SQL Server 資料表的方式。
 
-	- **bcp_parallel_generic.ps1** 是將資料平行大量匯入資料表的泛型指令碼。修改此指令碼來設定輸入與目標變數，如指令碼的註解行中所示。
-	- **bcp_parallel_nyctaxi.ps1** 是預先設定的泛型指令碼版本，可用來同時載入適用於「NYC 計程車車程」資料的兩種資料表。  
+	- **bcp\_parallel\_generic.ps1** 是將資料平行大量匯入資料表的泛型指令碼。修改此指令碼來設定輸入與目標變數，如指令碼的註解行中所示。
+	- **bcp\_parallel\_nyctaxi.ps1** 是預先設定的泛型指令碼版本，可用來同時載入適用於「NYC 計程車車程」資料的兩種資料表。  
 
-8. 以滑鼠右鍵按一下名稱為 **bcp_parallel_nyctaxi.ps1** 的指令碼，再按一下 [**編輯**] 利用 PowerShell 開啟。檢閱預設的變數，並根據您選取的資料庫名稱、輸入資料資料夾、目標記錄資料夾，以及格式檔案範例 **nyctaxi_trip.xml** 和 **nyctaxi_fare.xml** (位於 [**指令碼範例**]資料夾) 的路徑進行修改。
+8. 以滑鼠右鍵按一下名稱為 **bcp\_parallel\_nyctaxi.ps1** 的指令碼，再按一下 [**編輯**] 利用 PowerShell 開啟。檢閱預設的變數，並根據您選取的資料庫名稱、輸入資料資料夾、目標記錄資料夾，以及格式檔案範例 **nyctaxi\_trip.xml** 和 **nyctaxi\_fare.xml** (位於 [**指令碼範例**]資料夾) 的路徑進行修改。
 
 	![大量匯入資料][16]
 
@@ -152,22 +152,22 @@
 
 9. PowerShell 指令碼會報告開始和結束時間。完成所有大量匯入時，即會報告結束時間。檢查目標記錄資料夾，以確認大量匯入已成功，亦即，目標記錄資料夾中未報告任何錯誤。
 
-10. 您的資料庫已準備好進行探索、功能工程，以及所需的其他作業。由於這些資料表是根據 [**pickup_datetime**] 欄位來進行資料分割，因此資料分割配置將為在 **WHERE** 子句中加入 **pickup_datetime** 條件的查詢帶來好處。
+10. 您的資料庫已準備好進行探索、功能工程，以及所需的其他作業。由於這些資料表是根據 [**pickup\_datetime**] 欄位來進行資料分割，因此資料分割配置將為在 **WHERE** 子句中加入 **pickup\_datetime** 條件的查詢帶來好處。
 
-11. 在 **SQL Server Management Studio** 中，探索當中提供的指令碼範例 **sample_queries.sql**。若要執行查詢範例，請先將查詢行反白，然後按一下工具列中的 [**!執行**]。
+11. 在 **SQL Server Management Studio** 中，探索當中提供的指令碼範例 **sample\_queries.sql**。若要執行查詢範例，請先將查詢行反白，然後按一下工具列中的 [**!執行**]。
 
-12. 「NYC 計程車車程」資料會載入兩個不同的資料表。若要改善聯結作業，強烈建議您為資料表編製索引。指令碼範例 **create_partitioned_index.sql** 會在複合聯結索引鍵 **medallion、hack_license 和 pickup_datetime** 上建立資料分割索引。
+12. 「NYC 計程車車程」資料會載入兩個不同的資料表。若要改善聯結作業，強烈建議您為資料表編製索引。指令碼範例 **create\_partitioned\_index.sql** 會在複合聯結索引鍵 **medallion、hack\_license 和 pickup\_datetime** 上建立資料分割索引。
 
 ## <a name="dbexplore"></a>SQL Server 中的資料探索和功能工程
 
-在本節中，我們將使用先前建立的 SQL Server 資料庫，直接在 **SQL Server Management Studio** 中執行 SQL 查詢，藉此探索資料和產生功能。名為 **sample_queries.sql** 的指令碼範例位於 [**指令碼範例**] 資料夾中。若資料庫名稱與預設名稱：**TaxiNYC** 不同，請修改指令碼變更該名稱。
+在本節中，我們將使用先前建立的 SQL Server 資料庫，直接在 **SQL Server Management Studio** 中執行 SQL 查詢，藉此探索資料和產生功能。名為 **sample\_queries.sql** 的指令碼範例位於 [**指令碼範例**] 資料夾中。若資料庫名稱與預設名稱：**TaxiNYC** 不同，請修改指令碼變更該名稱。
 
 在這個練習中，我們將：
 
 - 使用 Windows 驗證，或 SQL 驗證及 SQL 登入名稱和密碼，連接至 **SQL Server Management Studio**。
 - 在變動的時間範圍中探索數個欄位的資料分佈。
 - 調查經度和緯度欄位的資料品質。
-- 根據 **tip_amount** 產生二進位和多類別分類標籤。
+- 根據 **tip\_amount** 產生二進位和多類別分類標籤。
 - 產生功能，並計算或比較車程距離。
 - 聯結這兩個資料表，並擷取將用來建置模型的隨機取樣。
 
@@ -188,7 +188,7 @@
 
 #### 探索：依據 medallion 的車程分佈
 
-此範例會識別在特定期間內超過 100 趟車程的圓形徽章 (計程車數目)。資料分割資料表存取的條件是以 **pickup_datetime** 資料分割配置為依據，因為可為查詢帶來好處。查詢完整資料集也會使用資料分割資料表及 (或) 索引掃描。
+此範例會識別在特定期間內超過 100 趟車程的圓形徽章 (計程車數目)。資料分割資料表存取的條件是以 **pickup\_datetime** 資料分割配置為依據，因為可為查詢帶來好處。查詢完整資料集也會使用資料分割資料表及 (或) 索引掃描。
 
 	SELECT medallion, COUNT(*)
 	FROM nyctaxi_fare
@@ -196,7 +196,7 @@
 	GROUP BY medallion
 	HAVING COUNT(*) > 100
 
-#### 探索：依據 medallion 和 hack_license 的車程分佈
+#### 探索：依據 medallion 和 hack\_license 的車程分佈
 
 	SELECT medallion, hack_license, COUNT(*)
 	FROM nyctaxi_fare
@@ -264,7 +264,7 @@
 
 #### 準備資料以進行模型建置
 
-下列查詢可聯結 **nyctaxi_trip** 和 **nyctaxi_fare** 資料表、產生二進位分類標籤 **tipped**、多類別分類標籤 **tip_class**，以及從完整聯結的資料集中擷取 1% 的隨機取樣。複製此查詢，並直接貼至 [Azure Machine Learning Studio](https://studio.azureml.net) 的「[讀取器][reader]」模組，即可從 Azure 的 SQL Server 資料庫執行個體中直接擷取資料。查詢會排除含有不正確 (0, 0) 座標的記錄。
+下列查詢可聯結 **nyctaxi\_trip** 和 **nyctaxi\_fare** 資料表、產生二進位分類標籤 **tipped**、多類別分類標籤 **tip\_class**，以及從完整聯結的資料集中擷取 1% 的隨機取樣。複製此查詢，並直接貼至 [Azure Machine Learning Studio](https://studio.azureml.net) 的「[讀取器][reader]」模組，即可從 Azure 的 SQL Server 資料庫執行個體中直接擷取資料。查詢會排除含有不正確 (0, 0) 座標的記錄。
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -316,7 +316,7 @@
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-#### 報告資料表 nyctaxi_trip 中資料列和資料行的數目
+#### 報告資料表 nyctaxi\_trip 中資料列和資料行的數目
 
     nrows = pd.read_sql('''
 		SELECT SUM(rows) FROM sys.partitions 
@@ -360,7 +360,7 @@
     
 #### 描述性統計資料
 
-現在已經準備好來探索取樣的資料。一開始會先查看 [**trip_distance**] 欄位或任何其他欄位的描述性統計資料：
+現在已經準備好來探索取樣的資料。一開始會先查看 [**trip\_distance**] 欄位或任何其他欄位的描述性統計資料：
 
     df1['trip_distance'].describe()
 
@@ -403,13 +403,13 @@
 
 #### 視覺效果：散佈圖範例
 
-這會顯示 **trip_time_in_secs** 和 **trip_distance** 之間的散佈圖，供您查看當中是否有任何關聯性
+這會顯示 **trip\_time\_in\_secs** 和 **trip\_distance** 之間的散佈圖，供您查看當中是否有任何關聯性
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
 ![圖 #6][6]
 
-也可以同樣的方式查看 **rate_code** 和 **trip_distance** 之間的關聯性。
+也可以同樣的方式查看 **rate\_code** 和 **trip\_distance** 之間的關聯性。
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
@@ -417,13 +417,13 @@
 
 ### 針對 SQL 中的資料進行次取樣
 
-在準備於 [Azure Machine Learning Studio](https://studio.azureml.net) 中建置模型所需的資料時，您可能會決定**在「讀取器」模組中直接使用的 SQL 查詢**，或者將工程設計和取樣資料保存在新的資料表中，只需要利用簡單的 **SELECT * FROM <your_new_table_name>** 即可在「[讀取器][reader]」模組中使用。
+在準備於 [Azure Machine Learning Studio](https://studio.azureml.net) 中建置模型所需的資料時，您可能會決定**在「讀取器」模組中直接使用的 SQL 查詢**，或者將工程設計和取樣資料保存在新的資料表中，只需要利用簡單的 **SELECT * FROM <your\_new\_table\_name>** 即可在「[讀取器][reader]」模組中使用。
 
 在本節中，我們將建立新的資料表來保留取樣與工程資料。＜[SQL Server 中的資料探索和功能工程](#dbexplore)＞一節中提供了可用來建置模型的直接 SQL 查詢範例。
 
 #### 建立取樣資料表並使用 1% 的聯結資料表來填入。如果資料表存在，請先卸除它。
 
-在本節中，我們會聯結資料表 **nyctaxi_trip** 和 **nyctaxi_fare**、擷取 1% 的隨機取樣，然後將取樣的資料保存在名為 **nyctaxi_one_percent** 的新資料表中：
+在本節中，我們會聯結資料表 **nyctaxi\_trip** 和 **nyctaxi\_fare**、擷取 1% 的隨機取樣，然後將取樣的資料保存在名為 **nyctaxi\_one\_percent** 的新資料表中：
 
     cursor = conn.cursor()
     
@@ -448,7 +448,7 @@
     
 ### 在 IPython Notebook 中使用 SQL 查詢進行資料探索
 
-在本節中，我們將使用前面所建立的新資料表中保存的 1% 取樣資料，來探索資料分佈。請注意，如＜[SQL Server 中的資料探索和功能工程](#dbexplore)＞一節所述，您可以使用原始資料表，或是使用 **TABLESAMPLE** 執行類似的探索，以限制探索範例，或是透過使用 **pickup_datetime** 資料分割，將結果限制為指定的期間。
+在本節中，我們將使用前面所建立的新資料表中保存的 1% 取樣資料，來探索資料分佈。請注意，如＜[SQL Server 中的資料探索和功能工程](#dbexplore)＞一節所述，您可以使用原始資料表，或是使用 **TABLESAMPLE** 執行類似的探索，以限制探索範例，或是透過使用 **pickup\_datetime** 資料分割，將結果限制為指定的期間。
 
 #### 探索：車程的每日分佈
 
@@ -479,7 +479,7 @@
 在下列範例中，我們會產生兩組標籤以用來進行模型化：
 
 1. 二進位類別標籤 **tipped** (預測是否將給予小費)
-2. 多類別標籤 **tip_class** (預測小費的收納組或範圍)
+2. 多類別標籤 **tip\_class** (預測小費的收納組或範圍)
 
 		nyctaxi_one_percent_add_col = '''
 			ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
@@ -639,7 +639,7 @@
 
 4. 在對應欄位中輸入**資料庫名稱**。
 
-5. 在 [**伺服器使用者帳戶名稱] 中輸入**SQL 使用者名稱**，並在 [**伺服器使用者帳戶密碼**] 中輸入密碼。
+5. 在**伺服器使用者帳戶名稱中輸入**SQL 使用者名稱**，並在 [**伺服器使用者帳戶密碼**] 中輸入密碼。
 
 6. 選取 [**接受任何伺服器憑證**] 選項。
 
@@ -649,7 +649,7 @@
 
 ![Azure ML 訓練][10]
 
-> [AZURE.IMPORTANT]在前幾節中提供的模型化資料擷取和取樣查詢範例中，**這三個模型化練習的所有標籤都包含於此查詢中**。每一個模型化練習的重要 (必要) 步驟都是針對其他兩個問題**排除**不需要的標籤，以及任何其他的**目標流失**。例如，使用二進位分類時，請用 **tipped** 標籤，並排除 [**tip_class**]、[**tip_amount**] 和 [**total_amount**] 欄位。後者為目標流失，因為它們意指支付的小費。
+> [AZURE.IMPORTANT]在前幾節中提供的模型化資料擷取和取樣查詢範例中，**這三個模型化練習的所有標籤都包含於此查詢中**。每一個模型化練習的重要 (必要) 步驟都是針對其他兩個問題**排除**不需要的標籤，以及任何其他的**目標流失**。例如，使用二進位分類時，請用 **tipped** 標籤，並排除 [**tip\_class**]、[**tip\_amount**] 和 [**total\_amount**] 欄位。後者為目標流失，因為它們意指支付的小費。
 >
 > 若要排除不必要的資料行和/或目標流失，您可以使用「[專案資料行][project-columns]」模組或「[中繼資料編輯器][metadata-editor]」。如需詳細資訊，請參閱「[專案資料行][project-columns]」和「[中繼資料編輯器][metadata-editor]」的參考頁面。
 
@@ -715,4 +715,4 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。特
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

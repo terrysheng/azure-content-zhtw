@@ -41,4 +41,4 @@
 - [分割 Service Fabric 服務](service-fabric-concepts-partitioning.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

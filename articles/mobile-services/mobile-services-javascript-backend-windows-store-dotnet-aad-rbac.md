@@ -64,9 +64,9 @@
 如果您不熟悉使用 Git 將指令碼部署至行動服務的作業，請先參閱[儲存伺服器指令碼]教學課程，再開始進行本節。
 
 1. 在行動服務之本機儲存機制的 *./service/shared/* 目錄中，建立名為 *rbac.js* 的新指令碼檔案。
-2. 將下列指令碼新增至定義 `getAADToken` 函數的檔案頂端。在給定 *tenant_domain*、整合的應用程式*用戶端識別碼*和應用程式*金鑰*的情況下，此函數會提供用來讀取目錄資訊的圖形存取權杖。
+2. 將下列指令碼新增至定義 `getAADToken` 函數的檔案頂端。在給定 *tenant\_domain*、整合的應用程式*用戶端識別碼*和應用程式*金鑰*的情況下，此函數會提供用來讀取目錄資訊的圖形存取權杖。
 
-    >[AZURE.NOTE]您應快取權杖，而不要為每個存取檢查建立一個新權杖。接著，請在嘗試使用 401 Authentication_ExpiredToken 回應中的權杖結果 (如[圖形 API 錯誤參考]所說明) 時重新整理快取。為求單純性，下方的程式碼中並不會說明此作業，但這將可以減輕對您 Active Directory 的額外網路流量。
+    >[AZURE.NOTE]您應快取權杖，而不要為每個存取檢查建立一個新權杖。接著，請在嘗試使用 401 Authentication\_ExpiredToken 回應中的權杖結果 (如[圖形 API 錯誤參考]所說明) 時重新整理快取。為求單純性，下方的程式碼中並不會說明此作業，但這將可以減輕對您 Active Directory 的額外網路流量。
 
         var appSettings = require('mobileservice-config').appSettings;
         var tenant_domain = appSettings.AAD_TENANT_DOMAIN;
@@ -285,4 +285,4 @@
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [存取 Azure Active Directory Graph 資訊]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

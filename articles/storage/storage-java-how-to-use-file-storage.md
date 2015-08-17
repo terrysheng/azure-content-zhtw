@@ -50,7 +50,7 @@
 	    "AccountName=your_storage_account_name;" + 
 	    "AccountKey=your_storage_account_key";
 
-> [AZURE.NOTE]將 your_storage_account_name 和 your_storage_account_key 取代為您的儲存體帳戶的實際值。
+> [AZURE.NOTE]將 your\_storage\_account\_name 和 your\_storage\_account\_key 取代為您的儲存體帳戶的實際值。
 
 ## 連接到 Azure 儲存體帳戶
 
@@ -97,7 +97,7 @@ Azure 檔案儲存體共用至少包含根目錄，檔案可以放置其中。�
 現在您具有共用之根目錄的參考，您可以使用下列程式碼上傳檔案。
 
 	// Define the path to a local file.
-	final String filePath = "C:\temp\Readme.txt";
+	final String filePath = "C:\\temp\\Readme.txt";
 
 	CloudFile cloudFile = rootDir.getFileReference("Readme.txt");
 	cloudFile.uploadFromFile(filePath);
@@ -222,4 +222,4 @@ Azure 檔案儲存體共用至少包含根目錄，檔案可以放置其中。�
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

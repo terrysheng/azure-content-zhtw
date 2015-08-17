@@ -1,7 +1,6 @@
 <properties
     pageTitle="什麼是 Azure Machine Learning？| Microsoft Azure"
     description="說明完全受管理之機器學習服務的基本概念，這項雲端技術可讓您建立、操作及銷售解決方案。"
-	keywords="what is machine learning,cloud technology,predictive,what is predictive analytics,operationalize"
 	services="machine-learning"
     documentationCenter=""
     authors="cjgronlund"
@@ -116,4 +115,4 @@ Azure Machine Learning 具備在雲端上建立預測分析解決方案所需的
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="如何使用 SSMS 連接到 Azure SQL Database" 
+	pageTitle="如何使用 SSMS 連接到 Azure SQL Database" metaKeywords=""
 	description="了解如何使用 SSMS 連接到 Azure SQL Database。"
 	services="sql-database"
 	documentationCenter=""
@@ -44,7 +44,7 @@
 	![連接至資料庫][3]
 
 ### 如果連接失敗
-確定您建立之邏輯伺服器的防火牆允許來自本機電腦的連線。請參閱[作法：進行防火牆設定 (Azure SQL Database)](https://msdn.microsoft.com/library/azure/jj553530.aspx)
+確定您建立之邏輯伺服器的防火牆允許來自本機電腦的連線。請參閱[作法：進行防火牆設定 (Azure SQL Database)](https://msdn.microsoft.com/library/azure/jj553530.aspx)。
 
 ## 執行範例查詢
 
@@ -77,4 +77,4 @@
 [5]: ./media/sql-database-connect-to-database/5-success.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

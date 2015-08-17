@@ -3,8 +3,8 @@
    description="Azure 資料目錄術語"
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager="NA"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+   ms.date="07/31/2015"
+   ms.author="maroche"/>
 
 # Azure 資料目錄術語
 
@@ -42,6 +42,15 @@ Azure 資料目錄是以雲端為基礎的中繼資料儲存機制，其中可�
 
 描述性中繼資料是描述資料資產的用途或意圖的中繼資料。描述性中繼資料通常由目錄使用者利用 Azure 資料目錄入口網站來加入，但也可以在註冊期間從資料來源擷取。Azure 資料目錄註冊工具會從 SQL Server Analysis Services 和 SQL Server Reporting Services 中的 Description 屬性擷取描述，以及從 SQL Server 資料庫中的 [ms\_description 擴充屬性](https://technet.microsoft.com/library/ms190243.aspx)擷取描述 (如果這些屬性已填入值)。
 
+## 要求存取
+
+資料資產的描述性中繼資料可以包含如何要求存取資料資產或資料來源的相關資訊。這項資訊會與資料資產位置一併顯示，且可包含一個或多個下列選項：
+
+- 負責授與資料來源存取權之使用者或小組的電子郵件地址。
+- 記載程序的 URL，使用者必須遵循才能取得資料來源的存取權。
+- 身分識別和存取管理工具 (例如 Microsoft Identity Manager) 的 URL，可以用來取得資料來源的存取權。
+- 任意文字項目，用來描述使用者如何取得資料來源的存取權。
+
 ## 預覽
 
 Azure 資料目錄中的預覽是最多 20 筆記錄的快照集，可以在註冊期間從資料來源中擷取，並與資料資產中繼資料一起儲存在目錄中。預覽可協助使用者在探索資料資產時充分了解其功能和用途。換句話說，查看範例資料比只看到資料行名稱和資料類型更有價值。僅支援預覽資料表和檢視，而且必須由使用者在註冊期間明確選取。
@@ -60,15 +69,15 @@ Azure 資料目錄中的預覽是最多 20 筆記錄的快照集，可以在註�
 
 擁有者是具有額外權限來管理 Azure 資料目錄中的資料資產的使用者。使用者可以取得已註冊的資料資產的擁有權，而擁有者可以加入其他使用者成為共同擁有者。
 > [AZURE.NOTE]只有標準版 Azure 資料目錄中支援擁有權和管理。
- 
+
 ## 註冊
 
 註冊是指從資料來源擷取資料資產中繼資料並複製到 Azure 資料目錄服務的動作。然後就可以加註和探索已註冊的資料資產。
 
 ## 另請參閱
 
-- [什麼是 Azure 資料目錄？](data-catalog-what-is-data-catalog.md) - 這篇文章提供 Azure 資料目錄服務的概觀、所提供的價值和所支援的案例。
+- 〈[什麼是 Azure 資料目錄？](data-catalog-what-is-data-catalog.md)〉 - 這篇文章提供 Azure 資料目錄服務的概觀、所提供的價值和所支援的案例。
+  
+- 〈[開始使用 Azure 資料目錄](data-catalog-get-started.md)〉 - 這篇文章提供端對端教學課程，示範如何使用 Azure 資料目錄來探索資料來源。
 
-- [開始使用 Azure 資料目錄](data-catalog-get-started.md) - 這篇文章提供端對端教學課程，示範如何使用 Azure 資料目錄來探索資料來源。
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # 管理基礎結構產能
@@ -25,7 +25,7 @@
 
 ## 產能管理儀表板
 
-在使用 Microsoft Azure Operational Insights 中的容量管理儀表板之前，您必須先安裝解決方案。如需閱讀安裝解決方案的更多資訊，請參閱[使用解決方案資源庫來新增或移除解決方案](operational-insights-add-solution.md)。安裝容量規劃解決方案後，您可以在 Operational Insights 中使用 [**概觀**] 頁面上的 [**容量規劃**] 磚檢視受監視伺服器的容量。
+在使用 Microsoft Azure Operational Insights 中的容量管理儀表板之前，您必須先安裝解決方案。如需閱讀安裝解決方案的更多資訊，請參閱[使用解決方案資源庫來新增或移除解決方案](operational-insights-setup-workspace.md)。安裝容量規劃解決方案後，您可以在 Operational Insights 中使用 [**概觀**] 頁面上的 [**容量規劃**] 磚檢視受監視伺服器的容量。
 
 ![image of Capacity Planning tile](./media/operational-insights-capacity/overview-cap-plan.png)
 
@@ -164,4 +164,4 @@
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

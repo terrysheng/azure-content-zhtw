@@ -65,28 +65,11 @@ X12 連接器可用做觸發程序或動作。
 
 	![已設定編碼][10]
 
-<table>
-	<tr>
-		<th>參數</th>
-		<th>類型</th>
-		<th>參數說明</th>
-	</tr>
-	<tr>
-		<td>內容</td>
-		<td>字串</td>
-		<td>XML 訊息</td>
-	</tr>
-	<tr>
-		<td>協議識別碼</td>
-		<td>字串</td>
-		<td>協議識別碼</td>
-	</tr>
-	<tr>
-		<td>是批次訊息</td>
-		<td>字串</td>
-		<td>是批次訊息</td>
-	</tr>
-</table>
+參數|類型|參數說明
+---|---|---
+內容|字串|XML 訊息
+協議識別碼|字串|協議識別碼
+是批次訊息|字串|是批次訊息
 
 動作傳回物件，其中包含 X12 裝載。
 
@@ -109,4 +92,4 @@ X12 連接器可用做觸發程序或動作。
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

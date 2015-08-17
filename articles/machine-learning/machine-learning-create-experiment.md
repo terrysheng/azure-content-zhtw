@@ -67,7 +67,7 @@ Machine Learning Studio 隨附多個範例資料集，而且您可以從許多�
 
 ![Dataset visualization][screen1b]
 
-按一下右上角的 "\*\*x\*\*"，以關閉視覺化視窗。
+按一下右上角的 "**x**"，以關閉視覺化視窗。
 
 ## 步驟 2：前置處理資料
 
@@ -232,4 +232,4 @@ Machine Learning Studio 隨附多個範例資料集，而且您可以從許多�
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何在 DocumentDB 中使用 .NET SDK 分割資料" 
+	pageTitle="如何在 DocumentDB 中使用 .NET SDK 分割資料 | Microsoft Azure" 
 	description="了解如何使用 Azure DocumentDB .NET SDK 在多個集合中分割 (分區) 資料和路由要求" 
 	services="documentdb" 
 	authors="arramac" 
@@ -167,4 +167,4 @@ DocumentDB 支援用戶端資料分割的幾個原因如下：
 * [有關效能秘訣的 DocumentDB 部落格](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -35,7 +35,13 @@
 
 > [AZURE.NOTE]Microsoft Azure 不支援 VHDX 格式。您可以使用 Hyper-V 管理員或 [Convert-VHD Cmdlet](http://technet.microsoft.com/library/hh848454.aspx)，將磁碟轉換為 VHD 格式。教學課程提供於[這裡](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx)。
  
- 支援下列 Windows Server 版本<P> <TABLE BORDER="1" WIDTH="600"> <TR BGCOLOR="#E9E7E7"> <TH>OS</TH> <TH>SKU</TH> <TH>Service Pack</TH> <TH>Architecture</TH> </TR> <TR> <TD>Windows Server 2012 R2</TD> <TD>所有版本</TD> <TD>N/A</TD> <TD>x64</TD> </TR> <TR> <TD>Windows Server 2012</TD> <TD>所有版本</TD> <TD>N/A</TD> <TD>x64</TD> </TR> <TR> <TD>Windows Server 2008 R2</TD> <TD>所有版本</TD> <TD>SP1</TD> <TD>x64</TD> </TR> </TABLE> </P>
+ 以下是支援的 Windows Server 版本：
+
+作業系統|SKU|Service Pack|架構
+---|---|---|---
+Windows Server 2012 R2|所有版本|N/A|x64
+Windows Server 2012|所有版本|N/A|x64
+Windows Server 2008 R2|所有版本|SP1|x64
 
 
 此工作包含下列步驟：
@@ -53,7 +59,7 @@
 
 1. 登入作業系統。
 
-2. 以系統管理員身分開啟 [命令提示字元] 視窗。切換至 **%windir%\system32\sysprep** 目錄，然後執行 `sysprep.exe`。
+2. 以系統管理員身分開啟 [命令提示字元] 視窗。切換至 **%windir%\\system32\\sysprep** 目錄，然後執行 `sysprep.exe`。
 
 	![開啟 [命令提示字元] 視窗](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
@@ -211,4 +217,4 @@
 [步驟 4：上傳 .vhd 檔案]: #upload
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

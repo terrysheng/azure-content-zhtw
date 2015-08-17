@@ -76,9 +76,9 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
     ![Determine JDBC connection string][get_jdbc_connection_string]
 
 6. 以滑鼠右鍵按一下反白顯示的 **JDBC** 連接字串內容，並按一下 [複製]。
-7. 您現在可以將此值貼到程式碼檔案中，以建立下列格式的連接字串。以您在上一個步驟中所複製的文字取代 *your_server* (共有兩個位置)，並以在建立 SQL Database 帳戶時所指定的密碼值取代*your_password*。(並分別取代指派給 **database=** 和 **user=** 的值，如果您沒有使用 **gettingstarted** 和 **MySQLAdmin** 的話。) 
+7. 您現在可以將此值貼到程式碼檔案中，以建立下列格式的連接字串。以您在上一個步驟中所複製的文字取代 *your\_server* (共有兩個位置)，並以在建立 SQL Database 帳戶時所指定的密碼值取代*your\_password*。(並分別取代指派給 **database=** 和 **user=** 的值，如果您沒有使用 **gettingstarted** 和 **MySQLAdmin** 的話。) 
 
-    String connectionString = "jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" + "database=gettingstarted" + ";" + "user=MySQLAdmin@*your_server*" + ";" + "password=*your_password*" + ";" + "encrypt=true" + ";" + "hostNameInCertificate=*.int.mscds.com" + ";" + "loginTimeout=30";
+    String connectionString = "jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" + "database=gettingstarted" + ";" + "user=MySQLAdmin@*your\_server*" + ";" + "password=*your\_password*" + ";" + "encrypt=true" + ";" + "hostNameInCertificate=*.int.mscds.com" + ";" + "loginTimeout=30";
 
 稍後在本指南中，我們將使用此字串，現在先了解判斷連接字串的步驟。另外，視您的應用程式需求而定，您可能不需要使用 **encrypt** 和 **hostNameInCertificate** 設定，且您可能需要修改 **loginTimeout** 設定。
 
@@ -117,7 +117,7 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
         import java.sql.*;
         import com.microsoft.sqlserver.jdbc.*;
 
-5. 指定連接字串。下列是一個範例。依照上述方式，以適用於 SQL Database 伺服器的值取代 *your_server* (共有兩個位置)、*your_user* 和 *your_password*。
+5. 指定連接字串。下列是一個範例。依照上述方式，以適用於 SQL Database 伺服器的值取代 *your\_server* (共有兩個位置)、*your\_user* 和 *your\_password*。
 
         String connectionString =
         	"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
@@ -726,4 +726,4 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

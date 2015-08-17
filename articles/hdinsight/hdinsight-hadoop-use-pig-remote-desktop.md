@@ -94,7 +94,7 @@
 
 您也可以使用 Pig 命令執行檔案中所含的 Pig Latin。
 
-3. 結束 grunt 提示字元之後，請開啟**記事本**，並在 **%PIG_HOME%** 目錄中建立名為 **pigbatch.pig** 的新檔案。
+3. 結束 grunt 提示字元之後，請開啟**記事本**，並在 **%PIG\_HOME%** 目錄中建立名為 **pigbatch.pig** 的新檔案。
 
 4. 在 **pigbatch.pig** 檔案中輸入或貼上下列數行，然後予以儲存：
 
@@ -135,4 +135,4 @@
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

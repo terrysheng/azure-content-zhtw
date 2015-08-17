@@ -45,8 +45,8 @@
 
 	屬性 | 說明
 --- | ---
-名稱 | 混合式連線名稱必須是唯一的，且不能與 BizTalk 服務的名稱相同。您可以輸入任何名稱，但要能夠具體表示用途。範例包括：<br/><br/>Payroll\*SQLServer\*<br/>SupplyList\*SharepointServer\*<br/>Customers\*OracleServer\*
-主機名稱 | 輸入內部部署資源的完整主機名稱、僅主機名稱，或 IPv4 位址。範例包括：<br/><br/>mySQLServer<br/>\*mySQLServer\*.\*Domain\*.corp.\*yourCompany\*.com<br/>\*myHTTPSharePointServer\*<br/>\*myHTTPSharePointServer\*.\*yourCompany\*.com<br/>10.100.10.10
+名稱 | 混合式連線名稱必須是唯一的，且不能與 BizTalk 服務的名稱相同。您可以輸入任何名稱，但要能夠具體表示用途。範例包括：<br/><br/>Payroll*SQLServer*<br/>SupplyList*SharepointServer*<br/>Customers*OracleServer*
+主機名稱 | 輸入內部部署資源的完整主機名稱、僅主機名稱，或 IPv4 位址。範例包括：<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10
 連接埠 | 輸入內部部署資源的連接埠號碼。例如，如果您使用 Web Apps，請輸入連接埠 80 或 443。如果您使用 SQL Server，請輸入連接埠 1433。
 
 5. 選取核取記號以完成設定。
@@ -146,4 +146,4 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

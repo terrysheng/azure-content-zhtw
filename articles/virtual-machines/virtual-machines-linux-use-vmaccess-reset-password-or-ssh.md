@@ -111,9 +111,9 @@
 
 ### <a name="sshconfigresetcli"></a>重設 SSH 組態
 
-如果 SSH 組態處於不良的狀態，您可能也會無法存取 VM。您可以使用 VMAccess 延伸模組，將組態重設為其預設狀態。若要這樣做，只需將 "reset_ssh" 金鑰設為 "True"。延伸模組將會重新啟動 SSH 伺服器、開啟 VM 上的 SSH 連接埠，然後將 SSH 組態重設為預設值。使用者帳戶 (名稱、密碼或 SSH 金鑰) 將不會變更。
+如果 SSH 組態處於不良的狀態，您可能也會無法存取 VM。您可以使用 VMAccess 延伸模組，將組態重設為其預設狀態。若要這樣做，只需將 "reset\_ssh" 金鑰設為 "True"。延伸模組將會重新啟動 SSH 伺服器、開啟 VM 上的 SSH 連接埠，然後將 SSH 組態重設為預設值。使用者帳戶 (名稱、密碼或 SSH 金鑰) 將不會變更。
 
-> [AZURE.NOTE]要重設的 SSH 組態檔位於 /etc/ssh/sshd_config。
+> [AZURE.NOTE]要重設的 SSH 組態檔位於 /etc/ssh/sshd\_config。
 
 步驟 1：使用此內容建立名為 PrivateConf.json 的檔案。
 
@@ -228,7 +228,7 @@ SSH 組態中的錯誤可導致您無法存取虛擬機器。您可以將 SSH �
 	$Version = "1.*"
 	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-> [AZURE.NOTE]SSH 組態檔位於 /etc/ssh/sshd_config。
+> [AZURE.NOTE]SSH 組態檔位於 /etc/ssh/sshd\_config。
 
 ### <a name="delete"></a>刪除使用者
 
@@ -263,4 +263,4 @@ SSH 組態中的錯誤可導致您無法存取虛擬機器。您可以將 SSH �
 [透過 RDP 或 SSH 連接至 Azure 虛擬機器]: http://msdn.microsoft.com/library/azure/dn535788.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

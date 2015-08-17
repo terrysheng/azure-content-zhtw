@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/29/2015"
+   ms.date="08/04/2015"
    ms.author="rajram"/>
 
 # Microsoft AS2 連接器
@@ -34,7 +34,7 @@ AS2 連接器可以在邏輯應用程式中做為觸發程序或動作，且支�
 需求 | 說明
 --- | ---
 TPM API 應用程式 | 建立 AS2 連接器之前，您必須先建立 [BizTalk 交易夥伴管理連接器][1]。<br/><br/>**注意** 要知道您 TPM API 應用程式的名稱。 
-Azure SQL Database | 儲存 B2B 項目，包括夥伴、結構描述、憑證及協議。每一個 B2B API 應用程式需要專屬 Azure SQL Database。<br/><br/>**注意** 將連接字串複製至這個資料庫。<br/><br/>[建立 Azure SQL Database](../sql-database-create-configure.md)
+Azure SQL Database | 儲存 B2B 項目，包括夥伴、結構描述、憑證及協議。每一個 B2B API 應用程式需要專屬 Azure SQL Database。<br/><br/>**注意** 將連接字串複製至這個資料庫。<br/><br/>[建立 Azure SQL Database](../sql-database-get-started.md)
 Azure Blob 儲存體容器 | 啟用 AS2 封存功能時，可儲存訊息屬性。如果您不需要 AS2 訊息封存功能，就不需要儲存體容器。<br/><br/>**注意** 如果您正啟用封存，請將連接字串複製到這個 Blob 儲存體。<br/><br/>[關於 Azure 儲存體帳戶](../storage-create-storage-account.md)。
 
 ## 建立 AS2 連接器
@@ -113,4 +113,4 @@ AS2 目標 | 字串 | AS2 訊息接收者的 AS2 識別。這個參數是用來�
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

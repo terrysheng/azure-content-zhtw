@@ -37,4 +37,4 @@
 
    	如此即會註冊新的 insert 指令碼，該指令碼會在插入成功之後，使用 [gcm 物件](http://go.microsoft.com/fwlink/p/?LinkId=282645)將推播通知傳送給所有已註冊的裝置。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

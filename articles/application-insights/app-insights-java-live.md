@@ -25,7 +25,7 @@
 
 > [AZURE.NOTE]此頁面上的程序會在執行階段將 SDK 加入您的 Web 應用程式。如果您不想要更新或重建您的原始程式碼，這會非常好用。不過，如果可以的話，我們建議您改為[將 SDK 加入原始程式碼](app-insights-java-get-started.md)。這樣可以提供您更多選項，包括撰寫程式碼來追蹤使用者活動。
 
-## 1.取得 Application Insights 檢測金鑰
+## 1\.取得 Application Insights 檢測金鑰
 
 1. 登入 [Microsoft Azure 入口網站](https://portal.azure.com)
 2. 建立新 Application Insights 資源
@@ -38,13 +38,13 @@
 
     ![在新資源概觀中，按一下 [屬性] 並複製檢測金鑰](./media/app-insights-java-get-started/03-key.png)
 
-## 2.下載 SDK
+## 2\.下載 SDK
 
 1. 下載 [Java 適用的 Application Insights SDK](http://dl.windowsazure.com/applicationinsights/javabin/sdk.zip)。 
 2. 在您的伺服器上，將 SDK 內容解壓縮到載入您專案二進位檔的目錄。如果您使用 Tomcat，這通常會在 `webapps<your_app_name>\WEB-INF\lib` 下
 
 
-## 3.加入 Application Insights XML 檔案
+## 3\.加入 Application Insights XML 檔案
 
 您可以在加入 SDK 的資料夾中建立 ApplicationInsights.xml。將下列 XML 放入上述檔案。
 
@@ -86,7 +86,7 @@
 * 事件相互關聯是 HTTP 要求元件的補充。它會指派識別碼給伺服器收到的每個要求，並將它加入為遙測的每個項目的屬性，作為 'Operation.Id' 屬性。它可讓您相互關聯與每個要求關聯的遙測，方法是在[診斷搜尋](app-insights-diagnostic-search.md)中設定篩選器。
 
 
-## 4.加入 HTTP 篩選器
+## 4\.加入 HTTP 篩選器
 
 在專案中找到並開啟 web.xml 檔案，並合併 web-app 節點下的下列程式碼片段，在其中您可以設定應用程式篩選器。
 
@@ -103,9 +103,9 @@
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-## 5.重新啟動您的 Web 應用程式
+## 5\.重新啟動您的 Web 應用程式
 
-## 6.在 Application Insights 中檢視遙測
+## 6\.在 Application Insights 中檢視遙測
 
 返回 [Microsoft Azure 入口網站](https://portal.azure.com) 中的 Application Insights 資源。
 
@@ -139,4 +139,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

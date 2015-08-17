@@ -32,7 +32,7 @@
 
 如需此圖和可用來描繪您自身跨單位虛擬網路的圖表複本，請參閱[教學課程主題中的跨單位虛擬網路圖範例](http://gallery.technet.microsoft.com/Example-cross-premises-e5ecb8bb)。
 
-請注意，本教學課程中使用的組態設定範例，並不是針對您組織的網路所自訂。若您使用本主題所述的組態設定範例，設定虛擬網路及站對站連線，會無法有效運作。若要設定有效的跨單位虛擬網路，您必須和 IT 部門及網路管理員合作，以取得正確的設定。如需詳細資訊，請參閱本主題的＜必要條件＞一節。
+請注意，本教學課程中使用的組態設定範例，並不是針對您組織的網路所自訂。若您使用本主題所述的組態設定範例，設定虛擬網路及站對站連線，會無法有效運作。若要設定有效的跨單位虛擬網路，您必須和 IT 部門及網路管理員合作，以取得正確的設定。如需詳細資訊，請參閱本主題的 [必要條件] 一節。
 
 如需新增虛擬機器，以及將內部部署 Active Directory 延伸到 Azure 虛擬網路的相關資訊，請參閱以下內容：
 
@@ -107,7 +107,7 @@
  
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_03_DNSServersandVPNConnectivity.png)
 
-5.	在 [Site-To-Site Connectivity] 頁面中輸入以下資訊，然後按一下頁面右下角的核取記號。如需本頁面中之設定的詳細資訊，請參閱**關於在管理入口網站中設定虛擬網路**的[站對站連線能力](http://go.microsoft.com/fwlink/p/?LinkID=248092)頁面一節。 
+5.	在 **Site-To-Site Connectivity** 頁面中輸入以下資訊，然後按一下頁面右下角的核取記號。如需本頁面中之設定的詳細資訊，請參閱**關於在管理入口網站中設定虛擬網路**的[站對站連線能力](http://go.microsoft.com/fwlink/p/?LinkID=248092)頁面一節。 
 
 	-  **名稱：**在本教學課程範例中，輸入 **YourCorpHQ**。
 
@@ -118,7 +118,7 @@
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_04_SitetoSite.png)
 
-6.  在 [Virtual Network Address Spaces] 頁面中輸入以下資訊，然後按一下右下角的核取記號以設定網路。
+6.  在 **Virtual Network Address Spaces** 頁面中輸入以下資訊，然後按一下右下角的核取記號以設定網路。
 
 	位址空間必須是以 CIDR 標記法指定的私人位址範圍 10.0.0.0/8、172.16.0.0/12 或 192.168.0.0/16 等位址空間 (如 RFC 1918 所指定)。如需此頁面中之設定的詳細資訊，請參閱**關於在管理入口網站中設定虛擬網路**的[虛擬網路位址空間頁面](http://go.microsoft.com/fwlink/?LinkID=248092)一節。
 
@@ -146,7 +146,7 @@
 
 1.	當虛擬網路建立完成時，[網路] 頁面會將您的虛擬網路狀態顯示為 [已建立]。
 
-	按一下 [名稱] 欄中的 [YourVirtualNetwork] (若為本教學課程中建立的範例) 以開啟儀表板。
+	按一下 [名稱] 欄中的 [YourVirtualNetwork] \(若為本教學課程中建立的範例) 以開啟儀表板。
  
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_07_ClickYourVirtualNetwork.png)
 
@@ -271,4 +271,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

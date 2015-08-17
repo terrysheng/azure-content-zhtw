@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/02/2015" 
 	ms.author="billmath"/>
 
@@ -76,18 +76,18 @@ Azure Multi-Factor Authentication Server 需求|說明|
 
 IP 子網路|網路遮罩|IP 範圍
 :------------- | :------------- | :------------- |
-134.170.116.0/25|255.255.255.128|134.170.116.1 – 134.170.116.126
-134.170.165.0/25|255.255.255.128|134.170.165.1 – 134.170.165.126
-70.37.154.128/25|255.255.255.128|70.37.154.129 – 70.37.154.254
+134\.170.116.0/25|255\.255.255.128|134\.170.116.1 – 134.170.116.126
+134\.170.165.0/25|255\.255.255.128|134\.170.165.1 – 134.170.165.126
+70\.37.154.128/25|255\.255.255.128|70\.37.154.129 – 70.37.154.254
 
 如果您不使用 Azure Multi-Factor Authentication 事件確認功能，而且使用者不會在公司網路中利用裝置上的 Multi-Factor Auth 行動應用程式進行驗證，可以將 IP 範圍縮小為如下所示：
 
 
 IP 子網路|網路遮罩|IP 範圍
 :------------- | :------------- | :------------- |
-134.170.116.72/29|255.255.255.248|134.170.116.72 – 134.170.116.79
-134.170.165.72/29|255.255.255.248|134.170.165.72 – 134.170.165.79
-70.37.154.200/29|255.255.255.248|70.37.154.201 – 70.37.154.206
+134\.170.116.72/29|255\.255.255.248|134\.170.116.72 – 134.170.116.79
+134\.170.165.72/29|255\.255.255.248|134\.170.165.72 – 134.170.165.79
+70\.37.154.200/29|255\.255.255.248|70\.37.154.201 – 70.37.154.206
 
 
 ### 安裝及設定 Azure Multi-Factor Authentication Server
@@ -157,4 +157,4 @@ Azure Multi-Factor Authentication Server 提供各種方式來設定您的使用
 [與 Windows Server Active Directory 同步處理](multi-factor-authentication-get-started-server-dirint.md)|有關設定 Active Directory 與 Azure MFA Server 之間同步處理的資訊。
 [部署 Azure Multi-Factor Authentication Server 行動應用程式 Web 服務](multi-factor-authentication-get-started-server-webservice.md)|有關設定 Azure MFA 伺服器 Web 服務的資訊。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -58,7 +58,7 @@
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  您可以手動執行 **ls** 命令，確認已建立 **node_modules** 資料夾。該資料夾中有 **azure-storage** 封裝，當中包含存取儲存體所需的程式庫。
+3.  您可以手動執行 **ls** 命令，確認已建立 **node\_modules** 資料夾。該資料夾中有 **azure-storage** 封裝，當中包含存取儲存體所需的程式庫。
 
 ### 匯入封裝
 
@@ -68,7 +68,7 @@
 
 ## 設定 Azure 儲存體連接
 
-Azure 模組會讀取環境變數 AZURE_STORAGE_ACCOUNT 及 AZURE_STORAGE_ACCESS_KEY 或 AZURE_STORAGE_CONNECTION_STRING，以取得連接 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則呼叫 **TableService** 時必須指定帳戶資訊。
+Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_ACCESS\_KEY 或 AZURE\_STORAGE\_CONNECTION\_STRING，以取得連接 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則呼叫 **TableService** 時必須指定帳戶資訊。
 
 如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]。
 
@@ -148,7 +148,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 範例回應：
 
-	{ '.metadata': { etag: 'W/"datetime'2015-02-25T01%3A22%3A22.5Z'"' } }
+	{ '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 
 > [AZURE.NOTE]根據預設，**insertEntity** 不會將已插入的實體包含在 `response` 資訊中傳回。若您打算對此實體執行其他作業，或想要快取資訊，將此實體包含在 `result` 中傳回會是個不錯的方式。您可以啟用 **echoContent** 來達成目的，如下所示：
 >
@@ -431,7 +431,7 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
 
 了解資料表儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   請參閱 MSDN 參考資料：[儲存和存取在 Azure 中的資料][]。
+-   請參閱 MSDN 參考資料：[儲存和存取在 Azure 中的資料][]
 -   造訪 [Azure 儲存體團隊部落格][] (英文)。
 -   請造訪 GitHub 上的 [Azure Storage SDK for Node][] 儲存機制 (英文)。
 
@@ -449,4 +449,4 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

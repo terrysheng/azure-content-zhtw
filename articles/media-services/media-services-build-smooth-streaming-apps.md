@@ -56,36 +56,14 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 2.	在 [檔案] 功能表中按一下 [新增]，然後按一下 [專案]。
 3.	從 [新增專案] 對話方塊中，輸入或選取下列值：
 
-	<table border="1">
-<tr>
-	<th>名稱</th>
-	<th>值</th>
-</tr>
-<tr>
-	<td>範本群組</td>
-	<td>已安裝/範本/Visual C#/Windows 市集</td>
-</tr>
-<tr>
-	<td>範本</td>
-	<td>空白應用程式 (XAML)</td>
-</tr>
-<tr>
-	<td>名稱</td>
-	<td>SSPlayer</td>
-</tr>
-<tr>
-	<td>位置</td>
-	<td>C:\SSTutorials</td>
-</tr>
-<tr>
-	<td>方案名稱</td>
-	<td>SSPlayer</td>
-</tr>
-<tr>
-	<td>建立方案的目錄</td>
-	<td>(已選取)</td>
-</tr>
-</table>
+名稱|值
+---|---
+範本群組|已安裝/範本/Visual C#/Windows 市集
+範本|空白應用程式 (XAML)
+名稱|SSPlayer
+位置|C:\\SSTutorials
+方案名稱|SSPlayer
+建立方案的目錄|(已選取)
 
 4.	按一下 [確定]。
 
@@ -94,23 +72,12 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 1.	從 [方案總管] 中，在 [SSPlayer] 上按一下滑鼠右鍵，然後按一下 [加入參考]。
 2.	輸入或選取下列值：
 
-	<table border="1">
-<tr>
-	<th>名稱</th>
-	<th>值</th>
-</tr>
-<tr>
-	<td>參考群組</td>
-	<td>Windows/延伸</td>
-</tr>
-<tr>
-	<td>參考</td>
-	<td>選取 Microsoft Smooth Streaming Client SDK for Windows 8 和 Microsoft Visual C++ Runtime Package 
-	</td>
-</tr>
-</table>
+名稱|值
+---|---
+參考群組|Windows/延伸
+參考|選取 Microsoft Smooth Streaming Client SDK for Windows 8 和 Microsoft Visual C++ Runtime Package
 	
-3.	按一下 [確定]。
+3.	按一下 [確定]。 
 
 加入參考之後，您必須選取目標平台 (x64 或 x86)，而加入參考在「任何 CPU 平台」組態中將沒有作用。在方案總管中，您會看到這些加入的參考具有黃色警告標記。
 
@@ -228,7 +195,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。若要啟用 Smo
 		}
 		#endregion
 
-	這裡在定義 sliderProgress_PointerPressed 事件處理常式。還需要進行其他工作，才能讓它運作，在本教學課程的下一個課程中，將會涵蓋這項資訊。
+	這裡在定義 sliderProgress\_PointerPressed 事件處理常式。還需要進行其他工作，才能讓它運作，在本教學課程的下一個課程中，將會涵蓋這項資訊。
 6.	按 **CTRL+S** 儲存檔案。
 
 完成的程式碼後置檔案看起來像這樣：
@@ -320,7 +287,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。若要啟用 Smo
 
 4.	在 **MainPage** 建構函式的結尾，新增下行以訂閱調適性來源開放事件：
 	
-	adaptiveSourceManager.AdaptiveSourceOpenedEvent += new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
+	adaptiveSourceManager.AdaptiveSourceOpenedEvent += new AdaptiveSourceOpenedEventHandler(mediaElement\_AdaptiveSourceOpened);
 
 5.	按 **CTRL+S** 儲存檔案。
 
@@ -352,7 +319,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。若要啟用 Smo
 		}
 		#endregion Adaptive Source Level Events
 
-4.	在 <strong>mediaElement AdaptiveSourceOpened</strong> 方法的結尾，新增下列程式碼以訂用帳戶事件：
+4.	在 **mediaElement AdaptiveSourceOpened** 方法的結尾，新增下列程式碼以訂閱事件：
 	
 		adaptiveSource.ManifestReadyEvent +=
 	                mediaElement_ManifestReady;
@@ -498,7 +465,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。若要啟用 Smo
 		  sliderProgress.Maximum = absvalue; }); 
 		
 
-6.	在 **mediaElement_AdaptiveSourceStatusUpdated** 方法的結尾，新增下列程式碼：
+6.	在 **mediaElement\_AdaptiveSourceStatusUpdated** 方法的結尾，新增下列程式碼：
 	
 		setSliderStartTime(args.StartTime);
 		setSliderEndTime(args.EndTime);
@@ -762,7 +729,7 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。在
 		}
 		#endregion stream selection
 
-5. 找到 mediaElement_ManifestReady 方法，並在函數的結尾附加下列程式碼：
+5. 找到 mediaElement\_ManifestReady 方法，並在函數的結尾附加下列程式碼：
 	
 		getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
@@ -788,7 +755,7 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。在
 2.	按 **F5** 鍵執行應用程式。
 3.	在應用程式頂端，您可以使用預設 Smooth Streaming URL，或輸入不同的 Smooth Streaming URL。 
 4.	按一下 [設定來源]。 
-5.	預設語言為 audio_eng。嘗試在 audio_eng 與 audio_es 之間切換。每次您選取新的資料流時，都必須按一下 [提交] 按鈕。
+5.	預設語言為 audio\_eng。嘗試在 audio\_eng 與 audio\_es 之間切換。每次您選取新的資料流時，都必須按一下 [提交] 按鈕。
 
 您已完成課程 3。在本課程中，您新增了選擇資料流的功能。
 
@@ -967,7 +934,7 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
         }
         #endregion track selection
 
-5. 找到 mediaElement_ManifestReady 方法，並在函數的結尾附加下列程式碼：
+5. 找到 mediaElement\_ManifestReady 方法，並在函數的結尾附加下列程式碼：
 
 		getTracks(manifestObject);
 		refreshAvailableTracksListBoxItemSource();
@@ -1004,4 +971,4 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

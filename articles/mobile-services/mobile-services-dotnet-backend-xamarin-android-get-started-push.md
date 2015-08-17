@@ -75,4 +75,4 @@
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

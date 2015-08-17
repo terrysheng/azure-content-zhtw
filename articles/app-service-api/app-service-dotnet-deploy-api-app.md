@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="bradyg;tarcher"/>
+	ms.date="07/31/2015" 
+	ms.author="bradyg"/>
 
 # 在 Azure App Service 中部署 API 應用程式 
 
@@ -92,4 +92,4 @@ API 應用程式是以 Web 應用程式為基礎的事實，也表示您可以�
 您已了解 Visual Studio 中的直接部署功能如何讓您輕鬆逐一查看和快速部署您的 API，以及測試其是否運作正常。在[下一個教學課程](../app-service-dotnet-remotely-debug-api-app.md)中，您會了解如何在 API 應用程式於 Azure 中執行時進行偵錯。
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -243,4 +243,4 @@
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

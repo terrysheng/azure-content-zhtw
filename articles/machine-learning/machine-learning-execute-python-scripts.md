@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="執行 Python 機器學習服務指令碼 | Microsoft Azure" 
 	description="概述 Azure Machine Learning 中對於 Python 指令碼目前支援基礎之下的設計原則，以及基本使用案例、功能及限制。" 
-	keywords="python machine learning,pandas,python pandas,python scripts, execute python scripts"
 	services="machine-learning"
 	documentationCenter="" 
 	authors="bradsev" 
@@ -119,7 +118,7 @@ Azure Machine Learning Studio 中 Python 的主要介面是透過「圖 1」中�
 * 取得軸並且對其產生所有繪圖 
 * 將圖表儲存為 PNG 檔案 
 
-此程序在以下的「圖 8」中說明，會使用 Pandas 中的 scatter_matrix 函數建立散佈圖矩陣。
+此程序在以下的「圖 8」中說明，會使用 Pandas 中的 scatter\_matrix 函數建立散佈圖矩陣。
  
 ![image1v](./media/machine-learning-execute-python-scripts/figure-v1-8.png)
 
@@ -171,4 +170,4 @@ Python 函數，用於根據以下顯示的功能計算重要性分數及排序�
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

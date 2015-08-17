@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB 程式設計：預存程序、觸發程序和 UDF | Azure" 
+	pageTitle="DocumentDB 程式設計：預存程序、觸發程序和 UDF | Microsoft Azure" 
 	description="了解如何使用 Microsoft Azure DocumentDB 來撰寫 JavaScript 原生預存程序、觸發程序和使用者定義函數 (UDF)。" 
 	services="documentdb" 
 	documentationCenter="" 
@@ -641,4 +641,4 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 -	[服務導向資料庫架構](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[在 Microsoft SQL Server 中託管 .NET 執行階段](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

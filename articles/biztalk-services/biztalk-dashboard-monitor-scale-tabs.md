@@ -368,4 +368,4 @@
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

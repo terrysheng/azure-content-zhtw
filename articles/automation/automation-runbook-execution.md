@@ -9,10 +9,10 @@
 <tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/28/2015"
+   ms.date="07/22/2015"
    ms.author="bwren" />
 
 # Azure 自動化中的 Runbook 執行
@@ -105,4 +105,4 @@ Runbook 儀表板會顯示單一 Runbook 的摘要。針對經過指定的天數
 - [在 Azure 自動化中檢視 Runbook 工作的狀態](automation-viewing-the-status-of-a-runbook-job)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

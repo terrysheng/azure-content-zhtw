@@ -272,7 +272,7 @@ Date: Fri, 22 Aug 2014 09:18:37 GMT
 
 例如，如果訂單包含針對訂單支付的價格，需要擷取所有含價格 (非特定價值) 之訂單的用戶端應用程式可能需要從 _/orders_ URI 擷取所有訂單，然後在本機篩選這些訂單。顯然地，這個程序的效率不佳，它浪費裝載 Web API 之伺服器的網路頻寬和處理能力。
 
-提供 _/orders/ordervalue_greater_than_n_ (其中 _n_ 代表訂單價格) 之類的 URI 配置可能是其中一個解決方案，但除了有限數目的價格以外，這個方法並不實用。此外，如果您需要依據其他準則查詢訂單，可能會面臨提供一長串的 URI 和可能非直覺式名稱的窘境。
+提供 _/orders/ordervalue\_greater\_than\_n_ (其中 _n_ 代表訂單價格) 之類的 URI 配置可能是其中一個解決方案，但除了有限數目的價格以外，這個方法並不實用。此外，如果您需要依據其他準則查詢訂單，可能會面臨提供一長串的 URI 和可能非直覺式名稱的窘境。
 
 較好的資料篩選策略是以查詢字串形式提供要傳遞到 Web API 的篩選準則，如 _/orders?ordervaluethreshold=n_。在此範例中，Web API 中對應的作業會負責剖析和處理 `ordervaluethreshold` 查詢字串中的參數，並在 HTTP 回應中傳回篩選結果。
 
@@ -359,7 +359,7 @@ Accept: application/json
 ...
 ```
 
-回應訊息的本文包含 `Links` 陣列 (程式碼範例中反白顯示的內容)，其指定關聯性的本質 (_客戶_)、客戶的 URI (_http://adventure-works.com/customers/3_)、如何擷取此客戶的詳細資料 (_GET_)，以及 Web 伺服器支援擷取這些資訊的 MIME 型別 (_text/xml_ 和 _application/json_)。這是用戶端應用程式要能夠擷取客戶詳細資料所需的所有資訊。此外，連結陣列也包含其他可執行之作業的連結，如 PUT (修改客戶，以及 Web 伺服器預期用戶端提供的格式) 和 DELETE。
+回應訊息的本文包含 `Links` 陣列 (程式碼範例中反白顯示的內容)，其指定關聯性的本質 (_客戶_)、客戶的 URI (\__http://adventure-works.com/customers/3_)、如何擷取此客戶的詳細資料 (_GET_)，以及 Web 伺服器支援擷取這些資訊的 MIME 類型 (_text/xml_ 和 _application/json_)。這是用戶端應用程式要能夠擷取客戶詳細資料所需的所有資訊。此外，連結陣列也包含其他可執行之作業的連結，如 PUT (修改客戶，以及 Web 伺服器預期用戶端提供的格式) 和 DELETE。
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -395,7 +395,7 @@ Content-Length: ...
 
 這是最簡單的方法，而且也是某些內部 API 可接收的方法。重大變更可能會以新資源或新連結來呈現。將內容加入現有資源可能不會成為重大變更，因為未預期要查看此內容的用戶端應用程式會直接忽略。
 
-例如，URI _http://adventure-works.com/customers/3_ 的要求應該會傳回包含 `Id`、`Name` 和 `Address` 欄位的單一客戶詳細資料，而這些欄位也是用戶端應用程式預期的欄位：
+例如，URI \__http://adventure-works.com/customers/3_ 的要求應該會傳回包含 `Id`、`Name` 和 `Address` 欄位的單一客戶詳細資料，而這些欄位也是用戶端應用程式預期的欄位：
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -440,7 +440,7 @@ Content-Length: ...
 
 ### 查詢字串版本控制
 
-與其提供多個 URI，您可以在附加至 HTTP 要求的查詢字串中，藉由使用參數來指定資源的版本，如 _http://adventure-works.com/customers/3?version=2_。如果較舊的用戶端應用程式省略版本參數，它應該預設成有意義的值 (如 1)。
+與其提供多個 URI，您可以在附加至 HTTP 要求的查詢字串中，藉由使用參數來指定資源的版本，如 \__http://adventure-works.com/customers/3?version=2_。如果較舊的用戶端應用程式省略版本參數，它應該預設成有意義的值 (如 1)。
 
 這個方法具有語意上的優點，因為您總是從相同的 URI 擷取相同的資源，不過這還是要取決於處理要求以剖析查詢字串，然後回傳適當 HTTP 回應的程式碼。這個方法也需要面臨與實作 HATEOAS 同等複雜的 URI 版本控制機制。
 
@@ -523,4 +523,4 @@ Content-Length: ...
 - [RESTful Cookbook](http://restcookbook.com/) (英文) 含有建置符合 REST 限制之 Web API 的簡介。
 - Web [API 檢查清單](https://mathieu.fenniak.net/the-api-checklist/) (英文) 含有在設計及實作 Web API 時應納入考量的實用項目清單。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

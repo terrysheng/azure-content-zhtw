@@ -92,4 +92,4 @@ Azure Preview 入口網站提供可存取 Web 應用程式的主控台。您可�
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

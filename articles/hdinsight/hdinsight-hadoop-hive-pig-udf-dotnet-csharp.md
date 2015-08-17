@@ -122,7 +122,7 @@ Hive 與 Pig 很適合在 Azure HDInsight 中處理資料，但您有時需要�
 
 6. 連按兩下此叢集的 [**預設容器**]。這會開啟顯示預設容器內容的新視窗。
 
-7. 按一下 [上傳] 圖示，然後瀏覽至 **HiveCSharp** 專案的 **bin\debug** 資料夾。最後，選取 **HiveCSharp.exe** 檔案並按一下 [**確定**]。
+7. 按一下 [上傳] 圖示，然後瀏覽至 **HiveCSharp** 專案的 **bin\\debug** 資料夾。最後，選取 **HiveCSharp.exe** 檔案並按一下 [**確定**]。
 
 	![上傳圖示](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
@@ -195,7 +195,7 @@ Hive 與 Pig 很適合在 Azure HDInsight 中處理資料，但您有時需要�
 
 1. Pig 串流處理預期此應用程式會成為叢集檔案系統上的本機。啟用 HDInsight 叢集的「遠端桌面」，然後依照[使用 RDP 連線到 HDInsight 叢集](hdinsight-administer-use-management-portal.md#rdp)中的指示進行連線。
 
-2. 連線之後，從您本機電腦上 PigUDF 專案的 **bin/debug** 目錄中複製 **PigUDF.exe**， 然後將它貼到叢集上的 **%PIG_HOME%** 目錄。
+2. 連線之後，從您本機電腦上 PigUDF 專案的 **bin/debug** 目錄中複製 **PigUDF.exe**， 然後將它貼到叢集上的 **%PIG\_HOME%** 目錄。
 
 ###從 Pig Latin 使用應用程式
 
@@ -240,4 +240,4 @@ Hive 與 Pig 很適合在 Azure HDInsight 中處理資料，但您有時需要�
 
 * 〈[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)〉
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

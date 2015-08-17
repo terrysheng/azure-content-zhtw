@@ -38,51 +38,17 @@ Azure 診斷 1.2 適用於 Azure SDK for.NET 2.4 和更早版本搭配使用。A
 
 Azure 診斷可收集下列類型的遙測資料：
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-	<tr>
-			<td style="width: 100px;"><strong>資料來源</strong></td>
-			<td><strong>說明</strong></td>
-	</tr>
-	<tr>
-		<td>IIS 記錄檔</td>
-		<td>IIS 網站的相關資訊。</td>            
-	</tr>
-	<tr>
-		<td>Azure 診斷基礎結構記錄檔</td>
-		<td>診斷本身的相關資訊。</td>            
-	</tr>
-	<tr>
-		<td>IIS 失敗要求記錄檔	</td>
-		<td>IIS 網站或應用程式之失敗要求的相關資訊。</td>            
-	</tr>
-	<tr>
-		<td>Windows 事件記錄檔</td>
-		<td>傳送至 Windows 事件記錄系統的資訊。</td>            
-	</tr>
-	<tr>
-		<td>效能計數器</td>
-		<td>作業系統和自訂效能計數器。</td>            
-	</tr>
-	<tr>
-		<td>損毀傾印</td>
-		<td>應用程式損毀時之處理序狀態的相關資訊。</td>            
-	</tr>
-	<tr>
-		<td>自訂錯誤記錄檔</td>
-		<td>您的應用程式或服務所建立的記錄檔。</td>            
-	</tr>
-	<tr>
-		<td>.NET EventSource</td>
-		<td>您的程式碼使用 .NET <a href="http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx">EventSource 類別</a>所產生的事件。</td>            
-	</tr>
-	<tr>
-		<td>以資訊清單為基礎的 ETW</td>
-		<td>任何處理序所產生的 ETW 事件。</td>            
-	</tr>
-		
-</tbody>
-</table>
+資料來源|說明
+---|---
+IIS 記錄檔|IIS 網站的相關資訊。
+Azure 診斷基礎結構記錄檔|診斷本身的相關資訊。
+IIS 失敗要求記錄檔|IIS 網站或應用程式之失敗要求的相關資訊。
+Windows 事件記錄檔|傳送至 Windows 事件記錄系統的資訊。
+效能計數器|作業系統和自訂效能計數器。
+損毀傾印|應用程式損毀時之處理序狀態的相關資訊。
+自訂錯誤記錄檔|您的應用程式或服務所建立的記錄檔。
+NET EventSource |您的程式碼使用 .NET <a href="http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx">EventSource 類別</a>所產生的事件
+以資訊清單為基礎的 ETW|任何處理序所產生的 ETW 事件。
 
 ## 如何在背景工作角色中啟用診斷
 
@@ -197,17 +163,18 @@ Azure 診斷可收集下列類型的遙測資料：
 
 2.	以滑鼠右鍵按一下 **WorkerRole1** 專案，然後選取 [加入] -> [新增項目...] -> [Visual C# 項目] -> [資料] -> [XML 檔]，將 XML 檔加入您的 **WorkerRole1** 專案。將檔案命名為 "WadExample.xml"。
 
-	![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
+	![CloudServices\_diag\_add\_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 
 3.	將 WadConfig.xsd 與組態檔產生關聯。確定 WadExample.xml 編輯器視窗是使用中視窗。按 **F4** 鍵開啟 [屬性] 視窗。在 [屬性] 視窗中，按一下 [結構描述] 屬性。在 [結構描述] 屬性中，按一下 [...]。按一下 [**加入...**] 按鈕並瀏覽至您儲存 XSD 檔的位置，然後選取檔案 WadConfig.xsd。按一下 [確定]。
 4.	以下列 XML 取代 WadExample.xml 組態檔的內容，然後儲存檔案。此組態檔可定義兩個要收集的效能計數器：一個用於 CPU 使用率，一個用於記憶體使用率。組態會接著定義四個事件，分別對應至 SampleEventSourceWriter 類別中的方法。
 
+```
 		<?xml version="1.0" encoding="utf-8"?>
 		<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -222,6 +189,7 @@ Azure 診斷可收集下列類型的遙測資料：
     			</DiagnosticMonitorConfiguration>
   			</WadCfg>
 		</PublicConfig>
+```
 
 ### 步驟 5：在您的背景工作角色上安裝診斷
 用於管理 Web 角色或背景工作角色上之診斷的 PowerShell Cmdlet 為：Set-AzureServiceDiagnosticsExtension、Get-AzureServiceDiagnosticsExtension 和 Remove-AzureServiceDiagnosticsExtension。
@@ -238,7 +206,7 @@ Azure 診斷可收集下列類型的遙測資料：
 
 
 ### 步驟 6：查看您的遙測資料
-在 Visual Studio 的 [伺服器總管] 中，瀏覽至 wadexample 儲存體帳戶。在雲端服務執行約 5 分鐘之後，您應該會看到資料表 **WADEnumsTable**、**WADHighFreqTable**、**WADMessageTable**、**WADPerformanceCountersTable** 和 **WADSetOtherTable**。按兩下其中一個資料表以檢視收集的遙測資料。![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
+在 Visual Studio 的 [伺服器總管] 中，瀏覽至 wadexample 儲存體帳戶。在雲端服務執行約 5 分鐘之後，您應該會看到資料表 **WADEnumsTable**、**WADHighFreqTable**、**WADMessageTable**、**WADPerformanceCountersTable** 和 **WADSetOtherTable**。按兩下其中一個資料表以檢視收集的遙測資料。![CloudServices\_diag\_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## 如何在虛擬機器中啟用診斷
 
@@ -258,7 +226,7 @@ Azure 診斷可收集下列類型的遙測資料：
 
 ### 步驟 2：建立您的應用程式
 1.	在您的開發電腦上，啟動 Visual Studio 2013。
-2.	建立以 .NET Framework 4.5 為目標的新 Visual C# 主控台應用程式。將專案命名為 "WadExampleVM"。![CloudServices_diag_new_project](./media/cloud-services-dotnet-diagnostics/NewProject.png)
+2.	建立以 .NET Framework 4.5 為目標的新 Visual C# 主控台應用程式。將專案命名為 "WadExampleVM"。![CloudServices\_diag\_new\_project](./media/cloud-services-dotnet-diagnostics/NewProject.png)
 3.	以下列程式碼取代 Program.cs 的內容。**SampleEventSourceWriter** 類別實作四種記錄方法：**SendEnums**、**MessageMethod**、**SetOther** 和 **HighFreq**。傳遞至 WriteEvent 方法的第一個參數定義個別事件的識別碼。Run 方法實作一個無限迴圈，每 10 秒呼叫一次在 **SampleEventSourceWriter** 類別中實作的每種記錄方法。
 
 		using System;
@@ -332,7 +300,7 @@ Azure 診斷可收集下列類型的遙測資料：
 
 ### 步驟 3：部署應用程式
 1.	在 [**方案總管**] 中以滑鼠右鍵按一下 **WadExampleVM** 專案，然後選擇 [**在檔案總管中開啟資料夾**]。
-2.	瀏覽至 *bin\Debug* 資料夾並複製所有檔案 (WadExampleVM.*)。
+2.	瀏覽至 *bin\\Debug* 資料夾並複製所有檔案 (WadExampleVM.*)。
 3.	在 [伺服器總管] 中，以滑鼠右鍵按一下虛擬機器並選擇 [使用遠端桌面連線]。
 4.	連線至 VM 之後，建立名為 WadExampleVM 的資料夾，並將您的應用程式檔案貼到資料夾中。
 5.	啟動 WadExampleVM.exe 應用程式。您應該會看見空白的主控台視窗。
@@ -346,12 +314,13 @@ Azure 診斷可收集下列類型的遙測資料：
 3.	將 WadConfig.xsd 與組態檔產生關聯。確定 WadExample.xml 編輯器視窗是使用中視窗。按 **F4** 鍵開啟 [屬性] 視窗。在 [屬性] 視窗中，按一下 [結構描述] 屬性。在 [結構描述] 屬性中，按一下 [...]。按一下 [**加入...**] 按鈕並瀏覽至您儲存 XSD 檔的位置，然後選取檔案 WadConfig.xsd。按一下 [確定]。
 4.	以下列 XML 取代 WadExample.xml 組態檔的內容，然後儲存檔案。此組態檔可定義兩個要收集的效能計數器：一個用於 CPU 使用率，一個用於記憶體使用率。組態會接著定義四個事件，分別對應至 SampleEventSourceWriter 類別中的方法。
 
+```
 		<?xml version="1.0" encoding="utf-8"?>
 		<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -366,7 +335,7 @@ Azure 診斷可收集下列類型的遙測資料：
     			</DiagnosticMonitorConfiguration>
   			</WadCfg>
 		</PublicConfig>
-
+```
 
 ### 步驟 5：從遠端將診斷安裝至您的 Azure 虛擬機器上
 用於管理 VM 上之診斷的 PowerShell Cmdlet 為：Set-AzureVMDiagnosticsExtension、Get-AzureVMDiagnosticsExtension 和 Remove-AzureVMDiagnosticsExtension。
@@ -386,7 +355,7 @@ Azure 診斷可收集下列類型的遙測資料：
 
 
 ### 步驟 6：查看您的遙測資料
-在 Visual Studio 的 [伺服器總管] 中，瀏覽至 wadexample 儲存體帳戶。在 VM 執行約 5 分鐘之後，您應該會看到資料表 **WADEnumsTable**、**WADHighFreqTable**、**WADMessageTable**、**WADPerformanceCountersTable** 和 **WADSetOtherTable**。按兩下其中一個資料表以檢視收集的遙測資料。![CloudServices_diag_wadexamplevm_tables](./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png)
+在 Visual Studio 的 [伺服器總管] 中，瀏覽至 wadexample 儲存體帳戶。在 VM 執行約 5 分鐘之後，您應該會看到資料表 **WADEnumsTable**、**WADHighFreqTable**、**WADMessageTable**、**WADPerformanceCountersTable** 和 **WADSetOtherTable**。按兩下其中一個資料表以檢視收集的遙測資料。![CloudServices\_diag\_wadexamplevm\_tables](./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png)
 
 ## 組態檔結構描述
 
@@ -397,120 +366,32 @@ Azure 診斷可收集下列類型的遙測資料：
 ### Azure 診斷未啟動
 診斷是由兩個元件所組成：客體代理程式外掛程式和監視代理程式。客體代理程式外掛程式的記錄檔位於下列檔案中：
 
-*%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics<DiagnosticsVersion>*\CommandExecution.log
+*%SystemDrive%\\ WindowsAzure\\Logs\\Plugins\\Microsoft.Azure.Diagnostics.PaaSDiagnostics<DiagnosticsVersion>*\\CommandExecution.log
 
 外掛程式會傳回下列錯誤碼：
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-	<tr>
-			<td style="width: 100px;"><strong>結束代碼</strong></td>
-			<td><strong>說明</strong></td>
-	</tr>
-    <tr>
-		<td>0</td>
-		<td>成功。</td>            
-	</tr>
-    <tr>
-		<td>-1</td>
-        <td>一般錯誤。</td>		            
-	</tr>
-    <tr>
-		<td>-2</td>
-        <td><p>無法載入 rcf 檔。</p>
-<p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用客體代理程式外掛程式啟動器時才會發生。</p></td>		            
-	</tr>
-    <tr>
-		<td>-3</td>
-        <td><p>無法載入診斷組態檔。</p>
-<p>解決方法：這是組態檔未通過結構描述驗證的結果。解決方法是提供以結構描述編譯的組態檔。</p></td>		            
-	</tr>
-    <tr>
-		<td>-4</td>
-        <td><p>診斷之監視代理程式的另一個執行個體已在使用本機資源目錄。</p>
-<p>解決方法：為 <strong>LocalResourceDirectory</strong> 指定其他值。</p></td>		            
-	</tr>
-    <tr>
-		<td>-6</td>
-        <td><p>客體代理程式外掛程式啟動器嘗試使用無效的命令列來啟動診斷。</p>
-<p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用客體代理程式外掛程式啟動器時才會發生。</p></td>		            
-	</tr>
-    <tr>
-		<td>-10</td>
-        <td>診斷外掛程式結束並發生未處理的例外狀況。</td>		            
-	</tr>
-    <tr>
-		<td>-11</td>
-        <td><p>客體代理程式無法建立負責啟動及監視監視代理程式的處理序。</p>
+結束代碼|說明
+---|---
+0|成功。
+\-1|一般錯誤。
+\-2|無法載入 rcf 檔。<p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用客體代理程式外掛程式啟動器時才會發生。
+\-3|無法載入診斷組態檔。<p><p>解決方法：這是組態檔未通過結構描述驗證的結果。解決方法是提供以結構描述編譯的組態檔。
+\-4|診斷之監視代理程式的另一個執行個體已在使用本機資源目錄。<p><p>解決方法：為 **LocalResourceDirectory** 指定其他值。
+\-6|客體代理程式外掛程式啟動器嘗試使用無效的命令列來啟動診斷。<p><p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用客體代理程式外掛程式啟動器時才會發生。
+\-10|診斷外掛程式結束並發生未處理的例外狀況。
+\-11|客體代理程式無法建立負責啟動及監視監視代理程式的處理序。<p><p>解決方法：確認有足夠的系統資源，可啟動新的處理序。<p>
+\-101|呼叫診斷外掛程式時的引數無效。<p><p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用客體代理程式外掛程式啟動器時才會發生。
+\-102|外掛程式處理序無法對本身進行初始化。<p><p>解決方法：確認有足夠的系統資源，可啟動新的處理序。
+\-103|外掛程式處理序無法對本身進行初始化。具體而言，其無法建立記錄器物件。<p><p>解決方法：確認有足夠的系統資源，可啟動新的處理序。
+\-104|無法載入客體代理程式提供的 rcf 檔。<p><p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用客體代理程式外掛程式啟動器時才會發生。
+\-105|診斷外掛程式無法開啟診斷組態檔。<p><p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用診斷外掛程式時才會發生。
+\-106|無法讀取診斷組態檔。<p><p>解決方法：這是組態檔未通過結構描述驗證的結果。因此，解決方法是提供以結構描述編譯的組態檔。您可以在 VM 上的 *%SystemDrive%\\WindowsAzure\\Config* 資料夾中，找到傳送給診斷擴充功能的 XML。開啟適當的 XML 檔並搜尋 **Microsoft.Azure.Diagnostics**，然後搜尋 [xmlCfg] 欄位。該資料是以 base64 編碼，因此您將需要[進行解碼](http://www.bing.com/search?q=base64+decoder)，才能查看診斷載入的 XML。<p>
+\-107|傳遞給監視代理程式的資源目錄無效。<p><p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用監視代理程式時才會發生。</p>
+\-108 |無法將診斷組態檔轉換成監視代理程式組態檔。<p><p>這是內部錯誤，只有當使用無效的組態檔以手動方式叫用診斷外掛程式時才會發生。
+\-110|一般診斷組態錯誤。<p><p>這是內部錯誤，只有當使用無效的組態檔以手動方式叫用診斷外掛程式時才會發生。
+\-111|無法啟動監視代理程式。<p><p>解決方法：確認有足夠的系統資源可用。
+\-112|一般錯誤
 
-<p>解決方法：確認有足夠的系統資源，可啟動新的處理序。</p></td>		            
-	</tr>
-    <tr>
-		<td>-101</td>
-        <td><p>呼叫診斷外掛程式時的引數無效。</p>
-
-<p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用客體代理程式外掛程式啟動器時才會發生。</p></td>		            
-	</tr>
-    <tr>
-		<td>-102</td>
-        <td><p>外掛程式處理序無法對本身進行初始化。</p> 
-
-<p>解決方法：確認有足夠的系統資源，可啟動新的處理序。</p></td>		            
-	</tr>
-    <tr>
-		<td>-103</td>
-        <td><p>外掛程式處理序無法對本身進行初始化。具體而言，其無法建立記錄器物件。</p>
-
-<p>解決方法：確認有足夠的系統資源，可啟動新的處理序。</p></td>		            
-	</tr>
-    <tr>
-		<td>-104</td>
-        <td><p>無法載入客體代理程式提供的 rcf 檔。</p>
-
-<p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用客體代理程式外掛程式啟動器時才會發生。</p></td>		            
-	</tr>
-    <tr>
-		<td>-105</td>
-        <td><p>診斷外掛程式無法開啟診斷組態檔。</p>
-
-<p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用診斷外掛程式時才會發生。</p></td>		            
-	</tr>
-    <tr>
-		<td>-106</td>
-        <td><p>無法讀取診斷組態檔。</p>
-
-<p>解決方法：這是組態檔未通過結構描述驗證的結果。因此，解決方法是提供以結構描述編譯的組態檔。您可以在 VM 上的 <i>%SystemDrive%\WindowsAzure\Config</i> 資料夾中，找到傳送給診斷擴充功能的 XML。開啟適當的 XML 檔並搜尋 <strong>Microsoft.Azure.Diagnostics</strong>，然後搜尋 [xmlCfg]<strong></strong> 欄位。該資料是以 base64 編碼，因此您不需要<a href="http://www.bing.com/search?q=base64+decoder">進行解碼</a>便能查看診斷載入的 XML。</p></td>		            
-	</tr>
-    <tr>
-		<td>-107</td>
-        <td><p>傳遞給監視代理程式的資源目錄無效。</p>
-
-<p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用監視代理程式時才會發生。</p></td>		            
-	</tr>
-    <tr>
-		<td>-108	</td>
-        <td><p>無法將診斷組態檔轉換成監視代理程式組態檔。</p>
-
-<p>這是內部錯誤，只有當使用無效的組態檔以手動方式叫用診斷外掛程式時才會發生。</p></td>		            
-	</tr>
-    <tr>
-		<td>-110</td>
-        <td><p>一般診斷組態錯誤。</p>
-
-<p>這是內部錯誤，只有當使用無效的組態檔以手動方式叫用診斷外掛程式時才會發生。</p></td>		            
-	</tr>
-    <tr>
-		<td>-111</td>
-        <td><p>無法啟動監視代理程式。</p>
-
-<p>解決方法：確認有足夠的系統資源可用。</p></td>		            
-	</tr>
-    <tr>
-		<td>-112</td>
-        <td>一般錯誤</td>		            
-	</tr>    
-</tbody>
-</table>
 
 ### 診斷資料未記錄至儲存體
 遺漏事件資料的最常見原因是不正確地定義儲存體帳戶資訊。
@@ -535,7 +416,7 @@ Azure 診斷可收集下列類型的遙測資料：
 
 **問：** 如果我已經在角色或 VM 上安裝診斷 1.1 擴充功能，如何才能升級至診斷 1.2 或 1.3？
 
-**答：** 如果您在安裝 Diagnostics 1.1 時指定了 “–Version “1.*”"，下次角色或 VM 重新啟動時，便會自動更新為符合規則運算式 “1.*” 的最新版本。如果您在安裝 Diagnostics 1.1 時指定了 “–Version “1.1””，則可以重新執行 Set- Cmdlet 並指定您要安裝的版本，以更新為更新版本。
+**答：** 如果您在安裝 Diagnostics 1.1 時指定了 “–Version “1.*”"，下次角色重新啟動或 VM 重新開機時，便會自動更新為符合規則運算式 “1.*” 的最新版本。如果您在安裝 Diagnostics 1.1 時指定了 “–Version “1.1””，則可以重新執行 Set- Cmdlet 並指定您要安裝的版本，以更新為更新版本。
 
 **問：** 資料表的命名方式為何？
 
@@ -563,188 +444,41 @@ Azure 診斷可收集下列類型的遙測資料：
 
 這會產生 4 個資料表：
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-	<tr>
-			<td style="width: 100px;"><strong>事件</strong></td>
-			<td><strong>資料表名稱</strong></td>			
-	</tr>
-	<tr>
-			<td>provider=”prov1” &lt;Event id=”1” /></td>
-			<td>WADEvent+MD5(“prov1”)+”1”</td>			
-	</tr>
-	<tr>
-			<td>provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /></td>
-			<td>WADdest1</td>			
-	</tr>
-	<tr>
-			<td>provider=”prov1” &lt;DefaultEvents /></td>
-			<td>WADDefault+MD5(“prov1”)</td>			
-	</tr>
-	<tr>
-			<td>provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /></td>
-			<td>WADdest2</td>			
-	</tr>
-	
-
-</table>
-</tbody>
+事件|資料表名稱
+---|---
+provider=”prov1” &lt;Event id=”1” /&gt;|WADEvent+MD5(“prov1”)+”1”
+provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /&gt;|WADdest1
+provider=”prov1” &lt;DefaultEvents /&gt;|WADDefault+MD5(“prov1”)
+provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /&gt;|WADdest2
 
 ## 比較 Azure 診斷版本
 
 下表比較 Azure Diagnostics 1.0 版與 1.1/1.2/1.3 版所支援的功能：
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-	<tr>
-			<td style="width: 100px;"><strong>支援的角色類型</strong></td>
-			<td><strong>Diagnostics 1.0</strong></td>
-			<td><strong>Diagnostics 1.1/1.2/1.3</strong></td>
-	</tr>
+支援的角色類型|Diagnostics 1.0|診斷 1.1/1.2/1.3
+---|---
+Web 角色|是|是
+背景工作角色|是|是
+IaaS|否|是
 
-	<tr>
-			<td>Web 角色</td>
-			<td>是</td>
-			<td>是</td>
-	</tr>
-	<tr>
-			<td>背景工作角色</td>
-			<td>是</td>
-			<td>是</td>
-	</tr>
-	<tr>
-			<td>IaaS</td>
-			<td>否</td>
-			<td>是</td>
-	</tr>
-</tbody>
-</table>
+組態和部署|Diagnostics 1.0|診斷 1.1/1.2/1.3
+---|---|---
+與 Visual Studio 的整合 - 已整合到 Azure Web/背景工作開發體驗。|是|否
+PowerShell 指令碼- 用於管理在角色上安裝及設定診斷的指令碼。|是|是
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-	<tr>
-			<td style="width: 100px;"><strong>組態和部署</strong></td>
-			<td><strong>Diagnostics 1.0</strong></td>
-			<td><strong>Diagnostics 1.1/1.2/1.3</strong></td>
-	</tr>
+資料來源|預設集合|格式|說明|Diagnostics 1.0|Diagnostics 1.1/1.2|Diagnostics 1.3
+---|---|---|---|---|---|---
+System.Diagnostics.Trace 記錄檔|是|資料表|記錄從您的程式碼傳送至追蹤接聽項的追蹤訊息 (追蹤接聽項必須加入 web.config 或 app.config 檔)。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至儲存體資料表 WADLogsTable。|是|否 (使用 EventSource)|是
+IIS 記錄檔|是|Blob|記錄 IIS 網站的相關資訊。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至您指定的容器。|是|是|是
+Azure 診斷基礎結構記錄檔|是|資料表|記錄診斷基礎結構、RemoteAccess 模組和 RemoteForwarder 模組的相關資訊。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至儲存體資料表 WADDiagnosticInfrastructureLogsTable。|是|是|是
+IIS 失敗要求記錄檔|否|Blob|記錄 IIS 網站或應用程式之失敗要求的相關資訊。您也必須透過在 Web.config 的 system.WebServer 下設定追蹤選項來加以啟用。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至您指定的容器。|是|是|是
+Windows 事件記錄檔|否|資料表|記錄作業系統、應用程式或驅動程式之執行效能的相關資訊。您必須明確指定效能計數器。加入這些記錄檔時，效能計數器資料會依 scheduledTransferPeriod 傳輸間隔傳輸至儲存體資料表 WADPerformanceCountersTable。|是|是|是
+效能計數器|否|資料表|記錄作業系統、應用程式或驅動程式之執行效能的相關資訊。您必須明確指定效能計數器。加入這些記錄檔時，效能計數器資料會依 scheduledTransferPeriod 傳輸間隔傳輸至儲存體資料表 WADPerformanceCountersTable。|是|是|是
+損毀傾印|否|Blob|記錄系統當機時之作業系統狀態的相關資訊。會在本機收集小型損毀傾印。您可以啟用完整傾印。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至您指定的容器。由於 ASP.NET 處理大多數例外狀況，這通常只對背景工作角色或 VM 才有用。|是|是|是
+自訂錯誤記錄檔|否|Blob|透過本機儲存體資源，您可以記錄自訂資料並立即傳輸至您指定的容器。|是|是|是
+EventSource|否|資料表|記錄您的程式碼使用 .NET EventSource 類別所產生的事件。|否|是|是
+以資訊清單為基礎的 ETW|否|資料表|任何處理序所產生的 ETW 事件。|否|是|是
 
-	<tr>
-			<td>與 Visual Studio 的整合 - 已整合到 Azure Web/背景工作開發體驗。</td>
-			<td>是</td>
-			<td>否</td>
-	</tr>
-	<tr>
-			<td>PowerShell 指令碼- 用於管理在角色上安裝及設定診斷的指令碼。</td>
-			<td>是</td>
-			<td>是</td>
-	</tr>
-	
-</tbody>
-</table>
-
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-	<tr>
-			<td style="width: 100px;"><strong>資料來源</strong></td>
-			<td><strong>預設集合</strong></td>
-			<td><strong>格式</strong></td>
-			<td><strong>說明</strong></td>
-			<td><strong>Diagnostics 1.0</strong></td>
-			<td><strong>Diagnostics 1.1/1.2</strong></td>
-			<td><strong>Diagnostics 1.3</strong></td>
-	</tr>
-	<tr>
-			<td>System.Diagnostics.Trace 記錄檔</td>
-			<td>是</td>
-			<td>資料表</td>
-			<td>記錄從您的程式碼傳送至追蹤接聽項的追蹤訊息 (追蹤接聽項必須加入 web.config 或 app.config 檔)。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至儲存體資料表 WADLogsTable。</td>
-			<td>是</td>
-			<td>否 (使用 EventSource)</td>
-			<td>是</td>
-	</tr>
-	<tr>
-			<td>IIS 記錄檔</td>
-			<td>是</td>
-			<td>Blob</td>
-			<td>記錄 IIS 網站的相關資訊。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至您指定的容器。</td>
-			<td>是</td>
-			<td>是</td>
-			<td>是</td>
-	</tr>
-	<tr>
-			<td>Azure 診斷基礎結構記錄檔</td>
-			<td>是</td>
-			<td>資料表</td>
-			<td>記錄診斷基礎結構、RemoteAccess 模組和 RemoteForwarder 模組的相關資訊。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至儲存體資料表 WADDiagnosticInfrastructureLogsTable。</td>
-			<td>是</td>
-			<td>是</td>
-			<td>是</td>
-	</tr>
-	<tr>
-			<td>IIS 失敗要求記錄檔</td>
-			<td>否</td>
-			<td>Blob</td>
-			<td>記錄 IIS 網站或應用程式之失敗要求的相關資訊。您也必須透過在 Web.config 的 system.WebServer 下設定追蹤選項來加以啟用。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至您指定的容器。</td>
-			<td>是</td>
-			<td>是</td>
-			<td>是</td>
-	</tr>
-	<tr>
-			<td>Windows 事件記錄檔</td>
-			<td>否</td>
-			<td>資料表</td>
-			<td>記錄作業系統、應用程式或驅動程式之執行效能的相關資訊。您必須明確指定效能計數器。加入這些記錄檔時，效能計數器資料會依 scheduledTransferPeriod 傳輸間隔傳輸至儲存體資料表 WADPerformanceCountersTable。</td>
-			<td>是</td>
-			<td>是</td>
-			<td>是</td>
-	</tr>
-	<tr>
-			<td>效能計數器</td>
-			<td>否</td>
-			<td>資料表</td>
-			<td>記錄作業系統、應用程式或驅動程式之執行效能的相關資訊。您必須明確指定效能計數器。加入這些記錄檔時，效能計數器資料會依 scheduledTransferPeriod 傳輸間隔傳輸至儲存體資料表 WADPerformanceCountersTable。</td>
-			<td>是</td>
-			<td>是</td>
-			<td>是</td>
-	</tr>
-	<tr>
-			<td>損毀傾印</td>
-			<td>否</td>
-			<td>Blob</td>
-			<td>記錄系統當機時之作業系統狀態的相關資訊。會在本機收集小型損毀傾印。您可以啟用完整傾印。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至您指定的容器。由於 ASP.NET 處理大多數例外狀況，這通常只對背景工作角色或 VM 才有用。</td>
-			<td>是</td>
-			<td>是</td>
-			<td>是</td>
-	</tr>
-	<tr>
-			<td>自訂錯誤記錄檔</td>
-			<td>否</td>
-			<td>Blob</td>
-			<td>透過本機儲存體資源，您可以記錄自訂資料並立即傳輸至您指定的容器。</td>
-			<td>是</td>
-			<td>是</td>
-			<td>是</td>
-	</tr>
-	<tr>
-			<td>EventSource</td>
-			<td>否</td>
-			<td>資料表</td>
-			<td>記錄您的程式碼使用 .NET EventSource 類別所產生的事件。</td>
-			<td>否</td>
-			<td>是</td>
-			<td>是</td>
-	</tr>
-	<tr>
-			<td>以資訊清單為基礎的 ETW</td>
-			<td>否</td>
-			<td>資料表</td>
-			<td>任何處理序所產生的 ETW 事件。</td>
-			<td>否</td>
-			<td>是</td>
-			<td>是</td>
-	</tr>
-</tbody>
-</table>
 
 ## 其他資源
 
@@ -777,4 +511,4 @@ Azure 診斷可收集下列類型的遙測資料：
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

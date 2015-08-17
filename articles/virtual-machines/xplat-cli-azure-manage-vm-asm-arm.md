@@ -63,4 +63,4 @@
 * 如需如何在 arm 模式中利用 Azure CLI 來使用資源的詳細資訊，請參閱[搭配使用 Azure 命令列介面與資源管理員](xplat-cli-azure-resource-manager.md)和[使用 Azure 命令列介面管理角色存取控制](../role-based-access-control-xplat-cli.md)。
 * 如需 CLI 命令的其他範例，請參閱[使用 Azure 命令列介面](../virtual-machines-command-line-tools.md)和 [Azure CLI 與 Azure 資源管理員搭配使用](azure-cli-arm-commands.md)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -3,7 +3,7 @@
 	description="適用於在 Azure App Service 中管理 Web 應用程式之資源的連結。" 
 	services="app-service\web" 
 	documentationCenter="" 
-	authors="MikeWasson" 
+	authors="erikre" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/23/2015" 
-	ms.author="mwasson"/>
+	ms.date="07/31/2015" 
+	ms.author="erikre"/>
 
 # 在 Azure App Service 中管理 Web 應用程式
 
@@ -103,4 +103,4 @@ Azure App Service 提供了五種階層：免費、共用、基本、標準和�
 
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

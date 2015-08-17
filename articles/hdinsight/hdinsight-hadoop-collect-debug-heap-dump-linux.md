@@ -41,7 +41,7 @@
 
 堆積傾印的啟用方式，是在服務啟動時將選項 (有時稱為參數) 傳遞至 JVM。就大部分的 Hadoop 服務而言，修改啟動服務所使用的 Shell 指令碼即可完成這項作業。
 
-在每個指令碼中，有一項 ***_OPTS** 匯出，其中含有傳遞至 JVM 的選項。例如，在 **hadoop-env.sh** 指令碼中，以 `export HADOOP_NAMENODE_OPTS=` 為開頭的那一行即含有 NameNode 服務的選項。
+在每個指令碼中，有一項 ***\_OPTS** 匯出，其中含有傳遞至 JVM 的選項。例如，在 **hadoop-env.sh** 指令碼中，以 `export HADOOP_NAMENODE_OPTS=` 為開頭的那一行即含有 NameNode 服務的選項。
 
 map 和 reduce 處理序會稍有不同，因為它們是 MapReduce 服務的子處理序。每個 map 或 reduce 處理序都會在一個子容器中執行，且有兩個含有這些 JVM 選項的項目。兩者均包含在 **mapred-site.xml** 中：
 
@@ -96,9 +96,9 @@ map 和 reduce 處理序會稍有不同，因為它們是 MapReduce 服務的子
 
     ![篩選的清單](./media/hdinsight-hadoop-heap-dump-linux/filter.png)
 
-4. 針對您想要啟用堆積傾印的服務尋找 ***_OPTS** 項目，並新增您想要啟用的選項。在下圖中，我將 `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` 新增至 **HADOOP_NAMENODE_OPTS** 項目：
+4. 針對您想要啟用堆積傾印的服務尋找 ***\_OPTS** 項目，並新增您想要啟用的選項。在下圖中，我將 `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` 新增至 **HADOOP\_NAMENODE\_OPTS** 項目：
 
-    ![含有 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/ 的 HADOOP_NAMENODE_OPTS](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
+    ![含有 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/ 的 HADOOP\_NAMENODE\_OPTS](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
 	> [AZURE.NOTE]啟用 map 或 reduce 子處理序的堆積傾印時，會改為尋找標示為 **mapreduce.admin.map.child.java.opts** 和 **mapreduce.admin.reduce.child.java.opts** 的欄位。
 
@@ -120,4 +120,4 @@ map 和 reduce 處理序會稍有不同，因為它們是 MapReduce 服務的子
 
 8. 重新啟動服務後，請使用 [服務動作] 按鈕**關閉維護模式**。這麼做可讓 Ambari 繼續監視服務是否有警示。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

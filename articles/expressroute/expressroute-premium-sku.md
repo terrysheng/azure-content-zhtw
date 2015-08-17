@@ -41,7 +41,7 @@ ExpressRoute Premium 是下面所列功能的集合：
 - Azure 訂用帳戶
 - 最新版的 Azure PowerShell
 
-###  1.匯入 ExpressRoute 的 PowerShell 模組
+###  1\.匯入 ExpressRoute 的 PowerShell 模組
 
 Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動化部署及管理 Azure 中的工作負載。如需詳細資訊，請參閱 [MSDN](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx) 中的 PowerShell 文件。
 
@@ -52,7 +52,7 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
 
-### 2.設定已啟用 Premium 附加元件功能的新 ExpressRoute 電路
+### 2\.設定已啟用 Premium 附加元件功能的新 ExpressRoute 電路
 
 您可以在建立階段建立已啟用 Premium 附加元件的 ExpressRoute 電路。遵循有關如何透過 [NSP](expressroute-configuring-nsps.md) 或 [EXP](expressroute-configuring-exps.md) 建立 ExpressRoute 電路的指示。New-AzureDedicatedCircuit Cmdlet 中有新的選擇性參數可讓您指定 SKU。SKU 可以是 Standard 或 Premium。預設值為 Standard。在 SKU 上傳遞為 Premium，將會啟用具有 Premium 附加元件功能的電路。
 
@@ -60,10 +60,10 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -Sku Premium
 
 
-### 3.確認已啟用 ExpressRoute Premium 附加元件
+### 3\.確認已啟用 ExpressRoute Premium 附加元件
 您可以查看您的電路是否已啟用 ExpressRoute Premium 附加元件。在以下範例中，ExpressRoute 電路尚未啟用 ExpressRoute Premium 附加元件功能。如果已啟用附加元件，SKU 將顯示為 ***Premium***。
 
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -86,15 +86,15 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 	您可以使用下列 PowerShell Cmdlet 取得 ExpressRoute 電路的詳細資料：
 		
 
-    	PS C:> Get-AzureDedicatedCircuit
+    	PS C:\> Get-AzureDedicatedCircuit
 	
 	此命令會傳回您在訂閱中建立的所有電路清單。如果您有服務金鑰，可以使用下列命令來取得特定 ExpressRoute 電路的詳細資料。
 
-		 PS C:> Get-AzureDedicatedCircuit -ServiceKey <skey>
+		 PS C:\> Get-AzureDedicatedCircuit -ServiceKey <skey>
 
 	以實際的服務金鑰取代 <skey>。
 	
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -111,7 +111,7 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
 	您可以使用下列 PowerShell Cmdlet，為現有的電路啟用 ExpressRoute Premium 附加元件：
 	
-		PS C:> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
+		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
 		
 		Bandwidth                        : 1000
 		CircuitName                      : TestCircuit
@@ -136,15 +136,15 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 	您可以使用下列 PowerShell Cmdlet 取得 ExpressRoute 電路的詳細資料：
 		
 
-    	PS C:> Get-AzureDedicatedCircuit
+    	PS C:\> Get-AzureDedicatedCircuit
 	
 	此命令會傳回您在訂閱中建立的所有電路清單。如果您有服務金鑰，可以使用下列命令來取得特定 ExpressRoute 電路的詳細資料。
 
-		 PS C:> Get-AzureDedicatedCircuit -ServiceKey <skey>
+		 PS C:\> Get-AzureDedicatedCircuit -ServiceKey <skey>
 
 	以實際的服務金鑰取代 <skey>。
 	
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -161,7 +161,7 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
 	您可以使用下列 PowerShell Cmdlet，為現有的電路停用 ExpressRoute Premium 附加元件：
 	
-		PS C:> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
+		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
 		
 		Bandwidth                        : 1000
 		CircuitName                      : TestCircuit
@@ -177,4 +177,4 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

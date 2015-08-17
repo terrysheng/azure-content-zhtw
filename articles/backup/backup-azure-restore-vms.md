@@ -83,7 +83,7 @@
 
 ![正在建立還原工作](./media/backup-azure-restore-vms/create-restore-job.png)
 
-如果成功建立工作，您會看到快顯通知指出工作已建立。您可以按一下 [**檢視工作**] 按鈕進入 [**工作**] 索引標籤取得更多詳細資料。
+如果成功建立工作，您會看到快顯通知指出工作已建立。您可以按一下 [檢視工作] 按鈕進入 [工作] 索引標籤取得更多詳細資料。
 
 ![已建立還原工作](./media/backup-azure-restore-vms/restore-job-created.png)
 
@@ -103,4 +103,4 @@
 ## 後續步驟
 - [管理虛擬機器](backup-azure-manage-vms)
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

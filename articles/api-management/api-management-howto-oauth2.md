@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="08/05/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中使用 OAuth 2.0 授權開發人員帳戶
@@ -70,7 +70,7 @@
 
 [Client authentication methods] 的預設設定是 [基本]，而 [Access token sending method] 則是 [授權標頭]。這些值和 [預設範圍] 均是在此表單區段設定的。
 
-[用戶端認證] 區段含有 [用戶端識別碼] 和 [用戶端密碼]，這兩個項目可在 OAuth 2.0 伺服器的建立和組態程序中取得。一旦指定 [用戶端識別碼] 和 [用戶端密碼] 後，系統便會產生 [授權碼] 的 **redirect_uri**。此 URI 可用來設定 OAuth 2.0 伺服器組態中的回覆 URL。
+[用戶端認證] 區段含有 [用戶端識別碼] 和 [用戶端密碼]，這兩個項目可在 OAuth 2.0 伺服器的建立和組態程序中取得。一旦指定 [用戶端識別碼] 和 [用戶端密碼] 後，系統便會產生 [授權碼] 的 **redirect\_uri**。此 URI 可用來設定 OAuth 2.0 伺服器組態中的回覆 URL。
 
 ![New server][api-management-oauth2-server-4]
 
@@ -120,7 +120,7 @@
 
 ## 後續步驟
 
-如需使用 OAuth 2.0 和 API 管理的詳細資訊，請參閱下列影片。
+如需使用 OAuth 2.0 和 API 管理的詳細資訊，請參閱下列影片以及隨附的[文章](api-management-howto-protect-backend-with-aad.md)。
 
 > [AZURE.VIDEO protecting-web-api-backend-with-azure-active-directory-and-api-management]
 
@@ -160,4 +160,4 @@
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

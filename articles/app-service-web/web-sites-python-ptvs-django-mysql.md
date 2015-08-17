@@ -99,7 +99,7 @@
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)-->
 
-1.  在搜尋方塊中輸入「mysql」，然後按一下 [MySQL 資料庫]，再按一下 [建立]。
+1.  在搜尋方塊中輸入「**mysql**」，然後按一下 [**MySQL 資料庫**]，再按一下 [**建立**]。
 
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 
@@ -134,7 +134,7 @@
 
 1.  在 [方案總管] 的 [Python 環境] 之下，在虛擬環境上按一下滑鼠右鍵並選取 [安裝 Python 封裝]。
 
-1. 使用 **easy_install** 安裝 `mysql-python` 封裝。
+1. 使用 **easy\_install** 安裝 `mysql-python` 封裝。
 
   	![安裝套件對話方塊](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
 
@@ -211,4 +211,4 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

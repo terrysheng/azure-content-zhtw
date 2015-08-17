@@ -122,4 +122,4 @@ HDInsight 在邏輯應用程式中只能當動作使用。讓我們以一個簡�
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

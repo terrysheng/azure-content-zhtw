@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/05/2015"
+   ms.date="08/04/2015"
    ms.author="bwren" />
 
 # Azure 自動化 Webhook
@@ -37,8 +37,6 @@
 
 ### 參數
 Webhook 可以定義由該 Webhook 啟動 Runbook 時所使用的 Runbook 參數值。Webhook 必須包含任何 Runbook 的強制參數值，且可能包含選擇性的參數值。多個 Webhook 連結至單一 Runbook 時，可以個別使用不同的參數值。
-
->[AZURE.NOTE]建立 Webhook 之後，即無法變更目前 Webhook 所設定的參數值。您必須建立使用不同參數值的其他 Webhook。
 
 當用戶端使用 Webhook 啟動 Runbook 時，其無法覆寫 Webhook 中定義的參數值。若要從用戶端接收資料，Runbook 可以接受單一參數，稱之為 **$WebhookData** 的 [物件] 類型，其中包含用戶端在 POST 要求中所包含的資料。
 
@@ -92,7 +90,7 @@ Webhook 的安全性仰賴其 URL 的隱私權，其中包含可允許其接受�
 |:---|:----|:---|
 | 202 | 已接受 | 已接受要求，且 Runbook 已經成功排入佇列。 |
 | 400 | 不正確的要求 | 基於下列原因之一不接受此要求。<ul> <li>Webhook 已過期。</li> <li>Webhook 已停用。</li> <li>在 URL 中的權杖無效。</li> </ul>|
-| 404 | 找不到 | 基於下列原因之一不接受此要求。<ul> <li>找不到 webhook。</li> <li>找不到 Runbook。</li> <li>找不到帳戶。</li> </ul> |
+| 404 | 找不到 | 基於下列原因之一不接受此要求。<ul> <li>找不到 Webhook。</li> <li>找不到 Runbook。</li> <li>找不到帳戶。</li> </ul> |
 | 500 | 內部伺服器錯誤 | URL 有效，但發生錯誤。請重新提交要求。 |
 
 假設要求成功，Webhook 會回應包含 JSON 格式的工作識別碼，如下所示。它會包含單一的工作識別碼，但是 JSON 格式允許未來可能的增強功能。
@@ -174,4 +172,4 @@ Runbook 預期在要求的主體中有 JSON 格式的虛擬機器清單。我們
 - [啟動 Runbook](automation-starting-a-runbook.md)
 - [檢視 Runbook 工作的狀態](automation-viewing-the-status-of-a-runbook-job.md) 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

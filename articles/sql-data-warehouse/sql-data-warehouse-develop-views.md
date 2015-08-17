@@ -26,9 +26,9 @@
 ## 架構抽象概念
 極為常見的應用程式模式就是在載入資料時，使用後面接著物件重新命名模式的 CREATE TABLE AS SELECT (CTAS) 來重建資料表。
 
-下列範例會將新的日期記錄加入至日期維度。請注意，如何第一次建立新的物件 DimDate_New，然後予以重新命名來取代原始物件版本。``` CREATE TABLE dbo.DimDate_New WITH (DISTRIBUTION = REPLICATE , CLUSTERED INDEX (DateKey ASC) ) AS SELECT * FROM dbo.DimDate AS prod UNION ALL SELECT * FROM dbo.DimDate_stg AS stg ;
+下列範例會將新的日期記錄加入至日期維度。請注意，如何第一次建立新的物件 DimDate\_New，然後予以重新命名來取代原始物件版本。``` CREATE TABLE dbo.DimDate\_New WITH (DISTRIBUTION = REPLICATE , CLUSTERED INDEX (DateKey ASC) ) AS SELECT * FROM dbo.DimDate AS prod UNION ALL SELECT * FROM dbo.DimDate\_stg AS stg ;
 
-RENAME OBJECT DimDate TO DimDate_Old; RENAME OBJECT DimDate_New TO DimDate;
+RENAME OBJECT DimDate TO DimDate\_Old; RENAME OBJECT DimDate\_New TO DimDate;
 
 ``` 不過，這可能會導致資料表物件從 [SSDT SQL Server 物件總管] 的使用者檢視中出現與消失。檢視可為倉儲資料取用者提供一致的展示層，然而基礎物件已重新命名。透過檢視提供資料存取權，意味著使用者不需要基礎資料表的可見性。這會提供一致的使用者經驗，同時確保資料倉儲設計人員可以發展資料模型，也可在資料載入過程中使用 CTAS 充分發揮效能。
 
@@ -53,4 +53,4 @@ SQL 資料倉儲中的檢視僅限中繼資料使用。
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

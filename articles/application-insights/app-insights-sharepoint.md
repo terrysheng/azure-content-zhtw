@@ -108,4 +108,4 @@ Visual Studio Application Insights 會監視應用程式的可用性、效能和
 
 <!--Link references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

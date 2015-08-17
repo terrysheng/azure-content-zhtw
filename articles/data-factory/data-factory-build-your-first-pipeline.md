@@ -37,7 +37,7 @@
 
 1.	**Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，只需要幾分鐘就可以建立免費試用帳戶。請參閱[免費試用](http://azure.microsoft.com/pricing/free-trial/)一文了解如何取得免費試用帳戶。
 
-2.	**Azure 儲存體** – 在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/storage-create-storage-account.md/#create-a-storage-account)一文。建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。請參閱[檢視、複製和重新產生儲存體存取金鑰](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)。
+2.	**Azure 儲存體** – 在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。如果您沒有 Azure 儲存體帳戶，請參閱〈[〉建立儲存體帳戶](../storage-create-storage-account/#create-a-storage-account)一文。建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。請參閱〈[檢視、複製和重新產生儲存體存取金鑰](../storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys)〉。
 
 ## 本教學課程涵蓋哪些內容？	
 Azure Data Factory 可讓您以資料驅動型工作流程的方式，撰寫資料移動和資料處理工作。您將了解如何建置第一個管線，每個月使用 HDInsight 來轉換及分析 Web 記錄檔。
@@ -118,7 +118,7 @@ Hive 指令碼執行後，其結果將會儲存在 Azure blob 儲存體容器：
 		partitioned by ( year int, month int)
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
 		STORED AS TEXTFILE 
-		LOCATION 'wasb://data@<storageaccountname>.blob.core.windows.net/partitioneddata';
+		LOCATION '${hiveconf:partitionedtable}';
 
 		INSERT INTO TABLE WebLogsPartitioned  PARTITION( year , month) 
 		SELECT
@@ -147,7 +147,7 @@ Hive 指令碼執行後，其結果將會儲存在 Azure blob 儲存體容器：
 	 
  
 2. 為教學課程準備 Azure 儲存體：
-	1. 下載[最新版本的 **AzCopy**](http://aka.ms/downloadazcopy)，或[最新預覽版本](http://aka.ms/downloadazcopypr)。請參閱 [AzCopy](../storage/storage-use-azcopy.md) 了解如何使用 AzCopy
+	1. 下載[最新版本的 **AzCopy**](http://aka.ms/downloadazcopy)，或[最新預覽版本](http://aka.ms/downloadazcopypr)。請參閱〈[如何使用 AzCopy](../storage/storage-use-azcopy.md)〉文章以取得使用公用程式的指示。
 	2. AzCopy 安裝之後，您可以在命令提示字元中執行下列命令，將其新增到系統路徑。 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
@@ -173,4 +173,4 @@ Hive 指令碼執行後，其結果將會儲存在 Azure blob 儲存體容器：
 - 按一下頂端的[使用 PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) 連結，使用 Azure PowerShell 執行教學課程。
 - 按一下頂端的[使用 Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) 連結以使用 Visual Studio 執行本教學課程。 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

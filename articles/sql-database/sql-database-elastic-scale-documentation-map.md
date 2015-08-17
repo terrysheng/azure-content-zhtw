@@ -25,4 +25,4 @@ Azure SQL DB 的彈性資料庫功能是設計來簡化資料層開發和管理�
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/ElasticScaleMapcoded.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

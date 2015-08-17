@@ -298,4 +298,4 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

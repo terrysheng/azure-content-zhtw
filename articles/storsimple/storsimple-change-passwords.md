@@ -66,4 +66,4 @@ StorSimple Snapshot Manager 密碼現在應該已更新。
 
 [深入了解修改您的裝置組態](storsimple-modify-device-config.md)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

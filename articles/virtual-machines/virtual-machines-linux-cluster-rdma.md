@@ -339,4 +339,4 @@ private ip address2:16
 
 * 如需 Intel MPI 的指引，請參閱＜[Intel MPI Library 文件](https://software.intel.com/zh-tw/articles/intel-mpi-library-documentation/)＞。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

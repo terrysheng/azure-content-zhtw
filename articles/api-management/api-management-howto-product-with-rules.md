@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/18/2015"
+	ms.date="08/05/2015"
 	ms.author="sdanie"/>
 
 # 使用 Azure API 管理以頻率限制保護 API
@@ -293,4 +293,4 @@ API 管理中的產品可以是**開放**或**受保護**的。受保護產品�
 [設定使用量配額]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -52,44 +52,42 @@
 
 ## 問題：輸入配量一直處於 PendingExecution 或 PendingValidation 狀態
 
-配量處於 **PendingExecution** 或 **PendingValidation** 狀態有許多原因，常見的原因之一是在管線第一個資料表/資料集的 **availability** 區段中沒有指定 **waitOnExternal** 屬性。在 Azure Data Factory 範圍外產生的任何資料集，都應該在 **availability** 區段下標示 **waitOnExternal** 屬性。這表示資料在外部，且未由 Data Factory 內的任何管線所支持。一旦資料在個別的存放區可用，資料配量就會標示為 [就緒]。
+配量處於 **PendingExecution** 或 **PendingValidation** 狀態的原因有許多種，其中一種常見的原因是 **external** 屬性未設為 **true**。在 Azure Data Factory 範圍外產生的任何資料集，都應該標示 **external** 屬性。這表示資料在外部，且未由 Data Factory 內的任何管線所支持。一旦資料在個別的存放區可用，資料配量就會標示為 [就緒]。
 
-關於 **waitOnExternal** 屬性的用法，請參閱下列範例。您可以指定 **waitOnExternal{}**，而不需在區段中設定屬性的值，如此會使用預設值。
+關於 **external** 屬性的用法，請參閱下列範例。當您將 external 設為 true 時，可以選擇性地指定**externalData***。
 
 如需此屬性的詳細資料，請參閱 [JSON 指令碼參考][json-scripting-reference]中的資料表主題。
 	
 	{
-	    "name": "CustomerTable",
-	    "properties":
-	    {
-	        "location":
-	        {
-	            "type": "AzureBlobLocation",
-	            "folderPath": "MyContainer/MySubFolder/",
-	            "linkedServiceName": "MyLinkedService",
-	            "format":
-	            {
-	                "type": "TextFormat",
-	                "columnDelimiter": ",",
-	                "rowDelimiter": ";"
-	            }
-	        },
-	        "availability":
-	        {
-	            "frequency": "Hour",
-	            "interval": 1,
-	            "waitOnExternal":
-	            {
-	                "dataDelay": "00:10:00",
-	                "retryInterval": "00:01:00",
-	                "retryTimeout": "00:10:00",
-	                "maximumRetry": 3
-	            }
-	        }
+	  "name": "CustomerTable",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "MyLinkedService",
+	    "typeProperties": {
+	      "folderPath": "MyContainer/MySubFolder/",
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";"
+	      }
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    },
+	    "policy": {
+	      "externalData": {
+	        "dataDelay": "00:10:00",
+	        "retryInterval": "00:01:00",
+	        "retryTimeout": "00:10:00",
+	        "maximumRetry": 3
+	      }
 	    }
+	  }
 	}
 
- 若要解決這個錯誤，請將 **waitOnExternal** 區段加入至輸入資料表的 JSON 定義，並重新建立資料表。
+ 若要解決這個錯誤，請將 **external** 屬性和選用 **externalData** 區段加入輸入資料表的 JSON 定義，並重新建立資料表。
 
 ## 問題：混合式複製作業失敗
 若要了解更多詳細資料：
@@ -131,7 +129,7 @@
 
 自訂活動的一個「常見錯誤」是封裝執行失敗，結束代碼為 '1'。如需詳細資訊，請參閱 'wasb://adfjobs@storageaccount.blob.core.windows.net/PackageJobs/<guid>/<jobid>/Status/stderr'。
 
-若要查看這種錯誤的其他詳細資料，請開啟 **stderr** 檔案。常見的一個錯誤是逾時狀況，例如：INFO mapreduce.Job: Task Id : attempt_1424212573646_0168_m_000000_0, Status : FAILED AttemptID:attempt_1424212573646_0168_m_000000_0 Timed out after 600 secs
+若要查看這種錯誤的其他詳細資料，請開啟 **stderr** 檔案。常見的一個錯誤是逾時狀況，例如：INFO mapreduce.Job: Task Id : attempt\_1424212573646\_0168\_m\_000000\_0, Status : FAILED AttemptID:attempt\_1424212573646\_0168\_m\_000000\_0 Timed out after 600 secs
 
 如果工作重試 3 次 (例如超過 30 分鐘或更久)，此相同錯誤可能會出現多次。
 
@@ -175,7 +173,7 @@
 ### 必要條件
 1. 完成[開始使用 Azure Data Factory][adfgetstarted]文章中的教學課程。
 2. 確認 **ADFTutorialDataFactory** 在 Azure SQL Database 的 **emp** 資料表中產生資料。  
-3. 現在，從 Azure SQL Database 中刪除 **emp** 資料表 (**drop table emp**)。這會引發錯誤。
+3. 現在，從 Azure SQL Database 中刪除 **emp** 資料表 (**放棄 emp 資料表**)。這會引發錯誤。
 4. 在 **Azure PowerShell** 中執行下列命令，以更新管線的活動期，讓管線嘗試將資料寫入已不存在的 **emp** 資料表。
 
          
@@ -386,4 +384,4 @@
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

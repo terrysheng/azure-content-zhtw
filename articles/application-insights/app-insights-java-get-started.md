@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/30/2015" 
 	ms.author="awills"/>
  
@@ -35,7 +35,7 @@
 *如果您有使用中的 Web 應用程式，您可以依照替代的程序[在執行階段將 SDK 加入 Web 伺服器](app-insights-java-live.md)。替代方法可避免重建程式碼，但您沒有選項可撰寫程式碼來追蹤使用者活動。*
 
 
-## 1.取得 Application Insights 檢測金鑰
+## 1\.取得 Application Insights 檢測金鑰
 
 1. 登入 [Microsoft Azure 入口網站](https://portal.azure.com)。
 2. 建立新 Application Insights 資源
@@ -48,7 +48,7 @@
 
     ![在新資源概觀中，按一下 [屬性] 並複製檢測金鑰](./media/app-insights-java-get-started/03-key.png)
 
-## 2.將 Java 適用的 Application Insights SDK 加入至專案
+## 2\.將 Java 適用的 Application Insights SDK 加入至專案
 
 *選擇適合您的專案的方式。*
 
@@ -123,7 +123,7 @@
 
 
 
-## 3.加入 Application Insights XML 檔案
+## 3\.加入 Application Insights XML 檔案
 
 請將 ApplicationInsights.xml 加入至專案的資源資料夾，否則請確定其已加入至您的專案部署類別路徑。複製到下列 XML。
 
@@ -164,7 +164,7 @@
 * HTTP 要求元件是選用的。它會自動將要求和回應時間的遙測傳送到入口網站。
 * 事件相互關聯是 HTTP 要求元件的補充。它會指派識別碼給伺服器收到的每個要求，並將它加入為遙測的每個項目的屬性，作為 'Operation.Id' 屬性。它可讓您相互關聯與每個要求關聯的遙測，方法是在[診斷搜尋][diagnostic]中設定篩選器。
 
-## 4.加入 HTTP 篩選器
+## 4\.加入 HTTP 篩選器
 
 上一個組態步驟可讓 HTTP 要求元件記錄每個 Web 要求。(如果您只需要單純的 API，則非必要。)
 
@@ -207,7 +207,7 @@
 
 (如果預設堆疊中定義了攔截器，可以將攔截器加入該堆疊。)
 
-## 5.在伺服器上安裝
+## 5\.在伺服器上安裝
 
 在 Windows 伺服器上，安裝：
 
@@ -215,11 +215,11 @@
 
 (這會啟用效能計數器。)
 
-## 6.執行您的應用程式
+## 6\.執行您的應用程式
 
 在您的開發電腦上以偵錯模式執行應用程式，或發佈至您的伺服器。
 
-## 7.在 Application Insights 中檢視遙測
+## 7\.在 Application Insights 中檢視遙測
 
 返回 [Microsoft Azure 入口網站](https://portal.azure.com) 中的 Application Insights 資源。
 
@@ -373,4 +373,4 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -19,4 +19,4 @@ Azure App Service 可讓您選擇在包含多個使用者所建立之多個應�
 
 如上[圖](#appservice_diagram)所示，您可以用數種方式發佈程式碼和其他 Web 內容至 Azure App Service。您可以使用 FTP、FTPS 或 Microsoft 的 WebDeploy 技術。Azure App Service 也支援從原始檔控制系統 (包括 Git、GitHub、CodePlex、BitBucket、Dropbox、Mercurial、Team Foundation Server 和雲端型 Team Foundation Service) 發佈程式碼。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -28,12 +28,13 @@ App Service 環境需要下列所有項目，才能正確運作：
 
 
 -  與 App Service 環境位於相同區域之 Azure 儲存體和 SQL 資料庫資源的輸出網路連線。這個網路路徑無法通過內部公司 Proxy，因為，這麼做可能會變更輸出網路流量的有效 NAT 位址。變更在 Azure 儲存體和 SQL 資料庫端點上導向之 App Service 環境輸出網路流量的 NAT 位址會導致連線失敗。
--  虛擬網路的 DNS 組態必須可以解析下列 Azure 控制網域內的端點：**.file.core.windows.net\*、**.blob.core.windows.net\*、**.database.windows.net\*。-  在建立 App Service 環境後，以及重新設定和調整 App Service 環境變更的期間，虛擬網路的 DNS 組態必須保持穩定。   
--  必須如本[文章][requiredports]所述，允許 App Service 環境之必要連接埠的輸入網路存取。
+-  虛擬網路的 DNS 組態必須可以解析下列 Azure 控制網域內的端點：**.file.core.windows.net*、**.blob.core.windows.net*、**.database.windows.net*。
+-  在建立 App Service 環境後，以及重新設定和調整 App Service 環境變更的期間，虛擬網路的 DNS 組態必須保持穩定。   
+-  必須如此[文章][requiredports]所述，允許 App Service 環境之必要連接埠的輸入網路存取。
 
 確定虛擬網路的有效 DNS 組態，即可符合 DNS 需求。
 
-在 App Service 環境的子網路上設定[網路安全性群組][NetworkSecurityGroups]以允許必要存取權，即可符合輸入網路存取的需求 (如本[文章][requiredports]所述)。
+在 App Service 環境的子網路上設定[網路安全性群組][NetworkSecurityGroups]以允許必要存取權，即可符合輸入網路存取的需求 (如此[文章][requiredports]所述)。
 
 ## 啟用 App Service 環境的輸出網路連線##
 新建立的 ExpressRoute 循環預設會通告允許輸出網際網路連線的預設路由。使用此組態，App Service 環境將可以連接至其他 Azure 端點。
@@ -42,15 +43,15 @@ App Service 環境需要下列所有項目，才能正確運作：
 
 解決方法是在子網路上定義包含 App Service 環境的一 (或多個) 使用者定義路由 (UDR)。UDR 會定義將使用的子網路特有路由，而非預設路由。
 
-如果使用者定義路由的背景資訊，請參閱本[概觀][UDROverview]。
+如果使用者定義路由的背景資訊，請參閱此[概觀][UDROverview]。
 
-如需建立和設定使用者定義路由的詳細資料，請參閱本[作法指南][UDRHowTo]。
+如需建立和設定使用者定義路由的詳細資料，請參閱此〈[作法指南][UDRHowTo]〉。
 
 ## App Service 環境的範例 UDR 組態 ##
 
 **必要條件**
 
-1. 從 [Azure 下載頁面][AzureDownloads]安裝最新 Azure Powershell (日期為 2015 年 6 月或更晚的日期)。在 [命令列工具] 的 [Windows Powershell] 下，有一個 [安裝] 連結可安裝最新的 Powershell Cmdlet。
+1. 從 [Azure 下載頁面][AzureDownloads]安裝最新 Azure Powershell (日期為 2015 年 6 月或更新版本)。在 [命令列工具] 的 [Windows Powershell] 下，有一個 [安裝] 連結可安裝最新的 Powershell Cmdlet。
 
 2. 建議您建立唯一的子網路，以專供 App Service 環境使用。這可確保套用至子網路的 UDR 只會開啟 App Service 環境的輸出流量。
 3. **重要事項**：除非是在進行下列組態步驟**之後**，否則請不要部署 App Service 環境。這可確保輸出網路連線可用，再嘗試部署 App Service 環境。
@@ -76,9 +77,9 @@ App Service 環境需要下列所有項目，才能正確運作：
     Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 9' -AddressPrefix 191.0.0.0/8 -NextHopType Internet
 
 
-如需可供 Azure 使用之 CIDR 範圍的完整和已更新清單，您可以從 [Microsoft 下載中心][DownloadCenterAddressRanges]下載內含所有範圍的 XML 檔案。
+如需可供 Azure 使用之 CIDR 範圍的完整和已更新清單，您可以從 [Microsoft 下載中心][DownloadCenterAddressRanges]下載內含所有範圍的 XML 檔案
 
-**附註：**在某個時間點，縮寫的 CIDR 簡稱 0.0.0.0/0 將可用於 *AddressPrefix* 參數。這個簡稱等同於「所有網際網路位址」。現在，開發人員必須改為使用一組足以涵蓋所有可能 Azure 位址範圍的更廣 CIDR 範圍，而 Azure 位址範圍用於已部署 App Service 環境的區域中。
+**注意：**在某個時間點，縮寫的 CIDR 簡稱 0.0.0.0/0 將可用於 *AddressPrefix* 參數。這個簡稱等同於「所有網際網路位址」。現在，開發人員必須改為使用一組足以涵蓋所有可能 Azure 位址範圍的更廣 CIDR 範圍，而 Azure 位址範圍用於已部署 App Service 環境的區域中。
 
 **步驟 3：建立路由表與包含 App Service 環境之子網路的關聯**
 
@@ -120,4 +121,4 @@ App Service 環境需要下列所有項目，才能正確運作：
 
 <!-- IMAGES -->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

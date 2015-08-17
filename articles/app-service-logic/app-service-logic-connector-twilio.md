@@ -76,4 +76,4 @@ Twilio 連接器可讓您從 Twilio 帳戶傳送和接收 SMS。它也可讓您�
 [5]: ./media/app-service-logic-connector-twilio/img5.PNG
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

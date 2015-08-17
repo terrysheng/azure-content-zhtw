@@ -57,7 +57,7 @@ Spark 3.0.0 版為預設版本，而且可以變更為 Spark 儲存機制上可�
 
 ### 步驟 1-a：使用 Azure PowerShell 下載範本檔案
 
-為 JSON 範本和其他相關聯的檔案建立本機資料夾 (例如，C:\Azure\Templates\Spark)。
+為 JSON 範本和其他相關聯的檔案建立本機資料夾 (例如，C:\\Azure\\Templates\\Spark)。
 
 使用您本機資料夾的資料夾名稱來替代，並執行下列命令：
 
@@ -91,7 +91,7 @@ foreach ($file in $files)
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-完成複製時，請尋找 C:\Azure\Templates 目錄中的 **spark-on-ubuntu** 資料夾。
+完成複製時，請尋找 C:\\Azure\\Templates 目錄中的 **spark-on-ubuntu** 資料夾。
 
 ### 步驟 2：(選用) 了解範本參數
 
@@ -311,7 +311,7 @@ New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -T
 您將會在部署期間看見如下的內容：
 
 ```powershell
-PS C:> New-AzureResourceGroup -Name $RGName -Location $locName
+PS C:\> New-AzureResourceGroup -Name $RGName -Location $locName
 
 ResourceGroupName : SparkResourceGroup
 Location          : westus
@@ -324,7 +324,7 @@ Permissions       :
 
 ResourceId        : /subscriptions/2018abc3-dbd9-4437-81a8-bb3cf56138ed/resourceGroups/sparkresourcegroup
 
-PS C:> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
+PS C:\> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 VERBOSE: 10:08:28 AM - Template is valid.
 VERBOSE: 10:08:28 AM - Create template deployment 'SparkTestDeployment'.
 VERBOSE: 10:08:37 AM - Resource Microsoft.Resources/deployments 'shared-resources' provisioning status is running
@@ -416,7 +416,7 @@ Remove-AzureResourceGroup -Name "<resource group name>" -Force
 
 本節將帶領您逐步了解 Spark 叢集的 azuredeploy.json 檔案結構。
 
-如果您尚未下載範本檔案的複本，請指定本機資料夾做為該檔案的位置並建立它 (例如，C:\Azure\Templates\Spark)。填寫資料夾名稱，然後執行以下命令：
+如果您尚未下載範本檔案的複本，請指定本機資料夾做為該檔案的位置並建立它 (例如，C:\\Azure\\Templates\\Spark)。填寫資料夾名稱，然後執行以下命令：
 
 ```powershell
 $folderName="<folder name, such as C:\Azure\Templates\Spark>"
@@ -843,4 +843,4 @@ azuredeploy.json 的 "parameters" 區段會指定此範本中所使用的可修�
 
 [疑難排解範本部署](resource-group-deploy-debug.md)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

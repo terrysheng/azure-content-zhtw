@@ -15,10 +15,10 @@
 
 	![](./media/mobile-services-dotnet-backend-configure-local-push/notification-hub-connection-string.png)
 
-4. 在 Visual Studio 的行動服務專案中，開啟服務的 Web.config 檔案，並在 **connectionStrings** 中，使用上一個步驟的連接字串來取代 **MS_NotificationHubConnectionString** 的連接字串。
+4. 在 Visual Studio 的行動服務專案中，開啟服務的 Web.config 檔案，並在 **connectionStrings** 中，使用上一個步驟的連接字串來取代 **MS\_NotificationHubConnectionString** 的連接字串。
 
-5. 在 **appSettings** 中，使用通知中樞的名稱來取代 **MS_NotificationHubName** 應用程式設定值。
+5. 在 **appSettings** 中，使用通知中樞的名稱來取代 **MS\_NotificationHubName** 應用程式設定值。
 
 現在，已設定行動服務專案在本機執行時連接至 Azure 的通知中樞。請注意，請務必使用相同通知中樞名稱和連接字串作為入口網站，因為在 Azure 執行時，入口網站設定會覆寫這些 Web.config 專案設定。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -44,25 +44,24 @@ castLabs 與 AMS 皆支援使用 JWT (JSON Web Token) 權杖格式進行授權�
 
 下表說明 AMS 中的 JWT 權杖。
 
-<table border="1">
-<tr><td>Issuer</td><td>所選安全權杖服務 (STS) 中的簽發者字串</td></tr>
-<tr><td>Audience</td><td>所使用 STS 中的對象字串</td></tr>
-<tr><td>Claims</td><td>一組宣告</td></tr>
-<tr><td>NotBefore</td><td>權杖的生效日期</td></tr>
-<tr><td>Expires</td><td>權杖的有效期限</td></tr>
-<tr><td>SigningCredentials</td><td>PlayReady 授權伺服器、castLabs 授權伺服器與 STS 之間共用的金鑰，可以是對稱或非對稱金鑰。</td></tr>
-</table>
+Issuer|所選安全權杖服務 (STS) 中的簽發者字串
+---|---
+Audience|所使用 STS 中的對象字串
+Claims|一組宣告
+NotBefore|權杖的生效日期
+Expires|權杖的有效期限
+SigningCredentials|PlayReady 授權伺服器、castLabs 授權伺服器與 STS 之間共用的金鑰，可以是對稱或非對稱金鑰。
 
 ###castLabs 中的 JWT 權杖
 
 下表說明 castLabs 中的 JWT 權杖。
 
-<table border="1">
-<tr><td>optData</td><td>JSON 字串，其中包含您的相關資訊。</td></tr>
-<tr><td>crt</td><td>JSON 字串，其中包含資產、其授權資訊與播放權限的相關資訊。</td></tr>
-<tr><td>iat</td><td>Epoch 中目前的日期時間。</td></tr>
-<tr><td>jti</td><td>權杖的唯一識別碼 (每個權杖在 castLabs 系統中只使用一次)。</td></tr>
-</table>
+名稱|說明
+---|---
+optData|JSON 字串，其中包含您的相關資訊。 
+crt|JSON 字串，其中包含資產、其授權資訊與播放權限的相關資訊。
+iat|Epoch 中目前的日期時間。
+jti|權杖的唯一識別碼 (每個權杖在 castLabs 系統中只使用一次)。
 
 ##範例解決方案設定 
 
@@ -114,4 +113,4 @@ castLabs 與 AMS 皆支援使用 JWT (JSON Web Token) 權杖格式進行授權�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

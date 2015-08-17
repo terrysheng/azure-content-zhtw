@@ -34,7 +34,7 @@
 |![電擊圖示](./media/storsimple-safety/IC740882.png) **電擊危險** |高電壓|
 |![超重圖示](./media/storsimple-safety/IC740883.png) **重量**| |
 |![沒有使用者可自行維修零件圖示](./media/storsimple-safety/IC740879.png) **沒有使用者可自行維修的零件**|除非受過適當訓練，否則請勿觸碰。|
-|![閱讀安全性注意事項圖示](./media/storsimple-safety/IC740885.png)\*\*請先閱讀所有指示\*\*| |
+|![閱讀安全性注意事項圖示](./media/storsimple-safety/IC740885.png)**請先閱讀所有指示**| |
 |![傾倒危險圖示](./media/storsimple-safety/IC740886.png) **傾倒危險**| |
 
 
@@ -179,4 +179,4 @@
 
 - 若為 8600 裝置，請移至[為 8600 裝置解除封裝，安裝機架和纜線](storsimple-8600-hardware-installation)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

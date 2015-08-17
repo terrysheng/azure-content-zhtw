@@ -40,7 +40,7 @@
 
 確定您選擇正確的 whl 檔案。
 
-例如：如果您在 64 位元電腦上使用 Python 2.7，請選擇：pymssql‑2.1.1‑cp27‑none‑win_amd64.whl。下載 .whl 檔案之後，請將它放在 C:/Python27 資料夾中。
+例如：如果您在 64 位元電腦上使用 Python 2.7，請選擇：pymssql‑2.1.1‑cp27‑none‑win\_amd64.whl。下載 .whl 檔案之後，請將它放在 C:/Python27 資料夾中。
 
 現在，從命令列 .cd 使用 pip 將 pymssql 驅動程式安裝到 C:/Python27 中，並執行下列程式碼：
 	
@@ -100,11 +100,11 @@
 這個程式碼範例示範如何使用交易，您將：
 
 
--開始交易
+\-開始交易
 
--插入一列資料
+\-插入一列資料
 
--回復您的交易以復原插入
+\-回復您的交易以復原插入
 
 
 	import pymssql
@@ -116,4 +116,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

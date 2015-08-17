@@ -13,7 +13,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="07/14/2015"
 	ms.author="kathydav"/>
 
@@ -49,4 +49,4 @@ Azure 虛擬機器是由 Azure 所提供的隨選且可調整的數種運算資�
 [虛擬機器]: #tellmevm
 [應用程式服務]: cloud-services-choose-me.md
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

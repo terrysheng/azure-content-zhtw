@@ -95,9 +95,9 @@ Azure CLI 是可讓您管理 Azure 服務的跨平台工具。使用以下步驟
 
 > [AZURE.NOTE]如果您會持續使用同一個儲存體帳戶，可以設定以下環境變數，而不是為每個命令指定帳戶和金鑰：
 >
-> * **AZURE_STORAGE_ACCOUNT**：儲存體帳戶名稱
+> * **AZURE\_STORAGE\_ACCOUNT**：儲存體帳戶名稱
 >
-> * **AZURE_STORAGE_ACCESS_KEY**：儲存體帳戶金鑰
+> * **AZURE\_STORAGE\_ACCESS\_KEY**：儲存體帳戶金鑰
 
 ###<a id="powershell"></a>Azure PowerShell
 
@@ -279,4 +279,4 @@ Azure Blob 儲存體也可以使用 Azure SDK，透過下列程式設計語言�
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -23,12 +23,12 @@
 
 ## 新增憑證至 cacerts 存放區
 
-1. 在設定為 JDK **jdk\jre\lib\security** 資料夾的命令提示字元下，執行下列命令來查看已安裝哪些憑證：
+1. 在設定為 JDK **jdk\\jre\\lib\\security** 資料夾的命令提示字元下，執行下列命令來查看已安裝哪些憑證：
 
 	`keytool -list -keystore cacerts`
 
 	系統會提示您輸入存放區密碼。預設密碼為 **changeit**。(若要變更密碼，請參閱 keytool 文件，網址為 <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>。) 這個範例假設 MD5 指紋為 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 的憑證未列在其中，而您想要將它匯入 (Twilio API service 需要這個特定的憑證)。
-2. 從 [GeoTrust 根憑證](http://www.geotrust.com/resources/root-certificates/) (英文)列出的憑證清單取得憑證。以滑鼠右鍵按一下序號為 35:DE:F4:CF 之憑證的連結，將它儲存到 **jdk\jre\lib\security** 資料夾中。基於本範例的目的，它是儲存成名為 **Equifax_Secure_Certificate_Authority.cer** 的檔案。
+2. 從 [GeoTrust 根憑證](http://www.geotrust.com/resources/root-certificates/) (英文)列出的憑證清單取得憑證。以滑鼠右鍵按一下序號為 35:DE:F4:CF 之憑證的連結，將它儲存到 **jdk\\jre\\lib\\security** 資料夾中。基於本範例的目的，它是儲存成名為 **Equifax\_Secure\_Certificate\_Authority.cer** 的檔案。
 3. 透過下列命令匯入憑證：
 
 	`keytool -keystore cacerts -importcert -alias equifaxsecureca -file Equifax_Secure_Certificate_Authority.cer`
@@ -52,4 +52,4 @@ Baltimore 憑證可能已經安裝於您的 cacerts 存放區，因此請記得�
 
 如需 Azure 所用根憑證的詳細資訊，請參閱 [Azure 根憑證移轉](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

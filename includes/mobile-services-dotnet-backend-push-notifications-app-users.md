@@ -1,5 +1,5 @@
 
-1. 在 Visual Studio 的 [方案總管] 中，展開 App_Start 資料夾，然後開啟 WebApiConfig.cs 專案檔。
+1. 在 Visual Studio 的 [方案總管] 中，展開 App\_Start 資料夾，然後開啟 WebApiConfig.cs 專案檔。
 
 2. 將下一行程式碼新增至 **ConfigOptions** 定義之後的 Register 方法中：
 
@@ -92,4 +92,4 @@
 現在，服務會使用使用者識別碼標籤，將推播通知 (以及插入項目的文字) 傳送到該位已登入使用者建立的所有註冊中。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

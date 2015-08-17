@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="管理 DocumentDB 帳戶 | Azure" 
+	pageTitle="管理 DocumentDB 帳戶 | Microsoft Azure" 
 	description="了解如何管理 DocumentDB 帳戶。" 
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/28/2015" 
 	ms.author="stbaro"/>
 
 #如何管理 DocumentDB 帳戶
@@ -112,4 +112,4 @@ DocumentDB 支援四個定義完善的使用者可設定資料一致性層級，
  
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

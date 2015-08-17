@@ -27,9 +27,9 @@
 
 - 在 Microsoft 知識庫 (KB) 中搜尋有關 Azure AD Connect 支援的常見協助修正問題的技術解決方案。
 
-[Microsoft Azure Active Directory 論壇](https://social.msdn.microsoft.com/Forums/azure/zh-tw/home?forum=WindowsAzureAD)
+[Microsoft Azure Active Directory 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 
-- 按一下[這裡](https://social.msdn.microsoft.com/Forums/azure/zh-tw/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)，即可在社群中搜尋和瀏覽技術問題和答案，或提出自己的問題。
+- 按一下[這裡](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)，即可在社群中搜尋和瀏覽技術問題和答案，或提出自己的問題。
 
 
 [Azure AD Connect 客戶支援](https://manage.windowsazure.com/?getsupport=true)
@@ -40,4 +40,4 @@
 
 請使用[這篇](active-directory-aadconnect-o365-certs.md)文章中的指引來更新憑證解決問題。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -105,7 +105,7 @@ Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您�
 		  "keywords":[]
 		}
 
-	>[AZURE.NOTE]應將 Twilio 的相依性新增為 `"twilio": "~1.7.0"`，包含 (~)。不支援使用插入號 (^) 的參考。
+	>[AZURE.NOTE]應將 Twilio 的相依性新增為 `"twilio": "~1.7.0"`，包含 (\~)。不支援使用插入號 (^) 的參考。
 
 4. 認可此檔案更新，並將更新推回行動服務。
 
@@ -170,7 +170,7 @@ Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您�
 
 當應用程式開始呼叫 Twilio API 時 (例如，透過 client.InitiateOutboundCall 方法)，Twilio 會傳送要求至 URL，然後應該會傳回 TwiML 回應。在＜作法：撥出電話＞中的範例使用 Twilio 提供的 URL http://twimlets.com/message 來傳回回應。
 
-> [AZURE.NOTE]雖然 TwiML 是專供 Web 服務使用，但您也可以在瀏覽器中檢視 TwiML。例如，您可以按一下 [twimlet_message_url](http://twimlets.com/message) 以檢視空的 &lt;Response&gt; 元素，或按一下 [twimlet_message_url_hello_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World) 以檢視包含 &lt;Say&gt; 元素的 &lt;Response&gt; 元素。
+> [AZURE.NOTE]雖然 TwiML 是專供 Web 服務使用，但您也可以在瀏覽器中檢視 TwiML。例如，您可以按一下 [twimlet\_message\_url](http://twimlets.com/message) 以檢視空的 &lt;Response&gt; 元素，或按一下 [twimlet\_message\_url\_hello\_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World) 以檢視包含 &lt;Say&gt; 元素的 &lt;Response&gt; 元素。
 
 除了依賴 Twilio 提供的 URL，您也可以建立自己的 URL 網站來傳回 HTTP 回應。您可以使用任何可傳回 HTTP 回應的語言來建立網站。本主題假設您從 ASP.NET 通用處理常式來裝載 URL。
 
@@ -207,7 +207,7 @@ Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您�
         });
     };
 
-[AZURE.INCLUDE [twilio_additional_services_and_next_steps](../../includes/twilio_additional_services_and_next_steps.md)]
+[AZURE.INCLUDE [twilio\_additional\_services\_and\_next\_steps](../../includes/twilio_additional_services_and_next_steps.md)]
 
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
@@ -230,4 +230,4 @@ Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您�
 [azure_twilio_howto_php]: /develop/php/how-to-guides/twilio-voice-and-sms-service/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

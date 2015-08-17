@@ -18,9 +18,11 @@
 
 #Azure 通知中心安全推播
 
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal" class="current">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a> <a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Universal](notification-hubs-windows-dotnet-secure-push.md)
+- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+
 
 ##概觀
 
@@ -78,7 +80,7 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 下一個步驟說明如何建立推播背景元件。
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下解決方案的最上層節點 (在此情況下，為 **Solution SecurePush**)，然後按一下 [新增]，再按一下 [新增專案]。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下解決方案的最上層節點 (在此案例中為 **Solution SecurePush**)，然後按一下 [新增]，再按一下 [新增專案]。
 
 2. 展開 [市集應用程式]，然後按一下 [Windows Phone 應用程式]，再按一下 [Windows 執行階段元件 (Windows Phone)]。將專案命名為 **PushBackgroundComponent**，然後按一下 [確定] 以建立專案。
 
@@ -185,4 +187,4 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

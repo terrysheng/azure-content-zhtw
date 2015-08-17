@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
 # 自訂事件和度量的 Application Insights API 
@@ -112,7 +112,7 @@ TelemetryClient 具備執行緒安全。
 
 逐一點選以查看概觀圖表和完整清單。
 
-選取圖表，並且依據事件名稱分割，以查看最重要的事件的相對貢獻。
+選取圖表，並且依據事件名稱分組，以查看最重要的事件的相對貢獻。
 
 ![選取圖表，並設定群組](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
@@ -402,9 +402,7 @@ TelemetryClient 具備執行緒安全。
 
 ## 追蹤相依性
 
-標準的相依性追蹤模組使用此 API 來記錄對外部相依性 (例如資料庫或 REST API) 的呼叫。模組會自動探索一些外部相依性，但是您可能想以相同的方式對待一些其他元件。
-
-例如，如果您使用不是您自己撰寫的組件來建置程式碼，您可以計算對它的所有呼叫，以找出它對您的回應時間的貢獻。若要在 Application Insights 中的相依性圖表中顯示此資料，請使用 `TrackDependency` 傳送。
+您可以使用這個呼叫來追蹤回應時間以及呼叫外部程式碼片段的成功率。結果會出現在入口網站中的相依性圖表中。
 
 ```C#
 
@@ -421,6 +419,8 @@ TelemetryClient 具備執行緒安全。
                 telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
             }
 ```
+
+請記住， 伺服器 SDK 包含[相依性模組](app-insights-dependencies.md)，可用來自動探索和追蹤特定相依性呼叫，例如資料庫和 REST API。您必須在伺服器上安裝代理程式才能讓模組正常運作。如果您想要追蹤不會由自動化追蹤攔截的呼叫，或不想安裝代理程式，您可以使用這個呼叫。
 
 若要關閉標準的相依性追蹤模組，請編輯 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 並刪除 `DependencyCollector.DependencyTrackingTelemetryModule` 的參考。
 
@@ -561,7 +561,7 @@ JavaScript Web 用戶端目前還沒有設定預設屬性的方法。
 
 例如，Web 封裝的 Application Insights 會收集有關 HTTP 要求的遙測。根據預設，它會將所有含 >= 400 回應碼的要求標記為失敗。但如果您想將 400 視為成功，您可以提供設定 Success 屬性的遙測初始設定式。
 
-如果您提供遙測初始設定式，會在呼叫任何的 Track\*() 方法時呼叫它。這包括由標準遙測模組呼叫的方法。依照慣例，這些模組不會設定任何已由初始設定式設定的屬性。
+如果您提供遙測初始設定式，會在呼叫任何的 Track*() 方法時呼叫它。這包括由標準遙測模組呼叫的方法。依照慣例，這些模組不會設定任何已由初始設定式設定的屬性。
 
 **定義您的初始設定式**
 
@@ -715,7 +715,7 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
  * **識別碼**：產生的值，與不同事件相互關聯，如此當您在 [診斷搜尋] 中檢查任何事件時，您可以發現「相關項目」
  * **名稱**：HTTP 要求的 URL
  * **SyntheticSource**：如果不為 null 或空白，這個字串表示要求的來源已被識別為傀儡程式或 Web 測試。根據預設，會從計量瀏覽器的計算中排除。
-* **屬性** 與所有遙測資料一起傳送的屬性。可以在個別 Track\* 呼叫中覆寫。
+* **屬性** 與所有遙測資料一起傳送的屬性。可以在個別 Track* 呼叫中覆寫。
 * **工作階段** 識別使用者的工作階段。識別碼會設為產生的值，當使用者一段時間沒有作用時會變更。
 * **使用者** 可讓使用者納入計算。在 Web 應用程式中，如果有 cookie，則會從中取得使用者識別碼。如果沒有，則會產生一個新的識別碼。如果使用者已登入您的應用程式，您可以從其已驗證的識別碼設定識別碼，以提供更可靠且正確的計數，即使使用者是從其他電腦登入。 
 
@@ -744,7 +744,7 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
 ## 問題
 
-* *Track \* 呼叫會擲回什麼例外狀況？*
+* *Track * 呼叫會擲回什麼例外狀況？*
     
     無。您應該不需要將它們包裝在 catch 子句中。
 
@@ -758,6 +758,8 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
 
 [搜尋事件和記錄檔][diagnostic]
+
+[範例和逐步解說](app-insights-code-samples.md)
 
 [疑難排解][qna]
 
@@ -779,4 +781,4 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

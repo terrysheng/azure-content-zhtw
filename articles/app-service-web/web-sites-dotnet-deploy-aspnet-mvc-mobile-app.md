@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="08/01/2015" 
 	ms.author="cephalin;riande"/>
 
 
 # 在 Azure App Service 中部署 ASP.NET MVC 5 行動 Web 應用程式
 
-本教學課程指導您如何建置行動便利的 ASP.NET MVC 5 Web 應用程式，並將其部署至 Azure App Service 的基本做法。在本教學課程中，您需要 [Visual Studio Express 2013 for Web][Visual Studio Express 2013] 或 Professional Edition 的 Visual Studio (如果您已具備此版本)。
+本教學課程指導您如何建置行動便利的 ASP.NET MVC 5 Web 應用程式，並將其部署至 Azure App Service 的基本做法。在本教學課程中，您需要 [Visual Studio Express 2013 for Web][Visual Studio Express 2013] 或 Professional Edition 的 Visual Studio (如果您已具備此版本)。您可以使用 [Visual Studio 2015]，但螢幕擷取畫面將會不同，且您必須使用 ASP.NET 4.x 範本。
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -560,6 +560,7 @@ Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊�
 
 <!-- External Links -->
 [Visual Studio Express 2013]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
+[Visual Studio 2015]: https://www.visualstudio.com/downloads/download-visual-studio-vs
 [AzureSDKVs2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
 [Fiddler]: http://www.fiddler2.com/fiddler2/
 [EmulatorIE11]: http://msdn.microsoft.com/library/ie/dn255001.aspx
@@ -616,4 +617,4 @@ Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊�
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

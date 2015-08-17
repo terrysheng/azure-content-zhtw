@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="Erikre" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="07/31/2015" 
 	ms.author="erikre"/>
 
 
@@ -111,7 +111,7 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 
 1. 在 [方案總管] 中，尋找並開啟 *Site.Master* 頁面。
 2. 如果頁面處於 [設計] 檢視模式，請切換至 [來源] 檢視。
-3. 您可透過修改或新增標記 (以黃色強調顯示) 來更新主要頁面：
+3. 透過修改或加入標記來更新主版頁面，使頁面標記的顯示方式如下所示：
 
 <pre class="prettyprint">
 &lt;%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ContactManager.SiteMaster" %>
@@ -122,7 +122,7 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 &lt;head runat="server">
     &lt;meta charset="utf-8" />
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    &lt;title>&lt;%: Page.Title %> - <mark>Contact Manager</mark>&lt;/title>
+    &lt;title>&lt;%: Page.Title %> - Contact Manager&lt;/title>
 
     &lt;asp:PlaceHolder runat="server">
         &lt;%: Scripts.Render("~/bundles/modernizr") %>
@@ -162,7 +162,7 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
                         &lt;span class="icon-bar">&lt;/span>
                         &lt;span class="icon-bar">&lt;/span>
                     &lt;/button>
-                    &lt;a class="navbar-brand" runat="server" <mark>id="ContactDemoLink"</mark> href="~/<mark>Contacts/Default.aspx</mark>"><mark>Contact Demo</mark>&lt;/a>
+                    &lt;a class="navbar-brand" runat="server" id="ContactDemoLink" href="~/Contacts/Default.aspx">Contact Demo&lt;/a>
                 &lt;/div>
                 &lt;div class="navbar-collapse collapse">
                     &lt;ul class="nav navbar-nav">
@@ -194,7 +194,7 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
             &lt;/asp:ContentPlaceHolder>
             &lt;hr />
             &lt;footer>
-                &lt;p>&amp;copy; &lt;%: DateTime.Now.Year %> - <mark>Contact Manager</mark>&lt;/p>
+                &lt;p>&amp;copy; &lt;%: DateTime.Now.Year %> - Contact Manager&lt;/p>
             &lt;/footer>
         &lt;/div>
     &lt;/form>
@@ -510,13 +510,13 @@ ASP.NET Web Forms 提供成員資格和驗證的增強功能選項。這些增�
 
 	            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
 	            {
-	                ClientId = "<mark>000000000000.apps.googleusercontent.com</mark>",
-	                ClientSecret = "<mark>00000000000</mark>"
+	                ClientId = "000000000000.apps.googleusercontent.com",
+	                ClientSecret = "00000000000"
 	            });
 	        }
 	    }
 	}
-	</pre>  
+	</pre>
 12. 按 **CTRL+F5** 以建置並執行應用程式。按一下 [登入] 連結。
 13. 在 [**使用其他伺服器登入**] 下，按一下 [**Google**]。  
 	![登入](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21d.png)  
@@ -579,7 +579,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 	<pre class="prettyprint">
     protected override void Seed(ContactManager.Models.ApplicationDbContext context)
     {
-        <mark>AddUserAndRole(context);</mark>
+        AddUserAndRole(context);
 </pre>
 5. 儲存所有變更後，請在 [Package Manager Console] 中執行下列命令：  
 	<pre class="prettyprint">
@@ -597,7 +597,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 	- *Delete.aspx *和* Delete.aspx.cs*
 	- *Edit.aspx *和* Edit.aspx.cs*
 	- *Insert.aspx *和* Insert.aspx.cs*
-3. 更新 *Contacts/Default.aspx* 中的連結參考，方法是在連結 *Insert.aspx*、*Edit.aspx* 和 *Delete.aspx* 的頁面參考前面加上 "Admin/"：  
+3. 更新 *Contacts/Default.aspx* 中的連結參考，方法是在連結 *Insert.aspx*、*Edit.aspx* 和 *Delete.aspx* 的頁面參考前面加上 "Admin/"，如下所示：  
 	<pre class="prettyprint">
 	&lt;%@ Page Title=&quot;ContactsList&quot; Language=&quot;C#&quot; MasterPageFile=&quot;~/Site.Master&quot; CodeBehind=&quot;Default.aspx.cs&quot; Inherits=&quot;ContactManager.Contacts.Default&quot; ViewStateMode=&quot;Disabled&quot; %&gt;
 	&lt;%@ Register TagPrefix=&quot;FriendlyUrls&quot; Namespace=&quot;Microsoft.AspNet.FriendlyUrls&quot; %&gt;
@@ -790,4 +790,4 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

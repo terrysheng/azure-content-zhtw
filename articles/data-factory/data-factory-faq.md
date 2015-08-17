@@ -22,7 +22,11 @@
 
 ### 問：什麼是 Azure Data Factory？
 
-資料處理站是完全受管理的服務，讓開發人員將資料儲存體、搬移和處理服務撰寫到高度可用的容錯資料管線。資料處理站可在內部部署和雲端資料儲存體上作業。管線是資料輸入、處理活動和資料輸出的集合，並以簡單的 JSON 指令碼定義，以及透過 PowerShell 命令啟動。一旦啟動後，資料處理站會使用代表使用者的自動叢集管理選項，來協調及排定管線在 HDInsight (Hadoop) 上的執行。資料處理站也會提供視覺化的管理和透過 Azure 預覽入口網站的監視經驗，利用一個儀表板中具有多項操作和服務的健康資訊，來監視所有的管線。
+Data Factory 是雲端架構資料整合服務，用來協調以及自動移動和轉換資料。就像製造廠運轉設備來取得原物料並將之轉換成成品一樣，Data Factory 會協調現有服務的流程來收集原始資料，並將之轉換成隨時可用的資訊。
+
+Data Factory 會在內部部署、雲端資料來源和 SaaS 之間運作，以便擷取、準備、轉換、分析及發行您的資料。利用 [Azure HDInsight (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) 和 [Azure Batch](http://azure.microsoft.com/documentation/services/batch/) 這類的服務，使用 Data Factory 將服務撰寫到所管理的資料流程管線，以符合計算巨量資料的需求，另外也可以使用 [Azure Machine Learning](http://azure.microsoft.com/documentation/services/machine-learning/) 實施您的分析解決方案。不僅僅是表格式的監視檢視，還使用了豐富的視覺效果呈現 Data Factory，來快速顯示歷程和資料管線之間的相依性。從單一的統一檢視來監視所有的資料流程管線，輕鬆找出問題並設定監視警示。
+
+如需詳細資訊，請參閱〈[概觀與重要概念](data-factory-introduction.md)〉。
  
 ### 問：Data Factory 可解決何種客戶難題？
 
@@ -57,15 +61,12 @@ Azure 資料處理站藉由完全受管理之服務的控制和監視功能，�
 
 ### 問：什麼是 Data Factory 的區域可用性？
 
-在公開預覽版中，資料處理站只可在美國西部使用。資料處理站所使用的計算服務和儲存體服務可以在其他地區使用。
+Data Factory 可在美國西部和北歐地區使用。資料處理站所使用的計算服務和儲存體服務可以在其他地區使用。
  
-### 問：Data Factory/管線/活動/資料集的數目有什麼限制？ 
+### 問：Data Factory/管線/活動/資料集的數目有什麼限制？
+ 
+請參閱〈[Azure 訂用帳戶和服務限制、配額及條件約束](azure-subscription-service-limits.md/#data-factory-limits)〉中的〈**Azure Data Factory 限制**區段〉。
 
-
-- 訂用帳戶中的 Data Factory 數目：50
-- Data Factory 中的管線數目：100
-- 管線中的活動數目：10
-- Data Factory 中的資料集數目：100
 
 ### 問：Azure Data Factory 服務的撰寫/開發人員經驗為何？
 
@@ -73,6 +74,7 @@ Azure 資料處理站藉由完全受管理之服務的控制和監視功能，�
 
 - **Azure Preview 入口網站**。Azure 預覽入口網站中的 Data Factory 刀鋒視窗提供豐富的使用者介面，讓您建立資料處理站和連結的服務。**Data Factory 編輯器**也是入口網站的一部分，讓您透過指定成品的 JSON 定義，輕鬆建立連結服務、資料表、資料集和管線。如需編輯器的概觀，請參閱 [Data Factory 編輯器][data-factory-editor]，如需使用入口網站/編輯器來建立和部署 Data Factory 的範例，請參閱[開始使用 Data Factory][datafactory-getstarted]。   
 - **Azure PowerShell** (英文)。如果您是 PowerShell 使用者，而且想要使用 PowerShell，而不是入口網站 UI，則可以使用 Azure PowerShell 隨附的 Azure Data Factory Cmdlet 來建立和部署資料處理站。請參閱[使用 Azure PowerShell 建立和監視 Azure Data Factory][create-data-factory-using-powershell] 以取得簡單範例；以及[教學課程：使用 Data Factory 移動和處理記錄檔][adf-tutorial]，以取得使用 PowerShell Cmdlet 建立和部署 Data Factory 的進階範例。如需 Data Factory Cmdlet 的完整文件，請參閱 MSDN Library 上的 [Data Factory Cmdlet 參考][adf-powershell-reference]內容。  
+- **Visual Studio**。您也可以使用 Visual Studio，以程式設計方式建立、監視及管理 Data Factory。如需詳細資訊，請參閱〈[使用 Data Factory .NET SDK 來建立、監視及管理 Azure Data Factory](data-factory-create-data-factories-programmatically)〉文章。  
 - **.NET 類別庫**。您可以使用 Data Factory .NET SDK，透過程式設計方式建立資料處理站。如需使用 .NET SDK 建立 Data Factory 的逐步解說，請參閱[使用 .NET SDK 建立、監視和管理 Data Factory][create-factory-using-dotnet-sdk]。如需 Data Factory .NET SDK 的完整文件，請參閱 [Data Factory 類別庫參考][msdn-class-library-reference]。  
 - **REST API**。您也可以使用 Azure Data Factory 服務所公開的 REST API 來建立和部署資料處理站。如需 Data Factory REST API 的完整文件，請參閱 [Data Factory REST API 參考][msdn-rest-api-reference]。 
 
@@ -82,24 +84,7 @@ Azure 資料處理站藉由完全受管理之服務的控制和監視功能，�
 ## 活動 - 常見問題集
 ### 問：支援哪些資料來源和活動？
 
-- **支援的資料來源：** 
-	- Azure 儲存體 (Blob 與資料表)
-	- Azure SQL
-	- Azure DocumentDB
-	- 內部部署 SQL Server
-	- 內部部署 Oracle 
-	- 內部部署檔案系統
-	- 內部部署 MySQL
-	- 內部部署 DB2
-	- 內部部署 Teradata
-	- 內部部署 Sybase
-	- 內部部署 PostgreSQL。  
-- **支援的活動**： 
-	- 複製活動 (內部部署至雲端，以及雲端至內部部署)
-	- HDInsight 活動 (Pig、Hive、MapReduce、Hadoop 資料流處理轉換)
-	- Azure Machine Learning 批次評分活動
-	- Azure SQL 預存程序活動
-	- 自訂 .NET 活動。
+如需支援的資料來源和活動的相關資訊，請參閱〈[資料移動活動](data-factory-data-movement-activities.md)〉和〈[資料轉換活動](data-factory-data-transformation-activities.md)〉文章。
 
 ### 何時執行活動？
 輸出資料表中的**可用性**組態設定決定何時執行活動。活動會在開始執行之前，檢查是否滿足所有輸入資料相依性 (即 [就緒] 狀態)。
@@ -115,14 +100,6 @@ Azure 資料處理站藉由完全受管理之服務的控制和監視功能，�
 -------------------------- | -----------------------
 東亞 | 東南亞
 日本西部 | 日本東部
-
-### 如何複製到多個輸出資料表？
-管線中可以有多個輸出資料表，如下列範例所示：
-
-	"outputs":  [ 
-		{ "name": “outputtable1” }, 
-		{ "name": “outputtable2” }  
-	],
  
 ### 最好是一個管線有多個活動，還是每個活動都有不同的管線？ 
 管線依例應該有配套的相關活動。邏輯上，如果管線外部的任何其他活動都未使用連接活動的資料表，則可以將活動保留在一個管線中。如此一來，您就不需要鏈結管線作用期間，使其彼此一致。此外，更新管線時，也會更適當地保留管線內部資料表中的資料完整性。管線更新基本上會停止、移除並重新建立管線內的所有活動。從撰寫觀點來看，可能也較容易看出管線的某個 JSON 檔案中相關活動內的資料流程。
@@ -215,4 +192,4 @@ Azure 資料處理站藉由完全受管理之服務的控制和監視功能，�
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

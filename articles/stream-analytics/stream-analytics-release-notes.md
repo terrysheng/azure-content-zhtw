@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/30/2015" 
+	ms.date="08/05/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft 串流分析版本資訊
@@ -29,23 +29,23 @@
 </tr>
 <tr>
 <td>與 Azure 識別碼分離的 Power BI 組織識別碼</td>
-<td>此功能可在任何 Azure 帳戶類型 (Live Id 或組織識別碼) 下啟用 ASA 工作的 Power BI 輸出。此外，您可以擁有 Azure 帳戶的組織識別碼，並使用另一個識別碼用於授權 Power BI 輸出。</td>
+<td>此功能可在任何 Azure 帳戶類型 (Live Id 或組織識別碼) 下啟用 ASA 工作的 <a href="https://azure.microsoft.com/documentation/articles/stream-analytics-power-bi-dashboard/">Power BI 輸出</a>。此外，您可以擁有 Azure 帳戶的組織識別碼，並使用另一個識別碼用於授權 Power BI 輸出。</td>
 </tr>
 <tr>
 <td>服務匯流排佇列輸出的支援</td>
-<td>服務匯流排佇列輸出現在可用於資料流分析工作。</td>
+<td><a href="https://azure.microsoft.com/documentation/articles/stream-analytics-connect-data-event-outputs/#service-bus-queues">服務匯流排佇列</a>輸出現在可用於串流分析工作。</td>
 </tr>
 <tr>
 <td>服務匯流排主題輸出的支援</td>
-<td>服務匯流排主題輸出現在可用於資料流分析工作。</td>
+<td><a href="https://azure.microsoft.com/documentation/articles/stream-analytics-connect-data-event-outputs/#service-bus-topics">服務匯流排主題</a>輸出現在可用於串流分析工作。</td>
 </tr>
 <tr>
 <td>新的陣列函數</td>
-<td>新增的陣列函數 GetArrayElement、GetArrayElements、GetArrayLength</td>
+<td>新增的陣列函數 <a href="https://msdn.microsoft.com/library/azure/mt270218.aspx">GetArrayElement</a>、<a href="https://msdn.microsoft.com/library/azure/mt298451.aspx">GetArrayElements</a>、<a href="https://msdn.microsoft.com/library/azure/mt270226.aspx">GetArrayLength</a></td>
 </tr>
 <tr>
 <td>新的記錄函數</td>
-<td>新增的記錄函數 GetRecordProperties 和 GetRecordPropertyValue</td>
+<td>新增的記錄函數 <a href="https://msdn.microsoft.com/library/azure/mt270221.aspx">GetRecordProperties</a> 和 <a href="https://msdn.microsoft.com/library/azure/mt270220.aspx">GetRecordPropertyValue</a></td>
 </tr>
 </table>
 
@@ -152,4 +152,4 @@
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

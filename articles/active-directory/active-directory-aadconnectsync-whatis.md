@@ -48,4 +48,4 @@ Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

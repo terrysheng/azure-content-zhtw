@@ -129,7 +129,7 @@
 
 1. 在 **DataIndexer** 中，將 App.config 替換為以下範例，然後以適用您服務的有效值更新 [SERVICE NAME] 和 [SERVICE KEY]。
 
-   服務名稱不是完整的 URL。例如，如果搜尋服務端點為 *https://mysearchsrv.search.microsoft.net*，則您要於 App.config 中輸入的服務名稱為 *mysearchsrv*。
+   服務名稱不是完整的 URL。例如，如果搜尋服務端點為 **https://mysearchsrv.search.microsoft.net*，則您要於 App.config 中輸入的服務名稱為 *mysearchsrv*。
 
 	    <?xml version="1.0" encoding="utf-8"?>
 	    <configuration>
@@ -798,4 +798,4 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

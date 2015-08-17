@@ -38,7 +38,7 @@ StorSimple 裝置可以在標準、維護和復原模式下運作。以下簡短
 
 ### 維護模式
 
-有時候 StorSimple 裝置可能需要進入維護模式。此模式可讓您在裝置上執行維護和安裝干擾性的更新，例如磁碟韌體和 USM 韌體的相關更新 (可能同時為定期和干擾)。
+有時候 StorSimple 裝置可能需要進入維護模式。此模式可讓您在裝置上執行維護和安裝干擾性的更新，例如磁碟韌體的相關更新。
 
 您只能透過 Windows PowerShell for StorSimple 讓系統進入維護模式。在此模式中，所有的 I/O 要求都會暫停。靜態隨機存取記憶體 (NVRAM) 之類的服務或叢集服務也會停止。當您進入或結束此模式時，兩個控制器都會重新啟動。當您結束維護模式時，所有的服務都將繼續執行，而且應該是健康情況良好。這可能需要幾分鐘的時間。
 
@@ -50,7 +50,7 @@ StorSimple 裝置可以在標準、維護和復原模式下運作。以下簡短
 
 如果您的系統進入復原模式，您應該連絡 Microsoft 支援服務來請示後續步驟。如需詳細資訊，請移至[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
->[AZURE.NOTE]**您無法將裝置設為復原模式如果裝置處於錯誤狀態，復原模式會嘗試讓裝置進入可讓 Microsoft 支援服務人員檢查的狀態。**
+>[AZURE.NOTE]**您無法將裝置設為復原模式。如果裝置處於錯誤狀態，復原模式會嘗試讓裝置進入可讓 Microsoft 支援服務人員檢查的狀態。**
 
 ## 辨別 StorSimple 裝置模式
 
@@ -63,7 +63,7 @@ StorSimple 裝置可以在標準、維護和復原模式下運作。以下簡短
 
 您可以讓 StorSimple 裝置進入維護模式 (從標準模式)，以執行維護或安裝維護模式更新。執行下列程序進入或結束維護模式。
 
-> [AZURE.IMPORTANT]進入維護模式之前，請存取管理入口網站中 [維護] 頁面上的 [硬體狀態]，以確認兩個裝置控制器的健康情況良好。如果控制站的健康情況不好，請連絡 Microsoft 支援服務以進行後續步驟。如需詳細資訊，請移至[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
+> [AZURE.IMPORTANT]進入維護模式之前，請存取管理入口網站中**維護**頁面上的**硬體狀態**，以確認兩個裝置控制器的健康情況良好。如果控制站的健康情況不好，請連絡 Microsoft 支援服務以進行後續步驟。如需詳細資訊，請移至[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
 #### 進入維護模式
 
@@ -97,4 +97,4 @@ StorSimple 裝置可以在標準、維護和復原模式下運作。以下簡短
 
 了解如何在 StorSimple 裝置上[套用標準和維護模式更新](storsimple-update-device.md)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

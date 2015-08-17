@@ -18,10 +18,6 @@
 
 # 開始使用行動分析 (Capptain)
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/documentation/articles/mobile-services-ios-get-started-mobile-analytics" title="iOS" class="current">iOS</a>
-</div>
-
 在本教學課程中，您會將行動分析功能新增至使用 [Capptain] 的應用程式。行動分析可讓您判斷使用者如何與您的應用程式互動，以及哪些部分會引發大部分的活動。若要開始使用這些資料，您必須使用 Capptain SDK 設定您的應用程式。
 
 
@@ -102,4 +98,4 @@
 [行動服務標準層]: /pricing/details/mobile-services/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

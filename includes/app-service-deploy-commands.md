@@ -6,4 +6,4 @@
 
 下列範例假設您的帳戶中已經有所指定名稱的資源群組。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

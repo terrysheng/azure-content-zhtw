@@ -173,4 +173,4 @@ HDInsight 叢集會被指派特定的虛擬網路介面完整網域名稱 (FQDN)
 
 若要深入了解 Azure 虛擬網路，請參閱 [Azure 虛擬網路概觀](http://msdn.microsoft.com/library/azure/jj156007.aspx)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

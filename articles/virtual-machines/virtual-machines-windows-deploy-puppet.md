@@ -45,4 +45,4 @@ Puppet 是一個主從式架構系統。Puppet Master 和 Puppet Enterprise 代�
 [如何登入執行 Linux 的虛擬機器]: virtual-machines-linux-how-to-log-on.md
 [Azure VM extensions and features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

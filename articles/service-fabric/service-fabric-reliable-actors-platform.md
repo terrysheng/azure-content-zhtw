@@ -1,6 +1,6 @@
 <properties
-   pageTitle="網狀架構動作項目如何使用 Service Fabric 平台"
-   description="此文章說明網狀架構動作項目如何使用 Service Fabric 平台的功能。從行動項目開發人員的觀點，涵蓋 Service Fabric 平台的概念。"
+   pageTitle="Reliable Acto 如何使用 Service Fabric 平台"
+   description="此文章說明 Reliable Actor 目如何使用 Service Fabric 平台的功能。從行動項目開發人員的觀點，涵蓋 Service Fabric 平台的概念。"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="abhisram"/>
 
-# 網狀架構動作項目如何使用 Service Fabric 平台
+# Reliable Acto 如何使用 Service Fabric 平台
 
 ## 動作項目的 Service Fabric 應用程式模型概念
 動作項目會使用 Service Fabric 應用程式模型管理應用程式的生命週期。每個動作項目類型皆對應至一個 Service Fabric [服務類型](service-fabric-application-model.md#describe-a-service)。動作項目程式碼是 [封裝](service-fabric-application-model.md#package-an-application)為Service Fabric 應用程式和 [部署](service-fabric-deploy-remove-applications.md#deploy-an-application)至叢集。
@@ -242,4 +242,4 @@ public class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

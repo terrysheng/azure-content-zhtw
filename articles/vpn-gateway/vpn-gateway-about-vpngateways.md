@@ -79,4 +79,4 @@ VPN 閘道的 SKU 有 3 種類型；基本、標準以及高效能。下方資�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

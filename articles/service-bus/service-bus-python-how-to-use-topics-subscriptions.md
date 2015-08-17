@@ -41,7 +41,7 @@
 
 	bus_service.create_topic('mytopic')
 
-**create_topic** 也支援其他選項，而可讓您覆寫訊息存留時間或主題大小上限等預設主題設定。下列範例會將主題大小上限設為 5 GB，並將存留時間設為 1 分鐘：
+**create\_topic** 也支援其他選項，而可讓您覆寫訊息存留時間或主題大小上限等預設主題設定。下列範例會將主題大小上限設為 5 GB，並將存留時間設為 1 分鐘：
 
 	topic_options = Topic()
 	topic_options.max_size_in_megabytes = '5120'
@@ -67,9 +67,9 @@
 
 訂用帳戶所支援的最具彈性篩選器類型是實作 SQL92 子集的 **SqlFilter**。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用的運算式詳細資料，請參閱 [SqlFilter.SqlExpression][] 語法。
 
-您可以使用 **ServiceBusService** 物件的 **create_rule** 方法將篩選器新增至訂閱。此方法可讓您將篩選器新增至現有的訂閱中。
+您可以使用 **ServiceBusService** 物件的 **create\_rule** 方法將篩選器新增至訂閱。此方法可讓您將篩選器新增至現有的訂閱中。
 
-**注意**：由於預設篩選器會自動套用至所有新訂用帳戶，因此您必須先移除預設篩選器，否則 **MatchAll** 會覆寫您指定的其他任何篩選器。您可以使用 **ServiceBusService** 物件的 **delete_rule** 方法移除預設規則。
+**注意**：由於預設篩選器會自動套用至所有新訂用帳戶，因此您必須先移除預設篩選器，否則 **MatchAll** 會覆寫您指定的其他任何篩選器。您可以使用 **ServiceBusService** 物件的 **delete\_rule** 方法移除預設規則。
 
 以下範例將建立名為 `HighMessages` 並帶有只選取自訂 **messagenumber** 屬性大於 3 的訊息之 **SqlFilter** 的訂用帳戶：
 
@@ -97,7 +97,7 @@
 
 ## 如何傳送訊息至主題
 
-若要傳送訊息至服務匯流排主題，應用程式必須使用 **ServiceBusService** 物件的 **send_topic_message** 方法。
+若要傳送訊息至服務匯流排主題，應用程式必須使用 **ServiceBusService** 物件的 **send\_topic\_message** 方法。
 
 下列範例說明如何將五個測試訊息傳送至 `mytopic`。請注意，迴圈反覆運算上每個訊息的 **messagenumber** 屬性值會有變化 (這可判斷接收訊息的訂用帳戶為何)：
 
@@ -109,17 +109,17 @@
 
 ## 如何自訂閱接收訊息
 
-您可以使用 **ServiceBusService** 物件的 **receive_subscription_message** 方法接收來自訂閱的訊息：
+您可以使用 **ServiceBusService** 物件的 **receive\_subscription\_message** 方法接收來自訂閱的訊息：
 
 	msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 	print(msg.body)
 
-將 **peek_lock** 參數設為 **False** 時，則當您讀取訊息後，訊息便會從訂用帳戶中刪除。您可以將參數 **peek_lock** 設為 **True**，來讀取 (查看) 並鎖定訊息，避免系統從佇列刪除訊息。
+將 **peek\\\_lock** 參數設為 **False** 時，則當您讀取訊息後，訊息便會從訂用帳戶中刪除。您可以將參數 **peek\\\_lock** 設為 **True**，來讀取 (查看) 並鎖定訊息，避免系統從佇列刪除訊息。
 
 隨著接收作業讀取及刪除訊息之行為是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
 
 
-如果您將 **peek_Lock** 參數設為 **True**，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。在應用程式完成訊息處理 (或可靠地儲存此訊息以供未來處理) 之後，它會在 **Message** 物件上呼叫 **Delete** 方法，以完成接收程序的第二個階段。**delete** 方法會將訊息標示為已取用，並將其從訂用帳戶中移除。
+如果您將 **peek\_Lock** 參數設為 **True**，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。在應用程式完成訊息處理 (或可靠地儲存此訊息以供未來處理) 之後，它會在 **Message** 物件上呼叫 **Delete** 方法，以完成接收程序的第二個階段。**delete** 方法會將訊息標示為已取用，並將其從訂用帳戶中移除。
 
 	msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
 	print(msg.body)
@@ -158,4 +158,4 @@
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

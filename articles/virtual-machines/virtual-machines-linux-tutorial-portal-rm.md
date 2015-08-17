@@ -126,4 +126,4 @@
 
 - [Azure 上 Linux 的 Docker 虛擬機器擴充程式](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

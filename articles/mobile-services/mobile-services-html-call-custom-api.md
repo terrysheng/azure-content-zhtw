@@ -92,4 +92,4 @@
 [新增行動服務至現有應用程式]: mobile-services-html-get-started-data.md
 [在來源控制中儲存伺服器指令碼]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -69,11 +69,11 @@
 
     ![][3]
 
-4. 將 SP_Authority 設為 AAD 租用戶的授權端點。此項目應與您的用戶端應用程式所使用的授權值相同。其格式會是 https://login.windows.net/contoso.onmicrosoft.com
+4. 將 SP\_Authority 設為 AAD 租用戶的授權端點。此項目應與您的用戶端應用程式所使用的授權值相同。其格式會是 https://login.windows.net/contoso.onmicrosoft.com
 
-5. 將 SP_ClientSecret 設為您先前取得的用戶端密碼值。
+5. 將 SP\_ClientSecret 設為您先前取得的用戶端密碼值。
 
-6. 將 SP_SharePointURL 設為 SharePoint 網站的 URL。其格式應為 https://contoso-my.sharepoint.com
+6. 將 SP\_SharePointURL 設為 SharePoint 網站的 URL。其格式應為 https://contoso-my.sharepoint.com
 
 您將可使用 ApiServices.Settings 在我們的程式碼中再次取得這些值。
 
@@ -219,4 +219,4 @@
 [使用 Active Directory Authentication Library 單一登入驗證您的應用程式]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

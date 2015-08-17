@@ -12,8 +12,8 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.topic="get-started-article" 
+	ms.date="07/30/2015" 
 	ms.author="glenga"/>
 
   
@@ -107,15 +107,9 @@
 
 	現在，服務將會使用新的 SQL Server 資料庫連線。
  
-##在本機測試資料庫連線
-
-在發佈至 Azure 並使用混合式連線之前，最好先確定資料庫連線能夠在本機執行時正常運作。如此一來，您就能更輕鬆地診斷並更正任何連線問題，然後再重新發佈並開始使用混合式連線。
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-api-documentation](../../includes/app-service-mobile-dotnet-backend-test-local-service-api-documentation.md)]
-
 ## 更新 Azure 以使用內部部署連接字串
 
-您已驗證過資料庫連線，接下來您必須為這個新的連接字串新增應用程式設定，以便能夠從 Azure 使用。
+接下來，您必須為這個新的連接字串新增應用程式設定，以便能夠從 Azure 使用。
 
 1. 回到 [Azure 入口網站]，在行動應用程式的 Web 應用程式後端程式碼中，按一下 [**所有設定**] > [**應用程式設定**]。 
 
@@ -168,4 +162,4 @@
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

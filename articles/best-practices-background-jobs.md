@@ -97,8 +97,8 @@
 
 設定 WebJob 時：
 
-- 如果您想要工作回應事件驅動觸發程序，應該設定為 [**連續執行**]。指令碼或程式會儲存在名為 site/wwwroot/app_data/jobs/continuous 的資料夾中。
-- 如果您想要工作回應排程驅動觸發程序，應該設定為 [**依排程執行**]。指令碼或程式會儲存在名為 site/wwwroot/app_data/jobs/triggered 的資料夾中。
+- 如果您想要工作回應事件驅動觸發程序，應該設定為 [**連續執行**]。指令碼或程式會儲存在名為 site/wwwroot/app\_data/jobs/continuous 的資料夾中。
+- 如果您想要工作回應排程驅動觸發程序，應該設定為 [**依排程執行**]。指令碼或程式會儲存在名為 site/wwwroot/app\_data/jobs/triggered 的資料夾中。
 - 如果在設定工作時選擇 [**視需要執行**] 選項，它會執行您在啟動它時，與 [**依排程執行**] 選項相同的程式碼。
 
 Azure WebJobs 在網站沙箱中執行，這表示它們可以存取環境變數，並且與網站共用資訊，例如連接字串。工作可存取執行工作之電腦的唯一識別碼。名為 **AzureJobsStorage** 的連接字串可存取應用程式資料的 Azure 儲存體佇列、Blob 和資料表，及用於傳訊和通訊的服務匯流排。名為 **AzureJobsDashboard** 的連接字串可讓您存取工作動作記錄檔。
@@ -108,18 +108,18 @@ Azure WebJobs 具有下列特性：
 - **安全性**：WebJobs 受網站的部署認證保護。
 - **支援的檔案類型**：WebJobs 可以使用命令指令碼 (.cmd)、批次檔 (.bat)、PowerShell 指令碼 (.ps1)、bash 殼層指令碼 (.sh)、PHP 指令碼 (.php)、Python 指令碼 (.py)、JavaScript 程式碼 (.js) 和可執行程式 (.exe、.jar 等等) 定義。
 - **部署**：指令碼和可執行檔可以使用 Azure 入口網站部署，並可使用 Visual Studio 的 [WebJobsVs](https://visualstudiogallery.msdn.microsoft.com/f4824551-2660-4afa-aba1-1fcc1673c3d0) 增益集或 [Visual Studio 2013 Update 4](http://www.visualstudio.com/news/vs2013-update4-rc-vs)、使用 [Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)，或將它們直接複製到下列位置，藉此建立和部署：
-  - 針對觸發執行：site/wwwroot/app_data/jobs/triggered/{job name}
-  - 針對連續執行：site/wwwroot/app_data/jobs/continuous/{job name}
+  - 針對觸發執行：site/wwwroot/app\_data/jobs/triggered/{job name}
+  - 針對連續執行：site/wwwroot/app\_data/jobs/continuous/{job name}
 - **記錄**：Console.Out 會被視為 (標示為) INFO，Console.Error 則視為 (標示為) ERROR。可使用 Azure 入口網站存取監視和診斷資訊，並可從網站直接下載記錄檔。這些資訊會儲存在下列位置：
   - 針對觸發執行：Vfs/data/jobs/continuous/jobName
   - 針對連續執行：Vfs/data/jobs/triggered/jobName
 - **組態**：WebJobs 可以使用入口網站、REST API 和 PowerShell 進行設定。與工作指令碼位於相同根目錄的組態檔 (名為 settings.job) 可用來提供工作的組態資訊。例如：
-  - { "stopping_wait_time": 60 }
-  - { "is_singleton": true }
+  - { "stopping\_wait\_time": 60 }
+  - { "is\_singleton": true }
 
 ### 注意事項
 
-- 根據預設，WebJobs 會隨此網站調整。不過，可以將 **is_singleton** 組態屬性設為 true，設定在單一執行個體上執行工作。單一執行個體 WebJobs 可用於您不想要調整的工作，或做為多個執行執行個體同時執行的工作，例如重新建立索引、資料分析和類似的工作。
+- 根據預設，WebJobs 會隨此網站調整。不過，可以將 **is\_singleton** 組態屬性設為 true，設定在單一執行個體上執行工作。單一執行個體 WebJobs 可用於您不想要調整的工作，或做為多個執行執行個體同時執行的工作，例如重新建立索引、資料分析和類似的工作。
 - 若要將網站效能對工作的影響降到最低，請考慮在新的 App Service 計劃中建立空的 Azure 網站，以裝載可能長時間執行或耗用大量資源的 WebJobs。
 
 ### 詳細資訊
@@ -236,9 +236,9 @@ Web 和背景工作角色在啟動、執行和停止時會經歷一組不同的�
 
 - Azure 會載入角色組件，並搜尋它來找出衍生自 **RoleEntryPoint** 的類別。
 - 如果找到此類別，它會呼叫 **RoleEntryPoint.OnStart()**。您覆寫此方法以初始化背景工作。
-- 完成 **OnStart** 方法後，Azure 會在應用程式的全域檔案 (若存在) 中呼叫 **Application_start ()** (例如，在執行 ASP.NET 的 Web 角色中的 Global.asax)。
+- 完成 **OnStart** 方法後，Azure 會在應用程式的全域檔案 (若存在) 中呼叫 **Application\_start ()** (例如，在執行 ASP.NET 的 Web 角色中的 Global.asax)。
 - Azure 在與 **OnStart()** 平行執行的新前景執行緒上呼叫 **RoleEntryPoint.Run()**。您覆寫此方法以啟動背景工作。
-- Run 方法結束時，Azure 會先在應用程式的全域檔案 (若存在) 中呼叫 **Application_End()**，然後呼叫 **RoleEntryPoint.OnStop()**。您覆寫 **OnStop** 方法停止您的背景工作、清除資源、處置物件，並關閉工作可能已經使用的連接。
+- Run 方法結束時，Azure 會先在應用程式的全域檔案 (若存在) 中呼叫 **Application\_End()**，然後呼叫 **RoleEntryPoint.OnStop()**。您覆寫 **OnStop** 方法停止您的背景工作、清除資源、處置物件，並關閉工作可能已經使用的連接。
 - Azure 背景工作角色主機程序已停止。此時，角色會被回收並將重新啟動。
 
 如需 **RoleEntryPoint** 類別的使用方法詳細資訊和範例，請參閱[計算資源彙總模式](http://msdn.microsoft.com/library/dn589778.aspx) (英文)。
@@ -290,7 +290,7 @@ Web 和背景工作角色在啟動、執行和停止時會經歷一組不同的�
 - 當背景工作具有雲端服務應用程式的其他部分的不同效能時 (例如，UI 或元件，如資料存取層)，可將不同背景工作角色的背景工作裝載在一起，讓 UI 和背景工作角色進行調整而不理會負載管理。如果多個背景工作彼此有明顯不同的效能，請考慮將它們分成不同的背景工作角色並單獨調整每個角色類型，但請注意，這可能會增加執行階段成本 (相較於將所有工作結合成較少的角色)。
 - 只是調整角色可能不足以防止在低負載下損失效能。您也可能需要調整儲存體佇列和其他資源，避免整體處理鏈的單點成為瓶頸。另外，請考慮其他限制，例如儲存體的最大輸送量，和應用程式的其他服務和背景工作依賴的服務。
 - 您必須針對調整設計背景工作。比方說，他們必須能夠以動態方式偵測正在使用的儲存體佇列數目，以接聽或傳送訊息給適當的佇列。
-- 根據預設，WebJobs 會使用其相關聯的 Azure 網站執行個體進行調整。不過，如果您只想要將 WebJob 做為單一執行個體執行，您可以建立包含 JSON 資料的 Settings.job 檔案 **{ "is_singleton": true }**。這會強制 Azure 只能執行 WebJob 的一個執行個體，即使相關聯的網站有多個執行個體亦然，它對必須以單一執行個體執行的排定工作而言，可能是很有用的技巧。
+- 根據預設，WebJobs 會使用其相關聯的 Azure 網站執行個體進行調整。不過，如果您只想要將 WebJob 做為單一執行個體執行，您可以建立包含 JSON 資料的 Settings.job 檔案 **{ "is\_singleton": true }**。這會強制 Azure 只能執行 WebJob 的一個執行個體，即使相關聯的網站有多個執行個體亦然，它對必須以單一執行個體執行的排定工作而言，可能是很有用的技巧。
 
 ## 相關的模式
 
@@ -317,4 +317,4 @@ Web 和背景工作角色在啟動、執行和停止時會經歷一組不同的�
 - [Azure 佇列和服務匯流排佇列 - 異同比較](http://msdn.microsoft.com/library/hh767287.aspx) (英文)
 - [如何在雲端服務中啟用診斷](http://msdn.microsoft.com/library/dn482131.aspx) (英文)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

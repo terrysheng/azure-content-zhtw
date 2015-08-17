@@ -56,9 +56,8 @@ SQL 連接器提供下列觸發程序和動作：
 服務匯流排連接字串 | 否 | 如果您要連線至內部部署，請輸入服務匯流排轉送連接字串。<br/><br/>[使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)<br/>[服務匯流排定價](http://azure.microsoft.com/pricing/details/service-bus/)
 夥伴伺服器名稱 | 否 | 如果主要伺服器無法使用，您可以輸入夥伴伺服器做為替代或備份伺服器。
 資料表 | 否 | 列出可由連接器更新的資料庫資料表。例如，輸入 *OrdersTable* 或 *EmployeeTable*。如果不輸入任何資料表，則可以使用所有資料表。需要有效的資料表和/或預存程序，才能使用此連接器做為動作。
-預存程序 | 否 | 輸入可供連接器呼叫的現有預存程序。例如，輸入 *sp\_IsEmployeeEligible* 或 *sp_CalculateOrderDiscount*。需要有效的資料表和/或預存程序，才能使用此連接器做為動作。
-資料可用查詢 | 觸發程序支援 | 判斷是否有任何資料可供輪詢 SQL Server 資料庫資料表的 SQL 陳述式。這應該會傳回數值，代表可用的資料的資料列數目。範例：SELECT COUNT(\*) from table_name。
-輪詢資料查詢 | 觸發程序支援 | 輪詢 SQL Server 資料庫資料表的 SQL 陳述式。您可以輸入任意數目的 SQL 陳述式，以分號隔開。此陳述式以交易式方式執行，而且只有在資料安全地儲存在邏輯應用程式中時才會認可。範例：SELECT \* FROM table_name; DELETE FROM table_name。<br/><br/>\*\*注意\*\*<br/>您必須提供輪詢陳述式，避免因為刪除、移動或更新選取的資料而造成無限迴圈，以確保不會重複輪詢相同的資料。
+預存程序 | 否 | 輸入可供連接器呼叫的現有預存程序。例如，輸入 *sp\_IsEmployeeEligible* 或 *sp\_CalculateOrderDiscount*。需要有效的資料表和/或預存程序，才能使用此連接器做為動作。
+資料可用查詢 | 觸發程序支援 | 判斷是否有任何資料可供輪詢 SQL Server 資料庫資料表的 SQL 陳述式。這應該會傳回數值，代表可用的資料的資料列數目。範例：SELECT COUNT(*) from table\_name。輪詢資料查詢 | 觸發程序支援 | SQL Server 資料庫資料表的 SQL 陳述式。您可以輸入任意數目的 SQL 陳述式，以分號隔開。此陳述式以交易式方式執行，而且只有在資料安全地儲存在邏輯應用程式中時才會認可。範例：SELECT * FROM table\_name; DELETE FROM table\_name。<br/><br/>**注意**<br/>您必須提供輪詢陳述式，避免因為刪除、移動或更新選取的資料而造成無限迴圈，以確保不會重複輪詢相同的資料。
 
 5. 完成時，[封裝設定] 看起來如下：<br/> ![][1]
 
@@ -110,7 +109,7 @@ SQL 連接器提供下列觸發程序和動作：
 
 SQL 查詢 | 支援 | 不支援
 --- | --- | ---
-Where 子句 | <ul><li>運算子：AND、OR、=、<>、<、<=、>、>= 和 LIKE</li><li>使用 ‘(‘ 和 ‘)’ 可以合併多個子條件</li><li>字串常值、日期時間 (用單引號括住)、數字 (應該只包含數值字元)</li> <li>應該嚴格使用二進位運算式格式，例如 ((operand operator operand) AND/OR (operand operator operand))\*</li></ul> | <ul><li>運算子：Between、IN</li><li>所有內建函數，例如 ADD()、MAX() NOW()、POWER() 等</li><li>數學運算子，例如 *、-、+ 等</li><li>使用 + 的字串串連。</li><li>所有聯結</li> <li>IS NULL 和 IS NOT Null</li> <li>任何含非數值字元的數字，例如十六進位數字</li></ul> 欄位 (在 Select 查詢中) | <ul><li>以逗號分隔的有效資料行名稱。不允許任何資料表名稱前置詞 (連接器一次處理一個資料表)。</li><li>可以使用 ‘[‘ 和 ‘]’ 逸出名稱</li></ul> | <ul><li>關鍵字，例如 TOP、DISTINCT 等</li><li>別名，例如 Street + City + Zip AS Address</li> <li>所有內建函式，例如 ADD()、MAX() NOW()、POWER() 等</li><li>數學運算子，例如 *、-、+ 等</li><li>使用 + 的字串串連。</li></ul>
+Where 子句 | <ul><li>運算子：AND、OR、=、<>、<、<=、>、>= 以及 LIKE</li><li>‘(‘ 和 ‘)’可以結合多個子條件</li><li>字串常值、日期時間 (以單引號括住)、數字 (應該只包含數字字元)</li><li>嚴格應該二進位運算式格式，例如 ((運算元運算子運算元) AND/OR (運算元運算子運算元))**</li></ul> | <ul><li>運算子：Between、IN</li><li>所有內建的功能，例如 ADD()、MAX() NOW()、POWER() 等</li><li>數學運算子，例如 *、-、+ 等</li><li>使用 + 的字串串連。</li><li>所有聯結</li><li>IS NULL 和 IS NOT Null</li><li>包含非數字字元的任何數字，例如十六進位數字</li></ul> 功能變數 (在 SELECT 查詢中) | <ul><li>以逗號分隔的有效資料行名稱。不允許任何資料表名稱前置詞 (連接器一次處理一個資料表)。</li><li>可以使用 ‘[‘ 和 ‘]’ 逸出名稱</li></ul> | <ul><li>關鍵字，例如 TOP、DISTINCT 等</li><li>別名，例如 Street + City + Zip AS Address</li><li>所有內建函式，例如 ADD()、MAX() NOW()、POWER() 等</li><li>數學運算子，例如 *、-、+ 等</li><li>使用 + 的字串串連</li></ul>
 
 #### 秘訣
 
@@ -130,9 +129,9 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
-使用 REST API 建立 API 應用程式。請參閱[連接器和 API 應用程式參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)。
+使用 REST API 建立 API 應用程式。請參閱〈[連接器和 API 應用程式參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)〉。
 
-您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)。
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱〈[管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)〉。
 
 
 <!--Image references-->
@@ -146,4 +145,4 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

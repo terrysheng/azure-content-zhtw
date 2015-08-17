@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/16/2015" 
 	ms.author="awills"/>
 
@@ -196,7 +196,7 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 
 ## 升級到新版的 SDK
 
-當[新的 SDK 版本發行時](app-insights-release-notes-windows.md)：\* 在您的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。\* 選取已安裝的 Application Insights 封裝，然後選擇 [動作：升級]。
+當[新的 SDK 版本發行時](app-insights-release-notes-windows.md)：* 在您的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。* 選取已安裝的 Application Insights 封裝，然後選擇 [動作：升級]。
 
 
 ## <a name="usage"></a>後續步驟
@@ -229,4 +229,4 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

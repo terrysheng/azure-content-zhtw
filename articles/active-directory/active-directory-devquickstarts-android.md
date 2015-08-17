@@ -100,7 +100,7 @@
   * 安裝模擬器與 SDK 19
   * 移至您已複製儲存機制的根資料夾
   * 執行命令：mvn clean install
-  * 將目錄切換至快速入門範例：cd samples\hello
+  * 將目錄切換至快速入門範例：cd samples\\hello
   * 執行命令：mvn android:deploy android:run
   * 您應該會看到應用程式正在啟動
   * 輸入測試使用者認證來測試一下！
@@ -136,7 +136,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath.m2\repository"
+        url "YourLocalMavenRepoPath\\.m2\\repository"
     }
 }
 dependencies {
@@ -454,4 +454,4 @@ Adal 1.1.0 版支援 NTLM 對話方塊，此對話方塊是透過 WebViewClient 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

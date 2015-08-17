@@ -61,4 +61,4 @@
 
 [設定 Azure 的 Oracle GoldenGate](virtual-machines-configuring-oracle-goldengate.md) 帶您逐步完成資料庫與複寫設定。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

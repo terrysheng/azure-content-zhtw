@@ -27,6 +27,6 @@
 
 [有關虛擬機器的磁碟和 VHD](virtual-machines-disks-vhds.md)
 
-[如何將資料磁碟連接至 Windows 虛擬機器](storage-windows-attach-disk.md)
+[如何將資料磁碟附加至 Windows 虛擬機器](storage-windows-attach-disk.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

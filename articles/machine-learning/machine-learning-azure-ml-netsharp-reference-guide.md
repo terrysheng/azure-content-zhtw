@@ -216,7 +216,7 @@ For example, the following network definition allows the size of all layers to b
 -	[http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 	
 ##回應正規化套組
-**回應正規化**是一種本端正規化配置，最早是由 Geoffrey Hinton 等人發表於名為《ImageNet Classiﬁcation with Deep Convolutional Neural Networks》(請參閱 3.3 小節) 的報告中。回應正規化可用來輔助類神經網路中的一般化。當一個神經元在非常高的啟動層級上引發時，本端回應正規化層將會抑制周遭神經元的啟動層級。此動作會使用三個參數 (***α***、***β***、和***k***) 與迴旋結構 (或鄰區分布型態) 來完成。目的地層中的每個神經元 ***y***，會分別對應至來源層中的一個神經元 ***x***。***y*** 的啟用層級來自於下列公式，其中，***f*** 是神經元的啟用層級，***Nx*** 是核心 (或是包含 ***x*** 的鄰區中各神經元的集合)，如下列迴旋結構所定義：
+**回應正規化**是一種本端正規化配置，最早是由 Geoffrey Hinton 等人發表於名為《ImageNet Classiﬁcation with Deep Convolutional Neural Networks》(請參閱 3.3 小節) 的報告中。回應正規化可用來輔助類神經網路中的一般化。當一個神經元在非常高的啟動層級上引發時，本端回應正規化層將會抑制周遭神經元的啟動層級。此動作會使用三個參數 (***α***、***β*** 和 ***k***) 與迴旋結構 (或鄰區分布型態) 來完成。目的地層中的每個神經元 ***y***，會分別對應至來源層中的一個神經元 ***x***。***y*** 的啟用層級來自於下列公式，其中，***f*** 是神經元的啟用層級，***Nx*** 是核心 (或是包含 ***x*** 的鄰區中各神經元的集合)，如下列迴旋結構所定義：
 
 ![][1]
 
@@ -401,4 +401,4 @@ Net# 可選擇性地支援以共用加權定義多個套組的作業。任何兩
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

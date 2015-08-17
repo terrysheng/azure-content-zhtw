@@ -251,7 +251,7 @@ enableJumpbox | 來自條件約束清單的字串 (enabled/disabled) | 識別是
       }
     }
 
-*tshirtSize* 變數出現在變數區段的更下方。您提供的 T 恤大小 (*Small*、*Medium*、*Large*) 結尾會與文字 *tshirtSize* 串連，來為該 T 恤大小擷取關聯的複雜物件變數：
+*tshirtSize* 變數出現在變數區段的更下方。您提供的 T 恤大小 (*Small*、*Medium* 和 *Large*) 結尾會與文字 *tshirtSize* 串連，來為該 T 恤大小擷取關聯的複雜物件變數：
 
     "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
 
@@ -381,4 +381,4 @@ enableJumpbox | 來自條件約束清單的字串 (enabled/disabled) | 識別是
 - [編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
 - [Azure 資源管理員範本函數](resource-group-template-functions.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -57,11 +57,11 @@ ALTER ROLE db_datareader ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser to write data
 ```
 
-您所連線的伺服器管理員帳戶是 db_owner 的成員，有權限在資料庫中執行任何動作。請儲存此帳戶，以便部署結構描述升級及其他管理作業。請使用具更多有限權限的 "ApplicationUser" 帳戶，從應用程式連線到具應用程式所需之最低權限的資料庫。
+您所連線的伺服器管理員帳戶是 db\_owner 的成員，有權限在資料庫中執行任何動作。請儲存此帳戶，以便部署結構描述升級及其他管理作業。請使用具更多有限權限的 "ApplicationUser" 帳戶，從應用程式連線到具應用程式所需之最低權限的資料庫。
 
 有許多方式可以進一步限制使用者透過 Azure SQL Database 可以執行的動作：
 
-* 除了 db_datareader 和 db_datawriter 以外的[資料庫角色](https://msdn.microsoft.com/library/ms189121)可以用來建立權力較大的應用程式使用者帳戶或權力較小的管理帳戶。
+* 除了 db\_datareader 和 db\_datawriter 以外的[資料庫角色](https://msdn.microsoft.com/library/ms189121)可以用來建立權力較大的應用程式使用者帳戶或權力較小的管理帳戶。
 * 細微的[權限](https://msdn.microsoft.com/library/ms191291)可讓您控制您可以對資料庫中個別資料行、資料表、檢視、程序和其他物件執行哪些作業。
 * [模擬](https://msdn.microsoft.com/library/vstudio/bb669087)和[模組簽署](https://msdn.microsoft.com/library/bb669102)可用來安全地暫時提升權限。
 * [資料列層級安全性](https://msdn.microsoft.com/library/dn765131)可讓您篩選使用者可以看到的資料列。
@@ -98,4 +98,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 除了上述可協助您的應用程式符合各種安全法規需求的特色和功能之外，Azure SQL Database 也定期參與稽核，並且經過認證符合許多法規標準。如需詳細資訊，請參閱 [Microsoft Azure 信任中心](http://azure.microsoft.com/support/trust-center/)，您可以在當中找到 [SQL Database 法規認證](http://azure.microsoft.com/support/trust-center/services/)的最新清單。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

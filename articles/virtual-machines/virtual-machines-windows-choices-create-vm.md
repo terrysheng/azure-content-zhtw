@@ -103,4 +103,4 @@ Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器�
 
 [Azure 混合式雲端測試環境]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

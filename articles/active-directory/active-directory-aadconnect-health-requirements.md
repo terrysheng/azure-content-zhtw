@@ -49,7 +49,8 @@ Azure AD Connect Health 要求在目標伺服器上安裝代理程式，以提�
 ### Azure 服務端點的輸出連線
 在安裝期間和執行階段，代理程式需要連線至以下列出的 Azure AD Connect Health 服務端點。如果您封鎖輸出連線，請確定在允許清單中加入下列內容：
 
-- *.servicebus.windows.net - Port: 5671 - https://*.adhybridhealth.azure.com/
+- **.servicebus.windows.net - Port: 5671
+- https://*.adhybridhealth.azure.com/
 - https://*.table.core.windows.net/
 - https://policykeyservice.dc.ad.msft.net/
 - https://login.windows.net
@@ -62,7 +63,7 @@ Azure AD Connect Health 要求在目標伺服器上安裝代理程式，以提�
 - https://login.microsoftonline.com 
 - https://secure.aadcdn.microsoftonline-p.com
 - https://login.windows.net
-- Azure Active Directory 所信任的您組織的同盟伺服器，例如：https://sts.contoso.com 
+- Azure Active Directory 所信任適用於您組織的同盟伺服器，例如：https://sts.contoso.com 
 
 
 ### 若是 AD FS，必須啟用 AD FS 稽核，才能使用使用情況分析
@@ -71,26 +72,26 @@ Azure AD Connect Health 要求在目標伺服器上安裝代理程式，以提�
 
 #### 啟用 AD FS 2.0 的稽核
 
-1. 按一下 [開始]，依序指向 [程式集] 和 [系統管理工具]，然後按一下 [本機安全性原則]。
+1. 按一下 [**開始**]，依序指向 [**程式集**] 和 [**系統管理工具**]，然後按一下 [**本機安全性原則**]。
 1. 瀏覽至 **Security Settings\\Local Policies\\User Rights Management** 資料夾，然後按兩下 [產生安全性稽核]。
-1. 在 [本機安全性設定] 索引標籤上，確認已列出 AD FS 2.0 服務帳戶。如果不存在，按一下 [新增使用者或群組]，並將其新增至清單中，然後按一下 [確定]。
+1. 在 [**本機安全性設定**] 索引標籤上，確認已列出 AD FS 2.0 服務帳戶。如果不存在，按一下 [**新增使用者或群組**]，並將其新增至清單中，然後按一下 [**確定**]。
 1. 使用提高的權限開啟命令提示字元，然後執行下列命令以啟用稽核。`auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable`
-1. 關閉 [本機安全性原則]，然後開啟 [管理嵌入式管理單元]。若要開啟 [管理嵌入式管理單元]，按一下 [開始]，依序指向 [程式集] 和 [系統管理工具]，然後按一下 [AD FS 2.0 管理]。
+1. 關閉 [本機安全性原則]，然後開啟 [管理嵌入式管理單元]。若要開啟 [管理嵌入式管理單元]，按一下 [**開始**]，依序指向 [**程式集**] 和 [**系統管理工具**]，然後按一下 [AD FS 2.0 管理]。
 1. 在 [動作] 窗格中，按一下 [編輯同盟服務屬性]。
-1. 在 [同盟服務屬性] 對話方塊中，按一下 [事件] 索引標籤。
-1. 選取 [成功稽核] 和 [失敗稽核] 核取方塊。
+1. 在 [**同盟服務屬性**] 對話方塊中，按一下 [**事件**] 索引標籤。
+1. 選取 [**成功稽核**] 和 [**失敗稽核**] 核取方塊。
 1. 按一下 [確定]。
 
 #### 在 Windows Server 2012 R2 上啟用 AD FS 的稽核
 
-1. 在 [開始] 畫面上開啟 [伺服器管理員]，或在桌面上的工作列中開啟 [伺服器管理員]，以開啟 [本機安全性原則]，然後按一下 [工具/本機安全性原則]。
-1. 瀏覽至 **Security Settings\\Local Policies\\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]。
-1. 在 [本機安全性設定] 索引標籤上，確認已列出 AD FS 服務帳戶。如果不存在，按一下 [新增使用者或群組]，並將其新增至清單中，然後按一下 [確定]。
+1. 在 [開始] 畫面上開啟 [**伺服器管理員**]，或在桌面上的工作列中開啟 [伺服器管理員]，以開啟 [**本機安全性原則**]，然後按一下 [**工具/本機安全性原則**]。
+1. 瀏覽至 **Security Settings\\Local Policies\\User Rights Assignment** 資料夾，然後按兩下 [**產生安全性稽核**]。
+1. 在 [**本機安全性設定**] 索引標籤上，確認已列出 AD FS 服務帳戶。如果不存在，按一下 [**新增使用者或群組**]，並將其新增至清單中，然後按一下 [**確定**]。
 1. 使用提高的權限開啟命令提示字元，然後執行下列命令以啟用稽核：`auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.`
-1. 關閉 [本機安全性原則]，然後開啟 **AD FS 管理**嵌入式管理單元 (在 [伺服器管理員] 中，按一下 [工具]，然後選取 [AD FS 管理])。
-1. 在 [動作] 窗格中，按一下 [編輯同盟服務屬性]。
-1. 在 [同盟服務屬性] 對話方塊中，按一下 [事件] 索引標籤。
-1. 選取 [成功稽核] 和 [失敗稽核] 核取方塊，然後按一下 [確定]。
+1. 關閉 [**本機安全性原則**]，然後開啟 **AD FS 管理**嵌入式管理單元 (在 [伺服器管理員] 中，按一下 [工具]，然後選取 [AD FS 管理])。
+1. 在 [動作] 窗格中，按一下 [**編輯同盟服務屬性**]。
+1. 在 [同盟服務屬性] 對話方塊中，按一下 [**事件**] 索引標籤。
+1. 選取 **[成功稽核] 和 [失敗稽核]** 核取方塊，然後按一下 [**確定**]。
 
 
 
@@ -100,10 +101,10 @@ Azure AD Connect Health 要求在目標伺服器上安裝代理程式，以提�
 #### 找出 AD FS 稽核記錄檔
 
 
-1. 開啟 [事件檢視器]。</li>
-1. 移至 [Windows 記錄]，然後選取 [安全性]。
-1. 按一下右側的 [篩選目前的記錄檔]。
-1. 在 [事件來源] 下，選取 [AD FS 稽核]。
+1. 開啟 [**事件檢視器**]。</li>
+1. 移至 [Windows 記錄]，然後選取 [**安全性**]。
+1. 按一下右側的 [**篩選目前的記錄檔**]。
+1. 在 [事件來源] 下，選取 [**AD FS 稽核**]。
 
 ![AD FS 稽核記錄](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 
@@ -119,7 +120,7 @@ Azure AD Connect Health 要求在目標伺服器上安裝代理程式，以提�
 1. 在安裝 AD Health 代理程式之前，先在每部伺服器上安裝 Windows PowerShell 4.0。安裝 Windows PowerShell 4.0：
  - 使用下列連結下載離線安裝程式，以安裝 [Microsoft.NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=40779)。
  - 安裝 PowerShell ISE (從 Windows 功能)
- - 安裝 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)。
+ - 安裝 [Windows Management Framework 4.0。](https://www.microsoft.com/download/details.aspx?id=40855)
  - 在伺服器上安裝 Internet Explorer 10 或更新版本。這是 Health 服務所必需，才能使用 Azure 系統管理員認證進行驗證。
 1. 如需有關在 Windows Server 2008 R2 上安裝 Windows PowerShell 4.0 的其他資訊，請參閱[這裡](http://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx)的 Wiki 文章。
 
@@ -155,4 +156,4 @@ Azure AD Connect Health 要求在目標伺服器上安裝代理程式，以提�
  
 ![驗證 Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install5.png)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

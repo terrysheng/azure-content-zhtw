@@ -79,4 +79,4 @@
 
 [Azure 資源管理員概觀](resource-group-overview.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

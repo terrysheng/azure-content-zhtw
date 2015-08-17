@@ -69,4 +69,4 @@
 
 [Azure Premium 編碼器工作流程設計工具訓練影片](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

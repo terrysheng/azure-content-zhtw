@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2015"
+	ms.date="07/16/2015"
 	ms.author="antonba"/>
 
 # 如何在 Azure API 管理中設定 VPN 連線
@@ -67,4 +67,4 @@ API 管理的 VPN 支援可讓您將 API 管理 Proxy 連接到 Azure 虛擬網�
 [如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫]: api-management-howto-api-inspector.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

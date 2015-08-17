@@ -3,8 +3,8 @@
 	description="使用 Application Insights 取得 Microsoft CRM Online 遙測。設定、取得資料、視覺化與匯出的逐步解說。" 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+	authors="mazharmicrosoft" 
+	manager="klin"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,12 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # 逐步解說：使用 Application Insights 啟用Microsoft CRM Online 遙測
 
 本文說明如何使用 [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/) 取得 [Microsoft CRM Online](https://www.dynamics.com/) 遙測資料。我們會逐步解說將 Application Insights 指令碼加入至您的應用程式、擷取資料和資料視覺化的完整程序。
+
+>[AZURE.NOTE] [Browse the sample code](https://dynamicsandappinsights.codeplex.com/)。
 
 ## 將 Application Insights 加入至新的或現有的 CRM Online 執行個體 
 
@@ -36,7 +38,7 @@
 
     ![](./media/app-insights-sample-mscrm/03.png)
 
-當您於另一個瀏覽器視窗中執行下一個步驟時，**保持字碼頁開啟**。您很快就會需要程式碼。
+當您於另一個瀏覽器視窗中執行下一個步驟時，**保持程式碼頁面開啟**。您很快就會需要程式碼。
 
 ### 在 Microsoft CRM 中建立 JavaScript Web 資源
 
@@ -139,15 +141,24 @@
 
 ![](./media/app-insights-sample-mscrm/30.png)
 
+## 範例程式碼
+
+[取得範例程式碼](https://dynamicsandappinsights.codeplex.com/)。
+
 ## Power BI
 
 如果您[將資料匯出到 Microsoft Power BI](app-insights-export-power-bi.md)，則可以進行更深入的分析。
+
+## 範例 CRM 解決方案
+
+以下是 CRM 中實作的範例方案，用來開始擷取遙測。https://dynamicsandappinsights.codeplex.com/
 
 ## 詳細資訊
 
 * [什麼是 Application Insights？](app-insights-overview.md)
 * [適用於網頁的 Application Insights](app-insights-javascript.md)
+* [更多範例和逐步解說](app-insights-code-samples.md)
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

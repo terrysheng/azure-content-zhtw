@@ -77,4 +77,4 @@ Marketplace Web 服務目前不支援批次輸入模式。
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

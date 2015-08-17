@@ -80,4 +80,4 @@
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -129,8 +129,8 @@ SDK 使用 `Engagement` 一詞。您需要更新您的專案，以符合此變�
 
 Package.appxmanifest 上的 `File Type Associations` 已經更新自：
 
- -   capptain_reach_content 至 engagement_reach_content
- -   capptain_log_file 至 engagement_log_file
+ -   capptain\_reach\_content 至 engagement\_reach\_content
+ -   capptain\_log\_file 至 engagement\_log\_file
 
 ### 應用程式 ID / SDK 金鑰
 
@@ -169,4 +169,4 @@ Engagement 使用連接字串。您不需要為 Mobile Engagement 指定應用�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

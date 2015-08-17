@@ -47,9 +47,9 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
 
 1. Hive 動作會執行 HiveQL 指令碼，以從 HDInsight 隨附的 **hivesampletable** 擷取記錄。每個資料列均代表來自特定行動裝置的瀏覽。顯示的記錄格式類似如下：
 
-		8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-		23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-		23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+		8       18:54:20        zh-tw   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+		23      19:19:44        zh-tw   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+		23      19:19:46        zh-tw   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
 	本文件中使用的 Hive 指令碼會計算每個平台 (例如 Android 或 iPhone) 的總瀏覽次數，並將計數儲存到新的 Hive 資料表。
 
@@ -109,9 +109,9 @@ Oozie 的工作所需資源必須儲存在同一個目錄中。此範例使用 *
 
 	工作流程定義檔 (在本教學課程中為 workflow.xml) 會在執行階段將這些值傳遞至此 HiveQL 指令碼。
 
-2. 按 Ctrl-X，以結束編輯器。出現提示時，請選取 [Y] 儲存檔案，然後按 **Enter** 鍵以使用 **useooziewf.hql** 檔案名稱。
+2. 按 Ctrl-X，以結束編輯器。出現提示時，請選取 **Y** 儲存檔案，然後按 **Enter** 鍵以使用 **useooziewf.hql** 檔案名稱。
 
-3. 執行以下命令將 **useooziewf.hql** 複製到 **wasb:///tutorials/useoozie/useooziewf.hql**：
+3. 使用以下命令將 **useooziewf.hql** 複製到 **wasb:///tutorials/useoozie/useooziewf.hql**：
 
 		hadoop fs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
@@ -640,7 +640,7 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 
 **原因**：目前的權限設定不允許 Oozie 模擬指定的使用者帳戶。
 
-**解決方法**：Oozie 可以模擬**使用者**群組中的使用者。使用 `groups USERNAME` 查看使用者帳戶所屬的群組。如果使用者不是**使用者**群組的成員，請使用以下命令將使用者新增至群組：
+**解決方法**：Oozie 可以模擬 **users** 群組中的使用者。使用 `groups USERNAME` 查看使用者帳戶所屬的群組。如果使用者不是 **users** 群組的成員，請使用以下命令將使用者新增至群組：
 
 	sudo adduser USERNAME users
 
@@ -688,7 +688,6 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started]: hdinsight-get-started.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop-mac-linux.md
@@ -706,7 +705,6 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 [sqldatabase-create-configue]: sql-database-create-configure.md
 [sqldatabase-get-started]: sql-database-get-started.md
 
-[azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
@@ -727,4 +725,4 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

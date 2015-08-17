@@ -80,11 +80,11 @@
 
 	![[設定單一登入] 按鈕][6]
 
-3. 此時會開啟一個對話方塊，您會看到一個畫面，詢問 "您要讓使用者如何登入 Salesforce?" 選取 [Azure AD 單一登入]，然後按 [下一步]。
+3. 此時會開啟一個對話方塊，您會看到一個畫面，詢問「您要讓使用者如何登入 Salesforce?」 選取 [Azure AD 單一登入]，然後按 [下一步]。
 
 	![選取 [Azure AD 單一登入]][7]
 
-	> [AZURE.NOTE]若要深入了解有關不同單一登入的選項，請[按一下這裡](https://msdn.microsoft.com/library/azure/dn308588.aspx)
+	> [AZURE.NOTE]若要深入了解有關不同單一登入的選項，請[按一下這裡](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
 
 4. 在 [設定應用程式設定] 頁面上，使用下列格式在 [登入 URL] 輸入您的 Salesforce 網域 URL：
  - 企業帳戶：`https://<domain>.my.salesforce.com`
@@ -220,11 +220,7 @@
 
 4. 若要測試您的單一登入設定，請開啟 [https://myapps.microsoft.com](https://myapps.microsoft.com/) 的 [存取面板]、登入測試帳戶，然後按一下 [Salesforce]。
 
-##另請參閱
-
-- [SaaS 應用程式整合教學課程的清單](active-directory-saas-tutorial-list.md)
-- [在 Azure AD 中的應用程式存取](https://msdn.microsoft.com/library/azure/dn308590.aspx)
-- [存取面板簡介](https://msdn.microsoft.com/library/azure/dn308586.aspx)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 [0]: ./media/active-directory-saas-salesforce-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-salesforce-tutorial/applications-tab.png
@@ -257,4 +253,4 @@
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

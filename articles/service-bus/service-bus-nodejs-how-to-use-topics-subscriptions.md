@@ -49,7 +49,7 @@
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
 
-3.  您可以手動執行 **ls** 命令，確認已建立 **node_modules** 資料夾。在該資料夾內找出 **azure** 套件，其中含有存取服務匯流排主題所需的程式庫。
+3.  您可以手動執行 **ls** 命令，確認已建立 **node\_modules** 資料夾。在該資料夾內找出 **azure** 套件，其中含有存取服務匯流排主題所需的程式庫。
 
 ### 匯入模組
 
@@ -59,7 +59,7 @@
 
 ### 設定服務匯流排連接
 
-Azure 模組會讀取環境變數 AZURE_SERVICEBUS_NAMESPACE 和 AZURE_SERVICEBUS_ACCESS_KEY，找出連接 Azure 服務匯流排所需的資訊。如果您未設定這些環境變數，必須在呼叫 **createServiceBusService** 時指定帳戶資訊。
+Azure 模組會讀取環境變數 AZURE\_SERVICEBUS\_NAMESPACE 和 AZURE\_SERVICEBUS\_ACCESS\_KEY，找出連接 Azure 服務匯流排所需的資訊。如果您未設定這些環境變數，必須在呼叫 **createServiceBusService** 時指定帳戶資訊。
 
 如需在 Azure 雲端服務組態檔中設定環境變數的範例，請參閱[使用儲存體的 Node.js 雲端服務]。
 
@@ -305,4 +305,4 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
   [使用儲存體的 Node.js Web 應用程式]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

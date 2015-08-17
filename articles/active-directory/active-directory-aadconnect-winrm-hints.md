@@ -32,7 +32,7 @@
 - 在提高權限的 PSH 命令視窗中，使用 “Enable-PSRemoting –force” 命令
 	- 在執行此精靈的電腦上 (如果目標電腦未加入網域或為未受信任的網域)： 
 
-- 在提高權限的 PSH 命令視窗中，使用命令 “Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate”
+- 在提高權限的 PSH 命令視窗中，使用命令 “Set-Item WSMan:\\localhost\\Client\\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate”
 	- 在伺服器管理員中：
 		- 將 DMZ WAP 主機加入至電腦集區 ([伺服器管理員] -> [管理] -> [加入伺服器]...使用 DNS 索引標籤) 
 		- 伺服器管理員的 [所有伺服器] 索引標籤：以滑鼠右鍵按一下 WAP 伺服器並選擇 [管理]，然後輸入 WAP 電腦的本機 (非網域) 認證 
@@ -45,4 +45,4 @@
 * [自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)
 * [MSDN 上的 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

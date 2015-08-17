@@ -65,7 +65,7 @@ OSMF 外掛程式可以靜態方式 (在編譯時) 或動態方式 (在執行階
 ###SS for OSMF 靜態載入
 下方的程式碼片段將說明如何以靜態方式載入 OSMF 的 SS 外掛程式，並使用 OSMF MediaFactory 類別播放基本視訊。在加入 SS for OSMF 程式碼之前，請確定專案參考包含 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" 靜態外掛程式。
 
-<pre><code>
+```
 package 
 {
 	
@@ -159,7 +159,7 @@ package
 					break;
 				
 				case  MediaPlayerState.READY :   
-					// Add code to deal with Player Ready when it is hit the first load after a source is loaded.
+					// Add code to deal with Player Ready when it is hit the first load after a source is loaded. 
 					
 					break;
 				
@@ -169,13 +169,13 @@ package
 				
 				case  MediaPlayerState.PAUSED :
 					break;      
-				// other states ...         
+				// other states ...          
 			}
 		}
 		
 		private function onPlayerFailed(event:MediaErrorEvent) : void
 		{
-			// Media Player is failed .          
+			// Media Player is failed .           
 		}
 		
 		private function loadMediaSource(sourceURL : String):void 
@@ -195,14 +195,14 @@ package
 		
 	}
 }
-</code></pre>
+```
 
 
 ###SS for OSMF 動態載入
 
 下方的程式碼片段將說明如何以動態方式載入 OSMF 的 SS 外掛程式，並使用 OSMF MediaFactory 類別播放基本視訊。在加入 SS for OSMF 程式碼之前，請將 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" 動態外掛程式複製到專案資料夾 (如果您要使用 FILE 通訊協定進行載入)，或是在 Web 伺服器下複製 (以進行 HTTP 載入)。您不需要在專案參考中加入 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc"。
 
-<pre><code>
+```
 package 
 {
 	
@@ -299,7 +299,7 @@ package
 					break;
 				
 				case  MediaPlayerState.READY :   
-					// Add code to deal with Player Ready when it is hit the first load after a source is loaded.
+					// Add code to deal with Player Ready when it is hit the first load after a source is loaded. 
 					
 					break;
 				
@@ -309,13 +309,13 @@ package
 				
 				case  MediaPlayerState.PAUSED :
 					break;      
-				// other states ...         
+				// other states ...          
 			}
 		}
 		
 		private function onPlayerFailed(event:MediaErrorEvent) : void
 		{
-			// Media Player is failed .          
+			// Media Player is failed .           
 		}
 		
 		private function loadMediaSource(sourceURL : String):void 
@@ -334,7 +334,7 @@ package
 		
 	}
 }
-</code></pre>
+```
 
 ##Strobe Media Playback 與 SS ODMF 動態外掛程式
 Smooth Streaming for OSMF 動態外掛程式與 [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html) 是相容的。您可以使用 SS for OSMF 外掛程式，將 Smooth Streaming 內容播放新增至 SMP。若要這麼做，請使用下列步驟，在 Web 伺服器下複製 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf"，以進行 HTTP 載入：
@@ -403,4 +403,4 @@ Smooth Streaming for OSMF 動態外掛程式與 [Strobe Media Playback (SMP)](ht
 
 [OSMF 的 Microsoft 彈性資料流外掛程式更新](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) (英文)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

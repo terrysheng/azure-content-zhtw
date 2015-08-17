@@ -88,4 +88,4 @@ Azure Marketplace 提供由 Microsoft、協力廠商公司及開放原始碼軟�
 [marketplace]: ./media/website-from-gallery/marketplace-icon.png
 [groupname]: ./media/website-from-gallery/set-rg.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

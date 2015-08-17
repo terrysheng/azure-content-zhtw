@@ -250,4 +250,4 @@ BizTalk 規則支援明確向前鏈結。意思就是，如果使用者想要重
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

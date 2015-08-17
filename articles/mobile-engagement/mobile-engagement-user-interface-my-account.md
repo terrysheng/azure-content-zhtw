@@ -44,7 +44,7 @@
 3. 在觸達公告中，如果與公告相關聯的動作 URL 包含 {deviceid} 模式，則會自動替換為觸發動作的裝置識別碼。http://<example>.com/registeruser?deviceid={deviceid}&otherparam=myparamdata 將會替換為：http://<example>.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&otherparam=myparamdata。 
 4. 從觸達 Web 宣告，如果宣告的 HTML 程式碼包含 {deviceid} 模式，則會自動替換為顯示 Web 通知的裝置識別碼。「以下是我的裝置識別碼: {deviceid}」將會替換為：「以下是我的裝置識別碼: XXXXXXXXXXXXXXXX」
 5.  在您的裝置上開啟您的應用程式，然後執行應用程式中已被標記的事件。依序從 UI - 您的應用程式 - [監視] - [事件] - [詳細資料]，在清單中尋找執行的事件。在 [監視] 中按一下此事件。您應該會在已執行此事件的裝置清單中找到裝置識別碼。然後，您就可以複製此裝置識別碼，並且依序在 UI - [我的帳戶] - [裝置] - [新裝置] - [選取您的裝置平台] 中註冊此識別碼。
->
+>(請注意，當 iOS 停用 IDFA 時，如果您解除安裝後又重新安裝您的應用程式，裝置識別碼可能會隨時間而變更)。
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -145,4 +145,4 @@
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

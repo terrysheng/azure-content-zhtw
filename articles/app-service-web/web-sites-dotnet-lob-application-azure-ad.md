@@ -22,7 +22,7 @@
 
 您使用的Azure Active Directory 租用戶可以是純 Azure 目錄，或可以是與您的內部部署 Active Directory (AD) 同步處理的目錄，以便為內部部署或遠端的工作者建立單一登入體驗。
 
->[AZURE.NOTE]Azure 應用程式服務 Web 應用程式中的簡單驗證功能可讓您設定 Azure Active Directory 租用戶的簡單驗證，只需要按幾下按鈕。如需詳細資訊，請參閱[在 Azure App Service 中使用 Active Directory 進行驗證](web-sites-authentication-authorization.md)。
+>[AZURE.NOTE]對於 Azure App Service Web Apps，您可以設定 Azure Active Directory 租用戶的驗證，只需按幾下按鈕即可。如需詳細資訊，請參閱[在 Azure App Service 中使用 Active Directory 進行驗證](web-sites-authentication-authorization.md)。
 
 <a name="bkmk_build"></a>
 ## 將建置的項目 ##
@@ -374,4 +374,4 @@ public class GroupClaimContext : DbContext
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

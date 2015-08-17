@@ -1,5 +1,5 @@
 <properties
-    pageTitle="使用 DocumentDB 建置具有 Python 和 Flask 的 Web 應用程式 |Azure"
+    pageTitle="使用 DocumentDB 建置具有 Python 和 Flask 的 Web 應用程式 | Microsoft Azure"
     description="了解如何使用 DocumentDB 來儲存和存取主控於 Azure 上之 Python 和 Flask (MVC) Web 應用程式的資料。"
     services="documentdb"
     documentationCenter="python"
@@ -42,7 +42,7 @@
 - [這裡][]的 Python Tools for Visual Studio。
 - [這裡][1]提供的 Azure SDK for Visual Studio 2013 2.4 版或更高版本。
 - [這裡][2]的 Python 2.7。
-- [這裡][90]的 Microsoft Visual C++ Compiler for Python 2.7。
+- [這裡][3]的 Microsoft Visual C++ Compiler for Python 2.7。
 
 ## 步驟 1：建立 DocumentDB 資料庫帳戶
 
@@ -52,20 +52,17 @@
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-<br/>
-我們現在將從頭開始逐步解說如何建立新的 Python Flask Web 應用程式。
+<br/>我們現在將從頭開始逐步解說如何建立新的 Python Flask Web 應用程式。
 
 ## 步驟 2：建立新的 Python Flask Web 應用程式
 
-1. 開啟 Visual Studio，並依序按一下 [**檔案**] -\> [**新增專案**] -\> [**Python**] -\> [**Flask Web 專案**]，然後建立名為 **tutorial** 的新專案。
+1. 開啟 Visual Studio，並依序按一下 [**檔案**] -\\> [**新增專案**] -\\> [**Python**] -\\> [**Flask Web 專案**]，然後建立名為 **tutorial** 的新專案。
 
-	對於 Flask 的初學者而言，這個網路架構可協助我們在 Python 中更快速地建置 Web 應用程式。
-[按一下這裡可存取 Flask 教學課程][] (英文)。
+	對於 Flask 的初學者而言，這個網路架構可協助我們在 Python 中更快速地建置 Web 應用程式。[按一下這裡可存取 Flask 教學課程][] (英文)。
 
 	![左側為使用反白顯示之 Python 的 Vidual Studio 中的 [新增專案] 視窗、中間為選取的 Flask Web 專案，以及 [名稱] 方塊中為教學課程名稱的螢幕擷取畫面](./media/documentdb-python-application/image9.png)
 
-2. 系統會詢問您是否要安裝外部套件。按一下
-[**安裝到虛擬環境**]。因為 PyDocumentDB 目前不支援 Python 3.x，請務必使用 Python 2.7 做為基底環境。這會設定專案所需的 Python 虛擬環境。
+2. 系統會詢問您是否要安裝外部套件。按一下 [**安裝到虛擬環境**]。因為 PyDocumentDB 目前不支援 Python 3.x，請務必使用 Python 2.7 做為基底環境。這會設定專案所需的 Python 虛擬環境。
 
 	![教學課程 - Python Tools for Visual Studio 視窗的螢幕擷取畫面](./media/documentdb-python-application/image10.png)
 
@@ -74,8 +71,7 @@
 
 ### 將 Flask 封裝新增至專案
 
-專案設定好之後，您需要新增專案所需的特定
-Flask 封裝，包括 pydocumentdb (DocumentDB 的 python 封裝)。
+專案設定好之後，您需要新增專案所需的特定 Flask 封裝，包括 pydocumentdb (DocumentDB 的 python 封裝)。
 
 1. 開啟名為 **requirements.txt** 的檔案，並以下列內容取代。
 
@@ -95,8 +91,7 @@ Flask 封裝，包括 pydocumentdb (DocumentDB 的 python 封裝)。
 
 	![螢幕擷取畫面，顯示從清單中反白顯示的 requirements.txt 安裝時選取的 env (Python 2.7)。](./media/documentdb-python-application/image11.png)
 
-> [AZURE.NOTE] 在罕見情況下，輸出視窗中可能出現失敗。如果發生此情形，請檢查錯誤是否與清除有關。有時是清理失敗，但安裝卻成功 (在輸出視窗中向上捲動來驗證這一點)。
-<a name="verify-the-virtual-environment"></a>如果發生這種情況，您可以放心繼續進行。
+> [AZURE.NOTE]在罕見情況下，輸出視窗中可能出現失敗。如果發生此情形，請檢查錯誤是否與清除有關。有時是清理失敗，但安裝卻成功 (在輸出視窗中向上捲動來驗證這一點)。<a name="verify-the-virtual-environment"></a>如果發生這種情況，您可以放心繼續進行。
 
 
 ### 驗證虛擬環境
@@ -169,8 +164,7 @@ Flask 封裝，包括 pydocumentdb (DocumentDB 的 python 封裝)。
 >
 ### 讀取資料庫、集合、文件並送出表單
 
-- 將下列程式碼新增至 **views.py**。此程式碼可設定表單並讀取資料庫、
-集合和文件。請勿刪除 **views.py** 中的任何現有程式碼。只需將它附加至結尾。
+- 將下列程式碼新增至 **views.py**。此程式碼可設定表單並讀取資料庫、集合和文件。請勿刪除 **views.py** 中的任何現有程式碼。只需將它附加至結尾。
 
     	@app.route('/vote', methods=['GET', 'POST'])
     	def vote():
@@ -330,14 +324,13 @@ Flask 封裝，包括 pydocumentdb (DocumentDB 的 python 封裝)。
 
 您已經擁有可在DocumentDB 正常運作的完整應用程式，我們現在要將此應用程式部署至 Azure 網站。
 
-1. 在 [方案總管]
-的 [專案] 上按一下滑鼠右鍵 (請確定您已沒有在本機上執行此應用程式)，然後選取 [發佈]。接著，選取 [Microsoft Azure 網站]。
+1. 在 [方案總管] 的 [專案] 上按一下滑鼠右鍵 (請確定您已沒有在本機上執行此應用程式)，然後選取 [發佈]。接著，選取 [Microsoft Azure 網站]。
 
- 	![方案總管 中選取之教學課程 具有反白顯示的 發佈 選項 的螢幕擷取畫面](./media/documentdb-python-application/image20.png)
+ 	![[方案總管] 中選取之教學課程 (具有反白顯示的 [發佈] 選項) 的螢幕擷取畫面](./media/documentdb-python-application/image20.png)
 
 2. 設定您的 Azure 網站，方法是提供您的認證並按一下 [**發佈**]。
 
-	![發佈 Web 視窗的螢幕擷取畫面](./media/documentdb-python-application/image21.png)
+	![[發佈 Web] 視窗的螢幕擷取畫面](./media/documentdb-python-application/image21.png)
 
 3. 幾秒後，Visual Studio 便會發佈 Web 應用程式並啟動瀏覽器，您可以在瀏覽器中看到您方便好用的應用程式已在 Azure 中執行！
 
@@ -352,9 +345,9 @@ Flask 封裝，包括 pydocumentdb (DocumentDB 的 python 封裝)。
   [這裡]: http://aka.ms/ptvs
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
   [2]: https://www.python.org/downloads/windows/
-  [90]: http://aka.ms/vcpython27
+  [3]: http://aka.ms/vcpython27
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!--------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

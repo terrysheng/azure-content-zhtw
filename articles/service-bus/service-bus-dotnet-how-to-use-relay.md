@@ -12,7 +12,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/02/2015" 
 	ms.author="sethm"/>
 
@@ -254,7 +254,7 @@
 
 -   建立服務：[建立服務匯流排的服務][]。
 -   建立用戶端：[建立服務匯流排用戶端應用程式][]。
--   服務匯流排範例： 從 [Azure 範例][]下載，或參閱 [MSDN][] 上的概觀。
+-   服務匯流排範例：從 [Azure 範例][]下載，或參閱 [MSDN][] 上的概觀。
 
   [Create a Service Namespace]: #create_namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
@@ -268,4 +268,4 @@
   [MSDN]: https://msdn.microsoft.com/zh-tw/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -227,7 +227,7 @@ N/A | 標記 | _**新增資料行。**_ Azure 中的新資源類型可讓您標�
 
 - **其他資訊**：使用情況 .csv 中的 Additional Info 資料行會指定服務特定的中繼資料。例如，VM 的影像類型。目前，服務會在多個資料行中發出服務特定的中繼資料：Additional Info、Service Info1 和 Service Info 2 等欄位。Microsoft Azure 服務只會標準化 Additional Info 資料行中的發出服務特定中繼資料。請參閱下方的標準化格式快照集：
 
-![additionalinfo_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
+![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
 - **標記**：此資料行包含使用者指定的資源標記。標記可用來分組計費記錄。例如，您可以使用標記，根據使用服務的部門散發成本。深入了解[使用標記來組織 Azure 資源](/resource-group-using-tags.md/)。支援發出標記的服務如下：
     - 虛擬機器
@@ -262,4 +262,4 @@ N/A | 標記 | _**新增資料行。**_ Azure 中的新資源類型可讓您標�
 
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

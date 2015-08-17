@@ -107,4 +107,4 @@ OMS 服務會處理原始資料，彙總資料會儲存在 SQL Database。OMS �
 
 您可以使用您先前設定的帳戶登入 OMS。OMS 和 OMS 服務之間的所有流量會透過安全的 HTTPS 通道傳送。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

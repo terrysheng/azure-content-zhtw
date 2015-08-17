@@ -116,7 +116,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 - 具有以 **BYOK-Byok-securityworld-pkg-** 開頭之名稱的安全世界封裝。
 - 名為 v**erifykeypackage.py** 的 python 指令碼。
 - 名為 **KeyTransferRemote.exe** 的命令列可執行檔和相關聯的 DLL。
-- Visual C++ 可轉散發套件，名為 **vcredist_x64.exe。**
+- Visual C++ 可轉散發套件，名為 **vcredist\_x64.exe。**
 
 將封裝複製到 USB 磁碟機或其他可攜式儲存裝置。
 
@@ -129,7 +129,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 在 Windows 電腦上安裝 nCipher (Thales) 支援軟體，然後將 Thales HSM 附加至該電腦。
 
-確定 Thales 工具位於您的路徑 (**%nfast_home%\bin** 和 **%nfast_home%\python\bin**)。例如，輸入下列內容：
+確定 Thales 工具位於您的路徑 (**%nfast\_home%\\bin** 和** %nfast\_home%\\python\\bin**)。例如，輸入下列內容：
 
 		set PATH=%PATH%;”%nfast_home%\bin”;”%nfast_home%\python\bin”
 
@@ -140,7 +140,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 從 USB 磁碟機或其他可攜式儲存裝置複製 BYOK 工具組封裝，然後執行下列動作：
 
 1. 將檔案從下載的封裝解壓縮至任何資料夾。
-2. 從該資料夾執行 vcredist_x64.exe。
+2. 從該資料夾執行 vcredist\_x64.exe。
 3. 遵循指示以安裝 Visual Studio 2012 的 Visual C++ 執行階段元件。
 
 ##步驟 3：產生您的金鑰
@@ -153,7 +153,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 	new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
 
-此程式會在 %NFAST_KMDATA%\local\world 建立**安全世界**檔案，對應到 C:\ProgramData\nCipher\Key Management Data\local 資料夾。您可以使用不同的值進行仲裁，但是在我們的範例中，系統會提示您輸入三個空白的卡片和其個別的 pin。然後，任兩張卡片可提供安全世界的完整存取權。這些卡片將成為新安全世界的**系統管理員卡組**。
+此程式會在 %NFAST\_KMDATA%\\local\\world 建立**安全世界**檔案，對應到 C:\\ProgramData\\nCipher\\Key Management Data\\local 資料夾。您可以使用不同的值進行仲裁，但是在我們的範例中，系統會提示您輸入三個空白的卡片和其個別的 pin。然後，任兩張卡片可提供安全世界的完整存取權。這些卡片將成為新安全世界的**系統管理員卡組**。
 
 然後執行以下動作：
 
@@ -188,7 +188,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
 
-	>[AZURE.TIP]Thales 軟體包含 %NFAST_HOME%\python\bin 中的 python
+	>[AZURE.TIP]Thales 軟體包含 %NFAST\_HOME%\\python\\bin 中的 python
 	
 2.	確認您看到下列訊息，表示成功驗證：**結果：成功**
 
@@ -210,7 +210,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 - 在這個範例中，Pubexp 保留空白 (預設值)，但是您可以指定特定值。如需詳細資訊，請參閱 Thales 文件。
 
-此命令會在您的 %NFAST_KMDATA%\local 資料夾建立名稱開頭為 **key_simple_** 的語彙基元化金鑰檔案，其後跟隨在命令中指定的 ident。例如：**key_simple_contosokey**。此檔案包含已加密的金鑰。
+此命令會在您的 %NFAST\_KMDATA%\\local 資料夾建立名稱開頭為 **key\_simple\_** 的語彙基元化金鑰檔案，其後跟隨在命令中指定的 ident。例如：**key\_simple\_contosokey**。此檔案包含已加密的金鑰。
 
 在安全的位置備份此語彙基元化金鑰檔案。
 
@@ -246,7 +246,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 系統會要求您插入您的安全世界系統管理員卡。
 
-此命令完成時，您會看到**結果：成功**，降低權限的金鑰複本會在名為 key_xferacId_ 的檔案中<contosokey>。
+此命令完成時，您會看到**結果：成功**，降低權限的金鑰複本會在名為 key\_xferacId\_ 的檔案中<contosokey>。
 
 ###步驟 4.2：檢查金鑰的新複本
 
@@ -288,7 +288,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 - 以用於輸出檔案名稱的標籤取代 *ContosoFirstHSMKey*。
 
-當此動作成功完成時，會顯示**結果：成功**，而且目前的資料夾中會有新的檔案，其名稱如下：TransferPackage-*ContosoFirstHSMkey*.byok
+當此動作成功完成時，會顯示**結果：成功**，而且目前的資料夾中會有新的檔案，其名稱如下：*TransferPackage-ContosoFirstHSMkey*.byok
 
 ###步驟 4.4：將金鑰傳輸封裝複製到網際網路連線的工作站 
 
@@ -306,4 +306,4 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 您現在可以在您的金鑰保存庫中使用這個受 HSM 保護的金鑰。如需詳細資訊，請參閱[開始使用 Azure 金鑰保存庫](key-vault-get-started.md)教學課程中的**如果您想要使用硬體安全模組 (HSM)** 一節。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Azure Service Fabric Actor 具狀態服務的組合設計模式"
-   description="Service Fabric Actor 設計模式使用具狀態的動作項目，以維護服務之間的呼叫和快取先前服務結果的狀態。狀態可以是持續性或暫時性。"
+   pageTitle="Reliable Actor 具狀態服務的組合設計模式"
+   description="Service Fabric Reliable Actor 設計模式使用具狀態的動作項目，以維護服務之間的呼叫和快取先前服務結果的狀態。狀態可以是持續性或暫時性。"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/01/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Service Fabric Actor 設計模式：可設定狀態的服務組合
+# Reliable Actor 設計模式：可設定狀態的服務組合
 開發人員花費了最近 15 年建置在企業中多層式架構的無狀態服務。他們在資料庫上建置服務、在其他服務建置高序位服務，更建置協調流程引擎和訊息導向中介軟體以協調這些服務。當使用者工作負載擴大時，無論是要求更多的互動性或級別，無狀態服務導向架構開始曝露其缺點。
 
 ## 舊有方式：SOA 服務
@@ -90,6 +90,5 @@
 [1]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-3.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

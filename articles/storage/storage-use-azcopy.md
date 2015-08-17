@@ -22,9 +22,9 @@
 
 AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將資料複製到和複製出 Microsoft Azure Blob、檔案和資料表儲存體所設計。本指南提供使用 AzCopy 的概觀。
 
-> [AZURE.NOTE]本指南假設您已安裝 AzCopy 3.1.0 或更新版本。AzCopy 3.x 現已正式發行。
+> [AZURE.NOTE]本指南假設您已安裝 AzCopy 3.2.0 或更新版本。AzCopy 3.x 現已正式發行。
 > 
-> 本指南也說明如何使用 AzCopy 4.1.0，這是 AzCopy 的預覽版本。在本指南中，僅在預覽版本提供的功能皆稱為*預覽*。
+> 本指南也說明如何使用 AzCopy 4.2.0，這是 AzCopy 的預覽版本。在本指南中，僅在預覽版本提供的功能皆稱為*預覽*。
 > 
 > 請注意，AzCopy 4.x 未來版本中的命令列選項及其功能有可能會有更動。
 
@@ -91,6 +91,8 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
           <br />
           如果指定來源是 Azure 檔案共用，則您必須指定確切檔案名稱 (例如 abc.txt) 以複製單一檔案，或指定選項 /S 以遞迴方式複製共用中的所有檔案。嘗試同時指定檔案模式和選項 /S，將會造成錯誤。
           <br />
+          當 /Source 是 Blob 容器或 Blob 的虛擬目錄時，AzCopy 會使用區分大小寫比對，並在所有其他情況下使用不區分大小寫比對。
+          <br/>
           未指定檔案模式時所使用的預設檔案模式如下：若是檔案系統位置，則是 *.*，若是 Azure 儲存體位置，則是空白首碼。不支援指定多個檔案模式。</td>
     <td>Y</td>
     <td>Y<br /> (僅限預覽)</td>
@@ -105,11 +107,11 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
   </tr>
   <tr>
     <td class="auto-style1"><b>/DestSAS:&lt;sas-token></b></td>
-    <td class="auto-style1">指定目的地容器的共用存取簽章 (SAS) (如果適用的話)。為 SAS 加上雙引號，因為它可能包含特殊命令列字元。<br />
-        如果目的地資源是 Blob 容器或資料表，您可以指定此選項後面接著 SAS 權杖，或者您可以不使用此選項，直接將 SAS 指定為目的地 Blob URI 的一部分。<br />
+    <td class="auto-style1">以讀取和寫入權限指定目的地的共用存取簽章 (SAS) (如果適用的話)。為 SAS 加上雙引號，因為它可能包含特殊命令列字元。<br />
+        如果目的地資源是 Blob 容器、檔案共用或資料表，您可以指定此選項後面接著 SAS 權杖，或者您可以不使用此選項，直接將 SAS 指定為目的地 Blob 容器、檔案共用或資料表 URI 的一部分。<br />
         如果來源和目的地都是 Blob，則目的地 Blob 必須與來源 Blob 位於相同的儲存體帳戶中。</td>
     <td class="auto-style1">Y</td>
-    <td class="auto-style1">N</td>
+    <td class="auto-style1">Y<br /> (僅限預覽)</td>
     <td class="auto-style1">Y<br /> (僅限預覽)</td>
   </tr>
   <tr>
@@ -121,13 +123,13 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
   </tr>
   <tr>
     <td><b>/SourceSAS:&lt;sas-token></b></td>
-    <td>指定來源容器的共用存取簽章 (如果適用的話)。為 SAS 加上雙引號，因為它可能包含特殊命令列字元。
+    <td>以讀取和清單權限指定來源的共用存取簽章 (如果適用的話)。為 SAS 加上雙引號，因為它可能包含特殊命令列字元。
         <br />
         如果來源資源是 Blob 容器，且未提供金鑰及 SAS，則可透過匿名存取讀取該 Blob 容器。
         <br />
-        如果來源是資料表，則必須提供金鑰或 SAS。</td>
+        如果來源是檔案共用或資料表，則必須提供金鑰或 SAS。</td>
     <td>Y</td>
-    <td>N</td>
+    <td>Y<br /> (僅限預覽)</td>
     <td>Y<br /> (僅限預覽)</td>
   </tr>
   <tr>
@@ -138,8 +140,8 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
     <td>N</td>
   </tr>
   <tr>
-    <td><b>/BlobType:&lt;block | page></b></td>
-    <td>指定目的地 Blob 是區塊 Blob 還是分頁 Blob。此選項僅在上傳 Blob 時才適用；否則將會產生錯誤。如果目的地是 Blob 且未指定此選項，則 AzCopy 依預設將會建立區塊 Blob。</td>
+    <td><b>/BlobType:&lt;block | page | append></b></td>
+    <td>指定目的地 Blob 是區塊 Blob、分頁 Blob 或附加 Blob。此選項僅在上傳 Blob 時才適用；否則將會產生錯誤。如果目的地是 Blob 且未指定此選項，則 AzCopy 依預設將會建立區塊 Blob。</td>
     <td>Y</td>
     <td>N</td>
     <td>N</td>
@@ -210,7 +212,13 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
   </tr>
   <tr>
     <td><b>/L</b></td>
-    <td>僅指定清單作業，不會複製資料。</td>
+    <td>僅指定清單作業，不會複製資料。
+    <br />
+    AzCopy 會解譯使用這個選項為模擬不使用 /L 選項來執行此命令列，而且會計算有多少物件會被複製，您可以同時指定 /V 選項，檢查要複製哪些物件到詳細記錄檔中。
+    <br />
+    這個選項的行為還取決於來源資料的位置，以及是否有遞迴模式選項 /S 和檔案模式選項 /Pattern。
+    <br />
+    使用此選項時，AzCopy 會需要此來源位置的清單和讀取權限。</td>
     <td>Y</td>
     <td>Y<br /> (僅限預覽)</td>
     <td>N</td>
@@ -378,8 +386,10 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
   </tr>
   <tr>
     <td><b>/Manifest:&lt;manifest-file></b></td>
-    <td>指定匯入作業的資訊清單檔。<br />
-        資訊清單檔會在匯出作業期間產生。</td>
+    <td>指定資料表匯出和匯入作業的資訊清單檔。<br />
+    在匯出作業期間，此選項是選擇性的，如果沒有指定這個選項，AzCopy 便會產生具有預先定義名稱的資訊清單檔案。
+    <br />
+    在匯入作業期間，為了尋找資料檔案，這是必要選項。</td>
     <td>N</td>
     <td>N</td>
     <td>Y<br /> (僅限預覽)</td>
@@ -400,8 +410,15 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
     <td>Y<br /> (僅限預覽)</td>
     <td>N</td>
   </tr>
+    <tr>
+    <td><b>/PayloadFormat:&lt;JSON | CSV></b></td>
+    <td>指定資料表匯出的資料檔格式。<br />
+    如果未指定此選項，根據預設，AzCopy 會匯出 JSON 格式的資料表資料檔案。</td>
+    <td>N</td>
+    <td>N</td>
+    <td>Y<br /> (僅限預覽)</td>
+  </tr>
 </table>
-
 <br/>
 
 ## 限制複製資料時的並行寫入
@@ -462,7 +479,7 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
 
-請注意，如果指定的虛擬目錄不存在，則 AzCopy 將上傳檔案並在其名稱中加上此虛擬目錄 (\*例如\*，上述範例中的 `vd/abc.txt`)。
+請注意，如果指定的虛擬目錄不存在，則 AzCopy 將上傳檔案並在其名稱中加上此虛擬目錄 (例如，上述範例中的 `vd/abc.txt`)。
 
 ### 將 Blob 下載到新的資料夾
 
@@ -741,11 +758,11 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 
 根據預設，AzCopy 會以非同步方式在兩個儲存體端點之間複製資料。因此，複製作業會在背景中執行，並使用在 blob 複製速度方面沒有 SLA 的備用頻寬容量，而 AzCopy 會定期檢查複製狀態，直到複製完成或失敗為止。
 
-3\.1.0 版中新增的 `/SyncCopy` 選項可確保複製作業達到一致的速度。AzCopy 執行同步複製的方式是先將要複製的 blob，從指定的來源下載到本機記憶體，再上傳至 Blob 儲存體目的地。
+`/SyncCopy` 選項可確保複製作業達到一致的速度。AzCopy 執行同步複製的方式是先將要複製的 blob，從指定的來源下載到本機記憶體，再上傳至 Blob 儲存體目的地。
 
 	AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
 
-請注意，相較於非同步複製，/SyncCopy 可能會產生額外的輸出成本，建議的方法是在與來源儲存體帳戶位於同一區域的 Azure VM 中使用這個選項，以避免產生輸出成本。
+請注意，相較於非同步複製，`/SyncCopy` 可能會產生額外的輸出成本，建議的方法是在與來源儲存體帳戶位於同一區域的 Azure VM 中使用這個選項，以避免產生輸出成本。
 
 ### 指定目的地 blob 的 MIME 內容類型
 
@@ -765,11 +782,11 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 
 	AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-請注意，如果指定的來源是 Azure 檔案共用，則您必須指定確切檔案名稱 (\*例如\* `abc.txt`) 以複製單一檔案，或指定 `/S` 選項以遞迴方式複製共用中的所有檔案。嘗試同時指定檔案模式和 `/S` 選項將會造成錯誤。
+請注意，如果指定的來源是 Azure 檔案共用，則您必須指定確切檔案名稱 (*例如* `abc.txt`) 以複製單一檔案，或指定 `/S` 選項以遞迴方式複製共用中的所有檔案。嘗試同時指定檔案模式和 `/S` 選項將會造成錯誤。
 
-### 將 Azure 檔案共用中的檔案和資料夾以遞迴方式下載到檔案系統
+### 將 Azure 檔案共用中的檔案和資料夾以遞迴方式下載到檔案系統，指定該共用存取簽章。
 
-	AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myfolder /SourceKey:key /S
+	AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myfolder /SourceSAS:SAS /S
 
 請注意，將不會複製任何空白資料夾。
 
@@ -785,10 +802,27 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:ab* /S
 
+### 以非同步方式複製 Azure 檔案儲存體中的檔案
+
+Azure 檔案儲存體支援伺服器端非同步複製。
+
+從檔案儲存體非同步複製到檔案儲存體：
+
+	AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S
+
+從檔案儲存體非同步複製到區塊 Blob：
+  
+	AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
+
+從區塊/分頁 Blob 非同步複製到檔案儲存體：
+
+	AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
+
+請注意，不支援從檔案儲存體非同步複製到分頁 Blob。
 
 ### 以同步方式複製 Azure 檔案儲存體中的檔案
 
-使用者可以使用 4.1.0 預覽版中新的 /SyncCopy 選項，將檔案從檔案儲存體複製到檔案儲存體、從檔案儲存體複製到 Blob 儲存體，以及從 Blob 儲存體複製到檔案儲存體。
+除了非同步複製，使用者也可以指定 `/SyncCopy` 選項，以同步方式從檔案儲存體複製資料到檔案儲存體、從檔案儲存體複製資料到 Blob 儲存體、和從 Blob 儲存體複製資料到檔案儲存體，AzCopy 會將來源資料下載至本機記憶體，並重新上載到目的地，來執行此項作業。
 
 	AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
 
@@ -796,9 +830,9 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 	
 	AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
 
-從檔案儲存體複製到 Blob 儲存體時，預設的 blob 類型是區塊 blob，使用者可以指定 /BlobType:page 選項來變更目的地 blob 類型。
+從檔案儲存體複製到 Blob 儲存體時，預設的 Blob 類型是區塊 Blob，使用者可以指定 `/BlobType:page` 選項來變更目的地 Blob 類型。
 
-請注意，當 AzCopy 4.1.0 預覽版發行時，Azure 儲存體服務尚不支援非同步複製，因此，如果未指定 /SyncCopy 選項，則上述複製作業會失敗。
+請注意，相較於非同步複製，`/SyncCopy` 可能會產生額外的輸出成本，建議的方法是在與來源儲存體帳戶位於同一區域的 Azure VM 中使用這個選項，以避免產生輸出成本。
 
 
 ## 使用 AzCopy 複製 Azure 資料表中的實體 (僅限預覽版本)
@@ -808,6 +842,23 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 ### 將實體匯出至本機檔案系統
 
 	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key
+
+AzCopy 會將資訊清單檔寫入至指定的目的地資料夾或 Blob 容器。匯入程序會使用資訊清單檔來尋找必要的資料檔案，並在匯入程序期間執行資料驗證。資訊清單檔預設會使用下列命令慣例：
+
+	<account name>_<table name>_<timestamp>.manifest
+
+使用者也可以指定 `/Manifest:<manifest file name>` 選項，設定資訊清單檔案名稱。
+
+	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /Manifest:abc.manifest
+
+
+### JSON 和 CSV 資料檔案格式匯出實體
+
+預設的 AzCopy 會將資料表實體匯出到 JSON 檔案，使用者可以指定 `/PayloadFormat:JSON|CSV` 選項，決定匯出的資料檔案類型。
+
+	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PayloadFormat:CSV
+
+在指定 CSV 裝載格式的時候，除了副檔名為 `.csv` 的資料檔案會在 `/Dest` 參數所指定的位置中找到之外，AzCopy 還會針對每個資料檔案產生副檔名為 `.schema.csv` 的配置檔案。請注意 AzCopy 不包含「匯入」CSV 資料檔的支援，您可以使用 JSON 格式來匯出和匯入資料表資料。
 
 ### 將實體匯出至 Azure Blob
 
@@ -848,10 +899,6 @@ AzCopy 會在分割資料檔案名稱中使用*磁碟區索引*，以區分多�
 
 	AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace 
 
-當您匯出資料表實體時，AzCopy 會將資訊清單檔寫入至指定的目的地資料夾或 Blob 容器。匯入程序會使用資訊清單檔來尋找必要的資料檔案，並在匯入程序期間執行資料驗證。資訊清單檔會使用下列命令慣例：
-
-	<account name>_<table name>_<timestamp>.manifest
-
 選項 `/EntityOperation` 指出如何將實體插入資料表。可能的值包括：
 
 - `InsertOrSkip`：略過現有實體，或插入新實體 (若不存在於資料表中)。
@@ -866,27 +913,41 @@ AzCopy 會在分割資料檔案名稱中使用*磁碟區索引*，以區分多�
 #### 在一部電腦上執行一個 AzCopy 執行個體。
 AzCopy 設計為充分利用電腦資源來加速資料傳輸，建議您在一部電腦上只執行一個 AzCopy 執行個體，如果需要更多並行作業，您可以指定 `/NC` 選項。如需詳細資訊，請在命令列上輸入 `AzCopy /?:NC`。
 
-#### 使用 AzCopy 時，請確定 [使用 FIPS 相容演算法於加密，雜湊，以及簽章] 已停用，請注意預設會停用此選項。
-您可以在 `Run` 視窗中輸入 `secpol.msc`，並在 `Security Setting->Local Policy->Security Options->System cryptography: Use FIPS compliant algorithms for encryption, hashing and signing` 中檢查此參數。請注意，在您使用的 Windows 作業系統上，此設定路徑可能不同。
+#### 當您「使用 FIPS 相容演算法於加密、雜湊及簽章」時，請為 AzCopy 啟用 FIPS 相容的 MD5 演算法。
+複製物件時，AzCopy 預設會使用 .NET MD5 實作來計算此 MD5，但仍有一些需要 AzCopy 啟用 FIPS 相容 MD5 設定的安全性需求。
 
+您可以建立具有 `AzureStorageUseV1MD5` 屬性的 app.config 檔案 `AzCopy.exe.config`，並將它放在 AzCopy.exe 旁邊。
+
+	<?xml version="1.0" encoding="utf-8" ?>
+	<configuration>
+	  <appSettings>
+	    <add key="AzureStorageUseV1MD5" value="false"/>
+	  </appSettings>
+	</configuration>
+
+針對屬性 “AzureStorageUseV1MD5” • True - 預設值，AzCopy 將使用 .NET MD5 實作。• False – AzCopy 將使用 FIPS 相容的 MD5 演算法。
+
+請注意 Windows 電腦預設會停用 FIPS 相容演算法，可以在您執行的視窗中輸入 secpol.msc，並在 [安全性設定] -> [本機原則] -> [安全性選項] -> [系統密碼編譯: 使用 FIPS 相容演算法於加密、雜湊及簽章] 檢查此參數。
 
 ## AzCopy 版本
 
 | 版本 | 新功能 |
 |---------|-----------------------------------------------------------------------------------------------------------------|
-| **4.1.0 版** | **目前的預覽版本。包含從 3.1.0 版開始的所有功能。支援以同步方式複製 blob 和檔案，以及指定目的地 blob 和檔案的內容類型**	
-| **3.1.0 版** | **目前版本。支援以同步方式複製 blob，以及指定目的地 blob 的內容類型。**
+| **4.2.0 版** | **目前的預覽版本。包含從 3.2.0 版開始的所有功能。也支援檔案儲存體共用 SAS、檔案儲存體非同步複製、匯出資料表實體至 CSV 和在匯出資料表實體時指定資訊清單的名稱**
+| **3.2.0 版** | **目前版本。支援附加 Blob 與 FIPS 相容的 MD5 設定**
+| 4\.1.0 版 | 包含從 3.1.0 版開始的所有功能。支援以同步方式複製 Blob 和檔案，以及指定目的地 Blob 和檔案的內容類型。
+| 3\.1.0 版 | 支援以同步方式複製 Blob，以及指定目的地 Blob 的內容類型。
 | V4.0.0 | 包含 V3.0.0 中的所有功能。也支援對 Azure 檔案儲存體的出入檔案複製，以及對 Azure 資料表儲存體的出入實體複製。
 | V3.0.0 | 修改 AzCopy 命令列語法以要求參數名稱，並重新設計命令列說明。此版本僅支援對 Azure Blob 儲存體的出入複製。	
 | V2.5.1 | 最佳化使用選項 /xo 和 /xn 時的效能。修正與來源檔案名稱中的特殊字元有關的錯誤，以及在使用者輸入錯誤命令列語法後發生的日誌檔案損毀。	
-| V2.5.0 | 針對大規模複製案例最佳化效能，並介紹數個重要的可用性改良。	
+| V2.5.0 | 針對大規模複製案例最佳化效能，並介紹數個重要的可用性改良。
 | V2.4.1 | 支援在安裝精靈中指定目的地資料夾。                     			
-| V2.4.0 | 支援上傳與下載 Azure 檔案儲存體的檔案。                       				                              
-| V2.3.0 | 支援讀取存取地理區域備援儲存體帳戶。 |
-| V2.2.2 | 已升級並使用 Azure 儲存體用戶端程式庫 3.0.3 版。                                            				                    
-| V2.2.1 | 已修正在相同儲存體帳戶中複製大量檔案時的效能問題。            				                                                
-| V2.2 | 支援設定 Blob 名稱的虛擬目錄分隔符號。支援指定日誌檔案路徑。 |
-| V2.1 | 提供超過 20 個選項，以有效的方式支援 Blob 上傳、下載及複製作業。 |
+| V2.4.0 | 支援上傳與下載 Azure 檔案儲存體的檔案。
+| V2.3.0 | 支援讀取存取地理區域備援儲存體帳戶。|
+| V2.2.2 | 已升級並使用 Azure 儲存體用戶端程式庫 3.0.3 版。
+| V2.2.1 | 已修正在相同儲存體帳戶中複製大量檔案時的效能問題。
+| V2.2 | 支援設定 Blob 名稱的虛擬目錄分隔符號。支援指定日誌檔案路徑。|
+| V2.1 | 提供超過 20 個選項，以有效的方式支援 Blob 上傳、下載及複製作業。|
 
 
 ## 後續步驟
@@ -911,4 +972,4 @@ AzCopy 設計為充分利用電腦資源來加速資料傳輸，建議您在一�
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

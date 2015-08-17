@@ -29,4 +29,4 @@ SQL Database 可讓您在不停機的情況下[相應增加](sql-database-servic
 現在就開始[免費試用](http://azure.microsoft.com/pricing/free-trial/)，然後在短短幾分鐘內[建立您的第一個 SQL Database](sql-database-get-started.md)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

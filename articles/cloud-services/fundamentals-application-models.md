@@ -1,8 +1,6 @@
 <properties 
 	pageTitle="計算 Azure 所提供的裝載選項" 
 	description="了解 Azure 計算裝載選項以及其運作方式：虛擬機器、網站、雲端服務等。" 
-	headerExpose="" 
-	footerExpose="" 
 	services="cloud-services,virtual-machines"
 	authors="Thraka" 
 	documentationCenter=""
@@ -82,4 +80,4 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 * 深入了解[雲端服務](services/cloud-services/)
 * 深入了解[虛擬機器](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

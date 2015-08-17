@@ -224,7 +224,7 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
 
 **新增 Contoso-HBase-US 做為複寫對等**
 
-1. 切換至 [**Contoso-HBase_EU** RDP] 視窗。
+1. 切換至 [**Contoso-HBase\_EU** RDP] 視窗。
 2. 從 [HBase Shell] 視窗，新增目的地叢集 (Contoso-HBase-US) 做為對等，例如：
 
 		add_peer '1', 'zookeeper0.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper1.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper2.contoso-hbase-us.d4.internal.cloudapp.net:2181:/hbase'
@@ -311,4 +311,4 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

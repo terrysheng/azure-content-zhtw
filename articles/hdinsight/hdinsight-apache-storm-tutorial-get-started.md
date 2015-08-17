@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Apache Storm 教學課程：開始使用 Storm | Microsoft Azure"
 	description="在 HDInsight 上使用 Apache Storm 和 Storm Starter 範例，開始分析巨量資料。了解如何使用 Storm 即時處理資料。"
-	keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -192,7 +191,7 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 	如需詳細資訊，請參閱[開始使用 HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)。
 
-* **範例檔案**：HDInsight Storm 叢集在 **%STORM_HOME%\contrib** 目錄中提供數個範例。每個範例應該會包含下列項目：
+* **範例檔案**：HDInsight Storm 叢集在 **%STORM\_HOME%\\contrib** 目錄中提供數個範例。每個範例應該會包含下列項目：
 
 	* 原始程式碼 - 例如，storm-starter-0.9.1.2.1.5.0-2057-sources.jar
 
@@ -204,7 +203,7 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 	> [AZURE.NOTE]Java 文件是由網頁組成。解壓縮之後，請使用瀏覽器來檢視 **index.html** 檔案。
 
-	若要存取這些範例，必須為 Storm on HDInsight 叢集啟用「遠端桌面」，然後從 **%STORM_HOME%\contrib** 複製檔案。
+	若要存取這些範例，必須為 Storm on HDInsight 叢集啟用「遠端桌面」，然後從 **%STORM\_HOME%\\contrib** 複製檔案。
 
 * 以下文件含有可和 Storm on HDInsight 搭配使用的其他範例清單：
 
@@ -217,4 +216,4 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

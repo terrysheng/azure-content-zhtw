@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="04/16/2015"
+	ms.date="08/03/2015"
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
-本教學課程將逐步引導您實作基本媒體服務即時串流應用程式，其中，「**通道**」會從內部部署即時編碼器接收多位元速率即時串流。如需使用通道和相關元件的詳細概觀，請參閱[使用從內部部署編碼器接收多位元速率即時串流的通道](../media-services-channels-overview.md)。
+本教學課程將逐步引導您實作基本媒體服務即時串流應用程式，其中，「**通道**」會從內部部署即時編碼器接收多位元速率即時串流。如需使用通道和相關元件的詳細概觀，請參閱[使用從內部部署編碼器接收多位元速率即時串流的通道](media-services-manage-channels-overview.md)。
 
 在本教學課程中，Azure 管理入口網站用來完成下列工作：
 
@@ -163,7 +163,7 @@
 
 若要將可用來串流處理內容的 URL 提供給使用者，您必須建立定位器 (使用入口網站發佈資產時，即會建立定位器) 先 「發佈」資產 (如前一節所述)。定位器提供對於資產中包含之檔案的存取。
 
-根據您要用來播放內容的串流通訊協定，可能需要修改從「通道\程式」的 [**發佈 URL**] 連結取得的 URL。
+根據您要用來播放內容的串流通訊協定，可能需要修改從「通道\\程式」的 [**發佈 URL**] 連結取得的 URL。
 
 動態封裝會負責將即時串流封裝成指定的通訊協定。
 
@@ -210,4 +210,4 @@
 
 <!-- Images -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

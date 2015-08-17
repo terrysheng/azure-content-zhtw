@@ -161,9 +161,9 @@
 
 	這會傳回類別中所定義的類別。
 
-1. 開啟 App.xaml.cs 檔案，並將 **async** 修飾詞新增至 **Application_Launching** 方法。
+1. 開啟 App.xaml.cs 檔案，並將 **async** 修飾詞新增至 **Application\_Launching** 方法。
 
-2. 在 **Application_Launching** 方法中，找出您在[開始使用通知中心]中新增的通知中心註冊程式碼，並將其取代為下列程式碼行：
+2. 在 **Application\_Launching** 方法中，找出您在[開始使用通知中心]中新增的通知中心註冊程式碼，並將其取代為下列程式碼行：
 
 		await notifications.SubscribeToCategories(notifications.RetrieveCategories());
 
@@ -259,4 +259,4 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

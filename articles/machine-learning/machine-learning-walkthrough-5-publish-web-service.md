@@ -127,4 +127,4 @@ Web 服務產生的結果會顯示在儀表板底部。我們如何設定服務�
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

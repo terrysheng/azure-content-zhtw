@@ -70,7 +70,7 @@
 
 以下是您會在初始的 Git 儲存機制中找到的檔案概觀，我們將在下一節中複製。
 
-    \app__init__.py
+    \app\__init__.py
     \app\forms.py
     \app\models.py
     \app\tests.py
@@ -84,7 +84,7 @@
     \app\templates\layout.html
     \app\templates\login.html
     \app\templates\loginpartial.html
-    \DjangoWebProject__init__.py
+    \DjangoWebProject\__init__.py
     \DjangoWebProject\settings.py
     \DjangoWebProject\urls.py
     \DjangoWebProject\wsgi.py
@@ -423,7 +423,7 @@ Django 具有收集靜態檔案的概念。這會從原始位置取得所有靜�
 
 如果您想要跳過 Django 應用程式的靜態檔案收集：
 
-    .skipDjango
+    \.skipDjango
 
 那麼您必須要在本機電腦，手動執行收集：
 
@@ -515,4 +515,4 @@ Azure 提供了資料庫服務，可從 Django 應用程式輕鬆使用。從 Dj
 [Django 說明文件]: https://www.djangoproject.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

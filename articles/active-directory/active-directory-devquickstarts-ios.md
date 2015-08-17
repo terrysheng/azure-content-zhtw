@@ -48,7 +48,7 @@ iOS 格式的重新導向 URI：
 - 	**aap-scheme** - 這已在您的 XCode 專案中註冊。它是其他應用程式呼叫您的方式。您可以在 Info.plist -> URL types -> URL Identifier 下找到此項目。如果您尚未設定任何一個，建議您建立一個。
 - 	**bundle-id** - 這是在您的 XCode 專案設定中，[identity] 下可找到的 [Bundle Identifier]。
 	
-此 QuickStart 程式碼範例：***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
+此 QuickStart 程式碼的範例為：******msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## *2.註冊 DirectorySearcher 應用程式*
 若要讓您的應用程式取得權杖，您必須先在 Azure AD 租用戶中註冊這個應用程式，並授權它存取 Azure AD Graph API：
@@ -136,7 +136,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 
 ```
 
-- 現在我們需要使用此權杖搜尋圖形中的使用者。尋找 `// TODO: implement SearchUsersList` 註解。這個方法會對 Azure AD Graph API 提出 GET 要求，以查詢 UPN 開頭為指定搜尋詞彙的使用者。但為了能夠查詢 Graph API，要求的 `Authorization` 標頭必須包含 access_token - ADAL 可以提供這方面的協助。
+- 現在我們需要使用此權杖搜尋圖形中的使用者。尋找 `// TODO: implement SearchUsersList` 註解。這個方法會對 Azure AD Graph API 提出 GET 要求，以查詢 UPN 開頭為指定搜尋詞彙的使用者。但為了能夠查詢 Graph API，要求的 `Authorization` 標頭必須包含 access\_token - ADAL 可以提供這方面的協助。
 
 ```ObjC
 +(void) searchUserList:(NSString*)searchString
@@ -225,4 +225,4 @@ ADAL 可讓您輕鬆地將這些常見的身分識別功能全部納入您的應
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

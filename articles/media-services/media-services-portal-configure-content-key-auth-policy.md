@@ -26,14 +26,14 @@
 
 ##概觀
 
-Microsoft Azure 媒體服務可讓您提供您使用進階加密標準 (AES) (使用 128 位元加密金鑰) 和 PlayReady DRM 加密的內容。媒體服務也提供**金鑰\授權傳遞服務**，用戶端可以從該處取得金鑰或授權，以便播放加密的內容。
+Microsoft Azure 媒體服務可讓您提供您使用進階加密標準 (AES) (使用 128 位元加密金鑰) 和 PlayReady DRM 加密的內容。媒體服務也提供**金鑰\\授權傳遞服務**，用戶端可以從該處取得金鑰或授權，以便播放加密的內容。
 
 本主題示範如何使用 **Azure 管理入口網站**設定內容金鑰授權原則。金鑰稍後可以用來動態加密您的內容。請注意，目前您可以加密下列串流格式：HLS、MPEG DASH 和 Smooth Streaming。無法加密 HDS 串流格式，或漸進式下載。
  
 當播放程式要求設定為動態加密的串流時，媒體服務會使用設定的金鑰，以 AES 或 PlayReady 加密來動態加密您的內容。為了將串流解密，播放程式將從金鑰傳遞服務要求金鑰。為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
 
 
-如果您計畫有多個內容金鑰，或想要指定**金鑰\授權傳遞服務** URL，而非媒體服務金鑰傳遞服務，請使用媒體服務 .NET SDK 或 REST API。
+如果您計畫有多個內容金鑰，或想要指定**金鑰\\授權傳遞服務** URL，而非媒體服務金鑰傳遞服務，請使用媒體服務 .NET SDK 或 REST API。
 
 [使用媒體服務 .NET SDK 設定內容金鑰授權原則](media-services-dotnet-configure-content-key-auth-policy.md)
 
@@ -62,7 +62,7 @@ Microsoft Azure 媒體服務可讓您提供您使用進階加密標準 (AES) (�
 
 若要選擇權杖限制原則，請按 [**權杖**] 按鈕。
 
-**權杖**限制原則必須伴隨著**安全權杖服務** (STS) 所發出的權杖。媒體服務支援**簡單 Web 權杖** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) 格式和 **JSON Web 權杖** (JWT) 格式的權杖。如需資訊，請參閱 [JWT 權杖驗證](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)。
+**token** 限制原則必須伴隨著**安全權杖服務** (STS) 所發出的權杖。媒體服務支援**簡單 Web 權杖** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) 格式和 **JSON Web 權杖** (JWT) 格式的權杖。如需資訊，請參閱 [JWT 權杖驗證](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)。
 
 媒體服務不提供**安全權杖服務**。您可以建立自訂 STS，或利用 Microsoft Azure ACS 來發行權杖。STS 必須設定為建立使用指定的索引鍵和問題宣告您在權杖限制組態中指定簽署的權杖。如果權杖有效，且權杖中的宣告符合為內容金鑰設定的宣告，媒體服務金鑰傳遞服務會將加密金鑰傳回給用戶端。如需詳細資訊，請參閱[使用 Azure ACS 發行權杖](http://mingfeiy.com/acs-with-key-services)。
 
@@ -70,7 +70,7 @@ Microsoft Azure 媒體服務可讓您提供您使用進階加密標準 (AES) (�
 
 ###PlayReady
 
-使用 **PlayReady** 保護內容時，您需要在驗證原則中指定的其中一件事是定義 PlayReady 授權範本的 XML 字串。依預設，會設定下列原則：
+使用 PlayReady 保護內容時，您需要在驗證原則中指定的其中一件事是定義 **PlayReady 授權範本**的 XML 字串。依預設，會設定下列原則：
 		
 	<PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
 	  <LicenseTemplates>
@@ -95,4 +95,4 @@ Microsoft Azure 媒體服務可讓您提供您使用進階加密標準 (AES) (�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

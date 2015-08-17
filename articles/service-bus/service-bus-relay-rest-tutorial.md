@@ -9,7 +9,7 @@
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
    ms.date="07/07/2015"
@@ -298,7 +298,7 @@ namespace Microsoft.ServiceBus.Samples
   
 	這個步驟會設定服務，其使用先前定義的預設 **webHttpRelayBinding**。它也會使用預設 **sbTokenProvider**，定義在下一個步驟。
 
-6. 在 `<services>` 元素後，建立具有下列內容的 `<behaviors>` 元素，以步驟 1 中的 Azure 管理入口網站所取得的*共用存取簽章* (SAS) 金鑰來取代 "SAS_KEY"。
+6. 在 `<services>` 元素後，建立具有下列內容的 `<behaviors>` 元素，以步驟 1 中的 Azure 管理入口網站所取得的*共用存取簽章* (SAS) 金鑰來取代 "SAS\_KEY"。
   
 	```xml
 	<behaviors>
@@ -568,7 +568,7 @@ namespace Microsoft.ServiceBus.Samples
 
 建置解決方案後，請執行下列命令以執行應用程式：
 
-1. 從命令提示字元中執行服務 (ImageListener\bin\Debug\ImageListener.exe)。
+1. 從命令提示字元中執行服務 (ImageListener\\bin\\Debug\\ImageListener.exe)。
 
 2. 將位址從命令提示字元複製並貼到瀏覽器以查看映像。
 
@@ -580,4 +580,4 @@ namespace Microsoft.ServiceBus.Samples
 
 - [如何使用服務匯流排轉送服務](service-bus-dotnet-how-to-use-relay.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

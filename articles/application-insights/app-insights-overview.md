@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # 什麼是 Application Insights？
@@ -103,6 +103,11 @@ SDK 有數個模組收集遙測，例如，計算使用者、工作階段和效�
 
 如需詳細資訊，請在此頁面左側導覽列中的 [開始使用] 下選擇您的應用程式類型。
 
+## 範例
+
+
+[範例和逐步解說](app-insights-code-samples.md)
+
 
 ## 支援與意見反應
 
@@ -145,4 +150,4 @@ SDK 有數個模組收集遙測，例如，計算使用者、工作階段和效�
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

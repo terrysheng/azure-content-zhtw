@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB 限制與配額 | Azure" 
+	pageTitle="DocumentDB 限制與配額 | Microsoft Azure" 
 	description="了解 DocumentDB 強制執行的限制和配額。" 
 	services="documentdb" 
 	authors="mimig1" 
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

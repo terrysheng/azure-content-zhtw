@@ -311,7 +311,7 @@ $NicName 字串必須是資源群組中獨特的字串。最佳作法是將虛�
 
 如果您讓命令位於文字編輯器中，請將命令集複製到剪貼簿，然後以滑鼠右鍵按一下 [開啟 Azure PowerShell 提示字元]。這將發出命令集作為一系列的 PowerShell 命令，並建立 Azure 虛擬機器。或者，從 Azure PowerShell ISE 執行命令集。
 
-如果您將再次建立這個虛擬機器或類似的虛擬機器，您可以將這個命令集儲存為 PowerShell 指令碼檔案 (\*.ps1)。
+如果您將再次建立這個虛擬機器或類似的虛擬機器，您可以將這個命令集儲存為 PowerShell 指令碼檔案 (*.ps1)。
 
 ## 範例
 
@@ -387,4 +387,4 @@ $NicName 字串必須是資源群組中獨特的字串。最佳作法是將虛�
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

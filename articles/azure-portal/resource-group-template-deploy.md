@@ -257,4 +257,4 @@ Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
 
 # 建立 PHP-SQL Web 應用程式並使用 Git 部署至 Azure App Service
@@ -49,7 +49,7 @@
 
 5. 讀取 Web 應用程式 + SQL 應用程式的描述之後，選取 [建立]。
 
-6. 按一下每個部分 (**資源群組**、[Web 應用程式]、[資料庫] 以及 [訂閱])，然後輸入或選取必填欄位的值：
+6. 按一下每個部分 ([**資源群組**]、[**Web 應用程式**]、[**資料庫**] 以及 [**訂用帳戶**])，然後輸入或選取必填欄位的值：
 	
 	- 輸入您選擇的 URL 名稱	
 	- 設定資料庫伺服器認證
@@ -132,7 +132,7 @@
 
 	請注意，您需要將 <code>$user</code> 和 <code>$pwd</code> 的值，更新為您的本機 SQL Server 使用者名稱和密碼。
 
-4. 開啟網頁瀏覽器，並瀏覽到 **http://localhost/registration/createtable.php**。這會在資料庫中建立 `registration_tbl` 資料表。
+4. 開啟網頁瀏覽器並瀏覽至 ****http://localhost/registration/createtable.php**。這會在資料庫中建立 `registration_tbl` 資料表。
 
 5. 在文字編輯器或 IDE 中開啟 **index.php** 檔案，加入頁面的基本 HTML 和 CSS 程式碼 (稍後的步驟中將加入 PHP 程式碼)。
 
@@ -228,7 +228,7 @@
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-您現在可以瀏覽至 **http://localhost/registration/index.php** 測試應用程式。
+您現在可以瀏覽至 ****http://localhost/registration/index.php** 測試應用程式。
 
 ##發行您的應用程式
 
@@ -292,4 +292,4 @@
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

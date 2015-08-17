@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="06/22/2015"
 	ms.author="rickbyh"/>
 
@@ -62,11 +62,11 @@
 1. 透過管理入口網站或 SQL Server Management Studio 來啟動查詢視窗。
 2. 確認您已連接到 master 資料庫。
 3. 可從查詢視窗中建立、更新或刪除伺服器層級防火牆規則。
-4. 若要建立或更新伺服器層級防火牆規則，請執行 sp_set_firewall 規則預存程序。下列範例會在伺服器 Contoso 上啟用某個範圍的 IP 位址。
+4. 若要建立或更新伺服器層級防火牆規則，請執行 sp\_set\_firewall 規則預存程序。下列範例會在伺服器 Contoso 上啟用某個範圍的 IP 位址。
 
 		EXEC sp_set_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 
-	若要刪除伺服器層級防火牆規則，請執行 sp_delete_firewall_rule 預存程序。下列範例會刪除名為 ContosoFirewallRule 的規則。
+	若要刪除伺服器層級防火牆規則，請執行 sp\_delete\_firewall\_rule 預存程序。下列範例會刪除名為 ContosoFirewallRule 的規則。
  
 		EXEC sp_delete_firewall_rule @name = N'ContosoFirewallRule'
  
@@ -112,11 +112,11 @@
 1. 建立您的 IP 位址的伺服器層級防火牆之後，請透過管理入口網站或 SQL Server Management Studio 啟動查詢視窗。
 2. 連接到要建立資料庫層級防火牆規則的資料庫。
 
-	若要建立新的或更新現有的資料庫層級防火牆規則，請執行 sp_set_database_firewall_rule 預存程序。下列範例會建立名為 ContosoFirewallRule 的新防火牆規則。
+	若要建立新的或更新現有的資料庫層級防火牆規則，請執行 sp\_set\_database\_firewall\_rule 預存程序。下列範例會建立名為 ContosoFirewallRule 的新防火牆規則。
  
 		EXEC sp_set_database_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.11', @end_ip_address = '192.168.1.11'
  
-	若要刪除現有的資料庫層級防火牆規則，請執行 sp_delete_database_firewall_rule 預存程序。下列範例會刪除名為 ContosoFirewallRule 的規則。
+	若要刪除現有的資料庫層級防火牆規則，請執行 sp\_delete\_database\_firewall\_rule 預存程序。下列範例會刪除名為 ContosoFirewallRule 的規則。
  
 		EXEC sp_delete_database_firewall_rule @name = N'ContosoFirewallRule'
 
@@ -144,4 +144,4 @@
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

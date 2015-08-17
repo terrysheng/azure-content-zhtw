@@ -73,4 +73,4 @@
 [Azure 行動服務]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

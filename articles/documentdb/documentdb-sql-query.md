@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 DocumentDB SQL 進行查詢 | Azure" 
+	pageTitle="使用 DocumentDB SQL 進行查詢 | Microsoft Azure" 
 	description="DocumentDB (一種 NoSQL 文件資料庫服務) 支援透過階層式 JSON 文件使用類似 SQL 文法來進行查詢，而不需要明確的結構描述或建立次要索引。" 
 	services="documentdb" 
 	documentationCenter="" 
@@ -279,7 +279,7 @@ WHERE 子句 (**`WHERE <filter_condition>`**) 為選用的。它會指定條件�
 
 前一個範例已顯示簡單的相等查詢。DocumentDB SQL 也支援各種純量運算式。最常用的是二元和一元運算式。來源 JSON 物件中的屬性參考也是有效的運算式。
 
-下列是目前支援的二元運算式，而且可以用於查詢中 (如下列範例所示)：<table><tr><td>算術</td><td>+、-、*、/、%</td></tr><tr><td>位元</td><td>|、&、^、<<、>>、>>> (右移位並填滿零)</td></tr><tr><td>邏輯</td><td>AND、OR</td></tr><tr><td>比較</td><td>=、!=、>、>=、<、<=、<></td></tr><tr><td>字串</td><td>|| (串連)</td></tr></table>
+下列是目前支援的二元運算式，而且可以用於查詢中 (如下列範例所示)：<table> <tr> <td>算術</td> <td>+、-、*、/、%</td> </tr> <tr> <td>位元</td> <td>|、&、^、<<、>>、>>> (右移位並填滿零)</td> </tr> <tr> <td>邏輯</td> <td>AND、OR</td> </tr> <tr> <td>比較</td> <td>=、!=、>、>=、<、<=、<></td> </tr> <tr> <td>字串</td> <td>|| (串連)</td> </tr> </table>
 
 讓我們了解一些使用二元運算子的查詢。
 
@@ -296,7 +296,7 @@ WHERE 子句 (**`WHERE <filter_condition>`**) 為選用的。它會指定條件�
 	WHERE c.grade >= 5     -- matching grades == 5
 
 
-一元運算子 +、-、~ 及 NOT 也是支援的運算子，可在查詢內使用 (如下列範例所示)：
+一元運算子 +、-、\~ 及 NOT 也是支援的運算子，可在查詢內使用 (如下列範例所示)：
 
 	SELECT *
 	FROM Families.children[0] c
@@ -1032,7 +1032,7 @@ DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範�
 	FROM Families f
 	JOIN f.children
  
-**結果**
+**l結果**
 
 	[
 	  {
@@ -1185,7 +1185,7 @@ DocumentDB SQL 文法已延伸，可支援使用這些使用者定義函數的�
 
 我們現在可以在投射的查詢中使用此 UDF。從查詢中呼叫 UDF 時，必須以區分大小寫的前置詞 "udf." 限定。
 
->[AZURE.NOTE]在 2015 年 3 月 17 日以前，DocumentDB 支援無需 "udf." 前置詞 的 UDF，像是 SELECT REGEX_MATCH()。這種呼叫模式已被取代。
+>[AZURE.NOTE]在 2015 年 3 月 17 日以前，DocumentDB 支援無需 "udf." 前置詞 的 UDF，像是 SELECT REGEX\_MATCH()。這種呼叫模式已被取代。
 
 **查詢**
 
@@ -1651,7 +1651,7 @@ DocumentDB 也支援一般作業的數個內建函數，這些函數可用於查
       "id": "WakefieldFamily"
     }]
 
-以下是另一個例子，會使用 ARRAY_LENGTH 取得每個家族的子女數目。
+以下是另一個例子，會使用 ARRAY\_LENGTH 取得每個家族的子女數目。
 
 **查詢**
 
@@ -2056,9 +2056,9 @@ DocumentDB 提供透過 HTTP 的開放 RESTful 程式設計模型。可以使用
 	         },
 	         "_rid":"u1NXANcKogEcAAAAAAAAAA==",
 	         "_ts":1407691744,
-	         "_self":"dbs/u1NXAA==/colls/u1NXANcKogE=/docs/u1NXANcKogEcAAAAAAAAAA==/",
+	         "_self":"dbs\/u1NXAA==\/colls\/u1NXANcKogE=\/docs\/u1NXANcKogEcAAAAAAAAAA==\/",
 	         "_etag":"00002b00-0000-0000-0000-53e7abe00000",
-	         "_attachments":"_attachments/"
+	         "_attachments":"_attachments\/"
 	      }
 	   ],
 	   "count":1
@@ -2261,7 +2261,7 @@ DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序
 2.	[DocumentDB SQL 規格](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3.	[DocumentDB .NET 範例](https://github.com/Azure/azure-documentdb-net)
 4.	[DocumentDB 一致性層級][consistency-levels]
-5.	ANSI SQL 2011 - [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+5.	ANSI SQL 2011 - [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)
 7.	Javascript 規格 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
@@ -2277,4 +2277,4 @@ DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

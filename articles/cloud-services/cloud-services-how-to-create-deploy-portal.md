@@ -102,10 +102,10 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：[**快�
 
 2. 在 [**基本功能**] 下，按一下 [**網站 URL**]，在網頁瀏覽器中開啟您的雲端服務。
 
-    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
+    ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -85,7 +85,7 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 	1. 建立新的虛擬機器。在 [Hyper-V 管理員] 或 [用戶端 Hyper-V] 中使用 [新增虛擬機器精靈]。
 		1. 在 [Specify Generation] 頁面上，選擇 [Generation 1]。
 		2. 在 [連接虛擬硬碟] 頁面上選取 [使用現有的虛擬硬碟]，然後瀏覽至您在上一個步驟中建立的 VHD。
-		2. 在 [安裝選項] 頁面上，選取 [從開機 CD/DVD_ROM 安裝作業系統]，然後選取您的 Windows Server 2012 R2 安裝媒體的位置。
+		2. 在 [安裝選項] 頁面上，選取 [從開機 CD/DVD\_ROM 安裝作業系統]，然後選取您的 Windows Server 2012 R2 安裝媒體的位置。
 		3. 在精靈中選擇其他安裝 Windows 和應用程式所需的選項。完成精靈。
 	2.  精靈完成後，請編輯虛擬機器設定並進行安裝 Windows 和程式所需的任何其他變更 (例如虛擬處理器數目)，然後按一下 [確定]。
 	4.  連接到虛擬機器，並安裝 Windows Server 2012 R2。
@@ -120,11 +120,11 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 	或者，您可以在登錄中設定或新增下列 DWORD 值：
 
 		HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
-9.	如果您是在 Azure 虛擬機器內建立映像，請重新命名 **\%windir%\Panther\Unattend.xml** 檔案，以免上傳指令碼稍後無法正常運作。將此檔案名稱變更為 Unattend.old，以便當您需要回復部署時，仍舊保有這個檔案可用。
+9.	如果您是在 Azure 虛擬機器內建立映像，請重新命名 **\\%windir%\\Panther\\Unattend.xml** 檔案，以免上傳指令碼稍後無法正常運作。將此檔案名稱變更為 Unattend.old，以便當您需要回復部署時，仍舊保有這個檔案可用。
 10.	前往 Windows Update 並安裝所有重要的更新。您可能必須執行 Windows Update 很多次才能取得所有更新。(有時候您安裝更新，而該更新本身又需要另外的更新。)
 10.	進行映像的 SYSPREP 處理。在提高權限的命令提示字元上執行下列命令：
 
-	**C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**
+	**C:\\Windows\\System32\\sysprep\\sysprep.exe /generalize /oobe /shutdown**
 
 	**注意：**請不要使用 SYSPREP 命令的 **/mode:vm** 參數，即使這是虛擬機器亦然。
 
@@ -137,4 +137,4 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 - [如何建立 RemoteApp 的雲端收藏](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

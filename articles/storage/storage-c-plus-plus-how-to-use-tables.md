@@ -61,18 +61,18 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 下列範例假設您已經使用這兩個方法之一來取得儲存體連接字串。
 
 ## 擷取連接字串  
-您可以使用 **cloud_storage_account** 類別來代表儲存體帳戶資訊。若要從儲存體連接字串擷取儲存體帳戶資訊，您可以使用 parse 方法。
+您可以使用 **cloud\_storage\_account** 類別來代表儲存體帳戶資訊。若要從儲存體連接字串擷取儲存體帳戶資訊，您可以使用 parse 方法。
 
 	// Retrieve the storage account from the connection string. 
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-接著，取得 **cloud_table_client** 類別的參考，印為這可讓您取得資料表儲存體服務內儲存的資料表和實體的參考物件。下列程式碼會使用我們在前面擷取的儲存體帳戶物件，建立 **cloud_table_client** 物件：
+接著，取得 **cloud\_table\_client** 類別的參考，印為這可讓您取得資料表儲存體服務內儲存的資料表和實體的參考物件。下列程式碼會使用我們在前面擷取的儲存體帳戶物件，建立 **cloud\_table\_client** 物件：
 
 	// Create the table client.
 	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
 ## 作法：建立資料表
-**cloud_table_client** 物件可讓您取得資料表和實體的參考物件。下列程式碼會建立 **cloud_table_client** 物件，並使用該物件建立新資料表。
+**cloud\_table\_client** 物件可讓您取得資料表和實體的參考物件。下列程式碼會建立 **cloud\_table\_client** 物件，並使用該物件建立新資料表。
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);  
@@ -87,9 +87,9 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 	table.create_if_not_exists();  
 
 ## 作法：將實體新增至資料表
-若要將實體新增至資料表，請建立一個新的 **table_entity** 物件，然後將該物件傳遞至 **table_operation::insert_entity**。下列程式碼會使用客戶名字做為資料列索引鍵，並使用姓氏做為資料分割索引鍵。實體的資料分割索引鍵和資料列索引鍵共同唯一識別資料表中的實體。相較於查詢具有不同資料分割索引鍵的實體，查詢具有相同資料分割索引鍵的實體速度會較快，但使用不同的資料分割索引鍵可獲得更大的平行操作延展性。如需詳細資訊，請參閱 [Microsoft Azure 儲存體效能與延展性檢查清單](storage-performance-checklist.md/)。
+若要將實體新增至資料表，請建立一個新的 **table\_entity** 物件，然後將該物件傳遞至 **table\_operation::insert\_entity**。下列程式碼會使用客戶名字做為資料列索引鍵，並使用姓氏做為資料分割索引鍵。實體的資料分割索引鍵和資料列索引鍵共同唯一識別資料表中的實體。相較於查詢具有不同資料分割索引鍵的實體，查詢具有相同資料分割索引鍵的實體速度會較快，但使用不同的資料分割索引鍵可獲得更大的平行操作延展性。如需詳細資訊，請參閱 [Microsoft Azure 儲存體效能與延展性檢查清單](storage-performance-checklist.md/)。
 
-下列程式碼會建立 **table_entity** 的新執行個體，其中含有一些要儲存的客戶資料。程式碼接著會呼叫 **table_operation::insert_entity** 來建立 **table_operation** 物件，以便將實體插入資料表中，並將新的資料表與該物件建立關聯。最後，程式碼會針對 **cloud_table** 物件呼叫 execute 方法。此外，新的 **table_operation** 會傳送一個要求到儲存體服務，以便將新的客戶實體插入到 "people" 資料表。
+下列程式碼會建立 **table\_entity** 的新執行個體，其中含有一些要儲存的客戶資料。程式碼接著會呼叫 **table\_operation::insert\_entity** 來建立 **table\_operation** 物件，以便將實體插入資料表中，並將新的資料表與該物件建立關聯。最後，程式碼會針對 **cloud\_table** 物件呼叫 execute 方法。此外，新的 **table\_operation** 會傳送一個要求到儲存體服務，以便將新的客戶實體插入到 "people" 資料表。
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -119,7 +119,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 	azure::storage::table_result insert_result = table.execute(insert_operation);
 
 ## 作法：插入實體批次
-您可以在單一寫入操作中，插入實體批次至資料表服務。下列程式碼會建立一個 **table_batch_operation** 物件，然後在其中新增三個插入操作。加入每個插入操作的方式都是建立新的實體物件、設定其值，然後針對 **table_batch_operation** 物件呼叫 insert 方法，以便將實體與新的插入操作建立關聯。接著會呼叫 **cloud_table.execute** 來執行操作。
+您可以在單一寫入操作中，插入實體批次至資料表服務。下列程式碼會建立一個 **table\_batch\_operation** 物件，然後在其中新增三個插入操作。加入每個插入操作的方式都是建立新的實體物件、設定其值，然後針對 **table\_batch\_operation** 物件呼叫 insert 方法，以便將實體與新的插入操作建立關聯。接著會呼叫 **cloud\_table.execute** 來執行操作。
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -173,7 +173,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 -	一個批次操作的資料裝載限制為 4MB。  
 
 ## 作法：擷取資料分割中的所有實體
-若要向資料表查詢資料分割中的所有實體，請使用 **table_query** 物件。下列程式碼範例會指定篩選器來篩選出資料分割索引鍵為 'Smith' 的實體。此範例會將查詢結果中每個實體的欄位列印至主控台。
+若要向資料表查詢資料分割中的所有實體，請使用 **table\_query** 物件。下列程式碼範例會指定篩選器來篩選出資料分割索引鍵為 'Smith' 的實體。此範例會將查詢結果中每個實體的欄位列印至主控台。
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -241,7 +241,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 	}  
 
 ## 作法：擷取單一實體
-您可以撰寫查詢來擷取單一特定實體。下列程式碼使用 **table_operation::retrive_entity** 指定客戶 'Jeff Smith'。此方法只會傳回一個實體而非一個集合，且傳回的值位於 **table_result** 中。若要從資料表服務中擷取單一實體，最快的方法是在查詢中同時指定資料分割索引鍵和資料列索引鍵。
+您可以撰寫查詢來擷取單一特定實體。下列程式碼使用 **table\_operation::retrive\_entity** 指定客戶 'Jeff Smith'。此方法只會傳回一個實體而非一個集合，且傳回的值位於 **table\_result** 中。若要從資料表服務中擷取單一實體，最快的方法是在查詢中同時指定資料分割索引鍵和資料列索引鍵。
 
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
@@ -264,7 +264,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 		<< U(", Property2: ") << properties.at(U("Phone")).string_value() << std::endl;
 
 ## 作法：取代實體
-若要更新實體，請從資料表服務擷取該實體、修改實體物件，然後將變更儲存回資料表服務。下列程式碼會變更現有客戶的電話號碼和電子郵件地址。此程式碼會使用 **table_operation:: replace_entity**，而不是呼叫 **table_operation:: insert_entity**。如此會完全取代伺服器上的實體，但如果伺服器上的實體自擷取後產生變化，操作就會失敗。如此會造成失敗，是為了防止應用程式意外覆寫該應用程式的其他元件在擷取後到更新前的這段期間所做的變更。正確處理此失敗的方式為重新擷取實體、進行變更 (如果仍然有效)，然後再執行一次 **table_operation::replace_entity** 操作。下一節將示範如何覆寫此行為。
+若要更新實體，請從資料表服務擷取該實體、修改實體物件，然後將變更儲存回資料表服務。下列程式碼會變更現有客戶的電話號碼和電子郵件地址。此程式碼會使用 **table\_operation:: replace\_entity**，而不是呼叫 **table\_operation:: insert\_entity**。如此會完全取代伺服器上的實體，但如果伺服器上的實體自擷取後產生變化，操作就會失敗。如此會造成失敗，是為了防止應用程式意外覆寫該應用程式的其他元件在擷取後到更新前的這段期間所做的變更。正確處理此失敗的方式為重新擷取實體、進行變更 (如果仍然有效)，然後再執行一次 **table\_operation::replace\_entity** 操作。下一節將示範如何覆寫此行為。
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -293,7 +293,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 	azure::storage::table_result replace_result = table.execute(replace_operation);
 
 ## 作法：插入或取代實體
-如果從伺服器擷取的實體自擷取後發生變化，**table_operation::replace_entity** 操作將失敗。此外，您必須先從伺服器擷取實體，**table_operation::replace_entity** 才會成功。但有時候，您可能不知道實體是否存在伺服器上，而實體中目前儲存的值並不重要，此時您的更新就應該加以完全覆寫。若要達成此目的，您要使用 **table_operation::insert_or_replace_entity** 操作。此操作會插入實體 (如果其目前並不存在) 或取代實體 (如果其已存在)，不論上次是何時更新。在下列程式碼範例中，仍會擷取 Jeff Smith 的客戶實體，但接著會使用 **table_operation::insert_or_replace_entity** 將它儲存回伺服器。在擷取後到更新前的這段期間對實體所做的任何更新，都會遭到覆寫。
+如果從伺服器擷取的實體自擷取後發生變化，**table\_operation::replace\_entity** 操作將失敗。此外，您必須先從伺服器擷取實體，**table\_operation::replace\_entity** 才會成功。但有時候，您可能不知道實體是否存在伺服器上，而實體中目前儲存的值並不重要，此時您的更新就應該加以完全覆寫。若要達成此目的，您要使用 **table\_operation::insert\_or\_replace\_entity** 操作。此操作會插入實體 (如果其目前並不存在) 或取代實體 (如果其已存在)，不論上次是何時更新。在下列程式碼範例中，仍會擷取 Jeff Smith 的客戶實體，但接著會使用 **table\_operation::insert\_or\_replace\_entity** 將它儲存回伺服器。在擷取後到更新前的這段期間對實體所做的任何更新，都會遭到覆寫。
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -323,7 +323,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 	azure::storage::table_result insert_or_replace_result = table.execute(insert_or_replace_operation);
  
 ## 作法：查詢實體屬性的子集  
-一項資料表查詢可以只擷取實體的少數屬性。下列程式碼中的查詢會使用 **table_query::set_select_columns** 方法，只傳回資料表中實體的電子郵件地址。
+一項資料表查詢可以只擷取實體的少數屬性。下列程式碼中的查詢會使用 **table\_query::set\_select\_columns** 方法，只傳回資料表中實體的電子郵件地址。
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -362,7 +362,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 **附註：**從實體查詢一些屬性比擷取所有屬性更有效率。
 
 ## 作法：刪除實體
-擷取實體之後，可以輕鬆地將它刪除。擷取實體之後，請以要刪除的實體呼叫 **table_operation::delete_entity**。接著，針對 **cloud_table.execute** 方法呼叫 execute。下列程式碼會擷取並刪除資料分割索引鍵為 "Smith" 且資料列索引鍵為 "Jeff" 的實體。
+擷取實體之後，可以輕鬆地將它刪除。擷取實體之後，請以要刪除的實體呼叫 **table\_operation::delete\_entity**。接著，針對 **cloud\_table.execute** 方法呼叫 execute。下列程式碼會擷取並刪除資料分割索引鍵為 "Smith" 且資料列索引鍵為 "Jeff" 的實體。
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -416,4 +416,4 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 -	[Azure 儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="07/06/2015"
+	ms.date="08/04/2015"
 	ms.author="tamram"/>
 
 
@@ -25,7 +25,7 @@
 
 本指南將示範如何使用 Azure Blob 儲存體服務執行一般案例。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。
 
-> [AZURE.NOTE]本指南以 Azure .NET Storage Client Library 2.x 和更新版本為對象。建議的版本是儲存體用戶端程式庫 4.x，可透過 [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) 或從 [Azure SDK for .NET](/downloads/) 中取得。請參閱[以程式設計方式存取 Blob 儲存體](#programmatically-access-blob-storage)，以詳細了解如何取得儲存體用戶端程式庫。
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -84,7 +84,9 @@
 
 Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，建議使用區塊 Blob 的類型。
 
-若要將檔案上傳至區塊 Blob，請取得容器參照，並使用該參照來取得區塊 Blob 參照。擁有 Blob 參照後，即可藉由呼叫 **UploadFromStream** 方法，將任何資料流上傳至其中。此操作會建立 Blob (如果其並不存在) 或覆寫 Blob (如果其已存在)。下列範例顯示如何將 Blob 上傳到容器，並假設已建立該容器。
+若要將檔案上傳至區塊 Blob，請取得容器參照，並使用該參照來取得區塊 Blob 參照。擁有 Blob 參照後，即可藉由呼叫 **UploadFromStream** 方法，將任何資料流上傳至其中。此操作會建立 Blob (如果其並不存在) 或覆寫 Blob (如果其已存在)。
+
+下列範例顯示如何將 Blob 上傳到容器，並假設已建立該容器。
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -287,6 +289,53 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
         while (continuationToken != null);
     }
 
+## 寫入附加 Blob
+
+附加 Blob 是一種全新的 Blob 類型，並在 Azure Storage Client Library for .NET 5.x 版中推出。附加 Blob 已針對附加作業 (例如紀錄) 最佳化。如同區塊 Blob，附加 Blob 亦由區塊組成，但當您將新區塊加入附加 Blob 時，它一律會附加到 Blob 結尾。您無法更新或刪除附加 Blob 中的現有區塊。附加 Blob 的區塊識別碼不會公開顯示，因為該識別碼適用於區塊 Blob。
+ 
+附加 Blob 中的每個區塊大小都不同，最大為 4 MB，而附加 Blob 可包含高達 50,000 個區塊。因此，附加 Blob 的大小上限稍高於 195 GB (4 MB X 50,000 個區塊)。
+
+下列範例中建立了新的附加 Blob，並附加一些資料，以模擬簡單的記錄作業。
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create service client for credentialed access to the Blob service.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+    //Get a reference to a container.
+    CloudBlobContainer container = blobClient.GetContainerReference("my-append-blobs");
+
+    //Create the container if it does not already exist. 
+    container.CreateIfNotExists();
+
+    //Get a reference to an append blob.
+    CloudAppendBlob appendBlob = container.GetAppendBlobReference("append-blob.log");
+
+    //Create the append blob. Note that if the blob already exists, the CreateOrReplace() method will overwrite it.
+    //You can check whether the blob exists to avoid overwriting it by using CloudAppendBlob.Exists().
+    appendBlob.CreateOrReplace();
+
+    int numBlocks = 10;
+
+    //Generate an array of random bytes.
+    Random rnd = new Random();
+    byte[] bytes = new byte[numBlocks];
+    rnd.NextBytes(bytes);
+        
+    //Simulate a logging operation by writing text data and byte data to the end of the append blob.
+    for (int i = 0; i < numBlocks; i++)
+    {
+        appendBlob.AppendText(String.Format("Timestamp: {0} \tLog Entry: {1}{2}",
+            DateTime.Now.ToUniversalTime().ToString(), bytes[i], Environment.NewLine));
+    }
+
+    //Read the append blob to the console window.
+    Console.WriteLine(appendBlob.DownloadText());
+
+如需了解有關 Blob 的三種類型間差異的資訊，請參閱[了解區塊 Blob、分頁 Blob 和附加 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx)。
+
 ## 後續步驟
 
 了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解有關更複雜的儲存工作。<ul> <li>檢視 Blob 服務參照文件以了解與可用 API 有關的完整詳細資料：<ul> <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">.NET 的儲存體用戶端程式庫參考資料</a> </li> <li><a href="http://msdn.microsoft.com/library/azure/dd179355">REST API 參考資料</a></li> </ul> </li> <li>了解您可以使用 Azure 儲存體執行的更多進階工作 (位於<a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">在 Azure 中儲存及存取資料</a>)。</li> <li>了解如何使用 <a href="../websites-dotnet-webjobs-sdk/">Azure WebJobs SDK 簡化您要用來使用 Azure 儲存體之程式碼的撰寫程序。</li> <li>如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。<ul> <li>使用<a href="/documentation/articles/storage-dotnet-how-to-use-tables/">資料表儲存體</a>儲存結構化資料。</li> <li>使用<a href="/documentation/articles/storage-dotnet-how-to-use-queues/">佇列儲存體</a>儲存非結構化資料。</li> <li>使用 <a href="/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> 儲存關聯式資料。</li> </ul> </li> </ul>
@@ -297,11 +346,11 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
   [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
 
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+  [Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

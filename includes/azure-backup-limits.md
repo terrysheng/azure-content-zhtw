@@ -1,3 +1,4 @@
+
 下列限制適用於 Azure 備份。
 
 | 限制識別碼 | 預設限制 |
@@ -12,4 +13,4 @@
 - <sup>1</sup>1.65 TB 限制並不適用於 IaaS VM 備份。
 - <sup>2</sup>您可以使用數目小於 366 的任何排列。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

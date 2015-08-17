@@ -204,4 +204,4 @@ Azure 資源管理員需要 Azure Active Directory 服務做為其身分識別�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 DocumentDB 建置具有 ASP.NET MVC 的 Web 應用程式 | Azure" 
+	pageTitle="使用 DocumentDB 建置具有 ASP.NET MVC 的 Web 應用程式 | Microsoft Azure" 
 	description="了解如何使用 DocumentDB with .NET 建立待辦事項清單 Web 應用程式。您將從 Azure 網站託管的 ASP.NET MVC Web 應用程式中儲存和存取資料。" 
 	services="documentdb" 
 	documentationCenter=".net" 
@@ -447,7 +447,7 @@
 
 如果您未在 URL 中指定控制路由行為的值，這會讓 ASP.NET MVC 知道改用 **Item** (**Home**) 作為控制器，並使用使用者**索引**作為檢視。
 
-如果您執行應用程式，它現在會呼叫至您的 **ItemController**，進而呼叫至儲存機制類別，並使用 GetItems 方法將所有未完成的項目傳回 **Views**\\\*\*Item\*\*\\\*\*Index\*\* 檢視。
+如果您執行應用程式，它現在會呼叫至您的 **ItemController**，進而呼叫至儲存機制類別，並使用 GetItems 方法將所有未完成的項目傳回 **Views**\**Item**\**Index** 檢視。
 
 如果建置並立即執行此專案，您現在應該會看到如下的內容。
 
@@ -647,10 +647,10 @@
 	
 
 
-7. 您現在可以[在本機執行您的應用程式](#_Toc395637773)，然後[將它部署到 Azure 網站](#_Toc395637774)。
+7. 您現在可以 [在本機執行您的應用程式](#_Toc395637773)，然後 [將它部署到 Azure 網站](#_Toc395637774)。
 
 
-[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
+[*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
@@ -658,4 +658,4 @@
 [ASP.NET MVC 中的基本 CRUD 作業]: http://go.microsoft.com/fwlink/?LinkId=317598
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

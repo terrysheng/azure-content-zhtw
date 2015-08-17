@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/18/2015"
+   ms.date="07/24/2015"
    ms.author="elfish; v-romcal; v-stste"/>
 
 # 使用 Azure PowerShell 中的還原時間點來還原 Azure SQL Database
@@ -42,7 +42,7 @@
 	* **ServerName**：資料庫所在之伺服器的名稱。
 	* **DatabaseName**：您要還原之資料庫的名稱。	
 
-	`PS C:>$Database = Get-AzureSqlDatabase -ServerName "myserver" –DatabaseName “mydb”`
+	`PS C:\>$Database = Get-AzureSqlDatabase -ServerName "myserver" –DatabaseName “mydb”`
 
 2. 使用 [Start-AzureSqlDatabaseRestore](http://msdn.microsoft.com/library/azure/dn720218.aspx) Cmdlet 來開始還原。指定以下參數：
 	* **SourceDatabase**：您想要還原的來源資料庫。
@@ -51,14 +51,14 @@
 
 	將傳回的內容儲存至稱為 **$RestoreRequest** 的變數中。此變數包含用來監視還原狀態的還原要求識別碼。
 
-	`PS C:>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “myrestoredDB” –PointInTime “2015-01-01 06:00:00”`
+	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “myrestoredDB” –PointInTime “2015-01-01 06:00:00”`
 
 還原可能需要一些時間來完成。若要監視還原狀態，請使用 [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) Cmdlet 並指定以下參數：
 
 * **ServerName**：您還原資料庫後之目標伺服器的名稱。
 * **OperationGuid**：於步驟 2 中儲存在 **$RestoreRequest** 變數中的還原要求識別碼。
 
-	`PS C:>Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
+	`PS C:\>Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
 
 **State** 與 **PercentComplete** 欄位會顯示還原狀態。
 
@@ -75,4 +75,4 @@
 [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

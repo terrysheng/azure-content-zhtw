@@ -24,7 +24,7 @@
 
 若要建立新的 DNS 區域來裝載您的網域，請使用 New-AzureDnsZone Cmdlet：
 
-		PS C:> $zone = New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [–Tag $tags] 
+		PS C:\> $zone = New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [–Tag $tags] 
 
 此作業會在 Azure DNS 中建立新的 DNS 區域，並傳回對應至該區域的本機物件。您可以選擇性地指定一系列的 Azure 資源管理員標記，如需詳細資訊，請參閱 [Etag 和標記](../dns-getstarted-create-dnszone#Etags-and-tags)。
 
@@ -36,14 +36,14 @@
 
 若要擷取 DNS 區域，請使用 Get-AzureDnsZone Cmdlet：
 
-		PS C:> $zone = Get-AzureDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
+		PS C:\> $zone = Get-AzureDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
 
 此作業會傳回對應至 Azure DNS 中現有區域的 DNS 區域物件。這個物件包含區域的相關資料 (例如記錄集的數目)，但不包含記錄集本身。
 
 ## 列出 DNS 區域
 您可以從 Get-AzureDnsZone 中省略區域名稱，以列舉資源群組中的所有區域：
 
-	PS C:> $zoneList = Get-AzureDnsZone -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $zoneList = Get-AzureDnsZone -ResourceGroupName MyAzureResourceGroup
 此作業會傳回一系列的區域物件。
 
 ## 更新 DNS 區域
@@ -55,14 +55,14 @@
  
 使用區域名稱和資源群組來指定區域。
 
-	PS C:> Set-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Tag $tags]
+	PS C:\> Set-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Tag $tags]
 
 ### 選項 2
 使用 Get-AzureDnsZone 傳回的 $zone 物件來指定區域：
 
-	PS C:> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:> <..modify $zone.Tags here...>
-	PS C:> Set-AzureDnsZone -Zone $zone [-Overwrite]
+	PS C:\> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> <..modify $zone.Tags here...>
+	PS C:\> Set-AzureDnsZone -Zone $zone [-Overwrite]
 
 使用 Set-AzureDnsZone 搭配 $zone 物件時，將會使用 ‘Etag’ 檢查，以確保不會覆寫並行變更。您可以使用選擇性的 ‘-Overwrite’ 參數來停用這些檢查。如需詳細資訊，請參閱 [Etag 和標記](../dns-getstarted-create-dnszone#Etags-and-tags)。
 
@@ -78,15 +78,15 @@
 
 使用區域名稱和資源群組名稱來指定區域：
 
-	PS C:> Remove-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Force] 
+	PS C:\> Remove-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Force] 
 
 此作業具有選擇性的 '-Force' 參數，可不提示您確認您想要移除 DNS 區域。
 ### 選項 2
 
 使用 Get-AzureDnsZone 傳回的 $zone 物件來指定區域：
 
-	PS C:> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:> Remove-AzureDnsZone -Zone $zone [-Force] [-Overwrite]
+	PS C:\> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Remove-AzureDnsZone -Zone $zone [-Force] [-Overwrite]
 
 '-Force' 參數與「選項 1」中相同。
 
@@ -94,7 +94,7 @@
 
 區域物件也可以經由管道輸送，而不是當做參數傳遞：
 
-	PS C:> Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureDnsZone [-Force] [-Overwrite]
+	PS C:\> Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureDnsZone [-Force] [-Overwrite]
 
 ## 後續步驟
 
@@ -103,4 +103,4 @@
 
 [使用 .NET SDK 自動化作業](../dns-sdk)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

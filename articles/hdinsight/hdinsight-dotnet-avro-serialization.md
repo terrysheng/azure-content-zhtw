@@ -67,11 +67,11 @@ Microsoft Avro Library 包含程式碼產生公用程式，可允許自動依據
 
 1. 從 <a href="http://hadoopsdk.codeplex.com/SourceControl/latest" target="_blank">Microsoft .NET SDK For Hadoop</a> 下載具有最新版 HDInsight SDK 原始程式碼的 ZIP 檔案。(按一下 [**下載**] 圖示。)
 
-2. 將 HDInsight SDK 解壓縮至已安裝 .NET Framework 4 並連接至網際網路的電腦上的目錄，以下載必要的相依性 NuGet 封裝。在以下我們假設原始程式碼會解壓縮至 C:\SDK。
+2. 將 HDInsight SDK 解壓縮至已安裝 .NET Framework 4 並連接至網際網路的電腦上的目錄，以下載必要的相依性 NuGet 封裝。在以下我們假設原始程式碼會解壓縮至 C:\\SDK。
 
-3. 前往資料夾 C:\SDK\src\Microsoft.Hadoop.Avro.Tools 並執行 build.bat。(此檔案將從 .NET Framework 的 32 位元散佈呼叫 MS 組建。如果您想要使用 64 位元版本，請編輯 build.bat 檔案註解後的資料行)。 確保建置成功。(在某些系統上，MSBuild 可能會產生警告。(只要沒有建置錯誤，就不會影響公用程式。)
+3. 前往資料夾 C:\\SDK\\src\\Microsoft.Hadoop.Avro.Tools 並執行 build.bat。(此檔案將從 .NET Framework 的 32 位元散佈呼叫 MS 組建。如果您想要使用 64 位元版本，請編輯 build.bat 檔案註解後的資料行)。 確保建置成功。(在某些系統上，MSBuild 可能會產生警告。(只要沒有建置錯誤，就不會影響公用程式。)
 
-4. 編譯的公用程式位於 C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools。
+4. 編譯的公用程式位於 C:\\SDK\\Bin\\Unsigned\\Release\\Microsoft.Hadoop.Avro.Tools。
 
 
 若要熟悉命令列語法，請從程式碼產生公用程式所在的資料夾執行下列命令：`Microsoft.Hadoop.Avro.Tools help /c:codegen`
@@ -82,7 +82,7 @@ Microsoft Avro Library 包含程式碼產生公用程式，可允許自動依據
 
 這應該會在目前的目錄產生兩個 C# 檔案：SensorData.cs 和 Location.cs。
 
-若要了解程式碼產生公用程式在轉換 JSON 結構描述為 C# 類型時使用的邏輯，請參閱位於 C:\SDK\src\Microsoft.Hadoop.Avro.Tools\Doc 的 GenerationVerification.feature 檔案。
+若要了解程式碼產生公用程式在轉換 JSON 結構描述為 C# 類型時使用的邏輯，請參閱位於 C:\\SDK\\src\\Microsoft.Hadoop.Avro.Tools\\Doc 的 GenerationVerification.feature 檔案。
 
 請注意，該命名空間是使用上一個段落中提及的檔案中所描述的邏輯，從 JSON 結構描述中擷取。從結構描述擷取的命名空間，將比公用程式命令列中使用 /n 參數提供的設定具有優先權。如果您想要覆寫結構描述中內含的命名空間，請使用 /nf 參數。例如，若要將所有命名空間從 SampleJSONSchema.avsc 變更為 my.own.nspace，請執行下列命令：
 
@@ -1389,7 +1389,7 @@ Microsoft Avro 程式庫可透過反映、根據要序列化的 C# 物件資料�
 * 編輯範例根目錄中的 app.config 檔案，然後建置範例 
 * 先建置範例，然後在組建目錄中編輯 AvroHDISample.exe.config 
 
-在兩個情況下，所有編輯均應該在 **<appSettings>** 設定區段中完成。請遵循檔案中的註解。執行下列命令，範例即會從命令列中執行 (其中，具有範例的 .zip 檔案是假設應解壓縮至 C:\AvroHDISample；若沒有，則會使用相關的檔案路徑)：
+在兩個情況下，所有編輯均應該在 **<appSettings>** 設定區段中完成。請遵循檔案中的註解。執行下列命令，範例即會從命令列中執行 (其中，具有範例的 .zip 檔案是假設應解壓縮至 C:\\AvroHDISample；若沒有，則會使用相關的檔案路徑)：
 
     AvroHDISample run C:\AvroHDISample\Data
 
@@ -1406,4 +1406,4 @@ Microsoft Avro 程式庫可透過反映、根據要序列化的 C# 物件資料�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

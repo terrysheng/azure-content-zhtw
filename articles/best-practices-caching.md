@@ -48,7 +48,7 @@ _圖 1：在不同應用程式執行個體中使用記憶體中快取_
 
 使用共用快取有助於減少每個快取中可能有不同資料的疑慮，這種情況可能發生於記憶體中快取。共用快取可透過找出不同位置中的快取，通常託管為不同服務的一部分，如圖 2 所示，以確保不同的應用程式執行個體會看到相同的快取資料檢視。
 
-![使用共用快取_](media/best-practices-caching/Figure2.png)
+![使用共用快取\_](media/best-practices-caching/Figure2.png)
 
 _圖 2：使用共用快取_
 
@@ -123,7 +123,7 @@ _圖 2：使用共用快取_
 
 不過，若快取暫時無法使用而回復至原始資料存放區，則可能會影響系統延展性；正在復原資料存放區時，原始資料存放區可能忙於處理資料要求，因此導致逾時和連接失敗。您應該考慮的策略是在每個應用程式執行個體中實作本機私人快取，以及所有執行個體存取的共用快取。應用程式擷取項目時，可能會先檢查其本機快取，再來是共用快取，最後則是原始資料存放區。共用快取無法使用時，本機快取可以使用共用快取或資料庫中的資料來填入。此方法需要仔細的組態設定，以防止本機快取相對於共用快取變得太過時，但如果無法連線到共用快取時則作為緩衝區。圖 3 會顯示此結構。
 
-![使用本機、私人快取搭配共用快取_](media/best-practices-caching/Caching3.png) _圖 3：使用本機、私人快取搭配共用快取_
+![使用本機、私人快取搭配共用快取\_](media/best-practices-caching/Caching3.png) _圖 3：使用本機、私人快取搭配共用快取_
 
 為了支援保留相當長期資料的大型快取，某些快取服務會在快取無法使用時，提供實作自動容錯移轉的高可用性選項。這種方法通常會涉及將儲存在主要快取伺服器上的快取資料複寫到次要快取伺服器，且在主要伺服器故障或遺失連接時會切換到次要伺服器。為了減少與寫入多個目的地相關聯的延遲，當資料寫入主要伺服器上的快取時，複寫到次要伺服器的作業可能會以非同步方式發生。這個方法會導致某些快取的資訊可能會在發生錯誤時遺失，但是這項資料的比例應該小於快取的整體大小。
 
@@ -630,7 +630,7 @@ foreach (var value in await cache.SetMembersAsync("tag:iot:blog:posts"))
 
 ### 尋找最近存取過的項目
 
-許多應用程式所需的常見問題是尋找最近存取過的項目。例如，部落格網站可能會想要顯示最近讀取過部落格文章的相關資訊。您可以使用 Redis 清單來實作這項功能。Redis 清單包含多個共用相同金鑰的項目，但清單會用作雙端的佇列。您可以使用 LPUSH (推播至左) 和 RPUSH (推播至右) 命令將項目推播至清單兩端。您可以使用 LPOP 和 RPOP 命令，從清單的任一端擷取項目。您也可以使用 LRANGE 和 RRANGE 命令，以傳回一組元素。下列程式碼片段顯示如何使用 StackExchange 程式庫來執行這些作業。此程式碼使用先前範例中的 BlogPost 類型。當使用者讀取部落格文章時，系統會透過使用 IDatabase.ListLeftPushAsync 方法，將部落格文章的標題推播至與 Redis 快取中索引鍵 "blog:recent_posts" 相關聯的清單：
+許多應用程式所需的常見問題是尋找最近存取過的項目。例如，部落格網站可能會想要顯示最近讀取過部落格文章的相關資訊。您可以使用 Redis 清單來實作這項功能。Redis 清單包含多個共用相同金鑰的項目，但清單會用作雙端的佇列。您可以使用 LPUSH (推播至左) 和 RPUSH (推播至右) 命令將項目推播至清單兩端。您可以使用 LPOP 和 RPOP 命令，從清單的任一端擷取項目。您也可以使用 LRANGE 和 RRANGE 命令，以傳回一組元素。下列程式碼片段顯示如何使用 StackExchange 程式庫來執行這些作業。此程式碼使用先前範例中的 BlogPost 類型。當使用者讀取部落格文章時，系統會透過使用 IDatabase.ListLeftPushAsync 方法，將部落格文章的標題推播至與 Redis 快取中索引鍵 "blog:recent\_posts" 相關聯的清單：
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -777,4 +777,4 @@ subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 - StackExchange.Redis 儲存機制上的 [Redis 中的交易 (英文)](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) 頁面。
 - Microsoft 網站上的[資料分割指南 (英文)](http://msdn.microsoft.com/library/dn589795.aspx)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

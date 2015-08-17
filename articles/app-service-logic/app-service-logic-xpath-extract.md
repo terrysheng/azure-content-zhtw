@@ -36,23 +36,10 @@ BizTalk XPath 擷取連接器可協助您的應用程式根據指定的 XPath �
 
 ![BizTalk XPath 擷取程式輸入][2]
 
-<table>
-	<tr>
-		<th>參數</th>
-		<th>類型</th>
-		<th>參數說明</th>
-	</tr>
-	<tr>
-		<td>XPath</td>
-		<td>字串</td>
-		<td>查詢 xml 內的路徑。</td>
-	</tr>
-	<tr>
-		<td>輸入 Xml</td>
-		<td>字串</td>
-		<td>輸入 Xml 內容。</td>
-	</tr>
-</table>
+參數|類型|參數說明
+---|---|---
+XPath|字串|查詢 xml 內的路徑。
+輸入 Xml|字串|輸入 Xml 內容。
 
 此動作會以字串形式傳回輸出 - 結果。結果包含 Xml 內查詢路徑的值。
 
@@ -63,4 +50,4 @@ BizTalk XPath 擷取連接器可協助您的應用程式根據指定的 XPath �
 <!-- Links -->
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

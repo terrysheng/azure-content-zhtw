@@ -257,4 +257,4 @@ BizTalk 配接器服務是由 Azure BizTalk 服務使用。BizTalk 配接器服�
 - [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

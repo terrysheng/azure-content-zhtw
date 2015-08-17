@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Application Insights 資料的 Power BI 檢視
@@ -152,7 +152,7 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 ```SQL
 
     SELECT
-      flat.ArrayValue.name
+      flat.ArrayValue.name,
       count(*)
     INTO
       [pbi-output]
@@ -195,5 +195,6 @@ Noam Ben Zeev 會示範如何匯出至 Power BI。
 
 * [連續匯出](app-insights-export-telemetry.md)
 * [Application Insights](app-insights-overview.md)
+* [更多範例和逐步解說](app-insights-code-samples.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

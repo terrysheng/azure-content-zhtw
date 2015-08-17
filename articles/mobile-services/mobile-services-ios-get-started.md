@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="07/28/2015"
 	ms.author="krisragh"/>
 
@@ -46,7 +46,7 @@
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
-<ol start="4"> <li><p>回到管理入口網站中，按一下 [<strong>資料</strong>] 索引標籤，然後按一下 [<strong>TodoItem</strong>] 資料表。如此可讓您瀏覽由應用程式插入資料表中的資料。<p></li></ol></p>
+<ol start="4"><li><p>回到管理入口網站中，按一下 [**資料**] 索引標籤，然後按一下 [**TodoItem**] 資料表。如此可讓您瀏覽由應用程式插入資料表中的資料。<p></li></ol></p>
 
 ## <a name="next-steps"> </a>後續步驟
 了解如何在行動服務中執行其他重要工作：
@@ -88,4 +88,4 @@
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET 後端版本]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

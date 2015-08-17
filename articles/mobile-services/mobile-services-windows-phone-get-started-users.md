@@ -80,4 +80,4 @@ Nick Harris 也在下列這段影片中示範了本教學課程：
 [使用 Live Connect 在 Windows Phone 應用程式提供單一登入功能]: mobile-services-windows-phone-single-sign-on.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

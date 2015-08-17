@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actor 分散式計算模式"
-   description="Azure Service Fabric 適用於平行非同步傳訊、可輕鬆管理的分散狀態和平行計算。"
+   pageTitle="Reliable Actor 分散式計算模式"
+   description="Service Fabric Reliable Actor 適用於平行非同步傳訊、可輕鬆管理的分散狀態和平行計算。"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/01/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Service Fabric Actor 設計模式：分散式計算
-我們很感激此功能，部分原因是看到現實生活中的客戶在極短的時間內，使用 Azure Service Fabric Actor (確切來說是可計算風險的蒙地卡羅模擬法) 快速計算出財務數據。
+# Reliable Actor 設計模式：分散式計算
+我們很感激此功能，部分原因是看到現實生活中的客戶在極短的時間內，使用 Service Fabric Reliable Actor (確切來說是可計算風險的蒙地卡羅模擬法) 快速計算出財務數據。
 
 一開始，尤其是對於沒有特定領域知識的人，Azure Service Fabric 處理這類的工作負載可能不那麼顯而易見，相較於較為傳統的方法如「對應/減少」或 MPI 等。
 
@@ -202,6 +202,5 @@ public class Finaliser : Actor<FinalizerState>, IFinaliser
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

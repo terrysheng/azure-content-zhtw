@@ -135,7 +135,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 
 > [AZURE.NOTE]某些記錄緩衝區類型會寫入記錄檔中，進而造成串流中的事件順序錯亂。例如，使用者造訪某個網頁所產生的應用程式記錄項目，可能會比頁面要求的對應 HTTP 記錄項目優先顯示在串流中。
 
-> [AZURE.NOTE]記錄串流也會將串流資訊寫入儲存於 **D:\\home\\LogFiles\\** 資料夾中的任何文字檔。
+> [AZURE.NOTE]記錄串流也會將串流資訊寫入儲存於 **D:\\home\\LogFiles\** 資料夾中的任何文字檔。
 
 ### 使用 Azure PowerShell 來串流
 
@@ -197,107 +197,35 @@ __資料表儲存體__
 
 記錄至資料表儲存體時，會使用其他屬性來協助搜尋儲存在資料表裡的資料，以及更精細的事件資訊。以下內容 (資料行) 會用於資料表中儲存的每個實體 (列)。
 
-<table style="width:100%;border-collapse:collapse">
-<thead>
-<tr>
-<th style="width:45%;border:1px solid black;background-color:#0099dd">屬性名稱</th>
-<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">值/格式</th>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">PartitionKey</td>
-<td style="border:1px solid black;vertical-align:top">格式為 yyyyMMddHH 的事件日期/時間</td>
-</tr>
-</thead>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">RowKey</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">可唯一識別此實體的 GUID 值</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Timestamp</td>
-<td style="border:1px solid black;vertical-align:top">事件發生的日期與時間</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">事件發生的日期與時間 (刻度格式，精準度更高)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">ApplicationName</td>
-<td style="border:1px solid black;vertical-align:top">Web 應用程式名稱</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">等級</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">事件層級 (例如，錯誤、警告、資訊)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">EventId</td>
-<td style="border:1px solid black;vertical-align:top">此事件的事件識別碼<br>預設值為 0 (如果未指定的話)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">發生事件的 Web 應用程式執行個體</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Pid</td>
-<td style="border:1px solid black;vertical-align:top">處理序識別碼</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">產生事件的執行緒之執行緒識別碼</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">訊息</td>
-<td style="border:1px solid black;vertical-align:top">事件詳細資訊訊息</td>
-</tr>
-</table>
+屬性名稱|值/格式
+---|---
+PartitionKey|格式為 yyyyMMddHH 的事件日期/時間
+RowKey|可唯一識別此實體的 GUID 值
+Timestamp|事件發生的日期與時間
+EventTickCount|事件發生的日期與時間 (刻度格式，精準度更高)
+ApplicationName|Web 應用程式名稱
+等級|事件層級 (例如，錯誤、警告、資訊)
+EventId|此事件的事件識別碼<p><p>如果沒有指定，預設為 0
+InstanceId|發生事件的 Web 應用程式執行個體
+Pid|處理序識別碼
+Tid|產生事件的執行緒之執行緒識別碼
+訊息|事件詳細資訊訊息
 
 __Blob 儲存體__
 
 登入 Blob 儲存體時，資料會儲存為逗號分隔值 (CSV) 的格式。其他欄位則會以類似資料表儲存體的作法記錄起來，以提供更精細的事件相關資訊。CSV 中的每一列會使用以下屬性：
 
-<table style="width:100%;border-collapse:collapse">
-<thead>
-<tr>
-<th style="width:45%;border:1px solid black;background-color:#0099dd">屬性名稱</th>
-<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">值/格式</th>
-</tr>
-</thead>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Date</td>
-<td style="border:1px solid black;vertical-align:top">事件發生的日期與時間</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">事件層級 (例如，錯誤、警告、資訊)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">ApplicationName</td>
-<td style="border:1px solid black;vertical-align:top">Web 應用程式名稱</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">發生事件的 Web 應用程式執行個體</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">事件發生的日期與時間 (刻度格式，精準度更高)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">EventId</td>
-<td style="border:1px solid black;vertical-align:top">此事件的事件識別碼<br>預設值為 0 (如果未指定的話)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Pid</td>
-<td style="border:1px solid black;vertical-align:top">處理序識別碼</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">產生事件的執行緒之執行緒識別碼</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">訊息</td>
-<td style="border:1px solid black;vertical-align:top">事件詳細資訊訊息</td>
-</tr>
-</table>
+屬性名稱|值/格式
+---|---
+Date|事件發生的日期與時間
+Level|事件層級 (例如，錯誤、警告、資訊)
+ApplicationName|Web 應用程式名稱
+InstanceId|發生事件的 Web 應用程式執行個體
+EventTickCount|事件發生的日期與時間 (刻度格式，精準度更高)
+EventId|此事件的事件識別碼<p><p>如果沒有指定，預設為 0
+Pid|處理序識別碼
+Tid|產生事件的執行緒之執行緒識別碼
+訊息|事件詳細資訊訊息
 
 儲存在 Blob 中的資料類似以下內容：
 
@@ -335,4 +263,4 @@ Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](http://msdn.microsoft.c
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

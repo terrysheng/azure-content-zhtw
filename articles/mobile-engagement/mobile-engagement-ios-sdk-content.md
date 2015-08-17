@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure Mobile Engagement iOS SDK 內容" 
+<properties
+	pageTitle="Azure Mobile Engagement iOS SDK 內容"
 	description="Azure Mobile Engagement iOS SDK 的最新更新與程序"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="MehrdadMzfr"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="02/12/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/05/2015"
 	ms.author="kapiteir" />
 
 #SDK 內容
@@ -41,6 +41,5 @@
 `src` 資料夾
 
 > Engagement 檢視控制器與 Reach SDK 原始程式碼 (適用於想要依照其需求調整 Engagement 類別的進階使用者)。
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

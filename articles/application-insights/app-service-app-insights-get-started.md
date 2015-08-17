@@ -1,128 +1,77 @@
 <properties 
-	pageTitle="使用 Application Insights 監視應用程式的效能和使用量" 
+	pageTitle="開始使用 Application Insights" 
 	description="使用 Application Insights 分析內部部署或 Microsoft Azure Web 應用程式的使用情況、可用性和效能。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.topic="hero-article" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
-# 使用 Application Insights 監視應用程式的效能和使用量
+# 開始使用 Visual Studio Application Insights
 
-*Application Insights 目前僅供預覽*
+*Application Insights 目前僅供預覽。*
 
+偵測問題、解決問題並持續改善您的應用程式。快速診斷即時應用程式中的任何問題。了解您的使用者與其有無任何關係？
 
-Visual Studio Application Insights 監視您的即時應用程式，協助您[偵測並診斷效能問題和例外狀況][detect]，同時[探索應用程式的使用情況][knowUsers]。它適用於各種應用程式類型：ASP.NET 和 Java Web 應用程式；iOS、Android、Windows 和其他裝置應用程式；HTML+JavaScript 應用程式。
+組態作業非常簡單，幾分鐘之內就能看到結果。
 
-本文的重點放在以 Visual Studio 開發的應用程式類型。也有其他 IDE 的 Application Insights 擴充功能。
+我們目前支援 iOS、Android 和 Windows 應用程式；J2EE 和 ASP.NET Web 應用程式以及 WCF 服務。Web 應用程式可以在 Azure 或您的內部部署伺服器上執行。我們的 JavaScript SDK 可在任何網頁中執行。
 
-[您需要有 Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) 或更新版本，以及 [Microsoft Azure](http://azure.com) 中的帳戶。
+## 開始使用
 
-## <a name="ide"></a>將 Application Insights 加入至專案
+依照任意順序開始使用此對應表左側的任意進入點組合。請遵循適合您的路徑操作。
 
-#### 對於新專案
+Application Insights 的運作方式是將 SDK 加入至您的應用程式，並將遙測資料傳送至 [Azure 入口網站](http://portal.azure.com)。目前有不同的 SDK 適用於多個支援的平台、語言和 IDE 組合。
 
-當您在 Visual Studio 中建立新專案時，請務必選取 Application Insights。
+您將需要 [Microsoft Azure](http://azure.com) 帳戶。您可能已透過組織獲得群組帳戶的存取權；或者，您可以使用隨用隨附帳戶。Application Insights 有免費層，因此在您的應用程式受歡迎之前，您不需要支付任何費用。請檢閱[定價頁面](https://azure.microsoft.com/pricing/details/application-insights/)。
 
+您想要 | 怎麼做 | 得到什麼結果
+---|---|---
+ <a href="app-insights-start-monitoring-app-health-usage.md">![ASP.NET](./media/app-insights-get-started/appinsights-gs-i-01-perf.png)</a> | <a href="app-insights-start-monitoring-app-health-usage.md">將 Application Insights SDK 加入至您的 Web 專案</a> <br/> ![取得](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-start-monitoring-app-health-usage.md">![效能與使用情形監視](./media/app-insights-get-started/appinsights-gs-r-01-perf.png)</a>
+<a href="app-insights-monitor-performance-live-website-now.md">![ASP.NET 網站已上線](./media/app-insights-get-started/appinsights-gs-i-04-red2.png)</a><br/><a href="app-insights-monitor-performance-live-website-now.md">![相依性與效能監視](./media/app-insights-get-started/appinsights-gs-i-03-red.png)</a>|<a href="app-insights-monitor-performance-live-website-now.md">在您的 IIS 伺服器上安裝狀態監視器</a> <br/> ![取得](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-performance-live-website-now.md">![ASP.NET 相依性監視](./media/app-insights-get-started/appinsights-gs-r-03-red.png)</a>
+<a href="insights-perf-analytics.md">![Azure Web 應用程式或 VM](./media/app-insights-get-started/appinsights-gs-i-10-azure.png)</a>|<a href="insights-perf-analytics.md">在您的 Azure Web 應用程式或 VM 中啟用 Insights</a> <br/> ![取得](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="insights-perf-analytics.md">![相依性與效能監視](./media/app-insights-get-started/appinsights-gs-r-03-red.png)</a>
+<a href="app-insights-java-get-started.md">![Java](./media/app-insights-get-started/appinsights-gs-i-11-java.png)</a>|<a href="app-insights-java-get-started.md">將 SDK 加入至您的 Java 專案</a><br/>![取得](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-java-get-started.md">![效能與使用情形監視](./media/app-insights-get-started/appinsights-gs-r-10-java.png)</a>
+<a href="app-insights-web-track-usage.md">![JavaScript](./media/app-insights-get-started/appinsights-gs-i-02-usage.png)</a>|<a href="app-insights-web-track-usage.md">將 Application Insights 指令碼插入至您的網頁</a><br/>![取得](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-web-track-usage.md">![頁面檢視與瀏覽器效能](./media/app-insights-get-started/appinsights-gs-r-02-usage.png)</a>
+<a href="app-insights-monitor-web-app-availability.md">![Availability](./media/app-insights-get-started/appinsights-gs-i-05-avail.png)</a>|<a href="app-insights-monitor-web-app-availability.md">建立 Web 測試</a><br/>![取得](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-web-app-availability.md">![Availability](./media/app-insights-get-started/appinsights-gs-r-05-avail.png)</a>
+<a href="app-insights-windows-get-started.md">![Windows 與 Windows Phone](./media/app-insights-get-started/appinsights-gs-i-06-device.png)</a>|<a href="app-insights-windows-get-started.md">將 Application Insights 加入至您的 Windows 應用程式專案</a><br/>![取得](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-windows-get-started.md">![當機與使用狀況資料](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
+<a href="app-insights-platforms.md">![iOS 和 Android 等](./media/app-insights-get-started/appinsights-gs-i-07-device.png)</a>|<a href="app-insights-platforms.md">將 Application Insights 加入至您的 iOS 或 Android 應用程式</a><br/>![取得](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-platforms.md">![當機與使用狀況資料](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
 
-![Create an ASP.NET project](./media/app-service-app-insights-get-started/appinsights-01-vsnewp1.png)
+## 支援與意見反應
 
-Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專案，並將金鑰放在 `.config` 檔案中。
-
-如果專案有網頁，則還會將 [JavaScript SDK][client] 加入至主版網頁。
-
-#### ... 對於現有專案
-
-在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [Add Application Insights]。
-
-![Choose Add Application Insights](./media/app-service-app-insights-get-started/appinsights-03-addExisting.png)
-
-Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專案，並將金鑰放在 `.config` 檔案中。
-
-在此情況下，不會將 [JavaScript SDK][client] 加入至網頁 - 建議在下一步再這樣做。
-
-#### 設定選項
-
-如果這是您第一次使用，系統會要求您登入或註冊 Microsoft Azure 預覽(該帳戶與 Visual Studio Online 帳戶彼此獨立)。
-
-如果此應用程式是更大應用程式的一部分，您可以使用 [**組態設定**]，將它放在與其他元件相同的資源群組中。
-
-*沒有 Application Insights 選項嗎？ 對於某些專案類型，您可以[手動加入 SDK][windows] 來使用 Application Insights。*
-
-#### 從專案開啟 Application Insights。
-
-![Right-click your project and open the Azure portal](./media/app-service-app-insights-get-started/appinsights-04-openPortal.png)
+* 疑難排解與問題：
+ * [疑難排解][qna]
+ * [MSDN 論壇](https://social.msdn.microsoft.com/Forums/vstudio/zh-tw/home?forum=ApplicationInsights)
+ * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* 錯誤：
+ * [連線](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
+* 建議：
+ * [使用者心聲](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights) (英文)
 
 
-## <a name="run"></a> 3.執行專案
 
-利用 F5 執行應用程式並立即試用：開啟不同的頁面來產生一些遙測。
-
-在 Visual Studio 中，您可以看見已傳送到的事件計數。
-
-![](./media/app-service-app-insights-get-started/appinsights-09eventcount.png)
-
-## <a name="monitor"></a> 4.檢視遙測
-
-返回 [Azure 入口網站][portal]，瀏覽至您的 Application Insights 資源。
-
-在 [概觀] 圖表中尋找資料。剛開始的時候，您只會看見一或兩個資料點。例如：
-
-![Click through to more data](./media/app-service-app-insights-get-started/12-first-perf.png)
-
-按一下任何圖表以查看詳細度量。[深入了解度量。][perf]
-
-現在部署應用程式並觀看資料累積情形。
+## <a name="video"></a>影片
 
 
-以偵錯模式執行時，系統會透過管線迅速傳送遙測資料，因此您應該可以在幾秒內看見資料。在部署應用程式時，資料累積會較為緩慢。
+> [AZURE.VIDEO 218]
 
+> [AZURE.VIDEO usage-monitoring-application-insights]
 
-#### 沒有資料？
+> [AZURE.VIDEO performance-monitoring-application-insights]
 
-* 開啟 [[診斷搜尋][diagnostic]] 磚來查看個別事件。
-* 使用應用程式、開啟不同頁面，以產生一些遙測。
-* 請稍等片刻，然後按一下 [重新整理]。
-* 請參閱[疑難排解][qna]。
-
-
-## 後續步驟
-
-您現在正從應用程式的伺服器端傳送資料，以下是獲得更完整觀點的一些步驟：
-
-* [設定 Web 測試][availability]，以確認應用程式處於即時狀態且能夠回應。
-* [將 JavaScript SDK 加入至網頁][client]，以取得瀏覽器型遙測，例如 Web 檢視計數、頁面載入時間、指令碼例外狀況，並讓您在頁面指令碼中撰寫自訂遙測。
-* 加入相依性追蹤，診斷由資料庫或應用程式使用的其他元作所造成的問題。 
- * [將相依性追蹤加入至 IIS 伺服器][redfield]
- * [將相依性追蹤加入至 Azure Web 應用程式][azure]
-* 從您最喜愛的記錄架構[擷取記錄追蹤][netlogs]
-* 在用戶端、伺服器或兩者，[追蹤自訂事件和度量][api]，以深入了解應用程式的使用情況。
 
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
-[availability]: app-insights-monitor-web-app-availability.md
-[azure]: ../insights-perf-analytics.md
-[client]: app-insights-javascript.md
-[detect]: app-insights-detect-triage-diagnose.md
-[diagnostic]: app-insights-diagnostic-search.md
-[knowUsers]: app-insights-overview-usage.md
-[netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
-[portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
-[windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

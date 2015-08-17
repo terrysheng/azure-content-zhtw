@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actor 概觀"
-   description="Azure Service Fabric Actor 程式設計模型簡介"
+   pageTitle="Service Fabric Reliable Actor 概觀"
+   description="Service Fabric Reliable Actor 程式設計模型簡介"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/10/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Azure Service Fabric Actor 簡介
+# Service Fabric Reliable Actor 簡介
 Reliable Actors API 是 [Service Fabric](service-fabric-technical-overview.md) 所提供的其中一個高階架構，而另一個是 [Reliable Services API](service-fabric-reliable-services-introduction.md)。
 
 Reliable Actors API 以動作項目模式為基礎，提供非同步、單一執行緒的程式設計模型以簡化您的程式碼，同時還利用 Service Fabric 所提供的延展性和可靠性保證。
@@ -191,11 +191,11 @@ public interface IVoicemailBoxActor : IActor
 
 [Fabric Actor 如何使用 Service Fabric 平台](service-fabric-reliable-actors-platform.md)
 
-[設定 KVSActorStateProvider 動作項目](../Service-Fabric/service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)
+[設定 KVSActorStateProvider 動作項目](service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)
 
 [動作項目診斷與效能監視](service-fabric-reliable-actors-diagnostics.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -101,7 +101,7 @@
 
 	> [AZURE.NOTE]**安全性注意事項**：`AuthenticationTestHandler` 類別未提供真正的驗證。它僅可用於模仿基本驗證而且並不安全。您必須在生產應用程式和服務中實作安全的驗證機制。
 
-4. 在 **App_Start/WebApiConfig.cs** 類別中 `Register` 方法的結尾加入下列程式碼以註冊訊息處理常式：
+4. 在 **App\_Start/WebApiConfig.cs** 類別中 `Register` 方法的結尾加入下列程式碼以註冊訊息處理常式：
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
@@ -359,4 +359,4 @@
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

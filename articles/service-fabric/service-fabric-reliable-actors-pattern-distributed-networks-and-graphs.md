@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actor 分散式網路與圖形設計模式"
-   description="如何使用 Service Fabric Actor 將應用程式模型製作成分散式網路與圖形的設計模式"
+   pageTitle="Reliable Actor 分散式網路與圖形設計模式"
+   description="如何使用 Service Fabric Reliable Actor 將應用程式模型製作成分散式網路與圖形的設計模式"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Service Fabric Actor 設計模式：分散式網路和圖形
-Azure Fabric Service Actors 適用於為涉及關係的複雜解決方案製作模型，以及將這些關係的模型製作成物件。
+# Reliable Actor 設計模式：分散式網路和圖形
+Service Fabric Reliable Actor 適用於為涉及關係的複雜解決方案製作模型，以及將這些關係的模型製作成物件。
 
 ![][1]
 
@@ -223,6 +223,5 @@ public Task PublishMessageAsync(long participantId, string message)
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

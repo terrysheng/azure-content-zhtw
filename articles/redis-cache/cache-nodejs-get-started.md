@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="required"
-   ms.date="04/30/2015"
+   ms.date="08/04/2015"
    ms.author="mwasson"/>
 
 # 如何搭配使用 Azure Redis 快取與 Node.js
@@ -25,11 +25,11 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用安全 Redis 快�
 
 ## 必要條件
 
-安裝 [node_redis](https://github.com/mranney/node_redis)：
+安裝 [node\_redis](https://github.com/mranney/node_redis)：
 
     npm install redis
 
-本教學課程使用 [node_redis](https://github.com/mranney/node_redis)，但是您可以使用列在 [http://redis.io/clients](http://redis.io/clients) 的任何 Node.js 用戶端。
+本教學課程使用 [node\_redis](https://github.com/mranney/node_redis)，但是您可以使用列在 [http://redis.io/clients](http://redis.io/clients) 的任何 Node.js 用戶端。
 
 ## 在 Azure 上建立 Redis 快取
 
@@ -50,7 +50,7 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用安全 Redis 快�
 ## 啟用非 SSL 端點
 
 
-按一下 [連接埠] 下方的連結，然後按一下 [否] 表示「只允許透過 SSL 存取」。這會啟用快取的非 SSL 連接埠。node_redis 用戶端目前不支援 SSL。
+按一下 [連接埠] 下方的連結，然後按一下 [否] 表示「只允許透過 SSL 存取」。這會啟用快取的非 SSL 連接埠。node\_redis 用戶端目前不支援 SSL。
 
   ![][3]
 
@@ -91,4 +91,4 @@ Output:
 
 [在 Azure 網站上使用 Socket.IO 建置 Node.js 聊天應用程式]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

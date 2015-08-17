@@ -264,7 +264,7 @@
 				public static String NotificationHubConnectionString = "...";
 			}
 
-	使用您先前從百度雲端專案所擷取的金鑰來設定 *API_KEY* 的值，使用 Azure 入口網站中的通知中樞名稱來設定 *NotificationHubName*，並使用 Azure 入口網站中的 DefaultListenSharedAccessSignature 來設定 *NotificationHubConnectionString*。
+	使用您先前從百度雲端專案所擷取的金鑰來設定 *API\_KEY* 的值，使用 Azure 入口網站中的通知中樞名稱來設定 *NotificationHubName*，並使用 Azure 入口網站中的 DefaultListenSharedAccessSignature 來設定 *NotificationHubConnectionString*。
 
 11. 新增名為 **DemoApplication.java** 的類別，並在其中新增下列程式碼：
 
@@ -480,4 +480,4 @@
 [百度入口網站]: http://www.baidu.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

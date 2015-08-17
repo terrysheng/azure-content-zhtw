@@ -38,56 +38,15 @@
 
 下表顯示從 Iaas VM 使用 `redis-benchmark.exe` 對 Azure Redis 快取端點測試各種 Azure Redis 快取大小時觀察到的最大頻寬值。請注意，不保證這些值，而且沒有這些數字的 SLA，但應該是一般情況。您應該載入測試自己的應用程式，以判斷應用程式的正確快取大小。
 
-<table>
-  <tr>
-    <th>快取名稱</th>
-    <th>快取大小</th>
-    <th>Get/秒 (1 KB 值的簡單 GET 呼叫)</th>
-    <th>頻寬 (MBits/秒)</th>
-  </tr>
-  <tr>
-    <td>C0</td>
-    <td>250 MB</td>
-    <td>610</td>
-    <td>5</td>
-  </tr>
-  <tr>
-    <td>C1</td>
-    <td>1 GB</td>
-    <td>12,200</td>
-    <td>100</td>
-  </tr>
-  <tr>
-    <td>C2</td>
-    <td>2.5 GB</td>
-    <td>24,300</td>
-    <td>200</td>
-  </tr>
-  <tr>
-    <td>C3</td>
-    <td>6 GB</td>
-    <td>48,875</td>
-    <td>400</td>
-  </tr>
-  <tr>
-    <td>C4</td>
-    <td>13 GB</td>
-    <td>61,350</td>
-    <td>500</td>
-  </tr>
-  <tr>
-    <td>C5</td>
-    <td>26 GB</td>
-    <td>112,275</td>
-    <td>1000</td>
-  </tr>
-  <tr>
-    <td>C6</td>
-    <td>53 GB</td>
-    <td>153,219</td>
-    <td>1000+</td>
-  </tr>
-</table>
+快取名稱|快取大小|Get/秒 (1 KB 值的簡單 GET 呼叫)|頻寬 (MBits/秒)
+---|---|---|---
+C0|250 MB|610|5
+C1|1 GB|12,200|100
+C2|2\.5 GB|24,300|200
+C3|6 GB|48,875|400
+C4|13 GB|61,350|500
+C5|26 GB|112,275|1000
+C6|53 GB|153,219|1000+
 
 如需下載 Redis 工具 (例如，`redis-benchmark.exe`) 的指示，請參閱[如何執行 Redis 命令？](#cache-commands)小節。
 
@@ -134,28 +93,11 @@ Microsoft Azure Redis 快取執行個體可以在 [Azure Preview 入口網站](h
 
 StackExchange.Redis NuGet 封裝本節談論一些常見設定。如需 StackExchange.Redis 選項的詳細資訊，請參閱 [StackExchange.Redis 設定](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md)。
 
-<table>
-  <tr>
-    <th>ConfigurationOptions</th>
-    <th>說明</th>
-    <th>建議</th>
-  </tr>
-  <tr>
-    <td>AbortOnConnectFail</td>
-    <td>設定為 true 時，在網路失敗之後不會重新連線。</td>
-    <td>設定為 false，並讓 StackExchange.Redis 自動重新連線。</td>
-  </tr>
-  <tr>
-    <td>ConnectRetry</td>
-    <td>初始連線期間的重複連線嘗試次數。</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>ConnectTimeout</td>
-    <td>連線作業的逾時 (毫秒)。</td>
-    <td></td>
-  </tr>
-</table>
+ConfigurationOptions|說明|建議
+---|---|---
+AbortOnConnectFail|設定為 true 時，在網路失敗之後不會重新連線。|設定為 false，並讓 StackExchange.Redis 自動重新連線。
+ConnectRetry|初始連線期間的重複連線嘗試次數。||
+ConnectTimeout|連線作業的逾時 (毫秒)。|
 
 在大部分情況下，用戶端的預設值就已足夠。您可以根據工作負載來微調選項。
 
@@ -233,4 +175,4 @@ Microsoft Azure Redis 快取是基於受歡迎的開放原始碼 Redis 快取，
 
 因為每個用戶端都不同，所以 MSDN 上沒有一個集中式類別參考；而是每個用戶端都會維護其專屬的參考文件。除了參考文件之外，Azure.com 上還會有數個教學課程，可顯示如何使用 [[Redis 快取文件](http://azure.microsoft.com/documentatgion/services/redis-cache/)] 頁面上的不同語言和快取用戶端來開始使用 Azure Redis 快取。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -118,4 +118,4 @@
 - [REST 架構應用程式生命週期範例](service-fabric-rest-based-application-lifecycle-sample.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

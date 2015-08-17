@@ -297,4 +297,4 @@ Team Explorer 會顯示簽入已觸發的組建。<br/>
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

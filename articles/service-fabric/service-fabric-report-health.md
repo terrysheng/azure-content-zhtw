@@ -79,7 +79,7 @@ var fabricClient = new FabricClient(clientSettings);
 當透過 Powershell 建立連線至叢集時，可以指定相同的參數。下列會啟動連線至本機叢集：
 
 ```powershell
-PS C:> Connect-ServiceFabricCluster -HealthOperationTimeoutInSec 120 -HealthReportSendIntervalInSec 0 -HealthReportRetrySendIntervalInSec 40
+PS C:\> Connect-ServiceFabricCluster -HealthOperationTimeoutInSec 120 -HealthReportSendIntervalInSec 0 -HealthReportRetrySendIntervalInSec 40
 True
 
 ConnectionEndpoint   :
@@ -181,9 +181,9 @@ public static void SendReport(object obj)
 下列範例會示範節點上 CPU 值的定期報告。TTL 為 2 分鐘時，應該每隔 30 秒即傳送一次報告。如果過期，就表示報告程式有問題，因此會在錯誤時評估節點。當 CPU 超過臨界值時，報告會有健康狀態的警告，如果 CPU 超過臨界值比設定次數還多，就會回報為錯誤。否則，報告程式會傳回 OK。
 
 ```powershell
-PS C:> Send-ServiceFabricNodeHealthReport -NodeName Node.1 -HealthState Warning -SourceId PowershellWatcher -HealthProperty CPU -Description "CPU is above 80% threshold" -TimeToLiveSec 120
+PS C:\> Send-ServiceFabricNodeHealthReport -NodeName Node.1 -HealthState Warning -SourceId PowershellWatcher -HealthProperty CPU -Description "CPU is above 80% threshold" -TimeToLiveSec 120
 
-PS C:> Get-ServiceFabricNodeHealth -NodeName Node.1
+PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
 NodeName              : Node.1
 AggregatedHealthState : Warning
 UnhealthyEvaluations  :
@@ -218,13 +218,13 @@ HealthEvents          :
 下列範例會回報在複本上的暫時性警告。首先它會為所需服務取得分割 ID 和複本 ID，然後從 PowershellWatcher 中傳送屬性 ResourceDependency 的報告。此報告只需要存在 2 分鐘，就會從存放區中自動移除。
 
 ```powershell
-PS C:> $partitionId = (Get-ServiceFabricPartition -ServiceName fabric:/WordCount/WordCount.Service).PartitionId
+PS C:\> $partitionId = (Get-ServiceFabricPartition -ServiceName fabric:/WordCount/WordCount.Service).PartitionId
 
-PS C:> $replicaId = (Get-ServiceFabricReplica -PartitionId $partitionId | where {$_.ReplicaRole -eq "Primary"}).ReplicaId
+PS C:\> $replicaId = (Get-ServiceFabricReplica -PartitionId $partitionId | where {$_.ReplicaRole -eq "Primary"}).ReplicaId
 
-PS C:> Send-ServiceFabricReplicaHealthReport -PartitionId $partitionId -ReplicaId $replicaId -HealthState Warning -SourceId PowershellWatcher -HealthProperty ResourceDependency -Description "The external resource that the primary is using has been rebooted at 4/21/2015 9:01:21 PM. Expect processing delays for a few minutes." -TimeToLiveSec 120 -RemoveWhenExpired
+PS C:\> Send-ServiceFabricReplicaHealthReport -PartitionId $partitionId -ReplicaId $replicaId -HealthState Warning -SourceId PowershellWatcher -HealthProperty ResourceDependency -Description "The external resource that the primary is using has been rebooted at 4/21/2015 9:01:21 PM. Expect processing delays for a few minutes." -TimeToLiveSec 120 -RemoveWhenExpired
 
-PS C:> Get-ServiceFabricReplicaHealth  -PartitionId $partitionId -ReplicaOrInstanceId $replicaId
+PS C:\> Get-ServiceFabricReplicaHealth  -PartitionId $partitionId -ReplicaOrInstanceId $replicaId
 
 
 PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
@@ -274,4 +274,4 @@ HealthEvents          :
 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -10,4 +10,4 @@
 | 存取面板 | <ul><li>每個使用者可在存取面板中看見的應用程式數目沒有任何限制，因為使用者會指派授權給 Azure AD Premium 或 Enterprise Mobility Suite。</li><li>每個使用者可在存取面板中看見最多 10 個應用程式磚 (範例：Box、Salesforce 或 Dropbox)，因為使用者會指派免費授權或 Azure AD Basic 版本的 Azure Active Directory。此限制不適用於系統管理員帳戶。</li></ul> |
 | 報告 | 在任何報告中，最多可以檢視或下載 1000 個資料列。任何其他資料會遭到截斷。 |
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

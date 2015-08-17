@@ -270,4 +270,4 @@ Microsoft Azure 事件中心是事件攝入服務，它能提供大規模進入�
 [hybrid]: ../integration-hybrid-connection-overview.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

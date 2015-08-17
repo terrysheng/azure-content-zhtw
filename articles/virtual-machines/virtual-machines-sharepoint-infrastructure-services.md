@@ -63,4 +63,4 @@
 
 - [在 Microsoft Azure 中部署 Office 365 目錄同步作業 (DirSync)](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

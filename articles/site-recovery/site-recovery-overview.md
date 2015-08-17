@@ -48,137 +48,33 @@ Azure | VMware 虛擬機器 | 將 VMWare 虛擬機器複寫至 Azure | [閱讀�
 
 ASR 複寫技術與虛擬機器中執行的任何應用程式相容。我們已經與應用程式產品團隊合作進行了其他測試，以進一步支援每個應用程式。
 
-**工作負載** | <p>**複寫 Hyper-V 虛擬機器**</p> <p>**(至次要站台)**</p> | <p>**複寫 Hyper-V 虛擬機器**</p> <p>**(至 Azure)**</p> | <p>**複寫 VMware 虛擬機器**</p> <p>**(至次要站台)**</p> | <p>**複寫 VMware 虛擬機器**</p><p>**(至 Azure)**</p>
----|---|---|---|---
-Active Directory、DNS | Y | Y | Y | 敬請期待 
-Web 應用程式 (IIS、SQL) | Y | Y | Y | 敬請期待
-SCOM | Y | Y | Y | 敬請期待
-Sharepoint | Y | Y | Y | 敬請期待
-<p>SAP</p><p>將 SAP 站台複寫至非叢集的 Azure </p> | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | 敬請期待
-Exchange (非 DAG) | Y | 敬請期待 | Y | 敬請期待
-遠端桌面/VDI | Y | Y | Y | 敬請期待 
-<p>Linux</p> <p>(作業系統和應用程式)</p> | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | 敬請期待 
-Dynamics AX | Y | Y | Y | 敬請期待
-Dynamics CRM | 敬請期待 | 敬請期待 | Y | 敬請期待
-Oracle | 敬請期待 | 敬請期待 | Y (由 Microsoft 測試) | 敬請期待
+**工作負載** | <p>**複寫 Hyper-V 虛擬機器**</p><p>**(至次要網站)**</p> | <p>**複寫 Hyper-V 虛擬機器**</p><p>**(至 Azure)**</p> | <p>**複寫 VMware 虛擬機器**</p><p>**(至次要網站)**</p> | <p>**複寫 VMware 虛擬機器**</p><p>**(至 Azure)****</p>---|---|---|---|---Active Directory、DNS | Y | Y | Y | 即將推出 Web 應用程式 (IIS、SQL) | Y | Y | Y | 即將推出 SCOM | Y | Y | Y | 即將推出 Sharepoint | Y | Y | Y | 即將推出 <p>SAP</p><p>複寫 SAP 非叢集至 Azure 網站</p> | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | 即將推出 Exchange (非 DAG) | Y | 即將推出 | Y | 即將推出的遠端桌面/VDI | Y | Y | Y | 即將推出 <p>Linux</p><p>(作業系統和應用程式)</p> | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | 即將推出 Dynamics AX | Y | Y | Y | 即將推出 Dynamics CRM | 即將推出 | 即將推出 | Y | 即將推出 Oracle | 即將推出 | 即將推出 | Y (由 Microsoft 測試) | 即將推出
 
 
 ## 功能和需求 
 
 此資料表摘要說明 Site Recovery 主要功能，以及這些功能在使用預設 Hyper-V 複本與使用 SAN 複寫至 Azure、複寫至次要站台期間的處理方式。
 
-<table border="1">
-<thead>
-<tr>
-	<th>功能</th><th>複寫至 Azure</th>
-	<th>複寫至次要站台 (Hyper-V 複本)</th>
-	<th>複寫至次要站台 (SAN)</th>
-</tr>
-</thead>
-
-<tr>
-<td>資料複寫</td>
-<td><p>內部部署伺服器和虛擬機器的相關中繼資料會儲存在 Site Recovery 保存庫中。</p> <p>複寫的資料會儲存在 Azure 儲存體中。</p></td>
-<td><p>內部部署伺服器和虛擬機器的相關中繼資料會儲存在 Site Recovery 保存庫中。</p> <p>複寫資料儲存在目標 Hyper-V 伺服器所指定的位置。</p></td>
-<td><p>內部部署伺服器和虛擬機器的相關中繼資料會儲存在 Site Recovery 保存庫中。</p> <p>複寫資料儲存在目標陣列存放裝置中。</p></td>
-</tr>
-
-<tr>
-<td>保存庫必要條件</td>
-<td><p>含 Site Recovery 服務的 Azure 帳戶</p></td>
-<td><p>含 Site Recovery 服務的 Azure 帳戶</p>
-</td><td><p>含 Site Recovery 服務的 Azure 帳戶</p></td>
-</tr>
-
-<tr>
-<td>複寫</td>
-<td>將虛擬機器從來源 Hyper-V 主機複寫至 Azure 儲存體。容錯回復至來源位置。</td>
-<td>將虛擬機器從來源 Hyper-V 主機複寫至目標 Hyper-V 主機。容錯回復至來源位置。</td>
-<td>將虛擬機器從來源 SAN 存放裝置複寫至目標 SAN 裝置。容錯回復至來源位置。</td>
-</tr>
-
-<tr>
-<td>虛擬機器</td>
-<td>Azure 儲存體中儲存的虛擬機器硬碟</td>
-<td>Hyper-V 主機上儲存的虛擬機器硬碟</td>
-<td>SAN 存放裝置陣列上儲存的虛擬機器硬碟</td>
-</tr>
-
-<tr>
-<td>Azure 儲存體</td>
-<td>儲存複寫的虛擬機器硬碟所需</td>
-<td>不適用</td>
-<td>不適用</td>
-</tr>
-
-<tr>
-<td>SAN 存放裝置陣列</td>
-<td><p>不適用</p></td>
-<td>不適用</td>
-<td>SAN 存放裝置陣列必須可提供來源和目標站台使用，並由 VMM 管理</td>
-</tr>
-
-<tr>
-<td>VMM 伺服器</td>
-<td>只有來源站台中的 VMM 伺服器。</td>
-<td>建議使用來源和目標站台中的 VMM 伺服器。您可以在單一 VMM 伺服器上的雲端之間進行複寫。</td>
-<td>來源和目標 VMM 站台中的 VMM 伺服器。雲端必須包含至少一個 Hyper-V 叢集。</td>
-</tr>
-
-<tr>
-<td>VMM 版本</td>
-<td>System Center 2012 R2</td>
-<td><p>System Center 2012 (含 SP1)</p><p>System Center 2012 R2</p></td>
-<td><p>System Center 2012 R2 含 VMM 更新彙總套件 5.0</p></td>
-</tr>
-
-<tr>
-<td>VMM 設定</td>
-<td><p>在來源和目標站台中設定雲端</p><p>在來源和目標站台中設定 VM 網路</p><p>在來源和目標站台中設定存放裝置分類 <p>在來源與目標 VMM 伺服器上安裝提供者</p></td>
-<td><p>在來源站台中設定雲端</p><p>設定 SAN 存放裝置</p><p>在來源站台中設定 VM 網路</p><p>在來源 VMM 伺服器上安裝提供者</p><p>啟用虛擬機器保護</p></td>
-<td><p>在來源和目標站台中設定雲端</p><p>在來源和目標站台中設定 VM 網路</p><p>在來源和目標 VMM 伺服器上設定提供者</p><p>啟用虛擬機器保護</p></td>
-</tr>
-
-<tr>
-<td><p>Azure Site Recovery 提供者</p><p>用來透過 HTTPS 連線至 Site Recovery</p></td>
-<td>安裝在來源 VMM 伺服器上</td>
-<td>安裝在來源和目標 VMM 伺服器上</td>
-<td>安裝在來源和目標 VMM 伺服器上</td>
-</tr>
-
-<tr>
-<td><p>Azure 復原服務代理程式</p><p>用來透過 HTTPS 連線至 Site Recovery</p></td>
-<td>在 Hyper-V 主機伺服器上安裝</td>
-<td>不需要</td>
-<td>不需要</td>
-</tr>
-
-<tr>
-<td>虛擬機器復原點</td>
-<td><p>依時間設定復原點。</p> <p>指定復原點的保留時間 (0-24 小時)</p></td>
-<td><p>依數量設定復原點。</p> <p>指定應該保留的其他復原點數目 (0-15)。依預設每小時建立一個復原點</p></td>
-<td>在陣列存放裝置設定中進行設定</td>
-</tr>
-
-<tr>
-<td>網路對應</td>
-<td><p>將 VM 網站對應至 Azure 網路。</p> <p>網路對應可確保在相同來源 VM 網路中容錯移轉的所有虛擬機器，在容錯移轉之後仍可連接。此外，如果目標 Azure 網路上有網路閘道，則虛擬機器可以連接到內部部署虛擬機器。</p><p>如果未啟用對應，則只有相同復原計畫中容錯移轉的虛擬機器，才能在容錯移轉到 Azure 之後彼此連接。</p></td>
-<td><p>將來源 VM 網路對應至目標 VM 網路。</p> <p>網路對應可用來將複寫的虛擬機器放在最佳的 Hyper-V 主機伺服器上，並確保與來源 VM 網路相關聯的虛擬機器，在容錯移轉之後會與對應的目標網路相關聯。</p><p>如果未啟用對應，則複寫的虛擬機器不會連接至網路。</p></td>
-<td><p>將來源 VM 網路對應至目標 VM 網路。</p> <p>網路對應可確保與來源 VM 網路相關聯的虛擬機器，在容錯移轉之後會與對應的目標網路相關聯。</p><p>如果未啟用對應，則複寫的虛擬機器不會連接至網路。</p></td>
-</tr>
-
-<tr>
-<td>儲存體對應</td>
-<td>不適用</td>
-<td><p>將來源 VM 伺服器上的儲存體分類對應至目標 VMM 伺服器上的儲存體分類。</p> <p>如果啟用對應，則來源儲存體分類中的虛擬機器硬碟在容錯移轉之後，將位於目標儲存體分類中。</p><p>如果未啟用儲存體對應，則複寫的虛擬硬碟會儲存在目標 Hyper-V 主機伺服器上的預設位置。</p></td>
-<td><p>在主要和次要站台的存放裝置陣列與集區之間進行對應。</p></td>
-</tr>
-
-</table>
+功能|複寫至 Azure|複寫至次要站台 (Hyper-V 複本)|複寫至次要站台 (SAN)
+---|---|---|---
+資料複寫|內部部署伺服器和虛擬機器的相關中繼資料會儲存在 Site Recovery 保存庫。</p> <p>複寫的資料會儲存在 Azure 儲存體。|內部部署伺服器和虛擬機器的相關中繼資料會儲存在 Site Recovery 保存庫。</p> <p>複寫的資料儲存在目標 Hyper-V 伺服器所指定的位置。|內部部署伺服器和虛擬機器的相關中繼資料會儲存在 Site Recovery 保存庫。</p> <p>複寫的資料儲存在目標陣列的儲存體中。
+保存庫必要條件|含 Site Recovery 服務的 Azure 帳戶|含 Site Recovery 服務的 Azure 帳戶|含 Site Recovery 服務的 Azure 帳戶
+複寫|將虛擬機器從來源 Hyper-V 主機複寫至 Azure 儲存體。容錯回復至來源位置。|將虛擬機器從來源 Hyper-V 主機複寫至目標 Hyper-V 主機。容錯回復至來源位置。|將虛擬機器從來源 SAN 存放裝置複寫至目標 SAN 裝置。容錯回復至來源位置。
+虛擬機器|Azure 儲存體中儲存的虛擬機器硬碟|Hyper-V 主機上儲存的虛擬機器硬碟|SAN 存放裝置陣列上儲存的虛擬機器硬碟
+Azure 儲存體|儲存複寫的虛擬機器硬碟所需|不適用|不適用
+SAN 存放裝置陣列|不適用|不適用|SAN 存放裝置陣列必須可提供來源和目標站台使用，並由 VMM 管理
+VMM 伺服器|只有來源站台中的 VMM 伺服器。|建議使用來源和目標站台中的 VMM 伺服器。您可以在單一 VMM 伺服器上的雲端之間進行複寫。|來源和目標 VMM 站台中的 VMM 伺服器。雲端必須包含至少一個 Hyper-V 叢集。
+VMM 版本|System Center 2012 R2<p>System Center 2012 SP1|System Center 2012 R2|System Center 2012 R2 含 VMM 更新彙總套件 5.0
+VMM 設定|設定來源和目標網站的雲端</p><p>設定來源和目標網站中的 VM 網路<p>設定來源和目標網站的儲存體分類<p>在來源與目標 VMM 伺服器上安裝 Provider|設定來源網站的雲端</p><p>設定 SAN 儲存體</p><p>設定來源網站的 VM 網路</p><p>在來源 VMM 伺服器上安裝 Provider</p><p>啟用虛擬機器保護|設定來源和目標網站的雲端</p><p>設定來源和目標網站的 VM 網路</p><p>在來源和目標 VMM 伺服器上安裝 Provider</p><p>啟用虛擬機器保護
+Azure Site Recovery Provider</p><p>用來透過 HTTPS 連線至 Site Recovery|安裝在來源 VMM 伺服器上|安裝在來源和目標 VMM 伺服器上|安裝在來源和目標 VMM 伺服器上
+Azure 復原服務代理程式</p><p>用來透過 HTTPS 連線至 Site Recovery|在 Hyper-V 主機伺服器上安裝|不需要|不需要
+虛擬機器復原點|依時間設定復原點。</p> <p>指定復原點的保留時間 (0-24 小時)|依數量設定復原點。</p> <p>指定應該保留的額外復原點數量 (0-15)。依預設每小時建立一個復原點|在陣列存放裝置設定中進行設定
+網路對應|將 VM 網路對應至 Azure 網路。</p> <p>網路對應可確保在相同來源 VM 網路中容錯移轉的所有虛擬機器，都可以在容錯移轉後連線。此外，如果目標 Azure 網路上有網路閘道，則虛擬機器可以連接到內部部署虛擬機器。</p><p>如果未啟用容錯移轉，則只有在相同復原方案中容錯移轉的虛擬機器，才得以在容錯移轉到 Azure 後彼此連線。|將來源 VM 網路對應至目標 VM 網路。</p> <p>網路對應用來將複寫的虛擬機器放在最佳的 Hyper-V 主機伺服器上，並確保與來源 VM 網路相關聯的虛擬機器在容錯移轉之後會與對應的目標網路相關聯。</p><p>如果未啟用對應，則複寫的虛擬機器不會連線到網路。|將來源 VM 網路對應至目標 VM 網路。</p> <p>網路對應可確保與來源 VM 網路相關聯的虛擬機器，在容錯移轉之後會與對應的目標網路相關聯。</p><p>如果未啟用對應，則複寫的虛擬機器不會連線到網路。
+儲存體對應|不適用|將來源 VMM 伺服器上的儲存體分類對應至目標 VMM 伺服器上的儲存體分類。</p> <p>在來源儲存體分類中啟用對應的虛擬機器硬碟，在容錯移轉之後會存放在目標儲存體分類中。</p><p>如果未啟用儲存體對應，則複寫的虛擬硬碟會儲存在目標 Hyper-V 主機伺服器上的預設位置。|在主要和次要站台的存放裝置陣列與集區之間進行對應。
 
 ## 後續步驟
 
 完成此概觀之後，請[讀取最佳作法](site-recovery-best-practices.md)以協助您開始進行部署規劃。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -74,11 +74,11 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 ### 建立匯入工作
 
-1.	備妥磁碟機後，請在管理入口網站中瀏覽至您的儲存體帳戶，然後檢視 [儀表板]。在 <strong>[快速概覽]</strong> 之下，按一下 <strong>[建立匯入工作]</strong>。 
+1.	備妥磁碟機後，請在管理入口網站中瀏覽至您的儲存體帳戶，然後檢視 [儀表板]。在 [快速概覽] 之下，按一下 [建立匯入工作]。 
  
-2.	在精靈的步驟 1 中，指出您已備妥磁碟機並有可用的磁碟機日誌。
+2.	在精靈的步驟 1，指出您已備妥磁碟機並有可用的磁碟機日誌。
  
-3.	在步驟 2，提供負責處理此匯入工作的人員連絡資訊。若想要儲存匯入工作的詳細資訊記錄資料，請核取 <strong>[將詳細資訊記錄檔儲存在我的 'waimportexport' Blob 容器]</strong> 選項。
+3.	在步驟 2，提供負責處理此匯入工作的人員連絡資訊。若想要儲存匯入工作的詳細資訊記錄資料，請核取 [Save the verbose log in my 'waimportexport' blob container] 選項。
 
 4.	在步驟 3，上傳在磁碟機準備步驟中取得的磁碟機日誌檔案。您需要針對已備妥的每個磁碟機上傳一個檔案。
 
@@ -104,9 +104,9 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 建立匯出工作以通知匯入/匯出服務，您會將一或多個空磁碟機送到資料中心，以便將資料從儲存體帳戶匯出至磁碟機，然後再將這些磁碟機運送給您。
 
-1. 	若要建立匯出工作，請在管理入口網站中瀏覽至儲存體帳戶，然後檢視 [儀表板]。在 <strong>[快速概覽]</strong> 之下，按一下 <strong>[建立匯出工作]</strong>，然後繼續執行精靈。
+1. 	若要建立匯出工作，請在管理入口網站中瀏覽至儲存體帳戶，然後檢視 [儀表板]。在 [快速概覽] 之下，按一下 [建立匯出工作]，然後繼續執行精靈。
 
-2. 	在步驟 2，提供負責處理此匯出工作的人員連絡資訊。若想要儲存匯入工作的詳細資訊記錄資料，請核取 <strong>[將詳細資訊記錄檔儲存在我的 'waimportexport' Blob 容器]</strong> 選項。
+2. 	在步驟 2，提供負責處理此匯出工作的人員連絡資訊。若想要儲存匯出工作的詳細資訊記錄資料，請核取 [Save the verbose log in my 'waimportexport' blob container] 選項。
 
 3.	在步驟 3，指定您要從儲存體帳戶匯出至空白磁碟機的 Blob您可以選擇匯出儲存體帳戶中所有的 Blob 資料，也可以指定要匯出哪幾個或哪幾組 Blob。
 
@@ -117,50 +117,15 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 	下表顯示有效 Blob 路徑範例：
 
-	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td><strong>選取器</strong></td>
-			<td><strong>Blob 路徑</strong></td>
-			<td><strong>說明</strong></td>
-		</tr>
-		<tr>
-			<td>開頭為</td>
-			<td>/</td>
-			<td>匯出儲存體帳戶中的所有 Blob</td>
-		</tr>
-		<tr>
-			<td>開頭為</td>
-			<td>/$root/</td>
-			<td>匯出根容器中的所有 Blob</td>
-		</tr>
-		<tr>
-			<td>開頭為</td>
-			<td>/book</td>
-			<td>匯出任何容器中以首碼 <strong>book</strong> 開頭的所有 Blob</td>
-		</tr>
-		<tr>
-			<td>開頭為</td>
-			<td>/music/</td>
-			<td>匯出容器 <strong>music</strong> 中的所有 Blob</td>
-		</tr>
-		<tr>
-			<td>開頭為</td>
-			<td>/music/love</td>
-			<td>匯出容器 <strong>music</strong> 中以首碼 <strong>love</strong> 開頭的所有 Blob</td>
-		</tr>
-		<tr>
-			<td>等於</td>
-			<td>$root/logo.bmp</td>
-			<td>匯出根容器中的 Blob <strong>logo.bmp</strong></td>
-		</tr>
-		<tr>
-			<td>等於</td>
-			<td>videos/story.mp4</td>
-			<td>匯出容器 <strong>videos</strong> 中的 Blob <strong>story.mp4</strong></td>
-		</tr>
-	</tbody>
-</table>
+	選取器|Blob 路徑|說明
+	---|---|---
+	開頭為|/|匯出儲存體帳戶中的所有 Blob
+	開頭為|/$root/|匯出根容器中的所有 Blob
+	開頭為|/book|匯出任何容器中以首碼 **book** 開頭的所有 Blob
+	開頭為|/music/|匯出容器 **music** 中的所有 Blob
+	開頭為|/music/love|匯出容器 **music** 中以首碼 **love** 開頭的所有 Blob
+	等於|$root/logo.bmp|匯出根容器中的 Blob **logo.bmp**
+	等於|videos/story.mp4|匯出容器 **videos** 中的 Blob **story.mp4**
 
 
 4.	在步驟 4，輸入匯出工作的描述性名稱。您輸入的名稱只能包含小寫字母、數字、連字號和底線，必須以字母開頭，且不得包含空格。
@@ -171,7 +136,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 	若您有追蹤號碼，請從清單中選取您的貨運公司，並輸入追蹤號碼。
 
-	如果沒有追蹤號碼，請選擇 <strong>[寄送包裹之後，我會提供這個匯出工作的送貨資訊]</strong>，然後完成匯出程序。
+	如果沒有追蹤號碼，請選擇 [I will provide my shipping information for this export job once I have shipped my package]，然後完成匯出程序。
 
 6. 若要在寄出包裹之後輸入追蹤號碼，請在管理入口網站中回到您的儲存體帳戶的 [匯入/匯出] 頁面，從清單中選取工作，然後選擇 [Shipping Info]。逐步執行精靈，在步驟 2 中輸入追蹤號碼。
 	
@@ -187,34 +152,14 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 下表說明每項工作狀態的意義：
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td><strong>工作狀態</strong></td>
-			<td><strong>說明</strong></td>
-		</tr>
-		<tr>
-			<td>建立中</td>
-			<td>工作已建立，但您尚未提供運送資訊。</td>
-		</tr>
-		<tr>
-			<td>運送中</td>
-			<td>工作已建立，且您已提供運送資訊。</td>
-		</tr>
-		<tr>
-			<td>移轉中</td>
-			<td>您的資料正從硬碟移轉 (適用於匯入工作) 或移轉至硬碟 (適用於匯出工作)。</td>
-		</tr>
-		<tr>
-			<td>包裝中</td>
-			<td>資料移轉已完成，而您的硬碟正準備送回給您。</td>
-		</tr>
-		<tr>
-			<td>完成</td>
-			<td>您的硬碟已送回給您。</td>
-		</tr>
-	</tbody>
-</table>
+工作狀態|說明
+---|---
+建立中|工作已建立，但您尚未提供運送資訊。
+運送中|工作已建立，且您已提供運送資訊。
+移轉中|您的資料正從硬碟移轉 (適用於匯入工作) 或移轉至硬碟 (適用於匯出工作)。
+包裝中|資料移轉已完成，而您的硬碟正準備送回給您。
+完成|您的硬碟已送回給您。
+
 
 ## 檢視匯出工作的 BitLocker 金鑰 ##
 
@@ -324,4 +269,4 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

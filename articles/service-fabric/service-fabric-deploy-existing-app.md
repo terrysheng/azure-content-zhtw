@@ -80,7 +80,7 @@ Azure Service Fabric 可用來部署現有的應用程式。例如，可以「�
 ## 應用程式封裝檔案結構
 為了使用 powershell Cmdlet (例如) 來部署應用程式，應用程式必須遵循預先定義的目錄結構。
 
-\applicationmanifest.xml \MyServicePkg \servicemanifest.xml \code \config \data
+\\applicationmanifest.xml \\MyServicePkg \\servicemanifest.xml \\code \\config \\data
 
 根目錄包含可定義應用程式的 applicationmanifest.xml 檔案。應用程式內含的每個服務的子目錄用來包含服務所需的所有成品：servicemanifest.xml 以及通常有 3 個目錄：
 
@@ -198,7 +198,7 @@ CodePackage 指定服務程式碼的位置 (和版本)。
 				  \ ...
 			\config
 			\data
-			...
+			\...
 
 ```
 
@@ -311,4 +311,4 @@ Service Fabric 服務可以各種「組態」部署，例如它可部署為單�
 
 	
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

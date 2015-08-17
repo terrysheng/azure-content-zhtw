@@ -388,4 +388,4 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 了解如何[從備份集還原](../storsimple-restore-from-backupset.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

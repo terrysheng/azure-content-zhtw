@@ -66,4 +66,4 @@ UnmonitoredManual 在每次於升級網域上升級之後需要手動介入，�
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

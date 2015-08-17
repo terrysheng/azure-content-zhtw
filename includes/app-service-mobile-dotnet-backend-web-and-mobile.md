@@ -32,7 +32,7 @@
 
     - 在開啟的刀鋒視窗中，選取 [**所有設定**]，然後選取 [**應用程式設定**]。
 
-    - 在 [**連接字串**] 底下，按一下 [**顯示連接字串**]。複製 **MS_TableConnectionString** 設定的值。這是您的行動應用程式用來連線到 SQL 資料庫的連接字串。
+    - 在 [**連接字串**] 底下，按一下 [**顯示連接字串**]。複製 **MS\_TableConnectionString** 設定的值。這是您的行動應用程式用來連線到 SQL 資料庫的連接字串。
 
 5. 在 Visual Studio 中，以滑鼠右鍵按一下 Web API 專案，然後選取 [**發佈**]。選取 [**Azure Web Apps**] 做為發佈目標，然後選取先前建立的 Web 應用程式。按 [**下一步**]，直到到達 [發佈 Web] 精靈的 [**設定**] 區段為止。
 
@@ -77,4 +77,4 @@
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
 [建立行動應用程式]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

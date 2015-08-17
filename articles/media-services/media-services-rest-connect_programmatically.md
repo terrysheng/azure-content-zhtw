@@ -60,9 +60,9 @@
 	
 **主體**：
 
-您需要在這個要求的主體中證明 client_id 與 client_secret 值；client_id 與 client_secret 分別對應到 AccountName 與 AccountKey 值。當您設定帳戶時，媒體服務會提供這些值給您。
+您需要在這個要求的主體中證明 client\_id 與 client\_secret 值；client\_id 與 client\_secret 分別對應到 AccountName 與 AccountKey 值。當您設定帳戶時，媒體服務會提供這些值給您。
 
-請注意，您的媒體服務帳戶的 AccountKey 在使用它做為存取權杖要求中 client_secret 值時必須已編碼 URL (請參閱 [Percent-Encoding](http://tools.ietf.org/html/rfc3986#section-2.1))。
+請注意，您的媒體服務帳戶的 AccountKey 在使用它做為存取權杖要求中 client\_secret 值時必須已編碼 URL (請參閱 [Percent-Encoding](http://tools.ietf.org/html/rfc3986#section-2.1))。
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -93,9 +93,9 @@
 	}
 	
 
->[AZURE.NOTE]建議您將 "access_token" 和 "expires_in" 值快取到外部儲存體。稍後可以從儲存體擷取權杖資料，然後重複使用在媒體服務 REST API 呼叫中。這特別適用於權杖可以在多個處理程序或電腦之間安全共用的情況。
+>[AZURE.NOTE]建議您將 "access\_token" 和 "expires\_in" 值快取到外部儲存體。稍後可以從儲存體擷取權杖資料，然後重複使用在媒體服務 REST API 呼叫中。這特別適用於權杖可以在多個處理程序或電腦之間安全共用的情況。
 
-請務必監控存取權杖的 "expires_in" 值，並視需要以新權杖更新您的 REST API 呼叫。
+請務必監控存取權杖的 "expires\_in" 值，並視需要以新權杖更新您的 REST API 呼叫。
 
 ###連接至媒體服務 URI
 
@@ -167,4 +167,4 @@
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

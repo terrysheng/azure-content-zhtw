@@ -3,15 +3,14 @@
 	description="逐步講解三部伺服器之 SharePoint 伺服器陣列的 Azure 資源管理員範本。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="davidmu1"
+	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
@@ -21,7 +20,7 @@
 
 本主題逐步講解三部伺服器的 SharePoint 伺服器陣列的 azuredeploy.json 範本檔案結構。您可以從[此處](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json)在瀏覽器中查看這個範本的內容。
 
-或者，若要檢查 azuredeploy.json 檔案的本機複本，請指定本機資料夾做為該檔案的位置並建立它 (例如，C:\\Azure\\Templates\\SharePointFarm)。填入資料夾名稱，然後在本機電腦的 Azure PowerShell 命令提示字元上執行這些命令。
+或者，若要檢查 azuredeploy.json 檔案的本機副本，請指定本機資料夾作為儲存該檔案的位置，然後建立該資料夾 (例如，C:\\Azure\\Templates\\SharePointFarm)。填入資料夾名稱，然後在本機電腦的 Azure PowerShell 命令提示字元上執行這些命令。
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
@@ -33,7 +32,7 @@
 
 ## "parameters" 區段
 
-"parameters" 區段會指定要用來將資料輸入此範本的參數。您最多可以定義 50 個參數。以下是 Azure 位置的參數範例：
+**「參數」**區段指定要用來將資料輸入範本的參數。您必須在執行範本時提供該資料。您最多可以定義 50 個參數。以下是 Azure 位置的參數範例：
 
 	"deploymentLocation": {
 		"type": "string",
@@ -52,7 +51,7 @@
 
 ## "variables" 區段
 
-"variables" 區段會指定一些變數，這些參數會全程用在這個範本中。您最多可以定義 100 個變數。這裡有一些範例：
+**「變數」**區段指定變數和範本所使用的該變數的值。變數值可以明確地設定或從參數值衍生。和參數相反，您在執行範本時不需要提供變數值。您最多可以定義 100 個變數。這裡有一些範例：
 
 	"LBFE": "LBFE",
 	"LBBE": "LBBE",
@@ -67,7 +66,7 @@
 
 ## "resources" 區段
 
-**"resources"** 區段會指定一些當您為資源群組中的 SharePoint 伺服器陣列部署資源時就會用到的資訊。您最多定義 250 個資源，但是資源相依性僅能定義 5 個層級深度。
+**"resources"** 區段會指定一些當您為資源群組中的 SharePoint 伺服器陣列部署資源時就會用到的資訊。您最多可定義 250 個資源，但僅能為資源相依性定義 5 個層級深度。
 
 本節包含下列小節：
 
@@ -108,7 +107,7 @@
 
 - Active Directory 網域控制站
 - SQL Server 叢集
-- SharePoint Server
+- SharePoint 伺服器
 
 下列是一個範例：
 
@@ -121,7 +120,7 @@
 
 ### Microsoft.Network/virtualNetworks
 
-這個區段會建立一個純雲端虛擬網路，其中含有三個子網路 (每一個部署層各一個)，而虛擬機器就是放在這個虛擬網路中。以下是 JSON 程式碼：
+這些區段會建立一個雲端專用的虛擬網路，其中含有三個子網路 (每個部署層各一個)，而虛擬機器就是放在這個虛擬網路中。以下是 JSON 程式碼：
 
 	{
 		"name": "[parameters('virtualNetworkName')]",
@@ -141,7 +140,7 @@
 
 ### Microsoft.Network/loadBalancers
 
-這些區段會為每一個虛擬機器建立負載平衡器執行個體，以便為連入的網路網路流量，提供 NAT 和流量篩選功能。針對每一個負載平衡器，設定前端、後端以及傳入 NAT 規則。例如，每一個虛擬機器會有遠端桌面流量規則，而且，針對 SharePoint 伺服器還有一個規則，可允許網際網路的連入 Web 流量 (TCP 連接埠 80)。以下是 SharePoint 伺服器範例：
+這些區段會為每一個虛擬機器建立負載平衡器執行個體，以便為網際網路的輸入流量，提供網路位址轉譯 (NAT) 和流量篩選功能。針對每一個負載平衡器，設定前端、後端以及傳入 NAT 規則。例如，每一個虛擬機器都有專屬的遠端桌面流量規則，而 SharePoint 伺服器的規則就是，可允許網際網路的輸入 Web 流量 (TCP 連接埠 80)。以下是 SharePoint 伺服器的範例：
 
 
 	{
@@ -199,7 +198,7 @@
 
 ### Microsoft.Network/networkInterfaces
 
-這些區段會為每一個虛擬機器建立一個網路介面，然後設定網域控制站的靜態 IP 位址。以下是網域控制站的網路介面範例：
+這些區段會為每個虛擬機器建立一個網路介面，並設定網域控制站的靜態 IP 位址。以下是網域控制站的網路介面範例：
 
 	{
 		"name": "[variables('adNicName')]",
@@ -243,9 +242,9 @@
 
 第一個區段會建立並設定網域控制站，其中：
 
-- 指定儲存體帳戶、可用性設定組、網路介面和負載平衡器執行個體
-- 加入額外的磁碟
-- 執行 PowerShell 指令碼來設定網域控制站
+- 指定儲存體帳戶、可用性集合、網路介面和負載平衡器執行個體。
+- 新增額外的磁碟。
+- 執行 PowerShell 指令碼以設定網域控制站。
 
 以下是 JSON 程式碼：
 
@@ -346,8 +345,8 @@
 
 接下來的 **"type": "Microsoft.Compute/virtualMachines"** 區段會在部署中建立 SQL Server 虛擬機器，以及：
 
-- 指定儲存體帳戶、可用性設定組、負載平衡器、虛擬網路及網路介面
-- 加入額外的磁碟
+- 指定儲存體帳戶、可用性集合、負載平衡器、虛擬網路及網路介面。
+- 新增額外的磁碟。
 
 其他的 **"Microsoft.Compute/virtualMachines/extensions"** 區段會呼叫 PowerShell 指令碼來設定 SQL Server。
 
@@ -355,26 +354,24 @@
 
 請注意 JSON **"resources"** 區段的子區段整體組織：
 
-1.	建立 Azure 基礎結構的元素，我們需要這元素來支援多個虛擬機器 (儲存體帳戶、公用 IP 位址、可用性設定組、虛擬網路、網路介面、負載平衡器執行個體)。
-2.	建立網域控制站虛擬機器，它們會利用先前建立的 Azure 基礎結構一般和特定元素、新增資料磁碟，以及執行 PowerShell 指令碼。此外，更新虛擬網路來使用網域控制站的靜態 IP 位址。
-3.	建立 SQL Server 虛擬機器，它們會使用先前為網域控制器建立的 Azure 基礎結構一般和特定元素、新增資料磁碟，以及執行 PowerShell 指令碼來設定 SQL Server。
-4.	建立 SharePoint 伺服器虛擬機器，它們會利用先前建立的 Azure 基礎結構一般和特定元素，以及執行 PowerShell 指令碼來設定 SharePoint 伺服器陣列。
+1.	建立 Azure 基礎結構的元素，我們需要此元素來支援多個虛擬機器 (儲存體帳戶、公用 IP 位址、可用性集合、虛擬網路、網路介面、負載平衡器執行個體)。
+2.	建立網域控制站虛擬機器，此虛擬機器會使用先前建立的 Azure 基礎結構的一般和特定元素、新增資料磁碟，並執行 PowerShell 指令碼。此外，更新虛擬網路來使用網域控制站的靜態 IP 位址。
+3.	建立 SQL Server 虛擬機器，此虛擬機器會使用先前為網域控制器建立的 Azure 基礎結構的一般和特定元素、新增資料磁碟，並執行 PowerShell 指令碼以設定 SQL Server。
+4.	建立 SharePoint Server 虛擬機器，此虛擬機器會使用先前建立的 Azure 基礎結構的一般和特定元素，並執行 PowerShell 指令碼以設定 SharePoint 伺服器陣列。
 
 在 Azure 中使用您自己的 JSON 範本建立多層式基礎結構時，請按照以下的步驟執行：
 
-1.	為您的部署建立所需的 Azure 基礎結構一般 (儲存體帳戶、虛擬網路)、層相關 (可用性設定組) 以及虛擬機器相關 (公用 IP 位址、可用性設定組、網路介面、負載平衡器執行個體) 元素。
+1.	建立部署所需的 Azure 基礎結構的一般 (儲存體帳戶、虛擬網路)、層相關 (可用性集合)，以及虛擬機器相關 (公用 IP 位址、可用性集合、網路介面、負載平衡器執行個體) 元素。
 2.	至於應用程式中的每一層 (例如驗證、資料庫、Web)，使用一般 (儲存體帳戶、 虛擬網路)、 特定層 (可用性設定組) 和虛擬機器特定公用 IP 位址、 網路介面 (負載平衡器執行個體) 元素，在該層中建立以及設定伺服器。
 
-如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)。
+如需詳細資訊，請參閱 [Azure 資源管理員範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)。
 
 ## 其他資源
 
-[Azure Resource Manager 提供的 Azure 運算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md)
+[Azure 資源管理員提供的 Azure 運算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md) [Azure 資源管理員概觀](../resource-group-overview.md)
 
-[Azure Resource Manager 概觀](resource-group-overview.md)
-
-[設計 Azure Resource Manager 範本](resource-group-authoring-templates.md)
+[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)
 
 [虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

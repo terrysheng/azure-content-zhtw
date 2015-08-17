@@ -304,4 +304,4 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

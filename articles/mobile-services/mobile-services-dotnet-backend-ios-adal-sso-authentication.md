@@ -121,4 +121,4 @@
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

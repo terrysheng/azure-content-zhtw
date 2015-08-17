@@ -52,7 +52,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 <tr><th>名稱</th><th>權限</th></tr>
 <tr><td>mysendpolicy</td><td>傳送</td></tr>
 <tr><td>myreceivepolicy</td><td>接聽</td></tr>
-</table>建立權限之後，在頁面底部選取**儲存**圖示。這樣會建立共用存取原則，可用來傳送 (\*\*mysendpolicy\*\*) 和接聽 (\*\*myreceivepolicy\*\*) 此事件中樞的訊息。
+</table>建立權限之後，在頁面底部選取**儲存**圖示。這樣會建立共用存取原則，可用來傳送 (**mysendpolicy**) 和接聽 (**myreceivepolicy**) 此事件中樞的訊息。
 
 	![原則](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policies.png "建立事件中樞原則")
 
@@ -164,4 +164,4 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

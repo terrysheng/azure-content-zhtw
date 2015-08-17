@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure Mobile Engagement iOS SDK 概觀" 
+<properties
+	pageTitle="Azure Mobile Engagement iOS SDK 概觀"
 	description="Azure Mobile Engagement iOS SDK 的最新更新與程序"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
-	ms.author="piyushjo" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 #Azure Mobile Engagement iOS SDK
 
@@ -32,9 +32,9 @@
 
 ##版本資訊
 
-###2\.2.0 (05/21/2015)
+##3\.0.0 (2015/08/05)
 
--   針對 < iOS 6 之裝置的 Mobile Engagement 裝置識別碼現在是根據在安裝時產生的 GUID。
+-   Mobile Engagement 使用無聲推播通知。
 
 如需較早版本，請參閱[完整版本資訊](mobile-engagement-ios-release-notes.md)
 
@@ -48,6 +48,5 @@
 
 ###從 2.0.0 到 2.1.0
 無。
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

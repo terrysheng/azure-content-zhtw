@@ -4,15 +4,15 @@
 	authors="alancameronwills"
 	services="application-insights"
     documentationCenter=""
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags
 	ms.service="application-insights"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="04/02/2015"
+	ms.topic="article" 
+	ms.date="08/04/2015"
 	ms.author="awills"/>
 
 # 使用 Application Insights 刪除、分級和診斷
@@ -59,7 +59,7 @@ Marcela Markova 是 OBS 小組的測試專員，主導線上效能方面的監�
 透過設定這些測試，Marcela 能確信若要任何中斷情況，小組將快速知道。
 
 
-失敗在 Web 測試概觀圖表上會以紅點顯示：
+失敗在 Web 測試圖表上會以紅點顯示：
 
 ![顯示對前一個期間執行的 Web 測試](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
@@ -70,20 +70,19 @@ Marcela Markova 是 OBS 小組的測試專員，主導線上效能方面的監�
 ## 監視效能度量
 
 
-在與可用性圖表相同的概觀頁面上，有一個圖表會顯示各種[重要度量][perf]。
-
+在 Application Insights 中的概觀頁面上，有一個圖表會顯示各種[重要度量][perf]。
 
 ![各種度量](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
 
-用戶端處理時間是從網頁直接傳送的遙測所衍生。其他項目則顯示 Web 伺服器中計算的度量。
+瀏覽器頁面載入時間是從網頁直接傳送的遙測所衍生。伺服器回應時間、伺服器要求計數和失敗的要求計數，都是在 Web 伺服器中測量，然後從該處傳送到 Application Insights。
 
 
 失敗的要求計數指出使用者看到錯誤的情況，通常是在程式碼中擲出例外狀況之後。也許他們看到訊息指出「很抱歉，我們目前無法更新您的詳細資料」，或是在最遭的情況下，出自於 Web 伺服器，在使用者畫面上出現堆疊傾印。
 
 
-Marcela 喜歡不時查看這些圖表。失敗的要求的持續背景是有些令人失望，但它與小組正在調查的錯誤有關，因此當修正發出時，該情況應該會下降。但如果失敗的要求或部分的其他度量 (例如伺服器回應時間) 突然出現尖峰，Marcela 會想要立即得知。它可能表示程式碼發行所造成而未在預料中的問題，或是相依性 (例如資料庫) 發生失敗，或也許是對要求的高負載不正常的反應。
+Marcela 喜歡不時查看這些圖表。沒有出現失敗的要求讓人開心，不過當她變更圖表來涵蓋過去一週的範圍時，偶爾會出現一些失敗。這在忙碌的伺服器是可接受的程度。但如果某些失敗，或是其他一些度量 (例如伺服器回應時間) 突然出現尖峰，Marcela 會想要立即得知細節。它可能表示程式碼發行所造成而未在預料中的問題，或是相依性 (例如資料庫) 發生失敗，或也許是對要求的高負載不正常的反應。
 
-#### Alerts
+#### 警示
 
 因此她設定兩個[警示][metrics]：一個針對大於一般閾值的回應時間，另一個針對大於目前背景的失敗要求速率。
 
@@ -103,7 +102,7 @@ Marcela 喜歡不時查看這些圖表。失敗的要求的持續背景是有些
 ## 偵測例外狀況
 
 
-例外狀況是透過呼叫 [TrackException()][api] 向 Application Insights 報告：
+只要一點點設定，就可以將[例外狀況](app-insights-asp-net-exceptions.md)自動報告給 Application Insights。也可以在程式碼中呼叫 [TrackException()](app-insights-api-custom-events-metrics.md#track-exception)，明確擷取這些例外狀況：
 
     var telemetry = new TelemetryClient();
     ...
@@ -144,19 +143,20 @@ TrackException 用來報告例外狀況，因為它會傳送堆疊的副本；Tr
 
 ![在「診斷搜尋」中，請使用篩選器來顯示特定類型的資料](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
-## 監視良好事件
+## 監視使用者活動
+
+如果回應時間一直都不錯，只是有一些例外狀況，開發團隊可以思考如何改善使用者體驗，以及如何鼓勵更多使用者來達成想要的目標。
 
 
-Fabrikam 開發小組希望追蹤良好事件以及嚴重的事件。部分原因是因為能知道發生良好事件的量與位置很明智；再者是因為良好事件突然停止時，事情就變嚴重了。
+例如，許多使用者在瀏覽網站時都會發生一個清楚的「漏斗」歷程：許多客戶查看不同類型的貸款利率；其中一些客戶填寫報價單；而在獲得報價的客戶中，只有少數會繼續且獲得貸款。
 
+![](./media/app-insights-detect-triage-diagnose/12-funnel.png)
 
-例如，許多使用者歷程都有清楚的「漏斗」：許多客戶會查看不同類型貸款的利率；有些客戶會填寫報價單；而對取得報價的那些客戶，有些會繼續而取得貸款。
+透過找出最多客戶放棄的位置，企業可以思考如何讓更多使用者通過漏斗。在某些情況下，可能是使用者體驗 (UX) 失敗 - 例如，很難找到 [下一步] 按鈕，或者指示不太明顯。更有可能是因為重要的商業理由放棄：可能是貸款利率太高。
 
+無論任何原因，資料都可協助團隊了解使用者在做什麼。此時可以插入更多追蹤呼叫，了解更多細節。TrackEvent() 可以用來計算任何使用者動作，小至個別的按鈕點擊，大到如付清貸款等重要成果。
 
-開發小組會在漏斗中的每個階段插入 TrackMetric() 呼叫。在「計量瀏覽器」中，業務架構師 Brian 可以比較每個度量的值，以估算系統銷售貸款的情況。
-
-
-UX 專員 Ursula 也會注意良好度量。如果圖表在漏斗中的任何階段顯示突然的下降，即指出那邊發生一些問題。也許是難以找到正確的按鈕，或許是文字沒有很大幫助。或許是有錯誤：使用者按下按鈕，但沒有發生任何動作。
+團隊一直都有使用者活動的相關資訊。只是現在，每當設計出一個新功能時，就要思考如何取得其使用方式的意見反應。團隊如果從一開始就在功能中設計追蹤呼叫，就可以使用意見反應在每個開發週期中改進功能。
 
 
 ## 主動監視  
@@ -260,4 +260,4 @@ Application Insights 也可以用來了解使用者在應用程式內執行的�
 [usage]: app-insights-web-track-usage.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -41,7 +41,7 @@
 
 如果您指定使用 **StorageEncrypted** 選項來加密資產，則 Media Services SDK for .NET 會建立資產的 **StorateEncrypted** 和 **ContentKey**。
 
->[AZURE.NOTE]媒體服務在建置串流內容的 URL 時使用 IAssetFile.Name 屬性的值 (例如，http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) 基於這個理由，不允許 percent-encoding。**Name** 屬性的值不能有下列任何 [percent-encoding-reserved 字元](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!\*'();:@&=+$,/?%#"。而且，副檔名只能有一個 ‘.’。
+>[AZURE.NOTE]媒體服務在建置串流內容的 URL 時使用 IAssetFile.Name 屬性的值 (例如，http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) 基於這個理由，不允許 percent-encoding。**Name** 屬性的值不能有下列任何 [percent-encoding-reserved 字元](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#"。而且，副檔名只能有一個 ‘.’。
 
 本主題顯示如何使用 Media Services .NET SDK 以及 Media Services .NET SDK 延伸模組，以將檔案上傳到媒體服務資產。
 
@@ -275,7 +275,7 @@ IngestManifestAsset 會建立資產與大量 IngestManifest 的關聯，以進�
 
 ##使用 .NET SDK 延伸模組上傳檔案 
 
-下列範例顯示如何使用 .NET SDK 延伸模組上傳單一檔案。在此情況下，會使用 **CreateFromFile** 方法，但也會提供非同步版本 (CreateFromFileAsync)。**CreateFromFile** 方法可讓您指定檔案名稱、加密選項和回呼，以報告檔案的上傳進度。
+下列範例顯示如何使用 .NET SDK 延伸模組上傳單一檔案。在此情況下，會使用 **CreateFromFile** 方法，但也會提供非同步版本 (**CreateFromFileAsync**)。**CreateFromFile** 方法可讓您指定檔案名稱、加密選項和回呼，以報告檔案的上傳進度。
 
 
 	static public IAsset UploadFile(string fileName, AssetCreationOptions options)
@@ -305,4 +305,4 @@ IngestManifestAsset 會建立資產與大量 IngestManifest 的關聯，以進�
 [如何取得媒體處理器]: media-services-get-media-processor.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

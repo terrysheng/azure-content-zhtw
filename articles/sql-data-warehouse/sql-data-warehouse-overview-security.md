@@ -51,9 +51,9 @@ ALTER ROLE db_datareader ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser to write data
 ```
 
-您所連線的伺服器管理員帳戶是 db_owner 的成員，有權限在資料庫中執行任何動作。請儲存此帳戶，以便部署結構描述升級及其他管理作業。請使用具更多有限權限的 "ApplicationUser" 帳戶，從應用程式連線到具應用程式所需之最低權限的資料庫。
+您所連線的伺服器管理員帳戶是 db\_owner 的成員，有權限在資料庫中執行任何動作。請儲存此帳戶，以便部署結構描述升級及其他管理作業。請使用具更多有限權限的 "ApplicationUser" 帳戶，從應用程式連線到具應用程式所需之最低權限的資料庫。
 
-有些方法能夠進一步限制使用者使用 Azure SQL Database 的方式：- db_datareader 和 db_datawriter 以外的[資料庫角色][]，可用來建立功能更強大的應用程式使用者帳戶，或功能次之的管理帳戶。- 細微[權限][]可讓您控制能對資料庫中的個別資料行、資料表、檢視、程序和其他物件執行的作業。[預存程序][]可用來限制能對資料庫採取的動作。
+有些方法能夠進一步限制使用者使用 Azure SQL Database 的方式：- db\_datareader 和 db\_datawriter 以外的[資料庫角色][]，可用來建立功能更強大的應用程式使用者帳戶，或功能次之的管理帳戶。- 細微[權限][]可讓您控制能對資料庫中的個別資料行、資料表、檢視、程序和其他物件執行的作業。[預存程序][]可用來限制能對資料庫採取的動作。
 
 要從 Azure 管理入口網站或使用 Azure 資源管理員 API 管理資料庫和邏輯伺服器，是由入口網站使用者帳戶的角色指派所控制。如需有關此主題的詳細資訊，請參閱 [Azure Preview 入口網站中的角色型存取控制][]。
 
@@ -78,4 +78,4 @@ ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 <!--Other Web references-->
 [Azure Preview 入口網站中的角色型存取控制]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

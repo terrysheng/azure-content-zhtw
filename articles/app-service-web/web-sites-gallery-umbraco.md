@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
 
 #從 Microsoft Azure 中的 Marketplace 建立 Umbraco Web 應用程式#
@@ -34,15 +34,9 @@ Umbraco CMS 是個功能齊全的開放原始碼內容管理系統，可用來�
 
 2. 選擇 [Marketplace] 圖示。
 	
-	![Choose Web Gallery][01Startboard]
-	
-3. 在 [Marketplace] 中，選取 [Web Apps] 索引標籤，然後選取 [Umbraco CMS]。
-	
-	![Select Umbraco in the Web Gallery][02WebGallery]
+3. 在 [**Marketplace**] 中，選取 [**Web Apps**] 索引標籤，然後選取 [**Umbraco CMS**]。
 	
 4. 若要建立新的 Umbraco CMS Web 應用程式，請按一下 [建立]。
-	
-	![Click Create][03UmbracoCMS]
 	
 5. 下一個步驟是設定所有與 Umbraco CMS 相關的資源。在此案例中的資源是 Web 應用程式和 SQL Server 資料庫。首先，選取 [Web 應用程式] 以進行 Web 應用程式設定，例如 [URL]、[應用程式服務計劃]、[Web 應用程式設定] 和 [位置]。
 	
@@ -57,8 +51,6 @@ Umbraco CMS 是個功能齊全的開放原始碼內容管理系統，可用來�
 	![Click Create][06UmbracoCMSGroup]
 	
 完成部署之後，入口網站將會顯示您的 Umbraco CMS Web 應用程式的資源群組分頁。在 [摘要] 區段中，按一下 Web 應用程式名稱以檢視 Web 應用程式屬性。另外，在 [摘要] 區段中，您還可以選取資料庫資源，以查看相關資料庫的屬性。
-	
-![][07UmbracoCMSGroupBlade]
 
 ## 啟動和設定 Umbraco CMS Web 應用程式 ##
 
@@ -135,4 +127,4 @@ Umbraco CMS 是個功能齊全的開放原始碼內容管理系統，可用來�
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

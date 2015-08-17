@@ -43,4 +43,4 @@ Web 應用程式可透過 [Azure PowerShell 工具](https://msdn.microsoft.com/l
 * 請參閱 Azure 自動化[入門指南](../automation-create-runbook-from-samples.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

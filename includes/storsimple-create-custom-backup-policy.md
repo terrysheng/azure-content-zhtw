@@ -1,4 +1,3 @@
-
 #### 若要建立自訂備份原則
 
 1. 在 [**裝置**] 頁面上，按一下 [**備份原則**]，然後按一下 [**新增**]。
@@ -39,4 +38,4 @@
 
     ![自訂備份原則](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

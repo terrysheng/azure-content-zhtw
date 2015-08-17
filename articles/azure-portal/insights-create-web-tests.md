@@ -22,4 +22,4 @@
 > [AZURE.NOTE]這篇文章已移到別處。請參閱：[監視任何網站的可用性和回應性](../app-insights-monitor-web-app-availability.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

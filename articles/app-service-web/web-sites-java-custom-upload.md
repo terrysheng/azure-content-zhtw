@@ -30,7 +30,7 @@
 - 您應停用所有的接聽連接埠 (單一 HTTP 接聽程式除外)。在 Tomcat 中，這包括了關機、HTTPS 和 AJP 連接埠。
 - 僅需針對 IPv4 流量設定容器。
 - 組態中必須設定應用程式的 **startup** 命令。
-- 要求目錄具備寫入權限的應用程式必須位於 Azure Web 應用程式的內容目錄，也就是 **D:\home**。環境變數 `HOME` 是指 D:\home。  
+- 要求目錄具備寫入權限的應用程式必須位於 Azure Web 應用程式的內容目錄，也就是 **D:\\home**。環境變數 `HOME` 是指 D:\\home。  
 
 您可以在 web.config 檔案中視需要設定環境變數。
 
@@ -46,7 +46,7 @@
     arguments="start"
     
     processPath="%JAVA_HOME\bin\java.exe"
-    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
+    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
 
 
 **processPath** - 將會啟動接聽 HTTP 要求程序的可執行檔或指令檔路徑。
@@ -71,7 +71,7 @@
                                                                                       
 **stdoutLogEnabled** (預設值="true")。 如果為 true，則 **processPath** 設定中指定程序的 **stdout** 和 **stderr** 會被重新導向至 **stdoutLogFile** 中的指定檔案 (請參閱 **stdoutLogFile** 區段)。
                                     
-**stdoutLogFile** (預設值="d:\home\LogFiles\httpPlatformStdout.log")。 **processPath** 中指定程序之 **stdout** 和 **stderr** 的絕對檔案路徑將會被記錄下來。
+**stdoutLogFile** (預設值="d:\\home\\LogFiles\\httpPlatformStdout.log")。 **processPath** 中指定程序之 **stdout** 和 **stderr** 的絕對檔案路徑將會被記錄下來。
                                     
 > [AZURE.NOTE]`%HTTP_PLATFORM_PORT%` 是個特殊預留位置，它必須以 **arguments** 的一部分或 **httpPlatform** **environmentVariables** 清單的一部分進行指定。這將會被透過 **HttpPlatformHandler** 內部產生的連接埠取代，以便 **processPath** 所指定的程序可以接聽此連接埠。
 
@@ -125,7 +125,7 @@ App Service Web Apps 不支援 Direct3d 呼叫。若要將其停用，請新增�
 	      <add name="httppPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
 	    </handlers>
 	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" 
-	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
+	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
 	        startupTimeLimit="20"
 		  startupRetryCount="10"
 		  stdoutLogEnabled="true">
@@ -139,9 +139,9 @@ Jetty 組態必須在 start.ini 中進行變更，進而設定 `java.net.preferI
 
 我們的測試使用了 Hudson 3.1.2 war 和預設 Tomcat 7.0.50 執行個體，但沒有使用 UI 進行選項設定。因為 Hudson 是個軟體建置工具，建議您將它安裝在專屬執行個體上，您可以在專屬執行個體中設定 Web 應用程式的 **AlwaysOn** 旗標。
 
-1. 在 Web 應用程式的根目錄中 (例如 **d:\home\site\wwwroot**) 建立 **webapps** 目錄 (如果尚未存在)，並將 Hudson.war 放在 **d:\home\site\wwwroot\webapps** 中。
-2. 下載 apache maven 3.0.5 (與 Hudson 相容)，並將它放在 **d:\home\site\wwwroot** 中。
-3. 在 **d:\home\site\wwwroot** 中建立 web.config，並將下列內容貼入 web.config：
+1. 在 Web 應用程式的根目錄中 (例如 **d:\\home\\site\\wwwroot**) 建立 **webapps** 目錄 (如果尚未存在)，並將 Hudson.war 放在 **d:\\home\\site\\wwwroot\\webapps** 中。
+2. 下載 apache maven 3.0.5 (與 Hudson 相容)，並將它放在 **d:\\home\\site\\wwwroot** 中。
+3. 在 **d:\\home\\site\\wwwroot** 中建立 web.config，並將下列內容貼入 web.config：
 	
 		<?xml version="1.0" encoding="UTF-8"?>
 		<configuration>
@@ -194,7 +194,7 @@ App Service Web Apps 支援 Liferay。因為 Liferay 需要大量記憶體，Web
 - HTTP 連接器變為 `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
 - 註解化 AJP 連接器。
 
-在 **liferay\tomcat-7.0.40\webapps\ROOT\WEB-INF\classes** 資料夾中，建立名為 **portal-ext.properties** 的檔案。此檔案必須包含一行程式碼，如下所示：
+在 **liferay\\tomcat-7.0.40\\webapps\\ROOT\\WEB-INF\\classes** 資料夾中，建立名為 **portal-ext.properties** 的檔案。此檔案必須包含一行程式碼，如下所示：
 
     liferay.home=%HOME%/site/wwwroot/liferay
 
@@ -224,7 +224,7 @@ App Service Web Apps 支援 Liferay。因為 Liferay 需要大量記憶體，Web
 
 在 **httpPlatform** 區塊底下，**requestTimeout** 已設為 “00:10:00”。您可以降低此值，但如此一來，您很有可能會在啟動載入 Liferay 時看到一些逾時錯誤。如果此值遭到變更，則 tomcat server.xml 中的 **connectionTimeout** 也會同時進行修改。
 
-值得一提的是，JRE_HOME 環境變數會在上述的 web.config 中進行指定，並指向 64 位元 JDK。預設值為 32 位元，但是因為 Liferay 可能需要高階記憶體，建議您使用 64 位元 JDK。
+值得一提的是，JRE\_HOME 環境變數會在上述的 web.config 中進行指定，並指向 64 位元 JDK。預設值為 32 位元，但是因為 Liferay 可能需要高階記憶體，建議您使用 64 位元 JDK。
 
 進行這些變更之後，請重新啟動執行 Liferay 的 Web 應用程式，然後開啟 http://yourwebapp。您可以在 Web 應用程式根目錄中找到 Liferay 入口網站。
 
@@ -236,4 +236,4 @@ App Service Web Apps 支援 Liferay。因為 Liferay 需要大量記憶體，Web
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

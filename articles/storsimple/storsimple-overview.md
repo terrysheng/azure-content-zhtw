@@ -13,18 +13,34 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="05/27/2015"
+   ms.date="08/03/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # 什麼是 StorSimple？ 
 
-Microsoft Azure StorSimple 是一個有效率、符合成本效益且易管理的解決方案，可減少許多與企業儲存體和資料保護相關聯的問題和支出。它會使用專屬裝置 (Microsoft Azure StorSimple 裝置) 和整合式管理工具，提供所有企業儲存體 (包括雲端儲存體) 的整體檢視。
+## 概觀
+
+Microsoft Azure StorSimple 是一個有效率、符合成本效益且易管理的解決方案，可減少許多與企業儲存體和資料保護相關聯的問題和支出。它使用專屬裝置 (Microsoft Azure StorSimple 裝置)、與雲端服務整合以及一系列管理工具，提供所有企業儲存體 (包括雲端儲存體) 的整體檢視。
+
+StorSimple 使用儲存體分層管理各種儲存媒體中儲存的資料。目前的工作集是以內部部署的方式儲存在固態硬碟 (SSD) 中，較不常使用的資料會儲存於硬碟機 (HDD)，而封存資料則會推送到雲端。此外，StorSimple 使用重複資料刪除和壓縮來減少資料使用的儲存體數量。儲存體分層程序會如下進行：
+
+1. 系統管理員設定 Microsoft Azure 雲端儲存體帳戶。
+2. 系統管理員使用序列主控台和 StorSimple Manager 服務 (在 Azure 管理入口網站中執行)，來設定裝置與檔案伺服器，建立磁碟區和資料保護原則。內部部署檔案伺服器使用 Internet Small Computer System Interface (iSCSI) 來存取 StorSimple 裝置。
+3. 一開始，StorSimple 將資料儲存在裝置的快速 SSD 層上。
+4. 當 SSD 層接近容量上限時，StorSimple deduplicates 會刪除重複資料並壓縮最舊的資料區塊，並將它們移至 HDD 層。
+5. 當 HDD 層接近容量上限時，StorSimple 會加密最舊的資料區塊，並透過 HTTPS 將它們安全地傳送到 Microsoft Azure 儲存體帳戶。
+6. Microsoft Azure 會在其資料中心和遠端資料中心建立多個資料複本，確保災害發生時可以復原資料。 
+7. 當檔案伺服器要求雲端中儲存的資料時，StorSimple 會順暢地傳回它，並將複本儲存在 StorSimple 裝置的 SSD 層上。
+
+除了儲存體管理外，StorSimple 資料保護功能可讓您建立隨選和排程備份，並將其儲存在本機或雲端中。備份採用累加快照的形式，這表示建立及還原備份更快速。雲端快照在災害復原案例中至關重要，因為這些快照會取代次要儲存體系統 (例如磁帶備份)，並讓您將資料還原到資料中心或在必要時還原至其他網站。
+
+>[AZURE.NOTE]包含軟體更新 1 或更新版本的 StorSimple 8000 Series 支援使用 RRS 的 Amazon S3、HP 和 OpenStack 雲端服務，以及 Microsoft Azure。(您仍然需要 Microsoft Azure 儲存體帳戶進行裝置管理。) 如需詳細資訊，請參閱[部署內部部署 StorSimple 裝置](storsimple-deployment-walkthrough-u1.md)中的[設定新的儲存體帳戶](storsimple-deployment-walkthrough.md#configure-a-new-storage-account)。
 
 ## 為何要使用 StorSimple？
 
 Microsoft Azure StorSimple 提供下列優點：
 
-- **透明整合** – Microsoft Azure StorSimple 使用 Internet Small Computer System Interface (iSCSI) 通訊協定，以無形的方式連結資料儲存設備。這可確保儲存在雲端、在資料中心或在遠端伺服器上的資料會看似儲存在單一位置。
+- **透明整合** – Microsoft Azure StorSimple 使用 iSCSI 通訊協定，以無形的方式連結資料儲存設備。這可確保儲存在雲端、在資料中心或在遠端伺服器上的資料會看似儲存在單一位置。
 - **降低儲存體成本** – Microsoft Azure StorSimple 會配置足夠符合目前需求的本機或雲端儲存體，且只在必要時才擴充雲端儲存體。它可以進一步地降低儲存體需求和支出，方法是消除相同資料的備援版本 (重複資料刪除)，並使用壓縮。
 - **簡化儲存體管理** – Microsoft Azure StorSimple 提供系統管理工具，可用來設定和管理在內部部署、在遠端伺服器上和在雲端中儲存的資料。此外，您可以從 Microsoft Management Console (MMC) 嵌入式管理單元來管理備份和還原功能。StorSimple 提供一個單獨的選用介面，可用來將 StorSimple 管理和資料保護服務延伸到儲存在 SharePoint 伺服器上的內容。 
 - **改進災害復原和提高合規性** – Microsoft Azure StorSimple 不需要延長的回復時間。相反地，它會在需要時還原資料。這表示正常作業可以在最少干擾的情況下繼續執行。此外，您還可以設定原則以指定備份排程和資料保留。
@@ -50,10 +66,11 @@ Microsoft Azure StorSimple 解決方案包括下列元件：
 
 ## 後續步驟
 
-閱讀 [StorSimple 元件](storsimple-components.md)。
+請閱讀 [StorSimple 解決方案概觀](http://www.microsoft.com/zh-tw/server-cloud/products/storsimple/resources.aspx) (英文) 並檢視 [StorSimple 講解](http://www.microsoft.com/zh-tw/server-cloud/products/storsimple/Features.aspx) (英文)。
 
+深入了解 [StorSimple 元件和術語](storsimple-components.md)。
 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

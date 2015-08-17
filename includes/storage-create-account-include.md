@@ -5,4 +5,4 @@
 您可以使用 [Azure PowerShell](../articles/storage/storage-powershell-guide-full.md) 或 [Azure CLI](../articles/storage/storage-azure-cli.md)，或者使用 [Azure 儲存體資源提供者 REST API](https://msdn.microsoft.com/library/azure/mt163683.aspx) 來建立 Azure 儲存體帳戶。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

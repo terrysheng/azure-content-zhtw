@@ -283,4 +283,4 @@ Azure Web Apps 可用於多個 SKU，SKU 可以決定您網站適用的資源。
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

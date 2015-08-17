@@ -86,4 +86,4 @@
 - [透過系統健康情況報告了解及疑難排解您的叢集](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [使用 Service Fabric 總管視覺化叢集](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

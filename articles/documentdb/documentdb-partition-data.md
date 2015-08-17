@@ -1,11 +1,12 @@
 <properties      
-    pageTitle="在 DocumentDB 中分割資料 | Azure"      
+    pageTitle="在 DocumentDB 中分割資料 | Microsoft Azure"      
     description="了解如何在 DocumentDB 中分割資料，以及使用雜湊、定界以及查閱分割的時機。"          
     services="documentdb"      
     authors="arramac"      
-    manager="johnmac"      
+    manager="jhubbard"      
     editor="monicar"      
-    documentationCenter=""/> <tags      
+    documentationCenter=""/>
+<tags      
     ms.service="documentdb"      
     ms.workload="data-services"      
     ms.tgt_pltfrm="na"      
@@ -113,4 +114,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

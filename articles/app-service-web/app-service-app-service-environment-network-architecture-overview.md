@@ -79,4 +79,4 @@ App Service 環境進行輸出呼叫時，IP 位址一律會與輸出呼叫相�
 [GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

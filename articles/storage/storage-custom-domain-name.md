@@ -24,7 +24,7 @@
 您可以設定自訂網域名稱，以供存取 Azure 儲存體帳戶中的 Blob 資料。Blob 服務的預設端點是 https://<*mystorageaccount*>.blob.core.windows.net。如果您將自訂網域和子網域 (如 **www.contoso.com**) 對應至儲存體帳戶的 Blob 端點，使用者也能使用該網域存取儲存體帳戶中的 Blob 資料。
 
 
-> [AZURE.NOTE]此工作的程序適用於 Azure 儲存體帳戶。若是雲端服務，請參閱 <a href = "/develop/net/common-tasks/custom-dns/">設定 Azure 雲端服務的自訂網域名稱 </a>；若是網站，請參閱 <a href="/develop/net/common-tasks/custom-dns-web-site/">設定 Azure 網站的自訂網域名稱</a>。
+> [AZURE.NOTE]此工作的程序適用於 Azure 儲存體帳戶。若是雲端服務，請參閱<a href = "/develop/net/common-tasks/custom-dns/">設定 Azure 雲端服務的自訂網域名稱</a>；若是網站，請參閱<a href="/develop/net/common-tasks/custom-dns-web-site/">設定 Azure 網站的自訂網域名稱</a>。
 
 將自訂網域指向儲存體帳戶之 Blob 端點的方法有兩種。最簡單的方法是建立 CNAME 記錄，以將自訂網域和子網域對應至 Blob 端點。CNAME 記錄是將來源網域對應至目的地網域的 DNS 功能。在這種情況下，來源網域是您的自訂網域和子網域 (請注意，子網域一律是必要的項目)。目的地網域是 Blob 服務端點。
 
@@ -32,32 +32,11 @@
 
 下表展示的範例 URL 可用來存取名為 **mystorageaccount** 之儲存體帳戶中的 Blob 資料。針對儲存體帳戶註冊的自訂網域為 **www.contoso.com**：
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td style="width: 100px;"><strong>資源類型</strong></td>
-			<td><strong>URL 格式</strong></td>
-		</tr>
-		<tr>
-			<td>儲存體帳戶</td>
-			<td><strong>預設 URL：</strong>http://mystorageaccount.blob.core.windows.net<br />
-			<strong>自訂網域 URL：</strong>http://www.contoso.com</td>
-		</tr>
-		<tr>
-			<td>Blob</td>
-			<td><strong>預設 URL：</strong>http://mystorageaccount.blob.core.windows.net/mycontainer/myblob<br /><strong>自訂網域 URL：</strong>http://www.contoso.com/mycontainer/myblob</td>
-		</tr>
-		<tr>
-			<td>根容器</td>
-			<td><strong>預設 URL：</strong>http://mystorageaccount.blob.core.windows.net/myblob 
-			<br/>或<br />
-			http://mystorageaccount.blob.core.windows.net/$root/myblob<br />
-			<strong>自訂網域 URL：</strong> http://www.contoso.com/myblob
-			<br/>或<br />
-			http://www.contoso.com/$root/myblob</td>
-		</tr>
-	</tbody>
-</table>
+資源類型|URL 格式
+---|---
+儲存體帳戶|**預設 URL：** http://mystorageaccount.blob.core.windows.net<p>**自訂網域 URL：**http://www.contoso.com</td>
+Blob|**預設 URL：** http://mystorageaccount.blob.core.windows.net/mycontainer/myblob<p>**自訂網域 URL：**http://www.contoso.com/mycontainer/myblob
+根容器|**預設 URL：** http://mystorageaccount.blob.core.windows.net/myblob或 http://mystorageaccount.blob.core.windows.net/$root/myblob<p>**自訂網域 URL：** 或http://www.contoso.com/myblobhttp://www.contoso.com/$root/myblob
 
 ## 針對儲存體帳戶註冊自訂網域
 
@@ -135,7 +114,7 @@ asverify 子網域是 Azure 認可的特殊子網域。在自己的子網域前�
 
 ## 其他資源
 
--   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">如何將內容傳遞網路 (CDN) 內容對應至自訂網域</a>
+-   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">如何將 CDN 內容對應至自訂網域</a>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

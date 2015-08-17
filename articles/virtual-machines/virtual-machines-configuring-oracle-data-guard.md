@@ -1,19 +1,5 @@
-<properties 
-	pageTitle="設定適用於 Azure 的 Oracle Data Guard" 
-	description="在 Azure 虛擬機器上逐步執行設定和實作高可用性和嚴重損壞修復之 Oracle Data Guard 的教學課程。" 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-
+<properties title="Configuring Oracle Data Guard for Azure" pageTitle="設定適用於 Azure 的 Oracle Data Guard" description="在 Azure 虛擬機器上逐步執行設定和實作高可用性和嚴重損壞修復之 Oracle Data Guard 的教學課程。" services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #設定適用於 Azure 的 Oracle Data Guard
 本教學課程示範如何在 Azure 虛擬機器環境中設定和實作 Oracle Data Guard，以取得高可用性並進行嚴重損壞修復 。本教學課程著重於非 RAC Oracle 資料庫的單向複寫。
 
@@ -29,9 +15,9 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 
 - 您已在 Azure 入口網站上，針對主要 VM 將虛擬機器名稱設定為 “Machine1”，並針對待命 VM 設定為 “Machine2”。
 
-- 您已經設定 **ORACLE_HOME** 環境變數，以指向主要和待命虛擬機器中的同一個 oracle 根安裝路徑，例如 `C:\OracleDatabase\product\11.2.0\dbhome_1\database`。
+- 您已經設定 **ORACLE\_HOME** 環境變數，以指向主要和待命虛擬機器中的同一個 oracle 根安裝路徑，例如 `C:\OracleDatabase\product\11.2.0\dbhome_1\database`。
 
-- 您使用 **Administrators** 群組的成員身分或 **ORA_DBA** 群組的成員身分來登入 Windows Server。
+- 您使用 **Administrators** 群組的成員身分或 **ORA\_DBA** 群組的成員身分來登入 Windows Server。
 
 在本教學課程中，您將：
 
@@ -78,14 +64,14 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 >| **Oracle 版本** | Oracle11g 企業版 (11.2.0.4.0) | Oracle11g 企業版 (11.2.0.4.0) |
 >| **機器名稱** | Machine1 | Machine2 |
 >| **作業系統** | Windows 2008 R2 | Windows 2008 R2 |
->| **Oracle SID** | TEST | TEST_STBY |
+>| **Oracle SID** | TEST | TEST\_STBY |
 >| **記憶體** | 最少 2 GB | 最少 2 GB |
 >| **磁碟空間** | 最少 5 GB | 最少 5 GB |
 
 針對 Oracle 資料庫和 Oracle Data Guard 的後續版本，可能會有一些您需要實作的其他變更。如需最新的版本特定資訊，請參閱 Oracle 網站上的[資料防護](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html)和 [Oracle 資料庫](http://www.oracle.com/us/corporate/features/database-12c/index.html)文件。
 
 ##實作實體的待命資料庫環境
-### 1.建立主要資料庫
+### 1\.建立主要資料庫
 
 - 在主要虛擬機器中建立主要資料庫 "TEST"。如需相關資訊，請參閱＜建立和設定 Oracle 資料庫＞。
 - 在 SQL*Plus 命令提示字元中，使用 SYSDBA 角色，以 SYS 使用者身分來連接您的資料庫，並執行下列陳述式來查看您的資料庫名稱：
@@ -97,7 +83,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 		NAME
 		---------
 		TEST
-- 接下來，從 dba_data_files 系統檢視中查詢資料庫檔案的名稱：
+- 接下來，從 dba\_data\_files 系統檢視中查詢資料庫檔案的名稱：
 
 		SQL> select file_name from dba_data_files; 
 		FILE_NAME 
@@ -108,7 +94,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 		C:<YourLocalFolder>\TEST\SYSTEM01.DBF
 		C:<YourLocalFolder>\TEST\EXAMPLE01.DBF
 
-### 2.準備主要資料庫以用於建立待命資料庫
+### 2\.準備主要資料庫以用於建立待命資料庫
 
 建立待命資料庫之前，建議您先確認已正確設定主要資料庫。以下是您需要執行的步驟清單：
 
@@ -132,9 +118,9 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 
 >[AZURE.IMPORTANT]使用 Oracle Database 12c 時，會有一個新的使用者 **SYSDG**，可用來管理 Oracle Data Guard。如需詳細資訊，請參閱 [Oracle Database 12c 版本中的變更](http://docs.oracle.com/cd/E16655_01/server.121/e10638/release_changes.htm)。
 
-此外，請確定已經在 Machine1 中定義 ORACLE_HOME 環境。如果沒有，可使用 [環境變數] 對話方塊，將其定義為環境變數。若要存取此對話方塊，可在 [控制台] 中按兩下 [系統] 圖示，來啟動 [系統] 公用程式；然後按一下 [進階] 索引標籤並選擇 [環境變數]。按一下 [系統變數] 底下的 [新增] 按鈕來設定環境變數。設定環境變數之後，關閉現有的 Windows 命令提示字元，然後開啟新的命令提示字元。
+此外，請確定已經在 Machine1 中定義 ORACLE\_HOME 環境。如果沒有，可使用 [環境變數] 對話方塊，將其定義為環境變數。若要存取此對話方塊，可在 [控制台] 中按兩下 [系統] 圖示，來啟動 [系統] 公用程式；然後按一下 [進階] 索引標籤並選擇 [環境變數]。按一下 [系統變數] 底下的 [新增] 按鈕來設定環境變數。設定環境變數之後，關閉現有的 Windows 命令提示字元，然後開啟新的命令提示字元。
 
-執行下列陳述式以切換到 Oracle_Home 目錄，例如 C:\OracleDatabase\product\11.2.0\dbhome_1\database。
+執行下列陳述式以切換到 Oracle\_Home 目錄，例如 C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\database。
 
 	cd %ORACLE_HOME%\database
 
@@ -142,7 +128,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 
 	ORAPWD FILE=PWDTEST.ora PASSWORD=password FORCE=y
 
-此命令會在 ORACLE_HOME\database 目錄中，建立名為 PWDTEST.ora 的密碼檔案。您應該手動將這個檔案複製到 Machine2 中的 %ORACLE_HOME%\database 目錄。
+此命令會在 ORACLE\_HOME\\database 目錄中，建立名為 PWDTEST.ora 的密碼檔案。您應該手動將這個檔案複製到 Machine2 中的 %ORACLE\_HOME%\\database 目錄。
 
 #### 設定待命重做記錄
 
@@ -237,7 +223,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 	SQL> create pfile from spfile;
 	File created.
 
-接著，您需要編輯 pfile 來新增待命參數。若要這樣做，請開啟 %ORACLE_HOME%\database 位置中的 INITTEST.ORA 檔案。接著，將下列陳述式附加至 INITTEST.ora 檔案。請注意，INIT.ORA 檔案的命名慣例是 INIT<YourDatabaseName>.ORA。
+接著，您需要編輯 pfile 來新增待命參數。若要這樣做，請開啟 %ORACLE\_HOME%\\database 位置中的 INITTEST.ORA 檔案。接著，將下列陳述式附加至 INITTEST.ora 檔案。請注意，INIT.ORA 檔案的命名慣例是 INIT<YourDatabaseName>.ORA。
 	
 	db_name='TEST' 
 	db_unique_name='TEST' 
@@ -258,7 +244,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 	# ---------------------------------------------------------------------------------------------
 
 
-先前的陳述式區塊包含三個重要的設定項目：- **LOG_ARCHIVE_CONFIG...：**您可以使用這個陳述式來定義唯一的資料庫識別碼。 - **LOG_ARCHIVE_DEST_1...：**您可以使用這個陳述式來定義本機封存資料夾位置。我們建議您針對資料庫封存需求建立新的目錄，並使用這個陳述式明確指定本機封存位置，而不是使用 Oracle 的預設資料夾 %ORACLE_HOME%\database\archive。- **LOG_ARCHIVE_DEST_2 ....LGWR ASYNC...：**您可以定義非同步的記錄寫入器程序 (LGWR)，來收集交易重做資料，並將它傳輸到待命目的地。DB_UNIQUE_NAME 會在此處指定目的地待命伺服器上資料庫的唯一名稱。
+先前的陳述式區塊包含三個重要的設定項目：- **LOG\_ARCHIVE\_CONFIG...：**您可以使用這個陳述式來定義唯一的資料庫識別碼。 - **LOG\_ARCHIVE\_DEST\_1...：**您可以使用這個陳述式來定義本機封存資料夾位置。我們建議您針對資料庫封存需求建立新的目錄，並使用這個陳述式明確指定本機封存位置，而不是使用 Oracle 的預設資料夾 %ORACLE\_HOME%\\database\\archive。- **LOG\_ARCHIVE\_DEST\_2 ....LGWR ASYNC...：**您可以定義非同步的記錄寫入器程序 (LGWR)，來收集交易重做資料，並將它傳輸到待命目的地。DB\_UNIQUE\_NAME 會在此處指定目的地待命伺服器上資料庫的唯一名稱。
 
 當新的參數檔案就緒之後，您需要從中建立 spfile。
 
@@ -284,7 +270,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 
 現在建立 spfile：
 
-	SQL>create spfile frompfile='c:\OracleDatabase\product\11.2.0\dbhome_1\database\initTEST.ora';
+	SQL>create spfile frompfile='c:\OracleDatabase\product\11.2.0\dbhome\_1\database\initTEST.ora';
 
 	File created.
 
@@ -311,7 +297,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 
 首先，您需要透過 Azure 入口網站，使用遠端桌面功能連至 Machine2。
 
-然後，在待命伺服器 (Machine2) 上，建立待命資料庫所需的所有資料夾，例如 C:\<YourLocalFolder>\TEST。遵循此教學課程的同時，請確定資料夾結構符合 Machine1 上的資料夾結構，以保留所有必要的檔案，例如 controlfile、datafiles、redologfiles、udump、bdump 和 cdump 檔案。此外，在 Machine2 中定義 ORACLE_HOME 和 ORACLE_BASE 環境變數。如果沒有，可使用 [環境變數] 對話方塊，將其定義為環境變數。若要存取此對話方塊，可在 [控制台] 中按兩下 [系統] 圖示，來啟動 [系統] 公用程式；然後按一下 [進階] 索引標籤並選擇 [環境變數]。按一下 [系統變數] 底下的 [新增] 按鈕來設定環境變數。設定環境變數之後，您需要關閉現有的 Windows 命令提示字元，然後開啟新的命令提示字元來查看變更。
+然後，在待命伺服器 (Machine2) 上，建立待命資料庫所需的所有資料夾，例如 C:\\<YourLocalFolder>\\TEST。遵循此教學課程的同時，請確定資料夾結構符合 Machine1 上的資料夾結構，以保留所有必要的檔案，例如 controlfile、datafiles、redologfiles、udump、bdump 和 cdump 檔案。此外，在 Machine2 中定義 ORACLE\_HOME 和 ORACLE\_BASE 環境變數。如果沒有，可使用 [環境變數] 對話方塊，將其定義為環境變數。若要存取此對話方塊，可在 [控制台] 中按兩下 [系統] 圖示，來啟動 [系統] 公用程式；然後按一下 [進階] 索引標籤並選擇 [環境變數]。按一下 [系統變數] 底下的 [新增] 按鈕來設定環境變數。設定環境變數之後，您需要關閉現有的 Windows 命令提示字元，然後開啟新的命令提示字元來查看變更。
 
 接著，遵循下列步驟：
 
@@ -333,9 +319,9 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 
 6. 驗證實體的待命資料庫
 
-### 1.準備待命資料庫的初始設定參數檔案
+### 1\.準備待命資料庫的初始設定參數檔案
 
-本節示範如何準備待命資料庫的初始化參數檔案。若要這樣做，請先手動將 INITTEST.ORA 檔案從 Machine1 複製到 Machine2。您應該可以在這兩部機器的 %ORACLE_HOME%\database 資料夾中看到 INITTEST.ORA 檔案。然後，修改 Machine2 中的 INITTEST.ora 檔案，以下列指定的方式來設定它，使其適用於待命角色：
+本節示範如何準備待命資料庫的初始化參數檔案。若要這樣做，請先手動將 INITTEST.ORA 檔案從 Machine1 複製到 Machine2。您應該可以在這兩部機器的 %ORACLE\_HOME%\\database 資料夾中看到 INITTEST.ORA 檔案。然後，修改 Machine2 中的 INITTEST.ora 檔案，以下列指定的方式來設定它，使其適用於待命角色：
 	
 	db_name='TEST'
 	db_unique_name='TEST_STBY'
@@ -356,21 +342,21 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 
 先前的陳述式區塊包含兩個重要的設定項目：
 
--	***.LOG_ARCHIVE_DEST_1：**您需要在 Machine2 中手動建立 c:\OracleDatabase\TEST_STBY\archives 資料夾。
--	***.LOG_ARCHIVE_DEST_2：** 這是選擇性步驟。當主要機器處於維護模式且待命機器成為主要資料庫時，您可以視需要來設定這個步驟。
+-	***.LOG\_ARCHIVE\_DEST\_1：**您需要在 Machine2 中手動建立 c:\\OracleDatabase\\TEST\_STBY\\archives 資料夾。
+-	***.LOG\_ARCHIVE\_DEST\_2：** 這是選擇性步驟。當主要機器處於維護模式且待命機器成為主要資料庫時，您可以視需要來設定這個步驟。
 
 接著，需要啟動待命執行個體。在待命資料庫伺服器的 Windows 命令提示字元中，輸入下列命令，藉由建立新的 Windows 服務來建立 Oracle 執行個體：
 
-	oradim -NEW -SID TEST_STBY -STARTMODE MANUAL
+	oradim -NEW -SID TEST\_STBY -STARTMODE MANUAL
 
-請注意，**Oradim** 命令會建立 Oracle 執行個體，但不會啟動它。您可以在 C:\OracleDatabase\product\11.2.0\dbhome_1\BIN 目錄中找到它。
+請注意，**Oradim** 命令會建立 Oracle 執行個體，但不會啟動它。您可以在 C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\BIN 目錄中找到它。
 
 ##設定接聽程式和 tnsnames，以支援主要和待命機器上的資料庫
 建立待命資料庫之前，您必須確定在您的設定中主要和待命資料庫可以彼此通訊。若要這樣做，您需要手動或使用網路設定公用程式 NETCA 來設定接聽程式和 TNSNames。當您使用復原管理員公用程式 (RMAN) 時，這是必要的工作。
 
 ### 在這兩部伺服器上設定 listener.ora，以保存這兩個資料庫的項目
 
-以下列指定的方式，使用遠端桌面功能連至 Machine1 並編輯 listener.ora 檔案。當您編輯 listener.ora 檔案時，請務必在同一個資料行中對齊左右括號。您可以在下列資料夾中找到 listener.ora 檔案：c:\OracleDatabase\product\11.2.0\dbhome_1\NETWORK\ADMIN\。
+以下列指定的方式，使用遠端桌面功能連至 Machine1 並編輯 listener.ora 檔案。當您編輯 listener.ora 檔案時，請務必在同一個資料行中對齊左右括號。您可以在下列資料夾中找到 listener.ora 檔案：c:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\NETWORK\\ADMIN\\。
 
 	# listener.ora Network Configuration File: C:\OracleDatabase\product\11.2.0\dbhome_1\network\admin\listener.ora
 	
@@ -394,7 +380,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 	    )
 	  )
 
-接下來，使用遠端桌面功能連至 Machine2，並編輯 listener.ora 檔案，如下所示：# listener.ora Network Configuration File: C:\OracleDatabase\product\11.2.0\dbhome_1\network\admin\listener.ora
+接下來，使用遠端桌面功能連至 Machine2，並編輯 listener.ora 檔案，如下所示：# listener.ora Network Configuration File: C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\network\\admin\\listener.ora
 	
 	# Generated by Oracle configuration tools.
 	
@@ -419,7 +405,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 
 ### 在主要和待命虛擬機器上設定 tnsnames.ora，以保存主要和待命資料庫的項目
 
-以下列指定的方式，使用遠端桌面功能連至 Machine1 並編輯 tnsnames.ora 檔案。您可以在下列資料夾中找到 tnsnames.ora 檔案：c:\OracleDatabase\product\11.2.0\dbhome_1\NETWORK\ADMIN\。
+以下列指定的方式，使用遠端桌面功能連至 Machine1 並編輯 tnsnames.ora 檔案。您可以在下列資料夾中找到 tnsnames.ora 檔案：c:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\NETWORK\\ADMIN\\。
 
 	TEST =
 	  (DESCRIPTION =
@@ -525,7 +511,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 
 >[AZURE.IMPORTANT]請勿使用作業系統驗證，因為待命伺服器機器中還沒有任何資料庫。
 
-	C:> RMAN TARGET sys/password@test AUXILIARY sys/password@test_STBY
+	C:\> RMAN TARGET sys/password@test AUXILIARY sys/password@test_STBY
 	
 	RMAN>DUPLICATE TARGET DATABASE
 	  FOR STANDBY
@@ -621,4 +607,4 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 ##其他資源
 [適用於 Azure 的 Oracle 虛擬機器映像](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

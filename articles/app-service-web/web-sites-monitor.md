@@ -277,4 +277,4 @@ Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

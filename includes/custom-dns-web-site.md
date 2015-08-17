@@ -28,7 +28,7 @@ CNAME 記錄將*特定的*網域 (例如 **contoso.com** 或 **www.contoso.com**
 
 ###A 記錄
 
-A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字元網域* (例如 **\*.contoso.com**) 對應至 IP 位址。以 Azure 網站而言，就是指服務的虛擬 IP 或您為網站購買的特定 IP 位址。相較於 C0NAME 記錄，A 記錄的主要優點在於只需要有一個項目使用萬用字元，例如 ***.contoso.com**，即可處理多個子網域的要求，例如 **mail.contoso.com**、**login.contoso.com** 或 **www.contso.com**。
+A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字元網域* (例如 ***.contoso.com**) 對應至 IP 位址。以 Azure 網站而言，就是指服務的虛擬 IP 或您為網站購買的特定 IP 位址。相較於 CNAME 記錄，A 記錄的主要優點在於只需要有一個項目使用萬用字元，例如 ****.contoso.com**，即可處理多個子網域的要求，例如 **mail.contoso.com**、**login.contoso.com** 或 **www.contso.com**。
 
 > [AZURE.NOTE]因為 A 記錄會對應至靜態 IP 位址，所以無法自動解析網站 IP 位址的變更。您在設定網站的自訂網域名稱設定時會提供 A 記錄所使用的 IP 位址。不過，如果您刪除又重新建立網站，或將網站模式變回免費，此值就可能改變。
 
@@ -92,7 +92,7 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 
 **www.contoso.com** 的訪客絕對看不到真正的主機 (contoso.azurewebsite.net)，所以使用者不會察覺到轉送過程。
 
-> [AZURE.NOTE]如果您正對某個網站使用流量管理員，則不需遵循後續各節中的步驟：＜新增自訂網域的 CNAME＞與＜新增自訂網域的 A 記錄＞。在前述步驟中建立的 CNAME 記錄，會將連入的流量路由傳送至流量管理員，然後將流量路由傳送至網站端點。
+> [AZURE.NOTE]如果您正針對某個網站使用流量管理員，則不需遵循後續各節中的步驟：＜**新增自訂網域的 CNAME**＞與＜**新增自訂網域的 A 記錄**＞。在前述步驟中建立的 CNAME 記錄，會將連入的流量路由傳送至流量管理員，然後將流量路由傳送至網站端點。
 
 <a name="bkmk_configurecname"></a><h2>新增自訂網域的 CNAME</h2>
 
@@ -116,7 +116,7 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 
 4. 現在，找出可選取或輸入 CNAME 記錄的地方。您可能需要從下拉式清單中或移至進階設定頁面，才能選取記錄類型。請尋找 **CNAME**、**Alias** 或 **Subdomains** 之類的字。
 
-5. 您也必須為 CNAME 提供網域或子網域別名。例如，若要建立 **www.customdomain.com** 的別名，請提供 **www**。如果要建立根網域的別名，註冊機構的 DNS 工具中可能會以 '\*\*@\*\* 符號列出此別名。
+5. 您也必須為 CNAME 提供網域或子網域別名。例如，若要建立 **www.customdomain.com** 的別名，請提供 **www**。如果要建立根網域的別名，註冊機構的 DNS 工具中可能會以 '**@**' 符號列出此別名。
 
 5. 您也必須提供主機名稱，做為此 CNAME 別名的正式網域名稱。這是您網站的 **.azurewebsite.net** 名稱。
 
@@ -135,7 +135,7 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 
 **www.contoso.com** 的訪客絕對看不到真正的主機 (contoso.azurewebsite.net)，所以使用者不會察覺到轉送過程。
 
-> [AZURE.NOTE]上述範例僅適用於 __www__ 子網域的流量。因為 CNAME 記錄不能使用萬用字元，所以您必須為每一個網域/子網域建立一個 CNAME。如果要將來自子網域 (例如 *.contoso.com) 的流量導向您的 azurewebsite.net 位址，您可以在 DNS 設定中設定 [__URL 重新導向__] 或 [__URL 轉送__] 項目，或建立一筆 A 記錄。
+> [AZURE.NOTE]上述範例僅適用於 __www__ 子網域的流量。因為 CNAME 記錄不能使用萬用字元，所以您必須為每一個網域/子網域建立一個 CNAME。如果要將來自子網域 (例如 *.contoso.com) 的流量導向您的 azurewebsite.net 位址，您可以在 DNS 設定中設定 [URL 重新導向] 或 [URL 轉送] 項目，或建立一筆 A 記錄。
 
 > [AZURE.NOTE]需要一些時間，CNAME 才能傳播至整個 DNS 系統。必須等到 CNAME 傳播之後，您才能設定網站的 CNAME。您可以使用 <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> 之類的服務來驗證 CNAME 已生效。
 
@@ -195,9 +195,9 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 
 7. 執行下列步驟來建立 A 記錄：
 
-	1. 選取或輸入將使用 A 記錄的網域或子網域。例如，若要建立 **www.customdomain.com** 的別名，請選取 **www**。如果要為所有子網域建立萬用字元項目，請輸入 '\_\_\*\_\_'。這將會涵蓋所有子網域，例如 **mail.customdomain.com**、**login.customdomain.com** 和 **www.customdomain.com**。
+	1. 選取或輸入將使用 A 記錄的網域或子網域。例如，若要建立 **www.customdomain.com** 的別名，請選取 **www**。如果要為所有子網域建立萬用字元項目，請輸入 '\_\_*\_\_'。這將會涵蓋所有子網域，例如 **mail.customdomain.com**、**login.customdomain.com** 和 **www.customdomain.com**。
 
-		如果要建立根網域的 A 記錄，註冊機構的 DNS 工具中可能會以 '\*\*@\*\*' 符號列出此記錄。
+		如果要建立根網域的 A 記錄，註冊機構的 DNS 工具中可能會以 '**@**' 符號列出此記錄。
 
 	2. 在提供的欄位中，輸入雲端服務的 IP 位址。這樣會將 A 記錄中使用的網域項目與雲端服務部署的 IP 位址產生關聯。
 
@@ -212,7 +212,7 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 <td>@</td>
 <td>137.135.70.239</td>
 </tr>
-</table>此範例示範建立根網域的 A 記錄。如果想要建立萬用字元項目來涵蓋所有子網域，請輸入 '\_\_\*\_\_' 作為子網域。
+</table>此範例示範建立根網域的 A 記錄。如果想要建立萬用字元項目來涵蓋所有子網域，請輸入 '\_\_*\_\_' 作為子網域。
 
 7. 接下來，建立具有別名 **awverify** 和您稍早取得之正式網域 **awverify.mysite.azurewebsites.net** 的 CNAME 記錄。
 
@@ -311,4 +311,4 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 [setcname2]: ./media/custom-dns-web-site/dncmntask-cname-6.png
 [setcname3]: ./media/custom-dns-web-site/dncmntask-cname-7.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

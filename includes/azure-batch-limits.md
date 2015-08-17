@@ -27,4 +27,4 @@
 </table>
 <sup>1</sup> 可以增加每一 Batch 帳戶的核心數目，但未指定最大數目。請聯絡客戶支援以討論增加選項。<sup>2</sup> 包含執行一次使用中的工作和作用中的工作排程。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

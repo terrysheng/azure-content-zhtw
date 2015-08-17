@@ -57,7 +57,7 @@ Azure SQL Web 和 Business 資料庫即將在 [2015 年 9 月淘汰](http://msdn
 
 
 
-## 1.依據功能可用性判斷服務層
+## 1\.依據功能可用性判斷服務層
 
 基本、標準和高階服務層提供不同的功能集，所以選取適當層的第一個步驟就是判斷可提供您的應用程式和業務所需最低功能層級的服務層。
 
@@ -86,7 +86,7 @@ Azure SQL Web 和 Business 資料庫即將在 [2015 年 9 月淘汰](http://msdn
 
 
 
-## 2.依據歷史資源使用量判斷可接受的效能層級
+## 2\.依據歷史資源使用量判斷可接受的效能層級
 
 Azure SQL Database 服務會在管理入口網站和 [系統檢視] 中公開資訊，以針對您現有的 Web 或 Business 資料庫建議相當的新服務層和效能層級。
 
@@ -135,9 +135,9 @@ Azure SQL Database 服務會在管理入口網站和 [系統檢視] 中公開資
 ### 系統檢視
 
 
-在目前資料庫所在的邏輯伺服器的 master 資料庫中，Web 和 Business 資料庫資源耗用資料是透過 [sys.resource_stats](http://msdn.microsoft.com/library/azure/dn269979.aspx) 檢視存取。它是以效能層級限制的百分比顯示資源耗用量資料。此檢視最早可提供 14 天前的資料，間隔是 5 分鐘。
+在目前資料庫所在的邏輯伺服器的 master 資料庫中，Web 和 Business 資料庫資源耗用資料是透過 [sys.resource\_stats](http://msdn.microsoft.com/library/azure/dn269979.aspx) 檢視存取。它是以效能層級限制的百分比顯示資源耗用量資料。此檢視最早可提供 14 天前的資料，間隔是 5 分鐘。
 
-> [AZURE.NOTE]您現在可在 Web 和 Business 資料庫中使用 [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) 檢視，以取得資源耗用量資料的較高粒度檢視 (每 15 秒)。因為 sys.dm_db_resource_stats 只會將歷程記錄資料保留一小時，所以您可以每小時查詢此 DMV，並儲存資料以供進一步分析。
+> [AZURE.NOTE]您現在可在 Web 和 Business 資料庫中使用 [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) 檢視，以取得資源耗用量資料的較高粒度檢視 (每 15 秒)。因為 sys.dm\_db\_resource\_stats 只會將歷程記錄資料保留一小時，所以您可以每小時查詢此 DMV，並儲存資料以供進一步分析。
 
 在 master 資料庫上執行下列查詢可擷取資料庫的平均 DTU 耗用量：
 
@@ -153,9 +153,9 @@ Azure SQL Database 服務會在管理入口網站和 [系統檢視] 中公開資
     WHERE database_name = '<your db name>'
     ORDER BY end_time DESC;
 
-由 Web 和 Business 層的 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 與 [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) 傳回的資料會指示標準 S2 效能層的百分比。例如，當針對 Web 或 Business 資料庫執行時，如果值傳回 70%，表示 S2 層限制的 70%。此外，針對 Web 和 Business，百分比可能反映超出 100% 的數字，這也是以 S2 層的限制為依據。
+由 Web 和 Business 層的 [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) 與 [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) 傳回的資料會指示標準 S2 效能層的百分比。例如，當針對 Web 或 Business 資料庫執行時，如果值傳回 70%，表示 S2 層限制的 70%。此外，針對 Web 和 Business，百分比可能反映超出 100% 的數字，這也是以 S2 層的限制為依據。
 
-以 S2 資料庫層級為依據的 DTU 耗用量資訊可將您的 Web 和 Business 資料庫目前的耗用量以新服務層資料庫的方式標準化，進而找出較合適的服務層。例如，如果您的平均 DTU 百分比耗用量顯示值為 80%，表示資料庫耗用 DTU 的速率是 S2 效能層級之資料庫限制的 80%。如果您在 **sys.resource_stats** 檢視中看到大於 100% 的值，就表示您需要大於 S2 的效能層。舉例來說，假設您看到值為 300% 的尖峰 DTU 百分比值。這說明您使用的資源比 S2 中可用的資源多三倍。若要判斷合理的起始大小，請比較 S2 中可用的 DTU (50 DTU) 與下一個較高的大小 (S3/P1 = 100 DTU 或 S2 的 200 %，P2 = 200 DTU 或 S2 的 400 %)。因為您的速率是 S2 的 300%，您可以從 P2 開始再重新測試。
+以 S2 資料庫層級為依據的 DTU 耗用量資訊可將您的 Web 和 Business 資料庫目前的耗用量以新服務層資料庫的方式標準化，進而找出較合適的服務層。例如，如果您的平均 DTU 百分比耗用量顯示值為 80%，表示資料庫耗用 DTU 的速率是 S2 效能層級之資料庫限制的 80%。如果您在 **sys.resource\_stats** 檢視中看到大於 100% 的值，就表示您需要大於 S2 的效能層。舉例來說，假設您看到值為 300% 的尖峰 DTU 百分比值。這說明您使用的資源比 S2 中可用的資源多三倍。若要判斷合理的起始大小，請比較 S2 中可用的 DTU (50 DTU) 與下一個較高的大小 (S3/P1 = 100 DTU 或 S2 的 200 %，P2 = 200 DTU 或 S2 的 400 %)。因為您的速率是 S2 的 300%，您可以從 P2 開始再重新測試。
 
 根據 DTU 使用量百分比和符合您工作負載所需的最大版本，您可以判斷哪個服務層和效能層級最適合您的資料庫工作負載 (如同透過 DTU 百分比和各種[效能層級](http://msdn.microsoft.com/library/azure/dn741336.aspx)相對的 DTU 功率所示)。下表提供 Web/商務資源耗用量百分比和對等之新服務層效能層級的對應：
 
@@ -199,11 +199,11 @@ Azure SQL Database 服務會在管理入口網站和 [系統檢視] 中公開資
 
 ![DTU 使用量](media/sql-database-upgrade-new-service-tiers/DTU_usage.png)
 
-**記憶體對效能的影響：**雖然記憶體是構成 DTU 評等的其中一項資源層面，但 SQL Database 的設計是要將所有可用的記憶體運用在資料庫作業上。基於這個原因，記憶體耗用量並未包含在上述查詢的平均 DTU 耗用量中。另一方面，如果您要降級至較低的效能層級，資料庫可用的記憶體就會減少。這會導致較高的 IO 耗用量，進而影響耗用的 DTU。因此，在降級至較低的效能層級時，請確定 IO 百分比中有足夠的空餘空間。您可以使用上述的 [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV 來監視。
+**記憶體對效能的影響：**雖然記憶體是構成 DTU 評等的其中一項資源層面，但 SQL Database 的設計是要將所有可用的記憶體運用在資料庫作業上。基於這個原因，記憶體耗用量並未包含在上述查詢的平均 DTU 耗用量中。另一方面，如果您要降級至較低的效能層級，資料庫可用的記憶體就會減少。這會導致較高的 IO 耗用量，進而影響耗用的 DTU。因此，在降級至較低的效能層級時，請確定 IO 百分比中有足夠的空餘空間。您可以使用上述的 [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV 來監視。
 
 
 
-## 3.為什麼 Web 或 Business 資料庫的現有效能對應到較高階層級？
+## 3\.為什麼 Web 或 Business 資料庫的現有效能對應到較高階層級？
 
 Web 和 Business 資料庫沒有針對任何個別資料庫保留特定數量的資源容量。此外，沒有任何機制可供客戶向上或向下調整 Web 或 Business 資料庫的效能。這會導致 Web 和 Business 資料庫效能不一，範圍從相當緩慢以至高階層級。此多變的效能範圍「不公平地」取決於在多租用戶環境中共用資源的其他資料庫在任何時間點的整體資源耗用量層級。
 
@@ -216,7 +216,7 @@ Web 和 Business 資料庫沒有針對任何個別資料庫保留特定數量的
 如果整體 DTU 百分比極高，您應該開始探究構成 DTU 的詳細度量；請特別深入探索資料庫的記錄檔 I/O 和記憶體使用量細節。有可能會發現您可最佳化並減少 DTU 耗用量的潛在區域。
 
 
-## 4.微調您的資料庫工作負載以符合較低的效能層級
+## 4\.微調您的資料庫工作負載以符合較低的效能層級
 如果資料庫的過去資源使用量分析指出您應該升級至成本超出您想要的效能層級，您可以研究一下額外效能微調有所幫助的區域。
 
 考量您對於應用程式詳細資料的瞭解，如果相較於您所預期的典型工作負載應有使用量，資源使用量似乎非常高，您或許有些機會透過效能微調讓您的應用程式獲得好處。
@@ -235,7 +235,7 @@ Web 和 Business 資料庫沒有針對任何個別資料庫保留特定數量的
 
 
 
-## 5.升級至新的服務層/效能層級
+## 5\.升級至新的服務層/效能層級
 為 Web 或 Business 資料庫判斷適當的服務層和效能層級之後，可透過多種方式將資料庫升級至新的服務層：
 
 | 管理工具 | 變更資料庫的服務層和效能層級|
@@ -248,8 +248,8 @@ Web 和 Business 資料庫沒有針對任何個別資料庫保留特定數量的
 如需詳細資訊，請參閱[變更資料庫服務層和效能層級](http://msdn.microsoft.com/library/dn369872.aspx)
 
 
-## 6.監視新服務層/效能層級的升級
-Azure SQL Database 在您目前資料庫所在邏輯伺服器的 master 資料庫的 sys.dm_operation_status 動態管理檢視中，提供關於資料庫上執行之管理作業 (如 CREATE、ALTER、DROP) 的進度資訊，[請參閱 sys.dm _operation_ status 文件。](http://msdn.microsoft.com/library/azure/dn270022.aspx) 請使用作業狀態 DMV 判斷資料庫的升級作業進度。這個範例查詢會顯示資料庫上執行的所有管理作業：
+## 6\.監視新服務層/效能層級的升級
+Azure SQL Database 在您目前資料庫所在邏輯伺服器的 master 資料庫的 sys.dm\_operation\_status 動態管理檢視中，提供關於資料庫上執行之管理作業 (如 CREATE、ALTER、DROP) 的進度資訊，[請參閱 sys.dm \_operation \_status documentation。](http://msdn.microsoft.com/library/azure/dn270022.aspx) 請使用作業狀態 DMV 判斷資料庫的升級作業進度。這個範例查詢會顯示資料庫上執行的所有管理作業：
 
     SELECT o.operation, o.state_desc, o.percent_complete
     , o.error_code, o.error_desc, o.error_severity, o.error_state
@@ -265,11 +265,11 @@ Azure SQL Database 在您目前資料庫所在邏輯伺服器的 master 資料�
 效能層級會受校正和管理，以提供所需資源來將您的資料庫工作負載執行到您所選服務層/效能層級允許的上限 (亦即資源耗用量是 100%)。如果您的工作負載達到 CPU/資料 IO/記錄檔 IO 限制的其中一項限制，您仍然可繼續接收允許之最大層級的資源，但您可能會經歷較長的查詢延遲。達到這些限制的其中一項並不會導致任何錯誤 (除非是速度慢到使查詢開始逾時)，否則僅會使您的工作負載速度變慢。如果您到達最大允許並行使用者工作階段/要求 (背景工作執行緒) 的限制，您會看到 [錯誤 10928 或 10929](http://msdn.microsoft.com/library/azure/dn338078.aspx)。
 
 
-## 7.在升級後監視資料庫
+## 7\.在升級後監視資料庫
 將 Web/Business 資料庫升級至新服務層後，建議您主動監視資料庫，以確保應用程式達到所需的執行效能，並且視需要最佳化使用方式。建議您使用下列的額外步驟來監視資料庫。
 
 
-**資源耗用量資料：**對於「基本」、「標準」和「高階」資料庫，使用者資料庫中一個名為 [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) 的新 DMV 會提供更詳細的資源耗用量資料。此 DMV 以 15 秒的間隔提供幾乎即時的前一小時作業資源耗用量資訊。某一間隔的 DTU 百分比耗用量會計算為 CPU、IO 和記錄檔方面的最大百分比耗用量。下列是計算前一小時之平均 DTU 百分比耗用量的查詢：
+**資源耗用量資料：**對於「基本」、「標準」和「高階」資料庫，使用者資料庫中一個名為 [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) 的新 DMV 會提供更詳細的資源耗用量資料。此 DMV 以 15 秒的間隔提供幾乎即時的前一小時作業資源耗用量資訊。某一間隔的 DTU 百分比耗用量會計算為 CPU、IO 和記錄檔方面的最大百分比耗用量。下列是計算前一小時之平均 DTU 百分比耗用量的查詢：
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -309,4 +309,4 @@ Azure SQL Database 服務提供遙測資料和工具，可用於評估您的 Web
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

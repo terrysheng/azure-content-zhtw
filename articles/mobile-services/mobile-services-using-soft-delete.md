@@ -20,9 +20,9 @@
 
 ##概觀
 
-以 JavaScript 或 .NET 後端建立的資料表，可以選擇性地啟用虛刪除功能。使用虛刪除時，將會在資料庫中新增屬於 [SQL 位元類型] 的新資料行 *__deleted*。啟用虛刪除時，刪除作業將不會從資料庫中實際刪除資料列，而會將已刪除資料行的值設為 TRUE。
+以 JavaScript 或 .NET 後端建立的資料表，可以選擇性地啟用虛刪除功能。使用虛刪除時，將會在資料庫中新增屬於 [SQL 位元類型] 的新資料行 *\_\_deleted*。啟用虛刪除時，刪除作業將不會從資料庫中實際刪除資料列，而會將已刪除資料行的值設為 TRUE。
 
-在對已啟用虛刪除的資料表查詢記錄時，依預設將不會在查詢中傳回刪除的資料列。若要要求這些資料列，您必須在 [REST 查詢作業](http://msdn.microsoft.com/library/azure/jj677199.aspx)中傳入查詢參數 *__includeDeleted=true*。在 .NET 用戶端 SDK 中，您也可以使用協助程式方法 `IMobileServiceTable.IncludeDeleted()`。
+在對已啟用虛刪除的資料表查詢記錄時，依預設將不會在查詢中傳回刪除的資料列。若要要求這些資料列，您必須在 [REST 查詢作業](http://msdn.microsoft.com/library/azure/jj677199.aspx)中傳入查詢參數 *\_\_includeDeleted=true*。在 .NET 用戶端 SDK 中，您也可以使用協助程式方法 `IMobileServiceTable.IncludeDeleted()`。
 
 .NET 後端的虛刪除支援最初是隨 Microsoft Azure 行動服務 .NET 後端的 1.0.402 版而發行的。最新的 NuGet 套件可從 [Microsoft Azure 行動服務 .NET 後端](http://go.microsoft.com/fwlink/?LinkId=513165)取得。
 
@@ -66,11 +66,11 @@
 若要在 JavaScript 後端中的現有資料表上啟用虛刪除：
 
 1. 在[管理入口網站]中，按一下您的行動服務。然後按一下 [資料] 索引標籤。
-2. 在資料頁面上，點選所需的資料表。然後，在命令列中按一下 [啟用虛刪除] 按鈕。如果資料表已啟用虛刪除，此按鈕將不會出現，但您可以按一下資料表的 [瀏覽] 或 [資料行] 索引標籤，以檢視 *__deleted* 資料行。
+2. 在資料頁面上，點選所需的資料表。然後，在命令列中按一下 [啟用虛刪除] 按鈕。如果資料表已啟用虛刪除，此按鈕將不會出現，但您可以按一下資料表的 [瀏覽] 或 [資料行] 索引標籤，以檢視 *\_\_deleted* 資料行。
 
     ![][0]
 
-    若要為資料表停用虛刪除，請按一下 [資料行] 索引標籤，然後按一下 *__deleted* 資料行和 [刪除] 按鈕。
+    若要為資料表停用虛刪除，請按一下 [資料行] 索引標籤，然後按一下 *\_\_deleted* 資料行和 [刪除] 按鈕。
 
     ![][1]
 
@@ -126,7 +126,7 @@
         }
     });
 
-若要透過 HTTP 要求擷取已刪除的記錄，請新增查詢參數 "__includedeleted=true"：
+若要透過 HTTP 要求擷取已刪除的記錄，請新增查詢參數 "\_\_includedeleted=true"：
 
     http://youservice.azure-mobile.net/tables/todoitem?__includedeleted=true
 
@@ -163,4 +163,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

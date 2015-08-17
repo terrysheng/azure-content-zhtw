@@ -61,36 +61,27 @@ Azure 能在世界各地多個地理位置運作。Azure 地理位置是包含�
 ## 跨區域活動
 如圖 2 所示。
 
-![1Green](./media/best-practices-availability-paired-regions/1Green.png) 
-**Azure 運算 (PaaS)** – 您必須佈建額外的運算資源，以便確保發生嚴重損壞時資源可在其他區域中使用。如需詳細資訊，請參閱 [Azure 業務持續性技術指引](https://msdn.microsoft.com/library/azure/hh873027.aspx)
+![1Green](./media/best-practices-availability-paired-regions/1Green.png) **Azure 運算 (PaaS)** – 您必須佈建額外的運算資源，以便確保發生嚴重損壞時資源可在其他區域中使用。如需詳細資訊，請參閱 [Azure 業務持續性技術指引](https://msdn.microsoft.com/library/azure/hh873027.aspx)
 
-![2Green](./media/best-practices-availability-paired-regions/2Green.png) 
-**Azure 儲存體** - 建立 Azure 儲存體帳戶時，系統預設會設定異地備援儲存體 (GRS)。使用 GRS 時，系統會在主要區域內將您的資料自動複寫三次，並在配對區域中複寫三次。如需詳細資訊，請參閱 [Azure 儲存體備援選項](../storage/storage-redundancy.md)。
+![2Green](./media/best-practices-availability-paired-regions/2Green.png) **Azure 儲存體** - 建立 Azure 儲存體帳戶時，系統預設會設定異地備援儲存體 (GRS)。使用 GRS 時，系統會在主要區域內將您的資料自動複寫三次，並在配對區域中複寫三次。如需詳細資訊，請參閱 [Azure 儲存體備援選項](../storage/storage-redundancy.md)。
 
 
-![3Green](./media/best-practices-availability-paired-regions/3Green.png) 
-**Azure SQL Database** – 使用 Azure SQL 標準異地複寫，您就可以設定交易至配對區域的非同步複寫。使用高階異地複寫，您就可以設定複寫至世界上任何區域。不過，我們建議您在配對區域中，為大部分的災害復原案例部署這些資源。如需詳細資訊，請參閱 [Azure SQL Database 中的異地複寫](https://msdn.microsoft.com/library/azure/dn783447.aspx)
+![3Green](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – 使用 Azure SQL 標準異地複寫，您就可以設定交易至配對區域的非同步複寫。使用高階異地複寫，您就可以設定複寫至世界上任何區域。不過，我們建議您在配對區域中，為大部分的災害復原案例部署這些資源。如需詳細資訊，請參閱 [Azure SQL Database 中的異地複寫](https://msdn.microsoft.com/library/azure/dn783447.aspx)
 
-![4Green](./media/best-practices-availability-paired-regions/4Green.png) 
-**Azure 資源管理員 (ARM)** - ARM 原本就會跨區域提供服務管理元件的邏輯隔離。這表示某個區域中的邏輯失敗不太可能會影響另一個區域。
+![4Green](./media/best-practices-availability-paired-regions/4Green.png) **Azure 資源管理員 (ARM)** - ARM 原本就會跨區域提供服務管理元件的邏輯隔離。這表示某個區域中的邏輯失敗不太可能會影響另一個區域。
 
 ## 配對區域的優點
 如圖 2 所示。
 
-![5Orange](./media/best-practices-availability-paired-regions/5Orange.png) 
-**實體隔離** – 在可能的情況下，Azure 會偏好區域配對中的資料中心之間距離至少要相隔 300 英哩，但是這在所有地理位置中並不實際也不可能。實體資料中心分隔能夠降低自然災害、社會動亂、電力中斷或實體網路中斷同時影響兩個區域的可能性。隔離會受限於地理位置內的條件約束 (地理位置大小、電源/網路基礎結構可用性、法規等等)。
+![5Orange](./media/best-practices-availability-paired-regions/5Orange.png) **實體隔離** – 在可能的情況下，Azure 會偏好區域配對中的資料中心之間距離至少要相隔 300 英哩，但是這在所有地理位置中並不實際也不可能。實體資料中心分隔能夠降低自然災害、社會動亂、電力中斷或實體網路中斷同時影響兩個區域的可能性。隔離會受限於地理位置內的條件約束 (地理位置大小、電源/網路基礎結構可用性、法規等等)。
 
-![6Orange](./media/best-practices-availability-paired-regions/6Orange.png) 
-**平台提供的複寫** - 異地備援儲存體之類的部分服務會提供自動複寫到配對的區域。
+![6Orange](./media/best-practices-availability-paired-regions/6Orange.png) **平台提供的複寫** - 異地備援儲存體之類的部分服務會提供自動複寫到配對的區域。
 
-![7Orange](./media/best-practices-availability-paired-regions/7Orange.png) 
-**區域復原順序** – 若發生廣泛中斷事件，會優先復原所有配對中的一個區域。跨配對區域部署的應用程式能夠保障其中一個區域優先復原。如果在未配對的區域中部署應用程式，就可能會發生復原延遲的情況；最壞的情況是，這兩個選定的區域可能都不會被復原。
+![7Orange](./media/best-practices-availability-paired-regions/7Orange.png) **區域復原順序** – 若發生廣泛中斷事件，會優先復原所有配對中的一個區域。跨配對區域部署的應用程式能夠保障其中一個區域優先復原。如果在未配對的區域中部署應用程式，就可能會發生復原延遲的情況；最壞的情況是，這兩個選定的區域可能都不會被復原。
 
-![8Orange](./media/best-practices-availability-paired-regions/8Orange.png) 
-**循序更新** – 預定的 Azure 系統更新會循序發行至配對的區域 (並非同時)，以便在出現罕見的不正確更新時，將停機時間、錯誤影響和邏輯故障的影響降到最低。
+![8Orange](./media/best-practices-availability-paired-regions/8Orange.png) **循序更新** – 預定的 Azure 系統更新會循序發行至配對的區域 (並非同時)，以便在出現罕見的不正確更新時，將停機時間、錯誤影響和邏輯故障的影響降到最低。
 
 
-![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) 
-**資料常駐地** - 區域會駐留在相同的地理位置之內形成配對 (巴西南部除外)，以符合資料常駐地之稅務和執法管轄區的要求。
+![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **資料常駐地** - 區域會駐留在相同的地理位置之內形成配對 (巴西南部除外)，以符合資料常駐地之稅務和執法管轄區的要求。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

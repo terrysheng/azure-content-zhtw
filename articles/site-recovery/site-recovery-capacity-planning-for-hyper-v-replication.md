@@ -9,7 +9,7 @@
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
 	ms.date="06/01/2015"
@@ -118,13 +118,13 @@ Azure Site Recovery 會在兩個內部部署網站之間或內部部署 VMM 伺�
 
 	f.如果您使用憑證型驗證，按一下 [**選取憑證**]，然後提供要求的憑證資訊。
 
-	g.在 [**授權與存放裝置**] 區段中，指定以允許**任何**驗證 (主要) 伺服器將複寫資料傳送到這個複本伺服器，或限制接受來自特定主要伺服器的資料。您可以使用萬用字元以限制接受來自特定網域的伺服器，而不必個別指定 (例如，*.contoso.com)。
+	g.在 [**授權與存放裝置**] 區段中，指定以允許**任何**驗證 (主要) 伺服器將複寫資料傳送到這個複本伺服器，或限制接受來自特定主要伺服器的資料。您可以使用萬用字元以限制接受來自特定網域的伺服器，而不必個別指定 (例如，.contoso.com)。
 
-	h.在所有復原 Hyper-V 主機上開啟防火牆連接埠：連接埠 443 (憑證驗證)：Get-ClusterNode | ForEach-Object {Invoke-command -computername \$_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}
+	h.在所有復原 Hyper-V 主機上開啟防火牆連接埠：連接埠 443 (憑證驗證)：Get-ClusterNode | ForEach-Object {Invoke-command -computername \\$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}
 
 
           Port 80 (Kerberos auth):
-              Get-ClusterNode | ForEach-Object {Invoke-command -computername \$_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}}
+              Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}}
 
 
 ## 步驟 3：執行容量規劃工具
@@ -193,11 +193,11 @@ c.叢集中的任何節點
 
     預設報告位置：
 
-    %systemdrive%\Users\Public\Documents\Capacity Planner
+    %systemdrive%\\Users\\Public\\Documents\\Capacity Planner
 
     記錄檔位置：
 
-    %systemdrive%\Users\Public\Documents\CapacityPlanner
+    %systemdrive%\\Users\\Public\\Documents\\CapacityPlanner
 
 ## 步驟 4：解譯結果
 因為它們與此案例不相關，所以您可以忽略未列在下列兩個案例中任一案例底下的度量。
@@ -239,4 +239,4 @@ c.叢集中的任何節點
 - [利用單一 VMM 伺服器設定保護](site-recovery-single-vmm)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

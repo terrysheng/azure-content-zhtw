@@ -220,4 +220,4 @@ Azure 虛擬機器是使用您提供的映像或映像庫中的虛擬機器映�
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

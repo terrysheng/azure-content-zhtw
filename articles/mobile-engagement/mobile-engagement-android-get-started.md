@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/01/2015"
 	ms.author="piyushjo" />
 
@@ -285,7 +285,7 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 
 ###啟用應用程式接收 GCM 推播通知
 
-1. 將下列內容複製並貼入 Manifest.xml 的 `<application>` 和 `</application>` 標記之間，以輸入 gcm:sender 中繼資料。下面的隱藏值 (星號) 是取自 Google Play 主控台的`project number`。請務必在專案編號後面加上 \n。
+1. 將下列內容複製並貼入 Manifest.xml 的 `<application>` 和 `</application>` 標記之間，以輸入 gcm:sender 中繼資料。下面的隱藏值 (星號) 是取自 Google Play 主控台的`project number`。請務必在專案編號後面加上 \\n。
 
 		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
@@ -394,4 +394,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [38]: ./media/mobile-engagement-android-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>若有任何問題，請造訪 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 復原服務論壇</a> (英文)。</LI></UL>
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

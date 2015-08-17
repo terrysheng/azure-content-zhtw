@@ -39,7 +39,7 @@
 
 若要使用服務匯流排 API：
 
-1. 參考使用 [require_once][require-once] 陳述式的自動換片器檔案。
+1. 參考使用 [require\_once][require-once] 陳述式的自動換片器檔案。
 2. 參考任何您可能使用的類別。
 
 下列範例說明如何納入自動換片器檔案及參考 **ServiceBusService** 類別。
@@ -332,4 +332,4 @@
 [require-once]: http://php.net/require_once
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1455,4 +1455,4 @@ ________________________________________
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&suggesterName=sg&api-version=2014-10-20-Preview
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2015"
+	ms.date="07/30/2015"
 	ms.author="csand"/>
 
 
@@ -46,4 +46,4 @@ Azure 金鑰保存庫 Cmdlet 可讓您執行這些工作：建立或匯入金鑰
 * 請參閱 [Azure 金鑰保存庫 PowerShell 指令碼](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

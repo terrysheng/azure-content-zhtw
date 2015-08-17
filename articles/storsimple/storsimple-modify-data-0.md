@@ -18,7 +18,7 @@
 # 修改 StorSimple 裝置上的 DATA 0 網路介面設定
 
 ## 概觀
-Microsoft Azure StorSimple 裝置有 6 個網路介面，從 DATA 0 至 DATA 5。DATA 0 介面一律透過 Windows PowerShell 介面或序列主控台設定，且自動以雲端啟用。DATA 0 介面會在初始部署 StorSimple 裝置期間透過安裝精靈第一次設定。當裝置處於操作模式時，您可能需要重新進行 DATA 0 設定。本教學課程提供兩種方法修改 DATA 0 網路設定，兩者皆透過 Windows PowerShell for StorSimple。
+Microsoft Azure StorSimple 裝置有 6 個網路介面，從 DATA 0 至 DATA 5。DATA 0 介面一律透過 Windows PowerShell 介面或序列主控台設定，且自動以雲端啟用。DATA 0 介面會在初始部署 StorSimple 裝置期間透過安裝精靈第一次設定。當裝置處於操作模式時，您可能需要重新進行 DATA 0 設定。本教學課程提供兩種修改 DATA 0 網路設定的方法，皆需透過 Windows PowerShell for StorSimple 進行。
 
 閱讀本教學課程之後，您將能夠：
 
@@ -54,23 +54,20 @@ Microsoft Azure StorSimple 裝置有 6 個網路介面，從 DATA 0 至 DATA 5�
 
 	`Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
 
-	如果您使用 IPv6 位址，請使用下列命令：
-
-	`Set-HCSNetInterface -InterfaceAlias Data0 -IPv6Address <> -IPv6Netmask <> -IPv6Gateway <> -Controller0IPv6Address <> -Controller1IPv6Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
-
+	
 1. 為下列項目在角括弧 (< >) 中輸入 DATA 0 的值：
 											
-	- IPv4/IPv6 位址
+	- IPv4 位址
 	
-	- IPv4/IPv6 閘道器
+	- IPv4 閘道
 	
-	- IPv4/IPv6 子網路遮罩
+	- IPv4 子網路遮罩
 	
-	- 控制器 0 的固定的 IPv4/IPv6 位址
+	- 控制器 0 的固定的 IPv4 位址
 
-	- 控制器 1 的固定的 IPv4/IPv6 位址
+	- 控制器 1 的固定的 IPv4 位址
 
 ## 後續步驟
-如果您在設定您的網路介面時遇到任何問題，請參閱[疑難排解部署問題](storsimple-troubleshoot-deployment.md)。
+若要設定 DATA 0 以外的網路介面，您可以使用[管理入口網站中的設定頁面](storsimple-modify-device-config.md)。如果您在設定您的網路介面時遇到任何問題，請參閱[疑難排解部署問題](storsimple-troubleshoot-deployment.md)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

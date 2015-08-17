@@ -1,42 +1,42 @@
-<properties 
-	pageTitle="搭配 Blob 儲存體 (Java) 的內部部署應用程式 | Microsoft Azure" 
-	description="了解如何建立可將影像上傳至 Azure，然後在瀏覽器中顯示此影像的主控台應用程式。程式碼範例以 Java 撰寫。" 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="搭配 Blob 儲存體 (Java) 的內部部署應用程式 | Microsoft Azure"
+	description="了解如何建立可將影像上傳至 Azure，然後在瀏覽器中顯示此影像的主控台應用程式。程式碼範例以 Java 撰寫。"
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="06/03/2015"
 	ms.author="robmcm"/>
 
 # 搭配 Blob 儲存體的內部部署應用程式
 
 ## 概觀
 
-下列範例說明如何使用 Azure 儲存體，在 Azure 中儲存影像。以下程式碼適用於主控台應用程式，可將影像上傳至 Azure，然後建立可在瀏覽器中顯示此影像的 HTML 檔案。
+下列範例說明如何使用 Azure 儲存體，在 Azure 中儲存影像。本文中的程式碼適用於主控台應用程式，可將影像上傳至 Azure，然後建立可在瀏覽器中顯示此影像的 HTML 檔案。
 
 ## 必要條件
 
-1.  已安裝 Java Developer Kit (JDK) 1.6 版或更新版本。
-2.  已安裝 Azure SDK。
-3.  已安裝 Azure Libraries for Java 的 JAR 和任何適用的相依性 JAR，且位於 Java 編輯器所使用的組建路徑中。如需有關安裝 Azure Libraries for Java 的詳細資訊，請參閱 [下載 Azure SDK for Java] (英文)。
-4.  已設定 Azure 儲存體帳戶。以下程式碼將會使用此儲存體帳戶的帳戶名稱和帳戶金鑰。如需建立儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶] (英文)，如需擷取帳戶金鑰的詳細資訊，請參閱[如何管理儲存體帳戶] (英文)。
-5.  您已建立一個已命名並儲存於路徑 c:\myimages\image1.jpg 中的本機影像檔案。或者，修改範例中的 **FileInputStream** 建構函式以使用其他影像路徑和檔案名稱。
+- 已安裝 Java Developer Kit (JDK) 1.6 版或更新版本。
+- 已安裝 Azure SDK。
+- 已安裝 Azure Libraries for Java 的 JAR 和任何適用的相依性 JAR，且位於 Java 編輯器所使用的組建路徑中。如需有關安裝 Azure Libraries for Java 的詳細資訊，請參閱 [下載 Azure SDK for Java] (英文)。
+- 已設定 Azure 儲存體帳戶。本文中的程式碼將會使用此儲存體帳戶的帳戶名稱和帳戶金鑰。如需建立儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶] (英文)，如需擷取帳戶金鑰的詳細資訊，請參閱[如何管理儲存體帳戶] (英文)。
+- 您已建立一個已命名並儲存於路徑 c:\\myimages\\image1.jpg 中的本機影像檔案。或者，修改範例中的 **FileInputStream** 建構函式以使用其他影像路徑和檔案名稱。
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## 使用 Azure Blob 儲存體上傳檔案
 
-我們將在此提供逐步程序；如果想要跳過這些步驟，我們將在本主題後面提供完整程式碼。
+以下為逐步程序。如果您希望跳過此程序，也能在本文後續內容中看到完整的程式碼。
 
-透過包含匯入 Azure 核心儲存體類別、Azure Blob 用戶端類別、Java IO 類別和 **URISyntaxException** 類別來開始程式碼：
+透過包含匯入 Azure 核心儲存體類別、Azure Blob 用戶端類別、Java IO 類別和 **URISyntaxException** 類別來開始程式碼。
 
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
@@ -47,16 +47,16 @@
 
     public class StorageSample {
 
-在 **StorageSample** 類別中，宣告將包含預設端點通訊協定、儲存體帳戶名稱和儲存體存取金鑰 (如您 Azure 儲存體帳戶中所指定) 的字串變數。分別以您自己的帳戶名稱和帳戶金鑰取代預留位置值 **your_account_name** 和 **your_account_key**。
+在 **StorageSample** 類別中，宣告將包含預設端點通訊協定、儲存體帳戶名稱和儲存體存取金鑰 (如您 Azure 儲存體帳戶中所指定) 的字串變數。分別以您自己的帳戶名稱和帳戶金鑰取代預留位置值 **your\_account\_name** 和 **your\_account\_key**。
 
-    public static final String storageConnectionString = 
-           "DefaultEndpointsProtocol=http;" + 
-               "AccountName=your_account_name;" + 
-               "AccountKey=your_account_name"; 
+    public static final String storageConnectionString =
+           "DefaultEndpointsProtocol=http;" +
+               "AccountName=your_account_name;" +
+               "AccountKey=your_account_name";
 
 將您的宣告加入 **main** 中，包括 **try** 區塊，以及加上必要的左括號 **{**。
 
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
         try
         {
@@ -104,15 +104,15 @@
 
     blob = container.getBlockBlobReference("image1.jpg");
 
-使用 **File** 建構函式，來取得在本機建立且即將上傳之檔案的參照。(執行此程式碼之前，請確定您已建立此檔案。)
+使用 **File** 建構函式，來取得在本機建立且即將上傳之檔案的參照。執行此程式碼之前，請確定您已建立此檔案。
 
-    File fileReference = new File ("c:\myimages\image1.jpg");
+    File fileReference = new File ("c:\\myimages\\image1.jpg");
 
 透過呼叫 **CloudBlockBlob.upload** 方法來上傳本機檔案。**CloudBlockBlob.upload** 方法的第一個參數是 **FileInputStream** 物件，代表將上傳至 Azure 儲存體的本機檔案。第二個參數是檔案的大小 (位元組)。
 
     blob.upload(new FileInputStream(fileReference), fileReference.length());
 
-呼叫名為 **MakeHTMLPage** 的協助程式函數來製作基本的 HTML 頁面，此頁面將包含 **&lt;image&gt;** 元素，且來源設定為目前位於您 Azure 儲存體帳戶中的 Blob。(我們將在本主題後面討論 **MakeHTMLPage** 的程式碼。)
+呼叫名為 **MakeHTMLPage** 的協助程式函數來製作基本的 HTML 頁面，此頁面將包含 **&lt;image&gt;** 元素，且來源設定為目前位於您 Azure 儲存體帳戶中的 Blob。我們將在本文後面討論 **MakeHTMLPage** 的程式碼。
 
     MakeHTMLPage(container);
 
@@ -198,7 +198,7 @@
 
 透過插入右括號 **}** 來結束 **StorageSample**
 
-下列是此範例的完整程式碼。請記得修改預留位置值 **your_account_name** 和 **your_account_key**，以便分別使用您的帳戶名稱和帳戶金鑰。
+下列是此範例的完整程式碼。請記得修改預留位置值 **your\_account\_name** 和 **your\_account\_key**，以便分別使用您的帳戶名稱和帳戶金鑰。
 
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
@@ -206,14 +206,14 @@
     import java.net.URISyntaxException;
 
     // Create an image, c:\myimages\image1.jpg, prior to running this sample.
-    // Alternatively, change the value used by the FileInputStream constructor 
+    // Alternatively, change the value used by the FileInputStream constructor
     // to use a different image path and file that you have already created.
     public class StorageSample {
 
         public static final String storageConnectionString =
                 "DefaultEndpointsProtocol=http;" +
-                       "AccountName=your_account_name;" + 
-                       "AccountKey=your_account_name"; 
+                       "AccountName=your_account_name;" +
+                       "AccountKey=your_account_name";
 
         public static void main(String[] args) {
             try {
@@ -237,7 +237,7 @@
                 // Upload an image file.
                 blob = container.getBlockBlobReference("image1.jpg");
 
-                File fileReference = new File("c:\myimages\image1.jpg");
+                File fileReference = new File("c:\\myimages\\image1.jpg");
                 blob.upload(new FileInputStream(fileReference), fileReference.length());
 
                 // At this point the image is uploaded.
@@ -298,37 +298,37 @@
 
 ## 刪除容器
 
-由於您需支付儲存體的費用，因此，在您完成體驗此範例之後，您可能會想要刪除 **gettingstarted** 容器。若要刪除容器，請使用 **CloudBlobContainer.delete** 方法：
+由於您需支付儲存體的費用，因此，在您完成體驗此範例之後，您可能會想要刪除 **gettingstarted** 容器。若要刪除容器，請使用 **CloudBlobContainer.delete** 方法。
 
     container = serviceClient.getContainerReference("gettingstarted");
     container.delete();
 
-若要呼叫 **CloudBlobContainer.delete** 方法，初始化 **CloudStorageAccount**、**ClodBlobClient**、**CloudBlobContainer** 物件的程序與為 **createIfNotExist** 方法所顯示的程序相同。下列是刪除名為 **gettingstarted** 之容器的完整範例。
+若要呼叫 **CloudBlobContainer.delete** 方法，初始化 **CloudStorageAccount**、**ClodBlobClient** 及 **CloudBlobContainer** 物件的程序與為 **createIfNotExist** 方法所顯示的程序相同。下列是刪除名為 **gettingstarted** 之容器的完整範例。
 
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
 
     public class DeleteContainer {
 
-        public static final String storageConnectionString = 
-                "DefaultEndpointsProtocol=http;" + 
-                   "AccountName=your_account_name;" + 
-                   "AccountKey=your_account_key"; 
+        public static final String storageConnectionString =
+                "DefaultEndpointsProtocol=http;" +
+                   "AccountName=your_account_name;" +
+                   "AccountKey=your_account_key";
 
-        public static void main(String[] args) 
+        public static void main(String[] args)
         {
             try
             {
                 CloudStorageAccount account;
                 CloudBlobClient serviceClient;
                 CloudBlobContainer container;
-                
+
                 account = CloudStorageAccount.parse(storageConnectionString);
                 serviceClient = account.createCloudBlobClient();
                 // Container name must be lower case.
                 container = serviceClient.getContainerReference("gettingstarted");
                 container.delete();
-                
+
                 System.out.println("Container deleted.");
 
             }
@@ -366,6 +366,5 @@
   [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
   [Azure 儲存體 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

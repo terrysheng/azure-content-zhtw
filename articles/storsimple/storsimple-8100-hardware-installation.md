@@ -297,4 +297,4 @@
 您現在已準備好[部署和設定您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

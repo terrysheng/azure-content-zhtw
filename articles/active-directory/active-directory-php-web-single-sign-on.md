@@ -203,4 +203,4 @@
 [PHP Sample Code for Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

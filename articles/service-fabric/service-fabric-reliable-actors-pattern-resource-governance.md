@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actor 資源管理設計模式"
-   description="如何將需調整有限資源應用程式模組化的 Service Fabric Actor 設計模式"
+   pageTitle="Reliable Actor 資源管理設計模式"
+   description="如何將需調整有限資源應用程式模組化的 Reliable Actor 設計模式"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Azure Service Fabric Actor 設計模式：資源管理
+# Reliable Actor 設計模式：資源管理
 企業或其他開發人員能輕鬆地辨識此模式和相關案例，他們在內部部署或雲端擁有無法立即調整的有限資源，或需要將大規模的應用程式與資料移至雲端。
 
 這些企業的有限資源 (像是資料庫)，皆在相應增加的硬體上執行。任何有長期企業經驗的人都知道，這是常見的內部部署狀況。即使是在雲端規模，我們也看過這種情況，當雲端服務嘗試與超過 64K TCP 上限的位址/連接埠 Tuple 連線，或嘗試連接到會限制並行連線數目的雲端架構的資料庫時便會發生。
@@ -48,7 +48,7 @@ private static string ResolveConnectionString(long userId, int region)
 }
 ```
 
-簡單但不是很有彈性。現在讓我們來看一下更進階的和有用的方法。首先，我們會模組化同質的實體資源和動作項目。這是透過呼叫稱為「解析程式」的動作項目，並了解使用者、邏輯資料分割與實體資源之間的對應。解析程式會維護持續性存放區中的資料，不過也有已快取的資料方便查閱。如我們先前在「智慧快取」模式中的「匯率」範例中所見，解析程式可以使用計時器主動擷取最新資訊。一旦使用者的動作項目解析所需使用的資源後，會將其快取在本機變數稱為_解析度，並在存留期間使用該資源。我們傾向以查詢為基礎的解析度 (下面說明) 高於簡單或範圍雜湊，因其在作業中所提供的彈性，如調整輸入/輸出或將使用者從一個資源移至另一個資源。
+簡單但不是很有彈性。現在讓我們來看一下更進階的和有用的方法。首先，我們會模組化同質的實體資源和動作項目。這是透過呼叫稱為「解析程式」的動作項目，並了解使用者、邏輯資料分割與實體資源之間的對應。解析程式會維護持續性存放區中的資料，不過也有已快取的資料方便查閱。如我們先前在「智慧快取」模式中的「匯率」範例中所見，解析程式可以使用計時器主動擷取最新資訊。一旦使用者的動作項目解析所需使用的資源後，會將其快取在本機變數稱為 \_\_resolution，並在存留期間使用該資源。我們傾向以查詢為基礎的解析度 (下面說明) 高於簡單或範圍雜湊，因其在作業中所提供的彈性，如調整輸入/輸出或將使用者從一個資源移至另一個資源。
 
 ![][2]
 
@@ -416,6 +416,5 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
 [1]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

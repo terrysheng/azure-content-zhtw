@@ -85,4 +85,4 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 >[AZURE.NOTE]如果您需要支援多個頂層網域，例如 contoso.com 和 fabrikam.com，則您使用任何 Cmdlet 時必須搭配使用 SupportMultipleDomain 參數。如需詳細資訊，請參閱〈支援多個頂層網域〉。最後，確定使用 [Windows Server 2014 年 5 月](http://support.microsoft.com/kb/2955164)彙總套件來更新所有 Web 應用程式 Proxy 伺服器，否則 Proxy 可能無法使用新的憑證自行更新，而導致服務中斷。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -80,7 +80,7 @@ Mahout 提供的其中一項功能是推薦引擎。這個引擎接受 `userID``
 
     	PS C:\> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
 
-    這會將 __u.data__ 檔案上傳至叢集之預設儲存體中的 __example/data/u.data__。接著您便可以從 HDInsight 工作使用 __wasb:///example/data/u.data__ URI 來存取此資料。
+    這會將 __u.data__ 檔案上傳至叢集之預設儲存體中的 __example/data/u.data__。接著您便可以從 HDInsight 工作使用 \_\___wasb:///example/data/u.data__ URI 來存取此資料。
 
 ###執行工作
 
@@ -92,7 +92,7 @@ Mahout 提供的其中一項功能是推薦引擎。這個引擎接受 `userID``
 	# NOTE: The version number portion of the file path
 	# may change in future versions of HDInsight.
 	# So dynamically grab it using Hive.
-	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar' | where {$_.startswith("C:\apps\dist")}
+	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar' | where {$_.startswith("C:\apps\dist")}
 	$noCRLF = $mahoutPath -replace "`r`n", ""
 	$cleanedPath = $noCRLF -replace "\", "/"
 	$jarFile = "file:///$cleanedPath"
@@ -291,7 +291,7 @@ Mahout 可用的其中一個分類方法是建置[隨機森林][forest]。這是
 
 	![hadoop cli][hadoopcli]
 
-3. 使用下列命令，並利用 Mahout 產生檔案描述元 (\_\_KDDTrain+.info\_\_)。
+3. 使用下列命令，並利用 Mahout 產生檔案描述元 (__KDDTrain+.info__)。
 
 		hadoop jar "c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar" org.apache.mahout.classifier.df.tools.Describe -p "wasb:///example/data/KDDTrain+.arff" -f "wasb:///example/data/KDDTrain+.info" -d N 3 C 2 N C 4 N C 8 N 2 C 19 N L
 
@@ -301,7 +301,7 @@ Mahout 可用的其中一個分類方法是建置[隨機森林][forest]。這是
 
 		hadoop jar c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasb:///example/data/KDDTrain+.arff -ds wasb:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
 
-    此作業的輸出將儲存在 __nsl-forest__ 目錄，其位於您 HDInsight 叢集的儲存體中，位於：__wasb://user/&lt;username>/nsl-forest/nsl-forest.seq。&lt;username> 是您遠端桌面工作階段的使用者名稱。此檔案無法讓人判讀。
+    此作業的輸出將儲存在 __nsl-forest__ 目錄，其位於您 HDInsight 叢集的儲存體中，位於：\_\___wasb://user/&lt;username>/nsl-forest/nsl-forest.seq。&lt;username> 是您遠端桌面工作階段的使用者名稱。此檔案無法讓人判讀。
 
 5. 將 __KDDTest+.arff__ 資料集分類來測試森林。使用下列命令：
 
@@ -333,7 +333,7 @@ Mahout 可用的其中一個分類方法是建置[隨機森林][forest]。這是
 	    Reliability                                53.4921%
 	    Reliability (standard deviation)            0.4933
 
-  此工作也會產生一個檔案，位於：__wasb:///example/data/predictions/KDDTest+.arff.out__不過，此檔案無法讓人判讀。
+  此工作也會產生一個檔案，位於：\_\___wasb:///example/data/predictions/KDDTest+.arff.out__。不過，此檔案無法讓人判讀。
 
 > [AZURE.NOTE]Mahout 工作不會覆寫檔案。如果您想要重新執行這些工作，則必須刪除先前的工作所建立的檔案。
 
@@ -373,7 +373,7 @@ Mahout 工作不會清除在處理期間所建立的暫存檔。此外，工作�
 HDInsight 3.1 叢集包含 Mahout。路徑和檔案名稱包含叢集上安裝之 Mahout 的版本號碼。本教學課程中的 Windows PowerShell 範例指令碼使用在 2014 年 7 月時有效的路徑，但版本號碼將隨著未來 HDInsight 更新而有所變更。若要判斷您叢集的 Mahout JAR 檔案的目前路徑，請使用下列 Windows PowerShell 命令，然後將指令碼修改為參考傳回的檔案路徑：
 
 	Use-AzureHDInsightCluster -Name $clusterName
-	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar'
+	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar'
 
 ###<a name="nopowershell"></a>不適用於 Windows PowerShell 的類別
 
@@ -421,4 +421,4 @@ HDInsight 3.1 叢集包含 Mahout。路徑和檔案名稱包含叢集上安裝�
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

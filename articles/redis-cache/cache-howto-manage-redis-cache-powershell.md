@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="multiple" 
-   ms.date="04/23/2015"
+   ms.date="08/04/2015"
    ms.author="riande"/>
 
 # 使用 Azure PowerShell 管理 Azure Redis 快取
@@ -95,4 +95,4 @@
 - [Windows PowerShell 部落格](http://blogs.msdn.com/powershell)：深入了解 Windows PowerShell 的新功能。
 - ["Hey, Scripting Guy!" 部落格](http://blogs.technet.com/b/heyscriptingguy/)：從 Windows PowerShell 社群中取得實際的秘訣及訣竅。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

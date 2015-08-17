@@ -37,4 +37,4 @@
 - `EngagementConfiguration.xml`：Mobile Engagement 的組態檔，您可以在此自訂 Engagement 的設定 (Engagement 連接字串、報告當機等)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

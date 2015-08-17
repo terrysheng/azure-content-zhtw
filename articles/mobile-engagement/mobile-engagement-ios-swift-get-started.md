@@ -3,7 +3,7 @@
 	description="了解如何使用 iOS 應用程式的 Azure Mobile Engagement 與分析和推播通知。"
 	services="mobile-engagement"
 	documentationCenter="Mobile"
-	authors="piyushjo"
+	authors="MehrdadMzfr"
 	manager="dwrede"
 	editor="" />
 
@@ -12,9 +12,9 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="swift"
-	ms.topic="get-started-article" 
-	ms.date="04/30/2015"
-	ms.author="piyushjo" />
+	ms.topic="get-started-article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 # 開始使用適用於 iOS 應用程式 (Swift) 的 Azure Mobile Engagement
 
@@ -52,14 +52,14 @@
 
 2. 依序按一下 [應用程式服務]、[Mobile Engagement]，然後 [建立]。
 
-   	![][7]
+	![][7]
 
 3. 在顯示的快顯視窗中，輸入以下資訊：
 
-   	![][8]
+	![][8]
 
 	- **應用程式名稱**：輸入您應用程式的名稱。可自由使用任何字元。
-	- **平台**：為應用程式選取目標平台 (\*\*iOS\*\*。如果您的應用程式是針對多種平台，請針對每種平台重複參與此教學課程)。
+	- **平台**：為應用程式選取目標平台 (**iOS**。如果您的應用程式是針對多種平台，請針對每種平台重複參與此教學課程)。
 	- **應用程式資源名稱**：這是此應用程式可透過 API 與 URL 存取時的名稱。您只可以使用 傳統 URL 自字元。自動產生的名稱應該能提供您強健的基礎。建議您附加平台名稱，以避免發生名稱衝突，因為名稱必須是唯一的。
 	- **位置**：選取將裝載此應用程式 (更重要的是其「集合」) 的資料中心 。
 	- **集合**：如果您已經有建立應用程式，請選取之前建立的集合，若沒有則選取 [新集合]。
@@ -69,11 +69,11 @@
 
 5. 按一下 [連線資訊] 來顯示要置入您行動應用程式中 SDK 整合的連線設定。
 
-   	![][10]
+	![][10]
 
 6. 複製 [連接字串]：在您的應用程式程式碼中，以及從您的「電話應用程式」與 Mobile Engagement 連接時 ，將需要它來識別這個應用程式。
 
-   	![][11]
+	![][11]
 
 ##<a id="connecting-app"></a>將您的應用程式連接至 Mobile Engagement 後端
 
@@ -87,15 +87,15 @@
 
 1. 啟動 Xcode，並在快顯視窗中，選取 [Create a new Xcode project]
 
-   	![][12]
+	![][12]
 
 2. 現在選取 [Single View Application]，然後按 [Next]
 
-   	![][14]
+	![][14]
 
 3. 輸入 [Product Name]、[Organization Name] 和 [Organization Identifier]。請確定您在語言選取 [Swift]。
 
-   	![][40]
+	![][40]
 
 Xcode 會建立示範應用程式，我們將和它整合 Mobile Engagement
 
@@ -184,6 +184,10 @@ Xcode 會建立示範應用程式，我們將和它整合 Mobile Engagement
 
 Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊」，於活動進行時與使用者互動和觸達 (REACH)。此模組在 Mobile Engagement 入口網站中稱為觸達 (REACH)。以下各節將設定您的用程式來接收它們。
 
+### 啟用應用程式接收無聲推播通知
+
+[AZURE.INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
+
 ### 將觸達程式庫加入至專案
 
 1. 以滑鼠右鍵按一下您的專案
@@ -249,11 +253,11 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 			EngagementAgent.shared().registerDeviceToken(deviceToken)
 		}
 
-3. 新增 `didReceiveRemoteNotification` 方法，如下所示：
+3. 新增 `didReceiveRemoteNotification:fetchCompletionHandler:` 方法，如下所示：
 
-		func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
+		func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
 		{
-			EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo)
+			EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo, fetchCompletionHandler:completionHandler)
 		}
 
 ###將推播憑證的存取權授與給 Mobile Engagement
@@ -317,10 +321,10 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [11]: ./media/mobile-engagement-ios-swift-get-started/app-connection-info-page.png
 [12]: ./media/mobile-engagement-ios-swift-get-started/xcode-new-project.png
 [13]: ./media/mobile-engagement-ios-get-started/xcode-project-props.png
-[14]: ./media/mobile-engagement-ios-swift-get-started/xcode-simple-view.png
-[17]: ./media/mobile-engagement-ios-swift-get-started/xcode-add-files.png
-[18]: ./media/mobile-engagement-ios-swift-get-started/xcode-select-engagement-sdk.png
-[19]: ./media/mobile-engagement-ios-swift-get-started/xcode-build-phases.png
+[14]: ./media/mobile-engagement-ios-get-started/xcode-simple-view.png
+[17]: ./media/mobile-engagement-ios-get-started/xcode-add-files.png
+[18]: ./media/mobile-engagement-ios-get-started/xcode-select-engagement-sdk.png
+[19]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [22]: ./media/mobile-engagement-ios-get-started/xcode-view-controller.png
 [26]: ./media/mobile-engagement-ios-swift-get-started/engage-button.png
 [27]: ./media/mobile-engagement-ios-swift-get-started/engagement-portal.png
@@ -335,6 +339,5 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [39]: ./media/mobile-engagement-ios-swift-get-started/campaign-activate.png
 [40]: ./media/mobile-engagement-ios-swift-get-started/SwiftSelection.png
 [41]: ./media/mobile-engagement-ios-swift-get-started/AddHeaderFile.png
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

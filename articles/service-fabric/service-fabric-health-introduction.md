@@ -245,7 +245,7 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 狀態轉換欄位可用於更聰明的警示或「歷程記錄」的健康狀態事件資訊。所適用的案例像是：
 
 - 當屬性處於「Warning/Error」狀態持續超過 X 分鐘時發出警示。如此可避免因暫時的狀況而發出警示。例如：當健康狀態處於「Warning」狀態持續超過 5 分鐘時發出警示，可以轉譯為 (HealthState == Warning and Now - LastWarningTransitionTime
-> 
+> 5 分鐘)。
 
 - 僅在前 X 分鐘內發生變更的情況時發出警示。如果報告之前即處於「Error」狀態，則可以忽略 (因為其先前已發出訊號)。
 
@@ -255,9 +255,9 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 下列範例會從來源 MyWatchdog 透過稱為 fabric:/WordCount 之應用程式上的 Powershell 來傳送健康狀態報告。健康狀態報告會在「Error」健康狀態中包含健康狀態屬性可用性的相關資訊，並包含「Infinite」的 TTL。然後它會查詢應用程式健康狀態，並傳回已彙總健康狀態錯誤和已報告健康狀態事件，作為健康狀態事件清單的一部分。
 
 ```powershell
-PS C:> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
+PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
 
-PS C:> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Error
@@ -336,4 +336,4 @@ HealthEvents                    :
 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -23,4 +23,4 @@
 
 如需虛擬網路 VPN 的最新常見問題集，請參閱《[VPN 閘道常見問題集](vpn-gateway-vpn-faq.md)》。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -169,7 +169,7 @@
 
 請依照上述步驟來設定此控制器動作：
 
-1. 在 *\Controllers* 資料夾中，建立一個新的 .cs 檔案稱為 *MemeGeneratorController.cs*，並將內容改成下列程式碼。請記得將反白部分取代為您的檔案路徑和 CDN 名稱。
+1. 在 *\Controllers* 資料夾中，建立一個新的 .cs 檔案稱為 *MemeGeneratorController.cs*，並將內容改成下列程式碼。針對 `~/Content/chuck.bmp` 取代您的檔案路徑，並針對 `yourCDNName` 取代您的 CDN 名稱。
 	<pre class="prettyprint">
 	using System;
 	using System.Collections.Generic;
@@ -373,35 +373,32 @@ public ActionResult Show(string id)
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
-	    <mark>bundles.UseCdn = true;
+	    bundles.UseCdn = true;
 	    var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
 	        .GetName().Version.ToString();
-	    var cdnUrl = &quot;http://&lt;yourCDNName&gt;.vo.msecnd.net/{0}?v=&quot; + version;</mark>
-	
-	    bundles.Add(new ScriptBundle(&quot;~/bundles/jquery&quot;<mark>, string.Format(cdnUrl, &quot;bundles/jquery&quot;)</mark>).Include(
-	                &quot;~/Scripts/jquery-{version}.js&quot;));
-	
-	    bundles.Add(new ScriptBundle(&quot;~/bundles/jqueryval&quot;<mark>, string.Format(cdnUrl, &quot;bundles/jqueryval&quot;)</mark>).Include(
-	                &quot;~/Scripts/jquery.validate*&quot;));
-	
-	    // Use the development version of Modernizr to develop with and learn from. Then, when you&#39;re
-	    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-	    bundles.Add(new ScriptBundle(&quot;~/bundles/modernizr&quot;<mark>, string.Format(cdnUrl, &quot;bundles/modernizer&quot;)</mark>).Include(
-	                &quot;~/Scripts/modernizr-*&quot;));
-	
-	    bundles.Add(new ScriptBundle(&quot;~/bundles/bootstrap&quot;<mark>, string.Format(cdnUrl, &quot;bundles/bootstrap&quot;)</mark>).Include(
-	                &quot;~/Scripts/bootstrap.js&quot;,
-	                &quot;~/Scripts/respond.js&quot;));
-	
-	    bundles.Add(new StyleBundle(&quot;~/Content/css&quot;<mark>, string.Format(cdnUrl, &quot;Content/css&quot;)</mark>).Include(
-	                &quot;~/Content/bootstrap.css&quot;,
-	                &quot;~/Content/site.css&quot;));
-	}
-	</pre>
+	    var cdnUrl = "http://&lt;yourCDNName>.vo.msecnd.net/{0}?v=" + version;
 
-	請記得將 `<yourCDNName>` 取代為您的 Azure CDN 名稱。
-	
-	
+	    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
+	                "~/Scripts/jquery-{version}.js"));
+
+	    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")).Include(
+	                "~/Scripts/jquery.validate*"));
+
+	    // Use the development version of Modernizr to develop with and learn from.Then, when you're
+	    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+	    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
+	                "~/Scripts/modernizr-*"));
+
+	    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
+	                "~/Scripts/bootstrap.js",
+	                "~/Scripts/respond.js"));
+
+	    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
+	                "~/Content/bootstrap.css",
+	                "~/Content/site.css"));
+	}
+	</pre>請記得將 `<yourCDNName>` 取代為您的 Azure CDN 名稱。
+
 	簡單地說，您正在設定 `bundles.UseCdn = true`，且已在每一個套件組合中加入謹慎建構的 CDN URL。例如，程式碼的第一個建構函式：
 
 		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery"))
@@ -466,7 +463,7 @@ public ActionResult Show(string id)
 
 [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) 類別包含一個稱為 [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) 的屬性，可讓您設定 CDN 失敗時的後援機制。若要使用此屬性，請遵循下列步驟：
 
-1. 在 ASP.NET 專案中，開啟 *App_Start\BundleConfig.cs* (其中，您已在每一個 [Bundle 建構函式](http://msdn.microsoft.com/library/jj646464.aspx)中加入 CDN URL)，進行下列醒目提示的變更將後援機制加入至預設套件組合：  
+1. 在 ASP.NET 專案中，開啟 *App_Start\BundleConfig.cs*，在您於每一個 [Bundle 建構函式](http://msdn.microsoft.com/library/jj646464.aspx)中已加入 CDN URL 的地方，如下方顯示的四處加入 `CdnFallbackExpression` 程式碼，以便將後援機制加入至預設套件組合。  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -515,7 +512,7 @@ public ActionResult Show(string id)
 
 4. 在 *App_Start\StyleFundleExtensions.cs* 中，將命名空間重新命名為您的 ASP.NET 應用程式的命名空間 (例如 **cdnwebapp**)。
 
-3. 回到 `App_Start\BundleConfig.cs`，將最後一個 `bundles.Add` 陳述式修改為下列醒目提示的程式碼：
+3. 回到 `App_Start\BundleConfig.cs`，將最後一個 `bundles.Add` 陳述式取代為下列程式碼：
 	<pre class="prettyprint">
 	bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
 	    <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark>
@@ -588,4 +585,4 @@ public ActionResult Show(string id)
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

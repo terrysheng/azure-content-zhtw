@@ -10,7 +10,7 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="06/10/2015"
@@ -132,4 +132,4 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 - **[Twitter 上的 Azure AD](https://twitter.com/azuread)**：140 個字元以內的 Azure AD 公告。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

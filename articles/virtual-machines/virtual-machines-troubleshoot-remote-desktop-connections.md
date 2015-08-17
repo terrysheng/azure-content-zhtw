@@ -3,7 +3,7 @@
 	description="如果您無法連線以 Windows 為基礎的 Azure 虛擬機器，請使用下列診斷與步驟來隔離問題的來源。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
-	ms.author="josephd"/>
+	ms.author="dkshir"/>
 
 # 疑難排解以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線
 
@@ -72,7 +72,7 @@
 
 原因：您連線的虛擬機器找不到您認證的使用者名稱部分所表示的安全性授權。
 
-若您的使用者名稱格式為 *SecurityAuthority**UserName* (範例：CORP\User1)，則 *SecurityAuthority* 部分可以是虛擬機器的電腦名稱 (做為本機安全性授權) 或 Active Directory 網域名稱。
+若您的使用者名稱格式為 *SecurityAuthority*\*UserName* (範例：CORP\\User1)，則 *SecurityAuthority* 部分便應輸入虛擬機器的電腦名稱 (作為本機的安全性授權)，或 Active Directory 網域名稱。
 
 此問題的可能解決方案：
 
@@ -86,10 +86,10 @@
 
 以 Windows 為基礎的電腦可以驗證本機帳戶或以網域為基礎帳戶之認證。
 
-- 如果是本機帳戶，請使用 *ComputerName**UserName* 語法 (範例：SQL1\Admin4798)。
-- 如果是網域帳戶，請使用 *DomainName**UserName* 語法 (範例：CONTOSO\johndoe)。
+- 如果是本機帳戶，請使用 *ComputerName*\*UserName* 語法 (範例：SQL1\\Admin4798)。
+- 如果是網域帳戶，請使用 *DomainName*\*UserName* 語法 (範例：CONTOSO\\johndoe)。
 
-對於您在新的 Active Directory 樹系提升為網域控制器的電腦，您執行此提升時所登入的本機系統管理員帳戶會轉換為對等的帳戶，密碼與在新樹系和網域中的相同。上一個本機系統管理員帳戶已刪除。例如，如果您以本機系統管理員帳戶 DC1\DCAdmin 登入，並提升此虛擬機器為 corp.contoso.com 網域中新樹系的網域控制器，則會刪除 DC1\DCAdmin 本機帳戶，並且以相同密碼建立一個新的網域帳戶 (CORP\DCAdmin)。
+對於您在新的 Active Directory 樹系提升為網域控制器的電腦，您執行此提升時所登入的本機系統管理員帳戶會轉換為對等的帳戶，密碼與在新樹系和網域中的相同。上一個本機系統管理員帳戶已刪除。例如，如果您以本機系統管理員帳戶 DC1\\DCAdmin 登入，並提升此虛擬機器為 corp.contoso.com 網域中新樹系的網域控制器，則會刪除 DC1\\DCAdmin 本機帳戶，並且以相同密碼建立一個新的網域帳戶 (CORP\\DCAdmin)。
 
 請再次檢查帳戶名稱，確保虛擬機器可驗證此名稱為有效帳戶。請再次確認密碼，確保密碼為正確。
 
@@ -101,7 +101,7 @@
 
 每部 Windows 電腦都有遠端桌面使用者本機群組，其中包含有權限以遠端桌面連線登入的帳戶和群組。本機系統管理員群組成員也有權限，即使這些帳戶未列在遠端桌面使用者本機群組的成員中。對於加入網域的機器，本機系統管理員群組也包含此網域的網域系統管理員。
 
-請確保您正用於啟動連接的帳戶具有遠端桌面登入權限。請使用網域系統管理員或本機系統管理員帳戶做為暫時的因應措施，來建立遠端桌面連線，並使用電腦管理嵌入式管理單元加入想要的帳戶到遠端桌面使用者本機群組 (**系統工具 > 本機使用者和群組 > 群組 > 遠端桌面使用者**)。
+請確保您正用於啟動連接的帳戶具有遠端桌面登入權限。請使用網域系統管理員或本機系統管理員帳戶作為暫時的因應措施，以建立遠端桌面連接，並透過電腦管理的嵌入式管理單元 (**位於 [系統工具] > [本機使用者和群組] > [群組] > [遠端桌面使用者]**)，將想要的帳戶新增到遠端桌面使用者本機群組。
 
 ### 遠端桌面連線訊息視窗：遠端桌面因其中一項原因而無法連線到遠端電腦...
 
@@ -113,7 +113,7 @@
 
 在深入了解逐步的疑難排解程序之前，先在心中檢閱您在可以成功建立遠端桌面連線之後曾進行過的變更，再使用這些變更當成修正問題的基礎會相當有幫助。例如：
 
-- 如果您可以建立遠端桌面連線，且您變更了虛擬機器或包含虛擬機器的雲端服務之公用 IP 位址 (又稱為虛擬 IP 位址 [VIP])，則您的 DNS 用戶端快取可能會有 DNS 名稱和「舊的 IP 位址」項目。請清除 DNS 用戶端快取並重試一次。或者，請嘗試使用新的 VIP 建立連線。
+- 如果您可以建立遠端桌面連接，且變更了虛擬機器或包含虛擬機器之雲端服務的公用 IP 位址 (又稱為虛擬 IP 位址 [VIP])，則您的 DNS 用戶端快取可能會有 DNS 名稱和*舊 IP 位址*的項目。請清除 DNS 用戶端快取並重試一次。或者，請嘗試使用新的 VIP 建立連線。
 - 如果您從使用 Azure 入口網站或 Azure Preview 入口網站變更為使用應用程式來管理遠端桌面連線，則請確保應用程式組態包含用於遠端桌面流量之隨機決定的 TCP 連接埠。
 
 下節將逐步地隔離和判定此問題的各種根本原因，並提供解決方案和因應措施。
@@ -198,10 +198,10 @@
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_5.png)
 
-首先，如果您無法對 **RDP 連線至 Azure VM (需要重新開機)** 問題執行 [Azure IaaS (Windows) 診斷封裝](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)，請遵循在[如何重設 Windows 虛擬機器的密碼或遠端桌面服務](virtual-machines-windows-reset-password.md)中的指示，來重設虛擬機器上的遠端桌面服務。這將會：
+首先，如果您無法針對 **RDP 連線至 Azure VM (需要重新開機)** 問題執行 [Azure IaaS (Windows) 診斷封裝](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)，請依照[如何重設 Windows 虛擬機器的密碼或遠端桌面服務](virtual-machines-windows-reset-password.md)中的指示，重設虛擬機器上的遠端桌面服務。這將會：
 
 - 啟用「遠端桌面」 Windows 防火牆預設規則 (TCP 連接埠 3389)。
-- 藉由將 HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections 登錄值設為 0 ，啟用遠端桌面連線。
+- 藉由將 HKLM\\System\\CurrentControlSet\\Control\\Terminal Server\\fDenyTSConnections 登錄值設為 0 ，啟用遠端桌面連線。
 
 再次嘗試來自您電腦的連線。如果無法成功，下列為某些可能的原因：
 
@@ -225,7 +225,7 @@
 
 您可以從 **Get-AzureSubscription** 命令顯示畫面中的 SubscriptionName 屬性取得正確的訂用帳戶名稱。您可以從 **Get-AzureVM** 命令顯示畫面中的 ServiceName 資料行，取得虛擬機器的雲端服務名稱。
 
-如需證明您有新的憑證，請開啟針對目前使用者的憑證嵌入式管理單元，然後在 **Trusted Root Certification Authorities\Certificates** 資料夾中查看。您應該在 Issued To 資料行中查看具有您的雲端服務之 DNS 名稱的憑證 (範例：cloudservice4testing.cloudapp.net)。
+如欲證明您有新的憑證，請開啟針對目前使用者的憑證嵌入式管理單元，然後查看 **Trusted Root Certification Authorities\\Certificates** 資料夾。您應該在 Issued To 資料行中查看具有您的雲端服務之 DNS 名稱的憑證 (範例：cloudservice4testing.cloudapp.net)。
 
 接下來，使用這些命令起始遠端 Azure PowerShell 工作階段。
 
@@ -243,7 +243,7 @@
 
 ### 若要手動更正接聽 TCP 連接埠的遠端桌面服務
 
-如果您不能在遠端 Azure PowerShell 工作階段提示字元，對 **RDP 連線至 Azure VM (需要重新開機)** 問題執行 [Azure IaaS (Windows) 診斷封裝](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)，請執行這個命令。
+如果透過遠端 Azure PowerShell 工作階段提示字元，無法針對 **RDP 連線至 Azure VM (需要重新開機)** 問題執行 [Azure IaaS (Windows) 診斷封裝](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)，請執行這個命令。
 
 	Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
 
@@ -263,11 +263,11 @@ PortNumber 屬性會顯示目前的連接埠號碼。如有需要，請使用此
 
 ## 步驟 5：提交您的問題到 Azure 支援論壇。
 
-若要取得來自世界各地 Azure 專家的協助，您可以提交問題到 MSDN Azure 或 Stack Overflow 論壇。如需詳細資訊，請參閱 [Microsoft Azure 論壇](http://azure.microsoft.com/support/forums/)。
+若要取得來自世界各地 Azure 專家的協助，您可以提交問題到 MSDN Azure 或 Stack Overflow 論壇。如需詳細資訊，請參閱 [Azure 論壇](http://azure.microsoft.com/support/forums/)。
 
 ## 步驟 6：提出 Azure 支援事件。
 
-如果您已對 **RDP 連線至 Azure VM (需要重新開機)** 問題執行 [Azure IaaS (Windows) 診斷封裝](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)，或是已完成本文的步驟 2 到步驟 5，但仍然無法建立遠端桌面連線，則您是否可以重新建立虛擬機器為一個要考量的替代方法。
+如果您已針對 **RDP 連線至 Azure VM (需要重新開機)** 問題執行 [Azure IaaS (Windows) 診斷封裝](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)，或是已完成本文中的步驟 2 到步驟 5，但仍然無法建立遠端桌面連線，另一個解決方式是請您考慮是否要重新建立虛擬機器。
 
 如果無法重新建立虛擬機器，則可能是時候該提出 Azure 支援事件了。
 
@@ -287,4 +287,4 @@ PortNumber 屬性會顯示目前的連接埠號碼。如有需要，請使用此
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

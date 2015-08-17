@@ -4,7 +4,7 @@
 
 1. 使用遠端桌面連線到虛擬機器時，請從虛擬機器上的 [**開始**] 功能表中開啟 Internet Explorer。
 
-2. 選取右上方的 [工具] 按鈕。在 [網際網路選項] 中，選取 [安全性] 索引標籤，接著選取 [受信任的網站] 圖示，最後按一下 [網站] 按鈕。將 *http://*.mongodb.org* 新增至受信任的網站清單。
+2. 選取右上方的 [工具] 按鈕。在 [網際網路選項] 中，選取 [安全性] 索引標籤，接著選取 [受信任的網站] 圖示，最後按一下 [網站] 按鈕。將 _http://\*.mongodb.org_ 新增至受信任的網站清單。
 
 3. 移至[下載 - MongoDB][MongoDownloads]。
 
@@ -62,7 +62,7 @@
 
 	![Windows 防火牆][Image2]
 
-	選取 [TCP] 以及 [指定本機連接埠]。指定連接埠為 "27017" (MongoDB 接聽的預設連接埠) 並按 [**下一步**]。
+	選取 [TCP] 以及 [指定本機連接埠]。指定連接埠為 "27017" (MongoDB 接聽的預設連接埠) 並按一下 [**下一步**]。
 
 	![Windows 防火牆][Image3]
 
@@ -108,4 +108,4 @@
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

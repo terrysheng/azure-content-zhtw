@@ -425,7 +425,7 @@
 
 ![](./media/app-service-api-dotnet-connect-to-saas/http405.png)
 
-收到錯誤 405「不允許方法」，因為用戶端嘗試進行非 SSL HTTP POST 要求。閘道會重新導向至 *https://*，而重新導向將導致 GET 要求。擷取同意連結的 URL 只接受 POST 要求。
+收到錯誤 405「不允許方法」，因為用戶端嘗試進行非 SSL HTTP POST 要求。閘道器會重新導向至 *https://*，而重新導向將導致 GET 要求。擷取同意連結的 URL 只接受 POST 要求。
 
 ### <a id="400"></a>HTTP 錯誤 400 而非 Dropbox 登入頁面
 
@@ -454,4 +454,4 @@ Dropbox 登入之後的重新導向 URL 可能與此範例類似：
 [Azure portal]: https://manage.windowsazure.com/
 [Azure 入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

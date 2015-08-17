@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="07/02/2015"
 	ms.author="sethm"/>
 
@@ -154,7 +154,7 @@
 
 6.  在 [方案總管] 中，於 [參考] 上按一下滑鼠右鍵，然後按一下 [Manage NuGet Packages...] 或 [加入程式庫套件參考]。
 
-7.  選取對話方塊左手邊的 [線上]。搜尋 "**Service Bus**"，並選取 [**Azure 服務匯流排**] 項目。然後完成安裝並關閉此對話方塊。
+7.  選取對話方塊左手邊的 [線上]。搜尋「**服務匯流排**」，並選取 [**Microsoft Azure 服務匯流排**] 項目。然後完成安裝並關閉此對話方塊。
 
     ![][13]
 
@@ -177,7 +177,7 @@
             }
         }
 
-2.  在 [方案總管] 中，按兩下 [Controllers\HomeController.cs]。在檔案頂端新增下列 **using** 陳述式，以納入您剛建立之模型的命名空間，以及服務匯流排：
+2.  在 [方案總管] 中，按兩下 [Controllers\\HomeController.cs]。在檔案頂端新增下列 **using** 陳述式，以納入您剛建立之模型的命名空間，以及服務匯流排：
 
         using FrontendWebRole.Models;
         using Microsoft.ServiceBus.Messaging;
@@ -246,7 +246,7 @@
 
 7.  按一下 [新增]。
 
-8.  現在，變更您的應用程式的顯示名稱。在 [**方案總管**] 中，按兩下 **Views\Shared_Layout.cshtml** 檔案以在 Visual Studio 編輯器中開啟。
+8.  現在，變更您的應用程式的顯示名稱。在 [**方案總管**] 中，按兩下 **Views\\Shared\\\_Layout.cshtml** 檔案以在 Visual Studio 編輯器中開啟。
 
 9.  將所有出現的 **My ASP.NET Application** 取代為 **LITWARE'S Products**。
 
@@ -254,7 +254,7 @@
 
 	![][28]
 
-11. 最後，修改提交頁面，以納入佇列的一些相關資訊。在 [方案總管] 中，按兩下 [Views\Home\Submit.cshtml] 檔案以在 Visual Studio 編輯器中開啟。在 **&lt;h2>Submit&lt;/h2>** 後面新增下列一行。**ViewBag.MessageCount** 現在暫時是空的。稍後您將在其中填入資料。
+11. 最後，修改提交頁面，以納入佇列的一些相關資訊。在 [方案總管] 中，按兩下 [Views\\Home\\Submit.cshtml] 檔案以在 Visual Studio 編輯器中開啟。在 **&lt;h2>Submit&lt;/h2>** 後面新增下列一行。**ViewBag.MessageCount** 現在暫時是空的。稍後您將在其中填入資料。
 
         <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
 
@@ -333,13 +333,13 @@
 
     請注意，稍後在本教學課程中，您將學會如何將您的**命名空間**名稱和您的 SAS 金鑰值儲存在組態檔中。
 
-4.  現在，請確定會呼叫自己的 **Initialize** 方法。在 [方案總管] 中，按兩下 [Global.asax\Global.asax.cs]。
+4.  現在，請確定會呼叫自己的 **Initialize** 方法。在 [方案總管] 中，按兩下 [Global.asax\\Global.asax.cs]。
 
-5.  將下列一行新增至 **Application_Start** 方法底部：
+5.  將下列一行新增至 **Application\_Start** 方法底部：
 
         FrontendWebRole.QueueConnector.Initialize();
 
-6.  最後，更新稍早建立的 Web 程式碼，以提交項目給佇列。在 [方案總管] 中，按兩下 [Controllers\HomeController.cs]。
+6.  最後，更新稍早建立的 Web 程式碼，以提交項目給佇列。在 [方案總管] 中，按兩下 [Controllers\\HomeController.cs]。
 
 7.  將 **Submit()** 方法更新為如下，以取得佇列的訊息計數：
 
@@ -444,7 +444,7 @@
 
 9.  建立 **OnlineOrder**，以代表您從佇列處理它們時的順序。您可以重複使用已建立的類別。在 [方案總管] 中，於 [OrderProcessingRole] 專案上按一下滑鼠右鍵 (在專案而不是角色上按一下滑鼠右鍵)。按一下 [加入]，然後按一下 [現有項目]。
 
-10. 瀏覽至 **FrontendWebRole\Models** 的子資料夾，並按兩下 [OnlineOrder.cs]，以將它新增至這個專案。
+10. 瀏覽至 **FrontendWebRole\\Models** 的子資料夾，並按兩下 [OnlineOrder.cs]，以將它新增至這個專案。
 
 11. 在 WorkerRole.cs 中，將 **WorkerRole.cs** 中的 **QueueName** 變數值從 `"ProcessingQueue"` 取代為 `"OrdersQueue"`，如下列程式碼所示：
 
@@ -539,4 +539,4 @@
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

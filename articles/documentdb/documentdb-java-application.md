@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 DocumentDB 來建置 Java Web 應用程式" 
+	pageTitle="使用 DocumentDB 來建置 Java Web 應用程式 | Microsoft Azure" 
 	description="本教學課程示範如何使用 Azure DocumentDB 服務，從 Azure 網站上裝載的 Java 應用程式儲存和存取資料。" 
 	services="documentdb" 
 	documentationCenter="java" 
@@ -118,7 +118,7 @@
 
 	在此專案中，我們會使用 [Project Lombok](http://projectlombok.org/) 來產生建構函式、getter、setter 及產生器。或者，您也可以手動撰寫此程式碼，或讓 IDE 產生它。
 
-2. 若要叫用 DocumentDB 服務，您必須將新的 **DocumentClient** 具現化。一般而言，最好是重複使用 **DocumentClient**，而不要針對每個後續要求建構新的用戶端。我們可以將用戶端包裝在 **DocumentClientFactory** 中以重複使用用戶端。您也可以在此貼上您在[步驟 1](#CreateDB) 中儲存到剪貼簿的 URI 和主要金鑰值。將 [YOUR_ENDPOINT_HERE] 以您的 URI 取代，並將 [YOUR_KEY_HERE] 以您的主要金鑰取代。
+2. 若要叫用 DocumentDB 服務，您必須將新的 **DocumentClient** 具現化。一般而言，最好是重複使用 **DocumentClient**，而不要針對每個後續要求建構新的用戶端。我們可以將用戶端包裝在 **DocumentClientFactory** 中以重複使用用戶端。您也可以在此貼上您在[步驟 1](#CreateDB) 中儲存到剪貼簿的 URI 和主要金鑰值。將 [YOUR\_ENDPOINT\_HERE] 以您的 URI 取代，並將 [YOUR\_KEY\_HERE] 以您的主要金鑰取代。
 
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -747,7 +747,7 @@
 3. 現在您手上已經有了 WAR 檔案，您只需將它上傳至您 Azure 網站的 **webapps** 目錄即可。如需上傳檔案的相關指示，請參閱[在 Azure 上將應用程式新增至 Java 網站](../web-sites-java-add-app.md)。
 
 	將 WAR 檔案上傳至 webapps 目錄之後，執行階段環境便會偵測到您已新增它，並自動將其載入。
-4. 若要檢視您已完成的產品，請瀏覽至 http://YOUR_SITE_NAME.azurewebsites.net/azure-documentdb-java-sample/ 和開始新增工作！
+4. 若要檢視您已完成的產品，請瀏覽至 http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/ 和開始新增工作！
 
 ##<a id="GetProject"></a>從 GitHub 取得的專案##
 
@@ -763,7 +763,7 @@
 8. 在 [**本機目的地**] 畫面上，按一下 [**瀏覽**] 以選取可以複製儲存機制的資料夾，然後按 [**下一步**]。
 9. 在 [**選取要用於匯入專案的精靈**] 畫面上，確定已選取 [**匯入現有的專案**]，然後按 [**下一步**]。
 10. 在 [**匯入專案**] 畫面上，取消選取 **DocumentDB** 專案，然後按一下 [**完成**]。DocumentDB 專案包含 DocumentDB Java SDK，我們將會改為相依性新增。
-11. 在 [**專案總管**] 中，瀏覽至 azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java，並將 [主機] 和 [MASTER_KEY] 值取代為您 DocumentDB 帳戶的 [URI] 和 [主要金鑰]，然後儲存檔案。如需詳細資訊，請參閱[步驟 1。建立 DocumentDB 資料庫帳戶](#CreateDB)。
+11. 在 [**專案總管**] 中，瀏覽至 azure-documentdb-java-sample\\src\\com.microsoft.azure.documentdb.sample.dao\\DocumentClientFactory.java，並將 [主機] 和 [MASTER\_KEY] 值取代為您 DocumentDB 帳戶的 [URI] 和 [主要金鑰]，然後儲存檔案。如需詳細資訊，請參閱[步驟 1。建立 DocumentDB 資料庫帳戶](#CreateDB)。
 12. 在 [**專案總管**] 中，以滑鼠右鍵按一下 **azure-documentdb-java-sample**，按一下 [**組建路徑**]，然後按一下 [**設定組建路徑**]。
 13. 在 [**Java 組建路徑**] 畫面的右側窗格中，選取 [**程式庫**] 索引標籤，然後按一下 [**新增外部 JAR**]。瀏覽至 lombok.jar 檔案的位置，按一下 [**開啟**]，然後按一下 [**確定**]。
 14. 使用步驟 12 重新開啟 [**屬性**] 視窗，然後在左側窗格中按一下 [**目標執行階段**]。
@@ -779,4 +779,4 @@
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -11,7 +11,7 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="05/27/2015" 
 	ms.author="wesmc"/>
 
@@ -66,7 +66,7 @@
 
 ###新增程式碼
 
-1. 從<a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">此處</a>下載通知中樞 Android SDK。解壓縮 .zip 檔案，並將 **notificationhubs\notification-hubs-0.4.jar** 和 **notifications\notifications-1.0.1.jar** 複製到專案的 **app\libs**。在 Android Studio 的 [Project View] 視窗中，將檔案直接拖曳到 **libs** 資料夾，即可完成此作業。重新整理 libs 資料夾。
+1. 從<a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">此處</a>下載通知中樞 Android SDK。解壓縮 .zip 檔案，並將 **notificationhubs\\notification-hubs-0.4.jar** 和 **notifications\\notifications-1.0.1.jar** 複製到專案的 **app\\libs**。在 Android Studio 的 [Project View] 視窗中，將檔案直接拖曳到 **libs** 資料夾，即可完成此作業。重新整理 libs 資料夾。
 
 
 
@@ -106,7 +106,7 @@
 		private String HubListenConnectionString = "<Your default listen connection string>";
 
 
-	請務必更新三個預留位置：* **SENDER_ID**：將 `SENDER_ID` 設定為您先前從在 [Google Cloud Console](http://cloud.google.com/console)中建立的專案取得的專案號碼。* **HubListenConnectionString**：將 `HubListenConnectionString` 設定為中心的 **DefaultListenAccessSignature** 連接字串。在 [Azure 管理入口網站]上，按一下您的中心的 [**儀表板**] 索引標籤上的 [**檢視連接字串**]，即可複製該連接字串。* **HubName**：在 Azure 中針對您的中心顯示在頁面頂端的通知中樞名稱 (**不是** 完整 url)。例如，`"myhub"`。
+	請務必更新三個預留位置：* **SENDER\_ID**：將 `SENDER_ID` 設定為您先前從在 [Google Cloud Console](http://cloud.google.com/console)中建立的專案取得的專案號碼。* **HubListenConnectionString**：將 `HubListenConnectionString` 設定為中心的 **DefaultListenAccessSignature** 連接字串。在 [Azure 管理入口網站]上，按一下您的中心的 [**儀表板**] 索引標籤上的 [**檢視連接字串**]，即可複製該連接字串。* **HubName**：在 Azure 中針對您的中心顯示在頁面頂端的通知中樞名稱 (**不是**完整 url)。例如，`"myhub"`。
 
 
 
@@ -259,7 +259,7 @@
 
 ![][31]
 
-1. 在 [Android Studio 專案檢視] 中展開 **App**->**src**->**main**->**res**->**layout**。開啟 **activity_main.xml** 配置檔案，然後按一下 [**文字**] 索引標籤以更新檔案的文字內容。以下列程式碼進行更新，其加入新的 `Button` 和 `EditText` 控制項，以便將通知訊息傳送至通知中樞。在底部將此程式碼加在 `</RelativeLayout>` 之前。
+1. 在 [Android Studio 專案檢視] 中展開 **App**->**src**->**main**->**res**->**layout**。開啟 **activity\_main.xml** 配置檔案，然後按一下 [**文字**] 索引標籤以更新檔案的文字內容。以下列程式碼進行更新，其加入新的 `Button` 和 `EditText` 控制項，以便將通知訊息傳送至通知中樞。在底部將此程式碼加在 `</RelativeLayout>` 之前。
 
 	    <Button
         android:layout_width="wrap_content"
@@ -448,9 +448,9 @@
 ##測試應用程式
 
 ####模擬器測試
-如果您要在模擬器上進行測試，請確定您的模擬器映像支援您為應用程式選擇的 Google API 層級。如果您的映像不支援 Google API，您最後會發生 **SERVICE_NOT_AVAILABLE** 例外狀況。
+如果您要在模擬器上進行測試，請確定您的模擬器映像支援您為應用程式選擇的 Google API 層級。如果您的映像不支援 Google API，您最後會發生 **SERVICE\_NOT\_AVAILABLE** 例外狀況。
 
-此外，請確定已將您的 Google 帳戶加入至執行中模擬器的 [**設定**] -> **帳戶** 之下。否則，嘗試向 GCM 註冊可能會導致 **AUTHENTICATION_FAILED** 例外狀況。
+此外，請確定已將您的 Google 帳戶加入至執行中模擬器的 [**設定**] -> [**帳戶**] 之下。否則，嘗試向 GCM 註冊可能會導致 **AUTHENTICATION\_FAILED** 例外狀況。
 
 ####測試應用程式     
 
@@ -511,4 +511,4 @@
 [使用通知中心傳送即時新聞]: notification-hubs-aspnet-backend-android-breaking-news.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

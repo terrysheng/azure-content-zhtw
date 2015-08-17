@@ -57,7 +57,7 @@
     * **-u**：用來驗證要求的使用者名稱和密碼
     * **-G**：指出這是 GET 要求
 
-    所有要求的 URL 開頭 (**https://CLUSTERNAME.azurehdinsight.net/templeton/v1**) 都會相同。路徑 **/status** 指出要求是要傳回伺服器之 WebHCat (也稱為 Templeton) 的狀態。
+    所有要求的 URL 開頭 (****https://CLUSTERNAME.azurehdinsight.net/templeton/v1**) 都會相同。路徑 **/status** 指出要求是要傳回伺服器之 WebHCat (也稱為 Templeton) 的狀態。
 
 2. 使用下列程式碼，以將 Pig Latin 工作提交至叢集：
 
@@ -87,7 +87,7 @@
 
 ##<a id="results"></a>檢視結果
 
-工作狀態變更為 [**成功**] 之後，即可從 Azure Blob 儲存體擷取工作結果。隨查詢一起傳送的 `statusdir` 參數包含輸出檔案的位置；在此案例中為 **wasb:///example/pigcurl**。此位址會將工作輸出儲存至 HDInsight 叢集所使用之預設儲存體容器的 **example/pigcurl** 目錄中。
+工作狀態變更為 [**成功**] 之後，即可從 Azure Blob 儲存體擷取工作結果。隨查詢一起傳送的 `statusdir` 參數包含輸出檔案的位置；在此案例中為 ****wasb:///example/pigcurl**。此位址會將工作輸出儲存至 HDInsight 叢集所使用之預設儲存體容器的 **example/pigcurl** 目錄中。
 
 您可以使用[適用於 Mac、Linux 和 Windows 的 Azure CLI](../xplat-cli.md) 來列出並下載這些檔案。例如，若要列出 **example/pigcurl** 中的檔案，請使用下列命令：
 
@@ -97,7 +97,7 @@
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]您必須使用 `-a` 和 `-k` 參數指定包含 Blob 的儲存體帳戶名稱，或是設定 **AZURE_STORAGE_ACCOUNT** 和 **AZURE_STORAGE_ACCESS_KEY** 環境變數。
+> [AZURE.NOTE]您必須使用 `-a` 和 `-k` 參數指定包含 Blob 的儲存體帳戶名稱，或是設定 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORAGE\_ACCESS\_KEY** 環境變數。
 
 ##<a id="summary"></a>摘要
 
@@ -117,4 +117,4 @@
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

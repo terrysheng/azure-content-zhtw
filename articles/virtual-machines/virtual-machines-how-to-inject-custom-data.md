@@ -20,15 +20,15 @@
 
 #將自訂資料插入 Azure 虛擬機器
 
-不論作業系統是 Microsoft Windows 或 Linux 散發套件，將指令碼或其他資料插入正在佈建的 Azure 虛擬機器是很常見的案例。本主題將說明如何：
+不論作業系統是 Windows 或 Linux 散發套件，將指令碼或其他資料插入正在佈建的 Azure 虛擬機器是很常見的案例。本主題將說明如何：
 
 - 將資料插入正在佈建的 Azure 虛擬機器
 
-- 針對 Windows 和 Linux 進行擷取，以及
+- 針對 Windows 和 Linux 進行擷取。
 
 - 使用某些系統提供的特殊工具來自動偵測與處理自訂資料。
 
-> [AZURE.NOTE]本文將說明如何使用建立的 VM 插入自訂資料以搭配 Azure 服務管理計算堆疊。若要了解如何使用 Azure 資源管理計算堆疊，請參閱[此處的範例範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata)。
+> [AZURE.NOTE]本文將說明如何使用建立的 VM 插入自訂資料以搭配 Azure 服務管理 API。若要了解如何使用 Azure 資源管理 API，請參閱[範例範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata)。
 
 ## 將自訂資料插入 Azure 虛擬機器
 
@@ -45,11 +45,11 @@
 
 ## 在虛擬機器中使用自訂資料
 
-+ 如果您的 Azure 虛擬機器是 Windows 虛擬機器，則自訂資料檔案會被儲存到 `%SYSTEMDRIVE%\AzureData\CustomData.bin`，而且雖然從本機電腦傳送到新虛擬機器的資料是 base64 編碼，但是系統會自動將它解碼並立即開啟或使用。
++ 如果 Azure 的虛擬機器是以 Windows 為基礎的虛擬機器，自訂資料檔案則會儲存至 `%SYSTEMDRIVE%\AzureData\CustomData.bin`。雖然從本機電腦傳送到新虛擬機器的資料是 base64 編碼，但是系統會自動將它解碼並立即開啟或使用。
 
-   >[AZURE.NOTE]如果檔案已存在，則會被覆寫。目錄上的安全性會設為 [System:Full Control] 和 [Administrators:Full Control]。
+   >[AZURE.NOTE]如果檔案已存在，則會被覆寫。目錄上的安全性會設為 [**System:Full Control**] 和 [**Administrators:Full Control**]。
 
-+ 如果您的 Azure 虛擬機器是 Linux 虛擬機器，則自訂資料檔案會位於下列兩個地方，但因為資料會是 base64 編碼，您必須先將資料解碼。
++ 如果您的 Azure 虛擬機器是以 Linux 為基礎的虛擬機器，自訂資料檔案則會位於下列兩個位置中。資料將會以 base64 編碼，因此您必須先解碼資料。
 
     + 於 `/var/lib/waagent/ovf-env.xml`
     + 於 `/var/lib/waagent/CustomData`
@@ -62,11 +62,10 @@
 
 ### Ubuntu 雲端映像
 
-您可以在大部分的 Azure Linux 映像中編輯 "/etc/waagent.conf" 來設定暫存資源磁碟和交換檔。如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南](virtual-machines-linux-agent-user-guide.md)。
+在大部分的 Azure Linux 映像中．您可以編輯 "/etc/waagent.conf" ，以設定暫存資源磁碟和交換檔。如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南](virtual-machines-linux-agent-user-guide.md)。
 
-不過，在 Ubuntu 雲端映像上，您必須使用 cloud-init 設定資源磁碟 (也就是「暫時」磁碟) 和交換資料分割。如需詳細資訊，請參閱 Ubuntu wiki 上的下列網頁：
+不過，在 Ubuntu 雲端映像上，您必須使用 cloud-init 設定資源磁碟 (也就是「暫時」磁碟) 和交換資料分割。如需詳細資訊，請參閱 Ubuntu wiki 上的下列網頁：[AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions)。
 
- - [Ubuntu Wiki：設定交換資料分割](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -78,6 +77,5 @@
 [加入角色服務管理 REST API 參考](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
 [Azure 命令列介面](https://github.com/Azure/azure-sdk-tools-xplat)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

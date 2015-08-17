@@ -127,7 +127,7 @@ ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上�
 
 5. 開啟瀏覽器並瀏覽至下列 URL。
 
-	**http://localhost:5001**
+	****http://localhost:5001**
 
 	Web 應用程式的預設頁面將出現，如下所示。
 
@@ -236,7 +236,7 @@ Git 是一個您可用來部署 Azure App Service Web 應用程式的分散式�
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE]如果您變更應用程式，則可以使用內建 Git 功能在 VS 程式碼中直接重新發行，方法是依序選取 [全部認可] 選項和 [推送] 選項。您會發現 [全部認可] 和 [重新整理] 按鈕旁邊之下拉式功能表中可用的 [推送] 選項。
+> [AZURE.NOTE]如果您變更應用程式，則可以使用內建 Git 功能在 VS 程式碼中直接重新發佈，方法是依序選取 [**全部認可**] 選項和 [**推送**] 選項。您會發現 [**全部認可**] 和 [**重新整理**] 按鈕旁邊之下拉式功能表中可用的 [**推送**] 選項。
 
 如果您需要與他人對專案進行共同作業，則應該考慮在推送至 Azure 之間推送至 GitHub。
 
@@ -256,4 +256,4 @@ Git 是一個您可用來部署 Azure App Service Web 應用程式的分散式�
 ## 摘要
 在本教學課程中，您學到如何在 VS Code 建立 Web 應用程式，並將其部署至 Azure。如需 VS Code 的詳細資訊，請參閱文章：[為什選擇 Visual Studio Code？](https://code.visualstudio.com/Docs/)。如需 App Service Web Apps 的相關資訊，請參閱 [Web 應用程式概觀](app-service-web-overview.md)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

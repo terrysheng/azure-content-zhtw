@@ -32,7 +32,7 @@
 
 在開始建置應用程式之前，我們先來了解資料的結構，以及要針對資料執行哪種分析。
 
-在本文中，我們使用所有 HDInsight 叢集預設提供的範例 **HVAC.csv** 資料檔案，其路徑為 **\HdiSamples\SensorSampleData\hvac**。下載及開啟 CSV 檔案，以取得資料的快照。
+在本文中，我們使用所有 HDInsight 叢集預設提供的範例 **HVAC.csv** 資料檔案，其路徑為 **\\HdiSamples\\SensorSampleData\\hvac**。下載及開啟 CSV 檔案，以取得資料的快照。
 
 ![HVAC 資料快照](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.ML.Show.Data.png "HVAC 資料的快照")
 
@@ -213,7 +213,7 @@
 
 ##<a name="anaconda"></a>使用適用於機器學習服務的 Anaconda scikit-learn 程式庫
 
-HDInsight 上的 Apache Spark 叢集包含 Anaconda 程式庫。其中也包含適用於機器學習的 **scikit-learn** 程式庫。此程式庫另包含用來直接從 Jupyter Notebook 建置範例應用程式的各種資料集。如需使用 scikit-learn 程式庫的範例，請參閱[http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html)。
+HDInsight 上的 Apache Spark 叢集包含 Anaconda 程式庫。其中也包含適用於機器學習的 **scikit-learn** 程式庫。此程式庫另包含用來直接從 Jupyter Notebook 建置範例應用程式的各種資料集。如需使用 scikit-learn 程式庫的範例，請參閱[http://scikit-learn.org/stable/auto\_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html)。
 
 ##<a name="seealso"></a>另請參閱
 
@@ -240,4 +240,4 @@ HDInsight 上的 Apache Spark 叢集包含 Anaconda 程式庫。其中也包含�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

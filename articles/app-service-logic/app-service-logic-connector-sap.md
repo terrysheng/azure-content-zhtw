@@ -94,4 +94,4 @@
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

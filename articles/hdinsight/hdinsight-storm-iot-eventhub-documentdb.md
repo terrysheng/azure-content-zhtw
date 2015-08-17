@@ -58,4 +58,4 @@ Storm 拓撲中使用的元件如下：
 
 若需更多範例 Storm 拓撲，請參閱 [Storm on HDInsight 上的範例拓撲](hdinsight-storm-example-topology.md)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

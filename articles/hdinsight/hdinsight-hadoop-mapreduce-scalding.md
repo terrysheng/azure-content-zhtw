@@ -138,7 +138,7 @@ Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。�
 
     * **儲存機制**：包含此專案所使用之相依性檔案的儲存機制
 
-    * **scalding-core_2.11** 和 **hadoop-core**：此專案仰賴於 Scalding 和 Hadoop 核心封裝
+    * **scalding-core\_2.11** 和 **hadoop-core**：此專案仰賴於 Scalding 和 Hadoop 核心封裝
 
     * **maven-scala-plugin**：編譯 scala 應用程式的外掛程式
 
@@ -168,7 +168,7 @@ Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。�
 
           //Tokenizer to split sentance into words
           def tokenize(text : String) : Array[String] = {
-            text.toLowerCase.replaceAll("[^a-zA-Z0-9\s]", "").split("\s+")
+            text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
           }
         }
 
@@ -289,4 +289,4 @@ Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。�
 
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

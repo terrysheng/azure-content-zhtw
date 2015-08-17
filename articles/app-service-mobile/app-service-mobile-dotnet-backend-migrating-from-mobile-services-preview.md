@@ -115,4 +115,4 @@
 [Web 工作]: ../app-service-web/websites-webjobs-resources.md
 [傳送跨平台推播通知]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

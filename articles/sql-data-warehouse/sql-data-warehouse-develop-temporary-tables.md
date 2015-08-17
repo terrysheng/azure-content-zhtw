@@ -124,7 +124,7 @@ DROP TABLE #stats_ddl;
 
 在某些情況下，也可以使用這項技術取代內嵌和多重陳述式的函式。
 
-> [AZURE.NOTE]您也可以擴充此解決方案。如果您只想要更新單一資料表，您只需要篩選 #stats_ddl 資料表
+> [AZURE.NOTE]您也可以擴充此解決方案。如果您只想要更新單一資料表，您只需要篩選 #stats\_ddl 資料表
 
 ## 暫存資料表限制
 SQL 資料倉儲在實作暫存資料表時的確有一些限制。
@@ -147,4 +147,4 @@ SQL 資料倉儲在實作暫存資料表時的確有一些限制。
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

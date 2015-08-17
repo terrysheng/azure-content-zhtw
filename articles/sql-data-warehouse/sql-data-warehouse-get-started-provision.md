@@ -10,7 +10,7 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/23/2015"
@@ -153,17 +153,17 @@ Azure 入口網站的左下角有一個 [新增] 按鈕。[新增] 按鈕是在 
 
 現已成功佈建 SQLDW 服務，我們可以繼續了解其使用方式。
 
-因此，後續步驟是了解如何：1.[連接和查詢][]資料倉儲。2.從資料倉儲將資料匯出至 Azure blob 儲存體。3.將更多資料載入資料倉儲。
-
+因此，後續步驟是了解如何：1.[連接和查詢][]資料倉儲。2.載入[範例資料]。
 
 <!--Image references-->
 
 
 <!-- Articles -->
 [連接和查詢]: sql-data-warehouse-get-started-connect-query.md
+[範例資料]: ./sql-data-warehouse-get-started-load-samples.md
 
 <!--External links-->
 [免費試用]: https://azure.microsoft.com/zh-tw/pricing/free-trial/
 [Azure 入口網站]: https://portal.azure.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

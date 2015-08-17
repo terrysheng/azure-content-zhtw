@@ -6,4 +6,4 @@
 
 * 在 WebApiConfig.cs 中的 MobileAppConfiguration 物件上呼叫 `UseDefaultConfiguration()` 方法。這樣會接著呼叫上述的 NuGet 封裝所提供的 `AddAppServiceAuthentication()` 擴充方法。它也會在 OWIN 起動期間呼叫 `app.UseAppServiceAuthentication()`，以註冊驗證所需的 OWIN 中介軟體。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

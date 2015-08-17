@@ -133,4 +133,4 @@ Cloud Cruiser 活頁簿提供自動化的方式收集和處理來自 RateCard AP
 [8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "圖 8 - 活頁簿排程"
 [9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "圖 9 - 工作負載成本比較案例的範例報告"
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

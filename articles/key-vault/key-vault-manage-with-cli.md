@@ -16,7 +16,7 @@
 	ms.author="bruceper"/>
 
 # 使用 CLI 管理金鑰保存庫 #
-大部分地區均提供 Azure 金鑰保存庫。如需詳細資訊，請參閱[金鑰保存庫定價頁面](../../../../pricing/details/key-vault/)。
+大部分地區均提供 Azure 金鑰保存庫。如需詳細資訊，請參閱[金鑰保存庫價格頁面](../../../../pricing/details/key-vault/)。
 
 ## 簡介  
 使用本教學課程可協助您開始使用 Azure 金鑰保存庫，進而在 Azure 中建立強化的容器 (保存庫)，以儲存及管理 Azure 中的密碼編譯金鑰和密碼。本教學課程將逐步引導您使用 Azure 跨平台命令列介面，來建立一個包含金鑰或密碼的保存庫，而稍後您可以在 Azure 應用程式中使用此金鑰或密碼。接著，它會說明應用程式後續可以如何使用該金鑰或密碼。
@@ -41,7 +41,7 @@
 
 本教學課程假設您熟悉命令列介面 (Bash、終端機、命令提示字元)
 
---help 或 -h 參數可用於檢視特定命令的說明。或者，您也可使用 azure help [command] [options] 格式傳回相同資訊。例如，以下命令全部都會傳回相同的資訊：
+\--help 或 -h 參數可用於檢視特定命令的說明。或者，您也可使用 azure help [command] [options] 格式傳回相同資訊。例如，以下命令全部都會傳回相同的資訊：
 
     azure account set --help
 
@@ -133,13 +133,13 @@
 
     azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' –-password 'PaSSWORD' --destination software
 
-您現在可以參照您所建立或上傳至 Azure 金鑰保存庫的金鑰 (藉由使用其 URI)。使用 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** 可一律取得最新的版本，使用 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 可取得此特定版本。
+您現在可以參照您所建立或上傳至 Azure 金鑰保存庫的金鑰 (藉由使用其 URI)。使用 ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** 可一律取得最新的版本，使用 ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 可取得此特定版本。
 
 若要將名為 SQLPassword 且其 Azure 金鑰保存庫的值為 Pa$$w0rd 的密碼新增至保存庫，請輸入下列內容：
 
     azure keyvault secret set --vault-name 'ContosoKeyVault' --secret-name 'SQLPassword' --value 'Pa$$w0rd'
 
-透過使用其 URI，您現在可以參照您新增至 Azure 金鑰保存庫的密碼。使用 **https://ContosoVault.vault.azure.net/secrets/SQLPassword** 可一律取得最新的版本，使用 **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** 可取得此特定版本。
+透過使用其 URI，您現在可以參照您新增至 Azure 金鑰保存庫的密碼。使用 ****https://ContosoVault.vault.azure.net/secrets/SQLPassword** 可一律取得最新的版本，使用 ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** 可取得此特定版本。
 
 讓我們來檢視剛剛建立的金鑰或密碼：
 
@@ -252,4 +252,4 @@
 
 如需程式設計參考，請參閱 [Azure 金鑰保存庫 REST API 參考](https://msdn.microsoft.com/library/azure/dn903609.aspx)和 [Azure 金鑰保存庫 C# 用戶端 API 參考](https://msdn.microsoft.com/library/azure/dn903628.aspx)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,3 +1,4 @@
+
 ### 將 SharePoint 2010 升級至 SharePoint 2013 然後再安裝 StorSomple Adapter for SharePoint
 
 >[AZURE.IMPORTANT]先前透過 RBS 移到外部儲存體的任何檔案，必須等到升級完成並重新啟用 RBS 功能之後才能使用。為了限制使用者受影響的程度，請在規劃的維護期間執行任何升級或重新安裝。
@@ -33,4 +34,4 @@
  
 2. 安裝新的 StorSimple Adapter for SharePoint。新的配接器會自動辨識先前已為 RBS 啟用或停用的內容資料庫，並使用先前的設定。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

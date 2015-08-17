@@ -81,7 +81,7 @@
           }
 
 
-3. 在 Visual Studio 的 [方案總管] 中展開 **App_Start** 資料夾，然後開啟 WebApiConfig.cs 檔案。
+3. 在 Visual Studio 的 [方案總管] 中展開 **App\_Start** 資料夾，然後開啟 WebApiConfig.cs 檔案。
 
     在 WebApiConfig.cs 檔案中，注意您的預設資料庫初始設定式類別是衍生自 `DropCreateDatabaseIfModelChanges` 類別。這意味對模型的任何變更都會導致資料表捨棄，並重新建立以容納新模型。因此資料表的資料將流失，並且將重新植入資料表。請修改資料庫初始設定式的 Seed 方法，使 `Seed()` 初始化函數如下所示，以初始化新的 DueDate 資料行。儲存 WebApiConfig.cs 檔案。
 
@@ -241,4 +241,4 @@
 [Get started with data]: mobile-services-windows-phone-get-started-data.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

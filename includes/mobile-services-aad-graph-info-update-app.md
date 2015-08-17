@@ -65,4 +65,4 @@
 
 4. 儲存變更，並建置服務以驗證沒有語法錯誤。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

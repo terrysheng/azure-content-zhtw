@@ -11,8 +11,8 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.topic="get-started-article" 
+	ms.date="08/05/2015" 
 	ms.author="awills"/>
 
 
@@ -23,13 +23,21 @@
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 
-Visual Studio Application Insights 監視您的即時應用程式，協助您[偵測並診斷效能問題和例外狀況][detect]，同時[探索應用程式的使用情況][knowUsers]。它可以搭配各種不同的應用程式類型。這適用於裝載在專屬內部部署 IIS 伺服器或 Azure VM 上的應用程式，以及 Azure Web 應用程式。([也涵蓋裝置應用程式和 Java 伺服器][start]。)
+Visual Studio Application Insights 監視您的即時應用程式，協助您[偵測並診斷效能問題和例外狀況][detect]，同時[探索應用程式的使用情況][knowUsers]。它可以搭配各種不同的應用程式類型。這適用於裝載在專屬內部部署 IIS 伺服器或 Azure VM 上的應用程式，以及 Azure Web 應用程式。
+
+
 
 ![範例效能監視圖表](./media/app-insights-start-monitoring-app-health-usage/10-perf.png)
 
-對於許多應用程式類型，[Visual Studio 可以將 Application Insights 加入至您的應用程式](#ide)，而且您幾乎不會察覺。為了讓您清楚了解整個運作情形，本文將帶您手動完成這些步驟。
+*另請參閱：*
+
+* [ASP.NET 5](app-insights-asp-net-five.md)
+* [裝置應用程式和 Java 伺服器][platforms]
 
 #### 開始之前
+
+對於許多應用程式類型，[Visual Studio 可以將 Application Insights 加入至您的應用程式](#ide)，而且您幾乎不會察覺。為了讓您清楚了解整個運作情形，本文將帶您手動完成這些步驟。
+
 
 您需要：
 
@@ -52,10 +60,11 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 ![按一下 [屬性]，選取金鑰，然後按下 CTRL+C](./media/app-insights-start-monitoring-app-health-usage/02-props-asp.png)
 
-
+您剛才所完成用來建立新資源的步驟是開始監視任何應用程式的好方法。現在您可以將資料傳送給它。
 
 ## <a name="sdk"></a> 2.在應用程式中安裝 SDK
 
+安裝和設定 Application Insights SDK 會視您正在使用的平台而有所不同。對於 ASP.NET 應用程式而言，這非常輕鬆。
 
 1. 在 Visual Studio 中，編輯桌面應用程式專案的 NuGet 封裝。
 
@@ -73,6 +82,8 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
     (或者，您可以在應用程式中[撰寫一些程式碼來設定金鑰][apikey]。)
 
 #### 若要升級至未來的 SDK 版本
+
+我們隨時會發行新版的 SDK。
 
 若要升級至[新版的 SDK](app-insights-release-notes-dotnet.md)，請再次開啟 NuGet 封裝管理員，並篩選出已安裝的封裝。選取 Microsoft.ApplicationInsights.Web 然後選擇 [升級]。
 
@@ -122,7 +133,7 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 使用系統管理員權限登入您的伺服器，並安裝 [Application Insights 狀態監視器](http://go.microsoft.com/fwlink/?LinkId=506648)。
 
-(您也可以使用狀態監視器來[檢測已在執行的應用程式](app-insights-monitor-performance-live-website-now.md)，即使它不是使用 SDK 建置。)
+(您也可以使用狀態監視器來[檢測已在執行的 app](app-insights-monitor-performance-live-website-now.md)，即使它不是使用 SDK 建置。)
 
 #### 如果您的 app 是 Azure Web 應用程式
 
@@ -134,7 +145,7 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 ## 加入用戶端監視
 
-您已安裝會從應用程式的伺服器端傳送遙測資料的 SDK。現在您可以加入用戶端監視。這可提供有關在用戶端中發生的使用者、工作階段、頁面檢視和任何例外狀況或損毀的相關資料。
+您已安裝會從應用程式的伺服器 (後端) 傳送遙測資料的 SDK。現在您可以加入用戶端監視。這可提供有關在用戶端中發生的使用者、工作階段、頁面檢視和任何例外狀況或損毀的相關資料。
 
 您也可以撰寫自己的程式碼，來追蹤您的使用者使用您的應用程式，徹底得知詳細的點按和按鍵層級。
 
@@ -150,7 +161,7 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 #### 如果您的用戶端是裝置 app
 
-如果您的應用程式為用戶端 (例如電話或其他裝置) 提供服務，請加入[適當的 SDK](app-insights-platforms.md) 至您的裝置應用程式。
+如果您的應用程式為用戶端 (例如電話或其他裝置) 提供服務，請將[適當的 SDK](app-insights-platforms.md) 加入至您的裝置應用程式。
 
 如果您使用與伺服器 SDK 相同的檢測金鑰來設定用戶端 SDK，將整合兩個資料流，讓您同時看到。
 
@@ -165,9 +176,9 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 ## <a name="ide"></a> 自動化方式
 
-如果您想要使用 Visual Studio 設定項目，則它十分簡單。
+我們在這份文件的頂端提過，我們會告訴您如何以手動方式建立 Application Insights 資源，然後再安裝 SDK。我們相信這可以協助您了解該程序的兩個部分。但對於 ASP.NET 應用程式 (以及其他許多應用程式) 而言，還有更快速的自動化方式。
 
-[您需要有 Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) 或更新版本，以及 [Microsoft Azure](http://azure.com) 中的帳戶。
+[您需要有 Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013 Update 3 或更新版本)，以及 [Microsoft Azure](http://azure.com) 中的帳戶。
 
 #### 對於新專案
 
@@ -196,7 +207,7 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 
 如果此應用程式是更大應用程式的一部分，您可以使用 [**組態設定**]，將它放在與其他元件相同的資源群組中。
 
-*沒有 Application Insights 選項嗎？ 請檢查您是否正在使用 Visual Studio 2013 Update 3 或更新版本、是否已在 [擴充功能和更新] 中啟用 Application Insights Tools，以及是否正在建立 Web 專案。*
+*沒有 Application Insights 選項嗎？ 請檢查您是否正在使用 Visual Studio 2013 Update 3 或更新版本、是否已在 [擴充功能和更新] 中啟用 Application Insights Tools。*
 
 #### 從專案開啟 Application Insights。
 
@@ -223,6 +234,7 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 [metrics]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [perf]: app-insights-web-monitor-performance.md
+[platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
@@ -231,4 +243,4 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

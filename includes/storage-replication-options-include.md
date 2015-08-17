@@ -26,4 +26,4 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 
 如需 Azure 儲存體持久性的架構詳細資訊，請參閱 [Azure 儲存體 SOSP 文件](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

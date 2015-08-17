@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="bradyg;tarcher"/>
+	ms.date="07/31/2015" 
+	ms.author="bradyg"/>
 
 # 從 .NET 用戶端使用 Azure App Service 中的內部 API 應用程式 
 
@@ -71,7 +71,7 @@
 
 根據預設，API 應用程式專案會透過自動 [Swagger](http://swagger.io/ "官方 Swagger 資訊") 中繼資料產生啟用，但 Azure API 應用程式 new-project 範本會停用 API 測試頁。在本節中，您會啟用測試頁。
 
-1. 開啟 *App_Start/SwaggerConfig.cs* 檔案，並搜尋 **EnableSwaggerUI**：
+1. 開啟 *App\_Start/SwaggerConfig.cs* 檔案，並搜尋 **EnableSwaggerUI**：
 
 2. 將下列幾行程式碼取消註解：
 
@@ -265,4 +265,4 @@ App Service SDK 取決於 Swagger API 定義來產生用戶端類別。如果您
 如需 App Service 中驗證的相關資訊，請參閱 [API 應用程式和行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

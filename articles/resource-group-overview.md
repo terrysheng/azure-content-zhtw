@@ -22,6 +22,10 @@
 
 Azure 資源管理員會以原生方式將存取控制整合到管理平台，讓您可以指定組織中的使用者可以對資源群組採取什麼動作。
 
+以下是此概觀的示範。
+
+[AZURE.VIDEO azure-resource-manager-overview]
+
 > [AZURE.NOTE]本主題描述使用預覽入口網站示範概念的資源、群組和範本。不過，您也可以使用 [Azure CLI for Mac 和 Windows](virtual-machines/xplat-cli-azure-resource-manager.md) 以及 [PowerShell](powershell-azure-resource-manager.md) 建立、管理及刪除 Azure 資源。
 
 ## 資源群組
@@ -44,9 +48,9 @@ Azure 資源管理員會以原生方式將存取控制整合到管理平台，�
 
 資源群組也可以連結至另一個資源群組中的資源。當不同資源群組中的資源之間存在著部署相依性時，資源會被視為已連結。例如，如果一個資源群組中的 web 應用程式連接到另一個資源群組中的資料庫，這些資源則為已連結。您也可以明確地定義其他資源群組中的資源之間的連結。
 
-如需連結資源的詳細資訊，請參閱[在 Azure 資源管理員中連結資源](resource-group-link-resources.md)
+如需連結資源的詳細資訊，請參閱〈[在 Azure 資源管理員中連結資源](resource-group-link-resources.md)〉
 
-如果您需要將資源移至新的資源群組，請參閱[將資源移動到新的資源群組或訂用帳戶](resource-group-move-resources.md)。
+如果您需要將資源移至新的資源群組，請參閱〈[將資源移動到新的資源群組或訂用帳戶](resource-group-move-resources.md)〉。
 
 從預覽入口網站中，您可以輕鬆檢視成本、監視事件，並管理警示。下圖顯示群組的合併計費。
 
@@ -70,11 +74,11 @@ Azure 資源管理員會以原生方式將存取控制整合到管理平台，�
 
 如需關於定義範本的詳細資訊，請參閱[編寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)。
 
-如需範本結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)。
+如需範本結構描述，請參閱〈[Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)〉。
 
 如需使用範本進行部署的相關資訊，請參閱 [利用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)和[如預期般在 Azure 中部署複雜的應用程式](app-service-web/app-service-deploy-complex-application-predictably.md)。
 
-如需如何建構您的範本的相關指引，請參閱[設計 Azure 資源管理員範本的最佳作法](best-practices-resource-manager-design-templates.md)。
+如需如何建構您的範本的相關指引，請參閱〈[設計 Azure 資源管理員範本的最佳做法](best-practices-resource-manager-design-templates.md)〉。
 
 ## 標記
 
@@ -98,13 +102,13 @@ Azure 資源管理員可讓您控制哪些人能存取組織的特定動作。�
 
 Azure 資源管理員會自動記錄使用者的動作以進行稽核。
 
-您也可以明確地鎖定重要的資源，以防止使用者刪除或修改它們。如需詳細資訊，請參閱[使用 Azure 資源管理員來鎖定資源](resource-group-lock-resources.md)。
+您也可以明確地鎖定重要的資源，以防止使用者刪除或修改它們。如需詳細資訊，請參閱〈[使用 Azure 資源管理員來鎖定資源](resource-group-lock-resources.md)〉。
 
 如需角色型存取控制的詳細資訊，請參閱 [Microsoft Azure Preview 入口網站中的角色型存取控制](./role-based-access-control-configure.md)。
 
 如需設定存取原則的範例，請參閱[管理與稽核資源存取權](azure-portal/resource-group-rbac.md)。
 
-如需最佳作法，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)
+如需最佳做法，請參閱〈[Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)〉
 
 ## 一致的管理層
 
@@ -116,13 +120,13 @@ Azure 資源管理員透過 Azure PowerShell、Azure CLI for Mac、Linux 和 Win
 
 如需 REST API 的相關資訊，請參閱 [Azure 資源管理員 REST API 參考](https://msdn.microsoft.com/library/azure/dn790568.aspx)。
 
-如需使用預覽入口網站的相關資訊，請參閱[使用 Azure Preview 入口網站來管理您的 Azure 資源](azure-portal/resource-group-portal.md)。
+如需使用預覽入口網站的相關資訊，請參閱〈[使用 Azure Preview 入口網站來管理您的 Azure 資源](azure-portal/resource-group-portal.md)〉。
 
 ## 後續步驟
 
-- 若要了解如何建立範本，請參閱[撰寫範本](./resource-group-authoring-templates.md)
-- 若要部署您所建立的範本，請參閱[部署範本](azure-portal/resource-group-template-deploy.md)
-- 若要了解您可以在範本中使用的函數，請參閱[範本函數](./resource-group-template-functions.md)
-- 如需設計您的範本的指導，請參閱[設計 Azure 資源管理員範本的最佳作法](best-practices-resource-manager-design-templates.md)
+- 若要了解如何建立範本，請參閱〈[撰寫範本](./resource-group-authoring-templates.md)〉
+- 若要部署您所建立的範本，請參閱〈[部署範本](azure-portal/resource-group-template-deploy.md)〉
+- 若要了解您可以在範本中使用的函數，請參閱〈[範本函數](./resource-group-template-functions.md)〉
+- 如需設計您範本的指導，請參閱〈[設計 Azure 資源管理員範本的最佳做法](best-practices-resource-manager-design-templates.md)〉
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

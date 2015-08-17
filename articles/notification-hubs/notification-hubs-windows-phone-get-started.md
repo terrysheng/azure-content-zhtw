@@ -12,9 +12,10 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="06/16/2015"
 	ms.author="wesmc"/>
+	
 # 開始使用通知中心
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -94,7 +95,7 @@
         using Microsoft.Phone.Notification;
         using Microsoft.WindowsAzure.Messaging;
 
-5. 在 App.xaml.cs 中 **Application_Launching** 方法頂端上的下列程式碼：
+5. 在 App.xaml.cs 中 **Application\_Launching** 方法頂端上的下列程式碼：
 
 	    var channel = HttpNotificationChannel.Find("MyPushChannel");
         if (channel == null)
@@ -114,7 +115,7 @@
 
 	>[AZURE.NOTE]本教學課程將傳送快顯通知給裝置。傳送磚通知時，您必須在通道上改為呼叫 **BindToShellTile** 方法。若要同時支援快顯和磚通知，請呼叫 **BindToShellTile** 和 **BindToShellToast**。
 
-6. 在 [方案總管] 中，展開 [**屬性**]、開啟 WMAppManifest.xml 檔案、按一下 [**功能**] 索引標籤，然後確定已核取 [**ID_CAP_PUSH_NOTIFICATION**] 功能。
+6. 在 [方案總管] 中，展開 [**屬性**]、開啟 WMAppManifest.xml 檔案、按一下 [**功能**] 索引標籤，然後確定已核取 [**ID\_CAP\_PUSH\_NOTIFICATION**] 功能。
 
    	![][14]
 
@@ -215,4 +216,4 @@
 [通知中心 - WP Silverlight 教學課程]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

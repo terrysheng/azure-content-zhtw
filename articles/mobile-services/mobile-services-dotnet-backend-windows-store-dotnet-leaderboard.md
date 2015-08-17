@@ -139,7 +139,7 @@ PlayerRank 具有 Player 的外部索引鍵。每個玩家各有零或一個 Pla
 
 此控制器衍生自 **TableController<T>**。此類別會繼承 **ApiController**，但這是適用於 Azure 行動服務的特殊類別。
  
-- 路由：**TableController** 的預設路由為 `/tables/{table_name}/{id}`，其中的 *table_name* 符合實體名稱。因此，「玩家」控制器的路徑為 */tables/player/{id}*。此路徑慣例會使 **TableController** 與行動服務 [REST API](http://msdn.microsoft.com/library/azure/jj710104.aspx) 一致。
+- 路由：**TableController** 的預設路由為 `/tables/{table_name}/{id}`，其中的 *table\_name* 符合實體名稱。因此，「玩家」控制器的路徑為 */tables/player/{id}*。此路徑慣例會使 **TableController** 與行動服務 [REST API](http://msdn.microsoft.com/library/azure/jj710104.aspx) 一致。
 - 資料存取：在資料庫作業中，**TableController** 類別會使用 **IDomainManager** 介面，而此介面會定義資料存取的抽象。scaffolding 會使用 **EntityDomainManager**，這是包裝 EF 內容之 **IDomainManager** 的固定實作。 
 
 現在，請為 PlayerRank 實體新增第二個控制器。請遵循相同的步驟，但選擇 PlayerRank 作為模型類別。請使用相同的資料內容類別，不要建立新的。將控制器命名為 "PlayerRankController"。
@@ -332,7 +332,7 @@ DTO 是定義資料如何透過網路傳送的物件。如果您想讓電傳格�
 
 	Install-Package WindowsAzure.MobileServices -Project LeaderboardApp
 
--Project 參數會指定要將封裝安裝到哪個專案。
+\-Project 參數會指定要將封裝安裝到哪個專案。
 
 ## 新增模型類別
 
@@ -762,4 +762,4 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

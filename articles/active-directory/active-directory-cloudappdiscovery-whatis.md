@@ -55,4 +55,4 @@
 * [Cloud App Discovery - 代理程式變更記錄](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
 * [Cloud App Discovery - 常見問題集](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

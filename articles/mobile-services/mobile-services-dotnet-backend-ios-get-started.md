@@ -100,4 +100,4 @@
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [JavaScript 後端版本]: mobile-services-ios-get-started.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

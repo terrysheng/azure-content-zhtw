@@ -173,4 +173,4 @@ Windows 桌面應用程式與服務的支援是由 Application Insights 核心 S
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

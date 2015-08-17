@@ -84,12 +84,12 @@
 
 #### 安裝使用者入口網站
 
-1. 在 Azure Multi-Factor Authentication Server 伺服器上開啟 Windows 檔案總管，接著瀏覽至安裝 Azure Multi-Factor Authentication Server 的資料夾 (如 C:\Program Files\Multi-Factor Authentication Server)。視需要為即將安裝使用者入口網站的伺服器選擇 32 位元或 64 位元版本的 MultiFactorAuthenticationUserPortalSetup 安裝檔案。將安裝檔案複製到網際網路對向伺服器。
+1. 在 Azure Multi-Factor Authentication Server 伺服器上開啟 Windows 檔案總管，接著瀏覽至安裝 Azure Multi-Factor Authentication Server 的資料夾 (如 C:\\Program Files\\Multi-Factor Authentication Server)。視需要為即將安裝使用者入口網站的伺服器選擇 32 位元或 64 位元版本的 MultiFactorAuthenticationUserPortalSetup 安裝檔案。將安裝檔案複製到網際網路對向伺服器。
 2. 在網際網路對向 Web 伺服器上，您必須以系統管理員權限執行安裝程式檔案。若要這樣做，最簡單的方式是以系統管理員身分開啟命令提示字元，再瀏覽至複製安裝檔案的位置。
 3. 執行 MultiFactorAuthenticationUserPortalSetup64 安裝檔案，視需要變更的網站和虛擬目錄名稱。
-4. 使用者入口網站安裝完成之後，瀏覽至 C:\inetpub\wwwroot\MultiFactorAuth (或根據虛擬目錄名稱瀏覽至適當目錄) 並編輯 web.config 檔案。
-5. 找出 USE_WEB_SERVICE_SDK 機碼，並將從 false 值變更為 true。找出 WEB_SERVICE_SDK_AUTHENTICATION_USERNAME 和 WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD 機碼，並將值設定為隸屬於 PhoneFactor Admins 安全性群組之服務帳戶的使用者名稱和密碼 (請參閱前文的＜需求＞一節)。請務必將使用者名稱和密碼輸入行尾的引號之間 (value=””/>)。建議您使用合格的使用者名稱 (如 domain\username 或 machine\username)。
-6. 找出 pfup_pfwssdk_PfWsSdk 設定，將值 "http://localhost:4898/PfWsSdk.asmx" 變更為 Azure Multi-Factor Authentication Server 上執行的 Web 服務 SDK 的 URL (例如 https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx)。由於此連接使用 SSL，所以您必須依據伺服器名稱參考 Web 服務 SDK，而不是 IP 位址，因為 SSL 憑證是針對伺服器名稱發行，所以使用的 URL 必須與憑證上的名稱相符。如果伺服器名稱無法解析為網際網路對向伺服器的 IP 位址，請在該伺服器上的主機檔案加入項目，讓 Azure Multi-Factor Authentication Server 的名稱能與其 IP 位址相對應。完成變更後，儲存 web.config 檔案。
+4. 使用者入口網站安裝完成之後，瀏覽至 C:\\inetpub\\wwwroot\\MultiFactorAuth (或根據虛擬目錄名稱瀏覽至適當目錄) 並編輯 web.config 檔案。
+5. 找出 USE\_WEB\_SERVICE\_SDK 機碼，並將從 false 值變更為 true。找出 WEB\_SERVICE\_SDK\_AUTHENTICATION\_USERNAME 和 WEB\_SERVICE\_SDK\_AUTHENTICATION\_PASSWORD 機碼，並將值設定為隸屬於 PhoneFactor Admins 安全性群組之服務帳戶的使用者名稱和密碼 (請參閱前文的＜需求＞一節)。請務必將使用者名稱和密碼輸入行尾的引號之間 (value=””/>)。建議您使用合格的使用者名稱 (如 domain\\username 或 machine\\username)。
+6. 找出 pfup\_pfwssdk\_PfWsSdk 設定，將值 "http://localhost:4898/PfWsSdk.asmx" 變更為 Azure Multi-Factor Authentication Server 上執行的 Web 服務 SDK 的 URL (例如 https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx)。由於此連接使用 SSL，所以您必須依據伺服器名稱參考 Web 服務 SDK，而不是 IP 位址，因為 SSL 憑證是針對伺服器名稱發行，所以使用的 URL 必須與憑證上的名稱相符。如果伺服器名稱無法解析為網際網路對向伺服器的 IP 位址，請在該伺服器上的主機檔案加入項目，讓 Azure Multi-Factor Authentication Server 的名稱能與其 IP 位址相對應。完成變更後，儲存 web.config 檔案。
 7. 如果安裝使用者入口網站的網站 (如預設網站) 尚未與公開簽署的憑證繫結，請在伺服器上安裝憑證 (如果尚未安裝)，開啟 IIS 管理員，然後將憑證繫結至網站。
 8. 從任何電腦開啟網頁瀏覽器，並瀏覽至安裝使用者入口網站的 URL (如 https://www.publicwebsite.com/MultiFactorAuth)。確定未出現任何憑證警告或錯誤。
 
@@ -113,7 +113,7 @@ Azure Multi-Factor Authentication 伺服器為使用者入口網站提供數個�
 使用遞補用的安全性問題|可讓您在多因素驗證失敗時使用安全性問題。您可以指定必須正確回答的安全性問題數目。
 允許使用者關聯協力廠商 OATH 權杖| 可讓使用者指定協力廠商 OATH 權杖。
 使用遞補用的 OATH 權杖|在多因素驗證未成功時允許使用 OATH 權杖。您也可以指定工作階段逾時 (以分鐘為單位)。
-啟用記錄|在使用者入口網站啟用記錄。記錄檔位於：C:\Program Files\Multi-Factor Authentication Server\Logs。
+啟用記錄|在使用者入口網站啟用記錄。記錄檔位於：C:\\Program Files\\Multi-Factor Authentication Server\\Logs。
 
 這些設定啟用之後，當使用者登入使用者入口網站時，就能看到大部分的設定。
 
@@ -189,4 +189,4 @@ Azure Multi-Factor Authentication 伺服器為使用者入口網站提供數個�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

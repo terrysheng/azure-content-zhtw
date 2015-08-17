@@ -228,7 +228,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
     - [Microsoft Azure 中的 MySQL 高可用性架構](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
 7. MariaDB
     - [做法：建立 MariaDb 的多重主機叢集](virtual-machines-mariadb-cluster.md)
-8. [使用 corosync 安裝 Postgres，使用 ILB 安裝 pg_bouncer](https://github.com/chgeuer/postgres-azure)
+8. [使用 corosync 安裝 Postgres，使用 ILB 安裝 pg\_bouncer](https://github.com/chgeuer/postgres-azure)
 
 
 ## 驗證和加密
@@ -296,4 +296,4 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

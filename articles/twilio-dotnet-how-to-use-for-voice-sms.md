@@ -252,7 +252,7 @@ Twilio 為 .NET 開發人員提供五種程式庫：<table border="1"> <tr> <th>
 
 如需有關在 Azure with ASP.NET 上使用 Twilio 的詳細資訊，請參閱＜[如何在 Azure 的 Web 角色中使用 Twilio 來撥打電話][howto_phonecall_dotnet]＞。
 
-[AZURE.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
+[AZURE.INCLUDE [twilio\_additional\_services\_and\_next\_steps](../includes/twilio_additional_services_and_next_steps.md)]
 
 
 
@@ -279,4 +279,4 @@ Twilio 為 .NET 開發人員提供五種程式庫：<table border="1"> <tr> <th>
 [twilio_account]: https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

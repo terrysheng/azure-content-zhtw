@@ -146,4 +146,4 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)�
 * 最新宣告請參閱 [Microsoft HPC 和批次的小組部落格](http://blogs.technet.com/b/windowshpc/)以及[Azure 部落格](http://azure.microsoft.com/blog/tag/hpc/)。
 * 另請參閱[批次的新功能](http://azure.microsoft.com/updates/?service=batch)或訂閱 [RSS 摘要](http://azure.microsoft.com/updates/feed/?service=batch)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/13/2015"
+   ms.date="07/22/2015"
    ms.author="bwren" />
 
 # Azure 自動化資料保留
@@ -36,4 +36,4 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 ## 相關文章
 - [備份 Azure 自動化](https://msdn.microsoft.com/library/dn643635.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

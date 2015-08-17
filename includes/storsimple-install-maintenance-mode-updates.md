@@ -25,4 +25,4 @@
 
 8. 更新這兩個控制站之後，結束維護模式。如需相關指示，請參閱[結束維護模式](#exit-maintenance-mode)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

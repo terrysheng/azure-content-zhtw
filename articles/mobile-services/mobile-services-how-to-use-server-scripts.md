@@ -19,7 +19,10 @@
 
 # 使用 JavaScript 後端行動服務
 
-<div class="dev-center-tutorial-subselector"><a href="/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET 後端">.NET 後端</a> | <a href="/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript 後端" class="current">JavaScript 後端</a></div>
+> [AZURE.SELECTOR]
+[.NET backend](mobile-services-dotnet-backend-how-to-use.md)
+[JavaScript backend](mobile-services-how-to-use-server-scripts.md)
+ 
 本文提供如何在 Azure 行動服務中使用 JavaScript 後端的詳細資訊及範例。
 
 ##<a name="intro"></a>簡介
@@ -96,7 +99,7 @@
 	
 	若要知道怎麼做，請參閱[使用伺服器指令碼驗證及修改行動服務中的資料]。
 
-+ 使用原始檔控制。啟用原始檔控制後，只要在 git 儲存機制的 .\service\table 子資料夾中建立名為 <em>`<table>`</em>.<em>`<operation>`</em>.js 的檔案，其中 <em>`<table>`</em> 是資料表的名稱，而 <em>`<operation>`</em> 是所註冊的資料表作業。如需詳細資訊，請參閱[原始檔控制與共用程式碼][Source control, shared code, and helper functions]。
++ 使用原始檔控制。啟用原始檔控制後，只要在 git 儲存機制的 .\\service\\table 子資料夾中建立名為 <em>`<table>`</em>.<em>`<operation>`</em>.js 的檔案，其中 <em>`<table>`</em> 是資料表的名稱，而 <em>`<operation>`</em> 是所註冊的資料表作業。如需詳細資訊，請參閱[原始檔控制與共用程式碼][Source control, shared code, and helper functions]。
 
 + 從命令提示字元使用 Azure 命令列工具。如需詳細資訊，請參閱[使用命令列工具]。
 
@@ -228,7 +231,7 @@
 `id` 的值必須是唯一的，且不可包含下列字元集中的字元：
 
 + 控制字元：[0x0000-0x001F] 和 [0x007F-0x009F]。如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set) (英文)。
-+  可列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?** (0x003F)、**** (0x005C)、**`** (0x0060)
++  可列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?** (0x003F)、**\** (0x005C)、**`** (0x0060)
 +  識別碼 "." 和 ".."
 
 您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表](../virtual-machines-command-line-tools.md#Mobile_Tables) (英文)。
@@ -343,7 +346,7 @@
 	
 	在 [權限] 索引標籤中指派對自訂 API 方法的存取權限。若要了解此自訂 API 是如何建立的，請參閱[從用戶端呼叫自訂 API]。
 
-+ 使用原始檔控制。啟用原始檔控制後，只要在 git 儲存機制的 .\service\api 子資料夾中建立名為 <em>`<custom_api>`</em>.js 的檔案，其中 <em>`<custom_api>`</em> 是所註冊之自訂 API 的名稱。此指令碼檔案包含 _exported_ 函數，用於自訂 API 公開的每個 HTTP 方法。權限是在伴隨的 .json 檔案中定義。如需詳細資訊，請參閱[原始檔控制與共用程式碼][Source control, shared code, and helper functions]。
++ 使用原始檔控制。啟用原始檔控制後，只要在 git 儲存機制的 .\\service\\api 子資料夾中建立名為 <em>`<custom_api>`</em>.js 的檔案，其中 <em>`<custom_api>`</em> 是所註冊之自訂 API 的名稱。此指令碼檔案包含 _exported_ 函數，用於自訂 API 公開的每個 HTTP 方法。權限是在伴隨的 .json 檔案中定義。如需詳細資訊，請參閱[原始檔控制與共用程式碼][Source control, shared code, and helper functions]。
 
 + 從命令提示字元使用 Azure 命令列工具。如需詳細資訊，請參閱[使用命令列工具]。
 
@@ -430,7 +433,7 @@
 		    res.send(200, { result: result });
 		}
 
-傳遞至 **register** 函數的 **api** 物件會為每個 HTTP 方法 (**get**、**post**、**put**、**patch**、**delete**) 公開一個函數。這些函數會註冊特定 HTTP 方法之已定義函數的路由。每個函數都有兩個參數，第一個是路由名稱，第二個是註冊到路由的函數。
+傳遞給 **register** 函數的 **api** 物件會公開每個 HTTP 方法的函數 (**get**、**post**、**put**、**patch**、**delete**)。這些函數會註冊特定 HTTP 方法之已定義函數的路由。每個函數都有兩個參數，第一個是路由名稱，第二個是註冊到路由的函數。
 
 HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也顯示回應)：
 
@@ -462,7 +465,7 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 
 + 從命令提示字元使用 Azure 命令列工具。如需詳細資訊，請參閱[使用命令列工具]。
 
->[AZURE.NOTE]啟用原始檔控制後，可以直接在 git 儲存機制的 .\service\scheduler 子資料夾中編輯排程工作指令碼。如需詳細資訊，請參閱[作法：使用原始檔控制共用程式碼]。
+>[AZURE.NOTE]啟用原始檔控制後，可以直接在 git 儲存機制的 .\\service\\scheduler 子資料夾中編輯排程工作指令碼。如需詳細資訊，請參閱[作法：使用原始檔控制共用程式碼]。
 
 ##<a name="shared-code"></a>原始檔控制、共用程式碼及協助程式函數
 
@@ -772,38 +775,16 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 
 當您使用 [tables 物件]或 [mssql 物件]時，或者單純執行資料表指令碼時，已還原序列化的 JavaScript 物件會插入您的 SQL 資料庫。在這個程序中，物件屬性會對應到 T-SQL 類型：
 
-<table border="1">
-<tr>
-<td>JavaScript 屬性</td>
-<td>T-SQL 類型</td>
-</tr><tr>
-<td>Number</td>
-<td>Float(53)</td>
-</tr><tr>
-<td>Boolean</td>
-<td>Bit</td>
-</tr><tr>
-<td>Date</td>
-<td>DateTimeOffset(3)</td>
-</tr>
-<tr>
-<td>String</td>
-<td>Nvarchar(max)</td>
-</tr>
-<tr>
-<td>Buffer</td>
-<td>不支援</td>
-</tr><tr>
-<td>Object</td>
-<td>不支援</td>
-</tr><tr>
-<td>Array</td>
-<td>不支援</td>
-</tr><tr>
-<td>Stream</td>
-<td>不支援</td>
-</tr>
-</table>
+JavaScript 屬性|T-SQL 類型
+---|---
+Number|Float(53)
+Boolean|Bit
+Date|DateTimeOffset(3)|
+String|Nvarchar(max)
+Buffer|不支援
+Object|不支援
+Array|不支援
+Stream|不支援
 
 ###<a name="TSQL"></a>使用 Transact-SQL 存取資料表
 
@@ -1081,4 +1062,4 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 [Azure 行動服務對 package.json 的支援]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

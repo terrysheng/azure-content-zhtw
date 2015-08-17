@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 串流分析查詢模式 | Microsoft Azure"
-	description="Azure 串流分析範例查詢語言指南"
+	description="常見的 Azure 串流分析查詢模式"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,11 +13,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/30/2015"
+	ms.date="08/03/2015"
 	ms.author="jeffstok"/>
 
 
-# Azure 串流分析範例查詢語言指南 #
+# 常見的 Azure 串流分析查詢模式  #
 
 ## 簡介 ##
 在 Azure 串流分析中的查詢以類似 SQL 的查詢語言表示，記錄於[這裡](https://msdn.microsoft.com/library/azure/dn834998.aspx)。本文根據真實世界案例概述幾個常見查詢模式的解決方案。這是進行中的工作，並將繼續不間斷使用新模式進行更新。
@@ -454,4 +454,4 @@
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

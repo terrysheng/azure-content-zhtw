@@ -153,7 +153,7 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 
   	<!-- ![Top Menu](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteTopMenu.png) -->
 
-1.  向下捲動到 [應用程式設定] 區段，並如上一節所述設定 **REPOSITORY_NAME**、**STORAGE_NAME** 和 **STORAGE_KEY** 的值。
+1.  向下捲動到 [應用程式設定] 區段，並如上一節所述設定 **REPOSITORY\\\_NAME**、**STORAGE\\\_NAME** 和 **STORAGE\\\_KEY** 的值。
 
   	<!-- ![App Settings](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png) -->
 
@@ -210,4 +210,4 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

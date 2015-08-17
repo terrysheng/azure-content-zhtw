@@ -1,11 +1,12 @@
 <properties
-	pageTitle="如何在 Azure 上使用 CoreOS"
-	description="說明 CoreOS、如何在 Azure 上建立 CoreOS 虛擬機器，及其基本使用方法。"
+	pageTitle="如何使用 CoreOS |Microsoft Azure"
+	description="說明 CoreOS、如何在 Azure 上建立 CoreOS 虛擬機器叢集，以及其基本使用方法。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,12 +14,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="03/16/2015"
+	ms.date="08/03/2015"
 	ms.author="rasquill"/>
 
 # 如何在 Azure 上使用 CoreOS
 
-本主題說明 [CoreOS]，及說明如何在 Azure 上建立三部 CoreOS 虛擬機器的叢集，作為了解 CoreOS 的快速入門。它會使用 CoreOS 部署的每個基本元素，和來自 [在 Azure 上的 CoreOS] (英文)、[Tim Park 的 CoreOS 教學課程] (英文) 和 [Patrick Chanezon 的 CoreOS 教學課程] (英文) 的範例，來說明了解 CoreOS 部署之基本結構和順利執行三部虛擬機器之叢集兩者的絕對最低需求。
+本主題說明 [CoreOS]，以及如何在 Azure 上建立三部 CoreOS 虛擬機器的叢集，作為了解此作業系統的快速入門。它會使用 CoreOS 部署的每個基本元素，和來自 [在 Azure 上的 CoreOS] (英文)、[Tim Park 的 CoreOS 教學課程] (英文) 和 [Patrick Chanezon 的 CoreOS 教學課程] (英文) 的範例，來說明了解 CoreOS 部署之基本結構和順利執行三部虛擬機器之叢集兩者的絕對最低需求。
+
+>[AZURE.NOTE]本文將說明如何使用 Azure 命令列介面與服務管理命令建立 CoreOS VM。若要開始在 Azure 資源管理員中使用 CoreOS，請試用此[快速入門範本](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/)。
 
 ## <a id='intro'>CoreOS、叢集和 Linux 容器</a>
 
@@ -46,7 +49,7 @@ CoreOS 是 Linux 的輕量級版本，旨在支援快速建立可能的大型 VM
 1. 建立 SSH 憑證和金鑰，來保護與 CoreOS 虛擬機器的通訊安全
 2. 取得叢集的 etcd 識別碼以便互相通訊
 3. 建立採用 [YAML] 格式的 cloud-config 檔案
-4. 使用 Azure CLI 來建立新的 Azure 雲端服務和三部 CoreOS VM
+4. 使用 Azure CLI 建立新的 Azure 雲端服務和三部 CoreOS VM
 5. 在 Azure VM 中測試您的 CoreOS 叢集
 6. 在 localhost 中測試您的 CoreOS 叢集
 
@@ -54,18 +57,18 @@ CoreOS 是 Linux 的輕量級版本，旨在支援快速建立可能的大型 VM
 
 使用[如何對 Azure 上的 Linux 使用 SSH](virtual-machines-linux-use-ssh-key.md)中的指示，建立 SSH 的公開和私密金鑰。(您可在下面的指示中找到基本步驟。) 您打算使用這些金鑰來與叢集中的 VM 連線，以驗證他們是否可正常運作並可互相通訊。
 
-> [AZURE.NOTE]本主題假設您沒有這些金鑰，為求清楚展示範例，將要求您建立 `myPrivateKey.pem` 和 `myCert.pem` 檔案。如果 `~/.ssh/id_rsa` 已有儲存的公開和私密金鑰組，您可以只輸入 `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` 來取得您必須上傳至 Azure 的 .pem 檔案。
+> [AZURE.NOTE]本主題假設您沒有這些金鑰，為了讓您確實明瞭操作過程，將要求您建立 `myPrivateKey.pem` 和 `myCert.pem` 檔案。如果已將公開和私密金鑰組儲存至 `~/.ssh/id_rsa`，只要鍵入 `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` 就能取得需要上傳至 Azure 的 .pem 檔案。
 
-1. 在工作目錄中，請輸入 `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem` 以建立私密金鑰及其相關聯的 X.509 憑證。
+1. 在工作目錄中，鍵入 `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem` 以建立私密金鑰和與其相關聯的 X.509 憑證。
 
-2. 若要判斷提示私密金鑰的擁有者是否可以讀取或寫入檔案，請輸入 `chmod 600 myPrivateKey.key`。
+2. 若要判斷私密金鑰的擁有者是否可讀取或寫入檔案，請鍵入 `chmod 600 myPrivateKey.key`。
 
 您的工作目錄中現在應同時包含 `myPrivateKey.key` 和 `myCert.pem` 檔案。
 
 
 ### 取得叢集的 etcd 識別碼
 
-CoreOS 的 `etcd` 精靈會需要探索識別碼，以自動針對叢集中的所有節點進行查詢。若要擷取您的探索識別碼並將它儲存到 `etcdid` 檔案，請輸入
+CoreOS 的 `etcd` 精靈需要探索識別碼，以自動查詢叢集中的所有節點。若要擷取您的探索識別碼並將它儲存到 `etcdid` 檔案，請鍵入
 
 ```
 curl https://discovery.etcd.io/new | grep ^http.* > etcdid
@@ -73,9 +76,9 @@ curl https://discovery.etcd.io/new | grep ^http.* > etcdid
 
 ### 建立 cloud-config 檔案
 
-在相同的工作目錄中，使用偏好的文字編輯器來建立包含下列文字的檔案，並將它另存新檔為 `cloud-config.yaml`。(您可以將它儲存為任何檔案名稱，但在下一個步驟中建立 VM 時，您需要在 **azure create vm** 命令的 **--custom-data** 選項中參考此檔案的名稱。)
+在相同的工作目錄中，使用您喜愛的文字編輯器建立包含下列文字的檔案，並將儲存為 `cloud-config.yaml`。(您可以為其設定任何檔案名稱，但在下一個步驟中建立 VM 時，您必須在 **azure create vm** 命令的 **--custom-data** 選項中參照此檔案的名稱。)
 
-> [AZURE.NOTE]請記得輸入 `cat etcdid`，以便從上面建立的 `etcdid` 檔案中擷取 etcd 探索識別碼，並使用從 `etcdid` 檔案產生的數字來取代以下 `cloud-config.yaml` 檔案中的 `<token>`。如果您在最後無法驗證叢集，這有可能是您遺漏了其中一個步驟！
+> [AZURE.NOTE]請記得鍵入 `cat etcdid`，以從之前建立的 `etcdid` 檔案中擷取 etcd 探索識別碼，並使用從 `etcdid` 檔案產生的數字取代下列 `cloud-config.yaml` 檔案中的 `<token>`。如果您在最後無法驗證叢集，這有可能是您遺漏了其中一個步驟！
 
 ```
 #cloud-config
@@ -99,18 +102,20 @@ coreos:
 ### 使用 Azure CLI 建立新的 CoreOS VM
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-1. 如果您未曾安裝 [Azure 命令列介面 (Azure CLI)]，請先進行安裝，並使用工作或學校識別碼登入，或下載 .publishsettings 檔案並將它匯入您的帳戶。
-2. 尋找您的 CoreOS 映像。輸入 `azure vm image list | grep CoreOS` 可隨時找出可用映像，您應會看見如下的結果清單：
+1. 如果您尚未安裝 [Azure 命令列介面 (Azure CLI)]，請先加以安裝，並使用工作或學校識別碼登入，或下載 .publishsettings 檔案並將它匯入您的帳戶。
+2. 尋找您的 CoreOS 映像。鍵入 `azure vm image list | grep CoreOS` 可隨時找到可用的映像，應會顯示類似下面的結果清單：
 
-	data: 2b171e93f07c4903bcad35bda10acf22__CoreOS-Stable-522.6.0 Public Linux
+	data: 2b171e93f07c4903bcad35bda10acf22\_\_CoreOS-Stable-522.6.0 Public Linux
 
-3. 您可以透過輸入 `azure service create <cloud-service-name>` (這裡的 *<cloud-service-name>* 是指您的 CoreOS 雲端服務名稱)，來建立基本叢集的雲端服務。此範例會使用 **`coreos-cluster`** 名稱；您必須重複使用您所選擇的名稱來建立雲端服務內的 CoreOS VM 執行個體。
+3. 鍵入`azure service create <cloud-service-name>` (當中的 <*cloud-service-name*> 是您的 CoreOS 雲端服務名稱) 可建立基本叢集的雲端服務。此範例會使用 **`coreos-cluster`** 名稱；您必須重複使用您所選擇的名稱來建立雲端服務內的 CoreOS VM 執行個體。
 
-附註：如果您在[入口網站](https://portal.azure.com)中觀察您到目前為止的工作，則您會在資源群組和網域中看到您的雲端服務名稱，如下圖所示：
+	附註：如果您在 [Preview 入口網站](https://portal.azure.com)中觀察您到目前為止的工作，您會在資源群組和網域中看到您的雲端服務名稱，如下圖所示：
 
-![][CloudServiceInNewPortal] 4.透過使用 **azure vm create** 命令，您可以連線至您的雲端服務，並在此雲端服務內建立新的 CoreOS VM。您將在 **--ssh-cert** 選項中傳遞 X.509 憑證的位置。輸入下列程式碼來建立您的第一個 VM 映像，請記得使用您所建立的雲端服務名稱來取代 **coreos-cluster**：
+	![][CloudServiceInNewPortal]
 
-```
+4. 使用 **azure vm create** 命令可連接至您的雲端服務，並在此雲端服務內建立新的 CoreOS VM。您將會在 [**--ssh-cert**] 選項中傳遞 X.509 憑證的位置。輸入下列程式碼來建立您的第一個 VM 映像，請記得使用您所建立的雲端服務名稱來取代 **coreos-cluster**：
+
+	```
 azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem --no-ssh-password --vm-name=node-1 --connect=coreos-cluster --location="West US" 2b171e93f07c4903bcad35bda10acf22__CoreOS-Stable-522.6.0 core
 ```
 
@@ -118,7 +123,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 6. 重複步驟 4 中的命令來建立第三個節點，使用 **node-3** 來取代 **--vm-name** 值，並使用 3022 來取代 **--ssh** 連接埠值。
 
-從下面的快照中，您可以看到 CoreOS 叢集如何出現在新入口網站中。
+從下面的照片中，您可以看到 CoreOS 叢集顯示在入口網站的樣子。
 
 ![][EmptyCoreOSCluster]
 
@@ -128,7 +133,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 	ssh core@coreos-cluster.cloudapp.net -p 22 -i ./myPrivateKey.key
 
-一旦連線後，請輸入 `sudo fleetctl list-machines` 以查看叢集是否已找到叢集中的所有 VM。您應該會收到如下所示的回應：
+連接後，請鍵入 `sudo fleetctl list-machines` 以查看叢集是否已識別出叢集中的所有 VM。您應該會收到如下所示的回應：
 
 
 	core@node-1 ~ $ sudo fleetctl list-machines
@@ -140,7 +145,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 ### 在 localhost 中測試您的 CoreOS 叢集
 
-最後，讓我們從您的本機 Linux 用戶端中測試 CoreOS 叢集，方法是安裝 **fleet**。**fleet** 需要 **golang**，因此您可能需要先安裝 golang，方法是輸入：
+最後，請從您本機的 Linux 用戶端測試您的 CoreOS 叢集。您也許可以使用 **npm** 安裝 **fleetctl**，或者也可以安裝 **fleet** 並在本機用戶端上建置 **fleetctl**。**fleet** 需要 **golang**，因此您需要先安裝它，方法是鍵入：
 
 `sudo apt-get install golang`
 
@@ -148,7 +153,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 `git clone https://github.com/coreos/fleet.git`
 
-建置 **fleet**，方法是變更至 `fleet` 目錄並輸入
+建置 **fleet** 目錄，方法是透過變更至 `fleet` 並鍵入
 
 `./build`
 
@@ -156,11 +161,11 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 `cp bin/fleetctl /usr/local/bin`
 
-確定 **fleet** 有權存取工作目錄下的 `myPrivateKey.key`，方法是輸入：
+確認 **fleet** 是否可存取工作目錄下的 `myPrivateKey.key`，方法是鍵入：
 
 `ssh-add ./myPrivateKey.key`
 
-> [AZURE.NOTE]如果您目前已使用 **`~/.ssh/id_rsa`** 金鑰，那麼請使用 `ssh-add ~/.ssh/id_rsa` 進行新增。
+> [AZURE.NOTE]如果您目前已再使用 `~/.ssh/id_rsa` 金鑰，請使用 `ssh-add ~/.ssh/id_rsa` 新增。
 
 現在，您可以使用和您在 **node-1** 中使用的相同 **fleetctl** 命令準備開始遠端測試，但傳遞部分遠端引數：
 
@@ -176,7 +181,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 ## 後續步驟
 
-在 Azure 上，您現在應該會有執行三節點 CoreOS 叢集。此後，您可以探索如何建立更複雜的叢集，並使用 Docker 建立更有趣的應用程式。若要嘗試幾個簡短的範例，請參閱[開始在 Azure 上的 CoreOS 使用 Fleet]。
+在 Azure 上，您現在應該會有執行三節點 CoreOS 叢集。此後，您可以探索如何建立更複雜的叢集，並使用 Docker 建立更有趣的應用程式。若要操作幾個快速的範例，請參閱＜[開始在 Azure 上的 CoreOS 使用 Fleet]＞。
 
 <!--Anchors-->
 [CoreOS, Clusters, and Linux Containers]: #intro
@@ -202,6 +207,5 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 [Docker]: http://docker.io
 [YAML]: http://yaml.org/
 [開始在 Azure 上的 CoreOS 使用 Fleet]: virtual-machines-linux-coreos-fleet-get-started.md
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

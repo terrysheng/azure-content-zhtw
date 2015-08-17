@@ -236,4 +236,4 @@ Azure 現在正為您管理三個驗證權杖：
 [Azure 入口網站]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -83,12 +83,12 @@ SQL 資料倉儲會在連線和建立物件期間標準化一些設定。這些�
 
 | 資料庫設定 | 值 |
 | :----------------- | :--------------------------- |
-| ANSI_NULLS | 開啟 |
-| QUOTED_IDENTIFIERS | 開啟 |
-| NO_COUNT | 關閉 |
+| ANSI\_NULLS | 開啟 |
+| QUOTED\_IDENTIFIERS | 開啟 |
+| NO\_COUNT | 關閉 |
 | DATEFORMAT | mdy |
 | DATEFIRST | 7 |
-| 資料庫定序 | SQL_Latin1_General_CP1_CI_AS |
+| 資料庫定序 | SQL\_Latin1\_General\_CP1\_CI\_AS |
 
 ## 工作階段和要求
 建立連線和工作階段之後，您就可以撰寫查詢並將其提交至 SQL 資料倉儲。
@@ -158,4 +158,4 @@ WHERE   s.[session_id] <> SESSION_ID()
 
 <!--Other references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

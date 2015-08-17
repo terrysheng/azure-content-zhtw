@@ -213,7 +213,7 @@
 <tr><th>您應該會看到</th><th>如何取得</th><th>取得原因</th></tr>
 <tr><td>可用性圖表</td><td><a href="../app-insights-monitor-web-app-availability/">Web 測試</a></td><td>知道您的 Web 應用程式已啟動</td></tr>
 <tr><td>伺服器應用程式效能：回應時間...
-</td><td><a href="../app-insights-start-monitoring-app-health-usage/">將 Application Insights 加入至專案</a><br/>或 <br/><a href="../app-insights-monitor-performance-live-website-now/">在伺服器上安裝 AI 狀態監視器</a></td><td>偵測效能問題</td></tr>
+</td><td><a href="../app-insights-start-monitoring-app-health-usage/">將 Application Insights 加入至專案</a><br/>或 <br/><a href="../app-insights-monitor-performance-live-website-now/">在伺服器上安裝 AI 狀態監視器</a> (或撰寫您自己的程式碼以<a href="../app-insights-api-custom-events-metrics/#track-dependency">追蹤相依性</a>)</td><td>偵測效能問題</td></tr>
 <tr><td>相依性遙測</td><td><a href="../app-insights-monitor-performance-live-website-now/">在伺服器上安裝 AI 狀態監視器</a></td><td>診斷資料庫或其他外部元件的問題</td></tr>
 <tr><td>取得例外狀況的堆疊追蹤</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">在程式碼中插入 TrackException 呼叫</a> (但部分會自動報告)</td><td>偵測並診斷例外狀況</td></tr>
 <tr><td>搜尋記錄追蹤</td><td><a href="../app-insights-search-diagnostic-logs/">加入記錄配接器</a></td><td>診斷例外狀況、效能問題</td></tr>
@@ -239,4 +239,4 @@
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

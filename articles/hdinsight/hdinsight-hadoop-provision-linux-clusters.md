@@ -767,4 +767,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

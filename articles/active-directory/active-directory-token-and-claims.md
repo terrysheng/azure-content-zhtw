@@ -97,7 +97,7 @@ Azure AD 不支援 SAML 權杖中的應用程式識別碼宣告。
     <Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>
     <AttributeValue>Frank<AttributeValue>
 
-在 JWT 權杖中，名字會出現在 given_name 宣告中。
+在 JWT 權杖中，名字會出現在 given\_name 宣告中。
 
     "given_name": "Frank"
 
@@ -156,7 +156,7 @@ Issuer 宣告會識別安全性權杖服務 (STS)，而該服務可建構並傳�
     <Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>
     <AttributeValue>Miller<AttributeValue>
 
-在 JWT 權杖中，姓氏會出現在 family_name 宣告中。
+在 JWT 權杖中，姓氏會出現在 family\_name 宣告中。
 
     "family_name": "Miller"
 
@@ -167,7 +167,7 @@ Issuer 宣告會識別安全性權杖服務 (STS)，而該服務可建構並傳�
     <Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>
     <AttributeValue>frankm@contoso.com<AttributeValue>
 
-在 JWT 宣告中，名稱會出現在 unique_name 宣告中。
+在 JWT 宣告中，名稱會出現在 unique\_name 宣告中。
 
     "unique_name": "frankm@contoso.com"
 
@@ -195,7 +195,7 @@ Issuer 宣告會識別安全性權杖服務 (STS)，而該服務可建構並傳�
 
 ### Scope
 
-權杖範圍指出授與用戶端應用程式的模擬權限。預設權限為 user_impersonation。受保護資源的擁有者可以在 Azure AD 中註冊其他的值。
+權杖範圍指出授與用戶端應用程式的模擬權限。預設權限為 user\_impersonation。受保護資源的擁有者可以在 Azure AD 中註冊其他的值。
 
 在 JWT 權杖中，權杖的範圍是在 scp 宣告中指定。
 
@@ -413,4 +413,4 @@ Version 宣告儲存權杖的版本號碼。在 JWT 權杖中，使用者主體�
 [Azure Active Directory 驗證通訊協定](https://msdn.microsoft.com/library/azure/dn151124.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

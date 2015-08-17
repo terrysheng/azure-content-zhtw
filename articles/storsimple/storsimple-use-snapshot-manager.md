@@ -516,7 +516,7 @@ StorSimple Snapshot Manager 可啟用 Windows 作業系統和 Microsoft Manageme
 | V | 開啟 [**檢視**] 功能表。 |
 | W | 開啟新的 StorSimple Snapshot Manager 主控台，著重於 [**磁碟區群組**] 節點。|
 | F | 更新 StorSimple Snapshot Manager 主控台。|
-| L | 開啟 [**匯出清單**] 頁面。| H |開啟線上說明。|
+| L | 開啟 **匯出清單** 頁面。| H |開啟線上說明。|
  
 #### 備份目錄節點快速鍵
 
@@ -538,6 +538,6 @@ StorSimple Snapshot Manager 可啟用 Windows 作業系統和 Microsoft Manageme
  
 ## 後續步驟
 
-了解如何《[使用 StorSimple Snapshot Manager 來連接和管理裝置](storsimple-snapshot-manager-manage-devices.md)》。
+了解如何[使用 StorSimple Snapshot Manager 來連接和管理裝置](storsimple-snapshot-manager-manage-devices.md)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

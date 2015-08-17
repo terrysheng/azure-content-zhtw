@@ -69,7 +69,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 		- (IBAction)LogInAction:(id)sender;		
 
-4. 請在 ViewController.h 中，在您的匯入陳述式正下方新增以下的 `#define`。將 *<輸入您的後端端點>* 預留位置替換成上一節中用來部署應用程式後端的目的地 URL。例如，*http://you_backend.azurewebsites.net*
+4. 請在 ViewController.h 中，在您的匯入陳述式正下方新增以下的 `#define`。將 *<輸入您的後端端點>* 預留位置替換成上一節中用來部署應用程式後端的目的地 URL。例如：**http://you_backend.azurewebsites.net*。
 
 		#define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
 
@@ -454,7 +454,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 	![][3]
 
-4. 在 **[收件者使用者名稱標記*] 文字欄位中，輸入從其他裝置註冊時搭配使用的使用者名稱標記。
+4. 在 **收件者使用者名稱標記** 文字欄位中，輸入從其他裝置註冊時搭配使用的使用者名稱標記。
 5. 輸入通知訊息並按一下 [**傳送通知**]。只有已經使用收件者使用者名稱標記註冊的裝置才會收到通知訊息。通知訊息只會傳送給那些使用者。
 
 	![][4]
@@ -466,4 +466,4 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

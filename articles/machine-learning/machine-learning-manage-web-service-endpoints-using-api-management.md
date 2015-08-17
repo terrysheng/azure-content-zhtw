@@ -1,7 +1,6 @@
 <properties
 	pageTitle="了解如何使用 API 管理來管理 AzureML Web 服務 | Microsoft Azure"
 	description="示範如何使用 API 管理來管理 AzureML Web 服務的指南"
-	keywords="machine learning,api management"
 	services="machine-learning"
 	documentationCenter=""
 	authors="roalexan"
@@ -72,13 +71,13 @@ API 是透過您經由 Azure 管理入口網站存取的 API 發行者入口網�
 
 ![API 管理功能表](./media/machine-learning-manage-web-service-endpoints-using-api-management/api-management-menu.png)
 
-在 [Web API 名稱] 中，輸入 **AzureML 示範 API**。在 [Web 服務 URL] 中，輸入 **https://ussouthcentral.services.azureml.net**。在 [Web API URL 尾碼] 中，輸入 **azureml-demo**。在 [Web API URL 配置] 中，核取 [HTTPS]。在 [產品] 中，選取 [Starter]。完成後，按一下 [儲存] 建立 API。
+在 [Web API 名稱] 中，輸入 **AzureML 示範 API**。在 [**Web 服務 URL**] 中，輸入 ****https://ussouthcentral.services.azureml.net**。在 [**Web API URL 尾碼**] 中，輸入 **azureml-demo**。在 [**Web API URL 配置**] 中，核取 [**HTTPS**]。在 [**產品**] 中，選取 [**Starter**]。完成後，按一下 [**儲存**] 建立 API。
 
 ![加入新的 API](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png)
 
 ##加入作業
 
-按一下 [加入作業]，將作業加入這個 API。
+按一下 [**加入作業**]，將作業加入這個 API。
 
 ![加入作業](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-operation.png)
 
@@ -86,11 +85,11 @@ API 是透過您經由 Azure 管理入口網站存取的 API 發行者入口網�
 
 ##加入 RRS 作業
 
-首先建立 AzureML RRS 服務的作業。在 [HTTP 指令動詞] 中，選取 [POST]。在 [URL 範本] 中，輸入 **/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}**。在 [顯示名稱] 中，輸入 **RRS 執行**。
+首先建立 AzureML RRS 服務的作業。在 [**HTTP 指令動詞**] 中，選取 [**POST**]。在 [**URL 範本**] 中，輸入 **/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}**。在 [**顯示名稱**] 中，輸入 **RRS 執行**。
 
 ![加入 RRS 作業簽章](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
-按一下左側的 [回應] > [加入]，然後選取 [200 確定]。按一下 [儲存] 儲存這個作業。
+按一下左側的 [**回應**] > [**加入**]，然後選取 [**200 確定**]。按一下 [**儲存**] 儲存這個作業。
 
 ![加入 RRS 作業回應](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
 
@@ -100,37 +99,37 @@ API 是透過您經由 Azure 管理入口網站存取的 API 發行者入口網�
 
 ###提交 (但不啟動) 批次執行工作
 
-按一下 [加入作業]，將 AzureML BES 作業加入這個 API。在 [HTTP 指令動詞] 中，選取 [POST]。在 [URL 範本] 中，輸入 **/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}**。在 [顯示名稱] 中，輸入 **BES** 提交。按一下左側的 [回應] > [加入]，然後選取 [200 確定]。按一下 [儲存] 儲存這個作業。
+按一下 [**加入作業**]，將 AzureML BES 作業加入這個 API。在 [**HTTP 指令動詞**] 中，選取 [**POST**]。在 [**URL 範本**] 中，輸入 **/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}**。在 [**顯示名稱**] 中，輸入 **BES 提交**。按一下左側的 [**回應**] > [**加入**]，然後選取 [**200 確定**]。按一下 [**儲存**] 儲存這個作業。
 
 ###啟動批次執行工作
 
-按一下 [加入作業]，將 AzureML BES 作業加入這個 API。在 [HTTP 指令動詞] 中，選取 [POST]。在 [URL 範本] 中，輸入 **/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}**。在 [顯示名稱] 中，輸入 **BES 啟動**。按一下左側的 [回應] > [加入]，然後選取 [200 確定]。按一下 [儲存] 儲存這個作業。
+按一下 [**加入作業**]，將 AzureML BES 作業加入這個 API。在 [**HTTP 指令動詞**] 中，選取 [**POST**]。在 [**URL 範本**] 中，輸入 **/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}**。在 [**顯示名稱**] 中，輸入 **BES 啟動**。按一下左側的 [**回應**] > [**加入**]，然後選取 [**200 確定**]。按一下 [**儲存**] 儲存這個作業。
 
 ###取得批次執行工作的狀態或結果
 
-按一下 [加入作業]，將 AzureML BES 作業加入這個 API。在 [HTTP 指令動詞] 中，選取 [GET]。在 [URL 範本] 中，輸入 **/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}**。在 [顯示名稱] 中，輸入 **BES 狀態**。按一下左側的 [回應] > [加入]，然後選取 [200 確定]。按一下 [儲存] 儲存這個作業。
+按一下 [**加入作業**]，將 AzureML BES 作業加入這個 API。在 [**HTTP 指令動詞**] 中，選取 [**GET**]。在 [**URL 範本**] 中，輸入 **/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}**。在 [**顯示名稱**] 中，輸入 **BES 狀態**。按一下左側的 [**回應**] > [**加入**]，然後選取 [**200 確定**]。按一下 [**儲存**] 儲存這個作業。
 
 ###刪除批次執行工作
 
-按一下 [加入作業]，將 AzureML BES 作業加入這個 API。在 [HTTP 指令動詞] 中，選取 [DELETE]。在 [URL 範本] 中，輸入 **/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}**。在 [顯示名稱] 中，輸入 **BES 刪除**。按一下左側的 [回應] > [加入]，然後選取 [200 確定]。按一下 [儲存] 儲存這個作業。
+按一下 [**加入作業**]，將 AzureML BES 作業加入這個 API。在 [**HTTP 指令動詞**] 中，選取 [**DELETE**]。在 [**URL 範本**] 中，輸入 **/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}**。在 [**顯示名稱**] 中，輸入 **BES 刪除**。按一下左側的 [**回應**] > [**加入**]，然後選取 [**200 確定**]。按一下 [**儲存**] 儲存這個作業。
 
 ##透過開發人員入口網站呼叫作業
 
-您可以從開發人員入口網站直接呼叫作業，以便檢視和測試 API 的操作。在這個指南步驟中，您會呼叫加入 [AzureML 示範 API] 的 [RRS 執行] 方法。從管理入口網站右上方的功能表按一下 [開發人員入口網站]。
+您可以從開發人員入口網站直接呼叫作業，以便檢視和測試 API 的操作。在這個指南步驟中，您會呼叫加入 [**AzureML 示範 API**] 的 [**RRS 執行**] 方法。從管理入口網站右上方的功能表按一下 [開發人員入口網站]。
 
 ![開發人員入口網站](./media/machine-learning-manage-web-service-endpoints-using-api-management/developer-portal.png)
 
-按一下上層功能表中的 [API]，然後按一下 [AzureML 示範 API] 以查看可用的作業。
+按一下上層功能表中的 [**API**]，然後按一下 [**AzureML 示範 API**] 以查看可用的作業。
 
 ![demoazureml API](./media/machine-learning-manage-web-service-endpoints-using-api-management/demoazureml-api.png)
 
-為作業選取 [RRS 執行]。按一下 [試試看]。
+為作業選取 [**RRS 執行**]。按一下 [**試試看**]。
 
 ![試試看](./media/machine-learning-manage-web-service-endpoints-using-api-management/try-it.png)
 
-在 [要求參數] 中，輸入您的**工作區**和**服務**，在 [API 版本] 中輸入 **2.0**，並在 [詳細資料] 中輸入 **true**。您可以在 AzureML Web 服務儀表板中找到您的**工作區**和**服務** (請參閱附錄 A 中的**測試 Web 服務**)。
+在 [要求參數] 中，輸入您的**工作區**和**服務**，在 [**API 版本**] 中輸入 **2.0**，並在 [**詳細資料**] 中輸入 **true**。您可以在 AzureML Web 服務儀表板中找到您的**工作區**和**服務** (請參閱附錄 A 中的**測試 Web 服務**)。
 
-在 [要求標頭] 中，按一下 [加入標頭] 並輸入 **Content-type** 和 **application/json**，然後按一下 [加入標頭] 並輸入 **Authorization** 和 **Bearer <YOUR AZUREML SERVICE API-KEY>**。您可以在 AzureML Web 服務儀表板中找到您的 **API 金鑰** (請參閱附錄 A 中的**測試 Web 服務**)。
+在 [要求標頭] 中，按一下 [**加入標頭**] 並輸入 **Content-type** 和 **application/json**，然後按一下 [**加入標頭**] 並輸入 **Authorization** 和 **Bearer <YOUR AZUREML SERVICE API-KEY>**。您可以在 AzureML Web 服務儀表板中找到您的 **API 金鑰** (請參閱附錄 A 中的**測試 Web 服務**)。
 
 在 [要求本文] 中，輸入 **{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["這是美好的一天"]]}}, "GlobalParameters": {}}**。
 
@@ -158,41 +157,41 @@ API 是透過您經由 Azure 管理入口網站存取的 API 發行者入口網�
 
 ![搜尋實驗範本](./media/machine-learning-manage-web-service-endpoints-using-api-management/search-experiment-templates.png)
 
-重新命名為 **SimpleFeatureHashingExperiment**。展開 [儲存的資料集]，將 [來自 Amazon 的書籍評論] 拖曳到您的實驗。
+重新命名為 **SimpleFeatureHashingExperiment**。展開 [**儲存的資料集**]，將 [**來自 Amazon 的書籍評論**] 拖曳到您的實驗。
 
 ![簡單的特徵雜湊實驗](./media/machine-learning-manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
 
-展開 [資料轉換] 和 [操作]，將 [專案資料行] 拖曳到您的實驗。將 [來自 Amazon 的書籍評論] 連接到 [專案資料行]。
+展開 [**資料轉換**] 和 [**操作**]，將 [**專案資料行**] 拖曳到您的實驗。將 [**來自 Amazon 的書籍評論**] 連接到 [**專案資料行**]。
 
 ![專案資料行](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
 
-按一下 [專案資料行]，然後按一下 [啟動資料行選取器]，再選取 [Col2]。按一下核取記號以套用這些變更。
+按一下 [**專案資料行**]，然後按一下 [**啟動資料行選取器**]，再選取 [**Col2**]。按一下核取記號以套用這些變更。
 
 ![選取資料行](./media/machine-learning-manage-web-service-endpoints-using-api-management/select-columns.png)
 
-展開 [文字分析]，將 [特徵雜湊] 拖曳到實驗。將 [專案資料行] 連接到 [特徵雜湊]。
+展開 [**文字分析**]，將 [**特徵雜湊**] 拖曳到實驗。將 [**專案資料行**] 連接到 [**特徵雜湊**]。
 
 ![連接專案資料行](./media/machine-learning-manage-web-service-endpoints-using-api-management/connect-project-columns.png)
 
-在 [雜湊位元大小] 中，輸入 **3**。這會建立 8 (23) 個資料行。
+在 [**雜湊位元大小**] 中，輸入 **3**。這會建立 8 (23) 個資料行。
 
 ![雜湊位元大小](./media/machine-learning-manage-web-service-endpoints-using-api-management/hashing-bitsize.png)
 
-此時，您可能想要按一下 [執行]，以測試實驗。
+此時，您可能想要按一下 [**執行**]，以測試實驗。
 
 ![執行](./media/machine-learning-manage-web-service-endpoints-using-api-management/run.png)
 
 ###建立 Web 服務
 
-現在建立 Web 服務。展開 [Web 服務]，將 [輸入] 拖曳到您的實驗。將 [輸入] 連接到 [特徵雜湊]。另將 [輸出] 拖曳到您的實驗。將 [輸出] 連接到 [特徵雜湊]。
+現在建立 Web 服務。展開 [**Web 服務**]，將 [**輸入**] 拖曳到您的實驗。將 [**輸入**] 連接到 [**特徵雜湊**]。另將 [**輸出**] 拖曳到您的實驗。將 [**輸出**] 連接到 [**特徵雜湊**]。
 
 ![輸出至特徵雜湊](./media/machine-learning-manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
 
-按一下 [發佈 Web 服務]。
+按一下 [**發佈 Web 服務**]。
 
 ![發佈 Web 服務](./media/machine-learning-manage-web-service-endpoints-using-api-management/publish-web-service.png)
 
-按一下 [是] 發佈實驗。
+按一下 [**是**] 發佈實驗。
 
 ![[是] 表示發佈](./media/machine-learning-manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
@@ -200,11 +199,11 @@ API 是透過您經由 Azure 管理入口網站存取的 API 發行者入口網�
 
 AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 端點所組成。RSS 適用於同步執行。BES 適用於非同步工作執行。若要使用下面的範例 Python 原始碼來測試您的 Web 服務，您可能需要下載並安裝 Azure SDK for Python (請參閱：[如何安裝 Python](python-how-to-install.md))。
 
-下面的範例原始碼也需要用到實驗的**工作區**、**服務**和 **API 金鑰**。若要尋找工作區和服務，請在 Web 服務儀表板中，按一下實驗的 [要求/回應] 或 [批次執行]。
+下面的範例原始碼也需要用到實驗的**工作區**、**服務**和 **API 金鑰**。若要尋找工作區和服務，請在 Web 服務儀表板中，按一下實驗的 [**要求/回應**] 或 [**批次執行**]。
 
 ![尋找工作區和服務](./media/machine-learning-manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
-若要尋找 [API 金鑰]，請按一下 Web 服務儀表板中的實驗。
+若要尋找 [**API 金鑰**]，請按一下 Web 服務儀表板中的實驗。
 
 ![尋找 API 金鑰](./media/machine-learning-manage-web-service-endpoints-using-api-management/find-api-key.png)
 
@@ -212,11 +211,11 @@ AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 
 
 #####測試按鈕
 
-測試 RRS 端點的一個簡單方式，是在 Web 服務儀表板上，按一下 [測試]。
+測試 RRS 端點的一個簡單方式，是在 Web 服務儀表板上，按一下 [**測試**]。
 
 ![test](./media/machine-learning-manage-web-service-endpoints-using-api-management/test.png)
 
-在 [col2] 中，輸入**這是美好的一天**。按一下核取記號。
+在 [**col2**] 中，輸入**這是美好的一天**。按一下核取記號。
 
 ![輸入資料](./media/machine-learning-manage-web-service-endpoints-using-api-management/enter-data.png)
 
@@ -226,7 +225,7 @@ AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 
 
 #####範例程式碼
 
-測試 RRS 的另一個方式，是利用用戶端程式碼。如果您按一下儀表板上的 [要求/回應] 並捲動至底部，您會看到 C#、Python 和 R 的範例程式碼。您也會看到 RRS 要求的語法，包括要求 URI、標頭和本文。
+測試 RRS 的另一個方式，是利用用戶端程式碼。如果您按一下儀表板上的 [**要求/回應**] 並捲動至底部，您會看到 C#、Python 和 R 的範例程式碼。您也會看到 RRS 要求的語法，包括要求 URI、標頭和本文。
 
 本指南顯示一個運作正常的 Python 範例。您必須使用實驗的**工作區**、**服務**和 **API 金鑰**加以修改。
 
@@ -258,7 +257,7 @@ AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 
     	print(json.loads(error.read()))
 
 ####測試 BES 端點
-按一下儀表板上的 [批次執行] 並捲動至底部。您會看到 C#、Python 和 R 的範例程式碼。您也會看到用來提交工作、啟動工作、取得工作狀態或結果，以及刪除工作的 BES 要求語法。
+按一下儀表板上的 [**批次執行**] 並捲動至底部。您會看到 C#、Python 和 R 的範例程式碼。您也會看到用來提交工作、啟動工作、取得工作狀態或結果，以及刪除工作的 BES 要求語法。
 
 本指南顯示一個運作正常的 Python 範例。您必須使用實驗的**工作區**、**服務**和 **API 金鑰**加以修改。此外，您必須修改**儲存體帳戶名稱**、**儲存體帳戶金鑰**和**儲存體容器名稱**。最後，您必須修改**輸入檔**的位置和**輸出檔**的位置。
 
@@ -272,8 +271,8 @@ AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 
 	storage_account_name = "<REPLACE WITH YOUR AZURE STORAGE ACCOUNT NAME>"
 	storage_account_key = "<REPLACE WITH YOUR AZURE STORAGE KEY>"
 	storage_container_name = "<REPLACE WITH YOUR AZURE STORAGE CONTAINER NAME>"
-	input_file = "<REPLACE WITH THE LOCATION OF YOUR INPUT FILE>" # Example: C:\mydata.csv
-	output_file = "<REPLACE WITH THE LOCATION OF YOUR OUTPUT FILE>" # Example: C:\myresults.csv
+	input_file = "<REPLACE WITH THE LOCATION OF YOUR INPUT FILE>" # Example: C:\\mydata.csv
+	output_file = "<REPLACE WITH THE LOCATION OF YOUR OUTPUT FILE>" # Example: C:\\myresults.csv
 	input_blob_name = "mydatablob.csv"
 	output_blob_name = "myresultsblob.csv"
 	def printHttpError(httpError):
@@ -384,4 +383,4 @@ AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

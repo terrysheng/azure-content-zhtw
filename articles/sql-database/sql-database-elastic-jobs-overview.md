@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="彈性資料庫工作概觀" 
 	description="說明彈性資料庫工作服務" 
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -57,4 +58,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

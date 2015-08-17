@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="使用索引子連接 DocumentDB 與 Azure 搜尋服務 | Azure" 
+    pageTitle="使用索引子連接 DocumentDB 與 Azure 搜尋服務 | Microsoft Azure" 
     description="本文將說明如何在 DocumentDB 中使用 Azure 搜尋服務索引子做為資料來源。"
     services="documentdb" 
     documentationCenter="" 
@@ -132,50 +132,16 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 DocumentDB) 和操�
 
 ###圖 A：JSON 資料類型與 Azure 搜尋服務資料類型之間的對應
 
-<table style="font-size:12">
-    <tr>
-        <th>JSON 資料類型</th>
-        <th>相容的目標索引欄位類型</th>
-    </tr>
-    <tr>
-        <td>Bool</td>
-        <td>Edm.Boolean、Edm.String</td>
-    </tr>
-    <tr>
-        <td>看起來像是整數的數字</td>
-        <td>Edm.Int32、Edm.Int64、Edm.String</td>
-    </tr>
-    <tr>
-        <td>看起來像是浮點的數字</td>
-        <td>Edm.Double、Edm.String</td>
-    </tr>
-    <tr>
-        <td>String</td>
-        <td>Edm.String</td>
-    </tr>
-    <tr>
-        <td>
-            基本類型的陣列<br/>
-            例如 [ "a"、"b"、"c" ]
-        </td>
-        <td>Collection(Edm.String)</td>
-    </tr>
-    <tr>
-        <td>看起來像是日期的字串</td>
-        <td>Edm.DateTimeOffset、Edm.String</td>
-    </tr>
-    <tr>
-        <td>
-            GeoJSON 物件<br/>
-            例如 { "type": "Point"、"coordinates": [ long, lat ] }
-        </td>
-        <td>Edm.GeographyPoint</td>
-    </tr>
-    <tr>
-        <td>其他 JSON 物件</td>
-        <td>N/A</td>
-    </tr>
-</table>
+| JSON 資料類型|	相容的目標索引欄位類型|
+|---|---|
+|Bool|Edm.Boolean、Edm.String|
+|看起來像是整數的數字|Edm.Int32、Edm.Int64、Edm.String|
+|看起來像是浮點的數字|Edm.Double、Edm.String|
+|String|Edm.String|
+|基本類型的陣列，例如 "a"、"b"、"c" |Collection(Edm.String)|
+|看起來像是日期的字串| Edm.DateTimeOffset、Edm.String|
+|GeoJSON 物件，例如 { "type": "Point"、"coordinates": [ long, lat ] } | Edm.GeographyPoint |
+|其他 JSON 物件|N/A|
 
 ###<a id="CreateIndexExample"></a>要求本文範例
 
@@ -304,4 +270,4 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 DocumentDB) 和操�
  - 若要深入了解 Azure 搜尋服務，請按一下[這裡](/services/search/)。
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

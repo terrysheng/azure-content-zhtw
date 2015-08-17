@@ -4,4 +4,4 @@
 >
 > **自訂網域名稱無法搭配免費的 Web 應用程式使用**。您必須將 Web 應用程式設定為 [**共用**]、[**基本**] 或 [**標準**] 模式，但這可能會變更您的訂用帳戶費用。如需詳細資訊，請參閱 <a href=/pricing/details/web-sites/">Web Apps 定價詳細資料</a>。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -96,4 +96,4 @@ StorSimple Manager 裝置儀表板可提供特定 StorSimple 裝置的資訊概�
 
 [深入了解 StorSimple Manager 服務儀表板](storsimple-service-dashboard.md)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

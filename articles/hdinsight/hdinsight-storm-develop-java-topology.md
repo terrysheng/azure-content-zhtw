@@ -36,13 +36,13 @@
 
 當您安裝 Java 和 JDK 時可能會設定下列環境變數。不過，您應該檢查它們是否存在，以及它們是否包含您系統的正確值。
 
-* **JAVA_HOME** - 應該指向已安裝 Java 執行階段環境 (JRE) 的目錄。例如，在 Unix 或 Linux 散發套件上，它的值應該類似 `/usr/lib/jvm/java-7-oracle`在 Windows 中，它的值應該類似 `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA\_HOME** - 應該指向已安裝 Java 執行階段環境 (JRE) 的目錄。例如，在 Unix 或 Linux 散發套件上，它的值應該類似 `/usr/lib/jvm/java-7-oracle`在 Windows 中，它的值應該類似 `c:\Program Files (x86)\Java\jre1.7`
 
 * **PATH** - 應該包含下列路徑：
 
-	* **JAVA_HOME** (或對等的路徑)
+	* **JAVA\_HOME** (或對等的路徑)
 
-	* **JAVA_HOME\bin** (或對等的路徑)
+	* **JAVA\_HOME\\bin** (或對等的路徑)
 
 	* 已安裝 Maven 的目錄
 
@@ -58,17 +58,17 @@
 
 * **pom.xml**：內含 Maven 專案的設定。
 
-* **src\main\java\com\microsoft\example**：內含應用程式碼。
+* **src\\main\\java\\com\\microsoft\\example**：內含應用程式碼。
 
-* **src\test\java\com\microsoft\example**：內含您應用程式的測試。在此範例中，我們不會建立測試。
+* **src\\test\\java\\com\\microsoft\\example**：內含您應用程式的測試。在此範例中，我們不會建立測試。
 
 ###移除範例程式碼
 
 因為我們要建立應用程式，所以請刪除產生的測試和應用程式檔案：
 
-*  **src\test\java\com\microsoft\example\AppTest.java**
+*  **src\\test\\java\\com\\microsoft\\example\\AppTest.java**
 
-*  **src\main\java\com\microsoft\example\App.java**
+*  **src\\main\\java\\com\\microsoft\\example\\App.java**
 
 ##新增相依性
 
@@ -153,7 +153,7 @@ Java 型 Storm 拓撲包含三個您必須編寫 (或參考) 為相依性的元�
 >
 > * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm-Kafka</a>從 Kafka 讀取的 Spout
 
-針對 Spout，在 **src\main\java\com\microsoft\example** 目錄中建立名為 **RandomSentenceSpout.java** 的新檔案，並使用下列項目做為內容：
+針對 Spout，在 **src\\main\\java\\com\\microsoft\\example** 目錄中建立名為 **RandomSentenceSpout.java** 的新檔案，並使用下列項目做為內容：
 
     /**
      * Licensed to the Apache Software Foundation (ASF) under one
@@ -251,7 +251,7 @@ Bolt 會處理資料的處理。針對此拓撲，我們有兩個 Bolt：
 
 > [AZURE.NOTE]Bolt 幾乎可以包辦任何作業，例如計算、持續性或與外部元件交談。
 
-在 **src\main\java\com\microsoft\example** 目錄中，建立兩個新的檔案：**SplitSentence.java** 和 **WordCount.Java**。使用下列項目做為檔案的內容：
+在 **src\\main\\java\\com\\microsoft\\example** 目錄中，建立兩個新的檔案：**SplitSentence.java** 和 **WordCount.Java**。使用下列項目做為檔案的內容：
 
 **SplitSentence**
 
@@ -285,7 +285,7 @@ Bolt 會處理資料的處理。針對此拓撲，我們有兩個 Bolt：
           //get the word
           String word=sentence.substring(start,end);
           //If a word is whitespace characters, replace it with empty
-          word=word.replaceAll("\s+","");
+          word=word.replaceAll("\\s+","");
           //if it's an actual word, emit it
           if (!word.equals("")) {
             collector.emit(new Values(word));
@@ -352,7 +352,7 @@ Bolt 會處理資料的處理。針對此拓撲，我們有兩個 Bolt：
 
 ![顯示 Spout 和 Bolt 排列的圖表](./media/hdinsight-storm-develop-java-topology/wordcount-topology.png)
 
-若要實作拓撲，請在 **src\main\java\com\microsoft\example** 目錄中建立名為 **WordCountTopology.java** 的新檔案。使用下列項目做為檔案的內容：
+若要實作拓撲，請在 **src\\main\\java\\com\\microsoft\\example** 目錄中建立名為 **WordCountTopology.java** 的新檔案。使用下列項目做為檔案的內容：
 
 	package com.microsoft.example;
 
@@ -466,4 +466,4 @@ Trident 是 Storm 提供的高層級抽象。它支援具狀態的處理。Tride
 
 您可透過瀏覽 [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)找到更多範例 Storm 拓撲。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

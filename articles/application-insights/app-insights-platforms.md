@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/22/2015" 
 	ms.author="awills"/>
  
@@ -58,6 +58,7 @@
 +	[Log4Net、NLog 或 System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java、Log4J 或 Logback](app-insights-java-trace-logs.md)
 +   [語意記錄](https://github.com/fidmor89/SLAB_AppInsights) - 與[語意記錄應用程式區塊](https://msdn.microsoft.com/library/dn440729.aspx)整合
++   [雲端式負載測試](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
 ## <a name="projects"></a> 建置您自己的 SDK
 
@@ -72,4 +73,4 @@
 
 <!--Link references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

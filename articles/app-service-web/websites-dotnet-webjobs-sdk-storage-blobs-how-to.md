@@ -152,7 +152,7 @@
 
 適用於有害 Blob 的佇列訊息是一個 JSON 物件，其中包含下列屬性：
 
-* FunctionId (格式為 *{WebJob name}*.Functions.*{Function name}*，例如： WebJob1.Functions.CopyBlob)
+* FunctionId (格式為 *{WebJob name}*.Functions.*{Function name}*，例如：WebJob1.Functions.CopyBlob)
 * BlobType ("BlockBlob" 或 "PageBlob")
 * ContainerName
 * BlobName
@@ -232,4 +232,4 @@ Blob 回條儲存於 AzureWebJobsStorage 連接字串所指定之 Azure 儲存�
 本指南提供了程式碼範例，示範如何處理使用 Azure Blob 的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -146,10 +146,10 @@
 			{
             	"type": "BlobSink"
 			},
-			"Translator": 
+			"translator": 
 			{
       			"type": "TabularTranslator",
-      			"ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
+      			"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
     		}
 		}
 	}
@@ -170,16 +170,16 @@
 			"source":
 			{
 				"type": "SqlSource",
-				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \'{0:yyyyMMdd-HH}\'', SliceStart)"
+				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
 			},
 			"sink":
 			{
             	"type": "BlobSink"
 			},
-			"Translator": 
+			"translator": 
 			{
       			"type": "TabularTranslator",
-      			"ColumnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
+      			"columnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
     		}
 		}
 	}
@@ -194,7 +194,7 @@
 | ----------- | ------------------------ |
 | SqlSource | 資料表定義的「結構」區段中定義的資料類型會被忽略。基礎 SQL 資料庫上定義的資料類型將在複製活動期間，用來擷取資料。 |
 | SqlSink | 資料表定義的「結構」區段中定義的資料類型會被忽略。基礎來源和目的地上的資料類型將被比較，如果有類型不符的情況，就會以隱含方式進行類型轉換。 |
-| BlobSource | 從 BlobSource 傳輸至 BlobSink 時，不會轉換類型。資料表定義的「結構」區段中定義的資料類型會被忽略。針對 BlobSink 以外的目的地，將會接受資料表定義的「結構」區段中定義的資料類型。如果資料表定義中未指定結構，類型處理取決於 BlobSource 表格的格式屬性：TextFormat：所有資料行類型都視為字串，且所有資料行名稱都會設為 "Prop_<0-N>"。AvroFormat：使用 Avro 檔案中的內建資料行類型和名稱。
+| BlobSource | 從 BlobSource 傳輸至 BlobSink 時，不會轉換類型。資料表定義的「結構」區段中定義的資料類型會被忽略。針對 BlobSink 以外的目的地，將會接受資料表定義的「結構」區段中定義的資料類型。如果資料表定義中未指定結構，類型處理取決於 BlobSource 資料表的格式屬性：TextFormat：所有資料行類型都視為字串，且所有資料行名稱都會設為 "Prop\_<0-N>"。AvroFormat：使用 Avro 檔案中的內建資料行類型和名稱。
 | BlobSink | 資料表定義的「結構」區段中定義的資料類型會被忽略。會使用定義於基礎輸入資料存放區的資料類型。資料行將針對 Avro 序列化指定為可為 Null |
 | AzureTableSource | 資料表定義的「結構」區段中定義的資料類型會被忽略。將使用基礎 Azure 資料表上定義的資料類型。 |
 | AzureTableSink | 資料表定義的「結構」區段中定義的資料類型會被忽略。會使用定義於基礎輸入資料存放區的資料類型。 |
@@ -261,7 +261,7 @@
 預存程序功能使用[資料表值參數][table-valued-parameters]。
 
 ## 指定文字檔的編碼。
-雖然 UTF-8 編碼很常用，但由於歷史因素，Azure Blob 中的文字檔經常採用其他編碼。**encodingName** 屬性可讓您使用字碼頁名稱，對 TextFormat 類型的資料表指定編碼。如需有效編碼名稱的清單，請參閱：Encoding.EncodingName 屬性。例如：windows-1250 或 shift_jis。預設值為 UTF-8。請參閱「[Encoding 類別](https://msdn.microsoft.com/library/system.text.encoding.aspx)」，取得有效的編碼名稱。
+雖然 UTF-8 編碼很常用，但由於歷史因素，Azure Blob 中的文字檔經常採用其他編碼。**encodingName** 屬性可讓您使用字碼頁名稱，對 TextFormat 類型的資料表指定編碼。如需有效編碼名稱的清單，請參閱：Encoding.EncodingName 屬性。例如：windows-1250 或 shift\_jis。預設值為 UTF-8。請參閱「[Encoding 類別](https://msdn.microsoft.com/library/system.text.encoding.aspx)」，取得有效的編碼名稱。
 
 ## 另請參閱
 
@@ -289,4 +289,4 @@
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

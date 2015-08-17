@@ -72,6 +72,7 @@
 [20]: ./media/sql-data-warehouse-integrate-solution-partners/targit_logo.png
 [21]: ./media/sql-data-warehouse-integrate-solution-partners/yellowfin_logo.png
 
+
 <!--Article links-->
 [使用 SQL 資料倉儲建置整合式解決方案]: ./sql-data-warehouse-overview-integrate.md
 
@@ -99,4 +100,4 @@
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

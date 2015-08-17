@@ -132,7 +132,7 @@
 
 	![](./media/app-service-api-dotnet-consume/gatewayurl.png)
 
-4. 在 *Form1.cs* 原始程式碼中，於 `Form1()` 建構函式之前加入下列程式碼，並使用您在上一個步驟複製的值取代 GATEWAY_URL 值。請確定您包含結尾斜線 (/)。
+4. 在 *Form1.cs* 原始程式碼中，於 `Form1()` 建構函式之前加入下列程式碼，並使用您在上一個步驟複製的值取代 GATEWAY\_URL 值。請確定您包含結尾斜線 (/)。
 
 		private const string GATEWAY_URL = "https://resourcegroupnameb4f3d966dfa43b6607f30.azurewebsites.net/";
 		private const string URL_TOKEN = "#token=";
@@ -205,4 +205,4 @@
 如需如何在 API 應用程式中使用驗證的相關資訊，請參閱 [Azure App Service 中 API 應用程式和行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -36,4 +36,4 @@
 
 如果這些都無法解決問題，您必須進行更深入的疑難排解。如需相關指示，請參閱[疑難排解以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線](virtual-machines-troubleshoot-remote-desktop-connections.md)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

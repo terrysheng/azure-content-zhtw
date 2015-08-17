@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/02/2015"
    ms.author="joaoma" />
 
 
-# 概觀
+# 負載平衡器分配模式 (來源 IP 同質性)
 
 我們推出了名為「來源 IP 同質性」(也稱為工作階段同質性或用戶端 IP 同質性) 的新分配模式。您可以設定 Azure 負載平衡器使用 2 個 Tuple (來源 IP、目的地 IP) 或 3 個 Tuple (來源 IP、目的地 IP 通訊協定)，來將流量對應至可用伺服器。使用來源 IP 同質性之後，從相同用戶端電腦啟動的連線會進入相同的 DIP 端點。
 
@@ -149,4 +149,4 @@ LoadBalancerDistribution 的值可以是 sourceIP (適用於 2-tuple 同質性)�
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

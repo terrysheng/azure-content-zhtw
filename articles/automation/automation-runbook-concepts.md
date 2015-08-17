@@ -19,4 +19,4 @@
 
 在這篇文章的內容已移至[了解 PowerShell 工作流程](automation-powershell-workflow.md)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

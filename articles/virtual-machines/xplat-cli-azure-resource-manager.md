@@ -7,14 +7,7 @@
 	authors="dlepow"
 	services="virtual-machines"/>
 
-<tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services""
-	ms.tgt_pltfrm="command-line-interface"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/09/2015"
-	ms.author="danlep"/>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services"" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="06/09/2015" ms.author="danlep"/>
 
 # 搭配使用 Mac、Linux 和 Windows 適用的 Azure CLI 與 Azure 資源管理員
 
@@ -157,7 +150,7 @@
 
 	azure vm start "testrg" "testvm"
 
-然後使用 **ssh username@ipaddress** 命令對它執行 SSH。若要快速查閱您公用 IP 資源的 IP 位址，請使用下列命令。
+然後使用 **ssh username@ipaddress** 命令對它執行 SSH。若要快速查閱公用 IP 資源的 IP 位址，請使用下列命令。
 
 	azure network public-ip show "testrg" "testip"
 
@@ -184,7 +177,7 @@ Azure CLI 將使用預設的 VM 大小建立虛擬機器。它也會建立儲存
 
 #### 尋找和設定資源群組範本
 
-1. 使用範本時，您可以建立自己的範本、使用其中一個資源庫，或使用 [GitHub](https://github.com/azurermtemplates/azurermtemplates) 中的範本。首先，讓我們使用資源庫中名為 CoreOS.CoreOSStable.0.2.40-preview 的範本。若要列出範本庫的可用範本，請使用下列命令。因為有數千個範本可使用，所以請務必將結果重新編頁，或使用 **grep** 或 **findstr** (在 Windows 上)，或您最愛的 string-searching 命令找到您想用的範本。或者，您可以使用 **--json** 選項，並下載 JSON 格式的完整清單以方便搜尋。
+1. 使用範本時，您可以建立自己的範本、使用範本庫中的範本，或是使用 [GitHub](https://github.com/azurermtemplates/azurermtemplates) 中的範本。首先，讓我們使用資源庫中名為 CoreOS.CoreOSStable.0.2.40-preview 的範本。若要列出範本庫的可用範本，請使用下列命令。因為有數千個範本可使用，所以您可以將結果分頁，或是使用 **grep** 或 **findstr** (在 Windows 上)，或您偏好的字串搜尋命令來尋找您想要使用的範本。或者，您可以使用 **--json** 選項，並下載 JSON 格式的完整清單以方便搜尋。
 
 		azure group template list
 
@@ -215,7 +208,7 @@ Azure CLI 將使用預設的 VM 大小建立虛擬機器。它也會建立儲存
 
 	使用範本時，您可以將參數做為命令列參數的一部分提供，或藉由指定包含參數值的檔案提供。您也可以直接在範本的 **parameters** 區段中撰寫 **value** 欄位，雖然這會讓範本緊密地與特定的部署連結，因而無法輕鬆地重複使用。無論如何，參數都必須是 JSON 格式，並且您必須為沒有預設值的金鑰提供您自己的值。
 
-	例如，若要建立一個檔案並包含 CoreOS.CoreOSStable.0.2.40-preview 範本的參數，請使用下列資料建立名為 params.json 的檔案。用您自己的值來取代此範例中使用的值。[**位置**] 應指定您附近的 Azure 區域，例如 [**北歐**] 或[ **美國中南部**]。(此範例使用 [**美國西部**])。
+	例如，若要建立一個檔案並包含 CoreOS.CoreOSStable.0.2.40-preview 範本的參數，請使用下列資料建立名為 params.json 的檔案。用您自己的值來取代此範例中使用的值。[**位置**] 應指定您附近的 Azure 區域，例如 [**北歐**] 或[ **美國中南部**]。(此範例使用 **[美國西部]**)。
 
 		{
 		  "newStorageAccountName": {
@@ -296,7 +289,7 @@ Azure CLI 將使用預設的 VM 大小建立虛擬機器。它也會建立儲存
 
 		azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw/githubusercontent.com/azurermtemplates/azurermtemplates/master/101-simple-vm-from-image/azuredeploy.json
 
-	> [AZURE.NOTE]請務必以 _raw_ 模式開啟 json 範本。瀏覽器網址列中出現的 URL，與一般模式中出現的不同。在 GitHub 上檢視檔案時，若要以_原始_ 模式開啟檔案，請按一下右上角的 [**原始**] 按鈕。
+	> [AZURE.NOTE]請務必以 _raw_ 模式開啟 json 範本。瀏覽器網址列中出現的 URL，與一般模式中出現的不同。在 GitHub 上檢視檔案時，若要以_「原始」_模式開啟檔案，請按一下右上角的 [原始]。
 
 #### 使用資源
 
@@ -316,7 +309,7 @@ Azure CLI 將使用預設的 VM 大小建立虛擬機器。它也會建立儲存
 
 	此命令會傳回虛擬機器的相關資訊。
 
-3. 檢視資源的詳細資料時，使用 `--json` 參數通常很有實用，因為此參數可製作更具可讀性的輸出，其中部分值是巢狀結構或集合。下列範例示範會將 **show** 命令的結果作為 JSON 文件傳回。
+3. 檢視資源的詳細資料時，使用 `--json` 參數通常很有實用，因為此參數可製作更具可讀性的輸出，其中部分值是巢狀結構或集合。下列範例示範如何以 JSON 文件傳回 **show** 命令的結果。
 
 		azure resource show "testRG" "testHost" Microsoft.ClassicCompute/virtualMachines -o "2014-06-01" --json
 
@@ -336,9 +329,9 @@ Azure CLI 將使用預設的 VM 大小建立虛擬機器。它也會建立儲存
 
 ## 後續步驟
 
-* 如需使用 Azure 命令列介面 (Azure CLI) 的資訊，請參閱[安裝和設定 Azure CLI][clisetup]。
-* 如需透過 Azure PowerShell 來使用 Azure 資源管理員的詳細資訊，請參閱 [Azure PowerShell 搭配 Azure 資源管理員使用](../powershell-azure-resource-manager.md)。
-* 如需從 Azure 入口網站使用 Azure 資源管理員的相關資訊，請參閱[使用資源群組管理 Azure 資源][psrm]。
+* 如需使用 Azure 命令列介面 (Azure CLI) 的相關資訊，請參閱[安裝和設定 Azure CLI][clisetup]。
+* 如需透過 Azure PowerShell 來使用 Azure 資源管理員的相關資訊，請參閱 [搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)。
+* 如需從 Azure 入口網站使用 Azure 資源管理員的相關資訊，請參閱[使用資源群組來管理 Azure 資源][psrm]。
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
@@ -346,4 +339,4 @@ Azure CLI 將使用預設的 VM 大小建立虛擬機器。它也會建立儲存
 [clisetup]: ../xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

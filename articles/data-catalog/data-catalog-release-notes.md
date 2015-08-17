@@ -67,4 +67,4 @@ Azure 資料目錄初始預覽版本中對於 SQL Server Reporting Services (SSR
 
 若要找出 RegistrationTool.exe.config 檔案，請啟動註冊工具，然後開啟 Windows 工作管理員公用程式。在工作管理員的 [詳細資料] 索引標籤，以滑鼠右鍵按一下 RegistrationTool.exe，再從快顯功能表中選擇 [開啟檔案位置]。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

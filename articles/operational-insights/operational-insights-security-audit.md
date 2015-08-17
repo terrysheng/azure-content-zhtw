@@ -100,4 +100,4 @@ Windows 運算環境可讓您設定安全性相關記錄的擷取層級。例如
 
 除了本機原則設定之外，如果您使用 AppLocker 收集稽核資料，Operational Insights 將會收集這些資料，然後您就可以加以檢視。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

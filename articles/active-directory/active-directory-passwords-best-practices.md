@@ -138,4 +138,4 @@
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -24,7 +24,7 @@
 
 Service Fabric 會提供多個升級模式以支援開發和生產叢集。每個部署選項分別適合不同的環境。監視輪流應用程式升級是生產環境中所使用最典型的升級。指定升級原則時，Service Fabric 會確保應用程式健康狀態良好，再繼續執行升級。在某些情況下，需要多個自訂或複雜健康狀態評估原則或非傳統升級 (應用程式已經有資料遺失等等)，應用程式系統管理員可以使用手動輪流應用程式升級模式，完全掌控透過各種升級網域的升級進度。最後，自動輪流應用程式升級對於開發或測試環境很有用，它會在服務開發期間提供快速反覆運算週期。
 
-**手動** - 在目前 UD 停止應用程式升級，並將升級模式變更為不受監控手動。系統管理員需要手動呼叫 **MoveNextApplicationUpgradeDomainAsync** 以繼續進行升級，或藉由初始化新的升級來觸發回復。一旦升級進入手動模式，它會保持在手動模式中直到初始化新的升級。**GetApplicationUpgradeProgressAsync**命令會傳回 FABRIC_APPLICATION_UPGRADE_STATE_ROLLING_FORWARD_PENDING。
+**手動** - 在目前 UD 停止應用程式升級，並將升級模式變更為不受監控手動。系統管理員需要手動呼叫 **MoveNextApplicationUpgradeDomainAsync** 以繼續進行升級，或藉由初始化新的升級來觸發回復。一旦升級進入手動模式，它會保持在手動模式中直到初始化新的升級。**GetApplicationUpgradeProgressAsync**命令會傳回 FABRIC\_APPLICATION\_UPGRADE\_STATE\_ROLLING\_FORWARD\_PENDING。
 
 ## 使用差異封裝進行升級
 
@@ -51,4 +51,4 @@ Service Fabric 應用程式可以藉由佈建完整、獨立式應用程式封�
 [疑難排解應用程式升級](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

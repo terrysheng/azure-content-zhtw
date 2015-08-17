@@ -103,7 +103,7 @@
 
             CREATE USER login1User FROM LOGIN login1;
 
--   使用 **sp_addrolemember** 預存程序，對使用者帳戶提供資料庫上適當層級的權限。如需詳細資訊，請參閱 [sp_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx)。以下陳述式將會對 **login1User** 提供資料庫的唯讀權限，方法是將 **login1User** 加入 **db_datareader** 角色。
+-   使用 **sp\_addrolemember** 預存程序，對使用者帳戶提供資料庫上適當層級的權限。如需詳細資訊，請參閱 [sp\_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx)。以下陳述式將會對 **login1User** 提供資料庫的唯讀權限，方法是將 **login1User** 加入 **db\_datareader** 角色。
 
         exec sp_addrolemember 'db_datareader', 'login1User';    
 
@@ -119,7 +119,7 @@
 
         DROP LOGIN login1;
 
--   master 資料庫具有 **sys.sql_logins** 檢視，您可用它來檢視登入。若要檢視所有現有的登入，請執行下列陳述式：
+-   master 資料庫具有 **sys.sql\_logins** 檢視，您可用它來檢視登入。若要檢視所有現有的登入，請執行下列陳述式：
 
         SELECT * FROM sys.sql_logins;
 
@@ -131,12 +131,12 @@ SQL Database 支援數種動態管理檢視，您可用他們來監視個別資�
 
         GRANT VIEW DATABASE STATE TO login1User;
 
--   使用 **sys.dm_db_partition_stats** 檢視來計算資料庫大小。**sys.dm_db_partition_stats** 檢視會傳回資料庫中每一個資料分割的頁面和資料列計數資訊，您可用這些資訊來計算資料庫大小。下列查詢會傳回資料庫的大小 (以 MB 為單位)：
+-   使用 **sys.dm\_db\_partition\_stats** 檢視來計算資料庫大小。**sys.dm\_db\_partition\_stats** 檢視會傳回資料庫中每一個資料分割的頁面和資料列計數資訊，您可用這些資訊來計算資料庫大小。下列查詢會傳回資料庫的大小 (以 MB 為單位)：
 
         SELECT SUM(reserved_page_count)*8.0/1024
         FROM sys.dm_db_partition_stats;   
 
--   使用 **sys.dm_exec_connections** 和 **sys.dm_exec_sessions** 檢視，來擷取目前使用者連線和資料庫相關內部工作等相關資訊。下列查詢會傳回目前連接的相關資訊：
+-   使用 **sys.dm\_exec\_connections** 和 **sys.dm\_exec\_sessions** 檢視，來擷取目前使用者連線和資料庫相關內部工作等相關資訊。下列查詢會傳回目前連接的相關資訊：
 
         SELECT
             e.connection_id,
@@ -149,7 +149,7 @@ SQL Database 支援數種動態管理檢視，您可用他們來監視個別資�
             INNER JOIN sys.dm_exec_connections e
               ON s.session_id = e.session_id;
 
--   使用 **sys.dm_exec_query_stats** 檢視，來擷取快取查詢計劃的彙總效能統計資料。下列查詢會傳回平均 CPU 時間排名之前五項查詢的相關資訊。
+-   使用 **sys.dm\_exec\_query\_stats** 檢視，來擷取快取查詢計劃的彙總效能統計資料。下列查詢會傳回平均 CPU 時間排名之前五項查詢的相關資訊。
 
         SELECT TOP 5 query_stats.query_hash AS "Query Hash",
             SUM(query_stats.total_worker_time), SUM(query_stats.execution_count) AS "Avg CPU Time",
@@ -166,4 +166,4 @@ SQL Database 支援數種動態管理檢視，您可用他們來監視個別資�
         GROUP BY query_stats.query_hash
         ORDER BY 2 DESC;
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

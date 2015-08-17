@@ -35,7 +35,7 @@
 
 1. 電路擁有者可授權其他訂用帳戶管理員使用指定的電路。在以下範例中，電路管理員 (Contoso IT) 藉由指定另一位訂用帳戶管理員 (Contoso Sales) 的 Microsoft ID，使對方可以將最多 2 個 Vnet 連結至電路。此 Cmdlet 不會傳送電子郵件給指定的 Microsoft ID。電路擁有者必須明確通知其他訂用帳戶擁有者，告知授權已完成。
 
-		PS C:> New-AzureDedicatedCircuitLinkAuthorization -ServiceKey '6ed7e310-1a02-4261-915f-6ccfedc416f1' -Description 'SalesTeam' -Limit 2 -MicrosoftIds 'salesadmin@contoso.com'
+		PS C:\> New-AzureDedicatedCircuitLinkAuthorization -ServiceKey '6ed7e310-1a02-4261-915f-6ccfedc416f1' -Description 'SalesTeam' -Limit 2 -MicrosoftIds 'salesadmin@contoso.com'
 		
 		Description         : SalesTeam 
 		Limit               : 2 
@@ -45,7 +45,7 @@
 
 1. 收到電路擁有者的通知後，獲得授權的訂用帳戶管理員即可執行以下 Cmdlet 來擷取電路的服務金鑰。在此範例中，Contoso Sales 的管理員必須先使用指定的 Microsoft ID salesadmin@contoso.com 登入。
 
-		PS C:> Get-AzureAuthorizedDedicatedCircuit
+		PS C:\> Get-AzureAuthorizedDedicatedCircuit
 		
 		Bandwidth                        : 100
 		CircuitName                      : ContosoIT
@@ -59,7 +59,7 @@
 
 1. 獲得授權的訂用帳戶管理員可以執行以下 Cmdlet 來完成連結作業。
 
-		PS C:> New-AzureDedicatedCircuitLink –servicekey 6ed7e310-1a02-4261-915f-6ccfedc416f1 –VnetName 'SalesVNET1' 
+		PS C:\> New-AzureDedicatedCircuitLink –servicekey 6ed7e310-1a02-4261-915f-6ccfedc416f1 –VnetName 'SalesVNET1' 
 		
 			State VnetName 
 			----- -------- 
@@ -71,7 +71,7 @@
 
 電路擁有者可以與最多 10 個 Azure 訂用帳戶共用一個電路。電路擁有者可以檢視已獲授權使用電路的人員。擁有者可以隨時撤銷授權。當電路擁有者撤銷授權時 (依 LinkAuthorizationId 來識別)，該授權允許的所有連結都會立即刪除。已連結的 VNET 會失去透過 ExpressRoute 電路與內部部署網路的連線。
 
-	PS C:> Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: 6ed7e310-1a02-4261-915f-6ccfedc416f1 
+	PS C:\> Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: 6ed7e310-1a02-4261-915f-6ccfedc416f1 
 	
 	Description         : EngineeringTeam 
 	Limit               : 3 
@@ -91,7 +91,7 @@
 	MicrosoftIds        : salesadmin@contoso.com 
 	Used                : 2 
 	
-	PS C:> Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey '6ed7e310-1a02-4261-915f-6ccfedc416f1' -AuthorizationId 'e2bc2645-6fd4-44a4-94f5-f2e43e6953ed'
+	PS C:\> Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey '6ed7e310-1a02-4261-915f-6ccfedc416f1' -AuthorizationId 'e2bc2645-6fd4-44a4-94f5-f2e43e6953ed'
 
 
 下圖顯示授權工作流程：
@@ -102,4 +102,4 @@
 
 如需關於 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 概觀](expressroute-introduction.md)。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

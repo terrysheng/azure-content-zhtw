@@ -86,4 +86,4 @@ Azure 會將映像儲存在 [**我的映像**] 之下。這個位置與您已上
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -84,4 +84,4 @@
 [如何登入執行 Windows Server 的虛擬機器]: virtual-machines-log-on-windows-server.md
 [Azure VM 延伸模組與功能]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

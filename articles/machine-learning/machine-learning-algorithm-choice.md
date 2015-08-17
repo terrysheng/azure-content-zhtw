@@ -73,7 +73,7 @@
 
 在 Azure Machine Learning 中，我們可以透過**叢集**、**分類**及**迴歸**來執行未經指導和經過指導的學習。
 
-   ![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help2.png)
+   ![screenshot\_of\_experiment](./media/machine-learning-algorithm-choice/help2.png)
 
 <a name="anchor-4"></a>
 ##群集
@@ -89,7 +89,7 @@ K-means 是最簡單的未經指導學習演算法之一，可用來解決已知
 
 [K-Means 叢集][k-means-clustering]演算法模組會傳回未訓練的 K-means 叢集模型，可傳遞至[訓練叢集模型][train-clustering-model]模組進行訓練。
 
-![screenshot_of_experiment](./media/machine-learning-algorithm-choice/k4.png)
+![screenshot\_of\_experiment](./media/machine-learning-algorithm-choice/k4.png)
 
 本圖顯示使用 K-Means 叢集時要設定的選項。K-means 方法會對一組 D 維度的資料點尋找指定的群集數目。從「一組最初的 K 質量中心」開始，此方法會使用 Lloyd 的演算法，反覆調整質量中心的位置。演算法會在質量中心穩定時或完成「特定次數的反覆運作」時終止。模組會使用最終的質量中心 (定義在 N 個資料點中找到的 K 個群集) 初始化一個 K x D 的陣列。演算法也會使用一個長度為 N 的向量，將每個資料點指派到 K 個群集中的一個群集。如果要尋找特定的群集數 (K)，模組會依序將前 K 個資料點指派到 K 個群集。
 
@@ -100,7 +100,7 @@ K-means 是最簡單的未經指導學習演算法之一，可用來解決已知
 ##分類 
 在分類分析中，我們將樣本分成幾個類別，然後使用一組先前加上標記且訓練過的資料。此技術是用來預測資料實例的群組成員資格。在 Azure Machine Learning 中，可使用下列分類演算法。
 
-![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help3.png)
+![screenshot\_of\_experiment](./media/machine-learning-algorithm-choice/help3.png)
 
 「雙類別演算法」用於二進位應變數 (是或否、0 或 1，true 或 false 等等)，而「多類別演算法」可用於將實例分類成兩個以上類別的任何名目應變數
 
@@ -174,7 +174,7 @@ K-means 是最簡單的未經指導學習演算法之一，可用來解決已知
  
 在迴歸分析中，我們根據過去的推理預測新值。依變項的新值會根據一或多個測量屬性的值來計算。Azure Machine Learning 中提供下列各種迴歸演算法：
 
-![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help4.png)
+![screenshot\_of\_experiment](./media/machine-learning-algorithm-choice/help4.png)
 
 根據使用案例和既有的資料，我們會選擇其中一個演算法。下面我們將說明一些迴歸演算法及其主要使用案例。
 
@@ -262,4 +262,4 @@ K-means 是最簡單的未經指導學習演算法之一，可用來解決已知
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

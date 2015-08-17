@@ -128,4 +128,4 @@ Azure AD 管理入口網站是 Azure 管理入口網站的一部分。雖然使�
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [直接購買 Azure AD Premium 授權](http://aka.ms/buyaadp)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

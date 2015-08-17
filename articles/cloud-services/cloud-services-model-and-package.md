@@ -274,4 +274,4 @@ Azure 對於 Web 角色，僅允許一個進入點。這表示所有流量都是
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
 [vs_create]: https://msdn.microsoft.com/zh-tw/library/ee405487.aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

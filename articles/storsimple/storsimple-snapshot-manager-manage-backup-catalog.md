@@ -207,4 +207,4 @@ StorSimple Snapshot Manager 在建立預防措施備份時，會顯示下列訊�
 
 請參閱可用的 [StorSimple Snapshot Manager 工作和工作流程](storsimple-what-is-snapshot-manager.md#storsimple-snapshot-manager-tasks-and-workflows)。
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

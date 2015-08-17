@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
@@ -79,7 +79,8 @@
 將 ADM 程式庫新增至您的 Eclipse 專案。
 
 1. 若要取得 ADM 程式庫，請[下載 SDK]。將 SDK zip 檔案解壓縮。
-2. 在 Eclipse 中，以滑鼠右鍵按一下您的專案，然後按一下 [屬性]。選取左側的 [**Java 組建路徑**]，然後選取頂端的 [**程式庫**] 索引標籤。按一下 [**新增外部 Jar**]，然後從您解壓縮 Amazon SDK 的目錄中選取 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 檔案。3. 下載 NotificationHubs Android SDK (連結)。
+2. 在 Eclipse 中，以滑鼠右鍵按一下您的專案，然後按一下 [屬性]。選取左側的 [**Java 組建路徑**]，然後選取頂端的 ***程式庫** 索引標籤。按一下 [**新增外部 Jar**]，然後從您解壓縮 Amazon SDK 的目錄中選取 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 檔案。
+3. 下載 NotificationHubs Android SDK (連結)。
 4. 將封裝解壓縮，然後將 `notification-hubs-sdk.jar` 檔案拖曳到 Eclipse 的 `libs ` 資料夾中。
 
 編輯您支援 ADM 的應用程式資訊清單：
@@ -241,7 +242,7 @@
 
 ## 將您的 APIKey 新增至應用程式
 
-1. 在 Eclipse 中，在您專案的目錄資產中建立名為 **api_key.txt** 的新檔案。
+1. 在 Eclipse 中，在您專案的目錄資產中建立名為 **api\_key.txt** 的新檔案。
 2. 開啟該檔案，並複製您在 Amazon 開發人員入口網站中產生的 [API 金鑰]。
 
 ## 執行應用程式
@@ -281,4 +282,4 @@
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

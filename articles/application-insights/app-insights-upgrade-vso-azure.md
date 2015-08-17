@@ -43,7 +43,7 @@
     ![](./media/app-insights-upgrade-vso-azure/csdef.png)
 4. SDK：以滑鼠右鍵按一下專案，然後選擇 [[加入 Application Insights][greenbrown]]。如此會將 SDK 加入到您的專案，同時在 Azure 中建立新 Application Insights 資源。
 5. 記錄：如果您的程式碼包含對舊 API 的呼叫(例如 LogEvent())，在嘗試建置方案時將會發現它們。請將它們更新以[使用新 API][track]。
-6. 網頁：如果您的專案包含網頁，請取代 <head> 區段中的指令碼。一般來說，主版頁面中只有一份，例如 Views\Shared_Layout.cshtml。[從 Azure 的 Application Insights 資源中的 [快速入門] 分頁取得新指令碼][usage]。如果您的網頁主體中包括遙測呼叫 (例如 logEvent 或 logPage)，請[將它們更新為使用新 API][api]。
+6. 網頁：如果您的專案包含網頁，請取代 <head> 區段中的指令碼。一般來說，主版頁面中只有一份，例如 Views\\Shared\_Layout.cshtml。[從 Azure 的 Application Insights 資源中的 [快速入門] 分頁取得新指令碼][usage]。如果您的網頁主體中包括遙測呼叫 (例如 logEvent 或 logPage)，請[將它們更新為使用新 API][api]。
 7. 伺服器監視：如果您的應用程式是執行於 IIS 的服務，請從伺服器解除安裝 Microsoft Monitoring Agent，然後[安裝 Application Insights 狀態監視器][redfield]。
 8. Web 測試：如果您使用 Web 可用性測試，請[在新入口網站上重新建立測試][availability]，以及其警示。
 9. 警示：在 Azure 入口網站中設定[度量的警示][alerts]。
@@ -73,4 +73,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

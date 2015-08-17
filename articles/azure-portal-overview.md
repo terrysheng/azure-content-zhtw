@@ -12,15 +12,13 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na" 
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="04/28/2015"
 	ms.author="dwrede"/>
 
 # Microsoft Azure Preview 入口網站概觀
 
-Microsoft Azure Preview 入口網站是一個可以佈建和管理 Azure 資源的中央位置。本教學課程可協助您熟悉入口網站，並告訴您如何使用某些關鍵功能：
-- **完整的 Marketplace** 可讓您瀏覽數千個可購買及/或佈建的 Microsoft 和其他廠商項目。
-- - **統一且可擴充的瀏覽經驗** 可讓您輕鬆地尋找您所重視的資源，並執行各種管理作業。- **一致的管理頁面** (或刀鋒視窗) 可讓您透過一致的方式 (公開設定、動作、帳單資訊、健全狀況監視與使用量資料等等) 來管理 Azure 的各種服務。- **個人經驗** 可讓您建立自訂的開始畫面，在您每次登入時顯示您想看到的資訊。您也可以自訂任何包含磚的管理刀鋒視窗。
+Microsoft Azure Preview 入口網站是一個可以佈建和管理 Azure 資源的中央位置。本教學課程可協助您熟悉入口網站，並告訴您如何使用某些關鍵功能：- **完整的 Marketplace** 可讓您瀏覽數千個可購買及/或佈建的 Microsoft 和其他廠商項目。- **統一且可擴充的瀏覽經驗** 可讓您輕鬆地尋找您所重視的資源，並執行各種管理作業。- **一致的管理頁面** (或刀鋒視窗) 可讓您透過一致的方式 (公開設定、動作、帳單資訊、健全狀況監視與使用量資料等等) 來管理 Azure 的各種服務。- **個人經驗** 可讓您建立自訂的開始畫面，在您每次登入時顯示您想看到的資訊。您也可以自訂任何包含磚的管理刀鋒視窗。
 
  ![Azure 入口網站 UI 定位][UIOrientation]
 
@@ -89,4 +87,4 @@ Microsoft Azure Preview 入口網站會徹底簡化建置及管理您在雲端�
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

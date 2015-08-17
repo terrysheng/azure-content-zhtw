@@ -83,7 +83,7 @@ Web Apps Memcache 填充碼可以搭配任何應用程式，只要應用程式�
 
 ### 啟用 php\_memcache 延伸模組
 
-下載檔案之後，解壓縮並上傳 **php\_memcache.dll** 至 **d:\\home\\site\\wwwroot\\bin\\ext\\** 目錄。php\_memcache.dll 上傳至 Web 應用程式之後，延伸模組必須啟用至 PHP 執行階段。若要在 Azure 入口網站中啟用 Memcache 延伸模組，請開啟 Web 應用程式的 [應用程式設定] 刀鋒視窗，然後新增索引鍵為 **PHP\_EXTENSIONS** 且值為 **bin\\ext\\php\_memcache.dll** 的應用程式設定。
+下載檔案之後，解壓縮並上傳 **php\_memcache.dll** 至 **d:\\home\\site\\wwwroot\\bin\\ext\** 目錄。php\_memcache.dll 上傳至 Web 應用程式之後，延伸模組必須啟用至 PHP 執行階段。若要在 Azure 入口網站中啟用 Memcache 延伸模組，請開啟 Web 應用程式的 [應用程式設定] 刀鋒視窗，然後新增索引鍵為 **PHP\_EXTENSIONS** 且值為 **bin\\ext\\php\_memcache.dll** 的應用程式設定。
 
 
 > 如果 Web 應用程式需要載入多個 PHP 延伸模組，PHP\_EXTENSIONS 的值應該是 DLL 檔案相對路徑以逗號分隔的清單。
@@ -197,4 +197,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [13]: http://memcached.org
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

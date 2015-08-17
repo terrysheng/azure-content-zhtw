@@ -276,4 +276,4 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及�
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
 [服務匯流排的 .NET API]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

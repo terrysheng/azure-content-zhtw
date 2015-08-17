@@ -417,13 +417,13 @@ HDInsight Tools for Visual Studio 也可以用來建立混合式拓撲，其中�
 
 針對範例混合式拓撲，請建立新的專案，然後選取 [Storm 混合式範例]。這會建立完整加上註解的範例，而此範例包含示範下列項目的數種拓撲：
 
--	**Java Spout** 和 **C# Bolt**：定義於 **HybridTopology_javaSpout_csharpBolt**
+-	**Java Spout** 和 **C# Bolt**：定義於 **HybridTopology\_javaSpout\_csharpBolt**
 
-	-	交易式版本定義於 **HybridTopologyTx_javaSpout_csharpBolt**
+	-	交易式版本定義於 **HybridTopologyTx\_javaSpout\_csharpBolt**
 
--	**C# Spout** 和 **Java Bolt**：定義於 **HybridTopology_csharpSpout_javaBolt**
+-	**C# Spout** 和 **Java Bolt**：定義於 **HybridTopology\_csharpSpout\_javaBolt**
 
-	-	交易式版本定義於 **HybridTopologyTx_csharpSpout_javaBolt**
+	-	交易式版本定義於 **HybridTopologyTx\_csharpSpout\_javaBolt**
 
 		> [AZURE.NOTE]這個版本也會示範如何使用文字檔中的 Clojure 程式碼做為 Java 元件。
 
@@ -595,7 +595,7 @@ SCP.Net 版本 0.9.4.203 引進了專用於事件中樞 Spout (從事件中心�
 
 6.	儲存變更，然後按一下 **F5** 或選取 [偵錯] > [開始偵錯] 啟動專案。應該會出現主控台視窗，並記錄測試進行的狀態。出現 [測試已完成] 時，請按任意鍵關閉視窗。
 
-7.	使用 **Windows 檔案總管**找到包含您專案的目錄，例如 **C:\Users<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**。在此目錄中，開啟 [Bin]，然後按一下 [偵錯]。您應該會看到執行測試時所產生的文字檔：sentences.txt、counter.txt 和 splitter.txt。開啟每個文字檔，並檢查資料。
+7.	使用 **Windows 檔案總管**找到包含您專案的目錄，例如 **C:\\Users<your\_user\_name>\\Documents\\Visual Studio 2013\\Projects\\WordCount\\WordCount**。在此目錄中，開啟 [Bin]，然後按一下 [偵錯]。您應該會看到執行測試時所產生的文字檔：sentences.txt、counter.txt 和 splitter.txt。開啟每個文字檔，並檢查資料。
 
 	> [AZURE.NOTE]字串資料會保存為這些檔案中的十進位值的陣列。例如，**splitter.txt** 檔案中的 [[97,103,111]] 是 'and' 這個字。
 
@@ -655,4 +655,4 @@ Context.Logger.Info("Component started");
 
 -	[開始使用 HBase on HDInsight](../hdinsight-hbase-get-started.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -42,7 +42,7 @@ SAS 金鑰名稱和值的值可以在 Azure 入口網站連接資訊中找到，
 
 	bus_service.create_queue('taskqueue')
 
-**create_queue** 也支援其他選項，而可讓您覆寫訊息存留時間或佇列大小上限等預設佇列設定。下列範例會將佇列大小上限設為 5GB，並將存留時間設為 1 分鐘：
+**create\_queue** 也支援其他選項，而可讓您覆寫訊息存留時間或佇列大小上限等預設佇列設定。下列範例會將佇列大小上限設為 5GB，並將存留時間設為 1 分鐘：
 
 	queue_options = Queue()
 	queue_options.max_size_in_megabytes = '5120'
@@ -52,9 +52,9 @@ SAS 金鑰名稱和值的值可以在 Azure 入口網站連接資訊中找到，
 
 ## 如何傳送訊息至佇列
 
-若要傳送訊息至服務匯流排佇列，應用程式必須在 **ServiceBusService** 物件上呼叫 **send_queue_message** 方法。
+若要傳送訊息至服務匯流排佇列，應用程式必須在 **ServiceBusService** 物件上呼叫 **send\_queue\_message** 方法。
 
-下列範例說明如何使用 *send_queue_message* 將測試訊息傳送至名為 **taskqueue** 的佇列：
+下列範例說明如何使用 *send\_queue\_message* 將測試訊息傳送至名為 **taskqueue** 的佇列：
 
 	msg = Message(b'Test Message')
 	bus_service.send_queue_message('taskqueue', msg)
@@ -63,16 +63,16 @@ SAS 金鑰名稱和值的值可以在 Azure 入口網站連接資訊中找到，
 
 ## 如何從佇列接收訊息
 
-您可以在 **ServiceBusService** 物件上使用 **receive_queue_message** 方法，從佇列接收訊息。
+您可以在 **ServiceBusService** 物件上使用 **receive\_queue\_message** 方法，從佇列接收訊息。
 
 	msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 	print(msg.body)
 
-如果將 **peek_lock** 參數設為 **False**，則當您讀取訊息後，訊息便會從佇列中刪除。您可以將參數 **peek_lock** 設為 **True**，來讀取 (查看) 並鎖定訊息，避免系統從佇列刪除訊息。
+如果將 **peek\\\_lock** 參數設為 **False**，則當您讀取訊息後，訊息便會從佇列中刪除。您可以將參數 **peek\\\_lock** 設為 **True**，來讀取 (查看) 並鎖定訊息，避免系統從佇列刪除訊息。
 
 隨著接收作業讀取及刪除訊息之行為是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
 
-如果您將 **peek_Lock** 參數設為 **True**，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。在應用程式完成訊息處理 (或可靠地儲存此訊息以供未來處理) 之後，它會在 **Message** 物件上呼叫 **Delete** 方法，以完成接收程序的第二個階段。**delete** 方法會將訊息標示為已取用，並將其從佇列中移除。
+如果您將 **peek\_Lock** 參數設為 **True**，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。在應用程式完成訊息處理 (或可靠地儲存此訊息以供未來處理) 之後，它會在 **Message** 物件上呼叫 **Delete** 方法，以完成接收程序的第二個階段。**delete** 方法會將訊息標示為已取用，並將其從佇列中移除。
 
 	msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
 	print(msg.body)
@@ -98,4 +98,4 @@ SAS 金鑰名稱和值的值可以在 Azure 入口網站連接資訊中找到，
 [佇列、主題和訂用帳戶]: http://msdn.microsoft.com/library/azure/hh367516.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

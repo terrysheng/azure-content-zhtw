@@ -52,8 +52,8 @@
 遊戲客戶分析 | Contoso 是一間打造多平台遊戲的遊戲公司：包括遊戲主機、手持裝置與個人電腦 (PC)。每個遊戲都會產生大量記錄檔。Contoso 的目標是要收集和分析這些遊戲所產生的記錄檔，以取得使用量資訊、發掘向上銷售與交叉銷售機會、開發新的強大功能等，藉此改善業務並為客戶提供更好的體驗。此範例收集範例記錄檔、處理並以參考資料加以充實，然後轉換資料以評估 Contoso 最近展開的行銷活動的成效。
  
 ## GitHub 上的範例
-[GitHub Azure-DataFactory 儲存機制](https://github.com/azure/azure-datafactory)包含數個範例，可協助您快速運用 Azure Data Factory 服務，或修改指令碼並用在您自己的應用程式中。Samples\JSON 資料夾包含常見案例的 JSON 程式碼片段。
+[GitHub Azure-DataFactory 儲存機制](https://github.com/azure/azure-datafactory)包含數個範例，可協助您快速運用 Azure Data Factory 服務，或修改指令碼並用在您自己的應用程式中。Samples\\JSON 資料夾包含常見案例的 JSON 程式碼片段。
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

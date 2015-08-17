@@ -8,16 +8,16 @@
 
 1. 向下捲動到 [連接字串] 區段。![WebAppConnectionStrings][focus-mongolab-websiteconnectionstring]
 
-1. 在 [名稱] 中，輸入 MONGOLAB_URI。
+1. 在 [名稱] 中，輸入 MONGOLAB\_URI。
 1. 在 [值] 中，貼上我們在上一節取得的連接字串。
 1. 在 [類型] 下拉式清單中選取 [自訂] (取代預設的 **SQLAzure**)。
 1. 按一下工具列的 [儲存]。![SaveWebApp][button-website-save]
 
-**注意：** Azure 會此變數前面加上 **CUSTOMCONNSTR_**，這就是為什麼上述程式碼會參考 **CUSTOMCONNSTR_MONGOLAB_URI** 的原因。
+**注意：** Azure 會此變數前面加上 **CUSTOMCONNSTR\_**，這就是為什麼上述程式碼會參考 **CUSTOMCONNSTR\_MONGOLAB\_URI** 的原因。
 
 [entry-website]: ./media/howto-save-connectioninfo-mongolab/entry-website.png
 [focus-mongolab-websitedashboard-config]: ./media/howto-save-connectioninfo-mongolab/focus-mongolab-websitedashboard-config.png
 [focus-mongolab-websiteconnectionstring]: ./media/howto-save-connectioninfo-mongolab/focus-mongolab-websiteconnectionstring.png
 [button-website-save]: ./media/howto-save-connectioninfo-mongolab/button-website-save.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

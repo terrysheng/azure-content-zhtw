@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="08/05/2015" 
 	ms.author="genemi"/>
 
 
@@ -46,7 +46,7 @@
 - [Azure SQL Database 防火牆](https://msdn.microsoft.com/library/azure/ee621782.aspx)
 
 
-## 建議：驗證
+## 驗證建議
 
 
 - 使用 SQL Database 驗證，而非 Windows 驗證。
@@ -58,7 +58,7 @@
  - 您無法在 SQL Database 上使用 Transact-SQL **USE myDatabaseName;** 陳述式。
 
 
-## 建議：連接
+## 連接建議
 
 
 - 在您的用戶端連線邏輯中，將預設的逾時覆寫為 30 秒。
@@ -71,6 +71,12 @@
  - 失敗的其中一個持續性原因可能是您的連接字串格式錯誤。
  - 失敗的其中一個暫時性原因可能是 Azure SQL Database 系統需要平衡整體負載。暫時性原因會自己消失，這表示您的程式應該重試。
  - 重試查詢時，請先關閉連線，然後再開啟另一個連線。
+
+
+### V12 中 1433 以外的連接埠
+
+
+與 Azure SQL Database V12 的用戶端連線有時會略過 proxy 並直接與資料庫互動。1433 以外的連接埠變得重要。如需詳細資訊，請參閱：<br/> [針對 ADO.NET 4.5、ODBC 11 及 SQL Database V12 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
 下一節會更詳細說明重試邏輯和暫時性錯誤處理。
@@ -90,7 +96,7 @@
 
 - [SQL Database 用戶端程式的錯誤訊息](sql-database-develop-error-messages.md)
  - 其 [**暫時性錯誤、連線中斷錯誤**] 區段是一個有理由自動重試的暫時性錯誤清單。
- - 例如，如果出現錯誤編號 40613，表示發生類似如下的狀況，則重試：<br/>\*伺服器 'theserver' 上的資料庫 'mydatabase' 目前無法使用。\*
+ - 例如，如果出現錯誤編號 40613，表示發生類似如下的狀況，則重試：<br/>*伺服器 'theserver' 上的資料庫 'mydatabase' 目前無法使用。*
 
 
 暫時性*錯誤*有時也稱為暫時性*失敗*。本主題將這兩個詞彙視為同義字。
@@ -111,31 +117,19 @@
 <a id="gatewaynoretry" name="gatewaynoretry">&nbsp;</a>
 
 
-## 閘道器不再提供 V12 中的重試邏輯
+## 中介軟體 Proxy 和重試邏輯
 
 
-在 V12 版之前，Azure SQL Database 具有可做為 Proxy 的閘道器，以緩衝資料庫和用戶端程式之間的所有互動。此閘道器是一個額外的網路躍點，有時會增加資料庫存取的延遲時間。
+在 V11 和 ADO.NET 4.5 用戶端之間調節的中介軟體 Proxy，會依正常程序以重試邏輯處理一小部分的暫時性失敗。若 Proxy 在第二次嘗試成功，用戶端程式所幸不會知道第一次嘗試為失敗。
 
 
-V12 已刪除此閘道器。所以現在：
+V12 Proxy 處理一小部分的暫時性失敗。其他 V12 情況會略過 proxy，以達到直接連接 SQL Database 的超凡速度。用戶端 ADO.NET 4.5 程式的這些變更，讓 Azure SQL Database V12 更像 Microsoft SQL Server。
 
 
-- 您的用戶端程式會資料庫與*直接* 互動，這更有效率。
-- 已排除閘道器在錯誤訊息以及與您的程式的其他通訊方面的些微失真情況。
- - 對您的程式而言，SQL Database 和 SQL Server 比較相似。
+如需示範重試邏輯的程式碼範例，請參閱：<br/>[SQL Database 的用戶端快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)。
 
 
-#### 重試邏輯消失
-
-
-此閘道器為您提供了某些暫時性錯誤的重試邏輯。您的程式現在必定能更完整地處理暫時性錯誤。如需有關重試邏輯的程式碼範例，請參閱：
-
-
-- [SQL Database 的用戶端開發和快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
- - 具有包含重試邏輯之程式碼範例的連結，以及更簡單的連接並查詢範例的連結。
-- [作法：可靠地連接到 Azure SQL Database](http://msdn.microsoft.com/library/azure/dn864744.aspx)
-- [作法：使用 ADO.NET 與 Enterprise Library 連接到 Azure SQL Database](http://msdn.microsoft.com/library/azure/dn961167.aspx)
-- [程式碼範例：C# 中用於連接到 SQL Database 的重試邏輯](sql-database-develop-csharp-retry-windows.md)
+> [AZURE.TIP]在實際執行環境中，建議連線到 Azure SQL Database V11 或 V12 的用戶端在它們的程式碼中實作重試邏輯。可以是自訂程式碼，或運用 API (例如企業程式庫) 的程式碼。
 
 
 ## 技術
@@ -174,4 +168,4 @@ V12 已刪除此閘道器。所以現在：
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

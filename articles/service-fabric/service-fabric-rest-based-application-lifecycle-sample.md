@@ -49,9 +49,9 @@
 
 若要建立應用程式封裝，並將它們複製到 ImageStore，請採取下列步驟：
 
-1. 將 C:\Samples\Services\VS2015\WordCountUpgrade\WordCount\pkg\Debug 複製到 C:\Temp\WordCount。即會建立 WordCount 應用程式封裝。 
-2. 將 C:\Temp\WordCount 複製到 C:\Temp\WordCountUpgrade。即會建立 WordCountUpgrade 應用程式封裝。
-3. 在文字編輯器中開啟 C:\Temp\WordCountUpgrade\ApplicationManifest.xml。
+1. 將 C:\\Samples\\Services\\VS2015\\WordCountUpgrade\\WordCount\\pkg\\Debug 複製到 C:\\Temp\\WordCount。即會建立 WordCount 應用程式封裝。 
+2. 將 C:\\Temp\\WordCount 複製到 C:\\Temp\\WordCountUpgrade。即會建立 WordCountUpgrade 應用程式封裝。
+3. 在文字編輯器中開啟 C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml。
 4. 在 ApplicationManifest 項目中，將 ApplicationTypeVersion 屬性變更為 "1.1.0.0"。即會更新應用程式的版本號碼。
 5. 儲存已變更的 ApplicationManifest.xml 檔案。
 6. 以系統管理員的身分執行下列 PowerShell 指令碼，將應用程式複製到 ImageStore：
@@ -712,4 +712,4 @@ namespace ServiceFabricRestCaller
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

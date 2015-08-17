@@ -28,4 +28,4 @@ Testability 是一組工具套件，專門用來測試建置於 Microsoft Azure 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

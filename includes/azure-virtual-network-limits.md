@@ -1,40 +1,30 @@
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">資源</th>
-   <th align="left" valign="middle">預設限制</th>
-   <th align="left" valign="middle">上限</th>
-</tr>
-<tr>
-   <td valign="middle"><p>每一訂用帳戶的<a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">虛擬網路</a><sup>1</sup></p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>每一虛擬網路的機器總數<sup>2</sup></p></td>
-   <td valign="middle"><p>2048</p></td>
-   <td valign="middle"><p>2048</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>虛擬機器或角色執行個體的並行 TCP 連線</p></td>
-   <td valign="middle"><p>500K</p></td>
-   <td valign="middle"><p>500K</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>每一端點的存取控制清單 (ACL)<sup>3</sup></p></td>
-   <td valign="middle"><p>50</p></td>
-   <td valign="middle"><p>50</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>每一虛擬網路的區域網路網站</p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>10</p></td>
-</tr>
-</table>
 
-<sup>1</sup>每個虛擬網路支援一個單一[虛擬網路閘道](http://msdn.microsoft.com/library/azure/jj156210.aspx)。
+| 資源 | 預設限制
+--- | ---
+| 每一訂閱的虛擬網路 | 10
+| 每一虛擬網路的虛擬機器和角色執行個體數量 | 2048
+| 虛擬機器或角色執行個體的並行 TCP 連線 | 500K
+| 存取控制清單 (ACL) (每一端點) | 50
+| 每一虛擬網路的區域網路網站 | 10
 
-<sup>2</sup>電腦總數包括虛擬機器和 Web/背景工作角色執行個體。
+### 網路限制 - Azure 資源管理員
 
-<sup>3</sup>虛擬機器的輸入端點上支援 ACL。輸入和執行個體輸入端點上支援 Web/背景工作角色。
+下列限制僅適用於透過 Azure 資源管理員所管理的網路資源。
 
-<!---HONumber=July15_HO4-->
+| 資源 | 預設限制
+--- | ---
+| 每一訂閱的虛擬網路 | 每個區域 50 個
+| 每一虛擬網路的 DNS 伺服器 | 9
+| 每一可用性集合的內部負載平衡器 | 1
+| 每一可用性集合的網際網路面向負載平衡器 | 1
+| 每一訂用帳戶的負載平衡器 (內部和網際網路面向) | 每個區域 100 個
+| 每一負載平衡器的負載平衡器規則 | 150
+| 每一訂用帳戶的公用 IP 位址 (動態) | 每個區域 60 個
+| 每一訂用帳戶的公用 IP 位址 (靜態) | 每個區域 20 個
+| 每一訂用帳戶的網路安全性群組 (NSG) | 每個區域 100 個
+| 每一 NSG 的 NSG 規則 | 100
+| 每一訂用帳戶的網路介面 (NIC) | 每個區域 300 個
+
+若您需要增加這些限制，請連絡支援人員。
+
+<!---HONumber=August15_HO6-->

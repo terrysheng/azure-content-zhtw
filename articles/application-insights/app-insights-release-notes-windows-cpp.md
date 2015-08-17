@@ -30,11 +30,11 @@
 * 選取已安裝的 Application Insights 封裝，然後選擇 [動作：升級]。
 * 使用新的版本號碼執行[設定步驟](app-insights-windows-cpp.md)。
 
-## 1.0.0 Beta 版 
+## 1\.0.0 Beta 版 
 
 2015-06-05 預覽
 
 第一次發行
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,3 +1,5 @@
+
+
 >[AZURE.NOTE]變更 StorSimple Adapter for SharePoint 的 RBS 組態時，您必須利用屬於 Domain Admins 群組的使用者帳戶登入。此外，您必須從瀏覽器 (在和管理中心相同的主機上執行) 存取組態頁面。
 
 #### 設定 RBS
@@ -26,7 +28,7 @@
 
           ![設定 StorSimple Adapter 啟用停用](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
 
-    4. 按一下 [**更新**] 按鈕以套用組態。當您按一下 [更新] 按鈕時，所有 WFE 伺服器上的 RBS 組態狀態將會更新，且整個伺服器陣列將會啟用 RBS 功能。下列訊息隨即出現。
+    4. 按一下 [**更新**] 按鈕以套用組態。當您按一下 [**更新**] 按鈕時，所有 WFE 伺服器上的 RBS 組態狀態將會更新，且整個伺服器陣列將會啟用 RBS 功能。下列訊息隨即出現。
 
            ![配接器組態訊息](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
 
@@ -95,11 +97,11 @@
  
      如果您在 StorSimple 裝置上的個別磁碟區中儲存 BLOB 和內容資料庫，建議您在相同的磁碟區容器中設定它們。這樣可確保它們將一起進行備份。
 
-     >[AZURE.WARNING]如果您尚未啟用 RBS，我們不建議您將內容資料庫移至 StorSimple 裝置。這是未經過測試的設定。
+       >[AZURE.WARNING]如果您尚未啟用 RBS，我們不建議您將內容資料庫移至 StorSimple 裝置。這是未經過測試的設定。
  
 9. 移至下一個步驟：[設定記憶體回收](#configure-garbage-collection)。
 
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

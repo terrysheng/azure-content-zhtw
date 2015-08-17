@@ -97,4 +97,4 @@
 
 [如何設定與虛擬機器的通訊](http://go.microsoft.com/fwlink/?LinkId=303938)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

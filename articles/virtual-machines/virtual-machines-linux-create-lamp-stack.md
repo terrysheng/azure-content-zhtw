@@ -346,7 +346,7 @@ Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
 	>[AZURE.NOTE] 如果您想要修改 /var/www/html/ 中的檔案，您可能需要重新登入。
--	使用任何 SFTP 用戶端 (例如 FileZilla) 連線到您虛擬機器的 DNS 名稱 (例如 lampdemo.cloudapp.net)，並瀏覽至 /**var/www/html** 發佈您的網站。![][18]
+-	使用 SFTP 用戶端 (例如 FileZilla) 連接至您虛擬機器的 DNS 名稱 (例如 lampdemo.cloudapp.net)，並瀏覽至 /**var/www/html** 以發佈您的網站。![][18]
 
 
 
@@ -354,9 +354,9 @@ Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相
 
 ###無法從網際網路存取使用 Apache 和 Moodle 的虛擬機器
 
--	**徵兆** Apache 正在執行，但是使用瀏覽器無法看到 Apache 預設頁面。
+-	**徵兆** Apache 正在執行，但是您無法透過瀏覽器檢視 Apache 的預設頁面。
 -	**可能的根本原因**
-	1.	Apache 接聽連接埠與您虛擬機器針對 Web 流量的端點私用連接埠不同。</br> 檢查您的公用連接埠和私用連接埠端點設定，確定私用連接埠與 Apache 接聽連接埠相同。請參閱＜第 1 階段：建立映像＞，以取得為虛擬機器設定端點的指示。</br> 若要判斷 Apache 的接聽連接埠，請開啟 /etc/httpd/conf/httpd.conf (Red Hat 版本) 或 /etc/apache2/ports.conf (Debian 版本)，搜尋字串 "Listen"。預設連接埠為 80。
+	1.	Apache 接聽連接埠與您虛擬機器處理 Web 流量的端點之私用連接埠不同。</br> 檢查您的公用連接埠和私用連接埠端點設定，確定私用連接埠與 Apache 接聽連接埠相同。請參閱第 1 階段：建立映像，以取得為虛擬機器設定端點的指示。</br> 若要判斷 Apache 的接聽連接埠，請開啟 /etc/httpd/conf/httpd.conf (Red Hat 版本) 或 /etc/apache2/ports.conf (Debian 版本)，搜尋字串 "Listen"。預設連接埠為 80。
 
 	2.	防火牆已停用 Apache 的接聽連接埠。</br> 如果您可以從本機主機看到 Apache 預設頁面，則問題很可能是 Apache 接聽的連接埠被防火牆封鎖。您可以使用 w3m 工具瀏覽網頁。下列命令會安裝 w3m，並瀏覽至 Apache 預設頁面：
 
@@ -385,7 +385,7 @@ Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相
 
 ###上傳您的專案檔案到 /var/www/html/ 時權限遭拒  
 
--	**徵兆** 當您使用任何 SFTP 用戶端 (例如 FileZilla) 連線到虛擬機器，並瀏覽到 /var/www/html 發佈網站時，您收到類似下列錯誤訊息：  
+-	**徵兆** 當您使用 SFTP 用戶端 (例如 FileZilla) 連接到虛擬機器，並瀏覽到 /var/www/html 以發佈網站時，會出現類似下面的錯誤訊息：  
 
 		status:	Listing directory /var/www/html
 		Command:	put "C:\Users\liang\Desktop\info.php" "info.php"
@@ -411,7 +411,7 @@ Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相
 
 ###無法可靠地判斷伺服器的完整網域名稱
 
--	**徵兆** 當您使用下列其中一個命令重新啟動 Apache 伺服器：  
+-	**徵兆** 當您使用下列其中一個命令重新啟動 Apache 伺服器時：  
 
 		sudo /etc/init.d/apache2 restart  # Debian release  
 
@@ -428,7 +428,7 @@ Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相
 
 -	**可能的根本原因** 您尚未設定 Apache 的伺服器名稱。
 
--	**解決方案** 在 httpd.conf (Red Hat 版本) 或在 /etc/apache2 中的 apache2.conf (Debian 版本) 中插入 "ServerName localhost" 一行，然後重新啟動 Apache。警告將會消失。
+-	**解決方案** 在 httpd.conf (Red Hat 版本) 或在 /etc/apache2 中的 apache2.conf (Debian 版本) 中插入「ServerName localhost」行，然後重新啟動 Apache。警告將會消失。
 
 
 
@@ -452,4 +452,4 @@ Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
  
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

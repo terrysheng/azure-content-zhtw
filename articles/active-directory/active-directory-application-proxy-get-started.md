@@ -12,7 +12,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="07/07/2015"
 	ms.author="rkarlin"/>
 
@@ -61,4 +61,4 @@ Azure AD 應用程式 Proxy 為使用 IWA 的應用程式或宣告感知應用�
 * [以組織方式註冊 Azure](../sign-up-organization.md)
 * [Azure 身分識別](../fundamentals-identity.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

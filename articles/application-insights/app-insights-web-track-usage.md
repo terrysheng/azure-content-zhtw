@@ -40,7 +40,7 @@ Application Insights 資源是 Microsoft Azure 中用來分析和顯示應用程
 
 ![](./media/app-insights-web-track-usage/02-monitor-web-page.png)
 
-將程式碼放入主版頁面，例如 (在 .NET 中) _Layout.cshtml，或放入 include 檔案中，以確定它包含在您的所有頁面中。
+將程式碼放入主版頁面，例如 (在 .NET 中) \_Layout.cshtml，或放入 include 檔案中，以確定它包含在您的所有頁面中。
 
 程式碼片段包含可識別資源的檢測金鑰 (iKey)。若要將資料傳送至不同資源，例如在測試期間，您只需要取代 iKey 即可。
 
@@ -371,4 +371,4 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

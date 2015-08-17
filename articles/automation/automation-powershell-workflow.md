@@ -249,4 +249,4 @@ Windows PowerShell 工作流程的優點之一是可平行執行一組命令，�
 
 - [開始使用 Windows PowerShell 工作流程](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

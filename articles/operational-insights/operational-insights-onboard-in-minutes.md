@@ -12,7 +12,7 @@
     ms.workload="operational-insights"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="get-started-article"
+    ms.topic="hero-article"
     ms.date="07/09/2015"
     ms.author="banders"/>
 
@@ -97,4 +97,4 @@
 - 熟悉[搜尋](operational-insights-search.md)
 - 使用[儀表板](operational-insights-use-dashboards.md)來儲存及顯示自訂搜尋
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

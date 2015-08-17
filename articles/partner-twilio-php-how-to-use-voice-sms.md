@@ -88,14 +88,14 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 		$ pear channel-discover twilio.github.com/pear
 		$ pear install twilio/Services_Twilio
 
-在適用於 PHP 的 Twilio 程式庫安裝完成後，您可以在 PHP 檔案頂端新增 **require_once** 陳述式，以參考該程式庫：
+在適用於 PHP 的 Twilio 程式庫安裝完成後，您可以在 PHP 檔案頂端新增 **require\_once** 陳述式，以參考該程式庫：
 
     	require_once 'Services/Twilio.php';
 
 如需詳細資訊，請參閱 [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme]。
 
 ## <a id="howto_make_call"></a>作法：撥出電話
-以下說明如何使用 **Services_Twilio** 類別來撥出電話。此程式碼也使用 Twilio 提供的網站來傳回 Twilio 標記語言 (TwiML) 回應。請將 **From** 和 **To** 電話號碼換成您的值，在執行程式碼之前，請記得先驗證 Twilio 帳戶的 **From** 電話號碼。
+以下說明如何使用 **Services\_Twilio** 類別來撥出電話。此程式碼也使用 Twilio 提供的網站來傳回 Twilio 標記語言 (TwiML) 回應。請將 **From** 和 **To** 電話號碼換成您的值，在執行程式碼之前，請記得先驗證 Twilio 帳戶的 **From** 電話號碼。
 
 	// Include the Twilio PHP library.
 	require_once 'Services/Twilio.php';
@@ -143,7 +143,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 
 
 ## <a id="howto_send_sms"></a>作法：傳送簡訊
-以下說明如何使用 **Services_Twilio** 類別來傳送簡訊。**From** 號碼由 Twilio 提供給試用帳戶來傳送簡訊。執行程式碼之前，必須驗證您 Twilio 帳戶的 **To** 號碼。
+以下說明如何使用 **Services\_Twilio** 類別來傳送簡訊。**From** 號碼由 Twilio 提供給試用帳戶來傳送簡訊。執行程式碼之前，必須驗證您 Twilio 帳戶的 **To** 號碼。
 
 	// Include the Twilio PHP library.
 	require_once 'Services/Twilio.php';
@@ -188,7 +188,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 		<Say>Hello world.</Say>
 	</Response>
 
-從以上範例中可知，TwiML 回應只是一份 XML 文件。適用於 PHP 的 Twilio 程式庫包含可為您產生 TwiML 的類別。下列範例會產生同上的回應，但改用適用於 PHP 的 Twilio 程式庫中的 **Services_Twilio_Twiml** 類別：
+從以上範例中可知，TwiML 回應只是一份 XML 文件。適用於 PHP 的 Twilio 程式庫包含可為您產生 TwiML 的類別。下列範例會產生同上的回應，但改用適用於 PHP 的 Twilio 程式庫中的 **Services\_Twilio\_Twiml** 類別：
 
 	require_once('Services/Twilio.php');
 	
@@ -198,7 +198,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 
 如需 TwiML 的詳細資訊，請參閱 [https://www.twilio.com/docs/api/twiml][twiml_reference]。
 
-設定 PHP 頁面來提供 TwiML 回應之後，請使用 PHP 頁面的 URL 作為傳遞到 `Services_Twilio->account->calls->create` 方法的 URL。例如，如果您已將名為 **MyTwiML** 的 Web 應用程式部署至 Azure 代管的服務，而 PHP 頁面的名稱為 **mytwiml.php**，則可將其 URL 傳至 **Services_Twilio->account->calls->create**，如下列範例所示：
+設定 PHP 頁面來提供 TwiML 回應之後，請使用 PHP 頁面的 URL 作為傳遞到 `Services_Twilio->account->calls->create` 方法的 URL。例如，如果您已將名為 **MyTwiML** 的 Web 應用程式部署至 Azure 代管的服務，而 PHP 頁面的名稱為 **mytwiml.php**，則可將其 URL 傳至 **Services\_Twilio->account->calls->create**，如下列範例所示：
 
 	require_once 'Services/Twilio.php';
 
@@ -267,4 +267,4 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

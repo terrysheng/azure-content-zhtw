@@ -112,4 +112,4 @@ Azure 命令列介面 (Azure CLI) 有兩種部署模式 - **AzureServiceManageme
 目前尚未支援。使用新的 Azure Resource Manager API 建立的虛擬網路並無法連線到 Express Route Circuit。未來將會支援。
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

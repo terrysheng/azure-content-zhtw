@@ -206,7 +206,55 @@
 
     此服務篩選器將會檢查每個 HTTP 狀態碼 401「未經驗證」的回應。如果出現 401，UI 執行緒上將會設定新的登入要求以取得新權杖。其他呼叫都會被封鎖，直到登入完成，或已嘗試失敗 5 次為止。如果取得新權杖，觸發 401 的要求將會以新權杖重新執行，而所有遭阻擋的呼叫也會使用新的權杖重新執行。
 
-7. 在 ToDoActivity.java 檔案中，將 `onCreate` 方法更新的方式如下：
+7. 在 ToDoActivity.java 檔案中，針對 ToDoActivity 類別內的新 `ProgressFilter` 類別新增此程式碼：
+		
+		/**
+		* The ProgressFilter class renders a progress bar on the screen during the time the App is waiting for the response of a previous request.
+		* the filter shows the progress bar on the beginning of the request, and hides it when the response arrived.
+		*/
+		private class ProgressFilter implements ServiceFilter {
+			@Override
+			public ListenableFuture<ServiceFilterResponse> handleRequest(ServiceFilterRequest request, NextServiceFilterCallback nextServiceFilterCallback) {
+
+				final SettableFuture<ServiceFilterResponse> resultFuture = SettableFuture.create();
+
+				runOnUiThread(new Runnable() {
+
+					@Override
+					public void run() {
+						if (mProgressBar != null) mProgressBar.setVisibility(ProgressBar.VISIBLE);
+					}
+				});
+
+				ListenableFuture<ServiceFilterResponse> future = nextServiceFilterCallback.onNext(request);
+
+				Futures.addCallback(future, new FutureCallback<ServiceFilterResponse>() {
+					@Override
+					public void onFailure(Throwable e) {
+						resultFuture.setException(e);
+					}
+
+					@Override
+					public void onSuccess(ServiceFilterResponse response) {
+						runOnUiThread(new Runnable() {
+
+							@Override
+							public void run() {
+								if (mProgressBar != null) mProgressBar.setVisibility(ProgressBar.GONE);
+							}
+						});
+
+						resultFuture.set(response);
+					}
+				});
+
+				return resultFuture;
+			}
+		}
+		
+	此篩選器會在要求開始時顯示進度列，並在回應到達時隱藏。
+	
+8. 在 ToDoActivity.java 檔案中，將 `onCreate` 方法更新的方式如下：
 
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
@@ -239,4 +287,4 @@
 
        在此程式碼中，除了使用 `ProgressFilter` 以外，還要使用 `RefreshTokenCacheFilter`。同時在 `onCreate` 期間，我們也想要載入權杖快取。因此將 `false` 傳入至 `authenticate` 方法。
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

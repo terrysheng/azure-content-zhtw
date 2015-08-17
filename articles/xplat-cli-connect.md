@@ -85,7 +85,7 @@ Azure CLI 所提供的大多數命令仍需要連接到 Azure 帳戶。有兩種
 
 > [AZURE.NOTE]如果您的帳戶與多個 Azure Active Directory 租用戶相關聯，則可能會提示您選取要在其中下載發行設定檔的 Active Directory。
 >
-> 在使用下載頁面或是造訪 Azure 入口網站來選定之後，所選的 Active Directory 會成為入口網站與下載頁面使用的預設值。建立好預設值之後，您會在下載頁面上方看到 [__click here to return to the selection page__]。請使用提供的連結，返回選取頁面。
+> 在使用下載頁面或是造訪 Azure 入口網站來選定之後，所選的 Active Directory 會成為入口網站與下載頁面使用的預設值。建立好預設值之後，您會在下載頁面上方看到 [click here to return to the selection page]。請使用提供的連結，返回選取頁面。
 
 接下來，執行下列命令來匯入 `.publishsettings` 檔案：
 
@@ -145,4 +145,4 @@ Azure CLI 所提供的大多數命令仍需要連接到 Azure 帳戶。有兩種
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

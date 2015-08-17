@@ -64,7 +64,7 @@
 
 	![選取 [Azure AD 單一登入]][7]
 
-	> [AZURE.NOTE]若要深入了解有關不同單一登入的選項，請[按一下這裡](https://msdn.microsoft.com/library/azure/dn308588.aspx)
+	> [AZURE.NOTE]若要深入了解有關不同單一登入的選項，請[按一下這裡](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
 
 3. 在 [設定應用程式設定] 頁面的 [登入 URL] 欄位中，使用下列其中一種格式輸入您的 NetSuite 租用戶 URL：
 	- `https://<tenant-name>.netsuite.com`
@@ -218,11 +218,7 @@
 
 4. 若要測試您的單一登入設定，請開啟 [https://myapps.microsoft.com](https://myapps.microsoft.com/) 的 [存取面板]、登入測試帳戶，然後按一下 [NetSuite]。
 
-##另請參閱
-
-- [SaaS 應用程式整合教學課程的清單](active-directory-saas-tutorial-list.md)
-- [在 Azure AD 中的應用程式存取](https://msdn.microsoft.com/library/azure/dn308590.aspx)
-- [存取面板簡介](https://msdn.microsoft.com/library/azure/dn308586.aspx)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 [0]: ./media/active-directory-saas-netsuite-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-netsuite-tutorial/applications-tab.png
@@ -258,4 +254,4 @@
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

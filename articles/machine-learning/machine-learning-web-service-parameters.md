@@ -91,4 +91,4 @@ Web 服務的使用者現在就可以在存取 Web 服務時為[寫入器][write
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

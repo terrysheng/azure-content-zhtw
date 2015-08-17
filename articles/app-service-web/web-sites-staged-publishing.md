@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="cephalin"/>
 
 # 針對 Azure App Service 中的 Web 應用程式設定預備環境
@@ -59,7 +59,7 @@ Web 應用程式必須在 [標準] 或 [高階] 模式中執行，您才能啟�
 
 	![組態來源][MultipleConfigurationSources]
 
-5. 在 [部署位置] 刀鋒視窗裝，按一下部署位置以開啟該位置的刀鋒視窗，其中含有一組度量和設定，就像任何其他 Web 應用程式一樣。<strong><i>your-web-app-name</i>-<i>deployment-slot-name</i></strong> 將出現在刀鋒視窗頂端，提醒您正在檢視該部署位置。
+5. 在 [**部署位置**] 刀鋒視窗中，按一下部署位置以開啟該位置的刀鋒視窗，其中含有一組度量和設定，就像任何其他 Web 應用程式一樣。**your-web-app-name-deployment-slot-name** 將出現在刀鋒視窗頂端，提醒您正在檢視該部署位置。
 
 	![Deployment Slot Title][StagingTitle]
 
@@ -259,4 +259,4 @@ Azure CLI 提供跨平台命令供您處理 Azure，包括支援管理 Web 應�
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

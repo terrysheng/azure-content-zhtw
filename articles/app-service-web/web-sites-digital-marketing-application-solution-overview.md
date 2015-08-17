@@ -31,7 +31,7 @@
 
 從組件庫中受歡迎的 CMS 快速建立新的 Web 應用程式，或在應用程式服務 Web 應用程式中沿用現有各種不同語言與架構的 Web 資產。
 
-Azure Marketplace 提供受歡迎網站內容管理系統 (CMS) 的範本，例如 [Orchard]、[Umbraco]、[Drupal] 以及 [WordPress]。您可以使用喜愛的 CMS 風格來建立 Web 應用程式。您可以根據自己的需求從各種不同的資料庫後端中選擇，包括 [Azure SQL Database] 和 [MySQL]。
+Azure Marketplace 提供受歡迎網站內容管理系統 (CMS) 的範本，例如 [Orchard]、[Umbraco]、Drupal 以及 [WordPress]。您可以使用喜愛的 CMS 風格來建立 Web 應用程式。您可以根據自己的需求從各種不同的資料庫後端中選擇，包括 [Azure SQL Database] 和 [MySQL]。
 
 您現有的 Web 資產 (無論是 .NET、PHP、Java、Node.js 或 Python) 都可以在 Web Apps 上執行。您可以使用熟悉的 [FTP] 工具將它們移至 Web Apps。如果您經常建立數位行銷活動，您可能在原始檔控制管理系統已經有 Web 資產。您可以直接從受歡迎的原始檔控制選項，例如 [Visual Studio]、[Visual Studio Online] 和 [Git] - 本機、GitHub、BitBucket、DropBox 及 Mercurial 等部署至 Web Apps。
 
@@ -97,7 +97,6 @@ App Service Web Apps [相應增加和放大]的能力非常適合無法預期的
 
 [Orchard]: web-sites-dotnet-orchard-cms-gallery.md
 [Umbraco]: web-sites-gallery-umbraco.md
-[Drupal]: web-sites-php-migrate-drupal.md
 [WordPress]: web-sites-php-web-site-gallery.md
   
 [MySQL]: web-sites-php-mysql-deploy-use-git.md
@@ -141,4 +140,4 @@ App Service Web Apps [相應增加和放大]的能力非常適合無法預期的
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

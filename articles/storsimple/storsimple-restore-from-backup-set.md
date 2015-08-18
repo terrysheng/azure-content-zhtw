@@ -1,4 +1,12 @@
-<properties pageTitle="透過備份組還原 StorSimple 磁碟區" | Microsoft Azure description="說明如何利用備份目錄透過備份組還原 StorSimple 磁碟區" services="storsimple" documentationCenter="NA" authors="SharS" manager="carolz" editor="" />
+﻿<properties 
+pageTitle="透過備份組還原 StorSimple 磁碟區| Microsoft Azure" 
+description="說明如何利用備份目錄透過備份組還原 StorSimple 磁碟區" 
+services="storsimple" 
+documentationCenter="NA" 
+authors="SharS" 
+manager="carolz" 
+editor=""/>
+
 <tags
    ms.service="storsimple"
    ms.devlang="NA"
@@ -6,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
    ms.date="06/25/2015"
-   ms.author="v-sharos" />
+   ms.author="v-sharos"/>
 
 # 從備份組還原 StorSimple 磁碟區
 

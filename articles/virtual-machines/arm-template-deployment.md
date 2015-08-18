@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle =「使用範本部署 Azure 資源」
-	Description =「了解如何使用 Azure 資源管理程式庫中一些可用的用戶端部署虛擬機器、虛擬網路和儲存體帳戶」
+	pageTitle="「使用範本部署 Azure 資源」"
+	Description="「了解如何使用 Azure 資源管理程式庫中一些可用的用戶端部署虛擬機器、虛擬網路和儲存體帳戶」"
 	services="virtual-machines,virtual-networks,storage"
 	documentationCenter=""
 	authors="davidmu1"

@@ -197,7 +197,7 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2014-10-10
 ```
 
->[AZURE.NOTE]如果搜尋會傳回「擱置中」狀態，則輪詢更新的結果可以透過此 API 完成。6 分鐘後，搜尋的結果將會從快取卸除，並將傳回 Http Gone。如果初始搜尋要求立即傳回「成功」狀態，它就不會加入至快取，使 API在被查詢時傳回 Http Gone。Http 200 結果內容的格式將會和更新值相同，都是初始搜尋要求。
+>[AZURE.NOTE] 如果搜尋會傳回「擱置中」狀態，則輪詢更新的結果可以透過此 API 完成。6 分鐘後，搜尋的結果將會從快取卸除，並將傳回 Http Gone。如果初始搜尋要求立即傳回「成功」狀態，它就不會加入至快取，使 API在被查詢時傳回 Http Gone。Http 200 結果內容的格式將會和更新值相同，都是初始搜尋要求。
 
 ### 已儲存的搜尋 - 僅限於 REST
 
@@ -205,11 +205,11 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
-```
+  ```
 
-支援的方法：GET PUT DELETE
+支援的方法: GET PUT DELETE
 
-支援的收集方法：GET
+支援的收集方法: GET
 
 下表描述可用的屬性。
 
@@ -221,7 +221,7 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 |properties.displayName|**必要**。使用者定義的查詢顯示名稱。如果模型化為 Azure 資源，則這會是標記。|
 |properties.category|**必要**。使用者定義的查詢類別。如果模型化為 Azure 資源，則這會是標記。|
 
->[AZURE.NOTE]當儲存搜尋的輪詢位於工作區時，Operational Insights Search API 目前會傳回使用者建立的儲存搜尋。API 不會傳回目前解決方案所提供的儲存搜尋。這項功能將會在之後加入。
+>[AZURE.NOTE] 當儲存搜尋的輪詢位於工作區時，Operational Insights Search API 目前會傳回使用者建立的儲存搜尋。API 不會傳回目前解決方案所提供的儲存搜尋。這項功能將會在之後加入。
 
 ### 刪除儲存搜尋
 
@@ -242,7 +242,7 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 
 ### 中繼資料 - 僅限 JSON
 
-以下的方法可讓您看到工作區中所收集資料的所有記錄類型欄位。例如，如果您想知道事件類型是否具有名為「電腦」的欄位，這會是一個查詢和確認的方法。
+以下的方法可讓您看到工作區中所收集資料的所有記錄類型欄位。 例如，如果您想知道事件類型是否具有名為「電腦」的欄位，這會是一個查詢和確認的方法。
 
 **欄位要求：**
 
@@ -300,7 +300,8 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 
 “Highlight” 參數是一種選擇性參數，您可以用來要求搜尋子系統，包含其回應中的一組標記。
 
-這些標記表示開頭與結尾的醒目提示文字，以符合您在搜尋查詢中所提供的詞彙。您可以指定開頭與結尾的標記，讓搜尋用來包裝醒目提示的詞彙。
+這些標記表示開頭與結尾的醒目提示文字，以符合您在搜尋查詢中所提供的詞彙。
+您可以指定開頭與結尾的標記，讓搜尋用來包裝醒目提示的詞彙。 
 
 **範例搜尋查詢**
 
@@ -345,4 +346,4 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 
 請注意，上述結果包含已具有前置詞及附加詞的錯誤訊息。
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

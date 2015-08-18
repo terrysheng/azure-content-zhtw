@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="aashishr"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/17/2015"
+	ms.author="aashishr"; "jimpark"/>
 
 
 # 使用 Azure PowerShell 部署和管理 Windows Server/Windows 用戶端的 Azure 備份
@@ -81,7 +88,7 @@ Region              : Australia East
 Machine registration succeeded.
 ```
 
-> [AZURE.IMPORTANT]請勿使用相對路徑來指定保存庫認證檔。您必須提供絕對路徑做為 Cmdlet 的輸入。
+> [AZURE.IMPORTANT] 請勿使用相對路徑來指定保存庫認證檔。您必須提供絕對路徑做為 Cmdlet 的輸入。
 
 ### 網路
 若 Windows 電腦是透過 Proxy 伺服器連線到網際網路，您也可以提供 Proxy 設定給代理程式。本範例未使用 Proxy 伺服器，因此會明確地清除任何 Proxy 相關資訊。
@@ -106,7 +113,7 @@ PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force 
 Server properties updated successfully
 ```
 
-> [AZURE.IMPORTANT]一旦設定，就請保管好此複雜密碼。若沒有此複雜密碼，您將無法從 Azure 還原資料。
+> [AZURE.IMPORTANT] 一旦設定，就請保管好此複雜密碼。若沒有此複雜密碼，您將無法從 Azure 還原資料。
 
 ## 備份檔案和資料夾
 Windows Server 和用戶端的所有 Azure 備份都經由原則來掌管。原則包含三個部分：
@@ -148,7 +155,7 @@ BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName :
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
 
-> [AZURE.NOTE]PowerShell Cmdlet 目前不支援進行長期保留原則的設定。使用 Azure 備份 UI 主控台來設定長期保留原則。
+> [AZURE.NOTE] PowerShell Cmdlet 目前不支援進行長期保留原則的設定。使用 Azure 備份 UI 主控台來設定長期保留原則。
 
 保留原則必須與主要原則建立關聯，方法為使用 Cmdlet [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405)：
 
@@ -445,4 +452,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## 後續步驟
 如需 Windows Server/用戶端的 Azure 備份詳細資訊，請參閱 [Azure 備份的簡介](backup-introduction-to-azure-backup.md)
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

@@ -64,7 +64,8 @@
 
 -  具有公用 IPv4 位址的 VPN 裝置。您需要 IP 位址才能完成精靈。VPN 裝置不能位於網路位址轉譯器 (NAT) 後方，且必須符合最低裝置標準。如需詳細資訊，請參閱[關於虛擬網路的 VPN 裝置](http://go.microsoft.com/fwlink/p/?LinkID=248098)。
 
-	注意：您可以使用 Windows Server 中的路由及遠端存取服務 (RRAS) 做為 VPN 解決方案的一部分。不過本教學課程不會逐步引導您進行 RRAS 的組態步驟。如需 RRAS 組態資訊，請參閱[路由及遠端存取服務範本](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx)。
+	注意：您可以使用 Windows Server 中的路由及遠端存取服務 (RRAS) 做為 VPN 解決方案的一部分。不過本教學課程不會逐步引導您進行 RRAS 的組態步驟。
+	如需 RRAS 組態資訊，請參閱[路由及遠端存取服務範本](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx)。
 
 -  具備針對 IPsec 通道模式連線設定路由器的經驗，或可協助您完成此步驟的助手。
 
@@ -215,30 +216,30 @@
 3.	執行以下任一命令以測試連線：
 
 	<table border="1">
-<tr>
-<th>-</th>
-<th>Cisco ASA</th>
-<th>Cisco ISR/ASR</th>
-<th>Juniper SSG/ISG</th>
-<th>Juniper SRX/J</th>
-</tr>
+	<tr>
+	<th>-</th>
+	<th>Cisco ASA</th>
+	<th>Cisco ISR/ASR</th>
+	<th>Juniper SSG/ISG</th>
+	<th>Juniper SRX/J</th>
+	</tr>
+	
+	<tr>
+	<td><b>檢查主要模式 SA</b></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
+	</tr>
 
-<tr>
-<td><b>檢查主要模式 SA</b></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
-</tr>
-
-<tr>
-<td><b>檢查快速模式 SA</b></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
-</tr>
-</table>
+	<tr>
+	<td><b>檢查快速模式 SA</b></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
+	</tr>
+	</table>
 
 
 ##  後續步驟
@@ -271,4 +272,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

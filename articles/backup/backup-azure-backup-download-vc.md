@@ -6,7 +6,15 @@
    authors="Jim-Parker"
    manager="shreeshd"
    editor=""/>
-<tagsms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+
+<tags
+	ms.service="backup" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="storage-backup-recovery" 
+	ms.date="07/01/2015" 
+	ms.author="jimpark"; "aashishr"/>
 
 # 使用保存庫認證來驗證 Azure 備份服務
 內部部署伺服器 (Windows 用戶端或 Windows Server 或 SCDPM 伺服器) 必須先驗證備份保存庫，才能將資料備份至 Azure。驗證是利用「保存庫認證」來達成。保存庫認證的概念類似用於 Azure PowerShell 的「發佈設定」檔案。

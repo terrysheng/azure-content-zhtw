@@ -23,7 +23,8 @@
 
 本教學課程假設您已安裝 Visual Studio 2013 和 Azure SDK。如果尚無 Visual Studio 2013，請至 **www.visualstudio.com** 選擇 [免費開始用][](http://www.visualstudio.com) 連結來下載。從[這裡](http://go.microsoft.com/fwlink/?LinkId=239540)安裝 Azure SDK。
 
-> [AZURE.NOTE]您需要 Visual Studio Online 帳戶，才能完成本教學課程：您可以[開啟免費的 Visual Studio Online 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=512979)。
+> [AZURE.NOTE]您需要 Visual Studio Online 帳戶，才能完成本教學課程：
+> 您可以[開啟免費的 Visual Studio Online 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=512979)。
 
 若要使用 Visual Studio Online 將雲端服務設定為自動建立和部署至 Azure，請依照下列步驟進行：
 
@@ -47,7 +48,11 @@
 
 ## <a name="step2"> </a>步驟 2：將專案簽入原始檔控制
 
-1. 在 Visual Studio 中，開啟您要部署的方案，或建立新方案。您可以依照此逐步解說的步驟部署 Web 應用程式或雲端服務 (Azure 應用程式)。如果要建立新方案，請建立新的 Azure 雲端服務專案，或建立新的 ASP.NET MVC 專案。請確定專案以 .NET Framework 4 或 4.5 為目標，如果是建立雲端服務專案，請加入 ASP.NET MVC Web 角色和背景工作角色，然後對 Web 角色選擇網際網路應用程式。出現提示時，選擇 [**網際網路應用程式**]。如果要建立 Web 應用程式，請選擇 ASP.NET Web 應用程式的專案範本，然後選擇 [MVC]。請參閱「[在 Azure App Service 中建立 ASP.NET Web 應用程式](../web-sites-dotnet-get-started.md)」。
+1. 在 Visual Studio 中，開啟您要部署的方案，或建立新方案。您可以依照此逐步解說的步驟部署 Web 應用程式或雲端服務 (Azure 應用程式)。
+如果要建立新方案，請建立新的 Azure 雲端服務專案，或建立新的 ASP.NET MVC 專案。請確定專案以 .NET Framework 4 或 4.5 為目標，如果是建立雲端服務專案，
+請加入 ASP.NET MVC Web 角色和背景工作角色，然後對 Web 角色選擇網際網路應用程式。出現提示時，選擇 [**網際網路應用程式**]。
+如果要建立 Web 應用程式，請選擇 ASP.NET Web 應用程式的專案範本，然後選擇 [MVC]。
+請參閱「[在 Azure App Service 中建立 ASP.NET Web 應用程式](../web-sites-dotnet-get-started.md)」。
 
 > [AZURE.NOTE]Visual Studio Online 目前僅支援 Visual Studio Web 應用程式的 CI 部署。Web Site 專案超出範圍。
 
@@ -64,7 +69,8 @@
 5. 在 Team Explorer 的 [暫止的變更] 區域中，輸入簽入註解，然後選擇 [**簽入**] 按鈕。<br/>
 ![][8]
 
-<br/> 請注意，簽入時用來包含或排除特定變更的選項。如果已排除您要的變更，請選擇 [**全部包含**]。<br/>
+<br/>
+請注意，簽入時用來包含或排除特定變更的選項。如果已排除您要的變更，請選擇 [**全部包含**]。<br/>
 ![][9]
 
 ## <a name="step3"> </a>步驟 3：將專案連接至 Azure
@@ -125,15 +131,18 @@ Team Explorer 會顯示簽入已觸發的組建。<br/>
 在 [**處理序**] 索引標籤中，您可以看到部署環境已設為您的雲端服務或 Web 應用程式的名稱。如果您使用的是 Web 應用程式，則顯示的屬性跟下面的屬性不同。<br/>
 ![][27]
 <br/>
-如果不想要使用預設值，請指定屬性的值。Azure 發行屬性在 [部署] 區段中。下表顯示 [部署] 區段中可用的屬性：
+如果不想要使用預設值，請指定屬性的值。Azure 發行屬性在 [部署] 區段中。
+下表顯示 [部署] 區段中可用的屬性：
 	<table>
 <tr><td><b>屬性</b></td><td><b>預設值</b></td></tr>
 ><tr><td>允許未受信任的憑證</td><td>如果為 false，SSL 憑證必須經過根授權單位簽署。</td></tr>
-<tr><td>允許升級</td><td>允許部署更新現有的部署，而不是建立新的部署。保留 IP 位址。</td></tr><tr><td>不要刪除</td><td>如果為 true，則不要覆寫現有不相關的部署 (允許升級)。</td></tr>
+<tr><td>允許升級</td><td>允許部署更新現有的部署，而不是建立新的部署。保留 IP 位址。</td></tr>
+><tr><td>不要刪除</td><td>如果為 true，則不要覆寫現有不相關的部署 (允許升級)。</td></tr>
 <tr><td>部署設定的路徑</td><td>Web 應用程式的 .pubxml 檔的路徑，這是儲存機制之根資料夾的相對路徑。雲端服務則會忽略。</td></tr>
 <tr><td>SharePoint 部署環境</td><td>與服務名稱相同</td></tr>
 <tr><td>Azure 部署環境</td><td>Web 應用程式或雲端服務的名稱</td></tr>
-</table> <br/>
+</table>
+<br/>
 
 如果使用多個服務組態 (.cscfg 檔)，則可以在 [組建、進階、MSBuild 引數] 設定中指定所需的服務組態。例如，若要使用 ServiceConfiguration.Test.cscfg，請設定 MSBuild 引數的命令列選項 /p:TargetProfile=Test。<br/>
 ![][38]
@@ -297,4 +306,4 @@ Team Explorer 會顯示簽入已觸發的組建。<br/>
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

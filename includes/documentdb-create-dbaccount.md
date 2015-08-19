@@ -1,7 +1,7 @@
 1.	登入線上 [Microsoft Azure Preview 入口網站](https://portal.azure.com/)。
 2.	在 Jumpbar，依序按一下 [**新增**]、[**資料 + 儲存體**]、[**Azure DocumentDB**]。 
 
-	![Azure Preview 入口網站的螢幕擷取畫面，反白顯示 [新增] 按鈕、[建立] 刀鋒視窗中的 [資料 + 儲存體]，以及 [資料 + 儲存體] 刀鋒視窗中的 Azure DocumentDB][1]   
+	![Azure Preview 入口網站的螢幕擷取畫面，反白顯示 新增 按鈕、建立 刀鋒視窗中的 資料 + 儲存體，以及 資料 + 儲存體 刀鋒視窗中的 Azure DocumentDB][1]   
 
 	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  -->
 	
@@ -24,13 +24,14 @@
 	- 使用 [**位置**] 指定將代管您的 DocumentDB 帳戶的地理位置。
 
 4.	設定新的 DocumentDB 帳戶選項之後，按一下 [**建立**]。建立 DocumentDB 帳戶可能需要數分鐘的時間。若要檢查狀態，您可以監視「開始面板」上的進度。  
-	![「開始面板」上 [建立] 磚的螢幕擷取畫面 - 線上資料庫建立者][4]  
   
-	或者，您也可以從 [通知] 中樞監視進度。
+	![開始面板」上 建立 磚的螢幕擷取畫面 - 線上資料庫建立者][80]  
+  
+	或者，您也可以從 [通知] 中樞監視進度。  
 
-	![快速建立資料庫 - [通知] 中樞的螢幕擷取畫面，其中顯示正在建立 DocumentDB 帳戶 - 線上資料庫建立者通知][5]  
+	![快速建立資料庫 - 通知 中樞的螢幕擷取畫面，其中顯示正在建立 DocumentDB 帳戶 - 線上資料庫建立者通知][5]  
 
-	![[通知] 中樞的螢幕擷取畫面，其中顯示已成功建立 DocumentDB 帳戶，並已部署至資源群組][6]
+	![通知 中樞的螢幕擷取畫面，其中顯示已成功建立 DocumentDB 帳戶，並已部署至資源群組][6]
 
 5.	建立 DocumentDB 帳戶之後，即可在線上入口網站中使用預設設定。請注意，DocumentDB 帳戶的預設一致性會設定為 [**工作階段**]。您可以藉由按一下 [**DocumentDB 帳戶**] 刀鋒視窗上的 [**預設一致性**] 磚，調整預設一致性設定。
 
@@ -40,7 +41,7 @@
 [1]: media/documentdb-create-dbaccount/ca1.png
 [2]: media/documentdb-create-dbaccount/ca2.png
 [3]: media/documentdb-create-dbaccount/ca3.png
-[4]: media/documentdb-create-dbaccount/ca4.png
+[80]: media/documentdb-create-dbaccount/ca4.png
 [5]: media/documentdb-create-dbaccount/ca5.png
 [6]: media/documentdb-create-dbaccount/ca6.png
 [7]: media/documentdb-create-dbaccount/ca7.png
@@ -49,4 +50,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=August15_HO6-->
+<!------HONumber=August15_HO6-->

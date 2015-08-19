@@ -52,15 +52,17 @@
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-<br/>我們現在將從頭開始逐步解說如何建立新的 Python Flask Web 應用程式。
+<br/>
+我們現在將從頭開始逐步解說如何建立新的 Python Flask Web 應用程式。
 
 ## 步驟 2：建立新的 Python Flask Web 應用程式
 
-1. 開啟 Visual Studio，並依序按一下 [**檔案**] -\\> [**新增專案**] -\\> [**Python**] -\\> [**Flask Web 專案**]，然後建立名為 **tutorial** 的新專案。
+1. 開啟 Visual Studio，並依序按一下 [**檔案**] -\> [**新增專案**] -\> [**Python**] -\> [**Flask Web 專案**]，然後建立名為 **tutorial** 的新專案。
 
-	對於 Flask 的初學者而言，這個網路架構可協助我們在 Python 中更快速地建置 Web 應用程式。[按一下這裡可存取 Flask 教學課程][] (英文)。
+	對於 Flask 的初學者而言，這個網路架構可協助我們在 Python 中更快速地建置 Web
+應用程式。[按一下這裡可存取 Flask 教學課程][] \(英文)。
 
-	![左側為使用反白顯示之 Python 的 Vidual Studio 中的 [新增專案] 視窗、中間為選取的 Flask Web 專案，以及 [名稱] 方塊中為教學課程名稱的螢幕擷取畫面](./media/documentdb-python-application/image9.png)
+	![左側為使用反白顯示之 Python 的 Vidual Studio 中的 新增專案 視窗、中間為選取的 Flask Web 專案，以及 名稱 方塊中為教學課程名稱的螢幕擷取畫面](./media/documentdb-python-application/image9.png)
 
 2. 系統會詢問您是否要安裝外部套件。按一下 [**安裝到虛擬環境**]。因為 PyDocumentDB 目前不支援 Python 3.x，請務必使用 Python 2.7 做為基底環境。這會設定專案所需的 Python 虛擬環境。
 
@@ -91,7 +93,8 @@
 
 	![螢幕擷取畫面，顯示從清單中反白顯示的 requirements.txt 安裝時選取的 env (Python 2.7)。](./media/documentdb-python-application/image11.png)
 
-> [AZURE.NOTE]在罕見情況下，輸出視窗中可能出現失敗。如果發生此情形，請檢查錯誤是否與清除有關。有時是清理失敗，但安裝卻成功 (在輸出視窗中向上捲動來驗證這一點)。<a name="verify-the-virtual-environment"></a>如果發生這種情況，您可以放心繼續進行。
+> [AZURE.NOTE] 在罕見情況下，輸出視窗中可能出現失敗。如果發生此情形，請檢查錯誤是否與清除有關。有時是清理失敗，但安裝卻成功 (在輸出視窗中向上捲動來驗證這一點)。
+<a name="verify-the-virtual-environment"></a>如果發生這種情況，您可以放心繼續進行。
 
 
 ### 驗證虛擬環境
@@ -160,11 +163,13 @@
             	year=datetime.now().year,
             	message='You just created a new database, collection, and document.  Your old votes have been deleted')
 
-> [AZURE.TIP]CreateCollection 方法會採用選擇性的 RequestOptions 做為第 3 個參數。這可以用來指定集合的優惠類型。如果未提供 offerType 值，則將會使用預設的優惠類型來建立集合。如需 DocumentDB 優惠類型的詳細資訊，請參閱 [DocumentDB 中的效能層級](documentdb-performance-levels.md)
+> [AZURE.TIP] CreateCollection 方法會採用選擇性的 RequestOptions 做為第 3 個參數。這可以用來指定集合的優惠類型。如果未提供 offerType 值，則將會使用預設的優惠類型來建立集合。如需 DocumentDB 優惠類型的詳細資訊，請參閱 [DocumentDB 中的效能層級](documentdb-performance-levels.md)
 >
 ### 讀取資料庫、集合、文件並送出表單
 
-- 將下列程式碼新增至 **views.py**。此程式碼可設定表單並讀取資料庫、集合和文件。請勿刪除 **views.py** 中的任何現有程式碼。只需將它附加至結尾。
+- 將下列程式碼新增至 **views.py**。此程式
+碼可設定表單並讀取資料庫、集合和文件。請勿刪
+除 **views.py** 中的任何現有程式碼。只需將它附加至結尾。
 
     	@app.route('/vote', methods=['GET', 'POST'])
     	def vote():
@@ -262,7 +267,8 @@
     	</form>
     	{% endblock %}
 
-4. 使用下列程式碼取代 **index.html** 的內容。此程式碼可做為您應用程式的登陸頁面。
+4. 使用下列程式碼取代 **index.html** 的內容。
+此程式碼可做為您應用程式的登陸頁面。
 
     	{% extends "layout.html" %}
     	{% block content %}
@@ -298,7 +304,7 @@
 
 4. 按照上面所說的步驟進行之後，方案總管的外觀應該會變成下面這樣。
 
-	![Visual Studio [方案總管] 視窗的螢幕擷取畫面](./media/documentdb-python-application/image15.png)
+	![Visual Studio 方案總管 視窗的螢幕擷取畫面](./media/documentdb-python-application/image15.png)
 
 
 ## 步驟 4：在本機執行您的應用程式
@@ -326,11 +332,11 @@
 
 1. 在 [方案總管] 的 [專案] 上按一下滑鼠右鍵 (請確定您已沒有在本機上執行此應用程式)，然後選取 [發佈]。接著，選取 [Microsoft Azure 網站]。
 
- 	![[方案總管] 中選取之教學課程 (具有反白顯示的 [發佈] 選項) 的螢幕擷取畫面](./media/documentdb-python-application/image20.png)
+ 	![方案總管 中選取之教學課程 具有反白顯示的 發佈 選項 的螢幕擷取畫面](./media/documentdb-python-application/image20.png)
 
 2. 設定您的 Azure 網站，方法是提供您的認證並按一下 [**發佈**]。
 
-	![[發佈 Web] 視窗的螢幕擷取畫面](./media/documentdb-python-application/image21.png)
+	![發佈 Web 視窗的螢幕擷取畫面](./media/documentdb-python-application/image21.png)
 
 3. 幾秒後，Visual Studio 便會發佈 Web 應用程式並啟動瀏覽器，您可以在瀏覽器中看到您方便好用的應用程式已在 Azure 中執行！
 
@@ -350,4 +356,4 @@
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

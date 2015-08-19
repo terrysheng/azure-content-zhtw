@@ -70,12 +70,12 @@ Twitter 連接器提供下列觸發程序和動作：
 
 您現在可以設定 Twitter 連接器，以建置您的工作流程。您可以在流程的其他動作中使用從 Twitter 觸發程序所擷取的推文：
 
-	![][6]
+![][6]
 
 您可以採用類似方式在工作流程中使用 Twitter 動作。選取 Twitter 動作，並設定該動作的輸入：
 
-	![][7]
-	![][8]
+![][7]
+![][8]
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
@@ -93,4 +93,4 @@ Twitter 連接器提供下列觸發程序和動作：
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/actions.png
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

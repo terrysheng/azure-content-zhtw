@@ -33,7 +33,7 @@
 
 - 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](../../pricing/free-trial/)。
 - [Visual Studio 2013](http://www.visualstudio.com/) Update 4 或更新版本。
-- Azure SDK for .NET 2.5.1 版或更高版本，可透過 [Microsoft Web Platform Installer][] (英文) 取得。
+- Azure SDK for .NET 2.5.1 版或更高版本，可透過 [Microsoft Web Platform Installer][] \(英文) 取得。
 
 本文中的所有螢幕擷取畫面都是使用已套用 Update 4 的 Visual Studio 2013 以及 Azure SDK for .NET 2.5.1 版所取得。如果您的系統是設定使用不同的版本，則您的畫面和選項可能不會完全相符，但只要您符合上述必要條件，本方案應該還是有效。
 
@@ -56,7 +56,7 @@
    	[**新增專案**] 對話方塊隨即出現。
 2. 在 [**專案類型**] 窗格中，依序展開 [**範本**]、[**Visual C#**]、[**Web**]，然後選取 [**ASP.NET Web 應用程式**]。
 
-  	![[新增專案] 對話方塊的螢幕擷取畫面，內含反白顯示的 ASP.NET Web 應用程式專案類型](./media/documentdb-dotnet-application/image10.png)
+  	![新增專案 對話方塊的螢幕擷取畫面，內含反白顯示的 ASP.NET Web 應用程式專案類型](./media/documentdb-dotnet-application/image10.png)
 
 3. 在 [**名稱**] 方塊中，輸入專案的名稱。本教學課程使用 "todo" 名稱。如果您選擇使用其他名稱，則每當本教學課程提及 todo 命名空間時，您必須調整提供的程式碼範例，以便使用您為應用程式所命名的名稱。
 
@@ -64,7 +64,7 @@
 
   	[**新增 ASP.NET 專案**] 對話方塊隨即出現。
 
-  	![[新增 ASP.NET 專案] 對話方塊的螢幕擷取畫面，內含反白顯示的 MVC 範本，和勾選的 [在雲端託管] 方塊。](./media/documentdb-dotnet-application/image11.png)
+  	![新增 ASP.NET 專案 對話方塊的螢幕擷取畫面，內含反白顯示的 MVC 範本，和勾選的 在雲端託管 方塊](./media/documentdb-dotnet-application/image11.png)
 
 5. 在 [範本] 窗格中，選取 [**MVC**]。
 
@@ -78,7 +78,7 @@
 
 	如需選擇 **App Service 方案**和**資源群組**的詳細資訊，請參閱 [Azure App Service 方案深入概觀](azure-web-sites-web-hosting-plans-in-depth-overview.md)。
 
-  	![[設定 Microsoft Azure 網站] 對話方塊的螢幕擷取畫面](./media/documentdb-dotnet-application/image11_1.png)
+  	![設定 Microsoft Azure 網站 對話方塊的螢幕擷取畫面](./media/documentdb-dotnet-application/image11_1.png)
 
 9. Visual Studio 建立好未定案 MVC 應用程式之後，您便擁有可以在本機執行的空白 ASP.NET 應用程式。
 
@@ -90,7 +90,7 @@
 
 1. DocumentDB .NET SDK 會隨 NuGet 封裝而分散。若要在 Visual Studio 中取得 NuGet 封裝，請使用 Visual Studio 中的 NuGet 封裝管理員，方法是以滑鼠右鍵按一下 [**方案總管**] 中的專案，然後按一下 [**管理 NuGet 封裝**]。
 
-  	![[方案總管] 中專案的滑鼠右鍵選項的螢幕擷取畫面，內含反白顯示的 [管理 NuGet 封裝]。](./media/documentdb-dotnet-application/image21.png)
+  	![方案總管 中專案的滑鼠右鍵選項的螢幕擷取畫面，內含反白顯示的 管理 NuGet 封裝](./media/documentdb-dotnet-application/image21.png)
 
     [**管理 NuGet 封裝**] 對話方塊隨即出現。
 
@@ -98,7 +98,7 @@
     
     從結果中，安裝 [**Microsoft Azure DocumentDB 用戶端程式庫**] 封裝。這會下載和安裝 DocumentDB 封裝，以及所有依存項目 (例如 Newtonsoft.Json)。
 
-  	![[管理 NuGet 封裝] 視窗的螢幕擷取畫面，內含反白顯示的 Microsoft Azure DocumentDB 用戶端程式庫](./media/documentdb-dotnet-application/nuget.png)
+  	![管理 NuGet 封裝 視窗的螢幕擷取畫面，內含反白顯示的 Microsoft Azure DocumentDB 用戶端程式庫](./media/documentdb-dotnet-application/nuget.png)
 
   	或者，您也可以使用 Package Manager Console 來安裝封裝。若要這樣做，請在 [**工具**] 功能表上按一下 [**NuGet 封裝管理員**]，然後按一下 [**Package Manager Console**]。在出現提示時輸入下列內容：
 
@@ -106,7 +106,7 @@
 
 3. 安裝封裝之後，您的 Visual Studio 方案應該類似下列已新增兩個新參考 (Microsoft.Azure.Documents.Client 和 Newtonsoft.Json) 的方案。
 
-  	![[方案總管] 中專案新增兩個參考的螢幕擷取畫面](./media/documentdb-dotnet-application/image22.png)
+  	![方案總管 中專案新增兩個參考的螢幕擷取畫面](./media/documentdb-dotnet-application/image22.png)
 
 
 ##<a name="_Toc395637763"></a>步驟 4：設定 ASP.NET MVC 應用程式
@@ -170,15 +170,15 @@
 
 2. 選取 [**Web API 5 控制器 - 空的**]，然後按一下 [**新增**]。
 
-	![[新增 Scaffold] 對話方塊的螢幕擷取畫面，內含反白顯示的 [MVC 5 控制器 - 空的] 選項](./media/documentdb-dotnet-application/image14.png)
+	![新增 Scaffold 對話方塊的螢幕擷取畫面，內含反白顯示的 MVC 5 控制器 - 空的 選項](./media/documentdb-dotnet-application/image14.png)
 
 3. 將新的控制器命名為 **ItemController**。
 
-	![[新增控制器] 對話方塊的螢幕擷取畫面](./media/documentdb-dotnet-application/image15.png)
+	![新增控制器 對話方塊的螢幕擷取畫面](./media/documentdb-dotnet-application/image15.png)
 
 	檔案建立之後，您的 Visual Studio 方案應該類似包含下面 [**方案總管**] 中新 ItemController.cs 檔案的方案。稍早建立的新 Item.cs 檔案也會顯示出來。
 
-	![[方案總管] 的螢幕擷取畫面，內含反白顯示的新 ItemController.cs 檔案和 Item.cs 檔案](./media/documentdb-dotnet-application/image16.png)
+	![方案總管 的螢幕擷取畫面，內含反白顯示的新 ItemController.cs 檔案和 Item.cs 檔案](./media/documentdb-dotnet-application/image16.png)
 
 	您可以先將 ItemController.cs 關閉，我們稍後會回頭使用此檔案。
 
@@ -195,7 +195,7 @@
 
 1. 在 [**方案總管**] 中，展開 **Views** 資料夾，以滑鼠右鍵按一下稍早您在建立 **ItemController** 時，Visual Studio 為您建立的空白 **Item** 資料夾，按一下 [**新增**]，然後按一下 [**檢視**]。
 
-	![顯示 Item 資料夾的 [方案總管] 螢幕擷取畫面，內含反白顯示的 [新增檢視] 命令](./media/documentdb-dotnet-application/image17.png)
+	![顯示 Item 資料夾的 方案總管 螢幕擷取畫面，內含反白顯示的 新增檢視 命令](./media/documentdb-dotnet-application/image17.png)
 
 2. 在 [**新增檢視**] 對話方塊中，執行下列動作：
 	- 在 [**檢視名稱**] 方塊中，輸入「***索引***」。
@@ -204,7 +204,7 @@
 	- 將 [**資料內容類別**] 方塊保留空白。 
 	- 在 [版面配置頁面] 方塊中，輸入 ***\~/Views/Shared/\_Layout.cshtml***。
 	
-	![顯示 [新增檢視] 對話方塊的螢幕擷取畫面](./media/documentdb-dotnet-application/image18.png)
+	![顯示 新增檢視 對話方塊的螢幕擷取畫面](./media/documentdb-dotnet-application/image18.png)
 
 3. 設定所有這些值之後，按一下 [**新增**]，並讓 Visual Studio 建立新的範本檢視。完成之後，系統便會開啟剛建立的 cshtml 檔案。我們稍後會回頭使用此檔案，您可以先在 Visual Studio 中將該檔案關閉。
 
@@ -390,7 +390,7 @@
     	    }
     	}
 
-	> [AZURE.TIP]建立新的 DocumentCollection 時，您可以提供 OfferType 的選擇性 RequestOptions 參數，此參數可讓您指定新集合的效能層級。如果無法傳遞此參數，系統將會使用預設的優惠類型。如需 DocumentDB 優惠類型的詳細資訊，請參閱 [DocumentDB 效能層級](documentdb-performance-levels.md)
+	> [AZURE.TIP] 建立新的 DocumentCollection 時，您可以提供 OfferType 的選擇性 RequestOptions 參數，此參數可讓您指定新集合的效能層級。如果無法傳遞此參數，系統將會使用預設的優惠類型。如需 DocumentDB 優惠類型的詳細資訊，請參閱 [DocumentDB 效能層級](documentdb-performance-levels.md)
 
 3. 我們打算從組態中讀取部分值，因此請開啟應用程式的 **Web.config** 檔案，並在 [`<AppSettings>`] 區段下新增下列幾行。
 	
@@ -584,17 +584,17 @@
 
 2. 按一下 [**新建**] 連結，並在 [**名稱**] 和 [**描述**] 欄位中新增值。將 [**已完成**] 核取方塊保持為未選取狀態，否則，**新項目**會以已完成的狀態新增，且不會出現在初始清單中。
 
-	![[建立] 檢視的螢幕擷取畫面](./media/documentdb-dotnet-application/image25.png)
+	![建立 檢視的螢幕擷取畫面](./media/documentdb-dotnet-application/image25.png)
 
 3. 按一下 [**建立**]，您便會被重新導向回到 [**索引**] 檢視，且您的**項目**便會出現在清單中。
 
-	![[索引] 檢視的螢幕擷取畫面](./media/documentdb-dotnet-application/image26.png)
+	![索引 檢視的螢幕擷取畫面](./media/documentdb-dotnet-application/image26.png)
 
 	依需要新增一些**項目**至 [待辦事項] 清單。
 
 3. 按一下清單上 [**項目**] 旁邊的 [**編輯**]，您便會被帶到 [**編輯**] 檢視，您可以在此更新物件的任何屬性 (包括 [**已完成**] 旗標)。如果您標示 [**完成**] 旗標，然後按一下 [**儲存**]，則**項目**會從未完成的工作清單中移除。
 
-	![[索引] 檢視的螢幕擷取畫面，內含勾選的 [已完成] 方塊](./media/documentdb-dotnet-application/image27.png)
+	![索引 檢視的螢幕擷取畫面，內含勾選的 已完成 方塊](./media/documentdb-dotnet-application/image27.png)
 
 4. 完成測試應用程式後，按 Ctrl + F5 停止偵錯應用程式。您現在可以開始進行部署。
 
@@ -604,11 +604,11 @@
 
 1. 若要發佈此應用程式，您只需要以滑鼠右鍵按一下 [**方案總管**] 上的專案，然後按一下 [**發佈**] 即可。
 
-    ![[方案總管] 中 [發佈] 選項的螢幕擷取畫面](./media/documentdb-dotnet-application/image28.png)
+    ![方案總管 中 發佈 選項的螢幕擷取畫面](./media/documentdb-dotnet-application/image28.png)
 
 2. 系統應該已根據您的認證設定好所有項目；實際上，系統已在 Azure 中建立位於所顯示的 [**目的地 URL**] 的網站，您只需要按一下 [**發佈**] 即可。
 
-    ![[發佈 Web] 對話方塊的螢幕擷取畫面](./media/documentdb-dotnet-application/image29.png)
+    ![發佈 Web 對話方塊的螢幕擷取畫面](./media/documentdb-dotnet-application/image29.png)
 
 幾秒後，Visual Studio 便會發佈 Web 應用程式並啟動瀏覽器，您可以在瀏覽器中看到您方便好用的應用程式已在 Azure 中執行！
 
@@ -635,7 +635,7 @@
 	
 	如果您沒有帳戶，請參閱[建立資料庫帳戶](documentdb-create-account.md)設定一個帳戶。
 
-	![顯示 DocumentDB 帳戶的 Azure Preview 入口網站螢幕擷取畫面，內含反白顯示的 [主動式] 集線器、[DocumentDB 帳戶] 刀鋒視窗上反白顯示的 [金鑰] 按鈕、[金鑰] 刀鋒視窗上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值](media/documentdb-dotnet-application/keys.png)
+	![顯示 DocumentDB 帳戶的 Azure Preview 入口網站螢幕擷取畫面，內含反白顯示的 主動式 集線器、DocumentDB 帳戶 刀鋒視窗上反白顯示的 金鑰 按鈕、金鑰 刀鋒視窗上反白顯示的 URI、主要金鑰 和 次要金鑰 值](media/documentdb-dotnet-application/keys.png)
 
 5. 在 Web.config 檔案中，更新 [**端點**] 和 [**authKey**] 金鑰的預設值。
 
@@ -658,4 +658,4 @@
 [ASP.NET MVC 中的基本 CRUD 作業]: http://go.microsoft.com/fwlink/?LinkId=317598
  
 
-<!---HONumber=August15_HO6-->
+<!------HONumber=August15_HO6-->

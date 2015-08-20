@@ -69,15 +69,15 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 [07_CombineTechnologies]: ./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png
 !-->
 
-[App Service]: #tellmeas
+[應用程式服務]: #tellmeas
 [虛擬機器]: #tellmevm
 [雲端服務]: #tellmecs
 
 ## 後續步驟
 
 * [比較](../choose-web-site-cloud-service-vm/) App Service、雲端服務和虛擬機器之間的差異
-* 深入了解 [App Service](../app-service-web-overview.md)
+* 深入了解 [應用程式服務](../app-service-web-overview.md)
 * 深入了解[雲端服務](services/cloud-services/)
 * 深入了解[虛擬機器](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

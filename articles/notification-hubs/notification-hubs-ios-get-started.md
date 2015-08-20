@@ -504,11 +504,11 @@
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[使用通知中心來推播通知給使用者]: notification-hubs-aspnet-backend-ios-notify-users.md
+[開始在行動服務中使用推播通知]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[使用通知中樞將通知推播給使用者]: notification-hubs-aspnet-backend-ios-notify-users.md
 [使用通知中心傳送即時新聞]: notification-hubs-ios-send-breaking-news.md
 
 [本機和推播通知程式設計指南]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

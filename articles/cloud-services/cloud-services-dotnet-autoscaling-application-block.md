@@ -28,7 +28,15 @@
 
 ## 目錄
 
-[何謂自動調整應用程式區塊？][] [概念][] [從目標 Azure 應用程式收集效能計數器資料][] [設定自動調整應用程式區塊的主機應用程式][] [作法：具現化和執行自動調整器][] [作法：定義您的服務模型][] [作法：定義您的自動調整規則][] [作法：設定自動調整應用程式區塊][] [後續步驟][]
+[何謂自動調整應用程式區塊？][]   
+[概念][]   
+[從目標 Azure 應用程式收集效能計數器資料][]  
+[設定自動調整應用程式區塊的主機應用程式][]   
+[作法：具現化和執行自動調整器][]   
+[作法：定義您的服務模型][]   
+[作法：定義您的自動調整規則][]   
+[作法：設定自動調整應用程式區塊][]   
+[後續步驟][]   
 
 ## <a id="WhatIs"> </a>何謂自動調整應用程式區塊？
 
@@ -126,14 +134,31 @@
 
 	下列程式碼範例顯示 **services.xml** 檔案中的範例服務模型：
 
-    <?xml version="1.0" encoding="utf-8" ?> <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel"> <subscriptions> <subscription name="[subscriptionname]"
+    <?xml version="1.0" encoding="utf-8" ?>
+    <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel">
+      <subscriptions>
+        <subscription name="[subscriptionname]"
                       certificateThumbprint="[managementcertificatethumbprint]"
                       subscriptionId="[subscriptionid]"
                       certificateStoreLocation="CurrentUser"
-                      certificateStoreName="My"> <services> <service dnsPrefix="[hostedservicednsprefix]" slot="Staging"> <roles> <role alias="AutoscalingApplicationRole"
+                      certificateStoreName="My">
+          <services>
+            <service dnsPrefix="[hostedservicednsprefix]" slot="Staging">
+              <roles>
+                <role alias="AutoscalingApplicationRole"
                       roleName="[targetrolename]"
-                      wadStorageAccountName="targetstorage"/> </roles> </service> </services> <storageAccounts> <storageAccount alias="targetstorage"
-              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]"> </storageAccount> </storageAccounts> </subscription> </subscriptions> </serviceModel>
+                      wadStorageAccountName="targetstorage"/>
+              </roles>
+            </service>
+          </services>
+          <storageAccounts>
+            <storageAccount alias="targetstorage"
+              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]">
+            </storageAccount>
+          </storageAccounts>
+        </subscription>
+      </subscriptions>
+    </serviceModel>
 
 您必須將方括弧中的值取代為環境和目標應用程式特有的值。若要找出其中多個值，您將需要登入 [Azure 管理入口網站][]。
 
@@ -262,23 +287,27 @@
 
 1.  在方案總管的 **App.config** 檔案上按一下滑鼠右鍵，然後按一下 [Edit Configuration File]。
 
-2.  在 [**區塊**] 功能表中，按一下 [**新增自動調整設定**]：![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
+2.  在 [**區塊**] 功能表中，按一下 [**新增自動調整設定**]：  
+	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
   
 3.  展開 [**自動調整設定**]，然後按一下 [**資料點存放區儲存體帳戶**] 旁邊的省略符號 (...)、新增 Azure 儲存體帳戶的 [**帳戶名稱**] 和 [**帳戶金鑰**]，區塊將在此儲存體帳戶儲存其收集的資料點 (如果不確定要在哪裡尋找這些值，請參閱[作法：定義您的服務模型][])，然後按一下 [**確定**]：
 
 	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling11.png)
 
-4.  展開 [Autoscaling Settings] 區段，以顯示 [Rules Store] 和 [Service Information Store] 區段。依預設，它們會設定成使用 Azure Blob 儲存體：![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png)
+4.  展開 [Autoscaling Settings] 區段，以顯示 [Rules Store] 和 [Service Information Store] 區段。依預設，它們會設定成使用 Azure Blob 儲存體：  
+	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png)
 
 
 5.  按一下 [Rules Store] 旁邊的加號 (+)、指向 [Set Rules Store]，然後按一下 [Use Local File Rules Store]，再按一下 [是]。
 
-6.  在 [檔案名稱] 方塊中，輸入 **rules.xml**。這是包含自動調整規則的檔案名稱：![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png)
+6.  在 [檔案名稱] 方塊中，輸入 **rules.xml**。這是包含自動調整規則的檔案名稱：  
+	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png)
 
 
 7.  按一下 [Service Information Store] 旁邊的加號 (+)、指向 [Set Service Information Store]，然後按一下 [Use Local File Service Information Store]，再按一下 [是]。
 
-8.  在 [檔案名稱] 方塊中，輸入 **services.xml**。這是包含自動調整規則的檔案名稱：![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png)
+8.  在 [檔案名稱] 方塊中，輸入 **services.xml**。這是包含自動調整規則的檔案名稱：  
+	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png)
 
 
 9.  在 [Enterprise Library Configuration] 視窗的 [檔案] 功能表上，按一下[儲存] 以儲存您的組態變更。然後，在 [Enterprise Library Configuration] 視窗的 [檔案] 功能表上，按一下 [結束]。
@@ -380,4 +409,4 @@
   [利用 Azure 上的自動調整減少 TechNet 和 MSDN 主控成本和環境影響]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

@@ -60,7 +60,7 @@ ADFS 伺服器上安裝 Microsoft Identity Health 代理程式對於 CPU、記�
 
 **問：Azure AD Connect Health 服務是否透過通過 http proxy 運作？**
 
-是，註冊程序與正常的操作可以透過明確的 proxy 設定運作，以轉送輸入 http 要求。在此情況下，"Netsh WinHttp set Proxy" 無法運作，因為代理程式使用 System.Net (而不是 Microsoft Windows HTTP 服務) 提出 Web 要求。
+是，註冊程序與正常的操作可以透過明確的 proxy 設定運作，以轉送輸入 http 要求。在此情況下，"Netsh WinHttp set Proxy" 無法運作，因為代理程式使用 System.Net (而不是 Microsoft Windows HTTP 服務) 提出 Web 要求。 
 
 在執行 Register-AdHealthAgent (安裝的最後一個步驟) 之前的任何時間執行
 
@@ -128,4 +128,4 @@ Azure AD Connect Health 警示會在成功情況下獲得解決。Azure AD Conne
 
 您必須開放 TCP/UDP 連接埠 80 和 443，Azure AD Connect Health 代理程式才能夠與 Azure AD Health 服務端點進行通訊。
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

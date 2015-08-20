@@ -186,8 +186,9 @@
 
 - **主機** - 裝載檔案系統的伺服器名稱是：**\contoso**。
 - **資料夾** - 含有輸入檔案的資料夾名稱是：**marketingcampaign\regionaldata\{slice}，裡面的檔案會在 {slice} 資料夾中分割，例如 2014121112 (2014 年 12 月 11 日 12 時)。
+
 ### 建立內部部署檔案系統連結服務
-下列範例 JSON 可以用來建立名為 **FolderDataStore** 的連結服務，其類型為 **OnPremisesFileServer**。
+下列範例 JSON 可以用來建立名為 **FolderDataStore** 的連結服務，其類型為 **OnPremisesFileServer**。  
 
 	{
 	  "name": "FolderDataStore",
@@ -487,4 +488,4 @@
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

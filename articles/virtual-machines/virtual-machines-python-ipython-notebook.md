@@ -112,7 +112,7 @@
 
 	* 您必須將 `C:\OpenSSL-Win32\bin` 加入 `PATH` 環境變數。
 
-	> [AZURE.NOTE]安裝 OpenSSL 時，請使用 1.0.1g 或更新版本，因為其中包含對 Heartbleed 安全性弱點的修正。
+> [AZURE.NOTE]安裝 OpenSSL 時，請使用 1.0.1g 或更新版本，因為其中包含對 Heartbleed 安全性弱點的修正。
 
 1.  使用下列命令安裝 IPython。
 
@@ -270,4 +270,4 @@ IPython Notebook 為交互存取 Azure 上 Python 生態系統的功能提供強
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!---HONumber=August15_HO6-->
+<!-------HONumber=August15_HO6-->

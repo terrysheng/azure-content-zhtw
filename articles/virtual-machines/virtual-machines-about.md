@@ -47,6 +47,6 @@ Azure 虛擬機器是由 Azure 所提供的隨選且可調整的數種運算資�
 <!--links-->
 [應用程式服務]: app-service-choose-me.md
 [虛擬機器]: #tellmevm
-[應用程式服務]: cloud-services-choose-me.md
+[雲端服務]: cloud-services-choose-me.md
 
-<!---HONumber=August15_HO6-->
+<!--------HONumber=August15_HO6-->

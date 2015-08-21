@@ -133,7 +133,7 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 | @ | 137\.135.70.239 |
 
 
-此範例示範建立根網域的 A 記錄。如果想要建立萬用字元項目來涵蓋所有子網域，請輸入 '\_\_*\_\_' 作為子網域。
+此範例示範建立根網域的 A 記錄。如果想要建立萬用字元項目來涵蓋所有子網域，請輸入 '__*__' 作為子網域。
 
 >[AZURE.WARNING]依預設，Azure 中的 IP 位址是動態的。您可能想要使用[保留的 IP 位址](..\virtual-network\virtual-networks-reserved-public-ip.md)，以確保您的 IP 位址不會變更。
 
@@ -153,4 +153,4 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -26,7 +26,9 @@
 
 ##概觀
 
-您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。[為資產編碼](media-services-encode-asset.md)主題說明如何編碼為調適性位元速率 MP4 集。如果您的內容已加密，請在建立定位器之前設定資產傳遞原則 (如[這個](media-services-dotnet-configure-asset-delivery-policy.md)主題中所述)。
+您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。[為資產編碼](media-services-encode-asset.md)主題說明如何編碼為調適性位元速率 MP4 集。
+
+>[AZURE.NOTE]如果您的內容已加密，請在建立定位器之前設定資產傳遞原則 (如[這個](media-services-dotnet-configure-asset-delivery-policy.md)主題中所述)。
 
 您也可以使用隨選串流定位器來建置指向可漸進式下載之 MP4 檔案的 URL。
 
@@ -94,6 +96,8 @@
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 	
 
+>[AZURE.NOTE]您也可以透過 SSL 連線串流您的內容。若要這樣做，請確定您的串流 URL 以 HTTPS 開頭。
+
 建置漸進式下載 URL
 
 	private static void BuildProgressiveDownloadURLs(IAsset asset)
@@ -157,4 +161,4 @@
 
 [下載資產](media-services-deliver-asset-download.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

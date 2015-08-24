@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/24/2015"
+   ms.date="08/11/2015"
    ms.author="subramar"/>
 
 # 疑難排解應用程式升級
@@ -225,4 +225,4 @@ Service Fabric 將所有百分比轉譯為健康狀態評估的實體實際數�
 [資料序列化](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

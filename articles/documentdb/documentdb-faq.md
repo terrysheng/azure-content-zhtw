@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/13/2015" 
 	ms.author="mimig"/>
 
 
@@ -48,7 +48,7 @@ DocumentDB 帳戶可以藉由加入集合，根據儲存體和輸送量來擴充
 請參閱 [DocumentDB 價格詳細資料](http://go.microsoft.com/fwlink/p/?LinkID=402317)頁面，以取得詳細資料。DocumentDB 使用量費用取決於使用中的集合數目、集合已在線上的時數，以及每個集合的[效能層級](documentdb-performance-levels.md)。
 
 ### 有免費的試用版可用嗎?
-如果您不熟悉 Azure，您可以註冊 [Azure 免費試用](https://azure.microsoft.com/zh-tw/pricing/free-trial/)，就能得到 30 天免費試用以及美金 200 元，讓您試用所有所有 Azure 服務。如果您有 MSDN 訂用帳戶，就可以享有[免費的 Azure 信用額度每月美金 150 元](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?WT.mc_id=azurebg_US_sem_bing_BR_BRMSDN_Nontest_MSDN_msdnazure&WT.srch=1)，可用於所有 Azure 服務。如果您想要免費試用 DocumentDB 30 天但不使用信用卡，請傳送電子郵件至 askdocdb@microsoft.com，主旨行請寫「文件常見問題集，Azure 試用版」，我們會在試用活動期限前回覆並附上促銷碼。
+如果您不熟悉 Azure，可以註冊 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)，就能得到 30 天免費試用以及美金 200 元，讓您試用所有 Azure 服務。如果您有 MSDN 訂用帳戶，就可以享有[免費的 Azure 信用額度每月美金 150 元](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)，可用於所有 Azure 服務。如果您想要免費試用 DocumentDB 30 天，但不使用信用卡，請傳送電子郵件至 askdocdb@microsoft.com，主旨行請寫「文件常見問題集，Azure 試用版」，我們會在試用活動期限前回覆並附上促銷碼。
 
 ### 如何取得 DocumentDB 的其他說明？
 如果您需要協助，請在 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb) 和 [Azure DocumentDB MSDN 開發人員論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)聯繫我們，或者是和 [DocumentDB 工程小組安排一對一的談話](http://www.askdocdb.com/)。若想隨時知道最新的 DocumentDB 新聞和功能，請追蹤我們的 [Twitter](https://twitter.com/DocumentDB)。
@@ -67,7 +67,7 @@ DocumentDB 帳戶可以藉由加入集合，根據儲存體和輸送量來擴充
 ### 什麼是集合？
 集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。查詢和交易的範圍設為集合。您可以將一組異質 JSON 文件儲存在單一集合內，全部會自動編製索引。
 
-集合也是 DocumentDB 的帳務實體。您每個月的 DocumentDB 使用量費用取決於使用中的集合數目、集合已在線上的時數，以及每個集合的[效能層級](documentdb-performance-levels.md)。如需詳細資訊，請參閱 [DocumentDB 定價](https://azure.microsoft.com/zh-tw/pricing/details/documentdb/)。
+集合也是 DocumentDB 的帳務實體。您每個月的 DocumentDB 使用量費用取決於使用中的集合數目、集合已在線上的時數，以及每個集合的[效能層級](documentdb-performance-levels.md)。如需詳細資訊，請參閱 [DocumentDB 定價](https://azure.microsoft.com/pricing/details/documentdb/)。
 
 ### 資料庫和集合有任何限制嗎？
 每個集合都附有資料庫儲存體配置和在其中一個支援的[效能層級](documentdb-performance-levels.md)佈建的輸送量。服務所管理的每一項資源也都有各自的配額。如需所有限制的清單，請參閱 [DocumentDB 限制](documentdb-limits.md)。若要要求變更您帳戶的限制，請參閱[要求增加 DocumentDB 帳戶限制](documentdb-increase-limits.md)。
@@ -111,4 +111,4 @@ DocumentDB 透過 JavaScript 預存程序和觸發程序，支援語言整合式
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

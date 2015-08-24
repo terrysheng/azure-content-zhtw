@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="06/29/2015"
+   ms.date="08/09/2015"
    ms.author="andalmia"/>
 
 
@@ -100,4 +100,4 @@ Azure 服務匯流排連接器提供下列觸發程序和動作：
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

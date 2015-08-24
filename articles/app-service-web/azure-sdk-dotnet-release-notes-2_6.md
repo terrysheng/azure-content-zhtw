@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/08/2015"
+   ms.date="08/08/2015"
    ms.author="juliako"/>
 
 
@@ -62,15 +62,15 @@
 
 	如需詳細資訊，請參閱 [Azure 快取的角色中快取](https://msdn.microsoft.com/library/azure/dn386103.aspx)。
 
-##Azure 應用程式服務工具
+##Azure App Service 工具
 
 Azure SDK 2.6 版中已更新下列項目。
 
 - 已增強 Azure 發行的功能，以將 Azure API Apps 納為部署目標。
 - API Apps 佈建功能提供使用者 API 應用程式的建立和佈建功能。
-- 將 [伺服器總管] 使用按資源群組分組的 Web、行動及 API 應用程式加以變更，以反映新的應用程式服務節點。
-- 加入已新增至大部分 C# 專案的 Azure API 應用程式用戶端手勢，將可自動產生啟用 Swagger 功能並可在使用者的 Azure 訂用帳戶中執行的 API Apps。
-- [伺服器總管] 中的 API Apps 工具和應用程式服務節點僅可以在 Visual Studio 2013 中使用。 
+- 將 [伺服器總管] 使用按資源群組分組的 Web、行動及 API 應用程式加以變更，以反映新的 App Service 節點。
+- 加入已新增至大部分 C# 專案的 Azure API Apps 用戶端手勢，將可自動產生啟用 Swagger 功能並可在使用者的 Azure 訂用帳戶中執行的 API Apps。
+- [伺服器總管] 中的 API Apps 工具和 App Service 節點僅可以在 Visual Studio 2013 中使用。 
 
 ##Azure 資源管理員工具更新
 
@@ -102,5 +102,8 @@ Azure SDK 2.6 重新提供針對收集 Azure 計算模擬器中的診斷記錄�
 
 	如果您仍會遇到上述問題，請針對 [VS 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409)、[VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) 或 [VS 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) 安裝最新版的 Azure 2.6 SDK。
  
+##另請參閱
 
-<!---HONumber=August15_HO6-->
+[Azure SDK for .NET 和 API 的支援和停用資訊](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
+
+<!---HONumber=August15_HO7-->

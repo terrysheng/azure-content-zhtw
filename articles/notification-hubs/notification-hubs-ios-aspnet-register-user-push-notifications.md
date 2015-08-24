@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 Web API 註冊目前使用者以取得推播通知 - 通知中樞" 
+	pageTitle="使用 Web API 註冊目前使用者以取得推播通知 | Microsoft Azure" 
 	description="了解如何在 ASP.NET Web API 執行註冊時，在 iOS 應用程式中向 Azure 通知中樞要求推播通知註冊。" 
 	services="notification-hubs" 
 	documentationCenter="ios" 
@@ -238,4 +238,4 @@
 [開始使用通知中心]: /manage/services/notification-hubs/get-started-notification-hubs-ios
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

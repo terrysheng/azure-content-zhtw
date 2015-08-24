@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # 更換 StorSimple 裝置上的控制器模組
@@ -266,4 +266,4 @@
 
 深入了解 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

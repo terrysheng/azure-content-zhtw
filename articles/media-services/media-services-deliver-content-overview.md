@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
@@ -72,7 +72,7 @@
 
 若要提供漸進式下載 URL 給使用者，您必須先建立 OnDemandOrigin 定位器。建立定位器可針對其中包含您要串流之內容的資產，提供其基底路徑。不過，若要能夠串流此內容，您還需要進一步修改此路徑。若要建構串流資訊清單檔案的完整 URL，您必須串連定位器的 Path 值和資訊清單 (filename.ism) 的檔案名稱。接著，在定位器路徑後面附加 /Manifest 和適當的格式 (如果需要)。
 
-您也可以透過 SSL 連線串流您的內容。若要這樣做，請確定您的串流 URL 以 HTTPS 開頭。
+>[AZURE.NOTE]您也可以透過 SSL 連線串流您的內容。若要這樣做，請確定您的串流 URL 以 HTTPS 開頭。
 
 請注意，只有在您從中傳遞內容的串流端點在 2014 年 9 月 10 日之後建立時，才能透過 SSL 串流。如果您的串流 URL 是根據 9 月 10 日之後建立的串流端點，則 URL 會包含 "streaming.mediaservices.windows.net" (新格式)。包含 "origin.mediaservices.windows.net" (舊格式) 的串流 URL 不支援 SSL。如果您的 URL 是舊格式，而且您希望能夠透過 SSL 串流，請建立新的串流端點。使用根據新的串流端點建立的 URL，透過 SSL 串流處理內容。
 
@@ -205,4 +205,4 @@
 [啟動儲存體金鑰之後更新媒體服務定位器](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

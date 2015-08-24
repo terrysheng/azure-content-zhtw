@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="啟用管線以使用內部部署資料 | Azure Data Factory" 
+	pageTitle="啟用管線以使用內部部署資料 | Microsoft Azure" 
 	description="了解如何使用 Azure Data Factory 註冊內部部署資料來源，並將資料複製到資料來源/複製資料來源中的資料。" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -113,7 +113,7 @@
 
 3. 在 [**設定**] 分頁中，按一下 [**直接安裝在此電腦上**]。這會下載閘道的安裝套件、在電腦上安裝、設定和註冊閘道。
 
-	> [AZURE.NOTE] 請使用 Internet Explorer 或 Microsoft ClickOnce 相容的 Web 瀏覽器。
+	> [AZURE.NOTE]請使用 Internet Explorer 或 Microsoft ClickOnce 相容的 Web 瀏覽器。
 
 	![閘道器 - [設定] 刀鋒視窗][image-data-factory-gateway-configure-blade]
 
@@ -123,7 +123,7 @@
 	
 	如需閘道器的詳細資訊 (包括最佳作法和重要考量)，請參閱[資料管理閘道](#DMG)一節。
 
-	>[AZURE.NOTE] 您必須是本機電腦上的系統管理員，才能成功安裝和設定「資料管理閘道」。您可以將其他使用者加入至資料管理閘道使用者本機 Windows 群組。此群組的成員可以使用「資料管理閘道組態管理員」工具來設定閘道器。
+	>[AZURE.NOTE]您必須是本機電腦上的系統管理員，才能成功安裝和設定「資料管理閘道」。您可以將其他使用者加入至資料管理閘道使用者本機 Windows 群組。此群組的成員可以使用「資料管理閘道組態管理員」工具來設定閘道器。
 
 4. 按一下左側的 [通知] 中樞。等待 [**通知**] 刀鋒視窗中出現 [**'adftutorialgateway' 的快速安裝成功**] 訊息。
 
@@ -396,9 +396,9 @@
 	- 在活動區段中，只會有 **type** 設為 **Copy** 的活動。
 	- 活動的**輸入**設定為 **EmpOnPremSQLTable**，活動的**輸出**則設定為 **OutputBlobTable**。
 	- 在 **transformation** 區段中，「**來源類型**」指定為 **SqlSource**，「**接收類型**」指定為 **BlobSink **。
-	- **SqlSource** 的 **sqlReaderQuery** 屬性指定 SQL 查詢 **select * from emp**。
+- **SqlSource** 的 **sqlReaderQuery** 屬性指定 SQL 查詢 **select * from emp**。
 
-	將 **start** 屬性的值取代為目前日期，並將 **end** 值取代為隔天的日期。開始和結束日期時間都必須是 [ISO 格式](http://zh.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**end** 時間為選擇性項目，但在本教學課程中會用到。
+	將 **start** 屬性的值取代為目前日期，並將 **end** 值取代為隔天的日期。開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**end** 時間為選擇性項目，但在本教學課程中會用到。
 	
 	如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。若要無限期地執行管線，請指定 **9/9/9999** 做為 **end** 屬性的值。
 	
@@ -464,7 +464,7 @@
 	![[活動執行詳細資料] 刀鋒視窗][image-data-factory-activity-run-details]
 
 11. 按一下 **X** 關閉所有刀鋒視窗，直到您回到 **ADFTutorialOnPremDF** 的起始刀鋒視窗。
-14. (選用) 依序按一下 [管線] 及 [ADFTutorialOnPremDF]，然後逐步深入輸入資料表 (**已使用**) 或輸出資料表 (**已產生**)。
+14. (選用) 依序按一下 [**管線**] 及 [**ADFTutorialOnPremDF**]，然後逐步深入輸入資料表 (**已使用**) 或輸出資料表 (**已產生**)。
 15. 使用「Azure 儲存體總管」之類的工具來驗證輸出。
 
 	![Azure 儲存體總管][image-data-factory-stroage-explorer]
@@ -626,4 +626,4 @@
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

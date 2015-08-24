@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="開始使用驗證 (Windows Phone) | 行動開發人員中心" 
+	pageTitle="開始使用驗證 (Windows Phone) | Microsoft Azure" 
 	description="了解如何使用行動服務透過眾多識別提供者驗證 Windows Phone 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -80,4 +80,4 @@ Nick Harris 也在下列這段影片中示範了本教學課程：
 [使用 Live Connect 在 Windows Phone 應用程式提供單一登入功能]: mobile-services-windows-phone-single-sign-on.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

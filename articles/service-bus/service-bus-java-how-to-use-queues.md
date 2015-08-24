@@ -1,5 +1,5 @@
 <properties
-	pageTitle="如何使用服務匯流排佇列 (Java) - Azure"
+	pageTitle="如何使用服務匯流排佇列 (Java) | Microsoft Azure"
 	description="了解如何使用 Azure 中的服務匯流排佇列。程式碼範例以 Java 撰寫。"
 	services="service-bus"
 	documentationCenter="java"
@@ -175,7 +175,7 @@ QueueInfo 有相關方法可讓您調整佇列的屬性 (例如，針對要在�
 現在您已了解服務匯流排佇列的基本概念，請參閱 MSDN 主題[佇列、主題和訂用帳戶][]，以取得詳細資訊。
 
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
-  [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/zh-tw/library/azure/hh694271.aspx
+  [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/zh-cn/library/azure/hh694271.aspx
   [What are Service Bus Queues?]: #what-are-service-bus-queues
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -189,4 +189,4 @@ QueueInfo 有相關方法可讓您調整佇列的屬性 (例如，針對要在�
   [佇列、主題和訂用帳戶]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

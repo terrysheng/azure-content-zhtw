@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="05/10/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 #  Site Recovery 概觀
@@ -77,4 +77,4 @@ Azure 復原服務代理程式</p><p>用來透過 HTTPS 連線至 Site Recovery|
 完成此概觀之後，請[讀取最佳作法](site-recovery-best-practices.md)以協助您開始進行部署規劃。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

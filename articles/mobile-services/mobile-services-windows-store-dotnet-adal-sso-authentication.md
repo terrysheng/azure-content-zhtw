@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 Active Directory Authentication Library 單一登入驗證您的應用程式 (Windows 市集) | 行動開發人員中心" 
+	pageTitle="使用 Active Directory Authentication Library 單一登入驗證您的應用程式 (Windows 市集) | Microsoft Azure" 
 	description="了解如何在 Windows 市集應用程式中驗證使用者的單一登入。" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -217,4 +217,4 @@
 [開始使用行動服務]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Windows 開發人員中心儀表板]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

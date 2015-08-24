@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 Xamarin Android 應用程式中開始使用 Azure 行動應用程式 - Azure 行動應用程式"
-	description="遵循此教學課程，可開始使用 Azure 行動應用程式進行 Xamarin Android 開發。"
+	pageTitle="在 Xamarin Android 應用程式中開始使用 Azure Mobile Apps | Microsoft Azure"
+	description="遵循此教學課程，可開始使用 Azure Mobile Apps 進行 Xamarin Android 開發。"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="chrisanderson"
@@ -26,7 +26,7 @@
 
 ![][0]
 
-完成本教學課程是 Xamarin Android 應用程式所有其他 Azure 行動應用程式教學課程的先決條件。
+完成本教學課程是 Xamarin Android 應用程式所有其他 Azure Mobile Apps 教學課程的先決條件。
 
 若要完成此教學課程，您需要下列項目：
 
@@ -45,7 +45,7 @@
 
 在本節中，您將為行動應用程式下載新的 Xamarin Android 應用程式和 .NET 後端服務專案。
 
-1. 在 Azure 入口網站中，依序按一下 [**瀏覽**]、[**行動應用程式**]，然後按一下您剛建立的行動應用程式。
+1. 在 Azure 入口網站中，依序按一下 [瀏覽]、Mobile Apps，然後按一下您剛建立的行動應用程式。
 
 2. 在刀鋒視窗頂端，按一下 [**加入用戶端**] 並展開 **Xamarin.Android**。
 
@@ -110,4 +110,4 @@
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

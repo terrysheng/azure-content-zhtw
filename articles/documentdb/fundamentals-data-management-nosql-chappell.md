@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="了解 Azure 上的 NoSQL 技術 | Azure" 
+	pageTitle="了解 Azure 上的 NoSQL 技術 | Microsoft Azure" 
 	description="了解 HDInsight 上的 NoSQL 技術如何協助您管理不適用於關聯式資料庫的資料，例如巨量資料集和 JSON 文件或圖形。" 
 	editor="cgronlun" 
 	manager="jhubbard" 
@@ -31,4 +31,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

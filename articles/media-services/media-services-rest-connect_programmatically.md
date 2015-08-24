@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
 # 使用媒體服務 REST API 連接到媒體服務帳戶
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md)系列的一部分。
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-connect_programmatically.md)
+- [REST](media-services-rest-connect_programmatically.md)
 
 本主題描述如何在使用媒體服務 REST API 進行程式設計時，取得 Microsoft Azure 媒體服務的程式設計連線。
 
@@ -167,4 +169,4 @@
 
 <!-- URLs. -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

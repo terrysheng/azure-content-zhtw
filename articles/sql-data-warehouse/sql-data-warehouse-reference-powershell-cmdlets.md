@@ -67,7 +67,14 @@
 
 ## Get-AzureSqlDatabaseRestorePoints
 
-此 Cmdlet 會列出 Azure SQL Databases 的備份還原點。還原點可用來還原資料庫。所傳回之物件的屬性如下所示。<table> <tr> <td>屬性</td> <td>描述</td> </tr> <tr> <td>RestorePointType</td> <td>DISCRETE / CONTINUOUS。離散還原點說明可還原 Azure SQL Databases 的可能時間點。連續還原點說明可還原 Azure SQL Databases 的最早可能時間點。資料庫可還原至最早時間點之後的任一時間點。</td> </tr> <tr> <td>EarliestRestoreDate</td> <td>最早還原時間 (在 restorePointType = CONTINUOUS 時填入)</td> </tr> <tr> <td>RestorePointCreationDate </td> <td>備份快照時間 (在 restorePointType = DISCRETE 時填入)</td> </tr> </table>
+此 Cmdlet 會列出 Azure SQL Databases 的備份還原點。還原點可用來還原資料庫。所傳回之物件的屬性如下所示。
+
+屬性|說明
+---|---
+RestorePointType|DISCRETE/CONTINUOUS。離散還原點說明可還原 Azure SQL Databases 的可能時間點。連續還原點說明可還原 Azure SQL Databases 的最早可能時間點。資料庫可還原至最早時間點之後的任一時間點。
+EarliestRestoreDate|最早還原時間 (在 restorePointType = CONTINUOUS 時填入)
+RestorePointCreationDate |備份快照時間 (在 restorePointType = DISCRETE 時填入)
+
 ### 範例 1：依名稱在伺服器上擷取資料庫的還原點
 此範例會從「ResourceGroup1」資源群組包含的「Server01」伺服器中，擷取「Database02」資料庫的還原點。
 
@@ -99,4 +106,4 @@
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

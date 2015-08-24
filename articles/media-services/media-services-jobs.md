@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #使用 Azure 媒體服務工作
@@ -60,4 +60,4 @@
 [配額和限制](media-services-quotas-and-limitations.md) – 說明使用的配額和媒體服務編碼器的限制
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

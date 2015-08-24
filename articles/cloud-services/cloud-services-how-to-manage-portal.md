@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何管理雲端服務 - Azure" 
+	pageTitle="如何管理雲端服務 | Microsoft Azure" 
 	description="了解如何在 Azure Preview 入口網站中管理雲端服務。" 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -106,4 +106,4 @@ Azure Preview 入口網站不會像目前 Azure 入口網站一樣將資源連�
 
 [Azure Preview 入口網站]: https://portal.azure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

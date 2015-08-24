@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 
 #Windows Phone Silverlight SDK 升級程序
@@ -142,4 +142,4 @@ Engagement 使用連接字串。您不需要為 Mobile Engagement 指定應用�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

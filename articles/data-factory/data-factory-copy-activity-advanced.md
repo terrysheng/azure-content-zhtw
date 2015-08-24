@@ -18,7 +18,7 @@
 
 # 在 Azure Data Factory 中使用複製活動的進階案例 
 ## 概觀
-您可以在管線中使用 [**複製活動**]，以批次方式將資料從來源複製到接收器 (目的地)。本主題說明「複製活動」支援的進階案例。如需「複製活動」的詳細概觀及其支援的核心案例，請參閱[使用 Azure Data Factory 複製資料][adf-copyactivity]。
+您可以在管線中使用 [**複製活動**]，以批次方式將資料從來源複製到接收器 (目的地)。本主題說明「複製活動」支援的進階案例。
 
 
 ## 使用結構定義的資料行篩選
@@ -265,8 +265,6 @@
 
 ## 另請參閱
 
-- [使用複製活動的範例][copy-activity-examples]
-- [使用 Azure Data Factory 複製資料][adf-copyactivity]
 - [複製活動 - JSON 指令碼參考](https://msdn.microsoft.com/library/dn835035.aspx)
 - [影片：Azure Data Factory 複製活動簡介][copy-activity-video]
 
@@ -276,17 +274,15 @@
 
 
 [adfgetstarted]: data-factory-get-started.md
-[adf-copyactivity]: data-factory-copy-activity.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[copy-activity-examples]: data-factory-copy-activity-examples.md
 
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[azure-table-data-type]: https://msdn.microsoft.com/zh-tw/library/azure/dd179338.aspx
+[azure-table-data-type]: https://msdn.microsoft.com/zh-cn/library/azure/dd179338.aspx
 
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

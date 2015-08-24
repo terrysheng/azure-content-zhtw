@@ -1,6 +1,6 @@
 <properties 
     pageTitle="建立以 Azure VM 為基礎的 Azure RemoteApp 映像"
-    description="了解如何從 Azure 虛擬機器建立 RemoteApp 映像。" 
+    description="了解如何開始使用 Azure 虛擬機器來建立 Azure RemoteApp 映像。" 
     services="remoteapp" 
     documentationCenter="" 
     authors="lizap" 
@@ -12,16 +12,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
 
 # 建立以 Azure 虛擬機器為基礎的 Azure RemoteApp 映像
 
-您可以從 Azure 虛擬機器建立 RemoteApp 映像 (其中保存您在收藏中共用的應用程式)。我們也在符合所有 RemoteApp 映像需求的 Azure VM 資源庫中加入了虛擬機器映像，如果您要的話，您可以將該 VM 映像做為您自己 VM 的起點使用。只需在映像庫中尋找「Windows Server 遠端桌面工作階段主機」。
+您可以從 Azure 虛擬機器建立 Azure RemoteApp 映像 (其中保存您在集合中共用的應用程式)。您也可以使用我們已新增至 Azure VM 映像資源庫的虛擬機器映像，其符合所有 Azure RemoteApp 映像需求。如果您想要的話，您可以將該 VM 映像做為您自己 VM 的起點使用。只需在映像庫中尋找「Windows Server 遠端桌面工作階段主機」。
 
-共有兩個步驟：建立映像，然後將它從 Azure VM 映像庫上傳至 Azure RemoteApp。
+根據 Azure VM 建立您的專屬映像共有兩個步驟：建立映像，然後將它從 Azure VM 映像庫上傳至 Azure RemoteApp。
 
 ## 建立以 Azure VM 為基礎的自訂映像
 
@@ -41,9 +41,9 @@
 
  
 
-## 將映像匯入 RemoteApp 映像庫
+## 將映像匯入 Azure RemoteApp 映像庫
 
-使用下列步驟將新的映像匯入 RemoteApp：
+使用下列步驟將新的映像匯入 Azure RemoteApp：
 
 1. 在 [**範本映像**] 索引標籤中：
 	- 如果您沒有現有的映像，請按一下 [**上傳或匯入範本映像**]。 
@@ -59,4 +59,4 @@
 現在您已經準備好開始建立新的收藏 ([雲端](remoteapp-create-cloud-deployment.md)收藏或[混合式](remoteapp-create-hybrid-deployment.md))，視您的需求而定。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,9 +1,9 @@
 
 <properties 
-    pageTitle="透過 Azure RemoteApp 使用 Office 365" 
-    description="了解 Office 365 和 Azure RemoteApp 如何共同運作" 
+    pageTitle="使用 Office 與 Azure RemoteApp 搭配" 
+    description="了解 Office 和 Azure RemoteApp 如何共同運作" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
-# 透過 Azure RemoteApp 使用 Office 365
+# 使用 Office 與 Azure RemoteApp 搭配
 
-在 RemoteApp 中裝載 Office 應用程式有兩個選項：Office 365 ProPlus 或 Office 2013 Professional Plus 試用版。
+在 Azure RemoteApp 中裝載 Office 應用程式有兩個選項：Office 365 ProPlus 或 Office 2013 Professional Plus 試用版。
 
 ## Office 365 ProPlus 
 您可以使用 Office 365 ProPlus 範本映像建立 RemoteApp 收藏。此選項可讓您將 Office 365 服務延伸至 RemoteApp。您必須有現有的訂閱方案，而且您的使用者必須有 Office 365 ProPlus 服務的授權 (獨立授權或透過 Office 365 服務方案授權)。
@@ -48,4 +48,4 @@ RemoteApp 支援 Office 365 共用電腦啟用。當您啟用「共用電腦啟�
 如果您在試用期過後還未轉換成實際執行模式，將會停用您的 RemoteApp 收藏。別擔心，您的設定和使用者資料會持續儲存 90 天，因此，您仍可以啟用您的服務和切換到實際執行模式，不會遺失任何資料。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

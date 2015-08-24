@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.topic="get-started-article"
+	ms.date="08/06/2015"
 	ms.author="banders"/>
 
 # Operational Insights 功能指南
@@ -33,7 +33,7 @@ Operational Insights 是一項分析服務，可讓 IT 系統管理員取得跨�
 |---|---|---|
 |![](./media/operational-insights-feature-guide/cap-plan.png) | [容量規劃](operational-insights-capacity.md) | 您可以使用 Microsoft Azure Operational Insights 中的「容量規劃」解決方案，協助您瞭解伺服器基礎結構的容量。 |
 | ![](./media/operational-insights-feature-guide/update.png) | [系統更新評估](operational-insights-updates.md) | 您可以使用 Microsoft Azure Operational Insights 中的系統更新解決方案，協助您將遺失的更新套用到基礎結構中的伺服器。 |
-| ![](./media/operational-insights-feature-guide/log-mgt.png) | [記錄檔管理](operational-insights-search.md) | 您可以使用「記錄檔管理」解決方案來收集整個 Operational Insights 記錄搜尋的事件和 IIS 記錄檔。 |
+| ![](./media/operational-insights-feature-guide/log-search.png) | [記錄檔搜尋](operational-insights-search.md) | 您可以使用記錄檔搜尋功能，建立查詢來轉換、篩選和報告結果。搜尋會使用事件資料與 IIS 記錄檔，在整個 Operational Insights 搜尋記錄檔。 |
 | ![](./media/operational-insights-feature-guide/malware.png) | [惡意程式碼評估](operational-insights-antimalware.md) | 您可以使用 Microsoft Azure Operational Insights 中的「反惡意程式碼」解決方案來保護基礎結構中伺服器，避免遭受惡意程式碼侵襲。 |
 | ![](./media/operational-insights-feature-guide/sec-audit.png) | [安全性和稽核](operational-insights-security-audit.md) | 您可以使用「安全性和稽核」解決方案，針對值得您注意的問題使用內建的搜尋查詢，對您組織的 IT 安全性狀況獲得全面性的檢視。 |
 | ![](./media/operational-insights-feature-guide/assessment.png) | [Active Directory 和 SQL 評估](operational-insights-assessment.md) | 您可以使用「評估」解決方案定期評估伺服器環境的風險和健全狀況。 |
@@ -47,7 +47,7 @@ Operational Insights 是一項分析服務，可讓 IT 系統管理員取得跨�
 	- [將電腦直接連線到 Operational Insights](operational-insights-direct-agent.md)
 	- [在 Microsoft Azure 中分析來自伺服器的資料](operational-insights-analyze-data-azure.md)
 - **使用行動應用程式即時執行所有上述作業**
-	- 如需 Windows Phone 應用程式的詳細資訊，請參閱 [Operational Insights 行動應用程式](http://www.windowsphone.com/zh-tw/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)。
+	- 如需 Windows Phone 應用程式的詳細資訊，請參閱 [Operational Insights 行動應用程式](http://www.windowsphone.com/zh-cn/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)。
 
 ## Operational Insights 環境
 
@@ -72,4 +72,4 @@ Operational Insights 環境組成項目包含：
 ### 可在何處取得 Operational Insights？
 Microsoft Azure Operational Insights 位於美國。雖然 Operational Insights 的語言是英文，但是數個其他市場都提供此服務。如需相關資訊，請參閱[國際可用性](http://go.microsoft.com/fwlink/?LinkId=229842)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

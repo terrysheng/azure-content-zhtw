@@ -112,4 +112,4 @@
 [Python Azure 封裝]: https://pypi.python.org/pypi/azure
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

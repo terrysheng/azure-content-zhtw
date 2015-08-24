@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 Active Directory Authentication Library 單一登入驗證您的應用程式 (Xamarin.iOS) | 行動開發人員中心" 
+	pageTitle="使用 Active Directory Authentication Library 單一登入驗證您的應用程式 (Xamarin iOS) | Microsoft Azure" 
 	description="了解如何在 Xamarin.iOS 應用程式中驗證使用者的單一登入。" 
 	documentationCenter="xamarin" 
 	authors="mattchenderson" 
@@ -141,4 +141,4 @@
 [Xamarin 延伸]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

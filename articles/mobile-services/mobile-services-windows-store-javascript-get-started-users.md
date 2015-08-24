@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="開始使用驗證 (JavaScript) | 行動開發人員中心" 
+	pageTitle="開始使用驗證 (JavaScript) | Microsoft Azure" 
 	description="了解如何使用行動服務透過眾多識別提供者驗證 Windows 市集 JavaScript 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -94,4 +94,4 @@
 [Register your Windows Store app package for Microsoft authentication]: /develop/mobile/how-to-guides/register-windows-store-app-package
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

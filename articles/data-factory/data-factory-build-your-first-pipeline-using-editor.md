@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -215,7 +215,7 @@
 7. 在 [圖表檢視] 中，您會看到管線的概觀，以及在本教學課程中使用的資料集。
 	
 	![圖表檢視](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png) 
-8. 在 [圖表檢視] 中，按兩下 [**AzureBlobOutput**] 資料集。您會看到目前正在處理的配量。
+8. 在 [圖表檢視] 中，按兩下 **AzureBlobOutput** 資料集。您會看到目前正在處理的配量。
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 9. 當處理完成時，您會看到配量處於 **就緒** 狀態。請注意，建立隨選 HDInsight 叢集通常需要一些時間。 
@@ -230,4 +230,4 @@
 在本文中，您已經建立可在隨選 HDInsight 叢集上執行 Hive 指令碼，含有轉換活動 (HDInsight 活動) 的管線。若要了解如何使用「複製活動」從 Azure Blob 複製資料到 Azure SQL，請參閱[教學課程：從 Azure Blob 複製資料到 Azure SQL](./data-factory-get-started.md)。
   
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

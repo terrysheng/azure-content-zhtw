@@ -35,7 +35,7 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 
 開啟的刀鋒視窗是您要查看您的應用程式效能和使用量資料的位置。若要在下次登入 Azure 時回到此位置，您應該會在開始畫面上發現它的磚。或者按一下 [瀏覽] 以尋找它。
 
-## 下載 Application Insights for Mac
+## 下載 Application Insights for iOS
 
 (如果您尚未執行這項操作。)
 
@@ -141,4 +141,4 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

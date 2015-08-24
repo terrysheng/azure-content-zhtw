@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="從通用 Windows 應用程式將影像上傳至 Azure Blob 儲存體 | Azure 行動服務" 
+	pageTitle="從通用 Windows 應用程式將影像上傳至 Azure Blob 儲存體 | Microsoft Azure" 
 	description="了解如何使用 JavaScript 後端行動服務將影像上傳至 Azure Blob 儲存體，並從通用 Windows 應用程式存取影像。" 
 	services="mobile-services,storage" 
 	documentationCenter="windows" 
@@ -87,4 +87,4 @@
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

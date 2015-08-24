@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="混合式連線概觀 | Azure" 
+	pageTitle="混合式連線概觀 | Microsoft Azure" 
 	description="了解混合式連線，包括安全性、TCP 連接埠和支援的組態。MABS，WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -38,7 +38,7 @@
 	> [AZURE.NOTE]目前不支援使用動態連接埠的 TCP 服務 (例如 FTP 被動模式或延伸被動模式)。
 
 - 可以與 Azure Web Apps (.NET、PHP、Java、Python、Node.js) 和 Azure Mobile Apps (Node.js、.NET) 支援的所有架構搭配使用。
-- Web Apps 和 Mobile Apps 能夠以完全相同的方式存取內部部署資源，就像是該 Web 或行動應用程式位於本機網路一樣。例如，內部部署使用的相同連接字串也可以在 Azure 上使用。
+- Web Apps 和 Mobile Apps 能夠以完全相同的方式存取內部部署資源，就像是該 Web 或 Mobile Apps 位於本機網路一樣。例如，內部部署使用的相同連接字串也可以在 Azure 上使用。
 
 
 混合式連線也可讓企業系統管理員控制和檢視混合式應用程式所存取的公司資源，包括：
@@ -103,4 +103,4 @@
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

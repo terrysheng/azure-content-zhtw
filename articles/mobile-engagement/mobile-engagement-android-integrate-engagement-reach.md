@@ -3,7 +3,7 @@
 	description="Android SDK for Azure Mobile Engagement 的最新更新和程序"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 #如何在 Android 上整合 Engagement Reach
 
@@ -647,4 +647,4 @@ Reach SDK 使用意圖系統來解析特定類別的正確活動，如果解析�
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

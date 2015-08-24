@@ -1,7 +1,9 @@
 
-| Resource	| Soft limit 
+| 資源 | 軟性限制 
 --- | ---
-| CDN endpoints | 50
-| Custom domains per one customer| 16
+| CDN 端點 | 50
+| 每個客戶的自訂網域| 16
 
-You can request to update soft limits by opening a support ticket.
+您可以開啟支援票證來要求更新軟性限制。
+
+<!---HONumber=August15_HO7-->

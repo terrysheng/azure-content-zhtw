@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="開始使用驗證 (Android) | 行動開發人員中心" 
+	pageTitle="開始使用驗證 (Android) | Microsoft Azure" 
 	description="了解如何使用行動服務透過眾多識別提供者驗證 Android 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -117,4 +117,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

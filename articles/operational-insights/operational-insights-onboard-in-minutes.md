@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/09/2015"
+    ms.date="08/06/2015"
     ms.author="banders"/>
 
 # 在幾分鐘之內上架到 Operational Insights
@@ -97,4 +97,4 @@
 - 熟悉[搜尋](operational-insights-search.md)
 - 使用[儀表板](operational-insights-use-dashboards.md)來儲存及顯示自訂搜尋
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

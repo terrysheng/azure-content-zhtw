@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="將 New Relic 與 Azure 搭配使用 - Azure 功能指南" 
+	pageTitle="將 New Relic 與 Azure 搭配使用 | Microsoft Azure" 
 	description="了解如何使用 New Relic 服務來管理與監控 Azure 應用程式。" 
 	services="" 
 	documentationCenter=".net" 
@@ -176,4 +176,4 @@ New Relic 與 Azure Web 角色和背景工作角色緊密整合。
  * [實際使用者監控](https://newrelic.com/docs/features/real-user-monitoring) (英文)：RUM 如何詳述使用者瀏覽器載入網頁所需的時間、使用者來自何方及使用什麼瀏覽器的概觀
  * [尋找說明](https://newrelic.com/docs/site/finding-help) (英文)：New Relic 線上說明中心提供的資源
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

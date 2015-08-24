@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/08/2015"
+	ms.date="08/05/2015"
 	ms.author="raynew"/>
 
 # Site Recovery 部署的最佳作法
@@ -194,4 +194,4 @@ System Center 2012 R2 上的 VMM (建議選項) (叢集或獨立) | <p>使用 Hy
 - [利用單一 VMM 伺服器設定保護](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

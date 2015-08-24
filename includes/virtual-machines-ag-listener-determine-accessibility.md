@@ -1,10 +1,12 @@
-It is important to realize that there are two ways to configure an Availability Group listener in Azure. These methods differ in the type of Azure load balancer you use when you create the listener. The following table describes the differences:
+請務必了解有兩種方式可以在 Azure 中設定可用性群組接聽程式。這些方法的差異在於您建立接聽程式時使用的 Azure 負載平衡器類型。下表描述其差異：
 
-| Load Balancer | Implementation | Use When: |
+| 負載平衡器 | 實作 | 使用時機： |
 | ------------- | -------------- | ----------- |
-| **External** | Uses the **public Virtual IP address** of the cloud service that hosts the Virtual Machines. | You need to access the listener from outside the virtual network, including from the internet. |
-| **Internal** | Uses **Internal Load Balancing (ILB)** with a private address for the listener. | You only access the listener from within the same virtual network. This includes site-to-site VPN in hybrid scenarios. |
+| **外部** | 使用主控虛擬機器之雲端服務的 [公用虛擬 IP 位址]。 | 您需要從虛擬網路外部存取接聽程式，包括從網際網路。 |
+| **內部** | 使用 [內部負載平衡 (ILB)] 搭配接聽程式的私用位址。 | 您只能從相同的虛擬網路內存取接聽程式。這包括混合案例中的站對站 VPN。 |
 
->[AZURE.IMPORTANT] For a listener using the cloud service's public VIP (external load balancer), any data returned through the listener is considered egress and charged at normal data transfer rates in Azure. This is true even if the client is located in the same virtual network and datacenter as the listener and databases. This is not the case with a listener using ILB.
+>[AZURE.IMPORTANT]針對使用雲端服務公用 VIP (外部負載平衡器) 的接聽程式，透過接聽程式傳回的任何資料都會視為輸出，並在 Azure 中依照標準資料傳輸費率收費。即使用戶端位於與接聽程式和資料庫相同的虛擬網路與資料中心也是如此。使用 ILB 的接聽程式情況與此不同。
 
-ILB can only be configured on virtual networks with a regional scope. Existing virtual networks that have been configured for an affinity group cannot use ILB. For more information, see [Internal Load Balancer](../articles/load-balancer/load-balancer-internal-overview.md).
+ILB 只可以在具有區域範圍的虛擬網路上設定。已針對同質群組設定的現有虛擬網路無法使用 ILB。如需詳細資訊，請參閱[內部負載平衡器](../articles/load-balancer/load-balancer-internal-overview.md)。
+
+<!---HONumber=August15_HO7-->

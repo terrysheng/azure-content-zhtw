@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="處理通用 Windows 應用程式中的離線資料衝突 | Azure 行動服務" 
+	pageTitle="處理通用 Windows 應用程式中的離線資料衝突 | Microsoft Azure" 
 	description="了解您在通用 Windows 應用程式中同步離線資料時應如何使用 Azure 行動服務處理衝突" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -165,4 +165,4 @@
 [Todo 離線行動服務範例]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

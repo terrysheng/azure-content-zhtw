@@ -71,13 +71,13 @@ Azure Blob 儲存體語法：
 
 下表列出本教學課程中使用的檔案：
 
-<table border="1">
-<tr><th>檔案</th><th>說明</th></tr>
-<tr><td>/tutorials/twitter/data/tweets.txt</td><td>Hive 工作的來源資料。</td></tr>
-<tr><td>/tutorials/twitter/output</td><td>Hive 工作的輸出資料夾。預設 Hive 工作的輸出檔案名稱為 <strong>000000_0</strong>。</td></tr>
-<tr><td>tutorials/twitter/twitter.hql</td><td>HiveQL 指令碼檔案。</td></tr>
-<tr><td>/tutorials/twitter/jobstatus</td><td>Hadoop 工作狀態。</td></tr>
-</table>
+檔案|說明
+---|---
+/tutorials/twitter/data/tweets.txt|Hive 工作的來源資料。
+/tutorials/twitter/output|Hive 工作的輸出資料夾。預設 Hive 工作的輸出檔案名稱為 **000000\_0**。 
+tutorials/twitter/twitter.hql|HiveQL 指令碼檔案。
+/tutorials/twitter/jobstatus|Hadoop 工作狀態。
+
 
 ##取得 Twitter 摘要
 
@@ -97,12 +97,12 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。OAuth 是一項驗證
 2. 按一下 [建立新的應用程式]。
 3. 輸入 [名稱]、[說明]、[網站]。您可以在 [**網站**] 欄位中自行設定 URL。下表列出部分要使用的範例值：
 
-	<table border="1">
-<tr><th>欄位</th><th>值</th></tr>
-<tr><td>名稱</td><td>MyHDInsightApp</td></tr>
-<tr><td>說明</td><td>MyHDInsightApp</td></tr>
-<tr><td>網站</td><td>http://www.myhdinsightapp.com</td></tr>
-</table>
+欄位|值
+---|---
+名稱|MyHDInsightApp
+說明|MyHDInsightApp
+網站|http://www.myhdinsightapp.com
+
 4. 核取 [Yes, I agree]然後按一下 [Create your Twitter application]。
 5. 按一下 [權限] 索引標籤。預設權限為 [唯讀]。本教學課程使用預設值即可。 
 6. 按一下 **[金鑰和存取權杖**] 索引標籤。
@@ -245,17 +245,16 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。OAuth 是一項驗證
 
 3. 設定指令碼中的前五到八個變數：
 
-	<table border="1">
-	<tr><th>變數</th><th>說明</th></tr>
-	<tr><td>$clusterName</td><td>這是您要執行應用程式的 HDInsight 叢集名稱。</td></tr><tr><td>$oauth_consumer_key</td><td>這是您先前在建立 Twitter 應用程式時所記下的 Twitter 應用程式<strong>消費者金鑰</strong>。</td></tr>
-	<tr><td>$oauth_consumer_secret</td><td>這是您先前記下的 Twitter 應用程式<strong>消費者密碼</strong>。</td></tr>
-	<tr><td>$oauth_token</td><td>這是您先前記下的 Twitter 應用程式<strong>存取權杖</strong>。</td></tr>
-	<tr><td>$oauth_token_secret</td><td>這是您先前記下的 Twitter 應用程式<strong>存取權杖密碼</strong>。</td></tr>	
-	<tr><td>$destBlobName</td><td>這是輸出 Blob 名稱。預設值為 <strong>tutorials/twitter/data/tweets.txt</strong>。如果您變更預設值，則 Windows PowerShell 指令碼也必須隨之變更。</td></tr>
-	<tr><td>$trackString</td><td>Web 服務會傳回這些關鍵字的相關推文。預設值為 <strong>Azure, Cloud, HDInsight</strong>。如果您變更預設值，則 Windows PowerShell 指令碼也要隨之變更。</td></tr>
-	<tr><td>$lineMax</td><td>此值會決定指令碼所將讀取的推文數。讀取 100 則推文大約需要三分鐘。您可以設定更大的數目，但下載時間將會較久。</td></tr>
-
-	</table>
+變數|說明
+---|---
+$clusterName|這是您要執行應用程式的 HDInsight 叢集名稱。
+$oauth\_consumer\_key|這是您先前在建立 Twitter 應用程式時所記下的 Twitter 應用程式**消費者金鑰**。
+$oauth\_consumer\_secret|這是您先前記下的 Twitter 應用程式**消費者密碼**。
+$oauth\_token|這是您先前記下的 Twitter 應用程式**存取權杖**。
+$oauth\_token\_secret|這是您先前記下的 Twitter 應用程式**存取權杖密碼**。	
+$destBlobName|這是輸出 Blob 名稱。預設值為 **tutorials/twitter/data/tweets.txt**。如果您變更預設值，則 Windows PowerShell 指令碼也必須隨之變更。
+$trackString|Web 服務會傳回這些關鍵字的相關推文。預設值為 **Azure, Cloud, HDInsight**。如果您變更預設值，則 Windows PowerShell 指令碼也要隨之變更。
+$lineMax|此值會決定指令碼所將讀取的推文數。讀取 100 則推文大約需要三分鐘。您可以設定更大的數目，但下載時間將會較久。
 
 5. 按 **F5** 以執行指令碼。如果發生問題，請選取所有程式碼行，然後按 **F8**，以解決問題。
 6. 輸出的結尾應會顯示「完成！」。錯誤訊息會顯示為紅色。
@@ -445,13 +444,12 @@ HiveQL 指令碼將執行下列作業：
 
 4. 設定指令碼中的前兩個變數：
 
-	<table border="1">
-<tr><th>變數</th><th>說明</th></tr>
-<tr><td>$clusterName</td><td># 提供您要在其中執行 Hive 工作的 HDInsight 叢集名稱</td></tr>
-<tr><td>$sourceDataPath</td><td>Hive 查詢將從中讀取資料的 Azure Blob 儲存體位置。您無須變更此變數。</td></tr>
-<tr><td>$outputPath</td><td>Hive 查詢將輸出結果的 Azure Blob 儲存體位置。您無須變更此變數。</td></tr>
-<tr><td>$hqlScriptFile</td><td>HiveQL 指令碼檔案的位置和檔案名稱。您無須變更此變數。</td></tr>
-</table>
+變數|說明
+---|---
+$clusterName|# 提供您要在其中執行 Hive 工作的 HDInsight 叢集名稱
+$sourceDataPath|Hive 查詢將從中讀取資料的 Azure Blob 儲存體位置。您無須變更此變數。
+$outputPath|Hive 查詢將輸出結果的 Azure Blob 儲存體位置。您無須變更此變數。
+$hqlScriptFile|HiveQL 指令碼檔案的位置和檔案名稱。您無須變更此變數。
 
 5. 按 **F5** 以執行指令碼。如果發生問題，請選取所有程式碼行，然後按 **F8**，以解決問題。
 6. 輸出的結尾應會顯示「完成！」。錯誤訊息會顯示為紅色。
@@ -562,4 +560,4 @@ HiveQL 指令碼將執行下列作業：
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

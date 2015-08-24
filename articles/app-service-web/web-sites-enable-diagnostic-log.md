@@ -22,7 +22,7 @@
 
 Azure 提供內建診斷功能，可協助對 [App Service Web 應用程式](http://go.microsoft.com/fwlink/?LinkId=529714)進行偵錯。本文將說明如何啟用診斷記錄，並在您的應用程式中加入檢測設備，以及如何存取 Azure 所記錄的資訊。
 
-> [AZURE.NOTE]本文使用 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)、Azure PowerShell 及 Azure 命令列介面 (Azure CLI) 來處理診斷記錄。如需使用 Visual Studio 來處理診斷記錄的詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure](troubleshoot-web-sites-in-visual-studio.md)。
+> [AZURE.NOTE]本文使用 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)、Azure PowerShell 及 Azure 命令列介面 (Azure CLI) 來處理診斷記錄。如需使用 Visual Studio 來處理診斷記錄的詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure](web-sites-dotnet-troubleshoot-visual-studio.md)。
 
 ## <a name="whatisdiag"></a>Web 伺服器診斷和應用程式診斷
 
@@ -38,11 +38,11 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
 ### 應用程式診斷
 
-應用程式診斷功能可讓您擷取 Web 應用程式所產生的資訊。ASP.NET 應用程式會使用 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) 類別將資訊記錄到應用程式診斷記錄。例如：
+應用程式診斷功能可讓您擷取 Web 應用程式所產生的資訊。ASP.NET 應用程式會使用 [System.Diagnostics.Trace](http://msdn.microsoft.com/zh-tw/library/36hhw2t6.aspx) 類別將資訊記錄到應用程式診斷記錄。例如：
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-您可以在執行階段擷取這些記錄檔，以協助疑難排解。如需詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure Web 應用程式](../troubleshoot-web-sites-in-visual-studio.md)。
+您可以在執行階段擷取這些記錄檔，以協助疑難排解。如需詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure Web 應用程式](web-sites-dotnet-troubleshoot-visual-studio.md)。
 
 當您將內容發行至 Web 應用程式時，App Service Web 應用程式也會記錄部署資訊。此動作會自動發生，因此無須任何組態設定即會記錄部署動作。部署記錄功能可讓您判斷部署失敗的原因。例如，如果您是使用自訂的部署指令碼，則您可以使用部署記錄功能來判斷指令碼失敗的原因。
 
@@ -263,4 +263,4 @@ Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](http://msdn.microsoft.c
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

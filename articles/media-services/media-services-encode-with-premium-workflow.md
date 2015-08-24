@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #使用 Media Encoder Premium Workflow 進行進階編碼
@@ -32,9 +32,12 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 
 本主題示範如何使用 .NET 以 **Media Encoder Premium Workflow** 進行編碼。
 
+**Media Encoder Premium Workflow** 的編碼工作需要個別的組態檔，這稱為工作流程檔案。這些檔案具有 .workflow 副檔名，並且使用[工作流程設計工具](media-services-workflow-designer.md)工具建立。
+
 ##編碼
 
 **Media Encoder Premium Workflow** 的編碼工作需要個別的組態檔，這稱為工作流程檔案。這些檔案具有 .workflow 副檔名，並且使用[工作流程設計工具](media-services-workflow-designer.md)工具建立。
+
 
 您也可以在[這裡](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)取得預設的工作流程檔案。資料夾也包含這些檔案的說明。
 
@@ -265,4 +268,4 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 
 如果您的輸入視訊不包含隱藏式字幕，輸出資產仍然會包含空白 TTML 檔案。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

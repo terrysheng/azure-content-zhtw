@@ -135,4 +135,4 @@ Active Directory 中的某些屬性在結構描述中是多重值，但是在 [A
  
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

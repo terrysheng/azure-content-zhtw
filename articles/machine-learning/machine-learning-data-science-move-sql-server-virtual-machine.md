@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="將資料移至 Azure 上的 SQL Server | Microsoft Azure" 
-	description="將資料移至 Azure 上的 SQL Server" 
+	pageTitle="移動資料至 Azure 虛擬機器上的 SQL Server | Azure" 
+	description="從一般檔案或內部部署的 SQL Server 移動資料至 Azure VM 上的 SQL server" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="msolhab" 
@@ -13,24 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
-	ms.author="fashah;garye;mohabib;bradsev" />
+	ms.date="08/10/2015" 
+	ms.author="fashah;mohabib;bradsev" />
 
-#將資料移至 Azure 上的 SQL Server
+# 移動資料至 Azure 虛擬機器上的 SQL Server
 
-本文件說明如何從一般檔案 (csv/tsv) 或內部部署的 SQL Server，將資料移至 Azure 上的 SQL Server。這項工作是 Azure Machine Learning 提供的進階分析程序和技術 (ADAPT) 的一部分。
+本文將概述從一般檔案 (CSV 或 TSV 格式) 或是內部部署的 SQL Server，將資料移動至 Azure 虛擬機器上之 SQL Server 的選項。這些移動資料至雲端的工作是 Azure 機器學習所提供之進階分析程序和技術 (ADAPT) 的一部分。
 
+如需概述移動資料至機器學習的 Azure SQL Database 之選項的主題，請參閱[移動資料至 Azure 機器學習的 Azure SQL Database](machine-learning-data-science-move-sql-azure.md)。
 
-<table>
+下表摘要說明移動資料至 Azure 虛擬機器上之 SQL Server 的選項。<table>
 
 <tr>
 <td><b>來源</b></td>
-<td colspan="2" align="center"><b>目的地</b></td>
-</tr>
-
-<tr>
-  <td></td>
-  <td><b>Azure 上的 SQL Server VM</b></td>
+<td colspan="2" align="center"><b>目的地：Azure VM 上的 SQL Server</b></td>
 </tr>
 
 <tr>
@@ -53,20 +49,19 @@
 
 請注意，本文件假設 SQL 命令是從 SQL Server Management Studio 或 Visual Studio 資料庫總管中執行。
 
-> [AZURE.TIP]或者，您可以使用 [Azure Data Factory](https://azure.microsoft.com/zh-tw/services/data-factory/) 建立並排程管線，以將資料移至 Azure 上的 SQL Server VM。如需詳細資訊，請參閱[使用 Azure Data Factory 複製資料 (複製活動)](../data-factory/data-factory-copy-activity.md)。
+> [AZURE.TIP]或者，您可以使用 [Azure Data Factory](https://azure.microsoft.com/zh-cn/services/data-factory/) 建立並排程管線，以將資料移至 Azure 上的 SQL Server VM。如需詳細資訊，請參閱[使用 Azure Data Factory 複製資料 (複製活動)](../data-factory/data-factory-copy-activity.md)。
 
 
-## <a name="sqlonazurevm"></a>將資料移至 Azure 上的 SQL Server VM
+## <a name="prereqs"></a>必要條件
+本教學課程假設您有：
 
-本節說明將資料移至 Azure 上 SQL Server VM 的程序。如果您尚未設定 SQL Server VM，請依照[將 Azure SQL Server 虛擬機器設定為 IPython Notebook 伺服器供進階分析使用](machine-learning-data-science-setup-sql-server-virtual-machine.md)中所述，針對進階分析佈建新的 SQL Server 虛擬機器。
-
-本文將說明從下列資料來源移動資料的方式：
-  
-1. [從一般檔案](#filesource_to_sqlonazurevm) 
-2. [從內部部署的 SQL Server](#sqlonprem_to_sqlonazurevm)
+* 一個 **Azure 訂用帳戶**。如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* 一個 **Azure 儲存體帳戶**。在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)一文。建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。請參閱[檢視、複製和重新產生儲存體存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
+* 已佈建 **Azure VM 上的 SQL Server**。如需指示，請參閱[將 Azure SQL Server 虛擬機器設定為 IPython Notebook 伺服器供進階分析使用](machine-learning-data-science-setup-sql-server-virtual-machine.md)。
+* 已在本機上安裝和設定 **Azure PowerShell**。如需指示，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
 
 
-### <a name="filesource_to_sqlonazurevm"></a>檔案來源
+## <a name="filesource_to_sqlonazurevm"></a>從一般檔案來源移動資料至 Azure VM 上的 SQL Server
 
 如果您的資料位於一般檔案 (使用資料列或資料行格式排列) 中，可透過下列方法，將它移到 Azure 上的 SQL Server VM：
 
@@ -102,7 +97,7 @@ BCP 是與 SQL Server 一起安裝的命令列公用程式，是最快速移動�
 
 > **最佳化 BCP 插入**：請參閱[最佳化大量匯入的指導方針](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx)這篇文章，以將這類插入最佳化。
 
-#### <a name="insert-tables-bulkquery-parallel"></a>平行插入以進行更快速的資料移動
+### <a name="insert-tables-bulkquery-parallel"></a>平行插入以進行更快速的資料移動
 
 如果您要移動的資料很大，就可以在 PowerShell 指令碼中同時平行執行多個 BCP 命令來加快運作速度。
 
@@ -176,7 +171,7 @@ BCP 是與 SQL Server 一起安裝的命令列公用程式，是最快速移動�
 - 如需 SQL Server Data Tools 的詳細資料，請參閱 [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx)  
 - 如需匯入/匯出精靈的詳細資料，請參閱 [SQL Server 匯入和匯出精靈](https://msdn.microsoft.com/library/ms141209.aspx)
 
-### <a name="sqlonprem_to_sqlonazurevm"></a>從內部部署的 SQL Server 移動資料
+## <a name="sqlonprem_to_sqlonazurevm"></a>從內部部署的 SQL Server 移動資料至 Azure VM 上的 SQL Server
 
 您可以從內部部署的 SQL Server 移動資料，如下所示：
 
@@ -186,7 +181,7 @@ BCP 是與 SQL Server 一起安裝的命令列公用程式，是最快速移動�
 
 我們將在下方說明這每一項內容：
 
-#### <a name="export-flat-file"></a>匯出至一般檔案
+### <a name="export-flat-file"></a>匯出至一般檔案
 
 有各種方法可用來從內部部署的 SQL Server 大量匯出資料，如[此處](https://msdn.microsoft.com/library/ms175937.aspx)所述。本文件將提供大量複製程式 (BCP) 做為範例。一旦將資料匯出至一般檔案之後，就可以使用大量匯入功能來將它匯入另一部 SQL Server。
 
@@ -209,13 +204,13 @@ BCP 是與 SQL Server 一起安裝的命令列公用程式，是最快速移動�
 	
 4. 使用[從檔案來源移動資料](#filesource_to_sqlonazurevm)一節中所述的任何方法，將一般檔案中的資料移至 SQL Server。
 
-#### <a name="sql-migration"></a>SQL Database 移轉精靈
+### <a name="sql-migration"></a>SQL Database 移轉精靈
 
 [SQL Server 資料庫移轉精靈](http://sqlazuremw.codeplex.com/)提供方便使用的方式，讓您在兩個 SQL Server 執行個體之間移動資料。它讓使用者能夠對應來源與目的地資料表之間的資料結構描述，選擇資料行類型和其他各種功能。它會在幕後使用大量複製 (BCP) 功能。SQL Database 移轉精靈歡迎畫面的螢幕擷取畫面如下所示。
 
 ![SQL Server 移轉精靈][2]
 
-#### <a name="sql-backup"></a>資料庫備份和還原
+### <a name="sql-backup"></a>資料庫備份和還原
 
 SQL Server 支援：
 
@@ -232,4 +227,4 @@ SQL Server Management Studio 的資料庫備份/還原選項的螢幕擷取畫�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

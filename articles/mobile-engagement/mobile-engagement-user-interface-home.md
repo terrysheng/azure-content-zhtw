@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # 如何管理現有的應用程式和專案
@@ -153,4 +153,4 @@ UI 的 [首頁] 區段包含 [我的應用程式] 中所有的應用程式清單
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

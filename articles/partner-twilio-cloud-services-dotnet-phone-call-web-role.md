@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何從 Twilio (.NET) 撥打電話 - Azure" 
+	pageTitle="如何從 Twilio 撥打電話 (.NET) | Microsoft Azure" 
 	description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。程式碼範例以 .NET 撰寫。" 
 	services="" 
 	documentationCenter=".net" 
@@ -192,4 +192,4 @@
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

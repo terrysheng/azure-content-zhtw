@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用 Windows Universal 應用程式的行動服務 | 行動開發人員中心"
+	pageTitle="開始使用 Windows Universal 應用程式的行動服務 | Microsoft Azure"
 	description="遵循此教學課程，可開始使用 Azure 行動服務以 C# 進行通用 Windows 應用程式開發。"
 	services="mobile-services"
 	documentationCenter="windows"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="05/03/2015"
+	ms.date="08/08/2015"
 	ms.author="glenga"/>
 
 
@@ -131,4 +131,4 @@
 [行動服務 .NET 後端疑難排解]: mobile-services-dotnet-backend-how-to-troubleshoot.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

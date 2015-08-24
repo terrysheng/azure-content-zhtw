@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用 Twilio 來進行語音交談和傳送簡訊 (.NET) - Azure" 
+	pageTitle="如何使用 Twilio 來進行語音交談和傳送簡訊 (.NET) | Microsoft Azure" 
 	description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。程式碼範例以 .NET 撰寫。" 
 	services="" 
 	documentationCenter=".net" 
@@ -25,14 +25,14 @@
 本指南示範如何在 Azure 上透過 Twilio API 服務執行常見的程式設計工作。涵蓋的案例包括打電話和傳送簡訊 (SMS)。如需有關如何在應用程式中使用 Twilio 語音和 SMS 的詳細資訊，請參閱＜[後續步驟](#NextSteps)＞一節。
 
 ## <a id="WhatIs"></a>什麼是 Twilio？
-Twilio 正在形塑商業環境的未來，可讓開發人員將語音、VoIP 和訊息傳送內嵌到應用程式中。它們將雲端、全球化環境中所需的整個基礎結構虛擬化，透過 Twilio 通訊 API 平台來揭露基礎結構。輕鬆就可建立和擴充應用程式。享受隨收隨付定價的彈性和雲端可靠性的好處。
+Twilio 正在形塑商業環境的未來，可讓開發人員將語音、VoIP 和訊息傳送內嵌到應用程式中。它們將雲端、全球化環境中所需的整個基礎結構虛擬化，透過 Twilio 通訊 API 平台來揭露基礎結構。輕鬆就可建立和擴充應用程式。享受隨收隨付價格的彈性和雲端可靠性的好處。
 
 **Twilio 語音**可讓應用程式撥打和接聽電話。**Twilio 簡訊**可讓應用程式收發簡訊。**Twilio 用戶端**可讓您從任何電話、平板電腦或瀏覽器撥打 VoIP 電話，且支援 WebRTC。
 
-## <a id="Pricing"></a>Twilio 定價和特別優惠
+## <a id="Pricing"></a>Twilio 價格和特別優惠
 升級 Twilio 帳戶的 Azure 客戶，可[特別獲贈](http://www.twilio.com/azure)價值 $10 的 Twilio 點數。此 Twilio 點數可用來折抵任何 Twilio 使用量 ($10 點數相當於最多傳送 1,000 則簡訊，或最多接收 1000 分鐘的撥入語音，視電話號碼所在地點或通話目的地而定)。請至 [ahoy.twilio.com/azure](http://ahoy.twilio.com/azure) 兌換 Twilio 點數來開始使用。
 
-Twilio 是隨收隨付的服務。不需要設定費，隨時都可結清帳戶。如需詳細資訊，請參閱＜[Twilio 定價](http://www.twilio.com/voice/pricing)＞(英文)。
+Twilio 是隨收隨付的服務。不需要設定費，隨時都可結清帳戶。如需詳細資訊，請參閱＜[Twilio 價格](http://www.twilio.com/voice/pricing)＞(英文)。
 
 ## <a id="Concepts"></a>概念
 Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。用戶端程式庫有多種語言版本，相關清單請參閱＜[Twilio API 程式庫][twilio_libraries]＞(英文)。
@@ -80,7 +80,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 ## <a id="configure_app"></a>設定應用程式使用 Twilio 程式庫
 Twilio 提供一套 .NET 協助程式庫，內已封裝 Twilio 的各種組件，讓您簡單又輕鬆地與 Twilio REST API 和 Twilio 用戶端互動，以產生 TwiML 回應。
 
-Twilio 為 .NET 開發人員提供五種程式庫：<table border="1"> <tr> <th>程式庫</th> <th>說明</th> </tr> <tr> <td>Twilio.API</td> <td>將 Twilio REST API 包裝在易記的 .NET 程式庫的核心 Twilio 程式庫。此程式庫適用於 .NET、Silverlight 和 Windows Phone 7。</td> </tr> <tr> <td>Twilio.TwiML</td> <td>輕鬆利用 .NET 來產生 TwiML 標記。</td> </tr> <tr> <td>Twilio.MVC</td> <td>對於使用 ASP.NET MVC 的開發人員，此程式庫包含 TwilioController、TwiML ActionResult 和要求驗證屬性。</td> </tr> <tr> <td>Twilio.WebMatrix</td> <td>對於使用 Microsoft 免費 WebMatrix 開發工具的開發人員，此程式庫包含各種 Twilio 動作的 Razor 語法協助程式。</td> </tr> <tr> <td>Twilio.Client.Capability</td> <td>包含適用於 Twilio 用戶端 JavaScript SDK 的功能權杖產生器。</td> </tr> </table>
+Twilio 為 .NET 開發人員提供五種程式庫：程式庫 | 說明 ---|--- Twilio.API|將 Twilio REST API 包裝在易記的 .NET 程式庫的核心 Twilio 程式庫。此程式庫適用於 .NET、Silverlight 和 Windows Phone 7。Twilio.TwiML|輕鬆利用 .NET 來產生 TwiML 標記。Twilio.MVC|對於使用 ASP.NET MVC 的開發人員，此程式庫包含 TwilioController、TwiML ActionResult 和要求驗證屬性。Twilio.WebMatrix|對於使用 Microsoft 免費 WebMatrix 開發工具的開發人員，此程式庫包含各種 Twilio 動作的 Razor 語法協助程式。Twilio.Client.Capability|包含適用於 Twilio 用戶端 JavaScript SDK 的功能權杖產生器。
 
 請注意，所有程式庫都需要有 .NET 3.5、Silverlight 4 或 Windows Phone 7 或更新版本。
 
@@ -279,4 +279,4 @@ Twilio 為 .NET 開發人員提供五種程式庫：<table border="1"> <tr> <th>
 [twilio_account]: https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

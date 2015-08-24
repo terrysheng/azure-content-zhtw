@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -106,4 +106,4 @@ Dash.js 是以 JavaScript 撰寫的開放原始碼 MPEG-DASH 視訊播放程式�
 
 [GitHub dash.js 存放庫](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

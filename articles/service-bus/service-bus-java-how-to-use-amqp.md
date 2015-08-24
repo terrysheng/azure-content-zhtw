@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何搭配使用 AMQP 1.0 與 Java 服務匯流排 API - Azure" 
+	pageTitle="如何使用 AMQP 1.0 與 Java 服務匯流排 API 搭配 | Microsoft Azure" 
 	description="了解如何搭配 Azure 服務匯流排和 Advanced Message Queuing Protodol (AMQP) 1.0 使用 Java Message Service (JMS)。" 
 	authors="sethmanheim" 
 	documentationCenter="java" 
@@ -333,4 +333,4 @@ exit
 * [如何使用服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

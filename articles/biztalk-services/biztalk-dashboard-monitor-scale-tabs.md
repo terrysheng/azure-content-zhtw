@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="BizTalk 服務中的儀表板、監視、調整、設定和混合式連線 | Azure" 
+	pageTitle="BizTalk 服務中的儀表板、監視、調整、設定和混合式連線 | Microsoft Azure" 
 	description="深入了解控制項，以及在 BizTalk 服務中的 [管理入口網站] 索引標籤上監視效能：儀表板、監視、調整、設定和混合式連線。MABS，WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -368,4 +368,4 @@
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

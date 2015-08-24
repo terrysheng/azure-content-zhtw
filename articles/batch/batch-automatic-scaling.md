@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="自動調整 Azure 批次集區中的運算節點"
+	pageTitle="自動調整 Azure Batch 集區中的運算節點"
 	description="若要完成自動調整，請在集區上啟用自動調整，然後讓公式與用來計算處理應用程式所需的運算節點數目的集區產生關聯。"
 	services="batch"
 	documentationCenter=""
@@ -14,20 +14,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="07/21/2015"
+	ms.date="08/05/2015"
 	ms.author="davidmu"/>
 
-# 自動調整 Azure 批次集區中的運算節點
+# 自動調整 Azure Batch 集區中的運算節點
 
-自動調整 Azure 批次集區中的運算節點就是動態調整應用程式所使用的處理能力。調整方式很容易，可節省時間與金錢。若要深入了解運算節點和集區，請參閱 [Azure 批次技術概觀](batch-technical-overview.md)。
+自動調整 Azure Batch 集區中的運算節點就是動態調整應用程式所使用的處理能力。調整方式很容易，可節省時間與金錢。若要深入了解運算節點和集區，請參閱 [Azure Batch 技術概觀](batch-technical-overview.md)。
 
 自動調整會在您於集區上啟用時進行，而且公式會與集區產生關聯。公式用來決定處理應用程式所需的運算節點的數目。自動調整可以在建立集區時設定，也可以稍後針對現有的集區設定。此公式也可以在啟用自動調整所在的集區上更新。
 
-啟用自動調整時，根據公式，每隔 15 分鐘會調整一次可用的運算節點數目。公式是以每隔 5 秒所收集的範例為對象，但在收集範例和提供給公式之間有 75 秒的延遲。使用以下所述的 GetSample 方法時，必須考量這些時間因素。
+啟用自動調整時，根據公式，每隔 15 分鐘會調整一次可用的運算節點數目。公式是以定期收集的範例為對象，但在收集範例和提供給公式之間有延遲。使用以下所述的 GetSample 方法時，必須考量此因素。
 
 將公式指派給集區之前進行評估永遠是非常好的做法，因此，監視自動調整執行的狀態非常重要。
 
-> [AZURE.NOTE]每個 Azure 批次帳戶限制為可用於處理的運算節點的數目上限。系統會建立高達該限制的節點，而且可能無法達到公式所指定的目標數目。
+> [AZURE.NOTE]每個 Azure Batch 帳戶限制為可用於處理的運算節點的數目上限。系統會建立高達該限制的節點，而且可能無法達到公式所指定的目標數目。
 
 ## 定義公式
 
@@ -56,7 +56,7 @@
     <td>集區的專用運算節點的目標數目。這個值可以根據工作的實際使用量而變更。</td>
   </tr>
   <tr>
-    <td>$TVMDeallocationOption</td>
+    <td>$NodeDeallocationOption</td>
     <td>運算節點從集區移除時所發生的動作。可能的值包括：
       <br/>
       <ul>
@@ -115,7 +115,7 @@
     <td>輸出位元組的數目</td>
   </tr>
   <tr>
-    <td>$SampleTVMCount</td>
+    <td>$SampleNodeCount</td>
     <td>運算節點的計數</td>
   </tr>
   <tr>
@@ -323,10 +323,6 @@
     <td>double val(doubleVec v, double i)</td>
     <td>向量 v 中位置 i 的元素值，起始索引為零。</td>
   </tr>
-  <tr>
-    <td>doubleVec vec(doubleVecList)</td>
-    <td>從 doubleVecList 明確地建立單一 doubleVec。</td>
-  </tr>
 </table>
 
 資料表中所述的某些函式可以接受清單做為引數。逗號分隔清單是 double 和 doubleVec 的任意組合。例如：
@@ -392,7 +388,7 @@
     <td><p>根據 CPU 使用量、頻寬使用量、記憶體使用量和運算節點的數目。上述的這些系統變數會在公式中使用，以管理集區中的運算節點：</p>
     <p><ul>
       <li>$TargetDedicated</li>
-      <li>$TVMDeallocationOption</li>
+      <li>$NodeDeallocationOption</li>
     </ul></p>
     <p>這些系統變數用於根據節點度量進行調整：</p>
     <p><ul>
@@ -424,7 +420,7 @@
       <li>$FailedTasks</li>
       <li>$CurrentDedicated</li></ul></p>
     <p>此範例所顯示的公式會偵測是否已在過去 15 分鐘內記錄 70% 的範例。如果沒有，它會使用最後一個範例。它會嘗試增加運算節點的數目 (最多 3 個) 以符合作用中工作的數目。由於集區的 MaxTasksPerVM 屬性設為 4，因此，它會將節點數目設定為作用中工作數目的四分之一。它也會將 Deallocation 選項設定為 "taskcompletion" 以保留機器，直到工作完成為止。</p>
-    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute * 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute * 15))); $Cores = $TargetDedicated * 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $TVMDeallocationOption = taskcompletion;</b></p></td>
+    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute * 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute * 15))); $Cores = $TargetDedicated * 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $NodeDeallocationOption = taskcompletion;</b></p></td>
   </tr>
 </table>
 
@@ -476,4 +472,4 @@
 	- [Get AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx)：此 Cmdlet 會從指定的運算節點取得 RDP 檔案，並將其儲存至指定的檔案位置或資料流。
 2.	有些應用程式會產生可能難以處理的大量資料。解決這個問題的其中一種方式是透過[有效率的清單查詢](batch-efficient-list-queries.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

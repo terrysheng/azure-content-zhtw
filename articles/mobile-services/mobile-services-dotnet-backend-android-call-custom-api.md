@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="從 Android 用戶端呼叫自訂 API | 行動開發人員中心" 
+	pageTitle="從 Android 用戶端呼叫自訂 API | Microsoft Azure" 
 	description="了解如何定義自訂 API，然後從使用 Microsoft Azure 行動服務的 Android 應用程式呼叫它。" 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -62,4 +62,4 @@
 [在來源控制中儲存伺服器指令碼]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

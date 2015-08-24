@@ -3,8 +3,8 @@
 	description="最新 Android SDK - 如何在 Android 上使用 Engagement API"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede"
+	authors="piyushjo" 
+	manager="dwrede" 
 	editor="" />
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/24/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 #如何在 Android 上使用 Engagement API
 
@@ -298,4 +298,4 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

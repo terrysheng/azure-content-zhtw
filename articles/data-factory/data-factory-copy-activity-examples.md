@@ -131,7 +131,7 @@
 - **fileName** 設為 **MyBlob** (將存放輸出資料的 Blob)。
 - **linkedServiceName** 設為 **MyAzureStorge** (您為 Azure 儲存體建立的連結服務)。    
 
-如需定義 Data Factory 資料表 (其參照 Azure Blob) 之 JSON 項目的詳細資料，請參閱〈[Azure blob 類型屬性](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob)〉。
+如需定義 Data Factory 資料表 (其參照 Azure Blob) 之 JSON 項目的詳細資料，請參閱〈[Azure Blob 類型屬性](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob)〉。
 
 ### 管線 (具有複製活動) JSON
 在此範例中，管線：**CopyActivityPipeline** 使用下列屬性定義：
@@ -188,7 +188,7 @@
 - **資料夾** - 含有輸入檔案的資料夾名稱是：**marketingcampaign\regionaldata\{slice}，裡面的檔案會在 {slice} 資料夾中分割，例如 2014121112 (2014 年 12 月 11 日 12 時)。
 
 ### 建立內部部署檔案系統連結服務
-下列範例 JSON 可以用來建立名為 **FolderDataStore** 的連結服務，其類型為 **OnPremisesFileServer**。  
+下列範例 JSON 可以用來建立名為 **FolderDataStore** 的連結服務，其類型為 **OnPremisesFileServer**。
 
 	{
 	  "name": "FolderDataStore",
@@ -203,7 +203,7 @@
 	  }
 	}
 
-> [AZURE.NOTE]JSON 檔案中的主機和資料夾名稱一定要使用逸出字元 '\'。如果是 **\\Contoso**，請使用 **\\\\Contoso**。
+> [AZURE.NOTE]JSON 檔案中的主機和資料夾名稱一定要使用逸出字元 ''。如果是 **\\Contoso**，請使用 **\\\\Contoso**。
 
 如需定義內部部署檔案系統連結服務之 JSON 項目的詳細資料，請參閱[內部部署檔案系統連結服務](https://msdn.microsoft.com/library/dn930836.aspx)。
 
@@ -432,7 +432,7 @@
 	  }
 	}
 
-如需定義 Data Factory 資料表 (其參照 Azure Blob) 之 JSON 項目的詳細資料，請參閱〈[Azure blob 類型屬性](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob)〉。
+如需定義 Data Factory 資料表 (其參照 Azure Blob) 之 JSON 項目的詳細資料，請參閱〈[Azure Blob 類型屬性](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob)〉。
 
 ### 建立管線
 下列範例管線有一個「複製活動」，會將資料從 Oracle 資料庫資料表複製至 Azure 儲存體 Blob。
@@ -480,12 +480,9 @@
 
 ## 另請參閱
 
-- [使用 Azure Data Factory 複製資料][adf-copyactivity]
 - [複製活動 - JSON 指令碼參考](https://msdn.microsoft.com/library/dn835035.aspx)
 - [影片：Azure Data Factory 複製活動簡介][copy-activity-video]
 
-
-[adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

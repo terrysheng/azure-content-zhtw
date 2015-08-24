@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在原始檔控制中儲存專案程式碼 - Azure 行動服務" 
+	pageTitle="在原始檔控制中儲存專案程式碼 | Microsoft Azure" 
 	description="了解如何在您電腦的本機 Git 存放庫中儲存伺服器指令碼檔案和模組。" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -163,4 +163,4 @@
 [node-uuid]: https://npmjs.org/package/node-uuid
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

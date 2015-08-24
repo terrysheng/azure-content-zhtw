@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="07/07/2015"
+   ms.date="08/12/2015"
    ms.author="guscatal;spatnaik;elizapo"/>
 
 
@@ -25,6 +25,8 @@
 ## 取得 Cmdlet 
 -------------
 先，我們需要在[這裡](http://go.microsoft.com/?linkid=9811175)下載 Azure Powershell Cmdlet，而 RemoteApp 包含在其中。
+
+請在[這裡](https://msdn.microsoft.com/library/mt428031.aspx)查看 Azure RemoteApp Cmdlet 說明。
 
 ## 設定 Azure Cmdlet 以使用訂用帳戶
 ------------------
@@ -99,4 +101,4 @@ Other RemoteApp cmdlets:
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

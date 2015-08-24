@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何建立媒體處理器 - Azure" 
+	pageTitle="如何建立媒體處理器 | Microsoft Azure" 
 	description="了解如何建立媒體處理器元件，為 Azure 媒體服務的媒體內容進行編碼、格式轉換、加密或解密。" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
 #如何：取得媒體處理器執行個體
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)系列的一部分。
 
+> [AZURE.SELECTOR]
+- [.NET](media-services-get-media-processor.md)
+- [REST](media-services-rest-get-media-processor.md)
 
 ##概觀
 
@@ -30,13 +32,14 @@
 
 媒體處理器名稱|說明|相關資訊
 ---|---|---
-Azure Media Encoder|讓您使用 Azure Media Encoder 執行編碼工作。|[Azure Media Encoder 的工作預設字串](http://msdn.microsoft.com/library/jj129582.aspx)
-Media Encoder Premium Workflow|可讓您使用 Media Encoder Premium Workflow 執行編碼工作。|[使用 Media Encoder Premium Workflow 進行編碼](media-services-encode-with-premium-workflow.md)
-Azure Media Indexer| 可讓您的媒體檔案和內容可供搜尋，以及產生隱藏式輔助字幕和關鍵字。|[使用 Azure Media Indexer 編輯媒體檔案索引](media-services-index-content.md)。
- Windows Azure Media Packager| 可讓您將媒體資產從 .mp4 轉換為 Smooth Streaming 格式。此外，也可讓您將媒體資產從 Smooth Streaming 轉換為 Apple HTTP Live Streaming (HLS) 格式。|
- Windows Azure Media Encryptor|可讓您使用 PlayReady Protection 為媒體資產加密。|
- Azure Media Hyperlapse (預覽)|可讓您使用影片穩定讓影片中的「巔簸」變得平滑。也可讓您將內容加速至可使用的片段。|		[Azure Media Hyperlapse](http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
- Storage Decryption| 可讓您對使用儲存體加密功能加密的媒體資產進行解密。|N/A
+Azure Media Encoder|讓您使用 Azure Media Encoder 執行編碼工作。|[Azure Media Encoder](media-services-encode-asset.md#azure_media_encoder)
+Media Encoder Standard|可讓您使用 Media Encoder Standard 執行編碼工作。|[Azure Media Encoder](media-services-encode-asset.md#media_encoder_standard)
+Media Encoder Premium Workflow|可讓您使用 Media Encoder Premium Workflow 執行編碼工作。|[Media Encoder Premium Workflow](media-services-encode-asset.md#media_encoder_premium_wokrflow)
+Azure 媒體索引器| 可讓您的媒體檔案和內容可供搜尋，以及產生隱藏式輔助字幕和關鍵字。|[使用 Azure 媒體索引器編製媒體檔案的索引](media-services-index-content.md)。
+Azure Media Hyperlapse (預覽)|可讓您使用影片穩定讓影片中的「巔簸」變得平滑。也可讓您將內容加速至可使用的片段。|		[Azure Media Hyperlapse](http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
+Storage Decryption| 可讓您對使用儲存體加密功能加密的媒體資產進行解密。|N/A
+Windows Azure Media Packager|可讓您將媒體資產從 .mp4 轉換為 Smooth Streaming 格式。此外，也可讓您將媒體資產從 Smooth Streaming 轉換為 Apple HTTP Live Streaming (HLS) 格式。|[Azure Media Packager 的工作預設字串](http://msdn.microsoft.com/library/hh973635.aspx)
+Windows Azure Media Encryptor|可讓您使用 PlayReady Protection 為媒體資產加密。|[Azure Media Packager 的工作預設字串](http://msdn.microsoft.com/library/hh973610.aspx)
 
 ##取得 MediaProcessor
 
@@ -48,7 +51,7 @@ Azure Media Indexer| 可讓您的媒體檔案和內容可供搜尋，以及產�
 
 
 
-下列 REST 呼叫示範如何依名稱取得媒體處理器執行個體 (在此案例中，**Azure 媒體編碼器**)。
+下列 REST 呼叫示範如何依名稱取得媒體處理器執行個體 (在此案例中，**Azure Media Encoder**)。
 
 	
 要求：
@@ -60,7 +63,7 @@ Azure Media Indexer| 可讓您的媒體檔案和內容可供搜尋，以及產�
 	Accept-Charset: UTF-8
 	User-Agent: Microsoft ADO.NET Data Services
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-477b-2233-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423635565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=6zwXEn7YJzVJbVCNpqDUjBLuE5iUwsdJbWvJNvpY3%2b8%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 	
 回應：
@@ -89,4 +92,4 @@ Azure Media Indexer| 可讓您的媒體檔案和內容可供搜尋，以及產�
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

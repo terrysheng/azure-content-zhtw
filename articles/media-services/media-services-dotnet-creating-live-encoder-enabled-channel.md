@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,7 @@
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
-- 
+
 ##概觀
 
 本教學課程將逐步引導您建立**通道**，可接收單一位元速率的即時串流，並將其編碼為多位元速率串流。
@@ -79,6 +79,8 @@
 1. 顯示和隱藏 slate。啟動和停止公告。使用長時間執行的 API。
 1. 清除您的通道和所有相關聯的資源。
 
+>[AZURE.NOTE]雖然這項功能只是預覽而已，但是即時事件的最大建議持續時間是 8 小時。
+>
 ##必要條件
 需要有下列項目，才能完成教學課程。
 
@@ -501,4 +503,4 @@
 [使用執行從單一位元速率到多位元速率串流之即時編碼的通道](media-services-manage-live-encoder-enabled-channels.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

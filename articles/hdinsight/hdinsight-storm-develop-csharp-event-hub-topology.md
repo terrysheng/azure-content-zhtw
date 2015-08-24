@@ -1,5 +1,5 @@
 <properties
-   pageTitle="在事件中樞內使用 Storm on HDInsight 來處理事件 | Azure"
+   pageTitle="在事件中樞內使用 Storm on HDInsight 來處理事件 | Microsoft Azure"
    description="了解如何利用在 Visual Studio 中使用 HDInsight Tools for Visual Studio 所建立之 C# Storm 拓撲來處理事件中樞資料。"
    services="hdinsight,notification hubs"
    documentationCenter=""
@@ -557,4 +557,4 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

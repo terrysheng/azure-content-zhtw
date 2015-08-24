@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 服務匯流排 - Azure 的基本概念" 
+	pageTitle="Azure 服務匯流排 | Microsoft Azure" 
 	description="介紹可讓您透過服務匯流排將 Azure 應用程式連接至其他軟體的不同方式。" 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -130,4 +130,4 @@ Windows 應用程式可以利用 Windows Communication Foundation (WCF) 來使�
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

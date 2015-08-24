@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/16/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -123,4 +123,4 @@ Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若�
 
 不行，Azure RemoteApp 不支援。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

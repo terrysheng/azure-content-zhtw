@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 
@@ -150,4 +150,4 @@ UI 的 [觸達] 區段是推送活動管理工具，您可以在此建立/編輯
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

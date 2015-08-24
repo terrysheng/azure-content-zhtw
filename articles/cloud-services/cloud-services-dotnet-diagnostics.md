@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用診斷 (.NET) - Azure 功能指南" 
+	pageTitle="如何使用診斷 (.NET) | Microsoft Azure" 
 	description="了解如何在 Azure 中使用診斷資料進行偵錯、測量效能、監視、流量分析等。" 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -511,4 +511,4 @@ EventSource|否|資料表|記錄您的程式碼使用 .NET EventSource 類別所
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

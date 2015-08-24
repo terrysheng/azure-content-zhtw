@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # 如何建立 Azure RemoteApp 的混合式收藏
@@ -78,7 +78,7 @@ RemoteApp 收藏分成兩種：
 4. 選擇您要使用的方案 - 標準或基本。
 5. 按一下 [建立 RemoteApp 收藏]。
 
-在建立 RemoteApp 收藏後，請移至 RemoteApp [快速入門] 頁面以繼續設定步驟。
+建立了 RemoteApp 集合之後，請按兩下集合的名稱。這時會顯示 [**快速入門**] 頁面 - 這是您完成設定集合的頁面。
 
 ## 步驟 3：將您的收藏連結到虛擬網路 ##
 
@@ -136,4 +136,4 @@ RemoteApp 應用程式是您提供給使用者的應用程式或程式。此程�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

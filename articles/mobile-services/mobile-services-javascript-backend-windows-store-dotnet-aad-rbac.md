@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="行動服務和 Azure Active Directory 中的角色型存取控制 (Windows 市集) | 行動開發人員中心" 
+	pageTitle="行動服務和 Azure Active Directory 中的角色型存取控制 (Windows 市集) | Microsoft Azure" 
 	description="了解如何在 Windows Store 應用程式中控制以 Azure Active Directory 角色為基礎的存取權。" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -285,4 +285,4 @@
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [存取 Azure Active Directory Graph 資訊]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

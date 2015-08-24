@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用 HTML 用戶端 - Azure 行動服務" 
+	pageTitle="如何使用 HTML 用戶端 |Microsoft Azure" 
 	description="了解如何使用適用於 Azure 行動服務的 HTML 用戶端。" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -608,4 +608,4 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 [從用戶端呼叫自訂 API]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

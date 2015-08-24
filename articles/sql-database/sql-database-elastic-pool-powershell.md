@@ -13,13 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="07/28/2015"
+   ms.date="08/12/2015"
    ms.author="adamkr; sstein"/>
 
 # 使用 PowerShell 建立和管理 SQL Database 彈性資料庫集區
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-portal.md)
+- [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
@@ -41,7 +42,7 @@
 
 您可以執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409) 來下載和安裝 Azure PowerShell 模組。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
 
-建立和管理 SQL Database 與彈性資料庫集區時所需的 Cmdlet，都位於 Azure 資源管理員模組中。當您開始使用 Azure PowerShell 時，系統會依預設匯入 Azure 模組中的 Cmdlet。若要切換至 Azure 資源管理員模組，請使用 Switch-AzureMode Cmdlet。
+建立和管理 Azure SQL Database 與彈性資料庫集區時所需的 Cmdlet，都位於 Azure 資源管理員模組中。當您開始使用 Azure PowerShell 時，系統會依預設匯入 Azure 模組中的 Cmdlet。若要切換至 Azure 資源管理員模組，請使用 Switch-AzureMode Cmdlet。
 
 	Switch-AzureMode -Name AzureResourceManager
 
@@ -50,7 +51,7 @@
 
 ## 設定您的認證並選取您的訂用帳戶
 
-既然您已在執行 Azure 資源管理員模組，便可以存取建立和設定集區所需的所有必要 Cmdlet。首先必須建立對您 Azure 帳戶的存取權。執行以下項目，然後您會看到要輸入認證的登入畫面。請使用與登入 Azure 入口網站相同的電子郵件和密碼。
+既然您已在執行 Azure 資源管理員模組，便可以存取建立和設定彈性資料庫集區所需的所有必要 Cmdlet。首先必須建立對您 Azure 帳戶的存取權。執行以下項目，然後您會看到要輸入認證的登入畫面。請使用與登入 Azure 入口網站相同的電子郵件和密碼。
 
 	Add-AzureAccount
 
@@ -66,7 +67,7 @@
 
 ## 建立資源群組、伺服器和防火牆規則
 
-現在您有權在您的 Azure 訂用帳戶下執行 Cmdlet，因此下一步是建立含有伺服器的資源群組，以在伺服器中建立集區。為了使用您選擇的任何有效位置，您可以編輯下一個命令。執行 **(Get-AzureLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** 以取得有效位置的清單。
+現在您有權在您的 Azure 訂用帳戶下執行 Cmdlet，因此下一步是建立含有伺服器的資源群組，以在伺服器中建立彈性資料庫集區。為了使用您選擇的任何有效位置，您可以編輯下一個命令。執行 **(Get-AzureLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** 以取得有效位置的清單。
 
 如果您已經有資源群組，可以前往下一個步驟，或執行以下命令來建立新的資源群組：
 
@@ -74,7 +75,7 @@
 
 ### 建立伺服器 
 
-彈性資料庫集區會建立在 Azure SQL Database 伺服器內。如果您已經有此伺服器，可以前往下一個步驟，或執行以下命令來建立新的 V12 伺服器：用您的伺服器名稱取代 ServerName。這必須是 Azure SQL Server 的唯一名稱，否則，伺服器名稱如果被佔用，您就可能會收到錯誤訊息。另外值得注意的是，此命令可能需要數分鐘才能完成。成功建立伺服器後，會出現伺服器詳細資料和 PowerShell 提示字元。為了使用您選擇的任何有效位置，您可以編輯此命令。
+彈性資料庫集區會建立在 Azure SQL Database 伺服器內。如果您已經有此伺服器，可以前往下一個步驟，或執行以下命令來建立新的 V12 伺服器：用您的伺服器名稱取代 ServerName。這必須是 Azure SQL Server 的唯一名稱，因此伺服器名稱如果被佔用，您就可能會收到錯誤訊息。另外值得注意的是，此命令可能需要數分鐘才能完成。成功建立伺服器後，會出現伺服器詳細資料和 PowerShell 提示字元。為了使用您選擇的任何有效位置，您可以編輯此命令。
 
 	New-AzureSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
@@ -94,15 +95,15 @@
 
 ## 建立彈性資料庫集區和彈性資料庫
 
-現在您已擁有資源群組、伺服器和設定完成的防火牆規則，便可以存取伺服器。以下命令會建立集區。此命令建立的集區會共用總共 400 個 DTU。集區中的每個資料庫保證一律都有 10 個 DTU 可用 (DatabaseDtuMin)。集區中的個別資料庫可耗用最多 100 個 DTU (DatabaseDtuMax)。如需參數的詳細說明，請參閱 [Azure SQL Database 彈性集區](sql-database-elastic-pool.md)。
+現在您已擁有資源群組、伺服器和設定完成的防火牆規則，便可以存取伺服器。以下命令會建立彈性資料庫集區。此命令建立的集區會共用總共 400 個 eDTU。集區中的每個資料庫保證一律都有 10 個 eDTU 可用 (DatabaseDtuMin)。集區中的個別資料庫可耗用最多 100 個 eDTU (DatabaseDtuMax)。如需參數的詳細說明，請參閱 [Azure SQL Database 彈性集區](sql-database-elastic-pool.md)。
 
 
 	New-AzureSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
-### 建立彈性資料庫或將其加入至集區
+### 建立或新增彈性資料庫至彈性資料庫集區
 
-在上一步中建立的集區是空的，其中沒有資料庫存在。以下各節說明如何在集區內建立新的資料庫，以及如何將現有的資料庫加入至集區。
+在上一步中建立的集區是空的，其中沒有彈性資料庫存在。以下各節說明如何在集區內建立新的彈性資料庫，以及如何將現有的資料庫加入至集區。
 
 
 ### 在彈性資料庫集區內建立新的彈性資料庫
@@ -123,15 +124,21 @@
 
 	New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -Edition "Standard"
 
-將這個現有資料庫移入集區。
+將這個現有資料庫移入彈性資料庫集區。
 
 	Set-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+
+## 變更彈性資料庫集區的效能設定
+
+
+    Set-AzureSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
+
 
 ## 監視彈性資料庫和彈性資料庫集區
 
 ### 取得彈性資料庫集區作業的狀態
 
-您可以追蹤集區作業的狀態，包括建立和更新作業。
+您可以追蹤彈性資料庫集區作業的狀態，包括建立和更新作業。
 
 	Get-AzureSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
@@ -142,16 +149,16 @@
 
 ### 取得彈性資料庫集區的資源消耗度量
 
-可以用集區限制的百分比來擷取的度量：
+可以用資源集區限制的百分比來擷取的度量：
 
 * 平均 CPU 使用率：cpu\_percent 
 * 平均 IO 使用率：data\_io\_percent 
 * 平均記錄檔使用率：log\_write\_percent 
 * 平均記憶體使用率：memory\_percent 
-* 平均 DTU 使用量 (做為 CPU/IO/記錄檔使用率的最大值)：DTU\_percent 
+* 平均 eDTU 使用量 (做為 CPU/IO/記錄檔使用率的最大值) - DTU\_percent 
 * 並行使用者要求 (背景工作) 的數目上限：max\_concurrent\_requests 
 * 並行使用者工作階段的數目上限：max\_concurrent\_sessions 
-* 集區的總儲存體大小：storage\_in\_megabytes 
+* 彈性集區的總儲存體大小：storage\_in\_megabytes 
 
 
 度量資料粒度/保留期限：
@@ -183,7 +190,7 @@
 
 除了以下的語意差異外，這些 API 與目前用於監視獨立資料庫之資源使用率的 (V12) API 相同。
 
-* 這個擷取的 API 度量，會以針對該集區所設定之每個 databaseDtuMax (或是 CPU、IO 等基礎度量的相等上限) 的百分比來表示。例如，這些度量有其中一項的使用率為 50%，則表示特定資源的消耗量佔該資源在父集區中，每個資料庫上限限制的 50%。 
+* 這個擷取的 API 度量，會以針對該彈性資料庫集區所設定之每個 databaseDtuMax (或是 CPU、IO 等基礎度量的相等上限) 的百分比來表示。例如，這些度量有其中一項的使用率為 50%，則表示特定資源的消耗量佔該資源在父彈性資料庫集區中，每個資料庫上限限制的 50%。 
 
 取得度量：$metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
 
@@ -211,7 +218,7 @@
     New-AzureSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
     New-AzureSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
     New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1" -MaxSizeBytes 10GB
-    
+    Set-AzureSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
     
     $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
     $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015")
@@ -225,13 +232,11 @@
 
 ## 後續步驟
 
-建立彈性資料庫集區後，可以藉由建立彈性工作來管理集區中的彈性資料庫。彈性工作有助於對集區中任意數目的彈性資料庫執行 T-SQL 指令碼。
-
-如需詳細資訊，請參閱[彈性資料庫工作概觀](sql-database-elastic-jobs-overview.md)。
+建立彈性資料庫集區後，可以藉由建立彈性工作來管理集區中的彈性資料庫。彈性工作有助於對集區中任意數目的資料庫執行 T-SQL 指令碼。如需詳細資訊，請參閱[彈性資料庫工作概觀](sql-database-elastic-jobs-overview.md)。
 
 
 ## 彈性資料庫參考
 
 如需關於彈性資料庫和彈性資料庫集區的詳細資訊，包括 API 和錯誤詳細資料，請參閱[彈性資料庫集區參考](sql-database-elastic-pool-reference.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

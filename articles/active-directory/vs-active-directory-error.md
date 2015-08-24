@@ -56,45 +56,45 @@
 
 為偵測 MVC 專案中的「Windows 驗證」，精靈會在您的 **web.config** 檔案中尋找 `authentication` 元素。
 
-```
-	&lt;configuration&gt;
-	    &lt;system.web&gt;
-	        <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
-	    &lt;/system.web&gt;
-	&lt;/configuration&gt;
-```
+<pre>
+	&lt;configuration>
+	    &lt;system.web>
+	        <span style="background-color: yellow">&lt;authentication mode="Windows" /></span>
+	    &lt;/system.web>
+	&lt;/configuration>
+</pre>
 
 為偵測 Web API 專案中的「Windows 驗證」，精靈會在您專案的 **.csproj** 檔案中尋找 `IISExpressWindowsAuthentication` 元素：
 
-```
-	&lt;Project&gt;
-	    &lt;PropertyGroup&gt;
-	        <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
+<pre>
+	&lt;Project>
+	    &lt;PropertyGroup>
+	        <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication>enabled&lt;/IISExpressWindowsAuthentication></span>
 	    &lt;/PropertyGroup>
-	&lt;/Project&gt;
-```
+	&lt;/Project>
+</pre>
 
 為偵測「個別使用者帳戶」驗證，精靈會在您的 **Packages.config** 檔案中尋找 package 元素。
 
-```
-	&lt;packages&gt;
-	    <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
-	&lt;/packages&gt;
-```
+<pre>
+	&lt;packages>
+	    <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
+	&lt;/packages>
+</pre>
 
 為偵測舊式「組織帳戶」驗證，精靈會在 **web.config** 中尋找下列元素：
 
-```
-	&lt;configuration&gt;
-	    &lt;appSettings&gt;
-	        <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
-	    &lt;/appSettings&gt;
-	&lt;/configuration&gt;
-```
+<pre>
+	&lt;configuration>
+	    &lt;appSettings>
+	        <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /></span>
+	    &lt;/appSettings>
+	&lt;/configuration>
+</pre>
 
 若要變更驗證類型，請移除不相容的驗證類型，然後重新執行精靈。
 
 如需詳細資訊，請參閱 [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

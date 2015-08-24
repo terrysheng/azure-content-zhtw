@@ -122,14 +122,14 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 
 在遠端連線到虛擬機器後，您可以使用下列語法執行 `net use` 命令以掛接檔案共用。使用您的儲存體帳戶名稱來取代 `<storage-account-name>`，並使用您的檔案儲存體共用名稱來取代 `<share-name>`。
 
-    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name>
+    net use <drive-letter>: <storage-account-name>.file.core.windows.net<share-name>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs
 
 由於您已在上一個步驟中保留儲存體帳戶認證，因此您無需使用 `net use` 命令提供這些認證。如果您尚未保存認證，則請將它們當作傳送到 `net use` 命令的參數包括在其中，如此範例所示：
 
-    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
+    net use <drive-letter>: <storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
@@ -225,11 +225,11 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 
 ## 設定檔案共用的大小上限
 
-從 Azure 儲存體用戶端程式庫 5.x 版開始，您可以設定以 GB 為單位的共用配額 (或大小上限)。藉由設定共用的配額，您可以限制儲存在共用上的檔案大小總計。
+從 Azure 儲存體用戶端程式庫 5.x 版開始，您可以設定以 GB 為單位的檔案共用配額 (或大小上限)。您也可以檢查有多少資料目前儲存在共用上。
 
-如果共用上的檔案大小總計超過共用上設定的配額，則用戶端將無法增加現有檔案的大小或建立新的檔案，除非其為空白。
+藉由設定共用的配額，您可以限制儲存在共用上的檔案大小總計。如果共用上的檔案大小總計超過共用上設定的配額，則用戶端將無法增加現有檔案的大小或建立新的檔案 (除非這些檔案為空白)。
 
-下列範例示範如何設定現有檔案共用的配額。
+下列範例示範如何檢查共用的目前使用狀況，以及如何設定共用的配額。
 
     //Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -244,12 +244,20 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
     //Ensure that the share exists.
     if (share.Exists())
     {
-		//Specify the maximum size of the share, in GB.
-	    share.Properties.Quota = 100;
-	    share.SetProperties();
-	}
+        //Check current usage stats for the share.
+		//Note that the ShareStats object is part of the protocol layer for the File service.
+        Microsoft.WindowsAzure.Storage.File.Protocol.ShareStats stats = share.GetStats();
+        Console.WriteLine("Current share usage: {0} GB", stats.Usage.ToString());
 
-若要取得共用的任何現有配額值，請呼叫 **FetchAttributes()** 方法來擷取共用的屬性。
+        //Specify the maximum size of the share, in GB.
+        //This line sets the quota to be 10 GB greater than the current usage of the share.
+        share.Properties.Quota = 10 + stats.Usage;
+        share.SetProperties();
+
+        //Now check the quota for the share. Call FetchAttributes() to populate the share's properties. 
+        share.FetchAttributes();
+        Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
+    }
 
 ## 產生檔案或檔案共用的共用存取簽章
 
@@ -408,7 +416,7 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 
 您可以從執行 Linux 的虛擬機器裝載 Azure 檔案共用。當您建立 Azure 虛擬機器時，可以從 Azure 映像庫指定支援 SMB 2.1 的 Linux 映像，例如 Ubuntu 最新版。不過，任何支援 SMB 2.1 的 Linux 發行版本都可裝載 Azure 檔案共用。
 
-若要深入了解如何在 Linux 上裝載 Azure 檔案服務共用，請參閱 Cannel 9 上的[透過 Azure 檔案預覽在 Linux 上使用共用儲存體 - 第 1 部分](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1)。
+若要深入了解如何在 Linux 上裝載 Azure 檔案共用，請參閱 Cannel 9 上的[透過 Azure 檔案預覽在 Linux 上使用共用儲存體 - 第 1 部分](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1)。
 
 ## 後續步驟
 
@@ -428,4 +436,4 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 - [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

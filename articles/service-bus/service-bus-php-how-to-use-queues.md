@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用服務匯流排佇列 (PHP) - Azure" 
+	pageTitle="如何使用服務匯流排佇列 (PHP) | Microsoft Azure" 
 	description="了解如何使用 Azure 中的服務匯流排佇列。程式碼範例以 PHP 撰寫。" 
 	services="service-bus" 
 	documentationCenter="php" 
@@ -213,4 +213,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

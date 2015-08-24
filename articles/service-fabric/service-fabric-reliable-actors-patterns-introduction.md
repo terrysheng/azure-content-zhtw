@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric Reliable Actor 模式和反向模式簡介"
-   description="深入了解 Service Fabric 的 Reliable Actor 程式設計模型，以及適用於 Actor 的設計模式。"
+   pageTitle="Azure Service Fabric Actor 模式和反向模式簡介"
+   description="適用於 Service Fabric Actor 的設計模式"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # Reliable Actor 設計模式簡介
@@ -70,4 +70,4 @@ Azure 網狀架構動作項目的主要優點是：1) **開發人員生產力**�
 
 * *明確的非同步。* Azure 網狀架構動作項目程式設計模型，使非同步性質的分散式應用程式更明確，並輔助程式設計人員撰寫非封鎖的非同步程式碼。這可啟用大規模的分散式平行處理原則及整體輸送量，而不需明確地使用多執行緒。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

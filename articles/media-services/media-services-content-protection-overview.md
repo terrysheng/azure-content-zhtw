@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #保護內容概觀
@@ -141,4 +141,4 @@ Microsoft Azure 媒體服務可讓您傳遞利用進階加密標準 (AES) (使�
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

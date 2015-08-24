@@ -28,7 +28,6 @@
 - 刪除時的 ANSI 聯結
 - merge 陳述式
 - 跨資料庫聯結
-- [樞紐和取消樞紐陳述式][]
 - [資料指標][]
 - [SELECT..INTO][]
 - INSERT..EXEC
@@ -86,7 +85,7 @@ AND     request_id IN
 <!--Image references-->
 
 <!--Article references-->
-[樞紐和取消樞紐陳述式]: sql-data-warehouse-develop-pivot-unpivot.md
+[pivot and unpivot statements]: sql-data-warehouse-develop-pivot-unpivot.md
 [資料指標]: sql-data-warehouse-develop-loops.md
 [SELECT..INTO]: sql-data-warehouse-develop-ctas.md
 [group by 子句搭配 rollup / cube / grouping sets 選項]: sql-data-warehouse-develop-group-by-options.md
@@ -100,4 +99,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

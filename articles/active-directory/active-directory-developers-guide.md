@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/10/2015"
+   ms.date="08/12/2015"
    ms.author="mbaldwin"/>
 
 
@@ -67,6 +67,7 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 - [如何在 Azure AD 應用程式庫中列出您的應用程式](active-directory-app-gallery-listing.md)
 - [如何在應用程式中開始使用 Office 365 API](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [如何提交 Office 365 的 Web 應用程式到賣方儀表板](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+- [預覽：如何建置可同時透過個人和公司/學校帳戶登入使用者的應用程式](active-directory-appmodel-v2-overview.md)
 
 
 ## 參考
@@ -132,4 +133,4 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 - **[Twitter 上的 Azure AD](https://twitter.com/azuread)**：140 個字元以內的 Azure AD 公告。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

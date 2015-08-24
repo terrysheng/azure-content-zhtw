@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="逐步解說：使用 Application Insights 監視 Microsoft CRM" 
-	description="使用 Application Insights 取得 Microsoft CRM Online 遙測。設定、取得資料、視覺化與匯出的逐步解說。" 
+	pageTitle="逐步解說：使用 Application Insights 監視 Microsoft Dynamics CRM" 
+	description="使用 Application Insights 取得 Microsoft Dynamics CRM Online 遙測。設定、取得資料、視覺化與匯出的逐步解說。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="mazharmicrosoft" 
-	manager="klin"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -15,11 +15,11 @@
 	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
-# 逐步解說：使用 Application Insights 啟用Microsoft CRM Online 遙測
+# 逐步解說：使用 Application Insights 啟用Microsoft Dynamics CRM Online 遙測
 
-本文說明如何使用 [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/) 取得 [Microsoft CRM Online](https://www.dynamics.com/) 遙測資料。我們會逐步解說將 Application Insights 指令碼加入至您的應用程式、擷取資料和資料視覺化的完整程序。
+本文說明如何使用 [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/) 取得 [Microsoft Dynamics CRM Online](https://www.dynamics.com/) 遙測資料。我們會逐步解說將 Application Insights 指令碼加入至您的應用程式、擷取資料和資料視覺化的完整程序。
 
->[AZURE.NOTE] [Browse the sample code](https://dynamicsandappinsights.codeplex.com/)。
+>[AZURE.NOTE] [Browse the sample solution](https://dynamicsandappinsights.codeplex.com/)。
 
 ## 將 Application Insights 加入至新的或現有的 CRM Online 執行個體 
 
@@ -149,9 +149,9 @@
 
 如果您[將資料匯出到 Microsoft Power BI](app-insights-export-power-bi.md)，則可以進行更深入的分析。
 
-## 範例 CRM 解決方案
+## 範例 Dynamics CRM 解決方案
 
-以下是 CRM 中實作的範例方案，用來開始擷取遙測。https://dynamicsandappinsights.codeplex.com/
+[以下是在 Dynamics CRM 中實作的範例解決方案](https://dynamicsandappinsights.codeplex.com/)
 
 ## 詳細資訊
 
@@ -161,4 +161,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

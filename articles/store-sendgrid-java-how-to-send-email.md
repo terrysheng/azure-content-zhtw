@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用 SendGrid 電子郵件服務 (Java) - Azure" 
+	pageTitle="如何使用 SendGrid 電子郵件服務 (Java) | Microsoft Azure" 
 	description="了解如何在 Azure 使用 SendGrid 電子郵件服務傳送電子郵件。程式碼範例以 Java 撰寫。" 
 	services="" 
 	documentationCenter="java" 
@@ -56,6 +56,7 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
 
 1.  指定 SMTP 值 (包括 SMTP 伺服器)，對 SendGrid 而言是 smtp.sendgrid.net。
     
+```
         import java.util.Properties;
         import javax.activation.*;
         import javax.mail.*;
@@ -78,8 +79,9 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
            	  properties.put("mail.smtp.port", 587);
            	  properties.put("mail.smtp.auth", "true");
            	  // …
+```
 
-2.  擴充 <span class="auto-style1">javax.mail.Authenticator</span> 類別，以及在 <span class="auto-style1">getPasswordAuthentication</span> 方法的實作中，傳回您的 SendGrid 使用者名稱和密碼。
+2.  擴充 *javax.mail.Authenticator* 類別，以及在 *getPasswordAuthentication* 方法的實作中，傳回 SendGrid 使用者名稱和密碼。  
 
         private class SMTPAuthenticator extends javax.mail.Authenticator {
         public PasswordAuthentication getPasswordAuthentication() {
@@ -88,13 +90,13 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
            return new PasswordAuthentication(username, password);
         }
 
-3.  透過 <span class="auto-style1">javax.mail.Session</span> 物件建立經過驗證的電子郵件工作階段。
+3.  透過 *javax.mail.Session* 物件建立經過驗證的電子郵件工作階段。
 
         Authenticator auth = new SMTPAuthenticator();
         Session mailSession = Session.getDefaultInstance(properties, auth);
 
 4.  建立郵件並指派 [收件者]、[寄件者]、[主旨] 和內容值。這顯示在[如何：建立電子郵件](#bkmk_HowToCreateEmail)一節中。
-5.  透過 <span class="auto-style1">javax.mail.Transport</span> 物件傳送郵件。這顯示在[如何：傳送電子郵件][How to: Send an Email]一節中。
+5.  透過 *javax.mail.Transport* 物件傳送郵件。這顯示在[如何：傳送電子郵件][How to: Send an Email]一節中。
 
 ## <a name="bkmk_HowToCreateEmail"> </a>如何：建立電子郵件
 
@@ -228,4 +230,4 @@ SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGri
   [雲端架構電子郵件服務]: https://sendgrid.com/email-solutions
   [交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

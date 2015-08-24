@@ -247,9 +247,8 @@ IaaS 上的 SQL Server 也可以當做來源和接收器受到支援。必須有
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
-> [AZURE.NOTE]如需使用複製活動的更多範例，請參閱[在 Azure Data Factory 中使用複製活動的範例][copy-activity-examples]。
 
-## Security
+## 安全性
 本章節包含完整的安全性方針和最佳作法，可協助建立複製活動資料存放區的安全存取。
 
 在提供 HTTPS 連線的資料存放區中，請為複製活動選擇 HTTPS 連線，以建立透過網路的安全通訊。例如，若是 **Azure 儲存體**，請在連接字串中使用 **DefaultEndpointsProtocol = https**。
@@ -264,7 +263,6 @@ IaaS 上的 SQL Server 也可以當做來源和接收器受到支援。必須有
 - **複製活動的資料類型處理**。說明在哪些情況下，會接受/忽略資料表定義的結構區段中所指定的資料類型。
 - **叫用 SQL 接收器的預存程序**。將資料複製到 SQL Server 或 Azure SQL Database 時，可以設定並叫用使用者特定的預存程序。
 
-請參閱[搭配 Azure Data Factory 使用複製活動的進階案例][copy-activity-advanced]一文，以取得這些案例的詳細資訊。
 
 ## 逐步解說
 請參閱[開始使用 Azure Data Factory][adfgetstarted] 中的教學課程，以了解如何使用「複製活動」將資料從 Azure Blob 儲存體複製到 Azure SQL Database。
@@ -272,10 +270,8 @@ IaaS 上的 SQL Server 也可以當做來源和接收器受到支援。必須有
 請參閱[讓您的管線使用內部部署資料][use-onpremises-datasources]中的逐步解說，以了解如何使用「複製活動」將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體
 
 ## 另請參閱
-- [複製活動 - 範例][copy-activity-examples]
 - [影片：Azure Data Factory 複製活動簡介][copy-activity-video]
 - [MSDN Library 上的複製活動主題][msdn-copy-activity]
-- [搭配 Azure Data Factory 使用複製活動的進階案例][copy-activity-advanced]
 
 [msdn-copy-activity]: https://msdn.microsoft.com/library/dn835035.aspx
 [msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
@@ -288,9 +284,7 @@ IaaS 上的 SQL Server 也可以當做來源和接收器受到支援。必須有
 
 [adfgetstarted]: data-factory-get-started.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[copy-activity-examples]: data-factory-copy-activity-examples.md
 
-[copy-activity-advanced]: data-factory-copy-activity-advanced.md
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
@@ -299,4 +293,4 @@ IaaS 上的 SQL Server 也可以當做來源和接收器受到支援。必須有
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

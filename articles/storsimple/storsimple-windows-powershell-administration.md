@@ -199,4 +199,4 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 ## 後續步驟
 如果您在執行上述任何工作流程時遇到任何 StorSimple 裝置的問題，請參閱[以 Cmdlet 疑難排解](storsimple-troubleshoot-deployment.md#cmdlets-available-for-troubleshooting)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

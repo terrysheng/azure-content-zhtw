@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/05/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #作法：設定資產傳遞原則
+
 [AZURE.INCLUDE [媒體-服務-選取器-資產-傳遞-原則](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md)系列的一部分。
-
-媒體服務內容傳遞工作流程的其中一個步驟，是設定您要進行串流處理之資產的傳遞原則。資產傳遞原則會告訴媒體服務您想要如何傳遞資產：您的資產應該動態封裝成哪個串流通訊協定 (如 MPEG DASH、HLS、Smooth Streaming 或所有)，您是否想要動態加密您的資產及其方式 (信封或一般加密)。
+如果您打算傳遞動態加密的資產，媒體服務內容傳遞工作流程的其中一個步驟，是設定資產的傳遞原則。資產傳遞原則會告訴媒體服務您想要如何傳遞資產：您的資產應該動態封裝成哪個串流通訊協定 (如 MPEG DASH、HLS、Smooth Streaming 或所有)，您是否想要動態加密您的資產及其方式 (信封或一般加密)。
 
 本主題討論建立和設定資產傳遞原則的原因與方法。
 
@@ -413,4 +412,4 @@ HDS
     }
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

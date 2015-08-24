@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="08/06/2015"
    ms.author="lauracr"/>
 
 # 從 System Center Operations Manager 連接至 Operational Insights
@@ -46,4 +46,4 @@
 
 [設定 Proxy 和防火牆設定 (選擇性)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

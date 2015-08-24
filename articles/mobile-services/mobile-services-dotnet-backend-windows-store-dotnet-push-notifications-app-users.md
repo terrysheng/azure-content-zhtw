@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="傳送推播通知給已驗證的使用者 (Universal Windows 8.1) | Azure Mobile Services" 
+	pageTitle="傳送推播通知給已驗證的使用者 (Universal Windows 8.1) | Microsoft Azure" 
 	description="了解如何使用 Azure 行動服務，將推播通知傳送給執行 Universal Windows 8.1 應用程式並已驗證的特定使用者。" 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -66,4 +66,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

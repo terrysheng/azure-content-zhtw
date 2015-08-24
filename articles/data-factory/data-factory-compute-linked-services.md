@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="運算連結服務 | Azure Data Factory" 
+	pageTitle="運算連結服務 | Microsoft Azure" 
 	description="了解您可以在 Azure Data Factory 管線中用來轉換/處理資料的運算環境。" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -128,7 +128,7 @@ yarnConfiguration | 指定 HDInsight 叢集的 Yarn 組態參數 (yarn-site.xml)
 下列運算環境可支援這類型的組態：
 
 - Azure HDInsight
-- Azure 批次 
+- Azure Batch 
 - Azure Machine Learning
 
 ## Azure HDInsight 連結服務
@@ -164,7 +164,7 @@ linkedServiceName | 此 HDInsight 叢集所使用之 Blob 儲存體的連結服�
 
 ## Azure Batch 連結服務
 
-您可以建立 Azure Batch 連結服務，以向 Data Factory 註冊虛擬機器 (VM) 的批次集區。您可以使用 Azure Batch 或 Azure HDInsight 執行 .NET 自訂活動。
+您可以建立 Azure Batch 連結服務，以向 Data Factory 註冊虛擬機器 (VM) 的 Batch 集區。您可以使用 Azure Batch 或 Azure HDInsight 執行 .NET 自訂活動。
 
 如果您不熟悉 Azure Batch 服務，請參閱下列主題：
  
@@ -208,7 +208,7 @@ poolName | 虛擬機器的集區名稱。 | 是
 linkedServiceName | 與此 Azure Batch 連結服務相關聯的 Azure 儲存體服務連結名稱。此連結服務用於執行活動及儲存活動執行記錄檔所需的暫存檔案。 | 是
 
 
-## Azure Batch 連結服務
+## Azure Machine Learning 連結服務
 
 您可建立 Azure Machine Learning 連結服務，以向 Data Factory 註冊 Machine Learning 批次評分端點。
 
@@ -234,7 +234,9 @@ mlEndpoint | 批次評分 URL。 | 是
 apiKey | 已發佈的工作區模型的 API。 | 是
 
 
+## Azure SQL 連結服務
 
+您可以建立 Azure SQL 連結服務，並用它搭配[預存程序活動](data-factory-stored-proc-activity.md)叫用 Data Factory 管線中的預存程序。如需此連結服務的相關詳細資料，請參閱〈[Azure SQL 連接器](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties)〉。
 
 
   
@@ -245,4 +247,4 @@ apiKey | 已發佈的工作區模型的 API。 | 是
  
    
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

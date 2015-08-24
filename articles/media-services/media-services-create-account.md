@@ -1,5 +1,5 @@
 <properties
-	pageTitle="建立媒體服務帳戶 - Azure"
+	pageTitle="建立媒體服務帳戶 | Microsoft Azure"
 	description="說明如何在 Azure 中建立新的媒體服務帳戶。"
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/20/2015"
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -23,8 +23,6 @@
 - [Portal](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
-
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md)系列的一部分。
 
 Azure 管理入口網站提供一種方法來快速建立 Azure 媒體服務帳戶。您可以使用自己的帳戶，來存取讓您在 Azure 中儲存、加密、編碼、管理和串流播放媒體內容的媒體服務。當您建立媒體服務帳戶時，您也會在與媒體服務帳戶相同的地理區域中建立相關聯的儲存體帳戶 (或使用現有儲存體帳戶)。
 
@@ -81,4 +79,4 @@ Azure 管理入口網站提供一種方法來快速建立 Azure 媒體服務帳�
   [管理入口網站]: http://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

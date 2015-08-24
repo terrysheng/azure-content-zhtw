@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="07/20/2015" 
+	ms.date="08/13/2015" 
 	ms.author="anbacker"/>
 	
 # 監視和疑難排解 VMware、VMM、Hyper-V 和實體網站的保護
@@ -169,6 +169,7 @@ SDP 工具會在本機收集記錄檔，您也可以在 **%LocalAppData%\\Elevat
 -   [無法連接到 Hyper-V 復原管理員保存庫。請確認 Proxy 設定，或稍後再試一次。](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
 
 ### 組態
+-   [無法建立保護群組：擷取伺服器清單時發生錯誤。](http://blogs.technet.com/b/somaning/archive/2015/08/12/unable-to-create-the-protection-group-in-azure-site-recovery-portal.aspx)
 
 -   [Hyper-V 主機叢集至少包含一個靜態網路介面卡，或未設定連線的介面卡來使用 DHCP。](http://social.technet.microsoft.com/wiki/contents/articles/25498.hyper-v-host-cluster-contains-at-least-one-static-network-adapter-or-no-connected-adapters-are-configured-to-use-dhcp.aspx)
 
@@ -222,4 +223,4 @@ SDP 工具會在本機收集記錄檔，您也可以在 **%LocalAppData%\\Elevat
 ### 容錯移轉之後的遠端桌面疑難排解
 許多客戶面臨在 Azure 中連接到容錯移轉的 VM 的問題。使用疑難排解文件 RDP 至 VM。[文件連結](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

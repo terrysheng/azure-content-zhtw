@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="將行動服務新增至現有的應用程式 (HTML 5) | 行動開發人員中心" 
+	pageTitle="將行動服務新增至現有的應用程式 (HTML 5) | Microsoft Azure" 
 	description="了解如何在現有的 HTML 應用程式中開始使用行動服務。" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -257,4 +257,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何調整雲端服務 | Azure" 
+	pageTitle="如何調整雲端服務 | Microsoft Azure" 
 	description="了解如何在 Azure 中調整雲端服務和連結的資源。" 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -227,4 +227,4 @@
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

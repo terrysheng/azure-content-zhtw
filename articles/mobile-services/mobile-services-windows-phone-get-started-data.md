@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="將行動服務新增至現有的應用程式 (WP8) - Azure 行動服務" 
+	pageTitle="將行動服務新增至現有的應用程式 (WP8) | Microsoft Azure" 
 	description="了解如何開始從 Windows Phone 8 應用程式使用 Azure 行動服務。" 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -40,7 +40,7 @@
 
 1. 從 [開發人員程式碼範例網站] (英文) 下載 GetStartedWithData 範例應用程式專案。 
 
-	>[AZURE.NOTE] 若要建立 Windows Phone Silverlght 8.1 應用程式，只要將已下載之 Windows Phone Silverlight 8 應用程式專案的目標 OS 變更為 Windows Phone 8.1 即可。若要建立 Windows Phone 市集應用程式，請下載 GetStartedWithData 範例應用程式專案的 [Windows Phone 市集應用程式版本](http://go.microsoft.com/fwlink/p/?LinkId=397372)。
+	>[AZURE.NOTE]若要建立 Windows Phone Silverlght 8.1 應用程式，只要將已下載之 Windows Phone Silverlight 8 應用程式專案的目標 OS 變更為 Windows Phone 8.1 即可。若要建立 Windows Phone 市集應用程式，請下載 GetStartedWithData 範例應用程式專案的 [Windows Phone 市集應用程式版本](http://go.microsoft.com/fwlink/p/?LinkId=397372)。
 
 2. 在 Visual Studio 中，開啟下載的專案並檢查 MainPage.xaml.cs 檔案。
 
@@ -193,4 +193,4 @@
 [開發人員程式碼範例網站]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

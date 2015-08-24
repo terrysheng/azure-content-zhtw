@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="建置使用資料表儲存體而非 SQL Database 的服務 | Azure 行動服務" 
+	pageTitle="建置使用資料表儲存體而非 SQL Database 的服務 | Microsoft Azure" 
 	description="了解如何搭配 .NET 後端行動服務使用 Azure 資料表儲存體。" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -158,4 +158,4 @@
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

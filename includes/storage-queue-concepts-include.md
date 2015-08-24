@@ -4,7 +4,7 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 佇列儲存體的一般用途包括：
 
--   <span>建立工作的待處理項目以進行非同步處理</span>
+-   建立積存的工作供非同步處理
 -   將訊息從 Azure Web 角色傳遞至 Azure 背景工作角色
 
 ## 佇列服務概念
@@ -16,12 +16,14 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 - **URL 格式：** 可利用下列 URL 格式來定址佇列：http://`<storage account>`.queue.core.windows.net/`<queue>` 
       
-下列 URL 可定址圖中的其中一個佇列：http://myaccount.queue.core.windows.net/imagesToDownload
+	下列 URL 可定址圖中的佇列：
+		
+		http://myaccount.queue.core.windows.net/imagesToDownload
 
-\-**儲存體帳戶：**一律透過儲存體帳戶來存取 Azure 儲存體。如需關於儲存體帳戶容量的詳細資訊，請參閱＜[Azure 儲存體延展性和效能目標](../articles/storage/storage-scalability-targets.md)＞(英文)。
+- **儲存體帳戶：**一律透過儲存體帳戶來存取 Azure 儲存體。如需關於儲存體帳戶容量的詳細資訊，請參閱＜[Azure 儲存體延展性和效能目標](../articles/storage/storage-scalability-targets.md)＞(英文)。
 
 - **佇列：**佇列包含一組訊息。所有訊息都必須放在佇列中。
 
 - **訊息：**訊息 (任何格式) 的大小上限為 64 KB。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

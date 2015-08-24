@@ -18,10 +18,11 @@
 
 # 在 Azure App Service 中設定自訂網域名稱
 
-<div class="dev-center-tutorial-selector sublanding">
-  <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web 應用程式">購買 Web 應用程式網域</a> <a href="/documentation/articles/web-sites-custom-domain-name" title="Web 應用程式" class="current">內含外部網域的 Web 應用程式</a> <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="內含流量管理員的 Web 應用程式">內含流量管理員的 Web 應用程式</a> <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
-
-</div>
+> [AZURE.SELECTOR]
+- [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md)
+- [Web Apps with External Domains](web-sites-custom-domain-name.md)
+- [Web Apps with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
+- [GoDaddy](web-sites-godaddy-custom-domain-name.md)
 
 [AZURE.INCLUDE 〈[websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)〉]
 
@@ -71,7 +72,7 @@
 4.	按一下您的 Web 應用程式的名稱。
 5.	在 [**基本功能**] 頁面上，按一下 [**所有設定**]。
 6.	按一下 [**自訂網域和 SSL**]。 
-7.	在 [自訂網域和 SSL] 刀鋒視窗中，按一下 [帶出外部網域]。IP 位址位於此部分的底部。
+7.	在 [**自訂網域和 SSL**] 刀鋒視窗中，按一下 [**帶出外部網域**]。IP 位址位於此部分的底部。
 
 ## 建立 DNS 記錄
 
@@ -147,4 +148,4 @@
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

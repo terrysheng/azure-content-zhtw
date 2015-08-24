@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/16/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -47,4 +47,4 @@ Azure RemoteApp 可讓使用者存取集中管理的 Windows 應用程式，這�
 - [Office 2013 原則](https://technet.microsoft.com/library/cc178969.aspx) (包括[如何自訂 Office 工具列](https://technet.microsoft.com/library/cc179143.aspx))。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

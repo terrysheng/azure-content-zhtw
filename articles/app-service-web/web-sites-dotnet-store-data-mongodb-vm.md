@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="08/11/2015" 
 	ms.author="cephalin"/>
 
 
@@ -92,7 +92,7 @@ MongoDB 透過驅動程式提供 C# 應用程式的用戶端支援，您必須�
 
 	![Manage NuGet Packages][VS2013ManageNuGetPackages]
 
-2. 在 [Manage NuGet Packages] 視窗的左窗格中，按一下 [線上]。在右邊的 [線上搜尋] 方塊中，輸入 "mongocsharpdriver"。按一下 [安裝] 以安裝驅動程式。
+2. 在 [Manage NuGet Packages] 視窗的左窗格中，按一下 [線上]。在右邊的 [**線上搜尋**] 方塊中，輸入「mongodb.driver」。按一下 [安裝] 以安裝驅動程式。
 
 	![Search for MongoDB C# Driver][SearchforMongoDBCSharpDriver]
 
@@ -101,7 +101,7 @@ MongoDB 透過驅動程式提供 C# 應用程式的用戶端支援，您必須�
 4. 在安裝驅動程式後，按一下 [關閉]。![MongoDB C# Driver Installed][MongoDBCsharpDriverInstalled]
 
 
-MongoDB C# 驅動程式現已安裝。**MongoDB.Driver.dll** 和 **MongoDB.Bson.dll** 程式庫的參考便已新增至專案。
+MongoDB C# 驅動程式現已安裝。 **MongoDB.Bson**、**MongoDB.Driver** 和 **MongoDB.Driver.Core** 程式庫的參考已新增至專案。
 
 ![MongoDB C# Driver References][MongoDBCSharpDriverReferences]
 
@@ -367,7 +367,7 @@ MongoDB C# 驅動程式現已安裝。**MongoDB.Driver.dll** 和 **MongoDB.Bson.
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-若要新增建立新工作的功能，請在 *Views\\Home\* 資料夾上按一下滑鼠右鍵，然後 [新增] 一個 [檢視]。將檢視命名為 *Create*。使用下列程式碼來取代此程式碼：
+若要新增建立新工作的功能，請在 *Views\\Home* 資料夾上按一下滑鼠右鍵，然後 [新增] 一個 [檢視]。將檢視命名為 *Create*。使用下列程式碼來取代此程式碼：
 
 	@model MyTaskListApp.Models.MyTask
 	
@@ -499,4 +499,4 @@ MongoDB C# 驅動程式現已安裝。**MongoDB.Driver.dll** 和 **MongoDB.Bson.
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

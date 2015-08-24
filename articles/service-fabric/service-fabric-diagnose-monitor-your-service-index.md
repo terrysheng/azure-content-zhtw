@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/21/2015"
+   ms.date="08/04/2015"
    ms.author="ryanwi"/>
 
 # 診斷和監視 Service Fabric 服務
@@ -40,4 +40,4 @@ Service Fabric 導入了健康狀態模型，可提供豐富、彈性且可延�
 - [新增自訂 Service Fabric 健康狀態報告](service-fabric-report-health.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

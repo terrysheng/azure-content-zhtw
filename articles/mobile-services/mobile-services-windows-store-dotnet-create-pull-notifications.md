@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="定義支援推播通知的自訂 API - Azure 行動服務" 
+	pageTitle="定義支援推播通知的自訂 API | Microsoft Azure" 
 	description="了解如何定義自訂 API 在使用 Azure 行動服務的 Windows 市集應用程式中支援定期通知。" 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # 定義支援定期通知的自訂 API
-
-<div class="dev-center-tutorial-selector"> 
-	<a href="/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications/" title="Windows 市集 C#" class="current">Windows 市集 C#</a><a href="/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications/" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a>
-</div>
 
 本主題說明如何使用自訂 API 來支援 Windows 市集應用程式中的定期通知。在啟用定期通知的情況下，Windows 將定期存取您的自訂 API 端點，並使用傳回的 XML (採用磚的特定格式) 來更新開始功能表上的應用程式磚。如需詳細資訊，請參閱[定期通知]。
 
@@ -167,4 +163,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

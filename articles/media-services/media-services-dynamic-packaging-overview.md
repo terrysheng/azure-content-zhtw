@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
@@ -97,4 +97,4 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 - Dolby digital 加上 mp4 檔案。
 - Dolby digital 加上 smooth 檔案。 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

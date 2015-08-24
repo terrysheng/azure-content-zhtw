@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="javascript"
 	ms.topic="article" 
-	ms.date="04/24/2015"
+	ms.date="08/08/2015"
 	ms.author="glenga"/>
 
 
@@ -73,10 +73,10 @@
 
 &nbsp;&nbsp;4.在共用程式碼專案中，開啟 default.js 檔案，找出建立 [WindowsAzure.MobileServiceClient](http://msdn.microsoft.com/library/azure/jj554219.aspx) 執行個體的程式碼，使用 *localhost* 將建立此用戶端的程式碼註解化，然後使用遠端行動服務 URL，將建立用戶端的程式碼取消註解，如下所示：
 
-        <pre><code>var client = new WindowsAzure.MobileServiceClient(
-            "https://todolist.azure-mobile.net/",
-            "XXXXXX-APPLICATION-KEY-XXXXXX"
-        );</code></pre>
+	var client = new WindowsAzure.MobileServiceClient(
+	    "https://todolist.azure-mobile.net/",
+	    "XXXXXX-APPLICATION-KEY-XXXXXX"
+	);
 
 &nbsp;&nbsp;此時，用戶端會存取發佈至 Azure 的行動服務。
 
@@ -120,4 +120,4 @@
 [Get started with data in Mobile Services using Visual Studio 2012]: ../mobile-services-windows-store-dotnet-get-started-data-vs2012.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="05/27/2015"
+   ms.date="08/05/2015"
    ms.author="ruturajd@microsoft.com"/>
 
 # 從 Azure 到 VMware 的容錯回復步驟
@@ -54,31 +54,54 @@
 
 ## 安裝 vContinuum 內部部署
 
-VContinuum 安裝程式將可在[下載位置](http://go.microsoft.com/fwlink/?linkid=526305)取得。
+VContinuum 安裝程式將可在[下載位置](http://go.microsoft.com/fwlink/?linkid=526305)取得。此外，在 vConinuum 上安裝此處指定的修補程式 (可在[下載位置](http://go.microsoft.com/fwlink/?LinkID=533813)取得)。
 
-此外，在 vConinuum 上安裝此處指定的修補程式 (可在[下載位置](http://go.microsoft.com/fwlink/?LinkID=533813)取得)。
+1.  啟動安裝程式以開始安裝 vContinuum。按 [下一步]。![](./media/site-recovery-failback-azure-to-vmware/image2.png)
+2.  指定 CX 伺服器 IP 位址和 CX 伺服器連接埠。選取 HTTPS。
 
-1.  啟動安裝程式以開始安裝 vContinuum。在歡迎畫面中，按 [下一步] 開始指定設定 ![](./media/site-recovery-failback-azure-to-vmware/image2.png) 之後
-2.  指定 CX 伺服器 IP 位址和 CX 伺服器連接埠。確定勾選 [使用 HTTPS] 核取方塊。![](./media/site-recovery-failback-azure-to-vmware/image3.png) a.若要探索 CX IP，請前往 Azure 上的 CS 部署並檢視其儀表板。公用 IP 位址將會顯示在公用虛擬 IP 位址下。![](./media/site-recovery-failback-azure-to-vmware/image4.png) b.若要探索 CX 公用連接埠，請前往 [VM] 頁面中的 [端點] 索引標籤，並識別 HTTPs 端點公用連接埠 ![](./media/site-recovery-failback-azure-to-vmware/image5.png)
-3.  指定 CS 複雜密碼。您必須在 CS 註冊期間記下複雜密碼。您也必須在 MT 和 PS 部署期間使用複雜密碼。萬一您不記得複雜密碼，可以前往 Azure 上的 CS 伺服器，然後尋找儲存在 C:\\Program Files (x86)\\InMage Systems\\private\\connection.passphrase 下方的複雜密碼 ![](./media/site-recovery-failback-azure-to-vmware/image6.png)
-4.  指定要安裝 vContinuum 伺服器的位置，然後開始安裝 ![](./media/site-recovery-failback-azure-to-vmware/image7.png)
-5.  安裝完成之後，您就可以啟動 vContinuum 以查看它的運作方式。![](./media/site-recovery-failback-azure-to-vmware/image8.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image3.png)
+
+3.  若要探索 CX IP 位址，請前往 Azure 上的 CS 部署並檢視其儀表板。
+
+	![](./media/site-recovery-failback-azure-to-vmware/image4.png)
+
+4.  若要探索 CX 公用連接埠，請前往 [VM] 頁面中的 [端點] 索引標籤，並識別 HTTPs 端點公用連接埠。
+
+	![](./media/site-recovery-failback-azure-to-vmware/image5.png)
+
+5.  指定 CS 複雜密碼。您必須在 CS 註冊期間記下複雜密碼。您也必須在 MT 和 PS 部署期間使用複雜密碼。萬一您不記得複雜密碼，可以前往 Azure 上的 CS 伺服器，然後尋找儲存在 C:\\Program Files (x86)\\InMage Systems\\private\\connection.passphrase 下方的複雜密碼
+
+	![](./media/site-recovery-failback-azure-to-vmware/image6.png)
+
+6.  指定要安裝 vContinuum 伺服器的位置，然後開始安裝。
+
+	![](./media/site-recovery-failback-azure-to-vmware/image7.png)
+
+7.  一旦您看到安裝完成，就可以啟動 vContinuum 以查看它的運作方式。![](./media/site-recovery-failback-azure-to-vmware/image8.png)
+
 
 ## 在 Azure 上安裝 PS 伺服器
 
 處理序伺服器必須安裝在 Azure 上，讓 Azure 中的 VM 可以將資料傳回內部部署的 MT。您需要在 Azure 上組態伺服器所在的相同網路中部署 PS。
 
-1.  在 Azure 的 [組態伺服器] 頁面中，選取要加入新的處理序伺服器 ![](./media/site-recovery-failback-azure-to-vmware/image9.png)
-2.  在處理序伺服器上設定下列設定來部署新的伺服器 a.指定處理序伺服器的名稱 b.輸入要以系統管理員身分連接到虛擬機器的使用者名稱 c.輸入要用來登入的密碼 d.選取處理序伺服器必須向其註冊的組態伺服器。確定您選取了正確的組態伺服器。這是您用來保護和容錯移轉虛擬機器的同一部伺服器。 e.指定您需要將處理序伺服器部署到其中的 Azure 網路。確定您選取了與組態伺服器網路相同的網路。 f.從選取的子網路指定唯一的 IP 位址。 g.開始部署處理序伺服器。![](./media/site-recovery-failback-azure-to-vmware/image10.png)
-3.  將觸發部署處理序伺服器的工作 ![](./media/site-recovery-failback-azure-to-vmware/image11.png)
+1.  在 Azure 的 [**組態伺服器**] 頁面中，選取要加入新的處理序伺服器。
 
-在 Azure 上部署處理序伺服器之後，您就能使用指定的認證來登入該伺服器。使用您在正向保護期間所使用的相同步驟來註冊 PS。
+	![](./media/site-recovery-failback-azure-to-vmware/image9.png)
+
+2.  指定處程序伺服器名稱，然後輸入名稱和密碼，以系統管理員身分連接到虛擬機器。選取您要向其註冊處理序伺服器的組態伺服器。這應該是您用來保護並容錯移轉虛擬機器的同一部相伺服器。指定應在其中部署處理序伺服器的 Azure 網路。它應該是與組態伺服器相同的網路。從選取子網路指定唯一的 IP 位址並開始部署。
+
+	![](./media/site-recovery-failback-azure-to-vmware/image10.png)
+
+
+將觸發部署處理序伺服器的工作。
+
+![](./media/site-recovery-failback-azure-to-vmware/image11.png)
+
+一旦在 Azure 上部署了處理序伺服器，您就能使用指定的認證來登入該伺服器。使用您在正向保護期間所使用的相同步驟來註冊 PS。
 
 ![](./media/site-recovery-failback-azure-to-vmware/image12.png)
 
-在容錯回復期間註冊的伺服器將不會顯示於 VM 屬性下方。它們將會只顯示於它們已註冊之組態伺服器下方的 [伺服器] 索引標籤中。
-
-大約需要 10-15 分鐘，PS 才會列於 CS 下方。
+在容錯回復期間註冊的伺服器將不會顯示於 VM 屬性下方。它們將會只顯示於它們已註冊之組態伺服器下方的 [伺服器] 索引標籤中。大約需要 10-15 分鐘，PS 才會列於 CS 下方。
 
 ## 安裝 MT 伺服器內部部署
 
@@ -102,47 +125,28 @@ Windows MT 已經隨附於 vContinuum 安裝程式中。當您安裝 vContinuum 
 
 2.  確定至少已將兩個磁碟連接到 VM - 一個用於作業系統，另一個則用於保留磁碟機。
 
-3.  安裝 Linux 作業系統。
+3.  安裝 Linux 作業系統。Linux 主要目標 (MT) 系統不應針對根或保留儲存空間使用 LVM。預設會設定 Linux MT，以避免 LVM 磁碟分割/磁碟探索。
+4.  您可以建立的磁碟分割為
 
-    a.注意：Linux 主要目標 (MT) 系統不應針對根或保留儲存空間使用 LVM。預設會設定 Linux MT，以避免 LVM 磁碟分割/磁碟探索。
+	![](./media/site-recovery-failback-azure-to-vmware/image13.png)
 
-    b.您可以建立的磁碟分割為 ![](./media/site-recovery-failback-azure-to-vmware/image13.png)
+5.  開始安裝 MT 之前，請執行下列的安裝前步驟。
 
-4.  開始安裝 MT 之前，請執行下列的安裝前步驟。
 
 #### 作業系統的安裝前步驟
 
-若要取得 Linux 虛擬機器中每個 SCSI 硬碟的 SCSI 識別碼，您應該啟用參數 “disk.EnableUUID = TRUE”。
+若要取得 Linux 虛擬機器中每個 SCSI 硬碟的 SCSI 識別碼，您應該啟用參數 “disk.EnableUUID = TRUE”。若要啟用此參數，請依照以下指定的步驟執行：
 
-若要啟用此參數，請依照以下指定的步驟執行：
+1. 關閉虛擬機器。
+2. 以滑鼠右鍵按一下左面板中的 VM 項目 > [**編輯設定**]。
+3. 按一下 [選項] 索引標籤。選取左方的 [進階] > [一般項目]，然後按一下右方顯示的 [組態參數]。當機器正在執行時，[組態參數] 選項將處於停用狀態。若要讓此索引標籤變成作用中狀態，請關閉機器。
 
-a.關閉虛擬機器。
+	![](./media/site-recovery-failback-azure-to-vmware/image14.png)
 
-b.以滑鼠右鍵按一下左面板中的 VM 項目，然後選取 [編輯設定]。
+4. 查看含有 **disk.EnableUUID** 的資料列是否已經存在？ 如果存在且已將值設為 False，即會使用 True 來覆寫值 (True 和 False 值是不區分大小寫的)。如果存在且已設為 True，可按一下 [取消]，然後在其開機之後，於客體作業系統內部測試 SCSI 命令。如果不存在，可按一下 [加入資料列]。
+5. 在 [名稱] 欄中加入 disk.EnableUUID。將其值儲存為 TRUE。請勿為上述值加上雙引號。
 
-c.按一下 [選項] 索引標籤。
-
-d.選取左方的 [進階] > [一般項目]，然後按一下右方顯示的 [組態參數]。
-
-![](./media/site-recovery-failback-azure-to-vmware/image14.png)
-
-當機器正在執行時，[組態參數] 選項將處於停用狀態。若要讓此索引標籤變成作用中狀態，請關閉機器。
-
-e.查看含有 **disk.EnableUUID** 的資料列是否已經存在？
-
-如果存在且已將值設為 False，即會使用 True 來覆寫值 (True 和 False 值是不區分大小寫的)。
-
-如果存在且已設為 True，可按一下 [取消]，然後在其開機之後，於客體作業系統內部測試 SCSI 命令。
-
-f.如果不存在，可按一下 [加入資料列]。
-
-在 [名稱] 欄中加入 disk.EnableUUID。
-
-將其值儲存為 TRUE
-
-注意：請勿為上述值加上雙引號。
-
-![](./media/site-recovery-failback-azure-to-vmware/image15.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image15.png)
 
 #### 下載並安裝其他封裝
 
@@ -324,51 +328,44 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 ![](./media/site-recovery-failback-azure-to-vmware/image22.png)
 
-    a.  To select the correct VM – you can refer to its IP address. The
-        IP address range on-premises will be the on-premises VM.
-
-    b.  Click **Remove** to delete the entry
+6.  若要選取正確的 VM，您可以參考其 IP 位址。IP 位址範圍內部部署將會在內部部署 VM 上。
+7.  按一下 [**移除**] 以刪除項目。
 
 ![](./media/site-recovery-failback-azure-to-vmware/image23.png)
 
-    c.  Go to the vCenter and stop the virtual machine on the vCenter
-
-    d.  Next you can also delete the virtual machines on-premises
-
-6.  接下來，您必須指定要保護 VM 的 MT 內部部署伺服器。
-
-    a.連接到您想要容錯回復的目標 vCenter
+8.  移至 vCenter 並停止 vCenter 上的虛擬機器
+9.  接下來您也可以刪除虛擬機器內部部署
+10.  接下來，您必須指定要保護 VM 的 MT 內部部署伺服器。
+11.  若要這樣做，請連接到您想要容錯回復的目標 vCenter
 
 ![](./media/site-recovery-failback-azure-to-vmware/image24.png)
 
-a.根據您要復原虛擬機器的目標主機來選取 MT 伺服器
+12.  根據您要復原虛擬機器的目標主機來選取 MT 伺服器
 
 ![](./media/site-recovery-failback-azure-to-vmware/image24.png)
 
-7.  接著提供每個虛擬機器的複寫選項
+13.  接著提供每個虛擬機器的複寫選項
 
 ![](./media/site-recovery-failback-azure-to-vmware/image25.png)
 
-a.您需要選取復原端 [資料存放區] - 這是要將 VM 還原到其中的資料存放區
+14.  若要這樣做，您需要選取復原端 [**資料存放區**] - 這是要將 VM 還原到其中的資料存放區
 
 您必須針對每個 VM 提供不同選項，如下
 
-選項|選項建議值
+**選項** | **選項建議值**
 ---|---
-處理序伺服器 IP|選取您已部署於 Azure 上的 PS
+處理序伺服器 IP | 選取您已部署於 Azure 上的 PS
 保留大小 (以 MB 為單位)| 
-保留值|1
-天/小時|星期幾
-一致性間隔|1
-選取目標資料存放區|可在復原端使用的資料存放區。這個資料存放區應具備足夠空間，而且也可供您要在其上具限化虛擬機器的 ESX 主機使用。
-
-
-8.  接下來，您可以設定虛擬機器將在容錯移轉到內部部署站台之後取得的屬性。您可以設定不同的屬性，如下所示
+保留值 | 1
+天/小時 | 星期幾
+一致性間隔 | 1
+選取目標資料存放區 | 可在復原端使用的資料存放區。這個資料存放區應具備足夠空間，而且也可供您要在其上具限化虛擬機器的 ESX 主機使用。
+15.  接下來，您可以設定虛擬機器將在容錯移轉到內部部署站台之後取得的屬性。您可以設定不同的屬性，如下所示
 
 ![](./media/site-recovery-failback-azure-to-vmware/image26.png)
 
 
-屬性|如何設定
+**屬性** | **如何設定**
 ---|---
 網路組態|針對每個偵測到的 NIC，設定虛擬機器的容錯回復 IP 位址。選取 NIC，然後按一下 [**變更**] 來指定 IP 位址詳細資料。
 硬體組態|您可以指定 VM 的 CPU 和記憶體值。此設定可套用到您嘗試保護的所有 VM。
@@ -555,4 +552,4 @@ NAT 組態|以下將詳細討論
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

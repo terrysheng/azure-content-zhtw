@@ -45,4 +45,6 @@
 
     ![維護頁面](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates7-include.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->
+
+<!---HONumber=August15_HO7-->

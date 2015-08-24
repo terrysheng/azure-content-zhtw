@@ -3,7 +3,7 @@
 	description="DocumentDB (一種 NoSQL 文件資料庫服務) 支援透過階層式 JSON 文件使用類似 SQL 文法來進行查詢，而不需要明確的結構描述或建立次要索引。" 
 	services="documentdb" 
 	documentationCenter="" 
-	authors="mimig1" 
+	authors="arramac" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="08/13/2015" 
 	ms.author="mimig"/>
 
-#查詢 DocumentDB
+# 查詢 DocumentDB
 Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構化查詢語言) 來查詢文件。DocumentDB 確實是無結構描述。由於它是直接在資料庫引擎內使用 JSON 資料模型，因此它提供不需明確的結構描述或建立次要索引，即可自動編製 JSON 文件索引的功能。
 
 在為 DocumentDB 設計查詢語言時，我們有兩個謹記的目標：
 
--	<strong>包含 SQL</strong>：我們想要包含 SQL，而不是發明新的查詢語言。SQL 是其中一個最熟悉且熱門的查詢語言。DocumentDB SQL 提供一個正式的程式設計模型，可在 JSON 文件上進行豐富的查詢。
--	<strong>延伸 SQL</strong>：由於 JSON 文件資料庫可以直接在資料庫引擎中執行 JavaScript，我們想要使用 JavaScript 的程式設計模型做為查詢語言的基礎。DocumentDB SQL 是以 JavaScript 的類型系統、運算式評估和函數叫用為基礎。這除了其他功能之外，還進而提供自然程式設計模型來進行關聯式投射、跨 JSON 文件的階層式導覽、自我聯結，以及叫用完全以 JavaScript 撰寫的使用者定義函式 (UDF)。 
+-	**包含 SQL**：我們想要包含 SQL，而不是發明新的查詢語言。SQL 是其中一個最熟悉且熱門的查詢語言。DocumentDB SQL 提供一個正式的程式設計模型，可在 JSON 文件上進行豐富的查詢。
+-	**延伸 SQL**：由於 JSON 文件資料庫可以直接在資料庫引擎中執行 JavaScript，我們想要使用 JavaScript 的程式設計模型做為查詢語言的基礎。DocumentDB SQL 是以 JavaScript 的類型系統、運算式評估和函數叫用為基礎。這除了其他功能之外，還進而提供自然程式設計模型來進行關聯式投射、跨 JSON 文件的階層式導覽、自我聯結，以及叫用完全以 JavaScript 撰寫的使用者定義函式 (UDF)。 
 
 我們相信這些功能的重點是減少應用程式與資料庫之間的摩擦，而且對開發人員的生產力而言十分重要。
 
-建議使用者從觀看下列影片開始入門，在影片中 Aravind Ramachandran 顯示 DocumentDB 的查詢功能，並且造訪我們的[查詢遊樂場](http://www.documentdb.com/sql/demo)，您可以在其中試試 DocumentDB 並對我們的資料集執行 SQL 查詢。
+建議您從觀看下列影片開始入門 (影片中 Aravind Ramachandran 會示範 DocumentDB 的查詢功能)，然後瀏覽我們的[查詢遊樂場](http://www.documentdb.com/sql/demo)。您可以在其中試試 DocumentDB，並對我們的資料集執行 SQL 查詢。
 
 > [AZURE.VIDEO dataexposedqueryingdocumentdb]
 
@@ -56,7 +56,7 @@ Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構�
 	}
 
 
-以下是第二份具有一個些微差異的文件：`givenName` 和 `familyName` 用來取代 `firstName` 和 `lastName`。
+以下是第二份具有些微差異的文件：`givenName` 和 `familyName` 用來取代 `firstName` 和 `lastName`。
 
 **文件**
 
@@ -89,7 +89,7 @@ Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構�
 
 
 
-現在，讓我們嘗試對此資料執行一些查詢，以了解 DocumentDB SQL 的一些重要部分。例如，下列查詢將會傳回 id 欄位符合 `AndersenFamily` 的文件。因為它是 `SELECT *`，所以查詢輸出是完整 JSON 文件：
+現在，讓我們嘗試對此資料執行一些查詢，以了解 DocumentDB SQL 的一些重要部分。例如，下列查詢將會傳回 id 欄位符合 `AndersenFamily` 的文件。因為它是 `SELECT *`，所以查詢的輸出是完整 JSON 文件：
 
 **查詢**
 
@@ -136,7 +136,7 @@ Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構�
 	}]
 
 
-下一個查詢會傳回家族中 id 符合依據居住城市排序的 `WakefieldFamily` 的所有小孩名字。
+下一個查詢會傳回家族中所有指定小孩的名稱，該家族的 id 符合依據居住城市所排序的 `WakefieldFamily`。
 
 **查詢**
 
@@ -156,12 +156,12 @@ Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構�
 
 我們想要透過目前所看到的範例來指出 DocumentDB 查詢語言的一些重要部分：
  
--	因為 DocumentDB SQL 處理 JSON 值，所以它處理樹狀形式的實體，而不是資料列和資料行。因此，此語言可讓人員參照樹狀目錄中任意深度的節點，例如 `Node1.Node2.Node3…..Nodem`，其類似於參照 `<table>.<column>` 之兩個部分參考的關聯式 SQL。   
+-	因為 DocumentDB SQL 處理 JSON 值，所以它處理樹狀形式的實體，而不是資料列和資料行。因此，此語言可讓您參照樹狀目錄中任意深度的節點 (例如 `Node1.Node2.Node3…..Nodem`)，該節點與參照 `<table>.<column>` 之兩個部分的關聯式 SQL 類似。   
 -	語言處理無結構描述的資料。因此，需要動態繫結類型系統。相同的運算式可能會對不同的文件產生不同的類型。查詢的結果會是有效的 JSON 值，但不保證會是固定的結構描述。  
--	DocumentDB 只支援嚴謹的 JSON 文件。這表示類型系統和運算式只能處理 JSON 類型。如需更多詳細資訊，請參閱 [JSON 規格](http://www.json.org/)。  
+-	DocumentDB 只支援嚴謹的 JSON 文件。這表示類型系統和運算式只能處理 JSON 類型。如需詳細資料，請參閱 [JSON 規格](http://www.json.org/)。  
 -	DocumentDB 集合是 JSON 文件的無結構描述容器。集合中文件內及跨文件之資料實體中的關係，會由內含項目以隱含方式擷取，而不是由主索引鍵和外部索引鍵關係擷取。這是本文稍後討論之文件內聯結中值得指出的重要部分。
 
-##DocumentDB 索引
+## DocumentDB 索引編製
 
 在進入 DocumentDB SQL 文法之前，有必要探索一下 DocumentDB 的索引設計。
 
@@ -179,10 +179,10 @@ Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構�
 
 -	儲存體效率：基於成本效益，索引的磁碟儲存體額外負荷有所限制且可預測。這十分重要，因為 DocumentDB 允許開發人員在索引額外負荷與查詢效能之間做出成本取捨。
 
-如需示範如何為集合設定索引原則的範例，請參閱 MSDN 上的 [DocumentDB 範例](https://github.com/Azure/azure-documentdb-net)。現在，讓我們深入討論 DocumentDB SQL 文法。
+如需示範如何為集合設定索引編製原則的範例，請參閱 MSDN 上的 [DocumentDB 範例](https://github.com/Azure/azure-documentdb-net)。現在，讓我們深入討論 DocumentDB SQL 文法。
 
 
-##DocumentDB 查詢基礎
+## DocumentDB 查詢基本概念
 根據 ANSI-SQL 標準，每個查詢都會包含 SELECT 子句以及選擇性的 FROM 和 WHERE 子句。針對每個查詢，通常都會列舉 FROM 子句中的來源。接著，會對來源套用 WHERE 子句中的篩選，以擷取 JSON 文件的子集。最後，使用 SELECT 子句來投射選取清單中所要求的 JSON 值。
     
     SELECT <select_list> 
@@ -190,18 +190,18 @@ Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構�
     [WHERE <filter_condition>]    
 
 
-##FROM 子句
+## FROM 子句
 `FROM <from_specification>` 子句為選用子句，除非稍後在查詢中篩選或投射來源。此子句的目的是指定查詢必須操作的資料來源。整個集合通常是來源，但是您可以改為指定集合的子集。
 
 類似 `SELECT * FROM Families` 的查詢指出整個 Families 集合是要列舉的來源。可使用特殊識別碼 ROOT 來代表此集合，而不使用集合名稱。下列清單包含會針對每個查詢強制執行的規則：
 
 - 集合可以進行別名處理，例如 `SELECT f.id FROM Families AS f` 或只是 `SELECT f.id FROM Families f`。`f` 等同於 `Families`。`AS` 是對識別碼進行別名處理的選用關鍵字。
 
--	請注意，進行別名處理之後，無法繫結原始來源。例如， `SELECT Families.id FROM Families f` 在語句構造上無效，因為無法再解析識別碼 "Families"。
+-	請注意，進行別名處理之後，無法繫結原始來源。例如，`SELECT Families.id FROM Families f` 在語句構造上無效，因為無法再解析識別碼 "Families"。
 
 -	所有需要參照的屬性都必須是完整的。如果未遵循嚴謹的結構描述，則會強制執行以避免任何模糊的繫結。因此，`SELECT id FROM Families f` 在語句構造上無效，因為不會繫結屬性 `id`。
 	
-###子文件
+### 子文件
 來源也可以減少為更小的子集。例如，若只要列舉每個文件中的樹狀子目錄，則子根目錄可能會變成來源 (如下列範例所示)。
 
 **查詢**
@@ -255,10 +255,10 @@ Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構�
 	]
 
 
-##WHERE 子句
-WHERE 子句 (**`WHERE <filter_condition>`**) 為選用的。它會指定條件，而且來源所提供的 JSON 文件必須滿足這些條件才能併入為結果的一部分。任何 JSON 文件都必須將指定的條件評估為 "true"，才能視為結果。索引層使用 WHERE 子句，來判斷可為結果一部分的來源文件的絕對最小子集。
+## WHERE 子句
+WHERE 子句 (**`WHERE <filter_condition>`**) 是選用的。它會指定條件，而且來源所提供的 JSON 文件必須滿足這些條件才能併入為結果的一部分。任何 JSON 文件都必須將指定的條件評估為 "true"，才能視為結果。索引層使用 WHERE 子句，來判斷可為結果一部分的來源文件的絕對最小子集。
 
-下列查詢會要求包含名稱屬性且其值為 `AndersenFamily` 的文件。沒有名稱屬性或值不符合 `AndersenFamily` 的任何其他文件。
+下列查詢會要求包含名稱屬性且其值為 `AndersenFamily` 的文件。沒有名稱屬性或值不符合 `AndersenFamily` 的任何其他文件則會予以排除。
 
 **查詢**
 
@@ -279,7 +279,7 @@ WHERE 子句 (**`WHERE <filter_condition>`**) 為選用的。它會指定條件�
 
 前一個範例已顯示簡單的相等查詢。DocumentDB SQL 也支援各種純量運算式。最常用的是二元和一元運算式。來源 JSON 物件中的屬性參考也是有效的運算式。
 
-下列是目前支援的二元運算式，而且可以用於查詢中 (如下列範例所示)：<table> <tr> <td>算術</td> <td>+、-、*、/、%</td> </tr> <tr> <td>位元</td> <td>|、&、^、<<、>>、>>> (右移位並填滿零)</td> </tr> <tr> <td>邏輯</td> <td>AND、OR</td> </tr> <tr> <td>比較</td> <td>=、!=、>、>=、<、<=、<></td> </tr> <tr> <td>字串</td> <td>|| (串連)</td> </tr> </table>
+下列是目前支援的二元運算子，而且可以用於查詢中 (如下列範例所示)：<table> <tr> <td>算術</td> <td>+、-、*、/、%</td> </tr> <tr> <td>位元</td> <td>|、&、^、<<、>>、>>> (右移位並填滿零) </td> </tr> <tr> <td>邏輯</td> <td>AND、OR、NOT</td> </tr> <tr> <td>比較</td> <td>=、!=、&lt;、&gt;、&lt;=、&gt;=、<></td> </tr> <tr> <td>字串</td> <td>|| (串連)</td> </tr> </table>
 
 讓我們了解一些使用二元運算子的查詢。
 
@@ -310,7 +310,7 @@ WHERE 子句 (**`WHERE <filter_condition>`**) 為選用的。它會指定條件�
 
 除了二元和一元運算子之外，還允許屬性參照。例如：`SELECT * FROM Families f WHERE f.isRegistered` 所傳回的 JSON 文件包含屬性 `isRegistered` 且屬性值等於 JSON `true` 值。任何其他值 (false、null、Undefined、`<number>`、`<string>`、`<object>`、`<array>` 等) 則會導致從結果中排除來源文件。
 
-###相等和比較運算子
+### 相等和比較運算子
 下表顯示 DocumentDB SQL 中任何兩個 JSON 類型之間的相等比較結果。<table style = "width:300px"> <tbody> <tr> <td valign="top"> <strong>Op</strong> </td> <td valign="top"> <strong>未定義</strong> </td> <td valign="top"> <strong>Null</strong> </td> <td valign="top"> <strong>布林</strong> </td> <td valign="top"> <strong>數字</strong> </td> <td valign="top"> <strong>字串</strong> </td> <td valign="top"> <strong>物件</strong> </td> <td valign="top"> <strong>陣列</strong> </td> </tr> <tr> <td valign="top"> <strong>未定義<strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> </tr> <tr> <td valign="top"> <strong>Null<strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> <strong>確定</strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> </tr> <tr> <td valign="top"> <strong>布林<strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> <strong>確定</strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> </tr> <tr> <td valign="top"> <strong>數字<strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> <strong>確定</strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> </tr> <tr> <td valign="top"> <strong>字串<strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> <strong>確定</strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> </tr> <tr> <td valign="top"> <strong>物件<strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> <strong>確定</strong> </td> <td valign="top"> 未定義 </td> </tr> <tr> <td valign="top"> <strong>陣列<strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> <strong>確定</strong> </td> </tr> </tbody> </table>
 
 其他比較運算子 (例如 >、>=、!=、< 及 <=) 則適用下列規則：
@@ -320,7 +320,7 @@ WHERE 子句 (**`WHERE <filter_condition>`**) 為選用的。它會指定條件�
 
 如果篩選中純量運算式的結果是 Undefined，則不會將對應的文件併入結果中，因為 Undefined 邏輯上不會等於 "true"。
 
-###BETWEEN 關鍵字
+### BETWEEN 關鍵字
 您也可以使用 BETWEEN 關鍵字來表示像對 ANSI SQL 中的值範圍執行查詢。BETWEEN 可用於任何 JSON 基本類型 (數字、字串、布林值和 null)。
 
 例如，此查詢會傳回其長子的成績介於 1-5 (兩者皆含) 之間的所有家族文件。
@@ -338,249 +338,28 @@ WHERE 子句 (**`WHERE <filter_condition>`**) 為選用的。它會指定條件�
 
 在 DocumentDB 和 ANSI SQL 中使用 BETWEEN 的主要差異在於，您可以表示針對混合類型屬性的範圍查詢，比方說，在某些文件中 「 成績 」 可能是數字 (5) ，而在其他文件中可能會是字串 ("grade4")。在這些情況下 (像在 JavaScript 中)，這兩種不同類型之間的比較會產生 「 未定義 」，並略過文件。
 
-###邏輯 (AND、OR 和 NOT) 運算子
+### 邏輯 (AND、OR 和 NOT) 運算子
 邏輯運算子的運算對象是布林值。下表顯示這些運算子的邏輯真值表。
 
-<table style = "width:300px">
-    <tbody>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>OR</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+或|True|False|Undefined
+---|---|---|---
+True|True|True|True
+False|True|False|Undefined
+Undefined|True|Undefined|Undefined
 
-<table style = "width:300px">
-    <tbody>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>AND</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+AND|True|False|Undefined
+---|---|---|---
+True|True|False|Undefined
+False|False|False|False
+Undefined|Undefined|False|Undefined
 
-<table style = "width:300px">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>NOT</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong></strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+NOT| |
+---|---
+True|False
+False|True
+Undefined|Undefined
 
-###IN 關鍵字
+### IN 關鍵字
 IN 關鍵字可用來檢查指定的值是否符合清單中的任何值。例如，此查詢會傳回所有的家族文件，其中 id 是 "WakefieldFamily" 或 "AndersenFamily" 其中一個。
  
     SELECT *
@@ -595,7 +374,7 @@ IN 關鍵字可用來檢查指定的值是否符合清單中的任何值。例�
 
 IN 就相當於鏈結多個 OR 子句，不過因為可以使用單一索引，所以 DocumentDB 對於 IN 子句中指定的引數數目支援較高的[限制](documentdb-limits.md)。
 
-###三元 (?) 和聯合 (??) 運算子：
+### 三元 (?) 和聯合 (??) 運算子
 三元和聯合運算子可用來建立條件運算式，與熱門程式設計語言 (如 C# 和 JavaScript) 類似。
 
 快速建構新的 JSON 屬性時，三元 (?) 運算子可以說非常好用。比方說，您現在可以撰寫查詢將類別層級分類為一般人可判讀的格式 (例如初級/中級/進階)，如下所示。
@@ -615,7 +394,7 @@ IN 就相當於鏈結多個 OR 子句，不過因為可以使用單一索引，�
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-###加上引號的屬性存取子
+### 加上引號的屬性存取子
 您也可以使用加上引號的屬性運算子 `[]` 存取屬性。例如，`SELECT c.grade` 和 `SELECT c["grade"]` 是相等的。當您需要逸出包含空格、特殊字元的屬性，或剛好要共用和 SQL 關鍵字或保留字相同的名稱時，此語法很有用。
 
     SELECT f["lastName"]
@@ -623,7 +402,7 @@ IN 就相當於鏈結多個 OR 子句，不過因為可以使用單一索引，�
     WHERE f["id"] = "AndersenFamily"
 
 
-##SELECT 子句
+## SELECT 子句
 SELECT 子句 (**`SELECT <select_list>`**) 是必要項目，並指定將從查詢中擷取的值 (就像在 ANSI-SQL 中)。在來源文件上篩選出來的子集會傳遞給投射階段，而在此階段中，會擷取指定的 JSON 值並建構新的 JSON 物件 (針對每個傳遞給它的輸入)。
 
 下列範例示範一般的 SELECT 查詢。
@@ -645,8 +424,8 @@ SELECT 子句 (**`SELECT <select_list>`**) 是必要項目，並指定將從查�
 	}]
 
 
-###巢狀屬性
-在下列範例中，我們將投射巢狀屬性 `f.address.state` 和 `f.address.city`：
+### 巢狀屬性
+在下列範例中，我們將投射巢狀屬性 `f.address.state` 和 `f.address.city`。
 
 **查詢**
 
@@ -681,7 +460,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是必要項目，並指定將從查�
 	}]
 
 
-讓我們在這裡查看 `$1` 角色。`SELECT` 子句需要建立 JSON 物件，而且，因為未提供任何索引鍵，所以我們將使用以 `$1` 開頭的隱含引數變數名稱。例如，此查詢會傳回兩個隱含引數變數，名稱為 `$1` 和 `$2`。
+讓我們在這裡查看 `$1` 角色。`SELECT` 子句需要建立 JSON 物件，且因為未提供任何索引鍵，所以我們將使用以 `$1` 開頭的隱含引數變數名稱。例如，此查詢會傳回兩個隱含引數變數，名稱為 `$1` 和 `$2`。
 
 **查詢**
 
@@ -703,8 +482,8 @@ SELECT 子句 (**`SELECT <select_list>`**) 是必要項目，並指定將從查�
 	}]
 
 
-###別名
-現在，讓我們使用值的明確別名處理來擴充上面的範例。AS 是用來加上別名的關鍵字。請注意，在下列情況時，它是選用項目 (如所示)：將第二個值投射為 `NameInfo`。
+### 別名
+現在，讓我們使用值的明確別名處理來擴充上面的範例。AS 是用來加上別名的關鍵字。請注意，在下列情況時，它是選用項目 (如下所示)：將第二個值投射為 `NameInfo`。
 
 如果查詢具有兩個同名的屬性，則必須使用別名處理來重新命名一或兩個屬性，使其在投射的結果中變得更為明確。
 
@@ -729,7 +508,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是必要項目，並指定將從查�
 	}]
 
 
-###純量運算式
+### 純量運算式
 除了屬性參考之外，SELECT 子句也支援純量運算式 (例如常數、算術運算式、邏輯運算式等)。例如，以下是簡單 "Hello World" 查詢。
 
 **查詢**
@@ -775,7 +554,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是必要項目，並指定將從查�
 	]
 
 
-###物件和陣列建立
+### 物件和陣列建立
 DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範例中，請注意，我們已建立新的 JSON 物件。同樣地，您也可以建構陣列 (如下列範例所示)。
 
 **查詢**
@@ -800,7 +579,7 @@ DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範�
 	  }
 	]
 
-###VALUE 關鍵字
+### VALUE 關鍵字
 **VALUE** 關鍵字提供可傳回 JSON 值的方法。例如，下面顯示的查詢會傳回純量 `"Hello World"` 而非 `{$1: "Hello World"}`。
 
 **查詢**
@@ -880,7 +659,7 @@ DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範�
 	    "isRegistered": true
 	}]
 
-##ORDER BY 子句
+## ORDER BY 子句
 像是在 ANSI SQL 中，您可以在查詢時包含選擇性的 Order By 子句。子句可以包含選擇性 ASC/DESC 引數，利用它來指定擷取結果時必須依循的順序。若要更深入了解 Order By，請參閱 [DocumentDB Order By 逐步解說](documentdb-orderby.md)。
 
 例如，以下是依據居住城市名稱的順序擷取家族的查詢。
@@ -925,8 +704,8 @@ DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範�
 	  }
 	]
 	
-##進階概念
-###反覆運算
+## 進階概念
+### 反覆運算
 在 DocumentDB SQL 中已透過 **IN** 關鍵字加入新的建構，以支援反覆運算 JSON 陣列。FROM 來源支援反覆運算。讓我們從下列範例開始：
 
 **查詢**
@@ -961,7 +740,7 @@ DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範�
 	  ]
 	]
 
-現在，讓我們查看另一個查詢，以執行反覆運算集合中的子系。請注意輸出陣列中的差異。此範例會將分割 `children` 並將結果壓平合併為單一陣列。
+現在，讓我們查看另一個查詢，以執行反覆運算集合中的子系。請注意輸出陣列中的差異。此範例會分割 `children`，並將結果簡維成單一陣列。
 
 **查詢**
 
@@ -1005,7 +784,7 @@ DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範�
 	  "givenName": "Lisa"
 	}]
 
-###聯結
+### 聯結
 在關聯式資料庫中，跨資料表的聯結需求極為重要。就設計正規化結構描述而言，邏輯上需要它。與此相反的是，DocumentDB 會處理無結構描述文件的反正規化資料模型。這在邏輯上等同於「自我聯結」。
 
 此語言支援的語法是 <from_source1> JOIN <from_source2> JOIN ...JOIN <from_sourceN>。整體而言，這會傳回一組 **N**-Tuple (具有 **N** 值的 Tuple)。每個 Tuple 所擁有的值，都是將所有集合別名在其個別集合上反覆運算所產生。換句話說，這是參與聯結之集的完整交叉乘積。
@@ -1071,7 +850,7 @@ DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範�
 第一件要注意的事是 **JOIN** 子句的 `from_source` 是迭代器。因此，此案例中的流程如下：
 
 -	展開陣列中的每個子項目 **c**。
--	套用文件 **f** 的根目錄與第一個步驟中所壓平合併之每個子元素 **c** 的交叉乘積。
+-	套用文件 **f** 的根目錄與第一個步驟中所簡維之每個子項目 **c** 的交叉乘積。
 -	最後，單獨投射根物件 **f** 名稱屬性。 
 
 第一個文件 (`AndersenFamily`) 只會包含一個子項目，因此結果集只會包含與此文件對應的單一物件。第二個文件 (`WakefieldFamily`) 包含兩個子系。因此，交叉乘積會產生每個子系的個別物件，進而導致兩個物件 (一個對應至此文件的子系一個)。請注意，這兩個文件中的根欄位會相同，就像您在交叉乘積中預期地一樣。
@@ -1154,7 +933,7 @@ JOIN 的實際作用是透過圖形中很難投射的交叉乘積來形成 Tuple
 	]
 
 
-##JavaScript 整合
+## JavaScript 整合
 DocumentDB 提供一個程式設計模型，以根據預存程序和觸發程序，直接對集合執行 JavaScript 型應用程式邏輯。這允許：
 
 -	藉由直接在資料庫引擎內深入整合 JavaScript 執行階段，對集合中的文件執行高效能交易式 CRUD 操作和查詢。 
@@ -1269,14 +1048,14 @@ UDF 也可以用於篩選內 (如下面範例所示)，也可以用 "udf." 前�
 
 簡言之，UDF 是在進行查詢時執行複雜商務邏輯的不錯工具。
 
-###運算子評估
+### 運算子評估
 DocumentDB 憑藉著為 JSON 資料庫，來描繪 JavaScript 運算子和其評估語意。雖然 DocumentDB 嘗試保留 JSON 支援方面的 JavaScript 語意，但是在部分執行個體中，作業評估還是會偏離。
 
 與傳統 SQL 不同，在 DocumentDB SQL 中，除非從資料庫實際擷取值，否則通常不知道值的類型。為了有效率地執行查詢，大部分的運算子都有嚴謹的類型需求。
 
 與 JavaScript 不同，DocumentDB SQL 不會執行隱含轉換。例如，類似 `SELECT * FROM Person p WHERE p.Age = 21` 的查詢會針對包含 Age 屬性且值為 21 的文件進行比對。任何其他 Age 屬性符合字串 "21" 或其他可能之無限制變化 (例如 "021"、"21.0"、"0021"、"00021" 等等) 的文件，則不會成為比對的結果。這與 JavaScript 形成對比，在 JavaScript 中，會將字串值隱含地轉換成數字 (根據運算子，例如：==)。這項選擇對 DocumentDB SQL 中有效率的索引比對十分重要。
 
-##參數化 SQL
+## 參數化 SQL
 DocumentDB 支援查詢使用以類似 @ 標記法表示的參數。參數化 SQL 提供使用者輸入的健全處理和逸出，防止透過 SQL 插入式意外洩露資料。
 
 比方說，您可以撰寫查詢，將姓氏和地址 (州) 做為參數，然後根據使用者輸入，使用各種不同姓氏和地址 (州) 的值執行查詢。
@@ -1313,14 +1092,19 @@ DocumentDB 也支援一般作業的數個內建函數，這些函數可用於查
 <td>字串函數</td>	
 <td>CONCAT、CONTAINS、ENDSWITH、INDEX_OF、LEFT、LENGTH、LOWER、LTRIM、REPLACE、REPLICATE、REVERSE、RIGHT、RTRIM、STARTSWITH、SUBSTRING 和 UPPER</td>
 </tr>
+<tr>
 <td>陣列函數</td>	
 <td>ARRAY_CONCAT、ARRAY_CONTAINS、ARRAY_LENGTH 和 ARRAY_SLICE</td>
+</tr>
+<tr>
+<td>空間函數</td>	
+<td>ST_DISTANCE、ST_WITHIN、ST_ISVALID 和 ST_ISVALIDDETAILED</td>
 </tr>
 </table>
 
 如果您目前使用的使用者定義函數 (UDF) 已提供內建函數，您應該使用相對應的內建函數，因為這樣會加快執行速度並更有效率。
 
-###數學函數
+### 數學函數
 每個數學函數都會執行計算，通常以提供做為引數的輸入值為基礎，並且會傳回數值。以下是支援的內建數學函數資料表。
 
 <table>
@@ -1436,7 +1220,7 @@ DocumentDB 也支援一般作業的數個內建函數，這些函數可用於查
 
 相較於 ANSI SQL，DocumentDB 函數的主要差異在於它們的設計用途是有效搭配使用無結構描述資料和混合的結構描述資料。例如，如果您有一個文件的 [大小] 屬性已遺失，或具有非數值的值 (例如 "unknown")，該文件就會被略過而不會傳回錯誤。
 
-###類型檢查函數
+### 類型檢查函數
 類型檢查函數可讓您檢查 SQL 查詢中的運算式類型。類型檢查函數可在屬性類型為變數或未知時，用來快速判斷文件中的屬性類型。以下是支援的內建類型檢查函數資料表。
 
 <table>
@@ -1489,79 +1273,27 @@ DocumentDB 也支援一般作業的數個內建函數，這些函數可用於查
 
     [true]
 
-###字串函數
+### 字串函數
 下列純量函數會對字串輸入值執行作業，並傳回字串、數值或布林值。以下是內建字串函數的資料表：
 
-<table>
-<tr>
-  <td><strong>使用量</strong></td>
-  <td><strong>說明</strong></td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length">LENGTH (str_expr)</a></td>
-  <td>傳回指定字串運算式的字元數目。</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat">CONCAT (str_expr, str_expr [, str_expr])</a></td>
-  <td>傳回字串，該字串是串連兩個或多個字串值的結果。</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring">SUBSTRING (str_expr, num_expr, num_expr)</a></td>
-  <td>傳回字串運算式的一部分。</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith">STARTSWITH (str_expr, str_expr)</a></td>
-  <td>傳回布林值，表示第一個字串運算式是否以第二個結束字串運算式做為結束</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith">ENDSWITH (str_expr, str_expr)</a></td>
-  <td>傳回布林值，表示第一個字串運算式是否以第二個結束字串運算式做為結束</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains">CONTAINS (str_expr, str_expr)</a></td>
-  <td>傳回布林值，表示第一個字串運算式是否包含第二個字串運算式。</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of">INDEX_OF (str_expr, str_expr)</a></td>
-  <td>傳回第一個指定的字串運算式中，第二個字串運算式第一次出現的開始位置，或者如果找不到字串，則為 -1。</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left">LEFT (str_expr, num_expr)</a></td>
-  <td>傳回具有指定字元數目的字串左側部分。</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right">RIGHT (str_expr, num_expr)</a></td>
-  <td>傳回具有指定字元數目的字串右側部分。</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim">LTRIM (str_expr)</a></td>
-  <td>傳回移除開頭空白之後的字串運算式。</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim">RTRIM (str_expr)</a></td>
-  <td>傳回截斷所有結尾空白之後的字串運算式。</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower">LOWER (str_expr)</a></td>
-  <td>傳回將大寫字元資料轉換成小寫之後的字串運算式。</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper">UPPER (str_expr)</a></td>
-  <td>傳回將小寫字元資料轉換成大寫之後的字串運算式。</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace">REPLACE (str_expr, str_expr, str_expr)</a></td>
-  <td>使用其他字串值取代指定的字串值的所有項目。</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate">REPLICATE (str_expr, num_expr)</a></td>
-  <td>將字串值重複指定的次數。</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse">REVERSE (str_expr)</a></td>
-  <td>傳回反向順序的字串值。</td>
-</tr>
-</table>
+使用量|說明
+---|---
+[LENGTH (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length)|傳回指定字串運算式的字元數目
+[CONCAT (str\_expr, str\_expr [, str\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat)|傳回字串，該字串是串連兩個或多個字串值的結果。
+[SUBSTRING (str\_expr, num\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring)|傳回字串運算式的一部分。
+[STARTSWITH (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith)|傳回布林值，表示第一個字串運算式是否以第二個結束字串運算式做為結束
+[ENDSWITH (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith)|傳回布林值，表示第一個字串運算式是否以第二個結束字串運算式做為結束
+[CONTAINS (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains)|傳回布林值，表示第一個字串運算式是否包含第二個字串運算式。
+[INDEX\_OF (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of)|傳回第一個指定的字串運算式中，第二個字串運算式第一次出現的開始位置，或者如果找不到字串，則為 -1。
+[LEFT (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left)|傳回具有指定字元數目的字串左側部分。
+[RIGHT (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right)|傳回具有指定字元數目的字串右側部分。
+[LTRIM (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim)|傳回移除開頭空白之後的字串運算式。
+[RTRIM (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim)|傳回截斷所有結尾空白之後的字串運算式。
+[LOWER (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower)|傳回將大寫字元資料轉換成小寫之後的字串運算式。
+[UPPER (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper)|傳回將小寫字元資料轉換成大寫之後的字串運算式。
+[REPLACE (str\_expr, str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace)|使用其他字串值取代指定的字串值的所有項目。
+[REPLICATE (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate)|將字串值重複指定的次數。
+[REVERSE (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse)|傳回反向順序的字串值。
 
 藉由使用這些函數，您現在可以執行下列查詢。例如，您可以傳回大寫的家族名稱，如下所示：
 
@@ -1611,31 +1343,15 @@ DocumentDB 也支援一般作業的數個內建函數，這些函數可用於查
       "city": "NY"
     }]
 
-###陣列函數
+### 陣列函數
 下列純量函數會對陣列輸入值執行作業，並傳回數值、布林值或陣列值。以下是內建陣列函數的資料表：
 
-<table>
-<tr>
-  <td><strong>使用量</strong></td>
-  <td><strong>說明</strong></td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length">ARRAY_LENGTH (arr_expr)</a></td>
-  <td>傳回指定陣列運算式的元素數目。</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat">ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])</a></td>
-  <td>傳回串連兩個或多個陣列值之結果的陣列。</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains">ARRAY_CONTAINS (arr_expr, expr)</a></td>
-  <td>傳回布林值，表示陣列是否包含指定值。</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice">ARRAY_SLICE (arr_expr, num_expr [, num_expr])</a></td>
-  <td>傳回陣列運算式的一部分。</td>
-</tr>
-</table>
+使用量|說明
+---|---
+[ARRAY\_LENGTH (arr\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length)|傳回指定陣列運算式的元素數目。
+[ARRAY\_CONCAT (arr\_expr, arr\_expr [, arr\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat)|傳回串連兩個或多個陣列值之結果的陣列。
+[ARRAY\_CONTAINS (arr\_expr, expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains)|傳回布林值，表示陣列是否包含指定值。
+[ARRAY\_SLICE (arr\_expr, num\_expr [, num\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice)|傳回陣列運算式的一部分。
 
 陣列函數可用來管理 JSON 中的陣列。例如，以下是傳回其中一位父母是 "Robin Wakefield" 之所有文件的查詢。
 
@@ -1671,8 +1387,102 @@ DocumentDB 也支援一般作業的數個內建函數，這些函數可用於查
 
 這樣會包裝內建函數和 DocumentDB 的 SQL 文法。現在讓我們看看 LINQ 查詢如何運作，以及它如何與我們目前為止所見到的文法互動。
 
+### 空間函數
 
-##LINQ 到 DocumentDB SQL
+DocumentDB 支援下列開放地理空間協會 (OGC) 的內建函數，以用於查詢地理空間。如需 DocumentDB 支援之地理空間的詳細資料，請參閱[使用 Azure DocumentDB 中的地理空間資料](documentdb-geospatial.md)。
+
+<table>
+<tr>
+  <td><strong>使用量</strong></td>
+  <td><strong>說明</strong></td>
+</tr>
+<tr>
+  <td>ST_DISTANCE (point_expr、point_expr)</td>
+  <td>傳回兩個 GeoJSON 點運算式之間的距離。</td>
+</tr>
+<tr>
+  <td>ST_WITHIN (point_expr、polygon_expr)</td>
+  <td>傳回布林運算式，指出第一個引數中指定的 GeoJSON 點是否位在第二個引數的 GeoJSON 多邊形內。</td>
+</tr>
+<tr>
+  <td>ST_ISVALID</td>
+  <td>傳回布林值，指出指定的 GeoJSON 點或多邊形運算式是否有效。</td>
+</tr>
+<tr>
+  <td>ST_ISVALIDDETAILED</td>
+  <td>如果指定的 GeoJSON 點或多邊形運算式是有效的，就會傳回包含布林值的 JSON 值；但如果是無效的，就會額外加上做為字串值的原因。</td>
+</tr>
+</table>
+
+空間函數可以用來對空間資料的執行鄰近性查詢。例如，以下查詢使用 ST\_DISTANCE 內建函數傳回所有家族文件，且這些文件在 30 公里指定位置內。
+
+**查詢**
+
+    SELECT f.id 
+    FROM Families f 
+    WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
+
+**結果**
+
+    [{
+      "id": "WakefieldFamily"
+    }]
+
+如果您將空間索引編製包含在索引編製原則中，則「距離查詢」將會透過索引獲得有效利用。如需空間索引編製的詳細資料，請參閱下面的章節。如果您沒有指定路徑的空間索引，仍然可以透過指定 `x-ms-documentdb-query-enable-scan` 要求標頭 (且值設定為 "true") 執行空間查詢。在.NET 中，可以傳遞選用的 **FeedOptions** 引數至查詢 (且 [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) 設定為 true)，藉此執行此作業。
+
+ST\_WITHIN 可用來檢查點是否在多邊形內。多邊形常用來表示邊界，例如郵遞區號、州省邊界或自然構成物。此外，如果您將空間索引編製包含在索引編製原則中，則「距離內」查詢將會透過索引獲得有效利用。
+
+ST\_WITHIN 中的多邊形引數只可以包含單一環狀，也就是多邊形本身不能有漏洞。請查看 [DocumentDB 限制](documentdb-limits.md)，了解 ST\_WITHIN 查詢的多邊形中所允許的點數目上限。
+
+**查詢**
+
+    SELECT * 
+    FROM Families f 
+    WHERE ST_WITHIN(f.location, {
+    	'type':'Polygon', 
+    	'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
+    })
+
+**結果**
+
+    [{
+      "id": "WakefieldFamily",
+    }]
+    
+>[AZURE.NOTE]與 DocumentDB 查詢中不相符類型的運作方式類似的是，如果任一引數中指定的位置值格式不正確或無效，則會評估為**未定義**，且會在查詢結果中略過已評估的文件。如果您的查詢沒有傳回任何結果，請執行 ST\_ISVALIDDETAILED 來偵錯，了解空間類型無效的原因。
+
+ST\_ISVALID 和 ST\_ISVALIDDETAILED 可用來檢查空間物件是否有效。例如，下列查詢以超出範圍的緯度值 (-132.8)，檢查點的有效性。ST\_ISVALID 只會傳回布林值，而 ST\_ISVALIDDETAILED 會傳回布林和字串，字串中包含被視為無效的原因。
+
+**查詢**
+
+    SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
+
+**結果**
+
+    [{
+      "$1": false
+    }]
+
+這些函數也可以用來驗證多邊形。例如，這裡我們使用 ST\_ISVALIDDETAILED 驗證不封閉的多邊形。
+
+**查詢**
+
+    SELECT ST_ISVALIDDETAILED({ "type": "Polygon", "coordinates": [[ 
+    	[ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
+    	]]})
+
+**結果**
+
+    [{
+       "$1": { 
+      	  "valid": false, 
+      	  "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
+      	}
+    }]
+    
+這樣會包裝內建函數和 DocumentDB 的 SQL 文法。現在讓我們看看 LINQ 查詢如何運作，以及它如何與我們目前為止所見到的文法互動。
+
+## LINQ 到 DocumentDB SQL
 LINQ 是一種 .NET 程式設計模型，此模型會將運算表示為對物件串流的查詢。DocumentDB 提供用戶端程式庫，以透過促進 JSON 與 .NET 物件之間的轉換，以及從小部分的 LINQ 查詢對應至 DocumentDB 查詢，來與 LINQ 互動。
 
 下圖顯示使用 DocumentDB 支援 LINQ 查詢的架構。開發人員可以使用 DocumentDB 用戶端來建立 **IQueryable** 物件，此物件會直接查詢 DocumentDB 查詢提供者，而此查詢提供者會接著將 LINQ 查詢轉譯成 DocumentDB 查詢。然後，將查詢傳遞給 DocumentDB 伺服器，以擷取一組具有 JSON 格式的結果。傳回的結果會在用戶端進行還原序列化，變成 .NET 物件的串流。
@@ -1681,7 +1491,7 @@ LINQ 是一種 .NET 程式設計模型，此模型會將運算表示為對物件
  
 
 
-###.NET 和 JSON 對應
+### .NET 和 JSON 對應
 .NET 物件與 JSON 文件之間的對應是自然的，亦即每個資料成員欄位都會對應至 JSON 物件，其中欄位名稱對應至物件的「索引鍵」部分，而「值」部分則遞迴地對應至物件的值部分。請思考一下下列範例。建立的 Family 物件對應至 JSON 文件 (如下所示)。而反之亦然，JSON 文件會對應回 .NET 物件。
 
 **C# 類別**
@@ -1763,7 +1573,7 @@ LINQ 是一種 .NET 程式設計模型，此模型會將運算表示為對物件
 
 
 
-###LINQ 與 SQL 轉譯
+### LINQ 至 SQL 轉譯
 DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最佳對應。在下列描述中，我們假設讀者對 LINQ 有基本的認識。
 
 首先，針對類型系統，我們支援所有 JSON 基本類型：數值類型、布林值、字串及 null。只支援這些 JSON 類型。下列是支援的純量運算式。
@@ -1793,10 +1603,10 @@ DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最�
 		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
 		new int[] { 3, child.grade, 5 };
 
-###查詢運算子
+### 查詢運算子
 以下一些範例說明如何將一些標準 LINQ 查詢運算子往下轉譯為 DocumentDB 查詢。
 
-####Select 運算子
+#### Select 運算子
 語法為 `input.Select(x => f(x))`，其中 `f` 是純量運算式。
 
 **LINQ Lambda 運算式**
@@ -1839,7 +1649,7 @@ DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最�
 
 
 
-####SelectMany 運算子
+#### SelectMany 運算子
 語法為 `input.SelectMany(x => f(x))`，其中 `f` 是傳回集合類型的純量運算式。
 
 **LINQ Lambda 運算式**
@@ -1853,7 +1663,7 @@ DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最�
 
 
 
-####Where 運算子
+#### Where 運算子
 語法為 `input.Where(x => f(x))`，其中 `f` 是傳回布林值的純量運算式。
 
 **LINQ Lambda 運算式**
@@ -1882,12 +1692,12 @@ DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最�
 	AND f.children[0].grade < 3
 
 
-###複合查詢
+### 複合查詢
 您可以包含上述的運算子，以形成功能更強大的查詢。由於 DocumentDB 支援巢狀集合，因此這個組合可以是串連或巢狀形式。
 
-####串連 
+#### 串連 
 
-語法為 `input(.|.SelectMany())(.Select()|.Where())*`。串連的查詢的開頭可以是選用 `SelectMany` 查詢，其後接著多個 `Select` 或 `Where` 運算子。
+語法為 `input(.|.SelectMany())(.Select()|.Where())*`。串連查詢的開頭可以是選用的 `SelectMany` 查詢，其後接著多個 `Select` 或 `Where` 運算子。
 
 
 **LINQ Lambda 運算式**
@@ -1942,9 +1752,9 @@ DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最�
 
 
 
-####巢狀
+#### 巢狀
 
-語法為 `input.SelectMany(x=>x.Q())`，其中 Q 是 `Select`、`SelectMany` 或 `Where` 運算式。
+語法為 `input.SelectMany(x=>x.Q())`，其中 Q 是 `Select`、`SelectMany` 或 `Where` 運算子。
 
 在巢狀查詢中，會將內部查詢套用至外部集合的每個項目。其中一個重要功能是內部查詢可以參照外部集合中項目的欄位 (例如自我聯結)。
 
@@ -1987,11 +1797,12 @@ DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最�
 	WHERE c.familyName = f.parents[0].familyName
 
 
-##執行查詢
+## 執行查詢
 DocumentDB 公開資源的方式是透過 REST API，此 API 可供任何能發出 HTTP/HTTPS 要求的語言呼叫。此外，DocumentDB 還為數種熱門語言 (例如 .NET、Node.js、JavaScript 和 Python) 提供程式設計程式庫。REST API 和各種程式庫都支援透過 SQL 進行查詢。.NET SDK 除了 SQL 之外，也支援 LINQ 查詢。
 
 下列範例顯示如何建立查詢，並針對 DocumentDB 資料庫帳戶提交它。
-###REST API
+
+### REST API
 DocumentDB 提供透過 HTTP 的開放 RESTful 程式設計模型。可以使用 Azure 訂用帳戶佈建資料庫帳戶。DocumentDB 資源模型包含某個資料庫帳戶下的一組資源，而每個資源都可透過邏輯和穩定 URI 進行定址。在本文件中，一組資源稱為摘要。資料庫帳戶包含一組資料庫，而每個資料庫都包含多個集合，且各集合因此會包含文件、UDF 和其他資源類型。
 
 與這些資源的基本互動模型是透過具有其標準解譯的 HTTP 動詞命令 GET、PUT、POST 和 DELETE。POST 動詞命令用於建立新的資源、執行預存程序或發出 DocumentDB 查詢。查詢一律是唯讀作業，而且沒有任何副作用。
@@ -2119,13 +1930,13 @@ DocumentDB 提供透過 HTTP 的開放 RESTful 程式設計模型。可以使用
 	}
 
 
-如果查詢的結果無法放入結果的單一頁面內，則 REST API 會透過 `x-ms-continuation-token` 傳回接續 Token。用戶端可以透過在後續結果中包括標頭，以將結果分頁。每頁的結果數目也可以透過 `x-ms-max-item-count` 控制。
+如果查詢的結果無法放入結果的單一頁面內，則 REST API 會透過 `x-ms-continuation-token` 回應標頭傳回接續 Token。用戶端可以透過在後續結果中包括標頭，以將結果分頁。每頁的結果數目也可以透過 `x-ms-max-item-count` 數字標頭控制。
 
-若要管理查詢的資料一致性原則，請使用 `x-ms-consistency-level` 標頭 (例如所有 REST API 要求)。針對工作階段一致性，也需要在查詢要求中回應最新的 `x-ms-session-token` Cookie 標頭。請注意，所查詢集合的索引原則也可能會影響查詢結果的一致性。運用預設索引原則設定，集合的索引一律會具有最新文件內容，而且查詢結果會符合針對資料所選擇的一致性。如果編索引原則放寬為 Lazy，則查詢可能會傳回過時的結果。如需詳細資訊，請參閱 [DocumentDB 一致性層級][consistency-levels]。
+若要管理查詢的資料一致性原則，請使用 `x-ms-consistency-level` 標頭 (例如，所有 REST API 要求)。針對工作階段一致性，也需要在查詢要求中回應最新的 `x-ms-session-token` Cookie 標頭。請注意，所查詢集合的索引原則也可能會影響查詢結果的一致性。運用預設索引原則設定，集合的索引一律會具有最新文件內容，而且查詢結果會符合針對資料所選擇的一致性。如果編索引原則放寬為 Lazy，則查詢可能會傳回過時的結果。如需詳細資訊，請參閱 [DocumentDB 一致性層級][consistency-levels]。
 
 如果集合上所設定的索引原則無法支援指定的查詢，則 DocumentDB 伺服器會傳回 400「不正確的要求」。針對範圍查詢 (針對雜湊 (相等) 查閱所設定的路徑) 以及明確地排除不進行編製索引的路徑，會傳回此訊息。`x-ms-documentdb-query-enable-scan` 標頭可以指定成允許查詢在無法使用索引時執行掃描。
 
-###C# (.NET) SDK
+### C# (.NET) SDK
 .NET SDK 支援 LINQ 和 SQL 查詢。下列範例顯示如何執行稍早在本文件中介紹的簡單篩選查詢。
 
 
@@ -2213,13 +2024,13 @@ DocumentDB 提供透過 HTTP 的開放 RESTful 程式設計模型。可以使用
 
 
 
-.NET 用戶端會在 foreach 區塊中自動逐一查看查詢結果的所有頁面 (如上所示)。.NET SDK 中也提供 REST API 小節所介紹的查詢選項，方法是在 CreateDocumentQuery 方法中使用 `FeedOptions` 和 `FeedResponse` 類別。頁數可以使用 `MaxItemCount` 設定控制。
+.NET 用戶端會在 foreach 區塊中自動逐一查看查詢結果的所有頁面 (如上所示)。.NET SDK 中也提供 REST API 小節所介紹的查詢選項，方法是在 CreateDocumentQuery 方法中使用 `FeedOptions` 和 `FeedResponse` 類別。頁數可以透過 `MaxItemCount` 設定來控制。
 
-開發人員也可以明確地控制分頁，方法是使用 `IQueryable` 物件建立 `IDocumentQueryable`，然後讀取 ` ResponseContinuationToken` 值，並將它們以 `FeedOptions` 中的 `RequestContinuationToken` 傳回。`EnableScanInQuery` 可以設定為在設定的索引原則不支援查詢時啟用掃描。
+開發人員也可以明確地控制分頁，方法是使用 `IQueryable` 物件建立 `IDocumentQueryable`，然後讀取 ` ResponseContinuationToken` 值，並將它們以 `FeedOptions` 中的 `RequestContinuationToken` 傳回。`EnableScanInQuery` 可以設定為在設定的索引編製原則不支援查詢時啟用掃描。
 
 如需更多包含查詢的範例，請參閱 [DocumentDB .NET 範例](https://github.com/Azure/azure-documentdb-net)。
 
-###JavaScript 伺服器端 API 
+### JavaScript 伺服器端 API 
 DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序，直接對集合執行 JavaScript 型應用程式邏輯。在集合層級註冊的 JavaScript 邏輯接著可以對給定集合之文件的作業發出資料庫作業。這些作業會包裝在環境 ACID 交易中。
 
 下列範例示範如何在 JavaScript 伺服器 API 中使用 queryDocuments，從預存程序和觸發程序內發出查詢。
@@ -2261,7 +2072,7 @@ DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序
 2.	[DocumentDB SQL 規格](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3.	[DocumentDB .NET 範例](https://github.com/Azure/azure-documentdb-net)
 4.	[DocumentDB 一致性層級][consistency-levels]
-5.	ANSI SQL 2011 - [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+5.	ANSI SQL 2011 [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)
 7.	Javascript 規格 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
@@ -2277,4 +2088,4 @@ DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="從 Windows Phone Silverlight 應用程式將影像上傳至 Azure 儲存體 | Azure 行動服務" 
+	pageTitle="從 Windows Phone Silverlight 應用程式將影像上傳至 Azure 儲存體 | Microsoft Azure" 
 	description="了解如何使用行動服務將影像從 Windows Phone Silverlight 應用程式上傳至 Azure Blob 儲存體。" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -103,4 +103,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

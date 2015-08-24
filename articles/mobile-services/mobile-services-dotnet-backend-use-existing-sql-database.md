@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用現有的 SQL Database 和行動服務 .NET 後端建置服務 - Azure 行動服務" 
+	pageTitle="使用現有的 SQL Database 和行動服務 .NET 後端建置服務 | Microsoft Azure" 
 	description="了解如何對於 .NET 型行動服務使用現有雲端或內部部署 SQL 資料庫。" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -615,4 +615,4 @@ AutoMapper 此時會將物件互相對應。所有具有對應名稱的屬性都
 
 您可在此時建置用來存取服務的用戶端應用程式，以執行下一個步驟。如需詳細資訊，請參閱[將行動服務新增至現有的應用程式](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

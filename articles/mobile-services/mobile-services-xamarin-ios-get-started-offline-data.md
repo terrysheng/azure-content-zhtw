@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用行動服務 (Xamarin iOS) 中的離線資料 | 行動開發人員中心" 
+	pageTitle="在行動服務中使用離線資料 (Xamarin iOS) | Microsoft Azure" 
 	description="了解如何使用 Azure 行動服務快處和徒步 Xamarin iOS 應用程式中的離線資料" 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
@@ -183,4 +183,4 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 [Xamarin 延伸]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

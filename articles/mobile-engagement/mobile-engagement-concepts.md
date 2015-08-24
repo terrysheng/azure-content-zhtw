@@ -3,7 +3,7 @@
 	description="Mobile Engagement 概念"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="kpiteira"
+	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/24/2015"
-	ms.author="kapiteir" />
+	ms.date="08/10/2015"
+	ms.author="piyushjo" />
 
 #Azure Mobile Engagement 概念
 
@@ -79,4 +79,4 @@ Mobile Engagement 藉由為每台裝置產生唯一識別碼來識別使用者�
 索引鍵/值組的整個樹狀結構會儲存為 JSON 物件。不過，只有索引鍵/值的第一個層級會分解以便可供一些進階的函式直接存取，例如 Segments (例如，您可以輕鬆地定義區段 "SciFi fans"，它是由上個月傳送至少 10 次事件名為 "content\_viewed" 事件的所有使用者所構成，且額外的索引鍵 "content\_type" 設定為 "scifi" 值)。因此強烈建議只傳送使用純量值 (例如字串、日期、整數或布林值) 的索引鍵/值組簡單清單所組成的額外項目。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

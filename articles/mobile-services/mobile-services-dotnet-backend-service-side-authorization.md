@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在 .NET 後端行動服務中的使用者服務端授權 | Azure 行動服務"
+	pageTitle="在 .NET 後端行動服務中的使用者服務端授權 | Microsoft Azure"
 	description="了解如何在 .NET 後端行動服務中限制授權使用者的存取權限"
 	services="mobile-services"
 	documentationCenter="windows"
@@ -80,4 +80,4 @@
 [將驗證新增至現有的行動服務應用程式]: mobile-services-dotnet-backend-ios-get-started-users.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

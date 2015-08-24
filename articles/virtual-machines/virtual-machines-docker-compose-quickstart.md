@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
+   ms.date="08/07/2015"
    ms.author="danlep"/>
 
 # 開始使用 Azure 虛擬機器上的 Docker 和 Compose
@@ -30,7 +30,7 @@
 
 Linux VM 和 Docker 執行之後，請使用 SSH 從用戶端電腦連線到此 VM。如有需要，請執行下列兩個命令來安裝 [Compose](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md)。
 
->[AZURE.TIP]如果您使用了 Docker VM 延伸模組建立 VM，則 Compose 早已為您安裝好了。請略過這些命令，並移至步驟 3。如果您已在此 VM 上自行安裝 Docker，則只需要安裝 Compose。
+>[AZURE.TIP]如果您使用了 Docker VM 延伸模組建立 VM，則 Compose 早已為您安裝好了。請略過這些命令，並移至步驟 3。只有在 VM 上自行安裝 Docker 時才需要安裝 Compose。
 
 ```
 $ curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
@@ -112,4 +112,4 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

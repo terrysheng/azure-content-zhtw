@@ -1,38 +1,40 @@
 <properties 
-	pageTitle="開始使用 Azure 儲存體" 
-	description="如何開始在 Visual Studio 的 Azure WebJobs 專案中使用 Azure 佇列儲存體" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+	pageTitle="開始使用 Azure 佇列儲存體和 Visual Studio 已連接服務 (WebJob 專案)" 
+	description="如何在以 WebJob 專案 Visual Studio [新增連接服務] 對話方塊建立的 Azure 儲存體帳戶中，開始使用佇列儲存體。"
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="patshea123"/>
 
-# 開始使用 Azure 儲存體 (Azure WebJob 專案)
+# 開始使用 Azure 佇列儲存體和 Visual Studio 已連接服務 (WebJob 專案)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-webjobs-getting-started-queues.md)
-> - [What Happened](vs-storage-webjobs-what-happened.md)
+> - [Getting started](vs-storage-webjobs-getting-started-queues.md)
+> - [What happened](vs-storage-webjobs-what-happened.md)
 
 > [AZURE.SELECTOR]
 > - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
 > - [Queues](vs-storage-webjobs-getting-started-queues.md)
 > - [Tables](vs-storage-webjobs-getting-started-tables.md)
 
+## 概觀
+
+本文描述如何在您使用 Visual Studio 的 [新增連接的服務] 對話方塊，建立或參考了 Azure 儲存體帳戶之後，開始在 Visual Studio Azure WebJob 專案中使用 Azure 佇列儲存體。當您使用 Visual Studio [新增連接的服務] 對話方塊將儲存體帳戶加入 WebJob 專案時，適當的 Azure 儲存體 NuGet 封裝便已安裝、適當的 .NET 參考會加入至專案，以及儲存體帳戶的連接字串會在 App.config 檔案中更新。
+
+本文提供了 C# 程式碼範例，示範如何透過 Azure 佇列儲存體服務使用 Azure WebJobs SDK 1.x 版。
 
 Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。如需詳細資訊，請參閱[如何從 .NET 使用佇列儲存體](storage-dotnet-how-to-use-queues.md) (英文)。如需 ASP.NET 的詳細資訊，請參閱 [ASP.NET](http://www.asp.net)。
 
-當您使用 Visual Studio [**新增連接的服務**] 對話方塊將儲存體帳戶加入 WebJob 專案時，適當的 Azure 儲存體 NuGet 封裝便已安裝、適當的 .NET 參考會加入至專案，以及儲存體帳戶的連接字串會在 App.config 檔案中更新。
-
-本文提供了 C# 程式碼範例，示範如何透過 Azure 佇列儲存體服務使用 Azure WebJobs SDK 1.x 版。本文包含下列主題：
 
 
 ## 如何在接收到佇列訊息時觸發函數
@@ -551,4 +553,4 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次嘗試�
 本文提供的程式碼範例示範如何處理使用 Azure 佇列的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

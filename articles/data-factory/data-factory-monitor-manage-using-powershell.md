@@ -409,22 +409,7 @@
 
 如需 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考][cmdlet-reference]。
 
-## 後續步驟
 
-文章 | 說明
------- | ---------------
-[使用 Azure Data Factory - 複製活動來複製資料][copy-activity] | 本文提供您在本教學課程中使用的複製活動詳細說明。 
-[讓您的管線使用內部部署資料][use-onpremises-datasources] | 本文的逐步解說示範如何將資料從內部部署 SQL Server 資料庫複製到 Azure Blob。 
-[搭配 Data Factory 使用 Pig 和 Hive][use-pig-and-hive-with-data-factory] | 本文的逐步解說示範如何使用 HDInsight 活動執行 **hive/pig** 指令碼，以處理輸入資料並產生輸出資料。
-[教學課程：使用 Data Factory 移動和處理記錄檔][adf-tutorial] | 本文提供端對端逐步解說，示範如何使用 Azure Data Factory 實作真實案例，藉此將記錄檔中的資料轉換成深入資訊。
-[在 Data Factory 中使用自訂活動][use-custom-activities] | 本文提供逐步解說，以逐步指示說明如何建立自訂活動，並將此活動用於管線中。 
-[對 Data Factory 問題進行疑難排解][troubleshoot] | 本文說明如何對 Azure Data Factory 問題進行疑難排解。您可以透過引用一個錯誤 (刪除 Azure SQL Database 中的資料表)，嘗試本文中針對 ADFTutorialDataFactory 所做的逐步解說。 
-[Azure Data Factory Cmdlet 參考][cmdlet-reference] | 此參考內容提供所有 **Data Factory Cmdlet** 的詳細資料。
-[Azure Data Factory 開發人員參考][developer-reference] | 開發人員參考包含 Cmdlet、JSON 指令碼、函數等完整參考內容。 
-
-[copy-activity]: data-factory-copy-activity.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
@@ -444,4 +429,4 @@
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

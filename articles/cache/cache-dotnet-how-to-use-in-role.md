@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用 In-Role Cache (.NET) - Azure 功能指南" 
+	pageTitle="如何使用 In-Role Cache (.NET) | Microsoft Azure" 
 	description="了解如何使用 Azure In-Role Cache。這些範例均以 C# 程式碼撰寫，並使用 .NET API。" 
 	services="cache" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/11/2015" 
 	ms.author="sdanie"/>
 
 
@@ -412,4 +412,4 @@ NuGet 套件也會新增下列組件的參考：
 [適合我的 Azure 快取提供項目]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

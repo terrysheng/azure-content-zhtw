@@ -1,9 +1,11 @@
-Next, if any servers on the cluster are running Windows Server 2008 R2 or Windows Server 20012, you must verify that the hotfix [KB2854082](http://support.microsoft.com/kb/2854082) is installed on each of the on-premises servers or Azure VMs that are part of the cluster. Any server or VM that is in the cluster, but not in the availability group, should also have this hotfix installed.
+接下來，如果叢集上的任何伺服器正在執行 Windows Server 2008 R2 或 Windows Server 20012，您必須確認在屬於叢集一部分的每台內部部署伺服器或 Azure VM 上安裝了 Hotfix [KB2854082](http://support.microsoft.com/kb/2854082)。在叢集不在的可用性群組中的任何伺服器或 VM，也應該安裝這個 Hotfix。
 
-In the remote desktop session for each of the cluster nodes, download [KB2854082](http://support.microsoft.com/kb/2854082) to a local directory. Then, install the hotfix on each of the cluster nodes sequentially. If the cluster service is currently running on the cluster node, the server is restarted at the end of the hotfix installation.
+在每個叢集節點的遠端桌面工作階段中，下載 [KB2854082](http://support.microsoft.com/kb/2854082) 至本機目錄。然後，依序在每個叢集節點上安裝 Hotfix。如果叢集服務目前在叢集節點上執行，伺服器會在 Hotfix 安裝結束時重新啟動。
 
->[AZURE.WARNING] Stopping the cluster service or restarting the server affects the quorum health of your cluster and the availability group, and may cause your cluster to go offline. To maintain the high availability of your cluster during installation, make sure that:
+>[AZURE.WARNING]停止叢集服務或重新啟動伺服器會影響叢集和可用性群組的仲裁健全狀況而且可能造成叢集離線。若要在安裝期間維護叢集的高可用性，請確定：
 >
-> - The cluster is in optimal quorum health, 
-> - All cluster nodes are online before installing the hotfix on any node, and
-> - Allow the hotfix installation to run to completion on one node, including fully restarting the server, before installing the hotfix on any other node in the cluster.
+> - 叢集處於最佳仲裁健全狀況 
+> - 在任何節點上安裝 Hotfix 之前所有叢集節點都在線上，且
+> - 允許 Hotfix 安裝在一個節點上執行到完成為止，包括完整重新啟動伺服器，然後才在叢集中的其他任何節點上安裝 Hotfix。
+
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="將推播通知新增至通用 Windows 8.1 應用程式 | Azure 行動服務" 
+	pageTitle="將推播通知新增至通用 Windows 8.1 應用程式 | Microsoft Azure" 
 	description="了解如何使用 Azure 通知中樞從 JavaScript 後端行動服務，傳送推播通知給通用 Windows 8.1 應用程式。" 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -101,4 +101,4 @@
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

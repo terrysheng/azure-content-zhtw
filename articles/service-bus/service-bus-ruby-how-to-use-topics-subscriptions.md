@@ -1,6 +1,6 @@
 <properties
-	pageTitle="如何使用服務匯流排 (Ruby) - Azure"
-	description="了解如何在 Azure 使用服務匯流排主題及訂閱。程式碼範例專為 Ruby 應用程式撰寫。"
+	pageTitle="如何使用服務匯流排主題 (Ruby) | Microsoft Azure"
+	description="了解如何在 Azure 使用服務匯流排主題及訂用帳戶。程式碼範例專為 Ruby 應用程式撰寫。"
 	services="service-bus"
 	documentationCenter="ruby"
 	authors="tfitzmac"
@@ -218,4 +218,4 @@ azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 -	請造訪 GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 儲存機制 (英文)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

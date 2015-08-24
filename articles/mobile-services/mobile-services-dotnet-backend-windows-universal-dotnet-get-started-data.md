@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="將行動服務新增至現有的通用 Windows 市集應用程式 | Azure 行動服務" 
+	pageTitle="將行動服務新增至現有的通用 Windows 市集應用程式 | Microsoft Azure" 
 	description="了解如何開始使用行動服務在 Windows Store 應用程式中使用資料。" 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -121,4 +121,4 @@
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="08/05/2015"
 	ms.author="MehrdadMzfr" />
 
@@ -305,4 +305,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [38]: ./media/mobile-engagement-ios-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-ios-get-started/campaign-activate.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

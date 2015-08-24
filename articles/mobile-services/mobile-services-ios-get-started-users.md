@@ -1,5 +1,5 @@
 <properties
-	pageTitle="將驗證加入現有 Azure 行動服務應用程式 (iOS) | 行動開發人員中心"
+	pageTitle="將驗證新增到現有的 Azure 行動服務應用程式 (iOS) | Microsoft Azure"
 	description="了解如何使用行動服務透過眾多識別提供者驗證 iOS 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。"
 	services="mobile-services"
 	documentationCenter="ios"
@@ -84,4 +84,4 @@
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

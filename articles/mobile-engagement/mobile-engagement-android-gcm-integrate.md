@@ -3,7 +3,7 @@
 	description="Android SDK for Azure Mobile Engagement 的最新更新和程序"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 #如何整合 GCM 與 Mobile Engagement
 
@@ -123,4 +123,4 @@ GCM 實際上不會傳送任何促銷活動資料，它只是告知應用程式�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

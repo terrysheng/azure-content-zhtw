@@ -1,4 +1,5 @@
-In addition to automatically connecting clients to the primary replica, a listener can also be used to redirect read-only workloads to the secondaries. This can improve the performance and scalability of your overall solution. For more information, see 
-[Use ReadIntent Routing with Azure AlwaysOn Availability Group Listener](http://go.microsoft.com/fwlink/?LinkId=522515).
+除了自動將用戶端連接至主要複本，接聽程式也可以用來將唯讀工作負載重新導向至次要複本。這可以改善整體解決方案的效能和延展性。如需詳細資訊，請參閱[使用 ReadIntent 路由搭配 Azure AlwaysOn 可用性群組接聽程式](http://go.microsoft.com/fwlink/?LinkId=522515)。
 
-For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
+如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)。
+
+<!---HONumber=August15_HO7-->

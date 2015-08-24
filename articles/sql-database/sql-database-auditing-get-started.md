@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="開始使用 SQL Database 稽核 | Azure" 
+	pageTitle="開始使用 SQL Database 稽核 | Microsoft Azure" 
 	description="開始使用 SQL Database 稽核" 
 	services="sql-database" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.author="jeffreyg"/>
  
 # 開始使用 SQL Database 稽核 
-<p> Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azure 儲存體帳戶中的稽核記錄。Basic、Standard 和 Premium 服務層皆提供稽核功能。
+<p> Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azure 儲存體帳戶中的稽核記錄。基本、標準和進階服務層皆提供稽核功能。
 
 稽核可協助您保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。
 
@@ -74,7 +74,7 @@ SQL Database 稽核可讓您：
 4. 在 [依事件記錄] 下，按一下 [成功] 和 [失敗] 以記錄所有事件，或選擇個別的事件類別。
 
 
-5. 如果您要設定 SQL Database 的稽核，請按一下 [若要強制執行稽核，按一下這裡...]，並且在 [啟用安全性的存取] 中選取 [必要項]。如果您要設定 SQL Server 的稽核，您有兩個選項：(1) 在步驟 #6 之後，巡覽此伺服器上的每一個 SQL Database，並套用此步驟，或 (2) [修改連接字串中的伺服器 FDQN](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)。
+5. 如果您要設定 SQL Database 的稽核，請按一下 [若要強制執行稽核，按一下這裡...]，並且在 [啟用安全性的存取] 中選取 [必要項]。如果您要設定 SQL Server 的稽核，您有兩個選項：(1) 在步驟 \#6 之後，巡覽此伺服器上的每一個 SQL Database，並套用此步驟，或 (2) [修改連接字串中的伺服器 FDQN](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)。
 
 
 	![][5]
@@ -102,7 +102,7 @@ SQL Database 稽核可讓您：
  
 2.   按一下要稽核的 SQL Database / SQL Server，然後按一下 [稽核與安全性] 索引標籤。
 
-3.   如果您要設定 SQL Database 的稽核，請在 [啟用安全性的存取] 中選取 [必要項]。如果您要設定 SQL Server 的稽核，您有兩個選項：(1) 在步驟 #7 之後，巡覽此伺服器上的每一個 SQL Database，並套用此步驟，或 (2) [修改連接字串中的伺服器 FDQN](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)。
+3.   如果您要設定 SQL Database 的稽核，請在 [啟用安全性的存取] 中選取 [必要項]。如果您要設定 SQL Server 的稽核，您有兩個選項：(1) 在步驟 \#7 之後，巡覽此伺服器上的每一個 SQL Database，並套用此步驟，或 (2) [修改連接字串中的伺服器 FDQN](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)。
 
 4. 在稽核區段中，按一下 [已啟用]。
 
@@ -182,4 +182,4 @@ SQL Database 稽核可讓您：
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="雲端平台整合架構 - -Azure 架構模式" 
+   pageTitle="雲端平台整合架構 | Microsoft Azure" 
    description="雲端平台整合架構提供工作負載整合指引，供您將應用程式上架到由 Microsoft Azure 架構模式所組成的 Microsoft 雲端解決方案" 
    services="" 
    documentationCenter="" 
@@ -41,7 +41,7 @@ CPIF 描述組織、客戶及合作夥伴應如何使用 Azure、System Center �
 
 - 全域負載平衡 Web 層 
 - 負載平衡資料層
-- 批次處理層
+- Batch 處理層
 - 混合式網路功能
 - Azure 搜尋服務 
 
@@ -53,10 +53,10 @@ CPIF 描述組織、客戶及合作夥伴應如何使用 Azure、System Center �
 
 [負載平衡資料層](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-dfb09e41)
 
-[批次處理層](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
+[Batch 處理層](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
 [Azure 網路功能](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-5e401f38)
 
 [Azure 搜尋服務](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

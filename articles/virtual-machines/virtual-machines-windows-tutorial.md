@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="07/13/2015"
 	ms.author="kathydav"/>
 
@@ -99,6 +99,6 @@
 ## 後續步驟
 
 * 使用 Azure PowerShell 和 Azure CLI [尋找並選取 VM 映像](resource-groups-vm-searching.md)。
-* 使用 [Azure 資源管理員](virtual-machines-how-to-automate-azure-resource-manager.md)和 [Azure 資源管理員範本](http://azure.microsoft.com/documentation/templates/)，自動部署和管理 VM 和工作負載。
+* 使用 [Azure 資源管理員](virtual-machines-how-to-automate-azure-resource-manager.md)和 [Azure 資源管理員範本](http://azure.microsoft.com/zh-tw/documentation/templates/)，自動部署和管理 VM 和工作負載。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

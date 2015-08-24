@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在 Xamarin Android 應用程式中開始使用行動服務 - Azure 行動服務"
+	pageTitle="開始使用 Xamarin.Android 應用程式的行動服務 | Microsoft Azure"
 	description="遵循此教學課程，可開始使用 Azure 行動服務進行 Xamarin Android 開發。"
 	services="mobile-services"
 	documentationCenter="xamarin"
@@ -136,4 +136,4 @@
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

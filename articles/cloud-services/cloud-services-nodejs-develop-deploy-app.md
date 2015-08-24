@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Node.js 入門指南 - Azure 教學課程"
+	pageTitle="Node.js 入門指南 | Microsoft Azure"
 	description="了解如何建立簡單的 Node.js Web 應用程式，並將它部署至 Azure 雲端服務。"
 	services="cloud-services"
 	documentationCenter="nodejs"
@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="06/01/2015"
 	ms.author="mwasson"/>
 
@@ -192,4 +192,4 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

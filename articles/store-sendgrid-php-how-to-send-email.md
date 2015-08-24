@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用 SendGrid 電子郵件服務 (PHP) - Azure" 
+	pageTitle="如何使用 SendGrid 電子郵件服務 (PHP) | Microsoft Azure" 
 	description="了解如何在 Azure 使用 SendGrid 電子郵件服務傳送電子郵件。程式碼範例以 PHP 撰寫。" 
 	documentationCenter="php" 
 	services="" 
@@ -420,4 +420,4 @@ SendGrid 提供了運用 'filters' 的其他電子郵件功能。這些設定可
   [sendgrid-php 程式庫]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

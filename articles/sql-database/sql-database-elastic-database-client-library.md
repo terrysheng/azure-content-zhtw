@@ -18,11 +18,11 @@
 
 # 彈性資料庫用戶端程式庫概觀
 
-**彈性資料庫用戶端程式庫**，可讓您使用 Microsoft Azure 上的 Azure SQL Database 數百或甚至上千個集合的用戶端應用程式，來輕鬆開發分區化應用程式。這類設計通常用於軟體即服務 (SaaS) 應用程式，其通常為單一租用戶架構 -- 其中每個租用戶是使用資料庫佈建。建立和管理這類應用程式是程式庫的目標。 用戶端程式庫是可以安裝到使用[ Visual Studio](sql-database-elastic-scale-add-references-visual-studio.md) 和 [Nuget](http://go.microsoft.com/?linkid=9862605) 的任何應用程式專案的 .NET Framework 程式庫。用戶端程式庫會特別去的彈性資料庫工具組件[彈性資料庫功能](sql-database-elastic-scale-introduction.md)。
+**彈性資料庫用戶端程式庫**，可讓您使用 Microsoft Azure 上的 Azure SQL Database 數百或甚至上千個集合的用戶端應用程式，來輕鬆開發分區化應用程式。這類設計通常用於軟體即服務 (SaaS) 應用程式，其通常為單一租用戶架構 -- 其中每個租用戶是使用資料庫佈建。建立和管理這類應用程式是程式庫的目標。用戶端程式庫是可以安裝到使用 [Visual Studio](sql-database-elastic-scale-add-references-visual-studio.md) 和 [Nuget](http://go.microsoft.com/?linkid=9862605) 的任何應用程式專案的 .NET Framework 程式庫。用戶端程式庫會特別去的彈性資料庫工具組件[彈性資料庫功能](sql-database-elastic-scale-introduction.md)。
 
 ## 用戶端功能
 
-使用*分區化* (下文中會討論) 來開發、縮放和管理相應放大應用程式，對開發人員和系統管理員而言都是一項挑戰。用戶端程式庫讓這兩個角色工作的更輕鬆。下圖中的數字指出彈性資料庫用戶端程式庫和分割合併工具所提供的主要功能。圖中顯示一個具有許多資料庫的環境，而每個資料庫對應至一個分區。這些工具透過下列特定功能，讓開發分區化 Azure SQL DB 應用程式變得更輕鬆：
+使用*分區化* (下文中會討論) 來開發、縮放和管理相應放大應用程式，對開發人員和系統管理員而言都是一項挑戰。用戶端程式庫讓這兩個角色工作的更輕鬆。下圖指出彈性資料庫用戶端程式庫所提供的主要功能。圖中顯示一個具有許多資料庫的環境，而每個資料庫對應至一個分區。雖然每個客戶 (租用戶) 一個資料庫也是一樣，但是在此範例中，許多客戶使用範圍對應共同位於相同資料庫。這些工具透過下列特定功能，讓開發分區化 Azure SQL Database 應用程式變得更輕鬆：
 
 關於本文使用的詞彙定義，請參閱[彈性資料庫工具字彙](sql-database-elastic-scale-glossary.md)。
 
@@ -51,4 +51,4 @@
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

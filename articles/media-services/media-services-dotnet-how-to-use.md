@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #使用 .NET 進行媒體服務開發 
+
+[AZURE.INCLUDE [媒體-服務-選取器-設定](../../includes/media-services-selector-setup.md)]
 
 本主題討論如何使用 .NET 開始開發媒體服務應用程式。
 
@@ -50,7 +52,7 @@
 	
 		[管理 NuGet 封裝] 對話方塊隨即出現。
 
-	3. 在線上組件庫中，搜尋 [Azure MediaServices 延伸模組]，並選擇 [Azure Media Services .NET SDK 延伸模組]，然後按一下 [安裝] 按鈕。
+	3. 在線上資源庫中，搜尋 [Azure MediaServices 延伸模組]，並選擇 [Azure Media Services .NET SDK 延伸模組]，然後按一下 [安裝] 按鈕。
  
 		會修改專案，並加入 Media Services .NET SDK 延伸模組、Media Services .NET SDK 和其他相依組件的參考。
 
@@ -98,4 +100,4 @@
 現在，您可以開始開發媒體服務應用程式。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

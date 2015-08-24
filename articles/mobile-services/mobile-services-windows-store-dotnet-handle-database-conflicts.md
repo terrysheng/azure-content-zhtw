@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用開放式並行存取處理資料庫寫入衝突 (Windows 市集) | 行動開發人員中心" 
+	pageTitle="使用開放式並行存取處理資料庫寫入衝突 (Windows 市集) | Microsoft Azure" 
 	description="了解如何處理伺服器與 Windows 市集應用程式之間的資料庫寫入衝突。" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -366,4 +366,4 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [系統屬性]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

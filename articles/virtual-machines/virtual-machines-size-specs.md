@@ -5,7 +5,9 @@
  documentationCenter=""
  authors="KBDAzure"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-resource-manager,azure-service-management"/>
+
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -134,4 +136,4 @@ Azure 虛擬機器和雲端服務是 Azure 所提供數種計算資源類型的�
 
 ＜[關於 A8、A9、A10 和 A11 計算密集型執行個體](virtual-machines-a8-a9-a10-a11-specs.md)＞
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

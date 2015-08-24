@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 # 設定內部部署 VMM 站台之間的保護
@@ -370,4 +370,4 @@ VMM 伺服器上的提供者會收到來自服務的事件通知，並在 Hyper-
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

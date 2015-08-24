@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="開始使用 Application Insights" 
-	description="使用 Application Insights 分析內部部署或 Microsoft Azure Web 應用程式的使用情況、可用性和效能。" 
-	services="application-insights" 
+<properties
+	pageTitle="開始使用 Visual Studio Application Insights | Microsoft Azure"
+	description="使用 Visual Studio Application Insights 分析內部部署或 Microsoft Azure Web 應用程式的使用情況、可用性和效能。"
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="hero-article" 
-	ms.date="08/04/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="08/04/2015"
 	ms.author="awills"/>
 
 # 開始使用 Visual Studio Application Insights
@@ -23,13 +23,13 @@
 
 組態作業非常簡單，幾分鐘之內就能看到結果。
 
-我們目前支援 iOS、Android 和 Windows 應用程式；J2EE 和 ASP.NET Web 應用程式以及 WCF 服務。Web 應用程式可以在 Azure 或您的內部部署伺服器上執行。我們的 JavaScript SDK 可在任何網頁中執行。
+我們目前支援 iOS、Android 和 Windows 應用程式；J2EE 和 ASP.NET Web 應用程式以及 WCF 服務。Web 應用程式可以在 Azure 或您的內部部署伺服器上執行。我們的 JavaScript SDK 可在任何網頁上執行。
 
 ## 開始使用
 
-依照任意順序開始使用此對應表左側的任意進入點組合。請遵循適合您的路徑操作。
+依照任意順序開始使用出現在下列圖表之任意進入點的組合。請遵循適合您的路徑操作。
 
-Application Insights 的運作方式是將 SDK 加入至您的應用程式，並將遙測資料傳送至 [Azure 入口網站](http://portal.azure.com)。目前有不同的 SDK 適用於多個支援的平台、語言和 IDE 組合。
+Application Insights 的運作方式是將 SDK 加入至您的應用程式，並將遙測資料傳送至 [Azure 入口網站](http://portal.azure.com)。目前有不同的 SDK 適用於各個支援的平台、語言和 IDE 組合。
 
 您將需要 [Microsoft Azure](http://azure.com) 帳戶。您可能已透過組織獲得群組帳戶的存取權；或者，您可以使用隨用隨附帳戶。Application Insights 有免費層，因此在您的應用程式受歡迎之前，您不需要支付任何費用。請檢閱[定價頁面](https://azure.microsoft.com/pricing/details/application-insights/)。
 
@@ -46,9 +46,9 @@ Application Insights 的運作方式是將 SDK 加入至您的應用程式，並
 
 ## 支援與意見反應
 
-* 疑難排解與問題：
+* 問題：
  * [疑難排解][qna]
- * [MSDN 論壇](https://social.msdn.microsoft.com/Forums/vstudio/zh-tw/home?forum=ApplicationInsights)
+ * [MSDN 論壇](https://social.msdn.microsoft.com/Forums/vstudio/zh-cn/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * 錯誤：
  * [連線](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -72,6 +72,4 @@ Application Insights 的運作方式是將 SDK 加入至您的應用程式，並
 
 [qna]: app-insights-troubleshoot-faq.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

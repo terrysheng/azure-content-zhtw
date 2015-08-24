@@ -19,6 +19,7 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 
 * [Microsoft Azure](http://azure.com) 訂用帳戶。您使用 Microsoft 帳戶登入，可能是針對 Windows、XBox Live 或其他 Microsoft 雲端服務具備的帳戶。
 * Visual Studio 2015 或更新版本。
+* Windows 10 通用應用程式
 
 ## 建立 Application Insights 資源
 
@@ -139,4 +140,4 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

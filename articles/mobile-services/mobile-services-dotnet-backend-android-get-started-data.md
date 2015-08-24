@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="開始使用資料 (Android) | 行動開發人員中心" 
+	pageTitle="開始使用資料 (Android) | Microsoft Azure" 
 	description="了解如何開始使用行動服務，在您的 Android 應用程式中使用資料。" 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -30,7 +30,7 @@
 
 + <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> (Update 3 或更新版本)。 
 
-+ Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-android-get-started-data%2F)。
++ Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-cn%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-android-get-started-data%2F)。
 
 ##<a name="create-service"></a>建立新的行動服務
 
@@ -133,4 +133,4 @@ Android 的**開始使用資料**教學課程到此結束。
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
    
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

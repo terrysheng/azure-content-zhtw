@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="註冊 Microsoft 驗證 - 行動服務" 
+	pageTitle="註冊 Microsoft 驗證 | Microsoft Azure" 
 	description="了解如何在 Azure Mobile Services 應用程式中註冊 Microsoft 驗證。" 
 	authors="ggailey777" 
 	services="mobile-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/14/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # 註冊應用程式來使用 Microsoft 帳戶進行驗證
@@ -54,13 +54,9 @@
 
 6. (選擇性) 若為 Windows 通用 app，請針對 Windows Phone 市集專案重複執行步驟 4 與 5。
 
-6. 回到新應用程式的 Windows 開發人員中心頁面，按一下 **[服務]**。
+6. 回到新應用程式的 Windows 開發人員中心頁面，按一下 [**服務]**] > [**推播通知**]。
 
-   	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-edit-app.png)
-
-7. 在 [服務] 頁面中，按一下 [Azure 行動服務] 下的 [Live Services site]。
-
-	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-edit2-app.png)
+7. 在 [**推播通知**] 頁面上，按一下 [**Windows 推播通知服務 (WNS) 和 Microsoft Azure 行動服務**]下的 [**線上服務網站**]。
 
 您應用程式的 Microsoft 帳戶頁面會隨即顯示。
 
@@ -72,7 +68,7 @@
 
    	這將透過 Microsoft 帳戶為您保留應用程式名稱，並顯示您應用程式的 Microsoft 帳戶頁面。
 
-2. 在應用程式的 Microsoft 帳戶頁面上，按一下 [API 設定]，選取啟用 [行動或桌面用戶端應用程式]，將行動服務 URL 設為 [目標網域]，在 [重新導向 URL] 中提供 `https://<mobile_service>.azure-mobile.net/login/microsoftaccount/` 的值，然後按一下 [儲存]。
+2. 在應用程式的 Microsoft 帳戶頁面上，按一下 [API 設定]，選取啟用 [行動或桌面用戶端應用程式]，將行動服務 URL 設為 [目標網域]，在 [重新導向 URL] 中提供 `https://<mobile_service>.azure-mobile.net/` 的值，然後按一下 [儲存]。
 
 	 >[AZURE.NOTE]如需使用 Visual Studio 將 .NET 後端行動服務發佈至 Azure，則重新導向 URL 是行動服務 URL 並附加路徑 _signin-microsoft_，而您的行動服務為 .NET 服務，例如 `https://todolist.azure-mobile.net/signin-microsoft`。
 
@@ -107,4 +103,4 @@
 [Azure 管理入口網站]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

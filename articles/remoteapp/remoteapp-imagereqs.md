@@ -3,7 +3,7 @@
     pageTitle="Azure RemoteApp 映像需求"
     description="深入了解建立可用於 Azure RemoteApp 的映像需求" 
     services="remoteapp" 
-    documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/06/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -42,5 +42,6 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 映像來主控您要與使用�
 - 映像必須使用參數 **/oobe /generalize /shutdown** 進行 SYSPREP 處理 (請不要使用 **/mode:vm** 參數)。
 - 不支援從快照鏈結上傳您 VHD。
  
+如需建立 Azure RemoteApp 映像的詳細資訊，請參閱[建立 Azure RemoteApp 映像](remoteapp-imageoptions.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

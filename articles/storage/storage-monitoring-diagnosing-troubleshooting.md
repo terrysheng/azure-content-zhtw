@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="監視、診斷與疑難排解儲存體 | Azure" 
+	pageTitle="監視、診斷與疑難排解儲存體 | Microsoft Azure" 
 	description="使用儲存體分析、用戶端記錄和其他協力廠商工具等功能，為 Azure 儲存體的相關問題進行識別、診斷與疑難排解。" 
 	services="storage" 
 	documentationCenter="" 
@@ -911,4 +911,4 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

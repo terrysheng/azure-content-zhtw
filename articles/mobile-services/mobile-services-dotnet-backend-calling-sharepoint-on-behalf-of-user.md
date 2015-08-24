@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="代表使用者存取 SharePoint | 行動開發人員中心" 
+	pageTitle="代表使用者存取 SharePoint | Microsoft Azure" 
 	description="了解如何代表使用者電洽 SharePoint" 
 	documentationCenter="" 
 	authors="mattchenderson" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="08/08/2015" 
 	ms.author="mahender"/>
 
 # 代表使用者存取 SharePoint
@@ -219,4 +219,4 @@
 [使用 Active Directory Authentication Library 單一登入驗證您的應用程式]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

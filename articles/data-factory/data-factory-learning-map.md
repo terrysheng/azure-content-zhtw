@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Data Factory 的學習導覽圖 | Azure"
+	pageTitle="Data Factory 的學習導覽圖 | Microsoft Azure"
 	description="取得 Azure Data Factory 上可用資源的視覺導覽圖 (0 到 60)。"
 	services="data-factory"
 	documentationCenter=""
@@ -24,4 +24,4 @@ Data Factory 是雲端架構資料整合服務，用來協調以及自動移動�
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/adf-learning-map.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

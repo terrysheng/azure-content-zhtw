@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="註冊 Google 驗證 - 行動服務" 
+	pageTitle="註冊 Google 驗證 | Microsoft Azure" 
 	description="了解如何在 Azure 行動服務中註冊您的應用程式以使用 Google 進行驗證。" 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -62,4 +62,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

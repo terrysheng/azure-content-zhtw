@@ -1,5 +1,5 @@
 <properties
-	pageTitle=".NET 多層式應用程式 - Azure 教學課程"
+	pageTitle=".NET 多層式應用程式 | Microsoft Azure"
 	description="協助您在 Azure 中開發多層式應用程式，以使用服務匯流排佇列在各層之間進行通訊的教學課程。.NET 的範例。"
 	services="service-bus"
 	documentationCenter=".net"
@@ -539,4 +539,4 @@
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="08/06/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Data Factory .NET SDK 來建立、監視及管理 Azure Data Factory
@@ -42,7 +42,7 @@
 2. 按一下 [<b>工具</b>]，指向 [<b>NuGet 封裝管理員</b>]，然後按一下 [<b>封裝管理員主控台</b>]。
 3.	在 [Package Manager Console]<b></b> 中，逐一執行下列命令。</b>。 
 
-		Install-Package Microsoft.Azure.Management.DataFactories –Pre
+		Install-Package Microsoft.Azure.Management.DataFactories
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 6. 將下列 **appSetttings** 區段加入 **App.config** 檔案。Helper 方法使用的是：**Microsoft.identitymodel.waad.preview.graph.graphinterface**。 
 
@@ -393,4 +393,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

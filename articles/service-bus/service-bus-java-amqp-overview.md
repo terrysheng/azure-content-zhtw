@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="服務匯流排 AMQP 概觀 (Java) - Azure" 
+	pageTitle="服務匯流排 AMQP 概觀 (Java) | Microsoft Azure" 
 	description="了解如何在 Azure 中使用 Advanced Message Queuing Protocol (AMQP)。" 
 	services="service-bus" 
 	documentationCenter="java" 
@@ -99,4 +99,4 @@ Azure 服務匯流排中的 AMQP 1.0 支援代表您現在能夠從一組平台�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

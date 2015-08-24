@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="08/06/2015"
 	ms.author="tamram;selcint"/>
 
 
@@ -39,7 +39,7 @@ Premium 儲存體可為在 Azure 虛擬機器上執行的 I/O 密集工作負載
 
 - Premium 儲存體目前只在 [Microsoft Azure Preview 入口網站](https://portal.azure.com/)提供，可透過下列 SDK 程式庫存取：2014 年 2 月 14 日版或更新版本的 [儲存體 REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx)、2014 年 10 月 1 日版或更新版本的[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)，以及 0.8.10 版或更新版本的 [Azure PowerShell](../install-configure-powershell.md)。
 
-- 進階儲存體目前可在下列區域取得：美國西部、美國東部 2、西歐、中國東部、東南亞、日本西部和澳洲東部。
+- 如需目前支援進階儲存體的地區清單，請參閱[依地區的 Azure 服務](http://azure.microsoft.com/regions/#services)。
 
 - Premium 儲存體僅支援 Azure 分頁 Blob，用於保存適用於 Azure 虛擬機器 (VM) 的耐久性磁碟。如需 Azure 分頁 Blob 的詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob](http://msdn.microsoft.com/library/azure/ee691964.aspx)。Premium 儲存體不支援 Azure 區塊 Blob、Azure 檔案、Azure 表格或 Azure 佇列。
 
@@ -265,7 +265,7 @@ DS4 VM 連接了兩個 P30 磁碟。每個 P30 磁碟有每秒 200 MB 的輸送�
 以下是我們驗證能使用 Premium 儲存體的 Linux 散發套件。我們建議您升級 VM 到至少其中一個版本 (或更新版本)，以便獲得 Premium 儲存體較佳的效能和穩定性。此外，部分版本需要最新的 LIS (適用於 Microsoft Azure 的 Linux Integration Services v4.0)。請依照下面提供的連結進行下載及安裝。當我們完成其他驗證後，將繼續在清單中新增更多映像。請注意，我們的驗證顯示效能依映像而有所不同，而且也取決於工作負載特性和映像上的設定。不同的映像已針對不同種類的工作負載進行調整。<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>配送映像</strong></td> <td><strong>版本</strong></td> <td><strong>支援的核心</strong></td> <td><strong>支援的映像</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-zh-tw-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-zh-tw-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-zh-tw-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-zh-tw-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 7.0</td> <td></td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> 需要 LIS 4.0 </a></br> *請參閱下方附註 </td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> 建議 LIS 4.0 </a> <br/> *請參閱下方附註 </td> </tr>
 
 <tr>
-	<td rowspan="2"><link id="138" refid="139" url="virtual-machines-oracle-azure-virtual-machines.md">Oracle</link></td>
+	<td rowspan="2"><strong>Oracle</strong></td>
 	<td>6.4</td>
 	<td></td>
 	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">需要 LIS 4.0</a></td>
@@ -401,4 +401,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="08/06/2015" 
 	ms.author="genemi"/>
 
 
@@ -22,27 +22,6 @@
 
 
 本主題說明 Azure SQL Database V12 對於使用 ADO.NET 4.5 或更新版本的用戶端的連接行為所帶來的變更。
-
-
-## 版本說明
-
-
-#### ADO.NET
-
-
-- ADO.NET 4.0 支援 TDS 7.3 通訊協定，但不支援 7.4。
-- ADO.NET 4.5 和更新版本支援 TDS 7.4 通訊協定。
-- ADO.NET 4.5 會在內部使用 ODBC 11。
- - 這裡適用於 ADO.NET 4.5 的資訊也適用於 ODBC 11。
-
-
-#### SQL Database V11 和 V12
-
-
-SQL Database V11 和 V12 之間的用戶端連線差異是本主題中的重點。
-
-
-*附註：*TRANSACT-SQL 陳述式 `SELECT @@version;` 會傳回值，從例如 '11.' 或 '12.' 的數字開頭，以及符合我們的 SQL Database V11 和 V12 版本名稱。
 
 
 ## SQL Database V11：連接埠 1433
@@ -73,7 +52,7 @@ SQL Database V11 和 V12 之間的用戶端連線差異是本主題中的重點�
 連接埠 1433 是裝載您的 SQL Database 用戶端應用程式的桌上型電腦上唯一必須開啟的連接埠。
 
 
-#### *內部：*在 Azure VM 上執行的用戶端
+#### *內部：*在 Azure 上執行的用戶端
 
 
 當您的用戶端是在 Azure 雲端界限內部執行時，它會使用我們可以稱為*直接路由*的路由與 SQL Database 伺服器互動。建立連線之後，用戶端和資料庫之間的進一步互動未牽涉到任何中介軟體 proxy。
@@ -116,6 +95,28 @@ SQL Database V11 和 V12 之間的用戶端連線差異是本主題中的重點�
 如需示範重試邏輯的程式碼範例，請參閱：[SQL Database 的用戶端快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)。
 
 
+## 版本說明
+
+
+本章節將釐清參考產品版本的 Moniker。它也會列出產品之間的一些版本配對。
+
+
+#### ADO.NET
+
+
+- ADO.NET 4.0 支援 TDS 7.3 通訊協定，但不支援 7.4。
+- ADO.NET 4.5 和更新版本支援 TDS 7.4 通訊協定。
+
+
+#### SQL Database V11 和 V12
+
+
+SQL Database V11 和 V12 之間的用戶端連線差異是本主題中的重點。
+
+
+*附註：*Transact-SQL 陳述式 `SELECT @@version;` 會傳回值，從例如 '11.' 或 '12.' 的數字開頭，以及符合我們的 SQL Database V11 和 V12 版本名稱。
+
+
 ## 相關連結
 
 
@@ -130,4 +131,4 @@ SQL Database V11 和 V12 之間的用戶端連線差異是本主題中的重點�
 
 - [TDS 通訊協定版本清單](http://www.freetds.org/userguide/tdshistory.htm)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

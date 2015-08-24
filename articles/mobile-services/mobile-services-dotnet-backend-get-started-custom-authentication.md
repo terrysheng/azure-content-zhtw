@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="開始使用自訂驗證 | 行動開發人員中心" 
+	pageTitle="開始使用自訂驗證 | Microsoft Azure" 
 	description="了解如何藉由使用者名稱及密碼驗證使用者。" 
 	documentationCenter="Mobile" 
 	authors="mattchenderson" 
@@ -420,4 +420,4 @@
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

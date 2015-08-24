@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/30/2015"
+   ms.date="08/09/2015"
    ms.author="rajram"/>
    
 # Azure 儲存體 Blob 連接器
-連接到 Azure 儲存體 Blob，以便從 Blob 容器上傳、下載及刪除 Blob。連接器可以在邏輯應用程式中用作「工作流程」的一部分。
+連接到 Azure 儲存體 Blob，以便從 Blob 容器上傳、下載及刪除 Blob。連接器可以在 Logic Apps 中用作「工作流程」的一部分。
 
 ## 觸發程序和動作
 *觸發程序*是發生的事件。例如，訂單更新時或加入新客戶時。*動作*是觸發程序的結果。例如，當訂單更新時，傳送警示給銷售人員。或者，當加入新客戶時，傳送歡迎電子郵件給新客戶。
@@ -36,9 +36,9 @@ None | <ul><li>取得 Blob：從容器取得特定 Blob</li> <li>上傳 Blob：�
 連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
 1. 在 Azure 開始面板中，選取 [**Marketplace**]。
-2. 選取 [API 應用程式]，然後搜尋 "Blob"：<br/> ![選取 Azure 儲存體 Blob 連接器][2]
+2. 搜尋 “Blob”：![選取 Azure 儲存體 Blob 連接器][2]
 
-3. **建立**連接器。
+3. 選取它，然後選取 [**建立**]。
 4. 輸入名稱、App Service 方案和其他屬性。
 5. 輸入下列封裝設定：
 
@@ -54,21 +54,13 @@ None | <ul><li>取得 Blob：從容器取得特定 Blob</li> <li>上傳 Blob：�
 ## 在邏輯應用程式中使用 Azure 儲存體 Blob 連接器
 建立 Azure 儲存體 Blob 連接器後，即可立即加入工作流程。
 
-1. 建立新的邏輯應用程式：[新增] -> [Web + 行動] -> LogicApp。輸入邏輯應用程式的屬性：
+1. 建立新的邏輯應用程式：[新增] -> [Web + 行動] -> LogicApp。輸入邏輯應用程式的屬性：![建立邏輯應用程式][4]
 
-	![建立邏輯應用程式][4]
+2. 按一下 [**觸發程序和動作**]。工作流程設計工具隨即開啟：![邏輯應用程式空白流程設計工具][5]
 
-2. 按一下 [觸發程序和動作]。工作流程設計工具隨即開啟：
+3. 選取右窗格中的 Azure 儲存體 Blob 連接器。連接器會列出可用的動作：![Azure 儲存體 Blob 動作的清單][10]
 
-	![邏輯應用程式空白流程設計工具][5]
-
-3. 選取右窗格中的 Azure 儲存體 Blob 連接器。連接器會列出可用的動作：
-
-	![Azure 儲存體 Blob 動作的清單][10]
-
-4. 在此案例中，我們將使用 [上傳 Blob] 動作：
-
-	![上傳 Blob 動作的輸入][11]
+4. 在此案例中，我們將使用 [**上傳 Blob**] 動作：![上傳 Blob 動作的輸入][11]
 
 5. 輸入輸入值，並選取核取記號以完成設定：
 
@@ -82,7 +74,7 @@ Blob 寫入內容 | 輸入要上傳之 Blob 的內容和屬性。
 請注意，已設定的 [Azure 儲存體 Blob 上傳 Blob] 動作會顯示輸入參數以及輸出參數。
 
 #### 使用先前動作的輸出做為 Azure 儲存體 Blob 動作的輸入
-在上一個螢幕擷取畫面中，[內容] 值可以是運算式：
+在上一個螢幕擷取畫面中，[**內容**] 值可以是運算式：
 
 	@triggers().outputs.body.Content
 
@@ -91,11 +83,11 @@ Blob 寫入內容 | 輸入要上傳之 Blob 的內容和屬性。
 	@actions('transformservice').outputs.body.OutputXML
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
 
-使用 REST API 建立 API 應用程式。請參閱[連接器和 API 應用程式參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)。
+使用 REST API 建立 API Apps。請參閱〈[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)〉。
 
-您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)。
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱〈[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)〉。
 
 <!-- Image reference -->
 [2]: ./media/app-service-logic-connector-azurestorageblob/SelectAzureStorageBlobConnector.PNG
@@ -110,4 +102,4 @@ Blob 寫入內容 | 輸入要上傳之 Blob 的內容和屬性。
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

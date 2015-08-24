@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="08/05/2015"
 	ms.author="lauraa"/>
 
 #  使用 PowerShell 部署 Azure Site Recovery
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>若有任何問題，請造訪 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 復原服務論壇</a> (英文)。</LI></UL>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -3,7 +3,7 @@
 	description="將多個資源分組為邏輯群組，使該邏輯群組成為所含之資源的生命週期界限。" 
 	services="azure-portal" 
 	documentationCenter="" 
-	authors="" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -75,4 +75,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

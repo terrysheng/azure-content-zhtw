@@ -4,7 +4,7 @@
 	tags="azure-portal"
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="TomArcher"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/23/2015"
-	ms.author="mwasson"/>
+	ms.date="08/11/2015"
+	ms.author="tarcher"/>
 
 # 如何在 Azure App Service 中偵錯 Node.js Web 應用程式
 
@@ -125,4 +125,4 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

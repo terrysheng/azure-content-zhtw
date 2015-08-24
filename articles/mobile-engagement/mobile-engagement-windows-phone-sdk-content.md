@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2015"
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 	
 #Windows Phone Silverlight SDK 內容
@@ -37,4 +37,4 @@
 - `EngagementConfiguration.xml`：Mobile Engagement 的組態檔，您可以在此自訂 Engagement 的設定 (Engagement 連接字串、報告當機等)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

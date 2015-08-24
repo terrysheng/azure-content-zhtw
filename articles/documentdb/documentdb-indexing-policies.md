@@ -468,33 +468,25 @@ DocumentDB 會將 JSON 文件和索引塑造為樹狀結構，並可讓您調整
 
 探討如何指定路徑之後，讓我們看看我們可以使用那些選項來設定路徑的編製索引原則。您可以為每個路徑指定一或多個編製索引的定義：
 
-- 資料類型：**字串**或**數字** (每個路徑每個資料類形只能包含一個項目)
-- 索引種類：**雜湊** (相等查詢) 或**範圍** (相等、範圍或 Order By 查詢)
+- 資料類型：**字串**、**數字**或**點** (每個路徑每個資料類型只能包含一個項目)
+- 索引類型：**雜湊** (相等查詢)、**範圍** (相等、範圍或 Order By 查詢) 或**空間** (空間查詢) 
 - 精確度：數字為 1-8 或 -1 (最大精確度)；字串為 1-100 (最大精確度)
 
 #### 索引類型
 
-DocumentDB 針對每個路徑和資料類型組支援兩種索引種類。
+DocumentDB 支援每個路徑的雜湊和範圍索引種類 (可針對字串、數字或兩者進行設定)。
 
 - **雜湊**支援有效率的相等查詢和 JOIN 查詢。針對大多數使用案例，雜湊索引並不需要比預設值 (3 個位元組) 更高的精確度。
 - **範圍**支援有效率的相等查詢、範圍查詢 (使用 >、<、>=、<=、!=) 和 Order By 查詢。根據預設，Order By 查詢也需要最大索引精確度 (-1)。
+
+DocumentDB 也支援每個路徑的空間索引類型 (可針對點資料類型加以指定)。位於指定路徑的值必須是有效的 GeoJSON 點，例如 `{"type": "Point", "coordinates": [0.0, 10.0]}`。
+
+- **空間**支援有效率的空間 (內部和距離) 查詢。
 
 以下是支援的索引種類和可用來處理的查詢的範例：
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>索引類型</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>描述/使用案例</strong>
-                </p>
-            </td>
-        </tr>
         <tr>
             <td valign="top">
                 <p>
@@ -531,16 +523,32 @@ DocumentDB 針對每個路徑和資料類型組支援兩種索引種類。
                 </p>
             </td>
         </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    Spatial
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Range over /prop/? (or / *) 可用來有效率地處理下列查詢：SELECT * FROM collection c WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) &lt; 40 SELECT * FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... })
+                </p>
+            </td>
+        </tr>        
     </tbody>
 </table>
 
 根據預設，如果沒有 (任何精確度的) 範圍索引，以發出可能需要掃描才能進行查詢的訊號，則所有查詢都會傳回錯誤。只要在 REST API 中使用 x-ms-documentdb-enable-scans 標頭，或使用 .NET SDK 利用 EnableScanInQuery 要求選項，仍然可以在沒有範圍索引的情況下執行範圍查詢。如果在查詢中有 DocumentDB 可以使用索引據以篩選的其他任何篩選，則將不會傳回任何錯誤。
+
+相同的規則適用於空間查詢。根據預設，如果空間查詢中沒有任何空間索引，則會傳回錯誤。您可以使用 x-ms-documentdb-enable-scan/EnableScanInQuery 將它們執行為掃描。
 
 #### 索引精確度
 
 索引精確度可讓您在索引儲存空間額外負荷和查詢效能之間取捨。對於數字，建議使用預設精準度組態 -1 (「最大值」)。因為數字在 JSON 中為 8 個位元組，相當於 8 個位元組的組態。挑選較低值的精準度，例如 1-7，表示在某個範圍內的值可對應至相同的索引項目。因此，您將會減少索引儲存空間，但查詢執行可能必須處理更多文件，並且耗用更多輸送量，也就是要求單位。
 
 索引精準度組態對於字串範圍更實用。因為字串可以是任意長度，索引精準度的選擇可能會影響字串範圍查詢的效能，並影響所需的索引儲存空間量。字串範圍索引可以設定為 1-100 或 -1 (「最大值」)。如果您想要針對字串屬性執行 Order By 查詢，則必須為對應的路徑，將精確度指定為 -1。
+
+空間索引一律使用點的預設索引精準度，且無法被覆寫。
 
 下列範例示範如何使用 .NET SDK 提高集合中範圍索引的精確度。請注意，這樣會使用預設路徑 "/*"。
 
@@ -577,7 +585,7 @@ DocumentDB 針對每個路徑和資料類型組支援兩種索引種類。
 
 在關閉自動索引編製功能的情況下，您仍然可以選擇性地只將特定的文件新增到索引中。相反地，您也可以讓自動索引編製功能保持開啟，並選擇性地只排除特定的文件。當您只需要查詢文件的子集時，索引編製功能開/關組態相當有用。
 
-例如，下列範例示範如何明確地使用 [DocumentDB .NET SDK](https://github.com/Azure/azure-documentdb-java) 和 [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) 屬性包含文件。
+例如，下列範例示範如何使用 [DocumentDB .NET SDK](https://github.com/Azure/azure-documentdb-java) 和 [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) 屬性來明確地包含文件。
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -650,7 +658,7 @@ DocumentDB 可讓您即時對集合的索引編製原則進行變更。DocumentD
 您什麼時候會對 DocumentDB 集合進行索引編製原則變更？ 以下是最常見的使用案例：
 
 - 在正常操作期間提供一致的結果，但在大量資料匯入期間，改回延遲索引編製
-- 在目前的 DocumentDB 集合上開始使用新的索引編製功能，例如像是 Order By 以及需要新推出的字串範圍索引種類的字串範圍查詢
+- 開始使用目前 DocumentDB 集合上的新索引編製功能，例如需要空間索引類型的地理空間查詢，或者需要字串範圍索引類型的 Order By/字串範圍查詢
 - 手動選取要編製索引的屬性，並在一段時間後變更
 - 調整索引編製精確度，以改善查詢效能或減少耗用的儲存空間
 
@@ -758,4 +766,4 @@ DocumentDB API 會提供效能度量 (像是已使用的索引儲存體)，以�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

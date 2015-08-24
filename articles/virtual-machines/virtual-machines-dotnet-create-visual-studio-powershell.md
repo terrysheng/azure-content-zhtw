@@ -22,27 +22,27 @@
 
 若要在建立網站時建立虛擬機器，請依照下列步驟進行：
 
-1. 在 Visual Studio 中，選擇 [檔案]、[新專案]，選擇 [Web]，然後選擇 [ASP.NET Web 應用程式] (在 **Visual C#** 或 **Visual Basic** 節點底下)。
+1. 在 Visual Studio 中，按一下 [檔案] > [新增] > [專案] > [Web]，然後選擇 [ASP.NET Web 應用程式] (在 [Visual C#] 或 [Visual Basic] 節點底下)。
 2. 在 [New ASP.NET Project] 對話方塊中，選取您要的 Web 應用程式類型，然後在對話方塊的 Azure 區段 (位於右下角) 中，確定已勾選 [Host in the cloud] 核取方塊 (在某些安裝中，此核取方塊會標示為 [Create remote resources])。
 
 	![][0]
 
-3. 在 Microsoft Azure 底下的下拉式清單方塊中， 選擇 [虛擬機器]，然後選擇 [確定] 按鈕。
+3. 在 Microsoft Azure 底下的下拉式清單方塊中，選擇 [虛擬機器]，然後按一下 [確定] 按鈕。
 4. 如果系統提示您登入，請登入 Azure。[建立虛擬機器] 對話方塊隨即出現。
 
 	![][2]
 
 5. 在 [DNS 名稱] 方塊中，輸入虛擬機器的名稱。DNS 名稱在 Azure 中必須是唯一的。如果您輸入的名稱無法使用，便會出現紅色的驚嘆號。
-6. 在 [映像] 清單中，選擇您想要做為虛擬機器基礎的 VM 映像。您可以選擇任何標準 Azure VM 映像，或是您已上傳到 Azure 的專屬映像。
+6. 在 [映像] 清單中，選擇您想要做為虛擬機器基礎的映像。您可以選擇任何標準 Azure 虛擬機器映像，或是您已上傳到 Azure 的映像。
 7. 除非您計畫安裝其他的 Web 伺服器，否則請將 [Enable IIS and Web Deploy] 核取方塊保持為已勾選。如果停用 [Web 部署]，您將無法從 Visual Studio 發佈。您可以將 IIS 和 Web 部署加入任何已封裝的 Windows Server 映像，包括您專屬的自訂映像。
 8. 在 [大小] 清單中，選擇虛擬機器的大小。
 9. 指定此虛擬機器的登入認證。請記下這些資訊，因為您在透過遠端桌面存取機器時將會需要這些資訊。
 10. 在 [位置] 清單中，選擇要裝載虛擬機器的區域。
-11. 選擇 [確定] 按鈕開始建立虛擬機器。您可以在 ** 輸出 ** 視窗中查看作業的進度。
+11. 選擇 [確定] 按鈕開始建立虛擬機器。您可以在 [輸出] 視窗中查看作業的進度。
 
 	![][3]
 
-12. 佈建虛擬機器時，系統會在解決方案的 **PublishScripts** 節點中建立發佈指令碼。發佈指令碼會在 Azure 中執行與佈建虛擬機器。[輸出] 視窗會顯示狀態。指令碼會執行下列動作以設定虛擬機器。
+12. 佈建虛擬機器時，系統會在解決方案的 **PublishScripts** 節點中建立發佈的指令碼。發佈的指令碼會在 Azure 中執行與佈建虛擬機器。[輸出] 視窗會顯示狀態。指令碼會執行下列動作以設定虛擬機器。
 
 	* 如果虛擬機器不存在，則建立虛擬機器。
 	* 只有當指定的區域中沒有名稱開頭為 `devtest` 的儲存體帳戶存在時，才會建立此名稱的儲存體帳戶。
@@ -59,7 +59,7 @@
 
 ## 後續步驟
 
-如果您要自訂您所建立的發佈指令碼，請參閱[此處](http://msdn.microsoft.com/library/dn642480.aspx)以取得更多深入資訊。
+如果您想要自訂您所建立的已發佈指令碼，請閱讀[使用 Windows PowerShell 指令碼發佈至開發和測試環境](http://msdn.microsoft.com/library/dn642480.aspx)中更深入的資訊。
 
 [0]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_NewProject.PNG
 [1]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SignIn.PNG
@@ -68,4 +68,4 @@
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

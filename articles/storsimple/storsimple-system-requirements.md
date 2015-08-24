@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="StorSimple 系統需求" 
+   pageTitle="StorSimple 系統需求 | Microsoft Azure" 
    description="描述系統需求和 Azure StorSimple 解決方案的軟體、高可用性及網路最佳作法。" 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="06/03/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli"/>
 
 # StorSimple 系統需求
@@ -96,7 +96,7 @@ StorSimple 裝置包括備援、可熱交換的控制器模組。控制器模組
 
 - 如果可能，請在伺服器上使用 MPIO，以確保伺服器可容許連結、網路或介面失敗。
 
-如需有關建立裝置網路以取得高可用性和效能的詳細資訊，請移至[以纜線連接 8100 裝置](https://msdn.microsoft.com/library/azure/dn757738.aspx)或[以纜線連接 8600 裝置](https://msdn.microsoft.com/library/azure/dn757762.aspx)。
+如需有關建立裝置網路以提供高可用性和效能的詳細資訊，請移至[安裝您的 8100 裝置](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device)或[安裝您的 StorSimple 8600 裝置](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device)。
 
 #### SSD 與 HDD
 
@@ -138,7 +138,7 @@ StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和�
 
 仔細檢閱這些需求和最佳作法，以確保連接至 StorSimple 裝置之主機的高可用性。
 
-- 使用 [2 節點檔案伺服器叢集組態] 設定 StorSimple (https://technet.microsoft.com/library/cc731844(v=WS.10).aspx)。藉由移除失敗的單點，以及在主機端上建置備援，整個解決方案會變得高度可用。
+- 使用[二節點檔案伺服器叢集組態][1]設定 StorSimple。藉由移除失敗的單點，以及在主機端上建置備援，整個解決方案會變得高度可用。
 
 - 使用 Windows Server 2012 (SMB 3.0) 持續可用的 (CA) 共用，以在儲存體控制器的容錯移轉期間獲得高可用性。如需設定檔案伺服器叢集和 Windows Server 2012 持續可用的共用之其他資訊，請參閱此[影片示範](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares)。
 
@@ -184,12 +184,14 @@ StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和�
 
 - 請確定隨時都可以使用網路連線到網際網路。裝置的零星或不可靠網際網路連線 (包含毫無網際網路連線能力) 將導致不受支援的組態。
 
-- 藉由在裝置上擁有專用的網路介面以存取 iSCSI 和雲端，可以隔離 iSCSI 和雲端流量。如需詳細資訊，請參閱如何在 StorSimple 裝置上[設定網路介面](https://msdn.microsoft.com/library/dn772371.aspx)。
+- 藉由在裝置上擁有專用的網路介面以存取 iSCSI 和雲端，可以隔離 iSCSI 和雲端流量。如需詳細資訊，請參閱如何在您的 StorSimple 裝置上[修改網路介面](storsimple-modify-device-config.md#modify-network-interfaces)。
 
 ## 後續步驟
 
-- [StorSimple 限制](storsimple-limits.md)
-- [部署 StorSimple 解決方案](storsimple-deployment-walkthrough.md)
+- 深入了解 [StorSimple 限制](storsimple-limits.md)。
+- [部署 StorSimple 解決方案](storsimple-deployment-walkthrough.md)。
  
+<!--Reference links-->
+[1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

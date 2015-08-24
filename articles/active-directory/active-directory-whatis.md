@@ -13,7 +13,7 @@
                 ms.tgt_pltfrm="na" 
                 ms.devlang="na" 
                 ms.topic="article" 
-                ms.date="07/14/2015" 
+                ms.date="08/10/2015" 
                 ms.author="markusvi"/>
 
 
@@ -46,6 +46,8 @@ Azure AD 也包含一組完整的身分識別管理功能，包括多重要素�
 
 Azure AD 有多租用戶、地理位置分散且具有高可用性的設計，表示您可以依賴 Azure AD 來應付最重要的商務需求。使用世界各地具自動容錯移轉的 28 個資料中心，您能夠輕易感受到 Azure AD 非常可靠，即使資料中心中斷，您的目錄資料至少在兩個以上地域分散的資料中心都有留存複本，而且可讓您立即存取。
 
+如需詳細資料，請參閱[服務等級協定](https://azure.microsoft.com/support/legal/sla/)。
+
 
 
 ## Azure AD 有哪些優點？
@@ -67,11 +69,11 @@ Azure AD 有多租用戶、地理位置分散且具有高可用性的設計，�
 
 ## 如何開始使用？
 -	如果您是 IT 管理員：
- - [試試看！](https://azure.microsoft.com/zh-tw/pricing/free-trial/) - 您可以立即註冊免費 30 天的試用版，使用此連結不到 5 分鐘即可部署第一個雲端解決方案
+ - [試試看！](https://azure.microsoft.com/trial/get-started-active-directory/) - 您可以立即註冊免費 30 天的試用版，使用此連結不到 5 分鐘即可部署第一個雲端解決方案
  - 閱讀我們的〈開始使用 Azure AD〉了解秘訣和訣竅，獲得 Azure AD 租用戶並快速執行
 -	如果您是開發人員：
  - 請查看我們的 Azure Active Directory 的[開發人員手冊](https://msdn.microsoft.com/library/azure/ff800682.aspx)<need link>
- - [開始使用試用版](https://azure.microsoft.com/zh-tw/pricing/free-trial/) – 立即註冊免費 30 天的試用版，並開始與 Azure AD 整合您的應用程式 
+ - [開始使用試用版](https://azure.microsoft.com/trial/get-started-active-directory/) – 立即註冊免費 30 天的試用版，並開始與 Azure AD 整合您的應用程式 
 
 
 
@@ -81,15 +83,25 @@ Azure AD 有多租用戶、地理位置分散且具有高可用性的設計，�
 
 
 - [使用 Azure AD Connect 啟用目錄的混合式管理](active-directory-aadconnect.md)
-- [為連線過的項目提供額外的安全性](multi-factor-authentication.md)
-- [自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建](active-directory-saas-app-provisioning.md)
-- [部署密碼管理並訓練使用者使用它](active-directory-passwords-best-practices.md)
-- [單一登入和存取管理數千個雲端上的 SaaS 應用程式](https://msdn.microsoft.com/library/azure/dn308590.aspx) 
-- [保護遠端存取內部部署應用程式的安全](https://msdn.microsoft.com/library/azure/dn768219.aspx)
-- [自助式存取管理](https://msdn.microsoft.com/library/azure/dn641267.aspx) 
-- [雲端應用程式探索](https://msdn.microsoft.com/library/azure/mt143581.aspx)
-- [根據裝置健康情況、使用者位置及身分識別的存取控制](https://msdn.microsoft.com/library/azure/dn906873.aspx)
-- [利用雲端增強並監視內部部署身分識別系統](https://msdn.microsoft.com/library/azure/dn906722.aspx)
-- [適合開發人員的豐富標準型平台](https://msdn.microsoft.com/library/azure/ff800682.aspx)
 
-<!---HONumber=August15_HO6-->
+- [為連線過的項目提供額外的安全性](multi-factor-authentication.md)
+
+- [自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建](active-directory-saas-app-provisioning.md)
+
+- [開始使用 Azure AD 報告](active-directory-reporting-getting-started.md)
+
+- [從任何地方管理您的密碼](articles/active-directory-passwords.md)
+
+- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+
+- [自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建](active-directory-saas-app-provisioning.md)
+
+- [如何為內部部署應用程式提供安全的遠端存取](active-directory-application-proxy-get-started.md)
+
+- [使用 Azure Active Directory 群組來管理資源的存取權](active-directory-manage-groups.md)
+
+- [什麼是 Microsoft Azure Active Directory 授權？](active-directory-licensing-what-is.md)
+
+- [如何探索組織內使用未經批准的雲端應用程式](active-directory-cloudappdiscovery-whatis.md)
+
+<!---HONumber=August15_HO7-->

@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="06/09/2015"
 	ms.author="tomfitz"/>
 
@@ -212,4 +212,6 @@ Azure 計算和儲存模擬器所提供的本機環境，可讓您在 Azure 應�
 [作法：匯入發佈設定]: /develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
 [作法：將雲端服務部署到 Azure]: /develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->
+
+<!---HONumber=August15_HO7-->

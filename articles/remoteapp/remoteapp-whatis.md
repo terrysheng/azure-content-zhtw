@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="什麼是 RemoteApp？" 
+	pageTitle="什麼是 Azure RemoteApp？" 
 	description="了解 Azure RemoteApp。" 
 	services="remoteapp" 
 	documentationCenter="" 
@@ -12,8 +12,8 @@
 	ms.workload="compute" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.topic="get-started-article" 
+	ms.date="08/05/2015" 
 	ms.author="elizapo"/>
 
 # 什麼是 Azure RemoteApp？
@@ -94,4 +94,4 @@ Windows 和 Windows RT 的 RemoteApp 用戶端應用程式以及 Mac、iOS 和 A
 - [Azure RemoteApp 常見問題集](remoteapp-faq.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

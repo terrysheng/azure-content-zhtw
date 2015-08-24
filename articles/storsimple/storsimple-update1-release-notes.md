@@ -3,7 +3,7 @@
     description="說明 StorSimple 8000 Series Update 1 的新功能、問題及因應措施。"
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
+    authors="alkohli"
     manager="adinah"
     editor="tysonn" />
  <tags 
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="07/15/2015"
-    ms.author="v-sharos" />
+    ms.date="08/12/2015"
+    ms.author="alkohli" />
 
 # StorSimple 8000 Series Update 1 版本資訊  
 
@@ -115,4 +115,4 @@
 - [在您的裝置上安裝 Update 1](storsimple-install-update-1.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

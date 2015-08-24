@@ -58,46 +58,9 @@ DocumentDB 管理的資料庫實體稱為**資源**。每個資源可透過邏�
 >[AZURE.NOTE]請注意，系統產生的資源屬性在以 JSON 形式表示時，前面都會加上底線 (_)。
 
 
-<table width="500"> 
-<tbody>
-<tr>
-<td valign="top" ><p><b>屬性</b></p></td>
-<td valign="top" ><p><b>可由使用者設定或由系統產生？</b></p></td>
-<td valign="top" ><p><b>目的</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_rid</p></td>
-<td valign="top" ><p>由系統產生</p></td>
-<td valign="top" ><p>系統產生的唯一階層式資源識別碼。</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_etag</p></td>
-<td valign="top" ><p>由系統產生</p></td>
-<td valign="top" ><p>開放式並行存取控制所需的資源 etag。</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_ts</p></td>
-<td valign="top" ><p>由系統產生</p></td>
-<td valign="top" ><p>資源上次更新的時間戳記</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_self</p></td>
-<td valign="top" ><p>由系統產生</p></td>
-<td valign="top" ><p>資源的唯一可定址 URI</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>id</p></td>
-<td valign="top" ><p>可由使用者設定</p></td>
-<td valign="top" ><p>資源的使用者定義唯一名稱</p></td>
-</tr>
-
-</tbody>
-</table>
+屬性 |可由使用者設定或由系統產生？|目的
+---|---|---
+__rid|由系統產生|系統產生的唯一階層式資源識別碼。_etag|由系統產生|開放式並行存取控制所需的資源 etag。_ts|由系統產生|資源上次更新的時間戳記。_self|由系統產生|資源的唯一可定址 URI。id|可由使用者設定|資源的使用者定義唯一名稱。
 
 ###以線路表示資源
 DocumentDB 不會要求您提供用於 JSON 標準或特殊編碼的專屬延伸模組；DocumentDB 本身就能處理符合 JSON 標準的文件。
@@ -130,37 +93,12 @@ _self 和 _rid 屬性值都是用來表示資源的標準方法，並可互相�
 ###資料庫帳戶屬性
 在佈建和管理資料庫帳戶時，您可以設定和讀取下列屬性：
 
-<table border="1" cellspacing="0" cellpadding="0" > 
-<tbody>
-<tr>
-<td valign="top" ><p><b>屬性名稱</b></p></td>
-<td valign="top" ><p><b>說明</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>一致性原則</p></td>
-<td valign="top" ><p>設定此屬性，以設定您資料庫帳戶下所有集合的預設一致性層級。您可以使用 [x-ms-consistency-level] 要求標頭，覆寫每個要求的一致性層級。未來，我們可能會支援覆寫每個集合的一致性層級。</p>
-
-<p>請注意，此屬性只會套用至「使用者定義資源」<i></i>。所有系統定義資源都是設定成支援具有強式一致性的讀取/查詢。</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>主要金鑰和次要金鑰</p></td>
-<td valign="top" ><p>這些是主要和次要金鑰，提供資料庫帳戶下所有資源的管理存取權。</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>MaxMediaStorageUsageInMB (READ)</p></td>
-<td valign="top" ><p>資料庫帳戶可用的媒體儲存體數量上限。</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>MediaStorageUsageInMB (READ)</p></td>
-<td valign="top" ><p>資料庫帳戶的目前媒體儲存體使用情形。</p></td>
-</tr>
-
-</tbody>
-</table>
+屬性名稱|說明
+---|---
+一致性原則|設定此屬性，以設定您資料庫帳戶下所有集合的預設一致性層級。您可以使用 [x-ms-consistency-level] 要求標頭，覆寫每個要求的一致性層級。未來，我們可能會支援覆寫每個集合的一致性層級。<p><p>請注意，此屬性只會套用至<i>使用者定義資源</i>。所有系統定義資源都是設定成支援具有強式一致性的讀取/查詢。
+主要金鑰和次要金鑰|這些是主要和次要金鑰，提供資料庫帳戶下所有資源的管理存取權。
+MaxMediaStorageUsageInMB (READ)|資料庫帳戶可用的媒體儲存體數量上限。
+MediaStorageUsageInMB (READ)|資料庫帳戶的目前媒體儲存體使用情形。
 
 請注意，除了從 Azure 入口網站佈建、設定和管理資料庫帳戶之外，您還可以使用程式設計方式，透過 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 以及[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 來建立和管理 DocumentDB 資料庫帳戶。
 
@@ -468,4 +406,4 @@ DocumentDB 使用者代表用於分組權限的邏輯命名空間。DocumentDB �
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

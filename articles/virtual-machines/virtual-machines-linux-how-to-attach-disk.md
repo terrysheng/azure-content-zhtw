@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="08/11/2015"
 	ms.author="dkshir"/>
 
 # 如何將資料磁碟連接至 Linux 虛擬機器
 
 您可以附加空的磁碟和含有資料的磁碟。在這兩種情況下，磁碟實際上是位於 Azure 儲存體帳戶中的 .vhd 檔案。另外，在這兩種情況下，當您附加磁碟之後，磁碟必須完成初始化才能使用。
 
-> [AZURE.NOTE]最好使用一或多個不同的磁碟來儲存虛擬機器的資料。當您建立 Azure 虛擬機器時，它會有作業系統磁碟和暫存磁碟。**請勿使用暫存磁碟來儲存資料。** 顧名思義，它只提供暫存儲存空間。它並不提供備援或備份，因為它不在 Azure 儲存體內。暫存磁碟通常是由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像中的**/mnt**)。換句話說，在 Linux 上，核心可能會將資料磁碟命名為 `/dev/sdc`。若是如此，您將需要分割、格式化及掛接該資源。如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南][Agent]。
+> [AZURE.NOTE]最好使用一或多個不同的磁碟來儲存虛擬機器的資料。當您建立 Azure 虛擬機器時，它會有作業系統磁碟和暫存磁碟。**請勿使用暫存磁碟來儲存資料。** 顧名思義，它只提供暫存儲存空間。它並不提供備援或備份，因為它不在 Azure 儲存體內。暫存磁碟通常是由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像中的**/mnt**)。換句話說，Linux 核心可能會將資料磁碟命名為 `/dev/sdc`，且您必須分割、格式化及掛接此資源。如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南][Agent]。
 
-[AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
+[AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
 ## 做法：在 Linux 中初始化新的資料磁碟
 
@@ -30,33 +30,59 @@
 
 
 
-2. 在 SSH 視窗中，輸入下列命令，然後輸入您為了管理虛擬機器而建立之帳戶的密碼：
+2. 接下來您需要尋找資料磁碟的裝置識別碼以進行初始化。作法有二：
 
-		# sudo grep SCSI /var/log/messages
+	a) 在 SSH 視窗中，輸入下列命令，然後輸入您為了管理虛擬機器而建立之帳戶的密碼：
 
-	>[AZURE.NOTE]針對最新的 Ubuntu 散發套件，您可能需要使用 `sudo grep SCSI /var/log/syslog`，因為預設可能會停用記錄到 `/var/log/messages` 的功能。
+			$sudo grep SCSI /var/log/messages
+
+	針對最新的 Ubuntu 散發套件，您可能需要使用 `sudo grep SCSI /var/log/syslog`，因為預設可能會停用記錄到 `/var/log/messages` 的功能。
 
 	在出現的訊息中，您可以找到最後一個新增之資料磁碟的識別碼。
 
-
-
 	![取得磁碟訊息](./media/virtual-machines-linux-how-to-attach-disk/DiskMessages.png)
 
+	或
 
+	b) 使用 `lsscsi` 命令來找出裝置識別碼。`lsscsi` 可透過 `yum install lsscsi` (Red Hat 式散發) 或 `apt-get install lsscsi`(Debian 式散發) 來進行安裝。您可以透過磁碟的 _LUN_ 或**邏輯單元編號**找到您所需的磁碟。例如，您所附加磁碟的 _LUN_ 可以輕鬆地從`azure vm disk list <virtual-machine>` 看到，如下所示：
+
+			~$ azure vm disk list ubuntuVMasm
+			info:    Executing command vm disk list
+			+ Fetching disk images
+			+ Getting virtual machines
+			+ Getting VM disks
+			data:    Lun  Size(GB)  Blob-Name                         OS
+			data:    ---  --------  --------------------------------  -----
+			data:         30        ubuntuVMasm-2645b8030676c8f8.vhd  Linux
+			data:    1    10        test.VHD
+			data:    2    30        ubuntuVMasm-76f7ee1ef0f6dddc.vhd
+			info:    vm disk list command OK
+
+	針對相同範例的虛擬機器，與 `lsscsi` 的輸出進行比較：
+
+			adminuser@ubuntuVMasm:~$ lsscsi
+			[1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
+			[2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
+			[3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
+			[5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
+			[5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd
+			[5:0:0:2]    disk    Msft     Virtual Disk     1.0   /dev/sde
+
+	在每個資料列的 Tuple 中，最後一個數字即為 _LUN_。如需詳細資訊，請參閱 `man lsscsi`。
 
 3. 在 SSH 視窗中，輸入下列命令來建立新的裝置，然後輸入帳戶密碼：
 
-		# sudo fdisk /dev/sdc
+		$sudo fdisk /dev/sdc
 
 	>[AZURE.NOTE]在此範例中，如果 /sbin 或 /usr/sbin 不在您的 `$PATH` 中，您可能需要在部份散發套件上使用 `sudo -i`。
 
 
-4. 輸入 **n** 建立新的磁碟分割。
+4. 出現提示時，輸入 **n** 建立新的磁碟分割。
 
 
 	![建立新的裝置](./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png)
 
-5. 輸入 **p** 將磁碟分割設為主要磁碟分割，輸入 **1** 設為第一個磁碟分割，然後按 Enter 鍵接受預設的磁柱值。
+5. 出現提示時，輸入 **p** 將磁碟分割設為主要磁碟分割，輸入 **1** 設為第一個磁碟分割，然後按 Enter 鍵接受預設的磁柱值。
 
 
 	![建立磁碟分割](./media/virtual-machines-linux-how-to-attach-disk/DiskCylinder.png)
@@ -136,9 +162,12 @@
 ## 其他資源
 [如何登入執行 Linux 的虛擬機器][Logon]
 
+[如何從 Linux 虛擬機器卸離磁碟](virtual-machines-linux-how-to-detach-disk.md)
+
+[搭配使用 Azure CLI 與 Azure 服務管理](virtual-machines-command-line-tools.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

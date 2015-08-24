@@ -24,12 +24,12 @@
 
 | **來源** | **接收** |
 | ------ | ---- |
-| [Azure Blob](data-factory-azure-blob-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、內部部署 SQL Server、IaaS 上的 SQL Server、Azure DocumentDB |
+| [Azure Blob](data-factory-azure-blob-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、內部部署 SQL Server、IaaS 上的 SQL Server、Azure DocumentDB、內部部署的檔案系統 |
 | [Azure 資料表](data-factory-azure-table-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、內部部署 SQL Server、IaaS 上的 SQL Server、Azure DocumentDB |
 | [Azure SQL Database](data-factory-azure-sql-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、內部部署 SQL Server、IaaS 上的 SQL Server、Azure DocumentDB |
 | [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database |
 | [IaaS 上的 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、內部部署 SQL Server、IaaS 上的 SQL Server |
-| [內部部署檔案系統](data-factory-onprem-file-system-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、內部部署 SQL Server、IaaS 上的 SQL Server |
+| [內部部署檔案系統](data-factory-onprem-file-system-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、內部部署 SQL Server、IaaS 上的 SQL Server、內部部署的檔案系統 |
 | [內部部署 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、內部部署 SQL Server、IaaS 上的 SQL Server |
 | [內部部署 Oracle 資料庫](data-factory-onprem-oracle-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、內部部署 SQL Server、IaaS 上的 SQL Server |
 | [內部部署 MySQL 資料庫](data-factory-onprem-mysql-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、內部部署 SQL Server、IaaS 上的 SQL Server |
@@ -93,4 +93,4 @@
 
 以複製活動而言，**typeProperties** 區段會根據來源和接收等類型而有所不同。以上所列的每個資料存放區特定頁面都會記錄這些資料存放區類型專屬的屬性。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

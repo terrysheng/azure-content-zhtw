@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用排程器來排程後端工作 - 行動服務" 
+	pageTitle="使用排程器來排程後端工作 | Microsoft Azure" 
 	description="使用 Azure 行動服務排程工具排程行動應用程式的工作。" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -167,4 +167,4 @@
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

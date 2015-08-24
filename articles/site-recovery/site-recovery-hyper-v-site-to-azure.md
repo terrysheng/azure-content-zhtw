@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="06/08/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 
@@ -67,7 +67,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 - **.blob.core.windows.net
 - **.store.core.windows.net
 
-- 若要使用自訂的 Proxy，請先安裝 Proxy 伺服器，然後再安裝提供者。在提供者安裝期間，您需要指定 Proxy 伺服器的位址和連接埠，以及可用於存取的認證。
+- 若要使用自訂的 Proxy，請先安裝 Proxy 伺服器，然後再安裝提供者。在提供者安裝期間，您需要指定 Proxy 伺服器的位址和連接埠，以及可用於存取的認證。請注意，不支援 HTTPS 型 Proxy。
 
 下圖顯示 Azure Site Recovery 為協調流程與複寫所使用的不同通訊通道與連接埠
 
@@ -86,7 +86,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 4. 在 [名稱] 中，輸入保存庫的易記識別名稱。
 
-5. 在 [地區] 中，選取保存庫的地理區域。若要查看支援的區域，請參閱 [Azure Site Recovery 定價詳細資料](pricing/details/site-recovery/)中的＜各地區上市情況＞。
+5. 在 [區域] 中，選取保存庫的地理區域。若要查看支援的區域，請參閱 [Azure Site Recovery 定價詳細資料](pricing/details/site-recovery/)中的＜各區域上市情況＞。
 
 6. 按一下 [建立保存庫]。
 
@@ -189,7 +189,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 		- /proxyUsername <username>：認證 (如果 Proxy 需要驗證)。
 		- proxyPassword <password>
 
->[AZURE.NOTE]您可以設定每個個別的 Hyper-V 主機以使用不同的網路頻寬設定，將虛擬機器複寫至 Azure。深入了解[如何管理內部部署至 Azure 保護網路頻寬使用](https://support.microsoft.com/zh-tw/kb/3056159) (英文)
+>[AZURE.NOTE]您可以設定每個個別的 Hyper-V 主機以使用不同的網路頻寬設定，將虛擬機器複寫至 Azure。深入了解[如何管理內部部署至 Azure 保護網路頻寬使用](https://support.microsoft.com/zh-cn/kb/3056159) (英文)
 
 
 ## 步驟 4：建立 Azure 資源
@@ -306,4 +306,4 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 在您的部署設定完成並開始執行之後，[深入了解](site-recovery-failover.md)容錯移轉。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

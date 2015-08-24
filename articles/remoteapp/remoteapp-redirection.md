@@ -2,17 +2,17 @@
     pageTitle="在 Azure RemoteApp 中使用重新導向" 
     description="了解如何在 RemoteApp 中設定和使用重新導向" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
-    ms.workload="tbd" 
+    ms.workload="compute" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/29/2015" 
+    ms.date="08/10/2015" 
     ms.author="elizapo" />
 
 # 在 Azure RemoteApp 中使用重新導向
@@ -76,19 +76,21 @@ RemoteApp 會利用遠端桌面通訊協定 (RDP) 與 RemoteFX 來提供重新�
 > [AZURE.NOTE]只支援 Windows 電腦使用 Azure RemoteApp 提供 USB 重新導向。
 
 ### 為 RemoteApp 集合啟用 USB 重新導向
-使用下列 Cmdlet 可在集合層級啟用 USB 重新導向：Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:*"
+使用下列 Cmdlet，在集合層級啟用 USB 重新導向：
+
+    Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:*"
 
 ### 為用戶端電腦啟用 USB 重新導向
 
 若要在電腦設定 USB 重新導向設定：
 
 1. 開啟本機群組原則編輯器 (GPEDIT.MSC)。(從命令提示字元中執行 gpedit.msc)。
-2. 開啟 [電腦設定]\\[原則]\\[系統管理範本]\\[Windows 元件]\\[遠端桌面服務]\\[遠端桌面連線用戶端]\\[RemoteFX USB 裝置重新導向]。
+2. 開啟 [電腦設定]\[原則]\[系統管理範本]\[Windows 元件]\[遠端桌面服務]\[遠端桌面連線用戶端]\[RemoteFX USB 裝置重新導向]。
 3. 按兩下 [允許 RDP 重新導向這部電腦中其他支援的 RemoteFX USB 裝置]。
 4. 選取 [已啟用]，然後在 [RemoteFX USB 重新導向存取權限] 中選取系統管理員與使用者。
 5. 以系統管理權限開啟命令提示字元，然後執行下列命令： 
 
-    gpupdate /force
+		gpupdate /force
 6. 重新啟動電腦。
 
 您也可以使用群組原則管理工具，為網域中的所有電腦建立和套用 USB 重新導向原則：
@@ -97,9 +99,9 @@ RemoteApp 會利用遠端桌面通訊協定 (RDP) 與 RemoteFX 來提供重新�
 2. 開啟 [群組原則管理主控台]。(按一下 [開始] > [系統管理工具] > [群組員則管理]。)
 3. 瀏覽到您想要建立原則的網域或組織單位。
 4. 右键单击 **默认域策略**, ，然后单击 **编辑**。
-5. 開啟 [電腦設定]\\[原則]\\[系統管理範本]\\[Windows 元件]\\[遠端桌面服務]\\[遠端桌面連線用戶端]\\[RemoteFX USB 裝置重新導向]。
+5. 開啟 [電腦設定]\[原則]\[系統管理範本]\[Windows 元件]\[遠端桌面服務]\[遠端桌面連線用戶端]\[RemoteFX USB 裝置重新導向]。
 6. 按兩下 [允許 RDP 重新導向這部電腦中其他支援的 RemoteFX USB 裝置]。
 7. 選取 [已啟用]，然後在 [RemoteFX USB 重新導向存取權限] 中選取系統管理員與使用者。
 8. 按一下 [確定]。  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

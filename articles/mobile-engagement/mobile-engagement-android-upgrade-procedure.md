@@ -3,7 +3,7 @@
 	description="Android SDK for Azure Mobile Engagement 的最新更新和程序"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 
 #升級程序
@@ -363,4 +363,4 @@ Proguard 組態受到品牌重新命名的影響，規則現在類似：
 			}
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

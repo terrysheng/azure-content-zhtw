@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Javadocs - Azure 資源" 
+	pageTitle="Javadocs | Microsoft Azure" 
 	description="Azure SDK for Java 的 Javadoc API 參考。" 
 	services="" 
 	documentationCenter="java" 
@@ -20,4 +20,4 @@
 
 您可以在 <http://dl.windowsazure.com/javadoc> 上檢視 Azure Libraries for Java 的 Javadoc 內容。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

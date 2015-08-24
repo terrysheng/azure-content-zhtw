@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務" 
-	description="如何開始在 Visual Studio 的雲端服務專案中使用 Azure Blob 儲存體" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+	pageTitle="開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務"
+	description="如何開始在 Visual Studio 的雲端服務專案中使用 Azure Blob 儲存體"
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="patshea123"/>
 
 # 開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務
@@ -262,10 +262,10 @@ Azure Blob 儲存體支援區塊 Blob 和分頁 Blob。在大多數情況下，�
             continuationToken = resultSegment.ContinuationToken;
         }
         while (continuationToken != null);
-    }ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    }
 
 ## 後續步驟
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

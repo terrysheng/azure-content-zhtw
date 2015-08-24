@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="開始使用資料 (Android) | 行動開發人員中心" 
+	pageTitle="開始使用資料 (Android) | Microsoft Azure" 
 	description="了解如何開始使用行動服務，在您的 Android 應用程式中使用資料。" 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="08/08/2015" 
 	ms.author="ricksal"/>
 
 # 將行動服務新增至現有的應用程式
@@ -35,7 +35,7 @@
 
 若要完成此教學課程，您需要下列項目：
 
-+ 一個 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-android-get-started-data-EC%2F)。 
++ 一個 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-cn%2Fdocumentation%2Farticles%2Fmobile-services-android-get-started-data-EC%2F)。 
 
 + 本教學課程需要[行動服務 Android SDK]、<a href="https://go.microsoft.com/fwLink/p/?LinkID=280125" target="_blank">Android SDK</a> (含 Eclipse 整合式開發環境 (IDE) 和 Android Developer Tools (ADT) 外掛程式)，以及 Android 4.2 或更新版本。
 
@@ -134,4 +134,4 @@ Android 的**開始使用資料**教學課程到此結束。
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

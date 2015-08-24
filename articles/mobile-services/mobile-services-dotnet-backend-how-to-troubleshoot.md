@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="行動服務 .NET 後端的疑難排解 - Azure 行動服務" 
+	pageTitle="行動服務 .NET 後端的疑難排解 | Microsoft Azure" 
 	description="了解如何使用 .NET 後端診斷和修正行動服務的問題" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -154,4 +154,4 @@
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

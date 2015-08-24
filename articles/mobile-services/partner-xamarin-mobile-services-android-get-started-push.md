@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="將推播通知新增至 Xamarin Android 應用程式 | Azure 行動服務" 
+	pageTitle="將推播通知新增至 Xamarin Android 應用程式 | Microsoft Azure" 
 	description="了解如何使用 Google Cloud Messaging，為使用 Azure 行動服務和 Azure 通知中樞的 Xamarin.Android 應用程式設定推播通知。" 
 	documentationCenter="xamarin" 
 	authors="ggailey777" 
@@ -86,4 +86,4 @@
 [Azure 行動服務元件]: http://components.xamarin.com/view/azure-mobile-services/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

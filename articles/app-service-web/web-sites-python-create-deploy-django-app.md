@@ -36,7 +36,7 @@
 - Python 2.7 或 3.4
 - setuptools、pip、virtualenv (僅 Python 2.7)
 - Git
-- [Python Tools 2.1 for Visual Studio](optional)
+- [Python Tools 2.1 for Visual Studio] - 此為選擇性項目
 
 **注意**：Python 專案目前不支援 TFS 發佈。
 
@@ -515,4 +515,4 @@ Azure 提供了資料庫服務，可從 Django 應用程式輕鬆使用。從 Dj
 [Django 說明文件]: https://www.djangoproject.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

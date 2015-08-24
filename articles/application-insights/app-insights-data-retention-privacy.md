@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="08/11/2015" 
 	ms.author="awills"/>
 
 # Application Insights 中的資料收集、保留和儲存 
@@ -35,6 +35,12 @@ Application Insights SDK 以及與應用程式合併的代理程式會將資料�
 #### 可以擷取多少資料？ 
 
 **每秒**：每個檢測金鑰 (也就是每個應用程式) 每秒最多 500 個資料點。針對免費[定價層][pricing]，上限為 100 dp/s。
+
+有三個個別計數的貯體：
+
+* [TrackTrace 呼叫](app-insights-api-custom-events-metrics.md#track-trace)和[擷取記錄檔](app-insights-asp-net-trace-logs.md)
+* [例外狀況](app-insights-api-custom-events-metrics.md#track-exception)，取決於較低限制 50/s。
+* 所有其他遙測 (頁面檢視、要求、相依性、度量、自訂事件)。
 
 **每月**：根據您的[定價方案](http://azure.microsoft.com/pricing/details/application-insights/)，每個日曆月份中從 500 萬至 1500 萬資料點。除了免費[定價層][pricing]，如果達到最大限制，您可以購買額外的容量。
 
@@ -236,4 +242,4 @@ SDK 診斷 | 追蹤訊息或例外狀況
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

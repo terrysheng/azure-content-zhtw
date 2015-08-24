@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在行動服務中使用離線資料 (Windows Phone) | 行動開發人員中心" 
+	pageTitle="在行動服務中使用離線資料 (Windows Phone) | Microsoft Azure" 
 	description="了解如何在 Windows Phone 應用程式中對於同步離線資料使用 Azure 行動服務。" 
 	documentationCenter="mobile-services" 
 	authors="lindydonna" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="08/08/2015" 
 	ms.author="wesmc;donnam"/>
 
 # 在行動服務中使用離線資料同步
@@ -245,8 +245,6 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
 ##摘要
 
-##摘要
-
 [AZURE.INCLUDE [mobile-services-offline-summary-csharp](../../includes/mobile-services-offline-summary-csharp.md)]
 
 ## 後續步驟
@@ -291,4 +289,4 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

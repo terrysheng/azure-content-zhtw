@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用服務匯流排主題 (Node.js) - Azure" 
+	pageTitle="如何使用服務匯流排主題 (Node.js) | Microsoft Azure" 
 	description="了解如何從 Node.js 應用程式，在 Azure 中使用服務匯流排主題和訂用帳戶。" 
 	services="service-bus" 
 	documentationCenter="nodejs" 
@@ -305,4 +305,4 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
   [使用儲存體的 Node.js Web 應用程式]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

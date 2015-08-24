@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="08/06/2015"
 	ms.author="sdanie"/>
 
 # 如何使用 Azure Active Directory 與 API 管理保護 Web API 後端
 
 下列視訊示範如何使用 OAuth 2.0 通訊協定搭配 Azure Active Directory 與 API 管理建置 Web API 後端並加以保護。本文提供概觀以及視訊中步驟的其他資訊。這段 24 分鐘的視訊示範如何：
 
--	使用 AAD 建置 Web API 後端以及保護安全
--	將 API 匯入 API 管理
--	設定開發人員入口網站呼叫 API
--	設定桌面應用程式呼叫 API
--	設定 JWT 驗證原則來預先授權要求
+-	使用 AAD 建置 Web API 後端以及保護安全 - 從 1:30 開始
+-	將 API 匯入 API 管理 - 從 7:10 開始
+-	設定開發人員入口網站呼叫 API - 從 9:09 開始
+-	設定桌面應用程式呼叫 API - 從 18:08 開始
+-	設定 JWT 驗證原則來預先授權要求 - 從 20:47 開始
 
 >[AZURE.VIDEO protecting-web-api-backend-with-azure-active-directory-and-api-management]
 
@@ -547,4 +547,4 @@
 [建立 API 管理服務執行個體]: api-management-get-started.md#create-service-instance
 [管理您的第一個 API]: api-management-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

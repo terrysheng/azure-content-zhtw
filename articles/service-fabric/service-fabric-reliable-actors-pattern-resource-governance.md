@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Actor 資源管理設計模式"
-   description="如何將需調整有限資源應用程式模組化的 Reliable Actor 設計模式"
+   pageTitle="Azure Service Fabric Actor 資源管理設計模式"
+   description="如何將需調整有限資源應用程式模組化的 Service Fabric Actor 設計模式"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # Reliable Actor 設計模式：資源管理
@@ -417,4 +417,4 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

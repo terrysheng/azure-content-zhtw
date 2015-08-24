@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用 CDN - Azure 功能指南" 
+	pageTitle="如何使用 CDN |Microsoft Azure" 
 	description="了解如何使用 Azure 內容傳遞網路 (CDN) 來快取 Blob 和靜態內容，以傳遞高頻寬內容。" 
 	services="cdn" 
 	documentationCenter=".net" 
@@ -66,7 +66,7 @@
 
 1. 在 [Azure 管理入口網站]的瀏覽窗格中，按一下 [CDN]。
 
-2. 在功能區中，按一下 [新增]。在 [新增] 對話方塊中，依序選取 [應用程式服務]、[CDN]、[快速建立]。
+2. 在功能區中，按一下 [新增]。在 [新增] 對話方塊中，依序選取 App Service、CDN、[快速建立]。
 
 3. 在 [原始網域] 下拉式清單中，從可用儲存體帳戶清單中選取您在上一節建立的儲存體帳戶。
 
@@ -112,7 +112,7 @@ Azure 管理入口網站目前不支援立即清除內容的功能。如果您�
 [How to Register a Custom Subdomain Name for Accessing Blobs in Azure]: ../storage-custom-domain-name.md
 [如何在 Azure 中建立同質群組]: http://msdn.microsoft.com/library/azure/ee460798.aspx
 [Overview of the Azure CDN]: cdn-overview.md
-[如何：管理 Azure 訂用帳戶的儲存體帳戶]: https://msdn.microsoft.com/zh-tw/library/azure/hh531793.aspx
+[如何：管理 Azure 訂用帳戶的儲存體帳戶]: https://msdn.microsoft.com/zh-cn/library/azure/hh531793.aspx
 [如何將 CDN 內容對應至自訂網域]: cdn-map-content-to-custom-domain.md
 
 
@@ -120,4 +120,4 @@ Azure 管理入口網站目前不支援立即清除內容的功能。如果您�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

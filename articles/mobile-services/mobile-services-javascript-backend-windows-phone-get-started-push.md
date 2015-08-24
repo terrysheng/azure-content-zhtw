@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="將推播通知新增至行動服務應用程式 (Windows 市集) | 行動開發人員中心" 
+	pageTitle="將推播通知新增至行動服務應用程式 (Windows 市集) | Microsoft Azure" 
 	description="了解如何使用 Azure 行動服務及通知中心傳送推播通知至通用 Windows 市集應用程式。" 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -180,4 +180,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

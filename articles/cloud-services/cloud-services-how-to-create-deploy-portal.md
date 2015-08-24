@@ -1,5 +1,5 @@
 <properties
-	pageTitle="如何建立和部署雲端服務 - Azure"
+	pageTitle="如何建立和部署雲端服務 | Microsoft Azure"
 	description="了解如何在 Azure 中使用「快速建立」方法來建立和部署雲端服務。"
 	services="cloud-services"
 	documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="06/30/2015"
 	ms.author="adegeo"/>
 
@@ -108,4 +108,4 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：[**快�
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

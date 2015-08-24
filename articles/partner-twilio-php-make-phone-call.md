@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用 Twilio 撥打電話 (PHP) - Azure" 
+	pageTitle="如何從 Twilio 撥打電話 (PHP) | Microsoft Azure" 
 	description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。範例適用於 PHP 應用程式。" 
 	documentationCenter="php" 
 	services="" 
@@ -143,4 +143,4 @@
 [website-webmatrix]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-webmatrix/
 [twilio_php_github]: https://github.com/twilio/twilio-php
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

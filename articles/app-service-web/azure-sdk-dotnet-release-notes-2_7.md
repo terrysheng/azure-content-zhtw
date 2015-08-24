@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/04/2015"
+   ms.date="08/09/2015"
    ms.author="juliako"/>
 
 
@@ -55,7 +55,7 @@ Visual Studio 2015 的 Azure SDK 2.7 支援 Visual Studio 2015 新的身分識�
 - 使用這個版本的工具時，必須先升級舊的 **Storm** 專案。如需詳細資訊，請參閱[此部落格](http://go.microsoft.com/fwlink/?LinkId=619108)。
 - 不再支援 Visual Studio Web Express。如需詳細資訊，請參閱[此部落格](http://go.microsoft.com/fwlink/?LinkId=619108)。
 
-##Azure 應用程式服務工具
+##Azure App Service 工具
 
 此版本對 Web 工具延伸模組進行了下列更新。如需詳細資訊，請參閱[此部落格](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)。
 
@@ -112,4 +112,6 @@ Azure 資源管理員工具已更新為使用角色型存取控制 (RBAC) 和新
 
 [Azure SDK 2.7 公告文章](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 
-<!---HONumber=August15_HO6-->
+[Azure SDK for .NET 和 API 的支援和停用資訊](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
+
+<!---HONumber=August15_HO7-->

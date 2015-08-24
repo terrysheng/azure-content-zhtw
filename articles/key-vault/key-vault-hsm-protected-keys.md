@@ -1,5 +1,5 @@
 <properties
-	pageTitle="如何為 Azure 金鑰保存庫產生並傳輸受 HSM 保護的金鑰 |Microsoft Aure"
+	pageTitle="如何為 Azure 金鑰保存庫產生並傳輸受 HSM 保護的金鑰 |Microsoft Azure"
 	description="使用這份文件協助您規劃、產生，並傳輸受 HSM 保護的金鑰，以搭配 Azure 金鑰保存庫使用。"
 	services="key-vault"
 	documentationCenter=""
@@ -306,4 +306,4 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 您現在可以在您的金鑰保存庫中使用這個受 HSM 保護的金鑰。如需詳細資訊，請參閱[開始使用 Azure 金鑰保存庫](key-vault-get-started.md)教學課程中的**如果您想要使用硬體安全模組 (HSM)** 一節。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

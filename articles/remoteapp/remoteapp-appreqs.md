@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="RemoteApp 的應用程式需求"
-    description="深入了解您想要用於 RemoteApp 的應用程式需求" 
+    pageTitle="Azure RemoteApp 的應用程式需求"
+    description="了解您想要用於 Azure RemoteApp 的應用程式需求" 
     services="remoteapp" 
     documentationCenter="" 
     authors="lizap" 
@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
 
 # 應用程式需求
-RemoteApp 支援從 Windows Server 2012 R2 安裝的資料流 32 位元或 64 位元 Windows 架構應用程式。大部分現有 32 位元或 64 位元 Windows 架構應用程式都是「依現狀」在 RemoteApp (遠端桌面服務或舊稱的「終端機服務」) 環境中執行。不過，執行和良好執行是有差別的，有些應用程式運作正常且完善執行，有些則不是。下列資訊提供在遠端桌面服務環境中開發應用程式，及測試以確保相容性的指引。
+Azure RemoteApp 支援來自 Windows Server 2012 R2 映像的資料流 32 位元或 64 位元 Windows 架構應用程式。大部分現有 32 位元或 64 位元 Windows 架構應用程式都是「依現狀」在 Azure RemoteApp (遠端桌面服務或舊稱的「終端機服務」) 環境中執行。不過，執行和良好執行是有差別的，有些應用程式運作正常且完善執行，有些則不是。下列資訊提供在遠端桌面服務環境中開發應用程式，及測試以確保相容性的指引。
 
-提示：我們正在為您建立一些實用的應用程式範例。每月結束時，您會看到討論如何在 RemoteApp 內使用 Microsoft Access、QuickBooks 和 APP-V 的新主題。
+提示： 我們正在為您建立一些實用的範例應用程式。您會看到新的主題，討論如何使用 Microsoft Access、QuickBooks 和 APP-V RemoteApp。
 
 ## 需求
 如果遵循下列三個需求，可協助應用程式在 RemoteApp 中順暢執行：
@@ -56,4 +56,4 @@ RemoteApp 支援從 Windows Server 2012 R2 安裝的資料流 32 位元或 64 �
 - 若要最佳化效能，讓應用程式[偵測](https://msdn.microsoft.com/library/aa380798.aspx)它們是否正在用戶端工作階段中執行是個好方法。 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

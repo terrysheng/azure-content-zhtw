@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="07/03/2015"
+   ms.date="08/05/2015"
    ms.author="ruturajd@microsoft.com"/>
 
   
@@ -135,8 +135,18 @@ ASR 將內容變數傳遞至 Runbook，以協助您撰寫具有決定性的指�
 
 
 下表包含內容中每個變數的名稱和描述。
-  
-<table border="1"> <tr><th>變數名稱</th><th>變數描述</th></tr> <tr><td>RecoveryPlanName</td><td>正在執行的復原計畫的名稱。<p> 此變數可協助您使用相同的指令碼，根據復原計畫名稱採取不同的動作。</td></tr> <tr><td>FailoverType</td><td>指定執行是 [測試]、[計劃中] 還是 [非計劃中]。<p> 此變數可協助您根據容錯移轉類型，採取不同的動作。</td></tr> <tr><td>FailoverDirection</td><td>指定復原是從主要端到復原，或反之亦然。<p>它所採用的兩個值分別是 **PrimaryToSecondary** 和 **SecondaryToPrimary** </td></tr> <tr><td>GroupId</td><td> 會識別 Runbook 執行所在的復原計畫內的群組編號。<p> 例如，如果 Runbook 是 post group 2，則 GroupId 將會是 2。</td></tr> <tr><td>VmMap</td><td> 這是群組中所有虛擬機器的陣列。</td></tr> <tr><td>VmMap 索引鍵</td><td>每部虛擬機器都有一個由 GUID 識別的唯一索引鍵。此 GUID 與虛擬機器的 VMM ID 相同。<p> 您可以使用此 GUID，以決定性的方式指定您想要操作的虛擬機器。</td></tr> <tr><td>RoleName</td><td>這會指定要復原的 Azure 虛擬機器的名稱。</td></tr> <tr><td>CloudServiceName</td><td> 這會指定建立虛擬機器時所使用的 Azure 雲端服務名稱。</td></tr> </table><br />
+
+**變數名稱** | **說明**
+---|---
+RecoveryPlanName | 正在執行的計劃名稱。協助您根據名稱使用相同的指令碼採取動作
+FailoverType | 指定容錯移轉是測試、已計劃，還是未計劃。 
+FailoverDirection | 指定復原是主要還是次要
+GroupID | 識別計劃執行時復原計劃內的群組編號
+VmMap | 群組中所有虛擬機器的陣列
+VMMap 索引鍵 | 每個 VM 的唯一索引鍵 (GUID)。與虛擬機器的適用 VMM ID 相同。 
+RoleName | 正在復原的 Azure VM 的名稱
+CloudServiceName | 在其下建立虛擬機器的 Azure 雲端服務名稱。
+
 
 若要識別內容中的 VmMap 索引鍵，您也可以移至 ASR 中的 [VM 屬性] 頁面，查看 VM GUID 屬性。
 
@@ -303,4 +313,4 @@ ASR 將內容變數傳遞至 Runbook，以協助您撰寫具有決定性的指�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

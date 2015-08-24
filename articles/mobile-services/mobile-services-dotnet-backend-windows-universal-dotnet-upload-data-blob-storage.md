@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="從通用 Windows 應用程式將影像上傳至 Azure Blob 儲存體 | Azure 行動服務" 
+	pageTitle="從通用 Windows 應用程式將影像上傳至 Azure Blob 儲存體 | Microsoft Azure" 
 	description="了解如何使用 .NET 後端行動服務將影像上傳至 Azure Blob 儲存體，並從通用 Windows 應用程式存取影像。" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -71,4 +71,4 @@
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

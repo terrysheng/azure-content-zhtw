@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015" 
 	ms.author="tomfitz"/>
 
 # 佈建 Web 應用程式與 SQL Database
@@ -100,7 +100,10 @@
 
     "edition": {
       "type": "string",
-      "defaultValue": "Web"
+      "defaultValue": "Standard",
+      "metadata": {
+        "description": "The type of database to create. The available options are: Web, Business, Basic, Standard, and Premium."
+      }
     }
 
 ### maxSizeBytes
@@ -112,13 +115,16 @@
       "defaultValue": "1073741824"
     }
 
-### requestedServiceObjectiveId
+### requestedServiceObjectiveName
 
-與版本的效能等級對應的 GUID。如需可用值的清單，請參閱[建立資料庫](https://msdn.microsoft.com/library/azure/dn505701.aspx)。預設值會對應至 Web 效能等級。
+與版本的效能等級對應的名稱。
 
-    "requestedServiceObjectiveId": {
-        "type": "string",
-        "defaultValue": "910b4fcb-8a29-4c3e-958f-f7ba794388b2"
+    "requestedServiceObjectiveName": {
+      "type": "string",
+      "defaultValue": "S0",
+      "metadata": {
+        "description": "The name corresponding to the performance level for edition. The available options are: Shared, Basic, S0, S1, S2, S3, P1, P2, and P3."
+      }
     }
 
 
@@ -132,17 +138,18 @@
       "name": "[parameters('serverName')]",
       "type": "Microsoft.Sql/servers",
       "location": "[parameters('serverLocation')]",
-      "apiVersion": "2.0",
+      "apiVersion": "2014-04-01-preview",
       "properties": {
         "administratorLogin": "[parameters('administratorLogin')]",
-        "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+        "version": "12.0"
       },
       "resources": [
         {
           "name": "[parameters('databaseName')]",
           "type": "databases",
           "location": "[parameters('serverLocation')]",
-          "apiVersion": "2.0",
+          "apiVersion": "2014-08-01",
           "dependsOn": [
             "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
           ],
@@ -150,7 +157,7 @@
             "edition": "[parameters('edition')]",
             "collation": "[parameters('collation')]",
             "maxSizeBytes": "[parameters('maxSizeBytes')]",
-            "requestedServiceObjectiveId": "[parameters('requestedServiceObjectiveId')]"
+            "requestedServiceObjectiveName": "[parameters('requestedServiceObjectiveName')]"
           }
         },
         {
@@ -443,4 +450,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

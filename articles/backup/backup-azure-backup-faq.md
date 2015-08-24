@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/31/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/07/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
 
 # Azure 備份 - 常見問題集
 下列是關於 Azure 備份常見問題的清單。若您有任何關於 Azure 備份的其他問題，請前往[論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)並張貼您的問題。我們社群的服務人員將協助您找到答案。若遇到常見問題，我們會將其加入此文章，以便您可以快速且輕鬆地找到。
@@ -141,4 +141,29 @@
 
 **Q4.如果我錯置加密金鑰，則會發生什麼情況？ 我可以復原資料 (或者) Microsoft 可以復原資料嗎？** <br/> A4.用來加密備份資料的金鑰僅存在於客戶組織內部。Microsoft 不會維護 Azure 中的複本，且無法存取金鑰。若客戶錯置金鑰，則 Microsoft 無法復原備份資料。
 
-<!---HONumber=August15_HO6-->
+## 備份快取
+
+**Q1.如何變更為 Azure 備份代理程式指定的快取位置？**
+
++ 藉由在提高權限的命令提示字元中執行下列命令來停止 OBEngine：
+
+  ```PS C:\> Net stop obengine```
+
++ 將快取空間資料夾複製到具有足夠空間的其他磁碟機。建議您從快取空間資料夾複製檔案，而非移動它們；確認備份使用新的快取空間之後，就可以移除原始的快取空間。
+
++ 更新下列登錄項目，其具備新快取空間資料夾的路徑：
+
+
+	| 登錄路徑 | 登錄金鑰 | 值 |
+	| ------ | ------- | ------ |
+	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Config | ScratchLocation | <i>新的快取資料夾位置</i> |
+	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Config\\CloudBackupProvider | ScratchLocation | <i>新的快取資料夾位置</i> |
+
+
++ 藉由在提高權限的命令提示字元中執行下列命令來啟動 OBEngine：
+
+  ```PS C:\> Net start obengine```
+
+一旦利用新快取位置成功備份，您就可以移除原始的快取資料夾。
+
+<!---HONumber=August15_HO7-->

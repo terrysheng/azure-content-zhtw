@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/02/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
 
 
 # 驗證要搭配 Azure RemoteApp 使用的 Azure VNET
 
-在搭配 Azure RemoteApp 使用 Azure VNET 之前，您可能想要驗證 VNET。這有助於避免發生 Azure RemoteApp 連線問題。
+在搭配 Azure RemoteApp 使用 Azure VNET 之前，您可能想要驗證 VNET。這有助於避免發生連線問題。
 
 若要驗證 Azure VNET，請執行下列動作：
 
@@ -37,4 +37,4 @@
 - [將 Azure RemoteApp 收藏部署到 Azure 虛擬網路 (支援 ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="客戶案例研究 | Azure Data Factory" 
+	pageTitle="客戶案例研究 | Microsoft Azure" 
 	description="深入了解我們某些客戶使用 Azure Data Factory 的情況。" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -48,4 +48,4 @@ Data Factory 是雲端架構資訊管理服務，會自動移動和轉換資料�
 
 [透過雲端機器學習服務尋求更緊密的客戶關係](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

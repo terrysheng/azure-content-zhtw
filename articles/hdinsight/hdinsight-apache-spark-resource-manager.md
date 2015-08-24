@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在 HDInsight 中使用資源管理員將資源配置給 Apache Spark 叢集 | Azure" 
+	pageTitle="在 HDInsight 中使用資源管理員將資源配置給 Apache Spark 叢集 | Microsoft Azure" 
 	description="了解如何在 HDInsight 上使用資源管理員，以便提升 Spark 叢集的效能。" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -79,4 +79,4 @@ HDInsight 中的 Apache Spark 叢集是專為多租用戶所設計，因此資�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

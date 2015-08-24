@@ -3,7 +3,7 @@
 	description="Android SDK for Azure Mobile Engagement 的最新更新和程序"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 
 #適用於 Azure Mobile Engagement 的 Android SDK
@@ -118,4 +118,4 @@
 
 內嵌新的 `res/layout/engagement_loading.xml` 檔案到您的專案。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

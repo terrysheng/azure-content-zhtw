@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/09/2015"
+   ms.date="08/12/2015"
    ms.author="v-sharos" />
 
 # 停用及刪除 StorSimple 裝置
@@ -47,7 +47,7 @@
 
 1. 停用裝置。裝置的所有磁碟區容器及快照集都會保留。移至[停用步驟](#steps-to-deactivate)以了解相關指示。
 
-2. 您現在可以容錯移轉磁碟區容器和相關聯的快照集。關於程序，請移至[StorSimple 裝置的容錯移轉和災害復原](storsimple-device-failover-disaster-recovery.md)
+2. 您現在可以容錯移轉磁碟區容器和相關聯的快照集。關於程序，請移至[StorSimple 裝置的容錯移轉和災害復原](storsimple-device-failover-disaster-recovery.md)。
 
 3. 停用和容錯移轉之後，您就可以完全刪除裝置。移至[刪除裝置](#delete-a-device)以了解相關指示。
 
@@ -87,8 +87,8 @@
 刪除裝置可能需要數分鐘的時間。
 
 ## 後續步驟
-若要將已停用的裝置還原為原廠預設，請移至[將裝置重設為原廠預設設定](https://msdn.microsoft.com/library/dn772373.aspx)。
+若要將已停用的裝置還原為原廠預設值，請移至[將裝置重設為原廠預設設定](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings)。
 
-如需技術協助，[請連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)。
+如需技術協助，[請連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

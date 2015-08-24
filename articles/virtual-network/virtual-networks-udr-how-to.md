@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="08/10/2015"
    ms.author="telmos" />
 
 # 如何在 Azure 中建立路由並啟用 IP 轉送
 您可以使用 Azure 中的虛擬應用裝置處理 Azure 虛擬網路中的流量。不過，您需要建立可讓虛擬網路中的 VM 和雲端服務將封包傳送至虛擬應用裝置的路由，而不是傳送至封包所需的目的地的路由。您也需要在虛擬應用裝置 VM 上啟用 IP 轉送，讓它可以接收和轉送未定址到實際虛擬應用裝置 VM 的封包。
 
-##如何管理路由
+## 如何管理路由
 您可以在 Azure 中使用 PowerShell 新增、移除及變更路由。在您可以建立路由之前，必須先建立一個託管路由的路由表。
 
 ### 如何建立路由表
@@ -144,10 +144,6 @@ Set-AzureIPForwarding -ServiceName DMZService `
 ```powershell
 Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
 	| Get-AzureIPForwarding
-```
+``` 
 
-## 另請參閱
-
-[使用者定義的路由和 IP 轉送概觀](../virtual-networks-udr-overview)
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

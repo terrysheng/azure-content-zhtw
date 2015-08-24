@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Data Factory - 版本資訊 | Azure" 
+	pageTitle="Data Factory - 版本資訊 | Microsoft Azure" 
 	description="Data Factory 版本資訊" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -284,7 +284,7 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 	-  [資料表 JSON 中的 OnPremisesOracleTableLocation 屬性](https://msdn.microsoft.com/library/dn894089.aspx#Oracle) 
 	-  [支援的來源與接收](https://msdn.microsoft.com/library/dn894007.aspx)。請參閱更新的複製對照表和 **OracleSource** 屬性。
 -  您可以對 Azure Blob 中的文字檔案指定編碼。請參閱新的 [encodingName 屬性](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob)。 
-- 複製到 SQL 接收器時，您可以搭配其他參數來叫用預存程序。如需詳細資訊，請參閱[叫用 SQL 接收器的預存程序][adf-copy-advanced]。   
+- 複製到 SQL 接收器時，您可以搭配其他參數來叫用預存程序。    
 
 如需詳細資訊，包括範例，請參閱 Blob 文章：[Azure Data Factory 更新 - 新的資料存放區](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/)。
 
@@ -299,7 +299,7 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 
 ### 變更
 - [Microsoft 下載中心][adf-gateway-download]已公佈更新的「資料管理閘道」安裝套件。從這個版本開始，您可以在此下載位置找到搭配 Azure Data Factory 使用的最新「資料管理閘道器」。此安裝套件支援 Azure Data Factory 和 Power BI for Office 365 服務。如果您同時使用這兩種服務，請注意，Data Factory 和 Power BI 的閘道器必須安裝在不同電腦上，並根據 Data Factory 或 Power BI 文件的指導方針，以不同方式加以設定。
-- 複製活動現在支援在內部部署 SQL Server 和 Azure SQL Database 之間複製資料。如需詳細資訊，請參閱[複製活動][adf-copy-activity]，如需 JSON 範例，請瀏覽 [GitHub][adf-github-samples]。
+- 複製活動現在支援在內部部署 SQL Server 和 Azure SQL Database 之間複製資料。 
 - **SqlSink** 支援新的屬性：**WriteBatchTimeout**。這個屬性可讓您彈性地設定在批次插入作業逾時之前，要等候多久讓作業完成。若要執行混合式複製 (複製作業涉及內部部署資料來源和雲端資料來源)，您必須有 1.4 版或更新版本的閘道器，才能使用這個屬性。 
 - SQL Server 連結服務現在支援 Windows 驗證。 
 	- 現在使用入口網站建立 SQL Server 連結服務時，可以選擇使用 Windows 驗證，並設定適當的認證。您需要具有 1.4 版或更新版本的閘道器。 
@@ -321,7 +321,7 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 - HDInsightOnDemandLinkedService 的選擇性組態參數
 	- 此版本針對 HDInsightOnDemandLinked (隨選 HDInsight 叢集) 導入一些選擇性組態參數支援。如需詳細資訊，請參閱 [ClusterCreateParameters 屬性][on-demand-hdi-parameters]。
 - 已移除閘道器位置
-	- 透過入口網站或 PowerShell (New-AzureDataFactoryGateway) 建立 Azure Data Factory 閘道器時，您不再需要指定閘道器的位置。將會繼承 Data Factory 地區。同樣地，若要使用 JSON 來設定 SQL Server 連結服務，也不再需要 "gatewayLocation" 屬性。Data Factory .NET SDK 也已更新來反映這些變更。
+	- 透過入口網站或 PowerShell (New-AzureDataFactoryGateway) 建立 Azure Data Factory 閘道器時，您不再需要指定閘道器的位置。將會繼承 Data Factory 區域。同樣地，若要使用 JSON 來設定 SQL Server 連結服務，也不再需要 "gatewayLocation" 屬性。Data Factory .NET SDK 也已更新來反映這些變更。
 	- 如果您使用較舊版的 SDK 和 Azure PowerShell，則仍然必須提供位置設定。
  
      
@@ -339,9 +339,7 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 
 [adf-azure-ml]: data-factory-create-predictive-pipelines.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
-[adf-copy-activity]: data-factory-copy-activity.md
 [adf-editor]: data-factory-editor.md
-[adf-copy-advanced]: data-factory-copy-activity-advanced.md
 
 [adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
 [adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/
@@ -355,4 +353,4 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

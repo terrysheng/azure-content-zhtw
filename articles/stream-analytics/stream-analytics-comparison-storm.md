@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/04/2015"
+	ms.date="08/13/2015"
 	ms.author="jeffstok"/>
 
 # Apache Storm 和 Azure 串流分析的比較 #
@@ -123,7 +123,7 @@
                     串流分析是依所處理的資料量，和需要的串流單位數量 (根據每小時執行的工作數量) 計費。
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">如需進一步的價格資訊，請參閱這裡</a>。
+                    <a href="http://azure.microsoft.com/zh-tw/pricing/details/stream-analytics/">如需進一步的價格資訊，請參閱這裡</a>。
                 </p>
             </td>
             <td width="246" valign="top">
@@ -131,7 +131,7 @@
                     針對 HDInsight 上的 Apache Storm，購買的單位是叢集，並根據叢集執行的時間收費，與部署的工作是各自獨立的。
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">如需進一步的價格資訊，請參閱這裡</a>。
+                    <a href="http://azure.microsoft.com/zh-tw/pricing/details/hdinsight/">如需進一步的價格資訊，請參閱這裡</a>。
                 </p>
             </td>
         </tr>
@@ -589,4 +589,4 @@
     </tbody>
 </table>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

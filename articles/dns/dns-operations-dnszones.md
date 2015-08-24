@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/01/2015"
+   ms.date="07/30/2015"
    ms.author="joaoma"/>
 
 # 如何管理 DNS 區域
+
 
 本指南說明如何管理 DNS 區域。有助於了解管理 DNS 區域所需執行的作業序列。
 
@@ -103,4 +104,4 @@
 
 [使用 .NET SDK 自動化作業](../dns-sdk)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

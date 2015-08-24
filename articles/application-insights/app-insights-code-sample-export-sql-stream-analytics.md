@@ -3,7 +3,7 @@
 	description="使用連續匯出功能，在 Application Insights 中自行撰寫遙測資料分析的程式碼。" 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
@@ -305,4 +305,4 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

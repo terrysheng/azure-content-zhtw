@@ -1,7 +1,7 @@
 ### 類型轉換範例
 下列範例適用於使用類型轉換從 Blob 複製資料到 Azure SQL。
 
-假設 Blob 資料集採用 CSV 格式而且包含 3 個資料行。其中一個是含有自訂 datetime 格式 (使用法文縮寫星期幾名稱) 的 datetime 資料行。
+假設 Blob 資料集採用 CSV 格式而且包含 3 個資料行。其中一個是含有自訂日期時間格式 (使用法文縮寫星期幾名稱) 的日期時間資料行。
 
 您將定義 Blob 來源資料集以及資料行的類型定義，如下所示。
 
@@ -62,11 +62,13 @@
 	        },
 	        "availability": {
 	            "frequency": "Hour",
-	            "interval": 1,
+	            "interval": 1
 	        }
 	    }
 	}
 
 在此情況下，Data Factory 會自動進行類型轉換，包括將資料從 Blob 移到 Azure SQL 時，含有自訂 datetime 格式 (使用 fr-fr 文化特性) 的 Datetime 欄位。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->
+
+<!---HONumber=August15_HO7-->

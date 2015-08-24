@@ -163,7 +163,7 @@
 <!-- Images -->
 
 <!-- URLs. -->
-[建立 Xamarin iOS 應用程式]: ../app-service-mobile-dotnet-backend-xamarin-ios-get-started.md
+[建立 Xamarin iOS 應用程式]: ../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
 [How to use the Xamarin Component client for Azure Mobile Services]: ../partner-xamarin-mobile-services-how-to-use-client-library.md
 
@@ -171,4 +171,4 @@
 [Xamarin 延伸]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

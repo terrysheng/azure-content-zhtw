@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用服務匯流排佇列 (Python) - Azure" 
+	pageTitle="如何使用服務匯流排佇列 (Python) | Microsoft Azure" 
 	description="了解如何從 Python 使用 Azure 服務匯流排佇列。" 
 	services="service-bus" 
 	documentationCenter="python" 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-**附註：**若要安裝 Python 或 [Python Azure 封裝][]，請參閱 [Python 安裝指南](../python-how-to-install.md)。
+**注意：**若要安裝 Python 或 [Python Azure 封裝][]，請參閱 [Python 安裝指南](../python-how-to-install.md)。
 
 ## 如何建立佇列
 
@@ -98,4 +98,4 @@ SAS 金鑰名稱和值的值可以在 Azure 入口網站連接資訊中找到，
 [佇列、主題和訂用帳戶]: http://msdn.microsoft.com/library/azure/hh367516.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

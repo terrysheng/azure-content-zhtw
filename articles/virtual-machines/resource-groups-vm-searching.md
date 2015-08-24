@@ -135,6 +135,13 @@
     
 現在，您可以精確地選擇想要使用的映像。若要使用您剛找到的 URN 資訊快速地建立 VM，或使用具有該 URN 資訊的範本，請參閱[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](xplat-cli-azure-resource-manager.md)。
 
+### 影片逐步解說
+
+這段影片示範使用 CLI 的上述步驟。
+
+[AZURE.VIDEO resource-groups-vm-searching-cli]
+
+
 ## PowerShell
 
 使用 Azure 資源管理員建立新的虛擬機器時，在某些情況下，您需要使用下列映像屬性組合來指定映像：
@@ -214,6 +221,12 @@
 
 從此清單中，複製所選擇的 SKU 名稱，而且您擁有 **Set-AzureVMSourceImage** PowerShell Cmdlet 或資源群組範本檔案的所有資訊，而資源群組範本檔案需要您指定映像的發佈者、提供項目和 SKU。
 
+### 影片逐步解說
+
+這段影片示範使用 PowerShell 的上述步驟。
+
+[AZURE.VIDEO resource-groups-vm-searching-posh]
+
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
@@ -227,4 +240,4 @@
 [msn]: http://search.msn.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

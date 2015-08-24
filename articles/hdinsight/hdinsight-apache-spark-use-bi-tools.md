@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在 Azure HDInsight 上搭配使用 BI 工具和 Apache Spark | Azure" 
+	pageTitle="在 Azure HDInsight 上搭配使用 BI 工具和 Apache Spark | Microsoft Azure" 
 	description="說明如何搭配使用 Notebook 和 Apache Spark 以根據原始資料建立結構描述、將它們儲存成 Hive 資料表，然後針對 Hive 資料表使用 BI 工具來分析資料等作業的逐步指示。" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -63,7 +63,7 @@
 
 	 ![Jupyter Notebook 工作的狀態](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Job.Status.png "Jupyter Notebook 工作的狀態")
 
-4. 將範例資料載入暫存資料表。當您在 HDInsight 中佈建 Spark 叢集時，系統會將範例資料檔案 **hvac.csv** 複製到相關聯的儲存體帳戶，其路徑為 **\HdiSamples\SensorSampleData\hvac**。
+4. 將範例資料載入暫存資料表。當您在 HDInsight 中佈建 Spark 叢集時，系統會將範例資料檔案 **hvac.csv** 複製到相關聯的儲存體帳戶，其路徑為 **\\HdiSamples\\SensorSampleData\\hvac**。
 
 	將以下程式碼片段貼入空白儲存格，然後按下 **SHIFT + ENTER**。此程式碼片段會將資料註冊到名為 **hvac** 的 Hive 資料表。
 
@@ -131,7 +131,7 @@
 
 	![建立視覺效果](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Visual.1.png "建立視覺效果")
 
-	此外，請選取 **區域對應** \(顯示為紅色) 以視覺化資料。
+	此外，請選取 [**區域對應**] (顯示為紅色) 以視覺化資料。
 
 8. 依預設，視覺效果會顯示 **ActualTemp** 和 **TargetTemp** 的總和。對於這兩個欄位，從下拉式清單選取 [**平均**] 可取得這兩項建置之實際和目標溫度的平均值。
 
@@ -205,4 +205,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

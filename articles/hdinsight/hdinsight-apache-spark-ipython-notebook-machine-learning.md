@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在 HDInsight 上使用 Apache Spark 建置機器學習應用程式 | Azure" 
+	pageTitle="在 HDInsight 上使用 Apache Spark 建置機器學習應用程式 | Microsoft Azure" 
 	description="說明如何搭配使用 Notebook 和 Apache Spark 來建置機器學習應用程式的逐步指示" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -240,4 +240,4 @@ HDInsight 上的 Apache Spark 叢集包含 Anaconda 程式庫。其中也包含�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

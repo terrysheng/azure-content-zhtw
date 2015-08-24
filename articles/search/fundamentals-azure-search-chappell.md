@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 搜尋服務簡介 |Azure" 
+	pageTitle="簡介 Azure 搜尋 | Microsoft Azure" 
 	description="了解 Azure 搜尋服務如何協助您建置多樣化的搜尋應用程式。" 
 	editor="monicar" 
 	manager="mblythe" 
@@ -42,4 +42,4 @@
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">「Azure 搜尋服務簡介」(PDF 檔案)</a>
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">「Azure 搜尋服務簡介」(Microsoft Word 檔案)</a> 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

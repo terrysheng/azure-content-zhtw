@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/23/2015"
+	ms.date="08/10/2015"
 	ms.author="stepsic"/>
 
-#建立新的邏輯應用程式
+# 建立新的邏輯應用程式
 本主題只花幾分鐘就能示範如何開始使用 [App Services Logic Apps](app-service-logic-what-are-logic-apps.md)。我們將逐步解說可將一組您感興趣的推文傳送到 Dropbox 資料夾的工作流程。
 
 若要使用此案例，您需要：
@@ -27,7 +27,7 @@
 
 <!--- TODO: Add try it now information here -->
 
-##取得連接器
+## 取得連接器
 
 首先，您必須建立兩個您將用到的連接器：[**Dropbox 連接器**](app-service-logic-connector-dropbox.md)和 [**Twitter 連接器**](app-service-logic-connector-twitter.md)。若要建立這些項目：
 
@@ -43,7 +43,7 @@
 
 4.  選取新方案的 [**定價層**]。
 
-	>[AZURE.NOTE]根據預設，系統只會顯示建議邏輯應用程式使用的方案。按一下 [**檢視全部**] 來查看所有可用方案。當您在免費層次中執行邏輯應用程式時，您只能每小時執行，並每個月最多使用 1000 個動作。
+	>[AZURE.NOTE]根據預設，系統只會顯示建議 Logic Apps 使用的方案。按一下 [**檢視全部**] 來查看所有可用方案。當您在免費層次中執行邏輯應用程式時，您只能每小時執行，並每個月最多使用 1000 個動作。
 
 5. 建立流程的 [**資源群組**]。
 
@@ -59,7 +59,7 @@
 
 9. 現在對 [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2) 重複執行此程序。
 
-##啟動邏輯應用程式
+## 啟動邏輯應用程式
 
 現在，您需要建立新的邏輯應用程式：
 
@@ -106,6 +106,8 @@
 	這會授與連接器存取您 Twitter 帳戶的權限。Twitter 連接器所提供的可能作業清單便會隨即顯示。
 
 	![動作](./media/app-service-logic-create-a-logic-app/actions.png)
+
+	> [AZURE.NOTE][**授權**] 按鈕會使用 OAUTH 安全性來連接到 Twitter 之類的 SaaS 服務。關於 OAUTH 的詳細資訊，請參閱 [OAUTH 安全性](app-service-logic-oauth-security.md)。
 
 3. 按一下 [**搜尋推文**]，接著在 [**指定查詢**] 中輸入類似 `#MicrosoftAzure` 的內容，然後按一下綠色核取符號。
 
@@ -156,7 +158,7 @@ Twitter 連接器現在便是工作流程的一部分。
 
 現在，您的邏輯應用程式已啟動並執行。每次當排定的工作流程執行時，它會檢查推文是否包含特定的雜湊標記。當它找到符合的推文時，它就會將該推文放入 Dropbox。最後，您將看到如何停用應用程式，或看到它的執行狀況。
 
-1. 按一下畫面左側的 [**瀏覽**]，然後選取 [**邏輯應用程式**]。
+1. 按一下畫面左側的 [瀏覽]，然後選取 Logic Apps。
 
 2. 按一下您剛剛建立的新邏輯應用程式，以查看目前狀態和一般資訊。
 
@@ -164,7 +166,7 @@ Twitter 連接器現在便是工作流程的一部分。
 
 5. 若要關閉應用程式，請按一下命令列中的 [**停用**]。
 
-不到 5 分鐘的時間，您便能夠設定在雲端中執行的簡單邏輯應用程式。若要深入了解如何使用邏輯應用程式功能，請參閱[使用邏輯應用程式功能]。若要深入了解邏輯應用程式定義本身，請參閱[撰寫邏輯應用程式定義](app-service-logic-author-definitions.md)。
+不到 5 分鐘的時間，您便能夠設定在雲端中執行的簡單邏輯應用程式。若要深入了解如何使用 Logic Apps 功能，請參閱[使用邏輯應用程式功能]。若要深入了解邏輯應用程式定義本身，請參閱[撰寫邏輯應用程式定義](app-service-logic-author-definitions.md)。
 
 <!-- Shared links -->
 [Azure portal]: https://portal.azure.com
@@ -172,4 +174,4 @@ Twitter 連接器現在便是工作流程的一部分。
 [使用邏輯應用程式功能]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

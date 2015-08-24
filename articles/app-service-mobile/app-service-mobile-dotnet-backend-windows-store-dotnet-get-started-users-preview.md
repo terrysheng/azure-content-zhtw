@@ -1,6 +1,6 @@
 <properties
-	pageTitle="開始在 Windows 中使用行動應用程式的驗證 | Azure App Service"
-	description="了解如何使用行動應用程式透過眾多識別提供者驗證 Windows 應用程式使用者，包括 AAD、Google、Facebook、Twitter 和 Microsoft。"
+	pageTitle="開始在 Windows 中使用 Mobile Apps 的驗證 | Microsoft Azure"
+	description="了解如何使用 Mobile Apps 透過眾多識別提供者驗證 Windows 應用程式使用者，包括 AAD、Google、Facebook、Twitter 和 Microsoft。"
 	services="app-service\mobile"
 	documentationCenter="windows"
 	authors="mattchenderson" 
@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-本主題說明如何從用戶端應用程式驗證應用程式服務行動應用程式的使用者。在本教學課程中，您將使用應用程式服務支援的身分識別提供者，將驗證新增至快速入門專案。由行動應用程式成功驗證並授權之後，就會顯示使用者識別碼值。
+本主題說明如何從用戶端應用程式驗證 App Service 行動應用程式的使用者。在本教學課程中，您將使用 App Service 支援的身分識別提供者，將驗證新增至快速入門專案。由行動應用程式成功驗證並授權之後，就會顯示使用者識別碼值。
 
 本教學課程以行動應用程式快速入門為基礎。您也必須先完成[開始使用行動應用程式]教學課程。
 
@@ -30,7 +30,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
 
-##<a name="register"></a>註冊應用程式進行驗證，並設定應用程式服務
+##<a name="register"></a>註冊應用程式進行驗證，並設定 App Service
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
@@ -45,7 +45,7 @@
    	<p>這是因為應用程式嘗試以未驗證的使用者身分存取您的行動應用程式程式碼，但 <em>TodoItem</em> 資料表現在需要驗證。</p></li>
 </ol>
 
-接下來，您要將應用程式更新為在要求應用程式服務的資源之前必須驗證使用者。
+接下來，您要將應用程式更新為在要求 App Service 的資源之前必須驗證使用者。
 
 ##<a name="add-authentication"></a>將驗證新增至應用程式
 
@@ -75,4 +75,4 @@
 [開始使用行動應用程式]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

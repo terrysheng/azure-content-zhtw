@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="HDInsight 上的 Apache Spark 作業伺服器 | Azure" 
+	pageTitle="HDInsight 上的 Apache Spark 作業伺服器 | Microsoft Azure" 
 	description="了解如何使用 Spark 作業伺服器從遠端提交及管理 Spark 叢集上的工作。" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -81,4 +81,4 @@ Azure HDInight 上的 Apache Spark 叢集能封裝 Spark 作業伺服器，使�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

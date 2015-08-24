@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用 SendGrid 電子郵件服務 (Node.js) - Azure" 
+	pageTitle="如何使用 SendGrid 電子郵件服務 (Node.js) | Microsoft Azure" 
 	description="了解如何在 Azure 使用 SendGrid 電子郵件服務傳送電子郵件。程式碼範例以 Node.js API 撰寫。" 
 	services="" 
 	documentationCenter="nodejs" 
@@ -224,4 +224,4 @@ SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGri
   [雲端架構電子郵件服務]: https://sendgrid.com/email-solutions
   [交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

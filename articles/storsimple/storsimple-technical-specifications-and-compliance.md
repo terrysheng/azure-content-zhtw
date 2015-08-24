@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="適用於 StorSimple 裝置的技術規格和相容性"
-    description="說明適用於 StorSimple 裝置的技術規格與法規標準符合性資訊。"
-    services="storsimple"
-    documentationCenter="NA"
-    authors="alkohli"
-    manager="adinah"
-    editor="tysonn" />
+   pageTitle="StorSimple 裝置的技術規格和相容性 | Microsoft Azure"
+   description="說明 StorSimple 裝置的技術規格與法規標準符合性資訊。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="" />
  <tags 
-    ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="06/15/2015"
-    ms.author="alkohli" />
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/12/2015"
+   ms.author="alkohli" />
 
 # 適用於 StorSimple 裝置的技術規格和相容性
 
@@ -168,8 +168,8 @@ EBOD 機箱使用 580 W PCM，而主要機箱會使用 764 W PCM。下表列出�
 
 ## 支援的網路纜線  
 
-10 GbE 的網路介面 DATA 2 和 DATA 3，請參閱 [10 GbE 網路介面支援的收發器、纜線和交換器支援的網路纜線和模組清單](https://msdn.microsoft.com/library/dn891474.aspx)。
+針對 10 GbE 的網路介面 DATA 2 和 DATA 3，請參閱[支援的網路纜線和模組清單](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)。
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

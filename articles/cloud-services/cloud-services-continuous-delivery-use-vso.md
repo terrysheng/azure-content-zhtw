@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="在 Azure 中使用 Visual Studio Online 來連續傳遞" 
-	description="了解如何設定 Visual Studio Online Team 專案，以自動建置和部署至 Azure App Service 或雲端服務中的 Web 應用程式功能。" 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="kempb" 
-	manager="douge" 
+<properties
+	pageTitle="在 Azure 中使用 Visual Studio Online 來連續傳遞"
+	description="了解如何設定 Visual Studio Online Team 專案，以自動建置和部署至 Azure App Service 或雲端服務中的 Web 應用程式功能。"
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="kempb"
+	manager="douge"
 	editor="tglee"/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/08/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/07/2015" 
 	ms.author="kempb"/>
 
 
@@ -304,6 +304,5 @@ Team Explorer 會顯示簽入已觸發的組建。<br/>
 [48]: ./media/cloud-services-continuous-delivery-use-vso/CheckInChangeToMakeTestsFail.PNG
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
- 
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

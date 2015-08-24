@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中設定警示
@@ -44,9 +44,11 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
 ## 查看您的警示
 
-警示會透過電子郵件傳送給您。
+當警示在非作用中與作用中之間變更狀態時，您會收到電子郵件。
 
-它們也會出現在作業事件記錄檔中：
+每個警示目前的狀態都顯示在警示規則刀鋒視窗中。
+
+狀態變更的歷程記錄位於作業事件記錄檔中：
 
 ![在 [概觀] 分頁靠近底部的位置，按一下 [過去一週的事件]](./media/app-insights-alerts/09-alerts.png)
 
@@ -80,4 +82,4 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

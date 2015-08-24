@@ -20,8 +20,6 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 
 
 若要防止 IP 位址變更，您可以保留 IP 位址。保留的 IP 僅能用作 VIP，即使資源都關閉或解除配置，也能確保雲端服務的 IP 位址將會相同。此外，您可以轉換現有的動態 IP，作為保留的 IP 位址的 VIP。
 
->[AZURE.WARNING]您僅可將保留的 IP 指派給 VIP。
-
 ## 何時需要保留的 IP？
 - **您想要確保 IP 會保留在您的訂用帳戶中**。如果您想要保留 IP 位址，使其在任何情況下將不會從訂用帳戶釋放，您應該使用保留的公用 IP。  
 - **即使在已停止或解除配置狀態 (VM)，您想要保持 IP 與雲端服務之間的關聯**。如果您想要讓服務可以使用 IP 位址來存取，且即使雲端服務中的 VM 已停止或解除配置，該 IP 位址也不會變更。
@@ -117,10 +115,10 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 
 
 ## 後續步驟
 
-[保留的私人 IP](../virtual-networks-reserved-private-ip)
+- 深入了解〈[保留的私人 IP 位址](../virtual-networks-reserved-private-ip)〉。
 
-[執行個體層級公用 IP (ILPIP)](../virtual-networks-instance-level-public-ip)
+- 深入了解〈[執行個體層級公用 IP (ILPIP) 位址](../virtual-networks-instance-level-public-ip)〉。
 
-[保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+- 檢查〈[保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)〉
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

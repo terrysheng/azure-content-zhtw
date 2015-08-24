@@ -183,7 +183,9 @@ C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server
 	若要執行查詢，請按一下下方的綠色箭頭，或使用下列快速鍵 `CTRL`+`SHIFT`+`F5`：
 
 ## 後續步驟 ##
-[Load sample data.]: ./sql-data-warehouse-get-started-load-samples.md
-[Start developing code]: ./articles/sql-data-warehouse-overview-develop/
+您可以連接和查詢後，請嘗試[載入範例資料][]或[開發程式碼][]。
 
-<!---HONumber=August15_HO6-->
+[載入範例資料]: ./sql-data-warehouse-get-started-load-samples.md
+[開發程式碼]: ./articles/sql-data-warehouse-overview-develop/
+
+<!---HONumber=August15_HO7-->

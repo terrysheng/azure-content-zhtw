@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在 HDInsight 中搭配使用事件中樞和 Apache Spark 來處理串流資料 | Azure" 
+	pageTitle="在 HDInsight 中搭配使用事件中樞和 Apache Spark 來處理串流資料 | Microsoft Azure" 
 	description="說明如何將資料串流傳送到 Azure 事件中樞，接著再使用 Zeppelin Notebook 於 Spark 中接收這些事件的逐步指示" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -164,4 +164,4 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

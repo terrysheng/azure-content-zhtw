@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 # 設定和使用 Azure RemoteApp 的最佳做法
@@ -44,4 +44,4 @@
 	- 停用發佈之應用程式的自動軟體更新 - 改為手動套用至範本映像，並從範本部署之前測試它們。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,10 +13,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="08/03/2015"
+   ms.date="08/10/2015"
    ms.author="elizapo"/>
 
-# 使用 RemoteApp 在任何裝置上執行任何 Windows 應用程式
+# 使用 Azure RemoteApp 在任何裝置上執行任何 Windows 應用程式
 
 本教學課程顯示如何在任何裝置的任何位置立即執行 Windows 應用程式。不論是 Internet Explorer 6、10 年前撰寫的自訂應用程式還是 Office 應用程式，您的使用者不再需要繫結至數個應用程式的特定作業系統 (如 Windows XP)。
 
@@ -117,4 +117,4 @@
 
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

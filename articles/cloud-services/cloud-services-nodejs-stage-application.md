@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="預備雲端服務部署 (Node.js) - Azure" 
+	pageTitle="預備雲端服務部署 (Node.js) | Microsoft Azure" 
 	description="了解如何將 Azure 應用程式部署至預備環境，然後使用虛擬 IP (VIP) 交換來部署至生產環境。" 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -18,10 +18,6 @@
 
 
 
-
-
-
-
 # 在 Azure 中預備應用程式
 
 將封裝的應用程式移至生產環境供網際網路存取之前，可先將應用程式部署到 Azure 中的預備環境來進行測試。預備環境與生產環境完全相同，差別在於您只能以 Azure 產生的隱藏 URL 來存取預備應用程式。在確認應用程式可正常運作之後，就可以執行虛擬 IP (VIP) 交換將它部署至生產環境。
@@ -33,7 +29,7 @@
 -   [步驟 1：預備應用程式]
 -   [步驟 2：交換 VIP 將應用程式部署至生產環境]
 
-<h2><a id="step1"></a>步驟 1：預備應用程式</h2>
+## 步驟 1：預備應用程式
 
 此工作涵蓋如何使用 **Windows Azure PowerShell** 來預備應用程式。
 
@@ -57,7 +53,7 @@
 
 在升級案例中，預備應用程式是已部署至生產環境之應用程式的升級版本，您可以[交換 VIP 將應用程式升級至生產環境][Step 2: Deploy an Application to Production by Swapping VIPs]。
 
-<h2><a id="step2"></a>步驟 2：交換 VIP 將應用程式升級至生產環境</h2>
+## 步驟 2：交換 VIP 將應用程式升級至生產環境
 
 在預備環境中驗證應用程式的升級版本之後，您可以交換預備和生產環境的虛擬 IP (VIP)，快速將應用程式移至生產環境。
 
@@ -90,4 +86,4 @@
   [在 Azure 中管理部署的概觀]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

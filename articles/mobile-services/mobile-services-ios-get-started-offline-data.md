@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用行動服務中的離線資料同步 (iOS) | 行動開發人員中心"
+	pageTitle="開始使用行動服務中的離線資料同步 (iOS) | Microsoft Azure"
 	description="了解如何使用 Azure 行動服務快取和同步 iOS 應用程式中的離線資料"
 	documentationCenter="ios"
 	authors="krisragh"
@@ -271,4 +271,4 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
 [行動服務快速入門教學課程]: mobile-services-ios-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

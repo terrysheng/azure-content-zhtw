@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在您的通用 Windows 應用程式中使用離線資料 | Azure 行動服務" 
+	pageTitle="在您的通用 Windows 應用程式中使用離線資料 | Microsoft Azure" 
 	description="了解如何使用 Azure 行動服務快取及同步通用 Windows 應用程式中的離線資料。" 
 	documentationCenter="mobile-services" 
 	authors="lindydonna" 
@@ -283,4 +283,4 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

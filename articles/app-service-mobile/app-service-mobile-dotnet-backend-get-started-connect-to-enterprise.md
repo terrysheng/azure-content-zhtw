@@ -1,5 +1,5 @@
 <properties
-	pageTitle="將行動應用程式連接到企業 SaaS | 行動開發人員中心"
+	pageTitle="將行動應用程式連接到企業 SaaS | Microsoft Azure"
 	description="了解如何呼叫 SharePoint Online 之類的企業資源"
 	documentationCenter=""
 	authors="mattchenderson"
@@ -29,13 +29,13 @@
 ## <a name="configure-permissions"></a>針對 SharePoint 的委派存取設定您的應用程式
 根據預設，您從 AAD 取得的權杖僅具有有限權限。若要存取第三方資源或 SaaS 應用程式 (例如 SharePoint Online)，您必須明確允許此類存取。
 
-1. 在 **Azure 管理入口網站**的 [Active Directory][] 區段中，選取您的租用戶。導覽至您為應用程式服務建立的 Web 應用程式。
+1. 在 **Azure 管理入口網站**的 [Active Directory][] 區段中，選取您的租用戶。導覽至您為 App Service 建立的 Web 應用程式。
 
 2. 在 [設定] 索引標籤中，將頁面向下捲動至「其他應用程式的權限」區段。選取 [Office 365 SharePoint Online]，然後授與 [編輯或刪除使用者的檔案] 委派權限。然後按一下 [儲存]。
 
     ![][1]
 
-您現在已設定由 AAD 簽發 SharePoint 存取權杖給應用程式服務。
+您現在已設定由 AAD 簽發 SharePoint 存取權杖給 App Service。
 
 ## <a name="store-credentials"></a>將 SharePoint 資訊新增至您的行動應用程式
 
@@ -57,7 +57,7 @@
 
 ## <a name="obtain-token"></a>取得存取權杖及呼叫 SharePoint API
 
-若要存取 SharePoint，您必須要以 SharePoint 的特殊存取權杖作為目標對象。若要取得此權杖，您必須使用應用程式服務的身分識別和為使用者簽發的權杖，來回呼 AAD。
+若要存取 SharePoint，您必須要以 SharePoint 的特殊存取權杖作為目標對象。若要取得此權杖，您必須使用 App Service 的身分識別和為使用者簽發的權杖，來回呼 AAD。
 
 1. 在 Visual Studio 中開啟您的行動應用程式程式碼專案。
 
@@ -182,9 +182,9 @@
 
 [Preview Azure Management Portal]: https://portal.azure.com/
 []: https://manage.windowsazure.com/
-[SharePoint Online]: http://office.microsoft.com/zh-tw/sharepoint/
+[SharePoint Online]: http://office.microsoft.com/zh-cn/sharepoint/
 [使用 Active Directory Authentication Library 單一登入驗證您的應用程式]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

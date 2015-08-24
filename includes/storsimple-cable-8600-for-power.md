@@ -1,58 +1,44 @@
-<properties 
-   pageTitle="Cable your StorSimple 8600 for power | Microsoft Azure"
-   description="Explains how to attach the power cables and then turn on a StorSimple 8600 device for the first time.."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/06/2015"
-   ms.author="alkohli" />
 
-#### To cable your device for power
+#### 將您的裝置接上纜線，以取得電源
 
->[AZURE.NOTE] Both enclosures on your StorSimple device include redundant PCMs. For each enclosure, the PCMs must be installed and connected to different power sources to ensure high availability.
+>[AZURE.NOTE]在 StorSimple 裝置上的兩個機箱都包括備援 PCM。針對每個機箱，PCM 都必須安裝，並且連接到不同的電源來源，以確保高可用性。
 
-1. Make sure that the power switches on all the PCMs are in the OFF position.
+1. 請確定所有 PCM 上的電源開關是在 OFF (關閉) 位置。
 
-2. On the primary enclosure, connect the power cords to both PCMs. The power cords are identified in red in the power cabling diagram, below.
+2. 在主要機箱上，將電源線連接至兩個 PCM。在底下的電源佈線圖表中以紅色識別電源線。
 
-3. Make sure that the two PCMs on the primary enclosure use separate power sources.
+3. 確定主要機箱上的兩個 PCM 使用不同的電源來源。
 
-4. Attach the power cords to the power on the rack distribution units as shown in the power cabling diagram.
+4. 將電源線連接至機架電源分配單元，如電源佈線圖表所示。
 
-5. Repeat steps 2 through 4 for the EBOD enclosure.
+5. 針對 EBOD 機箱重複步驟 2 到 4。
 
-6. Turn on the EBOD enclosure by flipping the power switch on each PCM to the ON position.
+6. 將每個 PCM 上的電源開關切換到 ON (開啟) 位置，以開啟 EBOD 機箱。
 
-7. Verify that the EBOD enclosure is turned on by checking that the green LEDs on the back of the EBOD controller are turned ON.
+7. 確認 EBOD 機箱已開啟，方法是檢查 EBOD 控制器背面的綠色 LED 已開啟。
 
-8. Turn on the primary enclosure by flipping each PCM switch to the ON position.
+8. 將每個 PCM 的電源開關切換到 ON (開啟) 位置，以開啟主要機箱。
 
-9. Verify that the system is on by ensuring the device controller LEDs have turned ON.
+9. 確認系統已開啟，方法是確定裝置控制器 LED 已開啟。
 
-10. Make sure that the connection between the EBOD controller and the device controller is active by verifying that the four LEDs next to the SAS port on the EBOD controller are green.
+10. 確定 EBOD 控制器和裝置控制站之間的連線為作用中，方法是確認 EBOD 控制器上 SAS 連接埠旁邊的 4 個 LED 是綠色。
 
-    >[AZURE.IMPORTANT] To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram.
+    >[AZURE.IMPORTANT]若要確保系統的高可用性，我們建議您嚴格遵守電源佈線配置，如下圖所示。
 
-    ![Cable your 4U device for power](./media/storsimple-cable-8600-for-power/HCSCableYour4UDeviceforPower.png)
+    ![將您的 4U 裝置接上纜線，以取得電源](./media/storsimple-cable-8600-for-power/HCSCableYour4UDeviceforPower.png)
 
-    **Power cabling**
+    **電源佈線**
 
-    |Label|Description|
+    |標籤|說明|
     |:----|:----------|
-    |1|Primary enclosure|
+    |1|主要機箱|
     |2|PCM 0|
     |3|PCM 1|
-    |4|Controller 0|
-    |5|Controller 1|
-    |6|EBOD controller 0|
-    |7|EBOD controller 1|
-    |8|EBOD enclosure|
-    |9|PDUs|
+    |4|控制器 0|
+    |5|控制器 1|
+    |6|EBOD 控制器 0|
+    |7|EBOD 控制器 1|
+    |8|EBOD 機箱|
+    |9|PDU|
+
+<!---HONumber=August15_HO7-->

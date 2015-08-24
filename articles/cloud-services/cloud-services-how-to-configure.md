@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何設定雲端服務 - Azure" 
+	pageTitle="如何設定雲端服務 | Microsoft Azure" 
 	description="了解如何在 Azure 中設定雲端服務。了解更新雲端服務組態和設定角色執行個體的遠端存取。" 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -146,4 +146,4 @@
 			
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用 SQL Database (.NET) - Azure 功能指南" 
+	pageTitle="如何使用 SQL Database (.NET) | Microsoft Azure" 
 	description="開始使用 SQL Database。了解如何建立 SQL Database 執行個體並使用 ADO.NET、ODBC 和 EntityClient Provider 進行連線。" 
 	services="sql-database" 
 	documentationCenter=".net" 
@@ -57,7 +57,7 @@ SQL Database 可在 Azure 上提供關聯式資料儲存體、存取和管理服
 
 7. 選擇版本、大小上限和定序。根據本指南的用途，您可以使用預設值。
 
-	SQL Database 提供三種資料庫版本，即 Basic、 Standard 和 Premium。
+	SQL Database 提供三種資料庫版本，即基本、標準和進階。
 
 	MAXSIZE 會在第一次建立資料庫時指定，且後續可使用 ALTER DATABASE 加以變更。MAXSIZE 可用來限制資料庫的大小。
 
@@ -211,4 +211,4 @@ Entity Framework 可讓開發人員對概念式的應用程式模型進行程式
 既然您了解連接到 SQL Database 的基本概念，請參閱[開發：作法主題 (SQL Database)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

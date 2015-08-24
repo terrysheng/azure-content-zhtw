@@ -4,7 +4,7 @@
 	tags="azure-classic-portal"
 	services="app-service\web, virtual-machines"
 	documentationCenter="nodejs"
-	authors="chrisckchang"
+	authors="tdykstra"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/20/2014"
+	ms.date="08/10/2014"
 	ms.author="mwasson"/>
 
 
@@ -25,7 +25,7 @@
 # 使用 MongoLab 附加元件在有 MongoDB 的 Azure 上建立 Node.js Web 應用程式
 
 
-<p><em>作者：MongoLab 的 Eric Sedor</em></p>
+*作者：MongoLab 的 Eric Sedor*
 
 探險家們大家好！ 歡迎使用「MongoDB 即服務」。在本教學課程中，您將：
 
@@ -575,4 +575,4 @@
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

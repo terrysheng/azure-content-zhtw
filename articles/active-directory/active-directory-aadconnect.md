@@ -229,6 +229,7 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 ### 其他文件
 如需使用 Azure AD Connect 的其他文件請參閱下列文件：
 
+- [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md) 
 - [變更 Azure AD Connect 預設組態](active-directory-aadconnect-whats-next-change-default-config.md)
 - [使用 Azure AD Connect 同步處理規則編輯器](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [使用宣告式佈建](active-directory-aadconnect-whats-next-declarative-prov.md)
@@ -248,7 +249,7 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 
 [Azure AD Connect Health](active-directory-aadconnect-health.md) - 監控內部部署 AD FS 基礎結構的健全狀況。
 
-〈[Azure AD Connect 常見問題集](active-directory-aadconnect-faq.md)〉- 關於 Azure AD Connect 的常見問題集。
+[Azure AD Connect 常見問題集](active-directory-aadconnect-faq.md) - 關於 Azure AD Connect 的常見問題集。
 
 
 
@@ -257,4 +258,4 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

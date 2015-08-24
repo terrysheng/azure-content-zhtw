@@ -220,14 +220,14 @@
 
 本教學課程使用下列 HDFS 資料夾結構：
 
-<table border="1">
-<tr><td>資料夾</td><td>注意</td></tr>
-<tr><td>/WordCount</td><td>字數統計專案的根資料夾。</td></tr>
-<tr><td>/WordCount/Apps</td><td>對應器和歸納器可執行檔的資料夾。</td></tr>
-<tr><td>/WordCount/Input</td><td>MapReduce 來源檔案資料夾。</td></tr>
-<tr><td>/WordCount/Output</td><td>MapReduce 輸出檔案資料夾。</td></tr>
-<tr><td>/WordCount/MRStatusOutput</td><td>工作輸出資料夾。</td></tr>
-</table>
+資料夾|注意
+---|---
+/WordCount|字數統計專案的根資料夾。 
+/WordCount/Apps|對應器和歸納器可執行檔的資料夾。
+/WordCount/Input|MapReduce 來源檔案資料夾。
+/WordCount/Output|MapReduce 輸出檔案資料夾。
+/WordCount/MRStatusOutput|工作輸出資料夾。
+
 
 本教學課程使用 %hadoop\_home% 目錄中的 .txt 檔案做為資料檔案。
 
@@ -610,4 +610,4 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

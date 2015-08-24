@@ -1,11 +1,12 @@
 <properties
 	pageTitle="在 Azure 中建立執行 Windows 的虛擬機器"
-	description="在 Azure 入口網站中建立 Windows 虛擬機器 (VM)。"
+	description="在 Azure 入口網站中建立 Windows 虛擬機器。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/05/2015"
+	ms.date="08/11/2015"
 	ms.author="kathydav"/>
 
 # 在 Azure 入口網站中建立執行 Windows 的虛擬機器
@@ -41,7 +42,7 @@
 
 本節說明如何使用 Azure 入口網站中的 [**從組件庫**] 選項建立虛擬機器。此選項提供的組態選擇比 [快速建立] 選項還多。例如，如果您要將虛擬機器加入虛擬網路中，您必須使用 [從組件庫] 選項。
 
-> [AZURE.NOTE]您也可以嘗試透過更豐富，而且可自訂的 [Azure Preview 入口網站](https://portal.azure.com)建立虛擬機器、自動部署多個 VM 應用程式範本，以及使用增強的 VM 監控和診斷功能等。兩個入口網站中的可用 VM 組態選項有許多重疊之處，但並不完全相同。
+> [AZURE.NOTE]您也可以嘗試透過更豐富，而且可自訂的 [Azure Preview 入口網站](https://portal.azure.com)建立虛擬機器、使用增強的監控和診斷功能，以及使用進階儲存體等。兩個入口網站中用來設定虛擬機器的可用選項有許多重疊之處，但並不完全相同。例如，使用 Preview 入口網站設定包含進階儲存體的虛擬機器。
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
 
@@ -53,6 +54,6 @@
 
 ## 其他資源
 
-若要深入了解您可以為 VM 設定什麼功能以及何時可以設定，請參閱[有關 Azure VM 設定](http://msdn.microsoft.com/library/azure/dn763935.aspx)。
+若要深入了解您可以為虛擬機器設定什麼功能以及何時可以設定，請參閱〈[關於 Azure VM 組態設定](http://msdn.microsoft.com/library/azure/dn763935.aspx)〉。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

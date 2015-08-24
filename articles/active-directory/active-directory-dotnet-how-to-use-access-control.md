@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用存取控制 (.NET) - Azure 功能指南" 
+	pageTitle="如何使用存取控制 (.NET) | Microsoft Azure" 
 	description="了解如何使用 Azure 應用程式中的存取控制服務 (ACS)，以在使用者嘗試存取 Web 應用程式時予以驗證。" 
 	services="active-directory" 
 	documentationCenter=".net" 
@@ -403,4 +403,4 @@ Visual Studio 中的 Identity and Access Tool 會自動將您的應用程式與 
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

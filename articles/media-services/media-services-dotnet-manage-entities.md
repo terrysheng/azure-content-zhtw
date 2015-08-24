@@ -14,11 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
 #使用媒體服務 .NET SDK 管理資產和相關的實體
+
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-manage-entities.md)
+- [REST](media-services-rest-manage-entities.md)
+
 
 本主題示範如何完成下列的媒體服務管理工作：
 
@@ -324,4 +330,4 @@
 	}
 	
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

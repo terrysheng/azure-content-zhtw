@@ -1,5 +1,5 @@
 <properties
-	pageTitle="將磁碟附加至虛擬機器 | Azure"
+	pageTitle="將磁碟附加至虛擬機器 | Microsoft Azure"
 	description="了解如何將資料磁碟附加至 Azure 虛擬機器，並初始化磁碟以便開始使用。"
 	services="virtual-machines, storage"
 	documentationCenter=""
@@ -53,4 +53,4 @@
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

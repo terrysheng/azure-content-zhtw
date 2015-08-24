@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Azure 媒體服務概觀
@@ -87,4 +87,4 @@ Azure 媒體服務提供一些工具，供您用來建立適用於大部分平�
 [overview]: ./media/media-services-overview/media-services-overview.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

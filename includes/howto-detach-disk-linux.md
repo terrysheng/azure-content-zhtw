@@ -1,22 +1,19 @@
-<properties writer="kathydav" editor="tysonn" manager="timlt" />
 
+當不再需要某個連接至虛擬機器的資料磁碟時，卸離此資料磁碟很簡單。這會將磁碟從虛擬機器中卸離，但這不會將它從儲存體中移除。如果您想要再次使用磁碟上現有的資料，您可以將磁碟重新連接至相同或其他虛擬機器。
 
-When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.  
+> [AZURE.NOTE]Azure 中的虛擬機器使用不同類型的磁碟，例如作業系統磁碟、本機暫存磁碟和選擇性資料磁碟。建議您使用資料磁碟來儲存虛擬機器的資料。如需詳細資訊，請參閱[有關虛擬機器的磁碟和 VHD](../../virtual-machines-disks-vhds.md)。您無法卸離作業系統磁碟，除非您同時刪除虛擬機器。
 
-> [AZURE.NOTE] A virtual machine in Azure uses different types of disks -- an operating system disk, a local temporary disk, and optional data disks. Data disks are the recommended way to store data for a virtual machine. For details, see [About Disks and VHDs for Virtual Machines](../../virtual-machines-disks-vhds.md). It's not possible to detach an operating system disk unless you also delete the virtual machine.
+## 尋找磁碟
 
-## Find the disk
+可以從虛擬機器卸離磁碟之前，您需要找出 LUN 編號，這是要卸離之磁碟的識別碼。若要這樣做，請遵循下列步驟：
 
-Before you can detach a disk from a virtual machine, you need to find out the LUN number, which is an identifier for the disk to be detached. To do that, follow these steps:
+1. 	開啟 Azure CLI for Mac, Linux, and Windows，並連接至您的 Azure 訂用帳戶。如需詳細資料，請參閱 [從 Azure CLI 連接至 Azure](../articles/xplat-cli-connect.md)。
 
-1. 	Open Azure CLI for Mac, Linux, and Windows and connect to your Azure subscription. See [Connect
-    to Azure from Azure CLI](../articles/xplat-cli-connect.md) for more details.
+2.  請確定您是在 Azure 服務管理模式中，這是輸入 `azure config
+ 	mode asm` 時的預設值。
 
-2.  Make sure you are in Azure Service Management mode, which is the default by typing `azure config
- 	mode asm`.
-
-3. 	Find out which disks are attached to your virtual machine by using `azure vm disk list
-	<virtual-machine-name>` as follows:
+3. 	使用 `azure vm disk list
+	<virtual-machine-name>`，找出哪些磁碟已連接至您的虛擬機器，如下所示：
 
 		$azure vm disk list ubuntuVMasm
 		info:    Executing command vm disk list
@@ -30,15 +27,15 @@ Before you can detach a disk from a virtual machine, you need to find out the LU
 		data:    0    30        ubuntuVMasm-76f7ee1ef0f6dddc.vhd
 		info:    vm disk list command OK
 
-4. 	Note the LUN or the **logical unit number** for the disk that you want to detach.
+4. 	請記下您要卸離之磁碟的 LUN 或**邏輯單元編號**。
 
 
-## Detach the disk
+## 卸離磁碟
 
-After you find the LUN number of the disk, you're ready to detach it:
+在您找到磁碟的 LUN 編號之後，就可以開始卸離磁碟：
 
-1. 	Detach the selected disk from the virtual machine by running the command `azure vm disk detach
- 	<virtual-machine-name> <LUN>` like this:
+1. 	執行命令 `azure vm disk detach
+ 	<virtual-machine-name> <LUN>`，從虛擬機器卸離選取的磁碟，如下所示：
 
 		$azure vm disk detach ubuntuVMasm 0
 		info:    Executing command vm disk detach
@@ -46,7 +43,7 @@ After you find the LUN number of the disk, you're ready to detach it:
 		+ Removing Data-Disk
 		info:    vm disk detach command OK
 
-2. 	You can check if the disk got detached by running this command:
+2. 	您可以執行此命令，檢查是否已卸離磁碟：
 
 		$azure vm disk list ubuntuVMasm
 		info:    Executing command vm disk list
@@ -59,4 +56,6 @@ After you find the LUN number of the disk, you're ready to detach it:
 		data:    1    10        test.VHD
 		info:    vm disk list command OK
 
-The detached disk remains in storage but is no longer attached to a virtual machine.
+卸離的磁碟仍留在儲存體中，但不再連接至虛擬機器。
+
+<!---HONumber=August15_HO7-->

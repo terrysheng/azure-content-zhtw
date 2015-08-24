@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用 SQL Database (PHP) - Azure 功能指南" 
+	pageTitle="如何使用 SQL Database (PHP) | Microsoft Azure" 
 	description="了解如何從 PHP 建立和連線到 Azure SQL Database。" 
 	services="sql-database" 
 	documentationCenter="php" 
@@ -130,4 +130,4 @@ SQL Database 可為 Azure 提供關聯式資料庫管理系統，並以 SQL Serv
 [quick-create]: ./media/sql-database-php-how-to-use/create-new-sql.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

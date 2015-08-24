@@ -1,5 +1,5 @@
 <properties
-	pageTitle="混合式內部部署/雲端應用程式 (.NET) - Azure"
+	pageTitle="混合式內部部署/雲端應用程式 (.NET) | Microsoft Azure"
 	description="了解如何使用 Azure Service Bus Relay 建立 .NET 內部部署/雲端混合式應用程式。"
 	services="service-bus"
 	documentationCenter=".net"
@@ -620,4 +620,4 @@ Azure 會就每小時伺服器時間所使用的 Web 角色執行個體數進行
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

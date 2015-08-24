@@ -55,7 +55,7 @@ Azure 角色型存取控制可讓您將角色指派給訂閱、資源群組或�
 
 訂閱管理員與共同管理員將繼續擁有對 Azure 入口網站與管理 API 的完整存取權限。在 RBAC 模型中，它們會獲得訂閱層級的擁有者角色。不過，只有 Azure 入口網站和 Azure 資源管理員 API 支援新的 RBAC 模型。獲得 RBAC 角色指派的使用者與服務，無法存取 Azure 管理入口網站與服務管理 API。將使用者新增到 Azure 入口網站中訂閱的擁有者角色之後，並不會使該使用者變成完整的 Azure 入口網站裡的訂閱共同管理員。
 
-如果您希望將存取權限授予 Azure 資源的使用者 (但該資源尚無法透過 Azure 入口網站管理)，您應該透過 Azure 管理入口網站，將他們新增至訂閱共同管理員中。服務匯流排與雲端服務都是目前尚無法透過 RBAC 來管理的資源範例。
+如果您希望將存取權限授予 Azure 資源的使用者 (但該資源尚無法透過 Azure 入口網站管理)，您應該透過 Azure 管理入口網站，將他們新增至訂閱共同管理員中。服務匯流排與 StorSimple 都是目前尚無法透過使用 RBAC 來管理的資源範例。
 
 ## 管理授權與資料作業
 
@@ -1293,4 +1293,4 @@ Azure 角色型存取控制會隨附三個內建的角色，供您指派給使�
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

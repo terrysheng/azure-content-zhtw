@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="媒體服務 REST API 概觀 - Azure" 
+	pageTitle="媒體服務 REST API 概觀 | Microsoft Azure" 
 	description="媒體服務 REST API 概觀" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
 # 媒體服務 REST API 概觀 
+
+[AZURE.INCLUDE [媒體-服務-選取器-設定](../../includes/media-services-selector-setup.md)]
 
 Microsoft Azure 媒體服務會接受以 OData 為基礎的 HTTP 要求，而且可以使用詳細資訊 JSON 或 atom+pub 回應。由於媒體服務符合 Azure 設計指導方針，因此在連線到媒體服務時，每個用戶端都必須使用一組必要的 HTTP 標頭，以及一組可以使用的選擇性標頭。下列章節描述建立要求及接收來自媒體服務的回應時可以使用的標頭和 HTTP 指令動詞。
 
@@ -97,4 +99,4 @@ HEAD|傳回 GET 回應的物件中繼資料。
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

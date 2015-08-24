@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="開始使用推播通知 (Android JavaScript) | 行動開發人員中心" 
+	pageTitle="開始使用推播通知 (Android JavaScript) | Microsoft Azure" 
 	description="了解如何使用 Azure 行動服務傳送推播通知至 Android JavaScript 應用程式。" 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
@@ -212,4 +212,4 @@
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

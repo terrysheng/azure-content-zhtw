@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用非關聯式資料存放區來建置服務 | Azure 行動服務" 
+	pageTitle="使用非關聯式資料存放區來建置服務 | Microsoft Azure" 
 	description="了解如何對於 .NET 型行動服務使用非關聯式資料存放區，例如 MongoDB 或 Azure Table Storage。" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="08/08/2015" 
 	ms.author="mahender"/>
 
 # 建置使用 MongoDB 而非 SQL Database 進行儲存的 .NET 後端行動服務
@@ -121,4 +121,4 @@
 [MongoLab 附加元件頁面]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

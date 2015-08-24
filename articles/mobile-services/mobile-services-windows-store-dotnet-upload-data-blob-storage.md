@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用行動服務將影像上傳至 Blob 儲存體 (Windows 市集) | 行動服務" 
+	pageTitle="使用行動服務將影像上傳至 Blob 儲存體 (Windows 市集) | Microsoft Azure" 
 	description="了解如何使用行動服務將影像上傳至 Azure Blob 儲存體並從 Windows 市集應用程式存取該影像。" 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -103,4 +103,4 @@
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

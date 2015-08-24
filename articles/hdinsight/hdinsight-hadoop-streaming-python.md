@@ -1,5 +1,5 @@
 <properties
-   pageTitle="使用 HDInsight 開發 Python MapReduce 工作 | Microsoft Aure"
+   pageTitle="使用 HDInsight 開發 Python MapReduce 工作 | Microsoft Azure"
    description="了解如何在以 Linux 為基礎的 HDInsight 叢集上建立和執行 Python MapReduce 工作。"
    services="hdinsight"
    documentationCenter=""
@@ -202,4 +202,4 @@ Python 可以使用 **sys** 模組從 STDIN 讀取資料並使用 **print** 來�
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

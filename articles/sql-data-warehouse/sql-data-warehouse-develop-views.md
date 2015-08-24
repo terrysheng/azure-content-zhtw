@@ -26,11 +26,27 @@
 ## 架構抽象概念
 極為常見的應用程式模式就是在載入資料時，使用後面接著物件重新命名模式的 CREATE TABLE AS SELECT (CTAS) 來重建資料表。
 
-下列範例會將新的日期記錄加入至日期維度。請注意，如何第一次建立新的物件 DimDate\_New，然後予以重新命名來取代原始物件版本。``` CREATE TABLE dbo.DimDate\_New WITH (DISTRIBUTION = REPLICATE , CLUSTERED INDEX (DateKey ASC) ) AS SELECT * FROM dbo.DimDate AS prod UNION ALL SELECT * FROM dbo.DimDate\_stg AS stg ;
+下列範例會將新的日期記錄加入至日期維度。請注意是如何第一次建立新的物件 DimDate\_New，然後予以重新命名來取代原始版本的物件。
 
-RENAME OBJECT DimDate TO DimDate\_Old; RENAME OBJECT DimDate\_New TO DimDate;
+```
+CREATE TABLE dbo.DimDate_New
+WITH (DISTRIBUTION = REPLICATE
+, CLUSTERED INDEX (DateKey ASC)
+)
+AS 
+SELECT *
+FROM   dbo.DimDate  AS prod
+UNION ALL
+SELECT *
+FROM   dbo.DimDate_stg AS stg
+;
 
-``` 不過，這可能會導致資料表物件從 [SSDT SQL Server 物件總管] 的使用者檢視中出現與消失。檢視可為倉儲資料取用者提供一致的展示層，然而基礎物件已重新命名。透過檢視提供資料存取權，意味著使用者不需要基礎資料表的可見性。這會提供一致的使用者經驗，同時確保資料倉儲設計人員可以發展資料模型，也可在資料載入過程中使用 CTAS 充分發揮效能。
+RENAME OBJECT DimDate TO DimDate_Old;
+RENAME OBJECT DimDate_New TO DimDate;
+
+```
+
+不過，這可能會導致資料表物件從 [SSDT SQL Server 物件總管] 的使用者檢視中出現與消失。檢視可為倉儲資料取用者提供一致的展示層，然而基礎物件已重新命名。透過檢視提供資料存取權，意味著使用者不需要基礎資料表的可見性。這會提供一致的使用者經驗，同時確保資料倉儲設計人員可以發展資料模型，也可在資料載入過程中使用 CTAS 充分發揮效能。
 
 ## 效能最佳化
 檢視是在資料表之間強制執行效能最佳化聯結的明智方式。例如，檢視可以納入備援散發金鑰作為聯結準則的一部分，以將資料移動最小化。另一個原因可能是強制執行特定查詢或聯結提示。這可確保聯結一律以最佳方式執行，而且與記得正確建構聯結的使用者無關。
@@ -53,4 +69,4 @@ SQL 資料倉儲中的檢視僅限中繼資料使用。
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

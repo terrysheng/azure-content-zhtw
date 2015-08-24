@@ -13,12 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
-	ms.author="sidneyh"/>
+	ms.date="07/21/2015"
+	ms.author="ddove; sidneyh"/>
 
-# 建立和管理彈性資料庫工作
+# 使用入口網站建立和管理 SQL Database 彈性工作 (預覽)
 
-**彈性資料庫集區**提供一個用於部署大量資料庫的可預測模型。您可以在固定成本下，為每個資料庫設定最小資料輸送量單位 (DTU)。管理這些資料庫中之通用物件的最簡單方式，是透過**彈性資料庫工作**。該服務可讓您對單一作業之集區中的所有資料庫執行 T-SQL 指令碼。例如，您可以在每個資料庫上設定原則，僅允許具有正確認證的人員檢視機密資料。
+> [AZURE.SELECTOR]
+- [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
+- [PowerShell](sql-database-elastic-jobs-powershell.md)
+
+
+**彈性資料庫工作**可讓您進行輕鬆且可靠的資料庫群組管理，方法是簡化系統管理作業，例如結構描述變更、認證管理、參考資料更新、效能資料收集，或租用戶 (客戶) 遙測收集。彈性資料庫工作目前可透過 Azure 入口網站和 PowerShell Cmdlet 使用。不過，Azure 入口網站呈現精簡功能會限制為跨[彈性資料庫集區 (預覽)](sql-database-elastic-pool.md)中的所有資料庫執行。若要存取其他功能以及跨資料庫群組執行指令碼，包括自訂定義集合或分區集 (使用[彈性資料庫用戶端程式庫](sql-database-elastic-scale-introduction.md)建立)，請參閱[使用 PowerShell 建立和管理工作](sql-database-elastic-jobs-powershell.md)。如需工作的詳細資訊，請參閱[彈性資料庫工作概觀](sql-database-elastic-jobs-overview.md)。
 
 ## 必要條件
 
@@ -28,7 +33,7 @@
 
 ## 建立工作 (Job)
 
-1. 在 [彈性資料庫工作集區] 刀鋒視窗中，按一下 [建立工作]。
+1. 使用 [Azure 入口網站](https://portal.azure.com)，從現有的彈性資料庫工作集區，按一下 [建立工作]。
 2. 輸入工作控制資料庫 (工作的中繼資料儲存體) 之資料庫系統管理員 (在安裝工作時建立) 的使用者名稱與密碼。
 
 	![為工作命名，輸入或貼上程式碼，然後按一下 [執行]][1]
@@ -110,4 +115,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

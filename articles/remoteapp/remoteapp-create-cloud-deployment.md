@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="如何建立 RemoteApp 的雲端收藏" 
-	description="了解如何建立將資料儲存在 Azure 雲端中的 RemoteApp 部署。" 
+	pageTitle="如何建立 Azure RemoteApp 的雲端收藏" 
+	description="了解如何建立將資料儲存在 Azure 雲端中的 Azure RemoteApp 部署。" 
 	services="remoteapp" 
 	documentationCenter="" 
 	authors="lizap" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # 如何建立 Azure RemoteApp 的雲端收藏
@@ -34,12 +34,12 @@ Azure RemoteApp 收藏分成兩種：
 
 在建立收藏之前，您必須執行下列作業：
 
-- [註冊](http://azure.microsoft.com/services/remoteapp/) RemoteApp。 
+- [註冊](http://azure.microsoft.com/services/remoteapp/) Azure RemoteApp。 
 - 收集您想授與存取權之使用者的相關資訊。這可以是使用者 Microsoft 帳戶資訊或 Active Directory 工作帳戶資訊。
 - 此程序假設您將使用您的訂用帳戶隨附的範本映像之一，或是您已上傳所要使用的範本映像。如果您需要上傳不同的範本映像，您可以從 [範本映像] 頁面執行此作業。只要按一下 [上傳範本映像]，然後遵循精靈中的步驟即可。 
 - 想提供自訂應用程式或 LOB 程式？ 請建立新的[映像](remoteapp-imageoptions.md)，並在您的雲端部署中加以使用。
 
-## 步驟 1：建立 RemoteApp 收藏 ##
+## 步驟 1：建立集合 ##
 
 
 
@@ -56,7 +56,7 @@ Azure RemoteApp 收藏分成兩種：
 	
 	**重要：**佈建收藏最多可能需要 30 分鐘。
 
-在建立 RemoteApp 收藏後，請移至 RemoteApp [快速入門] 頁面以繼續設定步驟。
+建立了 RemoteApp 集合之後，請按兩下集合的名稱。這時會顯示 [**快速入門**] 頁面 - 這是您完成設定集合的頁面。
 
 
 ## 步驟 2：設定 Active Directory 目錄同步處理 (選用) ##
@@ -93,4 +93,4 @@ RemoteApp 應用程式是您提供給使用者的應用程式或程式。此程�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

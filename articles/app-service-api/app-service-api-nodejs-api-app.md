@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="get-started-article"
-	ms.date="04/21/2015"
+	ms.date="08/11/2015"
 	ms.author="pakefali"/>
 
 # 在 Azure App Service 中建置和部署 Node.js API 應用程式
@@ -245,4 +245,4 @@
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

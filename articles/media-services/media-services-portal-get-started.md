@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="07/16/2015"
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -226,9 +226,6 @@ SAS URL 具有下列格式：
 ![AMSPlayer][AMSPlayer]
 
 
-##後續步驟
-
-深入了解建置點播視訊應用程式的相關資訊[建置 VoD 應用程式](media-services-video-on-demand-workflow.md)
 
 ###其他資源
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - 立即在線上取得您的影片！</a>
@@ -256,4 +253,4 @@ SAS URL 具有下列格式：
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

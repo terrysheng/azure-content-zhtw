@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="註冊 Azure Active Directory 驗證 |Azure 行動服務" 
+	pageTitle="註冊 Azure Active Directory 驗證 | Microsoft Azure" 
 	description="了解如何在 Mobile Services 應用程式中註冊 Azure Active Directory 驗證。" 
 	authors="wesmc7777" 
 	services="mobile-services" 
@@ -66,4 +66,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

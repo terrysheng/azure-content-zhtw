@@ -1,41 +1,51 @@
 <properties
-	pageTitle="Azure 備份 - 使用 Azure PowerShell 部署和管理 DPM 的備份 | Microsoft Azure"
-	description="了解如何使用 Azure PowerShell 部署和管理 Data Protection Manager (DPM) 的 Azure 備份"
+	pageTitle="Azure 備份 - 使用 PowerShell 部署和管理 DPM 的備份 | Microsoft Azure"
+	description="了解如何使用 PowerShell 部署和管理 Data Protection Manager (DPM) 的 Azure 備份"
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/23/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="jimpark"; "aashishr"/>
 
 
-# 使用 Azure PowerShell 部署和管理 Data Protection Manager (DPM) 伺服器的 Azure 備份
-本文說明如何使用 Azure PowerShell 來設定 DPM 伺服器上的 Azure 備份以及管理備份和復原。
+# 使用 PowerShell 部署和管理 Data Protection Manager (DPM) 伺服器的 Azure 備份
+本文說明如何使用 PowerShell 來設定 DPM 伺服器上的 Azure 備份以及管理備份和復原。
 
-## 設定 Azure PowerShell 環境
-在可以使用 Azure PowerShell 來管理 Data Protection Manager 的 Azure 備份之前，您必須在 Azure PowerShell 中具備適當的環境。在 Azure PowerShell 工作階段開始時，請確定您執行下列命令來匯入正確的模組並可讓您正確地參考 DPM Cmdlet：
+## 設定 PowerShell 環境
+在可以使用 PowerShell 來管理 Data Protection Manager 的 Azure 備份之前，您必須在 PowerShell 中具備適當的環境。在 PowerShell 工作階段開始時，請確定您執行下列命令來匯入正確的模組並可讓您正確地參考 DPM Cmdlet：
 
 ```
 PS C:\> & "C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin\DpmCliInitScript.ps1"
 
 Welcome to the DPM Management Shell!
 
-Full list of cmdlets: Get-Command Only DPM cmdlets: Get-DPMCommand Get general help: help Get help for a cmdlet: help <cmdlet-name> or <cmdlet-name> -? Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax Sample DPM scripts: Get-DPMSampleScript
+Full list of cmdlets: Get-Command 
+Only DPM cmdlets: Get-DPMCommand 
+Get general help: help 
+Get help for a cmdlet: help <cmdlet-name> or <cmdlet-name> -? 
+Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax 
+Sample DPM scripts: Get-DPMSampleScript
 ```
 
 ## 設定和註冊
-### 在 DPM 伺服器上安裝 Azure 備份代理程式
-在安裝 Azure 備份代理程式之前，您必須在 Windows Server 上下載並提供安裝程式。從 [Microsoft 下載中心](http://aka.ms/azurebackup_agent)可以取得最新版的安裝程式。請將安裝程式儲存至容易存取的位置，例如 *C:\Downloads*。
 
-若要安裝代理程式，請在 **DPM 伺服器**上已提升權限的 Azure PowerShell 主控台中執行下列命令：
+### 建立備份保存庫
+您可以使用 **New-AzureBackupVault** commandlet 建立新的備份保存庫。備份保存庫是 ARM 資源，因此您必須將它放在資源群組內。在提高權限的 Azure PowerShell 主控台中，執行下列命令：
+
+```
+PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> $backupvault = New-AzureBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+```
+
+您可以使用 **Get-AzureBackupVault** commandlet 取得特定訂用帳戶中所有備份保存庫的清單。
+
+
+### 在 DPM 伺服器上安裝 Azure 備份代理程式
+在安裝 Azure 備份代理程式之前，您必須在 Windows Server 上下載並提供安裝程式。您可以從 [Microsoft 下載中心](http://aka.ms/azurebackup_agent)或從備份保存庫的 [儀表板] 頁面取得最新版的安裝程式。請將安裝程式儲存至容易存取的位置，例如 *C:\\Downloads*。
+
+若要安裝代理程式，請在 **DPM 伺服器**上已提升權限的 PowerShell 主控台中執行下列命令：
 
 ```
 PS C:\> MARSAgentInstaller.exe /q
@@ -73,13 +83,22 @@ PS C:\> MARSAgentInstaller.exe /?
 在可註冊 Azure 備份服務之前，您必須確定已符合[先決條件](backup-azure-dpm-introduction.md)。您必須：
 
 - 具備有效的 Azure 訂用帳戶
-- 建立備份保存庫
-- 下載保存庫認證並將它們儲存在方便的位置 (例如 *C:\Downloads*)。為方便起見，您也可以重新命名保存庫認證。
+- 具備備份保存庫
+
+若要下載保存庫認證，請在 Azure PowerShell 主控台中執行**Get-AzureBackupVaultCredentials**，並將其儲存在方便的位置，例如 *C:\\Downloads*。
+
+```
+PS C:\> $credspath = "C:"
+PS C:\> $credsfilename = Get-AzureBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
+PS C:\> $credsfilename
+f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
+```
 
 使用 [Start-DPMCloudRegistration](https://technet.microsoft.com/library/jj612787) Cmdlet 即可向保存庫註冊電腦：
 
 ```
-PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredentialsFilePath "C:\Downloads\REGISTER.VaultCredentials"
+PS C:\> $cred = $credspath + $credsfilename 
+PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredentialsFilePath $cred
 ```
 
 此命令會使用指定的保存庫認證向 Microsoft Azure 保存庫註冊名為 “TestingServer” 的 DPM 伺服器。
@@ -93,7 +112,7 @@ PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredenti
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-所有修改都會對此本機 Azure PowerShell 物件 ```$setting``` 進行，然後使用 [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) Cmdlet 將完整物件認可到 DPM 和 Azure 備份以加以儲存。您必須使用 ```–Commit``` 旗標，以確保會保存所做的變更。除非已認可，否則 Azure 備份將不會套用並使用設定。
+所有修改都會對此本機 PowerShell 物件 ```$setting``` 進行，然後使用 [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) Cmdlet 將完整物件認可到 DPM 和 Azure 備份以加以儲存。您必須使用 ```–Commit``` 旗標，以確保會保存所做的變更。除非已認可，否則 Azure 備份將不會套用並使用設定。
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
@@ -119,7 +138,7 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
 ```
 
-在上述範例中，臨時區域將在 Azure PowerShell 物件 ```$setting``` 中設定為 *C:\StagingArea*。請確保指定的資料夾已經存在，否則訂閱設定的最終認可將會失敗。
+在上述範例中，臨時區域將在 PowerShell 物件 ```$setting``` 中設定為 *C:\\StagingArea*。請確保指定的資料夾已經存在，否則訂閱設定的最終認可將會失敗。
 
 
 ### 加密設定
@@ -163,7 +182,7 @@ PS C:\> $MPG = Get-ModifiableProtectionGroup $PG
 ```
 
 ### 將群組成員加入至保護群組
-每個 DPM 代理程式會知道它安裝所在伺服器上資料來源的清單。若要將資料來源加入至保護群組，DPM 代理程式必須先將資料來源清單傳回到 DPM 伺服器。然後會選取一或多個資料來源，並加入至保護群組。達成此動作所需的 Azure PowerShell 步驟包括：
+每個 DPM 代理程式會知道它安裝所在伺服器上資料來源的清單。若要將資料來源加入至保護群組，DPM 代理程式必須先將資料來源清單傳回到 DPM 伺服器。然後會選取一或多個資料來源，並加入至保護群組。達成此動作所需的 PowerShell 步驟包括：
 
 1. 擷取透過 DPM 代理程式由 DPM 管理的所有伺服器清單。
 2. 選擇特定伺服器。
@@ -281,4 +300,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 ## 後續步驟
 如需 DPM 的 Azure 備份詳細資訊，請參閱 [Azure DPM 備份簡介](backup-azure-dpm-introduction.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

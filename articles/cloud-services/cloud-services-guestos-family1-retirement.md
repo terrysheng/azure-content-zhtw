@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="客體作業系統系列 1 淘汰通知 | Azure" 
+   pageTitle="客體 OS 系列 1 淘汰通知 | Microsoft Azure" 
    description="提供客體作業系統系列 1 淘汰時間及如何自行判斷是否受影響等相關資訊" 
    services="cloud-services" 
    documentationCenter="na" 
@@ -18,7 +18,7 @@
 
 
 
-# 客體作業系統系列 1 淘汰通知
+# 客體 OS 系統系列 1 淘汰通知
 
 我們早在 2013 年 6 月 1 日宣佈客體作業系統系列 1 的淘汰資訊。
 
@@ -78,4 +78,4 @@ foreach($subscription in Get-AzureSubscription) {
 ## 客體作業系統系列 1 的延長支援已在 2014 年 11 月 3 日結束。
 以客體作業系統系列 1 為基礎的雲端服務將不再受到支援。請儘早移轉系列 1 以避免服務中斷。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

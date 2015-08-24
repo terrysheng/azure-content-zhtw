@@ -19,13 +19,16 @@
 
 # 在 Azure App Service 中購買並設定自訂網域名稱
 
-<div class="dev-center-tutorial-selector sublanding">
-  <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web 應用程式" class="current">購買 Web 應用程式網域</a> <a href="/documentation/articles/web-sites-custom-domain-name" title="Web 應用程式">內含外部網域的 Web 應用程式</a> <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="內含流量管理員的 Web 應用程式">內含流量管理員的 Web 應用程式</a> <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
+> [AZURE.SELECTOR]
+- [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md)
+- [Web Apps with External Domains](web-sites-custom-domain-name.md)
+- [Web Apps with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
+- [GoDaddy](web-sites-godaddy-custom-domain-name.md)
 
 
-</div>
 
-[AZURE.INCLUDE 〈[websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)〉]
+
+[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 當您建立 Web 應用程式時，Azure 會將它指派給 azurewebsites.net 的子網域。例如，如果您的 Web 應用程式名稱為 **contoso**，則 URL 會是 **contoso.azurewebsites.net**。Azure 也會指派虛擬 IP 位址。
 
@@ -95,4 +98,4 @@
 此時，您應該能夠在瀏覽器中輸入自訂網域名稱，並且能成功移至您的 Web 應用程式。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

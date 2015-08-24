@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用服務匯流排主題 (Python) - Azure" 
+	pageTitle="如何使用服務匯流排主題 (Python) | Microsoft Azure" 
 	description="了解如何從 Python 使用 Azure 服務匯流排主題和訂閱。" 
 	services="service-bus" 
 	documentationCenter="python" 
@@ -158,4 +158,4 @@
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

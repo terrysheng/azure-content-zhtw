@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -20,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](virtual-machines-windows-tutorial.md)
-- [Azure Management Portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure Portal](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 下列步驟將示範如何使用建置組塊自訂一組 Azure PowerShell 命令，建立和預先設定以 Windows 為基礎的 Azure 虛擬機器。您可以使用此程序，對於以 Windows 為基礎的新虛擬機器建立命令集合，並擴充現有部署，或建立快速建置自訂開發/測試或 IT 專業環境的多個命令集。
@@ -46,7 +47,7 @@
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-您可以從 **Get-AzureSubscription** 命令輸出的 SubscriptionName 屬性，取得正確的訂用帳戶名稱。當您發出 **Select-AzureSubscription** 命令後，就能從 **Get-AzureStorageAccount** 命令輸出的 Label 屬性取得正確的儲存體帳戶名稱。
+您可以從 **Get-AzureSubscription** 命令輸出的 SubscriptionName 屬性，取得正確的訂用帳戶名稱。執行 **Select-AzureSubscription** 命令後，就能從 **Get-AzureStorageAccount** 命令輸出的 Label 屬性取得正確的儲存體帳戶名稱。
 
 ## 步驟 3：決定 ImageFamily
 
@@ -141,7 +142,7 @@
 
 也可選擇將虛擬機器加入至外部流量的現有負載平衡集。
 
-	$prot="<Specify one: tcp, udp>"
+	$port="<Specify one: tcp, udp>"
 	$localport=<port number of the internal port>
 	$pubport=<port number of the external port>
 	$endpointname="<name of the endpoint>"
@@ -151,7 +152,7 @@
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
-最後，選擇下列其中一個命令區塊，啟動虛擬機器建立程序 (必要)。
+最後，選擇這些必要命令區塊的其中之一來建立虛擬機器。
 
 選項 1：在現有的雲端服務中建立虛擬機器。
 
@@ -256,7 +257,7 @@
 
 
 ## 其他資源
-<!-- For section headings, use sentence-case caps -->
+
 [虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Azure 虛擬機器常見問題集](http://msdn.microsoft.com/library/azure/dn683781.aspx)
@@ -269,4 +270,4 @@
 
 [利用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

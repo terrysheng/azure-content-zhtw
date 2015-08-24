@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/11/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis 快取範例 
@@ -37,10 +37,6 @@
 -	使用 Redis 集合來實作標記
 
 如需詳細資訊，請參閱 github 上的 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 文件，如需使用案例，則請參閱 [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests) 單元測試。
-
-[如何搭配使用 Azure Redis 快取與 Node.js](cache-nodejs-get-started.md) 說明如何開始搭配使用 Azure Redis 快取與 Node.js 和 [node\_redis](https://github.com/mranney/node_redis) 用戶端。
-
-[如何搭配使用 Azure Redis 快取與 Java](cache-java-get-started.md) 說明如何開始搭配使用 Azure Redis 快取與 Java 和 [Jedis](https://github.com/xetorthio/jedis) 用戶端。
 
 [如何搭配使用 Azure Redis 快取與 Python](cache-python-get-started.md) 說明如何開始搭配使用 Azure Redis 快取與 Python 和 [redis-py](https://github.com/andymccurdy/redis-py) 用戶端。
 
@@ -79,4 +75,4 @@
 
 [頻寬監視器](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor)範例可讓您監視用戶端上使用的頻寬。若要測量頻寬，請在快取用戶端電腦上執行這個範例、呼叫快取，並觀察頻寬監視器範例所報告的頻寬。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

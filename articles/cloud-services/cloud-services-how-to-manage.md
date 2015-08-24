@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何管理雲端服務 - Azure" 
+	pageTitle="如何管理雲端服務 | Microsoft Azure" 
 	description="了解如何在 Azure 入口網站中管理雲端服務。" 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -158,4 +158,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

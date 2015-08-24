@@ -1,24 +1,26 @@
-In this step, you manually create the availability group listener in Failover Cluster Manager and SQL Server Management Studio (SSMS).
+在此步驟中，您會在容錯移轉叢集管理員和 SQL Server Management Studio (SSMS) 中手動建立可用性群組接聽程式。
 
-1. Open Failover Cluster Manager from the node hosting the primary replica.
+1. 從裝載主要複本的節點開啟容錯移轉叢集管理員。
 
-1. Select the **Networks** node, and note the cluster network name. This name will be used in the $ClusterNetworkName variable in the PowerShell script.
+1. 選取 [網路] 節點，然後記下叢集網路名稱。這個名稱會用於 PowerShell 指令碼中的 $ClusterNetworkName 變數。
 
-1. Expand the cluster name, and then click **Roles**.
+1. 展開叢集名稱，然後按一下 [角色]。
 
-1. In the **Roles** pane, right-click the availability group name and then select **Add Resource** > **Client Access Point**.
+1. 在 [角色] 窗格中以滑鼠右鍵按一下可用性群組名稱，然後選取 [加入資源] > [用戶端存取點]。
 
-	![Add Client Access Point for Availability Group](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678769.gif)
+	![加入可用性群組的用戶端存取點](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678769.gif)
 
-1. In the **Name** box, create a name for this new listener, then click **Next** twice, and then click **Finish**. Do not bring the listener or resource online at this point.
+1. 在 [名稱] 方塊中，建立這個新接聽程式的名稱，然後按兩次 [下一步]，再按一下 [完成]。目前請勿讓接聽程式或資源上線工作。
 
-1. Click the **Resources** tab, then expand the Client Access Point you just created. You will see the **IP Address** resource for each of the cluster networks in your cluster. If this is an Azure-only solution, you will only see one IP address resource.
+1. 按一下 [資源] 索引標籤，然後展開您剛才建立的用戶端存取點。您會看到叢集中每個叢集網路的 [IP 位址]資源。如果這是僅限 Azure 的解決方案，您只會看到一個 IP 位址資源。
 
-1. If you are configuring a hybrid solution, continue with this step. If you are configuring an Azure only solution, skip to the next step. 
-	 - Right-click the IP Address resource that corresponds to your on-premises subnet, then select **Properties**. Note the IP Address Name and network name.
-	 - Select **Static IP Address**, assign an unused IP address and then click **OK**.
+1. 如果您正在設定混合式解決方案，請繼續執行此步驟。如果您正在設定僅限 Azure 的解決方案，請跳至下一個步驟。
+	 - 以滑鼠右鍵按一下對應至您內部部署子網路的 IP 位址資源，然後選取 [屬性]。記下 IP 位址名稱和網路名稱。
+	 - 選取 [靜態 IP 位址]、指派未使用的 IP 位址，然後按一下 [確定]。
 
-1. Right-click the IP Address resource that corresponds to your Azure subnet and then select Properties.
-	>[AZURE.NOTE] If the listener later fails to come online due to a conflicting IP address selected by DHCP, you can configure a valid static IP Address in this properties window.
+1. 以滑鼠右鍵按一下對應至您 Azure 子網路的 IP 位址資源，然後選取 [屬性]。
+	>[AZURE.NOTE]如果接聽程式稍後因為 DHCP 所選取的 IP 位址衝突而無法上線，您可以在此屬性視窗中設定有效的靜態 IP 位址。
 
-1. In the same **IP Address** properties window, change the **IP Address Name**. This IP address name will be used in the **$IPResourceName** variable of the PowerShell script. Repeat this step for each IP resource if your solution spans multiple Azure VNets.
+1. 在同一個 [IP 位址屬性] 視窗中，變更 [IP 位址名稱]。此 IP 位址名稱將用於 PowerShell 指令碼的 **$IPResourceName** 變數。如果您的方案跨越多個 Azure VNet，請針對每個 IP 資源重複此步驟。
+
+<!---HONumber=August15_HO7-->

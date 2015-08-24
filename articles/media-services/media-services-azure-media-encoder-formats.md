@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Azure Media Encoder 格式和轉碼器
@@ -131,4 +131,4 @@ YUV 211 格式資料|壓縮 YUV 格式。每行的每第二個水平像素都是
 Cirrus Logic Jr YUV 411 格式|Cirrus Logic Jr YUV 411 格式， 每個 Y、U 和 V 樣本小於 8 位元。每行的每個水平像素都是 Y 樣本，每第四個水平像素是 U 和 V 樣本。每條垂直線都會進行取樣。
 Indeo-produced YVU9 格式|Indeo-produced YVU9 格式，包含與最後一個影格的區別額外資訊。每個像素 9.5 位元，但回報為 9 位元。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

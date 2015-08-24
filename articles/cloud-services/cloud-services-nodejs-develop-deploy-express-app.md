@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Web 應用程式與 Express (Node.js) - Azure 教學課程" 
+	pageTitle="Web 應用程式與 Express (Node.js) | Microsoft Azure" 
 	description="以雲端服務教學課程為基礎的教學課程，示範如何使用 Express 模組。" 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -135,4 +135,4 @@ Node.js 包含核心執行時期的一組最低功能。開發人員在開發 No
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

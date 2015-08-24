@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用 Windows 市集應用程式的行動應用程式後端 | 行動開發人員中心"
+	pageTitle="開始使用 Windows 市集應用程式的行動應用程式後端 | Microsoft Azure"
 	description="遵循此教學課程，可開始使用 Azure 行動應用程式後端進行 C#、VB 或 JavaScript 的 Windows 市集開發。"
 	services="app-service\mobile"
 	documentationCenter="windows"
@@ -88,4 +88,4 @@
 [Azure Portal]: https://portal.azure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

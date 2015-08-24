@@ -1,6 +1,6 @@
 <properties
 	pageTitle="如何為 Azure RemoteApp 建立自訂範本映像"
-	description="了解如何為 RemoteApp 建立自訂範本映像。您可以將此範本用於混合式或雲端部署。"
+	description="了解如何為 Azure RemoteApp 建立自訂範本映像您可以使用此範本與混合式或雲端集合搭配。"
 	services="remoteapp"
 	documentationCenter=""
 	authors="lizap"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/28/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # 如何為 Azure RemoteApp 建立自訂範本映像
@@ -22,7 +22,7 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 
 - 映像大小應為 MB 的倍數。如果您嘗試上傳的映像大小不是正確的倍數，上傳作業會失敗。
 - 映像大小必須為 127 GB 或更小。
-- 必須在 VHD 檔案上 (VHDX 檔案目前不受支援)。
+- 必須在 VHD 檔案上 (目前不支援 VHDX 檔案 [Hyper-V 虛擬硬碟])。
 - VHD 不能是第 2 代虛擬機器。
 - VHD 可以固定大小或動態擴充。建議採用動態擴充 VHD 的做法，因為這會比固定大小 VHD 檔案更快速地上傳至 Azure。
 - 磁碟必須使用主開機記錄 (MBR) 分割樣式進行初始化。GUID 磁碟分割資料表 (GPT) 磁碟分割樣式不受支援。
@@ -49,7 +49,7 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 
 ## 建立範本映像 ##
 
-若要從頭建立新的範本映像：
+以下是從頭建立新範本映像的高階步驟：
 
 1.	找出 Windows Server 2012 R2 Update DVD 或 ISO 映像。
 2.	建立 VHD 檔案。
@@ -109,8 +109,8 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
  	**重要事項：**
 
 
-	- Microsoft 建議您在安裝應用程式之前先安裝 RDSH 角色，以確保可在映像上傳至 RemoteApp 之前發現任何關於應用程式相容性的問題。
-	- 確定應用程式會顯示在 [開始] 功能表中。也請確定您在 [開始] 功能表中看到的圖示是您想讓使用者看到的。如果不是，請變更圖示。(您*不一定*要將應用程式新增至 [開始] 功能表，但這樣做的話在 RemoteApp 中發佈應用程式會更輕鬆。否則，當您發佈應用程式時，您必須提供應用程式的安裝路徑。)
+	- 請在安裝應用程式之前先安裝 RDSH 角色，以確保可在映像上傳至 RemoteApp 之前發現任何關於應用程式相容性的問題。
+	- 確定應用程式出現在 [**開始**] 功能表中。也請確定您在 [**開始**] 功能表中看到的圖示是您想讓使用者看到的。如果不是，請變更圖示。(您*不一定*要將應用程式新增至 [開始] 功能表，但這樣做的話在 RemoteApp 中發佈應用程式會更輕鬆。否則，當您發佈應用程式時，您必須提供應用程式的安裝路徑。)
 
 8.	執行您的應用程式所需的任何其他 Windows 設定。
 9.	停用「加密檔案系統 (EFS)」。在提高權限的命令視窗上執行下列命令：
@@ -137,4 +137,4 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 - [如何建立 RemoteApp 的雲端收藏](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

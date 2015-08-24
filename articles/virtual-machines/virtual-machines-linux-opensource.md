@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/08/2015"
+	ms.date="08/07/2015"
 	ms.author="rasquill"/>
 
 
@@ -130,7 +130,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 16. [基本概念：Azure VM 延伸模組與功能](http://msdn.microsoft.com/library/azure/dn606311.aspx)
 17. [基本概念：將自訂資料插入 VM 中以搭配 Cloud-init 使用](virtual-machines-how-to-inject-custom-data.md)
 18. [基本概念部落格：以 12 個步驟在 Azure 上建置高可用性的 Linux](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
-19. [基本概念部落格：透過Azure CLI、node.js、jhawk 在 Azure 上自動佈建 Linux](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
+19. [基本概念部落格：透過 Azure CLI、node.js、jhawk 在 Azure 上自動佈建 Linux](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
 19. [使用 Azure CLI 建立多個 VM 的部署](virtual-machines-create-multi-vm-deployment-../xplat-cli.md)
 20. [基本概念：Azure Docker VM 延伸模組](virtual-machines-docker-vm-extension.md)
 23. [Azure 服務管理 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) 參考
@@ -240,6 +240,15 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 8. [基本概念：如何重設 Linux 的密碼或 SSH 屬性](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
 9. [基本概念：使用 Root](virtual-machines-linux-use-root-privileges.md)
 
+## Linux 高效能運算 (HPC)
+
+在使用開放原始碼工具或 Microsoft HPC Pack 建置的 Linux VM 叢集上執行 HPC 工作負載。
+
+1.	[快速入門範例：加速 SLURM 叢集](http://azure.microsoft.com/documentation/templates/slurm/) (以及[部落格文章](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx))
+2.	[快速入門範本：加速扭力叢集](http://azure.microsoft.com/documentation/templates/torque-cluster/)
+3.	[教學課程：開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點](virtual-machines-linux-cluster-hpcpack.md)
+4.	[教學課程：設定 Linux RDMA 叢集以執行 MPI 應用程式](virtual-machines-linux-cluster-rdma.md)
+
 ## 開發、管理和最佳化
 
 這一節的開頭是包含一系列影片的部落格文章︰[影片：Azure 虛擬機器︰使用 Chef、Puppet 和 Docker 管理 Linux VM](http://azure.microsoft.com/blog/2014/12/15/azure-virtual-machines-using-chef-puppet-and-docker-for-managing-linux-vms/)。不過，開發、管理和最佳化的領域相當廣泛、瞬息萬變，因此您應考慮從下列清單著手。
@@ -276,7 +285,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 13. [Ubuntu Juju](https://juju.ubuntu.com/docs/config-azure.html)
 14. [Azure 的 Packer 外掛程式](https://github.com/msopentech/packer-azure)
 
-## 支援、疑難排解和「根本沒有作用」
+## 支援、疑難排解和「無法正常運作」
 
 1. Microsoft 支援文件
 	- [支援：Microsoft Azure 上的 Linux 映像支援](http://support2.microsoft.com/kb/2941892)
@@ -294,6 +303,5 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 <!--Link references--In actual articles, you only need a single period before the slash. -->
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

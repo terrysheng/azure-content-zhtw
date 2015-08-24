@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用 Azure 雲端服務和 ASP.NET"
+	pageTitle="開始使用 Azure 雲端服務和 ASP.NET | Microsoft Azure"
 	description="了解如何使用 ASP.NET MVC 和 Azure 建立多層式應用程式。應用程式在雲端服務中執行，具備 Web 角色和背景工作角色。它使用 Entity Framework、SQL Database 及 Azure 儲存體佇列和 Blob。"
 	services="cloud-services, storage"
 	documentationCenter=".net"
@@ -30,7 +30,7 @@
 
 ## Contoso Ads 應用程式
 
-此應用程式是廣告看板。使用者透過輸入文字和上傳影像來建立廣告。他們可以看到含有縮圖影像的廣告清單，也可以在選取廣告來查看詳細資料時查看完整大小的影像。以下為螢幕擷取畫面：
+此應用程式是廣告看板。使用者透過輸入文字和上傳影像來建立廣告。他們可以看到含有縮圖影像的廣告清單，也可以在選取廣告來查看詳細資料時查看完整大小的影像。
 
 ![Ad list](./media/cloud-services-dotnet-get-started/list.png)
 
@@ -38,7 +38,7 @@
 
 ## 替代架構：網站和 WebJobs
 
-本教學課程示範如何在 Azure 雲端服務中執行前端與後端。替代方式是在 [Azure 網站](/services/web-sites/)中執行前端，並且將 [WebJob](http://go.microsoft.com/fwlink/?LinkId=390226) 功能 (目前處於預覽) 用於後端。如需使用 WebJob 的教學課程，請參閱[開始使用 Azure WebJob SDK](../websites-dotnet-webjobs-sdk-get-started.md)。如需如何選擇最符合您的案例之服務的詳細資訊，請參閱 [Azure 網站、雲端服務和虛擬機器比較](../choose-web-site-cloud-service-vm.md) (英文)。
+本教學課程示範如何在 Azure 雲端服務中執行前端與後端。替代方式是在 [Azure 網站](/services/web-sites/)中執行前端，並且將 [WebJob](http://go.microsoft.com/fwlink/?LinkId=390226) 功能 (目前處於預覽) 用於後端。如需使用 WebJob 的教學課程，請參閱[開始使用 Azure WebJob SDK](../websites-dotnet-webjobs-sdk-get-started.md)。如需如何選擇最符合您的案例之服務的詳細資訊，請參閱 [Azure 網站、雲端服務和虛擬機器比較](../choose-web-site-cloud-service-vm.md)。
 
 ## 您將學到什麼
 
@@ -68,7 +68,7 @@
 
 ![Ad table](./media/cloud-services-dotnet-get-started/adtable.png)
 
-使用者上傳影像時，執行 Web 角色的前端會將影像儲存在 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)，並將廣告資訊儲存在資料庫中，加上指向 Blob 的 URL。同時會將訊息寫入 Azure 佇列。執行背景工作角色的後端程序會定期輪詢佇列，看看是否有新訊息。出現新訊息時，背景工作角色會建立該影像的縮圖，並更新該廣告的縮圖 URL 資料庫欄位。以下圖表顯示應用程式的這些部分的互動情況：
+使用者上傳影像時，執行 Web 角色的前端會將影像儲存在 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)，並將廣告資訊儲存在資料庫中，加上指向 Blob 的 URL。同時會將訊息寫入 Azure 佇列。執行背景工作角色的後端程序會定期輪詢佇列，看看是否有新訊息。出現新訊息時，背景工作角色會建立該影像的縮圖，並更新該廣告的縮圖 URL 資料庫欄位。下圖顯示應用程式的這些部分的互動情況。
 
 ![Contoso Ads architecture](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
@@ -120,20 +120,20 @@
 
 您將執行下列步驟，在雲端中執行應用程式：
 
-* 建立 Azure 雲端服務
-* 建立 Azure SQL 資料庫
-* 建立 Azure 儲存體帳戶
-* 將方案設定為在 Azure 中執行時使用 Azure SQL 資料庫
-* 將方案設定為在 Azure 中執行時使用 Azure 儲存體帳戶
-* 將專案部署至 Azure 雲端服務
+* 建立 Azure 雲端服務。
+* 建立 Azure SQL Database。
+* 建立 Azure 儲存體帳戶。
+* 將方案設定為在 Azure 中執行時使用 Azure SQL 資料庫。
+* 將方案設定為在 Azure 中執行時使用 Azure 儲存體帳戶。
+* 將專案部署至 Azure 雲端服務。
 
 ### 建立 Azure 雲端服務
 
 Azure 雲端服務是應用程式將執行所在的環境。
 
-1. 在瀏覽器中開啟 [Azure 管理入口網站](http://manage.windowsazure.com)。
+1. 在瀏覽器中，開啟 [Azure 入口網站](http://manage.windowsazure.com)。
 
-2. 按一下 [新增] - [運算] - [雲端服務] - [快速建立]。
+2. 按一下 [**新增] > [運算] > [雲端服務] > [快速建立**]。
 
 4. 在 URL 輸入方塊中，輸入 URL 前置詞。
 
@@ -153,7 +153,7 @@ Azure 雲端服務是應用程式將執行所在的環境。
 
 應用程式在雲端中執行時，將會使用雲端式資料庫。
 
-1. 在 [Azure 管理入口網站](http://manage.windowsazure.com)中，按一下 [**新增**] - [**資料服務**] - [**SQL Database**] - [**快速建立**]。
+1. 在 [Azure 入口網站](http://manage.windowsazure.com)中，按一下 [**新增] > [資料服務] > [SQL Database] > [快速建立**]。
 
 1. 在 [**資料庫名稱**] 方塊中，輸入 *contosoads*。
 
@@ -189,7 +189,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 在真實世界應用程式中，您一般會為應用程式資料與記錄資料建立不同的帳戶，以及為測試資料與生產資料建立不同的帳戶。針對本教學課程，您將只會使用一個帳戶。
 
-1. 在 [Azure 管理入口網站](http://manage.windowsazure.com)中，按一下 [新增] - [資料服務] - [儲存體] - [快速建立]。
+1. 在 [Azure 入口網站](http://manage.windowsazure.com)中，按一下 [**新增] > [資料服務] > [儲存體] > [快速建立**]。
 
 4. 在 **URL** 方塊中，輸入 URL 前置詞。
 
@@ -228,7 +228,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	將檔案保持開啟以供編輯。
 
-2. 在 [Azure 管理入口網站](http://manage.windowsazure.com)中，依序按一下左側窗格中的 [**SQL Databases**]、您在本教學課程中建立的資料庫、[**儀表板**] 索引標籤，和 [**顯示連接字串**]。
+2. 在 [Azure 入口網站](http://manage.windowsazure.com)中，依序按一下左側窗格中的 [**SQL Database**]、您在本教學課程中建立的資料庫、[**儀表板**] 索引標籤，和 [**顯示連接字串**]。
 
 	![Show connection strings](./media/cloud-services-dotnet-get-started/showcs.png)
 
@@ -236,7 +236,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	![連接字串](./media/cloud-services-dotnet-get-started/connstrings.png)
 
-4. 在 *Web.Release.config* 轉換檔中，刪除 `{connectionstring}`，並將管理入口網站中的 ADO.NET 連接字串貼上至其位置。
+4. 在 *Web.Release.config* 轉換檔中，刪除 `{connectionstring}`，並將 Azure 入口網站中的 ADO.NET 連接字串貼至其位置。
 
 5. 將您貼入 *Web.Release.config* 轉換檔的連接字串中的 `{your_password_here}` 替換成您為新的 SQL 資料庫建立的密碼。
 
@@ -274,7 +274,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 	![Open Connection String Create box](./media/cloud-services-dotnet-get-started/opencscreate.png)
 
-1. 在 [**建立儲存體帳戶連接字串**] 對話方塊中，按一下 [**使用您的訂閱連線**]、選取您稍早建立的儲存體帳戶，然後按 [**確定**]。如果您尚未登入，將提示您輸入 Azure 帳戶憑證。
+1. 在 [**建立儲存體帳戶連接字串**] 對話方塊中，按一下 [**您的訂用帳戶**]、選取您稍早建立的儲存體帳戶，然後按一下 [**確定**]。如果您尚未登入，將提示您輸入 Azure 帳戶憑證。
 
 	![Create Storage Connection String](./media/cloud-services-dotnet-get-started/createstoragecs.png)
 
@@ -292,14 +292,14 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 * *ServiceConfiguration.Cloud.cscfg* - 提供應用程式在雲端執行時使用的值。
 * *ServiceConfiguration.Local.cscfg* - 提供應用程式在本機執行時使用的值。
 
-例如，ServiceDefinition.csdef 包括下列定義：
+例如，ServiceDefinition.csdef 包括下列定義。
 
 		<ConfigurationSettings>
 		  <Setting name="StorageConnectionString" />
 		  <Setting name="ContosoAdsDbConnectionString" />
 		</ConfigurationSettings>
 
-在 *ServiceConfiguration.Cloud.cscfg* 檔案包括您在 Visual Studio 中為這些設定輸入的值：
+此外，*ServiceConfiguration.Cloud.cscfg* 檔案也包括您在 Visual Studio 中為那些設定輸入的值。
 
 		<Role name="ContosoAdsWorker">
 		  <Instances count="1" />
@@ -315,7 +315,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 ###  將專案部署至 Azure
 
-3.	在 [**方案總管**] 的 **ContosoAdsCloudService** 雲端專案上按一下滑鼠右鍵，然後選取 [**發行**]。
+3.	在 [**方案總管**] 的 **ContosoAdsCloudService** 雲端專案上按一下滑鼠右鍵，然後選取 [**發佈**]。
 
 	![Publish menu](./media/cloud-services-dotnet-get-started/pubmenu.png)
 
@@ -345,7 +345,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 9. 您可以透過建立、檢視和編輯一些廣告來測試應用程式，正如同您在本機執行應用程式一般。
 
->[AZURE.NOTE]完成測試後，請刪除或停止雲端服務。即使您未使用雲端服務，因為已為其保留虛擬機器資源，因此仍會累積費用。如果您讓它保持執行，找到您 URL 的任何人都可以建立和檢視廣告。在 [Azure 管理入口網站](http://manage.windowsazure.com)中，移至您雲端服務的 [**儀表板**] 索引標籤，然後按一下頁面底部的 [**刪除**] 按鈕。如果您只想暫時避免他們存取網站，請改為按一下 [**停止**]。在那個情況下，將持續累積費用。當您不再需要 SQL 資料庫和儲存體帳戶時，可以遵循類似程序來加以刪除。
+>[AZURE.NOTE]完成測試後，請刪除或停止雲端服務。即使您未使用雲端服務，因為已為其保留虛擬機器資源，因此仍會累積費用。如果您讓它保持執行，找到您 URL 的任何人都可以建立和檢視廣告。在 [Azure 入口網站](http://manage.windowsazure.com)中，移至您雲端服務的 [**儀表板**] 索引標籤，然後按一下頁面底部的 [**刪除**] 按鈕。如果您只想暫時避免他們存取網站，請改為按一下 [**停止**]。在那個情況下，將持續累積費用。當您不再需要 SQL 資料庫和儲存體帳戶時，可以遵循類似程序來加以刪除。
 
 ## 從頭開始建立應用程式
 
@@ -353,11 +353,11 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 建立 Contoso Ads 應用程式包含下列步驟：
 
-* 建立雲端服務 Visual Studio 方案
-* 更新和加入 NuGet 封裝
-* 設定專案參考
-* 設定連接字串
-* 加入程式碼檔案
+* 建立雲端服務 Visual Studio 方案。
+* 更新和加入 NuGet 封裝。
+* 設定專案參考。
+* 設定連接字串。
+* 加入程式碼檔案。
 
 建立方案後，您會檢閱雲端服務專案和 Azure Blob 佇列獨特的程式碼。
 
@@ -379,7 +379,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 	![Change Authentication](./media/cloud-services-dotnet-get-started/chgauth.png)
 
-7. 在 [變更驗證] 對話方塊中，選取 [**不需要驗證**]，然後按一下 [**確定**]。
+7. 在 [**變更驗證**] 對話方塊中，選擇 [**不需要驗證**]，然後按一下 [**確定**]。
 
 	![不需要驗證](./media/cloud-services-dotnet-get-started/noauth.png)
 
@@ -387,19 +387,19 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 9. 在 [方案總管] 中，於方案 (不是其中一個專案) 上按一下滑鼠右鍵，並選擇 [加入 - 新專案]。
 
-11. 在 [加入新的專案] 對話方塊中，在左窗格的 [Visual C#] 下選擇 [Windows 桌面]，然後按一下 [類別庫] 範本。
+11. 在 [**加入新的專案**] 對話方塊中，於左窗格的 [**Visual C#**] 下選擇 [**Windows 桌面**]，然後按一下 [**類別庫**] 範本。
 
 10. 將專案命名為 *ContosoAdsCommon*，然後按一下 [確定]。
 
-	您需要自 Web 和背景工作角色專案參考 Entity Framework 內容和資料模型。作為替代方式，您可以在 Web 角色專案中定義 EF 相關的類別，並從背景工作角色專案參考該專案。但在其中，您的背景工作角色專案會有 Web 組件的參考，而這是專案所不需要的內容。
+	您需要自 Web 和背景工作角色專案參考 Entity Framework 內容和資料模型。作為替代方式，您可以在 Web 角色專案中定義 EF 相關的類別，並從背景工作角色專案參考該專案。但在替代方法中，您的背景工作角色專案會有 Web 組件的參考，而這是專案所不需要的內容。
 
 ### 更新和加入 NuGet 封裝
 
-11. 開啟方案的 [管理 NuGet 封裝] 對話方塊。
+11. 開啟方案的 [**管理 NuGet 封裝**] 對話方塊。
 
 12. 在左側窗格中，選取 [更新]。
 
-13. 尋找 *Azure Storage* 封裝，而如果它不在清單中，請按一下 [**更新**] 來取得最新版本的儲存體用戶端程式庫。
+13. 尋找 [*Azure 儲存體*] 封裝，而如果它不在清單中，請按一下 [**更新**] 來取得最新版本的儲存體用戶端程式庫。
 
 	![Update SCL](./media/cloud-services-dotnet-get-started/updstg.png)
 
@@ -411,7 +411,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 ### 設定專案參考
 
-10. 在 ContosoAdsWeb 專案中，設定 ContosoAdsCommon 專案的參考。以滑鼠右鍵按一下 ContosoAdsWeb 專案，然後按一下 [**參考**] - [**加入參考**]。在 [參考管理員] 對話方塊中，於左側窗格選取 [方案 - 專案]，選取 [ContosoAdsCommon]，然後按一下 [確定]。
+10. 在 ContosoAdsWeb 專案中，設定 ContosoAdsCommon 專案的參考。以滑鼠右鍵按一下 ContosoAdsWeb 專案，然後按一下 [**參考**] - [**加入參考**]。在 [**參考管理員**] 對話方塊中，於左側窗格選取 [**方案 - 專案**]，選取 [**ContosoAdsCommon**]，然後按一下 [**確定**]。
 
 11. 在 ContosoAdsWorker 專案中，設定 ContosAdsCommon 專案的參考。
 
@@ -461,12 +461,12 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 在本節中，您會從所下載的方案複製檔案到新方案。下一節將示範和說明此程式碼的重要部分。
 
-若要加入檔案到專案或資料夾，請以滑鼠右鍵按一下專案或資料夾，然後按一下 [**加入**] - [**現有項目**]。選取您需要的檔案，然後按一下 [**加入**]。如果詢問您是否要取代現有的檔案，請按一下 [**是**]。
+若要加入檔案到專案或資料夾，請以滑鼠右鍵按一下專案或資料夾，然後按一下 [**加入**] - [**現有項目**]。選取您需要的檔案，然後按一下 [**加入**]。如果詢問您是否要取代現有的檔案，請按一下 [是]。
 
 3. 在 ContosoAdsCommon 專案中，刪除 *Class1.cs* 檔案，並在其位置加入來自所下載專案的 *Ad.cs* 和 *ContosoAdscontext.cs* 檔案。
 
 3. 在 ContosoAdsWeb 專案中，從所下載的專案加入下列檔案。
-	- *Global.asax.cs*  
+	- *Global.asax.cs*。  
 	- *Views\\Shared* 資料夾中的 <em>\_Layout.cshtml</em> 檔案。
 	- *Views\\Home* 資料夾中的 *Index.cshtml*。
 	- *Controllers* 資料夾中的 *AdController.cs*。
@@ -476,7 +476,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 您現在可以如本教學課程中稍早所指示般建置並執行應用程式，而應用程式將使用本機資料庫和儲存體模擬器資源。
 
-以下小節說明與使用 Azure 環境、Blob 和佇列相關的程式碼。本教學課程未說明如何使用 Scaffolding 建立 MVC 控制器和檢視，也未說明如何編寫能與 SQL Server 資料庫搭配使用的 Entity Framework 程式碼，或是 ASP.NET 4.5 中非同步程式設計的基本概念。如需這些主題的詳細資訊，請參閱下列資源：
+以下小節說明與使用 Azure 環境、Blob 和佇列相關的程式碼。本教學檔案未說明如何使用 Scaffolding 建立 MVC 控制器和檢視、如何編寫能與 SQL Server 資料庫搭配使用的 Entity Framework 程式碼，或 ASP.NET 4.5 中非同步程式設計的基本概念。如需這些主題的相關資訊，請參閱下列資源：
 
 * [開始使用 MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [開始使用 EF 6 和 MVC 5](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
@@ -644,7 +644,7 @@ HttpPost `Edit` 方法的程式碼也是類似的，不同的是如果使用者�
 		    ad.ImageURL = imageBlob.Uri.ToString();
 		}
 
-以下是當您刪除廣告時會刪除 Blob 的程式碼：
+下一個範例顯示當您刪除廣告時會刪除 Blob 的程式碼：
 
 		private async Task DeleteAdBlobsAsync(Ad ad)
 		{
@@ -668,11 +668,11 @@ HttpPost `Edit` 方法的程式碼也是類似的，不同的是如果使用者�
 
 ### ContosoAdsWeb - Views\\Ad\\Index.cshtml 和 Details.cshtml
 
-*Index.cshtml* 檔案會顯示縮圖與其他廣告資料：
+*Index.cshtml* 檔案會顯示縮圖與其他廣告資料。
 
 		<img  src="@Html.Raw(item.ThumbnailURL)" />
 
-*Details.cshtml* 檔案會顯示完整大小的影像：
+*Details.cshtml* 檔案會顯示完整大小的影像。
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
@@ -798,7 +798,7 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。�
 以下是可示範更多真實世界程式碼編寫作法的一些雲端服務範例應用程式，依較不複雜到較複雜的順序列出：
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31)。概念類似 Contoso Ads，但實作更多功能和更多真實世界程式碼編寫實務。
-* [具有表格、佇列和 Blob 的 Azure 雲端服務多層式應用程式](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)。介紹 Azure 儲存體表格以及 Blob 和佇列，並隨附[逐步教學課程系列](../cloud-services-dotnet-multi-tier-app-storage-1-overview.md)。
+* [具有表格、佇列和 Blob 的 Azure 雲端服務多層式應用程式](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)。介紹 Azure 儲存體資料表以及 Blob 和佇列，並隨附[逐步教學課程系列](../cloud-services-dotnet-multi-tier-app-storage-1-overview.md)。
 * [Microsoft Azure 中的雲端服務基礎](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649)。完整範例示範由 Microsoft 模式和作法小組提供的許多最佳作法。
 
 如需針對雲端進行開發的一般資訊，請參閱「[使用 Azure 建置實際的雲端應用程式](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction)」。
@@ -810,6 +810,5 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。�
 * [Azure 雲端服務第 1 部分：簡介](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [如何管理雲端服務](cloud-services-how-to-manage.md)
 * [Azure 儲存體](/documentation/services/storage/)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

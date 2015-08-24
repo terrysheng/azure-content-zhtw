@@ -1,38 +1,44 @@
 <properties
-	pageTitle="使用 Azure PowerShell 部署和管理 Windows Server/用戶端的備份 | Microsoft Azure"
-	description="了解如何使用 Azure PowerShell 部署和管理 Azure 備份"
+	pageTitle="使用 PowerShell 部署和管理 Windows Server/用戶端的備份 | Microsoft Azure"
+	description="了解如何使用 PowerShell 部署和管理 Azure 備份"
 	services="backup"
 	documentationCenter=""
 	authors="aashishr"
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/17/2015"
-	ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="aashishr"; "jimpark"/>
 
 
-# 使用 Azure PowerShell 部署和管理 Windows Server/Windows 用戶端的 Azure 備份
-本文說明如何使用 Azure PowerShell 設定 Windows Server 或 Windows 用戶端上的 Azure 備份，以及管理備份和還原。
+# 使用 PowerShell 部署和管理 Windows Server/Windows 用戶端的 Azure 備份
+本文說明如何使用 PowerShell 設定 Windows Server 或 Windows 用戶端上的 Azure 備份，以及管理備份和還原。
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## 設定和註冊
-Azure PowerShell 可以自動化下列設定和註冊工作：
+PowerShell 可以自動化下列設定和註冊工作：
 
+- 建立備份保存庫
 - 安裝 Azure 備份代理程式
 - 向 Azure 備份服務進行註冊
-- 網路
+- 網路設定
+- 加密設定
+
+### 建立備份保存庫
+您可以使用 **New-AzureBackupVault** commandlet 建立新的備份保存庫。備份保存庫是 ARM 資源，因此您必須將它放在資源群組內。在提高權限的 Azure PowerShell 主控台中，執行下列命令：
+
+```
+PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> $backupvault = New-AzureBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+```
+
+您可以使用 **Get-AzureBackupVault** commandlet 取得特定訂用帳戶中所有備份保存庫的清單。
+
 
 ### 安裝 Azure 備份代理程式
-在安裝 Azure 備份代理程式之前，您必須先將安裝程式下載至 Windows Server 上。從 [Microsoft 下載中心](http://aka.ms/azurebackup_agent)可以取得最新版的安裝程式。請將安裝程式儲存至容易存取的位置，例如 *C:\Downloads*。
+在安裝 Azure 備份代理程式之前，您必須在 Windows Server 上下載並提供安裝程式。您可以從 [Microsoft 下載中心](http://aka.ms/azurebackup_agent)或從備份保存庫的 [儀表板] 頁面取得最新版的安裝程式。請將安裝程式儲存至容易存取的位置，例如 *C:\\Downloads*。
 
-若要安裝代理程式，請在已提升權限的 Azure PowerShell 主控台中執行下列命令：
+若要安裝代理程式，請在已提升權限的 PowerShell 主控台中執行下列命令：
 
 ```
 PS C:\> MARSAgentInstaller.exe /q
@@ -72,25 +78,34 @@ PS C:\> MARSAgentInstaller.exe /?
 在可註冊 Azure 備份服務之前，您必須確定已符合[先決條件](backup-try-azure-backup-in-10-mins.md)。您必須：
 
 - 具備有效的 Azure 訂用帳戶
-- 建立備份保存庫
-- 下載保存庫認證並將它儲存在方便的位置 (例如 *C:\Downloads*)。為方便起見，您也可以重新命名保存庫認證。
+- 具備備份保存庫
+
+若要下載保存庫認證，請在 Azure PowerShell 主控台中執行**Get-AzureBackupVaultCredentials**，並將其儲存在方便的位置，例如 *C:\\Downloads*。
+
+```
+PS C:\> $credspath = "C:"
+PS C:\> $credsfilename = Get-AzureBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
+PS C:\> $credsfilename
+f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
+```
 
 使用 [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) Cmdlet 即可向保存庫註冊電腦：
 
 ```
-PS C:\> Start-OBRegistration -VaultCredentials "C:\Downloads\register.vaultcredentials" -Confirm:$false
+PS C:\> $cred = $credspath + $credsfilename 
+PS C:\> Start-OBRegistration -VaultCredentials $cred -Confirm:$false
 
 CertThumbprint      : 7a2ef2caa2e74b6ed1222a5e89288ddad438df2
 SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
 ServiceResourceName : test-vault
-Region              : Australia East
+Region              : West US
 
 Machine registration succeeded.
 ```
 
-> [AZURE.IMPORTANT] 請勿使用相對路徑來指定保存庫認證檔。您必須提供絕對路徑做為 Cmdlet 的輸入。
+> [AZURE.IMPORTANT]請勿使用相對路徑來指定保存庫認證檔。您必須提供絕對路徑做為 Cmdlet 的輸入。
 
-### 網路
+### 網路設定
 若 Windows 電腦是透過 Proxy 伺服器連線到網際網路，您也可以提供 Proxy 設定給代理程式。本範例未使用 Proxy 伺服器，因此會明確地清除任何 Proxy 相關資訊。
 
 您也可以針對給定的一組當週天數，使用 [```work hour bandwidth```] 和 [```non-work hour bandwidth```] 的選項來控制頻寬使用情形。
@@ -113,7 +128,7 @@ PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force 
 Server properties updated successfully
 ```
 
-> [AZURE.IMPORTANT] 一旦設定，就請保管好此複雜密碼。若沒有此複雜密碼，您將無法從 Azure 還原資料。
+> [AZURE.IMPORTANT]一旦設定，就請保管好此複雜密碼。若沒有此複雜密碼，您將無法從 Azure 還原資料。
 
 ## 備份檔案和資料夾
 Windows Server 和用戶端的所有 Azure 備份都經由原則來掌管。原則包含三個部分：
@@ -155,7 +170,7 @@ BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName :
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
 
-> [AZURE.NOTE] PowerShell Cmdlet 目前不支援進行長期保留原則的設定。使用 Azure 備份 UI 主控台來設定長期保留原則。
+> [AZURE.NOTE]PowerShell Cmdlet 目前不支援進行長期保留原則的設定。使用 Azure 備份 UI 主控台來設定長期保留原則。
 
 保留原則必須與主要原則建立關聯，方法為使用 Cmdlet [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405)：
 
@@ -294,17 +309,35 @@ Microsoft Azure Backup Are you sure you want to remove this backup policy? This 
 ```
 PS C:\> Set-OBPolicy -Policy $newpolicy
 Microsoft Azure Backup Do you want to save this backup policy ? [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
-BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : {DataSource DatasourceId:4508156004108672185 Name:C:\ FileSpec:FileSpec FileSpec:C:\ IsExclude:False IsRecursive:True ,FileSpec FileSpec:C:\windows IsExclude:True IsRecursive:True ,FileSpec FileSpec:C:\temp IsExclude:True IsRecursive:True
-              , DataSource
-              DatasourceId:4508156005178868542
-              Name:D:\
-              FileSpec:FileSpec
-              FileSpec:D:\
-              IsExclude:False
-              IsRecursive:True
-
-              }
-PolicyName : c2eb6568-8a06-49f4-a20e-3019ae411bac RetentionPolicy : Retention Days : 7
+BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) 
+DsList : {DataSource
+         DatasourceId:4508156004108672185 
+         Name:C:\ 
+         FileSpec:FileSpec 
+         FileSpec:C:\ 
+         IsExclude:False
+         IsRecursive:True,
+         
+         FileSpec 
+         FileSpec:C:\windows 
+         IsExclude:True 
+         IsRecursive:True,
+         
+         FileSpec 
+         FileSpec:C:\temp 
+         IsExclude:True 
+         IsRecursive:True,
+         
+         DataSource
+         DatasourceId:4508156005178868542
+         Name:D:\
+         FileSpec:FileSpec
+         FileSpec:D:\
+         IsExclude:False
+         IsRecursive:True
+	}
+PolicyName : c2eb6568-8a06-49f4-a20e-3019ae411bac 
+RetentionPolicy : Retention Days : 7
               WeeklyLTRSchedule :
               Weekly schedule is not set
 
@@ -320,14 +353,40 @@ State : Existing PolicyState : Valid
 
 ```
 PS C:\> Get-OBPolicy | Get-OBSchedule
-SchedulePolicyName : 71944081-9950-4f7e-841d-32f0a0a1359a ScheduleRunDays : {Saturday, Sunday} ScheduleRunTimes : {16:00:00} State : Existing
+SchedulePolicyName : 71944081-9950-4f7e-841d-32f0a0a1359a 
+ScheduleRunDays : {Saturday, Sunday} 
+ScheduleRunTimes : {16:00:00} 
+State : Existing
+
 PS C:\> Get-OBPolicy | Get-OBRetentionPolicy
-RetentionDays : 7 RetentionPolicyName : ca3574ec-8331-46fd-a605-c01743a5265e State : Existing
+RetentionDays : 7 
+RetentionPolicyName : ca3574ec-8331-46fd-a605-c01743a5265e 
+State : Existing
+
 PS C:\> Get-OBPolicy | Get-OBFileSpec
-FileName : * FilePath : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\ FileSpec : D:\ IsExclude : False IsRecursive : True
-FileName : * FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\ FileSpec : C:\ IsExclude : False IsRecursive : True
-FileName : * FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\windows FileSpec : C:\windows IsExclude : True IsRecursive : True
-FileName : * FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\temp FileSpec : C:\temp IsExclude : True IsRecursive : True
+FileName : * 
+FilePath : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\ 
+FileSpec : D:\ 
+IsExclude : False 
+IsRecursive : True
+
+FileName : * 
+FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\ 
+FileSpec : C:\ 
+IsExclude : False 
+IsRecursive : True
+
+FileName : * 
+FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\windows 
+FileSpec : C:\windows 
+IsExclude : True 
+IsRecursive : True
+
+FileName : * 
+FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\temp 
+FileSpec : C:\temp 
+IsExclude : True 
+IsRecursive : True
 ```
 
 ### 執行臨機操作備份
@@ -335,7 +394,14 @@ FileName : * FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\temp Fil
 
 ```
 PS C:\> Get-OBPolicy | Start-OBBackup
-Taking snapshot of volumes... Preparing storage... Estimating size of backup items... Estimating size of backup items... Transferring data... Verifying backup... Job completed. The backup operation completed successfully.
+Taking snapshot of volumes... 
+Preparing storage... 
+Estimating size of backup items... 
+Estimating size of backup items... 
+Transferring data... 
+Verifying backup... 
+Job completed. 
+The backup operation completed successfully.
 ```
 
 ## 從 Azure 備份還原資料
@@ -351,8 +417,14 @@ Taking snapshot of volumes... Preparing storage... Estimating size of backup ite
 
 ```
 PS C:\> $source = Get-OBRecoverableSource
-PS C:\> $source FriendlyName : C:\ RecoverySourceName : C:\ ServerName : myserver.microsoft.com
-FriendlyName : D:\ RecoverySourceName : D:\ ServerName : myserver.microsoft.com
+PS C:\> $source 
+FriendlyName : C:\ 
+RecoverySourceName : C:\ 
+ServerName : myserver.microsoft.com
+
+FriendlyName : D:\ 
+RecoverySourceName : D:\ 
+ServerName : myserver.microsoft.com
 ```
 
 ### 選擇要還原的備份點
@@ -360,8 +432,27 @@ FriendlyName : D:\ RecoverySourceName : D:\ ServerName : myserver.microsoft.com
 
 ```
 PS C:\> $rps = Get-OBRecoverableItem -Source $source[1]
-IsDir : False ItemNameFriendly : D:\ ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\ LocalMountPoint : D:\ MountPointName : D:\ Name : D:\ PointInTime : 18-Jun-15 6:41:52 AM ServerName : myserver.microsoft.com ItemSize : ItemLastModifiedTime :
-IsDir : False ItemNameFriendly : D:\ ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\ LocalMountPoint : D:\ MountPointName : D:\ Name : D:\ PointInTime : 17-Jun-15 6:31:31 AM ServerName : myserver.microsoft.com ItemSize : ItemLastModifiedTime :
+IsDir : False 
+ItemNameFriendly : D:\ 
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\ 
+LocalMountPoint : D:\ 
+MountPointName : D:\ 
+Name : D:\ 
+PointInTime : 18-Jun-15 6:41:52 AM 
+ServerName : myserver.microsoft.com 
+ItemSize : 
+ItemLastModifiedTime :
+
+IsDir : False 
+ItemNameFriendly : D:\ 
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\ 
+LocalMountPoint : D:\ 
+MountPointName : D:\ 
+Name : D:\ 
+PointInTime : 17-Jun-15 6:31:31 AM 
+ServerName : myserver.microsoft.com 
+ItemSize : 
+ItemLastModifiedTime :
 ```
 物件 ```$rps``` 是備份點陣列。第一個元素是最新備份點，且第 N 個元素是最舊的備份點。為了選擇最新的備份點，我們使用 ```$rps[0]```。
 
@@ -372,10 +463,41 @@ IsDir : False ItemNameFriendly : D:\ ItemNameGuid : \?\Volume{b835d359-a1dd-11e2
 
 ```
 PS C:\> $filesFolders = Get-OBRecoverableItem $rps[0]
-PS C:\> $filesFolders IsDir : True ItemNameFriendly : D:\MyData\ ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\ LocalMountPoint : D:\ MountPointName : D:\ Name : MyData PointInTime : 18-Jun-15 6:41:52 AM ServerName : myserver.microsoft.com ItemSize : ItemLastModifiedTime : 15-Jun-15 8:49:29 AM
+PS C:\> $filesFolders 
+IsDir : True 
+ItemNameFriendly : D:\MyData\ 
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\ 
+LocalMountPoint : D:\ 
+MountPointName : D:\ 
+Name : MyData 
+PointInTime : 18-Jun-15 6:41:52 AM 
+ServerName : myserver.microsoft.com 
+ItemSize : 
+ItemLastModifiedTime : 15-Jun-15 8:49:29 AM
+
 PS C:\> $filesFolders = Get-OBRecoverableItem $filesFolders[0]
-PS C:\> $filesFolders IsDir : False ItemNameFriendly : D:\MyData\screenshot.oxps ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\screenshot.oxps LocalMountPoint : D:\ MountPointName : D:\ Name : screenshot.oxps PointInTime : 18-Jun-15 6:41:52 AM ServerName : myserver.microsoft.com ItemSize : 228313 ItemLastModifiedTime : 21-Jun-14 6:45:09 AM
-IsDir : False ItemNameFriendly : D:\MyData\finances.xls ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\finances.xls LocalMountPoint : D:\ MountPointName : D:\ Name : finances.xls PointInTime : 18-Jun-15 6:41:52 AM ServerName : myserver.microsoft.com ItemSize : 96256 ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
+PS C:\> $filesFolders 
+IsDir : False 
+ItemNameFriendly : D:\MyData\screenshot.oxps 
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\screenshot.oxps 
+LocalMountPoint : D:\ 
+MountPointName : D:\ 
+Name : screenshot.oxps 
+PointInTime : 18-Jun-15 6:41:52 AM 
+ServerName : myserver.microsoft.com 
+ItemSize : 228313 
+ItemLastModifiedTime : 21-Jun-14 6:45:09 AM
+
+IsDir : False 
+ItemNameFriendly : D:\MyData\finances.xls 
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\finances.xls 
+LocalMountPoint : D:\ 
+MountPointName : D:\ 
+Name : finances.xls 
+PointInTime : 18-Jun-15 6:41:52 AM 
+ServerName : myserver.microsoft.com 
+ItemSize : 96256 
+ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
 ```
 
 您也可以使用 ```Get-OBRecoverableItem``` Cmdlet 來搜尋要還原的項目。在範例中，為了搜尋 *finances.xls*，我們可以執行下列命令來取得該檔案的控制代碼：
@@ -385,7 +507,7 @@ PS C:\> $item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyDat
 ```
 
 ### 觸發還原程序
-為了觸發還原程序，我們首先需要指定復原選項。使用 [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) Cmdlet 可以完成這項工作。在此例中，我們假設要將檔案還原至 *C:\temp*。我們也假設要略過目的地資料夾 *C:\temp* 中已存在的檔案。為了建立此復原選項，使用下列命令：
+為了觸發還原程序，我們首先需要指定復原選項。使用 [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) Cmdlet 可以完成這項工作。在此例中，我們假設要將檔案還原至 *C:\\temp*。我們也假設要略過目的地資料夾 *C:\\temp* 中已存在的檔案。為了建立此復原選項，使用下列命令：
 
 ```
 PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
@@ -394,7 +516,13 @@ PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -Over
 從 ```Get-OBRecoverableItem``` Cmdlet 輸出，對所選 ```$item``` 使用 [Start-OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) 命令，立即觸發還原：
 
 ```
-PS C:\> Start-OBRecovery -RecoverableItem $item -RecoveryOption $recover_option Estimating size of backup items... Estimating size of backup items... Estimating size of backup items... Estimating size of backup items... Job completed. The recovery operation completed successfully.
+PS C:\> Start-OBRecovery -RecoverableItem $item -RecoveryOption $recover_option 
+Estimating size of backup items... 
+Estimating size of backup items... 
+Estimating size of backup items... 
+Estimating size of backup items... 
+Job completed. 
+The recovery operation completed successfully.
 ```
 
 
@@ -414,7 +542,7 @@ PS C:\> .\MARSAgentInstaller.exe /d /q
 不過，Azure 中儲存的資料會留著，根據您所設定的保留原則設定予以保留。較舊的時間點會自動過時。
 
 ## 遠端管理
-關於 Azure 備份代理程式、原則和資料來源的所有管理工作，皆可透過 Azure PowerShell 遠端完成。要遠端管理的電腦必須經過正確準備。
+關於 Azure 備份代理程式、原則和資料來源的所有管理工作，皆可透過 PowerShell 遠端完成。要遠端管理的電腦必須經過正確準備。
 
 依預設，WinRM 服務會設定為手動啟動。但您必須將啟動類型設定為 [*自動*]，並應該啟動該服務。若要驗證 WinRM 服務有在執行，[狀態] 屬性的值應該是 [*執行中*]。
 
@@ -426,7 +554,7 @@ Status   Name               DisplayName
 Running  winrm              Windows Remote Management (WS-Manag...
 ```
 
-應該將 Azure PowerShell 設定為可以遠端執行。
+應該將 PowerShell 設定為可以遠端執行。
 
 ```
 PS C:\> Enable-PSRemoting -force
@@ -452,4 +580,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## 後續步驟
 如需 Windows Server/用戶端的 Azure 備份詳細資訊，請參閱 [Azure 備份的簡介](backup-introduction-to-azure-backup.md)
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

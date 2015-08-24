@@ -1,5 +1,5 @@
 <properties
-    pageTitle="如何使用服務匯流排主題 (.NET) - Azure"
+    pageTitle="如何使用服務匯流排主題 (.NET) | Microsoft Azure"
     description="了解如何在 Azure 使用服務匯流排主題及訂用帳戶。程式碼範例專為 .NET 應用程式撰寫。"
     services="service-bus"
     documentationCenter=".net"
@@ -301,4 +301,4 @@
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

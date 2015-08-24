@@ -1,21 +1,20 @@
 
-<properties 
-	pageTitle="使用群組管理 SaaS 應用程式的存取權 | Microsoft Azure" 
-	description="說明如何使用 Azure AD Premium 中的群組指派與 Azure AD 整合的 SaaS 應用程式的存取權。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="swadhwa" 
-	editor=""
-	tags="azure-classic-portal"/>
+<properties
+	pageTitle="使用群組管理 SaaS 應用程式的存取權 | Microsoft Azure"
+	description="如何使用 Azure AD Premium 或 Basic 中的群組指派與 Azure AD 整合的 SaaS 應用程式存取權。"
+	services="active-directory"
+	documentationCenter=""
+	authors="femila"
+	manager="swadhwa"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
 	ms.devlang="na" identity
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="femila"/>
 
 
@@ -39,9 +38,9 @@
 4. 您也可以直接或透過群組中的成員資格，查看哪些使用者指派給應用程式。若要這樣做，將 [顯示下拉式清單] 從 [群組] 變更為 [所有使用者]。此清單會顯示目錄中的使用者，以及每個使用者是否指派給應用程式。此清單也會顯示獲指派的使用者是直接 (指派類型顯示為 [直接])，還是透過群組成員資格 (指派類型顯示為 [繼承]) 指派給應用程式。
 
 
-> [AZURE.NOTE]一旦啟用 Azure AD Premium 之後，您將只會看到 [使用者和群組] 索引標籤。
+> [AZURE.NOTE]只有在啟用 Azure AD Premium 或 Azure AD Basic 之後，您才會看到 [使用者和群組] 索引標籤。
 
-以下是將提供一些 Azure Active Directory 的其他相關資訊的部分主題
+以下是一些可提供有關 Azure Active Directory 額外資訊的主題
 
 * [使用 Azure Active Directory 群組管理資源的存取權](active-directory-manage-groups.md)
 
@@ -49,4 +48,4 @@
 
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

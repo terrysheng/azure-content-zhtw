@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #透過 Azure Media Services 編碼的隨選內容
@@ -48,29 +48,34 @@
 
 **Azure Media Encoder** 使用[這裡](https://msdn.microsoft.com/library/azure/dn619392.aspx)所述的其中一種編碼器預設字串進行設定。您也可以從[這裡](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder)取得實際的 Azure Media Encoder 預設檔案。
 
+###範例
+
 使用 **Azure 管理入口網站**、**.NET** 或 **REST API**，以 **Azure Media Encoder** 進行編碼。
  
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
 ####其他相關主題
 
-[動態封裝](https://msdn.microsoft.com/library/azure/jj889436.aspx) – 描述如何編碼為調適性位元速率 MP4，並動態提供 Smooth Streaming、Apple HLS 或 MPEG-DASH。
+[動態封裝](https://msdn.microsoft.com/library/azure/jj889436.aspx) – 描述如何編碼為自適性位元速率 MP4，並動態提供 Smooth Streaming、Apple HLS 或 MPEG-DASH。
 
 [控制媒體服務編碼器輸出檔案名稱](https://msdn.microsoft.com/library/azure/dn303341.aspx) – 描述 Azure Media Encoder 使用的檔案命名慣例以及如何修改輸出檔名稱。
 
 [使用 Dolby Digital Plus 將您的媒體編碼](media-services-encode-with-dolby-digital-plus.md) – 描述如何使用 Dolby Digital Plus 編碼技術進行曲目的編碼。
 
 
-##<a id="media_encoder_premium_wokrflow"></a>媒體編碼器高階工作流程 
+##<a id="media_encoder_premium_wokrflow"></a>Media Encoder Premium Workflow 
 
 **注意** 本主題中討論的 Media Encoder Premium Workflow 媒體編碼器不適用於中國。
 
 [Media Encoder Premium Workflow 支援的格式](media-services-premium-workflow-encoder-formats.md) – 討論 **Media Encoder Premium Workflow** 支援的檔案格式和轉碼器。
 
+### 工作流程設計工具
+
 **Media Encoder Premium Workflow** 使用複雜的工作流程設定。您可以使用[工作流程設計工具](media-services-workflow-designer.md)建立工作流程檔案。
 
 您可在[這裡](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)取得預設的工作流程檔案。資料夾也包含這些檔案的說明。
 
+###範例
 利用 **Media Encoder Premium Workflow** 並搭配 **.NET** 進行編碼。如需詳細資訊，請參閱[使用 Media Encoder Premium Workflow 進行進階編碼](media-services-encode-with-premium-workflow.md)。
  
 
@@ -191,4 +196,4 @@ Windows Media 音訊|是|是|否
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

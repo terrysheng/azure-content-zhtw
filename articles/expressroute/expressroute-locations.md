@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2015"
+   ms.date="08/06/2015"
    ms.author="cherylmc" />
 
 # ExpressRoute 合作夥伴和對等互連位置
@@ -77,7 +77,7 @@
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | 支援 | 不支援 | 新加坡 |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | 支援 | 敬請期待 | 阿姆斯特丹、辰內+、香港、倫敦、孟買+、新加坡 |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | 支援 | 不支援 | 墨爾本+、雪梨 |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | 支援 | 不支援 | 倫敦、香港、矽谷、華盛頓特區、美國政府愛荷華州、美國政府維吉尼亞州 |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | 支援 | 不支援 | 倫敦、香港、矽谷、華盛頓特區 |
 
  **+** 表示即將推出
 
@@ -116,4 +116,4 @@
 - 如果您想要為相同虛擬網路設定站對站 VPN 連線和 ExpressRoute，請參閱[設定並存的 ExpressRoute 和站對站 VPN 連線](expressroute-coexist.md)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

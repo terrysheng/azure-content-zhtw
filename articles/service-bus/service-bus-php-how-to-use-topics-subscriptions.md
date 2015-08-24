@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用服務匯流排主題 (PHP) - Azure" 
+	pageTitle="如何使用服務匯流排主題 (PHP) | Microsoft Azure" 
 	description="了解如何在 Azure 對於 PHP 使用服務匯流排主題。" 
 	services="service-bus" 
 	documentationCenter="php" 
@@ -332,4 +332,4 @@
 [require-once]: http://php.net/require_once
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

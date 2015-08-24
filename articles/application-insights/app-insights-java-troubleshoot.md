@@ -30,7 +30,7 @@
 
 *我已成功加入 Application Insights 並執行我的應用程式，但在入口網站中從未看到資料。*
 
-* 請稍等片刻，然後按一下 [重新整理]。重新整理目前不是自動的。
+* 請稍等片刻，然後按一下 [重新整理]。圖表會定期自行重新整理，但您也可以手動重新整理。重新整理間隔取決於圖表的時間範圍。
 * 檢查 ApplicationInsights.xml 檔案 (位於專案的 resources 資料夾) 中已定義檢測機碼
 * 確認 xml 檔案中沒有 `<DisableTelemetry>true</DisableTelemetry>` 節點。
 * 在防火牆中，您可能必須開啟 TCP 連接埠 80 和 443，以允許連出流量送往 dc.services.visualstudio.com 和 f5.services.visualstudio.com。
@@ -138,4 +138,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

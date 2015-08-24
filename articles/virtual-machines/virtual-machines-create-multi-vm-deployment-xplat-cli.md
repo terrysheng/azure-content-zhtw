@@ -1,5 +1,5 @@
 <properties
-   pageTitle="使用 Azure CLI 建立多個 VM 的部署 | Azure"
+   pageTitle="使用 Azure CLI 建立多個 VM 的部署 | Microsoft Azure"
    description="了解如何使用 Azure CLI 建立多個 VM 的部署"
    services="virtual-machines"
    documentationCenter="nodejs"
@@ -67,4 +67,4 @@
 * [如何登入執行 Linux 的虛擬機器](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

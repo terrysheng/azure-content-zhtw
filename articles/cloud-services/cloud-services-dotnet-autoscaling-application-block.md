@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用自動調整應用程式區塊 (.NET) - Azure" 
+	pageTitle="使用自動調整應用程式區塊 (.NET) | Microsoft Azure" 
 	description="了解如何使用 Azure 的自動調整應用程式。程式碼範例是以 C# 撰寫並使用 .NET API。" 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -409,4 +409,4 @@
   [利用 Azure 上的自動調整減少 TechNet 和 MSDN 主控成本和環境影響]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/10/2015" 
 	ms.author="tdykstra"/>
 
 # 如何透過 WebJobs SDK 使用 Azure 服務匯流排
@@ -81,6 +81,13 @@ SDK 會針對 POCO ([純舊 CLR 物件](http://en.wikipedia.org/wiki/Plain_Old_C
 		}
 
 如需示範如何使用 POCO 的屬性，在同一個函數中使用 Blob 和資料表的程式碼範例，請參閱[本文的儲存體佇列版本](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#pocoblobs)。
+
+如果您建立佇列訊息的程式碼不使用 WebJobs SDK，請使用類似下列範例的程式碼：
+
+		var client = QueueClient.CreateFromConnectionString(ConfigurationManager.ConnectionStrings["AzureWebJobsServiceBus"].ConnectionString, "blobadded");
+		BlobInformation blobInformation = new BlobInformation () ;
+		var message = new BrokeredMessage(blobInformation);
+		client.Send(message);
 
 ### ServiceBusTrigger 使用的類型
 
@@ -159,4 +166,4 @@ SDK 會針對 POCO ([純舊 CLR 物件](http://en.wikipedia.org/wiki/Plain_Old_C
 本指南提供了程式碼範例，示範如何處理使用 Azure Service Bus 的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

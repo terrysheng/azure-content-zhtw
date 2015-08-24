@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用 CLI 管理金鑰保存庫 | 概觀"
+	pageTitle="使用 CLI 管理金鑰保存庫 | Microsoft Azure"
 	description="透過本教學課程，使用 CLI 來自動化金鑰保存庫中的一般工作"
 	services="key-vault"
 	documentationCenter=""
@@ -252,4 +252,4 @@
 
 如需程式設計參考，請參閱 [Azure 金鑰保存庫 REST API 參考](https://msdn.microsoft.com/library/azure/dn903609.aspx)和 [Azure 金鑰保存庫 C# 用戶端 API 參考](https://msdn.microsoft.com/library/azure/dn903628.aspx)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

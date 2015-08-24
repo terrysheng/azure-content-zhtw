@@ -57,7 +57,7 @@ VNet 提供下列服務給 IaaS VM 以及 PaaS 角色執行個體部署至 IaaS 
 
 ## IP 位址
 
-有兩種類型的 IP 位址會指派給 Azure 中的元件：公用和私用。針對部署至 Azure 子網路的 IaaS VM 和 PaaS 角色執行個體，都會根據指派給子網路的 CIDR 位址區塊，自動指派私用 IP 位址至其每個 NIC。您也可以指派公用 IP 位址給 IaaS VM 和 PaaS 角色執行個體。
+有兩種類型的 IP 位址會指派給 Azure 中的元件：公用和私用。針對部署至 Azure 子網路的 IaaS VM 和 PaaS 角色執行個體，都會根據指派至子網路的 CIDR 位址區塊，自動將私人 IP 位址指派至其每個 NIC。您也可以指派公用 IP 位址給 IaaS VM 和 PaaS 角色執行個體。
 
 這些 IP 位址是動態的，這表示它們可以隨時變更。若要針對特定服務，確保 IP 位址永遠保持不變，您可以保留 IP 位址，使其成為靜態。
 
@@ -93,4 +93,4 @@ VNet 提供下列服務給 IaaS VM 以及 PaaS 角色執行個體部署至 IaaS 
 - [保留公用 IP 位址](../virtual-networks-reserved-public-ip.md)。
 - 了解[使用者定義的路由和 IP 轉送](virtual-networks-udr-overview.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

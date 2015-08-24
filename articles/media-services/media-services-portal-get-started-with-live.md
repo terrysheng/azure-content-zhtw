@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="08/03/2015"
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -193,21 +193,9 @@
 
 
 
-##後續步驟
-
-深入了解建置即時串流應用程式[建置即時串流應用程式](media-services-live-streaming-workflow.md)
-
-###其他資源
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - 立即在線上取得您的影片！</a>
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - 動態封裝和行動裝置</a>
-
-
-<!-- Anchors. -->
-
-
 <!-- URLs. -->
 [Management Portal]: http://manage.windowsazure.com/
 
 <!-- Images -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

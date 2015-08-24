@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2014"
+	ms.date="08/11/2015"
 	ms.author="larryfr"/>
 
 #使用 Maven 建置搭配使用 HBase 和 HDInsight (Hadoop) 的 Java 應用程式 (英文)
@@ -591,4 +591,4 @@
 
 請使用 `-showErr` 參數，以檢視執行工作時所產生的標準錯誤 (STDERR)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

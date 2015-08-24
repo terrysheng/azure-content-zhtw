@@ -155,4 +155,4 @@ VIP 預設是動態的，這表示指派給雲端服務的實際 IP 位址會隨
 [保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

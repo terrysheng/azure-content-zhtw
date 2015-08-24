@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Data Factory - 使用 Data Factory 和 Machine Learning 來建立預測管線 | Azure" 
+	pageTitle="Data Factory - 使用 Data Factory 和機器學習服務來建立預測管線 | Microsoft Azure" 
 	description="說明如何使用 Azure Data Factory 和 Azure Machine Learning 建立預測管線。" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -22,7 +22,7 @@
 Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Machine Learning][azure-machine-learning] web 服務進行預測性分析。這可讓您使用 Azure Data Factory 協調資料移動和處理，然後使用 Azure Machine Learning 執行批次評分。若要達到此目的，您必須執行下列動作：
 
 1. 使用 **AzureMLBatchScoring** 活動。
-2. 批次執行 API 的**要求 URI**。您可以按一下 web 服務頁面中的**批次執行**連結即可找到要求 URI (如下所示)。
+2. Batch 執行 API 的**要求 URI**。您可以按一下 web 服務頁面中的**批次執行**連結即可找到要求 URI (如下所示)。
 3. 已發佈之 Azure Machine Learning Web 服務的 **API 金鑰**。您可以按一下您已發佈的 web 服務即可找到這項資訊。 
 
 	![機器學習服務儀表板][machine-learning-dashboard]
@@ -31,7 +31,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Ma
 
 -	輸入和輸出資料表
 -	Azure 儲存體/Azure SQL 和 Azure ML 連結服務
--	具有「Azure ML 批次評分活動」的管線
+-	具有「Azure ML Batch 評分活動」的管線
 
 > [AZURE.NOTE]您可以使用 Azure Data Factory (ADF) 管線中已發佈 Azure Machine Learning Web 服務所公開的 Web 服務參數。如需詳細資訊，請參閱本文中的＜Web 服務參數＞一節。
 
@@ -327,4 +327,4 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Ma
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -10,7 +10,7 @@
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="08/04/2015" 
 	ms.author="awills"/>
@@ -329,19 +329,6 @@ TelemetryClient 具備執行緒安全。
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
-#### 計時的頁面檢視
-
-藉由使用此組方法呼叫，而不是 trackPageView，您可以分析使用者停留在頁面上的時間長度。
-
-    // At the start of a page view:
-    appInsights.startTrackPage(myPage.name);
-
-    // At the completion of a page view:
-    appInsights.stopTrackPage(myPage.name, "http://fabrikam.com/page", properties, measurements);
-
-在開始和停止呼叫中，使用相同的字串做為第一個參數。
-
-查看[計量瀏覽器][metrics]中的頁面持續時間度量。
 
 
 ## 追蹤要求
@@ -781,4 +768,4 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="服務匯流排訊息概觀 - Azure"
+	pageTitle="服務匯流排訊息概觀 | Microsoft Azure"
 	description="服務匯流排訊息：雲端彈性資料傳遞"
 	services="service-bus"
 	documentationCenter=".net"
@@ -38,4 +38,4 @@ Azure 服務匯流排訊息就類似於傳遞信件的郵遞服務，可在傳�
 - [如何使用服務匯流排主題](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

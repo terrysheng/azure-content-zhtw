@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -45,4 +45,4 @@
 
 答：若要將資產從一個媒體服務帳戶複製到另一個帳戶，請使用 [Azure Media Services.NET SDK 延伸](https://github.com/Azure/azure-sdk-for-media-services-extensions/)儲存機制中可用的 [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) 延伸。如需詳細資訊，請參閱[這個](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices)論壇執行緒。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

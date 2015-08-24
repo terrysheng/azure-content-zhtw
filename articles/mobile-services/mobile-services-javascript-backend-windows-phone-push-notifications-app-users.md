@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="傳送推播通知給已驗證的 Windows Phone Silverlight 應用程式使用者 | Azure 行動服務" 
+	pageTitle="傳送推播通知給已驗證的 Windows Phone Silverlight 應用程式使用者 | Microsoft Azure" 
 	description="了解如何從 Azure 行動服務傳送推播通知給您 Windows Phone Silverlight 應用程式的特定使用者。" 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -94,4 +94,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

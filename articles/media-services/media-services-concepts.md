@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015"
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Azure 媒體服務概念 
 
 本主題提供媒體服務概念的最重要概觀。
 
-##<a id="assets"></a>資產\\儲存體
+##<a id="assets"></a>資產和儲存體
 
 ###Assets
 
@@ -79,7 +79,7 @@ Blob 容器提供一組 blob。Blob 容器在媒體服務中是做為存取控�
 
 所有對 Azure 儲存體的存取都是透過儲存體帳戶進行。媒體服務帳戶可以與一個或多個儲存體帳戶產生關聯。帳戶可以包含不限數目的容器，只要它們的大小總計低於每個儲存體帳戶 500TB 即可。媒體服務提供 SDK 層級工具，可讓您管理多個儲存體帳戶，以及在上傳至這些帳戶期間根據計量或隨機分佈，負載平衡資產的分佈。如需詳細資訊，請參閱「使用 [Azure 儲存體](https://msdn.microsoft.com/library/azure/dn767951.aspx)」。
 
-##工作 (Job) \\ 工作 (Task)
+##工作 (Job) 和工作 (Task)
 
 [工作](https://msdn.microsoft.com/library/azure/hh974289.aspx)通常用來處理 (例如索引或編碼) 一個音訊/視訊簡報。如果您要處理多個視訊，請為每個要編碼的視訊各建立一個工作。
 
@@ -242,4 +242,4 @@ StreamingEndpoint 代表可以直接將內容傳遞給用戶端播放程式應�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用行動服務 (Xamarin Android) 中的離線資料 | 行動開發人員中心"
+	pageTitle="在行動服務中使用離線資料 (Xamarin Android) | Microsoft Azure"
 	description="了解如何使用 Azure 行動服務快處和徒步 Xamarin Android 應用程式中的離線資料"
 	documentationCenter="xamarin"
 	authors="lindydonna"
@@ -172,4 +172,4 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

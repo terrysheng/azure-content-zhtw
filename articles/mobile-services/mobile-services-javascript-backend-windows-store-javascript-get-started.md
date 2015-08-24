@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="開始使用 Windows 市集應用程式的行動服務 | 行動開發人員中心" 
+	pageTitle="開始使用 Windows 市集應用程式的行動服務 | Microsoft Azure" 
 	description="遵循此教學課程，可開始使用 Azure 行動服務進行 C# 或 JavaScript 的 Windows 市集開發。" 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -92,4 +92,4 @@
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

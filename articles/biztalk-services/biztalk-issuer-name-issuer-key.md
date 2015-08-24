@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="BizTalk 服務中的簽發者名稱和簽發者金鑰 | Azure" 
+	pageTitle="BizTalk 服務中的簽發者名稱和簽發者金鑰 | Microsoft Azure" 
 	description="了解如何在 BizTalk 服務中擷取服務匯流排或存取控制 (ACS) 的簽發者名稱和簽發者金鑰。MABS，WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -86,4 +86,4 @@ BizTalk 配接器服務會使用服務匯流排簽發者名稱和簽發者金鑰
 - [BizTalk 服務：節流](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

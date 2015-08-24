@@ -3,7 +3,7 @@
 	description="Android SDK for Azure Mobile Engagement 的最新更新和程序"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 #如何在 Android 上整合 Engagement
 
@@ -311,4 +311,4 @@ Engagement 在喜好設定檔案內會一律使用 `engagement:key` 布林值機
 [裝置 API]: http://go.microsoft.com/?linkid=9876094
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

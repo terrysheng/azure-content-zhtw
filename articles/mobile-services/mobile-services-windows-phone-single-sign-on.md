@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 Live Connect (Windows Phone) | 行動開發人員中心驗證您的應用程式" 
+	pageTitle="使用 Live Connect 驗證您的應用程式 (Windows Phone) | Microsoft Azure" 
 	description="了解如何從 Windows Phone 應用程式在 Azure 行動服務中使用 Live Connect 單一登入。" 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -142,4 +142,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

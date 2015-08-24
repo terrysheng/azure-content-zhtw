@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 
@@ -31,109 +31,35 @@ Site Recovery 是一種 Azure 服務，可藉由協調虛擬機器與實體伺�
 
 Site Recovery 可以保護當做 Hyper-V 虛擬機器、VMware 虛擬機器，或實體伺服器執行的 SQL Server。
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td colspan = "2"><b>Hyper-V</b></td>
-		<td colspan = "2"><b>VMware</b></td>
-		<td colspan = "2"><b>實體伺服器</b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>內部部署至內部部署</td>
-		<td>內部部署至 Azure</td>
-		<td>內部部署至內部部署</td>
-		<td>內部部署至 Azure</td>
-		<td>內部部署至內部部署</td>
-		<td>內部部署至 Azure</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>是</td>
-		<td>是</td>
-		<td>是</td>
-		<td>敬請期待</td>
-		<td>是</td>
-		<td>敬請期待</td>
-    </tr>
-    </tbody>
-    </table>
+ |**內部部署至內部部署** | **內部部署至 Azure** 
+---|---|---
+**Hyper-V** | 是 | 是
+**VMware** | 是 | 是 
+**實體伺服器** | 是 | 是
+
 
 ## 支援與整合
 
 Site Recovery 可以與資料表中摘要說明的原生 SQL Server BCDR 技術整合，以提供災害復原解決方案。
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>功能</b></td>
-		<td><b>詳細資料</b></td>
-		<td><b>SQL Server 版本</b></td>
-    </tr>
-    </tr><tr align="left" valign="top">
-		<td><b>AlwaysOn 可用性群組</b></td>
-		<td><p>多個 SQL Server 獨立執行個體中，每個都在含有多個節點的容錯移轉叢集中執行。</p> <p>資料庫可以分組到可以在 SQL Server 執行個體上複製 (鏡像) 的容錯移轉群組，因此不需要任何共用儲存體。</p> <p>在主要站台與一或多個次要站台之間提供災害復原功能。使用同步複寫與自動容錯移轉在可用性群組中設定 SQL Server 資料庫時，可以在不共用任何內容的叢集中設定兩個節點。</p></td>
-		<td>SQL Server 2014/2012 Enterprise Edition</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td><b>容錯移轉叢集 (AlwaysOn FCI)</b></td>
-		<td><p>SQL Server 會針對內部部署 SQL Server 工作負載的高可用性，運用 Windows 容錯移轉叢集。</p><p>使用共用磁碟執行 SQL Server 執行個體的節點是在容錯移轉叢集中設定。如果執行個體關閉，叢集會容錯移轉至另一個節點。</p> <p>叢集無法防止共用儲存體失敗或中斷。共用磁碟可以使用 iSCSI、光纖通道或共用 VHDX 實作。</p></td>
-		<td><p>SQL Server Enterprise Edition</p> <p>SQL Server Standard Edition (僅限兩個節點)</p></td>
-	<tr align="left" valign="top">
-		<td><b>高安全性模式下的資料庫鏡像</b></td>
-		<td>將單一資料庫保護為單一次要複本。提供高安全性 (同步) 和高效能 (非同步) 複寫模式。不需要容錯移轉叢集。</td>
-		<td><p>SQL Server 2008 R2</p><p>SQL Server Enterprise 所有版本</p></td>
-    </tr>
-    </tr>
-	<tr align="left" valign="top">
-		<td><b>獨立式 SQL Server</b></td>
-		<td>SQL Server 和資料庫裝載在單一伺服器 (實體或虛擬) 上。如果是虛擬伺服器，則主機叢集用於高可用性。沒有來賓層級的高可用性。</td>
-		<td>Enterprise 或 Standard Edition</td>
- 
-    </tbody>
-    </table>
+**功能** |**詳細資料** | **SQL Server 版本** 
+---|---|---
+**AlwaysOn 可用性群組** | <p>多個 SQL Server 獨立執行個體中，每個都在含有多個節點的容錯移轉叢集中執行。</p> <p>資料庫可以分組到可以在 SQL Server 執行個體上複製 (鏡像) 的容錯移轉群組，因此不需要任何共用儲存體。</p> <p>在主要站台與一或多個次要站台之間提供災害復原功能。使用同步複寫與自動容錯移轉在可用性群組中設定 SQL Server 資料庫時，可以在不共用任何內容的叢集中設定兩個節點。</p> | SQL Server 2014/2012 Enterprise Edition
+**容錯移轉叢集 (AlwaysOn FCI)** | <p>SQL Server 會針對內部部署 SQL Server 工作負載的高可用性，運用 Windows 容錯移轉叢集。</p><p>使用共用磁碟執行 SQL Server 執行個體的節點是在容錯移轉叢集中設定。如果執行個體關閉，叢集會容錯移轉至另一個節點。</p> <p>叢集無法防止共用儲存體失敗或中斷。共用磁碟可以使用 iSCSI、光纖通道或共用 VHDX 實作。</p> | SQL Server Enterprise Edition</p><p>SQL Server Standard Edition (僅限兩個節點)
+**資料庫鏡像 (高安全性模式)** | 將單一資料庫保護為單一次要複本。提供高安全性 (同步) 和高效能 (非同步) 複寫模式。不需要容錯移轉叢集。 | <p>SQL Server 2008 R2</p><p>SQL Server Enterprise 所有版本</p>
+**獨立式 SQL Server** | SQL Server 和資料庫裝載在單一伺服器 (實體或虛擬) 上。如果是虛擬伺服器，則主機叢集用於高可用性。沒有來賓層級的高可用性。 | Enterprise 或 Standard Edition
+
+
 
 下表摘要說明我們將 SQL Server BCDR 技術整合到 Site Recovery 部署的建議。
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>版本</b></td>
-		<td><b>版本</b></td>
-		<td><b>部署</b></td>
-		<td><b>內部部署至內部部署</b></td>
-		<td><b>內部部署至 Azure</b>&lt;/td
-    </tr>
-    <tr align="left" valign="top">
-		<td rowspan = "3">SQL Server 2014 或 2012</td>
-		<td rowspan = "2">Enterprise</td>
-		<td>容錯移轉叢集執行個體</td>
-		<td>AlwaysOn 可用性群組</td>
-		<td>AlwaysOn 可用性群組</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>高可用性的 AlwaysOn 可用性群組</td>
-		<td>AlwaysOn 可用性群組</td>
-		<td>AlwaysOn 可用性群組</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>標準</td>
-		<td>容錯移轉叢集執行個體</td>
-		<td>包含本機鏡像的 Site Recovery 複寫</td>
-		<td>包含本機鏡像的 Site Recovery 複寫</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>Enterprise 或 Standard</td>
-		<td>獨立</td>
-		<td>包含本機鏡像的 Site Recovery 複寫</td>
-		<td>包含本機鏡像的 Site Recovery 複寫</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>SQL Server 2008 R2</td><td>Enterprise 或 Standard</td>
-		<td>獨立</td>
-		<td>包含本機鏡像的 Site Recovery 複寫</td>
-		<td>包含本機鏡像的 Site Recovery 複寫</td>
-    </tr>
-    </tbody>
-    </table>
+**版本** |**版本** | **部署** | **內部部署到內部部置** | **內部部署到 Azure** 
+---|---|---|---|
+SQL Server 2014 或 2012 | Enterprise | 容錯移轉叢集執行個體 | AlwaysOn 可用性群組 | AlwaysOn 可用性群組
+ | Enterprise | 高可用性的 AlwaysOn 可用性群組 | AlwaysOn 可用性群組 | AlwaysOn 可用性群組
+ | 標準 | 容錯移轉叢集執行個體 | 包含本機鏡像的 Site Recovery 複寫 | 包含本機鏡像的 Site Recovery 複寫
+ | Enterprise 或 Standard | 獨立 | 包含本機鏡像的 Site Recovery 複寫 | 包含本機鏡像的 Site Recovery 複寫
+SQL Server 2008 R2 | Enterprise 或 Standard | 獨立 | 包含本機鏡像的 Site Recovery 複寫 | 包含本機鏡像的 Site Recovery 複寫
 
 
 ## 部署必要條件
@@ -436,4 +362,4 @@ Site Recovery 可以與資料表中摘要說明的原生 SQL Server BCDR 技術�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

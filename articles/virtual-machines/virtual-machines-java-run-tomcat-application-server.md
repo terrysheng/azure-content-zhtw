@@ -1,5 +1,5 @@
 <properties
-	pageTitle="虛擬機器上的 Tomcat - Azure 教學課程"
+	pageTitle="虛擬機器上的 Tomcat | Microsoft Azure"
 	description="了解如何建立執行 Windows 的虛擬機器，並設定此機器執行 Apache Tomcat 應用程式伺服器。"
 	services="virtual-machines"
 	documentationCenter="java"
@@ -142,4 +142,4 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

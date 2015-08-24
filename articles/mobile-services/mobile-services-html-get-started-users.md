@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="將驗證新增至 HTML/JavaScript 應用程式 | Azure 行動服務" 
+	pageTitle="將驗證新增至 HTML/JavaScript 應用程式 | Microsoft Azure" 
 	description="了解如何使用行動服務透過眾多識別提供者驗證 HTML 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft 帳戶。" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -138,4 +138,4 @@
 [行動服務 HTML/JavaScript 作法概念性參考]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

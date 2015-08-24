@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="將驗證新增至 Universal Windows 8.1 應用程式 | Azure 行動服務" 
+	pageTitle="將驗證新增至 Universal Windows 8.1 應用程式 | Microsoft Azure" 
 	description="了解如何使用行動服務透過眾多識別提供者 (包括 Google、Facebook、Twitter 和 Microsoft) 驗證 Universal Windows 8.1 應用程式的使用者。" 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -97,4 +97,4 @@
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

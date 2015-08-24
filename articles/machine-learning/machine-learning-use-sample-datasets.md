@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="使用 Machine Learning Studio 中的範例資料集 | Microsoft Azure" 
-	description="ML Studio 中包含的範例模型所使用之資料集的描述。您可以為您的實驗使用這些範例資料集。" 
+<properties
+	pageTitle="使用 Machine Learning Studio 中的範例資料集 | Microsoft Azure"
+	description="ML Studio 中包含的範例模型所使用之資料集的描述。您可以為您的實驗使用這些範例資料集。"
 	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/10/2015"
 	ms.author="garye"/>
 
 
@@ -315,6 +315,5 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

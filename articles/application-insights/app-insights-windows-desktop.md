@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
 
 # Windows 桌面應用程式與服務的 Application Insights
@@ -44,13 +44,21 @@ Windows 桌面應用程式與服務的支援是由 Application Insights 核心 S
 
 1. 在 Visual Studio 中，編輯桌面應用程式專案的 NuGet 封裝。![以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 封裝]](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. 安裝 Application Insights API 套件。
+2. 安裝 Application Insights 核心 API 套件。
 
     ![搜尋「Application Insights」](./media/app-insights-windows-desktop/04-core-nuget.png)
 
-3. 在程式碼中透過 `TelemetryConfiguration.Active` 物件設定您的 InstrumentationKey。
+3. 在程式碼中設定您的 InstrumentationKey，例如在 main() 中。
 
     `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
+
+*為什麼沒有 ApplicationInsights.config？*
+
+* 核心 API 套件未安裝 .config 檔案，此套件只能用來設定遙測收集器。因此您可以撰寫自己的程式碼，以設定檢測金鑰並傳送遙測。
+
+*可不可以使用不同的 NuGet 封裝？*
+
+* 可以，您可以使用 web 伺服器封裝，它會為效能計數器安裝收集器。您必須[停用 HTTP 要求收集器](app-insights-configuration-with-applicationinsights-config.md)。它會安裝您要在其中放置檢測金鑰的.config 檔案。
 
 ## <a name="telemetry"></a>插入遙測呼叫
 
@@ -173,4 +181,4 @@ Windows 桌面應用程式與服務的支援是由 Application Insights 核心 S
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

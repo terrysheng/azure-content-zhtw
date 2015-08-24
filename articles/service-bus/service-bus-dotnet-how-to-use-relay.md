@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用服務匯流排轉送 (.NET) - Azure" 
+	pageTitle="如何使用服務匯流排轉送 (.NET) | Microsoft Azure" 
 	description="了解如何使用 Azure 服務匯流排轉送服務連接主控於相異位置的兩個應用程式。" 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -265,7 +265,7 @@
   [建立服務匯流排的服務]: http://msdn.microsoft.com/library/azure/ee173564.aspx
   [建立服務匯流排用戶端應用程式]: http://msdn.microsoft.com/library/azure/ee173543.aspx
   [Azure 範例]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/zh-tw/library/azure/dn194201.aspx
+  [MSDN]: https://msdn.microsoft.com/zh-cn/library/azure/dn194201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -202,7 +202,7 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 
 	>[AZURE.NOTE]這項作業可能需要幾分鐘的時間。
 
-7. 從瀏覽器中，導覽至 https://ms.portal.azure.com/，並在需要時輸入您的認證。
+7. 從瀏覽器中，巡覽至 https://portal.azure.com/，並在需要時輸入您的認證。
 8. 按一下 Azure 入口網站中的 **RG1** 資源群組磚 ，如下所示。
 
 	![VNet 儀表板](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure06.png)
@@ -317,7 +317,7 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 
 	![VNet 儀表板](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure11.png)
 
-5. 雖然您可以從傳統的入口網站來管理傳統的 VNet 和其連線，但是建議使用新的 Azure 入口網站。若要開啟新的入口網站，請導覽至 https://ms.portal.azure.com。
+5. 雖然您可以從傳統的入口網站來管理傳統的 VNet 和其連線，但是建議使用新的 Azure 入口網站。若要開啟新的入口網站，請巡覽至 https://portal.azure.com。
 6. 在新的入口網站中，依序按一下 [**全部瀏覽**]、[**虛擬網路 (傳統)**] 和 [**vnet01**]。請注意下面顯示的 [**VPN 連線**] 窗格。
 
 	![VNet 儀表板](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure12.png)
@@ -363,4 +363,4 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 - 深入了解 [ARM 的網路資源提供者 (NRP)](../resource-groups-networking.md)。
 - 檢視有關如何[在傳統 VNet 和 ARM VNet 之間建立 S2S VPN 連線](../virtual-networks-arm-asm-s2s-howto.md)的一般指導方針。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

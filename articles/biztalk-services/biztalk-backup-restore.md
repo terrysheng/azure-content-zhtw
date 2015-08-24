@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在 BizTalk 服務中建立和還原備份 |Azure" 
+	pageTitle="在 BizTalk 服務中建立和還原備份 | Microsoft Azure" 
 	description="BizTalk 服務包含備份與還原功能。了解如何建立和還原備份，以及判斷該備份什麼。MABS，WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -96,7 +96,7 @@ Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Az
 
 #### Restore a backup
 
-1. 在 Azure 管理入口網站上，選取 [**新增**] > [**應用程式服務**] > [**BizTalk 服務**] > [**還原**]：
+1. 在 Azure 管理入口網站上，選取 [新增] > App Service > [BizTalk 服務] > [還原]：
 
 	![還原備份][Restore]
 
@@ -233,4 +233,4 @@ BizTalk 服務永遠還原成**暫止**狀態。在此狀態下，您可以在�
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

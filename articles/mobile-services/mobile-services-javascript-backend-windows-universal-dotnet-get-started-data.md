@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="將行動服務新增至現有的通用 Windows 應用程式 | Azure 行動服務" 
+	pageTitle="將行動服務新增至現有的通用 Windows 應用程式 | Microsoft Azure" 
 	description="了解如何將現有的通用 Windows 應用程式連接至 Azure 行動服務。" 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -114,4 +114,4 @@
 [MobileServiceClient ]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

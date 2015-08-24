@@ -4,15 +4,15 @@
 	services="application-insights"
     documentationCenter=""
 	authors="alancameronwills"
-	manager="kamrani"/>
+	manager="douge"/>
 
 <tags
 	ms.service="application-insights"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
+	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="05/03/2015"
+	ms.date="08/06/2015"
 	ms.author="awills"/>
 
 # 使用 Application Insights 進行使用量分析
@@ -21,13 +21,41 @@
 
 Application Insights 可提供應用程式使用量的清楚檢視，幫助您改善使用者的體驗，並達成您的業務目標。
 
+Application Insights 適用於獨立應用程式 (在 iOS、Android 和 Windows 上) 及 web 應用程式 (裝載於.NET 或 J2EE)。
+
+## 將 Application Insights 加入至專案
+
+首先，取得 [Microsoft Azure](https://azure.com) 訂用帳戶。(可免費試用，且在試用期之後，您可以繼續使用服務的免費層。)
+
+在 [Azure 入口網站](https://portal.azure.com) 中，建立 Application Insights 資源。您會在其中看到應用程式的使用情況和效能資料。
+
+![在 Azure 中，按一下 [新增]、[開發人員服務]、[Application Insights]](./media/app-insights-overview-usage/01-create.png)
+
+**如果您的應用程式為裝置應用程式，**請將 Application Insights SDK 加入專案。確切的程序因 [IDE 和平台](app-insights-platforms.md)而有所不同。在 Windows 應用程式中，以滑鼠右鍵按一下 Visual Studio 中的專案，然後選擇 [加入 Application Insights]。
+
+**如果是 web 應用程式，**請開啟快速入門刀鋒視窗並取得要新增至網頁的程式碼片段。使用此程式碼片段將它們重新發佈。
+
+![開啟 [快速入門]，然後按一下 [取得程式碼來監視我的網頁]。將指令碼複製到您主版頁面的標頭。](./media/app-insights-overview-usage/02-monitor-web-page.png)
+
+您也可以將 Application Insights 加入至您的 [ASP.NET](app-insights-start-monitoring-app-health-usage.md) 或 [J2EE](app-insights-java-get-started.md) 伺服端程式碼，以便從用戶端和伺服器結合遙測。
+
+
+### 執行您的專案並查看第一批結果
+
+以偵錯模式執行您的專案數分鐘，然後移至 [Azure 入口網站](http://portal.azure.com)並瀏覽至 Application Insights 中的專案資源。
+
+![在 Azure 中，按一下 [瀏覽]、[Application Insights]，然後選取您的專案。](./media/app-insights-overview-usage/00-start.png)
+
+發佈您的應用程式以取得更多遙測，並了解您的使用者如何利用您的應用程式。
+
+
 ## 內建的分析功能
 
-將 [Application Insights][start] 加入您的專案，不需多費力氣，便能獲得能顯示您擁有的使用者數量的圖表等等。
+按一下 [頁面檢視] 磚以查看使用情況詳細資料。
 
-![在 Azure 中，[瀏覽] > [Application Insights] > 您的專案，並向下捲動](./media/app-insights-overview-usage/01-overview.png)
+![在 Azure 中，[瀏覽] > [Application Insights] > 您的專案，並向下捲動至 [頁面檢視] 磚](./media/app-insights-overview-usage/01-overview.png)
 
-將滑鼠移至圖形上的空白部分，以查看特定點的計數。否則，數字會顯示在一段期間的彙總值，例如一段期間的平均、總計或獨特使用者計數。
+將滑鼠移至圖形上的空白部分，以查看特定點的計數。否則，數字會顯示一段期間的彙總值，例如一段期間的平均、總計或獨特使用者計數。
 
 在 Web 應用程式中，是使用 Cookie 來計算使用者。使用數個瀏覽器、清除 Cookie 或使用私密瀏覽功能的人員將被計入數次。
 
@@ -54,7 +82,7 @@ Web 工作階段在 30 分鐘無活動後會被計入。在電話或其他裝置
 
 ## 頁面使用量
 
-逐一點選頁面檢視圖表以取得更放大的版本，以及最受歡迎頁面的分解：
+按一下 [頁面檢視] 磚以取得最常用頁面的明細：
 
 
 ![從 [概觀] 刀鋒視窗，按一下 [頁面檢視] 圖表](./media/app-insights-overview-usage/05-games.png)
@@ -248,6 +276,11 @@ Web 工作階段在 30 分鐘無活動後會被計入。在電話或其他裝置
 * Canary 測試。設定可讓您使新功能僅對部分使用者顯示的功能開關。使用 Application Insights 來查看新功能是否正依您設想的方式提供使用。進行調整，然後發行給更廣大的對象。
 * 與您的使用者討論！ 單單分析是不足夠的，但可以補充以保有良好的客戶關係。
 
+## 詳細資訊
+
+* [偵測、分及和診斷應用程式中的損毀和效能問題](app-insights-detect-triage-diagnose.md)
+* [開始使用 .NET 的 Application Insights](app-insights-detect-triage-diagnose.md)
+
 
 ## 影片
 
@@ -259,4 +292,4 @@ Web 工作階段在 30 分鐘無活動後會被計入。在電話或其他裝置
 [start]: app-insights-get-started.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

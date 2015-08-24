@@ -1,19 +1,21 @@
-You must create a load-balanced endpoint for each VM hosting an Azure replica. If you have replicas in multiple regions, each replica for that region must be in the same cloud service in the same VNet. Creating Availability Group replicas that span multiple Azure regions requires configuring multiple VNets. For more information on configuring cross VNet connectivity, see  [Configure VNet to VNet Connectivity](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+您必須為每個主控 Azure 複本的 VM 建立負載平衡端點。如果您的複本位於多個區域，則該區域的每個複本必須位於相同 VNet 中的相同雲端服務。建立跨越多個 Azure 區域的可用性群組複本需要設定多個 VNet。如需有關設定跨 VNet 連線的詳細資訊，請參閱〈[設定 VNet 對 VNet 連線](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)〉。
 
-1. In the Azure portal, navigate to each VM hosting a replica and view the details.
+1. 在 Azure 入口網站中，巡覽至每個主控複本的 VM 並檢視詳細資料。
 
-1. Click the **Endpoints** tab for each of the VMs.
+1. 按一下每個 VM 的 [**端點**] 索引標籤。
 
-1. Verify that the **Name** and **Public Port** of the listener endpoint you want to use is not already in use. In the example below, the name is “MyEndpoint” and the port is “1433”.
+1. 針對您想要使用的接聽程式端點，確認**名稱**和**公用連接埠**並未處於使用中狀態。在下列範例中，名稱是「MyEndpoint」，而通訊埠為「1433」。
 
-1. On your local client, download and install [the latest PowerShell module](http://azure.microsoft.com/downloads/).
+1. 在您的本機用戶端上，下載並安裝[最新的 PowerShell 模組](http://azure.microsoft.com/downloads/)。
 
-1. Launch **Azure PowerShell**. A new PowerShell session is opened with the Azure administrative modules loaded.
+1. 啟動 **Azure PowerShell**。新的 PowerShell 工作階段會使用載入的 Azure 系統管理模組來開啟。
 
-1. Run **Get-AzurePublishSettingsFile**. This cmdlet directs you to a browser to download a publish settings file to a local directory. You may be prompted for your log-in credentials for your Azure subscription.
+1. 執行 **Get-AzurePublishSettingsFile**。這個 Cmdlet 會將您導向瀏覽器，以便將發佈設定檔案下載至本機目錄。系統可能會提示您輸入 Azure 訂用帳戶的登入認證。
 
-1. Run the **Import-AzurePublishSettingsFile** command with the path of the publish settings file that you downloaded:
+1. 使用您所下載發佈設定檔案的路徑來執行 **Import-AzurePublishSettingsFile** 命令：
 
 		Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
 
-	Once the publish settings file is imported, you can manage your Azure subscription in the PowerShell session.
+	一旦匯入發佈設定檔案，您便可以在 PowerShell 工作階段中管理 Azure 訂用帳戶。
+
+<!---HONumber=August15_HO7-->

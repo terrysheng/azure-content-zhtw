@@ -1,21 +1,25 @@
-<properties 
-   pageTitle="Azure SQL Database 資源限制"
-   description="此頁面描述一些 Azure SQL Database 常見的資源限制。"
-   services="sql-database"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" />
-<tags 
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="07/24/2015"
-   ms.author="jroth" />
+<properties
+	pageTitle="Azure SQL Database 資源限制"
+	description="此頁面描述一些 Azure SQL Database 常見的資源限制。"
+	services="sql-database"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar" />
+
+
+<tags
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="08/10/2015"
+	ms.author="jroth" />
+
 
 # Azure SQL Database 資源限制
+
 
 Azure SQL Database 會監視共用資源的使用情況，例如交易記錄、I/O 和許多其他資源。這樣可讓 Azure SQL Database 將資料庫保留在設定的資源界限之內。此資源界限或臨界值稱為資源限制。當用戶端的資源使用量超出這些限制時，無論是在租用戶或實體節點層級，Azure SQL Database 都會藉由管理資源使用情況來回應，導致連接遺失或要求被拒絕。
 
@@ -23,7 +27,7 @@ Azure SQL Database 會監視共用資源的使用情況，例如交易記錄、I
 
 ## 資源限制摘要表
 
-下表提供每個資源的限制摘要，超過這些限制時，Azure SQL Database 會拒絕要求或終止受影響資源的連接，並且傳回錯誤程式碼。在某些情況下，服務層 (基本、標準、進階) 和效能層級可決定實際的限制。在這些情況下，請參閱 [Azure SQL Database 服務層和效能層級](https://msdn.microsoft.com/library/azure/dn741336.aspx)。
+下表提供每個資源的限制摘要，超過這些限制時，Azure SQL Database 會拒絕要求或終止受影響資源的連接，並且傳回錯誤程式碼。在某些情況下，[服務層 (基本、標準、進階)](sql-database-service-tiers.md) 和效能層級可決定實際的限制。在這些情況下，請參閱 [Azure SQL Database 服務層和效能層級](https://msdn.microsoft.com/library/azure/dn741336.aspx)。
 
 [AZURE.INCLUDE [azure-sql-database-limits](../../includes/azure-sql-database-limits.md)]
 
@@ -119,7 +123,14 @@ Azure SQL Database 會監視共用資源的使用情況，例如交易記錄、I
 | **被拒絕的要求類型** | 任何 DDL 或 DML 陳述式。 |
 | **建議** | 以下 DMV 可用來監視交易：**sys.dm\_tran\_active\_transactions**、**sys.dm\_tran\_database\_transactions**、**sys.dm\_tran\_locks** 和 **sys.dm\_tran\_session\_transactions**。根據應用程式類型，可以使用粒度更粗的鎖定提示，例如 **PAGLOCK** 或 **TABLOCK**，以減少指定陳述式/交易中取得鎖定的數目。請注意，這樣會對應用程式並行存取產生負面影響。 |
 
+
 ## 交易記錄檔長度
+
+
+對於 Standard 或 Premium 定價層的 V12 版本 Azure SQL Database，交易記錄檔的最大長度限制為不超過 2 GB。
+
+下表說明 V11 版本的交易記錄檔限制。
+
 
 | &nbsp; | 相關資訊 |
 | :--- | :--- |
@@ -152,4 +163,4 @@ Azure SQL Database 會監視共用資源的使用情況，例如交易記錄、I
 
 [避免拒絕要求或連接終止的 Azure SQL Database 最佳作法](https://msdn.microsoft.com/library/azure/dn338082.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

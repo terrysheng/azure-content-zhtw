@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/07/2015"
+	ms.date="08/05/2015"
 	ms.author="raynew"/>
 
 #  設定內部部署 VMM 網站和 Azure 之間的保護
@@ -321,4 +321,4 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 <LI>若有任何問題，請造訪 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 復原服務論壇</a> (英文)。</LI></UL>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

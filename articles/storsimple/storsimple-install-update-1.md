@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="在 StorSimple 裝置上安裝 Update 1"
+   pageTitle="在 StorSimple 裝置上安裝 Update 1 | Microsoft Azure"
    description="說明如何在您的裝置上安裝 StorSimple 8000 Series Update 1。"
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/18/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # 在 StorSimple 裝置上安裝 Update 1
@@ -100,4 +100,4 @@
 
 深入了解 [Microsoft Azure StorSimple](storsimple-overview.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

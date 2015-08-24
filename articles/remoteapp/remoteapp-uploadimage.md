@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="ericor" />
 
 
@@ -35,7 +35,7 @@
 4.      為您的映像輸入一個易記名稱，並指定儲存體帳戶位置。請確定此位置會是與 RemoteApp 集合相同的位置或是您要建立 RemoteApp 集合的位置。 
 5.      當系統出現提示時，請將指令碼下載到本機電腦。
 6.      將文字方塊中的命令參數複製到您的剪貼簿。
-7.      開啟提升權限的 Windows PowerShell 視窗  
+7.      開啟提升權限的 Windows PowerShell 視窗。
 8.      從提升權限的 Windows PowerShell 視窗，瀏覽至您下載指令碼的相同目錄。
 9.      貼上複製的命令，並按 **Enter** 鍵。
 
@@ -52,4 +52,4 @@
 - 如果 vhd 檔案在上傳期間遭到鎖定，請將檔案複製或移動到新位置，並再次嘗試上傳。有些 Windows 程序可能會阻止上傳。  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

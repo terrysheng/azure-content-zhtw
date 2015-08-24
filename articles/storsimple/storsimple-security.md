@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="StorSimple 安全性" 
+   pageTitle="StorSimple 安全性 |Microsoft Azure" 
    description="說明保護 StorSimple 服務、裝置和資料的安全性和隱私權功能。" 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/19/2015"
+   ms.date="08/11/2015"
    ms.author="v-sharos"/>
 
 # StorSimple 安全性 
@@ -50,13 +50,12 @@ StorSimple 裝置是包含固態硬碟 (SSD) 和硬碟 (HDD) 的內部部署混�
 
 只有已授權的 StorSimple 裝置才能加入您在 Azure 訂閱中建立的 StorSimple Manager 服務。
 
-若要授權裝置，您必須提供服務註冊金鑰才能向 StorSimple Manager 服務註冊該裝置。服務註冊金鑰是入口網站中所產生的 128 位元隨機金鑰。若要了解如何取得服務註冊金鑰，請移至[步驟 2：取得服務註冊金鑰](https://msdn.microsoft.com/library/azure/dn772346.aspx)。
+若要授權裝置，您必須提供服務註冊金鑰才能向 StorSimple Manager 服務註冊該裝置。服務註冊金鑰是入口網站中所產生的 128 位元隨機金鑰。若要了解如何取得服務註冊金鑰，請移至[步驟 2：取得服務註冊金鑰](storsimple-deployment-walkthrough.md#step-2-get-the-service-registration-key)。
 
-> [AZURE.NOTE]服務登錄機碼是包含 100 個以上字元的長金鑰。建議您複製金鑰並將它以文字檔方式儲存在安全的位置中，如有必要，您可以使用此金鑰來授權其他裝置。
+> [AZURE.NOTE]服務註冊金鑰是包含 100 個以上字元的長金鑰。建議您複製金鑰並將它以文字檔方式儲存在安全的位置中，如有必要，您可以使用此金鑰來授權其他裝置。
 > 
 > * 如果您在註冊完第一個裝置之後遺失服務註冊金鑰，您可以透過 StorSimple Manager 服務產生新的金鑰。這不會對現有裝置的作業有任何影響。 
 > * 裝置註冊完後，它會使用權杖與 Microsoft Azure 通訊。裝置註冊後便不會用到服務註冊金鑰。
-
 
 ## 透過密碼保護您的 StorSimple 解決方案
 
@@ -93,6 +92,8 @@ CHAP 是 StorSimple 裝置用來驗證遠端用戶端身分識別的一種驗證
 > * 您不能針對 CHAP 啟動器和 CHAP 目標使用相同的密碼。
 > * 設定密碼之後，您可以加以變更但無法擷取。如果密碼已變更，請務必通知所有遠端存取使用者，好讓他們能夠順利連接至 StorSimple 裝置。
 
+如需詳細資訊並設定 CHAP，請移至[為 StorSimple 裝置設定 CHAP](storsimple-configure-chap.md)
+
 ### StorSimple Snapshot Manager 密碼
 
 StorSimple Snapshot Manager 是一個 Microsoft Management Console (MMC) 嵌入式管理單元，可使用磁碟區群組和 Windows 磁碟區陰影複製服務產生應用程式一致備份。此外，您可以使用 StorSimple Snapshot Manager 建立備份排程及複製或還原磁碟區。
@@ -107,7 +108,7 @@ StorSimple Snapshot Manager 是一個 Microsoft Management Console (MMC) 嵌入�
 建議您使用下列指導方針，以協助確保 Azure StorSimple 密碼強度夠強並且受到嚴密保護：
 
 - 每三個月變更您的密碼。
-- 使用強式密碼。如需詳細資訊，請移至 [建立強式密碼]。
+- 使用強式密碼。如需詳細資訊，請移至[建立強式密碼並保護它們](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/)。
 - 針對不同的存取機制一律使用不同的密碼。您所指定的每個密碼都應該是唯一的。
 - 請勿與未經授權存取 StorSimple 裝置的任何人分享密碼。
 - 請勿在其他人面前談論密碼或提示密碼的格式。
@@ -134,9 +135,9 @@ StorSimple Manager 服務的主要目的是管理和設定 StorSimple 裝置。S
 > [AZURE.IMPORTANT]
 > 
 > * 只會針對第一個向服務註冊的裝置產生服務資料加密金鑰。向服務註冊的所有後續裝置則必須使用相同的服務資料加密金鑰。請務必製作一份此金鑰的副本，並將它儲存在安全的位置。儲存服務資料加密金鑰的副本時，必須讓已經授權的人員可以進行存取，並可以輕鬆地將它傳送到裝置系統管理員。
-> * 您可以透過選取服務儀表板上的 [變更服務資料加密金鑰] 選項，變更服務資料加密金鑰及對應的資料加密憑證。變更加密金鑰時，必須使用新的金鑰更新所有裝置。因此，建議您在所有裝置都在線上時變更金鑰。如果裝置處於離線狀態，您可以在其他時間變更金鑰。金鑰已過期的裝置仍然可以執行備份，但在金鑰更新之前將無法還原資料。如需詳細資訊，請移至[服務儀表板](https://msdn.microsoft.com/library/azure/dn772326.aspx)。
+> * 您可以透過選取服務儀表板上的 [變更服務資料加密金鑰] 選項，變更服務資料加密金鑰及對應的資料加密憑證。變更加密金鑰時，必須使用新的金鑰更新所有裝置。因此，建議您在所有裝置都在線上時變更金鑰。如果裝置處於離線狀態，您可以在其他時間變更金鑰。金鑰已過期的裝置仍然可以執行備份，但在金鑰更新之前將無法還原資料。如需詳細資訊，請移至[使用服務儀表板](storsimple-service-dashboard.md)。
 > * 若要確保資料安全性不會受到危害，您必須使用實體 StorSimple 裝置變更服務資料加密金鑰。
-> * 如果服務資料加密金鑰遺失，Microsoft 支援人員可協助您擷取該金鑰，但前提是您至少要有一個裝置處於線上狀態。建議您在擷取服務資料加密金鑰後將其變更。如需相關指示，請移至[變更服務資料加密金鑰](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#sec01)。
+> * 如果服務資料加密金鑰遺失，Microsoft 支援人員可協助您擷取該金鑰，但前提是您至少要有一個裝置處於線上狀態。建議您在擷取服務資料加密金鑰後將其變更。如需相關指示，請移至[變更服務資料加密金鑰](storsimple-service-dashboard.md#change-the-service-data-encryption-key)。
 > * 服務資料加密金鑰和資料加密憑證不會過期。不過，建議您定期變更服務資料加密金鑰，以防金鑰洩露。</li></ul>
 
 
@@ -149,6 +150,14 @@ StorSimple 裝置會根據使用頻率，將資料儲存在本機階層和雲端
 - 在 StorSimple Manager 服務中輸入雲端儲存體加密金鑰時，此金鑰會使用服務資料加密金鑰的公開部分進行加密，然後傳送至裝置。
 - 雲端儲存體加密金鑰不會儲存在服務中的任何地方，只有此裝置才知道儲存位置。
 - 指定雲端儲存體加密金鑰是選用選項。您可以將已在主機上加密的資料傳送至裝置。
+
+### 其他的安全性最佳作法
+
+- 若要實作備援，請使用多重路徑 (MPIO) 以避免 iSCSI SAN 中的單一失敗點。如需詳細指示，請參閱[為 StorSimple 裝置設定 MPIO](#storsimple-configure-mpio-windows-server.md)。
+
+- 分割流量：透過部署完全分開的網路並在無法使用實體隔離的位置使用 VLAN，將您的 iSCSI SAN 從公司 LAN 中的使用者流量隔離。iSCSI 存放裝置的專用網路會保證您業務關鍵資料的安全性和效能。不建議在公司 LAN 上將存放裝置與使用者流量混用，這會增加延遲並造成網路失敗。
+
+- 針對主機端的網路安全性，請使用支援 TCP/IP 卸載引擎 (TOE) 的網路介面。TOE 透過在網路介面卡上處理 TCP 來減少 CPU 的負載。
 
 ## 透過儲存體帳戶保護資料安全
 
@@ -183,20 +192,20 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 
 **答：**請立即變更服務資料加密金鑰和用於階層資料的儲存體帳戶金鑰。如需相關指示，請移至：
 
-- [變更服務資料加密金鑰](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#sec01)
-- [儲存體帳戶的金鑰輪替](https://msdn.microsoft.com/library/azure/1747f56e-858a-4cfe-a020-949d7db23b8b#rotate)
+- [變更服務資料加密金鑰](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+- [儲存體帳戶的金鑰輪替](storsimple-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
 **問：**我的新 StorSimple 裝置要求提供服務註冊金鑰。該如何擷取此金鑰？
 
 **答：**當您最初建立 StorSimple Manager 服務時，此金鑰就已建立。使用 StorSimple Manager 服務連接至裝置時，您可以透過快速啟動頁面來檢視或重新產生服務註冊金鑰。產生新的服務註冊金鑰不會影響現有的已註冊裝置。如需相關指示，請移至：
 
-- [檢視或重新產生服務註冊金鑰](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#BKMK_viewsrk)
+- [檢視或重新產生服務註冊金鑰](storsimple-service-dashboard.md#view-or-regenerate-the-service-registration-key)
 
 **問：**我的服務資料加密金鑰不見了。該怎麼辦？
 
 **答：**請連絡 Microsoft 支援服務。他們可以登入您裝置上的支援工作階段，協助您擷取金鑰。您取得服務資料加密金鑰之後，請立即變更，以確保只有您自己知道新的金鑰。如需相關指示，請移至：
 
-- [變更服務資料加密金鑰](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#sec01)
+- [變更服務資料加密金鑰](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 
 **問：**我授權某個裝置進行服務資料加密金鑰變更，但無法開始金鑰變更程序。我該怎麼辦？
 
@@ -204,24 +213,22 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 
 **問：**我變更了服務資料加密金鑰，但 4 小時內無法更新其他裝置。是否必須重新啟動？
 
-**答：**4 小時的期間僅適用於啟動變更。在已經授權的 StorSimple 裝置上啟動更新程序之後，在所有裝置更新之前此授權都是有效的。
+**答：**4 小時的期間僅適用於初始化變更。在已經授權的 StorSimple 裝置上啟動更新程序之後，在所有裝置更新之前此授權都是有效的。
 
 **問：**我們的 StorSimple 系統管理員已離職。我該怎麼辦？
 
 **答：**變更和重設允許存取 StorSimple 裝置的密碼，並變更服務資料加密金鑰，以確保未經授權的人員不會知道新的資訊。如需相關指示，請移至：
 
-- [設定 StorSimple Snapshot Manager](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
-- [設定裝置系統管理員密碼](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec09)
-- [設定遠端管理](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec10)
-- [設定 CHAP 起始端](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec06)
-- [設定 CHAP 目標](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec07)
+- [使用 StorSimple Manager 服務變更 StorSimple 密碼](storsimple-change-passwords.md)
+- [變更服務資料加密金鑰](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+- [為 StorSimple 裝置設定 CHAP](storsimple-configure-chap.md)
 
 **問：**我想要提供 StorSimple Snapshot Manager 的密碼給連接至 StorSimple 裝置的主機，但找不到密碼。我該怎麼辦？
 
 **答：**如果忘記密碼，請建立新密碼。然後，請務必通知所有現有的使用者密碼已變更，並要求他們更新其用戶端以使用新密碼。如需相關指示，請移至：
 
-- [設定快照集管理員](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
-- [驗證裝置](https://msdn.microsoft.com/library/azure/dn790537.aspx)
+- [變更 StorSimple Snapshot Manager 密碼](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)
+- [驗證裝置](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
 
 **問：**裝置上用於遠端存取 Windows PowerShell for StorSimple 的憑證已變更。如何更新遠端存取用戶端？
 
@@ -243,7 +250,7 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 
 ## 後續步驟
 
-[開始使用實體裝置](https://msdn.microsoft.com/library/azure/dn772410.aspx)
+[部署您的 StorSimple 裝置](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

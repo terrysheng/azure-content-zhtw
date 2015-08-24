@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # 如何管理帳戶設定檔和測試裝置 
@@ -145,4 +145,4 @@
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

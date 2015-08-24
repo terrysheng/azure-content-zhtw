@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用 Twilio 進行語音和 SMS (Ruby) - Azure" 
+	pageTitle="如何使用 Twilio for Voice and SMS (Ruby) | Microsoft Azure" 
 	description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。程式碼範例以 Ruby 撰寫。" 
 	services="" 
 	documentationCenter="ruby" 
@@ -195,4 +195,4 @@ Twilio 動詞是指示 Twilio 應執行哪些**動作**的 XML 標籤。例如�
 [sinatra]: http://www.sinatrarb.com/
 [azure_vm_setup]: http://www.windowsazure.com/develop/ruby/tutorials/web-app-with-linux-vm/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

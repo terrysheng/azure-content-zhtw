@@ -23,22 +23,21 @@
 Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個版本選擇都會佈建特定版本的 Hortonworks Data Platform (HDP) 散發，以及該散發內包含的一組元件。下表列舉了與 HDInsight 叢集版本相關聯的元件版本。請注意，Azure HDInsight 目前所使用的預設叢集版本為 3.1 版，採用 HDP 2.1.7 (截止 11/7/2014 為止)。
 
 
-<table border="1">
-<tr><th>元件</th><th>HDInsight 3.2 版</th><th>HDInsight 3.1 版 (預設)</th><th>HDInsight 3.0 版</th><th>HDInsight 2.1 版</th></tr>
-<tr><td>Hortonworks Data Platform</td><td>2.2</td><td>2.1.7</td><td>2.0</td><td>1.3</td></tr>
-<tr><td>Apache Hadoop &amp; YARN</td><td>2.6.0</td><td>2.4.0</td><td>2.2.0</td><td>1.2.0</td></tr>
-<tr><td>Tez</td><td>0.5.2</td><td>0.4.0</td><td></td><td></td></tr>
-<tr><td>Apache Pig</td><td>0.14.0</td><td>0.12.1</td><td>0.12.0</td><td>0.11.0</td></tr>
-<tr><td>Apache Hive &amp; HCatalog</td><td>0.14.0</td><td>0.13.1</td><td>0.12.0</td><td>0.11.0</td></tr>
-<tr><td>HBase </td><td>0.98.4</td><td>0.98.0</td><td></td><td></td></tr>
-<tr><td>Apache Sqoop</td><td>1.4.5</td><td>1.4.4</td><td>1.4.4</td><td>1.4.3</td></tr>
-<tr><td>Apache Oozie</td><td>4.1.0</td><td>4.0.0</td><td>4.0.0</td><td>3.3.2</td></tr>
-<tr><td>Zookeeper</td><td>3.4.6</td><td>3.4.5</td><td>3.4.5</td><td></td></tr>
-<tr><td>Storm</td><td>0.9.3</td><td>0.9.1</td><td></td><td></td></tr>
-<tr><td>Mahout</td><td>0.9.0</td><td>0.9.0</td><td></td><td></td></tr>
-<tr><td>Phoenix</td><td>4.2.0</td><td>4.0.0.2.1.7.0-2162</td><td></td><td></td></tr>
-<tr><td>Spark</td><td>1.3.1</td><td></td><td></td><td></td></tr>
-</table>
+元件|HDInsight 3.2 版|HDInsight 3.1 版 (預設)|HDInsight 3.0 版|HDInsight 2.1 版
+---|---|---|---|---
+Hortonworks Data Platform|2\.2|2\.1.7|2\.0|1\.3
+Apache Hadoop & YARN|2\.6.0|2\.4.0|2\.2.0|1\.2.0
+Tez|0\.5.2|0\.4.0||
+Apache Pig|0\.14.0|0\.12.1|0\.12.0|0\.11.0
+Apache Hive & HCatalog|0\.14.0|0\.13.1|0\.12.0|0\.11.0
+HBase |0\.98.4|0\.98.0||
+Apache Sqoop|1\.4.5|1\.4.4|1\.4.4|1\.4.3
+Apache Oozie|4\.1.0|4\.0.0|4\.0.0|3\.3.2
+Zookeeper|3\.4.6|3\.4.5|3\.4.5|
+Storm|0\.9.3|0\.9.1||
+Mahout|0\.9.0|0\.9.0||
+Phoenix|4\.2.0|4\.0.0.2.1.7.0-2162||
+Spark|1\.3.1|||
 
 
 **取得目前的元件版本資訊**
@@ -105,7 +104,13 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個�
 * 依預設，系統會為 HDInsight 2.1 和更新版本部署搭配兩個前端節點的高可用性叢集。HDInsight 1.6 叢集並不適用。
 * 在特定版本的支援到期後，您可能無法透過 Azure 入口網站取得。下表指出可在 Azure 入口網站上取得的版本。您可透過 Windows PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到其淘汰日期為止。
 
-<table border="1"> <tr><th>HDInsight 版本</th><th>HDP 版本</a><th>高可用性</th></th><th>發行日期</th><th>可用於 Azure 入口網站</th><th>支援到期日</th><th>淘汰日期</th></tr> <tr><td>HDI 3.2</td><td>HDP 2.2</td><td>是</td><td>2/18/2015</td><td>是</td><td></td><td></td></tr> <tr><td>HDI 3.1</td><td>HDP 2.1</td><td>Yes</td><td>6/24/2014</td><td>是</td><td></td><td></td></tr> <tr><td>HDI 3.0</td><td>HDP 2.0</td><td>是</td><td>02/11/2014</td><td>是</td><td>09/17/2014</td><td>06/30/2015</td></tr> <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>是</td><td>10/28/2013</td><td>否</td><td>05/12/2014</td><td>05/31/2015</td></tr> <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>否</td><td>10/28/2013</td><td>否</td><td>04/26/2014</td><td>05/31/2015</td></tr> </table><br>
+HDInsight 版本|HDP 版本|高可用性|發行日期|可在 Azure 入口網站上取得|支援到期日|淘汰日期
+---|---|---|---|---|---|---
+HDI 3.2|HDP 2.2|是|2015/2/18|是||
+HDI 3.1|HDP 2.1|是|2014/6/24|是||
+HDI 3.0|HDP 2.0|是|02/11/2014|是|09/17/2014|06/30/2015
+HDI 2.1|HDP 1.3|是|10/28/2013|否|05/12/2014|05/31/2015
+HDI 1.6|HDP 1.1|否|10/28/2013|否|04/26/2014|05/31/2015
 
 **非預設叢集的部署**
 
@@ -161,4 +166,4 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

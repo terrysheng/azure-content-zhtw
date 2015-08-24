@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在 JavaScript 後端行動服務中的使用者服務端授權 | Azure 行動服務"
+	pageTitle="在 JavaScript 後端行動服務中的使用者服務端授權 | Microsoft Azure"
 	description="了解如何在 Azure 行動服務的 JavaScript 後端為使用者授權。"
 	services="mobile-services"
 	documentationCenter=""
@@ -70,4 +70,4 @@
 [Azure 管理入口網站]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

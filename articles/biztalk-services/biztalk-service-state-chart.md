@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="BizTalk 服務在每個狀態下可執行的工作 |Azure" 
+	pageTitle="BizTalk 服務在每個狀態下可執行的工作 | Microsoft Azure" 
 	description="不同 MABS 狀態允許的動作/作業：停止、啟動、重新啟動、暫停、繼續、刪除、調整、更新組態和備份" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -267,4 +267,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Media Encoder Standard 格式和轉碼器
@@ -83,4 +83,4 @@ MPEG2-TS |H.264 (高、主要和基準設定檔)|AAC-LC、HE-AAC v1、HE-AAC v2
 
 [透過 Azure Media Services 編碼的隨選內容](media-services-encode-asset.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

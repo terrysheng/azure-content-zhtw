@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 # 利用 SAN 設定內部部署 VMM 站台之間的保護
@@ -361,4 +361,4 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 	
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

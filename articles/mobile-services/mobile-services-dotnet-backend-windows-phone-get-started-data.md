@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在現有的應用程式中加入行動服務 (Windows Phone) | 行動開發人員中心" 
+	pageTitle="在現有的應用程式中加入行動服務 (Windows Phone) | Microsoft Azure" 
 	description="了解如何開始使用行動服務，在您的 Windows Phone 應用程式中使用資料。" 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -272,4 +272,4 @@
 [How to add a new Windows Firewall port rule]: http://go.microsoft.com/fwlink/?LinkId=392240
    
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

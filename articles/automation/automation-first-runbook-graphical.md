@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="07/03/2015"
+	ms.date="08/13/2015"
 	ms.author="bwren"/>
 
 
-# 我的第一個 Runbook
+# 我的第一個圖形化 Runbook
+
+> [AZURE.SELECTOR]
+- [Graphical](automation-first-runbook-graphical.md)
+- [Textual](automation-first-runbook-textual.md)
 
 本教學課程將逐步引導您在 Azure 自動化中建立[圖形化 Runbook](automation-graphical-authoring-intro.md)。讓我們先從將測試和發佈的簡單 Runbook 開始，同時說明如何追蹤 Runbook 工作的狀態。然後我們要修改 Runbook 以實際上管理 Azure 資源，在此情況下是啟動 Azure 虛擬機器。接著我們要藉由加入 Runbook 參數和條件式連結，讓 Runbook 更穩固。
 
@@ -26,13 +30,13 @@
 若要完成本教學課程，您需要下列項目。
 
 - 。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或<a href="/pricing/free-trial/" target="_blank">[申請免費試用](http://azure.microsoft.com/pricing/free-trial/)。
-- [自動化帳戶](automation-configuring.md)以保存 Runbook。
+- 要保存 Runbook 的[自動化帳戶](automation-configuring.md)。
 - Azure 虛擬機器。我們將會停止並啟動這台電腦，因此它不應該是生產環境。
-- [Azure Active Directory 使用者和認證資產](automation-configuring.md)來向 Azure 資源驗證。此使用者必須擁有權限來啟動和停止虛擬機器。
+- [Azure Active Directory 使用者和自動化認證資產](automation-configuring.md)來向 Azure 資源驗證。此使用者必須擁有權限來啟動和停止虛擬機器。
 
 ## 步驟 1 - 建立新的 Runbook
 
-我們將藉由建立一個輸出文字 *Hello World* 的簡單 Runbook。
+我們將藉由建立一個輸出文字 *Hello World* 的簡單 Runbook 開始。
 
 1. 在 Azure Preview 入口網站中，開啟您的自動化帳戶。[自動化帳戶] 頁面提供這個帳戶中資源的快速檢視。您應該已經有一些資產。其中大部分是會自動包含在新自動化帳戶的模組。您應該也擁有[必要條件](#prerequisites)中所述的認證資產。
 2. 按一下 [**Runbook**] 磚以開啟 Runbook 的清單。<br> ![Runbook 控制項](media/automation-first-runbook-graphical/runbooks-control.png)
@@ -80,20 +84,20 @@
 8.  關閉 [輸出] 窗格。
 9.  按一下 [**資料流**] 以開啟 Runbook 工作的 [資料流] 窗格。我們應該只會在輸出資料流中看到 *Hello World*，但是這可能顯示 Runbook 工作的其他資料流，例如 Runbook 寫入它們時發生的詳細資訊和錯誤。<br> ![工作摘要](media/automation-first-runbook-graphical/job-pane-streams.png) 
 9. 關閉 [資料流] 窗格和 [工作] 窗格，以返回 MyFirstRunbook 窗格。
-9.  按一下 [**作業**] 以開啟此 Runbook 的 [工作] 窗格。這樣會列出此 Runbook 所建立的所有工作。因為我們一次只執行一項工作，應該只會看到列出一項工作。<br>![作業](media/automation-first-runbook-graphical/runbook-control-jobs.png) 
+9.  按一下 [**作業**] 以開啟此 Runbook 的 [工作] 窗格。這樣會列出此 Runbook 所建立的所有工作。因為我們一次只執行一項工作，應該只會看到列出一項工作。<br> ![作業](media/automation-first-runbook-graphical/runbook-control-jobs.png) 
 9. 您可以按一下此工作以開啟我們啟動 Runbook 時所檢視的相同 [工作] 窗格。這可讓您回到過去的時間並檢視針對特定 Runbook 所建立的任何工作的詳細資料。
 
 ## 步驟 5 - 加入驗證來管理 Azure 資源
 
 我們已經測試並發行我們 Runbook，但是到目前為止，它似乎並不實用。我們想要讓它管理 Azure 資源。不過它無法做到，除非我們使用在[必要條件](#prerequisites)中提及的認證對其進行驗證。我們會利用 **Set-AzureAccount** Cmdlet 來執行。
 
-1.  按一下 MyFirstRunbook 窗格上的 [**編輯**] 來開啟圖形化編輯器。<br>![編輯 Runbook](media/automation-first-runbook-graphical/runbook-toolbar-edit.png) 
+1.  按一下 [MyFirstRunbook] 窗格上的 [**編輯**] 來開啟圖形化編輯器。<br> ![編輯 Runbook](media/automation-first-runbook-graphical/runbook-toolbar-edit.png) 
 2.  我們不再需要**撰寫 Hello World 到輸出**，因此以滑鼠右鍵按一下它並選取 [**刪除**]。
-8.  在 [程式庫] 控制項中，展開 **Cmdlet** 然後展開 **Azure**。 
+8.  在程式庫控制項中，展開 **Cmdlet** 然後展開 **Azure**。 
 9.  加入 **Add-AzureAccount** 至畫布。<br> ![Add-AzureAccount](media/automation-first-runbook-graphical/add-azureaccount.png) 
 12.  選取 **Add-AzureAccount**，然後按一下 [組態] 窗格中的 [**參數**]。
 13.  **Add-AzureAccount** 有多個參數集，因此我們必須先選取一個參數，我們才可以提供參數值。按一下 [**參數集**]，然後選取 [**使用者**] 參數集。
-14.  一旦您選取參數集，參數會在 [活動參數組態] 窗格中顯示。按一下 [**認證**]。<br>![加入 Azure 帳戶參數](media/automation-first-runbook-graphical/add-azureaccount-parameters.png)
+14.  一旦您選取參數集，參數會在 [活動參數組態] 窗格中顯示。按一下 [**認證**]。<br> ![加入 Azure 帳戶參數](media/automation-first-runbook-graphical/add-azureaccount-parameters.png)
 15.  我們想要這個 Cmdlet 使用我們自動化帳戶中的認證資產，所以請對 [**資料來源**] 選取 [**認證資產**]。
 16.  選取具有啟動和停止 Azure 環境中的虛擬機器的存取權的認證資產。<br> ![加入 Azure 帳戶資料來源](media/automation-first-runbook-graphical/credential-data-source.png)
 17.  按一下 [**確定**] 兩次以返回畫布。
@@ -137,7 +141,7 @@
 
 1. 在圖形化編輯器中開啟 **MyFirstRunbook**。
 2. 移除 **Add-AzureAccount** 和 **Start-AzureVM** 之間的連結，方法是按一下它，然後按 *Delete* 鍵。
-3. 在 [程式庫] 控制項中，展開 **Cmdlet** 然後展開 **Azure**。
+3. 在程式庫控制項中，展開 **Cmdlet** 然後展開 **Azure**。
 4. 加入 **Get-AzureVM** 至畫布。
 5. 建立從 **Add-AzureAccount** 至 **Get-AzureVM** 的連結。建立從 **Get-AzureVM** 至 **Start-AzureVM** 的另一個連結。<br> ![Get-AzureVM 的 Runbook](media/automation-first-runbook-graphical/get-azurevm.png)   
 6.  選取 **Get-AzureVM**，然後按一下 [**參數**]。選取參數集 *GetVMByServiceAndVMName*。
@@ -161,8 +165,8 @@
 ## 相關文章
 
 - [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)
-
+- [我的第一個文字式 runbook](automation-first-runbook-textual.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

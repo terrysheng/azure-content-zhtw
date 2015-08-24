@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在 Xamarin iOS 應用程式中開始使用行動服務中的驗證 - Azure 行動服務" 
+	pageTitle="開始在 Xamarin.iOS 應用程式的行動服務中使用驗證 | Microsoft Azure" 
 	description="了解如何使用行動服務透過眾多識別提供者驗證 Xamarin iOS 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
@@ -136,4 +136,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

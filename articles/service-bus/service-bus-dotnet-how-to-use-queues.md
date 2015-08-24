@@ -1,5 +1,5 @@
 <properties
-    pageTitle="如何使用服務匯流排佇列 (.NET) - Azure"
+    pageTitle="如何使用服務匯流排佇列 (.NET) | Microsoft Azure"
     description="了解如何使用 Azure 中的服務匯流排佇列。程式碼範例是以 C# 撰寫並使用 .NET API。"
     services="service-bus"
     documentationCenter=".net"
@@ -245,4 +245,4 @@
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -10,14 +10,14 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="07/14/2015" 
+	ms.date="08/12/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
 
 
-# SQL Database 彈性資料庫集區參考 (預覽)
+# SQL Database 彈性資料庫集區參考
 
 對於擁有數十、數百或甚至數千個資料庫的 SaaS 開發人員而言，彈性資料庫集區可以簡化在整個資料庫群組中，進行建立、維護及管理流程的效能和成本。
 
@@ -25,7 +25,7 @@
 
 ## 概觀
 
-彈性資料庫集區是庫集區輸送量單位 (DTU) 的集合，也是由多個資料庫共用的儲存體 (GB)。您可以隨時在集區中加入和移除彈性資料庫。集區中的彈性資料庫只會利用集區中它們需要的資源，而集區也只會針對需要這些資源的作用中資料庫釋出可用資源。如需判斷您的資料庫是否因彈性資料庫集區而受益的協助，請參閱[彈性資料庫集區的價格和效能考量](sql-database-elastic-pool-guidance.md)。
+彈性資料庫集區是彈性資料庫輸送量單位 (eDTU) 的集合，也是由多個資料庫共用的儲存體 (GB)。您可以隨時在集區中加入和移除彈性資料庫。集區中的彈性資料庫只會利用集區中它們需要的資源，而集區也只會針對需要這些資源的作用中資料庫釋出可用資源。如需判斷您的資料庫是否因彈性資料庫集區而受益的協助，請參閱[彈性資料庫集區的價格和效能考量](sql-database-elastic-pool-guidance.md)。
 
 
 
@@ -33,15 +33,24 @@
 
 
 - 只有 Azure SQL Database V12 伺服器才可以使用彈性資料庫集區。   
-- 只有在 Azure 資源管理員 (ARM) 上使用 [Microsoft Azure 入口網站](https://portal.azure.com)、PowerShell 和 REST API 才支援建立和管理彈性資料庫集區；[傳統入口網站](https://manage.windowsazure.com/)和服務管理命令 (RDFE) 不受支援。 
+- 只有針對 Azure 資源管理員使用[預覽入口網站](https://portal.azure.com)、PowerShell 和 .NET 用戶端程式庫 (REST API 的包裝函式) 才支援建立和管理彈性資料庫集區；[入口網站](https://manage.windowsazure.com/)和服務管理命令不受支援。 
 
 
-## 目前的預覽版本限制
+## 目前預覽版本注意事項
 
-- 目前預覽版本中彈性資料庫集區的定價層為標準版。  
-- 不支援直接將資料庫匯入集區。您可以匯入獨立資料庫，然後將資料庫移到集區。支援從集區將資料庫匯出。
-- 每個集區可以有最大值 100 個資料庫。
 
+- 每個集區有最大數目的資料庫和集區 eDTU：
+
+    | 服務層 | 每個集區的最大資料庫* | 每個集區的最大 eDTU* |
+    | :-- | :-- | :-- |
+    | 基本 | 200 | 1200 | 
+    | 標準 | 200 | 1200 |
+    | 高級 | 50 | 1500 |
+
+    ****每個集區的資料庫數和集區 eDTU 數的目前限制預期會增加。***
+
+
+- 不支援直接將資料庫匯入集區。您可以匯入單一資料庫，然後將資料庫移到集區。*支援*從集區將資料庫匯出。
 
 ## 文章清單
 
@@ -49,9 +58,11 @@
 
 | 文章 | 說明 |
 | :-- | :-- |
-| [SQL Database 彈性資料庫集區](sql-database-elastic-pool.md) | 彈性集區概觀 |
-| [使用 Azure 入口網站建立和管理 SQL Database 彈性資料庫集區](sql-database-elastic-pool-portal.md) | 如何使用 Azure 入口網站建立和管理彈性集區 |
-| [使用 PowerShell 建立和管理 SQL Database 彈性資料庫集區](sql-database-elastic-pool-powershell.md) | 如何使用 PowerShell Cmdlet 建立和管理彈性集區 |
+| [SQL Database 彈性資料庫集區](sql-database-elastic-pool.md) | 彈性資料庫集區的概觀 |
+| [價格和效能考量](sql-database-elastic-pool-guidance.md) | 如果評估使用彈性資料庫集區是否符合成本效益 |
+| [使用 Azure 入口網站建立和管理 SQL Database 彈性資料庫集區](sql-database-elastic-pool-portal.md) | 如何使用 Azure 入口網站建立和管理彈性資料庫集區 |
+| [使用 PowerShell 建立和管理 SQL Database 彈性資料庫集區](sql-database-elastic-pool-powershell.md) | 如何使用 PowerShell Cmdlet 建立和管理彈性資料庫集區 |
+| [使用 Azure SQL Database Library for .NET 建立和管理 SQL Database](sql-database-elastic-pool-powershell.md) | 如何使用 C# 建立和管理彈性資料庫集區 |
 | [彈性資料庫工作概觀](sql-database-elastic-jobs-overview.md) | 彈性工作服務的概觀，此服務可在集區中的所有彈性資料庫內執行 T-SQL 指令碼 |
 | [安裝彈性資料庫工作元件](sql-database-elastic-jobs-service-installation.md) | 如何安裝彈性資料庫工作服務 |
 | [建立彈性工作服務所需的使用者](sql-database-elastic-jobs-add-logins-to-dbs.md) | 若要執行彈性資料庫工作指令碼，必須將具有適當權限的使用者加入至集區中的每個資料庫。 |
@@ -60,10 +71,10 @@
 
 
 ## 命名空間和端點詳細資料
-彈性集區是 Microsoft Azure SQL Database 中 "ElasticPool" 類型的 ARM 資源。
+彈性資料庫集區是 Microsoft Azure SQL Database 中 "ElasticPool" 類型的 Azure 資源管理員資源。
 
 - **namespace**：Microsoft.Sql/ElasticPool
-- 用於 REST API 呼叫的 **management-endpoint** (Azure 資源管理員)：https://management.azure.com
+- 用於 REST API 呼叫的 **management-endpoint** (資源管理員)：https://management.azure.com
 
 
 
@@ -72,9 +83,9 @@
 | 屬性 | 說明 |
 | :-- | :-- |
 | creationDate | 建立集區的日期。 |
-| databaseDtuMax | 集區中單一資料庫可使用的最大 DTU 數。資料庫最大 DTU 不等於資源保證。最大 DTU 會套用至集區中的所有資料庫。 |
-| databaseDtuMin | 集區中單一資料庫能夠保證的最小 DTU 數。資料庫最小 DTU 可設定為 0。最小 DTU 會套用至集區中的所有資料庫。請注意，集區中的資料庫數目和資料庫最小 DTU 的乘積不能超過集區本身的 DTU。 |
-| Dtu | 集區中所有資料庫共用的 DTU 數。 |
+| databaseDtuMax | 集區中單一資料庫可使用的最大 eDTU 數。資料庫最大 eDTU 不等於資源保證。最大 eDTU 會套用至集區中的所有資料庫。 |
+| databaseDtuMin | 集區中單一資料庫能夠保證的最小 eDTU 數。資料庫最小 eDTU 可設定為 0。最小 eDTU 會套用至集區中的所有資料庫。請注意，集區中的資料庫數目和資料庫最小 eDTU 的乘積不能超過集區本身的 eDTU。 |
+| Dtu | 集區中所有資料庫共用的 eDTU 數。 |
 | edition | 集區的服務層。集區中的每個資料庫均有此版本。 |
 | elasticPoolId | 集區執行個體的 GUID。 |
 | elasticPoolName | 集區的名稱。此名稱是其父伺服器的唯一相對名稱。 |
@@ -83,30 +94,38 @@
 | storageMB | 集區的儲存體限制 (MB)。集區中的任何單一資料庫可以使用的上限為標準版的儲存體限制 (250 GB)，但集區中的所有資料庫使用的儲存體總計不能超過此集區限制。 |
 
 
-## 彈性集區和彈性資料庫的 DTU 和儲存體限制
+## 彈性集區和彈性資料庫的 eDTU 和儲存體限制
 
-集區的儲存體限制取決於集區的 DTU 量；每個 DTU = 1 GB 的儲存體。例如，200 DTU 集區的儲存體限制為 200 GB。
+集區的儲存體限制取決於集區的 eDTU 量。
 
-| 屬性 | 預設值 | 有效值 |
-| :-- | :-- | :-- |
-| Dtu | 100 | 100、200、400、800、1200 |
-| databaseDtuMax | 100 | 10、20、50、100 |
-| databaseDtuMin | 0 | 0、10、20、50 |
-| storageMB | 100 GB* | 100 GB、200 GB、400 GB、800 GB、1200 GB |
+| 屬性 | 基本 | 標準 | 高級 |
+| :-- | :-- | :-- | :-- |
+| dtu | **100**、200、400、800、1200 | **100**、200、400、800、1200 | **125**、250、500、1000、1500 |
+| databaseDtuMax | **5** | 10、20、50、**100** | **125**、250、500、1000 |
+| databaseDtuMin | **0**、5 | **0**、10、20、50ㄒ100 | **0**、125、250、500、1000 |
+| storageMB* | **10000 MB**、20000 MB、40000 MB、80000 MB、120000 MB | **100 GB**、200 GB、400 GB、800 GB、1200 GB | **62.5 GB**、125 GB、250 GB、500 GB、750 GB |
+| 每個 DTU 的儲存體 | 100 MB | 1 GB | .5 GB |
+| 每個集區的最大資料庫 | 200 | 200 | 50 |
 
-*API 中單位為 MB，而非 GB
+預設值為**粗體**。
+
+**API 中單位為 MB，而非 GB。
+
+
+
+
 
 ## 背景工作和工作階段限制
 
-支援彈性集區中所有資料庫的並行背景工作數上限和並行工作階段數上限，是取決於集區的 DTU 設定：
+支援彈性集區中所有資料庫的並行背景工作數上限和並行工作階段數上限，是取決於集區的 eDTU 設定：
 
-| DTU | 並行背景工作數上限 | 並行工作階段數上限 |
+| eDTU | 並行背景工作數上限 | 並行工作階段數上限 |
 | :-- | :-- | :-- |
-| 100 | 200 | 2,400 |
-| 200 | 400 | 4,800 |
-| 400 | 800 | 9,600 |
-| 800 | 1,600 | 19,200 |
-| 1,200 | 2,400 | 28,800 |
+| 100 (基本/標準)、125 (進階) | 200 | 2,400 |
+| 200 (基本/標準)、250 (進階) | 400 | 4,800 |
+| 400 (基本/標準)、500 (進階) | 800 | 9,600 |
+| 800 (基本/標準)、1,000 (進階) | 1,600 | 19,200 |
+| 1,200 基本/標準)、1,500 (進階) | 2,400 | 28,800 |
 
 
 ## Azure 資源管理員限制
@@ -119,8 +138,8 @@ Azure SQL Database V12 伺服器位於資源群組中。
 
 ## 彈性集區的作業延遲
 
-- 每個資料庫的保證 DTU 數 (databaseDtuMin) 或每個資料庫的最大 DTU 數 (databaseDtuMax) 變更作業通常在 5 分鐘內即可完成。 
-- 集區之 DTU/儲存體限制 (storageMB) 的變更作業，則需視集區中所有資料庫使用的總空間量而定。變更作業平均每 100 GB 會在 90 分鐘以內完成。舉例來說，如果集區中所有資料庫使用的總空間為 200 GB，則集區 DTU/儲存體限制變更作業的預期延遲時間會少於 3 小時。 
+- 每個資料庫的保證 eDTU 數 (databaseDtuMin) 或每個資料庫的最大 eDTU 數 (databaseDtuMax) 變更作業通常在 5 分鐘內即可完成。 
+- 集區之 eDTU/儲存體限制 (storageMB) 的變更作業，則需視集區中所有資料庫使用的總空間量而定。變更作業平均每 100 GB 會在 90 分鐘以內完成。舉例來說，如果集區中所有資料庫使用的總空間為 200 GB，則集區 eDTU/儲存體限制變更作業的預期延遲時間會少於 3 小時。 
 
 
 
@@ -158,13 +177,13 @@ Azure SQL Database V12 伺服器位於資源群組中。
 
 - 彈性集區在建立時就會開始計費，即使集區中沒有資料庫也一樣。 
 - 彈性集區會以每小時計費。這和獨立資料庫效能等級的計量頻率相同。 
-- 如果彈性集區調整為新的 DTU 量，則在調整作業完成之前，不會根據新的 DTU 量來計算集區費用。這會遵循與變更獨立資料庫的效能等級相同的模式。 
+- 如果彈性集區調整為新的 eDTU 量，則在調整作業完成之前，不會根據新的 eDTU 量來計算集區費用。這會遵循與變更獨立資料庫的效能等級相同的模式。 
 
 
-- 彈性集區的價格是以集區的 DTU 數和集區中的資料庫數目為計算基礎。
-- 價格的計算方式為 (集區的 DTU 數) x (每 DTU 的單價) + (資料庫數目) x (每個資料庫的單價)
+- 彈性集區的價格是以集區的 eDTU 數和集區中的資料庫數目為計算基礎。
+- 價格的計算方式為 (集區的 eDTU 數) x (每 eDTU 的單價) + (資料庫數目) x (每個資料庫的單價)
 
-在同一個服務層中，彈性集區的 DTU 單價大於獨立資料庫的 DTU 單價。如需詳細資訊，請參閱 [SQL Database 定價](http://azure.microsoft.com/pricing/details/sql-database/)。
+在同一個服務層中，彈性集區的 eDTU 單價大於獨立資料庫的 DTU 單價。如需詳細資訊，請參閱 [SQL Database 定價](http://azure.microsoft.com/pricing/details/sql-database/)。
 
 ## 彈性資料庫集區錯誤
 
@@ -191,4 +210,4 @@ Azure SQL Database V12 伺服器位於資源群組中。
 | 40891 | EX_USER | 每個資料庫的最小 DTU (%d) 不能超過每個資料庫的最大 DTU (%d)。 | 每個資料庫的最小 DTU、每個資料庫的最大 DTU。 | 試圖將每個資料庫的最小 DTU 設為超過每個資料庫的最大 DTU。 | 請確定每個資料庫的最小 DTU 並未超過每個資料庫的最大 DTU。 |
 | TBD | EX_USER | 彈性集區中個別資料庫的儲存體大小，不能超過 '%.*ls' 服務層彈性集區所允許的大小上限。 | 彈性集區服務層 | 資料庫的大小上限超過彈性集區服務層所允許的大小上限。 | 請將資料庫的大小上限設定在彈性集區服務層所允許的大小上限內。 |
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

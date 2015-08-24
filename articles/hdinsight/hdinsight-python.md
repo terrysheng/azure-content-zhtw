@@ -308,15 +308,10 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 
 錯誤資訊 (STDERR) 和工作結果 (STDOUT) 也會記錄到叢集的預設 Blob 容器 (在下列位置)。
 
-<table>
-<tr>
-<td>關於此工作..</td><td>請在 Blob 容器中查看這些檔案</td>
-</tr>
-<td>Hive</td><td>/HivePython/stderr</br>/HivePython/stdout</td>
-</tr>
-<td>Pig</td><td>/PigPython/stderr</br>/PigPython/stdout</td>
-</tr>
-</table>
+關於此工作..|請在 Blob 容器中查看這些檔案
+---|---
+Hive|/HivePython/stderr<p>/HivePython/stdout
+Pig|/PigPython/stderr<p>/PigPython/stdout
 
 ##<a name="next"></a>接續步驟
 
@@ -330,4 +325,4 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 
 * 〈[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)〉
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

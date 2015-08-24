@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="從命令列管理行動服務 | Azure 行動服務" 
+	pageTitle="從命令列管理行動服務 | Microsoft Azure" 
 	description="了解如何使用命令列工具建立、部署和管理 Azure 行動服務。" 
 	services="mobile-services" 
 	documentationCenter="Mobile" 
@@ -184,4 +184,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

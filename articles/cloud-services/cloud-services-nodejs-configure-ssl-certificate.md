@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="設定雲端服務 (Node.js) 的 SSL - Azure" 
+	pageTitle="設定雲端服務的 SSL (Node.js) | Microsoft Azure" 
 	description="設定 Node.js Web 角色的 HTTPS 端點，以及上傳 SSL 憑證來保護應用程式的安全。" 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -181,7 +181,7 @@
   [Azure Management Portal]: http://manage.windowsazure.com
   
   
-  [將憑證與服務產生關聯]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
+  [如何使憑證與服務產生關聯]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
   
   [site-url]: ./media/cloud-services-nodejs-configure-ssl-certificate/site-url.png
   [8]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-08.png
@@ -192,4 +192,4 @@
   [在 Azure 背景工作角色中設定 Node.js 應用程式的 SSL]: /develop/nodejs/common-tasks/enable-ssl-worker-role/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

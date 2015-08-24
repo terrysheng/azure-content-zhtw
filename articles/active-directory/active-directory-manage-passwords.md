@@ -1,12 +1,11 @@
 <properties
 	pageTitle="在 Azure AD 中管理密碼 | Microsoft Azure"
-	description="說明如何在 Azure AD 中管理密碼的主題。"
+	description="如何在 Azure AD 中管理密碼。"
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="swadwha"
-	editor=""
-	tags="azure-classic-portal"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="08/10/2015"
 	ms.author="curtand"/>
 
 # 在 Azure AD 中管理密碼
@@ -33,18 +32,20 @@
 
 使用下列連結可前往您最感興趣的文件：
 
-- [概觀：Azure AD 中的密碼管理](https://msdn.microsoft.com/library/azure/dn683880.aspx)
-- [Azure AD 中的自助式密碼重設：如何啟用、設定及測試自助式密碼重設](https://msdn.microsoft.com/library/azure/dn683881.aspx)
-- [Azure AD 中的自助式密碼重設：如何自訂密碼重設以符合您的需求](https://msdn.microsoft.com/library/azure/dn688249.aspx)
-- [Azure AD 中的自助式密碼重設：部署和管理的最佳作法](https://msdn.microsoft.com/library/azure/dn903643.aspx)
-- [Azure AD 中的密碼管理報告：如何在您的租用戶中檢視密碼管理活動](https://msdn.microsoft.com/library/azure/dn903641.aspx)
-- [密碼回寫：如何設定 Azure AD 來管理內部部署密碼](https://msdn.microsoft.com/library/azure/dn903642.aspx)
-- [Azure AD 密碼管理的常見問題集/疑難排解](https://msdn.microsoft.com/library/azure/dn683878.aspx)
+- [概觀：Azure AD 中的密碼管理](active-directory-passwords-how-it-works.md)
+- [Azure AD 中的自助式密碼重設：如何啟用、設定及測試自助式密碼重設](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords)
+- [Azure AD 中的自助式密碼重設：如何自訂密碼重設以符合您的需求](active-directory-passwords-customize.md)
+- [Azure AD 中的自助式密碼重設：部署和管理的最佳作法](active-directory-passwords-best-practices.md)
+- [Azure AD 中的密碼管理報告：如何在您的租用戶中檢視密碼管理活動](active-directory-passwords-get-insights.md)
+- [密碼回寫：如何設定 Azure AD 來管理內部部署密碼](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords)
+- [疑難排解 Azure AD 密碼管理](active-directory-passwords-troubleshoot.md)
+- [Azure AD 密碼管理的常見問題集](active-directory-passwords-faq.md)
 
-## 後續步驟
+
+## 接下來
 
 - [管理 Azure AD](active-directory-administer.md)
 - [在 Azure AD 中建立或編輯使用者](active-directory-create-users.md)
 - [在 Azure AD 中管理群組](active-directory-manage-groups.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

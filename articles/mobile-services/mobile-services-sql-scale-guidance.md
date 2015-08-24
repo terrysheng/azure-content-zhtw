@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="調整由 Azure SQL Database 支援的行動服務 - Azure 行動服務" 
+	pageTitle="調整由 Azure SQL Database 支援的行動服務 | Microsoft Azure" 
 	description="了解如何診斷和修正 SQL Database 支援的行動服務中出現的延展性問題" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="08/08/2015" 
 	ms.author="donnam;ricksal"/>
 
 # 調整由 Azure SQL Database 支援的行動服務
@@ -41,18 +41,18 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 
 ### 選擇正確的 SQL Database 層 
 
-請務必了解可供您使用的不同資料庫層，以確保您已根據應用程式的需求選擇了正確的層。Azure SQL Database 提供兩種具有不同層的不同資料庫版本：
+請務必了解可供您使用的不同資料庫層，以確保您已根據應用程式的需求選擇了正確的層。Azure SQL Database 提供兩種不同的資料庫版本和三個不同的服務層：
 
 - Web 和 Business Edition (已淘汰)
-- Basic、Standard 和 Premium Edition 
+- 基本、標準和高階服務層
 
-雖然 Web 和 Business Edition 受到完整支援，但將在 2015 年 4 月 24 日落日，如 [Web 和 Business Edition 落日常見問題集](http://msdn.microsoft.com/library/azure/dn741330.aspx)所討論。我們建議新客戶開始使用 Basic、Standard 和 Premium Edition，為這項變更做好準備。這個新版本提供多種新層和監視功能，讓使用者更容易了解資料庫效能及進行疑難排解。所有新的行動服務都使用新的版本建立。
+雖然 Web 和 Business Edition 受到完整支援，但將在 2015 年 9 月 12 日淘汰，如 [Web 和 Business Edition 落日常見問題集](http://msdn.microsoft.com/library/azure/dn741330.aspx)所討論。我們建議新客戶開始使用基本、標準和高階服務層，為這項變更做好準備。它們會提供多種監視功能，讓使用者更容易了解資料庫效能及進行疑難排解。所有新的行動服務都是使用其中一個新的服務層建立。
 
-若要將使用 Web 和 Business Edition 的行動服務轉換成 Basic、Standard 和 Premium Edition，請遵循下列步驟。
+若要將使用 Web 和 Business Edition 的行動服務轉換成基本、標準和高階服務層，請遵循下列步驟。
 
 1. 啟動 [Azure 管理入口網站][]。
 2. 在工具列中選取 [+新增]，然後選取 [資料服務]、[SQL 資料庫]、[快速建立]。
-3. 輸入資料庫名稱，然後在 [伺服器] 欄位中選取 [New SQL database server]。這將會建立使用新的 Basic、Standard 和 Premium Edition 的伺服器。 
+3. 輸入資料庫名稱，然後在 [伺服器] 欄位中選取 [New SQL database server]。這將會建立使用新的基本、標準或階服務層的伺服器。 
 4. 填入其餘欄位，然後選取 [建立 SQL 資料庫]。這將會建立使用 Basic 層的 100MB 資料庫。
 5. 設定您的行動服務以使用您剛剛建立的資料庫。巡覽至該服務的 [設定] 索引標籤，並在工具列中選取 [變更資料庫]。在下一個畫面上，在 [SQL 資料庫] 欄位中選取 [Use an existing SQL database]，然後選取 [下一步]。在下一個畫面上確實選取您在步驟 5 中建立的資料庫，然後選取 [確定]。
 
@@ -476,4 +476,4 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 [該索引鍵的成本為何？]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

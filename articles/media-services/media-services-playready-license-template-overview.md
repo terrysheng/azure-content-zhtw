@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #媒體服務 PlayReady 授權範本概觀
@@ -301,4 +301,4 @@ XML 符合 PlayReady 授權範本 XML 結構描述，該結構描述是在 PlayR
 	  <xs:element name="ScmsRestriction" nillable="true" type="tns:ScmsRestriction" />
 	</xs:schema>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

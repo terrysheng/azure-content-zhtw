@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
 
 #設定內容金鑰授權原則 
 [AZURE.INCLUDE [媒體-服務-選取器-內容-金鑰-auth-原則](../../includes/media-services-selector-content-key-auth-policy.md)]
-
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md)系列的一部分。
 
 
 ##概觀
@@ -70,7 +68,7 @@ Microsoft Azure 媒體服務可讓您提供您使用進階加密標準 (AES) (�
 
 ###PlayReady
 
-使用 PlayReady 保護內容時，您需要在驗證原則中指定的其中一件事是定義 **PlayReady 授權範本**的 XML 字串。依預設，會設定下列原則：
+使用 **PlayReady** 保護內容時，您需要在驗證原則中指定的其中一件事是定義 PlayReady 授權範本的 XML 字串。依預設，會設定下列原則：
 		
 	<PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
 	  <LicenseTemplates>
@@ -84,7 +82,7 @@ Microsoft Azure 媒體服務可讓您提供您使用進階加密標準 (AES) (�
 	  </LicenseTemplates>
 	</PlayReadyLicenseResponseTemplate>
 
-您可以按一下 [**匯入原則 xml**] 按鈕，並提供符合[這裡](https://msdn.microsoft.com/library/azure/dn783459.aspx)所定義 XML 結構描述的不同 XML。
+您可以按一下 [**匯入原則 xml**] 按鈕，並提供符合[這裡](https://msdn.microsoft.com/library/azure/dn783459.aspx)所定義之 XML 結構描述的不同 XML。
 
 ##後續步驟
 現在，您已設定內容金鑰授權原則，請移至[如何：使用 Azure 管理入口網站來啟用加密](../media-services-manage-content#encrypt/)主題。
@@ -95,4 +93,4 @@ Microsoft Azure 媒體服務可讓您提供您使用進階加密標準 (AES) (�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

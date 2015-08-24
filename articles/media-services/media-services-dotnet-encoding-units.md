@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,8 +21,12 @@
 
 #如何使用 .NET SDK 調整編碼
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)系列的一部分。
-  
+
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-encoding-units.md)
+- [.NET](media-services-dotnet-encoding-units.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+
 ##概觀
 
 媒體服務帳戶是與可決定編碼工作處理速度的保留單元類型相關聯。您可以在下列的保留單元類型之間選擇：Basic、Standard 或 Premium。例如，在執行相同編碼工作的前提下，使用 Standard 保留單元類型的速度會比 Basic 類型快。如需詳細資訊，請參閱 [Milan Gada](http://azure.microsoft.com/blog/author/milanga/) 撰寫的部落格「編碼保留單元類型」。
@@ -70,4 +74,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

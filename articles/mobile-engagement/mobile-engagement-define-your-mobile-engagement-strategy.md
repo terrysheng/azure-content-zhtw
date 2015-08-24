@@ -3,7 +3,7 @@
 	description="了解如何開始使用及最佳化 Mobile Engagement 與分析和推送通知。"
 	services="mobile-engagement"
 	documentationCenter="Mobile"
-	authors="kpiteira"
+	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/10/2015"
-	ms.author="kapiteir" />
+	ms.date="08/10/2015"
+	ms.author="piyushjo" />
 
 #定義 Mobile Engagement 策略
 
@@ -128,4 +128,4 @@
 [教學課程]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

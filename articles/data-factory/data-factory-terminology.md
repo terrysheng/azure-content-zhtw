@@ -46,7 +46,7 @@ Azure Data Factory 中的「管線」會使用連結的運算服務，處理連�
 
 Azure Data Factory 服務支援管線中的下列活動：
 
-- **複製活動**會將資料從一個資料存放區複製到另一個資料存放區。如需有關「複製活動」所支援資料存放區的詳細資料，請參閱[使用 Azure Data Factory 複製資料][copy-data-with-adf]。 
+- **複製活動**會將資料從一個資料存放區複製到另一個資料存放區。  
 - **HDInsight 活動**會在 HDInsight 叢集上執行 Hive/Pig 指令碼或 MapReduce 程式來處理資料。如需詳細資料，請參閱[搭配 Data Factory 使用 Pig 和 Hive][use-pig-hive] 和[從 Data Factory 叫用 MapReduce 程式][run-map-reduce]。 
 - **Azure Machine Learning 批次計分活動**會叫用 Azure Machine Learning 批次計分 API。如需詳細資料，請參閱[使用 Azure Data Factory 和 Azure Machine Learning 建立預測管線][azure-ml-adf]。 
 - **預存程序活動**會在 Azure SQL Database 中叫用預存程序。如需詳細資料，請參閱 MSDN Library 上的[預存程序活動][msdn-stored-procedure-activity]。   
@@ -82,7 +82,6 @@ Microsoft **資料管理閘道**是將內部部署資料來源連接至雲端服
 
 [adf-faq]: data-factory-faq.md
 [adf-intro]: data-factory-introduction.md
-[copy-data-with-adf]: data-factory-copy-activity.md
 [use-pig-hive]: data-factory-pig-hive-activities.md
 [run-map-reduce]: data-factory-map-reduce.md
 [azure-ml-adf]: data-factory-create-predictive-pipelines.md
@@ -113,4 +112,4 @@ Microsoft **資料管理閘道**是將內部部署資料來源連接至雲端服
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

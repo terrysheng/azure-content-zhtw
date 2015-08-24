@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 .NET 後端建立 Windows 市集排行榜應用程式 | Azure 行動服務" 
+	pageTitle="使用 .NET 後端建立 Windows 市集排行榜應用程式 | Microsoft Azure" 
 	description="了解如何使用具有 .NET 後端的 Azure 行動服務建置 Windows 市集排行榜應用程式。" 
 	documentationCenter="windows" 
 	authors="MikeWasson" 
@@ -762,4 +762,4 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

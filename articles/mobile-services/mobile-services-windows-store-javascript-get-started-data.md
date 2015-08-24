@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="將行動服務新增至現有的應用程式 (Windows 市集 JavaScript) | 行動開發人員中心" 
+	pageTitle="將行動服務新增至現有的應用程式 (Windows 市集 JavaScript) | Microsoft Azure" 
 	description="了解如何開始使用行動服務，在您的 Windows 市集 JavaScript 應用程式中使用資料。" 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -26,7 +26,7 @@
 
 若要完成此教學課程，您需要下列項目：
 
-* 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F)。
+* 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-cn%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F)。
 * 您將使用 Visual Studio 2013 連接 Windows 市集應用程式專案與行動服務。
 
 ##下載 GetStartedWithData 專案
@@ -141,4 +141,4 @@
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

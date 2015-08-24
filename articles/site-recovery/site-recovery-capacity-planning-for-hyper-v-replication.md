@@ -12,7 +12,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="06/01/2015"
+	ms.date="08/05/2015"
 	ms.author="lauraa" />
 
 # Hyper-V 複寫的容量規劃
@@ -239,4 +239,4 @@ c.叢集中的任何節點
 - [利用單一 VMM 伺服器設定保護](site-recovery-single-vmm)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

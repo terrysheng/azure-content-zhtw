@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # StorSimple 裝置的容錯移轉與災害復原
@@ -77,7 +77,7 @@
 
 1. 建立裝置中所有磁碟區的雲端快照。
 
-1. 將裝置重設為原廠預設值。請依照[如何將 StorSimple 裝置重設為原廠預設值](https://msdn.microsoft.com/library/dn772373.aspx)中的詳細指示執行。
+1. 將裝置重設為原廠預設值。請依照[如何將 StorSimple 裝置重設為原廠預設值](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings)中的詳細指示執行。
 
 1. 設定裝置並再次向 StorSimple Manager 服務註冊。
 
@@ -142,10 +142,7 @@
 - [更新您的 StorSimple 裝置](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [刪除您的 StorSimple 裝置](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-如需如何使用 StorSimple Manager 服務管理裝置的詳細資訊，請參閱：
-
-- [系統管理員指南](https://msdn.microsoft.com/library/dn772401.aspx)
-
+如需如何使用 StorSimple Manager 服務管理裝置的相關資訊，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

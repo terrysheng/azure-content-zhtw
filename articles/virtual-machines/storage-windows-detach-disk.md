@@ -1,5 +1,5 @@
 <properties
-	pageTitle="從 Windows 虛擬機器卸離磁碟 | Azure"
+	pageTitle="從 Windows 虛擬機器卸離磁碟 | Microsoft Azure"
 	description="了解從 Azure 中的虛擬機器卸離磁碟。"
 	services="virtual-machines, storage"
 	documentationCenter=""
@@ -29,4 +29,4 @@
 
 [如何將資料磁碟附加至 Windows 虛擬機器](storage-windows-attach-disk.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

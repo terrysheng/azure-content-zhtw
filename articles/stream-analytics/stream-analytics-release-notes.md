@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 串流分析版本資訊 |Azure" 
+	pageTitle="串流分析版本資訊 | Microsoft Azure" 
 	description="Azure 串流分析版本資訊" 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/05/2015" 
+	ms.date="08/10/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft 串流分析版本資訊
@@ -22,134 +22,56 @@
 
 此版本包含下列更新。
 
-<table border="1">
-<tr>
-<th>課程名稱</th>
-<th>說明</th>
-</tr>
-<tr>
-<td>與 Azure 識別碼分離的 Power BI 組織識別碼</td>
-<td>此功能可在任何 Azure 帳戶類型 (Live Id 或組織識別碼) 下啟用 ASA 工作的 <a href="https://azure.microsoft.com/documentation/articles/stream-analytics-power-bi-dashboard/">Power BI 輸出</a>。此外，您可以擁有 Azure 帳戶的組織識別碼，並使用另一個識別碼用於授權 Power BI 輸出。</td>
-</tr>
-<tr>
-<td>服務匯流排佇列輸出的支援</td>
-<td><a href="https://azure.microsoft.com/documentation/articles/stream-analytics-connect-data-event-outputs/#service-bus-queues">服務匯流排佇列</a>輸出現在可用於串流分析工作。</td>
-</tr>
-<tr>
-<td>服務匯流排主題輸出的支援</td>
-<td><a href="https://azure.microsoft.com/documentation/articles/stream-analytics-connect-data-event-outputs/#service-bus-topics">服務匯流排主題</a>輸出現在可用於串流分析工作。</td>
-</tr>
-<tr>
-<td>新的陣列函數</td>
-<td>新增的陣列函數 <a href="https://msdn.microsoft.com/library/azure/mt270218.aspx">GetArrayElement</a>、<a href="https://msdn.microsoft.com/library/azure/mt298451.aspx">GetArrayElements</a>、<a href="https://msdn.microsoft.com/library/azure/mt270226.aspx">GetArrayLength</a></td>
-</tr>
-<tr>
-<td>新的記錄函數</td>
-<td>新增的記錄函數 <a href="https://msdn.microsoft.com/library/azure/mt270221.aspx">GetRecordProperties</a> 和 <a href="https://msdn.microsoft.com/library/azure/mt270220.aspx">GetRecordPropertyValue</a></td>
-</tr>
-</table>
+課程名稱|說明
+---|---
+與 Azure 識別碼分離的 Power BI 組織識別碼|此功能可在任何 Azure 帳戶類型 (Live ID 或組織識別碼) 下啟用 ASA 工作的 [Power BI 輸出](stream-analytics-power-bi-dashboard.md)。此外，您可以擁有 Azure 帳戶的組織識別碼，並使用另一個識別碼用於授權 Power BI 輸出。
+服務匯流排佇列輸出的支援|[服務匯流排佇列](stream-analytics-connect-data-event-outputs.md#service-bus-queues)輸出現在可用於串流分析工作。
+服務匯流排主題輸出的支援|[服務匯流排主題](stream-analytics-connect-data-event-outputs.md#service-bus-topics)輸出現在可用於串流分析工作。
 
 ## 串流分析 2015/07/09 版本的注意事項 ##
 
 此版本包含下列更新。
 
-<table border="1">
-<tr>
-<th>課程名稱</th>
-<th>說明</th>
-</tr>
 
-<tr>
-<td>自訂 Blob 輸出資料分割</td>
-<td>Blob 儲存體輸出現在允許指定寫入輸出 Blob 的頻率，以及輸出資料路徑資料夾結構的結構和格式的選項。</td>
-</tr>
-</table>
+課程名稱|說明
+---|---
+自訂 Blob 輸出資料分割|Blob 儲存體輸出現在允許指定寫入輸出 Blob 的頻率，以及輸出資料路徑資料夾結構的結構和格式的選項。 
 
 ## 串流分析 2015/05/03 版本的注意事項 ##
 
 此版本包含下列更新。
 
-<table border="1">
-<tr>
-<th>課程名稱</th>
-<th>說明</th>
-</tr>
 
-<tr>
-<td>增加次序錯誤允許的時間範圍的最大值</td>
-<td>次序錯誤允許的時間範圍的大小上限現在是 59:59 (MM:SS)</td>
-</tr>
-
-<tr>
-<td>JSON 輸出格式：以行分隔或陣列</td>
-<td>現在當輸出至 Blob 儲存體或事件中心時，還有另一個選擇，就是以 JSON 物件的陣列輸出，或透過以新行分隔 JSON 物件來輸出。</td>
-</tr>
-</table>
+課程名稱|說明
+---|---
+增加次序錯誤允許的時間範圍的最大值|次序錯誤允許的時間範圍的大小上限現在是 59:59 (MM:SS)
+JSON 輸出格式：以行分隔或陣列|現在當輸出至 Blob 儲存體或事件中心時，還有另一個選擇，就是以 JSON 物件的陣列輸出，或透過以新行分隔 JSON 物件來輸出。 
 
 ## 串流分析 2015/04/16 版本的注意事項 ##
 
-<table border="1">
-<tr>
-<th>課程名稱</th>
-<th>說明</th>
-</tr>
 
-<tr>
-<td>Azure 儲存體帳戶組態的延遲</td>
-<td>第一次在某個區域中建立串流分析工作時，系統會提示您建立新的儲存體帳戶或指定現有帳戶，以監視該區域中的串流分析工作。由於設定監視作業會有所延遲，若在 30 分鐘內於相同區域中建立另一個串流分析工作，系統將提示您指定第二個儲存體帳戶，而不會在 [監視儲存體帳戶] 下拉式清單中顯示最近設定的帳戶。若要避免建立不必要的儲存體帳戶，請在第一次於某區域中建立工作的 30 分鐘後，再於該區域中佈建其他工作。</td>
-</tr>
-
-<tr>
-<td>工作升級</td>
-<td>串流分析目前無法對執行中工作的定義或組態進行即時編輯。若要變更執行中工作的輸入、輸出、查詢、調整或組態，您必須先停止工作。</td>
-</tr>
-
-<tr>
-<td>從輸入來源推斷而來的資料類型</td>
-<td>如果未使用 CREATE TABLE 陳述式，系統會從輸入格式衍生輸入類型，例如 CSV 的所有欄位都是字串。必須使用 CAST 函數，將欄位明確轉換成正確的類型，以避免發生類型不一致錯誤。</td>
-</tr>
-
-<tr>
-<td>遺漏的欄位在輸出後會變成 null 值</td>
-<td>參考的欄位如果在輸入來源中找不到，將會在輸出事件中產生 null 值。</td>
-</tr>
-
-<tr>
-<td>WITH 陳述式前面必須是 SELECT 陳述式</td>
-<td>在您的查詢中，SELECT 陳述式後面必須是 WITH 陳述式中定義的下列子查詢。</td>
-</tr>
-
-<tr>
-<td>記憶體不足問題</td>
-<td>串流分析工作如果可以容忍大量的失控事件和/或存在大量狀態的複雜查詢，可能會導致工作耗盡記憶體，進而造成工作重新開始。啟動作業和停止作業會顯示在工作的作業記錄中。若要避免此行為，請將查詢橫向擴充至多個資料分割。在未來版本中，將會藉由降低受影響之工作的效能 (而不是加以重新啟動)，來解決這項限制。</td>
-</tr>
-
-<tr>
-<td>沒有裝載時間戳記的大型 Blob 輸入，可能會造成記憶體不足問題</td>
-<td>Blob 儲存體用於大量的檔案時，如果未透過 TIMESTAMP BY 指定時間戳記欄位，則可能會造串流分析工作崩潰。要避免此問題，請讓每個 Blob 的大小保持在 10 MB 以下。</td>
-</tr>
-
-<tr>
-<td>SQL 資料庫事件容量限制</td>
-<td>使用 SQL 資料庫做為輸出來源時，非常大量的輸出資料可能會導致串流分析工作無法在限定的時間內完成。要解決這個問題，請使用彙總或篩選運算子減少輸出量，或改以 Azure Blob 儲存體或事件中樞做為輸出來源。</td>
-</tr>
-
-<tr>
-<td>PowerBI 資料集只能包含一個資料表</td>
-<td>PowerBI 不允許指定的資料集中存在多個資料表。</td>
-</tr>
-</table>
+課程名稱|說明
+---|---
+Azure 儲存體帳戶組態的延遲|第一次在某個區域中建立串流分析工作時，系統會提示您建立新的儲存體帳戶或指定現有帳戶，以監視該區域中的串流分析工作。由於設定監視作業會有所延遲，若在 30 分鐘內於相同區域中建立另一個串流分析工作，系統將提示您指定第二個儲存體帳戶，而不會在 [監視儲存體帳戶] 下拉式清單中顯示最近設定的帳戶。若要避免建立不必要的儲存體帳戶，請在第一次於某區域中建立工作的 30 分鐘後，再於該區域中佈建其他工作。
+工作升級|串流分析目前無法對執行中工作的定義或組態進行即時編輯。若要變更執行中工作的輸入、輸出、查詢、調整或組態，您必須先停止工作。
+從輸入來源推斷而來的資料類型|如果未使用 CREATE TABLE 陳述式，系統會從輸入格式衍生輸入類型，例如 CSV 的所有欄位都是字串。必須使用 CAST 函數，將欄位明確轉換成正確的類型，以避免發生類型不一致錯誤。
+遺漏的欄位在輸出後會變成 null 值|參考的欄位如果在輸入來源中找不到，將會在輸出事件中產生 null 值。
+WITH 陳述式前面必須是 SELECT 陳述式|在您的查詢中，SELECT 陳述式後面必須是 WITH 陳述式中定義的下列子查詢。
+記憶體不足問題|串流分析工作如果可以容忍大量的失控事件和/或存在大量狀態的複雜查詢，可能會導致工作耗盡記憶體，進而造成工作重新開始。啟動作業和停止作業會顯示在工作的作業記錄中。若要避免此行為，請將查詢橫向擴充至多個資料分割。在未來版本中，將會藉由降低受影響之工作的效能 (而不是加以重新啟動)，來解決這項限制。
+沒有裝載時間戳記的大型 Blob 輸入，可能會造成記憶體不足問題|Blob 儲存體用於大量的檔案時，如果未透過 TIMESTAMP BY 指定時間戳記欄位，則可能會造串流分析工作崩潰。要避免此問題，請讓每個 Blob 的大小保持在 10 MB 以下。
+SQL Database事件容量限制|使用 SQL Database 做為輸出來源時，非常大量的輸出資料可能會導致串流分析工作無法在限定的時間內完成。要解決這個問題，請使用彙總或篩選運算子減少輸出量，或改以 Azure Blob 儲存體或事件中樞做為輸出來源。
+PowerBI 資料集只能包含一個資料表|PowerBI 不允許指定的資料集中存在多個資料表。
 
 ## 取得說明
-如需進一步的協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟
 
-- [Azure 串流分析介紹](stream-analytics-introduction.md)
-- [開始使用 Azure 串流分析](../stream.analytics.get.started.md)
-- [調整 Azure 串流分析工作](stream-analytics-scale-jobs.md)
-- [Azure 串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
+- [開始使用 Azure Stream Analytics](../stream.analytics.get.started.md)
+- [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="如何使用服務匯流排主題 (Java) - Azure"
+	pageTitle="如何使用服務匯流排主題 (Java) | Microsoft Azure"
 	description="了解如何在 Azure 使用服務匯流排主題及訂用帳戶。程式碼範例專為 Java 應用程式撰寫。"
 	services="service-bus"
 	documentationCenter="java"
@@ -225,7 +225,7 @@
 現在您已了解服務匯流排佇列的基本概念，請參閱 MSDN 主題[服務匯流排佇列、主題和訂用帳戶][]，以取得詳細資訊。
 
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
-  [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/zh-tw/library/azure/hh694271.aspx
+  [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/zh-cn/library/azure/hh694271.aspx
   [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -247,4 +247,4 @@
   [服務匯流排佇列、主題和訂用帳戶]: http://msdn.microsoft.com/library/hh367516.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

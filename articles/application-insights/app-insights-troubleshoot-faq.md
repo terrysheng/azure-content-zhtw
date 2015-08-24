@@ -133,7 +133,7 @@
 #### <a name="q03"></a>我已成功加入 Application Insights 並執行我的應用程式，但在入口網站中從未看到資料。
 
 + 在 [概觀] 頁面中，按一下 [搜尋] 磚以開啟 [診斷搜尋]。這裡會先顯示資料。
-+ 按一下 [重新整理] 按鈕。在目前版本中，刀鋒視窗的內容不會自動重新整理。
++ 按一下 [重新整理] 按鈕。刀鋒視窗會定期自行重新整理，但您也可以手動重新整理。時間範圍越大，重新整理的間隔就越長。
 + 在 Microsoft Azure 開始面板中，查看服務狀態對應。如果看到一些警示指示，請等待它們恢復 [正常]，然後關閉再重新開啟 Application Insights 應用程式刀鋒視窗。
 + 也請查閱[我們的狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)。
 + 在防火牆中，您可能必須開啟 TCP 連接埠 80 和 443，以允許連出流量送往 dc.services.visualstudio.com 和 f5.services.visualstudio.com。
@@ -239,4 +239,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

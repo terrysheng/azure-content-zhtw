@@ -6,15 +6,7 @@
    authors="Jim-Parker"
    manager="shreeshd"
    editor=""/>
-
-<tags
-	ms.service="backup" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="storage-backup-recovery" 
-	ms.date="07/01/2015" 
-	ms.author="jimpark"; "aashishr"/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/11/2015" ms.author="jimpark"; "aashishr"/>
 
 # 使用保存庫認證來驗證 Azure 備份服務
 內部部署伺服器 (Windows 用戶端或 Windows Server 或 SCDPM 伺服器) 必須先驗證備份保存庫，才能將資料備份至 Azure。驗證是利用「保存庫認證」來達成。保存庫認證的概念類似用於 Azure PowerShell 的「發佈設定」檔案。
@@ -40,7 +32,6 @@
 5.  入口網站會使用保存庫名稱和目前日期的組合來產生保存庫認證。按一下 [**儲存**] 將保存庫認證下載至本機帳戶的下載資料夾，或從 [儲存] 功能表中選取 [另存新檔]，以指定保存庫認證的位置。
 
 ## 注意事項
-- 從 2015 年 3 月開始，使用者不需要以程式設計方式 (例如：PowerShell) 來下載保存庫認證。
 - 請確保保存庫認證儲存在可從您電腦存取的位置。如果它儲存在檔案共用/SMB，請檢查存取權限。
 - 保存庫認證檔僅在註冊工作流程期間使用。
 - 保存庫認證檔會在 48 小時後過期，並且可以從入口網站下載。
@@ -49,4 +40,4 @@
 ## 後續步驟
 [下載、註冊及安裝 Azure 備份代理程式](backup-azure-backup-download-register)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

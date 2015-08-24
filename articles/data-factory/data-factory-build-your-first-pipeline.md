@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="get-started-article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -173,4 +173,4 @@ Hive 指令碼執行後，其結果將會儲存在 Azure blob 儲存體容器：
 - 按一下頂端的[使用 PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) 連結，使用 Azure PowerShell 執行教學課程。
 - 按一下頂端的[使用 Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) 連結以使用 Visual Studio 執行本教學課程。 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

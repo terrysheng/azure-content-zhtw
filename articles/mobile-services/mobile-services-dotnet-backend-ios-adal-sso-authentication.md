@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 Active Directory Authentication Library 單一登入驗證您的應用程式 (iOS) | 行動開發人員中心" 
+	pageTitle="使用 Active Directory Authentication Library 單一登入驗證您的應用程式 (iOS) | Microsoft Azure" 
 	description="了解如何在 iOS 應用程式中驗證使用者的單一登入。" 
 	documentationCenter="ios" 
 	authors="mattchenderson" 
@@ -121,4 +121,4 @@
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -51,13 +51,13 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 2. 依序按一下 [**檔案**]、[**新增**] 及 [**專案**]。
 3. 輸入或選取下列值：
 
-	<table border="1">
-<tr><td>欄位</td><td>值</td></tr>
-<tr><td>範本</td><td>Visual C#/Windows/主控台應用程式</td></tr>
-<tr><td>名稱</td><td>WordCountMapper</td></tr>
-<tr><td>位置</td><td>C:\Tutorials</td></tr>
-<tr><td>方案名稱</td><td>WordCount</td></tr>
-</table>
+欄位|值
+---|---
+範本|Visual C#/Windows/主控台應用程式
+名稱|WordCountMapper
+位置|C:\\Tutorials
+方案名稱|WordCount
+
 	
 4. 按一下 [確定] 以建立專案。
 
@@ -100,12 +100,12 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 1. 從 Visual Studio 2013 中，依序按一下 [**檔案**]、[**加入**]、[**新專案**]。
 2. 輸入或選取下列值：
 
-	<table border="1">
-<tr><td>欄位</td><td>值</td></tr>
-<tr><td>範本</td><td>Visual C#/Windows/主控台應用程式</td></tr>
-<tr><td>名稱</td><td>WordCountReducer</td></tr>
-<tr><td>位置</td><td>C:\Tutorials\WordCount</td></tr>
-</table>
+欄位|值
+---|---
+範本|Visual C#/Windows/主控台應用程式
+名稱|WordCountReducer
+位置|C:\\Tutorials\\WordCount
+	
 3. 清除 [為方案建立目錄] 旁邊的核取方塊，然後按一下 [確定] 建立專案。
 4. 從 [方案總管] 中，以滑鼠右鍵按一下 [Program.cs]，然後按一下 [重新命名]。
 5. 將檔案重新命名為 **WordCountReducer.cs**，然後按 **ENTER**。
@@ -167,7 +167,14 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 
 本教學課程使用下列資料夾結構：
 
-<table border="1"> <tr><td>資料夾</td><td>附註</td></tr> <tr><td>\\WordCount</td><td>字數統計專案的根資料夾。</td></tr> <tr><td>\\WordCount\\Apps</td><td>對應器和歸納器可執行檔的資料夾。</td></tr> <tr><td>\\WordCount\\Input</td><td>MapReduce 來源檔案資料夾。</td></tr> <tr><td>\\WordCount\\Output</td><td>MapReduce 輸出檔案資料夾。</td></tr> <tr><td>\\WordCount\\MRStatusOutput</td><td>工作輸出資料夾。</td></tr> </table></br>
+資料夾|注意
+---|---
+\\WordCount|字數統計專案的根資料夾。 
+\\WordCount\\Apps|對應器和歸納器可執行檔的資料夾。
+\\WordCount\\Input|MapReduce 來源檔案資料夾。
+\\WordCount\\Output|MapReduce 輸出檔案資料夾。
+\\WordCount\\MRStatusOutput|工作輸出資料夾。
+
 
 本教學課程使用 %hadoop\_home% 目錄中的 .txt 檔案。
 
@@ -552,4 +559,4 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

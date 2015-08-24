@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # 使用 Microsoft 帳戶以用戶端管理的驗證方式驗證您的 Windows 市集應用程式
@@ -114,7 +114,7 @@
 
     這會初始化 Live Connect 用戶端、將新的登入要求傳送至 Microsoft 帳戶、將傳回的驗證權杖傳送至行動服務，然後顯示登入使用者的相關資訊。
 
-	>[AZURE.NOTE]理想情況下，您不應在每次執行應用程式時，都要求 Live Connection 驗證權杖或行動服務授權權杖。這麼做不只效率不彰，而且如果同時有許多用戶試圖啟動您的應用程式時，還可能遇到使用量相關的問題。更好的方法是快取權杖並先嘗試使用快取的行動服務權杖，然後再呼叫 **LoginWithMicrosoftAccountAsync**。如需如何快取此權杖的範例，請參閱[開始使用驗證](mobile-services-windows-store-javascript-get-started-users.md#tokens)
+	>[AZURE.NOTE]理想情況下，您不應在每次執行應用程式時，都要求 Live Connection 驗證權杖或行動服務授權權杖。這麼做不只效率不彰，而且如果同時有許多用戶試圖啟動您的應用程式時，還可能遇到使用量相關的問題。更好的方法是快取權杖並先嘗試使用快取的行動服務權杖，然後再呼叫 **LoginWithMicrosoftAccountAsync**。如需如何快取此權杖的範例，請參閱[開始使用驗證](mobile-services-windows-store-javascript-get-started-users.md#tokens)。
 	
 7. 將上述程式碼中第一行的 `<yourClient>` 值取代為您將專案連接到行動服務時所新增的 .js 檔案所定義的變數。
 		
@@ -145,4 +145,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

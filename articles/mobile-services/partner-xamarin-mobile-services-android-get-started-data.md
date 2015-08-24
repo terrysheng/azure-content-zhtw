@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="將行動服務新增至現有的應用程式 (Xamarin.Android) - Azure 行動服務" 
+	pageTitle="將行動服務新增至現有的應用程式 (Xamarin.Android) | Microsoft Azure" 
 	description="了解如何儲存和存取 Azure 行動服務 Xamarin.Android 應用程式的資料。" 
 	documentationCenter="xamarin" 
 	authors="ggailey777" 
@@ -283,4 +283,4 @@
 [完成的範例專案]: http://go.microsoft.com/fwlink/p/?LinkId=331302
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 Socket.io 的 Node.js 應用程式 - Azure 教學課程" 
+	pageTitle="使用 Socket.io 的 Node.js 應用程式 | Microsoft Azure" 
 	description="學習如何在裝載於 Azure 的 node.js 應用程式中使用 socket.io。" 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -158,4 +158,4 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
   
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在 Xamarin Android 應用程式中開始使用行動服務 - Azure 行動服務" 
+	pageTitle="開始使用 Xamarin.Android 應用程式的行動服務 | Microsoft Azure" 
 	description="了解如何使用 Azure 行動服務及通知中心傳送推播通知至 Xamarin Android 應用程式" 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
@@ -75,4 +75,4 @@
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

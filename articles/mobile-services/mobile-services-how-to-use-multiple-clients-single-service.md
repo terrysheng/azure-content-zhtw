@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何以單一行動服務後端使用多個用戶端 | Azure 行動" 
+	pageTitle="如何以單一行動服務後端使用多個用戶端 | Microsoft Azure" 
 	description="了解如何從鎖定不同行動平台的多個用戶端應用程式使用單一行動服務後端，包括 Windows 市集和 Windows Phone。" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -210,4 +210,4 @@ Visual Studio 2013 Update 2 新增對通用 Windows 應用程式專案的支援�
 [使用 MVVM 的 Azure 行動服務通用 Windows 應用程式]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

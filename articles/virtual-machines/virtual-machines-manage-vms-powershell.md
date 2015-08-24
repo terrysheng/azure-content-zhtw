@@ -5,7 +5,8 @@
    documentationCenter="windows"
    authors="singhkay"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"
@@ -93,4 +94,4 @@
 - 成為現有負載平衡集的成員。
 - 具有靜態 IP 位址。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

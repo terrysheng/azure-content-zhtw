@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="vikbucha" />
 
 
@@ -38,4 +38,4 @@ Azure 管理入口網站中的常見錯誤：
 如果看到這個錯誤，通常表示您已經升級至付費帳戶，但您正在嘗試使用 Microsoft 提供的映像，而該映像只在服務的試用模式期間有效。在此情況下，請嘗試再次建立您的雲端集合，但務必指定正確的映像。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -22,6 +22,16 @@
 
 RemoteApp 的優點之一是我們不斷地努力改進 RemoteApp。每當 RemoteApp 有新功能時 ，我們便會在這裡發表變更。
 
+## 2015 年 7 月
+
+7 月設定即將在 8 月推出之變更的階段，因此現在沒有很多可談，而且大部分都是文件更新。以下是最新的變更：
+
+- 已將 [**支援**] 索引標籤新增至入口網站，可讓您更輕鬆地存取支援資源，像是論壇。
+- 已修改建立混合式集合的疑難排解資訊。如需疑難排解秘訣，像是如何識別要對您的 VNET 設定的正確連接埠，請查看[最新和最大](remoteapp-hybridtrouble.md)。
+- 說明如何在 Azure RemoteApp 建立並儲存[使用者資料](remoteapp-upd.md)。
+- 說明如何[鎖定應用程式](remoteapp-secure.md)。
+- 已發佈 [Azure RemoteApp Cmdlet](https://msdn.microsoft.com/library/mt428031.aspx)。
+- 最後，我們開始就術語與某些 Azure RemoteApp 使用者交談。尋找我們參考不同集合選項的方式有何變更。
 
 ## 2015 年 6 月
 
@@ -51,4 +61,4 @@ RemoteApp 的優點之一是我們不斷地努力改進 RemoteApp。每當 Remot
 
 感謝您持續關注我們 - 下個月還會有其他更新。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

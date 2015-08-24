@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="07/07/2015"
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #設定環境
@@ -42,4 +42,4 @@
 [AZURE.INCLUDE [媒體-服務-選取器-連接](../../includes/media-services-selector-connect.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

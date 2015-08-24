@@ -20,7 +20,7 @@
 
 ## 一般問題
 
-### 問：什麼是 Azure Data Factory？
+### Azure 資料處理站是什麼？
 
 Data Factory 是雲端架構資料整合服務，用來協調以及自動移動和轉換資料。就像製造廠運轉設備來取得原物料並將之轉換成成品一樣，Data Factory 會協調現有服務的流程來收集原始資料，並將之轉換成隨時可用的資訊。
 
@@ -28,11 +28,11 @@ Data Factory 會在內部部署、雲端資料來源和 SaaS 之間運作，以�
 
 如需詳細資訊，請參閱〈[概觀與重要概念](data-factory-introduction.md)〉。
  
-### 問：Data Factory 可解決何種客戶難題？
+### Data Factory 可解決何種客戶難題？
 
 Azure 資料處理站藉由完全受管理之服務的控制和監視功能，可在與非結構化資料並存的傳統關聯式儲存體中，平衡且靈活運用不同資料儲存體、處理和搬移服務。
 
-### 問：Data Factory 的目標對象是誰？
+### 資料處理站的目標對象是誰？
 
 
 - 資料開發人員：負責建置 Hadoop 與其他系統之間的整合服務：
@@ -44,31 +44,31 @@ Azure 資料處理站藉由完全受管理之服務的控制和監視功能，�
 	- 必須跨越內部部署和雲端來管理計算資源和儲存體資源，以平衡成本和規模
 	- 必須快速加入多個來源和處理動作以處理新的商務需求，同時維護所有計算資產和儲存體資產的可見度
 
-###  問：哪裡可以找到 Azure Data Factory 的定價詳細資料？
+### 哪裡可以找到 Azure 資料處理站的定價詳細資料？
 
 請參閱 [Data Factory 定價詳細資料頁面][adf-pricing-details]以了解 Azure Data Factory 的定價詳細資料。
 
-### 問：如何開始使用 Azure Data Factory？
+### 如何開始使用 Azure Data Factory？
 
 - 如需 Azure Data Factory 的概觀，請參閱 [Azure Data Factory 簡介][adf-introduction]。
 - 如需快速教學課程，請參閱[開始使用 Azure Data Factory][adfgetstarted]。
 - 如需完整文件，請參閱 [Azure Data Factory 文件][adf-documentation-landingpage]。
 
   
-### 問：客戶如何存取 Data Factory？
+### 客戶如何存取資料處理站？
 
 客戶可透過 [Azure Preview 入口網站][azure-preview-portal]存取 Data Factory。
 
-### 問：什麼是 Data Factory 的區域可用性？
+### 什麼是資料處理站的區域可用性？
 
-Data Factory 可在美國西部和北歐地區使用。資料處理站所使用的計算服務和儲存體服務可以在其他地區使用。
+Data Factory 可在美國西部和北歐地區使用。資料處理站所使用的計算服務和儲存體服務可以在其他區域使用。
  
-### 問：Data Factory/管線/活動/資料集的數目有什麼限制？
+### 資料處理站/管線/活動/資料集的數量有什麼限制？
  
-請參閱〈[Azure 訂用帳戶和服務限制、配額及條件約束](azure-subscription-service-limits.md/#data-factory-limits)〉中的〈**Azure Data Factory 限制**區段〉。
+請參閱〈[Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md#data-factory-limits)〉中的〈**Azure Data Factory 限制**〉章節。
 
 
-### 問：Azure Data Factory 服務的撰寫/開發人員經驗為何？
+### Azure Data Factory 服務的撰寫/開發人員經驗為何？
 
 您可以使用下列其中一項來撰寫/建立資料處理站：
 
@@ -78,11 +78,11 @@ Data Factory 可在美國西部和北歐地區使用。資料處理站所使用�
 - **.NET 類別庫**。您可以使用 Data Factory .NET SDK，透過程式設計方式建立資料處理站。如需使用 .NET SDK 建立 Data Factory 的逐步解說，請參閱[使用 .NET SDK 建立、監視和管理 Data Factory][create-factory-using-dotnet-sdk]。如需 Data Factory .NET SDK 的完整文件，請參閱 [Data Factory 類別庫參考][msdn-class-library-reference]。  
 - **REST API**。您也可以使用 Azure Data Factory 服務所公開的 REST API 來建立和部署資料處理站。如需 Data Factory REST API 的完整文件，請參閱 [Data Factory REST API 參考][msdn-rest-api-reference]。 
 
-### 問：我是否可以重新命名資料處理？
+### 我是否可以重新命名資料處理站？
 否。和其他 Azure 資源一樣，您無法變更 Azure Data Factory 的名稱。
 
 ## 活動 - 常見問題集
-### 問：支援哪些資料來源和活動？
+### 有什麼可支援的資料來源和活動？
 
 如需支援的資料來源和活動的相關資訊，請參閱〈[資料移動活動](data-factory-data-movement-activities.md)〉和〈[資料轉換活動](data-factory-data-transformation-activities.md)〉文章。
 
@@ -90,11 +90,11 @@ Data Factory 可在美國西部和北歐地區使用。資料處理站所使用�
 輸出資料表中的**可用性**組態設定決定何時執行活動。活動會在開始執行之前，檢查是否滿足所有輸入資料相依性 (即 [就緒] 狀態)。
 
 ## 複製活動 - 常見問題集
-### 問：複製活動支援哪些區域？
+### 複製活動支援哪些區域？
 
 複製活動支援將資料複製至下列區域：美國東部、美國東部 2、美國西部、美國中部、美國中北部、美國中南部、北歐、西歐、東南亞、日本東部和巴西南部。
 
-使用上述其中一個區域來路由資料，也可支援將資料複製到其他區域。複製作業會根據用於資料路由的地區計量付費。
+使用上述其中一個區域來路由資料，也可支援將資料複製到其他區域。複製作業會根據用於資料路由的區域計量付費。
 
 複製目的地的區域 | 用於路由的區域
 -------------------------- | -----------------------
@@ -106,15 +106,15 @@ Data Factory 可在美國西部和北歐地區使用。資料處理站所使用�
 
 ## HDInsight 活動 - 常見問題集
 
-### 問：HDInsight 支援哪些區域？
+### HDInsight 支援哪些區域？
 
 請參閱下列文章中的＜各地區上市情況＞一節：或 [HDInsight 定價詳細資料][hdinsight-supported-regions]。
 
-### 問：隨選 HDInsight 叢集使用哪一個區域？
+### 隨選 HDInsight 叢集使用哪一個區域？
 
 隨選 HDInsight 叢集會建立在存有您指定用來使用叢集之儲存體的位置。
 
-### 問：如何讓其他儲存體帳戶與 HDInsight 叢集產生關聯？
+### 如何讓其他儲存體帳戶與 HDInsight 叢集產生關聯？
 
 如果使用專屬 HDInsight 叢集 (BYOC - 自備叢集 (Bring Your Own Cluster))，請參閱下列主題：
 
@@ -192,4 +192,4 @@ Data Factory 可在美國西部和北歐地區使用。資料處理站所使用�
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

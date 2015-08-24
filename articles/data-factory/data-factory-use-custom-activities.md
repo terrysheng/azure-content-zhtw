@@ -90,7 +90,10 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 
             Table inputTable = tables.Single(table => table.Name == activity.Inputs.Single().Name);
             inputLocation = inputTable.Properties.TypeProperties as CustomDataset;
-            inputLinkedService = linkedServices.Single(linkedService => linkedService.Name == inputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
+
+			// using First method instead of Single since we are using the same 
+			// Azure Storage linked service for input and output. 
+            inputLinkedService = linkedServices.First(linkedService => linkedService.Name == inputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
 
 
             string output = string.Empty;
@@ -158,7 +161,7 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 
             Table outputTable = tables.Single(table => table.Name == activity.Outputs.Single().Name);
             outputLocation = outputTable.Properties.TypeProperties as AzureBlobDataset;
-            outputLinkedService = linkedServices.Single(linkedService => linkedService.Name == outputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
+            outputLinkedService = linkedServices.First(linkedService => linkedService.Name == outputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
 
             connectionString = GetConnectionString(outputLinkedService);
             folderPath = GetFolderPath(outputTable);
@@ -209,7 +212,7 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 
 10. 編譯專案。按一下功能表中的 [建置]，然後按一下 [建置方案]。
 11. 啟動「Windows 檔案總管」，瀏覽至 **bin\\debug** 或 **bin\\release** 資料夾，根據建置類型而定。
-12. 建立 zip 檔案 **MyDotNetActivity.zip**，檔案中包含 <project folder>\\bin\\Debug 資料夾中的所有二進位檔。
+12. 建立 zip 檔案 **MyDotNetActivity.zip**，檔案中包含 <project folder>\\bin\\Debug 資料夾中的所有二進位檔。您可能會想加入 MyDotNetActivity.pdb 檔案，讓您可以取得額外的詳細資訊，例如在失敗時，原始程式碼中引起問題的程式碼行號。 
 13. 將 **MyDotNetActivity.zip** 當做 Blob 上傳至 Blob 容器：Azure Blob 儲存體中的 **customactvitycontainer**，由 **ADFTutorialDataFactory** 中的 **StorageLinkedService** 連結服務使用。如果不存在 Blob 容器 **customactivitycontainer**，請自行建立。 
 
 
@@ -361,11 +364,12 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 	(Blob 位置), (Blob 的名稱), (Blob 中的行數), (執行活動的節點), (日期時間戳記)
 
-10.	使用 [Azure 入口網站][azure-preview-portal]或 Azure PowerShell Cmdlet 來監視您的 Data Factory、管線和資料集。在可從入口網站下載的記錄檔中，您可以從程式碼中的 **ActivityLogger**，或使用 Cmdlet，以查看自訂活動的訊息。
+10.	使用 [Azure 入口網站][azure-preview-portal]或 Azure PowerShell Cmdlet 來監視您的 Data Factory、管線和資料集。在可從入口網站下載的記錄檔中 (尤其是 user-0.log)，您可以從程式碼中的 **ActivityLogger**，或使用 Cmdlet，以查看自訂活動的訊息。
 
 	![從自訂活動下載記錄檔][image-data-factory-download-logs-from-custom-activity]
+	
    
-如需有關監視資料集和管線的詳細步驟，請參閱[開始使用 Azure Data Factory][adfgetstarted]。
+如需有關監視資料集和管線的詳細步驟，請參閱〈[監視和管理管線](data-factory-monitor-manage-pipelines.md)〉。
 
 ## 更新自訂活動
 如果您更新自訂活動的程式碼，請建置它，並將包含新二進位檔案的 zip 檔案上傳至 Blob 儲存體。
@@ -463,4 +467,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

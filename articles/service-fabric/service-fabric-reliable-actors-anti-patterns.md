@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Actor 反向模式"
-   description="正在學習 Service Fabric Reliable Actor 的客戶可能會碰到的問題。"
+   pageTitle="部分的 Azure Service Fabric Actor 相反模式"
+   description="正在學習 Azure Service Fabric Actor 的客戶可能會碰到的問題"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # Reliable Actor 設計模式：某些相反模式
@@ -30,4 +30,4 @@
 
 * 盲目地對應實體模型。這適用於來自相關體系的開發人員，在該體系會使用實體及其關係建立問題的模型。雖然此方法對於了解主體網域仍然很有幫助，但應搭配以服務為導向的思考模式與行為。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/22/2015"
+   ms.date="08/10/2015"
    ms.author="jgao"/>
 
 #在 HDInsight 中佈建 Hadoop 叢集 (英文)
@@ -782,4 +782,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

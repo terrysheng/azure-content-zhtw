@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/25/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #作法：檢查工作進度
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)系列的一部分。
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-check-job-progress.md)
+- [.NET](media-services-check-job-progress.md)
+- [REST](media-services-rest-check-job-progress.md)
 
 執行作業時，您通常需要設法追蹤作業進度。[定義 StateChanged 事件處理常式](#statechange_event_handler)或[使用 Azure 佇列儲存體監視媒體服務工作通知](#check_progress_with_queues)，即可檢查進度。本主題描述這兩種方法。
 
@@ -427,4 +430,4 @@ Microsoft Azure 媒體服務能夠在處理媒體工作時，傳送通知訊息�
 	
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

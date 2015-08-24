@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="開始使用推播 (Android) | 行動開發人員中心" 
+	pageTitle="開始使用推播 (Android) | Microsoft Azure" 
 	description="了解如何使用 Azure 行動服務傳送推播通知至 Android .Net 應用程式。" 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="08/08/2015" 
 	ms.author="ricksal"/>
 
 # 將推播通知新增至行動服務應用程式
@@ -237,4 +237,4 @@
 [Azure 管理入口網站]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

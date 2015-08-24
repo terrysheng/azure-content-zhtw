@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在 Android 行動服務應用程式中加入離線資料同步 | 行動開發人員中心"
+	pageTitle="在 Android 行動服務應用程式中加入離線資料同步 | Microsoft Azure"
 	description="了解如何使用 Azure 行動服務快取和同步 Android 應用程式中的離線資料"
 	documentationCenter="android"
 	authors="RickSaling"
@@ -221,4 +221,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [行動服務快速入門教學課程]: mobile-services-android-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -10,14 +10,14 @@
 <tags
    ms.service="remoteapp"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="07/07/2015"
+   ms.date="08/12/2015"
    ms.author="guscatal;elizapo"/>
 
 
-# 在任何裝置上取得相同的 Office 365 體驗
+# 在任何具有 Azure RemoteApp 的裝置上取得相同的 Office 365 體驗
 
 本文涵蓋如何在公司的任何裝置上部署 Office 365。您的使用者可以在 Android、Apple 和 Windows 上取得相同的功能和 UI 體驗。
 
@@ -64,4 +64,4 @@
 ![powerpoint](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/11-pp.PNG)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

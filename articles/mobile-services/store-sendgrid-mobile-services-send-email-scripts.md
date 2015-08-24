@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 SendGrid 傳送電子郵件 - Azure 行動服務" 
+	pageTitle="使用 SendGrid 傳送電子郵件 | Microsoft Azure" 
 	description="了解如何使用 SendGrid 服務，從 Azure 行動服務應用程式傳送電子郵件。" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -136,4 +136,4 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

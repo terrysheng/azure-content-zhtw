@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用 Xamarin 元件用戶端 - Azure行動服務功能指南" 
+	pageTitle="如何使用 Xamarin 元件用戶端 |Microsoft Azure" 
 	description="了解如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端。" 
 	authors="lindydonna" 
 	manager="dwrede" 
@@ -474,4 +474,4 @@ Xamarin 元件用戶端是專為強型別案例所設計的。不過，較弱型
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -4,8 +4,8 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	manager="stevenpo" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/02/2015" 
+	ms.date="08/10/2015" 
 	ms.author="billmath"/>
 
 # 開始使用 Azure Multi-Factor Authentication Server
@@ -29,7 +29,9 @@
 
 ## 下載 Azure Multi-Factor Authentication Server
 
-下載 Azure Multi-Factor Authentication Server 的方法有兩種。第一個方法是登入 Azure 入口網站，第二個方法是直接從 [https://pfweb.phonefactor.net](https://pfweb.phonefactor.net) 下載。
+
+
+下載 Azure Multi-Factor Authentication Server 的方法有兩種。兩者都是透過 Azure 入口網站來完成。第一個是藉由直接管理 Multi-Factor Auth Provider。第二個是透過服務設定。第二個選項需要 Multi-Factor Auth Provider或 Azure AD Premium 授權。
 
 
 ### 從 Azure 入口網站下載 Azure Multi-Factor Authentication Server
@@ -39,18 +41,25 @@
 2. 在左側選取 [Active Directory]。
 3. 在 [Active Directory] 頁面頂端，按一下 [**多因素驗證提供者**]
 4. 在底部按一下 [**管理**]
-5. 按一下 [**下載**]
-6. 在 [**產生啟用認證**] 上方，按一下 [**下載**]
+5. 這會開啟新的頁面。按一下 [**下載**] ![下載](./media/multi-factor-authentication-sdk/download.png)
+6. 在 [**產生啟用認證**] 上方，按一下 [**下載**] ![下載](./media/multi-factor-authentication-get-started-server/download4.png)
 7. 儲存下載內容。
 
-### 直接下載 Azure Multi-Factor Authentication Server
---------------------------------------------------------------------------------
 
-1. 登入 [https://pfweb.phonefactor.net](https://pfweb.phonefactor.net)。
-2. 按一下 [**下載**]
-<center>![Cloud](./media/multi-factor-authentication-get-started-server/download2.png)</center>
-3. 在 [**產生啟用認證**] 上方，按一下 [**下載**] - 請保留該頁面，因為稍後還會回來這裡。
-4. 儲存下載內容。
+
+### 透過服務設定下載 Azure Multi-Factor Authentication Server
+
+
+1. 以系統管理員身分登入 Azure 入口網站。
+2. 在左側選取 [Active Directory]。
+3. 按兩下您的 Azure AD 的執行個體。
+4. 在頂端按一下 [**設定**] ![下載](./media/multi-factor-authentication-sdk/download2.png)
+5. 在多因素驗證底下選取 [**管理服務設定**]
+6. 在 [服務設定] 頁面上，於畫面底部按一下 [**移至入口網站**]。![下載](./media/multi-factor-authentication-sdk/download3.png)
+7. 這會開啟新的頁面。按一下 [**下載**]。
+8. 在 [**產生啟用認證**] 上方，按一下 [**下載**]。
+9. 儲存下載內容。
+
 
 
 
@@ -97,8 +106,7 @@ IP 子網路|網路遮罩|IP 範圍
 1. 按兩下可執行檔。安裝作業隨即會開始。
 2. 在 [選取安裝資料夾] 畫面中，請確認資料夾正確，然後按 [下一步]。
 3. 當安裝完成時，請按一下 [完成]。這會啟動組態精靈。
-4. 在組態精靈歡迎畫面上，勾選 [**略過使用驗證組態精靈**]，然後按 [**下一步**]。這會關閉精靈並啟動伺服器。
-<center>![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)</center>
+4. 在組態精靈歡迎畫面上，勾選 [**略過使用驗證組態精靈**]，然後按 [**下一步**]。這會關閉精靈並啟動伺服器。![雲端](./media/multi-factor-authentication-get-started-server/skip2.png)
 
 5. 回到下載伺服器的頁面，按一下 [**產生啟用認證**] 按鈕。將此資訊複製到 Azure MFA Server 提供的方塊中，然後按一下 [**啟用**]。
 
@@ -118,9 +126,9 @@ IP 子網路|網路遮罩|IP 範圍
 1. 在 Azure MFA Server 的左側選取 [**使用者**]。
 2. 在底部選取 [**從 Active Directory 匯入**]。
 3. 現在您可以搜尋個別使用者，或在 AD 中搜尋含使用者的 OU。在此情況下，我們會指定使用者的 OU。
-4. 在右側反白顯示所有使用者，然後按一下 [**匯入**]。您應該會看到指出成功完成作業的快顯視窗。關閉匯入視窗。
+4. 反白顯示右側的所有使用者，然後按一下 [**匯入**]。您應該會看到指出成功完成作業的快顯視窗。關閉匯入視窗。
 
-<center>![Cloud](./media/multi-factor-authentication-get-started-server/import2.png)</center>
+![雲端](./media/multi-factor-authentication-get-started-server/import2.png)
 
 ## 傳送電子郵件給使用者
 既然已將您的使用者匯入到 Azure Multi-Factor Authentication 伺服器，建議您傳送電子郵件給使用者，告知他們已註冊多因素驗證。
@@ -157,4 +165,4 @@ Azure Multi-Factor Authentication Server 提供各種方式來設定您的使用
 [與 Windows Server Active Directory 同步處理](multi-factor-authentication-get-started-server-dirint.md)|有關設定 Active Directory 與 Azure MFA Server 之間同步處理的資訊。
 [部署 Azure Multi-Factor Authentication Server 行動應用程式 Web 服務](multi-factor-authentication-get-started-server-webservice.md)|有關設定 Azure MFA 伺服器 Web 服務的資訊。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

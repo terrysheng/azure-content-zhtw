@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在 Windows 市集應用程式中使用 Azure 儲存體 | Azure" 
+	pageTitle="在 Windows 市集應用程式中使用 Azure 儲存體 | Microsoft Azure" 
 	description="了解如何使用 Azure Blob、佇列和資料表來儲存 Windows 市集應用程式的資料。" 
 	services="storage" 
 	documentationCenter="" 
@@ -94,4 +94,4 @@
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

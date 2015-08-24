@@ -1,5 +1,5 @@
 <properties
-	pageTitle="深入了解 BizTalk 服務各版本的功能 | Azure"
+	pageTitle="深入了解 BizTalk 服務各版本的功能 | Microsoft Azure"
 	description="比較 BizTalk 服務各版本的功能：免費、開發人員、基本、標準和高級。MABS，WABS"
 	services="biztalk-services"
 	documentationCenter=""
@@ -257,4 +257,4 @@ BizTalk 配接器服務是由 Azure BizTalk 服務使用。BizTalk 配接器服�
 - [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="稽核和動態資料遮罩的 SQL Database 舊版用戶端支援 | Azure" 
+	pageTitle="稽核和動態資料遮罩的 SQL Database 舊版用戶端支援 | Microsoft Azure" 
 	description="稽核和動態資料遮罩的 SQL Database 舊版用戶端支援" 
 	services="sql-database" 
 	documentationCenter="" 
@@ -40,4 +40,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

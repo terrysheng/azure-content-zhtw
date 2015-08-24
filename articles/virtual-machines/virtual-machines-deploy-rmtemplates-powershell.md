@@ -1,6 +1,6 @@
 <properties
-	pageTitle="使用 Resource Manager 範本和 PowerShell 部署以及管理 Azure 虛擬機器"
-	description="使用 Resource Manager 範本和 PowerShell 輕鬆部署以及管理 Azure 虛擬機器最常用的設定。"
+	pageTitle="使用資源管理員範本和 PowerShell 部署以及管理 Azure 虛擬機器"
+	description="使用資源管理員範本和 PowerShell 輕鬆部署以及管理 Azure 虛擬機器最常用的組態集合。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -20,9 +20,9 @@
 
 本文會為您示範如何使用 Azure 資源管理員範本和 Powershell，自動化部署和管理 Azure 虛擬機器的常見工作。如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)和[應用程式架構](virtual-machines-app-frameworks.md)。
 
-- [部署 Windows VM](#windowsvm)
-- [建立自訂的 VM 映像](#customvm)
-- [部署一個多重 VM 應用程式，它會使用虛擬網路和外部負載平衡器](#multivm)
+- [部署 Windows 虛擬機器](#windowsvm)
+- [建立自訂虛擬機器映像](#customvm)
+- [部署一個多重虛擬機器應用程式，它會使用虛擬網路和外部負載平衡器](#multivm)
 - [移除資源群組](#removerg)
 - [登入虛擬機器](#logon)
 - [顯示虛擬機器的相關資訊](#displayvm)
@@ -37,28 +37,28 @@
 
 ## 了解 Azure 資源範本和資源群組
 
-在 Microsoft Azure 中部署和執行的應用程式，大部分在建立時會使用不同雲端資源類型的組合 (例如一或多個 VM 和儲存體帳戶、SQL 資料庫或虛擬網路)。有了 Azure 資源管理員範本之後，您就可以使用 JSON 的資源說明、相關設定和部署參數，來部署和管理這些不同的資源。
+在 Microsoft Azure 中部署和執行的應用程式，大部分在建立時會使用不同雲端資源類型的組合 (例如一或多個虛擬機器和儲存體帳戶、SQL 資料庫或虛擬網路)。有了 Azure 資源管理員範本之後，您就可以使用 JSON 的資源說明、相關設定和部署參數，來部署和管理這些不同的資源。
 
-定義好 JSON 資源範本後，您可以使用 PowerShell 命令來執行這個範本，以及將範本中定義的資源部署到 Azure。您可以在 PowerShell 命令殼層中獨立執行以下命令，或者合併到內含其他自動化還輯的指令碼。
+定義好 JSON 資源範本後，您可以執行它並使用 PowerShell 命令在 Azure 中部署已定義的資源。您可以在 PowerShell 命令殼層中個別執行以下命令，或者合併到內含其他自動化邏輯的指令碼。
 
-您使用 Azure Resource Manager 範本建立的資源，會部署到新的或現有 Azure 資源群組。*Azure 資源群組*可以讓您將多個部署的資源當做一個邏輯群組，統一進行管理。這樣您就可以管理群組/應用程式的整體週期，另外也提供一個管理 API，讓您可以：
+您使用 Azure 資源管理員範本建立的資源，會部署到新的或現有 Azure 資源群組。*Azure 資源群組*可以讓您將多個部署的資源當做一個邏輯群組，統一進行管理。這樣您就可以管理群組/應用程式的整體週期，另外也提供一個管理 API，讓您可以：
 
 - 一次性停止、啟動或刪除群組內的所有資源。
 - 將角色型存取控制 (RBAC) 規則套用至鎖定它們的安全權限。
 - 稽核作業。
 - 利用其他中繼資料標記資源，方便追蹤。
 
-如需深入了解 Azure Resource Manager ，請參閱[這裡](virtual-machines-azurerm-versus-azuresm.md)。如果您想了解如何設計範本，請參閱[設計 Azure Resource Manager 範本](resource-group-authoring-templates.md)。
+如需深入了解 Azure Resource Manager ，請參閱[這裡](virtual-machines-azurerm-versus-azuresm.md)。如果您想了解如何設計範本，請參閱[設計 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 
-## <a id="windowsvm"></a>工作：部署 Windows VM
+## <a id="windowsvm"></a>工作：部署 Windows 虛擬機器
 
-按照本節中的操作方法，使用 Resource Manager 範本和 Azure PowerShell 部署新的 Azure VM。這個範本會在單一子網路的新虛擬網路上，建立單一虛擬機器。
+按照本節中的操作方法，使用資源管理員範本和 Azure PowerShell 部署新的 Azure 虛擬機器。這個範本會在單一子網路的新虛擬網路上，建立單一虛擬機器。
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
 
-請依照下列步驟，搭配 Azure PowerShell 並使用 Github 範本儲存機制中的 Resource Manager 範本建立 Windows VM。
+依照下列步驟，搭配 Azure PowerShell 並使用 GitHub 範本儲存機制中的資源管理員範本來建立 Windows 虛擬機器。
 
-### 步驟 1：檢查範本的 JSON 檔案。
+### 步驟 1：檢查範本的 JSON 檔案
 
 以下是範本的 JSON 檔案內容。
 
@@ -69,25 +69,25 @@
         "newStorageAccountName": {
             "type": "string",
             "metadata": {
-                "Description": "Unique DNS Name for the Storage Account where the Virtual Machine's disks will be placed."
+                "Description": "Unique DNS name for the storage account where the virtual machine's disks will be placed."
             }
         },
         "adminUsername": {
             "type": "string",
             "metadata": {
-               "Description": "Username for the Virtual Machine."
+               "Description": "User name for the virtual machine."
             }
         },
         "adminPassword": {
             "type": "securestring",
             "metadata": {
-                "Description": "Password for the Virtual Machine."
+                "Description": "Password for the virtual machine."
             }
         },
         "dnsNameForPublicIP": {
             "type": "string",
             "metadata": {
-                  "Description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+                  "Description": "Unique DNS name for the public IP used to access the virtual machine."
             }
         },
         "windowsOSVersion": {
@@ -100,7 +100,7 @@
                 "Windows-Server-Technical-Preview"
             ],
             "metadata": {
-                "Description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
+                "Description": "The Windows version for the virtual machine. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
             }
         }
     },
@@ -239,7 +239,7 @@
 	}
 
 
-### 步驟 2：使用範本建立虛擬機器。
+### 步驟 2：使用範本建立虛擬機器
 
 填寫 Azure 部署名稱、資源群組名稱、Azure 資料中心位置，然後執行以下命令。
 
@@ -301,11 +301,11 @@
 
 在新的資源群組中，您現在擁有新的 Windows 虛擬機器，名稱是 MyWindowsVM。
 
-## <a id="customvm"></a>工作：建立自訂的 VM 映像
+## <a id="customvm"></a>工作：建立自訂虛擬機器映像
 
-請按照本節描述的操作方法，在 Azure 中使用 Resource Manager 範本搭配 Azure PowerShell 建立自訂的 VM 映像。這個範本會從指定的虛擬硬碟 (VHD) 建立單一虛擬機器。
+請按照本節描述的操作方法，在 Azure 中使用資源管理員範本搭配 Azure PowerShell 建立自訂的虛擬機器映像。這個範本會從指定的虛擬硬碟 (VHD) 建立單一虛擬機器。
 
-### 步驟 1：檢查範本的 JSON 檔案。
+### 步驟 1：檢查範本的 JSON 檔案
 
 以下是範本的 JSON 檔案內容。
 
@@ -386,13 +386,13 @@
 	    }]
 	}
 
-### 步驟 2：取得 VHD。
+### 步驟 2：取得 VHD
 
 若是 Windows 型虛擬機器，請參閱[建立 Windows Server VHD 並上傳至 Azure](virtual-machines-create-upload-vhd-windows-server.md)。
 
 若是 Linux 型虛擬機器，請參閱[建立 Linux VHD 並上傳至 Azure](virtual-machines-linux-create-upload-vhd.md)。
 
-### 步驟 3：使用範本建立虛擬機器。
+### 步驟 3：使用範本建立虛擬機器
 
 若要利用 VHD 建立新的虛擬機器，請將 "< >" 裡面的元素取代成您的特定資訊，然後執行以下命令：
 
@@ -426,15 +426,15 @@
 	vmSize: Standard_A3
 	...
 
-## <a id="multivm"></a>工作：部署一個多重 VM 應用程式，它會使用虛擬網路和外部負載平衡器
+## <a id="multivm"></a>工作：部署一個多重虛擬機器應用程式，它會使用虛擬網路和外部負載平衡器
 
-按照下列各節的操作方法，部署一個多重 VM 應用程式，它會使用 Azure PowerShell 搭配 Github 範本儲存機制中的 Resource Manager 範本，然後就可以使用虛擬網路和負載平衡器。這個範本會在新雲端服務中單一子網路的新虛擬網路中建立兩個虛擬機器，然後將它們新增至外部負載平衡集，負責 TCP 連接埠 80 的連入流量。
+按照下列各節的操作方法，部署一個多重虛擬機器應用程式，它會使用 Azure PowerShell 搭配 GitHub 範本儲存機制中的資源管理員範本，然後就可以使用虛擬網路和負載平衡器。這個範本會在新雲端服務中單一子網路的新虛擬網路中建立兩個虛擬機器，然後將它們新增至外部負載平衡集，負責 TCP 連接埠 80 的連入流量。
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/multivmextlb.png)
 
-按照下列步驟部署一個多重 VM 應用程式，它會利用 Azure PowerShell 命令使用 Github 範本儲存機制中的 Resource Manager 範本，然後就可以使用虛擬網路和負載平衡器。
+按照下列步驟部署一個多重虛擬機器應用程式，它會利用 Azure PowerShell 命令使用 GitHub 範本儲存機制中的資源管理員範本，然後就可以使用虛擬網路和負載平衡器。
 
-### 步驟 1：檢查範本的 JSON 檔案。
+### 步驟 1：檢查範本的 JSON 檔案
 
 以下是範本的 JSON 檔案內容。
 
@@ -749,7 +749,7 @@
 	}
 
 
-### 步驟 2：使用範本建立部署。
+### 步驟 2：使用範本建立部署
 
 填寫 Azure 部署名稱、資源群組名稱、Azure 位置，然後執行以下命令。
 
@@ -760,7 +760,7 @@
 	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-執行 New-AzureResourceGroupDeployment 命令時，會提示您提供 JSON 檔案的參數值。指定所有的參數值後，這個命令會建立資源群組和部署。
+執行 **New-AzureResourceGroupDeployment** 命令時，會提示您提供 JSON 檔案的參數值。指定所有的參數值後，這個命令會建立資源群組和部署。
 
 	$deployName="TestDeployment"
 	$RGName="TestRG"
@@ -800,7 +800,7 @@
 
 ## <a id="displayvm"></a>工作：顯示虛擬機器的相關資訊
 
-您可以使用 **Get-AzureVM** 命令，查看 VM 的相關資訊。這個命令會傳回一個 VM 物件，然後您可以使用其他各種 Cmdlet 即可更新 VM 的狀態。以正確的名稱取代括號中的所有內容，包括 < and > 字元。
+您可以使用 **Get-AzureVM** 命令，查看虛擬機器的相關資訊。這個命令會傳回一個虛擬機器物件，然後您可以使用其他各種 Cmdlet 即可更新虛擬機器的狀態。以正確的名稱取代括號中的所有內容，包括 < and > 字元。
 
 	Get-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
@@ -868,7 +868,7 @@
 
 ## <a id="start"></a>工作：啟動虛擬機器
 
-您可以使用 **Start-AzureVM** 命令啟動 VM。以正確的名稱取代括號中的所有內容，包括 < and > 字元。
+您可以使用 **Start-AzureVM** 命令啟動虛擬機器。以正確的名稱取代括號中的所有內容，包括 < and > 字元。
 
 	Start-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
@@ -885,7 +885,7 @@
 
 ## <a id="stop"></a>工作：停止虛擬機器
 
-您可以使用 **Stop-AzureVM** 命令，就可以停止 VM。以正確的名稱取代括號中的所有內容，包括 < and > 字元。
+您可以使用 **Stop-AzureVM** 命令停止虛擬機器。以正確的名稱取代括號中的所有內容，包括 < and > 字元。
 
 	Stop-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
@@ -905,9 +905,9 @@
 	RequestId           : 5cc9ddba-0643-4b5e-82b6-287b321394ee
 	StatusCode          : OK
 
-## <a id=restart"></a>工作：重新啟動虛擬機器
+## <a id="restart"></a>工作：重新啟動虛擬機器
 
-您可以使用 **Restart-AzureVM** 命令重新啟動 VM。以正確的名稱取代引號中的所有內容，包括 < and > 字元。
+您可以使用 **Restart-AzureVM** 命令重新啟動虛擬機器。以正確的名稱取代引號中的所有內容，包括 < and > 字元。
 
 	Restart-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
@@ -922,9 +922,9 @@
 	RequestId           : 7dac33e3-0164-4a08-be33-96205284cb0b
 	StatusCode          : OK
 
-## <a id=delete"></a>工作：刪除虛擬機器
+## <a id="delete"></a>工作：刪除虛擬機器
 
-您可以使用 **Remove-AzureVM** 命令刪除 VM。以正確的名稱取代引號中的所有內容，包括 < and > 字元。您可以使用 **– Force** 參數，略過確認提示。
+您可以使用 **Remove-AzureVM** 命令刪除虛擬機器。以正確的名稱取代引號中的所有內容，包括 < and > 字元。您可以使用 **– Force** 參數，略過確認提示。
 
 	Remove-AzureVM -ResourceGroupName "<resource group name>" –Name "<VM name>"
 
@@ -946,9 +946,9 @@
 
 ## 其他資源
 
-[Azure Resource Manager 提供的 Azure 運算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md)
+[Azure 資源管理員提供的 Azure 運算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md)
 
-[Azure Resource Manager 概觀](resource-group-overview.md)
+[Azure 資源管理員概觀](resource-group-overview.md)
 
 [使用 Azure Resource Manager 範本和 Azure CLI 部署和管理虛擬機器](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
@@ -956,4 +956,4 @@
 
 [如何安裝和設定 Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

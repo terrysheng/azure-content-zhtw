@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/23/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
 
 
-# 免費的 30 天試用版 RemoteApp
+# 免費試用 Azure RemoteApp 30 天
 
 如果您有 Azure 訂用帳戶，可以嘗試[免費使用 Azure RemoteApp 30 天](https://www.remoteapp.windowsazure.com/en/tour.aspx)。若要開始，只需登入 Azure 管理入口網站，並瀏覽至 [Azure RemoteApp] 節點，然後建立集合。這是轉換成付費訂閱的 Azure RemoteApp 之前，測試完整的系統管理體驗的好方法。
 
@@ -30,4 +30,4 @@
 
 有人給您意見嗎？ 張貼問題到[討論區論壇](http://feedback.azure.com/forums/247748-azure-remoteapp) (英文)。如果您有 [Azure 支援方案](http://azure.microsoft.com/support/plans/)，則可以提交支援案例。每個人都可以在我們的[意見反應論壇](http://feedback.azure.com/forums/247748-azure-remoteapp) (英文) 上送出意見。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何透過 .NET 服務匯流排 API 使用 AMQP 1.0 - Azure" 
+	pageTitle="如何使用 AMQP 1.0 與 .NET 服務匯流排 API 搭配 | Microsoft Azure" 
 	description="了解如何搭配使用 Advanced Message Queuing Protodol (AMQP) 1.0 和 Azure .NET 服務匯流排 API。" 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -286,7 +286,7 @@
 * 依照訊息序號接收
 * 訊息和工作階段瀏覽
 * 工作階段狀態
-* 批次型 API
+* Batch 型 API
 * 向外延展接收
 * 訂用帳戶規則的執行階段操作
 * 工作階段鎖定更新
@@ -308,4 +308,4 @@
 * [如何使用服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

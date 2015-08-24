@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用 Azure 金鑰保存庫 | 概觀"
+	pageTitle="開始使用 Azure 金鑰保存庫 | Microsoft Azure"
 	description="使用本教學課程可協助您開始使用 Azure 金鑰保存庫，進而在 Azure 中建立強化的容器，以儲存及管理 Azure 中的密碼編譯金鑰和密碼。"
 	services="key-vault"
 	documentationCenter=""
@@ -248,4 +248,4 @@
 如需程式設計參考，請參閱 MSDN 上 Microsoft Azure 文件庫中的[金鑰保存庫](https://msdn.microsoft.com/library/azure/dn903625.aspx)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

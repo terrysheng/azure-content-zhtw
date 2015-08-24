@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 SSMS 管理 SQL Database - Azure" 
+	pageTitle="使用 SSMS 管理 SQL Database | Microsoft Azure" 
 	description="了解如何使用 SQL Server Management Studio 管理 SQL Database 伺服器和資料庫。" 
 	services="sql-database" 
 	documentationCenter=".net" 
@@ -186,4 +186,4 @@ SQL Database 支援數種動態管理檢視，您可用他們來監視個別資�
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

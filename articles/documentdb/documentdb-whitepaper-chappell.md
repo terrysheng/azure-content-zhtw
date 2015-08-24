@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB 簡介 - 適用於 Microsoft Azure 的 NoSQL 資料庫 | Azure" 
+	pageTitle="DocumentDB 簡介 - 適用於 Microsoft Azure 的 NoSQL 資料庫 | Microsoft Azure" 
 	description="下載 David Chappell 介紹 DocumentDB 的白皮書，其為 Azure 上的受管理 NoSQL 資料庫。" 
 	services="documentdb" 
 	documentationCenter="" 
@@ -31,4 +31,4 @@
 **PDF 下載：** [DocumentDB 簡介 - 適用於 Microsoft Azure 的 NoSQL 資料庫](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

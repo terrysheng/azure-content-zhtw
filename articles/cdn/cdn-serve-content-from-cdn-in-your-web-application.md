@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="08/06/2015" 
 	ms.author="cephalin"/>
 
 # 在 Web 應用程式中從 Azure CDN 提供內容 #
@@ -65,7 +65,7 @@
 
 	>[AZURE.NOTE]請注意，我使用 [東亞] 作為區域，因為這地點夠遠，可讓我稍後從北美洲測試 CDN。
 
-2. 當新儲存體帳戶的狀態為 [**線上**] 時，請建立新的 CDN 端點來繫結至您建立的儲存體帳戶。按一下 [**新增] > [應用程式服務] > [CDN] > [快速建立**]。選取您建立的儲存體帳戶，然後按一下 [**建立**]。
+2. 當新儲存體帳戶的狀態為 [**線上**] 時，請建立新的 CDN 端點來繫結至您建立的儲存體帳戶。按一下 [新增] > App Service > CDN > [快速建立]。選取您建立的儲存體帳戶，然後按一下 [**建立**]。
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2.PNG)
 
@@ -218,17 +218,27 @@
 <a name="query"></a>
 ## 使用查詢字串來立即提供最新內容 ##
 
-在 Azure CDN 中，您可以啟用查詢字串，以個別快取從 URL 中以特定查詢字串傳回的內容。如果您想要立即將某些內容更新推送至用戶端瀏覽器，而不想等待快取的 CDN 內容到過，則這會是一個很實用的功能。假設我在 URL 中加上版本號碼來發佈網頁。<pre class="prettyprint"> &lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.0.0"; rel=";stylesheet";/&gt; </pre>
+在 Azure CDN 中，您可以啟用查詢字串，以個別快取從 URL 中以特定查詢字串傳回的內容。如果您想要立即將某些內容更新推送至用戶端瀏覽器，而不想等待快取的 CDN 內容到過，則這會是一個很實用的功能。假設我在 URL 中加上版本號碼來發佈網頁。
+  
+	<link href="http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.0.0" rel="stylesheet"/>
 
-當我發佈 CSS 更新並在 CSS URL 中使用不同版本號碼時：<pre class="prettyprint"> &lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.1.1"; rel=";stylesheet";/&gt; </pre>
+當我發行 CSS 更新並在 CSS URL 中使用不同版本號碼時：
+
+	<link href="http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.1.1" rel="stylesheet"/>
 
 對於已啟用查詢字串的 CDN 端點，這兩個 URL 彼此各不相同，將會對 Web 伺服器送出新的要求來擷取新的 *bootstrap.css*。不過，對於未啟用查詢字串的 CDN 端點，這些就是相同的 URL，將會直接提供快取的 *bootstrap.css*。
 
-竅門就在於自動更新版本號碼。在 Visual Studio 中，要這樣做很簡單。在 .cshtml 檔案中使用上面連結的地方，我可以根據組件號碼指定版本號碼。<pre class="prettyprint"> @{ var cdnVersion = System.Reflection.Assembly.GetAssembly( typeof(MyMvcApp.Controllers.HomeController)) .GetName().Version.ToString(); }
+竅門就在於自動更新版本號碼。在 Visual Studio 中，要這樣做很簡單。在我想使用上述連結的 .cshtml 檔案中，我可以根據組件號碼來指定版本號碼。
 
-...
-
-&lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=@cdnVersion"; rel=";stylesheet";/&gt; </pre>
+	@{
+	    var cdnVersion = System.Reflection.Assembly.GetAssembly(
+	        typeof(MyMvcApp.Controllers.HomeController))
+	        .GetName().Version.ToString();
+	}
+	
+	...
+	
+	<link href="http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=@cdnVersion" rel="stylesheet"/>
 
 如果您在每次的發行週期中變更組件號碼，則同樣可確定每次發行 Web 應用程式時會取得唯一的版本號碼，而這在下次發行週期之前會保持不變。透過在 Visual Studio 專案中開啟 *Properties\\AssemblyInfo.cs*，並在 `AssemblyVersion` 中使用 `*`，您也可以讓 Visual Studio 在每次建置 Web 應用程式時自動遞增組件號碼。例如：
 
@@ -261,4 +271,4 @@ Azure App Service 與 Azure CDN 或 Azure 雲端服務與 Azure CDN 整合將帶
 - [使用 Azure 的 CDN](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

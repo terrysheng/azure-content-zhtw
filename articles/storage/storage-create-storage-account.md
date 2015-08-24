@@ -1,5 +1,5 @@
 <properties
-	pageTitle="如何建立、管理或刪除儲存體帳戶 | Azure"
+	pageTitle="如何建立、管理或刪除儲存體帳戶 | Microsoft Azure"
 	description="了解如何在 Azure 管理入口網站中建立、管理或刪除儲存體帳戶。"
 	services="storage"
 	documentationCenter=""
@@ -167,4 +167,4 @@ Azure 儲存體帳戶是可讓您存取 Azure 儲存體中 Blob、佇列、資�
 - 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

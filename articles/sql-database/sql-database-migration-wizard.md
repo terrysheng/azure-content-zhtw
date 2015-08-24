@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="使用 SQL Azure 移轉精靈 | Microsoft" 
+   pageTitle="使用 SQL Azure 移轉精靈 | Microsoft Azure" 
    description="Microsoft Azure SQL Database, 資料庫移轉, 匯入資料庫, 匯出資料庫, 移轉精靈" 
    services="sql-database" 
    documentationCenter="" 
@@ -98,4 +98,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

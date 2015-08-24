@@ -29,8 +29,8 @@
     	"outputs":  [ { "name": "outputtable" } ],
     	"typeProperties":
     	{
-        	"storedProcedureName": “”,
-        	"storedProcedureParameters": “” 
+        	"storedProcedureName": "<name of the stored procedure>",
+        	"storedProcedureParameters":  
         	{
 				"param1": "param1Value"
 				…
@@ -72,6 +72,8 @@ Datetime | 產生對應的識別碼的日期和時間
 	    VALUES (newid(), @DateTime)
 	END
 
+> [AZURE.NOTE]參數 (在此範例中是 DateTime) 的**名稱**和**大小寫**的必須符合下列活動 JSON 中指定的參數。在預存程序定義中，確定使用 **@** 做為參數前置詞。
+
 若要在 Data Factory 管線中執行此預存程序，您需要執行下列動作：
 
 1.	建立[連結服務](data-factory-azure-sql-connector.md/#azure-sql-linked-service-properties)以註冊 Azure SQL Database (應該執行預存程序的位置) 的連接字串。
@@ -86,23 +88,23 @@ Datetime | 產生對應的識別碼的日期和時間
 		        "activities":
 		        [
 		            {
-		             "name": "SprocActivitySample",
-		             "type": " SqlServerStoredProcedure ",
-		             "outputs": [ {"name": "sprocsampleout"} ],
-		             "typeproperties":
-		              {
-		                "storedProcedureName": "sp_sample",
-		        		"storedProcedureParameters": 
-		        		{
-		            	"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
-		        		}
-				}
-		            }
-		          ]
+		            	"name": "SprocActivitySample",
+		             	"type": " SqlServerStoredProcedure",
+		             	"outputs": [ {"name": "sprocsampleout"} ],
+		             	"typeProperties":
+		              	{
+		                	"storedProcedureName": "sp_sample",
+			        		"storedProcedureParameters": 
+		        			{
+		            			"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+		        			}
+						}
+	            	}
+		        ]
 		     }
 		}
 5.	部署[管線](data-factory-create-pipelines.md)。
-6.	使用 Data Factory 監視和管理檢視[監視管線](data-factory-monitor-manage-pipelines.md)。
+6.	使用資料處理站監視和管理檢視來[監視管線](data-factory-monitor-manage-pipelines.md)。
 
 > [AZURE.NOTE]在上述範例中，SprocActivitySample 沒有輸入。如果您想要鏈結這個項目與活動上游，可以使用上游活動的輸出做為此活動的輸入。在此情況下，此活動不會執行，直到上游活動完成且輸出可用 (處於就緒狀態)。輸入無法直接做為預存程序活動的參數使用。
 > 
@@ -121,9 +123,9 @@ Datetime | 產生對應的識別碼的日期和時間
 	    VALUES (newid(), @DateTime, @Scenario)
 	END
 
-若要這麼做，從預存程序活動傳遞「案例」參數和值。在上述範例中，typeproperties 區段如下所示：
+若要這麼做，從預存程序活動傳遞「案例」參數和值。在上述範例中，typeproperties 區段如下：
 
-	"typeproperties":
+	"typeProperties":
 	{
 		"storedProcedureName": "sp_sample",
 	    "storedProcedureParameters": 
@@ -133,4 +135,4 @@ Datetime | 產生對應的識別碼的日期和時間
 		}
 	}
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

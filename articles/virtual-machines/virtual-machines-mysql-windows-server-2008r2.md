@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -22,7 +23,7 @@
 
 [MySQL](http://www.mysql.com) 是一種很受歡迎的開放原始碼 SQL 資料庫。您可以使用 [Azure 入口網站](http://manage.windowsazure.com)，從映像庫建立一個執行 Windows Server 2012 R2 的虛擬機器。您可以接著安裝並將它設定為 MySQL 伺服器。
 
-如需在 Linux 上安裝 MySQL 的指示，請參閱：[如何在 Azure 上安裝 MySQL](virtual-machines-linux-install-mysql.md)。
+如需在 Linux 上安裝 MySQL 的指示，請參閱[如何在 Azure 上安裝 MySQL](virtual-machines-linux-install-mysql.md)。
 
 本教學課程說明如何：
 
@@ -37,7 +38,7 @@
 
 ## 連接資料磁碟
 
-建立虛擬機器之後，您可以選擇連接其他資料磁碟。對於生產工作負載建議這個做，這可避免目前限制為 127 GB 且包括作業系統的作業系統磁碟機 (c:) 空間不足。
+建立虛擬機器之後，您可以選擇連接其他資料磁碟。對於生產工作負載建議執行此操作，這可避免包括作業系統的 OS 磁碟機 (C:) 空間不足。
 
 請參閱[如何將資料磁碟連接至 Windows 虛擬機器](storage-windows-attach-disk.md)，並依照指示連接空的磁碟。將主機快取設定設為 [無] 或 [唯讀]。
 
@@ -46,7 +47,7 @@
 接著，您將登入虛擬機器，以安裝 MySQL。
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
- 
+
 ##在虛擬機器上安裝和執行 MySQL Community Server
 
 請依照下列步驟安裝、設定和執行 MySQL Server 社群版本：
@@ -86,7 +87,7 @@
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_CommandPrompt.png)
 
-19.	您也可以使用 C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini 檔案中的項目設定伺服器預設設定，例如基底與資料目錄和磁碟機。如需詳細資訊，請參閱 [5.1.2 伺服器組態預設值](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html)。
+19.	您也可以使用 C:\\Program Files (x86)\\MySQL\\MySQL Server 5.6\\my-default.ini 檔案中的項目設定伺服器預設設定，例如基底與資料目錄和磁碟機。如需詳細資訊，請參閱 [5\.1.2 伺服器組態預設值](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html)。
 
 
 如果您要 MySQL 伺服器服務可供網際網路上的 MySQL 用戶端電腦使用，則必須設定 MySQL 伺服器服務接聽的 TCP 連接埠端點，並建立額外的 Windows 防火牆規則。除非您已在 [**類型和網路**] 頁面中 (位於先前程序的步驟 10) 指定其他的連接埠，否則將會使用 TCP 連接埠 3306。
@@ -127,4 +128,4 @@
 
 如需 MySQL 的相關資訊，請參閱 [MySQL 文件](http://dev.mysql.com/doc/)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

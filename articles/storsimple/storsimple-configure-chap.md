@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="07/30/2015"
+   ms.date="08/11/2015"
    ms.author="alkohli" />
 
 # 為 StorSimple 裝置設定 CHAP
@@ -192,4 +192,4 @@ CHAP 可以是單向 (單向) 或相互 (雙向)。單向 CHAP 是指目標驗�
 
 深入了解 [StorSimple 安全性](storsimple-security.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

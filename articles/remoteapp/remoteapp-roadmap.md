@@ -1,8 +1,8 @@
 <properties
-    pageTitle="RemoteApp 中的新內容"
-    description="深入了解 RemoteApp 的新功能"
+    pageTitle="Azure RemoteApp 中的新內容"
+    description="了解何時將提供 Azure RemoteApp 的新功能"
     services="remoteapp"
-	documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="06/10/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
-# RemoteApp 中的新內容
+# Azure RemoteApp 中的新內容
 
-我們一律會根據您的意見來改善 RemoteApp。以下是功能可用性的大約時段。
+我們一律會根據您的意見來努力改善 Azure RemoteApp。以下是日後提供功能的大約時段。
 
 |功能|2015 年 1- 3 月|2015 年 4-6 月|2015 年 7-9 月|2015 年 10-12 月|
 |-----------|-------|-------|-------|-------|
@@ -39,4 +39,4 @@
 - 澳大利亞資料中心的可用性
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

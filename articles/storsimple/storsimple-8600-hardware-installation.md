@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="安裝您的 StorSimple 8600 裝置"
+   pageTitle="安裝您的 StorSimple 8600 裝置 | Microsoft Azure"
    description="描述如何打開包裝、掛接機架，和佈線 StorSimple 8600 裝置。"
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/17/2015"
+   ms.date="08/06/2015"
    ms.author="alkohli" />
 
 # 安裝您的 StorSimple 8600 裝置
@@ -44,7 +44,7 @@
 
     ![打開您的儲存體裝置包裝](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
  
-    **圖 1：儲存體裝置打開包裝的樣子**
+    **儲存體裝置打開包裝的樣子**
 
      標籤 | 說明 
      ----- | -------------
@@ -114,7 +114,7 @@
 
     ![將滑軌連接至機箱底座](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
-    **圖 2：將滑軌連接至機箱邊**
+    **將滑軌連接至機箱側邊**
 
     標籤 | 說明
     ----- | -----------
@@ -131,7 +131,7 @@
 
      ![將滑軌連接至機櫃](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
 
-    **圖 3：將滑軌組件連接至機架**
+    **將滑軌組件連接至機架**
 
      標籤 | 說明
      ----- | -----------
@@ -153,7 +153,7 @@
 
     ![在機架中插入裝置](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
 
-    **圖 4：在機架中掛接機箱**
+    **在機架中掛接機箱**
 
 3. 藉由在每個輪緣、左側和右側，安裝一個提供的十字螺絲，在機架中鎖固機箱。
 
@@ -161,7 +161,7 @@
 
      ![安裝輪緣蓋](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
 
-    **圖 5：安裝輪緣蓋**
+    **安裝輪緣蓋**
  
      標籤 | 說明
      ----- | -----------
@@ -196,110 +196,17 @@
 - 提供的序列纜線
 - 序列 USB 轉換器，且您的電腦上已安裝適當驅動程式 (如果需要)
 - 提供單一 QSFP-to-SFP+ 配接器以用於 10 GbE 網路介面
-- [支援 10 GbE 網路介面的收發器、纜線及交換器](https://msdn.microsoft.com/library/azure/dn891474.aspx) 
+- [10 GbE 網路介面在 StorSimple 裝置上支援的硬體](storsimple-supported-hardware-for-10-gbe-network-interfaces/) 
 
-### SAS 佈線
+### SAS 及電源佈線
 
-您的裝置有主要和 EBOD 機箱。這些機箱需要使用 SAS 纜線連接在一起。
+您的裝置同時有主要機箱和 EBOD 機箱。這需要使用纜線將單元連接在一起，以取得序列連接 SCSI (SAS) 連線與電源。
 
-接下來，識別主要機箱與 EBOD 機箱。
+第一次設定此裝置時，請先執行 SAS 佈線步驟，然後再完成電源佈線步驟。
 
-#### 識別主要機箱與 EBOD 機箱
+[AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-sas-cable-8600.md)]
 
-1. 識別主要機箱與 EBOD 機箱。可以藉由查看個別後擋板識別兩個機箱。如需指引，請參閱下圖。
-
-    ![主要機箱與 EBOD 機箱](./media/storsimple-8600-hardware-installation/HCSBackplaneofprimaryandEBODenclosure.png)
-
-    **圖 6：主要機箱與 EBOD 機箱的後方**
-
-     標籤 | 說明
-     ----- | -----------
-     1 | 主要機箱
-     2 | EBOD 機箱
-
-
-2. 找出主要機箱與 EBOD 機箱的序號。序號貼紙貼在每個機箱的背後。兩個機箱上的序號必須相同。如果序號不相符，請立即連絡 Microsoft 支援。請參閱下圖以協助您尋找序號。
-
-    ![序號的位置](./media/storsimple-8600-hardware-installation/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
-
-    **圖 7：顯示序號位置的機箱後方**
-
-     標籤 | 說明
-     ----- | -----------
-     1 | 機箱耳
-
-
-接下來，使用提供的 SAS 纜線以連接主要機箱與 EBOD 機箱。
-
-#### 連接主要機箱與 EBOD 機箱
-
-1. 識別主要機箱與 EBOD 機箱上的四個序列連接 SCSI (SAS) 連接埠。SAS 連接埠標在主要機箱上標示為 EBOD，在 EBOD 機箱上標示為 CTRL，如「圖 8」所示。
-
-    ![SAS 連接埠的位置](./media/storsimple-8600-hardware-installation/HCSSAScablingforyourdevice.png)
-
-    **圖 8：主要機箱與 EBOD 機箱的 SAS 連接埠的位置**
-
-     標籤 | 說明
-     ----- | -----------
-     A | 主要機箱
-     B | EBOD 機箱
-     1 | 控制器 0
-     2 | 控制器 1
-     3 | EBOD 控制器 0
-     4 | EBOD 控制器 1
-     5,6 | 主要機箱上的 SAS 連接埠 (標示為 EBOD)
-     7,8 | EBOD 機箱上的 SAS 連接埠 (標示為 CTRL)
-
-2. 使用提供的 SAS 纜線以連接 EBOD 連接埠與 CTRL 連接埠。
-
-    控制器 0 的 EBOD 連接埠應該連接至 EBOD 控制器 0 的 CTRL 連接埠。控制器 1 的 EBOD 連接埠應該連接至 EBOD 控制器 1 的 CTRL 連接埠。如需指導方針，請參閱「圖 8」。
-
-### 電源佈線
-
-主要機箱與 EBOD 機箱都包括備援電源和冷卻模組 (PCM)。在每個機箱中，每個 PCM 都必須安裝，並且連接到不同的電源來源，以確保高可用性。
-
-請執行下列步驟，以連接您的裝置的電源線。
-
-#### 連接電源線
-
-1. 請確定所有 PCM 上的電源開關是在 OFF (關閉) 位置。
-
-2. 對於主要機箱，將電源線連接至兩個 PCM。下圖中以紅色識別電源線。
-
-3. 確定主要機箱的兩個 PCM 使用不同的電源來源。
-
-4. 將電源線連接至機架電源分配單元，如下圖所示。
-
-5. 針對 EBOD 機箱重複步驟 2 到 4。
-
-6. 將每個 PCM 的電源開關切換到 ON (開啟) 位置，以開啟 EBOD 機箱。
-
-7. 請確認 EBOD 機箱已開啟，方法是檢查 EBOD 控制器 LED (底座背面的綠色 LED) 已開啟。
-
-8. 現在，將每個 PCM 的電源開關切換到 ON (開啟) 位置，以開啟主要機箱。
-
-9. 確認系統已開啟，方法是確定裝置控制器 LED 已開啟。
-
-10. 確認 EBOD 控制器和裝置控制站之間的連線為作用中，方法是檢查 EBOD 控制器上的 SAS LED (SAS 連接埠旁邊的 4 個 LED)。SAS LED 應該是綠色。
-
-> [AZURE.IMPORTANT]若要確保您的系統的高可用性，您應該嚴格遵守電源佈線配置，如下圖所示。
-
-   ![電源佈線圖表](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforPower.png)
-
-   **圖 9：您裝置的電源纜線**
-
-     Label | Description
-     ----- | -----------
-     1     | Primary enclosure
-     2     | PCM 0
-     3     | PCM 1
-     4     | Controller 0
-     5     | Controller 1
-     6     | EBOD controller 0
-     7     | EBOD controller 1
-     8     | EBOD enclosure
-     9     | PDUs
- 
+[AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
 ### 網路佈線
 
@@ -313,7 +220,7 @@
 
      ![8600 裝置的後擋板](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
 
-    **圖 10：裝置後方的資料連接埠**
+    **裝置後方的資料連接埠**
  
      標籤 | 說明
      ------- | -----------
@@ -334,7 +241,7 @@
 
 ![為您的 4U 裝置進行網路佈線](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
 
-**圖 11：您裝置的網路纜線**
+**您裝置的網路纜線**
 
 標籤 | 說明
 ----- | -----------
@@ -356,7 +263,7 @@ H,I | 主機 (例如，檔案伺服器)
 
 #### 佈線序列連線
 
-1. 您的裝置在每個控制器上有以扳手圖示識別的序列連接埠。請參閱「圖 10」以找出您的裝置後檔板上的序列連接埠。
+1. 您的裝置在每個控制器上有以扳手圖示識別的序列連接埠。若要找出序列連接埠的位置，請參閱顯示裝置背面資料連接埠的圖例。
 
 2. 識別您的裝置後檔板上的作用中控制器。閃爍的的藍色 LED 表示控制器作用中。
 
@@ -382,4 +289,4 @@ H,I | 主機 (例如，檔案伺服器)
 您現在已準備好[部署和設定您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

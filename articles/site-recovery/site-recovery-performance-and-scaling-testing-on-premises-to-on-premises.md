@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/14/2015"
+	ms.date="08/05/2015"
 	ms.author="lauraa"/>
 
 # 效能和調整測試：內部部署至內部部署
@@ -208,4 +208,4 @@ Hyper-V 複本會使用復原伺服器上的少量記憶體來最佳化儲存作
 - [利用單一 VMM 伺服器設定保護](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

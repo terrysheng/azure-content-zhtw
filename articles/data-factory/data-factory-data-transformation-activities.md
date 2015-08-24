@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="資料轉換活動 | Azure Data Factory" 
+	pageTitle="資料轉換活動 | Microsoft Azure" 
 	description="了解使用 Azure Data Factory 服務轉換和分析資料的方法。" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -22,7 +22,7 @@
 
 轉換活動 | 運算環境 
 ----------------------- | --------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Hadoop 串流](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop] [機器學習服務批次評分](data-factory-create-predictive-pipelines.md) | Azure VM 
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Hadoop 串流](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop] [機器學習服務 Batch 評分](data-factory-create-predictive-pipelines.md) | Azure VM 
 [預存程序](data-factory-stored-proc-activity.md) | Azure SQL | 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] 或 Azure Batch    
 
@@ -33,4 +33,4 @@
 
 請參閱〈[運算連結服務](data-factory-compute-linked-services.md)〉文章以了解 Data Factory 所支援的運算連結服務。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

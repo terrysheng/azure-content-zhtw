@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用作業記錄檔疑難排解 BizTalk 服務 | Azure" 
+	pageTitle="使用作業記錄檔疑難排解 BizTalk 服務 | Microsoft Azure" 
 	description="使用作業記錄疑難排解 BizTalk 服務。MABS，WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | 清除超過保留週期的 BizTalk 服務備份的�
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

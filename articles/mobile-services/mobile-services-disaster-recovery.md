@@ -1,5 +1,5 @@
 <properties
-	pageTitle="發生災害時回復行動服務 - Azure 行動服務"
+	pageTitle="發生災害時回復行動服務 | Microsoft Azure"
 	description="了解如何在發生災害時回復行動服務。"
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/24/2015"
+	ms.date="08/08/2015"
 	ms.author="christopheranderson"/>
 
 # 發生災害時回復行動服務
@@ -104,4 +104,4 @@
 [使用 Azure CLI 來自動化行動服務]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -76,4 +76,4 @@ Azure 媒體服務允許透過 Windows Media 平台插入廣告：Player Framewo
 [GitHub dash.js 存放庫](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

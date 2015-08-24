@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="執行個體層級的公用 IP (ILIP)"
+   pageTitle="執行個體層級公用 IP (ILPIP)"
    description="了解 ILPIP (PIP) 及管理它們的方法"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/03/2015"
+   ms.date="08/10/2015"
    ms.author="telmos" />
 
-# 執行個體層級的公用 IP 概觀
-執行個體層級的公用 IP (ILPIP) 是您可以直接指派給 VM 或角色執行個體的 IP 位址，而不是指派給 VM 或角色執行個體所在的雲端服務。這不會取代指派給雲端服務的 VIP (虛擬 IP)。應該說是您可以用來直接連接到 VM 或角色執行個體的其他 IP 位址。
+# 執行個體層級公用 IP 概觀
+執行個體層級公用 IP (ILPIP) 是您可以直接指派至 VM 或角色執行個體的 IP 位址，而不是指派至 VM 或角色執行個體所在的雲端服務。這不會取代指派給雲端服務的 VIP (虛擬 IP)。應該說是您可以用來直接連接到 VM 或角色執行個體的其他 IP 位址。
 
 >[AZURE.NOTE]ILPIP 過去被稱為 PIP，表示公用 IP。
 
@@ -125,4 +125,4 @@
 [保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

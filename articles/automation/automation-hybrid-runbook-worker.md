@@ -42,10 +42,10 @@ Azure 自動化中的 Runbook 無法存取您的本機資料中心中的資源�
 完成下列步驟來準備您的 Azure 自動化環境的混合式 Runbook 背景工作。
 
 #### 1\.建立 Azure Operational Insights 工作區
-如果在您的 Azure 帳戶中尚無 Operational Insights 工作區，那麼，請使用[設定Operational Insights 工作區](../operational-insights-setup-workspace)中的指示加以建立。如果您已經有工作區，可以使用現有的工作區。
+如果在您的 Azure 帳戶中尚無 Operational Insights 工作區，那麼，請使用[設定Operational Insights 工作區](../operational-insights/operational-insights-setup-workspace.md)中的指示加以建立。如果您已經有工作區，可以使用現有的工作區。
 
 #### 2\.部署自動化解決方案
-Operational Insights 中的自動化解決方案減少了設定及支援 Runbook 環境所需的元件。請依照 [Operational Insight 解決方案](../operational-insights-add-solution)中的指示來安裝 **Azure 自動化**套件。
+Operational Insights 中的自動化解決方案減少了設定及支援 Runbook 環境所需的元件。請依照 [Operational Insight 解決方案](../operational-insights/operational-insights-setup-workspace.md#1-add-solutions)中的指示來安裝 **Azure 自動化**套件。
 
 ### 設定內部部署機器
 針對每一部將做為混合式 Runbook 背景工作的內部部署機器，完成下列步驟。
@@ -136,4 +136,4 @@ Runbook 將在混合式 Runbook 背景工作上的本機系統帳戶內容中執
 - [在 Azure 自動化中編輯 Runbook](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

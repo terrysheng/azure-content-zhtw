@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Site Recovery 元件" 
-	description="這篇文章提供 Site Recovery 元件的概觀及其管理方式" 
+	pageTitle="Site Recovery 元件"
+	description="這篇文章提供 Site Recovery 元件的概觀及其管理方式"
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/09/2015"
+	ms.date="08/10/2015"
 	ms.author="raynew"/>
 
 # Site Recovery 元件
@@ -53,7 +53,7 @@ Site Recovery 元件會隨保護案例稍微改變。
 
 ![內部部署 VMM 至 Azure](./media/site-recovery-components/Components_OnpremHyperVSite2Azure.png)
 
-### 在內部部署實體伺服器或 VMware 虛擬機器和 Azure 之間的保護 
+### 在內部部署實體伺服器或 VMware 虛擬機器和 Azure 之間的保護
 
 在這個案例中，複寫可能會以兩種方式發生：
 
@@ -74,11 +74,11 @@ Site Recovery 元件會隨保護案例稍微改變。
 
 #### 連接埠
 
-**元件** | **連接埠** | **詳細資料** 
+**元件** | **連接埠** | **詳細資料**
 --- | --- | --- | ---
 **處理序伺服器** |9080 | 受保護的機器會透過 TCP 9080，傳送複寫資料給處理序伺服器。
 **設定伺服器** | HTTPS/443 | 受保護機器上執行的行動服務會將複寫中繼資料，傳送到連接埠 443 上的設定伺服器。
- | HTTPS/443 | 設定伺服器會協調機器保護。處理序伺服器會與 443 上的設定伺服器通訊，或對應的公用端點通訊，以接收管理和控制資訊。 
+ | HTTPS/443 | 設定伺服器會協調機器保護。處理序伺服器會與 443 上的設定伺服器通訊，或對應的公用端點通訊，以接收管理和控制資訊。
  | 9443 | 在容錯回復指向中，vContinuum 工具在連接埠 9443 上要求設定伺服器的控制項和中繼資料 (未顯示在圖表上)
  | 5986 | 搭配使用連接埠 5986 與 PowerShell 進行遠端管理 (未顯示在圖表上)
  | 3389 | 使用 3389 以 RDP 連線到設定伺服器 (未顯示在圖表上)
@@ -93,7 +93,7 @@ Site Recovery 元件會隨保護案例稍微改變。
 **元件** | **詳細資料** | **安裝** | **部署案例**
 --- | --- | --- | ---
 **VMM 的 Azure Site Recovery 提供者** | 處理 VMM 伺服器與 Site Recovery 服務之間的通訊。 | 在 VMM 伺服器上安裝 | 適用於設定 VMM 網站之間的保護，或 VMM 網站與 Azure 之間的保護
-**Hyper-V 的 Azure Site Recovery 提供者** | 當 VMM 未部署時，處理 Hyper-V 主機與 Site Recovery 服務之間的通訊。 | 在 Hyper-V 主機伺服器上安裝 | 適用於設定 Hyper-V 網站與 Azure 之間的保護。   
+**Hyper-V 的 Azure Site Recovery 提供者** | 當 VMM 未部署時，處理 Hyper-V 主機與 Site Recovery 服務之間的通訊。 | 在 Hyper-V 主機伺服器上安裝 | 適用於設定 Hyper-V 網站與 Azure 之間的保護。
 **Microsoft 復原服務代理程式** | 處理 Hyper-V 主機伺服器與 Site Recovery 服務之間的通訊 | 在 Hyper-V 主機伺服器上安裝 | <p>適用於設定 Hyper-V 網站與 Azure 之間的保護。</p><p>您下載包含 Hyper-V 和 Microsoft 復原服務代理程式的 Azure Site Recovery 提供者的單一提供者。</p>
 **處理序伺服器/容錯回復處理序伺服器** | <p>先最佳化受保護的 VMware 機器或 Windows/Linux 實體伺服器中的資料，再將資料傳送到 Azure 中的主要目標伺服器</p><p>是否在 VMware 虛擬機器或實體伺服器上推入安裝行動服務</p><p>執行 VMware 虛擬機器的自動探索。</p> <p>容錯回復處理序伺服器：只有先最佳化資料，複寫才適用於容錯回復處理序伺服器</p> | <p>安裝於至少執行 Windows Server 2012 R2 的內部部署伺服器</p><p>容錯回復處理序伺服器：在標準 A4 大小的 Azure 虛擬機器上執行</p> | <p>適用於設定內部部署實體伺服器或 VMware 虛擬機器與 Azure 之間的保護。</p><p>容錯回復處理序伺服器：用來從 Azure 容錯回復到內部部署</p>
 **行動服務** | 擷取受保護機器上的變更，並與內部部署處理序伺服器溝通變更以複寫至 Azure。 | 在內部部署 VMware 虛擬機器上，或在您想要保護的實體伺服器上安裝| 適用於設定內部部署實體伺服器或 VMware 虛擬機器和 Azure 之間的保護。
@@ -115,7 +115,7 @@ Site Recovery 元件會隨保護案例稍微改變。
 -  .backup.windowsazure.com
 	-  **.blob.core.windows.net
 -  **.store.core.windows.net
-	
+
 - 如果防火牆上有 IP 位址架構規則，請確定它們允許設定伺服器至 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653) (英文) 所述的 IP 位址通訊，並適用於HTTPS (443)。您必須列名於計劃使用的 Azure 區域和美國西部的白名單 IP 位址範圍。
 - 如果您要部署含 VMM 的 Site Recovery，且您使用自訂 Proxy，則會使用您在 Site Recovery 入口網站的自訂 Proxy 設定中指定的 Proxy 認證，自動建立 VMM RunAs 帳戶 (DRAProxyAccount)。您必須設定 Proxy 伺服器，才能成功驗證此帳戶。
 - 如果您使用 Proxy，則必須透過 HTTP 傳送 Hyper-V 主機伺服器上安裝的提供者，至 Proxy 的流量。
@@ -134,7 +134,7 @@ Site Recovery 元件會隨保護案例稍微改變。
 - 只有當您想要保護的伺服器已連接至標準 A4 大小的主要目標伺服器，且前者有超過 15 個磁碟時，才需要標準 D14 大小的主要目標伺服器；對有所有其他設定，您可以部署標準 A4 大小的主要目標伺服器。
 - 請注意，附加至主要目標伺服器的其中一個磁碟將保留做為保留磁碟機。Azure Site Recovery 可讓您定義保留視窗，並且在該視窗內將受保護機器復原到某個復原點。保留磁碟機會在視窗的存在期間持續記錄磁碟變更。這會減少在 A4 上複寫到 15，及在 D14 上複寫到 31 的可用磁碟上限。
 
-#### 處理序伺服器 
+#### 處理序伺服器
 
 - 處理序伺服器使用磁碟快取。確保快取有足夠的可用空間 C:/。您所保護之機器的資料變更率會影響快取大小。一般建議之中等大小部署的快取目錄大小為 600 GB。
 - 如果受保護機器的資料變更率超過現有處理序伺服器的容量，您應該部署額外的處理序伺服器。
@@ -168,14 +168,14 @@ Site Recovery 元件會隨保護案例稍微改變。
 
 ## 掌握最新元件
 
-**元件** | **如何更新** 
---- | --- 
+**元件** | **如何更新**
+--- | ---
 <p>**VMM 的 Azure Site Recovery 提供者**</p><p>**Azure 復原服務代理程式**</p> | <p></p>**首次安裝**：從 [快速入門] 頁面下載最新版<p></p>**進行中**：您可以從 Site Recovery 的儀表板下載最新 (和前一個) 版本。此外，如果您選擇 Microsoft Updates，會自動在伺服器上安裝最新版的提供者和代理程式。
-<p>**處理序伺服器**</p><p>**設定伺服器**</p><p>**主要目標伺服器**</p> | 在 Site Recovery 儀表板上檢查更新。 
+<p>**處理序伺服器**</p><p>**設定伺服器**</p><p>**主要目標伺服器**</p> | 在 Site Recovery 儀表板上檢查更新。
 **行動服務** | <p>確定想要保護的每部機器上都有最新的行動服務更新：<p><p>可以下載最新的更新：</p><p>[Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)</p><p>[RHELP6-64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)</p><p>[OL6-64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)</p><p>[SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)</p><p>此外，在確保有最新的處理序伺服器後，您可以從處理序伺服器的 C:\\pushinstallsvc\\repository 資料夾下載最新版的行動服務</p>  
 
 ## 後續步驟
 
 開始設定您的部署案例的元件。[深入了解](site-recovery-overview.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

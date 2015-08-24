@@ -21,6 +21,10 @@
 
 此編譯程式碼範例會示範如何使用 [Visual Studio Application Insights](app-insights-get-started.md)。
 
+## SDK 實驗室
+
+[SDK 實驗室](https://www.myget.org/gallery/applicationinsights-sdk-labs)是實驗性 NuGet 封裝的集合，您可以將其安裝及解除安裝，做為 Application Insights SDK 的新增項目。親身體驗並提供意見反應！
+
 ## Web 服務
 
 * [將遙測功能加入 Azure Web 和背景工作角色](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) (英文)。
@@ -49,4 +53,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

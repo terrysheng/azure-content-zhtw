@@ -1,6 +1,6 @@
 <properties
-	pageTitle="連接器和 API 應用程式清單 | Azure"
-	description="閱讀有關在 Azure 應用程式服務中的連接器和 API 應用程式；微服務架構"
+	pageTitle="連接器和 API Apps 清單 | Microsoft Azure"
+	description="閱讀有關在 Azure App Service 中的連接器和 API Apps；微服務架構"
 	services="app-service\logic"
 	documentationCenter=""
 	authors="MandiOhlinger"
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="08/09/2015"
 	ms.author="mandia"/>
 
 
-# Microsoft Azure App Service 中的連接器和 API 應用程式清單
-本主題列出所有由 Microsoft 建立的可用連接器和 API 應用程式。
+# Microsoft Azure App Service 中的連接器和 API Apps 清單
+本主題列出所有由 Microsoft 建立的可用連接器和 API Apps。
 
 如需定價資訊，以及每個服務層隨附項目的清單，請參閱 [Azure App Service 定價](http://azure.microsoft.com/pricing/details/app-service/)。
 
 
 ## 標準連接器
-下表列出所有由 Microsoft 建立且可與標準連接器搭配使用的可用連接器和 API 應用程式：
+下表列出所有由 Microsoft 建立且可與標準連接器搭配使用的可用連接器和 API Apps：
 
 名稱 | 說明
 --- | ---
@@ -37,7 +37,7 @@
 [Facebook](app-service-logic-connector-facebook.md) | 連接到 Facebook，可以發佈訊息、圖片等等。您也可以取得訊息和留言，取得各種讚 (包括書籍和電影) 的使用者資訊。
 [檔案](app-service-logic-connector-file.md) | 使用此連接器，您可以連接到內部部署的檔案系統或網路，完成不同的檔案工作，包括上傳、刪除、列出檔案等等。
 [FTP<br/>FTPS](app-service-logic-connector-ftp.md) | 連接到 FTP / FTPS 伺服器，執行不同的 FTP 工作，包括上傳、取得、刪除檔案等等。
-[HTTP](app-service-logic-connector-http.md) | HTTP 接聽程式會開啟當做 HTTP 伺服器的端點，並接聽內送的 HTTP 或 HTTPS 要求。HTTP 動作不需要 API 應用程式，Logic Apps 內原本就支援。
+[HTTP](app-service-logic-connector-http.md) | HTTP 接聽程式會開啟當做 HTTP 伺服器的端點，並接聽內送的 HTTP 或 HTTPS 要求。HTTP 動作不需要 API Apps，Logic Apps 內原本就支援。
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Office 365 連接器可以使用 Office 365 帳戶來傳送和接收電子郵件、管理您的行事曆及管理您的連絡人。
 [Microsoft OneDrive](app-service-logic-connector-onedrive.md) | 連接到您個人的 Microsoft OneDrive 上傳、刪除、列出檔案等等。
 [Microsoft SharePoint](app-service-logic-connector-sharepoint.md) | 連接至內部部署 Microsoft SharePoint Server 或 SharePoint Online 來管理文件和清單項目。支援不同的驗證方法，例如預設認證、OAuth 2.0、Windows 驗證和表單架構驗證。
@@ -56,14 +56,14 @@
 
 
 ## 高階連接器
-下表列出所有由 Microsoft 建立且可在高階連接器中的可用連接器和 API 應用程式：
+下表列出所有由 Microsoft 建立且可在高階連接器中的可用連接器和 API Apps：
 
 名稱 | 說明
 ------------- | -------------
 [AS2 連接器](app-service-logic-connector-as2.md) | 可以使用 AS2 傳輸通訊協定接收和傳送訊息。使用數位憑證和加密安全可靠地傳輸資料。
 [BizTalk EDIFACT](app-service-logic-connector-edifact.md) | 在企業對企業通訊中，使用 EDIFACT 通訊協定來接收和傳送訊息。
 [BizTalk X12](app-service-logic-connector-x12.md) | 在企業對企業通訊中，使用 X12 通訊協定來接收和傳送訊息。
-[BizTalk 交易夥伴管理](app-service-logic-connector-tpm.md) | 使用夥伴、協議，結構描述及協議中所使用的憑證定義並保存企業對企業關係。使用 AS2、EDIFACT，及 X12 API 應用程式強制執行這些關係。
+[BizTalk 交易夥伴管理](app-service-logic-connector-tpm.md) | 使用夥伴、協議，結構描述及協議中所使用的憑證定義並保存企業對企業關係。使用 AS2、EDIFACT，及 X12 API Apps 強制執行這些關係。
 [BizTalk JSON 編碼器](app-service-logic-connector-jsonencoder.md) | 協助您的應用程式在 JSON 和 XML 資料之間轉換的編碼器和解碼器。它可以將指定的 JSON 執行個體轉換成 XML，反之亦然。
 [BizTalk 規則](app-service-logic-use-biztalk-rules.md) | 使用 BizTalk 規則來定義及控制組織內的商務邏輯。您可以更新商務原則，毋須重新編譯或重新部署相關聯的應用程式。
 DB2 連接器 | 連接到內部部署和執行 Windows 作業系統的 Azure 虛擬機器上的 IBM DB2 資料庫。可將 Web API 和 OData API 作業對應至 Informix 結構化查詢語言命令。<br/><br/>沒有觸發程序。動作包含資料表選取、插入、更新、刪除和自訂陳述式<br/><br/>此連接器也包含 Microsoft Client for DRDA，可透過 TCP/IP 網路連接至 Informix 伺服器。
@@ -77,7 +77,7 @@ MQ | 連接至內部部署和執行 Windows 作業系統的 Azure 虛擬機器�
 [BizTalk XPath 擷取程式](app-service-logic-xpath-extract.md) | 根據您選擇的 XPath 來查詢和擷取 XML 內容中的資料。
 
 ## 連接器做為觸發程序
-有數個連接器提供邏輯應用程式的觸發程序。這些觸發程序分成兩種類型：
+有數個連接器提供 Logic Apps 的觸發程序。這些觸發程序分成兩種類型：
 
 1. 輪詢觸發程序：這些觸發程序會以指定的頻率輪詢您的服務，以檢查是否有新資料。有新資料可用時，邏輯應用程式的新執行個體會以該資料做為輸入而執行。為了防止重複取用相同的資料，觸發程序可能會清除已讀取並傳遞至邏輯應用程式的資料。例如，檔案、SQL 和 Azure 儲存體都屬於此類連接器。
 2. 推送觸發程序：這些觸發程序會接聽端點上的資料，或接聽發生的事件。然後，觸發邏輯應用程式的新執行個體。例如，HTTP 接聽程式和 Twitter 都屬於此類連接器。
@@ -85,12 +85,12 @@ MQ | 連接至內部部署和執行 Windows 作業系統的 Azure 虛擬機器�
 ## 連接器做為動作
 連接器也可做為邏輯應用程式內的動作。動作很適合在邏輯應用程式中查閱可供執行時使用的資料。例如，在處理訂單時，您可能需要查閱 SQL 資料庫中的資料，以取得客戶的其他資訊。或者，您可能需要寫入、更新或刪除目的地的資料。您可以使用連接器所提供的動作來這樣做。動作對應至 API Apps 中的作業 (由其 Swagger 中繼資料所定義)。
 
-## 建立專屬的連接器和 API 應用程式
-[連接器和 API 應用程式參考](http://aka.ms/appservicesconnectorreference)<br/> [Azure App Service API 應用程式觸發程序](../app-service-api/app-service-api-dotnet-triggers.md)<br/> [邏輯應用程式參考](https://msdn.microsoft.com/library/azure/dn948510.aspx)
+## 建立專屬的連接器和 API Apps
+[連接器和 API Apps 參考](http://aka.ms/appservicesconnectorreference) [Azure App Service API Apps 觸發程序](../app-service-api/app-service-api-dotnet-triggers.md) [Logic Apps 參考](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
 
-## 連接器和 API 應用程式的詳細資訊
+## 連接器和 API Apps 的詳細資訊
 
-[什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)<br/> [在 Azure App Service 中使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)<br/> [管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)
+[什麼是連接器和 BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md) [在 Azure App Service 中使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md) [管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

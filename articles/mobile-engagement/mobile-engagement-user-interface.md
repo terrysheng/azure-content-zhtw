@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="05/12/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # 如何使用 Azure Mobile Engagement 使用者介面 (UI)
@@ -106,9 +106,9 @@
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
 [Link 7]: https://account.windowsazure.com/PreviewFeatures
 [Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 9]: http://azure.microsoft.com/zh-tw/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/zh-tw/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/zh-tw/pricing/details/mobile-engagement/
 [Link 12]: mobile-engagement-user-interface-navigation.md
 [Link 13]: mobile-engagement-user-interface-home.md
 [Link 14]: mobile-engagement-user-interface-my-account.md
@@ -133,4 +133,4 @@
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

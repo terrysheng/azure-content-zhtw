@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/01/2015"
+   ms.date="08/02/2015"
    ms.author="joaoma"/>
 
 # 如何管理 DNS 記錄
+
 
 本指南示範如何管理 DNS 區域的記錄集和記錄。
 
@@ -265,4 +266,4 @@ Set-AzureDnsRecordSet Cmdlet 使用 ‘etag’ 檢查，以確保不會覆寫並
 [開始建立記錄集和記錄](../dns-getstarted-create-recordset)<BR> [在 DNS 區域上執行作業](../dns-operations-dnszones)<BR> [使用 .NET SDK 將作業自動化](../dns-sdk)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

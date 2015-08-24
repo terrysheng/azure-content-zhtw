@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="08/07/2015" 
 	ms.author="riande"/>
 
 
@@ -36,7 +36,7 @@
 
 ![登入頁面][rxb]
 
->[AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以<a href="/zh-tw/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">啟用自己的 MSDN 訂戶權益</a>或是<a href="/zh-tw/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">申請免費試用</a>。
+>[AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](../zh-cn/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)或是[申請免費試用](../zh-cn/pricing/free-trial/?WT.mc_id=A261C142F)。
 
 >如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
@@ -64,15 +64,15 @@
 
 1. [組態] 精靈會根據 *ContactManager* 建議唯一名稱。您必須決定是否建立新 App Service 方案和資源群組。 如需是否建立新方案或資源群組的相關指引，請參閱 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。在本教學課程中，您可能會想要建立至少一個新的資源群組。選取您附近的區域。若要尋找最低延遲的資料中心，您可以使用 [azurespeed.com](http://www.azurespeed.com/ "AzureSpeed.com")。接下來您將設定資料庫，所以請不要按一下 [**確定**]。
 
-   ![新方案和資源群組](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newplanandgroup.png)
+	![新方案和資源群組](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newplanandgroup.png)
  
 2. 如果您之前尚未建立資料庫伺服器，請選取 [**建立新伺服器**]，並輸入資料庫名稱、使用者名稱和密碼。
 
-   ![使用新資料庫](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newdb.png)
+	![使用新資料庫](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newdb.png)
 
 3. 如果您有資料庫伺服器，請用它來建立新的資料庫。資料庫伺服器是非常寶貴的資源，通常您會想要在相同伺服器上建立多個資料庫進行測試和開發，而非在每個資料庫上建立資料庫伺服器。請確定您的 Web 應用程式和資料庫位於相同區域。
 
-    ![使用現有資料庫](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/useexistingdb.png)
+	![使用現有資料庫](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/useexistingdb.png)
 
 ### 設定頁首及頁尾
 
@@ -83,52 +83,50 @@
 
 1. 使用下列程式碼來取代 *Layout.cshtml* 檔案中的標記。變更重點如下。
 
-```
-			&lt;!DOCTYPE html&gt;
-			&lt;html&gt;
-			&lt;head&gt;
-			    &lt;meta charset="utf-8" /&gt;
-			    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-			    &lt;title&gt;@ViewBag.Title - <mark>Contact Manager</mark>&lt;/title&gt;
-			    @Styles.Render("~/Content/css")
-			    @Scripts.Render("~/bundles/modernizr")
-			
-			&lt;/head&gt;
-			&lt;body&gt;
-			    &lt;div class="navbar navbar-inverse navbar-fixed-top"&gt;
-			        &lt;div class="container"&gt;
-			            &lt;div class="navbar-header"&gt;
-			                &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"&gt;
-			                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
-			                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
-			                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
-			                &lt;/button&gt;
-			                @Html.ActionLink("<mark>CM Demo</mark>", "Index", "<mark>Cm</mark>", new { area = "" }, new { @class = "navbar-brand" })
-			            &lt;/div&gt;
-			            &lt;div class="navbar-collapse collapse"&gt;
-			                &lt;ul class="nav navbar-nav"&gt;
-			                    &lt;li&gt;@Html.ActionLink("Home", "Index", "Home")&lt;/li&gt;
-			                    &lt;li&gt;@Html.ActionLink("About", "About", "Home")&lt;/li&gt;
-			                    &lt;li&gt;@Html.ActionLink("Contact", "Contact", "Home")&lt;/li&gt;
-			                &lt;/ul&gt;
-			                @Html.Partial("_LoginPartial")
-			            &lt;/div&gt;
-			        &lt;/div&gt;
-			    &lt;/div&gt;
-			    &lt;div class="container body-content"&gt;
-			        @RenderBody()
-			        &lt;hr /&gt;
-			        &lt;footer&gt;
-			            &lt;p&gt;&amp;copy; @DateTime.Now.Year - <mark>Contact Manager</mark>&lt;/p&gt;
-			        &lt;/footer&gt;
-			    &lt;/div&gt;
-			
-			    @Scripts.Render("~/bundles/jquery")
-			    @Scripts.Render("~/bundles/bootstrap")
-			    @RenderSection("scripts", required: false)
-			&lt;/body&gt;
-			&lt;/html&gt;
-```
+		<!DOCTYPE html>
+		<html>
+		<head>
+		    <meta charset="utf-8" />
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>@ViewBag.Title - Contact Manager</title>
+		    @Styles.Render("~/Content/css")
+		    @Scripts.Render("~/bundles/modernizr")
+		
+		</head>
+		<body>
+		    <div class="navbar navbar-inverse navbar-fixed-top">
+		        <div class="container">
+		            <div class="navbar-header">
+		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		                    <span class="icon-bar"></span>
+		                    <span class="icon-bar"></span>
+		                    <span class="icon-bar"></span>
+		                </button>
+		                @Html.ActionLink("CM Demo", "Index", "Cm", new { area = "" }, new { @class = "navbar-brand" })
+		            </div>
+		            <div class="navbar-collapse collapse">
+		                <ul class="nav navbar-nav">
+		                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+		                    <li>@Html.ActionLink("About", "About", "Home")</li>
+		                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+		                </ul>
+		                @Html.Partial("_LoginPartial")
+		            </div>
+		        </div>
+		    </div>
+		    <div class="container body-content">
+		        @RenderBody()
+		        <hr />
+		        <footer>
+		            <p>&copy; @DateTime.Now.Year - Contact Manager</p>
+		        </footer>
+		    </div>
+		
+		    @Scripts.Render("~/bundles/jquery")
+		    @Scripts.Render("~/bundles/bootstrap")
+		    @RenderSection("scripts", required: false)
+		</body>
+		</html>
 
 ### 在本機執行應用程式
 
@@ -185,7 +183,7 @@
 
 	![專案內容功能表中的 [發行]](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/GS13publish.png)
 	
-   此時會開啟 [發行 Web] 精靈。
+	此時會開啟 [發行 Web] 精靈。
 
 1. 在 [發行 Web] 對話方塊中，按一下 [發行]。
 
@@ -372,86 +370,85 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 1. 將下列 **AddUserAndRole** 方法新增至類別：
 
-    
-         bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
-         {
-            IdentityResult ir;
-            var rm = new RoleManager<IdentityRole>
-                (new RoleStore<IdentityRole>(context));
-            ir = rm.Create(new IdentityRole("canEdit"));
-            var um = new UserManager<ApplicationUser>(
-                new UserStore<ApplicationUser>(context));
-            var user = new ApplicationUser()
-            {
-               UserName = "user1@contoso.com",
-            };
-            ir = um.Create(user, "P_assw0rd1");
-            if (ir.Succeeded == false)
-               return ir.Succeeded;
-            ir = um.AddToRole(user.Id, "canEdit");
-            return ir.Succeeded;
-         }
+		 bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
+		 {
+		    IdentityResult ir;
+		    var rm = new RoleManager
+		        (new RoleStore(context));
+		    ir = rm.Create(new IdentityRole("canEdit"));
+		    var um = new UserManager(
+		        new UserStore(context));
+		    var user = new ApplicationUser()
+		    {
+		       UserName = "user1@contoso.com",
+		    };
+		    ir = um.Create(user, "P_assw0rd1");
+		    if (ir.Succeeded == false)
+		       return ir.Succeeded;
+		    ir = um.AddToRole(user.Id, "canEdit");
+		    return ir.Succeeded;
+		 }
 
 1. 從 **Seed** 方法呼叫新方法：
-	<pre>
-    protected override void Seed(ContactManager.Models.ApplicationDbContext context)
-    {
-        <mark>AddUserAndRole(context);</mark>
-        context.Contacts.AddOrUpdate(p => p.Name,
+
+		protected override void Seed(ContactManager.Models.ApplicationDbContext context)
+		{
+		    AddUserAndRole(context);
+		    context.Contacts.AddOrUpdate(p => p.Name,
             // 移除了程式碼以求簡單明瞭
-    }
-</pre>
-<span></span>下圖顯示對 *Seed* 方法的變更：
+		}
+
+	下圖顯示對 *Seed* 方法的變更：
 
 	![程式碼影像](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-   此程式碼會建立名為 *canEdit* 的新角色、建立新本機使用者 *user1@contoso.com*，並將 *user1@contoso.com* 新增至 *canEdit* 角色。如需詳細資訊，請參閱[我的 ASP.NET 識別教學課程](http://www.asp.net/identity/overview/features-api)。
+	此程式碼會建立名為 *canEdit* 的新角色、建立新本機使用者 **user1@contoso.com*，並將 **user1@contoso.com* 新增至 *canEdit* 角色。如需詳細資訊，請參閱我的〈[ASP.NET 身分識別教學課程](http://www.asp.net/identity/overview/features-api)〉。
 
 ## 使用暫時程式碼，將新的社交登入使用者新增至 canEdit 角色  ##
 在本節中，您將在帳戶控制器中暫時修改 **ExternalLoginConfirmation** 方法，以將使用 OAuth 提供者註冊的新使用者新增至 *canEdit* 角色。我們會暫時修改 **ExternalLoginConfirmation** 方法，以將新使用者自動新增至管理角色。在我們提供工具來新增及管理角色前，我們將暫時使用以下的自動註冊程式碼。我們希望將來能提供類似 [WSAT](http://msdn.microsoft.com/library/ms228053.aspx) 的工具，讓您能建立及編輯使用者帳戶與角色。
 
-1. 開啟 **Controllers\AccountController.cs** 檔案並瀏覽到 **ExternalLoginConfirmation** 方法。
+1. 開啟 **Controllers\\AccountController.cs** 檔案並瀏覽到 **ExternalLoginConfirmation** 方法。
 1. 將下列呼叫新增至就在 **SignInAsync** 呼叫前面的 **AddToRoleAsync**。
 
-                await UserManager.AddToRoleAsync(user.Id, "canEdit");
+		await UserManager.AddToRoleAsync(user.Id, "canEdit");
 
-   上述程式碼會將新註冊的使用者新增至 "canEdit" 角色，讓這些使用者能存取用來變更 (編輯) 資料的動作方法。```
-	      // POST: /Account/ExternalLoginConfirmation
-	      [HttpPost]
-	      [AllowAnonymous]
-	      [ValidateAntiForgeryToken]
-	      public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
-	      {
-	         if (User.Identity.IsAuthenticated)
-	         {
-	            return RedirectToAction("Index", "Manage");
-	         }
-	         if (ModelState.IsValid)
-	         {
-	            // 從外部登入提供者取得使用者資訊
-	            var info = await AuthenticationManager.GetExternalLoginInfoAsync();
-	            if (info == null)
-	            {
-	               return View("ExternalLoginFailure");
-	            }
-	            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-	            var result = await UserManager.CreateAsync(user);
-	            if (result.Succeeded)
-	            {
-	               result = await UserManager.AddLoginAsync(user.Id, info.Login);
-	               if (result.Succeeded)
-	               {
-	                  <mark>await UserManager.AddToRoleAsync(user.Id, "canEdit");</mark>
-	                  await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-	                  return RedirectToLocal(returnUrl);
-	               }
-	            }
-	            AddErrors(result);
-	         }
-	         ViewBag.ReturnUrl = returnUrl;
-	         return View(model);
-	      }
-```
+   上述程式碼會將新註冊的使用者新增至 "canEdit" 角色，讓這些使用者能存取用來變更 (編輯) 資料的動作方法。
+
+		  // POST: /Account/ExternalLoginConfirmation
+		  [HttpPost]
+		  [AllowAnonymous]
+		  [ValidateAntiForgeryToken]
+		  public async Task ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+		  {
+		     if (User.Identity.IsAuthenticated)
+		     {
+		        return RedirectToAction("Index", "Manage");
+		     }
+		     if (ModelState.IsValid)
+		     {
+		        // Get the information about the user from the external login provider
+		        var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+		        if (info == null)
+		        {
+		           return View("ExternalLoginFailure");
+		        }
+		        var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+		        var result = await UserManager.CreateAsync(user);
+		        if (result.Succeeded)
+		        {
+		           result = await UserManager.AddLoginAsync(user.Id, info.Login);
+		           if (result.Succeeded)
+		           {
+		              await UserManager.AddToRoleAsync(user.Id, "canEdit");
+		              await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+		              return RedirectToLocal(returnUrl);
+		           }
+		        }
+		        AddErrors(result);
+		     }
+		     ViewBag.ReturnUrl = returnUrl;
+		     return View(model);
+		  }
 
 稍後在本教學課程中，您會將應用程式部署至 Azure，並在後者使用 Google 或其他協力廠商驗證提供者來登入。這會將您新註冊的帳戶新增至 *canEdit* 角色。任何人只要有您 Web 應用程式的 URL 和 Google ID，就可以註冊及更新您的資料庫。若要防止其他人這麼做，您可以停止網站。您可以檢查資料庫來確認 *canEdit* 角色中有誰。
 
@@ -459,94 +456,86 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 		Update-Database
 
-執行 **Update-Database** 命令，以執行 **Seed** 方法並進而執行您剛剛新增的 **AddUserAndRole**。**AddUserAndRole** 將建立使用者 *user1@contoso.com*，並將她新增至 *canEdit* 角色。
+執行 **Update-Database** 命令，以執行 **Seed** 方法並進而執行您剛剛新增的 **AddUserAndRole**。**AddUserAndRole** 將建立使用者 **user1@contoso.com*，並將她新增至 *canEdit* 角色。
 
 ## 使用 SSL 和 Authorize 屬性保護應用程式 ##
 
 在本節中，您將套用 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 屬性來限制對動作方法的存取。匿名使用者只能檢視首頁控制器的 **Index** 動作方法。註冊的使用者能夠查看連絡人資料 (Cm 控制器的 [索引] 和 [詳細資料] 頁面)、[關於] 和 [連絡人] 頁面。只有 *canEdit* 角色中的使用者才能存取用來變更資料的動作方法。
 
-1. 將 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 篩選器和 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 篩選器新增至應用程式。替代的方法是將 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 屬性和 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 屬性新增至每個控制器，但將這些屬性套用至整個應用程式是最安全的做法。藉由全面新增這些屬性，您所新增的每個新控制器和動作方法都會自動受到保護，而不需要您記得哪些已套用、哪些未套用。如需詳細資訊，請參閱[保護您的 ASP.NET MVC 應用程式和新 AllowAnonymous 屬性](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)。開啟 *App_Start\FilterConfig.cs* 檔案，並以下列程式碼 (其會新增兩個篩選器) 取代 *RegisterGlobalFilters* 方法：
+1. 將 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 篩選器和 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 篩選器新增至應用程式。替代的方法是將 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 屬性和 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 屬性新增至每個控制器，但將這些屬性套用至整個應用程式是最安全的做法。藉由全面新增這些屬性，您所新增的每個新控制器和動作方法都會自動受到保護，而不需要您記得哪些已套用、哪些未套用。如需詳細資訊，請參閱[保護您的 ASP.NET MVC 應用程式和新 AllowAnonymous 屬性](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)。開啟 *App\_Start\\FilterConfig.cs* 檔案，並以下列程式碼 (其會新增兩個篩選器) 取代 *RegisterGlobalFilters* 方法：
 
-```
-        public static void
-        RegisterGlobalFilters(GlobalFilterCollection filters)
-        {
-            filters.Add(new HandleErrorAttribute());
-            <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute());
-            filters.Add(new RequireHttpsAttribute());</mark>
-        }
-```
-
-
-
-
+		public static void
+		RegisterGlobalFilters(GlobalFilterCollection filters)
+		{
+		    filters.Add(new HandleErrorAttribute());
+		    filters.Add(new System.Web.Mvc.AuthorizeAttribute());
+		    filters.Add(new RequireHttpsAttribute());
+		}
+		
 	上述程式碼中套用的 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 篩選器將防止匿名使用者存取應用程式中的任何方法。您將使用 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性來選擇略過一些方法中的授權需求，讓匿名使用者可登入及檢視首頁。使用 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 時，所有對 Web 應用程式的存取都必須透過 HTTPS 進行。
 
-1. 將 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性新增至首頁控制器的 **Index** 方法。[AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性能讓您將想要選擇略過授權的方法加到白名單。 
+1. 將 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性新增至首頁控制器的 **Index** 方法。[AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性能讓您將想要選擇略過授權的方法加到白名單。
 
-```
-	public class HomeController : Controller
-   {
-      <mark>[AllowAnonymous]</mark>
-      public ActionResult Index()
-      {
-         return View();
-      }
-```
+		public class HomeController : Controller
+		{
+		  [AllowAnonymous]
+		  public ActionResult Index()
+		  {
+		     return View();
+		  }
 
 2. 全面搜尋 *AllowAnonymous*，您會發現帳戶控制器的登入與註冊方法中都使用了它。
-1. 在 *CmController.cs* 中，將 `[Authorize(Roles = "canEdit")]` 新增至 *Cm* 控制器中用來變更資料的 HttpGet 和 HttpPost 方法 (Create、Edit、Delete，也就是 Index 和 Details 外的每個動作方法)。以下顯示完整程式碼的片段內容：```
-	// GET: Cm/Create
-       <mark>[Authorize(Roles = "canEdit")]</mark>
-        public ActionResult Create()
-        {
-           return View(new Contact { Address = "123 N 456 W",
-            City="Great Falls", Email = "ab@cd.com", Name="Joe Smith", State="MT",
-           Zip = "59405"});
-        }
-        // POST: Cm/Create
-        // 若要防範 overposting 攻擊，請啟用您想繫結的特定屬性，如需 
-        // 更多詳細資料，請參閱 http://go.microsoft.com/fwlink/?LinkId=317598。
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-         <mark>[Authorize(Roles = "canEdit")]</mark>
-        public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Contacts.Add(contact);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(contact);
-        }
-        // GET: Cm/Edit/5
-       <mark>[Authorize(Roles = "canEdit")]</mark>
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
-            {
-                return HttpNotFound();
-            }
-            return View(contact);
-        }
-```
+1. 在 *CmController.cs* 中，將 `[Authorize(Roles = "canEdit")]` 新增至 *Cm* 控制器中用來變更資料的 HttpGet 和 HttpPost 方法 (Create、Edit、Delete，也就是 Index 和 Details 外的每個動作方法)。以下顯示完整程式碼的片段內容： 
 
+		// GET: Cm/Create
+		[Authorize(Roles = "canEdit")]
+		public ActionResult Create()
+		{
+		   return View(new Contact { Address = "123 N 456 W",
+		    City="Great Falls", Email = "ab@cd.com", Name="Joe Smith", State="MT",
+		   Zip = "59405"});
+		}
+		// POST: Cm/Create
+		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+		// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		 [Authorize(Roles = "canEdit")]
+		public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact)
+		{
+		    if (ModelState.IsValid)
+		    {
+		        db.Contacts.Add(contact);
+		        db.SaveChanges();
+		        return RedirectToAction("Index");
+		    }
+		    return View(contact);
+		}
+		// GET: Cm/Edit/5
+		[Authorize(Roles = "canEdit")]
+		public ActionResult Edit(int? id)
+		{
+		    if (id == null)
+		    {
+		        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+		    }
+		    Contact contact = db.Contacts.Find(id);
+		    if (contact == null)
+		    {
+		        return HttpNotFound();
+		    }
+		    return View(contact);
+		}
+		
 1. 如果您在前個工作階段仍保持登入狀態，請點擊 [登出] 連結。
 1. 按一下 [關於] 或 [連絡人] 連結。因為匿名使用者無法檢視那些頁面，所以系統會將您重新導向至登入頁面。 
-1. 按一下 [**註冊為新使用者**] 連結並使用電子郵件 *joe@contoso.com* 新增本機使用者。確認 *Joe* 可檢視 [首頁]、[關於] 和 [連絡人] 頁面。
+1. 按一下 [**註冊為新使用者**] 連結並使用電子郵件 **joe@contoso.com* 新增本機使用者。確認 *Joe* 可檢視 [首頁]、[關於] 和 [連絡人] 頁面。
 
 	![登入](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
 1. 按一下 [CM Demo] 連結並確認看到資料。
 1. 按一下頁面上的編輯連結，系統會將您重新導向至登入頁面 (因為未將新的本機使用者新增至 *canEdit* 角色)。
-1. 使用 *user1@contoso.com* 的身分和密碼 "P_assw0rd1" (word 中的「0」是數字零) 登入。系統隨即將您重新導向到先前選取的編輯頁面。<br/>
-   如果無法以該帳戶和密碼登入，請嘗試複製並貼上原始程式碼中的密碼。如果仍然無法登入，請檢查 **AspNetUsers** 資料表的 **UserName** 欄以確認已新增 *user1@contoso.com*。
+1. 使用 **user1@contoso.com* 的身分和密碼 "P\_assw0rd1" (「word」中的「0」是數字零) 登入。系統隨即將您重新導向到先前選取的編輯頁面。<br/> 如果無法以該帳戶和密碼登入，請嘗試複製並貼上原始程式碼中的密碼。如果仍然無法登入，請檢查 **AspNetUsers** 資料表的 **UserName** 資料行以確認已新增 **user1@contoso.com*。
 
 1. 確認您可進行資料變更。
 
@@ -558,7 +547,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 	此時會開啟 [發行 Web] 精靈。
 
-1. 按一下 [發行 Web] 對話方塊左側的 [設定] 索引標籤。按一下 [**v**] 圖示以選取 [**ApplicationDbContext**] 的 [**遠端連接字串**]，並選取 [**ContactManagerNN_db**]。
+1. 按一下 [發行 Web] 對話方塊左側的 [設定] 索引標籤。按一下 [**v**] 圖示以選取 [**ApplicationDbContext**] 的 [**遠端連接字串**]，並選取 [**ContactManagerNN\_db**]。
 
    
 	![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc2.png)
@@ -568,7 +557,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 	![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc3.png)
 
 1. 按一下 [發佈]。
-1. 以 *user1@contoso.com* (使用密碼 "P_assw0rd1") 身分登入，並確認您可以編輯資料。
+1. 以 **user1@contoso.com* (使用密碼 "P\_assw0rd1") 身分登入，並確認您可以編輯資料。
 1. 登出。
 1. 請移至 [[Google Developers Console](https://console.developers.google.com/)]，並在 [**認證**] 索引標籤上更新 [重新導向 URI] 和 [JavaScript Orgins] 以使用 Azure URL。
 1. 使用 Google 或 Facebook 登入。如此將使 Google 或 Facebook 帳戶新增至 **canEdit** 角色。如果您收到 HTTP 400 錯誤訊息：*要求中的重新導向 URI：https://contactmanager{my https://contactmanager{my version}.azurewebsites.net/signin-google 與已註冊的重新導向 URI 不符。*，您必須等到您所做的變更都已傳播為止。如果您是在超過數分鐘之後收到此錯誤，請確認 URI 是正確的。
@@ -627,15 +616,15 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
  
 3. 若您先前未曾連線至此資料庫，系統將提示您新增防火牆規則，以允許您從目前 IP 位址存取資料庫。IP 位址將預先填入。只需按一下 [**新增防火牆規則**] 即可存取。
 
-  ![新增防火牆規則](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/addfirewallrule.png)
+	![新增防火牆規則](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/addfirewallrule.png)
         
-  接下來，使用您建立資料庫時指定的使用者名稱和密碼來登入資料庫。
+	接下來，使用您建立資料庫時指定的使用者名稱和密碼來登入資料庫。
  
 1. 在 [AspNetUsers] 資料表上按一下滑鼠右鍵並選取 [檢視資料]。
 
 	![CM 頁面](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. 記下您以 Google 帳戶註冊且要加到 **canEdit** 角色中的識別碼，以及 *user1@contoso.com* 的識別碼。這些應為 **canEdit** 角色中唯一的使用者(您將會在下一個步驟進行確認)。
+1. 記下您以 Google 帳戶註冊且要加到 **canEdit** 角色中的識別碼，以及 **user1@contoso.com* 的識別碼。這些應為 **canEdit** 角色中唯一的使用者(您將會在下一個步驟進行確認)。
 
 	![CM 頁面](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -643,7 +632,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 	![CM 頁面](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
  
-確認所列的 **UserId** 屬於 *user1@contoso.com* 和您註冊的 Google 帳戶。
+確認所列的 **UserId** 屬於 **user1@contoso.com* 和您註冊的 Google 帳戶。
 
 
 ## 後續步驟
@@ -727,4 +716,4 @@ Tom Dykstra 見解精闢的[開始使用 EF 和 MVC](http://www.asp.net/mvc/tuto
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

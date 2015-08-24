@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="HDInsight 中的 Apache Spark 概觀 | Azure" 
+	pageTitle="HDInsight 中的 Apache Spark 概觀 | Microsoft Azure" 
 	description="介紹 HDInsight 中的 Apache Spark，以及在應用程式中使用 HDInsight 上之 Spark 的案例。" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -99,4 +99,4 @@ HDInsight 中的 Spark 另提供 [ODBC 驅動程式](http://go.microsoft.com/fwl
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

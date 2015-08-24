@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="為 StorSimple 裝置設定 MPIO"
+   pageTitle="為 StorSimple 裝置設定 MPIO | Microsoft Azure"
    description="針對與執行 Windows Server 2012 R2 的主機連線的 StorSimple 裝置設定 MPIO"
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/07/2015"
+   ms.date="08/11/2015"
    ms.author="alkohli" />
 
 # 為 StorSimple 裝置設定 MPIO
@@ -36,11 +36,12 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。您應該透過
 - 步驟 4：設定 MPIO 以獲得高可用性與負載平衡
 
 上述步驟會在下列各節討論。
+
 ## 步驟 1：在 Windows Server 主機上安裝 MPIO
 
 若要在 Windows Server 主機上安裝這項功能，請完成下列程序。
 
-### 若要在主機上安裝 MPIO
+#### 若要在主機上安裝 MPIO
 
 1. 在 Windows Server 主機上開啟 [伺服器管理員]。根據預設，伺服器管理員會在 Administrators 群組成員登入執行 Windows Server 2012 R2 或 Windows Server 2012 的電腦時啟動。如果尚未開啟 [伺服器管理員]，請按一下 [開始] > [伺服器管理員]。![伺服器管理員](./media/storsimple-configure-mpio-windows-server/IC740997.png)
 2. 按一下 [伺服器管理員] > [儀表板] > [新增角色及功能]。這樣會啟動 [新增角色及功能] 精靈。 ![新增角色及功能精靈 1](./media/storsimple-configure-mpio-windows-server/IC740998.png)
@@ -58,7 +59,7 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。您應該透過
 
 您必須設定 MPIO 才能識別 StorSimple 磁碟區。若要設定 MPIO 以辨識 StorSimple 磁碟區，請執行下列步驟。
 
-### 若要為 StorSimple 磁碟區設定 MPIO
+#### 若要為 StorSimple 磁碟區設定 MPIO
 
 1. 開啟 [MPIO 設定]。按一下 [伺服器管理員] > [儀表板] > [工具] > [MPIO]。
 
@@ -75,7 +76,7 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。您應該透過
 
 在 Windows 伺服器上設定 MPIO 之後，就能掛接在 StorSimple 裝置上建立的磁碟區，並可以利用 MPIO 獲得備援。若要掛接磁碟區，請執行下列步驟。
 
-### 若要在主機上掛接磁碟區
+#### 若要在主機上掛接磁碟區
 
 1. 在 Windows Server 主機上，開啟 [iSCSI 啟動器內容] 視窗。按一下 [伺服器管理員] > [儀表板] > [工具] > [iSCSI 啟動器]。
 2. 在 [iSCSI 啟動器內容] 對話方塊中，按一下 [探索] 索引標籤，然後按一下 [搜尋目標入口]。
@@ -83,9 +84,10 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。您應該透過
 	
 	- 輸入 StorSimple 裝置的 DATA 連接埠 IP 位址 (例如，輸入 DATA 0)。
 	- 按一下 [確定] 以返回 [iSCSI 啟動器內容] 對話方塊。
+
 	>[AZURE.IMPORTANT]**如果您使用私人網路進行 iSCSI 連線，請輸入連線到私人網路的 DATA 連接埠 IP 位址。**
 
-4. 在裝置上針對第二個網路介面 (例如，DATA 1) 重複步驟 2-3 。請記住，您應該為 iSCSI 啟用這些介面。若要深入了解這項資訊，請移至[設定網路介面](https://msdn.microsoft.com/library/02f1412f-e196-4a88-8eda-2113247ea47c#sec05)。
+4. 在裝置上針對第二個網路介面 (例如，DATA 1) 重複步驟 2-3 。請記住，您應該為 iSCSI 啟用這些介面。若要深入了解這項資訊，請參閱[修改網路介面](storsimple-modify-device-config.md#modify-network-interfaces)。
 5. 在 [iSCSI 啟動器內容] 對話方塊中，選取 [目標] 索引標籤。您應該會在 [探索到的目標] 下看到 StorSimple 裝置目標 IQN。![iSCSI 啟動器內容目標索引標籤](./media/storsimple-configure-mpio-windows-server/IC741007.png)
 6. 按一下 [連接]，以與 StorSimple 裝置建立 iSCSI 工作階段。[連線到目標] 對話方塊隨即出現。
 
@@ -166,6 +168,9 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。您應該透過
 
 12. 若要檢視工作階段內顯示的裝置，請選取 [裝置] 索引標籤。若要為選取的裝置設定 MPIO 原則，請按一下 [MPIO]。[裝置詳細資料] 對話方塊隨即出現。在 [MPIO] 索引標籤上，您可以選取適當 [負載平衡原則] 設定。您也可以檢視 [使用中] 或 [待命] 路徑類型。
 
+## 後續步驟
+
+深入了解[使用 StorSimple Manager 服務修改 StorSimple 裝置設定](storsimple-modify-device-config.md)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="適用於 Azure 客體作業系統的更新清單 | Azure" 
+   pageTitle="適用於 Azure 客體 OS 的更新清單 | Microsoft Azure" 
    description="適用於 Azure 客體作業系統版次的更新清單" 
    services="cloud-services" 
    documentationCenter="na" 
@@ -159,7 +159,7 @@
 
 [MS15-034]: https://technet.microsoft.com/library/security/MS15-034
 
-[3042553]: https://support.microsoft.com/zh-tw/kb/3042553/
+[3042553]: https://support.microsoft.com/zh-cn/kb/3042553/
 
 [3034682]: http://support.microsoft.com/kb/3034682
 [3036220]: http://support.microsoft.com/kb/3036220
@@ -239,4 +239,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

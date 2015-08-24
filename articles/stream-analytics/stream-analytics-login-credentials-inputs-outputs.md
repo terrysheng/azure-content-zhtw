@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Stream Analytics：替換輸入和輸出的登入認證 |Azure" 
+	pageTitle="串流分析：替換輸入和輸出的登入認證 | Microsoft Azure" 
 	description="了解如何更新 Azure Stream Analytics 的輸入和輸出認證。" 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -27,8 +27,8 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 此部分適用於下列的輸入/輸出：
 
 * Blob 儲存體
-* 事件中心
-* SQL 資料庫
+* 事件中樞
+* SQL Database
 * 資料表儲存體
 
 針對其他的輸入/輸出，請參考第 2 部分。
@@ -107,7 +107,7 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 3.	當您儲存所做的變更時，系統會自動測試連線，以保證萬無一失。
 4.	繼續第 4 部分。
 
-###SQL 資料庫
+###SQL Database
 1.	尋找 [使用者名稱] 和 [密碼] 欄位，然後貼上剛剛建立的一組認證：![graphic38][graphic38]
 2.	按一下 [儲存] 命令，然後確認儲存所做的變更：![graphic39][graphic39]
 3.	當您儲存所做的變更時，系統會自動測試連線，以保證萬無一失。  
@@ -128,7 +128,7 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 ###事件中樞
 為工作以前使用的金鑰，重複第 1 部分，以更新現在未使用的金鑰。
 
-###SQL 資料庫
+###SQL Database
 1.	從第 1 部分的步驟 7 回到查詢視窗，然後輸入以下查閱，即可將 <previous_login_name> 換成工作以前使用的使用者名稱：`DROP LOGIN <previous_login_name>`  
 2.	按一下 [執行]：![graphic43][graphic43]  
 
@@ -145,7 +145,7 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 - [開始使用 Azure Stream Analytics](stream-analytics-get-started.md)
 - [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 [graphic1]: ./media/stream-analytics-login-credentials-inputs-outputs/1-stream-analytics-login-credentials-inputs-outputs.png
@@ -193,4 +193,4 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

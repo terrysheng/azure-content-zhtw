@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #Media Encoder Premium Workflow 格式和轉碼器
@@ -127,4 +127,4 @@
 
 如果您的輸入視訊不包含隱藏式字幕，輸出資產仍然會包含空白 TTML 檔案。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

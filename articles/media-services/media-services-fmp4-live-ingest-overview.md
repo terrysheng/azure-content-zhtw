@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Azure 媒體服務的分散 MP4 即時內嵌規格
@@ -206,4 +206,4 @@ Microsoft Azure 媒體服務的 ISO 分散 MP4 即時內嵌使用標準的長時
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

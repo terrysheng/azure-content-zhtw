@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="07/17/2015"
+   ms.date="08/11/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # 使用 StorSimple Manager 服務變更 StorSimple 密碼
@@ -26,7 +26,7 @@
 
 StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓系統管理員以本機和雲端快照的形式管理 StorSimple 裝置的備份。
 
-當您在 StorSimple Snapshot Manager 中設定裝置時，系統將提示您提供裝置 IP 位址和密碼來驗證您的儲存裝置。此密碼最初是透過 Windows PowerShell 介面來設定。如需詳細資訊，請參閱[部署您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)中的[步驟 3：透過 Windows PowerShell for StorSimple 設定和註冊裝置](storsimple-deployment-walkthrough.md#to-configure-and-register-the-device)。
+當您在 StorSimple Snapshot Manager 中設定裝置時，系統將提示您提供裝置 IP 位址和密碼來驗證您的儲存裝置。此密碼最初是透過 Windows PowerShell 介面來設定。如需詳細資訊，請參閱[部署您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)中的[步驟 3：透過 Windows PowerShell for StorSimple 設定和註冊裝置](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)。
 
 然後可以透過管理入口網站，變更在註冊期間先透過 Windows PowerShell 介面設定的密碼。執行下列步驟來變更 StorSimple Snapshot Manager 密碼。
 
@@ -44,7 +44,7 @@ StorSimple Snapshot Manager 密碼現在應該已更新。
  
 ## 變更裝置系統管理員密碼
 
-當您使用 Windows PowerShell 介面來存取 StorSimple 裝置時，需要輸入裝置系統管理員密碼。向服務註冊第一個 StorSimple 裝置時，此介面的預設密碼為 *Password1*。為了確保資料的安全性，您必須在註冊程序結束時變更此密碼。若未變更此密碼，您就無法結束註冊程序。如需詳細資訊，請參閱[部署您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)中的[步驟 3：透過 Windows PowerShell for StorSimple 設定和註冊裝置](storsimple-deployment-walkthrough.md#to-configure-and-register-the-device)。
+當您使用 Windows PowerShell 介面來存取 StorSimple 裝置時，需要輸入裝置系統管理員密碼。向服務註冊第一個 StorSimple 裝置時，此介面的預設密碼為 *Password1*。為了確保資料的安全性，您必須在註冊程序結束時變更此密碼。若未變更此密碼，您就無法結束註冊程序。如需詳細資訊，請參閱[部署您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)中的[步驟 3：透過 Windows PowerShell for StorSimple 設定和註冊裝置](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)。
 
 然後可以透過管理入口網站，變更在註冊期間先透過 Windows PowerShell 介面設定的密碼。執行下列步驟來變更裝置系統管理員密碼。
 
@@ -66,4 +66,4 @@ StorSimple Snapshot Manager 密碼現在應該已更新。
 
 [深入了解修改您的裝置組態](storsimple-modify-device-config.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用 Twilio 進行語音和 SMS (PHP) - Azure" 
+	pageTitle="如何使用 Twilio for Voice and SMS (PHP) | Microsoft Azure" 
 	description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。程式碼範例以 PHP 撰寫。" 
 	documentationCenter="php" 
 	services="" 
@@ -267,4 +267,4 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

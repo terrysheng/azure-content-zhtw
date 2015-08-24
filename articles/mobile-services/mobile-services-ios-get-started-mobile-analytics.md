@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="開始使用行動分析 | 行動開發人員中心" 
+	pageTitle="開始使用行動分析 | Microsoft Azure" 
 	description="開始使用行動分析。" 
 	documentationCenter="ios" 
 	authors="mattchenderson" 
@@ -98,4 +98,4 @@
 [行動服務標準層]: /pricing/details/mobile-services/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

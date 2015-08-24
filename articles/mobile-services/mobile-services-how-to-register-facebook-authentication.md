@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="註冊 Facebook 驗證 - 行動服務" 
+	pageTitle="註冊 Facebook 驗證 | Microsoft Azure" 
 	description="了解如何在 Azure 行動服務應用程式中使用 Facebook 驗證。" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -73,4 +73,4 @@
 [Azure 行動服務]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

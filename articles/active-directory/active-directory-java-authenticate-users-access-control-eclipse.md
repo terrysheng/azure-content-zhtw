@@ -1,5 +1,5 @@
 <properties
-    pageTitle="如何使用存取控制 (Java) - Azure 功能指南"
+    pageTitle="如何使用存取控制 (Java) | Microsoft Azure"
     description="了解如何在 Azure 中利用 Java 來開發及使用存取控制。"
 	services="active-directory" 
     documentationCenter="java"
@@ -287,7 +287,7 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 [Deploy to Azure]: #deploy_azure
 [Next steps]: #next_steps
 [專案網站]: http://wastarterkit4java.codeplex.com/releases/view/61026
-[如何檢視 Azure 存取控制服務傳回的 SAML]: /zh-tw/develop/java/how-to-guides/view-saml-returned-by-acs/
+[如何檢視 Azure 存取控制服務傳回的 SAML]: /zh-cn/develop/java/how-to-guides/view-saml-returned-by-acs/
 [存取控制服務 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
@@ -309,4 +309,4 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

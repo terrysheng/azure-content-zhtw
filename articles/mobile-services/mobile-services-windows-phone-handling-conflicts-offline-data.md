@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="處理行動服務中的離線資料衝突 (Windows Phone) | 行動開發人員中心" 
+	pageTitle="處理行動服務中的離線資料衝突 (Windows Phone) | Microsoft Azure" 
 	description="了解您在 Windows Phone 應用程式中同步離線資料時應如何使用 Azure 行動服務處理衝突" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -241,4 +241,4 @@
 [Get started with data]: mobile-services-windows-phone-get-started-data.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/07/2015" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中使用診斷搜尋
@@ -34,6 +34,8 @@
 
 
 「診斷搜尋」的主體是遙測項目的清單 - 伺服器要求、頁面檢視、您編寫的自訂事件等等。在清單上方是摘要圖表，顯示一般時間的事件計數。
+
+事件出現在計量瀏覽器之前，通常會顯示在診斷搜尋中。雖然刀鋒視窗會定期自行重新整理，如果您在等待特定事件，您可以按一下 [重新整理]。
 
 
 ## 檢查個別項目
@@ -198,4 +200,4 @@ app* AND banana -(grape pear)|邏輯運算子和括號。
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

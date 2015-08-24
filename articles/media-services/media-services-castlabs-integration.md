@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
@@ -113,4 +113,4 @@ jti|權杖的唯一識別碼 (每個權杖在 castLabs 系統中只使用一次)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

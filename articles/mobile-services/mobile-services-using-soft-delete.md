@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用行動服務 (Windows 市集) 中的虛刪除 | 行動開發人員中心" 
+	pageTitle="使用行動服務 (Windows 市集) 中的虛刪除 | Microsoft Azure" 
 	description="了解如何在您的應用程式中使用 Azure 行動服務的虛刪除功能" 
 	documentationCenter="" 
 	authors="wesmc7777" 
@@ -163,4 +163,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

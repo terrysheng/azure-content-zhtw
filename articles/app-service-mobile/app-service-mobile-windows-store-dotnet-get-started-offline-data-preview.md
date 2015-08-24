@@ -1,5 +1,5 @@
 <properties
-	pageTitle="搭配 Azure 行動應用程式使用離線資料 (Windows Store) | 行動開發人員中心"
+	pageTitle="搭配 Azure 行動應用程式使用離線資料 (Windows Store) | Microsoft Azure"
 	description="了解如何使用 Azure 行動服務快取和同步 Windows 市集應用程式中的離線資料"
 	documentationCenter="windows"
 	authors="christopheranderson"
@@ -16,22 +16,22 @@
 	ms.date="03/22/2015"
 	ms.author="chrande"/>
 
-# 使用 Azure 行動應用程式中的離線資料同步
+# 使用 Azure Mobile Apps 中的離線資料同步
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
 
 
-本教學課程說明如何使用 Azure 行動應用程式後端在 Windows Universal Store 應用程式中新增離線支援。當您的應用程式處於離線狀態時，離線支援可讓您與本機資料庫互動。一旦您的應用程式與後端資料庫連線之後，您就可使用離線功能來同步處理本機變更。
+本教學課程說明如何使用 Azure Mobile Apps 後端在 Windows Universal Store 應用程式中新增離線支援。當您的應用程式處於離線狀態時，離線支援可讓您與本機資料庫互動。一旦您的應用程式與後端資料庫連線之後，您就可使用離線功能來同步處理本機變更。
 
 
 
-在本教學課程中，您將會更新[建立 Windows 應用程式]教學課程中的通用應用程式，以支援 Azure 行動應用程式的離線功能。接著，您會在中斷連線的離線狀態下新增資料、將這些項目同步處理至線上資料庫，然後登入 Azure 管理入口網站，以檢視執行應用程式時對資料所做的變更。
+在本教學課程中，您將會更新[建立 Windows 應用程式]教學課程中的通用應用程式，以支援 Azure Mobile Apps 的離線功能。接著，您會在中斷連線的離線狀態下新增資料、將這些項目同步處理至線上資料庫，然後登入 Azure 管理入口網站，以檢視執行應用程式時對資料所做的變更。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
 1. [更新應用程式以支援離線功能]
 2. [更新應用程式的同步處理行為]
-3. [更新應用程式以重新連接您的行動應用程式後端]
+3. [更新應用程式以重新連接您的 Mobile Apps 後端]
 
 本教學課程需要下列各項：
 
@@ -258,7 +258,7 @@ Azure 行動應用程式的離線功能可讓您在行動服務處於離線狀�
 <!-- Anchors. -->
 [更新應用程式以支援離線功能]: #enable-offline-app
 [更新應用程式的同步處理行為]: #update-sync
-[更新應用程式以重新連接您的行動應用程式後端]: #update-online-app
+[更新應用程式以重新連接您的 Mobile Apps 後端]: #update-online-app
 [Next Steps]: #next-steps
 
 <!-- Images -->
@@ -278,4 +278,4 @@ Azure 行動應用程式的離線功能可讓您在行動服務處於離線狀�
 [sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

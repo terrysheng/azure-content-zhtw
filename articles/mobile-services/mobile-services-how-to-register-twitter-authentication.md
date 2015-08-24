@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="註冊 Twitter 驗證 - 行動服務" 
+	pageTitle="註冊 Twitter 驗證 | Microsoft Azure" 
 	description="了解如何對於˙ Azure Mobile Services 應用程式使用 Twitter 驗證。" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 #在行動服務中註冊您的應用程式以進行 Twitter 登入
@@ -32,25 +32,19 @@
 
 2. 輸入您應用程式的 [名稱]、[描述] 和 [網站] 值，然後在 [回呼 URL] 中輸入行動服務的 URL，後面附加路徑 **/login/twitter**。
 
-	>[AZURE.NOTE]如需使用 Visual Studio 將 .NET 後端行動服務發佈至 Azure，則重新導向 URL 是行動服務的 URL 並附加 _signin-twitter_ 路徑，而您的行動服務為 .NET 服務，例如 <code>https://todolist.azure-mobile.net/signin-twitter</code>。
+	>[AZURE.NOTE]如需使用 Visual Studio 將 .NET 後端行動服務發佈至 Azure，則重新導向 URL 是行動服務的 URL 並附加 _signin-twitter_ 路徑。在此範例中，我們的行動服務將有回呼 URL ```https://todolist.azure-mobile.net/signin-twitter```。
 
    	![][2]
 
-3.  在頁面底部，請閱讀並接受條款，輸入正確的 CAPTCHA 文字，然後按一下 [Create your Twitter application]。
-
-   	![][3]
+3.  在頁面底部，請閱讀並接受條款，然後按一下 [**建立 Twitter 應用程式**]。
 
    	這會註冊應用程式並顯示應用程式詳細資料。
 
-6. 記下 [消費者金鑰] 和 [消費者密碼] 的值。
-
-   	![][4]
+6. 按一下應用程式儀表板中的 [**金鑰和存取權杖**] 索引標籤，並記下 [**取用者金鑰**] 和 [**取用者密碼**] 的值。
 
     > [AZURE.NOTE]消費者密碼是重要的安全性認證。請勿將這個密鑰與任何人分享，或與您的應用程式一起散發。
 
-7. 按一下 [設定] 索引標籤，向下捲動並勾選 [Allow this application to be used to sign in with Twitter]，然後按一下 [Update this Twitter application's settings]。
-
-	![][5]
+7. 按一下 [**設定**] 索引標籤，向下捲動並確定勾選 [**允許使用此應用程式登入 Twitter**]，然後按一下 [**更新設定**]。
 
 現在您已準備好提供消費者金鑰和消費者密碼值給行動服務，以在您的應用程式中採用 Twitter 登入驗證。
 
@@ -59,9 +53,6 @@
 <!-- Images. -->
 [1]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-developers.png
 [2]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app1.png
-[3]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app2.png
-[4]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-app-details.png
-[5]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-settings.png
 
 <!-- URLs. -->
 
@@ -71,4 +62,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

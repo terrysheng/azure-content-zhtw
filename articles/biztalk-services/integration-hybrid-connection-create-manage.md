@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="建立和管理混合式連線 | Azure" 
+	pageTitle="建立和管理混合式連線 | Microsoft Azure" 
 	description="了解如何建立混合式連線、管理連線和安裝 Hybrid Connection Manager。MABS，WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -125,7 +125,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 3. 在修改群組原則的電腦上，執行下列動作： 
 
 	- 將 .ADMX 檔案複製到 *%WINROOT%\\PolicyDefinitions* 資料夾。
-	- 將 .ADML 檔案複製到 *%WINROOT%\\PolicyDefinitions\\zh-tw* 資料夾。
+	- 將 .ADML 檔案複製到 *%WINROOT%\\PolicyDefinitions\\zh-cn* 資料夾。
 
 複製之後，您可以使用群組原則編輯器來變更原則。
 
@@ -146,4 +146,4 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

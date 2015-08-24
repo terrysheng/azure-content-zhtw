@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="08/11/2015"
 	ms.author="kathydav"/>
 
 #如何建立自訂虛擬機器
@@ -26,8 +27,8 @@
 - 將虛擬機器加入現有的儲存體帳戶。
 - 將虛擬機器加入至可用性集合。
 
-**重要事項**：如果要讓虛擬機器使用虛擬網路，以便依主機名稱直接連接虛擬機器，或設定跨單位連線，則必須在建立虛擬機器時指定虛擬網路。只有在建立虛擬機器時，才能將虛擬機器設定為加入虛擬網路。如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](http://go.microsoft.com/fwlink/p/?LinkID=294063)。
+> [AZURE.IMPORTANT]如果要讓虛擬機器使用虛擬網路，以便依主機名稱直接連接虛擬機器，或設定跨單位連線，則必須在建立虛擬機器時指定虛擬網路。只有在建立虛擬機器時，才能將虛擬機器設定為加入虛擬網路。如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](virtual-networks-overview.md)。
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="透過 Twilio 使用語音和簡訊功能 | 行動開發人員中心" 
+	pageTitle="使用 Twilio for Voice and SMS 功能 | Microsoft Azure" 
 	description="了解如何使用 Twilio API 和 Azure 行動服務執行一般工作。" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -230,4 +230,4 @@ Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您�
 [azure_twilio_howto_php]: /develop/php/how-to-guides/twilio-voice-and-sms-service/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="開始使用資料 (Android) | 行動開發人員中心" 
+	pageTitle="開始使用資料 (Android) | Microsoft Azure" 
 	description="了解如何開始使用行動服務，在您的 Android 應用程式中使用資料。" 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -35,7 +35,7 @@
 </div>
 
 
-<p>本教學課程可協助您更詳細了解 Azure 行動服務從 Android 應用程式存放和擷取資料的方式。因此會逐步說明已在行動服務快速入門教學課程中完成的許多步驟。如果這是您第一次接觸行動服務，請考慮首先完成教學課程<a href="/zh-tw/develop/mobile/tutorials/get-started-android">開始使用行動服務</a>。</p>
+<p>本教學課程可協助您更詳細了解 Azure 行動服務從 Android 應用程式存放和擷取資料的方式。因此會逐步說明已在行動服務快速入門教學課程中完成的許多步驟。如果這是您第一次接觸行動服務，請考慮首先完成教學課程<a href="/zh-cn/develop/mobile/tutorials/get-started-android">開始使用行動服務</a>。</p>
 
 ## 必要條件
 
@@ -161,4 +161,4 @@ Android 的**開始使用資料**教學課程到此結束。
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

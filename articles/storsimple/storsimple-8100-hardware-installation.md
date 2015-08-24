@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="安裝您的 StorSimple 8100 裝置"
+   pageTitle="安裝您的 StorSimple 8100 裝置 | Microsoft Azure"
    description="描述如何打開包裝、掛接機架，和佈線 StorSimple 8100 裝置。"
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/20/2015"
+   ms.date="08/06/2015"
    ms.author="alkohli" />
 
 # 安裝您的 StorSimple 8100 裝置
@@ -47,7 +47,7 @@
 
      ![打開您的儲存體裝置包裝](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
 
-    **圖 1：儲存體裝置打開包裝的樣子**
+    **儲存體裝置打開包裝的樣子**
 
      標籤 | 說明 
      ----- | -------------
@@ -115,7 +115,7 @@
 
     ![將滑軌連接至機箱底座](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
-   **圖 2：將滑軌連接至機箱邊**
+   **將滑軌連接至機箱側邊**
 
     Label | Description
     ----- | -----------
@@ -132,7 +132,7 @@
 
      ![將滑軌連接至機櫃](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
 
-    **圖 3：將滑軌組件連接至機架**
+    **將滑軌組件連接至機架**
 
      標籤 | 說明
      ----- | -----------
@@ -154,7 +154,7 @@
 
     ![在機架中插入裝置](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
 
-    **圖 4：在機架中掛接裝置**
+    **在機架中掛接裝置**
 
 3. 藉由在每個輪緣、左側和右側，安裝一個提供的十字螺絲，在機架中鎖固機箱。
 
@@ -162,7 +162,7 @@
 
      ![安裝輪緣蓋](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
  
-    **圖 5：安裝輪緣蓋**
+    **安裝輪緣蓋**
 
      標籤 | 說明
      ----- | -----------
@@ -192,7 +192,7 @@
 
 - 提供單一 QSFP-to-SFP+ 配接器以用於 10 GbE 網路介面
 
-- [支援 10 GbE 網路介面的收發器、纜線及交換器](https://msdn.microsoft.com/library/azure/dn891474.aspx)
+- [10 GbE 網路介面在 StorSimple 裝置上支援的硬體](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 
 ### 電源佈線
@@ -201,29 +201,7 @@
 
 請執行下列步驟，以連接您的裝置的電源線。
 
-#### 連接電源線
-
-1. 請確定每個 PCM 上的電源開關是在 OFF (關閉) 位置。
-
-2. 將電源線連接至主要機箱中的兩個 PCM。
-
-3. 將電源線連接至機架電源分配單元 (PDU)，如下圖所示。確定兩個 PCM 使用不同的電源來源。
-
-4. 將兩個 PCM 的電源開關切換到 ON (開啟) 位置，以開啟系統。
-
-    >[AZURE.NOTE]若要確保您的系統的高可用性，您應該嚴格遵守電源佈線配置，如下圖所示。
-
-    ![為您的 2U 裝置進行電源佈線](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
-
-    **圖 6：您裝置的電源纜線**
-
-     標籤 | 說明
-     ----- | -----------
-     1 | PCM 0
-     2 | 控制器 1
-     3 | 控制器 0
-     4 | PCM 1
-     5 | PDU
+[AZURE.INCLUDE [storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
 
 ### 網路佈線
 
@@ -237,7 +215,7 @@
 
     ![8100 裝置的後擋板](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
 
-    **圖 7：顯示資料連接埠的裝置背面**
+    **裝置後方的資料連接埠**
  
      標籤 | 說明
      ------- | -----------
@@ -258,7 +236,7 @@
 
     ![為您的 2U 裝置進行網路佈線](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
-    **圖 8：您裝置的網路纜線**
+    **您裝置的網路纜線**
 
     標籤 | 說明
     ----- | -----------
@@ -276,7 +254,7 @@
 
 #### 佈線序列連線
 
-1. 您的裝置在每個控制器上有以扳手圖示識別的序列連接埠。請參閱「圖 7」以找出您的裝置後檔板上的序列連接埠。 
+1. 您的裝置在每個控制器上有以扳手圖示識別的序列連接埠。請參閱[網路佈線](#network-cabling)區段中的圖例，找出裝置背板上序列連接埠的位置。 
 
 2. 識別您的裝置後檔板上的作用中控制器。閃爍的的藍色 LED 表示控制器作用中。
 
@@ -297,4 +275,4 @@
 您現在已準備好[部署和設定您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

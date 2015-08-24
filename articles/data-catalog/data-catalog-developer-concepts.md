@@ -7,7 +7,7 @@
    manager="mblythe"
    editor=""
    tags=""/>
-<tags
+<tags 
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
@@ -23,7 +23,7 @@ Microsoft **Azure 資料目錄**是全面管理的雲端服務，能夠進行資
 ## 重要概念
 
 **Azure 資料目錄**概念模型根據四個主要概念：**目錄**、**使用者**、**資產**和**註解**。
-     
+
 ![概念][1]
 
 *圖 1 - Azure 資料目錄簡易概念模型*
@@ -73,14 +73,14 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 為了支援這個例子，每位使用者 (DBA、資料負責人和分析師) 可以將描述加入至目錄中已註冊的資料表。所有描述會都保留在系統中，Azure 資料目錄入口網站會顯示所有的描述。
 
 這種模式適用於物件模型中的大部分項目。這就是您原本以為 JSON 裝載中的物件類型只有一個屬性，但卻有大量屬性的原因。
- 
+
 例如，資產根目錄底下有大量的描述物件。此陣列屬性稱為 “descriptions”。描述物件有三個屬性：description、tags 及 friendlyName。模式是每個使用者輸入任何一個或多個這些屬性時，就會根據使用者提供的值建立一個描述物件。
 
 然後 UX 可以選擇如何顯示組合。有三種不同的顯示模式。
 
--	最簡單的模式為 [全部顯示]。在此模式下，所有物件會以某種形式的清單檢視來顯示。這就是 Azure 資料目錄入口網站 UX 對於描述的作法。 
--	另一種模式是「合併」。在此模式下，不同使用者提供的所有值會合併在一起，並移除重複項目。Azure 資料目錄入口網站 UX 中的 tags 和 experts 屬性，即為此模式的例子。 
--	第三種模式為「最後寫入者為準」。在此模式下，只會顯示最後輸入的值。friendlyName 是這種模式的一個例子。某些類型不能有多個執行個體。 
+-	最簡單的模式為 [全部顯示]。在此模式下，所有物件會以某種形式的清單檢視來顯示。這就是 Azure 資料目錄入口網站 UX 對於描述的作法。
+-	另一種模式是「合併」。在此模式下，不同使用者提供的所有值會合併在一起，並移除重複項目。Azure 資料目錄入口網站 UX 中的 tags 和 experts 屬性，即為此模式的例子。
+-	第三種模式為「最後寫入者為準」。在此模式下，只會顯示最後輸入的值。friendlyName 是這種模式的一個例子。某些類型不能有多個執行個體。
 
 以下是允許和不允許有多個執行個體的類型清單：
 
@@ -124,13 +124,19 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 
 註解類型代表可以指派給目錄內其他類型的中繼資料類型。
 
-<table><tr><td><b>註解類型</b></td><td><b>其他屬性</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>說明</td><td></td><td></td><td>系統的每個使用者可以加入自己的描述和標記。只有該使用者可以編輯 Description 物件(系統管理員和資產擁有者可以刪除 Description 描述物件，但無法編輯它)。系統會個別維護這些物件。因此，每個資產上有一個描述陣列 (除了可能有一個描述包含衍生自資料來源的資訊，每一個已對資產貢獻知識的使用者都有一個描述)。</td></tr><tr><td></td><td>friendlyName</td><td>字串</td><td>易記名稱，可代替衍生自資料來源的名稱。這適合用於顯示和搜尋。</td></tr><tr><td></td><td>tags</td><td>string[]</td><td>資產的標記陣列</td></tr><tr><td></td><td>說明</td><td>字串</td><td>資產的簡短描述 (2-3 行)</td></tr><tr><td>結構描述</td><td></td><td></td><td>Schema 描述資料的結構。它會列出屬性 (也就是資料行、屬性、欄位等等..) 名稱、類型及其他中繼資料。此資訊完全衍生自資料來源。資產上通常有一個結構描述項目。</td></tr><tr><td></td><td>columns</td><td>Column[]</td><td>資料行物件的陣列。它們以衍生自資料來源的資訊來描述資料行。</td></tr><tr><td>SchemaDescription</td><td></td><td></td><td>這包含結構描述中定義的每個屬性的描述和標記集合。系統的每個使用者可以加入自己的描述和標記。只有該使用者可以編輯 Description 物件(系統管理員和資產擁有者可以刪除 SchemaDescription 物件，但無法編輯它)。系統會個別維護這些物件。因此，每個資產上有一個 SchemaDescription 物件陣列 (除了可能有一個描述包含衍生自資料來源的資訊，每一個已對屬性貢獻知識的使用者都有一個描述)。SchemaAttributes 與結構描述不緊密繫結，所以可能不會同步，亦即 SchemaDescription 描述的資料行可能已不存在於結構描述中，或無法參考最近加入的新資料行。由寫入者決定是否要保持同步。資料來源也可能有描述資訊。這是執行工具時建立的另一個 schemaDescription 物件。</td></tr><tr><td></td><td>columnDescriptions</td><td>ColumnDescription[]</td><td>描述結構描述中的資料行的 ColumnDescriptions 陣列。</td></tr><tr><td>專家</td><td></td><td></td><td>這包含可視為資料集專家的使用者清單。列出描述時，專家意見 (也就是描述) 會移至 UX 頂端。每個使用者可以指定自己的專家清單。只有該使用者可以編輯 Expert 物件(系統管理員和資產擁有者可以刪除 Expert 物件，但無法編輯它)。</td></tr><tr><td></td><td>experts</td><td>string[]</td><td>電子郵件地址的陣列。</td></tr><tr><td>預覽</td><td></td><td></td><td>預覽包含資產的前 20 列資料的快照集。預覽只對某些資產類型才有意義 (也就是，對資料表有意義，但對量值沒有意義)。</td></tr><tr><td></td><td>preview</td><td>object[]</td><td>代表資料行的物件陣列。每個物件都有屬性與資料行的對應，根據的是資料列在該資料行中的值。</td></tr></table>
+<table><tr><td><b>註解類型</b></td><td><b>其他屬性</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>說明</td><td></td><td></td><td>系統的每個使用者可以加入自己的描述和標記。只有該使用者可以編輯 Description 物件(系統管理員和資產擁有者可以刪除 Description 描述物件，但無法編輯它)。系統會個別維護這些物件。因此，每個資產上有一個描述陣列 (除了可能有一個描述包含衍生自資料來源的資訊，每一個已對資產貢獻知識的使用者都有一個描述)。</td></tr><tr><td></td><td>friendlyName</td><td>字串</td><td>易記名稱，可代替衍生自資料來源的名稱。這適合用於顯示和搜尋。</td></tr><tr><td></td><td>tags</td><td>string[]</td><td>資產的標記陣列</td></tr><tr><td></td><td>說明</td><td>字串</td><td>資產的簡短描述 (2-3 行)</td></tr><tr><td>結構描述</td><td></td><td></td><td>Schema 描述資料的結構。它會列出屬性 (也就是資料行、屬性、欄位等等..) 名稱、類型及其他中繼資料。此資訊完全衍生自資料來源。資產上通常有一個結構描述項目。</td></tr><tr><td></td><td>columns</td><td>Column[]</td><td>資料行物件的陣列。它們以衍生自資料來源的資訊來描述資料行。</td></tr><tr><td>SchemaDescription</td><td></td><td></td><td>這包含結構描述中定義的每個屬性的描述和標記集合。系統的每個使用者可以加入自己的描述和標記。只有該使用者可以編輯 Description 物件(系統管理員和資產擁有者可以刪除 SchemaDescription 物件，但無法編輯它)。系統會個別維護這些物件。因此，每個資產上有一個 SchemaDescription 物件陣列 (除了可能有一個描述包含衍生自資料來源的資訊，每一個已對屬性貢獻知識的使用者都有一個描述)。SchemaAttributes 與結構描述不緊密繫結，所以可能不會同步，亦即 SchemaDescription 描述的資料行可能已不存在於結構描述中，或無法參考最近加入的新資料行。由寫入者決定是否要保持同步。資料來源也可能有描述資訊。這是執行工具時建立的另一個 schemaDescription 物件。</td></tr><tr><td></td><td>columnDescriptions</td><td>ColumnDescription[]</td><td>描述結構描述中的資料行的 ColumnDescriptions 陣列。</td></tr><tr><td>專家</td><td></td><td></td><td>這包含可視為資料集專家的使用者清單。列出描述時，專家意見 (也就是描述) 會移至 UX 頂端。每個使用者可以指定自己的專家清單。只有該使用者可以編輯 Expert 物件(系統管理員和資產擁有者可以刪除 Expert 物件，但無法編輯它)。</td></tr><tr><td></td><td>experts</td><td>string[]</td><td>電子郵件地址的陣列。</td></tr><tr><td>預覽</td><td></td><td></td><td>預覽包含資產的前 20 列資料的快照集。預覽只對某些資產類型才有意義 (也就是，對資料表有意義，但對量值沒有意義)。</td></tr><tr><td></td><td>preview</td><td>object[]</td><td>代表資料行的物件陣列。每個物件都有屬性與資料行的對應，根據的是資料列在該資料行中的值。</td></tr>
+<tr><td>AccessInstruction</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>mimeType</td><td>字串</td><td>內容的 mime 類型。</td></tr>
+<tr><td></td><td>內容</td><td>字串</td><td>如何取得這項資料資產的指示。可能是一個 URL、電子郵件地址或一組指示。</td></tr>
+
+</table>
 
 ### 常見的類型
 
 常見類型可作為屬性的類型，而不是項目的類型。
 
-<table><tr><td><b>常見類型</b></td><td><b>屬性</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>字串</td><td>描述資料來源的類型，也就是 SQL Server、Oracle 資料庫等等...  </td></tr><tr><td></td><td>objectType</td><td>字串</td><td>描述資料來源中的物件類型，也就是 SQL Server 的資料表、檢視。</td></tr><tr><td></td><td>formatType</td><td>字串</td><td>描述資料結構。目前的值為結構化或非結構化。</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>字串</td><td>使用者的唯一電子郵件地址。</td></tr><tr><td></td><td>firstName</td><td>字串</td><td>使用者的名字 (用於顯示)。</td></tr><tr><td></td><td>lastName</td><td>字串</td><td>使用者的姓氏 (用於顯示)。</td></tr><tr><td>欄</td><td></td><td></td><td></td></tr><tr><td></td><td>名稱</td><td>字串</td><td>資料行或屬性的名稱。</td></tr><tr><td></td><td>類型</td><td>字串</td><td>資料行或屬性的資料類型。允許的類型取決於資產的資料 sourceType。僅支援一部分類型。</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>資料行或屬性允許的長度上限。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td></td><td>Precision</td><td>byte</td><td>資料行或屬性的精確度。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td></td><td>isNullable</td><td>Boolean</td><td>是否允許資料行有 Null 值。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td></td><td>expression</td><td>字串</td><td>如果值是導出資料行，此欄位會包含表示此值的運算式。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td></td><td>defaultValue</td><td>物件</td><td>如果物件的 insert 陳述式中未指定任何值，則插入預設值。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr><tr><td></td><td>tags</td><td>string[]</td><td>描述資料行的標記陣列。</td></tr><tr><td></td><td>說明</td><td>字串</td><td>用來描述資料行的描述。</td></tr><tr><td></td><td>columnName</td><td>字串</td><td>此資訊所參考的資料行名稱。</td></tr></table>
+<table><tr><td><b>常見類型</b></td><td><b>屬性</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>字串</td><td>描述資料來源的類型，也就是 SQL Server、Oracle 資料庫等等...  </td></tr><tr><td></td><td>objectType</td><td>字串</td><td>描述資料來源中的物件類型，也就是 SQL Server 的資料表、檢視。</td></tr><tr><td></td><td>formatType</td><td>字串</td><td>描述資料結構。目前的值為結構化或非結構化。</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>字串</td><td>使用者的唯一電子郵件地址。</td></tr><tr><td></td><td>firstName</td><td>字串</td><td>使用者的名字 (用於顯示)。</td></tr><tr><td></td><td>lastName</td><td>字串</td><td>使用者的姓氏 (用於顯示)。</td></tr><tr><td>欄</td><td></td><td></td><td></td></tr><tr><td></td><td>名稱</td><td>字串</td><td>資料行或屬性的名稱。</td></tr><tr><td></td><td>類型</td><td>字串</td><td>資料行或屬性的資料類型。允許的類型取決於資產的資料 sourceType。僅支援一部分類型。</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>資料行或屬性允許的長度上限。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td></td><td>Precision</td><td>byte</td><td>資料行或屬性的精確度。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td></td><td>isNullable</td><td>Boolean</td><td>是否允許資料行有 Null 值。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td></td><td>expression</td><td>字串</td><td>如果值是導出資料行，此欄位會包含表示此值的運算式。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td></td><td>defaultValue</td><td>物件</td><td>如果物件的 insert 陳述式中未指定任何值，則插入預設值。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr><tr><td></td><td>tags</td><td>string[]</td><td>描述資料行的標記陣列。</td></tr><tr><td></td><td>說明</td><td>字串</td><td>用來描述資料行的描述。</td></tr><tr><td></td><td>columnName</td><td>字串</td><td>此資訊所參考的資料行名稱。</td></tr>
+</table>
 
 ## 角色和授權
 
@@ -147,7 +153,7 @@ Azure 資料目錄使用兩種授權機制：
 
 有 3 個角色：**Administrator**、**Owner** 和 **Contributor**。每個角色有其範圍和權限，於下表中摘要說明。
 
-<table><tr><td><b>角色</b></td><td><b>範圍</b></td><td><b>權限</b></td></tr><tr><td>系統管理員</td><td>目錄 (也就是目錄中的所有資產/註解)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>擁有者</td><td>每個資產 (也就是根項目)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>參與者</td><td>每個個別的資產和註解</td><td>Read Update Delete ViewRoles 附註：如果撤銷 Contributor 在項目上的 Read 權限，則會撤鎖所有權限</td></tr></table>
+<table><tr><td><b>角色</b></td><td><b>範圍</b></td><td><b>權限</b></td></tr><tr><td>系統管理員</td><td>目錄 (也就是目錄中的所有資產/註解)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>擁有者</td><td>每個資產 (也就是根項目)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>參與者</td><td>每個個別的資產和註解</td><td>Read Update Delete ViewRoles 注意事項：如果撤銷 Contributor 在項目上的 Read 權限，則會撤鎖所有權限</td></tr></table>
 
 > [AZURE.NOTE]**Read**、**Update**、**Delete**、**ViewRoles** 權限適用於任何項目 (資產或註解)，而 **TakeOwnership**、**ChangeOwnership**、**ChangeVisibility**、**ViewPermissions** 只適用於根資產。
 >
@@ -239,4 +245,4 @@ Azure 資料目錄使用兩種授權機制：
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

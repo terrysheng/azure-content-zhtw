@@ -33,17 +33,19 @@ Data Factory 會在內部部署、雲端資料來源和 SaaS 之間運作，以�
 
 Azure Data Factory 有幾個主要實體會共同運作，來定義輸入和輸出資料、處理事件以及執行指定之資料流程所需的排程和資源。
 
-![重要概念](./media/data-factory-introduction/key-concepts.png) **圖 2。** 資料集、活動、管線和連結服務之間的關聯性。
+![重要概念](./media/data-factory-introduction/key-concepts.png)
+
+**圖 2.** 資料集、活動、管線和連結服務之間的關聯性。
 
 
 ### 活動
 活動會定義在您資料上執行的動作。每個活動會取得零或多個[資料集](data-factory-create-datasets.md)做為輸入，並產生一或多個資料集做為輸出。活動代表 Azure Data Factory 中的協調流程單位。例如，您可能會使用[複製活動](data-factory-data-movement-activities.md)來協調從一個資料集複製資料到另一個資料集的流程。同樣地，您可能會使用在 Azure HDInsight 叢集上執行 Hive 查詢的 [Hive 活動](data-factory-data-transformation-activities.md)，來轉換或分析您的資料。Azure Data Factory 提供大量的資料轉換、分析和資料移動活動。
 
 ### 管線
-[管線](data-factory-create-pipelines.md)就是邏輯性的活動分組。可用來將活動群組成一個單位，共同執行任務。比方說，清除記錄檔資料可能需要照順序進行數個轉換活動。此順序可能會有複雜的排程和相依性，需要加以協調流程並自動化。這些活動全都可以群組成名為 “CleanLogFiles” 的單一管線。接著 “CleanLogFiles” 就能夠以單一單位來進行部署、排程或刪除，而不需要一一管理各個活動。
+[管線](data-factory-create-pipelines.md)是活動的邏輯性群組。可用來將活動群組成一個單位，共同執行任務。比方說，清除記錄檔資料可能需要照順序進行數個轉換活動。此順序可能會有複雜的排程和相依性，需要加以協調流程並自動化。這些活動全都可以群組成名為 “CleanLogFiles” 的單一管線。接著 “CleanLogFiles” 就能夠以單一單位來進行部署、排程或刪除，而不需要一一管理各個活動。
 
 ### 資料集
-[資料集](data-factory-create-datasets.md)就是您要用來當做活動的輸入或輸出的命名參考/指標。資料集會在包括資料表、檔案、資料夾和文件在內的各種資料存放區中，識別資料結構。
+[資料集](data-factory-create-datasets.md)是具名的參考/指標，指向您要用來當做活動輸入或輸出的資料。資料集會在包括資料表、檔案、資料夾和文件在內的各種資料存放區中，識別資料結構。
 
 ### 連結的服務
 連結的服務會定義 Data Factory 所需的資訊，以便連接到外部資源。Data Factory 中的連結服務，有兩個用途：
@@ -53,4 +55,4 @@ Azure Data Factory 有幾個主要實體會共同運作，來定義輸入和輸�
 
 有了資料集、活動、管線和連結的服務這四個簡單的概念之後，您隨時可以開始使用！ 您可以從頭開始[建置您的第一個管線](data-factory-build-your-first-pipeline.md)，或是依照我們 [Data Factory 範例](data-factory-samples.md)文章中的指示，部署現成的樣本。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

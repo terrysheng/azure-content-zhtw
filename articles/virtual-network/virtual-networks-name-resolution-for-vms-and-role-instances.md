@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="08/10/2015"
    ms.author="joaoma" />
 
 # VM 與角色執行個體的名稱解析
@@ -21,9 +21,9 @@
 
 當 Azure 中裝載的角色執行個體和 VM 必須將主機名稱和網域名稱解析為內部 IP 位址時，可以使用兩種方法中的其中一種：
 
-- [Azure 提供的名稱解析](azure-provided-name-resolution)
+- [Azure 提供的名稱解析](#azure-provided-name-resolution)
 
-- [使用專屬 DNS 伺服器的名稱解析](name-resolution-using-your-own-DNS-server)
+- [使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server)
 
 您使用的名稱解析類型取決於 VM 和角色執行個體如何在雲端服務內通訊，以及與其他雲端服務通訊。
 
@@ -108,7 +108,7 @@
 
 ### 使用管理入口網站指定 DNS 伺服器
 
-當您使用管理入口網站建立虛擬網路時，您可以指定想要使用的 DNS 伺服器的 IP 位址和名稱。虛擬網路建立好之後，您部署到虛擬網路的虛擬機器和角色執行個體會自動設定為您指定的 DNS 設定，除非您特別針對部署指定要使用的 DNS 伺服器。如需有關設定 Azure 虛擬網路設定的詳細資訊，請參閱[關於在管理入口網站中設定虛擬網路](https://msdn.microsoft.com/library/azure/jj156074.aspx)。
+當您使用管理入口網站建立虛擬網路時，您可以指定想要使用的 DNS 伺服器的 IP 位址和名稱。虛擬網路建立好之後，您部署到虛擬網路的虛擬機器和角色執行個體會自動設定為您指定的 DNS 設定，除非您特別針對部署指定要使用的 DNS 伺服器。如需有關設定 Azure 虛擬網路設定的詳細資訊，請參閱〈[關於在管理入口網站中設定虛擬網路](virtual-networks-settings.md)〉。
 
 > [AZURE.NOTE]您最多只能使用 9 部 DNS 伺服器。
 
@@ -123,8 +123,14 @@
 > [AZURE.NOTE]服務組態檔中的設定會覆寫網路組態檔中的設定。例如，如果某個 VM 加入屬於某個虛擬網路的雲端服務，且網路組態檔和服務組態檔兩者都有 DNS 設定，則服務組態檔中的 DNS 設定會套用到 VM。
 
 
-## 另請參閱
+## 後續步驟
 
-[Azure 服務組態結構描述](https://msdn.microsoft.com/library/azure/ee758710) [虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100) [關於在管理入口網站中設定虛擬網路設定](https://msdn.microsoft.com/library/azure/jj156074.aspx) [使用網路組態檔設定虛擬網路](https://msdn.microsoft.com/library/azure/jj156097.aspx) [Azure 虛擬網路組態工作](https://msdn.microsoft.com/library/azure/jj156206.aspx)
+[Azure 服務組態結構描述](https://msdn.microsoft.com/library/azure/ee758710)
 
-<!---HONumber=August15_HO6-->
+[虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100)
+
+[關於設定管理入口網站中的虛擬網路設定](virtual-networks-settings.md)
+
+[使用網路組態檔設定虛擬網路](virtual-networks-using-network-configuration-file.md)
+
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="如何使用服務匯流排佇列 (Ruby) - Azure"
+	pageTitle="如何使用服務匯流排佇列 (Ruby) | Microsoft Azure"
 	description="了解如何使用 Azure 中的服務匯流排佇列。程式碼範例以 Ruby 撰寫。"
 	services="service-bus"
 	documentationCenter="ruby"
@@ -152,4 +152,4 @@ azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 若要比較本文所討論的 Azure 服務匯流排佇列與[如何使用 Azure 佇列服務](/develop/ruby/how-to-guides/queue-service/)一文中討論的 Azure 佇列，請參閱 [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

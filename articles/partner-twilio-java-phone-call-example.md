@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用 Twilio 撥打電話 (Java) - Azure" 
+	pageTitle="如何從 Twilio 撥打電話 (Java) | Microsoft Azure" 
 	description="了解如何在 Azure 上的 Java 應用程式中使用 Twilio 從網頁撥打電話。" 
 	services="" 
 	documentationCenter="java" 
@@ -209,4 +209,4 @@
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -251,6 +251,6 @@ AMQP 訊息因為具有眾多屬性而有點複雜，且含有比簡單訊息更
 
 如需有關如何使用這些 SAS 權杖的詳細資訊，請參閱[服務匯流排 REST API 參考](https://msdn.microsoft.com/library/azure/hh780717.aspx)。
 
-如需有關 SAS 的詳細資訊，請參閱 MSDN 上的[服務匯流排驗證](https://msdn.microsoft.com/library/azure/dn155925.aspx)節點。
+如需有關 SAS 的詳細資訊，請參閱 MSDN 上的[服務匯流排驗證](https://msdn.microsoft.com/library/azure/dn155925.aspx)節點。在 [Damir 的部落格](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)中有更多有關 C# 和 Java 指令碼中 SAS 的範例
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

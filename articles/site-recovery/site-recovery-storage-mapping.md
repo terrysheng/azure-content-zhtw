@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/08/2015"
+	ms.date="08/05/2015"
 	ms.author="raynew"/>
 
 
@@ -106,4 +106,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/A | 沒有對應，因此將會使�
 既然您已經更了解儲存體對應，請開始讀取[最佳作法](site-recovery-best-practices.md)以準備部署。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

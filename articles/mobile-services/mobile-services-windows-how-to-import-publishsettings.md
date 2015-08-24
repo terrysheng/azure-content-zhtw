@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在 Visual Studio 2013 中匯入您的發佈設定檔案 | 行動服務" 
+	pageTitle="在 Visual Studio 2013 中匯入您的發佈設定檔案 | Microsoft Azure" 
 	description="了解如何在 Visual Studio 2013 中匯入 Azure Mobile Services 應用程式的訂閱發布設定檔。" 
 	documentationCenter="" 
 	services="mobile-services" 
@@ -62,4 +62,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

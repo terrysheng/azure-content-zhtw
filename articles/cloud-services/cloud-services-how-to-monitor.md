@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何監視雲端服務 - Azure" 
+	pageTitle="如何監視雲端服務 | Microsoft Azure" 
 	description="了解如何使用 Azure 管理入口網站來監視雲端服務。" 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -192,4 +192,4 @@
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="了解 BizTalk 服務中的節流 | Azure" 
+	pageTitle="了解 BizTalk 服務中的節流 | Microsoft Azure" 
 	description="了解 BizTalk 服務的節流閾值和產生的執行階段行為。節流是以記憶體使用量和訊息數為依據。MABS，WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -70,4 +70,4 @@ Azure BizTalk 服務進入節流狀態時會發生下列情況：
 - [BizTalk 服務：簽發者名稱和簽發者金鑰](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

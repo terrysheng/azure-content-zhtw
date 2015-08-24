@@ -1,5 +1,5 @@
 <properties
-   pageTitle="複製 StorSimple 磁碟區"
+   pageTitle="複製 StorSimple 磁碟區 | Microsoft Azure"
    description="說明不同的複製類型以及使用時機，並說明如何使用備份組來複製個別磁碟區。"
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
+   ms.date="08/11/2015"
    ms.author="alkohli" />
 
 # 複製 StorSimple 磁碟區
@@ -91,4 +91,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

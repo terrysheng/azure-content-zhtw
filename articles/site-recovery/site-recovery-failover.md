@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="05/29/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 # Site Recovery 中的容錯移轉
@@ -282,4 +282,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

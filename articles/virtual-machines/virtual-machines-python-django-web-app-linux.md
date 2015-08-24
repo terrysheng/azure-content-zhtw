@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在 Mac 上搭配 Django 的 Python Web 應用程式 - Azure 教學課程" 
+	pageTitle="在 Mac 上搭配 Django 的 Python Web 應用程式 | Microsoft Azure" 
 	description="本教學課程說明如何使用 Linux 虛擬機器，在 Azure 上裝載 Django 型網站。" 
 	services="virtual-machines" 
 	documentationCenter="python" 
@@ -22,7 +22,9 @@
 
 # Django Hello World Web 應用程式 (mac-linux)
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/develop/python/tutorials/web-app-with-django/" title="Windows">Windows</a><a href="/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac/Linux" class="current">Mac/Linux</a></div>
+> [AZURE.SELECTOR]
+- [Windows](web-app-with-django.md)
+- [Mac/Linux](django-hello-world-(maclinux).md)
 
 本教學課程說明如何使用 Linux 虛擬機器在 Microsoft Azure 上裝載 Django 型網站。本教學課程假設您先前沒有使用 Azure 的經驗。完成本指南之後，您將在雲端啟動並執行 Django 型應用程式。
 
@@ -129,4 +131,4 @@ Ubuntu Linux VM 已經預先安裝 Python 2.7，但是並未安裝 Apache 或 Dj
 [portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

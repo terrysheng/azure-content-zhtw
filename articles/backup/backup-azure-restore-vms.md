@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Azure 備份 - 還原虛擬機器"
+	pageTitle="Azure 備份 - 還原虛擬機器 | Microsoft Azure"
 	description="了解如何還原 Azure 虛擬機器"
 	services="backup"
 	documentationCenter=""
@@ -8,14 +8,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/17/2015"
-	ms.author="trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="trinadhk"; "jimpark"/>
 
 # 還原虛擬機器
 您可以使用還原動作，利用儲存在 Azure 備份保存庫的備份，將虛擬機器還原至新的 VM。
@@ -38,7 +31,7 @@
 
     ![選取復原點](./media/backup-azure-restore-vms/select-recovery-point.png)
 
-2. 若要挑選較舊的時間，請選擇下拉式清單中的 [**選取日期**] 選項，並透過按一下行事曆圖示後，在行事曆控制項中選取一個日期。在控制項中，所有擁有復原點的日期會以淺灰色陰影填滿，並可供使用者選取。
+2. 若要挑選較舊的時間，請選擇下拉式清單中的 [選取日期] 選項，然後透過按一下行事曆圖示後，在行事曆控制項中選取一個日期。在控制項中，所有擁有復原點的日期會以淺灰色陰影填滿，並可供使用者選取。
 
     ![選取日期](./media/backup-azure-restore-vms/select-date.png)
 
@@ -46,7 +39,7 @@
 
     ![復原點](./media/backup-azure-restore-vms/recovery-points.png)
 
-3. 從 [**復原點**] 資料表中選取復原點，然後按一下 [下一步] 箭號以移至下一個畫面。
+3. 從 [復原點] 資料表中選取復原點，然後按一下 [下一步] 箭號以移至下一個畫面。
 
 ## 指定目的地位置
 
@@ -76,7 +69,7 @@
 
     ![選取子網路](./media/backup-azure-restore-vms/select-subnet.png)
 
-5. 按一下精靈中的 [**提交**] 圖示以提交詳細資料和建立還原工作。
+5. 按一下精靈中的 [提交] 圖示以提交詳細資料和建立還原工作。
 
 ## 追蹤還原作業
 一旦您輸入還原精靈中的所有資訊和提交，Azure 備份將會嘗試建立一項工作以追蹤還原作業。
@@ -101,6 +94,6 @@
 | 還原 | 還原失敗並發生雲端內部錯誤 | <ol><li>您嘗試還原的雲端服務已設定為 DNS 設定。您可以檢查 <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>如果有設定位址，這表示已設定為 DNS 設定。<br> <li>您嘗試還原的雲端服務是以 ReservedIP 設定，且雲端服務中現有的 VM 皆處於停止狀態。<br>您可以使用下列 PowerShell Cmdlet 檢查雲端服務是否有保留的 IP：<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
 
 ## 後續步驟
-- [管理虛擬機器](backup-azure-manage-vms)
+- [管理虛擬機器](backup-azure-manage-vms.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

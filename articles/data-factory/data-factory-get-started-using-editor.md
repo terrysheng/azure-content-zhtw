@@ -381,17 +381,6 @@
  
 若要使用 Azure PowerShell 進行本教學課程，請參閱[使用 Azure PowerShell 建立和監視 Data Factory][monitor-manage-using-powershell]。
 
-## 後續步驟
-
-文章 | 說明
------- | ---------------
-[使用 Azure Data Factory - 複製活動來複製資料][copy-activity] | 本文提供您在本教學課程中使用的複製活動詳細說明。 
-[讓您的管線使用內部部署資料][use-onpremises-datasources] | 本文的逐步解說示範如何將資料從內部部署 SQL Server 資料庫複製到 Azure Blob。 
-[教學課程：使用 Data Factory 移動和處理記錄檔][adf-tutorial] | 本文提供端對端逐步解說，示範如何使用 Azure Data Factory 實作真實案例，藉此將記錄檔中的資料轉換成深入資訊。
-[對 Data Factory 問題進行疑難排解][troubleshoot] | 本文說明如何對 Azure Data Factory 問題進行疑難排解。您可以透過引用一個錯誤 (刪除 Azure SQL Database 中的資料表)，嘗試本文中針對 ADFTutorialDataFactory 所做的逐步解說。 
-[Azure Data Factory 開發人員參考][developer-reference] | 開發人員參考包含 Cmdlet、JSON 指令碼、函數等完整參考內容。 
-
-
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -408,11 +397,9 @@
 
 [data-factory-editor]: data-factory-editor.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
-[copy-activity]: data-factory-copy-activity.md
 [troubleshoot]: data-factory-troubleshoot.md
 [data-factory-introduction]: data-factory-introduction.md
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
@@ -512,4 +499,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

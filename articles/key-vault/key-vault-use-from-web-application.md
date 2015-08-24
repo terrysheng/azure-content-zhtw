@@ -1,4 +1,4 @@
-<properties pageTitle="從 Web 應用程式使用 Azure 金鑰保存庫 | 概觀" description="使用此教學課程來幫助您了解如何從 Web 應用程式使用 Azure 金鑰保存庫。" services="key-vault" documentationCenter="" authors="adamhurwitz" manager="" tags="azure-resource-manager"//>
+<properties pageTitle="從 Web 應用程式使用 Azure 金鑰保存庫 | Microsoft Azure" description="使用此教學課程來幫助您了解如何從 Web 應用程式使用 Azure 金鑰保存庫。" services="key-vault" documentationCenter="" authors="adamhurwitz" manager="" tags="azure-resource-manager"//>
 
 <tags 
 	ms.service="key-vault" 
@@ -24,7 +24,7 @@
 若要完成本教學課程，您必須具備下列項目：
 
 - Azure 金鑰保存庫中密碼的 URI
-- 已在 Azure Active Directory 註冊且有權存取您金鑰保存庫之 Web 應用程式的用戶端識別碼和用戶端密碼
+- 已在 Azure Active Directory 註冊，且有權存取您金鑰保存庫之 Web 應用程式的用戶端識別碼和用戶端密碼
 - Web 應用程式。我們將會說明 ASP.NET MVC 應用程式在 Azure 中做為 Web 應用程式部署的步驟。 
 
 > [AZURE.NOTE]在本教學課程中，完成在[開始使用 Azure 金鑰保存庫](key-vault-get-started.md)中所列步驟是很重要的，這樣您才會有 Web 應用程式的密碼 URI 和用戶端識別碼和用戶端密碼。
@@ -47,8 +47,7 @@
 	// this is currently the latest stable version of ADAL
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
 
-	//this is a preview version of the Key Vault Library
-	Install-Package Microsoft.Azure.KeyVault -Pre
+	Install-Package Microsoft.Azure.KeyVault 
 
 
 ## <a id="webconfig"></a>修改 Web.Config ##
@@ -91,6 +90,10 @@
 	    return result.AccessToken;
     }
 
+> [AZURE.NOTE]透過用戶端識別碼和密碼，使用用戶端密碼來驗證 Azure AD 應用程式是最簡單的方法。此外，如果在 Web 應用程式中使用該密碼，您將能夠區分職責，並充分掌控您的金鑰管理。但是，要這樣做就必須將用戶端密碼保存在組態設定中。在某種程度上，這樣的做法與將您要保護的密碼保存在組態設定中的方法相較而言，兩者的風險是一樣的。如需關於如何使用用戶端識別碼與憑證 (而非用戶端識別碼與用戶端密碼) 來驗證 Azure AD 應用程式的討論，請參閱以下內容。
+
+
+
 ## <a id="appstart"></a>在應用程式啟動時擷取密碼 ##
 現在我們需要呼叫金鑰保存庫 API，並擷取密碼的程式碼。下列程式碼可以放置在任何位置，只要在您需要使用它之前呼叫即可。我已將程式碼放入 Global.asax 的應用程式啟動事件中，因此它在啟動時會執行一次，並讓密碼可在應用程式中使用。
 
@@ -114,6 +117,115 @@
 ![Azure 入口網站中顯示的應用程式設定][1]
 
 
+## 使用憑證 (而非用戶端密碼) 進行驗證。 
+若要驗證 Azure AD 應用程式，另一種方式是使用用戶端識別碼和憑證 (而非用戶端識別碼和用戶端密碼)。以下是在 Azure Web 應用程式中使用憑證的步驟：
+
+1. 取得或建立憑證
+2. 將憑證與 Azure AD 應用程式產生關聯
+3. 將程式碼加入 Web 應用程式以使用憑證
+4. 將憑證加入 Web 應用程式
+
+
+**取得或建立憑證** 基於本文的目的，我們將測試憑證。以下幾個命令可讓您在開發人員命令提示字元中用來建立憑證。變更您要建立憑證檔案的目錄位置。
+
+	makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2015 -e 07/31/2016 -r
+	pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
+
+記下 .pfx 的結束日期和密碼 (在此範例中為：07/31/2016 和 test123)。您將需要在下面使用這些資訊。
+
+如需如何建立測試憑證的詳細資訊，請參閱[做法：自行建立測試憑證](https://msdn.microsoft.com/en-in/library/ff699202.aspx) (英文)
+
+
+**將憑證與 Azure AD 應用程式產生關聯** 有了憑證之後，您需要將其與 Azure AD 應用程式產生關聯。但是，Azure 管理入口網站目前不支援這項作業。您必須改用 Powershell。以下是您需要執行的命令：
+
+	$x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+	
+	PS C:\> $x509.Import("C:\data\KVWebApp.cer")
+	
+	PS C:\> $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
+	
+	PS C:\> $now = [System.DateTime]::Now
+	
+	# this is where the end date from the cert above is used
+	PS C:\> $yearfromnow = [System.DateTime]::Parse("2016-07-31") 
+	
+	PS C:\> $adapp = New-AzureADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
+	
+	PS C:\> $sp = New-AzureADServicePrincipal -ApplicationId $adapp.ApplicationId
+
+執行這些命令之後，您就可以在 Azure AD 中看到應用程式。如果您一開始沒有看到該應用程式，請改用「我公司所擁有的應用程式」進行搜尋，不要使用「我公司所使用的應用程式」。
+
+若要深入了解 Azure AD 應用程式物件和 ServicePrincipal 物件，請參閱[應用程式物件和服務主體物件](../active-directory/active-directory-application-objects.md)
+
+
+
+**將程式碼加入 Web 應用程式以使用憑證** 現在我們將程式碼加入您的 Web 應用程式，以存取憑證並使用其進行驗證。
+
+首先，使用程式碼存取憑證。
+
+    public static class CertificateHelper
+    {
+        public static X509Certificate2 FindCertificateByThumbprint(string findValue)
+        {
+            X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
+            try
+            {
+                store.Open(OpenFlags.ReadOnly);
+                X509Certificate2Collection col = store.Certificates.Find(X509FindType.FindByThumbprint, 
+                    findValue, false); // Don't validate certs, since the test root isn't installed.
+                if (col == null || col.Count == 0)
+                    return null;
+                return col[0];
+            }
+            finally
+            {
+                store.Close();
+            }
+        }
+    }
+
+
+請注意，StoreLocation 是 CurrentUser，而不是 LocalMachine。另外，由於我們使用測試憑證，因此我們必須提供 "false" 憑證給 Find 方法。
+
+
+接著是使用 CertificateHelper 並建立驗證所需之 ClientAssertionCertificate 的程式碼。
+
+    public static ClientAssertionCertificate AssertionCert { get; set; }
+
+    public static void GetCert()
+    {
+        var clientAssertionCertPfx = CertificateHelper.FindCertificateByThumbprint(WebConfigurationManager.AppSettings["thumbprint"]);
+        AssertionCert = new ClientAssertionCertificate(WebConfigurationManager.AppSettings["clientid"], clientAssertionCertPfx);
+    }
+
+
+以下是取得存取 Token 的新程式碼。此程式碼將會取代上述的 GetToken 方法。為方便起見，我已將其改名。
+
+    public static async Task<string> GetAccessToken(string authority, string resource, string scope)
+    {
+        var context = new AuthenticationContext(authority, TokenCache.DefaultShared);
+        var result = await context.AcquireTokenAsync(resource, AssertionCert);
+        return result.AccessToken;
+    }
+
+為了方便使用，我已將所有此類程式碼放入我的 Web 應用程式專案的公用程式類別。
+
+最後的程式碼變更位在 Application\_Start 方法中。首先，我們需要呼叫 GetCert() 方法以載入 ClientAssertionCertificate。接著，在建立新的 KeyVaultClient 時，變更我們所提供的回呼方法。請注意，這會取代我們上面的程式碼。
+
+    Utils.GetCert();
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetAccessToken));
+
+
+**將憑證加入 Web 應用程式** 將憑證加入您的 Web 應用程式的程序相當簡單，只需兩個步驟。首先，請移至 Azure 入口網站並瀏覽至您的 Web 應用程式。在 Web 應用程式的 [設定] 刀鋒視窗中，按一下 [自訂網域及 SSL] 的項目。在開啟的刀鋒視窗中，您將能夠上傳先前建立的憑證 KVWebApp.pfx，並請確定您記得 pfx 的密碼。
+
+![在 Azure 入口網站中將憑證加入 Web 應用程式][2]
+
+
+您需要做的最後一件事，就是將應用程式設定新增至名為WEBSITE\_LOAD\_CERTIFICATES 與值為 * 的 Web 應用程式。如此可確保載入所有憑證。如果您只想載入已上傳的憑證，則可輸入其憑證指紋的逗號分隔清單。
+
+若要深入了解將憑證加入 Web 應用程式的程序，請參閱[在 Azure 網站應用程式中使用憑證](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/) (英文)
+
+
 
 ## <a id="next"></a>接續步驟 ##
 
@@ -123,6 +235,7 @@
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
+[2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

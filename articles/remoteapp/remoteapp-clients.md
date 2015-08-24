@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/23/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
 
 
 # 在 Azure RemoteApp 存取您的應用程式
 
-Azure RemoteApp 的優點之一，就是您可以存取從任何裝置發佈給您的應用程式。更棒的是，您能在一台裝置上運作，然後順暢地轉換至第二台裝置，並從您先前停止的地方繼續進行。若要開始進行，您必須為裝置下載適當的用戶端，然後登入該服務。
+Azure RemoteApp 的優點之一，就是您可以從任何裝置存取應用程式。更棒的是，您能在一台裝置上運作，然後順暢地轉換至第二台裝置，並從您先前停止的地方繼續進行。若要開始進行，您必須為裝置下載適當的用戶端，然後登入該服務。
 
 在本主題中，我們將檢閱目前支援的用戶端，以及向您示範如何下載它們，接著示範如何從各個用戶端登入 RemoteApp。
 
@@ -207,4 +207,4 @@ Azure RemoteApp 的優點之一，就是您可以存取從任何裝置發佈給�
 	![Azure RemoteApp 的示範摘要](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

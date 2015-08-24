@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="08/06/2015" 
 	ms.author="erikre"/>
 
 
@@ -54,7 +54,7 @@
 
 	![Web Platform Installer](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-01.png)  
 
-      如果您已安裝 SDK，則待安裝的項目會為 0。[Web Platform Installer] 視窗的左下角會記錄待安裝的項目數。  
+      如果您已安裝 SDK，則待安裝的項目會為 0。[Web Platform Installer] 視窗的左下角會記錄待安裝的項目數。
 
 5. 如果您還沒有 **Visual Studio Update 2**，請下載並安裝 **[Visual Studio 2013 Update 2](http://www.microsoft.com/download/details.aspx?id=42666)** 或更高版本。
 
@@ -109,101 +109,101 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 ###更新主要頁面
 在 ASP.NET Web Forms 中，主要頁面可用來建立應用程式中頁面的一致性版面配置。單一主要頁面可為應用程式中的所有頁面 (或頁面群組) 定義您想要的外觀與風格及標準行為。接著，您可以建立包含所需顯示內容的個別內容頁面。當使用者要求內容頁面時，ASP.NET 會將這些頁面與主要頁面合併，以產生結合主要頁面之配置與內容頁面之內容的輸出。新的網站需要更新的應用程式名稱與連結。此連結將指向顯示連絡人詳細資料的頁面。若要進行這些變更，您需修改主要頁面上的 HTML。
 
-1. 在 [方案總管] 中，尋找並開啟 *Site.Master* 頁面。
+1. 在 [方案總管] 中，尋找並開啟 *Site.Master* 頁面。 
 2. 如果頁面處於 [設計] 檢視模式，請切換至 [來源] 檢視。
 3. 透過修改或加入標記來更新主版頁面，使頁面標記的顯示方式如下所示：
 
-<pre class="prettyprint">
-&lt;%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ContactManager.SiteMaster" %>
+		<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ContactManager.SiteMaster" %>
+		
+		<!DOCTYPE html>
+		
+		<html lang="en">
+		<head runat="server">
+		    <meta charset="utf-8" />
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		    <title><%: Page.Title %> - Contact Manager</title>
+		
+		    <asp:PlaceHolder runat="server">
+		        <%: Scripts.Render("~/bundles/modernizr") %>
+		    </asp:PlaceHolder>
+		    <webopt:bundlereference runat="server" path="~/Content/css" />
+		    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		
+		</head>
+		<body>
+		    <form runat="server">
+		        <asp:ScriptManager runat="server">
+		            <Scripts>
+		                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+		                <%--Framework Scripts--%>
+		                <asp:ScriptReference Name="MsAjaxBundle" />
+		                <asp:ScriptReference Name="jquery" />
+		                <asp:ScriptReference Name="bootstrap" />
+		                <asp:ScriptReference Name="respond" />
+		                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+		                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+		                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+		                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+		                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+		                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+		                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+		                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+		                <asp:ScriptReference Name="WebFormsBundle" />
+		                <%--Site Scripts--%>
+		            </Scripts>
+		        </asp:ScriptManager>
+		
+		        <div class="navbar navbar-inverse navbar-fixed-top">
+		            <div class="container">
+		                <div class="navbar-header">
+		                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		                        <span class="icon-bar"></span>
+		                        <span class="icon-bar"></span>
+		                        <span class="icon-bar"></span>
+		                    </button>
+		                    <a class="navbar-brand" runat="server" id="ContactDemoLink" href="~/Contacts/Default.aspx">Contact Demo</a>
+		                </div>
+		                <div class="navbar-collapse collapse">
+		                    <ul class="nav navbar-nav">
+		                        <li><a runat="server" href="~/">Home</a></li>
+		                        <li><a runat="server" href="~/About">About</a></li>
+		                        <li><a runat="server" href="~/Contact">Contact</a></li>
+		                    </ul>
+		                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+		                        <AnonymousTemplate>
+		                            <ul class="nav navbar-nav navbar-right">
+		                                <li><a runat="server" href="~/Account/Register">Register</a></li>
+		                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+		                            </ul>
+		                        </AnonymousTemplate>
+		                        <LoggedInTemplate>
+		                            <ul class="nav navbar-nav navbar-right">
+		                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+		                                <li>
+		                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+		                                </li>
+		                            </ul>
+		                        </LoggedInTemplate>
+		                    </asp:LoginView>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="container body-content">
+		            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+		            </asp:ContentPlaceHolder>
+		            <hr />
+		            <footer>
+		                <p>&copy; <%: DateTime.Now.Year %> - Contact Manager</p>
+		            </footer>
+		        </div>
+		    </form>
+		</body>
+		</html>
 
-&lt;!DOCTYPE html>
-
-&lt;html lang="en">
-&lt;head runat="server">
-    &lt;meta charset="utf-8" />
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    &lt;title>&lt;%: Page.Title %> - Contact Manager&lt;/title>
-
-    &lt;asp:PlaceHolder runat="server">
-        &lt;%: Scripts.Render("~/bundles/modernizr") %>
-    &lt;/asp:PlaceHolder>
-    &lt;webopt:bundlereference runat="server" path="~/Content/css" />
-    &lt;link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
-&lt;/head>
-&lt;body>
-    &lt;form runat="server">
-        &lt;asp:ScriptManager runat="server">
-            &lt;Scripts>
-                &lt;%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                &lt;%--Framework Scripts--%>
-                &lt;asp:ScriptReference Name="MsAjaxBundle" />
-                &lt;asp:ScriptReference Name="jquery" />
-                &lt;asp:ScriptReference Name="bootstrap" />
-                &lt;asp:ScriptReference Name="respond" />
-                &lt;asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                &lt;asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                &lt;asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                &lt;asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                &lt;asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                &lt;asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                &lt;asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                &lt;asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                &lt;asp:ScriptReference Name="WebFormsBundle" />
-                &lt;%--Site Scripts--%>
-            &lt;/Scripts>
-        &lt;/asp:ScriptManager>
-
-        &lt;div class="navbar navbar-inverse navbar-fixed-top">
-            &lt;div class="container">
-                &lt;div class="navbar-header">
-                    &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        &lt;span class="icon-bar">&lt;/span>
-                        &lt;span class="icon-bar">&lt;/span>
-                        &lt;span class="icon-bar">&lt;/span>
-                    &lt;/button>
-                    &lt;a class="navbar-brand" runat="server" id="ContactDemoLink" href="~/Contacts/Default.aspx">Contact Demo&lt;/a>
-                &lt;/div>
-                &lt;div class="navbar-collapse collapse">
-                    &lt;ul class="nav navbar-nav">
-                        &lt;li>&lt;a runat="server" href="~/">Home&lt;/a>&lt;/li>
-                        &lt;li>&lt;a runat="server" href="~/About">About&lt;/a>&lt;/li>
-                        &lt;li>&lt;a runat="server" href="~/Contact">Contact&lt;/a>&lt;/li>
-                    &lt;/ul>
-                    &lt;asp:LoginView runat="server" ViewStateMode="Disabled">
-                        &lt;AnonymousTemplate>
-                            &lt;ul class="nav navbar-nav navbar-right">
-                                &lt;li>&lt;a runat="server" href="~/Account/Register">Register&lt;/a>&lt;/li>
-                                &lt;li>&lt;a runat="server" href="~/Account/Login">Log in&lt;/a>&lt;/li>
-                            &lt;/ul>
-                        &lt;/AnonymousTemplate>
-                        &lt;LoggedInTemplate>
-                            &lt;ul class="nav navbar-nav navbar-right">
-                                &lt;li>&lt;a runat="server" href="~/Account/Manage" title="Manage your account">Hello, &lt;%: Context.User.Identity.GetUserName()  %> !&lt;/a>&lt;/li>
-                                &lt;li>
-                                    &lt;asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                &lt;/li>
-                            &lt;/ul>
-                        &lt;/LoggedInTemplate>
-                    &lt;/asp:LoginView>
-                &lt;/div>
-            &lt;/div>
-        &lt;/div>
-        &lt;div class="container body-content">
-            &lt;asp:ContentPlaceHolder ID="MainContent" runat="server">
-            &lt;/asp:ContentPlaceHolder>
-            &lt;hr />
-            &lt;footer>
-                &lt;p>&amp;copy; &lt;%: DateTime.Now.Year %> - Contact Manager&lt;/p>
-            &lt;/footer>
-        &lt;/div>
-    &lt;/form>
-&lt;/body>
-&lt;/html>
-</pre>
-
-後續在本教學課程中，您將新增 Web Forms 樣板。Scaffolding 將建立上述 “Contact Demo” 連結的參考頁面。
+	後續在本教學課程中，您將新增 Web Forms 樣板。Scaffolding 將建立上述 “Contact Demo” 連結的參考頁面。
+ 
 ###在本機執行應用程式 
+ 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 *Default.aspx* 頁面並選取 [設定為起始頁]。 
 2. 接著，按下 **CTRL+F5** 執行應用程式。  
 	預設的瀏覽器視窗中會出現應用程式預設頁面。
@@ -247,27 +247,26 @@ Visual Studio 將會下載您的發佈設定。
 2. 將這個新類別命名為 *Contacts.cs*。  
 	![[加入新項目] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13.png)
 3. 使用下列程式碼來取代預設程式碼：  
-	<pre class="prettyprint">
-	using System.ComponentModel.DataAnnotations;
-	using System.Globalization;
-	
-	namespace ContactManager.Models
-	{
-	    public class Contacts
-	    {
-	        [ScaffoldColumn(false)]
-	        [Key]
-	        public int ContactId { get; set; }
-	        public string Name { get; set; }
-	        public string Address { get; set; }
-	        public string City { get; set; }
-	        public string State { get; set; }
-	        public string Zip { get; set; }
-	        [DataType(DataType.EmailAddress)]
-	        public string Email { get; set; }
-	    }
-	}
-	</pre>
+
+		using System.ComponentModel.DataAnnotations;
+		using System.Globalization;
+		
+		namespace ContactManager.Models
+		{
+		    public class Contacts
+		    {
+		        [ScaffoldColumn(false)]
+		        [Key]
+		        public int ContactId { get; set; }
+		        public string Name { get; set; }
+		        public string Address { get; set; }
+		        public string City { get; set; }
+		        public string State { get; set; }
+		        public string Zip { get; set; }
+		        [DataType(DataType.EmailAddress)]
+		        public string Email { get; set; }
+		    }
+		}
 
 **Contacts** 類別定義您將為每個連絡人儲存的資料，加上資料庫需要的主要索引鍵 (`ContactID`) 。[連絡人] 類別代表將會顯示的連絡人資料。每個連絡人物件的執行個體會對應到關聯式資料庫資料表中的資料列，而每個連絡人類別的屬性會對應到關聯式資料庫資料表中的資料欄。後續在本教學課程中，您將檢閱資料庫中所包含的連絡人資料。
 
@@ -301,83 +300,84 @@ Web Forms Scaffolder 便會新增一個包含 *Default.aspx*、*Delete.aspx*、*
 1. 在 [**工具**] 功能表中，依序選取 [**NuGet 封裝管理員**] 和 [**Package Manager Console**]。  
 	![[新增 Web Forms 頁面] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13c.png)  
 2. 在 [Package Manager Console] 視窗中，輸入下列命令：  
-	<pre class="prettyprint">
-	enable-migrations
-	</pre>  
+
+		enable-migrations
+ 
 	此 enable-migrations 命令會建立 *Migrations* 資料夾，並在該資料夾中放入 *Configuration.cs* 檔案，您可以編輯該檔案來植入資料庫及設定資料移轉。  
 3. 在 [Package Manager Console] 視窗中，輸入下列命令：  
-	<pre class="prettyprint">
-	add-migration Initial
-	</pre>  
+
+		add-migration Initial
+
 	`add-migration Initial` 命令會在建立資料庫的 *Migrations* 資料夾中產生一個名為 <date_stamp>Initial 的檔案。第一個參數 ( Initial ) 是任意的，可用來建立檔案的名稱。您可以在 [方案總管] 中看到新的類別檔案。在 `Initial` 類別中，`Up` 方法會建立 `Contact` 資料表，`Down` 方法 (當您希望返回前個狀態時使用) 則會捨棄該資料表。  
-4. 開啟 *Migrations\Configuration.cs* 檔案。 
-5. 新增下列命名空間：  
-	<pre class="prettyprint">
-	using ContactManager.Models;
-	</pre>  
-6. 以下列程式碼取代 `Seed` 方法：  
-	<pre class="prettyprint">
-	protected override void Seed(ContactManager.Models.ApplicationDbContext context)
-	{
-    context.Contacts.AddOrUpdate(p => p.Name,
-       new Contacts
-       {
-           ContactId = 1,
-           Name = "Ivan Irons",
-           Address = "One Microsoft Way",
-           City = "Redmond",
-           State = "WA",
-           Zip = "10999",
-           Email = "ivani@wideworldimporters.com",
-       },
-       new Contacts
-        {
-            ContactId = 2,
-            Name = "Brent Scholl",
-            Address = "5678 1st Ave W",
-            City = "Redmond",
-            State = "WA",
-            Zip = "10999",
-            Email = "brents@wideworldimporters.com",
-        },
-        new Contacts
-        {
-            ContactId = 3,
-            Name = "Terrell Bettis",
-            Address = "9012 State St",
-            City = "Redmond",
-            State = "WA",
-            Zip = "10999",
-            Email = "terrellb@wideworldimporters.com",
-        },
-        new Contacts
-        {
-            ContactId = 4,
-            Name = "Jo Cooper",
-            Address = "3456 Maple St",
-            City = "Redmond",
-            State = "WA",
-            Zip = "10999",
-            Email = "joc@wideworldimporters.com",
-        },
-        new Contacts
-        {
-            ContactId = 5,
-            Name = "Ines Burnett",
-            Address = "7890 2nd Ave E",
-            City = "Redmond",
-            State = "WA",
-            Zip = "10999",
-            Email = "inesb@wideworldimporters.com",
-        }
-        );
-	}
-	</pre>
-此程式碼會以連絡人資訊初始化 (植入) 該資料庫。如需植入資料庫的詳細資訊，請參閱[植入及偵錯 Entity Framework (EF) DB](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)。  
+4. 開啟 *Migrations\\Configuration.cs* 檔案。 
+
+5. 新增下列命名空間：
+
+		using ContactManager.Models;
+
+6. 以下列程式碼取代 `Seed` 方法：
+
+		protected override void Seed(ContactManager.Models.ApplicationDbContext context)
+		{
+		    context.Contacts.AddOrUpdate(p => p.Name,
+		       new Contacts
+		       {
+		           ContactId = 1,
+		           Name = "Ivan Irons",
+		           Address = "One Microsoft Way",
+		           City = "Redmond",
+		           State = "WA",
+		           Zip = "10999",
+		           Email = "ivani@wideworldimporters.com",
+		       },
+		       new Contacts
+		        {
+		            ContactId = 2,
+		            Name = "Brent Scholl",
+		            Address = "5678 1st Ave W",
+		            City = "Redmond",
+		            State = "WA",
+		            Zip = "10999",
+		            Email = "brents@wideworldimporters.com",
+		        },
+		        new Contacts
+		        {
+		            ContactId = 3,
+		            Name = "Terrell Bettis",
+		            Address = "9012 State St",
+		            City = "Redmond",
+		            State = "WA",
+		            Zip = "10999",
+		            Email = "terrellb@wideworldimporters.com",
+		        },
+		        new Contacts
+		        {
+		            ContactId = 4,
+		            Name = "Jo Cooper",
+		            Address = "3456 Maple St",
+		            City = "Redmond",
+		            State = "WA",
+		            Zip = "10999",
+		            Email = "joc@wideworldimporters.com",
+		        },
+		        new Contacts
+		        {
+		            ContactId = 5,
+		            Name = "Ines Burnett",
+		            Address = "7890 2nd Ave E",
+		            City = "Redmond",
+		            State = "WA",
+		            Zip = "10999",
+		            Email = "inesb@wideworldimporters.com",
+		        }
+		        );
+		}
+
+	此程式碼會以連絡人資訊初始化 (植入) 該資料庫。如需植入資料庫的詳細資訊，請參閱[植入及偵錯 Entity Framework (EF) DB](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)。  
 7. 在 [Package Manager Console] 中輸入命令：  
-	<pre class="prettyprint">
-	update-database
-	</pre>  
+
+		update-database
+
 `update-database` 會執行第一次移轉，並建立資料庫。根據預設，資料庫會以 SQL Server Express LocalDB 資料庫的形式建立。  
 	![封裝管理員主控台](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13d.png)  
 
@@ -426,13 +426,13 @@ ASP.NET Web Forms 提供成員資格和驗證的增強功能選項。這些增�
 
 1. 開啟 *App_Start\Startup.Auth.cs* 檔案。 
 2. 移除 `app.UseGoogleAuthentication()` 方法中的註解字元，然後此方法會顯示如下：  
-	<pre class="prettyprint">
-            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            {
-                ClientId = "",
-                ClientSecret = ""
-            });
-</pre>
+
+		app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+		{
+		    ClientId = "",
+		    ClientSecret = ""
+		});
+
 3. 瀏覽至 [Google Developers Console](https://console.developers.google.com/)。您還需要使用您的 Google 開發人員電子郵件帳戶 (gmail.com) 登入。如果您沒有 Google 帳戶，請選取 [**建立帳戶**] 連結。  
 	接下來，您會看到 [**Google 開發人員主控台**]。
 	![Google 開發人員主控台](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21a.png)  
@@ -449,74 +449,75 @@ ASP.NET Web Forms 提供成員資格和驗證的增強功能選項。這些增�
 	此 URL 會是應用程式的原始來源。在此範例中，您將僅輸入 localhost 測試 URL。不過，您可以在帳戶中輸入多個 URL 以供 localhost 和生產使用。  
 
 9. 將 [Authorized Redirect URI] 設定如下：
-	<pre class="prettyprint">  
-	https://localhost:44300/signin-google  
-	</pre>  
-	此值是 ASP.NET OAuth 使用者與 Google OAuth 伺服器進行通訊的 URI。請記住您在上面使用的 SSL URL (**https://localhost:44300/**，除非您已建立其他 SSL 專案)。  
+
+		https://localhost:44300/signin-google  
+
+	此值是 ASP.NET OAuth 使用者與 Google OAuth 伺服器進行通訊的 URI。請記住您在上面使用的 SSL URL (****https://localhost:44300/**，除非您已建立其他 SSL 專案)。
+ 
 10. 按一下 [Create Client ID] 按鈕。
 11. 在 Visual Studio 中，將 [AppId] 和 [應用程式機密] 複製並貼入 `UseGoogleAuthentication` 方法，以便更新位於 *Startup.Auth.cs* 頁面的此方法。以下所示的 [AppId] 和 [應用程式機密] 值僅作為範例，所以不會有作用。  
-	<pre class="prettyprint">  
-	using System;
-	using Microsoft.AspNet.Identity;
-	using Microsoft.AspNet.Identity.EntityFramework;
-	using Microsoft.AspNet.Identity.Owin;
-	using Microsoft.Owin;
-	using Microsoft.Owin.Security.Cookies;
-	using Microsoft.Owin.Security.DataProtection;
-	using Microsoft.Owin.Security.Google;
-	using Owin;
-	using ContactManager.Models;
-	
-	namespace ContactManager
-	{
-	    public partial class Startup {
 
+		using System;
+		using Microsoft.AspNet.Identity;
+		using Microsoft.AspNet.Identity.EntityFramework;
+		using Microsoft.AspNet.Identity.Owin;
+		using Microsoft.Owin;
+		using Microsoft.Owin.Security.Cookies;
+		using Microsoft.Owin.Security.DataProtection;
+		using Microsoft.Owin.Security.Google;
+		using Owin;
+		using ContactManager.Models;
+		
+		namespace ContactManager
+		{
+		    public partial class Startup {
+		
 	        // 如需設定驗證的詳細資訊，請瀏覽 http://go.microsoft.com/fwlink/?LinkId=301883
-	        public void ConfigureAuth(IAppBuilder app)
-	        {
+		        public void ConfigureAuth(IAppBuilder app)
+		        {
 	            // 設定資料庫內容和使用者管理員，以針對各要求使用單一執行個體
-	            app.CreatePerOwinContext(ApplicationDbContext.Create);
-	            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
-
+		            app.CreatePerOwinContext(ApplicationDbContext.Create);
+		            app.CreatePerOwinContext(ApplicationUserManager.Create);
+		
 	            // 讓應用程式使用 Cookie 儲存已登入使用者的資訊
 	            // 並使用 Cookie 暫時儲存以協力廠商登入提供者登入之使用者的相關資訊
 	            // 設定登入 Cookie
-	            app.UseCookieAuthentication(new CookieAuthenticationOptions
-	            {
-	                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-	                LoginPath = new PathString("/Account/Login"),
-	                Provider = new CookieAuthenticationProvider
-	                {
-	                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity&lt;ApplicationUserManager, ApplicationUser>(
-	                        validateInterval: TimeSpan.FromMinutes(20),
-	                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
-	                }
-	            });
+		            app.UseCookieAuthentication(new CookieAuthenticationOptions
+		            {
+		                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+		                LoginPath = new PathString("/Account/Login"),
+		                Provider = new CookieAuthenticationProvider
+		                {
+		                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity(
+		                        validateInterval: TimeSpan.FromMinutes(20),
+		                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
+		                }
+		            });
 	            // 使用 Cookie 暫時儲存以協力廠商登入提供者登入之使用者的相關資訊
-	            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
-
+		            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+		
 	            // 取消下列幾行註解，以啟用使用協力廠商登入提供者登入
-	            //app.UseMicrosoftAccountAuthentication(
-	            //    clientId: "",
-            //    clientSecret: "");
+		            //app.UseMicrosoftAccountAuthentication(
+		            //    clientId: "",
+		            //    clientSecret: "");
+		
+		            //app.UseTwitterAuthentication(
+		            //   consumerKey: "",
+		            //   consumerSecret: "");
+		
+		            //app.UseFacebookAuthentication(
+		            //   appId: "",
+		            //   appSecret: "");
+		
+		            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+		            {
+		                ClientId = "000000000000.apps.googleusercontent.com",
+		                ClientSecret = "00000000000"
+		            });
+		        }
+		    }
+		}
 
-	            //app.UseTwitterAuthentication(
-	            //   consumerKey: "",
-	            //   consumerSecret: "");
-
-	            //app.UseFacebookAuthentication(
-	            //   appId: "",
-	            //   appSecret: "");
-
-	            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-	            {
-	                ClientId = "000000000000.apps.googleusercontent.com",
-	                ClientSecret = "00000000000"
-	            });
-	        }
-	    }
-	}
-	</pre>
 12. 按 **CTRL+F5** 以建置並執行應用程式。按一下 [登入] 連結。
 13. 在 [**使用其他伺服器登入**] 下，按一下 [**Google**]。  
 	![登入](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21d.png)  
@@ -538,54 +539,54 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
 
 1. 在 [方案總管] 中，開啟 *Migrations* 資料夾中的 *Configuration.cs* 檔案。
 2. 在 `ContactManger.Migrations` 命名空間中新增以下 `using` 陳述式：  
-	<pre class="prettyprint">
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-</pre>
-3. 將下列 `AddUserAndRole` 方法新增至 `Seed` 方法之後的 `Configuration` 類別：  
-	<pre class="prettyprint">
-    public void AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
-    {
-        IdentityResult IdRoleResult;
-        IdentityResult IdUserResult;
 
-        var roleStore = new RoleStore&lt;IdentityRole>(context);
-        var roleMgr = new RoleManager&lt;IdentityRole>(roleStore);
+		using Microsoft.AspNet.Identity;
+		using Microsoft.AspNet.Identity.EntityFramework;
 
-        if (!roleMgr.RoleExists("canEdit"))
-        {
-            IdRoleResult = roleMgr.Create(new IdentityRole { Name = "canEdit" });
-        }
+3. 將下列 `AddUserAndRole` 方法新增至 `Seed` 方法之後的 `Configuration` 類別：
 
-        //var userStore = new UserStore&lt;ApplicationUser>(context);
-        //var userMgr = new UserManager&lt;ApplicationUser>(userStore);
-        var userMgr = new UserManager&lt;ApplicationUser>(new UserStore&lt;ApplicationUser>(context));
+		public void AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
+		{
+		    IdentityResult IdRoleResult;
+		    IdentityResult IdUserResult;
+		
+		    var roleStore = new RoleStore<IdentityRole>(context);
+		    var roleMgr = new RoleManager<IdentityRole>(roleStore);
+		
+		    if (!roleMgr.RoleExists("canEdit"))
+		    {
+		        IdRoleResult = roleMgr.Create(new IdentityRole { Name = "canEdit" });
+		    }
+		
+		    //var userStore = new UserStore<ApplicationUser>(context);
+		    //var userMgr = new UserManager<ApplicationUser>(userStore);
+		    var userMgr = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+		
+		    var appUser = new ApplicationUser
+		    {
+		        UserName = "canEditUser@wideworldimporters.com",
+		        Email = "canEditUser@wideworldimporters.com"
+		    };
+		    IdUserResult = userMgr.Create(appUser, "Pa$$word1");
+		
+		    if (!userMgr.IsInRole(userMgr.FindByEmail("canEditUser@wideworldimporters.com").Id, "canEdit"))
+		    {
+		      //  IdUserResult = userMgr.AddToRole(appUser.Id, "canEdit");
+		        IdUserResult = userMgr.AddToRole(userMgr.FindByEmail("canEditUser@wideworldimporters.com").Id, "canEdit");
+		    }
+		}
 
-        var appUser = new ApplicationUser
-        {
-            UserName = "canEditUser@wideworldimporters.com",
-            Email = "canEditUser@wideworldimporters.com"
-        };
-        IdUserResult = userMgr.Create(appUser, "Pa$$word1");
+4. 從 `Seed` 方法開頭新增呼叫至 `AddUserAndRole` 方法。請注意，這裡只顯示 `Seed` 的開頭。
 
-        if (!userMgr.IsInRole(userMgr.FindByEmail("canEditUser@wideworldimporters.com").Id, "canEdit"))
-        {
-          //  IdUserResult = userMgr.AddToRole(appUser.Id, "canEdit");
-            IdUserResult = userMgr.AddToRole(userMgr.FindByEmail("canEditUser@wideworldimporters.com").Id, "canEdit");
-        }
-    }
-</pre>
-4. 從 `Seed` 方法開頭新增呼叫至 `AddUserAndRole` 方法。請注意，這裡只顯示 `Seed` 的開頭。  
-	<pre class="prettyprint">
-    protected override void Seed(ContactManager.Models.ApplicationDbContext context)
-    {
-        AddUserAndRole(context);
-</pre>
-5. 儲存所有變更後，請在 [Package Manager Console] 中執行下列命令：  
-	<pre class="prettyprint">
-	Update-Database
-	</pre>
-	此程式碼會建立名為 `canEdit` 的新角色，並建立電子郵件為 canEditUser@wideworldimporters.com 的新本機使用者。然後，此程式碼則會將 canEditUser@wideworldimporters.com 新增至 `canEdit` 角色。如需詳細資訊，請參閱 [ASP.NET 身分識別](http://www.asp.net/identity)資源頁面 (英文)。
+		protected override void Seed(ContactManager.Models.ApplicationDbContext context)
+		{
+		    AddUserAndRole(context);
+
+5. 儲存所有變更後，請在 [Package Manager Console] 中執行下列命令：
+
+		Update-Database
+
+此程式碼會建立名為 `canEdit` 的新角色，並建立電子郵件為 canEditUser@wideworldimporters.com 的新本機使用者。然後，此程式碼則會將 canEditUser@wideworldimporters.com 新增至 `canEdit` 角色。如需詳細資訊，請參閱 [ASP.NET 身分識別](http://www.asp.net/identity)資源頁面 (英文)。
 
 ###限制對管理資料夾的存取 
 [ContactManager] 範例應用程式允許匿名使用者和登入使用者檢視連絡人。不過，完成此區段之後，指派給 "canEdit" 角色的已登入使用者將會是唯一能夠修改連絡人的使用者。
@@ -598,73 +599,73 @@ using Microsoft.AspNet.Identity.EntityFramework;
 	- *Edit.aspx *和* Edit.aspx.cs*
 	- *Insert.aspx *和* Insert.aspx.cs*
 3. 更新 *Contacts/Default.aspx* 中的連結參考，方法是在連結 *Insert.aspx*、*Edit.aspx* 和 *Delete.aspx* 的頁面參考前面加上 "Admin/"，如下所示：  
-	<pre class="prettyprint">
-	&lt;%@ Page Title=&quot;ContactsList&quot; Language=&quot;C#&quot; MasterPageFile=&quot;~/Site.Master&quot; CodeBehind=&quot;Default.aspx.cs&quot; Inherits=&quot;ContactManager.Contacts.Default&quot; ViewStateMode=&quot;Disabled&quot; %&gt;
-	&lt;%@ Register TagPrefix=&quot;FriendlyUrls&quot; Namespace=&quot;Microsoft.AspNet.FriendlyUrls&quot; %&gt;
-	
-	&lt;asp:Content runat=&quot;server&quot; ContentPlaceHolderID=&quot;MainContent&quot;&gt;
-	    &lt;h2&gt;Contacts List&lt;/h2&gt;
-	    &lt;p&gt;
-	        &lt;asp:HyperLink runat=&quot;server&quot; NavigateUrl=&quot;<mark>Admin/</mark>Insert.aspx&quot; Text=&quot;Create new&quot; /&gt;
-	    &lt;/p&gt;
-	    &lt;div&gt;
-	        &lt;asp:ListView runat=&quot;server&quot;
-	            DataKeyNames=&quot;ContactId&quot; ItemType=&quot;ContactManager.Models.Contacts&quot;
-	            AutoGenerateColumns=&quot;false&quot;
-	            AllowPaging=&quot;true&quot; AllowSorting=&quot;true&quot;
-	            SelectMethod=&quot;GetData&quot;&gt;
-	            &lt;EmptyDataTemplate&gt;
-	                There are no entries found for Contacts
-	            &lt;/EmptyDataTemplate&gt;
-	            &lt;LayoutTemplate&gt;
-	                &lt;table class=&quot;table&quot;&gt;
-	                    &lt;thead&gt;
-	                        &lt;tr&gt;
-	                            &lt;th&gt;Name&lt;/th&gt;
-	                            &lt;th&gt;Address&lt;/th&gt;
-	                            &lt;th&gt;City&lt;/th&gt;
-	                            &lt;th&gt;State&lt;/th&gt;
-	                            &lt;th&gt;Zip&lt;/th&gt;
-	                            &lt;th&gt;Email&lt;/th&gt;
-	                            &lt;th&gt;&amp;nbsp;&lt;/th&gt;
-	                        &lt;/tr&gt;
-	                    &lt;/thead&gt;
-	                    &lt;tbody&gt;
-	                        &lt;tr runat=&quot;server&quot; id=&quot;itemPlaceholder&quot; /&gt;
-	                    &lt;/tbody&gt;
-	                &lt;/table&gt;
-	            &lt;/LayoutTemplate&gt;
-	            &lt;ItemTemplate&gt;
-	                &lt;tr&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Name&quot; ID=&quot;Name&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Address&quot; ID=&quot;Address&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;City&quot; ID=&quot;City&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;State&quot; ID=&quot;State&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Zip&quot; ID=&quot;Zip&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Email&quot; ID=&quot;Email&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;a href=&quot;<mark>Admin/</mark>Edit.aspx?ContactId=&lt;%#: Item.ContactId%&gt;&quot;&gt;Edit&lt;/a&gt; | 
-	                        &lt;a href=&quot;<mark>Admin/</mark>Delete.aspx?ContactId=&lt;%#: Item.ContactId%&gt;&quot;&gt;Delete&lt;/a&gt;
-	                    &lt;/td&gt;
-	                &lt;/tr&gt;
-	            &lt;/ItemTemplate&gt;
-	        &lt;/asp:ListView&gt;
-	    &lt;/div&gt;
-	&lt;/asp:Content&gt;
-	</pre>
-4. 在下列三個檔案中，將 `Response.Redirect("Default.aspx")` 程式碼的六個參考更新到 `Response.Redirect("~/Contacts/Default.aspx")`：  
+
+		<%@ Page Title="ContactsList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="ContactManager.Contacts.Default" ViewStateMode="Disabled" %>
+		<%@ Register TagPrefix="FriendlyUrls" Namespace="Microsoft.AspNet.FriendlyUrls" %>
+		
+		<asp:Content runat="server" ContentPlaceHolderID="MainContent">
+		    <h2>Contacts List</h2>
+		    <p>
+		        <asp:HyperLink runat="server" NavigateUrl="Admin/Insert.aspx" Text="Create new" />
+		    </p>
+		    <div>
+		        <asp:ListView runat="server"
+		            DataKeyNames="ContactId" ItemType="ContactManager.Models.Contacts"
+		            AutoGenerateColumns="false"
+		            AllowPaging="true" AllowSorting="true"
+		            SelectMethod="GetData">
+		            <EmptyDataTemplate>
+		                There are no entries found for Contacts
+		            </EmptyDataTemplate>
+		            <LayoutTemplate>
+		                <table class="table">
+		                    <thead>
+		                        <tr>
+		                            <th>Name</th>
+		                            <th>Address</th>
+		                            <th>City</th>
+		                            <th>State</th>
+		                            <th>Zip</th>
+		                            <th>Email</th>
+		                            <th>&nbsp;</th>
+		                        </tr>
+		                    </thead>
+		                    <tbody>
+		                        <tr runat="server" id="itemPlaceholder" />
+		                    </tbody>
+		                </table>
+		            </LayoutTemplate>
+		            <ItemTemplate>
+		                <tr>
+		                    <td>
+		                        <asp:DynamicControl runat="server" DataField="Name" ID="Name" Mode="ReadOnly" />
+		                    </td>
+		                    <td>
+		                        <asp:DynamicControl runat="server" DataField="Address" ID="Address" Mode="ReadOnly" />
+		                    </td>
+		                    <td>
+		                        <asp:DynamicControl runat="server" DataField="City" ID="City" Mode="ReadOnly" />
+		                    </td>
+		                    <td>
+		                        <asp:DynamicControl runat="server" DataField="State" ID="State" Mode="ReadOnly" />
+		                    </td>
+		                    <td>
+		                        <asp:DynamicControl runat="server" DataField="Zip" ID="Zip" Mode="ReadOnly" />
+		                    </td>
+		                    <td>
+		                        <asp:DynamicControl runat="server" DataField="Email" ID="Email" Mode="ReadOnly" />
+		                    </td>
+		                    <td>
+		                        <a href="Admin/Edit.aspx?ContactId=<%#: Item.ContactId%>">Edit</a> | 
+		                        <a href="Admin/Delete.aspx?ContactId=<%#: Item.ContactId%>">Delete</a>
+		                    </td>
+		                </tr>
+		            </ItemTemplate>
+		        </asp:ListView>
+		    </div>
+		</asp:Content>
+
+4. 在下列三個檔案中，將 `Response.Redirect("Default.aspx")` 程式碼的六個參考更新到 `Response.Redirect("~/Contacts/Default.aspx")`：
 	- *Delete.aspx.cs*
 	- *Edit.aspx.cs*
 	- *Insert.aspx.cs*  
@@ -673,18 +674,18 @@ using Microsoft.AspNet.Identity.EntityFramework;
 5. 若要限制對 *Admin* 資料夾的存取，請在 [方案總管] 中以滑鼠右鍵按一下 *Admin* 資料夾，並選取 [新增項目]。
 6. 從 Visual C# Web 範本清單中，選取中間清單中的 [Web 組態檔]，接受預設名稱為 *Web.config*，然後選取 [新增]。
 7. 使用下列內容來取代 *Web.config* 檔案中的現有 XML 內容：
-	<pre class="prettyprint">
-&lt;?xml version="1.0"?>
-&lt;configuration>
-  &lt;system.web>
-    &lt;authorization>
-      &lt;allow roles="canEdit"/>
-      &lt;deny users="*"/>
-    &lt;/authorization>
-  &lt;/system.web>
-&lt;/configuration>
-</pre>
-8. 儲存 *Web.config* 檔案。*Web.config* 檔案指定只有指派給「canEdit」角色的使用者可以存取 *Admin* 資料夾中所包含的頁面。 
+
+		<?xml version="1.0"?>
+		<configuration>
+		  <system.web>
+		    <authorization>
+		      <allow roles="canEdit"/>
+		      <deny users="*"/>
+		    </authorization>
+		  </system.web>
+		</configuration>
+
+8. 儲存 *Web.config* 檔案。*Web.config* 檔案指定只有指派給「canEdit」角色的使用者可以存取 *Admin* 資料夾中所包含的頁面。
 
 當不屬於 "canEdit" 角色的使用者嘗試修改資料時，他們會被重新導向至 *Log in* 頁面。
 
@@ -790,4 +791,4 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

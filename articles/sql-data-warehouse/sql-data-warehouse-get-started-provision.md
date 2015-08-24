@@ -153,7 +153,10 @@ Azure 入口網站的左下角有一個 [新增] 按鈕。[新增] 按鈕是在 
 
 現已成功佈建 SQLDW 服務，我們可以繼續了解其使用方式。
 
-因此，後續步驟是了解如何：1.[連接和查詢][]資料倉儲。2.載入[範例資料]。
+因此，後續步驟是了解如何：
+
+1. [連接和查詢][]資料倉儲。
+2. 載入[範例資料]。
 
 <!--Image references-->
 
@@ -166,4 +169,4 @@ Azure 入口網站的左下角有一個 [新增] 按鈕。[新增] 按鈕是在 
 [免費試用]: https://azure.microsoft.com/zh-tw/pricing/free-trial/
 [Azure 入口網站]: https://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

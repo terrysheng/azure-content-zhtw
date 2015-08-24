@@ -1,17 +1,19 @@
-In this step, you create a firewall rule to open the probe port for the load-balanced endpoint (59999 as specified earlier), and another rule to open the availability group listener port. Since you created the load-balanced endpoint on the Azure VMs that contain availability group replicas, you need to open the probe port and the listener port on the respective Azure VMs.
+在此步驟中，您會建立防火牆規則來開啟負載平衡端點用的探查連接埠 (59999，如先前所指定)，以及建立另一個規則來開啟可用性群組接聽程式連接埠。由於您在包含可用性群組複本的 Azure VM 上建立了負載平衡的端點，您必須在個別 Azure VM 上開啟探查連接埠和接聽程式連接埠。
 
-1. On VMs hosting replicas, launch **Windows Firewall with Advanced Security**.
+1. 在 VM 裝載複本上，啟動 [具有進階安全性的 Windows 防火牆]。
 
-1. Right-click **Inbound Rules** and click **New Rule**.
+1. 按一下 [輸入規則]，然後按一下 [新增規則]。
 
-1. In the **Rule Type** page, select **Port**, then click **Next**.
+1. 在 [規則類型] 頁面中，選取 [連接埠]，然後按一下 [下一步]。
 
-1. In the **Protocol and Ports** page, select **TCP** and type **59999** in the **Specific local ports** box. Then, click **Next**.
+1. 在 [通訊協定與連接埠] 頁面上，選取 [TCP]，然後在 [特定本機連接埠] 方塊中輸入 [59999]。然後按 [下一步]。
 
-1. In the **Action** page, keep **Allow the connection** selected and click **Next**.
+1. 在 [動作] 頁面中，保留選取 [允許連線]，然後按一下 [下一步]。
 
-1. In the **Profile** page, accept the default settings and click **Next**.
+1. 在 [設定檔] 頁面中，接受預設設定，然後按一下 [下一步]。
 
-1. In the **Name** page, specify a rule name, such as **AlwaysOn Listener Probe Port** in the **Name** text box, and click **Finish**.
+1. 在 [名稱]頁面中，指定規則名稱，例如在 [名稱] 文字方塊中指定 [AlwaysOn 接聽程式探查連接埠]，然後按一下 [完成]。
 
-1. Repeat the above steps for the availability group listener port (as specified earlier in the $EndpointPort parameter of the script) and specify an appropriate rule name, such as **AlwaysOn Listener Port**.
+1. 針對可用性群組接聽程式通訊埠 (如稍早在指令碼的 $EndpointPort 參數中指定) 重複上述步驟，並指定適當的規則名稱，例如 [AlwaysOn 接聽程式通訊埠]。
+
+<!---HONumber=August15_HO7-->

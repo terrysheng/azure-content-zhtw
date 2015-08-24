@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="使用 Azure SQL Database Library for .NET 建立和管理 SQL Database" 
-   description="本文將說明如何使用 Azure SQL Database Library for .NET 建立和管理 Azure SQL Database。" 
+   pageTitle="使用 C# 建立和管理 Azure SQL Database" 
+   description="本文將說明如何使用 Azure SQL Database Library for .NET 以 C# 建立和管理 Azure SQL Database。" 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,25 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="08/04/2015"
+   ms.date="08/07/2015"
    ms.author="sstein"/>
 
-# 使用 Azure SQL Database Library for .NET 建立和管理 SQL Database
+# 使用 C&\#x23; 建立和管理 SQL Database
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
+- [Azure Preview Portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
 ## 概觀
 
-本文提供命令，使用 C# 執行許多 Azure SQL Database 管理工作。為了清楚起見，將個別程式碼片段分別列出，範例主控台應用程式會將所有命令整合在本文底端的區段中。
+本文提供命令，使用 [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)，以 C# 執行許多 Azure SQL Database 管理工作。
 
-Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-group-overview.md)式 API，它會包裝[資源管理員式 SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)。此用戶端程式庫遵循資源管理員式用戶端程式庫的常見模式。
+為了清楚起見，將個別程式碼片段分別列出，範例主控台應用程式會將所有命令整合在本文底端的區段中。
 
-
-資源管理員需要資源群組，並且使用 [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD) 進行驗證。
+Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-group-overview.md)式 API，它會包裝[資源管理員式 SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)。此用戶端程式庫遵循資源管理員式用戶端程式庫的常見模式。資源管理員需要資源群組，並且使用 [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD) 進行驗證。
 
 <br>
 
@@ -39,7 +38,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 
 <br>
 
-如果您沒有 Azure 訂用帳戶，可以先按一下此頁面頂端的 [**免費試用**]，然後再回來這篇文章。如需 Visual Studio 的免費複本，請參閱[Visual Studio 下載](https://www.visualstudio.com/downloads/download-visual-studio-vs)頁面。
+如果您沒有 Azure 訂用帳戶，可以先按一下此頁面頂端的 [免費試用]，然後再回來這篇文章。如需 Visual Studio 的免費複本，請參閱 [Visual Studio 下載](https://www.visualstudio.com/downloads/download-visual-studio-vs)頁面。
 
 ## 安裝必要的程式庫
 
@@ -68,17 +67,17 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 
     ![目錄][4]
 
-3. 在目錄頁面上，按一下 [**應用程式**]。
+3. 在目錄頁面上，按一下 [應用程式]。
 
     ![[應用程式]][5]
 
-4. 按一下 [**新增**] 以新增新的應用程式。
+4. 按一下 [新增] 以新增新的應用程式。
 
     ![新增應用程式][6]
 
-5. 選取 [**新增組織正在開發的應用程式**]。
+5. 選取 [新增組織正在開發的應用程式]。
 
-5. 提供應用程式的 [**名稱**]，然後選取 [**原生用戶端應用程式**]。
+5. 提供應用程式的 [名稱]，然後選取 [原生用戶端應用程式]。
 
     ![新增應用程式][7]
 
@@ -86,15 +85,15 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 
     ![新增應用程式][8]
 
-7. 完成建立應用程式，按一下 [**設定**]，然後複製 [**用戶端識別碼**] (您在程式碼中需要用戶端識別碼)。
+7. 完成建立應用程式，按一下 [設定]，然後複製 [用戶端識別碼] (您在程式碼中需要用戶端識別碼)。
 
     ![取得用戶端識別碼][9]
 
 
-1. 在頁面底部按一下 [**新增應用程式**]。
-1. 選取 [**Microsoft 應用程式**]。
-1. 選取 [**Azure 服務管理 API**]，然後完成精靈。
-2. 選取 API 之後，您現在必須授與必要的存取權以存取此 API，方法是選取 [**存取 Azure 服務管理 (預覽)**]。
+1. 在頁面底部按一下 [新增應用程式]。
+1. 選取 [Microsoft 應用程式]。
+1. 選取 [Azure 服務管理 API]，然後完成精靈。
+2. 選取 API 之後，您現在必須授與必要的存取權以存取此 API，方法是選取 [存取 Azure 服務管理 (預覽)]。
 
     ![權限][2]
 
@@ -795,4 +794,4 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

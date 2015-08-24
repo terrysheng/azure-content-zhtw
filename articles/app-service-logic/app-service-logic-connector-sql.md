@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="06/30/2015"
+   ms.date="08/09/2015"
    ms.author="sameerch"/>
 
 
@@ -41,7 +41,7 @@ SQL 連接器提供下列觸發程序和動作：
 連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
 1. 在 Azure 開始面板中，選取 [**Marketplace**]。
-2. 選取 [**API Apps**]，並搜尋「SQL 連接器」。
+2. 搜尋「SQL 連接器」，將其選取，然後選取 [**建立**]。
 3. 輸入名稱、App Service 方案和其他屬性。
 4. 輸入下列封裝設定：
 
@@ -59,7 +59,10 @@ SQL 連接器提供下列觸發程序和動作：
 預存程序 | 否 | 輸入可供連接器呼叫的現有預存程序。例如，輸入 *sp\_IsEmployeeEligible* 或 *sp\_CalculateOrderDiscount*。需要有效的資料表和/或預存程序，才能使用此連接器做為動作。
 資料可用查詢 | 觸發程序支援 | 判斷是否有任何資料可供輪詢 SQL Server 資料庫資料表的 SQL 陳述式。這應該會傳回數值，代表可用的資料的資料列數目。範例：SELECT COUNT(*) from table\_name。輪詢資料查詢 | 觸發程序支援 | SQL Server 資料庫資料表的 SQL 陳述式。您可以輸入任意數目的 SQL 陳述式，以分號隔開。此陳述式以交易式方式執行，而且只有在資料安全地儲存在邏輯應用程式中時才會認可。範例：SELECT * FROM table\_name; DELETE FROM table\_name。<br/><br/>**注意**<br/>您必須提供輪詢陳述式，避免因為刪除、移動或更新選取的資料而造成無限迴圈，以確保不會重複輪詢相同的資料。
 
-5. 完成時，[封裝設定] 看起來如下：<br/> ![][1]
+5. 完成時，[封裝設定] 看起來如下：![][1]
+
+6. 選取 [**建立**]。
+
 
 ## 使用連接器做為觸發程序
 讓我們以一個簡單的邏輯應用程式為例，它會輪詢 SQL 資料表的資料、在另一個資料表中加入資料，以及更新資料。
@@ -84,24 +87,24 @@ SQL 連接器提供下列觸發程序和動作：
 		(SELECT Id FROM [Order] WHERE OrderStatus = 'ProcessedForCollection' ORDER BY Id DESC)
 
 ### 加入觸發程序
-1. 建立或編輯邏輯應用程式時，請選取您建立的連接器做為觸發程序。這樣會列出可用的觸發程序：**輪詢資料 (JSON)** 和**輪詢資料 (XML)**：<br/> ![][5]
+1. 建立或編輯邏輯應用程式時，請選取您建立的連接器做為觸發程序。這樣會列出可用的觸發程序：**輪詢資料 (JSON)** 和**輪詢資料 (XML)**：![][5]
 
-2. 選取 [**輪詢資料 (JSON)**] 觸發程序，輸入頻率，然後按一下 ✓：<br/> ![][6]
+2. 選取 [**輪詢資料 (JSON)**] 觸發程序，輸入頻率，然後按一下 ✓：![][6]
 
-3. 現在，觸發程序在邏輯應用程式中顯示為已設定。其中顯示觸發程序的輸出，在任何後續動作中可做為輸入：<br/> ![][7]
+3. 現在，觸發程序在邏輯應用程式中顯示為已設定。其中顯示觸發程序的輸出，在任何後續動作中可做為輸入：![][7]
 
 ## 使用連接器做為動作
 以我們簡單的邏輯應用程式案例為例，它會輪詢 SQL 資料表的資料、在另一個資料表中加入資料，以及更新資料。
 
 若要使用 SQL 連接器做為動作，請輸入您建立 SQL 連接器時所輸入的資料表及/或預存程序的名稱：
 
-1. 在觸發程序之後 (或選擇 [手動執行此邏輯])，從資源庫加入您建立的 SQL 連接器。選取其中一個「插入」動作，例如*插入到 TempEmployeeDetails (JSON)*：<br/> ![][8]
+1. 在觸發程序之後 (或選擇 [手動執行此邏輯])，從資源庫加入您建立的 SQL 連接器。選取其中一個「插入」動作，例如*插入到 TempEmployeeDetails (JSON)*：![][8]
 
-2. 輸入要插入的記錄的輸入值，然後按一下 ✓：<br/> ![][9]
+2. 輸入要插入的記錄的輸入值，然後按一下 ✓：![][9]
 
-3. 從資源庫選取您建立的同一個 SQL 連接器。在相同資料表上選取「更新」動作當做動作，例如 *Update EmployeeDetails*：<br/> ![][11]
+3. 從資源庫選取您建立的同一個 SQL 連接器。在相同資料表上選取「更新」動作當做動作，例如 *Update EmployeeDetails*：![][11]
 
-4. 輸入更新動作的輸入值，然後按一下 ✓：<br/> ![][12]
+4. 輸入更新動作的輸入值，然後按一下 ✓：![][12]
 
 您可以在所輪詢的資料表中加入新記錄，以測試邏輯應用程式。
 
@@ -127,11 +130,11 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
 
-使用 REST API 建立 API 應用程式。請參閱〈[連接器和 API 應用程式參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)〉。
+使用 REST API 建立 API Apps。請參閱〈[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)〉。
 
-您也可以檢閱連接器的效能統計資料及控制安全性。請參閱〈[管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)〉。
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱〈[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)〉。
 
 
 <!--Image references-->
@@ -145,4 +148,4 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

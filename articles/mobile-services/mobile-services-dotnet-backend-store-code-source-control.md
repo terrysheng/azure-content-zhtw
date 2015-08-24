@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在原始檔控制中儲存專案程式碼 - Azure 行動服務" 
+	pageTitle="在原始檔控制中儲存專案程式碼 | Microsoft Azure" 
 	description="了解如何儲存您的 .NET 後端專案，並從您的電腦上的本機 Git 儲存機制發佈。" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -103,4 +103,4 @@
 [如何對 .NET 後端行動服務進行資料模型變更]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

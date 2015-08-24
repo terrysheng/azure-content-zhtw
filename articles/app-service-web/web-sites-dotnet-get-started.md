@@ -56,8 +56,6 @@
 
 ![建立](./media/web-sites-dotnet-get-started/Create_App.png)
 
-![部署](./media/web-sites-dotnet-get-started/Deploy_App.png)
-
 1. 開啟 Visual Studio 2015 或 Visual Studio 2013。 
 
 	如果您使用 Visual Studio 2013，畫面會與螢幕擷取畫面稍有不同，但程序基本上都相同。

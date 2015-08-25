@@ -49,7 +49,7 @@
 	-	它會在未經處理的資料上方新增抽象層，讓資料架構設計人員發展其應用程式，而不會動到資料。這在資料無結構描述時特別有用，因為暫時的假設是，如果它們需要直接處理資料，則可能需要編譯成應用程式。  
 	-	這個抽象層讓企業得以透過指令碼簡化存取來確保資料安全。  
 
-[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 以及許多平台 (包括 .NET、Node.js 和 JavaScript) 中的[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 都支援建立和執行觸發程序、預存程序和自訂查詢運算子。**本教學課程使用 [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)** 說明預存程序、觸發程序和 UDF 的語法和用法。
+[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 以及許多平台 (包括 .NET、Node.js 和 JavaScript) 中的[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 都支援建立和執行觸發程序、預存程序和自訂查詢運算子。**本教學課程使用** **[Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)** 說明預存程序、觸發程序和 UDF 的語法和用法。
 
 ## 預存程序
 
@@ -641,4 +641,4 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 -	[服務導向資料庫架構](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[在 Microsoft SQL Server 中託管 .NET 執行階段](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

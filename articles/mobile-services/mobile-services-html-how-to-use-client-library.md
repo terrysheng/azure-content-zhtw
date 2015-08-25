@@ -564,7 +564,7 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 
 ##<a name="hostnames"></a>作法：使用跨原始資源共用
 
-若要控制允許哪些網站與您的行動服務互動，以及傳送要求至您的行動服務，請務必將您用來代管行動服務的網站主機名稱，加入跨原始資源共用 (Cross-Origin Resource Sharing，CORS) 白名單。如果是 JavaScript 後端行動服務，您可以在 [Azure 管理入口網站](https://manage.windowsazure.com)中的 [設定] 索引標籤上設定允許清單。需要的話可使用萬用字元。依預設，新的行動服務會指示瀏覽器只允許來自 `localhost` 的存取，而跨原始資源共用 (CORS) 可讓在外部主機名稱的瀏覽器中執行的 JavaScript 程式碼與您的行動服務互動。WinJS 應用程式不需要此組態。
+若要控制允許哪些網站與您的行動服務互動，以及傳送要求至您的行動服務，請務必將您用來代管行動服務的網站主機名稱，加入跨原始資源共用 (Cross-Origin Resource Sharing，CORS) 核准清單。如果是 JavaScript 後端行動服務，您可以在 [Azure 管理入口網站](https://manage.windowsazure.com)中的 [設定] 索引標籤上設定允許清單。需要的話可使用萬用字元。依預設，新的行動服務會指示瀏覽器只允許來自 `localhost` 的存取，而跨原始資源共用 (CORS) 可讓在外部主機名稱的瀏覽器中執行的 JavaScript 程式碼與您的行動服務互動。WinJS 應用程式不需要此組態。
 
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is

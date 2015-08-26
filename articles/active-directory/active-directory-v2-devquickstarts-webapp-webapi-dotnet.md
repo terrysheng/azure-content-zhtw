@@ -18,7 +18,8 @@
 
 # 應用程式模型 v2.0 預覽：從 .NET Web 應用程式呼叫 Web API
 
-> [AZURE.NOTE]此資訊適用於 v2.0 端點公開預覽版本。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
+> [AZURE.NOTE]
+	此資訊適用於 v2.0 端點公開預覽版本。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
 
 有了 v2.0 應用程式模型，您就可以快速地將驗證加入 Web 應用程式和 Web API，同時支援個人 Microsoft 帳戶以及工作或學校帳戶。我們將在此建置可執行下列作業的 MVC Web 應用程式：
 
@@ -45,7 +46,7 @@ Alternatively, you can [download the completed app as a .zip](https://github.com
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1\.註冊應用程式
+## 1.註冊應用程式
 在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 建立新的應用程式，或遵循下列[詳細步驟](active-directory-v2-app-registration.md)。請確定：
 
 - 請複製指派給應用程式的**應用程式 ID**，您很快就會需要它。
@@ -54,7 +55,7 @@ Alternatively, you can [download the completed app as a .zip](https://github.com
 - 請輸入正確的**重新導向 URI**。重新導向 URI 會向 Azure AD 表示驗證回應應導向的位置，本教學課程的預設為 `https://localhost:44326/`。
 
 
-## 2\.使用 OpenID Connect 登入使用者
+## 2.使用 OpenID Connect 登入使用者
 我們將在此設定 OWIN 中介軟體，以使用 [OpenID Connect 驗證通訊協定](active-directory-v2-protocols.md#openid-connect-sign-in-flow)。OWIN 將用來發出登入和登出要求、管理使用者的工作階段，以及取得使用者相關資訊等其他作業。
 
 -	若要開始，請開啟 `TodoList-WebApp` 專案根目錄中的 `web.config` 檔案，並在 `<appSettings>` 區段中輸入應用程式的組態值。
@@ -113,7 +114,7 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## 3\.使用 ADAL 於使用者登入時取得存取權杖
+## 3.使用 ADAL 於使用者登入時取得存取權杖
 在 `AuthorizationCodeReceived` 通知中，我們想要使用[與 OpenID Connect 串聯的 OAuth 2.0](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow)，以兌換待辦事項清單服務之存取權杖的 authorization\_code。ADAL 可為您簡化這個程序：
 
 - 首先，安裝 ADAL 預覽版本：
@@ -123,19 +124,26 @@ public void ConfigureAuth(IAppBuilder app)
 - Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use ADAL to acquire an access token to the To-Do List API, and will store the token in ADAL's token cache for later:
 
 ```C#
-private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification) { string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value; string tenantID = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value; string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenantID, string.Empty); ClientCredential cred = new ClientCredential(clientId, clientSecret);
+private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
+{
+		string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
+		string tenantID = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
+		string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenantID, string.Empty);
+		ClientCredential cred = new ClientCredential(clientId, clientSecret);
 
 		// Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
 		var authContext = new Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext(authority, new NaiveSessionCache(userObjectId));
 		var authResult = await authContext.AcquireTokenByAuthorizationCodeAsync(notification.Code, new Uri(redirectUri), cred, new string[] { clientId });
-} ... ```
+}
+...
+```
 
 - 在 Web Apps 中，ADAL 具有可延伸的權杖快取，可以用來儲存權杖。這個範例會實作使用 http 工作階段存放區來快取權杖的 `NaiveSessionCache`。
 
 <!-- TODO: Token Cache article -->
 
 
-## 4\.呼叫待辦事項清單 Web API
+## 4.呼叫待辦事項清單 Web API
 現在可以實際使用您在步驟 3 中取得的 access\_token。開啟 Web 應用程式的 `Controllers\TodoListController.cs` 檔案，此檔案可向待辦事項清單 API 提出所有 CRUD 請求。
 
 - 這裡可再次使用 ADAL，從 ADAL 快取擷取 access\_tokens。首先，將 ADAL 的 `using` 陳述式加入這個檔案。
@@ -195,6 +203,8 @@ catch (AdalException ee)
 
 ## 後續步驟
 
-如需其他資源，請查看：- [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow "adal" 標記 >>](http://stackoverflow.com/questions/tagged/adal)
+如需其他資源，請查看：
+- [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md)
+- [StackOverflow "adal" 標記 >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

@@ -96,16 +96,17 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 4. 輸入或選取下列值：
 
 	<table border="1">
-<tr><th>名稱</th><th>值</th></tr>
-<tr><td>叢集名稱</td><td>叢集的名稱。</td></tr>
-<tr><td>叢集大小</td><td>您要部署的資料節點數。預設值為 4。但您也可以從下拉式清單中選擇使用 1 或 2 個資料節點。使用 [自訂建立]<strong></strong> 選項可以指定任何數目的叢集節點。另外也提供各種叢集大小的費率價格詳細資料。按一下下拉式方塊正上方的 [<strong>?</strong>]，並按一下快顯功能表上的連結。</td></tr>
-<tr><td>密碼</td><td><i>HTTP</i> 帳戶 (預設使用者名稱：admin) 和 <i>SSH</i> 帳戶 (預設使用者名稱：hdiuser) 的密碼。請注意，這些「不是」指佈建叢集所在虛擬機器的系統管理員帳戶。</td></tr>
+	<tr><th>名稱</th><th>值</th></tr>
+	<tr><td>叢集名稱</td><td>叢集的名稱。</td></tr>
+	<tr><td>叢集大小</td><td>您要部署的資料節點數。預設值為 4。但您也可以從下拉式清單中選擇使用 1 或 2 個資料節點。使用 [自訂建立]<strong></strong> 選項可以指定任何數目的叢集節點。另外也提供各種叢集大小的費率價格詳細資料。按一下下拉式方塊正上方的 [<strong>?</strong>]，並按一下快顯功能表上的連結。</td></tr>
+	<tr><td>密碼</td><td><i>HTTP</i> 帳戶 (預設使用者名稱：admin) 和 <i>SSH</i> 帳戶 (預設使用者名稱：hdiuser) 的密碼。請注意，這些「不是」指佈建叢集所在虛擬機器的系統管理員帳戶。</td></tr>
 
-<tr><td>儲存體帳戶</td><td>從下拉式方塊中，選取您建立的儲存體帳戶。<br/>
+	<tr><td>儲存體帳戶</td><td>從下拉式方塊中，選取您建立的儲存體帳戶。<br/>
 
-一旦選擇儲存體帳戶之後，便無法變更。如果移除儲存體帳戶，則無法再使用叢集。HDInsight 叢集會並存於與儲存體帳戶相同的資料中心內。
-</td></tr>
-</table>保留叢集名稱的複本。稍後在教學課程中將會需要這些資訊。
+	一旦選擇儲存體帳戶之後，便無法變更。如果移除儲存體帳戶，則無法再使用叢集。HDInsight 叢集會並存於與儲存體帳戶相同的資料中心內。
+	</td></tr>
+	</table>
+	保留叢集名稱的複本。稍後在教學課程中將會需要這些資訊。
 
 
 5. 按一下 [**建立 HDInsight 叢集**]。佈建完成時，狀態欄便會顯示 [**執行中**]。
@@ -271,4 +272,4 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

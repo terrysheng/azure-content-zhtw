@@ -430,7 +430,8 @@ Microsoft 網站上的[開發 Azure Redis 快取 (預覽)](http://msdn.microsoft
 
 Redis 支援在字串值上進行一系列不可部分完成的取得和設定作業。這些作業會移除使用個別 `GET` 和 `SET` 命令時可能會發生的競爭危險。可用的作業包含：
 
-- `INCR`、`INCRBY`、`DECR` 和 `DECRBY`，用來在整數數字資料值上執行不可部分完成的遞增和遞減作業。StackExchange 程式庫會提供 `IDatabase.StringIncrementAsync` 和 `IDatabase.StringDecrementAsync` 方法的多載版本，用來執行這些作業，並傳回儲存在快取中的產生值。下列程式碼片段說明如何使用這些方法：
+- `INCR`、`INCRBY`、`DECR` 和 `DECRBY`，用來在整數數字資料值上執行不可部分完成的遞增和遞減作業。StackExchange 程式庫會提供
+  `IDatabase.StringIncrementAsync` 和 `IDatabase.StringDecrementAsync` 方法的多載版本，用來執行這些作業，並傳回儲存在快取中的產生值。下列程式碼片段說明如何使用這些方法：
 
   ```csharp
   ConnectionMultiplexer redisHostConnection = ...;
@@ -444,9 +445,10 @@ Redis 支援在字串值上進行一系列不可部分完成的取得和設定�
 
   long newValue = await cache.StringDecrementAsync("data:counter", 50);
   // 遞減值為 50 
-  // newValue 必須為 50 ```
+  // newValue 必須為 50
+  ```
 
-- `GETSET` 用來擷取具有與索引鍵相關聯的值，並會將其變更為新值。StackExchange 程式庫會透過 `IDatabase.StringGetSetAsync` 方法讓這項作業可供使用。下方的程式碼片段會顯示這個方法的範例。此程式碼會從先前範例傳回目前與索引鍵 "data:counter" 相關聯的值，並將此索引鍵的值重設回零，這些都是作為相同作業的一部分：
+- `GETSET` 用來擷取具有與索引鍵相關聯的值，並會將其變更為新值。 StackExchange 程式庫會透過 `IDatabase.StringGetSetAsync` 方法讓這項作業可供使用。下方的程式碼片段會顯示這個方法的範例。此程式碼會從先前範例傳回目前與索引鍵 "data:counter" 相關聯的值，並將此索引鍵的值重設回零，這些都是作為相同作業的一部分：
 
   ```csharp
   ConnectionMultiplexer redisHostConnection = ...;
@@ -478,7 +480,7 @@ Redis 支援在字串值上進行一系列不可部分完成的取得和設定�
   RedisValue[] values = null;
   values = cache.StringGet(keys);
   // values should contain { "value1", "value2", "value3" }
-
+  ```
 
 您也可以將多項作業結合到單一 Redis 交易，如同本指引的＜Redis 交易與批次＞一節中所述。StackExchange 程式庫可透過 `ITransaction` 介面提供交易支援。您可以使用 IDatabase.CreateTransaction 方法來建立一個 ITransaction 物件，並使用 `ITransaction` 物件所提供的方法叫用交易的命令。`ITransaction` 介面提供一組如同 `IDatabase` 介面的類似方法，但不包含所有非同步的方法；它們僅在叫用 `ITransaction.Execute` 方法時執行。Execute 方法所傳回的值表示是否已成功建立交易 (true) 或建立失敗 (false)。
 
@@ -808,4 +810,4 @@ subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 - StackExchange.Redis 儲存機制上的 [Redis 中的交易 (英文)](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) 頁面。
 - Microsoft 網站上的[資料分割指南 (英文)](http://msdn.microsoft.com/library/dn589795.aspx)。
 
-<!------HONumber=August15_HO6-->
+<!-------HONumber=August15_HO6-->

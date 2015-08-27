@@ -161,7 +161,8 @@
 
 	![編輯器 [新增資料存放區] 按鈕][image-editor-newdatastore-onpremsql-button]
     
-3.	在右窗格中，您應該會看到用來建立內部部署 SQL Server 連結服務的 JSON 範本。![內部部署 SQL 連結服務 - 設定][image-editor-newdatastore-onpremsql-settings]
+3.	在右窗格中，您應該會看到用來建立內部部署 SQL Server 連結服務的 JSON 範本。
+	![內部部署 SQL 連結服務 - 設定][image-editor-newdatastore-onpremsql-settings]
 
 4.	在 JSON 窗格中，執行下列動作：
 	1.	在 **gatewayName** 屬性中，輸入 **adftutorialgateway** 取代雙引號內的所有文字。  
@@ -396,7 +397,7 @@
 	- 在活動區段中，只會有 **type** 設為 **Copy** 的活動。
 	- 活動的**輸入**設定為 **EmpOnPremSQLTable**，活動的**輸出**則設定為 **OutputBlobTable**。
 	- 在 **transformation** 區段中，「**來源類型**」指定為 **SqlSource**，「**接收類型**」指定為 **BlobSink **。
-- **SqlSource** 的 **sqlReaderQuery** 屬性指定 SQL 查詢 **select * from emp**。
+	- **SqlSource** 的 **sqlReaderQuery** 屬性指定 SQL 查詢 **select * from emp**。
 
 	將 **start** 屬性的值取代為目前日期，並將 **end** 值取代為隔天的日期。開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**end** 時間為選擇性項目，但在本教學課程中會用到。
 	
@@ -626,4 +627,4 @@
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

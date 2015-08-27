@@ -342,7 +342,7 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 4. 最後，將結果存回新的輸出集合。
 
     > [AZURE.NOTE] 沒錯，我們允許在一筆輸出中加入多個集合：</br>
-    '\<DocumentDB Output Collection Name 1>,<DocumentDB Output Collection Name 2>'</br>不使用空格，只使用單一逗點分隔的集合名稱。</br>
+    '\<DocumentDB Output Collection Name 1\>,\<DocumentDB Output Collection Name 2\>'</br>不使用空格，只使用單一逗點分隔的集合名稱。</br>
     文件將會是跨多個集合的分散式循環配置資源。第一批文件會儲存在一個集合中，然後第二批文件會儲存在下一個集合中，以此類推。
 
 		# Store output data to DocumentDB.
@@ -489,4 +489,4 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=August15_HO6-->
+<!-------HONumber=August15_HO6-->

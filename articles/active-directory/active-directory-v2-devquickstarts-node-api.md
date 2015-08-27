@@ -20,6 +20,7 @@
 
   Node JS Web API 的快速入門教學課程尚未就緒…盡快返回查看並從 Twitter 上的 @AzureAD 尋找更新。
 
-  >[AZURE.NOTE]此資訊適用於 v2.0 應用程式模型公開預覽。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
+  > [AZURE.NOTE]
+    此資訊適用於 v2.0 應用程式模型公開預覽。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
 
-<!----HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

@@ -53,7 +53,8 @@ Now that you have an app registered with Microsoft, you can install ADAL and wri
 -	Begin by adding ADAL to the TodoListClient project using the Package Manager Console.
 
 ```
-PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease ```
+PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease 
+```
 
 -	在 TodoListClient 專案中，開啟 `app.config`。取代 `<appSettings>` 區段中的元素值，以反映您在應用程式註冊入口網站中輸入的值。每當使用 ADAL 時，您的程式碼便會參考這些值。
     -	`ida:ClientId` 是您從入口網站複製的應用程式的**應用程式 ID**。
@@ -246,4 +247,4 @@ For reference, the completed sample (without your configuration values) [is prov
 
 如需其他資源，請查看：- [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow "adal" 標記 >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

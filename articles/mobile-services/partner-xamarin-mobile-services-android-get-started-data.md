@@ -60,7 +60,7 @@
 
    	![][13]
 
-   	Notice that the saved text is stored in an in-memory collection and displayed in the list below.
+   	請注意，已儲存的文字會存放在 記憶體內部集合，並顯示在以下列表中。
 
 ## <a name="create-service"></a>在管理入口網站中建立新的行動服務
 
@@ -283,4 +283,4 @@
 [完成的範例專案]: http://go.microsoft.com/fwlink/p/?LinkId=331302
  
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

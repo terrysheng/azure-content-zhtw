@@ -144,13 +144,13 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 	- 如果 Hyper-V 伺服器上的預設 Proxy 需要驗證，則您應該選取使用自訂的 Proxy 伺服器。輸入預設的 Proxy 詳細資料，然後指定認證。
 	- 如果您想要使用自訂的 Proxy 伺服器，請在安裝提供者之前先設定它。 
 	- 下列 URL 應可從 Hyper-v 主機存取
-		- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
 
-	- 允許 [Azure 資料中心 IP 範圍](http://go.microsoft.com/fwlink/?LinkId=511094)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的核准清單 IP 範圍。
+	- 允許 [Azure 資料中心 IP 範圍](http://go.microsoft.com/fwlink/?LinkId=511094)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
 
 9. 在 [保存庫設定] 頁面上，按一下 [瀏覽] 來選取金鑰檔案。指定 Azure Site Recovery 訂用帳戶、保存庫名稱，以及 Hyper-V 伺服器所屬的 Hyper-V 站台。
 
@@ -306,4 +306,4 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 在您的部署設定完成並開始執行之後，[深入了解](site-recovery-failover.md)容錯移轉。
 
-<!---HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

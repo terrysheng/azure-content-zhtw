@@ -110,9 +110,12 @@
 
     1.  在 [身分識別提供者名稱] 文字方塊中，輸入提供者名稱 (例如：*SPInitiatedSSO*)。
     2.  在 Azure 入口網站中的 [設定在 Workday 單一登入] 對話方塊頁面上，複製 [身分識別提供者 URL] 值，然後將它貼入 [簽發者] 文字方塊。
-    3.  按一下 [身分識別提供者公用金鑰憑證]，然後按一下 [建立]。![建立](./media/active-directory-saas-workday-tutorial/IC782928.png "建立")
-    4.  按一下 [建立 x509 公開金鑰]。![建立](./media/active-directory-saas-workday-tutorial/IC782929.png "建立")
-    5.  在 [檢視 x509 公用金鑰] 區段中，執行下列步驟：![檢視 x509 公用金鑰](./media/active-directory-saas-workday-tutorial/IC782930.png "檢視 x509 公用金鑰")
+    3.  按一下 [身分識別提供者公用金鑰憑證]，然後按一下 [建立]。
+        ![建立](./media/active-directory-saas-workday-tutorial/IC782928.png "建立")
+    4.  按一下 [建立 x509 公開金鑰]。
+        ![建立](./media/active-directory-saas-workday-tutorial/IC782929.png "建立")
+    5.  在 [檢視 x509 公用金鑰] 區段中，執行下列步驟：
+        ![檢視 x509 公用金鑰](./media/active-directory-saas-workday-tutorial/IC782930.png "檢視 x509 公用金鑰")
         1.  在 [名稱] 文字方塊中，輸入您的憑證名稱 (例如：*PPE\_SP*)。
         2.  在 [有效開始日期] 文字方塊中輸入憑證屬性值的有效開始日期。
         3.  在 [有效結束日期] 文字方塊中輸入憑證屬性值的有效結束日期。
@@ -127,16 +130,19 @@
         6.  在 [憑證] 文字方塊中貼上剪貼簿的內容。
         7.  按一下 [確定]。
 
-    6.  執行下列步驟：![SSO 組態](./media/active-directory-saas-workday-tutorial/IC792131.png "SSO 組態")
-        1.  在 [服務提供者識別碼] 文字方塊中，輸入 ****http://www.workday.com**。
+    6.  執行下列步驟：
+        ![SSO 組態](./media/active-directory-saas-workday-tutorial/IC792131.png "SSO 組態")
+        1.  在 [服務提供者識別碼] 文字方塊中，輸入 **http://www.workday.com**。
 2.  按一下 [啟用 SP 啟始的 SAML 驗證]。
         3.  在 Azure 入口網站中的 [設定在 Workday 單一登入] 對話方塊頁面上，複製 [單一登入服務 URL] 值，然後將它貼入 [IdP SSO 服務 URL] 文字方塊中。
         4.  選取 [不要壓縮 SP 起始的驗證要求]。
 
-    7.  執行下列步驟：![驗證要求簽章方法](./media/active-directory-saas-workday-tutorial/IC782932.png "驗證要求簽章方法")
+    7.  執行下列步驟：
+        ![驗證要求簽章方法](./media/active-directory-saas-workday-tutorial/IC782932.png "驗證要求簽章方法")
         1.  選取 **SHA256** 做為 [驗證要求簽章方法]。
 
-    8.  按一下 [確定]。![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
+    8.  按一下 [確定]。
+        ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
 
 12. 在 Azure AD 入口網站的 [設定在 Workday 單一登入] 頁面上，按一下 [完成] 關閉對話方塊。
 
@@ -164,4 +170,4 @@
   
 如果您想要測試單一登入設定，請開啟 [存取面板]。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

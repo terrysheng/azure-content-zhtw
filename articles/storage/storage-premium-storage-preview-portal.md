@@ -130,7 +130,7 @@ Azure 使用儲存體帳戶做為作業系統 (OS) 和資料磁碟的容器。�
 </tbody>
 </table>
 
-	如需最新的資訊，請參閱 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)。 若要了解有關 Premium 儲存體磁碟及其 IOPS 與輸送量限制，請參閱本文在 [使用 Premium 儲存體時的延展性和效能目標](#scalability-and-performance-targets-whzh-twing-premium-storage)一節中的表格。
+	如需最新的資訊，請參閱 [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)。如需深入了解進階儲存體磁碟及其 IOP 和輸送量限制，請參閱本文中[Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage) 章節中的資料表。
 
 > [AZURE.NOTE]快取命中數不會受到磁碟配置 IOPS/輸送量的限制。也就是說，當您在 DS 系列 VM 上使用具 ReadOnly 快取設定的資料磁碟時，來自快取的讀取數不會受到 Premium 儲存體磁碟的限制。因此，如果工作負載以讀取為主，可以從磁碟獲得極高的輸送量。請注意，快取會根據 VM 大小，受到 VM 層級個別 IOPS / 輸送量的限制。DS 系列 VM 大約有 4000 IOPS，快取與本機 SSD IO 是每個核心 33 MB/秒。
 
@@ -401,4 +401,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

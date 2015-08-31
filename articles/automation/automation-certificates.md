@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure 自動化中的憑證資產"
+   pageTitle="Azure 自動化中的憑證資產 | Microsoft Azure"
    description="憑證可以安全地儲存在 Azure 自動化中，使得 Runbook 可以存取憑證，以向 Azure 和協力廠商資源進行驗證。這篇文章說明憑證的詳細資料，以及如何以文字和圖形化編寫形式加以使用。"
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/14/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Azure 自動化中的憑證資產
@@ -107,4 +107,4 @@
 
 - [圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

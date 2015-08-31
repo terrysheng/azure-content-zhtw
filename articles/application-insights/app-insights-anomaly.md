@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="08/18/2015" 
 	ms.author="awills"/>
 
 #  Application Insights：主動式異常偵測
@@ -67,13 +67,17 @@ Application Insights 會深入分析您的 App 遙測，並且可以警告您有
 * *我必須訂閱這項服務才能收到通知嗎？*
  * 不用。我們的 bot 會定期調查所有 Application Insights 使用者的資料，如果偵測到問題，就會傳送通知。
 * *我是否可以取消訂閱或改為傳送通知給我的同事？*
- * 按一下警示或電子郵件中的連結。開啟異常設定。![](./media/app-insights-anomaly/01.png)這些通知目前是傳送給[對 Application Insights 資源擁有寫入存取權](app-insights-resources-roles-access-control.md)的人員。
+ * 按一下警示或電子郵件中的連結。開啟異常設定。
+ 
+    ![](./media/app-insights-anomaly/01.png)
+
+    這些通知目前是傳送給[對 Application Insights 資源擁有寫入存取權](app-insights-resources-roles-access-control.md)的人員。
 * *我不想要被這些訊息淹沒。*
  * 訊息一天最多只有三封。您不會重複收到任何訊息。
 * *如果我沒有做任何動作，會收到提醒嗎？*
  * 不會，每個問題您只會收到一次訊息。
 * *我弄丟了電子郵件。在入口網站中哪裡可以找到通知？*
- * 在您 App 的 Application Insights 概觀中，按一下 [異常] 磚。 
+ * 在您 app 的 Application Insights 概觀中，按一下 [異常] 磚。 
 
 
 
@@ -82,4 +86,4 @@ Application Insights 會深入分析您的 App 遙測，並且可以警告您有
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

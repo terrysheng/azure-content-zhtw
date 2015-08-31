@@ -1,5 +1,5 @@
 <properties
-   pageTitle="將公司網際網路網域指向流量管理員網域"
+   pageTitle="將公司網際網路網域指向流量管理員網域 | Microsoft Azure"
    description="本文將協助您將公司網域名稱指向流量管理員網域名稱。"
    services="traffic-manager"
    documentationCenter=""
@@ -12,8 +12,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # 將公司網際網路網域指向流量管理員網域
 
@@ -27,13 +27,15 @@
 
 >[AZURE.IMPORTANT]您無法將第二層網域 (例如 *contoso.com*) 指向流量管理員網域。這是 DNS 通訊協定的限制 (不允許第二層網域名稱的 CNAME 記錄)。
 
-## 另請參閱
+## 後續步驟
 
-[關於流量管理員的負載平衡方法](traffic-manager-load-balancing-methods.md)
+[關於流量管理員流量路由方法](traffic-manager-load-balancing-methods.md)
 
-[流量管理員組態工作](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[流量管理員 - 停用、啟用或刪除設定檔](disable-enable-or-delete-a-profile.md)
 
-[流量管理員概觀](traffic-manager-overview.md)
+[流量管理員 - 停用或啟用端點](disable-or-enable-an-endpoint.md)
+
+[什麼是流量管理員？](traffic-manager-overview.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

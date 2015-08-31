@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure 自動化中的排程"
+   pageTitle="Azure 自動化中的排程 | Microsoft Azure"
    description="自動化排程是用來排程讓 Azure 自動化中的 Runbook 自動啟動。本文說明如何建立排程。"
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Azure 自動化中的排程
@@ -66,4 +66,4 @@
 - [在 Azure 自動化中排程 Runbook](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

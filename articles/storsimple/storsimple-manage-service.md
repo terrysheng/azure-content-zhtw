@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="部署 StorSimple Manager 服務"
+   pageTitle="部署 StorSimple Manager 服務 | Microsoft Azure"
    description="說明如何在管理入口網站中建立和刪除 StorSimple Manager 服務，並且說明如何管理服務註冊金鑰。"
    services="storsimple"
    documentationCenter=""
    authors="SharS"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/12/2015"
+   ms.date="08/18/2015"
    ms.author="v-sharos" />
 
 # 部署 StorSimple Manager 服務
 
 ## 概觀
 
-StorSimple Manager 服務可在 Microsoft Azure 中執行，並且連接至多個 StorSimple 裝置。建立服務之後，您可以使用它從瀏覽器中執行的 Microsoft Azure 管理入口網站管理這些裝置。這可讓您從單一集中位置監視連線至 StorSimple Manager 服務的所有裝置，所以可以盡可能降低管理負擔。
+StorSimple Manager 服務可在 Microsoft Azure 中執行，並且連接至多個 StorSimple 裝置。建立服務之後，您可以使用服務從瀏覽器中執行的 Microsoft Azure 管理入口網站管理這些裝置。這可讓您從單一集中位置監視連線至 StorSimple Manager 服務的所有裝置，所以可以盡可能降低管理負擔。
 
 StorSimple Manager 登陸頁面會列出所有 StorSimple Manager 服務，您可用來管理您的 StorSimple 儲存體裝置。針對每個 StorSimple Manager 服務，下列資訊會顯示在 StorSimple Manager 頁面上：
 
@@ -82,7 +82,7 @@ StorSimple Manager 登陸頁面會列出所有 StorSimple Manager 服務，您�
 
 將服務註冊金鑰保存在安全的位置。您需要這個金鑰，以及服務資料加密金鑰，才能對額外裝置註冊此服務。取得服務註冊金鑰之後，您必須透過 Windows PowerShell for StorSimple 介面設定裝置。
 
-如需如何使用此註冊金鑰的詳細資訊，請參閱[步驟 3：透過 Windows PowerShell for StorSimple 設定和註冊裝置](storsimple-deployment-walkthrough.md/#step-2:-configure-and-register-the-device-through-windows-powershell-for-storsimple)。
+如需如何使用此註冊金鑰的詳細資訊，請參閱[步驟 3：透過 Windows PowerShell for StorSimple 設定和註冊裝置](storsimple-deployment-walkthrough.md#step-2-configure-and-register-the-device-through-windows-powershell-for-storsimple)。
 
 ## 重新產生服務註冊金鑰
 
@@ -107,10 +107,10 @@ StorSimple Manager 登陸頁面會列出所有 StorSimple Manager 服務，您�
 
 ## 後續步驟
 
-深入了解 [StorSimple 部署程序](storsimple-deployment-walkthrough.md)
+[深入了解 StorSimple 部署程序](storsimple-deployment-walkthrough.md)。
 
-深入了解[管理 StorSimple 儲存體帳戶](../storsimple-manage-storage-account.md)
+[深入了解管理 StorSimple 儲存體帳戶](storsimple-manage-storage-accounts.md)。
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

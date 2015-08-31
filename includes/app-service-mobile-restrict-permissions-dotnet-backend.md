@@ -1,22 +1,16 @@
 
+根據預設，可以匿名方式叫用行動應用程式後端中的 API。接下來，您必須限制只有經過驗證的用戶端才有存取權。
 
-根據預設，行動應用程式中定義的端點會公開。若要保護您的資源，您必須限定只有已驗證的用戶端可進行存取。
+1. 在您電腦上的 Visual Studio 中開啟伺服器專案，然後瀏覽至 [控制器] > [TodoItemController.cs]。
 
-1. 在 Visual Studio 中，開啟包含您的行動應用程式程式碼的專案。 
+2. 將 `[Authorize]` 屬性加入 **TodoItemController** 類別，如下所示。必須是通過驗證的使用者，才能對 TodoItem 資料表進行所有操作。若要限制只有特定方法才能存取，也可以將此屬性套用至這些方法，而不是類別。
 
-2. 在 [方案總管] 中展開 Controllers 資料夾，然後開啟 TodoItemController.cs 專案檔案。
-
-	**TodoItemController** 類別會實作 TodoItem 資料表的資料存取。
-
-3. 將 `Authorize` 屬性套用至 **TodoItemController** 類別：
 
         [Authorize]
         public class TodoItemController : TableController<TodoItem>
+   
+    必須是通過驗證的使用者，才能對 TodoItem 資料表進行所有操作。若要限制只有特定方法才能存取，也可以將此屬性套用至這些方法，而不是類別。
+   
+3. 重新發佈您的伺服器專案。
 
-	如此可確保對 **TodoItem** 資料表的所有操作都必須由經過驗證的使用者進行。
-
-	>[AZURE.NOTE]將 Authorize 屬性套用至個別方法，會對控制器公開的方法設定特定的授權層級。
-
-4. 重新發佈您的行動應用程式專案。
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

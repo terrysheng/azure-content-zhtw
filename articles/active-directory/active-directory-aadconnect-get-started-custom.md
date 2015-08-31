@@ -21,7 +21,7 @@
 
 以下文件提供有關使用 Azure AD Connect 自訂安裝選項的資訊。如果您有其他組態選項，或需要未涵蓋在快速安裝中的選用功能，就可以使用此選項。
 
-如需快速安裝的資訊，請參閱[快速安裝](active-directory-aadconnect/#getting-started-with-azure-ad-connect)。如需從 DirSync 升級至 Azure AD Connect 的資訊，請參閱[升級 DirSync 至 Azure Active Directory Connect](active-directory-aadconnect-dirsync-upgrade-get-started.md)。
+如需快速安裝的資訊，請參閱[快速安裝](active-directory-aadconnect.md#getting-started-with-azure-ad-connect)。如需從 DirSync 升級至 Azure AD Connect 的資訊，請參閱[升級 DirSync 至 Azure Active Directory Connect](active-directory-aadconnect-dirsync-upgrade-get-started.md)。
 
 
 
@@ -290,4 +290,4 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

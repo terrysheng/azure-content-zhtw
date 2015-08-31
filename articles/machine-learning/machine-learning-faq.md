@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="08/18/2015" 
 	ms.author="paulettm"/>
 
 #Azure Machine Learning 常見問題集 (FAQ)：計費、功能、限制及支援
@@ -93,7 +93,9 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 **可以從 Amazon S3 讀取資料嗎？**
 
 如果您有少量的資料，而且想要透過 HTTP URL 公開，則您可以使用[讀取器][reader]模組。若為任何較大量的資料，請先傳送至 Azure 儲存體，然後使用[讀取器][reader]模組將它帶入實驗中。
-<!--<SEE CLOUD DS PROCESS>-->
+<!--
+<SEE CLOUD DS PROCESS>
+-->
 
 **有內建的影像輸入功能嗎？**
 
@@ -176,7 +178,7 @@ Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在
 
 **是否有 Python 適用的 REPL 環境？**
 
-否，Studio 中沒有 Python 適用的 REPL 環境。
+您可以在 Machine Learning Studio 中使用 Jupyter Notebook。如需詳細資訊，請參閱[介紹 Azure ML Studio 中的 Jupyter Notebook](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)。
 
 ## Web 服務
 ###以程式設計方式重新訓練模型
@@ -201,6 +203,8 @@ Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在
 
 要為已部署的服務更新預測模型，只需修改並重新執行用來撰寫和儲存已訓練模型的實驗即可。在您有新版的已訓練模型後，ML Studio 會詢問您是否要更新預備 Web 服務。在更新套用至預備 Web 服務後，相同的更新也將可供您套用至實際執行 Web 服務。如需有關如何更新已部署的 Web 服務的詳細資訊，請參閱[發佈 Machine Learning Web 服務](machine-learning-publish-a-machine-learning-web-service.md)。
 
+您也可以使用重新訓練 API。[這裡](https://azuremlretrain.codeplex.com/)提供範例程式碼。
+
 
 **如何監控部署在實際執行環境中的 Web 服務？**
 
@@ -208,15 +212,16 @@ Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在
 
 **是否有哪個位置，可讓我查看我的 RRS/BES 輸出？**
 
-是的，您必須提供 Blob 儲存體位置，RRS/BES 輸出將會放在該處。
-
-
+針對 RRS，通常您可在 Web 服務回應查看此結果。您可以也將資料寫入 Blob。BES 的輸出預設會寫入至 Blob。您也可以使用寫入器模組將輸出寫入資料庫或資料表。
+ 
+ ** 只能從這個 Studio 中建立的模型來建立 Web 服務嗎? 不，您也可以直接從 Jupyter Notebook 和 RStudio 建立 Web 服務。
+ 
 
 ##延展性 
 
 **什麼是 Web 服務的延展性？**
 
-目前，最大值是每個端點 20 個並行要求，不過它可以調整為 80 個端點。如果我們使用每個資源 (300 個背景工作)，這會轉譯為 4,800 個並行要求。
+目前，最大值是每個端點 20 個並行要求，不過它可以調整為 10,000 個端點。如果我們使用每個資源 (300 個背景工作)，這會轉譯為 4,800 個並行要求。
 
 
 **R 作業會分散於節點嗎？**
@@ -258,7 +263,8 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 
 **根據預設，哪些人可以存取部署在實際執行環境之 Web 服務的 HTTP 端點？ 如何限制對此端點的存取？**
 
-在預測模型放入實際執行環境中之後，Azure 入口網站即會列出已部署之 Web 服務的 URL。預備服務 URL 可從 Web 服務區段下的 Machine Learning Studio 環境存取，而實際執行服務 URL 可從 Azure 入口網站的 [機器學習服務] 區段下存取。預備和實際執行 Web 服務的存取金鑰，分別可從 Machine Learning Studio 中的 Web 服務儀表板和 Azure 入口網站環境取得。必須要有存取金鑰，才能呼叫實際執行和預備環境中的 Web 服務。如需詳細資訊，請參閱[連線到 Machine Learning Web 服務](machine-learning-connect-to-azure-machine-learning-web-service.md)。
+發佈 Web 服務之後，我們會建立該服務的預設端點。會將該預設端點部署到生產環境，並且可使用其 API 金鑰呼叫。其他端點可以從 Azure 入口網站，或以程式設計方式使用 Web 服務管理 API 加入自己的索引鍵。必須要有存取金鑰，才能呼叫實際執行和預備環境中的 Web 服務。如需詳細資訊，請參閱[連線到 Machine Learning Web 服務](machine-learning-connect-to-azure-machine-learning-web-service.md)。
+
 
 **如果找不到我的儲存體帳戶，會發生什麼情況？**
 
@@ -302,4 +308,4 @@ Azure Machine Learning 在 MSDN 上也設有社群論壇，可供您詢問 Azure
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -5,15 +5,16 @@
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-ms.service="virtual-machines"
+	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="07/20/2015"
+	ms.date="08/12/2015"
 	ms.author="dkshir"/>
 
 # 建立 Linux 虛擬機器的不同方式
@@ -26,13 +27,13 @@ Azure 提供建立 VM 的不同方式，因為 VM 適用於不同的使用者和
 
 ### GUI：Azure 入口網站或 Preview 入口網站
 
-Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器的簡單方法，特別是在您剛開始使用 Azure 時。使用 Azure 入口網站或 Azure Preview 入口網站來建立 VM。如需一般指示，請參閱[建立自訂虛擬機器][]，並從**資源庫**選取任何 Linux 映像。
+Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器的簡單方法，特別是在您剛開始使用 Azure 時。使用 [Azure 入口網站](http://manage.windowsazure.com)或 [Azure Preview 入口網站](http://portal.azure.com)來建立 VM。如需一般指示，請參閱[建立自訂虛擬機器][]，並從**資源庫**選取任何 Linux 映像。請注意 [Azure 入口網站](http://manage.windowsazure.com)僅使用傳統部署模型建立虛擬機器。
 
 ### 命令殼層：Azure CLI 或 Azure PowerShell
 
 如果您偏好在命令殼層中工作，可選擇適用於 Mac 和 Linux 使用者的 Azure 命令列介面 (CLI) 或 Azure PowerShell (其中具有適用於 Azure 和自訂主控台的 Windows PowerShell Cmdlet)。
 
-對於 Azure CLI，請參閱[建立執行 Linux 的虛擬機器][]。若要使用範本，請參閱〈[使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器][]〉。
+針對 Azure CLI，請參閱[建立執行 Linux 的虛擬機器][]。若要使用範本，請參閱[使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器][]。
 
 針對 Azure PowerShell，請參閱[使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器][]。若要使用範本，請參閱[使用 Azure 資源管理員範本和 PowerShell 部署和管理虛擬機器][]。
 
@@ -102,4 +103,4 @@ Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器�
 [建立執行 Linux 的虛擬機器]: virtual-machines-linux-tutorial.md
 [建立自訂虛擬機器]: virtual-machines-create-custom.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

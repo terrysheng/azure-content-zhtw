@@ -45,7 +45,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 - 在您想要保護的 VMM 伺服器上，您至少需要一個雲端。這個雲端應該包含：
 	- 一或多個 VMM 主機群組。
 	- 每個主機群組中的一或多個 Hyper-V 主機伺服器或叢集。
-	- 來源 Hyper-V 伺服器上的一或多部虛擬機器。虛擬機器應該為第 1 代。
+	- 來源 Hyper-V 伺服器上的一或多部虛擬機器。
 - 深入了解設定 VMM 雲端：
 	- 在[使用 System Center 2012 R2 VMM 的私人雲端新功能](http://go.microsoft.com/fwlink/?LinkId=324952)和 [VMM 2012 和雲端](http://go.microsoft.com/fwlink/?LinkId=324956)中進一步了解私人 VMM 雲端。
 	- 深入了解[設定 VMM 雲端網狀架構](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>若有任何問題，請造訪 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 復原服務論壇</a> (英文)。</LI></UL>
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

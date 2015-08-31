@@ -20,7 +20,7 @@
 
 ### 如何得知是否需要虛擬網路？
 
-請造訪[虛擬網路概觀](http://go.microsoft.com/fwlink/?LinkId=296649)，查看可協助您決定最佳網路設計選項的決策資料表。
+請瀏覽[虛擬網路概觀](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)，查看可協助您決定最佳網路設計選項的決策資料表。
 
 ### 如何開始使用？
 
@@ -264,4 +264,4 @@ VNet 會與另一個 VNet，以及其他裝載於 Azure 基礎結構中的服務
 
 是。您可以針對各種平台使用 PowerShell 和命令列工具。如需詳細資訊，請參閱[這裡](http://go.microsoft.com/fwlink/?LinkId=317721)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

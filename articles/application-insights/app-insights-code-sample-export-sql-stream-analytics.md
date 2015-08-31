@@ -161,6 +161,8 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/34-create-table.png)
 
+在此範例中，我們會使用頁面檢視的資料。若要查看其他的可用資料，請檢查您的 JSON 輸出，並查看[匯出資料模型](app-insights-export-data-model.md)。
+
 ## 建立 Azure 串流分析執行個體
 
 在[傳統 Azure 入口網站](https://manage.windowsazure.com/)中，選取 Azure 串流分析服務，然後建立新的串流分析工作：
@@ -200,7 +202,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 * `webapplication27` 是 Application Insights 資源的名稱。 
 * `1000...` 是 Application Insights 資源的檢測金鑰。 
-* `PageViews` 是我們想要分析的資料類型。可用的類型取決於您在「連續匯出」中設定的篩選。請檢查匯出的資料，以查看其他可用的類型。
+* `PageViews` 是我們想要分析的資料類型。可用的類型取決於您在「連續匯出」中設定的篩選。檢查匯出的資料以查看其他可用的類型，並查看[匯出資料模型](app-insights-export-data-model.md)。
 * `/{date}/{time}` 是要依字面意思寫入資訊的格式。
 
 若要取得 Application Insights 資源的名稱和 iKey，請在資源的概觀頁面中開啟 Essentials，或開啟 [設定]。
@@ -305,4 +307,4 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

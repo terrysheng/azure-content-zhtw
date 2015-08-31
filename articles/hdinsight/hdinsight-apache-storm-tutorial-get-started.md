@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="08/05/2015"
    ms.author="larryfr"/>
 
 
@@ -21,53 +22,73 @@
 
 Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運算系統。在 Storm on Azure HDInsight 中，您可以建立雲端式 Storm 叢集，以執行即時的巨量資料分析。
 
+[AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal-nolink.md)]
+
 ## 開始之前
 
 您必須具備下列先決條件，才能順利完成本 Apache Storm 教學課程：
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-## 建立 Azure 儲存體帳戶
+## 建立 Storm 叢集
 
 Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄檔和拓撲。請使用以下步驟建立和您的叢集搭配使用的 Azure 儲存體帳戶：
 
-1. 登入 [Azure 入口網站](http://manage.windowsazure.com/)。
+1. 登入 [Azure 預覽入口網站][preview-portal]。
 
-2. 按一下左下角的 [新增]，並指向 [資料服務]，接著指向 [儲存體]，然後按一下 [快速建立]。
+2. 依序選取 [新增]、[資料分析] 及 [HDInsight]。
 
-	![Azure 入口網站，您可以在此入口網站中使用「快速建立」設定新的儲存體帳戶。](./media/hdinsight-apache-storm-tutorial-get-started/HDI.StorageAccount.QuickCreate.png)
+	![在 Azure Preview 入口網站中建立新的叢集](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
 
-3. 輸入 [URL]、[位置] 和 [複寫] 資訊，然後按一下 [建立儲存體帳戶]。為 HDInsight 建立儲存體時，請勿選取同質群組。您會在儲存體清單中看見新的儲存體帳戶。
+3. 輸入 [叢集名稱]，然後針對 [叢集類型] 選取 [Storm]。如果該叢集可使用，則 [叢集名稱] 旁會出現綠色核取記號。
 
-	>[AZURE.NOTE]佈建 HDInsight 叢集的快速建立選項 (如在本教學課程中所使用的選項) 在佈建叢集時並不會詢問位置。相反地，它會依預設將叢集並存於與儲存體帳戶相同的資料中心內。因此請務必在叢集支援的位置中建立儲存體帳戶，這些位置包括：**東亞**、**東南亞**、**北歐****西歐**、**美國東部**、**美國西部**、**美國中北部**、**美國中南部**。
+	![叢集名稱、叢集類型及 OS 類型](./media/hdinsight-apache-storm-tutorial-get-started/clustername.png)
 
-4. 等候新儲存體帳戶的 [**狀態**] 變更為 [**線上**]。
+4. 如果您有多個訂用帳戶，請選取 [訂用帳戶] 項目，以選取將用於該叢集的 Azure 訂用帳戶。
 
-如需建立儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶](../storage/storage-create-storage-account.md)。
+5. 針對 [資源群組]，您可以選取此項目以查看現有資源群組的清單，然後選取其中一個用來建立叢集。或者選取 [建立新群組]，然後輸入新資源群組的名稱。出現綠色核取記號即表示新群組的名稱可用。
 
-##在 Azure 入口網站上佈建 Storm 叢集
+	> [AZURE.NOTE]如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
 
-佈建 HDInsight 叢集時，可以佈建包含 Apache Storm 及相關應用程式的 Azure 運算資源。您也可以使用 Azure 入口網站、HDInsight 的 Azure PowerShell Cmdlet 或 HDInsight .NET SDK 來建立其他版本的 Hadoop 叢集。如需相關指示，請參閱[使用自訂選項佈建 HDInsight 叢集][hdinsight-provision]。如需不同 HDInsight 版本及其服務等級協定 (SLA) 的相關資訊，請參閱 [HDInsight 元件版本設定](hdinsight-component-versioning.md)頁面。
+6. 選取 [認證]，然後輸入 [叢集登入使用者名稱] 和 [叢集登入密碼]。最後，使用 [選取] 按鈕來設定認證。本文件中不會使用遠端桌面，所以您可以將其停用。
 
-[AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
+	![叢集認證刀鋒視窗](./media/hdinsight-apache-storm-tutorial-get-started/clustercredentials.png)
 
-1. 登入 [Azure 入口網站][azureportal]。
+6. 針對 [資料來源]，您可以選取此項目，藉此選擇現有資料來源，或建立一個新的資料來源。
 
-2. 按一下左邊的 [HDInsight]，然後按一下頁面左下角的 [+新增]。
+	![資料來源刀鋒視窗](./media/hdinsight-apache-storm-tutorial-get-started/datasource.png)
+	
+	目前您可以選取 Azure 儲存體帳戶做為 HDInsight 叢集資料來源。請使用下列步驟來了解 [資料來源] 刀鋒視窗上的項目。
+	
+	- __選取方法__：將此設為 [來自所有訂用帳戶]，即可瀏覽您訂用帳戶的儲存體帳戶。如果您想要輸入現有儲存體帳戶的 [儲存體名稱] 和 [存取金鑰]，請將此設為 [存取金鑰]。
+	
+	- __建立新項目__：這可用來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可用，將會出現綠色核取記號。
+	
+	- __選擇預設容器__：使用此選項可輸入要用於該叢集的預設容器名稱。雖然您可以輸入任何名稱，但我們建議您使用與叢集相同的名稱，以便輕易辨識用於這個特定叢集的容器。
+	
+	- __位置__：儲存體帳戶所在地或將建立的地理區域。
+	
+		> [AZURE.IMPORTANT]選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
+		
+	- __選取__：用來儲存資料來源組態。
+	
+7. 選取 [節點定價層] 會顯示將針對此叢集建立之節點的相關資訊。背景工作節點數目預設會設為 __4__。請將此設為 __1__，因為這樣就足以用於本教學課程，也能減少叢集成本。該叢集的預估成本將會顯示在此刀鋒視窗的底部。
 
-3. 按一下第二欄的 HDInsight 圖示，然後選取 [STORM]。
+	![節點定價層刀鋒視窗](./media/hdinsight-apache-storm-tutorial-get-started/nodepricingtiers.png)
+	
+	使用 [選取] 按鈕以儲存 [節點定價層] 資訊。
 
-	![quick create](./media/hdinsight-apache-storm-tutorial-get-started/quickcreate.png)
+8. 選取 [選用設定]。此刀鋒視窗可讓您選取叢集的版本，以及設定其他選擇性設定，例如聯結__虛擬網路__或設定__外部中繼存放區__，用來保存 Hive 和 Oozie 的資料。
 
-4. 輸入唯一的叢集名稱，然後為輸入管理帳戶的唯一密碼。在 [儲存體帳戶] 中，選取先前建立的儲存體帳戶。
+	![選用設定刀鋒視窗](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
 
-	在 [叢集大小] 中，選取 [1 個資料節點] 的大小以用於此叢集。這麼做可以將與叢集相關的成本減至最低。若要用於生產環境，可以建立更大的叢集。
+9. 請確定已選取 [釘選到儀表板]，然後選取 [建立]。這將會建立叢集，並將該叢集磚加入到您 Azure 入口網站的「開始面板」。該圖示可表示該叢集正在佈建，並將在佈建完成後變更為 HDInsight 圖示。
 
-	> [AZURE.NOTE]叢集的管理員帳戶已命名為 **admin**。您輸入的密碼就是此帳戶的密碼。您將需要此資訊來對叢集執行動作，例如提交或管理 Storm 拓撲。
+	| 佈建期間 | 佈建完成 |
+	| ------------------ | --------------------- |
+	| ![「開始面板」上的佈建指示器](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) | ![佈建的叢集磚](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
 
-5. 最後，選取 [建立 HDInsight 叢集] 旁邊的核取記號以建立叢集。
-
-> [AZURE.NOTE]佈建叢集需要花一點時間 (通常約 15 分鐘以內) 來建立叢集、設定軟體和安裝範例資料與拓撲。
+	> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。使用「開始面板」上的圖格或頁面左邊的 [通知] 項目，檢查佈建處理序。
 
 ##在 HDInsight 上執行 Storm Starter 範例
 
@@ -77,9 +98,9 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 ###<a id="connect"></a>連接至儀表板
 
-儀表板位於 **https://&lt;clustername>.azurehdinsight.net//**，其中 **clustername** 是叢集的名稱。您也可以在 Azure 入口網站頁面底部，找到適用於叢集的儀表板連結。
+儀表板位於 **https://&lt;clustername>.azurehdinsight.net//**，其中 **clustername** 是叢集的名稱。您也可以尋找儀表板的連結，方法是從「開始面板」中選取叢集，然後在此刀鋒視窗頂端選取 [儀表板] 連結。
 
-![含 Storm 儀表板連結的 Azure 入口網站](./media/hdinsight-apache-storm-tutorial-get-started/dashboard-link.png)
+![含 Storm 儀表板連結的 Azure 入口網站](./media/hdinsight-apache-storm-tutorial-get-started/dashboard.png)
 
 > [AZURE.NOTE]連接至儀表板時，系統會提示您輸入使用者名稱和密碼。這是您建立叢集時使用的管理員名稱 (**admin**) 和密碼。
 
@@ -215,5 +236,6 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
+[preview-portal]: https://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

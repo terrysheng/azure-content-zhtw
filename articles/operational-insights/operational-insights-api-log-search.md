@@ -205,7 +205,7 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
-  ```
+```
 
 支援的方法: GET PUT DELETE
 
@@ -216,7 +216,7 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 |屬性|說明|
 |---|---|
 |識別碼|唯一識別碼。|
-|Etag|**修補程式的必要項目**。每次寫入時由伺服器進行更新。值必須等於目前儲存的值或 ‘\*’ 才能進行更新。舊值/無效值時會傳回 409。|
+|Etag|**修補程式的必要項目**。每次寫入時由伺服器進行更新。值必須等於目前儲存的值或 ‘*’ 才能進行更新。舊值/無效值時會傳回 409。|
 |properties.query|**必要**。搜尋查詢。|
 |properties.displayName|**必要**。使用者定義的查詢顯示名稱。如果模型化為 Azure 資源，則這會是標記。|
 |properties.category|**必要**。使用者定義的查詢類別。如果模型化為 Azure 資源，則這會是標記。|
@@ -242,7 +242,7 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 
 ### 中繼資料 - 僅限 JSON
 
-以下的方法可讓您看到工作區中所收集資料的所有記錄類型欄位。 例如，如果您想知道事件類型是否具有名為「電腦」的欄位，這會是一個查詢和確認的方法。
+以下的方法可讓您看到工作區中所收集資料的所有記錄類型欄位。例如，如果您想知道事件類型是否具有名為「電腦」的欄位，這會是一個查詢和確認的方法。
 
 **欄位要求：**
 
@@ -346,4 +346,4 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 
 請注意，上述結果包含已具有前置詞及附加詞的錯誤訊息。
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

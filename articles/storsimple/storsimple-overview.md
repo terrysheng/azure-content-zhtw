@@ -4,7 +4,7 @@
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
-   manager="AdinaH" 
+   manager="carolz" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/03/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # 什麼是 StorSimple？ 
@@ -34,7 +34,7 @@ StorSimple 使用儲存體分層管理各種儲存媒體中儲存的資料。目
 
 除了儲存體管理外，StorSimple 資料保護功能可讓您建立隨選和排程備份，並將其儲存在本機或雲端中。備份採用累加快照的形式，這表示建立及還原備份更快速。雲端快照在災害復原案例中至關重要，因為這些快照會取代次要儲存體系統 (例如磁帶備份)，並讓您將資料還原到資料中心或在必要時還原至其他網站。
 
->[AZURE.NOTE]包含軟體更新 1 或更新版本的 StorSimple 8000 Series 支援使用 RRS 的 Amazon S3、HP 和 OpenStack 雲端服務，以及 Microsoft Azure。(您仍然需要 Microsoft Azure 儲存體帳戶進行裝置管理。) 如需詳細資訊，請參閱[部署內部部署 StorSimple 裝置](storsimple-deployment-walkthrough-u1.md)中的[設定新的儲存體帳戶](storsimple-deployment-walkthrough.md#configure-a-new-storage-account)。
+>[AZURE.NOTE]包含軟體更新 1 或更新版本的 StorSimple 8000 Series 支援使用 RRS 的 Amazon S3、HP 和 OpenStack 雲端服務，以及 Microsoft Azure。(您仍然需要 Microsoft Azure 儲存體帳戶進行裝置管理。) 如需詳細資訊，請參閱[為服務設定新的儲存體帳戶](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service)。
 
 ## 為何要使用 StorSimple？
 
@@ -66,11 +66,11 @@ Microsoft Azure StorSimple 解決方案包括下列元件：
 
 ## 後續步驟
 
-請閱讀 [StorSimple 解決方案概觀](http://www.microsoft.com/zh-tw/server-cloud/products/storsimple/resources.aspx) (英文) 並檢視 [StorSimple 講解](http://www.microsoft.com/zh-tw/server-cloud/products/storsimple/Features.aspx) (英文)。
+請閱讀 [StorSimple 8000 系列解決方案概觀](http://www.microsoft.com/server-cloud/products/storsimple/resources.aspx)並檢視 [StorSimple 講解](http://www.microsoft.com/server-cloud/products/storsimple/Features.aspx)。
 
 深入了解 [StorSimple 元件和術語](storsimple-components.md)。
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

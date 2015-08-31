@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/19/2015"
 	ms.author="andalmia"/>
 
 # 在邏輯應用程式中使用 OneDrive 連接器 #
@@ -40,7 +40,7 @@ OneDrive 連接器可讓您從 OneDrive 帳戶上傳\下載\刪除檔案。
 4. 按一下 [建立]。將建立新的 OneDrive 連接器。
 5. 建立 API 應用程式執行個體後，您可以在相同的資源群組中建立邏輯應用程式，以便使用 OneDrive 連接器。
 
-## 在邏輯應用程式中使用 Dropbox 連接器 # ##
+## 在邏輯應用程式中使用 Dropbox 連接器 ###
 建立 API 應用程式之後，您現在可以使用 OneDrive 連接器做為邏輯應用程式的動作。若要這樣做，您需要：
 
 1.	建立新的邏輯應用程式，並選擇具有 OneDrive 連接器的相同資源群組。請依照指示[建立新的邏輯應用程式]。
@@ -78,6 +78,13 @@ OneDrive 連接器可讓您從 OneDrive 帳戶上傳\下載\刪除檔案。
 
 9. 如需 API 的詳細資訊，請參閱 [OneDrive API 定義]。
 
+## 進一步運用您的連接器
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+
+檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
+
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)。
+
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-onedrive/img1.PNG
 [2]: ./media/app-service-logic-connector-onedrive/img2.PNG
@@ -89,6 +96,6 @@ OneDrive 連接器可讓您從 OneDrive 帳戶上傳\下載\刪除檔案。
 
 <!-- Links -->
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
-[OneDrive API 定義]: https://msdn.microsoft.com/zh-tw/library/dn974227.aspx
+[OneDrive API 定義]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

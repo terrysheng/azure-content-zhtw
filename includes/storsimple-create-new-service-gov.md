@@ -1,4 +1,3 @@
-
 #### 建立新服務
 
 1. 使用您的 Microsoft 帳戶認證以登入 [Microsoft Azure Government 入口網站](https://manage.windowsazure.us/)。
@@ -18,4 +17,4 @@
  
        ![服務建立](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="管理 StorSimple 中的存取控制記錄"
+   pageTitle="管理 StorSimple 中的存取控制記錄 | Microsoft Azure"
    description="說明如何使用存取控制記錄 (ACR) 以判斷哪些主機可以連接至 StorSimple 裝置上的磁碟區。"
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/10/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # 管理 StorSimple 中的存取控制記錄
@@ -94,4 +94,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

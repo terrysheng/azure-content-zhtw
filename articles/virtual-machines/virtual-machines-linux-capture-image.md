@@ -26,7 +26,7 @@ Azure 會將此範本視為映像，並將其儲存在 [**映像**] 下。這也
 
 ## 開始之前
 
-這些步驟假設您已建立 Azure 虛擬機器且設定好作業系統，包括連接任何資料磁碟。如果您還沒這麼做，請參閱下列指示：
+這些步驟假設您已使用傳統部署模型建立 Azure 虛擬機器，並設定好作業系統，包括連接任何資料磁碟。如果您還沒這麼做，請參閱下列指示：
 
 - [如何建立執行 Linux 的虛擬機器][]
 
@@ -86,7 +86,7 @@ Azure 會將此範本視為映像，並將其儲存在 [**映像**] 下。這也
 
 
 ## 後續步驟
-映像已可用來做為範本，建立虛擬機器。您可以使用 Azure CLI 命令 `azure vm create` 並提供您剛才建立的映像名稱。如需命令的詳細資料，請參閱[使用 Azure CLI 搭配服務管理](virtual-machines-command-line-tools.md)。或者，您可以利用 [**從資源庫**] 方法，並選取您剛才建立的映像，以便使用[管理入口網站][]來建立自訂虛擬機器。如需詳細資料，請參閱[如何建立自訂虛擬機器][]。
+映像已可用來做為範本，建立虛擬機器。您可以使用 Azure CLI 命令 `azure vm create` 並提供您剛才建立的映像名稱。如需命令的詳細資料，請參閱[使用 Azure CLI 搭配服務管理 API](virtual-machines-command-line-tools.md)。或者，您可以利用 [**從資源庫**] 方法，並選取您剛才建立的映像，以便使用[管理入口網站][]來建立自訂虛擬機器。如需詳細資料，請參閱[如何建立自訂虛擬機器][]。
 
 **另請參閱：** [Azure Linux 代理程式使用者指南](virtual-machines-linux-agent-user-guide.md)
 
@@ -97,4 +97,4 @@ Azure 會將此範本視為映像，並將其儲存在 [**映像**] 下。這也
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [如何建立執行 Linux 的虛擬機器]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

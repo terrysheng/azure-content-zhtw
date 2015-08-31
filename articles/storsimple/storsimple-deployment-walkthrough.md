@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/12/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # 部署內部部署 StorSimple 裝置
@@ -123,15 +123,15 @@
 
 - 您已完全打開裝置包裝、掛接到機架上，並連接所有的電源、網路及序列存取纜線，如下所述：
 
-	-  [打開 8100 裝置包裝](storsimple-8100-hardware-installation.md)
-	-  [打開 8600 裝置包裝](storsimple-8600-hardware-installation.md)
+	-  [打開封裝、掛接機架，並將纜線接上 8100 裝置](storsimple-8100-hardware-installation.md)
+	-  [打開封裝、掛接機架，並將纜線接上 8600 裝置](storsimple-8600-hardware-installation.md)
 
 
 ### 針對資料中心內的網路
 
 在您開始前，請確定：
 
-- 資料中心防火牆中的連接埠已開放，以允許 iSCSI 和雲端流量，如 [StorSimple 裝置的網路需求]()中所述。
+- 資料中心防火牆中的連接埠已開放，以允許 iSCSI 和雲端流量，如 [StorSimple 裝置的網路需求](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device)中所述。
 - 資料中心內的裝置可以連線到外部網路。執行下列 [Windows PowerShell 4.0](http://www.microsoft.com/download/details.aspx?id=40855) Cmdlet (如下方表格所示) 以驗證外部網路連線。在可連線至 Azure 和您將部署 StorSimple 裝置的電腦上 (於資料中心網路內) 執行此驗證。  
 
 | 針對此參數… | 檢查有效性... | 執行這些命令/Cmdlet。 |
@@ -139,14 +139,14 @@
 | **IP**</br>**子網路**</br>**閘道器** | 這是有效的 IPv4 或 IPv6 位址嗎？</br>這是有效的子網路嗎？</br>這是有效的閘道器嗎？</br>這是網路上重複的 IP 嗎？ | `ping ip`</br>`arp -a`</br>`ping` 和 `arp` 命令應該會失敗，這指出在資料中心的網路中沒有裝置使用此 IP。
 | | | |
 | **DNS** | 這是有效的 DNS 且可以解析 Azure URL 嗎？ | `Resolve-DnsName -Name www.bing.com -Server <DNS server IP address>` </br>可使用的替代命令是：</br>`nslookup --dns-ip=<DNS server IP address> www.bing.com` |
-| | 檢查連接埠 53 是否開啟。只有在您為裝置使用外部 DNS 時才適用。內部 DNS 應該會自動解析外部 URL。 | `Test-Port -comp dc1 -port 53 -udp -UDPtimeout 10000`</br>[有關此 Cmdlet 的詳細資訊]()|
+| | 檢查連接埠 53 是否開啟。只有在您為裝置使用外部 DNS 時才適用。內部 DNS 應該會自動解析外部 URL。 | `Test-Port -comp dc1 -port 53 -udp -UDPtimeout 10000`</br>[有關此 Cmdlet 的詳細資訊](http://learn-powershell.net/2011/02/21/querying-udp-ports-with-powershell/)|
 | | | |
-| **NTP** | 我們會在 NTP 伺服器輸入時觸發時間同步處理。請在您輸入 `time.windows.com` 或公用時間伺服器時檢查 UDP 連接埠 123 是否開啟)。 | [下載並使用這個指令碼]()。 |
+| **NTP** | 我們會在 NTP 伺服器輸入時觸發時間同步處理。請在您輸入 `time.windows.com` 或公用時間伺服器時檢查 UDP 連接埠 123 是否開啟)。 | [下載並使用此指令碼](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca)。 |
 | | | |
-| **Proxy (選用)** | 這是有效的 Proxy URI 和連接埠嗎？ </br> 驗證模式是否正確？ | `wget http://bing.com % {$_.StatusCode}`</br>此命令應該在設定 Web Proxy 後立即執行。如果傳回 200，則表示連線成功。 |
+| **Proxy (選用)** | 這是有效的 Proxy URI 和連接埠嗎？ </br> 驗證模式是否正確？ | <code>wget http://bing.com | % {$\_.StatusCode}</code></br> 此命令應該在設定 Web Proxy 後立即執行。如果傳回狀態碼 200，則表示連接成功。 |
 | | 流量是否可透過 Proxy 路由？ | 在裝置上設定 Proxy 之後，請執行 DNS 驗證、NTP 檢查 或 HTTP 檢查。這會清楚的反映流量是否在 Proxy 或其他地方遭到封鎖。 |
 | | | |
-| **註冊** | 檢查輸出 TCP 連接埠 443、80、9354 是否開啟。 | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Test-NetConnection Cmdlet 的詳細資訊]() |
+| **註冊** | 檢查輸出 TCP 連接埠 443、80、9354 是否開啟。 | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Test-NetConnection Cmdlet 的詳細資訊](https://technet.microsoft.com/library/dn372891.aspx) |
 
 ## 逐步部署
 
@@ -164,7 +164,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 > [AZURE.IMPORTANT]如果您並未啟用服務自動建立儲存體帳戶，您將必須在成功建立服務後，至少建立一個儲存體帳戶。當您建立磁碟區容器時，將會使用此儲存體帳戶。
 >
-> 如果您未自動建立儲存體帳戶，請移至[針對服務設定新的儲存體帳戶](#Configure-a-new-storage-account-for-the-service)以取得詳細指示。如果您已啟用自動建立儲存體帳戶，請移至[步驟 2：取得服務註冊金鑰](#step-2:-get-the-service-registration-key)。
+> 如果您未自動建立儲存體帳戶，請移至[針對服務設定新的儲存體帳戶](#configure-a-new-storage-account-for-the-service)以取得詳細指示。如果您已啟用自動建立儲存體帳戶，請移至[步驟 2：取得服務註冊金鑰](#step-2:-get-the-service-registration-key)。
 
 ## 步驟 2：取得服務註冊金鑰
 
@@ -220,7 +220,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 > - 為獲得 StorSimple 解決方案的高可用性，建議您先在 Windows Server 主機 (選用) 上設定 MPIO，再於 Windows Server 主機上設定 iSCSI。主機伺服器上的 MPIO 設定會確保伺服器可以容許連結、網路，或介面失敗。
 
-> - 如需 MPIO 和 iSCSI 安裝與設定的指示，請移至[為 StorSimple 裝置設定 MPIO](storsimple-configure-mpio-windows-server.md)。其中也會包括掛接、初始化和格式化 StorSimple 磁碟區的步驟。
+> - 如需 MPIO 和 iSCSI 安裝與設定的指示，請至[為 StorSimple 裝置設定 MPIO](storsimple-configure-mpio-windows-server.md)。其中也會包括掛接、初始化和格式化 StorSimple 磁碟區的步驟。
 
 如果您決定不設定 MPIO，請執行下列步驟來掛接、初始化及格式化您的 StorSimple 磁碟區。
 
@@ -242,7 +242,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 如果您需要在不同區域建立 Azure 儲存體帳戶，請參閱[關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)以取得逐步指示。
 
-請在 Azure 入口網站上的 [StorSimple Manager 服務] 頁面，執行下列步驟。
+請在 Azure 入口網站上的 [**StorSimple Manager 服務**] 頁面，執行下列步驟。
 
 [AZURE.INCLUDE [storsimple-configure-new-storage-account](../../includes/storsimple-configure-new-storage-account.md)]
 
@@ -257,12 +257,12 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 更新裝置可能會花費 1 到 4 小時。在裝置上執行下列步驟來掃描並套用更新。
 
-> [AZURE.NOTE]如果您已在 Data 0 以外的網路介面設定閘道器，安裝更新前您必須先停用 Data 2 和 Data 3 網路介面。請移至 [裝置] > [設定] 並停用 Data 2 和 Data 3 介面。裝置更新之後，您應該重新啟用這些介面。
+> [AZURE.NOTE]如果您已在 Data 0 以外的網路介面設定閘道器，安裝更新前您必須先停用 Data 2 和 Data 3 網路介面。請移至 **[裝置] > [設定]** 並停用 Data 2 和 Data 3 介面。裝置更新之後，您應該重新啟用這些介面。
 
 #### 若要更新裝置
-1.	在裝置的 [快速入門] 頁面上，按一下 [裝置]。選取 [實體裝置]，按一下 [維護]，然後按一下 [掃描更新]。  
-2.	系統會建立掃描可用更新的工作。如果有可用的更新，[掃描更新] 會變更為 [安裝更新]。按一下 [安裝更新]。系統可能會要求您在安裝更新前停用 Data 2 和 Data 3。您必須停用這些網路介面，否則更新會失敗。
-3.	更新工作將會建立。瀏覽至 [工作] 監視更新的狀態。
+1.	在裝置的 [**快速入門**] 頁面上，按一下 [**裝置**]。選取 [實體裝置]，按一下 [**維護**]，然後按一下 [**掃描更新**]。  
+2.	系統會建立掃描可用更新的工作。如果有可用的更新，[**掃描更新**] 會變更為 [**安裝更新**]。按一下 [**安裝更新**]。系統可能會要求您在安裝更新前停用 Data 2 和 Data 3。您必須停用這些網路介面，否則更新會失敗。
+3.	更新工作將會建立。瀏覽至 [**工作**] 監視更新的狀態。
 
 	> [AZURE.NOTE]當更新工作啟動時，狀態會立即顯示為 50 %。只有在更新工作完成之後，狀態才會變更為 100 %。更新程序沒有即時狀態。
 
@@ -290,4 +290,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 - 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx)以管理 StorSimple 裝置。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

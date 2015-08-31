@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="使用 Live Connect 驗證您的應用程式 (Windows Phone) | Microsoft Azure" 
-	description="了解如何從 Windows Phone 應用程式在 Azure 行動服務中使用 Live Connect 單一登入。" 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="使用 Live Connect 驗證您的應用程式 (Windows Phone) | Microsoft Azure"
+	description="了解如何從 Windows Phone 應用程式在 Azure 行動服務中使用 Live Connect 單一登入。"
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/09/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # 使用 Microsoft 帳戶以用戶端管理的驗證方式驗證您的 Windows Phone 應用程式
@@ -30,11 +30,11 @@
 + Microsoft Visual Studio 2013 Update 3 或更新版本
 + 您還必須先完成[將行動服務新增至現有的應用程式]教學課程。
 
-##註冊應用程式來使用 Microsoft 帳戶 
+##註冊應用程式來使用 Microsoft 帳戶
 
 若要能夠驗證使用者，您必須在 Microsoft 帳戶開發人員中心註冊您的應用程式。然後您必須將此註冊連接到您的行動服務。請完成下列主題中的步驟以建立 Microsoft 帳戶註冊，並將註冊連接到您的行動服務。
 
-+ [註冊應用程式來使用 Microsoft 帳戶登入](mobile-services-how-to-register-microsoft-authentication.md) 
++ [註冊應用程式來使用 Microsoft 帳戶登入](mobile-services-how-to-register-microsoft-authentication.md)
 
 ##<a name="permissions"></a>限制只有通過驗證的使用者具有權限
 
@@ -54,10 +54,10 @@
 
 5. 開啟專案檔案 mainpage.xaml.cs 並新增下列 using 陳述式：
 
-        using Microsoft.Live;      
+        using Microsoft.Live;
 
 6. 將下列程式碼片段新增至 MainPage 類別：
-	
+
         private LiveConnectSession session;
         private static string clientId = "<microsoft-account-client-id>";
         private async System.Threading.Tasks.Task AuthenticateAsync()
@@ -107,12 +107,12 @@
             this.ButtonLogin.Visibility = System.Windows.Visibility.Collapsed;
             RefreshTodoItems();
         }
-		
+
 7. 在應用程式專案中，開啟 MainPage.xaml 專案檔案，然後在 **TitlePanel** 中 **TextBlock** 元素的後面新增 **Button** 元素：
 
-		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
+		<Button Name="ButtonLogin" Click="ButtonLogin_Click"
                         Visibility="Visible">Sign in</Button>
-		
+
 9. 按 F5 鍵執行應用程式，並以您的 Microsoft 帳戶登入。
 
    成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
@@ -140,6 +140,5 @@
 [使用指令碼授權使用者]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

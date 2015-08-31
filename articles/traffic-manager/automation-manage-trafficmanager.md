@@ -4,7 +4,7 @@
  services="traffic-manager, automation" 
  documentationCenter="" 
  authors="eamonoreilly" 
- manager="jwinter" 
+ manager="adinah" 
  editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="na" 
  ms.topic="article" 
- ms.date="04/13/2015" 
- ms.author="eamono"/>
+ ms.date="08/12/2015" 
+ ms.author="joaoma"/>
 
 
 #使用 Azure 自動化管理 Azure 流量管理員
@@ -42,4 +42,4 @@ Azure 自動化提供非常可靠且高度可用的工作流程執行引擎，�
 * 請參閱 Azure 自動化[入門指南](http://go.microsoft.com/fwlink/?LinkId=390560)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

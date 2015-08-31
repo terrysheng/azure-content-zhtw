@@ -1,20 +1,21 @@
 <properties
-   pageTitle="Linux 教學課程：開始使用 Hadoop 和 Hive |Microsoft Azure"
-   description="遵循本 Linux 教學課程，開始在 HDInsight 中使用 Hadoop。了解如何佈建 Linux 叢集，以及使用 Hive 查詢資料。"
-   services="hdinsight"
-   documentationCenter=""
-   authors="nitinme"
-   manager="paulettm"
-   editor="cgronlun"/>
+   	pageTitle="Linux 教學課程：開始使用 Hadoop 和 Hive |Microsoft Azure"
+   	description="遵循本 Linux 教學課程，開始在 HDInsight 中使用 Hadoop。了解如何佈建 Linux 叢集，以及使用 Hive 查詢資料。"
+   	services="hdinsight"
+   	documentationCenter=""
+   	authors="nitinme"
+   	manager="paulettm"
+   	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
-   ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/11/2015"
-   ms.author="nitinme"/>
+   	ms.service="hdinsight"
+   	ms.devlang="na"
+   	ms.topic="hero-article"
+   	ms.tgt_pltfrm="na"
+   	ms.workload="big-data"
+   	ms.date="08/07/2015"
+   	ms.author="nitinme"/>
 
 # Hadoop 教學課程：在 Linux 開始在 HDInsight 中搭配 Hive 使用 Hadoop (預覽)
 
@@ -28,7 +29,7 @@
 > [AZURE.NOTE]如果您是 Hadoop 和巨量資料的新使用者，您可以進一步了解這些術語：<a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a><a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>、<a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">Hadoop 分散式檔案系統 (HDFS)</a> 及 <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>。若要了解 HDInsight 如何在 Azure 中啟用 Hadoop，請參閱 [HDInsight 中 Hadoop 的簡介](hdinsight-hadoop-introduction.md)。
 
 
-## 本教學課程要達成什麼目標？ 
+## 本教學課程要達成什麼目標？
 
 假設您有一個大型的非結構化資料集，而且您想要在此資料集上執行查詢以擷取一些有用資訊。以下是要達成此目標的作法：
 
@@ -40,79 +41,79 @@
 開始進行 Hadoop 的本 Linux 教學課程之前，您必須具備下列條件：
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **安全殼層 (SSH) 金鑰**。如果您想要使用帶有金鑰的 SSH (而非密碼) 遠端登入到 Linux 叢集。建議使用金鑰的方式，因為它較為安全。如需如何產生 SSH 金鑰的相關指示，請參閱下列文章：
+	-  從 Linux 電腦 - [從 Linux、Unix 或 OS X 搭配使用 SSH 與以 Linux 為基礎的 HDInsight (Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
+	-  從 Windows 電腦 - [從 Windows 搭配使用 SSH 與以 Linux 為基礎的 HDInsight (Hadoop)](hdinsight-hadoop-linux-use-ssh-windows.md)。
 
 **預估完成時間：**30 分鐘
 
-## 本教學課程內容
-
-* [建立 Azure 儲存體帳戶](#storage)
-* [佈建 HDInsight Linux 叢集](#provision)
-* [在叢集上提交 Hive 工作](#hivequery)
-* [後續步驟](#nextsteps)
-
-## <a name="storage"></a>建立 Azure 儲存體帳戶
-
-HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](../hdinsight-use-blob-storage.md)。
-
-佈建 HDInsight 叢集時，您可以指定 Azure 儲存體帳戶。將該帳戶的特定 Blob 儲存體容器指定為預設檔案系統，如同在 HDFS 中一般。依預設，系統會在與您指定儲存體帳戶的相同資料中心內佈建 HDInsight 叢集。
-
-除了此儲存體帳戶以外，您可以在自訂設定 HDInsight 叢集時新增其他儲存體帳戶。這些其他儲存體帳戶可以來自相同的 Azure 訂用帳戶或不同的 Azure 訂用帳戶。如需相關指示，請參閱[使用自訂選項佈建 HDInsight Linux 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
-
-為了簡化本教學課程，將僅使用預設的 Blob 容器和預設的儲存體帳戶。實際上，資料檔案通常會儲存在指定的儲存體帳戶中。
-
-**建立 Azure 儲存體帳戶**
-
-1. 登入 <a href="https://manage.windowsazure.com/" target="_blank">Azure 入口網站</a>。
-2. 按一下左下角的 [**新增**]，並指向 [**資料服務**]，接著指向 [**儲存體**]，然後按一下 [**快速建立**]。
-
-	![Azure 入口網站，您可以在此入口網站中使用「快速建立」設定新的儲存體帳戶。](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.StorageAccount.QuickCreate.png)
-
-3. 輸入 [**URL**]、[**位置**] 和 [**複寫**] 資訊，然後按一下 [**建立儲存體帳戶**]。不支援同質群組。您將在儲存體清單中看見新的儲存體帳戶。
-
-	>[AZURE.NOTE]佈建 HDInsight Linux 叢集的快速建立選項 (如在本教學課程中所使用的選項) 在佈建叢集時並不會詢問位置。依預設，它會將叢集並存於與儲存體帳戶相同的資料中心內。
-
-4. 等候新儲存體帳戶的 [**狀態**] 變更為 [**線上**]。
-5. 從清單中選取新儲存體帳戶，並按一下頁面底部的 [**管理存取金鑰**]。
-7. 請記下 [**儲存體帳戶名稱**] 和 [**主要存取金鑰**] (或 [**次要存取金鑰**]，任一金鑰皆可)。稍後在教學課程中需要這些資訊。
-
-
-如需詳細資訊，請參閱[如何建立儲存體帳戶](../storage-create-storage-account.md)和[在 HDInsight 上使用 Azure Blob 儲存體](../hdinsight-use-blob-storage.md)。
-
 ## <a name="provision"></a>在 Linux 上佈建 HDInsight 叢集
 
-佈建 HDInsight 叢集時，您可以佈建包含 Hadoop 及相關應用程式的 Azure 運算資源。在本節中，您將使用 [快速建立] 選項在 Linux 上佈建 HDInsight 叢集。此選項使用預設使用者名稱和 Azure 儲存體容器，並使用在 Ubuntu 12.04 長期支援 (LTS) 上執行的 HDInsight 3.2 版 (Hadoop 2.6 版、Hortonworks Data Platform 2.2 版) 設定叢集。如需不同 HDInsight 版本及其服務等級協定的相關資訊，請參閱 [HDInsight 元件版本設定](hdinsight-component-versioning.md)頁面。
+佈建叢集時，您可以佈建包含 Hadoop 及相關應用程式的 Azure 計算資源。在本節中，您將佈建 HDInsight 3.2 版叢集。您也可以建立其他版本的 Hadoop 叢集。如需相關指示，請參閱〈[使用自訂選項佈建 HDInsight 叢集][hdinsight-provision]〉。如需不同 HDInsight 版本及其 SLA 的相關資訊，請參閱〈[HDInsight 元件版本設定](hdinsight-component-versioning.md)〉。
 
->[AZURE.NOTE]您也可以建立執行 Windows Server 作業系統的 Hadoop 叢集。如需相關指示，請參閱[開始使用 HDInsight](../hdinsight-get-started.md)。
+>[AZURE.NOTE]您也可以建立執行 Windows Server 作業系統的 Hadoop 叢集。如需相關指示，請參閱[在 Windows 上開始使用 HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md)。
 
 
 **佈建 HDInsight 叢集**
 
-1. 登入 <a href="https://manage.windowsazure.com/" target="_blank">Azure 入口網站</a>。
+1. 登入 [Azure 預覽入口網站](https://ms.portal.azure.com/)。
+2. 請按一下 [新增]、[資料分析]，然後按一下 [HDInsight]。
 
-2. 按一下左下角的 [**新增**]，然後依序按一下 [**資料服務**]、[**HDInsight**] 和 [**Linux 上的 Hadoop**]。
+    ![在 Azure Preview 入口網站中建立新的叢集](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "在 Azure Preview 入口網站中建立新的叢集")
 
-	![在 HDInsight 中建立 Hadoop 叢集。](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.QuickCreateCluster.png)
+3. 輸入 [叢集名稱]，針對 [叢集類型] 選取 [Hadoop]，然後從 [叢集作業系統] 下拉式清單中選取 [Ubuntu]。如果該叢集可用，其名稱旁會出現綠色核取記號。
 
-4. 輸入或選取下列值：
+	![輸入叢集名稱和類型](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.2.png "輸入叢集名稱和類型")
 
-	<table border="1">
-	<tr><th>名稱</th><th>值</th></tr>
-	<tr><td>叢集名稱</td><td>叢集的名稱。</td></tr>
-	<tr><td>叢集大小</td><td>您要部署的資料節點數。預設值為 4。但您也可以從下拉式清單中選擇使用 1 或 2 個資料節點。使用 [自訂建立]<strong></strong> 選項可以指定任何數目的叢集節點。另外也提供各種叢集大小的費率價格詳細資料。按一下下拉式方塊正上方的 [<strong>?</strong>]，並按一下快顯功能表上的連結。</td></tr>
-	<tr><td>密碼</td><td><i>HTTP</i> 帳戶 (預設使用者名稱：admin) 和 <i>SSH</i> 帳戶 (預設使用者名稱：hdiuser) 的密碼。請注意，這些「不是」指佈建叢集所在虛擬機器的系統管理員帳戶。</td></tr>
+4. 如果您有多個訂用帳戶，請按一下 [訂用帳戶] 項目，以選取將用於該叢集的 Azure 訂用帳戶。
 
-	<tr><td>儲存體帳戶</td><td>從下拉式方塊中，選取您建立的儲存體帳戶。<br/>
+5. 按一下 [資源群組] 來查看現有資源群組的清單，然後選取其中一個用來建立叢集。或者按一下 [建立新項目]，然後輸入新資源群組的名稱。出現綠色核取記號即表示新群組的名稱可用。
 
-	一旦選擇儲存體帳戶之後，便無法變更。如果移除儲存體帳戶，則無法再使用叢集。HDInsight 叢集會並存於與儲存體帳戶相同的資料中心內。
-	</td></tr>
-	</table>
-	保留叢集名稱的複本。稍後在教學課程中將會需要這些資訊。
+	> [AZURE.NOTE]如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
+
+6. 按一下 [認證]，然後輸入管理員使用者的密碼。您也必須輸入 [SSH 使用者名稱] 和 [密碼] 或 [公開金鑰]，這會用來驗證 SSH 使用者。建議使用公開金鑰的方法。在底部按一下 [選取] 以儲存認證組態。
+
+	![提供叢集認證](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "提供叢集認證")
+
+	如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱下列文章：
+
+	* [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)
+	* [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 
-5. 按一下 [**建立 HDInsight 叢集**]。佈建完成時，狀態欄便會顯示 [**執行中**]。
+7. 按一下 [資料來源] 選擇該叢集的現有資料來源，或建立一個新的資料來源。當您在 HDInsight 中佈建 Hadoop 叢集時，您需要指定一個 Azure 儲存體帳戶。該帳戶特定的 Blob 儲存體容器將被指定為預設檔案系統，如同 Hadoop 分散式檔案系統 (HDFS)。依預設，系統會在與您指定儲存體帳戶的相同資料中心內佈建 HDInsight 叢集。如需詳細資訊，請參閱＜[搭配 HDInsight 使用 Azure Blob 儲存體](hdinsight-use-blob-storage.md)＞。
 
-	>[AZURE.NOTE]上述程序會使用 [快速建立] 選項建立 Linux 叢集，此選項使用預設的 SSH 使用者名稱和 Azure 儲存體容器。若要使用自訂選項建立叢集，例如使用 SSH 金鑰進行驗證或使用其他儲存體帳戶，請參閱[使用自訂選項佈建 HDInsight Linux 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
+	![資料來源刀鋒視窗](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.4.png "提供資料來源組態")
 
+	目前您可以選取 Azure 儲存體帳戶做為 HDInsight 叢集資料來源。請使用下列步驟來了解 [資料來源] 刀鋒視窗上的項目。
+
+	- **選取方法**：將此設為 [來自所有訂用帳戶]，即可瀏覽您所有訂用帳戶中的儲存體帳戶。如果您想要輸入現有儲存體帳戶的 [儲存體名稱] 和 [存取金鑰]，請將此設為 [存取金鑰]。
+
+	- **選取儲存體帳戶 / 建立新的**：請按一下 [選取儲存體帳戶] 瀏覽並選取您要與叢集相關聯的現有儲存體帳戶。或按一下 [建立新項目] 來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可用，將會出現綠色核取記號。
+
+	- **選擇預設容器**：使用此選項可輸入要用於該叢集的預設容器名稱。雖然您可以輸入任何名稱，但我們建議您使用與叢集相同的名稱，以便輕易辨識用於這個特定叢集的容器。
+
+	- **位置**：儲存體帳戶所在地或將建立的地理區域。
+
+		> [AZURE.IMPORTANT]選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
+
+	按一下 [選取] 以儲存資料來源組態。
+
+8. 按一下 [節點定價層] 會顯示將針對此叢集建立之節點的相關資訊。設定該叢集所需的背景工作節點數目。該叢集的預估成本將會顯示在此刀鋒視窗內。
+
+	![節點定價層刀鋒視窗](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.5.png "指定叢集節點的數目")
+
+	按一下 [選取] 以儲存此節點定價組態。
+
+9. 在 [新的 HDInsight 叢集] 刀鋒視窗中，確認已選取 [釘選到開始面板]，然後按一下 [建立]。這將會建立叢集，並將該叢集磚加入到您 Azure 入口網站的「開始面板」。該圖示可表示該叢集正在佈建，並將在佈建完成後變更為 HDInsight 圖示。
+
+佈建期間|佈建完成
+------------------|---------------------
+	![「開始面板」上的佈建指示器](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioning.png)|![佈建的叢集磚](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioned.png)
+
+> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。使用「開始面板」上的圖格或頁面左邊的 [通知] 項目，檢查佈建處理序。
+
+佈建完成後，在「開始面板」按一下該叢集的圖格，以啟動叢集刀鋒視窗。
 
 ## <a name="hivequery"></a>在叢集上提交 Hive 工作
 現在您已佈建 HDInsight Linux 叢集，下一個步驟是執行範例 Hive 工作，以查詢 HDInsight 叢集隨附的範例資料 (sample.log)。範例資料包含記錄資訊，包括追蹤、警告、資訊及錯誤。我們查詢此資料以擷取具有特定嚴重性的所有錯誤記錄。您必須執行下列步驟以在 HDInsight Linux 叢集上執行 Hive 查詢：
@@ -235,18 +236,34 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 
 	傳回的資料應該會全都對應至 [ERROR] 記錄檔。
 
-
-## <a name="nextsteps"></a>後續步驟
+## <a name="nextsteps"></a>接續步驟
 在本 Linux 教學課程中，您已經學會如何使用 HDInsight 在 Linux 上佈建 Hadoop 叢集並使用 SSH 在叢集上執行 Hive 查詢。若要深入了解，請參閱下列文章：
 
-- [使用自訂選項在 Linux 上佈建 HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
-- [在 Linux 上使用 HDInsight](hdinsight-hadoop-linux-information.md)
-- [使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)
-- [搭配 HDInsight 使用 MapReduce][hdinsight-use-mapreduce]
-- 〈[搭配 HDInsight 使用 Hivet][hdinsight-use-hive]〉
-- [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
-- [在 HDInsight 上使用 Azure Blob 儲存體](../hdinsight-use-blob-storage.md)
-- [將資料上傳至 HDInsight][hdinsight-upload-data]
+- [使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)：以 Linux 為基礎的 HDInsight 叢集使用 Ambari 來管理和監控 Hadoop 服務。在 https://CLUSTERNAME.azurehdinsight.net 的每個叢集上皆可使用 Ambari Web UI。
+
+	> [AZURE.IMPORTANT]相較於許多 Ambari Web 區段都是透過網際網路直接存取，Hadoop 服務的 Web UI (例如 [資源管理員] 或 [工作歷程記錄]) 則需要使用 SSH 通道。如需以 HDInsight 使用 SSH 通道的詳細資訊，請參閱下列文章：
+	>
+	> * [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
+	> * [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
+
+- [使用自訂選項佈建 Linux 上的 HDInsight](hdinsight-hadoop-provision-linux-clusters.md)：了解如何佈建 HDInsight 叢集的詳細資料。
+
+- [在 Linux 上使用 HDInsight](hdinsight-hadoop-linux-information.md)：如果您已經熟悉 Linux 平台上的 Hadoop，本文件提供 Azure 特定資訊的指引，例如：
+
+	* 裝載於叢集上的服務 (例如 Ambari 和 WebHCat) URL
+	* Hadoop 檔案和範例在本機檔案系統上的位置
+	* Azure 儲存體 (WASB) (而非 HDFS) 做為預設資料儲存體的使用方式
+
+- 如需 Hive 的詳細資訊，或要了解 Pig 和 MapReduce，請參閱下列文章：
+
+	- 〈[搭配 HDInsight 使用 MapReduce][hdinsight-use-mapreduce]〉
+	- 〈[搭配 HDInsight 使用 Hivet][hdinsight-use-hive]〉
+	- [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
+
+- 如需如何運用 HDInsight 叢集所使用之 Azure 儲存體的詳細資訊，請參閱下列文章：
+
+	- [在 HDInsight 上使用 Azure Blob 儲存體](../hdinsight-use-blob-storage.md)
+	- [將資料上傳至 HDInsight][hdinsight-upload-data]
 
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
@@ -270,6 +287,5 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 [image-hdi-clusterstatus]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.ClusterStatus.png
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
- 
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

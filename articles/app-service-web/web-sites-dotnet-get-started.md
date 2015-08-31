@@ -54,19 +54,19 @@
 
 圖表會說明您所要進行的建立和部署步驟。
 
-![建立](./media/web-sites-dotnet-get-started/Create_App.png)
+![建立和部署](./media/web-sites-dotnet-get-started/Create_App.png)
 
 1. 開啟 Visual Studio 2015 或 Visual Studio 2013。 
 
 	如果您使用 Visual Studio 2013，畫面會與螢幕擷取畫面稍有不同，但程序基本上都相同。
 
-2. 從 [**檔案**] 功能表，按一下 **[新增] > [專案]**。
+2. 從 [檔案] 功能表，按一下 [新增] > [專案]。
 
-3. 在 [新增專案] 對話方塊中，按一下 [C#] > [Web] > [ASP.NET Web 應用程式]。如有需要，您可以選擇 [Visual Basic]。
+3. 在 [新增專案] 對話方塊中，按一下 [C\#] > [Web] > [ASP.NET Web 應用程式]。如有需要，您可以選擇 [Visual Basic]。
 
-3. 確定已選取 [**.NET Framework 4.5.2**] 作為目標架構。
+3. 確定已選取 [.NET Framework 4.5.2] 作為目標架構。
 
-4.  [Application Insights](app-insights-overview.md) 會監視 Web 應用程式的可用性、效能和使用情形。如果您不想要試用，請清除 [**將 Application Insights 加入專案**] 核取方塊。
+4.  [Application Insights](app-insights-overview.md) 會監視 Web 應用程式的可用性、效能和使用情形。如果您不想要試用，請清除 [將 Application Insights 加入專案] 核取方塊。
 
 4. 將應用程式命名為 **MyExample**。
 
@@ -100,7 +100,7 @@
 
 	![已登入 Azure](./media/web-sites-dotnet-get-started/configuresitesettings.png)
 
-3. 在 [**設定 Microsoft Azure Web 應用程式設定**] 對話方塊方塊中，輸入 **Web 應用程式名稱**，這在 *azurewebsites.net* 網域中是唯一的。例如，您可以將它命名為 MyExample 並於右邊加上數字，使其成為唯一的名稱，例如 MyExample810。如果預設的 Web 名稱針對您所建立，則它將是唯一的，且您可以使用該名稱。
+3. 在 [設定 Microsoft Azure Web 應用程式設定] 對話方塊中，輸入在 *azurewebsites.net* 網域中唯一的 **Web 應用程式名稱**。例如，您可以將它命名為 MyExample 並於右邊加上數字，使其成為唯一的名稱，例如 MyExample810。如果預設的 Web 名稱針對您所建立，則它將是唯一的，且您可以使用該名稱。
 
 	如果有其他人使用了您輸入的名稱，您就會在右邊看到紅色驚嘆號，而不是綠色勾號，這代表您需要輸入不同的名稱。
 
@@ -140,7 +140,7 @@
 
 	![已建立 Web 應用程式](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
-	因此，您可以在 [**伺服器總管**] 中檢視該 Web 應用程式。
+	因此，您可以在 [伺服器總管] 中檢視該 Web 應用程式。
 
 	![已建立 Web 應用程式](./media/web-sites-dotnet-get-started/siteinse.png)
 
@@ -154,7 +154,7 @@
 
 	Visual Studio 要將您的專案部署至 Azure 所需的設定，已儲存在*發行設定檔*中。精靈可讓您檢查及變更這些設定。
 
-8. 在 [**發佈 Web**] 精靈的 [**連接**] 索引標籤中，按 [**下一步**]。
+8. 在 [發佈 Web] 精靈的 [連接] 索引標籤中，按 [下一步]。
 
 	Visual Studio 提供您部署至 Azure Web 應用程式所需的所有設定。
 
@@ -168,15 +168,15 @@
 
 	![[設定] 索引標籤](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)
 
-11. 在 [**預覽**] 索引標籤中，按一下 [**發佈**]。
+11. 在 [預覽] 索引標籤中，按一下 [發佈]。
 
-	如果您想要查看哪些檔案會複製到 Azure，您可以按一下 [**開始預覽**]，然後再按一下 [**發佈**]。
+	如果您想要查看哪些檔案會複製到 Azure，您可以按一下 [開始預覽]，然後再按一下 [發佈]。
 
 	![](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
 
 	Visual Studio 隨即開始進行將檔案複製至 Azure 伺服器的程序。
 
-	[**輸出**] 和 [**Azure App Service 活動**] 視窗會顯示已採取的部署動作，並報告部署作業已順利完成。
+	[輸出] 與 [Azure App Service 活動] 視窗會顯示已採取的部署動作，並報告部署作業已順利完成。
 
 	![Output window reporting successful deployment](./media/web-sites-dotnet-get-started/PublishOutput.png)
 
@@ -188,7 +188,7 @@
 
 ## 進行變更並重新部署
 
-本教學課程章節是選擇性的。您將會變更首頁的 **h1** 標題、在開發電腦中本機執行專案以驗證變更，然後將變更部署至 Azure。
+本教學課程章節是選擇性的。您將會變更首頁的 **h1** 標題、在開發電腦本機上執行專案以驗證變更，然後將變更部署至 Azure。
 
 2. 在 [方案總管] 中開啟 *Views/Home/Index.cshtml* 或 **.vbhtml** 檔案，將 **h1** 標題從 "ASP.NET" 變更為 "ASP.NET and Azure"，並儲存檔案。
 
@@ -208,7 +208,7 @@
 
 	![選擇發行](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	[**發佈 Web**] 精靈的 [**預覽**] 索引標籤隨即出現。以往如果需要變更任何發行設定，您會選擇不同的索引標籤，但現在您只需要使用相同的設定來重新部署。
+	[發佈 Web] 精靈的 [預覽] 索引標籤隨即出現。以往如果需要變更任何發行設定，您會選擇不同的索引標籤，但現在您只需要使用相同的設定來重新部署。
 
 2. 在 [發行 Web] 精靈中，按一下 [發行]。
 
@@ -218,7 +218,7 @@
 
 	![已部署變更的 Web 應用程式](./media/web-sites-dotnet-get-started/deployedandazure.png)
 
-**提示：**您可以啟用 [Web 單鍵發行] 工具列，以加快部署速度。按一下 **[檢視] > [工具列]**，然後選取 [**Web 單鍵發佈**]。此工具列可讓您選取設定檔，按一下按鈕進行發行，或按一下按鈕以開啟 [發行 Web] 精靈。
+**提示：**您可以啟用 [Web 單鍵發行] 工具列，以加快部署速度。按一下 [檢視] > [工具列]，然後選取 [Web 單鍵發佈]。此工具列可讓您選取設定檔，按一下按鈕進行發行，或按一下按鈕以開啟 [發行 Web] 精靈。
 
 ![Web 單鍵發行工具列](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
@@ -228,15 +228,15 @@
 
 1. 在瀏覽器中，移至 [https://portal.azure.com]()，然後以您的 Azure 認證登入。
 
-2. 按一下 **[全部瀏覽] > [Web Apps]**，然後按一下 Web 應用程式的名稱。
+2. 按一下 [全部瀏覽] > [Web 應用程式]，然後按一下 Web 應用程式的名稱。
 
-	**Web 應用程式**刀鋒視窗會顯示 Web 應用程式的設定和使用量統計資料概觀。
+	[Web 應用程式] 刀鋒視窗會顯示 Web 應用程式的設定和使用量統計資料概觀。
 
 	![Web 應用程式刀鋒視窗](./media/web-sites-dotnet-get-started/portaldashboard.png)
 
 	此時您的 Web 應用程式並沒有太多流量，且在圖形中可能不會顯示任何項目。如果您瀏覽至應用程式，請重新整理頁面數次，然後重新整理入口網站頁面，您就能看見某些統計資料。
 
-3. 按一下 [**設定**]，以查看更多可用來設定 Web 應用程式的選項。
+3. 按一下 [設定]，以查看更多可用來設定 Web 應用程式的選項。
 
 	您會看到一份設定類型清單。
 
@@ -281,7 +281,7 @@
 
 * 如何避免閒置逾時之後的喚醒等待時間
 
-	根據預設，Web 應用程式如果閒置一段時間，就會卸載。卸載 Web 應用程式後的第一個要求必須等待 Web 應用程式重新載入。若要避免這種等待時間，您可以啟用 AlwaysOn 功能。如需詳細資訊，請參閱〈[如何設定 Web 應用程式](web-sites-configure.md)〉中的組態選項。
+	根據預設，Web 應用程式如果閒置一段時間，就會卸載。卸載 Web 應用程式後的第一個要求必須等待 Web 應用程式重新載入。若要避免這種等待時間，您可以啟用 AlwaysOn 功能。如需詳細資訊，請參閱[如何設定 Web 應用程式](web-sites-configure.md)中的組態選項。
 
 * 如何新增即時功能，例如交談
 
@@ -289,7 +289,7 @@
 
 * 如何在 App Service、雲端服務和 Web 應用程式的 VM 之間進行選擇
 
-	在 Azure 中，您可以在 App Service Web Apps 中執行 Web 應用程式 (如本教學課程所示)，或在雲端服務或虛擬機器中執行。如需詳細資訊，請參閱〈[Azure Web 應用程式、雲端服務和 VM：每一項的使用時機](/manage/services/web-sites/choose-web-app-service/)〉。
+	在 Azure 中，您可以在 App Service Web Apps 中執行 Web 應用程式 (如本教學課程所示)，或在雲端服務或虛擬機器中執行。如需詳細資訊，請參閱 [Azure Web 應用程式、雲端服務和 VM：每一項的使用時機](/manage/services/web-sites/choose-web-app-service/)。
 
 * [如何選擇或建立 App Service 方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
@@ -301,4 +301,4 @@
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

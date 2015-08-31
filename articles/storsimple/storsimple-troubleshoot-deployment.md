@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="StorSimple 裝置部署問題的疑難排解"
+   pageTitle="StorSimple 裝置部署問題的疑難排解 | Microsoft Azure"
    description="說明如何診斷和修正您第一次部署 StorSimple 時發生的錯誤。"
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/17/2015"
+   ms.date="08/18/2015"
    ms.author="alkohli" />
 
 # StorSimple 裝置部署問題的疑難排解
@@ -29,11 +29,11 @@
 
 如果您在第一次部署裝置時發生問題，請考慮下列各項：
 
-- 如果您正在疑難排解實體裝置，請確定已使用[裝置的硬體安裝](https://msdn.microsoft.com/library/azure/dn772375.aspx)中所述的方式來安裝並設定硬體。
-- 檢查部署的先決條件。請確定您已備妥[部署檢查清單](storsimple-deployment-walkthrough.md#pre-installation-checklist)中描述的所有資訊。
+- 如果您正在疑難排解實體裝置，請確定硬體已安裝，並遵循[安裝您的 StorSimple 8100 裝置](storsimple-8100-hardware-installation.md)或[安裝您的 StorSimple 8600 裝置](storsimple-8600-hardware-installation.md)中所述的方式進行設定。
+- 檢查部署的先決條件。請確定您已備妥[部署檢查清單](storsimple-deployment-walkthrough.md#deployment-configuration-checklist)中描述的所有資訊。
 - 檢閱 StorSimple 版本資訊，以查看是否提及該問題。版本資訊會包含已知安裝問題的因應措施。 
 
-在裝置部署期間，使用者最常面臨的問題通常是在執行安裝精靈，以及透過 Windows PowerShell for StorSimple 註冊裝置時發生。(您會使用 Windows PowerShell for StorSimple 來註冊並設定 StorSimple 裝置。如需裝置註冊的詳細資訊，請參閱[註冊裝置](https://msdn.microsoft.com/library/azure/dn757742.aspx)。)
+在裝置部署期間，使用者最常面臨的問題通常是在執行安裝精靈，以及透過 Windows PowerShell for StorSimple 註冊裝置時發生。(您會使用 Windows PowerShell for StorSimple 來註冊並設定 StorSimple 裝置。如需裝置註冊的詳細資訊，請參閱[步驟 3：透過 Windows PowerShell for StorSimple 設定和註冊裝置](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple))。
 
 下列各節可協助您解決在第一次設定 StorSimple 裝置時遇到的問題。
 
@@ -53,7 +53,7 @@
  
     > [AZURE.IMPORTANT]密碼是在註冊之前收集，但只有在您成功註冊裝置之後才會套用。如果套用密碼失敗，系統將提示您再次提供密碼，直到收集到所需的密碼 (符合複雜性需求) 為止。
 
-4. 註冊裝置：最後一個步驟是使用在 Microsoft Azure 中執行的 StorSimple Manager 服務來註冊裝置。註冊會要求您從 Azure 管理入口網站[取得服務註冊金鑰](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03)，並在安裝精靈中提供該金鑰。成功註冊裝置之後，即會為您提供服務資料加密金鑰。請務必將此加密金鑰保留在安全的位置，因為在向服務註冊所有後續裝置時都需用到它。
+4. 註冊裝置：最後一個步驟是使用在 Microsoft Azure 中執行的 StorSimple Manager 服務來註冊裝置。註冊會要求您從 Azure 管理入口網站[取得服務註冊金鑰](storsimple-manage-service.md#get-the-service-registration-key)，並在安裝精靈中提供該金鑰。成功註冊裝置之後，即會為您提供服務資料加密金鑰。請務必將此加密金鑰保留在安全的位置，因為在向服務註冊所有後續裝置時都需用到它。
 
 ## 裝置部署期間的常見錯誤
 
@@ -68,23 +68,23 @@
 
 | 編號| 錯誤訊息 | 可能的原因 | 建議的動作 |
 | ---| ------------- | --------------- | ------------------ |
-| 1 | Invoke-HcsSetupWizard：這個命令只能在主動控制器上執行。 | 設定是在被動控制站上執行。| 從主動控制器執行這個命令。如需詳細資訊，請參閱[識別裝置上的主動控制器](https://msdn.microsoft.com/library/azure/dn790262.aspx)。|
+| 1 | Invoke-HcsSetupWizard：這個命令只能在主動控制器上執行。 | 設定是在被動控制站上執行。| 從主動控制器執行這個命令。如需詳細資訊，請參閱[識別裝置上的主動控制器](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)。|
 | 2 | Invoke-HcsSetupWizard：裝置尚未就緒。 | 在 DATA 0 上發生網路連線問題。| 檢查 DATA 0 上的實體網路連線。|
 | 3 | Invoke-HcsSetupWizard：有一個 IP 位址與網路上的另一個系統發生衝突 (發生例外狀況於 HRESULT：0x80070263)。 | 提供給 DATA 0 的 IP 已經由另一個系統使用中。 | 提供未使用的新 IP。|
 | 4 | Invoke-HcsSetupWizard：某個叢集資源失敗了(發生例外狀況於 HRESULT：0x800713AE)。 | 重複的 VIP。提供的 IP 已經在使用中。| 提供未使用的新 IP。|
 | 5 | Invoke-HcsSetupWizard: 無效的 IPv4 位址。 | 提供的 IP 位址格式不正確。| 檢查格式，然後再次提供您的 IP 位址。如需詳細資訊，請參閱 [Ipv4 定址][1]。 |
 | 6 | Invoke-HcsSetupWizard：無效的 IPv6 位址。 | 提供的 IP 位址格式不正確。| 檢查格式，然後再次提供您的 IP 位址。如需詳細資訊，請參閱 [Ipv6 定址][2]。|
-| 7 | Invoke-HcsSetupWizard：端點對應表中無更多可用的端點。(發生例外狀況於 HRESULT：0x800706D9) | 叢集功能無法運作。 | [連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)以進行後續步驟。
+| 7 | Invoke-HcsSetupWizard：端點對應器中無更多可用的端點。(發生例外狀況於 HRESULT：0x800706D9) | 叢集功能無法運作。 | [連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)以進行後續步驟。
 
 ## 選用的 Web Proxy 設定期間發生錯誤
 
 | 編號| 錯誤訊息 | 可能的原因 | 建議的動作 |
 | ---| ------------- | --------------- | ------------------ |
-| 1 | Invoke-HcsSetupWizard：無效的參數 (發生例外狀況於 HRESULT：0x80070057) | 針對 Proxy 設定提供的其中一個參數無效。| 未使用正確格式提供 URI。使用下列格式：http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
-| 2 | Invoke-HcsSetupWizard：RPC 伺服器無法使用 (發生例外狀況於 HRESULT：0x800706ba) | 根本原因是下列其中之一：<ol><li>叢集尚未啟動。</li><li>被動控制器無法與主動控制器通訊，而且命令是從被動控制器執行。</li></ol> | 視根本原因而定：<ol><li>[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)，以確定叢集已啟動。</li><li>從主動控制器執行命令。如果您想要從被動控制器執行命令，就必須確保被動控制器能與主動控制器通訊。如果此連線已中斷，您必須[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)。</li></ol> |
-| 3 | Invoke-HcsSetupWizard：RPC 呼叫失敗 (發生例外狀況於 HRESULT：0x800706be) | 叢集已關閉。 | [連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)以確定叢集已啟動。|
-| 4 | Invoke-HcsSetupWizard：找不到叢集資源 (發生例外狀況於 HRESULT：0x8007138f) | 找不到叢集資源。若未正確安裝，即會發生此情況。 | 您可能需要將裝置重設為出廠預設設定。[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)以建立叢集資源。|
-| 5 | Invoke-HcsSetupWizard：叢集資源不在線上 (發生例外狀況於 HRESULT：0x8007138c)| 叢集資源不在線上。 | [連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)以進行後續步驟。|
+| 1 | Invoke-HcsSetupWizard：無效的參數 (發生例外狀況於 HRESULT：0x80070057) | 針對 Proxy 設定提供的其中一個參數無效。| 未使用正確格式提供 URI。請使用下列格式：http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
+| 2 | Invoke-HcsSetupWizard：RPC 伺服器無法使用 (發生例外狀況於 HRESULT：0x800706ba) | 根本原因是下列其中之一：<ol><li>叢集尚未啟動。</li><li>被動控制器無法與主動控制器通訊，而且命令是從被動控制器執行。</li></ol> | 視根本原因而定：<ol><li>[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)，以確定叢集已啟動。</li><li>從主動控制器執行命令。如果您想要從被動控制器執行命令，就必須確保被動控制器能與主動控制器通訊。如果此連線已中斷，您必須[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。</li></ol> |
+| 3 | Invoke-HcsSetupWizard：RPC 呼叫失敗 (發生例外狀況於 HRESULT：0x800706be) | 叢集已關閉。 | [連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)以確定叢集已啟動。|
+| 4 | Invoke-HcsSetupWizard：找不到叢集資源 (發生例外狀況於 HRESULT：0x8007138f) | 找不到叢集資源。若未正確安裝，即會發生此情況。 | 您可能需要將裝置重設為出廠預設設定。[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)以建立叢集資源。|
+| 5 | Invoke-HcsSetupWizard：叢集資源不在線上 (發生例外狀況於 HRESULT：0x8007138c)| 叢集資源不在線上。 | [連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)以進行後續步驟。|
 
 ## 關於裝置系統管理員和 StorSimple Snapshot Manager 密碼的錯誤
 
@@ -99,7 +99,7 @@
 - 密碼應該包含下列 4 個字元類型的其中 3 個：小寫字母、大寫字母、數字和特殊字元。 
 - 您的密碼不能與最近的 24 個密碼相同。
 
-此外，請記住，密碼每年都會過期，而您只能在成功註冊裝置之後才能加以變更。如果註冊因任何因素而失敗，密碼將不會變更。如需裝置系統管理員和 StorSimple Snapshot Manager 密碼的詳細資訊，請參閱[密碼](https://msdn.microsoft.com/library/azure/00fb2b46-e29e-4c4d-90a8-1dbb7db3672e#sec_02)。
+此外，請記住，密碼每年都會過期，而您只能在成功註冊裝置之後才能加以變更。如果註冊因任何因素而失敗，密碼將不會變更。如需裝置系統管理員與 StorSimple Snapshot Manager 密碼的詳細資訊，請移至[使用 StorSimple Manager 服務變更 StorSimple 密碼](storsimple-change-passwords.md)。
 
 在設定裝置系統管理員和 StorSimple Snapshot Manager 密碼時，可能會遇到下列一或多個錯誤。
 
@@ -121,8 +121,8 @@
 
 您可以從 StorSimple Manager 服務的管理入口網站重設密碼。如需詳細資訊，請參閱：
 
-- [設定裝置系統管理員密碼](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec09)
-- [設定 StorSimple Snapshot Manager 密碼](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
+- [變更裝置系統管理員密碼](storsimple-change-passwords.md#change-the-device-administrator-password)。
+- [變更 StorSimple Snapshot Manager 密碼](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)。
 
 ## 裝置註冊期間發生錯誤
 
@@ -130,14 +130,14 @@
 
 | 編號| 錯誤訊息 | 可能的原因 | 建議的動作 |
 | ---| ------------- | --------------- | ------------------ |
-| 1 | 錯誤 350027：無法向 StorSimple Manager 註冊裝置。 | | 等候幾分鐘的時間，然後再次嘗試操作。如果問題持續發生， 請[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)。|
-| 2 | 錯誤 350013：註冊裝置時發生錯誤。這可能是因為服務註冊金鑰不正確而引發。 | | 請使用正確的服務註冊金鑰再次註冊裝置。如需詳細資訊，請參閱[取得服務註冊金鑰](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03)。 |
-| 3 | 錯誤 350063：StorSimple Manager 服務通過驗證，但註冊失敗。請在一段時間之後重試此操作。 | 此錯誤表示已通過 ACS 驗證，但對服務所做的註冊呼叫失敗。這可能是零星網路問題的結果。 | 如果問題持續發生，請[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)。 |
-| 4 | 錯誤 350049：無法在註冊期間連線服務。 | 對服務進行呼叫時，收到 Web 例外狀況。在某些情況下，您或許可以藉由稍後重試此操作來修正此錯誤。 | 請檢查您的 IP 位址和 DNS 名稱，然後重試此操作。如果問題持續發生，請[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)。 | 
+| 1 | 錯誤 350027：無法向 StorSimple Manager 註冊裝置。 | | 等候幾分鐘的時間，然後再次嘗試操作。如果問題持續發生， 請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。|
+| 2 | 錯誤 350013：註冊裝置時發生錯誤。這可能是因為服務註冊金鑰不正確而引發。 | | 請使用正確的服務註冊金鑰再次註冊裝置。如需詳細資訊，請參閱[取得服務註冊金鑰](storsimple-manage-service.md#get-the-service-registration-key)。 |
+| 3 | 錯誤 350063：StorSimple Manager 服務通過驗證，但註冊失敗。請在一段時間之後重試此操作。 | 此錯誤表示已通過 ACS 驗證，但對服務所做的註冊呼叫失敗。這可能是零星網路問題的結果。 | 如果問題持續發生，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。 |
+| 4 | 錯誤 350049：無法在註冊期間連線服務。 | 對服務進行呼叫時，收到 Web 例外狀況。在某些情況下，您或許可以藉由稍後重試此操作來修正此錯誤。 | 請檢查您的 IP 位址和 DNS 名稱，然後重試此操作。如果問題持續發生，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。 | 
 | 5 | 錯誤 350031：裝置已經註冊。 | | 不需採取任何動作。 |
 | 6 | 錯誤 350016：裝置註冊失敗。 | |請確定註冊金鑰正確。 |
-| 7 | Invoke-HcsSetupWizard：註冊裝置時發生錯誤。這可能是因為 IP 位址或 DNS 名稱不正確所引發。請檢查您的網路設定，然後再試一次。如果問題持續發生， 請[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)。(錯誤 350050) | 確定裝置可以 Ping 外部網路。如果您沒有外部網路的連線能力，註冊可能會失敗並產生這個錯誤。這個錯誤可能是下列一或多個項目的組合：<ul><li>不正確的 IP</li><li>不正確的子網路</li><li>不正確的閘道</li><li>不正確的 DNS 設定</li></ul> | 請參閱[逐步疑難排解範例](#step-by-step-storsimple-troubleshooting-example)中的步驟。 |
-| 8 | Invoke-HcsSetupWizard：由於發生內部服務錯誤 [0x1FBE2]，導致目前的作業失敗。請稍後再重試操作。如果問題持續發生， 請連絡 Microsoft 支援服務。 | 這是從服務或代理程式針對所有使用者看不見的錯誤所擲回的一般錯誤。最常見的原因可能是 ACS 驗證失敗。失敗的原因可能是發生 NTP 伺服器設定問題，而且未正確設定裝置上的時間。 | 更正時間 (如果有問題)，然後重試註冊操作。如果問題持續發生，請[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)以進行後續步驟。 |
+| 7 | Invoke-HcsSetupWizard：註冊裝置時發生錯誤。這可能是因為 IP 位址或 DNS 名稱不正確所引發。請檢查您的網路設定，然後再試一次。如果問題持續發生，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。(錯誤 350050) | 確定裝置可以 Ping 外部網路。如果您沒有外部網路的連線能力，註冊可能會失敗並產生這個錯誤。這個錯誤可能是下列一或多個項目的組合：<ul><li>不正確的 IP</li><li>不正確的子網路</li><li>不正確的閘道</li><li>不正確的 DNS 設定</li></ul> | 請參閱[逐步疑難排解範例](#step-by-step-storsimple-troubleshooting-example)中的步驟。 |
+| 8 | Invoke-HcsSetupWizard：由於發生內部服務錯誤 [0x1FBE2]，導致目前的作業失敗。請稍後再重試操作。如果問題持續發生， 請連絡 Microsoft 支援服務。 | 這是從服務或代理程式針對所有使用者看不見的錯誤所擲回的一般錯誤。最常見的原因可能是 ACS 驗證失敗。失敗的原因可能是發生 NTP 伺服器設定問題，而且未正確設定裝置上的時間。 | 更正時間 (如果有問題)，然後重試註冊操作。如果問題持續發生，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)以進行後續步驟。 |
 | 9 | 警告：無法啟動裝置。您的設定裝置系統管理員和 StorSimple Snapshot Manager 密碼尚未變更。 | 如果註冊失敗，裝置系統管理員和 StorSimple Snapshot Manager 密碼就不會變更。 |
 
 ## 適用於疑難排解 StorSimple 部署的工具
@@ -153,11 +153,11 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
 
 ### 檢視支援封裝的記錄或內容
 
-1. 使用 Windows PowerShell for StorSimple 來產生支援封裝，如[產生支援封裝](https://msdn.microsoft.com/library/azure/dn772348.aspx)中所述。
+1. 使用 Windows PowerShell for StorSimple 產生支援封裝，如[建立及管理支援封裝](storsimple-create-manage-support-package.md)所述。
 
 2. 在用戶端電腦上本機下載[解密指令碼](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) 。
 
-3. 使用這個[逐步程序](https://msdn.microsoft.com/library/azure/dn762117.aspx)來開啟和解密支援封裝。
+3. 使用這個[逐步程序](storsimple-create-manage-support-package.md#edit-a-support-package)來開啟和解密支援封裝。
 
 4. 解密的支援封裝記錄格式為 etw/etvx 格式。您可以執行下列步驟，在 Windows 事件檢視器中檢視這些檔案：
   1. 在 Windows 用戶端上執行 **eventvwr** 命令。這將會啟動事件檢視器。
@@ -172,37 +172,37 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
 
 6. 在記錄檔中，搜尋與安裝精靈所呼叫的 Cmdlet 相關的字串。如需這些 Cmdlet 的清單，請參閱[第一次安裝精靈程序](#first-time-setup-wizard-process) 。 
 
-7. 如果您找不出問題的原因，可[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)以進行後續步驟。當您連絡 Microsoft 支援服務以尋求協助時，請使用[啟動支援工作階段](https://msdn.microsoft.com/library/azure/dn757804.aspx)中的步驟。
+7. 如果您找不出問題的原因，可[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)以進行後續步驟。當您連絡 Microsoft 支援服務以尋求協助時，請使用[建立支援要求](storsimple-contact-microsoft-support.md#create-a-support-request)中的步驟。
 
 ## 可用於疑難排解的 Cmdlet
 
 請使用下列 Windows PowerShell Cmdlet 來偵測連線錯誤。
 
-- Get-NetAdapter：使用這個 Cmdlet 來偵測網路介面的健康情況。 
+- `Get-NetAdapter`：使用這個 Cmdlet 來偵測網路介面的健康情況。 
 
-- Test-Connection：使用這個 Cmdlet 來檢查網路內部和外部的網路連線。
+- `Test-Connection`：使用這個 Cmdlet 來檢查網路內部和外部的網路連線。
 
-- Test-HcsmConnection：使用這個 Cmdlet 來檢查已成功註冊裝置的連線。
+- `Test-HcsmConnection`：使用這個 Cmdlet 來檢查已成功註冊裝置的連線。
 
 如果您的 StorSimple 裝置正在執行 Update 1，我們還提供下列診斷 Cmdlet。
 
-- Sync-HcsTime：執行此 Cmdlet 可顯示裝置的時間，並強制與 NTP 伺服器同步時間。
+- `Sync-HcsTime`：執行此 Cmdlet 可顯示裝置的時間，並強制與 NTP 伺服器同步時間。
 
-- Enable-HcsPing 和 Disable-HcsPing：這兩個 Cmdlet 可讓主機 Ping 您 StorSimple 裝置上的網路介面。StorSimple 網路介面依預設不會回應 Ping 要求。
+- `Enable-HcsPing` 與 `Disable-HcsPing`：這兩個 Cmdlet 可讓主機傳送 Ping 給您 StorSimple 裝置上的網路介面。StorSimple 網路介面依預設不會回應 Ping 要求。
 
-- Trace-HcsRoute：此 Cmdlet 可做為路由追蹤工具。每過一段時間，它就會在前往最終目的地時將封包傳送到每個路由器，然後根據每個躍點傳回的封包計算結果。由於 Trace-HcsRoute 會顯示封包在任何指定的路由器或連結中遺失的程度，因此您可以找出導致網路發生問題的路由器或連結。
+- `Trace-HcsRoute`：此 Cmdlet 可做為路由追蹤工具。每過一段時間，它就會在前往最終目的地時將封包傳送到每個路由器，然後根據每個躍點傳回的封包計算結果。由於 `Trace-HcsRoute` 會顯示封包在任何指定的路由器或連結中遺失的程度，因此您可以找出導致網路發生問題的路由器或連結。
 
-- Get-HcsRoutingTable：此 Cmdlet 可顯示本機 IP 的路由表。
+- `Get-HcsRoutingTable`：此 Cmdlet 可顯示本機 IP 的路由表。
 
 ## Get-NetAdapter Cmdlet 的疑難排解
 
-當您在第一次裝置部署期間設定網路介面時，無法在 StorSimple Manager 服務 UI 中取得硬體狀態，因為裝置尚未向該服務註冊。此外，[硬體狀態] 頁面不一定能夠正確反映裝置狀態，尤其是發生了會影響服務同步處理的問題。在這些情況下，您可以使用 Get-NetAdapter Cmdlet，來判斷網路介面的健康情況和狀態。
+當您在第一次裝置部署期間設定網路介面時，無法在 StorSimple Manager 服務 UI 中取得硬體狀態，因為裝置尚未向該服務註冊。此外，[硬體狀態] 頁面不一定能夠正確反映裝置狀態，尤其是發生了會影響服務同步處理的問題。在這些情況下，您可以使用 `Get-NetAdapter` Cmdlet，來判斷網路介面的健康情況和狀態。
 
 ### 查看裝置上所有網路介面卡的清單
 
-1. 啟動 Windows PowerShell for StorSimple，然後輸入 **Get-NetAdapter**。 
+1. 啟動 Windows PowerShell for StorSimple，然後鍵入 `Get-NetAdapter`。 
 
-2. 使用 Get-NetAdapter Cmdlet 的輸出和下列指導方針來了解網路介面的狀態。
+2. 使用 `Get-NetAdapter` Cmdlet 的輸出和下列指南來了解網路介面的狀態。
   - 如果介面的健康狀態良好且已啟用，**ifIndex** 狀態就會顯示為 **Up**。
   - 如果介面的健康狀態良好但實際上並未連線 (透過網路纜線)， **ifIndex** 就會顯示為 **Disabled**。
   - 如果介面的健康狀態良好但未啟用，**ifIndex** 狀態就會顯示為 **NotPresent**。
@@ -210,7 +210,7 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
 
 如需如何使用這個 Cmdlet 的詳細資訊，請參閱 Windows PowerShell Cmdlet 參考中的 [GetNetAdapter](https://technet.microsoft.com/library/jj130867.aspx)。
 
-下列各節示範來自 Get-NetAdapter Cmdlet 的輸出範例。
+下列各節示範來自 `Get-NetAdapter` Cmdlet 的輸出範例。
 
  在這些範例中，控制器 0 是被動控制站，並已使用如下的方式進行設定：
 
@@ -255,9 +255,9 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
  
 ## Test-Connection Cmdlet 的疑難排解
 
-您可以使用 Test-Connection Cmdlet，來判斷 StorSimple 裝置是否可連線到外部網路。如果已在安裝精靈中正確設定所有網路參數 (包括 DNS)，您就可以使用 Test-Connection Cmdlet 來 Ping 網路外部的已知位址，例如 outlook.com。
+您可以使用 `Test-Connection` Cmdlet，來判斷 StorSimple 裝置是否可連線到外部網路。如果已在安裝精靈中正確設定所有網路參數 (包括 DNS)，您就可以使用 `Test-Connection` Cmdlet 來傳送 Ping 給網路外部的已知位址，例如 outlook.com。
 
-請參閱下列來自 Test-Connection Cmdlet 的輸出範例。
+請參閱下列來自 `Test-Connection` Cmdlet 的輸出範例。
 
 > [AZURE.NOTE]在第一個範例中，會以不正確的 DNS 設定裝置。在第二個範例中，DNS 是正確的。
  
@@ -285,7 +285,7 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
 
 ## Test-HcsmConnection Cmdlet 的疑難排解
 
-針對已經連接且已向 StorSimple Manager 服務註冊的裝置使用 Test-HcsmConnection Cmdlet。這個 Cmdlet 可協助您確認已註冊裝置與相對應的 StorSimple Manager 服務間的連線。您可以在 Windows PowerShell for StorSimple 上執行這個命令。
+針對已經連接且已向 StorSimple Manager 服務註冊的裝置使用 `Test-HcsmConnection` Cmdlet。這個 Cmdlet 可協助您確認已註冊裝置與相對應的 StorSimple Manager 服務間的連線。您可以在 Windows PowerShell for StorSimple 上執行這個命令。
 
 ### 執行 Test-HcsmConnection Cmdlet
 
@@ -324,11 +324,11 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
  
 記錄檔 CiSCommandletLog0Curr.errlog 和 CiSAgentsvc0Curr.errlog 將提供更多資訊，例如，例外狀況詳細資料。
 
-如需如何使用 Cmdlet 的詳細資訊，請瀏覽 Windows PowerShell 參考文件中的 [Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx)。
+如需如何使用 Cmdlet 的詳細資訊，請參閱 Windows PowerShell 參考說明文件中的 [Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx)。
 
 > [AZURE.IMPORTANT]您可以針對主動和被動控制器執行這個 Cmdlet。
  
-請參閱下列來自 Test-HcsmConnection Cmdlet 的輸出範例。
+請參閱下列來自 `Test-HcsmConnection` Cmdlet 的輸出範例。
 
 **範例輸出 – 執行 StorSimple 版本的已成功註冊裝置 (2014 年 7 月)**
 
@@ -344,7 +344,7 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
      Checking connectivity from StorSimple Manager service to StorSimple device. .... Success.
      Controller1>
 
-**範例輸出 – 執行 StorSimple Update 1 的已成功註冊裝置 (2015 年 5 月)**
+**範例輸出 – 執行 StorSimple Update 1 的已成功註冊裝置**
 
 如果您的 StorSimple 裝置正在執行 Update 1，則不需要以 verbose 參數執行該裝置。
 
@@ -447,7 +447,7 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
 
 如果您的 StorSimple 裝置正在執行 Update 1，則 DATA 0 的網路介面是雲端流量的最佳選擇。這表示即使有其他支援雲端的介面，系統還是會透過 DATA 0 路由雲端流量。
 
-如果您執行 Get HcsRoutingTable Cmdlet，但未指定任何參數 (如下列範例所示)，該 Cmdlet 會同時輸出 IPv4 和 IPv6 路由表。您也可以指定 `Get-HcsRoutingTable -IPv4` 或 `Get-HcsRoutingTable -IPv6`，以取得相關的路由表。
+如果您執行 `Get-HcsRoutingTable` Cmdlet，但未指定任何參數 (如下列範例所示)，該 Cmdlet 會同時輸出 IPv4 和 IPv6 路由表。您也可以指定 `Get-HcsRoutingTable -IPv4` 或 `Get-HcsRoutingTable -IPv6`，以取得相關的路由表。
 
       Controller0>
       Controller0>Get-HcsRoutingTable
@@ -533,11 +533,11 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
 
 ### 找出並修正裝置註冊問題
 
-1. 檢查裝置設定：在主動控制器上執行 **Invoke-HcsSetupWizard**。
+1. 檢查裝置組態：在主動控制器上執行 `Invoke-HcsSetupWizard`。
 
-     >[AZURE.NOTE]安裝精靈必須在主動控制器上執行。若要確認您已連接到主動控制器，請查看序列主控台中顯示的橫幅。該橫幅會指出您是連接到控制器 0 或控制器 1，而且該控制器是主動或被動。如需詳細資訊，請參閱[識別裝置上的主動控制器](https://msdn.microsoft.com/library/azure/dn790262.aspx)。
+     >[AZURE.NOTE]安裝精靈必須在主動控制器上執行。若要確認您已連接到主動控制器，請查看序列主控台中顯示的橫幅。該橫幅會指出您是連接到控制器 0 或控制器 1，而且該控制器是主動或被動。如需詳細資訊，請參閱[識別裝置上的主動控制器](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)。
  
-2. 確定裝置纜線已正確連接：檢查裝置背板的網路纜線。纜線是裝置型號專用的。如需詳細資訊，請瀏覽[以纜線連接 8100 裝置](https://msdn.microsoft.com/library/azure/dn757738.aspx)或[以纜線連接 8600 裝置](https://msdn.microsoft.com/library/azure/dn757762.aspx)。
+2. 確定裝置纜線已正確連接：檢查裝置背板的網路纜線。纜線是裝置型號專用的。如需詳細資訊，請參閱[安裝您的 StorSimple 8100 裝置](storsimple-8100-hardware-installation.md)或[安裝您的 StorSimple 8600 裝置](storsimple-8600-hardware-installation.md)。
 
      >[AZURE.NOTE]如果您使用的是 10 GbE 網路連接埠，就必須使用隨附的 QSFP-SFP 配接器和 SFP 纜線。如需詳細資訊，請參閱 [OEM 供應商建議針對 Mellanox 連接埠使用的纜線、交換器及收發器清單](http://www.mellanox.com/page/cables?mtag=cable_overview)。
  
@@ -545,7 +545,7 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
 
    - 使用 Get-NetAdapter Cmdlet 來偵測 DATA 0 網路介面的健康情況。 
    - 如果連結未運作，**ifindex** 狀態將指出介面已關閉。然後您必須檢查連接埠到設備與連接埠到交換器的網路連線。您也必須排除不健全的纜線。 
-   - 如果您懷疑主動控制器上的 DATA 0 連接埠故障，可透過連接到控制器 1 上的 DATA 0 連接埠來確認這一點。若要確認這一點，可從裝置背後的控制站 0 拔除網路纜線、將纜線連接到控制站 1，然後再次執行 Get-NetAdapter Cmdlet。如果控制站上的 DATA 0 連接埠故障，請[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)以進行後續步驟。您可能需要更換系統上的控制站。
+   - 如果您懷疑主動控制器上的 DATA 0 連接埠故障，可透過連接到控制器 1 上的 DATA 0 連接埠來確認這一點。若要確認這一點，可從裝置背後的控制站 0 拔除網路纜線、將纜線連接到控制站 1，然後再次執行 Get-NetAdapter Cmdlet。如果控制站上的 DATA 0 連接埠故障，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)以進行後續步驟。您可能需要更換系統上的控制站。
  
 4. 確認與交換器的連線能力：
    - 確定主要機箱上的控制站 0 和控制站 1 上的 DATA 0 網路介面位於同一個子網路上。 
@@ -555,24 +555,24 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
 5. 排除任何使用者錯誤：
 
   - 重新執行安裝精靈 (執行 **Invoke-HcsSetupWizard**)，並再次輸入值，以確定沒有任何錯誤。 
-  - 確認已使用註冊金鑰。相同的註冊金鑰可用來將多個裝置連接到 StorSimple Manager 服務。使用[取得服務註冊金鑰](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03)中的程序，以確保您使用的是正確的註冊金鑰。
+  - 確認已使用註冊金鑰。相同的註冊金鑰可用來將多個裝置連接到 StorSimple Manager 服務。使用[取得服務註冊金鑰](storsimple-manage-service.md#get-the-service-registration-key)中的程序，以確保您使用的是正確的註冊金鑰。
 
-    > [AZURE.IMPORTANT]如果您有多個服務正在執行中，就必須確保會使用適當服務的註冊金鑰來註冊裝置。如果您向錯誤的 StorSimple Manager 服務註冊了裝置，就必須[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)以進行後續步驟。您可能必須執行裝置的原廠重設 (這可能導致資料遺失)，然後將它連接到所需的服務。
+    > [AZURE.IMPORTANT]如果您有多個服務正在執行中，就必須確保會使用適當服務的註冊金鑰來註冊裝置。如果您向錯誤的 StorSimple Manager 服務註冊了裝置，就必須[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)以進行後續步驟。您可能必須執行裝置的原廠重設 (這可能導致資料遺失)，然後將它連接到所需的服務。
 
 6. 使用 Test-Connection Cmdlet 來確認您擁有外部網路的連線能力。如需詳細資訊，請參閱 [Test-Connection Cmdlet 的疑難排解](#troubleshoot-with-the-test-connection-cmdlet)。
 
-7. 檢查防火牆干擾。如果您已確認虛擬 IP (VIP)、子網路、閘道和 DNS 設定都正確，但仍看見連線問題，則可能是您的防火牆封鎖了裝置與外部網路之間的通訊。您必須確定 StorSimple 裝置上的連接埠 80 和 443 可用於傳出通訊。如需詳細資訊，請參閱 [StorSimple 裝置的網路需求](https://msdn.microsoft.com/library/azure/dn772371.aspx)。
+7. 檢查防火牆干擾。如果您已確認虛擬 IP (VIP)、子網路、閘道和 DNS 設定都正確，但仍看見連線問題，則可能是您的防火牆封鎖了裝置與外部網路之間的通訊。您必須確定 StorSimple 裝置上的連接埠 80 和 443 可用於傳出通訊。如需詳細資訊，請參閱 [StorSimple 裝置的網路需求](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device)。
 
 8. 查看記錄。請移至[可用來疑難排解的支援封裝和裝置記錄](#support-packages-and-device-logs-available-for-troubleshooting)。
 
-9. 如果上述步驟並未解決問題，請[連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)以尋求協助。
+9. 如果上述步驟並未解決問題，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)以尋求協助。
 
 ## 後續步驟
-[可運作裝置的疑難排解](storsimple-troubleshoot-operational-device.md)
+[了解如何疑難排解可運作裝置](storsimple-troubleshoot-operational-device.md)。
 
 <!--Link references-->
 
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

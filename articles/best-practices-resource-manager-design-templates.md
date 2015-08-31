@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="08/13/2015"
 	ms.author="mmercuri"/>
 
 # 設計 Azure 資源管理員範本的最佳做法
 
 在與企業、系統整合者 (SI)、雲端服務廠商 (CSV) 和開放原始碼軟體 (OSS) 專案小組合作時，經常需要快速部署環境、工作負載或縮放單位。這些部署需要受到支援、依照經過實證的做法執行，並遵循所識別的原則。根據 Azure 資源管理員範本來使用彈性的方法，您可以快速且一致地部署複雜的拓撲，然後隨著核心供應項目的發展輕鬆調整這些部署，或是適應極端案例或客戶的變化。
+
+本主題是較大份白皮書的一部分。若要閱讀整份文件，請下載 [世界級 ARM 範本注意事項和證明可行的作法] (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf)。
 
 範本會結合基礎 Azure 資源管理員的優點，以及 JavaScript 物件標記法 (JSON) 的適應性和可讀性。使用範本，您可以：
 
@@ -377,8 +379,8 @@ Redis 只會使用單一節點類型，因此您將建立名為 node-resources.j
 
 ## 後續步驟
 
-- 若要查看如何實作本主題所提供之設計原理的內容相關範例，請參閱〈[實作範本的最佳做法內容範例](best-practices-resource-manager-examples.md)〉。
-- 如需如何在 Azure 資源管理員中處理安全性的建議，請參閱〈[Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)〉。
-- 若要了解進出範本的共用狀態，請參閱〈[Azure 資源管理員範本中的共用狀態](best-practices-resource-manager-state.md)〉。
+- 若要查看如何實作本主題所提供之設計原理的內容相關範例，請參閱[實作範本的最佳做法內容範例](best-practices-resource-manager-examples.md)。
+- 如需如何在 Azure 資源管理員中處理安全性的建議，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)。
+- 若要了解進出範本的共用狀態，請參閱 [Azure 資源管理員範本中的共用狀態](best-practices-resource-manager-state.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

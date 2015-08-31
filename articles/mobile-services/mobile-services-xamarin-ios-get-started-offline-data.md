@@ -183,4 +183,4 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 [Xamarin 延伸]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

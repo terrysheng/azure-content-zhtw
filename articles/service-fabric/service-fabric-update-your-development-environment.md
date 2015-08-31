@@ -1,5 +1,5 @@
 <properties
-   pageTitle="更新 Service Fabric 開發環境"
+   pageTitle="更新 Service Fabric 開發環境 | Microsoft Azure"
    description="更新 Service Fabric 開發環境，以使用最新的執行階段、SDK 和工具。"
    services="service-fabric"
    documentationCenter=".net"
@@ -29,7 +29,7 @@
  您可以清理您的本機叢集，如下所示：
 
 
- 1. 關閉所有其他的 PowerShell 視窗，並以系統管理員身分啟動一個新作業。
+ 1. 關閉所有其他的 PowerShell 視窗，並以系統管理員身分啟動一個新視窗。
 
  2. 瀏覽至包含 `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"` 的叢集安裝目錄
 
@@ -53,4 +53,4 @@
 
  [1]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 連結"
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

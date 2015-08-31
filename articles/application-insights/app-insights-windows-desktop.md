@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="08/19/2015" 
 	ms.author="awills"/>
 
-# Windows 桌面應用程式與服務的 Application Insights
+# Windows 傳統型應用程式、服務和背景工作角色上的 Application Insights
 
 *Application Insights 目前僅供預覽。*
 
@@ -23,7 +23,7 @@
 
 Application Insights 可讓您監視所部署應用程式的使用量和效能。
 
-Windows 桌面應用程式與服務的支援是由 Application Insights 核心 SDK 所提供。此 SDK 可為所有遙測資料提供完整的 API 支援，但不提供任何遙測自動集合。
+所有的 Windows 應用程式 - 包括傳統型應用程式、背景服務和背景工作角色 - 都能使用 Application Insights 核心 SDK 傳送遙測至 Application Insights。核心 SDK 僅提供一個 API：不同於 Web 或裝置 SDK，它不包含任何自動收集資料的模組，因此您必須撰寫程式碼來傳送您自己的遙測。
 
 
 ## <a name="add"></a> 建立 Application Insights 資源
@@ -42,11 +42,15 @@ Windows 桌面應用程式與服務的支援是由 Application Insights 核心 S
 ## <a name="sdk"></a>在應用程式中安裝 SDK
 
 
-1. 在 Visual Studio 中，編輯桌面應用程式專案的 NuGet 封裝。![以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 封裝]](./media/app-insights-windows-desktop/03-nuget.png)
+1. 在 Visual Studio 中，編輯桌面應用程式專案的 NuGet 封裝。
+
+    ![以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 封裝]](./media/app-insights-windows-desktop/03-nuget.png)
 
 2. 安裝 Application Insights 核心 API 套件。
 
     ![搜尋「Application Insights」](./media/app-insights-windows-desktop/04-core-nuget.png)
+
+    您可以安裝其他封裝 (例如效能計數器) 或是記錄擷取封裝，以便使用其功能。
 
 3. 在程式碼中設定您的 InstrumentationKey，例如在 main() 中。
 
@@ -55,16 +59,17 @@ Windows 桌面應用程式與服務的支援是由 Application Insights 核心 S
 *為什麼沒有 ApplicationInsights.config？*
 
 * 核心 API 套件未安裝 .config 檔案，此套件只能用來設定遙測收集器。因此您可以撰寫自己的程式碼，以設定檢測金鑰並傳送遙測。
+* 如果您安裝其中一個其他封裝，您必須具備 .config 檔案。您可以在該處插入檢測金鑰，而非在程式碼中設定。
 
 *可不可以使用不同的 NuGet 封裝？*
 
-* 可以，您可以使用 web 伺服器封裝，它會為效能計數器安裝收集器。您必須[停用 HTTP 要求收集器](app-insights-configuration-with-applicationinsights-config.md)。它會安裝您要在其中放置檢測金鑰的.config 檔案。
+* 可以，您可以使用 Web 伺服器封裝 (Microsoft.ApplicationInsights.Web)，這會安裝多種集合模組 (例如效能計數器) 的收集器。它會安裝您要在其中放置檢測金鑰的.config 檔案。使用 [ApplicationInsights.config 停用您不想要的模組](app-insights-configuration-with-applicationinsights-config.md)，例如 HTTP 要求收集器。 
+* 如果您想要使用[記錄或追蹤收集器封裝](app-insights-asp-net-trace-logs.md)，請從使用 Web 伺服器封裝開始。 
 
 ## <a name="telemetry"></a>插入遙測呼叫
 
 建立 `TelemetryClient` 執行個體，然後[使用它來傳送遙測][api]。
 
-使用 `TelemetryClient.Flush()` 在關閉應用程式之前傳送訊息。核心 SDK 會使用記憶體中緩衝區。排清方法可確保這個緩衝區會清空，協助確保資料在程序關閉時不會遺失 (對其他類型應用程式不建議使用。平台 SDK 會自動實作這個行為)。
 
 例如，在 Windows Forms 應用程式中，您可以編寫：
 
@@ -108,6 +113,10 @@ Windows 桌面應用程式與服務的支援是由 Application Insights 核心 S
 * TrackMetric(name, value) 用在背景工作，以傳送未附加到特定事件之度量的一般報告。
 * TrackTrace(logEvent) 用於[診斷記錄][diagnostic]
 * TrackException(exception) 用在 catch 子句中
+
+
+若要確定所有遙測在關閉應用程式之前都已傳送，請使用 `TelemetryClient.Flush()`。一般來說，遙測會批次處理並定期傳送。(只有在您僅使用核心 API 時才建議使用排清。Web 和裝置 SDK 會自動實作此行為。)
+
 
 #### 內容初始設定式
 
@@ -181,4 +190,4 @@ Windows 桌面應用程式與服務的支援是由 Application Insights 核心 S
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

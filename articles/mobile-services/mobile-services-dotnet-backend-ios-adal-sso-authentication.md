@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="使用 Active Directory Authentication Library 單一登入驗證您的應用程式 (iOS) | Microsoft Azure" 
-	description="了解如何在 iOS 應用程式中驗證使用者的單一登入。" 
-	documentationCenter="ios" 
-	authors="mattchenderson" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="使用 Active Directory Authentication Library 單一登入驗證您的應用程式 (iOS) | Microsoft Azure"
+	description="了解如何在 iOS 應用程式中驗證使用者的單一登入。"
+	documentationCenter="ios"
+	authors="mattchenderson"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="mahender"/>
 
 # 使用 Active Directory Authentication Library 單一登入驗證您的應用程式
@@ -119,6 +119,5 @@
 [如何向 Azure Active Directory 註冊]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

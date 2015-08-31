@@ -25,6 +25,10 @@
 
 如果您已經針對 [ASP.NET][greenbrown] 或 [Java][java] Web 應用程式設定伺服器遙測，就會取得用戶端和伺服器角度的圖片。兩個資料流會在 Application Insights 入口網站中整合。
 
+#### 快速示範
+
+如果您沒有 Azure 訂用帳戶而想要在您的網頁上試用 Application Insights，請造訪[試用 Application Insights](http://aka.ms/ainow)。
+
 ## 建立 Application Insights 資源
 
 Application Insights 資源是您的頁面的效能和使用量相關資料顯示的位置。(如果您已經建立資源，或許會從您的 Web 伺服器收集資料，略過此步驟)。
@@ -124,7 +128,7 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
     appInsights.trackPageView(myPageName);
 
-頁面名稱可能會含有與 URL 相同的字元，不過 "#" 或 "?" 之後的任何字元都將遭到忽略。
+頁面名稱可能會含有與 URL 相同的字元，不過 "\#" 或 "?" 之後的任何字元都將遭到忽略。
 
 
 ## 檢查個別的頁面檢視事件
@@ -182,4 +186,4 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="nitinme" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="07/31/2015" 
 	ms.author="nitinme"/>
 
 
@@ -39,7 +40,9 @@
 
 一旦將資料儲存成 Hive 資料表之後，下一節我們將使用 Power BI 和 Tableau 等 BI 工具連接 Hive 資料表。
 
-1. 啟動 Jupyter Notebook。在 Azure 入口網站選取 Spark 叢集，接著在底部的入口網站工作列按一下 [**Jupyter Notebook**]。出現提示時，輸入 Spark 叢集的系統管理員認證。
+1. 在 [Azure 預覽入口網站](https://ms.portal.azure.com/)的「開始面板」，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板的話)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集] 瀏覽至您的叢集。 
+ 
+2. 啟動 [Jupyter](https://jupyter.org) Notebook。在 Spark 叢集刀鋒視窗中按一下 [快速連結] ，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入 Spark 叢集的系統管理員認證。
 
 2. 建立新的 Notebook。按一下 [**新增**]，然後按一下 [**Python 2**]。
 
@@ -63,7 +66,7 @@
 
 	 ![Jupyter Notebook 工作的狀態](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Job.Status.png "Jupyter Notebook 工作的狀態")
 
-4. 將範例資料載入暫存資料表。當您在 HDInsight 中佈建 Spark 叢集時，系統會將範例資料檔案 **hvac.csv** 複製到相關聯的儲存體帳戶，其路徑為 **\\HdiSamples\\SensorSampleData\\hvac**。
+4. 將範例資料載入暫存資料表。當您在 HDInsight 中佈建 Spark 叢集時，系統會將範例資料檔案 **hvac.csv** 複製到相關聯的儲存體帳戶，其路徑為 **\HdiSamples\SensorSampleData\hvac**。
 
 	將以下程式碼片段貼入空白儲存格，然後按下 **SHIFT + ENTER**。此程式碼片段會將資料註冊到名為 **hvac** 的 Hive 資料表。
 
@@ -91,7 +94,7 @@
 		hivesampletable false      
 		hvac            false
 
-	只有 **isTemporary** 資料行是 false 的資料表代表即將儲存在 metastore 中，並且可以從 BI 工具存取的 hive 資料表。在此教學課程中，我們將連接剛剛建立的 **hvac** 資料表。
+	只有 **isTemporary** 資料行為 false 的資料表，代表將儲存在中繼存放區、而且可以從 BI 工具存取的 hive 資料表。在此教學課程中，我們將連接到剛剛建立的 **hvac** 資料表。
 
 6. 請確認資料表包含預期的資料。將以下程式碼片段貼入 Notebook 中的空白儲存格，然後按下 **SHIFT + ENTER**。
 
@@ -113,7 +116,7 @@
 
 3. 在下一個畫面中按一下 [**Spark**]，然後按一下 [**連接**]。
 
-4. 在 Azure HDInsight 頁面的 Spark 中，提供連接 Spark 叢集的值，然後按一下 [**連接**]。
+4. 在 Azure HDInsight 頁面的 Spark 中，提供連接到 Spark 叢集的值，然後按一下 [**連接**]。
 
 	![連接 HDInsight 上的 Spark 叢集](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Connect.Spark.png "連接 HDInsight 上的 Spark 叢集")
 
@@ -131,9 +134,9 @@
 
 	![建立視覺效果](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Visual.1.png "建立視覺效果")
 
-	此外，請選取 [**區域對應**] (顯示為紅色) 以視覺化資料。
+	此外，請選取 **區域對應** \(顯示為紅色) 以視覺化資料。
 
-8. 依預設，視覺效果會顯示 **ActualTemp** 和 **TargetTemp** 的總和。對於這兩個欄位，從下拉式清單選取 [**平均**] 可取得這兩項建置之實際和目標溫度的平均值。
+8. 視覺效果預設會顯示 **ActualTemp** 和 **TargetTemp** 的總和。對於這兩個欄位，從下拉式清單選取 [平均] 可取得這兩棟建築之實際和目標溫度的平均值。
 
 	![建立視覺效果](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Visual.2.png "建立視覺效果")
 
@@ -141,7 +144,7 @@
 
 	![建立視覺效果](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Visual.3.png "建立視覺效果")
 
-10. 在上方的功能表按一下 [**儲存**] 並提供報告名稱。您也可以釘選視覺效果。釘選視覺效果時，系統會將它儲存在儀表板上，以便您追蹤最的新值。
+10. 在上方的功能表按一下 [儲存] 並提供報告名稱。您也可以釘選視覺效果。釘選視覺效果時，系統會將它儲存在儀表板上，以便您追蹤最的新值。
 
 	您可以針對同一個資料集加入滿足需求數量的視覺效果，並將它們釘選在儀表板上以取得資料快照。此外，HDInsight 上的 Spark 叢集已透過直接連線連接 Power BI。這表示 Power BI 隨時能取得叢集的最新資訊，因此您不需要排程資料集重新整理。
 
@@ -149,17 +152,17 @@
 	
 1. 啟動 Tableau Desktop。在左窗格中，從要連接的伺服器清單按一下 [**Spark SQL**]。
 
-2. 在 Spark SQL 連線對話方塊中，依照下圖所示提供值，然後按一下 [**確定**]。
+2. 在 Spark SQL 連接對話方塊中，依照下圖所示提供值，然後按一下 [**確定**]。
 
 	![連接 Spark 叢集](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Connect.png "連接 Spark 叢集")
 
-	唯有當您已在電腦上安裝 [Microsoft Spark ODBC 驅動程式](http://go.microsoft.com/fwlink/?LinkId=616229)時，驗證下拉式清單才會將 **Windows** **Azure HDInsight Service** 列示為選項。
+	唯有當您已在電腦上安裝 [Microsoft Spark ODBC 驅動程式](http://go.microsoft.com/fwlink/?LinkId=616229)時，驗證下拉式清單才會將 **Windows** **Azure HDInsight Service** 列為選項。
 
-3. 在下一個畫面中，從 [**結構描述**] 下拉式清單按一下 [**尋找**] 圖示，然後再按一下 [**預設**]。
+3. 在下一個畫面中，在 [**結構描述**] 下拉式清單按一下**尋找**圖示，再按 [**預設**]。
 
 	![尋找結構描述](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Find.Schema.png "尋找結構描述")
 
-4. 對於 [**資料表**] 欄位，再按一下 [**尋找**] 圖示以列出叢集內的所有 Hive 資料表。您應該會看到稍早使用 Notebook 建立的 **hvac** 資料表。
+4. 對於 [資料表] 欄位，再按一下**尋找**圖示以列出叢集內的所有 Hive 資料表。您應該會看到稍早使用 Notebook 建立的 **hvac** 資料表。
 
 	![尋找資料表](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Find.Table.png "尋找資料表")
 
@@ -205,4 +208,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

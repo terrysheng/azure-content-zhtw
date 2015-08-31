@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="nitinme" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/31/2015" 
 	ms.author="nitinme"/>
 
 
@@ -23,12 +24,14 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 在本教學課程中，您將學習如何建立 Azure 事件中樞、使用以 C# 撰寫的主控台應用程式將訊息擷取到事件中樞，以及使用針對 HDInsight 中 Apache Spark 設定的 Zeppelin Notebook 平行擷取它們。
 
+> [AZURE.NOTE]若要遵循這篇文章中的指示，您必須使用兩種版本的 Azure 入口網站。若要建立事件中樞，您會用到 [Azure 入口網站](https://manage.windowsazure.com)。若要使用 HDInsight Spark 叢集，您會用到 [Azure 預覽入口網站](https://ms.portal.azure.com/)。
+
 **必要條件：**
 
 您必須滿足以下條件：
 
 - Azure 訂用帳戶。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
-- Apache Spark 叢集。如需相關指示，請參閱[在 Azure HDInsight 中佈建 Apache Spark 叢集](hdinsight-apache-spark-provision-clusters.md)。
+- Apache Spark 叢集。如需指示，請參閱[在 Azure HDInsight 中佈建 Apache Spark 叢集](hdinsight-apache-spark-provision-clusters.md)。
 - [Azure 事件中樞](service-bus-event-hubs-csharp-ephcs-getstarted.md)。
 - 安裝 Microsoft Visual Studio 2013 的工作站。如需指示，請參閱[安裝 Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx)。
 
@@ -40,19 +43,19 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 	![精靈頁面 1](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Create.Event.Hub.png "建立 Azure 事件中樞")
 
-	> [AZURE.NOTE]您應該選取與 HDInsight 中 Apache Spark 叢集相同的 [**位置**]，以便降低延遲和成本。
+	> [AZURE.NOTE]您應該選取與 HDInsight 中 Apache Spark 叢集相同的**位置**，以便降低延遲和成本。
 
-3. 在 [**設定事件中樞**] 畫面中，輸入 [**資料分割計數**] 及 [**訊息保留**] 值，然後按一下核取記號。在此範例中，資料分割計數使用 10，訊息保留使用 1。請記下資料分割計數，因為您稍後會用到這個值。
+3. 在 [設定事件中樞] 畫面中，輸入**分割區計數**及**訊息保留**值，然後按一下核取記號。在此範例中，資料分割計數使用 10，訊息保留使用 1。請記下資料分割計數，因為您稍後會用到這個值。
 
 	![精靈頁面 2](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Create.Event.Hub2.png "指定事件中樞的資料分割大小和保留天數")
 
-4. 按一下您建立的事件中樞，再按一下 [**設定**]，然後為事件中樞建立兩個存取原則。
+4. 按一下您所建立的事件中樞，再按 [設定]，然後為事件中樞建立兩個存取原則。
 
 	<table>
 <tr><th>名稱</th><th>權限</th></tr>
 <tr><td>mysendpolicy</td><td>傳送</td></tr>
 <tr><td>myreceivepolicy</td><td>接聽</td></tr>
-</table>建立權限之後，在頁面底部選取**儲存**圖示。這樣會建立共用存取原則，可用來傳送 (**mysendpolicy**) 和接聽 (**myreceivepolicy**) 此事件中樞的訊息。
+</table>建立權限之後，在頁面底部選取**儲存**圖示。這會建立共用存取原則，可用來傳送 (**mysendpolicy**) 和接聽 (**myreceivepolicy**) 此事件中樞。
 
 	![原則](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policies.png "建立事件中樞原則")
 
@@ -61,7 +64,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 	![原則金鑰](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policy.Keys.png "儲存原則金鑰")
 
-6. 在 [**儀表板**] 頁面上，按一下底部的 [**連接資訊**] 以使用兩個原則來擷取及儲存事件中樞的連接字串。
+6. 在 [儀表板] 頁面上，按一下底部的 [連接資訊] 以使用兩個原則來擷取及儲存事件中樞的連接字串。
 
 	![原則金鑰](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policy.Connection.Strings.png "儲存原則連接字串")
 
@@ -71,15 +74,17 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 在本節中，您會建立 [Zeppelin](https://zeppelin.incubator.apache.org) Notebook 以接收來自事件中樞的訊息，並傳遞到 HDInsight 中的 Spark 叢集。
 
-1. 啟動 Zeppelin Notebook。在 Azure 入口網站選取 Spark 叢集，接著在底部的入口網站工作列按一下 [**Zeppelin Notebook**]。出現提示時，輸入 Spark 叢集的系統管理員認證。遵循頁面顯示的指示以啟動 Notebook。
+1. 在 [Azure 預覽入口網站](https://ms.portal.azure.com/)的「開始面板」，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板的話)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集] 瀏覽至您的叢集。   
 
-2. 建立新的 Notebook。在標頭窗格中按一下 [**Notebook**]，然後在下拉式清單中按一下 [**建立新 Note**]。
+2. 啟動 Zeppelin Notebook。在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Zeppelin Notebook]。出現提示時，輸入叢集的系統管理員認證。遵循頁面顯示的指示以啟動 Notebook。
+
+2. 建立新的 Notebook。在標頭窗格中按一下 [Notebook]，然後在下拉式清單中按一下 [建立新 Note]。
 
 	![建立新的 Zeppelin Notebook](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.CreateNewNote.png "建立新的 Zeppelin Notebook")
 
-	在同一個頁面的 [**Notebook**] 標題下方，您應該會看到名稱開頭為 **Note XXXXXXXXX** 的新 Notebook。按一下新的 Notebook。
+	在同一個頁面的 [Notebook] 標題下方，您應該會看到名稱開頭為 **Note XXXXXXXXX** 的新 Notebook。按一下新的 Notebook。
 
-3. 在新 Notebook 的網頁上按一下標題，需要的話可以變更 Notebook 的名稱。按下 ENTER 以儲存名稱變更。此外，請確定 Notebook 標頭在右上角顯示 [**已連接**] 狀態。
+3. 在新 Notebook 的網頁上按一下標題，需要的話可以變更 Notebook 的名稱。按下 ENTER 以儲存名稱變更。此外，請確定 Notebook 標頭在右上角顯示 [已連接] 狀態。
 
 	![Zeppelin Notebook 狀態](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.NewNote.Connected.png "Zeppelin Notebook 狀態")
 
@@ -112,27 +117,28 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 ##<a name="runapps"></a>執行應用程式
 
-1. 從 Zeppelin Notebook 執行含有程式碼片段的段落。按下 **SHIFT + ENTER** 或右上角的 [**播放**] 按鈕。
+1. 從 Zeppelin Notebook 執行含有程式碼片段的段落。按下 **SHIFT + ENTER** 或右上角的 [開始] 按鈕。
 
 	段落右上角的狀態應該會從「準備就緒」逐一轉變成「擱置」、「執行中」及「已完成」。輸出會顯示在同一個段落的底部。螢幕擷取畫面如下所示：
 
 	![程式碼片段的輸出](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Zeppelin.Code.Output.png "程式碼片段的輸出")
 
-2. 執行**傳送者**專案，並在主控台視窗中按 **Enter** 以開始將訊息傳送到事件中樞。
+2. 執行**傳送者**專案，並在主控台視窗中按 **Enter** 開始將訊息傳送到事件中樞。
 
 3. 在 Zeppelin Notebook 的新段落中，輸入以下程式碼片段以讀取在 Spark 中接收到的訊息。
 
-		%sql select * from mytemptable limit 10
+		%sql 
+		select * from mytemptable limit 10
 
 	下列螢幕擷取畫面顯示 **mytemptable** 中接收到的訊息。
 
 	![在 Zeppelin 中接收訊息](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Zeppelin.Output.png "在 Zeppelin Notebook 中接收訊息")
 
-4. 重新啟動 Spark SQL 解譯器以結束應用程式。按一下頂端的 [**解譯器**] 索引標籤，然後針對 Spark 解譯器按一下 [**重新啟動**]。
+4. 重新啟動 Spark SQL 解譯器以結束應用程式。按一下頂端的 [解譯器] 索引標籤，然後針對 Spark 解譯器按一下 [重新啟動]。
 
 	![重新啟動 Zeppelin 解譯器](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Zeppelin.Restart.Interpreter.png "重新啟動 Zeppelin 解譯器")
 
-##<a name="sparkstreamingha"></a>以高可用性執行串流處理應用程式
+##<a name="sparkstreamingha"></a>以高可用性執行串流應用程式
 
 使用 Zeppelin 來接收串流資料並傳遞到 HDInsight 上的 Spark 叢集是塑造應用程式原型的好方法。不過，若要以高可用性和恢復功能在實際執行設定中執行串流應用程式，您需要執行以下作業：
 
@@ -164,4 +170,4 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

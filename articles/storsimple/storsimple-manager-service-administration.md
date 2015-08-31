@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/27/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # 使用 StorSimple Manager 服務管理 StorSimple 裝置
@@ -72,7 +72,7 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 |---|---|---|
 |建立服務</br>刪除服務</br>取得服務註冊金鑰</br>重新產生服務註冊金鑰|StorSimple Manager 服務|[部署 StorSimple Manager 服務](storsimple-manage-service.md)
 |變更服務資料加密金鑰</br>檢視作業記錄檔|StorSimple Manager 服務 → 儀表板|[使用 StorSimple Manager 服務儀表板](storsimple-service-dashboard.md)|
-|停用裝置</br>刪除裝置|StorSimple Manager 服務 → 裝置|[停用或刪除裝置]()|
+|停用裝置</br>刪除裝置|StorSimple Manager 服務 → 裝置|[停用或刪除裝置](storsimple-deactivate-and-delete-device.md)|
 |了解災害復原和裝置容錯移轉</br>容錯移轉至實體裝置</br>容錯移轉至虛擬裝置</br>業務持續性災害復原 (BCDR)|StorSimple Manager 服務 → 裝置|[StorSimple 裝置的容錯移轉與災害復原](storsimple-device-failover-disaster-recovery.md)|
 |列出磁碟區備份</br>選取備份組</br>刪除備份組|StorSimple Manager 服務 → 備份目錄|[管理備份](storsimple-manage-backup-catalog.md)|
 |複製磁碟區|StorSimple Manager 服務 → 備份目錄|[複製磁碟區](storsimple-clone-volume.md)|
@@ -83,7 +83,7 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 |檢視工作詳細資料</br>取消工作|StorSimple Manager 服務 → 工作|[管理工作](storsimple-manage-jobs.md)
 |接收警示通知</br>管理警示</br>檢閱警示|StorSimple Manager 服務 → 警示|[檢視和管理 StorSimple 警示](storsimple-manage-alerts.md)
 |檢視連接的啟動器</br>尋找裝置序號</br>尋找目標 IQN|StorSimple Manager 服務 → 裝置 → 儀表板|[使用 StorSimple Manager 裝置儀表板](storsimple-device-dashboard.md)|
-|建立監視圖表|StorSimple Manager 服務 → 裝置 → 監視器|[監視您的 StorSimple 裝置](https://msdn.microsoft.com/library/azure/dn757759.aspx)|
+|建立監視圖表|StorSimple Manager 服務 → 裝置 → 監視器|[監視您的 StorSimple 裝置](storsimple-monitor-device.md)|
 |新增磁碟區容器</br>修改磁碟區容器</br>刪除磁碟區容器|StorSimple Manager 服務 → 裝置 → 磁碟區容器|[管理磁碟區容器](storsimple-manage-volume-containers.md)|
 |新增磁碟區</br>修改磁碟區</br>讓磁碟區離線</br>刪除磁碟區</br>監視磁碟區|StorSimple Manager 服務 → 裝置 → 磁碟區容器 → 磁碟區|[管理磁碟區](storsimple-manage-volumes.md)|
 |修改裝置設定</br>修改時間設定</br>修改 DNS.md 設定</br>設定網路介面|StorSimple Manager 服務 → 裝置 → 設定|[修改 StorSimple 裝置的裝置組態](storsimple-modify-device-config.md)|
@@ -107,6 +107,6 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 
 如果您不能解決問題，且您必須建立服務要求，請參閱：
 
--  [連絡 Microsoft 支援服務](https://msdn.microsoft.com/library/azure/dn757750.aspx)
+-  [連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

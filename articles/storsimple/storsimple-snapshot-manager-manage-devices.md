@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/18/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Snapshot Manager 來連接和管理 StorSimple 裝置
@@ -65,7 +65,7 @@
 - 變更過期的裝置密碼
 - 更換故障的裝置
 
->[AZURE.NOTE]如需使用 StorSimple Snapshot Manager 介面的一般資訊，請移至 [StorSimple Snapshot Manager 使用者介面](storsimple-use-snapshot-manager.md)
+>[AZURE.NOTE]如需使用 StorSimple Snapshot Manager 介面的一般資訊，請至 [StorSimple Snapshot Manager 使用者介面](storsimple-use-snapshot-manager.md)。
 
 
 ## 新增或更換裝置
@@ -252,7 +252,7 @@
 
 5. 啟動 StorSimple Snapshot Manager。
 
-6. 若要設定新的 StorSimple 裝置，請完成[部署 StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)中[步驟 2：連接 StorSimple 裝置](storsimple-snapshot-manager-deployment.md#step-2:-connect-a-storsimple-device)中的步驟。
+6. 若要設定新的 StorSimple 裝置，請完成＜部署 StorSimple Snapshot Manager＞中的[步驟 2：連接 StorSimple 裝置](storsimple-snapshot-manager-deployment.md)中的步驟。
 
 7. 以滑鼠右鍵按一下 [**範圍**] 窗格中的最上層節點 (範例中的 StorSimple Snapshot Manager)，然後按一下 [**切換匯入顯示**]。
 
@@ -262,4 +262,4 @@
 
 [使用 StorSimple Snapshot Manager 來檢視和管理磁碟區](storsimple-snapshot-manager-manage-volumes.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

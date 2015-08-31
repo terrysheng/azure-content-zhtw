@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="開始使用 Xamarin.Android 應用程式的行動服務 | Microsoft Azure" 
-	description="了解如何使用 Azure 行動服務及通知中心傳送推播通知至 Xamarin Android 應用程式" 
-	services="mobile-services" 
-	documentationCenter="xamarin" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="開始使用 Xamarin.Android 應用程式的行動服務 | Microsoft Azure"
+	description="了解如何使用 Azure 行動服務及通知中心傳送推播通知至 Xamarin Android 應用程式"
+	services="mobile-services"
+	documentationCenter="xamarin"
+	authors="ggailey777"
+	manager="dwrede"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/09/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # 將推播通知新增至行動服務應用程式
@@ -39,7 +39,7 @@
 
 ##<a id="register"></a>啟用 Google Cloud Messaging
 
-[AZURE.INCLUDE [啟用 GCM](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [啟用 GCM](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>設定行動服務以傳送推播要求
 
@@ -75,4 +75,4 @@
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

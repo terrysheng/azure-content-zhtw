@@ -21,9 +21,9 @@
 
 ## 概觀
 
-歡迎使用 **Azure Premium 儲存體磁碟**，讓您的虛擬機器更快速！
+歡迎使用 **Azure 進階儲存體磁碟**，讓 Azure 虛擬機器加速運作。
 
-在引進新的 Premium 儲存體之後，Microsoft Azure 現在提供兩種類型的耐久性儲存體：**Premium 儲存體**和**標準儲存體**。Premium 儲存體是將資料儲存在最新技術的固態硬碟 (SSD) 中，Standard 儲存體則是將資料儲存在硬碟 (HDD) 中。
+在引進了進階儲存體之後，Microsoft Azure 現在提供兩種耐久性儲存體：**進階儲存體**和**標準儲存體**。Premium 儲存體是將資料儲存在最新技術的固態硬碟 (SSD) 中，Standard 儲存體則是將資料儲存在硬碟 (HDD) 中。
 
 Premium 儲存體可為在 Azure 虛擬機器上執行的 I/O 密集工作負載提供高效能、低延遲的磁碟支援。您可以將數個 Premium 儲存體磁碟連結至虛擬機器 (VM)。使用 Premium 儲存體，每一 VM 的應用程式最多擁有 32 TB 的儲存體，每一 VM 可達到 64,000 IOPS (每秒輸入/輸出作業)，讀取作業的延遲極低。
 
@@ -51,7 +51,7 @@ Premium 儲存體可為在 Azure 虛擬機器上執行的 I/O 密集工作負載
 
 - Premium 儲存體帳戶無法對應到自訂網域名稱。
 
-- Premium 儲存體目前不支援儲存體分析。若要分析使用 Premium 儲存體帳戶磁碟的 VM 效能度量，請使用作業系統工具，例如適用於 Windows VM 的 [Windows 效能監視器](https://technet.microsoft.com/library/cc749249.aspx)和適用於 Linux VM 的 [IOSTAT](http://linux.die.net/man/1/iostat)。
+- Premium 儲存體目前不支援儲存體分析。若要分析使用 Premium 儲存體帳戶磁碟的 VM 效能度量，請使用作業系統工具，例如適用於 Windows VM 的 [Windows 效能監視器](https://technet.microsoft.com/library/cc749249.aspx)和適用於 Linux VM 的 [IOSTAT](http://linux.die.net/man/1/iostat)。您也可以在 Azure Preview 入口網站啟用 Azure VM 診斷。如需詳細資料，請參閱[使用 Azure 診斷擴充功能監視 Microsoft Azure 虛擬機器](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)。
 
 ## 使用 Premium 磁碟儲存體
 有兩種方式可使用 Premium 磁碟儲存體：
@@ -130,7 +130,7 @@ Azure 使用儲存體帳戶做為作業系統 (OS) 和資料磁碟的容器。�
 </tbody>
 </table>
 
-	如需最新的資訊，請參閱 [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)。如需深入了解進階儲存體磁碟及其 IOP 和輸送量限制，請參閱本文中[Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage) 章節中的資料表。
+	如需最新的資訊，請參閱 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)。 若要了解有關 Premium 儲存體磁碟及其 IOPS 與輸送量限制，請參閱本文在 [使用 Premium 儲存體時的延展性和效能目標](#scalability-and-performance-targets-whzh-twing-premium-storage)一節中的表格。
 
 > [AZURE.NOTE]快取命中數不會受到磁碟配置 IOPS/輸送量的限制。也就是說，當您在 DS 系列 VM 上使用具 ReadOnly 快取設定的資料磁碟時，來自快取的讀取數不會受到 Premium 儲存體磁碟的限制。因此，如果工作負載以讀取為主，可以從磁碟獲得極高的輸送量。請注意，快取會根據 VM 大小，受到 VM 層級個別 IOPS / 輸送量的限制。DS 系列 VM 大約有 4000 IOPS，快取與本機 SSD IO 是每個核心 33 MB/秒。
 
@@ -246,10 +246,9 @@ DS4 VM 連接了兩個 P30 磁碟。每個 P30 磁碟有每秒 200 MB 的輸送�
 
 ### 重要事項：
 
-- 如果 Premium 儲存體上的複製 Blob 作業會覆寫目的地現有的 Blob，則所覆寫的 Blob 不得含有任何快照。若要在 Premium 儲存體帳戶內或之間進行複製，在初始化複製時，目的地 Blob 不得含有快照。
 - 單一 Blob 的快照數限制為 100。每 10 分鐘最多可取得一個快照。
-- 10 TB 是每一 Premium 儲存體帳戶的最大快照容量。請注意，快照容量是快照中存在的唯一資料。換句話說，快照容量不包含基底 Blob 大小。
-- 若要從 Premium 儲存體帳戶將快照複製到另一個帳戶，您必須先對快照執行「複製 Blob」，在同一個 Premium 儲存體帳戶中建立新的 Blob。然後您就可以將新的 Blob 複製到其他儲存體帳戶。複製完成後，您可以刪除中繼的 Blob。請依照此程序，使用 AzCopy 或「複製 Blob」將 Premium 儲存體帳戶中的快照複製到異地備援的標準儲存體帳戶。如需詳細資訊，請參閱[如何在 Microsoft Azure 儲存體使用 AzCopy](storage-use-azcopy.md) 和[複製 Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx)。
+- 每個進階儲存體帳戶的快照集最大容量為 10 TB。請注意，快照集容量只是指快照集中的資料總數，不包含基底 blob 中的資料。
+- 若要維護快照集的異地備援副本，您可以使用 AzCopy 或「複製 Blob」，將進階儲存體帳戶中的快照複製到異地備援的標準儲存體帳戶。如需詳細資訊，請參閱[如何在 Microsoft Azure 儲存體使用 AzCopy](storage-use-azcopy.md) 和[複製 Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx)。
 - 如需對 Premium 儲存體帳戶中的分頁 Blob 執行 REST 作業的詳細資訊，請參閱 MSDN Library 中的[在 Azure 儲存體帳戶使用 Blob 服務作業](http://go.microsoft.com/fwlink/?LinkId=521969)。
 
 ## 在 Premium 儲存體使用 Linux VM
@@ -331,7 +330,7 @@ DS4 VM 連接了兩個 P30 磁碟。每個 P30 磁碟有每秒 200 MB 的輸送�
 這個 PowerShell 範例示範如何建立新的 Premium 儲存體帳戶並將使用該帳戶的資料磁碟連接至新的 Azure 虛擬機器。
 
 1. 依照[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md) 中提供的步驟設定您的 PowerShell 環境。
-2. 啟動 PowerShell 主控台，連接至您的訂閱，並在主控台視窗中執行下列 PowerShell Cmdlet。如此 PowerShell 陳述式所示，當您建立 Premium 儲存體帳戶時，必須將 **Type** 參數指定為 **Premium_LRS**。
+2. 啟動 PowerShell 主控台，連接至您的訂閱，並在主控台視窗中執行下列 PowerShell Cmdlet。如此 PowerShell 陳述式所示，當您建立 Premium 儲存體帳戶時，必須將 **Type** 參數指定為 **Premium\_LRS**。
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
 
@@ -401,4 +400,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

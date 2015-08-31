@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="在 Visual Studio 2013 中匯入您的發佈設定檔案 | Microsoft Azure" 
-	description="了解如何在 Visual Studio 2013 中匯入 Azure Mobile Services 應用程式的訂閱發布設定檔。" 
-	documentationCenter="" 
-	services="mobile-services" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="在 Visual Studio 2013 中匯入您的發佈設定檔案 | Microsoft Azure"
+	description="了解如何在 Visual Studio 2013 中匯入 Azure Mobile Services 應用程式的訂閱發布設定檔。"
+	documentationCenter=""
+	services="mobile-services"
+	manager="dwrede"
+	editor=""
 	authors="ggailey777"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/13/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # 在 Visual Studio 2013 中匯入您的訂閱發佈設定檔案
@@ -22,7 +22,7 @@
 
 >[AZURE.NOTE]從 Visual Studio 2013 Update 2 開始，您不再需要使用發佈設定檔案。Visual Studio 可使用您提供的認證來直接連線至 Azure。
 
-1. 在 Visual Studio 2013 中，開啟 [方案總管]、在專案上按一下滑鼠右鍵，然後依序按一下 **[新增]**、**[已連接服務]**。 
+1. 在 Visual Studio 2013 中，開啟 [方案總管]、在專案上按一下滑鼠右鍵，然後依序按一下 **[新增]**、**[已連接服務]**。
 
 	![新增已連接服務](./media/mobile-services-windows-how-to-import-publishsettings/mobile-add-connected-service.png)
 
@@ -60,6 +60,5 @@
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-users-js/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

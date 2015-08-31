@@ -1,18 +1,18 @@
 <properties
-   pageTitle="更新您的 StorSimple 裝置"
+   pageTitle="更新 StorSimple 裝置 | Microsoft Azure"
    description="說明如何使用 StorSimple 更新功能，來安裝一般和維護模式的更新和 Hotfix。"
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/30/2015"
+   ms.date="08/19/2015"
    ms.author="v-sharos" />
 
 # 更新您的 StorSimple 裝置
@@ -42,7 +42,7 @@ StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀
 
 ### 維護模式更新
 
-維護模式更新是干擾性更新，例如，磁碟韌體升級或 USM 韌體升級。這些更新需要使裝置進入維護模式。如需詳細資訊，請參閱[步驟 2：進入維護模式](#to-enter-maintenance-mode)。您無法使用管理入口網站來安裝維護模式更新。您必須改用 Windows PowerShell for StorSimple。
+維護模式更新是干擾性更新，例如，磁碟韌體升級或 USM 韌體升級。這些更新需要使裝置進入維護模式。如需詳細資訊，請參閱[步驟 2：進入維護模式](#step2)。您無法使用管理入口網站來安裝維護模式更新。您必須改用 Windows PowerShell for StorSimple。
 
 如需如何安裝維護模式更新的詳細資訊，請參閱[透過 Windows PowerShell for StorSimple 安裝維護模式更新](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple)。
 
@@ -66,32 +66,32 @@ StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀
 
 您使用 Windows PowerShell for StorSimple，將維護模式更新套用到 StorSimple 裝置。在此模式中，所有的 I/O 要求都會暫停。靜態隨機存取記憶體 (NVRAM) 之類的服務或叢集服務也會停止。這兩個控制站會在您進入或結束此模式時重新啟動。當您結束此模式時，所有的服務都將繼續執行，而且應該是健康情況良好的(這可能需要數分鐘的時間)。
 
-如果您需要套用維護模式更新，將會透過管理入口網站收到警示，指出您有必須安裝的更新。這個警示將包含使用 Windows PowerShell for StorSimple 安裝更新的相關指示。更新裝置之後，請使用相同的程序來將裝置變更為一般模式。如需逐步指示，請參閱[步驟 4：結束維護模式](#to-exit-maintenance-mode)。
+如果您需要套用維護模式更新，將會透過管理入口網站收到警示，指出您有必須安裝的更新。這個警示將包含使用 Windows PowerShell for StorSimple 安裝更新的相關指示。更新裝置之後，請使用相同的程序來將裝置變更為一般模式。如需逐步指示，請參閱[步驟 4：結束維護模式](#step4)。
 
 > [AZURE.IMPORTANT]
 > 
 > - 進入維護模式之前，請確認這兩個裝置控制站的健康情況良好，方法是檢查管理入口網站中 [維護] 頁面上的 [硬體狀態]。如果控制站的健康情況不好，請連絡 Microsoft 支援服務以進行後續步驟。如需詳細資訊，請參閱＜連絡 Microsoft 支援服務＞。 
 > - 當您處於維護模式時，需要先在某一個控制站上套用更新，然後在另一個控制站上套用更新。
 
-### 步驟 1：連接到序列主控台
+### 步驟 1：連接到序列主控台<a name="step1">
 
 首先，使用 PuTTY 之類的應用程式來存取序列主控台。下列程序說明如何使用 PuTTY 來連接到序列主控台。
 
 [AZURE.INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### 步驟 2：進入維護模式
+### 步驟 2：進入維護模式<a name="step2">
 
 連接到主控台之後，請判定是否有需要安裝的更新，然後進入維護模式加以安裝。
 
 [AZURE.INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
 
-### 步驟 3：安裝更新
+### 步驟 3：安裝更新<a name="step3">
 
 接下來，安裝您的更新。
 
 [AZURE.INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
  
-### 步驟 4：結束維護模式
+### 步驟 4：結束維護模式 <a name="step4">
 
 最後，結束維護模式。
 
@@ -112,11 +112,11 @@ StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀
 
 ## 如果您執行裝置的原廠重設，更新該怎麼辦？
 
-如果將裝置重設為原廠設定，則所有更新都會遺失。在註冊並設定原廠重設裝置之後，您必須透過管理入口網站和 (或) Windows PowerShell for StorSimple 手動安裝更新。如需恢復出廠預設值的詳細資訊，請參閱[將裝置重設為原廠預設設定](https://msdn.microsoft.com/library/azure/dn772373.aspx)。
+如果將裝置重設為原廠設定，則所有更新都會遺失。在註冊並設定原廠重設裝置之後，您必須透過管理入口網站和 (或) Windows PowerShell for StorSimple 手動安裝更新。如需恢復出廠預設值的詳細資訊，請參閱[將裝置重設為原廠預設設定](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings)。
 
 ## 後續步驟
 
-深入了解 [Windows PowerShell for StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx)。
+[了解如何使用 Windows PowerShell for StorSimple 管理 StorSimple 裝置](storsimple-windows-powershell-administration.md)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

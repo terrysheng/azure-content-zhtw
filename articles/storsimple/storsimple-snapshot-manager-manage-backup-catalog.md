@@ -1,6 +1,6 @@
 <properties 
    pageTitle="使用 StorSimple Snapshot Manager 來管理備份類別目錄 | Microsoft Azure"
-   description="描述如何使用 StorSimple Snapshot Manager MMC 嵌入式管理單元，建立和管理可控制排定備份的備份原則。"
+   description="說明如何使用 StorSimple Snapshot Manager MMC 嵌入式管理單元來檢視和管理備份磁碟區。"
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Snapshot Manager 來管理備份目錄
@@ -205,6 +205,6 @@ StorSimple Snapshot Manager 在建立預防措施備份時，會顯示下列訊�
 
 ## 後續步驟
 
-請參閱可用的 [StorSimple Snapshot Manager 工作和工作流程](storsimple-what-is-snapshot-manager.md#storsimple-snapshot-manager-tasks-and-workflows)。
+深入了解 [StorSimple Snapshot Manager 工作和工作流程](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

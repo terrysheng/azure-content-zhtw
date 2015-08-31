@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="通知中樞已當地語系化的即時新聞教學課程" 
-	description="了解如何使用 Azure 服務匯流排通知中樞傳送本地化重大新聞通知。" 
-	services="notification-hubs" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="通知中樞已當地語系化的即時新聞教學課程"
+	description="了解如何使用 Azure 服務匯流排通知中樞傳送本地化重大新聞通知。"
+	services="notification-hubs"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # 使用通知中心傳送當地語系化的即時新聞
@@ -29,7 +29,7 @@
 
 此案例分成兩部分：
 
-- Windows 市集應用程式允許用戶端裝置指定語言，以及訂閱不同的即時新聞類別； 
+- Windows 市集應用程式允許用戶端裝置指定語言，以及訂閱不同的即時新聞類別；
 
 - 後端使用 Azure 通知中心的**標籤**和**範本**功能廣播通知。
 
@@ -146,7 +146,7 @@
 3. 在您的 MainPage.xaml.cs 中，擷取地區設定下拉式方塊的現行值，並將其提供給 Notifications 類別的呼叫，以更新您的按鈕點選處理常式，如下所示：
 
 		 var locale = (string)Locale.SelectedItem;
-            
+
          var categories = new HashSet<string>();
          if (WorldToggle.IsOn) categories.Add("World");
          if (PoliticsToggle.IsOn) categories.Add("Politics");
@@ -230,6 +230,5 @@
 [通知中樞指引]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Windows 市集的通知中心作法]: http://msdn.microsoft.com/library/jj927172.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

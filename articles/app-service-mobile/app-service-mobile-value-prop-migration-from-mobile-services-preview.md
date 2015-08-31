@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="08/05/2015"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>我使用行動服務，App Service 有何幫助？
@@ -37,8 +37,10 @@
 
 - 透過 Web 工作加入連續執行的後端邏輯
 - 確保您的後端程式碼持續不斷執行
-- 使用自訂 CName，為您的行動裝置後端端點提供友善且穩定的名稱
-- 使用流量管理員，異地擴充您的應用程式
+- 使用自訂 CName，為您的行動裝置後端端點提供易記且穩定的名稱
+- 使用流量管理員，異地擴充您的 app
+- 包含任何您想要的程式庫和封裝。在 .NET 中，您所部署的組件是會在執行階段使用的組件；在主控環境中版本絕不會發生衝突。
+- (適用於 .NET) 運用 ASP.NET 的任何功能，包括 MVC
 
 
 ##將*行動應用程式* 連接至 SaaS API
@@ -67,4 +69,4 @@
 當 *Azure App Service 行動應用程式* 功能公開推出的時候，我們將提供從現有行動服務移轉至 App Service 的順暢體驗 (如果您選擇移轉的話)。在此同時，您即可開始探索 *App Service*，並遵循此 [教學課程](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md)，將 *App Service* 運用於您現有的行動服務。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

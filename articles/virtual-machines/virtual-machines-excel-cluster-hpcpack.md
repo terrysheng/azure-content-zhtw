@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="07/27/2015"
+ ms.date="08/18/2015"
  ms.author="danlep"/>
 
 # 開始使用 Azure 中的 HPC Pack 叢集執行 Excel 和 SOA 工作負載
@@ -26,7 +26,6 @@ ms.service="virtual-machines"
 ## 必要條件
 
 * **用戶端電腦** - 您需要 Windows 用戶端電腦才能執行 Azure PowerShell 叢集部署指令碼 (如果您選擇該部署方法) 以及提交範例 Excel 和 SOA 工作至叢集。
-
 
 * **Azure 訂用帳戶** - 如果您沒有帳戶，僅需幾分鐘就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
@@ -61,7 +60,7 @@ ms.service="virtual-machines"
     >
     >運算節點 VM 會從選取之運算節點系列的最新映像建立。選取 **ComputeNode** 選項做為一般用途的最新 HPC Pack 2012 R2 Update 2 運算映像。選取 **ComputeNodeWithExcel** 選項做為最新的 HPC Pack 運算節點映像，包含評估版 Microsoft Excel Professional Plus 2013。如果您想要部署一般 SOA 工作階段或 Excel UDF 卸載的叢集，請選擇 **ComputeNode** 選項 (不需安裝 Excel)。
     >
-    >使用 **ComputeNodeWithExcel** 做為生產工作負載時，您必須提供有效的 Excel 授權以在運算節點上啟用 Excel。否則，評估版 Excel 會在 60 天後到期，屆時任何 Excel 工作負載將無法執行。
+    >使用 **ComputeNodeWithExcel** 做為生產工作負載時，您必須提供有效的 Excel 授權以在運算節點上啟用 Excel。否則，Excel 評估版會在 30 天後到期，屆時將無法執行任何 Excel 工作負載。
 
     c.選擇訂用帳戶。
 
@@ -377,4 +376,4 @@ SOA 用戶端應用程式不需要變更，除了將標頭名稱改變為 IaaS �
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

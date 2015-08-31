@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="在現有的應用程式中加入行動服務 (Windows Phone) | Microsoft Azure" 
-	description="了解如何開始使用行動服務，在您的 Windows Phone 應用程式中使用資料。" 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="在現有的應用程式中加入行動服務 (Windows Phone) | Microsoft Azure"
+	description="了解如何開始使用行動服務，在您的 Windows Phone 應用程式中使用資料。"
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/12/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # 將行動服務新增至現有的應用程式
@@ -32,13 +32,13 @@
 本教學課程需要下列各項：
 
 + Visual Studio 2013 Update 2 或更新版本。
-+ Microsoft Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure 免費試用</a>。 
++ Microsoft Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure 免費試用</a>。
 
 ##下載 GetStartedWithData 專案
 
 本教學課程以 [GetStartedWithMobileServices 應用程式](https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72)，亦即以 Visual Studio 2013 的 Windows Phone Silverlight 8.1 應用程式專案為建立基礎。
 
-1. 從[開發人員程式碼範例網站](https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72)中下載 C# 版本的 GetStartedWithMobileServices 範例應用程式。 
+1. 從[開發人員程式碼範例網站](https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72)中下載 C# 版本的 GetStartedWithMobileServices 範例應用程式。
 
 	>[AZURE.NOTE]若要建立 Windows Phone Silverlght 8.1 應用程式，只要將已下載之 Windows Phone Silverlight 8 應用程式專案的目標 OS 變更為 Windows Phone 8.1 即可。若要建立 Windows Phone 市集應用程式，請下載 GetStartedWithData 範例應用程式專案的 [Windows Phone 市集應用程式版本](http://go.microsoft.com/fwlink/p/?LinkId=397372)。
 
@@ -66,7 +66,7 @@
 ##下載行動服務專案並將其新增至方案
 
 1. 下載並安裝 [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) 或更新版本 (若您尚未這麼做)。
- 
+
 2. 在 [Azure 管理入口網站](https://manage.windowsazure.com/)中，按一下新的行動服務，在快速入門頁面按一下 [**Windows**] 平台，然後在 [**開始使用**] 下展開 [**連接現有的 Windows 或 Windows Phone 應用程式**]。
 
     ![下載行動服務專案](./media/mobile-services-dotnet-backend-windows-phone-get-started-data/download-service-project.png)
@@ -122,26 +122,26 @@
         public sealed partial class MainPage : PhoneApplicationPage
         {
             private MobileServiceCollection<TodoItem, TodoItem> items;
-            private IMobileServiceTable<TodoItem> todoTable = 
-                App.MobileService.GetTable<TodoItem>();            
+            private IMobileServiceTable<TodoItem> todoTable =
+                App.MobileService.GetTable<TodoItem>();
             public MainPage()
             {
                 this.InitializeComponent();
             }
             private async void InsertTodoItem(TodoItem todoItem)
             {
-                await todoTable.InsertAsync(todoItem); 
+                await todoTable.InsertAsync(todoItem);
                 items.Add(todoItem);
             }
             private async void RefreshTodoItems()
             {
-                items = await todoTable 
-                    .ToCollectionAsync(); 
+                items = await todoTable
+                    .ToCollectionAsync();
                 ListItems.ItemsSource = items;
             }
             private async void UpdateCheckedTodoItem(TodoItem item)
             {
-                await todoTable.UpdateAsync(item);      
+                await todoTable.UpdateAsync(item);
             }
             private void ButtonRefresh_Click(object sender, RoutedEventArgs e)
             {
@@ -184,7 +184,7 @@
         //public static MobileServiceClient MobileService = new MobileServiceClient(
         //    "https://todolist.azure-mobile.net/",
         //    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-        //);        
+        //);
 
 
 7. 在 Visual Studio 中按 F7 鍵，或從 [建置] 功能表中按一下 [建置方案]，以建置 Windows Phone 應用程式和行動服務。請在 Visual Studio 的輸出視窗中，驗證兩個專案都順利建置而未產生錯誤。
@@ -220,7 +220,7 @@
             public static MobileServiceClient MobileService = new MobileServiceClient(
                  "https://todolist.azure-mobile.net/",
                  "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-            );        
+            );
             ....
 
 2. 在 Visual Studio 中按 F5 鍵，或從 [偵錯] 功能表中按一下 [開始偵錯]。這會使應用程式以先前的變更重新建置，然後再執行應用程式，以連接到 Azure 遠端代管的行動服務。
@@ -251,7 +251,7 @@
 * [將推播通知新增至您的應用程式]() <br/>了解如何將非常基本的推播通知傳送至應用程式。
 
 * [行動服務 .NET 作法概念參考資料] <br/>深入了解如何使用搭配 .NET 的行動服務。
-  
+
 
 
 <!-- Images. -->
@@ -270,6 +270,5 @@
 [行動服務 .NET 作法概念參考資料]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 [How to add a new Windows Firewall port rule]: http://go.microsoft.com/fwlink/?LinkId=392240
-   
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

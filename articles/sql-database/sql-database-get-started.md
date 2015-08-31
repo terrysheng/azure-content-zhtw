@@ -1,6 +1,6 @@
 <properties
-	pageTitle="開始使用 SQL Database"
-	description="使用 Azure 入口網站和 AdventureWorks 範例資料庫，幾分鐘內即可以 Azure SQL Database (雲端中的 Microsoft 關聯式資料庫管理服務 (RDBMS))，建立您的第一個的雲端資料庫。"
+	pageTitle="開始使用 SQL Database | Microsoft Azure"
+	description="使用 Azure 入口網站和 AdventureWorks 範例資料庫，透過 Azure SQL Database (雲端中的 Microsoft 關聯式資料庫管理服務 (RDBMS)) 在幾分鐘之內建立您的第一個的雲端資料庫。"
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -46,7 +46,7 @@
 
 
 
-1. 在 [SQL Database] 刀鋒視窗中，選擇資料庫的**名稱**，在此範例中為 **AdventureWorks**。
+1. 在 [SQL Database] 刀鋒視窗中，選擇資料庫的 [名稱]，在此範例中為 **AdventureWorks**。
 2. 若要建立資料庫的邏輯伺服器，請依序按一下 [伺服器]、[建立新伺服器]。
 
 
@@ -83,10 +83,10 @@
 ![瀏覽伺服器][3]
 
 
-1. 在畫面左側功能區上，依序按一下 [瀏覽]、[SQL Server]。
+1. 在畫面左側的功能區，依序按一下 [瀏覽]、[SQL Server]。
 2. 從可用的選項中，按一下您稍早建立的 SQL Server。
-3. 依序按一下 [設定]、[防火牆]。
-4. 按一下此連結以從 [Bing](http://www.bing.com/search?q=my%20ip%20address) 取得您目前的 IP 位址。
+3. 按一下 [設定]，然後按一下 [防火牆]。
+4. 從 [Bing](http://www.bing.com/search?q=my%20ip%20address) 取得您目前的 IP 位址。
 5. 在 [防火牆設定] 中，輸入 [規則名稱]，然後將上一步取得的公用 IP 位址，貼入 [起始 IP] 和 [結束 IP] 欄位。
 6. 完成後，按一下頁面頂端的 [儲存]。
 
@@ -100,7 +100,7 @@
 您現在已準備好撰寫小型用戶端程式，以連接到您的資料庫。如需快速入門的程式碼範例，請按以下連結之一：
 
 
-- [使用 C# 連接及查詢您的 SQL Database](sql-database-connect-query.md)
+- [使用 C#連接及查詢您的 SQL Database](sql-database-connect-query.md)
 - 敬請期待：SQL Database 的用戶端開發和快速入門範例
 
 
@@ -109,6 +109,5 @@
 [2]: ./media/sql-database-get-started/GettingStarted_CreateServer.png
 [3]: ./media/sql-database-get-started/GettingStarted_BrowseServer.png
 [4]: ./media/sql-database-get-started/GettingStarted_FireWall.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

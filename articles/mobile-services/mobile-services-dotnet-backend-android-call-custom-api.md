@@ -62,4 +62,4 @@
 [在來源控制中儲存伺服器指令碼]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

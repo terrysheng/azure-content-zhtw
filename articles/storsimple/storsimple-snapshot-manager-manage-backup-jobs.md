@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 
@@ -108,7 +108,7 @@
 
 ## 後續步驟
 
-[使用 StorSimple Snapshot Manager 來管理備份目錄](storsimple-snapshot-manager-manage-backup-catalog.md)
+[使用 StorSimple Snapshot Manager 管理備份目錄](storsimple-snapshot-manager-manage-backup-catalog.md)
 
 
 
@@ -129,4 +129,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

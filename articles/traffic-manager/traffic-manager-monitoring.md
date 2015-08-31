@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # 關於流量管理員監視
 
@@ -27,7 +27,7 @@ Azure 流量管理員會監視您的各個端點 (包括雲端服務和網站)�
 
 ## 關於監視健全狀態
 
-Azure 流量管理員會在管理入口網站中顯示設定檔和端點服務的健康情況。設定檔和端點的狀態欄會顯示最新的監視狀態。您可以根據流量管理員監視設定，使用此狀態了解設定檔的健康情況。當您的設定檔狀況良好時，DNS 查詢會根據設定檔的負載平衡設定 (循環配置資源、效能或容錯移轉) 分散到您的各個服務。一旦流量管理員監視系統偵測到監視狀態中有變更，它會更新管理入口網站中的狀態項目。從狀態變更到重新整理可能需要五分鐘的時間。
+Azure 流量管理員會在管理入口網站中顯示設定檔和端點服務的健康情況。設定檔和端點的狀態欄會顯示最新的監視狀態。您可以根據流量管理員監視設定，使用此狀態了解設定檔的健康情況。當您的設定檔狀況良好時，DNS 查詢會根據設定檔的流量路由設定 (循環配置資源、效能或容錯移轉) 散發到您的服務。一旦流量管理員監視系統偵測到監視狀態中有變更，它會更新管理入口網站中的狀態項目。從狀態變更到重新整理可能需要五分鐘的時間。
 
 ### 端點監視狀態
 
@@ -89,7 +89,7 @@ Azure 流量管理員會在管理入口網站中顯示設定檔和端點服務�
 
 ## 巢狀設定檔的子端點和父端點狀態
 
-下表描述流量管理員在使用巢狀設定檔的子設定檔和父設定檔與 minChildEndpoints 設定時的監視行為。如需詳細資訊，請參閱[流量管理員概觀](traffic-manager-overview.md)。
+下表描述流量管理員在使用巢狀設定檔的子設定檔和父設定檔與 minChildEndpoints 設定時的監視行為。如需詳細資訊，請參閱[什麼是流量管理員？](traffic-manager-overview.md)。
 
 |子設定檔監視狀態|父端點監視狀態|注意事項|
 |---|---|---|
@@ -108,9 +108,9 @@ Azure 流量管理員會在管理入口網站中顯示設定檔和端點服務�
 
 ## 另請參閱
 
-[流量管理員概觀](traffic-manager-overview.md)
+[什麼是流量管理員？](traffic-manager-overview.md)
 
-[關於流量管理員的負載平衡方法](traffic-manager-load-balancing-methods.md)
+[關於流量管理員流量路由方法](traffic-manager-load-balancing-methods.md)
 
 [雲端服務](http://go.microsoft.com/fwlink/p/?LinkId=314074)
 
@@ -119,4 +119,4 @@ Azure 流量管理員會在管理入口網站中顯示設定檔和端點服務�
 [疑難排解 Azure 流量管理員上的已降級狀態](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

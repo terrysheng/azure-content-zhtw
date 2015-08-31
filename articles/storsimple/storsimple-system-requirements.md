@@ -4,7 +4,7 @@
    services="storsimple" 
    documentationCenter="NA" 
    authors="alkohli" 
-   manager="AdinaH" 
+   manager="carolz" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/12/2015"
+   ms.date="08/17/2015"
    ms.author="alkohli"/>
 
 # StorSimple 系統需求
@@ -188,10 +188,10 @@ StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和�
 
 ## 後續步驟
 
-- 深入了解 [StorSimple 限制](storsimple-limits.md)。
-- [部署 StorSimple 解決方案](storsimple-deployment-walkthrough.md)。
+- [了解 StorSimple 系統限制](storsimple-limits.md)。
+- [了解如何部署 StorSimple 解決方案](storsimple-deployment-walkthrough.md)。
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

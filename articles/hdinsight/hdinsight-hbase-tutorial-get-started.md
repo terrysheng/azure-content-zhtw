@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/21/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 
@@ -22,9 +22,11 @@
 
 了解如何在 HDInsight 中使用 Hive 佈建 HBase 叢集，建立 HBase 資料表，以及查詢資料表。如需一般 HBase 資訊，請參閱 [HDInsight HBase 概觀][hdinsight-hbase-overview]。
 
-> [AZURE.NOTE]HBase (0.98.0 版) 只能與 HDInsight 上的 HDInsight 3.1 叢集一起使用 (以 Apache Hadoop 和 YARN 2.4.0 為基礎)。如需版本資訊，請參閱 [HDInsight 在 Hadoop 叢集版本中提供的新功能？][hdinsight-versions]
+[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
 
-> [AZURE.VIDEO get-started-with-hbase-in-hdinsight]
+* [HBase 教學課程：開始在 HDInsight 中搭配 Hadoop 使用 Apache HBase](hdinsight-hbase-tutorial-get-started-v1.md)
+
+> [AZURE.NOTE]HBase (0.98.0 版) 只能與 HDInsight 上的 HDInsight 3.1 叢集一起使用 (以 Apache Hadoop 和 YARN 2.4.0 為基礎)。如需版本資訊，請參閱 [HDInsight 在 Hadoop 叢集版本中提供的新功能？][hdinsight-versions]
 
 **必要條件**
 
@@ -41,22 +43,25 @@
 
 
 1. 登入 [Azure 入口網站][azure-management-portal]。
-2. 按一下左下角的 [**新增**]，再按 [**資料服務**] > [**HDInsight**] > [**HBase**]。
+2. 按一下左上角的 [新增]，再按 [資料 + 分析]、[HDInsight]。
+3. 輸入下列值：
 
-	>[AZURE.NOTE]您也可以使用 [**自訂建立**] 選項。
-3. 輸入 [**叢集名稱**]、[**叢集大小**]、[叢集使用者密碼] 和 [**儲存體帳戶**]。
+	- **叢集名稱**：輸入識別此叢集的名稱。
+	- **叢集類型**：HBase
+	- **叢集作業系統**：HDInsight HBase 叢集目前僅適用於 Windows 作業系統。
+	- **訂用帳戶**：選取用於佈建此叢集的 Azure 訂用帳戶。
+	- **資源群組**：加入或選取 Azure 資源群組。如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
+	- **設定認證**。您可以為以 Windows 為主的叢集建立叢集使用者 (又名為 HTTP 使用者、HTTP Web 服務使用者) 和遠端桌面使用者。
+	- **資料來源**：建立新的 Azure 儲存體帳戶，或選取現有的 Azure 儲存體帳戶，使其做為叢集的預設檔案系統。這個 Azure 儲存體帳戶必須與 HDInsight HBase 叢集位於相同的位置。
+	- **節點定價層：**選取 HBase 叢集的區域伺服器數目。
 
-	![在 HDInsight 中佈建 HBase 叢集][img-hdinsight-hbase-cluster-quick-create]
+		> [AZURE.WARNING]如需 HBase 服務的高可用性，您必須佈建包含至少**三個**節點的叢集。這可確保如果一個節點故障，仍可在其他節點上使用 HBase 資料區域。
 
-	預設 HTTP 使用者名稱為 admin。您可以使用 [自訂建立] 選項來自訂名稱。
+		> 如果正在學習 HBase 時，請務必選擇 1 做為叢集大小，並在每次使用叢集後予以刪除，以降低成本。
 
-	使用預設 HBase 佈建程序時需有 Azure 儲存體帳戶。請參閱[建立 Azure 儲存體帳戶][azure-create-storageaccount]來建立帳戶。[自訂建立] 選項可讓您透過叢集佈建程序建立儲存體帳戶。
+	- **選用組態**：選取叢集版本、設定 Azure 虛擬網路、設定 Hive/Oozie 中繼存放區、設定指令碼動作，和新增額外的儲存體帳戶。
 
-	> [AZURE.WARNING]如需 HBase 服務的高可用性，您必須佈建包含至少**三個**節點的叢集。這可確保如果一個節點故障，仍可在其他節點上使用 HBase 資料區域。
-
-	> 如果正在學習 HBase 時，請務必選擇 1 做為叢集大小，並在每次使用叢集後予以刪除，以降低成本。
-
-4. 按一下右下角 **[建立 HDInsight 叢集]** 以建立 HBase 叢集。
+4. 按一下 [建立]。
 
 >[AZURE.NOTE]刪除 HBase 叢集之後，您可以使用相同的預設 Blob 容器建立另一個 HBase 叢集。這個新叢集將選取您在原始叢集中建立的 HBase 資料表。
 
@@ -165,10 +170,7 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 
 **開啟叢集儀表板**
 
-1. 登入 [Azure 入口網站][azure-management-portal]。
-2. 按一下左窗格中的 [HDInsight]。您會看見叢集清單，包括先前在本教學課程中建立的叢集。
-3. 按一下要執行 Hive 工作的叢集名稱。
-4. 按一下位於頁面底部的 [查詢主控台]，以開啟叢集儀表板。其會在不同瀏覽器索引標籤中開啟網頁。
+1. 請瀏覽 **https://<HDInsightClusterName>.azurehdinsight.net/**。
 5. 輸入 Hadoop 使用者帳戶的使用者名稱和密碼。預設使用者名稱為 **admin**，密碼則是您在佈建程序中輸入的密碼。隨即開啟新的瀏覽器索引標籤。
 6. 按一下頁面頂端的 [Hive 編輯器]。Hive 編輯器外觀如下：
 
@@ -345,7 +347,7 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 
 [img-hdinsight-hbase-cluster-quick-create]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-quick-create.png
@@ -354,6 +356,5 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 [img-hbase-shell]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-shell.png
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

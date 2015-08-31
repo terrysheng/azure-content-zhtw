@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Snapshot Manager 來建立和管理備份原則
@@ -116,6 +116,6 @@
 
 ## 後續步驟
 
-[使用 StorSimple Snapshot Manager 來檢視和管理備份作業](storsimple-snapshot-manager-manage-backup-jobs.md)
+[使用 StorSimple Snapshot Manager 來檢視和管理備份工作](storsimple-snapshot-manager-manage-backup-jobs.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

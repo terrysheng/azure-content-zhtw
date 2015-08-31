@@ -13,8 +13,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/02/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
+
 # 疑難排解 Azure 流量管理員上的已降級狀態
 此頁面將會描述如何疑難排解 Azure 流量管理員設定檔 (顯示已降級狀態)，並提供一些重點以了解流量管理員探查。
 
@@ -66,9 +67,9 @@
 ## 後續步驟
 
 
-[關於流量管理員的負載平衡方法](traffic-manager-load-balancing-methods.md)
+[關於流量管理員流量路由方法](traffic-manager-load-balancing-methods.md)
 
-[流量管理員概觀](../traffic-manmager-overview.md)
+[什麼是流量管理員](../traffic-manmager-overview.md)
 
 [雲端服務](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -79,4 +80,4 @@
 [Azure 流量管理員 Cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

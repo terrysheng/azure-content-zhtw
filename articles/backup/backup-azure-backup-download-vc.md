@@ -37,7 +37,13 @@
 - 保存庫認證檔會在 48 小時後過期，並且可以從入口網站下載。
 - 若您有關於工作流程的任何問題，請參閱 Azure 備份的[常見問題集](backup-azure-backup-faq.md)。
 
+##視訊逐步解說
+
+以下是本教學課程的視訊逐步解說。
+
+[AZURE.VIDEO using-vault-credentials-to-authenticate-with-the-azure-backup-service]
+
 ## 後續步驟
 [下載、註冊及安裝 Azure 備份代理程式](backup-azure-backup-download-register)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

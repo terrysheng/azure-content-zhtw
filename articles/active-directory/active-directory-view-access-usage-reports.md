@@ -62,7 +62,7 @@
 |	RMS 裝置使用量 |	列出存取受 RMS 保護的檔案所使用的裝置 |
 |	啟用 RMS 的應用程式使用量 |	提供啟用 RMS 之應用程式的使用量 |
 
-## 報表版本
+## 報告版本
 
 |	報告 |	免費 |	基本 |	高級 |
 |	------												|	----	|	-----	|	--------	|
@@ -107,11 +107,11 @@
 
 ### 在多次失敗後登入
 
-如需這份報告的詳細資訊，請參閱[在多次失敗後登入](active-directory-sign-ins-after-multiple-failures.md)。
+如需這份報告的詳細資訊，請參閱[在多次失敗後登入](active-directory-reporting-sign-ins-after-multiple-failures.md)。
 
 ### 從多個地理區域登入
 
-如需這份報告的詳細資訊，請參閱[從多個地理區域登入](active-directory-sign-ins-from-multiple-geographies.md)。
+如需這份報告的詳細資訊，請參閱[從多個地理區域登入](active-directory-reporting-sign-ins-from-multiple-geographies.md)。
 
 ### 從具有可疑活動的 IP 位址登入
 
@@ -302,4 +302,4 @@
 - [開始使用 Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

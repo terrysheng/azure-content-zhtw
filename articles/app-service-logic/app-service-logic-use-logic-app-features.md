@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2015"
+	ms.date="08/19/2015"
 	ms.author="stepsic"/>
 	
-# 使用邏輯應用程式功能
+# 使用 Logic Apps 功能
 
-在[上一個主題][Create a new logic app]中，您已建立第一個邏輯應用程式。現在我們將說明如何使用應用程式服務邏輯應用程式，來建立更完整的程序。本主題將介紹下列新的邏輯應用程式概念：
+在[上一個主題][Create a new logic app]中，您已建立第一個邏輯應用程式。現在我們將說明如何使用 App Services Logic Apps，來建立更完整的程序。本主題將介紹下列新的 Logic Apps 概念：
 
 - 條件式邏輯，只有在符合特定條件時，才會執行動作。
 - 重複的動作。
@@ -26,6 +26,15 @@
 - 啟動工作流程的選項。
 
 在完成本主題之前，您應先完成[建立新的邏輯應用程式]中的步驟。在 [Azure 入口網站] 中，瀏覽至您的邏輯應用程式，然後按一下摘要中的 [**觸發程序和動作**]，以編輯邏輯應用程式定義。
+
+## 參考資料
+
+您可能會發現下列文件很實用：
+
+- [管理和執行階段 REST API](https://msdn.microsoft.com/library/azure/dn948513.aspx) - 包括如何直接叫用邏輯應用程式
+- [語言參考](https://msdn.microsoft.com/library/azure/dn948512.aspx) - 所有支援的函式/運算式完整清單
+- [觸發程序和動作類型](https://msdn.microsoft.com/library/azure/dn948511.aspx) - 不同類型的動作及其採用的輸入
+- [App Service 概觀](app-service-value-prop-what-is.md) - 說明建置方案時可選擇哪些元件
 
 ## 新增條件式邏輯和重複
 
@@ -78,7 +87,7 @@
 2. 在程式碼檢視中進行變更之後，請直接按一下 [**儲存**]。
 
 ### 參數
-邏輯應用程式的某些功能只能在程式碼檢視中使用。例如，參數就是其中之一。參數可讓您輕鬆地在整個邏輯應用程式中重複使用值。例如，如果您想要在數個動作中使用同一個電子郵件地址，您應將該地址定義為參數。
+Logic Apps 的某些功能只能在程式碼檢視中使用。例如，參數就是其中之一。參數可讓您輕鬆地在整個邏輯應用程式中重複使用值。例如，如果您想要在數個動作中使用同一個電子郵件地址，您應將該地址定義為參數。
 
 下列作業會更新您現有的邏輯應用程式，而將參數用於查詢詞彙。
 
@@ -112,8 +121,9 @@
 
 您可以從自訂應用程式內使用此回呼來叫用邏輯應用程式。您必須使用 [**基本**] 驗證。系統會為您建立 `default` 的使用者名稱，密碼則是 [**屬性**] 分頁上的 [**主要存取金鑰**] 欄位。例如：
 
-        POST https://default:<<your primary access key>>@<< your endpoint>>/run?api-version=2015-02-01-preview
+        POST https://<< your endpoint >>/run?api-version=2015-02-01-preview
         Content-type: application/json
+        Authorization: Basic << base-64 encoded string of default:<access key> >>
         {
             "name" : "nameOfTrigger",
             "outputs" : { "property" : "value" }
@@ -133,4 +143,4 @@
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
 [Azure 入口網站]: https://portal.azure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

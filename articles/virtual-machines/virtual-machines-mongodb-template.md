@@ -1,6 +1,6 @@
 <properties
-  pageTitle="在 Ubuntu 上使用資源管理員範本建立 MongoDB 叢集"
-  description="在 Ubuntu 上透過 PowerShell 或 Azure CLI 使用資源管理員範本建立 MongoDB 叢集"
+  pageTitle="在 Ubuntu 上使用 Azure 資源管理員範本建立 MongoDB 叢集"
+  description="在 Ubuntu 上透過 Azure PowerShell 或 Azure CLI 使用 Azure 資源管理員範本建立 MongoDB 叢集"
   services="virtual-machines"
   documentationCenter=""
   authors="karthmut"
@@ -16,17 +16,17 @@
   ms.date="04/29/2015"
   ms.author="karthmut"/>
 
-# 在 Ubuntu 上使用資源管理員範本建立 MongoDB 叢集
+# 在 Ubuntu 上使用 Azure 資源管理員範本建立 MongoDB 叢集
 
-MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性，以及自動調整範圍。MongoDB 可獨立安裝或安裝於叢集中，以利用內建的複寫功能。在某些情況下，您可以使用複寫來提高讀取產能。用戶端能夠將讀取和寫入操作傳送到其他伺服器。您也可以在不同的資料中心保留複本，以針對分散式應用程式增加資料的位置和可用性。使用 MongoDB，複寫也可提供備援並提高資料可用性。在不同的資料庫伺服器上使用多個資料複本，複寫可以保護資料庫免於遺失單一伺服器。複寫也能讓您從硬體故障和服務中斷復原。使用其他資料複本，您可以將其中一個專門用於災害復原、報告或備份。
+MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性，以及自動調整範圍。MongoDB 可安裝作為獨立資料庫或安裝於叢集中，以運用內建的複寫功能。在某些情況下，您可以使用複寫來提高讀取產能。用戶端能夠將讀取和寫入操作傳送到其他伺服器。您也可以在不同的資料中心保留複本，以針對分散式應用程式增加資料的位置和可用性。使用 MongoDB，複寫也可提供備援並提高資料可用性。在不同的資料庫伺服器上使用多個資料複本，複寫可以保護資料庫免於遺失單一伺服器。複寫也能讓您從硬體故障和服務中斷復原。使用其他資料複本，您可以將其中一個專門用於災害復原、報告或備份。
 
-除了提供 Azure Marketplace 已有的各種功能之外，現在您也可以使用透過 [Azure PowerShell](../powershell-install-configure.md) 或 [Azure CLI](../xplat-cli.md) 部署的資源管理員範本，在 Ubuntu VM 上輕鬆部署新的 MongoDB 叢集。
+除了提供 Azure Marketplace 已有的各種功能之外，現在您也可以使用透過 [Azure PowerShell](../powershell-install-configure.md) 或 [Azure CLI](../xplat-cli.md) 部署的 Azure 資源管理員範本，在 Ubuntu VM 上輕鬆部署新的 MongoDB 叢集。
 
-根據這個範本部署的新叢集會採用下圖中所述的拓撲，不過，您可以自訂本文中所述的範本，輕鬆實現其他拓撲：
+根據這個範本部署的新叢集會採用下圖中所述的拓撲，不過，您可以自訂本文中所述的範本，輕鬆實現其他拓撲。
 
 ![cluster-architecture](media/virtual-machines-mongodb-template/cluster-architecture.png)
 
-透過參數，您可以定義將部署於新 MongoDB 叢集中的節點數目，而且根據其他參數，含有公用 IP 位址的 VM 執行個體 (Jumpbox) 可能也會部署於相同的 VNET 中，但前提假設您能夠從公用網際網路連線到叢集，並執行與該叢集相關的各種管理工作。另一個可用來做為參數的選項是能將 Arbiter 節點新增到複本集，當您具有偶數成員時，建議使用此選項。如需 MongoDB 複寫拓撲和細節的詳細資訊，您應該參閱官方的 [MongoDB 文件](http://docs.mongodb.org/manual/core/replication-introduction/)。
+透過參數，您可以定義將部署於新 MongoDB 叢集中的節點數目，而且根據其他參數，含有公用 IP 位址的 VM 執行個體 (Jumpbox) 可能也會部署於相同的 VNET 中，讓您能夠從公用網際網路連線到叢集，並執行與該叢集相關的各種管理工作。另一個可用來做為參數的選項是能將 Arbiter 節點新增到複本集，當您具有偶數成員時，建議使用此選項。如需 MongoDB 複寫拓撲和細節的詳細資訊，請參閱官方的 [MongoDB 說明文件](http://docs.mongodb.org/manual/core/replication-introduction/)。
 
 部署完成之後，您可以使用 SSH 連接埠 22 上設定的 DNS 位址來存取 Jumpbox。
 
@@ -44,7 +44,7 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
 
 為 JSON 範本和其他相關聯的檔案建立本機資料夾 (例如，C:\\Azure\\Templates\\MongoDB)。
 
-使用您本機資料夾的資料夾名稱來替代，並執行下列命令：
+在下列範例中，請用您本機資料夾的資料夾名稱替代，並執行命令。
 
     $folderName="C:\Azure\Templates\MongoDB"
     $webclient = New-Object System.Net.WebClient
@@ -99,17 +99,17 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
 
 ### 步驟 1-b：使用 Azure CLI 下載範本檔案
 
-使用您選擇的 git 用戶端，來複製整個範本儲存機制，例如：
+下列範例示範如何使用您選擇的 Git 用戶端來複製整個範本儲存機制。
 
     git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-完成時，尋找 C:\\Azure\\Templates 目錄中的 **mongodb-high-availability** 資料夾。
+完成時，尋找 C:\\Azure\\Templates 目錄中的 mongodb-high-availability 資料夾。
 
 ### 步驟 2：(選用) 了解範本參數
 
-部署非簡單式解決方案時 (例如 MongoDB 叢集)，您必須指定一組設定參數來處理一些必要設定。您可以在範本定義中宣告這些參數，這樣一來，就能在透過外部檔案或在命令列中進行部署期間指定值。
+部署非簡單式解決方案時 (例如 MongoDB 叢集) 時，您必須指定一組設定參數來處理一些必要設定。您可以在範本定義中宣告這些參數，這樣一來，就能在部署期間透過外部檔案或在命令列中指定值。
 
-在 **azuredeploy.json** 檔案頂端的 "parameters" 區段中，您將會發現範本需要用來設定 MongoDB 叢集的參數組。以下範例來自這個範本的 azuredeploy.json 檔案的 parameters 區段：
+在 azuredeploy.json 檔案頂端的參數區段中，您將會發現範本需要用來設定 MongoDB 叢集的參數組。以下是來自這個範本 azuredeploy.json 檔案的參數區段範例：
 
     "parameters": {
       "adminUsername": {
@@ -128,7 +128,7 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
           "type": "string",
           "defaultValue": "",
           "metadata": {
-            "Description": "Unique namespace for the Storage Account where the Virtual Machine's disks will be placed (this name will be used as a prefix to create one or more storage accounts as per t-shirt size)"
+            "Description": "Unique namespace for the storage account where the Virtual Machine's disks will be placed (this name will be used as a prefix to create one or more storage accounts as per t-shirt size)"
           }
         },
         "region": {
@@ -230,13 +230,13 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
         }
       },
 
-每個參數都具有資料類型和允許值之類的詳細資料。這允許使用互動模式來驗證在範本執行期間傳遞的參數 (例如 PowerShell 或 Azure CLI)，以及自我探索 UI，這個 UI 是透過剖析必要參數清單及其說明動態建置的。
+每個參數都具有資料類型和允許值之類的詳細資料。這允許使用互動模式來驗證在範本執行期間傳遞的參數 (例如 PowerShell 或 Azure CLI)，以及自我探索 UI，這個 UI 是透過剖析必要參數清單及其描述而動態建置。
 
 ### 步驟 3-a：使用 PowerShell，利用範本來部署 MongoDB 叢集
 
 藉由建立 JSON 檔案 (其中包含適用於所有參數的執行階段值)，來為您的部署準備參數檔案。接著將此檔案當成單一實體傳遞給部署命令。如果未包含參數檔案，PowerShell 將使用範本中指定的任何預設值，然後提示您填寫剩餘的值。
 
-以下是來自 **azuredeploy-parameters.json** 檔案的參數範例組：
+以下是來自 azuredeploy-parameters.json 檔案的參數集範例。
 
     {
       "adminUsername": {
@@ -286,7 +286,7 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
       }
     }
 
-填寫 Azure 部署名稱、資源群組名稱、Azure 位置，以及儲存 JSON 部署檔案的資料夾。然後執行以下命令：
+填寫 Azure 部署名稱、資源群組名稱、Azure 位置，以及儲存 JSON 部署檔案的資料夾。然後執行下列命令。
 
     $deployName="<deployment name>"
     $RGName="<resource group name>"
@@ -299,26 +299,25 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
 
     New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 
-執行 **New-AzureResourceGroupDeployment** 命令時，這將會從 JSON 參數檔案中擷取參數值，然後據以開始執行範本。定義以及使用不同環境 (例如測試、正式作業等) 所需的參數檔案，有利範本的重複使用以及簡化複雜的多重環境解決方案。
+執行 **New-AzureResourceGroupDeployment** 命令時，這將會從 JSON 參數檔案中擷取參數值，然後據以開始執行範本。定義以及使用不同環境 (例如，測試或生產) 所需的參數檔案，將提升範本的重複使用並簡化複雜的多重環境解決方案。
 
-部署時，請記得需要建立新的 Azure 儲存體帳戶，因此，您提供來做為儲存體帳戶參數的名稱就必須是唯一且符合 Azure 儲存體帳戶的所有需求 (僅限小寫字母和數字)。
+部署時，請記得需要建立新的 Azure 儲存體帳戶，也因此，您提供作為儲存體帳戶參數的名稱，必須是唯一且符合 Azure 儲存體帳戶的所有需求 (僅限小寫字母和數字)。
 
 部署期間以及部署結束之後，您可以檢查所有佈建期間所進行的要求，包括任何發生的錯誤。
 
-若要這樣做，請移至 [Azure 入口網站](https://portal.azure.com)，然後執行下列動作：
+若要執行該動作，請移至 [Azure 入口網站](https://portal.azure.com)，然後執行下列動作：
 
-- 按一下左側導覽列上的 [瀏覽]，向下捲動，然後按一下 [資源群組]。
-- 按一下剛建立的資源群組之後，系統就會顯示 [資源群組] 刀鋒視窗。
-- 在 [資源群組] 刀鋒視窗的 [監視] 部分中，按一下 [事件] 長條圖，就能看見部署的事件：
-- 按一下個別事件之後，系統會詳細列出不是由範本親自進行的各項操作。
+- 按一下左側導覽列上的 [ **瀏覽**]，向下捲動，然後按一下 [**資源群組**]。
+- 按一下剛建立的資源群組後，就會顯示資源群組刀鋒視窗。
+- 在資源群組刀鋒視窗的 [監視] 部分中，按一下 [事件] 長條圖，您就能看見部署的事件。按一下個別事件之後，系統會進一步向下切入代表範本進行的各項操作詳細資料。
 
-測試之後，如果需要移除這個資源群組及其所有資源 (儲存體帳戶、虛擬機器和虛擬網路)，請使用這個單一命令：
+測試後，若想移除這個資源群組和其所有資源 (儲存體帳戶、虛擬機器和虛擬網路)，請使用下列命令。
 
     Remove-AzureResourceGroup –Name "<resource group name>" -Force
 
 ### 步驟 3-a：使用 Azure CLI，利用範本來部署 MongoDB 叢集
 
-若要透過 Azure CLI 部署 MongoDB 叢集，請先指定名稱和位置來建立資源群組：
+若要透過 Azure CLI 部署 MongoDB 叢集，請先使用下列命令指定名稱和位置以建立資源群組：
 
     azure group create mdbc "West US"
 
@@ -326,27 +325,27 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
 
     azure group deployment create mdbc -f .\azuredeploy.json -e .\azuredeploy-parameters.json
 
-您可以使用下列命令來檢查個別資源部署的狀態：
+您可以使用下列命令來檢查個別資源部署的狀態。
 
     azure group deployment list mdbc
 
 ## MongoDB 範本結構和檔案組織的導覽
 
-為了讓資源管理員範本的設計更加完善且可重複使用，您必須在部署 MongoDB 之類的複雜解決方案期間，考慮清楚如何安排一連串複雜但又彼此相關的工作。除了透過相關延伸模組執行指令碼之外，還可以利用 ARM **範本連結**和**資源迴圈**，這樣就能實作模組化方法，而實際上所有以複雜範本為基礎的部署都能重複使用此方法。
+為了讓 Azure 資源管理員範本的設計更加完善且可重複使用，您必須在部署 MongoDB 之類的複雜解決方案期間，考慮清楚如何安排一連串複雜但又彼此相關的工作。除了透過相關延伸模組執行指令碼之外，還可以運用 Azure 資源管理員*範本連結*和*資源迴圈*，這樣就能實作模組化方法，而實際上所有以複雜範本為基礎的部署都能重複使用此方法。
 
 下圖說明在此部署中從 GitHub 下載的所有檔案彼此間的關係：
 
 ![mongodb-files](media/virtual-machines-mongodb-template/mongodb-files.png)
 
-本節將帶領您逐步了解 MongoDB 叢集的 **azuredeploy.json** 檔案結構。
+本節將帶領您逐步了解 MongoDB 叢集中 azuredeploy.json 的檔案結構。
 
-### "parameters" 區段
+### 參數區段
 
-**azuredeploy.json** 的 "parameters" 區段會指定此範本中所使用的可修改參數。本文先前所述的 **azuredeploy-parameters.json** 檔案是在範本執行期間，用來將值傳遞到 azuredeploy.json 的 "parameters" 區段。
+azuredeploy.json 的參數區段會指定此範本中所使用的可修改參數。在範本執行期間，本文先前所述的 azuredeploy-parameters.json 檔案，是用來將值傳遞到 azuredeploy.json 的參數區段。
 
-### "variables" 區段
+### 變數區段
 
-"variables" 區段會指定一些變數，這些參數會全程用在這個範本中。這包含數個欄位 (JSON 資料類型或片段)，而它們將在執行階段設定為常數或計算值。以下是此 MongoDB 範本的 "variables" 區段：
+變數區段會指定一些會全程用在這個範本中的變數。這包含數個欄位 (JSON 資料類型或片段)，而它們將在執行階段設定為常數或計算值。下一個範例會顯示此 MongoDB 範本的變數區段。
 
     "variables": {
           "_comment0": "/* T-shirt sizes may vary for different reasons, and some customers may want to modify these - so feel free to go ahead and define your favorite t-shirts */",
@@ -517,7 +516,7 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
           "storageAccountForXXLarge_15": "7"
       },
 
-深入研究這個範例之後，就會看到兩種不同的方法。在第一個片段中，"osFamilyUbuntu" 變數將設定為 JSON 元素，其中包含 6 個機碼值組：
+在先前範例中，您可以看到兩個不同的方法。在第一個片段中，"osFamilyUbuntu" 變數將設定為 JSON 元素，其中包含 6 個金鑰值組。
 
     "osFamilyUbuntu": {
       "osName": "ubuntu",
@@ -536,7 +535,7 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
       "[concat(variables('sharedScriptUrl'), 'vm-disk-utils-0.1.sh')]"
     ],
 
-這個範本中的一個重要概念是針對 MongoDB 叢集定義不同「T 恤尺寸」的方式。查看這些 “tshirtSizeXXXX” 變數的其中一個，您會注意到它說明了如何部署叢集的重要特性。讓我們以中等尺寸為例：
+這個範本中的一個重要概念是針對 MongoDB 叢集定義不同「T 恤尺寸」的方式。查看這些 “tshirtSizeXXXX” 變數的其中一個，您會注意到它說明了如何部署叢集的重要特性。在下列範例中，讓我們以中等尺寸為例。
 
     "tshirtSizeMedium": {
       "vmSizeMember": "Standard_D2",
@@ -549,11 +548,11 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
       "dataDiskSize": 250
     },
 
-「中等」MongoDB 叢集將使用 D2 做為裝載資料之 3 個 MongoDB 叢集的 VM 大小，再加上第 4 個 A1 VM，這個 VM 將基於複寫目的，用來做為 Arbiter。叫用來部署資料節點的對應子範本會是 **member-resources-D2.json**，而資料檔案 (每一個 250 GB) 將儲存於 2 個儲存體帳戶中。這個變數將用於 “resources” 區段中，以協調節點部署和其他工作。
+「中等」MongoDB 叢集將使用 D2 作為裝載資料之三個 MongoDB 叢集的 VM 大小，再加上第四個 A1 VM，這個 VM 將針對複寫目的作為仲裁程式。叫用來部署資料節點的對應子範本會是 `member-resources-D2.json`，而資料檔案 (每一個 250 GB) 將儲存於兩個儲存體帳戶中。這個變數將用於資源區段中，以協調節點部署和其他工作。
 
-### "resources" 區段
+### 資源區段
 
-絕大多數的動作就是在 **"resources"** 區段進行的。仔細看這個區段，您會立即找出兩個不同的案例：第一個是被定義為 `Microsoft.Resources/deployments` 類型的元素，基本上表示叫用第一個主要檔案裡面的巢狀部署。透過 "templateLink" 元素 (和相關的版本屬性)，就能指定連結的範本檔案，並在叫用此檔案時傳遞一組參數當做輸入，如同您在此片段中所見：
+絕大多數的動作就是在資源區段進行的。仔細看這個區段，您會立即找出兩個不同的案例：第一個是被定義為 `Microsoft.Resources/deployments` 類型的元素，基本上表示叫用第一個主要檔案裡面的巢狀部署。透過 "templateLink" 元素 (和相關的版本屬性)，就能指定連結的範本檔案，並在叫用此檔案時傳遞一組參數當做輸入，如同下一個範例中所示。
 
     {
       "name": "shared-resources",
@@ -579,23 +578,23 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
       }
     },
 
-在第一個範例中，我們很清楚地知道此案例中的 **azuredeploy.json** 是用來做為一種協調流程機制，負責叫用一些其他範本檔案，而這其中每一個檔案都會負責部分的必要部署活動。
+在上一個範例中，我們很清楚地知道此案例中的 azuredeploy.json 是用來組織一種協調流程機制，叫用一些其他範本檔案，而這其中每一個檔案都會負責部分的必要部署活動。
 
 特別是，下列連結的範本將用於此部署：
 
--	**shared-resource.json**：包含所有要在整個部署中共用的資源定義。例如，用來儲存 VM 的作業系統磁碟和虛擬網路的儲存體帳戶。
+-	**shared-resource.json**：包含所有要在整個部署中共用資源的定義。例如，用來儲存 VM 的作業系統磁碟和虛擬網路的儲存體帳戶。
 -	**jumpbox-resources.json**：啟用時，負責部署所有與 Jumpbox VM 相關的資源，其中一個具有公用 IP 位址，可用來從公用網路存取 MongoDB 叢集。
 -	**arbiter-resources.json**：啟用時，這個範本會在 MongoDB 叢集中部署仲裁程式成員。仲裁程式不會包含資料，但可在複本集包含偶數節點以管理主要選取時使用。
--	**member-resources-Dx.json**：這些資源範本可有效地部署 MongoDB 節點。您可以根據選取的 T 恤尺寸定義來使用特定檔案，每個檔案間只有每個節點的連結磁碟數的差異。
+-	**member-resources-Dx.json**：可指定能有效地部署 MongoDB 節點的資源範本。您可以根據選取的 T 恤尺寸定義來使用特定檔案，每個檔案間只有每個節點連接磁碟數的差異。
 -	**mongodb-ubuntu-install.sh**：叢集中每個節點上的 CustomScriptForLinux 延伸模組所叫用的 Bash 指令碼檔案。負責掛接和格式化資料磁碟，以及在節點上安裝 MongoDB 位元。
 
-若要部署 MongoDB 叢集，需要使用特定邏輯，才能正確設定複本集。以下是您必須在部署期間使用的特定順序：
+若要部署 MongoDB 叢集，需要使用特定邏輯，才能正確設定複本集。以下範例是您必須在部署期間使用的特定順序：
 
 部署資料成員 (平行進行) => 部署最後一個資料成員 => (選用) 部署仲裁程式
 
 在此順序中，部署多個資料節點將會平行發生，但最後一個節點例外。這是將形成叢集和部署新複本集的地方，因此，所有先前的節點都必須在該時刻之前啟動並執行。最後一個步驟是部署選用的仲裁程式節點 (僅適用於此為必要項目的 T 恤尺寸)。
 
-再次查看主要範本，讓我們從所有資料成員開始來查看這個邏輯的實作方式：
+再次查看主要範本 (azuredeploy.json)，讓我們從下列範例的所有資料成員開始來查看這個邏輯的實作方式：
 
     {
       "type": "Microsoft.Resources/deployments",
@@ -645,19 +644,19 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
       }
     },
 
-要強調的一個重要概念是如何能夠部署單一資源類型的多個複本，而且每一個執行個體都能為必要設定指定唯一值。這個概念稱為**資源迴圈**。
+要強調的一個重要概念是，如何能夠部署單一資源類型的多個複本，而且每一個執行個體都能為必要設定指定唯一值。這個概念稱為*資源迴圈*。
 
-在上一個片段中，將使用參數 (要在叢集中部署的節點數) 來設定變數 (“numberOfMembers”)，然後將它傳遞給 **“copy”** 元素，以觸發子部署的成員 (迴圈)，每一個都會針對叢集中的每個成員，將範本具現化。為了能夠設定執行個體間需要唯一值的所有設定，可使用 **copyindex()** 函式來取得數值，以指出目前用來建立這個特定資源迴圈的索引。
+在上一個片段中，將使用參數 (要在叢集中部署的節點數) 來設定變數 (“numberOfMembers”)，然後將它傳遞給 **“copy”** 元素，以觸發數個 (迴圈) 子部署，每一個都會針對叢集中的每個成員，將範本具現化。為了能夠設定執行個體間需要唯一值的所有設定，可使用 **copyindex()** 函式來取得數值，以指出目前用來建立這個特定資源迴圈的索引。
 
 建立資源時還有一個重要的概念，那就是指定資源之間的相依性和優先順序，如同您在 **dependsOn** JSON 陣列中看到的一樣。在這個特殊的範本中，部署每一個節點都取決於先前成功部署的**共用資源**。
 
-當 **mongodb-ubuntu-install.sh** 指令碼檔案執行時會觸發節點準備活動，其中之一就是格式化連結的磁碟。事實上，您可以在該檔案中找到這個呼叫的執行個體：
+mongodb-ubuntu-install.sh 指令碼檔案執行時會觸發節點準備活動，其中之一就是連接磁碟的格式化。事實上，您可以在該檔案內發現下列呼叫的執行個體：
 
     bash ./vm-disk-utils-0.1.sh -b $DATA_DISKS -s
 
-**vm-disk-utils-0.1.sh** 是 **shared\_scripts\\ubuntu** 資料夾的一部分 (位於 azure-quickstart-tempates github 儲存機制內)，其中包含適用於磁碟掛接、格式設定及等量的非常實用的功能，每當您在建立範本期間需要執行類似工作時就能重複使用。
+vm-disk-utils-0.1.sh 是 shared\_scripts\\ubuntu 資料夾的一部分 (位於 azure-quickstart-tempates Github 儲存機制內)，其中包含非常實用的功能，例如磁碟掛接、格式化及等量，每當您在建立範本期間需要執行類似工作時就能重複使用。
 
-我們繼續探索另一個與 CustomScriptForLinux VM 擴充功能有關而且很有趣的程式碼片段。這些都能安裝為獨立的資源類型，而且在每一個叢集節點部署範本上都具有相依性，請參閱這個位於每個 **member-resources-Dx.json** 檔案結尾處的片段：
+我們繼續探索另一個與 CustomScriptForLinux VM 擴充功能有關而且很有趣的程式碼片段。這些片段都是以獨立資源類型進行安裝，而且對於每個叢集節點部署範本都具有相依性。例如，請參閱下列位於每個 member-resources-Dx.json 檔案結尾的程式碼片段。
 
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -677,19 +676,18 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
       }
     }
 
-讓您自己熟悉此部署內所含的其他檔案，就能了解如何利用 Azure 資源管理員範本，根據任何技術來組織和協調適用於多節點解決方案的複雜部署策略所需的所有詳細資料和最佳做法。在此建議一種範本檔案建構方法，請自行決定是否採用，如下圖重點標示的部分：
+讓您自己熟悉此部署內所含的其他檔案，就能了解如何利用 Azure 資源管理員範本，根據任何技術來組織和協調適用於多節點解決方案的複雜部署策略所需的所有詳細資料和最佳做法。在此建議一種範本檔案建構方法，請自行決定是否採用，如下圖所顯示的部分。
 
 ![mongodb-template-structure](media/virtual-machines-mongodb-template/mongodb-template-structure.png)
 
 基本上，這種方法會建議：
 
 -	將您的核心範本檔案定義成所有特定部署活動的協調中心，利用範本連結功能來叫用子範本的執行。
--	建立特定的範本檔案，用來部署其他特定部署作業會共用的一切資源 (例如儲存體帳戶、vnet 設定)。如果不同的部署之間，其一般基礎結構的需求皆類似，就可以高度重複使用。
--	包含選用資源範本，用於特定資源的場地需求
--	至於資源群組中的成員相同時 (例如，叢集中的節點)，可以建立一些會利用資源迴圈功能的範本，以便部署多個屬性皆不同的執行個體。
--	所有的張貼部署工作 (例如產品安裝、設定等) 都會利用指令碼部署擴充功能以及建立每一種技術獨有的指令碼
+-	建立特定的範本檔案，讓範本檔案部署可在所有其他特定部署工作上共用的所有資源 (例如，儲存體帳戶和 VNet 組態等)。如果不同的部署之間，其一般基礎結構的需求皆類似，就可以高度重複使用。
+-	包含選用資源範本，適用於特定資源的場地需求。
+-	針對資源群組中的成員相同時 (叢集中的節點等等)，可以建立會利用資源迴圈功能的特定範本，以便部署多個具有唯一屬性的執行個體。
+-	針對所有部署後續工作 (例如產品安裝和設定等)，請運用指令碼部署延伸模組並建立每一種技術特定的指令碼。
 
 如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)。
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

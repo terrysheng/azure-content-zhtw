@@ -1,10 +1,10 @@
 <properties 
    pageTitle="管理您的 StorSimple 備份原則 | Microsoft Azure"
-   description="說明如何使用 StorSimple Manager 服務建立和管理備份作業與備份排程。"
+   description="說明如何使用 StorSimple Manager 服務建立並管理手動備份、備份排程與備份保留。"
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/17/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos"/>
 
 # 管理 StorSimple 備份原則
@@ -82,6 +82,6 @@
 
 ## 後續步驟
 
-了解如何使用 [StorSimple Snapshot Manager](https://msdn.microsoft.com/library/azure/dn772365.aspx) 管理 StorSimple 備份。
+了解如何[使用 StorSimple Snapshot Manager 來檢視和管理備份工作](storsimple-snapshot-manager-manage-backup-jobs.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

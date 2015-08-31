@@ -30,7 +30,7 @@
 
 對於 Ubuntu，只要輸入：
      
-    #sudo apt-get install waagent
+    #sudo apt-get install walinuxagent
 
 在 CentOS 上請輸入：
 
@@ -52,26 +52,52 @@
 
 ## 下載最新版本
 
-在在網頁上開啟 [Github 中的 Azure Linux 代理程式版本](https://github.com/Azure/WALinuxAgent/releases) ，然後查明最新的版本號碼，例如：2.0.12。(您可以輸入 `#waagent --version`，即可找到目前的版本 )。
+在網頁中開啟 [Github 中的 Azure Linux 代理程式版本](https://github.com/Azure/WALinuxAgent/releases)，然後查明最新的版本號碼。(您可以輸入 `#waagent --version`，即可找到目前的版本 )。
+
+###如需 2.0.x 版本，請鍵入：
 
     #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-[version]/waagent  
 
-下列一行使用 2.0.12 版做為範例：
+   下列一行使用 2.0.14 版做為範例：
 
-    #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.12/waagent  
+    #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent  
 
-## 讓 waagent 變成可執行檔
+###如需 2.1.x 版本或更高版本，請鍵入：
+  
+    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip 
+    #unzip WALinuxAgent-[version].zip
+    #cd WALinuxAgent-[version]
+
+   下面這一行會使用 2.1.0 版本做為範例：
+
+    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-2.1.0.zip
+    #unzip WALinuxAgent-2.1.0.zip  
+    #cd WALinuxAgent-2.1.0
+
+##安裝 Linux 代理程式
+
+###如需 2.0.x 版本，請使用：
+
+ 讓 waagent 變成可執行檔
 
     #chmod +x waagent
 
-## 將新的可執行檔複製到 /usr/sbin /
-    
-    #sudo cp waagent /usr/sbin
+ 將新的可執行檔複製到 /usr/sbin /
+   
+  針對大部分的 Linux，請使用
+         
+      #sudo cp waagent /usr/sbin
 
-針對 CoreOS，請使用：
+  針對 CoreOS，請使用：
 
     #sudo cp waagent /usr/share/oem/bin/
  
+###如需 2.1.x 版本，使用：
+
+您可能需要先安裝套件 `setuptools`，請參閱[這裡](https://pypi.python.org/pypi/setuptools)。接著執行如下：
+
+    #sudo python setup.py install
+
 ## 重新啟動 waagent 服務
 
 針對大多數的 Linux 散發版本：
@@ -100,4 +126,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

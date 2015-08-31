@@ -146,8 +146,15 @@
 
 - double
 - doubleVec
-- 字串
-- timestamp
+- string
+- timestamp。timestamp 是包含下列成員的複合結構。
+	- year
+	- month (1-12)
+	- day (1-31)
+	- weekday (以數字格式表示。例如1 表示星期一)
+	- hour (以 24 小時制數字格式表示。例如13 表示下午 1 點)
+	- minute (00-59)
+	- second (00-59)
 - timeinterval
 	- TimeInterval\_Zero
 	- TimeInterval\_100ns
@@ -428,7 +435,7 @@
 
 在應用程式中使用公式之前先進行評估永遠是非常好的做法。公式的評估方式是針對現有的集區執行測試。使用下列其中一種方法執行這項操作：
 
-- [IPoolManager.EvaluateAutoScale 方法](https://msdn.microsoft.com/library/azure/dn931617.aspx)或[IPoolManager.EvaluateAutoScaleAsync 方法](https://msdn.microsoft.com/library/azure/dn931545.aspx)：這些 .NET 方法需要現有集區的名稱，以及包含自動調整公式的字串。呼叫的結果會包含 [AutoScaleEvaluation 類別](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx)的執行個體中。
+- [IPoolManager.EvaluateAutoScale 方法](https://msdn.microsoft.com/library/azure/dn931617.aspx)或 [IPoolManager.EvaluateAutoScaleAsync 方法](https://msdn.microsoft.com/library/azure/dn931545.aspx)：這些 .NET 方法需要現有集區的名稱，以及包含自動調整公式的字串。呼叫的結果會包含在 [AutoScaleEvaluation 類別](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx)的執行個體中。
 - [評估自動調整公式](https://msdn.microsoft.com/library/azure/dn820183.aspx)：在這個 REST 作業中，集區名稱會在 URI 中指定，而自動調整公式則會在要求主體的 autoScaleFormula 元素中指定。作業的回應會包含可能與公式相關的任何錯誤資訊。
 
 ## 在自動調整啟用時建立集區
@@ -457,6 +464,36 @@
 - [ICloudPool.AutoScaleRun 屬性](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.icloudpool.autoscalerun.aspx)：使用 .NET 程式庫時，集區的這個屬性會提供 [AutoScaleRun 類別](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx)的執行個體，以提供 [AutoScaleRun.Error 屬性](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx)、[AutoScaleRun.Results 屬性](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx)和 [AutoScaleRun.Timestamp 屬性](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx)。
 - [取得集區的相關資訊](https://msdn.microsoft.com/library/dn820165.aspx)：這個 REST API 會傳回集區的相關資訊，其中包含最新的自動調整執行。
 
+## 範例
+
+### 範例 1.
+
+您想要根據一週內的時間調整集區大小。
+
+    curTime=time();
+    workhours=curTime.hour>=8 && curTime.hour <18;
+    isweekday=curTime.weekday>=1 && curTime.weekday<=5;
+    isworkingweekdayhour = workhours && isweekday;
+    $TargetDedicated=workhours?20:10;
+    
+此公式會偵測目前的時間。如果是週間 (星期一至星期五) 且為上班時段 (上午 8 點至下午6 點)，目標集區大小將設為 20。否則目標集區大小會設為 10。
+
+### 範例 2.
+
+另一個範例根據佇列中的工作調整集區大小。
+
+    // Get pending tasks for the past 15 minutes
+    $Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15); 
+    // If we have less than 70% data points, we use the last sample point, otherwise we use the maximum of last sample point and the history average
+    $Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+    // If number of pending task is not 0, set targetVM to pending tasks, otherwise half of current dedicated
+    $TargetVMs = $Tasks > 0? $Tasks:max(0, $TargetDedicated/2);
+    // The pool size is capped at 20, if target vm value is more than that, set it to 20. This value should be adjusted according to your case.
+    $TargetDedicated = max(0,min($TargetVMs,20));
+    // optionally, set vm Deallocation mode - shrink VM after task is done.
+    $TVMDeallocationOption = taskcompletion;
+    
+
 ## 後續步驟
 
 1.	您可能需要存取運算節點，才能完整評估您應用程式的效率。若要使用遠端存取，必須將使用者帳戶新增至您想要存取的運算節點，而且必須從該節點擷取 RDP 檔案。使用以下其中一種方式新增使用者帳戶：
@@ -467,9 +504,9 @@
 
 		取得 RDP 檔案：
 
-	- [IVM.GetRDPFile 方法](https://msdn.microsoft.com/library/microsoft.azure.batch.ivm.getrdpfile.aspx)：這個 .NET 方法需要要建立的 RDP 檔案的名稱。
+	- [IVM.GetRDPFile 方法](https://msdn.microsoft.com/library/microsoft.azure.batch.ivm.getrdpfile.aspx)：這個 .NET 方法需要要建立之 RDP 檔案的名稱。
 	- [從節點取得遠端桌面通訊協定檔案](https://msdn.microsoft.com/library/dn820120.aspx)：這個 REST API 需要集區的名稱和運算節點的名稱。回應會包含 RDP 檔案的內容。
 	- [Get AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx)：此 Cmdlet 會從指定的運算節點取得 RDP 檔案，並將其儲存至指定的檔案位置或資料流。
 2.	有些應用程式會產生可能難以處理的大量資料。解決這個問題的其中一種方式是透過[有效率的清單查詢](batch-efficient-list-queries.md)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -5,6 +5,7 @@
 	editor="cgronlun"
 	manager="paulettm"
 	authors="mumian"
+	tags="azure-portal"
 	documentationCenter=""/>
 
 <tags
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 
@@ -27,17 +28,17 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個�
 ---|---|---|---|---
 Hortonworks Data Platform|2\.2|2\.1.7|2\.0|1\.3
 Apache Hadoop & YARN|2\.6.0|2\.4.0|2\.2.0|1\.2.0
-Tez|0\.5.2|0\.4.0||
+Apache Tez|0\.5.2|0\.4.0||
 Apache Pig|0\.14.0|0\.12.1|0\.12.0|0\.11.0
 Apache Hive & HCatalog|0\.14.0|0\.13.1|0\.12.0|0\.11.0
-HBase |0\.98.4|0\.98.0||
+Apache HBase (英文) |0\.98.4|0\.98.0||
 Apache Sqoop|1\.4.5|1\.4.4|1\.4.4|1\.4.3
 Apache Oozie|4\.1.0|4\.0.0|4\.0.0|3\.3.2
-Zookeeper|3\.4.6|3\.4.5|3\.4.5|
-Storm|0\.9.3|0\.9.1||
-Mahout|0\.9.0|0\.9.0||
-Phoenix|4\.2.0|4\.0.0.2.1.7.0-2162||
-Spark|1\.3.1|||
+Apache Zookeeper|3\.4.6|3\.4.5|3\.4.5|
+Apache Storm|0\.9.3|0\.9.1||
+Apache Mahout|0\.9.0|0\.9.0||
+Apache Phoenix|4\.2.0|4\.0.0.2.1.7.0-2162||
+Apache Spark|1\.3.1|||
 
 
 **取得目前的元件版本資訊**
@@ -51,23 +52,21 @@ Spark|1\.3.1|||
 
 ### 佈建 HDInsight 叢集時選取版本
 
-在透過 HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 建立叢集時，您可以使用 "Version" 參數來選擇 HDInsight Hadoop 叢集版本。
-
-如果您使用 [**快速建立**] 選項，依預設您會取得可建立 Hadoop 叢集的 HDInsight 3.1 版。如果您在 Azure 入口網站中使用 [**自訂建立**] 選項，則可以從 [**叢集詳細資料**] 頁面的 [**HDInsight 版本**] 下拉式清單中，選擇您將部署的叢集版本。
+在透過 HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 建立叢集時，您可以在 Azure 預覽入口網站中使用 [選擇性組態] 刀鋒視窗上的 [HDInsight 版本] 下拉式清單，選擇 HDInsight Hadoop 的叢集版本。
 
 ##功能要點
 一些 HDInsight 平台的突出功能包括：
 
-- **Spark** - Apache Spark 是一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。Spark 的記憶體內計算功能，使其成為機器學習和圖表計算中反覆演算法的絕佳選擇 。
+- **Spark** - Apache Spark 是一個開放原始碼平行處理架構，可支援記憶體內部處理，以大幅提升巨量資料分析應用程式的效能。Spark 的記憶體內計算功能，使其成為機器學習和圖表計算中反覆演算法的絕佳選擇 。
 
 	Spark 也可用來執行傳統的磁碟型資料處理。Spark 以避免在中繼階段寫入磁碟的方式，改善傳統的 MapReduce 架構。此外，Spark 與 Hadoop 分散式檔案系統 (HDFS) 和 Azure Blob 儲存體相容，因此可以輕鬆地透過 Spark 來處理現有的資料。
 
 	也可以使用指令碼動作新增 Spark。指令碼動作會將 Spark 1.2.0 新增至 HDInsight 3.2 叢集或將 Spark 1.0.2 新增至 HDInsight 3.1 叢集。如需詳細資訊，請參閱[在 HDInsight Hadoop 叢集上安裝及使用 Spark](hdinsight-hadoop-spark-install.md)。
 
- 
+
 - **Storm** - Azure HDInsight 上的 Storm 現在可供使用，只要一些點擊動作，就可以在幾分鐘內快速、輕易地部署即時分析。Azure HDInsight 上的 Apache Storm 是 Apache Hadoop 生態系統中的開放原始碼專案，提供能夠可靠地處理數百萬事件之分析平台的存取權。現在 Hadoop 使用者可以在事件發生時獲得深入見解，也能夠獲得過去發生之事件的深入見解。Microsoft 也提供與 Visual Studio 的內建整合，讓開發人員輕易地與 Storm 互動。您現在可以從 Visual Studio 開發、部署及偵錯 Storm 拓撲。
 
-- **Linux 上的 HDInsight (預覽)** - Azure HDInsight 提供佈建 Hadoop 叢集的選項，該叢集在 Linux (Ubuntu) 虛擬機器 (VM) 上執行。如果您熟悉 Linux 或 Unix、要從現有的以 Linux 為基礎的 Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，則可以使用此選項。您可以使用 Azure 入口網站、Azure CLI 或 HDInsight .NET SDK (僅限 Windows)，從執行 Windows 或 Linux 的用戶端電腦，在 Linux 上佈建 HDInsight 叢集。
+- **Linux 上的 HDInsight (預覽)** - Azure HDInsight 提供佈建 Hadoop 叢集的選項，該叢集在 Linux (Ubuntu) 虛擬機器 (VM) 上執行。如果您熟悉 Linux 或 Unix、要從現有的以 Linux 為基礎的 Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，則可以使用此選項。您可以使用 Azure 預覽入口網站、Azure CLI 或 HDInsight .NET SDK (僅限 Windows)，從執行 Windows 或 Linux 的用戶端電腦，在 Linux 上佈建 HDInsight 叢集。
 
 - **其他 VM 大小** - HDInsight 叢集現在有更多 VM 類型和大小可用。HDInsight 叢集現在可以利用針對一般用途建置的 A2 到 A7 大小；特色為固態硬碟 (SSD) 和處理器速度更快 60% 的 D 系列節點；以及具有 InfiniBand 支援可快速進行網路連線的 A8 和 A9 大小。Azure HDInsight 上的 Apache HBase 客戶可以從 D 系列更大的記憶體組態獲得效能增加的優點。Azure HDInsight 上的 Apache Storm 客戶可以獲得額外記憶體的優點，用來載入更大的參考資料集，以及更快的 CPU 可用於更高的輸送量。
 
@@ -81,7 +80,7 @@ Spark|1\.3.1|||
 
 - **叢集儀表板** - 部署到 HDInsight 叢集的新 Web 應用程式。您可透過此功能來執行 Hive 查詢、檢查工作記錄，以及瀏覽 Azure Blob 儲存體。用來存取 Web 應用程式的 URL 為 <*ClusterName*>.azurehdinsight.net。
 
-- **Microsoft Avro Library** - 此程式庫可在 Microsoft.NET 環境中實作 Apache Avro 資料序列化系統。Apache Avro 提供一個可用於序列化的壓縮二進位資料交換格式。它會使用 JavaScript 物件標記法 (JSON) 來定義不限語言的結構描述，以負責提供語言互通性。以某個語言序列化的資料可以使用另一個語言讀取。目前支援 C、C++、C#、Java、PHP、Python 和 Ruby。Azure HDInsight 廣泛採用 Apache Avro 序列化格式，以呈現 Hadoop MapReduce 工作中的複雜資料結構。
+- **Microsoft Avro Library** - 此程式庫可在 Microsoft.NET 環境中實作 Apache Avro 資料序列化系統。Apache Avro 提供一個可用於序列化的壓縮二進位資料交換格式。它會使用 JavaScript 物件標記法 (JSON) 來定義不限語言的結構描述，以負責提供語言互通性。以某個語言序列化的資料可以使用另一個語言讀取。目前支援 C、C++、C\#、Java、PHP、Python 和 Ruby。Azure HDInsight 廣泛採用 Apache Avro 序列化格式，以呈現 Hadoop MapReduce 工作中的複雜資料結構。
 
 - **YARN** - 這是一套新的、通用、分散式的應用程式管理架構，取代標準的 Apache Hadoop MapReduce 架構來處理 Hadoop 叢集的資料。實際上是當做 Hadoop 作業系統，可從批次處理的單一用途資料平台，將 Hadoop 移轉至多重用途平台上，以進行批次、互動式、線上和串流處理。這個新的管理架構可根據容量保證、公平性和服務等級協定 (SLA) 等準則，提高延展性和叢集使用率。
 
@@ -102,7 +101,7 @@ Spark|1\.3.1|||
 下表列出目前可用的 HDInsight 版本、它們使用的相對應 Hortonworks Data Platform 版本及其發行日期。另外也會提供其支援到期日和淘汰日期 (已知道的話)。請注意：
 
 * 依預設，系統會為 HDInsight 2.1 和更新版本部署搭配兩個前端節點的高可用性叢集。HDInsight 1.6 叢集並不適用。
-* 在特定版本的支援到期後，您可能無法透過 Azure 入口網站取得。下表指出可在 Azure 入口網站上取得的版本。您可透過 Windows PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到其淘汰日期為止。
+* 特定版本的支援到期後，其可能無法透過 Azure 預覽入口網站取得。下表指出可在 Azure 入口網站上取得的版本。您可透過 Windows PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到其淘汰日期為止。
 
 HDInsight 版本|HDP 版本|高可用性|發行日期|可在 Azure 入口網站上取得|支援到期日|淘汰日期
 ---|---|---|---|---|---|---
@@ -114,14 +113,12 @@ HDI 1.6|HDP 1.1|否|10/28/2013|否|04/26/2014|05/31/2015
 
 **非預設叢集的部署**
 
-依預設，系統會在 Hadoop 2.4 上建立 HDInsight 3.1 叢集，因此如果必須建立其他 HDInsight 叢集版本，使用者必須使用入口網站中的 [**自訂建立**] 選項進行指定。
-
 ### HDInsight 叢集版本的服務等級協定
 
 SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft 客戶服務與支援中心支援 HDInsight 叢集版本的一段時間。如果 HDInsight 叢集版本的 [支援到期日] 超過目前日期，則表示該叢集不在「支援期間」。上表中可找到支援的 HDInsight 叢集版本清單。特定 HDInsight X (在較新的 X+1 版本推出後) 版本的支援到期日計算方式會以下列較晚的時間為準：
 
 - 公式 1：將 HDInsight 叢集 X 版發行日期加上 180 天。
-- 公式 2：將 HDInsight 叢集 X+1 版日期加上 90 天 (X 之後的後續版本) 可用於 Azure 入口網站。
+- 公式 2：將 HDInsight 叢集 X+1 版 (X 之後的後續版本) 在預覽入口網站中可用的日期加上 90 天。
 
 [**淘汰日期**] 是指在此日期之後便無法在 HDInsight 上建立叢集版本。
 
@@ -134,7 +131,7 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 	* 特定 Apache 元件的版本資訊 - [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450)、[Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954)、[HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810)、[Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581)、[M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180)、[HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181)、[YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197)、[Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179)、[Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742)、[Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486)、[Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112)、[Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620)。
 
 
-* HDInsight 叢集 3.1 版採用以 [Hortonworks Data Platform 2.1.7][hdp-2-1-7] 為基礎的 Hadoop 散發。這是使用 2014/11/7之後的 Azure HDInsight 入口網站時所建立的**預設** Hadoop 叢集。2014/11/7 前建立的 HDInsight 3.1 叢集以 [Hortonworks Data Platform 2.1.1][hdp-2-1-1] 為基礎
+* HDInsight 叢集 3.1 版採用以 [Hortonworks Data Platform 2.1.7][hdp-2-1-7] 為基礎的 Hadoop 散發。這是在 2014/11/7 之後使用入口網站時所建立的**預設** Hadoop 叢集。2014/11/7 前建立的 HDInsight 3.1 叢集以 [Hortonworks Data Platform 2.1.1][hdp-2-1-1] 為基礎
 
 * HDInsight 叢集 3.0 版採用以 [Hortonworks Data Platform 2.0][hdp-2-0-8] 為基礎的 Hadoop 散發。
 
@@ -164,6 +161,5 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [zookeeper]: http://zookeeper.apache.org/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

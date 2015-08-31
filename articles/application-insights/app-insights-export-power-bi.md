@@ -3,7 +3,7 @@
 	description="使用 Power BI 監視您應用程式的效能與使用量。" 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
@@ -118,7 +118,7 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 
 * `webapplication27` 是 Application Insights 資源的名稱。 
 * `1000...` 是 Application Insights 資源的檢測金鑰。 
-* `PageViews` 是我們想要分析的資料類型。可用的類型取決於您在「連續匯出」中設定的篩選。請檢查匯出的資料，以查看其他可用的類型。
+* `PageViews` 是我們想要分析的資料類型。可用的類型取決於您在「連續匯出」中設定的篩選。檢查匯出的資料以查看其他可用的類型，並查看[匯出資料模型](app-insights-export-data-model.md)。
 * `/{date}/{time}` 是要依字面意思寫入資訊的格式。
 
 若要取得 Application Insights 資源的名稱和 iKey，請在資源的概觀頁面中開啟 Essentials，或開啟 [設定]。
@@ -197,4 +197,4 @@ Noam Ben Zeev 會示範如何匯出至 Power BI。
 * [Application Insights](app-insights-overview.md)
 * [更多範例和逐步解說](app-insights-code-samples.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

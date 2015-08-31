@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用 Azure 資源管理員範本部署 SQL Server AlwaysOn"
+	pageTitle="使用 Azure 資源管理員範本部署 SQL Server AlwaysOn | Microsoft Azure"
 	description="使用資源管理員範本和 Azure Preview 入口網站、Azure PowerShell 或 Azure CLI 輕鬆部署支援 SQL Server AlwaysOn 的五部伺服器。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,7 +19,7 @@
 
 # 使用 Azure 資源管理員範本部署 SQL Server AlwaysOn
 
-按照本節中的指示，使用資源管理員範本部署 SQL Server AlwaysOn。此範本會在新的虛擬網路中兩個不同的子網路上建立五部虛擬機器。
+依照本文中的指示，使用 Azure 資源管理員範本部署 SQL Server AlwaysOn。此範本會在新的虛擬網路中兩個不同的子網路上建立五部虛擬機器。
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/five-server-sqlao.png)
 
@@ -27,7 +27,7 @@
 
 ## Azure Preview 入口網站
 
-若要使用資源管理員範本和 Azure Preview 入口網站部署此工作負載，請按一下[這裡](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json)。
+若要使用 Azure 資源管理員範本和 Azure Preview 入口網站部署此工作負載，請按一下[這裡](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json)。
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/azure-portal-template.png)
 
@@ -105,4 +105,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

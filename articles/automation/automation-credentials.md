@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure 自動化中的認證資產"
+   pageTitle="Azure 自動化中的認證資產 | Microsoft Azure"
    description="Azure 自動化中的認證資產包含可用來驗證由 Runbook 存取資源的安全性認證。本文說明如何建立認證資產和在 Runbook 中使用它們。"
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Azure 自動化中的認證資產
@@ -103,4 +103,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

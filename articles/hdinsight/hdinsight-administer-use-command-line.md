@@ -5,6 +5,7 @@
 	editor="cgronlun"
 	manager="paulettm"
 	authors="mumian"
+	tags="azure-portal"
 	documentationCenter=""/>
 
 <tags
@@ -17,6 +18,8 @@
 	ms.author="jgao"/>
 
 # 使用 Azure 命令列介面 (Azure CLI) 管理 HDInsight 上的 Hadoop 叢集
+
+[AZURE.INCLUDE [選取器](../../includes/hdinsight-portal-management-selector.md)]
 
 了解如何使用 Azure CLI 管理 Azure HDInsight 上的 Hadoop 叢集。Azure CLI 會在 Node.js 中實作。此工具可在任何支援 Node.js 的平台上使用，包括 Windows、Mac 和 Linux。
 
@@ -52,9 +55,9 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 > [AZURE.NOTE]儲存體帳戶必須與 HDInsight 並存於資料中心內。
 
 
-如需使用 Azure 入口網站建立 Azure 儲存體帳戶的相關資訊，請參閱[建立、管理或刪除儲存體帳戶][azure-create-storageaccount]。
+如需使用 Azure 預覽入口網站建立 Azure 儲存體帳戶的相關資訊，請參閱[建立、管理或刪除儲存體帳戶][azure-create-storageaccount]。
 
-如果您已經有儲存體帳戶，但不知道帳戶名稱和帳戶金鑰，則您可以使用下列命令來擷取資訊：
+如果您已經有儲存體帳戶，但不知道帳戶名稱和帳戶金鑰，則可使用下列命令來擷取資訊：
 
 	-- Lists Storage accounts
 	azure account storage list
@@ -63,7 +66,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 	-- Lists the keys for a Storage account
 	azure account storage keys list <StorageAccountName>
 
-如需使用 Azure 入口網站取得資訊的詳細資訊，請參閱[建立、管理或刪除儲存體帳戶][azure-create-storageaccount]的「檢視、複製及重新產生儲存體存取金鑰」一節。
+如需使用 Azure 預覽入口網站取得資訊的詳細資料，請參閱[建立、管理或刪除儲存體帳戶][azure-create-storageaccount]的＜檢視、複製及重新產生儲存體存取金鑰＞一節。
 
 
 **azure hdinsight cluster create** 命令會建立容器 (如果不存在)。如果您選擇預先建立容器，您可以使用下列命令：
@@ -135,7 +138,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 ##後續步驟
 本文中，您學到如何執行不同的 HDInsight 叢集管理工作。若要深入了解，請參閱下列文章：
 
-* [使用 Azure 入口網站管理 HDInsight][hdinsight-admin-portal]
+* [使用 Azure 預覽入口網站管理 HDInsight][hdinsight-admin-portal]
 * [使用 Azure PowerShell 管理 HDInsight][hdinsight-admin-powershell]
 * [開始使用 Azure HDInsight][hdinsight-get-started]
 * [如何使用 Azure CLI][azure-command-line-tools]
@@ -156,6 +159,5 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "列出和顯示叢集"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

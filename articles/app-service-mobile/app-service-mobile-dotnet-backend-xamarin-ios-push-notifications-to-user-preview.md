@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用 Xamarin iOS 用戶端將推播通知傳送至特定使用者&quot;" 
-	description="description=&quot;了解如何將推播通知傳送至使用者的所有裝置&quot;" 
+	pageTitle="使用 Xamarin iOS 用戶端將推播通知傳送至特定使用者";" 
+	description="description=";了解如何將推播通知傳送至使用者的所有裝置";" 
 	services="app-service\mobile" 
 	documentationCenter="windows" 
 	authors="ysxu" 
@@ -18,7 +18,7 @@
 
 # 傳送跨平台通知給特定使用者
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users-preview](../../includes/app-service-mobile-selector-push-users-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users-preview](../../includes/app-service-mobile-selector-push-users-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 本主題說明如何從您的行動後端，將通知傳送給特定使用者的所有註冊裝置。其中將介紹[範本]的概念；範本可讓用戶端應用程式在註冊時能夠指定裝載格式和變數預留位置。然後，這些預留位置會傳送到每個平台，而啟用跨平台通知。
 
@@ -112,4 +112,4 @@
 [開始使用推播通知]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [範本]: https://msdn.microsoft.com/zh-tw/library/dn530748.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

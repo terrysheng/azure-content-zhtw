@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/11/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos"/>
 
 
@@ -219,11 +219,11 @@ Microsoft Azure StorSimple 包括 StorSimple Adapter for SharePoint，其為可�
 
 ## 後續步驟
 
-深入了解 [StorSimple 安全性](storsimple-security.md)
+深入了解 [StorSimple 安全性](storsimple-security.md)。
 
 
 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

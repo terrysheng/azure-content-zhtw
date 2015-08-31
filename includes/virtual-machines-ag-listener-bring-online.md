@@ -6,11 +6,11 @@
 
 1. 一旦接聽程式在線上，從 [資源] 索引標籤，以滑鼠右鍵按一下可用性群組，再按一下 [屬性]。
 
-![設定可用性群組資源](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
+	![設定可用性群組資源](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
 
 1. 建立對接聽程式名稱資源 (非 IP 位址資源名稱) 的相依性。按一下 [確定]。
 
-![加入對接聽程式名稱的相依性](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
+	![加入對接聽程式名稱的相依性](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
 
 1. 啟動 [SQL Server Management Studio]，然後連接到主要複本。
 
@@ -20,4 +20,4 @@
 
 1. 在 [連接埠] 方塊中，使用您稍早所用的 $EndpointPort，指定可用性群組接聽程式的連接埠號碼 (在本教學課程中，預設值是 1433)，然後按一下 [確定]。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

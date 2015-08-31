@@ -1,5 +1,5 @@
 <properties
-   pageTitle="停用或啟用流量管理員端點"
+   pageTitle="停用或啟用流量管理員端點 | Microsoft Azure"
    description="本文將協助停用或啟用流量管理員設定檔端點。"
    services="traffic-manager"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # 停用或啟用流量管理員端點
@@ -38,9 +38,9 @@
 
 ## 後續步驟
 
-[流量管理員組態工作](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[流量管理員 - 停用、啟用或刪除設定檔](disable-enable-or-delete-a-profile.md)
 
-[流量管理員概觀](../traffic-manager.md)
+[什麼是流量管理員？](../traffic-manager.md)
 
 [雲端服務](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -50,4 +50,4 @@
 [流量管理員的相關作業 (REST API 參考)](http://go.microsoft.com/fwlink/?LinkId=313584)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

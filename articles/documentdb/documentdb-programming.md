@@ -3,7 +3,7 @@
 	description="了解如何使用 Microsoft Azure DocumentDB 來撰寫 JavaScript 原生預存程序、觸發程序和使用者定義函數 (UDF)。" 
 	services="documentdb" 
 	documentationCenter="" 
-	authors="mimig1" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
-	ms.author="mimig"/>
+	ms.date="08/18/2015" 
+	ms.author="andrl"/>
 
 # DocumentDB 伺服器端程式設計：預存程序、觸發程序和 UDF
 
@@ -49,7 +49,7 @@
 	-	它會在未經處理的資料上方新增抽象層，讓資料架構設計人員發展其應用程式，而不會動到資料。這在資料無結構描述時特別有用，因為暫時的假設是，如果它們需要直接處理資料，則可能需要編譯成應用程式。  
 	-	這個抽象層讓企業得以透過指令碼簡化存取來確保資料安全。  
 
-[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 以及許多平台 (包括 .NET、Node.js 和 JavaScript) 中的[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 都支援建立和執行觸發程序、預存程序和自訂查詢運算子。**本教學課程使用** **[Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)** 說明預存程序、觸發程序和 UDF 的語法和用法。
+[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 以及許多平台 (包括 .NET、Node.js 和 JavaScript) 中的[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 都支援建立和執行觸發程序、預存程序和自訂查詢運算子。**本教學課程使用 [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)** 說明預存程序、觸發程序和 UDF 的語法和用法。
 
 ## 預存程序
 
@@ -471,6 +471,90 @@ DocumentDB 提供作業在文件上執行或觸發的觸發程序。例如，您
 	    console.log("Error" , error);
 	});
 
+## JavaScript Language Integrated Query API
+除了使用 DocumentDB 的 SQL 文法發出查詢，伺服器端 SDK 可讓您使用流暢的 JavaScript 介面執行最佳化查詢，不需具備任何 SQL 的知識。JavaScript 的查詢 API 使用 ECMAScript5 陣列內建和受歡迎的 JavaScript 程式庫如 lodash 所熟悉的語法，將述詞函式傳遞至可鏈結式函式呼叫，藉此以程式設計方式建立查詢。查詢是由 JavaScript 執行階段使用 DocumentDB 的索引來有效地執行剖析。
+
+> [AZURE.NOTE]`__` (雙底線) 是 `getContext().getCollection()` 的別名。<br/> 換句話說，您可以使用 `__` 或 `getContext().getCollection()` 存取 JavaScript 查詢 API。
+
+支援的功能包括：<ul> <li> <b>chain() ... .value([callback] [, options])</b> <ul> <li>以鏈結呼叫開頭，則必須以 value() 結束。</li> </ul> </li> <li> <b>filter(predicateFunction [, options] [, callback])</b> <ul> <li>使用述詞函式篩選輸入時，會傳回 true/false 以便將輸入文件篩選到結果集。此行為類似於 SQL 中的 WHERE 子句。</li> </ul> </li> <li> <b>map(transformationFunction [, options] [, callback])</b> <ul> <li>適用於所指定的轉換函式將每個輸入項目對應至 JavaScript 物件或值的投影。此行為類似於 SQL 中的 SELECT 子句。</li> </ul> </li> <li> <b>pluck([propertyName] [, options] [, callback])</b> <ul> <li>這是對應的捷徑，會從每個輸入項目擷取單一屬性的值。</li> </ul> </li> <li> <b>flatten([isShallow] [, options] [, callback])</b> <ul> <li>將每個輸入項目的陣列合併並壓平至單一陣列。此行為類似 LINQ 中的 SelectMany。</li> </ul> </li> <li> <b>sortBy([predicate] [, options] [, callback])</b> <ul> <li>使用指定述詞以遞增順序排序輸入文件資料流中的文件，產生一組新的文件。此行為類似 SQL 中的 ORDER BY 子句。</li> </ul> </li> <li> <b>sortByDescending([predicate] [, options] [, callback])</b> <ul> <li>使用指定述詞以遞減順序排序輸入文件資料流中的文件，產生一組新的文件。此行為類似 SQL 中的 ORDER BY x DESC 子句。</li> </ul> </li> </ul>
+
+
+當裡面包含述詞和/或選取器函式時，下列 JavaScript 建構會自動取得最佳化，以便直接在 DocumentDB 索引上執行：
+
+* 簡單的運算子：= + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! \~
+* 常值，包括 literal: {} 物件
+* var、return
+
+下列 JavaScript 建構不會取得 DocumentDB 索引的最佳化：
+
+* 控制流程 (例如 if、for、while)
+* 函式呼叫
+
+如需詳細資訊，請參閱我們的[伺服器端 JSDocs](http://dl.windowsazure.com/documentDB/jsserverdocs/)。
+
+### 範例：使用 JavaScript 查詢 API 撰寫預存程序
+
+下列程式碼範例示範 JavaScript 查詢 API 如何運用於預存程序的背景下。預存程序會依照指定的輸入參數插入文件，然後使用 `__.filter()` 方法根據輸入文件的大小屬性，以 minSize、maxSize 和 totalSize 來更新中繼資料文件。
+
+    /**
+     * Insert actual doc and update metadata doc: minSize, maxSize, totalSize based on doc.size.
+     */
+    function insertDocumentAndUpdateMetadata(doc) {
+      // HTTP error codes sent to our callback funciton by DocDB server.
+      var ErrorCode = {
+        RETRY_WITH: 449,
+      }
+
+      var isAccepted = __.createDocument(__.getSelfLink(), doc, {}, function(err, doc, options) {
+        if (err) throw err;
+
+        // Check the doc (ignore docs with invalid/zero size and metaDoc itself) and call updateMetadata.
+        if (!doc.isMetadata && doc.size > 0) {
+          // Get the meta document. We keep it in the same collection. it's the only doc that has .isMetadata = true.
+          var result = __.filter(function(x) {
+            return x.isMetadata === true
+          }, function(err, feed, options) {
+            if (err) throw err;
+
+            // We assume that metadata doc was pre-created and must exist when this script is called.
+            if (!feed || !feed.length) throw new Error("Failed to find the metadata document.");
+
+            // The metadata document.
+            var metaDoc = feed[0];
+
+            // Update metaDoc.minSize:
+            // for 1st document use doc.Size, for all the rest see if it's less than last min.
+            if (metaDoc.minSize == 0) metaDoc.minSize = doc.size;
+            else metaDoc.minSize = Math.min(metaDoc.minSize, doc.size);
+
+            // Update metaDoc.maxSize.
+            metaDoc.maxSize = Math.max(metaDoc.maxSize, doc.size);
+
+            // Update metaDoc.totalSize.
+            metaDoc.totalSize += doc.size;
+
+            // Update/replace the metadata document in the store.
+            var isAccepted = __.replaceDocument(metaDoc._self, metaDoc, function(err) {
+              if (err) throw err;
+              // Note: in case concurrent updates causes conflict with ErrorCode.RETRY_WITH, we can't read the meta again 
+              //       and update again because due to Snapshot isolation we will read same exact version (we are in same transaction).
+              //       We have to take care of that on the client side.
+            });
+            if (!isAccepted) throw new Error("replaceDocument(metaDoc) returned false.");
+          });
+          if (!result.isAccepted) throw new Error("filter for metaDoc returned false.");
+        }
+      });
+      if (!isAccepted) throw new Error("createDocument(actual doc) returned false.");
+    }
+
+## SQL 到 Javascript 的速查表
+下列表格包含各種不同的 SQL 查詢和相對應的 JavaScript 查詢。
+
+使用 SQL 查詢時，文件屬性索引鍵 (例如 `doc.id`) 會區分大小寫。
+
+<br/> <table border="1" width="100%"> <colgroup> <col span="1" style="width: 40%;"> <col span="1" style="width: 40%;"> <col span="1" style="width: 20%;"> </colgroup> <tbody> <tr> <th>SQL</th> <th>JavaScript Query API</th> <th>詳細資訊</th> </tr> <tr> <td> <pre> SELECT * FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return doc; }); </pre> </td> <td>列出所有文件中的結果 (以接續權杖重新編頁)。</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg, docs.actions FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return { id: doc.id, msg: doc.message, actions: doc.actions }; }); </pre> </td> <td>投影所有文件的識別碼、訊息 (msg 的別名) 和動作。</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.filter(function(doc) { return doc.id === "X998\_Y998"; }); </pre> </td> <td>以述詞：id = "X998\_Y998" 查詢文件。</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE ARRAY\_CONTAINS(docs.Tags, 123) </pre> </td> <td> <pre> \_\_.filter(function(x) { return x.Tags && x.Tags.indexOf(123) > -1; }); </pre> </td> <td>查詢具有標記屬性且標記是含有值 123 之陣列的文件。</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.id === "X998\_Y998"; }) .map(function(doc) { return { id: doc.id, msg: doc.message }; }) .value(); </pre> </td> <td>以述詞 id = "X998\_Y998" 查詢文件，然後投影識別碼和訊息 (msg 的別名)。</td> </tr> <tr> <td> <pre> SELECT VALUE tag FROM docs JOIN tag IN docs.Tags ORDER BY docs.\_ts </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.Tags && Array.isArray(doc.Tags); }) .sortBy(function(doc) { return doc.\_ts; }) .pluck("Tags") .flatten() .value() </pre> </td> <td>篩選具有陣列屬性標記的文件，並以 \_ts 時間戳記系統屬性排序結果文件，然後投影和壓平標記陣列。</td> </tr> </tbody> </table>
+
 ## 執行階段支援
 [DocumentDB JavaScript 伺服器端 SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) 支援以 [ECMA-262](documentdb-interactions-with-resources.md) 做為標準的大部分主流 JavaScript 語言功能。
 
@@ -535,7 +619,7 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 	    });
 
 
-下列範例則說明如何建立使用者定義函數 (UDF) 並將它用於 [DocumentDB SQL 查詢](documentdb-sql-query.md)中。
+下列範例則說明如何建立使用者定義函式 (UDF) 並將它用於 [DocumentDB SQL 查詢](documentdb-sql-query.md)中。
 
 	UserDefinedFunction function = new UserDefinedFunction()
 	{
@@ -629,7 +713,7 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 
 ## 後續步驟
 
-一旦您建立一或多個預存程序、觸發程序和使用者定義函數，您可以載入它們，並且使用 [指令碼總管] 在 Azure Preview 入口網站中檢視。如需詳細資訊，請參閱[使用 DocumentDB 指令碼總管檢視預存程序、觸發程序和使用者定義函數](documentdb-view-scripts.md)。
+一旦您建立一或多個預存程序、觸發程序和使用者定義函數，您可以載入它們，並且使用 [指令碼總管] 在 Azure Preview 入口網站中檢視。如需詳細資訊，請參閱[使用 DocumentDB 指令碼總管檢視預存程序、觸發程序和使用者定義函式](documentdb-view-scripts.md)。
 
 您還可以在您的路徑中找到下列有用的參考和資源，以深入了解 DocumentDB 伺服器端程式設計：
 
@@ -641,4 +725,4 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 -	[服務導向資料庫架構](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[在 Microsoft SQL Server 中託管 .NET 執行階段](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

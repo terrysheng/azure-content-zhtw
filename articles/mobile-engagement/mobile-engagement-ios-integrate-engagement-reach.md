@@ -116,9 +116,13 @@
 		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
 	}
 
-> [AZURE.NOTE]上述的方法是在 iOS 7 中推出。如果您的目標是 iOS 7 以下，請務必傳遞 nil (而非 `handler` 引數)，以在您的應用程式委派中實作方法 `application:applicationDidReceiveRemoteNotification:`，並在 EngagementAgent 呼叫 `applicationDidReceiveRemoteNotification`。
+> [AZURE.NOTE]上述的方法是在 iOS 7 中推出。如果您的目標是 iOS 7 以下，請務必傳遞 nil (而非 `handler` 引數)，以在您的應用程式委派中實作方法 `application:didReceiveRemoteNotification:`，並在 EngagementAgent 上呼叫 `applicationDidReceiveRemoteNotification`。
 
-	[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
+	- (void)application:(UIApplication*)application
+	didReceiveRemoteNotification:(NSDictionary*)userInfo
+	{
+		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
+	}
 
 > [AZURE.IMPORTANT]根據預設，Engagement Reach 控制 completionHandler。如果您想以手動方式回應您程式碼中的 `handler` 區塊，可以針對 `handler` 引數傳遞 nil並自行控制 completion 區塊。請參閱 `UIBackgroundFetchResult` 類型，查看可能值清單。
 
@@ -412,4 +416,4 @@
 
 	@end
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

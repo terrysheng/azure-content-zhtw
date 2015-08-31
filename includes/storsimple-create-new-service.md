@@ -1,7 +1,7 @@
 
 #### 建立新服務
 
-1. 使用您的 Microsoft 帳戶認證登入「管理入口網站」，URL 如下：[http://azure.microsoft.com/](http://azure.microsoft.com/)
+1. 使用您的 Microsoft 帳戶認證登入「管理入口網站」，URL 如下：[http://azure.microsoft.com/](http://azure.microsoft.com/)。
 
 2. 在管理入口網站中，按一下 [新增] > [資料服務] > [StorSimple Manager] > [快速建立]。
 
@@ -10,7 +10,7 @@
   2. 提供服務的 [位置]。一般而言，請選擇最接近您要部署裝置之地理區域的位置。您也可能計入下列因素： 
 	 
 		- If you have existing workloads in Azure that you also intend to deploy with your StorSimple device, you should use that datacenter.
-		- Your StorSimple Manager service and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in Management Portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account). After this account is created, add this account to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](#Configure-a-new-storage-account-for-the-service).
+		- Your StorSimple Manager service and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in the Management Portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account). After you create this account, add it to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
 		 
   3. 從下拉式清單選擇 [訂用帳戶]。訂用帳戶會連結到您的帳單帳戶。如果您只擁有一個訂用帳戶，則此欄位不存在。
   4. 選取 [建立新的儲存體帳戶]，自動建立具有此服務的儲存體帳戶。這個儲存體帳戶將具有一個特殊名稱，例如 "storsimplebwv8c6dcnf"。 如果您需要將資料放在不同的位置，取消核取此方塊。 
@@ -22,4 +22,4 @@
  
    ![服務建立](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

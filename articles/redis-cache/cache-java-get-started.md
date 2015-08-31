@@ -1,20 +1,20 @@
 <properties
    pageTitle="如何搭配使用 Azure Redis 快取與 Java"
-   description="開始搭配使用 Azure Redis 快取與 Java"
-   services="redis-cache"
-   documentationCenter=""
-   authors="MikeWasson"
-   manager="wpickett"
-   editor=""/>
+	description="開始搭配使用 Azure Redis 快取與 Java"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
+	editor=""/>
 
 <tags
-   ms.service="cache"
-   ms.devlang="java"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="required"
-   ms.date="08/04/2015"
-   ms.author="mwasson"/>
+	ms.service="cache"
+	ms.devlang="java"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="08/17/2015"
+	ms.author="sdanie"/>
 
 # 如何搭配使用 Azure Redis 快取與 Java
 
@@ -87,4 +87,4 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用安全 Redis 快�
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

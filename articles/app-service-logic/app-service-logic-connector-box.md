@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/10/2015"
+   ms.date="08/19/2015"
    ms.author="andalmia"/>
 
 # Box 連接器
@@ -65,7 +65,8 @@ d.*刪除檔案*：此動作會從資料夾中刪除指定的檔案。如果找�
 
 1. 在 Azure 開始面板中，選取 [**Marketplace**]。
 2. 搜尋「Box 連接器」，將其選取，然後選取 [**建立**]。
-3. 輸入名稱、App Service 方案和其他屬性：![][1]
+3. 輸入名稱、App Service 方案和其他屬性：
+	![][1]
 4. 選取 [**建立**]。
 
 
@@ -73,7 +74,7 @@ d.*刪除檔案*：此動作會從資料夾中刪除指定的檔案。如果找�
 
 建立 API 應用程式之後，您現在可以使用 Box 連接器做為邏輯應用程式中的動作。作法：
 
-1. 在您的邏輯應用程式中，開啟 [**觸發程序和動作**] 以開啟 Logic Apps設計工具，並設定您的流程。Box 連接器列在資源庫中。選取它，以自動將其加入您的邏輯應用程式設計工具。
+1. 在您的邏輯應用程式中，開啟 [**觸發程序和動作**] 以開啟 Logic Apps 設計工具，並設定您的流程。Box 連接器列在資源庫中。選取它，以自動將其加入您的邏輯應用程式設計工具。
 
 	> [AZURE.NOTE]如果在啟動邏輯應用程式時就選取 Box 連接器，它就會像觸發程序般運作。否則，可以使用連接器在 Box 帳戶上採取動作。截至本文撰寫時，Box 連接器尚無任何觸發程序。
 
@@ -92,7 +93,7 @@ d.*刪除檔案*：此動作會從資料夾中刪除指定的檔案。如果找�
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
 
-使用 REST API 建立 API Apps。請參閱〈[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)〉。
+檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
 您也可以檢閱連接器的效能統計資料及控制安全性。請參閱〈[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)〉。
 
@@ -103,4 +104,4 @@ d.*刪除檔案*：此動作會從資料夾中刪除指定的檔案。如果找�
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

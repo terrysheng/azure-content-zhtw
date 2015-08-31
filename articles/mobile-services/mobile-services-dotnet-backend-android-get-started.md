@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/13/2015" 
+	ms.date="08/18/2015" 
 	ms.author="ricksal"/>
 
 
@@ -26,7 +26,7 @@
 
 以下是完成應用程式的螢幕擷取畫面：
 
-![][88]
+![][0]
 
 完成本教學課程需要 [Android Developer Tools][Android Studio]，其中包括 Android Studio 整合式開發環境，以及最新的 Android 平台。需要 Android 4.2 或以上的版本。
 
@@ -100,7 +100,7 @@
 [Next Steps]: #next-steps
 
 <!-- Images. -->
-[88]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
+[0]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
 [1]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-vs-AS.png
 [2]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-android-AS.png
 
@@ -117,7 +117,7 @@
 [15]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[開始使用 (Eclipse)]: mobile-services-dotnet-backend-android-get-started-EC.md
+[開始使用 (Eclipse)]: mobile-services-dotnet-backend-android-get-started-ec.md
 [Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
 [開始使用驗證]: mobile-services-dotnet-backend-android-get-started-users.md
 [開始使用推播通知]: mobile-services-dotnet-backend-android-get-started-push.md
@@ -129,4 +129,4 @@
 [管理入口網站]: https://manage.windowsazure.com/
  
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

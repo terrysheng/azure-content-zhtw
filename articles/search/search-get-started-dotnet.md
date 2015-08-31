@@ -5,26 +5,26 @@
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="mblythe"
-	editor=""/>
+	editor="v-lincan"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="rest-api"
 	ms.workload="search"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="08/18/2015"
 	ms.author="heidist"/>
 
-#開始在 .NET 中建立第一個 Azure 搜尋服務應用程式#
+# 開始在 .NET 中建立第一個 Azure 搜尋服務應用程式
 
 了解如何在 Visual Studio 2013 或更高版本中建置自訂 .NET 搜尋應用程式，並使用 Azure 搜尋服務提供搜尋體驗。本教學課程使用 [Azure 搜尋服務 .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) 為此練習中所用的物件和作業建置類別，還使用了 Azure 搜尋服務 REST API。
 
-若要執行此範例，必須要有 Azure Search 服務，您可以在 [Azure 入口網站](https://portal.azure.com)中註冊此服務。
+若要執行此範例，必須要有 Azure 搜尋服務，而您可以在 [Azure 入口網站](https://portal.azure.com)註冊該服務。
 
-> [AZURE.TIP]請到 [Azure 搜尋服務 .NET 範例](http://go.microsoft.com/fwlink/p/?LinkId=530196)下載本教學課程所需的原始程式碼。
+> [AZURE.TIP]請到 [Azure 搜尋服務 .NET 範例](http://go.microsoft.com/fwlink/p/?LinkId=530196)下載本教學課程所需的原始程式碼。在[如何從 .NET 應用程式使用 Azure 搜尋](search-howto-dotnet-sdk.md)了解如何設定連線並傳送要求。
 
-##關於資料##
+## 關於資料
 
 此範例應用程式使用的[美國地理服務中心 (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) 資料已依據羅德島州進行篩選，藉此減少資料集的大小。我們將使用此資料，建置可傳回地標建築物 (例如醫院和學校) 及地理特徵 (例如河流、湖泊和山峰) 等相關資料的搜尋應用程式。
 
@@ -32,11 +32,11 @@
 
 > [AZURE.NOTE]我們在此資料集套用了一個篩選，以維持不超過免費版定價層的 10,000 個文件的數量上限。如果使用標準版定價層，就不會套用此限制。如需各個定價層的容量詳細資料，請參閱[限制和條件約束](https://msdn.microsoft.com/library/azure/dn798934.aspx)。
 
-##建立服務##
+## 建立 Azure 搜尋服務
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 在 Jumpbar 中依序按一下 [新增] | [資料 + 儲存體] | [搜尋]。
+2. 在動態工具列中，按一下 [新增] > [資料 + 儲存體] > [搜尋]。
 
      ![][1]
 
@@ -62,9 +62,9 @@
 注意 Jumpbar 中的通知。服務一旦準備就緒可供使用時就會顯示通知。
 
 <a id="sub-2"></a>
-##尋找 Azure 搜尋服務的服務名稱和 API 金鑰
+## 尋找 Azure 搜尋服務的服務名稱和 API 金鑰 ##
 
-建立服務之後，可以返回入口網站取得 URL 或 `api-key`。若要連接至搜尋服務，必須同時擁有 URL 和 `api-key` 才能驗證呼叫。
+建立服務之後，請返回入口網站取得 URL 或 `api-key`。如果想要連接至搜尋服務，您必須同時擁有 URL 和 `api-key` 才能驗證呼叫。
 
 1. 在 Jumpbar 中按一下 [首頁]，然後按一下搜尋服務以開啟服務儀表板。
 
@@ -74,18 +74,18 @@
 
 3. 複製服務 URL 和系統管理金鑰，稍後會需要將它們加到 Visual Studio 專案的 app.config 和 web.config 檔案中。
 
-##開啟新專案和方案##
+## 開啟新專案和方案
 
-此方案會含有兩個專案：
+此解決方案內含兩個專案：
 
-- **DataIndexer**：Visual C# 主控台應用程式，用於載入資料
+- **DataIndexer**：Visual C# 主控台應用程式，用於載入資料。
 - **SimpleSearchMVCApp**：Visual C# ASP.NET MVC Web 應用程式，用於查詢及傳回搜尋結果。
 
 在此步驟中，您會建立這兩個專案。
 
-1. 啟動 [Visual Studio] | [新增專案] | [Visual C#] | [主控台應用程式]。
+1. 啟動 [Visual Studio] > [新增專案] > [Visual C#] > [主控台應用程式]。
 2. 將專案命名為 **DataIndexer**，然後將方案命名為 **AzureSearchDotNetDemo**。
-3. 在方案總管中，以滑鼠右鍵按一下方案 | [新增] | [新增專案] | [Visual C#] | [ASP.NET Web 應用程式]。
+3. 在方案總管中，以滑鼠右鍵按一下方案 > [新增] > [新增專案] > [Visual C#] > [ASP.NET Web 應用程式]。
 4. 將專案命名為 **SimpleSearchMVCApp**。
 5. 在 [新增 ASP.NET 專案] 中，選擇 MVC 範本，然後清除選項，以避免建立本教學課程不會用到的程式成品。
 
@@ -97,10 +97,10 @@
 
    ![][4]
 
-##安裝 .NET 用戶端程式庫及更新其他封裝
+## 安裝 .NET 用戶端程式庫及更新其他封裝
 
 1. 在方案總管中，以滑鼠右鍵按一下方案，然後按一下 [管理 NuGet 封裝]。
-2. 指定 [更新] | [僅限穩定] | [全部更新]。
+2. 指定 [更新] > [僅限穩定] > [全部更新]。
 
    ![][11]
 
@@ -108,7 +108,7 @@
 
 4. 接著安裝 Azure 搜尋服務 .NET 用戶端程式庫。請務必指定正確的搜尋，否則無法輕鬆找到封裝。再以滑鼠右鍵按一下 [管理 NuGet 封裝]。
 
-5. 指定 [線上] | [nuget.org] | [包含發行前版本]，接著搜尋 *azure.search*，然後安裝程式庫。
+5. 指定 [線上] > [nuget.org] > [包含發行前版本]，接著搜尋 *azure.search*。按一下 [安裝] 以安裝本程式庫。
 
    ![][12]
 
@@ -116,20 +116,18 @@
 
    ![][5]
 
-##為 System.Configuration 新增組件參考
+## 為 System.Configuration 新增組件參考
 
 **DataIndexer** 使用 **System.Configuration** 讀取 app.config 中的組態設定。
 
-1. 以滑鼠右鍵按一下 [DataIndexer] [新增]| | [參考] | [架構] | [System.Configuration]。選取核取方塊。
+1. 以滑鼠右鍵按一下 [DataIndexer] > [新增] > [參考] > [架構] > [System.Configuration]。選取核取方塊。
 2. 按一下 [確定]。
 
-##更新組態檔案
+## 更新組態檔案
 
 每個專案都包含指定服務名稱和 API 金鑰的組態檔案。
 
-1. 在 **DataIndexer** 中，將 App.config 替換為以下範例，然後以適用您服務的有效值更新 [SERVICE NAME] 和 [SERVICE KEY]。
-
-   服務名稱不是完整的 URL。例如，如果搜尋服務端點為 **https://mysearchsrv.search.microsoft.net*，則您要於 App.config 中輸入的服務名稱為 *mysearchsrv*。
+1. 在 **DataIndexer** 中，將 App.config 替換為以下範例，然後以適用您服務的有效值更新 [SERVICE NAME] 和 [SERVICE KEY]。請注意，服務名稱不是完整的 URL。例如，如果搜尋服務端點為 **https://mysearchsrv.search.microsoft.net*，則您要於 App.config 中輸入的服務名稱為 *mysearchsrv*。
 
 	    <?xml version="1.0" encoding="utf-8"?>
 	    <configuration>
@@ -146,7 +144,7 @@
 
 		<?xml version="1.0" encoding="utf-8"?>
 		<!--
-		  For more information on how to configure your ASP.NET application, please visit
+		  For more information on how to configure your ASP.NET application, visit
 		  http://go.microsoft.com/fwlink/?LinkId=152368
 		  -->
 		<configuration>
@@ -203,7 +201,7 @@
 		            If you are deploying to a cloud environment that has multiple web server instances,
 		            you should change session state mode from "InProc" to "Custom". In addition,
 		            change the connection string named "DefaultConnection" to connect to an instance
-		            of SQL Server (including SQL Azure and SQL  Compact) instead of to SQL Server Express.
+		            of SQL Server (including SQL Azure and SQL Compact) instead of to SQL Server Express.
 		      -->
 		    <sessionState mode="InProc" customProvider="DefaultSessionProvider">
 		      <providers>
@@ -266,7 +264,7 @@
 		</configuration>
 
 
-##修改 DataIndexer
+## 修改 DataIndexer
 
 此程式為主控台應用程式，會連接至您的搜尋服務 (如 app.config 中所指定) 並建立索引，然後用儲存在 Azure SQL Database 中的 USGS 資料集載入該索引。
 
@@ -278,11 +276,11 @@
 
 - 取代 **Program.cs**，該項目用於建立索引、索引子、載入資料及寫入訊息。
 
-###建立 AzureSearchHelper.cs
+### 建立 AzureSearchHelper.cs
 
 呼叫 REST API 的程式碼應包含處理連接，以及序列化和還原序列化 JSON 要求和回應的類別。在與 Azure 搜尋服務一起提供的範例中，此類別通常稱為 **AzureSearchHelper.cs**。您可以使用以下程式碼，建立此類別並將其新增 **DataIndexer**。
 
-1. 在方案總管中，以滑鼠右鍵按一下 [DataIndexer] | [新增] | [新增項目] | [程式碼] | [類別]。
+1. 在方案總管中，以滑鼠右鍵按一下 [DataIndexer] > [新增] > [新增項目] > [程式碼] > [類別]。
 2. 將類別命名為 **AzureSearchHelper**。
 3. 使用以下程式碼取代預設程式碼。
 
@@ -366,9 +364,9 @@
 
 
 
-###更新 Program.cs
+### 更新 Program.cs
 
-1. 在方案總管中開啟 **DataIndexer** | **Program.cs**。
+1. 在方案總管中開啟 **DataIndexer** > **Program.cs**。
 2. 以下列程式碼取代 Program.cs 的內容。
 
 		using Microsoft.Azure;
@@ -394,7 +392,7 @@
 		        private static SearchServiceClient _searchClient;
 		        private static SearchIndexClient _indexClient;
 
-		        // This Sample shows how to delete, create, upload documents and query an index
+		        // This sample shows how to delete, create, upload documents and query an index
 		        static void Main(string[] args)
 		        {
 		            string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
@@ -435,8 +433,7 @@
 
 		        private static void CreateIndex()
 		        {
-		            // Create the Azure Search index based on the included schema
-		            try
+		            // Create the Azure Search index based on the included schema            try
 		            {
 		                var definition = new Index()
 		                {
@@ -545,7 +542,7 @@
 
 
 
-##建置並執行 DataIndexer
+## 建置並執行 DataIndexer
 
 1. 以滑鼠右鍵按一下 **DataIndexer** 專案。
 2. 建置專案。
@@ -559,7 +556,7 @@
 
 ![][7]
 
-##修改 SimpleSearchMVCApp
+## 修改 SimpleSearchMVCApp
 
 **SimpleSearchMVC** 是在 IIS Express 中本機執行的 Web 應用程式。它提供搜尋方塊，並以資料表顯示搜尋結果。
 
@@ -571,7 +568,7 @@
 
 - 新增 **FeatureSearch.cs**，此類別會建立搜尋用戶端以及執行搜尋。
 
-###更新 HomeController.cs
+### 更新 HomeController.cs
 
 使用以下程式碼取代預設程式碼。
 
@@ -613,7 +610,7 @@
 	}
 
 
-###更新 Index.cshtml
+### 更新 Index.cshtml
 
 使用以下程式碼取代預設程式碼。
 
@@ -688,11 +685,11 @@
 	</div>
 
 
-###新增 FeaturesSearch.cs
+### 新增 FeaturesSearch.cs
 
 將提供搜尋功能的類別到您的應用程式中。
 
-1. 在方案總管中，以滑鼠右鍵按一下 [SimpleSearchMVCApp] | [新增] | [新增項目] | [程式碼] | [類別]。
+1. 在方案總管中，以滑鼠右鍵按一下 [SimpleSearchMVCApp] > [新增] > [新增項目] > [程式碼] > [類別]。
 2. 將類別命名為 **FeaturesSearch**。
 3. 使用以下程式碼取代預設程式碼。
 
@@ -748,17 +745,17 @@
 		    }
 		}
 
-###將 SimpleSearchMVCApp 設為起始專案
+### 將 SimpleSearchMVCApp 設為起始專案
 
 以滑鼠右鍵按一下 **SimpleSearchMVCApp** 專案，將其設為起始專案。
 
-##建置並執行 SimpleSearchMVCApp
+## 建置並執行 SimpleSearchMVCApp
 
 建置並執行此程式時，您應該會在預設瀏覽器中看到一個提供搜尋方塊的網頁，您可以由此搜尋方塊存取儲存在 Azure 搜尋服務服務之索引中的 USGS 資料。
 
 ![][8]
 
-###搜尋 USGS 資料
+### 搜尋 USGS 資料
 
 USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋方塊中按一下 [搜尋]，預設會出現前 50 個項目。
 
@@ -772,7 +769,7 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 - goose +cape -neck
 
 
-##後續步驟##
+## 後續步驟
 
 這是第一個以 .NET 和 USGS 資料集為基礎的 Azure 搜尋服務教學課程。我們會漸漸擴充本教學課程，以示範其他您可能會想用在自訂方案中的搜尋功能。
 
@@ -796,6 +793,5 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [10]: ./media/search-get-started-dotnet/AzSearch-DotNet-MVCOptions.PNG
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

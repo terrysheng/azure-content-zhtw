@@ -3,7 +3,7 @@
 
 > [AZURE.IMPORTANT]在維護模式中，您需要先在某一個控制站上套用 Hotfix，然後在另一個控制站上套用 Hotfix。
 
-1. 使裝置處於維護模式。如需如何進入維護模式的相關指示，請參閱[進入維護模式](#enter-maintenance-mode)。
+1. 使裝置處於維護模式。如需如何進入維護模式的相關指示，請參閱[步驟 2：進入維護模式](storsimple-update-device.md#step2)。
 
 2. 若要套用 Hotfix，請輸入：
 
@@ -15,6 +15,6 @@
 
 5. 在某一個控制站上套用 Hotfix 之後，請登入另一個控制站。使用您為前一個控制站所做的方式來套用 Hotfix。
 
-6. 套用 Hotfix 之後，結束維護模式。如需相關指示，請參閱[結束維護模式](#exit-maintenance-mode)。
+6. 套用 Hotfix 之後，結束維護模式。如需相關指示，請參閱[步驟 4：結束維護模式](storsimple-update-device.md#step4)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="管理您的 StorSimple 頻寬範本"
+   pageTitle="管理您的 StorSimple 頻寬範本 | Microsoft Azure"
    description="描述如何管理可讓您控制頻寬耗用量的 StorSimple 頻寬範本。"
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/10/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # 管理您的 StorSimple 頻寬範本
@@ -176,4 +176,4 @@
 
 深入了解 [StorSimple 元件](storsimple-components.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

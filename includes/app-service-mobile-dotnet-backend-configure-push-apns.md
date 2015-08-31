@@ -1,11 +1,12 @@
-1. In the backend's Visual Studio project, open **Controllers** > **TodoItemController.cs**. At the top of the file, add the following `using` statement:
+1. 在後端的 Visual Studio 專案中，開啟 **Controllers** > **TodoItemController.cs**。在檔案頂端新增下列 `using` 陳述式：
 
 
-        using Microsoft.Azure.Mobile.Server.Notifications;
         using Microsoft.Azure.Mobile.Server.Config;
+        using Microsoft.Azure.NotificationHubs;
 
 
-2. Replace the `PostTodoItem` method with the following code:  
+
+2. 以下列程式碼取代 `PostTodoItem` 方法：
 
       
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
@@ -27,7 +28,7 @@
             .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
             // iOS payload
-            var appleNotificationPayload = "{\"aps\":{\"alert\":\"" + item.Text + "\"}}";
+            var appleNotificationPayload = "{"aps":{"alert":"" + item.Text + ""}}";
 
             try
             {
@@ -46,3 +47,4 @@
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
+<!---HONumber=August15_HO8-->

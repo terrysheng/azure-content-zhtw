@@ -1,18 +1,18 @@
 <properties 
-    pageTitle="StorSimple 監視指示器"
+    pageTitle="StorSimple 監視指示器 | Microsoft Azure" 
     description="描述用來監控 StorSimple 裝置狀態的 LED 與警報器。"
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" />
+    editor="" />
  <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/11/2015"
+    ms.date="08/14/2015"
     ms.author="v-sharos" />
 
 # StorSimple 監視指示器   
@@ -45,7 +45,7 @@ StorSimple 裝置包括發光二極體 (LED) 與警示，您可以用來監控�
 4. 邏輯錯誤 LED 指示燈 (開時為紅琥珀色/關)
 5. 單元識別碼顯示  
 
-裝置前端面板 LED 與 EBOD 機箱的前端面板 LED 的主要差異在於 LED 顯示上顯示的「系統單元識別碼」 。裝置上顯示的預設單位識別碼是 **00**，而 EBOD 機箱上顯示的預設單元識別碼是 **01**。這可讓您在裝置開啟時，快速區分裝置與 EBOD 機箱。如果您的裝置已關閉，請使用[啟動新的裝置](https://msdn.microsoft.com/library/azure/dn772378.aspx)所提供的資訊來區分裝置與 EBOD 機箱。
+裝置前端面板 LED 與 EBOD 機箱的前端面板 LED 的主要差異在於 LED 顯示上顯示的「系統單元識別碼」 。裝置上顯示的預設單位識別碼是 **00**，而 EBOD 機箱上顯示的預設單元識別碼是 **01**。這可讓您在裝置開啟時，快速區分裝置與 EBOD 機箱。如果您的裝置已關閉，請使用[啟動新的裝置](storsimple-turn-device-on-or-off.md#turn-on-a-new-device)所提供的資訊來區分裝置與 EBOD 機箱。
 
 ## 前端面板 LED 狀態  
 
@@ -148,7 +148,7 @@ StorSimple 裝置包含主要控制器的 LED 與 EBOD 控制器模組的 LED。
 
 | LED | 說明                                                                            
 |---- | ----------- |
-| ID LED (藍色) | 指出已找到此模組。如果主動控制器上閃爍著藍色 LED，即表示該控制器處於作用中，而另一控制器則處於待命中。如需詳細資訊，請參閱[識別裝置上的主動控制器](https://msdn.microsoft.com/library/azure/dn790262.aspx)。 |
+| ID LED (藍色) | 指出已找到此模組。如果主動控制器上閃爍著藍色 LED，即表示該控制器處於作用中，而另一控制器則處於待命中。如需詳細資訊，請參閱[識別裝置上的主動控制器](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)。 |
 | 錯誤 LED (琥珀色) | 指出控制器中發生錯誤。        
 | 正常 LED (綠色) | 持續亮著綠色表示控制器正常。不停閃爍綠色表示控制器 VPD 組態錯誤。 |
 | SAS 活動 LED (綠色) | 持續亮著綠色表示連線目前沒有活動。不停閃爍綠色表示連線正在進行活動。 |
@@ -255,6 +255,10 @@ StorSimple 裝置包含和主要機箱與 EBOD 機箱相關聯的有聲警報器
 | 已卸下磁碟機 | 警告 | 無 | 模組錯誤 |
 | 沒有足夠的可用電源 | 警告 | 無 | 模組錯誤 |
 
+## 後續步驟
+
+深入了解 [StorSimple 硬體元件與狀態](storsimple-monitor-hardware-status.md)
+
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
 [3]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE03.png
@@ -264,4 +268,4 @@ StorSimple 裝置包含和主要機箱與 EBOD 機箱相關聯的有聲警報器
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,32 +1,32 @@
 <properties
-	pageTitle="開始在 NodeJS 中使用 Azure 搜尋服務"
+	pageTitle="開始在 NodeJS 中使用 Azure 搜尋服務 | Microsoft Azure"
 	description="逐步了解如何藉由使用 NodeJS 做為程式設計語言，建置自訂 Azure 搜尋服務應用程式。"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="mblythe"
-	editor=""/>
+	editor="v-lincan"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="na"
 	ms.workload="search"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="08/18/2015"
 	ms.author="heidist"/>
 
-#開始在 NodeJS 中使用 Azure 搜尋服務#
+# 開始在 NodeJS 中使用 Azure 搜尋服務
 
-瞭解如何建置使用 Azure 搜尋服務提供搜尋體驗的自訂 NodeJS 搜尋應用程式。本教學課程利用 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/dn798935.aspx) 建構在此練習中使用的物件和作業。
+瞭解如何建置使用 Azure 搜尋服務提供搜尋體驗的自訂 NodeJS 搜尋應用程式。本教學課程利用 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/dn798935.aspx) 來建構在此練習中所使用的物件和作業。
 
 我們使用 [NodeJS](https://nodejs.org)、NPM、[Sublime Text 3](http://www.sublimetext.com/3) 及 Windows 8.1 上的 Windows PowerShell 來開發和測試此代碼。
 
-若要執行此範例，必須要有 Azure 搜尋服務，您可以在 [Azure 入口網站](https://portal.azure.com) 註冊此服務。
+若要執行此範例，必須要有 Azure 搜尋服務，而您可以在 [Azure 入口網站](https://portal.azure.com)註冊該服務。
 
 > [AZURE.TIP]請在 [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198) 下載本教學課程所需的原始程式碼。
 
-##關於資料##
+## 關於資料
 
 此範例應用程式使用的[美國地理服務中心 (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) 資料已依據羅德島州進行篩選，藉此減少資料集的大小。我們將使用此資料，建置可傳回地標建築物 (例如醫院和學校) 及地理特徵 (例如河流、湖泊和山峰) 等相關資料的搜尋應用程式。
 
@@ -34,11 +34,11 @@
 
 > [AZURE.NOTE]我們在此資料集套用了一個篩選，以維持不超過免費版定價層的 10,000 個文件的數量上限。如果使用標準版定價層，就不會套用此限制。如需各個定價層的容量詳細資料，請參閱[限制和條件約束](https://msdn.microsoft.com/library/azure/dn798934.aspx)。
 
-##建立服務##
+## 建立服務
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 在 Jumpbar 中依序按一下 [新增] | [資料 + 儲存體] | [搜尋]。
+2. 在動態工具列中，按一下 [新增] > [資料 + 儲存體] > [搜尋]。
 
      ![][1]
 
@@ -64,9 +64,9 @@
 注意 Jumpbar 中的通知。服務一旦準備就緒可供使用時就會顯示通知。
 
 <a id="sub-2"></a>
-##尋找 Azure 搜尋服務的服務名稱和 API 金鑰
+## 尋找 Azure 搜尋服務的服務名稱和 API 金鑰
 
-建立服務之後，可以返回入口網站取得 URL 或 `api-key`。若要連接至搜尋服務，必須同時擁有 URL 和 `api-key` 才能驗證呼叫。
+建立服務之後，請返回入口網站取得 URL 或 `api-key`。如果想要連接至搜尋服務，您必須同時擁有 URL 和 `api-key` 才能驗證呼叫。
 
 1. 在 Jumpbar 中按一下 [首頁]，然後按一下搜尋服務以開啟服務儀表板。
 
@@ -76,7 +76,7 @@
 
 3. 複製服務 URL、系統管理金鑰和查詢金鑰。稍後您會需要將這三個項目加到 config.js 檔案中。
 
-##下載範例檔案
+## 下載範例檔案
 
 使用以下其中一種方法下載範例。
 
@@ -87,7 +87,7 @@
 
 或者如果您在路徑陳述式中有 GIT，可以開啟 PowerShell 視窗並輸入 `git clone https://github.com/EvanBoyle/AzureSearchNodeJSIndexerDemo.git`
 
-##使用您的搜尋服務 URL 及 API 金鑰更新 config.js
+## 使用您的搜尋服務 URL 及 API 金鑰更新 config.js
 
 使用先前複製的 URL 和 API 金鑰，在組態檔案中指定 URL、系統管理金鑰和查詢金鑰。
 
@@ -100,7 +100,7 @@
 ![][5]
 
 
-##為範例託管執行階段環境
+## 為範例託管執行階段環境
 
 此範例需要 HTTP 伺服器，讓您安裝全球使用的 NPM。
 
@@ -110,14 +110,14 @@
 2. 輸入 `npm install`。
 2. 輸入 `npm install -g http-server`。
 
-##建置索引並執行應用程式
+## 建置索引並執行應用程式
 
 1. 輸入 `npm run indexDocuments`。
 2. 輸入 `npm run build`。
 3. 輸入 `npm run start_server`。
 4. 將您的瀏覽器導向至 `http://localhost:8080/index.html`
 
-##搜尋 USGS 資料##
+## 搜尋 USGS 資料
 
 USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋方塊中按一下 [搜尋]，預設會出現前 50 個項目。
 
@@ -132,7 +132,7 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 - goose +cape
 
 
-##後續步驟##
+## 後續步驟
 
 這是第一個以 NodeJS 和 USGS 資料集為基礎的 Azure 搜尋服務教學課程。我們會漸漸擴充本教學課程，以示範其他您可能會想用在自訂方案中的搜尋功能。
 
@@ -146,6 +146,5 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [3]: ./media/search-get-started-nodejs/create-search-portal-3.PNG
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

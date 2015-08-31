@@ -1,7 +1,6 @@
 <properties
 	pageTitle="應用程式模型 v2.0 | Microsoft Azure"
-	description="如何建置可接受來自個人 Microsoft 帳戶及工作或學校帳戶權杖的 .NET MVC Web 應用程式。"
-	that signs users in with both personal Microsoft Account and work or school accounts.
+	description="如何建置可使用個人 Microsoft 帳戶及工作或學校帳戶登入使用者的 .NET MVC Web 應用程式。"
 	services="active-directory"
 	documentationCenter=".net"
 	authors="dstrockis"
@@ -202,4 +201,4 @@ public ActionResult About()
 
 如需其他資源，請查看：- [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow "azure-active directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

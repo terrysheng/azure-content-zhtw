@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/25/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務儀表板
@@ -51,7 +51,7 @@ StorSimple Manager 服務儀表板會顯示下列資訊：
 
 重新產生金鑰並不會影響先前註冊的裝置：只會影響重新產生金鑰之後，才向服務註冊的裝置。
 
-如需有關檢視和產生服務註冊金鑰的詳細資訊，請移至[取得服務註冊金鑰](storsimple-manage-service.md#get-the-service-registration-key)
+如需有關檢視和產生服務註冊金鑰的詳細資訊，請移至[取得服務註冊金鑰](storsimple-manage-service.md#get-the-service-registration-key)。
 
 ## 變更服務資料加密金鑰
 
@@ -74,6 +74,6 @@ StorSimple Manager 服務儀表板會顯示下列資訊：
 
 ## 後續步驟
 
-了解如何[進行 StorSimple 裝置的疑難排解](storsimple-troubleshoot-operational-device.md)。
+[了解如何進行 StorSimple 裝置的疑難排解](storsimple-troubleshoot-operational-device.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

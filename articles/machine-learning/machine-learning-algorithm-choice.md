@@ -3,7 +3,7 @@
 	description="如何在叢集、分類或迴歸實驗中選擇適用於經過指導和未經指導之學習的 Azure Machine Learning 演算法。"
 	services="machine-learning"
 	documentationCenter=""
-	authors="garyericson"
+	authors="brohrer"
 	manager="paulettm"
 	editor="cgronlun"
     tags=""/>
@@ -112,7 +112,7 @@
 |[本機深度支援向量機器](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|適用於大型特徵集|
 |[貝氏點機器](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
 |**多類別分類**| | | | | |
-|[羅吉斯迴歸](https://msdn.microsoft.com/zh-cn/library/azure/dn905853.aspx)| |●|●|5| |
+|[羅吉斯迴歸](https://msdn.microsoft.com/zh-tw/library/azure/dn905853.aspx)| |●|●|5| |
 |[決策樹系](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[決策叢林](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|低記憶體使用量|
 |[類神經網路](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[支援其他自訂項目](http://go.microsoft.com/fwlink/?LinkId=402867)|
@@ -222,4 +222,4 @@ Azure 機器學習中也可存取 [Vowpal Wabbit](https://msdn.microsoft.com/lib
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

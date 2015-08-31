@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="08/17/2015"  
 	ms.author="juliako"/>
 
 
@@ -219,7 +219,7 @@ VMAP 檔案開頭為 <VMAP> 元素，包含一或多個 <AdBreak> 元素，每�
 1. 時間 – hh: mm: 或 hh:mm:ss.mmm 的格式，其中.mmm 為毫秒。這個屬性的值會指定從視訊時間軸開始到廣告插播開始的時間。
 1. 百分比 – n% 格式，其中 n 是視訊時間軸在播放廣告之前播放的百分比
 1. 開始/結束 – 指定廣告應該在視訊顯示之前或之後顯示
-1. 位置 – 指定當廣告插播的時機為未知時 (例如即時串流)，廣告插播的順序。每個廣告插播的順序是以 #n 格式指定，其中 n 是大於或等於 1 的整數。1 表示廣告應該在第一個機會時播放，2 表示廣告應該在第二個機會時播放，依此類推。
+1. 位置 – 指定當廣告插播的時機為未知時 (例如即時串流)，廣告插播的順序。每個廣告插播的順序是以 \#n 格式指定，其中 n 是大於或等於 1 的整數。1 表示廣告應該在第一個機會時播放，2 表示廣告應該在第二個機會時播放，依此類推。
 
 在 <**AdBreak**> 元素內可以有一個 <**AdSource**> 元素。<**AdSource**> 元素包含下列屬性：
 
@@ -356,9 +356,7 @@ VPAID 是 API，用於啟用可執行廣告單元，以便與視訊播放器通�
 
 ##實作包含廣告支援的 Windows 或 Windows Phone 8 播放器
 
-Microsoft 媒體平台：Player Framework for Windows 8 和 Windows Phone 8 包含範例應用程式集合，為您示範如何使用架構實作視訊播放器應用程式。您可以從 [Player Framework for Windows 8 和 Windows Phone 8](https://playerframework.codeplex.com/releases/view/105214) 下載 Player Framework 和範例。
-
-如需有關插入廣告的詳細資訊，請參閱[將廣告插入您的媒體](media-services-inserting-ads-on-client-side.md#insert_ads_into_media)。
+Microsoft 媒體平台：Player Framework for Windows 8 和 Windows Phone 8 包含範例應用程式集合，為您示範如何使用架構實作視訊播放器應用程式。您可以從[適用於Windows 8 和 Windows Phone 8 的 Player Framework ](https://playerframework.codeplex.com) 下載 Player Framework 和範例。
 
 當您開啟 Microsoft.PlayerFramework.Xaml.Samples 方案時，您會在專案內看到許多資料夾。Advertising 資料夾包含與建立具有廣告支援的視訊播放器相關的範例程式碼。在 Advertising 資料夾內有許多 XAML/cs 檔案，每個檔案都會顯示如何以不同方式插入廣告。下列清單分別說明：
 
@@ -396,7 +394,7 @@ Microsoft 媒體平台：Player Framework for Windows 8 和 Windows Phone 8 包�
 	    </mmppf:MediaPlayer.Plugins>
 	</mmppf:MediaPlayer>
 
-如需 AdSchedulerPlugin 的詳細資訊，請參閱 [Player Framework on Windows 8 和 Windows Phone 8 中的廣告](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
+如需 AdSchedulerPlugin 的詳細資訊，請參閱 [Windows 8 和 Windows Phone 8 上 Player Framework 中的廣告](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)。
 
 ###AdSchedulingPage
 
@@ -559,7 +557,7 @@ ProgrammaticAdPage.xaml.cs 檔案會建立 AdHandlerPlugin，加入 TimelineMark
 
 ###VMAPPage
 
-此範例會使用 VmapSchedulerPlugin 排程使用 VMAP 檔案的廣告。VMAP 檔案的 URI 是在 <VmapSchedulerPlugin> 元素的來源屬性中指定。
+此範例會使用 VmapSchedulerPlugin 排程使用 VMAP 檔案的廣告。VMAP 檔案的 URI 是在 <VmapSchedulerPlugin> 元素的 Source 屬性中指定。
 	
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
@@ -571,9 +569,8 @@ ProgrammaticAdPage.xaml.cs 檔案會建立 AdHandlerPlugin，加入 TimelineMark
 ##實作具有廣告支援的 iOS 視訊播放器
 
 
-Microsoft 媒體平台：Player Framework for iOS 包含範例應用程式集合，為您示範如何使用架構實作視訊播放器應用程式。您可以從 [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework) 下載 Player Framework 和範例。此 github 頁面有 Wiki 的連結，其中包含 Player Framework 的其他資訊和播放器範例的簡介：[Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework)。
+Microsoft 媒體平台：Player Framework for iOS 包含範例應用程式集合，為您示範如何使用架構實作視訊播放器應用程式。您可以從 [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework) 下載 Player Framework 和範例。此 github 頁面具有連接至 Wiki 的連結，該連結包含 Player Framework 的其他資訊和播放器範例的簡介：[Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework)。
 
-如需有關插入廣告的詳細資訊，請參閱[將廣告插入您的媒體](media-services-inserting-ads-on-client-side.md#insert_ads_into_media)。
 
 ###使用 VMAP 排程廣告
 
@@ -802,6 +799,6 @@ Microsoft 媒體平台：Player Framework for iOS 包含範例應用程式集合
  
 ##另請參閱
 
-[開發視訊播放器應用程式](media-services-develop-video-players.md) [Azure Media Player Framework for iOS 的簡介](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
+[開發視訊播放程式應用程式](media-services-develop-video-players.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

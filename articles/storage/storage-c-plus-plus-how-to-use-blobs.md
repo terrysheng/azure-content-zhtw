@@ -234,8 +234,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 -	[如何使用 C++ 的佇列儲存體](storage-c-plus-plus-how-to-use-queues.md)
 -	[如何使用 C++ 的資料表儲存體](storage-c-plus-plus-how-to-use-tables.md)
 -	[以 C++ 列出 Azure 儲存體資源](storage-c-plus-plus-enumeration.md)
--	[Storage Client Library for C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
--	[Azure 儲存體 MSDN 參考](https://msdn.microsoft.com/library/azure/gg433040.aspx)
+-	[Storage Client Library for C++ 參考資料](http://azure.github.io/azure-storage-cpp)
 -	[Azure 儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
 
 
@@ -243,4 +242,4 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

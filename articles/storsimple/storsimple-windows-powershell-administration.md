@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="使用 Windows PowerShell for StorSimple 管理裝置"
+   pageTitle="使用 Windows PowerShell for StorSimple 管理 StorSimple 裝置 | Microsoft Azure"
    description="了解如何使用 Windows PowerShell for StorSimple 來管理 StorSimple 裝置"
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/04/2015"
+   ms.date="08/19/2015"
    ms.author="alkohli@microsoft.com" />
 
 # 使用 Windows PowerShell for StorSimple 管理您的裝置
@@ -37,11 +37,9 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 
 >- Azure PowerShell StorSimple 的 Cmdlet 是另一組不同的指令程式，可讓您從命令列將 StorSimple 服務層級和移轉工作自動化。如需 Azure PowerShell Cmdlet for StorSimple 的詳細資訊，請移至 [Azure StorSimple Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/dn920427.aspx)。
 
-
-
 您可以使用下列方法之一存取 Windows PowerShell for StorSimple：
 
-- [連線至 StorSimple 裝置序列主控台](#connect-to-windows-powershell-for-storsimple-via-device-serial-console)
+- [連線至 StorSimple 裝置序列主控台](#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console)
 - [使用 Windows PowerShell 遠端連線至 StorSimple](#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple)
 	
 
@@ -194,9 +192,9 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 1. 在說明檔案安裝之後，輸入：`Get-Help Get-Command`。將會顯示可用說明的 Cmdlet 清單。
 
 
->[AZURE.NOTE]**若要取得任何 Runspace 中所有可用 Cmdlet 的清單，登入對應的功能表選項，執行 `Get-Command` Cmdlet。**
+>[AZURE.NOTE]若要取得任何 Runspace 中所有可用 Cmdlet 的清單，登入對應的功能表選項，執行 `Get-Command` Cmdlet。
 
 ## 後續步驟
-如果您在執行上述任何工作流程時遇到任何 StorSimple 裝置的問題，請參閱[以 Cmdlet 疑難排解](storsimple-troubleshoot-deployment.md#cmdlets-available-for-troubleshooting)。
+如果您在執行上述任何工作流程時遇到任何 StorSimple 裝置的問題，請參閱[適用於疑難排解 StorSimple 部署的工具](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -108,7 +108,7 @@
 
 ### 來源 3：雲端服務端點和 ACL
 
-若要為在「服務管理」中建立的虛擬機器排除雲端服務端點和 ACL 為問題或錯誤設定來源之可能性，請確認另一部位於相同虛擬網路的 Azure 虛擬機器能 SSH 連線到您的 Azure 虛擬機器。
+若要為使用服務管理 API 建立的虛擬機器排除雲端服務端點和 ACL 為問題或錯誤設定來源之可能性，請確認另一部位於相同虛擬網路的 Azure 虛擬機器能 SSH 連線到您的 Azure 虛擬機器。
 
 ![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot4.png)
 
@@ -165,4 +165,4 @@
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/10/2015"
+   ms.date="08/19/2015"
    ms.author="andalmia"/>
 
 
@@ -44,7 +44,7 @@
 ## 在邏輯應用程式中使用 Facebook 連接器
 建立 API 應用程式之後，您現在可以使用 Facebook 連接器做為邏輯應用程式的觸發程序/動作 。若要這樣做，您需要：
 
-1.	在您的邏輯應用程式中，開啟 [**觸發程序和動作**] 以開啟 Logic Apps 設計工具，並設定您的流程：![][3]
+1.	在您的 Logic Apps 中，開啟 [**觸發程序和動作**] 以開啟 Logic Apps 設計工具，並設定您的流程：![][3]
 2.	Facebook 連接器列在資源庫中：![][4]
 3. 選取 Facebook 連接器以自動加入至設計工具。選取 [**授權**]、輸入認證，然後選取 [**允許**]：![][5] ![][6] ![][7] ![][8]
 4.	選取觸發程序：![][9]
@@ -58,7 +58,7 @@
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
 
-使用 REST API 建立 API Apps。請參閱[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)。
+檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
 您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)。
 
@@ -75,4 +75,4 @@
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -1,8 +1,7 @@
 <properties
 	pageTitle="彈性資料庫分割-合併工具教學課程 | Microsoft Azure"
 	description="使用彈性資料庫工具來分割及合併"
-	services="sql-database" 
-	documentationCenter=""  
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
 
@@ -12,7 +11,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="08/14/2015"
 	ms.author="sidneyh" />
 
 # 彈性資料庫分割合併工具教學課程
@@ -45,7 +44,11 @@
 
 2. 在您慣用的文字編輯器中開啟 ServiceConfiguration.cscfg。我們建議使用 Visual Studio，因為它會驗證輸入，例如憑證指紋的格式。
 
-3. 建立新的資料庫或選擇現有的資料庫，做為分割/合併作業的狀態資料庫，並擷取該資料庫的連接字串。在 Azure SQL DB 中，連接字串的格式通常為：
+3. 建立新的資料庫或選擇現有的資料庫，做為分割/合併作業的狀態資料庫，並擷取該資料庫的連接字串。
+
+	**重要** 目前，狀態資料庫必須使用拉丁文定序 (SQL\_Latin1\_General\_CP1\_CI\_AS)。如需詳細資訊，請參閱 [Windows 定序名稱 (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx)。
+
+	在 Azure SQL DB 中，連接字串的格式通常為：
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 4.    在 cscfg 檔案中，在 ElasticScaleMetadata 設定的 **SplitMergeWeb** 和 **SplitMergeWorker** 角色區段中，輸入此連接字串。
@@ -329,4 +332,4 @@
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

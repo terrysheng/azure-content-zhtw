@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/21/2015"
+	ms.date="08/14/2015"
 	ms.author="tdykstra"/>
 
 #在 Azure App Service 中部署 Web 應用程式
@@ -135,7 +135,6 @@ Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，�
 如需詳細資訊，請參閱下列資源：
 
 * [建立 PHP-MySQL Web 應用程式並使用 FTP 部署](web-sites-php-mysql-deploy-use-ftp.md)。
-* [如何管理 Web Apps](web-sites-manage.md#ftp-credentials)。包含 PHP 教學課程未納入、與 FTP 認證的設定方式有關的其他資訊。
 
 ##<a name="tfs"></a>Team Foundation Server (TFS)
 
@@ -180,6 +179,9 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 
 如需詳細資訊，請參閱下列資源：
 
+* [部署連結至 GitHub 儲存機制的 Web 應用程式](app-service-web-arm-from-github-provision.md)
+* [佈建 Web 應用程式與 SQL Database](app-service-web-arm-with-sql-database-provision.md)
+* [透過可預測方式在 Azure 中佈建和部署微服務](app-service-deploy-complex-application-predictably.md)
 * [使用 Azure 建置真實世界的雲端應用程式 - 自動化各個項目](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything)。這是電子書的其中一章，說明電子書中的範例應用程式如何使用 Windows PowerShell 指令碼建立 Azure 測試環境，並加以部署。如需其他 Azure PowerShell 文件的連結，請參閱[資源](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources)一節。
 * [使用 Windows PowerShell 指令碼來發行至開發和測試環境](http://msdn.microsoft.com/library/dn642480.aspx)。如何使用 Visual Studio 產生的 Windows PowerShell 部署指令碼。
 
@@ -226,4 +228,4 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

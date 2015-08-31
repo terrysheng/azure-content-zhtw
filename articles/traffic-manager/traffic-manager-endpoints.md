@@ -1,5 +1,5 @@
 <properties
-   pageTitle="在流量管理員中管理端點"
+   pageTitle="在流量管理員中管理端點 | Microsoft Azure"
    description="本文將協助您從流量管理員新增、移除、啟用和停用端點。"
    services="traffic-manager"
    documentationCenter=""
@@ -12,12 +12,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # 新增、停用、啟用或刪除端點
 
-不論網站模式為何，Azure 網站已為資料中心內的網站提供容錯移轉和循環配置資源負載平衡功能。流量管理員可讓您在不同的資料中心網站和雲端服務中指定容錯移轉和循環配置資源負載平衡。提供該項功能的首要步驟是將雲端服務或網站端點新增至流量管理員。
+不論網站模式為何，Azure 網站已為資料中心內的網站提供容錯移轉和循環配置資源流量路由功能。流量管理員可讓您在不同的資料中心的網站和雲端服務中指定容錯移轉和循環配置資源流量路由。提供該項功能的首要步驟是將雲端服務或網站端點新增至流量管理員。
 
 >[AZURE.NOTE]您無法使用管理入口網站將外部位置或流量管理員設定檔新增為端點。您必須使用 REST API [建立定義](http://go.microsoft.com/fwlink/p/?LinkId=400772)或 Windows PowerShell [Add-AzureTrafficManagerEndpoint](http://go.microsoft.com/fwlink/p/?LinkId=400774)。
 
@@ -36,7 +36,7 @@
 6. 請在清單中選取網站以將他們做為此設定檔的端點啟用。清除網站名稱會將它從端點清單中移除。請注意，您只可以在每個 Azure 資料中心 (也稱為「區域」) 內選取單一網站。如果您要在託管多個網站的資料中心內選取一個網站，當您選取第一個網站時，相同資料中心內的其他網站會變成無法選取。並請注意，只有標準網站才會被列出。
 7. 選取此設定檔的端點之後，請按一下右下角的核取記號以儲存變更。
 
->[AZURE.NOTE]如果您打算使用 [容錯移轉] 負載平衡方法，在新增或移除端點之後，請務必調整 [組態] 頁面上的容錯移轉優先權清單，以反映您要用於組態的容錯移轉順序。如需詳細資訊，請參閱[設定容錯移轉負載平衡](traffic-manager-configure-failover-load-balancing.md)。
+>[AZURE.NOTE]如果您打算使用 [*容錯移轉*] 流量路由方法，在新增或移除端點之後，請務必調整組態頁面上的容錯移轉優先權清單，以反映您要用於組態的容錯移轉順序。如需詳細資訊，請參閱[設定容錯移轉流量路由](traffic-manager-configure-failover-load-balancing.md)。
 
 ## 若要停用端點
 
@@ -68,7 +68,9 @@
 
 [關於流量管理員監視](traffic-manager-monitoring.md)
 
-[流量管理員組態工作](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[流量管理員 - 停用、啟用或刪除設定檔](disable-enable-or-delete-a-profile.md)
+
+[流量管理員 - 停用或啟用端點](disable-or-enable-an-endpoint.md)
 
 [流量管理員的相關作業 (REST API 參考)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
@@ -77,4 +79,4 @@
 [網站](http://go.microsoft.com/fwlink/p/?LinkId=393327)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

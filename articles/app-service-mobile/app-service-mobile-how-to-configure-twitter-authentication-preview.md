@@ -13,22 +13,27 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/26/2015"
+	ms.date="07/27/2015"
 	ms.author="mahender"/>
 
 # 如何設定應用程式以使用 Twitter 登入
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-本主題說明如何設定 Azure 應用程式服務，以使用 Twitter 做為驗證提供者。
+本主題說明如何設定 Azure 行動應用程式，以使用 Twitter 做為驗證提供者。
 
 若要完成本主題的程序，您必須具有已通過電子郵件地址驗證的 Twitter 帳戶。若要建立新的 Twitter 帳戶，請前往 <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>。
 
 ## <a name="register"> </a>向 Twitter 註冊您的應用程式
 
-1. 瀏覽至 [Twitter Developers] 網站，使用您的 Twitter 帳戶認證登入，然後按一下 [**建立新的應用程式**]。
 
-2. 為您的應用程式輸入 [**名稱**]、[**說明**] 和 [**網站**] 值。接著，在 [**回呼 URL**] 中，輸入附加路徑 _/signin-twitter_ 的閘道 URL。例如：`https://contosogateway.azurewebsites.net/signin-twitter`。請確實使用 HTTPS 配置。
+1. 登入 [Azure 管理入口網站]，並瀏覽至您的行動應用程式。複製您的 [URL]。您將使用此 URL 設定您的 Twitter 應用程式。
+
+2. 按一下 [設定]、[使用者驗證]，然後按一下 [Twitter]。複製**回呼 URL**。您將使用此 URL 設定您的 Twitter 應用程式。
+
+3. 瀏覽至 [Twitter Developers] 網站，使用您的 Twitter 帳戶認證登入，然後按一下 [**建立新的應用程式**]。
+
+4. 針對您新的應用程式輸入 [名稱] 和 [描述]。貼上您的 [行動應用程式 URL] 做為 [網站] 值。然後，針對 [回呼 URL]，貼上您之前複製的 [回呼 URL]。這是您附加路徑 _/signin-twitter_ 的行動應用程式閘道。例如，`https://contosogateway.azurewebsites.net/signin-twitter`。請確實使用 HTTPS 配置。
 
     ![][0]
 
@@ -43,9 +48,7 @@
 
 ## <a name="secrets"> </a>將 Twitter 資訊新增至行動應用程式
 
-6. 登入 [Azure 管理入口網站]，然後導覽至您的 App Service 閘道。
-
-7. 在 [**設定**] 下選擇 [**身分識別**]，然後選取 [**Twitter**]。貼入您先前取得的應用程式識別碼和應用程式密鑰值。然後按一下 [儲存]。
+1. 回到行動應用程式 Twitter 設定刀鋒視窗上的 [Azure 管理入口網站]，貼上您先前取得的 API 金鑰與 API 機密值。然後按一下 [儲存]。
 
     ![][1]
 
@@ -60,7 +63,7 @@
 <!-- Images. -->
 
 [0]: ./media/app-service-mobile-how-to-configure-twitter-authentication-preview/app-service-twitter-redirect.png
-[1]: ./media/app-service-mobile-how-to-configure-twitter-authentication-preview/app-service-twitter-settings.png
+[1]: ./media/app-service-mobile-how-to-configure-twitter-authentication-preview/mobile-app-twitter-settings.png
 
 <!-- URLs. -->
 
@@ -69,4 +72,4 @@
 [xamarin]: ../app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

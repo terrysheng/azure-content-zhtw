@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="08/19/2015"
 	ms.author="andalmia"/>
 
 # Slack 連接器
@@ -80,7 +80,7 @@ None | 張貼訊息
 進階屬性 | **Bot 使用者名稱**：要用於此訊息的 Bot 名稱。如果未輸入此屬性，則會將訊息張貼為 "Bot"。<p><p>**圖示 URL**：要作為此訊息圖示的影像 URL。<p><p>**圖示 Emoji**：要作為此訊息圖示的 Emoji。這個屬性會覆寫圖示 URL 屬性。
 
 
-Slack 連接器具有 REST API，因此您可以在邏輯應用程式外部使用連接器。開啟 Slack 連接器，然後選取 [API 定義]：
+Slack 連接器具有 REST API，因此您可以在邏輯應用程式外部使用連接器。開啟 Slack 連接器，然後選取 [**API 定義**]：
 
 ![][9]
 
@@ -104,4 +104,4 @@ Slack 連接器具有 REST API，因此您可以在邏輯應用程式外部使�
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

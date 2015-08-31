@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/09/2015"
+   ms.date="08/19/2015"
    ms.author="andalmia"/>
 
 
@@ -36,9 +36,8 @@ Azure 服務匯流排連接器提供下列觸發程序和動作：
 連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
 1. 在 Azure 開始面板中，選取 [**Marketplace**]。
-2. 選取 [API 應用程式]，然後搜尋「Azure 服務匯流排連接器」。
+2. 搜尋「Azure 服務匯流排連接器」，將其選取，然後選取 [**建立**]。
 3. 輸入名稱、App Service 方案和其他屬性：
-<br/>
 ![][1]
 
 4. 輸入下列封裝設定：
@@ -50,8 +49,6 @@ Azure 服務匯流排連接器提供下列觸發程序和動作：
 訂閱名稱 | 輸入要從中接收訊息之訂用帳戶名稱。
 
 5. 按一下 [建立]。
-
-建立連接器之後，即可將它加入相同資源群組中的邏輯應用程式。
 
 ## 在邏輯應用程式中使用服務匯流排連接器
 建立連接器之後，即可使用 Azure 服務匯流排連接器做為邏輯應用程式的觸發程序或動作。作法：
@@ -90,7 +87,7 @@ Azure 服務匯流排連接器提供下列觸發程序和動作：
 您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)。
 
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-azureservicebus/img1.PNG
 [2]: ./media/app-service-logic-connector-azureservicebus/img2.PNG
 [3]: ./media/app-service-logic-connector-azureservicebus/img3.png
@@ -100,4 +97,4 @@ Azure 服務匯流排連接器提供下列觸發程序和動作：
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

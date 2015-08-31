@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2015"
+	ms.date="08/14/2015"
 	ms.author="garye" />
 
 
-#從各種資料來源將訓練資料匯入 Azure Machine Learning Studio
+# 從各種資料來源將訓練資料匯入 Azure Machine Learning Studio
 
 當您在 Azure Machine Learning Studio 中開發預測分析解決方案時，您會使用問題空間的資料代表訓練您的模型。本教學課程說明如何從各種資料來源匯入資料，以供在 Machine Learning Studio 中訓練模型使用。我們也將說明支援的資料格式。
 
@@ -34,7 +34,7 @@ Machine Learning Studio 中有一些可做此用途使用的資料集範例 (請
 
 Machine Learning Studio 是專為與矩形或表格式資料搭配使用而設計，例如分隔的文字資料，或資料庫的結構化資料，雖然在某些情況下可能會使用非矩形資料。
 
-資料內容越單純越好。也就是說，在將資料上傳至實驗之前，請先處理字串未加上引號等問題。
+如果您的資料相對乾淨是最佳狀況。也就是說，在您將資料上傳至您的實驗之前，您要關注如不具引號的字串的問題。
 
 但是，Machine Learning Studio 中有模組可讓您在實驗中進行一些資料操作。依據您使用的機器學習演算法，您可能需要決定如何處理資料結構問題，例如遺漏值和疏鬆資料，有模組可以協助處理。請參閱模組調色盤的**資料轉換**區段，以取得執行這些功能的模組。
 
@@ -141,6 +141,5 @@ Machine Learning Studio 使用名為*資料表格*的內部資料類型以在模
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

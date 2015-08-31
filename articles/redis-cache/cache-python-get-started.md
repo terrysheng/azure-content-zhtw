@@ -1,20 +1,20 @@
 <properties
-   pageTitle="如何搭配使用 Azure Redis 快取與 Python"
-   description="開始搭配使用 Azure Redis 快取與 Python"
-   services="redis-cache"
-   documentationCenter=""
-   authors="MikeWasson"
-   manager="wpickett"
-   editor=""/>
+	pageTitle="如何搭配使用 Azure Redis 快取與 Python | Microsoft Azure"
+	description="開始搭配使用 Azure Redis 快取與 Python"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
+	editor="v-lincan"/>
 
 <tags
-   ms.service="cache"
-   ms.devlang="python"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="required"
-   ms.date="08/04/2015"
-   ms.author="mwasson"/>
+	ms.service="cache"
+	ms.devlang="python"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="08/17/2015"
+	ms.author="sdanie"/>
 
 # 如何搭配使用 Azure Redis 快取與 Python
 
@@ -36,9 +36,9 @@
 
   ![][2]
 
-建立快取之後，請在入口網站中按一下它，以檢視快取設定。您將需要：
+建立快取之後，請在 Azure 入口網站中按一下它，以檢視快取設定。您將需要：
 
-- **主機名稱。** 這是您在建立快取時輸入的內容。
+- **主機名稱。** 您在建立快取時輸入了這個名稱。
 - **連接埠。** 按一下 [連接埠] 下方的連結，以檢視連接埠。請使用 SSL 連接埠。
 - **存取金鑰。** 按一下 [金鑰] 下方的連結，並複製主要金鑰。
 
@@ -59,4 +59,4 @@
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

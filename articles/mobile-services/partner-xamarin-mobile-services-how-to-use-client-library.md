@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="如何使用 Xamarin 元件用戶端 |Microsoft Azure" 
-	description="了解如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端。" 
-	authors="lindydonna" 
-	manager="dwrede" 
-	editor="" 
-	services="mobile-services" 
+<properties
+	pageTitle="如何使用 Xamarin 元件用戶端 |Microsoft Azure"
+	description="了解如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端。"
+	authors="lindydonna"
+	manager="dwrede"
+	editor=""
+	services="mobile-services"
 	documentationCenter="xamarin"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="lindydonna"/>
 
 # 如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端
@@ -40,17 +40,17 @@
 		[JsonProperty(PropertyName = "complete")]
 		public bool Complete { get; set; }
 	}
-	
+
 啟用動態結構描述時，Azure 行動服務會根據插入或更新要求中的物件自動產生新欄位。如需詳細資訊，請參閱[動態結構描述](http://go.microsoft.com/fwlink/?LinkId=296271)。
 
 ## <a name="create-client"></a>作法：建立行動服務用戶端
 
 下列程式碼將建立用來存取行動服務的 `MobileServiceClient` 物件。
-			
-	MobileServiceClient client = new MobileServiceClient( 
-		"AppUrl", 
-		"AppKey" 
-	); 
+
+	MobileServiceClient client = new MobileServiceClient(
+		"AppUrl",
+		"AppKey"
+	);
 
 在上述程式碼中，請將 `AppUrl` 和 `AppKey` 依序取代為行動服務 URL 和應用程式金鑰。您可在 Azure 管理入口網站上找到這兩項資訊，方法是選取您的行動服務，然後按一下 [儀表板]。
 
@@ -58,35 +58,35 @@
 
 只要是可存取或修改行動服務資料表中之資料的所有程式碼，都會呼叫 `MobileServiceTable` 物件上的函數。您可透過呼叫 `MobileServiceClient` 執行個體上的 [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) 函數，來取得資料表的參考。
 
-    IMobileServiceTable<TodoItem> todoTable = 
+    IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
 
 此為具類型的序列化模型。請參閱下面的<a href="#untyped">不具類型的序列化模型</a>討論。
-			
-## <a name="querying"></a>作法：查詢行動服務中的資料 
+
+## <a name="querying"></a>作法：查詢行動服務中的資料
 
 本節將說明如何對行動服務發出查詢。小節將說明例如排序、篩選及分頁等其他方面。
-			
+
 ### <a name="filtering"></a>作法：篩選傳回的資料
 
 下列程式碼說明如何在查詢中包含 `Where` 子句，以篩選資料。它會從 `todoTable` 傳回其 `Complete` 屬性等於 `false` 的所有項目。`Where` 函數會套用資料列篩選述語來查詢資料表。
-	
 
-	// This query filters out completed TodoItems and 
-	// items without a timestamp. 
+
+	// This query filters out completed TodoItems and
+	// items without a timestamp.
 	List<TodoItem> items = await todoTable
 	   .Where(todoItem => todoItem.Complete == false)
 	   .ToListAsync();
 
 您可以使用訊息檢查軟體 (例如瀏覽器開發人員工具或 Fiddler) 來檢視傳送至行動服務的要求 URI。如果您查看下面的要求 URI，您會注意到我們打算修改查詢字串本身：
 
-	GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1				   
+	GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
 此要求通常會被概略轉譯成下列伺服器端上的 SQL 查詢：
-			
-	SELECT * 
-	FROM TodoItem 			
+
+	SELECT *
+	FROM TodoItem
 	WHERE ISNULL(complete, 0) = 0
-			
+
 傳遞至 `Where` 方法的函數可以有任意數目的條件。以下面的程式碼行為例：
 
 	// This query filters out completed TodoItems where Text isn't null
@@ -96,9 +96,9 @@
 	   .ToListAsync();
 
 會被概略轉譯 (針對先前顯示的相同要求) 成
-			
-	SELECT * 
-	FROM TodoItem 
+
+	SELECT *
+	FROM TodoItem
 	WHERE ISNULL(complete, 0) = 0
 	      AND ISNULL(text, 0) = 0
 
@@ -125,13 +125,13 @@
 
 	// Sort items in ascending order by Text field
 	MobileServiceTableQuery<TodoItem> query = todoTable
-					.OrderBy(todoItem => todoItem.Text)       
+					.OrderBy(todoItem => todoItem.Text)
  	List<TodoItem> items = await query.ToListAsync();
 
 	// Sort items in descending order by Text field
 	MobileServiceTableQuery<TodoItem> query = todoTable
-					.OrderByDescending(todoItem => todoItem.Text)       
- 	List<TodoItem> items = await query.ToListAsync();			
+					.OrderByDescending(todoItem => todoItem.Text)
+ 	List<TodoItem> items = await query.ToListAsync();
 
 ### <a name="paging"></a>作法：以分頁方式傳回資料
 
@@ -139,7 +139,7 @@
 
 	// Define a filtered query that returns the top 3 items.
 	MobileServiceTableQuery<TodoItem> query = todoTable
-					.Take(3);                              
+					.Take(3);
 	List<TodoItem> items = await query.ToListAsync();
 
 下列已修訂查詢會略過前三個結果，並傳回接下來的後三個結果。實際上這就是第二「頁」資料，頁面大小為三個項目。
@@ -147,9 +147,9 @@
 	// Define a filtered query that skips the top 3 items and returns the next 3 items.
 	MobileServiceTableQuery<TodoItem> query = todoTable
 					.Skip(3)
-					.Take(3);                              
+					.Take(3);
 	List<TodoItem> items = await query.ToListAsync();
-			
+
 您也可以使用 [IncludeTotalCount](http://msdn.microsoft.com/library/windowsazure/jj730933.aspx) 方法，確保查詢會忽略指定的任何採取分頁/限制子句，而取得已傳回 <i>all</i> 記錄的總數：
 
 	query = query.IncludeTotalCount();
@@ -164,12 +164,12 @@
 	MobileServiceTableQuery<TodoItem> query = todoTable
 					.Select(todoItem => todoItem.Text);
 	List<string> items = await query.ToListAsync();
-	
+
 	// Select multiple fields -- both Complete and Text info
 	MobileServiceTableQuery<TodoItem> query = todoTable
 					.Select(todoItem => string.Format("{0} -- {1}", todoItem.Text.PadRight(30), todoItem.Complete ? "Now complete!" : "Incomplete!"));
 	List<string> items = await query.ToListAsync();
-			
+
 到目前為止，上述的所有函數都是加法，因此我們可以持續呼叫這些函數，每一次查詢受到的影響就會越大。再提供一個範例：
 
 	MobileServiceTableQuery<TodoItem> query = todoTable
@@ -178,7 +178,7 @@
 					.Skip(3).
 					.Take(3);
 	List<string> items = await query.ToListAsync();
-	
+
 ### <a name="lookingup"></a>作法：按識別碼查詢資料
 
 `LookupAsync` 函數可用來查閱具有特定識別碼之資料庫中的物件。
@@ -198,8 +198,8 @@
 
 若要插入不具類型的資料，您可以充份利用 Json.NET，如下所示。同樣地，請注意，插入物件時不得指定識別碼。
 
-	JObject jo = new JObject(); 
-	jo.Add("Text", "Hello World"); 
+	JObject jo = new JObject();
+	jo.Add("Text", "Hello World");
 	jo.Add("Complete", false);
 	var inserted = await table.InsertAsync(jo);
 
@@ -214,15 +214,15 @@
 
 若要插入不具類型的資料，您可以充份利用 Json.NET，如下所示。請注意，進行更新時必須指定 ID，因為那是行動服務識別要更新哪個執行個體的方式。您可以從 `InsertAsync` 呼叫的結果取得 ID。
 
-	JObject jo = new JObject(); 
+	JObject jo = new JObject();
 	jo.Add("Id", 52);
-	jo.Add("Text", "Hello World"); 
+	jo.Add("Text", "Hello World");
 	jo.Add("Complete", false);
 	var inserted = await table.UpdateAsync(jo);
-			
+
 如果您嘗試在未設定 [Id] 欄位的情況下更新項目，則服務沒有辦法分辨要更新哪個執行個體，因此您將從服務收到 `MobileServiceInvalidOperationException`。同樣地，如果您嘗試在未設定 [Id] 欄位的情況下更新不具類型的項目，您將會再次從服務收到 `MobileServiceInvalidOperationException`。
-			
-			
+
+
 ## <a name="deleting"></a>作法：刪除行動服務中的資料
 
 下列程式碼將說明如何刪除現有的執行個體。您可以透過 `todoItem` 上所設定的 [Id] 欄位來識別執行個體。
@@ -231,12 +231,12 @@
 
 若要刪除不具類型的資料，您可以充份利用 Json.NET，如下所示。請注意，進行刪除要求時必須指定 ID，因為那是行動服務識別要刪除哪個執行個體的方式。刪除要求只需要 ID 即可；其他屬性不會傳遞至服務，如果有傳遞其他屬性，服務也會將他們忽略。`DeleteAsync` 呼叫的結果通常也會是 `null`。您可以從 `InsertAsync` 呼叫的結果取得所要傳入的 ID。
 
-	JObject jo = new JObject(); 
+	JObject jo = new JObject();
 	jo.Add("Id", 52);
 	await table.DeleteAsync(jo);
-			
+
 如果您嘗試在未設定 [Id] 欄位的情況下刪除項目，則服務沒有辦法分辨要刪除哪個執行個體，因此您將從服務收到 `MobileServiceInvalidOperationException`。同樣地，如果您嘗試在未設定 [Id] 欄位的情況下刪除不具類型的項目，您將會再次從服務收到 `MobileServiceInvalidOperationException`。
-		
+
 
 
 ## <a name="authentication"></a>作法：驗證使用者
@@ -260,7 +260,7 @@
 			{
 				user = await client
 					.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-				message = 
+				message =
 					string.Format("You are now logged in - {0}", user.UserId);
 			}
 			catch (InvalidOperationException)
@@ -285,10 +285,10 @@
 您可以最簡化形式來使用用戶端流程，如下列 Facebook 或 Google 的程式碼片段中所示。
 
 	var token = new JObject();
-	// Replace access_token_value with actual value of your access token obtained 
+	// Replace access_token_value with actual value of your access token obtained
 	// using the Facebook or Google SDK.
 	token.Add("access_token", "access_token_value");
-			
+
 	private MobileServiceUser user;
 	private async System.Threading.Tasks.Task Authenticate()
 	{
@@ -297,11 +297,11 @@
 			string message;
 			try
 			{
-				// Change MobileServiceAuthenticationProvider.Facebook 
+				// Change MobileServiceAuthenticationProvider.Facebook
 				// to MobileServiceAuthenticationProvider.Google if using Google auth.
 				user = await client
 					.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
-				message = 
+				message =
 					string.Format("You are now logged in - {0}", user.UserId);
 			}
 			catch (InvalidOperationException)
@@ -326,7 +326,7 @@
 	var account = new Account (user.UserId, new Dictionary<string,string> {{"token",user.MobileServiceAuthenticationToken}});
 	accountStore.Save(account, "Facebook");
 
-	// Log in 
+	// Log in
 	var accounts = accountStore.FindAccountsForService ("Facebook").ToArray();
 	if (accounts.Count != 0)
 	{
@@ -342,7 +342,7 @@
 		// Replace access_token_value with actual value of your access token
 		token.Add("access_token", "access_token_value");
 	}
-			
+
 	 // Log out
 	client.Logout();
 	accountStore.Delete(account, "Facebook");
@@ -354,7 +354,7 @@
 
 例如，您可在行動服務中註冊伺服器指令碼，並使用該指令碼來針對插入和更新資料執行各種操作，包括驗證與資料修改。想像定義與註冊可用來驗證與修改資料的伺服器指令碼，如下所示：
 
-	function insert(item, user, request) 
+	function insert(item, user, request)
 	{
 	   if (item.text.length > 10) {
 		  request.respond(statusCodes.BAD_REQUEST, { error: "Text cannot exceed 10 characters" });
@@ -387,7 +387,7 @@
 Xamarin 元件用戶端是專為強型別案例所設計的。不過，較弱型別體驗有時候非常方便；例如，當處理具有開放式結構描述的物件時便是如此。已依下列方式啟用該案例。在查詢中，您可以放棄 LINQ 並使用電傳格式。
 
 	// Get an untyped table reference
-	IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");			
+	IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
 
 	// Lookup untyped data using OData
 	JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
@@ -472,6 +472,5 @@ Xamarin 元件用戶端是專為強型別案例所設計的。不過，較弱型
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

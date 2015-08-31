@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="08/19/2015"
 	ms.author="sameerch"/>
 
 # Dropbox 連接器
@@ -38,7 +38,8 @@ None | <ul><li>刪除檔案</li><li>取得檔案</li><li>檔案上傳</li><li>�
 
 1. 在 Azure 開始面板中，選取 [**Marketplace**]。
 2. 搜尋「Dropbox 連接器」，將其選取，然後選取 [**建立**]。
-3. 輸入名稱、App Service 方案和其他屬性：![][1]
+3. 輸入名稱、App Service 方案和其他屬性：
+	![][1]
 	- **位置** - 選擇您要部署連接器的地理位置
 	- **訂閱** - 選擇您要建立此連接器的訂閱
 	- **資源群組** - 選取或建立連接器所在的資源群組
@@ -51,7 +52,7 @@ None | <ul><li>刪除檔案</li><li>取得檔案</li><li>檔案上傳</li><li>�
 ## 在邏輯應用程式中使用 Dropbox 連接器
 建立 API 應用程式之後，您現在可以使用 Dropbox 連接器做為邏輯應用程式的動作。作法：
 
-1.	在您的邏輯應用程式中，開啟 [**觸發程序和動作**] 以開啟 Logic Apps 設計工具，並設定您的流程：
+1.	在您的 Logic Apps 中，開啟 [**觸發程序和動作**] 以開啟 Logic Apps 設計工具，並設定您的流程：
 	![][3]
 2.	Dropbox 連接器列在資源庫中：
 	![][4]
@@ -74,7 +75,7 @@ None | <ul><li>刪除檔案</li><li>取得檔案</li><li>檔案上傳</li><li>�
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
 
-使用 REST API 建立 API Apps。請參閱[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)。
+檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
 您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)。
 
@@ -89,4 +90,4 @@ None | <ul><li>刪除檔案</li><li>取得檔案</li><li>檔案上傳</li><li>�
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

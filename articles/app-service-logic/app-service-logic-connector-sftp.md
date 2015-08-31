@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/19/2015"
 	ms.author="sameerch"/>
 
 # 在邏輯應用程式中使用 SFTP 連接器 #
@@ -61,10 +61,10 @@ SFTP 連接器可讓您從 SFTP 伺服器移入/移出資料。它可以讓您�
 1.	建立新的邏輯應用程式，並選擇具有 SFTP 連接器的相同資源群組。
 
 	![][6]
-2.	開啟 [觸發程序和動作] 以開啟邏輯應用程式設計工具，並設定您的流程。
+2.	開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具，並設定您的流程。
 
 	![][7]
-3.	SFTP 連接器就會出現在右側資源庫中的 [此資源群組中的 API 應用程式] 區段。
+3.	SFTP 連接器就會出現在右側資源庫中的 [此資源群組中的 API Apps] 區段。
 
 	![][8]
 4.	您可以在 [SFTP 連接器] 上按一下來將 SFTP 連接器 API 應用程式置入編輯器。
@@ -79,7 +79,7 @@ SFTP 連接器可讓您從 SFTP 伺服器移入/移出資料。它可以讓您�
 	- **資料夾路徑** - 指定需從中擷取檔案之資料夾的路徑。
 	- **檔案類型：文字或二進位** - 選取檔案的類型。
 	- **檔案遮罩** - 指定要套用以擷取檔案的檔案遮罩。' *' 會擷取指定之資料夾中的所有檔案。
-	- **排除檔案遮罩** - 指定要套用以排除檔案的檔案遮罩。如果也有設定「檔案遮罩」屬性，會先套用「排除檔案遮罩」。
+- **排除檔案遮罩** - 指定要套用以排除檔案的檔案遮罩。如果也有設定「檔案遮罩」屬性，會先套用「排除檔案遮罩」。
 
 
 	![][9]
@@ -97,8 +97,12 @@ SFTP 連接器可讓您從 SFTP 伺服器移入/移出資料。它可以讓您�
 	![][11]
 	![][12]
 
+## 進一步運用您的連接器
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
 
+檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)。
 
 
 <!-- Image reference -->
@@ -115,4 +119,4 @@ SFTP 連接器可讓您從 SFTP 伺服器移入/移出資料。它可以讓您�
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="nitinme"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,17 +14,21 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/20/2015"
+   ms.date="08/07/2015"
    ms.author="nitinme"/>
 
 
 # Hadoop 教學課程：開始在 Windows 上使用 Hadoop 與 HDInsight 的 Hive 查詢
 
 > [AZURE.SELECTOR]
-- [Windows](../hdinsight-get-started.md)
-- [Linux](../hdinsight-hadoop-linux-get-started.md)
+- [Windows](../hdinsight-hadoop-tutorial-get-started-windows.md)
+- [Linux](../hdinsight-hadoop-linux-tutorial-get-started.md)
 
 為了協助您了解在 Windows 上的 Hadoop 並開始使用 HDInsight，本教學課程為您示範如何在 Hadoop 叢集上執行 Hive 查詢非結構化資料，並且接著在 Microsoft Excel 中分析結果。
+
+[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+
+* [開始在 Windows 上的 HDInsight 中使用 Hadoop](hdinsight-hadoop-tutorial-get-started-windows-v1.md)
 
 ## 本 Hadoop 教學課程要達到什麼目標？
 
@@ -40,8 +45,6 @@
 
 除了全面供應 Azure HDInsight 之外，Microsoft 還提供 HDInsight Emulator for Azure，先前稱為 *Microsoft HDInsight Developer Preview*。模擬器非常適合開發人員使用，並只支援單一節點部署。如需使用 HDInsight Emulator 的詳細資訊，請參閱〈[開始使用 HDInsight Emulator][hdinsight-emulator]〉。
 
-> [AZURE.NOTE]如需如何佈建 HBase 叢集的指示，請參閱〈[在 HDInsight 上佈建 HBase 叢集][hdinsight-hbase-custom-provision]〉。請參閱〈<a href="http://go.microsoft.com/fwlink/?LinkId=510237">Hadoop 和 HBase 之間的差別？</a>〉，以了解最優先選擇某個資料庫的理由。
-
 ## 必要條件
 
 開始進行在 Windows 上的 Hadoop 教學課程之前，您必須具備下列條件：
@@ -50,79 +53,81 @@
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - 安裝 Office 2013 Professional Plus、Office 365 Pro Plus、Excel 2013 Standalone 或 Office 2010 Professional Plus 的**工作站電腦**。
 
-**預估完成時間：**30 分鐘
-
-
-
-##<a name="storage"></a>建立 Azure 儲存體帳戶
-
-當您在 HDInsight 中佈建 Hadoop 叢集時，您需要指定一個 Azure 儲存體帳戶。該帳戶特定的 Blob 儲存體容器將被指定為預設檔案系統，如同 Hadoop 分散式檔案系統 (HDFS)。依預設，系統會在與您指定儲存體帳戶的相同資料中心內佈建 HDInsight 叢集。如需詳細資訊，請參閱＜[搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]＞。
-
->[AZURE.NOTE]不要與多個 Hadoop 叢集共用預設 Blob 儲存體容器。
-
-除了此儲存體帳戶以外，您可以在自訂設定叢集時新增其他儲存體帳戶。這個其他儲存體帳戶可以來自相同的 Azure 訂用帳戶或不同的 Azure 訂用帳戶。如需相關指示，請參閱〈[使用自訂選項佈建 HDInsight 叢集][hdinsight-provision]〉。
-
-本教學課程僅使用預設的 Blob 和預設的儲存體帳戶。
-
-**建立 Azure 儲存體帳戶**
-
-1. 登入 [Azure 入口網站][azure-management-portal]。
-2. 按一下在左下角的 [**新增**]，然後輸入如圖所示的值。
-
-	![Azure 入口網站，您可以在此入口網站中用「快速建立」設定新的儲存體帳戶。][image-hdi-storageaccount-quickcreate]
-
->[AZURE.NOTE]請務必在支援叢集的位置建立您的儲存體帳戶。這些位置包括：「**東亞**」、「**東南亞**」、「**北歐**」、「**西歐**」、「**美國東部**」、「**美國西部**」、「**美國中北部**」和「**美國中南部**」。
-
-從清單中選取新儲存體帳戶，並按一下頁面底部的 [**管理存取金鑰**]。請記下 [**主要存取金鑰**] (或 [**次要存取金鑰**]，任一金鑰皆可)。稍後在教學課程中需要這些資訊。如需詳細資訊，請參閱＜[如何建立儲存體帳戶][azure-create-storageaccount]＞。
 
 ##<a name="provision"></a>佈建 Hadoop 叢集
 
-佈建叢集時，您可以佈建包含 Hadoop 及相關應用程式的 Azure 計算資源。在本節中，您將佈建採用 Hadoop 2.4 版的 HDInsight 3.1 版叢集。您也可以使用 Azure 入口網站、HDInsight PowerShell Cmdlet 或 HDInsight .NET SDK 來建立其他版本的 Hadoop 叢集。如需相關指示，請參閱〈[使用自訂選項佈建 HDInsight 叢集][hdinsight-provision]〉。如需不同 HDInsight 版本及其 SLA 的相關資訊，請參閱〈[HDInsight 元件版本設定](hdinsight-component-versioning.md)〉。
-
-[AZURE.INCLUDE 〈[provisioningnote](../../includes/hdinsight-provisioning.md)〉]
+佈建叢集時，您可以佈建包含 Hadoop 及相關應用程式的 Azure 計算資源。在本節中，您將佈建 HDInsight 3.2 版叢集。您也可以建立其他版本的 Hadoop 叢集。如需相關指示，請參閱〈[使用自訂選項佈建 HDInsight 叢集][hdinsight-provision]〉。如需不同 HDInsight 版本及其 SLA 的相關資訊，請參閱〈[HDInsight 元件版本設定](hdinsight-component-versioning.md)〉。
 
 
 **佈建 Hadoop 叢集**
 
-1. 登入 [Azure 入口網站][azure-management-portal]。
+1. 登入 [Azure 預覽入口網站](https://ms.portal.azure.com/)。
+2. 請按一下 [新增]、[資料分析]，然後按一下 [HDInsight]。
 
-2. 按一下在左下角的 [**新增**]，然後輸入如圖所示的值。
+    ![在 Azure Preview 入口網站中建立新的叢集](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.1.png "在 Azure Preview 入口網站中建立新的叢集")
 
-	![在 HDInsight 中建立 Hadoop 叢集。][image-hdi-quickcreatecluster]
+3. 輸入 [叢集名稱]，針對 [叢集類型] 選取 [Hadoop]，然後從 [叢集作業系統] 下拉式清單中選取 [Windows Server 2012 R2 資料中心]。如果該叢集可用，其名稱旁會出現綠色核取記號。
 
-<!-- COMMENTED OUT TEXT BEGINS --
+	![輸入叢集名稱和類型](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.2.png "輸入叢集名稱和類型")
 
-4. Enter or select the following values:
+4. 如果您有多個訂用帳戶，請按一下 [訂用帳戶] 項目，以選取將用於該叢集的 Azure 訂用帳戶。
 
+5. 按一下 [資源群組] 來查看現有資源群組的清單，然後選取其中一個用來建立叢集。或者按一下 [建立新項目]，然後輸入新資源群組的名稱。出現綠色核取記號即表示新群組的名稱可用。
 
-	<table border="1">
-	<tr><th>Name</th><th>Value</th></tr>
-	<tr><td>Cluster Name</td><td>Name of the cluster.</td></tr>
-	<tr><td>Cluster Size</td><td>Number of data nodes you want to deploy. The default value is 4. But the option to use 1 or 2 data nodes is also available from the drop-down list. Any number of cluster nodes can be specified by using the <strong>Custom Create</strong> option. Pricing details about the billing rates for various cluster sizes are available. Click the <strong>?</strong> symbol above the drop-down list and follow the link that appears.</td></tr>
-	<tr><td>Password</td><td>The password for the <i>admin</i> account. The cluster user name "admin" is specified when you are not using the <strong>Custom Create</strong> option. Note that this is NOT the Windows Administrator account for the VMs on which the clusters are provisioned. The account name can be changed by using the <strong>Custom Create</strong> wizard.</td></tr>
-	<tr><td>Storage Account</td><td>Click the drop-down list, and select the storage account that you created. <br/>
+	> [AZURE.NOTE]如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
 
-	When a storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
+6. 按一下 [認證]，然後輸入 [叢集登入使用者名稱] 和 [叢集登入密碼]。如果您想要在叢集節點上啟用遠端桌面，請在 [啟用遠端桌面] 按一下 [是]，然後指定所需的值。本教學課程並不需要遠端桌面，因此您可以略過這個步驟。在底部按一下 [選取] 以儲存認證組態。
 
-	The HDInsight cluster is located in the same datacenter as the storage account.
-	</td></tr>
-	</table>
+	![提供叢集認證](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.3.png "提供叢集認證")
 
-	Keep a copy of the cluster name. You will need it later in the tutorial.
+7. 按一下 [資料來源] 選擇該叢集的現有資料來源，或建立一個新的資料來源。當您在 HDInsight 中佈建 Hadoop 叢集時，您需要指定一個 Azure 儲存體帳戶。該帳戶特定的 Blob 儲存體容器將被指定為預設檔案系統，如同 Hadoop 分散式檔案系統 (HDFS)。依預設，系統會在與您指定儲存體帳戶的相同資料中心內佈建 HDInsight 叢集。如需詳細資訊，請參閱＜[搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]＞。
 
+	![資料來源刀鋒視窗](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.4.png "提供資料來源組態")
+	
+	目前您可以選取 Azure 儲存體帳戶做為 HDInsight 叢集資料來源。請使用下列步驟來了解 [資料來源] 刀鋒視窗上的項目。
+	
+	- **選取方法**：將此設為 [來自所有訂用帳戶]，即可瀏覽您所有訂用帳戶中的儲存體帳戶。如果您想要輸入現有儲存體帳戶的 [儲存體名稱] 和 [存取金鑰]，請將此設為 [存取金鑰]。
+	
+	- **選取儲存體帳戶 / 建立新的**：請按一下 [選取儲存體帳戶] 瀏覽並選取您要與叢集相關聯的現有儲存體帳戶。或按一下 [建立新項目] 來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可用，將會出現綠色核取記號。
+	
+	- **選擇預設容器**：使用此選項可輸入要用於該叢集的預設容器名稱。雖然您可以輸入任何名稱，但我們建議您使用與叢集相同的名稱，以便輕易辨識用於這個特定叢集的容器。
+	
+	- **位置**：儲存體帳戶所在地或將建立的地理區域。
+	
+		> [AZURE.IMPORTANT]選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
+		
+	按一下 [選取] 以儲存資料來源組態。
 
-5. Click **Create HDInsight Cluster**. When the provisioning completes, the  status column shows **Running**.
+8. 按一下 [節點定價層] 會顯示將針對此叢集建立之節點的相關資訊。設定該叢集所需的背景工作節點數目。該叢集的預估成本將會顯示在此刀鋒視窗內。
 
--- COMMENTED OUT TEXT ENDS -->
+	![節點定價層刀鋒視窗](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.5.png "指定叢集節點的數目")
+	
+	按一下 [選取] 以儲存此節點定價組態。
 
->[AZURE.NOTE]這些步驟佈建 HDInsight 叢集 3.1 版。若要使用其他版本建立叢集，請使用入口網站中的 [**自訂建立**] 方法，或使用 Azure PowerShell。如需每個版本之間的差異相關資訊，請參閱〈[HDInsight 所提供叢集版本的新功能][hdinsight-versions]〉。如需使用 [**自訂建立**] 選項的詳細資訊，請參閱〈[使用自訂選項佈建 HDInsight 叢集][hdinsight-provision]〉。
+9. 在 [新的 HDInsight 叢集] 刀鋒視窗中，確認已選取 [釘選到開始面板]，然後按一下 [建立]。這將會建立叢集，並將該叢集磚加入到您 Azure 入口網站的「開始面板」。該圖示可表示該叢集正在佈建，並將在佈建完成後變更為 HDInsight 圖示。
+
+	| 佈建期間 | 佈建完成 |
+	| ------------------ | --------------------- |
+	| ![「開始面板」上的佈建指示器](./media/hdinsight-hadoop-tutorial-get-started-windows/provisioning.png) | ![佈建的叢集磚](./media/hdinsight-hadoop-tutorial-get-started-windows/provisioned.png) |
+
+	> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。使用「開始面板」上的圖格或頁面左邊的 [通知] 項目，檢查佈建處理序。
+
+10. 佈建完成後，在「開始面板」按一下該叢集磚，以啟動叢集刀鋒視窗。
 
 
 ##<a name="sample"></a>從入口網站中執行範例資料
 
 佈建成功的 HDInsight 叢集會提供查詢主控台，其中包括 [開始使用] 資源庫，可從入口網站直接執行範例。您可以利用範例來逐步完成一些基本案例，以了解如何使用 HDInsight。這些範例隨附所有必要的元件，例如要分析的資料及在資料上執行的查詢。若要深入了解 [開始使用] 資源庫中的範例，請參閱〈[使用 HDInsight 開始使用資源庫了解 HDInsight 中的 Hadoop](hdinsight-learn-hadoop-use-sample-gallery.md)〉。
 
-**若要執行範例**，請從 Azure 入口網站按一下您要執行範例的叢集名稱，然後按一下頁面底部的 [**查詢主控台**]。從開啟的網頁中，按一下 [**開始使用資源庫**] 索引標籤，然後在 [**範例**] 類別下，按一下您要執行的範例。依照網頁上的指示完成範例。下表列出一些範例，並且提供關於每個範例之用途的詳細資訊。
+**執行範例**
+
+1. 在 Azure 預覽入口網站「開始面板」按一下您剛才建立的叢集圖格。
+ 
+2. 在新的叢集刀鋒視窗中，按一下 [儀表板]。出現提示時，輸入該叢集的管理員使用者名稱和密碼。
+
+	![啟動叢集儀表板](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.Cluster.Dashboard.png "啟動叢集儀表板")
+ 
+3. 在開啟的網頁中，按一下 [開始使用資源庫] 索引標籤，然後在 [使用範例資料的解決方案] 類別下，按一下您要執行的範例。請遵循網頁上的指示完成範例。下表列出一些範例，並且提供關於每個範例之用途的詳細資訊。
 
 範例 | 用途
 ------ | ---------------
@@ -242,7 +247,7 @@
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://ms.portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
@@ -275,4 +280,4 @@
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

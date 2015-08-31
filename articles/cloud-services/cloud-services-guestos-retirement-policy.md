@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="05/19/2015"
+   ms.date="08/18/2015"
    ms.author="adegeo"/>
 
 # Azure 客體作業系統可支援性和淘汰原則
@@ -87,5 +87,7 @@ Microsoft 可自行決定是否延長該期間，以緩和客戶轉換時的不�
 
 如果 Web 應用程式架構與基礎作業系統之間需要更深入的相依性，您可以使用「[啟動工作](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)」之類的平台支援功能或我們未來可能會推出的其他擴充性機制。您也可以使用 [Azure 虛擬機器](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – 基礎結構即服務)，只不過您需要自行負責維護基礎作業系統。
  
+## 後續步驟
+檢閱最新的[客體作業系統版本](cloud-services-guestos-update-matrix.md)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

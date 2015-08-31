@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/14/2015"
+   ms.date="08/19/2015"
    ms.author="rajram"/>
 
 #BizTalk X12 連接器
@@ -32,11 +32,11 @@ Microsoft Azure X12 服務可讓您在企業對企業通訊中，透過 X12 通�
 
 建立交易夥伴協議所涉及的步驟在[這裡][2]說明
 
-##在邏輯應用程式設計工具介面中使用 X12 連接器
+##在 Logic Apps 設計工具介面中使用 X12 連接器
 X12 連接器可用做觸發程序或動作。
 
 ###觸發程序
-- 啟動 Azure邏輯應用程式流程設計工具
+- 啟動 Azure Logic Apps 流程設計工具
 - 從右窗格中按一下 X12 連接器
 
 	![觸發程序設定][3]
@@ -74,7 +74,9 @@ X12 連接器可用做觸發程序或動作。
 動作傳回物件，其中包含 X12 裝載。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以使用邏輯應用程式將它加入商務流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以使用邏輯應用程式將它加入商務流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+
+檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
 您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視 API 應用程式和連接器](../app-service-api/app-service-api-manage-in-portal.md)。
 
@@ -92,4 +94,4 @@ X12 連接器可用做觸發程序或動作。
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

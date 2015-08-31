@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="管理 StorSimple 磁碟區容器"
+   pageTitle="管理 StorSimple 磁碟區容器 | Microsoft Azure"
    description="說明如何使用 StorSimple Manager 服務磁碟區容器頁面新增、修改或刪除磁碟區容器。"
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/13/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # 管理 StorSimple 磁碟區容器
@@ -66,4 +66,4 @@ Microsoft Azure StorSimple 裝置中的磁碟區容器包含一個或多個可�
 深入了解[管理 StorSimple 磁碟區](storsimple-manage-volumes.md)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

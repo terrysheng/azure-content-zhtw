@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.date="08/13/2015"
 	ms.author="georgem"/>
 
 
@@ -22,6 +22,8 @@
 查看您的 Azure 資源管理員範本的安全性層面時，有多方面需要考慮：金鑰和密碼、角色型存取控制，以及網路安全性群組。
 
 本主題假設您熟悉 Azure 資源管理員中的角色型存取控制 (RBAC)。如需詳細資訊，請參閱 [Microsoft Azure 入口網站中的角色型存取控制](role-based-access-control-configure.md)及[管理和稽核資源存取權](resource-group-rbac.md)
+
+本主題是較大份白皮書的一部分。若要閱讀整份文件，請下載 [世界級 ARM 範本注意事項和證明可行的作法] (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf)。
 
 ## 密碼和憑證
 
@@ -222,7 +224,7 @@ NSG 包含預設規則。預設規則無法刪除，但因為其會指派為最�
 
 NSG 規則是明確的。不允許所有流量，或拒絕超出 NSG 規則中所指定的流量。不過，無論網路安全性群組規格為何，一律允許兩種類型的流量。這些佈建用於支援基礎結構：
 
-- **主機節點的虛擬 IP**：基本的基礎結構服務，例如 DHCP、DNS 和健康狀態監控是透過虛擬化主機 IP 位址 168.63.129.16 所提供。這個公用 IP 位址屬於 Microsoft，且是針對此目的唯一用於所有區域的虛擬 IP。此 IP 位址會對應至伺服器電腦的實體 IP 位址 (主機節點)，該伺服器用來主控 VM。主機節點的作用如同 DHCP 轉送、DNS 遞迴解析程式，以及負載平衡器健康狀態探查和電腦健康狀態探查的探查來源。此 IP 位址的通訊不應視為一種攻擊。
+- **節點的虛擬 IP：**基本的基礎結構服務，例如 DHCP、DNS 和健康狀態監控是透過虛擬化主機 IP 位址 168.63.129.16 所提供。這個公用 IP 位址屬於 Microsoft，且是針對此目的唯一用於所有區域的虛擬 IP。此 IP 位址會對應至伺服器電腦的實體 IP 位址 (主機節點)，該伺服器用來主控 VM。主機節點的作用如同 DHCP 轉送、DNS 遞迴解析程式，以及負載平衡器健康狀態探查和電腦健康狀態探查的探查來源。此 IP 位址的通訊不應視為一種攻擊。
 - **授權 (金鑰管理服務)**：應該授權在 VM 中執行的 Windows 映像。若要這樣做，授權要求會傳送至處理此類查詢的金鑰管理服務主機伺服器。這會一律位於輸出連接埠 1688。
 
 ### 預設標籤
@@ -335,4 +337,4 @@ Azure 使用路由表決定如何根據每個封包的目的地轉送 IP 流量�
 - 若要了解如何設定路由與 IP 轉送，請參閱[如何在 Azure 中建立路由與啟用 IP 轉送](virtual-network/virtual-networks-udr-how-to.md) 
 - 如需角色型存取控制的概觀，請參閱 [Microsoft Azure 入口網站中的角色型存取控制](role-based-access-control-configure.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

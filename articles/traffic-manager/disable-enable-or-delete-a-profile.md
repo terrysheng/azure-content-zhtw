@@ -1,5 +1,5 @@
 <properties
-   pageTitle="停用、啟用或刪除流量管理員設定檔"
+   pageTitle="停用、啟用或刪除流量管理員設定檔 | Microsoft Azure"
    description="本文將協助您使用流量管理員設定檔。"
    services="traffic-manager"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/09/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # 停用、啟用或刪除設定檔
@@ -31,7 +31,7 @@
 
 1. 選取您想要啟用的設定檔。若要選取設定檔，請在 [流量管理員] 頁面上，按一下設定檔名稱旁邊的欄反白顯示設定檔。請不要按設定檔的名稱或名稱旁的箭號，這樣會帶您到設定檔的設定頁面。
 1. 選取設定檔之後，按一下頁面底部的 [啟用]。
-1. 在您的網際網路 DNS 伺服器上修改 DNS 資源記錄使用 CNAME 記錄類型，這會將公司網域名稱對應到流量管理員設定檔的網域名稱。如需詳細資訊，請參閱[將公司網際網路網域指向流量管理員網域](../point-a-company-internet-domain-to-a-traffic-manager-domain.md)。
+1. 在您的網際網路 DNS 伺服器上修改 DNS 資源記錄使用 CNAME 記錄類型，這會將公司網域名稱對應到流量管理員設定檔的網域名稱。如需詳細資訊，請參閱[將公司網際網路網域指向流量管理員網域](traffic-manager-point-internet-domain.md)。
 1. 流量將會再開始導向至各端點。
 
 ## 刪除設定檔
@@ -44,11 +44,10 @@
 
 ## 後續步驟
 
-[流量管理員](../traffic-manager.md)
+[流量管理員 - 停用或啟用端點](disable-or-enable-an-endpoint.md)
 
-[流量管理員組態工作](https://msdn.microsoft.com/library/azure/hh744830.aspx)
-
+[什麼是流量管理員？](traffic-manager-overview.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

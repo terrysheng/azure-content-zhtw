@@ -3,6 +3,7 @@
 	description="使用 Apache Ambari API 來佈建、管理和監視 Hadoop 叢集。直覺式操作工具和 API 可消除 Hadoop 的複雜性。"
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	editor="cgronlun"
 	manager="paulettm"/>
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 # 使用 Ambari API 監視 HDInsight 上的 Hadoop 叢集
@@ -49,7 +50,7 @@ HDInsight 叢集名稱|$clusterName||您的 HDInsight 叢集名稱。
 叢集使用者名稱|$clusterUsername||佈建時指定的叢集使用者名稱。
 叢集密碼|$clusterPassword||叢集使用者密碼。
 
-	> [AZURE.NOTE]將值填入資料表。這將有助於本教學課程的執行。
+	> [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
 
 
 
@@ -146,7 +147,7 @@ HDInsight 叢集名稱|$clusterName||您的 HDInsight 叢集名稱。
 
 現在，您已了解如何使用 Ambari 監視 API。若要深入了解，請參閱：
 
-- [使用管理入口網站管理 HDInsight 叢集][hdinsight-admin-portal]
+- [使用 Azure 預覽入口網站管理 HDInsight 叢集][hdinsight-admin-portal]
 - [使用 Azure PowerShell 管理 HDInsight 叢集][hdinsight-admin-powershell]
 - [使用命令列介面管理 HDInsight 叢集][hdinsight-admin-cli]
 - [HDInsight 文件][hdinsight-documentation]
@@ -173,6 +174,5 @@ HDInsight 叢集名稱|$clusterName||您的 HDInsight 叢集名稱。
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

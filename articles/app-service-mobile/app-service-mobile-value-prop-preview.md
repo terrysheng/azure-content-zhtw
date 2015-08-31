@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="08/05/2015"
 	ms.author="kirillg"/>
 
-# <a name="getting-started"> </a>什麼是行動應用程式
+# <a name="getting-started"> </a>什麼是行動應用程式？
 
->[AZURE.NOTE]**行動服務文件[在此](http://azure.microsoft.com/documentation/services/mobile-services/)。**
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-Azure 應用程式服務是完全受管理的平台即服務 (PaaS) 產品，適用於專業開發人員，具有一組豐富的功能可用於 Web、行動和整合案例。*Azure App Service* 中的 *行動應用程式* 是專為企業開發人員與系統整合人員提供的可高度擴充、全域使用的行動應用程式開發平台，具有一組豐富的功能可供行動應用程式使用。
+Azure 應用程式服務是完全受管理的平台即服務 (PaaS) 產品，適用於專業開發人員，具有一組豐富的功能可用於 Web、行動和整合案例。*Azure App Service* 中的「行動應用程式」具有高擴充性且可供全球使用，是專為企業開發人員與系統整合人員設計的行動應用程式開發平台，能提供一組豐富的功能給行動應用程式開發人員。
 
 ![行動應用程式](./media/app-service-mobile-value-prop-preview/overview.png)
 
 ##為何選擇行動應用程式？
-*Azure App Service* 中的 *行動應用程式* 是專為企業開發人員與系統整合人員提供的可高度擴充、全域使用的行動應用程式開發平台，具有一組豐富的功能可供行動應用程式使用。您可以利用行動應用程式：
+*Azure App Service* 中的「行動應用程式」具有高擴充性且可供全球使用，是專為企業開發人員與系統整合人員設計的行動應用程式開發平台，能提供一組豐富的功能給行動應用程式開發人員。您可以利用行動應用程式：
 
 - **建置原生和跨平台應用程式** - 不論您要建置原生 iOS、Android 和 Windows 應用程式或跨平台 Xamarin 或 Cordova (Phonegap) 應用程式，都可以利用採用原生 SDK 的 App Service。  
 - **連接到您的企業系統** - 利用行動應用程式，您可以在短短幾分鐘內新增公司標誌，並連接至企業內部部署或雲端資源。
@@ -44,6 +44,7 @@ Azure 應用程式服務是完全受管理的平台即服務 (PaaS) 產品，適
 
 如需 Azure App Service 平台的詳細資訊，請參閱 [Azure App Service]。
 
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md
@@ -56,4 +57,4 @@ Azure 應用程式服務是完全受管理的平台即服務 (PaaS) 產品，適
 [JavaScript backend version]: ../mobile-services-ios-get-started.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -103,8 +103,23 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 - Azure AD Connect 必須安裝於 Windows Server 2008 或更新版本上。此伺服器可能是網域控制站或成員伺服器。
 - AD 結構描述版本與樹系層級必須是 Windows Server 2003 或更新版本。只要符合結構描述和樹系層級需求，網域控制站就能執行任何版本。
 - 如果正在部署 Active Directory 同盟服務，則將安裝 AD FS 的伺服器必須是 Windows Server 2012 或更新版本。
+- Azure AD Connect 需要 SQL Server 資料庫來儲存身分識別資料。預設會安裝 SQL Server 2012 Express LocalDB (輕量版的 SQL Server Express)，並且在本機電腦上建立服務的服務帳戶。SQL Server Express 有 10 GB 的大小限制，可讓您管理大約 100000 個物件。
+- 如果您需要管理更多數量的目錄物件，則必須將安裝程序指向不同版本的 SQL Server。Azure AD Connect 支援從 SQL Server 2008 (含 SP4) 至 SQL Server 2014 的各種 Microsoft SQL Server。
 - 本機 Active Directory 的企業系統管理員帳戶
-- 選用：測試使用者帳戶來驗證同步處理。 
+- 如果您使用輸出 Proxy，則必須加入 **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** 檔案中的下列設定，以便完成安裝。<code>
+		
+		<system.net>
+    		<defaultProxy>
+      		<proxy
+        	usesystemdefault="true"
+        	proxyaddress=http://<PROXYIP>:80"
+        	bypassonlocal="true"
+     		 />
+    		</defaultProxy>
+  		</system.net>
+</code>必須在檔案底部輸入此文字。在此程式碼中，&lt;PROXYIP&gt; 代表實際的 Proxy IP 位址。
+
+- 選用：測試使用者帳戶來驗證同步處理。
 
 #### Azure AD Connect 的硬體需求
 下表顯示 Azure AD Connect 電腦的最低需求。
@@ -184,8 +199,8 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 1. 以系統管理員身分登入 Azure 入口網站。
 2. 選取左邊的 [Active Directory]。
 3. 在 [Active Directory] 頁面上，在有您要啟用的使用者之目錄上按兩下。
-4. 在 [目錄] 頁面頂端，選取 [**授權**]。
-5. 在 [授權] 頁面上，選取 [Active Directory Premium] 或 [Enterprise Mobility Suite]，然後按一下 [**指派**]。
+4. 在目錄頁面頂端，選取 [授權]。
+5. 在 [授權] 頁面上，選取 [Active Directory Premium] 或 [Enterprise Mobility Suite]，然後按一下 [指派]。
 6. 在對話方塊中，選取您要對其指派授權的使用者，然後按一下核取記號圖示，以儲存變更。
 
 
@@ -258,4 +273,4 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

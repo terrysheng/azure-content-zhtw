@@ -1,11 +1,13 @@
 
-Follow these steps to create a new App Service gateway to handle authentication. If you already have a gateway in the same resource group, you do not need to complete this section.
+請遵循下列步驟建立新的應用程式服務閘道，以處理驗證。如果您在同一個資源群組中已經有一個閘道，就不需要完成本節。
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. Click **Settings** > **Mobile** > **User authentication**. 
+1. 造訪 [Azure 入口網站]。按一下 [全部瀏覽] > [行動應用程式] > 您剛才建立的後端。按一下 [設定] > [行動] > [使用者驗證]。 
 
-2. You will be presented with a blade for creating your gateway. You do not need to enter any information, and the name of this gateway is automatically generated for you. Click **Create**.
+2. 您會看到供您建立閘道的刀鋒視窗。您不需要輸入任何資訊，系統就會自動為您產生此閘道的名稱。按一下 [建立]。
 
-Next, you will use this gateway with an authentication provider.
+接下來，您將搭配驗證提供者使用此閘道。
 
 <!-- URLs. -->
-[Azure Portal]: https://portal.azure.com/
+[Azure 入口網站]: https://portal.azure.com/
+
+<!---HONumber=August15_HO8-->

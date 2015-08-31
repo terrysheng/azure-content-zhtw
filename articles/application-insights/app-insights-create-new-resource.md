@@ -83,6 +83,8 @@ SDK 包含不需撰寫任何程式碼，即可傳送遙測資料的標準模組�
 您可以撰寫 [PowerShell 指令碼](app-insights-powershell-script-create-resource.md)來自動建立資源。
 
 
+
+
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
@@ -92,4 +94,4 @@ SDK 包含不需撰寫任何程式碼，即可傳送遙測資料的標準模組�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

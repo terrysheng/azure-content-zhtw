@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="使用通知中樞向使用者傳送跨平台通知 (ASP.NET)" description="了解如何使用通知中樞範本，在單一要求中傳送以所有平台為目標的跨平台通知。" 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="使用通知中樞向使用者傳送跨平台通知 (ASP.NET)" description="了解如何使用通知中樞範本，在單一要求中傳送以所有平台為目標的跨平台通知。"
+	services="notification-hubs"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # 使用通知中心向使用者傳送跨平台通知
@@ -24,7 +24,7 @@
 
 完成下列步驟，可使用範本傳送跨平台通知：
 
-1. 在 Visual Studio 的 [方案總管] 中展開 [控制器] 資料夾，然後開啟 RegisterController.cs 檔案。 
+1. 在 Visual Studio 的 [方案總管] 中展開 [控制器] 資料夾，然後開啟 RegisterController.cs 檔案。
 
 2. 在 **Post** 方法中找出建立新註冊的程式碼區塊，並將 `switch` 內容取代為下列程式碼：
 
@@ -54,7 +54,7 @@
             default:
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
         }
-	
+
 	這段程式碼會呼叫平台特有方法來建立範本註冊，而非原生註冊。不需要修改現有註冊，因為範本註冊源自原生註冊。
 
 3. 在 [通知] 控制器中，將 **sendNotification** 方法取代為下列程式碼：
@@ -65,7 +65,7 @@
             var userTag = "username:" + user;
 
             var notification = new Dictionary<string, string> { { "message", "Hello, " + user } };
-            await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);   
+            await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
@@ -84,7 +84,7 @@
 
 您已完成本教學課程，現在可參閱下列主題進一步了解通知中心和範本：
 
-+ **[使用通知中樞傳送即時新聞]** <br/>示範另一個使用範本的案例 
++ **[使用通知中樞傳送即時新聞]** <br/>示範另一個使用範本的案例
 
 +  **[Azure 通知中心概觀][Templates]**<br/>概觀主題包含範本的詳細資訊。
 
@@ -110,6 +110,5 @@
 [使用通知中心來通知使用者]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Windows 市集的通知中心作法]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

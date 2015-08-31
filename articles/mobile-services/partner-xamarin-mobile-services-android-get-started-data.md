@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="將行動服務新增至現有的應用程式 (Xamarin.Android) | Microsoft Azure" 
-	description="了解如何儲存和存取 Azure 行動服務 Xamarin.Android 應用程式的資料。" 
-	documentationCenter="xamarin" 
-	authors="ggailey777" 
-	manager="dwrede" 
-	services="mobile-services" 
+<properties
+	pageTitle="將行動服務新增至現有的應用程式 (Xamarin.Android) | Microsoft Azure"
+	description="了解如何儲存和存取 Azure 行動服務 Xamarin.Android 應用程式的資料。"
+	documentationCenter="xamarin"
+	authors="ggailey777"
+	manager="dwrede"
+	services="mobile-services"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="ggailey777"/>
 
 # 將行動服務新增至現有的應用程式
@@ -26,7 +26,7 @@
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1. [下載 Xamarin.Android 應用程式專案][GitHub] 
+1. [下載 Xamarin.Android 應用程式專案][GitHub]
 2. [建立行動服務]
 3. [新增用於儲存的資料表]
 4. [更新應用程式以使用行動服務]
@@ -42,7 +42,7 @@
 
 本教學課程以 [GetStartedWithData 應用程式][GitHub] (Xamarin.Android 應用程式) 為基礎而建立。此應用程式的 UI 與 Mobile Services Android 快門入口所產生的應用程式相同，差別在於新增的項目會儲存在本機的記憶體。
 
-1. 將 `GetStartedWithData` 範例應用程式下載到電腦並解壓縮檔案。 
+1. 將 `GetStartedWithData` 範例應用程式下載到電腦並解壓縮檔案。
 
 2. 在 Xamarin Studio 中，依序按一下 [檔案]、[開啟]，瀏覽至 GetStartedWithData sample 專案解壓縮的位置，並選取 **XamarinTodoQuickStart.Android.sln** 將其開啟。
 
@@ -53,14 +53,14 @@
 5. 從 [執行] 功能表，按一下 [啟動但不偵錯]，接著系統將要求您選擇模擬器或連接的 USB Android 裝置。
 
 	> [AZURE.IMPORTANT]您可以使用 Android 手機或使用 Android 模擬器來執行此專案。使用 Android 手機來執行需要先下載手機專用的 USB 驅動程式。
-	> 
+	>
 	> 若要在 Android 模擬器中執行專案，您至少必須定義一個 Android 虛擬裝置 (AVD)。使用 AVD Manager 來建立與管理這些裝置。
 
 6. 在應用程式中輸入有意義的文字 (例如 _Complete the tutorial_)，然後按一下 [新增]。
 
    	![][13]
 
-   	請注意，已儲存的文字會存放在 記憶體內部集合，並顯示在以下列表中。
+   	Notice that the saved text is stored in an in-memory collection and displayed in the list below.
 
 ## <a name="create-service"></a>在管理入口網站中建立新的行動服務
 
@@ -113,7 +113,7 @@
 3. 從 [方案] 視窗，開啟 **TodoActivity** 類別，並取消註解下列程式碼行：
 
 		using Microsoft.WindowsAzure.MobileServices;
- 
+
 4. 我們將會移除應用程式目前使用的記憶體中清單，所以可以將它換成行動服務。在 **TodoActivity** 類別中，下列這一行程式碼定義現有的 **todoItemList** 清單，請將它變成註解。
 
 		public List<TodoItem> todoItemList = new ArrayList<TodoItem>();
@@ -123,7 +123,7 @@
 6. 現在開始加入我們的行動服務。將下列幾行程式碼取消註解：
 
         private MobileServiceClient client; // Mobile Service Client references
-        private IMobileServiceTable<TodoItem> todoTable; // Mobile Service Table used to access data   
+        private IMobileServiceTable<TodoItem> todoTable; // Mobile Service Table used to access data
 
 7. 在管理入口網站中，按一下 [行動服務]，然後按一下您剛剛建立的行動服務。
 
@@ -137,7 +137,7 @@
 
         public const string ApplicationURL = @"AppUrl";
         public const string ApplicationKey = @"AppKey";
-        
+
 10. 使用從以上的管理入口網站擷取的值取代以上變數中的 **AppUrl** 和 **AppKey**。
 
 11. 在 **OnCreate** 方法中，下列幾行程式碼定義 **MobileServiceClient** 變數，請將它們取消註解：
@@ -149,7 +149,7 @@
 			Constants.ApplicationKey).WithFilter(filter);
 
 		// Get the Mobile Service Table instance to use
-		todoTable = client.GetTable<TodoItem>();    
+		todoTable = client.GetTable<TodoItem>();
 
   	這會建立 MobileServiceClient 的新執行個體，可用來存取您的行動服務。也會建立 MobileServiceTable 執行個體，用於代理行動服務中的資料儲存。
 
@@ -166,21 +166,21 @@
 		}
 
    	這會將項目更新傳送至行動服務，並從配接器中移除已核取的項目。
-    
+
 14. 將 **AddItem** 方法的這幾行取消註解：
-	
-		try 
+
+		try
 		{
 			// Insert the new item
 			await todoTable.InsertAsync(item);
 
-			if (!item.Complete) 
-				adapter.Add(item);			
-		} 
-		catch (Exception e) 
+			if (!item.Complete)
+				adapter.Add(item);
+		}
+		catch (Exception e)
 		{
 			CreateAndShowDialog(e, "Error");
-		}   		
+		}
 
   	此程式碼會建立新的項目，並將此項目插入至遠端行動服務中的資料表。
 
@@ -194,14 +194,14 @@
 
 			foreach (TodoItem current in list)
 				adapter.Add(current);
-		} 
-        catch (Exception e) 
+		}
+        catch (Exception e)
         {
 			CreateAndShowDialog(e, "Error");
 		}
 
 	這會查詢行動服務，並傳回所有未標示為完成的項目。項目會加入至配接器來繫結。
-		
+
 
 應用程式現已更新為使用行動服務進行後端儲存，我們可以開始在行動服務中測試應用程式。
 
@@ -220,7 +220,7 @@
 4. 按一下 [資料] 索引標籤，然後按一下 [瀏覽]。
 
    	![][9]
-  
+
    	請注意，[TodoItem] 資料表現在包含資料和行動服務產生的識別碼值，且資料行已自動新增至資料表，以符合應用程式中的 TodoItem 類別。
 
 這將結束 Xamarin.Android 的**開始使用資料**教學課程。
@@ -281,6 +281,5 @@
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
 [完成的範例專案]: http://go.microsoft.com/fwlink/p/?LinkId=331302
- 
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

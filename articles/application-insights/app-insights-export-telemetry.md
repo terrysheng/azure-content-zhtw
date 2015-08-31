@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/13/2015" 
 	ms.author="awills"/>
  
 # 從 Application Insights 匯出遙測
@@ -55,12 +55,9 @@
 
 ## <a name="analyze"></a> 您取得什麼事件？
 
-匯出的資料是我們從您的應用程式中收到的原始遙測，除了：
+匯出的資料是我們從您的應用程式接收的原始遙測，只不過我們加入了從用戶端 IP 位址計算的位置資料。
 
-* 目前未包含 Web 測試結果。 
-* 我們加入透過用戶端 IP 位址計算的位置資料。  
-
-未包含計算的度量。例如，我們不會匯出平均 CPU 使用率，但我們會匯出用以計算平均的原始遙測。
+未包含其他計算的度量。例如，我們不會匯出平均 CPU 使用率，但我們會匯出用以計算平均的原始遙測。
 
 ## <a name="get"></a> 檢查資料
 
@@ -85,7 +82,7 @@
 	"receiveRequest": {"value": 30000.0},
 	"clientProcess": {"value": 17970000.0}
 
-
+[屬性類型和值的詳細資料模型參考。](app-insights-export-data-model.md)
 
 ## 處理資料
 
@@ -127,7 +124,7 @@
 
 ## 匯出至 Power BI
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) 以豐富多元的視覺方式呈現您的資料，以及將多個來源的資訊整合的能力。您可以將有關您應用程式效能與使用量的遙測資料，從 Application Insights 串流處理到 Power BI。
+[Microsoft Power BI](https://powerbi.microsoft.com/) 以豐富多元的視覺方式呈現您的資料，能將多個來源的資訊加以整合。您可以將有關您應用程式效能與使用量的遙測資料，從 Application Insights 串流處理到 Power BI。
 
 [從 Application Insights 串流處理到 Power BI](app-insights-export-power-bi.md)
 
@@ -185,6 +182,13 @@
 
     是。按一下 [停用]。
 
+## 程式碼範例
+
+* [從 Application Insights 串流處理到 Power BI](app-insights-export-power-bi.md)
+* [使用背景工作角色剖析匯出的 JSON][exportcode]
+* [使用串流分析匯出至 SQL][exportasa]
+
+* [屬性類型和值的詳細資料模型參考。](app-insights-export-data-model.md)
 
 <!--Link references-->
 
@@ -194,4 +198,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

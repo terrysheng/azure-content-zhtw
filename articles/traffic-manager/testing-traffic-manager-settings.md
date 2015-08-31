@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # 測試流量管理員設定
 
@@ -54,7 +54,7 @@
 
 ## 另請參閱
 
-[關於流量管理員的負載平衡方法](../about-traffic-manager-balancing-methods.md) [流量管理員組態工作](https://msdn.microsoft.com/library/azure/hh744830.aspx) [流量管理員](../traffic-manager.md)
+[關於流量管理員流量路由方法](../about-traffic-manager-balancing-methods.md) [Traffic Manager](../traffic-manager.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -27,7 +27,7 @@ Twilio 連接器可讓您從 Twilio 帳戶傳送和接收 SMS。它也可讓您�
 若要使用 Twilio 連接器，您必須先建立 Twilio 連接器 API 應用程式的執行個體。以下步驟可以達到此目的：
 
 1.	使用 Azure 入口網站左下方的 [+新增] 選項開啟 Azure Marketplace。
-2.	瀏覽至 [API Apps]，並搜尋「Twilio 連接器」。
+2.	瀏覽至 API Apps，並搜尋「Twilio 連接器」。
 3.	設定 Twilio 連接器，如下所示：
  
 	![][1] 
@@ -66,9 +66,14 @@ Twilio 連接器可讓您從 Twilio 帳戶傳送和接收 SMS。它也可讓您�
 
 	![][5]
 	![][6]
+## 進一步運用您的連接器
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
 
+檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
-	<!--Image references-->
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)。
+
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-twilio/img1.PNG
 [2]: ./media/app-service-logic-connector-twilio/img2.PNG
 [3]: ./media/app-service-logic-connector-twilio/img3.png
@@ -76,4 +81,4 @@ Twilio 連接器可讓您從 Twilio 帳戶傳送和接收 SMS。它也可讓您�
 [5]: ./media/app-service-logic-connector-twilio/img5.PNG
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

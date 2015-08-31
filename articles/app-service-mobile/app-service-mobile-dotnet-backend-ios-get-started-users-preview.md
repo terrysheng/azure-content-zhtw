@@ -1,9 +1,9 @@
 <properties
-	pageTitle="開始在 iOS 中使用行動應用程式的驗證"
-	description="了解如何使用行動應用程式透過眾多識別提供者驗證 iOS 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。"
+	pageTitle="在具有 Azure Mobile Apps 的 iOS 上新增驗證"
+	description="了解如何使用 Azure Mobile Apps 透過眾多身分識別提供者驗證 iOS 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。"
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="mattchenderson" 
+	authors="krisragh" 
 	manager="dwrede"
 	editor=""/>
 
@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
-	ms.author="mahender"/>
+	ms.date="08/12/2015"
+	ms.author="krisragh"/>
 
-# 將驗證新增至您的 iOS 應用程式
+# Azure Mobile Apps 的 iOS 驗證
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
-
-本主題說明如何從用戶端應用程式驗證應用程式服務行動應用程式的使用者。在本教學課程中，您將使用應用程式服務支援的身分識別提供者，將驗證新增至快速入門專案。由行動應用程式成功驗證並授權之後，就會顯示使用者識別碼值。
-
-本教學課程以行動應用程式快速入門為基礎。您也必須先完成[建立 iOS 應用程式]教學課程。
+在本教學課程中，您可以使用支援的身分識別提供者，將驗證加入 [iOS 快速入門]專案。本教學課程以 [iOS 快速入門]教學課程為基礎，您必須先完成該教學課程。
 
 ##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
+
+##<a name="create-gateway"></a>建立 App Service 閘道器
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway-preview](../../includes/app-service-mobile-dotnet-backend-create-gateway-preview.md)]
 
 ##<a name="register"></a>註冊應用程式進行驗證，並設定應用程式服務
 
@@ -38,28 +38,18 @@
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-<ol start="5">
-<li><p>在 Xcode 中，開啟專案。按 [執行]<b></b> 按鈕，以啟動應用程式。確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的例外狀況。</p>
+在 Xcode 中，按下 [**執行**] 以啟動應用程式。因為應用程式嘗試以未驗證的使用者身分來存取後端，但 _TodoItem_ 資料表現在需要驗證，所以會引發例外狀況。
 
-   	<p>這是因為應用程式嘗試以未驗證的使用者身分存取您的行動應用程式程式碼，但 <em>TodoItem</em> 資料表現在需要驗證。</p></li>
-</ol>
-
-接下來，您要將應用程式更新為在要求應用程式服務的資源之前必須驗證使用者。
-
-##<a name="add-authentication"></a>將驗證新增至應用程式
+##<a name="add-authentication"></a>將驗證加入應用程式
 
 [AZURE.INCLUDE [app-service-mobile-ios-authenticate-app](../../includes/app-service-mobile-ios-authenticate-app.md)]
-
-##<a name="store-authentication"></a>將驗證權杖儲存在應用程式中
-
-[AZURE.INCLUDE [app-service-mobile-ios-authenticate-app-with-token](../../includes/app-service-mobile-ios-authenticate-app-with-token.md)]
 
 
 <!-- URLs. -->
 
-[建立 iOS 應用程式]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[iOS 快速入門]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

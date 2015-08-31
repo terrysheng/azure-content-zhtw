@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2015"
+   ms.date="07/27/2015"
    ms.author="cgronlun"/>
 
 
@@ -52,7 +52,7 @@ Azure HDInsight 會使用 **Linux** 或 **Windows** 做為基礎作業系統，�
 ---------| -------------------| --------------------
 **叢集作業系統** | Ubuntu 12.04 長期支援 (LTS) | Windows Server 2012 R2
 **叢集類型** | Hadoop | Hadoop、HBase、Storm
-**部署** | Azure 管理入口網站、Azure CLI、Azure PowerShell | Azure 管理入口網站、Azure CLI、Azure PowerShell、HDInsight .NET SDK
+**部署** | Azure 入口網站、Azure CLI、Azure PowerShell | Azure 入口網站、Azure CLI、Azure PowerShell、HDInsight .NET SDK
 **叢集 UI** | Ambari | 叢集儀表板
 **遠端存取** | 安全殼層 (SSH) | 遠端桌面通訊協定 (RDP)
 
@@ -60,7 +60,7 @@ Azure HDInsight 會使用 **Linux** 或 **Windows** 做為基礎作業系統，�
 
 ### Hadoop、HBase、Storm 及自訂的叢集
 
-HDInsight 會提供特定工作負載的叢集組態：Hadoop、HBase 或 Storm。或者，您可以<a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">使用指令碼動作自訂叢集</a>。
+HDInsight 會提供 Hadoop、HBase 或 Storm 的叢集組態。或者，您可以<a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">使用指令碼動作自訂叢集</a>。
 
 * **Hadoop** ("Query" 工作負載)：使用 [HDFS](#HDFS) 提供可靠的資料儲存，以及提供簡單的 [MapReduce](#mapreduce) 程式設計模型以平行處理和分析資料。
 
@@ -177,7 +177,7 @@ Apache YARN 是新一代的 MapReduce (MapReduce 2.0，簡稱為 MRv2)，可將 
 
 * [開始使用 Linux 上的 HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)：在 Linux 上佈建 HDInsight Hadoop 叢集以及執行範例 Hive 查詢的快速入門教學課程。
 
-* [使用自訂選項在 Linux 上佈建 HDInsight](hdinsight-hadoop-provision-linux-clusters.md)：深入了解如何使用自訂選項，透過 Azure 管理入口網站、Azure CLI 或 Azure PowerShell 佈建 HDInsight Hadoop 叢集。
+* [使用自訂選項在 Linux 上佈建 HDInsight](hdinsight-hadoop-provision-linux-clusters.md)：深入了解如何使用自訂選項，透過 Azure 入口網站、Azure CLI 或 Azure PowerShell 在 Linux 上佈建 HDInsight Hadoop 叢集。
 
 * [在 Linux 上使用 HDInsight](hdinsight-hadoop-linux-information.md)：取得使用 Azure 上佈建之 Hadoop Linux 叢集的一些快速提示。
 
@@ -194,7 +194,7 @@ Apache YARN 是新一代的 MapReduce (MapReduce 2.0，簡稱為 MRv2)，可將 
 
 * [執行 HDInsight 範例](hdinsight-run-samples.md)：對於如何執行 HDInsight 提供的範例進行解說的教學課程。
 
-* [Azure HDInsight SDK](http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx)：HDinsight SDK 的參考文件。
+* [Azure HDInsight SDK](http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx)：HDinsight SDK 的參考文件。Azure HDInsight SDK：HDinsight SDK 的參考文件。
 
 
 ### Apache Hadoop
@@ -246,4 +246,4 @@ Apache YARN 是新一代的 MapReduce (MapReduce 2.0，簡稱為 MRv2)，可將 
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="以程式設計方式存取 Hadoop YARN 應用程式記錄檔 | Microsoft Azure" 
-	description="在 HDInsight 中的 Hadoop 叢集上以程式設計方式存取應用程式記錄檔" 
-	services="hdinsight" 
-	documentationCenter="" 
+<properties
+	pageTitle="以程式設計方式存取 Hadoop YARN 應用程式記錄檔 | Microsoft Azure"
+	description="在 HDInsight 中的 Hadoop 叢集上以程式設計方式存取應用程式記錄檔"
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian" 
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
 	ms.author="jgao"/>
 
 # 在 HDInsight 中的 Hadoop 上，以程式設計方式存取 YARN 應用程式記錄檔
@@ -39,16 +40,16 @@
 
 <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> 透過兩個不同的介面提供已完成之應用程式的相關泛型資訊，以及架構特定應用程式資訊。具體而言：
 
-* 儲存及擷取 HDInsight 叢集上泛型應用程式資訊的功能已在版本 3.1.1.374 或更新版本上啟用。 
+* 儲存及擷取 HDInsight 叢集上泛型應用程式資訊的功能已在版本 3.1.1.374 或更新版本上啟用。
 * Timeline Server 的架構特定應用程式資訊元件目前在 HDInsight 叢集上並未提供。
 
 
 應用程式的相關泛型資訊包含下列類型的資料：
 
-* 應用程式識別碼，應用程式的唯一識別碼 
-* 啟動應用程式的使用者 
-* 為完成應用程式而進行之嘗試的相關資訊 
-* 任何指定之應用程式嘗試所使用的容器 
+* 應用程式識別碼，應用程式的唯一識別碼
+* 啟動應用程式的使用者
+* 為完成應用程式而進行之嘗試的相關資訊
+* 任何指定之應用程式嘗試所使用的容器
 
 在您的 HDInsight 叢集上，會由「Azure 資源管理員」將這項資訊儲存至您預設 Azure 儲存體帳戶之預設容器中的歷程記錄存放區。透過 REST API 即可抓取這項已完成之應用程式的相關泛型資料：
 
@@ -71,7 +72,7 @@ YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程�
 您無法直接閱讀彙總的記錄檔，因為它們是以 [TFile][T-file]、由容器編制索引的[二進位格式][binary-format]撰寫。YARN 提供 CLI 工具，可針對您感興趣的應用程式或容器，將這些記錄檔傾印成純文字。您可以直接在叢集節點上 (透過 RDP 連線到節點之後) 執行下列其中一個 YARN 命令，以純文字格式檢視這些記錄檔：
 
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
-	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address> 
+	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
 下一節說明如何以程式設計方式存取應用程式特定或容器特定記錄檔，而不需使用 RDP 連線到您的 HDInsight 叢集。
 
@@ -91,24 +92,24 @@ YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程�
 	string subscriptionId = "<your-subscription-id>";
 	string clusterName = "<your-cluster-name>";
 	string certName = "<your-subscription-management-cert-name>";
-	
+
 	// Create an HDInsight client
 	X509Store store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
 	store.Open(OpenFlags.ReadOnly);
 	X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>()
 	                            .Single(x => x.FriendlyName == certName);
-	
-	HDInsightCertificateCredential creds = 
+
+	HDInsightCertificateCredential creds =
 				new HDInsightCertificateCredential(new Guid(subscriptionId), cert);
-	
+
 	IHDInsightClient client = HDInsightClient.Connect(creds);
-	
+
 	// Get the cluster on which your applications were run
 	// The cluster needs to be in the "Running" state
 	ClusterDetails cluster = client.GetCluster(clusterName);
-	
+
 	// Create an Application History client against your cluster
-	IHDInsightApplicationHistoryClient appHistoryClient = 
+	IHDInsightApplicationHistoryClient appHistoryClient =
 				cluster.CreateHDInsightApplicationHistoryClient(TimeSpan.FromMinutes(5));
 
 
@@ -116,7 +117,7 @@ YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程�
 
 	// Local download folder location where the logs will be placed
 	string downloadLocation = "E:\\YarnApplicationLogs";
-	
+
 	// List completed applications on your cluster that were submitted in the last 24 hours but failed
 	// Search for applications based on application name
 	string appNamePrefix = "your-app-name-prefix";
@@ -124,10 +125,10 @@ YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程�
 	DateTime startTime = endTime.AddHours(-24);
 	IEnumerable<ApplicationDetails> applications = appHistoryClient
 	                .ListCompletedApplications(startTime, endTime)
-	                .Where(app => 
-	                    app.GetApplicationFinalStatusAsEnum() == ApplicationFinalStatus.Failed 
+	                .Where(app =>
+	                    app.GetApplicationFinalStatusAsEnum() == ApplicationFinalStatus.Failed
 	                    && app.Name.StartsWith(appNamePrefix));
-	
+
 	// Download logs for failed or killed applications
 	// This will generate one log file for each application
 	foreach (ApplicationDetails application in applications)
@@ -147,18 +148,18 @@ YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程�
 您也可以視需要為應用程式所使用的每個容器 (或任何特定容器) 下載記錄檔，如下所示。
 
 	ApplicationDetails someApplication = appHistoryClient.GetApplicationDetails(applicationId);
-	
+
 	// Download logs separately for each container of application(s) of interest
 	// This will generate one log file per container
 	IEnumerable<ApplicationAttemptDetails> applicationAttempts =
 				appHistoryClient.ListApplicationAttempts(someApplication);
-	
+
 	ApplicationAttemptDetails finalAttempt = applicationAttempts
 	    		.Single(x => x.ApplicationAttemptId == someApplication.LatestApplicationAttemptId);
-	
+
 	IEnumerable<ApplicationContainerDetails> containers =
 				appHistoryClient.ListApplicationContainers(finalAttempt);
-	
+
 	foreach (ApplicationContainerDetails container in containers)
 	{
 	    appHistoryClient.DownloadApplicationLogs(container, downloadLocation);
@@ -171,6 +172,5 @@ YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程�
 [T-file]: https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

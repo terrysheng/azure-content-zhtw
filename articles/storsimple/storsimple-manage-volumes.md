@@ -1,18 +1,18 @@
 <properties
-   pageTitle="管理 StorSimple 磁碟區"
+   pageTitle="管理 StorSimple 磁碟區 | Microsoft Azure"
    description="說明如何新增、修改及監視 StorSimple 磁碟區，以及如何在必要時使其離線。"
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/13/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # 管理 StorSimple 磁碟區
@@ -21,7 +21,7 @@
 
 本教學課程說明如何使用 StorSimple Manager 服務來建立和管理 StorSimple 裝置與 StorSimple 虛擬裝置上的磁碟區。
 
-StorSimple Manager 服務是 Azure 管理入口網站的延伸模組，可讓您從單一 Web 介面管理 StorSimple 方案。除了管理磁碟區，您可以使用 StorSimple Manager 服務來建立和管理 StorSimple 服務、檢視和管理裝置、檢視警示，以及檢視和管理備份原則與備份類別目錄。
+StorSimple Manager 服務是 Azure 入口網站的延伸模組，可讓您從單一 Web 介面管理 StorSimple 解決方案。除了管理磁碟區，您可以使用 StorSimple Manager 服務來建立和管理 StorSimple 服務、檢視和管理裝置、檢視警示，以及檢視和管理備份原則與備份類別目錄。
 
 > [AZURE.NOTE]Azure StorSimple 只能建立精簡佈建的磁碟區。您無法在 Azure StorSimple 系統上建立完整佈建或部分佈建的磁碟區。
 >
@@ -55,7 +55,7 @@ StorSimple Manager 服務是 Azure 管理入口網站的延伸模組，可讓您
 
 ## 新增磁碟區
 
-您已在部署 StorSimple 方案期間[建立磁碟區](storsimple-deployment-walkthrough.md#to-create-a-volume)。新增磁碟區會是類似的程序。
+您已在部署 StorSimple 方案期間[建立磁碟區](storsimple-deployment-walkthrough-u1.md#step-6-create-a-volume)。新增磁碟區會是類似的程序。
 
 ### 若要新增磁碟區
 
@@ -148,7 +148,7 @@ StorSimple Manager 服務是 Azure 管理入口網站的延伸模組，可讓您
 
 2. 選取含有您想要刪除之磁碟區的磁碟區容器。按一下該磁碟區容器，即可存取 [磁碟區] 頁面。
 
-3. 與這個容器相關聯的所有磁碟區會以表格顯示。檢查您想要刪除之磁碟區的狀態。如果您想要刪除的磁碟區未離線，請先使其離線，請依照[使磁碟區離線](#Take-a-volume-offline)中的步驟執行。
+3. 與這個容器相關聯的所有磁碟區會以表格顯示。檢查您想要刪除之磁碟區的狀態。如果您想要刪除的磁碟區未離線，請先使其離線，請依照[使磁碟區離線](#take-a-volume-offline)中的步驟執行。
 
 4. 在磁碟區離線之後，按一下頁面底部的 [刪除]。
 
@@ -181,4 +181,4 @@ StorSimple Manager 服務是 Azure 管理入口網站的延伸模組，可讓您
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="流量管理員路由方法"
+   pageTitle="流量管理員 - 流量路由方法 | Microsoft Azure"
    description="本文將協助您了解流量管理員所使用的不同流量路由方法"
    services="traffic-manager"
    documentationCenter=""
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # 流量管理員路由方法
 
-在流量管理員中可以使用的路由方法有三種。雖然您可以隨時為設定檔選取不同的路由方法，但每個流量管理員設定檔一次只能使用一種路由方法。
+在流量管理員中可以使用的流量路由方法有三種。雖然您可以隨時為設定檔選取不同的流量路由方法，但每個流量管理員設定檔一次只能使用一種流量路由方法。
 
-請務必注意所有的路由方法都包括端點監視。設定您的流量管理員設定檔並指定最適合您需求的路由方法之後，請進行監視設定。已正確設定監視之後，流量管理員會監視包含雲端服務和網站的端點狀態，並且不會將流量傳送到認定無法使用的端點。如需流量管理員的相關資訊，請參閱[關於流量管理員監視](traffic-manager-monitoring.md)。
+請務必注意所有的流量路由方法都包括端點監視。設定您的流量管理員設定檔，並指定最適合您需求的流量路由方法之後，請進行監視設定。已正確設定監視之後，流量管理員會監視包含雲端服務和網站的端點狀態，並且不會將流量傳送到認定無法使用的端點。如需流量管理員的相關資訊，請參閱[關於流量管理員監視](traffic-manager-monitoring.md)。
 
-這三種流量管理員路由方法包括：
+這三種流量管理員流量路由方法包括：
 
 - **容錯移轉**：當您在相同或不同 Azure 資料中心 (在管理入口網站中又稱為區域) 內擁有端點時，若想要讓所有流量都使用主要端點，但提供備份以避免發生主要或備份端點無法使用的情形，則請選取 [容錯移轉]。如需詳細資訊，請參閱[容錯移轉流量路由方法](#failover-traffic-routing-method)。
 
@@ -123,7 +123,7 @@
 
 ## 後續步驟
 
-[流量管理員概觀](traffic-manager-overview.md)
+[什麼是流量管理員？](traffic-manager-overview.md)
 
 [關於流量管理員監視](traffic-manager-monitoring.md)
 
@@ -137,4 +137,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

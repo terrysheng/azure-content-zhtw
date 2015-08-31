@@ -1,11 +1,12 @@
 <properties
    pageTitle="在 HDInsight 中最佳化 Hive 查詢以獲得更快的執行速度 |Microsoft Azure"
-   description="了解如何在 HDInsight 中最佳化 Hive 查詢"
+   description="了解如何在 HDInsight 中最佳化 Hadoop 的 Hive 查詢。"
    services="hdinsight"
    documentationCenter=""
    authors="rashimg"
    manager="mwinkle"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/28/2015"
+   ms.date="07/28/2015"
    ms.author="rashimg"/>
 
 
@@ -21,13 +22,18 @@
 
 根據預設，Hadoop 叢集不會為了效能進行最佳化。本文涵蓋幾個最常見 Hive 效能最佳化方法，您可將這些方法套用於我們的查詢。
 
+[AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+
+* [在 HDInsight 中最佳化 Hadoop 的 Hive 查詢](hdinsight-hadoop-optimize-hive-query-v1.md)。
+
 ##相應放大背景工作節點
 
 增加叢集中的背景工作節點數目，即可運用更多平行執行的對應器和歸納器。在 HDInsight 中您有兩種方法可相應放大：
 
-- 在佈建階段，您可以使用 Azure 入口網站、Azure PowerShell 或跨平台命令列介面指定背景工作節點的數目。如需詳細資訊，請參閱[佈建 HDInsight 叢集](hdinsight-provision-clusters.md)。下列畫面顯示 Azure 入口網站上的工作者節點組態：
+- 在佈建階段，您可以使用 Azure 預覽入口網站、Azure PowerShell 或跨平台命令列介面，指定背景工作節點的數目。如需詳細資訊，請參閱[佈建 HDInsight 叢集](hdinsight-provision-clusters.md)。下列畫面顯示 Azure 預覽入口網站上的背景工作節點組態：
 
 	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
+
 - 在執行階段，您可以也相應放大叢集，而不需重新一個叢集。這如以下所示。![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
 
 如需 HDInsight 支援的各種虛擬機器的詳細資訊，請參閱 [HDInsight 定價](http://azure.microsoft.com/pricing/details/hdinsight/)。
@@ -41,8 +47,8 @@
 
 Tez 比較迅速，因為：
 
-- 在 MapReduce 引擎中以單一工作的形式執行有向非循環圖 (DAG)，而所表示的 DAG 要求每一組對應器的後面都接著一組歸納器。這會導致多個 MapReduce 工作針對每個 Hive 查詢而分拆。Tez 沒有此種條件約束，並可將複雜的 DAG 當作一項工作處理，因而將工作啟動的額外負荷降至最低。 
-- **避免不必要的寫入**：由於 MapReduce 引擎中有多項工作正針對相同的 Hive 查詢而運作，所有每項工作的輸出會寫入至 HDFS 做為中繼資料。Tez 可以將每個 Hive 查詢的工作數目降至最低，所以能夠避免不必要的寫入。 
+- 在 MapReduce 引擎中以單一工作的形式執行有向非循環圖 (DAG)，而所表示的 DAG 要求每一組對應器的後面都接著一組歸納器。這會導致多個 MapReduce 工作針對每個 Hive 查詢而分拆。Tez 沒有此種條件約束，並可將複雜的 DAG 當作一項工作處理，因而將工作啟動的額外負荷降至最低。
+- **避免不必要的寫入**：由於 MapReduce 引擎中有多項工作正針對相同的 Hive 查詢而運作，所有每項工作的輸出會寫入至 HDFS 做為中繼資料。Tez 可以將每個 Hive 查詢的工作數目降至最低，所以能夠避免不必要的寫入。
 - **最小化啟動延遲**：Tez 會減少所需啟動的對應器數目，又能提升整個最佳化，所以比較能夠將啟動延遲降到最低。
 - **重複使用容器**：Tez 會儘可能重複使用容器，確保減少因為啟動容器而產生的延遲。
 - **連續最佳化技巧**：習慣上，最佳化是在編譯階段進行。但是有更多關於輸入的資訊可用，所以在執行階段進行最佳化比較理想。Tez 會使用連續最佳化技巧，進一步在執行階段將計劃最佳化。
@@ -51,33 +57,33 @@ Tez 比較迅速，因為：
 
 在查詢的前面加上以下設定，即可啟用任何 Hive 查詢 Tez：
 
-	set hive.execution.engine=tez; 
+	set hive.execution.engine=tez;
 
 在佈建階段必須啟用 Tez。以下的 Azure PowerShell 指令碼範例可供佈建已啟用 Tez 的 Hadoop 叢集：
 
-	    
-	$clusterName = "[HDInsightClusterName]" 
+
+	$clusterName = "[HDInsightClusterName]"
 	$location = "[AzureDataCenter]" #i.e. West US
 	$dataNodes = 32 # number of worker nodes in the cluster
 
-	$defaultStorageAccountName = "[DefaultStorageAccountName]" 
+	$defaultStorageAccountName = "[DefaultStorageAccountName]"
 	$defaultStorageContainerName = "[DefaultBlobContainerName]"
 	$defaultStorageAccountKey = $defaultStorageAccountKey = Get-AzureStorageKey $defaultStorageAccountName.ToLower() | %{ $_.Primary }
-	    
-	$hdiUserName = "[HTTPUserName]" 
-	$hdiPassword = "[HTTPUserPassword]" 
-	    
+
+	$hdiUserName = "[HTTPUserName]"
+	$hdiPassword = "[HTTPUserPassword]"
+
 	$hdiSecurePassword = ConvertTo-SecureString $hdiPassword -AsPlainText -Force
 	$hdiCredential = New-Object System.Management.Automation.PSCredential($hdiUserName, $hdiSecurePassword)
-	    
+
 	$hiveConfig = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightHiveConfiguration'
 	$hiveConfig.Configuration = @{ "hive.execution.engine"="tez" }
-	    
-	New-AzureHDInsightClusterConfig -ClusterSizeInNodes $dataNodes -HeadNodeVMSize Standard_D14 -DataNodeVMSize Standard_D14 | 
+
+	New-AzureHDInsightClusterConfig -ClusterSizeInNodes $dataNodes -HeadNodeVMSize Standard_D14 -DataNodeVMSize Standard_D14 |
 	Set-AzureHDInsightDefaultStorage -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" -StorageAccountKey $defaultStorageAccountKey -StorageContainerName $defaultStorageContainerName |
 	Add-AzureHDInsightConfigValues -Hive $hiveConfig |
 	New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $hdiCredential
-    
+
 ## Hive 分割
 
 I/O 作業是執行 Hive 查詢的主要效能瓶頸。如果可以減少需要讀取的資料量，即可改善效能。根據預設，Hive 查詢會掃描整個 Hive 資料表。這很適合資料表掃描之類的查詢，但是對於只需要掃描少量資料的查詢 (例如具有篩選的查詢)，這就會產生不必要的額外負荷。Hive 分割可讓 Hive 查詢只存取 Hive 資料表中所需的資料量。
@@ -88,8 +94,8 @@ Hive 分割的實作方法是將未經處理的資料重新整理成新的目錄
 
 一些分割考量：
 
-- **請勿分割不足** - 依據只有少數幾個值的資料行進行分割，可能會造成極少的分割區。例如，依據性別進行分割只會建立兩個分割區 (男性和女性)，因此只會降低最多一半的延遲。 
- 
+- **請勿分割不足** - 依據只有少數幾個值的資料行進行分割，可能會造成極少的分割區。例如，依據性別進行分割只會建立兩個分割區 (男性和女性)，因此只會降低最多一半的延遲。
+
 - **請勿分割過度** - 另一方面，依據具有唯一值 (如使用者識別碼) 的資料行建立分割區會造成多個分割區，以致叢集 namenode 因為必須處理大量目錄而壓力很大。
 
 - **避免資料扭曲** - 明智地選擇分割索引鍵，讓所有分割區的大小平均。例如，依據*州* 進行分割可能造成加州的記錄數目幾乎是佛蒙特州的記錄數目的 30 倍 (因為人口差異)。
@@ -100,31 +106,31 @@ Hive 分割的實作方法是將未經處理的資料重新整理成新的目錄
     	(L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
     	 L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
     	 L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-    	 L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE 	  	 STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, 
+    	 L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE 	  	 STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING,
     	 L_COMMENT STRING)
     PARTITIONED BY(L_SHIPDATE STRING)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' 
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
     STORED AS TEXTFILE;
 
 建立分割資料表後，您可以建立靜態分割或動態分割。
 
-- **靜態分割**表示您已在適當的目錄中將資料分區，而且可以手動要求以目錄位置為基礎的 Hive 分割區。如以下程式碼片段所示。 
+- **靜態分割**表示您已在適當的目錄中將資料分區，而且可以手動要求以目錄位置為基礎的 Hive 分割區。如以下程式碼片段所示。
 
 	    INSERT OVERWRITE TABLE lineitem_part
 	    PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)
 	    SELECT * FROM lineitem 
 	    WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
-	    
+
 	    ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
 	    LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
 
 - **動態分割**表示您要 Hive 為您自動建立分割區。我們已從暫存資料表建立分割資料表，所以我們只需要將資料插入至分割資料表，如下所示：
 
-	    SET hive.exec.dynamic.partition = true; 
-	    SET hive.exec.dynamic.partition.mode = nonstrict; 
-	    INSERT INTO TABLE lineitem_part 
-	    PARTITION (L_SHIPDATE) 
-	    SELECT L_ORDERKEY as L_ORDERKEY, L_PARTKEY as L_PARTKEY ,  
+	    SET hive.exec.dynamic.partition = true;
+	    SET hive.exec.dynamic.partition.mode = nonstrict;
+	    INSERT INTO TABLE lineitem_part
+	    PARTITION (L_SHIPDATE)
+	    SELECT L_ORDERKEY as L_ORDERKEY, L_PARTKEY as L_PARTKEY , 
 	    	 L_SUPPKEY as L_SUPPKEY, L_LINENUMBER as L_LINENUMBER,
 	     	 L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
 	    	 L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as 	 	 L_RETURNFLAG, L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as 	 	 L_SHIPDATE_PS, L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as 	 L_RECEIPTDATE, L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as 	 L_SHIPMODE, L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
@@ -138,7 +144,7 @@ Hive 支援不同的檔案格式。例如：
 - **文字**：這是預設檔案格式，適用於大部分的案例
 - **Avro**：適用於互通性案例
 - **ORC/Parquet**：最適合處理效能
- 
+
 ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方式。相較於其他格式，ORC 具有下列優點：
 
 - 支援複雜的類型，包括 DateTime 和複雜和半結構化類型
@@ -152,7 +158,7 @@ ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方�
     	(L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
     	 L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
     	 L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-    	 L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, 
+    	 L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
 		 L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT 	 STRING)
     PARTITIONED BY(L_SHIPDATE STRING)
     STORED AS ORC;
@@ -161,20 +167,20 @@ ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方�
 
     INSERT INTO TABLE lineitem_orc
     SELECT L_ORDERKEY as L_ORDERKEY, 
-           L_PARTKEY as L_PARTKEY ,  
-    	   L_SUPPKEY as L_SUPPKEY, 
+           L_PARTKEY as L_PARTKEY , 
+    	   L_SUPPKEY as L_SUPPKEY,
 		   L_LINENUMBER as L_LINENUMBER,
      	   L_QUANTITY as L_QUANTITY, 
 		   L_EXTENDEDPRICE as L_EXTENDEDPRICE,
-    	   L_DISCOUNT as L_DISCOUNT, 
-		   L_TAX as L_TAX, 
-           L_RETURNFLAG as L_RETURNFLAG, 
-		   L_LINESTATUS as L_LINESTATUS, 
-		   L_SHIPDATE as L_SHIPDATE, 
-		   L_COMMITDATE as L_COMMITDATE, 
+    	   L_DISCOUNT as L_DISCOUNT,
+		   L_TAX as L_TAX,
+           L_RETURNFLAG as L_RETURNFLAG,
+		   L_LINESTATUS as L_LINESTATUS,
+		   L_SHIPDATE as L_SHIPDATE,
+		   L_COMMITDATE as L_COMMITDATE,
 		   L_RECEIPTDATE as L_RECEIPTDATE, 
-		   L_SHIPINSTRUCT as L_SHIPINSTRUCT, 
-		   L_SHIPMODE as L_SHIPMODE, 
+		   L_SHIPINSTRUCT as L_SHIPINSTRUCT,
+		   L_SHIPMODE as L_SHIPMODE,
 		   L_COMMENT as L_COMMENT
     FROM lineitem;
 
@@ -197,7 +203,7 @@ ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方�
 
 - **Hive 值區：**能將大型資料集叢集化或分段以最佳化查詢效能的技術。
 - **聯結最佳化：**Hive 的查詢執行計劃最佳化，可改善聯結的效率並減少使用者提示的需求。如需詳細資訊，請參閱[聯結最佳化](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization)。
-- **增加歸納器** 
+- **增加歸納器**
 
 ##<a id="nextsteps"></a> 後續步驟
 在本文中，您學到幾種常見的 Hive 查詢最佳化方法。若要深入了解，請參閱下列文章：
@@ -213,6 +219,5 @@ ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方�
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

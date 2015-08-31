@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # 在 StorSimple Snapshot Manager 使用 MMC 功能表動作
@@ -125,6 +125,6 @@
 
 ## 後續步驟
 
-[深入了解 StorSimple Snapshot Manager 使用者介面](storsimple-use-snapshot-manager.md)
+[深入了解 StorSimple Snapshot Manager 使用者介面](storsimple-use-snapshot-manager.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

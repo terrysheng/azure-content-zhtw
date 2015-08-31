@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="08/18/2015" 
 	ms.author="mwasson"/>
 
 #在使用流量管理員的 Azure App Service 中設定 Web 應用程式的自訂網域名稱
@@ -70,4 +70,4 @@
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

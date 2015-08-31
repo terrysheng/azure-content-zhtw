@@ -1,4 +1,5 @@
 1. 使用[從 Azure CLI 連接到 Azure](../articles/xplat-cli-connect.md) 中列出的步驟登入 Azure 訂用帳戶。
+
 2. 請使用下列項目確定您處於服務管理模式中：
 
         azure config mode asm
@@ -36,6 +37,6 @@
 
 7. 新建立的虛擬機器已經準備開始使用 `azure vm start` 命令。
 
-如需所有 Azure CLI 虛擬機器命令的詳細資料，請閱讀[搭配使用 Azure CLI 與 Azure 服務管理](../articles/virtual-machines/virtual-machines-command-line-tools.md)。
+如需所有 Azure CLI 虛擬機器命令的詳細資料，請閱讀[搭配使用 Azure CLI 與服務管理 API](../articles/virtual-machines/virtual-machines-command-line-tools.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -52,13 +53,16 @@
 	>
 	> 驗證是純文字的 - 請一律使用 HTTPS 來協助確保連線的安全性。
 
-* **SSH** - &lt;clustername>-ssh.azurehdinsight.net on port 22
+* **SSH** - &lt;clustername>-ssh.azurehdinsight.net on port 22 or 23.連接埠 22 用來連接至 headnode0、而 23 用來連接至 headnode1。如需前端節點的詳細資訊，請參閱 [HDInsight 上 Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)。
 
 	> [AZURE.NOTE]您只能從用戶端電腦透過 SSH 存取叢集前端節點。然後在連線後，再從前端節點使用 SSH 存取背景工作節點。
 
 ## 檔案位置
 
-Hadoop 相關檔案可以在叢集節點的 `/usr/hdp/current` 上找到。
+Hadoop 相關檔案可以在叢集節點的 `/usr/hdp` 上找到。此目錄包含下列子目錄：
+
+* __2.2.4.9-1__：這個目錄是針對 HDInsight 所使用的 Hortonworks Data Platform 版本來命名，因此您叢集上的數字可能會與此處所列的數字不同。
+* __current__：這個目錄包含可連至 __2.2.4.9-1__ 目錄下之目錄的連結，有了它就可讓您每次要存取檔案時，不必輸入版本號碼 (該號碼可能會變更)。
 
 範例資料和 JAR 檔案可於 Hadoop 分散式檔案系統 (HDFS) 或 Azure Blob 儲存體的 '/example' 或 'wasb:///example' 取得。
 
@@ -139,4 +143,4 @@ HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要�
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -3,6 +3,7 @@
 	description="了解如何安裝和使用適用於 HDInsight 的 Visual Studio Hadoop 工具來連線到 Hadoop 叢集和執行 Hive 查詢。"
 	services="HDInsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -13,12 +14,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/21/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 # 開始使用適用於 HDInsight 的 Visual Studio Hadoop 工具來執行 Hive 查詢
 
-了解如何使用 HDInsight Tools for Visual Studio 來連線到 HDInsight 叢集並提交 Hive 查詢。如需使用 HDInsight 的詳細資訊，請參閱 [HDInsight 簡介][hdinsight.introduction]和[開始使用 HDInsight][hdinsight.get.started]。如需連線到 Storm 叢集的詳細資訊，請參閱[使用 Visual Studio 開發 HDInsight 上 Apache Storm 的 C# 拓撲][hdinsight.storm.visual.studio.tools]。
+了解如何使用 HDInsight Tools for Visual Studio 來連線到 HDInsight 叢集並提交 Hive 查詢。如需使用 HDInsight 的詳細資訊，請參閱 [HDInsight 簡介][hdinsight.introduction]和[開始使用 HDInsight][hdinsight.get.started]。如需連線到 Storm 叢集的詳細資訊，請參閱[使用 Visual Studio 開發 HDInsight 上 Apache Storm 的 C#拓撲][hdinsight.storm.visual.studio.tools]。
 
 >[AZURE.NOTE]最新版本引進了一些新功能，例如 Hive 編輯器支援、Hive 指令碼本機驗證，以及 YARN 記錄存取。
 
@@ -68,7 +69,7 @@ HDInsight Tools for Visual Studio 封裝在 Microsoft Azure SDK for .NET 2.5.1 �
 
 	>[AZURE.NOTE]請注意，應會開啟 [**HDInsight 工作清單**] 視窗。如果沒看見，請從 [**檢視**] 功能表中按一下 [**其他視窗**]，然後按一下 [**HDInsight 工作清單視窗**]，即可開啟此視窗。  
 4.	輸入您的 Azure 訂用帳戶認證，然後按一下 [**登入**]。只有當您從未在此工作站上從 Visual Studio 連線到 Azure 訂用帳戶時，才需要這樣做。
-5.	在 [伺服器總管] 中，您會看到現有 HDInsight 叢集的清單。如果您沒有任何叢集，您可以使用 Azure 入口網站、Azure PowerShell 或 HDInsight SDK 來佈建一個。如需詳細資訊，請參閱[佈建 HDInsight 叢集][hdinsight-provision]。
+5.	在 [伺服器總管] 中，您會看到現有 HDInsight 叢集的清單。如果您沒有任何叢集，您可以使用 Azure 預覽入口網站、Azure PowerShell 或 HDInsight SDK 來佈建一個。如需詳細資訊，請參閱[佈建 HDInsight 叢集][hdinsight-provision]。
 
 	![Hadoop 工具：HDInsight Tools for Visual Studio 伺服器總管叢集清單][5]
 6.	展開某個 HDInsight 叢集。您將會看到 [**Hive 資料庫**]、預設儲存體帳戶、連結的儲存體帳戶和 [**Hadoop 服務記錄**]。您可以進一步展開這些實體。
@@ -134,7 +135,7 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 
 1. 從 [**伺服器總管**] 中，展開 [**Azure**]，然後展開 [**HDInsight 叢集**]。
 2. 在您想要執行查詢的叢集上按一下滑鼠右鍵，然後按一下 [**撰寫 Hive 查詢**]。
-3. 輸入 Hive 查詢。請注意，Hive 編輯器支援 Intellisense。HDInsight Tools for Visual Studio 支援在編輯 Hive 指令碼時載入遠端中繼資料。例如，當您輸入 "SELECT * FROM"，IntelliSense 會列出所有建議的資料表名稱。在指定了資料表名稱時，IntelliSense 會列出資料行名稱。此工具幾乎支援所有的 Hive DML 陳述式、子查詢以及內建 UDF。 
+3. 輸入 Hive 查詢。請注意，Hive 編輯器支援 Intellisense。HDInsight Tools for Visual Studio 支援在編輯 Hive 指令碼時載入遠端中繼資料。例如，當您輸入 "SELECT * FROM"，IntelliSense 會列出所有建議的資料表名稱。在指定了資料表名稱時，IntelliSense 會列出資料行名稱。此工具幾乎支援所有的 Hive DML 陳述式、子查詢以及內建 UDF。
 
 	![Hadoop 工具：HDInsight Visual Studio 工具 IntelliSense][13]
 
@@ -235,4 +236,4 @@ HDInsight Tools for Visual Studio 支援建立 Pig 指令碼並提交至 HDInsig
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

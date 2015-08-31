@@ -40,16 +40,24 @@ Application Insights SDK 以及與應用程式合併的代理程式會將資料�
 
 * [TrackTrace 呼叫](app-insights-api-custom-events-metrics.md#track-trace)和[擷取記錄檔](app-insights-asp-net-trace-logs.md)
 * [例外狀況](app-insights-api-custom-events-metrics.md#track-exception)，取決於較低限制 50/s。
-* 所有其他遙測 (頁面檢視、要求、相依性、度量、自訂事件)。
+* 所有其他遙測 (頁面檢視、要求、相依性、度量、自訂事件以及 Web 測試結果)。
 
 **每月**：根據您的[定價方案](http://azure.microsoft.com/pricing/details/application-insights/)，每個日曆月份中從 500 萬至 1500 萬資料點。除了免費[定價層][pricing]，如果達到最大限制，您可以購買額外的容量。
 
 
-*資料點*是遙測的項目，例如：
+*資料點*是傳送至 Azure 入口網站，有關您應用程式的遙測項目。它可透過下列方式傳送：
 
-* API `Track...` 呼叫 (例如 `TrackEvent` 或 `trackPageView`)。
-* SDK 模組所傳送的遙測項目 (例如，報告要求或損毀)。
-* 效能計數器資料 - 一個度量一個點。
+* 可自動收集資料的 [SDK 模組](app-insights-configuration-with-applicationinsights-config.md)，例如回報要求或損毀，或測量效能。
+* 您所撰寫的 [API](app-insights-api-custom-events-metrics.md) `Track...` 呼叫，例如 `TrackEvent` 或 `trackPageView`。
+* 您已設定的[可用性 Web 測試](app-insights-monitor-web-app-availability.md)。
+
+遙測資料包括：
+
+* [診斷搜尋](app-insights-diagnostic-search.md)中的每個資料列
+* 彙總[度量瀏覽器](app-insights-metrics-explorer.md)中圖表的原始資料。度量資料 (例如效能計數器資料) 通常不會顯示為度量瀏覽器中的個別點。
+* [可用性](app-insights-monitor-web-app-availability.md)報告中的每個 Web 測試結果。
+
+使用者與工作階段計數不會併入定價用途的配額。
 
 *如何知道應用程式正在傳送多少資料點？*
 
@@ -202,7 +210,7 @@ PageViews | URL 和頁面名稱或螢幕名稱
 損毀 | 處理序識別碼、父處理序識別碼、損毀執行緒識別碼；應用程式修補程式、識別碼、組建；例外狀況類型、位址、原因；模糊符號和暫存器、二進位開始和結束位址、二進位檔名稱和路徑、CPU 類型
 追蹤 | **訊息**和嚴重性層級
 效能計數器 | 處理器時間、可用記憶體、要求率、例外狀況率、處理序私用位元組、IO 率、要求持續期間、要求佇列長度
-Availability | Web 測試回應碼、每個測試步驟的持續時間
+Availability | Web 測試回應程式碼、每個測試步驟的持續時間、測試名稱、時間戳記、成功、回應時間、測試位置
 SDK 診斷 | 追蹤訊息或例外狀況 
 
 您可以[編輯 ApplicationInsights.config 來關閉某些資料][config]
@@ -242,4 +250,4 @@ SDK 診斷 | 追蹤訊息或例外狀況
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

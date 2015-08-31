@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop (預覽)
@@ -68,21 +69,23 @@ SSH 是用來登入遠端伺服器並在其中遠端執行命令的公用程式�
 
 6. 按一下 [**儲存公開金鑰**] 將金鑰儲存為 **.txt** 檔案。這可讓您在日後建立其他以 Linux 為基礎的 HDInsight 叢集時重複使用此公開金鑰。
 
-	> [AZURE.NOTE]PuTTYGen 的頂端也會顯示此公開金鑰。您可以用滑鼠右鍵按一下此欄位，複製值並貼到表單中，例如 Azure 入口網站中的 HDInsight 精靈。
+	> [AZURE.NOTE]PuTTYGen 的頂端也會顯示此公開金鑰。當您使用 Azure Preview 入口網站建立叢集時，可以用滑鼠右鍵按一下此欄位，複製值並將其貼入表單。
 
 ##建立以 Linux 為基礎的 HDInsight 叢集
 
 在建立以 Linux 為基礎的 HDInsight 叢集時，您必須提供先前建立的公開金鑰。從以 Windows 為基礎的用戶端，有兩種方式可以建立以 Linux 為基礎的 HDInsight 叢集：
 
-* **Azure 入口網站** - 使用網頁型入口網站來建立叢集。
+* **Azure Preview 入口網站** - 使用網頁型入口網站來建立叢集。
 
 * **適用於 Mac、Linux 和 Windows 的 Azure CLI** - 使用命令列命令建立叢集。
 
 這兩種方法都需要公開金鑰。如需建立以 Linux 為基礎的 HDInsight 叢集的完整資訊，請參閱[佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
-###Azure 入口網站
+###Azure Preview 入口網站
 
-使用入口網站來建立以 Linux 為基礎的 HDInsight 叢集時，您必須在下列表單中輸入使用者名稱和密碼或公開金鑰：
+使用 [Azure Preview 入口網站][preview-portal]來建立以 Linux 為基礎的 HDInsight 叢集時，您必須輸入 [SSH 使用者名稱]，然後選擇輸入[密碼] 或 [SSH 公開金鑰]。
+
+如果您選取 [SSH 公開金鑰]，則可以將公開金鑰 (在 PuttyGen 會顯示於 [貼到 OpenSSH 授權金鑰檔案的公開金鑰] 欄位) 貼入 [SSH 公開金鑰] 欄位，或選取 [選取檔案] 以瀏覽和選取包含公開金鑰的檔案。
 
 ![要求公開金鑰的表單映像](./media/hdinsight-hadoop-linux-use-ssh-windows/ssh-key.png)
 
@@ -117,6 +120,8 @@ SSH 是用來登入遠端伺服器並在其中遠端執行命令的公用程式�
 	> [AZURE.NOTE]如果這是您第一次連線到叢集，您會收到安全性警示。這是正常現象。請選取 [**是**] 快取伺服器的 RSA2 金鑰以繼續進行。
 
 6. 出現提示時，輸入您建立叢集時所輸入的使用者。如果您對使用者提供密碼，系統會提示您一併輸入密碼。
+
+> [AZURE.NOTE]上述步驟假設您使用連接埠 22，這將會連接到 HDInsight 叢集上的 headnode0。如果您使用連接埠 23，您將會連接到 headnode1。如需前端節點的詳細資訊，請參閱 [HDInsight 上 Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)。
 
 ###連接至背景工作節點
 
@@ -194,9 +199,9 @@ SSH 是用來登入遠端伺服器並在其中遠端執行命令的公用程式�
 
 ##<a id="tunnel"></a>SSH 通道
 
-SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDInsight 叢集。要求便會路由至要求的資源，彷彿要求是在 HDInsight 叢集前端節點上產生。
+SSH 可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDInsight 叢集。要求便會路由至要求的資源，彷彿要求是在 HDInsight 叢集前端節點上產生。
 
-在 HDInsight 叢集上所要存取的 Web 服務是使用叢集之前端節點或背景工作節點的內部網域名稱時，這種方式最為適用。例如，Ambari 網頁的某些區段使用內部網域名稱，例如 **headnode0.mycluster.d1.internal.cloudapp.net**。這些名稱無法從叢集外加以解析，但是透過 SSH 以通道傳送的要求會在叢集內產生，並且將會正確解析。
+> [AZURE.IMPORTANT]SSH 通道是存取 sopme Hadoop 服務之 Web UI 的必要項目。例如，[作業記錄] UI 或 [資源管理員] UI 都只能使用 SSH 通道存取。
 
 使用下列步驟來建立 SSH 通道，並設定瀏覽器用此通道來連接到叢集。
 
@@ -228,7 +233,7 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 
 ###瀏覽器延伸模組
 
-當設定瀏覽器使用通道的功能在運作時，您通常不會想透過通道傳送所有流量。瀏覽器延伸模組 (例如 [FoxyProxy](http://getfoxyproxy.org/)) 支援 URL 要求的模式比對 (僅限 FoxyProxy Standard 或 Plus)，以便只有特定 URL 的要求會透過通道傳送。
+當設定瀏覽器使用通道的功能在運作時，您通常不會想透過通道傳送所有流量。[FoxyProxy](http://getfoxyproxy.org/) 等瀏覽器延伸支援 URL 要求的模式比對 (僅限 FoxyProxy Standard 或 Plus)，因此只有特定 URL 的要求會透過通道傳送。
 
 如果您已安裝 FoxyProxy Standard，請使用下列步驟將它設定為只透過通道轉送 HDInsight 的流量。
 
@@ -278,4 +283,6 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+[preview-portal]: https://portal.azure.com/
+
+<!---HONumber=August15_HO8-->

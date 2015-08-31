@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Snapshot Manager 來檢視和管理磁碟區
@@ -265,9 +265,9 @@
 
 ## 後續步驟
 
-[使用 StorSimple Snapshot Manager 來管理磁碟區群組](storsimple-snapshot-manager-manage-volume-groups.md)。
+[使用 StorSimple Snapshot Manager 建立和管理磁碟區群組](storsimple-snapshot-manager-manage-volume-groups.md)。
 
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

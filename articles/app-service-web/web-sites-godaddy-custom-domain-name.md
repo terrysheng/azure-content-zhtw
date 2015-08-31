@@ -3,7 +3,7 @@
 	description="了解如何搭配使用來自 GoDaddy 的網域名稱與 Azure Web Apps"
 	services="app-service\web"
 	documentationCenter=""
-	authors="MikeWasson"
+	authors="erikre"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2015"
-	ms.author="mwasson"/>
+	ms.date="08/18/2015"
+	ms.author="erikre"/>
 
 # 在 Azure App Service 中設定自訂網域名稱 (直接向 GoDaddy 購買)
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-> [AZURE.NOTE]如果您已透過 Azure App Service Web Apps 購買網域，請略過<a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">購買 Web Apps 網域</a>文章的最後一個步驟。
+> [AZURE.NOTE]如果您已透過 Azure App Service Web Apps 購買網域，請參考<a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">購買 Web Apps 網域</a>文章的最後一個步驟。
 
 [AZURE.INCLUDE [簡介](../../includes/custom-dns-web-site-intro.md)]
 
@@ -89,4 +89,4 @@
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

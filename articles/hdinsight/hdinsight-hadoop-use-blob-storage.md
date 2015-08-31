@@ -3,6 +3,7 @@
 	description="HDInsight 使用 Blob 儲存體作為 HDFS 的大量資料存放區。了解如何從 Blob 儲存體查詢資料並儲存分析的結果。"
 	services="hdinsight,storage"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -12,8 +13,8 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="06/10/2015"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 
@@ -76,7 +77,7 @@ Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以�
 * **資料封存：**將資料儲存在 Azure Blob 儲存體中，可安全地刪除用於計算的 HDInsight 叢集，而不會遺失使用者資料。
 * **資料儲存成本：**長期將資料儲存在 DFS 中的成本高於將資料儲存在 Azure Blob 儲存體中，因為運算叢集的成本高於 Azure Blob 儲存容器的成本。此外，因為不需要每次產生運算叢集時都重新載入資料，也能節省資料載入成本。
 * **彈性向外延展：**雖然HDFS 提供向外延展的檔案系統，但延展程度取決於您佈建給叢集的節點數目。變更延展程度較為複雜，可改用 Azure Blob 儲存體自動提供的彈性延展功能。
-* **異地複寫：**Azure Blob 儲存容器可以透過 Azure 入口網站在異地複寫。雖然這樣可支援地理位置復原和資料備援，但容錯移轉至異地複寫的位置會嚴重影響效能，且可能產生額外的成本。因此，只有在資料的價值大於額外成本時，才建議您明智地選擇異地複寫。
+* **異地複寫：**Azure Blob 儲存容器可以進行異地複寫。雖然這樣可支援地理位置復原和資料備援，但容錯移轉至異地複寫的位置會嚴重影響效能，且可能產生額外的成本。因此，只有在資料的價值大於額外成本時，才建議您明智地選擇異地複寫。
 
 某些 MapReduce 工作和封裝可能會產生中繼結果，但您並不真的想要將這些結果儲存在 Azure Blob 儲存體中。在此情況下，您仍可選擇將資料儲存在本機 HDFS。事實上，在 Hive 工作和其他程序中，HDInsight 會使用 DFS 來儲存許多這些中繼結果。
 
@@ -91,23 +92,11 @@ Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以�
 不要與多個 HDInsight 叢集共用預設儲存容器。如果需要使用共用容器來提供多個 HDInsight 叢集的資料存取權限，應將共用容器新增為叢集組態中的其他儲存體帳戶。如需詳細資訊，請參閱[佈建 HDInsight 叢集][hdinsight-provision]。不過，在刪除原始的 HDInsight 叢集後，您可以重複使用預設儲存容器。至於 HBase 叢集，您可以利用被刪除的 HBase 叢集使用的預設 Blob 儲存容器來佈建一個新的 HBase 叢集，藉此實際保留 HBase 資料表結構描述和資料。
 
 
-###使用 Azure 入口網站
+###使用 Azure 預覽入口網站
 
-從 Azure 入口網站佈建 HDInsight 叢集時，有兩種選項：**快速建立**和**自訂建立**。要使用 [快速建立] 選項，需要事先建立 Azure 儲存體帳戶。相關指示請參閱[如何建立儲存體帳戶][azure-storage-create]。
+從預覽入口網站佈建 HDInsight 叢集時，您可以選擇使用現有的儲存體帳戶或建立新的儲存體帳戶：
 
-使用 [快速建立] 選項時，您可以選擇現有的儲存體帳戶。佈建程序會建立與 HDInsight 叢集名稱同名的新容器。如果已有相同名稱的容器存在，便會使用 <clusterName>-<x>。例如，*myHDIcluster-1*。此容器做為預設檔案系統。
-
-![使用快速建立在 Azure 入口網站中的 HDInsight 建立新的 Hadoop 叢集。][img-hdi-quick-create]
-
-使用 [自訂建立] 時，您可以對預設儲存體帳戶使用下列其中一個選項：
-
-- 使用現有儲存體
-- 建立新的儲存體
-- 使用其他訂用帳戶的儲存體
-
-您也可以選擇建立自己專屬的容器或使用現有容器。
-
-![使用現有的儲存體帳戶以用於 HDInsight 叢集的選項。][img-hdi-custom-create-storage-account]
+![HDInsight Hadoop 佈建資料來源](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
 ###使用 Azure CLI
 
@@ -325,6 +314,5 @@ URI 配置提供未加密存取 (使用*wasb:* 首碼) 和 SSL 加密存取 (使
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

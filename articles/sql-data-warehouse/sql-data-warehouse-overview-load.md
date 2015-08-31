@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="lodipalm"
    manager="barbkess"
-   editor=""/>
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -43,16 +43,19 @@ SQL 資料倉儲提供許多選項，供載入資料，包括：
 
 若要準備將您的檔案移動到 Azure，您必須將它們匯出至一般檔案。最佳作法就是使用 BCP 命令列公用程式。如果尚未有此公用程式，它可以與[適用於 SQL Server 的 Microsoft 命令列公用程式][]一起下載。範例 BCP 命令看起來可能如下所示：
 
-	bcp "<Directory><File>" -c -T -S <Server Name> -d <Database Name>
+```
+bcp "<Directory><File>" -c -T -S <Server Name> -d <Database Name>
+```
 
 此命令將取得查詢的結果，並將它們匯出至您所選擇的目錄中的檔案。您可以藉由一次對個別資料表執行多個 BCP 命令，來平行處理此處理序。這樣可讓您對伺服器的每個核心至多執行一個 BCP 處理序。我們的建議是以不同的組態嘗試幾個較小的作業，來查看何者最適用於您的環境。
 
 此外，當我們使用 PolyBase 載入時，請注意，PolyBase 尚未支援 UTF-16，因此所有檔案必須以 UTF-8 表示。可以輕鬆地完成此作業，方法是在您的 BCP 命令中包含 '-c' 旗標，或者，您也可以使用下列程式碼，將一般檔案從 UTF-16 轉換為 UTF-8：
 
-		Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
+```
+Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
+```
  
 一旦順利地將您的資料匯出至檔案，就可以開始將它們移至 Azure。完成此作業的方法為使用 AZCopy 或使用匯入/匯出服務，如下節所述。
-
 
 ## 使用 AZCopy 或匯入/匯出載入至 Azure
 如果您是移動 5-10 TB 範圍或以上中的資料，我們建議您使用我們的磁碟運送服務[匯入/匯出][]，以便完成移動。不過，在我們的研究中，我們已經能夠使用公用網際網路搭配 AZCopy，輕鬆地移動單一數字 TB 範圍中的資料。此程序也可以加速或透過 ExpressRoute 擴充。
@@ -63,7 +66,9 @@ SQL 資料倉儲提供許多選項，供載入資料，包括：
 
 現在，已提供一組使用 BCP 建立的檔案，因此 AzCopy 只需從 Azure powershell 或藉由執行 powershell 指令碼來執行。在更高的層級中，執行 AZCopy 所需的提示將會採用下列格式：
 
-	 AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Storage Key> /Pattern:<File Name> /NC:256
+```
+AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Storage Key> /Pattern:<File Name> /NC:256
+```
 
 除了基本作法外，我們也建議您採用下列最佳作法，使用 AZCopy 載入：
 
@@ -85,33 +90,40 @@ SQL 資料倉儲提供許多選項，供載入資料，包括：
 
 3. **建立外部檔案格式。** 外部檔案格式也可以重複使用。如果您要上傳新類型的檔案，只需建立一個即可。
 
-4. **建立外部資料來源。** 當指出儲存體帳戶時，如果從同一個容器載入，則可以使用外部資料來源。對於您的 'LOCATION' 參數，請使用格式的位置：'wasbs://mycontainer@ test.blob.core.windows.net/path’。
+4. **建立外部資料來源。** 當指出儲存體帳戶時，如果從同一個容器載入，則可以使用外部資料來源。對於您的 'LOCATION' 參數，請使用下列格式的位置：'wasbs://mycontainer@ test.blob.core.windows.net/path'。
 
-		-- Creating master key
-		CREATE MASTER KEY;
+```
+-- Creating master key
+CREATE MASTER KEY;
 
-		-- Creating a database scoped credential
-		CREATE DATABASE SCOPED CREDENTIAL <Credential Name> WITH IDENTITY = '<User Name>', 
-    	Secret = '<Azure Storage Key>';
+-- Creating a database scoped credential
+CREATE DATABASE SCOPED CREDENTIAL <Credential Name> 
+WITH 
+    IDENTITY = '<User Name>'
+,   Secret = '<Azure Storage Key>'
+;
 
-		-- Creating external file format (delimited text file)
-		CREATE EXTERNAL FILE FORMAT text_file_format 
-		WITH (
-		    FORMAT_TYPE = DELIMITEDTEXT, 
-		    FORMAT_OPTIONS (
-		        FIELD_TERMINATOR ='|', 
-		        USE_TYPE_DEFAULT = TRUE
-		    )
-		);
+-- Creating external file format (delimited text file)
+CREATE EXTERNAL FILE FORMAT text_file_format 
+WITH 
+(
+    FORMAT_TYPE = DELIMITEDTEXT 
+,   FORMAT_OPTIONS  (
+                        FIELD_TERMINATOR ='|' 
+                    ,   USE_TYPE_DEFAULT = TRUE
+                    )
+);
 
-		--Creating an external data source
-		CREATE EXTERNAL DATA SOURCE azure_storage 
-		WITH (
-	    	TYPE = HADOOP, 
-	        LOCATION ='wasbs://<Container>@<Blob Path>’,
-	        CREDENTIAL = <Credential Name>
-		;
-
+--Creating an external data source
+CREATE EXTERNAL DATA SOURCE azure_storage 
+WITH 
+(
+    TYPE = HADOOP 
+,   LOCATION ='wasbs://<Container>@<Blob Path>'
+,   CREDENTIAL = <Credential Name>
+)
+;
+```
 
 既然已適當地設定您的儲存體帳戶，您就可以繼續將您的資料載入 SQL 資料倉儲中。
 
@@ -120,26 +132,36 @@ SQL 資料倉儲提供許多選項，供載入資料，包括：
 
 1. 使用 ' CREATE EXTERNAL TABLE' 命令來定義您的資料結構。若要確保您快速且有效地擷取資料的狀態，我們建議在 SSMS 中撰寫 SQL Server 資料表的指令碼，然後以手動方式調整，說明外部資料表差異。在 Azure 中建立外部資料表之後，它將繼續指向相同的位置，即使更新資料或加入其他資料也一樣。  
 
-		-- Creating external table pointing to file stored in Azure Storage
-		CREATE EXTERNAL TABLE <External Table Name> (
-		    <Column name>, <Column type>, <NULL/NOT NULL>
-		)
-		WITH (LOCATION='<Folder Path>',
-		      DATA_SOURCE = <Data Source>,
-		      FILE_FORMAT = <File Format>,      
-		);
+```
+-- Creating external table pointing to file stored in Azure Storage
+CREATE EXTERNAL TABLE <External Table Name> 
+(
+    <Column name>, <Column type>, <NULL/NOT NULL>
+)
+WITH 
+(   LOCATION='<Folder Path>'
+,   DATA_SOURCE = <Data Source>
+,   FILE_FORMAT = <File Format>      
+);
+```
 
-2. 使用 'CREATE TABLE...AS SELECT' 陳述式載入資料。
+2. 使用 'CREATE TABLE...AS SELECT' 陳述式載入資料。 
 
-		CREATE TABLE <Table Name> 
-		WITH (
-    		CLUSTERED COLUMNSTORE INDEX
-    		)
-		AS SELECT * from <External Table Name>;
+```
+CREATE TABLE <Table Name> 
+WITH 
+(
+	CLUSTERED COLUMNSTORE INDEX
+)
+AS 
+SELECT  * 
+FROM    <External Table Name>
+;
+```
 
-	請注意，您也可以使用更詳細的 SELECT 陳述式，從資料表載入資料列的子區段。不過，因為 PolyBase 目前不會推送額外的運算至儲存體帳戶，所以如果您使用 SELECT 陳述式載入子區段，這將不會快於載入整個資料集。
+請注意，您也可以使用更詳細的 SELECT 陳述式，從資料表載入資料列的子區段。不過，因為 PolyBase 目前不會推送額外的運算至儲存體帳戶，所以如果您使用 SELECT 陳述式載入子區段，這將不會快於載入整個資料集。
 
-除了 'CREATE TABLE...AS SELECT' 陳述式外，您也可以使用 'INSERT...INTO' 陳述式，將資料從外部資料表載入到預先存在的資料表。
+除了 `CREATE TABLE...AS SELECT` 陳述式外，您也可以使用 'INSERT...INTO' 陳述式，將資料從外部資料表載入到預先存在的資料表。
 
 ## 後續步驟
 如需更多開發祕訣，請參閱[開發概觀][]。
@@ -167,4 +189,4 @@ SQL 資料倉儲提供許多選項，供載入資料，包括：
 [Azure 儲存體文件]: https://azure.microsoft.com/zh-tw/documentation/articles/storage-create-storage-account/
 [ExpressRoute 文件]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

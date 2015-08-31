@@ -102,20 +102,25 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 
 選取任何度量將會停用其他度量，使其無法顯示在同一個圖表中。
 
-## 收集更多效能計數器
+## 系統效能計數器
 
 您可以選擇的度量包含[效能計數器](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters)。Windows 提供多種計數器，您也可以自行定義。
 
-如果您需要的計數器不在清單中，您可以自行新增至 SDK 所收集的集合中。開啟 ApplicationInsights.config，然後編輯效能收集器指示詞：
+此範例會顯示預設提供的效能計數器。針對每個計數器我們有[加入個別的圖表](app-insights-metrics-explorer.md#editing-charts-and-grids)，並[另存為我的最愛](app-insights-metrics-explorer.md#editing-charts-and-grids)來命名圖表：
+
+![](./media/app-insights-web-monitor-performance/sys-perf.png)
+
+
+如果您想要的計數器不在 [屬性] 清單中，您可以將它們加入 SDK 收集的集合。開啟 ApplicationInsights.config，然後編輯效能收集器指示詞：
 
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
       <Counters>
         <Add PerformanceCounter="\Objects\Processes"/>
-        <Add PerformanceCounter="\Sales(electronics)# Items Sold" ReportAs="Item sales"/>
+        <Add PerformanceCounter="\Sales(electronics)#Items Sold" ReportAs="Item sales"/>
       </Counters>
     </Add>
 
-格式為 `\Category(instance)\Counter"`，若是沒有執行個體的類別，則為 `\Category\Counter`。
+格式為 `\Category(instance)\Counter"`，若是沒有執行個體的類別，則為 `\Category\Counter`。若要探索您的系統中有哪些可用計數器，請閱讀[本簡介](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters)。
 
 若計數器名稱含有下列項目以外的字元，則需要 `ReportAs`：字母、圓角括號、斜線、連字號、底線、空格和點。
 
@@ -126,7 +131,7 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
     var perfCollector = new PerformanceCollectorModule();
     perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
     perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
-      @"\Sales(electronics)# Items Sold", "Items sold"));
+      @"\Sales(electronics)#Items Sold", "Items sold"));
     perfCollector.Initialize(TelemetryConfiguration.Active);
     TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
 
@@ -178,4 +183,4 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

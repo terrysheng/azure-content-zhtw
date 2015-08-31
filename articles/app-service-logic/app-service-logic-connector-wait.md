@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/29/2015"
+   ms.date="08/19/2015"
    ms.author="rajram"/>
 
 #Wait 連接器
@@ -22,7 +22,7 @@ Wait 連接器可讓應用程式將其執行延遲一段指定的持續時間，
 ##使用 Wait 連接器
 若要使用 Wait 連接器，您必須先建立 Wait 連接器 API 應用程式的執行個體。這可以在建立邏輯應用程式時以內嵌方式完成，或是透過從 Azure Marketplace 選取 Wait 連接器 API 應用程式。
 
-##在邏輯應用程式設計工具介面中使用 Wait 連接器
+##在 Logic Apps 設計工具介面中使用 Wait 連接器
 Wait 連接器可用作動作。它並沒有任何觸發程序。
 
 ###動作
@@ -46,7 +46,9 @@ Wait 連接器可用作動作。它並沒有任何觸發程序。
 
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以使用邏輯應用程式將它加入商務流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以使用邏輯應用程式將它加入商務流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+
+檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
 您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視 API 應用程式和連接器](../app-service-api/app-service-api-manage-in-portal.md)。
 
@@ -55,4 +57,4 @@ Wait 連接器可用作動作。它並沒有任何觸發程序。
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

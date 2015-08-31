@@ -13,30 +13,33 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="07/24/2015"
+   ms.date="08/14/2015"
    ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員驗證服務主體
 
 本主題顯示如何允許服務主體 (例如自動化程序、應用程式或服務) 存取您訂用帳戶中的其他資源。使用 Azure 資源管理員，您可以使用角色存取控制將允許的動作授與服務主體，並驗證該服務主體。本主題顯示如何使用 PowerShell 和 Azure CLI 將角色指派給服務主體，並驗證服務主體。
 
+其示範如何使用使用者名稱與密碼或憑證進行驗證。
+
+您可以使用 Mac、Linux 和 Windows 適用的 Azure PowerShell 或 Azure CLI。如果您未安裝 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](./powershell-install-configure.md)。如果您未安裝 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli-install.md)。
 
 ## 概念
 1. Azure Active Directory (AAD) - 雲端的身分識別與存取管理服務。如需詳細資訊，請參閱[什麼是 Azure Active Directory](active-directory/active-directory-whatis.md)。
 2. 服務主體 - 必須存取其他資源之目錄中應用程式的執行個體。
 3. AD 應用程式 - 向 AAD 識別應用程式的目錄記錄。如需詳細資訊，請參閱 [Azure AD 中的驗證基本概念](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth)。
 
-## 使用 PowerShell 將存取權授與服務主體並驗證服務主體
+## 使用密碼驗證服務主體 - PowerShell
 
-如果您未安裝 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](./powershell-install-configure.md)。
-
-您將從建立服務主體開始。若要這麼做，我們必須在目錄中建立應用程式。本節將逐步引導如何在目錄中建立新的應用程式。
+在這一節中，您將執行相關步驟來建立 Azure Active Directory 應用程式的服務主體、指派角色給服務主體，並藉由提供應用程式識別碼和密碼驗證為服務主體。
 
 1. 執行 **New-AzureADApplication** 命令，以建立新的 AAD 應用程式。提供應用程式的顯示名稱、描述應用程式之頁面的 URI (未確認連結)、識別應用程式的 URI，以及應用程式身分識別的密碼。
 
         PS C:\> $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password "<Your_Password>"
 
-     傳回 Azure AD 應用程式。需要有 **ApplicationId** 屬性，才能建立服務主體、角色指派以及取得 JWT 權杖。儲存輸出，或將它擷取到變數中。
+     檢查新的應用程式物件。需要有 **ApplicationId** 屬性，才能建立服務主體、角色指派以及取得 JWT 權杖。
+
+        PS C:\> $azureAdApplication
 
         Type                    : Application
         ApplicationId           : a41acfda-d588-47c9-8166-d659a335a865
@@ -44,10 +47,9 @@
         AvailableToOtherTenants : False
         AppPermissions          : {{
                             "claimValue": "user_impersonation",
-                            "description": "Allow the application to access My
-                              Application on behalf of the signed-in user.",
+                            "description": "Allow the application to access <Your Application Display Name> on behalf of the signed-in user.",
                             "directAccessGrantTypes": [],
-                            "displayName": "Access <<Your Application Display Name>>",
+                            "displayName": "Access <Your Application Display Name>",
                             "impersonationAccessGrantTypes": [
                               {
                                 "impersonated": "User",
@@ -56,12 +58,10 @@
                             ],
                             "isDisabled": false,
                             "origin": "Application",
-                            "permissionId":
-                            "b866ef28-9abb-4698-8c8f-eb4328533831",
+                            "permissionId": "b866ef28-9abb-4698-8c8f-eb4328533831",
                             "resourceScopeType": "Personal",
-                            "userConsentDescription": "Allow the application
-                             to access <<Your Application Display Name>> on your behalf.",
-                            "userConsentDisplayName": "Access <<Your Application Display Name>>",
+                            "userConsentDescription": "Allow the application to access <Your Application Display Name> on your behalf.",
+                            "userConsentDisplayName": "Access <Your Application Display Name>",
                             "lang": null
                           }}
 
@@ -99,9 +99,111 @@
      您現在應該驗證為您所建立 AAD 應用程式的服務主體。
 
 
-## 使用 Azure CLI 將存取權授與服務主體並驗證服務主體
+## 使用憑證驗證服務主體 - PowerShell
 
-如果您未安裝適用於 Mac、Linux 和 Windows 的 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli-install.md)。
+在這一節中，您將執行相關步驟來建立 Azure Active Directory 應用程式的服務主體、指派角色給服務主體，並藉由提供憑證驗證為服務主體。本主題假設您已簽發憑證。
+
+其顯示兩種方法來使用憑證 - 金鑰認證和金鑰值。您可以使用其中一種方法。
+
+首先，您必須在 PowerShell 中設定一些值，以便稍後建立應用程式時使用。
+
+1. 針對這兩種方法，從您的憑證建立 X509Certificate 物件並擷取金鑰值。使用憑證的路徑以及該憑證的密碼。
+
+        $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate("C:\certificates\examplecert.pfx", "yourpassword")
+        $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
+
+2. 如果您使用金鑰認證，請建立金鑰認證物件並將其值設為上一個步驟中的 `$keyValue`。
+
+        $currentDate = Get-Date
+        $endDate = $currentDate.AddYears(1)
+        $keyId = [guid]::NewGuid()
+        $keyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
+        $keyCredential.StartDate = $currentDate
+        $keyCredential.EndDate= $endDate
+        $keyCredential.KeyId = $keyId
+        $keyCredential.Type = "AsymmetricX509Cert"
+        $keyCredential.Usage = "Verify"
+        $keyCredential.Value = $keyValue
+
+3. 在目錄中建立應用程式。第一個命令會顯示如何使用金鑰值。
+
+        $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -KeyValue $keyValue -KeyType AsymmetricX509Cert       
+        
+    或者，使用第二個範例來指派金鑰認證。
+
+         $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -KeyCredentials $keyCredential
+
+    檢查新的應用程式物件。需要有 **ApplicationId** 屬性，才能建立服務主體、角色指派以及取得 JWT 權杖。
+
+        PS C:\> $azureAdApplication
+
+        Type                    : Application
+        ApplicationId           : 76fa8d97-f07e-4b9a-b871-a57a7acd777a
+        ApplicationObjectId     : c36b7b57-a949-4401-b381-18a5210aff10
+        AvailableToOtherTenants : False
+        AppPermissions          : {{
+                            "claimValue": "user_impersonation",
+                            "description": "Allow the application to access <Your Application Display Name> on behalf of the signed-in
+                          user.",
+                            "directAccessGrantTypes": [],
+                            "displayName": "Access <Your Application Display Name>",
+                            "impersonationAccessGrantTypes": [
+                              {
+                                "impersonated": "User",
+                                "impersonator": "Application"
+                              }
+                            ],
+                            "isDisabled": false,
+                            "origin": "Application",
+                            "permissionId": "9f13c6c6-35ba-43d6-b8b3-6a87aa641388",
+                            "resourceScopeType": "Personal",
+                            "userConsentDescription": "Allow the application to access <Your Application Display Name> on your behalf.",
+                            "userConsentDisplayName": "Access <Your Application Display Name>",
+                            "lang": null
+                          }}
+
+4. 建立應用程式的服務主體。
+
+        PS C:\> New-AzureADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+
+    您現在已在目錄中建立服務主體，但未將任何權限或範圍指派給服務。您必須明確地授與服務主體權限，才能在某個範圍執行作業。
+
+5. 授與服務主體對您訂用帳戶的權限。在此範例中，您會將讀取訂用帳戶中所有資源的權限授與服務主體。針對 **ServicePrincipalName** 參數，提供您在建立應用程式時所使用的 **ApplicationId** 或 **IdentifierUris**。如需角色存取控制的詳細資訊，請參閱[管理和稽核資源存取權](azure-portal/resource-group-rbac.md)。
+
+        PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
+
+6. 若要從應用程式進行驗證，請包含下列程式碼。擷取用戶端之後，您可以存取訂用帳戶中的資源。
+
+        string clientId = "<Client ID for your AAD app>"; 
+        var subscriptionId = "<Your Azure SubscriptionId>"; 
+        string tenant = "<AAD tenant name>.onmicrosoft.com"; 
+
+        var authContext = new AuthenticationContext(string.Format("https://login.windows.net/{0}", tenant)); 
+
+        X509Certificate2 cert = null; 
+        X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser); 
+        string certName = "examplecert"; 
+        try 
+        { 
+            store.Open(OpenFlags.ReadOnly); 
+            var certCollection = store.Certificates; 
+            var certs = certCollection.Find(X509FindType.FindBySubjectName, certName, false); 
+            cert = certs[0]; 
+        } 
+        finally 
+        { 
+            store.Close(); 
+        }        
+
+        var certCred = new ClientAssertionCertificate(clientId, cert); 
+        var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
+        var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
+        var client = new ResourceManagementClient(creds); 
+        
+
+## 使用密碼驗證服務主體 - Azure CLI
+
+您將從建立服務主體開始。若要這麼做，我們必須在目錄中建立應用程式。本節將逐步引導如何在目錄中建立新的應用程式。
 
 1. 執行 **azure ad app create** 命令，以建立新的 AAD 應用程式。提供應用程式的顯示名稱、描述應用程式之頁面的 URI (未確認連結)、識別應用程式的 URI，以及應用程式身分識別的密碼。
 
@@ -158,4 +260,4 @@
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

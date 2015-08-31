@@ -19,7 +19,8 @@
 
 [AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 
-##概觀
+## 概觀
+
 StorSimple 虛擬裝置是 Microsoft Azure StorSimple 解決方案提供的另一項功能。StorSimple 虛擬裝置會在 Microsoft Azure 虛擬網路中的虛擬機器上執行，而您可以使用它來備份和複製主機上的資料。這篇文章中的下列主題將協助您了解、設定及使用 StorSimple 虛擬裝置。
 
 
@@ -56,7 +57,7 @@ StorSimple 虛擬裝置是在 Microsoft Azure 虛擬機器中單一節點上執�
 
 - 虛擬裝置會透過您的 Microsoft Azure 訂用帳戶受到保護。這表示，如果您使用的是虛擬裝置，而您的 Azure 訂用帳戶遭到洩漏，則儲存在虛擬裝置上的資料也會受到影響。
 
-- 用來對儲存在 Azure StorSimple 中的資料加密的憑證公開金鑰，會安全地在 Microsoft Azure 管理入口網站中供人使用，而私密金鑰則會保留在 StorSimple 裝置中。在 StorSimple 虛擬裝置上，公開和私密金鑰都會儲存於 Azure 中。
+- 用來對儲存在 Azure StorSimple 中的資料加密的憑證公開金鑰，會安全地在 Microsoft Azure 入口網站中供人使用，而私密金鑰則會保留在 StorSimple 裝置中。在 StorSimple 虛擬裝置上，公開和私密金鑰都會儲存於 Azure 中。
 
 - 虛擬裝置會裝載於 Microsoft Azure 資料中心。
 
@@ -95,7 +96,6 @@ StorSimple 虛擬裝置是在 Microsoft Azure 虛擬機器中單一節點上執�
 
 開始之前，請確定您擁有下列資訊：
 
-
 - 您擁有的 Azure 入口網站帳戶具有存取認證。
 
 - 您擁有 Azure 儲存體帳戶存取認證。
@@ -119,11 +119,11 @@ StorSimple 虛擬裝置是在 Microsoft Azure 虛擬機器中單一節點上執�
 
 
 
-1.  在 Azure 入口網站中，移至 **StorSimple Manager** 服務。
+1.  在 Azure 入口網站中，請至 **StorSimple Manager** 服務。
 
 - 移至 [裝置] 頁面。
 
-- 在 [建立虛擬裝置] 對話方塊中，指定下列資訊：
+- 在 [**建立虛擬裝置**] 對話方塊中，指定下列資訊：
 
 	![StorSimple 建立虛擬裝置](./media/storsimple-virtual-device/StorSimple_CreateVirtualDevice1.png)
 
@@ -147,8 +147,9 @@ StorSimple 虛擬裝置是在 Microsoft Azure 虛擬機器中單一節點上執�
 
 
 1. 選取您剛才在 [裝置] 頁面中建立的 [StorSimple 虛擬裝置]。
-2. 按一下 [完成裝置設定]。這會啟動 [設定裝置精靈]。
- 
+
+2. 按一下 [**完成組態設定**]。這會啟動 [設定裝置精靈]。
+
 	![在 [裝置] 頁面完成 StorSimple 裝置安裝](./media/storsimple-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
 
 1. 在 [設定裝置精靈] 中：
@@ -156,15 +157,15 @@ StorSimple 虛擬裝置是在 Microsoft Azure 虛擬機器中單一節點上執�
 	1. 在提供的空白處輸入 [服務資料加密金鑰]。
 	2. 輸入 [快照集管理員密碼]。[快照集管理員密碼] 長度必須為 14 或 15 個字元， 且必須包含小寫字母、大寫字母、數字和特殊字元的組合。
 	3. 輸入 [裝置系統管理員密碼]。[裝置系統管理員密碼] 長度必須為 8 至 15 個字元， 且必須包含小寫字母、大寫字母、數字和特殊字元的組合。
-	4. 按一下核取圖示來完成虛擬裝置的初始設定和註冊。 
-	
+	4. 按一下核取圖示來完成虛擬裝置的初始設定和註冊。
+
 		![StorSimple 虛擬裝置設定](./media/storsimple-virtual-device/StorSimple_VirtualDeviceSettings1.png)
 
 設定和註冊完成之後，裝置將會上線。裝置上線可能需要幾分鐘的時間。
 
 ![StorSimple 虛擬裝置上線階段](./media/storsimple-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
 
-### 修改裝置組態設定 
+### 修改裝置組態設定
 
 下節說明您可能會想針對 StorSimple 虛擬裝置設定的裝置組態設定。這些設定包括 CHAP、StorSimple 快照管理員密碼或裝置系統管理員密碼。
 
@@ -180,7 +181,7 @@ StorSimple 虛擬裝置是在 Microsoft Azure 虛擬機器中單一節點上執�
 
 StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓系統管理員以本機和雲端快照的形式管理 StorSimple 裝置的備份。
 
->[AZURE.NOTE]**對虛擬裝置而言，您的 Windows 主機就是 Azure VM。**
+>[AZURE.NOTE]對虛擬裝置而言，您的 Windows 主機就是 Azure VM。
 
 當您在 StorSimple Snapshot Manager 中設定裝置時，系統將提示您提供 StorSimple 裝置 IP 位址和密碼來驗證您的儲存裝置。此密碼最初是透過 Windows PowerShell 介面來設定。
 
@@ -279,7 +280,7 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 當您在 StorSimple 裝置設定頁面上啟用虛擬裝置之後，就可以使用 Windows PowerShell 遠端處理功能，從相同虛擬網路內部的另一部虛擬機器連接到虛擬裝置；例如，您可以從已設定且用來連接 iSCSI 的主機 VM 進行連接。在大部分的部署中，您應該都已開啟公用端點來存取您可用來存取虛擬裝置的主機 VM。
 
->[AZURE.WARNING]**為了加強安全性，強烈建議您在連接到端點時應使用 HTTPS，並且在完成 PowerShell 遠端工作階段之後刪除端點。**
+>[AZURE.WARNING]為了加強安全性，強烈建議您在連接到端點時應使用 HTTPS，並且在完成 PowerShell 遠端工作階段之後刪除端點。
 
 您應遵循[使用 Windows PowerShell 從遠端連接](storsimple-remote-connect.md)中的程序，來設定虛擬裝置的遠端處理功能。
 
@@ -357,7 +358,7 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 容錯移轉程序就會開始。在容錯移轉完成後，移至 [裝置] 頁面，然後選取在容錯移轉程序中作為目標的虛擬裝置。移至 [磁碟區容器] 頁面。此時應會顯示所有磁碟區容器以及舊裝置中的磁碟區。
 
->[AZURE.NOTE]**虛擬裝置上支援的儲存體數量為 30 TB。**
+>[AZURE.NOTE]虛擬裝置上支援的儲存體數量為 30 TB。
 
 ## 關閉或刪除虛擬裝置
 
@@ -375,19 +376,15 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 ### 刪除 StorSimple 虛擬裝置
 
-1. 登入管理入口網站。
+1. 登入 Azure 入口網站。
 
 - 按一下 [虛擬機器]，然後選取虛擬裝置。
 
-- 按一下 [刪除]，然後選擇刪除所有的虛擬機器磁碟。
+- 按一下 [**刪除**]，然後選擇刪除所有的虛擬機器磁碟。
 
 
 ## 後續步驟
 
 若要管理您的虛擬裝置，請參閱[管理您的 StorSimple 裝置](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service)中的工作流程詳細清單。
 
-
-
- 
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

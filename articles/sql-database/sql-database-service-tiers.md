@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/24/2015"
+   ms.date="08/12/2015"
    ms.author="shkurhek"/>
 
 # 服務層
@@ -68,25 +68,25 @@
 **效能和大小**
 
 
-| 服務層 | 高階 P1 | 高階 P2 | 高階 P6 (先前稱為 P3) |
-| :-- | :-- | :-- | :-- |
-| 資料庫輸送量單位 (DTU) | 125 | 250 | 1000 |
-| 資料庫大小上限 | 500 GB | 500 GB | 500 GB |
+| 服務層 | 高階 P1 | 高階 P2 | 高階 P4 | 高階 P6 (先前稱為 P3) |
+| :-- | :-- | :-- | :-- | :-- |
+| 資料庫輸送量單位 (DTU) | 125 | 250 | 500 | 1000 |
+| 資料庫大小上限 | 500 GB | 500 GB | 500 GB | 500 GB |
 
 
 **功能**
 
 
-| 服務層 | 高階 (P1、P2、P6) |
+| 服務層 | 高階 (P1、P2、P4、P6) |
 | :-- | :-- |
 | 時間點還原 (PITR) | 最遠到過去 35 天內的毫秒 |
 | 災害復原 | 作用中異地複寫，最多 4 個線上可讀取的次要複本 |
 | 效能目標 | 每秒交易率 |
 
 
-請在 [SQL Database 價格](http://azure.microsoft.com/pricing/details/sql-database/)進一步了解這些層的價格。
+請在 [SQL Database 定價](http://azure.microsoft.com/pricing/details/sql-database/)進一步了解這些層的定價。
 
 如果您認識了 SQL Database 各個層，可以[免費試用](http://azure.microsoft.com/pricing/free-trial/)親身體驗，然後了解[如何建立您的第一個 SQL Database](sql-database-get-started.md)！
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

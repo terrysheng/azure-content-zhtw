@@ -15,7 +15,7 @@
    ms.date="07/22/2015"
    ms.author="joaoma" />
 
-# 如何使用 Azure 資源管理員建立負載平衡器
+# 開始使用 Azure 資源管理員設定內部負載平衡器
 
 
 > [AZURE.SELECTOR]
@@ -245,4 +245,4 @@ PS C:\> $backendnic1
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

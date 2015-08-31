@@ -22,8 +22,8 @@
 > [AZURE.SELECTOR]
 - [Azure preview portal](virtual-machines-windows-tutorial.md)
 - [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell - Resource management](virtual-machines-deploy-rmtemplates-powershell.md)
-- [PowerShell - Service management](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 
 本教學課程示範在 Azure 入口網站中建立 Azure 虛擬機器 (VM) 有多麼容易。我們將使用 Windows Server 映像做為範例，這只是 Azure 提供眾多映像中的一種。請注意，您可以選擇何種映像取決於您的訂用帳戶。例如，桌面映像可能可供 MSDN 訂閱者使用。
@@ -44,7 +44,7 @@
 
 > [AZURE.NOTE]您也可以嘗試透過更豐富，而且可自訂的 [Azure Preview 入口網站](https://portal.azure.com)建立虛擬機器、使用增強的監控和診斷功能，以及使用進階儲存體等。兩個入口網站中用來設定虛擬機器的可用選項有許多重疊之處，但並不完全相同。例如，使用 Preview 入口網站設定包含進階儲存體的虛擬機器。
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
 ## 後續步驟
 
@@ -56,4 +56,4 @@
 
 若要深入了解您可以為虛擬機器設定什麼功能以及何時可以設定，請參閱〈[關於 Azure VM 組態設定](http://msdn.microsoft.com/library/azure/dn763935.aspx)〉。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

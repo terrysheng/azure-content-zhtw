@@ -18,6 +18,12 @@
 
 # 使用 Azure 資源管理員範本和 PowerShell 部署以及管理虛擬機器
 
+> [AZURE.SELECTOR]
+- [Azure preview portal](virtual-machines-windows-tutorial.md)
+- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
+
 本文會為您示範如何使用 Azure 資源管理員範本和 Powershell，自動化部署和管理 Azure 虛擬機器的常見工作。如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)和[應用程式架構](virtual-machines-app-frameworks.md)。
 
 - [部署 Windows 虛擬機器](#windowsvm)
@@ -41,7 +47,7 @@
 
 定義好 JSON 資源範本後，您可以執行它並使用 PowerShell 命令在 Azure 中部署已定義的資源。您可以在 PowerShell 命令殼層中個別執行以下命令，或者合併到內含其他自動化邏輯的指令碼。
 
-您使用 Azure 資源管理員範本建立的資源，會部署到新的或現有 Azure 資源群組。*Azure 資源群組*可以讓您將多個部署的資源當做一個邏輯群組，統一進行管理。這樣您就可以管理群組/應用程式的整體週期，另外也提供一個管理 API，讓您可以：
+您使用 Azure 資源管理員範本建立的資源，會部署到新的或現有 Azure 資源群組。Azure 資源群組可以讓您將多個部署的資源當做一個邏輯群組，統一進行管理，這樣您就可以管理群組/應用程式的整體週期；另外也提供管理 API，讓您可以：
 
 - 一次性停止、啟動或刪除群組內的所有資源。
 - 將角色型存取控制 (RBAC) 規則套用至鎖定它們的安全權限。
@@ -956,4 +962,4 @@
 
 [如何安裝和設定 Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/06/2015"
+   ms.date="08/19/2015"
    ms.author="alkohli" />
 
 # 開啟或關閉您的 StorSimple 裝置 
@@ -28,7 +28,7 @@
 |開啟新的裝置|[開啟新的裝置](#turn-on-a-new-device)<ul><li>[只有主要機箱的新裝置](#new-device-with-primary-enclosure-only)</li><li>[具有 EBOD 機箱的新裝置](#new-device-with-ebod-enclosure)</li></ul>|
 |在關機後開啟裝置|[在關機後開啟裝置](#turn-on-a-device-after-shutdown)<ul><li>[只有主要機箱的裝置](#device-with-primary-enclosure-only)</li><li>[具有 EBOD 機箱的裝置](#device-with-ebod-enclosure)</li></ul>|
 |在電源中斷後開啟裝置|[在電源中斷後開啟裝置](#turn-on-a-device-after-a-power-loss)<ul><li>[只有主要機箱的裝置](#8100)</li><li>[具有 EBOD 機箱的裝置](#8600)</li></ul>|
-|在主要機箱和 EBOD 連線中斷後開啟裝置|[在主要機箱和 EBOD 機箱連線中斷後開啟裝置](turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
+|在主要機箱和 EBOD 連線中斷後開啟裝置|[在主要機箱和 EBOD 機箱連線中斷後開啟裝置](#turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
 |關閉執行中的裝置|[關閉執行中的裝置](#turn-off-a-running-device)<ul><li>[只有主要機箱的裝置](#8100a)</li><li>[具有 EBOD 機箱的裝置](#8600a)</li></ul>|
 
 ## 開啟新的裝置
@@ -37,7 +37,7 @@
 
 - [只有主要機箱的新裝置](#new-device-with-primary-enclosure-only)
 
-- [具有 EBOD 機箱的新裝置](#new-device-with-EBOD-enclosure)
+- [具有 EBOD 機箱的新裝置](#new-device-with-ebod-enclosure)
 
 ### 只有主要機箱的新裝置
 
@@ -241,4 +241,4 @@ StorSimple 8600 型同時具有主要機箱和 EBOD 機箱。這需要使用纜�
 
 如果您在開啟或關閉 StorSimple 裝置時發生問題，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -36,7 +36,7 @@
 
 ##<a id="register"></a>啟用 Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>設定行動服務以傳送推播要求
 
@@ -52,7 +52,7 @@
 
 ###新增 Google Play 服務至專案
 
-[AZURE.INCLUDE [新增 Play 服務](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [新增 Play 服務](../../includes/mobile-services-add-google-play-services.md)]
 
 ###新增程式碼
 
@@ -153,7 +153,7 @@ To see a completed version of the source code in an Eclipse project, go <a href=
 
 
 <!-- URLs. -->
-[開始使用推播通知 (Eclipse)]: mobile-services-javascript-backend-android-get-started-push-EC.md
+[開始使用推播通知 (Eclipse)]: mobile-services-javascript-backend-android-get-started-push-ec.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Get started with Mobile Services]: mobile-services-android-get-started.md
@@ -178,4 +178,4 @@ To see a completed version of the source code in an Eclipse project, go <a href=
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

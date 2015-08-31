@@ -1,12 +1,20 @@
-<properties pageTitle="設定自助式服務應用程式存取管理的 Azure AD | Microsoft Azure" description="說明如何在 Azure AD 中管理群組的主題。" services="active-directory" documentationCenter="" authors="femila" manager="swadhwa"" editor="" tags="azure-classic-portal"/>
+<properties
+	pageTitle="設定自助式服務應用程式存取管理的 Azure AD | Microsoft Azure"
+	description="說明如何在 Azure AD 中管理群組的主題。"
+	services="active-directory"
+	documentationCenter=""
+    authors="femila"
+	manager="swadhwa" 
+	editor=""
+	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="femila"/>
 
 #設定自助式服務應用程式存取管理的 Azure AD
@@ -27,7 +35,7 @@
 
 在 Azure 管理入口網站中的 [設定] 索引標籤上，將 [委派的群組管理] 參數設定為 [已啟用]，然後將 [使用者可以建立群組] 參數設定為 [已啟用]。
 
-當 [使用者可以建立群組] 參數設定為 [已啟用] 時，目錄中的所有使用者都可以建立新的安全性群組，並將成員新增至這些群組。請注意，這些新的群組也會顯示在其他所有使用者的 [存取面板] 中，而且如果群組的原則設定允許，其他使用者可以建立加入這些群組的要求。如果此參數設定為 [已停用]，使用者就無法建立群組，也無法變更所屬群組擁有者的現有群組，但是他們仍然可以管理這些群組的成員資格，以及核准其他使用者加入其群組的要求。
+當 [**使用者可以建立群組**] 參數設定為 [**已啟用**] 時，目錄中的所有使用者都可以建立新的安全性群組，並將成員新增至這些群組。請注意，這些新的群組也會顯示在其他所有使用者的 [存取面板] 中，而且如果群組的原則設定允許，其他使用者可以建立加入這些群組的要求。如果此參數設定為 [已停用]，使用者就無法建立群組，也無法變更所屬群組擁有者的現有群組，但是他們仍然可以管理這些群組的成員資格，以及核准其他使用者加入其群組的要求。
 
 您也能夠使用 [可以使用安全性群組的自助服務的使用者] 參數，對您的使用者的自助式群組管理功能實現更精細的存取控制。當 [使用者可以建立群組] 參數設定為 [已啟用] 時，目錄中的所有使用者都可以建立新的安全性群組，並將成員新增至這些群組。透過同時將 [可以使用安全性群組的自助服務的使用者] 參數設定為 [部分]，表示您要安全性群組管理限制為只有一組有限的使用者。當此參數設定為 [部分] 時，在您的目錄中會建立一個名為 SSGMSecurityGroupsUsers 的群組，而且之後只有您已經建立此群組成員的使用者可以建立新的安全性群組，並將成員新增至您目錄中的這些群組。透過將 [可以使用安全性群組的自助服務的使用者] 參數設定為 [全部]，表示您讓目錄中的所有使用者建立新的安全性群組。
 
@@ -41,4 +49,4 @@
 
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

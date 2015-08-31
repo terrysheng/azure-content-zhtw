@@ -1,117 +1,136 @@
-<properties 
-	pageTitle="使用 PowerShell 管理 HDInsight 中的 Hadoop 叢集 | Microsoft Azure" 
-	description="了解如何使用 Azure PowerShell 對 HDInsight 中的 Hadoop 叢集執行管理工作。" 
-	services="hdinsight" 
-	editor="cgronlun" 
-	manager="paulettm" 
-	authors="mumian" 
+<properties
+	pageTitle="使用 PowerShell 管理 HDInsight 中的 Hadoop 叢集 | Microsoft Azure"
+	description="了解如何使用 Azure PowerShell 對 HDInsight 中的 Hadoop 叢集執行管理工作。"
+	services="hdinsight"
+	editor="cgronlun"
+	manager="paulettm"
+	tags="azure-portal"
+	authors="mumian"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 # 使用 Azure PowerShell 管理 HDInsight 上的 Hadoop 叢集
 
+[AZURE.INCLUDE [選取器](../../includes/hdinsight-portal-management-selector.md)]
 
 Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控制和自動化工作量的部署與管理。在本文中，您將了解如何使用本機 Azure PowerShell 主控台，透過使用 Windows PowerShell 來管理 Azure HDInsight 上的 Hadoop 叢集。如需 HDInsight PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考文件][hdinsight-powershell-reference]。
 
-##必要條件
+
+
+**必要條件**
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
-
 - **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
 
+	> [AZURE.NOTE]本文提供的 PowerShell 指令碼會使用 Azure 資源管理員模式。為確保範例適用於您，請使用 Microsoft Web Platform Installer 下載最新的 Azure PowerShell。
 
 ##佈建 HDInsight 叢集
-HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要有 Azure 儲存體帳號和儲存容器，您才能建立 HDInsight 叢集。
+
+HDInsight 叢集需要 Azure 儲存體帳戶上的 Azure 資源群組和 Blob 容器：
+
+- Azure 資源群組是 Azure 資源的邏輯容器。Azure 資源群組與 HDInsight 叢集不一定要在相同的位置。如需詳細資訊，請參閱[搭配使用 Azure PowerShell 與 Azure 資源管理員](powershell-azure-resource-manager.md)。
+- HDInsight 會使用 Azure 儲存體帳戶的 Blob 容器做為預設檔案系統。必須要有 Azure 儲存體帳號和儲存容器，您才能建立 HDInsight 叢集。預設儲存體帳戶必須與 HDInsight 叢集並存於相同位置。
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
+**建立 Azure 資源群組**
+
+1. 請確定您使用 Azure 資源模式：
+
+		Switch-AzureMode -Name AzureResourceManager
+
+2. 連接到您的 Azure 帳戶並選取訂用帳戶 (如果您有多個訂用帳戶的話)。
+
+		Add-AzureAccount
+		Select-AzureSubscription
+
+3. 建立新的資源群組：
+
+	New-AzureResourceGroup -名稱 <AzureResourceGroupName> -位置 <AzureDataCente> # 例如「美國西部」
+
+	[AZURE.INCLUDE [資料中心清單](../../includes/hdinsight-pricing-data-centers-clusters.md)]
+
 **建立 Azure 儲存體帳戶**
 
-匯入 publishsettings 檔案之後，您可以使用下列命令來建立儲存體帳戶：
+	New-AzureStorageAccount -ResourceGroupName <AzureResourceGroupName> -Name <AzureStorageAccountName> -Location <AzureDataCneter> -Type <AccountType> # account type example: Standard_ZRS for zero redundancy storage
 
-	# Create an Azure Storage account
-	$storageAccountName = "<StorageAcccountName>"
-	$location = "<Microsoft data center>"           # For example, "West US"
-
-	New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
+	For a full list of the storage account types, see [https://msdn.microsoft.com/zh-tw/library/azure/hh264518.aspx](https://msdn.microsoft.com/zh-tw/library/azure/hh264518.aspx).
 
 
-[AZURE.INCLUDE [資料中心清單](../../includes/hdinsight-pricing-data-centers-clusters.md)]
-
-
-如需使用 Azure 入口網站建立 Azure 儲存體帳戶的相關資訊，請參閱[建立、管理或刪除儲存體帳戶](../storage-create-storage-account/)。
+如需使用 Azure 預覽入口網站建立 Azure 儲存體帳戶的相關資訊，請參閱[建立、管理或刪除儲存體帳戶](storage-create-storage-account.md)。
 
 如果您已有儲存帳號，但不知道帳號名稱和帳號金鑰，您可以使用下列命令來擷取資訊：
 
 	# List Storage accounts for the current subscription
 	Get-AzureStorageAccount
 	# List the keys for a Storage account
-	Get-AzureStorageKey <StorageAccountName>
+	Get-AzureStorageAccountKey -ResourceGroupName <AzureResourceGroupName> -name $storageAccountName <AzureStorageAccountName>
 
-如需使用 Azure 入口網站取得資訊的詳細資訊，請參閱[建立、管理或刪除儲存體帳戶](../storage-create-storage-account/)的「檢視、複製及重新產生儲存體存取金鑰」一節。
+如需使用預覽入口網站取得資訊的詳細資料，請參閱[建立、管理或刪除儲存體帳戶](storage-create-storage-account.md)的＜檢視、複製及重新產生儲存體存取金鑰＞一節。
 
 **建立 Azure 儲存容器**
 
 Azure PowerShell 無法在 HDInsight 佈建程序期間建立 Blob 容器。您可以使用下列指令碼來建立 Blob 容器：
 
-	$storageAccountName = "<StorageAccountName>"
-	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-	$containerName="<ContainerName>"
+	$resourceGroupName = "<AzureResoureGroupName>"
+	$storageAccountName = "<AzureStorageAccountName>"
+	$storageAccountKey = Get-AzureStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
+	$containerName="<AzureBlobContainerName>"
 
 	# Create a storage context object
 	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-	
+
 	# Create a Blob storage container
 	New-AzureStorageContainer -Name $containerName -Context $destContext
 
 **佈建叢集**
 
-在儲存體帳號和 Blob 容器準備就緒後，您即可建立叢集。
-		
-	$storageAccountName = "<StorageAccountName>"
-	$containerName = "<ContainerName>"
+在儲存體帳戶和 Blob 容器準備就緒後，您即可建立叢集。
+
+	$resourceGroupName = "<AzureResoureGroupName>"
+
+	$storageAccountName = "<AzureStorageAccountName>"
+	$containerName = "<AzureBlobContainerName>"
 
 	$clusterName = "<HDInsightClusterName>"
-	$location = "<MicrosoftDataCenter>"
+	$location = "<AzureDataCenter>"
 	$clusterNodes = <ClusterSizeInNodes>
 
 	# Get the Storage account key
-	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
+	$storageAccountKey = Get-AzureStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
 
 	# Create a new HDInsight cluster
-	New-AzureHDInsightCluster -Name $clusterName -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
-
-
-下列螢幕擷取畫面顯示指令碼的執行：
-
-![HDI.PS.Provision][image-hdi-ps-provision]
-
-
-
+	New-AzureHDInsightCluster -ResourceGroupName $resourceGroupName `
+		-ClusterName $clusterName `
+		-Location $location `
+		-DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
+		-DefaultStorageAccountKey $storageAccountKey `
+		-DefaultStorageContainer $containerName  `
+		-ClusterSizeInNodes $clusterNodes
 
 ##列出叢集詳細資料
 使用下列命令列出目前訂用帳戶中的所有叢集：
 
-	Get-AzureHDInsightCluster 
+	Get-AzureHDInsightCluster
 
 使用下列命令顯示目前訂用帳戶中特定叢集的詳細資料：
 
-	Get-AzureHDInsightCluster -Name <ClusterName> 
+	Get-AzureHDInsightCluster -ResourceGroupName <ResouceGroupName> -ClusterName <ClusterName>
 
 ##刪除叢集
 使用下列命令刪除叢集：
 
-	Remove-AzureHDInsightCluster -Name <ClusterName> 
+	Remove-AzureHDInsightCluster -Name <ClusterName>
 
 
 
@@ -134,10 +153,58 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 >[AZURE.NOTE]透過授與/撤銷存取權，您將重設叢的使用者名稱和密碼。
 
-這也可以透過 Azure 入口網站完成。請參閱[使用 Azure 入口網站管理 HDInsight][hdinsight-admin-portal]。
+這也可以透過預覽入口網站完成。[使用 Azure 預覽入口網站管理 HDInsight][hdinsight-admin-portal]。
 
 ##調整叢集
-請參閱[在 HDInsight 中調整 Hadoop 叢集](hdinsight-hadoop-cluster-scaling.md)。
+叢集調整功能可讓您變更在 Azure HDInsight 中執行的叢集所用的背景工作節點數目，而不需要重新建立叢集。
+
+>[AZURE.NOTE]只支援使用 HDInsight 3.1.3 版或更高版本的叢集。如果不確定您的叢集版本，您可以檢查 [屬性] 頁面。請參閱[熟悉叢集入口網站介面](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface)。
+
+變更 HDInsight 支援的每一種叢集所用的資料節點數目會有何影響：
+
+- Hadoop
+
+	您可以順暢地增加正在執行的 Hadoop 叢集中背景工作節點數目，而不會影響任何擱置或執行中的工作。您也可以在作業進行當中提交新工作。系統會順暢處理失敗的調整作業，讓叢集永保正常運作狀態。
+
+	減少資料節點數目以縮減 Hadoop 叢集時，系統會重新啟動叢集中的部分服務。這會導致所有執行中和擱置的工作在調整作業完成時失敗。但您可以在作業完成後重新提交這些工作。
+
+- HBase
+
+	您可以順暢地在 HBase 叢集運作時對其新增或移除資料節點。區域伺服器會在完成調整作業的數分鐘之內自動取得平衡。但是，您也可以手動平衡區域伺服器，方法是登入叢集的前端節點，然後從命令提示字元視窗執行下列命令：
+
+		>pushd %HBASE_HOME%\bin
+		>hbase shell
+		>balancer
+
+	如需使用 HBase 殼層的詳細資訊，請參閱
+- Storm
+
+	您可以順暢地在 Storm 叢集運作時對其新增或移除資料節點。但在調整作業順利完成後，您需要重新平衡拓撲。
+
+	您可以使用兩種方式來完成重新平衡作業：
+
+	* Storm Web UI
+	* 命令列介面 (CLI) 工具
+
+	如需詳細資訊，請參閱 [Apache Storm 文件](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)。
+
+	HDInsight 叢集上有提供 Storm Web UI：
+
+	![hdinsight storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+
+	以下是如何使用 CLI 命令重新平衡 Storm 拓撲的範例：
+
+		## Reconfigure the topology "mytopology" to use 5 worker processes,
+		## the spout "blue-spout" to use 3 executors, and
+		## the bolt "yellow-bolt" to use 10 executors
+
+		$ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+
+若要使用 Azure PowerShell 變更 Hadoop 叢集大小，請從用戶端電腦執行下列命令：
+
+	Set-AzureHDInsightClusterSize -Name <ClusterName> -ClusterSizeInNodes <NewSize>
+
+
 
 ##提交 MapReduce 工作
 HDInsight 叢集配送提供一些 MapReduce 範例。其中一個範例是計算來源檔案中的文字出現率。
@@ -145,31 +212,31 @@ HDInsight 叢集配送提供一些 MapReduce 範例。其中一個範例是計�
 **提交 MapReduce 工作**
 
 下列 Azure PowerShell 指令碼會提交字數統計範例工作：
-	
-	$clusterName = "<HDInsightClusterName>"            
-	
+
+	$clusterName = "<HDInsightClusterName>"
+
 	# Define the MapReduce job
 	$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
-	
-	# Run the job and show the standard error 
+
+	# Run the job and show the standard error
 	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $_.JobId -StandardError}
-	
+
 如需 **wasb** 首碼的詳細資訊，請參閱[對於 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]。
 
 **下載 MapReduce 工作輸出**
 
 下列 Azure PowerShell 指令碼會從最後一個程序中擷取 MapReduce 工作輸出：
 
-	$storageAccountName = "<StorageAccountName>"   
-	$containerName = "<ContainerName>"             
-		
+	$storageAccountName = "<StorageAccountName>"
+	$containerName = "<ContainerName>"
+
 	# Create the Storage account context object
 	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 	$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-	
+
 	# Download the output to local computer
 	Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
-	
+
 	# Display the output
 	cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
 
@@ -218,13 +285,13 @@ HDInsight 叢集配送提供稱為 *hivesampletable* 的範例 Hive 資料表。
 **提交 Hive 工作**
 
 下列指令碼會提交 Hive 工作，以列出 Hive 資料表：
-	
-	$clusterName = "<HDInsightClusterName>"               
-	
+
+	$clusterName = "<HDInsightClusterName>"
+
 	# HiveQL query
 	$querystring = @"
 		SHOW TABLES;
-		SELECT * FROM hivesampletable 
+		SELECT * FROM hivesampletable
 			WHERE Country='United Kingdom'
 			LIMIT 10;
 	"@
@@ -245,7 +312,7 @@ Hive 工作會先顯示叢集上所建立的 Hive 資料表，以及從 hivesamp
 
 ## 另請參閱
 * [HDInsight Cmdlet 參考文件][hdinsight-powershell-reference]
-* [使用 Azure 入口網站管理 HDInsight][hdinsight-admin-portal]
+* [使用 Azure 預覽入口網站管理 HDInsight][hdinsight-admin-portal]
 * [使用命令列介面管理 HDInsight][hdinsight-admin-cli]
 * [佈建 HDInsight 叢集][hdinsight-provision]
 * [將資料上傳到 HDInsight][hdinsight-upload-data]
@@ -276,7 +343,4 @@ Hive 工作會先顯示叢集上所建立的 Hive 資料表，以及從 hivesamp
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

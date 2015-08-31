@@ -12,9 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
-
 
 
 
@@ -207,9 +206,9 @@ EndpointStatus、Weight 和 Priority 是選擇性的參數。如果省略，Powe
 
 ## 另請參閱
 
-[流量管理員概觀](traffic-manager-overview.md)
+[什麼是流量管理員？](traffic-manager-overview.md)
 
 [Azure Cmdlet 使用者入門](https://msdn.microsoft.com/library/jj554332.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

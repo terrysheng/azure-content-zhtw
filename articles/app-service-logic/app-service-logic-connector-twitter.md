@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/28/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -37,18 +37,26 @@ Twitter 連接器提供下列觸發程序和動作：
 --- | ---
 搜尋新推文 | <ul><li>取得使用者時間表</li><li>搜尋推文</li><li>推文</li><li>取得提及時間軸</li><li>取得首頁時間軸</li><li>取得跟隨者</li><li>取得好友</li><li>取得使用者詳細資料</li><li>推文給使用者</li><li>傳送直接訊息</li></ul>
 
-> [AZURE.IMPORTANT]已封存 [新推文] 觸發程序。目前，它仍然是進階作業，因此可以使用。已移除 [轉推] 動作且不再支援。如果您使用 [轉推] 動作，則會在執行階段失敗。因此，請從邏輯應用程式中移除 [轉推] 動作。
+已封存 [新推文] 觸發程序。目前，它仍然是進階作業，因此可以使用。已移除 [轉推] 動作且不再支援。如果您使用 [轉推] 動作，則會在執行階段失敗。因此，請從邏輯應用程式中移除 [轉推] 動作。
 
 
 ## 建立 Twitter 連接器
+
+> [AZURE.IMPORTANT]目前需要向 Twitter 註冊 API 應用程式，才可建立 Twitter 連接器。您可以在 [http://apps.twitter.com](http://apps.twitter.com) 免費註冊應用程式。您必須建立 Twitter API 金鑰和密碼，才能建立連接器。
+
 連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
-1. 在 Azure 開始面板中，選取 [**Marketplace**]。
+1. 在 [http://apps.twitter.com](http://apps.twitter.com) 建立 Twitter 的免費應用程式。
+    * 註冊應用程式時，您可以輸入網站的任何 URL 並將回呼 URL 留白。
+2. 在 Azure 開始面板中，選取 [Marketplace]。
 2. 搜尋「Twitter 連接器」。
-3. 輸入名稱、App Service 方案和其他屬性：
+3. 選取 [Twitter 連接器]，然後按一下 [建立]。這會開啟 [建立] 刀鋒視窗。
+3. 按一下 [封裝設定] 並從 Twitter 應用程式將 [取用者金鑰] 複製到 [clientId] 欄位中。從 Twitter 應用程式將 [取用者密碼] 複製到 [clientSecret] 欄位中。
+	![][10]
+4. 輸入有關連接器名稱、App Service 和 資源群組的其他必要設定。
+5.	按一下 [建立]。
 
-	![][1]
-4.	按一下 [建立]。
+> [AZURE.NOTE]如果您想要使用重新導向 URL 進一步保護 Twitter API，您可以在[這裡](app-service-logic-oauth-security.md)查看其作法詳細資料
 
 
 ## 在邏輯應用程式中使用 Twitter 連接器
@@ -79,11 +87,11 @@ Twitter 連接器提供下列觸發程序和動作：
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
-使用 REST API 建立 API 應用程式。請參閱[連接器和 API 應用程式參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)。
+檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
 您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)。
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-twitter/img1.png
 [2]: ./media/app-service-logic-connector-twitter/img2.png
 [3]: ./media/app-service-logic-connector-twitter/img3.png
@@ -92,5 +100,7 @@ Twitter 連接器提供下列觸發程序和動作：
 [6]: ./media/app-service-logic-connector-twitter/triggers.png
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/actions.png
+[9]: ./media/app-service-logic-connector-twitter/settings.PNG
+[10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

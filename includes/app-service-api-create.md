@@ -1,6 +1,6 @@
-1. 開啟 Visual Studio 2013。
+1. 開啟 Visual Studio 2015 或 Visual Studio 2013。
 
-2. 選取 [檔案] > [新增專案]。
+2. 選取 [檔案] > [新增] > [專案]。
 
 3. 選取 [**ASP.NET Web 應用程式**] 範本。
 
@@ -20,4 +20,4 @@
 
 Visual Studio 會建立一個為了部署而設定為 API 應用程式的 Web API 專案。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

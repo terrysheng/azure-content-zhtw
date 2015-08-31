@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -69,7 +69,7 @@
 
     ![][4]
 
-5.	展開組件庫中的 [此資源群組中的 API 應用程式] 來查看所有可用的 API 應用程式。從組件庫中選取 [Salesforce]，[Salesforce 連接器] 便會被新增至流程。
+5.	展開組件庫中的 [此資源群組中的 API 應用程式] 來查看所有可用的 API 應用程式。從資源庫中選取 [Salesforce]，[Salesforce 連接器] 便會被新增至流程。
 
 
 	![][5]
@@ -96,7 +96,7 @@
 
 	![][11]
 
-13.	從組件庫的 [最近使用的] 區段中選取 [Salesforce 連接器]，即會新增 Salesforce 動作。
+13.	從資源庫的 [最近使用的] 區段中選取 [Salesforce 連接器]，即會新增 Salesforce 動作。
 
 14.	從動作清單中選取 [更新帳戶]，[更新帳戶] 動作的輸入參數便會隨即顯示。
 
@@ -116,6 +116,13 @@
 
 19. 您可以檢查 Salesforce 帳戶中是否已建立名為 Contoso 的新帳戶。
 
+## 進一步運用您的連接器
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+
+檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
+
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)。
+
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-salesforce/1_New_Logic_App.png
 [2]: ./media/app-service-logic-connector-salesforce/2_Logic_App_Settings.png
@@ -133,4 +140,4 @@
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

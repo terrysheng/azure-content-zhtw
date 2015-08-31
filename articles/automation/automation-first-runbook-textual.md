@@ -1,5 +1,5 @@
 <properties
-	pageTitle="我在 Azure 自動化中的第一個文字式 Runbook"
+	pageTitle="我在 Azure 自動化中的第一個文字式 Runbook | Microsoft Azure"
 	description="本教學課程將逐步引導您使用 PowerShell 工作流程建立、測試和發佈簡單的文字式 Runbook。涵蓋數個概念，例如向 Azure 資源進行驗證和輸入參數。"
 	services="automation"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="08/13/2015"
+	ms.date="08/18/2015"
 	ms.author="bwren"/>
 
 
@@ -82,14 +82,14 @@
 
 ## 步驟 5 - 加入驗證來管理 Azure 資源
 
-我們已經測試並發行我們 Runbook，但是到目前為止，它似乎並不實用。我們想要讓它管理 Azure 資源。不過它無法做到，除非我們使用在[必要條件](#prerequisites)中提及的認證對其進行驗證。我們會利用 **Set-AzureAccount** Cmdlet 來執行。
+我們已經測試並發行我們 Runbook，但是到目前為止，它似乎並不實用。我們想要讓它管理 Azure 資源。不過它無法做到，除非我們使用在[必要條件](#prerequisites)中提及的認證對其進行驗證。我們會利用 **Add-AzureAccount** Cmdlet 來執行。
 
 1.  按一下 MyFirstRunbook-Textual 窗格上的 [**編輯**] 來開啟文字式編輯器。<br> ![編輯 Runbook](media/automation-first-runbook-textual/runbook-toolbar-edit.png) 
 2.  我們不再需要 **Write-Output** 行，因此請繼續進行並刪除它。
 3.  將游標放在大括弧之間的空白行。
 3.  在程式庫控制項中，展開**資產**然後展開**認證**。
-4.  以滑鼠右鍵按一下您的認證，然後按一下 [**加入至畫布**]。這會新增認證的 **Get-AutomationCredential** 活動。
-5.  在 **Get-AutomationCredential** 前面，輸入 *$Credential =* 以將認證指派給變數。 
+4.  以滑鼠右鍵按一下您的認證，然後按一下 [**加入至畫布**]。這會新增認證的 **Get-AutomationPSCredential** 活動。
+5.  在 **Get-AutomationPSCredential** 前面，輸入 *$Credential =* 以將認證指派給變數。 
 3.  在下一行輸入 *Add-AzureAccount -Credential $Credential*。<br> ![驗證](media/automation-first-runbook-textual/authentication.png) 
 3. 按一下 [**測試**] 窗格，如此我們可以測試 runbook。
 10. 按一下 [**開始**] 以開始測試。當它完成時，您應該會收到類似下列輸出，它會傳回認證中的使用者資訊。這可確認認證有效。<br> ![驗證](media/automation-first-runbook-textual/authentication-test.png) 
@@ -122,4 +122,4 @@
 
 - [我的第一個圖形化 Runbook](automation-first-runbook-graphical.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

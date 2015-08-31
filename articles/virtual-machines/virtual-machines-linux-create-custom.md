@@ -19,7 +19,7 @@
 
 # 如何在 Azure 中建立執行 Linux 的自訂虛擬機器
 
-本主題描述如何在 Azure 服務管理模式中使用 Azure CLI Mac、Linux 和 Windows 建立*自訂*虛擬機器。我們將使用 Azure 上可用 **IMAGES** 中的 Linux 映像。Azure CLI 命令提供下列組態選項：
+本主題說明如何透過使用傳統的部署模型的 Azure CLI 建立*自訂*的虛擬機器。我們將使用 Azure 上可用 **IMAGES** 中的 Linux 映像。Azure CLI 命令提供下列組態選項：
 
 - 將 VM 連線到虛擬網路
 - 將 VM 加入現有的雲端服務
@@ -34,8 +34,8 @@
 - [建立執行 Linux 的虛擬機器](virtual-machines-linux-tutorial.md)
 
 
-## 了解如何使用 Azure 服務管理建立 Linux 虛擬機器
+## 如何使用傳統的部署模型建立 Linux 虛擬機器
 
-[AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-LinuxVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

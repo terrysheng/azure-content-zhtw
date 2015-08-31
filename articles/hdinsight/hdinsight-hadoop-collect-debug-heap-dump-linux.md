@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -120,4 +121,4 @@ map 和 reduce 處理序會稍有不同，因為它們是 MapReduce 服務的子
 
 8. 重新啟動服務後，請使用 [服務動作] 按鈕**關閉維護模式**。這麼做可讓 Ambari 繼續監視服務是否有警示。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

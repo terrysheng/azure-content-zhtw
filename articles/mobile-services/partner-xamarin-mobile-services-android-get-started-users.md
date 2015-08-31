@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="開始使用驗證 (Xamarin.Android) - 行動服務" 
-	description="了解如何在 Xamarin.Android 的 Azure 行動服務應用程式中使用驗證。" 
-	services="mobile-services" 
-	documentationCenter="xamarin" 
-	manager="dwrede" 
-	authors="lindydonna" 
+<properties
+	pageTitle="開始使用驗證 (Xamarin.Android) - 行動服務"
+	description="了解如何在 Xamarin.Android 的 Azure 行動服務應用程式中使用驗證。"
+	services="mobile-services"
+	documentationCenter="xamarin"
+	manager="dwrede"
+	authors="lindydonna"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/14/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="donnam"/>
 
 # 在您的行動服務應用程式中新增驗證
@@ -42,7 +42,7 @@
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-3. 在 Eclipse 中，開啟您完成教學課程 [開始使用行動服務] 時建立的專案。 
+3. 在 Eclipse 中，開啟您完成教學課程 [開始使用行動服務] 時建立的專案。
 
 4. 從 [執行] 功能表，按一下 [執行] 來啟動應用程式。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。
 
@@ -85,7 +85,7 @@
 
         private async Task CreateTable()
         {
-            
+
             await InitLocalStoreAsync();
 
             // Get the Mobile Service Table instance to use
@@ -136,6 +136,5 @@
 [使用指令碼授權使用者]: mobile-services-javascript-backend-service-side-authorization.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [完成的範例專案]: http://go.microsoft.com/fwlink/p/?LinkId=331328
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="使用 Azure App Service 將推播通知新增至 iOS 應用程式"
-	description="了解如何使用 Azure 應用程式服務傳送推播通知至 iOS 應用程式。"
+	pageTitle="使用 Azure Mobile Apps 將推播通知新增至 iOS 應用程式"
+	description="了解如何使用 Azure Mobile Apps 將推播通知傳送至 iOS 應用程式。"
 	services="app-service\mobile"
 	documentationCenter="ios"
 	manager="dwrede"
@@ -13,21 +13,17 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/01/2015"
+	ms.date="07/29/2015"
 	ms.author="krisragh"/>
 
 
-# 新增推播通知至 iOS 應用程式
+# 將推播通知新增至您的 iOS 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-本主題說明如何新增推播通知給[快速入門專案](app-service-mobile-dotnet-backend-ios-get-started-preview.md)，以讓行動服務在每次插入一筆記錄時傳送推播通知。您必須先完成[開始使用 Mobile Apps]。
+在本教學課程中，您會將推播通知新增至 [iOS 快速入門]專案，以便在每次插入一筆記錄時傳送推播通知。本教學課程以 [iOS 快速入門]教學課程為基礎，您必須先完成該教學課程。[IOS 模擬器不支援推播通知](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html)，所以在此教學課程中，您需要有實體 iOS 裝置和 [Apple Developer Program 成員資格](https://developer.apple.com/programs/ios/)。
 
-> [AZURE.NOTE][IOS 模擬器不支援推播通知](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html)，所以您必須使用實體 iOS 裝置。您也必須註冊付費 [Apple Developer Program 成員資格](https://developer.apple.com/programs/ios/)。
-
-##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
+## <a id="register"></a>針對推播通知註冊應用程式
 
 [AZURE.INCLUDE [啟用 Apple 推播通知](../../includes/enable-apple-push-notifications.md)]
 
@@ -35,36 +31,23 @@
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../../includes/app-service-mobile-apns-configure-push-preview.md)]
 
-##<a id="update-server"></a>更新後端程式碼以傳送推播通知
+##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
 
-* 下載後端程式碼的 Visual Studio 專案。在入口網站中，按一下 [**瀏覽**] > 應用程式名稱 > [**新增用戶端**] > [**iOS**] \(Objective-C 或 Swift) > [**下載並執行您的伺服器專案**]。開啟 [**Controllers**] > [TodoItemController.cs]，然後新增下列 using 陳述式：
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
 
-```
-			using Microsoft.Azure.Mobile.Server.Config;
-			using Microsoft.Azure.NotificationHubs;
-```
+##<a id="update-server"></a>更新伺服器專案以傳送推播通知
 
-* 在 `InsertAsync` 呼叫後面將下列內容新增至 `PostTodoItem`。在插入 todo 項目時，此程式碼會傳送推播通知 (含項目文字)。
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-```
-        // get Notification Hubs credentials associated with this Mobile App
-        string notificationHubName = this.Services.Settings.NotificationHubName;
-        string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-        // connect to notification hub
-        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
-
-        // iOS payload
-        var appleNotificationPayload = "{"aps":{"alert":"" + item.Text + ""}}";
-
-        await Hub.SendAppleNativeNotificationAsync(appleNotificationPayload);
-```
-
-## <a name="publish-the-service"></a>將行動服務發佈至 Azure
+## <a name="publish-the-service"></a>將伺服器專案部署至 Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
+## <a id="add-push"></a>將推播通知新增至應用程式
+
 [AZURE.INCLUDE [新增推播通知至應用程式](../../includes/app-service-add-push-notifications-to-app.md)]
+
+## <a id="test"></a>在應用程式中測試推播通知
 
 [AZURE.INCLUDE [在應用程式中測試推播通知](../../includes/test-push-notifications-in-app.md)]
 
@@ -116,6 +99,7 @@
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
 <!-- URLs. -->
+[iOS 快速入門]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Azure Mobile App iOS SDK]: https://go.microsoft.com/fwLink/?LinkID=529823
@@ -127,4 +111,4 @@
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

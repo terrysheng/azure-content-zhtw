@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="08/18/2015" 
 	ms.author="mazha"/>
 
 
@@ -33,7 +33,7 @@
 **為 Azure 訂用帳戶建立儲存體帳戶**
 
 1.  登入 [Azure 管理入口網站]。
-2.  按一下左下角的 [**新增**]。在 [**新增**] 對話方塊中，選取 [**資料服務**]，然後依序按一下 [**儲存體**] 和 [**快速建立**]。
+2.  在左下角，選取 [新增]。在 [**新增**] 對話方塊中，選取 [**資料服務**]，然後依序按一下 [**儲存體**] 和 [**快速建立**]。
 
     [建立儲存體帳戶] 對話方塊隨即出現。
 
@@ -112,7 +112,7 @@ Azure 管理入口網站目前不支援立即清除內容的功能。如果您�
 [How to Register a Custom Subdomain Name for Accessing Blobs in Azure]: ../storage-custom-domain-name.md
 [如何在 Azure 中建立同質群組]: http://msdn.microsoft.com/library/azure/ee460798.aspx
 [Overview of the Azure CDN]: cdn-overview.md
-[如何：管理 Azure 訂用帳戶的儲存體帳戶]: https://msdn.microsoft.com/zh-cn/library/azure/hh531793.aspx
+[如何：管理 Azure 訂用帳戶的儲存體帳戶]: https://msdn.microsoft.com/zh-tw/library/azure/hh531793.aspx
 [如何將 CDN 內容對應至自訂網域]: cdn-map-content-to-custom-domain.md
 
 
@@ -120,4 +120,4 @@ Azure 管理入口網站目前不支援立即清除內容的功能。如果您�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

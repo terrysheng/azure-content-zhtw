@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="在原始檔控制中儲存專案程式碼 | Microsoft Azure" 
-	description="了解如何在您電腦的本機 Git 存放庫中儲存伺服器指令碼檔案和模組。" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="在原始檔控制中儲存專案程式碼 | Microsoft Azure"
+	description="了解如何在您電腦的本機 Git 存放庫中儲存伺服器指令碼檔案和模組。"
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="ggailey777"/>
 
 # 在原始檔控制中儲存專案程式碼
@@ -32,7 +32,7 @@
 
 ##<a name="clone-repo"></a>安裝 Git 與建立本機儲存機制
 
-1. 在您的本機電腦上安裝 Git。 
+1. 在您的本機電腦上安裝 Git。
 
 	安裝 Git 所需的步驟會因作業系統而有所不同。如需作業系統特定的發佈和安裝指引，請參閱[安裝 Git]。
 
@@ -76,13 +76,13 @@
 		    request.execute();
 		    console.log(JSON.stringify(item, null, 4));
 		}
-	
+
 	此程式碼僅會將插入項目寫入記錄。如果此檔案已包含程式碼，則只要在此檔案中新增一些有效的 JavaScript 程式碼 (例如，呼叫 `console.log()`)，然後儲存變更。
 
 3. 在 Git 命令提示字元中，輸入下列命令以開始追蹤新的指令碼檔案：
 
 		$ git add .
-	
+
 
 4. 輸入下列命令以認可變更：
 
@@ -91,12 +91,11 @@
 5. 輸入下列命令以將變更上傳至遠端儲存機制：
 
 		$ git push origin master
-	
+
 	您應會看到一連串命令，指出已將認可部署到行動服務。
 
 6. 回到管理入口網站中，按一下 [**資料**] 索引標籤，然後按一下 [**TodoItem**] 資料表、[**指令碼**]，再選取 [**插入**] 作業。
-7. 
-	請注意，顯示的插入作業指令碼會與您剛才上傳至儲存機制的 JavaScript 程式碼相同。
+7.請注意，顯示的插入作業指令碼會與您剛才上傳至儲存機制的 JavaScript 程式碼相同。
 
 ##<a name="use-npm"></a>在伺服器指令碼中運用共用程式碼和 Node.js 模組
 
@@ -104,7 +103,7 @@
 
 建議的方法是藉由將參考新增至服務的 package.json 檔案，以將 Node.js 模組新增至您的行動服務。接著，您必須更新 package.json 檔案，以將 [node-uuid] Node.js 模組新增至您的行動服務。當更新發行至 Azure 時，將會重新啟動行動服務，並安裝模組。接著便可使用此模組，來為插入項目上的 **uuid** 屬性產生新的 GUID 值。
 
-2. 導覽至本機 Git 儲存機制的 `.\service` 資料夾在文字編輯器中開啟 package.json 檔案，然後將下列欄位新增至 **dependencies** 物件：
+2. 瀏覽至本機 Git 儲存機制的 `.\service` 資料夾，並在文字編輯器中開啟 package.json 檔案，然後將下列欄位加入 **dependencies** 物件：
 
 		"node-uuid": "~1.4.3"
 
@@ -126,7 +125,7 @@
 		$ git add .
 		$ git commit -m "added node-uuid module"
 		$ git push origin master
-		
+
 	這會新增檔案、認可變更，並將新的 node-uuid 模組和變更推送到行動服務的 todoitem.insert.js 指令碼。
 
 ## <a name="next-steps"> </a>後續步驟
@@ -161,6 +160,5 @@
 [從用戶端呼叫自訂 API]: mobile-services-ios-call-custom-api.md
 [模組]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -13,22 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/26/2015"
+	ms.date="07/27/2015"
 	ms.author="mahender"/>
 
 # 如何設定應用程式以使用 Microsoft 帳戶登入
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-本主題說明如何設定 Azure 應用程式服務，以使用 Microsoft 帳戶做為驗證提供者。
+本主題說明如何設定 Azure 行動應用程式，以使用 Microsoft 帳戶做為驗證提供者。
 
 ## <a name="register"> </a>使用 Microsoft 帳戶註冊您的應用程式
 
-1. 瀏覽到 Microsoft 帳戶開發人員中心的 [我的應用程式]頁面，並視需要使用您的 Microsoft 帳戶登入。
+1. 登入 [Azure 管理入口網站]，並瀏覽至您的行動應用程式。
 
-2. 按一下 [建立應用程式]、然後輸入 [應用程式名稱]，並按一下 [I accept]。
+2. 按一下 [設定]、[使用者驗證]，然後按一下 [Microsoft 帳戶]。複製 [重新導向 URL]。您將使用此 URL 為您的 Microsoft 帳戶設定新的應用程式。
 
-3. 按一下 [**API 設定**]。針對 [**行動或桌面用戶端應用程式**]，選取 [**是**]。在 [**重新導向 URL**] 欄位中，輸入附加路徑 _/signin-microsoft_ 的閘道 URL。例如：`https://contosogateway.azurewebsites.net/signin-microsoft`。請確實使用 HTTPS 配置。輸入重新導向 URL 之後，按一下 [**儲存**]。
+3. 瀏覽到 Microsoft 帳戶開發人員中心的 [我的應用程式]頁面，並視需要使用您的 Microsoft 帳戶登入。
+
+4. 按一下 [建立應用程式]、然後輸入 [應用程式名稱]，並按一下 [I accept]。
+
+5. 按一下 [**API 設定**]。針對 [**行動或桌面用戶端應用程式**]，選取 [**是**]。在 [重新導向 URL] 欄位中輸入您之前複製的 [重新導向 URL]。這是附加 _/signin-microsoft_ 的行動應用程式閘道。例如，`https://contosogateway.azurewebsites.net/signin-microsoft`。請確實使用 HTTPS 配置。輸入重新導向 URL 之後，按一下 [**儲存**]。
 
 	![][0]
 
@@ -41,9 +45,7 @@
 
 ## <a name="secrets"> </a>將 Microsoft 帳戶資訊新增至行動應用程式
 
-5. 登入 [Azure 管理入口網站]，然後導覽至您的 App Services 閘道。
-
-6. 在 [**設定**] 下選擇 [**身分識別**]，然後選取 [**Microsoft 帳戶**]。貼入您先前取得的應用程式識別碼和應用程式密鑰值。然後按一下 [儲存]。
+1. 回到行動應用程式的 Microsoft 帳戶設定刀鋒視窗上的 [Azure 管理入口網站]，貼上您先前取得的用戶端識別碼和用戶端機密值。然後按一下 [儲存]。
 
     ![][1]
 
@@ -60,7 +62,7 @@
 <!-- Images. -->
 
 [0]: ./media/app-service-mobile-how-to-configure-microsoft-authentication-preview/app-service-microsoftaccount-redirect.png
-[1]: ./media/app-service-mobile-how-to-configure-microsoft-authentication-preview/app-service-microsoftaccount-settings.png
+[1]: ./media/app-service-mobile-how-to-configure-microsoft-authentication-preview/mobile-app-microsoftaccount-settings.png
 
 <!-- URLs. -->
 
@@ -68,4 +70,4 @@
 [Azure 管理入口網站]: https://portal.azure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

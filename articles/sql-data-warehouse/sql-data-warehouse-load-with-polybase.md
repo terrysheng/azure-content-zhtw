@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="barbkess"
    manager="jhubbard"
-   editor=""/>
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -56,21 +56,23 @@ CREATE MASTER KEY;
 SELECT * FROM sys.database_credentials;
 
 -- Create a database scoped credential
-CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe', 
-	Secret = 'myazurestoragekey==';
+CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
+WITH IDENTITY = 'joe'
+,    Secret = 'myazurestoragekey=='
+;
 ```
 
 參考主題：[CREATE CREDENTIAL (Transact-SQL)][]。
 
-輪換 Azure 儲存體帳戶金鑰時，您必須捨棄認證，再使用新的金鑰做為密碼來重新建立認證。
+若要卸除資料庫範圍認證，您只需要使用下列語法：
 
 ```
 -- Dropping credential
-DROP DATABASE SCOPED CREDENTIAL ASBSecret;
+DROP DATABASE SCOPED CREDENTIAL ASBSecret
+;
 ```
 
 參考主題：[DROP CREDENTIAL (Transact-SQL)][]。
-
 
 ## 建立外部資料來源
 外部資料來源是儲存 Azure blob 儲存體資料位置及存取資訊的資料庫物件。對於您想要存取的每個 Azure 儲存體容器，您需要定義外部資料來源。
@@ -78,14 +80,26 @@ DROP DATABASE SCOPED CREDENTIAL ASBSecret;
 ```
 -- Creating external data source (Azure Blob Storage) 
 CREATE EXTERNAL DATA SOURCE azure_storage 
-WITH (
-	TYPE = HADOOP, 
-       LOCATION ='wasbs://mycontainer@ test.blob.core.windows.net/path’,
-      CREDENTIAL = ASBSecret
-);
+WITH
+(
+    TYPE = HADOOP
+,   LOCATION ='wasbs://mycontainer@ test.blob.core.windows.net/path'
+,   CREDENTIAL = ASBSecret
+)
+;
 ```
 
 參考主題：[CREATE EXTERNAL DATA SOURCE (Transact-SQL)][]。
+
+若要卸除外部資料來源，其語法如下：
+
+```
+-- Dropping external data source
+DROP EXTERNAL DATA SOURCE azure_storage
+;
+```
+
+參考主題：[卸除外部資料來源 (Transact-SQL)][]。
 
 ## 建立外部檔案格式
 外部檔案格式是指定外部資料格式的資料庫物件。在此範例中，我們在文字檔中有未壓縮的資料，且欄位以縱線字元 ('|') 分隔。
@@ -93,18 +107,29 @@ WITH (
 ```
 -- Creating external file format (delimited text file)
 CREATE EXTERNAL FILE FORMAT text_file_format 
-WITH (
-	FORMAT_TYPE = DELIMITEDTEXT, 
-	FORMAT_OPTIONS (
-		FIELD_TERMINATOR ='|', 
-		USE_TYPE_DEFAULT = TRUE
-	)
-);
+WITH 
+(   
+    FORMAT_TYPE = DELIMITEDTEXT 
+,	FORMAT_OPTIONS  (
+                        FIELD_TERMINATOR ='|'
+                    ,   USE_TYPE_DEFAULT = TRUE
+                    )
+)
+;
 ```
 
 PolyBase 可以處理壓縮和未壓縮的資料，包括分隔的文字、Hive RCFILE 和 HIVE ORC 格式。
 
 參考主題：[CREATE EXTERNAL FILE FORMAT (Transact-SQL)][]。
+
+若要卸除外部檔案格式，其語法如下：
+
+```
+-- Dropping external file format...
+DROP EXTERNAL FILE FORMAT text_file_format
+;
+```
+參考主題：[卸除外部檔案格式 (Transact-SQL)][]。
 
 ## 建立外部資料表
 
@@ -114,26 +139,60 @@ LOCATION 選項指定從資料來源根目錄到資料的路徑。在此範例�
 
 ```
 -- Creating external table pointing to file stored in Azure Storage
-CREATE EXTERNAL TABLE [ext].[CarSensor_Data] (
-    [SensorKey] int NOT NULL, 
-    [CustomerKey] int NOT NULL, 
-    [GeographyKey] int NULL, 
-    [Speed] float NOT NULL, 
-    [YearMeasured] int NOT NULL
+CREATE EXTERNAL TABLE [ext].[CarSensor_Data] 
+(
+     [SensorKey]     int    NOT NULL 
+,    [CustomerKey]   int    NOT NULL 
+,    [GeographyKey]  int        NULL 
+,    [Speed]         float  NOT NULL 
+,    [YearMeasured]  int    NOT NULL
 )
-WITH (LOCATION='/Demo/',
-      DATA_SOURCE = azure_storage,
-      FILE_FORMAT = text_file_format,      
-);
+WITH 
+(
+    LOCATION    = '/Demo/'
+,   DATA_SOURCE = azure_storage
+,   FILE_FORMAT = text_file_format      
+)
+;
 ```
 
 > [AZURE.NOTE]請注意，您目前無法在外部資料表上建立統計資料。
-
 
 參考主題：[CREATE EXTERNAL TABLE (Transact-SQL)][]。
 
 您剛才建立的物件會儲存在 SQL 資料倉儲資料庫。您可以在 SQL Server Data Tools (SSDT) 物件總管中檢視它們。
 
+若要卸除的外部資料表，您需要使用下列語法：
+
+```
+--Dropping external table
+DROP EXTERNAL TABLE [ext].[CarSensor_Data]
+;
+```
+
+> [AZURE.NOTE]卸除的外部資料表時必須使用 `DROP EXTERNAL TABLE` 您**不能**使用 `DROP TABLE`。
+
+參考主題：[卸除外部資料表 (Transact-SQL)][]。
+
+另外值得注意的是外部資料表會同時顯示在 `sys.tables` 以及更明顯的 `sys.external_tables` 目錄檢視。
+
+## 替換儲存體金鑰
+
+有時您基於安全性考量，會想要變更存取金鑰至您的 blob 儲存體。
+
+要執行這項工作的最佳方式是遵循稱為「替換金鑰」的程序。您可能已經注意到您在 blob 儲存體帳戶有兩個儲存體金鑰。如此一來您就可以轉換
+
+替換 Azure 儲存體帳戶金鑰的程序只需要簡單的三個步驟
+
+1. 建立以次要儲存體存取金鑰為基礎的第二個資料庫範圍認證
+2. 建立以新的認證為基礎的第二個外部資料來源
+3. 卸除並建立指向新的外部資料來源的外部資料表
+
+當您移轉所有的外部資料表到新的外部資料來源時，您就可以執行清除工作：
+ 
+1. 卸除第一個外部資料來源
+2. 卸除以主要儲存體存取金鑰為基礎的第一個資料庫範圍認證
+3. 登入 Azure 並重新產生主要存取金鑰供下一次使用
 
 ## 查詢 Azure blob 儲存體資料
 針對外部資料表的查詢只使用資料表名稱，如同關聯式資料表一樣。
@@ -143,14 +202,15 @@ WITH (LOCATION='/Demo/',
 ```
 -- Join SQL Data Warehouse relational data with Azure storage data. 
 SELECT 
-    [Insured_Customers].[FirstName],
-    [Insured_Customers].[LastName],
-    [Insured_Customers].[YearlyIncome],
-    [CarSensor_Data].[Speed]
-FROM [dbo].[Insured_Customers] INNER JOIN [ext].[CarSensor_Data]
-ON [Insured_Customers].[CustomerKey] = [CarSensor_Data].[CustomerKey]
+      [Insured_Customers].[FirstName]
+,     [Insured_Customers].[LastName]
+,     [Insured_Customers].[YearlyIncome]
+,     [CarSensor_Data].[Speed]
+FROM  [dbo].[Insured_Customers] 
+JOIN  [ext].[CarSensor_Data]         ON [Insured_Customers].[CustomerKey] = [CarSensor_Data].[CustomerKey]
 WHERE [CarSensor_Data].[Speed] > 60 
-ORDER BY [CarSensor_Data].[Speed] desc;
+ORDER BY [CarSensor_Data].[Speed] DESC
+;
 ```
 
 ## 從 Azure blob 儲存體載入資料
@@ -166,18 +226,74 @@ CREATE TABLE AS SELECT 是效能很高的 Transact-SQL 陳述式，可替代 INS
 -- Load data from Azure blob storage to SQL Data Warehouse 
 
 CREATE TABLE [dbo].[Customer_Speed]
-WITH (
-	CLUSTERED COLUMNSTORE INDEX
-	DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
-	)
-AS SELECT * from [ext].[CarSensor_Data];
+WITH 
+(   
+    CLUSTERED COLUMNSTORE INDEX
+,	DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
+)
+AS 
+SELECT * 
+FROM   [ext].[CarSensor_Data]
+;
 ```
 
 請參閱 [CREATE TABLE AS SELECT (Transact-SQL)][]。
 
 
-## 限制
-使用 PolyBase 載入時僅支援 UTF-8 編碼樣式。至於其他編碼樣式，例如 UTF-16，請考慮使用 bcp 公用程式、SSIS 或 Azure Data Factory，將資料載入 SQL 資料倉儲資料庫。
+## 解決 PolyBase UTF-8 需求
+現在 PolyBase 支援載入以 UTF-8 編碼的資料檔案。因為 UTF-8 使用與 ASCII 相同的字元編碼，PolyBase 也支援載入 ASCII 編碼的資料。不過，PolyBase 不支援其他字元編碼，例如 UTF-16 / Unicode 或延伸的 ASCII 字元。延伸的 ASCII 包括具有重音符號的字元，例如德文常見的母音變化。
+
+若要解決這項需求的最佳解答是重新撰寫為 UTF-8 編碼。
+
+有數種方法能完成這項操作：以下是使用 Powershell 的兩種方法：
+
+### 簡單的小檔案範例
+
+以下是一行會建立檔案的簡單 Powershell 指令碼。
+ 
+```
+Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
+```
+
+不過，儘管將資料重新編碼的方法非常簡單，但絕非最有效率的作法。下列的 io 資料流範例快得多很多，並可達到相同的結果。
+
+### 較大檔案的 IO 資料流處理範例
+
+下列程式碼範例更為複雜，但在資料流處理來自來源的資料至目標的資料列時更具效率。應用此方法在較大的檔案上。
+
+```
+#Static variables
+$ascii = [System.Text.Encoding]::ASCII
+$utf16le = [System.Text.Encoding]::Unicode
+$utf8 = [System.Text.Encoding]::UTF8
+$ansi = [System.Text.Encoding]::Default
+$append = $False
+
+#Set source file path and file name
+$src = [System.IO.Path]::Combine("C:\input_file_path","input_file_name.txt")
+
+#Set source file encoding (using list above)
+$src_enc = $ansi
+
+#Set target file path and file name
+$tgt = [System.IO.Path]::Combine("C:\output_file_path","output_file_name.txt")
+
+#Set target file encoding (using list above)
+$tgt_enc = $utf8
+
+$read = New-Object System.IO.StreamReader($src,$src_enc)
+$write = New-Object System.IO.StreamWriter($tgt,$append,$tgt_enc)
+
+while ($read.Peek() -ne -1)
+{
+    $line = $read.ReadLine();
+    $write.WriteLine($line);
+}
+$read.Close()
+$read.Dispose()
+$write.Close()
+$write.Dispose()
+```
 
 ## 後續步驟
 如需更多開發祕訣，請參閱[開發概觀][]。
@@ -201,9 +317,14 @@ AS SELECT * from [ext].[CarSensor_Data];
 [CREATE EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935022(v=sql.130).aspx
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
+
+[卸除外部資料來源 (Transact-SQL)]: https://msdn.microsoft.com/zh-tw/library/mt146367.aspx
+[卸除外部檔案格式 (Transact-SQL)]: https://msdn.microsoft.com/zh-tw/library/mt146379.aspx
+[卸除外部資料表 (Transact-SQL)]: https://msdn.microsoft.com/zh-tw/library/mt130698.aspx
+
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 [CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/zh-tw/library/ms174382.aspx
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-tw/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-tw/library/ms189450.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

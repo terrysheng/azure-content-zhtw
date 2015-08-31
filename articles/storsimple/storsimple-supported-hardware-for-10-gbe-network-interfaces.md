@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/27/2015"
+   ms.date="08/17/2015"
    ms.author="alkohli" />
 
 # 10 GbE 網路介面在 StorSimple 裝置上支援的硬體
@@ -110,6 +110,6 @@ Mellanox 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以�
 
 ## 後續步驟
 
-[深入了解 StorSimple 硬體元件](https://msdn.microsoft.com/library/azure/dn757755.aspx)
+[深入了解 StorSimple 硬體元件與狀態](storsimple-monitor-hardware-status.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

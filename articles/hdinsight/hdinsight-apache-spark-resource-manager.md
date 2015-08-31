@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="nitinme" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="07/31/2015" 
 	ms.author="nitinme"/>
 
 
@@ -23,9 +24,11 @@
 
 ## <a name="launchrm"></a>如何啟動資源管理員？
 
-1. 在 Azure 入口網站選取 Spark 叢集，接著在底部的入口網站工作列按一下 [**Spark 儀表板**]。
+1. 從 [Azure Preview 入口網站](https://ms.portal.azure.com/)的開始面板，按一下 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以在 [瀏覽全部] > [HDInsight 叢集] 下巡覽至您的叢集。 
+ 
+2. 從 Spark 叢集刀鋒視窗中，按一下 [儀表板]。出現提示時，輸入 Spark 叢集的系統管理員認證。
 
-2. 在儀表板上方的窗格中，按一下 [**資源管理員**] 索引標籤。
+	![啟動資源管理員](./media/hdinsight-apache-spark-resource-manager/HDI.Cluster.Launch.Dashboard.png "啟動資源管理員")
 
 ##<a name="scenariosrm"></a>如何使用資源管理員修正這些問題？
 
@@ -38,24 +41,24 @@ HDInsight 中的 Apache Spark 叢集是專為多租用戶所設計，因此資�
 
 ### 我只利用 Spark 叢集使用 Jupyter Notebook。該如何將所有資源配置給它？
 
-1. 在 [**Spark 儀表板**] 中，按一下 [**Spark UI**] 索引標籤以找出可配置給應用程式的核心數目和 RAM 上限。
+1. 在 [Spark 儀表板] 中，按一下 [Spark UI] 索引標籤，找出可配置給應用程式的核心數目和 RAM 上限。
 
 	![資源配置](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Resource.png "尋找配置給 Spark 叢集的資源")
 
 	依照上述螢幕擷取畫面，您可以配置的核心數目上限為 7 個 (總共 8 個，其中有 1 正在使用中)，可配置的 RAM 上限為 9 GB (總共 12 GB RAM，其中 2 GB 必須保留供系統使用，有 1 GB 正供給其他應用程式使用)。
 
-	您也應該將所有執行中的應用程式納入考量。您可以從 [**Spark UI**] 索引標籤查看執行中的應用程式。
+	您也應該將所有執行中的應用程式納入考量。您可以從 [Spark UI] 索引標籤查看執行中的應用程式。
 
 	![執行中的應用程式](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Running.Apps.png "在叢集上執行的應用程式")
 
 	
-2. 在 HDInsight Spark 儀表板中按一下 [**資源管理員**] 索引標籤，接著再指定 [**預設應用程式核心計數**] 和 [**每個背景工作節點的預設執行程式記憶體**] 的值。將其他屬性設定為 0。
+2. 在 HDInsight 的 [Spark 儀表板] 中按一下 [資源管理員] 索引標籤，接著再指定 [預設應用程式核心計數] 和 [每個背景工作節點的預設執行程式記憶體] 的值。將其他屬性設定為 0。
 
 	![資源配置](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Allocate.Resources.png "將資源配置給應用程式")
 
 ### 我沒有搭配使用 BI 工具和 Spark 叢集。該如何回收資源？ 
 
-將 Thrift 伺服器核心計數和 Thrift 伺服器執行程式記憶體指定為 0。在未配置核心或記憶體的情況下，Thrift 伺服器將會進入**等候**狀態。
+將 Thrift 伺服器核心計數和 Thrift 伺服器執行程式記憶體指定為 0。在未配置核心或記憶體的情況下，Thrift 伺服器將會進入 **WAITING** 狀態。
 
 ![資源配置](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.No.Thrift.png "未將資源配置給 Thrift 伺服器")
 
@@ -79,4 +82,4 @@ HDInsight 中的 Apache Spark 叢集是專為多租用戶所設計，因此資�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

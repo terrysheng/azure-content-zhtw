@@ -38,7 +38,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
 ### 應用程式診斷
 
-應用程式診斷功能可讓您擷取 Web 應用程式所產生的資訊。ASP.NET 應用程式會使用 [System.Diagnostics.Trace](http://msdn.microsoft.com/zh-tw/library/36hhw2t6.aspx) 類別將資訊記錄到應用程式診斷記錄。例如：
+應用程式診斷功能可讓您擷取 Web 應用程式所產生的資訊。ASP.NET 應用程式會使用 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) 類別將資訊記錄到應用程式診斷記錄。例如：
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -82,7 +82,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
 * **應用程式記錄** - /LogFiles/Application/。此資料夾內含有一或多個文字檔案，這些檔案涵蓋應用程式記錄所產生的資訊。
 
-* **失敗要求追蹤** - /LogFiles/W3SVC#########/。此資料夾內含有一個 XSL 檔案和一或多個 XML 檔案。請確保將 XSL 檔案下載至 XML 檔案所在的相同目錄，因為 XSL 檔案可提供格式化功能，讓您在 Internet Explorer 中檢視時能夠篩選 XML 檔案內容。
+* **失敗要求追蹤** - /LogFiles/W3SVC\#\#\#\#\#\#\#\#\#/。此資料夾內含有一個 XSL 檔案和一或多個 XML 檔案。請確保將 XSL 檔案下載至 XML 檔案所在的相同目錄，因為 XSL 檔案可提供格式化功能，讓您在 Internet Explorer 中檢視時能夠篩選 XML 檔案內容。
 
 * **詳細錯誤記錄** - /LogFiles/DetailedErrors/。此資料夾包含一或多個 .htm 檔案，內含已經發生的任何 HTTP 錯誤之詳細資訊。
 
@@ -236,7 +236,7 @@ Tid|產生事件的執行緒之執行緒識別碼
 
 ### 失敗要求追蹤
 
-失敗要求追蹤會儲存在名為 __fr######.xml__ 的 XML 檔案中。為了讓您輕鬆地檢視記錄資訊，系統會在 XML 檔案所屬的相同目錄中，提供名為 __freb.xsl__ 的 XSL 樣式表。在 Internet Explorer 中開啟其中一個 XML 檔案會使用 XSL 樣式表，提供格式化的追蹤資訊顯示。此資訊類似以下內容：
+失敗要求追蹤會儲存在名為 __fr\#\#\#\#\#\#.xml__ 的 XML 檔案中。為了讓您輕鬆地檢視記錄資訊，系統會在 XML 檔案所屬的相同目錄中，提供名為 __freb.xsl__ 的 XSL 樣式表。在 Internet Explorer 中開啟其中一個 XML 檔案會使用 XSL 樣式表，提供格式化的追蹤資訊顯示。此資訊類似以下內容：
 
 ![在瀏覽器中檢視的失敗要求](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -253,7 +253,7 @@ Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](http://msdn.microsoft.c
 ##<a name="nextsteps"></a> 後續步驟
 
 - [如何監視 Web 應用程式](/zh-tw/manage/services/web-sites/how-to-monitor-websites/)
-- [在 Visual Studio 中疑難排解 Azure Web Apps](/zh-tw/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
+- [在 Visual Studio 中疑難排解 Azure Web App](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [在 HDInsight 中分析 Web 應用程式記錄](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
@@ -263,4 +263,4 @@ Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](http://msdn.microsoft.c
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

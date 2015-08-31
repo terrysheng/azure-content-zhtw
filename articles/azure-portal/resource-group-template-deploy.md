@@ -122,6 +122,13 @@ Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在
 7. 取得部署失敗的詳細資訊。
 
         PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+        
+### 影片
+
+以下是使用 PowerShell 搭配資源管理員範本的影片示範。
+
+[AZURE.VIDEO deploy-an-application-with-azure-resource-manager-template]
+
 
 ## 以適用於 Mac、Linux 和 Windows 的 Azure CLI 部署
 
@@ -252,9 +259,9 @@ Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在
 ## 後續步驟
 - 如需透過 .NET 用戶端程式庫部署資源的範例，請參閱[使用 .NET 程式庫和範本部署資源](../arm-template-deployment.md)
 - 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- 若要了解 Azure 資源管理員範本的區段，請參閱[編寫範本](../resource-group-authoring-templates.md)。
+- 若要了解 Azure 資源管理員範本的區段，請參閱[編寫範本](../resource-group-authoring-templates.md)
 - 如需您可以在 Azure 資源管理員範本中使用的函數的清單，請參閱[範本函數](../resource-group-template-functions.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

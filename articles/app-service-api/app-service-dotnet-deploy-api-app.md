@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
-	ms.author="bradyg"/>
+	ms.date="08/14/2015" 
+	ms.author="tdykstra"/>
 
 # 在 Azure App Service 中部署 API 應用程式 
 
@@ -34,17 +34,33 @@ API 應用程式是以 Web 應用程式為基礎的事實，也表示您可以�
 
 [AZURE.INCLUDE [app-service-api-pub-web-create](../../includes/app-service-api-pub-web-create.md)]
 
-## <a id="deploy"></a>將您的程式碼部署到新的 API 應用程式
+## <a id="deploy"></a>將您的程式碼部署到新的 Azure API 應用程式
 
 您可使用同一個 [發行 Web 精靈] 將程式碼部署到新的 API 應用程式。
 
 [AZURE.INCLUDE [app-service-api-pub-web-deploy](../../includes/app-service-api-pub-web-deploy.md)]
 
-## 在 Azure 預覽入口網站中檢視應用程式
+## 呼叫 Azure API 應用程式 
 
-在此區段中，您將檢視入口網站中 API 應用程式可用的基本設定，並對您的 API 應用程式進行反覆變更。每次部署時，入口網站都會反映您對 API 應用程式所做的變更。
+您在上一個教學課程中啟用 Swagger UI 後，即可使用該 UI 來確認 API 應用程式正在 Azure 中執行。
 
 1. 在 [Azure Preview 入口網站](https://portal.azure.com)中，移至所部署之 API 應用程式的 [API 應用程式] 刀鋒視窗。
+
+2. 按一下 API 應用程式的 URL。
+
+	![按一下 URL](./media/app-service-dotnet-deploy-api-app/clickurl.png)
+
+	[已成功建立 API 應用程式] 頁面隨即出現。
+
+3. 將 "/swagger" 新增至瀏覽器位址列中的 URL 結尾。
+
+4. 在顯示的 Swagger 頁面中，按一下 **[連絡人] > [取得] > [立即試用]**。
+
+	![立即試用](./media/app-service-dotnet-deploy-api-app/swaggerui.png)
+
+## 在入口網站中檢視 API 定義
+
+1. 在 [Azure Preview 入口網站](https://portal.azure.com)中，移回所部署之 API 應用程式的 [**API 應用程式**] 刀鋒視窗。
 
 4. 按一下 [**API 定義**]。
  
@@ -52,7 +68,9 @@ API 應用程式是以 Web 應用程式為基礎的事實，也表示您可以�
 
 	![API 定義](./media/app-service-dotnet-deploy-api-app/29-api-definition-v3.png)
 
-5. 現在，請回到 Visual Studio 中的專案，並將下列程式碼新增至 **ContactsController.cs** 檔案。此程式碼會新增 **Post** 方法，可以用來將新的 `Contact` 執行個體張貼至 API。
+接下來，您將變更 API 定義並查看入口網站中反映的變更。
+
+5. 請回到 Visual Studio 中的專案，並將下列程式碼新增至 **ContactsController.cs** 檔案。   
 
 		[HttpPost]
 		public HttpResponseMessage Post([FromBody] Contact contact)
@@ -61,27 +79,41 @@ API 應用程式是以 Web 應用程式為基礎的事實，也表示您可以�
 			return Request.CreateResponse(HttpStatusCode.Created);
 		}
 
-	![新增 Post 方法至控制器](./media/app-service-dotnet-deploy-api-app/30-post-method-added-v3.png)
-
 	此程式碼會新增 **Post** 方法，可以用來將新的 `Contact` 執行個體張貼至 API。
 
-6. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案，然後選取 [**發佈**]。
+	[連絡人] 類別的程式碼現在看起來如下列範例所示。
 
-	![專案發佈內容功能表](./media/app-service-dotnet-deploy-api-app/31-publish-gesture-v3.png)
+		public class ContactsController : ApiController
+		{
+		    [HttpGet]
+		    public IEnumerable<Contact> Get()
+		    {
+		        return new Contact[]{
+		                    new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+		                    new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+		                    new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+		                };
+		    }
+		
+		    [HttpPost]
+		    public HttpResponseMessage Post([FromBody] Contact contact)
+		    {
+		        // todo: save the contact somewhere
+		        return Request.CreateResponse(HttpStatusCode.Created);
+		    }
+		}
 
-7. 按一下 [設定] 索引標籤。
-
-8. 從 [**設定**] 下拉清單中，選取 [**偵錯**]。
-
-	![發佈 Web 設定](./media/app-service-dotnet-deploy-api-app/36.5-select-debug-option-v3.png)
+7. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案，然後選取 [**發佈**]。
 
 9. 按一下 [**預覽**] 索引標籤
 
-10. 按一下 [**開始預覽**]，以檢視將進行的變更。
+10. 按一下 [**開始預覽**] 以查看哪些檔案要複製到 Azure。
 
 	![發佈 Web 對話方塊](./media/app-service-dotnet-deploy-api-app/39-re-publish-preview-step-v2.png)
 
 11. 按一下 [發佈]。
+
+6. 如同您第一次發佈時重新啟動閘道器。
 
 12. 在發佈程序完成後，回到入口網站，然後關閉並重新開啟 [**API 定義**] 刀鋒視窗。您會看到您剛建立並直接部署到 Azure 訂閱中的新 API 端點。
 
@@ -92,4 +124,4 @@ API 應用程式是以 Web 應用程式為基礎的事實，也表示您可以�
 您已了解 Visual Studio 中的直接部署功能如何讓您輕鬆逐一查看和快速部署您的 API，以及測試其是否運作正常。在[下一個教學課程](../app-service-dotnet-remotely-debug-api-app.md)中，您會了解如何在 API 應用程式於 Azure 中執行時進行偵錯。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

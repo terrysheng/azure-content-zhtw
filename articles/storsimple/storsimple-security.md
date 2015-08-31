@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/11/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos"/>
 
 # StorSimple 安全性 
@@ -92,7 +92,7 @@ CHAP 是 StorSimple 裝置用來驗證遠端用戶端身分識別的一種驗證
 > * 您不能針對 CHAP 啟動器和 CHAP 目標使用相同的密碼。
 > * 設定密碼之後，您可以加以變更但無法擷取。如果密碼已變更，請務必通知所有遠端存取使用者，好讓他們能夠順利連接至 StorSimple 裝置。
 
-如需詳細資訊並設定 CHAP，請移至[為 StorSimple 裝置設定 CHAP](storsimple-configure-chap.md)
+如需詳細資訊並設定 CHAP，請至[為 StorSimple 裝置設定 CHAP](storsimple-configure-chap.md)。
 
 ### StorSimple Snapshot Manager 密碼
 
@@ -135,7 +135,7 @@ StorSimple Manager 服務的主要目的是管理和設定 StorSimple 裝置。S
 > [AZURE.IMPORTANT]
 > 
 > * 只會針對第一個向服務註冊的裝置產生服務資料加密金鑰。向服務註冊的所有後續裝置則必須使用相同的服務資料加密金鑰。請務必製作一份此金鑰的副本，並將它儲存在安全的位置。儲存服務資料加密金鑰的副本時，必須讓已經授權的人員可以進行存取，並可以輕鬆地將它傳送到裝置系統管理員。
-> * 您可以透過選取服務儀表板上的 [變更服務資料加密金鑰] 選項，變更服務資料加密金鑰及對應的資料加密憑證。變更加密金鑰時，必須使用新的金鑰更新所有裝置。因此，建議您在所有裝置都在線上時變更金鑰。如果裝置處於離線狀態，您可以在其他時間變更金鑰。金鑰已過期的裝置仍然可以執行備份，但在金鑰更新之前將無法還原資料。如需詳細資訊，請移至[使用服務儀表板](storsimple-service-dashboard.md)。
+> * 您可以透過選取服務儀表板上的 [變更服務資料加密金鑰] 選項，變更服務資料加密金鑰及對應的資料加密憑證。變更加密金鑰時，必須使用新的金鑰更新所有裝置。因此，建議您在所有裝置都在線上時變更金鑰。如果裝置處於離線狀態，您可以在其他時間變更金鑰。金鑰已過期的裝置仍然可以執行備份，但在金鑰更新之前將無法還原資料。如需詳細資訊，請移至[使用 StorSimple Manager 服務儀表板](storsimple-service-dashboard.md)。
 > * 若要確保資料安全性不會受到危害，您必須使用實體 StorSimple 裝置變更服務資料加密金鑰。
 > * 如果服務資料加密金鑰遺失，Microsoft 支援人員可協助您擷取該金鑰，但前提是您至少要有一個裝置處於線上狀態。建議您在擷取服務資料加密金鑰後將其變更。如需相關指示，請移至[變更服務資料加密金鑰](storsimple-service-dashboard.md#change-the-service-data-encryption-key)。
 > * 服務資料加密金鑰和資料加密憑證不會過期。不過，建議您定期變更服務資料加密金鑰，以防金鑰洩露。</li></ul>
@@ -153,7 +153,7 @@ StorSimple 裝置會根據使用頻率，將資料儲存在本機階層和雲端
 
 ### 其他的安全性最佳作法
 
-- 若要實作備援，請使用多重路徑 (MPIO) 以避免 iSCSI SAN 中的單一失敗點。如需詳細指示，請參閱[為 StorSimple 裝置設定 MPIO](#storsimple-configure-mpio-windows-server.md)。
+- 若要實作備援，請使用多重路徑 (MPIO) 以避免 iSCSI SAN 中的單一失敗點。如需詳細指示，請參閱[為 StorSimple 裝置設定 MPIO](storsimple-configure-mpio-windows-server.md)。
 
 - 分割流量：透過部署完全分開的網路並在無法使用實體隔離的位置使用 VLAN，將您的 iSCSI SAN 從公司 LAN 中的使用者流量隔離。iSCSI 存放裝置的專用網路會保證您業務關鍵資料的安全性和效能。不建議在公司 LAN 上將存放裝置與使用者流量混用，這會增加延遲並造成網路失敗。
 
@@ -250,7 +250,7 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 
 ## 後續步驟
 
-[部署您的 StorSimple 裝置](storsimple-deployment-walkthrough.md)
+[部署您的 StorSimple 裝置](storsimple-deployment-walkthrough.md)。
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

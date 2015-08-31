@@ -3,6 +3,7 @@
    description="從 HDInsight Getting Started Gallery 執行範例應用程式，快速了解 Hadoop。使用範例資料或提供自己的資料。"
    services="hdinsight"
    documentationCenter=""
+   tags="azure-portal"
    authors="mumian"
    manager="paulettm"
    editor="cgronlun"/>
@@ -12,7 +13,7 @@
    ms.workload="big-data"
    ms.tgt_pltfrm="na"
    ms.devlang="na"
-   ms.topic="get-started-article" 
+   ms.topic="get-started-article"
    ms.date="07/09/2015"
    ms.author="jgao"/>
 
@@ -29,20 +30,24 @@ HDInsight Getting Started Gallery 在 HDInsight 中執行範例應用程式，�
 	- 網站記錄分析
 	- Mahout 影片建議
 
+[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+
+* [使用 HDInsight Getting Started Gallery 了解 Hadoop](hdinsight-learn-hadoop-use-sample-gallery-v1.md)
+
 ![HDInsight Hadoop、Storm 和 HBase Getting Started Gallery 方案都含有範例資料。][hdinsight.sample.gallery]
 
 下列視訊短片顯示如何執行 Twitter 趨勢分析範例：
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
+可透過瀏覽至 http://<YourHDInsightClusterName>.azurehdinsight.net/ 或從 Azure 預覽入口網站存取儀表板。
 
 **從 Getting Started Gallery 執行範例**
 
-1.	登入 [Azure 入口網站][azure.portal]。
-2.	按一下左側功能表中的 [HDInsight]。您會看到現有 HDInsight 叢集清單 (包括 Hadoop、Storm 和 HBase 叢集)。
-3.	按一下您要執行範例的叢集。
-4.	按一下頁面底部的 [查詢主控台]。
-5.	輸入叢集的 Hadoop 使用者名稱和密碼。
+1. 登入 [Azure 預覽入口網站][azure.portal]。
+2. 從左方功能表按一下 [瀏覽全部]，然後依序按一下 [HDInsight 叢集] 和您的叢集名稱。
+3. 從頂端功能表按一下 [儀表板]。
+4. 輸入 HTTP 使用者 (又稱為叢集使用者) 的使用者名稱和密碼。
 6.	按一下頁面頂端的 [Getting Started Gallery]。
 7.	按一下其中一個範例。每個範例都提供詳細的執行步驟。下列影像顯示 Twitter 趨勢分析範例：
 
@@ -61,7 +66,6 @@ HDInsight Getting Started Gallery 在 HDInsight 中執行範例應用程式，�
 <!--Link references-->
 [hdinsight.learn.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
-[azure.portal]: https://manage.windowsazure.com
- 
+[azure.portal]: https://portal.azure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

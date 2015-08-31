@@ -1,6 +1,7 @@
+
 #### 透過 Windows PowerShell for StorSimple 安裝一般 Hotfix
 
-1. 連接到裝置序列主控台。如需詳細資訊，請參閱[連接到序列主控台](#connect-to-the-serial-console)。
+1. 連接到裝置序列主控台。如需詳細資訊，請參閱[步驟 1：連接到序列主控台](storsimple-update-device.md#step1)。
 
 2. 在序列主控台功能表中，選取選項 1 [使用完整存取權登入]。輸入密碼。預設密碼為 **Password1**。
 
@@ -14,4 +15,4 @@
 
 5. 系統將提示您進行確認。輸入 **Y** 繼續安裝 Hotfix。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

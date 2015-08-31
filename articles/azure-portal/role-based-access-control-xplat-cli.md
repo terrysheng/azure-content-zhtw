@@ -3,8 +3,8 @@
 	description="使用 Azure 命令列介面管理角色型存取控制"
 	services="azure-portal"
 	documentationCenter="na"
-	authors="Justinha"
-	manager="terrylan"
+	authors="IHenkel"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
-	ms.author="justinha"/>
+	ms.date="08/14/2015"
+	ms.author="inhenk"/>
 
 # 使用 Azure 命令列介面 (Azure CLI) 管理角色型存取控制 #
 
@@ -94,13 +94,15 @@ Azure 入口網站以及 Azure 資源管理員 API 裡的角色型存取控制 (
 
 - 要將角色指派給誰：您可以使用下列 Azure Active Directory Cmdlet 來查看目錄中有哪些使用者、群組及服務主體。
 
-    `azure ad user list
-    azure ad user show
-    azure ad group list
-    azure ad group show
-    azure ad group member list
-    azure ad sp list
-    azure ad sp show`
+    ```
+    azure ad user list  
+    azure ad user show  
+    azure ad group list  
+    azure ad group show  
+    azure ad group member list  
+    azure ad sp list  
+    azure ad sp show  
+    ```
 
 - 您想要指派什麼角色：您可以使用下列 Cmdlet 來查看支援的角色定義。
 
@@ -148,6 +150,5 @@ Azure 入口網站以及 Azure 資源管理員 API 裡的角色型存取控制 (
 - [Azure 部落格](http://blogs.msdn.com/windowsazure)：深入了解 Azure 的新功能。
 - [使用 Windows PowerShell 來設定角色型存取控制](role-based-access-control-powershell.md)
 - [為角色型存取控制進行疑難排解](role-based-access-control-troubleshooting.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

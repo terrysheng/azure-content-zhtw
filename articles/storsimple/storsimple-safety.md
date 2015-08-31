@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # 您的裝置安全性
 
 ![警告圖示](./media/storsimple-safety/IC740879.png)![閱讀安全性注意事項圖示](./media/storsimple-safety/IC740885.png)**讀取的安全性和健全狀況資訊**
 
-請閱讀本文中適用於 Microsoft Azure StorSimple 裝置的所有安全性和健全狀況資訊。保留隨附於 StorSimple 裝置的所有列印指南供日後參考。無法遵循下列指示並適當地設定、使用和照顧這項產品可能會提高嚴重傷害或人員死亡的風險，或造成裝置的損毀。[本指南的可下載版本](http://www.microsoft.com/zh-tw/download/details.aspx?id=44233)也可供使用。
+請閱讀本文中適用於 Microsoft Azure StorSimple 裝置的所有安全性和健全狀況資訊。保留隨附於 StorSimple 裝置的所有列印指南供日後參考。無法遵循下列指示並適當地設定、使用和照顧這項產品可能會提高嚴重傷害或人員死亡的風險，或造成裝置的損毀。[本指南的可下載版本](http://www.microsoft.com/download/details.aspx?id=44233)也可供使用。
 
 ## 安全性圖示慣例
 
@@ -175,8 +175,8 @@
 
 ## 後續步驟
 
-- 若為 8100 裝置，請移至[為 8600 裝置解除封裝，安裝機架和纜線](storsimple-8600-hardware-installation)
+- 針對 8100 裝置，請至[安裝您的 StorSimple 8100 裝置](storsimple-8100-hardware-installation.md)。
 
-- 若為 8600 裝置，請移至[為 8600 裝置解除封裝，安裝機架和纜線](storsimple-8600-hardware-installation)
+- 針對 8600 裝置，請至[安裝您的 StorSimple 8600 裝置](storsimple-8600-hardware-installation.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

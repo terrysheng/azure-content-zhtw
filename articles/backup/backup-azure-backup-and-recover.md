@@ -1,20 +1,6 @@
-<properties
-   pageTitle="Azure 備份 - 自 Windows Server 或 Windows 用戶端的備份與還原" | Microsoft Azure
-   description="了解如何從 Windows Server 或 Windows 用戶端備份和還原。本文章也涵蓋替代伺服器復原"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
-   editor=""/>
+<properties pageTitle="Azure 備份 - 自 Windows Server 或 Windows 用戶端的備份與還原" | Microsoft Azure 描述="了解如何從 Windows Server 或 Windows 用戶端備份和還原。本文章也涵蓋替代伺服器復原" services="backup" documentationCenter="" authors="aashishr" manager="jwhit" editor=""/>
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="07/01/2015"
-	 ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="jimpark"; "aashishr"/>
 
 # 從 Windows Server 或 Windows 用戶端電腦進行備份和還原
 本文涵蓋從 Windows Server 或 Windows 用戶端電腦進行備份所需的步驟。也包含在相同電腦上還原備份檔案，以及在任何其他電腦上還原備份檔案所需的步驟。
@@ -125,7 +111,13 @@
 
 11. 一旦提供輸入，則按一下 [**復原**] 按鈕將會觸發在所提供目的地還原備份檔案。
 
+## 影片逐步解說
+
+以下是本教學課程的視訊逐步解說。
+
+[AZURE.VIDEO azurebackuprestoreserverandclient]
+
 ## 後續步驟
 - [Azure 備份常見問題集](backup-azure-backup-faq.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

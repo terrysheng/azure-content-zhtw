@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="06/16/2015"
+   ms.date="08/18/2015"
    ms.author="adegeo"/>
 
 
 
-# 客體 OS 系統系列 1 淘汰通知
+# 客體作業系統系列 1 淘汰通知
 
 我們早在 2013 年 6 月 1 日宣佈客體作業系統系列 1 的淘汰資訊。
 
@@ -78,4 +78,7 @@ foreach($subscription in Get-AzureSubscription) {
 ## 客體作業系統系列 1 的延長支援已在 2014 年 11 月 3 日結束。
 以客體作業系統系列 1 為基礎的雲端服務將不再受到支援。請儘早移轉系列 1 以避免服務中斷。
 
-<!---HONumber=August15_HO7-->
+## 後續步驟
+檢閱最新的[客體作業系統版本](cloud-services-guestos-update-matrix.md)。
+
+<!---HONumber=August15_HO8-->

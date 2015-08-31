@@ -1,5 +1,5 @@
 <properties
-   pageTitle="設定 Service Fabric 開發環境"
+   pageTitle="設定 Service Fabric 開發環境 | Microsoft Azure"
    description="安裝 Service Fabric 執行階段、SDK 和工具，並建立本機開發叢集。"
    services="service-fabric"
    documentationCenter=".net"
@@ -17,7 +17,7 @@
    ms.author="seanmck"/>
 
 # 設定 Service Fabric 開發環境
- 本文章涵蓋所有開始建置 [Service Fabric][1] 應用程式的所需資訊，包環安裝執行階段、SDK 和工具，以及設定本機叢集。
+ 本文章涵蓋所有開始建置 [Service Fabric][1] 應用程式的所需資訊，包含安裝執行階段、SDK 和工具，以及設定本機叢集。
 
  >[AZURE.NOTE]這些指示是針對設定新的電腦。如果您已在您的電腦上安裝舊版的 Service Fabric，請遵循[指示來更新您的開發環境](service-fabric-update-your-development-environment.md)。
 
@@ -27,7 +27,7 @@
 
 - Windows 8/8.1
 - Windows Server 2012 R2
-- Windows 10 Technical Preview
+- Windows 10
 
 ### Visual Studio 2015
 
@@ -41,7 +41,7 @@ Service Fabric 元件的安裝是由 Web Platform Installer 所完成。遵循�
 
 1. 使用 Web Platform Installer [下載 SDK][3]。
 
-2. 按一下 [安裝] 開始安裝程序。
+2. 按一下 [安裝] 來開始安裝程序。
 
 3. 檢閱並接受使用者授權合約。
 
@@ -58,7 +58,7 @@ Service Fabric 會使用 Windows PowerShell 指令碼，以便建立本機開發
 本機叢集代表最後用於單一開發電腦上生產環境中的多個電腦拓樸。若要設定本機叢集，請遵循下列步驟：
 
 
-1. 關閉所有其他的 PowerShell 視窗，並以系統管理員身分啟動一個新作業。
+1. 關閉所有其他的 PowerShell 視窗，並以系統管理員身分啟動一個新視窗。
 
 2. 瀏覽至包含 `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"` 的叢集安裝目錄
 
@@ -93,4 +93,4 @@ Service Fabric 會使用 Windows PowerShell 指令碼，以便建立本機開發
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 連結"
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

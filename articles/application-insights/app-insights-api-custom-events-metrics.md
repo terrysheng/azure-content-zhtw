@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/18/2015" 
 	ms.author="awills"/>
 
 # 自訂事件和度量的 Application Insights API 
@@ -52,7 +52,7 @@ API 是跨所有平台統一的，除了一些小變化形式。
 
 * 在裝置或 Web 伺服器程式碼中，加入：
 
-    *C#:* `using Microsoft.ApplicationInsights;`
+    *C\#:* `using Microsoft.ApplicationInsights;`
 
     *VB:* `Imports Microsoft.ApplicationInsights`
 
@@ -62,7 +62,7 @@ API 是跨所有平台統一的，除了一些小變化形式。
 
 建構 TelemetryClient 的執行個體 (除了在網頁中的 JavaScript)：
 
-*C#:*
+*C\#:*
 
     private TelemetryClient telemetry = new TelemetryClient();
 
@@ -92,7 +92,7 @@ TelemetryClient 具備執行緒安全。
 
     appInsights.trackEvent("WinGame");
 
-*C#*
+*C\#*
     
     telemetry.TrackEvent("WinGame");
 
@@ -148,7 +148,7 @@ TelemetryClient 具備執行緒安全。
          {Score: currentGame.score, Opponents: currentGame.opponentCount}
          );
 
-*C#*
+*C\#*
 
     // Set up some properties and metrics:
     var properties = new Dictionary <string, string> 
@@ -238,7 +238,7 @@ TelemetryClient 具備執行緒安全。
 有時候您想要繪製執行某些動作耗費多少時間的圖表。例如，您可能想要知道使用者在遊戲中思考選項時花費多少時間。這是使用測量參數的實用範例。
 
 
-*C#*
+*C\#*
 
     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
@@ -271,7 +271,7 @@ TelemetryClient 具備執行緒安全。
 
     appInsights.trackMetric("Queue", queue.Length);
 
-*C#*
+*C\#*
 
     telemetry.TrackMetric("Queue", queue.Length);
 
@@ -285,7 +285,7 @@ TelemetryClient 具備執行緒安全。
 
 事實上，您可能會在背景執行緒中執行這個動作：
 
-*C#*
+*C\#*
 
     private void Run() {
      var appInsights = new TelemetryClient();
@@ -316,7 +316,7 @@ TelemetryClient 具備執行緒安全。
 
     appInsights.trackPageView("tab1");
 
-*C#*
+*C\#*
 
     telemetry.TrackPageView("GameReviewPage");
 
@@ -337,7 +337,7 @@ TelemetryClient 具備執行緒安全。
 
 如果您想要在沒有 Web 服務模組執行的內容中模擬要求，您也可以自行呼叫。
 
-*C#*
+*C\#*
 
     // At start of processing this request:
 
@@ -358,7 +358,7 @@ TelemetryClient 具備執行緒安全。
 
 傳送例外狀況至 Application Insights：以[計算它們][metrics]，做為問題頻率的指示，以及[檢查個別發生次數][diagnostic]。報告包含堆疊追蹤。
 
-*C#*
+*C\#*
 
     try
     {
@@ -381,7 +381,7 @@ TelemetryClient 具備執行緒安全。
 [記錄配接器][trace]使用此 API 將第三方記錄傳送至入口網站。
 
 
-*C#*
+*C\#*
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
@@ -415,7 +415,7 @@ TelemetryClient 具備執行緒安全。
 
 如果您只想為您撰寫的一些自訂事件設定預設屬性值，您可以在 TelemetryClient 中設定它們。它們會附加至從該用戶端傳送的每個遙測項目。
 
-*C#*
+*C\#*
 
     using Microsoft.ApplicationInsights.DataContracts;
 
@@ -451,7 +451,7 @@ TelemetryClient 具備執行緒安全。
 
 ## <a name="ikey"></a>設定已選取自訂遙測的檢測金鑰
 
-*C#*
+*C\#*
     
     var telemetry = new TelemetryClient();
     telemetry.Context.InstrumentationKey = "---my key---";
@@ -467,7 +467,7 @@ TelemetryClient 具備執行緒安全。
 **定義您的初始設定式**
 
 
-*C#*
+*C\#*
 
 ```C#
 
@@ -520,7 +520,7 @@ TelemetryClient 具備執行緒安全。
 
 *或者*，您也可以在程式碼中具現化初始設定式：
 
-*C#*
+*C\#*
 
 ```C#
 
@@ -552,7 +552,7 @@ JavaScript Web 用戶端目前還沒有設定預設屬性的方法。
 
 **定義您的初始設定式**
 
-*C#*
+*C\#*
 
 ```C#
 
@@ -624,7 +624,7 @@ JavaScript Web 用戶端目前還沒有設定預設屬性的方法。
 
 而不是從組態檔取得檢測金鑰，您可以在程式碼中設定。在初始化方法中設定金鑰，例如 ASP.NET 服務中的 global.aspx.cs：
 
-*C#*
+*C\#*
 
     protected void Application_Start()
     {
@@ -660,7 +660,7 @@ JavaScript Web 用戶端目前還沒有設定預設屬性的方法。
 
 通常 SDK 會在選擇的時間傳送資料以將對使用者的影響降到最低。不過，在某些情況下您可能想要排清緩衝區，例如，如果您在會關閉的應用程式中使用 SDK。
 
-*C#*
+*C\#*
 
     telemetry.Flush();
 
@@ -680,7 +680,7 @@ JavaScript Web 用戶端目前還沒有設定預設屬性的方法。
 偵錯期間，讓您的遙測透過管線加速很有用，如此您就可以立即看到結果。您也會取得額外的訊息，協助您追蹤任何遙測的問題。在生產環境中將它關閉，因為它可能會拖慢您的應用程式。
 
 
-*C#*
+*C\#*
     
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 
@@ -728,12 +728,25 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 * [ASP.NET 參考](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Java 參考](http://dl.windowsazure.com/applicationinsights/javadoc/)
 * [JavaScript 參考](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
+* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
+
+
+## SDK 程式碼
+
+* [ASP.NET 核心 SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
+* [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
+* [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
+* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
+* [所有平台](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
 ## 問題
 
-* *Track * 呼叫會擲回什麼例外狀況？*
+* *Track\_() 呼叫會擲回什麼例外狀況？*
     
-    無。您應該不需要將它們包裝在 catch 子句中。
+    無。您不需要將它們包裝在 try-catch 子句中。如果 SDK 發生問題，它會記錄訊息，您可以在偵錯主控台輸出中查看。若訊息得以留存，也可在診斷搜尋中查看。
 
 
 
@@ -768,4 +781,4 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

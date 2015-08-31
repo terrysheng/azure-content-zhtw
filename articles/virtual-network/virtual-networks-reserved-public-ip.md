@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="08/17/2015"
    ms.author="telmos" />
 
 # 保留的 IP 概觀
@@ -32,8 +32,6 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 
   - 目前，所有 Azure 訂用帳戶已獲授權可使用 20 個保留的 IP。不過，您可以要求其他保留的 IP。請參閱＜[訂用帳戶和服務限制](../azure-subscription-service-limits/)＞頁面以取得詳細資訊。
 1. 保留的 IP 是否會收取費用？ 
   - 請參閱＜[保留的 IP 位址定價詳細資料](http://go.microsoft.com/fwlink/?LinkID=398482)＞以取得定價資訊。
-1. 我可以將多少保留的 IP 指派給雲端服務？ 
-  - 雲端服務中的每個端點僅允許指派一個 IP 位址，無論是否保留該 IP 位址。保留 IP 位址並不會允許您將其他 IP 位址新增至雲端服務。
 1. 我該如何保留 IP 位址？ 
   - 您可以使用 PowerShell 或 [Azure 管理 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx) 從特定區域要求保留的 IP。Azure 將保留該區域的 IP 位址，並與您的訂用帳戶相互關聯。接著您可以在該區域使用保留的 IP。您無法使用管理入口網站來保留 IP 位址。
 1. 我可以使用這個搭配以同質群組為基礎的 VNet 嗎？ 
@@ -115,10 +113,10 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 
 
 ## 後續步驟
 
-- 深入了解〈[保留的私人 IP 位址](../virtual-networks-reserved-private-ip)〉。
+- 深入了解[保留的私人 IP 位址](../virtual-networks-reserved-private-ip)。
 
-- 深入了解〈[執行個體層級公用 IP (ILPIP) 位址](../virtual-networks-instance-level-public-ip)〉。
+- 深入了解[執行個體層級公用 IP (ILPIP) 位址](../virtual-networks-instance-level-public-ip)。
 
-- 檢查〈[保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)〉
+- 請參閱[保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -60,14 +60,14 @@
 
 ### 步驟 1
 
-    PS C:\> Switch-AzureMode -Name AzureResourceManager
+    Switch-AzureMode -Name AzureResourceManager
 
 ### 步驟 2
 
 登入您的 Azure 帳戶。
 
 
-    PS C:\> Add-AzureAccount
+    Add-AzureAccount
 
 系統會提示使用您的認證進行驗證。
 
@@ -76,7 +76,7 @@
 
 選擇要使用哪一個 Azure 訂用帳戶。
 
-    PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
+    Select-AzureSubscription -SubscriptionName "MySubscription"
 
 若要查看可用訂用帳戶的清單，請使用 ‘Get-AzureSubscription’ Cmdlet。
 
@@ -85,7 +85,7 @@
 
 建立新的資源群組 (若使用現有的資源群組，請略過此步驟)。
 
-    PS C:\> New-AzureResourceGroup -Name appgw-rg -location "West US"
+    New-AzureResourceGroup -Name appgw-rg -location "West US"
 
 Azure 資源管理員需要所有的資源群組指定一個位置。這用來作為該資源群組中資源的預設位置。請確定所有用來建立應用程式閘道器的命令都使用同一個資源群組。
 
@@ -118,13 +118,13 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
  
 ### 步驟 2
 
-	$pool = New-AzureApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
+	$pool = New-AzureApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.0.0.10,10.0.0.11,10.0.0.12
 
-這個步驟會設定名為 "pool01" 的後端 IP 位址集區，其 IP 位址有 "134.170.185.46, 134.170.188.221,134.170.185.50"。這些 IP 位址將接收來自前端 IP 端點的網路流量。您要取代上述 IP 位址，加入您自己的應用程式 IP 位址端點。
+這個步驟會設定名為 "pool01" 的後端 IP 位址集區，其 IP 位址有 "10.0.0.10,10.0.0.11, 10.0.0.12"。這些 IP 位址將接收來自前端 IP 端點的網路流量。您要取代上述 IP 位址，加入您自己的應用程式 IP 位址端點。
 
 ### 步驟 3
 
-	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol HTTP -CookieBasedAffinity Disabled
+	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 
 設定後端集區中負載平衡網路流量的應用程式閘道設定 "poolsetting01"。
 
@@ -136,21 +136,21 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 ### 步驟 5
 
-	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name $fipconfigName -Subnet $subnet
+	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 
-建立前端 IP 組態，從目前的虛擬網路子網路關聯私人 IP。
+建立名為 "fipconfig01" 的前端 IP 組態，並與目前虛擬網路子網路的私人 IP 產生關聯。
 
 ### 步驟 6
 
-	$listener = New-AzureApplicationGatewayHttpListener -Name $listenerName  -Protocol http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
+	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
-建立接聽程式，將前端連接埠關聯至前端 IP 組態。
+建立名為 "listener01" 的接聽程式，並將前端連接埠與前端 IP 組態產生關聯。
 
 ### 步驟 7 
 
-	$rule = New-AzureApplicationGatewayRequestRoutingRule -Name $ruleName -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+	$rule = New-AzureApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
-建立負載平衡器路由規則，設定負載平衡器的行為。
+建立名為 "rule01" 的負載平衡器路由規則，設定負載平衡器的行為。
 
 ### 步驟 8
 
@@ -158,11 +158,11 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 設定應用程式閘道器的執行個體大小
 
->[AZURE.NOTE]*InstanceCount* 的預設值是 2，最大值是 10。*GatewaySize* 的預設值是 Medium。您可以選擇 Small、Medium 和 Large。
+>[AZURE.NOTE]*InstanceCount* 的預設值是 2，最大值是 10。*GatewaySize* 的預設值是 Medium。您可以在 Standard\_Small、Standard\_Medium 和 Standard\_Large 之間選擇。
 
 ## 使用 New-AzureApplicationGateway 建立應用程式閘道器
 
-	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName $rgname -Location $location -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
 從上述步驟的所有組態項目建立應用程式閘道器。範例中的應用程式閘道器名為 "appgwtest"。
 
@@ -176,14 +176,14 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 **注意：**`Start-AzureApplicationGateway` Cmdlet 最多可能需要 15 到 20 分鐘的時間才能完成。
 
-在以下範例中，應用程式閘道器名為 "appgwtest"，資源群組為 "app-rg"：
+在以下範例中，應用程式閘道器名為 "appgwtest"，資源群組為 "appgw-rg"：
 
 
 ### 步驟 1
 
 取得應用程式閘道器物件，並關聯至變數 "$getgw"：
  
-	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName app-rg
+	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### 步驟 2
 	 
@@ -283,4 +283,4 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

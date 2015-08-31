@@ -1,6 +1,6 @@
 <properties
 	pageTitle="在執行 Linux 的 Microsoft Azure 虛擬機器上安裝和設定 PostgreSQL。"
-	description="學習如何在 Azure 中的 Ubuntu 或 CentOS 虛擬機器 (VM) 上安裝和設定 PostgreSQL。"
+	description="了解如何在 Azure 中的 Linux 虛擬機器 (VM) 上安裝和設定 PostgreSQL。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="linux"
 	ms.workload="infrastructure-services"
-	ms.date="06/04/2015"
+	ms.date="08/10/2015"
 	ms.author="mingzhan"/>
 
 
@@ -24,7 +24,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。它�
 
 在本文中，您將學習如何在執行 Linux 的 Azure 虛擬機器上安裝和設定 PostgreSQL。
 
-> [Azure.NOTE]您必須已經具有執行 Linux 的 Microsoft Azure 虛擬機器，才能完成本教學課程。請參閱 [Azure Linux VM 教學課程](virtual-machines-linux-tutorial.md)以建立並設定 Linux VM，然後再繼續進行。
+> [AZURE.NOTE]您必須已經具有執行 Linux 的 Microsoft Azure 虛擬機器，才能完成本教學課程。請參閱 [Azure Linux VM 教學課程](virtual-machines-linux-tutorial.md)以建立並設定 Linux VM，然後再繼續進行。
 
 [在此情況下，使用 1999 連接埠做為 PostgreSQL 連接埠。]
 
@@ -34,19 +34,19 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。它�
 
 1. 執行下列命令來切換至根 (admin)：
 
-		$ sudo su -
+		# sudo su -
 
 2. 某些散發套件有相依性，您必須先安裝這些相依性再安裝 PostgreSQL。檢查此清單中的 distro 並執行適當的命令：
 
-	- Redhat:
+	- Red Hat 基底 Linux：
 
 			# yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 
-	- Debian:
+	- Debian 基底 Linux：
 
  			# apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y  
 
-	- Suse:
+	- SUSE Linux：
 
 			# zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 
@@ -90,7 +90,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。它�
 
 		# su - postgres
 
-    >[Azure.NOTE]基於安全性理由，PostgreSQL 會使用非根使用者初始化、啟動或關閉資料庫。
+   >[AZURE.NOTE]基於安全性理由，PostgreSQL 會使用非根使用者初始化、啟動或關閉資料庫。
 
 
 4. 輸入下列命令以編輯 *bash\_profile*。這幾行將會加入至 *bash\_profile* 檔案的結尾：
@@ -251,4 +251,4 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。它�
 ##更多關於 PostgreSQL 的內容
 立刻在 Microsoft Azure Linux VM 中完成 PostgreSQL 的安裝，並享受在 Microsoft Azure 中使用它的體驗。如需關於 PostgreSQL 的內容，請參閱[這裡](http://www.postgresql.org/)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

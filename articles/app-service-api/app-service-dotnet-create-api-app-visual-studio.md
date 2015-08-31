@@ -3,7 +3,7 @@
 	description="了解如何使用 Visual Studio 2013 將 Web API 專案設定為 API 應用程式" 
 	services="app-service\api" 
 	documentationCenter=".net" 
-	authors="tdykstra" 
+	authors="bradygaster" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
-	ms.author="bradyg;tarcher"/>
+	ms.date="08/14/2015" 
+	ms.author="tdykstra"/>
 
 # 將 Web API 專案設定為 API 應用程式
 
@@ -24,17 +24,17 @@
 
 如需 API 應用程式的相關資訊，請參閱[什麼是 API 應用程式？](app-service-api-apps-why-best-platform.md)。
 
-[AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
 
-本教學課程需要 2.5.1 版或更新版本的 Azure SDK for.NET。
+本教學課程需要 2.6 版或更新版本的 Azure SDK for.NET。
 
 ## 設定 Web API 專案 
 
 本節顯示如何將現有的 Web API 專案設定為 API 應用程式。一開始您將使用 Web API 專案範本來建立 Web API 專案，接著將它設定為 API 應用程式。
 
-1. 開啟 Visual Studio 2013。
+1. 開啟 Visual Studio 2015 或 Visual Studio 2013。
 
-2. 選取 [檔案] > [新增專案]。
+2. 按一下 **[檔案] > [新增專案]**。
 
 3. 選取 [**ASP.NET Web 應用程式**] 範本。
 
@@ -83,4 +83,4 @@
 現在已準備好部署您的 API 應用程式，而且您可以依照[部署 API 應用程式](app-service-dotnet-deploy-api-app.md)教學課程進行部署。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

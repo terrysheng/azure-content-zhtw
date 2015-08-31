@@ -13,19 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="06/14/2015"
+   ms.date="08/19/2015"
    ms.author="rajram"/>
 
-#BizTalk JSON 編碼器
+# BizTalk JSON 編碼器
 BizTalk JSON 編碼器解碼器連接器協助您的應用程式在 JSON 和 XML 資料之間轉換。它可以將指定的 JSON 執行個體轉換成 XML，反之亦然。
 
-##使用 BizTalk JSON 編碼器
+## 使用 BizTalk JSON 編碼器
 若要使用 BizTalk JSON 一般檔案編碼器，您必須先建立 BizTalk JSON 一般檔案編碼器 API 應用程式的執行個體。在建立邏輯應用程式時進行內嵌，或從 Azure Marketplace 選取 BizTalk JSON 編碼器 API 應用程式，即可完成此作業。
 
-##在邏輯應用程式的設計工具介面中使用 BizTalk JSON 編碼器
+## 在 Logic Apps 的設計工具介面中使用 BizTalk JSON 編碼器
 請遵循[建立邏輯應用程式]的步驟。BizTalk JSON 編碼器可用來作為動作。它並沒有任何觸發程序。
 
-###動作
+### 動作
 - 從右窗格中按一下 [BizTalk JSON 編碼器]
 
 	![動作設定][3]
@@ -47,7 +47,9 @@ BizTalk JSON 編碼器解碼器連接器協助您的應用程式在 JSON 和 XML
 動作傳回輸入內容的 json 表示法。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以使用邏輯應用程式將它加入商務流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以使用邏輯應用程式將它加入商務流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+
+檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
 您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視 API 應用程式和連接器](../app-service-api/app-service-api-manage-in-portal.md)。
 
@@ -62,4 +64,4 @@ BizTalk JSON 編碼器解碼器連接器協助您的應用程式在 JSON 和 XML
 <!--Links -->
 [建立邏輯應用程式]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

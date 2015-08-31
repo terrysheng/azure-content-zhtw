@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/19/2015" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中探索 .NET 追蹤記錄  
 
 如果您使用 NLog、log4Net 或 System.Diagnostics.Trace 在 ASP.NET 應用程式中進行診斷追蹤，您可以將記錄傳送至 [Visual Studio Application Insights][start]，其中您可以探索和搜尋它們。您的記錄檔會與來自應用程式的其他遙測合併，讓您可以識別與服務每個使用者要求相關聯的追蹤，並將它們與其他事件和例外狀況報告相互關聯。
 
-您也可以使用 Application Insights SDK 撰寫記錄追蹤、事件和例外狀況報告。
+> [AZURE.NOTE]您需要記錄擷取模組嗎？ 對於第三方記錄器來說，它是一個有用的配接器，但是如果您還沒使用 NLog、log4Net 或 System.Diagnostics.Trace，請考慮直接呼叫 [Application Insights TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace)。
 
-如果您尚未[針對專案安裝 Application Insights][start]，請立即安裝。
+如果您尚未[針對專案安裝 Application Insights][start]，請立即安裝。您的專案應該會有檔案 `ApplicationInsights.config` 以及 NuGet 封裝 `Microsoft.ApplicationInsights.Web`。
 
 
 ##  為記錄架構安裝配接器
@@ -30,7 +30,7 @@
 
 1. 如果您打算使用 log4Net 或 NLog，請將它安裝在您的專案。 
 2. 在 [方案總管] 中，以滑鼠右鍵按一下您的專案並選擇 [**管理 NuGet 封裝**]。
-3. 選取 [線上] > [全部]，選取 [Include Prerelease]，然後搜尋 "Microsoft.ApplicationInsights"
+3. 搜尋「Application Insights」
 
     ![Get the prerelease version of the appropriate adapter](./media/app-insights-asp-net-trace-logs/appinsights-36nuget.png)
 
@@ -124,4 +124,4 @@ TrackTrace 的優點在於您可以將較長的資料放在訊息中。例如，
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

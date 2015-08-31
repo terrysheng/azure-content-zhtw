@@ -3,17 +3,18 @@
    description="Azure 資料目錄：目錄常見問題集"
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager="NA"
    editor=""
-   tags=""/> <tags
+   tags=""/>
+<tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+   ms.date="08/19/2015"
+   ms.author="maroche"/>
 
 # Azure 資料目錄的常見問題集
 
@@ -61,16 +62,18 @@ Azure 資料目錄強化技術性和非技術性使用者的能力，包括：
 - SQL Server 檢視
 - SQL Server Analysis Services 維度
 - SQL Server Analysis Services 量值
-- SQL Server Analysis Services KPI 
+- SQL Server Analysis Services KPI
 - SQL Server Analysis Services 資料表
 - SQL Server Reporting Services 報表  
 - Oracle 資料庫資料表
 - Oracle 資料庫檢視
+- Azure 儲存體 Blob
+- Azure 儲存體目錄
 
 ## 問：如何要求另一個資料來源的支援？
 
 您可以在 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)提交功能要求與其他意見。
- 
+
 ## 問：如何開始使用 Azure 資料目錄？
 
 建議依照＜開始使用資料目錄＞中的指示來開始使用。本文是公開預覽中各項功能的端對端教學課程。
@@ -86,11 +89,11 @@ Azure 資料目錄強化技術性和非技術性使用者的能力，包括：
 - 資產名稱
 - 資產類型
 - 資產描述
-- 屬性/資料行名稱 
+- 屬性/資料行名稱
 - 屬性/資料行資料類型
 - 屬性/資料行描述
 
-> [AZURE.IMPORTANT]Azure 資料目錄不會將資料移動或複製到 cloudAzure。從資料來源註冊資產會將資產的中繼資料複製到 Azure，但資料仍保留在現有的資料來源位置。這個規則唯一的例外是如果使用者在註冊資產時選擇上傳預覽記錄。在此情況下，最多會從每個資產複製 20 筆記錄，並在 **Azure 資料目錄**中儲存為快照集。
+> [AZURE.IMPORTANT]Azure 資料目錄不會將資料移動或複製到 cloudAzure。從資料來源註冊資產會將資產的中繼資料複製到 Azure，但資料仍保留在現有的資料來源位置。這個規則唯一的例外是如果使用者在註冊資產時選擇上傳預覽記錄。在此情況下，最多會從每個資產複製 20 筆記錄，並在 **Azure 資料目錄**中儲存為快照。
 
 <br/>
 
@@ -104,11 +107,11 @@ Azure 資料目錄強化技術性和非技術性使用者的能力，包括：
 
 如果要為已註冊的資產提供中繼資料，最簡單的方法是在 **Azure 資料目錄**入口網站中選取資產，然後在所選物件的屬性窗格或結構描述窗格中，輸入中繼資料值。
 
-在註冊過程中，您也可以提供一些中繼資料，例如專家和標記。在 **Azure 資料目錄**發佈服務中提供的值，將會套用到當時註冊的所有資產。若要在入口網站中檢視最近註冊的物件來另外加註，請在 **Azure 資料目錄**發佈應用程式的最後一個畫面選取 [**檢視入口網站**] 按鈕。
+在註冊過程中，您也可以提供一些中繼資料，例如專家和標記。在 **Azure 資料目錄**發佈服務中提供的值，將會套用到當時註冊的所有資產。若要在入口網站中檢視最近註冊的物件來另外加註，請在 **Azure 資料目錄**發佈應用程式的最後一個畫面選取 [檢視入口網站] 按鈕。
 
 ## 問：如何刪除我已註冊的資料物件？
 
-您可以從 **Azure 資料目錄**中刪除物件，請在入口網站中選取物件，然後按一下 [**刪除**] 按鈕。這會從 **Azure 資料目錄**中移除物件的中繼資料，但不會影響實際的基礎資料來源。
+您可以從 **Azure 資料目錄**中刪除物件，請在入口網站中選取物件，然後按一下 [刪除] 按鈕。這會從 **Azure 資料目錄**中移除物件的中繼資料，但不會影響實際的基礎資料來源。
 
 ## 問：什麼是專家？
 
@@ -120,10 +123,10 @@ Azure 資料目錄強化技術性和非技術性使用者的能力，包括：
 
 ## 問：如果我遇到問題，如何與 Azure 資料目錄小組分享資訊？
 
-請利用 **Azure 資料目錄**論壇來回報問題、分享資訊及發問。此論壇位於 http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
+請利用 **Azure 資料目錄**論壇來回報問題、分享資訊及發問。此論壇位於 http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409。
 
-##問：Azure 資料目錄可以處理我想要使用的其他資料來源嗎？ 
-我們正積極將更多資料來源加入到 **Azure 資料目錄**。如果有您希望我們支援的資料來源，請在 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)提出建議 (如果已建議，請表達支持)。
+##問：Azure 資料目錄可以處理我想要使用的其他資料來源嗎？
+我們正積極將更多資料來源加入 **Azure 資料目錄**。如果有您希望我們支援的資料來源，請在 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)提出建議 (如果已建議，請表達支持)。
 
 ## 問：Azure 資料目錄與 Power BI for Office 365 中的資料目錄有何關係？
 
@@ -135,7 +138,7 @@ Azure 資料目錄強化技術性和非技術性使用者的能力，包括：
 
 ## 問：Azure 資料目錄也會支援內部部署嗎？
 
-**Azure 資料目錄**是可以使用雲端和內部部署資料來源的雲端服務，提供混合式資料來源探索解決方案。目前並未規劃推出可在內部部署上執行的 **Azure 資料目錄**版本。
+**Azure 資料目錄**是可以同時使用雲端和內部部署資料來源的雲端服務，提供混合式資料來源探索解決方案。目前並未規劃推出可在內部部署上執行的 **Azure 資料目錄**版本。
 
 ##問：我們是否可以從我們所註冊的資料來源中擷取更多/更豐富的中繼資料？
 
@@ -157,4 +160,4 @@ Azure 資料目錄強化技術性和非技術性使用者的能力，包括：
 
 請前往 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)。那裡提出的問題會在這裡找到答案。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

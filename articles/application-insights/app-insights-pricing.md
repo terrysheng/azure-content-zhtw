@@ -53,7 +53,10 @@
 * 配額取決於您所選擇的定價層。
 * 配額的計算是從每個月第一天的午夜起 (UTC)。
 * 資料點圖表會顯示您這個月已使用多少配額。
-* 配額是以資料點來進行測量。 不論您的程式碼，或其中一個標準遙測模組是否有明確呼叫，單一資料點都是其中一種追蹤方法的呼叫。您在診斷搜尋中看到的每個資料列都是資料點。度量的每個測量單位，例如效能計數器，都是資料點。 
+* 配額是以資料點來進行測量。 不論您的程式碼，或其中一個標準遙測模組是否有明確呼叫，單一資料點都是其中一種追蹤方法的呼叫。資料點包括：
+ * [診斷搜尋](app-insights-diagnostic-search.md)中所見的每個資料列。 
+ * [度量](app-insights-metrics-explorer.md)的每個原始測量 (例如效能計數器)。(您在圖表看到的點通常是多個原始資料點的彙總)。
+ * [Web 測試 (可用性)](app-insights-monitor-web-app-availability.md) 圖表上的每個點。 
 * 工作階段資料不會計入配額。這包括使用者、工作階段、環境和裝置資料的計數。
 
 
@@ -72,18 +75,18 @@
 
 ![位於 [定價] 刀鋒視窗底部](./media/app-insights-pricing/03-allocation.png)
 
-按一下圖表可取得詳細資料，或在圖表上拖曳，以取得某個時間範圍內的詳細資料。
+按一下圖表可取得詳細資料，或在圖表上拖曳並按 (+) ，以取得某個時間範圍內的詳細資料。
 
 
 ## 資料速率
 
-除了每月配額，還有資料速率的節流限制。對於免費[價格層][pricing]，此限制是平均每 5 分鐘 200 個資料點/秒，對於付費層，此限制為平均每 1 分鐘 500/s。
+除了每月配額，還有資料速率的節流限制。對於免費[價格層][pricing]，此限制是平均每 5 分鐘 200 個資料點/秒，對於付費層，此限制為平均每 1 分鐘 500 個資料點/秒。
 
 有三個個別計數的貯體：
 
-* [TrackTrace 呼叫](app-insights-api-custom-events-metrics.md#track-trace)和[擷取記錄檔](app-insights-asp-net-trace-logs.md)
-* [例外狀況](app-insights-api-custom-events-metrics.md#track-exception)，限制為 50 點/s。
-* 所有其他遙測 (頁面檢視、工作階段、要求、相依性、度量、自訂事件)。
+* [TrackTrace 呼叫](app-insights-api-custom-events-metrics.md#track-trace)與[擷取記錄檔](app-insights-asp-net-trace-logs.md)
+* [例外狀況](app-insights-api-custom-events-metrics.md#track-exception)，限制為 50 點/秒。
+* 所有其他遙測 (頁面檢視、工作階段、要求、相依性、度量、自訂事件、Web 測試結果)。
 
 如果您的應用程式傳送的數量超過此限制，某些資料會卸除。您會看到通知，警告這種情況的發生。
 
@@ -91,7 +94,7 @@
 
 如果您遇到節流限制，以下是您可以執行的一些事項：
 
-* 藉由[編輯 ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 關閉您不需要的集合模組。例如，您可能會決定效能計數器或相依性資料是不必要的。
+* 藉由[編輯 ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)，關閉您不需要的集合模組。例如，您可能會決定效能計數器或相依性資料是不必要的。
 * 預先彙總度量。如果您在應用程式中呼叫 TrackMetric，您可以使用接受批次測量之平均及標準差計算的多載來減少流量。或者您可以使用[預先彙總套件](https://www.myget.org/gallery/applicationinsights-sdk-labs)。 
 
 
@@ -118,7 +121,9 @@ Application Insights 費用會加到您的 Azure 帳單中。您可以在 Azure 
 
 ![選擇側邊功能表中的 [帳務]。](./media/app-insights-pricing/02-billing.png)
 
+## 限制摘要
 
+[AZURE.INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 
 <!--Link references-->
@@ -130,4 +135,4 @@ Application Insights 費用會加到您的 Azure 帳單中。您可以在 Azure 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

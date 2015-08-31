@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/04/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # 遠端連接至 StorSimple 裝置
@@ -21,7 +21,7 @@
 
 使用 Windows PowerShell 遠端連線到 StorSimple 裝置。當您以這種方式連線時，將不會看到功能表。(只有當您使用裝置上的序列主控台進行連線時，才會看到功能表)。 使用 Windows PowerShell 遠端連線到特定的 Runspace。您也可以指定顯示語言。
 
-如需有關如何使用 Windows PowerShell 遠端來管理裝置的詳細資訊，請移至[使用 Windows PowerShell for StorSimple 管理您的裝置](storsimple-windows-powershell-administration.md)。
+如需有關如何使用 Windows PowerShell 遠端來管理裝置的詳細資訊，請移至[使用 Windows PowerShell for StorSimple 管理您的 StorSimple 裝置](storsimple-windows-powershell-administration.md)。
 
 本教學課程說明如何設定您的裝置以進行遠端管理，以及如何連線到 Windows PowerShell for StorSimple。您可以透過 Windows PowerShell 遠端使用 HTTP 或 HTTPS 進行連線。不過，當您決定如何連線到 Windows PowerShell for StorSimple 時，請考慮下列事項：
 
@@ -37,9 +37,9 @@
 
 透過 HTTP 工作階段連線至 Windows PowerShell for StorSimple 的安全性，比透過 StorSimple 裝置的序列主控台連線更高。雖然這不是最安全的方法，但在受信任的網路上是可接受的做法。
 
-您可以使用管理入口網站或序列主控台來設定遠端管理。選擇下列程序之一：
+您可以使用 Azure 入口網站或序列主控台來設定遠端管理。選擇下列程序之一：
 
-- [使用管理入口網站啟用透過 HTTP 的遠端管理](#use-the-management-portal-to-enable-remote-management-over-http)
+- [使用 Azure 入口網站來啟用透過 HTTP 的遠端管理](#use-the-azure-portal-to-enable-remote-management-over-http)
 
 - [使用序列主控台啟用透過 HTTP 的遠端管理](#use-the-serial-console-to-enable-remote-management-over-http)
 
@@ -47,11 +47,11 @@
 
 - [準備遠端連線的用戶端](#prepare-the-client-for-remote-connection)
 
-### 使用管理入口網站啟用透過 HTTP 的遠端管理 
+### 使用 Azure 入口網站來啟用透過 HTTP 的遠端管理 
 
-在管理入口網站中執行下列步驟以啟用透過 HTTP 的遠端管理。
+在 Azure 入口網站中執行下列步驟以啟用透過 HTTP 的遠端管理。
 
-#### 透過管理入口網站啟用遠端管理
+#### 透過 Azure 入口網站啟用遠端管理
 
 1. 針對您的裝置存取 [**裝置**] > [**設定**]。
 
@@ -122,9 +122,9 @@
 
 透過 HTTPS 工作階段連線到 Windows PowerShell for StorSimple，是從遠端連線至 Microsoft Azure StorSimple 裝置最安全且建議的方法。下列程序說明如何設定序列主控台和用戶端電腦，讓您可以使用 HTTPS 連線到 Windows PowerShell for StorSimple。
 
-您可以使用管理入口網站或序列主控台來設定遠端管理。選擇下列程序之一：
+您可以使用 Azure 入口網站或序列主控台來設定遠端管理。選擇下列程序之一：
 
-- [使用管理入口網站啟用透過 HTTPS 的遠端管理](#use-the-management-portal-to-enable-remote-management-over-https)
+- [使用 Azure 入口網站來啟用透過 HTTPS 的遠端管理](#use-the-azure-portal-to-enable-remote-management-over-https)
 
 - [使用序列主控台啟用透過 HTTPS 的遠端管理](#use-the-serial-console-to-enable-remote-management-over-https)
 
@@ -134,11 +134,11 @@
 
 - [從遠端主機連線至裝置](#connect-to-the-device-from-the-remote-host)
 
-### 使用管理入口網站啟用透過 HTTPS 的遠端管理
+### 使用 Azure 入口網站來啟用透過 HTTPS 的遠端管理
 
-在管理入口網站中執行下列步驟以啟用透過 HTTPS 的遠端管理。
+在 Azure 入口網站中執行下列步驟以啟用透過 HTTPS 的遠端管理。
 
-#### 從管理入口網站啟用透過 HTTPS 的遠端管理
+#### 從 Azure 入口網站來啟用透過 HTTPS 的遠端管理
 
 1. 針對您的裝置存取 [**裝置**] > [**設定**]。
 
@@ -194,9 +194,9 @@
 
 若要準備使用 HTTPS 工作階段進行遠端連線的主機電腦，請執行下列程序：
 
-- [將 .cer 檔案匯入至用戶端或遠端主機的根存放區](to-import-the-certificate-on-the-remote-host)。
+- [將 .cer 檔案匯入至用戶端或遠端主機的根存放區](#to-import-the-certificate-on-the-remote-host)。
 
-- [將裝置序號新增至遠端主機上的主機檔案](to-add-device-serial-numbers-to-the-remote-host)。
+- [將裝置序號新增至遠端主機上的主機檔案](#to-add-device-serial-numbers-to-the-remote-host)。
 
 以下說明上述各程序。
 
@@ -254,7 +254,7 @@
 
 4. 建立工作階段，做法是輸入：
 
-     $session = new-pssession -usessl -CN <Serial number of target device> -credential $cred -configurationname "SSAdminConsole"
+     `$session = new-pssession -usessl -CN <Serial number of target device> -credential $cred -configurationname "SSAdminConsole"`
 
     Cmdlet 中的 CN 名稱請提供 *<serial number of target device>*。此序號已對應至您的遠端主機上主機檔案中 DATA 0 的 IP 位址，例如下圖所示的 **SHX0991003G44MT**。
 
@@ -268,6 +268,6 @@
 
 ## 後續步驟
 
-[深入了解如何使用 Windows PowerShell 管理 StorSimple 裝置](storsimple-windows-powershell-administration.md)
+[深入了解如何使用 Windows PowerShell 管理 StorSimple 裝置](storsimple-windows-powershell-administration.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

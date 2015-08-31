@@ -351,8 +351,8 @@ DocumentDB.NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提�
 既然您已經學會如何開始使用 DocumentDB 中的地理空間支援，您可以：
 
 - 使用 [Github 的地理空間 .NET 程式碼範例](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial)開始撰寫程式碼
-- 在 [DocumentDB 查詢遊樂場](www.documentdb.com/sql/demo)中實際操作地理空間查詢
+- 在 [DocumentDB 查詢遊樂場](http://www.documentdb.com/sql/demo#geospatial)中實際操作地理空間查詢
 - 深入了解 [DocumentDB 查詢](documentdb-sql-query.md)
 - 深入了解 [DocumentDB 索引編製原則](documentdb-indexing-policies.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

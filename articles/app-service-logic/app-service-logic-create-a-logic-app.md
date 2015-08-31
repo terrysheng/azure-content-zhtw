@@ -29,13 +29,19 @@
 
 ## 取得連接器
 
-首先，您必須建立兩個您將用到的連接器：[**Dropbox 連接器**](app-service-logic-connector-dropbox.md)和 [**Twitter 連接器**](app-service-logic-connector-twitter.md)。若要建立這些項目：
+首先，您必須建立兩個您將用到的連接器：[**Dropbox 連接器**](app-service-logic-connector-dropbox.md)和 [**Twitter 連接器**](app-service-logic-connector-twitter.md)。由於 Twitter API 的限制，我們也需要向 Twitter 註冊免費應用程式。若要建立這些項目：
 
 0. 登入 Azure 入口網站。
 
 1. 按一下主畫面上的 [[**Marketplace**](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps)]，並搜尋 **Twitter** (或[按一下這裡](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2))。
 
 2. 選取 Twitter 連接器，然後按一下 [建立] 按鈕。您會看到一個包含所有設定的檢視。您可以保留 **Twitter 連接器**名稱。
+3. 選取 [封裝設定] -- 您必須在此輸入 Twitter 應用程式提供的資訊。您可以使用下列步驟設定免費應用程式：
+	1. 移至 [Twitter 應用程式註冊頁面](http://apps.twitter.com)
+	2. 建立新的應用程式
+	3. 提供名稱和描述。您可以輸入網站的任何 URL 並將回呼 URL 留白。
+	4. 註冊之後，從 Twitter 將 [取用者金鑰] 複製到 Azure 中的 [clientId] 欄位中，以及從 Twitter 將 [取用者密碼] 複製到 [clientSecret] 中。
+	5. 按一下 [Azure 窗格] 中的 [確定] 以返回其他 API 設定
 
 3. 在 [**建立新的應用程式服務方案**] 中輸入方案名稱。
 
@@ -158,7 +164,7 @@ Twitter 連接器現在便是工作流程的一部分。
 
 現在，您的邏輯應用程式已啟動並執行。每次當排定的工作流程執行時，它會檢查推文是否包含特定的雜湊標記。當它找到符合的推文時，它就會將該推文放入 Dropbox。最後，您將看到如何停用應用程式，或看到它的執行狀況。
 
-1. 按一下畫面左側的 [瀏覽]，然後選取 Logic Apps。
+1. 按一下畫面左側的 [**瀏覽**]，然後選取 [**Logic Apps**]。
 
 2. 按一下您剛剛建立的新邏輯應用程式，以查看目前狀態和一般資訊。
 
@@ -174,4 +180,4 @@ Twitter 連接器現在便是工作流程的一部分。
 [使用邏輯應用程式功能]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

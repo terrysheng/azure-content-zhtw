@@ -1,8 +1,8 @@
 <properties
-	pageTitle="啟用行動應用程式的離線同步處理 (iOS)"
+	pageTitle="啟用 Azure 行動應用程式的離線同步處理 (iOS)"
 	description="了解如何在 iOS 應用程式中使用應用程式服務行動應用程式快取和同步離線資料"
 	documentationCenter="ios"
-	authors="lindydonna"
+	authors="krisragh"
 	manager="dwrede"
 	editor=""
 	services="app-service\mobile"/>
@@ -13,40 +13,30 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="donnam"/>
+	ms.date="08/11/2015"
+	ms.author="krisragh"/>
 
 # 啟用 iOS 行動應用程式的離線同步處理
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-本教學課程說明 iOS 之行動應用程式的離線同步處理功能。離線同步處理可讓使用者與行動應用程式進行互動--檢視、新增或修改資料--即使沒有網路連線進也可行。變更會儲存在本機資料庫中︰裝置上線後，這些變更就會與遠端後端進行同步處理。
+## 概觀
 
-離線同步具有幾種潛在用途：
+本教學課程說明 iOS 之 Azure Mobile Apps 的離線同步功能。離線同步處理可讓使用者與行動應用程式進行互動--檢視、新增或修改資料--即使沒有網路連線進也可行。變更會儲存在本機資料庫中︰裝置上線後，這些變更就會與遠端後端進行同步處理。
 
-* 在裝置上本機快取伺服器資料，以改善應用程式回應性
-* 讓應用程式能夠在網路連線中斷後恢復
-* 讓使用者即使在沒有網路存取的情況下仍能建立及修改資料，而支援連線微弱或無連線的情況
-* 同步多個裝置之間的資料，並在兩個裝置修改相同的記錄時偵測衝突
+如果這是您第一次接觸 Azure Mobile Apps，您應先完成[建立 iOS 應用程式]教學課程。
 
-如果這是您第一次接觸行動應用程式，先完成[建立 iOS 應用程式]教學課程。
+若要深入了解離線同步功能，請參閱 [Azure Mobile Apps 中的離線資料同步]主題。
 
 ##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
 
-## <a name="get-app"></a>取得離線 ToDo 應用程式範例
+## <a name="review-sync"></a>檢閱用戶端同步程式碼 
 
-在 [GitHub 上的行動應用程式範例儲存機制]中，複製此儲存機制並開啟 Xcode 中的[離線 iOS 範例]專案。
+您針對[建立 iOS 應用程式]教學課程下載的用戶端專案已包含支援使用以本機核心資料為基礎的資料庫進行離線同步處理的程式碼。這一節是已包含在教學課程程式碼中的內容摘要。如需此功能的概念性概觀，請參閱 [Azure Mobile Apps 中的離線資料同步]。
 
-### Beta SDK
-若要在現有的應用程式中加入離線支援，請取得最新的 [beta iOS SDK](http://aka.ms/gc6fex)。
-
-## <a name="review-sync"></a>檢閱行動應用程式同步處理程式碼
-
-行動應用程式離線同步處理可讓使用者在無法存取網路時，仍可與本機資料庫互動。若要在您的應用程式中使用這些功能，您可初始化 `MSClient` 的同步處理內容以及參考本機存放區。接著，請透過 `MSSyncTable` 介面參考您的資料表。
-
-本節逐步解說範例中的離線同步處理相關程式碼。
+Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網路時，仍可與本機資料庫互動。若要在您的應用程式中使用這些功能，您可初始化 `MSClient` 的同步處理內容以及參考本機存放區。接著，請透過 `MSSyncTable` 介面參考您的資料表。
 
 1. 在 **QSTodoService.m** 中，請注意成員 `syncTable` 的類型是 `MSSyncTable`。離線同步處理會使用此同步處理資料表介面，而不是 `MSTable`。使用同步處理資料表時，所有作業都會移至本機存放區，且只有在執行明確的發送和提取作業時才會與遠端後端同步處理。
 
@@ -119,7 +109,7 @@
       * MS\_TableConfig：用於追蹤所有提取作業的最後一次同步處理作業的上次更新時間
       * TodoItem：用來儲存 todo 項目。系統資料行 **ms\_createdAt**、**ms\_updatedAt** 和 **ms\_version** 為選擇性系統屬性。
 
->[AZURE.NOTE]Mobile App SDK 會保留以 "**`ms_`**" 開頭的資料行名稱。您不得在系統資料行以外的任何項目上使用此前置詞，否則會在使用遠端後端時修改您的資料行名稱。
+>[AZURE.NOTE]Azure Mobile Apps SDK 會保留以 "**`ms_`**" 開頭的資料行名稱。您不得在系統資料行以外的任何項目上使用此前置詞，否則會在使用遠端後端時修改您的資料行名稱。
 
 - 使用離線同步功能時，您必須先定義系統資料表，如下所示。
 
@@ -169,7 +159,7 @@
 
     | 屬性 | 類型 | 注意 |
     |-----------   |  ------ | -------------------------------------------------------|
-    | id | String | 遠端存放區中的主索引鍵 |
+    | id | 字串 (標示為必要) | 遠端存放區中的主索引鍵 |
     | 完成 | Boolean | todo 項目欄位 |
     | 文字 | String | todo 項目欄位 |
     | ms\_createdAt | Date | (選用) 對應至 \_\_createdAt 系統屬性 | | ms\_updatedAt | 日期 | (選用) 對應至 \_\_updatedAt 系統屬性 | | ms\_version | 字串 | (選用) 用於偵測衝突，對應至 \_\_version |
@@ -218,9 +208,9 @@
 
 使用核心資料本機存放區時，您必須使用[正確的系統屬性](#review-core-data)定義數個資料表。
 
-正常情況下，在行動應用程式的 CRUD 作業執行時，應用程式會如同仍處於連線狀態，但所有的作業都會對本機存放區執行。
+正常情況下，在 Azure Mobile Apps 的 CRUD 作業執行時，應用程式會如同仍處於連線狀態，但所有的作業都會對本機存放區執行。
 
-當我們要同步處理本機存放區與伺服器時，我們使用了 `MSSyncTable.pullWithQuery` 和 `MSClient.syncContext.pushWithCompletion` 方法。
+當我們要同步處理本機存放區與伺服器時，我們使用 `MSSyncTable.pullWithQuery` 和 `MSClient.syncContext.pushWithCompletion` 方法。
 
 *  為了將變更推送至伺服器，我們呼叫了 `pushWithCompletion`。此方法是 `MSSyncContext` 的成員之一 (而不是同步資料表)，因為它會在所有資料表之間推送變更。
 
@@ -241,45 +231,23 @@
 
 ## 其他資源
 
-* [雲端報導：Azure 行動服務中的離線同步處理]
+* [Azure Mobile Apps 中的離線資料同步]
 
-* [Azure Friday：Azure 行動服務中的離線應用程式] (附註︰示範適用於 Windows，但功能討論適用於所有平台)
+* [雲端報導︰Azure 行動服務中的離線同步] (注意︰影片位於行動服務上，但離線同步的運作方式類似在 Azure Mobile Apps 中的方式)
 
 <!-- URLs. -->
 
-[建立 iOS 應用程式]: ../app-service-mobile-dotnet-backend-ios-get-started.md
 
-[core-data-1]: ./media/mobile-services-ios-get-started-offline-data/core-data-1.png
-[core-data-2]: ./media/mobile-services-ios-get-started-offline-data/core-data-2.png
-[core-data-3]: ./media/mobile-services-ios-get-started-offline-data/core-data-3.png
-[defining-core-data-main-screen]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-main-screen.png
-[defining-core-data-model-editor]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-model-editor.png
+[建立 iOS 應用程式]: ../app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[Azure Mobile Apps 中的離線資料同步]: ../app-service-mobile-offline-data-sync-preview.md
+
 [defining-core-data-tableoperationerrors-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-tableoperationerrors-entity.png
 [defining-core-data-tableoperations-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-tableoperations-entity.png
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-todoitem-entity.png
-[update-framework-1]: ./media/mobile-services-ios-get-started-offline-data/update-framework-1.png
-[update-framework-2]: ./media/mobile-services-ios-get-started-offline-data/update-framework-2.png
 
-[Core Data Model Editor Help]: https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
-[Creating an Outlet Connection]: https://developer.apple.com/library/mac/recipes/xcode_help-interface_builder/articles-connections_bindings/CreatingOutlet.html
-[Build a User Interface]: https://developer.apple.com/library/mac/documentation/ToolsLanguages/Conceptual/Xcode_Overview/Edit_User_Interfaces/edit_user_interface.html
-[Adding a Segue Between Scenes in a Storyboard]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html#//apple_ref/doc/uid/TP40014225-CH25-SW1
-[Adding a Scene to a Storyboard]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html
-
-[Core Data]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
-[Download the preview SDK here]: http://aka.ms/Gc6fex
-[How to use the Mobile Services client library for iOS]: ../mobile-services-ios-how-to-use-client-library.md
-[離線 iOS 範例]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
-[GitHub 上的行動應用程式範例儲存機制]: https://github.com/Azure/mobile-services-samples
-
-[Get started with Mobile Services]: ../mobile-services-ios-get-started.md
-[Get started with data]: ../mobile-services-ios-get-started-data.md
-[Handling conflicts with offline support for Mobile Services]: ../mobile-services-ios-handling-conflicts-offline-data.md
-[Soft Delete]: ../mobile-services-using-soft-delete.md
-
-[雲端報導：Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday：Azure 行動服務中的離線應用程式]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[雲端報導︰Azure 行動服務中的離線同步]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/19/2015"
 	ms.author="andalmia"/>
 
 # 在邏輯應用程式中使用檔案連接器 #
@@ -27,9 +27,7 @@
 
 1.	使用 Azure 入口網站左邊的 [+新增] 選項開啟 Azure Marketplace。
 2.	瀏覽至 [Marketplace] > [API Apps]，並搜尋「檔案連接器」。
-3.	設定檔案連接器，如下所示：
-
-	![][1]
+3.	設定檔案連接器，如下所示：![][1]
 
 	- **名稱** - 提供檔案連接器的名稱
 	- **封裝設定**
@@ -51,28 +49,29 @@ API 應用程式執行個體建立之後，瀏覽至其儀表板。作法是按�
 
 1.	建立新的邏輯應用程式，並選擇具有檔案連接器的相同資源群組。請依照指示[建立新的邏輯應用程式]。
 
-2.	在建立的邏輯應用程式中開啟 [觸發程序和動作] 以開啟邏輯應用程式設計工具，並設定您的流程。
+2.	在建立的邏輯應用程式中開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具，並設定您的流程。
 
 3.	檔案連接器就會出現在右側程式庫中的 [此資源群組中的 API 應用程式] 區段。
 
-4.	您可以在 [檔案連接器] 上按一下來將檔案連接器 API 應用程式置入編輯器。檔案連接器公開 1 個觸發程序和 4 個動作。
+4.	您可以在 [檔案連接器] 上按一下來將檔案連接器 API 應用程式置入編輯器。檔案連接器公開 1 個觸發程序和 4 個動作︰![][5]
 
-	![][5]
-
-6.	其中每個都公開特定的屬性。下圖列出觸發程序和「取得檔案」動作的屬性
-
-	![][6]
+6.	其中每個都公開特定的屬性。下圖列出觸發程序和「取得檔案」動作的屬性︰![][6]
 
 7. 設定這些之後，就可以在流程中使用觸發程序和動作。同樣地，您也可以設定其他動作。
 
 > [AZURE.NOTE]成功從資料夾讀取檔案之後，檔案觸發程序會刪除檔案。
 
 ## 檔案連接器 REST API ##
-若要在邏輯應用程式外使用連接器，可以利用連接器公開的 REST API。您可以使用 [瀏覽]->[API 應用程式]->[檔案連接器] 檢視這個「API 定義」。在 [摘要] 區段下的 [API 定義] 透鏡上按一下，來檢視此連接器公開的 API。
-
-  ![][7]
+若要在邏輯應用程式外使用連接器，可以利用連接器公開的 REST API。您可以使用 [瀏覽]->[API 應用程式]->[檔案連接器] 檢視這個「API 定義」。在 [摘要] 區段下的 [API 定義] 透鏡上按一下，來檢視此連接器公開的 API︰![][7]
 
 如需 API 的詳細資訊，請參閱[檔案連接器 API 定義]。
+
+## 進一步運用您的連接器
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+
+檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
+
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)。
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
@@ -82,7 +81,7 @@ API 應用程式執行個體建立之後，瀏覽至其儀表板。作法是按�
 
 <!-- Links -->
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
-[檔案連接器 API 定義]: https://msdn.microsoft.com/en-US/library/dn936296.aspx
+[檔案連接器 API 定義]: https://msdn.microsoft.com/library/dn936296.aspx
 [使用混合式連線管理員]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

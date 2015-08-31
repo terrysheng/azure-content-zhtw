@@ -210,4 +210,4 @@ Visual Studio 2013 Update 2 新增對通用 Windows 應用程式專案的支援�
 [使用 MVVM 的 Azure 行動服務通用 Windows 應用程式]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

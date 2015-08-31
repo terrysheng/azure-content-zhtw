@@ -105,14 +105,16 @@
 
 現在我們可以撰寫[一些程式碼](https://sesitai.codeplex.com/)來剖析匯出之 Blob 的 JSON，並在資料庫中建立記錄。因為匯出存放區和資料庫都在 Azure 中，所以我們將在 Azure 背景工作角色中執行程式碼。
 
+此程式碼會自動擷取 JSON 中出現的任何屬性。如需屬性的描述，請參閱[匯出資料模型](app-insights-export-data-model.md)。
+
 
 #### 建立背景工作角色專案
 
 在 Visual Studio 中，建立新的背景工作角色專案：
 
-![[新增專案]、[Visual C#]、[雲端]、[Azure 雲端服務]](./media/app-insights-code-sample-export-telemetry-sql-database/110-cloud.png)
+![[新增專案]、[Visual C\#]、[雲端]、[Azure 雲端服務]](./media/app-insights-code-sample-export-telemetry-sql-database/110-cloud.png)
 
-![在新的 [雲端服務] 對話方塊中，依序選擇 [Visual C#]、[背景工作角色]](./media/app-insights-code-sample-export-telemetry-sql-database/120-worker.png)
+![在新的 [雲端服務] 對話方塊中，依序選擇 [Visual C\#]、[背景工作角色]](./media/app-insights-code-sample-export-telemetry-sql-database/120-worker.png)
 
 
 #### 連接到儲存體帳戶
@@ -132,11 +134,11 @@
 在 [方案總管] 中，以滑鼠右鍵按一下您的背景工作角色專案並選擇 [管理 NuGet 封裝]。搜尋並安裝這些封裝：
 
  * EntityFramework 6.1.2 或更新版本 - 根據 Blob 中的 JSON 內容，我們將使用此封裝即時產生資料庫的資料表結構描述。
- * JsonFx - 我們將使用此封裝來簡維 C# 類別屬性的 JSON。
+ * JsonFx - 我們將使用此封裝來簡維 C#類別屬性的 JSON。
 
-使用此工具從單一 JSON 文件中產生 C# 類別。此外，還需要一些微幅變更，例如在資料庫資料表 (例如 urlData\_port) 中將 JSON 陣列簡維成單一 C# 屬性，再簡維成單一資料行
+使用此工具從單一 JSON 文件中產生 C#類別。此外，還需要一些微幅變更，例如在資料庫資料表 (例如 urlData\_port) 中將 JSON 陣列簡維成單一 C#屬性，再簡維成單一資料行
 
- * [JSON C# 類別產生器](http://jsonclassgenerator.codeplex.com/)
+ * [JSON C#類別產生器](http://jsonclassgenerator.codeplex.com/)
 
 ## 代碼 
 
@@ -317,7 +319,7 @@
     	    }
         }
 
-#### 將 JSON 文件轉換成 C# 類別遙測物件屬性
+#### 將 JSON 文件轉換成 C#類別遙測物件屬性
 
      public object GetObject(IDictionary<string, object> d)
         {
@@ -355,6 +357,8 @@
         }
 
 #### 從 JSON 文件中產生的 PageViewPerformance 類別檔案
+
+
 
     public class PageViewPerformance
     {
@@ -519,6 +523,7 @@
 * [使用背景工作角色匯出至 SQL](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Application Insights 中的連續匯出](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
+* [匯出資料模型](app-insights-export-data-model.md)
 * [更多範例和逐步解說](app-insights-code-samples.md)
 
 <!--Link references-->
@@ -531,4 +536,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

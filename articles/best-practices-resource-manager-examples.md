@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="08/13/2015"
 	ms.author="mmercuri"/>
 
 # 實作範本最佳做法的內容範例
 
 本主題提供如何實作 Azure 資源管理員範本的 7 個內容範例。如需這些範例中所闡述的準則概觀，請參閱[設計 Azure 資源管理員範本的最佳做法](best-practices-resource-manager-design-templates.md)。
+
+本主題是較大份白皮書的一部分。若要閱讀整份文件，請下載 [世界級 ARM 範本注意事項和證明可行的作法] (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf)。
 
 ## 將已設定功能範圍的範本移至已設定端對端解決方案範圍的範本
 
@@ -212,7 +214,7 @@ Azure 金鑰保存庫可與 ARM 搭配使用，來協調和儲存 VM 密碼和�
 
 #### 使用 Azure 資源管理員進行實作
 
-您可以在＜使用 Azure資源管理員 API 進行授權的開發人員指南＞中取得實作此動作的詳細資料 (您可以在[此處](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)找到該文件)。該文件提供逐步實作指示與範例程式碼。
+您可以在＜使用 Azure 資源管理員 API 進行授權的開發人員指南＞中取得實作此動作的詳細資料 (您可以在[此處](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)找到該文件)。該文件提供逐步實作指示與範例程式碼。
 
 ### 讓協力廠商能夠存取一次性部署的軟體
 
@@ -252,4 +254,4 @@ Azure 金鑰保存庫可與 ARM 搭配使用，來協調和儲存 VM 密碼和�
 - 如需如何在 Azure 資源管理員中處理安全性的建議，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)。
 - 若要了解進出範本的共用狀態，請參閱 [Azure 資源管理員範本中的共用狀態](best-practices-resource-manager-state.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

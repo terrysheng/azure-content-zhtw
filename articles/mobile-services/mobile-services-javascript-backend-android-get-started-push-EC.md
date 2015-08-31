@@ -18,7 +18,7 @@
 
 # 將推播通知新增至行動服務應用程式
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-ec.md)]
 
 本主題說明如何搭配使用 Azure 行動服務和 Google Cloud Messaging (GCM)，將推播通知傳送至 Android 應用程式。在本教學課程中，您會啟用透過 Azure 通知中心將推播通知傳送至快速入門專案的功能。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
@@ -35,11 +35,11 @@
 
 ##必要條件
 
-[AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites-ec.md)]
 
 ##<a id="register"></a>啟用 Google Cloud Messaging
 
-[AZURE.INCLUDE [啟用 GCM](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [啟用 GCM](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>設定行動服務以傳送推播要求
 
@@ -49,7 +49,7 @@
 
 ###驗證 Android SDK 版本
 
-[AZURE.INCLUDE [確認 SDK](../../includes/mobile-services-verify-android-sdk-version-EC.md)]
+[AZURE.INCLUDE [確認 SDK](../../includes/mobile-services-verify-android-sdk-version-ec.md)]
 
 下一個步驟是安裝 Google Play 服務。Google 雲端通訊在開發和測試方面有一些 API 層級的最低需求，這些是資訊清單中的 **minSdkVersion** 屬性所必須遵守。
 
@@ -57,11 +57,11 @@
 
 ###新增 Google Play 服務至專案
 
-[AZURE.INCLUDE [新增 Play 服務](../../includes/mobile-services-add-Google-play-services-EC.md)]
+[AZURE.INCLUDE [新增 Play 服務](../../includes/mobile-services-add-google-play-services-ec.md)]
 
 ###新增程式碼
 
-[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-ec.md)]
 
 
 ##<a id="update-scripts"></a>在管理入口網站中更新已註冊的插入指令碼
@@ -212,4 +212,4 @@
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

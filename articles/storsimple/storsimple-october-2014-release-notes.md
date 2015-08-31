@@ -1,18 +1,18 @@
 <properties 
-    pageTitle="StorSimple 8000 系列 Update 0.1 版本資訊 – 2014 年 10 月"
+    pageTitle="StorSimple 8000 系列 Update 0.1 版本資訊 - 2014 年 10 月 | Microsoft Azure"
     description="說明 2014 年 10 月所發行 StorSimple 的新功能、問題及因應措施。"
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
-    manager="adinah"
-    editor="tysonn" />
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="05/27/2015"
+    ms.date="08/19/2015"
     ms.author="v-sharos" />
 
 # StorSimple 8000 系列 Update 0.1 版本資訊 – 2014 年 10 月  
@@ -21,7 +21,7 @@
 
 下方於 2014 年 10 月發行的版本資訊確定 StorSimple 8000 系列Update 0.1 存有重大的未解決問題。當中也包含此版本中隨附之 StorSimple 軟體與韌體更新的清單。這是 StorSimple 8000 系列發行版本於 2014 年 7 月公開上市之後的第一個正式版本，並對應軟體版本 6.3.9600.17312。
 
-建議您在安裝裝置後立即掃描並套用任何可用更新。您也可以開啟自動更新，以在 Microsoft 一發行高優先順序的更新時，便立即下載並安裝。如需詳細資訊，請參閱如何安裝[更新](https://msdn.microsoft.com/library/azure/1a2cd7de-706b-4d3c-8efb-02e322d3ae73#BKMK_Updates)。
+建議您在安裝裝置後立即掃描並套用任何可用更新。您也可以開啟自動更新，以在 Microsoft 一發行高優先順序的更新時，便立即下載並安裝。如需更多資訊，請參閱[如何更新您的 StorSimple 裝置](storsimple-update-device.md)。
 
 在 StorSimple 方案中部署更新之前，請檢閱版本資訊中所包含的資訊。
 
@@ -35,16 +35,16 @@
 
 - 在您掃描更新前，請確定這兩個裝置控制站都在執行中。如果有任一個控制器不在執行中，掃描就會失敗。若要確認控制器處於狀況良好的狀態中，請瀏覽到 [維護] 頁面下的 [硬體狀態]。如果有 [需要注意] 的元件，進一步繼續前，請連絡 Microsoft 支援。  
 - 請確定控制器 0 與控制器 1 兩者的固定 IP 都可路由，並可以連線到網際網路用來提供更新裝置的服務。您可以使用[測試連接 Cmdlet](https://technet.microsoft.com/library/hh849808.aspx)，ping 網路外的已知位址，例如 outlook.com，以確認控制器有能力連線到外部網路。  
-- 請確定 StorSimple 裝置上的連接埠 80 和 443 可用來進行傳出通訊。如需詳細資訊，請參閱 [StorSimple 裝置的網路需求](https://msdn.microsoft.com/library/azure/dn772371.aspx)。  
+- 請確定 StorSimple 裝置上的連接埠 80 和 443 可用來進行傳出通訊。如需詳細資訊，請參閱 [StorSimple 裝置的網路需求](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device)。  
 - 如果裝置軟體比 6.3.9600.17312 版 (2014 年 10 月更新) 還舊，如果已啟用，請停用資料 2 與資料 3 連接埠後，再開始更新。套用更新時，如果您讓資料 2 或資料 3 連接埠保持啟用狀態，可能會導致您的裝置控制站進入修復模式。請注意，當您停用網路介面時，會使所有相關聯的磁碟區離線，並且會在更新期間中斷 I/O。  
 
 ## 10 月發行的新功能
 
 此更新包含下列增強功能：
 
-- 您現在可以使用 StorSimple Manager 服務 UI 來管理裝置控制器。管理動作包括重新啟動、關機、或開啟控制站。如需詳細資訊，請移至[管理裝置控制站](https://msdn.microsoft.com/library/azure/3216e992-f6ae-41c9-9ca4-f671342e1ab3#ManageControllers)。  
-- 您可以根據的週日期和時間的日期組合，排程 WAN 頻寬配置。這可讓您在離峰時段更妥善運用 WAN 頻寬。不同的磁碟區容器允許使用不同的頻寬範本。如需詳細資訊，請移至[頻寬範本](https://msdn.microsoft.com/library/azure/1747f56e-858a-4cfe-a020-949d7db23b8b#bt)。  
-- 您可以設定電子郵件通知以主動通知系統管理員與其他現有或可能會發生的問題。如需詳細資訊，請移至[設定警示設定](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec_11)。  
+- 您現在可以使用 StorSimple Manager 服務 UI 來管理裝置控制器。管理動作包括重新啟動、關機、或開啟控制站。如需詳細資訊，請至[管理 StorSimple 裝置控制器](storsimple-manage-device-controller.md)。  
+- 您可以根據的週日期和時間的日期組合，排程 WAN 頻寬配置。這可讓您在離峰時段更妥善運用 WAN 頻寬。不同的磁碟區容器允許使用不同的頻寬範本。如需詳細資訊，請至[管理 StorSimple 頻寬範本](storsimple-manage-bandwidth-templates.md)。  
+- 您可以設定電子郵件通知以主動通知系統管理員與其他現有或可能會發生的問題。如需詳細資訊，請移至[設定警示設定](storsimple-manage-alerts.md#configure-alert-settings)。  
 
 ## 10 月版修正的問題
 
@@ -80,7 +80,7 @@
 | 7 | 儲存體帳戶 | 不支援使用儲存體服務刪除儲存體帳戶的案例。這會導致無法擷取使用者資料的情況。 | 是 | 是 |
 | 8 | 裝置容錯移轉 | 不支援從相同來源裝置將某個磁碟區容器多次容錯移轉至不同的目標裝置。 | 從單一失效裝置容錯移轉到多個裝置，會讓第一個容錯移轉裝置上的磁碟區容器失去資料擁有權。進行這類容錯移轉之後，當您在管理入口網站中檢視時，會發現這些磁碟區容器出現或發生不同的行為。 | 是 | 否 |
 | 9 | 安裝 | 在 StorSimple Adapter for SharePoint 安裝其間，您必須提供裝置 IP，才能順利完成安裝。 | | 是 | 否 |
-| 10 | Web Proxy | 如果您的 Web Proxy 組態設定將 HTTPS 做為指定的通訊協定，您的裝置對服務通訊將會受到影響並使裝置離線。同時會在程序中產生支援封裝，耗用裝置上的大量資源。 | 請確定 Web Proxy URL 指定的通訊協定為 HTTP。如需詳細資訊，請參閱如何[設定裝置的 Web Proxy](https://msdn.microsoft.com/library/azure/dn764937.aspx)。 | 是 | 否 |
+| 10 | Web Proxy | 如果您的 Web Proxy 組態設定將 HTTPS 做為指定的通訊協定，您的裝置對服務通訊將會受到影響並使裝置離線。同時會在程序中產生支援封裝，耗用裝置上的大量資源。 | 請確定 Web Proxy URL 指定的通訊協定為 HTTP。如需詳細資訊，請參閱如何[設定裝置的 Web Proxy](storsimple-configure-web-proxy.md)。 | 是 | 否 |
 | 11 | Web Proxy | 如果您在註冊的裝置上設定並啟用 Web Proxy，將需要重新啟動裝置上的主動控制器。 | | 是 | 否 |
 | 12 | 雲端高延遲與高 I/O 工作負載 | 當 StorSimple 裝置同時出現雲端延遲情況嚴重 (大約數秒) 和 I/O 工作負載高的情況時，裝置磁碟區會進入降級的狀態，而且 I/O 可能會失敗，發生「裝置未就緒」錯誤。 | 您必須以手動方式將裝置控制器重新開機，或或執行裝置容錯移轉，才能從這種情況下復原。 | 是 | 否 |
 
@@ -99,4 +99,4 @@
 這個版本不包含任何虛擬裝置的更新。套用此更新不會變更虛擬裝置的軟體版本。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

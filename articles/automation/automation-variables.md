@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure 自動化中的變數資產"
+   pageTitle="Azure 自動化中的變數資產 | Microsoft Azure"
    description="變數資產是可用於 Azure 自動化中所有 Runbook 的值。這篇文章說明變數的詳細資料，以及如何以文字式和圖形化編寫形式加以使用。"
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Azure 自動化中的變數資產
@@ -188,4 +188,4 @@
 - [圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

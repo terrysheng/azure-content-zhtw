@@ -1,18 +1,18 @@
 <properties 
-    pageTitle="StorSimple 8000 系列發行版本的版本資訊 - 2014 年 7 月"
+    pageTitle="StorSimple 8000 系列發行版本的版本資訊 - 2014 年 7 月 | Microsoft Azure"
     description="說明 2014 年 7 月所發行 Microsoft Azure StorSimple 的新功能、問題及因應措施。"
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
-    manager="adinah"
-    editor="tysonn" />
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="05/27/2015"
+    ms.date="08/19/2015"
     ms.author="v-sharos" />
 
 # StorSimple 8000 系列發行版本的版本資訊 - 2014 年 7 月 
@@ -42,4 +42,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

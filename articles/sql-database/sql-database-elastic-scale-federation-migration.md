@@ -13,12 +13,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/21/2015" 
+    ms.date="08/14/2015" 
     ms.author="sidneyh"/>
 
 # 同盟移轉 
 
-Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘汰。屆時，採用同盟功能的應用程式將停止執行。為了確保成功移轉，強烈建議儘快開始移轉，以便充分的規劃和執行。本文件提供同盟移轉公用程式的內容、範例和簡介，以說明如何成功地將目前的同盟應用程式順暢地移轉至[彈性資料庫用戶端程式庫](http://go.microsoft.com/?linkid=9862592) API 以進行分區化。本文件的目的是引導您進行建議的步驟來移轉同盟應用程式，完全不需要任何資料移動。
+Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘汰。屆時，採用同盟功能的應用程式將停止執行。為了確保成功移轉，強烈建議儘快開始移轉，以便充分的規劃和執行。
+
+如果您的應用程式還無法在沒有同盟的情況下運作，請使用[這裡](https://support.microsoft.com/kb/3087180)所述的指示，連絡 Microsoft 支援服務。
+
+本文件提供同盟移轉公用程式的內容、範例和簡介，以說明如何成功地將目前的同盟應用程式順暢地移轉至[彈性資料庫用戶端程式庫](http://go.microsoft.com/?linkid=9862592) API 以進行分區化。本文件的目的是引導您進行建議的步驟來移轉同盟應用程式，完全不需要任何資料移動。
 
 將現有同盟應用程式移轉至使用彈性資料庫工具的應用程式時有三個主要步驟。
 
@@ -129,6 +133,9 @@ Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘�
 
 * 在同盟成員上執行 SWITCH OUT 陳述式，可讓產生的資料庫利用所有 Azure SQL 資料庫功能 (亦即，新版本、備份、PITR、稽核等。)
 
+##需要更多時間來移轉嗎？ 
+如果您的應用程式還無法在沒有同盟的情況下運作，請使用[這裡](https://support.microsoft.com/kb/3087180)所述的指示，連絡 Microsoft 支援服務。
+
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Anchors-->
@@ -143,4 +150,4 @@ Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘�
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

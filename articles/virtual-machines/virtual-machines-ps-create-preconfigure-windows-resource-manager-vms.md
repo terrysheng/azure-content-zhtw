@@ -104,9 +104,11 @@
 
 	$domName="<domain name label to test>"
 	$loc="<short name of an Azure location, for example, for West US, the short name is westus>"
-	Get-AzureCheckDnsAvailability -DomainQualifiedName $domName -Location $loc
+	Test-AzureDnsAvailability -DomainQualifiedName $domName -Location $loc
 
 如果 DNSNameAvailability 為 "True"，表是您提出的名稱是全域唯一的。
+
+>[AZURE.NOTE]在 Azure PowerShell 0.9.5 以前的版本中， Test-AzureDnsAvailability Cmdlet 已命名為 Get-AzureCheckDnsAvailability。如果您使用 0.9.4 版或更早版本，請將 Test-AzureDnsAvailability 替換為 Get AzureCheckDnsAvailability，如上述命令所示。
 
 以資源管理員為基礎的虛擬機器可置於以資源管理員為基礎的可用性集合。如果需要，請使用這些命令建立新虛擬機器的新可用性集合。
 
@@ -119,7 +121,7 @@
 
 	Get-AzureAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
-使用輸入 NAT 規則可設定以資源管理員為基礎的虛擬機器，允許來自網際網路的連入流量並放在負載平衡集中。在這兩種情況下，您必須指定負載平衡器執行個體和其他設定。如需詳細資料，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
+使用輸入 NAT 規則可設定以資源管理員為基礎的虛擬機器，允許來自網際網路的連入流量並放在負載平衡集中。在這兩種情況下，您必須指定負載平衡器執行個體和其他設定。如需詳細資訊，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
 
 以資源管理員為基礎的虛擬機器需要以資源管理員為基礎的虛擬網路。如果需要，請使用新虛擬機器的至少一個子網路建立以資源管理員為基礎的新虛擬網路。以下是具有兩個名為 frontendSubnet 和 backendSubnet 之子網路的新虛擬網路範例。
 
@@ -203,7 +205,7 @@ FrontendSubnet 的子網路索引為 0，而 backendSubnet 的子網路索引為
 - 要指派給 NIC 的負載平衡器執行個體的後端位址集區的索引編號
 - 要指派給 NIC 之輸入 NAT 規則的索引編號。
 
-如需有關如何使用輸入 NAT 規則建立負載平衡器執行個體的資訊，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
+如需關於如何使用輸入 NAT 規則建立負載平衡器執行個體的詳細資訊，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
 
 將這幾行複製到您的命令集，並指定所需的名稱和索引編號。
 
@@ -211,7 +213,7 @@ FrontendSubnet 的子網路索引為 0，而 backendSubnet 的子網路索引為
 	$lbName="<name of the load balancer instance>"
 	$bePoolIndex=<index of the back end pool, starting at 0>
 	$natRuleIndex=<index of the inbound NAT rule, starting at 0>
-	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
 
 $NicName 字串必須是資源群組中獨特的字串。最佳作法是將虛擬機器名稱併入字串中，例如 "LOB07-NIC"。
@@ -223,14 +225,14 @@ $NicName 字串必須是資源群組中獨特的字串。最佳作法是將虛�
 - 先前建立的負載平衡器執行個體名稱，其具有負載平衡流量適用的規則。
 - 要指派給 NIC 的負載平衡器執行個體的後端位址集區的索引編號
 
-如需有關如何使用負載平衡流量適用規則建立負載平衡器執行個體的資訊，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
+如需關於如何使用負載平衡流量適用規則建立負載平衡器執行個體的詳細資訊，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
 
 將這幾行複製到您的命令集，並指定所需的名稱和索引編號。
 
 	$nicName="<name of the NIC of the VM>"
 	$lbName="<name of the load balancer instance>"
 	$bePoolIndex=<index of the back end pool, starting at 0>
-	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
 
 接下來，建立本機 VM 物件，並選擇性地將它新增至可用性集合。將下列兩個選項的其中一個複製到命令集，並填入名稱、大小和可用性集合名稱。
@@ -377,7 +379,7 @@ $NicName 字串必須是資源群組中獨特的字串。最佳作法是將虛�
 
 ## 其他資源
 
-[Azure 資源管理員提供的 Azure 運算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md)
+[Azure Resource Manager 提供的 Azure 運算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md)
 
 [Azure 資源管理員概觀](../resource-group-overview.md)
 
@@ -387,4 +389,4 @@ $NicName 字串必須是資源群組中獨特的字串。最佳作法是將虛�
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

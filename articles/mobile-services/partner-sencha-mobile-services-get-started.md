@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="04/24/2015"
+	ms.topic="article"
+	ms.date="08/18/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>開始使用行動服務和 Sencha Touch
@@ -710,6 +710,5 @@ Sencha Touch Extension for Azure 套件備有此處簡述的範例，其位於 B
 
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

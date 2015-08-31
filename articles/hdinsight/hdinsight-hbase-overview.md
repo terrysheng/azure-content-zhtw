@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="什麼是 HDInsight 中的 HBase？ | Microsoft Azure" 
-	description="HDInsight 中的 Apache HBase (建置在 Hadoop 的 NoSQL 資料庫) 簡介。了解使用案例，並將 HBase 與其他 Hadoop 叢集進行比較。" 
-	services="hdinsight" 
-	documentationCenter="" 
+<properties
+	pageTitle="什麼是 HDInsight 中的 HBase？ | Microsoft Azure"
+	description="HDInsight 中的 Apache HBase (建置在 Hadoop 的 NoSQL 資料庫) 簡介。了解使用案例，並將 HBase 與其他 Hadoop 叢集進行比較。"
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian" 
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 
@@ -34,7 +35,7 @@ HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區
 ## 如何在 HDInsight HBase 中管理資料？
 
 要管理 HBase 中的資料，可使用 HBase Shell 的 `create``get`, `put` 和 `scan` 命令。將資料寫入資料庫，需使用 `put`，讀取則使用 `get``scan` 命令可用來取得資料表中多個資料列裡的資料。您也可以使用 HBase C# API 管理資料，其在 HBase REST API 之上提供用戶端程式庫。HBase 資料庫也可使用 Hive 進行查詢。如需這些程式設計模型的簡介，請參閱[開始在 HDInsight 中搭配使用 HBase 與 Hadoop][hbase-get-started] (英文)。同時也提供共同處理器，其允許在主控資料庫的節點中進行資料處理。
- 
+
 
 ## 情節：HBase 的使用案例
 建立 BigTable (以及由此延伸出的 HBase) 的正式使用案例是 Web 搜尋。搜尋引擎會建置索引，以將字詞對應到包含這些字詞的網頁。除此之外，HBase 還有其他許多適用的使用案例，本節會列舉其中幾個。
@@ -60,7 +61,7 @@ HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區
 
 - [開始在 HDInsight 中搭配使用 HBase 與 Hadoop][hbase-get-started]
 - [在 Azure 虛擬網路上佈建 HDInsight 叢集][hbase-provision-vnet]
-- [在 HDInsight 中設定 HBase 複寫](hdinsight-hbase-geo-replication.md) 
+- [在 HDInsight 中設定 HBase 複寫](hdinsight-hbase-geo-replication.md)
 - [使用 HDInsight 中的 HBase 分析 Twitter 情緒][hbase-twitter-sentiment]
 - [使用 Maven 建置搭配使用 HBase 和 HDInsight (Hadoop) 的 Java 應用程式][hbase-build-java-maven]
 
@@ -87,20 +88,9 @@ HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 
-
-
-
-
-
-
-
-
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

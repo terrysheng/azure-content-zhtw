@@ -1,9 +1,5 @@
 
-1. 開啟共用的專案檔案 MainPage.cs 並新增下列 using 陳述式：
-
-        using Windows.UI.Popups;
-
-2. 將下列程式碼片段新增至 MainPage 類別：
+1. 開啟共用專案檔案 MainPage.cs，然後將下列程式碼片段新增至 MainPage 類別：
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -35,13 +31,11 @@
             }
         }
 
-    此使用者即可透過 Facebook 登入來驗證。如果您打算使用除了 Facebook 以外的識別提供者，請將上方的 **MobileServiceAuthenticationProvider** 值變更成您提供者。
+    此程式碼會使用 Facebook 登入來驗證使用者。如果您打算使用除了 Facebook 以外的識別提供者，請將上方的 **MobileServiceAuthenticationProvider** 值變更成您提供者。
 
 3. 將現有 **OnNavigatedTo** 方法覆寫中的 **RefreshTodoItems** 方法呼叫註解化或刪除。
 
-	如此能避免在使用者通過驗證之前載入資料。
-
-	>[AZURE.NOTE]若要成功地從 Windows Phone 市集 8.1 應用程式驗證，您必須在系統呼叫 **OnNavigated** 方法後，以及在引發頁面的 **Loaded** 事件後，呼叫 LoginAsync。在本教學課程中，您可以藉由將 **Sign in** 按鈕新增至應用程式中來達成目的。
+	如此能避免在使用者通過驗證之前載入資料。接下來，將 [登入] 按鈕新增至觸發驗證的應用程式。
 
 4. 將下列程式碼片段新增至 MainPage 類別：
 
@@ -60,16 +54,12 @@
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. 在 Windows Phone 市集應用程式專案中，於 **ContentPanel** 中 **TextBlock** 元素的後方新增以下 **Button** 元素：
+6. 在 Windows Phone 市集應用程式專案中，於 **TextBlock** 元素後方的 **ContentPanel** 新增下列 **Button** 元素：
 
         <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
         	Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
 
-7. 開啟共用的 App.xaml.cs 專案檔案並新增下列 using 陳述式 (如果該陳述式不存在的話)：
-
-        using Microsoft.WindowsAzure.MobileServices;  
- 
-8. 在 App.xaml.cs 專案檔案中，新增下列程式碼：
+8. 開啟共用的 App.xaml.cs 專案檔案，並新增下列程式碼：
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
@@ -94,4 +84,4 @@
 
 10. 以滑鼠右鍵按一下 Windows Phone 市集應用程式專案、按一下 [設定為啟始專案]，然後重複上一個步驟以驗證 Windows Phone 市集應用程式是否也能正常運作。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

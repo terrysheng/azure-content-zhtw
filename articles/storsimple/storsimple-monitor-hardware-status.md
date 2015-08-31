@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="StorSimple 硬體元件和狀態"
+   pageTitle="StorSimple 硬體元件和狀態 | Microsoft Azure"
    description="了解如何透過 StorSimple Manager 服務監視 StorSimple 裝置的硬體元件。"
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/31/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # StorSimple 硬體元件和狀態
@@ -45,14 +45,14 @@
 執行下列步驟來檢視裝置元件的硬體狀態：
 
 1. 瀏覽至**裝置**，選取特定的 StorSimple 裝置。按一下以進入裝置層級功能表，然後按一下 [**維護**] 索引標籤。 
-2. 找出 [**硬體狀態**] 區段並選擇可用的元件 (如上所述)。只要按一下元件標籤之前的箭號即可展開清單並檢視各種裝置元件的狀態。請參閱[主要機箱的詳細元件清單](Component-list-for-primary-enclosure)和 [EBOD 機箱的詳細元件清單](Component-list-for-EBOD-enclosure)。
+2. 找出 [**硬體狀態**] 區段並選擇可用的元件 (如上所述)。只要按一下元件標籤之前的箭號即可展開清單並檢視各種裝置元件的狀態。請參閱[主要機箱的詳細元件清單](#component-list-for-primary-enclosure-of-storsimple-device)和 [EBOD 機箱的詳細元件清單](#component-list-for-ebod-enclosure-of-storsimple-device)。
 2. 您可以使用下列色彩編碼配置來解譯元件狀態：
 	-  **綠色核取符號** – 代表**狀況良好**或**確定**元件。
 	-  **黃色** – 代表**警告**狀態中的元件。
 	-  **紅色驚嘆號** – 代表狀態為**失敗**或**需要注意**的元件。
 	-  **白底黑字** – 代表不存在的元件。
 
-3. 如果您遇到狀態不是**狀況良好**的元件，請連絡 Microsoft 支援服務。如果您的裝置上啟用警示，您會收到電子郵件警示。如果您必須更換失敗的硬體元件，請參閱[硬體元件更換指南](https://msdn.microsoft.com/library/azure/dn757736.aspx)。
+3. 如果您遇到狀態不是**狀況良好**的元件，請連絡 Microsoft 支援服務。如果您的裝置上啟用警示，您會收到電子郵件警示。如果您必須更換失敗的硬體元件，請參閱 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
 
 ## StorSimple 裝置之主要機箱的元件清單
@@ -125,10 +125,10 @@
 |裝置控制器的連接|I/O|實體|Controller|否|指出 EBOD I/O 模組和裝置控制器之間的連接狀態。|
 
 ## 後續步驟
-如果您需要疑難排解降級或失敗狀態的裝置元件，請參閱[疑難排解監視指示器](storsimple-monitoring-indicators)。
+如果您需要疑難排解降級或失敗狀態的裝置元件，請參閱 [StorSimple 監視指示器](storsimple-monitoring-indicators.md)。
 
-若要更換故障的硬體元件，請參閱[硬體元件更換指南](https://msdn.microsoft.com/library/azure/dn757736.aspx)。
+若要更換故障的硬體元件，請參閱[StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
 如果持續發生裝置問題，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

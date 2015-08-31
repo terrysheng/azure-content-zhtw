@@ -25,9 +25,9 @@
 ##從 2.0.0 到 3.0.0
 如果您在應用程式中使用 Reach，必須將`remote-notification`值新增至`UIBackgroundModes` Info.plist 檔案中的陣列，以接收遠端通知。
 
-方法 `application:applicationDidReceiveRemoteNotification:` 需在您的應用程式委派中由 `application:applicationDidReceiveRemoteNotification:fetchCompletionHandler:` 取代。
+在您的應用程式委派中，方法 `application:didReceiveRemoteNotification:` 需由 `application:didReceiveRemoteNotification:fetchCompletionHandler:` 取代。
 
-下列委派方法已被取代，而您需要從您的應用程式委派中將之移除：
+"AEPushDelegate.h" 是已被取代的介面，且您必須移除所有參考。這包括從您的應用程式委派移除 `[[EngagementAgent shared] setPushDelegate:self]` 以及委派方法：
 
 	-(void)willRetrieveLaunchMessage;
 	-(void)didFailToRetrieveLaunchMessage;
@@ -70,4 +70,4 @@ SmartAd 追蹤已從 SDK 移除，因此您必須移除 `AETrackModule` 類別�
 -   `CapptainUtils` 類別已重新命名為 `EngagementUtils`。
 -   `CapptainViewController` 類別已重新命名為 `EngagementViewController`。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

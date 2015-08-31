@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
-#在邏輯應用程式中使用 SugarCRM 連接器#
+# 在邏輯應用程式中使用 SugarCRM 連接器
 
 邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。SugarCRM 連接器可讓您建立和修改不同的實體，例如帳戶、潛在客戶、連絡人等。以下是涉及 SugarCRM 的典型整合案例。
 
@@ -30,7 +30,7 @@
 
 屬於連接器封裝設定的一部分，使用者可以指定連接器可以管理的實體，而系統便會以動態方式填入動作、輸入和輸出參數。
 
-##SugarCRM 連接器動作##
+## SugarCRM 連接器動作
 以下是 SugarCRM 連接器中可使用的不同動作。
 
 - 建立模組 - 使用此動作建立 SugarCRM 模組的新記錄，例如帳戶、潛在客戶、連絡人。
@@ -47,55 +47,28 @@
 
 - 檢查重複模組 - 使用此動作檢查模組中重複的記錄。
 
-*注意*：如需查詢中的引數之詳細資訊，請參閱 SugarCRM REST API 文件。
+*注意*：如需查詢中的引數之詳細資訊，請參閱 [SugarCRM REST API](https://msdn.microsoft.com/library/dn705870) 文件。
 
-##建立 SugarCRM 連接器 API 應用程式##
+## 建立 SugarCRM 連接器 API 應用程式
 1.	瀏覽至 portal.azure.com。使用 Azure 入口網站左上角的 [+新增] 選項開啟 Azure Marketplace。
 2.	瀏覽至 [Marketplace] > [所有項目]，然後搜尋 "SugarCRM"。
 3.	提供 App Service 方案、資源群組的詳細資料，並選取 API 應用程式的名稱，設定 SugarCRM 連接器。
 4. 設定 SugarCRM 連接器封裝設定。下列是建立連接器所需提供的套件設定：
 
-	<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>必要</b></td>
-    <td><b>說明</b></td>
-  </tr>
-  <tr>
-    <td>網站 URL</td>
-    <td>是</td>
-    <td>指定 SugarCRM 執行個體的 URL，例如 https://abcde1234.sugarcrm.com</td>
-  </tr>
-  <tr>
-    <td>用戶端識別碼</td>
-    <td>是</td>
-    <td>指定 SugarCRM 中 oauth 2.0 金鑰的取用者金鑰。 </td>
-  </tr>
-  <tr>
-    <td>用戶端密碼</td>
-    <td>是</td>
-    <td>指定 SugarCRM 中 oauth 2.0 金鑰的取用者密碼。 </td>
-  </tr>
-<tr>
-    <td>使用者名稱</td>
-    <td>是</td>
-    <td>指定 SugarCRM 使用者的使用者名稱</td>
-  </tr>
-	<tr>
-    <td>密碼</td>
-    <td>是</td>
-    <td>指定 SugarCRM 使用者的密碼</td>
-  </tr>
-  <tr>
-    <td>模組名稱</td>
-    <td>是</td>
-    <td>指定您要執行作業的 SugarCRM 模組，例如帳戶、連絡人、產品等等。<br><br>帳戶、潛在客戶、連絡人</td>
-  </tr>
-</table>![][9]
+	名稱 | 必要 | 說明
+--- | --- | ---
+網站 URL | 是 | 輸入 SugarCRM 執行個體的 URL。例如，輸入 https://abcde1234.sugarcrm.com。
+用戶端識別碼 | 是 | 輸入 SugarCRM 中 OAUTH 2.0 金鑰的取用者金鑰。 
+用戶端密碼 | 是 | 輸入 OAUTH 的取用者密碼。
+使用者名稱 | 是 | 輸入 SugarCRM 使用者的使用者名稱。
+密碼 | 是 | 輸入 SugarCRM 使用者的密碼
+模組名稱 | 是 | 輸入您要執行作業的 SugarCRM 模組 (例如帳戶、連絡人、產品)。<br><br>例如︰帳戶、潛在客戶、連絡人  
+  
+![][9]
 
 
 
-##建立邏輯應用程式##
+## 建立邏輯應用程式
 讓我們建立一個簡單的邏輯應用程式，它會在 SugarCRM 建立帳戶，並更新相同帳戶的帳單寄送地址之詳細資料。
 
 1.	登入 Azure 入口網站，並按一下 [新增] -> [Web + 行動] -> [邏輯應用程式]
@@ -142,6 +115,13 @@
 
 19. 您可以查看名為「Microsoft 帳戶」的新帳戶已建立於您的 SugarCRM 帳戶，且同一個帳戶也跟新了帳單寄送地址資訊。
 
+## 進一步運用您的連接器
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+
+檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
+
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)。
+
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sugarcrm/1_New_Logic_App.png
 [2]: ./media/app-service-logic-connector-sugarcrm/2_Logic_App_Settings.png
@@ -153,4 +133,4 @@
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

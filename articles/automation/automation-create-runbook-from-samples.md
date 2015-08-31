@@ -30,6 +30,12 @@ Microsoft Azure 自動化可讓使用者將執行於雲端環境中的手動、�
 
 [AZURE.INCLUDE [automation-note-authentication](../../includes/automation-note-authentication.md)]
 
+## 影片逐步解說
+
+以下是本教學課程的逐步解說。
+
+[AZURE.VIDEO get-started-with-azure-automation]
+
 ## <a name="automationaccount"></a>建立自動化帳戶
 
 自動化帳戶是 Azure 自動化資源的容器：可供您劃分您的環境或進一步組織您的工作流程。如需詳細資訊，請參閱自動化程式庫中的[自動化帳戶](http://aka.ms/runbookauthor/azure/automationaccounts)。如果您已經建立自動化帳戶，則可以略過此步驟。
@@ -141,4 +147,4 @@ Microsoft 和 Azure 自動化社群會提供範例 Runbook，協助您開始建�
 **請不吝提供意見。** 如果您要尋找 Azure 自動化 Runbook 解決方案或整合模組，請在指令碼中心提出指令碼要求。如果您有關於 Azure 自動化的任何意見或功能要求，請張貼在 [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback) 上。感謝您！
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

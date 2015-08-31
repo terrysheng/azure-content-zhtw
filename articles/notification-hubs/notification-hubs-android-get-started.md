@@ -62,7 +62,7 @@
 
 ###新增 Google Play 服務至專案
 
-[AZURE.INCLUDE [新增 Play 服務](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [新增 Play 服務](../../includes/mobile-services-add-google-play-services.md)]
 
 ###新增程式碼
 

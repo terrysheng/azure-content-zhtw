@@ -34,7 +34,7 @@
 
 ## 建立執行 Windows Server 的虛擬機器
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
 ## 連接資料磁碟
 

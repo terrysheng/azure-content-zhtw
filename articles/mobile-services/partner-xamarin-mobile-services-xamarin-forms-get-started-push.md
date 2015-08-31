@@ -379,7 +379,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
 ###<a id="register"></a>啟用 Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ###<a id="configure"></a>設定行動服務以傳送推播要求
 

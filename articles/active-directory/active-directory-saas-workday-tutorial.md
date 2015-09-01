@@ -133,7 +133,7 @@
     6.  執行下列步驟：
         ![SSO 組態](./media/active-directory-saas-workday-tutorial/IC792131.png "SSO 組態")
         1.  在 [服務提供者識別碼] 文字方塊中，輸入 **http://www.workday.com**。
-2.  按一下 [啟用 SP 啟始的 SAML 驗證]。
+        2.  按一下 [啟用 SP 啟始的 SAML 驗證]。
         3.  在 Azure 入口網站中的 [設定在 Workday 單一登入] 對話方塊頁面上，複製 [單一登入服務 URL] 值，然後將它貼入 [IdP SSO 服務 URL] 文字方塊中。
         4.  選取 [不要壓縮 SP 起始的驗證要求]。
 
@@ -170,4 +170,4 @@
   
 如果您想要測試單一登入設定，請開啟 [存取面板]。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!----HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

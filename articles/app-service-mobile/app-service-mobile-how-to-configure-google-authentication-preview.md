@@ -31,15 +31,15 @@
  
 2. 按一下 [設定]、[使用者驗證]，然後按一下 [Google]。複製 [重新導向 URI]。您將使用此 URI 設定您的 Google 應用程式。
 
-3. 瀏覽至 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> 網站，以您的 Google 帳戶認證登入，按一下 [**建立專案**]，提供 [**名稱**]，然後按一下 [**建立**]。
+3. 瀏覽至 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> 網站，以您的 Google 帳戶認證登入，按一下 [**Create Project**]，提供 [**Project name**]，然後按一下 [**Create**]。
 
-4. 在左側導覽列中，按一下 [**API 和驗證**]。然後按一下 [**同意畫面**]。選取您的 [**電子郵件地址**]，並輸入 [**產品名稱**]。然後按一下 [儲存]。
+4. 在左側導覽列中，按一下 [**API & Auth**]。然後按一下 [**Consent screen**]。選取您的 [**Email address**]，並輸入 [**Product name**]。然後按一下 [Save]。
 
-5. 同時在 [**API 和驗證**] 下選取 [**API**]，並啟用 [**Google+ API**]。它位於 [Social API] 底下。您也可以只搜尋 **Google+ API**。
+5. 同時在 [**API & Auth*] 下選取 [**API**]，並啟用 [**Google+ API**]。它位於 [Social APIs] 底下。您也可以只搜尋 **Google+ API**。
 
-6. 再次於 [**API 和驗證**] 下選取 [**憑證**]，然後選取 [**建立新的用戶端 ID**]。
+6. 再次於 [**API & Auth**] 下選取 [**Credentials**]，然後選取 [**Create new client ID**]。
 
-7. 選取 [**網路應用程式**]。貼上您稍早在 [授權 JavaScript 來源] 中複製的 [URL]，然後將 [授權重新導向 URI] 中產生的 URL 取代為您稍早複製的行動應用程式 [重新導向 URI]。此 URI 是附加路徑 _/signin-google_ 的行動應用程式閘道。例如，`https://contosogateway.azurewebsites.net/signin-google`。請確實使用 HTTPS 配置。然後按一下 [**建立用戶端 ID**]。
+7. 選取 [**Web application***]。貼上您稍早在 [Authorized JavaScript Origins] 中複製的 [URL]，然後將 [Authorized Redirect URI] 中產生的 URL 取代為您稍早複製的行動應用程式 [重新導向 URI]。此 URI 是附加路徑 _/signin-google_ 的行動應用程式閘道。例如，`https://contosogateway.azurewebsites.net/signin-google`。請確實使用 HTTPS 配置。然後按一下 [**Create client ID**]。
 
      ![][0]
 

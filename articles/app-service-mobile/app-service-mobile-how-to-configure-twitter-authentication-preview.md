@@ -33,15 +33,15 @@
 
 3. 瀏覽至 [Twitter Developers] 網站，使用您的 Twitter 帳戶認證登入，然後按一下 [**建立新的應用程式**]。
 
-4. 針對您新的應用程式輸入 [名稱] 和 [描述]。貼上您的 [行動應用程式 URL] 做為 [網站] 值。然後，針對 [回呼 URL]，貼上您之前複製的 [回呼 URL]。這是您附加路徑 _/signin-twitter_ 的行動應用程式閘道。例如，`https://contosogateway.azurewebsites.net/signin-twitter`。請確實使用 HTTPS 配置。
+4. 針對您新的應用程式輸入 [Name] 和 [Description]。貼上您的 [行動應用程式 URL] 做為 [網站] 值。然後，針對 [Callback URL]，貼上您之前複製的 [Callback URL]。這是您附加路徑 _/signin-twitter_ 的行動應用程式閘道。例如，`https://contosogateway.azurewebsites.net/signin-twitter`。請確實使用 HTTPS 配置。
 
     ![][0]
 
-3.  在頁面底部，閱讀並接受條款。然後按一下 [**建立 Twitter 應用程式**]。這會註冊應用程式並顯示應用程式詳細資料。
+3.  在頁面底部，閱讀並接受條款。然後按一下 [**Create your Twitter application**]。這會註冊應用程式並顯示應用程式詳細資料。
 
-4. 按一下 [ **設定**] 索引標籤，勾選 [**允許此應用程式用來以 Twitter 登入**]，然後按一下 [**更新設定**]。
+4. 按一下 [ **Settings**] 索引標籤，勾選 [**Allow this application to be used to sign in with Twitter**]，然後按一下 [**Update Settings**]。
 
-5. 選取 [**金鑰和存取權杖**] 索引標籤。記下 [**消費者金鑰 (API 金鑰)**] 和 [**消費者密鑰 (API 密鑰)**] 的值。
+5. 選取 [**Keys and Access Tokens**] 索引標籤。記下 [**Consumer Key (API Key)**] 和 [**Consumer secret (API Secret)**] 的值。
 
     > [AZURE.NOTE]消費者密碼是重要的安全性認證。請勿將此密碼告訴任何人或隨應用程式一起散發。
 

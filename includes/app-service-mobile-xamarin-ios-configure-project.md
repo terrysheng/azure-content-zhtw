@@ -30,12 +30,12 @@
 
     這將確保專案使用新的設定檔進行程式碼簽署。如需官方 Xamarin 裝置佈建文件，請參閱 [Xamarin 裝置佈建]。
 
-[120]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png
-[121]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
-[122]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png
-[123]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png
-[124]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png
+[120]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png
+[121]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
+[122]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png
+[123]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png
+[124]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png
 
 [Xamarin 裝置佈建]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

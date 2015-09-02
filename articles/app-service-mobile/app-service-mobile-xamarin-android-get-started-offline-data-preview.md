@@ -18,7 +18,9 @@
 
 # 啟用您 Xamarin.Android 行動應用程式的離線同步處理
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 ## 概觀
 
@@ -74,7 +76,10 @@
     在提供的程式碼中，遠端 `TodoItem` 資料表中的所有記錄都會進行查詢，但是也可能透過將查詢識別碼與查詢傳遞至 `PushAsync` 來篩選記錄。如需詳細資訊，請參閱 [Azure 行動應用程式中的離線資料同步處理]中的*增量同步處理*一節。
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
--->	// ToDoActivity.cs
+ 	-->
+
+
+		// ToDoActivity.cs
 
         private async Task SyncAsync()
         {
@@ -149,7 +154,7 @@
 
 * [Azure 行動應用程式中的離線資料同步處理]
 
-* [雲端報導︰Azure 行動服務中的離線同步處理] (注意︰影片位於行動服務上，但離線同步處理的運作方式類似在 Azure 行動應用程式中的方式)
+* [雲端報導︰Azure 行動服務中的離線同步處理] \(注意︰影片位於行動服務上，但離線同步處理的運作方式類似在 Azure 行動應用程式中的方式\)
 
 <!-- ##Summary
 
@@ -175,4 +180,4 @@
 
 [雲端報導︰Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

@@ -34,28 +34,29 @@
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
-The completed app is provided at the end of this tutorial as well.
+本教學課程最後也會提供完整的應用程式。
 
 
-## 1. Register an App
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+## 1. 註冊應用程式
+在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 建立新的應用程式，或依照這些[詳細步驟](active-directory-v2-app-registration.md) 進行。請務必：
 
-- Copy down the **Application Id** assigned to your app, you'll need it soon.
+- 將指派給您應用程式的**應用程式識別碼**複製起來，您很快會需要用到這些識別碼。
 
-This visual studio solution also contains a "TodoListClient", which is a simple WPF app.  The TodoListClient is used to demonstrate how a user signs-in and how a client can issue requests to your Web API.  In this case, both the TodoListClient and the TodoListService are represented by the same app.  To configure the TodoListClient, you should also:
+本 Visual Studio 方案也包含了 "TodoListClient"，這是一個簡單的 WPF 應用程式，用來示範使用者如何登入，以及如何向您的 Web API 發出要求。如此一來，TodoListClient 和 TodoListService 都由相同的應用程式代表。如需設定 TodoListClient，您也應該：
 
-- Add the **Mobile** platform for your app.
-- Copy down the **Redirect URI** from the portal. You must use the default value of `urn:ietf:wg:oauth:2.0:oob`.
+- 為應用程式新增**行動**平台。
+- 從入口網站複製完整的**重新導向 URI**。您必須使用 `urn:ietf:wg:oauth:2.0:oob` 的預設值。
 
 
-## 2. Set up your app to use the OWIN authentication pipeline
+## 2. 將您的應用程式設定為使用 OWIN 驗證管道
 
-Now that you’ve registered an app, you need to set up your app to communicate with the v2.0 endpoint in order to validate incoming requests & tokens.
+您現在已註冊了應用程式，需要加以設定才能與 the v2.0 端點通訊，以便驗證傳入的要求和權杖。
 
--	To begin, open the solution and add the OWIN middleware NuGet packages to the TodoListService project using the Package Manager Console.
+-	若要開始，請開啟方案並使用 Package Manager Console 將 OWIN 中介軟體 NuGet 套件新增到 TodoListService 專案。
 
 ```
-PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService ```
+PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService 
+```
 
 -	將 OWIN 啟動類別加入至名為 `Startup.cs` 的 TodoListService 專案。以滑鼠右鍵按一下專案 --> [**新增**] -->[ **新增項目**] --> 搜尋 "OWIN"。OWIN 中介軟體將會在應用程式啟動時叫用 `Configuration(…)` 方法。
 -	將類別宣告變更為 `public partial class Startup`，我們已為您在另一個檔案中實作了此類別的一部分。在 `Configuration(…)` 方法中，請呼叫 ConfgureAuth(...) 以設定您的 Web 應用程式驗證。
@@ -155,4 +156,4 @@ public IEnumerable<TodoItem> Get()
 
 如需其他資源，請簽出：- [應用程式模型 v2.0 預覽版本 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow "azure-active directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

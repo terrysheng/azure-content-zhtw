@@ -42,7 +42,7 @@
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-Alternatively, you can [download the completed app as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) or clone the completed app:
+或者，您可以[下載完整的應用程式 .zip 檔](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) 或複製完整的應用程式:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
@@ -120,8 +120,8 @@ public void ConfigureAuth(IAppBuilder app)
 - 首先，安裝 ADAL 預覽版本：
 
 ```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
-- And add another `using` statement to the `App_Start\Startup.Auth.cs` file for ADAL.
-- Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use ADAL to acquire an access token to the To-Do List API, and will store the token in ADAL's token cache for later:
+- 並針對 ADAL，將另一個 `using` s陳述式新增到 `App_Start\Startup.Auth.cs` 檔案中。 
+- 現在，新增一個名為 `OnAuthorizationCodeReceived` 的事件處理常式方法。此處理常式會使用 ADAL 取得待辦事項清單 API 的存取權杖，並將 ADAL 權杖中的權杖儲存起來以供日後使用：
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -207,4 +207,4 @@ catch (AdalException ee)
 - [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow "adal" 標記 >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!----HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

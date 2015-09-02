@@ -132,7 +132,9 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 	<tr><td>前端節點大小</td><td><p>選取前端節點的 VM 大小。</p></td></tr>
 	<tr><td>資料節點大小</td><td><p>選取資料節點的 VM 大小。</p></td></tr>
 	<tr><td>Zookeeper 大小</td><td><p>選取 Zookeeper 節點的 VM 大小。</p></td></tr>
-</table>>[AZURE.NOTE]根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
+	</table>
+
+	>[AZURE.NOTE]根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
 
 	按一下向右按鈕。
 
@@ -177,7 +179,9 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
     </td></tr>
 	<tr><td>其他儲存體帳戶</td>
 		<td>視需要指定叢集的其他儲存體帳戶。HDInsight 支援多個儲存體帳戶。叢集可使用的其他儲存體帳戶沒有數量上的限制。但如果您使用 Azure 入口網站建立叢集，則會因為 UI 的限制而只能使用最多七個儲存體帳戶。您所指定的每個其他儲存體帳戶都會在精靈上另外加入一個 [儲存體帳戶]<strong></strong> 頁面，您可在此指定帳戶資訊。以上面的螢幕擷取畫面為例，其未選取其他儲存體帳戶，因此沒有在精靈上加入額外頁面。</td></tr>
-</table>按一下向右箭頭。
+	</table>
+
+	按一下向右箭頭。
 
 7. 在 [指令碼動作] 頁面上，選取右下角的核取記號。請不要點選 [加入指令碼動作] 按鈕，因為本教學課程不需要自訂叢集設定。
 
@@ -429,4 +433,4 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "佈建新 HBase 叢集的詳細資料"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "使用指令碼動作以自訂 HBase 叢集"
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

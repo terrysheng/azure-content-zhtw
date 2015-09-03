@@ -9,7 +9,7 @@
 
 	您的行動服務中便會建立 Git 儲存機制。記下您剛才提供的認證；您將利用他們來存取此儲存機制以及您的訂用帳戶中的其他行動服務儲存機制。
 
-4. 按一下 [設定] 索引標籤，並注意新的 [原始檔控制] 欄位。
+4. 按一下 [設定] 索引標籤，並注意新的 [原始檔控制\] 欄位。
 
 	![設定原始檔控制](./media/mobile-services-enable-source-control/mobile-source-control-configure.png)
 
@@ -18,4 +18,4 @@
 在您的行動服務中啟用原始檔控制後，您即可使用 Git 來將儲存機制複製到本機電腦。
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

@@ -97,7 +97,7 @@
 
 13.	從資源庫的 [最近使用的] 區段中選取[ SugarCRM 連接器]，即會新增新的 SugarCRM 動作。
 
-14.	從動作清單中選取 [更新帳戶] (在進階動作 [...] 之下)，就會顯示 [更新帳戶] 動作的輸入參數。
+14.	從動作清單中選取 更新帳戶 (在進階動作 [...] 之下)，就會顯示 [更新帳戶] 動作的輸入參數。
 
 	![][6]
 
@@ -133,4 +133,4 @@
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

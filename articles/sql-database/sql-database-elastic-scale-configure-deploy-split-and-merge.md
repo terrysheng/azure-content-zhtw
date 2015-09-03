@@ -62,7 +62,7 @@
 
 ### 建立自我簽署憑證
 
-使用 [Visual Studio 開發人員命令提示字元][](http://msdn.microsoft.com/library/ms229859.aspx) 視窗建立新的目錄，並從這個目錄中執行下列命令：
+使用 [Visual Studio 開發人員命令提示字元](http://msdn.microsoft.com/library/ms229859.aspx) 視窗建立新的目錄，並從這個目錄中執行下列命令：
 
     makecert ^
     -n "CN=*.cloudapp.net" ^
@@ -332,4 +332,4 @@
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

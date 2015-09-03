@@ -192,7 +192,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-請務必將 [日期格式] 設為 [YYYY-MM-DD] (含連接號)。
+請務必將 [日期格式] 設為 YYYY-MM-DD (含連接號)。
 
 [路徑前置詞模式] 會指定串流分析在儲存體中尋找輸入檔案的方式。您必須將它設定為可對應「連續匯出」儲存資料的方式。請設定如下：
 
@@ -307,4 +307,4 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
  
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

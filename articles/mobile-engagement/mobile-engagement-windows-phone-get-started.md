@@ -127,7 +127,7 @@
 
        using Microsoft.Azure.Engagement;
 
-2. 請以 [EngagementPage] (如下所示) 取代 [MainPage] 的超級類別 (在 [PhoneApplicationPage] 之前)：
+2. 請以 EngagementPage (如下所示) 取代 [MainPage] 的超級類別 (在 [PhoneApplicationPage] 之前)：
 
 	![][22]
 
@@ -237,4 +237,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [39]: ./media/mobile-engagement-windows-phone-get-started/campaign-activate.png
 [40]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

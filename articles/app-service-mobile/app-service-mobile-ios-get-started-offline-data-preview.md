@@ -162,7 +162,9 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
     | id | 字串 (標示為必要) | 遠端存放區中的主索引鍵 |
     | 完成 | Boolean | todo 項目欄位 |
     | 文字 | String | todo 項目欄位 |
-    | ms\_createdAt | Date | (選用) 對應至 \_\_createdAt 系統屬性 | | ms\_updatedAt | 日期 | (選用) 對應至 \_\_updatedAt 系統屬性 | | ms\_version | 字串 | (選用) 用於偵測衝突，對應至 \_\_version |
+    | ms\_createdAt | Date | (選用) 對應至 \_\_createdAt 系統屬性 | 
+	| ms\_updatedAt | 日期 | (選用) 對應至 \_\_updatedAt 系統屬性 | 
+	| ms\_version | 字串 | (選用) 用於偵測衝突，對應至 \_\_version |
 
 
 ## <a name="setup-sync"></a>變更應用程式的同步處理行為
@@ -250,4 +252,4 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

@@ -138,7 +138,7 @@
 
      11\.4.針對 [格式]，選取 [PEM]。
 
-     11\.5.從您下載的憑證建立 Base-64 編碼檔案。[AZURE.NOTE]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
+     11\.5.從您下載的憑證建立 Base-64 編碼檔案。  > [AZURE.NOTE]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
 
      11\.6.在**記事本**中，開啟您的 Base-64 編碼檔案，然後將這個檔案的內容複製到剪貼簿。
 
@@ -213,4 +213,4 @@
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

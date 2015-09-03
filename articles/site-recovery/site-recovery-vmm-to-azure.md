@@ -260,7 +260,7 @@ Azure Site Recovery 可在許多部署案例中協調虛擬機器的複寫、容
 
 	![建立復原計畫](./media/site-recovery-vmm-to-azure/ASRE2AVMM_SelectVMRP.png)
 
-建立復原計畫之後，它會出現在 [復原計畫] 索引標籤中。您也可以將 [Azure 自動化 Runbook][](site-recovery-runbook-automation.md) 加入復原計劃中，以自動化容錯移轉時間的動作。
+建立復原計畫之後，它會出現在 [復原計畫] 索引標籤中。您也可以將 [Azure 自動化 Runbook](site-recovery-runbook-automation.md) 加入復原計劃中，以自動化容錯移轉時間的動作。
 
 ### 執行測試容錯移轉
 
@@ -315,4 +315,4 @@ Azure Site Recovery 可在許多部署案例中協調虛擬機器的複寫、容
 
 <LI>若有任何問題，請造訪 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 復原服務論壇</a>。</LI> </UL>
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

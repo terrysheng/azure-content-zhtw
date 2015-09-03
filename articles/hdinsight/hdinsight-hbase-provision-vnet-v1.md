@@ -150,7 +150,7 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 		<td>指定 HDInsight 叢集使用者密碼。</td></tr>
 	<tr><td>為叢集啟用遠端桌面</td>
 		<td>選取此核取方塊，以指定遠端桌面使用者的使用者名稱、密碼和到期日期，使其在佈建之後可以遠端進入叢集節點。您也可以稍後在叢集佈建後啟用遠端桌面。如需指示，請參閱<a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連接至 HDInsight 叢集</a>。</td></tr>
-</table>
+	</table>
 
 6. 在 [儲存體帳戶] 頁面上，提供下列值：
 
@@ -433,4 +433,4 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "佈建新 HBase 叢集的詳細資料"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "使用指令碼動作以自訂 HBase 叢集"
 
-<!----HONumber=August15_HO8-->
+<!-----HONumber=August15_HO8-->

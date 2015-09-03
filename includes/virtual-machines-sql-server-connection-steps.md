@@ -83,7 +83,7 @@
 
 	![啟用 TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
 
-5. 在主控台窗格中，按一下 [SQL Server 服務]。在詳細資料窗格中，以滑鼠右鍵按一下 [SQL Server (**執行個體名稱**)] (預設執行個體是 **SQL Server (MSSQLSERVER)**)，然後按一下 [重新啟動] 以停止及重新啟動 SQL Server 執行個體。
+5. 在主控台窗格中，按一下 [SQL Server 服務]。在詳細資料窗格中，以滑鼠右鍵按一下 SQL Server (**執行個體名稱**) (預設執行個體是 **SQL Server (MSSQLSERVER)**)，然後按一下 [重新啟動] 以停止及重新啟動 SQL Server 執行個體。
 
 	![重新啟動 Database Engine](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
 
@@ -139,11 +139,11 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 5. 在 [密碼] 方塊中，輸入新使用者的密碼。在 [確認密碼] 方塊中再次輸入密碼。
 
-6. 若要強制執行複雜性和強制性密碼原則選項，請選取 [強制執行密碼原則] (建議)。此為選取 SQL Server 驗證時的預設選項。
+6. 若要強制執行複雜性和強制性密碼原則選項，請選取 強制執行密碼原則 (建議)。此為選取 SQL Server 驗證時的預設選項。
 
-7. 若要強制執行逾期密碼原則選項，請選取 [強制執行密碼逾期] (建議)。您必須選取強制執行密碼原則才能啟用此核取方塊。此為選取 SQL Server 驗證時的預設選項。
+7. 若要強制執行逾期密碼原則選項，請選取 強制執行密碼逾期 (建議)。您必須選取強制執行密碼原則才能啟用此核取方塊。此為選取 SQL Server 驗證時的預設選項。
 
-8. 若要強制使用者在首次登入後建立新密碼，請選取 [使用者必須在下次登入時變更密碼] (如果此登入是供其他使用者使用，建議您選取此選項。如果此登入是供您自己使用，請勿選取此選項。) 您必須選取強制執行密碼逾期才能啟用此核取方塊。此為選取 SQL Server 驗證時的預設選項。
+8. 若要強制使用者在首次登入後建立新密碼，請選取 使用者必須在下次登入時變更密碼 (如果此登入是供其他使用者使用，建議您選取此選項。如果此登入是供您自己使用，請勿選取此選項。) 您必須選取強制執行密碼逾期才能啟用此核取方塊。此為選取 SQL Server 驗證時的預設選項。
 
 9. 在 [預設資料庫] 清單中，選取登入的預設資料庫。**master** 是此選項的預設值。如果您尚未建立使用者資料庫，請保留 [master] 的設定。
 
@@ -183,4 +183,4 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 	![使用 SSMS 進行連線](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

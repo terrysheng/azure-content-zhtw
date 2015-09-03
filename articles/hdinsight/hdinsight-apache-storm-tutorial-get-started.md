@@ -104,13 +104,13 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 > [AZURE.NOTE]連接至儀表板時，系統會提示您輸入使用者名稱和密碼。這是您建立叢集時使用的管理員名稱 (**admin**) 和密碼。
 
-載入 Storm 儀表板後，您會看到 [提交拓撲] (Submit Topology) 表單。
+載入 Storm 儀表板後，您會看到 [提交拓撲] 表單。
 
 ![利用 Storm 儀表板提交 Storm Starter 拓撲。](./media/hdinsight-apache-storm-tutorial-get-started/submit.png)
 
-[提交拓撲] (Submit Topology) 表單可用於上傳含有 Storm 拓撲的 .jar 檔案並執行。它也包含數個與叢集一併提供的基本範例。
+[提交拓撲] 表單可用於上傳含有 Storm 拓撲的 .jar 檔案並執行。它也包含數個與叢集一併提供的基本範例。
 
-###<a id="run">從 GitHub 的 Storm Starter 專案執行 word-count 範例
+###<a id="run"></a>從 GitHub 的 Storm Starter 專案執行 word-count 範例
 
 與叢集一併提供的範例包含 word-counting 拓撲的數個變體。這些範例包含會隨機產生句子的 **spout**，以及會將每個句子拆成個別單字，然後計算每個單字的出現次數的 **bolts**。這些範例均來自 [Storm Starter 範例](https://github.com/apache/storm/tree/master/examples/storm-starter) (Apache Storm 的一部分)。
 
@@ -200,7 +200,7 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 ###停止拓撲
 
-返回 word-count 拓撲的 [拓撲摘要] (Topology summary) 頁面，然後選取 [拓撲動作] (Topology actions) 區段中的 [終止] (Kill) 按鈕。出現提示時，請先輸入要等候 10 秒，再停止拓撲。逾時期限過後，當您瀏覽儀表板的 [Storm UI] 區段時，便不會再顯示拓撲。
+返回 word-count 拓撲的 [拓撲摘要]  頁面，然後選取 [拓撲動作] 區段中的 [終止] 按鈕。出現提示時，請先輸入要等候 10 秒，再停止拓撲。逾時期限過後，當您瀏覽儀表板的 [Storm UI] 區段時，便不會再顯示拓撲。
 
 ##摘要
 
@@ -238,4 +238,4 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

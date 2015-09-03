@@ -108,7 +108,7 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 
 ![](./media/app-insights-export-power-bi/140.png)
 
-請務必將 [日期格式] 設為 [YYYY-MM-DD] (含連接號)。
+請務必將 [日期格式] 設為 YYYY-MM-DD (含連接號)。
 
 [路徑前置詞模式] 會指定串流分析在儲存體中尋找輸入檔案的方式。您必須將它設定為可對應「連續匯出」儲存資料的方式。請設定如下：
 
@@ -197,4 +197,4 @@ Noam Ben Zeev 會示範如何匯出至 Power BI。
 * [Application Insights](app-insights-overview.md)
 * [更多範例和逐步解說](app-insights-code-samples.md)
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

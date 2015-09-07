@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 資料處理站-常見問題集" 
-	description="關於 Azure Data Factory 的常見問題。" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Azure 資料處理站-常見問題集"
+	description="關於 Azure Data Factory 的常見問題。"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="spelluru"/>
 
 # Azure 資料處理站-常見問題集
@@ -90,17 +90,6 @@ Data Factory 可在美國西部和北歐地區使用。資料處理站所使用�
 輸出資料表中的**可用性**組態設定決定何時執行活動。活動會在開始執行之前，檢查是否滿足所有輸入資料相依性 (即 [就緒] 狀態)。
 
 ## 複製活動 - 常見問題集
-### 複製活動支援哪些區域？
-
-複製活動支援將資料複製至下列區域：美國東部、美國東部 2、美國西部、美國中部、美國中北部、美國中南部、北歐、西歐、東南亞、日本東部和巴西南部。
-
-使用上述其中一個區域來路由資料，也可支援將資料複製到其他區域。複製作業會根據用於資料路由的區域計量付費。
-
-複製目的地的區域 | 用於路由的區域
--------------------------- | -----------------------
-東亞 | 東南亞
-日本西部 | 日本東部
- 
 ### 最好是一個管線有多個活動，還是每個活動都有不同的管線？ 
 管線依例應該有配套的相關活動。邏輯上，如果管線外部的任何其他活動都未使用連接活動的資料表，則可以將活動保留在一個管線中。如此一來，您就不需要鏈結管線作用期間，使其彼此一致。此外，更新管線時，也會更適當地保留管線內部資料表中的資料完整性。管線更新基本上會停止、移除並重新建立管線內的所有活動。從撰寫觀點來看，可能也較容易看出管線的某個 JSON 檔案中相關活動內的資料流程。
 
@@ -192,4 +181,4 @@ Data Factory 可在美國西部和北歐地區使用。資料處理站所使用�
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

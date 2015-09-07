@@ -1,19 +1,19 @@
-<properties 
-    pageTitle="Android 應用程式適用的 Application Insights" 
-    description="使用 Application Insights 分析您的 Android 應用程式的使用量和效能。" 
-    services="application-insights" 
-    documentationCenter="android"
-    authors="alancameronwills" 
-    manager="ronmart"/>
+<properties
+    pageTitle="Android App 適用的 Application Insights | Microsoft Azure"
+	description="使用 Application Insights 分析您的 Android 應用程式的使用量和效能。"
+	services="application-insights"
+	documentationCenter="android"
+	authors="alancameronwills"
+	manager="ronmart"/>
 
-<tags 
-    ms.service="application-insights" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="mobile-android" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-	ms.date="04/28/2015" 
-    ms.author="awills"/>
+<tags
+    ms.service="application-insights"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="04/28/2015"
+	ms.author="awills"/>
 
 # Android 應用程式適用的 Application Insights
 
@@ -39,7 +39,7 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 
 (如果您尚未執行這項操作。)
 
-1.  啟動 Android Studio 並設定外掛程式
+1.  啟動 Android Studio 並設定外掛程式。
 
     ![選擇設定](./media/app-insights-android/01-configure.png)
 
@@ -50,10 +50,10 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 ## <a name="sdk"></a>在應用程式中安裝 SDK
 
 
-1.  選取 [工具] -> [整合 Application Insights]。
+1.  選取 [工具] -> [整合 Application Insights SDK]。
 
     ![整合 Application Insights](./media/app-insights-android/04-tools-integrate.png)
-    
+
 3.  在您的訂用帳戶中建立元件
 
     ![建立元件](./media/app-insights-android/07-create-component.png)
@@ -63,10 +63,10 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 4.  同步處理 gradle 以下載 SDK 並且與您的專案整合
 
     ![同步處理 gradle 檔案以下載 SDK](./media/app-insights-android/08-successful-integration.png)
-    
-    (其他資訊可以在[使用方式頁面](http://go.microsoft.com/fwlink/?LinkID=533220)取得。)
-    
-此時下列參考已加入至模組 build.gradle，`INTERNET` 和 `ACCESS_NETWORK_STATE` 的權限，以及包含元件檢測金鑰的中繼資料標記會加入至模組的 `AndroidManifest.xml`
+
+    (其他資訊可以在[使用方式頁面](http://go.microsoft.com/fwlink/?LinkID=533220)取得)。
+
+此時，下列參考已加入至模組 build.gradle，`INTERNET` 和 `ACCESS_NETWORK_STATE` 的權限，以及包含元件檢測金鑰的中繼資料標記會加入至模組的 `AndroidManifest.xml`
 
 ```java
 
@@ -80,7 +80,7 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
     <manifest>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    
+
     <application>
         <meta-data
             android:name="com.microsoft.applicationinsights.instrumentationKey"
@@ -104,14 +104,14 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 
 初始化 SDK，並開始追蹤遙測。
 
-將下列匯入新增至您的應用程式根活動
+將下列匯入新增至您 App 的根活動：
 
 ```java
 
      import com.microsoft.applicationinsights.library.ApplicationInsights;
 ```
 
-並且將下列程式碼新增至活動的 `onCreate` 回呼。
+並且將下列程式碼新增至活動的 `onCreate` 回呼：
 
 ```java
 
@@ -119,7 +119,7 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
     ApplicationInsights.start();
 ```
 
-一旦呼叫 `ApplicationInsights.start()`，SDK 就會開始追蹤 android 生命週期活動和任何未處理的例外狀況。
+一旦呼叫 `ApplicationInsights.start()` 之後，SDK 就會開始追蹤 android 生命週期活動和任何未處理的例外狀況。
 
 > [AZURE.NOTE]應用程式生命週期事件只會在 Android SDK 15 版以上 (冰淇淋三明治+) 收集。
 
@@ -128,9 +128,9 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 * TrackEvent(eventName) 用於其他使用者動作
 * TrackTrace(logEvent) 用於[診斷記錄][diagnostic]
 * TrackHandledException(exception) 用在 catch 子句中
-* TrackMetric(name, value) 用在背景工作，以傳送未附加到特定事件之度量的一般報告。
+* TrackMetric(name, value) 用在背景工作，以傳送未附加到特定事件之度量的一般報告
 
-初始化和手動遙測集合的範例如下。
+下列程式碼是初始化和手動遙測集合的範例：
 
 ```java
 
@@ -138,11 +138,11 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 
       @Override
       protected void onCreate(Bundle savedInstanceState) {
-        
+
         ApplicationInsights.setup(this);
         //... other initialization code ...//
         ApplicationInsights.start();
-        
+
         // track telemetry data
         TelemetryClient client = TelemetryClient.getInstance();
         HashMap<String, String> properties = new HashMap<String, String>();
@@ -163,11 +163,11 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 
 返回 http://portal.azure.com 並且瀏覽至您的 Application Insights 資源。
 
-按一下 [搜尋] 以開啟[診斷搜尋][diagnostic] - 這是前幾個事件顯示的位置。如果您看不到任何資料，請稍做等待後再按一下 [重新整理]。
+按一下 [搜尋] 以開啟 [診斷搜尋][][diagnostic] - 這是前幾個事件顯示的位置。如果您看不到任何資料，請稍做等待後再按一下 [重新整理]。
 
 ![按一下 [診斷搜尋]](./media/app-insights-android/21-search.png)
 
-使用您的應用程式時，[概觀] 刀鋒視窗上會顯示資料。
+使用您的 App 時，[概觀] 刀鋒視窗上會顯示資料。
 
 ![[概觀] 刀鋒視窗](./media/app-insights-android/22-oview.png)
 
@@ -195,8 +195,6 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="教學課程：從 Azure Blob 複製資料到 Azure SQL" 
-	description="此教學課程說明如何建立將資料從 Blob 複製到 Azure SQL 資料庫儲存個體的範例資料管線。" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="教學課程：從 Azure Blob 複製資料到 Azure SQL"
+	description="此教學課程說明如何建立將資料從 Blob 複製到 Azure SQL 資料庫儲存個體的範例資料管線。"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
 # 教學課程：使用 Data Factory 編輯器建立和監視 Data Factory
@@ -399,7 +399,6 @@
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [data-factory-introduction]: data-factory-introduction.md
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
@@ -499,4 +498,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

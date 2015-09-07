@@ -1,28 +1,30 @@
-## Deploy the ARM template by using click to deploy
+## 使用按一下即部署來部署 ARM 範本
 
-You can reuse pre-defined ARM templates upload to a github repository maintained by Microsoft and open to the community. THese templates can be deployed straight out of github, or downloaded and modified to fit your needs. To deploy a template that creates a VNet with two subnets, follow the steps below.
+您可以重複使用已上傳至由 Microsoft 維護且開放社群使用之 Github 存放庫中的預先定義 ARM 範本。這些範本可以直接從 Github 部署，或下載並修改以符合您的需求。若要部署範本，建立具有兩個子網路的 VNet，請依照下列步驟執行。
 
-1. From a browser, navigate to [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
-2. Scroll down the list of templates, and click **101-two-subnets**. Check the **README.md** file, as shown below.
+1. 請透過瀏覽器瀏覽 [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)。
+2. 向下捲動範本清單，按一下 [**101-two-subnets**]。查看 **README.md** 檔案，如下所示。
 
-	![READEME.md file in github](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
+	![Github 中的 READEME.md 檔案](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
 
-3. Click **Deploy to Azure**. If necessary, enter your Azure login credentials. 
-4. In the **Parameters** blade, enter the values you want to use to create your new VNet, and then click **OK**. The figure below shows the values for our scenario.
+3. 按一下 [**部署至 Azure**]。如有必要，請輸入您的 Azure 登入認證。
+4. 在 [**參數**] 刀鋒視窗中，輸入您要用以建立新 VNet 的值，然後按一下 [**確定**]。下圖顯示我們案例中的值。
 
-	![ARM template parameters](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
+	![ARM 範本參數](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
 
-4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. To learn more about resource groups, see [](). The figure below shows the resource group settings for a new resource group called **TestRG**.
+4. 按一下 [**資源群組**]，選取要新增 VNet 的資源群組，或按一下 [**新建**]，將 VNet 新增到新的資源群組。若要深入了解資源群組，請參閱 []()。下圖顯示新資源群組 **TestRG** 的資源群組設定 。
 
-	![Resource group](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
+	![資源群組](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
 
-5. If necessary, change the **Subscription** and **Location** settings for your VNet.
-6. If you do not want to see the VNet as a tile in the **Startboard**, disable **Pin to Startboard**.
-5. Click **Leagl terms**, read the terms, and click **Buy** to agree. 
-6. Click **Create** to create the VNet.
+5. 如有必要，請變更您 VNet 的 [**訂用帳戶**] 和 [**位置**] 設定。
+6. 如果您不想在「**開始面板**」上看到 VNet 磚，請停用 [**釘選到「開始面板」**]。
+5. 按一下 [**法律條款**] 並閱讀條款，然後按一下 [**購買**] 表示同意條款。 
+6. 按一下 [**建立**] 來建立 VNet。
 
-	![Submitting deployment tile in preview portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
+	![在 Preview 入口網站中提交部署磚](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-7. Once the deployment is done, click **TestVNet** > **All settings** > **Subnets** to see the subnet properties, as shown below.
+7. 完成部署後，依序按一下 [**TestVNet**] > [**所有設定**] > [**子網路**]，以查看子網路屬性，如下所示。
 
-	![Create VNet in preview portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
+	![在 Preview 入口網站中建立 VNet](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
+
+<!---HONumber=August15_HO9-->

@@ -1,199 +1,249 @@
 <properties 
-	pageTitle="透過 Azure Media Services 編碼的隨選內容" 
-	description="本主題簡介如何使用 Media Services 編碼隨選內容。" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Azure 隨選媒體編碼器的概觀和比較"
+	description="本主題概要說明並提供 Azire 隨選媒體編碼器的比較。"
+	services="media-services"
+	documentationCenter=""
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="juliako"/>
 
-#透過 Azure Media Services 編碼的隨選內容
+#Azure 隨選媒體編碼器的概觀和比較
 
-本主題是[媒體服務隨選視訊工作流程](media-services-video-on-demand-workflow.md)的一部分。
+##編碼概觀
 
-##概觀
+編碼器會使用轉碼器壓縮數位媒體。編碼器通常會有各種設定，可讓您指定產生的媒體屬性，例如使用的轉碼器、檔案格式、解析度和位元速率。檔案格式是容器，可用來保存已壓縮視訊以及使用哪些轉碼器來壓縮視訊等相關資訊。
 
-媒體服務支援下列編碼器：
+轉碼器有兩個元件：一個用來壓縮數位媒體檔案以利傳輸，另一個元件則是解壓縮數位媒體檔案以利播放。音訊轉碼器用於壓縮和解壓縮音訊，視訊轉碼器則用於壓縮和解壓縮視訊。轉碼器可以運用不失真或失真壓縮。不失真轉碼器在進行壓縮時會保留所有資訊。解壓縮檔案時，產生的檔案與輸入媒體完全相同，因此不失真轉碼器相當適合用於封存和儲存。失真轉碼器在進行編碼時會遺失部分資訊並產生較小的檔案 (與原始檔案相比)，代價是減損視訊品質，適用於透過網際網路串流處理。
 
-- [Media Encoder Standard](#media_encoder_standard)
-- [Azure Media Encoder](#azure_media_encoder)
-- [Media Encoder Premium Workflow](#media_encoder_premium_workflow)
+請務必了解轉碼器和檔案格式之間的差異。轉碼器是實作壓縮/解壓縮演算法的軟體，而檔案格式是保存已壓縮視訊的容器。如需詳細資訊，請參閱[編碼和封裝](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/)。
 
-[下列章節](#compare_encoders)會比較受支援編碼器的編碼功能。
+媒體服務提供動態封裝，這讓您以媒體服務支援的串流格式 (MPEG DASH, 、HLS、Smooth Streaming、HDS) 提供調適性位元速率 MP4 或 Smooth Streaming 編碼內容，而不必重新封裝成這些串流格式。
 
-依預設，每個媒體服務帳戶一次可以有一個進行中的編碼工作。您可以保留編碼單位，這樣就可以同時執行多個編碼工作，其中一個用於您購買的每一個編碼保留單位。如需瞭解如何調整編碼單位，請參閱下列**入口網站**和 **.NET** 主題。
+若要善用[動態封裝](media-services-dynamic-packaging-overview.md)，您需要執行下列動作：
 
-[AZURE.INCLUDE [media-services-selector-scale-encoding-units](../../includes/media-services-selector-scale-encoding-units.md)]
+- 將您的夾層 (來源) 檔編碼為一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案 (編碼步驟稍後示範於本教學課程中)。
+- 為您計畫從該處傳遞內容的串流端點取得至少一個隨選串流單元。如需詳細資訊，請參閱[如何調整隨選串流保留單元](media-services-manage-origins.md#scale_streaming_endpoints/)。
 
-##<a id="media_encoder_standard"></a>Media Encoder Standard
+媒體服務支援本文中所描述的下列隨選編碼器：
 
-[Media Encoder Standard 支援的格式](media-services-media-encoder-standard-formats.md) – 討論 **Media Encoder Standard** 支援的檔案和串流格式。
+- **Media Encoder Standard**
+- **Azure 媒體編碼器** 
+- **Media Encoder Premium 工作流程**
 
-**Media Encoder Standard** 使用[這裡](http://go.microsoft.com/fwlink/?LinkId=618336)所述的其中一個編碼器預設或以[這些](http://go.microsoft.com/fwlink/?LinkId=618336)預設為基礎的自訂預設進行設定。
+本文概略敘述隨選媒體編碼器，並提供文章連結以提供更詳細資訊。本主題也提供各種編碼器的比較。
 
-如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
+請注意，每個媒體服務帳戶預設一次可以有一個進行中的編碼工作。您可以保留編碼單位，這樣就可以同時執行多個編碼工作，其中一個用於您購買的每一個編碼保留單位。如需相關資訊，請參閱[調整編碼單位](media-services-portal-encoding-units.md)。
 
-##<a id="azure_media_encoder"></a>Azure Media Encoder
+##Media Encoder Standard
 
-[媒體服務編碼器支援的格式](media-services-azure-media-encoder-formats.md) – 討論 **Azure Media Encoder** 支援的檔案和串流格式。
+###概觀
 
-**Azure Media Encoder** 使用[這裡](https://msdn.microsoft.com/library/azure/dn619392.aspx)所述的其中一種編碼器預設字串進行設定。您也可以從[這裡](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder)取得實際的 Azure Media Encoder 預設檔案。
+建議使用 Media Encoder Standard 編碼器。不過，此編碼器目前沒有透過 Azure 入口網站公開。
 
-###範例
+相較於 Azure 媒體編碼器，此編碼器支援更多的輸入和輸出格式和轉碼器。其他優點包括：
 
-使用 **Azure 管理入口網站**、**.NET** 或 **REST API**，以 **Azure Media Encoder** 進行編碼。
+- 容許更多建立輸入檔案的方式
+- 具有比 Azure 媒體編碼器更好的 H.264 轉碼器品質
+- 建置在較新且更具彈性的管線
+- 更穩固/具彈性
+
+###使用方式
+
+[如何使用 Media Encoder Standard 進行編碼](media-services-dotnet-encode-with-media-encoder-standard.md)
+
+###格式
+
+[格式和轉碼器](media-services-media-encoder-standard-formats.md)
+
+###預設值
+
+Media Encoder Standard 使用[這裡](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)描述的其中一個編碼器預設值進行設定。
+
+###輸入和輸出中繼資料
+
+[這裡](http://msdn.microsoft.com/library/azure/dn783120.aspx) (和 Azure 媒體編碼器相同) 說明編碼器輸入中繼資料。
+
+[這裡](http://msdn.microsoft.com/library/azure/dn783217.aspx) (和 Azure 媒體編碼器相同) 說明編碼器輸出中繼資料。
+
+###縮圖
+
+目前不支援。
+
+###音訊和/或視訊重疊
+
+目前不支援。
+
+###另請參閱
+
+[媒體服務部落格](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
  
-[AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
+##Azure 媒體編碼器
 
-####其他相關主題
+###概觀
 
-[動態封裝](https://msdn.microsoft.com/library/azure/jj889436.aspx) – 描述如何編碼為自適性位元速率 MP4，並動態提供 Smooth Streaming、Apple HLS 或 MPEG-DASH。
+Azure 媒體編碼器是媒體服務支援的其中一個編碼器。從 2015 年 7 月開始，建議使用 [Media Encoder Standard](media-services-encode-asset.md#media_encoder_standard)。
 
-[控制媒體服務編碼器輸出檔案名稱](https://msdn.microsoft.com/library/azure/dn303341.aspx) – 描述 Azure Media Encoder 使用的檔案命名慣例以及如何修改輸出檔名稱。
+###使用方式
 
-[使用 Dolby Digital Plus 將您的媒體編碼](media-services-encode-with-dolby-digital-plus.md) – 描述如何使用 Dolby Digital Plus 編碼技術進行曲目的編碼。
+[如何使用 Azure 媒體編碼器進行編碼](media-services-dotnet-encode-asset.md)
 
+###格式
 
-##<a id="media_encoder_premium_wokrflow"></a>Media Encoder Premium Workflow 
+[格式和轉碼器](media-services-azure-media-encoder-formats.md)
 
-**注意** 本主題中討論的 Media Encoder Premium Workflow 媒體編碼器不適用於中國。
+###預設值
 
-[Media Encoder Premium Workflow 支援的格式](media-services-premium-workflow-encoder-formats.md) – 討論 **Media Encoder Premium Workflow** 支援的檔案格式和轉碼器。
+Azure 媒體編碼器使用[這裡](https://msdn.microsoft.com/library/azure/dn619392.aspx)描述的其中一種編碼器預設值進行設定。您也可以從[這裡](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder)取得實際的 Azure 媒體編碼器預設檔案。
 
-### 工作流程設計工具
+###輸入和輸出中繼資料
 
-**Media Encoder Premium Workflow** 使用複雜的工作流程設定。您可以使用[工作流程設計工具](media-services-workflow-designer.md)建立工作流程檔案。
+[這裡](http://msdn.microsoft.com/library/azure/dn783120.aspx)說明編碼器輸入中繼資料。
 
-您可在[這裡](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)取得預設的工作流程檔案。資料夾也包含這些檔案的說明。
+[這裡](http://msdn.microsoft.com/library/azure/dn783217.aspx)說明編碼器輸出中繼資料。
 
-###範例
-利用 **Media Encoder Premium Workflow** 並搭配 **.NET** 進行編碼。如需詳細資訊，請參閱[使用 Media Encoder Premium Workflow 進行進階編碼](media-services-encode-with-premium-workflow.md)。
- 
+###縮圖
+
+[建立縮圖](https://msdn.microsoft.com/library/azure/Dn673581.aspx)
+
+###音訊和/或視訊重疊
+
+[建立重疊](media-services-azure-media-customize-ame-presets.md#creating-overlays)。
+
+###命名慣例
+
+[如何修改輸出檔名稱](media-services-azure-media-customize-ame-presets.md#controlling-azure-media-encoder-output-file-names)
+
+###另請參閱
+
+[使用 Dolby Digital Plus 將您的媒體編碼](media-services-encode-with-dolby-digital-plus.md)
+
+##Media Encoder Premium Workflow
+	
+Media Encoder Premium Workflow 使用複雜的工作流程設定。您可以使用[工作流程設計工具](media-services-workflow-designer.md)建立和更新工作流程檔案。
+
+如需詳細資訊，請參閱：
+
+- [介紹 Azure 媒體服務中的 Premium 編碼](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+- [如何使用 Azure 媒體服務中的 Premium 編碼](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+
 
 ##<a id="compare_encoders"></a>比較編碼器
 
-###<a id="billing"></a>每個編碼器所使用的帳單計量表
+###<a id="billing"></a>每個編碼器所使用的計費計量表
 
 媒體處理器名稱|適用的價格|注意事項
 ---|---|---
-**Windows Azure Media Encoder** |LEGACY ENCODER|在 LEGACY ENCODER 資料行之下，編碼工作會以[這裡][1]指定的費率，根據輸入資產和輸出資產的總大小 (以 GB 為單位) 收費。
-**Azure Media Encoder** |ENCODER|在 ENCODER 資料行之下，編碼工作會以[這裡][1]指定的費率，根據輸出資產的大小 (以 GB 為單位) 收費。
 **Media Encoder Standard** |ENCODER|在 ENCODER 資料行之下，編碼工作會以[這裡][1]指定的費率，根據輸出資產的大小 (以 GB 為單位) 收費。
-**Media Encoder Premium Workflow** |PREMIUM ENCODER|在 PREMIUM ENCODER 資料行之下，編碼工作會以[這裡][1]指定的費率，根據輸出資產的大小 (以 GB 為單位) 收費。
+**Azure 媒體編碼器** |ENCODER|在 ENCODER 資料行之下，編碼工作會以[這裡][1]指定的費率，根據輸出資產的大小 (以 GB 為單位) 收費。
+**Media Encoder Premium 工作流程** |PREMIUM ENCODER|在 PREMIUM ENCODER 資料行之下，編碼工作會以[這裡][1]指定的費率，根據輸出資產的大小 (以 GB 為單位) 收費。
 
 
+本節比較 **媒體編碼器標準**、**Azure 媒體編碼器**以及**媒體編碼器高階工作流程**的編碼功能。
 
-本節比較 **Azure 媒體編碼器**、**Media Encoder Premium Workflow** 和 **Media Encoder Standard** 的編碼功能。
 
+###輸入容器/檔案格式
 
-###輸入格式
-
-輸入容器/檔案格式
-
-輸入容器/檔案格式|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
+輸入容器/檔案格式|Media Encoder Standard|Azure 媒體編碼器|Media Encoder Premium Workflow
 ---|---|---|---
-Adobe® Flash® F4V|是|否|是
-MXF/SMPTE 377M|是|限制|是
-GXF|是|否|是
-MPEG-2 傳輸資料流|是|是|是
-MPEG-2 程式資料流|是|是|是
-MPEG-4/MP4|是|是|是
-Windows Media/ASF|是|是|是
-AVI (未壓縮 8 位元/10 位元)|是|是|是
-3GPP/3GPP2|否|是|是
-Smooth Streaming 檔案格式 (PIFF 1.3)|否|是|是
-[Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|否|否|是
-Matroska/WebM|否|否|是
+Adobe® Flash® F4V |是|否 |是
+MXF/SMPTE 377M |是|限制|是
+GXF |是|否 |是
+MPEG-2 傳輸資料流 |是|是 |是
+MPEG-2 程式資料流 |是|是 |是
+MPEG-4/MP4 |是|是 |是
+Windows Media/ASF |是|是 |是
+AVI (未壓縮 8 位元/10 位元)|是|是 |是
+3GPP/3GPP2 |是|是 |否
+Smooth Streaming 檔案格式 (PIFF 1.3)|是|是|否
+[Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|是|否|否
+Matroska/WebM |是|否|否
 
-輸入視訊轉碼器
+###輸入視訊轉碼器
 
-輸入視訊轉碼器|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
+輸入視訊轉碼器|Media Encoder Standard|Azure 媒體編碼器|Media Encoder Premium Workflow
 ---|---|---|---
-AVC 8 位元/10 位元，高達 4:2:2，包括 AVCIntra|是|唯一的 8 位元 4:2:0|8 位元 4:2:0 和 4:2:2
-Avid DNxHD (使用 MXF)|是|否|是
-DVCPro/DVCProHD (使用 MXF)|是|否|是
-JPEG2000|是|否|是
-MPEG-2 (高達 422 Profile 和 High Level，包括 XDCAM、XDCAM HD、XDCAM IMX、CableLabs ® 和 D10 等變種)|是|最高 422 設定檔|最高 422 設定檔
-MPEG-1|是|是|是
-Windows Media 視訊/VC-1|是|是|是
-Canopus HQ/HQX|否|是|否
-Mpeg-4 第 2 部分|否|否|是
-[Theora](https://en.wikipedia.org/wiki/Theora)|否|否|是
+AVC 8 位元/10 位元，高達 4:2:2，包括 AVCIntra |8 位元 4:2:0 和 4:2:2|唯一的 8 位元 4:2:0|是
+Avid DNxHD (使用 MXF) |是|否|是
+DVCPro/DVCProHD (使用 MXF) |是|否|是
+JPEG2000 |是|否|是
+MPEG-2 (高達 422 Profile 和 High Level，包括 XDCAM、XDCAM HD、XDCAM IMX、CableLabs ® 和 D10 等變種)|最高 422 設定檔|最高 422 設定檔|是
+MPEG-1 |是|是|是
+Windows Media 視訊/VC-1 |是|是|是
+Canopus HQ/HQX |否|是|否
+Mpeg-4 第 2 部分 |是|否|否
+[Theora](https://en.wikipedia.org/wiki/Theora) |是|否|否
 
-輸入音訊轉碼器
+###輸入音訊轉碼器
 
-輸入音訊轉碼器|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
+輸入音訊轉碼器|Media Encoder Standard|Azure 媒體編碼器|Media Encoder Premium Workflow
 ---|---|---|---
-AES (SMPTE 331M 和 302M，AES3-2003)|是|否|否
-Dolby® E|是|否|否
-Dolby® Digital (AC3)|是|是|否
-Dolby® Digital Plus (E-AC3)|是|否|否
+AES (SMPTE 331M 和 302M，AES3-2003) |否|否|是
+Dolby® E |否|否|是
+Dolby® Digital (AC3) |否|是|是
+Dolby® Digital Plus (E-AC3) |否|否|是
 AAC (AAC-LC、AAC-HE 和 AAC-HEv2；高達 5.1)|是|是|是
 MPEG Layer 2|是|是|是
 MP3 (MPEG-1 音訊層 3)|是|是|是
 Windows Media 音訊|是|是|是
 WAV/PCM|是|是|是
-[FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|否|否|是
-[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |否|否|是
-[Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|否|否|是
+[FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|是|否|否
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |是|否|否
+[Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|是|否|否
 
-###輸出格式
 
-輸出容器/檔案格式
+###輸出容器/檔案格式
 
-輸出容器/檔案格式|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
+輸出容器/檔案格式|Media Encoder Standard|Azure 媒體編碼器|Media Encoder Premium Workflow
 ---|---|---|---
-Adobe® Flash® F4V|是|否|否
-MXF (OP1a、XDCAM 和 AS02)|是|否|否
-DPP (包括 AS11)|是|否|否
-GXF|是|否|否
+Adobe® Flash® F4V|否|否|是
+MXF (OP1a、XDCAM 和 AS02)|否|否|是
+DPP (包括 AS11)|否|否|是
+GXF|否|否|是
 MPEG-4/MP4|是|是|是
 MPEG-TS|是|否|是
-Windows Media/ASF|是|是|否
-AVI (未壓縮 8 位元/10 位元)|是|否|否
-Smooth Streaming 檔案格式 (PIFF 1.3)|是|是|否
+Windows Media/ASF|否|是|是
+AVI (未壓縮 8 位元/10 位元)|否|否|是
+Smooth Streaming 檔案格式 (PIFF 1.3)|否|是|是
 
-輸出視訊轉碼器
+###輸出視訊轉碼器
 
-輸出視訊轉碼器|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
+輸出視訊轉碼器|Media Encoder Standard|Azure 媒體編碼器|Media Encoder Premium Workflow
 ---|---|---|---
-AVC (H.264；8 位元；高達 High Profile、Level 5.2；4K Ultra HD；AVC Intra)|是|僅限高達 1080p 的 8 位元 4:2:0|僅限 8 位元 4:2:0
-Avid DNxHD (使用 MXF)|是|否|否
-DVCPro/DVCProHD (使用 MXF)|是|否|否
-MPEG-2 (高達 422 Profile 和 High Level，包括 XDCAM、XDCAM HD、XDCAM IMX、CableLabs ® 和 D10 等變種)|是|否|否
-MPEG-1|是|否|否
-Windows Media 視訊/VC-1|是|是|否
-JPEG 縮圖建立|是|是|否
+AVC (H.264；8 位元；高達 High Profile、Level 5.2；4K Ultra HD；AVC Intra)|僅限 8 位元 4:2:0|僅限高達 1080p 的 8 位元 4:2:0|是
+Avid DNxHD (使用 MXF)|否|否|是
+DVCPro/DVCProHD (使用 MXF)|否|否|是
+MPEG-2 (高達 422 Profile 和 High Level，包括 XDCAM、XDCAM HD、XDCAM IMX、CableLabs ® 和 D10 等變種)|否|否|是
+MPEG-1|否|否|是
+Windows Media 視訊/VC-1|否|是|是
+JPEG 縮圖建立|否|是|是
 
-輸出音訊轉碼器
+###輸出音訊轉碼器
 
-輸出音訊轉碼器|Media Encoder Premium Workflow|Azure Media Encoder|Media Encoder Standard
+輸出音訊轉碼器|Media Encoder Standard|Azure 媒體編碼器|Media Encoder Premium Workflow
 ---|---|---|---
-AES (SMPTE 331M 和 302M，AES3-2003)|是|否|否
-Dolby® Digital (AC3)|是|是|否
-Dolby® Digital Plus (E-AC3) 高達 7.1|是|最高 5.1|否
+AES (SMPTE 331M 和 302M，AES3-2003)|否|否|是
+Dolby® Digital (AC3)|否|是|是
+Dolby® Digital Plus (E-AC3) 高達 7.1|否|最高 5.1|是
 AAC (AAC-LC、AAC-HE 和 AAC-HEv2；高達 5.1)|是|是|是
-MPEG Layer 2|是|否|否
-MP3 (MPEG-1 音訊層 3)|是|否|否
-Windows Media 音訊|是|是|否
+MPEG Layer 2|否|否|是
+MP3 (MPEG-1 音訊層 3)|否|否|是
+Windows Media 音訊|否|是|是
 
 ##相關文章
 
-- [介紹 Azure 媒體服務中的 Premium 編碼](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-- [如何使用 Azure 媒體服務中的 Premium 編碼](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 - [配額和限制](media-services-quotas-and-limitations.md)
 
  
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

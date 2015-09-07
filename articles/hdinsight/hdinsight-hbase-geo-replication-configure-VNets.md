@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="設定兩個虛擬網路之間的 VPN 連線 | Microsoft Azure" 
-   description="了解如何設定兩個 Azure 虛擬網路之間的 VPN 連線和網域名稱解析，以及如何設定 HBase 異地複寫。" 
-   services="hdinsight,virtual-network" 
-   documentationCenter="" 
-   authors="mumian" 
-   manager="paulettm" 
-   editor="cgronlun"/>
+   pageTitle="設定兩個虛擬網路之間的 VPN 連線 | Microsoft Azure"
+	description="了解如何設定兩個 Azure 虛擬網路之間的 VPN 連線和網域名稱解析，以及如何設定 HBase 異地複寫。"
+	services="hdinsight,virtual-network"
+	documentationCenter=""
+	authors="mumian"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="07/08/2015"
-   ms.author="jgao"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="07/08/2015"
+	ms.author="jgao"/>
 
 # 設定兩個 Azure 虛擬網路之間的 VPN 連線  
 
@@ -29,7 +29,7 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 - 具有嚴密隔離界限的區域性多層式應用程式 
 - 在 Azure 中的跨訂用帳戶、組織間通訊
 
-如需詳細資訊，請參閱[設定 VNet 對 VNet 連線](https://msdn.microsoft.com/library/azure/dn690122.aspx)。
+如需詳細資訊，請參閱[設定 VNet 對 VNet 連線](../virtual-network/virtual-networks-configure-vnet-to-vnet-connection.md)。
 
 若要觀看相關影片：
 
@@ -83,7 +83,7 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 
 	- **DNS 伺服器**：(保留為空白) 
 	
-		您需要有自己的 DNS 伺服器才能在虛擬網路內進行名稱解析。如需有關何時使用 Azure 提供的名稱解析，以及何時使用自己的 DNS 伺服器的詳細資訊，請參閱[名稱解析 (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx)。如需有關設定 Vnet 之間名稱解析的指示，請參閱[設定兩個 Azure 虛擬網路之間的 DNS][hdinsight-hbase-dns]。
+		您需要有自己的 DNS 伺服器才能在虛擬網路內進行名稱解析。如需有關何時使用 Azure 提供的名稱解析，以及何時使用自己的 DNS 伺服器的詳細資訊，請參閱[名稱解析 (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。如需有關設定 Vnet 之間名稱解析的指示，請參閱[設定兩個 Azure 虛擬網路之間的 DNS][hdinsight-hbase-dns]。
   
 	- **設定點對站 VPN**：(未核取)
 
@@ -270,4 +270,4 @@ Vnet 閘道會使用共用金鑰來驗證虛擬網路之間的連線。此金鑰
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 混合式雲端測試環境"
-	description="瀏覽重要主題並了解如何建立測試環境，讓您您可以用於 Azure 混合式雲端的開發/測試概念證明。"
+	pageTitle="Azure 中的混合式雲端測試環境 | Microsoft Azure"
+	description="尋找說明如何為您的 Azure 架構混合式雲端建置開發/測試或概念證明 IT 專業人員環境的文章。"
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -58,4 +58,4 @@
 
 [Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

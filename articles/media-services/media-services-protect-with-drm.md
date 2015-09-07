@@ -12,17 +12,21 @@
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="08/06/2015"
+	ms.topic="get-started-article"
+	ms.date="08/14/2015"
 	ms.author="juliako"/>
 
 #使用 PlayReady DRM 動態加密和授權傳遞服務
 
-Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/) 保護的 MPEG DASH、 Smooth Streaming 和 Http Live Streaming (HLS) 串流。
+> [AZURE.SELECTOR]
+- [.NET](media-services-protect-with-drm.md)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+
+Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/) 保護的 MPEG DASH、Smooth Streaming 和 Http Live Streaming (HLS) 串流。
 
 媒體服務現在提供一種服務，來傳遞 Microsoft PlayReady 授權。媒體服務也提供 API，可讓您設定您要 PlayReady DRM 執行階段在使用者嘗試播放受保護內容時強制執行的權限和限制。當使用者要求觀看受到 PlayReady 保護內容時，用戶端播放器應用程式會從 Azure 媒體要求內容。然後，Azure 媒體服務會將用戶端重新導向到 Azure 媒體服務 PlayReady 授權伺服器，在這裡會驗證並授權使用者對內容的存取權。PlayReady 授權包含解密金鑰，可被用戶端播放器用來解密和串流處理內容。
 
-媒體服務支援多種方式來驗證提出金鑰要求的使用者。內容金鑰授權原則可能會有一個或多個授權限制：Open、權杖限制或 IP 限制。權杖限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖。媒體服務支援[簡單 Web 權杖](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT)格式和 [JSON Web 權杖](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) 格式的權杖。如需詳細資訊，請參閱＜設定內容金鑰的授權原則＞。
+媒體服務支援多種方式來驗證提出金鑰要求的使用者。內容金鑰授權原則可能會有一個或多個授權限制：Open、權杖限制或 IP 限制。權杖限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖。媒體服務支援[簡單 Web 權杖](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) 格式和 [JSON Web 權杖](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) 格式的權杖。如需詳細資訊，請參閱＜設定內容金鑰的授權原則＞。
 
 若要利用動態加密，您需有一個資源，其中包含一組多位元速率 MP4 檔案或多位元速率 Smooth Streaming 來源檔案。您也需要設定資產的傳遞原則 (本主題稍後會加以描述)。然後，根據串流 URL 中指定的格式，隨選資料流處理伺服器將確保以您所選擇的通訊協定傳遞串流。因此，您只需要儲存及支付一種儲存格式之檔案的費用，媒體服務會根據用戶端的要求建置及提供適當的回應。
 
@@ -182,7 +186,7 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 	Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 
 	
-您可以使用 [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) 來測試您的串流。
+您可以使用 [AMS 播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html) 來測試您的串流。
 
 ##<a id="example"></a>範例
 
@@ -575,4 +579,4 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 		    }
 		}
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

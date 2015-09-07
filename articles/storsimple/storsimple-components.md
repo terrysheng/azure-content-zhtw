@@ -1,23 +1,25 @@
 <properties 
-   pageTitle="StorSimple 元件有哪些？ | Microsoft Azure" 
-   description="描述 StorSimple 裝置、服務與管理技術。" 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="AdinaH" 
-   editor=""/>
+   pageTitle="StorSimple 元件有哪些？ | Microsoft Azure"
+	description="描述 StorSimple 裝置、虛擬裝置、服務與管理技術，並定義方案中使用的重要詞彙。"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="AdinaH"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/13/2015"
-   ms.author="v-sharos"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="v-sharos"/>
 
 
-# StorSimple 元件有哪些？ 
+# StorSimple 元件及其運作方式為何？ 
+
+## 概觀
 
 歡迎使用 Microsoft Azure StorSimple，StorSimple 是一個整合式儲存體解決方案，可管理內部部署裝置與 Microsoft Azure 雲端儲存體之間的儲存體工作。StorSimple 的設計旨在降低儲存體成本、簡化儲存體管理、改善災害復原能力和效率，以及提供資料行動力。
 
@@ -226,4 +228,4 @@ Microsoft Azure StorSimple 包括 StorSimple Adapter for SharePoint，其為可�
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

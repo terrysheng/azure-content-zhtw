@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="使用 Application Insights 進行 Web 應用程式的使用量分析" 
-	description="使用 Application Insights 進行使用量分析的概觀" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="使用 Application Insights 進行 Web 應用程式的使用量分析"
+	description="使用 Application Insights 進行使用量分析的概觀"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="awills"/>
  
 # 使用 Application Insights 進行 Web 應用程式的使用量分析
@@ -109,13 +109,33 @@ Application Insights 資源是 Microsoft Azure 中用來分析和顯示應用程
 
 ## 使用者和使用者計數
 
+
 每個使用者工作階段都會與唯一的使用者識別碼相關聯。
 
-根據預設，會放置 cookie 來識別使用者。在此情況下，使用多個瀏覽器或裝置的使用者將會計算一次以上。
+根據預設，會放置 cookie 來識別使用者。使用多個瀏覽器或裝置的使用者將會計算一次以上。(但是請參閱[通過驗證的使用者](#authenticated-users))
+
 
 特定間隔期間的**使用者計數**度量的定義是，在此間隔期間具有記錄活動的唯一使用者數目。因此，當您設定的時間範圍資料粒度小於一小時左右，具有長工作階段的使用者可能會計算多次。
 
-**新使用者**會計算應用程式的第一個工作階段發生在此間隔期間的使用者。如果使用依使用者和 Cookie 進行計算的預設方法，則這也會包括已清除其 Cookie 或是使用新裝置或瀏覽器第一次存取您的應用程式的使用者。![從 [使用量] 刀鋒視窗中，按一下 [使用者] 圖表，即可檢查新的使用者。](./media/app-insights-web-track-usage/031-dual.png)
+**新使用者**會計算應用程式的第一個工作階段發生在此間隔期間的使用者。如果使用依使用者和 Cookie 進行計算的預設方法，則這也會包括已清除其 Cookie 或是使用新裝置或瀏覽器第一次存取您的 App 的使用者。![從 [使用量] 刀鋒視窗中，按一下 [使用者] 圖表，即可檢查新的使用者。](./media/app-insights-web-track-usage/031-dual.png)
+
+### 通過驗證的使用者
+
+如果您的 Web App 可讓使用者登入，您可以藉由提供具有唯一使用者識別碼的 Application Insights 取得更精確的計數。它不一定要是其名稱，或者您在 App 中使用的相同識別碼。只要您的 App 已經識別使用者，請使用下列程式碼：
+
+
+*用戶端的 JavaScript*
+
+      appInsights.setAuthenticatedUserContext(userId);
+
+如果您的 App 會將使用者群組為帳戶，您也可以傳遞適用於該帳戶的識別碼。
+
+      appInsights.setAuthenticatedUserContext(userId, accountId);
+
+使用者及帳戶識別碼不得包含空格或字元 `,;=|`
+
+
+在 [計量瀏覽器][](app-insights-metrics-explorer.md) 中，您可以建立 [經過驗證的使用者] 和 [帳戶] 的圖表。
 
 ## 綜合流量
 
@@ -144,7 +164,7 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
 
 但您仍想要 Application Insights 記錄開啟每個遊戲的次數，以他們在不同頁面上完全相同的方式記錄。那很簡單：只需要插入呼叫到 JavaScript 中您要記錄已開啟新「頁面」的遙測模組即可：
 
-	telemetryClient.trackPageView(game.Name);
+	appInsights.trackPageView(game.Name);
 
 ## 自訂事件
 
@@ -152,7 +172,7 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
 
 *JavaScript*
 
-    telemetryClient.trackEvent("GameEnd");
+    appInsights.trackEvent("GameEnd");
 
 *C#*
 
@@ -371,4 +391,4 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

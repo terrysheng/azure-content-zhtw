@@ -151,4 +151,4 @@ Aaal.js 可讓您輕鬆地將這些常見的身分識別功能全部納入您的
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

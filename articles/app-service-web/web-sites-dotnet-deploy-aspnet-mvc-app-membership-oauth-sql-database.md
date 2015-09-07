@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用驗證和 SQL DB 建立 ASP.NET MVC 應用程式並部署至 Azure 應用程式服務" 
-	description="了解如何開發具有 SQL Database 後端的 ASP.NET MVC 5 應用程式、加入驗證和授權，並將它部署至 Azure。" 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="Rick-Anderson" 
-	manager="wpickett" 
+	pageTitle="使用驗證和 SQL DB 建立 ASP.NET MVC 應用程式並部署至 Azure 應用程式服務"
+	description="了解如何開發具有 SQL Database 後端的 ASP.NET MVC 5 應用程式、加入驗證和授權，並將它部署至 Azure。"
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="Rick-Anderson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/07/2015"
 	ms.author="riande"/>
 
 
@@ -36,7 +36,9 @@
 
 ![登入頁面][rxb]
 
->[AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](../zh-cn/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)或是[申請免費試用](../zh-cn/pricing/free-trial/?WT.mc_id=A261C142F)。
+>[AZURE.NOTE]若要在上方的螢幕擷取畫面中建立美觀的社交登入按鈕，請檢視標題為[美觀的 ASP.NET MVC 5 社交登入按鈕](http://www.jerriepelser.com/blog/pretty-social-login-buttons-for-asp-net-mvc-5)部落格文章。
+
+>[AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](../zh-TW/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)或是[申請免費試用](../zh-TW/pricing/free-trial/?WT.mc_id=A261C142F)。
 
 >如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
@@ -77,9 +79,9 @@
 ### 設定頁首及頁尾
 
 
-1. 在 [方案總管]，開啟 *Views\Shared* 資料夾中的 *Layout.cshtml* 檔案。
+1. 在 [方案總管]，開啟 *Views\\Shared* 資料夾中的 *Layout.cshtml* 檔案。
 
-	![方案總管中的 _Layout.cshtml][newapp004]
+	![方案總管中的 \_Layout.cshtml][newapp004]
 
 1. 使用下列程式碼來取代 *Layout.cshtml* 檔案中的標記。變更重點如下。
 
@@ -94,7 +96,7 @@
 		
 		</head>
 		<body>
-		    <div class="navbar navbar-inverse navbar-fixed-top">
+		    <div class="navbar navbar-inverase navbar-fixed-top">
 		        <div class="container">
 		            <div class="navbar-header">
 		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -271,9 +273,8 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 		add-migration Initial
 
 
-	**add-migration Initial** 命令會在建立資料庫的 *Migrations* 資料夾中產生名為 **&lt;date_stamp&gt;Initial** 的檔案。第一個參數 (**Initial**) 是任意的，用於建立檔案的名稱。您可以在 [方案總管] 中看到新的類別檔案。
-	在 **Initial** 類別中，**Up** 方法會建立 Contacts 資料表，**Down** 方法 (當您希望返回前個狀態時使用) 則會捨棄該資料表。
-3. 開啟 *Migrations\Configuration.cs* 檔案。 
+	**add-migration Initial** 命令會在建立資料庫的 *Migrations* 資料夾中產生名為 **&lt;date\_stamp&gt;Initial** 的檔案。第一個參數 (**Initial**) 是任意的，用於建立檔案的名稱。您可以在 [方案總管] 中看到新的類別檔案。在 **Initial** 類別中，**Up** 方法會建立 Contacts 資料表，**Down** 方法 (當您希望返回前個狀態時使用) 則會捨棄該資料表。
+3. 開啟 *Migrations\\Configuration.cs* 檔案。 
 4. 新增下列命名空間。 
 
     	 using ContactManager.Models;
@@ -363,7 +364,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 ## 使用成員資格 API
 在本節中，您會將本機使用者和 *canEdit* 角色新增至成員資格資料庫。只有 *canEdit* 角色中的使用者才能編輯資料。最佳做法是依角色可執行的動作來命名角色，因此將角色命名為 *canEdit* 會較命名為 *admin* 更好。隨著應用程式發展，您可以新增如 *canDeleteMembers* 等新角色，而非新增較欠缺描述性的 *superAdmin*。
 
-1. 開啟 *migrations\configuration.cs* 檔案並新增下列 `using` 陳述式：
+1. 開啟 *migrations\\configuration.cs* 檔案並新增下列 `using` 陳述式：
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
@@ -395,14 +396,14 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 		{
 		    AddUserAndRole(context);
 		    context.Contacts.AddOrUpdate(p => p.Name,
-            // 移除了程式碼以求簡單明瞭
+		        // Code removed for brevity
 		}
 
 	下圖顯示對 *Seed* 方法的變更：
 
 	![程式碼影像](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-	此程式碼會建立名為 *canEdit* 的新角色、建立新本機使用者 **user1@contoso.com*，並將 **user1@contoso.com* 新增至 *canEdit* 角色。如需詳細資訊，請參閱我的〈[ASP.NET 身分識別教學課程](http://www.asp.net/identity/overview/features-api)〉。
+	此程式碼會建立名為 *canEdit* 的新角色、建立新本機使用者 **user1@contoso.com*，並將 **user1@contoso.com* 新增至 *canEdit* 角色。如需詳細資訊，請參閱我的 [ASP.NET 身分識別教學課程](http://www.asp.net/identity/overview/features-api)。
 
 ## 使用暫時程式碼，將新的社交登入使用者新增至 canEdit 角色  ##
 在本節中，您將在帳戶控制器中暫時修改 **ExternalLoginConfirmation** 方法，以將使用 OAuth 提供者註冊的新使用者新增至 *canEdit* 角色。我們會暫時修改 **ExternalLoginConfirmation** 方法，以將新使用者自動新增至管理角色。在我們提供工具來新增及管理角色前，我們將暫時使用以下的自動註冊程式碼。我們希望將來能提供類似 [WSAT](http://msdn.microsoft.com/library/ms228053.aspx) 的工具，讓您能建立及編輯使用者帳戶與角色。
@@ -474,7 +475,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 		
 	上述程式碼中套用的 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 篩選器將防止匿名使用者存取應用程式中的任何方法。您將使用 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性來選擇略過一些方法中的授權需求，讓匿名使用者可登入及檢視首頁。使用 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 時，所有對 Web 應用程式的存取都必須透過 HTTPS 進行。
 
-1. 將 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性新增至首頁控制器的 **Index** 方法。[AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性能讓您將想要選擇略過授權的方法加到核准清單。
+1. 將 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性新增至首頁控制器的 **Index** 方法。[AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性能讓您將想要選擇略過授權的方法加到白名單。
 
 		public class HomeController : Controller
 		{
@@ -529,7 +530,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 		
 1. 如果您在前個工作階段仍保持登入狀態，請點擊 [登出] 連結。
 1. 按一下 [關於] 或 [連絡人] 連結。因為匿名使用者無法檢視那些頁面，所以系統會將您重新導向至登入頁面。 
-1. 按一下 [**註冊為新使用者**] 連結並使用電子郵件 **joe@contoso.com* 新增本機使用者。確認 *Joe* 可檢視 [首頁]、[關於] 和 [連絡人] 頁面。
+1. 按一下 [註冊為新使用者] 連結並使用電子郵件 **joe@contoso.com* 新增本機使用者。確認 *Joe* 可檢視 [首頁]、[關於] 和 [連絡人] 頁面。
 
 	![登入](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
@@ -716,4 +717,4 @@ Tom Dykstra 見解精闢的[開始使用 EF 和 MVC](http://www.asp.net/mvc/tuto
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

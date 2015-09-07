@@ -1,19 +1,19 @@
 <properties 
    pageTitle="ExpressRoute 簡介 | Microsoft Azure"
-   description="此頁面提供 ExpressRoute 服務的概觀，包括 ExpressRoute 連線的運作方式；使用 Exchange 提供者和網路服務提供者；以及 ExpressRoute 公開、私人和 Microsoft 對等互連。"
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="adinah"
-   editor="tysonn"/>
+	description="此頁面提供 ExpressRoute 服務的概觀，包括 ExpressRoute 連線的運作方式；使用 Exchange 提供者和網路服務提供者；以及 ExpressRoute 公開、私人和 Microsoft 對等互連。"
+	documentationCenter="na"
+	services="expressroute"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="06/15/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # ExpressRoute 技術概觀
 
@@ -110,4 +110,4 @@ ExpressRoute 提供者可分類為網路服務提供者 (NSP) 和 Exchange 提�
 - 尋找服務提供者。請參閱 [ExpressRoute 服務提供者和位置](expressroute-locations.md)。
 - 設定 ExpressRoute 連線。如需相關指示，請參閱[透過網路服務提供者設定 ExpressRoute 連線](expressroute-configuring-nsps.md)或[透過 Exchange 提供者設定 ExpressRoute 連線](expressroute-configuring-exps.md)。 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

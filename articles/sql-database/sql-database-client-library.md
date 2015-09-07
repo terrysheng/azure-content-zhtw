@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="使用 C# 建立和管理 Azure SQL Database" 
-   description="本文將說明如何使用 Azure SQL Database Library for .NET 以 C# 建立和管理 Azure SQL Database。" 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+   pageTitle="使用 C# 建立和管理 Azure SQL Database"
+	description="本文將說明如何使用 Azure SQL Database Library for .NET 以 C# 建立和管理 Azure SQL Database。"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
+	editor=""/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="08/07/2015"
-   ms.author="sstein"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="data-management"
+	ms.date="08/25/2015"
+	ms.author="sstein"/>
 
-# 使用 C&\#x23; 建立和管理 SQL Database
+# 使用 C&#x23; 建立和管理 SQL Database
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](sql-database-elastic-pool-portal.md)
@@ -335,6 +335,8 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
 
 ## 將現有資料庫移入彈性資料庫集區
 
+*建立集區之後，您也可以使用 Transact-SQL 將現有的資料庫移入和移出集區。如需詳細資訊，請參閱[彈性資料庫集區參考 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)。*
+
 若要將現有資料庫移入集區：
 
     
@@ -364,6 +366,8 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
 
 
 ## 在彈性資料庫集區中建立新的資料庫
+
+*建立集區之後，您也可以使用 Transact-SQL 在集區中建立新的彈性資料庫。如需詳細資訊，請參閱[彈性資料庫集區參考 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)。*
 
 若要直接在集區中建立新的資料庫：
 
@@ -780,7 +784,7 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
 
 [Azure 資源管理 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-
+[彈性資料庫集區參考](sql-database-elastic-pool-reference.md)。
 
 
 <!--Image references-->
@@ -794,4 +798,4 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

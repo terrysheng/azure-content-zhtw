@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用 ExpressRoute 的網路組態詳細資料" 
-	description="在連接至 ExpressRoute 循環之虛擬網路中執行 App Service 環境的網路組態詳細資料。" 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="nirma" 
+	pageTitle="使用 ExpressRoute 的網路組態詳細資料"
+	description="在連接至 ExpressRoute 循環之虛擬網路中執行 App Service 環境的網路組態詳細資料。"
+	services="app-service\web"
+	documentationCenter=""
+	authors="stefsch"
+	manager="nirma"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="stefsch"/>
 
 # 使用 ExpressRoute 之 App Service 環境的網路組態詳細資料 
@@ -113,12 +113,12 @@ App Service 環境需要下列所有項目，才能正確運作：
 [UDRHowTo]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [AzureDownloads]: http://azure.microsoft.com/downloads/
-[DownloadCenterAddressRanges]: http://www.microsoft.com/zh-tw/download/details.aspx?id=41653
-[NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
+[DownloadCenterAddressRanges]: http://www.microsoft.com/download/details.aspx?id=41653
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [IntroToAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
  
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

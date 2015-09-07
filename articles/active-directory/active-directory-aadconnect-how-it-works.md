@@ -1,29 +1,24 @@
 <properties 
-	pageTitle="Azure AD Connect 運作方式" 
-	description="深入了解 Azure AD Connect 運作方式。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect 運作方式"
+	description="深入了解 Azure AD Connect 運作方式。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure AD Connect 運作方式
 
- > [AZURE.SELECTOR]
-- [What is It](../active-directory-aadconnect/)
-- [How it Works](../active-directory-aadconnect-how-it-works/)
-- [Getting Started](../active-directory-aadconnect-get-started/)
-- [What's Next](../active-directory-aadconnect-whats-next/) 
-- [Learn More](../active-directory-aadconnect-learn-more/)
+
 
 Azure Active Directory Connect 由三個主要部分組成。它們是同步處理服務、選用性 Active Directory Federation Services 部分，以及使用 [Azure AD Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx) 所執行的監控部分。
 
@@ -52,4 +47,4 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

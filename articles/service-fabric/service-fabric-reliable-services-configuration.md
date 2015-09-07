@@ -1,20 +1,20 @@
 <properties
    pageTitle="設定具狀態可靠的服務"
-   description="深入了解在 Service Fabric 中設定具狀態可靠的服務。"
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="sumukhs"
-   manager="vipulm"
-   editor=""/>
+	description="深入了解在 Service Fabric 中設定具狀態可靠的服務。"
+	services="Service-Fabric"
+	documentationCenter=".net"
+	authors="sumukhs"
+	manager="anuragg"
+	editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/24/2015"
-   ms.author="sumukhs"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="sumukhs"/>
 
 # 設定具狀態可靠的服務
 您可以針對應用程式中的每個服務，藉由變更在 Visual Studio 封裝根目錄 "Config" 資料夾下產生的 "settings.xml" 檔案來修改具狀態可靠的服務之預設組態。
@@ -91,4 +91,4 @@ MaxRecordSizeInKB 定義複寫器可以寫入記錄檔的記錄大小上限。�
 SharedLogId 和 SharedLogPath 設定永遠會一起使用，並允許服務使用與節點預設共用記錄檔不同的共用記錄檔。如需最佳效率，請儘可能讓所有服務指定相同的共用記錄檔。共用記錄檔應該放在共用記錄檔專用的磁碟上，以減少磁頭移動爭用情形。預期它只會在極少數的情況下需要變更。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

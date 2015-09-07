@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 Azure 基礎結構服務中架設的 SharePoint 伺服器陣列"
-	description="尋找重要文章說明如何在 Microsoft Azure 基礎結構服務中，設定開發/測試或實際執行中的 SharePoint 2013 伺服器陣列。"
+	pageTitle="Azure 中的 SharePoint Server 2013 伺服器陣列 | Microsoft Azure"
+	description="找說明如何在 Microsoft Azure 中設定開發/測試環境或生產的 SharePoint Server 2013 伺服器陣列的文章。"
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -63,4 +63,4 @@
 
 - [在 Microsoft Azure 中部署 Office 365 目錄同步作業 (DirSync)](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

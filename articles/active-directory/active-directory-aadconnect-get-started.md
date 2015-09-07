@@ -1,26 +1,23 @@
 <properties 
-	pageTitle="開始使用 Azure AD Connect" 
-	description="了解如何下載、安裝和執行 Azure AD Connect 的安裝精靈。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="開始使用 Azure AD Connect"
+	description="了解如何下載、安裝和執行 Azure AD Connect 的安裝精靈。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # 開始使用 Azure AD Connect
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="它是什麼">它是什麼</a> <a href="../active-directory-aadconnect-how-it-works/" title="運作方式">運作方式</a> <a href="../active-directory-aadconnect-get-started/" title="開始使用" class="current">開始使用</a> <a href="../active-directory-aadconnect-whats-next/" title="後續步驟">後續步驟</a> <a href="../active-directory-aadconnect-learn-more/" title="深入了解">深入了解</a>
-</div>
 
 
 下列文件將協助您開始使用 Azure Active Directory Connect。本文件說明使用 Azure AD Connect 的快速安裝。如需自訂安裝的詳細資訊，請參閱 [Azure AD Connect 的自訂安裝](active-directory-aadconnect-get-started-custom.md)。如需從 DirSync 升級至 Azure AD Connect 的詳細資訊，請參閱[升級 DirSync 至 Azure Active Directory Connect](active-directory-aadconnect-dirsync-upgrade-get-started.md)。
@@ -114,4 +111,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

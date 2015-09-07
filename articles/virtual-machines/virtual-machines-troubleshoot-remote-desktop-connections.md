@@ -72,7 +72,7 @@
 
 原因：您連線的虛擬機器找不到您認證的使用者名稱部分所表示的安全性授權。
 
-若您的使用者名稱格式為 *SecurityAuthority*\*UserName* (範例：CORP\\User1)，則 *SecurityAuthority* 部分便應輸入虛擬機器的電腦名稱 (作為本機的安全性授權)，或 Active Directory 網域名稱。
+若您的使用者名稱格式為 *SecurityAuthority**UserName* (範例：CORP\\User1)，則 *SecurityAuthority* 部分便應輸入虛擬機器的電腦名稱 (作為本機的安全性授權)，或 Active Directory 網域名稱。
 
 此問題的可能解決方案：
 
@@ -86,8 +86,8 @@
 
 以 Windows 為基礎的電腦可以驗證本機帳戶或以網域為基礎帳戶之認證。
 
-- 如果是本機帳戶，請使用 *ComputerName*\*UserName* 語法 (範例：SQL1\\Admin4798)。
-- 如果是網域帳戶，請使用 *DomainName*\*UserName* 語法 (範例：CONTOSO\\johndoe)。
+- 如果是本機帳戶，請使用 *ComputerName**UserName* 語法 (範例：SQL1\\Admin4798)。
+- 如果是網域帳戶，請使用 *DomainName**UserName* 語法 (範例：CONTOSO\\johndoe)。
 
 對於您在新的 Active Directory 樹系提升為網域控制器的電腦，您執行此提升時所登入的本機系統管理員帳戶會轉換為對等的帳戶，密碼與在新樹系和網域中的相同。上一個本機系統管理員帳戶已刪除。例如，如果您以本機系統管理員帳戶 DC1\\DCAdmin 登入，並提升此虛擬機器為 corp.contoso.com 網域中新樹系的網域控制器，則會刪除 DC1\\DCAdmin 本機帳戶，並且以相同密碼建立一個新的網域帳戶 (CORP\\DCAdmin)。
 
@@ -182,7 +182,7 @@
 如果您可以建立遠端桌面連線到相同雲端服務或虛擬網路中的虛擬機器，則請檢查下列項目：
 
 - 目標虛擬機器上的遠端桌面流量端點組態。此端點的私用 TCP 連接埠必須符合虛擬機器上遠端桌面服務正在接聽的 TCP 連接埠，根據預設為 3389。
-- 目標虛擬機器上的遠端桌面流量端點 ACL。ACL 讓您可指定要根據來源 IP 位址允許或拒絕來自網際網路的連入流量。設定錯誤的 ACL 會阻止送至端點的連入遠端桌面流量。檢查您的 ACL，以確保允許來自您的 Proxy 或其他邊緣伺服器的公用 IP 位址之連入流量。如需詳細資訊，請參閱[什麼是網路存取控制清單 (ACL)？](https://msdn.microsoft.com/library/azure/dn376541.aspx)。
+- 目標虛擬機器上的遠端桌面流量端點 ACL。ACL 讓您可指定要根據來源 IP 位址允許或拒絕來自網際網路的連入流量。設定錯誤的 ACL 會阻止送至端點的連入遠端桌面流量。檢查您的 ACL，以確保允許來自您的 Proxy 或其他邊緣伺服器的公用 IP 位址之連入流量。如需詳細資訊，請參閱[什麼是網路存取控制清單 (ACL)？](../virtual-network/virtual-networks-acl.md)。
 
 若要排除端點為問題或錯誤設定來源之可能性，請移除目前的端點，再選擇外部連接埠號碼介於 49152 到 65535 的隨機連接埠來建立新的端點。如需詳細資訊，請參閱[如何設定虛擬機器的端點](virtual-machines-set-up-endpoints.md)。
 
@@ -287,4 +287,4 @@ PortNumber 屬性會顯示目前的連接埠號碼。如有需要，請使用此
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

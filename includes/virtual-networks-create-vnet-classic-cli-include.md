@@ -1,9 +1,9 @@
-## How to create a classic VNet using Azure CLI
+## 如何使用 Azure CLI 建立傳統 VNet
 
-You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX. To create a VNet by using the Azure CLI, follow the steps below.
+您可以使用 Azure CLI 透過任何 Windows、Linux 或 OSX 電腦命令提示字元管理 Azure 資源。若要使用 Azure CLI 建立 VNet，請遵循下列步驟。
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure network vnet create** command to create a VNet and a subnet, as shown below. Notice the output from the CLI command. The list shown after the output explains the parameters used.
+1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
+2. 執行 **azure network vnet create** 命令來建立 VNet 和子網路，如下所示。請注意 CLI 命令的輸出。輸出後顯示的清單可說明所使用的參數。
 
 			azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
 	
@@ -13,15 +13,15 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 			+ Setting network configuration
 			info:    network vnet create command OK
 
-	- **--vnet**. Name of the VNet to be created. For our scenario, *TestVNet*
-	- **-e (or --address-space)**. VNet address space. For our scenario, *192.168.0.0*
-	- **-i (or -cidr)**. Network mask in CIDR format. For our scenario, *16*.
-	- **-n (or --subnet-name**). Name of the first subnet. For our scenario, *FrontEnd*.
-	- **-p (or --subnet-start-ip)**. Starting IP address for subnet, or subnet address space. For our scenario, *192.168.1.0*.
-	- **-r (or --subnet-cidr)**. Network mask in CIDR format for subnet. For our scenario, *24*.
-	- **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *Central US*.
+	- **--vnet**。即將建立的 VNet 名稱。在我們的案例中為 *TestVNet*
+	- **-e (或 --address-space)**。VNet 位址空間。在我們的案例中為 *192.168.0.0*
+	- **-i (或 -cidr)**。CIDR 格式的網路遮罩。在我們的案例中為 *16*。
+	- **-n (或 --subnet-name**)。第一個子網路的名稱。在我們的案例中為 *FrontEnd*。
+	- **-p (或 --subnet-start-ip)**。子網路的起始 IP 位址或子網路位址空間。在我們的案例中為 *192.168.1.0*。
+	- **-r (或 --subnet-cidr)**。CIDR 格式的子網路網路遮罩。在我們的案例中為 *24*。
+	- **-l (或 --location)**。將要建立 VNet 的 Azure 區域。在我們的案例中為*美國中部*。
 
-3. Run the **azure network vnet subnet create** command to create a subnet as shown below. Notice the output of the command. The list shown after the output explains the parameters used.
+3. 執行 **azure network vnet subnet create** 命令來建立子網路，如下所示。請注意命令的輸出。輸出後顯示的清單可說明所使用的參數。
 
 			azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
 	
@@ -35,11 +35,11 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 			data:    Address prefix                  : 192.168.2.0/24
 			info:    network vnet subnet create command OK
 
-	- **-t (or --vnet-name**. Name of the VNet where the subnet will be created. For our scenario, *TestVNet*.
-	- **-n (or --name)**. Name of the new subnet. For our scenario, *BackEnd*.
-	- **-a (or --address-prefix)**. Subnet CIDR block. Four our scenario, *192.168.2.0/24*.
+	- **-t (或 --vnet-name**。將會建立子網路的 VNet 名稱。在我們的案例中為 *TestVNet*。
+	- **-n (或 --name)**。新子網路的名稱。在我們的案例中為 *BackEnd*。
+	- **-a (或 --address-prefix)**。子網路 CIDR 區塊。在我們的案例中為 *192.168.2.0/24*。
 
-4. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
+4. 執行 **azure network vnet show** 命令來檢視新 vnet 的屬性，如下所示。
 
 			azure network vnet show
 
@@ -58,3 +58,5 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 			data:      Address prefix                : 192.168.2.0/24
 			data:
 			info:    network vnet show command OK
+
+<!---HONumber=August15_HO9-->

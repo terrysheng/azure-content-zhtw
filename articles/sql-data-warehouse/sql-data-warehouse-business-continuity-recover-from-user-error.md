@@ -1,20 +1,20 @@
 <properties
    pageTitle="從 SQL 資料倉儲中的使用者錯誤復原資料庫 | Microsoft Azure"
-   description="從 SQL 資料倉儲中的使用者錯誤復原資料庫的步驟"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sahaj08"
-   manager="barbkess"
-   editor=""/>
+	description="從 SQL 資料倉儲中的使用者錯誤復原資料庫的步驟"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sahaj08"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/26/2015"
-   ms.author="sahajs"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/26/2015"
+	ms.author="sahajs"/>
 
 # 從 SQL 資料倉儲中的使用者錯誤復原資料庫
 
@@ -58,6 +58,8 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerNa
 # Monitor progress of restore operation
 Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
+
+請注意，如果您的伺服器是 foo.database.windows.net，請使用 "foo" 作為 Powershell Cmdlet 中的 -ServerName。
 
 ### REST API
 使用 REST 可以程式設計方式執行資料庫還原。
@@ -116,8 +118,8 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 [資料庫作業狀態]: http://msdn.microsoft.com/library/azure/dn720371.aspx
 [取得可還原的已卸除資料庫]: http://msdn.microsoft.com/library/azure/dn509574.aspx
 [列出可還原的已卸除資料庫]: http://msdn.microsoft.com/library/azure/dn509562.aspx
-[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/zh-tw/library/dn720218.aspx
+[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/zh-TW/library/dn720218.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

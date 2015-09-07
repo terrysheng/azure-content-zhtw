@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="企業營運應用程式工作負載第 1 階段：設定 Azure" 
-	description="在 Azure 基礎結構服務部署高可用性企業營運應用程式的第一個階段中，您將建立 Azure 虛擬網路和其他 Azure 基礎結構元素。" 
+	pageTitle="企業營運應用程式第 1 階段 | Microsoft Azure"
+	description="在 Azure 企業營運應用程式第 1 階段中，建立虛擬網路和其他 Azure 基礎結構項目。"
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # 企業營運應用程式工作負載第 1 階段：設定 Azure
@@ -60,7 +60,7 @@
 
 **表格 S：虛擬網路中的子網路**
 
-> [AZURE.NOTE]為求簡化，這個預先定義的架構會使用單一子網路。如果您想要涵蓋一組流量篩選器來模擬子網路隔離，可以使用 Azure [網路安全性群組](https://msdn.microsoft.com/library/azure/dn848316.aspx)。
+> [AZURE.NOTE]為求簡化，這個預先定義的架構會使用單一子網路。如果您想要涵蓋一組流量篩選器來模擬子網路隔離，可以使用 Azure [網路安全性群組](virtual-networks-nsg.md)。
 
 如果這兩部內部部署的 DNS 伺服器是您最初在虛擬網路上設定網域控制站時想要使用的伺服器，請填寫表格 D。請為每部 DNS 伺服器指定易記名稱和單一 IP 位址。這個易記名稱不需要與 DNS 伺服器的主機名稱或電腦名稱相符。請注意，其中列出兩個空白項目，但您可以增加更多項目。與您的 IT 部門合作來決定這份清單。
 
@@ -248,4 +248,4 @@
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

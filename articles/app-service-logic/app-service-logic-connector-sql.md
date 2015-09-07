@@ -1,29 +1,30 @@
 <properties
-   pageTitle="在 Microsoft Azure App Service 中使用 SQL 連接器"
-   description="如何使用 SQL 連接器"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 SQL 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 SQL 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Microsoft SQL 連接器
-
+# 開始使用 Microsoft SQL 連接器並將它加入您的邏輯應用程式
 連接到內部部署 SQL Server 或 Azure SQL Database 來建立和變更資訊或資料。在 Logic Apps 中，連接器可以在「工作流程」中用來擷取、處理或推送資料。在工作流程中使用 SQL 連接器時，您可以達到各種案例的目的。例如，您可以：
 
 - 使用 Web 或行動應用程式，公開位於 SQL 資料庫中的部分資料。
 - 將資料插入 SQL 資料庫資料表以儲存。例如，您可以輸入員工記錄、更新銷售訂單等等。
 - 從 SQL 取得資料，以供商務程序使用。例如，您可以取得客戶記錄，並將這些客戶記錄放在 SalesForce 中。
+
+您可以將 SQL 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
 ## 觸發程序和動作
 *觸發程序*是發生的事件。例如，訂單更新時或加入新客戶時。*動作*是觸發程序的結果。例如，當訂單更新時，傳送警示給銷售人員。或者，當加入新客戶時，傳送歡迎電子郵件給新客戶。
@@ -41,7 +42,7 @@ SQL 連接器提供下列觸發程序和動作：
 連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
 1. 在 Azure 開始面板中，選取 [**Marketplace**]。
-2. 搜尋「SQL 連接器」，將其選取，然後選取 [**建立**]。
+2. 搜尋「SQL 連接器」，將其選取，然後選取 [建立]。
 3. 輸入名稱、App Service 方案和其他屬性。
 4. 輸入下列封裝設定：
 
@@ -89,7 +90,7 @@ SQL 連接器提供下列觸發程序和動作：
 ### 加入觸發程序
 1. 建立或編輯邏輯應用程式時，請選取您建立的連接器做為觸發程序。這樣會列出可用的觸發程序：**輪詢資料 (JSON)** 和**輪詢資料 (XML)**：![][5]
 
-2. 選取 [**輪詢資料 (JSON)**] 觸發程序，輸入頻率，然後按一下 ✓：![][6]
+2. 選取 [輪詢資料 (JSON)] 觸發程序，輸入頻率，然後按一下 ✓：![][6]
 
 3. 現在，觸發程序在邏輯應用程式中顯示為已設定。其中顯示觸發程序的輸出，在任何後續動作中可做為輸入：![][7]
 
@@ -130,11 +131,11 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
-您也可以檢閱連接器的效能統計資料及控制安全性。請參閱〈[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)〉。
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)。
 
 
 <!--Image references-->
@@ -148,4 +149,4 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

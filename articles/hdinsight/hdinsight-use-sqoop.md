@@ -67,7 +67,7 @@
 
 	> [AZURE.NOTE]HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。
 
-	* 若要建立及設定虛擬網路，請參閱[虛擬網路組態工作](http://msdn.microsoft.com/library/azure/jj156206.aspx)。
+	* 若要建立及設定虛擬網路，請參閱[虛擬網路組態工作](../services/virtual-machines/)。
 
 		* 在您的資料中心裡使用 SQL Server 時，必須將虛擬網路設定為*站對站*或*點對站*。
 
@@ -131,9 +131,9 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE]只有 HDInsight 叢集 3.0 版才支援 **wasb://* 語法。HDInsight 2.1 和 1.6 版叢集支援較舊的 **asv://* 語法，但 HDInsight 3.0 版叢集已不支援該語法。
+> [AZURE.NOTE]只有 HDInsight 叢集 3.0 版才支援 *wasb://* 語法。HDInsight 2.1 和 1.6 版叢集支援較舊的 *asv://* 語法，但 HDInsight 3.0 版叢集已不支援該語法。
 
-> [AZURE.NOTE]**wasb://* 路徑為虛擬路徑。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]。
+> [AZURE.NOTE]*wasb://* 路徑為虛擬路徑。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]。
 
 您可以使用下列任一 URI (以下範例使用 sample.log)，從 HDInsight 存取儲存在預設檔案系統 Blob 中的檔案：
 
@@ -224,7 +224,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		Write-Host "Done" -ForegroundColor Green
 
 5. 按一下 [執行指令碼] 或按 [F5]，以執行指令碼。
-6. 使用[預覽入口網站][azure-management-portal]檢查資料表和叢集索引。
+6. 使用 [Azure 入口網站][azure-management-portal]檢查資料表和叢集索引。
 
 **SQL Server**
 
@@ -347,7 +347,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		$destBlob.UploadFromStream($memStream)
 
 5. 按一下 [執行指令碼] 或按 [F5]，以執行指令碼。
-6. 若要檢查已修改的資料檔案，您可以使用預覽入口網站、Azure 儲存體總管工具或 Azure PowerShell。[開始使用 HDInsight][hdinsight-get-started] 提供了使用 Azure PowerShell 來下載檔案及顯示檔案內容的程式碼範例。
+6. 若要檢查已修改的資料檔案，可以使用 Azure 入口網站、Azure 儲存體總管工具或 Azure PowerShell。[開始使用 HDInsight][hdinsight-get-started] 提供了使用 Azure PowerShell 來下載檔案及顯示檔案內容的程式碼範例。
 
 
 ##使用 PowerShell 執行 Sqoop 匯出
@@ -412,7 +412,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 	請注意，欄位分隔符號為 **\0x20**，即空格。此分隔符號定義於 sample.log 檔案的 Azure PowerShell 指令碼中。如需 **-m 1** 的相關資訊，請參閱 [Sqoop 使用者指南][sqoop-user-guide-1.4.4]。
 
 5. 按一下 [執行指令碼] 或按 [F5]，以執行指令碼。
-6. 使用[預覽入口網站][azure-management-portal]檢查匯出的資料。
+6. 使用 [Azure 入口網站][azure-management-portal]檢查匯出的資料。
 
 **匯出 hivesampletable Hive 資料表**
 
@@ -463,13 +463,13 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. 按一下 [執行指令碼] 或按 [F5]，以執行指令碼。
-6. 使用[預覽入口網站][azure-management-portal]檢查匯出的資料。
+6. 使用 [Azure 入口網站][azure-management-portal]檢查匯出的資料。
 
 
 
 ##使用 HDInsight .NET SDK 執行 Sqoop 匯出
 
-以下是使用 HDInsight .NET SDK 執行 Sqoop 匯出的 C#範例。如需關於使用 HDInsight .NET SDK 的一般資訊，請參閱[以程式設計方式提交 Hadoop 工作][hdinsight-submit-jobs]。
+以下是使用 HDInsight .NET SDK 執行 Sqoop 匯出的 C# 範例。如需關於使用 HDInsight .NET SDK 的一般資訊，請參閱[以程式設計方式提交 Hadoop 工作][hdinsight-submit-jobs]。
 
 
 	using System;
@@ -615,7 +615,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. 按一下 [執行指令碼] 或按 [F5]，以執行指令碼。
-6. 若要檢查已修改的資料檔案，您可以使用預覽入口網站、Azure 儲存體總管工具或 Azure PowerShell。[開始使用 HDInsight][hdinsight-get-started] 提供了使用 Azure PowerShell 來下載檔案及顯示檔案內容的程式碼範例。
+6. 若要檢查已修改的資料檔案，可以使用 Azure 入口網站、Azure 儲存體總管工具或 Azure PowerShell。[開始使用 HDInsight][hdinsight-get-started] 提供了使用 Azure PowerShell 來下載檔案及顯示檔案內容的程式碼範例。
 
 ##後續步驟
 
@@ -648,4 +648,4 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

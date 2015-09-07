@@ -183,4 +183,4 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 	![使用 SSMS 進行連線](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

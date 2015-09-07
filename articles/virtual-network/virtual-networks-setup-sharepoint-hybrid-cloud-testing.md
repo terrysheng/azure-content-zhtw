@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="在混合式雲端中設定用於測試的 SharePoint 內部網路伺服器陣列" 
-	description="了解如何在混合式雲端環境中建立 SharePoint 內部網路伺服器陣列進行開發或 IT 專業測試。" 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="SharePoint 2013 伺服器陣列測試環境 | Microsoft Azure"
+	description="了解如何在混合式雲端環境中建立雙層式 SharePoint Server 2013 內部網路伺服器陣列進行開發或 IT 專業測試。"
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 
@@ -212,4 +212,4 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 [Azure 基礎結構服務實作指導方針](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,24 +1,23 @@
 <properties
-   pageTitle="在 Microsoft Azure App Service 中使用 Oracle 連接器"
-   description="如何使用 Oracle 連接器"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 Oracle Database 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 Oracle Database 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Oracle 資料庫連接器
-
+# 開始使用 Oracle Database 連接器並將它加入您的邏輯應用程式
 連接到內部部署 Oracle 資料庫伺服器來建立和變更資訊或資料。在 Logic Apps 中，連接器可以在「工作流程」中用來擷取、處理或推送資料。在工作流程中使用 Oracle 連接器時，您可以達到各種案例的目的。例如，您可以：
 
 - 使用 Web 或行動應用程式，公開位於 Oracle 資料庫中的部分資料。
@@ -117,4 +116,4 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

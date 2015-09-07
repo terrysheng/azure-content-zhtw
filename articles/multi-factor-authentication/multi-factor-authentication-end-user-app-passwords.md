@@ -1,21 +1,20 @@
 <properties 
-	pageTitle="什麼是 Azure MFA 中的應用程式密碼？" 
-	description="本頁面將協助使用者了解什麼是應用程式密碼，以及它們在 Azure MFA 方面的用途。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
-	editor="curtand"/>
+	pageTitle="什麼是 Azure MFA 中的應用程式密碼？"
+	description="本頁面將協助使用者了解什麼是應用程式密碼，以及它們在 Azure MFA 方面的用途。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
-
 
 
 
@@ -36,22 +35,98 @@
 - 建議依照每個裝置 (而不是依照每個應用程式) 建立應用程式密碼。例如，您可以為膝上型電腦建立一個應用程式密碼，並將該應用程式密碼使用於該膝上型電腦上的所有應用程式。
 - 您會在第一次登入時獲得一個應用程式密碼。如果您需要其他密碼，您可加以建立。
  
-<center>![Setup](./media/multi-factor-authentication-end-user-app-passwords/app.png)</center>
+![設定](./media/multi-factor-authentication-end-user-app-passwords/app.png)
 
 擁有應用程式密碼後，您可使用此密碼來取代這些非瀏覽器應用程式的原始密碼。所以舉例來說，如果您在電話上使用 Multi-Factor Authentication 和 Apple 原生電子郵件用戶端。使用應用程式密碼，以便略過 Multi-Factor Authentication 並繼續運作。
 
-### 建立應用程式密碼
-在初次登入期間，您會獲得可供使用的應用程式密碼。此外，您也可以稍後再建立應用程式密碼。您執行此動作的方式取決於您使用 Multi-Factor Authentication 的方式。選擇最適用您的方式。
+## 建立和刪除應用程式密碼
+在初次登入期間，您會獲得可供使用的應用程式密碼。此外，您也可以稍後再建立和刪除應用程式密碼。您執行此動作的方式取決於您使用 Multi-Factor Authentication 的方式。選擇最適用您的方式。
 
 如何使用多因素驗證|說明
 :------------- | :------------- | 
-[搭配 Office 365 使用](multi-factor-authentication-end-user-manage-o365.md)| 這表示您想要透過 Office 365 入口網站建立應用程式密碼。
-[搭配 Microsoft Azure 使用](multi-factor-authentication-end-user-manage-azure.md)| 這表示您想要透過 Azure 入口網站建立應用程式密碼。
-[我不知道](multi-factor-authentication-end-user-manage-myapps.md)|這表示您想要透過 [https://myapps.microsoft.com](https://myapps.microsoft.com) 建立應用程式密碼。
+[搭配 Office 365 使用](#creating-and-deleting-app-passwords-with-office-365)| 這表示您想要透過 Office 365 入口網站建立應用程式密碼。
+[](#creating-and-deleting-app-passwords-with-myapps-portal)|這表示您想要透過 [https://myapps.microsoft.com](https://myapps.microsoft.com) 建立應用程式密碼。
+[搭配 Microsoft Azure 使用](#create-app-passwords-in-the-azure-portal)| 這表示您想要透過 Azure 入口網站建立應用程式密碼。
+
+## 使用 Office 365 建立和刪除應用程式密碼 
+
+如果您對 Office 365 使用 Multi-Factor Authentication，您要透過 Office 365 入口網站建立和刪除應用程式密碼。
+
+### 在 Office 365 入口網站中建立應用程式密碼
+--------------------------------------------------------------------------------
+
+1. 登入 [Office 365 入口網站](https://login.microsoftonline.com/)。
+2. 在右上角選取 Widget 並選擇 [Office 365 設定]。
+3. 按一下 [其他安全性驗證]。
+4. 在右側，按一下 [更新用於帳戶安全性的電話號碼] 連結。![設定](./media/multi-factor-authentication-end-user-manage/o365a.png)
+5. 這會引導您至允許您變更設定的頁面。![雲端](./media/multi-factor-authentication-end-user-manage/o365b.png)
+6. 在頂端的其他安全性驗證旁按一下 [應用程式密碼]。
+7. 按一下 [建立]。![雲端](./media/multi-factor-authentication-end-user-app-passwords-create-o365/apppass.png)
+8. 輸入應用程式密碼的名稱，然後按 [下一步]。![建立應用程式密碼](./media/multi-factor-authentication-end-user-app-passwords/create1.png)
+9. 將應用程式密碼複製到剪貼簿，並將它貼到您的 app。![建立應用程式密碼](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
 
+### 使用 Office 365 入口網站刪除應用程式密碼
+--------------------------------------------------------------------------------
 
 
- 
+1. 登入 [Office 365 入口網站](https://login.microsoftonline.com/)。
+2. 在右上角選取 Widget 並選擇 [Office 365 設定]。
+3. 按一下 [其他安全性驗證]。
+4. 在右側，按一下 [更新用於帳戶安全性的電話號碼] 連結。![設定](./media/multi-factor-authentication-end-user-manage/o365a.png)
+5. 這會引導您至允許您變更設定的頁面。![雲端](./media/multi-factor-authentication-end-user-manage/o365b.png)
+6. 在頂端的其他安全性驗證旁按一下 [應用程式密碼]。
+7. 在您想要刪除的應用程式密碼旁，按一下 [刪除]。![刪除應用程式密碼](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
+8. 按一下 [是] 確認刪除。![確認刪除](./media/multi-factor-authentication-end-user-app-passwords/delete2.png)
+9. 應用程式密碼刪除之後，就可以按一下 [關閉]。![關閉](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!---HONumber=August15_HO6-->
+
+## 使用 Myapps 入口網站建立和刪除應用程式密碼。
+如果您不確定您使用 Multi-Factor Authentication 的方式，一律可以透過 myapps 入口網站建立和刪除應用程式密碼。
+
+### 使用 Myapps 入口網站建立應用程式密碼
+
+1. 登入 [https://myapps.microsoft.com](https://myapps.microsoft.com)	
+2. 在頂端，選取 [設定檔]。
+3. 選取 [其他安全性驗證]。![雲端](./media/multi-factor-authentication-end-user-manage/myapps1.png)
+4. 這會引導您至允許您變更設定的頁面。![設定](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
+5. 在頂端的其他安全性驗證旁按一下 [應用程式密碼]。
+6. 按一下 [建立]。![建立應用程式密碼](./media/multi-factor-authentication-end-user-app-passwords/create3.png)
+7. 輸入應用程式密碼的名稱，然後按 [下一步]。![建立應用程式密碼](./media/multi-factor-authentication-end-user-app-passwords/create1.png)
+8. 將應用程式密碼複製到剪貼簿，並將它貼到您的 app。![建立應用程式密碼](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+
+### 使用 Myapps 入口網站刪除應用程式密碼
+
+1. 登入 [https://myapps.microsoft.com](https://myapps.microsoft.com)	
+2. 在頂端，選取 [設定檔]。
+3. 選取 [其他安全性驗證]。![雲端](./media/multi-factor-authentication-end-user-manage/myapps1.png)
+4. 這會引導您至允許您變更設定的頁面。![設定](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
+5. 在頂端的其他安全性驗證旁按一下 [應用程式密碼]。
+6. 在您想要刪除的應用程式密碼旁，按一下 [刪除]。![刪除應用程式密碼](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
+7. 按一下 [是] 確認刪除。![確認刪除](./media/multi-factor-authentication-end-user-app-passwords/delete2.png)
+8. 應用程式密碼刪除之後，就可以按一下 [關閉]。![關閉](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
+
+
+## 在 Azure 入口網站中建立應用程式密碼
+
+如果您搭配 Azure 使用 Multi-Factor Authentication，您會透過 Azure 入口網站建立應用程式密碼。
+
+### 在 Azure 入口網站中建立應用程式密碼
+
+1. 登入 Azure 管理入口網站。
+2. 在頂端，以滑鼠右鍵按一下您的使用者名稱並選取 [其他安全性驗證]。
+3. 在 proofup 頁面的頂端，選取應用程式密碼
+4. 按一下 [建立]。
+5. 輸入應用程式密碼的名稱，然後按 [下一步]。
+6. 將應用程式密碼複製到剪貼簿，並將它貼到您的 app。![雲端](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)
+
+### 在 Azure 入口網站中刪除應用程式密碼
+
+1. 登入 Azure 管理入口網站。
+2. 在頂端，以滑鼠右鍵按一下您的使用者名稱並選取 [其他安全性驗證]。
+3. 在頂端的其他安全性驗證旁按一下 [應用程式密碼]。
+4. 在您想要刪除的應用程式密碼旁，按一下 [刪除]。
+5. 按一下 [是] 確認刪除。
+6. 應用程式密碼刪除之後，就可以按一下 [關閉]。![關閉](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
+
+<!---HONumber=August15_HO9-->

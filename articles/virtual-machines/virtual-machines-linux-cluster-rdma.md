@@ -1,19 +1,19 @@
 <properties
  pageTitle="設定 Linux RDMA 叢集以執行 MPI 應用程式 | Microsoft Azure"
- description="了解如何建立大小為 A8 或 A9 VM 的 Linux 叢集以使用 RDMA 執行 MPI 應用程式。"
- services="virtual-machines"
- documentationCenter=""
- authors="dlepow"
- manager="timlt"
- editor=""/>
+	description="了解如何建立大小為 A8 或 A9 VM 的 Linux 叢集以使用 RDMA 執行 MPI 應用程式。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 <tags
 ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-linux"
- ms.workload="infrastructure-services"
- ms.date="07/17/2015"
- ms.author="danlep"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="07/17/2015"
+	ms.author="danlep"/>
 
 # 設定 Linux RDMA 叢集以執行 MPI 應用程式
 
@@ -137,7 +137,7 @@ $ ssh-keygen
 $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
-在 \~/.ssh 目錄中編輯或建立 ssh\_config 檔案。提供您將在 Azure 中使用的私人網路 IP 位址範圍：
+在 ~/.ssh 目錄中編輯或建立 ssh\_config 檔案。提供您將在 Azure 中使用的私人網路 IP 位址範圍：
 
 ```
 host 10.32.0.*
@@ -190,7 +190,7 @@ azure vm capture -t <vm-name> <image-name>
 ### Select a region where A8 and A9 VMs are available, such as West US
 ### See Azure Pricing pages for prices and availability of A8 and A9 VMs
 
-azure network vnet create -l "West US" –e 10.32.0.0 <network-name>
+azure network vnet create -l "West US" -e 10.32.0.0 <network-name>
 
 ### Create a cloud service. All the A8 and A9 instances need to be in the same cloud service for Linux RDMA to work across InfiniBand.
 ### Note: The current maximum number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
@@ -339,4 +339,4 @@ private ip address2:16
 
 * 如需 Intel MPI 的指引，請參閱＜[Intel MPI Library 文件](https://software.intel.com/zh-tw/articles/intel-mpi-library-documentation/)＞。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Media Encoder Standard 格式和轉碼器" 
-	description="本主題提供 Azure Media Encoder Standard 格式和轉碼器的概觀。" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Media Encoder Standard 格式和轉碼器"
+	description="本主題提供 Azure Media Encoder Standard 格式和轉碼器的概觀。"
+	services="media-services"
+	documentationCenter=""
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
@@ -27,7 +27,7 @@
 [Media Encoder 匯出格式](#export_formats)
 
 
-##<a id="import_formats"></a>Media Encoder 匯入格式 
+##<a id="import_formats"></a>Media Encoder Standard 匯入格式 
 
 下節會列出支援匯入的轉碼器和檔案格式清單。
 
@@ -69,7 +69,7 @@ GXF|.gxf
 WAVE/WAV |.wav
 
 
-##<a id="export_formats"></a>Media Encoder 匯出格式
+##<a id="export_formats"></a>Media Encoder Standard 匯出格式
 
 下表會列出支援匯出的轉碼器和檔案格式清單。
 
@@ -83,4 +83,4 @@ MPEG2-TS |H.264 (高、主要和基準設定檔)|AAC-LC、HE-AAC v1、HE-AAC v2
 
 [透過 Azure Media Services 編碼的隨選內容](media-services-encode-asset.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

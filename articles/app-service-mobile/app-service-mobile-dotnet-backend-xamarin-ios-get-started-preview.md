@@ -1,6 +1,6 @@
 <properties
-	pageTitle="開始使用適用於 Xamarin.iOS 應用程式的 Azure 行動應用程式"
-	description="遵循此教學課程，開始使用 Azure 行動應用程式進行 Xamarin.iOS 開發。"
+	pageTitle="在 Xamarin.iOS app 中開始使用 Azure App Service Mobile Apps | Microsoft Azure"
+	description="遵循本教學課程，開始使用 Mobile Apps 進行 Xamarin.iOS 開發。"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="normesta"
@@ -23,41 +23,41 @@
 
 ##概觀
 
-本教學課程說明如何使用 Azure 行動應用程式後端，將雲端型後端服務新增到 Xamarin.iOS 行動應用程式。您將同時建立新的行動應用程式後端，以及在 Azure 中儲存應用程式資料的簡單 _Todo list_ Xaamrin.iOS 應用程式。
+本教學課程說明如何使用 Azure 行動 app 後端，將雲端型後端服務加入至 Xamarin.iOS 行動 app。您將建立新的行動 app 後端，以及簡單的 _Todo list_ Xaamrin.iOS 應用程式，後者會在 Azure 中儲存 app 資料。
 
-完成本教學課程是 Xamarin Android 應用程式所有其他行動應用程式教學課程的先決條件。
- 
-##必要條件
+您必須先完成此教學課程，才能進行所有其他在 Azure App Service 中使用 Mobile Apps 的 Xamarin.iOS 相關教學課程。
+
+##先決條件
 
 若要完成此教學課程，您需要下列項目：
 
-* 使用中的 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
- 
+* 使用中的 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得多達 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+
 * [Visual Studio Community 2013] 或更新版本。如果您安裝 Visual Studio Community 2013，請個別安裝 [Xamarin]。當您安裝 Visual Studio 2015 時，可以安裝 Xamarin 工具。
 
 * 已安裝 [Xcode] v7.0 或更新版本，以及 [Xamarin Studio] 的 Mac。
- 
-     >[AZURE.NOTE]如果您打算在 Windows 電腦上使用 Visual Studio 建置您的應用程式，您仍會需要存取已加入網路的 Mac 才能這麼做。
- 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)，即可在 App Service 中立即建立短期入門行動應用程式。不需要信用卡；沒有承諾。
 
-## 建立新的 Azure 行動應用程式後端
+     >[AZURE.NOTE]如果您打算在 Windows 電腦上使用 Visual Studio 建置您的 app，您仍需要存取已加入網路的 Mac，才能執行此動作。
+
+>[AZURE.NOTE]如果您想要在註冊 Azure 帳戶之前先開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)。您可以於該處，在 App Service 中立即建立短期的入門行動 app - 不需信用卡，不需任何承諾。
+
+## 建立新的 Azure 行動 app 後端
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
 ## 下載伺服器專案
 
-1. 在您的電腦上瀏覽 [Azure 入口網站]。按一下 [瀏覽全部] > [行動應用程式]，然後按一下您剛才建立的行動應用程式後端。
+1. 在您的電腦上瀏覽 [Azure 入口網站]。按一下 [全部瀏覽] > [Mobile Apps]，然後按一下您剛建立的行動 app 後端。
 
-2. 在 [行動應用程式] 刀鋒視窗中，按一下 [設定]，並在 [行動應用程式] 底下按一下 [快速入門] > [Xamarin.iOS]。
- 
+2. 在 [行動應用程式] 刀鋒視窗中，按一下 [設定]，然後在 [行動應用程式] 底下按一下 [快速入門] > [Xamarin.iOS]。
+
 3. 在 [下載並執行您的伺服器專案] 底下，按一下 [下載]。將壓縮的專案檔案解壓縮至您的電腦，並在 Visual Studio 中開啟方案。
- 
+
 ## 在本機測試您的後端專案
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-preview](../../includes/app-service-mobile-dotnet-backend-test-local-service-preview.md)]
 
-## 將伺服器專案發行至 Azure
+## 將伺服器專案發佈至 Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
@@ -65,7 +65,7 @@
 
 1. 在 Mac 上，於瀏覽器視窗中開啟 [Azure 入口網站]。
 
->[AZURE.NOTE]在 Mac 上執行 Xamarin.iOS 應用程式會比較容易。如果想要，您可以在 Windows 電腦上使用 Visual Studio 執行 Xamarin.iOS 應用程式，但這樣會比較複雜，因為您必須連線到已加入網路的 Mac。如果您想這麼做，請參閱[在 Windows 上安裝 Xamarin.iOS] (英文)。
+>[AZURE.NOTE]在 Mac 上執行 Xamarin.iOS 應用程式會比較容易。如果想要，您可以在 Windows 電腦上使用 Visual Studio 來執行 Xamarin.iOS 應用程式，但這樣會比較複雜，因為您必須連線到已加入網路的 Mac。如果您想這麼做，請參閱[在 Windows 上安裝 Xamarin.iOS] (英文)。
 
 2. 在 [下載並執行 Xamarin.iOS 專案] 底下，按一下 [下載] 按鈕。
 
@@ -77,9 +77,9 @@
 
 	![][8]
 
-4. 按 **F5** 鍵，以建置專案並在 iPhone 模擬器中啟動應用程式。
+4. 按 F5 鍵，以建置專案並在 iPhone 模擬器中啟動 app。
 
-5. 在應用程式中，輸入有意義的文字 (例如 _Learn Xamarin_)，然後按一下加號 **+** 按鈕。
+5. 在 app 中，輸入有意義的文字 (例如 _Learn Xamarin_)，然後按一下 **+** 按鈕。
 
 	![][10]
 
@@ -89,7 +89,7 @@
 
 ##後續步驟
 
-* [將驗證新增至應用程式](app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md) <br/>了解如何使用身分識別提供者驗證應用程式的使用者。
+* [將驗證新增至您的 App](app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md) <br/>了解如何使用身分識別提供者來驗證 app 的使用者。
 
 * [將推播通知新增至您的應用程式](app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md) <br/>了解如何將非常基本的推播通知傳送至應用程式。
 
@@ -124,4 +124,4 @@
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [在 Windows 上安裝 Xamarin.iOS]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,23 +1,23 @@
 <properties
-   pageTitle="Azure 資源連接器"
-   description="Azure 資源連接器"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="stepsic-microsoft-com"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 Azure 資源連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 Azure 資源連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="stepsic-microsoft-com"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="stepsic"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="stepsic"/>
 
-# Azure 資源連接器
-Azure 資源連接器可讓您輕鬆管理邏輯應用程式內的 Azure 資源。
+# 開始使用 Azure 資源連接器並將它加入您的邏輯應用程式 
+使用 Azure 資源連接器可輕鬆管理邏輯應用程式內的 Azure 資源。
 
 ## 建立 Azure 資源連接器
 若要使用 Azure 資源連接器 API 應用程式，您必須先建立它的執行個體。這可以在建立邏輯應用程式時以內嵌方式完成，或是透過從 Azure Marketplace 選取 Azure 資源管理員連接器 API 應用程式完成。
@@ -96,4 +96,4 @@ David Ebbo 寫了[一篇很棒的部落格文章](http://blog.davidebbo.com/2014
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

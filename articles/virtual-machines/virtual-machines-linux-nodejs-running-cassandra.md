@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用 Azure 上的 Linux 來執行 Cassandra" 
-	description="如何從 Node.js 應用程式在 Azure 虛擬機器的 Linux 上執行 Cassandra 叢集" 
-	services="virtual-machines" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="使用 Azure 上的 Linux 來執行 Cassandra"
+	description="如何從 Node.js 應用程式在 Azure 虛擬機器的 Linux 上執行 Cassandra 叢集"
+	services="virtual-machines"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="MikeWasson"/>
 
 
@@ -53,7 +53,7 @@ Cassandra 可以部署到單一 Azure 區域或多個區域，視工作負載的
 
 請注意，在撰寫本文時，Azure 不允許將一組 VM 明確對應到特定容錯網域。因此，即使使用如圖 1 所示的部署模型，統計上來說有可能所有的虛擬機器都對應到兩個容錯網域而不是四個。
 
-**負載平衡 Thrift 流量：**Web 伺服器內部的 Thrift 用戶端程式庫會透過內部負載平衡器連線到叢集。這需要將內部負載平衡器新增到「資料」子網路的程序 (請參閱圖 1)，這個子網路位於裝載 Cassandra 叢集的雲端服務內容中。一旦定義內部負載平衡器之後，每個節點所需要的負載平衡端點，必須使用具有先前定義之負載平衡器名稱的負載平衡集註解來新增。如需詳細資訊，請參閱 [Azure內部負載平衡](http://msdn.microsoft.com/library/azure/dn690121.aspx)。
+**負載平衡 Thrift 流量：**Web 伺服器內部的 Thrift 用戶端程式庫會透過內部負載平衡器連線到叢集。這需要將內部負載平衡器新增到「資料」子網路的程序 (請參閱圖 1)，這個子網路位於裝載 Cassandra 叢集的雲端服務內容中。一旦定義內部負載平衡器之後，每個節點所需要的負載平衡端點，必須使用具有先前定義之負載平衡器名稱的負載平衡集註解來新增。如需詳細資訊，請參閱 [Azure內部負載平衡](../load-balancer/load-balancer-internal-overview.md)。
 
 **叢集種子：**務必選取可用性最高的節點做為種子，因為新的節點會與種子節點進行通訊以探索叢集的拓撲。將每個可用性設定組中的一個節點指定為種子節點，可避免單一失敗點。
 
@@ -124,7 +124,7 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 
 由於下載 JRE 時需要手動接受 Oracle 授權，為了簡化部署，請將所有必要的軟體下載到桌面，稍後上傳到我們要建立來做為叢集部署初期使用的 Ubuntu 範本映像。
 
-將上述軟體下載到本機桌面上已知的下載目錄 (例如 Windows 上的 %TEMP%/downloads 或者 Linux 或 Mac 上的 \~/downloads)。
+將上述軟體下載到本機桌面上已知的下載目錄 (例如 Windows 上的 %TEMP%/downloads 或者 Linux 或 Mac 上的 ~/downloads)。
 
 ### 建立 UBUNTU VM
 在此步驟的程序中，我們將建立包含必要軟體的 Ubuntu 映像，讓映像可以重複用於佈建多個 Cassandra 節點。
@@ -165,7 +165,7 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 
 ###安裝必要軟體
 ####步驟 1：上傳 tarball 
-使用 scp 或 pscp，並使用下列命令格式將先前下載的軟體複製到 \~/downloads 目錄中：
+使用 scp 或 pscp，並使用下列命令格式將先前下載的軟體複製到 ~/downloads 目錄中：
 
 #####pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
 
@@ -301,7 +301,7 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 這需要幾秒鐘的時間，然後您應該就可以在映像庫的 [我的映像] 區段中找到映像。成功擷取映像之後，來源 VM 就會自動刪除。
 
 ##單一區域部署程序
-**步驟 1：建立虛擬網路**登入管理入口網站，並使用表格中所示的屬性來建立虛擬網路。如需此程序的詳細步驟，請參閱[在管理入口網站中設定純雲端虛擬網路](http://msdn.microsoft.com/library/azure/dn631643.aspx)。
+**步驟 1：建立虛擬網路**登入管理入口網站，並使用表格中所示的屬性來建立虛擬網路。如需此程序的詳細步驟，請參閱[在管理入口網站中設定純雲端虛擬網路](../virtual-network/virtual-networks-create-vnet.md)。
 
 <table>
 <tr><th>VM 屬性名稱</th><th>值</th><th>備註</th></tr>
@@ -467,7 +467,7 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 我們將運用已經完成的單一區域部署，然後重複相同程序安裝第二個區域。單一和多重區域部署之間的主要差異在於區域間通訊的 VPN 通道設定。我們將從網路安裝開始、佈建 VM 以及設定 Cassandra。
 
 ###步驟 1：在第 2 個區域建立虛擬網路
-登入管理入口網站，並使用表格中的屬性建立虛擬網路。如需此程序的詳細步驟，請參閱[在管理入口網站中設定純雲端虛擬網路](http://msdn.microsoft.com/library/azure/dn631643.aspx)。
+登入管理入口網站，並使用表格中的屬性建立虛擬網路。如需此程序的詳細步驟，請參閱[在管理入口網站中設定純雲端虛擬網路](../virtual-network/virtual-networks-create-vnet.md)。
 
 <table>
 <tr><th>屬性名稱    </th><th>值	</th><th>備註</th></tr>
@@ -700,4 +700,4 @@ Microsoft Azure 是一個富彈性的平台，可以執行 Microsoft 與開放�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

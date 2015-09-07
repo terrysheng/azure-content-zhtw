@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用 Azure App Service 將推播通知新增至 Xamarin.iOS 應用程式" 
-	description="了解如何使用 Azure App Service 將推播通知傳送至 Xamarin.iOS 應用程式。" 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
+	pageTitle="使用 Azure App Service 將推播通知新增至 Xamarin.iOS 應用程式"
+	description="了解如何使用 Azure App Service 將推播通知傳送至 Xamarin.iOS 應用程式。"
+	services="app-service\mobile"
+	documentationCenter="xamarin"
 	authors="normesta"
-	manager="dwrede" 
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
-	ms.devlang="dotnet" 
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-ios"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/29/2015" 
+	ms.date="08/22/2015"
 	ms.author="yuaxu"/>
 
 # 將推播通知新增至 Xamarin.iOS 應用程式
@@ -22,33 +22,25 @@
 
 ##概觀
 
-在本教學課程中，您會將推播通知新增至 [Xamarin.iOS 快速入門]專案，以便在每次插入一筆記錄時傳送推播通知。本教學課程以 [Xamarin.iOS 快速入門]教學課程為基礎，您必須先完成該教學課程。[IOS 模擬器不支援推播通知](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html)，所以您必須使用實體 iOS 裝置。您也必須註冊 [Apple Developer Program 成員資格](https://developer.apple.com/programs/ios/)。
+在本教學課程中，您會將推播通知新增至 [Xamarin.iOS 快速入門]專案，以便在每次插入一筆記錄時傳送推播通知。本教學課程以 [Xamarin.iOS 快速入門]教學課程為基礎，您必須先完成該教學課程。如果您不要使用下載的快速入門伺服器專案，必須將推播通知擴充套件新增至您的專案。如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
+
+[iOS 模擬器不支援推播通知](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html)，所以您必須使用實體 iOS 裝置。您也必須註冊 [Apple Developer Program 成員資格](https://developer.apple.com/programs/ios/)。
 
 ##必要條件
 
 若要完成此教學課程，您需要下列項目：
 
-* 使用中的 Azure 帳戶。
+* 使用中的 Azure 帳戶。如果您還沒有帳戶，註冊 Azure 試用版並取得最多 10 個免費的行動應用程式。試用結束之後您仍可以繼續使用它們。查看 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
-    如果您還沒有帳戶，註冊 Azure 試用版並取得最多 10 個免費的行動應用程式。試用結束之後您仍可以繼續使用它們。查看 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+* 已安裝 [Xamarin Studio] 和 [Xcode] v4.4 或更新版本的 Mac。請注意，使用 Xamarin Studio 在 Mac 上執行 Xamarin.iOS 應用程式較為容易。如果想要，您可以在 Windows 電腦上使用 Visual Studio 執行 Xamarin.iOS 應用程式，但這樣會比較複雜，因為您必須連線到已加入網路的 Mac。如果您想這麼做，請參閱[在 Windows 上安裝 Xamarin.iOS]。
 
-    >[AZURE.NOTE]如果您想要在註冊 Azure 帳戶之前先開始使用行動應用程式，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)。您可以立即建立短期的入門行動應用程式。不需要信用卡；沒有承諾。
+* 實體的 iOS 裝置。
 
-* 已安裝 [Xamarin Studio] 和 [Xcode] v4.4 或更新版本的 Mac。
+* 完成[快速入門教學課程](../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md)。
 
-    >[AZURE.NOTE]使用 Xamarin Studio 在 Mac 上執行 iOS 應用程式較為容易。如果想要，您可以在 Windows 電腦上使用 Visual Studio 執行 Xamarin.iOS 應用程式，但這樣會比較複雜，因為您必須連線到已加入網路的 Mac。如果您想這麼做，請參閱[在 Windows 上安裝 Xamarin.iOS] (英文)。
-
-* 實體的 iOS 裝置
-
-* 完成[快速入門教學課程](../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md)
-
-## <a id="register"></a>針對推播通知註冊應用程式
+## <a id="register"></a>註冊應用程式以取得推播通知
 
 [AZURE.INCLUDE [啟用 Apple 推播通知](../../includes/enable-apple-push-notifications.md)]
-
-##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
 
 ## 設定 Azure 來傳送推播通知
 
@@ -200,12 +192,12 @@
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Get started with Mobile Services]: /zh-tw/develop/mobile/tutorials/get-started-xamarin-ios
-[Get started with data]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Get started with authentication]: /zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Get started with push notifications]: /zh-tw/develop/mobile/tutorials/get-started-with-push-xamarin-ios
-[Push notifications to app users]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-ios
-[Authorize users with scripts]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Get started with Mobile Services]: /zh-TW/develop/mobile/tutorials/get-started-xamarin-ios
+[Get started with data]: /zh-TW/develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Get started with authentication]: /zh-TW/develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Get started with push notifications]: /zh-TW/develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[Push notifications to app users]: /zh-TW/develop/mobile/tutorials/push-notifications-to-users-ios
+[Authorize users with scripts]: /zh-TW/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 [Xamarin Device Provisioning]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 [在 Windows 上安裝 Xamarin.iOS]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
@@ -217,4 +209,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

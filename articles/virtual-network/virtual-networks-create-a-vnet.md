@@ -1,20 +1,20 @@
 <properties
    pageTitle="建立虛擬網路"
-   description="逐步解說輕鬆建立基本虛擬網路的步驟。"
-   services="virtual-network"
-   documentationCenter=""
-   authors="telmos"
-   manager="carolz"
-   editor="tysonn"/>
+	description="逐步解說輕鬆建立基本虛擬網路的步驟。"
+	services="virtual-network"
+	documentationCenter=""
+	authors="telmos"
+	manager="carolz"
+	editor="tysonn"/>
 
 <tags
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/06/2015"
-   ms.author="telmosampaio"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/06/2015"
+	ms.author="telmosampaio"/>
 
 # 建立虛擬網路
 
@@ -22,7 +22,7 @@
 
 一旦建立虛擬網路之後，就可以在其中加入新的 VM 和 PaaS 執行個體。請注意，如果您使用管理入口網站來建立 VM，請務必選取 [**從資源庫**]，如此就能指定虛擬網路。這很重要，因為您無法在建立 VM 之後加以回復，並將 VM 置於虛擬網路中。
 
-[Azure 附註] **使用此程序建立專用的純雲端虛擬網路。** 由於建立跨單位組態的情況更複雜，因此，請勿使用此程序來建立後續將連線到內部部署網路的虛擬網路。如果想要在 Azure 和內部部署網路之間建立安全的跨單位連線，請參閱[關於安全的跨單位連線](https://msdn.microsoft.com/library/azure/dn133798.aspx)。
+[Azure 附註] **使用此程序建立專用的純雲端虛擬網路。** 由於建立跨單位組態的情況更複雜，因此，請勿使用此程序來建立後續將連線到內部部署網路的虛擬網路。如果想要在 Azure 和內部部署網路之間建立安全的跨單位連線，請參閱[關於安全的跨單位連線](vpn-gateway-cross-premises-options.md)。
 
 ## 建立虛擬網路
 
@@ -35,7 +35,7 @@
 
 
 
-4. 請勿在 [**DNS 伺服器和 VPN 連線能力**] 頁面上進行任何變更。只需按一下箭號，即可向前移到下一個頁面。根據預設，Azure 會為虛擬網路提供基本名稱解析。您的名稱解析需求，可能比基本 Azure 名稱解析可處理的情況更複雜。在此情況下，您稍後可能想要將執行 DNS 的虛擬機器加入虛擬網路。如需 Azure 名稱解析和 DNS 的詳細資訊，請參閱[名稱解析](https://msdn.microsoft.com/library/azure/jj156088.aspx)。
+4. 請勿在 [**DNS 伺服器和 VPN 連線能力**] 頁面上進行任何變更。只需按一下箭號，即可向前移到下一個頁面。根據預設，Azure 會為虛擬網路提供基本名稱解析。您的名稱解析需求，可能比基本 Azure 名稱解析可處理的情況更複雜。在此情況下，您稍後可能想要將執行 DNS 的虛擬機器加入虛擬網路。如需 Azure 名稱解析和 DNS 的詳細資訊，請參閱[名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 5. 在 [**虛擬網路位址空間**] 頁面中，輸入您想要針對此 VNet 使用的位址空間。除非您的 VM 需要特定的內部 IP 位址範圍，或者您想要為將接收靜態 DIP 的 VM 建立特定子網路，否則不需在此頁面上進行任何變更。如果您想建立多個子網路，可以按一下此頁面上的 [**新增子網路**] 來執行這個動作。如需詳細資料頁面上的設定的詳細資訊，請參閱[如何管理 VNet 屬性](../virtual-networks-settings)中的**虛擬網路詳細資料**一節。
 
 	-  如需詳細資料頁面上的設定的詳細資訊，請參閱[如何管理 VNet 屬性](../virtual-networks-settings)中的**虛擬網路詳細資料**一節。
@@ -48,8 +48,8 @@
 
 
 ## 後續步驟
--  深入了解 Azure 中的[虛擬網路](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)。 
+-  深入了解 Azure 中的[虛擬網路](../virtual-network/virtual-networks-overview.md)。 
 
 -  [將虛擬機器新增至](../virtual-machines/virtual-machines-create-custom.md)虛擬網路。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

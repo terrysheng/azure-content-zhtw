@@ -1,21 +1,21 @@
 <properties
-   pageTitle="設定可以並存的 ExpressRoute 和站對站 VPN 連線"
-   description="本教學課程會引導您設定可以並存的 ExpressRoute 和站對站 VPN 連線。"
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="carolz"
-   editor="tysonn" />
+   pageTitle="設定可以並存的 ExpressRoute 和站對站 VPN 連線 | Microsoft Azure"
+	description="本教學課程會引導您設定可以並存的 ExpressRoute 和站對站 VPN 連線。"
+	documentationCenter="na"
+	services="expressroute"
+	authors="cherylmc"
+	manager="carolz"
+	editor="tysonn"/>
 <tags
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/05/2015"
+	ms.author="cherylmc"/>
 
-# 設定並存的 ExpressRoute 和站對站 VPN 連線
+# 設定並存的 Azure ExpressRoute 和站對站 VPN 連線
 
 您現在可以將 ExpressRoute 和站對站 VPN 連線到相同的虛擬網路。有兩種不同案例和兩個不同設定程序可供您選擇。
 
@@ -40,12 +40,12 @@
 
 有兩組不同的程序可供選擇，以便將您的連線設定為並存。您所選取的設定程序取決於您是已經有想要連線的現有虛擬網路，還是想要建立新的虛擬網路。
 
-- **建立新的虛擬網路以及並存的連線：** 
-	
+- **建立新的虛擬網路以及並存的連線：**
+
 	如果您還沒有虛擬網路，這個程序將會引導您建立新的虛擬網路，並建立新的 ExpressRoute 和站對站 VPN 連線。若要設定，請依照[建立新的虛擬網路及連線](#create-a-new-virtual-network-and-connections-that-coexist)的步驟進行。
 
 - **設定現有的虛擬網路讓連線並存：**
-	
+
 	您可能已經有虛擬網路，而且使用現有的站對站 VPN 連線或 ExpressRoute 連線。[為您現有的虛擬網路設定並存的連線](#configure-connections-that-coexist-for-your-existing-virtual-network)程序將會引導您刪除閘道器，然後建立新的 ExpressRoute 和站對站 VPN 連線。請注意，建立新的連線時，您必須以非常特定的順序來完成這些步驟。請勿使用其他文章中的指示建立閘道器和連線。
 
 	在此程序中，建立可以並存的連線將會要求您刪除閘道器，然後設定新的閘道器。這表示當您刪除和重新建立閘道器與連線時，將會有跨設備連線的停機時間，但您不需要將任何 VM 或服務移轉至新的虛擬網路。您的 VM 和服務仍能透過負載平衡器對外通訊，而您能夠在這兩者設定為這樣做時進行閘道器設定。
@@ -56,11 +56,11 @@
 - 您將無法在透過站對站 VPN 連線的區域網路，以及透過 ExpressRoute 連線的區域網路之間，進行路由傳送 (透過 Azure)。
 - 您無法啟用連結到 ExpressRoute 之相同 VNet 的點對站 VPN 連線。點對站 VPN 和 ExpressRoute 不能共存在相同的 VNet。
 - ExpressRoute 閘道器和站對站 VPN 閘道器必須是 Standard 或 HighPerformance 閘道器 SKU。如需關於閘道器 SKU 的資訊，請參閱[閘道器 SKU](../vpn-gateway/vpn-gateway-about-vpngateways.md)。
-- 如果您的區域網路連線到 ExpressRoute 和站對站 VPN (案例 1)，您應該在區域網路中設定靜態路由，以將站對站 VPN 連線路由傳送到公用網際網路。 
+- 如果您的區域網路連線到 ExpressRoute 和站對站 VPN (案例 1)，您應該在區域網路中設定靜態路由，以將站對站 VPN 連線路由傳送到公用網際網路。
 - 您必須先建立 ExpressRoute 閘道器，才能新增站對站 VPN 閘道。
-- 這兩個程序均會假設您已設定 ExpressRoute 電路。如果您並未設定，請參閱下列文章： 
+- 這兩個程序均會假設您已設定 ExpressRoute 電路。如果您並未設定，請參閱下列文章：
 
-	- [透過網路服務提供者 (NSP) 設定 ExpressRoute 連線](expressroute-configuring-nsps.md) 
+	- [透過網路服務提供者 (NSP) 設定 ExpressRoute 連線](expressroute-configuring-nsps.md)
 	- [透過 Exchange 提供者 (EXP) 設定 ExpressRoute 連線](expressroute-configuring-exps.md)
 
 
@@ -104,9 +104,9 @@
 	使用下列 Cmdlet 來上傳檔案，將該值替換為您自己的值。
 
 	`Set-AzureVNetConfig -ConfigurationPath 'C:\NetworkConfig.xml'`
-4. 建立 ExpressRoute 閘道器。請務必將 GatewaySKU 指定為 *Standard* 或 *HighPerformance*，並將 GatewayType 指定為 *DynamicRouting*。 
+4. 建立 ExpressRoute 閘道器。請務必將 GatewaySKU 指定為 *Standard* 或 *HighPerformance*，並將 GatewayType 指定為 *DynamicRouting*。
 
-	使用下方範例，將該值替換為您自己的值。
+	使用以下範例，將該值替換為您自己的值。
 
 	`New-AzureVNetGateway -VNetName MyAzureVNET -GatewayType DynamicRouting -GatewaySKU HighPerformance`
 
@@ -118,10 +118,10 @@
 
 	`New-AzureVirtualNetworkGateway -VNetName MyAzureVNET -GatewayName S2SVPN -GatewayType DynamicRouting -GatewaySKU  HighPerformance`
 
-	若要擷取虛擬網路閘道器設定 (包括閘道器識別碼和公用 IP)，請使用 `Get-AzureVirtualNetworkGateway` Cmdlet。
+	若要抓取虛擬網路閘道器設定 (包括閘道器識別碼和公用 IP)，請使用 `Get-AzureVirtualNetworkGateway` Cmdlet。
 
 		Get-AzureVirtualNetworkGateway
-		
+
 		GatewayId            : 348ae011-ffa9-4add-b530-7cb30010565e
 		GatewayName          : S2SVPN
 		LastEventData        :
@@ -143,16 +143,16 @@
 
 7. 建立本機的站台 VPN 閘道實體。此命令不會設定內部部署 VPN 閘道。相反地，它可讓您提供本機閘道器設定 (例如公用 IP 與內部位址空間)，使 Azure VPN 閘道能夠與其連線。
 
-	**重要事項：**並未在 Netcfg 中定義站對站 VPN 的本機站台。您必須改為使用此 Cmdlet 來指定本機站台參數。您無法使用管理入口網站或 Netcfg 檔來定義參數。
+	> [AZURE.IMPORTANT]未在 Netcfg 中定義站對站 VPN 的本機站台。您必須改為使用此 Cmdlet 來指定本機站台參數。您無法使用管理入口網站或 Netcfg 檔來定義參數。
 
 	使用下列範例，將該值替換為您自己的值。
 
 	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <local-network- gateway-public-IP> -AddressSpace <local-network-address-space>`
 
-	若要擷取虛擬網路閘道器設定 (包括閘道器識別碼和公用 IP)，請使用 `Get-AzureVirtualNetworkGateway` Cmdlet。請參閱下面的範例：
+	若要抓取虛擬網路閘道器設定 (包括閘道器識別碼和公用 IP)，請使用 `Get-AzureVirtualNetworkGateway` Cmdlet。請參閱下列範例。
 
 		Get-AzureLocalNetworkGateway
-		
+
 		GatewayId            : 532cb428-8c8c-4596-9a4f-7ae3a9fcd01b
 		GatewayName          : MyLocalNetwork
 		IpAddress            : 23.39.x.y
@@ -161,9 +161,9 @@
 		OperationId          : ddc4bfae-502c-adc7-bd7d-1efbc00b3fe5
 		OperationStatus      : Succeeded
 
-	
-8. 設定本機 VPN 裝置以連線到新的閘道器。當您設定 VPN 裝置時，請使用於步驟 6 所擷取的資訊。如需關於 VPN 裝置組態的詳細資訊，請參閱 [VPN 裝置組態](http://go.microsoft.com/fwlink/p/?linkid=615099)。
-	
+
+8. 設定本機 VPN 裝置以連線到新的閘道器。當您設定 VPN 裝置時，請使用於步驟 6 所抓取的資訊。如需關於 VPN 裝置組態的詳細資訊，請參閱 [VPN 裝置組態](http://go.microsoft.com/fwlink/p/?linkid=615099)。
+
 
 9. 將 Azure 上的站對站 VPN 閘道連結至本機閘道器。
 
@@ -181,7 +181,7 @@
 
 
 1. 下載最新版的 PowerShell Cmdlet。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 PowerShell 區段下載並安裝最新版本的 PowerShell Cmdlet。
- 
+
 2. 刪除現有的站對站 VPN 閘道。使用下列 Cmdlet，將該值替換為您自己的值。
 
 	`Remove-AzureVNetGateway –VnetName MyAzureVNET`
@@ -189,13 +189,13 @@
 2. 匯出虛擬網路的結構描述。使用下列 PowerShell Cmdlet，將該值替換為您自己的值。
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
-3. 編輯網路組態檔結構描述，讓閘道器子網路是 /27 (或更短的前置詞)。請參閱下方的範例。如需關於使用網路組態檔的詳細資訊，請參閱[使用網路組態檔設定虛擬網路](../virtual-network/virtual-networks-using-network-configuration-file.md)。如需關於組態結構描述的詳細資訊，請參閱 [Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)。
+3. 編輯網路組態檔結構描述，讓閘道器子網路是 /27 (或更短的前置詞)。請參閱下列範例。如需關於使用網路組態檔的詳細資訊，請參閱[使用網路組態檔設定虛擬網路](../virtual-network/virtual-networks-using-network-configuration-file.md)。如需關於組態結構描述的詳細資訊，請參閱 [Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)。
 
 
           <Subnet name="GatewaySubnet">
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
           </Subnet>
-4. 如果您先前的閘道器是站對站 VPN，則也必須將連線類型變更為 [專用]。
+4. 如果您先前的閘道器是站對站 VPN，則也必須將連線類型變更為 **Dedicated** (專用)。
 
 		         <Gateway>
 		          <ConnectionsToLocalNetwork>
@@ -209,9 +209,9 @@
 
 
 ## 後續步驟
-	
+
 深入了解 ExpressRoute。請參閱 [ExpressRoute 概觀](expressroute-introduction.md)。
 
 深入了解 VPN 閘道。請參閱[關於 VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

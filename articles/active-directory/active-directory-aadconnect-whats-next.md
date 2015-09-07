@@ -1,29 +1,24 @@
 <properties 
-	pageTitle="管理 Azure AD Connect" 
-	description="了解如何針對 Azure AD Connect 擴充預設組態和作業工作。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="管理 Azure AD Connect"
+	description="了解如何針對 Azure AD Connect 擴充預設組態和作業工作。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # 管理 Azure AD Connect 
 
-> [AZURE.SELECTOR]
-- [What is It](../active-directory-aadconnect/)
-- [How it Works](../active-directory-aadconnect-how-it-works/)
-- [Getting Started](../active-directory-aadconnect-get-started/)
-- [What's Next](../active-directory-aadconnect-whats-next/) 
-- [Learn More](../active-directory-aadconnect-learn-more/)
+
 
 以下這些進階的選擇性主題可讓您自訂 Azure Active Directory Connect，以符合您組織的需要和需求。
 
@@ -36,8 +31,8 @@
 1. 以系統管理員身分登入 Azure 入口網站。
 2. 選取左邊的 [Active Directory]。
 3. 在 [Active Directory] 頁面上，在有您要啟用的使用者之目錄上按兩下。
-4. 在 [目錄] 頁面頂端，選取 [**授權**]。
-5. 在 [授權] 頁面上，選取 [Active Directory Premium] 或 [Enterprise Mobility Suite]，然後按一下 [**指派**]。
+4. 在目錄頁面頂端，選取 [授權]。
+5. 在 [授權] 頁面上，選取 [Active Directory Premium] 或 [Enterprise Mobility Suite]，然後按一下 [指派]。
 6. 在對話方塊中，選取您要對其指派授權的使用者，然後按一下核取記號圖示，以儲存變更。
 
 
@@ -93,9 +88,9 @@
 - [使用 Azure AD Connect 同步處理規則編輯器](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [使用宣告式佈建](active-directory-aadconnect-whats-next-declarative-prov.md)
 
-此外，針對 Azure AD Sync 所建立的一些文件仍然有關，而且適用於 Azure AD Connect。雖然致力於將本文件帶到 Azure.com，但是這份文件有些部分還是保留在 MSDN 範圍文件庫中。如需其他文件，請參閱 [MSDN 上的 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx) 和 [MSDN 上的 Azure AD Sync](https://msdn.microsoft.com/library/azure/dn790204.aspx)。
+此外，針對 Azure AD Sync 所建立的一些文件仍然有關，而且適用於 Azure AD Connect。雖然致力於將本文件帶到 Azure.com，但是這份文件有些部分還是保留在 MSDN 範圍文件庫中。如需其他文件，請參閱 [MSDN 上的 Azure AD Connect](active-directory-aadconnect.md) 和 [MSDN 上的 Azure AD Sync](https://msdn.microsoft.com/library/azure/dn790204.aspx)。
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

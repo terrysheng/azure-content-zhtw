@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Mobile Engagement Android SDK 整合" 
+	pageTitle="Azure Mobile Engagement Android SDK 整合"
 	description="Android SDK for Azure Mobile Engagement 的最新更新和程序"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 #如何在 Android 上整合 Engagement Reach
 
@@ -94,13 +94,15 @@ Reach SDK 需要「Android 支援程式庫 (v4)」。
 			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 			<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
+  -   在 Android M 上，若您的應用程式目標為 Android API 層級 23 或更高層級，``WRITE_EXTERNAL_STORAGE`` 權限需要使用者核准。請閱讀[本節](mobile-engagement-android-integrate-engagement.md#android-m-permissions)。
+
 -   針對系統通知，如果裝置應該響鈴及/或震動，您也可以在 Reach 活動中指定。要讓其正常運作，您必須確定已宣告下列權限 (在 `</application>` 標記之後)：
 
 			<uses-permission android:name="android.permission.VIBRATE" />
 
 	若無此權限，如果您在 Reach 活動管理員中核取了響鈴或震動的選項，Android 會禁止顯示系統通知。
 
--   如果使用 **ProGuard** 建置應用程式，且發生與 Android 支援程式庫或 Engagement jar 相關的錯誤，請在 `proguard.cfg` 檔案中加入下列幾行：
+-   如果使用 ProGuard 建置應用程式，且發生與 Android 支援程式庫或 Engagement jar 相關的錯誤，請在 `proguard.cfg` 檔案中加入下列幾行：
 
 			-dontwarn android.**
 			-keep class android.support.v4.** { *; }
@@ -183,7 +185,7 @@ Reach SDK 需要「Android 支援程式庫 (v4)」。
 
 #### 系統通知
 
-若要自訂系統通知，您需要使用 [類別]。您可以跳到 [類別](#categories)。
+若要自訂系統通知，您需要使用 [類別]。您可以跳到 [類別][](#categories)。
 
 #### 應用程式內通知
 
@@ -247,7 +249,7 @@ Engagement Reach SDK 會自動偵測到通知配置已包含在此活動中，�
 
 若要登記通知的類別處理常式，您需要在應用程式初始化時加入呼叫。
 
-> [AZURE.IMPORTANT] 請閱讀＜如何在 Android 上整合 Engagement＞主題中關於 android:process attribute \<android-sdk-engagement-process\> 的警告，然後再繼續。
+> [AZURE.IMPORTANT]請閱讀＜如何在 Android 上整合 Engagement＞主題中關於 android:process attribute <android-sdk-engagement-process> 的警告，然後再繼續。
 
 下列範例假設您已知悉先前的警告，並使用 `EngagementApplication` 的子類別：
 
@@ -647,4 +649,4 @@ Reach SDK 使用意圖系統來解析特定類別的正確活動，如果解析�
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

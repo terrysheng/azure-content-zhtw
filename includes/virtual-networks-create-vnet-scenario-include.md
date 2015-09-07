@@ -1,12 +1,14 @@
-## Scenario
+## 案例
 
-To better illustrate how to create a VNet and subnets, this document will use the scenario below.
+為了更清楚說明如何建立 VNet 和子網路，本文件會使用下列案例。
 
-![VNet scenario](./media/virtual-networks-create-vnet-scenario-include/vnet-scenario.png)
+![VNet 案例](./media/virtual-networks-create-vnet-scenario-include/vnet-scenario.png)
 
-In this scenario you will create a VNet named **TestVNet** with a reserved CIDR block of **192.168.0.0./16**. Your VNet will contain the following subnets: 
+在這個案例中，您將建立名為 **TestVNet** 的 VNet，並包含保留的 CIDR 區塊 **192.168.0.0./16**。VNet 會包含下列子網路：
 
-- **FrontEnd**, using **192.168.1.0/24** as its CIDR block.
-- **BackEnd**, using **192.168.2.0/24** as its CIDR block.
+- **FrontEnd**，使用 **192.168.1.0/24** 作為其 CIDR 區塊。
+- **BackEnd**，使用 **192.168.2.0/24** 作為其 CIDR 區塊。
 
  
+
+<!---HONumber=August15_HO9-->

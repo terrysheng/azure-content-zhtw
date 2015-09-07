@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="企業營運應用程式工作負載第 2 階段：設定網域控制站" 
-	description="在第二個階段中，您將建立和設定兩個 Active Directory 網域控制站。" 
+	pageTitle="企業營運應用程式第 2 階段 | Microsoft Azure"
+	description="在 Azure 企業營運應用程式第 2 階段中，建立並設定兩個 Active Directory 複本網域控制站。"
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # 企業營運應用程式工作負載第 2 階段：設定網域控制站
@@ -206,4 +206,4 @@
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

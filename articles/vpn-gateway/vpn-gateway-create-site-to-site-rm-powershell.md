@@ -1,21 +1,21 @@
 <properties
    pageTitle="使用 Azure 資源管理員和 PowerShell 建立具有站對站 VPN 連線的虛擬網路 |Microsoft Azure"
-   description="使用 Azure 資源管理員和 PowerShell，建立從虛擬網路至內部部署位置的站對站 VPN 連線"
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="carolz"
-   editor=""
-   tags="azure-resource-manager"/>
+	description="使用 Azure 資源管理員和 PowerShell，建立從虛擬網路至內部部署位置的站對站 VPN 連線"
+	services="vpn-gateway"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
    ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/21/2015"
+	ms.author="cherylmc"/>
 
 # 使用 Azure 資源管理員和 PowerShell 建立具有站對站 VPN 連線的虛擬網路
 
@@ -96,9 +96,26 @@ Azure 目前有兩種部署模型：傳統部署模型和 Azure 資源管理員�
 - *GatewayIPAddress* 是內部部署 VPN 裝置的 IP 位址。VPN 裝置不能位於 NAT 後方。 
 - *AddressPrefix* 是您的內部部署位址空間。
 
-使用此範例來新增您的本機站台：
+使用此範例來新增具有單一位址首碼的本機站台。
 
 		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
+
+如果您想要新增具有多個位址首碼的本機站台，請使用此範例。
+
+		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
+
+
+若要將額外的位址首碼新增至已經建立的本機站台，請使用以下範例。
+
+		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+
+
+若要從本機站台移除位址首碼，請使用以下範例。省略您不再需要的首碼。此範例中不再需要首碼 20.0.0.0/24 (來自先前的範例)，因此我們將更新本機站台，並排除該首碼。
+
+		local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+
 
 ## 要求 VNet 閘道的公用 IP 位址
 
@@ -123,7 +140,7 @@ Azure 目前有兩種部署模型：傳統部署模型和 Azure 資源管理員�
 在此步驟中，您將建立虛擬網路閘道。輸入下列值：
 
 - 閘道類型為 *Vpn*。
-- VpnType 可以是 RouteBased * (在某些文件中稱為動態閘道)，或*以原則為基礎* (在某些文件中稱為靜態閘道)。如需 VPN 閘道類型的詳細資訊，請參閱[關於 VPN 閘道](vpn-gateway-about-vpngateways.md)。 	
+- VpnType 可以 RouteBased* (在某些文件中稱為動態閘道)，或以*原則為基礎* (在某些文件中稱為靜態閘道)。如需 VPN 閘道類型的詳細資訊，請參閱[關於 VPN 閘道](vpn-gateway-about-vpngateways.md)。 	
 
 		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
@@ -152,4 +169,4 @@ Azure 目前有兩種部署模型：傳統部署模型和 Azure 資源管理員�
 
 將虛擬機器新增至虛擬網路。[建立虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

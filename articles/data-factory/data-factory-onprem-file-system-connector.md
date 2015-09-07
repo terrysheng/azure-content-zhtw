@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="檔案系統連接器 - 和檔案系統往來移動資料" 
-	description="了解 Data Factory 服務的檔案系統連接器，其可讓您從內部部署檔案系統來回移動資料" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="從檔案系統來回移動資料 | Azure Data Factory"
+	description="了解如何使用 Azure Data Factory 從內部部署檔案系統來回移動資料。"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# 檔案系統連接器 - 和內部部署檔案系統往來移動資料
+# 使用 Azure Data Factory 從內部部署檔案系統來回移動資料
 
 本文概述如何使用資料處理站複製活動和內部部署檔案系統往來移動資料。本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文呈現使用複製活動移動資料的一般概觀以及支援的資料存放區組合。
 
@@ -35,15 +35,15 @@
 
 下列範例顯示：
 
-1.	類型 OnPremisesFileServer 的連結服務
-2.	AzureStorage 類型的連結服務
-3.	類型 FileShare 的輸入資料集。
-4.	AzureBlob 類型的輸出資料集。
-4.	具有使用 FileSystemSource 和 BlobSink 之複製活動的管線。 
+1.	[OnPremisesFileServer](data-factory-onprem-file-system-connector.md#onpremisesfileserver-linked-service-properties) 類型的連結服務。
+2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 類型的連結服務。
+3.	[FileShare](data-factory-onprem-file-system-connector.md#on-premises-file-system-dataset-type-properties) 類型的輸入[資料集](data-factory-create-datasets.md)。
+4.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 類型的輸出[資料集](data-factory-create-datasets.md)。
+4.	具有使用 [FileSystemSource](data-factory-onprem-file-system-connector.md#file-share-copy-activity-type-properties) 和 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 之複製活動的[管線](data-factory-create-pipelines.md)。 
 
 下列範例每小時都會將屬於時間序列的資料從內部部署檔案系統複製到 Azure blob。範例後面的各節會說明這些範例中使用的 JSON 屬性。
 
-在第一個步驟中，根據[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文中的指示設定資料管理閘道器。
+在第一個步驟中，根據[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文中的指示，設定資料管理閘道器。
 
 **內部部署檔案伺服器連結服務：**
 
@@ -52,7 +52,7 @@
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -273,7 +273,7 @@
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -372,7 +372,7 @@
 	  }
 	}
 
-**包含複製活動的管線：**此管線包含複製活動，該活動已設定為使用上述輸入和輸出資料集並排定為每小時執行。在管線 JSON 定義中，**source** 類型設為 **SqlSource**，而 **sink** 類型設為 **FileSystemSink**。針對 **SqlReaderQuery** 屬性指定的 SQL 查詢會選取過去一小時內要複製的資料。
+**包含複製活動的管線：**此管線包含複製活動，該活動已設定為使用上述輸入和輸出資料集，並排定為每小時執行。在管線 JSON 定義中，**source** 類型設為 **SqlSource**，而 **sink** 類型設為 **FileSystemSink**。針對 **SqlReaderQuery** 屬性指定的 SQL 查詢會選取過去一小時內要複製的資料。
 
 	
 	{  
@@ -399,7 +399,7 @@
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd}\' AND timestampcolumn < \'{1:yyyy-MM-dd}\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "FileSystemSink"
@@ -427,11 +427,13 @@
 屬性 | 說明 | 必要
 -------- | ----------- | --------
 類型 | type 屬性應設為 **OnPremisesFileServer** | 是 
-主機 | 伺服器的主機名稱。使用 ‘ \\ ’ 做為逸出字元，如下列範例所示：如果您的共用是：\\servername，請指定 \\\\servername。<p>如果檔案系統位於閘道器電腦，請使用 Local 或 localhost。如果檔案系統與閘道器電腦位於不同的伺服器上，請使用 \\\\servername。</p> | 是
-userid | 指定具有伺服器存取權之使用者的識別碼 | 否 (如果您選擇 encryptedcredential)
-密碼 | 指定使用者的密碼 (userid) | 否 (如果您選擇 encryptedcredential 
-Encryptedcredential | 指定您可以藉由執行 New-AzureDataFactoryEncryptValue cmdlet<p> 取得的加密認證**請注意：**您必須使用 Azure PowerShell 0.8.14 或更高版本才能使用 cmdlet，例如類型參數設為 OnPremisesFileSystemLinkedService 的 New-AzureDataFactoryEncryptValue</p> | 否 (如果您選擇以純文字指定使用者識別碼和密碼)
-Gatewayname | 資料處理站服務應該用來連接到內部部署檔案伺服器的閘道器名稱 | 是
+主機 | 伺服器的主機名稱。使用 ‘ \\ ’ 做為逸出字元，如下列範例所示：如果您的共用是 \\servername，請指定 \\\servername。<p>如果檔案系統位於閘道器電腦，請使用 Local 或 localhost。如果檔案系統與閘道器電腦位於不同的伺服器上，請使用 \\\servername。</p> | 是
+userid | 指定具有伺服器存取權之使用者的識別碼 | 否 (如果您選擇 encryptedCredential)
+password | 指定使用者的密碼 (userid) | 否 (如果您選擇 encryptedCredential) 
+encryptedCredential | 指定您可以藉由執行 New-AzureDataFactoryEncryptValue Cmdlet 取得的加密認證<p>**請注意：**您必須使用 Azure PowerShell 0.8.14 或更高版本才能使用 Cmdlet，例如類型參數設為 OnPremisesFileSystemLinkedService 的 New-AzureDataFactoryEncryptValue</p> | 否 (如果您選擇以純文字指定使用者識別碼和密碼)
+gatewayName | 資料處理站服務應該用來連接到內部部署檔案伺服器的閘道器名稱 | 是
+
+如需為內部部署檔案系統資料來源設定認證的詳細資料，請參閱[設定認證和安全性](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)。
 
 **範例：使用純文字的使用者名稱和密碼**
 	
@@ -440,7 +442,7 @@ Gatewayname | 資料處理站服務應該用來連接到內部部署檔案伺服
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -456,7 +458,7 @@ Gatewayname | 資料處理站服務應該用來連接到內部部署檔案伺服
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
 	      "host": "localhost",
-	      "encryptedcredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
+	      "encryptedCredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
 	      "gatewayName": "mygateway"
 	    }
 	  }
@@ -464,14 +466,14 @@ Gatewayname | 資料處理站服務應該用來連接到內部部署檔案伺服
 
 ## 內部部署檔案系統資料集類型屬性
 
-如需可用來定義資料集的完整區段和屬性清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (Azure SQL、Azure Blob、Azure 資料表、內部部署檔案系統等)。
+如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (Azure SQL、Azure Blob、Azure 資料表、內部部署檔案系統等)。
 
 每個資料集類型的 TypeProperties 區段都不同，可提供資料存放區中資料的位置、格式等相關資訊。**FileShare** 資料集類型的 typeProperties 區段具有下列屬性。
 
 屬性 | 說明 | 必要
 -------- | ----------- | --------
-folderPath | 資料夾的路徑。範例：myfolder<p>使用逸出字元 ' \\ ' 做為字串中的特殊字元。例如：若為 folder\\subfolder，指定 folder\\subfolder，若為 d:\\samplefolder，指定 d:\\samplefolder。</p><p>您可以將其與 **partitionBy** 結合，使資料夾路徑以配量開始/結束日期時間為基礎。</p> | 是
-fileName | 如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。如果您未指定此屬性的任何值，資料表會指向資料夾中的所有檔案。<p>沒有為輸出資料集指定 fileName 時，所產生的檔案名稱會是下列格式：</p><p>Data.<Guid>.txt (例如：: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | 否
+folderPath | 資料夾的路徑。範例：myfolder<p>使用逸出字元 ‘ \\ ’ 做為字串中的特殊字元。例如：若為 folder\\subfolder，指定 folder\\subfolder，若為 d:\\samplefolder，指定 d:\\samplefolder。</p><p>您可以將其與 **partitionBy** 結合，使資料夾路徑以配量開始/結束日期時間為基礎。</p> | 是
+fileName | 如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。如果您未指定此屬性的任何值，資料表會指向資料夾中的所有檔案。<p>沒有為輸出資料集指定 fileName 時，所產生的檔案名稱會是下列格式：</p><p>Data.<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | 否
 partitionedBy | partitionedBy 可以用來指定時間序列資料的動態 folderPath 和 filename。例如，folderPath 可針對每小時的資料進行參數化。 | 否
 格式 | 支援兩種格式類型：**TextFormat**、**AvroFormat**。若為此值，您需要將格式底下的 type 屬性設定為其中之一。如果 forAvroFormatmat 為 TextFormat，您可以指定格式的其他選擇性屬性。如需詳細資料，請參閱下面的格式一節。 | 否
 fileFilter | 指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。<p>允許的值為：* (多個字元) 和 ? (單一字元)。</p><p>範例 1："fileFilter": "*.log"</p>範例 2："fileFilter": 2014-1-?.txt"</p><p>**請注意**：fileFilter 適用於輸入 FileShare 資料集</p> | 否
@@ -516,14 +518,14 @@ fileFilter | 指定要用來在 folderPath (而不是所有檔案) 中選取檔�
 -------- | ----------- | --------
 columnDelimiter | 在檔案中做為資料行分隔符號的字元。預設值是逗號 (,)。 | 否
 rowDelimiter | 在檔案中做為資料列分隔符號的字元。預設值是下列任一項：[“\\r\\n”, “\\r”,” \\n”]。 | 否
-escapeChar | 用來逸出內容中顯示之資料行分隔符號的特殊字元。沒有預設值。您為此屬性指定的字元不得超過一個。<p>例如，如果您以逗號 (,) 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如："Hello, world")，您可以定義 '$' 做為逸出字元並在來源中使用字串 "Hello$, world"。</p><p>請注意，您無法同時為資料表指定 escapeChar 和 quoteChar。</p> | 否
-quoteChar | 用來引用字串值的特殊字元。引號字元內的資料行和資料列分隔符號會被視為字串值的一部分。沒有預設值。您為此屬性指定的字元不得超過一個。<p>例如，如果您以逗號 (,) 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如：<Hello  world>)，您可以定義 ‘"’ 做為引用字元並在來源中使用字串 <"Hello, world">。這個屬性同時適用於輸入和輸出資料表。</p><p>請注意，您無法同時為資料表指定 escapeChar 和 quoteChar。</p> | 否
+escapeChar | 用來逸出內容中顯示之資料行分隔符號的特殊字元。沒有預設值。您為此屬性指定的字元不得超過一個。<p>例如，如果您以逗號 (,) 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如："Hello, world")，可以定義 '$' 做為逸出字元，並在來源中使用字串 "Hello$, world"。</p><p>請注意，您無法同時為資料表指定 escapeChar 和 quoteChar。</p> | 否
+quoteChar | 用來引用字串值的特殊字元。引號字元內的資料行和資料列分隔符號會被視為字串值的一部分。沒有預設值。您為此屬性指定的字元不得超過一個。<p>例如，如果您以逗號 (,) 做為資料行分隔符號，但想要在文字中使用逗號字元 (例如：<Hello  world>)，您可以定義 ‘"’ 做為引用字元並在來源中使用字串 <"Hello, world">。這個屬性同時適用於輸入和輸出資料表。</p><p>請注意，您無法同時為資料表指定 escapeChar 和 quoteChar。</p> | 否
 nullValue | 用來代表 Blob 檔案內容中 null 值的字元。預設值為 “\\N”.> | 否
 encodingName | 指定編碼名稱。如需有效編碼名稱的清單，請參閱：Encoding.EncodingName 屬性。<p>例如：windows-1250 或 shift\_jis。預設值為 UTF-8。</p> | 否
 
 #### 範例：
 
-下列範例顯示 **TextFormat** 的一些格式屬性。
+下列範例可說明 **TextFormat** 的部分格式屬性。
 
 	"typeProperties":
 	{
@@ -552,11 +554,11 @@ encodingName | 指定編碼名稱。如需有效編碼名稱的清單，請參�
 	    "type": "AvroFormat",
 	}
 	
-若要在 Hive 資料表中使用 Avro 格式，您可以參考 [Apache Hive 的教學課程](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe)。
+若要在之後的 Hive 資料表中使用 Avro 格式，您可以參考 [Apache Hive 的教學課程](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe)。
 
 ## 檔案共用複製活動類型屬性
 
-**FileSystemSource** 和 **FileSystemSink** 此時不支援任何屬性。
+**FileSystemSource** 和 **FileSystemSink** 目前不支援任何屬性。
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -571,4 +573,4 @@ encodingName | 指定編碼名稱。如需有效編碼名稱的清單，請參�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

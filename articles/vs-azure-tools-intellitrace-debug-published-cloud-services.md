@@ -1,19 +1,21 @@
 <properties 
-   pageTitle="使用 IntelliTrace 和 Visual Studio 偵錯發佈的雲端服務"
-   description="使用 IntelliTrace 和 Visual Studio 偵錯發佈的雲端服務"
-   services="visual-studio-online"
-   documentationCenter="n/a"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="使用 IntelliTrace 和 Visual Studio 偵錯發佈的雲端服務 | Microsoft Azure"
+	description="使用 IntelliTrace 和 Visual Studio 偵錯發佈的雲端服務"
+	services="visual-studio-online"
+	documentationCenter="n/a"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.workload="na"
-   ms.tgt_pltfrm="na"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/14/2015"
+	ms.author="patshea"/>
+
+
 
 # 使用 IntelliTrace 和 Visual Studio 偵錯發佈的雲端服務
 
@@ -31,7 +33,9 @@
 
 1. 準備好要部署 Azure 應用程式時，請確認專案建置目標是設定為 [偵錯]。
 
-1. 在 [方案總管] 中開啟 Azure 專案的捷徑功能表並選擇 [發佈]。[發佈 Azure 應用程式] 精靈隨即出現。
+1. 在 [方案總管] 中開啟 Azure 專案的捷徑功能表並選擇 [發佈]。
+ 
+    [發佈 Azure 應用程式] 精靈隨即出現。
 
 1. 若要在發佈至雲端時收集您的應用程式的 IntelliTrace 記錄檔，請選取 [啟用 IntelliTrace] 核取方塊。
 
@@ -61,8 +65,8 @@ IntelliTrace 記錄檔是循環記錄檔，大小上限是在 IntelliTrace 設�
 
 >[AZURE.NOTE]IntelliTrace 記錄檔可能包含架構產生和後續處理的例外狀況。內部架構程式碼會在正常啟動角色時產生這些例外狀況，因此您可以放心忽略。
 
-## 後續步驟
+## 另請參閱
 
-[偵錯雲端服務](http://go.microsoft.com/fwlink/p/?LinkID=62304)
+[偵錯雲端服務](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

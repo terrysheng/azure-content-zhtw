@@ -1,20 +1,20 @@
 <properties
    pageTitle="SQL 資料倉儲的彈性效能與延展性 | Microsoft Azure"
-   description="使用資料倉儲單位相應增加和減少計算資源，了解 SQL 資料倉儲的彈性。提供程式碼範例。"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="TwoUnder"
-   manager="barbkess"
-   editor=""/>
+	description="使用資料倉儲單位相應增加和減少計算資源，了解 SQL 資料倉儲的彈性。提供程式碼範例。"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="TwoUnder"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/25/2015"
-   ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/25/2015"
+	ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
 
 # SQL 資料倉儲的彈性效能與延展性
 如要彈性地增加或減少您的計算能力，您只需調整配置給 SQL 資料倉儲的資料倉儲單位 (DWU) 數量。資料倉儲單位是 SQL 資料倉儲帶來的新概念，可讓您輕鬆又有效地進行管理。本主題是資料倉儲單位的簡介，說明如何使用資料倉儲單位彈性調整計算能力。本文也提供有關針對環境設定合理 DWU 值的一些初始指導。
@@ -39,15 +39,16 @@ SQL 資料倉儲可為客戶解鎖許多不同的解決方案。因此，客戶�
 ## 相應增加和減少計算資源
 SQL 資料倉儲不仰賴雲端儲存空間運作，其絕佳的彈性可讓您透過資料倉儲單位 (DWU) 的滑動標尺，增加、縮減或暫停計算能力。這樣就能將您的計算能力彈性調整為最適合您業務的計算能力。
 
-如要增加計算能力，可經由 [Azure 入口網站][]、使用 T-SQL、透過 REST API 或 Powershell 來完成。雖然相應增加和減少計算能力會取消所有執行中或已進入佇列的活動，但此動作可在幾秒內完成，讓您以較多或較少的計算能力繼續進行。
+若要提升計算能力，您可以使用 Azure 入口網站中的縮放滑桿，將更多 DWU 加入服務。您也可以透過 T-SQL、REST API 或 Powershell Cmdlet 加入 DWU。雖然相應增加和減少計算能力會取消所有執行中或已進入佇列的活動，但此動作可在幾秒內完成，讓您以較多或較少的計算能力繼續進行。
 
-下列 T-SQL 程式碼示範如何針對您的 SQL 資料倉儲調整 DWU 配置：
+在 [Azure 入口網站][]中，您可以按一下 SQL 資料倉儲頁面頂端的「縮放」圖示，然後使用滑桿增加或減少套用至資料倉儲的 DWU 數量，再按一下 [儲存]。如果您想要以程式設計方式變更級別，下列 T-SQL 程式碼示範如何針對您的 SQL 資料倉儲調整 DWU 配置：
 
 ```
 ALTER DATABASE MySQLDW 
 MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
 ```
+請注意，您應該針對邏輯伺服器，而不是針對 SQL 資料倉儲執行個體本身，來執行這個 T-SQL。
 
 您也可以使用下列程式碼，透過 Powershell 達成相同結果：
 
@@ -95,4 +96,4 @@ Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Se
 
 [Azure 入口網站]: http://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

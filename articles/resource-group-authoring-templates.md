@@ -1,26 +1,28 @@
 <properties
-   pageTitle="授權 Azure 資源管理員範本"
-   description="使用宣告式 JSON 語法建立 Azure 資源管理員範本，藉此將應用程式部署至 Azure。"
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   pageTitle="編寫 Azure 資源管理員範本"
+	description="使用宣告式 JSON 語法建立 Azure 資源管理員範本，藉此將應用程式部署至 Azure。"
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # 編寫 Azure 資源管理員範本
 
 Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網站等) 結合在一起，以達到所需的目標。您不是分開部署與管理每個資源，而是建立一個 Azure 資源管理員範本，藉此經由單一、協調的作業署與佈建應用程式有的資源。在範本中，您會定義應用程式所需的資源，並指定部署參數以針對不同的環境輸入值。範本由 JSON 與運算式所組成，可讓您用來為部署建構值。
 
 此主題說明範本的各區段。對於實際結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)。
+
+您必須將範本大小限制為 1 MB，並將每個參數檔案限制為 64 KB。1 MB 的限制適用於已增加反覆資源定義和變數和參數值之範本的最終狀態。
 
 ## 範本格式
 
@@ -403,6 +405,6 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 - 如需有關您可以在範本內使用之函數的詳細資訊，請參閱 [Azure 資源管理員範本函數](resource-group-template-functions.md)
 - 若要了解如何部署您建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
 - 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)
-- 若要查看可用的結構描述，請參閱[Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)
+- 若要查看可用的結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

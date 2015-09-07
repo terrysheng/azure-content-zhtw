@@ -50,7 +50,7 @@
 
 ## 函式的清單
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [MatchRegex](#matchregex) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [ObsoleteReplace](#obsoletereplace) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [ReplaceRegex](#replaceregex) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 
 
@@ -72,26 +72,11 @@
 
 
 ----------
-### Coalesce
-
-**函式：**<br>Coalesce(source1, source2, …)
-
-**描述：**<br>從 source 參數的清單傳回第一個非空白值。
- 
-**參數：**<br>
-
-|名稱| 必要 / 重複 | 型別 | 注意事項 |
-|--- | ---                 | ---  | ---   |
-| ****source1 .. sourceN ** | 必要、次數可變 | String | 要選擇的 **source** 值 |
-
-
-
-----------
 ### FormatDateTime
 
 **函式：**<br> FormatDateTime(source, inputFormat, outputFormat)
 
-**描述：**<br>接受一種日期字串格式並轉換成其他格式。
+**描述：**<br>從一種格式取出日期字串，並將它轉換成不同的格式。
  
 **參數：**<br>
 
@@ -119,26 +104,6 @@
 |--- | ---                 | ---  | ---   |
 | **separator** | 必要 | String | 用來分隔串連成一個字串的 source 值的字串。如果不需要分隔符號，可以是 ""。 |
 | ****source1 … sourceN ** | 必要、次數可變 | String | 要結合在一起的字串值。 |
-
-
-
-
-
-----------
-### MatchRegex
-
-**函式：**<br>MatchRegex(source, find, group)
-
-**描述：**<br>傳回 source 值內符合 find 參數中指定之規則運算式模式的子字串。如果指定了 group，則只會傳回該 RegEx 群組的值。
-
-
-**參數：**<br>
-
-|名稱| 必要 / 重複 | 型別 | 注意事項 |
-|--- | ---                 | ---  | ---   |
-| **source** | 必要 | String | 要搜尋的 **source** 值。 |
-| **find** | 必要 | String | 要在 **source** 值內比對的規則運算式。 |
-| **group** | 選用 | String | 在規則運算式內符合我們想要使用其值的群組名稱。 |
 
 
 
@@ -178,14 +143,11 @@
 
 
 ----------
-### ObsoleteReplace
+### 將
 
 **函式：**<br>ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
-**描述：**<br>
-> [AZURE.NOTE]此函式即將過時，以更簡單的版本取代
-
-取代字串內的值。根據提供的參數而以不同的方式運作：
+**描述：**<br>取代字串內的值。根據提供的參數而以不同的方式運作：
 
 - 提供 **oldValue** 和 **replacementValue** 時：
 
@@ -203,7 +165,7 @@
 
    - 如果 **source** 有值，則傳回 **source**
 
-- 如果 **source** 沒有值，則使用 **oldValueRegexPattern** 和 **oldValueRegexGroupName** 從有 **replacementPropertyName** 的屬性擷取取代值。結果會傳回取代值
+   - 如果 **source** 沒有值，則使用 **oldValueRegexPattern** 和 **oldValueRegexGroupName** 從有 **replacementPropertyName** 的屬性擷取取代值。結果會傳回取代值
 
 
 **參數：**<br>
@@ -217,42 +179,6 @@
 | **replacementValue** | 選用 | String | 要取代舊值的新值。 |
 | **replacementAttributeName** | 選用 | String | 當 source 沒有任何值時，要用於取代值的屬性名稱。 |
 | **template** | 選用 | String | 提供 **template** 值時，我們會尋找 template 內的 **oldValue** 並以 source 值取代。 |
-
-
-
-----------
-### Replace
-
-**函式：**<br>Replace(source, find, replace)
-
-**描述：**<br>以 **replace** 參數的值取代 **source** 字串中所有的 **find** 值。
-
-**參數：**<br>
-
-|名稱| 必要 / 重複 | 型別 | 注意事項 |
-|--- | ---                 | ---  | ---   |
-| **source** | 必要 | String | 要搜尋的 **source** 值。 |
-| **find** | 必要 | String | 要搜尋的值。 |
-| **replace** | 必要 | String | 要取代的值。 |
-
-
-
-----------
-### ReplaceRegex
-
-**函式：**<br>ReplaceRegex(source, find, replace, group)
-
-**描述：**<br>在 **source** 字串內，以 **replace** 值取代符合 **find** 規則運算式的所有子字串。如果指定了 **group**，則只會取代該規則運算式群組的值。
-
-**參數：**<br>
-
-|名稱| 必要 / 重複 | 型別 | 注意事項 |
-|--- | ---                 | ---  | ---   |
-| **source** | 必要 | String | 要搜尋的 **source** 值。 |
-| **find** | 必要 | String | 要在 **source** 值內比對的規則運算式。 |
-| **replace** | 必要 | String | 要取代的值。 |
-| **group** | 選用 | String | 在規則運算式內符合我們想要使用其值的群組名稱。 |
-
 
 
 
@@ -296,14 +222,13 @@
 您必須從使用者的電子郵件刪去已知的網域名稱，得到使用者名稱。<br>例如，如果網域是 "contoso.com"，您可以使用下列運算式：
 
 
-**運算式：**<br> `Replace([mail], "@contoso.com", "")`
+**運算式：**<br> `Replace([mail], "@contoso.com", , ,"", ,)`
 
 **範例輸入/輸出：**<br>
 
 - **輸入** (mail)："john.doe@contoso.com"
 
 - **輸出**："john.doe"
-
 
 
 ### 附加常數尾碼到使用者名稱
@@ -317,7 +242,7 @@
 
 **範例輸入/輸出：**<br>
 
-- **輸入** (userPrincipalName)："John.Doe@contoso.com"
+- **輸入**：(userPrincipalName)："John.Doe@contoso.com"
 
 
 - **輸出**："John.Doe@contoso.com.test"
@@ -382,4 +307,4 @@
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

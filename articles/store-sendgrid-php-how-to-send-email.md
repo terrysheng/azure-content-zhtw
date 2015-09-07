@@ -1,36 +1,25 @@
 <properties 
-	pageTitle="如何使用 SendGrid 電子郵件服務 (PHP) | Microsoft Azure" 
-	description="了解如何在 Azure 使用 SendGrid 電子郵件服務傳送電子郵件。程式碼範例以 PHP 撰寫。" 
-	documentationCenter="php" 
-	services="" 
-	manager="sendgrid" 
-	editor="mollybos" 
+	pageTitle="如何使用 SendGrid 電子郵件服務 (PHP) | Microsoft Azure"
+	description="了解如何在 Azure 使用 SendGrid 電子郵件服務傳送電子郵件。程式碼範例以 PHP 撰寫。"
+	documentationCenter="php"
+	services=""
+	manager="sendgrid"
+	editor="mollybos"
 	authors="thinkingserious"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="PHP"
+	ms.topic="article"
+	ms.date="10/30/2014"
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
-
 # 如何透過 PHP 使用 SendGrid 電子郵件服務
 
-本指南示範如何在 Azure 上透過 SendGrid 電子郵件服務執行常見程式設計工作。相關範例是以 PHP 撰寫的。涵蓋的案例包括**建構電子郵件**、**傳送電子郵件**和**新增附件**。如需有關 SendGrid 及傳送電子郵件的詳細資訊，請參閱[後續步驟][]一節。
+本指南示範如何在 Azure 上透過 SendGrid 電子郵件服務執行常見程式設計工作。相關範例是以 PHP 撰寫的。涵蓋的案例包括**建構電子郵件**、**傳送電子郵件**和**新增附件**。如需有關 SendGrid 及傳送電子郵件的詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
-## 目錄
-
--   [什麼是 SendGrid 電子郵件服務][]
--   [建立 SendGrid 帳戶][]
--   [透過 PHP 應用程式使用 SendGrid][]
--   [如何：傳送電子郵件][]
--   [如何：新增附件][]
--   [如何：使用篩選器來啟用頁尾、追蹤和分析][]
--   [後續步驟][]
-
-## <a name="bkmk_WhatIsSendGrid"> </a>什麼是 SendGrid 電子郵件服務？
+## 什麼是 SendGrid 電子郵件服務？
 
 SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交易式電子郵件傳遞] (英文)，擴充性和即時分析，以及有彈性的 API 來輕鬆進行自訂整合。常見的 SendGrid 使用案例包括：
 
@@ -43,15 +32,15 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
 
 如需詳細資訊，請參閱 [https://sendgrid.com][]。
 
-## <a name="bkmk_CreateSendGrid"> </a>建立 SendGrid 帳戶
+## 建立 SendGrid 帳戶
 
 [AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## <a name="bkmk_UsingSendGridfromPHP"> </a>透過 PHP 應用程式使用 SendGrid
+## 透過 PHP 應用程式使用 SendGrid
 
 在 Azure PHP 應用程式中使用 SendGrid 並不需要特殊的組態或程式碼。SendGrid 是一項服務，因此可以透過雲端應用程式來存取，和透過內部部署應用程式來存取的方式相同。
 
-## <a name="bkmk_HowToSendEmail"> </a>如何：傳送電子郵件
+## 如何：傳送電子郵件
 
 您可以使用 SendGrid 提供的 SMTP 或 Web API 傳送電子郵件。
 
@@ -163,7 +152,7 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
 
 SendGrid 的 Web API 與 REST API 十分類似，但並非真的是 REST 型 API，因為在大部分的呼叫中，GET 和 POST 動詞可以交換使用。
 
-## <a name="bkmk_HowToAddAttachment"> </a>如何：新增附件
+## 如何：新增附件
 
 ### SMTP API
 
@@ -290,7 +279,7 @@ SendGrid 的 Web API 與 REST API 十分類似，但並非真的是 REST 型 API
      // print everything out
      print_r($response);
 
-## <a name="bkmk_HowToUseFilters"> </a>如何：使用篩選器來啟用頁尾、追蹤和分析
+## 如何：使用篩選器來啟用頁尾、追蹤和分析
 
 SendGrid 提供了運用 'filters' 的其他電子郵件功能。這些設定可新增到電子郵件以啟用特定功能，例如啟用點擊追蹤、Google 分析、訂閱追蹤等。
 
@@ -393,7 +382,7 @@ SendGrid 提供了運用 'filters' 的其他電子郵件功能。這些設定可
 
      print_r($response);
 
-## <a name="bkmk_NextSteps"> </a>後續步驟
+## 後續步驟
 
 了解 SendGrid 電子郵件服務的基本概念後，請參考下列連結以取得更多資訊。
 
@@ -401,14 +390,6 @@ SendGrid 提供了運用 'filters' 的其他電子郵件功能。這些設定可
 -   SendGrid PHP 程式庫：<https://github.com/sendgrid/sendgrid-php>
 -   Azure 客戶的 SendGrid 特別優惠：<https://sendgrid.com/windowsazure.html>
 
-  [後續步驟]: #bkmk_NextSteps
-  [什麼是 SendGrid 電子郵件服務]: #bkmk_WhatIsSendGrid
-  [建立 SendGrid 帳戶]: #bkmk_CreateSendGrid
-  [透過 PHP 應用程式使用 SendGrid]: #bkmk_UsingSendGridfromPHP
-  [如何：傳送電子郵件]: #bkmk_HowToSendEmail
-  [如何：新增附件]: #bkmk_HowToAddAttachment
-  [如何：使用篩選器來啟用頁尾、追蹤和分析]: #bkmk_HowToUseFilters
-  [How to: Use Additional SendGrid Services]: #bkmk_HowToUseAdditionalSvcs
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
   [special offer]: https://www.sendgrid.com/windowsazure.html
@@ -420,4 +401,4 @@ SendGrid 提供了運用 'filters' 的其他電子郵件功能。這些設定可
   [sendgrid-php 程式庫]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

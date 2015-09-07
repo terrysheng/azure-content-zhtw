@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何設定 App Service 環境" 
-	description="設定、管理和監視 App Service環境" 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="ccompy" 
-	manager="stefsch" 
+	pageTitle="如何設定 App Service 環境"
+	description="設定、管理和監視 App Service環境"
+	services="app-service\web"
+	documentationCenter=""
+	authors="ccompy"
+	manager="stefsch"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/27/2015"
 	ms.author="ccompy"/>
 
 # 設定 App Service 環境 #
@@ -84,7 +84,7 @@ App Service 環境是由數個主要元件所組成：
 - 使用未使用的背景工作集區，以提出所需大小的必要執行個體
 - 將 App Service 方案調整為新的背景工作集區。  
  
-相較於變更具有執行中工作負載的計算資源大小，這麼做比較不會干擾執行中的應用程式。如需在 App Service 環境中調整 Web 應用程式的詳細資訊，請移至[在 App Service 環境中調整 Web Apps](app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+相較於變更具有執行中工作負載的計算資源大小，這麼做比較不會干擾執行中的應用程式。如需在 App Service 環境中調整 Web 應用程式的詳細資訊，請移至[在 App Service 環境中調整 Web 應用程式](app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 
 ## 虛擬網路 ##
 
@@ -126,9 +126,9 @@ App Service 環境是由數個主要元件所組成：
 [HowtoCreateASE]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [HowtoScale]: http://azure.microsoft.com/documentation/articles/app-service-web-scale-a-web-app-in-an-app-service-environment/
 [ControlInbound]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
-[virtualnetwork]: https://msdn.microsoft.com/library/azure/dn133803.aspx
+[virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

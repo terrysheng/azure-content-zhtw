@@ -85,10 +85,10 @@
 
 如果您使用憑證驗證，請確認您在主目錄中擁有 ssh 資料夾的下列權限：
 
-- Chmod 700 \~/.ssh
-- Chmod 644 \~/.ssh/*.pub
-- Chmod 600 \~/.ssh/id\_rsa (或您儲存私密金鑰的任何其他檔案)
-- Chmod 644 \~/.ssh/known\_hosts (包含您已透過 SSH 連接的主機)
+- Chmod 700 ~/.ssh
+- Chmod 644 ~/.ssh/*.pub
+- Chmod 600 ~/.ssh/id\_rsa (或您儲存私密金鑰的任何其他檔案)
+- Chmod 644 ~/.ssh/known\_hosts (包含您已透過 SSH 連接的主機)
 
 ### 來源 2：組織邊緣裝置
 
@@ -119,7 +119,7 @@
 如果您可以建立 SSH 連線到相同虛擬網路中的虛擬機器，請檢查：
 
 - 目標虛擬機器上的 SSH 流量端點組態。此端點的私用 TCP 連接埠必須符合虛擬機器上 SSH 服務正在接聽的 TCP 連接埠，根據預設為 22。如果是在 Azure 資源管理員中使用範本建立的虛擬機器，請利用 [**瀏覽**] > [**虛擬機器 (v2)**] > [*VM 名稱*] > [**設定**] > [**端點**]，確認 Azure Preview 入口網站中的 SSH TCP 連接埠號碼。
-- 目標虛擬機器上的 SSH 流量端點 ACL。ACL 讓您可指定要根據來源 IP 位址允許或拒絕來自網際網路的連入流量。設定錯誤的 ACL 會阻止送至端點的連入 SSH 流量。檢查您的 ACL，以確保允許來自您的 Proxy 或其他邊緣伺服器的公用 IP 位址之連入流量。如需詳細資訊，請參閱[關於網路存取控制清單 (ACL)](https://msdn.microsoft.com/library/azure/dn376541.aspx)。
+- 目標虛擬機器上的 SSH 流量端點 ACL。ACL 讓您可指定要根據來源 IP 位址允許或拒絕來自網際網路的連入流量。設定錯誤的 ACL 會阻止送至端點的連入 SSH 流量。檢查您的 ACL，以確保允許來自您的 Proxy 或其他邊緣伺服器的公用 IP 位址之連入流量。如需詳細資訊，請參閱[關於網路存取控制清單 (ACL)](../virtual-network/virtual-networks-acl.md)。
 
 若要排除端點為問題或錯誤設定來源之可能性，請移除目前的端點，再指定 **SSH** 名稱 (TCP 連接埠 22 做為公用及私用連接埠編號)。如需詳細資訊，請參閱[在 Azure 中設定虛擬機器的端點](virtual-machines-set-up-endpoints.md)。
 
@@ -165,4 +165,4 @@
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,30 +1,31 @@
 <properties 
-	pageTitle="如何管理媒體服務帳戶中的串流端點" 
-	description="本主題說明如何使用 Azure 管理入口網站管理串流端點。" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="如何管理媒體服務帳戶中的串流端點"
+	description="本主題說明如何使用 Azure 管理入口網站管理串流端點。"
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="juliako"/>
 
 
 #<a id="managemediaservicesorigins"></a>如何管理媒體服務帳戶中的串流端點
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md)系列的一部分。
+> [AZURE.SELECTOR]
+- [Portal](media-services-manage-origins.md)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
+在 Microsoft Azure 媒體服務中，「串流端點」代表可以直接將內容傳遞給用戶端播放程式應用程式，或傳遞給內容傳遞網路 (CDN) 進行進一步發佈的串流服務。媒體服務也提供順暢的 Azure CDN 整合。來自 StreamingEndpoint 服務的輸出資料流可以是即時資料流，也可以是媒體服務帳戶中的隨選視訊資產。
 
-在 Microsoft Azure 媒體服務中，**串流端點**代表可以直接將內容傳遞給用戶端播放程式應用程式，或傳遞給內容傳遞網路 (CDN) 進行進一步發佈的串流服務。媒體服務也提供順暢的 Azure CDN 整合。來自 StreamingEndpoint 服務的輸出資料流可以是即時資料流，也可以是媒體服務帳戶中的隨選視訊資產。
-
-此外，您可以藉由調整縮放單位 (也稱為串流單位)，控制串流端點服務處理成長頻寬需求的產能。建議您為生產環境中的應用程式配置一個或多個縮放單位。利用縮放單位，我們可以購買專用的流出容量 (以 200 Mbps 為單位逐次增加) 以及其他包含以下幾點的功能：[動態封裝](https://msdn.microsoft.com/library/azure/jj889436.aspx)、CDN 整合及進階組態。
+此外，您可以藉由調整縮放單位 (也稱為串流單位)，控制串流端點服務處理成長頻寬需求的產能。建議您為生產環境中的應用程式配置一個或多個縮放單位。利用縮放單位，我們可以購買專用的流出容量 (以 200 Mbps 為單位逐次增加) 以及其他包含以下幾點的功能：[動態封裝](media-services-dynamic-packaging-overview.md)、CDN 整合及進階組態。
 
 請注意，只有 StreamingEndpoint 處於執行中狀態時，才會向您收取費用。
 
@@ -38,7 +39,7 @@
 若要使用入口網站來新增或移除串流端點，以執行下列作業：
 
 1. 在[管理入口網站](https://manage.windowsazure.com/)中，按一下 [媒體服務]。接著，按一下媒體服務的名稱。
-2. 選取 [**串流端點**] 頁面。 
+2. 選取 [串流端點] 頁面。 
 3. 按一下頁面底部的 [新增] 或 [刪除] 按鈕。請注意，預設串流端點不可刪除。 
 4. 按一下 [啟動] 按鈕以啟動串流端點。 
 5. 按一下串流端點的名稱加以設定。   
@@ -46,11 +47,11 @@
 	![串流端點頁面][streaming-endpoint]
 
 
-根據預設，您可以建立兩個串流端點。如果您需要更多串流端點，請參閱[配額和限制](media-services-quotas-and-limitations/)。
+根據預設，您可以建立兩個串流端點。如果您需要更多串流端點，請參閱[配額和限制](media-services-quotas-and-limitations.md)。
 
 ##<a id="scale_streaming_endpoints"></a>調整串流端點
 
-串流單位提供您可以以 200 Mbps 為增量購買的專用流出容量和目前包含[動態封裝功能](http://go.microsoft.com/fwlink/?LinkId=276874)的其他功能。依預設，串流是以共用執行個體模型來設定，可與其他所有使用者共用伺服器資源 (例如，運算、流出容量等)。若要改善串流的輸送量，建議購買串流單位。
+串流單位提供您可以以 200 Mbps 為增量購買的專用流出容量和目前包含[動態封裝功能](media-services-dynamic-packaging-overview.md)的其他功能。依預設，串流是以共用執行個體模型來設定，可與其他所有使用者共用伺服器資源 (例如，運算、流出容量等)。若要改善串流的輸送量，建議購買串流單位。
 
 您可以利用 .NET SDK、REST API 或 Azure 管理入口網站進行調整。
 
@@ -100,7 +101,7 @@
 
 4. 您可以指定 Adobe Flash 用戶端的跨網域存取原則 (如需詳細資訊，請參閱[跨網域原則檔案規格](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)。以及 Microsoft Silverlight 用戶端的用戶端存取原則 (如需詳細資訊，請參閱 [讓服務可跨網域界限使用](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx)。
 
-5. 您也可以按一下 [**設定**] 按鈕，設定自訂主機名稱。如需詳細資訊，請參閱 [StreamingEndpont](https://msdn.microsoft.com/library/dn783468.aspx) 主題中的 **CustomHostNames** 屬性。
+5. 您也可以按一下 [設定] 按鈕，設定自訂主機名稱。如需詳細資訊，請參閱 [StreamingEndpont](https://msdn.microsoft.com/library/dn783468.aspx) 主題中的 **CustomHostNames** 屬性。
 
 
 ##<a id="enable_cdn"></a>啟用 Azure CDN 整合
@@ -118,7 +119,7 @@
 
 在所有 Azure 資料中心啟用 CDN 整合：美國西部、美國東部、北歐、西歐、日本西部、日本東部、東南亞和東亞。
 
-一旦啟用後，就會停用下列組態：**自訂主機名稱**和**存取控制**。
+一旦啟用後，就會停用下列組態：[自訂主機名稱] 和 [存取控制]。
 
 ![串流端點啟用 CDN][streaming-endpoint-enable-cdn]
 
@@ -130,7 +131,7 @@
 - 對於新的串流端點，您可以藉由建立新的端點來啟用 CDN；對於現有的串流端點，您必須先停止端點，然後再啟用 CDN。
  
 
-如需詳細資訊，請參閱 [宣佈 Azure 媒體服務與 Azure CDN (內容傳遞網路) 的整合](http://azure.microsoft.com/blog/2015/03/17/announcing-azure-media-services-integration-with-azure-cdn-content-delivery-network/)。
+如需詳細資訊，請參閱[宣佈 Azure 媒體服務與 Azure CDN (內容傳遞網路) 的整合](http://azure.microsoft.com/blog/2015/03/17/announcing-azure-media-services-integration-with-azure-cdn-content-delivery-network/)。
 
 
 [streaming-endpoint-enable-cdn]: ./media/media-services-manage-origins/media-services-origins-enable-cdn.png
@@ -139,4 +140,4 @@
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

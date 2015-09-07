@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="適用於 Azure 客體 OS 的更新清單 | Microsoft Azure" 
-   description="適用於 Azure 客體作業系統版次的更新清單" 
-   services="cloud-services" 
-   documentationCenter="na" 
-   authors="yuemlu" 
-   manager="markkie" 
-   editor=""/>
+   pageTitle="適用於 Azure 客體 OS 的更新清單 | Microsoft Azure"
+	description="適用於 Azure 客體作業系統版次的更新清單"
+	services="cloud-services"
+	documentationCenter="na"
+	authors="yuemlu"
+	manager="markkie"
+	editor=""/>
 
 <tags
    ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd" 
-   ms.date="04/17/2015"
-   ms.author="adegeo"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="08/24/2015"
+	ms.author="yuemlu"/>
 
 # Azure 客體作業系統 
 
@@ -32,7 +32,6 @@
 | MS15-088 | [3082458] | 不安全的命令列參數傳遞可能會允許資訊洩漏 | 4\.23, 3.30, 2.42 | 2015 年 8 月 11 日 |
 | MS15-089 | [3060716] | Microsoft Windows 中的弱點可能會允許提高權限 | 4\.23, 3.30, 2.42 | 2015 年 8 月 11 日 |
 | MS15-090 | [3076949] | WebDAV 中的弱點可能會允許資訊洩漏 | 4\.23, 3.30, 2.42 | 2015 年 8 月 11 日 |
-| MS15-092 | [3086251] | .NET Framework 中的弱點可能會允許權限提高 | 4\.23, 3.30, 2.42 | 2015 年 8 月 11 日 |
 
 
 ## 7 月客體作業系統
@@ -265,4 +264,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

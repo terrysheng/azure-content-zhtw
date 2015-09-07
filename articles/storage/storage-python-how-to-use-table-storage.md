@@ -3,7 +3,7 @@
 	description="了解您能如何使用 Python 的表格服務來建立和刪除資料表，以及插入和查詢資料表。"
 	services="storage"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="emgerner-msft"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="03/11/2015"
-	ms.author="huvalo"/>
+	ms.date="08/25/2015"
+	ms.author="emgerner"/>
 
 
 # 如何使用 Python 的資料表儲存體
@@ -23,7 +23,7 @@
 
 ## 概觀
 
-本指南說明如何使用 Azure 資料表儲存體服務執行一般案例。相關範例是以 Python 所撰寫，並使用 [Python Azure 封裝][]。除了「在資料表中插入及查詢實體」外，所涵蓋的案例還包括「建立和刪除資料表」。
+本指南說明如何使用 Azure 資料表儲存體服務執行一般案例。這些範例是以 Python 所撰寫，並使用 [Python Azure 儲存體封裝][]。除了「在資料表中插入及查詢實體」外，所涵蓋的案例還包括「建立和刪除資料表」。
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -36,7 +36,7 @@
 
 **TableService** 物件可讓您操作資料表服務。下列程式碼將建立 **TableService** 物件。將程式碼新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 Python 檔案內的頂端附近：
 
-	from azure.storage import TableService, Entity
+	from azure.storage.table import TableService, Entity
 
 下列程式碼會使用儲存體帳戶名稱和帳戶金鑰來建立 **TableService** 物件。將 'myaccount' 和 'mykey' 取代為真實的帳戶和金鑰。
 
@@ -139,5 +139,6 @@
 [Azure 儲存體]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 [Python Azure 封裝]: https://pypi.python.org/pypi/azure
+[Python Azure 儲存體封裝]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

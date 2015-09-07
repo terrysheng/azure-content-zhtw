@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Azure 自動化 DSC 概觀" 
-   description="Azure 自動化期望狀態組態 (DSC)、其條款和已知問題的概觀" 
-   services="automation" 
-   documentationCenter="dev-center-name" 
-   authors="coreyp-at-msft" 
-   manager="stevenka" 
-   editor="tysonn"/>
+   pageTitle="Azure 自動化 DSC 概觀"
+	description="Azure 自動化期望狀態組態 (DSC)、其條款和已知問題的概觀"
+	services="automation"
+	documentationCenter="dev-center-name"
+	authors="coreyp-at-msft"
+	manager="stevenka"
+	editor="tysonn"/>
 
 <tags
    ms.service="automation"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="TBD" 
-   ms.date="07/09/2015"
-   ms.author="coreyp"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="TBD"
+	ms.date="08/18/2015"
+	ms.author="coreyp"/>
 
 # Azure 自動化 DSC 概觀 #
 
@@ -57,7 +57,7 @@ PowerShell DSC 引進了稱為組態的新概念。組態可讓您透過 PowerSh
 
 ![替代文字](./media/automation-dsc-overview/AADSC_1.png)
 
-在組態區塊內，您可以定義節點組態區塊，指定一組環境中應該完全相同的節點 (電腦) 的期望組態。如此一來，節點組態可表示要設想的一或多個節點的「角色」。節點組態區塊開頭為 node 關鍵字。在此關鍵字之後加上角色名稱，它可以是變數。在電腦名稱之後，使用大括弧 {} 來分隔節點組態區塊。
+在組態區塊內，您可以定義節點組態區塊，指定一組環境中應該完全相同的節點 (電腦) 的期望組態。如此一來，節點組態可表示要設想的一或多個節點的「角色」。節點組態區塊開頭為 node 關鍵字。在此關鍵字之後加上角色名稱，它可以是變數或運算式。在角色名稱之後，使用大括弧 {} 來分隔節點組態區塊。
 
 ![替代文字](./media/automation-dsc-overview/AADSC_2.png)
  
@@ -82,14 +82,14 @@ Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://
 
 編譯了 DSC 組態之後，根據組態中的節點區塊，會產生一或多個節點組態。節點組態與「MOF」或「組態文件」是一樣的 (如果您熟悉這些 PS DSC 詞彙)，而代表「角色」，例如 webserver 或worker，應該設想一或多個節點的期望狀態。
 
-可察覺節點組態的 PS DSC 節點，應該透過 DSC 發送或提取方法來執行。Azure 自動化 DSC 依賴 DSC 提取方法，其中要求節點組態的節點應該從 Azure 自動化 DSC 提取伺服器套用。由於節點會對 Azure 自動化 DSC 提出要求，這些節點可以是在防火牆之後、將所有輸入連接埠關閉等等。他們只需要對網際網路的輸出存取權。
+可察覺節點組態的 PS DSC 節點，應該透過 DSC 發送或提取方法來執行。Azure 自動化 DSC 依賴 DSC 提取方法，其中要求節點組態的節點應該從 Azure 自動化 DSC 提取伺服器套用。由於節點會對 Azure 自動化 DSC 提出要求，因此這些節點可以在防火牆之後、將所有輸入連接埠關閉等等。他們只需要對網際網路的輸出存取權。
 
 Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://msdn.microsoft.com/library/mt244122.aspx)中提供下列 Cmdlet，以用於 DSC 節點組態的管理：`Get-AzureAutomationDscNodeConfiguration`
 
 
 ###節點###
 
-DSC 節點是由 DSC 所管理的任何一部電腦的組態。這可能是 Azure VM 或內部部署 VM/實體主機。節點執行節點組態以成為並保持符合它們定義的期望狀態，而且也可以回報給報告伺服器其相關的組態狀態和符合性。
+DSC 節點是由 DSC 所管理的任何一部機器的組態。這可能是 Azure VM 或內部部署 VM/實體主機。節點執行節點組態以成為並保持符合它們定義的期望狀態，而且也可以回報給報告伺服器其相關的組態狀態和符合性。
 
 Azure 自動化 DSC 使將節點上架以由 Azure 自動化 DSC 進行管理更為輕鬆，並允許變更指派給每個節點伺服器端的節點組態，因此下一次節點檢查伺服器的指示時，會設想不同的角色並變更它的設定方式來符合組態。節點也會向 Azure 自動化 DSC 報告其狀態和組態符合性。
 
@@ -103,7 +103,7 @@ Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://
 -	`Get-AzureAutomationDscNodeReport`
 -	`Export-AzureAutomationDscNodeReportContent`
 
-`Get-AzureAutomationRegistrationInfo` Cmdlet 可用來取得註冊 URL 和將 Azure 傳統 VM 上架到 Azure 自動化帳戶所需的金鑰，透過 Azure 入口網站中的 Azure 自動化 DSC VM 延伸模組，或透過 PowerShell。
+`Get-AzureAutomationRegistrationInfo` Cmdlet 可透過 Azure 入口網站中的 Azure 自動化 DSC VM 延伸模組，或透過 PowerShell，用來取得註冊 URL 和將 Azure 傳統 VM 上架到 Azure 自動化帳戶所需的金鑰。
 
 
 Azure 自動化 DSC VM 延伸模組：
@@ -170,7 +170,7 @@ DSC 資源也可匯入成為 PowerShell 模組的一部分，以擴充內建的 
 
 Azure 自動化 DSC 隨附與 PS DSC 相同的所有內建 DSC 資源。透過匯入包含資源的 PowerShell 模組到 Azure 自動化，即可加入其他資源至 Azure 自動化 DSC。
 
-Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://msdn.microsoft.com/library/mt244122.aspx)中提供下列 Cmdlet，以用於 DSC 節點的管理：
+Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://msdn.microsoft.com/library/mt244122.aspx)中提供下列 Cmdlet，用於管理 PowerShell：
 
 - `New-AzureAutomationModule`
 - `Remove-AzureAutomationModule`
@@ -195,7 +195,7 @@ Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://
 
 ##錯誤/已知問題：##
 
-- 由於 Azure 自動化 DSC 處於預覽，第一次使用這項功能時，您將需要使用 Azure PowerShell Cmdlet 進行註冊。您可以藉由呼叫下列兩個 Cmdlet 來註冊：
+- 由於 Azure 自動化 DSC 處於預覽，第一次使用這項功能時，您將需要使用 Azure PowerShell Cmdlet 或 Azure Preview 入口網站進行註冊。您可以藉由呼叫下列兩個 Cmdlet 來註冊：
 
  - `Register-AzureProvider –ProviderNamespace Microsoft.Automation`
  - `Register-AzureProviderFeature -FeatureName dsc -ProviderNamespace Microsoft.Automation` 
@@ -226,4 +226,4 @@ Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://
 
 - 上架到 Azure 自動化 DSC 的 DSC 節點一開始都會顯示為「相容」狀態，即使它們實際上不符合所對應的 DSC 節點組態。節點執行其第一次提取，並將其第一個 DSC 報表傳送到 Azure 自動化 DSC 之後，節點的狀態應該是正確的。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

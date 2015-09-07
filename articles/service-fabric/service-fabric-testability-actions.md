@@ -1,20 +1,20 @@
 <properties
    pageTitle="Testability 動作。"
-   description="本文說明關於在 Microsoft Azure Service Fabric 中找到的 Testability 動作。"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="heeldin"
-   manager="timlt"
-   editor=""/>
+	description="本文說明關於在 Microsoft Azure Service Fabric 中找到的 Testability 動作。"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="heeldin"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="03/17/2015"
-   ms.author="heeldin;motanv"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="03/17/2015"
+	ms.author="heeldin;motanv"/>
 
 # Testability 動作
 為了模擬不可靠的基礎結構，Service Fabric 會提供開發人員用於模擬各種真實失敗案例及狀態轉換的方法。這些方法會以 Testability 動作的形式公開。這些動作是低階 API，會導致特定錯誤插入、狀態轉換或驗證。結合這些動作後，服務開發人員便可以為您的服務撰寫完整的測試案例。
@@ -211,6 +211,7 @@ PartitionSelector 是 Testability 中公開的協助程式，可用來協助選�
 
 Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829"); PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceNamepartitionIdGuid); long replicaId = 130559876481875498;
 
+
 ```csharp
 // Select Random replica
 ReplicaSelector randomReplicaSelector = ReplicaSelector.RandomOf(partitionSelector);
@@ -233,4 +234,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [服務對服務間通訊的失敗案例](service-fabric-testability-scenarios-service-communication.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

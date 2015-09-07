@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="什麼是 StorSimple？" 
-   description="說明 StorSimple 功能和架構，並介紹 StorSimple 元件。" 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="carolz" 
-   editor=""/>
+   pageTitle="何謂 StorSimple？| Microsoft Azure"
+	description="描述 StorSimple 資料管理和保護程序、優點及架構，並介紹 StorSimple 元件。"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/14/2015"
-   ms.author="v-sharos@microsoft.com"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="v-sharos@microsoft.com"/>
 
-# 什麼是 StorSimple？ 
+# StorSimple 8000 系列：混合式雲端存放解決方案 
 
 ## 概觀
 
@@ -66,11 +66,11 @@ Microsoft Azure StorSimple 解決方案包括下列元件：
 
 ## 後續步驟
 
-請閱讀 [StorSimple 8000 系列解決方案概觀](http://www.microsoft.com/server-cloud/products/storsimple/resources.aspx)並檢視 [StorSimple 講解](http://www.microsoft.com/server-cloud/products/storsimple/Features.aspx)。
+深入了解 [StorSimple](https://azure.microsoft.com/documentation/services/storsimple/)。
 
 深入了解 [StorSimple 元件和術語](storsimple-components.md)。
 
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

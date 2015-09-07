@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="App Service 環境簡介" 
-	description="了解可提供安全、VNet 聯結、專用延展單位的 App Service 環境功能，以便執行您所有的應用程式。" 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="ccompy" 
-	manager="wpickett" 
+	pageTitle="App Service 環境簡介"
+	description="了解可提供安全、VNet 聯結、專用延展單位的 App Service 環境功能，以便執行您所有的應用程式。"
+	services="app-service\web"
+	documentationCenter=""
+	authors="ccompy"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="stefsh"/>
 
 # App Service 環境簡介
@@ -60,7 +60,7 @@ App Service 環境可以設定為單一背景工作集區中最多有 50 個計�
 
 <!-- LINKS -->
 [PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/
-[MoreInfoOnVirtualNetworks]: https://msdn.microsoft.com/library/azure/dn133803.aspx
+[MoreInfoOnVirtualNetworks]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [AppServicePlan]: http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
 [Azure preview portal]: http://portal.azure.com
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
@@ -69,7 +69,7 @@ App Service 環境可以設定為單一背景工作集區中最多有 50 個計�
 [MobileApps]: http://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop-preview/
 [APIApps]: http://azure.microsoft.com/documentation/articles/app-service-api-apps-why-best-platform/
 [LogicApps]: http://azure.microsoft.com/documentation/articles/app-service-logic-what-are-logic-apps/
-[NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [HowToConfigureanAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
@@ -79,4 +79,4 @@ App Service 環境可以設定為單一背景工作集區中最多有 50 個計�
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

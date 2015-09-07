@@ -1,27 +1,26 @@
 <properties
-   pageTitle="Chatter 連接器 API 應用程式"
-   description="如何使用 Chatter 連接器"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 Chatter 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 Chatter 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# 在邏輯應用程式中使用 Chatter 連接器
+# 開始使用 Chatter 連接器並將它加入您的邏輯應用程式 
+連線至 Chatter 以張貼訊息或搜尋摘要。例如，您可以搜尋 Chatter 摘要，而當您找到特定項目時，您就可以將該 Chatter 訊息張貼至 Sales 群組。
 
-Chatter 連接器可讓您連接到 Chatter 並執行一般工作，像是張貼訊息。例如，您可以搜尋 Chatter 摘要，而當您找到特定項目時，您就可以將該 Chatter 訊息張貼至 Sales 群組。
-
-您可以將 Chatter 連接器加入您的商務工作流程並處理資料做為此工作流程的一部分。
+您可以將 Chatter 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
 ## 觸發程序和動作
 
@@ -104,4 +103,4 @@ Chatter 連接器可以在邏輯應用程式中用作觸發程序或動作，且
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

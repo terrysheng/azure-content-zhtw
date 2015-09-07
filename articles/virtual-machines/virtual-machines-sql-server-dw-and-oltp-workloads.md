@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # SQL Server 資料倉儲和 Azure 虛擬機器中的交易式工作負載
 
-若要在 Azure 虛擬機器中使用 SQL Server 進行資料倉儲或交易式工作負載，建議您在 Azure 虛擬機器資源庫中使用其中一個預先設定的虛擬機器映像。這些映像已根據 [Azure 虛擬機器中 SQL Server 的效能最佳作法](https://msdn.microsoft.com/library/azure/dn133149.aspx)中的建議最佳化。
+若要在 Azure 虛擬機器中使用 SQL Server 進行資料倉儲或交易式工作負載，建議您在 Azure 虛擬機器資源庫中使用其中一個預先設定的虛擬機器映像。這些映像已根據 [Azure 虛擬機器中 SQL Server 的效能最佳做法](virtual-machines-sql-server-performance-best-practices.md)中的建議最佳化。
 
 本文的主題為在 Azure 虛擬機器上執行上述工作負載 (也稱為基礎結構即服務或 IaaS)。您也可以將資料倉儲和交易式工作負載作為 Azure 中的服務執行。如需詳細資訊，請參閱 [SQL 資料倉儲文件](http://azure.microsoft.com/documentation/services/sql-data-warehouse/)和 [Azure SQL Database](http://azure.microsoft.com/documentation/services/sql-database/)。
 
@@ -75,20 +75,23 @@ Azure VM 資源庫提供下列預先設定的 VM 映像：
 
 ## 交易式/DW 映像中包含的特定組態
 
-這些映像是根據 [Azure 虛擬機器中 SQL Server 的效能最佳作法](https://msdn.microsoft.com/library/azure/dn133149.aspx)中的內容進行最佳化。具體而言，這些映像的組態包括下列最佳化功能。
+這些映像是根據 [Azure 虛擬機器中 SQL Server 的效能最佳作法](virtual-machines-sql-server-performance-best-practices.md)中的內容進行最佳化。具體而言，這些映像的組態包括下列最佳化功能。
 
 >[AZURE.NOTE]如果您自備授權，或從頭開始建立資料倉儲或交易式虛擬機器，您可以根據效能文章，以及下方預先設定資源庫映像中的最佳化範例進行最佳化。
 
 ### 磁碟組態
 
-
+|組態|設定|
 |---|---|
 |連接的資料磁碟數量|15|
-|儲存空間|兩個儲存體集區：<br/>– 1 個具有 12 個資料磁碟的資料集區；固定大小 12 TB；資料行 = 12<br/> – 1 個具有 3 個資料磁碟的記錄集區；固定大小 3 TB；資料行 = 3<br/><br/>剩餘一個資料磁碟供使用者連接和自行決定使用方式。<br/><br/>**DW**：等量磁碟區大小 = 256 KB<br/>**交易式**：等量磁碟區大小 = 64 KB|
-|磁碟大小，快取，配置大小|每個磁碟大小 1 TB，HostCache = 無，NTFS 配置單位大小 = 64 KB|
+|儲存空間|兩個儲存體集區：<br/>--1 個具有 12 個資料磁碟的資料集區；固定大小 12 TB；資料行 = 12<br/>--1 個具有 3 個資料磁碟的記錄集區；固定大小 3 TB；資料行 = 3<br/><br/>剩餘一個資料磁碟供使用者連接和自行決定使用方式。<br/><br/>**DW**：等量磁碟區大小 = 256 KB<br/>**交易式**：等量磁碟區大小 = 64 KB|
+|磁碟大小|每個磁碟 1 TB|
+|快取|HostCache = 無|
+|配置大小|NTFS 配置單位大小 = 64 KB|
 
 ### SQL Server 組態
 
+|組態|設定|
 |---|---|
 |啟動參數|-T1117 可在資料庫需要自動成長時，讓資料檔案保持在同樣的大小 協助保護資料的檔案大小相同<br/><br/>-T1118 可提供增強 tempdb 的延展性 (如需詳細資訊，請參閱 [SQL Server (2005年和 2008年) 的追蹤旗標 1118 (-T1118) 的使用方式](http://blogs.msdn.com/b/psssql/archive/2008/12/17/sql-server-2005-and-2008-trace-flag-1118-t1118-usage.aspx?WT.mc_id=Blog_SQL_Announce_Announce)。)|
 |復原模型|**DW**：透過 ALTER DATABASE 將模型資料庫設為 SIMPLE<br/>**交易式**：無變更|
@@ -132,4 +135,4 @@ Azure VM 資源庫提供下列預先設定的 VM 映像：
 
 如需在 Azure VM 中執行 SQL Server 的其他主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

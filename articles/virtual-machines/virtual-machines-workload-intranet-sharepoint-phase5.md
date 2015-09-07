@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint 內部網路伺服器陣列工作負載第 5 階段：建立可用性群組並新增 SharePoint 資料庫。"
-	description="在部署內部網路專用之 SharePoint 2013 伺服器陣列的最終階段，您需建立可用性群組，並將 SharePoint 資料庫新增到該群組中。"
+	pageTitle="SharePoint Server 2013 伺服器陣列第 5 階段 | Microsoft Azure"
+	description="在 Azure SharePoint Server 2013 伺服器陣列第 5 階段中，建立可用性群組並將 SharePoint 資料庫加入其中。"
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -56,7 +56,7 @@ SharePoint 會在初始組態中建立數個資料庫。您必須透過以下步
 3.	在左側窗格中展開 [**資料庫**] 節點。
 4.	以滑鼠右鍵按一下資料庫以進行備份，指向 [**工作**]，然後按一下 [**備份**]。
 5.	在 [**目的地**] 區段中按一下 [**移除**]，移除備份檔案的預設檔案路徑。
-6.	按一下 [新增]。在 [**檔案名稱**] 中鍵入 **\\[machineName]\\backup[databaseName].bak**，其中的 machineName 是主要 SQL Server 電腦的名稱，而 databaseName 是資料庫名稱。按一下 [**確定**]，待備份完成的對話方塊出現後，再按一下 [**確定**]。
+6.	按一下 [新增]。在 [**檔案名稱**] 中鍵入 **\[machineName]\\backup[databaseName].bak**，其中的 machineName 是主要 SQL Server 電腦的名稱，而 databaseName 是資料庫名稱。按一下 [**確定**]，待備份完成的對話方塊出現後，再按一下 [**確定**]。
 7.	在左窗格中以滑鼠右鍵按一下 [**databaseName**]，指向 [**工作**]，然後按一下 [**備份**]。
 8.	在 [**備份類型**] 中選取 [**交易紀錄**]，然後按兩下 [**確定**]。
 9.	讓此遠端桌面工作階段保持執行。
@@ -69,7 +69,7 @@ SharePoint 會在初始組態中建立數個資料庫。您必須透過以下步
 4.	在左側窗格中，以滑鼠右鍵按一下 [**資料庫**]，然後按一下 [**還原資料庫**]。
 5.	在 [**來源**] 區段中選取 [**裝置**]，然後按一下省略符號 (…) 按鈕。
 6.	在 [**選取備份裝置**] 中按一下 [**新增**]。
-7.	在 [**備份檔案位置**] 中鍵入 **\\[machineName]\\backup**，按 Enter，選取 **[databaseName].bak**，然後按兩次 [**確定**]。您現在可以在 [**要還原的備份組**] 區段中看到完整備份和記錄備份。
+7.	在 [**備份檔案位置**] 中鍵入 **\[machineName]\\backup**，按 Enter，選取 **[databaseName].bak**，然後按兩次 [**確定**]。您現在可以在 [**要還原的備份組**] 區段中看到完整備份和記錄備份。
 8.	在 [**選取頁面**] 中按一下 [**選項**]。在 [**還原選項**] 區段的 [**復原狀態**] 中，選取 [**使用 NORECOVERY 還原**]，然後按一下 [**確定**]。
 9.	出現提示時，按一下 [**確定**]。
 
@@ -126,4 +126,4 @@ SharePoint 會在初始組態中建立數個資料庫。您必須透過以下步
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

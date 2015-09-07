@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用診斷 (.NET) | Microsoft Azure" 
-	description="了解如何在 Azure 中使用診斷資料進行偵錯、測量效能、監視、流量分析等。" 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="rboucher" 
-	manager="jwhit" 
+	pageTitle="如何使用診斷 (.NET) | Microsoft Azure"
+	description="了解如何在 Azure 中使用診斷資料進行偵錯、測量效能、監視、流量分析等。"
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="rboucher"
+	manager="jwhit"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="robb"/>
 
 
@@ -174,7 +174,7 @@ NET EventSource |您的程式碼使用 .NET <a href="http://msdn.microsoft.com/l
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -320,7 +320,7 @@ NET EventSource |您的程式碼使用 .NET <a href="http://msdn.microsoft.com/l
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -373,24 +373,24 @@ NET EventSource |您的程式碼使用 .NET <a href="http://msdn.microsoft.com/l
 結束代碼|說明
 ---|---
 0|成功。
-\-1|一般錯誤。
-\-2|無法載入 rcf 檔。<p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用客體代理程式外掛程式啟動器時才會發生。
-\-3|無法載入診斷組態檔。<p><p>解決方法：這是組態檔未通過結構描述驗證的結果。解決方法是提供以結構描述編譯的組態檔。
-\-4|診斷之監視代理程式的另一個執行個體已在使用本機資源目錄。<p><p>解決方法：為 **LocalResourceDirectory** 指定其他值。
-\-6|客體代理程式外掛程式啟動器嘗試使用無效的命令列來啟動診斷。<p><p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用客體代理程式外掛程式啟動器時才會發生。
-\-10|診斷外掛程式結束並發生未處理的例外狀況。
-\-11|客體代理程式無法建立負責啟動及監視監視代理程式的處理序。<p><p>解決方法：確認有足夠的系統資源，可啟動新的處理序。<p>
-\-101|呼叫診斷外掛程式時的引數無效。<p><p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用客體代理程式外掛程式啟動器時才會發生。
-\-102|外掛程式處理序無法對本身進行初始化。<p><p>解決方法：確認有足夠的系統資源，可啟動新的處理序。
-\-103|外掛程式處理序無法對本身進行初始化。具體而言，其無法建立記錄器物件。<p><p>解決方法：確認有足夠的系統資源，可啟動新的處理序。
-\-104|無法載入客體代理程式提供的 rcf 檔。<p><p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用客體代理程式外掛程式啟動器時才會發生。
-\-105|診斷外掛程式無法開啟診斷組態檔。<p><p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用診斷外掛程式時才會發生。
-\-106|無法讀取診斷組態檔。<p><p>解決方法：這是組態檔未通過結構描述驗證的結果。因此，解決方法是提供以結構描述編譯的組態檔。您可以在 VM 上的 *%SystemDrive%\\WindowsAzure\\Config* 資料夾中，找到傳送給診斷擴充功能的 XML。開啟適當的 XML 檔並搜尋 **Microsoft.Azure.Diagnostics**，然後搜尋 [xmlCfg] 欄位。該資料是以 base64 編碼，因此您將需要[進行解碼](http://www.bing.com/search?q=base64+decoder)，才能查看診斷載入的 XML。<p>
-\-107|傳遞給監視代理程式的資源目錄無效。<p><p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用監視代理程式時才會發生。</p>
-\-108 |無法將診斷組態檔轉換成監視代理程式組態檔。<p><p>這是內部錯誤，只有當使用無效的組態檔以手動方式叫用診斷外掛程式時才會發生。
-\-110|一般診斷組態錯誤。<p><p>這是內部錯誤，只有當使用無效的組態檔以手動方式叫用診斷外掛程式時才會發生。
-\-111|無法啟動監視代理程式。<p><p>解決方法：確認有足夠的系統資源可用。
-\-112|一般錯誤
+-1|一般錯誤。
+-2|無法載入 rcf 檔。<p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用客體代理程式外掛程式啟動器時才會發生。
+-3|無法載入診斷組態檔。<p><p>解決方法：這是組態檔未通過結構描述驗證的結果。解決方法是提供以結構描述編譯的組態檔。
+-4|診斷之監視代理程式的另一個執行個體已在使用本機資源目錄。<p><p>解決方法：為 **LocalResourceDirectory** 指定其他值。
+-6|客體代理程式外掛程式啟動器嘗試使用無效的命令列來啟動診斷。<p><p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用客體代理程式外掛程式啟動器時才會發生。
+-10|診斷外掛程式結束並發生未處理的例外狀況。
+-11|客體代理程式無法建立負責啟動及監視監視代理程式的處理序。<p><p>解決方法：確認有足夠的系統資源，可啟動新的處理序。<p>
+-101|呼叫診斷外掛程式時的引數無效。<p><p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用客體代理程式外掛程式啟動器時才會發生。
+-102|外掛程式處理序無法對本身進行初始化。<p><p>解決方法：確認有足夠的系統資源，可啟動新的處理序。
+-103|外掛程式處理序無法對本身進行初始化。具體而言，其無法建立記錄器物件。<p><p>解決方法：確認有足夠的系統資源，可啟動新的處理序。
+-104|無法載入客體代理程式提供的 rcf 檔。<p><p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用客體代理程式外掛程式啟動器時才會發生。
+-105|診斷外掛程式無法開啟診斷組態檔。<p><p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用診斷外掛程式時才會發生。
+-106|無法讀取診斷組態檔。<p><p>解決方法：這是組態檔未通過結構描述驗證的結果。因此，解決方法是提供以結構描述編譯的組態檔。您可以在 VM 上的 *%SystemDrive%\\WindowsAzure\\Config* 資料夾中，找到傳送給診斷擴充功能的 XML。開啟適當的 XML 檔並搜尋 **Microsoft.Azure.Diagnostics**，然後搜尋 [xmlCfg] 欄位。該資料是以 base64 編碼，因此您將需要[進行解碼](http://www.bing.com/search?q=base64+decoder)，才能查看診斷載入的 XML。<p>
+-107|傳遞給監視代理程式的資源目錄無效。<p><p>這是內部錯誤，只有當不正確地在 VM 上以手動方式叫用監視代理程式時才會發生。</p>
+-108 |無法將診斷組態檔轉換成監視代理程式組態檔。<p><p>這是內部錯誤，只有當使用無效的組態檔以手動方式叫用診斷外掛程式時才會發生。
+-110|一般診斷組態錯誤。<p><p>這是內部錯誤，只有當使用無效的組態檔以手動方式叫用診斷外掛程式時才會發生。
+-111|無法啟動監視代理程式。<p><p>解決方法：確認有足夠的系統資源可用。
+-112|一般錯誤
 
 
 ### 診斷資料未記錄至儲存體
@@ -511,4 +511,4 @@ EventSource|否|資料表|記錄您的程式碼使用 .NET EventSource 類別所
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

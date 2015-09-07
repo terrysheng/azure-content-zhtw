@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect 常見問題集" 
-	description="此頁面包含有關 Azure AD Connect 的常見問題集。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect 常見問題集"
+	description="此頁面包含有關 Azure AD Connect 的常見問題集。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure Active Directory Connect 常見問題集
@@ -40,4 +40,4 @@
 
 請使用[這篇](active-directory-aadconnect-o365-certs.md)文章中的指引來更新憑證解決問題。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

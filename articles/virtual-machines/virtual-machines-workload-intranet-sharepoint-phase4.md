@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint 內部網路伺服器陣列工作負載第 4 階段：設定 SharePoint Server。"
-	description="在這個部署內部網路專用的 SharePoint 2013 的第四個階段中，您需要建立 SharePoint Server 虛擬機器和新的 SharePoint 伺服器陣列。"
+	pageTitle="SharePoint Server 2013 伺服器陣列第 4 階段 | Microsoft Azure"
+	description="在 Azure SharePoint Server 2013 伺服器陣列第 4 階段中，建立 SharePoint 伺服器虛擬機器和新 SharePoint 伺服器陣列。"
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -193,4 +193,4 @@ SharePoint 建立伺服器陣列後，會在主要 SQL Server 虛擬機器中設
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

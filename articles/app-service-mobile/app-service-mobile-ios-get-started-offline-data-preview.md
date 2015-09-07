@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="08/22/2015"
 	ms.author="krisragh"/>
 
 # 啟用 iOS 行動應用程式的離線同步處理
@@ -22,19 +22,15 @@
 
 ## 概觀
 
-本教學課程說明 iOS 之 Azure Mobile Apps 的離線同步功能。離線同步處理可讓使用者與行動應用程式進行互動--檢視、新增或修改資料--即使沒有網路連線進也可行。變更會儲存在本機資料庫中︰裝置上線後，這些變更就會與遠端後端進行同步處理。
+本教學課程說明 iOS 之 Azure Mobile Apps 的離線同步功能。離線同步處理可讓使用者與行動應用程式進行互動 - 檢視、新增或修改資料 - 即使沒有網路連線也可行。變更會儲存在本機資料庫中︰裝置上線後，這些變更就會與遠端後端進行同步處理。
 
-如果這是您第一次接觸 Azure Mobile Apps，您應先完成[建立 iOS 應用程式]教學課程。
+如果這是您第一次接觸 Azure Mobile Apps，您應先完成[建立 iOS 應用程式]教學課程。如果您不要使用下載的快速入門伺服器專案，必須將資料存取擴充套件新增至您的專案。如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
-若要深入了解離線同步功能，請參閱 [Azure Mobile Apps 中的離線資料同步]主題。
-
-##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
+若要深入了解離線同步處理功能，請參閱 [Azure 行動應用程式中的離線資料同步處理]主題。
 
 ## <a name="review-sync"></a>檢閱用戶端同步程式碼 
 
-您針對[建立 iOS 應用程式]教學課程下載的用戶端專案已包含支援使用以本機核心資料為基礎的資料庫進行離線同步處理的程式碼。這一節是已包含在教學課程程式碼中的內容摘要。如需此功能的概念性概觀，請參閱 [Azure Mobile Apps 中的離線資料同步]。
+您針對[建立 iOS 應用程式]教學課程下載的用戶端專案已包含支援使用以本機核心資料為基礎的資料庫進行離線同步處理的程式碼。這一節是已包含在教學課程程式碼中的內容摘要。如需此功能的概念性概觀，請參閱 [Azure 行動應用程式中的離線資料同步處理]。
 
 Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網路時，仍可與本機資料庫互動。若要在您的應用程式中使用這些功能，您可初始化 `MSClient` 的同步處理內容以及參考本機存放區。接著，請透過 `MSSyncTable` 介面參考您的資料表。
 
@@ -162,9 +158,7 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
     | id | 字串 (標示為必要) | 遠端存放區中的主索引鍵 |
     | 完成 | Boolean | todo 項目欄位 |
     | 文字 | String | todo 項目欄位 |
-    | ms\_createdAt | Date | (選用) 對應至 \_\_createdAt 系統屬性 | 
-	| ms\_updatedAt | 日期 | (選用) 對應至 \_\_updatedAt 系統屬性 | 
-	| ms\_version | 字串 | (選用) 用於偵測衝突，對應至 \_\_version |
+    | ms\_createdAt | Date | (選用) 對應至 \_\_createdAt 系統屬性 | | ms\_updatedAt | 日期 | (選用) 對應至 \_\_updatedAt 系統屬性 | | ms\_version | 字串 | (選用) 用於偵測衝突，對應至 \_\_version |
 
 
 ## <a name="setup-sync"></a>變更應用程式的同步處理行為
@@ -233,23 +227,23 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
 
 ## 其他資源
 
-* [Azure Mobile Apps 中的離線資料同步]
+* [Azure 行動應用程式中的離線資料同步處理]
 
-* [雲端報導︰Azure 行動服務中的離線同步] (注意︰影片位於行動服務上，但離線同步的運作方式類似在 Azure Mobile Apps 中的方式)
+* [雲端報導︰Azure 行動服務中的離線同步處理] (注意︰影片位於行動服務上，但離線同步處理的運作方式類似在 Azure 行動應用程式中的方式)
 
 <!-- URLs. -->
 
 
 [建立 iOS 應用程式]: ../app-service-mobile-dotnet-backend-ios-get-started-preview.md
-[Azure Mobile Apps 中的離線資料同步]: ../app-service-mobile-offline-data-sync-preview.md
+[Azure 行動應用程式中的離線資料同步處理]: ../app-service-mobile-offline-data-sync-preview.md
 
 [defining-core-data-tableoperationerrors-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-tableoperationerrors-entity.png
 [defining-core-data-tableoperations-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-tableoperations-entity.png
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-todoitem-entity.png
 
-[雲端報導︰Azure 行動服務中的離線同步]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[雲端報導︰Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,123 +1,87 @@
 <properties
-   pageTitle="Salesforce 連接器"
-   description="如何使用 Salesforce 連接器"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 Salesforce 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 Salesforce 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-#在邏輯應用程式中使用 Saleforce 連接器#
-
-邏輯應用程式可以根據各種資料來源和提供項目連接器觸發，以在流程中取得和處理資料。Salesforce 連接器可讓您建立和修改不同的實體，例如帳戶、潛在客戶等。以下是涉及 Salesforce 的典型整合案例。
+# 開始使用 Salesforce 連接器並將它加入您的邏輯應用程式
+連線至 Salesforce 並建立和修改如帳戶、組長等實體。以下是涉及 Salesforce 的典型整合案例：
 
 - Salesforce 和 ERP 系統 (例如 SAP 和 QuickBooks) 之間的帳戶同步處理
-
 - 從 Salesforce 到 ERP 系統的「下單至收款」流程
 
-
-屬於連接器封裝設定的一部分，使用者可以指定連接器可以管理的實體，而系統便會以動態方式填入動作、輸入和輸出參數。以下是 Salesforce 連接器中可用的不同動作。
+屬於連接器封裝設定的一部分，使用者可以指定連接器可以管理的實體，而系統便會以動態方式填入動作、輸入和輸出參數。以下是 Salesforce 連接器中可用的不同動作：
 
 - 建立實體 - 使用此動作建立新的 Salesforce 實體，例如帳戶、案例或自訂物件
-
 - 更新實體：使用此動作可更新現有的 Salesforce 實體
-
 - 更新插入實體：使用此動作可更新現有的 Salesforce 實體，或建立一個 Salesforce 實體 ( 如果不存在)
-
 - 刪除實體：使用此動作可刪除現有的 Salesforce 實體
-
 - 執行查詢：使用此動作可執行以 Salesforce 物件查詢語言 (SOQL) 撰寫的 SELECT 查詢
 
+邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。您可以將 Salesforce 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
-##建立 SalesForce 連接器 API 應用程式##
+
+## 建立 SalesForce 連接器 API 應用程式
 1.	使用 Azure 入口網站右下方的 [+新增] 選項開啟 Azure Marketplace。
 2.	瀏覽至 [Web 與行動] > [API 應用程式]，並搜尋 SalesForce。
-3.	設定 SalesForce 連接器，方法為提供裝載方案及資源群組的詳細資料，並選取 API 應用程式的名稱。
-
-	![][15]
+3.	設定 SalesForce 連接器，方法為提供裝載方案及資源群組的詳細資料，並選取 API 應用程式的名稱：![][15]
 4. 設定 [封裝設定] 中您有興趣讀取/寫入的 SalesForce 實體。
 
 完成上述步驟後，您現在即可建立 SalesForce 連接器 API 應用程式。
 
 
-##建立邏輯應用程式##
+## 建立邏輯應用程式
 讓我們建立一個可在 Salesforce 中建立帳戶，並更新相同帳戶之帳單寄送地址詳細資料的簡單邏輯應用程式。
 
-1.	登入 Azure 入口網站，並按一下 [新增] -> [Web + 行動] -> [邏輯應用程式]
+1.	登入 Azure 入口網站，並按一下 [新增] -> [Web + 行動] -> [邏輯應用程式]：![][1]
 
-	![][1]
+2.	在 [建立邏輯應用程式] 頁面中，請提供必要的詳細資料，例如名稱、應用程式服務方案和位置：![][2]
 
-2.	在 [建立邏輯應用程式] 頁面中，請提供必要的詳細資料，例如名稱、應用程式服務方案和位置。
+3.	按一下 [觸發程序和動作]。邏輯應用程式編輯器會開啟：![][3]
 
-	![][2]
+4.	選取 [手動執行此邏輯]，這表示僅能夠以手動方式叫用此邏輯應用程式：![][4]
 
-3.	按一下 [觸發程序及動作]，邏輯應用程式編輯器畫面便會隨即出現。
+5.	展開資源庫中的 [此資源群組中的 API 應用程式] 來查看所有可用的 API 應用程式。從資源庫中選取 [Salesforce]，[Salesforce 連接器] 便會被新增至流程：![][5]
 
-	![][3]
+8.	若要授權您的邏輯應用程式存取您的 SalesForce 帳戶，請按一下 [授權] 以提供 Salesforce 登入認證：![][6]
 
-4.	選取 [手動執行此邏輯]，這表示僅能夠以手動方式叫用此邏輯應用程式。
+9.	您將會被重新導向至 Salesforce 登入頁面，並且可以使用 Salesforce 認證進行驗證：![][7] ![][8]
 
-    ![][4]
+10.	授權完成後，即會顯示所有的動作：![][9]
 
-5.	展開組件庫中的 [此資源群組中的 API 應用程式] 來查看所有可用的 API 應用程式。從資源庫中選取 [Salesforce]，[Salesforce 連接器] 便會被新增至流程。
+11.	選取 [建立帳戶] 動作，而輸入參數便會隨即顯示：![][10]
 
-
-	![][5]
-
-8.	若要授權您的邏輯應用程式存取您的 SalesForce 帳戶，請按一下 [授權] 以提供 Salesforce 登入認證。
-
-	![][6]
-
-9.	您將會被重新導向至 Salesforce 登入頁面，並且可以使用 Salesforce 認證進行驗證。
-
-	![][7]
-
-	![][8]
-
-10.	授權完成後，即會顯示所有的動作。
-
-	![][9]
-
-11.	選取 [建立帳戶] 動作，而輸入參數便會隨即顯示。
-
-	![][10]
-
-12.	提供 [帳戶名稱]，然後按一下 [✓]。
-
-	![][11]
+12.	提供 [帳戶名稱]，然後按一下 [✓]：![][11]
 
 13.	從資源庫的 [最近使用的] 區段中選取 [Salesforce 連接器]，即會新增 Salesforce 動作。
 
-14.	從動作清單中選取 [更新帳戶]，[更新帳戶] 動作的輸入參數便會隨即顯示。
+14.	從動作清單中選取 [更新帳戶]，[更新帳戶] 動作的輸入參數便會隨即顯示：![][12]
 
-	![][12]
+15.	按一下 [記錄識別碼] 旁邊的 +，並從 [建立帳戶] 動作的輸出中挑選識別碼值：![][13]
 
-15.	按一下 [記錄識別碼] 旁邊的 [+]，並從 [建立帳戶] 動作的輸出中挑選識別碼值。
-
-	![][13]
-
-16.	提供帳單寄送街道、帳單寄送縣 (市)、帳單寄送州別和帳單寄送郵遞區號等值，然後按一下 [✓]。
-
-	![][14]
+16.	提供帳單寄送街道、帳單寄送縣 (市)、帳單寄送州別和帳單寄送郵遞區號等值，然後按一下 [✓]：![][14]
 
 17. 按一下邏輯應用程式編輯器畫面上的 [確定]，然後按一下 [建立]。完成建立大約需要 30 秒的時間。
 
 18. 瀏覽剛建立的邏輯應用程式，然後按一下 [執行] 以啟動該應用程式。
 
-19. 您可以檢查 Salesforce 帳戶中是否已建立名為 Contoso 的新帳戶。
+19. 您可以檢查 Salesforce 帳戶中是否已建立名為 'Contoso' 的新帳戶。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -140,4 +104,4 @@
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

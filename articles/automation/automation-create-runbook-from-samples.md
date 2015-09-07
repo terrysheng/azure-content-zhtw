@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用 Azure 自動化"
+	pageTitle="開始使用 Azure 自動化 | Microsoft Azure"
 	description="了解如何在 Azure 中匯入和執行自動化工作。"
 	services="automation"
 	documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="05/19/2015"
 	ms.author="bwren"/>
 
@@ -21,7 +21,7 @@
 
 ## 什麼是 Azure 自動化？
 
-Microsoft Azure 自動化可讓使用者將執行於雲端環境中的手動、長時間執行、易發生錯誤且重複性高的工作自動化。您可以使用 Runbook 來建立、監視、管理及部署 Azure 環境中的資源；而 Runbook 是以 Windows PowerShell 工作流程為基礎。在本指南中，您將逐步完成執行簡單範例 Runbook 的教學課程。然後，您將尋找用來探索更多服務進階功能的資源。
+Microsoft Azure 自動化可讓使用者將執行於雲端環境中的手動、長時間執行、易發生錯誤且重複性高的工作自動化。您可以使用 Runbook 來建立、監視、管理及部署 Azure 環境中的資源；而 Runbook 是以 Windows PowerShell 工作流程為基礎。在本文中，您將逐步完成執行簡單範例 Runbook 的教學課程。然後，您將尋找用來探索更多服務進階功能的資源。
 
 ## 教學課程
 本教學課程將逐步引導您建立自動化帳戶、將範例 "Hello World" Runbook 匯入 Azure 自動化中、執行該 Runbook 並檢視其輸出。
@@ -38,11 +38,11 @@ Microsoft Azure 自動化可讓使用者將執行於雲端環境中的手動、�
 
 ## <a name="automationaccount"></a>建立自動化帳戶
 
-自動化帳戶是 Azure 自動化資源的容器：可供您劃分您的環境或進一步組織您的工作流程。如需詳細資訊，請參閱自動化程式庫中的[自動化帳戶](http://aka.ms/runbookauthor/azure/automationaccounts)。如果您已經建立自動化帳戶，則可以略過此步驟。
+自動化帳戶是 Azure 自動化資源的容器。可供您劃分您的環境或進一步組織您的工作流程。如需詳細資訊，請參閱自動化程式庫中的[自動化帳戶](http://aka.ms/runbookauthor/azure/automationaccounts)。如果您已經建立自動化帳戶，則可以略過此步驟。
 
-1.	登入 [Azure 管理入口網站](http://manage.windowsazure.com)。
+1.	登入 [Azure 入口網站](http://manage.windowsazure.com)。
 
-2.	在管理入口網站中，按一下 [Create an Automation Account]。
+2.	在 Azure 入口網站中，按一下 [建立自動化帳戶]。
 
 	![Create Account](./media/automation-create-runbook-from-samples/automation_01_CreateAccount.png)
 
@@ -122,8 +122,8 @@ Runbook 會先以草稿模式匯入。這表示在您授權為可執行的新版
 
 恭喜！ 您已完成本教學課程。
 
-## <a name="nextsteps"></a>後續步驟
-1. 本教學課程中的簡單 Runbook **不會管理 Azure 服務**。大部分的 Runbook 將會使用 [Azure Cmdlet](http://msdn.microsoft.com/library/jj156055.aspx) 來執行此作業，而這需要向您的 Azure 訂用帳戶進行驗證。請依照[設定 Azure 以便依 Runbook 管理](http://aka.ms/azureautomationauthentication)中的指示來設定您的 Azure 訂用帳戶，才能使用這些 Cmdlet。  
+## <a name="nextsteps"></a>接續步驟
+1. 本教學課程中的簡單 Runbook *不會管理 Azure 服務*。大部分的 Runbook 將會使用 [Azure Cmdlet](http://msdn.microsoft.com/library/jj156055.aspx) 來執行此作業，而這需要向您的 Azure 訂用帳戶進行驗證。請依照[設定 Azure 以便依 Runbook 管理](http://aka.ms/azureautomationauthentication)中的指示來設定您的 Azure 訂用帳戶，才能使用這些 Cmdlet。  
 2. 如需 Azure 自動化功能的詳細資訊，請參閱下列[資源](#resources)。
 3. 訂閱 [Azure 自動化部落格](http://azure.microsoft.com/blog/tag/azure-automation)，隨時掌握 Azure 自動化團隊的最新消息。
 
@@ -139,12 +139,11 @@ Runbook 會先以草稿模式匯入。這表示在您授權為可執行的新版
 
 ## 範例和工具 Runbook
 
-Microsoft 和 Azure 自動化社群會提供範例 Runbook，協助您開始建立自己的解決方案和公用程式 Runbook，而您可以將這些 Runbook 做為大型自動化工作的建置組塊。您可以從[指令碼中心](http://go.microsoft.com/fwlink/p/?LinkId=393029)下載這些 Runbook，或使用 [Runbook 程式庫](http://aka.ms/runbookgallery)直接將其匯入 Azure 自動化中。
+Microsoft 和 Azure 自動化社群會提供範例 Runbook，協助您開始建立自己的解決方案和公用程式 Runbook，而您可以將這些 Runbook 做為大型自動化工作的建置組塊。您可以從[指令碼中心](http://azure.microsoft.com/documentation/scripts/)下載這些 Runbook，或使用 [Runbook 資源庫](http://aka.ms/runbookgallery)直接將其匯入 Azure 自動化中。
 
 
 ## 意見反應
 
 **請不吝提供意見。** 如果您要尋找 Azure 自動化 Runbook 解決方案或整合模組，請在指令碼中心提出指令碼要求。如果您有關於 Azure 自動化的任何意見或功能要求，請張貼在 [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback) 上。感謝您！
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

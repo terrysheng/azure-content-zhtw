@@ -1,26 +1,26 @@
 <properties
-   pageTitle="建立資源的多個執行個體"
-   description="說明如何在部署資源時於「Azure 資源管理員」範本中使用 copy 作業，以進行多次逐一執行。"
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   pageTitle="部署資源的多個執行個體 | Microsoft Azure"
+	description="使用「Azure 資源管理員」範本中的複製作業和陣列，並在部署資源時多次逐一執行。"
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/14/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/21/2015"
+	ms.author="tomfitz"/>
 
 # 在 Azure 資源管理員中建立資源的多個執行個體
 
 此主題說明如何逐一查看您的「Azure 資源管理員」範本，以建立資源的多個執行個體。
 
-## copy 和 copyIndex()
+## copy、copyIndex 和 length
 
 若要在資源中建立多次，您可以定義 **copy** 物件，以指定逐一執行的次數。copy 的格式如下：
 
@@ -32,6 +32,13 @@
 您可以使用 **copyIndex()** 函式存取目前反覆項目的值，如以下 concat 函式中所示。
 
     [concat('examplecopy-', copyIndex())]
+
+從值的陣列建立多個資源時，您可以使用 **length** 函數來指定計數。您可以提供陣列為 length 函數的參數。
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
 
 ## 在名稱中使用索引值
 
@@ -89,11 +96,7 @@
              "Fabrikam", 
              "Coho" 
           ] 
-      },
-      "count": { 
-         "type": "int", 
-         "defaultValue": 3 
-      } 
+      }
     }, 
     "resources": [ 
       { 
@@ -103,15 +106,15 @@
           "apiVersion": "2014-06-01",
           "copy": { 
              "name": "websitescopy", 
-             "count": "[parameters('count')]" 
+             "count": "[length(parameters('org'))]" 
           }, 
           "properties": {} 
       } 
     ]
 
 ## 後續步驟
-- [編寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)
-- [Azure 資源管理員範本函數](./resource-group-template-functions.md)
-- [使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
+- 若要了解範本的區段，請參閱[編寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)。
+- 如需可以在範本中使用的函數清單，請參閱 [Azure 資源管理員範本函數](./resource-group-template-functions.md)。
+- 若要了解如何部署範本，請參閱[使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

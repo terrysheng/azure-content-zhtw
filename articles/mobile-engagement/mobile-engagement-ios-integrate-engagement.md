@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor="" />
+	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,25 +14,25 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
+	ms.author="MehrdadMzfr"/>
 
 #如何在 iOS 上整合 Engagement
 
-> [AZURE.SELECTOR] 
-- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
-- [iOS](mobile-engagement-ios-integrate-engagement.md) 
-- [Android](mobile-engagement-android-integrate-engagement.md) 
+> [AZURE.SELECTOR]
+- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
+- [Android](mobile-engagement-android-integrate-engagement.md)
 
 此程序描述在您的 iOS 應用程式中，啟動 Engagement 的分析和監視功能時，最簡單的方法。
 
-> [AZURE.IMPORTANT]Engagement SDK 需要 iOS5 以上：應用程式的部署目標必須至少為 iOS 5。
+> [AZURE.IMPORTANT]Engagement SDK 需要 iOS6 以上：應用程式的部署目標必須至少為 iOS 6。
 
-下列步驟便足以啟用計算與使用者、工作階段、活動、當機和技術相關之所有統計資料時所需要的記錄檔報告。用來計算事件、錯誤及工作等其他統計資料所需的記錄檔報告必須使用 Engagement API 手動完成 (請參閱[如何在 iOS 應用程式中使用進階的 Mobile Engagement 標記 API](mobile-engagement-ios-use-engagement-api.md))，因為這些是與應用程式相依的統計資料。
+下列步驟便足以啟用計算使用者、工作階段、活動、當機和技術相關的所有統計資料需要的記錄檔之報告。用來計算事件、錯誤及工作等其他統計資料所需的記錄檔報告必須使用 Engagement API 手動完成 (請參閱[如何在 iOS 應用程式中使用進階的 Mobile Engagement 標記 API](mobile-engagement-ios-use-engagement-api.md))，因為這些是與應用程式相依的統計資料。
 
 ##將 Engagement SDK 嵌入您的 iOS 專案
 
-將 Engagement SDK 加入您的 iOS 專案：在 Xcode 4 中，以滑鼠右鍵按一下專案，然後選取 [新增檔案至...]，再選擇 `EngagementSDK` 資料夾。
+將 Engagement SDK 加入您的 iOS 專案：在 Xcode 中，以滑鼠右鍵按一下專案，然後選取 [新增檔案至]，再選擇 `EngagementSDK` 資料夾。
 
 Engagement 需要額外的架構才能運作：在專案總管中，開啟專案窗格並選取正確的目標。然後，開啟 [建置階段] 索引標籤，在 [連結二進位檔與程式庫] 功能表中加入下列架構：
 
@@ -43,7 +43,7 @@ Engagement 需要額外的架構才能運作：在專案總管中，開啟專案
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
-> [AZURE.NOTE]AdSupport 架構可以移除。Engagement 需要此架構來收集 IDFA。但您可以停用 IDFA 集合 \<ios-sdk-engagement-idfa\>，以符合關於此識別碼的新 Apple 原則。
+> [AZURE.NOTE]AdSupport 架構可以移除。Engagement 需要此架構來收集 IDFA。但您可以停用 IDFA 集合 <ios-sdk-engagement-idfa>，以符合關於此識別碼的新 Apple 原則。
 
 ##初始化 Engagement SDK
 
@@ -51,17 +51,17 @@ Engagement 需要額外的架構才能運作：在專案總管中，開啟專案
 
 -   在實作檔案頂端匯入 Engagement 代理程式：
 
-			[...]
-			#import "EngagementAgent.h"
+		[...]
+		#import "EngagementAgent.h"
 
 -   在 '**applicationDidFinishLaunching:**' 或 '**application:didFinishLaunchingWithOptions:**' 方法內初始化 Engagement：
 
-			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-			{
-			  [...]
-			  [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
-			  [...]
-			}
+		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+		{
+		  [...]
+		  [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
+		  [...]
+		}
 
 ##基本報告
 
@@ -71,34 +71,34 @@ Engagement 需要額外的架構才能運作：在專案總管中，開啟專案
 
 **沒有 Engagement：**
 
-			#import <UIKit/UIKit.h>
-			
-			@interface Tab1ViewController : UIViewController<UITextFieldDelegate> {
-			  UITextField* myTextField1;
-			  UITextField* myTextField2;
-			}
-			
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
+	#import <UIKit/UIKit.h>
+
+	@interface Tab1ViewController : UIViewController<UITextFieldDelegate> {
+	  UITextField* myTextField1;
+	  UITextField* myTextField2;
+	}
+
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
 **有 Engagement：**
 
-			#import <UIKit/UIKit.h>
-			#import "EngagementViewController.h"
-			
-			@interface Tab1ViewController : EngagementViewController<UITextFieldDelegate> {
-			  UITextField* myTextField1;
-			  UITextField* myTextField2;
-			}
-			
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
+	#import <UIKit/UIKit.h>
+	#import "EngagementViewController.h"
+
+	@interface Tab1ViewController : EngagementViewController<UITextFieldDelegate> {
+	  UITextField* myTextField1;
+	  UITextField* myTextField2;
+	}
+
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
 ### 替代方法：手動呼叫 `startActivity()`
 
 如果您無法或不想要多載 `UIViewController` 類別，可以改用直接呼叫 `EngagementAgent` 的方法來開始活動。
 
-> [AZURE.IMPORTANT]iOS SDK 會在應用程式關閉時自動呼叫 `endActivity()` 方法。因此，*「強烈」*建議每當使用者的活動變更時便呼叫 `startActivity` 方法，並且「絕對不要」呼叫 `endActivity` 方法，因為呼叫此方法會強制結束目前的工作階段。
+> [AZURE.IMPORTANT]iOS SDK 會在應用程式關閉時自動呼叫 `endActivity()` 方法。因此，「強烈」建議每當使用者的活動變更時便呼叫 `startActivity` 方法，並且「絕對不要」呼叫 `endActivity` 方法，因為呼叫此方法會強制結束目前的工作階段。
 
 ##位置報告
 
@@ -114,34 +114,34 @@ Apple 服務條款不允許應用程式只為了統計資料的目的而使用�
 
 若要啟用延遲區域位置報告，請在初始化 Engagement 代理程式之後加入下面這一行：
 
-			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-			{
-			  [...]
-			  [[EngagementAgent shared] setLazyAreaLocationReport:YES];
-			  [...]
-			}
+	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+	{
+	  [...]
+	  [[EngagementAgent shared] setLazyAreaLocationReport:YES];
+	  [...]
+	}
 
 ### 即時位置報告
 
 即時位置報告允許報告與裝置相關聯的緯度和經度。根據預設，這類位置報告只會使用網路位置 (根據基地台識別碼或 WIFI)，且只會在應用程式於前景中執行 (也就是在工作階段) 時，報告才會為作用中。
 
-即時位置「不會」用來計算統計資料。其唯一用途，是允許在觸達活動中使用即時地理圍欄 \<Reach-Audience-geofencing\> 準則。
+即時位置「不會」用來計算統計資料。其唯一用途，是允許在觸達活動中使用即時地理圍欄 <Reach-Audience-geofencing> 準則。
 
 若要啟用即時位置報告，請在初始化 Engagement 代理程式之後加入下面這一行：
 
-			[[EngagementAgent shared] setRealtimeLocationReport:YES];
+	[[EngagementAgent shared] setRealtimeLocationReport:YES];
 
 #### GPS 的報告
 
 根據預設，即時位置報告只會使用網路位置。若要啟用 GPS 位置 (精準度大為提高)，請加入：
 
-			[[EngagementAgent shared] setFineRealtimeLocationReport:YES];
+	[[EngagementAgent shared] setFineRealtimeLocationReport:YES];
 
 #### 背景報告
 
 根據預設，即時位置報告只在應用程式在前景中執行 (也就是在工作階段) 時才會為作用中。若要也在背景中啟用報告，請加入：
 
-			[[EngagementAgent shared] setBackgroundRealtimeLocationReport:YES withLaunchOptions:launchOptions];
+	[[EngagementAgent shared] setBackgroundRealtimeLocationReport:YES withLaunchOptions:launchOptions];
 
 > [AZURE.NOTE]當應用程式在背景中執行，即使啟用 GPS，也只會報告網路位置。
 
@@ -159,8 +159,8 @@ Engagement API 可允許使用所有 Engagement 的進階功能，詳情請見�
 
 **prefix.pch** 檔案中的整合：
 
-			#define ENGAGEMENT_DISABLE_IDFA
-			...
+	#define ENGAGEMENT_DISABLE_IDFA
+	...
 
 您可以藉由檢查 Engagement 測試記錄檔，確認 IDFA 集合已在應用程式中正確停用。請參閱 Integration Test<ios-sdk-engagement-test-idfa> 文件以取得進一步資訊。
 
@@ -170,7 +170,7 @@ Engagement API 可允許使用所有 Engagement 的進階功能，詳情請見�
 
 如果您想要 Engagement 停止傳送記錄檔，可以呼叫：
 
-			[[EngagementAgent shared] setEnabled:NO];
+	[[EngagementAgent shared] setEnabled:NO];
 
 這個呼叫是持續性的：它會使用 `NSUserDefaults` 來存放資訊。
 
@@ -182,23 +182,23 @@ Engagement API 可允許使用所有 Engagement 的進階功能，詳情請見�
 
 以下 `Settings.bundle` 範例說明如何實作：
 
-			<dict>
-			    <key>PreferenceSpecifiers</key>
-			    <array>
-			        <dict>
-			            <key>DefaultValue</key>
-			            <true/>
-			            <key>Key</key>
-			            <string>engagement_agent_enabled</string>
-			            <key>Title</key>
-			            <string>Log reporting enabled</string>
-			            <key>Type</key>
-			            <string>PSToggleSwitchSpecifier</string>
-			        </dict>
-			    </array>
-			    <key>StringsTable</key>
-			    <string>Root</string>
-			</dict>
+	<dict>
+	    <key>PreferenceSpecifiers</key>
+	    <array>
+	        <dict>
+	            <key>DefaultValue</key>
+	            <true/>
+	            <key>Key</key>
+	            <string>engagement_agent_enabled</string>
+	            <key>Title</key>
+	            <string>Log reporting enabled</string>
+	            <key>Type</key>
+	            <string>PSToggleSwitchSpecifier</string>
+	        </dict>
+	    </array>
+	    <key>StringsTable</key>
+	    <string>Root</string>
+	</dict>
 
 <!-- URLs. -->
 [裝置 API]: http://go.microsoft.com/?linkid=9876094
@@ -207,4 +207,4 @@ Engagement API 可允許使用所有 Engagement 的進階功能，詳情請見�
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

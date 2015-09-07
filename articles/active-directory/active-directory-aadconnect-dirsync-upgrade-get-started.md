@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Microsoft Azure AD Connect - 從 Windows Azure AD 同步作業工具 (DirSync) 升級" 
-   description="了解如何從 DirSync 升級至 Azure AD Connect。本文說明如何將目前 Windows Azure AD 同步作業工具 (DirSync) 升級至 Azure AD Connect 的步驟。" 
-   services="active-directory" 
-   documentationCenter="" 
-   authors="shoatman" 
-   manager="terrylanfear" 
-   editor="billmath"/>
+   pageTitle="Microsoft Azure AD Connect - 從 Windows Azure AD 同步作業工具 (DirSync) 升級"
+	description="了解如何從 DirSync 升級至 Azure AD Connect。本文說明如何將目前 Windows Azure AD 同步作業工具 (DirSync) 升級至 Azure AD Connect 的步驟。"
+	services="active-directory"
+	documentationCenter=""
+	authors="shoatman"
+	manager="terrylanfear"
+	editor="billmath"/>
 
 <tags 
-   ms.service="active-directory" 
-   ms.workload="identity" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="05/26/2015" 
-   ms.author="shoatman"/>
+   ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/26/2015"
+	ms.author="shoatman"/>
 
 # 將 Windows Azure Active Directory 同步作業 (DirSync) 升級至 Azure Active Directory Connect
 
@@ -203,7 +203,7 @@ Azure AD Connect 會連線並向您呈現下列 UI：
 * [Azure AD Connect 運作方式](active-directory-aadconnect-how-it-works.md)
 * [使用 Azure AD Connect 的下一步](active-directory-aadconnect-whats-next.md)
 * [深入了解](active-directory-aadconnect-learn-more.md)
-* [MSDN 上的 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+* [MSDN 上的 Azure AD Connect](active-directory-aadconnect.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

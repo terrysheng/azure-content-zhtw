@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用 Azure 資源管理員範本部署 SharePoint 伺服器陣列"
+	pageTitle="使用 Azure 資源管理員範本部署 SharePoint 伺服器陣列 | Microsoft Azure"
 	description="使用資源管理員範本和 Azure Preview 入口網站、Azure PowerShell 或 Azure CLI 輕鬆部署一個包含三部伺服器或九部伺服器的 SharePoint 伺服器陣列。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -94,7 +94,7 @@
 
 現在，您在新的資源群組中有一個包含三部伺服器的新 SharePoint 伺服器陣列。
 
-##部署一個包含九部伺服器的 SharePoint 伺服器陣列
+## 部署一個包含九部伺服器的 SharePoint 伺服器陣列
 
 如果是高可用性的 SharePoint Server 2013 伺服器陣列，資源管理員範本會在新的虛擬網路中四個不同的子網路上，建立九部虛擬機器。
 
@@ -111,7 +111,7 @@
 3.	如有需要，按一下 [**訂用帳戶**]，然後選取正確的 Azure 訂用帳戶。
 4.	按一下 [**資源群組**]，然後選取現有的資源群組。或者，按一下 [**或建立新的**] 為此工作負載建立一個新的資源群組。
 5.	如有需要，按一下 [**資源群組位置**]，然後選取正確的 Azure 位置。
-6.	如有需要，按一下 [法律條款] 檢閱使用範本的條款和合約。
+6.	如有需要，按一下 [**法律條款**] 檢閱使用範本的條款和合約。
 7.	按一下 [建立]。
 
 視不同範本而定，可能需要一些時間讓 Azure 建置工作負載。完成時，您在現有或新的資源群組中就會有一個新的、包含九部伺服器的 SharePoint 伺服器陣列。
@@ -138,7 +138,7 @@
 	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-接下來，在 Azure PowerShell 提示字元中執行命令區塊。
+接下來，在 Azure PowerShell 命令提示字元中執行命令區塊。
 
 當執行 **New-AzureResourceGroupDeployment** 命令時，會提示您提供一系列參數的值。當您指定了所有參數值之後，**New-AzureResourceGroupDeployment** 會建立和設定虛擬機器。
 
@@ -180,4 +180,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

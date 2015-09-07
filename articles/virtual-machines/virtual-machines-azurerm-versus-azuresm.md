@@ -1,21 +1,21 @@
 <properties
    pageTitle="Azure Resource Manager 提供的 Azure 運算、網路和儲存提供者"
-   description="運算、網路和儲存體資源提供者 (CRP、NRP 和 SRP) 的概念簡介"
-   services="virtual-machines"
-   documentationCenter="dev-center-name"
-   authors="mahthi"
-   manager="coreysa"
-   editor=""
+	description="運算、網路和儲存體資源提供者 (CRP、NRP 和 SRP) 的概念簡介"
+	services="virtual-machines"
+	documentationCenter="dev-center-name"
+	authors="mahthi"
+	manager="timlt"
+	editor=""
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
-   ms.author="mahthi"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="04/29/2015"
+	ms.author="mahthi"/>
 
 # Azure Resource Manager 提供的 Azure 運算、網路和儲存提供者
 
@@ -112,4 +112,4 @@ Azure 命令列介面 (Azure CLI) 有兩種部署模式 - **AzureServiceManageme
 目前尚未支援。使用新的 Azure Resource Manager API 建立的虛擬網路並無法連線到 Express Route Circuit。未來將會支援。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

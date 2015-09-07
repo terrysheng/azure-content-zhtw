@@ -1,14 +1,15 @@
-<properties pageTitle="針對 Microsoft Azure VPN 閘道設定強制通道" description="如果您擁有使用跨單位 VPN 閘道的虛擬網路，您可以重新導向或「強制」所有網際網路繫結流量傳回內部部署位置。" services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="jdial" editor="tysonn" />
-<tags
-   ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/13/2015"
-   ms.author="cherylmc" />
+<properties pageTitle="針對 Microsoft Azure VPN 閘道設定強制通道 | Microsoft Azure" description="如果您擁有使用跨單位 VPN 閘道的虛擬網路，您可以重新導向或「強制」所有網際網路繫結流量傳回內部部署位置。" services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor=""/>
 
-# 有關強制通道
+<tags  
+   ms.service="vpn-gateway"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/20/2015"
+	ms.author="cherylmc"/>
+
+# 設定強制通道
 
 強制通道可讓您透過站對站 VPN 通道，重新導向或「強制」所有網際網路繫結流量傳回內部部署位置，以便進行檢查和稽核。這是多數企業 IT 原則的重要安全性需求。若不使用強制通道，則 Azure 中來自 VM 的網際網路繫結流量會永遠從 Azure 網路基礎結構直接向外周遊到網際網路，而您無法選擇檢查或稽核流量。未經授權的網際網路存取可能會導致資訊洩漏或其他類型的安全性漏洞。
 
@@ -36,13 +37,15 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 
 -  隨著「使用者定義路由」的發行，您可以建立路由表以加入預設路由，然後將路由表關聯至 VNet 子網路，以便啟用這些子網路上的強制通道。
 
-- 強制通道必須與具有 Azure 動態路由 VPN 閘道 (非靜態閘道) 的 VNet 相關聯。您需要在連接到虛擬網路的內部部署本機網站間設定「預設網站」。
+- 強制通道必須與具有動態路由 VPN 閘道 (非靜態閘道) 的 VNet 相關聯。您需要在連接到虛擬網路的內部部署本機網站間設定「預設網站」。
 
-- 請注意，ExpressRoute 強制通道不會透過這項機制進行設定，相反地，將由透過 ExpressRoute BGP 對等互連工作階段廣告預設路由的客戶進行啟用。請參閱《[ExpressRoute 文件](https://azure.microsoft.com/documentation/services/expressroute/)》以取得詳細資訊。
+- 請注意，ExpressRoute 強制通道不會透過這項機制進行設定，相反地，將由透過 ExpressRoute BGP 對等互連工作階段的廣告預設路由進行啟用。請參閱《[ExpressRoute 文件](https://azure.microsoft.com/documentation/services/expressroute/)》以取得詳細資訊。
 
-## 如何設定強制通道
+## 組態概觀
 
-下方指示將協助您指定虛擬網路中的強制通道。設定步驟會對應至下方的虛擬網路範例。此多層式 VNet 的虛擬網路具有 3 個子網路：*前端*、*中層*，和*後端*子網路，包含 4 個跨單位連接：*DefaultSiteHQ*，以及 3 個*分支*。下列設定步驟會將*DefaultSiteHQ*設定為強制通道的預設網站連接，並設定*中層*和*後端*子網路以使用強制通道。
+下方程序將協助您指定虛擬網路的強制通道。設定步驟會對應至下方的虛擬網路 Netcfg 檔範例。
+
+在此範例中，多層式 VNet 虛擬網路具有 3 個子網路：*前端*、*中層*，和*後端*子網路，包含 4 個跨單位連接：*DefaultSiteHQ*，以及 3 個*分支*。程序步驟會將 *DefaultSiteHQ* 設定為強制通道的預設網站連接，並設定*中層*和*後端*子網路以使用強制通道。
 
 	<VirtualNetworkSite name="MultiTier-VNet" Location="North Europe">
      <AddressSpace>
@@ -86,7 +89,9 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 
 - 已設定的虛擬網路。
 
-- 最新版的 Azure PowerShell Cmdlet 使用 Web Platform Installer。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的〈**Windows PowerShell**〉一節下載並安裝最新版本。
+- 最新版的 Azure PowerShell Cmdlet 使用 Web Platform Installer。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 **Windows PowerShell** 區段下載並安裝最新版本。
+
+## 設定強制通道
 
 使用下列程序來設定強制通道。
 
@@ -117,6 +122,8 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 
 ## 其他的 PowerShell Cmdlet
 
+以下是一些額外 PowerShell Cmdlet，使用強制通道組態時可能會很有幫助。
+
 **若要刪除路由表：**
 
 	Remove-AzureRouteTable -RouteTableName <routeTableName>
@@ -143,6 +150,6 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 
 ## 後續步驟
 
-您可以將虛擬機器加入您的虛擬網路。請參閱＜[如何建立自訂虛擬機器](../virtual-machines/virtual-machines-create-custom.md)＞。
+如需有關保護網路流量的資訊，請參閱[什麼是網路安全性群組](../virtual-network/virtual-networks-nsg.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

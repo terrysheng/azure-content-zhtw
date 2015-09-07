@@ -1,18 +1,20 @@
 <properties 
-	pageTitle="Azure 中的虛擬機器和容器" 
-	description="描述虛擬機器、Docker 和 Linux 容器，以及它們各自在 Azure 中的群組使用方式，包括每一項的優點，以及每種方法順暢運作的案例。" 
-	services="virtual-machines" 
-	documentationCenter="virtual-machines" 
-	authors="squillace" 
-	manager="timlt" />
+	pageTitle="Azure 中的虛擬機器和容器"
+	description="描述虛擬機器、Docker 和 Linux 容器，以及它們各自在 Azure 中的群組使用方式，包括每一項的優點，以及每種方法順暢運作的案例。"
+	services="virtual-machines"
+	documentationCenter="virtual-machines"
+	authors="squillace"
+	manager="timlt"/>
+	
+
 <tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="infrastructure" 
-	ms.workload="infrastructure" 
-	ms.date="07/02/2015" 
-	ms.author="rasquill" />
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="infrastructure"
+	ms.workload="infrastructure"
+	ms.date="07/02/2015"
+	ms.author="rasquill"/>
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Azure 中的虛擬機器和容器
@@ -119,7 +121,7 @@ Azure 提供您建立在虛擬機器上的絕佳雲端解決方案，虛擬機�
 
 ### Azure 資源群組範本
 
-最近，Azure 發行了 [Azure 資源管理](virtual-machines-azurerm-versus-azuresm.md) REST API，以及更新的 PowerShell 和 Azure CLI 工具可輕鬆使用。您可以使用 [Azure 資源管理員範本](https://msdn.microsoft.com/library/azure/dn835138.aspx)，搭配使用下列的 Azure 資源管理 API，來部署、修改或重新部署整個應用程式拓撲：
+最近，Azure 發行了 [Azure 資源管理](virtual-machines-azurerm-versus-azuresm.md) REST API，以及更新的 PowerShell 和 Azure CLI 工具可輕鬆使用。您可以使用 [Azure 資源管理員範本](../resource-group-authoring-templates.md)，搭配使用下列的 Azure 資源管理 API，來部署、修改或重新部署整個應用程式拓撲：
 
 - [使用範本的 Azure Preview 入口網站](https://github.com/Azure/azure-quickstart-templates)&mdash;提示：使用 [DeployToAzure] 按鈕
 - [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
@@ -232,4 +234,4 @@ Linux 散發套件和 Azure 範例：
 [微服務]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

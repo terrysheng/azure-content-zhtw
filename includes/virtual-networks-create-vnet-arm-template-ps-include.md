@@ -1,17 +1,17 @@
-## Deploy the ARM template by using PowerShell
+## 使用 PowerShell 部署 ARM 範本
 
-To deploy the ARM template you downloaded by using PowerShell, follow the steps below.
+若要使用 PowerShell 部署您下載的 ARM 範本，請依照下列步驟執行。
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
-2. Run the **Switch-AzureMode** cmdlet to switch to Resource Manager mode, as shown below.
+1. 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
+2. 執行 **Switch-AzureMode** Cmdlet，以切換至資源管理員模式，如下所示。
 
 	Switch-AzureMode AzureResourceManager
 
-	WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
+	警告：Switch-AzureMode Cmdlet 已經過時，將在未來的版本中移除。
 
-	>[AZURE.WARNING] The Switch-AzureMode cmdlet will be deprecated soon. When that happens, all Resource Manager cmdlets will be renamed.
+	>[AZURE.WARNING]Switch-AzureMode Cmdlet 即將被汰除。屆時將重新命名所有的資源管理員 Cmdlet。
 
-3. If necessary, run the **New-AzureResourceGroup** cmdlet to create a new resource group. The command below creates a resource group named *TestRG* in the *Central US* azure region. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
+3. 如有必要，請執行 **New-AzureResourceGroup** Cmdlet，以建立新的資源群組。下列命令會在*美國中部* Azure 區域中，建立名為 *TestRG* 的資源群組。如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](resource-group-overview.md/#resource-groups)。
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
 		
@@ -25,7 +25,7 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 		                    *
 		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
 
-4. Run the **New-AzureResourceGroupDeployment** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above.
+4. 執行 **New-AzureResourceGroupDeployment** Cmdlet，使用先前下載並修改的範本和參數檔案部署新的 VNet。
 
 		New-AzureResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
 			-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
@@ -50,7 +50,7 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 		
 		Outputs           :
 
-5. Run the **Get-AzureVirtualNetwork** cmdlet to view the properties of the new VNet, as shown below.
+5. 執行 **Get-AzureVirtualNetwork** Cmdlet 來檢視新 VNet 的屬性，如下所示。
 
 
 		Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
@@ -75,7 +75,7 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 		Subnets           : [
 		                      {
 		                        "Name": "FrontEnd",
-		                        "Etag": "W/\"2ed52eec-8c92-471f-b43b-2914d69f3f04\"",
+		                        "Etag": "W/"2ed52eec-8c92-471f-b43b-2914d69f3f04"",
 		                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
 		                        "AddressPrefix": "192.168.1.0/24",
 		                        "IpConfigurations": [],
@@ -85,7 +85,7 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 		                      },
 		                      {
 		                        "Name": "BackEnd",
-		                        "Etag": "W/\"2ed52eec-8c92-471f-b43b-2914d69f3f04\"",
+		                        "Etag": "W/"2ed52eec-8c92-471f-b43b-2914d69f3f04"",
 		                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
 		                        "AddressPrefix": "192.168.2.0/24",
 		                        "IpConfigurations": [],
@@ -94,3 +94,5 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 		                        "ProvisioningState": "Succeeded"
 		                      }
 		                    ]
+
+<!---HONumber=August15_HO9-->

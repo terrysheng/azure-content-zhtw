@@ -1,6 +1,6 @@
 <properties
-	pageTitle="FTP 連接器"
-	description="開始使用 FTP 連接器"
+	pageTitle="在 Logic Apps 中使用 FTP 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 FTP 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
 	authors="rajram"
 	manager="dwrede"
 	editor=""
@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="rajram"/>
 
-# FTP 連接器
-
-## 概觀
-FTP 連接器可讓您從 FTP 伺服器移入/移出資料。FTP 連接器的主要功能如下：
+# 開始使用 FTP 連接器並將它加入您的邏輯應用程式
+連線至 FTP 伺服器以移動資料或檔案。FTP 連接器的主要功能如下：
 
 - 依照需求從 FTP 伺服器提取檔案
 - 根據可設定的排程執行輪詢
@@ -27,6 +25,8 @@ FTP 連接器可讓您從 FTP 伺服器移入/移出資料。FTP 連接器的主
 - 指定 FTP 伺服器做為 IP 位址、連接埠、密碼和主機名稱
 - 依照需求執行傳送的能力
 - 依照需求在 FTP 伺服器上刪除檔案的能力
+
+您可以將 FTP 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
 ## 建立新的 FTP 連接器
 若要建新的 FTP 連接器，請遵循下面提到的步驟。- 啟動 Azure 入口網站 - 使用 [+ 新增] (位於頁面底部) -> [Web + 行動] --> [Azure Marketplace] 開啟 Azure Marketplace︰![啟動 Azure Marketplace][1]
@@ -158,4 +158,4 @@ FTP 連接器支援下列動作︰
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

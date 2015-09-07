@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication -它的作用" 
-	description="Azure Multi-Factor Authentication 有助於保護對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。它藉由要求第二種形式的驗證提供額外的安全性，並透過一系列簡單的驗證選項提供增強式驗證。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Azure Multi-Factor Authentication -它的作用"
+	description="Azure Multi-Factor Authentication 有助於保護對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。它藉由要求第二種形式的驗證提供額外的安全性，並透過一系列簡單的驗證選項提供增強式驗證。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 #Azure Multi-Factor Authentication 的作用
@@ -102,4 +102,4 @@ Azure Multi-Factor Authentication 隨附於 Azure Active Directory Premium 和 E
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

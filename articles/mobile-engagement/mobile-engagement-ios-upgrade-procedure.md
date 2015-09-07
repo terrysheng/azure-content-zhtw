@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor="" />
+	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
+	ms.author="MehrdadMzfr"/>
 
 #升級程序
 
@@ -23,7 +23,9 @@
 針對每個新版 SDK，您必須先取代 (在 xcode 中移除並重新匯入) EngagementSDK 與 EngagementReach 資料夾。
 
 ##從 2.0.0 到 3.0.0
-如果您在應用程式中使用 Reach，必須將`remote-notification`值新增至`UIBackgroundModes` Info.plist 檔案中的陣列，以接收遠端通知。
+停止支援 iOS 4.X。從此版本開始，您的應用程式部署目標必須至少為 iOS 6。
+
+如果您在應用程式中使用 Reach，必須將`remote-notification` 值新增至 Info.plist 檔案中的 `UIBackgroundModes` 陣列，以接收遠端通知。
 
 在您的應用程式委派中，方法 `application:didReceiveRemoteNotification:` 需由 `application:didReceiveRemoteNotification:fetchCompletionHandler:` 取代。
 
@@ -70,4 +72,4 @@ SmartAd 追蹤已從 SDK 移除，因此您必須移除 `AETrackModule` 類別�
 -   `CapptainUtils` 類別已重新命名為 `EngagementUtils`。
 -   `CapptainViewController` 類別已重新命名為 `EngagementViewController`。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

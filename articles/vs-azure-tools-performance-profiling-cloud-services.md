@@ -1,19 +1,20 @@
 <properties 
-   pageTitle="測試雲端服務的效能"
-   description="使用 Visual Studio 分析工具測試雲端服務的效能"
-   services="visual-studio-online"
-   documentationCenter="n/a"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="測試雲端服務的效能 | Microsoft Azure"
+	description="使用 Visual Studio 分析工具測試雲端服務的效能"
+	services="visual-studio-online"
+	documentationCenter="n/a"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.workload="na"
-   ms.tgt_pltfrm="na"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/14/2015"
+	ms.author="patshea"/>
+
 
 # 測試雲端服務的效能 
 
@@ -81,7 +82,8 @@
 
 >[AZURE.NOTE]發佈雲端服務時，您可以啟用 IntelliTrace 或分析。您不能同時啟用。
 
-###分析工具收集方法###
+###分析工具收集方法
+
 您可以對分析使用不同的收集方法，根據效能問題：
 
 - **CPU 取樣** - 這個方法會收集對 CPU 使用率問題的初始分析很實用的應用程式統計資料。CPU 取樣是開始大多數效能調查的建議方法。收集 CPU 取樣資料時，對您正在分析的應用程式有很小的影響。
@@ -100,22 +102,25 @@
 
 ![設定分析設定](./media/vs-azure-tools-performance-profiling-cloud-services/IC526984.png)
 
+>[AZURE.NOTE]若要啟用 [啟用分析] 核取方塊，您必須要在用來發佈雲端服務的本機電腦上安裝分析工具。根據預設，當您安裝 Visual Studio 時會一併安裝程式碼剖析工具。
 
 ### 設定分析設定
 
-1. 在 [方案總管] 中，開啟 Azure 專案的捷徑功能表並按一下 [發佈]。如需有關如何發佈雲端服務的詳細步驟，請參閱[使用 Azure 工具發佈雲端服務](http://go.microsoft.com/fwlink/p?LinkId=623012)。
+1. 在 [方案總管] 中，開啟 Azure 專案的捷徑功能表，然後選擇 [發佈]。如需有關如何發佈雲端服務的詳細步驟，請參閱[使用 Azure 工具發佈雲端服務](http://go.microsoft.com/fwlink/p?LinkId=623012)。
 
 1. 在 [發佈 Azure 應用程式] 對話方塊中，選擇 [進階設定] 索引標籤。
 
 1. 若要啟用分析，請選取 [啟用分析] 核取方塊。
 
-1. 若要設定分析設定，請選擇 [設定] 超連結。[分析設定] 對話方塊隨即出現。
+1. 若要進行分析設定，請選擇 [設定] 超連結。[分析設定] 對話方塊隨即出現。
 
 1. 從 [您要使用的分析方法] 選項按鈕，選擇您所需要的分析類型。
 
 1. 若要收集層次互動分析資料，請選取 [啟用階層互動分析] 核取方塊。
 
-1. 若要儲存設定，請選擇 [確定] 按鈕。發佈這個應用程式時，這些設定會用來建立每個角色的分析工作階段。
+1. 若要儲存設定，請選擇 [確定] 按鈕。
+
+    發佈這個應用程式時，這些設定會用來建立每個角色的分析工作階段。
 
 ## 檢視分析報告
 
@@ -123,22 +128,22 @@
 
 ![檢視來自 Azure 的分析報告](./media/vs-azure-tools-performance-profiling-cloud-services/IC748914.png)
 
-
-
 ### 檢視分析報告
 
 1. 若要在 Visual Studio 中檢視 [伺服器總管] 視窗，請在功能表列上依序選擇 [檢視] 和 [伺服器總管]。
 
 1. 選擇 [Azure 運算] 節點，然後選擇從 Visual Studio 發佈時您選取要分析的雲端服務的 Azure 部署節點。
 
-1. 若要檢視執行個體的分析報告，請選擇服務中的角色、開啟特定執行個體的捷徑功能表，然後選擇 [檢視分析報告]。.vsp 檔案的報告現在會從 Azure 下載，而下載狀態會出現在 Azure 活動記錄檔中。下載完成時，分析報告會顯示在 Visual Studio 編輯器的索引標籤中，名為 <Role name>\_<Instance Number>\_<identifier>.vsp。報告的摘要資料隨即出現。
+1. 若要檢視執行個體的分析報告，請選擇服務中的角色、開啟特定執行個體的捷徑功能表，然後選擇 [檢視分析報告]。
 
-1. 若要顯示報告的不同檢視，在 [目前檢視] 清單中，選擇您要的檢視類型。如需詳細資訊，請參閱[分析工具報告檢視](https://msdn.microsoft.com/library/bb385755.aspx)。
+    現在便會從 Azure 下載 .vsp 檔案的報告，而下載狀態會出現在 Azure 活動記錄檔中。下載完成時，分析報告會顯示在 Visual Studio 編輯器的索引標籤中，名為 <Role name>\_<Instance Number>\_<identifier>.vsp。報告的摘要資料隨即出現。
+
+1. 若要顯示報告的不同檢視，在 [目前檢視] 清單中，選擇您要的檢視類型。如需詳細資訊，請參閱[分析工具報告檢視](https://msdn.microsoft.com/library/azure/bb385755.aspx)。
 
 ## 後續步驟
 
-[偵錯雲端服務](http://go.microsoft.com/fwlink//p/?LinkID=62304)
+[偵錯雲端服務](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-[從 Visual Studio 發佈至 Azure 雲端服務](http://go.microsoft.com/fwlink//p/?LinkID=623012)
+[從 Visual Studio 發佈至 Azure 雲端服務](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

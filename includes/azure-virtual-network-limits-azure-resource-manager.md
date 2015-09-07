@@ -4,7 +4,7 @@
    <th align="left" valign="middle">預設限制</th>
 </tr>
 <tr>
-   <td valign="middle"><p>每一訂用帳戶的<a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">虛擬網路</a><sup>1</sup></p></td>
+   <td valign="middle"><p>每一訂用帳戶的<a href="../virtual-network/virtual-networks-overview.md">虛擬網路</a><sup>1</sup></p></td>
    <td valign="middle"><p>每一區域 50<sup>1</sup></p></td>
 </tr>
 <tr>
@@ -51,4 +51,4 @@
 
 <sup>1</sup>您可以連絡支援人員來提高限制。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

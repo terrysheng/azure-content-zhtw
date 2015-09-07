@@ -1,5 +1,5 @@
 <properties
-	pageTitle="將內部部署資料庫移轉到 Azure 虛擬機器中的 SQL Server"
+	pageTitle="將資料庫移轉至 Azure 虛擬機器上的 SQL Server"
 	description="深入了解如何將內部部署使用者資料庫移轉到 Azure 虛擬機器中的 SQL Server。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -47,11 +47,11 @@
 | 方法 | 來源資料庫版本 | 目的地資料庫版本 | 來源資料庫備份的大小條件約束 | 注意事項 |
 |---|---|---|---|---|
 | [使用「將 SQL Server 資料庫部署到 Microsoft Azure VM」精靈](#azure-vm-deployment-wizard-tutorial) | SQL Server 2005 或更新版本 | SQL Server 2014 或更新版本 | > 1 TB | 盡可能使用最快速且最簡單的方法來移轉到 Azure 虛擬機器中新的或現有 SQL Server 執行個體 |
-| [使用壓縮執行在內部部署備份，並手動將備份檔案複製到 Azure 虛擬機器](#backup-to-file-and-copy-to-vm-and-restore) | SQL Server 2005 或更新版本 | SQL Server 2005 或更新版本 | [Azure VM 儲存體限制](https://azure.microsoft.com/zh-tw/documentation/articles/azure-subscription-service-limits/) | 使用時機僅限於當您無法使用此精靈時，例如當目的地資料庫版本早於 SQL Server 2012 SP1 CU2，或資料庫備份大小大於 1 TB (使用 SQL Server 2016 時則為 12.8 TB) |
+| [使用壓縮執行在內部部署備份，並手動將備份檔案複製到 Azure 虛擬機器](#backup-to-file-and-copy-to-vm-and-restore) | SQL Server 2005 或更新版本 | SQL Server 2005 或更新版本 | [Azure VM 儲存體限制](https://azure.microsoft.com/zh-TW/documentation/articles/azure-subscription-service-limits/) | 使用時機僅限於當您無法使用此精靈時，例如當目的地資料庫版本早於 SQL Server 2012 SP1 CU2，或資料庫備份大小大於 1 TB (使用 SQL Server 2016 時則為 12.8 TB) |
 | [執行備份至 URL 並從 URL 還原到 Azure 虛擬機器](#backup-to-url-and-restore) | SQL Server 2012 SP1 CU2 或更新版本 | SQL Server 2012 SP1 CU2 或更新版本 | > 1 TB (對於 SQL Server 2016，則為 < 12.8 TB) | 通常使用 [[備份至 URL](https://msdn.microsoft.com/library/dn435916.aspx)] 在效能上相當於使用精靈，但較不容易 |
-| [中斷連結並將資料和記錄檔複製到 Azure blob 儲存體，然後從 URL 連結至 Azure 虛擬機器中的 SQL Server](#detach-and-copy-to-url-and-attach-from-url) | SQL Server 2005 或更新版本 | SQL Server 2014 或更新版本 | [Azure VM 儲存體限制](https://azure.microsoft.com/zh-tw/documentation/articles/azure-subscription-service-limits/) | 使用時機包含將資料庫檔案連結至 Azure VM 中 SQL Server 時[使用 Azure Blob 儲存體服務儲存這些檔案](https://msdn.microsoft.com/library/dn385720.aspx)，尤其是針對極大的資料庫 |
-| [將內部部署機器轉換為 Hyper-V VHD，接著上傳至 Azure Blob 儲存體，然後使用上傳的 VHD 部署新的虛擬機器](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) | SQL Server 2005 或更新版本 | SQL Server 2005 或更新版本 | [Azure VM 儲存體限制](https://azure.microsoft.com/zh-tw/documentation/articles/azure-subscription-service-limits/) | 使用時機包含[使用您自己的 SQL Server 授權時](../data-management-azure-sql-database-and-sql-server-iaas/)、移轉將在舊版 SQL Server 上執行的資料庫時，或同時移轉系統和使用者資料庫作為其他使用者資料庫和/或系統資料庫的一部分資料庫相依性時。 |
-| [使用 Windows 匯入/匯出服務寄送硬碟機](#ship-hard-drive) | SQL Server 2005 或更新版本 | SQL Server 2005 或更新版本 | [Azure VM 儲存體限制](https://azure.microsoft.com/zh-tw/documentation/articles/azure-subscription-service-limits/) | 當手動複製方法太慢，例如包含極大資料庫時，請使用 [Windows 匯入/匯出服務](../storage-import-export-service/) |
+| [中斷連結並將資料和記錄檔複製到 Azure blob 儲存體，然後從 URL 連結至 Azure 虛擬機器中的 SQL Server](#detach-and-copy-to-url-and-attach-from-url) | SQL Server 2005 或更新版本 | SQL Server 2014 或更新版本 | [Azure VM 儲存體限制](https://azure.microsoft.com/zh-TW/documentation/articles/azure-subscription-service-limits/) | 使用時機包含將資料庫檔案連結至 Azure VM 中 SQL Server 時[使用 Azure Blob 儲存體服務儲存這些檔案](https://msdn.microsoft.com/library/dn385720.aspx)，尤其是針對極大的資料庫 |
+| [將內部部署機器轉換為 Hyper-V VHD，接著上傳至 Azure Blob 儲存體，然後使用上傳的 VHD 部署新的虛擬機器](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) | SQL Server 2005 或更新版本 | SQL Server 2005 或更新版本 | [Azure VM 儲存體限制](https://azure.microsoft.com/zh-TW/documentation/articles/azure-subscription-service-limits/) | 使用時機包含[使用您自己的 SQL Server 授權時](../data-management-azure-sql-database-and-sql-server-iaas/)、移轉將在舊版 SQL Server 上執行的資料庫時，或同時移轉系統和使用者資料庫作為其他使用者資料庫和/或系統資料庫的一部分資料庫相依性時。 |
+| [使用 Windows 匯入/匯出服務寄送硬碟機](#ship-hard-drive) | SQL Server 2005 或更新版本 | SQL Server 2005 或更新版本 | [Azure VM 儲存體限制](https://azure.microsoft.com/zh-TW/documentation/articles/azure-subscription-service-limits/) | 當手動複製方法太慢，例如包含極大資料庫時，請使用 [Windows 匯入/匯出服務](../storage-import-export-service/) |
 
 ## Azure VM 部署精靈教學課程
 
@@ -161,4 +161,4 @@
 
 透過網路進行上傳所費不貲或不可行時，請使用 [Windows 匯入/匯出服務方法](../storage-import-export-service/)，將大量檔案資料移轉至 Azure Blob 儲存體。您可以使用此服務，將包含該資料的一個或多個硬碟送至 Azure 資料中心，而您的資料將會在此上傳至儲存體帳戶。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

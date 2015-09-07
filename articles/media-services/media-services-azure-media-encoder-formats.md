@@ -1,109 +1,119 @@
 <properties 
-	pageTitle="Azure Media Encoder 格式和轉碼器" 
-	description="本主題提供 Azure 媒體編碼器格式和轉碼器的概觀。" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Azure Media Encoder 格式和轉碼器"
+	description="本主題提供 Azure 媒體編碼器格式和轉碼器的概觀。"
+	services="media-services"
+	documentationCenter=""
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="juliako"/>
 
 #Azure Media Encoder 格式和轉碼器
 
-編碼器會使用轉碼器壓縮數位媒體。編碼器通常會有各種設定，可讓您指定產生的媒體屬性，例如使用的轉碼器、檔案格式、解析度和位元速率。檔案格式是容器，可用來保存已壓縮視訊以及使用哪些轉碼器來壓縮視訊等相關資訊。
-
-轉碼器有兩個元件：一個用來壓縮數位媒體檔案以利傳輸，另一個元件則是解壓縮數位媒體檔案以利播放。音訊轉碼器用於壓縮和解壓縮音訊，視訊轉碼器則用於壓縮和解壓縮視訊。轉碼器可以運用不失真或失真壓縮。不失真轉碼器在進行壓縮時會保留所有資訊。解壓縮檔案時，產生的檔案與輸入媒體完全相同，因此不失真轉碼器相當適合用於封存和儲存。失真轉碼器在進行編碼時會遺失部分資訊並產生較小的檔案 (與原始檔案相比)，代價是減損視訊品質，適用於透過網際網路串流處理。Azure Media Encoder 用來編碼的兩種主要轉碼器是 H.264 和 VC-1。其他轉碼器可能適用於我們合作夥伴的編碼器生態系統。
-
-請務必了解轉碼器和檔案格式之間的差異。轉碼器是實作壓縮/解壓縮演算法的軟體，而檔案格式是保存已壓縮視訊的容器。如需詳細資訊，請參閱[編碼和封裝](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/)。
-
-本文件包含您可以在 Azure Media Encoder 中使用的常見匯入和匯出檔案格式清單。
+本文件包含您可以和 Azure 媒體編碼器搭配使用之最常見輸入與輸出檔案格式和轉碼器的清單。
 
 
-[Azure Media Encoder 匯入格式](#import_formats)
-
-[Azure Media Encoder 匯出格式](#export_formats)
-
-
-##<a id="import_formats"></a>Azure Media Encoder 匯入格式 
-
-下節會列出支援匯入的轉碼器和檔案格式清單。
-
-###視訊轉碼器
-
-- H.264 (基準、主要和高設定檔)
-- MPEG-1 (包括 MPEG-PS)
-- MPEG-2 (簡易和主要設定檔及 4:2:2 設定檔)
-- MPEG-4 v2 (簡易視覺設定檔和進階簡易設定檔)
-- VC-1 (簡易、主要和進階設定檔)
-- Windows Media 視訊 (簡易、主要和進階設定檔)
-- DV (DVC、DVHD、DVSD、DVSL)
-- Grass Valley HQ/HQX
+##輸入視訊檔案格式 (容器)
  
-###音訊轉碼器
-
-- AC-3 (Dolby Digital 音訊)
-- AAC (AAC-LC、搭配 AAC-LC 核心的 HE-AAC v1，和搭配 AAC-LC 核心的 HE-AAC v2)
-- MP3
-- Windows Media 音訊 9 (Windows Media Audio Standard、Windows Media Audio Professional 和 Windows Media Audio Lossless)
-
-###視訊檔案格式
- 
-檔案格式|檔案副檔名
+檔案格式 (副檔名)|支援
 ---|---
-3GPP、3GPP2|.3gp、.3g2、.3gp2
-進階系統格式 (ASF)|.asf
-進階視訊編碼高畫質 (AVCHD) [MPEG-2 傳輸資料流]|.mts、.m2ts
-音訊視訊交錯格式 (AVI)|.avi
-數位攝影機 MPEG-2 (MOD)|.mod
-DVD 傳輸串流 (TS) 檔案|.ts
-DVD 視訊物件 (VOB) 檔案|.vob
-Expression Encoder 螢幕擷取轉碼器檔案|.xesc
-MP4|.mp4
-MPEG-1 系統資料流|.mpeg、.mpg
-MPEG-2 視訊檔案|.m2v
-Smooth Streaming 檔案格式 (PIFF 1.3)|.ismv
-Windows Media 視訊 (WMV)|.wmv
-
+3GPP、3GPP2 (.3gp、.3g2、.3gp2) |是
+進階系統格式 (ASF) (.asf) |是
+進階視訊編碼高畫質 (AVCHD) [ MPEG-2 傳輸資料流 ] (.mts、.m2ts) |是
+音訊視訊交錯格式 (AVI) (.avi) |是
+數位攝影機 MPEG-2 (MOD) (.mod) |是
+DVD 傳輸串流 (TS) 檔案 (.ts) |是
+DVD 視訊物件 (VOB) 檔案 (.vob) |是
+Expression Encoder 螢幕擷取轉碼器檔案 (.xesc) |是
+MP4 (.mp4) |是
+MPEG-1 系統資料流 (.mpeg、.mpg) |是
+MPEG-2 視訊檔案 (.m2v) |是
+Smooth Streaming 檔案格式 (PIFF 1.3) (.ismv) |是
+Windows Media 視訊 (WMV) (.wmv) |是
+Adobe® Flash® F4V |否		
+MXF/SMPTE 377M |限制 
+GXF |否		 
+[Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|否
+Matroska/WebM |否
 
 支援部分未壓縮格式。如需詳細資訊，請參閱[支援的未壓縮視訊格式](#uncompressed)
 
-###音訊檔案格式
+##輸入音訊檔案格式
 
-檔案格式|檔案副檔名
+檔案格式 (副檔名)|支援
 ---|---
-AC-3 (Dolby Digital) 音訊|.ac3
-音訊交換檔案格式 (AIFF)|.aiff
-廣播聲波格式|.bwf
-MP3 (MPEG-1 音訊層 3)|.mp3
-MP4 音訊|.m4A
-MPEG-4 有聲書|.m4b
-WAVE 檔案|.wav
-Windows Media 音訊|.wma
+AC-3 (Dolby Digital) 音訊 (.ac3)|是
+音訊交換檔案格式 (AIFF) (.aiff)|是
+廣播聲波格式 (.bwf)|是
+MP3 (MPEG-1 音訊層 3) (.mp3)|是
+MP4 音訊 (m4A)|是
+MPEG-4 有聲書 (m4b)|是
+WAVE 檔案 (.wav)|是
+Windows Media 音訊 (.wma)|是
 
-###影像檔案格式
 
-檔案格式|檔案副檔名
+##輸入視訊轉碼器
+
+輸入視訊轉碼器|支援
+---|--- 
+H.264 (基準、主要和高設定檔) |是
+AVC 8 位元/10 位元，高達 4:2:2，包括 AVCIntra |唯一的 8 位元 4:2:0
+Avid DNxHD (使用 MXF) |否
+DVCPro/DVCProHD (使用 MXF) |否
+JPEG2000 |否
+MPEG-2 (簡易和主要設定檔及 4:2:2 設定檔) |最高 4:2:2 設定檔
+MPEG-1 (包括 MPEG-PS) |是
+Windows Media 視訊/VC-1 |是
+Canopus HQ/HQX |是
+MPEG-4 v2 (簡易視覺設定檔和進階簡易設定檔) |是
+[Theora](https://en.wikipedia.org/wiki/Theora) |否
+VC-1 (簡易、主要和進階設定檔) |是
+Windows Media 視訊 (簡易、主要和進階設定檔) |是
+DV (DVC、DVHD、DVSD、DVSL) |是
+Grass Valley HQ/HQX |是
+ 
+
+##輸入音訊轉碼器
+
+輸入音訊轉碼器|支援
 ---|---
-Bitmap|.bmp
-GIF、動畫 GIF|.gif
-JPEG|.jpeg、.jpg
-PNG|.png
-TIFF|.tif
-WPF 畫布 XAML|.xaml
+AES (SMPTE 331M 和 302M，AES3-2003) |否
+Dolby® E |否
+Dolby® Digital (AC3) |是
+Dolby® Digital Plus (E-AC3) |否
+AAC (AAC-LC、搭配 AAC-LC 核心的 HE-AAC v1，和搭配 AAC-LC 核心的 HE-AAC v2；最高 5.1)|是
+MPEG Layer 2|是|是|是
+MP3 (MPEG-1 音訊層 3)|是
+Windows Media 音訊 9 (Windows Media Audio Standard、Windows Media Audio Professional 和 Windows Media Audio Lossless) |是
+WAV/PCM|是
+[FLAC](https://en.wikipedia.org/wiki/FLAC)|否
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |否
+[Vorbis](https://en.wikipedia.org/wiki/Vorbis)|否
 
 
-##<a id="export_formats"></a>Azure 媒體編碼器匯出格式
+##輸入影像檔案格式
+
+檔案格式 (副檔名) | 支援
+---|---
+Bitmap (.bmp) | 是
+GIF、動畫 GIF (.gif)| 是
+JPEG (.jpeg、.jpg)| 是
+PNG (.png)| 是
+TIFF (.tif)| 是
+WPF 畫布 XAML (.xaml)| 是
+
+
+##輸出格式和轉碼器
 
 下表會列出支援匯出的轉碼器和檔案格式清單。
-
 
 檔案格式|視訊轉碼器|音訊轉碼器
 ---|---|---
@@ -131,4 +141,4 @@ YUV 211 格式資料|壓縮 YUV 格式。每行的每第二個水平像素都是
 Cirrus Logic Jr YUV 411 格式|Cirrus Logic Jr YUV 411 格式， 每個 Y、U 和 V 樣本小於 8 位元。每行的每個水平像素都是 Y 樣本，每第四個水平像素是 U 和 V 樣本。每條垂直線都會進行取樣。
 Indeo-produced YVU9 格式|Indeo-produced YVU9 格式，包含與最後一個影格的區別額外資訊。每個像素 9.5 位元，但回報為 9 位元。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="程式碼範例：C# 中用於連接到 SQL Database 的重試邏輯 | Microsoft Azure" 
-	description="C# 範例包括用於與 Azure SQL Database 進行互動的穩健重試邏輯。" 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	pageTitle="程式碼範例：C# 中用於連接到 SQL Database 的重試邏輯 | Microsoft Azure"
+	description="C# 範例包括用於與 Azure SQL Database 進行互動的穩健重試邏輯。"
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jeffreyg"
 	editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="genemi"/>
 
 
@@ -174,7 +174,7 @@ Microsoft 對這種設計選擇不置可否。示範程式會說明一些您可�
 	        {
 	            int connectionTimeoutSeconds = 30;  // Default of 15 seconds is too short over the Internet, sometimes.
 	            int maxCountTriesConnectAndQuery = 3;  // You can adjust the various retry count values.
-	            int secondsBetweenRetries = 4;  // Simple retry strategy.
+	            int secondsBetweenRetries = 6;  // Simple retry strategy.
 	
 	            // [A.1] Prepare the connection string to Azure SQL Database.
 	            this.scsBuilder = new C.SqlConnectionStringBuilder();
@@ -496,4 +496,4 @@ Microsoft 對這種設計選擇不置可否。示範程式會說明一些您可�
 
 - [SQL Database 的用戶端快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

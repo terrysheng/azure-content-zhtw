@@ -1,20 +1,20 @@
 <properties
    pageTitle="定義和管理狀態"
-   description="如何定義和管理 Service Fabric 中的服務狀態"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+	description="如何定義和管理 Service Fabric 中的服務狀態"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="appi101"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/13/2015"
-   ms.author="aprameyr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="aprameyr"/>
 
 # 服務狀態
 **服務狀態**是服務正常運作所需的資料。也是一種透過服務讀取和寫入才能執行工作的資料結構和變數。
@@ -41,4 +41,4 @@
 - [分割 Service Fabric 服務](service-fabric-concepts-partitioning.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

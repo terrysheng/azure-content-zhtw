@@ -1,25 +1,25 @@
 <properties 
-	pageTitle="BizTalk 服務中的儀表板、監視、調整、設定和混合式連線 | Microsoft Azure" 
-	description="深入了解控制項，以及在 BizTalk 服務中的 [管理入口網站] 索引標籤上監視效能：儀表板、監視、調整、設定和混合式連線。MABS，WABS" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+	pageTitle="BizTalk 服務中的儀表板、監視、調整、設定和混合式連線 | Microsoft Azure"
+	description="深入了解控制項，以及在 BizTalk 服務中的 [管理入口網站] 索引標籤上監視效能：儀表板、監視、調整、設定和混合式連線。MABS，WABS"
+	services="biztalk-services"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.service="biztalk-services"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="mandia"/>
 
 
 
 
-# BizTalk 服務：儀表板、監視、調整、設定和混合式連線索引標籤
+# 檢閱儀表板、監視器、調整、設定和混合式連線索引標籤
 
 在您建立 BizTalk 服務和部署應用程式之後，您可以變更某些 BizTalk 服務設定和監視應用程式效能。
 
@@ -322,11 +322,11 @@
 ## 調整
 在 [調整] 索引標籤中，您可以增加或減少 BizTalk 服務使用的單位數。依預設已設定一個單位。您可以將更多單位加入至 BizTalk 服務。增加規模時，也會增量輸送量。資源數量也會增加，包括部署的橋接器、協議、LOB 連接和處理能力。例如，將規模從 1 單位增加為 2 單位。在此情況下，您可以部署兩倍的橋接器、兩倍的協議、兩倍的 LOB 連接，以及兩倍的處理能力。
 
-有些 BizTalk 版本不提供調整選項。在此情況下，只允許一個單位。若要判斷您的版本可調整的單位數，請參閱「[BizTalk 服務：版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)」。
+有些 BizTalk 版本不提供調整選項。在此情況下，只允許一個單位。若要判斷您的版本可調整的單位數，請參閱「[BizTalk 服務：版本圖表](biztalk-editions-feature-chart.md)」。
 
 增加單位數可能會影響定價。如果增加單位，選取 **[儲存]** 會出現訊息，告知您計費是否受影響。您可以選擇繼續。增加單位數時，BizTalk 服務狀態會從 [作用中] 變更為 [正在更新]。在更新狀態下，BizTalk 服務會繼續執行。
 
-[BizTalk 服務：版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)定義「單位」。
+[BizTalk 服務：版本圖表](biztalk-editions-feature-chart.md)定義「單位」。
 
 
 ## 設定
@@ -334,7 +334,7 @@
 
 將 [備份狀態] 設為 [無] 或 [自動]。設為 [無] 時不會自動建立備份。設為 [自動] 時需設定備份位置、備份頻率和備份檔案的保留時間。
 
-[BizTalk 服務：備份與還原](http://go.microsoft.com/fwlink/p/?LinkID=329873)提供詳細資料。
+[BizTalk 服務：備份與還原](biztalk-backup-restore.md)提供詳細資料。
 
 
 ## <a name="HybridConnections"></a>混合式連線
@@ -344,22 +344,22 @@
 
 若要在 Azure 行動服務內使用混合式連線，請參閱 [Azure 行動服務與混合式連線](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)。
 
-若要在 Azure BizTalk 服務內建立或管理混合式連線，請參閱[混合式連線](http://go.microsoft.com/fwlink/p/?LinkID=397274)。
+若要在 Azure BizTalk 服務內建立或管理混合式連線，請參閱[混合式連線](integration-hybrid-connection-overview.md)。
 
 
 
 ## 下一步
 現在，您已熟悉不同的索引標籤，您可以繼續深入了解 Azure BizTalk 服務的功能：
 
-- [BizTalk 服務：節流](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [BizTalk 服務：簽發者名稱和簽發者金鑰](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-- [BizTalk 服務：備份與還原](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+- [BizTalk 服務：節流](biztalk-throttling-thresholds.md)  
+- [BizTalk 服務：簽發者名稱和簽發者金鑰](biztalk-issuer-name-issuer-key.md)  
+- [BizTalk 服務：備份與還原](biztalk-backup-restore.md)
 
 ## 另請參閱
-- [混合式連線](http://go.microsoft.com/fwlink/p/?LinkID=397274)
-- [BizTalk 服務：開發人員、基本、標準和高級版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [BizTalk 服務：使用 Azure 管理入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [BizTalk 服務：BizTalk 服務狀態圖](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+- [混合式連線](integration-hybrid-connection-overview.md)  
+- [BizTalk 服務：開發人員、基本、標準和高級版本圖表](biztalk-editions-feature-chart.md)  
+- [BizTalk 服務：使用 Azure 管理入口網站進行佈建](biztalk-provision-services.md)  
+- [BizTalk 服務：BizTalk 服務狀態圖](biztalk-service-state-chart.md)  
 - [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
@@ -368,4 +368,4 @@
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

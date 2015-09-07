@@ -3,7 +3,7 @@
 	description="了解如何使用 Python 的 Azure Blob 儲存體來上傳、列出、下載及刪除 Blob。"
 	services="storage"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="emgerner-msft"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/11/2015"
-	ms.author="huvalo"/>
+	ms.date="08/25/2015"
+	ms.author="emgerner"/>
 
 # 如何使用 Python 的 Azure Blob 儲存體
 
@@ -22,7 +22,7 @@
 
 ## 概觀
 
-本文將示範如何使用 Blob 儲存體執行一般案例。相關範例是以 Python 所撰寫，並使用 [Python Azure 封裝][]。所涵蓋的案例包括「上傳、列出、下載」及「刪除」Blob。
+本文將示範如何使用 Blob 儲存體執行一般案例。這些範例是以 Python 所撰寫，並使用 [Python Azure 儲存體封裝][]。所涵蓋的案例包括「上傳、列出、下載」及「刪除」Blob。
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -34,7 +34,7 @@
 
 **BlobService** 物件讓您能使用容器及 blob。下列程式碼會建立 **BlobService** 物件。將下列內容新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 Python 檔案內的頂端附近。
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 
 下列程式碼會使用儲存體帳戶名稱和帳戶金鑰來建立 **BlobService** 物件：將 'myaccount' 和 'mykey' 取代為真實的帳戶和金鑰。
 
@@ -112,5 +112,6 @@
 [儲存和存取在 Azure 中的資料]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 [Python Azure 封裝]: https://pypi.python.org/pypi/azure
+[Python Azure 儲存體封裝]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

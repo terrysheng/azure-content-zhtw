@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Azure 資料目錄什麼是資料目錄"
-   description="Microsoft Azure 資料目錄是全面管理的雲端服務，可作為企業資料來源的註冊系統和探索系統。Azure 資料目錄可讓任何使用者 – 從分析師、資料科學家到開發人員 – 註冊、探索、了解及取用資料來源。"
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
+   pageTitle="Azure 資料目錄 – 什麼是資料目錄"
+	description="Microsoft Azure 資料目錄概觀，包括其具備的功能以及專門解決的問題。Azure 資料目錄可讓任何使用者 – 從分析師、資料科學家到開發人員 – 註冊、探索、了解及取用資料來源。"
+	services="data-catalog"
+	documentationCenter=""
+	authors="steelanddata"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="08/19/2015"
-   ms.author="maroche"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="08/21/2015"
+	ms.author="maroche"/>
 
 # 什麼是 Azure 資料目錄？
 
@@ -122,4 +122,4 @@ Microsoft **Azure 資料目錄**是全面管理的雲端服務，可作為企業
 
 > [AZURE.NOTE]在 Azure 資料目錄的預覽中，僅直接支援 Microsoft Excel 和 SQL Server Reporting Services 報表管理員，並在 [開啟於] 功能表中顯示。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

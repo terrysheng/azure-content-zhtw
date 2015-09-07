@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # Azure 虛擬機器中的 SQL Server 安全性考量
 
@@ -54,8 +54,8 @@ Azure 符合多種業界規範及標準，可讓您使用在虛擬機器中執�
 
 ## 後續步驟
 
-如果您也想了解關於效能的最佳作法，請參閱 [Azure 虛擬機器中 SQL Server 的效能最佳作法](https://msdn.microsoft.com/library/azure/dn133149.aspx)。
+如果您也想了解關於效能的最佳做法，請參閱 [Azure 虛擬機器中 SQL Server 的效能最佳做法](virtual-machines-sql-server-performance-best-practices.md)。
 
 如需在 Azure VM 中執行 SQL Server 的其他相關主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

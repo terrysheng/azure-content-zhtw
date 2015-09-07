@@ -1,19 +1,19 @@
 <properties 
    pageTitle="管理虛擬網路 (VNet) 所使用的 DNS 伺服器"
-   description="了解如何新增和移除虛擬網路 (VNet) 中的 DNS 伺服器"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="了解如何新增和移除虛擬網路 (VNet) 中的 DNS 伺服器"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/08/2015"
+	ms.author="telmos"/>
 
 # 管理虛擬網路 (VNet) 所使用的 DNS 伺服器
 
@@ -49,11 +49,11 @@
 
 若要使用網路組態檔來編輯 DNS 伺服器清單，您需要先從管理入口網站匯出您的組態設定。接下來，您需要編輯網路組態檔，並透過管理入口網站將它匯入回來。下方是完成此程序的高階步驟清單。
 
-1. 將您的虛擬網路設定匯出至網路組態檔。如需匯出網路組態設定的詳細資訊，請參閱＜[將虛擬網路設定匯出至網路組態檔](https://msdn.microsoft.com/library/azure/dn133804.aspx)＞。
+1. 將您的虛擬網路設定匯出至網路組態檔。如需匯出網路組態設定的詳細資訊，請參閱＜[將虛擬網路設定匯出至網路組態檔](virtual-networks-using-network-configuration-file.md)＞。
 
-1. 指定您虛擬網路的 DNS 伺服器資訊。如需有關指定 DNS 伺服器的詳細資訊，請參閱＜[在虛擬網路組態檔中指定 DNS 伺服器](https://msdn.microsoft.com/library/windowsazure/jj156098.aspx)＞。如需有關網路組態檔的詳細資訊，請參閱＜[Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)＞和＜[使用網路組態檔設定虛擬網路](https://msdn.microsoft.com/library/azure/jj156097.aspx)＞。
+1. 指定您虛擬網路的 DNS 伺服器資訊。如需有關指定 DNS 伺服器的詳細資訊，請參閱＜[在虛擬網路組態檔中指定 DNS 伺服器](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)＞。如需有關網路組態檔的詳細資訊，請參閱＜[Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)＞和＜[使用網路組態檔設定虛擬網路](virtual-networks-using-network-configuration-file.md)＞。
 
-1. 匯入網路組態檔。如需匯入網路組態檔的詳細資訊，請參閱＜[匯入網路組態檔](https://msdn.microsoft.com/library/azure/jj156213.aspx)＞。
+1. 匯入網路組態檔。如需匯入網路組態檔的詳細資訊，請參閱＜[匯入網路組態檔](virtual-networks-using-network-configuration-file.md)＞。
 
 1. 重新啟動位於虛擬網路的虛擬機器，以便取得新的 DNS 設定。
 
@@ -65,4 +65,4 @@
 
 [如何刪除虛擬網路 (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

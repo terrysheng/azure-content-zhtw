@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="在混合式雲端中設定 Web 型 LOB 應用程式進行測試" 
-	description="了解如何在混合式雲端環境中建立 IT 專業或開發測試的 Web 型企業營運應用程式。" 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="LOB 應用程式測試環境 | Microsoft Azure"
+	description="了解如何在混合式雲端環境中建立 IT 專業或開發測試的 Web 型企業營運應用程式。"
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # 在混合式雲端中設定 Web 型 LOB 應用程式進行測試
@@ -80,7 +80,7 @@
 3.	提示開啟 SQL1.rdp 時，按一下 [開啟]。
 4.	顯示 [遠端桌面連線] 訊息方塊後，按一下 [連接]。
 5.	出現輸入認證的提示時，使用這些：
-	- 名稱：**SQL1\**[本機系統管理員帳戶名稱]
+	- 名稱：**SQL1**[本機系統管理員帳戶名稱]
 	- 密碼：[本機系統管理員帳戶密碼]
 6.	顯示憑證相關的 [遠端桌面連線] 訊息方塊提示時，按一下 [是]。
 
@@ -196,4 +196,4 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 [Azure 基礎結構服務實作指導方針](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,4 +1,3 @@
-
 #如何建立自訂虛擬機器 (英文)
 
 *自訂*虛擬機器會參考您使用 [從組件庫] 方法建立的虛擬機器，因其比使用 [快速建立] 方法可讓您設定更多選項。這些選項包含︰
@@ -37,7 +36,7 @@
 
 	**注意**：如需將虛擬機器放在相同雲端服務中的詳細資訊，請參閱[如何在雲端服務中連接虛擬機器](http://www.windowsazure.com/manage/windows/how-to-guides/connect-to-a-cloud-service/)。
 
-12. 在 [區域/同質群組/虛擬網路] 中，選取您要用於虛擬機器的區域、同質群組或虛擬網路。如需有關同質群組的詳細資訊，請參閱[關於虛擬網路的同質群組](http://msdn.microsoft.com/library/azure/jj156085.aspx)。
+12. 在 [區域/同質群組/虛擬網路] 中，選取您要用於虛擬機器的區域、同質群組或虛擬網路。如需有關同質群組的詳細資訊，請參閱[關於虛擬網路的同質群組](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)。
 
 13. 在 [儲存體帳戶] 中，為 VHD 檔案選取現有的儲存體帳戶，或使用自動產生的儲存體帳戶。每個區域只會自動建立一個儲存體帳戶。您利用此設定建立的所有其他虛擬機器均位於此儲存體帳戶。您的儲存體帳戶限制為 20 個。
 
@@ -60,4 +59,4 @@
 - [如何登入執行 Linux 的虛擬機器](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [如何登入執行 Windows Server 的虛擬機器](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

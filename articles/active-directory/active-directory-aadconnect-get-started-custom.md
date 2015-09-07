@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="自訂 Azure AD Connect 安裝" 
-	description="這份文件詳述了 Azure AD Connect 的自訂安裝選項。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="自訂 Azure AD Connect 安裝"
+	description="這份文件詳述了 Azure AD Connect 的自訂安裝選項。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"  
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # 自訂 Azure AD Connect 安裝
@@ -83,9 +83,9 @@ sAMAccountName 與 MailNickName|此選項會在預期可以找到使用者登入
 
 - **來源錨點**：屬性 sourceAnchor 是使用者物件存留期間都不會變更的屬性。它是連結內部部署使用者與 Azure AD 中使用者的主要金鑰。因為無法改變屬性，所以您必須規劃並使用好的屬性。objectGUID 就是不錯的選項。只要使用者帳戶沒有在樹系/網域之間移動，此屬性就不會改變。若在多樹系環境中，您會在樹系間移動帳戶時，就必須使用另一個屬性，例如 employeeID 屬性。要避免如果某人結婚或變更指派時會改變的屬性。因為不可以使用帶有 @ 符號的屬性，所以無法使用 email 和 userPrincipalName。屬性也有區分大小寫，因此在樹系間移動物件時，請務必保留大寫/小寫。對二進位屬性而言值是 Base64 編碼，但對其他屬性類型而言仍會保持其未編碼的狀態。在同盟情況以及部分 Azure AD 介面中，此屬性也稱為 immutableID。
 
-- **UserPrincipalName**：屬性 userPrincipalName 是使用者登入 Azure AD 和 Office 365 時會使用的屬性。使用的網域 (也稱為 UPN 尾碼)，應該會在同步處理使用者前於 Azure AD 中進行驗證。強烈建議保留預設屬性 userPrincipalName。如果此屬性不可路由傳送且無法驗證，則可以選取另一個屬性，例如選取 email 做為保存登入 ID 的屬性。
+- **UserPrincipalName**：屬性 userPrincipalName 是使用者登入 Azure AD 和 Office 365 時會使用的屬性。使用的網域 (也稱為 UPN 尾碼)，應該會在同步處理使用者前於 Azure AD 中進行驗證。強烈建議保留預設屬性 userPrincipalName。如果此屬性不可路由傳送且無法驗證，則可以選取另一個屬性，例如選取 email 做為保存登入 ID 的屬性。這就是所謂的**替代 ID**。替代 ID 屬性值必須遵循 RFC822 標準。替代 ID 可以搭配密碼 sso 和同盟 sso 做為登入方案使用。
 
->[AZURE.WARNING]使用替代 ID 會與所有 Office 365 工作負載不相容。如需詳細資訊，請參閱〈[設定替代的登入 ID](https://technet.microsoft.com/library/dn659436.aspx.)〉。
+>[AZURE.WARNING]使用替代 ID 會與所有 Office 365 工作負載不相容。如需詳細資訊，請參閱〈[設定替代登入 ID](https://technet.microsoft.com/library/dn659436.aspx.)〉。
 
 
 
@@ -103,7 +103,7 @@ sAMAccountName 與 MailNickName|此選項會在預期可以找到使用者登入
 
 此畫面可讓您針對特定情況選取選用功能。以下是每項個別功能的簡短說明。
 
-<center>![快速安裝](./media/active-directory-aadconnect-get-started-custom/of.png)</center>
+<center>![快速安裝](./media/active-directory-aadconnect-get-started-custom/optional.png)</center>
 
 
 選用功能 | 說明
@@ -111,7 +111,6 @@ sAMAccountName 與 MailNickName|此選項會在預期可以找到使用者登入
 Exchange 混合部署 |「Exchange 混合部署」功能透過將一組特定屬性從 Azure AD 同步處理回內部部署目錄，以允許 Exchange 信箱同時存在於內部部署和 Azure 中。
 Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性篩選，可將這組同步處理的屬性調整為精靈後續頁面上的特定一組屬性。這會在精靈中開啟兩個額外的組態頁面。  
 密碼回寫|透過啟用密碼回寫，使用 Azure AD 所產生的密碼變更會回寫至內部部署目錄。
-使用者回寫|透過啟用使用者回寫，在 Azure AD 中所建立的使用者會回寫至內部部署目錄。這會在精靈中開啟一個額外的組態頁面。  
 目錄擴充屬性同步處理|透過啟用目錄擴充屬性同步處理，指定的屬性將會同步處理至 Azure AD。這會在精靈中開啟一個額外的組態頁面。  
 
 如需使用同步處理規則編輯器和宣告式佈建的額外組態選項 (例如，變更預設組態)，請參閱[管理 Azure AD Connect](active-directory-aadconnect-whats-next.md)
@@ -137,17 +136,7 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 ![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/extension4.png)
 
 
-## 使用者回寫 (預覽功能)
 
-> [AZURE.WARNING]如果您目前啟用 DirSync 或 Azure AD Sync，請不要在 Azure AD Connect 中啟動任何回寫功能
-
-使用者回寫可讓您取得 Azure AD 中建立的使用者 (透過入口網站、圖形、PowerShell 或任何其他方法)，然後將使用者寫回內部部署 AD DS。若要啟用此功能，請在 [選用功能] 頁面上選取 [使用者回寫]。您現在會看到要在其中建立這些使用者的位置。預設組態會將所有使用者建立在 AD DS 中的同一個位置。
-
-![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/writeback2.png)
-
-使用者將會和隨機密碼一起建立，因此您必須重設 AD DS 中的密碼，讓使用者能夠實際登入。
-
->[AZURE.NOTE]密碼同步處理和密碼回寫與此預覽功能不相容。
 
 ## 群組回寫 (預覽功能)
 
@@ -290,4 +279,4 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

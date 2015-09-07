@@ -1,20 +1,20 @@
 <properties
    pageTitle="使用 Azure 資源管理員驗證服務主體"
-   description="描述如何透過角色存取控制授與服務主體的存取權，並驗證服務主體。顯示如何使用 PowerShell 和 Azure CLI 執行這些工作。"
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="描述如何透過角色存取控制授與服務主體的存取權，並驗證服務主體。顯示如何使用 PowerShell 和 Azure CLI 執行這些工作。"
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="multiple"
-   ms.workload="na"
-   ms.date="08/14/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/25/2015"
+	ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員驗證服務主體
 
@@ -32,6 +32,11 @@
 ## 使用密碼驗證服務主體 - PowerShell
 
 在這一節中，您將執行相關步驟來建立 Azure Active Directory 應用程式的服務主體、指派角色給服務主體，並藉由提供應用程式識別碼和密碼驗證為服務主體。
+
+1. 切換至 Azure 資源管理員模式，並登入您的帳戶。
+
+        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:\> Add-AzureAccount
 
 1. 執行 **New-AzureADApplication** 命令，以建立新的 AAD 應用程式。提供應用程式的顯示名稱、描述應用程式之頁面的 URI (未確認連結)、識別應用程式的 URI，以及應用程式身分識別的密碼。
 
@@ -98,6 +103,24 @@
 
      您現在應該驗證為您所建立 AAD 應用程式的服務主體。
 
+7. 若要從應用程式進行驗證，請包含下列 .NET 程式碼。擷取權杖之後，您便可以存取訂用帳戶中的資源。
+
+        public static string GetAToken()
+        {
+          var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
+          var credential = new ClientCredential(clientId: "{application id}", clientSecret: {application password}");
+          var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
+
+          if (result == null) {
+            throw new InvalidOperationException("Failed to obtain the JWT token");
+          }
+
+          string token = result.AccessToken;
+
+          return token;
+        }
+
+
 
 ## 使用憑證驗證服務主體 - PowerShell
 
@@ -107,12 +130,17 @@
 
 首先，您必須在 PowerShell 中設定一些值，以便稍後建立應用程式時使用。
 
+1. 切換至 Azure 資源管理員模式，並登入您的帳戶。
+
+        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:\> Add-AzureAccount
+
 1. 針對這兩種方法，從您的憑證建立 X509Certificate 物件並擷取金鑰值。使用憑證的路徑以及該憑證的密碼。
 
         $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate("C:\certificates\examplecert.pfx", "yourpassword")
         $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
-2. 如果您使用金鑰認證，請建立金鑰認證物件並將其值設為上一個步驟中的 `$keyValue`。
+2. 如果使用金鑰認證，請建立金鑰認證物件並將其值設為上一個步驟中的 `$keyValue`。
 
         $currentDate = Get-Date
         $endDate = $currentDate.AddYears(1)
@@ -172,11 +200,11 @@
 
         PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
-6. 若要從應用程式進行驗證，請包含下列程式碼。擷取用戶端之後，您可以存取訂用帳戶中的資源。
+6. 若要從應用程式進行驗證，請包含下列 .NET 程式碼。擷取用戶端之後，您可以存取訂用帳戶中的資源。
 
-        string clientId = "<Client ID for your AAD app>"; 
+        string clientId = "<Application ID for your AAD app>"; 
         var subscriptionId = "<Your Azure SubscriptionId>"; 
-        string tenant = "<AAD tenant name>.onmicrosoft.com"; 
+        string tenant = "<Tenant id or tenant name>"; 
 
         var authContext = new AuthenticationContext(string.Format("https://login.windows.net/{0}", tenant)); 
 
@@ -205,7 +233,12 @@
 
 您將從建立服務主體開始。若要這麼做，我們必須在目錄中建立應用程式。本節將逐步引導如何在目錄中建立新的應用程式。
 
-1. 執行 **azure ad app create** 命令，以建立新的 AAD 應用程式。提供應用程式的顯示名稱、描述應用程式之頁面的 URI (未確認連結)、識別應用程式的 URI，以及應用程式身分識別的密碼。
+1. 切換至 Azure 資源管理員模式，並登入您的帳戶。
+
+        azure config mode arm
+        azure login
+
+2. 執行 **azure ad app create** 命令，以建立新的 AAD 應用程式。提供應用程式的顯示名稱、描述應用程式之頁面的 URI (未確認連結)、識別應用程式的 URI，以及應用程式身分識別的密碼。
 
         azure ad app create --name "<Your Application Display Name>" --home-page "<https://YourApplicationHomePage>" --identifier-uris "<https://YouApplicationUri>" --password <Your_Password>
         
@@ -221,7 +254,7 @@
         ...
         info:    ad app create command OK
 
-2. 建立應用程式的服務主體。提供在上一個步驟中傳回的應用程式識別碼。
+3. 建立應用程式的服務主體。提供在上一個步驟中傳回的應用程式識別碼。
 
         azure ad sp create b57dd71d-036c-4840-865e-23b71d8098ec
         
@@ -236,15 +269,15 @@
 
     您現在已在目錄中建立服務主體，但未將任何權限或範圍指派給服務。您必須明確地授與服務主體權限，才能在某個範圍執行作業。
 
-3. 授與服務主體對您訂用帳戶的權限。在此範例中，您會將讀取訂用帳戶中所有資源的權限授與服務主體。針對 **ServicePrincipalName** 參數，提供您在建立應用程式時所使用的 **ApplicationId** 或 **IdentifierUris**。如需角色存取控制的詳細資訊，請參閱[管理和稽核資源存取權](azure-portal/resource-group-rbac.md)。
+4. 授與服務主體對您訂用帳戶的權限。在此範例中，您會將讀取訂用帳戶中所有資源的權限授與服務主體。針對 **ServicePrincipalName** 參數，提供您在建立應用程式時所使用的 **ApplicationId** 或 **IdentifierUris**。如需角色存取控制的詳細資訊，請參閱[管理和稽核資源存取權](azure-portal/resource-group-rbac.md)。
 
         azure role assignment create --objectId 47193a0a-63e4-46bd-9bee-6a9f6f9c03cb -o Reader -c /subscriptions/{subscriptionId}/
 
-4. 列出帳戶，並尋找輸出中的 **TenantId** 屬性，以判斷服務主體角色指派所在租用戶的 **TenantId**。
+5. 列出帳戶，並尋找輸出中的 **TenantId** 屬性，以判斷服務主體角色指派所在租用戶的 **TenantId**。
 
         azure account list
 
-5. 使用服務主體做為您的身分識別來進行登入。針對使用者名稱，使用您在建立應用程式時所使用的 **ApplicationId**。針對密碼，使用您在建立帳戶時所指定的密碼。
+6. 使用服務主體做為您的身分識別來進行登入。針對使用者名稱，使用您在建立應用程式時所使用的 **ApplicationId**。針對密碼，使用您在建立帳戶時所指定的密碼。
 
         azure login -u "<ApplicationId>" -p "<password>" --service-principal --tenant "<TenantId>"
 
@@ -260,4 +293,4 @@
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="網路資源提供者"
-   description="網路資源提供者"
-   services="azure-portal"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="adinah"
-   editor="tysonn" />
+	description="網路資源提供者"
+	services="azure-portal"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="azure-portal"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="04/22/2015"
+	ms.author="telmos"/>
 
 # 網路資源提供者
 現今企業成功的基礎是可以使用靈活、具彈性、安全且可重複的方式來建置和管理大規模網路感知應用程式。Azure 資源管理員 (ARM) 可讓您建立這類應用程式，做為資源群組中的單一資源集合。這類資源是透過 ARM 下的各種資源提供者進行管理。
@@ -210,7 +210,7 @@ Rest API 符合 HTTP 1.1 通訊協定規格。API 的一般 URI 結構顯示如�
 
 如需範例範本，請參閱 [Azure 快速入門範本](https://github.com/Azure/azure-quickstart-templates)。
 
-如需 ARM 範本語言的詳細資訊，請參閱 [Azure 資源管理員範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)。
+如需 ARM 範本語言的詳細資訊，請參閱 [Azure 資源管理員範本語言](../resource-group-authoring-templates.md)。
 
 上述範例範本使用虛擬網路和子網路資源。下列是其他您可以使用的網路資源：
 
@@ -349,7 +349,7 @@ VPN 閘道的重要屬性包括：
 
 [Azure PowerShell 網路參考](https://msdn.microsoft.com/library/azure/mt163510.aspx)
 
-[Azure 資源管理員範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)
+[Azure 資源管理員範本語言](../resource-group-authoring-templates.md)
 
 [Azure 網路 - 常用範本](https://github.com/Azure/azure-quickstart-templates)
 
@@ -363,4 +363,4 @@ VPN 閘道的重要屬性包括：
 
 [範本部署](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

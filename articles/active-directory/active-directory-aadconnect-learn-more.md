@@ -1,28 +1,22 @@
 <properties 
-	pageTitle="Azure Active Directory Connect - 深入了解" 
-	description="深入了解 Azure AD Connect。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure Active Directory Connect - 深入了解"
+	description="深入了解 Azure AD Connect。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure Active Directory Connect - 深入了解
-
-> [AZURE.SELECTOR]
-- [What is It](../active-directory-aadconnect.md)
-- [How it Works](../active-directory-aadconnect-how-it-works.md)
-- [Getting Started](../active-directory-aadconnect-get-started.md)
-- [What's Next](../active-directory-aadconnect-whats-next.md) - [Learn More](../active-directory-aadconnect-learn-more.md)
 
 下列是使用 Azure AD Connect 以及整合內部部署目錄與 Azure AD 的其他資源清單。
 
@@ -49,4 +43,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

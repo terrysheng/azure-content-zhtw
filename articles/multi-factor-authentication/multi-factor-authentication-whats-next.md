@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - 後續步驟" 
-	description="這是描述 Azure Multi-factor Authentication 後續步驟的 MFA 頁面。其內容包括報告、詐騙警示、一次性略過、自訂語音訊息、快取、信任的 IP 及應用程式密碼。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure Multi-Factor Authentication - 後續步驟"
+	description="這是描述 Azure Multi-factor Authentication 後續步驟的 MFA 頁面。其內容包括報告、詐騙警示、一次性略過、自訂語音訊息、快取、信任的 IP 及應用程式密碼。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # 設定 Azure Multi-Factor Authentication
@@ -228,6 +228,8 @@ Azure AD 租用戶類型| 可用的信任 IP 選項
 >
 > Office 2013 用戶端 (包括 Outlook) 現在支援新的驗證通訊協定，而且可以啟用 Multi-Factor Authentication 支援。這表示一旦啟用後，應用程式密碼就不需要使用於 Office 2013 用戶端。如需詳細資訊，請參閱[發表的 Office 2013 新式驗證公開預覽](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/)。
 
+
+
 ### 應用程式密碼重要須知
 
 以下清單是應用程式密碼的重要須知。
@@ -240,6 +242,11 @@ Azure AD 租用戶類型| 可用的信任 IP 選項
 - 在內部部署案例中會快取密碼並予以使用的應用程式可能會開始失敗，因為應用程式密碼無法在組織識別碼之外辨識。將 Exchange 電子郵件存放在內部部署設施，但是將封存郵件存放在雲端即是一例。同樣的密碼無法適用於兩者。
 - 實際的密碼會自動產生，而不是由使用者提供。這是因為攻擊者比較難以猜中自動產生的密碼，因此比較安全。
 - 每位使用者的密碼目前以 40 組為限。系統會提示您刪除某一個現有的應用程式密碼，才能再建立新密碼。
+- 一旦使用者的帳戶啟用 Multi-Factor Authentication，應用程式密碼即可用於大部分的非瀏覽器用戶端 (例如 Outlook 和 Lync)，但是透過非瀏覽器應用程式 (例如 Windows PowerShell) 無法使用應用程式密碼執行系統管理動作，即使具備系統管理員帳戶也一樣。請確保您建立的服務帳戶是使用強式密碼來執行 PowerShell 指令碼，並且請勿將帳戶用於 Multi-Factor Authentication。
+
+>[AZURE.WARNING]應用程式密碼無法在用戶端會同時與內部部署及雲端自動探索端點通訊的混合環境作用。
+>
+>請留意，應用程式密碼無法在用戶端會同時與內部部署及雲端自動探索端點通訊的混合環境中作用，因為網域密碼需要內部部署驗證，而應用程式密碼則需要與雲端驗證。
 
 
 ### 應用程式密碼的命名指引
@@ -285,7 +292,7 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 2. 在左側按一下 [Active Directory]。
 3. 在 [目錄] 下方，針對要啟用的使用者按一下目錄。
 4. 在頂端按一下 [使用者]。
-5. 在頁面底部，按一下 [管理 Multi-Factor Auth]這會開啟 Multi-Factor Authentication 頁面。
+5. 在頁面底部，按一下 [管理 Multi-Factor Auth]。這會開啟 Multi-Factor Authentication 頁面。
 6. 在 Multi-Factor Authentication 頁面的頂端，按一下 [服務設定]。
 7. 確認 [允許使用者建立應用程式密碼以登入非瀏覽器應用程式] 旁的選項按鈕已選取。
 
@@ -303,10 +310,10 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 1. 登入 Office 365 入口網站
 2. 在右上角選取設定 Widget
 3. 在左側選取 [其他安全性驗證]
-4. 在右側，選取 [**更新用於帳戶安全性的電話號碼**]
+4. 在右側，選取 [更新用於帳戶安全性的電話號碼]
 5. 在 proofup 頁面的頂端，選取應用程式密碼
-6. 按一下 [**建立**]
-7. 輸入應用程式密碼的名稱，然後按 [**下一步**]
+6. 按一下 [建立]
+7. 輸入應用程式密碼的名稱，然後按 [下一步]
 8. 將應用程式密碼複製到剪貼簿，並將它貼到您的應用程式。
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/security.png)</center>
@@ -317,8 +324,8 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 1. 登入 Azure 管理入口網站
 3. 在頂端，以滑鼠右鍵按一下您的使用者名稱並選取 [其他安全性驗證]。
 5. 在 proofup 頁面的頂端，選取應用程式密碼
-6. 按一下 [**建立**]
-7. 輸入應用程式密碼的名稱，然後按 [**下一步**]
+6. 按一下 [建立]
+7. 輸入應用程式密碼的名稱，然後按 [下一步]
 8. 將應用程式密碼複製到剪貼簿，並將它貼到您的應用程式。
 
 
@@ -330,8 +337,8 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 2. 在頂端，選取 [設定檔]。
 3. 按一下您的使用者名稱並選取 [其他安全性驗證]。
 5. 在 proofup 頁面的頂端，選取應用程式密碼
-6. 按一下 [**建立**]
-7. 輸入應用程式密碼的名稱，然後按 [**下一步**]
+6. 按一下 [建立]
+7. 輸入應用程式密碼的名稱，然後按 [下一步]
 8. 將應用程式密碼複製到剪貼簿，並將它貼到您的應用程式。
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/myapp.png)</center>
@@ -355,7 +362,7 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 <li>在 Active Directory 下方，按一下要設定暫停對已記住之裝置進行 Multi-Factor Authentication 的目錄。</li>
 <li>在您選取的目錄上，按一下 [設定]。</li>
 <li>在 Multi-Factor Authentication 區段中，按一下 [管理服務設定]。</li>
-<li>在 [服務設定] 頁面上，於管理使用者裝置設定下方選取/取消選取 [**藉由讓系統記住裝置來允許使用者暫停 Multi-Factor Authentication**]。</li>
+<li>在 [服務設定] 頁面上，於管理使用者裝置設定下方選取/取消選取 [藉由讓系統記住裝置來允許使用者暫停 Multi-Factor Authentication]。</li>
 ![暫停裝置](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>設定要允許暫停的天數。預設值為 14 天。</li> <li>按一下 [儲存]。</li> <li>按一下 [關閉]。</li>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

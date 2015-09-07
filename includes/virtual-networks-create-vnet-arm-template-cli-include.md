@@ -1,15 +1,15 @@
-## Deploy the ARM template by using the Azure CLI
+## 使用 Azure CLI 部署 ARM 範本
 
-To deploy the ARM template you downloaded by using PowerShell, follow the steps below.
+若要使用 PowerShell 部署您下載的 ARM 範本，請依照下列步驟執行。
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
+1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
+2. 執行 **azure config mode** 命令，以切換為 Azure 資源管理員模式，如下所示。
 
 		azure config mode arm
 
 		info:    New mode is arm
 
-3. If necessary, run the **azure group create** to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
+3. 如有必要，請執行 **azure group create**，以建立新的資源群組，如下所示。請注意命令的輸出。輸出後顯示的清單可說明所使用的參數。如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](resource-group-overview.md/#resource-groups)。
 
 		azure group create -n TestRG -l centralus
 		info:    Executing command group create
@@ -24,10 +24,10 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 		data:
 		info:    group create command OK
 
-	- **-n (or --name)**. Name for the new resource group. For our scenario, *TestRG*.
-	- **-l (or --location)**. Azure region where the new resource group will be created. For our scenario, *centralus*.
+	- **-n (或 --name)**。新資源群組的名稱。在我們的案例中為 *TestRG*。
+	- **-l (或 --location)**。將會建立新資源群組的 Azure 區域。在我們的案例中為 *centralus*。
 
-4. Run the **azure group deployment create** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
+4. 執行 **azure group deployment create** Cmdlet，使用先前下載並修改的範本和參數檔案部署新的 VNet。輸出後顯示的清單可說明所使用的參數。
 
 		azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
@@ -54,11 +54,11 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 		data:    subnet2Name    String  BackEnd
 		info:    group deployment create command OK
 
-	- **-g (or --resource-group)**. Name of the resource group the new VNet will be created in.
-	- **-f (or --template-file)**. Path to your ARM template file.
-	- **-e (or --parameters-file)**. Path to your ARM parameters file.
+	- **-g (或 --resource-group)**。要建立新 VNet 的資源群組名稱。
+	- **-f (或 --template-file)**。ARM 範本檔案的路徑。
+	- **-e (或 --parameters-file)**。ARM 參數檔案的路徑。
 
-5. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
+5. 執行 **azure network vnet show** 命令來檢視新 vnet 的屬性，如下所示。
 
 		azure network vnet show -g TestRG -n TestVNet
 
@@ -79,3 +79,5 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 		data:      Address prefix                : 192.168.2.0/24
 		data:
 		info:    network vnet show command OK
+
+<!---HONumber=August15_HO9-->

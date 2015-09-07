@@ -1,26 +1,27 @@
 <properties
-   pageTitle="建立要在邏輯應用程式中使用的 SharePoint 連接器"
-   description="建立 SharePoint 連接器；在邏輯應用程式中使用 SharePoint 連接器"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 SharePoint 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 SharePoint 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
-# 在邏輯應用程式中使用 SharePoint 連接器
-
-邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。Microsoft SharePoint 連接器可讓您與 Microsoft SharePoint Server 或 SharePoint Online 連線，並管理文件和清單項目。您可以執行各種動作，例如建立、更新、取得和刪除文件和清單項目。使用內部部署 SharePoint Server 時，您可以輸入服務匯流排連接字串做為連接器組態的一部分，並安裝內部部署接聽程式代理程式以連線到伺服器。
+# 開始使用 SharePoint 連接器並將它加入您的邏輯應用程式
+連線至 SharePoint Server 或 SharePoint Online 來管理文件和清單項目。您可以執行各種動作，例如建立、更新、取得和刪除文件和清單項目。使用內部部署 SharePoint Server 時，您可以輸入服務匯流排連接字串做為連接器組態的一部分，並安裝內部部署接聽程式代理程式以連線到伺服器。
 
 SharePoint Online 連接器和 SharePoint Server 連接器資源庫應用程式可提供觸發程序和動作做為與 SharePoint 互動的機制。
+
+邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。您可以將 SharePoint 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
 ## 建立 SharePoint Online 連接器
 
@@ -73,7 +74,7 @@ SharePoint Online 連接器和 SharePoint Server 連接器資源庫應用程式�
 
 1. 建立新的邏輯應用程式，並選擇具有 SharePoint 連接器的相同資源群組。
 
-2. 開啟 [**觸發程序和動作**] 以開啟邏輯應用程式設計工具，並設定您的工作流程。SharePoint 連接器會出現在右側資源庫中的 [最近使用的] 區段。請選取它。
+2. 開啟 [**觸發程序和動作**] 以開啟 Logic Apps 設計工具，並設定您的工作流程。SharePoint 連接器會出現在右側資源庫中的 [最近使用的] 區段。請選取它。
 
 3. 如果在啟動邏輯應用程式時就選取 SharePoint 連接器，它就會像觸發程序般運作。否則，可以使用連接器在 SharePoint 帳戶上採取動作。
 
@@ -85,7 +86,7 @@ SharePoint Online 連接器和 SharePoint Server 連接器資源庫應用程式�
 <br/>
 ![][4]
 
-6. 對您的帳戶授與邏輯應用程式存取權限，以便代表您執行作業：<br/> ![][5]
+6. 對您的帳戶授與邏輯應用程式存取權限，以便代表您執行作業
 <br/>
 ![][5]
 
@@ -98,6 +99,7 @@ SharePoint Online 連接器和 SharePoint Server 連接器資源庫應用程式�
 ![][7]
 <br/>
 **已設定文件清單的相對 URL**
+<br/>
 
 > [AZURE.NOTE]對於下列觸發程序，假設您在連接器封裝設定中輸入「共用文件、清單/工作」，其中「共用文件」是文件庫，而「清單/工作」則是清單。
 
@@ -136,7 +138,7 @@ ContentTransferEncoding | 訊息的內容轉移編碼。("none" 或 ”base64”
 
 名稱 | 必要 | 說明
 --- | --- | ---
-檢視名稱 | 否 | 輸入用於清單中篩選項目的有效檢視。例如，輸入「核准的訂單」。若要處理所有新的項目，請將此欄位留空。
+檢視名稱 | 否 | 輸入用於清單中篩選項目的有效檢視。例如，輸入「核准的訂單」。若要處理所有新的項目，請將此欄位留空。 
 封存位置 | 否 | 輸入相對於 SharePoint 網站的有效資料夾 URL，用來封存已處理的清單項目。
 CAML 查詢 | 否，進階 | 輸入有效的 CAML 查詢來篩選文件。例如，輸入：`<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
@@ -241,7 +243,7 @@ Param2* | 這是位於文件庫中文件的其中一個參數。
 
 **注意** 系統會以動態方式填入文件庫中的所有參數。此外，它們位於進階設定中。
 
- 
+ 
 
 ### 3.從共用文件中刪除
 
@@ -469,7 +471,7 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 請參閱[使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -485,4 +487,4 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="在 Azure App Service 中使用 Azure CDN" 
-	description="教學課程，指導您如何將 Web 應用程式部署至提供整合式 Azure CDN 端點內容的 Azure App Service" 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	pageTitle="在 Azure App Service 中使用 Azure CDN"
+	description="教學課程，指導您如何將 Web 應用程式部署至提供整合式 Azure CDN 端點內容的 Azure App Service"
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="cephalin"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.service="app-service-web"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/25/2015"
 	ms.author="cephalin"/>
 
 
@@ -79,7 +79,7 @@
 	當發佈完成時，您會在瀏覽器中看到您已發佈的 Web 應用程式。
 
 1. 若要建立 CDN 端點，請登入 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)。
-2. 按一下 [新增] > [應用程式服務] > [CDN] > [快速建立]。選取 **http://*&lt;sitename>*.azurewebsites.net/**，然後按一下 [**建立**]。
+2. 按一下 [新增] > App Service > CDN > [快速建立]。選取 **http://*&lt;sitename>*.azurewebsites.net/**，然後按一下 [**建立**]。
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
@@ -149,7 +149,7 @@
 	  </system.webServer>
 	</configuration>
 
-此設定會將 *\Content* 資料夾中的所有靜態檔案快取 15 天。
+此設定會將 *\\Content* 資料夾中的所有靜態檔案快取 15 天。
 
 如需有關如何設定 `<clientCache>` 元素的詳細資訊，請參閱[用戶端快取 &lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache)。
 
@@ -167,7 +167,7 @@
 
 請依照上述步驟來設定此控制器動作：
 
-1. 在 *\Controllers* 資料夾中，建立一個新的 .cs 檔案稱為 *MemeGeneratorController.cs*，並將內容改成下列程式碼。針對 `~/Content/chuck.bmp` 取代您的檔案路徑，並針對 `yourCDNName` 取代您的 CDN 名稱。
+1. 在 *\\Controllers* 資料夾中，建立一個新的 .cs 檔案稱為 *MemeGeneratorController.cs*，並將內容改成下列程式碼。針對 `~/Content/chuck.bmp` 取代您的檔案路徑，並針對 `yourCDNName` 取代您的 CDN 名稱。
 
 
         using System;
@@ -273,7 +273,7 @@
 
 	![](media/cdn-websites-with-cdn/cdn-7-configureview.PNG)
 
-4. 開啟新的 *Views\MemeGenerator\Index.cshtml*，將內容改成下列簡單的 HTML 來提交笑梗：
+4. 開啟新的 *Views\\MemeGenerator\\Index.cshtml*，將內容改成下列簡單的 HTML 來提交笑梗：
 
 		<h2>Meme Generator</h2>
 		
@@ -490,9 +490,9 @@
 	
 	不過，[Ember 顧問團](https://github.com/EmberConsultingGroup/StyleBundleFallback) (英文) 提供一套良好的[樣式套件組合後援](https://github.com/EmberConsultingGroup) (英文)。
 
-2. 若要使用 CSS 的解決方案，請在 ASP.NET 專案的 *App_Start* 資料夾中，建立新的 .cs 檔案 (稱為 *StyleBundleExtensions.cs*)，並將內容改成 [GitHub 提供的程式碼](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs)。
+2. 若要使用 CSS 的解決方案，請在 ASP.NET 專案的 *App\_Start* 資料夾中，建立新的 .cs 檔案 (稱為 *StyleBundleExtensions.cs*)，並將內容改成 [GitHub 提供的程式碼](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs)。
 
-4. 在 *App_Start\StyleFundleExtensions.cs* 中，將命名空間重新命名為您的 ASP.NET 應用程式的命名空間 (例如 **cdnwebapp**)。
+4. 在 *App\_Start\\StyleFundleExtensions.cs* 中，將命名空間重新命名為您的 ASP.NET 應用程式的命名空間 (例如 **cdnwebapp**)。
 
 3. 回到 `App_Start\BundleConfig.cs`，將最後一個 `bundles.Add` 陳述式取代為下列程式碼：
 
@@ -545,4 +545,4 @@
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

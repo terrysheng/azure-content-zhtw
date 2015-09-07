@@ -18,7 +18,7 @@
 	ms.author="jgao"/>
 
 
-#在 HDInsight 上搭配 Hadoop 使用 HDFS 相容的 Azure Blob 儲存體
+# 在 HDInsight 上搭配 Hadoop 使用 HDFS 相容的 Azure Blob 儲存體
 
 在本教學課程中，了解如何搭配 HDInsight 使用低成本的 Azure Blob 儲存體，建立 Azure 儲存體帳戶和 Blob 儲存體容器，然後處理其中的資料。
 
@@ -35,7 +35,7 @@ Azure Blob 儲存體是強大的一般用途儲存體解決方案，其完美整
 如需關於佈建 HDInsight 叢集的資訊，請參閱[開始使用 HDInsight][hdinsight-get-started] 或[佈建 HDInsight 叢集][hdinsight-provision]。
 
 
-##<a id="architecture"></a>HDInsight 儲存架構
+## <a id="architecture"></a>HDInsight 儲存架構
 下圖提供 HDInsight 儲存架構的摘要檢視：
 
 ![Hadoop 叢集會使用 HDFS API 來存取和儲存 Blob 儲存體中的結構化和非結構化資料。](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight 儲存架構")
@@ -64,7 +64,7 @@ Hadoop 支援預設檔案系統的概念。預設檔案系統意指預設配置�
 
 佈建程序及其金鑰中定義的儲存體帳戶會儲存在叢集節點的 %HADOOP\_HOME%/conf/core-site.xml 中。HDInsight 的預設行為是使用 core-site.xml 檔案中定義的儲存體帳戶。因為叢集前端節點 (主要) 有可能會隨時重新安裝映像或進行移轉，屆時將會遺失對這些檔案所做的任何變更，所以我們不建議您編輯 core-site.xml 檔案。
 
-多個 WebHCat 工作 (包括 Hive、MapReduce、Hadoop 資料流和 Pig) 可隨身夾帶儲存體帳戶的說明和中繼資料(目前適用於含儲存體帳戶的 Pig，但不適用於中繼資料)。 在本文的[使用 Azure PowerShell 存取 Blob](#powershell) 一節中，提供了此功能的範例。如需詳細資訊，請參閱[在其他儲存體帳戶和 Metastores 上使用 HDInsight 叢集](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)。
+多個 WebHCat 工作 (包括 Hive、MapReduce、Hadoop 資料流和 Pig) 可隨身夾帶儲存體帳戶的說明和中繼資料。(目前適用於含儲存體帳戶的 Pig，但不適用於中繼資料)。 在本文的[使用 Azure PowerShell 存取 Blob](#powershell) 一節中，提供了此功能的範例。如需詳細資訊，請參閱[在其他儲存體帳戶和 Metastores 上使用 HDInsight 叢集](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)。
 
 Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以機碼/值組來儲存資料，沒有目錄階層。但是，機碼名稱中可使用 ( / ) 斜線字元，使檔案變成好像儲存在目錄結構中一樣。例如，Blob 的機碼可能是 *input/log1.txt*。實際上，*input* 目錄並不存在，只是因為機碼名稱中有斜線字元，才形成檔案路徑的樣子。
 
@@ -77,13 +77,13 @@ Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以�
 * **資料封存：**將資料儲存在 Azure Blob 儲存體中，可安全地刪除用於計算的 HDInsight 叢集，而不會遺失使用者資料。
 * **資料儲存成本：**長期將資料儲存在 DFS 中的成本高於將資料儲存在 Azure Blob 儲存體中，因為運算叢集的成本高於 Azure Blob 儲存容器的成本。此外，因為不需要每次產生運算叢集時都重新載入資料，也能節省資料載入成本。
 * **彈性向外延展：**雖然HDFS 提供向外延展的檔案系統，但延展程度取決於您佈建給叢集的節點數目。變更延展程度較為複雜，可改用 Azure Blob 儲存體自動提供的彈性延展功能。
-* **異地複寫：**Azure Blob 儲存容器可以進行異地複寫。雖然這樣可支援地理位置復原和資料備援，但容錯移轉至異地複寫的位置會嚴重影響效能，且可能產生額外的成本。因此，只有在資料的價值大於額外成本時，才建議您明智地選擇異地複寫。
+* **異地複寫：**Azure Blob 儲存容器可以進行異地複寫。雖然這樣可支援地理位置復原和資料備援，但容錯移轉至異地複寫的位置會嚴重影響效能，且可能產生額外的成本。因此，只有在資料的價值大於額外成本時，才建議您明智地選擇地理區域複寫。
 
 某些 MapReduce 工作和封裝可能會產生中繼結果，但您並不真的想要將這些結果儲存在 Azure Blob 儲存體中。在此情況下，您仍可選擇將資料儲存在本機 HDFS。事實上，在 Hive 工作和其他程序中，HDInsight 會使用 DFS 來儲存許多這些中繼結果。
 
 
 
-##<a id="preparingblobstorage"></a>建立 Blob 容器
+## <a id="preparingblobstorage"></a>建立 Blob 容器
 
 若要使用 Blob，您必須先建立 [Azure 儲存體帳戶][azure-storage-create]。在這過程中，需要指定 Azure 資料中心來儲存您以此帳戶所建立的物件。叢集與儲存體帳戶必須在相同資料中心內託管。Hive 中繼存放區 SQL Server 資料庫和 Oozie 中繼存放區 SQL Server 資料庫也必須位在相同的資料中心內。
 
@@ -92,7 +92,7 @@ Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以�
 不要與多個 HDInsight 叢集共用預設儲存容器。如果需要使用共用容器來提供多個 HDInsight 叢集的資料存取權限，應將共用容器新增為叢集組態中的其他儲存體帳戶。如需詳細資訊，請參閱[佈建 HDInsight 叢集][hdinsight-provision]。不過，在刪除原始的 HDInsight 叢集後，您可以重複使用預設儲存容器。至於 HBase 叢集，您可以利用被刪除的 HBase 叢集使用的預設 Blob 儲存容器來佈建一個新的 HBase 叢集，藉此實際保留 HBase 資料表結構描述和資料。
 
 
-###使用 Azure 預覽入口網站
+### 使用 Azure 預覽入口網站
 
 從預覽入口網站佈建 HDInsight 叢集時，您可以選擇使用現有的儲存體帳戶或建立新的儲存體帳戶：
 
@@ -108,7 +108,7 @@ Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以�
 
 系統會提示您指定將放置儲存體帳戶的地理區域。您應該在您計劃建立 HDInsight 叢集的相同區域中建立儲存體帳戶。
 
-建立儲存體帳戶後，使用下列命令來擷取儲存體帳戶金鑰：
+建立儲存體帳戶後，使用下列命令來抓取儲存體帳戶金鑰：
 
 	azure storage account keys list <storageaccountname>
 
@@ -116,7 +116,7 @@ Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以�
 
 	azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-###使用 Azure PowerShell
+### 使用 Azure PowerShell
 
 如果您已[安裝和設定 Azure PowerShell][powershell-install]，您可以從 Azure PowerShell 提示字元使用下列程式碼來建立儲存體帳戶和容器：
 
@@ -136,7 +136,7 @@ Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以�
 	New-AzureStorageContainer -Name $containerName -Context $destContext
 
 
-##<a id="addressing"></a>定址 Blob 儲存體中的檔案
+## <a id="addressing"></a>定址 Blob 儲存體中的檔案
 
 從 HDInsight 存取 Blob 儲存體中的檔案的 URI 配置如下：
 
@@ -166,7 +166,7 @@ URI 配置提供未加密存取 (使用*wasb:* 首碼) 和 SSL 加密存取 (使
 
 > [AZURE.NOTE]在 HDInsight 外部使用 Blob 時，大部分的公用程式無法辨識 WASB 格式而改為預期基本的路徑格式，例如 `example/jars/hadoop-mapreduce-examples.jar`。
 
-##<a id="azurecli"></a>使用 Azure CLI 存取 Blob
+## <a id="azurecli"></a>使用 Azure CLI 存取 Blob
 
 請使用下列命令來列出 Blob 相關的命令：
 
@@ -188,7 +188,7 @@ URI 配置提供未加密存取 (使用*wasb:* 首碼) 和 SSL 加密存取 (使
 
 	azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-##<a id="powershell"></a>使用 Azure PowerShell 存取 Blob
+## <a id="powershell"></a>使用 Azure PowerShell 存取 Blob
 
 > [AZURE.NOTE]本章中的命令會提供使用 PowerShell 來存取儲存在 Blob 中的資料的基本範例。如需使用 HDInsight 的更完整範例，請參閱 [HDInsight 工具](https://github.com/Blackmist/hdinsight-tools)。
 
@@ -290,11 +290,11 @@ URI 配置提供未加密存取 (使用*wasb:* 首碼) 和 SSL 加密存取 (使
 
 	Invoke-Hive -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-##<a id="nextsteps"></a>接續步驟
+## <a id="nextsteps"></a>接續步驟
 
 在本文中，您學到如何搭配 HDInsight 使用 HDFS 相容的 Azure Blob 儲存體，也了解 Azure Blob 儲存體是 HDInsight 的基本元件。這可讓您以 Azure Blob 儲存體建立可擴充、長期封存的資料取得解決方案，並利用 HDInsight 來揭開儲存的結構化和非結構化資料內的資訊。
 
-若要深入了解，請參閱下列文章：
+如需詳細資訊，請參閱：
 
 * [開始使用 Azure HDInsight][hdinsight-get-started]
 * [將資料上傳至 HDInsight][hdinsight-upload-data]
@@ -315,4 +315,4 @@ URI 配置提供未加密存取 (使用*wasb:* 首碼) 和 SSL 加密存取 (使
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

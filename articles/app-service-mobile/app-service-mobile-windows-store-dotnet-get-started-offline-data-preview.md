@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="08/22/2015"
 	ms.author="wesmc"/>
 
 # 啟用 Windows 應用程式離線同步處理
@@ -24,7 +24,7 @@
 
 本教學課程會示範如何使用 Azure 行動應用程式後端新增 Windows 8.1 市集或 Windows 8.1 Phone 應用程式的離線支援。離線同步處理可讓使用者與行動應用程式進行互動--檢視、新增或修改資料--即使沒有網路連線進也可行。變更會儲存在本機資料庫中︰裝置上線後，這些變更就會與遠端後端進行同步處理。
 
-在本教學課程中，您將會更新[建立 Windows 應用程式]教學課程中的 Windows 8.1 應用程式，以支援 Azure Mobile Apps 的離線功能。
+在本教學課程中，您將會更新[建立 Windows 應用程式]教學課程中的 Windows 8.1 應用程式，以支援 Azure Mobile Apps 的離線功能。如果您不要使用下載的快速入門伺服器專案，必須將資料存取擴充套件新增至您的專案。如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
 若要深入了解離線同步處理功能，請參閱 [Azure 行動應用程式中的離線資料同步處理]主題。
 
@@ -38,10 +38,6 @@
 * [SQLite for Windows 8.1](http://www.sqlite.org/downloads)
 
 >[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。
-
-## 檢閱您的伺服器專案設定 (選擇性)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
 
 ## 更新用戶端應用程式以支援離線功能
 
@@ -145,7 +141,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
             ButtonRefresh.IsEnabled = true;
         }
 
-10. 在 `SyncAsync` 方法中新增例外狀況處理常式：在離線情況下，會一起擲回 `MobileServicePushFailedException` 與 `PushResult.Status == CancelledByNetworkError`。
+10. 在 `SyncAsync` 方法中新增例外狀況處理常式。在離線情況下，會一起擲回 `MobileServicePushFailedException` 與 `PushResult.Status == CancelledByNetworkError`。
 
         private async Task SyncAsync()
         {
@@ -219,7 +215,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 
 4. 在應用程式中，按一下幾個項目旁邊的核取方塊，以在本機存放區中完成它們。
 
-  `UpdateCheckedTodoItem` 會呼叫 `SyncAsync` 來完成每個項目與行動應用程式後端的同步處理。`SyncAsync` 會同時呼叫推送與提取。不過，您應該注意**每當您針對用戶端進行變更的資料表執行提取時，用戶端同步處理內容上的推送一律會先自動執行**。這是為了確保本機存放區中的所有資料表和關聯性都保持一致。因此在此情況下，我們會移除對 `PushAsync` 的呼叫，因為執行提取時它會自動執行。如果您不注意，此行為會導致非預期的推送。如需有關此行為的詳細資訊，請參閱 [Azure 行動應用程式中的離線資料同步處理]。
+  `UpdateCheckedTodoItem` 會呼叫 `SyncAsync` 來完成每個項目與行動應用程式後端的同步處理。`SyncAsync` 會同時呼叫推送與提取。不過，您應該注意**每當您針對用戶端進行變更的資料表執行提取時，用戶端同步處理內容上的推送一律會先自動執行**。這是為了確保本機存放區中的所有資料表和關聯性都保持一致。因此在此情況下，我們可以先移除對 `PushAsync` 的呼叫，因為執行提取時它會自動執行。如果您不注意，此行為會導致非預期的推送。如需有關此行為的詳細資訊，請參閱 [Azure 行動應用程式中的離線資料同步處理]。
 
 
 ##摘要
@@ -255,7 +251,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 
 * [Azure 行動應用程式中的離線資料同步處理]
 
-* [雲端報導︰Azure 行動服務中的離線同步處理] \(注意︰影片位於行動服務上，但離線同步處理的運作方式類似在 Azure 行動應用程式中的方式)
+* [雲端報導︰Azure 行動服務中的離線同步處理] (注意︰影片位於行動服務上，但離線同步處理的運作方式類似在 Azure 行動應用程式中的方式)
 
 * [Azure Friday：Azure 行動服務中離線啟用的應用程式]
 
@@ -284,4 +280,4 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 [雲端報導︰Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday：Azure 行動服務中離線啟用的應用程式]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

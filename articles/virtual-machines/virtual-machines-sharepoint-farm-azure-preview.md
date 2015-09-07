@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint Server 伺服器陣列"
-	description="您可以使用 Azure Preview 入口網站中的 SharePoint Server 伺服器陣列功能快速建立新的 SharePoint Server 2013 伺服器陣列。"
+	pageTitle="SharePoint 伺服器陣列 | Microsoft Azure"
+	description="在 Azure Preview 入口網站中使用 SharePoint Server 伺服器陣列功能，快速建立新的基本或高可用的 SharePoint Server 2013 伺服器陣列。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -93,6 +93,6 @@ Azure Preview 入口網站的 SharePoint Server 伺服器陣列功能會在服�
 
 [在混合式雲端中設定用於測試的 SharePoint 內部網路伺服器陣列](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[裝載於 Azure 基礎結構服務中的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
+[在 Azure 基礎結構服務中架設的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

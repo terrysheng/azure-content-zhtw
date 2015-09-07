@@ -1,20 +1,20 @@
 <properties
    pageTitle="開始使用 SQL 資料倉儲中的 Cmdlet"
-   description="使用 PowerShell Cmdlet 暫止和重新啟動 SQL 資料倉儲"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sidneyh"
-   manager="jhubbard"
-   editor=""/>
+	description="使用 PowerShell Cmdlet 暫止和重新啟動 SQL 資料倉儲"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sidneyh"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/29/2015"
-   ms.author="sidneyh;barbkess"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/29/2015"
+	ms.author="sidneyh;barbkess"/>
 
 # 開始使用 Azure 資料倉儲 Cmdlet 和 REST API
 
@@ -90,6 +90,10 @@ RestorePointCreationDate |備份快照時間 (在 restorePointType = DISCRETE �
 	$restorePoints = $database | Get-AzureSqlDatabaseRestorePoints
 
 
+
+> [AZURE.NOTE]請注意，如果您的伺服器是 foo.database.windows.net，請使用 "foo" 作為 Powershell Cmdlet 中的 -ServerName。
+
+
 ## 後續步驟
 如需更多的參考資訊，請參閱 [SQL 資料倉儲參考概觀][]。
 
@@ -106,4 +110,4 @@ RestorePointCreationDate |備份快照時間 (在 restorePointType = DISCRETE �
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

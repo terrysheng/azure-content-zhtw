@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用服務匯流排佇列 (Node.js) | Microsoft Azure" 
-	description="了解如何從 Node.js 應用程式，在 Azure 中使用服務匯流排佇列。" 
-	services="service-bus" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="如何使用服務匯流排佇列 (Node.js) | Microsoft Azure"
+	description="了解如何從 Node.js 應用程式，在 Azure 中使用服務匯流排佇列。"
+	services="service-bus"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="07/06/2015"
 	ms.author="mwasson"/>
 
 # 如何使用服務匯流排佇列
@@ -24,7 +24,7 @@
 
 ## 建立 Node.js 應用程式
 
-建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站]、[Node.js 雲端服務][Node.js Cloud Service] (使用 Windows PowerShell) 或[使用 WebMatrix 的網站]。
+建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站]或 [Node.js 雲端服務][Node.js Cloud Service] (使用 Windows PowerShell)。
 
 ## 設定應用程式以使用服務匯流排
 
@@ -32,7 +32,7 @@
 
 ### 使用 Node Package Manager (NPM) 取得封裝
 
-1.  使用 **Windows PowerShell for Node.js** 命令視窗瀏覽至已建立範例應用程式的 **c:\\node\\sbqueues\\WebRole1** 資料夾。
+1.  使用 **Windows PowerShell for Node.js** 命令視窗巡覽至已建立範例應用程式的 **c:\\node\\sbqueues\\WebRole1** 資料夾。
 
 2.  在命令視窗中輸入 **npm install azure**，這應該會導致類似下列內容的輸出：
 
@@ -66,7 +66,7 @@ Azure 模組會讀取環境變數 AZURE\_SERVICEBUS\_NAMESPACE 和 AZURE\_SERVIC
 
 ## 如何建立佇列
 
-**ServiceBusService** 物件可讓您使用佇列。下列程式碼將建立 **ServiceBusService** 物件。請將程式碼新增至 **server.js** 檔案的頂端附近，放置在匯入 Azure 模型的陳述式後方：
+**ServiceBusService** 物件可讓您使用佇列。下列程式碼將建立 **ServiceBusService** 物件。請將程式碼加入 **server.js** 檔案的頂端附近，放置在匯入 Azure 模型的陳述式後方：
 
     var serviceBusService = azure.createServiceBusService();
 
@@ -97,11 +97,11 @@ Azure 模組會讀取環境變數 AZURE\_SERVICEBUS\_NAMESPACE 和 AZURE\_SERVIC
 
 		function handle (requestOptions, next)
 
-在對要求選項進行前處理之後，方法必須呼叫 `next`，並傳遞具有下列簽章的回呼：
+在對要求選項進行前置處理之後，方法必須呼叫 `next`，並傳遞具有下列簽章的回呼：
 
 		function (returnObject, finalCallback, next)
 
-在此回呼中，以及處理 **returnObject** (來自對伺服器之要求的回應) 之後，回呼必須叫用 `next` (如果存在) 以繼續處理其他篩選器，或是直接叫用 `finalCallback` 結束服務叫用。
+在這個回呼中，以及處理 **returnObject** (來自對伺服器之要求的回應) 之後，回呼必須叫用 `next` (如果存在) 以繼續處理其他篩選器，或是直接叫用 `finalCallback` 結束服務叫用。
 
 Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**ExponentialRetryPolicyFilter** 和 **LinearRetryPolicyFilter**。下列程式碼將建立使用 **ExponentialRetryPolicyFilter** 的 **ServiceBusService** 物件：
 
@@ -165,7 +165,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 了解基本的服務匯流排佇列之後，請參考下列連結以取得更多資訊。
 
--   請參閱 MSDN 參考：[佇列、主題和訂用帳戶。][]
+-   請參閱 MSDN 參考：[佇列、主題和訂閱][]。
 -   造訪 GitHub 上的 [Azure SDK for Node] (英文) 儲存機制。
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
@@ -183,11 +183,10 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
   [Azure Management Portal]: http://manage.windowsazure.com
   
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [佇列、主題和訂用帳戶。]: http://msdn.microsoft.com/library/azure/hh367516.aspx
-  [使用 WebMatrix 的網站]: ../app-service-web/web-sites-dotnet-using-webmatrix.md
+  [佇列、主題和訂閱]: http://msdn.microsoft.com/library/azure/hh367516.aspx
   [建立 Node.js 應用程式並將其部署到 Azure 網站]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [使用儲存體的 Node.js 雲端服務]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [使用儲存體的 Node.js Web 應用程式]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

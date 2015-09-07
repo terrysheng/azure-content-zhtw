@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="了解最新的 Azure 客體 OS 版次 | Microsoft Azure" 
-   description="Azure 雲端服務客體作業系統的發行最新消息和 SDK 相容性。" 
-   services="cloud-services" 
-   documentationCenter="na" 
-   authors="yuemlu" 
-   manager="markkie" 
-   editor=""/>
+   pageTitle="了解最新的 Azure 客體 OS 版次 | Microsoft Azure"
+	description="Azure 雲端服務客體作業系統的發行最新消息和 SDK 相容性。"
+	services="cloud-services"
+	documentationCenter="na"
+	authors="yuemlu"
+	manager="markkie"
+	editor=""/>
 
 <tags
    ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd" 
-   ms.date="08/14/2015"
-   ms.author="yuemlu"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="08/19/2015"
+	ms.author="yuemlu"/>
 
 # Azure 客體作業系統版次與 SDK 相容性矩陣
 提供適用於雲端服務的最新 Azure 客體作業系統版次的最新資訊。此資訊協助您在客體作業系統停用之前規劃升級路徑。
@@ -123,7 +123,7 @@
 | 客體作業系統版本 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
 | 4\.23 | WA-GUEST-OS-4.23\_201508-01 | 預計 2015 年 9 月 11 日 | 將於 4.25 版發行時更新 | TBD |
-| 4\.22 | WA-GUEST-OS-4.22\_201507-01 | 2015 年 8 月 7 日 | 將於 4.24 發行時更新 | TBD |
+| 4\.22 | WA-GUEST-OS-4.22\_201507-02 | 2015 年 8 月 7 日 | 將於 4.24 發行時更新 | TBD |
 | 4\.21 | WA-GUEST-OS-4.21\_201506-01 | 2015 年 7 月 9 日 | 將於 4.23 版發行時更新 | TBD |
 | 4\.20 | WA-GUEST-OS-4.20\_201505-02 | 2015 年 6 月 12 日 | 2015 年 9 月 7 日 | TBD |
 | 4\.19 | WA-GUEST-OS-4.19\_201504-01 | 2015 年 4 月 17 日 | 2015 年 8 月 9 日 | TBD |
@@ -148,7 +148,7 @@
 | 客體作業系統版本 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
 | 3\.30 | WA-GUEST-OS-3.30\_201508-01 | 預計 2015 年 9 月 11 日 | 將於 3.32 版發行時更新 | TBD |
-| 3\.29 | WA-GUEST-OS-3.29\_201507-01 | 2015 年 8 月 7 日 | 將於 3.31 發行時更新 | TBD |
+| 3\.29 | WA-GUEST-OS-3.29\_201507-02 | 2015 年 8 月 7 日 | 將於 3.31 發行時更新 | TBD |
 | 3\.28 | WA-GUEST-OS-3.28\_201506-01 | 2015 年 7 月 9 日 | 將於 3.30 版發行時更新 | TBD |
 | 3\.27 | WA-GUEST-OS-3.27\_201505-02 | 2015 年 6 月 12 日 | 2015 年 9 月 7 日 | TBD |
 | 3\.26 | WA-GUEST-OS-3.26\_201504-01 | 2015 年 4 月 17 日 | 2015 年 8 月 9 日 | TBD |
@@ -174,7 +174,7 @@
 | 客體作業系統版本 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
 | 2\.42 | WA-GUEST-OS-2.42\_201508-01 | 預計 2015 年 9 月 11 日 | 將於 2.44 發行時更新 | TBD |
-| 2\.41 | WA-GUEST-OS-2.41\_201507-01 | 2015 年 8 月 7 日 | 將於 2.43 發行時更新 | TBD |
+| 2\.41 | WA-GUEST-OS-2.41\_201507-02 | 2015 年 8 月 7 日 | 將於 2.43 發行時更新 | TBD |
 | 2\.40 | WA-GUEST-OS-2.40\_201506-01 | 2015 年 7 月 9 日 | 將於 2.42 版發行時更新 | TBD |
 | 2\.39 | WA-GUEST-OS-2.39\_201505-02 | 2015 年 6 月 12 日 | 2015 年 9 月 7 日 | TBD |
 | 2\.38 | WA-GUEST-OS-2.38\_201504-01 | 2015 年 4 月 17 日 | 2015 年 8 月 9 日 | TBD |
@@ -336,4 +336,4 @@ Microsoft Azure 正持續發行更新。客體作業系統只是這過程中的�
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

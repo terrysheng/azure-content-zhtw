@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="什麼是 Azure Multi-Factor Authentication？" 
-	description="Azure Multi-Factor Authentication 是除了使用使用者名稱與密碼之外，需要再利用其他方法驗證您的身份的驗證方法。它可以為使用者登入和交易提供額外層級的安全性。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadwha" 
-	editor="curtand"/>
+	pageTitle="什麼是 Azure Multi-Factor Authentication？"
+	description="Azure Multi-Factor Authentication 是除了使用使用者名稱與密碼之外，需要再利用其他方法驗證您的身份的驗證方法。它可以為使用者登入和交易提供額外層級的安全性。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="hero-article" 
-	ms.date="07/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # 什麼是 Azure Multi-Factor Authentication？
@@ -55,9 +55,153 @@ Azure Multi-Factor Authentication 是一個容易使用、可調整且可靠的�
 
 <center>[AZURE.VIDEO windows-azure-multi-factor-authentication]</center>
 
-**其他資源**
 
-* [設定 Office 365 的多因素驗證](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
-* [Multi-Factor Authentication 對我有何意義？](multi-factor-authentication-end-user.md)
+## Azure Multi-Factor Authentication 的作用
 
-<!---HONumber=August15_HO7-->
+多因素驗證的安全性仰賴其分層方法。使用多重驗證因素會為攻擊者帶來相當程度的挑戰。即使攻擊者試圖打探使用者的密碼，在不持有信任裝置的情況下便沒有任何意義。如果使用者遺失裝置，拾獲該裝置的人仍然無法使用此裝置，除非他或她剛好知道使用者的密碼。
+
+![Proofup](./media/multi-factor-authentication-how-it-works/howitworks.png)
+
+
+
+Azure Multi-Factor Authentication 有助於保護對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。它藉由要求第二種形式的驗證提供額外的安全性，並透過一系列簡單的驗證選項提供增強式驗證：
+
+- 撥打電話 
+- 簡訊
+- 行動應用程式通知，讓使用者選擇偏好的方法
+- 行動應用程式驗證碼
+- 協力廠商 OATH 權杖
+
+如需其作用的詳細資訊，請觀看以下影片。
+
+[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
+
+## 適用於 Multi-Factor Authentication 的方法
+當使用者登入時，系統會將額外的驗證傳送給使用者。以下是適用於這個第二次驗證的方法清單。
+
+驗證方法 | 說明 
+------------- | ------------- |
+撥打電話 | 撥打使用者的智慧型手機，要求他們按 # 符號來驗證登入。如此將可完成驗證程序。這是可設定的選項，您可以變更為指定的代碼。
+簡訊 | 傳送含 6 位數代碼的簡訊到使用者智慧型手機。輸入此代碼可完成驗證程序。
+行動應用程式通知 | 將驗證要求傳送到使用者的智慧型手機，要求他們在行動應用程式中選取 [驗證] 來完成驗證。如果您將應用程式通知選為主要驗證方法，這種情況便會發生。如果它們在未登入時收到通知，他們可以選擇提報詐騙。
+透過行動應用程式的驗證碼 | 將驗證碼傳送到在使用者智慧型手機中運作的行動應用程式。如果您將驗證碼選為主要驗證方法，這種情況便會發生。
+
+
+## 可用的 Azure Multi-Factor Authentication 版本
+Azure Multi-Factor Authentication 備有三個不同的版本。下表是每種版本的詳述。
+
+版本 | 說明 
+------------- | ------------- |
+Multi-Factor Authentication for Office 365 | 這個版本專門搭配 Office 365 應用程式運作，並且可從 Office 365 入口網站管理。系統管理員現在可以使用 Multi-Factor Authentication 來保護其 Office 365 資源的安全。此版本隨附於 Office 365 訂用帳戶。
+適用於 Azure 系統管理員的 Multi-Factor Authentication | 適用於 Office 365 的 Multi-Factor Authentication 功能的相同子集將免費提供給所有 Azure 系統管理員。Azure 訂用帳戶的每個管理帳戶現可透過啟用此 Multi-Factor Authentication 核心功能來取得額外防護。因此想要存取 Azure 入口網站以建立 VM、網站、管理儲存體、行動服務或任何其他 Azure 服務的系統管理員，可在其系統管理員帳戶中新增多因素驗證。
+Azure Multi-Factor Authentication | Azure Multi-Factor Authentication 提供最豐富的功能。它能透過 Azure 管理入口網站、進階報告及支援一系列內部部署和雲端應用程式來提供其他組態選項。Azure Multi-Factor Authentication 隨附於 Azure Active Directory Premium 中。
+
+## 版本的功能比較
+下表提供 Azure Multi-Factor Authentication 各版本中可用的功能清單。
+
+
+功能 | Multi-Factor Authentication for Office 365 (隨附於 Office 365 SKU 中)|適用於 Azure 系統管理員的 Multi-Factor Authentication (隨附於 Azure 訂用帳戶中) | Azure Multi-Factor Authentication (隨附於 Azure AD Premium 和 Enterprise Mobility Suite 中) 
+------------- | :-------------: |:-------------: |:-------------: |
+系統管理員可以透過 MFA 保護帳戶| * | * (僅適用於 Azure 系統管理員帳戶)|*
+以行動應用程式做為第二個因素|* | * | *
+以撥打電話做為第二個因素|* | * | *
+以 SMS 做為第二個因素|* | * | *
+用戶端應用程式密碼不支援 MFA|* | * | *
+系統管理員控制驗證方法| | | *
+PIN 模式| | | *
+詐騙警示| | | *
+MFA 報告| | | *
+一次性略過| | | *
+通話的自訂問候語| | | *
+自訂通話來電者 ID| | | *
+事件確認| | | *
+信任的 IP| | | *
+暫停對已記住的裝置進行 MFA (公開預覽)| | | *
+MFA SDK| | | *
+對使用 MFA Server 的內部部署應用程式進行 MFA| | | *
+
+
+## 如何取得 Azure Multi-Factor Authentication
+
+Azure Multi-Factor Authentication 隨附於 Azure Active Directory Premium 和 Enterprise Mobility Suite 中。如果您已經擁有上述產品，代表您也擁有 Azure Multi-Factor Authentication。
+
+如果您是 Office 365 使用者或 Azure 訂閱者，並且想要充分利用 Azure Multi-Factor Authentication 提供的其他功能，請繼續閱讀。
+
+如果您沒有任何上述任何產品，此時若要開始使用 Azure Multi-Factor Authentication，首先您需要 Azure 訂用帳戶或 [Azure 試用版訂用帳戶](http://azure.microsoft.com/pricing/free-trial/)。
+
+使用 Azure Multi-Factor Authentication 時有兩個可用的計費選項：
+
+- **每位使用者**。通常適用於想要為一群定期需要驗證之固定數量員工啟用 Multi-Factor Authentication 的企業。
+- **每次驗證**。通常適用於想要為大量不定期需要驗證之外部使用者啟用 Multi-Factor Authentication 的企業。
+
+如需定價詳細資料，請參閱 [Azure MFA 定價](http://azure.microsoft.com/pricing/details/multi-factor-authentication/)。
+
+選擇最適合組織的模式。接下來，若要開始請參閱[開始使用](multi-factor-authentication-get-started.md)
+
+## 選擇合適的多重因素安全性解決方案
+
+因為 Azure Multi-Factor Authentication 的種類繁多，我們必須從幾個重點來判斷，以便找出最合適的版本。這些重點包括：
+
+-	[我要保護什麼](#what-am-i-trying-to-secure)
+-	[使用者位於何處](#where-are-the-users-located)
+
+下列小節將提供如何判斷以上重點的指引。
+
+### 我要保護什麼？
+
+為了判斷出正確的 Multi-Factor Authentication 解決方案，首先我們必須回答一個問題：您試圖使用第二個驗證方法來保護什麼？它是 Azure 中的應用程式嗎？ 或者是遠端存取系統之類的系統。藉由判斷我們嘗試保護的東西，我們可以找出該在何處啟用 Multi-Factor Authentication 這個問題的答案。
+
+
+
+您想要保護什麼| 雲端中的 Multi-Factor Authentication|Multi-Factor Authentication Server 
+------------- | :-------------: | :-------------: |
+第一方 Microsoft 應用程式|* |* |
+應用程式資源庫中的 Saas 應用程式|* |* |
+透過 Azure AD App Proxy 發佈的 IIS 應用程式|* |* |
+非透過 Azure AD App Proxy 發佈的 IIS 應用程式 | |* |
+VPN、RDG 等遠端存取| |* |
+
+
+
+### 使用者位於何處
+
+接下來，不論是雲端中的 Multi-Factor Authentication 或使用 MFA Server 的內部部署 Multi-Factor Authentication，只要根據使用者的所在位置，我們就可以判斷出合適的解決方案。
+
+
+
+使用者位置| 方案
+------------- | :------------- | 
+Azure Active Directory| 雲端中的 Multi-Factor Authentication|
+Azure AD 和使用 AD FS 同盟的內部部署 AD| 雲端中的 MFA 和 MFA Server 都是可用選項 
+Azure AD 和使用 DirSync、Azure AD Sync、Azure AD Connect 的內部部署 AD - 而沒有密碼同步|雲端中的 MFA 和 MFA Server 都是可用選項 
+Azure AD 和使用 DirSync、Azure AD Sync、Azure AD Connect 的內部部署 AD - 使用密碼同步|雲端中的 Multi-Factor Authentication
+內部部署 Active Directory|Multi-Factor Authentication Server
+
+下表是雲端中 Multi-Factor Authentication 和 Multi-factor Authentication Server 的功能比較。
+
+ | 雲端中的 Multi-Factor Authentication | Multi-Factor Authentication Server
+------------- | :-------------: | :-------------: |
+以行動應用程式通知做為第二個因素 | ● | ● |
+以行動應用程式驗證碼做為第二個因素 | ● | ●
+以撥打電話做為第二個因素 | ● | ● 
+以單向 SMS 做為第二個因素 | ● | ●
+以雙向 SMS 做為第二個因素 | | ● 
+以硬體權杖做為第二個因素 | | ● 
+用戶端應用程式密碼不支援 MFA | ● |  
+系統管理員控制驗證方法 | | ● 
+PIN 模式 | | ●
+詐騙警示 | ● | ●
+MFA 報告 | ● | ● 
+一次性略過 | ● | ● 
+通話的自訂問候語 | ● | ● 
+可自訂的通話來電者 ID | ● | ● 
+信任的 IP | ● | ● 
+暫停對已記住的裝置進行 MFA (公開預覽) | ● |  
+條件式存取 | ● | ● 
+快取 | ● | ● 
+
+既然我們已判斷出要使用雲端 Multi-Factor Authentication 或內部部署 MFA Server，接下來可以開始設定及使用 Azure Multi-Factor Authentication。**選取代表您案例的圖示！**
+
+<center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
+
+<!---HONumber=August15_HO9-->

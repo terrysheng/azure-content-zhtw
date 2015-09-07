@@ -1,20 +1,20 @@
 <properties
    pageTitle="開發 Service Fabric 服務"
-   description="概念資訊和教學課程可協助您了解如何開發使用可靠動作項目或可靠服務程式設計模型的 Service Fabric 服務。"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+	description="概念資訊和教學課程可協助您了解如何開發使用可靠動作項目或可靠服務程式設計模型的 Service Fabric 服務。"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="rwike77"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="05/14/2015"
-   ms.author="ryanwi"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/20/2015"
+	ms.author="ryanwi"/>
 
 # 開發 Service Fabric 服務
 此頁面包含概觀、概念文章和教學課程的連結，可協助您了解如何開發 Service Fabric 服務。Service Fabric 提供兩個高階程式設計模型，可用來建置以下服務：可靠動作項目 API 和可靠服務 API。雖然兩者都建置於相同的 Service Fabric 核心，但會在並行處理、資料分割以及通訊方面的簡易性和彈性之間進行不同的權衡。了解這兩個模型相當實用，以便您可以在應用程式中選擇特定服務的適當架構。
@@ -53,7 +53,7 @@
 - [與並行相關的事件和效能計數器](service-fabric-reliable-actors-diagnostics.md)
 - [動作項目重新進入](service-fabric-reliable-actors-reentrancy.md)
 - [動作項目計時器](service-fabric-reliable-actors-timers-reminders.md)
- 
+
 您可以在這裡找到設定可靠動作項目相關資訊：
 
 - [KVSActorStateProvider 組態](../Service-Fabric/service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)  
@@ -86,6 +86,5 @@
 可靠服務會發出事件和效能計數器，可用來診斷和監視您的服務：
 
 - [可設定狀態可靠服務診斷](service-fabric-reliable-services-diagnostics.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

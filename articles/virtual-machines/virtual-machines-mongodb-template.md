@@ -1,20 +1,20 @@
 <properties
   pageTitle="在 Ubuntu 上使用 Azure 資源管理員範本建立 MongoDB 叢集"
-  description="在 Ubuntu 上透過 Azure PowerShell 或 Azure CLI 使用 Azure 資源管理員範本建立 MongoDB 叢集"
-  services="virtual-machines"
-  documentationCenter=""
-  authors="karthmut"
-  manager="timlt"
-  editor="tysonn"/>
+	description="在 Ubuntu 上透過 Azure PowerShell 或 Azure CLI 使用 Azure 資源管理員範本建立 MongoDB 叢集"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="karthmut"
+	manager="timlt"
+	editor="tysonn"/>
 
 <tags
   ms.service="virtual-machines"
-  ms.workload="multiple"
-  ms.tgt_pltfrm="vm-windows"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.date="04/29/2015"
-  ms.author="karthmut"/>
+	ms.workload="multiple"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/29/2015"
+	ms.author="karthmut"/>
 
 # 在 Ubuntu 上使用 Azure 資源管理員範本建立 MongoDB 叢集
 
@@ -688,6 +688,6 @@ vm-disk-utils-0.1.sh 是 shared\_scripts\\ubuntu 資料夾的一部分 (位於 a
 -	針對資源群組中的成員相同時 (叢集中的節點等等)，可以建立會利用資源迴圈功能的特定範本，以便部署多個具有唯一屬性的執行個體。
 -	針對所有部署後續工作 (例如產品安裝和設定等)，請運用指令碼部署延伸模組並建立每一種技術特定的指令碼。
 
-如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)。
+如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](../resource-group-authoring-templates.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

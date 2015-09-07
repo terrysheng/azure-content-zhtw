@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="整合內部部署身分識別與 Azure Active Directory。" 
-	description="這就是 Azure AD Connect，說明它是什麼及使用的理由。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="整合內部部署身分識別與 Azure Active Directory。"
+	description="這就是 Azure AD Connect，說明它是什麼及使用的理由。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/13/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # 整合內部部署身分識別與 Azure Active Directory
@@ -249,7 +249,7 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 - [使用 Azure AD Connect 同步處理規則編輯器](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [使用宣告式佈建](active-directory-aadconnect-whats-next-declarative-prov.md)
 
-此外，針對 Azure AD Sync 所建立的一些文件仍然有關，而且適用於 Azure AD Connect。雖然致力於將本文件帶到 Azure.com，但是這份文件有些部分還是保留在 MSDN 範圍文件庫中。如需其他文件，請參閱 [MSDN 上的 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx) 和 [MSDN 上的 Azure AD Sync](https://msdn.microsoft.com/library/azure/dn790204.aspx)。
+此外，針對 Azure AD Sync 所建立的一些文件仍然有關，而且適用於 Azure AD Connect。雖然致力於將本文件帶到 Azure.com，但是這份文件有些部分還是保留在 MSDN 範圍文件庫中。如需其他文件，請參閱 [MSDN 上的 Azure AD Connect](active-directory-aadconnect.md) 和 [MSDN 上的 Azure AD Sync](https://msdn.microsoft.com/library/azure/dn790204.aspx)。
 
 
 **其他資源**
@@ -273,4 +273,4 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

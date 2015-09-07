@@ -1,6 +1,6 @@
 <properties
-	pageTitle="開始使用適用於 Xamarin iOS 應用程式的通知中心"
-	description="了解如何使用 Azure 通知中心，將推播通知傳送到 Xamarin iOS 應用程式。"
+	pageTitle="開始使用適用於 Xamarin iOS 應用程式的通知中樞 | Microsoft Azure"
+	description="在本教學課程中，您會了解如何使用 Azure 通知中樞將推播通知傳送至 Xamarin iOS 應用程式。"
 	services="notification-hubs"
 	documentationCenter="xamarin"
 	authors="ysxu"
@@ -22,13 +22,13 @@
 
 ##概觀
 
-本主題將示範如何使用 Azure 通知中心將推播通知傳送至 iOS 應用程式。在本教學課程中，您將使用 Apple 推播通知服務 (APN)，建立可接收推播通知的空白 Xamarin.iOS 應用程式。完成時，您便能夠使用通知中心，將推播通知廣播到所有正在執行您應用程式的裝置。[NotificationHubs 應用程式][GitHub]範例中提供完成的程式碼。
+本教學課程示範如何使用 Azure 通知中樞將推播通知傳送至 iOS 應用程式。您將使用 Apple 推播通知服務 (APN)，建立可接收推播通知的空白 Xamarin.iOS app。完成時，您便能夠使用通知中樞，將推播通知廣播到所有執行您 app 的裝置。[NotificationHubs 應用程式][GitHub]範例中提供完成的程式碼。
 
-本教學課程將示範使用通知中心的簡單廣播案例。
+本教學課程示範使用通知中樞的簡單廣播案例。
 
-##必要條件
+##先決條件
 
-本教學課程需要下列先決條件：
+本教學課程需要下列各項：
 
 + [XCode 6.0][Install Xcode]
 + 支援 iOS 7.0 (或更新版本) 的裝置
@@ -36,13 +36,13 @@
 + [Xamarin.iOS]
 + [Azure 行動服務元件]
 
-   >[AZURE.NOTE]基於推播通知組態需求，您必須在具備 iOS 功能的裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
+   >[AZURE.NOTE]基於推播通知的組態需求，您必須在具備 iOS 功能的裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
 
-完成本教學課程是 Xamarin.iOS 應用程式所有其他通知中樞教學課程的先決條件。
+完成本教學課程是 Xamarin.iOS app 所有其他通知中樞教學課程的先決條件。
 
-> [AZURE.IMPORTANT]若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started)。
+> [AZURE.IMPORTANT]若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started)。
 
-Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循這些指示建立必要的憑證，並將憑證上傳至您的行動服務。如需正式的 APNS 功能文件，請參閱 [Apple 推播通知服務] (英文)。
+Apple 推播通知服務使用憑證來驗證您的行動服務。請依照這些指示建立必要的憑證，並將憑證上傳至您的行動服務。如需官方的 APNS 功能文件，請參閱 [Apple 推播通知服務]。
 
 
 ##<a name="certificates"></a>產生憑證簽署要求檔案
@@ -51,7 +51,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
 1. 從 Utilities 資料夾中，執行 Keychain Access 工具。
 
-2. 按一下 [Keychain Access]，並展開 [Certificate Assistant]，然後按一下 [Request a Certificate from a Certificate Authority...]。
+2. 按一下 [Keychain Access]，並展開 [Certificate Assistant]，然後按一下 [Request a Certificate from a Certificate Authority]。
 
   	![][5]
 
@@ -59,23 +59,23 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
   	![][6]
 
-4. 在 [另存新檔] 中輸入憑證簽署要求 (CSR) 檔案的名稱，並且在 [位置] 中選取位置，然後按一下 [儲存]。
+4. 在 [Save As] 中輸入 CSR 檔案的名稱，並且在 [Where] 中選取位置，然後按一下 [Save]。
 
   	![][7]
 
-  	這會在選取的位置儲存 CSR 檔；預設位置為桌面。請記住對於此檔案選擇的位置。
+  	這會在選取的位置儲存 CSR 檔案。預設位置是在桌面上。請記住您為這個檔案選擇的位置。
 
 接著，向 Apple 註冊您的應用程式，並啟用推播通知，然後上傳這個匯出的 CSR 來建立推播憑證。
 
 ##<a name="register"></a>針對推播通知註冊應用程式
 
-若要從行動服務將推播通知傳送至 iOS 應用程式，您必須向 Apple 註冊您的應用程式，並註冊進行推播通知。
+若要從行動服務將推播通知傳送至 iOS app，您必須向 Apple 註冊您的應用程式，並註冊進行推播通知。
 
-1. 如果您尚未註冊應用程式，請瀏覽至 Apple 開發人員中心的 <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS 佈建入口網站</a>，然後使用您的 Apple ID 登入，並按一下 [**識別碼**]，接著按一下 [**應用程式識別碼**]，最後按一下 [**+**] 符號註冊新的應用程式。
+1. 如果您尚未註冊 app，請瀏覽至 Apple 開發人員中心的 <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS 佈建入口網站</a>，使用您的 Apple ID 登入，並按一下 [Identifiers]，接著按一下 [App IDs]，最後按一下 [+] 符號註冊新的 app。
 
    	![][105]
 
-2. 在 [說明] 中輸入您應用程式的名稱，並且在 [Bundle Identifier] 中輸入值，接著勾選 [應用程式服務] 區段中的 [推播通知]，然後按一下 [繼續]。
+2. 在 [Description] 中輸入您 app 的名稱，並且在 [Bundle Identifier] 中輸入值，接著勾選 [App Services] 區段中的 [Push Notifications]，然後按一下 [Continue]。
 
    	![][106]
 
@@ -98,21 +98,21 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
    	![][111]
 
-	按一下應用程式識別碼將顯示應用程式和應用程式識別碼的詳細資料。
+	按一下應用程式識別碼會顯示應用程式和應用程式識別碼的詳細資料：
 
    	![][112]
 
    	![][113]
 
-4. 按一下 [編輯]，然後捲動至畫面底端，並按一下 [Development Push SSL Certificate] 區段下的 [建立憑證...]。
+4. 按一下 [Edit]，然後捲動至畫面底端，並按一下 [Development Push SSL Certificate] 區段下的 [Create Certificate]。
 
    	![][114]
 
-	這將顯示 [Add iOS Certificate] 助理。
+	這將顯示 Add iOS Certificate 助理。
 
    	![][115]
 
-	> [AZURE.NOTE]本教學課程使用開發憑證。註冊生產憑證時，將使用同一個程序。您將憑證上傳至行動服務時，請確定設定相同的憑證類型。
+	> [AZURE.NOTE]本教學課程使用開發憑證。註冊生產憑證時使用的是同一個程序。您將憑證上傳至行動服務時，請確定設定相同的憑證類型。
 
 5. 按一下 [選擇檔案]，瀏覽至您儲存第一個工作中建立的 CSR 檔所在的位置，然後按一下 [產生]。
 
@@ -128,7 +128,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
   	![][9]
 
-    > [AZURE.NOTE]依預設，下載的檔案 (開發憑證) 的名稱會是 **aps\_development.cer**。
+    > [AZURE.NOTE]依照預設，開發憑證的下載檔案名稱會是 **aps\_development.cer**。
 
 7. 按兩下下載的推播憑證 **aps\_development.cer**。
 
@@ -138,7 +138,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
 	> [AZURE.NOTE]憑證中的名稱可能會不同，不過字首會加上 <strong>Apple Development iOS Push Notification Services:</strong> 前置詞。
 
-	然後，您將使用此憑證產生 .p12 檔，並將該檔案上傳至通知中樞，以便能夠透過 APNS 進行推播通知。
+	然後，您將使用此憑證產生 .p12 檔，並將該檔案上傳至通知中樞，以便能夠透過 APNs 進行推播通知。
 
 ##<a name="profile"></a>建立應用程式的佈建設定檔
 
@@ -150,7 +150,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
    	![][121]
 
-3. 接著，從 [App ID] 下拉式清單中選取行動服務快速入門應用程式的應用程式識別碼，並按一下 [Continue]。
+3. 從 [App ID] 下拉式清單中選取行動服務快速入門應用程式的應用程式識別碼，並按一下 [Continue]。
 
    	![][122]
 
@@ -158,7 +158,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
    	![][123]
 
-5. 然後，在 [Devices] 選取要用來測試的裝置，然後按一下 [Continue]。
+5. 選取要用來測試的裝置，然後按一下 [Continue]。
 
    	![][124]
 
@@ -170,7 +170,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
   	這將建立新的佈建設定檔。
 
-7. 在 Xcode 中，開啟 Organizer，選取 Devices 檢視，並選取左窗格的 [Provisioning Profiles] 區段中顯示的 [Provisioning Profiles]，然後匯入您剛才建立的佈建設定檔。
+7. 在 Xcode 中，開啟 Organizer，選取 Devices 檢視，並選取左窗格的 [Library] 區段中的 [Provisioning Profiles]，然後匯入您剛才建立的佈建設定檔。
 
 8. 在左邊選取您的裝置，並再次匯入佈建設定檔。
 
@@ -182,27 +182,27 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
 這將確保 Xcode 專案使用新的設定檔進行程式碼簽署。接著，您必須將憑證上傳至通知中心。
 
-##<a name="configure-hub"></a>設定通知中心
+##<a name="configure-hub"></a>設定通知中樞
 
-1. 登入 [Azure 管理入口網站]，並按一下畫面底部的 [+新增]。
+1. 登入 [Azure 入口網站]，並按一下畫面底部的 [+新增]。
 
-2. 依序按一下 [App Services]、[服務匯流排]、[Notification Hub]、[快速建立]。
+2. 依序按一下 [應用程式服務]、[服務匯流排]、[通知中樞]，然後按一下 [快速建立]。
 
    	![][27]
 
-3. 為您的通知中心輸入名稱、選取所需的區域，然後按一下 [Create a new Notification Hub]。
+3. 為您的通知中樞輸入名稱、選取所需的區域，然後按一下 [建立新的通知中樞]。
 
    	![][28]
 
-4. 按一下您剛才建立的命名空間 (通常為 ***notification hub name*-ns**)，然後按一下頂端的 [設定] 索引標籤。
+4. 按一下您剛才建立的命名空間 (通常為 ***通知中樞名稱*-ns**)，然後按一下頂端的 [設定] 索引標籤。
 
    	![][29]
 
-5. 按一下頂端的 [Notification Hubs] 索引標籤，然後按一下您剛才建立的通知中心。
+5. 按一下頂端的 [通知中樞] 索引標籤，然後按一下您剛才建立的通知中樞。
 
    	![][210]
 
-6. 選取頂端的 [設定] 索引標籤，然後按一下 Apple 通知設定的 [上傳]。然後選取稍早匯出的 **.p12** 憑證，以及憑證的密碼。務必選擇要使用「生產」(如果要傳送推播通知給在市集購買您應用程式的使用者) 或「沙箱」(開發期間) 推播服務。
+6. 選取頂端的 [設定] 索引標籤，然後按一下 Apple 通知設定的 [上傳]。然後選取稍早匯出的 **.p12** 憑證，以及憑證的密碼。務必選擇要使用「生產」(如果要傳送推播通知給在市集購買您 app 的使用者) 或「沙箱」(開發期間) 推播服務。
 
    	![][211]
 
@@ -212,15 +212,15 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
 現在已將您的通知中心設定成使用 APN，而且您已擁有可用來註冊應用程式和傳送通知的連接字串。
 
-##<a name="connecting-app"></a>將您的應用程式連接到通知中心
+##<a name="connecting-app"></a>將您的 app 連接到通知中樞
 
 ### 建立新專案
 
-1. 在 Xamarin Studio 中，建立新的 iOS 專案，並選取 [**統一 API > 單一檢視應用程式**] 範本。
+1. 在 Xamarin Studio 中，建立新的 iOS 專案，並選取 [Unified API] > [Single View Application] 範本。
 
    	![][31]
 
-2. 首先，新增 Azure 訊息元件的參考。在 [方案] 檢視中，以滑鼠右鍵按一下專案的 [元件] 資料夾，並選擇 [Get More Components]。搜尋 [**Azure 訊息**] 元件，並將該元件新增至您的專案。
+2. 新增 Azure 訊息元件的參考。在 [方案] 檢視中，以滑鼠右鍵按一下專案的 [Components] 資料夾，並選擇 [Get More Components]。搜尋 [**Azure 訊息**] 元件，並將該元件新增至您的專案。
 
 3. 在 **AppDelegate.cs** 中，新增下列 using 陳述式：
 
@@ -232,7 +232,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
 5. 建立含有下列變數的 **Constants.cs** 類別：
 
-        // Azure app specific connection string and hub path
+        // Azure app-specific connection string and hub path
         public const string ConnectionString = "<Azure connection string>";
         public const string NotificationHubPath = "<Azure hub path>";
 
@@ -290,10 +290,10 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
                 //Extract the alert text
                 // NOTE: If you're using the simple alert by just specifying
-                // "  aps:{alert:"alert msg here"}  " this will work fine.
+                // "  aps:{alert:"alert msg here"}  ", this will work fine.
                 // But if you're using a complex alert with Localization keys, etc.,
                 // your "alert" object from the aps dictionary will be another NSDictionary.
-                // Basically the json gets dumped right into a NSDictionary,
+                // Basically the JSON gets dumped right into a NSDictionary,
                 // so keep that in mind.
                 if (aps.ContainsKey(new NSString("alert")))
                     alert = (aps [new NSString("alert")] as NSString).ToString();
@@ -312,14 +312,14 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
             }
         }
 
-    > [AZURE.NOTE]您可以選擇覆寫 **FailedToRegisterForRemoteNotifications()** 以處理不含無網路連線等的情況。
+    > [AZURE.NOTE]您可以選擇覆寫 **FailedToRegisterForRemoteNotifications()** 以處理沒有網路連線等的情況。
 
 
 10. 在您的裝置上執行應用程式。
 
 ##<a name="send"></a>從後端傳送通知
 
-您可以使用 <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 介面</a>，從任何後端使用通知中心來傳送通知。在本教學課程中，我們將透過 .NET 主控台應用程式，以及使用節點指令碼透過行動服務來傳送通知。
+您可以透過我們的 <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 介面</a>，使用通知中樞從任何後端傳送通知。在本教學課程中，我們將使用 .NET 主控台應用程式，以及透過節點指令碼使用行動服務來傳送通知。
 
 使用 .NET 應用程式傳送通知：
 
@@ -327,9 +327,9 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
    	![][213]
 
-2. 使用 <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 封裝</a>新增 Azure 服務匯流排 SDK 的參考。在 Visual Studio 主功能表中，依序按一下 [工具]、[Library Package Manager]、[Package Manager Console]。接著，在主控台視窗中輸入：
+2. 使用 <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 封裝</a>，新增對 Azure 服務匯流排 SDK 的參考。在 Visual Studio 主功能表中，依序按一下 [工具]、[程式庫封裝管理員]、[封裝管理員主控台]。接著，在主控台視窗中，輸入下列程式碼並按 Enter：
 
-        Install-Package WindowsAzure.ServiceBus and press Enter.
+        Install-Package WindowsAzure.ServiceBus
 
 2. 開啟檔案 Program.cs，並新增下列 using 陳述式：
 
@@ -344,18 +344,18 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
             await hub.SendAppleNativeNotificationAsync(alert);
         }
 
-4. 接著在 `Main` 方法中新增下一行程式碼：
+4. 在您的 `Main` 方法中新增下列程式碼行：
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
-5. 按 F5 鍵以執行應用程式。您應該會在裝置上收到警示。如果您使用 Wi-fi，請確定連線正在運作。
+5. 按 F5 鍵以執行應用程式。您應該會在裝置上收到警示。如果您使用 Wi-Fi，請確定連線正在運作。
 
 您可以在 Apple [本機和推播通知程式設計指南] (英文) 中找到所有可能的裝載。
 
 若要使用行動服務傳送通知，請依照[開始使用行動服務]中的步驟進行，然後執行下列動作：
 
-1. 登入 [Azure 管理入口網站]，然後選取您的行動服務。
+1. 登入 [Azure 入口網站]，然後選取您的行動服務。
 
 2. 選取頂端的 [排程器] 索引標籤。
 
@@ -365,7 +365,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
    	![][216]
 
-4. 在工作建立之後，按一下此工作名稱。然後按一下頂端列中的 [指令碼]。
+4. 在工作建立之後，按一下此工作名稱。然後按一下頂端列中的 [指令碼] 索引標籤。
 
 5. 將下列指令碼插入您的排程器函數內。請確定使用您的通知中心名稱和稍早取得的 *DefaultFullSharedAccessSignature* 連接字串，來取代預留位置。按一下 [儲存]。
 
@@ -391,7 +391,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
 ## <a name="next-steps"> </a>後續步驟
 
-在此簡單範例中，您將廣播通知到您的所有 iOS 裝置。若要以特定使用者為目標，請參閱教學課程[使用通知中心來推播通知給使用者]，在此同時，如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞]。若要深入了解如何使用通知中心，請參閱 [Azure 通知中心概觀]和 [iOS 的通知中心作法] (英文)。
+在此簡單範例中，您廣播通知到您的所有 iOS 裝置。為了鎖定特定使用者，請參閱教學課程[使用通知中心來推播通知給使用者]。如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞]。若要深入了解如何使用通知中樞，請參閱[通知中樞指引]和 [iOS 的通知中樞作法]。
 
 <!-- Anchors. -->
 [Generate the certificate signing request]: #certificates
@@ -462,9 +462,9 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [開始使用行動服務]: /develop/mobile/tutorials/get-started-xamarin-ios
-[Azure 管理入口網站]: https://manage.windowsazure.com/
-[Azure 通知中心概觀]: http://msdn.microsoft.com/library/jj927170.aspx
-[iOS 的通知中心作法]: http://msdn.microsoft.com/library/jj927168.aspx
+[Azure 入口網站]: https://manage.windowsazure.com/
+[通知中樞指引]: http://msdn.microsoft.com/library/jj927170.aspx
+[iOS 的通知中樞作法]: http://msdn.microsoft.com/library/jj927168.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
@@ -478,6 +478,5 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
     pageTitle="StorSimple 8000 系列 Update 1 版本資訊 | Microsoft Azure"
-    description="說明 StorSimple 8000 Series Update 1 的新功能、問題及因應措施。"
-    services="storsimple"
-    documentationCenter="NA"
-    authors="alkohli"
-    manager="carolz"
-    editor="" />
+	description="說明 StorSimple 8000 Series Update 1 的新功能、問題及因應措施。"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
  <tags 
     ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="08/19/2015"
-    ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/21/2015"
+	ms.author="alkohli"/>
 
 # StorSimple 8000 Series Update 1 版本資訊  
 
@@ -28,7 +28,7 @@
 >[AZURE.IMPORTANT]
 > 
 - 重大修補程式 Update 1.1 已於 6 月 23 日發行。此修補程式可解決備份引擎中的問題。如果您在 6 月 23 日之前已套用了 Update 1，而且目前使用的軟體版本為 **6.3.9600.17491**，請務必套用此重大更新，以避免備份發生問題。安裝更新之後，軟體版本會變更 **6.3.9600.17521**。
-- 如果您在 5 月 27 日到 7 月 10 日之間建立軟體版本為 6.3.9600.17481 的虛擬裝置，則請建立新的虛擬裝置，並從舊的虛擬裝置上的任何磁碟區容錯移轉到新的虛擬裝置。(這是因為較舊的虛擬裝置無法更新。) 如果您並未建立新的虛擬裝置，您可能會看到備份啟動失敗。如需容錯移轉和災害復原程序，請移至 [StorSimple 裝置的容錯移轉和災害復原](storsimple-device-failover-disaster-recovery.md)。
+- 如果您在 5 月 27 日到 7 月 10 日之間建立軟體版本為 **6.3.9600.17481** 的虛擬裝置，請建立新的虛擬裝置，並將舊虛擬裝置上的所有磁碟區容錯移轉到新虛擬裝置。(這是因為較舊的虛擬裝置無法更新。) 如果您並未建立新的虛擬裝置，您可能會看到備份啟動失敗。如需容錯移轉和災害復原程序，請移至 [StorSimple 裝置的容錯移轉和災害復原](storsimple-device-failover-disaster-recovery.md)。
 - 使用 StorSimple Manager 服務 (而非 Windows PowerShell for StorSimple) 安裝 Update 1。
 - 此版本也包含只有在裝置處於 [維護] 模式時才能套用的磁碟韌體更新。這些都是干擾性更新，將會導致您的裝置停機。您可以在已計劃的維護期間套用這些更新。
 - 安裝此更新大約需要 5-10 小時 (包括 Windows Update)。 
@@ -43,7 +43,7 @@
     - **業務持續性**：透過允許將 5000-7000 系列應用裝置上的現有資料移轉到 8000 系列應用裝置。
     - **8000 系列應用裝置的改進功能**：例如透過 StorSimple Manager 服務對多個應用裝置進行有效率的集中式管理、更高等級的硬體和更新的韌體、虛擬應用裝置、資料行動力，以及未來藍圖中的功能。
 
-    如需如何將 StorSimple 5000-7000 系列移轉至 8000 系列裝置的詳細資訊，請參閱[移轉指南](http://www.microsoft.com/download/details.aspx?id=47322)。
+    如需如何將 StorSimple 5000-7000 系列移轉至 8000 系列裝置的詳細資訊，請參閱《移轉指南》[](http://www.microsoft.com/download/details.aspx?id=47322)。
 
 - **Azure Government 入口網站的可用性** – Azure Government 入口網站現已提供 StorSimple。請參閱如何[在 Azure Government 入口網站中部署 StorSimple 裝置](storsimple-deployment-walkthrough-gov.md)。
 
@@ -94,9 +94,9 @@
 
 ## Update 1 中的實體裝置更新
 
-將這些更新套用到實體裝置之後，軟體版本會變更為 6.3.9600.17521。
+如果將修補程式更新 1.2 套用至執行 Update 1 之前版本的實體裝置，軟體版本會變更為 6.3.9600.17521。
 
-## Update 1 中的序列連接 SCSI (SAS) 控制器與韌體更新
+## Update 1 中的控制器和韌體更新
 
 這個版本會針對實體裝置的 SAS 控制站更新驅動程式與軔體。它也會更新裝置上的磁碟軔體。
  
@@ -115,4 +115,4 @@
 - [在您的裝置上安裝 Update 1](storsimple-install-update-1.md)。
  
 
-<!-------HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

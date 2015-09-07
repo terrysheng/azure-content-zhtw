@@ -1,20 +1,20 @@
 <properties
    pageTitle="在 HDInsight 中佈建 Apache Spark 叢集 | Microsoft Azure"
-   description="了解如何使用 Azure 入口網站、Azure PowerShell、命令列或 HDInsight .NET SDK 佈建 Azure HDInsight 的 Spark 叢集。"
-   services="hdinsight"
-   documentationCenter=""
-   authors="nitinme"
-   manager="paulettm"
-   editor="cgronlun"
-   tags="azure-portal"/>
+	description="了解如何使用 Azure 入口網站、Azure PowerShell、命令列或 HDInsight .NET SDK 佈建 Azure HDInsight 的 Spark 叢集。"
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
+	editor="cgronlun"
+	tags="azure-portal"/>
 <tags
     ms.service="hdinsight"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="08/17/2015"
-    ms.author="nitinme"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/17/2015"
+	ms.author="nitinme"/>
 
 # 使用自訂選項在 HDInsight 上佈建 Apache Spark 叢集
 
@@ -66,7 +66,7 @@ Spark 可讓您透過原始資料定義結構描述和 Hive 資料表。您可�
 
 	![diagram of point-to-site configuration](./media/hdinsight-apache-spark-provision-clusters/hdinsight-vnet-point-to-site.png)
 
-如需虛擬網路特性、優點和功能的詳細資訊，請參閱＜[虛擬網路概觀](http://msdn.microsoft.com/library/azure/jj156007.aspx)＞。
+如需虛擬網路特性、優點和功能的詳細資訊，請參閱＜[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)＞。
 
 > [AZURE.NOTE]您必須先建立 Azure 虛擬網路，才能佈建叢集。如需詳細資訊，請參閱[如何建立虛擬網路](virtual-networks-create-vnet.md)。
 >
@@ -437,4 +437,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

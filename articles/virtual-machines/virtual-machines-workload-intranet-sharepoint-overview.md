@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 Azure 中使用 SQL Server AlwaysOn 可用性群組部署 SharePoint"
-	description="您可以透過五個步驟， 在 Azure 中使用 SQL Server AlwaysOn 可用性群組部署 SharePoint。"
+	pageTitle="部署 SharePoint Server 2013 伺服器陣列 | Microsoft Azure"
+	description="透過五個步驟，在 Azure 中使用 SQL Server AlwaysOn 可用性群組，來部署高可用性 SharePoint Server 2013 伺服器陣列。"
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -49,7 +49,7 @@
 
 - 如果您是經驗豐富的 SharePoint 實作者，請自行決定是否要調整第 3 到 5 階段中的指示，以建置最適合您需求的伺服器陣列。
 - 如果您已經具備現有的 Azure 混合式雲端實作，可自行決定是否要調整或略過第 1 和 2 階段中的指示，在適當的子網路上裝載新的 SharePoint 伺服器陣列。
-- 所有伺服器都位於 Azure 虛擬網路中的單一子網路上。如果您想要提供其他相當於隔離子網路的安全性，可以使用[網路安全性群組](https://msdn.microsoft.com/library/azure/dn848316.aspx)。
+- 所有伺服器都位於 Azure 虛擬網路中的單一子網路上。如果您想要提供其他相當於隔離子網路的安全性，可以使用[網路安全性群組](virtual-networks-nsg.md)。
 
 若要建置開發/測試環境或此設定的概念證明，請參閱[在混合式雲端中設定用於測試的 SharePoint 內部網路伺服器陣列](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)。
 
@@ -72,4 +72,4 @@
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

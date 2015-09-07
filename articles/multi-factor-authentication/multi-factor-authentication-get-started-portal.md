@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="部署 Azure Multi-factor Authentication Server 使用者入口網站" 
-	description="這是說明如何開始使用 Azure MFA 和使用者入口網站的 Azure Multi-Factor Authentication 頁面。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="部署 Azure Multi-factor Authentication Server 使用者入口網站"
+	description="這是說明如何開始使用 Azure MFA 和使用者入口網站的 Azure Multi-Factor Authentication 頁面。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # 部署 Azure Multi-factor Authentication Server 使用者入口網站
@@ -189,4 +189,4 @@ Azure Multi-Factor Authentication 伺服器為使用者入口網站提供數個�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

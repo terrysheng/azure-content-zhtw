@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用 Azure Media Encoder 為資產編碼" 
-	description="了解如何使用 Azure Media Encoder 為媒體服務上的媒體內容編碼。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="如何使用 Azure Media Encoder 為資產編碼"
+	description="了解如何使用 Azure Media Encoder 為媒體服務上的媒體內容編碼。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。"
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="juliako"/>
 
 
@@ -31,7 +31,7 @@
 
 編碼工作是媒體服務中最常見的處理作業。您建立編碼工作以將媒體檔案從一種編碼轉換成另一種編碼。編碼時，您可以使用媒體服務內建的 Media Encoder。您也可以使用媒體服務合作夥伴提供的編碼器；第三方編碼器可透過 Azure Marketplace 取得。您可以使用針對您的編碼器定義的預設字串，或使用預設組態檔，指定編碼工作的詳細資料。若要查看可用的預設類型，請參閱[Azure 媒體服務的工作預設](https://msdn.microsoft.com/library/azure/dn619392.aspx)。如果您使用第三方編碼器，則應該[驗證檔案](https://msdn.microsoft.com/library/azure/dn750842.aspx)。
 
-建議一律將夾層檔編碼為調適性位元速率 MP4 集，然後使用[動態封裝](https://msdn.microsoft.com/library/azure/jj889436.aspx)將該集合轉換為所要的格式。若要利用動態封裝，您必須先取得至少一個串流端點的隨選串流單位，您打算從中傳遞您的內容。如需詳細資訊，請參閱[如何調整媒體服務](media-services-manage-origins.md#scale_streaming_endpoints)。
+建議一律將夾層檔編碼為調適性位元速率 MP4 集，然後使用[動態封裝](media-services-dynamic-packaging-overview.md)將該集合轉換為所要的格式。若要利用動態封裝，您必須先取得至少一個串流端點的隨選串流單位，您打算從中傳遞您的內容。如需詳細資訊，請參閱[如何調整媒體服務](media-services-manage-origins.md#scale_streaming_endpoints)。
 
 如果您的輸出資產是儲存體加密，必須設定資產傳遞原則。如需詳細資訊，請參閱[設定資產傳遞原則](media-services-dotnet-configure-asset-delivery-policy.md)。
 
@@ -211,15 +211,10 @@
     }
 
 
-##後續步驟
+##另請參閱 
 
-[Azure Marketplace]: https://datamarket.azure.com/
-[Encoder Preset]: http://msdn.microsoft.com/library/dn619392.aspx
-[How to: Get a Media Processor Instance]: http://go.microsoft.com/fwlink/?LinkId=301732
-[How to: Upload an Encrypted Asset]: http://go.microsoft.com/fwlink/?LinkId=301733
-[How to: Deliver an Asset by Download]: http://go.microsoft.com/fwlink/?LinkId=301734
-[How to Check Job Progress]: http://go.microsoft.com/fwlink/?LinkId=301737
-[Task Preset for Azure Media Packager]: http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
+[媒體服務編碼概觀](media-services-encode-asset.md)
+
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

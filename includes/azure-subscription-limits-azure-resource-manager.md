@@ -8,7 +8,7 @@
 資源管理員 API 寫入|每小時 1200|每小時 1200
 資源管理員 API 要求的大小|4194304 個位元組|4194304 個位元組
 每一訂用帳戶的[雲端服務](cloud-services-what-is.md)|已被取代<sup>3</sup>|已被取代<sup>3</sup>
-每一訂用帳戶的[同質群組](http://msdn.microsoft.com/library/azure/jj156085.aspx)|已被取代<sup>3</sup>|已被取代<sup>3</sup>
+每一訂用帳戶的[同質群組](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)|已被取代<sup>3</sup>|已被取代<sup>3</sup>
 
 <sup>1</sup>預設限制會因優惠類別類型 (如免費試用、隨收隨付等) 而有所差異。
 
@@ -16,4 +16,4 @@
 
 <sup>3</sup>Azure 資源群組和 Azure 資源管理員已不再需要這些功能。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

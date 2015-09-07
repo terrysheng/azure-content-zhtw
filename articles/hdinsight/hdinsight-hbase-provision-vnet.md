@@ -9,12 +9,12 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="08/12/2015"
-   ms.author="jgao"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/12/2015"
+	ms.author="jgao"/>
 
 # 在 Azure 虛擬網路上佈建 HBase 叢集
 
@@ -89,7 +89,7 @@ Azure 資源管理員可讓您將應用程式中的資源做為群組使用。�
 
 5. 按一下 [建立]。
 
-根據預設，此虛擬網路使用 Azure 所提供的內部網域名稱系統 (DNS) 伺服器。同時也支援更多自訂 DNS 伺服器的進階網路功能設定。如需詳細指引，請參閱[名稱解析 (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx)。
+根據預設，此虛擬網路使用 Azure 所提供的內部網域名稱系統 (DNS) 伺服器。同時也支援更多自訂 DNS 伺服器的進階網路功能設定。如需詳細指引，請參閱[名稱解析 (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 
 **(選擇性) 將 DNS 伺服器虛擬機器加入虛擬網路**
 
@@ -281,7 +281,7 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
     	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
 	</property>
 
-> [AZURE.NOTE]如需 Azure 虛擬網路中的名稱解析的詳細資訊，包括如何使用您自己的 DNS 伺服器，請參閱[名稱解析 (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx)。
+> [AZURE.NOTE]如需 Azure 虛擬網路中的名稱解析的詳細資訊，包括如何使用您自己的 DNS 伺服器，請參閱[名稱解析 (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 
 ##使用 Azure PowerShell 佈建 HBase 叢集
 
@@ -341,7 +341,7 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 
 [hbase-get-started]: ../hdinsight-hbase-get-started.md
 [hbase-twitter-sentiment]: ../hdinsight-hbase-twitter-sentiment.md
-[vnet-overview]: http://msdn.microsoft.com/library/azure/jj156007.aspx
+[vnet-overview]: ../virtual-network/virtual-networks-overview.md
 [vm-create]: ../virtual-machines-windows-tutorial.md
 
 [azure-portal]: https://portal.azure.com
@@ -379,4 +379,4 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "佈建新 HBase 叢集的詳細資料"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "使用指令碼動作以自訂 HBase 叢集"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

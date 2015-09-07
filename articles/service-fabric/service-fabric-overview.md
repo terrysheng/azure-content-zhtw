@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Service Fabric 概觀" 
-   description="組成微服務的 Service Fabric 概觀。Service Fabric 是分散式系統平台，用於建置可擴充、可靠且可輕鬆管理的雲端應用程式。" 
-   services="service-fabric" 
-   documentationCenter=".net" 
-   authors="msfussell" 
-   manager="timlt" 
-   editor="masnider"/>
+   pageTitle="Service Fabric 概觀 | Microsoft Azure"
+	description="組成微服務的 Service Fabric 概觀。Service Fabric 是分散式系統平台，用於建置可擴充、可靠且可輕鬆管理的雲端應用程式。"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="msfussell"
+	manager="timlt"
+	editor="masnider"/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA" 
-   ms.date="04/14/2015"
-   ms.author="mfussell"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/25/2015"
+	ms.author="mfussell"/>
 
 # Service Fabric 概觀
 Service Fabric 是一種分散式系統平台，用來建置可調整、可靠且輕鬆管理的雲端應用程式。Service Fabric 可解決開發與管理雲端應用程式時遭遇的重大挑戰。透過使用 Service Fabric，開發人員與管理員能夠避免解決複雜的基礎結構問題，改為專注於實作關鍵且嚴格要求的工作負載，並了解其為可調整、可信賴及可管理的。Service Fabric 代表新一代的中介軟體平台，可建置與管理這些企業級的 Tier-1 雲端規模服務。
 
-## 由微服務組成的應用程式 ##
+## 由微服務組成的應用程式
 Service Fabric 可讓您建置並管理由微服務組成的應用程式，這類應用程式可調整且可靠，以非常高的密度在共用的機器集區上執行 (一般稱為 Service Fabric 叢集)。其提供精密的執行階段，可建置分散式、可擴充的無狀態與可設定狀態的微服務與完整應用程式管理功能，以佈建、部署、監視、升級/修補及刪除所部署的應用程式。
 
 Service Fabric 提供技術支援給目前許多的 Microsoft 服務，例如 Azure SQL Database、Azure DocumentDB、Cortana、Power BI、Microsoft Intune、Azure 事件中樞，以及許多核心 Azure 服務和商務用 Skype 等等。
@@ -42,7 +42,7 @@ Service Fabric 為由微服務組成的應用程式，提供完整的執行階�
 
 2) 應用程式設計簡化成可設定狀態的微服務，因此不需要為滿足純無狀態應用程式的可用性與延遲需求時傳統上需要的其他佇列與快取。可設定狀態服務有高可用性、低延遲性的特性，這表示完整管理應用程式的移組件變少。
 
-如需應用程式模式與使用 Service Fabric 設計的詳細資訊，請參閱＜[應用程式案例](../service-fabric-application-scenarios)＞
+如需應用程式模式與使用 Service Fabric 設計的詳細資訊，請參閱＜[應用程式案例](service-fabric-application-scenarios.md)＞
 
 ## 應用程式生命週期管理
 從開發到部署、每日管理、維護，到最終的解除委任，Service Fabric 為雲端應用程式的完整應用程式生命週期管理 (ALM) 提供第一等的支援。
@@ -51,7 +51,7 @@ Service Fabric ALM 功能讓應用程式管理員/IT 操作員能夠使用簡單
 
 大多數的應用程式都結合了無狀態與可設定狀態的微服務，及其他一起部署的 EXE/執行階段。Service Fabric 擁有應用程式與封裝微服務的強式型別，因此能部署多個應用程式執行個體，每個執行個體都能獨立管理與升級。重要的是，Service Fabric 能夠部署*任何*的可執行檔或執行階段，並使其可靠。例如，可用於部署 ASP.NET 5、node.js、指令碼，或可組成應用程式的任何一切。
   
-如需應用程式生命週期管理的詳細資訊，請參閱＜[應用程式生命週期](../service-fabric-application-lifecycle)＞
+如需應用程式生命週期管理的詳細資訊，請參閱＜[應用程式生命週期](service-fabric-application-lifecycle.md)＞
 
 ## 主要功能
 藉由使用 Service Fabric，您可以：
@@ -89,10 +89,13 @@ Service Fabric ALM 功能讓應用程式管理員/IT 操作員能夠使用簡單
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
 
-如需詳細資訊：請參閱＜[技術概觀](../service-fabric-technical-overview)＞。
+* 如需詳細資訊：請參閱＜[技術概觀](service-fabric-technical-overview.md)＞。
+* 設定 Service Fabric [開發環境](service-fabric-get-started.md)。  
+* 選擇您服務的[架構](service-fabric-choose-framework.md)。
+
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

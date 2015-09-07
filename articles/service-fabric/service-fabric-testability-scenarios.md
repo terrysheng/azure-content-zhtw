@@ -1,20 +1,20 @@
 <properties
    pageTitle="執行混亂測試。"
-   description="本文討論 Microsoft 提供的預先定義 Service Fabric 案例。"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="anmolah"
-   manager="timlt"
-   editor=""/>
+	description="本文討論 Microsoft 提供的預先定義 Service Fabric 案例。"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="anmolah"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/14/2015"
-   ms.author="anmola"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="anmola"/>
 
 # Testability 案例
 雲端基礎結構之類的大型分散式系統本身並不可靠。Service Fabric 讓開發人員能夠撰寫可在不可靠的基礎結構上執行的服務。為了撰寫高品質的服務，開發人員必須能夠產生這類不可靠的基礎結構，才能測試其服務的穩定性。Service Fabric 讓開發人員可以引發錯誤動作，藉此以失敗情況測試服務。但鎖定式模擬錯誤就僅只於此了。若要進一步測試，Service Fabric 提供預先定義的測試案例。這些案例會以很長的時間在整個叢集上模擬連續的交錯錯誤，包括非失誤性和失誤性錯誤。一旦設定比率和錯誤類型後，案例會以用戶端工具的形式執行，透過 C# API 或 PowerShell 在叢集和您的服務中產生錯誤。在 Testability 功能中，我們提供以下案例。
@@ -251,4 +251,4 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

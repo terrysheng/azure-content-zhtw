@@ -1,27 +1,29 @@
 <properties 
-   pageTitle="設定管理入口網站中的 VPN 閘道 | Microsoft Azure"
-   description="此文章將逐步引導您設定虛擬網路 VPN 閘道，以及將 VPN 閘道路由類型從靜態變更為動態或從動態變更為靜態。"
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+   pageTitle="設定 Azure 入口網站中的 VPN 閘道 | Microsoft Azure"
+	description="此文章將逐步引導您設定虛擬網路 VPN 閘道，以及將 VPN 閘道路由類型從靜態變更為動態或從動態變更為靜態。"
+	services="vpn-gateway"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/12/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
-# 設定管理入口網站中的 VPN 閘道
+# 設定 Azure 入口網站中的 VPN 閘道
 
 如果您想要在 Azure 和內部部署位置之間建立安全的跨單位連接，您將需要設定 VPN 閘道。閘道有不同的類型，而您將建立的閘道類型取決於您的網路設計計劃，以及您想要使用的內部部署 VPN 裝置。例如，某些連線選項，例如點對站台連接，則需要動態路由閘道。如果您想要將閘道設定為同時支援點對站台 (P2S) 連線和站台對站台 (S2S) 連接，則您將必須設定動態路由閘道，即使站台對站台可以使用其中一種閘道路由類型進行設定。此外，您必須確定要用於站台對站台連線的裝置將支援所要建立的閘道類型。請參閱[關於 VPN 閘道](vpn-gateway-about-vpngateways.md)。
 
 ## 組態概觀
 
-設定您的閘道之前，您必須先建立虛擬網路。如需針對跨單位連接建立虛擬網路的步驟，請參閱＜[使用站台對站台 VPN 設定虛擬網路](vpn-gateway-site-to-site-create.md)＞，或＜[使用點對站台 VPN 設定虛擬網路](vpn-gateway-point-to-site-create.md)＞。然後，使用下方步驟來設定 VPN 閘道，並收集您設定 VPN 裝置所需的資訊。
+以下程序將逐步引導您在 Azure 入口網站中設定 VPN 閘道。這些步驟適用於使用服務管理模式建立並且會顯示在 Azure 入口網站中的 VNet 閘道。這些不是 Preview 入口網站或使用資源管理員模式設定 VNet 的使用步驟。在[使用 Azure 資源管理員和 PowerShell 建立具有站對站連線的虛擬網路](vpn-gateway-create-site-to-site-rm-powershell.md)中，您可以找到為使用資源管理員模式建立之虛擬網路建立 VNet 閘道的相關資訊。
+
+設定您的閘道之前，您必須先建立虛擬網路。如需針對跨單位連線建立虛擬網路的步驟，請參閱[設定虛擬網路與站對站 VPN 連線](vpn-gateway-site-to-site-create.md)，或[設定虛擬網路與點對站 VPN 連線](vpn-gateway-point-to-site-create.md)。然後，使用下方步驟來設定 VPN 閘道，並收集您設定 VPN 裝置所需的資訊。
 
 如果您已擁有 VPN 閘道，且想要變更路由類型，請參閱＜[如何變更您的 VPN 閘道類型](#how-to-change-your-vpn-gateway-type)＞。
 
@@ -35,7 +37,7 @@
 
 ## 建立 VPN 閘道
 
-1. 在 [**網路**] 頁面上，確認您的虛擬網路的狀態欄為 [**已建立**]。
+1. 在 Azure 入口網站的 [**網路**] 頁面上，確認您的虛擬網路的狀態欄為 [**已建立**]。
 
 1. 在 [**名稱**] 資料行中，按一下虛擬網路的名稱。
 
@@ -44,7 +46,7 @@
 ![閘道未建立](./media/vpn-gateway-configure-vpn-gateway-mp/IC717025.png)
 
 
-接下來，按一下頁面底部的 [**建立閘道**]。您可以選取 [*靜態路由*] 或 [*動態路由*]。您選取的路由類型取決於許多因素。例如，您 VPN 裝置所支援的類型，以及您是否需要支援點對站台連接。請參閱＜[關於虛擬網路連線的 VPN 裝置](http://go.microsoft.com/fwlink/p/?LinkId=615934)＞以驗證您所需要的路由類型。一旦建立閘道之後，您必須刪除並重新建立閘道才能變更閘道類型。當系統提示您確認是否要建立閘道時，請按一下 [**是**]。
+接下來，按一下頁面底部的 [**建立閘道**]。您可以選取 [*靜態路由*] 或 [*動態路由*]。您選取的路由類型取決於許多因素。例如，您 VPN 裝置所支援的類型，以及您是否需要支援點對站台連接。請參閱＜[關於虛擬網路連線的 VPN 裝置](vpn-gateway-about-vpn-devices.md)＞以驗證您所需要的路由類型。一旦建立閘道之後，您必須刪除並重新建立閘道才能變更閘道類型。當系統提示您確認是否要建立閘道時，請按一下 [**是**]。
 
 ![閘道類型](./media/vpn-gateway-configure-vpn-gateway-mp/IC717026.png)
 
@@ -69,7 +71,7 @@
 
 ## 設定 VPN 裝置
 
-完成上一個步驟之後，您或您的網路管理員將需要設定 VPN 裝置以便建立連接。請參閱＜[關於虛擬網路連線的 VPN 裝置](http://go.microsoft.com/fwlink/p/?LinkID=615934)＞以取得 VPN 裝置的詳細資訊。
+完成上一個步驟之後，您或您的網路管理員將需要設定 VPN 裝置以便建立連接。請參閱＜[關於虛擬網路連線的 VPN 裝置](vpn-gateway-about-vpn-devices.md)＞以取得 VPN 裝置的詳細資訊。
 
 設定 VPN 裝置之後，您可以在 VNet 的 [儀表板] 頁面上檢視更新的連接資訊。
 
@@ -126,7 +128,7 @@
 
 如果您需要變更 VPN 閘道路由類型，將會刪除現有的閘道，然後使用新的路由類型重新建立閘道。若要變更閘道路由類型，您不需要刪除整個虛擬網路。
 
-在變更閘道類型之前，請確定並驗證 VPN 裝置可支援所要使用的路由類型。若要下載新的路由組態範例，以及檢查 VPN 裝置需求，請參閱＜[關於虛擬網路連線的 VPN 裝置](http://go.microsoft.com/fwlink/p/?LinkID=615934)＞。
+在變更閘道類型之前，請確定並驗證 VPN 裝置可支援所要使用的路由類型。若要下載新的路由組態範例，以及檢查 VPN 裝置需求，請參閱＜[關於虛擬網路連線的 VPN 裝置](vpn-gateway-about-vpn-devices.md)＞。
 
 >[AZURE.IMPORTANT]當您刪除虛擬網路 VPN 閘道時，將會釋放指派給該閘道的 VIP。當您重新建立閘道時，系統會將新的 VIP 指派給它。
 
@@ -141,12 +143,12 @@
 
 ## 後續步驟
 
-您可以在此文章中進一步了解虛擬網路跨單位連線：[關於虛擬網路安全的跨單位連線](http://go.microsoft.com/fwlink/p/?LinkID=532884)。
+您可以在此文章中進一步了解虛擬網路跨單位連線：[關於虛擬網路的安全跨單位連線](vpn-gateway-cross-premises-options.md)。
 
-您可以將虛擬機器加入您的虛擬網路。請參閱＜[如何建立自訂虛擬機器](../virtual-machines/virtual-machines-create-custom.md)＞。
+您可以將虛擬機器加入您的虛擬網路。請參閱[如何建立自訂虛擬機器](../virtual-machines/virtual-machines-create-custom.md)。
 
-如果您想要設定點對站台 VPN 連接，請參閱＜[設定點對站台 VPN 連接](vpn-gateway-point-to-site-create.md)＞。
+如果您想要設定點對站 VPN 連線，請參閱[設定點對站 VPN 連線](vpn-gateway-point-to-site-create.md)。
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

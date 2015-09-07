@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="使用 Azure SDK for Java 在 Azure App Service 中建立 Web 應用程式" 
-	description="了解如何使用 Azure SDK for Java 在 Azure App Service 中以程式設計方式建立 Web 應用程式。" 
+	pageTitle="使用 Azure SDK for Java 在 Azure App Service 中建立 Web 應用程式"
+	description="了解如何使用 Azure SDK for Java 在 Azure App Service 中以程式設計方式建立 Web 應用程式。"
 	tags="azure-classic-portal"
-	services="app-service\web" 
-	documentationCenter="Java" 
-	authors="donntrenton" 
-	manager="wpickett" 
+	services="app-service\web"
+	documentationCenter="Java"
+	authors="donntrenton"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="04/24/2015"
 	ms.author="v-donntr"/>
 
 
@@ -438,7 +438,6 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 
 如需使用 FTP 部署至 App Service Web 應用程式的詳細資訊，請參閱下列主題：
 
-- [使用 Azure 入口網站管理 Web 應用程式：部署](web-sites-manage.md/#deployment)
 - [使用 FTP 公用程式部署](web-sites-deploy.md)
 
 
@@ -590,4 +589,4 @@ FileZilla 是另一項可用來發佈應用程式的工具 ，這是具有便利
   [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="目錄整合工具比較" 
-	description="本頁面將會為您提供比較各種目錄整合工具的完整資料表。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="目錄整合工具比較"
+	description="本頁面將會為您提供比較各種目錄整合工具的完整資料表。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # 目錄整合工具比較
@@ -88,4 +88,4 @@
 允許移除從 AD 流向 Azure AD 的屬性 | ● | ● | |  
 允許屬性流程的進階自訂 | ● | ● | | ●  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

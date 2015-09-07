@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="在雲端中監視內部部署身分識別基礎結構。" 
-	description="這是 Azure AD Connect Health 頁面，其中說明它的功能，以及您可能會使用它的原因。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="在雲端中監視內部部署身分識別基礎結構。"
+	description="這是 Azure AD Connect Health 頁面，其中說明它的功能，以及您可能會使用它的原因。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/12/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/12/2015"
 	ms.author="billmath"/>
 
-# 在雲端中監視內部部署身分識別基礎結構
+# 在雲端中監視內部部署身分識別基礎結構和同步處理服務。
 
-Azure AD Connect Health 可協助您監視和了解內部部署身分識別基礎結構。它可讓您檢視警示、效能、使用模式、組態設定，並讓您穩定連線至 Office 365 ，還有更多功能。這些功能必須使用安裝在目標伺服器上的代理程式才可完成。如需 Azure AD Connect Health 需求和安裝的相關資訊，請參閱 [Azure AD Connect Health 需求](active-directory-aadconnect-health-requirements.md)。
+Azure AD Connect Health 可協助您監視和了解內部部署身分識別基礎結構和透過 Azure AD Connect 取得的同步處理服務。它可讓您檢視警示、效能、使用模式、組態設定，並讓您穩定連線至 Office 365 ，還有更多功能。這些功能必須使用安裝在目標伺服器上的代理程式才可完成。
 
 ![Azure AD Connect Health 是什麼](./media/active-directory-aadconnect-health/aadconnecthealth2.png)
 
@@ -30,7 +30,7 @@ Azure AD Connect Health 可協助您監視和了解內部部署身分識別基�
 Azure AD Connect Health 未來更新的內容包括額外監視，以及其他身分識別元件和服務 (例如 Azure AD Connect 同步處理服務) 的深入資訊。因此，它透過身分識別透鏡提供單一儀表板，讓您能擁有更穩健、良好的整合式環境，使用者便能夠充分利用以增進工作能力。
 
 
-![Azure AD Connect Health 是什麼](./media/active-directory-aadconnect-health/logo1.png)
+<center>![何謂 Azure AD Connect Health](./media/active-directory-aadconnect-health/logo1.png)</center>
 
 
 
@@ -51,30 +51,26 @@ Azure AD Connect Health 未來更新的內容包括額外監視，以及其他�
 [AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
 
-## 第一次從 Azure 入口網站使用 Azure Active Directory Connect Health
-若要開始使用 Azure Active Directory Connect Health，請遵循下列步驟進行。請記住，在 Azure AD Connect Health 執行個體中出現任何資料之前，您必須先在目標伺服器上安裝 Azure AD Connect Health 代理程式。若要下載 Azure AD Connect Health 代理程式，請從第一個刀鋒視窗中選取 [開始使用並取得工具]。您也可以使用下面的連結直接下載代理程式。若要使用 Azure Active Directory Connect Health，請執行下列操作：
+
+## 開始使用 Azure 入口網站
+若要開始使用 Azure Active Directory Connect Health，請遵循下列步驟進行。
 
 1. 登入 [Microsoft Azure 入口網站](https://portal.azure.com/)。
 2. 前往 Marketplace 並搜尋 Azure Active Directory Connect Health，或選取 Marketplace，然後選取 [安全性] 和 [身分識別] 可以存取 Azure Active Directory Connect Health。
 3. 在簡介刀鋒視窗 (刀鋒視窗是整體檢視的一個片段。您可以將刀鋒視窗視為視窗或飛出) 上，按一下 [建立]。這將會開啟另一個刀鋒視窗，其中包含您的目錄資訊。
 4. 在目錄刀鋒視窗上，按一下 [建立]。如果您沒有 Azure Active Directory Premium 授權，您將需要一個授權，才能使用 Azure AD Connect Health。如需 Azure AD Premium 的相關資訊，請參閱「開始使用 Azure AD Premium」。
 
+>[AZURE.NOTE]請記住，在 Azure AD Connect Health 執行個體中出現任何資料之前，您必須先在目標伺服器上安裝 Azure AD Connect Health 代理程式。若要下載 Azure AD Connect Health 代理程式，請從第一個刀鋒視窗中選取 [開始使用並取得工具]。您也可以使用下面的[連結](#download-the-agent)直接下載代理程式。若要使用 Azure Active Directory Connect Health，請執行下列操作：
 
 
 
-
-
-![Azure AD Connect Health 入口網站](./media/active-directory-aadconnect-health/portal1.png)
-
-
-
-## Azure Active Directory Connect Health 入口網站
-Azure AD Connect Health 入口網站可讓您檢視警示、效能監視和使用量分析。在第一次存取 Azure AD Connect Health 時，將會為您顯示第一個刀鋒視窗。刀鋒視窗是整體檢視的一個片段。您可以將刀鋒視窗視為視窗。您看到的第一個刀鋒視窗會顯示 [開始使用]、[服務] 和 [設定]。以下螢幕擷取畫面是各自的簡短說明。
+### Azure AD Connect Health 入口網站和服務
+Azure AD Connect Health 入口網站可讓您檢視警示、效能監視和使用量分析。在第一次存取 Azure AD Connect Health 時，將會為您顯示第一個刀鋒視窗。您可以將刀鋒視窗視為視窗。您看到的第一個刀鋒視窗會顯示 [開始使用]、[服務] 和 [設定]。以下螢幕擷取畫面是各自的簡短說明。[服務] 區段會顯示 Azure AD Connect Health 正在監視的作用中服務以及這些服務的執行個體。
 
 ![Azure AD Connect Health 入口網站](./media/active-directory-aadconnect-health/portal2.png)
 
 - **開始使用** – 選取此選項將會開啟 [開始使用] 刀鋒視窗。在這裡，您將可以透過選擇 [取得工具、存取文件及提供意見反應] 來下載 Azure AD Connect Health 代理程式。
-- **Active Directory Federation Services** – 這表示 Azure AD Connect Health 目前正在監視的所有 AD FS 服務。出現在此區段的選項將會在以下一節中討論。請參閱「Azure Active Directory Connect Health 服務」。
+- **Active Directory Federation Services** – 這表示 Azure AD Connect Health 目前正在監視的所有 AD FS 服務。選取其中一個執行個體後，便會開啟一個包含該服務執行個體相關資訊的刀鋒視窗。這項資訊包括概觀、屬性、警示、監視和使用情況分析。 
 - 設定 – 這可讓您開啟或關閉下列選項：
 <ol>
 1. 自動更新可將 Azure AD Connect Health 代理程式自動更新為最新版本：這表示您將會在發佈最新版的 Azure AD Connect Health 代理程式時，自動更新為最新版本。此選項預設為啟用狀態。
@@ -83,76 +79,39 @@ Azure AD Connect Health 入口網站可讓您檢視警示、效能監視和使�
 
 
 
-## Azure Active Directory Connect Health 服務
-此區段表示 Azure AD Connect Health 正在監視的作用中服務以及這些服務的執行個體。按一下省略符號，將會開啟一個刀鋒視窗，其中會顯示所有執行個體。
 
-![Azure AD Connect Health 服務](./media/active-directory-aadconnect-health/portal3.png)
+## 需求
+下表是開始使用 Azure AD Connect Health 之前必須符合的需求清單。
 
-選取其中一個執行個體，Azure AD Connect Health 將會一個刀鋒視窗，其中包含該服務執行個體的相關資訊。在這裡您將會找到關於您的執行個體的豐富資訊。這項資訊包括概觀、屬性、警示、監視和使用情況分析。如需這些內容的相關資訊，請參閱本頁頂端的後續章節的連結。
+| 需求 | 說明|
+| ----------- | ---------- |
+|Azure AD Premium| Azure AD Connect Health 是 Azure AD Premium 的一個功能，而且需要 Azure AD Premium。</br></br>如需詳細資訊，請參閱[開始使用 Azure AD Premium](active-directory-get-started-premium.md)。</br></br>若要啟動 30 天免費試用版，請參閱[開始使用試用版。](https://azure.microsoft.com/trial/get-started-active-directory/)|。
+|您必須是 Azure AD 目錄的全域管理員。|根據預設，全域系統管理員可以存取由 Azure AD Connect Health 所提供的資訊。如果您不是 Azure AD 目錄的全域系統管理員，您就無法建立 Azure AD Connect Health 的服務執行個體。請確定您是全域管理員。如需其他資訊，請參閱[管理您的 Azure AD 目錄](active-directory-administer.md)。</br></br>**重要：**您在安裝代理程式時使用的帳戶必須是工作或組織帳戶，且不能是 Microsoft 帳戶。如需詳細資訊，請參閱[以組織身分註冊 Azure](sign-up-organization.md)|
+|若是 AD FS，必須啟用 AD FS 稽核，才能使用使用情況分析| 如果計劃使用 AD FS 的使用情況分析，則您必須啟用 AD FS 稽核。</br></br>請參閱[啟用 AD FS 的稽核。](active-directory-aadconnect-health-operations.md#enable-auditing-for-ad-fs)
+|了解 Azure AD Connect Health 代理程式需求|請參閱下表以取得代理程式的特定需求。
 
+下表是開始使用 Azure AD Connect Health 之前必須符合的代理程式需求清單。
 
+| 需求 | 說明|
+| ----------- | ---------- |
+|Azure AD Connect Health 代理程式安裝在每部目標伺服器上| Azure AD Connect Health 要求在目標伺服器上安裝代理程式，以提供在入口網站中檢視的資料。</br></br>例如，若要取得 AD FS 內部部署基礎結構的相關資料，代理程式必須安裝在 AD FS 伺服器上。這包括 AD FS Proxy 伺服器和 Web 應用程式 Proxy 伺服器。</br></br>如需安裝代理程式的相關資訊，請參閱 [Azure AD Connect Health 代理程式安裝](active-directory-aadconnect-health-agent-install.md)。</br></br>**重要：**您在安裝代理程式時使用的帳戶必須是工作或組織帳戶，且不能是 Microsoft 帳戶。如需詳細資訊，請參閱[以組織身分註冊 Azure](sign-up-organization.md)|
+|Azure 服務端點的輸出連線|在安裝期間和執行階段，代理程式需要連線至以下列出的 Azure AD Connect Health 服務端點。如果您封鎖輸出連線，請確定在允許清單中加入下列內容：</br></br><li>&#42;.servicebus.windows.net - Port: 5671</li><li>https://&#42;.adhybridhealth.azure.com/</li><li>https://&#42;.table.core.windows.net/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
+|在執行代理程式的伺服器上的防火牆連接埠。| 為了讓代理程式能與 Azure AD Health 服務端點進行通訊，代理程式要求開啟下列防火牆連接埠。</br></br><li>TCP/UDP 連接埠 80</li><li>TCP/UDP 連接埠 443</li>
+|如果啟用 IE 增強式安全性，則允許下列網站|如果要在即將安裝代理程式的伺服器上啟用 IE 增強式安全性，則必須允許下列網站。</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Azure Active Directory 所信任的組織同盟伺服器。例如：https://sts.contoso.com</li> 
 
-----------------------------------------------------------------------------------------------------------
-## 下載 Azure AD Connect Health 代理程式
+## 下載代理程式
 
 若要開始使用 Azure AD Connect Health，您可以在此下載最新版的代理程式：[下載 Azure AD Connect Health 代理程式](http://go.microsoft.com/fwlink/?LinkID=518973)。 請確定您已從 Marketplace 中加入服務，才可安裝代理程式。
 
-----------------------------------------------------------------------------------------------------------
 
-## Azure Active Directory Connect Health 警示
-[Azure AD Connect Health 警示] 區段將為您提供作用中警示的清單。每個警示都包含相關資訊、解決步驟，以及相關文件的連結。選取作用中或已解決的警示，您將會看到一個包含額外資訊的新刀鋒視窗，以及解決警示可以採取的步驟，和其他文件的連結。您也可以檢視過去已解決的警示的歷史資料。
+## 相關連結
 
-![Azure AD Connect Health 入口網站](./media/active-directory-aadconnect-health/alert1.png)
-
-選取警示，將會為您提供其他資訊，以及解決警示可以採取的步驟，和其他文件的連結。
-
-![Azure AD Connect Health 入口網站](./media/active-directory-aadconnect-health/alert2.png)
-
-## Azure Active Directory Connect Health 效能監視
-Azure AD Connect Health 效能監視會提供關於度量的監視資訊。選取 [監視] 方塊將會開啟一個刀鋒視窗，以提供關於度量的詳細的資訊。
-
-
-![Azure AD Connect Health 入口網站](./media/active-directory-aadconnect-health/perf1.png)
-
-
-選取刀鋒視窗頂端的 [篩選] 選項，您可以依伺服器篩選以查看個別伺服器的度量。若要變更度量，只要在監視刀鋒視窗底下的監視圖表上按一下滑鼠右鍵，並選取 [編輯圖表]。接著，在開啟的新刀鋒視窗中，您可以從下拉式清單中選取其他度量，並指定檢視效能資料的時間範圍。
-
-
-![Azure AD Connect Health 入口網站](./media/active-directory-aadconnect-health/perf2.png)
-
-## Azure Active Directory Connect Health 使用情況分析和報告
-Azure AD Connect Health 使用情況分析會分析您的同盟伺服器的驗證流量。選取使用情況分析方塊將會開啟使用情況分析刀鋒視窗，以顯示度量和群組。
-
->[AZURE.NOTE]若要搭配 AD FS 使用使用情況分析，您必須確定已啟用 AD FS 稽核。如需詳細資訊，請參閱「Azure AD Connect Health 需求」。
-
-![Azure AD Connect Health 入口網站](./media/active-directory-aadconnect-health/report1.png)
-
-若要選取其他度量，請指定時間範圍；若要變更群組，只要在使用情況分析圖表上按一下滑鼠右鍵，並選取 [編輯圖表]。接著，您可以指定時間範圍、變更或選取度量，以及變更群組。您可以根據不同的「度量」檢視驗證流量的分佈，並使用相關的「分組依據」參數，為每個度量分組，如下所述。
-
-| 度量 | 分組依據 | 分組是什麼意思，為什麼分組很有用？ |
-| ------ | -------- | -------------------------------------------- |
-| 要求總數：同盟服務所處理的要求的總數 | 全部 | 這將會顯示未分組的要求總數的計數。 |
-| | 應用程式 | 此選項將會根據目標信賴憑證者，為要求總數分組。這個分組對於了解哪個應用程式收到多少百分比的總流量非常有幫助。 |
-| | 伺服器 | 此選項將會根據處理要求的伺服器，為要求總數分組。這個分組對於了解總流量的負載分佈非常有幫助。 |
-| | 加入工作場所 | 此選項將會根據要求是否來自已加入工作場所的裝置 (已知)，為要求總數分組。這個分組對於了解是否使用識別基礎結構未知的裝置存取您的資源非常有幫助。 |
-| | 驗證方法 | 此選項將會根據用於驗證的驗證方法，為要求總數分組。這個分組對於了解用於驗證的常見驗證方法非常有幫助。以下是可能的驗證方法<ol> <li>Windows 整合式驗證 (Windows)</li> <li>表單型驗證 (表單)</li> <li>SSO (單一登入)</li> <li>X 509 憑證驗證 (憑證)</li> <br>請注意，如果同盟伺服器收到包含 SSO Cookie 的要求，則該要求會列入 SSO (單一登入)。在這種情況下，如果 Cookie 有效，則不會要求使用者提供認證，並不間斷地存取應用程式。如果您有多個同盟伺服器所保護的信賴憑證者，則此情況非常常見。 |
-| | 網路位置 | 此選項將會根據使用者的網路位置，為要求總數分組。它可以是內部網路或外部網路。這個分組對於了解流量百分比是來自內部網路還是外部網路非常有幫助。 |
-| 失敗要求總數：同盟服務所處理的失敗要求總數。<br> (此度量僅能在適用於 Windows Server 2012 R2 的 AD FS 上使用)| 錯誤類型 | 這將會根據預先定義的錯誤類型，顯示錯誤數目。這個分組對於了解常見的錯誤類型非常有幫助。<ul><li>不正確的使用者名稱或密碼：由於不正確的使用者名稱或密碼而導致的錯誤。</li> <li>「外部網路鎖定」：由於從外部網路鎖定的使用者收到要求而導致的失敗</li><li>「過期的密碼」：由於使用者使用已過期的密碼登入而導致的失敗。</li><li>「停用的帳戶」：由於使用者使用已停用的帳戶登入而導致的失敗。</li><li>「裝置驗證」：由於使用者無法使用裝置驗證進行驗證而導致的失敗。</li><li>「使用者憑證驗證」:由於使用者因為憑證無效而無法進行驗證所導致的失敗。</li><li>「MFA」：由於使用者無法使用 Multi Factor Authentication 來進行驗證而導致的失敗。</li><li>「其他認證」：「發佈授權」：由於授權失敗而導致的失敗。</li><li>「發佈委派」：由於發佈委派錯誤而導致的失敗。</li><li>「權杖接受」：由於 ADFS 拒絕來自第三方身分識別提供者的權杖而導致的失敗。</li><li>「通訊協定」：由於通訊協定錯誤而導致的失敗。</li><li>「未知」：全部攔截。不適合已定義的類別的其他任何失敗。</li> |
-| | 伺服器 | 這將會根據伺服器，為錯誤分組。這對於了解跨伺服器的錯誤分佈非常有幫助。分佈不平均可能是伺服器處於錯誤狀態的指標。 |
-| | 網路位置 | 這將會根據要求的網路位置 (內部網路與外部網路)，為錯誤分組。這對於了解失敗的要求類型非常有幫助。 |
-| | 應用程式 | 這將會根據目標應用程式 (信賴憑證者)，為失敗分組。這對於了解哪個目標應用程式將看到最多錯誤數目非常有幫助。 |
-| 使用者計數：系統中有效的唯一使用者的平均數目 | 全部 | 這會提供在所選時間配量內使用同盟服務的使用者平均數目的計數。系統不會為使用者分組。<br>平均值將取決於選取的時間配量。 |
-| | 應用程式 | 這將會根據目標應用程式 (信賴憑證者)，為使用者的平均數目分組。這對於了解有多少使用者正在使用哪一個應用程式非常有幫助。 |
-
-## 接下來
-若要開始使用 Azure AD Connect Health，請參閱 [Azure AD Connect Health 需求](active-directory-aadconnect-health-requirements.md)。一旦您安裝代理程式並收集資料之後，請參閱 [Azure AD Connect Health 操作](active-directory-aadconnect-health-operations.md)，以取得有關設定 Azure AD Connect Health 或簽出[常見問題集](active-directory-aadconnect-health-faq.md)的詳細資訊。
-
-
-**其他資源**
-
-* [MSDN 上的 Azure AD Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx)
+* [適用於 AD FS 的 Azure AD Connect Health 代理程式安裝](active-directory-aadconnect-health-agent-install-adfs.md)
+* [Azure AD Connect Health 操作](active-directory-aadconnect-health-operations.md)
+* [在 AD FS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adfs.md)
+* [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

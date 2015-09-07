@@ -46,7 +46,7 @@
 
 [Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[我需要虛擬網路嗎？](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[我需要虛擬網路嗎？](../virtual-network/virtual-networks-overview.md)
 
 ## 建立
 
@@ -150,4 +150,4 @@
 
 [使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 服務管理](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

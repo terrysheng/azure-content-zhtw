@@ -1,6 +1,6 @@
 <properties
-	pageTitle="使用設定表格建立跨單位虛擬網路"
-	description="本主題說明如何使用預先決定的設定表格來設定跨單位虛擬網路。"
+	pageTitle="使用組態資料表的虛擬網路 | Microsoft Azure"
+	description="了解如何利用使用預先決定設定的組態資料表設定，來設定跨單位 Azure 虛擬網路。"
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -30,7 +30,7 @@
 
 下列程序會參考這些表格中的資訊，引導您進行完整的虛擬網路設定程序。如果您尚未在其他主題中指定這些表格中的設定，但仍想要設定跨單位虛擬網路，請參閱[設定 Azure 虛擬網路的跨單位站對站連線](../vpn-gateway/vpn-gateway-site-to-site-create.md)。
 
-> [AZURE.NOTE]此程序將逐步引導您使用網站間 VPN 連線來建立虛擬網路。如需針對站對站連線使用 Azure ExpressRoute 的相關資訊，請參閱 [ExpressRoute 技術概觀](https://msdn.microsoft.com/library/dn606309.aspx)。
+> [AZURE.NOTE]此程序將逐步引導您使用網站間 VPN 連線來建立虛擬網路。如需針對站對站連線使用 Azure ExpressRoute 的相關資訊，請參閱 [ExpressRoute 技術概觀](../expressroute/expressroute-introduction.md)。
 
 ## 使用您的設定表格設定建立新的跨單位 Azure 虛擬網路
 
@@ -61,10 +61,10 @@
 
 ## 其他資源
 
-[虛擬網路概觀](https://msdn.microsoft.com/library/jj156007.aspx)
+[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)
 
-[虛擬網路設定工作](https://msdn.microsoft.com/library/jj156206.aspx)
+[虛擬網路設定工作](../documentation/services/virtual-machines/)
 
 [設定 Azure 虛擬網路的跨單位站對站連線](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

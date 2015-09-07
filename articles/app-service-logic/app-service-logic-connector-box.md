@@ -1,22 +1,23 @@
 <properties
-   pageTitle="在邏輯應用程式中使用 Box 連接器"
-   description="如何在邏輯應用程式中使用 Box 連接器"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="rajeshramabathiran"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 Box 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 Box 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="andalmia"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="andalmia"/>
 
-# Box 連接器
+# 開始使用 Box 連接器並將它加入您的邏輯應用程式 
+連接您的 Box 以對您的檔案執行取得、上傳、刪除等操作。連接器在 Logic Apps 中是用作「工作流程」的一部分。
 
 您有時候可能需要使用 Box，讓您與任何人安全地共用資料 – 即使這些人位於您的防火牆之外。邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。
 
@@ -64,8 +65,8 @@ d.*刪除檔案*：此動作會從資料夾中刪除指定的檔案。如果找�
 連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
 1. 在 Azure 開始面板中，選取 [**Marketplace**]。
-2. 搜尋「Box 連接器」，將其選取，然後選取 [**建立**]。
-3. 輸入名稱、App Service 方案和其他屬性：
+2. 搜尋「Box 連接器」，將其選取，然後選取 [建立]。
+3. 輸入名稱、App Service 方案和其他屬性：  
 	![][1]
 4. 選取 [**建立**]。
 
@@ -74,11 +75,11 @@ d.*刪除檔案*：此動作會從資料夾中刪除指定的檔案。如果找�
 
 建立 API 應用程式之後，您現在可以使用 Box 連接器做為邏輯應用程式中的動作。作法：
 
-1. 在您的邏輯應用程式中，開啟 [**觸發程序和動作**] 以開啟 Logic Apps 設計工具，並設定您的流程。Box 連接器列在資源庫中。選取它，以自動將其加入您的邏輯應用程式設計工具。
+1. 在您的邏輯應用程式中，開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具，並設定您的流程。Box 連接器列在資源庫中。選取它，以自動將其加入您的邏輯應用程式設計工具。
 
 	> [AZURE.NOTE]如果在啟動邏輯應用程式時就選取 Box 連接器，它就會像觸發程序般運作。否則，可以使用連接器在 Box 帳戶上採取動作。截至本文撰寫時，Box 連接器尚無任何觸發程序。
 
-2. 驗證及授權邏輯應用程式，以代表您執行作業。選取 Box 連接器上的 [**授權**]：
+2. 驗證及授權邏輯應用程式，以代表您執行作業。選取 Box 連接器上的 [授權]：
 	![][2]
 
 3. 輸入您要用來執行作業的 Box 帳戶的登入詳細資料：
@@ -95,7 +96,7 @@ d.*刪除檔案*：此動作會從資料夾中刪除指定的檔案。如果找�
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
-您也可以檢閱連接器的效能統計資料及控制安全性。請參閱〈[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)〉。
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)。
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-box/image_0.jpg
@@ -104,4 +105,4 @@ d.*刪除檔案*：此動作會從資料夾中刪除指定的檔案。如果找�
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

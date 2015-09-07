@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="請將教學課程中的輸出資料複製到內部部署 SQL Server 資料庫。" 
+	pageTitle="請將教學課程中的輸出資料複製到內部部署 SQL Server 資料庫。"
 	description="本教學課程中的逐步解說延伸 Data Factory 教學課程，將行銷活動有效性資料複製到內部部署 SQL Server 資料庫。"
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
 
@@ -151,8 +151,7 @@
 [datafactorytutorial]: data-factory-tutorial.md
 [adfgetstarted]: data-factory-get-started.md
 [adfintroduction]: data-factory-introduction.md
-[useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
-[usepigandhive]: data-factory-pig-hive-activities.md
+[useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
 [azure-preview-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -170,4 +169,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

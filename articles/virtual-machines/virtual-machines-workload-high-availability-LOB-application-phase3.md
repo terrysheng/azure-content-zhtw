@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="企業營運應用程式工作負載第 3 階段：設定 SQL Server 基礎結構" 
-	description="在 Azure 基礎結構服務部署高可用性企業營運應用程式的第三階段中，您將建立 SQL Server 叢集電腦以及叢集本身。" 
+	pageTitle="企業營運應用程式第 3 階段 | Microsoft Azure"
+	description="在 Azure 企業營運應用程式第 3 階段中，建立電腦和 SQL Server 叢集，並啟用可用性群組。"
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # 企業營運應用程式工作負載第 3 階段：設定 SQL Server 基礎結構
@@ -177,7 +177,7 @@ SQL Server 服務需要一個可讓用戶端存取資料庫伺服器的連接埠
 
 請在每一部 SQL Server 虛擬機器中，以本機系統管理員的身分登出。
 
-如需關於在 Azure 中將 SQL Server 效能最佳化的資訊，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳做法](https://msdn.microsoft.com/library/azure/dn133149.aspx)。同時您也可以停用企業營運應用程式儲存體帳戶的異地備援儲存體 (GRS)，並使用儲存空間最佳化 IOP。
+如需關於在 Azure 中將 SQL Server 效能最佳化的資訊，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳做法](virtual-machines-sql-server-performance-best-practices.md)。同時您也可以停用企業營運應用程式儲存體帳戶的異地備援儲存體 (GRS)，並使用儲存空間最佳化 IOP。
 
 ## 設定叢集多數節點伺服器
 
@@ -268,4 +268,4 @@ SQL Server AlwaysOn 可用性群組依賴 Windows Server 的容錯移轉叢集 (
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!-----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

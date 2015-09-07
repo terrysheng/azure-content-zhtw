@@ -1,25 +1,25 @@
 <properties 
    pageTitle="如何建立虛擬網路 (VNet)"
-   description="了解如何建立虛擬網路 (VNet)"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="了解如何建立虛擬網路 (VNet)"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/08/2015"
+	ms.author="telmos"/>
 
 # 如何建立虛擬網路 (VNet)
 
 當您建立 VNet 時，您在 VNet 中的服務和 VM 可以安全地與彼此通訊，而不必經過網際網路。如果不想要 VNet 連接至其他 Vnet 或您的內部部署網路，則建立 Azure VNet 的程序相對較為快速且輕鬆，因為您將不需要取得和設定 VPN 裝置，或與其他 Vnet 或區域網路協調您選擇的 IP 位址。
 
->[AZURE.WARNING]請勿使用此程序來建立稍後將連接其他 VNet 或內部部署網路的 VNet。如果想要建立安全的跨單位或混合式連接，請參閱＜[關於虛擬網路安全的跨單位連接](https://msdn.microsoft.com/library/azure/dn133798.aspx)＞。如果您想要建立連接至另一個 VNet 的 VNet，請參閱＜[設定 VNet 對 VNet 連接](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)＞。
+>[AZURE.WARNING]請勿使用此程序來建立稍後將連接其他 VNet 或內部部署網路的 VNet。如果想要建立安全的跨單位或混合式連接，請參閱＜[關於虛擬網路安全的跨單位連接](vpn-gateway-cross-premises-options.md)＞。如果您想要建立連接至另一個 VNet 的 VNet，請參閱＜[設定 VNet 對 VNet 連接](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)＞。
 
 ## 設定您的 VNet
 
@@ -35,7 +35,7 @@
 
 	- **位置 -** 從下拉式清單選取位置 (區域)。當您將其部署至此 VNet 時，位置會與您要存放資源 (VM) 的實體位置直接相關。例如，如果您要讓 VM 實際位於*美國東部*，請選取該位置區域。建立關聯之後，您就無法變更與 VNet 相關聯的區域。
 
-1. 請勿在 [**DNS 伺服器和 VPN 連線能力**] 頁面上進行任何變更。只需按一下箭號，即可向前移到下一個頁面。預設為 Azure 會提供您 VNet 的基本名稱解析。您的名稱解析需求，可能比基本 Azure 名稱解析可處理的情況更複雜。在此案例中，您稍後可能想要將執行 DNS 的虛擬機器新增至 VNet。如需 Azure 名稱解析和 DNS 的詳細資訊，請參閱＜[名稱解析 (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx)＞。
+1. 請勿在 [**DNS 伺服器和 VPN 連線能力**] 頁面上進行任何變更。只需按一下箭號，即可向前移到下一個頁面。預設為 Azure 會提供您 VNet 的基本名稱解析。您的名稱解析需求，可能比基本 Azure 名稱解析可處理的情況更複雜。在此案例中，您稍後可能想要將執行 DNS 的虛擬機器新增至 VNet。如需 Azure 名稱解析和 DNS 的詳細資訊，請參閱＜[名稱解析 (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)＞。
 
 1. 在 [**虛擬網路位址空間**] 頁面中，輸入您想要針對此 VNet 使用的位址空間。除非您的 VM 需要特定的內部 IP 位址範圍，或者您想要為將接收靜態 DIP 的 VM 建立特定子網路，否則不需在此頁面上進行任何變更。如果您想建立多個子網路，可以按一下此頁面上的 [**新增子網路**] 來執行這個動作。
 
@@ -66,4 +66,4 @@
 [如何刪除虛擬網路 (VNet)](../virtual-networks-delete-vnet)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

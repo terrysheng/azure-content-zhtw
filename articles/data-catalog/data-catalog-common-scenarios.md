@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 資料目錄常見案例"
-   description="檢閱 Azure 資料目錄中的常見案例：註冊、充實、探索、了解和使用資料來源，以及移除資料來源中繼資料。"
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
+	description="Azure 資料目錄常見案例的概觀，包括高價值資料來源的註冊和探索、啟用自助商業智慧，以及擷取有關資料來源和處理程序的現有內部專門知識。"
+	services="data-catalog"
+	documentationCenter=""
+	authors="steelanddata"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/31/2015"
-   ms.author="maroche"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/31/2015"
+	ms.author="maroche"/>
 
 
 # Azure 資料目錄常見案例
@@ -66,4 +66,4 @@ Azure 資料目錄可讓使用者打破這種重複的工作循環。一旦透�
 
 Azure 資料目錄提供位置來分享此部落知識，讓人輕鬆找到這些知識。資料專家可以直接將資料資產加註，也可以加上現有文件的連結。這樣不但能夠擷取知識本身，還能將知識注入資料來源探索時的相同體驗中。當某人利用目錄來探索資料來源時，他不只可找到來源本身，還能找到原本只存在專家腦海中的專家知識。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

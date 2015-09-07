@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint 內部網路伺服器陣列工作負載第 1 階段：設定 Azure"
-	description="在 Azure 基礎結構服務內，使用 SQL Server AlwaysOn 可用性群組部署內部網路專用的 SharePoint 2013 伺服器陣列的第一個階段中，您需要建立 Azure 虛擬網路和其他 Azure 基礎結構元素。"
+	pageTitle="SharePoint Server 2013 伺服器陣列第 1 階段 | Microsoft Azure"
+	description="在 Azure SharePoint Server 2013 伺服器陣列第 1 階段，建立虛擬網路和其他 Azure 基礎結構項目。"
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -53,7 +53,7 @@
 
 **表格 S：虛擬網路中的子網路**
 
-> [AZURE.NOTE]為求簡化，這個預先定義的架構會使用單一子網路。如果您想要涵蓋一組流量篩選器來模擬子網路隔離，可以使用 Azure [網路安全性群組](https://msdn.microsoft.com/library/azure/dn848316.aspx)。
+> [AZURE.NOTE]為求簡化，這個預先定義的架構會使用單一子網路。如果您想要涵蓋一組流量篩選器來模擬子網路隔離，可以使用 Azure [網路安全性群組](virtual-networks-nsg.md)。
 
 如果這兩部內部部署的 DNS 伺服器是您最初在虛擬網路上設定網域控制站時想要使用的伺服器，請填寫表格 D。請為每部 DNS 伺服器指定易記名稱和單一 IP 位址。這個易記名稱不需要與 DNS 伺服器的主機名稱或電腦名稱相符。請注意，其中列出兩個空白項目，但您可以增加更多項目。與您的 IT 部門合作來決定這份清單。
 
@@ -78,7 +78,7 @@
 
 若要使用來自表格 V、S、D 及 L 的設定建立虛擬網路，請利用[使用設定表格建立跨單位虛擬網路](virtual-machines-workload-deploy-vnet-config-tables.md)中的指示。
 
-> [AZURE.NOTE]此程序將逐步引導您使用網站間 VPN 連線來建立虛擬網路。如需針對網站間連線使用 ExpressRoute 的相關資訊，請參閱 [ExpressRoute 技術概觀](http://msdn.microsoft.com/library/dn606309.aspx)。
+> [AZURE.NOTE]此程序將逐步引導您使用網站間 VPN 連線來建立虛擬網路。如需針對網站間連線使用 ExpressRoute 的相關資訊，請參閱 [ExpressRoute 技術概觀](../expressroute/expressroute-introduction.md)。
 
 建立 Azure 虛擬網路之後，Azure 管理入口網站將會決定下列資訊：
 
@@ -87,9 +87,9 @@
 
 若要在建立虛擬網路之後，於 Azure 管理入口網站中查看這些設定，請依序按一下 [網路]、虛擬網路的名稱，以及 [儀表板] 功能表選項。
 
-其次，您要設定虛擬網路閘道來建立安全的網站間 VPN 連線。如需相關指示，請參閱[在管理入口網站中設定虛擬網路閘道](http://msdn.microsoft.com/library/jj156210.aspx)。
+其次，您要設定虛擬網路閘道來建立安全的網站間 VPN 連線。如需相關指示，請參閱[在管理入口網站中設定虛擬網路閘道](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md)。
 
-接下來，在新的虛擬網路與內部部署 VPN 裝置之間建立網站間 VPN 連線。如需詳細資訊，請參閱[在管理入口網站中設定虛擬網路閘道](http://msdn.microsoft.com/library/jj156210.aspx)來取得相關指示。
+接下來，在新的虛擬網路與內部部署 VPN 裝置之間建立網站間 VPN 連線。如需詳細資訊，請參閱[在管理入口網站中設定虛擬網路閘道](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md)來取得相關指示。
 
 接著，確定可從您的內部部署網路連線到虛擬網路的位址空間。這通常是藉由將對應到虛擬網路位址空間的路由新增到您的 VPN 裝置，然後將該路由公告至組織網路中路由基礎結構的剩餘部分。與您的 IT 部門合作來決定如何執行這個動作。
 
@@ -171,4 +171,4 @@
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

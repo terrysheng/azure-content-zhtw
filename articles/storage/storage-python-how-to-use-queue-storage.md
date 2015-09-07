@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="如何使用 Python 的佇列儲存體 | Microsoft Azure" 
-	description="了解如何使用 Python 的 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。" 
-	services="storage" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+	pageTitle="如何使用 Python 的佇列儲存體 | Microsoft Azure"
+	description="了解如何使用 Python 的 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。"
+	services="storage"
+	documentationCenter="python"
+	authors="emgerner-msft"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
-	ms.author="huvalo"/>
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="08/25/2015"
+	ms.author="emgerner"/>
 
 # 如何使用 Python 的佇列儲存體
 
@@ -22,7 +22,7 @@
 
 ## 概觀
 
-本指南說明如何使用 Azure 佇列儲存體服務執行一般案例。相關範例是以 Python 撰寫，並使用 [Python Azure 封裝][]。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。如需佇列的詳細資訊，請參閱 [後續步驟][] 一節。
+本指南說明如何使用 Azure 佇列儲存體服務執行一般案例。這些範例是以 Python 所撰寫，並使用 [Python Azure 儲存體封裝][]。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。如需佇列的詳細資訊，請參閱 [後續步驟][] 一節。
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -35,7 +35,7 @@
 
 **QueueService** 物件可讓您操作佇列。下列程式碼將建立 **QueueService** 物件。將下列內容新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 Python 檔案內的頂端附近：
 
-	from azure.storage import QueueService
+	from azure.storage.queue import QueueService
 
 下列程式碼會使用儲存體帳戶名稱和帳戶金鑰來建立 **QueueService** 物件：將 'myaccount' 和 'mykey' 取代為真實的帳戶和金鑰。
 
@@ -110,6 +110,7 @@
 [儲存和存取在 Azure 中的資料]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 [Python Azure 封裝]: https://pypi.python.org/pypi/azure
+[Python Azure 儲存體封裝]: https://pypi.python.org/pypi/azure-storage
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

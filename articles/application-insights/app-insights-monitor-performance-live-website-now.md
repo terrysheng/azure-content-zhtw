@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="在執行中的網站上診斷效能問題" 
-	description="監視網站的效能而不重新部署網站。使用獨立或帶有 Application Insights 的 SDK，取得相依性遙測資料。" 
-	services="application-insights" 
-    documentationCenter=".net"
-	authors="alancameronwills" 
+<properties
+	pageTitle="在執行中的網站上診斷效能問題 | Microsoft Azure"
+	description="監視網站的效能而不重新部署網站。使用獨立或帶有 Application Insights 的 SDK，取得相依性遙測資料。"
+	services="application-insights"
+	documentationCenter=".net"
+	authors="alancameronwills"
 	manager="ronmart"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="04/27/2015"
 	ms.author="awills"/>
- 
+
 
 # 安裝 Application Insights 狀態監視器以監視網站效能
 
@@ -27,12 +27,12 @@ Visual Studio Application Insights 的狀態監視器可讓您在任何 IIS 伺�
 下列三種方法均可讓您將 Application Insights 套用至 IIS Web 應用程式：
 
 * **建置階段：**[加入 Application Insights SDK][greenbrown] 至您的 Web 應用程式程式碼。這會提供您：
- * 標準診斷和使用狀況遙測的範圍。 
+ * 標準診斷和使用狀況遙測的範圍。
  * 如果您想要自行撰寫遙測來追蹤使用狀況或診斷問題，可以使用 [Application Insights API][api]。
 * **執行階段：**使用狀態監視器檢測伺服器上的 Web 應用程式。
  * 監視執行中的 Web 應用程式：不需要重建或重新發佈。
  * 標準診斷和使用狀況遙測的範圍。
- * 相依性診斷：找出應用程式使用其他元件 (例如資料庫、REST API 或其他服務) 時的錯誤或效能不佳原因。
+ * 相依性診斷：找出 App 使用其他元件 (例如資料庫、REST API 或其他服務) 時的錯誤或效能不佳原因。
  * 對任何遙測問題進行疑難排解。
 * **兩者：**將 SDK 編譯至 Web 應用程式程式碼，並在您的 Web 伺服器上執行狀態監視器。集合兩者之優點：
  * 標準診斷和使用狀況遙測。
@@ -42,12 +42,12 @@ Visual Studio Application Insights 的狀態監視器可讓您在任何 IIS 伺�
 
 
 
-> [AZURE.TIP]您的應用程式是 [Azure App Service Web 應用程式](../app-service-web/websites-learning-map.md)嗎？ 在 Azure 的應用程式控制台中[加入 Application Insights SDK][greenbrown]，然後[加入 Application Insights 延伸模組](../insights-perf-analytics.md)。
+> [AZURE.TIP]您的應用程式是 [Azure App Service Web 應用程式](../app-service-web/websites-learning-map.md)嗎？ 從 Microsoft Azure 的 App 控制台中[加入 Application Insights SDK][greenbrown]，然後[加入 Application Insights 延伸模組](../insights-perf-analytics.md)。
 
 
 ## 在 IIS Web 伺服器上安裝 Application Insights 狀態監視器
 
-1. 您需要 [Microsoft Azure](http://azure.com) 訂用帳戶。 
+1. 您需要 [Microsoft Azure](http://azure.com) 訂用帳戶。
 
 1. 在 IIS Web 伺服器中，以系統管理員認證登入。
 2. 下載並執行[狀態監視器安裝程式](http://go.microsoft.com/fwlink/?LinkId=506648)。
@@ -60,9 +60,9 @@ Visual Studio Application Insights 的狀態監視器可讓您在任何 IIS 伺�
 
     ![選擇應用程式和資源。](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
-    一般來說，您需要選擇設定新的資源和[資源群組][roles]。
+    一般來說，您要選擇設定新的資源和[資源群組][roles]。
 
-    如果您已經為網站設定 [Web 測試][availability]或 [Web 用戶端監視][client]，就可能會使用現有的資源。
+    否則，如果您已經為網站設定 [Web 測試][availability]或 [Web 用戶端監視][client]，請使用現有的資源。
 
 6. 重新啟動 IIS。
 
@@ -106,7 +106,7 @@ Visual Studio Application Insights 的狀態監視器可讓您在任何 IIS 伺�
 #### 效能計數器
 
 按一下任一效能計數器圖表以變更其顯示內容。或者，您可以加入新的圖表。
- 
+
 #### 例外狀況
 
 ![逐一點選伺服器例外狀況圖表](./media/app-insights-monitor-performance-live-website-now/appinsights-039-1exceptions.png)
@@ -120,13 +120,13 @@ Visual Studio Application Insights 的狀態監視器可讓您在任何 IIS 伺�
   * 等候幾分鐘讓資料抵達，然後按一下 [重新整理]。
   * 開啟 [診斷搜尋] ([搜尋] 磚) 以查看個別事件。彙總資料在圖表中出現之前，事件通常會顯示在 [診斷搜尋] 中。
   * 開啟狀態監視器，然後選取左窗格中的應用程式。檢查 [設定通知] 區段中是否有任何關於此應用程式的診斷訊息：
-  
+
   ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
-  * 請確定伺服器防火牆允許連出流量從連接埠 443 送往 dc.services.visualstudio.com。 
-  * 如果您在伺服器上看到有關「權限不足」的訊息：
-  * 請在 IIS 管理員中選取應用程式集區，開啟 [進階設定]，並記下 [處理序模型] 節點下的身分識別。
-  * 在電腦的管理控制台中，將此身分識別加入至效能監試器使用者群組。
+  * 請確定伺服器防火牆允許連出流量從連接埠 443 送往 dc.services.visualstudio.com。
+  * 如果您在伺服器上看到有關「權限不足」的訊息，請嘗試下列操作：
+    * 在 IIS 管理員中，選取應用程式集區，開啟 [進階設定]，並記下 [處理序模型] 節點下的身分識別。
+    * 在電腦的管理控制台中，將此身分識別加入至效能監試器使用者群組。
   * 請參閱[疑難排解][qna]。
 
 ## 系統需求
@@ -168,6 +168,4 @@ IIS 支援：IIS 7、7.5、8、8.5 (需要有 IIS)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Service Fabric 服務的延展性"
-   description="描述如何調整 Service Fabric 服務"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+	description="描述如何調整 Service Fabric 服務"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="appi101"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/23/2015"
-   ms.author="aprameyr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="aprameyr"/>
 
 # 調整 Service Fabric 應用程式
 Service Fabric 可讓您透過負載平衡服務、資料分割和叢集中所有節點上的複本，輕鬆建置可調整的應用程式。這可最大化資源使用率。
@@ -61,4 +61,4 @@ Service Fabric 支援將個別服務分割為多個小型的資料分割。[資�
 - [定義和管理狀態](service-fabric-concepts-state.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

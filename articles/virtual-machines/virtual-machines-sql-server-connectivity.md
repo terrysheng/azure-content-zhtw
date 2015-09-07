@@ -1,22 +1,22 @@
 <properties 
    pageTitle="連接 Azure 上的 SQL Server 虛擬機器"
-   description="本主題說明如何連接在 Azure 中虛擬機器上執行的 SQL Server。案例會視網路組態和用戶端的位置而有所不同。"
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" />
+	description="本主題說明如何連接在 Azure 中虛擬機器上執行的 SQL Server。案例會視網路組態和用戶端的位置而有所不同。"
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 <tags 
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
-   ms.author="jroth" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="08/18/2015"
+	ms.author="jroth"/>
 
 # 連接 Azure 上的 SQL Server 虛擬機器
-
+ 
 ## 概觀
 
 連線至在 Azure 虛擬機器上執行的 SQL Server 設定步驟，與設定內部部署 SQL Server 執行個體所需的步驟差別並不大。您仍然必須設定防火牆、驗證和資料庫登入。
@@ -79,8 +79,8 @@
 
 如果您計畫針對高可用性和嚴重損壞修復使用 AlwaysOn 可用性群組，您應該考慮實作接聽程式。資料庫用戶端會連接至接聽程式，而非直接連接其中一個 SQL Server 執行個體。接聽程式路由傳送用戶端至可用性群組中的主要複本。如需詳細資訊，請參閱[設定 Azure 中 AlwaysOn 可用性群組的 ILB 接聽程式](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)。
 
-請務必檢閱在 Azure 虛擬機器上執行之 SQL Server 的所有安全性最佳做法。如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 安全性考量](https://msdn.microsoft.com/library/azure/dn133147.aspx)。
+請務必檢閱在 Azure 虛擬機器上執行之 SQL Server 的所有安全性最佳做法。如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 安全性考量](virtual-machines-sql-server-security-considerations.md)。
 
 如需在 Azure VM 中執行 SQL Server 的其他主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,32 +1,32 @@
 <properties
-   pageTitle="Azure 中的資源群組部署疑難排解"
-   description="描述在 Azure 中部署資源的一般問題，並顯示如何使用 Azure 入口網站、適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (Azure CLI) 和 PowerShell 來檢查部署，並偵測問題。"
-   services="virtual-machines"
-   documentationCenter=""
-   authors="squillace"
-   manager="timlt"
-   editor=""/>
+   pageTitle="在 Azure 中疑難排解資源群組部署"
+	description="描述在 Azure 中部署資源的常見問題，並顯示 Azure 入口網站使用方法、適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (Azure CLI) 以及 PowerShell，來檢查部署並偵測問題。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="command-line-interface"
-   ms.workload="infrastructure"
-   ms.date="04/25/2015"
-   ms.author="rasquill"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="command-line-interface"
+	ms.workload="infrastructure"
+	ms.date="04/25/2015"
+	ms.author="rasquill"/>
 
-# Azure 中的資源群組部署疑難排解
+# 在 Azure 中疑難排解資源群組部署
 
-事先檢查幾件事，就可以更輕鬆地防止部署錯誤，但部署有時候會因為許多原因而失敗。本文件描述多個工具和作業，來防止簡單錯誤、下載範本檔案，並檢查部署記錄。它也會討論檢查部署記錄中是否有失敗時要注意的主要區域。
+有許多原因都可能導致部署失敗。最好能夠事先檢查一些事項，以避免發生部署錯誤。本文件會描述幾個可防止簡單錯誤、下載範本檔案，及檢查部署記錄的工具和作業。它也會討論檢查部署記錄中是否有失敗時要注意的主要區域。
 
 ## 與 Azure 互動的有用工具
-AzureResourceManager 模組包括 Cmdlet，而從命令列中使用 Azure 資源時，用來收集可協助您進行工作的工具。Azure 資源群組範本為 JSON 文件，而且 Azure 資源管理 API 會接受並傳回 JSON，因此 JSON 剖析工具用來協助您瀏覽資源的相關資訊，以及設計範本和範本參數檔案或與之互動。
+當您從命令列使用 Azure 資源時，將收集可協助您進行工作的工具。Azure 資源群組範本為 JSON 文件，而且 Azure 資源管理員 API 會接受並傳回 JSON，因此 JSON 剖析工具是您用來協助瀏覽資源相關資訊，以及設計範本和範本參數檔案或與之互動的首要選擇。
 
 ### Mac、Linux 和 Windows 工具
-如果您使用 Mac、Linux 和 Windows 的 Azure 命令列介面，則可能熟悉標準下載工具 (例如 **[curl](http://curl.haxx.se/)** 和 **[wget](https://www.gnu.org/software/wget/)** 或 **[Resty](https://github.com/beders/Resty)**) 和 JSON 公用程式 (例如 **[jq](http://stedolan.github.io/jq/download/)**、**[jsawk](https://github.com/micha/jsawk)** 以及一併處理 JSON 的語言程式庫) (許多這些工具也具有 Windows 的連接埠，例如 [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)；事實上，有幾種方法可以取得 Linux 以及在 Windows 上執行的其他開放原始碼軟體工具)。
+如果您使用 Mac、Linux 和 Windows 的 Azure 命令列介面，則可能熟悉標準下載工具 (例如 **[curl](http://curl.haxx.se/)** 和 **[wget](https://www.gnu.org/software/wget/)** 或 **[Resty](https://github.com/beders/Resty)**) 和 JSON 公用程式 (例如 **[jq](http://stedolan.github.io/jq/download/)**、**[jsawk](https://github.com/micha/jsawk)** 以及擅於處理 JSON 的語言程式庫)。(這些工具亦多數具有 Windows 的連接埠，例如 [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)；事實上，有數種方法都可以取得 Linux 以及在 Windows 上執行的其他開放原始碼軟體工具)。
 
-本主題包括一些您可以與 **jq** 搭配使用的 Azure CLI 命令，以精確地取得您想要更有效率的資訊。您應該選擇熟悉的工具組，協助了解 Azure 資源使用。
+本主題包括一些您可以與 **jq** 搭配使用的 Azure CLI 命令，以精確地取得您想要更有效率的資訊。您應該選擇熟悉的工具組來協助您了解 Azure 資源使用狀況。
 
 ### Windows PowerShell
 
@@ -37,11 +37,11 @@ Windows PowerShell 有幾個基本命令來執行相同的程序。
 
 ## 防止適用於 Mac、Linux 和 Windows 之 Azure CLI 中的錯誤
 
-Azure CLI 有數個命令，可協助防止錯誤，並偵測發生的問題。
+Azure CLI 有數個命令可協助防止錯誤，並在錯誤發生時偵測發生的問題。
 
-- **azure location list**。此命令會取得支援每種資源類型的位置 (例如虛擬機器的提供者)。在您輸入資源的位置之前，請使用此命令來確認該位置是否支援此資源類型。
+- **azure location list**。此命令會取得支援每種資源類型的位置，例如虛擬機器的提供者。在您輸入資源的位置之前，請使用此命令來確認該位置是否支援此資源類型。
 
-    因為位置清單可能很長，而且有多個提供者，所以您可以先使用工具來檢查提供者和位置，再使用尚未使用的位置。下列指令碼使用 **jq** 探索 Azure 虛擬機器之資源提供者可用的位置。
+    因為位置清單可能很長，而且有多個提供者，所以您可以先使用工具來檢查提供者和位置，再使用尚未使用的位置。下列指令碼使用 **jq** 探索可以取得 Azure 虛擬機器之資源提供者的位置。
 
         azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
         {
@@ -51,7 +51,7 @@ Azure CLI 有數個命令，可協助防止錯誤，並偵測發生的問題。
 
 - **azure group template validate <resource group>**.這個命令會在您使用範本和範本參數之前，先驗證它們。請輸入自訂或資源庫範本，以及您打算使用的範本參數值。
 
-    下列範例顯示如何驗證範本和任何必要參數；Azure CLI 會提示您輸入所需的參數值。
+    下列範例顯示如何驗證範本和任何必要的參數。Azure CLI 會提示您輸入所需的參數值。
 
         azure group template validate \
         > --template-uri "https://contoso.com/templates/azuredeploy.json" \
@@ -183,7 +183,7 @@ Azure CLI 有數個命令，可協助防止錯誤，並偵測發生的問題。
         }
 
 
-- **-verbose 和 -vv 選項**：使用 **--verbose** 選項，將模式設為詳細資訊，以顯示作業在 `stdout` 上經歷的步驟。如果完整要求歷程包括 **--verbose** 所啟用的步驟，請使用 **-vv** 選項。這些訊息通常會提供任何失敗原因的重要線索。
+- **-verbose 和 -vv 選項**：使用 **--verbose** 選項，將模式設為詳細資訊，以顯示作業在 `stdout` 上經歷的步驟。如需完整的要求歷程記錄 (包括 **--verbose** 所啟用的步驟)，請使用 **-vv** 選項。這些訊息通常會提供任何失敗原因的重要線索。
 
 - **您的 Azure 認證未設定或已過期**：若要在 Azure CLI 工作階段中重新整理認證，只需要輸入 `azure login`。如需驗證錯誤的協助，請確定您[已正確地設定 Azure CLI](../xplat-cli-connect.md)。
 
@@ -203,24 +203,24 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 
 - **詳細資訊和偵錯**：AzureResourceManager 模組中的 Cmdlet 會呼叫實際執行工作的 REST API。若要查看 API 傳回的訊息，請將 $DebugPreference 變數設為 "Continue"，並在您的命令中使用 Verbose 命令參數。這些訊息通常會提供任何失敗原因的重要線索。
 
-- **您的 Azure 認證未設定或已過期**：若要在 Windows PowerShell 工作階段中重新整理認證，請使用 Add-AzureAccount Cmdlet。發行設定檔中的認證無法滿足 AzureResourceManager 模組中 Cmdlet 的需求。
+- **您的 Azure 認證未設定或已過期**：若要在 Windows PowerShell 工作階段中重新整理認證，請使用 **Add-AzureAccount** Cmdlet。發行設定檔中的認證無法滿足 AzureResourceManager 模組中 Cmdlet 的需求。
 
 ## 驗證、訂用帳戶、角色和配額問題
 
-可能有一個或多個問題防止部署成功，包含驗證和授權以及 Azure Active Directory。不論您如何管理 Azure 資源群組，用來登入您帳戶的身分識別都必須是 Azure Active Directory 物件或服務主體 (也稱為工作或學校帳戶或組織識別碼)。
+可能有一個或多個問題防止部署成功，包含驗證和授權以及 Azure Active Directory。不論您如何管理 Azure 資源群組，您用來登入帳戶的身分識別都必須是 Azure Active Directory 物件或服務主體 (也稱為工作或學校帳戶)，或組織識別碼。
 
-但是 Azure Active Directory 可讓您或您的系統管理員最精確地控制哪些身分識別可以存取哪些資源。如果您的部署失敗，請檢查要求本身是否有驗證或授權問題，以及檢查您資源群組的部署記錄檔。您可能會發現，當您擁有某些資源的權限時，就沒有其他資源的權限。使用 Azure CLI，您可以利用 `azure ad` 命令檢查 Azure Active Directory 租用戶和使用者 (如需完整的 Azure CLI 命令清單，請參閱[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](azure-cli-arm-commands.md))。
+但是 Azure Active Directory 可讓您或您的系統管理員最精確地控制哪些身分識別可以存取哪些資源。如果您的部署失敗，請檢查要求本身是否顯示驗證或授權問題，並檢查資源群組的部署記錄。您可能會發現，當您擁有某些資源的權限時，就不會擁有其他資源的權限。使用 Azure CLI，您可以利用 `azure ad` 命令檢查 Azure Active Directory 租用戶和使用者 (如需完整的 Azure CLI 命令清單，請參閱[搭配 Azure 資源管理員使用適用於 Mac、Linux 和 Windows 的 Azure CLI](azure-cli-arm-commands.md))。
 
-部署達到預設配額 (可能是根據資源群組、訂用帳戶、帳戶以及其他範圍) 時，也可能會發生問題。確認您有可正確部署的資源。如需完整配額資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與限制](../azure-subscription-service-limits.md)。
+當部署達到預設配額 (可能是每個資源群組、訂用帳戶、帳戶及其他範圍的配額) 時，也可能會發生問題。請確保您有可正確部署的足夠資源。如需完整的配額資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](../azure-subscription-service-limits.md)。
 
-若要檢查您自己訂用帳戶的核心配額，您應該使用 Azure CLI 中的 `azure vm list-usage` 命令以及 PowerShell 中的 `Get-AzureVMUsage` Cmdlet。以下顯示 Azure CLI 中的命令，並說明免費試用帳戶的核心配額為 4：
+若要檢查您自己的訂用帳戶核心配額，應使用 Azure CLI 中的 `azure vm list-usage` 命令以及 PowerShell 中的 **Get-AzureVMUsage** Cmdlet。以下顯示 Azure CLI 中的命令，並說明免費試用帳戶的核心配額為 4：
 
     azure vm list-usage
     info:    Executing command vm list-usage
     Location: westus
     data:    Name   Unit   CurrentValue  Limit
     data:    -----  -----  ------------  -----
-    data:    Cores  Count  0             4    
+    data:    Cores  Count  0             4
     info:    vm list-usage command OK
 
 如果您嘗試部署的範本會在上述訂用帳戶內，於美國西部區域中建立 4 個以上的核心，則會發生部署錯誤，該錯誤看起來如下 (可能是在入口網站中，也可能是調查部署記錄時發現的)：
@@ -231,16 +231,16 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 
 在這些情況下，您應該移至入口網站，並提出支援問題，以針對您想要部署的區域提高配額。
 
-> [AZURE.NOTE]請記住，對於資源群組，配額適用於每個個別區域，而不是整個訂用帳戶。如果您需要在美國西部部署 30 個核心，就必須要求在美國西部擁有 30 個資源管理核心。如果您需要在任何具有存取權限的區域部署 30 個核心，就應該要求在所有區域中擁有 30 個資源管理核心。<!-- --> 舉例來說，若要更明確地了解核心，您應該使用下列命令來要求適當的配額數目，這個命令可以使用管線傳送到 **jq** 以進行 json 剖析。 <!-- --> Azure 提供者會顯示 Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
-     
+> [AZURE.NOTE]請記住，對於資源群組，配額適用於每個個別區域，而不是整個訂用帳戶。如果您需要在美國西部部署 30 個核心，就必須要求在美國西部擁有 30 個資源管理員核心。如果您需要在任何具有存取權限的區域中部署 30 個核心，就應該要求在所有區域中擁有 30 個資源管理員核心。<!-- --> 舉例來說，若要更明確地了解核心，您可以使用下列命令來檢查應該要求適當配額數目的區域，這個命令可以使用管線傳送到 **jq** 以進行 JSON 剖析。 <!-- --> Azure 提供者會顯示 Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
+
 
 ## Azure CLI 和 PowerShell 模式問題
 
-您可能發生過，使用資源管理 API 或 Azure 入口網站，卻看不到使用服務管理 API 或使用傳統入口網站所部署的 Azure 資源。請務必使用用來建立資源的相同管理 API 或入口網站來管理資源。如果資源消失，請使用其他管理 API 或入口網站確認資源是否可用。
+您可能曾經在使用資源管理員 API 或 Azure 入口網站時，看不到使用服務管理 API 或使用入口網站所部署的 Azure 資源。請務必使用建立資源所用的相同資源管理員 API 或入口網站來管理資源。如果資源消失，請使用其他管理 API 或入口網站確認資源是否可用。
 
 ## Azure 資源提供者註冊問題
 
-資源是由資源提供者所管理，而且啟用帳戶或訂用帳戶可以使用特定提供者。如果您可以使用某個提供者，則也必須註冊該提供者才能使用。Azure 入口網站或正在使用的命令列介面會自動註冊大部分的提供者；但非全部。
+資源是由資源提供者所管理，並且可能啟用帳戶或訂用帳戶以便使用特定提供者。如果您可以使用某個提供者，則也必須註冊該提供者才能使用。Azure 入口網站或正在使用的命令列介面會自動註冊大部分的提供者；但並非全部。
 
 若要使用 Azure CLI 查看是否註冊提供者以供使用，請使用 `azure provider list` 命令 (下列是截斷的輸出範例)。
 
@@ -263,7 +263,7 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
         data:    Microsoft.Sql                    Registered
         info:    provider list command OK
 
-此外，如果您想要更多關於提供者的資訊，包括它們的區域可用性，請輸入 `azure provider list --json`。下列程式碼只會選取清單中的第一個項目來檢視：
+同樣地，如需提供者的詳細資訊，包括其區域可用性，請輸入 `azure provider list --json`。下列程式碼只會選取清單中的第一個項目來檢視：
 
         azure provider list --json | jq '.[0]'
         {
@@ -294,9 +294,9 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 
 ## 了解自訂範本的部署何時成功
 
-如果使用您所建立的範本，請務必了解 Azure 資源管理系統會在成功從部署傳回所有提供者時報告部署成功。這表示已部署所有範本項目，供您使用。
+如果是使用您所建立的範本，請務必了解 Azure 資源管理員系統會在成功從部署傳回所有提供者時，報告部署成功。這表示已部署所有範本項目，供您使用。
 
-不過，這不一定表示您的資源群組**作用中且準備好供使用者使用**。例如，大多數的部署都會要求部署下載升級、等候其他升級、非範本資源，或是安裝複雜的指令碼或 Azure 不知道的某個其他可執行活動，因為它不是提供者正在追蹤的活動。在這些情況下，可能需要一些時間，您的資源才能用於實際使用。因此，您應該預期部署狀態成功一段時間後，才能使用部署。
+不過，請注意，這不一定表示您的資源群組「作用中且準備好供使用者使用」。例如，大多數的部署都會要求部署下載升級、等候其他升級、非範本資源，或是安裝複雜的指令碼或 Azure 不知道的某個其他可執行活動，因為它不是提供者正在追蹤的活動。在這些情況下，可能需要一些時間，您的資源才能用於實際使用。因此，您應該預期部署狀態成功一段時間後，才能使用部署。
 
 不過，建立自訂範本的自訂指令碼 (例如，使用 [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/))，即可防止 Azure 報告部署成功，而此自訂指令碼知道如何監視整個部署以了解系統是否準備就緒，並只在使用者可以與整個部署互動時才會順利傳回。如果您想要確保最後才執行您的延伸模組，請在範本中使用 **dependsOn** 屬性。您可以在[這裡](https://msdn.microsoft.com/library/azure/dn790564.aspx)看到範例。
 
@@ -326,7 +326,7 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 
 ## 跨資源群組
 
-通常您可能會想要使用將部署範本之目前資源群組外部的資源。此行為的最常見情況是在替代資源群組中使用儲存體帳戶或虛擬網路。這通常是必要作業，因此，刪除含有虛擬機器的資源群組，並不會刪除 vhd blob 或多個資源群組所使用的 VNet。下列範例顯示如何輕鬆地使用外部資源群組中的資源：
+通常您可能會想要使用將部署範本之目前資源群組外部的資源。此行為的最常見情況，是在替代資源群組中使用儲存體帳戶或虛擬網路的時候。這通常是必要作業，因此，刪除含有虛擬機器的資源群組，並不會刪除 VHD Blob 或多個資源群組所使用的 VNet。下列範例顯示如何使用來自外部資源群組的資源：
 
 
     {
@@ -373,7 +373,7 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 
 ## 後續步驟
 
-若要精通範本的建立，請閱讀[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)，並捲動 [AzureRMTemplates 儲存機制](https://github.com/azurermtemplates/azurermtemplates)以取得可部署的範例。**dependsOn** 屬性範例是[具有輸入 NAT 規則範本的負載平衡器](https://github.com/azurermtemplates/azurermtemplates/blob/master/101-create-internal-loadbalancer/azuredeploy.json)。
+若要精通範本建立，請閱讀[製作 Azure 資源管理員範本](../resource-group-authoring-templates.md)，並逐步查看 [AzureRMTemplates 儲存機制](https://github.com/azurermtemplates/azurermtemplates)以取得可部署的範例。[具有輸入 NAT 規則範本的負載平衡器](https://github.com/azurermtemplates/azurermtemplates/blob/master/101-create-internal-loadbalancer/azuredeploy.json)是 **dependsOn** 屬性的其中一個範例。
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
@@ -385,6 +385,5 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

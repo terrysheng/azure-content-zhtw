@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Azure SQL 連接器 - 從 Azure SQL 來回移動資料" 
-	description="了解 Data Factory 服務的 Azure SQL 連接器，其可讓您從 Azure SQL Database 來回移動資料" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="從 Azure SQL 來回移動資料 | Azure Data Factory"
+	description="了解如何使用 Azure Data Factory 從 Azure SQL 資料庫來回移動資料。"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Azure SQL 連接器 - 從 Azure SQL 來回移動資料
+# 使用 Azure Data Factory 從 Azure SQL 來回移動資料
 
 本文概述如何在 Azure Data Factory 中使用複製活動，在 Azure SQL 與其他資料存放區之間移動資料。本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文呈現使用複製活動移動資料的一般概觀以及支援的資料存放區組合。
 
@@ -24,11 +24,11 @@
 
 下列範例顯示：
 
-1. AzureSqlDatabase 類型的連結服務。
-2. [AzureStorage](data-factory-azure-blob-connector.md/#LinkedService) 類型的連結服務。 
-3. AzureSqlTable 類型的輸入資料集。 
-4. [AzureBlob](data-factory-azure-blob-connector.md/#Dataset) 類型的輸出資料集。
-4. 具有使用 SqlSource 和 [BlobSink](data-factory-azure-blob-connector.md/#CopyActivity) 之複製活動的管線。
+1. [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) 類型的連結服務。
+2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 類型的連結服務。 
+3. [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties) 類型的輸入[資料集](data-factory-create-datasets.md)。 
+4. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 類型的輸出[資料集](data-factory-create-datasets.md)。
+4. 具有使用 [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) 和 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 之複製活動的[管線](data-factory-create-pipelines.md)。
 
 此範例會每小時將屬於時間序列的資料從 Azure SQL Database 中的資料表複製到 Blob。範例後面的各節會說明這些範例中使用的 JSON 屬性。
 
@@ -171,7 +171,7 @@
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -196,11 +196,11 @@
 
 下列範例顯示：
 
-1.	AzureSqlDatabase 類型的連結服務。
-2.	AzureStorage 類型的連結服務。
-3.	AzureBlob 類型的輸入資料集。
-4.	AzureSqlTable 類型的輸出資料集。
-4.	具有使用 BlobSource 和 SqlSink 之複製活動的管線。
+1.	[AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) 類型的連結服務。
+2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 類型的連結服務。
+3.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 類型的輸入[資料集](data-factory-create-datasets.md)。
+4.	[AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties) 類型的輸出[資料集](data-factory-create-datasets.md)。
+4.	具有使用 [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 和 [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) 之複製活動的[管線](data-factory-create-pipelines.md)。
 
 此範例會每小時將屬於時間序列的資料從 Azure Blob 複製到 Azure SQL Database 中的資料表。範例後面的各節會說明這些範例中使用的 JSON 屬性。
 
@@ -373,11 +373,11 @@
 | 類型 | type 屬性必須設為：AzureSqlDatabase | 是 |
 | connectionString | 針對 connectionString 屬性指定連接到 Azure SQL Database 執行個體所需的資訊。 | 是 |
 
-**注意：**您需要設定 [Azure SQL Database 防火牆](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)。您需要設定資料庫伺服器，才能[允許 Azure 服務存取伺服器](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)。此外，如果您要從 Azure 外部 (包括從具有 Fata Factory 閘道器的內部部署資料來源) 將資料複製到 Azure SQL，則必須為傳送資料到 Azure SQL 的機器設定適當的 IP 位址範圍。
+**注意**：您需要設定 [Azure SQL Database 防火牆](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)。您需要設定資料庫伺服器，才能[允許 Azure 服務存取伺服器](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)。此外，如果您要從 Azure 外部 (包括從具有 Fata Factory 閘道器的內部部署資料來源) 將資料複製到 Azure SQL，則必須為傳送資料到 Azure SQL 的機器設定適當的 IP 位址範圍。
 
 ## Azure SQL 資料集類型屬性
 
-如需可用來定義資料集的完整區段和屬性清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。
+如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。
 
 每個資料集類型的 typeProperties 區段都不同，可提供資料存放區中資料的位置相關資訊。**AzureSqlTable** 類型資料集的 **typeProperties** 區段具有下列屬性。
 
@@ -387,13 +387,13 @@
 
 ## Azure SQL 複製活動類型屬性
 
-如需可用來定義活動的完整區段和屬性清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
+如需定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
 
 > [AZURE.NOTE]複製活動只會採用一個輸入，而且只產生一個輸出。
 
 另一方面，活動的 typeProperties 區段中可用的屬性會隨著每個活動類型而有所不同，而在複製活動的案例中，可用的屬性會根據來源與接收的類型而有所不同。
 
-在複製活動的案例中，如果來源的類型為 **SqlSource**，則 **typeProperties** 區段有下列可用屬性：
+在複製活動的案例中，如果來源類型為 **SqlSource**，則 **typeProperties** 區段可使用下列屬性：
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- |
@@ -418,7 +418,7 @@
 
 ### SQL Server 和 Azure SQL 的類型對應
 
-如[資料移動活動](data-factory-data-movement-activities.md)一文所述，複製活動會使用下列 2 個步驟的方法，執行從來源類型轉換成接收類型的自動類型轉換：
+如同[資料移動活動](data-factory-data-movement-activities.md)一文所述，複製活動會使用下列 2 個步驟的方法，執行自動類型轉換，將來源類型轉換成接收類型：
 
 1. 從原生來源類型轉換成 .NET 類型
 2. 從 .NET 類型轉換成原生接收類型
@@ -471,4 +471,4 @@
 
 	 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

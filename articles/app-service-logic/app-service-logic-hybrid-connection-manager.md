@@ -1,23 +1,23 @@
 <properties 
-	pageTitle="在 Azure App Service 中使用混合式連線管理員" 
-	description="在 Azure App Service 中安裝和設定混合式連線管理員；微服務架構" 
-	services="app-service\logic" 
+	pageTitle="使用混合式連線管理員 | Microsoft Azure App Service"
+	description="在 Azure App Service 中安裝和設定混合式連線管理員，並連線至內部部署連接器"
+	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/23/2015"
 	ms.author="mandia"/>
 
-# 在 Azure App Service 中使用混合式連線管理員
-某些連結器可以連接到內部部署系統，例如 SQL Server、SAP、SharePoint 等等。為了使用內部部署系統，Azure App Service 會使用混合式連線管理員。
+# 使用混合式連線管理員連線至 Azure App Service 中的內部部署連接器
+為了使用內部部署系統，Azure App Service 會使用混合式連線管理員。某些連結器可以連接到內部部署系統，例如 SQL Server、SAP、SharePoint 等等。
 
 混合式連線管理員 (HCM) 是 Click Once 安裝程式，安裝在您的網路內防火牆後方的 IIS 伺服器上。HCM 會使用 Azure 服務匯流排轉送，向 Azure 中的連接器驗證內部部署系統。
 
@@ -133,4 +133,4 @@ TCP 連接埠 | 理由
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

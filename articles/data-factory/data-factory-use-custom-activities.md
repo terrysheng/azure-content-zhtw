@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="在 Azure 資料處理站管線中使用自訂活動" 
-	description="了解如何建立自訂活動，並在 Azure 資料處理站管線中使用這些活動。" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="在 Azure 資料處理站管線中使用自訂活動"
+	description="了解如何建立自訂活動，並在 Azure 資料處理站管線中使用這些活動。"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
 # 在 Azure 資料處理站管線中使用自訂活動
@@ -436,10 +436,8 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 [batch-technical-overview]: ../batch/batch-technical-overview.md
 [batch-get-started]: ../batch/batch-dotnet-get-started.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [data-factory-introduction]: data-factory-introduction.md
 [azure-powershell-install]: https://github.com/Azure/azure-sdk-tools/releases
@@ -458,7 +456,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 [azure-preview-portal]: https://portal.azure.com/
 
 [adfgetstarted]: data-factory-get-started.md
-[hivewalkthrough]: data-factory-pig-hive-activities.md
+[hivewalkthrough]: data-factory-data-transformation-activities.md
 
 [image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
@@ -467,4 +465,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

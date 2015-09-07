@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="搭配 Azure MFA 使用行動應用程式做為連絡方式" 
-	description="此頁面會顯示使用者如何使用行動應用程式做為 Azure MFA 的主要連絡方式。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="搭配 Azure MFA 使用行動應用程式做為連絡方式"
+	description="此頁面會顯示使用者如何使用行動應用程式做為 Azure MFA 的主要連絡方式。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # 搭配 Azure Multi-Factor Authentication 使用行動應用程式做為連絡方式
@@ -73,4 +73,4 @@
 >[AZURE.NOTE]如果您看到「新增工作帳戶」，這是針對「加入工作場所」而非多因素驗證。您可以忽略此項目。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

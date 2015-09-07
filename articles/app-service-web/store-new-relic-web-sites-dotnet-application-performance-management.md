@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="在 Azure App Service 中的 .NET Web 應用程式使用 New Relic 應用程式效能管理" 
-	description="了解如何在 Azure App Service 上執行的 ASP.NET 應用程式使用 New Relic 的效能監視。" 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	pageTitle="在 Azure App Service 中的 .NET Web 應用程式使用 New Relic 應用程式效能管理"
+	description="了解如何在 Azure App Service 上執行的 ASP.NET 應用程式使用 New Relic 的效能監視。"
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="cephalin"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/30/2015"
 	ms.author="stepsic"/>
 
 
@@ -38,8 +38,7 @@ New Relic Standard 供 Azure 使用者免費使用。根據您所使用的網站
 
 Azure 客戶部署 New Relic 代理程式時享有 New Relic Pro 試用訂閱 2 週。
 
-使用 Azure Marketplace 註冊 New Relic 
---
+使用 Azure Marketplace 註冊 New Relic --
 
 New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密整合。
 
@@ -72,13 +71,13 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/configure-new-relic-integration.png)
 
-	完成儲存操作之後，在 Web 應用程式刀鋒視窗中，按一下 [所有設定]，然後按一下 [應用程式設定]。您應會看見 **NEWRELIC_LICENSEKEY** 設定已新增至刀鋒視窗的 [應用程式設定] 區段，以支援 New Relic：
+	完成儲存操作之後，在 Web 應用程式刀鋒視窗中，按一下 [所有設定]，然後按一下 [應用程式設定]。您應會看見 **NEWRELIC\_LICENSEKEY** 設定已新增至刀鋒視窗的 [應用程式設定] 區段，以支援 New Relic：
 
 	>[AZURE.NOTE]新的應用程式設定最多可能需要 30 秒的時間才能生效。若要強制設定立即生效，請重新啟動 Web 應用程式。
 
 ## 步驟 3：發佈 ASP.NET Web 應用程式
 
-使用 Visual Studio 或 WebMatrix 來發佈 Web 應用程式。如果您先前已發佈 Web 應用程式，再次發佈以便 Web 應用程式執行個體新增必要的 New Relic NuGet 封裝以啟用 New Relic 監視。
+使用 Visual Studio 來發佈 Web 應用程式。如果您先前已發佈 Web 應用程式，再次發佈以便 Web 應用程式執行個體新增必要的 New Relic NuGet 封裝以啟用 New Relic 監視。
 
 ## 步驟 4.在 New Relic 中檢查應用程式的效能。
 
@@ -168,7 +167,6 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 * 如需 Azure 入口網站變更為 Azure 預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
-[webmatrixwebsite]: web-sites-dotnet-using-webmatrix.md
 [vswebsite]: web-sites-dotnet-get-started.md
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png
@@ -180,4 +178,4 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

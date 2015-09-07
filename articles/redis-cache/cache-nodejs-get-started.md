@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/17/2015"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # 如何搭配使用 Azure Redis 快取與 Node.js
@@ -33,7 +33,7 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用安全 Redis 快�
 
 ## 在 Azure 上建立 Redis 快取
 
-在 [Azure 管理入口網站預覽](http://go.microsoft.com/fwlink/?LinkId=398536)中，依序按一下 [新增] 和 [資料 + 儲存體]，然後選取 [Redis 快取]。
+在 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=398536)中，依序按一下 [新增] 和 [資料 + 儲存體]，然後選取 [Redis 快取]。
 
   ![][1]
 
@@ -42,7 +42,7 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用安全 Redis 快�
   ![][2]
 
 
-建立快取之後，請在 Azure 入口網站中按一下它，以檢視快取設定。按一下 [金鑰] 下方的連結，並複製主要金鑰。您需要有此金鑰才能驗證要求。
+建立快取之後，請在 Preview 入口網站中按一下它，以檢視快取設定。按一下 [金鑰] 下方的連結，並複製主要金鑰。您需要有此金鑰才能驗證要求。
 
   ![][4]
 
@@ -91,4 +91,4 @@ Output:
 
 [在 Azure 網站上使用 Socket.IO 建置 Node.js 聊天應用程式]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

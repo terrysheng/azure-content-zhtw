@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用通道，從內部部署編碼器接收多位元速率即時串流" 
-	description="本主題描述如何讓通道接收內部部署編碼器的多位元速率即時資料流。串流可以隨即透過一或多個串流端點傳遞給用戶端播放應用程式，使用下列其中一個自動調整串流通訊協定：HLS、Smooth Streaming、MPEG DASH、HDS。" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="使用通道，從內部部署編碼器接收多位元速率即時串流"
+	description="本主題描述如何讓通道接收內部部署編碼器的多位元速率即時資料流。串流可以隨即透過一或多個串流端點傳遞給用戶端播放應用程式，使用下列其中一個自動調整串流通訊協定：HLS、Smooth Streaming、MPEG DASH、HDS。"
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="juliako"/>
 
 #使用通道，從內部部署編碼器接收多位元速率即時串流
@@ -238,86 +238,13 @@ SCTE-35|數位訊號系統，用來提示廣告插入。下游接收端會使用
 - 通道或其相關聯程式正在執行時，您無法變更輸入通訊協定。如果您需要不同的通訊協定，則應該為每個輸入通訊協定建立個別的通道。 
 - 只有當您的通道處於**執行中**狀態時，才會向您計費。若需詳細資訊，請參閱[這個](media-services-manage-channels-overview.md#states)章節。
 
-##<a id="tasks"></a>與即時串流相關的工作
-
-###建立媒體服務帳戶
-
-[建立 Azure 媒體服務帳戶](media-services-create-account.md)。
-
-###設定串流端點
-
-如需串流端點的概觀以及如何管理它們的詳細資訊，請參閱[如何在媒體服務帳戶中管理串流端點](media-services-manage-origins.md)。
-
-###設定開發環境  
-
-為開發環境選擇 **.NET** 或 **REST API**。
-
-[AZURE.INCLUDE [媒體-服務-選取器-設定](../../includes/media-services-selector-setup.md)]
-
-###以程式設計方式連接  
-
-選擇 **.NET** 或 **REST API** 以程式設計方式連接到 Azure 媒體服務。
-
-[AZURE.INCLUDE [媒體-服務-選取器-連接](../../includes/media-services-selector-connect.md)]
-
-###建立通道，從內部部署編碼器接收多位元速率即時串流
+##如何建立從內部部署編碼器接收多位元速率即時串流的通道
 
 如需內部部署即時編碼器的詳細資訊，請參閱[搭配使用協力廠商即時編碼器與 Azure 媒體服務](https://msdn.microsoft.com/library/azure/dn783464.aspx)。
 
 選擇**入口網站**、**.NET**、**REST API** 以了解如何建立及管理通道和程式。
 
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
-
-###保護資產
-
-**概觀**：
-
-[內容保護概觀](media-services-content-protection-overview.md)
-
-
-如果您想要使用進階加密標準 (AES) (使用 128 位元加密金鑰) 或 PlayReady DRM 加密和程式相關聯的資產，您必須建立內容金鑰。
-
-使用 **.NET** 或 **REST API** 來建立金鑰。
-
-[AZURE.INCLUDE [媒體-服務-選取器-建立-contentkey](../../includes/media-services-selector-create-contentkey.md)]
-
-一旦您建立內容金鑰之後，您就可以使用 **.NET** 或 **REST API** 設定金鑰授權原則。
-
-[AZURE.INCLUDE [媒體-服務-選取器-內容-金鑰-auth-原則](../../includes/media-services-selector-content-key-auth-policy.md)]
-
-####與夥伴整合
-
-[使用 castLabs 將 DRM 授權傳遞到 Azure 媒體服務](media-services-castlabs-integration.md)
-
-###發行及傳遞資產
-
-**概觀**：
-
-- [動態封裝概觀](media-services-dynamic-packaging-overview.md)
-
-使用 **.NET** 或 **REST API** 設定資產傳遞原則。
-
-[AZURE.INCLUDE [媒體-服務-選取器-資產-傳遞-原則](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-使用 **Azure 管理入口網站**或 **.NET** (藉由建立定位器) 發行資產。
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
-
-傳遞內容
-
-> [AZURE.SELECTOR]
-- [Overview](media-services-deliver-content-overview.md)
-
-
-###啟用 Azure CDN
-
-媒體服務支援與 Azure CDN 整合。如需如何啟用 Azure CDN 的資訊，請參閱[如何管理媒體服務帳戶中的串流端點](media-services-manage-origins.md#enable_cdn)。
-
-###調整媒體服務帳戶
-
-您可以藉由指定您要佈建給帳戶的**串流保留單元**數目來調整 **媒體服務**。
-
-如需調整串流單位的相關資訊，請參閱： [如何調整串流單位](media-services-manage-origins.md#scale_streaming_endpoints.md)。
 
 ##相關主題
 
@@ -330,4 +257,4 @@ SCTE-35|數位訊號系統，用來提示廣告插入。下游接收端會使用
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

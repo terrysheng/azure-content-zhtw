@@ -1,25 +1,26 @@
 <properties
-   pageTitle="HDInsight 連接器"
-   description="在 Azure App Service 中使用 HDInsight 連接器"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 HDInsight 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 HDInsight 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Microsoft HDInsight 連接器 #
+# 開始使用 HDInsight 連接器並將它加入您的邏輯應用程式
+HDInsight 連接器可讓您在 Azure 上建立 Hadoop 叢集，並提交各種 Hadoop 工作，例如 Hive、Pig、MapReduce 和 Streaming MapReduce 工作。Azure HDInsight 服務在雲端部署和佈建 Apache Hadoop 叢集，提供軟體架構來管理、分析和報告巨量資料。Hadoop 核心採用 Hadoop Distributed File System (HDFS) 來提供可靠的資料儲存，並提供簡單的 MapReduce 程式設計模型，可並行處理和分析這個分散式系統中儲存的資料。您可以使用 HDInsight 連接器建立或刪除叢集、提交工作並等候它完成。
 
-在邏輯應用程式中，連接器可以在執行流程時用來擷取、處理或發送資料。HDInsight 連接器可讓您在 Azure 上建立 Hadoop 叢集，並提交各種 Hadoop 工作，例如 Hive、Pig、MapReduce 和 Streaming MapReduce 工作。Azure HDInsight 服務在雲端部署和佈建 Apache Hadoop 叢集，提供軟體架構來管理、分析和報告巨量資料。Hadoop 核心採用 Hadoop Distributed File System (HDFS) 來提供可靠的資料儲存，並提供簡單的 MapReduce 程式設計模型，可並行處理和分析這個分散式系統中儲存的資料。您可以使用 HDInsight 連接器建立或刪除叢集、提交工作並等候它完成。
+在邏輯應用程式中，連接器可以在執行流程時用來擷取、處理或發送資料。您可以將 HDInsight 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
 ### 基本動作
 
@@ -36,7 +37,7 @@
 
 連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
-1. 在 Azure 開始面板中，選取 [Marketplace]。
+1. 在 Azure 開始面板中，選取 [**Marketplace**]。
 2. 搜尋「HDInsight 連接器」，加以選取，然後選取 [建立]。
 3. 輸入名稱、App Service 方案和其他屬性。
 4. 在 [封裝設定] 中，輸入 HDInsight 叢集使用者名稱和密碼。選取 [確定]。
@@ -81,10 +82,10 @@ HDInsight 在邏輯應用程式中只能當動作使用。讓我們以一個簡�
 
 9. 使用設計工具頂端的儲存命令，儲存邏輯應用程式。
 
-若要測試案例，選取 [**立即執行**]，手動啟動邏輯應用程式。
+若要測試案例，選取 [立即執行]，手動啟動邏輯應用程式。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -103,4 +104,4 @@ HDInsight 在邏輯應用程式中只能當動作使用。讓我們以一個簡�
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

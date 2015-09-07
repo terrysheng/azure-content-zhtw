@@ -1,27 +1,27 @@
 <properties
-   pageTitle="SMTP 連接器 API 應用程式"
-   description="如何使用 SMTP 連接器"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 SMTP 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 SMTP 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="andalmia"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="andalmia"/>
 
 
-# SMTP 連接器
+# 開始使用 SMTP 連接器並將它加入您的邏輯應用程式
+連線至 SMTP 伺服器並傳送電子郵件，包括帶有附件的電子郵件。SMTP 連接器「傳送電子郵件」動作可讓您傳送電子郵件到指定的電子郵件位置。
 
-邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於工作流程一部分的資料。
+邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於工作流程一部分的資料。您可以將 SMTP 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
-POP3 連接器可讓您連接到 POP3 伺服器，並執行傳送有附件之電子郵件的動作。SMTP 連接器「傳送電子郵件」動作可讓您傳送電子郵件到指定的電子郵件位置。
 
 ## 觸發程序和動作
 *觸發程序*是發生的事件。例如，訂單更新時或加入新客戶時。*動作*是觸發程序的結果。例如，更新訂單或加入新客戶時，傳送電子郵件給新客戶。
@@ -70,7 +70,7 @@ None | 傳送電子郵件
 
 您現在可以設定要在工作流程中使用的 SMTP 連接器。選取 [傳送電子郵件] 動作，並設定輸入屬性：
 
-	屬性 | 說明
+	Property | Description
 	--- | ---
 	To | 輸入收件人的電子郵件地址。使用分號 (;) 分隔多個電子郵件地址。例如輸入： recipient1@domain.com;recipient2@domain.com。
 	Cc | 輸入副本收件人的電子郵件地址。使用分號 (;) 分隔多個電子郵件地址。例如輸入：recipient1@domain.com;recipient2@domain.com。
@@ -87,9 +87,9 @@ None | 傳送電子郵件
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
-使用 REST API 建立 API 應用程式。請參閱[連接器和 API 應用程式參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)。
+檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
-您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)。
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)。
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-smtp/img1.PNG
@@ -99,4 +99,4 @@ None | 傳送電子郵件
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

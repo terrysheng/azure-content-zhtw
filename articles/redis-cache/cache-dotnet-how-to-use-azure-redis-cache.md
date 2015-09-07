@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用 Azure Redis 快取" 
-	description="了解如何改善與 Azure Redis 快取的 Azure 應用程式的效能" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="如何使用 Azure Redis 快取"
+	description="了解如何改善與 Azure Redis 快取的 Azure 應用程式的效能"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
-	ms.date="08/05/2015" 
+	ms.service="cache"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="cache-redis"
+	ms.devlang="dotnet"
+	ms.topic="hero-article"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # 如何使用 Azure Redis 快取
@@ -45,7 +45,7 @@ Microsoft Azure Redis 快取有兩個階層：
 <a name="create-cache"></a>
 ## 建立快取
 
-若要建立快取，請先登入 [Microsoft Azure 預覽入口網站][]，然後依序按一下 [新增]、[資料 + 儲存體] 和 [Redis 快取]。
+若要建立快取，請先登入 [Azure Preview 入口網站][]，然後依序按一下 [新增]、[資料 + 儲存體] 和 [Redis 快取]。
 
 ![New cache][NewCacheMenu]
 
@@ -120,7 +120,7 @@ NuGet 封裝會為您的用戶端應用程式下載並加入必要的組件參�
 
 與 Azure Redis 快取的連線是由 `ConnectionMultiplexer` 類別所管理。此類別的設計是要在用戶端應用程式中共用和重複使用，而不需要依據每個作業加以建立。
 
-若要連線至 Azure Redis 快取，並傳回已連線 `ConnectionMultiplexer` 的執行個體，請呼叫靜態 `Connect` 方法，並傳入快取端點和金鑰，如以下範例所示。使用從入口網站產生的 Azure 金鑰，作為密碼參數。
+若要連線至 Azure Redis 快取，並傳回已連線 `ConnectionMultiplexer` 的執行個體，請呼叫靜態 `Connect` 方法，並傳入快取端點和金鑰，如以下範例所示。使用從 Preview 入口網站產生的 Azure 金鑰，作為密碼參數。
 
 	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
@@ -231,7 +231,7 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 
 標示註解的區段可提供屬性的範例和屬性的範例設定。
 
-以來自入口網站之快取分頁的值來設定屬性，並視需要設定其他值。
+以來自預覽入口網站的快取分頁的值設定屬性，並視需要設定其他值。
 
 	<sessionState mode="Custom" customProvider="MySessionStateStore">
       <providers>
@@ -269,7 +269,7 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 
 了解 Azure Redis 快取的基礎概念之後，請參考下列連結以了解如何執行更複雜的快取工作。
 
--	[啟用快取診斷](cache-how-to-monitor.md#enable-cache-diagnostics)，以監視您的快取的健全狀況。您可以在入口網站中檢視度量，也可以使用您選擇的工具[下載並檢閱](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)它們。
+-	[啟用快取診斷](cache-how-to-monitor.md#enable-cache-diagnostics)，以監視您的快取的健全狀況。您可以在 Preview 入口網站中檢視度量，也可以使用您選擇的工具[下載並檢閱](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)它們。
 -	請參閱 [StackExchange.Redis 快取用戶端文件][]。
 	-	Azure Redis 快取可以透過許多 Redis 用戶端和開發語言進行存取。如需詳細資訊，請參閱 [http://redis.io/clients][] 和[以其他語言開發 Azure Redis 快取][]。
 	-	Azure Redis 快取也可以與服務搭配使用 (例如 Redsmin)。如需詳細資訊，請參閱[如何擷取 Azure Redis 連接字串並將它與 Redsmin 搭配使用][]。
@@ -347,7 +347,7 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [快取定價詳細資料]: http://www.windowsazure.com/pricing/details/cache/
-[Microsoft Azure 預覽入口網站]: https://portal.azure.com/
+[Azure Preview 入口網站]: https://portal.azure.com/
 
 [Azure Redis 快取概觀]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Azure Redis 快取]: http://go.microsoft.com/fwlink/?LinkId=398247
@@ -367,4 +367,4 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 
 [Azure 免費試用]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

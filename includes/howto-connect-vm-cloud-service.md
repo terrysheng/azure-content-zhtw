@@ -1,4 +1,3 @@
-
 在服務管理中建立的虛擬機器一律放置在雲端服務中。雲端服務能做為容器，並提供唯一的公用 DNS 名稱、公用 IP 位址，以及一組透過網際網路存取虛擬機器的端點。雲端服務可以選擇性地位於虛擬網路。
 
 如果雲端服務不在虛擬網路中，就稱為*獨立*雲端服務。獨立雲端服務中的虛擬機器只能與使用其他虛擬機器之公用 DNS 名稱的其他虛擬機器通訊，該流量會透過網際網路傳送。如果雲端服務是在虛擬網路中，該雲端服務中的虛擬機器可與虛擬網路中的所有其他虛擬機器通訊，而不需要透過網際網路傳送任何流量。
@@ -17,7 +16,7 @@
 
 若要連線虛擬網路中的虛擬機器：
 
-1.	在 [Azure 入口網站](http://manage.windowsazure.com)中建立虛擬網路。如需詳細資訊，請參閱[虛擬網路組態工作](https://msdn.microsoft.com/library/azure/jj156206.aspx)。
+1.	在 [Azure 入口網站](http://manage.windowsazure.com)中建立虛擬網路。如需詳細資訊，請參閱[虛擬網路組態工作](../documentation/services/virtual-machines/)。
 2.	為部署一組建立雲端服務，以反映可用性設定組和負載平衡的設計。在入口網站中，針對每項雲端服務按一下 **[新增 > 計算 > 雲端服務 > 自訂建立]**。
 3.	若要逐一建立新虛擬機器，請按一下 **[新增 > 計算 > 虛擬機器 > 從資源庫]**。為 VM 選擇正確的雲端服務和虛擬網路。如果雲端服務已加入虛擬網路，系統會為您選取服務名稱。
 
@@ -35,7 +34,7 @@
 
 [管理虛擬機器的可用性](../articles/manage-availability-virtual-machines.md)
 
-[虛擬網路設定工作](https://msdn.microsoft.com/library/azure/jj156206.aspx)
+[虛擬網路設定工作](../documentation/services/virtual-machines/)
 
 建立虛擬機器後，最好要新增資料磁碟，您的服務和工作負載才有地方可存放資料。執行下列其中一項：
 
@@ -43,4 +42,4 @@
 
 [如何將資料磁碟連接至 Windows 虛擬機器](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

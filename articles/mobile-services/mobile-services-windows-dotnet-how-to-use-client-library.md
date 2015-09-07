@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="glenga"/>
 
 # 如何使用適用於 Azure 行動服務的 .NET 用戶端
@@ -22,7 +22,7 @@
 
 ##概觀
 
-本指南將示範如何在 Windows 市集應用程式和 Windows Phone 應用程式中，使用適用於 Azure 行動服務的 .NET 用戶端來執行常見案例。所涵蓋的案例包括查詢資料、插入、更新及刪除資料、驗證使用者以及處理錯誤。如果您不熟悉行動服務，您應考慮首先完成[行動服務快速入門]()教學課程或[將行動服務新增至現有的應用程式]()教學課程。
+本指南將示範如何在 Windows 市集應用程式和 Windows Phone 應用程式中，使用適用於 Azure 行動服務的 .NET 用戶端來執行常見案例。所涵蓋的案例包括查詢資料、插入、更新及刪除資料、驗證使用者以及處理錯誤。如果您不熟悉行動服務，您應考慮首先完成[行動服務快速入門](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md)教學課程或[將行動服務新增至現有的應用程式](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md)教學課程。
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -700,4 +700,4 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 [從用戶端呼叫自訂 API]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,50 +1,61 @@
-## 如何使用 PowerShell 建立 VNet
+## 下載 ARM 範本並了解使用方式
 
-若要使用 PowerShell 建立 VNet，請遵循下列步驟。
+您可以下載現有的 ARM 範本，以透過 Github 建立 VNet 和兩個子網路，然後進行任何需要的變更，並重複使用該範本。若要這樣做，請依照下列步驟執行。
 
-1. 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
-2. 在 Azure PowerShell 提示字元中執行 **Switch-AzureMode** Cmdlet，以切換至資源管理員模式，如下所示。
+1. 瀏覽至 https://github.com/Azure/azure-quickstart-templates/tree/master/101-two-subnets。
+2. 按一下 **azuredeploy.json**，再按一下 **RAW**。
+3. 將檔案儲存至您電腦上的本機資料夾。
+4. 如果您熟悉 ARM 範本的使用方式，請跳至步驟 7。
+5. 開啟您剛儲存的檔案，並查看第 5 行中**參數**下方的內容。ARM 範本的參數提供值的預留位置，可以在部署期間填寫。
 
-	Switch-AzureMode AzureResourceManager
+	| 參數 | 說明 |
+	|---|---|
+	| **位置** | 將會在當中建立 VNet 的 Azure 區域 |
+	| **vnetName** | 新 VNet 的名稱 |
+	| **addressPrefix** | 以 CIDR 格式表示的 VNet 位址空間 |
+	| **subnet1Name** | 第一個 VNet 的名稱 |
+	| **subnet1Prefix** | 第一個子網路的 CIDR 區塊 |
+	| **subnet2Name** | 第二個 VNet 的名稱 |
+	| **subnet2Prefix** | 第二個子網路的 CIDR 區塊 |
 
-	警告：Switch-AzureMode Cmdlet 已經過時，將在未來的版本中移除。
-
-	>[AZURE.WARNING]Switch-AzureMode Cmdlet 即將被汰除。屆時將重新命名所有的資源管理員 Cmdlet。
+	>[AZURE.IMPORTANT]Github 所管理的 ARM 範本內容可能會隨著時間改變。使用範本前，請務必先檢查當中的內容。
 	
-3. 如有必要，請執行 **New-AzureResourceGroup** Cmdlet，以建立新的資源群組，如下所示。在我們的案例中，會建立名為 *RG1* 的資源群組。
+6. 檢查 [**資源**] 下方的內容，並查看下列項目：
 
-	New-AzureResourceGroup -Name RG1 -Location centralus
+	- **類型**。範本所建立的資源類型。在此案例中為 **Microsoft.Network/virtualNetworks**，代表 VNet。
+	- **名稱**。資源的名稱。請查看使用 **[parameters('vnetName')]** 的項目，這表示此名稱是在部署期間由使用者的輸入內容，或參數檔案提供。
+	- **屬性**。資源屬性的清單。此範本在 VNet 建立期間會使用位址空間和子網路屬性。
 
-	ResourceGroupName : RG1 Location : centralus ProvisioningState : Succeeded Tags : Permissions : Actions NotActions ======= ========== *
-	
-	ResourceId : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1
+7. 瀏覽回 https://github.com/Azure/azure-quickstart-templates/tree/master/101-two-subnets。
+8. 按一下 **azuredeploy-paremeters.json**，再按一下 **RAW**。
+9. 將檔案儲存至您電腦上的本機資料夾。
+10. 開啟您剛儲存的檔案，編輯參數的值。使用下列值部署本文案例所述的 VNet。
 
-4. 執行 **New-AzureVirtualNetwork** Cmdlet 以建立新的 VNet，如下所示。
+		{
+		  "location": {
+		    "value": "Central US"
+		  },
+		  "vnetName": {
+		      "value": "TestVNet"
+		  },
+		  "addressPrefix": {
+		      "value": "192.168.0.0/16"
+		  },
+		  "subnet1Name": {
+		      "value": "FrontEnd"
+		  },
+		  "subnet1Prefix": {
+		    "value": "192.168.1.0/24"
+		  },
+		  "subnet2Name": {
+		      "value": "BackEnd"
+		  },
+		  "subnet2Prefix": {
+		      "value": "192.168.2.0/24"
+		  }
+		}
 
-	New-AzureVirtualNetwork -ResourceGroupName RG1 -Name TestVNet ` -AddressPrefix 192.168.0.0/16 -Location centralus
-	
-	Name : TestVNet ResourceGroupName : RG1 Location : centralus Id : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/TestVNet Etag : W/"5b89894f-db7f-4634-9870-f9b97e209510" ProvisioningState : Succeeded Tags : AddressSpace : { "AddressPrefixes": [ "192.168.0.0/16" ] } DhcpOptions : { "DnsServers": null } NetworkInterfaces : null Subnets :
+11. 儲存檔案。
+  
 
-5. 執行 **Get-AzureVirtualNetwork** Cmdlet，用變數儲存虛擬網路物件，如下所示。
-
-	$vnet = Get-AzureVirtualNetwork -ResourceGroupName RG1 -Name TestVNet
-
-	>[AZURE.TIP]您可以藉由執行 **$vnet = New-AzureVirtualNetwork -ResourceGroupName RG1 -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus** 結合步驟 4 和 5。
-
-6. 執行 **Add-AzureVirtualNetworkSubnetConfig** Cmdlet，將子網路加入至新的 VNet，如下所示。
-
-	Add-AzureVirtualNetworkSubnetConfig -Name FrontEnd ` -VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
-	
-	Name : TestVNet ResourceGroupName : RG1 Location : centralus Id : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/TestVNet Etag : W/"5b89894f-db7f-4634-9870-f9b97e209510" ProvisioningState : Succeeded Tags : AddressSpace : { "AddressPrefixes": [ "192.168.0.0/16" ] } DhcpOptions : { "DnsServers": null } NetworkInterfaces : null Subnets : [ { "Name": "FrontEnd", "Etag": null, "Id": null, "AddressPrefix": "192.168.1.0/24", "IpConfigurations": null, "NetworkSecurityGroup": null, "RouteTable": null, "ProvisioningState": null } ]
-
-7. 重複上述步驟 6，建立您想要的每個子網路。以下命令會為我們的案例建立 *BackEnd* 子網路。
-
-	Add-AzureVirtualNetworkSubnetConfig -Name BackEnd ` -VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
-
-8. 雖然建立了子網路，但是它們目前只以本機變數的形式存在，並用來擷取您在前述步驟 4 中建立的 VNet。若要將變更儲存至 Azure，請執行 **Set-AzureVirtualNetwork** Cmdlet，如下所示。
-
-	Set-AzureVirtualNetwork -VirtualNetwork $vnet
-	
-	Name : TestVNet ResourceGroupName : RG1 Location : centralus Id : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/TestVNet Etag : W/"2d3496d8-2b85-4238-bde2-377fe660aa4a" ProvisioningState : Succeeded Tags : AddressSpace : { "AddressPrefixes": [ "192.168.0.0/16" ] } DhcpOptions : { "DnsServers": } NetworkInterfaces : null Subnets : [ { "Name": "FrontEnd", "Etag": "W/"2d3496d8-2b85-4238-bde2-377fe660aa4a"", "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Micro soft.Network/virtualNetworks/TestVNet/subnets/FrontEnd", "AddressPrefix": "192.168.1.0/24", "IpConfigurations": , "NetworkSecurityGroup": null, "RouteTable": null, "ProvisioningState": "Succeeded" }, { "Name": "BackEnd", "Etag": "W/"2d3496d8-2b85-4238-bde2-377fe660aa4a"", "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Micro soft.Network/virtualNetworks/TestVNet/subnets/BackEnd", "AddressPrefix": "192.168.2.0/24", "IpConfigurations": , "NetworkSecurityGroup": null, "RouteTable": null, "ProvisioningState": "Succeeded" } ]
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

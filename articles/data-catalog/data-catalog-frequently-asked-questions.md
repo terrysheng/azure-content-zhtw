@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 資料目錄的常見問題集"
-   description="Azure 資料目錄：目錄常見問題集"
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
+	description="與 Azure 資料目錄預覽相關的常見問題集，包括資料來源探索、註解和管理功能。"
+	services="data-catalog"
+	documentationCenter=""
+	authors="steelanddata"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="08/19/2015"
-   ms.author="maroche"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="08/21/2015"
+	ms.author="maroche"/>
 
 # Azure 資料目錄的常見問題集
 
@@ -160,4 +160,4 @@ Azure 資料目錄強化技術性和非技術性使用者的能力，包括：
 
 請前往 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)。那裡提出的問題會在這裡找到答案。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

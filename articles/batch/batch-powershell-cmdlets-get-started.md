@@ -1,20 +1,20 @@
 <properties
    pageTitle="開始使用 Azure Batch PowerShell Cmdlet | Microsoft Azure"
-   description="介紹用來管理 Azure Batch 服務的 Azure PowerShell Cmdlet"
-   services="batch"
-   documentationCenter=""
-   authors="dlepow"
-   manager="timlt"
-   editor=""/>
+	description="介紹用來管理 Azure Batch 服務的 Azure PowerShell Cmdlet"
+	services="batch"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="batch"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="big-compute"
-   ms.date="08/07/2015"
-   ms.author="danlep"/>
+	ms.devlang="NA"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="big-compute"
+	ms.date="08/07/2015"
+	ms.author="danlep"/>
 
 # 開始使用 Azure Batch PowerShell Cmdlet
 本文是 Azure PowerShell Cmdlet 的簡介，可用來管理 Batch 帳戶並取得 Batch 作業、工作及其他詳細資訊的相關資訊。
@@ -41,13 +41,19 @@
     Switch-AzureMode -Name AzureResourceManager
     ```
 
+* **向 Batch 提供者命名空間註冊 (一次性操作)**：在您可以管理 Batch 帳戶之前，必須向 Batch 提供者命名空間註冊。每個訂用帳戶只需要執行這項作業一次。
+
+    ```
+    Register-AzureProvider -ProviderNamespace Microsoft.Batch
+    ```
+
 ## 管理 Batch 帳戶和金鑰
 
 您可以使用 Azure PowerShell Cmdlet 建立及管理 Batch 帳戶和金鑰。
 
 ### 建立 Batch 帳戶：
 
-**New-AzureBatchAccount** 將在指定的資源群組中建立新的 Batch 帳戶。如果您還沒有資源群組，請執行 [New-azureresourcegroup](https://msdn.microsoft.com/library/dn654594.aspx) Cmdlet 建立一個，並在**位置** 參數中指定其中一個 Azure 區域。(您也可以藉由執行 [Get-azurelocation](https://msdn.microsoft.com/library/dn654582.aspx) 尋找不同 Azure 資源可用的區域。) 例如：
+**New-AzureBatchAccount** 將在指定的資源群組中建立新的批次帳戶。如果您還沒有資源群組，請執行 [New-azureresourcegroup](https://msdn.microsoft.com/library/dn654594.aspx) Cmdlet 建立一個，並在**位置** 參數中指定其中一個 Azure 區域。(您也可以藉由執行 [Get-azurelocation](https://msdn.microsoft.com/library/dn654582.aspx) 尋找不同 Azure 資源可用的區域。) 例如：
 
 ```
 New-AzureResourceGroup –Name MyBatchResourceGroup –location "Central US"
@@ -62,7 +68,7 @@ New-AzureBatchAccount –AccountName <account_name> –Location "Central US" –
 > [AZURE.NOTE]Batch 帳戶名稱對 Azure 必須是唯一的，介於 3 到 24 個字元，並只能使用小寫字母和數字。
 
 ### 取得帳戶存取金鑰
-**Get-AzureBatchAccountKeys** 將顯示與 Azure Batch 帳戶相關聯的存取金鑰。例如，執行下列命令以取得您所建立帳戶的主要和次要金鑰。
+**Get-AzureBatchAccountKeys** 將顯示與 Azure 批次帳戶相關聯的存取金鑰。例如，執行下列命令以取得您所建立帳戶的主要和次要金鑰。
 
 ```
 $Account = Get-AzureBatchAccountKeys –AccountName <accountname>
@@ -71,7 +77,7 @@ $Account.SecondaryAccountKey
 ```
 
 ### 產生新的存取金鑰
-**New-AzureBatchAccountKey** 將為 Azure Batch 帳戶產生新的主要或次要帳戶金鑰。例如，若要為您的 Batch 帳戶產生新的主要金鑰，請輸入：
+**New-AzureBatchAccountKey** 將為 Azure 批次帳戶產生新的主要或次要帳戶金鑰。例如，若要為您的 Batch 帳戶產生新的主要金鑰，請輸入：
 
 ```
 New-AzureBatchAccountKey -AccountName <account_name> -KeyType Primary
@@ -80,7 +86,7 @@ New-AzureBatchAccountKey -AccountName <account_name> -KeyType Primary
 > [AZURE.NOTE]若要產生新的次要金鑰，請將 **KeyType** 參數指定為「次要」。您必須個別重新產生主要和次要金鑰。
 
 ### 刪除 Batch 帳戶
-**Remove-AzureBatchAccount** 將刪除 Batch 次帳戶。例如：
+**Remove-AzureBatchAccount** 將刪除批次帳戶。例如：
 
 ```
 Remove-AzureBatchAccount -AccountName <account_name>
@@ -90,7 +96,7 @@ Remove-AzureBatchAccount -AccountName <account_name>
 
 ## 查詢作業、工作及其他詳細資料
 
-使用 Cmdelt，例如 **Get-AzureBatchJob**、**Get-AzureBatchTask** 和 **Get-AzureBatchPool** 在 Batch 帳戶下查詢所建立的實體。
+使用 Cmdelt (例如 **Get-AzureBatchJob**、**Get-AzureBatchTask** 和 **Get-AzureBatchPool**) 查詢在 Batch 帳戶下建立的實體。
 
 若要使用這些指令程式，您必須先建立一個 AzureBatchContext 物件以儲存您的帳戶名稱和金鑰：
 
@@ -98,14 +104,14 @@ Remove-AzureBatchAccount -AccountName <account_name>
 $context = Get-AzureBatchAccountKeys "<account_name>"
 ```
 
-使用 **BatchContext** 參數將此內容傳入與 Batch 服務互動的 Cmdlet。
+使用 **BatchContext** 參數將此內容傳入與批次服務互動的 Cmdlet。
 
 > [AZURE.NOTE]依預設，帳戶的主要金鑰用於驗證，但是您可以透過變更 BatchAccountContext 物件的 **KeyInUse** 屬性，明確地選取要使用的金鑰：`$context.KeyInUse = "Secondary"`。
 
 
 ### 查詢資料
 
-例如，使用 **Get-AzureBatchPools** 來尋找您的集區。依預設，這將查詢您的帳戶下的所有集區，並假設您已經將 BatchAccountContext 物件儲存在 *$context* 中：
+例如，使用 **Get-AzureBatchPools** 尋找您的集區。依預設，這將查詢您帳戶下的所有集區，並假設您已經將 BatchAccountContext 物件儲存在 *$context* 中：
 
 ```
 Get-AzureBatchPool -BatchContext $context
@@ -123,7 +129,7 @@ Get-AzureBatchPool -Filter $filter -BatchContext $context
 
 ### 使用識別碼參數
 
-使用**識別碼**參數可作為 OData 篩選的替代方式。若要查詢識別碼為 "myPool" 的特定集區：
+使用**識別碼**參數可做為 OData 篩選的替代方式。若要查詢識別碼為 "myPool" 的特定集區：
 
 ```
 Get-AzureBatchPool -Id "myPool" -BatchContext $context
@@ -151,9 +157,9 @@ Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 若要移除上限，將 **MaxCount** 設定為 0 或更少。
 
 ## 相關主題
-* ＜[Batch 技術概觀](batch-technical-overview.md)＞
+* ＜[批次技術概觀](batch-technical-overview.md)＞
 * ＜[下載 Azure PowerShell](http://go.microsoft.com/p/?linkid=9811175)＞
-* [Azure Batch Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/mt125957.aspx)
+* [Azure 批次 Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [有效率的清單查詢](batch-efficient-list-queries.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="事件中樞 API 概觀"
-   description="一些主要事件中樞 .NET 用戶端 API 的摘要。"
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+	description="一些主要事件中樞 .NET 用戶端 API 的摘要。"
+	services="event-hubs"
+	documentationCenter="na"
+	authors="sethmanheim"
+	manager="timlt"
+	editor=""/>
 <tags 
    ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/10/2015"
-   ms.author="sethm" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="07/10/2015"
+	ms.author="sethm"/>
 
 # 事件中樞 API 概觀
 
@@ -186,6 +186,5 @@ public class SimpleEventProcessor : IEventProcessor
 
 - [服務匯流排和事件中樞 .NET API 參考](https://msdn.microsoft.com/library/jj933424.aspx)
 - [事件處理器主機 API 參考](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
-- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

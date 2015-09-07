@@ -1,25 +1,24 @@
 <properties
-   pageTitle="在 Azure App Service 中使用 Azure 服務匯流排連接器"
-   description="如何使用 Azure 服務匯流排連接器"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 Azure 服務匯流排連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 Azure 服務匯流排連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="andalmia"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="andalmia"/>
 
 
-# Azure 服務匯流排連接器
-
-Azure 服務匯流排連接器可讓您從服務匯流排實體 (如佇列和主題) 傳送訊息，並接收來自服務匯流排實體 (例如佇列和訂閱) 的訊息。
+# 開始使用 Azure 服務匯流排連接器並將它加入您的邏輯應用程式 
+連線至 Azure 服務匯流排可以將訊息傳送至「佇列和主題」，並接收來自「佇列和訂用帳戶」的訊息。連接器在 Logic Apps 中是用作「工作流程」的一部分。
 
 ## 觸發程序和動作
 觸發程序是發生的事件。例如，訂單更新時或加入新客戶時。動作是觸發程序的結果。例如，將訂單或新訊息放入佇列時，會傳送警示或訊息。
@@ -38,6 +37,7 @@ Azure 服務匯流排連接器提供下列觸發程序和動作：
 1. 在 Azure 開始面板中，選取 [**Marketplace**]。
 2. 搜尋「Azure 服務匯流排連接器」，將其選取，然後選取 [**建立**]。
 3. 輸入名稱、App Service 方案和其他屬性：
+<br/>
 ![][1]
 
 4. 輸入下列封裝設定：
@@ -80,11 +80,11 @@ Azure 服務匯流排連接器提供下列觸發程序和動作：
 ![][8]
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
 
-使用 REST API 建立 API 應用程式。請參閱[連接器和 API 應用程式參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)。
+檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
-您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)。
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱〈[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)〉。
 
 
 <!--Image references-->
@@ -97,4 +97,4 @@ Azure 服務匯流排連接器提供下列觸發程序和動作：
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

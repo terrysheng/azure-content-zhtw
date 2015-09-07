@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何調整編碼保留單元" 
-	description="了解如何指定要佈建給帳戶的隨選串流保留單元和編碼保留單元，以調整媒體服務。" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="如何調整編碼保留單元"
+	description="了解如何指定要佈建給帳戶的隨選串流保留單元和編碼保留單元，以調整媒體服務。"
+	services="media-services"
+	documentationCenter=""
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -23,6 +23,7 @@
 - [.NET](media-services-dotnet-encoding-units.md)
 - [Portal](media-services-portal-encoding-units.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
 ##概觀
 
@@ -61,4 +62,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

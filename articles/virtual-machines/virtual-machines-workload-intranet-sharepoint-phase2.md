@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint 內部網路伺服器陣列工作負載第 2 階段：設定網域控制站"
-	description="在 Azure 基礎結構服務中，使用 SQL Server AlwaysOn 可用性群組部署內部網路專用的 SharePoint 2013 的第二階段中，您建立並設定了兩個 Active Directory 網域控制站。"
+	pageTitle="SharePoint Server 2013 伺服器陣列第 2 階段 | Microsoft Azure"
+	description="在 Azure SharePoint Server 2013 伺服器陣列第 2 階段中，建立並設定兩個 Active Directory 複本網域控制站。"
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -123,7 +123,7 @@
 ### <a id="datadisk"></a>初始化空磁碟
 
 1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
-2.	在 [內容] 窗格的 [**磁碟**] 群組中，按一下 [磁碟 **2**] \([**磁碟分割**] 設為 [**未知**]\)。
+2.	在 [內容] 窗格的 [**磁碟**] 群組中，按一下 [磁碟 **2**] ([**磁碟分割**] 設為 [**未知**])。
 3.	按一下 [工作]，然後按一下 [新增磁碟區]。
 4.	在新增磁碟區精靈的 [**開始之前**] 頁面上，按一下 [**下一步**]。
 5.	在 [**選取伺服器和磁碟**] 頁面上，按一下 [**磁碟 2**]，然後按一下 [**下一步**]。出現提示時，按一下 **[確定]**。
@@ -246,4 +246,4 @@ SharePoint 伺服器陣列需要下列使用者帳戶：
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

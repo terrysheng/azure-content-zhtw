@@ -1,40 +1,40 @@
 <properties
-   pageTitle="Http 接聽程式和連接器"
-   description="在邏輯應用程式中使用 HTTP 接聽程式和 HTTP 動作"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 HTTP 接聽程式和連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 HTTP 接聽程式和 HTTP 動作連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="prkumar"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="prkumar"/>
 
 
-#在邏輯應用程式中使用 HTTP 接聽程式和 HTTP 動作#
-
-邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。不過，在某些情況下，您可能需要使用直接 HTTP 連線，包括：
+# 開始使用 HTTP 接聽程式和 HTTP 動作，並將它加入您的邏輯應用程式
+直接連線到 HTTP 資源以接聽 HTTP 要求和設定 HTTP Web 要求。在某些情況下，您可能需要使用直接 HTTP 連線，包括：
 
 1.	若要開發支援 Web 或行動使用者互動前端的邏輯應用程式。
 2.	若要取得並處理沒有現成連接器之 Web 服務的資料。
 3.	若要執行已公開為 web 服務，但無法當做 API 應用程式使用的動作。
 
-
-在這些情況下，資源庫提供兩個選項︰
+對於這些案例，有兩個選項：
 
 1. **HTTP 接聽程式**：這個連接器可做為觸發程序，並接聽設定的端點上的 HTTP 要求。設定的端點上收到呼叫時，它會觸發流程的新執行個體，並將要求中所收到的資料傳遞到處理的流程中。它也可以設定為在啟動流程時自動回應內送要求，或可讓您根據流程執行建構回應並傳送回應給呼叫者。
 2. **HTTP 動作**：這可讓您將 Web 要求設定到網際網路上任何可用的端點、取得回應，並提供給流程中的其他動作取用。
 
+邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。您可以將 HTTP 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
+
 ## 建立邏輯應用程式的 HTTP 接聽程式
 連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
-1. 在 Azure 開始面板中，選取 [**Marketplace**]。
+1. 在 Azure 開始面板中，選取 [Marketplace]。
 2. 搜尋 "HTTP"，選取 HTTP 接聽程式，然後選取 [建立]。
 3.	設定 HTTP 接聽程式，如下所示：![][1]
 
@@ -70,7 +70,7 @@ HTTP 動作的輸出會是標頭和主體，可進一步在流程的下游中使
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
-您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)。
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱〈[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)〉。
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-http/1.png
@@ -84,4 +84,4 @@ HTTP 動作的輸出會是標頭和主體，可進一步在流程的下游中使
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

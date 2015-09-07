@@ -5,15 +5,15 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="mo	nicar" />
+	editor="mo	nicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/11/2015"
-	ms.author="jroth" />
+	ms.date="08/24/2015"
+	ms.author="jroth"/>
 
 # 設定 Azure 中 AlwaysOn 可用性群組的外部接聽程式
 
@@ -58,7 +58,7 @@
 		# Configure a load balanced endpoint for each node in $AGNodes, with direct server return enabled
 		ForEach ($node in $AGNodes)
 		{
-		    Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort $EndpointPort -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 59999 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
+		    Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort 1433 -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 59999 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
 		}
 
 1. 一旦您已設定變數，請從文字編輯器將指令碼複製到您的 Azure PowerShell 工作階段來執行它。如果提示依然顯示「>>」，請再次按 ENTER 鍵以確定指令碼開始執行。
@@ -124,4 +124,4 @@
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

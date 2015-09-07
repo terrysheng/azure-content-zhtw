@@ -1,15 +1,15 @@
-## How to create a VNet using the Azure CLI
+## 如何透過 Azure CLI 建立 VNet
 
-You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX. To create a VNet by using the Azure CLI, follow the steps below.
+您可以透過 Azure CLI 管理來自任何 Windows、Linux 或 OSX 電腦的命令提示字元中的 Azure 資源。若要透過 Azure CLI 建立 VNet，請依照下列步驟執行。
 
-1. If you have never used the Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
+1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli.md)，並依照指示進行，直到開始選取您的 Azure 帳戶和訂用帳戶為止。
+2. 如下方所示，執行 **azure config mode** 命令以切換至資源管理員模式。
 
 		azure config mode arm
 
 		info:    New mode is arm
 
-3. If necessary, run the **azure group create** to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
+3. 若有必要，請如下方所示執行 **azure group create**，以建立新的資源群組。請查看命令的輸出內容。輸出之後所顯示的清單說明需使用的參數。如需有關資源群組的詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md/#resource-groups)。
 
 		azure group create -n TestRG -l centralus
 
@@ -25,10 +25,10 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 		data:
 		info:    group create command OK
 
-	- **-n (or --name)**. Name for the new resource group. For our scenario, *TestRG*.
-	- **-l (or --location)**. Azure region where the new resource group will be created. For our scenario, *centralus*.
+	- **-n (或 --name)**。新資源群組的名稱。在本文案例中為 *TestRG*。
+	- **-l (或 --location)**。將會在當中建立新資源群組的 Azure 區域。在本文案例中為 *centralus*。
 
-4. Run the **azure network vnet create** command to create a VNet and a subnet, as shown below. Notice the output from the CLI command. The list shown after the output explains the parameters used.
+4. 如下方所示，執行 **azure network vnet create** 命令，以建立 VNet，和加入子網路。請查看 CLI 命令的輸出內容。輸出之後所顯示的清單說明需使用的參數。
 5. 
 		azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l centralus
 
@@ -45,12 +45,12 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 		data:      192.168.0.0/16
 		info:    network vnet create command OK
 
-	- **-g (or --resource-group)**. Name of the resource group where the VNet will be created. For our scenario, *TestRG*.
-	- **-n (or --name)**. Name of the VNet to be created. For our scenario, *TestVNet*
-	- **-a (or --address-prefixes)**. List of CIDR blocks used for the VNet address space. For our scenario, *192.168.0.0/16*
-	- **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *centralus*.
+	- **-g (或 --resource-group)**。將會在當中建立 VNet 之資源群組的名稱。在本文案例中為 *TestRG*。
+	- **-n (或 --name)**。即將建立的 VNet 的名稱。在本文案例中為 *TestVNet*
+	- **-a (或 --address-prefixes)**。用於 VNet 位址空間的 CIDR 區塊清單。在本文案例中為 *192.168.0.0/16*。
+	- **-l (或 --location)**。將會在當中建立 VNet 的 Azure 區域。在本文案例中為 *centralus*。
 
-5. Run the **azure network vnet subnet create** command to create a subnet as shown below. Notice the output of the command. The list shown after the output explains the parameters used.
+5. 如下方所示，執行 **azure network vnet subnet create** 命令以建立子網路。請查看命令的輸出內容。輸出之後所顯示的清單說明需使用的參數。
 
 		azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
 
@@ -66,15 +66,15 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 		data:
 		info:    network vnet subnet create command OK
 
-	- **-e (or --vnet-name**. Name of the VNet where the subnet will be created. For our scenario, *TestVNet*.
-	- **-n (or --name)**. Name of the new subnet. For our scenario, *FrontEnd*.
-	- **-a (or --address-prefix)**. Subnet CIDR block. Four our scenario, *192.168.1.0/24*.
+	- **-e (或 --vnet-name**。將會在當中建立子網路的 VNet 的名稱。在本文案例中為 *TestVNet*。
+	- **-n (或 --name)**。新的子網路的名稱。在本文案例中為 *FrontEnd*。
+	- **-a (或 --address-prefix)**。子網路的 CIDR 區塊。在本文案例中為 *192.168.1.0/24*。
 
-6. Repeat step 5 above to create other subnets, if necessary. For our scenario, run the command below to create the *BackEnd* subnet.
+6. 如有必要，請重複上述的步驟 5，以建立其他子網路。本文案例執行下方命令，以建立 *BackEnd* 子網路。
 
 		azure network vnet subnet create -g TestRG -e TestVNet -n BackEnd -a 192.168.2.0/24
 
-4. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
+4. 如下方所示，執行 **azure network vnet show** 命令以檢視新 VNet 的屬性。
 
 		azure network vnet show -g TestRG -n TestVNet
 
@@ -95,3 +95,5 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 		data:      Address prefix                : 192.168.2.0/24
 		data:
 		info:    network vnet show command OK
+
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - 開始使用" 
-	description="藉由提出我要保護什麼和使用者所在位置等問題，選擇最合適的 Multi-Factor Authentication 安全性解決方案。然後選擇雲端、MFA Server 或 AD FS。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Azure Multi-Factor Authentication - 開始使用"
+	description="藉由提出我要保護什麼和使用者所在位置等問題，選擇最合適的 Multi-Factor Authentication 安全性解決方案。然後選擇雲端、MFA Server 或 AD FS。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 #選擇合適的多重因素安全性解決方案
@@ -87,4 +87,4 @@ MFA 報告 | ● | ●
 * [適用於使用者](multi-factor-authentication-end-user.md)
 * [MSDN 上的 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

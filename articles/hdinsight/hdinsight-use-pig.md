@@ -1,21 +1,21 @@
 <properties
    pageTitle="在 HDInsight 中使用 Hadoop Pig | Microsoft Azure"
-   description="了解如何在 HDInsight 上搭配 Hadoop 使用 Pig。"
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"
+	description="了解如何在 HDInsight 上搭配 Hadoop 使用 Pig。"
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/06/2015"
-   ms.author="larryfr"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/21/2015"
+	ms.author="larryfr"/>
 
 # 搭配使用 Pig 與 HDInsight 上的 Hadoop
 
@@ -94,6 +94,19 @@ HDInsight 可以使用各種方法執行 Pig Latin 工作。請使用下表決�
 | [Windows PowerShell](hdinsight-hadoop-use-pig-powershell.md) | &nbsp; | ✔ | Linux 或 Windows | Windows |
 | [遠端桌面](hdinsight-hadoop-use-pig-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
 
+
+## 使用內部部署 SQL Server Integration Services 在 Azure HDInsight 叢集執行 Pig 工作
+
+您也可以使用 SQL Server Integration Services (SSIS) 來執行 Pig 工作。適用於 SSIS 的 Azure Feature Pack 中提供下列元件可搭配 HDInsight 上的 Pig 工作使用。
+
+
+- [Azure HDInsight Pig 工作][pigtask]
+- [Azure 訂用帳戶連接管理員][connectionmanager]
+
+
+在[這裡][ssispack]深入了解適用於 SSIS 的 Azure Feature Pack。
+
+
 ##<a id="nextsteps"></a>接續步驟
 
 現在您已學會如何搭配 HDInsight 使用 Pig，接著請使用下列連結來探索 Azure HDInsight 的其他使用方式。
@@ -107,6 +120,9 @@ HDInsight 可以使用各種方法執行 Pig Latin 工作。請使用下表決�
 [apachepig-home]: http://pig.apache.org/
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: http://curl.haxx.se/
+[pigtask]: http://msdn.microsoft.com/zh-TW/library/mt146781(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/zh-TW/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/zh-TW/library/mt146770(v=sql.120).aspx
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -128,4 +144,4 @@ HDInsight 可以使用各種方法執行 Pig Latin 工作。請使用下表決�
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,35 +1,25 @@
 <properties 
-	pageTitle="如何使用 Blitline 進行影像處理 - Azure 功能指南" 
-	description="了解如何使用 Blitline 服務處理 Azure 應用程式內的影像。" 
-	services="" 
-	documentationCenter=".net" 
-	authors="blitline-dev" 
-	manager="jason@blitline.com" 
+	pageTitle="如何使用 Blitline 進行影像處理 - Azure 功能指南"
+	description="了解如何使用 Blitline 服務處理 Azure 應用程式內的影像。"
+	services=""
+	documentationCenter=".net"
+	authors="blitline-dev"
+	manager="jason@blitline.com"
 	editor="jason@blitline.com"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/09/2014" 
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/09/2014"
 	ms.author="support@blitline.com"/>
-
-
-
-
-
-
 # 如何使用搭配 Azure 和 Azure 儲存體的 Blitline
 
 本指南將說明如何存取 Blitline 服務，以及如何將工作提交至 Blitline。
 
-## 目錄
-
-[什麼是 Blitline？][] [Blitline 不是什麼][] [建立 Blitline 帳戶][] [如何建立 Blitline 工作][] [如何將影像儲存至您的 Azure 儲存體][] [後續步驟][]
-
-## <a id="whatis"></a>什麼是 Blitline？
+## 什麼是 Blitline？
 
 Blitline 是雲端影像處理服務，可提供企業級的影像處理，而價格卻只有自我建置的數分之一。
 
@@ -37,7 +27,7 @@ Blitline 是雲端影像處理服務，可提供企業級的影像處理，而�
 
 如需詳細資訊，請參閱 [http://www.blitline.com](http://www.blitline.com) (英文)。
 
-## <a id="whatisnot"></a>Blitline 不是什麼...
+## Blitline 不是什麼...
 
 若要釐清 Blitline 有什麼功能，在繼續之前，找出 Blitline 沒有什麼功能通常比較容易。
 
@@ -49,11 +39,11 @@ Blitline 是雲端影像處理服務，可提供企業級的影像處理，而�
 
 - Blitline 可大量平行處理，但無法執行任何同步處理。這表示您必須提供 postback\_url 給我們，我們會在處理完成時通知您。
 
-## <a id="createaccount"></a>建立 Blitline 帳戶
+## 建立 Blitline 帳戶
 
 [AZURE.INCLUDE [blitline-signup](../includes/blitline-signup.md)]
 
-## <a id="createjob"></a>如何建立 Blitline 工作
+## 如何建立 Blitline 工作
 
 Blitline 使用 JSON 定義您要對影像採取的動作。此 JSON 是由幾個簡單欄位組合而成。
 
@@ -97,7 +87,7 @@ Blitline 使用 JSON 定義您要對影像採取的動作。此 JSON 是由幾�
 
 這代表 Blitline 已收到您的要求，它已將您的要求置入處理佇列，以及當它完成映像時的位置：****https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
-## <a id="saveazure"></a>如何將影像儲存至您的 Azure 儲存體帳戶
+## 如何將影像儲存至您的 Azure 儲存體帳戶
 
 如果您有 Azure 儲存體帳戶，您可以輕易地要求 Blitline 將已處理的影像推送到 Azure 容器。透過新增 "azure\_destination"，您可以定義 Blitline 要推送的位置和權限。
 
@@ -121,7 +111,7 @@ Blitline 使用 JSON 定義您要對影像採取的動作。此 JSON 是由幾�
 
 透過靠您自己填入大寫值，您可以將此 JSON 提交至 http://api.blitline.com/job，並對 "src" 影像採用模糊濾鏡的處理，然後推送至 Azure 目的地。
 
-<h3>請注意：</h3>
+###請注意：
 
 SAS 必須包含整個 SAS URL，包括目的地檔案的檔案名稱。
 
@@ -133,7 +123,7 @@ SAS 必須包含整個 SAS URL，包括目的地檔案的檔案名稱。
 您也可以參閱[此處](http://www.blitline.com/docs/azure_storage) (英文) 的最新版本 Blitline Azure 儲存體文件。
 
 
-## <a id="nextsteps"></a>後續步驟
+## 後續步驟
 
 請造訪 blitline.com 以閱讀所有其他功能：
 
@@ -142,12 +132,4 @@ SAS 必須包含整個 SAS URL，包括目的地檔案的檔案名稱。
 * Blitline API 範例 <http://www.blitline.com/docs/examples>
 * 協力廠商 Nuget 程式庫 <http://nuget.org/packages/Blitline.Net>
 
-
-  [後續步驟]: #nextsteps
-  [什麼是 Blitline？]: #whatis
-  [Blitline 不是什麼]: #whatisnot
-  [建立 Blitline 帳戶]: #createaccount
-  [如何建立 Blitline 工作]: #createjob
-  [如何將影像儲存至您的 Azure 儲存體]: #saveazure
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

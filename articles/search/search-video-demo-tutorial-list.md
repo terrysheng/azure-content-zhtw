@@ -6,13 +6,13 @@
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-    tags="azure-portal"/>
+	tags="azure-portal"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="NA"
 	ms.workload="search"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.date="08/19/2015"
 	ms.author="heidist"/>
@@ -50,34 +50,35 @@
 逐步介紹|說明
 -----------|-----------
 [如何使用 Azure 搜尋搭配 D3.js 建置互動式資料視覺效果](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/)|部落格文章和範例程式碼示範如何將圖像式搜尋功能加入自訂應用程式中。
-[開始在 .NET 中使用 Azure 搜尋](search-get-started-dotnet.md)|了解如何在受管理的程式碼中使用 Azure 搜尋的教學課程。
-[開始在 NodeJS 中使用 Azure 搜尋服務](search-get-started-nodejs.md)|了解如何在 NodeJS 中使用 Azure 搜尋的教學課程。
+[開始在 .NET 中使用 Azure 搜尋](search-get-started-dotnet.md)|了解如何在受管理的程式碼中使用 Azure 搜尋。
+[開始在 NodeJS 中使用 Azure 搜尋服務](search-get-started-nodejs.md)|了解如何在 NodeJS 中使用 Azure 搜尋。
 [開始在 Java 中使用 Azure 搜尋服務](search-get-started-java.md)|Java 程式設計師專屬教學課程，說明如何使用 Eclipse 和 Apache Tomcat 伺服器來建置和執行使用 Azure 搜尋的範例應用程式。
 [Azure 搜尋案例和功能](http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/)|部落格文章包含由目前功能所啟用的主要案例。
-[如何以 .NET 使用 Azure 搜尋服務](search-howto-dotnet-sdk.md)|如何設定及執行與 Azure 搜尋整合的範例 Visual Studio Web 應用程式。
+[如何以 .NET 使用 Azure 搜尋服務](search-howto-dotnet-sdk.md)|設定及執行與 Azure 搜尋整合的範例 Visual Studio Web 應用程式。
 [如何將建議加入您的搜尋應用程式中](http://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)|了解如何實作建議，其通常稱作自動完成。這段示範影片逐步解說的數個主題，包括建立善用 Azure 搜尋建議的 MVC4 應用程式、使用 Twitter typeahead.js 程式庫在 JavaScript 中建置有效的自動建議元件，以及使用模糊建議以便您在使用者拼錯字時仍可回傳建議。
 [TechNet 虛擬實驗室：建置 Microsoft Azure 搜尋應用程式](http://go.microsoft.com/?linkid=9874663)|提供開發環境、工具、文件和資料的虛擬實驗室。您將需要 Azure 帳戶 (試用版訂閱或您個人的 Azure 訂閱皆可) 來完成實驗室。
 [使用 Azure 搜尋服務的地理空間搜尋應用程式開發](search-create-geospatial.md)|使用 Bing 地圖並協調以支援地理空間搜尋。
 [以 Azure 搜尋同步處理 SQL Server 資料](http://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/)|說明如何將資料從 SQL 伺服器關聯式資料庫載入至 Azure 搜尋索引的部落格文章。
 [評分設定檔教學課程](search-get-started-scoring-profiles.md)|使用主控台應用程式來試用評分設定檔。
-[Azure 搜尋管理 REST API 教學課程](search-get-started-management-api.md)|如何使用管理 REST API 來佈建及設定服務。
+[Azure 搜尋管理 REST API 教學課程](search-get-started-management-api.md)|如何使用管理 REST API 來佈建服務和管理系統管理員或查詢 API 金鑰。
 
 ##程式碼範例
 
 [****https://github.com/AzureSearch**](https://github.com/AzureSearch)是 Azure 搜尋的 GitHub 儲存機制，包含 Azure 搜尋開發小組所建立的程式碼範例。您可以瀏覽儲存機制來查看其內容，或按一下下方連結直接移至特定的範例。
 
-- GitHub 上的 [**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)。
-- GitHub 上的 [**NodeJSIndexerDemo**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)。
-- GitHub 上的 [**.NET-2015-02-28-Sample**](https://github.com/AzureSearch/.NET-2015-02-28-Sample)。
-- GitHub 上的 [**AzureSearch Microsoft Virtual Academy 訓練教材**](https://github.com/MicrosoftLearning/AzureSearch-MVA)。
+- [**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)
+- [**NodeJSIndexerDemo**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)
+- [**.NET-2015-02-28-Sample**](https://github.com/AzureSearch/.NET-2015-02-28-Sample) 是使用 .NET 用戶端程式庫進行搜尋作業的 ASP.NET MVC 5 應用程式。
+
+針對 [**AzureSearch Microsoft Virtual Academy 訓練教材**](https://github.com/MicrosoftLearning/AzureSearch-MVA)會使用不同的 GitHub 儲存機制。其中包含 7 部分課程中所使用的數個範例。
 
 您可以在 CodePlex 上找到數個在公開預覽期間發佈且仍然與目前版本相關的範例。
 
-- CodePlex 上的[**管理 REST API 示範**](https://azuresearchmgmtapi.codeplex.com/)。
-- CodePlex 上的 [**AdventureWorks 示範**](https://azuresearchadventureworksdemo.codeplex.com/)。
-- CodePlex 上的[**建議示範**](https://azsearchsuggestions.codeplex.com/SourceControl/latest)。
-- CodePlex 上的[** GeoSearch 範例**](https://azuresearchgeospatial.codeplex.com/)。
-- CodePlex 上的 [**SQL Server 對 Azure 搜尋同步範例**](http://sqlserver2azuresearch.codeplex.com/)。
-- CodePlex 上的[**評分設定檔示範**](https://azuresearchscoringprofiles.codeplex.com/)。
+- [**管理 REST API 示範**](https://azuresearchmgmtapi.codeplex.com/)是使用管理 REST API 的 Windows 主控台應用程式。
+- [**AdventureWorks 示範**](https://azuresearchadventureworksdemo.codeplex.com/)是 ASP.NET MVC 4 應用程式。
+- [**建議示範**](https://azsearchsuggestions.codeplex.com/SourceControl/latest)是 ASP.NET MVC 4 應用程式。
+- [**GeoSearch 範例**](https://azuresearchgeospatial.codeplex.com/)是 ASP.NET MVC 4 應用程式。
+- [**SQL Server 與 Azure 搜尋的同步處理範例**](http://sqlserver2azuresearch.codeplex.com/)是從內嵌的本機資料庫載入 SQL Server 資料列集的 Windows 主控台應用程式。
+- [**評分設定檔示範**](https://azuresearchscoringprofiles.codeplex.com/)是定義、執行和更新評分設定檔，以微調搜尋結果的 Windows 主控台應用程式。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

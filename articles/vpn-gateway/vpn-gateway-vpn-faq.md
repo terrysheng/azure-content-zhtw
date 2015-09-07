@@ -1,19 +1,19 @@
 <properties 
    pageTitle="虛擬網路 VPN 閘道常見問題集 |Microsoft Azure"
-   description="VPN 閘道常見問題集。Microsoft Azure 虛擬網路跨部署連線、混合式組態連線和 VPN 閘道的常見問題集"
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+	description="VPN 閘道常見問題集。Microsoft Azure 虛擬網路跨單位連線、混合式組態連線和 VPN 閘道的常見問題集"
+	services="vpn-gateway"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/16/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/20/2015"
+	ms.author="cherylmc"/>
 
 # VPN 閘道常見問題集
 
@@ -22,33 +22,36 @@
 ### 是否可以連接不同 Azure 區域中的虛擬網路？
 
 是。事實上，沒有區域限制。一個虛擬網路可以連接到相同區域或不同 Azure 區域中的另一個虛擬網路。
+
 ### 是否可以使用不同訂用帳戶連接虛擬網路？
 
 是。
 ### 是否可以從單一虛擬網路連接到多個網站？
 
 您可以使用 Windows PowerShell 和 Azure REST API 連接到多個網站。請參閱＜[多網站和 VNet 對 VNet 連線能力](#multi-site-and-vnet-to-vnet-connectivity)＞常見問題集一節。
-## 有哪些跨部署連線選項？
+## 有哪些跨單位連線選項？
 
-虛擬網路支援下列跨部署連線：
+支援下列跨單位連線：
 
 - [站台對站台](vpn-gateway-site-to-site-create.md) – 透過 IPsec (IKE v1 和 IKE v2) 的 VPN 連線。此類型的連線需要 VPN 裝置或 RRAS。
 
 - [點對站台](vpn-gateway-point-to-site-create.md) – 透過 SSTP (安全通訊端通道通訊協定) 的 VPN 連線。此連線不需要 VPN 裝置。
 
-- [VNet 對 VNet](../virtual-networks-vnet-to-vnet-connection.md) - 此類型的連線與站台對站台組態相同。VNet 對 VNet 是透過 IPsec (IKE v1 和 IKE v2) 的 VPN 連線，並不需要 VPN 裝置。
+- [VNet 對 VNet](virtual-networks-configure-vnet-to-vnet-connection.md) - 此類型的連線與站台對站台組態相同。VNet 對 VNet 是透過 IPsec (IKE v1 和 IKE v2) 的 VPN 連線，並不需要 VPN 裝置。
 
-- [多站台](http://go.microsoft.com/fwlink/?LinkID=615106) - 這是站台對站台組態的變體，可讓您將多個內部部署網站連接到虛擬網路。
+- [多站台](vpn-gateway-multi-site.md) - 這是站台對站台組態的變體，可讓您將多個內部部署網站連接到虛擬網路。
 
-- [ExpressRoute](../expressroute-overview.md) - ExpressRoute 是從 WAN 到 Azure 的直接連線，不透過公用網際網路。如需詳細資訊，請參閱＜[ExpressRoute 技術概觀](../expressroute-overview.md)＞和＜[ExpressRoute 常見問題集](../expressroute-faqs.md)＞。
+- [ExpressRoute](../expressroute/expressroute-introduction.md) - ExpressRoute 是從 WAN 到 Azure 的直接連線，不透過公用網際網路。如需詳細資訊，請參閱＜[ExpressRoute 技術概觀](../expressroute/expressroute-introduction.md)＞和＜[ExpressRoute 常見問題集](../expressroute/expressroute-faqs.md)＞。
 
 ### 站台對站台連線和點對站台之間的差異為何？
 
-**站台對站台**連線可讓您在任何位於您內部部署的電腦之間連接到虛擬網路內的任何虛擬機器或角色執行個體，視您選擇如何設定路由而定。對於永遠可用的跨部署連線而言，這是不錯的選項，而且非常適合於混合式組態。這種類型的連線依賴 IPsec VPN 應用裝置 (硬體或軟體應用裝置)，而此應用裝置必須部署在網路的邊緣。若要建立此類型的連線，您必須擁有必要的 VPN 硬體以及對外公開的 IPv4 位址。
+**站台對站台**連線可讓您在任何位於您內部部署的電腦之間連接到虛擬網路內的任何虛擬機器或角色執行個體，視您選擇如何設定路由而定。對於永遠可用的跨單位連線而言，這是不錯的選項，而且非常適合於混合式組態。這種類型的連線依賴 IPsec VPN 應用裝置 (硬體或軟體應用裝置)，而此應用裝置必須部署在網路的邊緣。若要建立此類型的連線，您必須擁有必要的 VPN 硬體以及對外公開的 IPv4 位址。
 
 **點對站台**連線可讓您從任何地方的單一電腦連線到位於虛擬網路的任何項目，並會使用 Windows 內建的 VPN 用戶端。做為點對站台組態的一部分，您會安裝憑證和 VPN 用戶端組態封裝，其中包含可讓您的電腦連接到虛擬網路內任何虛擬機器或角色執行個體的設定。當您想要連接到不在內部部署的虛擬網路時，這樣做很有用。當您無權存取 VPN 硬體或對外公開的 IPv4 位址時也是不錯的選項，因為這兩者都是站台對站台連線的必要項目。
 
-注意：您可以將虛擬網路設定為同時使用站台對站台和點對站台，前提是您使用動態路由閘道來建立站台對站台連線。如需詳細資訊，請參閱＜[關於虛擬網路安全跨部署連線能力](http://go.microsoft.com/fwlink/p/?LinkID=532884&clcid=0x409)＞。
+注意：您可以將虛擬網路設定為同時使用站台對站台和點對站台，前提是您使用動態路由閘道來建立站台對站台連線。
+
+如需詳細資訊，請參閱[關於虛擬網路的安全跨單位連線](vpn-gateway-cross-premises-options.md)。
 
 ### 什麼是 ExpressRoute？
 
@@ -56,21 +59,21 @@ ExpressRoute 可讓您在 Microsoft 資料中心和內部部署或共置環境�
 
 相較於網際網路一般連線，ExpressRoute 連線提供更好的安全性、更多的可靠性、更高的頻寬以及更低的延遲。在某些情況下，使用 ExpressRoute 連線在內部部署網路和 Azure 之間傳輸資料，也可以產生重大的成本效益。如果您已從內部部署網路建立到 Azure 的跨單位連線，則您可以在保持虛擬網路不變的情況下移轉至 ExpressRoute 連線。
 
-如需詳細資訊，請參閱〈[ExpressRoute 常見問題集](../expressroute-faqs.md)〉。
+如需詳細資訊，請參閱〈[ExpressRoute 常見問題集](../expressroute/expressroute-faqs.md)〉。
 
-## VPN 裝置和站台對站台連線
+## 站台對站台連線和 VPN 裝置
 
 ### 選取 VPN 裝置時應該考慮什麼？
 
-我們已與裝置廠商合作驗證一組標準站台對站台 VPN 裝置。可在[這裡](http://go.microsoft.com/fwlink/p/?LinkID=248098)找到已知的相容 VPN 裝置、其對應組態指示或範例和裝置規格的清單。裝置系列中列為已知相容裝置的所有裝置應該使用虛擬網路。為了協助設定 VPN 裝置，請參閱裝置組態範例或對應到適當裝置系列的連結。
+我們已與裝置廠商合作驗證一組標準站台對站台 VPN 裝置。可在[這裡](vpn-gateway-about-vpn-devices.md)找到已知的相容 VPN 裝置、其對應組態指示或範例和裝置規格的清單。裝置系列中列為已知相容裝置的所有裝置應該使用虛擬網路。為了協助設定 VPN 裝置，請參閱裝置組態範例或對應到適當裝置系列的連結。
 
 ### 如果我有不在已知相容裝置清單的 VPN 裝置，該怎麼辦？
 
-如果未看到您的裝置列為已知的相容 VPN 裝置，而且想要使用它進行 VPN 連線，則您將需要確認其符合支援的 IPsec/IKE 組態選項和參數 (在[這裡](http://go.microsoft.com/fwlink/p/?LinkID=615099)列出)。符合最低需求的裝置也應該適合使用虛擬網路。如需額外支援和設定指示，請連絡裝置製造商。
+如果未看到您的裝置列為已知的相容 VPN 裝置，而且想要使用它進行 VPN 連線，則您將需要確認其符合支援的 IPsec/IKE 組態選項和參數 (在[這裡](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list)列出)。符合最低需求的裝置也應該適合使用 VPN 閘道。如需額外支援和設定指示，請連絡裝置製造商。
 
 ### 可以使用軟體 VPN 連接到 Azure 嗎？
 
-我們支援 Windows Server 2012 路由及遠端存取 (RRAS) 伺服器進行站台對站台跨部署設定。
+我們支援 Windows Server 2012 路由及遠端存取 (RRAS) 伺服器進行站台對站台跨單位設定。
 
 其他軟體 VPN 解決方案只要符合業界標準 IPsec 實作，應該就能使用我們的閘道。如需設定和支援指示，請連絡軟體供應商。
 
@@ -152,17 +155,17 @@ Azure VPN 使用 PSK (預先共用金鑰) 驗證。當建立 VPN 通道時，就
 
 ### 什麼是「閘道子網路」，以及為何需要它？
 
-我們具有為了啟用跨部署連線能力而執行的閘道服務。我們需要 2 個來自您的路由網域的 IP位址，讓我們可在您的內部部署與雲端之間啟用路由。我們要求您至少指定一個 /29 子網路，讓我們可以從中挑選 IP 位址來設定路由。
+我們具有為了啟用跨單位連線能力而執行的閘道服務。我們需要 2 個來自您的路由網域的 IP位址，讓我們可在您的內部部署與雲端之間啟用路由。我們要求您至少指定一個 /29 子網路，讓我們可以從中挑選 IP 位址來設定路由。請了解，雖然您可以建立 /29 子網路，但某些功能需要特定的閘道大小。請遵循您要設定的功能的閘道子網路需求。
 
 請注意，您不得在閘道子網路中部署虛擬機器或角色執行個體。
 
 ### 如何指定通過 VPN 閘道的流量？
 
-在 [網路] 頁面的 [區域網路] 下，新增每一個您想要虛擬網路透過閘道傳送的範圍。
+如果您使用 Azure 入口網站，請在 [網路] 頁面的 [區域網路] 下，新增每一個您想要虛擬網路透過閘道傳送的範圍。
 
 ### 是否可以設定強制通道？
 
-是。請參閱＜[有關強制通道](vpn-gateway-about-forced-tunneling.md)＞。
+是。請參閱[設定強制通道](vpn-gateway-about-forced-tunneling.md)。
 
 ### 是否可以在 Azure 中設定自己的 VPN 伺服器，並用來連接到內部部署網路？
 
@@ -186,6 +189,10 @@ Azure VPN 使用 PSK (預先共用金鑰) 驗證。當建立 VPN 通道時，就
 
 是，它是由 IPsec/IKE 加密保護。
 
+### VNet 對 VNet 流量會經過 Azure 的骨幹嗎？
+
+是。
+
 ### 一個虛擬網路可以連接多少內部部署網站和虛擬網路？
 
 最大合計 10 (若為基本和標準的動態路由閘道)；30 (若為高效能 VPN 閘道)。
@@ -200,7 +207,7 @@ Azure VPN 使用 PSK (預先共用金鑰) 驗證。當建立 VPN 通道時，就
 
 ### 在連接的虛擬網路和內部部署本機網站之間是否可以有重疊的位址空間？
 
-否。重疊的位址空間會造成 NETCFG 上傳或「正在建立的虛擬網路」失敗。
+否。重疊的位址空間會造成 Netcfg 檔上傳或「正在建立的虛擬網路」失敗。
 
 ### 比起單一虛擬網路，是否可以使用更多的站台對站台 VPN，取得更多的頻寬？
 
@@ -208,7 +215,7 @@ Azure VPN 使用 PSK (預先共用金鑰) 驗證。當建立 VPN 通道時，就
 
 ### 是否可以使用 Azure VPN 閘道，在我的內部部署網站之間傳輸流量，或將流量傳輸到另一個虛擬網路？
 
-透過 Azure VPN 閘道傳輸流量是可行的，但其依賴 NETCFG 組態檔中靜態定義的位址空間。Azure 虛擬網路和 VPN 閘道尚未支援 BGP。若沒有 BGP，手動定義 NETCFG 中的傳輸位址空間很容易出錯，因此並不建議。
+透過 Azure VPN 閘道傳輸流量是可行的，但其依賴 Netcfg 組態檔中靜態定義的位址空間。Azure 虛擬網路和 VPN 閘道尚未支援 BGP。若沒有 BGP，手動定義 Netcfg 中的傳輸位址空間很容易出錯，因此並不建議。
 
 ### Azure 是否針對相同虛擬網路的所有我的 VPN 連線產生相同的 IPsec/IKE 預先共用金鑰？
 
@@ -216,21 +223,22 @@ Azure VPN 使用 PSK (預先共用金鑰) 驗證。當建立 VPN 通道時，就
 
 ### Azure 會對虛擬網路之間的流量收費嗎？
 
-對於不同 Azure 虛擬網路之間的流量，Azure 只會對從一個 Azure 區域周遊至另一個區域的流量收費。收費金額列在 Azure VPN 閘道[定價](https://azure.microsoft.com/pricing/details/vpn-gateway/)頁面中。
+對於不同 Azure 虛擬網路之間的流量，Azure 只會對從一個 Azure 區域周遊至另一個區域的流量收費。收費金額列在 Azure [VPN 閘道價格](https://azure.microsoft.com/pricing/details/vpn-gateway/)頁面中。
+
 
 ### 是否可以將使用 IPsec VPN 的虛擬網路連接到我的 ExpressRoute 電路？
 
-否，並不支援。
+是，支援此做法。如需詳細資訊，請參閱[設定並存的 ExpressRoute 和站對站 VPN 連線](../expressroute/expressroute-coexist.md)。
 
-## 連線能力和虛擬機器
+## 連線能力和 VM。
 
-### 如果我的 VM 在虛擬網路中，而且我有跨部署連線，應該如何連接至 VM？
+### 如果我的虛擬機器在虛擬網路中，而且我有跨單位連線，應該如何連接至 VM？
 
 您有幾個選項。如果您已啟用 RDP，並且已建立端點，則可以使用 VIP 連接到您的虛擬機器。在此情況下，您將指定 VIP 和您想要連接到的通訊埠。您將需要在虛擬機器上設定流量的連接埠。一般而言，您會移至管理入口網站，並將 RDP 連線的設定儲存到電腦。這些設定將包含必要的連線資訊。
 
-如果您有已設定跨部署連線的虛擬網路，則可以使用內部 DIP 或私人 IP 位址連接到您的虛擬機器。您也可以從位於相同虛擬網路的另一部虛擬機器透過內部 DIP 連接到您的虛擬機器。如果您是從虛擬網路外的位置連接，則無法使用 DIP 來 RDP 到虛擬機器。例如，如果您已設定點對站台虛擬網路，而且未從您的電腦建立連線，則無法透過 DIP 連線到虛擬機器。
+如果您有已設定跨單位連線的虛擬網路，則可以使用內部 DIP 或私人 IP 位址連接到您的虛擬機器。您也可以從位於相同虛擬網路的另一部虛擬機器透過內部 DIP 連接到您的虛擬機器。如果您是從虛擬網路外的位置連接，則無法使用 DIP 來 RDP 到虛擬機器。例如，如果您已設定點對站台虛擬網路，而且未從您的電腦建立連線，則無法透過 DIP 連線到虛擬機器。
 
-### 如果我的虛擬機器位於具有跨部署連線能力的虛擬網路，所有來自我的 VM 的流量是否都會通過該連線？
+### 如果我的虛擬機器位於具有跨單位連線能力的虛擬網路，所有來自我的 VM 的流量是否都會通過該連線？
 
 否。只有目地的 IP 包含在您指定之虛擬網路區域網路 IP 位址範圍的流量，才會通過虛擬網路閘道。目的地 IP 位於虛擬網路內的流量仍會留在虛擬網路內。其他流量是透過負載平衡器傳送至公用網路，或者如果使用強制通道，則透過 Azure VPN 閘道傳送。如果您進行疑難排解時，務必確定您有列在區域網路中，想要透過閘道傳送的所有範圍。請確認區域網路位址範圍不會與虛擬網路中的任何位址範圍重疊。此外，您也會想要驗證您所使用的 DNS 伺服器是否將名稱解析為適當的 IP 位址。
 
@@ -238,10 +246,10 @@ Azure VPN 使用 PSK (預先共用金鑰) 驗證。當建立 VPN 通道時，就
 
 如需額外的詳細資料，請檢視其他網路常見問題集：
 
-- [虛擬網路常見問題集](http://go.microsoft.com/fwlink/p/?LinkId=615155)
+- [虛擬網路常見問題集](../virtual-network/virtual-networks-faq.md)
 
-- [ExpressRoute 常見問題集](../expressroute-faqs.md)
+- [ExpressRoute 常見問題集](../expressroute/expressroute-faqs.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

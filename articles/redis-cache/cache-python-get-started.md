@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/17/2015"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # 如何搭配使用 Azure Redis 快取與 Python
@@ -28,7 +28,7 @@
 
 ## 在 Azure 上建立 Redis 快取
 
-在 [Azure 管理入口網站預覽](http://go.microsoft.com/fwlink/?LinkId=398536)中，依序按一下 [新增] 和 [資料 + 儲存體]，然後選取 [Redis 快取]。
+在 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=398536)中，依序按一下 [新增] 和 [資料 + 儲存體]，然後選取 [Redis 快取]。
 
   ![][1]
 
@@ -36,7 +36,7 @@
 
   ![][2]
 
-建立快取之後，請在 Azure 入口網站中按一下它，以檢視快取設定。您將需要：
+建立快取之後，請在 Preview 入口網站中按一下它，以檢視快取設定。您將需要：
 
 - **主機名稱。** 您在建立快取時輸入了這個名稱。
 - **連接埠。** 按一下 [連接埠] 下方的連結，以檢視連接埠。請使用 SSL 連接埠。
@@ -59,4 +59,4 @@
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,22 +1,28 @@
 <properties
    pageTitle="開始使用 Azure DNS | Microsoft Azure"
-   description="了解如何建立 Azure DNS 的 DNS 區域。這是建立第一個 DNS 區域以開始裝載 DNS 網域的逐步解說。"
-   services="dns"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor=""/>
+	description="了解如何建立 Azure DNS 的 DNS 區域。這是建立第一個 DNS 區域以開始裝載 DNS 網域的逐步解說。"
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/20/2015"
+	ms.author="joaoma"/>
 
 # 開始使用 Azure DNS
+
+
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-getstarted-create-dnszone-cli.md)
+- [Azure Powershell steps](dns-getstarted-create-dnszone.md)
+
 網域 'contoso.com' 可能包含許多的 DNS 記錄，例如 'mail.contoso.com' (用於郵件伺服器) 和 'www.contoso.com' (用於網站)。DNS 區域用來裝載特定網域的 DNS 記錄。<BR><BR> 為了開始裝載您的網域，我們必須先建立 DNS 區域。針對特定網域建立的任何 DNS 記錄，都位於該網域的 DNS 區域內。<BR><BR> 這些指示使用 Microsoft Azure PowerShell。請務必更新至最新的 Azure PowerShell，才能使用 Azure DNS Cmdlet。相同的步驟也可以使用 Microsoft Azure 命令列介面、REST API 或 SDK 來執行。<BR><BR>
 
 ## 設定 Azure DNS PowerShell
@@ -24,7 +30,7 @@
 必須先完成下列步驟，才能使用 Azure PowerShell 管理 Azure DNS。
 
 ### 步驟 1
- Azure DNS 使用 Azure 資源管理員 (ARM)。請確定您切換 PowerShell 模式來使用 ARM Cmdlet。如需詳細資訊，請參閱[將 Windows PowerShell 與資源管理員搭配使用](../powershell-azure-resource-manager)。<BR><BR>
+ Azure DNS 使用 Azure 資源管理員 (ARM)。請確定您切換 PowerShell 模式來使用 ARM Cmdlet。如需詳細資訊，請參閱[將 Windows PowerShell 與資源管理員搭配使用](powershell-azure-resource-manager.md)。<BR><BR>
 
 		PS C:\> Switch-AzureMode -Name AzureResourceManager
 
@@ -55,7 +61,7 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂用帳戶必須註冊為使用此資源提供者，您才能使用 Azure DNS。此為每個訂用帳戶的一次性作業。
 
-	PS C:\> Register-AzureProvider -ProviderNamespace Microsoft.Network
+	PS c:> Register-AzureProvider -ProviderNamespace Microsoft.Network
 
 
 
@@ -91,7 +97,7 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 
 
 - 「起始點授權」(SOA) 記錄。這出現在每個 DNS 區域的根。
-- 授權名稱伺服器 (NS) 記錄。這些顯示哪些名稱伺服器裝載該區域。Azure DNS 使用名稱伺服器集區，因此，不同的名稱伺服器可能會指派至 Azure DNS 中的不同區域。如需詳細資訊，請參閱[將網域委派給 Azure DNS](../dns-domain-delegation)。<BR>
+- 授權名稱伺服器 (NS) 記錄。這些顯示哪些名稱伺服器裝載該區域。Azure DNS 使用名稱伺服器集區，因此，不同的名稱伺服器可能會指派至 Azure DNS 中的不同區域。如需詳細資訊，請參閱[將網域委派給 Azure DNS](dns-domain-delegation.md)。<BR>
 
 若要檢視這些記錄，請使用 Get-AzureDnsRecordSet：
 
@@ -147,4 +153,4 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 [開始建立記錄集與記錄](dns-getstarted-create-recordset.md)<BR> [如何管理 DNS 區域](dns-operations-dnszones.md)<BR> [如何管理 DNS 記錄](dns-operations-recordsets.md)<BR> [使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)<BR> [Azure DNS REST API 參考](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

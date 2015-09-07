@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect Health 常見問題集" 
-	description="此常見問題集會回答 Azure AD Connect Health 的相關問題。這個常見問題集涵蓋使用服務的相關問題，包括計費模型、功能、限制及支援。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect Health 常見問題集"
+	description="此常見問題集會回答 Azure AD Connect Health 的相關問題。這個常見問題集涵蓋使用服務的相關問題，包括計費模型、功能、限制及支援。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/12/2015"
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015"
 	ms.author="billmath"/>
 
 
@@ -60,7 +60,7 @@ ADFS 伺服器上安裝 Microsoft Identity Health 代理程式對於 CPU、記�
 
 **問：Azure AD Connect Health 服務是否透過通過 http proxy 運作？**
 
-是，註冊程序與正常的操作可以透過明確的 proxy 設定運作，以轉送輸入 http 要求。在此情況下，"Netsh WinHttp set Proxy" 無法運作，因為代理程式使用 System.Net (而不是 Microsoft Windows HTTP 服務) 提出 Web 要求。 
+是，註冊程序與正常的操作可以透過明確的 proxy 設定運作，以轉送輸入 http 要求。在此情況下，"Netsh WinHttp set Proxy" 無法運作，因為代理程式使用 System.Net (而不是 Microsoft Windows HTTP 服務) 提出 Web 要求。
 
 在執行 Register-AdHealthAgent (安裝的最後一個步驟) 之前的任何時間執行
 
@@ -68,10 +68,9 @@ ADFS 伺服器上安裝 Microsoft Identity Health 代理程式對於 CPU、記�
 - 步驟 1 – 將項目加入至 machine.config 檔案中
 
 
-找出 machine.config 檔案。此檔案位於 %windir%\Microsoft.NET\Framework64[version]\config\machine.config</li>
+找出 machine.config 檔案。此檔案位於 %windir%\\Microsoft.NET\\Framework64[version]\\config\\machine.config</li>
 
 在 machine.config 檔案的 <configuration></configuration> 元素底下加入下列項目。
- 
 		
 	<system.net>  
 			<defaultProxy useDefaultCredentials="true">
@@ -84,7 +83,7 @@ ADFS 伺服器上安裝 Microsoft Identity Health 代理程式對於 CPU、記�
 
  
 
-您可以在 [這裡] (https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx) 找到額外的 <defaultProxy> 資訊。
+您可以在 [這裡] (https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110)) 找到額外的 <defaultProxy> 資訊。
 
 此設定會設定整個 .NET 應用程式系統在提出 http.NET 要求時，使用明確定義的 Proxy。不建議修改每個個別的 app.config，因為在自動更新期間，將會復原這個檔案。如果您只修改 machine.config，您只需要變更一個檔案，它就會透過更新保存。
 
@@ -128,4 +127,11 @@ Azure AD Connect Health 警示會在成功情況下獲得解決。Azure AD Conne
 
 您必須開放 TCP/UDP 連接埠 80 和 443，Azure AD Connect Health 代理程式才能夠與 Azure AD Health 服務端點進行通訊。
 
-<!----HONumber=August15_HO6-->
+## 相關連結
+
+* [Azure AD Connect Health](active-directory-aadconnect-health.md)
+* [適用於 AD FS 的 Azure AD Connect Health 代理程式安裝](active-directory-aadconnect-health-agent-install-adfs.md)
+* [在 AD FS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adfs.md)
+* [Azure AD Connect Health 操作](active-directory-aadconnect-health-operations.md)
+
+<!---HONumber=August15_HO9-->

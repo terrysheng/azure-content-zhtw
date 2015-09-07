@@ -1,20 +1,20 @@
 
 <properties 
-	pageTitle="使用 Azure AD Connect 同步處理規則編輯器" 
-	description="了解如何使用 Azure AD Connect 同步處理規則編輯器。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="使用 Azure AD Connect 同步處理規則編輯器"
+	description="了解如何使用 Azure AD Connect 同步處理規則編輯器。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure AD Connect 同步處理規則編輯器
@@ -31,7 +31,7 @@
 ### 說明
 第一個區段提供基本資訊，例如名稱和說明。
 
-<center>![聯結規則](./media/active-directory-aadconnect-whats-next-synch-rules-editor/sync1.png) </center>
+<center>![聯結規則](./media/active-directory-aadconnect-whats-next-synch-rules-editor/synch1.png) </center>
 
 我們也會尋找一些資訊，例如哪個已連線系統與此規則有關、哪個已連線系統的物件類型適用於此規則，以及 Metaverse 物件的類型。無論來源物件類型為使用者、iNetOrgPerson 或連絡人，Metaverse 物件類型一律須與個人有關。Metaverse 物件類型永遠不會改變，所以它必須以一般類型建立。您可以將連結類型設為 Join、StickyJoin 或 Provision。此設定會與聯結規則共同運作，稍後我們將討論其運作方式。
 
@@ -74,4 +74,4 @@
 轉換主題相當龐大，它會盡可能使用 Azure AD Connect 提供大部分的自訂組態。在此概觀文件中，我們將不會討論自訂組態；但稍後我們會在此文件中討論其他屬性流程。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

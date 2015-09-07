@@ -51,12 +51,12 @@
     在此精靈頁面上… | 指定這些值
 	------------- | -------------
 	**虛擬網路詳細資料** | <p>名稱：輸入虛擬網路的名稱，例如 WestUSVNet。</p><p>區域：選擇最近的區域。</p>
-	**DNS 和 VPN 連線能力** | <p>DNS 伺服器：指定一或多個內部部署 DNS 伺服器的名稱與 IP 位址。</p><p>連線能力：選取 [設定站對站 VPN]。</p><p>區域網路：指定新的區域網路。</p><p>如果您使用 ExpressRoute 而不是 VPN，請參閱 [透過 Exchange 提供者設定 ExpressRoute 連線](https://msdn.microsoft.com/library/azure/dn606306.aspx)。</p>
+	**DNS 和 VPN 連線能力** | <p>DNS 伺服器：指定一或多個內部部署 DNS 伺服器的名稱與 IP 位址。</p><p>連線能力：選取 [**設定站對站 VPN**]。</p><p>區域網路：指定新的區域網路。</p><p>如果您使用 ExpressRoute 而不是 VPN，請參閱[透過 Exchange 提供者設定 ExpressRoute 連線](../expressroute/expressroute-configuring-exps.md)。</p>
 	**站對站連線能力** | <p>名稱：輸入內部部署網路的名稱。</p><p>VPN 裝置 IP 位址：指定將連線到虛擬網路的裝置公用 IP 位址。VPN 裝置不能位於 NAT 後方。</p><p>位址：指定內部部署網路的位址範圍 (例如案例圖表中的 192.168.0.0/16)。</p>
 	**虛擬網路位址空間** | <p>位址空間：指定您想要在 Azure 虛擬網路中執行的 VM IP 位址範圍 (例如案例圖表中的 10.1.0.0/16)。此位址範圍不得與內部部署網路的位址範圍重疊。</p><p>子網路：指定應用程式伺服器的子網路名稱和位址 (例如前端 10.1.1.0/24) 以及網域控制站的子網路名稱和位址 (例如後端 10.1.2.0/24)。</p><p>按一下 [加入閘道器子網路]。</p>
 
-2. 接著，您要設定虛擬網路閘道器來建立安全的站台對站台 VPN 連線。如需指示，請參閱[設定虛擬網路閘道](https://msdn.microsoft.com/library/azure/jj156210.aspx)。
-3. 在新的虛擬網路與內部部署 VPN 裝置之間建立站台對站台 VPN 連線。如需指示，請參閱[設定虛擬網路閘道](https://msdn.microsoft.com/library/azure/jj156210.aspx)。
+2. 接著，您要設定虛擬網路閘道器來建立安全的站台對站台 VPN 連線。如需指示，請參閱[設定虛擬網路閘道](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md)。
+3. 在新的虛擬網路與內部部署 VPN 裝置之間建立站台對站台 VPN 連線。如需指示，請參閱[設定虛擬網路閘道](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md)。
 
 
 
@@ -86,7 +86,7 @@
 
 ## 重新設定虛擬網路的 DNS 伺服器
 
-1. 在 Azure 的傳統網站中，按一下虛擬網路的名稱，然後按一下 [設定] 索引標籤[重新設定虛擬網路的 DNS 伺服器 IP 位址](https://msdn.microsoft.com/library/azure/dn275925.aspx)，以使用指派給複本網域控制站的靜態 IP 位址，而不是內部部署 DNS 伺服器的 IP 位址。
+1. 在 Azure 傳統入口網站中，按一下虛擬網路的名稱，然後按一下 [**設定**] 索引標籤[重新設定虛擬網路的 DNS 伺服器 IP 位址](virtual-networks-manage-dns-in-vnet.md)，以使用指派給複本網域控制站的靜態 IP 位址，而不是內部部署 DNS 伺服器的 IP 位址。
 
 2. 若要確保虛擬網路上的所有複本 DC VM 都已設定使用虛擬網路上的 DNS 伺服器，請按一下 [虛擬機器]，按一下每個 VM 的狀態欄，然後按一下 [重新啟動]。請等到 VM 顯示 [執行中] 狀態，再嘗試登入。
 
@@ -113,7 +113,7 @@
 -  [在 Azure 虛擬機器上部署 Windows Server Active Directory 的指導方針](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 -  [如何使用 Azure PowerShell 將現有的內部部署 Hyper-V 網域控制站上傳到 Azure](http://support.microsoft.com/kb/2904015)
 -  [在 Azure 虛擬網路上安裝新的 Active Directory 樹系](../active-directory-new-forest-virtual-machine.md)
--  [Azure 虛擬網路](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+-  [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)
 -  [Microsoft Azure IT Pro IaaS：(01) 虛擬機器基本概念](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IT Pro IaaS：(05) 建立虛擬網路和跨單位連線](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
@@ -122,4 +122,4 @@
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

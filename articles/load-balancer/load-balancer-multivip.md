@@ -1,19 +1,19 @@
 <properties 
    pageTitle="每一雲端服務有多重 VIP"
-   description="MultiVIP 的概觀以及如何在雲端服務上設定多重 VIP"
-   services="load-balancer"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor="tysonn" />
+	description="MultiVIP 的概觀以及如何在雲端服務上設定多重 VIP"
+	services="load-balancer"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/23/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/23/2015"
+	ms.author="joaoma"/>
 
 # 每一雲端服務有多重 VIP
 您可以使用 Azure 所提供的 IP 位址，透過公用網際網路存取 Azure 雲端服務。此公用 IP 位址也稱為 VIP (虛擬 IP)，因為它會連結至 Azure 負載平衡器，而且不是雲端服務中真正的 VM 執行個體。您可以使用單一 VIP 來存取雲端服務中的任何 VM 執行個體。
@@ -150,9 +150,9 @@ VIP 預設是動態的，這表示指派給雲端服務的實際 IP 位址會隨
 
 [開始使用網際網路面向的負載平衡器](load-balancer-internet-getstarted.md)
 
-[虛擬網路概觀](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)
 
 [保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

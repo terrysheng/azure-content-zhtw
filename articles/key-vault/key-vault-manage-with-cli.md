@@ -41,7 +41,7 @@
 
 本教學課程假設您熟悉命令列介面 (Bash、終端機、命令提示字元)
 
-\--help 或 -h 參數可用於檢視特定命令的說明。或者，您也可使用 azure help [command] [options] 格式傳回相同資訊。例如，以下命令全部都會傳回相同的資訊：
+--help 或 -h 參數可用於檢視特定命令的說明。或者，您也可使用 azure help [command] [options] 格式傳回相同資訊。例如，以下命令全部都會傳回相同的資訊：
 
     azure account set --help
 
@@ -185,7 +185,10 @@
 例如，如果您的保存庫名稱是 ContosoKeyVault，且您要授權的應用程式具有 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed 的用戶端識別碼，您想要授權應用程式使用保存庫中的金鑰來進行解密並簽署，則請執行下列作業：
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '[“decrypt”,”sign”]'
+    
+如果您想要授權該相同的應用程式讀取您保存庫中的機密資料，請執行以下命令：
 
+	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["Get"]'
 
 ## 如果想要使用硬體安全模組 (HSM) ##
 
@@ -252,4 +255,4 @@
 
 如需程式設計參考，請參閱 [Azure 金鑰保存庫 REST API 參考](https://msdn.microsoft.com/library/azure/dn903609.aspx)和 [Azure 金鑰保存庫 C# 用戶端 API 參考](https://msdn.microsoft.com/library/azure/dn903628.aspx)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

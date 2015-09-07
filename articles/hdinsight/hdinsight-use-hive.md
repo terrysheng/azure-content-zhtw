@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/06/2015"
+	ms.date="08/21/2015"
 	ms.author="larryfr"/>
 
 # 搭配 HDInsight 中的 Hadoop 使用 Hive 和 HiveQL 來分析範例 Apache Log4j 檔案
@@ -119,13 +119,26 @@ HDInsight 可以使用各種方法執行 Hive QL 工作。請使用下表決定�
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) | &nbsp; | ✔ | Linux 或 Windows | Windows |
 | [遠端桌面](hdinsight-hadoop-use-hive-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
 
+## 使用內部部署 SQL Server Integration Services 在 Azure HDInsight 叢集執行 Hive 工作
+
+您也可以使用 SQL Server Integration Services (SSIS) 來執行 Hive 工作。適用於 SSIS 的 Azure Feature Pack 中提供下列元件可搭配 HDInsight 上的 Hive 工作使用。
+
+
+- [Azure HDInsight Hive 工作][hivetask]
+- [Azure 訂用帳戶連接管理員][connectionmanager]
+
+
+在[這裡][ssispack]深入了解適用於 SSIS 的 Azure Feature Pack。
+
+
 ##<a id="nextsteps"></a>接續步驟
 
 現在您已了解什麼是 Hive 以及如何搭配 HDInsight 中的 Hadoop 使用它，接著請使用下列連結探索 Azure HDInsight 的其他使用方式。
 
-* [將資料上傳至 HDInsight][hdinsight-upload-data]
-* [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
-* [搭配 HDInsight 使用 MapReduce 工作][hdinsight-use-mapreduce]
+
+- [將資料上傳至 HDInsight][hdinsight-upload-data]
+- [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
+- [搭配 HDInsight 使用 MapReduce 工作][hdinsight-use-mapreduce]
 
 [check]: ./media/hdinsight-use-hive/hdi.checkmark.png
 
@@ -142,6 +155,9 @@ HDInsight 可以使用各種方法執行 Hive QL 工作。請使用下表決定�
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[hivetask]: http://msdn.microsoft.com/zh-TW/library/mt146771(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/zh-TW/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/zh-TW/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -163,4 +179,4 @@ HDInsight 可以使用各種方法執行 Hive QL 工作。請使用下表決定�
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

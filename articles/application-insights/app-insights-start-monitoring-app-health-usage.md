@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="加入 Application Insights SDK 監視 ASP.NET 應用程式" 
-	description="使用 Application Insights 分析內部部署或 Microsoft Azure Web 應用程式的使用情況、可用性和效能。" 
-	services="application-insights" 
-    documentationCenter=".net"
-	authors="alancameronwills" 
+<properties
+	pageTitle="加入 Application Insights SDK 監視 ASP.NET App | Microsoft Azure"
+	description="使用 Application Insights 分析內部部署或 Microsoft Azure Web 應用程式的使用情況、可用性和效能。"
+	services="application-insights"
+	documentationCenter=".net"
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/05/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/05/2015"
 	ms.author="awills"/>
 
 
@@ -54,7 +54,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 應用程式類型的選擇會設定[計量瀏覽器][metrics]中可見的資源刀鋒視窗和屬性的預設內容。
 
-####  取得檢測金鑰的副本。
+#### 檢測金鑰的副本
 
 該金鑰識別資源，您很快就會將它安裝在 SDK 中，以將資源導向資料。
 
@@ -74,25 +74,24 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
     ![搜尋「Application Insights」](./media/app-insights-start-monitoring-app-health-usage/04-ai-nuget.png)
 
-
 3. 編輯 ApplicationInsights.config (已由 NuGet 安裝加入)。在結尾標記前面插入此內容：
 
     `<InstrumentationKey>` *您複製的檢測金鑰* `</InstrumentationKey>`
 
-    (或者，您可以在應用程式中[撰寫一些程式碼來設定金鑰][apikey]。)
+    (或者，您可以在 App 中[撰寫一些程式碼來設定金鑰][apikey])。
 
 #### 若要升級至未來的 SDK 版本
 
 我們隨時會發行新版的 SDK。
 
-若要升級至[新版的 SDK](app-insights-release-notes-dotnet.md)，請再次開啟 NuGet 封裝管理員，並篩選出已安裝的封裝。選取 Microsoft.ApplicationInsights.Web 然後選擇 [升級]。
+若要升級至[新版的 SDK](app-insights-release-notes-dotnet.md)，請再次開啟 NuGet 封裝管理員，並篩選出已安裝的封裝。選取 **Microsoft.ApplicationInsights.Web** 然後選擇 [升級]。
 
 如果您已對 ApplicationInsights.config 進行任何的自訂，請在升級前儲存複本，並在升級後合併您的變更到新版本中。
 
 
 ## <a name="run"></a> 3.執行專案
 
-利用 F5 執行應用程式並立即試用：開啟不同的頁面來產生一些遙測。
+使用 **F5** 執行應用程式並立即試用：開啟不同的頁面來產生一些遙測。
 
 在 Visual Studio 中，您可以看見已傳送到的事件計數。
 
@@ -100,7 +99,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 ## <a name="monitor"></a> 4.檢視遙測
 
-返回 [Azure 入口網站][portal]，瀏覽至您的 Application Insights 資源。
+返回 [Azure 入口網站][portal]，並且瀏覽至您的 Application Insights 資源。
 
 
 在 [概觀] 圖表中尋找資料。剛開始的時候，您只會看見一或兩個資料點。例如：
@@ -125,7 +124,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 請參閱[此疑難排解項目](app-insights-troubleshoot-faq.md#NuGetBuild)。
 
-## 加入相依性追蹤
+## 5\.加入相依性追蹤
 
 SDK 需要一些協助，才能取得某些資料的存取權。特別是，您需要這個額外步驟才能自動測量您的應用程式對資料庫、REST API 和其他外部元件的呼叫。這些相依性度量對於協助您診斷效能問題的價值難以衡量。
 
@@ -133,7 +132,7 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 使用系統管理員權限登入您的伺服器，並安裝 [Application Insights 狀態監視器](http://go.microsoft.com/fwlink/?LinkId=506648)。
 
-(您也可以使用狀態監視器來[檢測已在執行的 app](app-insights-monitor-performance-live-website-now.md)，即使它不是使用 SDK 建置。)
+(即使 App 不是使用 SDK 建置，您也可以使用狀態監視器[檢測已在執行的 App](app-insights-monitor-performance-live-website-now.md))。
 
 #### 如果您的 app 是 Azure Web 應用程式
 
@@ -143,7 +142,7 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 (延伸模組只能協助使用 SDK 建置的 app。與狀態監視器不同，它無法檢測現有的應用程式。)
 
-## 加入用戶端監視
+## 6\.加入用戶端監視
 
 您已安裝會從應用程式的伺服器 (後端) 傳送遙測資料的 SDK。現在您可以加入用戶端監視。這可提供有關在用戶端中發生的使用者、工作階段、頁面檢視和任何例外狀況或損毀的相關資料。
 
@@ -161,12 +160,12 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 #### 如果您的用戶端是裝置 app
 
-如果您的應用程式為用戶端 (例如電話或其他裝置) 提供服務，請將[適當的 SDK](app-insights-platforms.md) 加入至您的裝置應用程式。
+如果您的應用程式為用戶端 (例如電話或其他裝置) 提供服務，請將[適當的 SDK](app-insights-platforms.md) 加入至您的裝置 App。
 
 如果您使用與伺服器 SDK 相同的檢測金鑰來設定用戶端 SDK，將整合兩個資料流，讓您同時看到。
 
 
-## 完成安裝
+## 7\.完成安裝
 
 若要取得您的應用程式的全方位檢視，您還可以執行一些動作：
 
@@ -176,13 +175,13 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 ## <a name="ide"></a> 自動化方式
 
-我們在這份文件的頂端提過，我們會告訴您如何以手動方式建立 Application Insights 資源，然後再安裝 SDK。我們相信這可以協助您了解該程序的兩個部分。但對於 ASP.NET 應用程式 (以及其他許多應用程式) 而言，還有更快速的自動化方式。
+我們在這份文件的開頭提過，我們會告訴您如何以手動方式建立 Application Insights 資源，然後再安裝 SDK。我們相信這可以協助您了解該程序的兩個部分。但對於 ASP.NET 應用程式 (以及其他許多應用程式) 而言，還有更快速的自動化方式。
 
-[您需要有 Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013 Update 3 或更新版本)，以及 [Microsoft Azure](http://azure.com) 中的帳戶。
+您需要有 [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013 Update 3 或更新版本)，以及 [Microsoft Azure](http://azure.com) 中的帳戶。
 
 #### 對於新專案
 
-當您在 Visual Studio 中建立新專案時，請務必選取 Application Insights。
+當您在 Visual Studio 中建立新專案時，請務必選取 [加入 Application Insights]。
 
 
 ![Create an ASP.NET project](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
@@ -193,7 +192,7 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 
 #### ... 對於現有專案
 
-在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [Add Application Insights]。
+在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [加入 Application Insights]。
 
 ![Choose Add Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -207,9 +206,9 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 
 如果此應用程式是更大應用程式的一部分，您可以使用 [**組態設定**]，將它放在與其他元件相同的資源群組中。
 
-*沒有 Application Insights 選項嗎？ 請檢查您是否正在使用 Visual Studio 2013 Update 3 或更新版本、是否已在 [擴充功能和更新] 中啟用 Application Insights Tools。*
+*沒有 Application Insights 選項嗎？ 請檢查您是否使用 Visual Studio 2013 Update 3 或更新版本，而且是否已在 [擴充功能和更新] 中啟用 Application Insights Tools。*
 
-#### 從專案開啟 Application Insights。
+#### 從專案開啟 Application Insights
 
 ![Right-click your project and open the Azure portal](./media/app-insights-start-monitoring-app-health-usage/appinsights-04-openPortal.png)
 
@@ -241,6 +240,4 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
- 
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

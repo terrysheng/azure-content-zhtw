@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # 使用 Azure 資源管理員範本和 PowerShell 部署以及管理虛擬機器
@@ -962,4 +962,4 @@
 
 [如何安裝和設定 Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="StorSimple 安全性 |Microsoft Azure" 
-   description="說明保護 StorSimple 服務、裝置和資料的安全性和隱私權功能。" 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="AdinaH" 
-   editor=""/>
+   pageTitle="StorSimple 安全性 |Microsoft Azure"
+	description="說明保護內部部署和雲端中之 StorSimple 服務、裝置和資料的安全性和隱私權功能。"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="Carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/17/2015"
-   ms.author="v-sharos"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="v-sharos"/>
 
-# StorSimple 安全性 
+# StorSimple 安全性和資料保護
 
 ## 概觀
 
@@ -253,4 +253,4 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 [部署您的 StorSimple 裝置](storsimple-deployment-walkthrough.md)。
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

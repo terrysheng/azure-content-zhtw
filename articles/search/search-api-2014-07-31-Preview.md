@@ -1,6 +1,6 @@
 <properties pageTitle="Azure 搜尋服務 REST API 版本 2014-07-31-Preview" description="Azure 搜尋服務 REST API：版本 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/22/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/26/2015" ms.author="heidist"/>
 
 # Azure 搜尋服務 REST API 版本：2014-07-31-Preview
 
@@ -125,8 +125,7 @@ ________________________________________
     "fields": [
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
-      {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true, analyzer="fr.lucene"},
+      {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true}
       {"name": "hotelName", "type": "Edm.String", "suggestions": true},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -164,7 +163,7 @@ ________________________________________
 
 索引名稱必須是小寫、開頭為字母或數字、不可有斜線或點，且上限為 128 個字元。將索引名稱的開頭設為字母或數字之後，名稱的其餘部分就能包含任意字母、數字及破折號 (但不可為連續破折號)。
 
-`api-version` 為必要項目。有效值包括 `2014-07-31-Preview` 或 `2014-10-20-Preview`。您可以指定在每個要求上使用哪一個值來取得版本特定的行為，但最佳做法是在整個程式碼中使用同一個版本。針對一般用法，建議的版本為 `2014-07-31-Preview`。或者，使用 `2014-10-20-Preview` 來評估實驗性功能，例如，支援透過分析器索引屬性來表達的語言分析器。如需 API 版本的詳細資訊，請參閱[搜尋服務版本設定](http://msdn.microsoft.com/library/azure/dn864560.aspx)。如需語言分析器的詳細資訊，請參閱[語言支援](#LanguageSupport)。
+`api-version` 為必要項目。有效值包括 `2014-07-31-Preview` 或 `2014-10-20-Preview`。您可以指定在每個要求上使用哪一個值來取得版本特定的行為，但最佳做法是在整個程式碼中使用同一個版本。針對一般用法，建議的版本為 `2014-07-31-Preview`。或者，使用 `2014-10-20-Preview` 來評估實驗性功能，例如，支援透過分析器索引屬性來表達的語言分析器。
 
 **要求標頭**
 
@@ -274,321 +273,6 @@ ________________________________________
 
 `scoringProfiles` - 定義自訂評分行為，讓您能夠影響搜尋結果中哪些項目的出現機率會比較高。評分設定檔是由加權欄位和函式所組成。如需評分設定檔中所使用的屬性詳細資訊，請參閱[將評分設定檔新增至搜尋索引](http://msdn.microsoft.com/library/azure/dn798928.aspx)。
 
-`analyzer` - 設定要針對此欄位使用的文字分析器名稱。如需允許的值組，請參閱[語言支援](#LanguageSupport)。此選項只能與 `searchable` 欄位搭配使用。選擇分析器之後，就無法針對此欄位進行變更。
-
-
-<a name="LanguageSupport"></a> **語言支援**
-
-可搜尋的欄位最常執行的分析是斷字、文字正規化，以及篩選出字詞。根據預設，Azure 搜尋服務中可搜尋的欄位是使用 [Apache Lucene 標準分析器](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html)進行分析，並依照[「Unicode 文字區段」](http://unicode.org/reports/tr29/)規則來將文字分隔為元素。此外，標準分析器會將所有字元轉換為它們的小寫形式。已編製索引的文件和搜尋字詞在編製索引和查詢處理期間都會執行分析。
-
-Azure 搜尋服務允許以各種語言來編製欄位的索引。這些語言中的每一個都需要非標準的文字分析器，以負責指定語言的特性。例如，法文分析器會應用[輕度法文詞幹分析器](http://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/fr/FrenchLightStemmer.html)來減少其[字組詞幹](http://en.wikipedia.org/wiki/Stemming)的字組。此外，它會從分析的文字中移除[元音省略](http://en.wikipedia.org/wiki/Elision)和法文停用字詞。適用於英文的分析器可擴充標準分析器。它會從字組中移除所有格 (結尾的 's)、為每個 [Porter 詞幹演算法](http://tartarus.org/~martin/PorterStemmer/)套用詞幹，然後移除英文[停用字詞](http://en.wikipedia.org/wiki/Stop_words)。
-
-您可以藉由設定 `analyzer` 屬性，為索引定義中的每個欄位個別設定分析器。例如，您可以有個別適用於英文、法文及西班牙文旅館說明的欄位，這些欄位會以相同的索引並列存在。該查詢會指定要在您的搜尋查詢中傳回哪一個語言特定的欄位。
-
-以下是支援的分析器清單以及其功能特性的簡短說明：
-
-<table style="font-size:12">
-    <tr>
-		<th>語言</th>
-		<th>分析器名稱</th>
-		<th>說明</th>
-	</tr>
-    <tr>
-		<td>阿拉伯文</td>
-		<td>ar.lucene</td>
-		<td>
-		<ul>
-			<li>實作阿拉伯文拼字正確正規化</li>
-			<li>應用輕度演算法詞幹分析</li>
-			<li>篩選出阿拉伯文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>巴西文</td>
-		<td>pt-Br.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出巴西文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>簡體中文</td>
-		<td>zh-Hans.lucene</td>
-		<td>
-		<ul>
-			<li>使用機率知識模型來尋找最佳的字詞分割</li>
-			<li>篩選出中文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>繁體中文</td>
-		<td>zh-Hant.lucene</td>
-		<td>
-		<ul>
-			<li>編製雙字母組合的索引 (重疊兩個相鄰中文字元的群組)</li>
-			<li>將字元寬度差異正規化</li>
-		</ul>
-		</td>
-	<tr>
-    <tr>
-		<td>捷克文</td>
-		<td>cs.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出捷克文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>丹麥文</td>
-		<td>da.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出丹麥文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>荷蘭文</td>
-		<td>nl.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出荷蘭文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>德文</td>
-		<td>de.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出德文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>希臘文</td>
-		<td>el.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出希臘文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>English</td>
-		<td>en.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出英文停用字詞</li>
-			<li>移除所有格</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>芬蘭文</td>
-		<td>fi.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出芬蘭文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>法文</td>
-		<td>fr.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出法文停用字詞</li>
-			<li>移除元音省略</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>北印度文</td>
-		<td>hi.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出北印度文停用字詞</li>
-			<li>移除拼字變體中的一些差異</li>
-			<li>將印度語中文字的 Unicode 表示法正規化。</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>匈牙利文</td>
-		<td>hu.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出匈牙利文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>印尼文 (Bahasa)</td>
-		<td>id.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出印尼文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>義大利文</td>
-		<td>it.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出義大利文停用字詞</li>
-			<li>移除元音省略</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>日文</td>
-		<td>ja.lucene</td>
-		<td>
-		<ul>
-			<li>使用形態分析</li>
-			<li>將常見的片假名拼字變體正規化</li>
-			<li>輕度移除停用字詞/停用標記</li>
-			<li>字元寬度正規化</li>
-			<li>詞形還原 - 使字尾有變化的形容詞和動詞變為它們的基本形式</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>韓文</td>
-		<td>ko.lucene</td>
-		<td>
-		<ul>
-			<li>編製雙字母組合的索引 (重疊兩個相鄰中文字元的群組)</li>
-			<li>將字元寬度差異正規化</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>拉脫維亞文</td>
-		<td>lv.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出拉脫維亞文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-
-    <tr>
-		<td>挪威文</td>
-		<td>no.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出挪威文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>波蘭文</td>
-		<td>pl.lucene</td>
-		<td>
-		<ul>
-			<li>應用演算法詞幹分析 (Stempel)</li>
-			<li>篩選出波蘭文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>葡萄牙文</td>
-		<td>pt-Pt.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出葡萄牙文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-
-    <tr>
-		<td>羅馬尼亞文</td>
-		<td>ro.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出羅馬尼亞文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>俄文</td>
-		<td>ru.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出俄文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>西班牙文</td>
-		<td>es.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出西班牙文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>瑞典文</td>
-		<td>sv.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出瑞典文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>土耳其文</td>
-		<td>tr.lucene</td>
-		<td>
-		<ul>
-			<li>去除所有格符號 (包括所有格符號本身) 之後的所有字元</li>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出土耳其文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>泰文</td>
-		<td>th.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出泰文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-</table>
-
-所有名稱加上 <i>lucene</i> 註解的分析器都是由 [Apache Lucene 的語言分析器](http://lucene.apache.org/core/4_9_0/analyzers-common/overview-summary.html)所提供。
-
 **CORS 選項**
 
 用戶端的 Javascript 預設無法呼叫任何 API，因為瀏覽器將阻止所有跨原始來源的要求。設定 `corsOptions` 屬性來啟用 CORS (跨原始資源共用)，以允許對您的索引進行跨原始來源查詢。請注意，基於安全緣故，只有查詢 API 支援 CORS。您可以為 CORS 設定下列選項：
@@ -605,7 +289,6 @@ Azure 搜尋服務允許以各種語言來編製欄位的索引。這些語言�
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true, analyzer="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String", "suggestions": true},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -632,7 +315,7 @@ Azure 搜尋服務允許以各種語言來編製欄位的索引。這些語言�
     Content-Type: application/json
     api-key: [admin key]
 
-**重要：**在 Azure 搜尋服務公開預覽版本中，支援有限的索引結構描述更新。目前不支援任何需要重新編製索引的結構描述更新 (例如，變更欄位類型)。儘管無法變更或刪除現有欄位，但可隨時新增欄位。
+**重要：**在 Azure 搜尋公開預覽中，不支援需要重新編製索引的結構描述更新，包括變更欄位類型。您可以隨時新增欄位，但無法變更或刪除現有的欄位。
 
 將新欄位新增至索引時，索引中的所有現有文件會自動在該欄位中設定 Null 值。在將新文件新增至索引之前，將不會佔用任何額外的儲存空間。
 
@@ -999,7 +682,6 @@ ________________________________________
           "hotelId": "1",
           "baseRate": 199.0,
           "description": "Best hotel in town",
-		  "description_fr": "Meilleur hôtel en ville",
           "hotelName": "Fancy Stay",
 		  "category": "Luxury",
           "tags": ["pool", "view", "wifi", "concierge"],
@@ -1014,7 +696,6 @@ ________________________________________
           "hotelId": "2",
           "baseRate": 79.99,
           "description": "Cheapest hotel in town",
-	      "description_fr": "Hôtel le moins cher en ville",
           "hotelName": "Roach Motel",
 		  "category": "Budget",
           "tags": ["motel", "budget"],
@@ -1381,4 +1062,4 @@ ________________________________________
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&api-version=2014-07-31-Preview
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

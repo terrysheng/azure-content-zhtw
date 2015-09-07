@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="教學課程：建立站對站連線的跨單位虛擬網路" 
-	description="了解如何在此教學課程中使用跨單位連線建立 Azure 虛擬網路。" 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="cherylmc" 
-	manager="adinah" 
+	pageTitle="教學課程：建立站對站連線的跨單位虛擬網路"
+	description="了解如何在此教學課程中使用跨單位連線建立 Azure 虛擬網路。"
+	services="virtual-network"
+	documentationCenter=""
+	authors="cherylmc"
+	manager="adinah"
 	editor="tysonn"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/17/2015"
 	ms.author="cherylmc"/>
 
 
@@ -24,7 +24,7 @@
 
 如果您想要建立純雲端虛擬網路，請參閱[教學課程：在 Azure 中建立純雲端虛擬網路](../virtual-machines/create-virtual-network.md)。如果您想要使用憑證和 VPN 用戶端來建立點對網站 VPN，請參閱[使用管理入口網站精靈設定點對站 VPN](http://go.microsoft.com/fwlink/p/?LinkId=296653)。
 
-本教學課程假設您先前沒有使用 Azure 的經驗。目的在於協助您熟悉建立範例跨單位虛擬網路所需的步驟。如果您在尋找有關虛擬網路的設計案例和進階資訊，請參閱[虛擬網路](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)。
+本教學課程假設您先前沒有使用 Azure 的經驗。目的在於協助您熟悉建立範例跨單位虛擬網路所需的步驟。如果您在尋找有關虛擬網路的設計案例和進階資訊，請參閱[虛擬網路](../virtual-network/virtual-networks-overview.md)。
 
 完成本教學課程之後，您將具有範例跨單位虛擬網路。下圖顯示以本教學課程中的範例設定為基礎的詳細資料。
 
@@ -32,7 +32,7 @@
 
 如需此圖和可用來描繪您自身跨單位虛擬網路的圖表複本，請參閱[教學課程主題中的跨單位虛擬網路圖範例](http://gallery.technet.microsoft.com/Example-cross-premises-e5ecb8bb)。
 
-請注意，本教學課程中使用的組態設定範例，並不是針對您組織的網路所自訂。若您使用本主題所述的組態設定範例，設定虛擬網路及站對站連線，會無法有效運作。若要設定有效的跨單位虛擬網路，您必須和 IT 部門及網路管理員合作，以取得正確的設定。如需詳細資訊，請參閱本主題的 [必要條件] 一節。
+請注意，本教學課程中使用的組態設定範例，並不是針對您組織的網路所自訂。若您使用本主題所述的組態設定範例，設定虛擬網路及站對站連線，會無法有效運作。若要設定有效的跨單位虛擬網路，您必須和 IT 部門及網路管理員合作，以取得正確的設定。如需詳細資訊，請參閱本主題的＜必要條件＞一節。
 
 如需新增虛擬機器，以及將內部部署 Active Directory 延伸到 Azure 虛擬網路的相關資訊，請參閱以下內容：
 
@@ -147,7 +147,7 @@
 
 1.	當虛擬網路建立完成時，[網路] 頁面會將您的虛擬網路狀態顯示為 [已建立]。
 
-	按一下 [名稱] 欄中的 [YourVirtualNetwork] \(若為本教學課程中建立的範例) 以開啟儀表板。
+	按一下 [名稱] 欄中的 [YourVirtualNetwork] (若為本教學課程中建立的範例) 以開啟儀表板。
  
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_07_ClickYourVirtualNetwork.png)
 
@@ -253,9 +253,9 @@
 
 ## 另請參閱
 
--  [Azure 虛擬網路技術概觀](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
+-  [Azure 虛擬網路技術概觀](../virtual-network/virtual-networks-overview.md)
 
--  [虛擬網路常見問題集](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
+-  [虛擬網路常見問題集](virtual-networks-faq.md)
 
 -  [使用網路組態檔設定虛擬網路](virtual-networks-using-network-configuration-file.md)
 
@@ -272,4 +272,4 @@
 
  
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -487,7 +487,7 @@ $webclient.DownloadFile($url,$filePath)
 
 請注意：`totalMemberCountExcludingLast` 和 `totalMemberCount` 屬性是必要的，因為範本語言目前不含「數學」運算。
 
-如需關於範本語言的詳細資訊，請參閱 MSDN 中的 [Azure 資源管理員範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)。
+如需關於範本語言的詳細資訊，請參閱 MSDN 中的 [Azure 資源管理員範本語言](../resource-group-authoring-templates.md)。
 
 ### "resources" 區段
 
@@ -664,6 +664,6 @@ $webclient.DownloadFile($url,$filePath)
 - 針對資源群組中的成員相同時 (叢集中的節點等等)，可以建立會利用資源迴圈功能的特定範本，以便部署多個具有唯一屬性的執行個體。
 - 所有的後續部署工作 (產品安裝、設定等) 都會利用指令碼部署擴充功能以及建立每一種技術獨有的指令碼。
 
-如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)。
+如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](../resource-group-authoring-templates.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

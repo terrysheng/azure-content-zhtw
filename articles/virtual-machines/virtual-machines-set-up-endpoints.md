@@ -29,7 +29,7 @@
 
 當您透過入口網站建立端點時，系統會提供 IP 通訊協定的預設值，以及已知網路通訊協定的 TCP 或 UDP 連接埠。針對自訂端點，您必須指定正確的 IP 通訊協定 (TCP 或 UDP) 以及公用和私人連接埠。若要將連入流量隨機分散到多部虛擬機器，您必須建立負載平衡的集合，其中包含多個端點。
 
-建立端點之後，您可以使用存取控制清單 (ACL) 定義規則，根據來源 IP 位址允許或拒絕端點公用連接埠的連入流量。不過，如果虛擬機器位於 Azure 虛擬網路，請改用網路安全性群組。如需詳細資訊，請參閱[關於網路安全性群組](https://msdn.microsoft.com/library/azure/dn848316.aspx)。
+建立端點之後，您可以使用存取控制清單 (ACL) 定義規則，根據來源 IP 位址允許或拒絕端點公用連接埠的連入流量。不過，如果虛擬機器位於 Azure 虛擬網路，請改用網路安全性群組。如需詳細資訊，請參閱[關於網路安全性群組](virtual-networks-nsg.md)。
 
 **重要**：對於與遠端桌面和安全殼層 (SSH) 相關聯的連接埠，以及對於大部分情況下的 Windows PowerShell 遠端執行功能，Azure 虛擬機器的防火牆設定會自動完成。至於其他所有端點的指定連接埠，不會自動設定虛擬機器的防火牆。您建立虛擬機器的端點時，需要確定虛擬機器的防火牆也允許端點組態相對應通訊協定和私人連接埠的流量。
 
@@ -39,7 +39,7 @@
 2.	按一下 [虛擬機器]，然後按一下要設定的虛擬機器名稱。
 3.	按一下 [端點]。[**端點**] 頁面會列出虛擬機器目前的所有端點。
 
-	![Endpoints](./media/virtual-machines-set-up-endpoints/endpointswindows.png)
+	![端點](./media/virtual-machines-set-up-endpoints/endpointswindows.png)
 
 4.	在工作列上，按一下 [新增]。
 5.	在 [將端點加入至虛擬機器] 頁面上，選擇端點的類型。
@@ -65,7 +65,7 @@
 
 > [AZURE.NOTE]如果端點屬於負載平衡集合，則對端點上的 ACL 所做的任何變更，都將套用至此集合的所有端點。
 
-如果虛擬機器位於 Azure 虛擬網路，請改用網路安全性群組。如需詳細資訊，請參閱[關於網路安全性群組](https://msdn.microsoft.com/library/azure/dn848316.aspx)。
+如果虛擬機器位於 Azure 虛擬網路，請改用網路安全性群組。如需詳細資訊，請參閱[關於網路安全性群組](virtual-networks-nsg.md)。
 
 
 1.	如果您未曾執行過這項操作，請登入入口網站。
@@ -85,7 +85,7 @@
 
 規則的評估順序是從第一個規則開始，一直到最後一個規則為止。這表示規則應會以最寬鬆到最嚴格的順序來排列。如需範例和詳細資訊，請參閱[關於網路存取控制清單](http://go.microsoft.com/fwlink/p/?linkid=303816)。
 
-若要使用 Azure PowerShell Cmdlet 設定此項目，請參閱[使用 PowerShell 管理端點的存取控制清單 (ACL)](https://msdn.microsoft.com/library/azure/dn376543.aspx)。
+若要使用 Azure PowerShell Cmdlet 設定此項目，請參閱[使用 PowerShell 管理端點的存取控制清單 (ACL)](../virtual-network/virtual-networks-acl-powershell.md)。
 
 ## 其他資源
 
@@ -93,6 +93,6 @@
 
 [關於網路存取控制清單](http://go.microsoft.com/fwlink/p/?linkid=303816)
 
-[關於網路安全性群組](https://msdn.microsoft.com/library/azure/dn848316.aspx)
+[關於網路安全性群組](virtual-networks-nsg.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

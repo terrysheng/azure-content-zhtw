@@ -1,36 +1,36 @@
-<properties 
-	pageTitle="Application Insights：平台" 
-	description="我是否可以使用 Application Insights 搭配...？" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+<properties
+	pageTitle="Application Insights：語言和平台 | Microsoft Azure"
+	description="適用於 Application Insights 的語言和平台"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/05/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/05/2015"
 	ms.author="awills"/>
- 
-# Application Insights：平台
+
+# Application Insights：語言和平台
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 
 ## 語言
 
-+ [C\#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
-+ [C\#|VB (Windows 市集)](app-insights-windows-get-started.md)
++ [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
++ [C#|VB (Windows 市集)](app-insights-windows-get-started.md)
 + [C++ (Windows 市集)](app-insights-windows-cpp.md)
 + [Java](app-insights-java-get-started.md)
 + [JavaScript web pages](app-insights-web-track-usage.md)
 + [Objective-C](app-insights-ios.md)
 + [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
-+ [Ruby](https://rubygems.org/gems/application_insights) 
++ [Ruby](https://rubygems.org/gems/application_insights)
 + [任何其他項目](#projects)
 
 ## 平台
@@ -41,7 +41,7 @@
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Azure Web Apps 和 VM](../insights-perf-analytics.md)
-+ [Azure 雲端服務](app-insights-cloudservices.md)同時包含 Web 與背景工作角色
++ [Azure 雲端服務](app-insights-cloudservices.md)：同時包含 Web 與背景工作角色
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE - 已上線](app-insights-java-live.md)
@@ -50,7 +50,7 @@
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [SharePoint](app-insights-sharepoint.md)
-+ [Windows 市集 C\#|VB](app-insights-windows-get-started.md)
++ [Windows 市集 C#|VB](app-insights-windows-get-started.md)
 + [Windows 市集 C++](app-insights-windows-cpp.md)
 + [Windows 桌面應用程式、服務和背景工作角色](app-insights-windows-desktop.md)
 + [WordPress](https://wordpress.org/plugins/application-insights/)
@@ -61,7 +61,7 @@
 
 +	[Log4Net、NLog 或 System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java、Log4J 或 Logback](app-insights-java-trace-logs.md)
-+   [語意記錄](https://github.com/fidmor89/SLAB_AppInsights) - 與[語意記錄應用程式區塊](https://msdn.microsoft.com/library/dn440729.aspx)整合
++   [語意記錄](https://github.com/fidmor89/SLAB_AppInsights)：與[語意記錄應用程式區塊](https://msdn.microsoft.com/library/dn440729.aspx)整合
 +   [雲端式負載測試](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
 ## <a name="projects"></a> 建置您自己的 SDK
@@ -77,4 +77,4 @@
 
 <!--Link references-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

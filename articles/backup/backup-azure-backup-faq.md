@@ -1,13 +1,13 @@
 <properties
    pageTitle="Azure 備份常見問題集 | Microsoft Azure"
-   description="Azure 備份服務的常見問題集"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="shreeshd"
-   editor=""/>
+	description="Azure 備份服務的常見問題集"
+	services="backup"
+	documentationCenter=""
+	authors="Jim-Parker"
+	manager="shreeshd"
+	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/07/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Azure 備份 - 常見問題集
 下列是關於 Azure 備份常見問題的清單。若您有任何關於 Azure 備份的其他問題，請前往[論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)並張貼您的問題。我們社群的服務人員將協助您找到答案。若遇到常見問題，我們會將其加入此文章，以便您可以快速且輕鬆地找到。
@@ -21,6 +21,7 @@
 | Windows 8 和最新的 SP | 64 位元 | Enterprise、Pro |
 | Windows 7 和最新的 SP | 64 位元 | Ultimate、Enterprise、Professional、Home Premium、Home Basic、Starter |
 | Windows 8.1 和最新的 SP | 64 位元 | Enterprise、Pro |
+| Windows 10 | 64 位元 | 企業版、專業版、家用版 |
 |Windows Server 2012 R2 和最新的 SP|	64 位元|	Standard、Datacenter、Foundation|
 |Windows Server 2012 和最新的 SP|	64 位元|	Datacenter、Foundation、Standard|
 |Windows Storage Server 2012 R2 和最新的 SP |64 位元|	Standard、Workgroup|
@@ -77,7 +78,7 @@
 
 **Q16.我可以在訂用帳戶之間「移轉」備份保存庫嗎？** <br/> A16：否。保存庫會建立在訂用帳戶層級，並且在建立之後無法重新指派至其他訂用帳戶。
 
-**Q17.Azure 備份代理程式是否在使用 Windows Server 2012 重複資料刪除的伺服器上運作？** <br/>A17：[是]。當代理程式服務準備備份作業時，會將重複資料刪除的資料轉換成一般資料。它接著會最佳化資料以備份，加密資料，然後將加密的資料傳送至線上備份服務。
+**Q17.Azure 備份代理程式是否在使用 Windows Server 2012 重複資料刪除的伺服器上運作？** <br/>A17：是。當代理程式服務準備備份作業時，會將重複資料刪除的資料轉換成一般資料。它接著會最佳化資料以備份，加密資料，然後將加密的資料傳送至線上備份服務。
 
 **Q18.如果我在它啟動後取消備份，是否會刪除備份的資料？** <br/>A18：否。備份保存庫會儲存取消點之前已傳輸的備份資料。Azure 備份使用檢查點機制，讓備份資料在備份期間偶爾會取得檢查點，並在下一個備份程序驗證檔案的完整性。下次觸發的備份會隨先前經備份的資料遞增。這提供較佳的頻寬使用率，讓您不需要重複傳輸相同的資料。
 
@@ -93,15 +94,27 @@
 
 
 ## 備份和保留
-**Q1.正在備份的每個資料來源是否有大小限制？** <br/> A1.自 2015 年 7 月起，每個資料來源應小於或等於 1.7 TB。資料來源可以是
+**Q1.正在備份的每個資料來源是否有大小限制？** <br/> A1.下面將說明截至 2015 年 8 月，適用於各種作業系統的資料來源大小上限
 
-- 檔案/資料夾磁碟區
-- SQL DB
-- SharePoint 伺服器陣列
-- Exchange 伺服器
-- Hyper-V VM
+|S.No |	作業系統 |	資料來源的大小上限 |
+| :-------------: |:-------------| :-----|
+|1| Windows Server 2012 或更新版本| 54400 GB|
+|2| Windows Server 8 或更新版本| 54400 GB|
+|3| Windows Server 2008、Windows Server 2008 R2 | 1700 GB|
+|4| Windows 7 | 1700 GB|
+ 
+資料來源大小是以下列所述的方式來測量
 
-**Q2.每日可以排程的備份次數具有限制嗎？**<br/> A2.是，Azure 備份透過 Windows Server/用戶端每日可以備份 3 個複本，而透過 SCDPM 每日可以備份 2 個複本。
+|	資料來源 |	詳細資料 |
+| :-------------: |:-------------|
+|磁碟區 |從電腦單一磁碟區備份的資料量。這適用於在伺服器和用戶端電腦上受到保護的磁碟區。|
+|Hyper-V 虛擬機器|要備份的虛擬機器上所有 VHD 的資料總和|
+|Microsoft SQL Server 資料庫|要備份的單一 SQL 資料庫大小的大小 |
+|Microsoft SharePoint|在要備份的 SharePoint 伺服陣列中內容和設定資料庫的總和|
+|Microsoft Exchange|在要備份的 Exchange Server 中所有 Exchange 資料庫的總和|
+|BMR/系統狀態|在要備份的電腦上 BMR 或系統狀態的每個個別複本|
+
+**Q2.每日可排程的備份次數是否有限制？**<br/> A2.是，Azure 備份透過 Windows Server/用戶端每日可以備份 3 個複本，而透過 SCDPM 每日可以備份 2 個複本。
 
 **Q3.DPM 和 Azure 備份 (例如在不包含 DPM 的 Windows Server 上) 的備份排程原則是否具有差異？** <br/> A3.是。您可以使用 DPM 指定每日、每週、每月、每年排程，或從 Windows Server (不包含 DPM) 指定僅每日和每週排程。
 
@@ -119,7 +132,7 @@
 
 **Q9.若每個復原點就像一個完整的復原點，則其是否會影響可計費的備份儲存體總數？**<br/> A9.典型的長期保留復原點產品會將備份資料儲存為完整的復原點。不過，這些是效率不佳的儲存體，但可以更輕鬆且更快速地進行還原。增量複本是有效率的儲存體，但會要求您還原一連串的資料，而這會影響復原時間。Azure 備份的唯一儲存體架構透過最佳化儲存資料以進行快速還原，並降低儲存體成本支出，可讓您魚與熊掌兼得。這個方法可確保您有效率地使用頻寬 (輸入和輸出)，並將儲存體和復原所花時間保持在最少狀態。
 
-**Q10.可以建立的復原點具有數目限制嗎？**<br/> A10.自 2015 年 4 月起，您可以擁有最多 366 個復原點。您可以使用數目小於 366 的任何排列。例如 – 下圖中的保留復原點增加至 354。<br/>
+**Q10.可建立的復原點數目有限制嗎？**<br/> A10.自 2015 年 4 月起，您可以擁有最多 366 個復原點。您可以使用數目小於 366 的任何排列。例如 – 下圖中的保留復原點增加至 354。<br/>
 
 ![保留畫面](./media/backup-azure-backup-faq/RetentionScreen1.png)
 
@@ -166,4 +179,4 @@
 
 一旦利用新快取位置成功備份，您就可以移除原始的快取資料夾。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="IIS 驗證與 Azure Multi-Factor Authentication Server" 
-	description="此 Azure Multi-Factor Authentication 頁面協助您部署 IIS 驗證與 Azure Multi-Factor Authentication Server。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="IIS 驗證與 Azure Multi-Factor Authentication Server"
+	description="此 Azure Multi-Factor Authentication 頁面協助您部署 IIS 驗證與 Azure Multi-Factor Authentication Server。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # IIS 驗證
@@ -76,4 +76,4 @@ Azure Multi-Factor Authentication Server 的 [IIS 驗證] 區段可讓您啟用�
 3. 當 [新增信任的 IP] 對話方塊出現時，請選取 [單一 IP]、[IP 範圍] 或 [子網路] 選項按鈕。
 4. 輸入應列入白名單中的 IP 位址、IP 位址範圍或子網路。如果輸入子網路，請選取適當的網路遮罩，然後按一下 [確定] 按鈕。現已加入白名單。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

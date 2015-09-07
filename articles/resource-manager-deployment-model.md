@@ -1,20 +1,20 @@
 <properties
    pageTitle="了解資源管理員與傳統部署模型之間的差異"
-   description="描述資源管理員部署模型與傳統 (或服務管理) 部署模型之間的差異。"
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="描述資源管理員部署模型與傳統 (或服務管理) 部署模型之間的差異。"
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # 了解資源管理員部署和傳統部署
 
@@ -151,9 +151,11 @@
 
 如需轉換運算、儲存體和網路資源的詳細資訊，請參閱 [Azure 資源管理員下的 Azure 運算、網路和儲存體提供者](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md)。
 
+若要了解從不同部署模型連接虛擬網路，請參閱[將傳統 VNet 連接到新的 VNet](./virtual-network/virtual-networks-arm-asm-s2s.md)。
+
 ## 後續步驟
 
 - 若要了解如何建立宣告式部署，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要查看部署範本的命令，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,24 +1,24 @@
 <properties
     pageTitle="如何使用服務匯流排主題 (.NET) | Microsoft Azure"
-    description="了解如何在 Azure 使用服務匯流排主題及訂用帳戶。程式碼範例專為 .NET 應用程式撰寫。"
-    services="service-bus"
-    documentationCenter=".net"
-    authors="sethmanheim"
-    manager="timlt"
-    editor=""/>
+	description="了解如何在 Azure 使用服務匯流排主題及訂用帳戶。程式碼範例專為 .NET 應用程式撰寫。"
+	services="service-bus"
+	documentationCenter=".net"
+	authors="sethmanheim"
+	manager="timlt"
+	editor=""/>
 
 <tags
     ms.service="service-bus"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="get-started-article" 
-    ms.date="07/02/2015"
-    ms.author="sethm"/>
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article"
+	ms.date="07/02/2015"
+	ms.author="sethm"/>
 
-# 如何使用服務匯流排主題和訂用帳戶
+# 如何使用 Azure 服務匯流排主題和訂用帳戶
 
-本指南說明如何使用服務匯流排主題和訂用帳戶。這些範例均以 C# 撰寫並使用 .NET API。所涵蓋的案例包括**建立主題和訂用帳戶**、**建立訂用帳戶篩選器**、**傳送訊息至主題**、**接收訂用帳戶的訊息**，及**刪除主題和訂用帳戶**。如需主題和訂用帳戶的詳細資訊，請參閱[後續步驟](#Next-steps)一節。
+本文說明如何使用服務匯流排主題和訂用帳戶。這些範例均以 C# 撰寫並使用 .NET API。所涵蓋的案例包括建立主題和訂閱、建立訂閱篩選器、傳送訊息至主題、接收訂閱的訊息及刪除主題和訂閱。如需主題和訂用帳戶的詳細資訊，請參閱[後續步驟](#Next-steps)一節。
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -30,12 +30,12 @@
 
 ## 取得服務匯流排 NuGet 封裝
 
-要取得服務匯流排 API，並對應用程式進行設定，以使用所有服務匯流排相依性的最簡單方法，便是使用服務匯流排 **NuGet** 封裝。NuGet Visual Studio 擴充功能可讓您輕易地安裝和更新 Visual Studio 和 Visual Studio Express 中的程式庫和工具。要取得服務匯流排 API，並對應用程式進行設定，以使用所有服務匯流排相依性的最簡單方法，便是使用服務匯流排 NuGet 封裝。
+要取得服務匯流排 API，並對應用程式進行設定，以使用所有服務匯流排相依性的最簡單方法，便是使用服務匯流排 NuGet 封裝。NuGet Visual Studio 擴充功能可讓您輕易地安裝和更新 Visual Studio 和 Visual Studio Express 中的程式庫和工具。要取得服務匯流排 API，並對應用程式進行設定，以使用所有服務匯流排相依性的最簡單方法，便是使用服務匯流排 NuGet 封裝。
 
 若要在應用程式中安裝 NuGet 封裝，請執行下列動作：
 
 1.  在 [方案總管] 中，以滑鼠右鍵按一下 [喜好設定]，然後按一下 [Manage NuGet Packages]。
-2.  搜尋「服務匯流排」並選取 [**Microsoft Azure 服務匯流排**] 項目。按一下 [安裝] 完成安裝作業，然後關閉此對話方塊。
+2.  搜尋「服務匯流排」並選取 [Microsoft Azure 服務匯流排] 項目。按一下 [安裝] 完成安裝作業，然後關閉下列對話方塊。
 
     ![][7]
 
@@ -45,14 +45,14 @@
 
 服務匯流排使用連接字串來儲存端點和認證。您可以將連接字串置於設定檔中，而非硬式編碼它：
 
-- 使用 Azure 雲端服務時，建議您使用 Azure 服務設定系統 (****.csdef** 和 ****.cscfg** 檔案) 來儲存連接字串。
-- 使用 Azure 網站或 Azure 虛擬機器時，建議您使用 .NET 設定系統 (例如 **Web.config** 檔案) 來儲存連接字串。
+- 使用 Azure 雲端服務時，建議您使用 Azure 服務組態系統 (.csdef 和 .cscfg 檔案) 來儲存連接字串。
+- 使用 Azure 網站或 Azure 虛擬機器時，建議您使用 .NET 組態系統 (例如 Web.config 檔案) 來儲存連接字串。
 
-在這兩種情況下，您都可以使用 `CloudConfigurationManager.GetSetting` 方法擷取連接字串，如本指南稍後所示範。
+在這兩種情況下，您都可以使用 `CloudConfigurationManager.GetSetting` 方法擷取連接字串，如本文稍後所示範。
 
 ### 在使用雲端服務時設定連接字串
 
-服務設定機制為 Azure 雲端服務專案所獨有，可讓您從 Azure 管理入口網站動態變更組態設定，而無需重新部署應用程式。例如，在您的服務定義 (****.csdef**) 檔案中新增 `Setting` 標籤，如下所示：
+服務組態機制為 Azure 雲端服務專案所獨有，可讓您從 Azure 入口網站動態變更組態設定，而無需重新部署應用程式。例如，在您的服務定義 (****.csdef**) 檔案中加入 `Setting` 標籤，如下個範例所示。
 
     <ServiceDefinition name="Azure1">
     ...
@@ -64,7 +64,7 @@
     ...
     </ServiceDefinition>
 
-接著您可以在服務組態 (****.cscfg**) 檔案中指定值：
+接著您可以在服務組態 (.cscfg) 檔案中指定值。
 
     <ServiceConfiguration serviceName="Azure1">
     ...
@@ -77,11 +77,11 @@
     ...
     </ServiceConfiguration>
 
-使用從管理入口網站擷取的共用存取簽章 (SAS) 金鑰名稱和金鑰值，如上一節所述。
+使用從 Azure 入口網站擷取的共用存取簽章 (SAS) 金鑰名稱和金鑰值，如上一節所述。
 
-### 在使用網站或虛擬機器時設定連接字串
+### 在使用 Azure 網站或 Azure 虛擬機器時設定連接字串
 
-使用 Azure 網站或虛擬機器時，建議您使用 .NET 設定系統 (例如，**Web.config**)。您可以使用 `<appSettings>` 元素儲存連接字串：
+使用網站或虛擬機器時，建議您使用 .NET 組態系統 (例如，Web.config)。您可以使用 `<appSettings>` 元素儲存連接字串。
 
     <configuration>
         <appSettings>
@@ -90,19 +90,19 @@
         </appSettings>
     </configuration>
 
-使用從管理入口網站擷取的 SAS 名稱和金鑰值，如上一節所述。
+使用從 Azure 入口網站擷取的 SAS 名稱和金鑰值，如上一節所述。
 
 ## 如何建立主題
 
 您可以使用 [`NamespaceManager`](https://msdn.microsoft.com/library/microsoft.servicebus.namespacemanager.aspx) 類別，來執行服務匯流排主題和訂用帳戶的管理作業。此類別提供建立、列舉及刪除主題的方法。
 
-下列範例會使用 Azure `CloudConfigurationManager` 類別，以及包含服務匯流排服務命名空間基底位址的連接字串和具備管理此連接字串權限的適當 SAS 認證，來建構 `NamespaceManager` 物件。此連接字串的格式是
+下列範例會使用 Azure `CloudConfigurationManager` 類別，以及包含服務匯流排服務命名空間基底位址的連接字串和具備管理此連接字串權限的適當 SAS 認證，來建構 `NamespaceManager` 物件。這個連接字串的格式如下。
 
     Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey
 
-例如，基於上一節中的組態設定：
+請使用下例，假設組態設定如上一節。
 
-    // Create the topic if it does not exist already
+    // Create the topic if it does not exist already.
     string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
@@ -114,14 +114,14 @@
         namespaceManager.CreateTopic("TestTopic");
     }
 
-[`CreateTopic`](https://msdn.microsoft.com/library/microsoft.servicebus.namespacemanager.createtopic.aspx) 方法的超載可讓您調整主題的屬性 (例如，針對要在傳送至主題的訊息套用的 [存留時間] 設定預設值)。您可以使用 [`TopicDescription`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicdescription.aspx) 類別來套用這些設定。下列範例將示範如何使用大小上限為 5 GB 和預設訊息存留時間為 1 分鐘的主題，來建立名為 **TestTopic** 的佇列。
+[`CreateTopic`](https://msdn.microsoft.com/library/microsoft.servicebus.namespacemanager.createtopic.aspx) 方法的超載可讓您調整主題的屬性 (例如，設定「存留時間」預設值以套用至傳送至主題的訊息)。您可以使用 [`TopicDescription`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicdescription.aspx) 類別來套用這些設定。下列範例將示範如何使用大小上限為 5 GB 和預設訊息存留時間為 1 分鐘的主題，來建立名為 TestTopic 的佇列。
 
-    // Configure Topic Settings
+    // Configure Topic Settings.
     TopicDescription td = new TopicDescription("TestTopic");
     td.MaxSizeInMegabytes = 5120;
     td.DefaultMessageTimeToLive = new TimeSpan(0, 1, 0);
 
-    // Create a new Topic with custom settings
+    // Create a new Topic with custom settings.
     string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
@@ -160,9 +160,9 @@
 
 訂用帳戶所支援的最具彈性篩選器類型是實作 SQL92 子集的 [SqlFilter] 類別。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用的運算式詳細資訊，請參閱 [SqlFilter.SqlExpression][] 語法。
 
-以下範例將建立名為 **HighMessages** 的訂用帳戶，其帶有只選取自訂 **MessageNumber** 屬性大於 3 的訊息之 [SqlFilter] 物件：
+以下範例將建立名為 **HighMessages** 的訂用帳戶，其帶有只選取自訂 **MessageNumber** 屬性大於 3 之訊息的 [SqlFilter] 物件。
 
-     // Create a "HighMessages" filtered subscription
+     // Create a "HighMessages" filtered subscription.
      SqlFilter highMessagesFilter =
         new SqlFilter("MessageNumber > 3");
 
@@ -170,9 +170,9 @@
         "HighMessages",
         highMessagesFilter);
 
-同樣地，下列範例將建立名為 **LowMessages** 並帶有只選取 **MessageNumber** 屬性小於或等於 3 的訊息之 [SqlFilter] 的訂用帳戶：
+同樣地，下列範例將建立名為 **LowMessages** 並帶有只選取 **MessageNumber** 屬性小於或等於 3 之訊息的 [SqlFilter] 訂用帳戶。
 
-     // Create a "LowMessages" filtered subscription
+     // Create a "LowMessages" filtered subscription.
      SqlFilter lowMessagesFilter =
         new SqlFilter("MessageNumber <= 3");
 
@@ -186,7 +186,7 @@
 
 若要傳送訊息至服務匯流排主題，應用程式會使用連接字串來建立 [`TopicClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) 物件。
 
-以下的程式碼將示範如何使用 [`CreateFromConnectionString`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicclient.createfromconnectionstring.aspx) API 呼叫，為以上建立的 **TestTopic** 主題建立 [`TopicClient`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicclient.aspx) 物件：
+下列程式碼將示範如何使用 [`CreateFromConnectionString`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicclient.createfromconnectionstring.aspx) API 呼叫，為之前建立的 **TestTopic** 主題建立 [`TopicClient`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicclient.aspx) 物件：
 
     string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
@@ -199,22 +199,22 @@
 
 傳送至服務匯流排主題的訊息是 [`BrokeredMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) 類別的執行個體。**BrokeredMessage** 物件具有一組標準屬性 (例如 [`Label`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) 和 [`TimeToLive`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx))、一個用來保存自訂應用程式特定屬性的目錄，以及一堆任意的應用程式資料。應用程式可設定訊息內文，方法是將任何可序列化物件傳遞到 [`BrokeredMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) 物件的建構函式，接著系統便會使用適當的 **DataContractSerializer** 來序列化物件。也可以提供 **System.IO.Stream**。
 
-下列範例將示範如何傳送五則測試訊息至上述程式碼片段中所取得的 **TestTopic** [`TopicClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) 物件。請注意，每個訊息的 [`MessageNumber`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx) 屬性值隨迴圈反覆運算變化 (這可判斷接收訊息的訂用帳戶為何)：
+下列範例將示範如何傳送五則測試訊息至上述程式碼範例中所取得的 **TestTopic** [`TopicClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) 物件。請注意，每個訊息的 [`MessageNumber`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx) 屬性值隨迴圈反覆運算變化 (這可判斷接收訊息的訂用帳戶為何)。
 
      for (int i=0; i<5; i++)
      {
-       // Create message, passing a string message for the body
+       // Create message, passing a string message for the body.
        BrokeredMessage message =
         new BrokeredMessage("Test message " + i);
 
-       // Set additional custom app-specific property
+       // Set additional custom app-specific property.
        message.Properties["MessageNumber"] = i;
 
-       // Send message to the topic
+       // Send message to the topic.
        Client.Send(message);
      }
 
-服務匯流排主題支援 [256 Kb 的訊息大小上限](service-bus-quotas.md) (包含標準和自訂應用程式屬性的標頭可以容納 64 Kb 的大小上限)。主題中所保存的訊息數目沒有限制，但主題所保存的訊息大小總計會有最高限制。此主題大小會在建立時定義，上限是 5 GB。如果啟用分割，上限會更高。如需詳細資訊，請參閱[分割訊息實體](https://msdn.microsoft.com/library/azure/dn520246.aspx)。
+服務匯流排主題支援 [256 KB 的訊息大小上限](service-bus-quotas.md) (包含標準和自訂應用程式屬性的標頭可以容納 64 KB 的大小上限)。主題中所保存的訊息數目沒有限制，但主題所保存的訊息大小總計會有最高限制。此主題大小會在建立時定義，上限是 5 GB。如果啟用分割，上限會更高。如需詳細資訊，請參閱[分割訊息實體](https://msdn.microsoft.com/library/azure/dn520246.aspx)。
 
 ## 如何自訂用帳戶接收訊息
 
@@ -233,7 +233,7 @@
         SubscriptionClient.CreateFromConnectionString
                 (connectionString, "TestTopic", "HighMessages");
 
-    // Configure the callback options
+    // Configure the callback options.
     OnMessageOptions options = new OnMessageOptions();
     options.AutoComplete = false;
     options.AutoRenewTimeout = TimeSpan.FromMinutes(1);
@@ -242,41 +242,41 @@
     {
         try
         {
-            // Process message from subscription
+            // Process message from subscription.
             Console.WriteLine("\n**High Messages**");
             Console.WriteLine("Body: " + message.GetBody<string>());
             Console.WriteLine("MessageID: " + message.MessageId);
             Console.WriteLine("Message Number: " +
                 message.Properties["MessageNumber"]);
 
-            // Remove message from subscription
+            // Remove message from subscription.
             message.Complete();
         }
         catch (Exception)
         {
-            // Indicates a problem, unlock message in subscription
+            // Indicates a problem, unlock message in subscription.
             message.Abandon();
         }
     }, options);
 
-此範例會使用 [`OnMessageOptions`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx) 物件設定 [`OnMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) 回呼。將 [`AutoComplete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) 設為 **false** 時，可在接收的訊息上呼叫 [`Complete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) 時用手動控制。將 [`AutoRenewTimeout`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) 設為 1 分鐘，會導致用戶端用最多一分鐘的時間等候訊息是否呼叫逾時，之後用戶端便會進行新的呼叫以檢查訊息。這個屬性值會減少用戶端無法擷取訊息所出現的收費呼叫次數。
+此範例會使用 [`OnMessageOptions`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx) 物件設定 [`OnMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) 回呼。將 [`AutoComplete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) 設為 **false** 時，可在接收的訊息上呼叫 [`Complete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) 時啟用手動控制。將 [`AutoRenewTimeout`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) 設為 1 分鐘，會導致用戶端以最多一分鐘的時間等候訊息是否呼叫逾時，之後用戶端便會進行新的呼叫以檢查訊息。這個屬性值會減少用戶端無法擷取訊息所出現的收費呼叫次數。
 
 ## 如何處理應用程式當機與無法讀取的訊息
 
 服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。如果接收應用程式因為某些原因無法處理訊息，它可以呼叫所接收訊息上的 [`Abandon`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.abandon.aspx) 方法 (而不是 [`Complete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) 方法)。這導致服務匯流排將訂用帳戶中的訊息解除鎖定，讓此訊息可以被相同取用應用程式或其他取用應用程式重新接收。
 
-與在訂用帳戶內鎖定訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
+與訂用帳戶內鎖定訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
 
-如果應用程式在處理訊息之後，尚未發出 [`Complete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) 要求時當機，會在應用程式重新啟動時將訊息重新傳遞給該應用程式。這通常稱為**至少處理一次**，也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。通常您可使用訊息的 [`MessageId`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) 屬性來達到此目的，該屬性將在各個傳遞嘗試中會保持不變。
+如果應用程式在處理訊息之後，尚未發出 [`Complete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) 要求時當機，會在應用程式重新啟動時將訊息重新傳遞給該應用程式。這通常稱為**至少處理一次**；也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。通常您可使用訊息的 [`MessageId`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) 屬性來達到此目的，該屬性將在各個傳遞嘗試中保持不變。
 
-## 如何刪除主題和訂用帳戶
+## 如何刪除主題和訂閱
 
-以下範例將示範如何從 **HowToSample** 服務命名空間中刪除 **TestTopic** 主題：
+以下範例將示範如何從 **HowToSample** 服務命名空間中刪除 **TestTopic** 主題。
 
-     // Delete Topic
+     // Delete Topic.
      namespaceManager.DeleteTopic("TestTopic");
 
-刪除主題也將會刪除對主題註冊的任何訂用帳戶。您也可以個別刪除訂用帳戶。下列程式碼將示範如何將名為 **HighMessages** 的訂閱從 **TestTopic** 主題中刪除：
+刪除主題也將會刪除對主題註冊的任何訂用帳戶。您也可以個別刪除訂閱。下列程式碼將示範如何將名為 **HighMessages** 的訂用帳戶從 **TestTopic** 主題中刪除。
 
       namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 
@@ -284,12 +284,12 @@
 
 了解基本的服務匯流排主題和訂用帳戶之後，請參考下列連結以取得更多資訊。
 
--   請參閱 MSDN 參考資料：[佇列、主題和訂用帳戶][]。
+-   請參閱 MSDN 參考：[佇列、主題和訂用帳戶][]。
 -   [SqlFilter][] 的 API 參考資料。
 -   建立一個可行的應用程式，往返傳送或接收服務匯流排佇列的訊息：[服務匯流排代理傳訊 .NET 教學課程][]。
 -   服務匯流排範例：從 [Azure 範例][]下載，或參閱 [MSDN][] 上的概觀。
 
-  [Azure management portal]: http://manage.windowsazure.com
+  [Azure portal]: http://manage.windowsazure.com
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
@@ -299,6 +299,5 @@
   [服務匯流排代理傳訊 .NET 教學課程]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [Azure 範例]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

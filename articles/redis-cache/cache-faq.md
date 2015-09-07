@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Redis 快取常見問題集" 
-	description="了解 Azure Redis 快取常見問題、模式和最佳作法的答案" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="Azure Redis 快取常見問題集"
+	description="了解 Azure Redis 快取常見問題、模式和最佳作法的答案"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.service="cache"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="cache-redis"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Azure Redis 快取常見問題集
@@ -141,7 +141,7 @@ Redis 工具 (例如 `redis-cli`) 未使用 SSL 連接埠，但您可以遵循[�
 <a name="cache-benchmarking"></a>
 ## 如何效能評定和測試我快取的效能？
 
--	[啟用快取診斷](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics)，以[監視](https://msdn.microsoft.com/library/azure/dn763945.aspx)您快取的健全狀況。您可以在入口網站中檢視度量，也可以使用您選擇的工具[下載並檢閱](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)它們。
+-	[啟用快取診斷](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics)，以[監視](https://msdn.microsoft.com/library/azure/dn763945.aspx)您快取的健全狀況。您可以在 Preview 入口網站中檢視度量，也可以使用您選擇的工具[下載並檢閱](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)它們。
 -	您可以使用 redis-benchmark.exe 對 Redis 伺服器進行負載測試。
 	-	請確定負載測試用戶端與 Redis 快取位於相同的區域。
 -	使用 redis-cli.exe，並使用 INFO 命令來監視快取。
@@ -153,7 +153,7 @@ Redis 工具 (例如 `redis-cli`) 未使用 SSL 連接埠，但您可以遵循[�
 
 您可以使用在 [Redis 命令](http://redis.io/commands#) 中列出的任何的命令，但不包含 [Azure Redis 快取中不支援的 Redis 命令](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache)中列出的命令。您有幾種方式可以執行 Redis 命令。
 
--	如果您有標準快取，您可以使用 [Redis 主控台](cache-configure.md#redis-console)執行 Redis 命令。這可提供在 Azure 入口網站中執行 Redis 命令的安全方式。
+-	如果您有標準快取，您可以使用 [Redis 主控台](cache-configure.md#redis-console)執行 Redis 命令。這可提供在 Preview 入口網站中執行 Redis 命令的安全方式。
 -	您也可以使用 Redis 命令列工具。若要使用那些工具，請執行下列步驟。
 	-	下載 [Redis 命令列工具](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip)。
 	-	使用 `redis-cli.exe` 連線至快取。使用-h 參數傳入快取端點，以及使用 -a 傳入索引鍵 (如下列範例所示)。
@@ -175,4 +175,4 @@ Microsoft Azure Redis 快取是基於受歡迎的開放原始碼 Redis 快取，
 
 因為每個用戶端都不同，所以 MSDN 上沒有一個集中式類別參考；而是每個用戶端都會維護其專屬的參考文件。除了參考文件之外，Azure.com 上還會有數個教學課程，可顯示如何使用 [[Redis 快取文件](http://azure.microsoft.com/documentatgion/services/redis-cache/)] 頁面上的不同語言和快取用戶端來開始使用 Azure Redis 快取。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

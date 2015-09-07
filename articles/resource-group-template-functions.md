@@ -1,24 +1,36 @@
 <properties
    pageTitle="Azure 資源管理員範本函數"
-   description="描述要在 Azure 資源管理員範本中用來擷取值、格式化字串，並擷取部署資訊的函數。"
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="描述要在 Azure 資源管理員範本中用來擷取值、格式化字串，並擷取部署資訊的函數。"
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/27/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/21/2015"
+	ms.author="tomfitz"/>
 
 # Azure 資源管理員範本函數
 
 本主題描述您可以在 Azure 資源管理員範本中使用的所有函數。
+
+## 新增
+
+**add(operand1, operand2)**
+
+傳回兩個所提供整數加總後的數字。
+
+| 參數 | 必要 | 說明
+| :--------------------------------: | :------: | :----------
+| operand1 | 是 | 要使用的第一個運算元。
+| operand2 | 是 | 要使用的第二個運算元。
+
 
 ## base64
 
@@ -85,6 +97,23 @@
       }
     }
 
+## div
+
+**div(operand1, operand2)**
+
+傳回兩個所提供整數相除後的商。
+
+| 參數 | 必要 | 說明
+| :--------------------------------: | :------: | :----------
+| operand1 | 是 | 被除數。
+| operand2 | 是 | 除數，必須不是 0。
+
+## length
+
+**length(array)**
+
+傳回陣列中的元素數目。通常，用來指定建立資源時的反覆項目數目。如需使用此函數的範例，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
+
 ## listKeys
 
 **listKeys (resourceName or resourceIdentifier, [apiVersion])**
@@ -104,6 +133,30 @@
         "type" : "object" 
       } 
     } 
+
+## mod
+
+**mod(operand1, operand2)**
+
+傳回兩個所提供整數相除後的餘數。
+
+| 參數 | 必要 | 說明
+| :--------------------------------: | :------: | :----------
+| operand1 | 是 | 被除數。
+| operand2 | 是 | 除數，必須不是 0。
+
+
+## mul
+
+**mul(operand1, operand2)**
+
+傳回兩個所提供整數相乘後的數字。
+
+| 參數 | 必要 | 說明
+| :--------------------------------: | :------: | :----------
+| operand1 | 是 | 要使用的第一個運算元。
+| operand2 | 是 | 要使用的第二個運算元。
+
 
 ## padLeft
 
@@ -311,6 +364,37 @@
       }]
     }
 
+## 分割
+
+**split(inputString, delimiter)** **split(inputString, [delimiters])**
+
+傳回包含輸入字串之子字串的字串陣列，其中的子字串已使用傳送分隔符號分隔。
+
+| 參數 | 必要 | 說明
+| :--------------------------------: | :------: | :----------
+| inputString | 是 | 要分割的字串。
+| 分隔符號 | 是 | 使用的分隔符號可以是單一字串或字串的陣列。
+
+下列範例會使用逗號來分割輸入字串。
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "stringPieces": "[split(parameters('inputString'), ',')]"
+    }
+
+## sub
+
+**sub(operand1, operand2)**
+
+傳回兩個所提供整數相減後的數字。
+
+| 參數 | 必要 | 說明
+| :--------------------------------: | :------: | :----------
+| operand1 | 是 | 減數
+| operand2 | 是 | 被減數
+
 
 ## 訂用帳戶)
 
@@ -388,4 +472,4 @@
 - 建立資源類型時若要逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)
 - 若要了解如何部署您建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

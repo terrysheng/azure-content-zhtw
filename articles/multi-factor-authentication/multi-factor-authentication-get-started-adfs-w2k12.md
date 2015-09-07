@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="搭配 Windows Server 2012 R2 AD FS 使用 Azure MFA Server 保護雲端和內部部署資源" 
-	description="這是說明如何在 Windows Server 2012 R2 上開始使用 Azure MFA 和 AD FS 的 Azure Multi-Factor Authentication 頁面。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="搭配 Windows Server 2012 R2 AD FS 使用 Azure MFA Server 保護雲端和內部部署資源"
+	description="這是說明如何在 Windows Server 2012 R2 上開始使用 Azure MFA 和 AD FS 的 Azure Multi-Factor Authentication 頁面。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -229,4 +229,4 @@ MultiFactorAuthenticationAdfsAdapter.config 步驟| 子步驟
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

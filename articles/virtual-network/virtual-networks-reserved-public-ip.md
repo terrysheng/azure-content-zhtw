@@ -1,19 +1,19 @@
 <properties 
    pageTitle="保留的 IP"
-   description="了解保留的 IP、VIP、ILPIP，以及如何管理"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="adinah"
-   editor="tysonn" />
+	description="了解保留的 IP、VIP、ILPIP，以及如何管理"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/17/2015"
+	ms.author="telmos"/>
 
 # 保留的 IP 概觀
 Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 管理的公用 IP 位址是動態的。這表示當資源時關閉或解除配置時，用於指定雲端服務 (VIP)，或直接存取 VM 或角色執行個體 (ILPIP) 的 IP 位址可以隨時變更。
@@ -35,7 +35,7 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 
 1. 我該如何保留 IP 位址？ 
   - 您可以使用 PowerShell 或 [Azure 管理 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx) 從特定區域要求保留的 IP。Azure 將保留該區域的 IP 位址，並與您的訂用帳戶相互關聯。接著您可以在該區域使用保留的 IP。您無法使用管理入口網站來保留 IP 位址。
 1. 我可以使用這個搭配以同質群組為基礎的 VNet 嗎？ 
-  - 保留的 IP 僅在區域 VNet 才受支援。不支援與同質群組相關聯的 VNet。如需有關將 VNet 與區域或同質群組建立關聯的詳細資訊，請參閱＜[關於區域 VNet 與同質群組](https://msdn.microsoft.com/library/azure/jj156085.aspx)＞。 
+  - 保留的 IP 僅在區域 VNet 才受支援。不支援與同質群組相關聯的 VNet。如需有關將 VNet 與區域或同質群組建立關聯的詳細資訊，請參閱＜[關於區域 VNet 與同質群組](virtual-networks-migrate-to-regional-vnet.md)＞。 
 
 ## 如何管理保留的 VIP
 
@@ -119,4 +119,4 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 
 
 - 請參閱[保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

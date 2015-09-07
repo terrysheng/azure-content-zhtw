@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/13/2015"
+	ms.date="08/25/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -117,9 +117,11 @@ SQL Database 服務會評估使用量歷程記錄，並在比使用單一資料�
 | **eDTU MAX** - 每個資料庫的 eDTU 上限 | 每個資料庫的 eDTU 上限是集區中單一資料庫可使用的最大 eDTU 數。將每個資料庫的 eDTU 上限設定得夠高，才能有效處理資料庫可能會遇到的高負載量或暴增量。您可以將此上限設為系統限制的最大值，這會取決於集區的價格層 (Premium 為 1000 個 eDTU)。此上限的特定大小應該配合群組中資料庫的尖峰使用量模式。某種程度的群組過量使用是可預期的情況，因為集區通常會假設資料庫的熱門和冷門使用模式；在這些模式中，所有資料庫不會同時處於尖峰期。<br> **我應該將每個資料庫的 eDTU 上限設定為？** <br> 請將每個資料庫的 eDTU MAX 或 eDTU 上限設為 ([資料庫尖峰使用量])。例如，假設每個資料庫的尖峰使用量是 50 個 DTU，且群組中的 100 個資料庫只有 20% 會同時暴增到尖峰。如果每個資料庫的 eDTU 上限設為 50 個 eDTU，則以 5 倍的量過量使用集區，並將群組的 eDTU 保證 (集區 eDTU) 設為 1,000 個 eDTU 都是合理的。此外值得注意的是，eDTU 上限不等於資料庫的資源保證，這只是情況許可時能達到的 eDTU 上限而已。 |
 
 
-## 將資料庫加入至彈性資料庫集區
+## 將資料庫加入集區，並從集區中移除彈性資料庫
 
 建立集區後，您可以在 [加入資料庫] 頁面上選取或清除資料庫，藉以將資料庫加進或移出集區。
+
+*建立集區之後，您也可以使用 Transact-SQL 在集區中建立新的彈性資料庫，並將現有的資料庫移入和移出集區。如需詳細資訊，請參閱[彈性資料庫集區參考 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)。*
 
 
 ## 監視和管理彈性資料庫集區
@@ -163,7 +165,7 @@ SQL Database 服務會評估使用量歷程記錄，並在比使用單一資料�
 
 - [SQL Database 彈性集區](sql-database-elastic-pool.md)
 - [使用 PowerShell 建立 SQL Database 彈性集區](sql-database-elastic-pool-powershell.md)
-- [使用 C#建立和管理 SQL Database](sql-database-client-library.md)
+- [使用 C# 建立和管理 SQL Database](sql-database-client-library.md)
 - [彈性資料庫參考](sql-database-elastic-pool-reference.md)
 
 
@@ -179,4 +181,4 @@ SQL Database 服務會評估使用量歷程記錄，並在比使用單一資料�
 [9]: ./media/sql-database-elastic-pool-portal/pricing-tier.png
 [10]: ./media/sql-database-elastic-pool-portal/star.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

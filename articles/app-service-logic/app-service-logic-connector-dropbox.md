@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 Azure App Service 的邏輯應用程式中使用 Dropbox 連接器"
-	description="如何在 Azure App Service 的邏輯應用程式中開始使用 Dropbox 連接器"
+	pageTitle="在 Logic Apps 中使用 Dropbox 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 Dropbox 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
 	authors="anuragdalmia"
 	manager="dwrede"
 	editor=""
@@ -13,20 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="sameerch"/>
 
-# Dropbox 連接器
-
-Dropbox 連接器可讓您從 Dropbox 帳戶上傳或下載檔案。
-
-邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。
+# 開始使用 Dropbox 連接器並將它加入您的邏輯應用程式
+連接到 Dropbox 帳戶以上傳或下載檔案。邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理資料。您可以將 Dropbox 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
 ## 觸發程序和動作
 
 觸發程序會根據特定的事件啟動新的執行個體，例如新訊息的送達。動作即為結果，就像在接收新訊息之後，然後將檔案上傳至 Dropbox。
 
-Dropbox 連接器可以在邏輯應用程式中用作觸發程序或動作，且支援 JSON 和 XML 格式的資料。Chatter 連接器提供下列觸發程序和動作：
+Dropbox 連接器可以在邏輯應用程式中用作觸發程序或動作，且支援 JSON 和 XML 格式的資料。Dropbox 連接器提供下列觸發程序和動作：
 
 觸發程序 | 動作
 --- | ---
@@ -37,7 +34,7 @@ None | <ul><li>刪除檔案</li><li>取得檔案</li><li>檔案上傳</li><li>�
 連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
 1. 在 Azure 開始面板中，選取 [**Marketplace**]。
-2. 搜尋「Dropbox 連接器」，將其選取，然後選取 [**建立**]。
+2. 搜尋「Dropbox 連接器」，將其選取，然後選取 [建立]。
 3. 輸入名稱、App Service 方案和其他屬性：
 	![][1]
 	- **位置** - 選擇您要部署連接器的地理位置
@@ -52,11 +49,11 @@ None | <ul><li>刪除檔案</li><li>取得檔案</li><li>檔案上傳</li><li>�
 ## 在邏輯應用程式中使用 Dropbox 連接器
 建立 API 應用程式之後，您現在可以使用 Dropbox 連接器做為邏輯應用程式的動作。作法：
 
-1.	在您的 Logic Apps 中，開啟 [**觸發程序和動作**] 以開啟 Logic Apps 設計工具，並設定您的流程：
-	![][3]
+1.	在您的邏輯應用程式中，開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具，並設定您的流程
+	：![][3]
 2.	Dropbox 連接器列在資源庫中：
 	![][4]
-3.	選取 Dropbox 連接器以自動加入至設計工具。選取 [**授權**]、輸入認證，然後選取 [**允許**]：
+3.	選取 Dropbox 連接器以自動加入至設計工具。選取 [授權]、輸入認證，然後選取 [允許]：
 	![][5] 
 	![][6] 
 	![][7]
@@ -73,7 +70,7 @@ None | <ul><li>刪除檔案</li><li>取得檔案</li><li>檔案上傳</li><li>�
 - **覆寫** - 指定 [true] 會覆寫已存在的檔案。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -90,4 +87,4 @@ None | <ul><li>刪除檔案</li><li>取得檔案</li><li>檔案上傳</li><li>�
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

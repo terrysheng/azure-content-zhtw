@@ -1,23 +1,23 @@
 <properties 
-   pageTitle="Azure 儲存體 Blob 連接器" 
-   description="開始使用 Azure 儲存體 Blob 連接器" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 Azure 儲存體 Blob 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 Azure 儲存體 Blob 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
    
-# Azure 儲存體 Blob 連接器
-連接到 Azure 儲存體 Blob，以便從 Blob 容器上傳、下載及刪除 Blob。連接器可以在 Logic Apps 中用作「工作流程」的一部分。
+# 開始使用 Azure 儲存體 Blob 連接器並將它加入您的邏輯應用程式 
+連接到 Azure 儲存體 Blob，以便從 Blob 容器上傳、下載及刪除 Blob。連接器在 Logic Apps 中是用作「工作流程」的一部分。
 
 ## 觸發程序和動作
 *觸發程序*是發生的事件。例如，訂單更新時或加入新客戶時。*動作*是觸發程序的結果。例如，當訂單更新時，傳送警示給銷售人員。或者，當加入新客戶時，傳送歡迎電子郵件給新客戶。
@@ -102,4 +102,4 @@ Blob 寫入內容 | 輸入要上傳之 Blob 的內容和屬性。
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

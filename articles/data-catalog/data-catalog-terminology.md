@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 資料目錄術語"
-   description="Azure 資料目錄術語"
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
+	description="簡介 Azure 資料目錄文件所使用的概念與術語。"
+	services="data-catalog"
+	documentationCenter=""
+	authors="steelanddata"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/31/2015"
-   ms.author="maroche"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="08/20/2015"
+	ms.author="maroche"/>
 
 # Azure 資料目錄術語
 
@@ -77,7 +77,7 @@ Azure 資料目錄中的預覽是最多 20 筆記錄的快照集，可以在註�
 ## 另請參閱
 
 - 〈[什麼是 Azure 資料目錄？](data-catalog-what-is-data-catalog.md)〉 - 這篇文章提供 Azure 資料目錄服務的概觀、所提供的價值和所支援的案例。
-  
+
 - 〈[開始使用 Azure 資料目錄](data-catalog-get-started.md)〉 - 這篇文章提供端對端教學課程，示範如何使用 Azure 資料目錄來探索資料來源。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

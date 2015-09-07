@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="利用 Azure 媒體服務提供即時資料流" 
-	description="本主題提供即時串流中涉及的主要元件的概觀。" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="利用 Azure 媒體服務提供即時資料流"
+	description="本主題提供即時串流中涉及的主要元件的概觀。"
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="juliako"/>
 
 
@@ -85,4 +85,4 @@
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

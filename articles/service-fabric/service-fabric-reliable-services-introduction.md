@@ -1,20 +1,20 @@
 <properties
    pageTitle="Service Fabric 可靠的服務程式設計模型概觀"
-   description="深入了解 Service Fabric 可靠的服務的程式設計模型，並開始撰寫自己的服務。"
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor="jessebenson; mani-ramaswamy"/>
+	description="深入了解 Service Fabric 可靠的服務的程式設計模型，並開始撰寫自己的服務。"
+	services="Service-Fabric"
+	documentationCenter=".net"
+	authors="masnider"
+	manager="timlt"
+	editor="jessebenson; mani-ramaswamy"/>
 
 <tags
    ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="07/17/2015"
-   ms.author="masnider;jesseb"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="masnider;jesseb"/>
 
 # 可靠的服務概觀
 Service Fabric 可簡化撰寫和管理可靠的無狀態與具狀態服務。這份文件會討論：
@@ -23,11 +23,11 @@ Service Fabric 可簡化撰寫和管理可靠的無狀態與具狀態服務。�
 2. 撰寫可靠的服務時必須進行的不同選擇。
 3. 可靠的服務使用時機及撰寫方式的一些不同案例和範例。
 
-可靠的服務是 Service Fabric 上可用的其中一種程式設計模型。如需可靠執行者程式設計模型的詳細資訊，請參閱[簡介](../service-fabric/service-fabric-reliable-actors-introduction.md)。
+可靠的服務是 Service Fabric 上可用的其中一種程式設計模型。如需可靠執行者程式設計模型的詳細資訊，請參閱[簡介](service-fabric-reliable-actors-introduction.md)。
 
 在 Service Fabric 中，服務包含組態、應用程式程式碼，以及 (選擇性的) 狀態。
 
-Service Fabric 透過 [Service Fabric 應用程式管理](../service-fabric/service-fabric-deploy-remove-applications.md)管理服務的存留期間，從佈建和部署一直到升級和刪除。
+Service Fabric 透過 [Service Fabric 應用程式管理](service-fabric-deploy-remove-applications.md)管理服務的存留期間，從佈建和部署一直到升級和刪除。
 
 ## 什麼是可靠的服務？
 可靠的服務提供您簡單、功能強大、最上層的程式設計模型，以幫助您表達對您的應用程式而言重大的事情。使用可靠的服務程式設計模型，您得到：
@@ -36,7 +36,7 @@ Service Fabric 透過 [Service Fabric 應用程式管理](../service-fabric/serv
 
 2. 執行您自己的程式碼的簡單模型，看起來就像您習慣的程式設計模型：您的程式碼具有定義完善的進入點和容易管理的生命週期。
 
-3. 隨插即用的通訊模型：使用您選擇的傳輸方式，如包含 [Web API](../service-fabric/service-fabric-reliable-services-communication-webapi.md) 的 HTTP、WebSockets、自訂 TCP 通訊協定等。可靠的服務提供一些很棒的現成選項供您使用，或允許您提供您自己的選項。
+3. 隨插即用的通訊模型：使用您選擇的傳輸方式，如包含 [Web API](service-fabric-reliable-services-communication-webapi.md) 的 HTTP、WebSockets、自訂 TCP 通訊協定等。可靠的服務提供一些很棒的現成選項供您使用，或允許您提供您自己的選項。
 
 ## 可靠的服務有什麼不同之處？
 Service Fabric 中的可靠的服務與您之前撰寫的服務不同。Service Fabric 提供可靠性、可用性、一致性和延展性。
@@ -52,7 +52,7 @@ Service Fabric 中的可靠的服務與您之前撰寫的服務不同。Service 
 ## 服務生命週期
 無論您的服務是具狀態還是無狀態，可靠的服務會提供簡單的生命週期，可讓您快速插入您的程式碼，並開始著手。您真正只有需要實作一個或兩個方法，即可讓您的服務啟動並執行。
 
-+ CreateCommunicationListener ：這是服務定義它要使用之通訊堆疊的地方。通訊堆疊 (如 [Web API](../service-fabric/service-fabric-reliable-services-communication-webapi.md)) 定義服務的接聽端點 (用戶端如何連線服務)，以及顯示的訊息最後如何與服務程式碼的其餘部分互動。
++ CreateCommunicationListener ：這是服務定義它要使用之通訊堆疊的地方。通訊堆疊 (如 [Web API](service-fabric-reliable-services-communication-webapi.md)) 定義服務的接聽端點 (用戶端如何連線服務)，以及顯示的訊息最後如何與服務程式碼的其餘部分互動。
 
 + RunAsync：這是您的服務執行其商務邏輯的地方。所提供的取消語彙基元是針對該工作何時應該停止的訊號。比方說，如果您的服務需要不斷從 ReliableQueue 提取訊息並加以處理，這會是該工作會發生的位置。
 
@@ -63,13 +63,13 @@ Service Fabric 中的可靠的服務與您之前撰寫的服務不同。Service 
 2. 呼叫 CreateCommunicationListener 方法，讓服務有機會傳回其選擇的通訊接聽程式。
   + 請注意這是選擇性的，雖然大部分的服務會直接公開某個端點。
 
-3. 一旦建立 CommunicationListener，它即會開啟
-  + CommunicationListener 有一個稱為 Open() 的方法，此時會呼叫它，且它會傳回服務的接聽位址。如果您的可靠的服務使用其中一個內建 ICommunicationListener，那麼便會為您處理。
+3. 一旦建立通訊接聽程式，即會予以開啟。
+  + 通訊接聽程式有一個稱為 Open() 的方法，此時會呼叫該方法並傳回服務的接聽位址。如果您的可靠的服務使用其中一個內建 ICommunicationListener，那麼便會為您處理。
 
 4. 通訊接聽程式為 Open() 之後，會在主要服務上呼叫 RunAsync()。
   + 請注意，RunAsync 是選擇性的，如果服務所有工作都只直接進行，以回應使用者呼叫，則它不需要實作 RunAsync()。
 
-當服務正在關閉 (無論是刪除或只是要從特定位置移走) 時，呼叫順序相同，會先對 CommunicationListener 呼叫 Close()，然後會取消傳遞給 RunAsync() 的取消語彙基元。
+當服務正在關閉 (無論是刪除或只是要從特定位置移出) 時，呼叫順序相同，會先對通訊接聽程式呼叫 Close()，然後會取消傳遞給 RunAsync() 的取消語彙基元。
 
 ## 範例服務
 了解這個程式設計模型之後，讓我們來快速看看兩個不同的服務，了解這些部分如何彼此搭配運作。
@@ -79,7 +79,7 @@ Service Fabric 中的可靠的服務與您之前撰寫的服務不同。Service 
 
 例如，假設沒有記憶體的計算機，它會接收所有項並同時執行作業。
 
-在此情況下，服務的 RunAsync() 可以是空的，因為沒有服務需要進行的背景工作處理。建立計算機服務時，它會傳回 CommunicationListener (例如 [Web API](../service-fabric/service-fabric-reliable-services-communication-webapi.md))，其會在某個連接埠上開啟接聽端點。此接聽端點將會連結到不同的方法 (例如："Add(n1, n2)")，其會定義計算機的公用 API。
+在此情況下，服務的 RunAsync() 可以是空的，因為沒有服務需要進行的背景工作處理。建立計算機服務時，它會傳回 CommunicationListener (例如 [Web API](service-fabric-reliable-services-communication-webapi.md))，其會在某個連接埠上開啟接聽端點。此接聽端點將會連結到不同的方法 (例如："Add(n1, n2)")，其會定義計算機的公用 API。
 
 從用戶端進行呼叫時，會叫用適當的方法，且計算機服務會在所提供的資料上執行作業，並傳回結果。它不會儲存任何狀態。
 
@@ -125,9 +125,9 @@ Service Fabric 中常見的無狀態服務使用範例是做為前端，其公�
 
 
 ## 後續步驟
-+ [可靠的服務快速入門](../service-fabric/service-fabric-reliable-services-quick-start.md)
++ [可靠的服務快速入門](service-fabric-reliable-services-quick-start.md)
 + [查看可靠的服務的進階用法](service-fabric-reliable-services-advanced-usage.md)
-+ [閱讀可靠執行者程式設計模型](../service-fabric/service-fabric-reliable-actors-introduction.md)
++ [閱讀可靠執行者程式設計模型](service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

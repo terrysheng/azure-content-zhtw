@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="ASP.NET 5 的 Application Insights" 
-	description="監視 Web 應用程式的可用性、效能和使用方式。" 
-	services="application-insights" 
-    documentationCenter=".net"
-	authors="alancameronwills" 
+	pageTitle="ASP.NET 5 的 Application Insights"
+	description="監視 Web 應用程式的可用性、效能和使用方式。"
+	services="application-insights"
+	documentationCenter=".net"
+	authors="alancameronwills"
 	manager="ronmart"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/27/2015"
 	ms.author="awills"/>
 
 # ASP.NET 5 的 Application Insights
@@ -90,16 +90,20 @@ Visual Studio Application Insights 可讓您監視 Web 應用程式的可用性�
 
 在 `Startup` 方法中：
 
-    // Setup configuration sources.
-    var configuration = new Configuration()
-       .AddJsonFile("config.json")
-       .AddJsonFile($"config.{env.EnvironmentName}.json", optional: true);
-    configuration.AddEnvironmentVariables();
-    Configuration = configuration;
-
-    if (env.IsEnvironment("Development"))
+    public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
     {
-      configuration.AddApplicationInsightsSettings(developerMode: true);
+    	// Setup configuration sources.
+    	var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
+	   		.AddJsonFile("config.json")
+	   		.AddJsonFile($"config.{env.EnvironmentName}.json", optional: true);
+    	builder.AddEnvironmentVariables();
+
+    	if (env.IsEnvironment("Development"))
+    	{
+	    	builder.AddApplicationInsightsSettings(developerMode: true);
+    	}
+    
+    	Configuration = builder.build();
     }
 
 在 `ConfigurationServices` 方法中：
@@ -171,4 +175,4 @@ Visual Studio Application Insights 可讓您監視 Web 應用程式的可用性�
 [start]: app-insights-get-started.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

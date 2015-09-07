@@ -1,22 +1,22 @@
-## How to create a VNet using a network config file in the Azure portal
+## 如何在 Azure 入口網站中使用網路組態檔建立 VNet
 
-Azure uses an xml file to define all VNets available to a subscription. You can download this file, and edit it to modify or delete existing VNets, and create new ones. In this document, you will learn how to download this file, referred to as network configuration (or netcgf) file, and edit it to create a new VNet. Check the [Azure virtual network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx) to learn more about the network configuration file.
+Azure 使用 xml 檔案定義訂用帳戶可用的所有 VNet。您可以下載這個檔案並加以編輯以進行修改，或刪除現有的 VNet，建立新的虛擬網路。本文件將說明如何下載這個檔案 (下稱網路組態，或 Netcfg 檔案)，以及如何編輯該檔案，以建立新的 VNet。請參閱 [Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)，以了解網路組態檔的詳細資訊。
 
-To create a VNet using a netcfg file through the Azure portal, follow the steps below.
+若要透過 Azure 入口網站，使用 Netcfg 檔案建立 VNet，請依照下列步驟執行。
 
-1. From a browser, navigate to http://manage.windowsazure.com and, if necessary, sign in with your Azure account.
-2. Scroll down on the list of services, and click on **NETWORKS** as seen below.
+1. 透過瀏覽器瀏覽至 http://manage.windowsazure.com，並視需要使用您的 Azure 帳戶登入。
+2. 如下方所示，向下捲動服務清單，按一下 [**網路**]。
 
-	![Azure virtual networks](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure1.gif)
+	![Azure 虛擬網路](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure1.gif)
 
-3. On the bottom of the page, click the **EXPORT** button, as shown below.
+3. 如下方所示，在頁面底部按一下 [**匯出**] 按鈕。
 
-	![Export button](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure2.png)
+	![匯出按鈕](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure2.png)
 
-4. On the **Export network configuration** page, select the subscription you want to export the virtual network configuration from, and then click the check mark button on the bottom left hand corner of the page.
-5. Follow your browser instructions to save the **NetworkConfig.xml** file. Make sure you note where you are saving the file.
-6. Open the file you saved in step 5 above using any XML or text editor application, and look for the **<VirtualNetworkSites>** element. If you have any networks already created, each network will be displayed as its own **<VirtualNetworkSite>** element.
-7. To create the virtual network described in this scenario, add the following XML just under the **<VirtualNetworkSites>** element:
+4. 在 [**匯出網路組態**] 頁面上，選取您要匯出虛擬網路組態的來源訂用帳戶，然後按一下頁面左下角的核取記號按鈕。
+5. 依照瀏覽器中的指示，儲存 **NetworkConfig.xml** 檔案。請務必記下儲存檔案的位置。
+6. 使用任何 XML 或文字編輯器應用程式，開啟您在上述步驟 5 中儲存的檔案，並尋找 **<VirtualNetworkSites>** 元素。如果您已建立網路，每個網路都將顯示為其自身的 **<VirtualNetworkSite>** 元素。
+7. 若要建立此案例所述的虛擬網路，請在 **<VirtualNetworkSites>** 元素正下方，新增下列 XML：
 
 		<VirtualNetworkSite name="TestVNet" Location="Central US">
 		  <AddressSpace>
@@ -32,19 +32,21 @@ To create a VNet using a netcfg file through the Azure portal, follow the steps 
 		  </Subnets>
 		</VirtualNetworkSite>
 
-8.  Save the network configuration file.
-9.  In the Azure portal, on the bottom left hand corner of the page, click **NEW**, then click **NETWORK SERVICES**, then click **VIRTUAL NETWORK**, and then click **IMPORT CONFIGURATION** as shown in the figure below.
+8.  儲存網路組態檔。
+9.  如下圖所示，在 Azure 入口網站頁面的左下角，依序按一下 [**新增**]、[**網路服務**]、[**虛擬網路**]，和 [**匯入組態**]。
 
-	![Import configuration](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure3.gif)
+	![匯入組態](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure3.gif)
 
-10.  On the **Import the network configuration file** page, click **BROWSE FOR FILE...**, then navigate to the folder you saved your file in step 8 above, select the file, and then click **Open**. The web page should look similar to the figure below. On the bottom right hand corner of the page, click on the arrow button to move to the next step.
+10.  在 [**匯入網路組態檔**] 頁面上，按一下 [**瀏覽檔案...**]，然後瀏覽至您在上述步驟 8 中儲存檔案的目的地資料夾，選取該檔案，按一下 [**開啟**]。網頁外觀將類似於下圖。在頁面右下角，按一下箭頭按鈕，以移至下一個步驟。
 
-	![Import network configuration file page](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure4.png)
+	![匯入網路組態檔頁面](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure4.png)
 
-11.   On the **Building your network** page, notice the entry for your new VNet, as shown in the figure below.
+11.   如下圖所示，查看 [**建置您的網路**] 頁面中，新 VNet 的項目。
 
-	![Building your network page](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure5.png)
+	![建置您的網路頁面](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure5.png)
 
-12.   Click on the check mark button on the bottom right hand corner of the page to create the VNet. After a few seconds your VNet will be shown in the list of available VNets, as shown in the figure below.
+12.   按一下頁面右下角的核取記號按鈕建立 VNet。幾秒鐘後，VNet 會顯示在可用 VNet 清單中，如下圖所示。
 
-	![New virtual network](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure6.png)
+	![新的虛擬網路](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure6.png)
+
+<!---HONumber=August15_HO9-->

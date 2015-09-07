@@ -1,19 +1,19 @@
 <properties 
    pageTitle="使用 StorSimple Manager 服務監視 StorSimple 裝置 | Microsoft Azure"
-   description="說明如何使用 StorSimple Manager 服務來監視 I/O 效能、容量使用率、網路輸送量和裝置效能。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="說明如何使用 StorSimple Manager 服務來監視 I/O 效能、容量使用率、網路輸送量和裝置效能。"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/25/2015"
+	ms.author="alkohli"/>
 
 # 使用 StorSimple Manager 服務監視 StorSimple 裝置 
 
@@ -61,7 +61,7 @@
 	![建立雲端快照集後的雲端容量使用率](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers1M.png)
 
 
-- **裝置儲存體容量使用率**會顯示裝置的總使用率，此使用率因為包含了 SSD 線性層，故會高於主要儲存體的使用率。此層包含也存在於裝置上其他層中的資料量。SSD 線性層中的容量是重複使用的，因此當新資料進入時，舊資料會移動至雲端 (此時會進行重複資料刪除並壓縮)。
+- **裝置儲存體容量使用率**會顯示裝置的總使用率，此使用率因為包含了 SSD 線性層，故會高於主要儲存體的使用率。這個階層包含也存在於裝置上其他階層中的資料量。SSD 線性層中的容量是重複使用的，因此當新資料進入時，舊資料會移至 HDD 層 (此時會進行重複資料刪除並壓縮)，再移至雲端。
 
 	隨著時間過去，主要容量使用率和裝置容量使用率很可能會一起增加，直到資料開始分層到雲端。此時，裝置容量使用率可能開始穩定停滯，但主要容量使用率將會因更多的資料寫入而增加。
 
@@ -93,4 +93,4 @@
 
 [了解如何使用 StorSimple Manager 服務裝置儀表板](storsimple-device-dashboard.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

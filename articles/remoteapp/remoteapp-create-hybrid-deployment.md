@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何建立 Azure RemoteApp 的混合式收藏" 
-	description="了解如何建立連接內部網路的 RemoteApp 部署。" 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
+	pageTitle="如何建立 Azure RemoteApp 的混合式收藏"
+	description="了解如何建立連接內部網路的 RemoteApp 部署。"
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"
 	editor=""/>
 
 <tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.service="remoteapp"
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/12/2015"
 	ms.author="elizapo"/>
 
 # 如何建立 Azure RemoteApp 的混合式收藏
@@ -53,9 +53,9 @@ RemoteApp 收藏分成兩種：
 
 ### 建立 Azure VNET 並將它加入您的 Active Directory 部署
 
-首先，建立[虛擬網路](https://msdn.microsoft.com/library/azure/dn631643.aspx)。您可以在 Azure 管理入口網站的 [網路] 索引標籤上進行。您必須將虛擬網路連線到同步到您 Azure Active Directory 租用戶的 Active Directory 部署。
+首先，建立[虛擬網路](../virtual-network/virtual-networks-create-vnet.md)。您可以在 Azure 管理入口網站的 [網路] 索引標籤上進行。您必須將虛擬網路連線到同步到您 Azure Active Directory 租用戶的 Active Directory 部署。
 
-如需詳細資訊，請參閱[關於管理入口網站中的虛擬網路設定](https://msdn.microsoft.com/library/azure/jj156074.aspx)。
+如需詳細資訊，請參閱[關於管理入口網站中的虛擬網路設定](../virtual-network/virtual-networks-settings.md)。
 
 ### 確定您的虛擬網路已為 RemoteApp 準備就緒
 在建立 RemoteApp 收藏之前，請先確定您的虛擬網路已準備就緒。您可以執行下列動作來驗證：
@@ -136,4 +136,4 @@ RemoteApp 應用程式是您提供給使用者的應用程式或程式。此程�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

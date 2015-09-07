@@ -17,11 +17,9 @@
 	ms.author="saah;kenhoff"/>
 
 # 具有異常登入活動的使用者
+這是一個可結合來自下列報告的可疑登入的彙總報告：<ul><li>從未知的來源登入</li> <li>在多次失敗後登入</li> <li>從多個地理區域登入</li> <li>從具有可疑活動的 IP 位址登入</li> <li>從可能受感染的裝置登入</li> <li>異常登入活動</li> </ul>
 
-| 說明 | 報告位置 |
-| :-------------     | :-------        |
-| <p>使用這份報告可以檢視已被識別有異常登入活動的所有使用者帳戶。這份報告包含所有其他異常活動報告的資料。這份報告的結果會顯示使用者的詳細資料、登入事件為何被識別為異常的原因、日期和時間，以及事件的其他相關資訊。</p> | 目錄 > 報告索引標籤 |
 
 ![具有異常登入活動的使用者](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

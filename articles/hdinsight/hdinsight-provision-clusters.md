@@ -1,21 +1,21 @@
 <properties
    pageTitle="在 HDInsight 中自訂佈建 Hadoop 叢集 |Microsoft Azure"
-   	description="了解如何使用 Azure Preview 入口網站、Azure PowerShell、命令列或 .NET SDK 自訂佈建 Azure HDInsight 的叢集。"
-   services="hdinsight"
-   documentationCenter=""
-   tags="azure-portal"
-   authors="mumian"
-   manager="paulettm"
-   editor="cgronlun"/>
+	description="了解如何使用 Azure Preview 入口網站、Azure PowerShell、命令列或 .NET SDK 自訂佈建 Azure HDInsight 的叢集。"
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
+	authors="mumian"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="08/11/2015"
-   ms.author="jgao"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/21/2015"
+	ms.author="jgao"/>
 
 # 在 HDInsight 中佈建 Hadoop 叢集 (英文)
 
@@ -70,7 +70,7 @@
 
 	![HDInsight 叢集](./media/hdinsight-provision-clusters/hdinsight.clusters.png)
 
-	> [AZURE.NOTE] *Azure HDInsight 叢集*也稱為 *HDInsight 中的 Hadoop 叢集*，或是 *HDInsight 叢集*。有時候，它可與 *Hadoop 叢集*互換使用。它們都代表裝載於 Microsoft Azure 環境中的 Hadoop 叢集。
+	> [AZURE.NOTE]*Azure HDInsight 叢集*也稱為 *HDInsight 中的 Hadoop 叢集*，或是 *HDInsight 叢集*。有時候，它可與 *Hadoop 叢集*互換使用。它們都代表裝載於 Microsoft Azure 環境中的 Hadoop 叢集。
 
 	在特定叢集類型中，各節點有不同的角色，可讓客戶針對特定角色，根據適合其工作負載的詳細資料來調整節點的大小。舉例來說，若執行的分析作業類型會耗用大量記憶體，Hadoop 叢集將可使用大量記憶體來佈建背景工作節點。
 
@@ -111,7 +111,7 @@
 
 	選取 VM 的節點大小。如需詳細資訊，請參閱[雲端服務的大小](cloud-services-sizes-specs.md)
 
-	根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
+	根據選擇的 VM，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
 
 
 - **HDInsight 使用者**
@@ -224,7 +224,7 @@
 
 	![diagram of point-to-site configuration](./media/hdinsight-provision-clusters/hdinsight-vnet-point-to-site.png)
 
-如需虛擬網路特性、優點和功能的詳細資訊，請參閱＜[虛擬網路概觀](http://msdn.microsoft.com/library/azure/jj156007.aspx)＞。
+如需虛擬網路特性、優點和功能的詳細資訊，請參閱[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 
 > [AZURE.NOTE]您必須先建立 Azure 虛擬網路，才能佈建 HDInsight 叢集。如需詳細資訊，請參閱[將 Hadoop 叢集佈建至虛擬網路](hdinsight-hbase-provision-vnet.md#provision-an-hbase-cluster-into-a-virtual-network)。
 >
@@ -289,7 +289,7 @@
 
 		在 [使用 Hive 現有的 SQL DB] 中繼資料按一下 [是]，選取 SQL 資料庫，然後提供該資料庫的使用者名稱/密碼。如果您要**使用 Oozie 中繼資料現有的 SQL DB**，請重複這些步驟。按一下 [選取]，直到您回到 [選用設定] 刀鋒視窗。
 
-		>[AZURE.NOTE]用於 metastore 的 Azure SQL Database 必須能夠連線至其他 Azure 服務 (包括 Azure HDInsight)。在 Azure SQL Database 儀表板中，按一下右側的伺服器名稱。這是指執行 SQL Database 執行個體的伺服器。一旦進入伺服器檢視後，按一下 [**設定**]，然後在 [**Azure 服務**] 按一下 [**是**]，再按 [**儲存**]。
+		>[AZURE.NOTE]用於 metastore 的 Azure SQL Database 必須能夠連線至其他 Azure 服務 (包括 Azure HDInsight)。在 Azure SQL Database 儀表板中，按一下右側的伺服器名稱。這是指執行 SQL Database 執行個體的伺服器。一旦進入伺服器檢視後，按一下 [設定]，然後在 [Azure 服務] 按一下 [是]，再按 [儲存]。
 
   	- **指令碼動作** 如果您想要在該叢集正在建立使用自訂指令碼來自訂叢集。如需指令碼動作的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。請在 [指令碼動作] 刀鋒視窗上提供如螢幕擷取畫面所示的詳細資料。
 
@@ -540,7 +540,20 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 		    }
 		}
 
-7. 按 **F5** 鍵執行應用程式。主控台視窗會開啟並顯示應用程式的狀態。系統也會提示您輸入 Azure 帳號認證。建立 HDInsight 叢集可能需要幾分鐘的時間。
+7. 按 **F5** 鍵執行應用程式。主控台視窗會開啟並顯示應用程式的狀態。系統也會提示您輸入 Azure 帳戶認證。建立 HDInsight 叢集可能需要幾分鐘的時間。
+
+
+## 使用內部部署 SQL Server Integration Services 建立 HDInsight 叢集
+
+您也可以使用 SQL Server Integration Services (SSIS) 來建立或刪除 HDInsight 叢集。適用於 SSIS 的 Azure Feature Pack 中提供下列元件可搭配 HDInsight 叢集使用。
+
+
+- [Azure HDInsight 建立叢集工作][ssisclustercreate]
+- [Azure HDInsight 刪除叢集工作][ssisclusterdelete]
+- [Azure 訂用帳戶連接管理員][connectionmanager]
+
+在[這裡][ssispack]深入了解適用於 SSIS 的 Azure Feature Pack。
+
 
 
 ##<a id="nextsteps"></a> 後續步驟
@@ -555,5 +568,9 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
+[connectionmanager]: http://msdn.microsoft.com/zh-TW/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/zh-TW/library/mt146770(v=sql.120).aspx
+[ssisclustercreate]: http://msdn.microsoft.com/zh-TW/library/mt146774(v=sql.120).aspx
+[ssisclusterdelete]: http://msdn.microsoft.com/zh-TW/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

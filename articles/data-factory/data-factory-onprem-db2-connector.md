@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="DB2 連接器 - 從 DB2 移動資料" 
-	description="了解 Data Factory 服務的 DB2 連接器，其可讓您從 DB2 資料庫移動資料" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="從 DB2 移動資料 | Azure Data Factory"
+	description="了解如何使用 Azure Data Factory 從 DB2 資料庫移動資料。"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# DB2 連接器 - 從 DB2 移動資料
+# 使用 Azure Data Factory 從 DB2 移動資料
 本文將概述如何使用 Azure 資料處理站中的複製活動將資料從 DB2 移動到另一個資料存放區。本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文呈現使用複製活動移動資料的一般概觀以及支援的資料存放區組合。
 
 資料處理站支援使用資料管理閘道器連接至內部部署 DB2 來源。請參閱[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文來了解資料管理閘道器和設定閘道器的逐步指示。
@@ -35,15 +35,15 @@ IBM 回報了在 Windows 8 上安裝 IBM DB2 Data Server Driver 的相關已知�
 
 下列範例顯示：
 
-1.	類型 OnPremisesDb2 的連結服務。
-2.	AzureStorage 類型的連結服務。 
-3.	類型 RelationalTable 的輸入資料集。
-4.	AzureBlob 類型的輸出資料集。 
-5.	具有使用 RelationalSource 和 BlobSink 之複製活動的管線。 
+1.	[OnPremisesDb2](data-factory-onprem-db2-connector.md#db2-linked-service-properties) 類型的連結服務。
+2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 類型的連結服務。 
+3.	[RelationalTable](data-factory-onprem-db2-connector.md#db2-dataset-type-properties) 類型的輸入[資料集](data-factory-create-datasets.md)。
+4.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 類型的輸出[資料集](data-factory-create-datasets.md)。 
+5.	具有使用 [RelationalSource](data-factory-onprem-db2-connector.md#db2-copy-activity-type-properties) 和 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 之複製活動的[管線](data-factory-create-pipelines.md)。 
 
 此範例會每個小時將資料從 DB2 資料庫中的查詢結果複製到 Blob。範例後面的各節會說明這些範例中使用的 JSON 屬性。
 
-在第一個步驟中，請根據[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文中的指示設定資料管理閘道器。
+在第一個步驟中，請根據[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文中的指示，設定資料管理閘道器。
 
 **DB2 連結服務：**
 
@@ -80,7 +80,7 @@ IBM 回報了在 Windows 8 上安裝 IBM DB2 Data Server Driver 的相關已知�
 
 此範例假設您已在 DB2 中建立資料表 "MyTable"，其中包含時間序列資料的資料行 (名稱為 "timestamp")。
 
-設定 “external”: true 和指定 externalData 原則即可通知 Azure Data Factory：這是 Data Factory 外部的資料表而且不是由 Data Factory 中的活動所產生。請注意，**type** 設為 **RelationalTable**。
+設定 “external”: true 和指定 externalData 原則即可通知 Azure Data Factory：這是 Data Factory 外部的資料表而且不是由 Data Factory 中的活動所產生。請注意，**類型**需設為 **RelationalTable**。
 
 	{
 	    "name": "Db2DataSet",
@@ -215,7 +215,7 @@ IBM 回報了在 Windows 8 上安裝 IBM DB2 Data Server Driver 的相關已知�
 
 | 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- | 
-| 類型 | type 屬性必須設為：**OnPremisesDB2** | 是 |
+| 類型 | 類型屬性必須設為：**OnPremisesDB2** | 是 |
 | 伺服器 | DB2 伺服器的名稱。 | 是 |
 | 資料庫 | DB2 資料庫的名稱。 | 是 |
 | 結構描述 | 在資料庫中的結構描述名稱。 | 否 |
@@ -224,9 +224,12 @@ IBM 回報了在 Windows 8 上安裝 IBM DB2 Data Server Driver 的相關已知�
 | password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 | 否 |
 | gatewayName | Data Factory 服務應該用來連接到內部部署 DB2 資料庫的閘道器名稱。 | 是 |
 
+如需為內部部署 DB2 資料來源設定認證的詳細資料，請參閱[設定認證和安全性](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)。
+
+
 ## DB2 資料集類型屬性
 
-如需可用來定義資料集的完整區段和屬性清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。
+如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。
 
 每個資料集類型的 typeProperties 區段都不同，可提供資料存放區中資料的位置相關資訊。RelationalTable 資料集類型的 typeProperties 區段 (包含 DB2 資料集) 具有下列屬性。
 
@@ -236,11 +239,11 @@ IBM 回報了在 Windows 8 上安裝 IBM DB2 Data Server Driver 的相關已知�
 
 ## DB2 複製活動類型屬性
 
-如需可用來定義活動的完整區段和屬性清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
+如需定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
 
 另一方面，活動的 typeProperties 區段中可用的屬性會隨著每個活動類型而有所不同，而在複製活動的案例中，可用的屬性會根據來源與接收的類型而有所不同。
 
-在複製活動的案例中，如果來源的類型為 **RelationalSource** (包含 DB2)，則 typeProperties 區段有下列可用屬性：
+在複製活動的案例中，如果來源類型為 **RelationalSource** (包含 DB2)，則 typeProperties 區段可使用下列屬性：
 
 
 | 屬性 | 說明 | 允許的值 | 必要 |
@@ -250,7 +253,7 @@ IBM 回報了在 Windows 8 上安裝 IBM DB2 Data Server Driver 的相關已知�
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ## DB2 的類型對應
-如[資料移動活動](data-factory-data-movement-activities.md)一文所述，複製活動會使用下列 2 個步驟的方法，執行從來源類型轉換成接收類型的自動類型轉換：
+如同[資料移動活動](data-factory-data-movement-activities.md)一文所述，複製活動會使用下列 2 個步驟的方法，執行自動類型轉換，將來源類型轉換成接收類型：
 
 1. 從原生來源類型轉換成 .NET 類型
 2. 從 .NET 類型轉換成原生接收類型
@@ -306,4 +309,4 @@ Char | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

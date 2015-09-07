@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="進一步了解 Azure AD Connect 認證和權限" 
-	description="Azure AD Connect 認證和權限的自訂設定說明。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="進一步了解 Azure AD Connect 認證和權限"
+	description="Azure AD Connect 認證和權限的自訂設定說明。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -88,7 +88,7 @@ AD FS:GMSA 帳戶 (aadcsvc$)|網域使用者|FS 服務登入帳戶
 * [Exchange 混合的權限](https://msdn.microsoft.com/library/azure/dn757602.aspx#exchange)
 * [密碼回寫的權限](https://msdn.microsoft.com/library/azure/dn757602.aspx#pwriteback)
 * [自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)
-* [MSDN 上的 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+* [MSDN 上的 Azure AD Connect](active-directory-aadconnect.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

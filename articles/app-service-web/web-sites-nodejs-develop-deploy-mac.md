@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在 Azure App Service 中建立 Node.js Web 應用程式"
+	pageTitle="在 Azure App Service 中建立 Node.js Web App | Microsoft Azure"
 	description="了解如何在 Azure 中建置和部署 Node.js Web 應用程式。"
 	services="app-service\web"
 	documentationCenter="nodejs"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="03/24/2015"
+	ms.date="08/18/2015"
 	ms.author="mwasson"/>
 
 # 在 Azure App Service 中建置和部署 Node.js Web 應用程式
 
-本教學課程說明如何建立 [Node][nodejs.org] 應用程式，並使用 [Git] 將其部署至 [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)。本教學課程中的指示可運用在任何足以執行 Node 應用程式的作業系統上。
+本教學課程說明如何建立 [Node][nodejs.org] 應用程式，並使用 [Git] 將其部署至 [Azure App Service 中的 Web Apps 功能](http://go.microsoft.com/fwlink/?LinkId=529714)。本教學課程中的指示可運用在任何足以執行 Node 應用程式的作業系統上。
 
 完成之應用程式的螢幕擷取畫面如下：
 
@@ -35,7 +35,7 @@
 
 2. 按一下入口網站左上方的 [+ 新增] 圖示。
 
-3. 依序按一下 [Web + 行動] 和 [Web 應用程式]。
+3. 按一下 [Web + 行動]，然後按一下 [Web app]。
 
     ![][portal-quick-create]
 
@@ -47,7 +47,7 @@
 
 6. 按一下 [建立]。
 
-7. 一旦狀態變更為 [執行中] 之後，入口網站就會自動開啟 Web 應用程式的分頁。您也可以按一下 [瀏覽] 開啟該分頁。
+7. 一旦狀態變更為 [執行中] 之後，入口網站就會自動開啟 Web app 的刀鋒視窗。您也可以按一下 [瀏覽] 開啟該分頁。
 
 	![][go-to-dashboard]
 
@@ -55,12 +55,12 @@
 
 	![][deployment-part]
 
-9. 依序按一下 [選擇來源] 和 [本機 Git 儲存機制]。按一下 [確定]。
+9. 依序按一下 [選擇來源]、[本機 Git 儲存機制] 及 [確定]。
 
 	![][setup-git-publishing]
 
 
-10. 按一下 [部署認證] 組件 (下列紅色外框)。建立使用者名稱和密碼。按一下 [儲存]。如果您先前已經啟用 Web 應用程式的發行，就不需要執行此步驟。
+10. 按一下 [部署認證] 組件 (下列紅色外框)。建立使用者名稱和密碼。按一下 [儲存]。如果您先前已啟用 Web app 的發行，就不需要執行此步驟。
 
 	![][deployment-credentials]
 
@@ -71,7 +71,7 @@
 
 ##在本機建置與測試您的應用程式
 
-在本節中，您將建立 **server.js** 檔案，其中內含來自 [nodejs.org] (英文) 的 'hello world' 範例。此範例已從原始範例中加以修改，將 process.env.PORT 新增為在 Azure Web 應用程式中執行時要接聽的連接埠。
+在本節中，您將建立 **server.js** 檔案，其中內含來自 [nodejs.org] (英文) 的「Hello World」範例。此範例已從原始範例中加以修改，將 process.env.PORT 新增為在 Azure Web 應用程式中執行時要接聽的連接埠。
 
 1. 使用文字編輯器，在 **helloworld** 目錄中建立名為 **server.js** 的新檔案。如果 **helloworld** 目錄不存在，請建立一個。
 
@@ -84,17 +84,17 @@
           res.end('Hello World\n');
         }).listen(port);
 
-3. 開啟命令列，然後使用下列命令在本機啟動 Web 應用程式：
+3. 開啟命令列，然後使用下列命令在本機啟動 Web app：
 
         node server.js
 
-4. 開啟您的 Web 瀏覽器並瀏覽至 http://localhost:1337。如以下螢幕擷取畫面所示，隨即會出現顯示 "Hello World" 的網頁瀏覽器：
+4. 開啟您的 Web 瀏覽器並瀏覽至 http://localhost:1337。隨即會出現顯示「Hello World」的網頁，如以下螢幕擷取畫面所示：
 
     ![顯示「Hello World」訊息的瀏覽器。][helloworld-localhost]
 
 ##發行您的應用程式
 
-1. 從命令列中，將目錄變更至 **helloworld** 目錄，然後輸入以下命令以初始化本機 Git 儲存機制。
+1. 從命令列中，將目錄變更至 **helloworld** 目錄，然後輸入以下命令來初始化本機 Git 儲存機制。
 
 		git init
 
@@ -106,16 +106,16 @@
 		git add .
 		git commit -m "initial commit"
 
-3. 使用下列命令來加入 Git remote，以將更新推送至您先前建立的 Web 應用程式：
+3. 使用下列命令來新增 Git remote，將更新推送至您先前建立的 Web app：
 
 		git remote add azure [URL for remote repository]
 
 
-4. 使用下列命令將您的變更發送至 Azure：
+4. 使用下列命令，將您的變更推送至 Azure：
 
 		git push azure master
 
-	系統會提示您輸入先前建立的密碼。輸出應該類似如下範例：
+	系統將提示您輸入先前建立的密碼。輸出應該類似如下範例：
 
 		Counting objects: 3, done.
 		Delta compression using up to 8 threads.
@@ -132,7 +132,7 @@
 		 * [new branch]      master -> master
 
 
-5. 若要檢視您的應用程式，請按一下管理入口網站內 [Web 應用程式] 組件上的 [瀏覽] 按鈕。
+5. 若要檢視您的 app，請按一下 Azure 入口網站內 [Web App] 組件上的 [瀏覽] 按鈕。
 
 ##將變更發行至您的應用程式
 
@@ -143,25 +143,25 @@
 		git commit -m "changing to hello azure"
 		git push azure master
 
-	系統會提示您輸入先前建立的密碼。
+	系統將提示您輸入先前建立的密碼。
 
-3. 按一下 [瀏覽] 以瀏覽至您的應用程式，並注意已經套用更新。
+3. 按一下 [瀏覽] 以瀏覽至您的 app，並注意已經套用更新。
 
 	![顯示「Hello Azure」的網頁][helloworld-completed]
 
 4. 您可以在 [部署] 中選取先前的部署，以進行還原。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE]如果您想要在註冊 Azure 帳戶之前先開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)。您可以於該處，在 App Service 中立即建立短期的入門 Web app - 不需信用卡，不需任何承諾。
 
 ##後續步驟
 
-雖然本文內的步驟使用 Azure 入口網站來建立 Web 應用程式，但是您也可以使用 [Azure 命令列介面](../xplat-cli.md)來執行相同的操作。
+雖然本文中的步驟使用 Azure 入口網站來建立 Web app，但是您也可以使用 [Azure 命令列介面](../xplat-cli.md)來執行相同的操作。
 
 Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。若要了解 Web Apps 如何與模組搭配使用，請參閱[使用 Node.js 模組來搭配 Azure 應用程式](../nodejs-use-node-modules-azure-apps.md)。
 
 若要深入了解 Azure 隨附的 Node.js 版本，以及如何指定要與您的應用程式搭配使用的版本，請參閱[在 Azure 應用程式中指定 Node.js 版本](../nodejs-specify-node-version-azure-apps.md) (英文)。
 
-如果您在將應用程式部署到 Azure 後遇到問題，請參閱[如何在 Azure 網站中對 Node.js 應用程式進行偵錯](web-sites-nodejs-debug.md) (英文) 以獲得診斷問題的詳細資訊。
+如果您在將應用程式部署到 Azure 後遇到問題，請參閱[如何在 Azure App Service 中偵錯 Node.js 應用程式](web-sites-nodejs-debug.md)，以獲得診斷問題的詳細資訊。
 
 
 ##其他資源
@@ -170,8 +170,8 @@ Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。
 * [Azure 命令列介面](../xplat-cli.md)
 
 ## 變更的項目
-* 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+* 如需從網站變更為 App Service 的指南，請參閱 [Azure App Service 及現有的 Azure 服務](http://go.microsoft.com/fwlink/?LinkId=529714)。
+* 如需從舊的入口網站變更為新入口網站的指南，請參閱[瀏覽 Azure 入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)。
 
 
 [nodejs.org]: http://nodejs.org
@@ -196,6 +196,5 @@ Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。
 
 
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="如何使用 Fiddler 評估及測試 Azure 搜尋服務 REST API"
+	pageTitle="如何使用 Fiddler 評估及測試 Azure 搜尋 REST API | Microsoft Azure"
 	description="使用 Fiddler 以無程式碼的方式驗證 Azure 搜尋服務的可用性，並試用 REST API。"
 	services="search"
 	documentationCenter=""
@@ -16,30 +16,30 @@
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
-# 如何使用 Fiddler 評估及測試 Azure 搜尋服務 REST API
+# 使用 Fiddler 評估及測試 Azure 搜尋 REST API
 
 本文說明如何使用 Fiddler ([可從 Telerik 免費下載](http://www.telerik.com/fiddler))，以在不必撰寫任何程式碼的情況下，透過 Azure 搜尋服務 REST API 發送 HTTP 要求以及檢視回應。[MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx) 中記載了 Azure 搜尋服務 REST API。
 
-在以下步驟中，您將建立索引、上傳文件、查詢索引，然後查詢系統以取得服務資訊。
+在下列步驟中，您將建立索引、上傳文件、查詢索引，然後查詢系統以取得服務資訊。
 
 若要完成這些步驟，您將需要 Azure 搜尋服務和 `api-key`。如需起始步驟的指示，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
 ## 建立索引
 
-1. 啟動 Fiddler。在 [File (檔案)] 功能表上，關閉 [Capture Traffic (擷取流量)] 以隱藏與目前工作無關的 HTTP 活動。
+1. 啟動 Fiddler。在 [檔案] 功能表上，關閉 [擷取流量] 以隱藏與目前工作無關的 HTTP 活動。
 
-3. 在 [Composer (編寫器)] 索引標籤上，您可以制定如下所示的要求：
+3. 在 [編寫器] 索引標籤上，您可以制訂如下列螢幕擷取畫面所示的要求：
 
   	![][1]
 
 2. 選取 [PUT]。
 
-3. 輸入可指出服務 URL、要求屬性和 API 版本的 URL。請留意以下幾點：
-   + 使用 HTTPS 作為首碼
+3. 輸入可指定服務 URL、要求屬性和 API 版本的 URL。請留意以下幾點：
+   + 使用 HTTPS 做為首碼。
    + 要求屬性為 "/indexes/hotels"。這可告知「搜尋」建立名為 'hotels' 的索引。
    + API 版本為小寫，並指定為 "?api-version=2015-02-28"。API 版本十分重要，因為 Azure 搜尋服務會定期部署更新。在極少數情況下，更新服務可能會對 API 造成中斷變更。使用 API 版本時，您可以先繼續使用現有版本，方便時再升級到較新的版本。
 
-    完整 URL 應該會類似下列範例：
+    完整 URL 應該會類似下列範例。
 
          https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
 
@@ -77,13 +77,13 @@
 
 ## 載入文件
 
-在 [Composer (編寫器)] 索引標籤上，張貼文件的要求看起來會像下面這樣。要求本文包含 4 間飯店的搜尋資料。
+在 [編寫器] 索引標籤上，張貼文件的要求會類似如下。要求本文包含 4 間飯店的搜尋資料。
 
    ![][2]
 
 1. 選取 [POST]。
 
-2.	輸入以 HTTPS 開頭的 URL，並於後面依序加上服務 URL 和 "/indexes/<'indexname'>/docs/index?api-version=2015-02-28"。完整 URL 應該會類似下列範例：
+2.	輸入以 HTTPS 開頭的 URL，並於後面依序加上服務 URL 和 "/indexes/<'indexname'>/docs/index?api-version=2015-02-28"。完整 URL 應該會類似下列範例。
 
         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
@@ -163,7 +163,7 @@
 
 ## 查詢索引
 
-現在已載入索引和文件，您可以對其發出查詢。在 [Composer (編寫器)] 索引標籤上，查詢服務的 GET 命令看起來會像下面這樣：
+現在已載入索引和文件，您可以對其發出查詢。在 [編寫器] 索引標籤上，查詢服務的 **GET** 命令會類似下列螢幕擷取畫面。
 
    ![][3]
 
@@ -182,11 +182,11 @@
         content-type: application/json
         api-key: 1111222233334444
 
-回應碼應為 200，而回應的輸出看起來應該會類似下圖。
+回應碼應為 200，而回應輸出應該會類似下列螢幕擷取畫面。
 
    ![][4]
 
-下列範例查詢來自 MSDN 上的[搜尋索引作業 (Azure 搜尋服務 API)](http://msdn.microsoft.com/library/dn798927.aspx) (英文)。此主題中有許多範例查詢包含空格，這在 Fiddler 中是不允許的。因此，請先使用 + 字元取代空格，再貼到查詢字串中，然後再於 Fiddler 中嘗試該查詢：
+下列範例查詢來自 MSDN 上的[搜尋索引作業 (Azure 搜尋 API)](http://msdn.microsoft.com/library/dn798927.aspx) (英文)。此主題中有許多範例查詢包含空格，這在 Fiddler 中是不允許的。因此，請先使用 + 字元取代空格，再貼到查詢字串中，然後再於 Fiddler 中嘗試該查詢：
 
 **取代空格之前：**
 
@@ -198,7 +198,7 @@
 
 ## 查詢系統
 
-您也可以查詢系統以取得文件計數和儲存體用量。在 [Composer (編寫器)] 索引標籤上，您的要求看起來會像下面這樣，而回應會傳回文件計數和空間的使用量。
+您也可以查詢系統以取得文件計數和儲存體用量。在 [編寫器] 索引標籤上，您的要求會類似如下，且回應會傳回文件計數和空間使用量。
 
  ![][5]
 
@@ -219,7 +219,7 @@
 
 5.	按一下 [Execute (執行)]。您應該會在工作階段清單中看到 HTTP 200 的狀態碼。選取為命令張貼的項目。
 
-6.	依序按一下 [Inspectors (檢測器)] 索引標籤 | [Headers (標頭)]，然後選取 [JSON] 格式。您應該會看到文件計數和儲存體大小 (以 KB計算)。
+6.	依序按一下 [檢測器] 索引標籤和 [標頭] 索引標籤，然後選取 JSON 格式。您應該會看到文件計數和儲存體大小 (以 KB計算)。
 
 ## 後續步驟
 
@@ -234,6 +234,5 @@
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="資料轉換活動 | Microsoft Azure" 
-	description="了解使用 Azure Data Factory 服務轉換和分析資料的方法。" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="資料轉換活動 | Microsoft Azure"
+	description="了解使用 Azure Data Factory 服務轉換和分析資料的方法。"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/26/2015"
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 進行轉換和分析
@@ -37,4 +37,4 @@
 
 請參閱〈[運算連結服務](data-factory-compute-linked-services.md)〉文章以了解 Data Factory 所支援的運算連結服務。
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

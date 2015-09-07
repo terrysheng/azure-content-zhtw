@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="StorSimple 裝置的技術規格和相容性 | Microsoft Azure"
-   description="說明 StorSimple 裝置的技術規格與法規標準符合性資訊。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="" />
+   pageTitle="StorSimple 技術規格 | Microsoft Azure"
+	description="說明適用於 StorSimple 硬體元件的技術規格與法規標準符合性資訊。"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
  <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="alkohli"/>
 
 # 適用於 StorSimple 裝置的技術規格和相容性
 
@@ -172,4 +172,4 @@ EBOD 機箱使用 580 W PCM，而主要機箱會使用 764 W PCM。下表列出�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

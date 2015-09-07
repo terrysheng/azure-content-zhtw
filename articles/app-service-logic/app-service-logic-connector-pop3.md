@@ -1,27 +1,27 @@
 <properties
-   pageTitle="POP3 連接器 API 應用程式"
-   description="如何使用 POP3 連接器"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 POP3 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 POP3 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# 在邏輯應用程式中使用 POP3 連接器 #
+# 開始使用 POP3 連接器並將它加入您的邏輯應用程式
+連接到 POP3 伺服器擷取電子郵件，包括帶有附件的電子郵件。
 
-邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。
+邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。您可以將 POP3 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
-POP3 連接器可讓您連接到 POP3 伺服器，並提供擷取帶有附件的電子郵件的觸發程序。
 
 ## 建立邏輯應用程式的 POP3 連接器 ##
 若要使用 POP3 連接器，您必須先建立 POP3 連接器 API 應用程式的執行個體。這可以直接從邏輯應用程式設計工具中進行，或在工具外進行。在設計工具外建立執行個體的作法如下：
@@ -52,7 +52,7 @@ POP3 連接器可讓您連接到 POP3 伺服器，並提供擷取帶有附件的
 1.	建立新的邏輯應用程式，並選擇具有 POP3 連接器的相同資源群組。
 
 	![][2]
-2.	開啟 [觸發程序和動作] 以開啟邏輯應用程式設計工具，並設定您的流程。
+2.	開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具，並設定您的流程。
 
 	![][3]
 3.	POP3 接器就會出現在右側程式庫中的 [此資源群組中的 API 應用程式] 區段。選取該項目。
@@ -63,8 +63,9 @@ POP3 連接器可讓您連接到 POP3 伺服器，並提供擷取帶有附件的
 5.	您現在便可以在流程中使用 POP3 連接器。選取 [取得電子郵件] 觸發程序，並設定頻率和時間間隔。您可以在流程的其他動作中使用從 POP3 觸發程序所擷取的電子郵件。
 		 
 
-	![][5]
+	![][5] 
 	![][6]
+
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
 
@@ -81,4 +82,4 @@ POP3 連接器可讓您連接到 POP3 伺服器，並提供擷取帶有附件的
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

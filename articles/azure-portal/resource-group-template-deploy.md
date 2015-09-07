@@ -1,20 +1,20 @@
 <properties
    pageTitle="使用 Azure 資源管理員範本部署應用程式"
-   services="azure-resource-manager"
-   description="使用 Azure 資源管理員部署應用程式至 Azure。範本是 JSON 檔案，並可從入口網站、PowerShell、適用於 Mac、Linux 和 Windows 的 Azure 命令列介面，或 REST 來使用。"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	services="azure-resource-manager"
+	description="使用 Azure 資源管理員部署應用程式至 Azure。範本是 JSON 檔案，並可從入口網站、PowerShell、適用於 Mac、Linux 和 Windows 的 Azure 命令列介面，或 REST 來使用。"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員範本部署應用程式
 
@@ -256,12 +256,14 @@ Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在
        }
     }
 
+參數檔的大小不得超過 64 KB。
+
 ## 後續步驟
 - 如需透過 .NET 用戶端程式庫部署資源的範例，請參閱[使用 .NET 程式庫和範本部署資源](../arm-template-deployment.md)
 - 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](../app-service-web/app-service-deploy-complex-application-predictably.md)
 - 若要了解 Azure 資源管理員範本的區段，請參閱[編寫範本](../resource-group-authoring-templates.md)
-- 如需您可以在 Azure 資源管理員範本中使用的函數的清單，請參閱[範本函數](../resource-group-template-functions.md)
+- 如需您可以在 Azure 資源管理員範本中使用的函式的清單，請參閱[範本函式](../resource-group-template-functions.md)
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

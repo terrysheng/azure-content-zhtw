@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="在 Visual Studio 中使用已連接服務加入行動服務"
-   description="使用 Visual Studio 的加入已連接服務對話方塊加入行動服務"
-   services="visual-studio-online"
-   documentationCenter="na"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="使用 Visual Studio 的已連接服務加入行動服務 | Microsoft Azure"
+	description="使用 Visual Studio 的加入已連接服務對話方塊加入行動服務"
+	services="visual-studio-online"
+	documentationCenter="na"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="mobile"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="mobile"
+	ms.date="08/12/2015"
+	ms.author="patshea"/>
 
 # 使用 Visual Studio 已連接服務加入行動服務
 
@@ -58,14 +58,14 @@
   
         ![建立行動服務](./media/vs-azure-tools-connected-services-add-mobile-services/IC797638.png)
 
-        JavaScript 後端服務簡單又強大。如果您建立 JavaScript 後端行動服務，伺服器端 JavaScript 程式碼會儲存在雲端，但您可以使用 [伺服器總管] 或 Azure 管理入口網站編輯伺服器指令碼。
+        JavaScript 後端服務不但簡單而且功能強大。如果您建立 JavaScript 後端行動服務，伺服器端 JavaScript 程式碼會儲存在雲端中，但您可以使用 [伺服器總管] 或 Azure 管理入口網站來編輯伺服器指令碼。
 
         .NET 後端行動服務讓您擁有 Web API 和 Entity Framework 的完整功能與彈性。如果您建立 .NET 後端行動服務，則系統會為您建立專案並加入至您的解決方案。
 
     1. 選擇您想要行動服務的 [區域]，然後輸入伺服器的使用者名稱和密碼。
  
     1. 在您輸入所有必要的資訊之後，選擇 [建立] 按鈕以建立行動服務。
-    2. 新的行動服務應顯示在 [Azure 行動服務] 對話方塊的服務清單中。選擇清單中的新行動服務，然後選擇 [新增] 按鈕將服務加入至您的專案。
+    2. 新行動服務應該會顯示在 [Azure 行動服務] 對話方塊的服務清單中。選擇清單中的新行動服務，然後選擇 [新增] 按鈕將服務加入至您的專案。
     
 
 1. 檢閱所顯示的 [開始使用] 頁面並了解您的專案修改方式。每當您加入已連接服務時，您的瀏覽器就會出現 [開始使用] 頁面。您可以檢閱建議的後續步驟和程式碼範例，或切換到 [發生什麼情形] 頁面以查看哪些參考已加入至您的專案，以及您的程式碼和組態檔的修改方式。
@@ -89,4 +89,4 @@ Visual Studio 修改您的專案的方式視專案類型而定。若為 C# 用�
 
  - [azure.microsoft.com 上的 Azure 行動服務文件](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

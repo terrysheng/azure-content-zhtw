@@ -1,6 +1,6 @@
 <properties
-	pageTitle="OneDrive 連接器"
-	description="開始使用 OneDrive 連接器"
+	pageTitle="在 Logic Apps 中使用 OneDrive 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 OneDrive 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
 	authors="anuragdalmia"
 	manager="dwrede"
 	editor=""
@@ -13,14 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="andalmia"/>
 
-# 在邏輯應用程式中使用 OneDrive 連接器 #
-
-邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。
-
-OneDrive 連接器可讓您從 OneDrive 帳戶上傳\下載\刪除檔案。
+# 開始使用 OneDrive 連接器並將它加入您的邏輯應用程式
+連線至 OneDrive 以上傳、下載及刪除檔案。邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。您可以將 OneDrive 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
 ## 建立邏輯應用程式的 OneDrive 連接器 ##
 若要使用 OneDrive 連接器，您必須先建立 OneDrive 連接器 API 應用程式的執行個體。這可以直接從邏輯應用程式設計工具中進行，或在工具外進行。在設計工具外建立執行個體的作法如下：
@@ -40,19 +37,19 @@ OneDrive 連接器可讓您從 OneDrive 帳戶上傳\下載\刪除檔案。
 4. 按一下 [建立]。將建立新的 OneDrive 連接器。
 5. 建立 API 應用程式執行個體後，您可以在相同的資源群組中建立邏輯應用程式，以便使用 OneDrive 連接器。
 
-## 在邏輯應用程式中使用 Dropbox 連接器 ###
+## 在邏輯應用程式中使用 Dropbox 連接器 # ##
 建立 API 應用程式之後，您現在可以使用 OneDrive 連接器做為邏輯應用程式的動作。若要這樣做，您需要：
 
 1.	建立新的邏輯應用程式，並選擇具有 OneDrive 連接器的相同資源群組。請依照指示[建立新的邏輯應用程式]。
 
-2.	在建立的邏輯應用程式中開啟 [觸發程序和動作] 以開啟邏輯應用程式設計工具，並設定您的流程。
+2.	在建立的邏輯應用程式中開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具，並設定您的流程。
 
 3.	OneDrive 接器就會出現在右側程式庫中的 [此資源群組中的 API 應用程式] 區段。
 
 	![][2]
 4.	您可以在 [OneDrive 連接器] 上按一下來將 OneDrive 連接器 API 應用程式置入編輯器。按一下 [授權] 按鈕。提供您的 Microsoft 認證 (若未自動登入)。按一 [是] 來允許存取。
 
-	![][3]
+	![][3] 
 	![][4]
 
 5.	您現在便可以在流程中使用 OneDrive 連接器。OneDrive 連接器中目前沒有觸發程序可使用。可使用的動作有 - 「取得檔案」、「上傳檔案」、「刪除檔案」和「列出檔案」。
@@ -79,7 +76,7 @@ OneDrive 連接器可讓您從 OneDrive 帳戶上傳\下載\刪除檔案。
 9. 如需 API 的詳細資訊，請參閱 [OneDrive API 定義]。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -98,4 +95,4 @@ OneDrive 連接器可讓您從 OneDrive 帳戶上傳\下載\刪除檔案。
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
 [OneDrive API 定義]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

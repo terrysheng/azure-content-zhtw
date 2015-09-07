@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="媒體服務版本資訊" 
-	description="媒體服務版本資訊" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="媒體服務版本資訊"
+	description="媒體服務版本資訊"
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="media" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="media"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [目前的已知問題](#issues)
 - [REST API 版本歷程記錄](#rest_version_history)
+- [2015 年 8 月版本](#august_changes_15)
 - [2015 年 7 月版本](#july_changes_15)
 - [2015 年 6 月版本](#june_changes_15)
 - [2015 年 5 月版本](#may_changes_15)
@@ -72,12 +73,21 @@ SDK 中的媒體服務物件無法序列化，因此無法與 Azure 快取搭配
 
 如需媒體服務 REST API 版本歷程記錄的相關資訊，請參閱 [Azure 媒體服務 REST API 參考]。
 
+##<a id="august_changes_15"></a>2015 年 8 月版本
+
+- 現在已有適用於 Java 0.8.0 版本的 Azure 媒體服務 SDK 以及新的範例可用。如需詳細資訊，請參閱：
+
+	- [部落格文章](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
+	- [Java 範例存放庫](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- 含有多重音訊串流支援的 Azure 媒體播放器更新。如需詳細資訊，請參閱：
+	- [部落格文章](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)
+
 ##<a id="july_changes_15"></a>2015 年 7 月版本
 
-宣布 Media Encoder Standard 的一般可用性。如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
+- 宣布 Media Encoder Standard 的一般可用性。如需詳細資訊，請參閱[此部落格文章](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
 
-Media Encoder Standard 使用[本](http://go.microsoft.com/fwlink/?LinkId=618336)節中所述的預設。請注意，使用 4k 編碼的預設時，您應該取得**進階**保留單元類型。如需詳細資訊，請參閱[如何調整編碼](media-services-portal-encoding-units)。
-
+	Media Encoder Standard 使用[本](http://go.microsoft.com/fwlink/?LinkId=618336)節中所述的預設。請注意，使用 4k 編碼的預設時，您應該取得「進階」保留單元類型。如需詳細資訊，請參閱[如何調整編碼](media-services-portal-encoding-units)。
+- 直播即時字幕與 Azure 媒體服務和播放器。如需詳細資訊，請參閱[此部落格文章](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
 
 ###媒體服務 .NET SDK 更新
 
@@ -563,4 +573,4 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [處理媒體服務工作通知]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

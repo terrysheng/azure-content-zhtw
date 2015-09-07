@@ -1,19 +1,19 @@
 <properties      
-    pageTitle="在 DocumentDB 中分割資料 | Microsoft Azure"      
-    description="了解如何在 DocumentDB 中分割資料，以及使用雜湊、定界以及查閱分割的時機。"          
-    services="documentdb"      
-    authors="arramac"      
-    manager="jhubbard"      
-    editor="monicar"      
-    documentationCenter=""/>
-<tags      
-    ms.service="documentdb"      
-    ms.workload="data-services"      
-    ms.tgt_pltfrm="na"      
-    ms.devlang="na"      
-    ms.topic="article"      
-    ms.date="05/28/2015"      
-    ms.author="arramac"/>
+    pageTitle="在 DocumentDB 中分割資料 | Microsoft Azure"
+	description="了解如何在 DocumentDB 中分割資料，以及使用雜湊、定界以及查閱分割的時機。"
+	services="documentdb"
+	authors="arramac"
+	manager="jhubbard"
+	editor="monicar"
+	documentationCenter=""/>
+<tags       
+    ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/28/2015"
+	ms.author="arramac"/>
 
 # 在 DocumentDB 中分割資料
 
@@ -73,7 +73,7 @@
 在 DocumentDB 上開發分割的應用程式時，有三個要查看的主要設計區域。
 
 - 路由您所建立和讀取 (包括查詢) 至正確集合的方式。
-- 保存並擷取您的分割解決組態 (即分割對應) 的方式。
+- 保存並抓取您的分割解決組態 (即分割對應) 的方式。
 - 隨著資料和要求量的增加，新增/移除分割的方式。
 
 讓我們仔細看看每個區域。
@@ -92,7 +92,7 @@
 
 ## 新增及移除分割
 
-利用 DocumentDB，您可以隨時新增及移除建立集合，並用集合來儲存新的內送資料或重新平衡現有的集合上可用的資料。檢閱[限制](documentdb-limits.md)頁面以取得集合數目。您一律可以致電我們以增加這些限制。
+利用 DocumentDB，您可以隨時新增及移除集合，並用集合來儲存新的內送資料或重新平衡現有的集合上可用的資料。檢閱[限制](documentdb-limits.md)頁面以取得集合數目。您一律可以致電我們以增加這些限制。
 
 利用查閱和定界分割新增及移除新分割很簡單。例如，新增新的地理區域或新時間範圍以取得最新資料，您只需將新分割附加到分割對應。將現有的分割分割成多個分割，或合併兩個分割需要多一點力氣。您需要進行兩個動作之一
 
@@ -114,4 +114,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

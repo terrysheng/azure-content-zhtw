@@ -1,23 +1,25 @@
 <properties 
-   pageTitle="BizTalk Edifact 連接器" 
-   description="BizTalk Edifact 連接器" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 BizTalk Edifact 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 BizTalk Edifact 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-# BizTalk Edifact 連接器
-Microsoft Azure Edifact 服務可以讓您透過 Edifact 通訊協定，以企業對企業通訊接收和傳送訊息。Edifact 通常也稱為 ASC Edifact 或 Accredited Standards Committee Edifact。廣泛用於各產業。
+# 開始使用 BizTalk Edifact 連接器並將它加入您的邏輯應用程式  
+使用 Edifact 服務可以透過 Edifact 通訊協定，以企業對企業通訊接收和傳送訊息。Edifact 通常也稱為 ASC Edifact 或 Accredited Standards Committee Edifact，而且廣泛用於各產業。
+
+您可以將 BizTalk Edifact 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
 ## 必要條件
 - TPM API 應用程式：在建立 Edifact 連接器之前，您必須先建立 [BizTalk 交易夥伴管理連接器][1]。
@@ -41,7 +43,7 @@ Edifact 連接器可以當作觸發程序或動作使用。
 ![觸發程序設定][3]
 - 按一下 ->︰  
 ![觸發程序選項][4]
-- EDIFACT 連接器會公開單一觸發程序。選取 [*發行 Batch*]︰  
+- EDIFACT 連接器會公開單一觸發程序。選取 [發行批次]：  
 ![發行批次輸入][5]
 - 這個觸發程序沒有輸入。按一下 ->︰  
 ![已設定發行批次][6]
@@ -74,7 +76,7 @@ Edifact 連接器可以當作觸發程序或動作使用。
 動作傳回物件，其中包含成功完成的 EDIFACT 承載。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以使用邏輯應用程式將它加入商務流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以使用邏輯應用程式將它加入商務流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -93,4 +95,4 @@ Edifact 連接器可以當作觸發程序或動作使用。
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

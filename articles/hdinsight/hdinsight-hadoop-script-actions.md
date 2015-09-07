@@ -14,15 +14,55 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="08/21/2015"
 	ms.author="jgao"/>
 
 # 開發 HDInsight 的指令碼動作指令碼
 
 指令碼動作可用來安裝其他在 Hadoop 叢集上執行的軟體，或變更叢集上所安裝應用程式的組態。指令碼動作是在部署 HDInsight 叢集時，在叢集節點上執行的指令碼，一旦叢集中的節點完成 HDInsight 組態之後，就會執行這些指令碼動作。指令碼動作是依據系統管理員帳戶的權限來執行，並具有叢集節點的完整存取權限。您可對每個叢集提供一份依其指定順序來執行的指令碼動作清單。
 
+## 自訂指令碼的協助程式方法
 
+指令碼動作協助程式方法是您在撰寫字訂指令碼時可以使用的公用程式。這些協助程式方法是在 [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1) 中定義，並且可以使用以下指令碼包含至您的指令碼中：
 
+    # Download config action module from a well-known directory.
+	$CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
+	$CONFIGACTIONMODULE = "C:\apps\dist\HDInsightUtilities.psm1";
+	$webclient = New-Object System.Net.WebClient;
+	$webclient.DownloadFile($CONFIGACTIONURI, $CONFIGACTIONMODULE);
+	
+	# (TIP) Import config action helper method module to make writing config action easy.
+	if (Test-Path ($CONFIGACTIONMODULE))
+	{ 
+		Import-Module $CONFIGACTIONMODULE;
+	} 
+	else
+	{
+		Write-Output "Failed to load HDInsightUtilities module, exiting ...";
+		exit;
+	}
+
+以下是這個指令碼提供的協助程式方法：
+
+協助程式方法 | 說明
+-------------- | -----------
+**Save-HDIFile** | 從指定的統一資源識別項 (URI) 將檔案下載到與指派給叢集的 Azure VM 節點相關聯的本機磁碟位置。
+**Expand-HDIZippedFile** | 將壓縮檔解壓縮。
+**Invoke-HDICmdScript** | 從 cmd.exe 執行指令碼。
+**Write-HDILog** | 撰寫用於指令碼動作之自訂指令碼的輸出。
+**Get-Services** | 取得執行指令碼的機器上所執行之服務的清單。
+**Get-Service** | 輸入特定服務名稱，來取得執行指令碼的機器上特定服務的詳細資訊 (服務名稱、處理序識別碼、狀態等)。
+**Get-HDIServices** | 取得執行指令碼的電腦上所執行之 HDInsight 服務的清單。
+**Get-HDIService** | 輸入特定 HDInsight 服務名稱，來取得執行指令碼的機器上特定服務的詳細資訊 (服務名稱、處理序識別碼、狀態等)。
+**Get-ServicesRunning** | 取得執行指令碼的電腦上所執行之服務的清單。
+**Get-ServiceRunning** | 檢查執行指令碼的電腦上是否在執行特定服務 (依名稱)。
+**Get-HDIServicesRunning** | 取得執行指令碼的電腦上所執行之 HDInsight 服務的清單。
+**Get-HDIServiceRunning** | 檢查執行指令碼的電腦上是否在執行特定 HDInsight 服務 (依名稱)。
+**Get-HDIHadoopVersion** | 取得執行指令碼的電腦上所安裝的 Hadoop 版本。
+**Test-IsHDIHeadNode** | 檢查執行指令碼的電腦是否為前端節點。
+**Test-IsActiveHDIHeadNode** | 檢查執行指令碼的電腦是否為作用中前端節點。
+**Test-IsHDIDataNode** | 檢查執行指令碼的電腦是否為資料節點。
+**Edit-HDIConfigFile** | 編輯組態檔 hive-site.xml、core-site.xml、hdfs-site.xml、mapred-site.xml 或 yarn-site.xml。
 
 ## 呼叫指令碼動作
 
@@ -33,7 +73,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 **安裝 Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Spark][hdinsight-install-spark]。
 **安裝 R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1。請參閱[在 HDInsight 叢集上安裝及使用 R][hdinsight-r-scripts]。
 **安裝 Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install.md)。
-\- **安裝 Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install.md)。
+**安裝 Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install.md)。
 
 您可以從 Azure 預覽入口網站、Azure PowerShell 或使用 HDInsight .NET SDK 來部署「指令碼動作」。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]。
 
@@ -103,7 +143,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
 - 提供穩定的指令碼資源連結
 
-	使用者應該確定在叢集的整個存留期間，於叢集自訂中使用的所有指令碼及其他成品都保持可用，並且這些檔案的版本在此持續時間內不會變更。如需為叢集中的節點重新製作映像，就必須有這些資源。最佳做法是下載並封存使用者所控制之儲存體帳戶中的所有項目。這可以是預設的儲存體帳戶，或是在部署時為自訂叢集指定的任何其他儲存體帳戶。例如，在文件中所提供的 Spark 和 R 自訂叢集範例中，我們已經在本機複製一份此儲存體帳戶中的資源：https://hdiconfigactions.blob.core.windows.net/
+	使用者應該確定在叢集的整個存留期間，於叢集自訂中使用的所有指令碼及其他成品都保持可用，並且這些檔案的版本在此持續時間內不會變更。如需為叢集中的節點重新製作映像，就必須有這些資源。最佳做法是下載並封存使用者所控制之儲存體帳戶中的所有項目。這可以是預設的儲存體帳戶，或是在部署時為自訂叢集指定的任何其他儲存體帳戶。例如，在文件中所提供的 Spark 和 R 自訂叢集範例中，我們已經在本機複製一份此儲存體帳戶中的資源：https://hdiconfigactions.blob.core.windows.net/。
 
 
 - 確保叢集自訂指令碼具有等冪性
@@ -126,30 +166,6 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 - 設定自訂元件來使用 Azure Blob 儲存體
 
 	您安裝在叢集節點上的自訂元件可能有使用 Hadoop 分散式檔案系統 (HDFS) 儲存體的預設組態。您應該變更此組態，使其改為使用 Azure Blob 儲存體。在重新製作叢集映像時，會格式化 HDFS 檔案系統，因此您會遺失儲存在其中的所有資料。改用 Azure Blob 儲存體可確保資料保留下來。
-
-## 自訂指令碼的協助程式方法
-
-指令碼動作提供下列可在撰寫自訂指令碼時使用的協助程式方法。
-
-協助程式方法 | 說明
--------------- | -----------
-**Save-HDIFile** | 從指定的統一資源識別項 (URI) 將檔案下載到與指派給叢集的 Azure VM 節點相關聯的本機磁碟位置。
-**Expand-HDIZippedFile** | 將壓縮檔解壓縮。
-**Invoke-HDICmdScript** | 從 cmd.exe 執行指令碼。
-**Write-HDILog** | 撰寫用於指令碼動作之自訂指令碼的輸出。
-**Get-Services** | 取得執行指令碼的機器上所執行之服務的清單。
-**Get-Service** | 輸入特定服務名稱，來取得執行指令碼的機器上特定服務的詳細資訊 (服務名稱、處理序識別碼、狀態等)。
-**Get-HDIServices** | 取得執行指令碼的電腦上所執行之 HDInsight 服務的清單。
-**Get-HDIService** | 輸入特定 HDInsight 服務名稱，來取得執行指令碼的機器上特定服務的詳細資訊 (服務名稱、處理序識別碼、狀態等)。
-**Get-ServicesRunning** | 取得執行指令碼的電腦上所執行之服務的清單。
-**Get-ServiceRunning** | 檢查執行指令碼的電腦上是否在執行特定服務 (依名稱)。
-**Get-HDIServicesRunning** | 取得執行指令碼的電腦上所執行之 HDInsight 服務的清單。
-**Get-HDIServiceRunning** | 檢查執行指令碼的電腦上是否在執行特定 HDInsight 服務 (依名稱)。
-**Get-HDIHadoopVersion** | 取得執行指令碼的電腦上所安裝的 Hadoop 版本。
-**Test-IsHDIHeadNode** | 檢查執行指令碼的電腦是否為前端節點。
-**Test-IsActiveHDIHeadNode** | 檢查執行指令碼的電腦是否為作用中前端節點。
-**Test-IsHDIDataNode** | 檢查執行指令碼的電腦是否為資料節點。
-**Edit-HDIConfigFile** | 編輯組態檔 hive-site.xml、core-site.xml、hdfs-site.xml、mapred-site.xml 或 yarn-site.xml。
 
 ## 常見使用模式
 
@@ -304,4 +320,4 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

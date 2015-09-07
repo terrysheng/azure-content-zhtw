@@ -1,20 +1,20 @@
 <properties
    pageTitle="使用自訂指令碼延伸模組 Azure 資源管理員範本"
-   description="使用自訂指令碼延伸模組搭配 ARM 範本，將 Azure 虛擬機器組態工作自動化"
-   services="virtual-machines"
-   documentationCenter=""
-   authors="kundanap"
-   manager="madhana"
-   editor=""/>
+	description="使用自訂指令碼延伸模組搭配 ARM 範本，將 Azure 虛擬機器組態工作自動化"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="kundanap"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/01/2015"
-   ms.author="kundanap"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/01/2015"
+	ms.author="kundanap"/>
 
 # 使用自訂指令碼延伸模組搭配 Azure 資源管理員範本
 
@@ -97,4 +97,4 @@ Azure 資源管理員範本可讓您藉由定義資源之間的相依性，以�
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">在 Linux VM 上的自訂指令碼延伸模組</a>。</br><a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">在 Windows VM 上的自訂指令碼延伸模組</a>。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

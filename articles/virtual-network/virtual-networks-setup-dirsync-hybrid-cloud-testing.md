@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="在混合式雲端中設定 Office 365 Directory 同步處理 (DirSync) 進行測試" 
-	description="了解如何在混合式雲端中設定 Office 365 Directory 同步處理 (DirSync) 伺服器進行 IT 專業或開發測試。" 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Office 365 DirSync 測試環境 | Microsoft Azure"
+	description="了解如何在混合式雲端中設定 Office 365 Directory 同步處理 (DirSync) 伺服器進行 IT 專業或開發測試。"
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # 在混合式雲端中設定 Office 365 Directory 同步處理 (DirSync) 進行測試
@@ -197,4 +197,4 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

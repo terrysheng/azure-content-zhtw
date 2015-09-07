@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="了解 Azure SQL Database 和 Azure VM 中的 SQL Server" 
-	description="了解 Azure 虛擬機器中的 Azure SQL Database 和 SQL Server檢閱常見的商業動因，以判斷哪一種 SQL 技術最符合應用程式需求。" 
-	services="sql-database, virtual-machines" 
-	documentationCenter="" 
-	authors="Selcin" 
-	manager="jeffreyg" 
+	pageTitle="了解 Azure SQL Database 和 Azure VM 中的 SQL Server"
+	description="了解 Azure 虛擬機器中的 Azure SQL Database 和 SQL Server檢閱常見的商業動因，以判斷哪一種 SQL 技術最符合應用程式需求。"
+	services="sql-database, virtual-machines"
+	documentationCenter=""
+	authors="Selcin"
+	manager="jeffreyg"
 	editor="tysonn"/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="vm-windows-sql-server" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="selcint"/>
 
 # 了解 Azure SQL Database 和 Azure VM 中的 SQL Server
@@ -60,7 +60,7 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 一般而言，這兩個 SQL 選項適合用於不同的用途：
 
 - [**Azure SQL Database**] 已經過最佳化，可將佈建和管理許多資料庫的整體成本降到最低。由於您無需管理任何虛擬機器、作業系統或資料庫軟體 (包括升級、高可用性和備份)，它會將進行中的系統管理成本降到最低。一般而言，SQL Database 可能會大幅增加由單一 IT 或開發資源管理的資料庫數目。
-- [**Azure VM 中執行的 SQL Server**] 已經過最佳化，可在混合式案例中將現有的內部部署 SQL Server 應用程式延伸到 Azure，或在移轉案例或開發/測試案例中將現有的應用程式部署到 Azure。混合式案例的一個範例是[透過 Azure 虛擬網路](http://msdn.microsoft.com/library/azure/jj156007.aspx)，在 Azure 中保留一份次要資料庫複本。有了 Azure VM 中的 SQL server，您即擁有專用 SQL Server 執行個體和雲端架構 VM 的完整系統管理權限。當組織擁有可用來維護虛擬機器的 IT 資源時，此選項會是最佳選擇。有了 VM 中的 SQL Server，您可以建立高度自訂的系統，以解決應用程式的特定效能和可用性需求。
+- [**Azure VM 中執行的 SQL Server**] 已經過最佳化，可在混合式案例中將現有的內部部署 SQL Server 應用程式延伸到 Azure，或在移轉案例或開發/測試案例中將現有的應用程式部署到 Azure。混合式案例的一個範例是透過 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)，在 Azure 中保留一份次要資料庫複本。有了 Azure VM 中的 SQL server，您即擁有專用 SQL Server 執行個體和雲端架構 VM 的完整系統管理權限。當組織擁有可用來維護虛擬機器的 IT 資源時，此選項會是最佳選擇。有了 VM 中的 SQL Server，您可以建立高度自訂的系統，以解決應用程式的特定效能和可用性需求。
 
 下表摘要說明 Azure SQL Database 和 Azure VM 中 SQL Server 的主要特性：
 
@@ -90,7 +90,7 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
       <li type=round>需要透過安全通道，從 Azure 存取內部部署資源 (例如 Active Directory) 的 SQL Server 應用程式。
       <li type=round>如果您需要包含完整系統管理權限的自訂 IT 環境。
       <li type=round>當您不想購買內部部署 SQL Server 非生產硬體時的快速開發和測試案例。
-      <li type=round>使用 <a href="http://msdn.microsoft.com/library/jj919148.aspx">Azure 儲存體上的備份</a>或 <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">Azure VM 中的 AlwaysOn 複本</a>的內部部署 SQL Server 應用程式災害復原。
+      <li type=round>使用 <a href="http://msdn.microsoft.com/library/jj919148.aspx">Azure 儲存體上的備份</a>或 <a href="https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions">Azure VM 中的 AlwaysOn 複本</a>的內部部署 SQL Server 應用程式災害復原。
       <li type=round>大於 1 TB 的大型資料庫。
       </ul></td>
    
@@ -114,15 +114,15 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 <tr>
    <td valign="middle"><p><b>業務持續性</b></p></td>
    <td valign="middle"><ul><li type=round>除了內建的容錯基礎結構功能以外，Azure SQL Database 還提供可增加業務持續性的功能，例如時間點還原時間、地理還原和地理複寫。如需詳細資訊，請參閱 <a href="http://msdn.microsoft.com/library/azure/hh852669.aspx">Azure SQL Database 業務持續性</a>。</ul></td>
-   <td valign="middle"><ul><li type=round>Azure VM 中的 SQL Server 可讓您設定高可用性和災害復原解決方案，以滿足您的資料庫特定需求。因此，您可以有已針對您的應用程式進行高度最佳化的系統。您可以視需要自我測試並執行容錯移轉。如需詳細資訊，請參閱 <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">Azure 虛擬機器中的 SQL Server 高可用性和災害復原</a>。</ul></td>
+   <td valign="middle"><ul><li type=round>Azure VM 中的 SQL Server 可讓您設定高可用性和災害復原解決方案，以滿足您的資料庫特定需求。因此，您可以有已針對您的應用程式進行高度最佳化的系統。您可以視需要自我測試並執行容錯移轉。如需詳細資訊，請參閱 <a href="https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions">Azure 虛擬機器中的 SQL Server 高可用性和災害復原</a>。</ul></td>
    
 </tr>
 <tr>
    <td valign="middle"><p><b>混合式雲端</b></p></td>
    <td valign="middle"><ul><li type=round>您的內部部署應用程式可以存取 Azure SQL Database 中的資料。</ul></td>
    <td valign="middle"><ul>
-      <li type=round>有了 Azure VN 中的 SQL Server，您的應用程式可以部分在雲端中執行和部分在內部部署中執行。比方說，您可以透過 <a href="http://msdn.microsoft.com/library/azure/gg433091.aspx">Azure 網絡服務</a>，將內部部署網路和 Active Directory 網路延伸到雲端。此外，您可以使用 <a href="http://msdn.microsoft.com/library/dn385720.aspx">Azure 功能中的 SQL Server 資料檔案</a>，將內部部署資料檔案儲存在 Azure 儲存體中。如需詳細資訊，請參閱 <a href="http://msdn.microsoft.com/library/dn606154.aspx">SQL Server 2014 混合式雲端簡介</a>。
-      <li type=round>支援使用 <a href="http://msdn.microsoft.com/library/jj919148.aspx">Azure 儲存體上的備份</a>或 <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">Azure VM 中的 AlwaysOn 複本</a>的內部部署 SQL Server 災害復原。
+      <li type=round>有了 Azure VN 中的 SQL Server，您的應用程式可以部分在雲端中執行和部分在內部部署中執行。例如，您可以透過 <a href="https://azure.microsoft.com/documentation/articles/virtual-networks-overview/">Azure 網路服務</a>，將內部部署網路和 Active Directory 網域延伸到雲端。此外，您可以使用 <a href="http://msdn.microsoft.com/library/dn385720.aspx">Azure 功能中的 SQL Server 資料檔案</a>，將內部部署資料檔案儲存在 Azure 儲存體中。如需詳細資訊，請參閱 <a href="http://msdn.microsoft.com/library/dn606154.aspx">SQL Server 2014 混合式雲端簡介</a>。
+      <li type=round>支援使用 <a href="http://msdn.microsoft.com/library/jj919148.aspx">Azure 儲存體上的備份</a>或 <a href="https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions">Azure VM 中的 AlwaysOn 複本</a>的內部部署 SQL Server 應用程式災害復原。
       </ul></td>
    
 </tr>
@@ -173,7 +173,7 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 
 如果您手上已經有許多工作，或許您並不期望採用伺服器和資料庫系統管理。對許多企業來說，決定使用雲端服務的關鍵在於降低系統管理複雜度的能力。有了 [**Azure SQL Database**]，Microsoft 可以管理實體硬體 (例如硬碟、伺服器和儲存體)、自動複製所有資料以提供高可用性、設定及升級資料庫軟體、管理負載平衡，並在伺服器故障時進行透明容錯移轉。您可以繼續管理您的 Azure SQL Database 執行個體，但無需控制基礎 SQL Server 執行個體和 Azure 平台的實體資源。例如，您可以管理資料庫和登入、執行索引微調，以及最佳化查詢，但無法管理系統資料表和檔案群組管理。如需詳細資訊，請參閱 [Azure SQL Database 方針和限制](http://msdn.microsoft.com/library/ff394102.aspx)。
 
-相反地，您可能有內部專業人員，並想保持只由機器本身控制資料庫位置。有了 [**Azure VM 中執行的 SQL Server**]，您可以完全掌控作業系統和 SQL Server 執行個體組態。有了 VM，您可以決定何時更新/升級作業系統與資料庫軟體，以及何時安裝任何其他軟體 (例如防毒和備份工具)。此外，您還可以控制 VM 的大小、磁碟的數目及其儲存體組態。例如，Azure 可讓您視需要變更正在執行的 VM 大小。如需相關資料，請參閱 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)。
+相反地，您可能有內部專業人員，並想保持只由機器本身控制資料庫位置。有了 [**Azure VM 中執行的 SQL Server**]，您可以完全掌控作業系統和 SQL Server 執行個體組態。有了 VM，您可以決定何時更新/升級作業系統與資料庫軟體，以及何時安裝任何其他軟體 (例如防毒和備份工具)。此外，您還可以控制 VM 的大小、磁碟的數目及其儲存體組態。例如，Azure 可讓您視需要變更正在執行的 VM 大小。如需相關資料，請參閱 [Azure 的虛擬機器和雲端服務大小](https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs)。
 
 ###<a name="sla"></a>服務等級協定 (SLA)：
 
@@ -188,7 +188,7 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 
 當開發人員生產力和快速產品上市時間為關鍵所在時，[**Azure SQL Database**] 是雲端式設計應用程式的理想解決方案。有了程式設計 DBA 類似功能，此選項非常適合雲端架構設計人員和開發人員，因為它會降低管理基礎作業系統和資料庫的需求。它可協助開發人員了解與設定資料庫相關工作。例如，您可以使用 [REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) 和 [PowerShell Cmdlet](http://msdn.microsoft.com/library/azure/dn546726.aspx) 來自動化及管理數千個資料庫的管理作業。透過在雲端的[彈性調整](sql-database-elastic-pool.md)，您可以輕易地將重點放在應用程式層，並更快速地將應用程式上市。
 
-如果現有和新的應用程式需要存取與控制 SQL Server 執行個體的所有功能，並想要依現狀將現有的內部部署應用程式和資料庫移轉至雲端，**Azure VM 中執行的 SQL Server** 會是理想選項。由於您無需變更簡報、應用程式和資料層，您會在重新架構現有解決方案時節省時間和預算。相反地，您可以將重點放在將您的所有方案套件移轉至 VM，並進行 Azure 平台所需的某些效能最佳化作業。如需相關資訊，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法](http://msdn.microsoft.com/library/azure/dn133149.aspx)。
+如果現有和新的應用程式需要存取與控制 SQL Server 執行個體的所有功能，並想要依現狀將現有的內部部署應用程式和資料庫移轉至雲端，**Azure VM 中執行的 SQL Server** 會是理想選項。由於您無需變更簡報、應用程式和資料層，您會在重新架構現有解決方案時節省時間和預算。相反地，您可以將重點放在將您的所有方案套件移轉至 VM，並進行 Azure 平台所需的某些效能最佳化作業。如需相關資訊，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-performance-best-practices)。
 
 ##<a name="summary"></a>摘要
 
@@ -234,13 +234,13 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 </tr>
 <tr>
    <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/ee336279.aspx">MSDN：Azure SQL Database</a></p>
-<p><a href="http://msdn.microsoft.com/library/azure/jj823132.aspx">MSDN：Azure 虛擬機器中的 SQL Server</a></p>
+<p><a href="https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/">Azure 虛擬機器中的 SQL Server 概觀</a></p>
 
 <p><a href="http://azure.microsoft.com/services/sql-database/">Azure.com：Azure SQL Database</a></p></td>
    <td valign="middle">文件庫文件的連結。</td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/dn574746.aspx">AAzure 虛擬機器中的 SQL Server 應用程式模式和開發策略</p></td>
+   <td valign="middle"><p><a href="https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-application-patterns-and-development-strategies/">Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略</p></td>
    <td valign="middle">本文將討論適用於 Azure VM 中的 SQL Server 的最常見應用程式模式，以及包括 Azure SQL Database 的混合式案例。</td>   
 </tr>
 <tr>
@@ -253,4 +253,4 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

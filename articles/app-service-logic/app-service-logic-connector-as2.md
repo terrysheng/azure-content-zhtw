@@ -1,23 +1,25 @@
 <properties 
-   pageTitle="在 Microsoft Azure App Service 中使用 AS2 連接器" 
-   description="如何使用 AS2 連接器" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 AS2 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 AS2 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-# Microsoft AS2 連接器
-Microsoft Azure AS2 連接器可讓您在企業對企業通訊中，透過 AS2 (Applicability Statement 2) 傳輸通訊協定接收和傳送訊息。資料是透過網際網路安全、可靠地傳輸。並使用數位憑證和加密來達成安全性。
+# 開始使用 AS2 連接器並將它加入您的邏輯應用程式
+使用 AS2 連接器可在企業對企業通訊中，透過 AS2 (Applicability Statement 2) 傳輸通訊協定接收和傳送訊息。資料是透過網際網路安全、可靠地傳輸。並使用數位憑證和加密來達成安全性。
+
+您可以將 AS2 連接器加入您的商務工作流程，就能在邏輯應用程式的企業對企業工作流程中處理資料。
 
 ## 觸發程序和動作
 觸發程序會根據特定的事件啟動新的執行個體，例如來自夥伴的 AS2 訊息送達。動作即為結果，就像在接收 AS2 訊息之後，然後使用 AS2 傳送訊息。
@@ -34,7 +36,7 @@ AS2 連接器可以在邏輯應用程式中做為觸發程序或動作，且支�
 需求 | 說明
 --- | ---
 TPM API 應用程式 | 建立 AS2 連接器之前，您必須先建立 [BizTalk 交易夥伴管理連接器][1]。<br/><br/>**注意** 要知道您 TPM API 應用程式的名稱。 
-Azure SQL Database | 儲存 B2B 項目，包括夥伴、結構描述、憑證及協議。每一個 B2B API Apps 需要專屬 Azure SQL Database。<br/><br/>**注意** 將連接字串複製至這個資料庫。<br/><br/>[建立 Azure SQL Database](../sql-database-get-started.md)
+Azure SQL Database | 儲存 B2B 項目，包括夥伴、結構描述、憑證及協議。每一個 B2B API 應用程式需要專屬 Azure SQL Database。<br/><br/>**注意** 將連接字串複製至這個資料庫。<br/><br/>[建立 Azure SQL Database](../sql-database-get-started.md)
 Azure Blob 儲存體容器 | 啟用 AS2 封存功能時，可儲存訊息屬性。如果您不需要 AS2 訊息封存功能，就不需要儲存體容器。<br/><br/>**注意** 如果您正啟用封存，請將連接字串複製到這個 Blob 儲存體。<br/><br/>[關於 Azure 儲存體帳戶](../storage-create-storage-account.md)。
 
 ## 建立 AS2 連接器
@@ -42,7 +44,7 @@ Azure Blob 儲存體容器 | 啟用 AS2 封存功能時，可儲存訊息屬性�
 連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
 1. 在 Azure 開始面板中，選取 [**Marketplace**]。
-2. 搜尋「AS2 連接器」，將其選取，然後選取 [**建立**]。
+2. 搜尋「AS2 連接器」，將其選取，然後選取 [建立]。
 3. 輸入名稱、App Service 方案和其他屬性。
 4. 輸入下列封裝設定：
 
@@ -107,7 +109,7 @@ AS2 目標 | 字串 | AS2 訊息接收者的 AS2 識別。這個參數是用來�
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
-您也可以檢閱連接器的效能統計資料及控制安全性。請參閱〈[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)〉。
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)。
 
 <!--References -->
 [1]: app-service-logic-connector-tpm.md
@@ -121,4 +123,4 @@ AS2 目標 | 字串 | AS2 訊息接收者的 AS2 識別。這個參數是用來�
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

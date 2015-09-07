@@ -1,26 +1,27 @@
 <properties
-   pageTitle="利用 PowerShell 和 Azure CLI 瀏覽和選取 Azure 虛擬機器映像"
-   description="了解如何在使用資源管理員建立 Azure 虛擬機器時，判斷映象的發佈者、提供項目及 SKU。"
-   services="virtual-machines"
-   documentationCenter=""
-   authors="squillace"
-   manager="timlt"
-   editor=""/>
+   pageTitle="使用 PowerShell 和 Azure CLI 巡覽和選取 Azure 虛擬機器映像"
+	description="了解如何在使用資源管理員建立 Azure 虛擬機器時，判斷映象的發佈者、提供項目及 SKU。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="command-line-interface"
-   ms.workload="infrastructure"
-   ms.date="05/29/2015"
-   ms.author="rasquill"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="command-line-interface"
+	ms.workload="infrastructure"
+	ms.date="05/29/2015"
+	ms.author="rasquill"/>
 
-# 利用 PowerShell 和 Azure CLI 瀏覽和選取 Azure 虛擬機器映像
+# 使用 Windows PowerShell 和 Azure CLI 巡覽和選取 Azure 虛擬機器映像
 
-> [AZURE.NOTE]當您在本主題中搜尋 VM 映象時，您是搭配使用 [Azure 資源管理模式](../resource-group-overview.md) 與適用於 Mac、Linux 和 Windows 的 Azure 命令列介面或 Windows PowerShell 的最近安裝 。搭配 Azure CLI 時，請輸入 `azure config mode arm` 來進入該模式。搭配 PowerShell 時，則請輸入 `Switch-AzureMode AzureResourceManager`。請參閱[搭配使用 Azure CLI 與資源管理](xplat-cli-azure-resource-manager.md)和[搭配使用 PowerShell 與 Azure 資源管理](../powershell-azure-resource-manager.md)，以取得更多完整的更新與設定詳細資料。
+> [AZURE.NOTE]當您在本主題中搜尋虛擬機器映像時，您是搭配使用 [Azure 資源管理員模式](../resource-group-overview.md)與適用於 Mac、Linux 和 Windows 的 Azure 命令列介面或 Windows PowerShell 的最近安裝 。搭配 Azure CLI 時，請輸入 `azure config mode arm` 來進入該模式。搭配 PowerShell 時，則請輸入 `Switch-AzureMode AzureResourceManager`。請參閱[搭配使用 Azure CLI 與資源管理員](xplat-cli-azure-resource-manager.md)和[搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)，以取得更多完整的更新與組態詳細資料。
 
-## 常用映象資料表
+## 常用映像表
 
 
 | PublisherName | 提供項目 | SKU |
@@ -31,8 +32,8 @@
 | CoreOS | CoreOS | Stable |
 | MicrosoftDynamicsNAV | DynamicsNAV | 2015 |
 | MicrosoftSharePoint | MicrosoftSharePointServer | 2013 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | 標準 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise |
+| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | 標準 |
+| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | Enterprise |
 | MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW |
 | MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP |
 | Canonical | UbuntuServer | 12\.04.5-LTS |
@@ -53,7 +54,7 @@
     info:    Executing command vm image list
     warn:    The parameter --sku if specified will be ignored
     + Getting virtual machine image skus (Publisher:"canonical" Offer:"ubuntuserver" Location:"westus")
-    data:    Publisher  Offer         Sku          Version          Location  Urn                                               
+    data:    Publisher  Offer         Sku          Version          Location  Urn
     data:    ---------  ------------  -----------  ---------------  --------  --------------------------------------------------
     data:    canonical  ubuntuserver  12.04-DAILY  12.04.201504201  westus    canonical:ubuntuserver:12.04-DAILY:12.04.201504201
     data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201302250  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201302250
@@ -63,15 +64,15 @@
     data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201305270  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201305270
     data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201306030  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201306030
     data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201306240  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201306240
-    
+
 **Urn** 資料行將是您傳遞給 `azure vm quick-create` 的表單。
-    
-不過，您通常還不知道什麼可用。在此情況下，您可以瀏覽映像，方法是先使用 `azure vm image list-publishers` 探索發佈者，並以您預期用於資源群組的資料中心位置來回應位置提示字元。例如，下列清單是美國西部位置的所有映像發佈者 (將位置設為小寫並移除標準位置中的空格，來傳遞 location 引數)。
+
+不過，您通常還不知道什麼可用。在這種情況下，您可以巡覽映像，方法是先使用 `azure vm image list-publishers` 探索發行者，並以您預期用於資源群組的資料中心位置來回應位置提示字元。例如，下列清單是美國西部位置的所有映像發佈者 (將位置設為小寫並移除標準位置中的空格，來傳遞 location 引數)。
 
     azure vm image list-publishers
     info:    Executing command vm image list-publishers
     Location: westus
-    + Getting virtual machine image publishers (Location: "westus")                
+    + Getting virtual machine image publishers (Location: "westus")
     data:    Publisher                                       Location
     data:    ----------------------------------------------  --------
     data:    a10networks                                     westus  
@@ -79,10 +80,10 @@
     data:    alertlogic                                      westus  
     data:    AlertLogic.Extension                            westus  
 
-    
-這些清單可能相當長，因此上述範例清單只是程式碼片段。假設我注意到 Canonical 事實上是美國西部位置的映像發佈者。您現在可以呼叫 azure vm image list-offers 來尋找其提供項目，並在提示字元中傳遞位置和發佈者 (例如下列範例)：
 
-    azure vm image list-offers           
+這些清單可能相當長，因此上述範例清單只是程式碼片段。假設我注意到 Canonical 事實上是美國西部位置的映像發佈者。您現在可以呼叫 `azure vm image list-offers` 來尋找其提供項目，並在提示字元中傳遞位置和發行者，如下列範例所示：
+
+    azure vm image list-offers
     info:    Executing command vm image list-offers
     Location: westus
     Publisher: canonical
@@ -91,10 +92,10 @@
     data:    ---------  ------------  --------
     data:    canonical  UbuntuServer  westus  
     info:    vm image list-offers command OK
-    
-現在，我們知道在美國西部區域中，Canonical 在 Azure 上發佈 **UbuntuServer** 提供項目。但是，是什麼 SKU？ 若要取得那些項目，請呼叫 `azure vm image list-skus`，並使用您探索到的位置、發佈者和提供項目來回應提示。
 
-    azure vm image list-skus           
+現在，我們知道在美國西部區域中，Canonical 在 Azure 上發佈 **UbuntuServer** 提供項目。但是，是什麼 SKU？ 若要取得那些項目，請呼叫 `azure vm image list-skus`，並使用您探索到的位置、發行者和提供項目來回應提示。
+
+    azure vm image list-skus
     info:    Executing command vm image list-skus
     Location: westus
     Publisher: canonical
@@ -120,20 +121,20 @@
     data:    canonical  ubuntuserver  15.04-beta   westus  
     data:    canonical  ubuntuserver  15.04-DAILY  westus  
     info:    vm image list-skus command OK
-    
-現在，使用此資訊，在頂端呼叫原始呼叫，即可找到就是您要的映像。
+
+現在使用這項資訊在頂端呼叫原始呼叫，即可找到您所要的映像。
 
     azure vm image list westus canonical ubuntuserver 14.04.2-LTS
     info:    Executing command vm image list
     + Getting virtual machine images (Publisher:"canonical" Offer:"ubuntuserver" Sku: "14.04.2-LTS" Location:"westus")
-    data:    Publisher  Offer         Sku          Version          Location  Urn                                               
+    data:    Publisher  Offer         Sku          Version          Location  Urn
     data:    ---------  ------------  -----------  ---------------  --------  --------------------------------------------------
     data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201503090  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201503090
-    data:    canonical  ubuntuserver  14.04.2-LTS  14.04.20150422   westus    canonical:ubuntuserver:14.04.2-LTS:14.04.20150422 
+    data:    canonical  ubuntuserver  14.04.2-LTS  14.04.20150422   westus    canonical:ubuntuserver:14.04.2-LTS:14.04.20150422
     data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201504270  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201504270
     info:    vm image list command OK
-    
-現在，您可以精確地選擇想要使用的映像。若要使用您剛找到的 URN 資訊快速地建立 VM，或使用具有該 URN 資訊的範本，請參閱[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](xplat-cli-azure-resource-manager.md)。
+
+現在，您可以精確地選擇想要使用的映像。若要使用您剛找到的 URN 資訊快速地建立虛擬機器，或使用具有該 URN 資訊的範本，請參閱[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理員](xplat-cli-azure-resource-manager.md)。
 
 ### 影片逐步解說
 
@@ -152,15 +153,15 @@
 
 例如，**Set-AzureVMSourceImage** PowerShell Cmdlet 或資源群組範本檔案需要這些值，而在此檔案中，您必須指定要建立的虛擬機器類型。
 
-如果您需要決定這些值，則可以瀏覽映像以決定這些值，方法是：
+如果您需要決定這些值，則可以巡覽映像以決定這些值，方法是：
 
-1. 列出映像發佈者。
-2. 針對指定的發佈者，列出其提供項目。
+1. 列出映像發行者。
+2. 針對指定的發行者，列出其提供項目。
 3. 針對指定的提供項目，列出其 SKU。
 
 若要在 PowerShell 中這麼做，請先切換到 Azure PowerShell 的資源管理員模式。
 
-	Switch-AzureMode AzureResourceManager 
+	Switch-AzureMode AzureResourceManager
 
 在上面第一個步驟中，使用這些命令列出發佈者。
 
@@ -183,7 +184,7 @@
 
 	PS C:\> $locName="West US"
 	PS C:\> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
-	
+
 	PublisherName
 	-------------
 	a10networks
@@ -202,7 +203,7 @@
 
 	PS C:\> $pubName="MicrosoftWindowsServer"
 	PS C:\> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
-	
+
 	Offer
 	-----
 	WindowsServer
@@ -211,7 +212,7 @@
 
 	PS C:\> $offerName="WindowsServer"
 	PS C:\> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
-	
+
 	Skus
 	----
 	2008-R2-SP1
@@ -219,7 +220,7 @@
 	2012-R2-Datacenter
 	Windows-Server-Technical-Preview
 
-從此清單中，複製所選擇的 SKU 名稱，而且您擁有 **Set-AzureVMSourceImage** PowerShell Cmdlet 或資源群組範本檔案的所有資訊，而資源群組範本檔案需要您指定映像的發佈者、提供項目和 SKU。
+從這份清單中，複製所選擇的 SKU 名稱，而且您擁有 **Set-AzureVMSourceImage** PowerShell Cmdlet 或資源群組範本檔案的所有資訊，而資源群組範本檔案需要您指定映像的發行者、提供項目和 SKU。
 
 ### 影片逐步解說
 
@@ -238,6 +239,5 @@
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

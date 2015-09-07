@@ -1,20 +1,20 @@
 <properties
    pageTitle="保護 SQL 資料倉儲中的資料庫 | Microsoft Azure"
-   description="保護 Azure SQL 資料倉儲中的資料庫以便開發解決方案的秘訣。"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sahaj08"
-   manager="barbkess"
-   editor=""/>
+	description="保護 Azure SQL 資料倉儲中的資料庫以便開發解決方案的秘訣。"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sahaj08"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/22/2015"
-   ms.author="sahajs"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/22/2015"
+	ms.author="sahajs"/>
 
 # 保護 SQL 資料倉儲中的資料庫
 
@@ -58,6 +58,28 @@ ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 要從 Azure 管理入口網站或使用 Azure 資源管理員 API 管理資料庫和邏輯伺服器，是由入口網站使用者帳戶的角色指派所控制。如需有關此主題的詳細資訊，請參閱 [Azure Preview 入口網站中的角色型存取控制][]。
 
 
+
+## 加密
+
+Azure SQL 資料倉儲可以使用[透明資料加密][]，透過加密「靜止」時的資料，或儲存在資料庫檔案和備份中的資料，來協助保護您的資料。若要加密您的資料庫，請以資料庫擁有者的身分連線，然後執行：
+
+
+```
+
+ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
+
+```
+
+您也可以從 [Azure 入口網站][]中的資料庫設定，啟用透明資料加密。
+
+
+
+## 稽核
+
+稽核和追蹤資料庫事件可協助您遵循法規，並找出可疑的活動。SQL 資料倉儲稽核可讓您將資料庫中的事件記錄到 Azure 儲存體帳戶中的稽核記錄。SQL 資料倉儲稽核也整合了 Microsoft Power BI，具備向下鑽研報表和分析的功能。如需詳細資訊，請參閱[開始使用 Azure Database 稽核][]。
+
+
+
 ## 後續步驟
 如需更多開發祕訣，請參閱[開發概觀][]。
 
@@ -73,9 +95,11 @@ ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 [管理 Azure SQL Database 中的資料庫和登入]: https://msdn.microsoft.com/library/ee336235.aspx
 [權限]: https://msdn.microsoft.com/library/ms191291.aspx
 [預存程序]: https://msdn.microsoft.com/library/ms190782.aspx
-[Transparent Data Encryption]: http://go.microsoft.com/fwlink/?linkid=526242&clcid=0x409
+[透明資料加密]: http://go.microsoft.com/fwlink/?LinkId=526242
+[開始使用 Azure Database 稽核]: sql-database-auditing-get-started.md
+[Azure 入口網站]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Azure Preview 入口網站中的角色型存取控制]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

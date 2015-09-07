@@ -1,6 +1,6 @@
 <properties
-	pageTitle="連接器和 API Apps 清單 | Microsoft Azure"
-	description="閱讀有關在 Azure App Service 中的連接器和 API Apps；微服務架構"
+	pageTitle="可用的連接器和 API 應用程式清單 | Microsoft Azure App Service"
+	description="閱讀 Azure App Service 中的連接器和 API 應用程式相關資訊"
 	services="app-service\logic"
 	documentationCenter=""
 	authors="MandiOhlinger"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="08/23/2015"
 	ms.author="mandia"/>
 
 
-# Microsoft Azure App Service 中的連接器和 API Apps 清單
-本主題列出所有由 Microsoft 建立的可用連接器和 API Apps。
+# 要使用於邏輯應用程式中的連接器和 API 應用程式清單
+深入了解所有由 Microsoft 建立可用於邏輯應用程式中的連接器和 API 應用程式。
 
 如需定價資訊，以及每個服務層隨附項目的清單，請參閱 [Azure App Service 定價](http://azure.microsoft.com/pricing/details/app-service/)。
 
@@ -93,4 +93,4 @@ MQ | 連接至內部部署和執行 Windows 作業系統的 Azure 虛擬機器�
 
 [什麼是連接器和 BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md) [在 Azure App Service 中使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md) [管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="SQL Server 連接器 - 從 SQL Server 來回移動資料" 
-	description="了解 Data Factory 服務的 SQL Server 連接器可讓您將資料從 SQL Server 資料庫 (其為內部部署或在 Azure VM 中) 來回移動資料。" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="從 SQL Server 來回移動資料 | Azure Data Factory"
+	description="了解如何使用 Azure Data Factory，從內部部署或 Azure VM 中的 SQL Server 資料庫來回移動資料。"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# SQL Server 連接器 - 從 SQL Server 內部部署或 IaaS (Azure VM) 上來回移動資料
+# 使用 Azure Data Factory 從 SQL Server 內部部署或 IaaS (Azure VM) 上來回移動資料
 
 本文概述如何在 Azure Data Factory 中使用複製活動，將資料從其他資料存放區移到 SQL Server，以及將資料從其他資料存放區移到 SQL Server。本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文呈現使用複製活動移動資料的一般概觀以及支援的資料存放區組合。
 
@@ -32,15 +32,15 @@
 
 下列範例顯示：
 
-1.	類型 OnPremisesSqlServer 的連結服務。
-2.	AzureStorage 類型的連結服務。
-3.	類型 SqlServerTable 的輸入資料集。 
-4.	AzureBlob 類型的輸出資料集。
-4.	具有使用 SqlSource 和 BlobSink 之複製活動的管線。
+1.	[OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties) 類型的連結服務。
+2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 類型的連結服務。
+3.	[SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties) 類型的輸入[資料集](data-factory-create-datasets.md)。 
+4.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 類型的輸出[資料集](data-factory-create-datasets.md)。
+4.	具有使用 [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) 和 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 之複製活動的[管線](data-factory-create-pipelines.md)。
 
 此範例會每小時將屬於時間序列的資料從 SQL Server 資料庫中的資料表複製到 Blob。範例後面的各節會說明這些範例中使用的 JSON 屬性。
 
-在第一個步驟中，請根據[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文中的指示設定資料管理閘道器。
+在第一個步驟中，請根據[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文中的指示，設定資料管理閘道器。
 
 **SQL Server 連結服務**
 
@@ -183,7 +183,7 @@
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -208,11 +208,11 @@
 
 下列範例顯示：
 
-1.	類型 OnPremisesSqlServer 的連結服務。
-2.	AzureStorage 類型的連結服務。
-3.	AzureBlob 類型的輸入資料集。
-4.	類型 SqlServerTable 的輸出資料集。
-4.	具有使用 BlobSource 和 SqlSink 之複製活動的管線。
+1.	[OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties) 類型的連結服務。
+2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 類型的連結服務。
+3.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 類型的輸入[資料集](data-factory-create-datasets.md)。
+4.	[SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties) 類型的輸出[資料集](data-factory-create-datasets.md)。
+4.	具有使用 [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 和 [SqlSink](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) 之複製活動的[管線](data-factory-create-pipelines.md)。
 
 此範例會每小時將屬於時間序列的資料從 Azure Blob 複製到 SQL Server 資料庫中的資料表。範例後面的各節會說明這些範例中使用的 JSON 屬性。
 
@@ -382,11 +382,15 @@
 
 | 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- |
-| 類型 | type 屬性應設為 **OnPremisesSqlServer**。 | 是 |
+| 類型 | 類型屬性應設為：**OnPremisesSqlServer**。 | 是 |
 | connectionString | 指定使用 SQL 驗證或 Windows 驗證連接至內部部署 SQL Server 資料庫所需的 connectionString 資訊。 | 是 |
 | gatewayName | Data Factory 服務應該用來連接到內部部署 SQL Server 資料庫的閘道器名稱。 | 是 |
 | username | 如果您使用「Windows 驗證」，請指定使用者名稱。 | 否 |
 | password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 | 否 |
+
+您可以使用 **New-AzureDataFactoryEncryptValue** Cmdlet 加密認證，並在連接字串中使用這些認證，如下列範例所示 (**EncryptedCredential** 屬性)：
+
+	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
 ### 範例
 
@@ -418,9 +422,11 @@
 	     } 
 	}
 
+如需為 SQL Server 資料來源設定認證的詳細資料，請參閱[設定認證和安全性](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)。
+
 ## SQL Server 資料集類型屬性
 
-如需可用來定義資料集的完整區段和屬性清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Server、Azure Blob、Azure 資料表等)。
+如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Server、Azure Blob、Azure 資料表等)。
 
 每個資料集類型的 typeProperties 區段都不同，可提供資料存放區中資料的位置相關資訊。**SqlServerTable** 資料集類型的 **typeProperties** 區段具有下列屬性。
 
@@ -430,11 +436,11 @@
 
 ## SQL Server 複製活動類型屬性
 
-如需可用來定義活動的完整區段和屬性清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
+如需定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
 
 另一方面，活動的 typeProperties 區段中可用的屬性會隨著每個活動類型而有所不同，而在複製活動的案例中，可用的屬性會根據來源與接收的類型而有所不同。
 
-在複製活動的案例中，如果來源的類型為 **SqlSource**，則 **typeProperties** 區段有下列可用屬性：
+在複製活動的案例中，如果來源類型為 **SqlSource**，則 **typeProperties** 區段可使用下列屬性：
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- |
@@ -462,7 +468,7 @@
 
 ### SQL Server 和 Azure SQL 的類型對應
 
-如[資料移動活動](data-factory-data-movement-activities.md)一文所述，複製活動會使用下列 2 個步驟的方法，執行從來源類型轉換成接收類型的自動類型轉換：
+如同[資料移動活動](data-factory-data-movement-activities.md)一文所述，複製活動會使用下列 2 個步驟的方法，執行自動類型轉換，將來源類型轉換成接收類型：
 
 1. 從原生來源類型轉換成 .NET 類型
 2. 從 .NET 類型轉換成原生接收類型
@@ -512,4 +518,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

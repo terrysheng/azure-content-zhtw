@@ -1,19 +1,19 @@
 <properties 
    pageTitle="如何設定 Azure Redis 快取"
-   description="了解 Azure Redis 快取的預設 Redis 組態，以及了解如何設定您的 Azure Redis 快取執行個體"
-   services="redis-cache"
-   documentationCenter="na"
-   authors="steved0x"
-   manager="dwrede"
-   editor="tysonn" />
+	description="了解 Azure Redis 快取的預設 Redis 組態，以及了解如何設定您的 Azure Redis 快取執行個體"
+	services="redis-cache"
+	documentationCenter="na"
+	authors="steved0x"
+	manager="dwrede"
+	editor="tysonn"/>
 <tags 
    ms.service="cache"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="tbd"
-   ms.date="07/24/2015"
-   ms.author="sdanie" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="08/25/2015"
+	ms.author="sdanie"/>
 
 # 如何設定 Azure Redis 快取
 
@@ -21,7 +21,7 @@
 
 ## 設定 Redis 快取設定
 
-可在 [Microsoft Azure Preview 入口網站](https://portal.azure.com)使用 [**瀏覽**] 刀鋒視窗來存取快取。
+可在 [Azure Preview 入口網站](https://portal.azure.com)使用 [瀏覽] 刀鋒視窗來存取快取。
 
 ![Azure Redis 快取瀏覽刀鋒視窗](./media/cache-configure/IC796920.png)
 
@@ -98,7 +98,7 @@
 
 ![Redis 快取使用者和標記](./media/cache-configure/IC808320.png)
 
-[**使用者**] 區段會在入口網站中提供角色型存取控制 (RBAC) 的支援，以協助組織輕鬆又準確地滿足其存取管理需求。如需詳細資訊，請參閱 [Microsoft Azure Preview 入口網站中的角色型存取控制](http://go.microsoft.com/fwlink/?LinkId=512803)。
+[使用者] 區段會在 Preview 入口網站中提供角色型存取控制 (RBAC) 的支援，以協助組織輕鬆又準確地滿足其存取管理需求。如需詳細資訊，請參閱 [Azure Preview 入口網站中的角色型存取控制](http://go.microsoft.com/fwlink/?LinkId=512803)。
 
 [**標記**] 區段可協助您組織您的資源。如需詳細資訊，請參閱[使用標記來組織您的 Azure 資源](../resource-group-using-tags.md)。
 
@@ -110,13 +110,13 @@
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
->任何可設定的值 (例如 **max-memory-policy**) 可以透過入口網站設定。
+>任何可設定的值 (例如 **max-memory-policy**) 可以透過 Preview 入口網站設定。
 
 |設定|預設值|說明|
 |---|---|---|
 |資料庫|16|預設資料庫為 DB 0。您可以根據每個連線使用 connection.GetDataBase(dbid) 選取一個不同的資料庫，其中 dbid 是介於 0 與 15 之間的數字。|
 |maxclients|10,000|這是允許同時連線的用戶端數目上限。一旦達到限制，Redis 將關閉所有新的連接，同時傳送「達到用戶端的數目上限」錯誤。|
-|maxmemory-policy|volatile-lru|Maxmemory 原則可設定當達到 maxmemory (建立快取時所選取之快取提供項目的大小) 時 Redis 將如何選取要移除的具目。Azure Redis 快取的預設設定為 volatile-lru，其會移除使用 LRU 演算法設定到期日的金鑰。可以在入口網站中設定此設定。如需詳細資訊，請參閱 [Maxmemory-policy 和 maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)。|
+|maxmemory-policy|volatile-lru|Maxmemory 原則可設定當達到 maxmemory (建立快取時所選取之快取提供項目的大小) 時 Redis 將如何選取要移除的具目。Azure Redis 快取的預設設定為 volatile-lru，其會移除使用 LRU 演算法設定到期日的金鑰。可以在 Preview 入口網站中進行這項設定。如需詳細資訊，請參閱 [Maxmemory-policy 和 maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)。|
 |maxmemory-samples|3|LRU 和最小 TTL 演算法不是精確的演算法，而是近似的演算法 (為了節省記憶體)，因此您也可以選取要檢查的範例大小。例如，預設為 Redis 將檢查三個金鑰，並挑選最近較少使用的金鑰。|
 |lua-time-limit|5,000|Lua 指令碼的最大執行時間 (以毫秒為單位)。如果已到達最大執行時間，Redis 會記錄指令碼在最大允許的時間之後仍在執行中，並開始回覆查詢發生錯誤。|
 |lua-event-limit|500|這是指令碼事件佇列的最大大小。|
@@ -124,7 +124,7 @@
 
 ## Azure Redis 快取中不支援的 Redis 命令
 
->[AZURE.IMPORTANT]因為 Azure Redis 快取執行個體的設定與管理是使用 Azure 入口網站來進行，所以會停用下列命令。如果嘗試叫用它們，您會收到類似 `"(error) ERR unknown command"` 的錯誤訊息。
+>[AZURE.IMPORTANT]因為 Azure Redis 快取執行個體的設定與管理是使用 Preview 入口網站來進行，所以會停用下列命令。如果嘗試叫用它們，您會收到類似 `"(error) ERR unknown command"` 的錯誤訊息。
 >
 >-	BGREWRITEAOF
 >-	BGSAVE
@@ -154,4 +154,4 @@
 ## 後續步驟
 -	如需使用 Redis 命令的詳細資訊，請參閱[如何執行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

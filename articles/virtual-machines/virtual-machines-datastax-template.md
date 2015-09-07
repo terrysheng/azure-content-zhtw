@@ -479,7 +479,7 @@ vm-disk-utils-0.1.sh 是 azure-quickstart-tempates github 儲存機制中 **shar
 -	至於資源群組中的成員相同時 (例如，叢集中的節點)，可以建立一些會利用資源迴圈功能的範本，以便部署多個屬性皆不同的執行個體。
 -	所有的張貼部署工作 (例如產品安裝、設定等) 都會利用指令碼部署擴充功能以及建立每一種技術獨有的指令碼
 
-如需詳細資訊，請參閱 [Azure 資源管理員範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)。
+如需詳細資訊，請參閱 [Azure 資源管理員範本語言](../resource-group-authoring-templates.md)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

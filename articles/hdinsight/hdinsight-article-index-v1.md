@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 入口網站的 HDInsight 文章索引 | Microsoft Azure"
-   description="提供 Azure 入口網站上的 HDInsight 相關文章連結之索引頁。Microsoft 向您推薦適用於 HDInsight 上新的 Hadoop 叢集之 Azure Preview 入口網站。"
-   services="hdinsight"
-   documentationCenter="na"
-   authors="cjgronlund"
-   manager="pablissima"
-   editor=""/>
+	description="提供 Azure 入口網站上的 HDInsight 相關文章連結之索引頁。Microsoft 向您推薦適用於 HDInsight 上新的 Hadoop 叢集之 Azure Preview 入口網站。"
+	services="hdinsight"
+	documentationCenter="na"
+	authors="cjgronlund"
+	manager="pablissima"
+	editor=""/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="index-page"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="08/17/2015"
-   ms.author="cjgronlund"/>
+	ms.devlang="na"
+	ms.topic="index-page"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/17/2015"
+	ms.author="cjgronlund"/>
 
 # Azure 入口網站的 HDInsight 文章索引
 
@@ -63,11 +63,11 @@
 * [搭配 Hive 和 Pig 串流處理使用 C# 使用者定義函數](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 * [開發 C# Hadoop 資料流程式](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
-## HBase：NoSQL 分析
+## HBase：NoSQL 資料庫
 
 * [設定 HBase 異地複寫](hdinsight-hbase-geo-replication.md)
 * [使用 Maven 建置會使用 HBase 的 Java 應用程式](hdinsight-hbase-build-java-maven.md)
-* [使用 HBase 分析即時 Twitter 情緒](hdinsight-hbase-analyze-twitter-sentiment.md)
+* [在 HBase 上分析即時 Twitter 情緒](hdinsight-hbase-analyze-twitter-sentiment.md)
 
 ## Apache Storm：串流查詢
 
@@ -132,4 +132,4 @@
 * [解譯錯誤訊息](hdinsight-debug-jobs.md)
 * [在論壇上取得協助](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="在 Azure 入口網站中管理 Azure MFA 設定" 
-	description="此頁面會顯示使用者必須移至 Azure 入口網站的何處才能管理其 Azure MFA 設定。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="在 Azure 入口網站中管理 Azure MFA 設定"
+	description="此頁面會顯示使用者必須移至 Azure 入口網站的何處才能管理其 Azure MFA 設定。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # 在 Azure 入口網站中管理 Azure Multi-Factor Authentication 設定
@@ -31,4 +31,4 @@
 
 <center>![Setup](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)</center>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

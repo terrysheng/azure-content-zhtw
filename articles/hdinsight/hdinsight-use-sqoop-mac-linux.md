@@ -208,7 +208,7 @@ HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable*
 
     > [AZURE.NOTE]使用**點對站**虛擬網路時，SQL Server 必須執行 VPN 用戶端組態應用程式；您可從 Azure 虛擬網路組態的 [儀表板] 存取此應用程式。
 
-    如需建立和設定虛擬網路的詳細資訊，請參閱[虛擬網路設定工作](http://msdn.microsoft.com/library/azure/jj156206.aspx)。
+    如需建立和設定虛擬網路的詳細資訊，請參閱[虛擬網路設定工作](../services/virtual-machines/)。
 
 * SQL Server 也必須設定為允許 SQL 驗證。如需詳細資訊，請參閱[選擇驗證模式](https://msdn.microsoft.com/ms144284.aspx)
 
@@ -263,4 +263,4 @@ HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable*
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

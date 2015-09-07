@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="將 PhoneFactor Agent 升級為 Azure Multi-Factor Authentication Server" 
-	description="本文件說明如何開始使用 Azure MFA Server，以及如何從舊版的 PhoneFactor Agent 升級。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="將 PhoneFactor Agent 升級為 Azure Multi-Factor Authentication Server"
+	description="本文件說明如何開始使用 Azure MFA Server，以及如何從舊版的 PhoneFactor Agent 升級。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # 將 PhoneFactor Agent 升級為 Azure Multi-Factor Authentication Server
@@ -60,4 +60,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

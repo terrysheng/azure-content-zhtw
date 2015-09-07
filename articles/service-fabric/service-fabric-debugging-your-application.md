@@ -1,20 +1,20 @@
 <properties
    pageTitle="在 Visual Studio 中使用 F5 偵錯 Service Fabric 應用程式"
-   description="透過使用 Visual Studio 和本機開發叢集，改善您服務的可靠性和效能。"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="jessebenson"
-   manager="timlt"
-   editor=""/>
+	description="透過使用 Visual Studio 和本機開發叢集，改善您服務的可靠性和效能。"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="jessebenson"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/18/2015"
-   ms.author="jesseb"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/26/2015"
+	ms.author="jesseb"/>
 
 # 在 Visual Studio 中使用 F5 偵錯 Service Fabric 應用程式
 
@@ -66,4 +66,4 @@
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

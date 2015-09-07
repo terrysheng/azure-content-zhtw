@@ -291,7 +291,7 @@ Web 應用程式與兩個不同的資源相依。這表示只有在建立 App Se
 <a name="resources"></a>
 ## 其他資源 ##
 
--	[Azure 資源管理員範本語言](http://msdn.microsoft.com/library/azure/dn835138.aspx)
+-	[Azure 資源管理員範本語言](../resource-group-authoring-templates.md)
 -	[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)
 -	[Azure 資源管理員範本函數](../resource-group-template-functions.md)
 -	[使用 Azure 資源管理員範本部署應用程式](../resource-group-template-deploy.md)
@@ -303,4 +303,4 @@ Web 應用程式與兩個不同的資源相依。這表示只有在建立 App Se
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在 Azure 中使用 TFS 來連續傳遞雲端服務"
+	pageTitle="在 Azure 中使用 TFS 連續傳遞雲端服務 | Microsoft Azure"
 	description="了解如何設定 Azure 雲端應用程式的連續傳遞。MSBuild 命令列陳述式和 PowerShell 指令碼的程式碼範例。"
 	services="cloud-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="08/19/2015"
 	ms.author="kempb"/>
 
 # Azure 中雲端服務的連續傳遞
@@ -31,18 +31,20 @@
 組建伺服器上不需要安裝 Visual Studio。若要使用 Team Foundation Build Service 來管理組建伺服器，請遵循 [Team Foundation Build Service][] 文件。
 
 1.  在組建伺服器上，安裝 [.NET Framework 4][]、[.NET Framework 4.5][] 或 [.NET Framework 4.5.2][]，其包括 MSBuild。
-2.  安裝 [Azure 製作工具][] (尋找 MicrosoftAzureAuthoringTools-x86.msi 或 MicrosoftAzureAuthoringTools-x64.msi，視組建伺服器的處理器而定)。舊版檔案的檔案名稱中可能有 WindowsAzure。
-3. 安裝 [Azure 程式庫][] (尋找 MicrosoftAzureLibsForNet-x86.msi 或 MicrosoftAzureLibsForNet-x64.msi)。
-4.  將 Microsoft.WebApplication.targets 檔案從 Visual Studio 安裝複製至組建伺服器。在已安裝 Visual Studio 的電腦上，此檔案位於目錄 C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications (Visual Studio 2013 為 WebApplications V12.0)。您應該將它複製至組建伺服器上的相同目錄。
-5.  安裝 [Azure Tools for Visual Studio][]。尋找 MicrosoftAzureTools.VS110.exe 來建置 Visual Studio 2012 專案，尋找 MicrosoftAzureTools.VS120.exe 來建置 Visual Studio 2013 專案，以及尋找 MicrosoftAzureTools.VS140.exe 來建置 Visual Studio 2015 預覽專案。
+2.  安裝 [Azure Authoring Tools for .NET](http://go.microsoft.com/fwlink/?LinkId=623518) (如果您的組建伺服器包含 32 位元作業系統/處理器，取代連結中的 MicrosoftAzureAuthoringTools-x86.msi，而非 MicrosoftAzureAuthoringTools-x64.msi)。
+3. 安裝 [Azure Libraries for.NET](http://go.microsoft.com/fwlink/?LinkId=623519) (如有需要，取代連結中的 MicrosoftAzureLibsForNet x86.msi)。
+4.  將 Microsoft.WebApplication.targets 檔案從 Visual Studio 安裝複製到組建伺服器上。
+
+	在已安裝 Visual Studio 的電腦上，此檔案位於目錄 C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications (v12.0 代表 Visual Studio 2013)。您應該將它複製至組建伺服器上的相同目錄。
+5.  安裝 [Azure Tools for Visual Studio](http://go.microsoft.com/fwlink/?LinkId=623520)。使用 MicrosoftAzureTools.VS140.exe 建置 Visual Studio 2015 專案，或使用 MicrosoftAzureTools.VS120.exe 建置 Visual Studio 2013 專案。
 
 ## 步驟 2：使用 MSBuild 命令建置封裝
 
-本節說明如何建構 MSBuild 命令來建置 Azure 套件。在組建伺服器上執行這個步驟，確認一切都已正確設定，且 MSBuild 命令會執行您要它執行的動作。您可以將此命令列新增至組建伺服器上的現有組建指令碼，也可以在 TFS 組建定義中使用此命令列 (說明於下節)。如需命令列參數及 MSBuild 的詳細資訊，請參閱 [MSBuild 命令列參考][]。
+本節說明如何建構 MSBuild 命令來建置 Azure 套件。在組建伺服器上執行這個步驟，確認一切都已正確設定，且 MSBuild 命令會執行您要它執行的動作。您可以將此命令列新增至組建伺服器上的現有組建指令碼，也可以在 TFS 組建定義中使用此命令列 (說明於下節)。如需命令列參數及 MSBuild 的詳細資訊，請參閱 [MSBuild 命令列參考](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx)。
 
 1.  如果組建伺服器上已安裝 Visual Studio，請按一下 [開始]、[所有程式]，然後在 [Visual Studio Tools] 資料夾中找出並按一下 [Visual Studio Commmand Prompt]。
 
-    如果組建伺服器上未安裝 Visual Studio，請開啟命令提示字元，並確定可在路徑上存取 MSBuild.exe。MSBuild 會與 .NET Framework 一起安裝在路徑 %WINDIR%\\Microsoft.NET\\Framework\*Version* 中。例如，若要在已安裝 .NET Framework 4 時，將 MSBuild.exe 新增至 PATH 環境變數，請在命令提示字元中輸入下列命令：
+    如果組建伺服器上未安裝 Visual Studio，請開啟命令提示字元，並確定可在路徑上存取 MSBuild.exe。MSBuild 會與 .NET Framework 一起安裝在路徑 %WINDIR%\\Microsoft.NET\\Framework*Version* 中。例如，若要在已安裝 .NET Framework 4 時，將 MSBuild.exe 新增至 PATH 環境變數，請在命令提示字元中輸入下列命令：
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
@@ -56,7 +58,7 @@
 
     (選擇性) 您可以指定專案名稱作為 MSBuild 參數。如果未指定，則會使用目前目錄。如需 MSBuild 命令列選項的詳細資訊，請參閱 [MSBuild 命令列參考][1]。
 
-4.  尋找輸出。依預設，此命令會建立相對於專案根資料夾的目錄，例如 *ProjectDir*\\bin\*Configuration*\\app.publish\\。當您建置 Azure 專案時，會產生兩個檔案，即套件檔本身及伴隨的組態檔：
+4.  尋找輸出。依預設，此命令會建立相對於專案根資料夾的目錄，例如 *ProjectDir*\\bin*Configuration*\\app.publish\\。當您建置 Azure 專案時，會產生兩個檔案，即套件檔本身及伴隨的組態檔：
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -75,7 +77,7 @@
 
 ## 步驟 3：使用 TFS Team Build 建置封裝 (選用)
 
-如果已設定 Team Foundation Server (TFS) 作為組建控制器，並設定組建伺服器作為 TFS 組建機器，則可以為 Azure 套件設定自動化組建。如需關於如何設定並使用 Team Foundation Server 作為組建系統的詳細資訊，請參閱 [了解 Team Foundation Build System][]。特別是，下列程序假設您已如組建伺服器[設定組建機器][]中所述來設定組建伺服器，同時您已建立 Team 專案，已在 Team 專案中建立雲端服務專案。
+如果已設定 Team Foundation Server (TFS) 作為組建控制器，並設定組建伺服器作為 TFS 組建機器，則可以為 Azure 套件設定自動化組建。如需如何設定並使用 Team Foundation Server 做為組建系統的相關資訊，請參閱[相應放大您的組建系統][]。特別是，下列程序假設您已經如[部署和設定組建伺服器][]中所述來設定組建伺服器，而且您已經建立 Team 專案，並在 Team 專案中建立雲端服務專案。
 
 若要設定 TFS 來建置 Azure 套件，請執行下列步驟：
 
@@ -91,7 +93,7 @@
 
 5.  按一下 [處理序] 索引標籤。在 [處理序] 索引標籤上選擇預設範本，於 [**組建**] 下，選擇專案 (若尚未選取)，然後展開格線 [**組建**] 區段中的 [**進階**]。
 
-6.  選擇 [MSBuild 引數]，然後依上面步驟 2 所述，設定適當的 MSBuild 命令列引數。例如，輸入 **/t:Publish /p:PublishDir=\\\\myserver\\drops\** 以建置套件，並將套件檔複製至位置 \\\\myserver\\drops\\：
+6.  選擇 [MSBuild 引數]，然後依上面步驟 2 所述，設定適當的 MSBuild 命令列引數。例如，輸入 **/t:Publish /p:PublishDir=\\\myserver\\drops** 以建置套件，並將套件檔複製至位置 \\\myserver\\drops\\：
 
     ![][2]
 
@@ -121,7 +123,7 @@
 
     如此會顯示訂閱的相關資訊。確認一切正確無誤。
 
-4.  將[本文結尾][]提供的指令碼範本儲存至您的指令碼資料夾，如 c:\\scripts\\WindowsAzure\**PublishCloudService.ps1**。
+4.  將[本文結尾][]提供的指令碼範本儲存至您的指令碼資料夾，如 c:\\scripts\\WindowsAzure**PublishCloudService.ps1**。
 
 5.  檢閱指令碼的參數區段。新增或修改任何預設值。您永遠可以傳遞明確參數來覆寫這些值。
 
@@ -553,20 +555,16 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 
 ## 後續步驟
 
-若要在使用連續傳遞時啟用遠端偵錯，請參閱[這些指示](http://go.microsoft.com/fwlink/p/?LinkID=402354) (英文)。
+若要在使用連續傳遞時啟用遠端偵錯，請參閱[使用連續傳遞來發行至 Azure 時啟用遠端偵錯](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)。
 
   [使用 Visual Studio Online 連續傳遞至 Azure]: cloud-services-continuous-delivery-use-vso.md
   [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
   [.NET Framework 4.5.2]: http://go.microsoft.com/fwlink/?LinkId=521668
-  [Azure 製作工具]: http://go.microsoft.com/fwlink/?LinkId=239600
-  [Azure 程式庫]: http://go.microsoft.com/fwlink/?LinkId=257862
-  [Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
-  [MSBuild 命令列參考]: http://msdn.microsoft.com/library/ms164311(v=VS.90).aspx
-  [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
-  [了解 Team Foundation Build System]: http://go.microsoft.com/fwlink/?LinkId=238798
-  [設定組建機器]: http://go.microsoft.com/fwlink/?LinkId=238799
+	[1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
+  [相應放大您的組建系統]: http://go.microsoft.com/fwlink/?LinkId=238798
+  [部署和設定組建伺服器]: http://go.microsoft.com/fwlink/?LinkId=238799
   [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
   [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
   [Azure PowerShell Cmdlet]: http://go.microsoft.com/fwlink/?LinkId=256262
@@ -578,4 +576,4 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

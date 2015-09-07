@@ -114,6 +114,8 @@
 	ops@ubuntuvm:~$
 
 
+> [AZURE.NOTE]您也可以在入口網站中設定虛擬機器的完整網域名稱 (FQDN)。在[這裡](virtual-machines-create-fqdn-on-portal.md)進一步了解 FQDN。
+
 ## 後續步驟
 
 若要深入了解 Azure 上的 Linux，請參閱：
@@ -126,4 +128,4 @@
 
 - [Azure 上 Linux 的 Docker 虛擬機器擴充程式](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

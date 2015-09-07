@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="教學課程：建立純雲端虛擬網路" 
-	description="了解如何在此教學課程中建立範例純雲端 Azure 虛擬網路。" 
-	services="virtual-machines, virtual-network" 
-	documentationCenter="" 
-	authors="cherylmc" 
-	manager="adinah" 
+	pageTitle="教學課程：建立純雲端虛擬網路"
+	description="了解如何在此教學課程中建立範例純雲端 Azure 虛擬網路。"
+	services="virtual-machines, virtual-network"
+	documentationCenter=""
+	authors="cherylmc"
+	manager="adinah"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/18/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/17/2015"
 	ms.author="cherylmc"/>
 
 # 教學課程：在 Azure 中建立純雲端虛擬網路
@@ -24,7 +24,7 @@
 
 例如，FrontEndSubnet 可用於 Web 伺服器，而 BackEndSubnet 可用於 SQL Server 或網域控制站。
 
-本教學課程假設您先前沒有使用 Azure 的經驗。這能夠藉由逐步引導您進行範例設定，協助您熟悉建立自己的虛擬網路所需的步驟。如果您想要建立純雲端虛擬網路以適用於您特定的組態，請參閱[在管理入口網站中設定純雲端虛擬網路](http://msdn.microsoft.com/library/azure/dn631643.aspx)。如果您需要虛擬網路的設計案例和進階資訊，請參閱[虛擬網路](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)。
+本教學課程假設您先前沒有使用 Azure 的經驗。這能夠藉由逐步引導您進行範例設定，協助您熟悉建立自己的虛擬網路所需的步驟。如果您想要建立純雲端虛擬網路以適用於您特定的組態，請參閱[在管理入口網站中設定純雲端虛擬網路](../virtual-network/virtual-networks-create-vnet.md)。如果您需要虛擬網路的設計案例和進階資訊，請參閱[虛擬網路](../virtual-network/virtual-networks-overview.md)。
 
 
 > [AZURE.NOTE]本教學課程不會逐步引導您建立跨單位組態，其中的虛擬網路會連接至您的組織網路。如需逐步引導您使用跨部署連線和網站對網站 VPN 連線 (亦即連線到位在公司內部的 Active Directory 或 SharePoint) 建立虛擬網路的教學課程，請參閱[教學課程：建立網站對網站連線的跨部署虛擬網路](../virtual-network/virtual-networks-create-site-to-site-cross-premises-connectivity.md)。
@@ -90,9 +90,9 @@
 
 若要移除這個虛擬網路，可選取它、按一下 [刪除]，然後按一下 [是]。
 
-如果您準備好建立純雲端虛擬網路以適用於您特定的組態，請參閱[在管理入口網站中設定純雲端虛擬網路](http://msdn.microsoft.com/library/azure/dn631643.aspx)。
+如果您準備好建立純雲端虛擬網路以適用於您特定的組態，請參閱[在管理入口網站中設定純雲端虛擬網路](../virtual-network/virtual-networks-create-vnet.md)。
 
-如果您需要虛擬網路的設計案例和進階資訊，請參閱[虛擬網路](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)。
+如果您需要虛擬網路的設計案例和進階資訊，請參閱[虛擬網路](../virtual-network/virtual-networks-overview.md)。
 
 如需其他虛擬網路組態程序和設定，請參閱 [Azure 虛擬網路組態工作](http://go.microsoft.com/fwlink/p/?linkid=296652&clcid=0x409)。
 
@@ -118,4 +118,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

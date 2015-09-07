@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="開始在 Xamarin iOS 中使用行動應用程式的驗證" 
-	description="了解如何使用行動應用程式透過眾多識別提供者驗證 Xamarin iOS 應用程式使用者，包括 AAD、Google、Facebook、Twitter 和 Microsoft。" 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
-	authors="mattchenderson" 
-	manager="dwrede" 
+	pageTitle="開始在 Xamarin iOS 中使用行動應用程式的驗證"
+	description="了解如何使用行動應用程式透過眾多識別提供者驗證 Xamarin iOS 應用程式使用者，包括 AAD、Google、Facebook、Twitter 和 Microsoft。"
+	services="app-service\mobile"
+	documentationCenter="xamarin"
+	authors="mattchenderson"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.service="app-service"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-ios"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/27/2015"
 	ms.author="mahender"/>
 
 # 將驗證新增至 Xamarin.iOS 應用程式
@@ -22,11 +22,7 @@
 
 本主題說明如何從用戶端應用程式驗證 App Service 行動應用程式的使用者。在本教學課程中，您將使用 App Service 支援的身分識別提供者，將驗證新增至快速入門專案。由行動應用程式成功驗證並授權之後，就會顯示使用者識別碼值。
 
-本教學課程以行動應用程式快速入門為基礎。您也必須先完成[建立 Xamarin.iOS 應用程式]教學課程。
-
-##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
+本教學課程以行動應用程式快速入門為基礎。您也必須先完成[建立 Xamarin.iOS 應用程式]教學課程。如果您不要使用下載的快速入門伺服器專案，必須將驗證擴充套件新增至您的專案。如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
 ##<a name="create-gateway"></a>建立 App Service 閘道
 
@@ -44,7 +40,7 @@
 
 &nbsp;&nbsp;應用程式嘗試以未經驗證的使用者身分存取您的行動應用程式後端，因此發生此未經授權的失敗。*TodoItem* 資料表現在需要驗證。
 
-接下來，您將會更新用戶端 app，利用已驗證的使用者身分來要求行動應用程式後端的資源。
+接下來，您將會更新用戶端應用程式，利用已驗證的使用者身分來要求行動應用程式後端的資源。
 
 ##<a name="add-authentication"></a>將驗證新增至應用程式
 
@@ -120,4 +116,4 @@
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="在 Docker 中裝載 Web Apps | Microsoft Azure"
-   description="了解如何使用 Visual Studio 在 Docker 容器中裝載 Web 應用程式。"
-   services="visual-studio-online"
-   documentationCenter="na"
-   authors="kempb"
-   manager="douge"
-   editor="tglee" />
+	description="了解如何使用 Visual Studio 在 Docker 容器中裝載 Web 應用程式。"
+	services="visual-studio-online"
+	documentationCenter="na"
+	authors="kempb"
+	manager="douge"
+	editor="tglee"/>
 <tags
    ms.service="multiple"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="multiple"
-   ms.date="08/17/2015"
-   ms.author="kempb" />
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="multiple"
+	ms.date="08/20/2015"
+	ms.author="kempb"/>
 
 # 在 Docker 中裝載 Web Apps
 
@@ -25,7 +25,7 @@
 
 ## 建立及發佈新的 Docker 容器
 
-在這些程序中，您將建立新的 ASP.NET 5 Web 應用程式專案、建立容器主機，然後在 Docker 容器中建置以及執行 Web 應用程式專案。若要開始，請下載並安裝 [Visual Studio 2015 Tools for Docker](aka.ms/DockerToolsForVS)。
+在這些程序中，您將建立新的 ASP.NET 5 Web 應用程式專案、建立容器主機，然後在 Docker 容器中建置以及執行 Web 應用程式專案。若要開始，請下載並安裝 [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS)。
 
 ### 加入 ASP.NET 5 Web 應用程式專案
 
@@ -63,7 +63,7 @@
 
     請注意，您也可以選擇使用現有的 Docker 主機。若要這樣做，請在 [現有 Azure Docker 虛擬機器] 下拉式清單 (而不是選擇 [新增] 按鈕) 選擇它。這份清單不會只顯示容器主機，它會列出所有 Azure 租用戶中的所有 VM。
 
-    或者，您可以選擇發佈到自訂的 Docker 主機。如需詳細資訊，請參閱本主題稍後的[提供自訂 Docker 主機](#BKMK_CustomHost)。
+    或者，您可以選擇發佈到自訂的 Docker 主機。如需詳細資訊，請參閱本主題稍後的**提供自訂 Docker 主機**。
 
 1. 於 [在 Microsoft Azure 上建立虛擬機器] 對話方塊中輸入下列資訊。完成時，選擇 [確定] 按鈕。這會建立設定了 Docker 延伸模組的 Linux 虛擬機器。
 
@@ -80,7 +80,7 @@
     |映像|選擇要在 Docker 主機中使用的 OS 映像 (如果有)。對於此範例，選擇 Ubuntu Server 映像。(請注意，Windows Server 映像現在於可用映像的清單中提供。)|
     |使用者名稱|輸入虛擬機器的獨特使用者名稱。|
     |密碼|輸入使用者的密碼並加以確認。|
-    |憑證目錄 |這會指定儲存 Docker 憑證的資料夾。雖然您可以建立新資料夾或指向現有的資料夾，建議您使用預設的憑證資料夾 (C:\\Users\\[*username*]\\.docker)。否則，如果您在另一個專案或系統上重複使用相同的主機，將無法自動擷取 [驗證] 選項。|
+    |憑證目錄 |這會指定儲存 Docker 憑證的資料夾。雖然您可以建立新資料夾或指向現有的資料夾，建議您使用預設的憑證資料夾 (C:\\Users\[*username*]\\.docker)。否則，如果您在另一個專案或系統上重複使用相同的主機，將無法自動擷取 [驗證] 選項。|
 
 1. 選擇 [憑證目錄] 項目旁的省略符號 (...) 按鈕，然後為 Docker 憑證建立新資料夾，或瀏覽至現有的 Docker 憑證資料夾。
 
@@ -92,7 +92,7 @@
 
     ![][7]
 
-    Visual Studio 會輸出作業的進度到 [輸出] 視窗。Visual Studio 呼叫 PowerShell 指令碼來部署 VM。指令碼會使用 Azure PowerShell 指令程式來部署 Azure 資源群組。之後，另一個 PowerShell 指令碼會使用發出 Docker 命令來發佈，就好像您是手動建立 Docker 主機。
+    Visual Studio 會將作業的進度輸出到 [輸出] 視窗。Visual Studio 呼叫 PowerShell 指令碼來部署 VM。指令碼會使用 Azure PowerShell 指令程式來部署 Azure 資源群組。之後，另一個 PowerShell 指令碼會使用發出 Docker 命令來發佈，就好像您是手動建立 Docker 主機。
 
     佈建 Docker 主機可能需要一些時間，因此請檢查 [輸出] 視窗中的狀態，以得知作業何時完成。
 
@@ -100,9 +100,9 @@
 
 1. 一旦 Docker 主機準備就緒時，請返回並發佈 Web 應用程式專案。在 [方案總管] 中 Web 應用程式專案節點的內容功能表中上，選擇 [發佈]。Visual Studio 會根據您所建立的 VM 建立發佈檔案。
 
-1. 在 [發佈 Web] 對話方塊 的[連接] 索引標籤中，選擇 [驗證連接] 方塊以確定 Docker 主機已經備妥。如果連接良好，請選擇 [發佈] 按鈕以發佈 Web 應用程式。
+1. 在 [發佈 Web] 對話方塊的[連接] 索引標籤上，選擇 [驗證連接] 方塊以確定 Docker 主機已經備妥。如果連接正常，請選擇 [發佈] 按鈕以發佈 Web 應用程式。
 
-    第一次將應用程式發佈至 Docker 主機時，需要時間才能下載 Docker 檔案中所參考的任何基礎映像 (例如 **FROM** *imagename*)。
+    第一次將應用程式發佈至 Docker 主機時，需要一些時間才能下載 Docker 檔案中所參考的任何基礎映像 (例如 **FROM** *imagename*)。
 
     請注意，Docker 檔案是作業系統特定的檔案。如果您選擇重新發佈至不同的作業系統，您必須重新命名 Docker 檔案，使得 Visual Studio 能夠根據目標作業系統建立新預設值。例如，如果您先發佈至 Linux 容器並稍後決定發佈到 Windows，您應該將 Docker 檔案重新命名為唯一的名稱，例如 DockerLinux。然後，當您重新發佈至 Windows 時，Visual Studio 將會為 Windows 重新建立預設的 Docker 檔案。稍後，當您重新發佈其中任一個時，只需選取作業系統適用的適當 Docker 檔案。
 
@@ -124,7 +124,7 @@
 
     ![][6]
 
-1. 輸入所有必要的值之後，選擇 [驗證連接] 按鈕以確保對 Docker 主機的連接正常運作。
+1. 輸入所有必要的值之後，選擇 [驗證連接] 按鈕以確保與 Docker 主機的連接會正常運作。
 
 1. 如果連接能夠正常運作，您可以選擇 [下一步] 按鈕來查看將發佈的元件的清單，或您可以選擇 [發佈] 按鈕以立即發佈專案。
 
@@ -145,25 +145,27 @@
     Set DOCKER_TLS_VERIFY=1
     ```
 
-    叫用這些命令可讓您不必加入 `–H (Host) tcp://<NameofAzureVM>.cloudapp.net:2376` 和 `--TLSVERIFY` 到您發出的每個命令。
+    叫用這些命令可讓您在每個發出的命令中省略 `–H (Host) tcp://<NameofAzureVM>.cloudapp.net:2376` 和 `--TLSVERIFY`。
 
 1. 現在您可以發出這類命令來測試 Docker 主機是否已存在且正常運作。
 
     |命令列|說明|
     |---|---|
-    |docker info|取得 Docker 版本資訊。|
-    |docker ps|取得執行中容器的清單。|
-    |docker ps –a|取得清單的容器，包括停止的容器。|
-    |docker logs <Docker container name>|取得指定的容器的記錄檔。|
-    |docker images|取得映像的清單。|
+    |`docker info`|取得 Docker 版本資訊。|
+    |`docker ps`|取得執行中容器的清單。|
+    |`docker ps –a`|取得清單的容器，包括停止的容器。|
+    |`docker logs <Docker container name>`|取得指定的容器的記錄檔。|
+    |`docker images`|取得映像的清單。|
 
-    如需 Docker 命令的完整清單，只要在命令提示字元中輸入命令 `docker`。如需詳細資訊，請參閱 [Docker 命令列](https://docs.docker.com/reference/commandline/cli/)。
+    如需 Docker 命令的完整清單，只要在命令提示字元中輸入命令 `docker` 即可。如需詳細資訊，請參閱 [Docker 命令列](https://docs.docker.com/reference/commandline/cli/)。
 
 ## 後續步驟
 
-既然已具備 Docker 主機，您可以發出 Docker 命令給它。若要深入了解 Docker，請參閱 [Docker 文件](https://docs.docker.com/) 和 [Docker 線上教學課程](https://www.docker.com/tryit/)。
+既然已具備 Docker 主機，您可以發出 Docker 命令給它。若要深入了解 Docker，請參閱 [Docker 文件](https://docs.docker.com/)和 [Docker 線上教學課程](https://www.docker.com/tryit/)。
 
-如需在 Visual Studio 中使用 Docker 的問題，請參閱[疑難排解 Docker 錯誤](vs-docker-troubleshooting-docker-errors.md)。
+若要了解如何在 Azure 上使用 Linux 的 Docker VM 擴充程式，請參閱 [Azure 上 Linux 的 Docker 虛擬機器擴充程式](virtual-machines-docker-vm-extension.md)。
+
+若是與在 Visual Studio 中使用 Docker 的相關問題，請參閱[使用 Visual Studio 疑難排解 Windows 上的 Docker 用戶端錯誤](vs-azure-tools-docker-troubleshooting-docker-errors.md)。
 
 [0]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796678.png
 [1]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796679.png
@@ -175,4 +177,4 @@
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

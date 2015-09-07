@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint 內部網路伺服器陣列工作負載第 3 階段：設定 SQL Server 基礎結構"
-	description="在 Azure 基礎結構服務內，使用 SQL Server AlwaysOn 可用性群組部署內部網路專用的 SharePoint 2013 伺服器陣列的這個階段中，您建立了 SQL Server 叢集電腦與叢集。"
+	pageTitle="SharePoint Server 2013 伺服器陣列第 3 階段 | Microsoft Azure"
+	description="在 Azure SharePoint Server 2013 伺服器陣列第 3 階段中，建立電腦和 SQL Server 叢集，並啟用可用性群組。"
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -44,7 +44,7 @@ SQL Server 虛擬機器共有兩部。一部 SQL Server 包含可用性群組中
 	$vmSize="<Table M – Item 3 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$availSet="<Table A – Item 2 – Availability set name column>"
 
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Enterprise on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
 
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first SQL Server computer."
@@ -143,7 +143,7 @@ SQL Server 需要一個連接埠讓用戶端存取資料庫伺服器，同時也
 
 請在每一部 SQL Server 虛擬機器中，以本機系統管理員的身分登出。
 
-如需關於在 Azure 中將 SQL Server 效能最佳化的資訊，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳做法](https://msdn.microsoft.com/library/azure/dn133149.aspx)。同時您也可以停用 SharePoint 伺服器陣列儲存體帳戶的異地備援儲存體 (GRS)，並使用儲存空間最佳化 IOP。
+如需關於在 Azure 中將 SQL Server 效能最佳化的資訊，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳做法](virtual-machines-sql-server-performance-best-practices.md)。同時您也可以停用 SharePoint 伺服器陣列儲存體帳戶的異地備援儲存體 (GRS)，並使用儲存空間最佳化 IOP。
 
 ## 設定叢集多數節點伺服器
 
@@ -228,4 +228,4 @@ SQL Server AlwaysOn 可用性群組依賴 Windows Server 的容錯移轉叢集 (
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

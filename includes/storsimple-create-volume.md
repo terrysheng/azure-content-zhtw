@@ -1,4 +1,3 @@
-
 #### 建立磁碟區
 
 1. 在裝置的 [快速入門] 頁面上，按一下 [新增磁碟區]。這樣會啟動 [新增磁碟區] 精靈。
@@ -6,7 +5,7 @@
 2. 在 [新增磁碟區] 精靈的 [基本設定] 下方：
    1. 輸入磁碟區的 [名稱]。
    2. 為磁碟區指定 [佈建的容量]。**磁碟區容量必須介於 1 GB 到 64 TB 之間。**
-   3. 在下拉式清單中，為磁碟區選取 [使用類型] 。針對存取頻率較低的封存資料，選取 [封存磁碟區]。對於所有其他資料類型，選取 [主要磁碟區]。
+   3. 在下拉式清單中，為磁碟區選取 [使用類型] 。針對存取頻率較低的封存資料，選取 [封存磁碟區]。對於所有其他資料類型，選取 [**階層式磁碟區**]。(階層式磁碟區之前稱為主要磁碟區)。
    4. 按一下箭頭圖示 ![arrow-icon](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) 以移至下一頁。
 
      ![新增磁碟區](./media/storsimple-create-volume/HCS_AddVolume1M-include.png)
@@ -22,4 +21,4 @@
 
 4. 按一下核取圖示 ![核取圖示](./media/storsimple-create-volume/HCS_CheckIcon-include.png)。使用指定的設定來建立磁碟區。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

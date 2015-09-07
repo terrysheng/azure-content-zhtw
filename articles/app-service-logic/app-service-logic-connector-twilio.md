@@ -1,49 +1,45 @@
 <properties
-   pageTitle="Twilio 連接器 API 應用程式"
-   description="如何使用 Twilio 連接器"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 Twilio 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 Twilio 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# 在邏輯應用程式中使用 Twilio 連接器 #
-
-邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。
-
-Twilio 連接器可讓您從 Twilio 帳戶傳送和接收 SMS。它也可讓您擷取電話號碼和使用量資料。
+# 開始使用 Twilio 連接器並將它加入您的邏輯應用程式
+連線至您的 Twilio 帳戶以傳送和接收 SMS 訊息。您也可擷取電話號碼和使用量資料。邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。您可以將 Twilio 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
 ## 建立邏輯應用程式的 Twilio 連接器 ##
-若要使用 Twilio 連接器，您必須先建立 Twilio 連接器 API 應用程式的執行個體。以下步驟可以達到此目的：
+連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
-1.	使用 Azure 入口網站左下方的 [+新增] 選項開啟 Azure Marketplace。
-2.	瀏覽至 API Apps，並搜尋「Twilio 連接器」。
-3.	設定 Twilio 連接器，如下所示：
- 
+1. 在 Azure 開始面板中，選取 [**Marketplace**]。
+2. 搜尋「Twilio 連接器」，將其選取，然後選取 [建立]。
+3. 設定 Twilio 連接器，如下所示：  
 	![][1] 
-	- **位置** - 選擇您要部署連接器的地理位置 
-	- **訂用帳戶** - 選擇您要在其中建立此連接器的訂用帳戶 
-	- **資源群組** - 選取或建立連接器所在的資源群組 
-	- **Web 主控方案** - 選取或建立 Web 主控方案 
-	- **定價層** - 選擇用於連接器的定價層 
-	- **名稱** - 提供 Twilio 連接器的名稱 
-	- **封裝設定** 
-		- **帳戶 SID** - 帳戶的唯一識別碼。您可以從 <https://www.twilio.com/user/account/settings> 擷取帳戶的帳戶 SID 
-		- **授權權杖** -與帳戶關聯的授權權杖。您可以從 <https://www.twilio.com/user/account/settings> 擷取帳戶的授權權杖
+	- **位置** - 選擇您要部署連接器的地理位置
+	- **訂閱** - 選擇您要建立此連接器的訂閱
+	- **資源群組** - 選取或建立連接器所在的資源群組
+	- **Web 裝載方**案 - 選取或建立 Web 裝載方案
+	- **定價層** - 選擇連接器的定價層
+	- **名稱** - 提供 Twilio 連接器的名稱
+	- **套裝設定**
+		- **帳戶 SID** - 帳戶的唯一識別碼。您可以從 <https://www.twilio.com/user/account/settings> 擷取帳戶的帳戶 SID
+		- **授權權杖** - 與帳戶關聯的授權權杖。您可以從 <https://www.twilio.com/user/account/settings> 擷取帳戶的授權權杖
 
 
 4.	按一下 [建立]。將建立新的 Twilio 連接器。
-5.	建立 API 應用程式執行個體後，您可以在相同的資源群組中建立邏輯應用程式，以便使用 Twilio 連接器。
+5.	建立 API 應用程式執行個體後，您可以建立邏輯應用程式，以便使用 Twilio 連接器。
 
 ## 在邏輯應用程式中使用 Twilio 連接器 ##
 建立 API 應用程式之後，您現在可以使用 Twilio 連接器做為邏輯應用程式的動作。若要這樣做，您需要：
@@ -66,8 +62,6 @@ Twilio 連接器可讓您從 Twilio 帳戶傳送和接收 SMS。它也可讓您�
 
 	![][5]
 	![][6]
-## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -81,4 +75,4 @@ Twilio 連接器可讓您從 Twilio 帳戶傳送和接收 SMS。它也可讓您�
 [5]: ./media/app-service-logic-connector-twilio/img5.PNG
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

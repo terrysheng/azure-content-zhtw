@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure SQL 彈性資料庫集區參考" 
-	description="這份參考提供了彈性資料庫集區文章和可程式性資訊的連結與詳細資料。" 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+	pageTitle="Azure SQL 彈性資料庫集區參考"
+	description="這份參考提供了彈性資料庫集區文章和可程式性資訊的連結與詳細資料。"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/13/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.date="08/25/2015"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -33,7 +33,9 @@
 
 
 - 只有 Azure SQL Database V12 伺服器才可以使用彈性資料庫集區。   
-- 只有針對 Azure 資源管理員使用[預覽入口網站](https://portal.azure.com)、PowerShell 和 .NET 用戶端程式庫 (REST API 的包裝函式) 才支援建立和管理彈性資料庫集區；[入口網站](https://manage.windowsazure.com/)和服務管理命令不受支援。 
+- 只有針對 Azure 資源管理員使用[預覽入口網站](https://portal.azure.com)、PowerShell 和 .NET 用戶端程式庫 (REST API 的包裝函式) 才支援建立和管理彈性資料庫集區；[入口網站](https://manage.windowsazure.com/)和服務管理命令不受支援。
+- 此外，還支援使用 Transact-SQL 建立新的彈性資料庫，並將現有的資料庫移入和移出彈性資料庫集區。
+
 
 
 ## 目前預覽版本注意事項
@@ -62,7 +64,7 @@
 | [價格和效能考量](sql-database-elastic-pool-guidance.md) | 如果評估使用彈性資料庫集區是否符合成本效益 |
 | [使用 Azure 入口網站建立和管理 SQL Database 彈性資料庫集區](sql-database-elastic-pool-portal.md) | 如何使用 Azure 入口網站建立和管理彈性資料庫集區 |
 | [使用 PowerShell 建立和管理 SQL Database 彈性資料庫集區](sql-database-elastic-pool-powershell.md) | 如何使用 PowerShell Cmdlet 建立和管理彈性資料庫集區 |
-| [使用 Azure SQL Database Library for .NET 建立和管理 SQL Database](sql-database-elastic-pool-powershell.md) | 如何使用 C#建立和管理彈性資料庫集區 |
+| [使用 Azure SQL Database Library for .NET 建立和管理 SQL Database](sql-database-elastic-pool-powershell.md) | 如何使用 C# 建立和管理彈性資料庫集區 |
 | [彈性資料庫工作概觀](sql-database-elastic-jobs-overview.md) | 彈性工作服務的概觀，此服務可在集區中的所有彈性資料庫內執行 T-SQL 指令碼 |
 | [安裝彈性資料庫工作元件](sql-database-elastic-jobs-service-installation.md) | 如何安裝彈性資料庫工作服務 |
 | [建立彈性工作服務所需的使用者](sql-database-elastic-jobs-add-logins-to-dbs.md) | 若要執行彈性資料庫工作指令碼，必須將具有適當權限的使用者加入至集區中的每個資料庫。 |
@@ -143,32 +145,31 @@ Azure SQL Database V12 伺服器位於資源群組中。
 
 
 
-## 彈性資料庫集區 PowerShell Cmdlet 和 REST API 命令 (僅限 Azure 資源管理員)
+## PowerShell、REST API 和 .NET 用戶端程式庫
 
-下列 PowerShell Cmdlet 和 REST API 命令可用來建立及管理彈性集區：
+有幾個 PowerShell Cmdlet 和 REST API 命令可用來建立及管理彈性集區。如需詳細資訊和程式碼範例，請參閱[使用 PowerShell 建立和管理 SQL Database 彈性資料庫集區](sql-database-elastic-pool-powershell.md)和[使用 C# 建立和管理 SQL Database](sql-database-client-library.md)。
 
-| [PowerShell Cmdlet](https://msdn.microsoft.com/library/mt125356.aspx) | [REST API 命令](https://msdn.microsoft.com/library/azure/mt163571.aspx) |
+
+
+| [PowerShell Cmdlet](https://msdn.microsoft.com/library/mt163521.aspx) | [REST API 命令](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
-| Get-AzureSqlDatabase | Get Azure SQL database |
-| Get-AzureSqLElasticPool | Get Azure SQL Database elastic database pool |
-| Get-AzureSqlElasticPoolActivity | Get Azure SQL Database elastic database pool operations |
-| Get-AzureSqlElasticPoolDatabase | Get Azure SQL Database elastic database |
-| Get-AzureSqlElasticPoolDatabaseActivity | Get Azure SQL Database elastic database operations |
-| Get-AzureSqlServer | Get Azure SQL Database server |
-| Get-AzureSqlServerFirewallRule | Get Azure SQL Database server firewall rule |
-| Get-AzureSqlServerServiceObjective | Get Azure SQL Database server service objective |
-| New-AzureSqlDatabase | Create Azure SQL database |
-| New-AzureSqlElasticPool | Create Azure SQL Database elastic database pool |
-| New-AzureSqlServer | Create Azure SQL Database server |
-| New-AzureSqlServerFirewallRule | Create Azure SQL Database server firewall rule |
-| Remove-AzureSqlDatabase | Remove Azure SQL database |
-| Remove-AzureSqlElasticPool | Remove Azure SQL Database elastic database pool |
-| Remove-AzureSqlServer | Remove Azure SQL Database server |
-| Set-AzureSqlDatabase | Set Azure SQL database |
-| Set-AzureSqlElasticPool | Set Azure SQL Database elastic database pool |
-| Set-AzureSqlServer | Set Azure SQL Database server |
-| Set-AzureSqlServerFirewallRule | Set Azure SQL Database server firewall rule |
-| Get-Metrics | Get Metrics |
+| [New-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125987.aspx) | [建立彈性資料庫集區](https://msdn.microsoft.com/library/mt163596.aspx) |
+| [Set-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125994.aspx) | [設定彈性資料庫集區的效能設定](https://msdn.microsoft.com/library/mt163641.aspx) |
+| [Remove-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125830.aspx) | [刪除彈性資料庫集區](https://msdn.microsoft.com/library/mt163672.aspx) |
+| [Get-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt126017.aspx) | [取得彈性資料庫集區及其屬性值](https://msdn.microsoft.com/zh-TW/library/mt163646.aspx) |
+| [Get-AzureSqlElasticPoolActivity](https://msdn.microsoft.com/library/mt125837.aspx) | [取得彈性資料庫集區作業的狀態](https://msdn.microsoft.com/library/mt163669.aspx) |
+| [Get-AzureSqlElasticPoolDatabase](https://msdn.microsoft.com/library/mt125960.aspx) | [取得彈性資料庫集區中的資料庫](https://msdn.microsoft.com/library/mt163646.aspx) |
+| [Get-AzureSqlElasticPoolDatabaseActivity](https://msdn.microsoft.com/library/mt125973.aspx) | [取得將資料庫移入和移出集區的狀態](https://msdn.microsoft.com/library/mt163669.aspx) |
+
+## Transact-SQL
+
+您可以使用 TRANSACT-SQL 執行下列彈性資料庫管理工作：
+
+| 工作 | 詳細資料 |
+| :-- | :-- |
+| 建立新的彈性資料庫 (直接在集區中) | [CREATE DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) |
+| 將現有的資料庫移入和移出集區 | [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/ms174269.aspx) |
+| 取得集區的資源使用量統計資料 | [sys.elastic\_pool\_resource\_stats (Azure SQL Database)](https://msdn.microsoft.com/library/mt280062.aspx) |
 
 
 ## 計費和定價資訊
@@ -180,7 +181,7 @@ Azure SQL Database V12 伺服器位於資源群組中。
 - 如果彈性集區調整為新的 eDTU 量，則在調整作業完成之前，不會根據新的 eDTU 量來計算集區費用。這會遵循與變更獨立資料庫的效能等級相同的模式。 
 
 
-- 彈性集區的價格是以集區的 eDTU 數和集區中的資料庫數目為計算基礎。
+- 彈性集區的價格是以集區的 eDTU 數和集區中的資料庫數目為計算基礎。彈性集區的價格與其中所使用的彈性資料庫無關。
 - 價格的計算方式為 (集區的 eDTU 數) x (每 eDTU 的單價) + (資料庫數目) x (每個資料庫的單價)
 
 在同一個服務層中，彈性集區的 eDTU 單價大於獨立資料庫的 DTU 單價。如需詳細資訊，請參閱 [SQL Database 定價](http://azure.microsoft.com/pricing/details/sql-database/)。
@@ -210,4 +211,4 @@ Azure SQL Database V12 伺服器位於資源群組中。
 | 40891 | EX_USER | 每個資料庫的最小 DTU (%d) 不能超過每個資料庫的最大 DTU (%d)。 | 每個資料庫的最小 DTU、每個資料庫的最大 DTU。 | 試圖將每個資料庫的最小 DTU 設為超過每個資料庫的最大 DTU。 | 請確定每個資料庫的最小 DTU 並未超過每個資料庫的最大 DTU。 |
 | TBD | EX_USER | 彈性集區中個別資料庫的儲存體大小，不能超過 '%.*ls' 服務層彈性集區所允許的大小上限。 | 彈性集區服務層 | 資料庫的大小上限超過彈性集區服務層所允許的大小上限。 | 請將資料庫的大小上限設定在彈性集區服務層所允許的大小上限內。 |
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

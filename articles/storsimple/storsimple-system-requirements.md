@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="StorSimple 系統需求 | Microsoft Azure" 
-   description="描述系統需求和 Azure StorSimple 解決方案的軟體、高可用性及網路最佳作法。" 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="alkohli" 
-   manager="carolz" 
-   editor=""/>
+   pageTitle="StorSimple 系統需求 | Microsoft Azure"
+	description="描述系統需求和 Azure StorSimple 解決方案的軟體、高可用性及網路最佳作法。"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/17/2015"
-   ms.author="alkohli"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="alkohli"/>
 
-# StorSimple 系統需求
+# StorSimple 軟體、高可用性和網路需求
 
 ## 概觀
 
@@ -194,4 +194,4 @@ StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和�
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

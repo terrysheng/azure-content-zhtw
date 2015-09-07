@@ -1,21 +1,20 @@
 <properties 
-	pageTitle="第一次使用 Azure Multi-Factor Authentication 登入" 
-	description="本頁面描述使用者第一次登入經驗的經驗。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="第一次使用 Azure Multi-Factor Authentication 登入"
+	description="本頁面描述使用者第一次登入經驗的經驗。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
-
 # Azure Multi-factor Authentication 的設定體驗
 
  當系統管理員已將您的帳戶設定為要求您的密碼與來自您的電話的回應必須同時用來驗證您的身分時，會使用其他安全性驗證設定。如果系統管理員已將您的帳戶設定為需要其他安全性驗證，**您要等到完成自動註冊程序才能登入**。
@@ -37,4 +36,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

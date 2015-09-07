@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Azure 佇列和服務匯流排佇列 - 異同比較"
-   description="分析 Azure 所提供之兩種佇列類型之間的差異和相似性。"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+	description="分析 Azure 所提供之兩種佇列類型之間的差異和相似性。"
+	services="service-bus"
+	documentationCenter="na"
+	authors="sethmanheim"
+	manager="timlt"
+	editor="tysonn"/>
 <tags 
    ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="05/21/2015"
-   ms.author="sethm" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="08/25/2015"
+	ms.author="sethm"/>
 
 # Azure 佇列和服務匯流排佇列 - 異同比較
 
@@ -290,8 +290,6 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 
 - 在撰寫本文時，所有輸入資料傳輸也不另收費。
 
-- 對服務匯流排佇列執行訊息作業時，ACS 交易的成本微不足道。服務匯流排會根據訊息 Factory 物件的每個單一執行個體各取得一個 ACS 權杖。然後重複使用這個權杖直到過期為止 (大約 20 分鐘之後)。因此，服務匯流排中的訊息作業量不會直接與支援這些作業所需的 ACS 交易數量成正比。
-
 - 由於支援長期輪詢，因此在需要低度延遲傳遞的情況下使用服務匯流排佇列可能會符合成本效益。
 
 >[AZURE.NOTE]所有成本都可能會變更。上表反映撰寫本文時的目前定價，不包括目前可能適用的任何促銷優惠方案。如需 Azure 的最新定價資訊，請參閱 [Azure 定價](http://azure.microsoft.com/pricing/)頁面。如需服務匯流排定價的詳細資訊，請參閱 [服務匯流排定價]((http://azure.microsoft.com/pricing/details/service-bus/)。
@@ -317,4 +315,4 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 - [了解 Azure 儲存體計費 - 頻寬、交易和容量](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

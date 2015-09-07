@@ -1,19 +1,19 @@
 <properties 
    pageTitle="網路資源提供者"
-   description="網路資源提供者"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="adinah"
-   editor="tysonn" />
+	description="網路資源提供者"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/23/2015"
+	ms.author="telmos"/>
 
 # 網路資源提供者
 現今企業成功的基礎是可以使用靈活、具彈性、安全且可重複的方式來建置和管理大規模網路感知應用程式。Azure 資源管理員 (ARM) 可讓您建立這類應用程式，做為資源群組中的單一資源集合。這類資源是透過 ARM 下的各種資源提供者進行管理。
@@ -210,7 +210,7 @@ Rest API 符合 HTTP 1.1 通訊協定規格。API 的一般 URI 結構顯示如�
 
 如需範例範本，請參閱 [Azure 快速入門範本](https://github.com/Azure/azure-quickstart-templates)。
 
-如需 ARM 範本語言的詳細資訊，請參閱 [Azure 資源管理員範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)。
+如需 ARM 範本語言的詳細資訊，請參閱 [Azure 資源管理員範本語言](../resource-group-authoring-templates.md)。
 
 上述範例範本使用虛擬網路和子網路資源。下列是其他您可以使用的網路資源：
 
@@ -267,6 +267,19 @@ VNET 也可以與下列網路資源相關聯：
 - **探查** - 探查可讓您追蹤 VM 執行個體的健全狀況。如果健全狀況探查失敗，則 VM 執行個體不會自動進入輪替。
 - **輸入 NAT 規則** - 定義流經前端 IP 並散發到後端 IP 之輸入流量的 NAT 規則。
 
+## 應用程式閘道
+
+應用程式閘道會根據第 7 層負載平衡，提供 Azure 管理的 HTTP 負載平衡解決方案。應用程式負載平衡可讓以 HTTP 為基礎的網路流量使用路由規則。
+
+應用程式閘道包含下列子資源：
+
+- **後端伺服器集區** - 後端伺服器的 IP 位址清單。列出的 IP 位址應屬於虛擬網路子網路或是公用 IP/VIP。 
+- **後端伺服器集區設定** - 每個集區都有一些設定，例如連接埠、通訊協定和以 Cookie 為基礎的同質性。這些設定會繫結至集區，並套用至集區內所有伺服器。
+- **前端連接埠** - 此連接埠為在應用程式閘道上開啟的公用連接埠。流量會達到此連接埠，然後重新導向至其中一個後端伺服器。
+- **接聽程式** - 接聽程式具有前端連接埠、通訊協定 (Http 或 Https，都區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。 
+- **規則** - 規則會繫結接聽程式和後端伺服器集區，並定義流量達到特定接聽程式時應該重新導向至哪個後端伺服器集區。目前只支援基本規則。基本規則是循環配置資源的負載分配。
+
+
 ## 公用 IP
 公用 IP 位址資源提供保留或動態公用 IP 位址。公用 IP 位址可以指派給負載平衡器或 NAT，或是與 VM 之 NIC 上的私用 IP 位址相關聯。
 
@@ -307,6 +320,8 @@ VPN 閘道的重要屬性包括：
 - **閘道類型** - 動態路由閘道或靜態路由閘道。 
 - **VPN 用戶端位址集區首碼** - 要指派給用戶端的 IP 位址，而用戶端透過指向網站組態進行連接。
 
+
+
 ## 流量管理員設定檔
 流量管理員和其子端點資源會將您的流量散發到 Azure 內部和 Azure 外部的端點。這類流量散發是透過原則進行控管。流量管理員也可監視端點健全狀況，並根據端點健全狀況適當地轉向流量。
 
@@ -329,6 +344,16 @@ VPN 閘道的重要屬性包括：
 - **加權** - 用於流量管理的端點加權。 
 - **優先順序** - 端點的優先順序，用來定義容錯移轉動作。 
 
+## Azure DNS
+
+Azure DNS 是 DNS 網域的主機服務，採用 Microsoft Azure 基礎結構提供名稱解析。
+
+Azure DNS 的重要屬性包括：
+
+- ** DNS 區域 ** - 託管特定網域 DNS 記錄的網域區域資訊。
+- ** DNS 記錄集 ** - 特定類型之記錄的集合。支援的類型有 A、AAAA、CNAME、MX、NS、SOA、SRV 和 TXT。
+
+
 ## 使用範本
 
 您可以使用 PowerShell 或 AzureCLI 從範本部署服務到 Azure，或執行按一下動作來從 GitHub 部署。若要在 GitHub 中從範本部署服務，請執行下列步驟：
@@ -343,13 +368,14 @@ VPN 閘道的重要屬性包括：
 
 ![範例範本部署](./media/resource-groups-networking/Figure6.png)
 
+
 ## 另請參閱
 
 [Azure 網路 API 參考](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
 [Azure PowerShell 網路參考](https://msdn.microsoft.com/library/azure/mt163510.aspx)
 
-[Azure 資源管理員範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)
+[Azure 資源管理員範本語言](../resource-group-authoring-templates.md)
 
 [Azure 網路 - 常用範本](https://github.com/Azure/azure-quickstart-templates)
 
@@ -363,4 +389,4 @@ VPN 閘道的重要屬性包括：
 
 [範本部署](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

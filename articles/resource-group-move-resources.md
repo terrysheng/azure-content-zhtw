@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="將資源移動到新的資源群組" 
-	description="使用 Azure PowerShell 或 REST API 將資源移動到至新的「Azure 資源管理員」資源群組。" 
-	services="azure-resource-manager" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+	pageTitle="將資源移動到新的資源群組"
+	description="使用 Azure PowerShell 或 REST API 將資源移動到至新的「Azure 資源管理員」資源群組。"
+	services="azure-resource-manager"
+	documentationCenter=""
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="tomfitz"/>
 
 # 將資源移動到新的資源群組或訂用帳戶
@@ -54,6 +54,11 @@
 目前不支援移動資源的服務有：
 
 - 虛擬網路
+
+使用 Web 應用程式時，您無法只移動 App Service 方案。若要移動 Web 應用程式，您的選項如下：
+
+- 如果目的地資源群組還沒有 Microsoft.Web 資源，將所有的資源從某個資源群組移動到不同的資源群組。
+- 將 Web 應用程式移動到不同的資源群組，但在原始的資源群組中保留 App Service 方案。
 
 ## 使用 PowerShell 移動資源
 
@@ -96,4 +101,4 @@
 - [使用 Azure 入口網站管理資源](azure-portal/resource-group-portal.md)
 - [使用標記組織您的資源](./resource-group-using-tags.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

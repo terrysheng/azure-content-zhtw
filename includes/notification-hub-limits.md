@@ -1,9 +1,11 @@
 
-| TIER: | FREE | BASIC | STANDARD |
+| 層： | 可用 | 基本 | 標準 |
 |----|----|----|----|
-| Included Pushes | 1 Million | 10 Million | 10 Million |
-| Active Devices | 500 | Unlimited | Unlimited |
-| Broadcast Tag Size | 10K | 10K | Unlimited |
-| # of tags (broadcast groups) | 3K | 3K unless broadcasted to less than 5 devices | Unlimited |
+| 已包括的推送 | 100 萬 | 1000 萬 | 1000 萬 |
+| 使用中裝置 | 500 | 無限 | 無限 |
+| 廣播標記大小 | 10K | 10K | 無限 |
+| 標記數量 (廣播群組) | 3K | 3K，除非廣播到少於 5 個裝置 | 無限 |
 
-For additional details on these limits and for information on pricing, see [Notification Hubs Pricing](http://azure.microsoft.com/pricing/details/notification-hubs/). 
+如需這些限制的其他詳細資料和價格的相關資訊，請參閱[通知中樞價格](http://azure.microsoft.com/pricing/details/notification-hubs/)。
+
+<!---HONumber=August15_HO9-->

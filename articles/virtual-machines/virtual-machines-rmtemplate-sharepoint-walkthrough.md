@@ -103,7 +103,7 @@
 
 ### Microsoft.Compute/availabilitySets
 
-這些區段會建立三個可用性設定組，每一個部署層各一個：
+這些區段會建立三個可用性集合，每一個部署層各一個：
 
 - Active Directory 網域控制站
 - SQL Server 叢集
@@ -350,7 +350,7 @@
 
 其他的 **"Microsoft.Compute/virtualMachines/extensions"** 區段會呼叫 PowerShell 指令碼來設定 SQL Server。
 
-接下來的 **"type": "Microsoft.Compute/virtualMachines"** 區段會在部署中建立 SharePoint 虛擬機器，指定儲存體帳戶、可用性設定組、負載平衡器、虛擬網路及網路介面。其他的 **"Microsoft.Compute/virtualMachines/extensions"** 區段會呼叫 PowerShell 指令碼來設定 SharePoint 伺服器陣列。
+接下來的 **"type": "Microsoft.Compute/virtualMachines"** 區段會在部署中建立 SharePoint 虛擬機器，指定儲存體帳戶、可用性集合、負載平衡器、虛擬網路及網路介面。其他的 **"Microsoft.Compute/virtualMachines/extensions"** 區段會呼叫 PowerShell 指令碼來設定 SharePoint 伺服器陣列。
 
 請注意 JSON **"resources"** 區段的子區段整體組織：
 
@@ -362,9 +362,9 @@
 在 Azure 中使用您自己的 JSON 範本建立多層式基礎結構時，請按照以下的步驟執行：
 
 1.	建立部署所需的 Azure 基礎結構的一般 (儲存體帳戶、虛擬網路)、層相關 (可用性集合)，以及虛擬機器相關 (公用 IP 位址、可用性集合、網路介面、負載平衡器執行個體) 元素。
-2.	至於應用程式中的每一層 (例如驗證、資料庫、Web)，使用一般 (儲存體帳戶、 虛擬網路)、 特定層 (可用性設定組) 和虛擬機器特定公用 IP 位址、 網路介面 (負載平衡器執行個體) 元素，在該層中建立以及設定伺服器。
+2.	至於應用程式中的每一層 (例如驗證、資料庫、Web)，使用一般 (儲存體帳戶、 虛擬網路)、 特定層 (可用性集合) 和虛擬機器特定公用 IP 位址、 網路介面 (負載平衡器執行個體) 元素，在該層中建立以及設定伺服器。
 
-如需詳細資訊，請參閱 [Azure 資源管理員範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)。
+如需詳細資訊，請參閱 [Azure 資源管理員範本語言](../resource-group-authoring-templates.md)。
 
 ## 其他資源
 
@@ -374,4 +374,4 @@
 
 [虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

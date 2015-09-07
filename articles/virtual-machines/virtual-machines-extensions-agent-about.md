@@ -1,26 +1,27 @@
-<properties 
- pageTitle="有關虛擬機器代理程式和擴充功能 | Microsoft Azure" 
- description="提供代理程式和擴充功能的概觀，以及如何安裝代理程式。" 
- services="virtual-machines" 
- documentationCenter="" 
- authors="squillace" 
- manager="timlt" 
- editor=""/>
-<tags 
-ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
- ms.workload="infrastructure-services"
- ms.date="03/10/2015" 
- ms.author="kathydav"/>
+<properties
+ pageTitle="有關虛擬機器代理程式和擴充功能 | Microsoft Azure"
+	description="提供代理程式和擴充功能的概觀，以及如何安裝代理程式。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
+<tags
+ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.workload="infrastructure-services"
+	ms.date="03/10/2015"
+	ms.author="rasquill"/>
+ 
 #有關虛擬機器代理程式和擴充功能
 Azure 虛擬機器代理程式 (VM 代理程式) 用來安裝、設定、管理和執行 Azure 虛擬機器擴充功能 (VM 擴充功能)。VM 擴充功能提供 Microsoft 和其他協力廠商提供的動態功能。代理程式和擴充功能的加入主要是透過管理入口網站，但您也可以使用 [Powershell](../install-configure-powershell.md) cmdlet 或 [xplat-cli](virtual-machines-command-line-tools.md) 來加入及設定，不管是在您建立 VM 或使用現有的 VM 時皆可。VM 擴充功能包括對[在 Visual Studio 中遠端偵錯](https://msdn.microsoft.com/library/y7f5zaaa.aspx)、[System Center 2012](http://social.technet.microsoft.com/wiki/contents/articles/18274.system-center-2012-r2-virtual-machine-role-authoring-guide-resource-extension-package.aspx)、[Microsoft Azure 診斷](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)和 [Docker](virtual-machines-docker-vm-extension.md) 等的支援 -- 此處僅稍微列出幾項。
 
 VM 擴充功能可協助您：
 
--   修改安全性與身分識別的功能，例如重設帳戶值和使用反惡意程式碼 
--   啟動、停止或設定監視和診斷 
+-   修改安全性與身分識別的功能，例如重設帳戶值和使用反惡意程式碼
+-   啟動、停止或設定監視和診斷
 -   重設或安裝連線功能，例如 RDP 和 SSH
 -   診斷、監視和管理您的 VM
 
@@ -58,4 +59,4 @@ Azure 虛擬機器代理程式 (VM 代理程式) 是一個安全、輕量級程�
 
 如需這些工作的詳細資訊，請參閱[加入、尋找、更新及移除 Azure VM 擴充功能](https://msdn.microsoft.com/library/dn850373.aspx)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

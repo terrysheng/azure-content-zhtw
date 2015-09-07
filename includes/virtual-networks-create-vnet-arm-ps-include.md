@@ -1,17 +1,17 @@
-## How to create a VNet using PowerShell
+## 如何使用 PowerShell 建立 VNet
 
-To create a VNet by using PowerShell, follow the steps below.
+若要使用 PowerShell 建立 VNet，請遵循下列步驟。
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
-2. From an Azure PowerShell prompt, run the  **Switch-AzureMode** cmdlet to switch to Resource Manager mode, as shown below.
+1. 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
+2. 在 Azure PowerShell 提示字元中執行 **Switch-AzureMode** Cmdlet，以切換至資源管理員模式，如下所示。
 
 		Switch-AzureMode AzureResourceManager
 	
 		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
-	>[AZURE.WARNING] The Switch-AzureMode cmdlet will be deprecated soon. When that happens, all Resource Manager cmdlets will be renamed.
+	>[AZURE.WARNING]Switch-AzureMode Cmdlet 即將被汰除。屆時將重新命名所有的資源管理員 Cmdlet。
 	
-3. If necessary, run the **New-AzureResourceGroup** cmdlet to create a new resource group, as shown below. For our scenario, create a resource group named *TestRG*. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
+3. 如有必要，請執行 **New-AzureResourceGroup** Cmdlet，以建立新的資源群組，如下所示。在我們的案例中，會建立名為 *TestRG* 的資源群組。如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](resource-group-overview.md/#resource-groups)。
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
 	
@@ -26,7 +26,7 @@ To create a VNet by using PowerShell, follow the steps below.
 		
 		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG	
 
-4. Run the **New-AzureVirtualNetwork** cmdlet to create a new VNet, as shown below.
+4. 執行 **New-AzureVirtualNetwork** Cmdlet 以建立新的 VNet，如下所示。
 
 		New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
 			-AddressPrefix 192.168.0.0/16 -Location centralus	
@@ -49,13 +49,13 @@ To create a VNet by using PowerShell, follow the steps below.
 		NetworkInterfaces : null
 		Subnets           : []
 
-5. Run the **Get-AzureVirtualNetwork** cmdlet to store the virtual network object in a variable, as shown below.
+5. 執行 **Get-AzureVirtualNetwork** Cmdlet，將虛擬網路物件儲存在變數中，如下所示。
 
 		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 	
-	>[AZURE.TIP] You can combine steps 4 and 5 by running **$vnet = New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
+	>[AZURE.TIP]您可以藉由執行 **$vnet = New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus** 結合步驟 4 和 5。
 
-6. Run the **Add-AzureVirtualNetworkSubnetConfig** cmdlet to add a subnet to the new VNet, as shown below.
+6. 執行 **Add-AzureVirtualNetworkSubnetConfig** Cmdlet，將子網路加入至新的 VNet，如下所示。
 
 		Add-AzureVirtualNetworkSubnetConfig -Name FrontEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
@@ -89,12 +89,12 @@ To create a VNet by using PowerShell, follow the steps below.
 		                      }
 		                    ]
 
-7. Repeat step 6 above for each subnet you want to create. The command below creates the *BackEnd* subnet for our scenario.
+7. 重複上述步驟 6，建立您想要的每個子網路。以下命令會為我們的案例建立 *BackEnd* 子網路。
 
 		Add-AzureVirtualNetworkSubnetConfig -Name BackEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
 
-8. Although you create subnets, they currently only exist in the local variable used to retrieve the VNet you create in step 4 above. To save the changes to Azure, run the **Set-AzureVirtualNetwork** cmdlet, as shown below.
+8. 雖然建立了子網路，但是它們目前只以本機變數的形式存在，並用來擷取您在前述步驟 4 中建立的 VNet。若要將變更儲存至 Azure，請執行 **Set-AzureVirtualNetwork** Cmdlet，如下所示。
 
 		Set-AzureVirtualNetwork -VirtualNetwork $vnet	
 		
@@ -117,7 +117,7 @@ To create a VNet by using PowerShell, follow the steps below.
 		Subnets           : [
 		                      {
 		                        "Name": "FrontEnd",
-		                        "Etag": "W/\"2d3496d8-2b85-4238-bde2-377fe660aa4a\"",
+		                        "Etag": "W/"2d3496d8-2b85-4238-bde2-377fe660aa4a"",
 		                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
 		                        "AddressPrefix": "192.168.1.0/24",
 		                        "IpConfigurations": [],
@@ -127,7 +127,7 @@ To create a VNet by using PowerShell, follow the steps below.
 		                      },
 		                      {
 		                        "Name": "BackEnd",
-		                        "Etag": "W/\"2d3496d8-2b85-4238-bde2-377fe660aa4a\"",
+		                        "Etag": "W/"2d3496d8-2b85-4238-bde2-377fe660aa4a"",
 		                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
 		                        "AddressPrefix": "192.168.2.0/24",
 		                        "IpConfigurations": [],
@@ -136,3 +136,5 @@ To create a VNet by using PowerShell, follow the steps below.
 		                        "ProvisioningState": "Succeeded"
 		                      }
 		                    ]
+
+<!---HONumber=August15_HO9-->

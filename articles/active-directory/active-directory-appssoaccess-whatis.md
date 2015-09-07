@@ -78,7 +78,11 @@ Azure AD 可以對具有 HTML 登入頁面的任何雲端應用程式支援密�
 
 密碼 SSO 依賴瀏覽器延伸從 Azure AD 安全擷取應用程式和使用者特定資訊，並將它套用至服務。Azure AD 支援的大多數協力廠商 SaaS 應用程式都支援這項功能。
 
-如果使用密碼 SSO，使用者的瀏覽器可以是：在 Windows 7 或更新版本上的 IE 8、IE9 和 IE10；在 Windows 7 或更新版本或 MacOS X 或更新版本上的 Chrome
+若是密碼 SSO，則使用者的瀏覽器可以是：
+
+- Internet Explorer 8、9 和 10 - 在 Windows 7 或更新版本上
+- Chrome - 在 Windows 7 或更新版本，和在 MacOS X 或更新版本上
+- Firefox 26.0 或更新版本 - 在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上
 
 **注意：**當瀏覽器延伸模組可以支援 Edge 時，密碼 SSO 擴充功能將可提供 Windows 10 中的 Edge 使用。
 
@@ -94,7 +98,7 @@ Azure AD 可以對具有 HTML 登入頁面的任何雲端應用程式支援密�
 
 當使用者被刪除，或其資訊在 Azure AD 中有所變更時，這些變更也會反映在 SaaS 應用程式中。這表示，設定自動化的身分識別週期管理，可讓系統管理員控制和提供 SaaS 應用程式的自動化佈建和解除佈建。在 Azure AD 中，使用者佈建已啟用此自動化身分識別週期管理。
 
-若要深入了解，請參閱〈[SaaS 應用程式的自動化使用者佈建和解除佈建](active-directory-saas-app-provisioning.md)〉
+若要深入了解，請參閱 [SaaS 應用程式的自動化使用者佈建和解除佈建](active-directory-saas-app-provisioning.md)
 
 ##開始使用 Azure AD 應用程式庫
 
@@ -127,7 +131,7 @@ Azure AD 可以對具有 HTML 登入頁面的任何雲端應用程式支援密�
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 
-*	**要求應用程式整合** - 使用 [Azure AD 意見反應論壇](http://feedback.azure.com/forums/169401-azure-active-directory)要求支援您需要的應用程式。
+*	**要求應用程式整合** - 使用 [Azure AD 意見反應論壇](http://feedback.azure.com/forums/169401-azure-active-directory)要求所需應用程式的支援。
 
 ###使用 Azure 管理入口網站
 
@@ -164,17 +168,17 @@ Azure AD 提供幾種可自訂的方式，來對您組織中的使用者部署�
 
 ###Azure AD 存取面板
 
-位於 https://myapps.microsoft.com 的 [存取面板] 是一種 Web 入口網站，可讓 Azure Active Directory 中擁有組織帳戶的使用者檢視和啟動 Azure AD 系統管理員已授與他們存取權的雲端應用程式。如果您是使用 [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/) 的使用者，您也可以透過 [存取面板] 使用自助式群組管理功能。
+位於 https://myapps.microsoft.com 的 [存取面板] 是一種 Web 入口網站，可讓 Azure Active Directory 中擁有組織帳戶的使用者檢視和啟動 Azure AD 系統管理員已授與他們存取權的雲端應用程式。如果您是 [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/) 的使用者，您也可以透過 [存取面板] 使用自助式群組管理功能。
 
 ![][3]
 
 存取面板與 Azure 管理入口網站不同，使用者不需要具備 Azure 訂用帳戶或 Office 365 訂用帳戶。
 
-如需有關 Azure AD 存取面板的詳細資訊，請參閱〈[存取面板簡介](active-directory-saas-access-panel-introduction.md)〉。
+如需有關 Azure AD 存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
 ###Office 365 應用程式啟動程式
 
-如果是已部署 Office 365 的組織，透過 Azure AD 指派至使用者的應用程式也會出現在位於 https://portal.office.com/myapps 的 Office 365 入口網站中。這對於組織中的使用者來說，能夠啟動應用程式又不需要使用第二個入口網站，非常簡單而且方便，建議使用 Office 365 的組織採取這個應用程式啟動解決方案。
+如果是已部署 Office 365 的組織，則透過 Azure AD 指派至使用者的應用程式也會出現在位於 https://portal.office.com/myapps 的 Office 365 入口網站中。這對於組織中的使用者來說，能夠啟動應用程式又不需要使用第二個入口網站，非常簡單而且方便，建議使用 Office 365 的組織採取這個應用程式啟動解決方案。
 
 ![][4]
 
@@ -216,4 +220,4 @@ Azure AD 也支援對支援密碼單一登入、現有單一登入，以及任�
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

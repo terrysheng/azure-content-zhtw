@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
-	ms.date="06/09/2015"
+	ms.topic="hero-article"
+	ms.date="08/24/2015"
 	ms.author="wesmc"/>
 
 # 開始使用通知中心
@@ -35,21 +35,20 @@
 
 + 有效的 Windows 市集帳戶
 
-+ 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F)。
++ 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F)。
 
 完成本教學課程是 Windows 市集應用程式所有其他通知中心教學課程的先決條件。
 
 ##向 Windows 市集註冊應用程式
 
-若要從行動服務傳送推播通知給 Windows 市集應用程式，您必須將應用程式提交到 Windows 市集。接著您必須設定您的通知中心，以便與 WNS 進行整合。
+若要傳送推播通知給 Windows 市集應用程式，您必須將您的 App 與 Windows 市集產生關聯。接著您必須設定您的通知中心，以便與 WNS 進行整合。
 
-1. 如果您尚未註冊您的應用程式，請瀏覽至 Windows 市集應用程式之開發人員中心的<a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">提交應用程式頁面</a>，並使用您的 Microsoft 帳戶登入，然後按一下 [**應用程式名稱**]。
+1. 如果您尚未註冊您的 App，請瀏覽至 <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">Windows 開發人員中心</a>，使用 Microsoft 帳戶登入，然後按一下 [建立新的應用程式]。
 
-   	![][0]
 
-2. 在 **[應用程式名稱]** 中為您的應用程式輸入名稱，然後依序按一下 **[保留應用程式名稱]** 和 **[儲存]**。
+2. 輸入您的 App 名稱，然後按一下 [保留應用程式名稱]。
 
-   	![][1]
+   	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-name.png)
 
    	This creates a new Windows Store registration for your app.
 
@@ -73,13 +72,9 @@
 
 7. (選用) 針對 Windows Phone 市集應用程式專案重複步驟 4-6。
 
-7. 回到新應用程式的 Windows 開發人員中心頁面，按一下 **[服務]**。
+8. 回到新 App 的 Windows 開發人員中心頁面，按一下 [服務]、[推播通知]，然後按一下「Windows 推播通知服務 (WNS) 和 Microsoft Azure 行動服務」底下的 [線上服務網站]。
 
-   	![][5]
-
-8. 在 [服務] 頁面中，按一下 [Microsoft Azure 行動服務] 下的 [Live 服務網站]。
-
-   	![][17]
+   	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-live-services.png)
 
 9. 記下 [應用程式設定] 索引標籤中的 [用戶端密碼] 和 [封裝安全性識別碼 (SID)] 的值。
 
@@ -198,13 +193,13 @@
 
 6. 在 [封裝管理員主控台] 視窗中，將 [**預設專案**] 設為新的主控台應用程式專案，然後在主控台視窗中執行下列命令：
 
-        Install-Package WindowsAzure.ServiceBus
+        Install-Package Microsoft.Azure.NotificationHubs
 
-	這會使用 <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 封裝</a>新增 Azure 服務匯流排 SDK 的參考。
+	這會使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 套件</a>加入對 Azure 通知中樞 SDK 的參考。
 
 5. 開啟 Program.cs 檔案，並新增下列 `using` 陳述式：
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 6. 在 **Program** 類別中，新增下列方法：
 
@@ -240,12 +235,9 @@
 
 
 <!-- Images. -->
-[0]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-submit-win8-app.png
-[1]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-app-name.png
 [2]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png
 [3]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png
 [4]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-select-app-name.png
-[5]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-edit-app.png
 [6]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-app-push-auth.png
 [7]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-from-portal.png
 [8]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-from-portal2.png
@@ -257,7 +249,6 @@
 [14]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-toast.png
 [15]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-scheduler1.png
 [16]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-scheduler2.png
-[17]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-edit2-app.png
 [18]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-win8-app-toast.png
 [19]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-reg.png
 [20]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-universal-app-install-package.png
@@ -274,4 +265,4 @@
 [徽章概觀]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

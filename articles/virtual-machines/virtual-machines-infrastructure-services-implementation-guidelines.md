@@ -25,7 +25,7 @@ Azure 是用來實作 dev/test 或概念證明設定的絕佳平台，因為它�
 
 這篇文章摘錄自〈[Azure 實作方針](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx)〉部落格文章的內容。感謝 Santiago Cánepa (Microsoft 應用程式開發經理) 和 Hugo Salcedo (Microsoft 應用程式開發經理) 提供的原始資料。
 
-> [AZURE.NOTE]同質群組已取代。此處未描述其用法。如需詳細資訊，請參閱〈[關於區域 VNet 和同質群組](https://msdn.microsoft.com/library/azure/jj156085.aspx)〉。
+> [AZURE.NOTE]同質群組已取代。此處未描述其用法。如需詳細資訊，請參閱[關於區域 VNet 和同質群組](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)。
 
 ## 1\.命名慣例
 
@@ -75,10 +75,10 @@ Azure 元件、服務或產品 | Rg (適用於資源群組)、Svc (適用於雲�
 - 虛擬網路
 - 子網路
 - 可用性集合
-- Resource groups
+- 資源群組
 - 雲端服務
 - 虛擬機器
-- Endpoints
+- 端點
 - 網路安全性群組
 - 角色
 
@@ -294,7 +294,7 @@ Azure 訂用帳戶最多可支援 200 個雲端服務。
 
 在 Azure PaaS 中，雲端服務包含一或多個角色來執行應用程式程式碼。角色可擁有一或多個虛擬機器執行個體，而網狀架構會自動佈建這些執行個體。Azure 可能會在任何指定的時間更新這些角色中的執行個體，但是，由於它們屬於相同的角色，因此，Azure 知道不能同時更新它們全部，以防止角色的服務中斷。
 
-在 Azure IaaS 中，角色的概念並不重要，因為每一部 IaaS 虛擬機器都代表含有單一執行個體的角色。為了暗示 Azure 不要同時關閉一或多部相關聯的機器 (例如，針對其所在節點進行的作業系統更新)，因而引進了可用性集合的概念。可用性設定組會告知 Azure 不要同時關閉同一個可用性集合中的所有機器，以防止服務中斷。可用性集合的虛擬機器成員具備 99.95% 執行時間服務等級協定。
+在 Azure IaaS 中，角色的概念並不重要，因為每一部 IaaS 虛擬機器都代表含有單一執行個體的角色。為了暗示 Azure 不要同時關閉一或多部相關聯的機器 (例如，針對其所在節點進行的作業系統更新)，因而引進了可用性集合的概念。可用性集合會告知 Azure 不要同時關閉同一個可用性集合中的所有機器，以防止服務中斷。可用性集合的虛擬機器成員具備 99.95% 執行時間服務等級協定。
 
 可用性集合必須是解決方案中高可用性規劃的一部分。可用性集合會定義為單一雲端服務內的虛擬機器組合，其具備相同的可用性集合名稱。您可以在建立雲端服務之後建立可用性集合。
 
@@ -440,4 +440,4 @@ Contoso 決定為其 Azure 虛擬機器使用下列名稱：
 
 [Azure 資源管理員提供的 Azure 運算、網路和儲存提供者](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

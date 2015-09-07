@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 資料目錄版本資訊"
-   description="Azure 資料目錄 2015 年 7 月 13 日版本資訊"
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
+	description="Azure 資料目錄 2015 年 7 月 13 日公開預覽版本的版本資訊。"
+	services="data-catalog"
+	documentationCenter=""
+	authors="dvana"
+	manager="mblythe"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/13/2015"
+	ms.author="derrickv"/>
 
 # Azure 資料目錄 2015 年 7 月 13 日版本注意事項
 
@@ -35,7 +35,7 @@ Azure 資料目錄初始預覽版本中對於 SQL Server Reporting Services (SSR
 
 從 Azure 資料目錄入口網站利用 Microsoft Excel 開啟資料資產時，使用者可能會看到 [**Microsoft Excel 安全性注意事項**] 對話方塊。這是標準的預期行為，使用者可以選取 [**啟用**] 以繼續。
 
-如需詳細資訊，請參閱[啟用或停用可疑網站之連結和檔案的安全性警告](https://support.office.com/zh-tw/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE)。
+如需詳細資訊，請參閱[啟用或停用可疑網站之連結和檔案的安全性警告](https://support.office.com/zh-TW/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE)。
 
 ## 預覽中遺漏 BLOB 和 UDT 資料行
 
@@ -67,4 +67,4 @@ Azure 資料目錄初始預覽版本中對於 SQL Server Reporting Services (SSR
 
 若要找出 RegistrationTool.exe.config 檔案，請啟動註冊工具，然後開啟 Windows 工作管理員公用程式。在工作管理員的 [詳細資料] 索引標籤，以滑鼠右鍵按一下 RegistrationTool.exe，再從快顯功能表中選擇 [開啟檔案位置]。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,22 +1,20 @@
 <properties 
-   authors="danielceckert" 
-   documentationCenter="dev-center-name" 
-   editor=""
-   manager="jefco" 
-   pageTitle="管理：負載平衡器的閒置逾時" 
-   description="Azure 負載平衡器閒置逾時的管理功能" 
-   services="virtual-network" 
-   />
+   authors="danielceckert"
+	documentationCenter="dev-center-name"
+	editor=""
+	manager="jefco"
+	pageTitle="管理：負載平衡器的閒置逾時"
+	description="Azure 負載平衡器閒置逾時的管理功能"
+	services="virtual-network"/>
 
 <tags
    ms.author="danecke"
-   ms.date="05/27/2015"
-   ms.devlang="na"
-   ms.service="virtual-network"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   />
+	ms.date="05/27/2015"
+	ms.devlang="na"
+	ms.service="virtual-network"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"/>
    
 # 管理虛擬網路：負載平衡器的 TCP 閒置逾時
 
@@ -34,8 +32,8 @@
 
 您可以針對下列各項設定 TCP 閒置逾時：
 
-* [執行個體層級的公用 IP](http://msdn.microsoft.com/library/azure/dn690118.aspx)
-* [負載平衡的端點集](http://msdn.microsoft.com/library/azure/dn655055.aspx)
+* [執行個體層級的公用 IP](virtual-networks-instance-level-public-ip.md)
+* [負載平衡的端點集](../load-balancer/load-balancer-overview.md)
 * [虛擬機器端點](../virtual-machines/virtual-machines-set-up-endpoints.md)
 * [Web 角色](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [背景工作角色](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
@@ -152,4 +150,4 @@ LoadBalancerDistribution 的值可以是 sourceIP (適用於 2-tuple 同質性)�
     </LoadBalancedEndpointList>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

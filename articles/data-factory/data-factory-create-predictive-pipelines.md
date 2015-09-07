@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Data Factory - 使用 Data Factory 和機器學習服務來建立預測管線 | Microsoft Azure" 
-	description="說明如何使用 Azure Data Factory 和 Azure Machine Learning 建立預測管線。" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Data Factory - 使用 Data Factory 和機器學習服務來建立預測管線 | Microsoft Azure"
+	description="說明如何使用 Azure Data Factory 和 Azure Machine Learning 建立預測管線。"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 和 Azure Machine Learning 來建立預測管線 
@@ -38,7 +38,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Ma
 ## 範例
 此範例使用 Azure 儲存體來存放輸入和輸出資料。您也可以使用 Azure SQL Database，不用 Azure 儲存體。
 
-建議您在瀏覽此範例之前，先瀏覽[開始使用 Azure Data Factory][adf-getstarted]教學課程，並在此範例中使用 Data Factory 編輯器建立 Data Factory 成品 (連結服務、資料表、管線)。
+建議您在瀏覽此範例之前，先瀏覽[透過 Data Factory 建立第一個管線][adf-build-1st-pipeline]教學課程，並在此範例中使用 Data Factory 編輯器建立 Data Factory 成品 (連結服務、資料表、管線)。
  
 
 1. 為您的 **Azure 儲存體**建立**連結服務**。如果評分輸入和輸出檔案會在不同的儲存體帳戶中，您將需要兩個連結的服務。以下是 JSON 範例：
@@ -179,13 +179,12 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Ma
 		  }
 		}
 
-	**開始**和**結束**日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**結束**時間是選擇性的。如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考](https://msdn.microsoft.com/library/dn835050.aspx)。
 
 ## Web 服務參數
 您可以使用 Azure Data Factory (ADF) 管線中已發佈 Azure Machine Learning Web 服務所公開的 Web 服務參數。您可以在 Azure Machine Learning 中建立實驗，並將它發佈為 Web 服務，然後透過 Web 服務參數傳入不同的輸入，以在多個 ADF 管線或活動中使用該 Web 服務。
 
 ### 傳遞 Web 服務參數的值
-將 **typeProperties** 區段加入管線 JSON 中的 **AzureMLBatchScoringActivty** 區段，以指定該區段中 Web 服務參數的值，如下列範例所示：
+將 **typeProperties** 區段加入至管線 JSON 中的 **AzureMLBatchScoringActivty** 區段，以指定該區段中 Web 服務參數的值，如下列範例所示：
 
 	"typeProperties": {
 		"webServiceParameters": {
@@ -199,7 +198,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Ma
 
 	"typeProperties": {
     	"webServiceParameters": {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(WindowStart, 0))"
     	}
   	}
  
@@ -239,7 +238,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Ma
 
 #### Azure Blob 做為來源
 
-在 Azure Machine Learning 實驗中使用讀取器模組時，您可以指定 Azure Blob 做為輸入。Azure Blob 儲存體中的檔案可以是在 HDInsight 上執行的 Pig 和 Hive 指令碼所產生的輸出檔 (例如 000000\_0)。讀取器模組可讓您藉由設定讀取器模組的**容器、目錄或 Blob 的路徑**屬性來讀取檔案 (沒有副檔名)，藉以指向包含檔案的容器/資料夾，如下所示。請注意，星號 (也就是 *) **會指定容器/資料夾中的所有檔案 (也就是 data/aggregateddata/year=2014/month-6/*)** 將讀取做為實驗的部分。
+在 Azure Machine Learning 實驗中使用讀取器模組時，您可以指定 Azure Blob 做為輸入。Azure Blob 儲存體中的檔案可以是在 HDInsight 上執行的 Pig 和 Hive 指令碼所產生的輸出檔 (例如 000000\_0)。讀取器模組可讓您設定讀取器模組之**容器、目錄或 Blob 的路徑**屬性來讀取檔案 (沒有副檔名)，藉此指向包含檔案的容器/資料夾，如下所示。請注意，星號 (也就是 *) **會指定容器/資料夾中的所有檔案 (也就是 data/aggregateddata/year=2014/month-6/*)** 將讀取為實驗的一部分。
 
 ![Azure Blob 屬性](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -301,30 +300,17 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Ma
 - Data Factory 服務不會自動填入寫入器的參數 (尾碼為 '1' 的參數)。因此，您需要在活動 JSON 的 **webServiceParameters** 區段中指定這些參數的值。  
 - **客戶識別碼**、**評分標籤**和**評分機率**會儲存為以逗號分隔的資料行。 
 - 在此範例中，**資料表名稱**對應到輸出資料庫中的資料表。
-- **開始**和**結束**日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**結束**時間是選擇性的。如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考](https://msdn.microsoft.com/library/dn835050.aspx)。
+- **開始**和**結束**日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**結束**時間可自行選用。如果您未指定 **end** 屬性的值，則會以「**開始時間 + 48 小時**」計算。若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考](https://msdn.microsoft.com/library/dn835050.aspx)。
 
 
 
 
-## 另請參閱
 
-文章 | 說明
------- | ---------------
-[Azure Data Factory 開發人員參考][developer-reference] | 開發人員參考包含 Cmdlet、JSON 指令碼、.NET 類別庫、函式等完整參考內容。 
-
-[adf-introduction]: data-factory-introduction.md
-[adf-getstarted]: data-factory-get-started.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
-[adf-tutorial]: data-factory-tutorial.md
-[use-custom-activities]: data-factory-use-custom-activities.md
-[troubleshoot]: data-factory-troubleshoot.md
-[data-factory-introduction]: data-factory-introduction.md
-[developer-reference]: http://go.microsoft.com/fwlink/p/?LinkId=516908
+[adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
 [azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
 [machine-learning-dashboard]: ./media/data-factory-create-predictive-pipelines/AzureMLDashboard.png
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

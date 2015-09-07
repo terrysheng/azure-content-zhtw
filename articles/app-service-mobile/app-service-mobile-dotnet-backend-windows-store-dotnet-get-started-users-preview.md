@@ -3,7 +3,7 @@
 	description="了解如何使用 Azure App Service Mobile Apps，透過眾多識別提供者驗證 Windows 應用程式使用者，包括 AAD、Google、Facebook、Twitter 和 Microsoft。"
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="08/22/2015"
 	ms.author="glenga"/>
 
 # 將驗證新增至您的 Windows 應用程式
@@ -22,17 +22,13 @@
 
 本主題說明如何從用戶端應用程式驗證 App Service 行動應用程式的使用者。在本教學課程中，您將使用 App Service 支援的身分識別提供者，將驗證新增至快速入門專案。由行動應用程式成功驗證並授權之後，就會顯示使用者識別碼值。
 
-本教學課程以行動應用程式快速入門為基礎。您必須先完成[開始使用行動應用程式]教學課程。
-
-##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
+本教學課程以行動應用程式快速入門為基礎。您必須先完成[開始使用行動應用程式]教學課程。http://acom-sandbox.azurewebsites.net/documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/?rnd=1
 
 ##<a name="create-gateway"></a>建立 App Service 閘道
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway-preview](../../includes/app-service-mobile-dotnet-backend-create-gateway-preview.md)]
 
-##<a name="register"></a>註冊應用程式進行驗證，並設定應用程式服務
+##<a name="register"></a>註冊應用程式進行驗證，並設定 App Service
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
@@ -64,4 +60,4 @@
 [開始使用行動應用程式]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

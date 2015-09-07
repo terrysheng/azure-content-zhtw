@@ -1,20 +1,20 @@
-﻿<properties 
-	pageTitle="「使用範本部署 Azure 資源」"
-	description="「了解如何使用 Azure 資源管理程式庫中一些可用的用戶端部署虛擬機器、虛擬網路和儲存體帳戶」"
+<properties 
+	pageTitle="使用範本部署 Azure 資源"
+	description="了解如何使用Azure 資源管理程式庫中一些可用的用戶端部署虛擬機器、虛擬網路和儲存體帳戶"
 	services="virtual-machines,virtual-networks,storage"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor="tysonn"
+	documentationCenter="" 
+	authors="davidmu1" 
+	manager="timlt" 
+	editor="tysonn" 
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-resource-manager"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na" 
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # 使用 .NET 程式庫和範本部署 Azure 資源
@@ -83,7 +83,7 @@
             "contentVersion": "1.0.0.0",
         }
 
-6. [參數](https://msdn.microsoft.com/library/azure/dn835138.aspx#parameters)並非必要項目，但是可以讓範本管理更容易。它們會說明值類型、預設值 (如有需要)，以及可能的參數允許值。對於此教學課程，用來建立虛擬機器、儲存體帳戶和虛擬網路的參數會加入至範本。
+6. [參數](../resource-group-authoring-templates.md#parameters)並非必要項目，但是可以讓範本管理更容易。它們會說明值類型、預設值 (如有需要)，以及可能的參數允許值。對於此教學課程，用來建立虛擬機器、儲存體帳戶和虛擬網路的參數會加入至範本。
 
     在 ContentVersion 元素之後加入參數元素及其子元素：
 
@@ -114,7 +114,7 @@
           },
         }
 
-7.	[變數](https://msdn.microsoft.com/library/azure/dn835138.aspx#variables)可以在範本中用來指定會經常變更的值或需要透過參數值組合建立的值。
+7.	[變數](../resource-group-authoring-templates.md#variables)可以在範本中用來指定會經常變更的值或需要透過參數值組合建立的值。
 
     在參數區段之後加入變數元素：
 
@@ -150,7 +150,7 @@
           },
         }
 
-8.	[資源](https://msdn.microsoft.com/library/azure/dn835138.aspx#resources)，例如虛擬機器、虛擬網路，以及儲存體帳戶接下來會在範本中定義。
+8.	[資源](../resource-group-authoring-templates.md#resources)，例如虛擬機器、虛擬網路，以及儲存體帳戶接下來會在範本中定義。
 
     在變數區段之後加入資源區段：
 
@@ -451,4 +451,4 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 	![建立 AD 應用程式](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="如何啟用或停用 ExpressRoute Premium 附加元件 |Microsoft Azure"
-   description="如何啟用或停用 ExpressRoute 電路的 ExpressRoute Premium 附加元件。ExpressRoute Premium 可讓您新增多達 10,000 個路由進行公用和私人對等互連，以及將多達 10 個虛擬網路加入至您的 ExpressRoute 電路。您也可以將一個區域中的虛擬網路連結到另一個區域中的 ExpressRoute 電路。"
-   services="expressroute"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+	description="如何啟用或停用 ExpressRoute 電路的 ExpressRoute Premium 附加元件。ExpressRoute Premium 可讓您新增多達 10,000 個路由進行公用和私人對等互連，以及將多達 10 個虛擬網路加入至您的 ExpressRoute 電路。您也可以將一個區域中的虛擬網路連結到另一個區域中的 ExpressRoute 電路。"
+	services="expressroute"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/02/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # 設定 ExpressRoute 電路的 ExpressRoute Premium 附加元件
 
@@ -172,9 +172,9 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 		Sku                              : Premium
 		Status                           : Standard
 
-	您的電路現在已停用 ExpressRoute Premium 附加元件。
+	您的電路現在已經停用 Premium 附加元件。
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用 Azure Data Factory 移動和處理記錄檔" 
-	description="此進階教學課程說明接近現實情況的案例，並使用 Azure Data Factory 服務和 Data Factory 編輯器來實作案例。" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="使用 Azure Data Factory 移動和處理記錄檔"
+	description="此進階教學課程說明接近現實情況的案例，並使用 Azure Data Factory 服務和 Data Factory 編輯器來實作案例。"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
 # 教學課程：衡量行銷活動的成效  
@@ -429,8 +429,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 [adfgetstarted]: data-factory-get-started.md
 [adftutorial-using-powershell]: data-factory-tutorial-using-powershell.md
 [adfintroduction]: data-factory-introduction.md
-[useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
-[usepigandhive]: data-factory-pig-hive-activities.md
+[usepigandhive]: data-factory-data-transformation-activities.md
 [tutorial-onpremises]: data-factory-tutorial-extend-onpremises.md
 [download-azure-powershell]: ../powershell-install-configure.md
 
@@ -527,4 +526,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

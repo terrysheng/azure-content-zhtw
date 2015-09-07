@@ -1,21 +1,21 @@
 <properties
    pageTitle="API 實作指引 | Microsoft Azure"
-   description="如何實作 API 的指示。"
-   services=""
-   documentationCenter="na"
-   authors="dragon119"
-   manager="masimms"
-   editor=""
-   tags=""/>
+	description="如何實作 API 的指示。"
+	services=""
+	documentationCenter="na"
+	authors="dragon119"
+	manager="masimms"
+	editor=""
+	tags=""/>
 
 <tags
    ms.service="best-practice"
-   ms.devlang="rest-api"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/13/2015"
-   ms.author="masashin"/>
+	ms.devlang="rest-api"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="05/13/2015"
+	ms.author="masashin"/>
 
 # API 實作指引
 
@@ -1061,7 +1061,7 @@ Azure 提供 [API 管理服務](http://azure.microsoft.com/documentation/service
 
 您可以在 Microsoft 網站的 [API 管理](http://azure.microsoft.com/services/api-management/)頁面上找到說明如何執行這些工作的完整詳細資料。Azure API 管理服務也提供自己的 REST 介面，讓您建置自訂介面，以簡化設定 Web API 的程序。如需詳細資訊，請瀏覽 Microsoft 網站上的 [Azure API 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn776326.aspx)頁面。
 
-> [AZURE.TIP]Azure 提供了 Azure 流量管理員，可讓您實作容錯移轉和負載平衡，並且讓網站上裝載於不同地理位置的多個執行個體減少延遲。您可以使用 Azure 流量管理員搭配 API 管理服務；API 管理服務可以透過 Azure 流量管理員，將要求路由傳送至網站的執行個體。如需詳細資訊，請瀏覽 Microsoft 網站上的[關於流量管理員負載平衡方法](https://msdn.microsoft.com/library/azure/dn339010.aspx)頁面。
+> [AZURE.TIP]Azure 提供了 Azure 流量管理員，可讓您實作容錯移轉和負載平衡，並且讓網站上裝載於不同地理位置的多個執行個體減少延遲。您可以使用 Azure 流量管理員搭配 API 管理服務；API 管理服務可以透過 Azure 流量管理員，將要求路由傳送至網站的執行個體。如需詳細資訊，請瀏覽 Microsoft 網站上的[關於流量管理員負載平衡方法](../traffic-manager/traffic-manager-load-balancing-methods.md)頁面。
 
 > 在此結構中，如果您使用您網站的自訂 DNS 名稱，則應該為每個網站設定適當的 CNAME 記錄，以指向 Azure 流量管理員網站的 DNS 名稱。
 
@@ -1147,9 +1147,9 @@ Microsoft 網站上的 [Application Insights - 開始監控應用程式的健全
 - Microsoft 網站上的 [Azure 通知中樞通知使用者](notification-hubs-aspnet-backend-windows-dotnet-notify-users/)頁面會顯示如何使用 Azure 通知中樞將非同步回應推送至用戶端應用程式。
 - Microsoft 網站上的 [API 管理](http://azure.microsoft.com/services/api-management/)頁面說明如何發佈產品，以提供受控制且安全的 Web API 存取。
 - Microsoft 網站上的 [Azure API 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn776326.aspx)頁面說明如何使用 API 管理 REST API 來建置自訂管理應用程式。
-- Microsoft 網站上的[關於流量管理員負載平衡方法](https://msdn.microsoft.com/library/azure/dn339010.aspx)頁面摘要說明 Azure 流量管理員如何用來平衡裝載 Web API 的網站上多個執行個體的要求負載。
+- Microsoft 網站上的[關於流量管理員負載平衡方法](../traffic-manager/traffic-manager-load-balancing-methods.md)頁面摘要說明 Azure 流量管理員如何用來平衡裝載 Web API 的網站上多個執行個體的要求負載。
 - Microsoft 網站上的 [Application Insights - 開始監控應用程式的健全狀況和使用量](app-insights-start-monitoring-app-health-usage.md)頁面提供有關在 ASP.NET Web API 專案中安裝和設定 Application Insights 的詳細資訊。
 - Microsoft 網站上的[驗證使用單位測試的程式碼](https://msdn.microsoft.com/library/dd264975.aspx)頁面提供有關使用 Visual Studio 建立和管理單位測試的詳細資訊。
 - Microsoft 網站上的[在發行前執行應用程式的效能測試](https://msdn.microsoft.com/library/dn250793.aspx)頁面說明如何使用 Visual Studio Ultimate 建立 Web 效能和負載測試專案。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

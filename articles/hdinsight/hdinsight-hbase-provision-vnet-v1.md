@@ -9,12 +9,12 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="08/07/2015"
-   ms.author="jgao"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/07/2015"
+	ms.author="jgao"/>
 
 # 在 Azure 虛擬網路上佈建 HBase 叢集
 
@@ -60,7 +60,7 @@
 	- **位址空間** - 為虛擬網路選擇足夠大小的位址空間，如此才能為叢集中的所有節點提供位址。否則，佈建將會失敗。要逐步解說此教學課程，您可以挑選三個選項的任一者。
 	- **最大 VM 計數** - 選擇最大虛擬機器 (VM) 計數之一。此值決定可在位址空間下建立的可能主機 (VM) 數目。對於此教學課程的逐步解說，**4096 [CIDR: /20]** 就已足夠。
 	- **位置** - 此位置必須與您將建立的 HBase 叢集相同。
-	- **DNS 伺服器** - 此教學課程使用 Azure 所提供的內部網域名稱系統 (DNS) 伺服器，因此您可以選擇 [無]。同時也支援更多自訂 DNS 伺服器的進階網路功能設定。如需詳細指引，請參閱[名稱解析 (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx)。
+	- **DNS 伺服器** - 此教學課程使用 Azure 所提供的內部網域名稱系統 (DNS) 伺服器，因此您可以選擇 [無]。同時也支援更多自訂 DNS 伺服器的進階網路功能設定。如需詳細指引，請參閱[名稱解析 (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 4. 在右下角按一下 [建立虛擬網路]。新的虛擬網路名稱隨即會出現在清單中。稍待片刻，直到 [狀態] 欄顯示 [已建立]。
 5. 在主要窗格上，按一下您剛建立的虛擬網路。
 6. 按一下頁面頂端的 [儀表板]。
@@ -132,9 +132,7 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 	<tr><td>前端節點大小</td><td><p>選取前端節點的 VM 大小。</p></td></tr>
 	<tr><td>資料節點大小</td><td><p>選取資料節點的 VM 大小。</p></td></tr>
 	<tr><td>Zookeeper 大小</td><td><p>選取 Zookeeper 節點的 VM 大小。</p></td></tr>
-	</table>
-
-	>[AZURE.NOTE]根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
+</table>>[AZURE.NOTE]根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
 
 	按一下向右按鈕。
 
@@ -150,7 +148,7 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 		<td>指定 HDInsight 叢集使用者密碼。</td></tr>
 	<tr><td>為叢集啟用遠端桌面</td>
 		<td>選取此核取方塊，以指定遠端桌面使用者的使用者名稱、密碼和到期日期，使其在佈建之後可以遠端進入叢集節點。您也可以稍後在叢集佈建後啟用遠端桌面。如需指示，請參閱<a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連接至 HDInsight 叢集</a>。</td></tr>
-	</table>
+</table>
 
 6. 在 [儲存體帳戶] 頁面上，提供下列值：
 
@@ -179,9 +177,7 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
     </td></tr>
 	<tr><td>其他儲存體帳戶</td>
 		<td>視需要指定叢集的其他儲存體帳戶。HDInsight 支援多個儲存體帳戶。叢集可使用的其他儲存體帳戶沒有數量上的限制。但如果您使用 Azure 入口網站建立叢集，則會因為 UI 的限制而只能使用最多七個儲存體帳戶。您所指定的每個其他儲存體帳戶都會在精靈上另外加入一個 [儲存體帳戶]<strong></strong> 頁面，您可在此指定帳戶資訊。以上面的螢幕擷取畫面為例，其未選取其他儲存體帳戶，因此沒有在精靈上加入額外頁面。</td></tr>
-	</table>
-
-	按一下向右箭頭。
+</table>按一下向右箭頭。
 
 7. 在 [指令碼動作] 頁面上，選取右下角的核取記號。請不要點選 [加入指令碼動作] 按鈕，因為本教學課程不需要自訂叢集設定。
 
@@ -336,7 +332,7 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
     	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
 	</property>
 
-> [AZURE.NOTE]如需 Azure 虛擬網路中的名稱解析的詳細資訊，包括如何使用您自己的 DNS 伺服器，請參閱[名稱解析 (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx)。
+> [AZURE.NOTE]如需 Azure 虛擬網路中的名稱解析的詳細資訊，包括如何使用您自己的 DNS 伺服器，請參閱[名稱解析 (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 
 ##使用 Azure PowerShell 佈建 HBase 叢集
 
@@ -395,7 +391,7 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 
 [hbase-get-started]: ../hdinsight-hbase-get-started.md
 [hbase-twitter-sentiment]: ../hdinsight-hbase-twitter-sentiment.md
-[vnet-overview]: http://msdn.microsoft.com/library/azure/jj156007.aspx
+[vnet-overview]: ../virtual-network/virtual-networks-overview.md
 [vm-create]: ../virtual-machines-windows-tutorial.md
 
 [azure-portal]: https://management.windowsazure.com
@@ -433,4 +429,4 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "佈建新 HBase 叢集的詳細資料"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "使用指令碼動作以自訂 HBase 叢集"
 
-<!-----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

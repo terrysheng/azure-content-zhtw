@@ -1,20 +1,20 @@
 <properties
    pageTitle="分割 Service Fabric 服務"
-   description="描述如何分割 Service Fabric 服務"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+	description="描述如何分割 Service Fabric 服務"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="appi101"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/13/2015"
-   ms.author="aprameyr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="aprameyr"/>
 
 # 分割 Service Fabric 服務
 Service Fabric 支援服務狀態的資料分割，並在總狀態子集上進行每個資料分割，可讓您輕鬆地建置可調整的可設定狀態。每個資料分割會變成一個[高可用性](service-fabric-availability-services.md)的單位。資料分割的複本會分散於叢集中節點，並達到平衡狀態。
@@ -54,4 +54,4 @@ Service Fabric 支援服務狀態的資料分割，並在總狀態子集上進�
 - [Service Fabric 服務的延展性](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,8 +1,8 @@
-<properties pageTitle="Azure 搜尋服務 REST API 版本 2014-10-20-Preview" description="Azure 搜尋服務 REST API 版本 2014-10-20-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor="" />
+<properties pageTitle="Azure 搜尋服務 REST API 版本 2014-10-20-Preview" description="Azure 搜尋服務 REST API 版本 2014-10-20-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/22/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/25/2015" ms.author="heidist"/>
 
-# Azure 搜尋服務 REST API：版本 2014-10-20-Preview #
+#Azure 搜尋服務 REST API：版本 2014-10-20-Preview
 
 本文說明 **2014-10-20-Preview** 版本的 Azure 搜尋服務 REST API，以第一個 Azure 搜尋 Public Preview 的更新形式發行。因為這個版本將即將淘汰，我們強烈建議您改為使用與公開上市版本相關聯的版本。如需程式碼移轉的指引，請參閱[從預覽轉換為公開上市 API 版本](search-transition-from-preview.md)。
 
@@ -12,7 +12,7 @@
 
 您可以在 MSDN 上找到適用於目前公開上市版本之 Azure 搜尋 REST API 的文件。如需詳細資訊，請參閱 [Azure 搜尋服務 REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx)。
 
-##關於服務 REST API##
+##關於服務 REST API
 
 Azure 搜尋服務是以雲端為基礎的服務，可用來建置自訂搜尋應用程式。Azure 搜尋服務具有「搜尋服務」和「索引」的概念，而搜尋服務會包含一或多個索引。您的搜尋服務可透過完整網域名稱來進行唯一識別 (例如：`mysearchservice.search.windows.net`)。佈建服務時會產生 API 金鑰，用來驗證對 Azure 搜尋服務的要求。
 
@@ -126,7 +126,7 @@ ________________________________________
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
       {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer: "fr.lucene"},
+	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
       {"name": "hotelName", "type": "Edm.String"},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -649,7 +649,7 @@ Azure 搜尋服務正在轉換為新的建議工具 API。版本 2014-07-31-Prev
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
+	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer"="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -1455,4 +1455,4 @@ ________________________________________
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&suggesterName=sg&api-version=2014-10-20-Preview
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

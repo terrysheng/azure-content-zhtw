@@ -1,44 +1,40 @@
 <properties 
-	pageTitle="新增推播通知至 Windows 執行階段 8.1 通用 app | Azure Mobile Apps" 
-	description="了解如何使用 Azure App Service 行動應用程式與 Azure 通知中樞傳送推播通知至 Windows 應用程式。" 
-	services="app-service\mobile,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+	pageTitle="新增推播通知至 Windows 執行階段 8.1 通用 app | Azure Mobile Apps"
+	description="了解如何使用 Azure App Service 行動應用程式與 Azure 通知中樞傳送推播通知至 Windows 應用程式。"
+	services="app-service\mobile,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/14/2015"
 	ms.author="glenga"/>
 
 # 新增推播通知至 Windows 執行階段 8.1 通用 app
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]
-&nbsp;
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 ##概觀
 
 本主題將示範如何使用 Azure App Service 行動應用程式與 Azure 通知中樞將推播通知傳送至 Windows 執行階段 8.1 通用 app。在此案例中，加入新項目時，您的行動應用程式後端會傳送通知至所有註冊 Windows 通知服務 (WNS) 的 Windows 應用程式
 
-本教學課程以應用程式服務行動應用程式快速入門為基礎。在開始本教學課程之前，您必須先完成快速入門教學課程：[建立 Windows 應用程式](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md)。
+本教學課程以應用程式服務行動應用程式快速入門為基礎。在開始本教學課程之前，您必須先完成快速入門教學課程：[建立 Windows 應用程式](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md)。如果您不要使用下載的快速入門伺服器專案，必須將推播通知擴充套件新增至您的專案。如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
-##先決條件
+##必要條件
 
 若要完成此教學課程，您需要下列項目：
 
 * 有效的 [Microsoft 市集帳戶](http://go.microsoft.com/fwlink/p/?LinkId=280045)。
 * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
-* 完成[快速入門教學課程](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md)。
+* 完成[快速入門教學課程](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md)。  
 
-##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
 
 ##<a name="create-gateway"></a>建立通知中樞
 
@@ -64,7 +60,7 @@
 
 7. 使用您之前為 Windows 市集應用程式所建立的相同登錄，針對 Windows Phone 市集應用程式專案重複步驟 1 和 3。
 
-7. 瀏覽至 [Windows 開發人員中心](https://dev.windows.com/zh-tw/overview)、使用您的 Microsoft 帳戶登入、在 [我的應用程式] 中按一下 [新增應用程式註冊]，然後展開 [服務] > [推播通知]。
+7. 瀏覽至 [Windows 開發人員中心](https://dev.windows.com/zh-TW/overview)、使用您的 Microsoft 帳戶登入、在 [我的應用程式] 中按一下 [新增應用程式註冊]，然後展開 [服務] > [推播通知]。
 
 8. 在 [推播通知] 頁面上，按一下 [Microsoft Azure 行動服務] 底下的 [線上服務網站]。
 
@@ -147,10 +143,10 @@
 
     這會下載並安裝適用於 Windows 的 Azure Mobile Push 程式庫，並在所有用戶端專案中加入對該程式庫的參考。
 
-3. 開啟 **App.xaml.cs** 專案檔案，並新增下列 `using` 陳述式。
+3. 開啟共用的 **App.xaml.cs** 專案檔案，並新增下列 `using` 陳述式：
 
 		using System.Threading.Tasks;  
-		using Windows.Networking.PushNotifications;       
+        using Windows.Networking.PushNotifications;       
 
 4. 在相同檔案中，將下列 **InitNotificationsAsync** 方法定義新增至 [**應用程式**] 類別：
     
@@ -204,4 +200,4 @@
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

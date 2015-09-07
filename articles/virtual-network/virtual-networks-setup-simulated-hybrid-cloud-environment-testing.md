@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="設定用於測試的模擬混合式雲端環境" 
-	description="了解如何使用兩個 Azure 虛擬網路和 VNet 對 VNet 連線，建立 IT 專業或開發測試的模擬混合式雲端環境。" 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="模擬混合式雲端測試環境 | Microsoft Azure"
+	description="使用兩個 Azure 虛擬網路和 VNet 對 VNet 連接，建立 IT 專業或開發測試的模擬混合式雲端環境。"
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # 設定用於測試的模擬混合式雲端環境
@@ -171,7 +171,7 @@
 3.	當系統提示開啟 DC2.rdp 時，按一下 [開啟]。
 4.	顯示 [遠端桌面連線] 訊息方塊後，按一下 [連接]。
 5.	出現輸入認證的提示時，使用這些：
-- 名稱：**DC2\**[本機系統管理員帳戶名稱]
+- 名稱：**DC2**[本機系統管理員帳戶名稱]
 - 密碼：[本機系統管理員帳戶密碼]
 6.	顯示憑證相關的 [遠端桌面連線] 訊息方塊提示時，按一下 [是]。
 
@@ -273,4 +273,4 @@ Azure VPN 閘道會實作為一組會產生持續成本的兩個 Azure 虛擬機
 接著，在 Azure 管理入口網站的 [網路] 頁面上，按一下 [**TestLab**] 虛擬網路，然後按一下工作列中的 [**連接**]。等候 TestLab 虛擬網路顯示 TestVNET 區域網路的連線狀態。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

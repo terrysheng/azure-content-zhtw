@@ -75,7 +75,7 @@ PS C:\> MARSAgentInstaller.exe /?
 
 
 ### 向 Azure 備份服務進行註冊
-在可註冊 Azure 備份服務之前，您必須確定已符合[先決條件](backup-try-azure-backup-in-10-mins.md)。您必須：
+在可註冊 Azure 備份服務之前，您必須確定已符合[先決條件](backup-configure-vault.md)。您必須：
 
 - 具備有效的 Azure 訂用帳戶
 - 具備備份保存庫
@@ -568,8 +568,8 @@ PS C:\> Set-ExecutionPolicy unrestricted -force
 現在可以遠端管理電腦 - 從代理程式的安裝開始。例如，下列指令碼會將代理程式複製到遠端電腦並進行安裝。
 
 ```
-PS C:\> $dloc = "\REMOTESERVER01\c$\Windows\Temp"
-PS C:\> $agent = "\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
+PS C:\> $dloc = "\\REMOTESERVER01\c$\Windows\Temp"
+PS C:\> $agent = "\\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
 PS C:\> $args = "/q"
 PS C:\> Copy-Item "C:\Downloads\MARSAgentInstaller.exe" -Destination $dloc - force
 
@@ -578,6 +578,9 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ```
 
 ## 後續步驟
-如需 Windows Server/用戶端的 Azure 備份詳細資訊，請參閱 [Azure 備份的簡介](backup-introduction-to-azure-backup.md)
+如需 Windows Server/用戶端的 Azure 備份詳細資訊，請參閱
 
-<!---HONumber=August15_HO8-->
+- [Azure 備份的簡介](backup-introduction-to-azure-backup.md)
+- [備份 Windows 伺服器](backup-azure-backup-windows-server.md)
+
+<!---HONumber=August15_HO9-->

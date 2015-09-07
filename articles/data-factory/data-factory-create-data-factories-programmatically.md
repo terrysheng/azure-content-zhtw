@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用 Data Factory SDK 來建立、監視及管理 Azure Data Factory" 
-	description="了解如何使用 Data Factory .NET SDK，以程式設計方式建立、監視和管理 Azure Data Factory。" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="使用 Data Factory SDK 來建立、監視及管理 Azure Data Factory"
+	description="了解如何使用 Data Factory .NET SDK，以程式設計方式建立、監視和管理 Azure Data Factory。"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
 # 使用 Data Factory .NET SDK 來建立、監視及管理 Azure Data Factory
@@ -384,7 +384,6 @@
 
 [data-factory-introduction]: data-factory-introduction.md
 [adf-getstarted]: data-factory-get-started.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
@@ -393,4 +392,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

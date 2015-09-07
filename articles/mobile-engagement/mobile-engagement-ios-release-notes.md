@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor="" />
+	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,13 +14,18 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
+	ms.author="MehrdadMzfr"/>
 
 #版本資訊
+
+##3\.1.0 (2015/08/26)
+
+-   搭配協力廠商程式庫修正 iOS 9 相容性錯誤。當傳送投票結果、應用程式資訊或是額外的資料時會造成當機。
 
 ##3\.0.0 (2015/06/19)
 
 -   Mobile Engagement 使用無聲推播通知。
+-   停止支援 iOS 4.X。從此版本開始，您的應用程式部署目標必須至少為 iOS 6。
 
 ##2\.2.0 (05/21/2015)
 
@@ -42,4 +47,4 @@
 -   增強安全性。
 -   已移除 SmartAd 追蹤。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

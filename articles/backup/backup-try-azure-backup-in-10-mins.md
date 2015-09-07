@@ -1,19 +1,19 @@
 <properties
    pageTitle="Azure 備份只需 10 分鐘 | Microsoft Azure"
-   description="10 分鐘後即可開始使用 Azure 備份"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="shreeshd"
-   editor=""/>
+	description="10 分鐘後即可開始使用 Azure 備份"
+	services="backup"
+	documentationCenter=""
+	authors="Jim-Parker"
+	manager="shreeshd"
+	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="07/06/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="08/20/2015" ms.author="aashishr"; "jimpark"/>
 
 # 10 分鐘內即可試用 Azure 備份
-安裝 Azure 備份非常容易，而下列的示範影片應該可以協助您開始著手。
+安裝 Azure 備份非常容易，而下列的示範影片將會協助您開始著手。
 
 ## 步驟 1：建立 Azure 訂用帳戶
-- 如果您沒有 Azure 訂用帳戶，您可以使用能存取任何 Azure 服務的免費試用優惠。若要深入了解，請瀏覽連結 [http://azure.microsoft.com/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial)。
+- 如果您沒有 Azure 訂用帳戶，您可以使用可讓您存取任何 Azure 服務的免費試用優惠。若要深入了解，請瀏覽連結 [http://azure.microsoft.com/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial)。
 - 如果您有 Azure 訂用帳戶，您可以略過此步驟。
 
 ## 步驟 2：設定 Azure 備份服務
@@ -42,7 +42,8 @@
 > [AZURE.VIDEO getting-started-with-azure-backup-3-of-3-start-backing-up-your-production-server]
 
 ## 後續步驟
-- 若要深入了解 Azure 備份，請參閱 [Azure 備份概觀](backup-introduction-to-azure-backup.md) (英文)。
+- 若要深入了解 Azure 備份，請參閱 [Azure 備份概觀](backup-introduction-to-azure-backup.md)
+- [備份 Windows 伺服器](backup-azure-backup-windows-server.md)
 - 造訪 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933) (英文)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

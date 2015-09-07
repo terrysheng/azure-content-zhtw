@@ -1,20 +1,20 @@
 <properties
    pageTitle="使用 Apache Storm 和 HBase 分析感應器資料 | Microsoft Azure"
-   description="了解如何透過虛擬網路連線至 Apache Storm。搭配使用 Storm 和 HBase 來處理事件中樞的感應器資料，並使用 D3.js 將其視覺化呈現。"
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+	description="了解如何透過虛擬網路連線至 Apache Storm。搭配使用 Storm 和 HBase 來處理事件中樞的感應器資料，並使用 D3.js 將其視覺化呈現。"
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="java"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/06/2015"
-   ms.author="larryfr"/>
+	ms.devlang="java"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="07/06/2015"
+	ms.author="larryfr"/>
 
 # 在 HDInsight (Hadoop) 中使用 Apache Storm、事件中樞和 HBase 分析感應器資料
 
@@ -300,7 +300,7 @@
 
 	- **位置**：此位置必須與您即將建立的 HBase 叢集相同。
 
-	- **DNS 伺服器**：本文使用的是 Azure 提供的內部 DNS 伺服器，因此您可以選擇 [無]。同時也支援更多自訂 DNS 伺服器的進階網路設定。如需詳細指引，請參閱[名稱解析 (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx)。
+	- **DNS 伺服器**：本文使用的是 Azure 提供的內部 DNS 伺服器，因此您可以選擇 [無]。同時也支援更多自訂 DNS 伺服器的進階網路設定。如需詳細指引，請參閱[名稱解析 (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 
 4. 按一下 [建立虛擬網路]。新的虛擬網路名稱隨即會出現在清單中。稍待片刻，直到 [狀態] 欄顯示 [已建立]。
 
@@ -420,4 +420,4 @@
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

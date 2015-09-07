@@ -12,17 +12,21 @@
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="08/06/2015"
+	ms.topic="get-started-article"
+	ms.date="08/14/2015"
 	ms.author="juliako"/>
 
 #使用 AES-128 動態加密和金鑰傳遞服務
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-protect-with-aes128.md)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
 ##概觀
 
 Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (使用 128 位元加密金鑰) 加密的 Http-Live-Streaming (HLS) 和 Smooth Streaming 。媒體服務也提供加密金鑰傳遞服務，將加密金鑰傳遞至授權的使用者。如果您想要媒體服務加密資產，則需要建立加密金鑰 與資產的關聯，同時設定金鑰的授權原則。播放程式要求串流時，媒體服務便會使用 AES 加密，使用指定的金鑰動態加密您的內容。為了將串流解密，播放程式將從金鑰傳遞服務要求金鑰。為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
 
-媒體服務支援多種方式來驗證提出金鑰要求的使用者。內容金鑰授權原則可能會有一個或多個授權限制：Open、權杖限制或 IP 限制。權杖限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖。媒體服務支援[簡單 Web 權杖](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) 格式和 [JSON Web 權杖](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) 格式的權杖。如需詳細資訊，請參閱[設定內容金鑰的授權原則](media-services-protect-with-aes128.md#configure_key_auth_policy)。
+媒體服務支援多種方式來驗證提出金鑰要求的使用者。內容金鑰授權原則可能會有一個或多個授權限制：Open、權杖限制或 IP 限制。權杖限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖。媒體服務支援[簡單 Web 權杖](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT)格式和 [JSON Web 權杖](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) 格式的權杖。如需詳細資訊，請參閱[設定內容金鑰的授權原則](media-services-protect-with-aes128.md#configure_key_auth_policy)。
 
 若要利用動態加密，您需有一個資源，其中包含一組多位元速率 MP4 檔案或多位元速率 Smooth Streaming 來源檔案。您也需要設定資產的傳遞原則 (本主題稍後會加以描述)。然後，根據串流 URL 中指定的格式，隨選資料流處理伺服器將確保以您所選擇的通訊協定傳遞串流。因此，您只需要儲存及支付一種儲存格式之檔案的費用，媒體服務會根據用戶端的要求建置及提供適當的回應。
 
@@ -44,7 +48,7 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
 
 1. 若要取得串流 URL，請[建立隨選定位器](media-services-protect-with-aes128.md#create_locator)。
 
-本主題也展示[用戶端應用程式如何從金鑰傳遞服務要求金鑰](media-services-protect-with-aes128.md#client_request)。
+本主題也說明[用戶端應用程式如何從金鑰傳遞服務要求金鑰](media-services-protect-with-aes128.md#client_request)。
 
 您會在本主題結尾處發現完整的.NET [範例](media-services-protect-with-aes128.md#example)。
 
@@ -184,7 +188,7 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
 	string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
 	Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 
-您可以使用 [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) 來測試您的串流。
+您可以使用 [AMS 播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html) 來測試您的串流。
 
 ##<a id="client_request"></a>您的用戶端如何從金鑰傳遞服務要求金鑰？
 
@@ -659,4 +663,4 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
 		    }
 		}
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

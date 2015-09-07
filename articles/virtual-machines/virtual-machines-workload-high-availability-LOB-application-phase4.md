@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="企業營運應用程式工作負載第 4 階段：設定 Web 伺服器" 
-	description="在 Azure 基礎結構服務部署高可用性企業營運應用程式的第四個階段中，您將建立 Web 伺服器，並在其中載入企業營運應用程式。" 
+	pageTitle="企業營運應用程式第 4 階段 | Microsoft Azure"
+	description="在 Azure 企業營運應用程式第 4 階段中，建立網頁伺服器，並在此載入您的企業營運應用程式。"
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # 企業營運應用程式工作負載第 4 階段：設定 Web 伺服器
@@ -168,4 +168,4 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

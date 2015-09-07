@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Application Insights 的疑難排解與問題" 
-	description="Visual Studio 的 Application Insights 哪個部分不清楚或無法運作嗎？ 試試這裡。" 
-	services="application-insights" 
-    documentationCenter=".net"
-	authors="alancameronwills" 
+	pageTitle="Application Insights 的疑難排解與問題"
+	description="Visual Studio 的 Application Insights 哪個部分不清楚或無法運作嗎？ 試試這裡。"
+	services="application-insights"
+	documentationCenter=".net"
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.service="application-insights"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="awills"/>
  
 # 疑難排解與問題：ASP.NET 的 Application Insights
@@ -217,9 +217,9 @@
 <tr><td>相依性遙測</td><td><a href="../app-insights-monitor-performance-live-website-now/">在伺服器上安裝 AI 狀態監視器</a></td><td>診斷資料庫或其他外部元件的問題</td></tr>
 <tr><td>取得例外狀況的堆疊追蹤</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">在程式碼中插入 TrackException 呼叫</a> (但部分會自動報告)</td><td>偵測並診斷例外狀況</td></tr>
 <tr><td>搜尋記錄追蹤</td><td><a href="../app-insights-search-diagnostic-logs/">加入記錄配接器</a></td><td>診斷例外狀況、效能問題</td></tr>
-<tr><td>用戶端使用基本概念：頁面檢視、工作階段...</td><td><a href="../app-insights-start-monitoring-app-health-usage/#webclient">網頁中的 JavaScript 初始設定式</a></td><td>流量分析</td></tr>
-<tr><td>用戶端自訂度量</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">追蹤網頁中的呼叫</a></td><td>增強使用者經驗</td></tr>
-<tr><td>伺服器自訂度量</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">追蹤伺服器程式碼中的呼叫</a></td><td>商業智慧</td></tr>
+<tr><td>用戶端使用基本概念：頁面檢視、工作階段...</td><td><a href="../app-insights-javascript/">網頁中的 JavaScript 初始設定式</a></td><td>流量分析</td></tr>
+<tr><td>用戶端自訂度量</td><td><a href="../app-insights-api-custom-events-metrics/">追蹤網頁中的呼叫</a></td><td>增強使用者經驗</td></tr>
+<tr><td>伺服器自訂度量</td><td><a href="../app-insights-api-custom-events-metrics/">追蹤伺服器程式碼中的呼叫</a></td><td>商業智慧</td></tr>
 </table>
 
 如果您的 Web 服務在 Azure VM 中執行，您也可以從該處[取得診斷][azurediagnostic]。
@@ -239,4 +239,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="在 Azure App Service 中使用 Slack 連接器"
-	description="如何開始使用 Slack 連接器"
-	authors="anuragdalmia" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	pageTitle="在 Logic Apps 中使用 Slack 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 Slack 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="andalmia"/>
 
-# Slack 連接器
-
-連接至 Slack 通道，並將訊息張貼至您的小組。連接器可在邏輯應用程式中用做「工作流程」的一部分，以執行不同的工作。在工作流程中使用 Slack 連接器時，可以使用其他連接器來達到各種案例的目的。例如，您可以在工作流程中使用 [Facebook 連接器](app-service-logic-connector-facebook.md)，以將訊息張貼至 Slack 通道。
+# 開始使用 Slack 連接器並將它加入您的邏輯應用程式
+連接至 Slack 通道，並將訊息張貼至您的小組。連接器可在 Logic Apps 中用做「工作流程」的一部分，以執行不同的工作。在工作流程中使用 Slack 連接器時，可以使用其他連接器來達到各種案例的目的。例如，您可以在工作流程中使用 [Facebook 連接器](app-service-logic-connector-facebook.md)，以將訊息張貼至 Slack 通道。
 
 ## 觸發程序和動作
 *觸發程序*是發生的事件。例如，訂單更新時或加入新客戶時。*動作*是觸發程序的結果。例如，當訂單更新時，傳送警示給銷售人員。或者，當加入新客戶時，傳送歡迎電子郵件給新客戶。
@@ -35,7 +34,7 @@ None | 張貼訊息
 連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
 1. 在 Azure 開始面板中，選取 [**Marketplace**]。
-2. 選取 [API 應用程式]，然後搜尋「Slack 連接器」。
+2. 選取 API Apps，然後搜尋「Slack 連接器」。
 3. 輸入名稱、App Service 方案和其他屬性：
 <br/> 
 ![][1] 
@@ -80,17 +79,16 @@ None | 張貼訊息
 進階屬性 | **Bot 使用者名稱**：要用於此訊息的 Bot 名稱。如果未輸入此屬性，則會將訊息張貼為 "Bot"。<p><p>**圖示 URL**：要作為此訊息圖示的影像 URL。<p><p>**圖示 Emoji**：要作為此訊息圖示的 Emoji。這個屬性會覆寫圖示 URL 屬性。
 
 
-Slack 連接器具有 REST API，因此您可以在邏輯應用程式外部使用連接器。開啟 Slack 連接器，然後選取 [**API 定義**]：
+Slack 連接器具有 REST API，因此您可以在邏輯應用程式外部使用連接器。開啟 Slack 連接器，然後選取 [API 定義]：
 
 ![][9]
-
 
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
-使用 REST API 建立 API 應用程式。請參閱[連接器和 API 應用程式參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)。
+檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
-您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)。
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)。
 
 
 <!-- Image reference -->
@@ -104,4 +102,4 @@ Slack 連接器具有 REST API，因此您可以在邏輯應用程式外部使�
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

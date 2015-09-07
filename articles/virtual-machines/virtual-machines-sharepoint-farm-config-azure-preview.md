@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint Server 伺服器陣列組態詳細資料"
-	description="本文說明當您使用 Azure Preview 入口網站的 SharePoint Server 伺服器陣列功能時 SharePoint 伺服器陣列的預設組態。"
+	pageTitle="SharePoint 伺服器陣列組態 | Microsoft Azure"
+	description="了解當您使用 Azure Preview 入口網站的 SharePoint Server 伺服器陣列功能時 SharePoint 伺服器陣列的預設組態。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -139,4 +139,4 @@ Azure Preview 入口網站的 SharePoint Server 伺服器陣列功能會在服�
 
 [在混合式雲端中設定用於測試的 SharePoint 內部網路伺服器陣列](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

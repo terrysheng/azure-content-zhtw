@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用虛擬網路延伸 HDInsight | Microsoft Azure"  
+	pageTitle="使用虛擬網路延伸 HDInsight | Microsoft Azure"
 	description="了解如何使用 Azure 虛擬網路將 HDInsight 連接到其他雲端資源或您的資料中心內的資源"
 	services="hdinsight"
 	documentationCenter=""
@@ -9,12 +9,12 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/06/2015"
-   ms.author="larryfr"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="07/06/2015"
+	ms.author="larryfr"/>
 
 
 #使用 Azure 虛擬網路延伸 HDInsight 功能
@@ -55,9 +55,9 @@ Azure 虛擬網路可讓您延伸 Hadoop 解決方案以合併內部部署資源
 
 	* 從 LOB 應用程式**叫用 HDInsight 服務或工作**。範例是使用 HBase Java API 來儲存及擷取 HDInsight HBase 叢集的資料。
 
-如需虛擬網路特性、優點和功能的詳細資訊，請參閱＜[虛擬網路概觀](http://msdn.microsoft.com/library/azure/jj156007.aspx)＞。
+如需虛擬網路特性、優點和功能的詳細資訊，請參閱＜[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)＞。
 
-> [AZURE.NOTE]您必須先建立 Azure 虛擬網路，再佈建 HDInsight 叢集。如需詳細資訊，請參閱＜[虛擬網路組態工作](http://msdn.microsoft.com/library/azure/jj156206.aspx)＞。
+> [AZURE.NOTE]您必須先建立 Azure 虛擬網路，再佈建 HDInsight 叢集。如需詳細資訊，請參閱＜[虛擬網路組態工作](/documentation/services/virtual-network/)＞。
 >
 > Azure HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。
 >
@@ -171,6 +171,6 @@ HDInsight 叢集會被指派特定的虛擬網路介面完整網域名稱 (FQDN)
 
 * [在 HDInsight 中搭配使用 Sqoop 和 Hadoop](hdinsight-use-sqoop.md) - 提供搭配使用 Sqoop 與 SQL Server 透過虛擬網路傳輸資料的相關資訊。
 
-若要深入了解 Azure 虛擬網路，請參閱 [Azure 虛擬網路概觀](http://msdn.microsoft.com/library/azure/jj156007.aspx)。
+若要深入了解 Azure 虛擬網路，請參閱 [Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="什麼是網路安全性群組 (NSG)"
-   description="了解網路安全性群組 (NSG)"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="了解網路安全性群組 (NSG)"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/13/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/13/2015"
+	ms.author="telmos"/>
 
 # 什麼是網路安全性群組 (NSG)？
 
@@ -23,7 +23,7 @@
 
 您可以將 NSG 與 VM 建立關聯，或在 VNet 中與子網路建立關聯。與 VM 建立關聯時，NSG 會套用至由 VM 執行個體傳送和接收的所有流量。套用至 VNet 中的子網路時，NSG 會套用至子網路中所有 VM 執行個體傳送和接收的所有流量。VM 或子網路可以僅與 1 個 NSG 建立關聯，且每個 NSG 可以包含最多 200 個規則。每個訂用帳戶您可以擁有 100 個 NSG。
 
->[AZURE.NOTE]端點式 ACL 和網路安全性群組，不支援用於相同的 VM 執行個體。如果您想要使用 NSG 且已經擁有就地端點 ACL，請先移除端點 ACL。如需有關執行這項作業的資訊，請參閱＜[使用 PowerShell 管理端點的存取控制清單 (ACL)](https://msdn.microsoft.com/library/azure/dn376543.aspx)＞。
+>[AZURE.NOTE]端點式 ACL 和網路安全性群組，不支援用於相同的 VM 執行個體。如果您想要使用 NSG 且已經擁有就地端點 ACL，請先移除端點 ACL。如需有關執行這項作業的資訊，請參閱＜[使用 PowerShell 管理端點的存取控制清單 (ACL)](virtual-networks-acl-powershell.md)＞。
 
 ## 網路安全性群組如何運作？
 
@@ -138,7 +138,7 @@ Azure 中常見的案例就是根據 VM 和 PaaS 角色是否需要存取網際�
 
 | 名稱 | 優先順序 | 來源 IP | 來源連接埠 | 目的地 IP | 目的地連接埠 | 通訊協定 | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|無網際網路|100| VIRTUAL\_NETWORK|&\#42;|網際網路|&\#42;|TCP|拒絕| 
+|無網際網路|100| VIRTUAL\_NETWORK|&#42;|網際網路|&#42;|TCP|拒絕| 
 
 因為規則會拒絕所有虛擬網路到網際網路的存取，VM 將無法存取任何需要公開網際網路端點的 Azure PaaS 服務，例如 SQL 資料庫。
 
@@ -146,8 +146,8 @@ Azure 中常見的案例就是根據 VM 和 PaaS 角色是否需要存取網際�
 
 | 名稱 | 優先順序 | 來源 IP | 來源連接埠 | 目的地 IP | 目的地連接埠 | 通訊協定 | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|到網際網路|100| VIRTUAL\_NETWORK|&\#42;|網際網路|&\#42;|TCP|允許|
-|從網際網路|110| 網際網路|&\#42;|VIRTUAL\_NETWORK|&\#42;|TCP|拒絕| 
+|到網際網路|100| VIRTUAL\_NETWORK|&#42;|網際網路|&#42;|TCP|允許|
+|從網際網路|110| 網際網路|&#42;|VIRTUAL\_NETWORK|&#42;|TCP|拒絕| 
 
 >[AZURE.WARNING]Azure 會使用稱為**閘道**子網路的特殊子網路，以處理其他 VNet 和內部部署網路的 VPN 閘道。將 NSG 關聯至此子網路將會導致您的 VPN 閘道如預期般停止運作。「請勿」將 NSG 關聯至閘道子網路！
 
@@ -249,4 +249,4 @@ Azure 中常見的案例就是根據 VM 和 PaaS 角色是否需要存取網際�
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

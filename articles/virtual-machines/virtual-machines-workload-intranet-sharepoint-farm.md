@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 基礎結構服務工作負載：內部網路 SharePoint 伺服器陣列"
-	description="了解部署在 Azure 中內部網路 SharePoint 伺服器陣列的值、如何設定開發/測試環境，以及如何部署高可用性的生產組態。"
+	pageTitle="Azure 中的 SharePoint Server 2013 伺服器陣列 | Microsoft Azure"
+	description="了解 Azure 中 SharePoint Server 2013 伺服器陣列的價值、設定測試環境，以及部署高可用性組態。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -124,4 +124,4 @@
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

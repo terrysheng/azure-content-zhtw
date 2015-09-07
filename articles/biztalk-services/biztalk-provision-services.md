@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/03/2015"
+	ms.date="08/26/2015"
 	ms.author="mandia"/>
 
 
@@ -28,9 +28,9 @@
 視您所選的版本而定，部分 BizTalk 服務設定可能無法使用。
 
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
-2. 在底端的導覽窗格中，選取 [**新增**]：<br/> ![選取 [新增] 按鈕。][NEWButton]
+2. 在底端的導覽窗格中，選取 [新增]：![選取 [新增] 按鈕。][NEWButton]
 
-3. 選取 [**應用程式服務**] > [**BIZTALK 服務**] > [**自訂建立**]： <br/> ![選取 [BizTalk 服務] 與選取 [自訂建立]][NewBizTalkService]
+3. 選取 [應用程式服務] > [BIZTALK 服務] > [自訂建立]：![選取 [BizTalk 服務] 與選取 [自訂建立]][NewBizTalkService]
 
 4. 輸入 BizTalk 服務設定：
 
@@ -107,11 +107,11 @@
 </tr>
 </table>
 
-選取核取記號來完成精靈。進度圖示隨即顯示：<br/> ![進度圖示即會顯示][ProgressComplete]
+選取核取記號來完成精靈。進度圖示隨即顯示：![進度圖示即會顯示][ProgressComplete]
 
-完成時，會建立 Azure BizTalk 服務，並備妥供應用程式使用。預設設定已夠用。如果想要變更預設設定，請在左導覽窗格中選取 [**BIZTALK 服務**]，然後選取 BizTalk 服務。其他設定會顯示在[[儀表板]、[監視器] 和 [調整]](http://go.microsoft.com/fwlink/p/?LinkID=302281) 索引標籤中。
+完成時，會建立 Azure BizTalk 服務，並備妥供應用程式使用。預設設定已夠用。如果想要變更預設設定，請在左導覽窗格中選取 [BIZTALK 服務]，然後選取您的 BizTalk 服務。其他設定會顯示在[[儀表板]、[監視器] 和 [調整]](biztalk-dashboard-monitor-scale-tabs.md) 索引標籤中。
 
-有一些無法完成的作業，視 BizTalk 服務的狀態而定。如需這些作業的清單，請參閱 [BizTalk 服務狀態圖](http://go.microsoft.com/fwlink/p/?LinkID=329870)。
+有一些無法完成的作業，視 BizTalk 服務的狀態而定。如需這些作業的清單，請參閱 [BizTalk 服務狀態圖](biztalk-service-state-chart.md)。
 
 
 ## 佈建後續步驟
@@ -124,22 +124,22 @@
 自我簽署憑證是 BizTalk 服務佈建的一部分，會在您訂閱 BizTalk 服務時建立並相關聯。您必須下載此憑證，並將它安裝於您部署 BizTalk 服務應用程式、或向 BizTalk 服務端點傳送訊息的電腦上。
 
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
-2. 選取左導覽窗格中的 [**BIZTALK 服務**]，然後選取您的 BizTalk 服務訂用帳戶。
+2. 選取左導覽窗格中的 [BIZTALK 服務]，然後選取您的 BizTalk 服務訂用帳戶。
 3. 選取 [**儀表板**] 索引標籤。
-4. 選取 [**下載 SSL 憑證**]。 <br/> ![修改 SSL 憑證][QuickGlance]
+4. 選取 [下載 SSL 憑證]：![修改 SSL 憑證][QuickGlance]
 5. 按兩下此憑證，然後完成執行精靈，即可安裝憑證。確定您已在**受信任的根授權單位**存放區之中安裝憑證。
 
 #### <a name="AddCert"></a>新增實際執行備妥憑證
 在建立 BizTalk 服務時自動建立的自我簽署憑證僅限用於開發環境。若為生產案例，使用實際執行備妥憑證取代它。
 
 1. 在 [**儀表板**] 索引標籤上，選取 [**更新 SSL 憑證**]。
-2. 瀏覽至包括 BizTalk 服務名稱的專用 SSL 憑證 (*CertificateName*.pfx)，輸入密碼，然後選取核取記號。
+2. 瀏覽至包括 BizTalk 服務名稱的私人 SSL 憑證 (*CertificateName*.pfx)，輸入密碼，然後選取核取記號。
 
 #### <a name="ACS"></a>取得存取控制命名空間
 
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
-2. 在左導覽窗格中選取 [**BIZTALK 服務**]，然後選取 BizTalk 服務。
-3. 在工作列中，選取 [**連接資訊**]：<br/> ![選取 [連線資訊]][ACSConnectInfo]
+2. 在左導覽窗格中選取 [BIZTALK 服務]，然後選取您的 BizTalk 服務。
+3. 在工作列中，選取 [連線資訊]：![選取 [連線資訊]][ACSConnectInfo]
 
 4. 複製存取控制值。
 
@@ -147,17 +147,17 @@
 
 存取控制值可用於任何應用程式。當建立 Azure BizTalk 服務時，此存取控制命名空間會利用 BizTalk 服務部署來控制驗證。如果想要變更訂閱或管理命名空間，請在左導覽窗格中選取 [ACTIVE DIRECTORY]，然後選取您的命名空間。工作列會列出您的選項。
 
-按一下 [**管理**]，即可開啟存取控制管理入口網站。在存取控制管理入口網站中，BizTalk 服務會使用 [**服務身分識別**]：<br/> ![存取控制管理入口網站中的 ACS 服務身分識別][ACSServiceIdentities]
+按一下 [**管理**]，即可開啟存取控制管理入口網站。在存取控制管理入口網站中，BizTalk 服務會使用 [服務身分識別]：![存取控制管理入口網站中的 ACS 服務身分識別][ACSServiceIdentities]
 
 存取控制服務身分識別是一組認證，可讓應用程式或用戶端直接使用 Azure AD 存取控制進行驗證，並接收權杖。
 
-> [AZURE.IMPORTANT]BizTalk 服務會使用**擁有者**做為預設服務身分識別，並使用**密碼**值。若您使用對稱金鑰值，而不是密碼值時，可能會發生下列錯誤。<br/><br/>* 無法利用指定的認證連接至存取控制管理服務帳戶*
+> [AZURE.IMPORTANT]BizTalk 服務會使用**擁有者**做為預設服務身分識別，並使用**密碼**值。若您使用對稱金鑰值，而不是密碼值，可能會發生下列錯誤。<br/><br/>* 無法利用指定的認證連線至存取控制管理服務帳戶*
 
-[管理您的 ACS 命名空間](http://go.microsoft.com/fwlink/p/?LinkID=285670)列出一些指導方針和建議。
+[管理您的 ACS 命名空間](https://msdn.microsoft.com/library/azure/hh674478.aspx)列出一些指導方針和建議。
 
 ## 說明各項需求
 
-這些需求並不適用於免費版本。<table border="1"> <tr bgcolor="FAF9F9"> <td><strong>您的需求</strong></td> <td><strong>需要的原因</strong></td> </tr> <tr> <td> Azure 訂用帳戶</td> <td>訂用帳戶決定誰可登入 Azure 入口網站。帳戶持有者可在<a HREF="https://account.windowsazure.com/Subscriptions"> Azure 訂用帳戶</a>中建立訂用帳戶 。<br/><br/> Azure 帳戶可擁有多個訂用帳戶，只要使用者取得允許皆可管理這些帳戶。例如，您的 Azure 帳戶持有者建立一個名為 <em>BizTalkServiceSubscription</em> 的訂用帳戶，並給與您公司內的 BizTalk 系統管理員 (例如 ContosoBTSAdmins@live.com) 存取此訂用帳戶的權限。在此案例中，BizTalk 系統管理員可以登入 Azure 入口網站，並對訂用帳戶中的所有代管服務 (包括 Azure BizTalk 服務) 具有完整系統管理員權限。BizTalk 系統管理員不是 Azure 帳戶持有者，因此無權存取任何任何計費資訊。<br/><br/> <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577">管理 Azure 入口網站中的訂用帳戶和儲存體帳戶</a>提供更多相關資訊。</td> </tr> <tr> <td>Azure SQL Database</td> <td>可儲存 Azure BizTalk 服務所使用的資料表、檢視和預存程序，包括追蹤資料。<br/><br/>在建立 BizTalk 服務時，您可使用現有的 Azure SQL Server、Azure SQL Database，或自動建立新的伺服器或資料庫。<br/><br/> SQL Database 會自動調整。一般來說，預設的調整對 BizTalk 服務已夠用。修改調整會影響定價。請參閱「<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=234930"> Azure SQL Database 中的帳戶與計費</a>」 <br/> <br/> <strong>注意</strong> <br/> <ul> <li>在您建立新的 Azure SQL Server 和 Database 時，即會啟用 Azure 服務。BizTalk 服務需要啟用 Azure 服務。</li> <li>如果在現有的 Azure SQL Server 上建立新的 Azure SQL Database，則不會變更伺服器的防火牆規則。因此，可能不允許其他 Azure 服務存取伺服器的資料庫。</li> </ul> </td> </tr> <tr> <td> Azure存取控制命名空間</td> <td>利用 Azure BizTalk 服務進行驗證。從 Visual Studio 部署 BizTalk 服務專案時，您可以輸入此存取控制命名空間。當您建立 BizTalk 服務時，存取控制命名空間會自動建立。</td> </tr>
+這些需求並不適用於免費版本。<table border="1"> <tr bgcolor="FAF9F9"> <td><strong>您的需求</strong></td> <td><strong>需要的原因</strong></td> </tr> <tr> <td> Azure 訂用帳戶</td> <td>訂用帳戶決定誰可登入 Azure 入口網站。帳戶持有者可在<a HREF="https://account.windowsazure.com/Subscriptions"> Azure 訂用帳戶</a>中建立訂用帳戶 。<br/><br/> Azure 帳戶可擁有多個訂用帳戶，只要使用者取得允許皆可管理這些帳戶。例如，您的 Azure 帳戶持有者建立一個名為 <em>BizTalkServiceSubscription</em> 的訂用帳戶，並提供您公司內的 BizTalk 系統管理員 (例如 ContosoBTSAdmins@live.com) 存取此訂用帳戶的權限。在此案例中，BizTalk 系統管理員可以登入 Azure 入口網站，並對訂用帳戶中的所有代管服務 (包括 Azure BizTalk 服務) 具有完整系統管理員權限。BizTalk 系統管理員不是 Azure 帳戶持有者，因此無權存取任何任何計費資訊。<br/><br/> <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577">管理 Azure 入口網站中的訂用帳戶和儲存體帳戶</a>提供更多相關資訊。</td> </tr> <tr> <td>Azure SQL Database</td> <td>可儲存 Azure BizTalk 服務所使用的資料表、檢視和預存程序，包括追蹤資料。<br/><br/>在建立 BizTalk 服務時，您可使用現有的 Azure SQL Server、Azure SQL Database，或自動建立新的伺服器或資料庫。<br/><br/> SQL Database 會自動調整。一般來說，預設的調整對 BizTalk 服務已夠用。修改調整會影響定價。請參閱「<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=234930"> Azure SQL Database 中的帳戶與計費</a>」 <br/> <br/> <strong>注意</strong> <br/> <ul> <li>在您建立新的 Azure SQL Server 和 Database 時，即會啟用 Azure 服務。BizTalk 服務需要啟用 Azure 服務。</li> <li>如果在現有的 Azure SQL Server 上建立新的 Azure SQL Database，則不會變更伺服器的防火牆規則。因此，可能不允許其他 Azure 服務存取伺服器的資料庫。</li> </ul> </td> </tr> <tr> <td> Azure存取控制命名空間</td> <td>利用 Azure BizTalk 服務進行驗證。從 Visual Studio 部署 BizTalk 服務專案時，您可以輸入此存取控制命名空間。當您建立 BizTalk 服務時，存取控制命名空間會自動建立。</td> </tr>
 
 <tr>
 <td>Azure 儲存體帳戶</td>
@@ -213,21 +213,21 @@
 
 混合式連線可將 Azure 網站或 Azure 行動服務連線到使用靜態 TCP 連接埠的任何內部部署資源，例如 SQL Server、MySQL、HTTP Web API、行動服務及大多數的自訂 Web 服務。混合式連線和 BizTalk 配接器服務不同。BizTalk 配接器服務是用於將 Azure BizTalk 服務連線至內部部署企業營運 (LOB) 系統。
 
- 查閱[混合式連線](http://go.microsoft.com/fwlink/p/?LinkID=397274)以深入了解，其中包含建立和管理混合式連線。
+ 查閱[混合式連線](integration-hybrid-connection-overview.md)以深入了解，其中包含建立和管理混合式連線。
 
 
 ## 後續步驟
 
-現在，既然已建立 BizTalk 服務，請讓自己熟悉一下各種不同的 [BizTalk 服務：儀表板、監視和調整索引標籤](http://go.microsoft.com/fwlink/p/?LinkID=302281)。您的 BizTalk 服務已準備好可供您的應用程式使用。若要開始建立應用程式，請移至 [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=235197) (英文)。
+現在，既然已建立 BizTalk 服務，請讓自己熟悉一下各種不同的 [BizTalk 服務：儀表板、監視和調整索引標籤](biztalk-dashboard-monitor-scale-tabs.md)。您的 BizTalk 服務已準備好可供您的應用程式使用。若要開始建立應用程式，請移至 [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=235197) (英文)。
 
 ## 另請參閱
-- [BizTalk 服務：版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [BizTalk 服務：狀態圖表](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-- [BizTalk 服務：備份與還原](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-- [BizTalk 服務：節流](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [BizTalk 服務：簽發者名稱和簽發者金鑰](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-- [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
-- [混合式連線](http://go.microsoft.com/fwlink/p/?LinkID=397274)
+- [BizTalk 服務：版本圖表](biztalk-editions-feature-chart.md)<br/>
+- [BizTalk 服務：狀態圖表](biztalk-service-state-chart.md)<br/>
+- [BizTalk 服務：備份與還原](biztalk-backup-restore.md)<br/>
+- [BizTalk 服務：節流](biztalk-throttling-thresholds.md)<br/>
+- [BizTalk 服務：簽發者名稱和簽發者金鑰](biztalk-issuer-name-issuer-key.md)<br/>
+- [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+- [混合式連線](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
 [NEWButton]: ./media/biztalk-provision-services/WABS_New.png
@@ -237,4 +237,4 @@
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

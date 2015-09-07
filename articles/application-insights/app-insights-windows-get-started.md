@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="適用於 Windows Phone 和市集應用程式的 Application Insights" 
-	description="使用 Application Insights 分析 Windows 裝置應用程式的使用情况和效能。" 
-	services="application-insights" 
-    documentationCenter="windows"
-	authors="alancameronwills" 
+<properties
+	pageTitle="適用於 Windows Phone 和市集 App 的 Application Insights | Microsoft Azure"
+	description="使用 Application Insights 分析 Windows 裝置應用程式的使用情况和效能。"
+	services="application-insights"
+	documentationCenter="windows"
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="06/16/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="06/16/2015"
 	ms.author="awills"/>
 
 # 適用於 Windows Phone 和市集應用程式的 Application Insights
@@ -23,8 +23,8 @@
 
 Visual Studio Application Insights 可讓您監視已發佈的應用程式在以下各方面的情況：
 
-* [**使用量**][windowsUsage] - 了解您有多少使用者及他們如何使用您的應用程式。
-* [**損毀**][windowsCrash] - 取得損毀的診斷報告，並了解損毀對使用者的影響。
+* [**使用量**][windowsUsage]：了解您有多少使用者及他們如何使用您的 App。
+* [**損毀**][windowsCrash]：取得損毀的診斷報告，並了解損毀對使用者的影響。
 
 ![](./media/app-insights-windows-get-started/appinsights-d018-oview.png)
 
@@ -35,7 +35,7 @@ Visual Studio Application Insights 可讓您監視已發佈的應用程式在以
 * [Microsoft Azure][azure] 訂用帳戶。
 * Visual Studio 2013 或更新版本。
 
-## 1\.建立 Application Insights 資源 
+## 1\.建立 Application Insights 資源
 
 在 [Azure 入口網站][portal] 中，建立新的 Application Insights 資源。
 
@@ -45,7 +45,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 #### 複製檢測金鑰
 
-此金鑰識別資源。您很快就需要用它來設定 SDK 將資料傳送給資源。
+此金鑰識別資源。您需要用它來設定 SDK 將資料傳送給資源。
 
 ![開啟 Essentials 下拉式抽屜，選取檢測金鑰](./media/app-insights-windows-get-started/02-props.png)
 
@@ -64,7 +64,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. 選擇**適用於 Windows 應用程式的 Application Insights**
+3. 選擇 [適用於 Windows 應用程式的 Application Insights]
 
 4. 將 ApplicationInsights.config 檔案加入至您專案的根目錄，並插入從入口網站複製的檢測金鑰。此組態檔的範例 XML 如下所示。
 
@@ -76,7 +76,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 	```
 
     設定 ApplicationInsights.config 檔案的屬性：[建置動作] == [內容] 而 [複製到輸出目錄] == [一律複製]。
-	
+
 	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
 
 5. 加入下列的初始化程式碼。最好是將此程式碼加入至 `App()` 建構函式。如果您在其他地方加入，您可能會遺漏第一個 PageViews 的自動集合。
@@ -84,9 +84,9 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 ```C#
 	public App()
 	{
-	   // Add this initilization line. 
+	   // Add this initilization line.
 	   WindowsAppInitializer.InitializeAsync();
-	
+
 	   this.InitializeComponent();
 	   this.Suspending += OnSuspending;
 	}  
@@ -138,7 +138,7 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
     WindowsAppInitializer.InitializeAsync( "00000000-0000-0000-0000-000000000000",
        WindowsCollectors.Metadata
        | WindowsCollectors.PageView
-       | WindowsCollectors.Session 
+       | WindowsCollectors.Session
        | WindowsCollectors.UnhandledException);
 
 #### 傳送您自己的遙測資料
@@ -178,7 +178,7 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 
 如果您偏好使用 Visual Studio 執行設定步驟，可以針對 Windows Phone、Windows 市集和其他許多類型的應用程式這樣做。
 
-###<a name="new"></a>如果您要建立新的 Windows 應用程式專案...
+### <a name="new"></a>如果您要建立新的 Windows App 專案...
 
 在 [新增專案] 對話方塊中，選取 [Application Insights]。
 
@@ -187,7 +187,7 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 ![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
 
 
-###<a name="existing"></a>或者，如果是現有的專案...
+### <a name="existing"></a>或者，如果是現有的專案...
 
 從 [方案總管] 加入 Application Insights。
 
@@ -227,6 +227,4 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

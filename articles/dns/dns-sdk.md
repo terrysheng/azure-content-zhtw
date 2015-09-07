@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="使用 .net SDK 自動化 DNS 和記錄集作業 | Microsoft Azure" 
-   description="使用 .NET SDK 自動化 Azure DNS 的所有 DNS 作業。" 
-   services="dns" 
-   documentationCenter="na" 
-   authors="joaoma" 
-   manager="adinah" 
-   editor=""/>
+   pageTitle="使用 .net SDK 自動化 DNS 和記錄集作業 | Microsoft Azure"
+	description="使用 .NET SDK 自動化 Azure DNS 的所有 DNS 作業。"
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="05/20/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/20/2015"
+	ms.author="joaoma"/>
 # 使用 .NET SDK 建立 DNS 區域和記錄集
 您可以使用 DNS SDK 搭配 .NET DNS 管理程式庫，以自動化作業來建立、刪除或更新 DNS 區域、記錄集和記錄。[這裡](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)提供完整的 Visual Studio 專案。
 
@@ -54,7 +54,7 @@ DnsManagementClient 包含管理 DNS 區域和記錄集所需的方法和屬性�
 	dnsClient.Zones.CreateOrUpdate("myresgroup", "myzone.com", zoneParams);
 
 
-Azure DNS 支援開放式同步存取，稱為 [Etag](../dns-getstarted-create-dnszone#Etags-and-tags)。Etag 是 Zone 的屬性，IfNoneMatch 是 ZoneCreateOrUpdateParameters 中的屬性。
+Azure DNS 支援開放式同步存取，稱為 [Etag](dns-getstarted-create-dnszone.md#Etags-and-tags)。Etag 是 Zone 的屬性，IfNoneMatch 是 ZoneCreateOrUpdateParameters 中的屬性。
 
 ## 建立或更新 DNS 記錄
 DNS 記錄是以記錄集形式管理。記錄集是指一個區域內有相同名稱和記錄類型的一組記錄。若要建立或更新記錄集，需要建立 RecordSet 物件並傳遞給 dnsClient.RecordSets.CreateOrUpdate。請注意，記錄集名稱相對於區域名稱，而不是完整的 DNS 名稱。同樣地，位置設定為 "global"。
@@ -74,7 +74,7 @@ DNS 記錄是以記錄集形式管理。記錄集是指一個區域內有相同�
 	"myzone.com", "www", RecordType.A, recordParams);
 	
     
-Azure DNS 支援開放式同步存取 [Etag](../dns-getstarted-create-dnszone#Etags-and-tags)。Etag 是 RecordSet 的屬性，IfNoneMatch 是 RecordSetCreateOrUpdateParameters 中的屬性。
+Azure DNS 支援開放式同步存取 [Etag](dns-getstarted-create-dnszone.md#Etags-and-tags)。Etag 是 RecordSet 的屬性，IfNoneMatch 是 RecordSetCreateOrUpdateParameters 中的屬性。
 
 ## 取得 Zones 和 RecordSets
 Zones 和 RecordSets 集合分別能夠取得區域和記錄集。RecordSets 依其類型、名稱及所在的區域 (和資源群組) 來識別。Zones 依其名稱及所在的資源群組來識別。
@@ -100,11 +100,12 @@ Zones 和 RecordSets 集合分別能夠取得區域和記錄集。RecordSets 依
 
     // do something like write out each record set
 	}
-## 另請參閱 
-[流量管理員概觀](../traffic-manager-overview)
+## 後續步驟
 
-[Azure DNS 概觀](../dns-overview)
+[什麼是流量管理員？](traffic-manager-overview.md)
+
+[什麼是 Azure DNS？](dns-overview.md)
 
 [Visual Studio SDK 範例專案](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

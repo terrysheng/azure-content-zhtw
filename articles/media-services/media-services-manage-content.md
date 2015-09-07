@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用 Azure 管理入口網站透過 Azure 媒體服務管理媒體內容" 
-	description="了解如何在 Azure 媒體服務中管理您的媒體內容。這包括：上傳、索引、編碼、加密，以及發佈。" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="如何使用 Azure 管理入口網站透過 Azure 媒體服務管理媒體內容"
+	description="了解如何在 Azure 媒體服務中管理您的媒體內容。這包括：上傳、索引、編碼、加密，以及發佈。"
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/23/2015"
 	ms.author="juliako"/>
 
 
@@ -99,13 +99,13 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 本章節描述您可以採取的步驟，以使用管理入口網站，透過 Azure Media Encoder 編碼您的內容。
 
 1.  選取您想要編碼的檔案。如果支援此檔案類型的編碼，[內容] 頁面底部的 [處理] 按鈕將會啟用。
-4. 在 [**處理**] 對話方塊選取 ** Azure 媒體編碼器 **處理器。
+4. 在 [處理] 對話方塊選取 [Azure 媒體編碼器] 處理器。
 5. 選擇其中一種**編碼組態**。
 
 	![Process2][process2]
 
 		
-	[Azure Media Encoder 的工作預設字串](https://msdn.microsoft.com/library/azure/dn619392.aspx)主題說明**調適性串流 (動態封裝) 的預設**、**漸進式下載的預設**、**調適性串流的傳統預設**等類別各代表什麼意思。
+	[Azure 媒體編碼器的工作預設字串](https://msdn.microsoft.com/library/azure/dn619392.aspx)主題說明**彈性資料流預設 (動態封裝)**、**漸進式下載預設**、**彈性資料流的舊版預設值**等類別各代表什麼意思。
 
 
 	**其他**組態如下所述：
@@ -129,6 +129,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 
 ##<a id="encrypt"></a>做法：加密內容
 
+
 如果您想要讓媒體服務以 AES 金鑰或 PlayReady DRM 動態加密資產，請務必先執行下列動作：
 
 - 將您的夾層 (來源) 檔編碼為一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案 (編碼步驟示範於[編碼](#encode)區段)。
@@ -141,6 +142,11 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 	![加密][encrypt]
 
 	啟用加密之後，播放程式要求串流時，媒體服務便會使用 AES 或 PlayReady 加密，使用指定的金鑰動態加密您的內容。為了將串流解密，播放程式將從金鑰傳遞服務要求金鑰。為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
+
+另外，請參閱：
+
+- [利用 PlayReady DRM 保護](media-services-rest-deliver-streaming-content.md)
+- [利用 AES-128 金鑰保護](media-services-protect-with-aes128.md)
 
 ##<a id="publish"></a>做法：發佈內容
 
@@ -215,4 +221,4 @@ SAS URL 具有下列格式：
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

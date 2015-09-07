@@ -127,7 +127,6 @@ Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，�
 
 如需如何從 WebMatrix 部署至 Web Apps 的相關資訊，請參閱下列資源：
 
-* [用 Microsoft WebMatrix 開發和部署 Web 應用程式](web-sites-dotnet-using-webmatrix.md)。說明如何使用 WebMatrix 範本建立簡易的 ASP.NET Web 應用程式，並使用 WebMatrix 和 Web Deploy 將其部署至 Web Apps。
 * [使用 WebMatrix 來建立 Node.js 網站並部署至 Azure](web-sites-nodejs-use-webmatrix.md)。
 * [使用 WebMatrix 建立並部署 PHP-MySQL Web 應用程式](web-sites-php-mysql-use-webmatrix.md)。
 * [WebMatrix 3：整合 Git 並部署至 Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD)。說明如何使用 WebMatrix 從 Git 原始檔控制儲存機制進行部署。
@@ -228,4 +227,4 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

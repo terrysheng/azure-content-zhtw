@@ -100,36 +100,8 @@
 
 
 ## 異常活動報告
+異常登入活動報告包含 Azure 管理入口網站、Azure AD 存取面板、Office365、Sharepoint Online、Dynamics CRM Online 和其他 Microsoft 線上服務 (無論是否為同盟提供者) 的可疑登入活動。<p>提供下列報告：</p><ul><li>[從不明來源登入](active-directory-reporting-sign-ins-from-unknown-sources.md)。</li> <li>[在多次失敗後登入](active-directory-reporting-sign-ins-after-multiple-failures.md)。</li> <li>[從多個地理區域登入](active-directory-reporting-sign-ins-from-multiple-geographies.md)。</li> <li>[從具有可疑活動的 IP 位址登入](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)。</li> <li>[異常的登入活動](active-directory-reporting-irregular-sign-in-activity.md)。</li> <li>[從可能受感染的裝置登入](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)。</li> <li>[具有異常登入活動的使用者](active-directory-reporting-users-with-anomalous-sign-in-activity.md)。</li> <li>認證外洩的使用者</li></ul>
 
-### 從不明來源登入
-
-如需這份報告的詳細資訊，請參閱[從不明來源登入](active-directory-reporting-sign-ins-from-unknown-sources.md)。
-
-### 在多次失敗後登入
-
-如需這份報告的詳細資訊，請參閱[在多次失敗後登入](active-directory-reporting-sign-ins-after-multiple-failures.md)。
-
-### 從多個地理區域登入
-
-如需這份報告的詳細資訊，請參閱[從多個地理區域登入](active-directory-reporting-sign-ins-from-multiple-geographies.md)。
-
-### 從具有可疑活動的 IP 位址登入
-
-如需這份報告的詳細資訊，請參閱[從具有可疑活動的 IP 位址登入](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)。
-
-### 異常的登入活動
-
-如需這份報告的詳細資訊，請參閱[異常的登入活動](active-directory-reporting-irregular-sign-in-activity.md)。
-
-### 從可能受感染的裝置登入
-
-如需這份報告的詳細資訊，請參閱[從可能受感染的裝置登入](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)。
-
-### 具有異常登入活動的使用者
-
-如需這份報告的詳細資訊，請參閱[具有異常登入活動的使用者](active-directory-reporting-users-with-anomalous-sign-in-activity.md)。
-
-<!-- Users with leaked credentials goes here -->
 
 
 
@@ -254,7 +226,7 @@
 | 對已新增至目錄的自訂商務應用程式進行的登入 | 否 (敬請期待) |
 | 登入已加入目錄的 Azure AD 應用程式 Proxy 應用程式 | 否 (敬請期待) |
 
-> 注意：為了減少此報告中的雜訊量，不會顯示經由 [Microsoft Online Services 登入小幫手](http://community.office365.com/zh-tw/w/sso/534.aspx)對 [Lync/Skype for Business](http://products.office.com/zh-tw/skype-for-business/online-meetings) 原生應用程式進行的登入。
+> 注意：為了減少此報告中的雜訊量，不會顯示經由 [Microsoft Online Services 登入小幫手](http://community.office365.com/zh-TW/w/sso/534.aspx)對 [Lync/Skype for Business](http://products.office.com/zh-TW/skype-for-business/online-meetings) 原生應用程式進行的登入。
 
 
 
@@ -302,4 +274,4 @@
 - [開始使用 Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

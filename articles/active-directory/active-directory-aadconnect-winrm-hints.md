@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect - Windows 遠端管理提示" 
-	description="搭配 AD FS 使用的 Azure AD Connect Windows 遠端管理提示。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect - Windows 遠端管理提示"
+	description="搭配 AD FS 使用的 Azure AD Connect Windows 遠端管理提示。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure AD Connect - Windows 遠端管理提示
@@ -43,6 +43,6 @@
 
 * [Azure AD Connect 帳戶與權限的詳細資訊](active-directory-aadconnect-account-summary.md)
 * [自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)
-* [MSDN 上的 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
+* [MSDN 上的 Azure AD Connect](active-directory-aadconnect.md) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

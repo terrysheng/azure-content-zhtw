@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 搜尋服務 REST API 版本 2015-02-28-Preview | Microsoft Azure"
-   description="Azure 搜尋服務 REST API Version 2015-02-28-Preview 包含自然語言分析器和 moreLikeThis 搜尋等實驗性功能。"
-   services="search"
-   documentationCenter="na"
-   authors="HeidiSteen"
-   manager="mblythe"
-   editor=""/>
+	description="Azure 搜尋服務 REST API Version 2015-02-28-Preview 包含自然語言分析器和 moreLikeThis 搜尋等實驗性功能。"
+	services="search"
+	documentationCenter="na"
+	authors="HeidiSteen"
+	manager="mblythe"
+	editor=""/>
 
 <tags
    ms.service="search"
-   ms.devlang="rest-api"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="search"
-   ms.date="07/22/2015"
-   ms.author="heidist"/>
+	ms.devlang="rest-api"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="search"
+	ms.date="08/25/2015"
+	ms.author="heidist"/>
 
 # Azure 搜尋服務 REST API：版本 2015-02-28-Preview
 
@@ -95,7 +95,7 @@ ________________________________________
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
       {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer: "fr.lucene"},
+	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
       {"name": "hotelName", "type": "Edm.String"},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -262,7 +262,7 @@ ________________________________________
 
   - **注意**：如果某個欄位未將上述屬性設為 `true` (`searchable`、`filterable`、`sortable` 或 `facetable`)，系統就會從反向索引中有效地排除該欄位。針對查詢中未使用，但需要在搜尋結果中使用的欄位來說，此選項非常實用。從索引中排除這類欄位有助於提高效能。
 
-  - `suggestions` - 舊版的 API 包含 `suggestions` 屬性。這個布林值屬性現已淘汰，無法在 `2015-02-28` 或 `2015-02-28-Preview` 中使用。請改用[建議工具 API](#Suggesters)。在 `2014-07-31` 版本中，使用 `suggestions` 屬性來指定欄位是否可針對類型 `Edm.String` 或 `Collection(Edm.String)` 的欄位用來執行自動完成自動提示。`suggestions` 預設是 `false`，因為它在您的索引中需要額外的空間，但若您啟用了它，請參閱[在 Azure 搜尋服務中從預覽版本轉換為一般版本](search-transition-from-preview.md)，以取得如何轉換為新 API 的相關指示。
+`suggestions` - 舊版的 API 包含 `suggestions` 屬性。這個布林值屬性現已淘汰，無法在 `2015-02-28` 或 `2015-02-28-Preview` 中使用。請改用[建議工具 API](#Suggesters)。在 `2014-07-31` 版本中，使用 `suggestions` 屬性來指定欄位是否可針對類型 `Edm.String` 或 `Collection(Edm.String)` 的欄位用來執行自動完成自動提示。`suggestions` 預設是 `false`，因為它在您的索引中需要額外的空間，但若您啟用了它，請參閱[在 Azure 搜尋服務中從預覽版本轉換為一般版本](search-transition-from-preview.md)，以取得如何轉換為新 API 的相關指示。
 
 `key` - 將欄位標記為包含索引內之文件的唯一識別碼。您必須只選擇一個欄位做為 `key` 欄位，而它的類型必須是 `Edm.String`。索引鍵欄位可以用來透過[查閱 API](#LookupAPI) 直接查閱文件。
 
@@ -270,7 +270,7 @@ ________________________________________
 
 `analyzer` - 設定要針對此欄位使用的文字分析器名稱。如需允許的值組，請參閱[語言支援](#LanguageSupport)。此選項只能與 `searchable` 欄位搭配使用。選擇分析器之後，就無法針對此欄位進行變更。
 
-`sugggesters`：設定搜尋模式和用來提供建議之內容來源的欄位。如需詳細資訊，請參閱[建議工具](#Suggesters)。
+`suggesters`：設定搜尋模式和用來提供建議之內容來源的欄位。如需詳細資訊，請參閱[建議工具](#Suggesters)。
 
 `scoringProfiles` - 定義自訂評分行為，讓您能夠影響搜尋結果中哪些項目的出現機率會比較高。評分設定檔是由欄位權數和函式所組成。如需評分設定檔中所使用的屬性詳細資訊，請參閱[新增評分設定檔](https://msdn.microsoft.com/library/azure/dn798928.aspx)。
 
@@ -279,894 +279,316 @@ ________________________________________
 
 可搜尋的欄位最常執行的分析是斷字、文字正規化，以及篩選出字詞。根據預設，Azure 搜尋服務中可搜尋的欄位是使用 [Apache Lucene 標準分析器](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html)進行分析，並依照[「Unicode 文字區段」](http://unicode.org/reports/tr29/)規則來將文字分隔為元素。此外，標準分析器會將所有字元轉換為它們的小寫形式。已編製索引的文件和搜尋字詞在編製索引和查詢處理期間都會執行分析。
 
-Azure 搜尋服務支援以各種語言來編製欄位的索引。每一種語言都需要非標準的文字分析器，以負責指定語言的特性。Azure 搜尋服務提供兩種類型的分析器：
+Azure 搜尋支援多種語言。每一種語言都需要非標準的文字分析器，以負責指定語言的特性。Azure 搜尋服務提供兩種類型的分析器：
 
-- 由 Lucene 所支援的 28 種分析器。
+- 由 Lucene 所支援的 35 種分析器。
 - 由專屬的 Microsoft 自然語言處理技術所支援的 50 種分析器，此技術同樣用於 Office 和 Bing 中。
 
-一些開發人員可能偏好使用更熟悉、簡單且開放原始碼的 Lucene 解決方案。Lucene 的速度較快，但是 Microsoft 分析器擁有像是詞形還原的進階功能。如果可以，您應該進行 Microsoft 和 Lucene 分析器的比較，以決定哪一個比較適合。
+一些開發人員可能偏好使用更熟悉、簡單且開放原始碼的 Lucene 解決方案。Lucene 分析器速度較快，但 Microsoft 分析器具備進階功能，例如詞形歸併還原、複合字詞拆分 (如德文、丹麥文、荷蘭文、瑞典文、挪威文、愛沙尼亞文、芬蘭文、匈牙利文、斯洛伐克文等語言) 和實體辨識 (URL、電子郵件、日期、數字)。如果可以，您應該進行 Microsoft 和 Lucene 分析器的比較，以決定哪一個比較適合。
 
 ***比較它們的方法***
 
-適用於英文的 Lucene 分析器可擴充標準分析器。它會從字組中移除所有格 (結尾的 's)、為每個 [Porter 詞幹演算法](http://tartarus.org/~martin/PorterStemmer/)套用詞幹，然後移除英文[停用字詞](http://en.wikipedia.org/wiki/Stop_words)。使用 Lucene 分析器進行查詢和編製索引的速度非常快。
+適用於英文的 Lucene 分析器可擴充標準分析器。它會從字組中移除所有格 (結尾的 's)、為每個 [Porter 詞幹演算法](http://tartarus.org/~martin/PorterStemmer/)套用詞幹，然後移除英文[停用字詞](http://en.wikipedia.org/wiki/Stop_words)。
 
-進行比較時，Microsoft 分析器會實作詞幹擴充分析器，在查詢期間產生每一個查詢字組的所有可能字詞形式，以產生更高的結果準確度，但同時也會產生更多延遲。降低查詢效能對詞幹擴充分析器而言相當常見。使用 Microsoft 分析器編製索引的速度平均會比其 Lucene 對等項目慢三倍。
+相較之下，Microsoft 分析器執行詞形的歸併還原而不是詞幹還原。這表示它可以把變形和不規則的字詞形式處理得更好，得到相關性更強的搜尋結果 (詳細資訊請見 [Azure 搜尋 MVA 簡報](http://www.microsoftvirtualacademy.com/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps) 的模組 7)。
+
+使用 Microsoft 分析器編製索引，平均速度約比其 Lucene 對等項目慢兩到三倍，視語言而定。平均大小的查詢應不至大幅影響搜尋效能。
 
 ***設定***
 
-針對索引定義中的每一個欄位，您可以將 `analyzer` 屬性設為分析器名稱，以指定語言和廠商。例如，您可以有個別適用於英文、法文及西班牙文旅館說明的欄位，這些欄位會以相同的索引並列存在。該查詢會指定要在您的搜尋查詢中傳回哪一個語言特定的欄位。您可以檢閱[搜尋文件](#SearchDocs)中包含 `analyzer` 屬性的查詢範例。
+針對索引定義中的每一個欄位，您可以將 `analyzer` 屬性設為分析器名稱，以指定語言和廠商。搜尋與編制該欄位索引時會套用相同的分析器。例如，您可以有個別適用於英文、法文及西班牙文旅館說明的欄位，這些欄位會以相同的索引並列存在。使用 ['searchFields' 查詢參數](#SearchQueryParameters)指定針對查詢所要搜尋的語言特定欄位。您可以檢閱[搜尋文件](#SearchDocs)中包含 `analyzer` 屬性的查詢範例。
 
 ***分析器清單***
 
-以下是支援的分析器清單以及其功能特性的簡短說明：
+以下是支援的語言清單與 Lucene 和 Microsoft 的分析器名稱。
 
 <table style="font-size:12">
     <tr>
 		<th>語言</th>
-		<th>分析器名稱</th>
-		<th>說明</th>
-	</tr>
-    <tr>
-		<td>阿拉伯文</td>
-		<td>ar.lucene</td>
-		<td>
-		<ul>
-			<li>實作阿拉伯文拼字正確正規化</li>
-			<li>應用輕度演算法詞幹分析</li>
-			<li>篩選出阿拉伯文停用字詞</li>
-		</ul>
-		</td>
+		<th>Microsoft 分析器名稱</th>
+		<th>Lucene 分析器名稱</th>
 	</tr>
     <tr>
 		<td>阿拉伯文</td>
 		<td>ar.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹縮減分析器</li>
-			<li>篩選出阿拉伯文停用字詞</li>
-		</ul>
-		</td>
+		<td>ar.lucene</td>		
 	</tr>
     <tr>
     	<td>亞美尼亞文</td>
+		<td></td>
     	<td>hy.lucene</td>
-    	<td>
-    	<ul>
-      		<li>應用輕度演算法詞幹分析</li>
-    		<li>篩選出亞美尼亞文停用字詞</li>
-	    </ul>
-    	</td>
   	</tr>
     <tr>
 		<td>孟加拉文</td>
-		<td>bg.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-		</ul>
-		</td>
+		<td>bn.microsoft</td>
+		<td></td>
 	</tr>
   	<tr>
     	<td>巴斯克文</td>
+		<td></td>
     	<td>eu.lucene</td>
-    	<td>
-    	<ul>
-      		<li>應用輕度演算法詞幹分析</li>
-    		<li>篩選出巴斯克文停用字詞</li>
-	    </ul>
-    	</td>
     </tr>
   	<tr>
- 	   <td>保加利亞文</td>
+ 		<td>保加利亞文</td>
+		<td>bg.microsoft</td>
     	<td>bg.lucene</td>
-    	<td>
-    	<ul>
-      		<li>應用輕度演算法詞幹分析</li>
-    		<li>篩選出保加利亞文停用字詞</li>
-	    </ul>
-    	</td>
   	</tr>
-    <tr>
-		<td>保加利亞文</td>
-		<td>bn.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-		</ul>
-		</td>
-	</tr>
   	<tr>
     	<td>卡達隆尼亞文</td>
-    	<td>ca.lucene</td>
-    	<td>
-    	<ul>
-      		<li>應用輕度演算法詞幹分析</li>
-      		<li>篩選出卡達隆尼亞文停用字詞</li>
-      		<li>移除元音省略</li>
-   		</ul>
-    	</td>
+    	<td>ca.microsoft</td>
+		<td>ca.lucene</td>  		
   	</tr>
-    <tr>
-		<td>卡達隆尼亞文</td>
-		<td>ca.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>移除讀音符號</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>簡體中文</td>
-		<td>zh-Hans.lucene</td>
-		<td>
-		<ul>
-			<li>使用機率知識模型來尋找最佳的字詞分割</li>
-			<li>篩選出中文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
     <tr>
 		<td>簡體中文</td>
 		<td>zh-Hans.microsoft</td>
-		<td>
-		<ul>
-			<li>使用機率知識模型來尋找最佳的字詞分割</li>
-		</ul>
-		</td>
+		<td>zh-Hans.lucene</td>		
 	</tr>
     <tr>
 		<td>繁體中文</td>
-		<td>zh-Hant.lucene</td>
-		<td>
-		<ul>
-			<li>編製雙字母組合的索引 (重疊兩個相鄰中文字元的群組)</li>
-			<li>將字元寬度差異正規化</li>
-		</ul>
-		</td>
-	<tr>
-    <tr>
-		<td>繁體中文</td>
 		<td>zh-Hant.microsoft</td>
-		<td>
-		<ul>
-			<li>使用機率知識模型來尋找最佳的字詞分割</li>
-		</ul>
-		</td>
+		<td>zh-Hant.lucene</td>		
 	<tr>
     <tr>
 		<td>克羅埃西亞文</td>
 		<td>hr.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>捷克文</td>
-		<td>cs.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出捷克文停用字詞</li>
-		</ul>
-		</td>
+		<td/></td>
 	</tr>
     <tr>
 		<td>捷克文</td>
 		<td>cs.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>篩選出捷克文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>丹麥文</td>
-		<td>da.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出丹麥文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
+		<td>cs.lucene</td>		
+	</tr>    
     <tr>
 		<td>丹麥文</td>
 		<td>da.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>篩選出丹麥文停用字詞</li>
-			<li>分解</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>荷蘭文</td>
-		<td>nl.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出荷蘭文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
+		<td>da.lucene</td>		
+	</tr>    
     <tr>
 		<td>荷蘭文</td>
 		<td>nl.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>篩選出荷蘭文停用字詞</li>
-			<li>分解</li>
-			<li>移除讀音符號</li>
-		</ul>
-		</td>
-	</tr>
+		<td>nl.lucene</td>	
+	</tr>    
     <tr>
-		<td>English</td>
-		<td>en.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出英文停用字詞</li>
-			<li>移除所有格</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>English</td>
+		<td>English</td>		
 		<td>en.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>篩選出英文停用字詞</li>
-			<li>移除所有格和讀音符號</li>
-		</ul>
-		</td>
+		<td>en.lucene</td>		
 	</tr>
     <tr>
 		<td>愛沙尼亞文</td>
 		<td>et.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹縮減分析器</li>
-			<li>分解</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>芬蘭文</td>
-		<td>fi.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出芬蘭文停用字詞</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>芬蘭文</td>
 		<td>fi.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹縮減分析器</li>
-			<li>篩選出芬蘭文停用字詞</li>
-			<li>分解</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>法文</td>
-		<td>fr.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出法文停用字詞</li>
-			<li>移除元音省略</li>
-		</ul>
-		</td>
-	</tr>
+		<td>fi.lucene</td>		
+	</tr>    
     <tr>
 		<td>法文</td>
 		<td>fr.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>篩選出法文停用字詞</li>
-			<li>移除讀音符號</li>
-		</ul>
-		</td>
+		<td>fr.lucene</td>		
 	</tr>
     <tr>
     	<td>加里斯亞文</td>
-	    <td>gl.lucene</td>
-    	<td>
-    	<ul>
-    		<li>應用輕度詞幹分析</li>
-      		<li>篩選出加里斯亞文停用字詞</li>
-    	</ul>
-    	</td>
+	    <td></td>
+		<td>gl.lucene</td>    	
   	</tr>
     <tr>
 		<td>德文</td>
-		<td>de.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出德文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>德文</td>
 		<td>de.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>篩選出德文停用字詞</li>
-			<li>分解</li>
-			<li>移除讀音符號</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>希臘文</td>
-		<td>el.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出希臘文停用字詞</li>
-		</ul>
-		</td>
+		<td>de.lucene</td>		
 	</tr>
     <tr>
 		<td>希臘文</td>
 		<td>el.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>篩選出希臘文停用字詞</li>
-		</ul>
-		</td>
+		<td>el.lucene</td>		
 	</tr>
     <tr>
 		<td>古吉拉特文</td>
 		<td>gu.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>希伯來文</td>
 		<td>he.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹縮減分析器</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>北印度文</td>
-		<td>hi.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出北印度文停用字詞</li>
-			<li>移除拼字變體中的一些差異</li>
-			<li>將印度語中文字的 Unicode 表示法正規化。</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>北印度文</td>
 		<td>hi.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>篩選出北印度文停用字詞</li>
-		</ul>
-		</td>
+		<td>hi.lucene</td>		
 	</tr>
     <tr>
-		<td>匈牙利文</td>
-		<td>hu.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出匈牙利文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>匈牙利文</td>
+		<td>匈牙利文</td>		
 		<td>hu.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹縮減分析器</li>
-			<li>篩選出匈牙利文停用字詞</li>
-			<li>分解</li>
-		</ul>
-		</td>
+		<td>hu.lucene</td>
 	</tr>
     <tr>
 		<td>冰島文</td>
 		<td>is.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>印尼文 (Bahasa)</td>
-		<td>id.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出印尼文停用字詞</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>印尼文 (Bahasa)</td>
 		<td>id.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>篩選出印尼文停用字詞</li>
-		</ul>
-		</td>
+		<td>id.lucene</td>		
 	</tr>
     <tr>
     	<td>愛爾蘭文</td>
+		<td></td>
       	<td>ga.lucene</td>
-      	<td>
-      	<ul>
-        	<li>應用輕度詞幹分析</li>
-        	<li>篩選出愛爾蘭文停用字詞</li>
-      	</ul>
-      	</td>
     </tr>
     <tr>
 		<td>義大利文</td>
-		<td>it.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出義大利文停用字詞</li>
-			<li>移除元音省略</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>義大利文</td>
 		<td>it.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>篩選出義大利文停用字詞</li>
-			<li>移除讀音符號</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>日文</td>
-		<td>ja.lucene</td>
-		<td>
-		<ul>
-			<li>使用形態分析</li>
-			<li>將常見的片假名拼字變體正規化</li>
-			<li>輕度移除停用字詞/停用標記</li>
-			<li>字元寬度正規化</li>
-			<li>詞形還原 - 使字尾有變化的形容詞和動詞變為它們的基本形式</li>
-		</ul>
-		</td>
+		<td>it.lucene</td>		
 	</tr>
     <tr>
 		<td>日文</td>
 		<td>ja.microsoft</td>
-		<td>
-		<ul>
-			<li>使用形態分析</li>
-		</ul>
-		</td>
+		<td>ja.lucene</td>
+		
 	</tr>
     <tr>
 		<td>坎那達文</td>
 		<td>ka.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>韓文</td>
+		<td></td>
 		<td>ko.lucene</td>
-		<td>
-		<ul>
-			<li>編製雙字母組合的索引 (重疊兩個相鄰韓文字元的群組)</li>
-			<li>將字元寬度差異正規化</li>
-		</ul>
-		</td>
-	</tr>
-  	<tr>
-		<td>韓文</td>
-		<td>ko.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹縮減分析器 (詞形還原)</li>
-		</ul>
-		</td>
 	</tr>
     <tr>
-		<td>拉脫維亞文</td>
-		<td>lv.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出拉脫維亞文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>拉脫維亞文</td>
+		<td>拉脫維亞文</td>		
 		<td>lv.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹縮減分析器</li>
-			<li>篩選出拉脫維亞文停用字詞</li>
-		</ul>
-		</td>
+		<td>lv.lucene</td>	
 	</tr>
     <tr>
 		<td>立陶宛文</td>
 		<td>lt.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹縮減分析器</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>馬來亞拉姆文</td>
 		<td>ml.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>馬來文 (拉丁)</td>
 		<td>ms.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>馬拉提文</td>
 		<td>mr.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>挪威文</td>
-		<td>no.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出挪威文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>挪威文</td>
-		<td>no.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>篩選出挪威文停用字詞</li>
-			<li>分解</li>
-		</ul>
-		</td>
+		<td>nb.microsoft</td>
+		<td>no.lucene</td>		
 	</tr>
   	<tr>
     	<td>波斯文</td>
-		<td>fa.lucene</td>
-    	<td>
-    	<ul>
-      		<li>應用演算法詞幹分析</li>
-      		<li>篩選出波斯文停用字詞</li>
-      		<li>實作阿拉伯文和波斯文拼字正確正規化</li>
-    	</ul>
-    	</td>
+		<td></td>
+		<td>fa.lucene</td>    	
   	</tr>
     <tr>
 		<td>波蘭文</td>
-		<td>pl.lucene</td>
-		<td>
-		<ul>
-			<li>應用演算法詞幹分析 (Stempel)</li>
-			<li>篩選出波蘭文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>波蘭文</td>
 		<td>pl.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>篩選出波蘭文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>葡萄牙文 (巴西)</td>
-		<td>pt-Br.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出巴西文停用字詞</li>
-		</ul>
-		</td>
+		<td>pl.lucene</td>		
 	</tr>
     <tr>
 		<td>葡萄牙文 (巴西)</td>
 		<td>pt-Br.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>篩選出巴西文停用字詞</li>
-		</ul>
-		</td>
+		<td>pt-Br.lucene</td>		
 	</tr>
     <tr>
 		<td>葡萄牙文 (葡萄牙)</td>
+		<td>pt-Pt.microsoft</td>		
 		<td>pt-Pt.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出葡萄牙文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>葡萄牙文 (葡萄牙)</td>
-		<td>pt-Pt.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>篩選出葡萄牙文停用字詞</li>
-			<li>移除讀音符號</li>
-		</ul>
-		</td>
 	</tr>
     <tr>
 		<td>旁遮普文</td>
 		<td>pa.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>羅馬尼亞文</td>
-		<td>ro.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出羅馬尼亞文停用字詞</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>羅馬尼亞文</td>
 		<td>ro.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>篩選出羅馬尼亞文停用字詞</li>
-			<li>移除讀音符號</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>俄文</td>
-		<td>ru.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出俄文停用字詞</li>
-		</ul>
-		</td>
+		<td>ro.lucene</td>
 	</tr>
     <tr>
 		<td>俄文</td>
 		<td>ru.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>篩選出俄文停用字詞</li>
-		</ul>
-		</td>
+		<td>ru.lucene</td>	
 	</tr>
     <tr>
 		<td>塞爾維亞文 (斯拉夫)</td>
 		<td>sr-cyrillic.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>塞爾維亞文 (拉丁)</td>
 		<td>sr-latin.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>斯洛伐克文</td>
 		<td>sk.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹縮減分析器</li>
-			<li>分解</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>斯洛維尼亞文</td>
-		<td>sk.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>西班牙文</td>
-		<td>es.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出西班牙文停用字詞</li>
-		</ul>
-		</td>
+		<td>sl.microsoft</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>西班牙文</td>
 		<td>es.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>篩選出西班牙文停用字詞</li>
-			<li>移除讀音符號</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>瑞典文</td>
-		<td>sv.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出瑞典文停用字詞</li>
-		</ul>
-		</td>
+		<td>es.lucene</td>
 	</tr>
     <tr>
 		<td>瑞典文</td>
 		<td>sv.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-			<li>篩選出瑞典文停用字詞</li>
-			<li>分解</li>
-		</ul>
-		</td>
+		<td>sv.lucene</td>
 	</tr>
+
     <tr>
 		<td>坦米爾文</td>
 		<td>ta.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>特拉古文</td>
 		<td>te.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹擴充分析器 (詞形還原)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>泰文</td>
-		<td>th.lucene</td>
-		<td>
-		<ul>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出泰文停用字詞</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>泰文</td>
 		<td>th.microsoft</td>
-		<td>
-		<ul>
-			<li>篩選出泰文停用字詞</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>土耳其文</td>
-		<td>tr.lucene</td>
-		<td>
-		<ul>
-			<li>去除所有格符號 (包括所有格符號本身) 之後的所有字元</li>
-			<li>應用輕度詞幹分析</li>
-			<li>篩選出土耳其文停用字詞</li>
-		</ul>
-		</td>
+		<td>th.lucene</td>
 	</tr>
     <tr>
 		<td>土耳其文</td>
 		<td>tr.microsoft</td>
-		<td>
-		<ul>
-			<li>詞幹縮減分析器</li>
-			<li>篩選出土耳其文停用字詞</li>
-		</ul>
-		</td>
+		<td>tr.lucene</td>		
 	</tr>
     <tr>
 		<td>烏克蘭文</td>
 		<td>uk.microsoft</td>
-		<td>
-		<ul>
-		<li>詞幹擴充分析器 (詞形還原)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>烏都文</td>
 		<td>ur.microsoft</td>
-		<td>
-		<ul>
-		<li>詞幹擴充分析器 (詞形還原)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>越南文</td>
 		<td>vi.microsoft</td>
-		<td>
-		<ul>
-
-		</ul>
-		</td>
+		<td></td>
 	</tr>
 	<td colspan="3">此外，Azure 搜尋服務還提供無從驗證語言的分析器設定</td>
     <tr>
@@ -1211,7 +633,7 @@ Azure 搜尋服務支援以各種語言來編製欄位的索引。每一種語�
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
+	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer"="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -1282,7 +704,7 @@ Azure 搜尋中的建議功能是自動完成或自動完成查詢的功能，�
 		  ]
 		}
 
-> [AZURE.NOTE]如果您使用了公開預覽版本的 Azure 搜尋服務，`suggesters` 會取代較舊的布林值屬性 (`"suggestions": false`)，因為該屬性僅支援適用於簡短字串 (3-25 個字元) 的前置建議。它的替代項目 `suggesters` 支援中置比對，可在欄位內容的開頭或中間尋找相符的項目，而且對搜尋字串內的錯誤有更好的容錯能力。從公開上市版本開始，這現在是建議 API 的唯一實作。在 `api-version=2014-07-31-Preview` 中引進的較舊 `suggestions` 屬性仍會在該版本中繼續運作，但無法在 `2015-02-28` 或更新版本的 Azure 搜尋服務中運作。
+> [AZURE.NOTE]如果您使用了公開預覽版本的 Azure 搜尋服務，`suggesters` 會取代較舊的布林值屬性 (`"suggestions": false`)，因為該屬性僅支援適用於簡短字串 (3-25 個字元) 的前置建議。它的替代項目 `suggesters` 支援中置比對，可在欄位內容的開頭或中間尋找相符的項目，而且對搜尋字串內的錯誤有更好的容錯能力。從公開上市版本開始，這現在是建議 API 的唯一實作。在 `api-version=2014-07-31-Preview` 中引進的較舊 `suggestions` 屬性仍會在該版本中繼續運作，但無法在 `2015-02-28` 或更新版本的 Azure 搜尋中運作。
 
 <a name="UpdateIndex"></a>
 ## 更新索引
@@ -1565,11 +987,11 @@ Azure 搜尋中的建議功能是自動完成或自動完成查詢的功能，�
 
 ________________________________________
 <a name="DocOps"></a>
-## 文件操作 #
+## 文件操作
 
 在 Azure 搜尋中，索引是儲存在雲端並使用您上傳到服務的 JSON 文件來填入。您上傳的所有文件會包含您搜尋資料的主體。文件會包含欄位，其中一些欄位會在它們上傳時語彙基元化為搜尋字詞。Azure 搜尋服務 API 中的 `/docs` URL 區段表示索引中的文件集合。在集合中執行的所有操作 (例如，上傳、合併、刪除或查詢文件) 都會在單一索引的內容中執行，因此，這些操作的 URL 一律會以 `/indexes/[index name]/docs` 為開頭來做為指定的索引名稱。
 
-應用程式碼必須產生 JSON 文件，才能上傳至 Azure 搜尋，或如果資料來源是 Azure SQL Database 或 DocumentDB，則可以使用[索引子](https://msdn.microsoft.com/library/dn946891.aspx)來載入文件。通常，索引是從您提供的單一資料集填入。
+應用程式程式碼必須產生 JSON 文件，才能上傳至 Azure 搜尋，或如果資料來源是 Azure SQL Database 或 DocumentDB，則可以使用[索引子](https://msdn.microsoft.com/library/dn946891.aspx)來載入文件。通常，索引是從您提供的單一資料集填入。
 
 您應該規劃針對每個想要搜尋的項目擁有一份文件。電影出租應用程式可能是每部電影有一份文件、店面應用程式可能是每個 SKU 有一份文件、線上課程應用程式可能是每個課程有一份文件、研究公司可能會在他們的存放庫中針對每份學術報告有一份文件，依此類推。
 
@@ -1709,7 +1131,7 @@ ________________________________________
 <a name="SearchDocs"></a>
 ## 搜尋文件
 
-**搜尋**操作是當成 GET 或 POST 要求來發出，並指定參數，在選取相符文件時提供準則。
+**搜尋**作業是當成 GET 或 POST 要求來發出，並指定參數，在選取相符文件時提供準則。
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs?[query parameters]
     api-key: [admin or query key]
@@ -1741,11 +1163,11 @@ ________________________________________
 
 此外，只有在使用 GET 直接呼叫 REST API 時，才需要進行 URL 編碼。使用 POST 呼叫**搜尋**或是使用 [.NET 用戶端程式庫](https://msdn.microsoft.com/library/dn951165.aspx)時不需要 URL 編碼，其會為您處理 URL 編碼。
 
-**查詢參數**
+<a name="SearchQueryParameters"></a> **查詢參數**
 
-**搜尋**會接受可提供查詢準則以及指定搜尋操作的數個參數。您會在透過 GET 呼叫**搜尋**時，以及透過 POST 呼叫**搜尋**時在要求主體中以 JSON 內容形式，在 URL 查詢字串中提供這些參數。GET 和 POST 之間某些參數的語法稍有不同。這些差異已適當在以下標示：
+**搜尋**會接受可提供查詢準則以及指定搜尋行為的數個參數。您會在透過 GET 呼叫**搜尋**時，以及透過 POST 呼叫**搜尋**時在要求主體中以 JSON 內容形式，在 URL 查詢字串中提供這些參數。GET 和 POST 之間某些參數的語法稍有不同。這些差異已適當在以下標示：
 
-`search=[string]` (選用) - 要搜尋的文字。除非指定 `searchFields`，否則預設會搜尋所有的 `searchable` 欄位。搜尋 `searchable` 欄位時，搜尋文字本身已經語彙基元化，因此，可以使用空格來分隔多個字詞 (例如：`search=hello world`)。若要比對任何字詞，請使用 `*` (這對於布林篩選查詢非常有用)。忽略此參數的效果與將它設為 `*` 的效果一樣。如需搜尋語法規格的相關資訊，請參閱[簡單的查詢語法](https://msdn.microsoft.com/library/dn798920.aspx)。
+`search=[string]` (選用) - 要搜尋的文字。除非指定 `searchFields`，否則預設會搜尋所有的 `searchable` 欄位。搜尋 `searchable` 欄位時，搜尋文字本身已經語彙基元化，因此，可以使用空格來分隔多個字詞 (例如：`search=hello world`)。若要比對任何字詞，請使用 `*` (這對於布林篩選查詢非常有用)。忽略此參數的效果與將它設為 `*` 的效果一樣。如需搜尋語法的詳細資訊，請參閱[簡單的查詢語法](https://msdn.microsoft.com/library/dn798920.aspx)。
 
   - **注意**：透過 `searchable` 欄位進行查詢時，結果有時會出人意料。Tokenizer 包含處理英文文字常見案例的邏輯，例如，所有格符號、數字內的逗號等。例如，`search=123,456` 將比對單一字詞 123,456，而不是個別的字詞 123 和 456，因為分號在英文中是用來做為較大數字的千位數分隔符號。基於此緣故，我們建議使用空格，而不是標點符號，來分隔 `search` 參數中的字詞。
 
@@ -1779,7 +1201,7 @@ ________________________________________
 
 `facet=[string]` (零或多個) - 要設定多面向的欄位。字串可以選擇性地包含參數，來自訂要表達為逗號分隔之 `name:value` 對組的多面向。有效參數包括：
 
-- `count` (多面向字詞的最大數目；預設值為 10)。沒有最大值，但較高的值會導致相對應的效能損失，尤其是在多面向欄位包含大量的唯一字詞時。
+- `count` (Facet 字詞的最大數目；預設值為 10)。沒有最大值，但較高的值會導致相對應的效能損失，尤其是在多面向欄位包含大量的唯一字詞時。
   - 例如：`facet=category,count:5` 會取得多面向結果中的前五個類別。  
   - **注意**：如果 `count` 參數小於唯一字詞的數目，結果可能不正確。這是因為多面向查詢的方式會散佈於各個分區中。提高 `count` 通常會增加字詞計數的準確性，但需要付出效能代價。
 - `sort` (下列其中一個：依計數「遞減」排序的 `count`、依計數「遞增」排序的 `-count`、依值「遞增」排序的 `value`，或是依值「遞增」排序的 `-value`)
@@ -1821,7 +1243,7 @@ ________________________________________
 
 `api-version=[string]` (必要)。預覽版本為 `api-version=2015-02-28-Preview`。如需詳細資訊和替代版本，請參閱[搜尋服務版本設定](http://msdn.microsoft.com/library/azure/dn864560.aspx)。
 
-注意：對於這項作業，`api-version` 可在 URL 中指定為查詢參數，而不論您是使用 GET 或 POST 呼叫**搜尋**。
+注意：對於這項作業，可在 URL 中指定 `api-version` 為查詢參數，而不論您是使用 GET 或 POST 呼叫**搜尋**。
 
 **要求標頭**
 
@@ -2174,7 +1596,7 @@ ________________________________________
 
 **使用 POST 而不是 GET 的時機**
 
-您使用 HTTP GET 呼叫**建議** API 時，您需要留意要求 URL 的長度不能超過 8 KB。這對大部分的應用程式通常已足夠。不過，有些應用程式會產生非常大型的查詢，特別是 OData 篩選條件運算式。針對這些應用程式，使用 HTTP POST 是較好的選擇。POST 的要求大小限制接近 17 MB，即使是最複雜的查詢空間亦很充裕。
+使用 HTTP GET 呼叫**建議** API 時，需要留意要求 URL 的長度不能超過 8 KB。這對大部分的應用程式通常已足夠。不過，有些應用程式會產生非常大型的查詢，特別是 OData 篩選條件運算式。針對這些應用程式，使用 HTTP POST 是較好的選擇。POST 的要求大小限制接近 17 MB，即使是最複雜的查詢空間亦很充裕。
 
 **要求**
 
@@ -2195,7 +1617,7 @@ ________________________________________
 
 **查詢參數**
 
-**建議**會接受可提供查詢準則以及指定搜尋操作的數個參數。您會在透過 GET 呼叫**建議**時，以及透過 POST 呼叫**建議**時在要求主體中以 JSON 內容形式，在 URL 查詢字串中提供這些參數。GET 和 POST 之間某些參數的語法稍有不同。這些差異已適當在以下標示：
+**建議**會接受可提供查詢準則以及指定搜尋行為的數個參數。您會在透過 GET 呼叫**建議**時，以及透過 POST 呼叫**建議**時在要求主體中以 JSON 內容形式，在 URL 查詢字串中提供這些參數。GET 和 POST 之間某些參數的語法稍有不同。這些差異已適當在以下標示：
 
 `search=[string]` - 要用來建議查詢的搜尋文字。必須至少 1 個字元，而且不能多於 100 個字元。
 
@@ -2307,4 +1729,4 @@ ________________________________________
       "suggesterName": "sg"
     }
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

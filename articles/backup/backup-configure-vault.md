@@ -7,14 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2015" ms.author="jimpark"; "aashishr"/>
 
 # 設定 Azure 備份以準備備份 Windows Server
 
@@ -28,7 +21,7 @@
 - **下載保存庫認證** — 在 Azure 備份中，將您建立的管理憑證上傳到保存庫。
 - **安裝 Azure 備份代理程式並註冊伺服器** — 從 Azure 備份，安裝代理程式並在備份保存庫中註冊伺服器。
 
-[AZURE.INCLUDE [backup-create-vault](../../includes/backup-create-vault.md)]
+[AZURE.INCLUDE [backup-create-vault-wgif](../../includes/backup-create-vault-wgif.md)]
 
 [AZURE.INCLUDE [backup-download-credentials](../../includes/backup-download-credentials.md)]
 
@@ -41,4 +34,4 @@
 - [Azure 備份常見問題集](backup-azure-backup-faq.md)
 - [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

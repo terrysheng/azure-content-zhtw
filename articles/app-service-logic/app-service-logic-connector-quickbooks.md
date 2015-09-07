@@ -1,25 +1,24 @@
 <properties
-   pageTitle="QuickBooks 連接器"
-   description="如何使用 QuickBooks 連接器"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 QuickBooks 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 QuickBooks 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-#在邏輯應用程式中使用 QuickBooks 連接器#
-
-邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。QuickBooks 連接器可讓您建立和修改不同的 QuickBooks 實體。以下清單是 QuickBooks 連接器支援的 QuickBooks 實體。
+# 開始使用 QuickBooks 連接器並將它加入您的邏輯應用程式
+使用 QuickBooks 連接器可建立和修改不同的 QuickBooks 實體。下表列出受支援的實體：
 
 實體|說明
 ---|---
@@ -31,7 +30,7 @@ Invoice|Invoice 代表客戶之後必須針對產品或服務付款的銷售表�
 項目|Item 是您公司購買、銷售，或重新銷售的項目，例如產品、運送與處理費用、折扣及營業稅 (如果適用)。Item 會在發票或其他銷售表單上列為一行。
 SalesReceipt|此實體代表提供給客戶的銷售收據。
 
-
+邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。您可以將 QuickBooks 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
 ##QuickBooks 動作 ##
 以下是 QuickBooks 連接器中可使用的不同動作。
@@ -120,7 +119,7 @@ SalesReceipt|此實體代表提供給客戶的銷售收據。
 18. 您可以在 QuickBooks 帳戶中查看是否已建立名為 'Contoso' 的新帳戶。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -141,4 +140,4 @@ SalesReceipt|此實體代表提供給客戶的銷售收據。
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

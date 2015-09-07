@@ -1,25 +1,26 @@
 <properties
-   pageTitle="Office 365 連接器"
-   description="如何使用 Office 365 連接器"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 Office 365 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 Office 365 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-#在邏輯應用程式中使用 Office 365 連接器#
+# 開始使用 Office 365 連接器並將它加入您的邏輯應用程式
+連線至 Office 365 帳戶以傳送和接收電子郵件，並管理您的行事曆和連絡人。您可以執行各種動作，例如傳送、接收和取得電子郵件、建立和刪除行事曆中的事件，以及建立、更新、取得和刪除您的連絡人。
 
-邏輯應用程式可以根據各種資料來源和提供項目連接器觸發，以在流程中取得和處理資料。Office 365 連接器可讓您傳送和接收電子郵件，及管理 Office 365 帳戶的行事曆和連絡人。您可以執行各種動作，例如傳送、接收和取得電子郵件、建立和刪除行事曆中的事件，以及建立、更新、取得和刪除您的連絡人。
+邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。您可以將 Office 365 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
 **基本動作**
 
@@ -33,8 +34,8 @@
 連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
 1. 在 Azure 開始面板中，選取 [**Marketplace**]。
-2. 搜尋「Office 365 連接器」，加以選取，然後選取 [**建立**]。
-3.	設定 Office365 連接器，方法為提供裝載方案及資源群組的詳細資料，並選取 API 應用程式的名稱︰![][21]
+2. 搜尋「Office 365 連接器」，加以選取，然後選取 [建立]。
+3.	設定 Office 365 連接器，方法為提供裝載方案及資源群組的詳細資料，並選取 API 應用程式的名稱︰![][21]
 
 
 ## 建立邏輯應用程式
@@ -42,7 +43,7 @@
 
 1.	登入 Azure 入口網站，並按一下 [新增] -> [Web + 行動] -> [邏輯應用程式]︰![][1]
 
-2.	在 [建立邏輯應用程式] 頁面中，請提供必要的詳細資料，例如名稱、應用程式服務方案和位置︰![][2]
+2.	在 [建立邏輯應用程式] 頁面中，請提供必要的詳細資料，例如名稱、應用程式服務方案和位置：![][2]
 
 3.	按一下 [觸發程序及動作]，邏輯應用程式編輯器隨即開啟︰![][3]
 
@@ -97,7 +98,7 @@
 26. 傳送電子郵件到設定觸發程序的帳戶，接著您應該會在您的個人郵件帳戶中看到一封電子郵件，並在公司郵件帳戶中看到行事曆事件和連絡人。此外，您應該會取得一則回覆，表示您不久之後將會收到銷售查詢的回應。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -126,4 +127,4 @@
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

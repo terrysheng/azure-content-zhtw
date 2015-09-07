@@ -1,20 +1,20 @@
 <properties
    pageTitle="使用 DMV 監視工作負載 | Microsoft Azure"
-   description="了解如何使用 DMV 監視工作負載。"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sahaj08"
-   manager="barbkess"
-   editor=""/>
+	description="了解如何使用 DMV 監視工作負載。"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sahaj08"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/06/2015"
-   ms.author="sahajs"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="08/06/2015"
+	ms.author="sahajs"/>
 
 # 使用 DMV 監視工作負載
 
@@ -135,7 +135,11 @@ ORDER BY step_index;
 
 儲存長時間執行步驟的 Step Index。
 
-檢查長時間執行之查詢步驟的 *operation\_type* 資料行：- 若為 **SQL 作業**請繼續進行步驟 4a: OnOperation、RemoteOperation、ReturnOperation - 若為**資料移動作業**請繼續進行步驟 4b：ShuffleMoveOperation、BroadcastMoveOperation、TrimMoveOperation、PartitionMoveOperation、MoveOperation、CopyOperation
+檢查長時間執行查詢步驟的 *operation\_type* 資料行：
+
+- 針對下列 **SQL 作業**繼續執行步驟 4a：OnOperation、RemoteOperation、ReturnOperation。
+- 針對下列**資料移動作業**繼續執行步驟 4b：ShuffleMoveOperation、BroadcastMoveOperation、TrimMoveOperation、PartitionMoveOperation、MoveOperation、CopyOperation。
+
 
 
 
@@ -213,4 +217,4 @@ DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

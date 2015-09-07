@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="適用 JavaScript Web 應用程式的 Application Insights" 
-	description="取得頁面檢視和工作階段計數、Web 用戶端資料，並追蹤使用量模式。Detect exceptions and performance issues in JavaScript web pages." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+<properties
+	pageTitle="JavaScript Web App 適用的 Application Insights | Microsoft Azure"
+	description="取得頁面檢視和工作階段計數、Web 用戶端資料，並追蹤使用量模式。Detect exceptions and performance issues in JavaScript web pages."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/10/2015"
 	ms.author="awills"/>
- 
+
 # 適用 JavaScript Web 應用程式的 Application Insights
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
@@ -48,19 +48,19 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
 在您想要追蹤之每一個頁面的 &lt;/head&gt; 標記之前插入指令碼。如果您的網站有主版頁面，您可以那裡放入指令碼。例如：
 
-* 在 ASP.NET MVC 專案中，可放在 View\\Shared\\\_Layout.cshtml 中
+* 在 ASP.NET MVC 專案中，可放在 View\\Shared\\_Layout.cshtml 中
 * 在 SharePoint 網站中，在控制台中開啟[站台設定/主要頁面](app-insights-sharepoint.md)。
 
 指令碼包含檢測金鑰，會將資料導向您的 Application Insights 資源。
 
 *(如果您使用的是已知網頁架構，請在 Application Insights 配接器附近尋找。例如，有 [AngularJS 模組](http://ngmodules.org/modules/angular-appinsights)。)*
 
- 
+
 ## <a name="run"></a>執行您的應用程式
 
-執行您的 Web 應用程式，稍微使用一下來產生遙測，並等候數秒鐘。您可以在開發電腦上按 F5 執行它，或發佈它讓使用者處理。
+執行您的 Web 應用程式，稍微使用一下來產生遙測，並等候數秒鐘。您可以在開發電腦上使用 **F5** 執行它，或發佈它讓使用者處理。
 
-如果您想要檢查 Web 應用程式傳送至 Application Insights 的遙測，請使用您的瀏覽器的偵錯工具 (在許多瀏覽器上為 F12)。資料會傳送至 dc.services.visualstudio.com。
+如果您想要檢查 Web App 傳送至 Application Insights 的遙測，請使用您瀏覽器的偵錯工具 (在許多瀏覽器上為 **F12**)。資料會傳送至 dc.services.visualstudio.com。
 
 ## 探索資料
 
@@ -128,7 +128,7 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
     appInsights.trackPageView(myPageName);
 
-頁面名稱可能會含有與 URL 相同的字元，不過 "\#" 或 "?" 之後的任何字元都將遭到忽略。
+頁面名稱可能會含有與 URL 相同的字元，不過 "#" 或 "?" 之後的任何字元都將遭到忽略。
 
 
 ## 檢查個別的頁面檢視事件
@@ -147,7 +147,7 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
 ### 頁面檢視屬性
 
-* **網頁檢視期間** 載入網頁並開始執行指令碼所花費的時間。具體來說，開始載入頁面及執行 trackPageView 之間的間隔。如果您在指令碼的初始設定之後將 trackPageView 從一般位置移走，它會反映不同的值。 
+* **網頁檢視期間**：載入網頁並開始執行指令碼所花費的時間。具體來說，開始載入頁面及執行 trackPageView 之間的間隔。如果您在指令碼的初始設定之後將 trackPageView 從一般位置移走，它會反映不同的值。
 
 ## 自訂使用情況追蹤
 
@@ -184,6 +184,4 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

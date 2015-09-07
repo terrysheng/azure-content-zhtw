@@ -1,9 +1,4 @@
-已經從入口網站下載的伺服器專案已啟用驗證。
 
-在 ASP.NET 專案中，您應該會看到下列項目：
+>[AZURE.TIP]快速入門擴充套件內含驗證擴充套件。您從入口網站下載的伺服器專案已啟用驗證。若要了解如何不使用快速入門擴充套件來安裝和初始化驗證，請參閱[做法：將推播通知新增至伺服器專案](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-authentication-to-a-server-project)。
 
-* `Microsoft.Azure.Mobile.Server.Authentication` NuGet 封裝已安裝。
-
-* 在 WebApiConfig.cs 中的 MobileAppConfiguration 物件上呼叫 `UseDefaultConfiguration()` 方法。這樣會接著呼叫上述的 NuGet 封裝所提供的 `AddAppServiceAuthentication()` 擴充方法。它也會在 OWIN 起動期間呼叫 `app.UseAppServiceAuthentication()`，以註冊驗證所需的 OWIN 中介軟體。
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

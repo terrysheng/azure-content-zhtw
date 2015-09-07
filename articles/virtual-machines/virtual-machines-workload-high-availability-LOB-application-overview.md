@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="在 Azure 中部署高可用性的企業營運應用程式" 
-	description="您可以在 Azure 中透過五個階段，部署包含 SQL Server AlwaysOn 可用性群組的 Web 型、高可用性企業營運應用程式。" 
+	pageTitle="部署企業營運應用程式 | Microsoft Azure"
+	description="在 Azure 中透過五個階段，部署包含 SQL Server AlwaysOn 可用性群組的 Web 型、高可用性企業營運應用程式。"
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # 在 Azure 中部署高可用性的企業營運應用程式
@@ -66,4 +66,4 @@
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

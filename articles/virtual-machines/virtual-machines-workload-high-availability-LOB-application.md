@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure 基礎結構服務工作負載：高可用性企業營運應用程式" 
-	description="了解部署在 Azure 中 Web 型企業營運應用程式的值、如何設定開發/測試環境，以及如何部署高可用性的生產組態。" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Azure 中的企業營運應用程式 | Microsoft Azure"
+	description="了解 Azure 中企業營運應用程式的價值、設定測試環境，以及部署高可用性組態。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Azure 基礎結構服務工作負載：高可用性企業營運應用程式
@@ -103,4 +103,4 @@
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

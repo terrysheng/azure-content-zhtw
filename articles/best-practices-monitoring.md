@@ -1,21 +1,21 @@
 <properties
    pageTitle="監視和診斷指引 | Microsoft Azure"
-   description="監視雲端中分散式應用程式的最佳作法。"
-   services=""
-   documentationCenter="na"
-   authors="dragon119"
-   manager="masimms"
-   editor=""
-   tags=""/>
+	description="監視雲端中分散式應用程式的最佳作法。"
+	services=""
+	documentationCenter="na"
+	authors="dragon119"
+	manager="masimms"
+	editor=""
+	tags=""/>
 
 <tags
    ms.service="best-practice"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="masashin"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="04/28/2015"
+	ms.author="masashin"/>
 
 # 監視和診斷指引
 
@@ -608,8 +608,8 @@ _圖 6.根據分析和儲存體需求分割資料_
 - Microsoft 網站上的＜[設定 Azure 雲端服務和虛擬機器的診斷](https://msdn.microsoft.com/library/azure/dn186185.aspx)＞頁面。
 - Microsoft 網站上的＜[Azure Redis 快取](http://azure.microsoft.com/services/cache/)＞、＜[Azure DocumentDB](http://azure.microsoft.com/services/documentdb/)＞和＜[HDInsight](http://azure.microsoft.com/services/hdinsight/)＞頁面。
 - Microsoft 網站上的＜[如何服務匯流排佇列](http://azure.microsoft.com/)＞頁面。
-- Microsoft 網站上的＜[Azure 虛擬機器中的 SQL Server Business Intelligence](https://msdn.microsoft.com/library/azure/jj992719.aspx)＞頁面。
+- Microsoft 網站上的＜[Azure 虛擬機器中的 SQL Server Business Intelligence](./virtual-machines/virtual-machines-sql-server-business-intelligence.md)＞頁面。
 - Microsoft 網站上的＜[了解 Azure 中的監視警示和通知](https://msdn.microsoft.com/library/azure/dn306639.aspx)＞頁面。
 - Microsoft 網站上的＜[Application Insights](app-insights-get-started/)＞頁面。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="監視任何網站的可用性和回應性" 
-	description="在 Application Insights 中設定 Web 測試。如果網站無法使用或回應緩慢，將收到警示。" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+<properties
+	pageTitle="監視任何網站的可用性和回應性 | Microsoft Azure"
+	description="在 Application Insights 中設定 Web 測試。如果網站無法使用或回應緩慢，將收到警示。"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/08/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/08/2015"
 	ms.author="awills"/>
- 
+
 # 監視任何網站的可用性和回應性
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
@@ -127,6 +127,8 @@ Web 測試可分為兩種：
 
 若要建立多重步驟測試，您可以使用 Visual Studio 來記錄案例，然後將記錄結果上傳至 Application Insights。Application Insights 將會不時地重新執行案例，並確認回應。
 
+請注意，您無法在測試中使用編碼的函式：做為 .webtest 檔案中的指令碼必須包含案例步驟。
+
 #### 1. 記錄案例
 
 使用 Visual Studio Ultimate 來記錄 Web 工作階段。
@@ -150,7 +152,7 @@ Web 測試可分為兩種：
     Web 測試執行器會開啟網頁瀏覽器，並重複您已記錄的動作。請確定運作如您所預期。
 
     ![在 Visual Studio 中，開啟 .webtest 檔案，並按一下 [執行]。](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
- 
+
 
 (請勿在 Web 測試程式碼中插入迴圈。)
 
@@ -169,6 +171,8 @@ Web 測試可分為兩種：
 失敗的常見原因是在測試執行太長。不可執行超過兩分鐘。
 
 別忘了，頁面的所有資源必須正確載入，測試才能成功 (包括指令碼、樣式表、映像等等)。
+
+請注意，Web 測試必須完全包含在 .webtest 檔案中：您無法在測試中使用編碼的函式。
 
 
 ### 將時間和隨機數字插入多重步驟測試中
@@ -207,13 +211,14 @@ Web 測試外掛程式提供這種作法。
 
 ## 有疑問嗎？ 有問題嗎？
 
-* 在某些情況下我收到「無效的字元」相關錯誤 
 
-* **「Web 測試」和「可用性」之間有任何差異嗎？
+* *「Web 測試」和「可用性」之間有任何差異嗎？*
 
     我們會交替使用這兩個詞彙。
 
+* *可以從我的 Web 測試呼叫程式碼嗎？*
 
+    否。測試步驟必須在 .webtest 檔案中。
 
 ## <a name="video"></a>影片
 
@@ -235,6 +240,4 @@ Web 測試外掛程式提供這種作法。
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

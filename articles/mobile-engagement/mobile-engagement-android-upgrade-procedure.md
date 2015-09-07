@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Mobile Engagement Android SDK 整合" 
+	pageTitle="Azure Mobile Engagement Android SDK 整合"
 	description="Android SDK for Azure Mobile Engagement 的最新更新和程序"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 
 #升級程序
@@ -24,6 +24,29 @@
 如果您有錯過幾個版本的 SDK，您必須遵循幾個步驟。例如，如果您要從 1.4.0 移轉到 1.6.0，必須先遵循「從 1.4.0 到 1.5.0」的程序，然後再依照「從 1.5.0 到 1.6.0」的程序進行。
 
 不論您升級開始的版本為何，都必須將 `mobile-engagement-VERSION.jar` 替換為新的。
+
+##從 4.0.0 到 4.1.0
+
+SDK 現在處理 Android M 新的權限模型。
+
+如果您使用定位功能或大型圖片通知，請閱讀[本章節](mobile-engagement-android-integrate-engagement.md#android-m-permissions)。
+
+除了新的權限模型，現在支援在執行階段設定定位功能。定位的資訊清單參數仍然相容，但現在已經被取代。若要使用執行階段設定，請從您的 ``AndroidManifest.xml`` 移除下列區段：
+
+    <meta-data
+      android:name="engagement:locationReport:lazyArea"
+      android:value="true"/>
+    <meta-data
+      android:name="engagement:locationReport:realTime"
+      android:value="true"/>
+    <meta-data
+      android:name="engagement:locationReport:realTime:background"
+      android:value="true"/>
+    <meta-data
+      android:name="engagement:locationReport:realTime:fine"
+      android:value="true"/>
+
+並請閱讀[此更新的程序](mobile-engagement-android-integrate-engagement.md#location-reporting)，以改用執行階段設定。
 
 ##從 3.0.0 到 4.0.0
 
@@ -363,4 +386,4 @@ Proguard 組態受到品牌重新命名的影響，規則現在類似：
 			}
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

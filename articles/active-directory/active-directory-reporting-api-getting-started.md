@@ -1,20 +1,20 @@
 <properties
    pageTitle="開始使用 Azure AD 報告 API"
-   description="如何開始使用 Azure Active Directory 報告 API"
-   services="active-directory"
-   documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
-   editor=""/>
+	description="如何開始使用 Azure Active Directory 報告 API"
+	services="active-directory"
+	documentationCenter=""
+	authors="kenhoff"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="07/17/2015"
-   ms.author="kenhoff;yossib"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="07/17/2015"
+	ms.author="kenhoff;yossib"/>
 
 
 # 開始使用 Azure AD 報告 API
@@ -73,7 +73,9 @@ Azure AD 報告 API 透過一組以 REST 為基礎的 API (可從各種程式設
 
 
 ## 修改指令碼
-若要編輯下列 PowerShell 指令碼以使用於您的目錄，請使用 [在 Azure AD 中委派存取權] 中的正確值來取代 $ClientID、$ClientSecret 和 $tenantdomain。
+編輯下列其中一個指令碼以搭配您的目錄使用：使用 [在 Azure AD 中委派存取權] 中的正確值來取代 $ClientID、$ClientSecret 和 $tenantdomain。
+
+### PowerShell 指令碼
 
     # This script will require the Web Application and permissions setup in Azure Active Directory
     $ClientID      = "<<YOUR CLIENT ID HERE>>"                # Should be a ~35 character string insert your info here
@@ -125,6 +127,30 @@ Azure AD 報告 API 透過一組以 REST 為基礎的 API (可從各種程式設
         Write-Host "ERROR: No Access Token"
         }
 
+### Bash 指令碼
+
+    #!/bin/bash
+
+    # Author: Ken Hoff (kenhoff@microsoft.com)
+    # Date: 2015.08.20
+    # NOTE: This script requires jq (https://stedolan.github.io/jq/)
+
+    CLIENT_ID="<<YOUR CLIENT ID HERE>>"			# Should be a ~35 character string insert your info here
+    CLIENT_SECRET="<<YOUR CLIENT SECRET HERE>>"	# Should be a ~44 character string insert your info here
+    LOGIN_URL="https://login.windows.net"
+    TENANT_DOMAIN="<<YOUR TENANT NAME HERE>>"	 # For example, contoso.onmicrosoft.com
+
+    TOKEN_INFO=$(curl -s --data-urlencode "grant_type=client_credentials" --data-urlencode "client_id=$CLIENT_ID" --data-urlencode "client_secret=$CLIENT_SECRET" "$LOGIN_URL/$TENANT_DOMAIN/oauth2/token?api-version=1.0")
+
+    TOKEN_TYPE=$(echo $TOKEN_INFO | jq -r '.token_type')
+    ACCESS_TOKEN=$(echo $TOKEN_INFO | jq -r '.access_token')
+
+    REPORT=$(curl -s --header "Authorization: $TOKEN_TYPE $ACCESS_TOKEN" https://graph.windows.net/$TENANT_DOMAIN/reports/auditEvents?api-version=beta)
+
+    echo $REPORT | jq -r '.value' | jq -r ".[]"
+
+
+
 
 ## 執行指令碼
 完成指令碼編輯後，加以執行並確認從 AuditEvents 報告傳回預期的資料。
@@ -137,4 +163,4 @@ Azure AD 報告 API 透過一組以 REST 為基礎的 API (可從各種程式設
 - 如需稽核報告的詳細資訊，請參閱 [Azure AD 稽核報告事件](active-directory-reporting-audit-events.md)
 - 如需圖形 API REST 服務的詳細資訊，請參閱 [Azure AD 報告和事件 (預覽)](https://msdn.microsoft.com/library/azure/mt126081.aspx)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

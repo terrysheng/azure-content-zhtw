@@ -80,14 +80,11 @@ Windows Server 2008 R2|所有版本|SP1|x64
 
 4. 依照下列方式填入欄位：
 
-	- 在 **URL** 下，為儲存體帳戶輸入要在 URL 中使用的子網域名稱。此項目可以包含 3 至 24 個小寫字母與數字。此名稱會成為 URL 內用來為訂閱的 Blob、「佇列」或「資料表」資源定址的主機名稱。
+ - 在 **URL** 下，為儲存體帳戶輸入要在 URL 中使用的子網域名稱。此項目可以包含 3 至 24 個小寫字母與數字。此名稱會成為 URL 內用來為訂用帳戶的 blob、佇列或資料表資源定址的主機名稱。
+ - 選擇儲存體帳戶的**位置或同質群組**。同質群組可讓您將雲端服務和儲存體放在相同的資料中心。
+ - 決定儲存體帳戶是否要使用**異地複寫**。依預設會開啟異地複寫。此選項可讓您免費將資料複寫至次要位置，使您在主要位置發生重大錯誤時，可將儲存體容錯移轉至該位置。次要位置會自動指派，且無法變更。如果您因為法律規定或組織原則而需要更充分掌控您以雲端為基礎的儲存體所在的位置，您可以關閉地理複寫。但請注意，如果您後續又開啟異地複寫，在您將現有的資料複寫至次要位置時，將會產生一次性的資料傳輸費用。不含異地複寫的儲存服務會有相對的折扣。如需深入了解如何管理儲存體帳戶的異地複寫，請參閱：[建立、管理或刪除儲存體帳戶](../storage-create-storage-account/#replication-options)。
 
-	- 選擇儲存體帳戶的**位置或同質群組**。同質群組可讓您將雲端服務和儲存體放在相同的資料中心。
-
-	- 決定儲存體帳戶是否要使用**地理區域複寫**。依預設會開啟地理區域複寫。此選項可讓您免費將資料複寫至次要位置，使您在主要位置發生重大錯誤時，可將儲存體容錯移轉至該位置。次要位置會自動指派，且無法變更。如果您因為法律規定或組織原則而需要更充分掌控您以雲端為基礎的儲存體所在的位置，您可以關閉地理複寫。但請注意，如果您後續又開啟地理區域複寫，在您將現有的資料複寫至次要位置時，將會產生一次性的資料傳輸費用。不含地理區域複寫的儲存服務會有相對的折扣。如需深入了解如何管理儲存體帳戶的地理區域複寫，請參閱：[建立、管理或刪除儲存體帳戶](../storage-create-storage-account/#replication-options)。
-
-	![輸入儲存體帳戶詳細資料](./media/virtual-machines-create-upload-vhd-windows-server/Storage-create-account.png)
-
+      ![輸入儲存體帳戶詳細資料](./media/virtual-machines-create-upload-vhd-windows-server/Storage-create-account.png)
 
 5. 按一下 [建立儲存體帳戶]。帳戶現在會出現在 [儲存體] 下方。
 
@@ -105,7 +102,7 @@ Windows Server 2008 R2|所有版本|SP1|x64
 
 	![容器名稱](./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_containervalues.png)
 
-	> [AZURE.NOTE]容器預設為私人，且只能由帳戶擁有者存取。若要允許對容器中 Blob 的公開讀取存取，但不允許存取容器屬性和中繼資料，請使用 [公用 Blob] 選項。若要允許對容器及 Blob 的完整公開讀取存取，請使用 [公開容器] 選項。
+	> [AZURE.NOTE]容器預設為私人，且只能由帳戶擁有者存取。若要允許對容器中 Blob 的公開讀取存取，但不允許存取容器屬性和中繼資料，請使用 [公用 Blob] 選項。若要允許對容器及 Blob 的完整公開讀取存取，請使用 [公用容器] 選項。
 
 ## 步驟 3：準備 Microsoft Azure 的連線 ##
 
@@ -143,8 +140,7 @@ Windows Server 2008 R2|所有版本|SP1|x64
 
 ## 步驟 4：上傳 .vhd 檔案
 
-在上傳 .vhd 檔案時，您可以將 .vhd 檔案放在 Blob 儲存體中的任一處。在下列命令範例中，**BlobStorageURL** 是您在步驟 2 中建立之儲存體帳戶的 URL，**YourImagesFolder** 則是您要用來儲存映像之 Blob 儲存體中的容器。**VHDName** 是管理入口網站中用來識別虛擬硬碟的顯示標籤。**PathToVHDFile** 是 .vhd 檔案的完整路徑和名稱。
-
+在上傳 .vhd 檔案時，您可以將 .vhd 檔案放在 Blob 儲存體中的任一處。在下列命令範例中，**BlobStorageURL** 是您在步驟 2 中建立之儲存體帳戶的 URL，**YourImagesFolder** 則是您要用來儲存映像之 Blob 儲存體中的容器。**VHDName** 是入口網站中，用來識別虛擬硬碟的顯示標籤。**PathToVHDFile** 是 .vhd 檔案的完整路徑和名稱。
 
 1. 從您在上一個步驟使用的 Azure PowerShell 視窗中，輸入：
 
@@ -168,19 +164,23 @@ Windows Server 2008 R2|所有版本|SP1|x64
 
 4. 在 [從 VHD 建立映像] 中，執行下列動作：
 
-	- 指定 [名稱]
-	- 指定 [說明]
+	- 指定 [名稱]。
+
+	- 指定 [說明]。
+
 	- 若要指定 **VHD 的 URL**，請按一下資料夾按鈕以開啟下列視窗：
 
-	![選取 VHD](./media/virtual-machines-create-upload-vhd-windows-server/Select_VHD.png)
+    ![選取 VHD](./media/virtual-machines-create-upload-vhd-windows-server/Select_VHD.png)
 
 	- 選取您的 VHD 所在的儲存體帳戶，然後按一下 [開啟]。這會讓您回到 [從 VHD 建立映像] 視窗。
-	- 回到 [從 VHD 建立映像] 視窗後，選取 [作業系統系列]。
-	- 勾選 [I have run Sysprep on the virtual machine associated with this VHD] 並確認您在步驟 1 將作業系統一般化，然後按一下 [確定]。
 
-	![新增映像](./media/virtual-machines-create-upload-vhd-windows-server/Create_Image_From_VHD.png)
+	- 回到 [從 VHD 建立映像] 視窗後，在 [作業系統系列] 中選取您的作業系統。
 
-5. **選擇性：**您可以使用 Add-AzureVMImage Cmdlet 將您的 VHD 新增為映像，而不使用入口網站。在 Azure PowerShell 主控台中，輸入：
+	- 核取 [我已經在與此 VHD 相關聯的虛擬機器上執行 Sysprep] 確認您已一般化步驟 1 中的作業系統，然後按一下 [確定]。
+
+    ![新增映像](./media/virtual-machines-create-upload-vhd-windows-server/Create_Image_From_VHD.png)
+
+5. **選擇性：**您可以使用 **Add-AzureVMImage** Cmdlet 將您的 VHD 新增為映像，而不使用入口網站。在 Azure PowerShell 主控台中，輸入：
 
 	`Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>`
 
@@ -188,22 +188,21 @@ Windows Server 2008 R2|所有版本|SP1|x64
 
 6. 完成前面的步驟之後，當您選擇 [映像] 索引標籤時會列出新的映像。
 
-
 	![自訂映像](./media/virtual-machines-create-upload-vhd-windows-server/vm_custom_image.png)
 
 	這個新的映像現在會在您建立虛擬機器時出現於 [我的映像] 下。如需指示，請參閱[如何建立執行 Windows 的自訂虛擬機器](virtual-machines-windows-create-custom.md)。
 
 	![從自訂映像建立 VM](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
-	> [AZURE.TIP]如果在您嘗試建立 VM 時發生錯誤，並出現錯誤訊息「VHD https://XXXXX... 具有不受支援的虛擬大小 YYYY 位元組。大小必須是整數 (以 MB 為單位)」，這表示您的 VHD 不是整數 MB，且必須是固定大小的 VHD。請嘗試使用 Add-AzureVMImage PowerShell Cmdlet 來新增映像，而不要使用管理入口網站 (請參閱上面的步驟 5)。Azure Cmdlet 可確保 VHD 會符合 Azure 需求。
+	> [AZURE.TIP]如果在您嘗試建立 VM 時發生錯誤，並出現錯誤訊息「VHD https://XXXXX... 具有不受支援的虛擬大小 YYYY 位元組。大小必須是整數 (以 MB 為單位)」，這表示您的 VHD 不是整數 MB，且必須是固定大小的 VHD。請嘗試使用 **Add-AzureVMImage** PowerShell Cmdlet 來新增映像，而不要使用入口網站 (請參閱上面的步驟 5)。Azure Cmdlet 可確保 VHD 會符合 Azure 需求。
 
 ## 後續步驟 ##
 
-建立虛擬機器之後，嘗試建立 SQL Server 虛擬機器。如需指示，請參閱[在 Microsoft Azure 上佈建 SQL Server 虛擬機器](virtual-machines-provision-sql-server.md) (英文)。
+建立虛擬機器之後，嘗試建立 SQL Server 虛擬機器。如需指示，請參閱[在 Microsoft Azure 上佈建 SQL Server 虛擬機器](virtual-machines-provision-sql-server.md)。
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Create a storage account in Azure]: #createstorage
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="檢視與修改主機名稱"
-   description="說明"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="jdial"
-   editor="tysonn" />
+	description="說明"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="jdial"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/28/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="joaoma"/>
 
 # 檢視與修改主機名稱
 
@@ -51,7 +51,7 @@
 
 1. 設定名稱為 x-ms-version，值為 2013-11-01 的標頭項目。
 
-1. 傳送下列格式的要求：https://management.core.windows.net/\<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true
+1. 傳送下列格式的要求：https://management.core.windows.net/<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true
 
 1. 尋找各個 **RoleInstance** 項目的 **HostName** 項目。
 
@@ -61,14 +61,14 @@
 
 您可以透過上傳已修改的服務組態檔，或是從遠端桌面工作階段重新命名電腦，來修改任何虛擬機器或角色執行個體的主機名稱。
 
-## 另請參閱
+## 後續步驟
 
-[名稱解析 (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx)
+[名稱解析 (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 [Azure 服務組態結構描述 (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
 
 [Azure 虛擬網路組態結構描述](http://go.microsoft.com/fwlink/?LinkId=248093)
 
-[使用網路組態檔設定虛擬網路](http://go.microsoft.com/fwlink/?LinkId=248094)
+[使用網路組態檔指定 DNS 設定](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

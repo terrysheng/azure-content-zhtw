@@ -1,37 +1,37 @@
 <properties
-   pageTitle="SugarCRM 連接器"
-   description="如何使用 SugarCRM 連接器"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 SugarCRM 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 SugarCRM 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# 在邏輯應用程式中使用 SugarCRM 連接器
-
-邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。SugarCRM 連接器可讓您建立和修改不同的實體，例如帳戶、潛在客戶、連絡人等。以下是涉及 SugarCRM 的典型整合案例。
+# 開始使用 SugarCRM 連接器並將它加入您的邏輯應用程式
+SugarCRM 連接器可讓您建立和修改不同的實體，例如帳戶、潛在客戶、連絡人等。以下是涉及 SugarCRM 的典型整合案例：
 
 - 在 SugarCRM 和 ERP 系統 (例如 SAP) 間同步帳戶
-
 - 在 Marketo 和 SugarCRM 間同步帳戶、連絡人和潛在客戶
-
 - 從 SugarCRM 到 ERP 系統的「下單至收款」流程
 
+屬於連接器封裝設定的一部分，您可以選擇連接器可以管理的實體，而系統便會以動態方式填入動作、輸入和輸出參數。
 
-屬於連接器封裝設定的一部分，使用者可以指定連接器可以管理的實體，而系統便會以動態方式填入動作、輸入和輸出參數。
+邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。您可以將 SugarCRM 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
+
+
 
 ## SugarCRM 連接器動作
-以下是 SugarCRM 連接器中可使用的不同動作。
+以下是 SugarCRM 連接器中可使用的不同動作：
 
 - 建立模組 - 使用此動作建立 SugarCRM 模組的新記錄，例如帳戶、潛在客戶、連絡人。
 
@@ -47,7 +47,7 @@
 
 - 檢查重複模組 - 使用此動作檢查模組中重複的記錄。
 
-*注意*：如需查詢中的引數之詳細資訊，請參閱 [SugarCRM REST API](https://msdn.microsoft.com/library/dn705870) 文件。
+*注意*：如需查詢中支援的引數之詳細資訊，請參閱 [SugarCRM REST API](https://msdn.microsoft.com/library/dn705870) 文件。
 
 ## 建立 SugarCRM 連接器 API 應用程式
 1.	瀏覽至 portal.azure.com。使用 Azure 入口網站左上角的 [+新增] 選項開啟 Azure Marketplace。
@@ -71,52 +71,42 @@
 ## 建立邏輯應用程式
 讓我們建立一個簡單的邏輯應用程式，它會在 SugarCRM 建立帳戶，並更新相同帳戶的帳單寄送地址之詳細資料。
 
-1.	登入 Azure 入口網站，並按一下 [新增] -> [Web + 行動] -> [邏輯應用程式]
-
+1.	登入 Azure 入口網站，並按一下 [新增] -> [Web + 行動] -> [邏輯應用程式]：  
 	![][1]
 
-2.	在 [建立邏輯應用程式] 頁面中，請提供必要的詳細資料，例如名稱、應用程式服務方案和位置。
-
+2.	在 [建立邏輯應用程式] 頁面中，請提供必要的詳細資料，例如名稱、應用程式服務方案和位置：  
 	![][2]
 
 3.	按一下 [觸發程序及動作]，邏輯應用程式編輯器畫面便會隨即出現。選取 [手動執行此邏輯]，這表示僅能夠以手動方式叫用此邏輯應用程式。
 
-
-5.	展開資源庫中的 [此資源群組中的 API 應用程式] 來查看所有可用的 API 應用程式。從資源庫選取 SugarCRM，然後 SugarCRM 連接器 就會加入流程。
-
-
+4.	展開資源庫中的 [此資源群組中的 API 應用程式] 來查看所有可用的 API 應用程式。從資源庫選取 SugarCRM，然後 SugarCRM 連接器就會加入流程：  
 	![][3]
 
-6.	選取 [建立帳戶] 動作，而輸入參數便會隨即顯示。
-
+5.	選取 [建立帳戶] 動作，而輸入參數便會隨即顯示：  
 	![][4]
 
-12.	提供名稱為「Microsoft 帳戶」，然後按一下 ✓。
-
+6.	提供名稱為「Microsoft 帳戶」，然後按一下 ✓：  
 	![][5]
 
-13.	從資源庫的 [最近使用的] 區段中選取[ SugarCRM 連接器]，即會新增新的 SugarCRM 動作。
+7.	從資源庫的 [最近使用的] 區段中選取[ SugarCRM 連接器]，即會新增新的 SugarCRM 動作。
 
-14.	從動作清單中選取 更新帳戶 (在進階動作 [...] 之下)，就會顯示 [更新帳戶] 動作的輸入參數。
-
+8.	從動作清單中選取 更新帳戶 (在進階動作 [...] 之下)，就會顯示 [更新帳戶] 動作的輸入參數：  
 	![][6]
 
-15.	按一下 [記錄識別碼] 旁邊的 [...]，並從 [建立帳戶] 動作的輸出中挑選 [識別碼] 值。
-
+9.	按一下 [記錄識別碼] 旁邊的 [...]，並從 [建立帳戶] 動作的輸出中挑選 [識別碼] 值：  
 	![][7]
 
-16.	提供帳單寄送地址的值，然後按一下 ✓。
-
+10.	提供帳單寄送地址的值，然後按一下 ✓：  
 	![][8]
 
-17. 按一下邏輯應用程式編輯器畫面上的 [確定]，然後按一下 [建立]。完成建立大約需要 30 秒的時間。
+11. 按一下邏輯應用程式編輯器畫面上的 [確定]，然後按一下 [建立]。完成建立大約需要 30 秒的時間。
 
-18. 瀏覽剛建立的邏輯應用程式，然後按一下 [立即執行] 以啟動該應用程式。
+12. 瀏覽剛建立的邏輯應用程式，然後按一下 [立即執行] 以啟動該應用程式。
 
-19. 您可以查看名為「Microsoft 帳戶」的新帳戶已建立於您的 SugarCRM 帳戶，且同一個帳戶也跟新了帳單寄送地址資訊。
+13. 您可以查看名為「Microsoft 帳戶」的新帳戶已建立於您的 SugarCRM 帳戶，且同一個帳戶也跟新了帳單寄送地址資訊。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -133,4 +123,4 @@
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

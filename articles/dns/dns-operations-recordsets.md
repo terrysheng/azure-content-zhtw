@@ -1,22 +1,27 @@
 <properties 
-   pageTitle="在 Azure DNS 管理 DNS 記錄集和記錄 |Microsoft Azure" 
-   description="將網域裝載於 Azure DNS 時，在 Azure DNS 管理 DNS 記錄集和記錄。對記錄集和記錄執行作業的所有 PowerShell 命令。" 
-   services="dns" 
-   documentationCenter="na" 
-   authors="joaoma" 
-   manager="Adinah" 
-   editor=""/>
+   pageTitle="在 Azure DNS 管理 DNS 記錄集和記錄 |Microsoft Azure"
+	description="將網域裝載於 Azure DNS 時，在 Azure DNS 管理 DNS 記錄集和記錄。對記錄集和記錄執行作業的所有 PowerShell 命令。"
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="Adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="en"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="08/02/2015"
-   ms.author="joaoma"/>
+	ms.devlang="en"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/02/2015"
+	ms.author="joaoma"/>
 
 # 如何管理 DNS 記錄
+
+
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-operations-recordsets-cli.md)
+- [Azure Powershell](dns-operations-recordsets.md)
 
 
 本指南示範如何管理 DNS 區域的記錄集和記錄。
@@ -31,7 +36,7 @@
 
 >針對位於區域頂點的記錄集，請使用 "@"做為記錄集名稱 (包括引號)。記錄集的完整名稱就等於區域名稱，在此案例中為 "contoso.com"。
 
-Azure DNS 支援下列記錄類型： A、AAAA、CNAME、MX、NS、SOA、SRV、TXT。每個區域會自動建立 SOA 類型的記錄集，無法另外建立。
+Azure DNS 支援下列記錄類型：A、AAAA、CNAME、MX、NS、SOA、SRV、TXT。每個區域會自動建立 SOA 類型的記錄集，無法另外建立。
 
 	PS C:\> $rs = New-AzureDnsRecordSet -Name www -Zone $zone -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
 
@@ -53,7 +58,7 @@ Azure DNS 支援[萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS_
 >針對所有記錄類型支援 NS 和 SOA 以外的所有萬用字元記錄集。
 
 ## 取得記錄集
-若要擷取現有的記錄集，請使用 ‘Get-AzureDnsRecordSet’，並指定記錄集相對名稱、記錄類型和區域：
+若要抓取現有的記錄集，請使用 ‘Get-AzureDnsRecordSet’，並指定記錄集相對名稱、記錄類型和區域：
 
 	PS C:\> $rs = Get-AzureDnsRecordSet -Name www –RecordType A -Zone $zone
 
@@ -138,7 +143,7 @@ Get-AzureDnsRecordSet 傳回本機物件，代表 Azure DNS 中建立的記錄�
 ## 修改現有的記錄集
 修改現有記錄集所遵循的模式與建立記錄類似。作業序列如下：
 
-1.	使用 Get-AzureDnsRecordSet 擷取現有的記錄集。
+1.	使用 Get-AzureDnsRecordSet 抓取現有的記錄集。
 2.	修改記錄集，包括加入記錄、移除記錄、變更記錄參數或變更記錄集 TTL。這些變更是離線進行 — 只有代表記錄集的本機物件會變更。
 3.	使用 Set-AzureDnsRecordSet Cmdlet 認可您所做的變更。這會以提供的記錄集取代 Azure DNS 中現有的記錄集。
 
@@ -266,4 +271,4 @@ Set-AzureDnsRecordSet Cmdlet 使用 ‘etag’ 檢查，以確保不會覆寫並
 [開始建立記錄集和記錄](../dns-getstarted-create-recordset)<BR> [在 DNS 區域上執行作業](../dns-operations-dnszones)<BR> [使用 .NET SDK 將作業自動化](../dns-sdk)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

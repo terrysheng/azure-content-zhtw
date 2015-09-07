@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="在 HDInsight 中自訂佈建 Hadoop 叢集 |Microsoft Azure" 
-   description="了解如何使用 Azure 入口網站、Azure PowerShell、命令列或 .NET SDK 自訂佈建 Azure HDInsight 的叢集。" 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="mumian" 
-   manager="paulettm" 
-   editor="cgronlun"/>
+   pageTitle="在 HDInsight 中自訂佈建 Hadoop 叢集 |Microsoft Azure"
+	description="了解如何使用 Azure 入口網站、Azure PowerShell、命令列或 .NET SDK 自訂佈建 Azure HDInsight 的叢集。"
+	services="hdinsight"
+	documentationCenter=""
+	authors="mumian"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="08/07/2015"
-   ms.author="jgao"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/07/2015"
+	ms.author="jgao"/>
 
 #在 HDInsight 中佈建 Hadoop 叢集 (英文)
 
@@ -220,9 +220,9 @@
 
 	![diagram of point-to-site configuration](./media/hdinsight-provision-clusters-v1/hdinsight-vnet-point-to-site.png)
 
-如需虛擬網路特性、優點和功能的詳細資訊，請參閱＜[虛擬網路概觀](http://msdn.microsoft.com/library/azure/jj156007.aspx)＞。
+如需虛擬網路特性、優點和功能的詳細資訊，請參閱＜[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)＞。
 
-> [AZURE.NOTE]您必須先建立 Azure 虛擬網路，才能佈建 HDInsight 叢集。如需詳細資訊，請參閱＜[虛擬網路組態工作](http://msdn.microsoft.com/library/azure/jj156206.aspx)＞。
+> [AZURE.NOTE]您必須先建立 Azure 虛擬網路，才能佈建 HDInsight 叢集。如需詳細資訊，請參閱＜[虛擬網路組態工作](../services/virtual-machines/)＞。
 >
 >[AZURE.NOTE]Azure HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。使用 Azure PowerShell Cmdlet Get-AzureVNetConfig 來檢查現有的 Azure 虛擬網路是否以位置為基礎。如果您的虛擬網路並非以位置為基礎，您會有下列選項：
 >
@@ -296,7 +296,7 @@
 ### 使用 Azure PowerShell
 Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控制和自動化工作量的部署與管理。本節提供如何使用 Azure PowerShell 佈建 HDInsight 叢集的指示。如需設定工作站以執行 HDInsight Windows Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。如需搭配使用 Azure PowerShell 與 HDInsight 的詳細資訊，請參閱[使用 PowerShell 管理 HDInsight](hdinsight-administer-use-powershell.md)。如需 HDInsight Windows PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/dn858087.aspx)。
 
-> [AZURE.NOTE]本節的指令碼可用來設定 Azure 虛擬網路上的 HDInsight 叢集，但不會建立 Azure 虛擬網路。如需建立 Azure 虛擬網路的相關資訊，請參閱[虛擬網路組態工作](http://msdn.microsoft.com/library/azure/jj156206.aspx)。
+> [AZURE.NOTE]本節的指令碼可用來設定 Azure 虛擬網路上的 HDInsight 叢集，但不會建立 Azure 虛擬網路。如需建立 Azure 虛擬網路的相關資訊，請參閱[虛擬網路組態工作](../services/virtual-machines/)。
 
 以下是使用 Azure PowerShell 佈建 HDInsight 叢集時所需執行的程序：
 
@@ -513,7 +513,7 @@ Azure CLI 可使用 NPM 或 Windows Installer 進行安裝。Microsoft 建議您
 
 1.	瀏覽至 **www.nodejs.org**。
 2.	按一下 [安裝]，並依照指示使用預設設定。
-3.	從您的工作站開啟 命令提示字元 (或是 *Azure 命令提示字元*或 *VS2012 開發人員命令提示字元*)。
+3.	從您的工作站開啟 [命令提示字元] (或是 *Azure 命令提示字元*或 *VS2012 開發人員命令提示字元*)。
 4.	在命令提示字元視窗中執行下列命令：
 
 		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
@@ -786,4 +786,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

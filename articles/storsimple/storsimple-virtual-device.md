@@ -1,19 +1,19 @@
 <properties
    pageTitle="StorSimple 虛擬裝置 | Microsoft Azure"
-   description="說明如何建立、設定、部署和管理 StorSimple 虛擬裝置。"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="adinah"
-   editor="" />
+	description="說明如何建立、設定、部署和管理 StorSimple 虛擬裝置。"
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/21/2015"
+	ms.author="alkohli"/>
 
 # StorSimple 虛擬裝置
 
@@ -76,7 +76,7 @@ StorSimple 虛擬裝置是在 Microsoft Azure 虛擬機器中單一節點上執�
 
 >[AZURE.IMPORTANT]**請確定虛擬網路與您即將與虛擬裝置搭配使用的雲端儲存體帳戶位於相同區域中。**
 
-- 您可以將 [Azure 虛擬機器](https://msdn.microsoft.com/library/azure/jj156003.aspx) (主機伺服器) 建立在可使用由虛擬裝置公開之磁碟區的虛擬網路中。這些伺服器必須符合下列需求：
+- 您可以將 [Azure 虛擬機器](../virtual-machines/virtual-machines-about.md) (主機伺服器) 建立在可使用由虛擬裝置公開之磁碟區的虛擬網路中。這些伺服器必須符合下列需求：
 	- 是已安裝 iSCSI 啟動器軟體的 Windows 或 Linux VM。
 	- 正在虛擬裝置所在的相同虛擬網路中執行。
 	- 能夠透過虛擬裝置的內部 IP 位址連接到虛擬裝置的 iSCSI 目標。
@@ -121,21 +121,21 @@ StorSimple 虛擬裝置是在 Microsoft Azure 虛擬機器中單一節點上執�
 
 1.  在 Azure 入口網站中，請至 **StorSimple Manager** 服務。
 
-- 移至 [裝置] 頁面。
+2. 移至 [裝置] 頁面。
 
-- 在 [**建立虛擬裝置**] 對話方塊中，指定下列資訊：
+3. 在 [建立虛擬裝置] 對話方塊中，指定下列詳細資料。
 
 	![StorSimple 建立虛擬裝置](./media/storsimple-virtual-device/StorSimple_CreateVirtualDevice1.png)
 
-	a.**名稱** - 虛擬裝置的唯一名稱。
+	1. **名稱** - 虛擬裝置的唯一名稱。
 
-	b.**虛擬網路** - 要與此虛擬裝置一起使用的虛擬網路名稱。
+	2. **虛擬網路** - 要與此虛擬裝置一起使用的虛擬網路名稱。
 
-	c.**子網路** - 虛擬網路上與虛擬裝置一起使用的子網路。
+	3. **子網路** - 虛擬網路上與虛擬裝置一起使用的子網路。
 
-	d.**虛擬裝置建立的儲存體帳戶** - 在佈建期間用來存放虛擬裝置映像的儲存體帳戶。此儲存體帳戶應該與虛擬裝置和虛擬網路位於相同的區域中。不應讓實體裝置或虛擬裝置用它來儲存資料。根據預設，將基於此用途建立新的儲存體帳戶。不過，如果您知道已經擁有適合此用途的儲存體帳戶，則可從清單中選取該帳戶。
+	4. **虛擬裝置建立的儲存體帳戶** - 在佈建期間用來存放虛擬裝置映像的儲存體帳戶。此儲存體帳戶應該與虛擬裝置和虛擬網路位於相同的區域中。不應讓實體裝置或虛擬裝置用它來儲存資料。根據預設，將基於此用途建立新的儲存體帳戶。不過，如果您知道已經擁有適合此用途的儲存體帳戶，則可從清單中選取該帳戶。
 
-- 按一下勾號，表示您了解虛擬裝置上儲存的資料將裝載於 Microsoft 資料中心。系統隨即會建立虛擬裝置。建立虛擬機器最多可能需要 45 分鐘至 1 小時。![StorSimple 虛擬裝置建立中階段](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
+4. 按一下勾號，表示您了解虛擬裝置上儲存的資料將裝載於 Microsoft 資料中心。系統隨即會建立虛擬裝置。建立虛擬機器最多可能需要 45 分鐘至 1 小時。![StorSimple 虛擬裝置建立中階段](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
 
 若您只使用實體裝置，加密金鑰就會與裝置放在一起。因此，Microsoft 無法將它解密。當您使用虛擬裝置時，加密金鑰和解密金鑰都會儲存於 Microsoft Azure 中。如需詳細資訊，請參閱[使用虛擬裝置的安全性考量](#security-considerations-for-using-a-virtual-device)。
 
@@ -148,7 +148,7 @@ StorSimple 虛擬裝置是在 Microsoft Azure 虛擬機器中單一節點上執�
 
 1. 選取您剛才在 [裝置] 頁面中建立的 [StorSimple 虛擬裝置]。
 
-2. 按一下 [**完成組態設定**]。這會啟動 [設定裝置精靈]。
+2. 按一下 [完成裝置設定]。這會啟動 [設定裝置精靈]。
 
 	![在 [裝置] 頁面完成 StorSimple 裝置安裝](./media/storsimple-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
 
@@ -244,7 +244,7 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 - [磁碟區](storsimple-manage-volumes.md)
 
-- [備份原則](storsimple-manage-backup-policies)
+- [備份原則](storsimple-manage-backup-policies.md)
 
 下列各節將討論您在使用虛擬裝置時將遇到的一些差異。
 
@@ -282,7 +282,7 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 >[AZURE.WARNING]為了加強安全性，強烈建議您在連接到端點時應使用 HTTPS，並且在完成 PowerShell 遠端工作階段之後刪除端點。
 
-您應遵循[使用 Windows PowerShell 從遠端連接](storsimple-remote-connect.md)中的程序，來設定虛擬裝置的遠端處理功能。
+您應遵循[遠端連接至 StorSimple 裝置](storsimple-remote-connect.md)中的程序，來設定虛擬裝置的遠端處理功能。
 
 不過，如果您要從虛擬網路或 Microsoft Azure 環境以外的另一部電腦直接連接到虛擬裝置，就必須依照下列程序中的說明來建立其他端點。
 
@@ -364,7 +364,7 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 如果您先前已設定並使用 StorSimple 虛擬裝置，但現在不想再因為使用而產生計算費用，您可以關閉虛擬裝置。關閉虛擬裝置，並不會刪除其作業系統或儲存體中的資料磁碟。這只會停止您的訂用帳戶所產生的費用，但作業系統和資料磁碟的儲存體費用仍會繼續計算。
 
-如果您刪除或關閉虛擬裝置，StorSimple Manager 服務的 [裝置] 頁面上會將其顯示為 [離線]。如果您也想要刪除虛擬裝置所建立的備份，可選擇以裝置的形式將其停用或刪除。如需詳細資訊，請參閱[停用](storsimple-deactivate-and-delete-device.md#deactivate-a-device)。
+如果您刪除或關閉虛擬裝置，StorSimple Manager 服務的 [裝置] 頁面上會將其顯示為 [離線]。如果您也想要刪除虛擬裝置所建立的備份，可選擇以裝置的形式將其停用或刪除。如需詳細資訊，請參閱[停用裝置](storsimple-deactivate-and-delete-device.md#deactivate-a-device)。
 
 ### 關閉 StorSimple 虛擬裝置
 
@@ -385,6 +385,6 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 ## 後續步驟
 
-若要管理您的虛擬裝置，請參閱[管理您的 StorSimple 裝置](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service)中的工作流程詳細清單。
+若要管理您的虛擬裝置，請參閱[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service)中的工作流程詳細清單。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/11/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # 設定 Azure 中 AlwaysOn 可用性群組的 ILB 接聽程式
 
@@ -76,7 +76,7 @@
 		# Configure a load balanced endpoint for each node in $AGNodes using ILB
 		ForEach ($node in $AGNodes)
 		{
-			Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort $EndpointPort -PublicPort $EndpointPort -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM 
+			Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM 
 		}
 
 1. 一旦您已設定變數，請從文字編輯器將指令碼複製到您的 Azure PowerShell 工作階段來執行它。如果提示依然顯示「>>」，請再次按 ENTER 鍵以確定指令碼開始執行。注意
@@ -135,4 +135,4 @@
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

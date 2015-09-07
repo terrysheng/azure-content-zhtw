@@ -1,23 +1,27 @@
-
 <properties 
-	pageTitle="使用媒體服務 REST API 建立篩選器" 
-	description="本主題說明如何建立篩選器，讓您的用戶端可以使用篩選器來串流特定的資料流區段。媒體服務會建立動態資訊清單來封存此選擇性資料流。" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="使用媒體服務 REST API 建立篩選器"
+	description="本主題說明如何建立篩選器，讓您的用戶端可以使用篩選器來串流特定的資料流區段。媒體服務會建立動態資訊清單來完成此選擇性資料流。"
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="juliako"/>
 
 #使用媒體服務 REST API 建立篩選器
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-dynamic-manifest.md)
+- [REST](media-services-rest-dynamic-manifest.md)
+
 
 從 2.11 版開始，媒體服務可讓您為資產定義篩選器。這些篩選器是伺服器端規則，可讓您的客戶選擇執行如下的動作：只播放一段視訊 (而非播放完整視訊)，或只指定您客戶裝置可以處理的一部分音訊和視訊轉譯 (而非與該資產相關的所有轉譯)。透過在您客戶要求下建立的**動態資訊清單**可達成對資訊進行這樣的篩選，藉此根據指定的篩選器來串流視訊。
 
@@ -29,10 +33,10 @@
 
 建立篩選器時會使用下列類型：
 
-- [Filter](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- [AssetFilter](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- [PresentationTimeRange](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- [FilterTrackSelect 和 FilterTrackPropertyCondition](https://msdn.microsoft.com/library/azure/hh973617.aspx)
+- [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx)
+- [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx)
+- [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx)
+- [FilterTrackSelect 和 FilterTrackPropertyCondition](http://msdn.microsoft.com/library/azure/mt149055.aspx)
 
 
 
@@ -41,7 +45,6 @@
 >在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 
 >成功連線至 https://media.windows.net 後，您會收到指定另一個媒體服務 URI 的 301 重新導向。您必須依照[使用 REST API 連線至媒體服務](media-services-rest-connect_programmatically.md)所述，對新的 URI 進行後續呼叫。
-
 
 
 ##建立篩選器
@@ -250,7 +253,7 @@ Request body
 	   ] 
 	} 
 
-###上傳區域 AssetFilter
+###更新區域 AssetFilter
 
 若要更新區域篩選器，請使用下列 HTTP 要求：
 
@@ -363,4 +366,4 @@ Request body
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

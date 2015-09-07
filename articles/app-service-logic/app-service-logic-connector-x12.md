@@ -1,69 +1,56 @@
 <properties 
-   pageTitle="BizTalk X12 連接器" 
-   description="BizTalk X12 連接器" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="在 Logic Apps 中使用 BizTalk X12 連接器 | Microsoft Azure App Service"
+	description="如何建立並設定 BizTalk X12 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-#BizTalk X12 連接器
-Microsoft Azure X12 服務可讓您在企業對企業通訊中，透過 X12 通訊協定接收和傳送訊息。X12 通常也稱為 ASC X12 (Accredited Standards Committee X12)，廣泛用於各產業。
+# 開始使用 BizTalk X12 API 應用程式並將它加入您的邏輯應用程式
+使用 BizTalk X12 服務可以透過 X12 通訊協定，以企業對企業通訊接收和傳送訊息。X12 通常也稱為 ASC X12 或 Accredited Standards Committee X12，而且廣泛用於各產業。
 
-##必要條件
-- TPM API 應用程式：在建立 X12 連接器之前，您必須先建立 [BizTalk 交易夥伴管理連接器][1]
+您可以將 BizTalk X12 API 應用程式加入您的商務工作流程，就能在邏輯應用程式的企業對企業工作流程中處理資料。
+
+
+## 必要條件
+- TPM API 應用程式：在建立 X12 連接器之前，您必須先建立 [BizTalk 交易夥伴管理連接器][1]。
 - SQL Azure 資料庫：每個 B2B API 應用程式都需要自己的 Azure SQL Database。
 - Azure 服務匯流排：這是選用的，且僅用於批次處理。
 
-##使用 BizTalk X12 連接器
+## 使用 BizTalk X12 連接器
 若要使用 BizTalk X12 連接器，您必須先建立 BizTalk X12 連接器 API 應用程式的執行個體。這可以在建立邏輯應用程式時同時建立，或從 Azure Marketplace 選取 BizTalk X12 連接器 API 應用程式來建立。
 
-##設定 BizTalk X12 連接器
+## 設定 BizTalk X12 連接器
 交易夥伴是指涉及 B2B (企業對企業) 通訊的實體。當兩個夥伴建立關係時，這稱為協議。定義的協議會以這兩個夥伴想要達成的通訊為基礎，且是特定的通訊協定或傳輸。
 
-建立交易夥伴協議所涉及的步驟在[這裡][2]說明
+[這裡][2]說明建立交易夥伴協議的步驟。
 
-##在 Logic Apps 設計工具介面中使用 X12 連接器
+## 在 Logic Apps 設計工具介面中使用 X12 連接器
 X12 連接器可用做觸發程序或動作。
 
-###觸發程序
-- 啟動 Azure Logic Apps 流程設計工具
-- 從右窗格中按一下 X12 連接器
-
-	![觸發程序設定][3]
-- 按一下 ->
-
-	![觸發程序選項][4]
-- BizTalk X12 連接器會公開單一觸發程序。選取 [發行批次]
-
-	![發行批次輸入][5]
-- 這個觸發程序沒有輸入。按一下 ->
-
-	![已設定發行批次][6]
+### 觸發程序
+- 啟動 Azure Logic Apps 流程設計工具。
+- 從右窗格中按一下 X12 連接器：![觸發程序設定][3]
+- 按一下 ->：![觸發程序選項][4]
+- BizTalk X12 連接器會公開單一觸發程序。選取 [發行批次]：![發行批次輸入][5]
+- 這個觸發程序沒有輸入。按一下 ->：![已設定發行批次][6]
 - 連接器會在輸出中傳回 X12 裝載、協議識別碼，以及訊息是否為批次的資訊。
 
-###動作
-- 從右窗格中按一下 X12 連接器
-
-	![動作設定][7]
-- 按一下 ->
-
-	![動作清單][8]
-- X12 連接器支援許多動作。選取 [編碼]
-
-	![編碼輸入][9]
-- 提供動作的輸入，並進行設定
-
-	![已設定編碼][10]
+### 動作
+- 從右窗格中按一下 X12 連接器：![動作設定][7]
+- 按一下 ->：![動作清單][8]
+- X12 連接器支援許多動作。選取 [編碼]：![編碼輸入][9]
+- 提供動作的輸入，並進行設定：![已設定編碼][10]
 
 參數|類型|參數說明
 ---|---|---
@@ -94,4 +81,4 @@ X12 連接器可用做觸發程序或動作。
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

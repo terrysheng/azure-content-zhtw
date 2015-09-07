@@ -1,21 +1,21 @@
 
 <properties
    pageTitle="Azure AD 的驗證案例"
-   description="Azure Active Directory (AAD) 五個最常見驗證案例的概觀"
-   services="active-directory"
-   documentationCenter="dev-center-name"
-   authors="msmbaldwin"
-   manager="mbaldwin"
-   editor=""/>
+	description="Azure Active Directory (AAD) 五個最常見驗證案例的概觀"
+	services="active-directory"
+	documentationCenter="dev-center-name"
+	authors="msmbaldwin"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="06/01/2015"
-   ms.author="mbaldwin"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="06/01/2015"
+	ms.author="mbaldwin"/>
 
 # Azure AD 的驗證案例
 
@@ -60,7 +60,7 @@ Azure Active Directory (Azure AD) 提供身分識別做為服務來簡化開發�
 - 開發人員可以使用開放原始碼 Azure AD 驗證程式庫，為您處理通訊協定的細節，以輕鬆完成驗證。如需詳細資訊，請參閱 [Azure Active Directory 驗證程式庫](https://msdn.microsoft.com/library/azure/dn151135.aspx)。
 
 
-• 使用者通過驗證之後，應用程式必須驗證使用者的安全性權杖，以確定相關各方的驗證成功。開發人員可以使用提供的驗證程式庫來驗證來自 Azure AD 的任何權杖，包括 JSON Web Token (JWT) 或 SAML 2.0。如果您想要手動執行驗證，請參閱 [JWT 權杖處理常式](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx)文件。
+• 使用者通過驗證之後，應用程式必須驗證使用者的安全性權杖，以確定相關各方的驗證成功。開發人員可以使用提供的驗證程式庫來驗證來自 Azure AD 的任何權杖，包括 JSON Web Token (JWT) 或 SAML 2.0。如果您想要手動執行驗證，請參閱 [JWT 權杖處理常式](<https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx>)文件。
 
 
 > [AZURE.IMPORTANT]Azure AD 使用公開金鑰密碼編譯來簽署權杖並驗證它們有效。如需有關應用程式中必要的邏輯以確保永遠以最新金鑰更新的相關資訊，請參閱 [Azure AD 中簽署金鑰變換的相關重要資訊](https://msdn.microsoft.com/library/azure/dn641920.aspx)。
@@ -338,7 +338,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 
 ##### 採用 OAuth 2.0 用戶端認證授與的應用程式識別
 
-1. 使用者在 Web 應用程式中登入 Azure AD (請參閱上方「Web 瀏覽器到 Web 應用程式」一節)。
+1. 使用者在 Web 應用程式中登入 Azure AD (請參閱上方的 [Web 瀏覽器到 Web 應用程式](#web-browser-to-web-application))。
 
 
 2. Web 應用程式需要取得存取權杖，才能向 Web API 驗證和擷取所需的資源。它向 Azure AD 的權杖端點提出要求，並提供認證、用戶端識別碼和 Web API 的應用程式識別碼 URI。
@@ -351,7 +351,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 
 ##### 採用 OpenID Connect 的委派的使用者識別
 
-1. 使用者使用 Azure AD 登入 Web 應用程式 (請參閱上方 [Web 瀏覽器到 Web 應用程式](#web-browser-to-web-application))。如果 Web 應用程式的使用者尚未同意允許 Web 應用程式代表他來呼叫 Web API，使用者必須同意。應用程式會顯示它需要的權限，如果其中任何一項是系統管理員層級權限，則目錄中的一般使用者將無法同意。此同意程序僅適用於多租用戶應用程式，而非單一租用戶應用程式，因為應用程式已具有必要的權限。使用者登入後，Web 應用程式會收到識別碼權杖和使用者相關資訊，以及授權碼。
+1. 使用者使用 Azure AD 登入 Web 應用程式 (請參閱上方的 [Web 瀏覽器到 Web 應用程式](#web-browser-to-web-application)一節)。如果 Web 應用程式的使用者尚未同意允許 Web 應用程式代表他來呼叫 Web API，使用者必須同意。應用程式會顯示它需要的權限，如果其中任何一項是系統管理員層級權限，則目錄中的一般使用者將無法同意。此同意程序僅適用於多租用戶應用程式，而非單一租用戶應用程式，因為應用程式已具有必要的權限。使用者登入後，Web 應用程式會收到識別碼權杖和使用者相關資訊，以及授權碼。
 
 
 2. Web 應用程式會使用 Azure AD 簽發的授權碼，傳送要求至 Azure AD 的權杖端點，此要求包含授權碼、用戶端應用程式的詳細資料 (用戶端識別碼和重新導向 URI)，以及所需的資源 (Web API 的應用程式識別碼 URI)。
@@ -466,4 +466,4 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

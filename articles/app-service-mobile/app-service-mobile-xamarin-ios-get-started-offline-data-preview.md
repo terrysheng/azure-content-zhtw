@@ -1,20 +1,20 @@
 <properties
     pageTitle="啟用 Azure 行動應用程式 (Xamarin iOS) 的離線同步處理"
-    description="了解如何在 Xamarin iOS 應用程式中使用應用程式服務行動應用程式快取和同步離線資料"
-    documentationCenter="xamarin"
-    authors="wesmc7777"
-    manager="dwrede"
-    editor=""
-    services="app-service\mobile"/>
+	description="了解如何在 Xamarin iOS 應用程式中使用應用程式服務行動應用程式快取和同步離線資料"
+	documentationCenter="xamarin"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
+	services="app-service\mobile"/>
 
 <tags
     ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-xamarin-ios"
-    ms.devlang="dotnet"
-    ms.topic="article"
-	ms.date="08/11/2015"
-    ms.author="wesmc"/>
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-ios"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/22/2015"
+	ms.author="wesmc"/>
 
 # 啟用 Xamarin iOS 行動應用程式的離線同步處理
 
@@ -24,7 +24,7 @@
 
 此教學課程介紹適用於 Xamarin.iOS 之 Azure 行動應用程式的離線同步處理功能。離線同步處理可讓使用者與行動應用程式進行互動--檢視、新增或修改資料--即使沒有網路連線進也可行。變更會儲存在本機資料庫中︰裝置上線後，這些變更就會與遠端服務進行同步處理。
 
-在本教學課程中，您將會更新[建立 Xamarin iOS 應用程式]教學課程中的 Xamarin.iOS 應用程式專案，來支援 Azure 行動應用程式的離線同步處理功能。
+在本教學課程中，您將會更新[建立 Xamarin iOS 應用程式]教學課程中的 Xamarin.iOS 應用程式專案，來支援 Azure 行動應用程式的離線同步處理功能。如果您不要使用下載的快速入門伺服器專案，必須將資料存取擴充套件新增至您的專案。如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
 若要深入了解離線同步處理功能，請參閱 [Azure 行動應用程式中的離線資料同步處理]主題。
 
@@ -35,10 +35,6 @@
 * Visual Studio 2013
 * Visual Studio [Xamarin 延伸] **或** [Xamarin Studio] (在 OS X 上)
 * 完成[建立 Xamarin iOS 應用程式]教學課程。本教學課程使用該教學課程中涵蓋的已完成應用程式。
-
-##<a name="review"></a>檢閱您的伺服器專案設定 (選擇性)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
 
 ## 檢閱用戶端同步處理程式碼
 
@@ -68,10 +64,8 @@
 
     在提供的程式碼中，遠端 `TodoItem` 資料表中的所有記錄都會進行查詢，但是也可能透過將查詢識別碼與查詢傳遞至 `PushAsync` 來篩選記錄。如需詳細資訊，請參閱 [Azure 行動應用程式中的離線資料同步處理]中的*增量同步處理*一節。
 
-    <!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
-    -->	
-	
-	// QSTodoService.cs
+	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
+-->	// QSTodoService.cs
 
         public async Task SyncAsync()
         {
@@ -174,4 +168,4 @@
  
 [雲端報導︰Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

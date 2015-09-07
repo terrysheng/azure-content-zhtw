@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="服務匯流排 AMQP 概觀 | Microsoft Azure" 
-	description="了解如何在 Azure 中使用 Advanced Message Queuing Protocol (AMQP)。" 
-	services="service-bus" 
-	documentationCenter=".net" 
-	authors="sethmanheim" 
-	manager="timlt" 
+	pageTitle="服務匯流排 AMQP 概觀 | Microsoft Azure"
+	description="了解如何在 Azure 中使用 Advanced Message Queuing Protocol (AMQP)。"
+	services="service-bus"
+	documentationCenter=".net"
+	authors="sethmanheim"
+	manager="timlt"
 	editor="mattshel"/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="sethm"/>
 
 
@@ -77,7 +77,7 @@ Azure 服務匯流排中的 AMQP 1.0 支援代表您現在能夠從一組平台�
 | C | Apache Qpid Proton-C |
 | PHP | Apache Qpid Proton-PHP |
 | Python | Apache Qpid Proton-Python |
-
+| C# | AMQP .Net Lite |
 
 **圖 2：AMQP 1.0 用戶端程式庫的資料表**
 
@@ -98,4 +98,4 @@ Azure 服務匯流排中的 AMQP 1.0 支援代表您現在能夠從一組平台�
 [0]: ./media/service-bus-amqp-overview/Example1.png
 [服務匯流排 AMQP 開發人員指南]: http://msdn.microsoft.com/library/jj841071.aspx
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

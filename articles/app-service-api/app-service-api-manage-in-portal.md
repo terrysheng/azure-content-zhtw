@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="管理 API 應用程式" 
-	description="了解如何使用 Azure 入口網站和 Visual Studio 伺服器總管來管理 Azure App Service API 應用程式。" 
-	services="app-service\api" 
-	documentationCenter="" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="管理 API 應用程式"
+	description="了解如何使用 Azure 入口網站和 Visual Studio 伺服器總管來管理 Azure App Service API 應用程式。"
+	services="app-service\api"
+	documentationCenter=""
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.topic="article"
+	ms.date="06/17/2015"
 	ms.author="tdykstra"/>
 
 # 管理 Azure App Service 中的 API 應用程式
@@ -65,7 +65,7 @@
 
 ### 您只能在 API 應用程式主機刀鋒視窗上執行的工作
 
-您可使用 [**API 應用程式主機**] 刀鋒視窗來執行您會對任何 Web 應用程式執行的所有工作。如需詳細資訊，請參閱[在入口網站中管理 Web 應用程式](../app-service-web/web-sites-manage.md)。
+您可使用 [**API 應用程式主機**] 刀鋒視窗來執行您會對任何 Web 應用程式執行的所有工作。
 
 ### 您只能在閘道器刀鋒視窗上執行的工作
 
@@ -80,7 +80,7 @@
 
 ### 您只能在閘道器主機刀鋒視窗上執行的工作
 
-您可使用 [**閘道器主機**] 刀鋒視窗來執行您會對任何 Web 應用程式執行的所有工作。如需詳細資訊，請參閱[在入口網站中管理 Web 應用程式](web-sites-manage.md)。
+您可使用 [**閘道器主機**] 刀鋒視窗來執行您會對任何 Web 應用程式執行的所有工作。
 
 ## <a id="navigate"></a>如何巡覽至 API 應用程式和閘道器分頁 
 
@@ -134,4 +134,4 @@
 
 如需如何使用命令列管理 API 應用程式的相關資訊，請參閱文章左側 (在寬瀏覽器視窗上) 或文章頂端 (在窄瀏覽器視窗上) 出現之功能表的 [**自動化**] 區段中的文章。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

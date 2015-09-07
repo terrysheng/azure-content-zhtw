@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="簡介 Azure |Microsoft Azure" 
-	description="Microsoft Azure 的新手？ 取得此服務的基本概觀，其提供有關這些服務是如何實用的範例。" 
-	services=" " 
-	documentationCenter=".net" 
-	authors="Rboucher" 
+	pageTitle="簡介 Azure |Microsoft Azure"
+	description="Microsoft Azure 的新手？ 取得此服務的基本概觀，其提供有關這些服務是如何實用的範例。"
+	services=" "
+	documentationCenter=".net"
+	authors="Rboucher"
 	manager="jwhit"
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015"  
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="robb"/>
 
 # Microsoft Azure 簡介
@@ -179,9 +179,9 @@ Blob 儲存體可用於許多其他 Azure 功能 (包括虛擬機器)，所以�
 
 
 ### 檔案服務
-![Azure 檔案服務](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *圖：Azure 檔案服務提供 SMB \\\\server\\share 路徑給在雲端中執行的應用程式。*
+![Azure 檔案服務](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *圖：Azure 檔案服務提供 SMB \\\server\\share 路徑給在雲端中執行的應用程式。*
 
-在內部部署中，通常會透過伺服器訊息區 (SMB) 通訊協定 (使用 \\\\Server\\share 格式) 存取大量檔案儲存體。Azure 現在擁有可讓您在雲端中使用此通訊協定的服務。在 Azure 中執行的應用程式可使用此服務，在使用類似檔案系統 API (如 ReadFile 和 WriteFile) 的 VM 之間共用檔案。此外，還可透過 REST 介面同時存取檔案，若您同時也設定了虛擬網路，這還可讓您從內部部署中存取共用。Azure 檔案會架構在 Blob 服務上，因此它會繼承內建於 Azure 儲存體的相同可用性、持久性和異地備份。
+在內部部署中，通常會透過伺服器訊息區 (SMB) 通訊協定 (使用 \\\Server\\share 格式) 存取大量檔案儲存體。Azure 現在擁有可讓您在雲端中使用此通訊協定的服務。在 Azure 中執行的應用程式可使用此服務，在使用類似檔案系統 API (如 ReadFile 和 WriteFile) 的 VM 之間共用檔案。此外，還可透過 REST 介面同時存取檔案，若您同時也設定了虛擬網路，這還可讓您從內部部署中存取共用。Azure 檔案會架構在 Blob 服務上，因此它會繼承內建於 Azure 儲存體的相同可用性、持久性和異地備份。
 
 **Azure 檔案的案例**
 
@@ -212,7 +212,7 @@ Azure 目前已在全球許多資料中心內運作。當您執行應用程式�
 
 為了使這個方法真的發揮作用，使用者應該將這些應用程式看待成在您擁有的資料中心內執行。這正是 Azure 虛擬網路所容許的。系統管理員可以使用 VPN 閘道器裝置，在您的本機網路與已部署到 Azure 虛擬網路的 VM 之間設定虛擬私人網路 (VPN)。因為您將自己的 IP v4 位址指派給雲端 VM，所以雲端 VM 會出現在您擁有的網路上。貴組織的使用者可以存取這些 VM 內含的應用程式，就好像應用程式在本機執行一樣。
 
-如需規劃與建立適合您的虛擬網路詳細資訊，請參閱[虛擬網路](http://msdn.microsoft.com/library/azure/jj156007.aspx)。
+如需規劃與建立適合您的虛擬網路詳細資訊，請參閱[虛擬網路](../virtual-network/virtual-networks-overview.md)。
 
 ### ExpressRoute
 
@@ -224,7 +224,7 @@ Azure 目前已在全球許多資料中心內運作。當您執行應用程式�
 
 設定 ExpressRoute 連線需要更多的時間和規劃，因此您可能會想要從站台對站台 VPN 開始，然後移轉至 ExpressRoute 連線。
 
-如需 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 技術概觀](http://msdn.microsoft.com/library/azure/dn606309.aspx)。
+如需 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 技術概觀](../expressroute/expressroute-introduction.md)。
 
 ### 流量管理員
 
@@ -592,4 +592,4 @@ SendGrid 是 Azure Store 中可讓您傳送電子郵件的應用程式。它提�
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

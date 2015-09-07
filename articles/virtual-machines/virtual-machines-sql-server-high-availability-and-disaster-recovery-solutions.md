@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Azure 虛擬機器中的 SQL Server 高可用性和災害復原"
-   description="討論在 Azure 虛擬機器中執行之 SQL Server 的各種 HADR 策略類型。"
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" />
+	description="討論在 Azure 虛擬機器中執行之 SQL Server 的各種 HADR 策略類型。"
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 <tags 
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
-   ms.author="jroth" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="08/17/2015"
+	ms.author="jroth"/>
 
 # Azure 虛擬機器中的 SQL Server 高可用性和災害復原
 
@@ -134,7 +134,7 @@ Azure 磁碟中的異地複寫不支援將相同資料庫的資料檔與記錄�
 
 如果您需要使用 SQL Server 建立 Azure 虛擬機器，請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-provision-sql-server.md)。
 
-若要從 Azure VM 上執行的 SQL Server 取得最佳效能，請參閱 [Azure 虛擬機器中 SQL Server 的效能最佳作法](https://msdn.microsoft.com/library/azure/dn133149.aspx)中的指引。
+若要從 Azure VM 上執行的 SQL Server 取得最佳效能，請參閱 [Azure 虛擬機器中 SQL Server 的效能最佳做法](virtual-machines-sql-server-performance-best-practices.md)中的指引。
 
 如需在 Azure VM 中執行 SQL Server 的其他相關主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)。
 
@@ -143,4 +143,4 @@ Azure 磁碟中的異地複寫不支援將相同資料庫的資料檔與記錄�
 - [在 Azure 中安裝新的 Active Directory 樹系](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [在 Azure VM 中建立 AlwaysOn 可用性群組的 WSFC 叢集](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

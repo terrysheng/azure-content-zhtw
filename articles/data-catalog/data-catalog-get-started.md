@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 資料目錄開始使用資料目錄"
-   description="Azure 資料目錄的案例和功能的端對端教學課程"
-   documentationCenter=""
-   services="data-catalog"
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
+	description="Azure 資料目錄案例和功能的端對端教學課程。"
+	documentationCenter=""
+	services="data-catalog"
+	authors="dvana"
+	manager="mblythe"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/13/2015"
+	ms.author="derrickv"/>
 
 # 開始使用 Azure 資料目錄
 
@@ -62,7 +62,7 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
     ![register3][3]
 6.	輸入您的 [**伺服器名稱**]，然後按一下 [**連接**]。
 7.	下一頁將註冊您的資料來源的中繼資料。在此範例中，您將註冊 AdventureWorks Production 命名空間中的 **Product** 物件。作法如下：
-    
+
     a.在階層樹狀結構中，按一下 [**Production**]。
 
     b.Ctrl+按一下 Product、ProductCategory、ProductDescription 和 ProductPhoto。
@@ -76,7 +76,7 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
     d.**選擇性**：您可以**包含預覽**和**加入資料來源專家**。
 
     e.在 [**加入標記**] 中，輸入描述、相片。這會加入這些資料資產的搜尋標記。標記可協助使用者尋找已註冊的資料來源，非常有用。
- 
+
     f.按一下 [**註冊**]。Azure 資料目錄會註冊您選取的物件。本練習中會註冊從 Adventure Works 選取的物件。
 
     ![register6][6]
@@ -115,9 +115,9 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 
 1.	登入 **Azure 資料目錄**入口網站。
 2.	按一下 [**探索**]。
-3.	在 [**搜尋**] 方塊中，輸入**分組**查詢：(tags:description OR tags:photo)。 
+3.	在 [**搜尋**] 方塊中，輸入**分組**查詢：(tags:description OR tags:photo)。
 4.	按一下搜尋圖示，或按 Enter 鍵。**Azure 資料目錄**會顯示這個搜尋查詢傳回的資料資產。
-    
+
     ![search][8]
 
 在本練習中，您使用 **Azure 資料目錄**入口網站來探索及檢視已向目錄註冊的資料資產。
@@ -222,4 +222,4 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

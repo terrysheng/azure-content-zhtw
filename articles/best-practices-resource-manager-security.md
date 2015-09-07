@@ -170,11 +170,11 @@ Active Directory 目錄中會以服務主體來代表服務身分。服務主體
 
 許多案例將會要求指定如何控制傳輸至您虛擬網路中一個或多個 VM 執行個體的流量。您可以使用網路安全性群組 (NSG)，在部署 ARM 範本時進行。
 
-網路安全性群組是與您的訂用帳戶相關聯的最上層物件。NSG 包含存取控制規則，可允許或拒絕傳輸至 VM 執行個體的流量。NSG 的規則可以隨時變更，而變更時會套用至所有相關聯的執行個體。若要使用 NSG，您必須擁有與區域 (位置) 相關聯的虛擬網路。NSG 不相容於與同質群組相關聯的虛擬網路。如果您沒有區域虛擬網路，而且您想要控制傳輸至端點的流量，請參閱[關於網路存取控制清單 (ACL)](https://msdn.microsoft.com/library/azure/dn376541.aspx)。
+網路安全性群組是與您的訂用帳戶相關聯的最上層物件。NSG 包含存取控制規則，可允許或拒絕傳輸至 VM 執行個體的流量。NSG 的規則可以隨時變更，而變更時會套用至所有相關聯的執行個體。若要使用 NSG，您必須擁有與區域 (位置) 相關聯的虛擬網路。NSG 不相容於與同質群組相關聯的虛擬網路。如果您沒有區域虛擬網路，而且您想要控制傳輸至端點的流量，請參閱[關於網路存取控制清單 (ACL)](../virtual-network/virtual-networks-acl.md)。
 
 您可以讓 NSG 與 VM 產生關聯，或與虛擬網路內的子網路產生關聯。與 VM 建立關聯時，NSG 會套用至由 VM 執行個體傳送和接收的所有流量。套用至虛擬網路中的子網路時，NSG 會套用至子網路中所有 VM 執行個體傳送和接收的所有流量。VM 或子網路可以僅與 1 個 NSG 產生關聯，但每個 NSG 可以包含最多 200 個規則。每個訂用帳戶您可以擁有 100 個 NSG。
 
->[AZURE.NOTE]端點式 ACL 和網路安全性群組，不支援用於相同的 VM 執行個體。如果您想要使用 NSG 且已經擁有就地端點 ACL，請先移除端點 ACL。如需有關執行這項作業的資訊，請參閱＜[使用 PowerShell 管理端點的存取控制清單 (ACL)](https://msdn.microsoft.com/library/azure/dn376543.aspx)＞。
+>[AZURE.NOTE]端點式 ACL 和網路安全性群組，不支援用於相同的 VM 執行個體。如果您想要使用 NSG 且已經擁有就地端點 ACL，請先移除端點 ACL。如需有關執行這項作業的資訊，請參閱＜[使用 PowerShell 管理端點的存取控制清單 (ACL)](../virtual-network/virtual-networks-acl-powershell.md)＞。
 
 ### 網路安全性群組的運作方式
 
@@ -337,4 +337,4 @@ Azure 使用路由表決定如何根據每個封包的目的地轉送 IP 流量�
 - 若要了解如何設定路由與 IP 轉送，請參閱[如何在 Azure 中建立路由與啟用 IP 轉送](virtual-network/virtual-networks-udr-how-to.md) 
 - 如需角色型存取控制的概觀，請參閱 [Microsoft Azure 入口網站中的角色型存取控制](role-based-access-control-configure.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

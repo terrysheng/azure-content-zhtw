@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 Azure App Service 中建立 ASP.NET API 應用程式"
-	description="了解如何在 Azure App Service 使用 Visual Studio 2013 建立 ASP.NET API 應用程式"
+	pageTitle="在 Azure App Service | Microsoft Azure 中建立 ASP.NET API 應用程式"
+	description="了解如何在 Azure App Service 使用 Visual Studio 2013 建立 ASP.NET API 應用程式。"
 	services="app-service\api"
 	documentationCenter=".net"
 	authors="bradygaster"
@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="08/14/2015"
 	ms.author="tdykstra"/>
 
@@ -34,7 +34,7 @@
 
 ## 建立 API 應用程式專案
 
-指示您輸入專案名稱時，請輸入 *ContactsList*。
+指示您輸入專案名稱時，請輸入 **ContactsList**。
 
 [AZURE.INCLUDE [app-service-api-create](../../includes/app-service-api-create.md)]
 
@@ -47,6 +47,5 @@
 ## 後續步驟
 
 現在已準備好部署您的 API 應用程式，而且您可以依照[部署 API 應用程式](app-service-dotnet-deploy-api-app.md)教學課程進行部署。
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

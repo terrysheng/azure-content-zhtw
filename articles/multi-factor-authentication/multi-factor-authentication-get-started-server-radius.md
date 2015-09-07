@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="RADIUS 驗證與 Azure Multi-Factor Authentication Server" 
-	description="此 Azure Multi-Factor Authentication 頁面協助您部署 RADIUS 驗證與 Azure Multi-Factor Authentication Server。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="RADIUS 驗證與 Azure Multi-Factor Authentication Server"
+	description="此 Azure Multi-Factor Authentication 頁面協助您部署 RADIUS 驗證與 Azure Multi-Factor Authentication Server。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -56,4 +56,4 @@
 - 使用上述設定的相同共用密碼。 
 - 將 RADIUS 逾時設定為 30 至 60 秒，以保留足夠的時間來驗證使用者的認證、執行多因素驗證、接收回應，然後回應 RADIUS 存取要求。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

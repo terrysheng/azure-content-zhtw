@@ -70,16 +70,16 @@ None | 傳送電子郵件
 
 您現在可以設定要在工作流程中使用的 SMTP 連接器。選取 [傳送電子郵件] 動作，並設定輸入屬性：
 
-	Property | Description
+	屬性 | 說明
 	--- | ---
-	To | 輸入收件人的電子郵件地址。使用分號 (;) 分隔多個電子郵件地址。例如輸入： recipient1@domain.com;recipient2@domain.com。
-	Cc | 輸入副本收件人的電子郵件地址。使用分號 (;) 分隔多個電子郵件地址。例如輸入：recipient1@domain.com;recipient2@domain.com。
-	Subject | 輸入電子郵件主旨。
-	Body | 輸入電子郵件內文。
-	Is HTML | 當此屬性設為 true 時，內文內容會以 HTML 傳送。
-	Bcc | 輸入密件副本收件人的電子郵件地址。使用分號 (;) 分隔多個電子郵件地址。例如輸入：recipient1@domain.com;recipient2@domain.com。
-	Importance | 輸入電子郵件的重要性。選項為一般、低重要性和高重要性。
-	Attachments | 附件會連同電子郵件一併寄出。包含的欄位如下： <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
+	收件人 | 輸入收件人的電子郵件地址。使用分號 (;) 分隔多個電子郵件地址。例如輸入： recipient1@domain.com;recipient2@domain.com。
+	副本 | 輸入副本收件人的電子郵件地址。使用分號 (;) 分隔多個電子郵件地址。例如輸入：recipient1@domain.com;recipient2@domain.com。
+	主旨 | 輸入電子郵件主旨。
+	內文 | 輸入電子郵件內文。
+	HTML | 當此屬性設為 true 時，內文內容會以 HTML 傳送。
+	密件副本 | 輸入密件副本收件人的電子郵件地址。使用分號 (;) 分隔多個電子郵件地址。例如輸入：recipient1@domain.com;recipient2@domain.com。
+	重要性 | 輸入電子郵件的重要性。選項為一般、低重要性和高重要性。
+	附件 | 附件會連同電子郵件一併寄出。包含的欄位如下： <ul><li>內容 (字串)</li><li>內容轉移編碼 (列舉) (“無”|”base64”)</li><li>內容類型 (字串)</li><li>內容識別碼 (字串)</li><li> 檔案名稱 (字串)</li></ul>
 
 	![][5]
 	![][6]
@@ -99,4 +99,4 @@ None | 傳送電子郵件
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=August15_HO9-->
+<!-----HONumber=August15_HO9-->

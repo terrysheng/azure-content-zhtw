@@ -322,7 +322,7 @@ Azure 搜尋服務允許以各種語言來編製欄位的索引。這些語言�
 		</td>
 	</tr>
     <tr>
-		<td>巴西文</td>
+		<td>葡萄牙文(巴西)</td>
 		<td>pt-Br.lucene</td>
 		<td>
 		<ul>

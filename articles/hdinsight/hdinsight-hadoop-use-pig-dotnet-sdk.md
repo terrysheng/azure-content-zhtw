@@ -49,7 +49,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 每個 Azure 訂閱都是透過 GUID 值 (稱為訂閱識別碼) 予以識別。請使用下列步驟來尋找此值。
 
-1. 瀏覽 [Azure 預覽入口網站] [preview-portal]。
+1. 瀏覽 [Azure 預覽入口網站][preview-portal]。
 
 2. 從入口網站的左側列選取 [瀏覽全部]，然後從 [瀏覽] 刀鋒視窗選取 [訂用帳戶]。
 
@@ -232,6 +232,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 * [搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-use-hive.md)
 
-* [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md) [preview-portal]： https://portal.azure.com/
+* [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
+[preview-portal]: https://portal.azure.com/
 
 <!---HONumber=August15_HO8-->

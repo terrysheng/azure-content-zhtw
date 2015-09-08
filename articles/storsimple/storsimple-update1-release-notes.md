@@ -43,7 +43,7 @@
     - **業務持續性**：透過允許將 5000-7000 系列應用裝置上的現有資料移轉到 8000 系列應用裝置。
     - **8000 系列應用裝置的改進功能**：例如透過 StorSimple Manager 服務對多個應用裝置進行有效率的集中式管理、更高等級的硬體和更新的韌體、虛擬應用裝置、資料行動力，以及未來藍圖中的功能。
 
-    如需如何將 StorSimple 5000-7000 系列移轉至 8000 系列裝置的詳細資訊，請參閱《移轉指南》[](http://www.microsoft.com/download/details.aspx?id=47322)。
+    如需如何將 StorSimple 5000-7000 系列移轉至 8000 系列裝置的詳細資訊，請參閱[移轉指南](http://www.microsoft.com/download/details.aspx?id=47322)。
 
 - **Azure Government 入口網站的可用性** – Azure Government 入口網站現已提供 StorSimple。請參閱如何[在 Azure Government 入口網站中部署 StorSimple 裝置](storsimple-deployment-walkthrough-gov.md)。
 
@@ -115,4 +115,4 @@
 - [在您的裝置上安裝 Update 1](storsimple-install-update-1.md)。
  
 
-<!---HONumber=August15_HO9-->
+<!-----HONumber=August15_HO9-->

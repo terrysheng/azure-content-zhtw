@@ -126,13 +126,15 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 	![提供 HBase 叢集的詳細資料](./media/hdinsight-hbase-provision-vnet/hbasewizard2.png)
 
 	<table border='1'>
-	<tr><th>屬性</th><th>值</th></tr>
-	<tr><td>資料節點</td><td>選取您要部署的資料節點數。請建立單一節點叢集，以供測試之用。<br />叢集大小限制會隨著 Azure 訂用帳戶而不同。若要提高限制，請與 Azure 帳務支援人員連絡。</td></tr>
-	<tr><td>區域/虛擬網路</td><td><p>如果您已建立區域或 Azure 虛擬網路，請選取其一。針對本教學課程，請選取您先前建立的網路，接著選取對應的子網路。預設名稱為 <b>Subnet-1</b>。</p></td></tr>
-	<tr><td>前端節點大小</td><td><p>選取前端節點的 VM 大小。</p></td></tr>
-	<tr><td>資料節點大小</td><td><p>選取資料節點的 VM 大小。</p></td></tr>
-	<tr><td>Zookeeper 大小</td><td><p>選取 Zookeeper 節點的 VM 大小。</p></td></tr>
-</table>>[AZURE.NOTE]根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
+		<tr><th>屬性</th><th>值</th></tr>
+		<tr><td>資料節點</td><td>選取您要部署的資料節點數。請建立單一節點叢集，以供測試之用。<br />叢集大小限制會隨著 Azure 訂用帳戶而不同。若要提高限制，請與 Azure 帳務支援人員連絡。</td></tr>
+		<tr><td>區域/虛擬網路</td><td><p>如果您已建立區域或 Azure 虛擬網路，請選取其一。針對本教學課程，請選取您先前建立的網路，接著選取對應的子網路。預設名稱為 <b>Subnet-1</b>。</p></td></tr>
+		<tr><td>前端節點大小</td><td><p>選取前端節點的 VM 大小。</p></td></tr>
+		<tr><td>資料節點大小</td><td><p>選取資料節點的 VM 大小。</p></td></tr>
+		<tr><td>Zookeeper 大小</td><td><p>選取 Zookeeper 節點的 VM 大小。</p></td></tr>
+	</table>
+
+	>[AZURE.NOTE]根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
 
 	按一下向右按鈕。
 
@@ -141,43 +143,45 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 	![提供 Hadoop HDInsight 叢集的儲存體帳戶](./media/hdinsight-hbase-provision-vnet/hbasewizard3.png)
 
 	<table border='1'>
-	<tr><th>屬性</th><th>值</th></tr>
-	<tr><td>HTTP 使用者名稱</td>
-		<td>指定 HDInsight 叢集使用者名稱。</td></tr>
-	<tr><td>HTTP 密碼/確認密碼</td>
-		<td>指定 HDInsight 叢集使用者密碼。</td></tr>
-	<tr><td>為叢集啟用遠端桌面</td>
-		<td>選取此核取方塊，以指定遠端桌面使用者的使用者名稱、密碼和到期日期，使其在佈建之後可以遠端進入叢集節點。您也可以稍後在叢集佈建後啟用遠端桌面。如需指示，請參閱<a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連接至 HDInsight 叢集</a>。</td></tr>
-</table>
+		<tr><th>屬性</th><th>值</th></tr>
+		<tr><td>HTTP 使用者名稱</td>
+			<td>指定 HDInsight 叢集使用者名稱。</td></tr>
+		<tr><td>HTTP 密碼/確認密碼</td>
+			<td>指定 HDInsight 叢集使用者密碼。</td></tr>
+		<tr><td>為叢集啟用遠端桌面</td>
+			<td>選取此核取方塊，以指定遠端桌面使用者的使用者名稱、密碼和到期日期，使其在佈建之後可以遠端進入叢集節點。您也可以稍後在叢集佈建後啟用遠端桌面。如需指示，請參閱<a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連接至 HDInsight 叢集</a>。</td></tr>
+	</table>
 
 6. 在 [儲存體帳戶] 頁面上，提供下列值：
 
     ![提供 Hadoop HDInsight 叢集的儲存體帳戶](./media/hdinsight-hbase-provision-vnet/hbasewizard4.png)
 
 	<table border='1'>
-	<tr><th>屬性</th><th>值</th></tr>
-	<tr><td>儲存體帳戶</td>
-		<td>指定將作為 HDInsight 叢集之預設檔案系統的 Azure 儲存帳號。您可以從三個選項中擇一使用：
-		<ul>
-			<li><strong>使用現有的儲存體</strong></li>
-			<li><strong>建立新的儲存體</strong></li>
-			<li><strong>使用其他訂用帳戶的儲存體</strong></li>
-		</ul>
-		</td></tr>
-	<tr><td>帳戶名稱</td>
-		<td><ul>
-			<li>如果選擇使用現有的儲存體，則在 [帳戶名稱]<strong></strong> 中，請選取現有儲存體帳戶。下拉式清單列出的儲存體帳戶僅限位於與您選擇佈建叢集相同的資料中心。</li>
-			<li>如果選擇 [建立新的儲存體]<strong></strong> 或 [從另一個訂用帳戶使用儲存體]<strong></strong> 選項，則您必須提供儲存體帳戶名稱。</li>
-		</ul></td></tr>
-	<tr><td>帳戶金鑰</td>
-		<td>如果選擇 [從另一個訂用帳戶使用儲存體]<strong></strong> 選項，請指定該儲存體帳戶的帳戶金鑰。</td></tr>
-	<tr><td>預設容器</td>
-		<td><p>指定儲存體帳戶上的預設容器做為 HDInsight 叢集的預設檔案系統。如果您在 [儲存體帳戶] <strong></strong>欄位中選擇了 [使用現有的儲存體] <strong></strong>，且該帳戶中沒有現有的容器，根據預設，將使用叢集名稱建立名稱相同的容器。如果已有使用叢集名稱的容器存在，則會為容器名稱加上序號。例如 mycontainer1、mycontainer2，依此類推。然而，如果現有儲存體帳戶已有容器存在，且其名稱與您指定的叢集名稱不同，您仍可以使用該容器。</p>
-        <p>如果選擇建立新儲存體或從另一個 Azure 訂用帳戶使用儲存體，則必須指定預設容器名稱。</p>
-    </td></tr>
-	<tr><td>其他儲存體帳戶</td>
-		<td>視需要指定叢集的其他儲存體帳戶。HDInsight 支援多個儲存體帳戶。叢集可使用的其他儲存體帳戶沒有數量上的限制。但如果您使用 Azure 入口網站建立叢集，則會因為 UI 的限制而只能使用最多七個儲存體帳戶。您所指定的每個其他儲存體帳戶都會在精靈上另外加入一個 [儲存體帳戶]<strong></strong> 頁面，您可在此指定帳戶資訊。以上面的螢幕擷取畫面為例，其未選取其他儲存體帳戶，因此沒有在精靈上加入額外頁面。</td></tr>
-</table>按一下向右箭頭。
+		<tr><th>屬性</th><th>值</th></tr>
+		<tr><td>儲存體帳戶</td>
+			<td>指定將作為 HDInsight 叢集之預設檔案系統的 Azure 儲存帳號。您可以從三個選項中擇一使用：
+			<ul>
+				<li><strong>使用現有的儲存體</strong></li>
+				<li><strong>建立新的儲存體</strong></li>
+				<li><strong>使用其他訂用帳戶的儲存體</strong></li>
+			</ul>
+			</td></tr>
+		<tr><td>帳戶名稱</td>
+			<td><ul>
+				<li>如果選擇使用現有的儲存體，則在 [帳戶名稱]<strong></strong> 中，請選取現有儲存體帳戶。下拉式清單列出的儲存體帳戶僅限位於與您選擇佈建叢集相同的資料中心。</li>
+				<li>如果選擇 [建立新的儲存體]<strong></strong> 或 [從另一個訂用帳戶使用儲存體]<strong></strong> 選項，則您必須提供儲存體帳戶名稱。</li>
+			</ul></td></tr>
+		<tr><td>帳戶金鑰</td>
+			<td>如果選擇 [從另一個訂用帳戶使用儲存體]<strong></strong> 選項，請指定該儲存體帳戶的帳戶金鑰。</td></tr>
+		<tr><td>預設容器</td>
+			<td><p>指定儲存體帳戶上的預設容器做為 HDInsight 叢集的預設檔案系統。如果您在 [儲存體帳戶] <strong></strong>欄位中選擇了 [使用現有的儲存體] <strong></strong>，且該帳戶中沒有現有的容器，根據預設，將使用叢集名稱建立名稱相同的容器。如果已有使用叢集名稱的容器存在，則會為容器名稱加上序號。例如 mycontainer1、mycontainer2，依此類推。然而，如果現有儲存體帳戶已有容器存在，且其名稱與您指定的叢集名稱不同，您仍可以使用該容器。</p>
+	        <p>如果選擇建立新儲存體或從另一個 Azure 訂用帳戶使用儲存體，則必須指定預設容器名稱。</p>
+	    </td></tr>
+		<tr><td>其他儲存體帳戶</td>
+			<td>視需要指定叢集的其他儲存體帳戶。HDInsight 支援多個儲存體帳戶。叢集可使用的其他儲存體帳戶沒有數量上的限制。但如果您使用 Azure 入口網站建立叢集，則會因為 UI 的限制而只能使用最多七個儲存體帳戶。您所指定的每個其他儲存體帳戶都會在精靈上另外加入一個 [儲存體帳戶]<strong></strong> 頁面，您可在此指定帳戶資訊。以上面的螢幕擷取畫面為例，其未選取其他儲存體帳戶，因此沒有在精靈上加入額外頁面。</td></tr>
+	</table>
+
+	按一下向右箭頭。
 
 7. 在 [指令碼動作] 頁面上，選取右下角的核取記號。請不要點選 [加入指令碼動作] 按鈕，因為本教學課程不需要自訂叢集設定。
 
@@ -429,4 +433,4 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "佈建新 HBase 叢集的詳細資料"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "使用指令碼動作以自訂 HBase 叢集"
 
-<!---HONumber=August15_HO9-->
+<!-----HONumber=August15_HO9-->

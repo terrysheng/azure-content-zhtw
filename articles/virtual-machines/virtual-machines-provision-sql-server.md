@@ -76,7 +76,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 	- 在 [雲端服務] 方塊中，選擇 [Create a new cloud service]。
 	- 在 [Cloud Service DNS Name] 方塊中，提供選擇之 DNS 名稱的第一個部分，使其形成 **TESTNAME.cloudapp.net** 格式的名稱 
 	- 如果您有多個訂用帳戶可供選擇，請選取 [訂用帳戶]。此選擇會決定可使用哪些 **儲存體帳戶**。
-- 在 [REGION/AFFINITY GROUP/VIRTUAL NETWORK] 方塊中，選取代管這個虛擬映像的所在區域。
+	- 在 [REGION/AFFINITY GROUP/VIRTUAL NETWORK] 方塊中，選取代管這個虛擬映像的所在區域。
 	- 在 [儲存體帳戶] 中，可以自動產生帳戶，或從清單中選取一個帳戶。變更 [訂用帳戶] 以查看更多帳戶。 
 	- 在 [可用性集合] 方塊中，選取 [(無)]。
 	- 閱讀及接受法律條款。
@@ -156,4 +156,4 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 - [Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->

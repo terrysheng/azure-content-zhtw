@@ -79,7 +79,7 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 
 但是安裝程式會假設本機電腦和公司防火牆會根據預設允許上述的輸出連接埠。如果不是這樣，您必須啟用這些輸出連接埠。如果您用協力廠商防火牆取代 Windows 防火牆，可能需要手動開啟這些連接埠。
 
-如果貴公司使用 proxy 伺服器，您必須將 Microsoft Azure 新增至白名單。您可以從 [Microsoft 下載中心](http://msdn.microsoft.com/library/windowsazure/dn175718.aspx)下載一份有效的 Microsoft Azure IP 位址清單。
+如果貴公司使用 proxy 伺服器，您必須將 Microsoft Azure 新增至允許清單。您可以從 [Microsoft 下載中心](http://msdn.microsoft.com/library/windowsazure/dn175718.aspx)下載一份有效的 Microsoft Azure IP 位址清單。
 
 ## 使用資料閘道器 – 逐步解說
 在本逐步解說中，您可以使用將資料從內部部署 SQL Server 資料庫移至 Azure Blob 的管線，來建立一個 Data Factory。

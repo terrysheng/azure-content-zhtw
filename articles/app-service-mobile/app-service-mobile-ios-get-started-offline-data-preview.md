@@ -88,7 +88,7 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
 
     `pullWithQuery` 的第二個參數是用於*增量同步處理* 的查詢識別碼。增量同步處理會使用記錄的 `UpdatedAt` 時間戳記 (在本機存放區中稱為 `ms_updatedAt`)，僅擷取自上次同步處理後修改的記錄。對您應用程式中的每個邏輯查詢而言，查詢識別碼應該是唯一的描述性字串。若選擇不要增量同步處理，請傳遞 `nil` 做為查詢識別碼。請注意這可能是潛在效率不佳，因為它會擷取每項提取作業的所有記錄。
 
-	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
+	<!--     >[AZURE.NOTE] 若要從裝置本機存放區中移除已在您行動服務資料庫中刪除的記錄，請啟用 [虛刪除]。 否則，您的應用程式應定期呼叫 {MSSyncTable.purgeWithQuery} 才能清除本機存放區。
  -->
 
 5. 在 `QSTodoService` 類別中，`syncData` 方法會在修改資料的作業 (`addItem` 和 `completeItem`) 之後呼叫。此方法也會從 `QSTodoListViewController.refresh` 呼叫，以便使用者每次執行重新整理動作時都能取得最新的資料。應用程式也會在啟動時執行同步處理，因為 `QSTodoListViewController.init` 會呼叫 `refresh`。
@@ -158,7 +158,9 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
     | id | 字串 (標示為必要) | 遠端存放區中的主索引鍵 |
     | 完成 | Boolean | todo 項目欄位 |
     | 文字 | String | todo 項目欄位 |
-    | ms\_createdAt | Date | (選用) 對應至 \_\_createdAt 系統屬性 | | ms\_updatedAt | 日期 | (選用) 對應至 \_\_updatedAt 系統屬性 | | ms\_version | 字串 | (選用) 用於偵測衝突，對應至 \_\_version |
+    | ms\_createdAt | Date | (選用) 對應至 \_\_createdAt 系統屬性 | 
+	| ms\_updatedAt | 日期 | (選用) 對應至 \_\_updatedAt 系統屬性 | 
+	| ms\_version | 字串 | (選用) 用於偵測衝突，對應至 \_\_version |
 
 
 ## <a name="setup-sync"></a>變更應用程式的同步處理行為
@@ -222,14 +224,14 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
 
     如果您想選擇不要增量同步處理，則傳遞 `nil` 做為查詢識別碼。在此情況下，每次呼叫 `pullWithQuery` 時都會擷取所有的記錄，這可能會沒有效率。
 
-<!-- * To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
+<!-- * 若要從裝置本機存放區中移除已在您行動服務資料庫中刪除的記錄，請啟用 [虛刪除]。 Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
  -->
 
 ## 其他資源
 
 * [Azure 行動應用程式中的離線資料同步處理]
 
-* [雲端報導︰Azure 行動服務中的離線同步處理] (注意︰影片位於行動服務上，但離線同步處理的運作方式類似在 Azure 行動應用程式中的方式)
+* [雲端報導︰Azure 行動服務中的離線同步處理] \(注意︰影片位於行動服務上，但離線同步處理的運作方式類似在 Azure 行動應用程式中的方式)
 
 <!-- URLs. -->
 
@@ -246,4 +248,4 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=August15_HO9-->
+<!-----HONumber=August15_HO9-->

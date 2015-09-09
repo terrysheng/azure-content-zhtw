@@ -159,4 +159,4 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!----HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

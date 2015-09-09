@@ -81,8 +81,9 @@ None | 傳送電子郵件
 	重要性 | 輸入電子郵件的重要性。選項為一般、低重要性和高重要性。
 	附件 | 附件會連同電子郵件一併寄出。包含的欄位如下： <ul><li>內容 (字串)</li><li>內容轉移編碼 (列舉) (“無”|”base64”)</li><li>內容類型 (字串)</li><li>內容識別碼 (字串)</li><li> 檔案名稱 (字串)</li></ul>
 
-	![][5]
-	![][6]
+
+![][5]
+![][6]
 
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
@@ -99,4 +100,4 @@ None | 傳送電子郵件
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!-----HONumber=August15_HO9-->
+<!------HONumber=August15_HO9-->

@@ -34,56 +34,70 @@
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
-The completed application is provided at the end of this tutorial as well.
+本教學課程最後也會提供完整的應用程式。
 
 
-## 1. Register an App
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+## 1. 註冊應用程式
+Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  請確定：
 
-- Copy down the **Application Id** assigned to your app, you'll need it soon.
-- Add the **Mobile** platform for your app.
-- Copy down the **Redirect URI** from the portal. You must use the default value of `urn:ietf:wg:oauth:2.0:oob`.
+- 請複製指派給應用程式的**應用程式 ID**，您很快就會需要它。
+- 為您的應用程式新增 **行動**平台。
+- 從入口網站複製完整的 **重新導向 URI**。 您必須使用 `urn:ietf:wg:oauth:2.0:oob` 的預設值。
 
 
-## 2: Download node.js for your platform
-To successfully use this sample, you must have a working installation of Node.js.
+## 2: 下載適用於您平台的 node.js
+若要成功使用此範例，您必須具備已成功安裝的 Node.js。
 
 Install Node.js from [http://nodejs.org](http://nodejs.org).
 
-## 3: Install MongoDB on to your platform
+## 3: 在您的平台上安裝 MongoDB
 
-To successfully use this sample, you must have a working installation of MongoDB. We will use MongoDB to make our REST API persistant across server instances.
+若要成功使用此範例，您必須具備已成功安裝的 MongoDB。 我們將會使用 MongoDB 讓 REST API 得以在不同伺服器執行個體之間持續使用。
 
 Install MongoDB from [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE] This walkthrough assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is: mongodb://localhost
+> [AZURE.NOTE] 本逐步解說假設您會使用 MongoDB 的預設安裝和伺服器端點，在撰寫本文時為：mongodb://localhost
 
-## 4: Install the Restify modules in to your Web API
+## 4: 在您的 Web API 上安裝 Restify 模組
 
-We will be using Resitfy to build our REST API. Restify is a minimal and flexible Node.js application framework derived from Express that has a robust set of features for building REST APIs on top of Connect.
+我們將會使用 Resitfy 來建置 REST API。 Restify 是衍生自 Express 的最小且具彈性的 Node.js 應用程式架構，其中包含一組強大功能除了可用來建立連線外，還可以用來建置 REST API。
 
-### Install Restify
+### 安裝 Restify
 
-From the command-line, change directories to the azuread directory. If the **azuread** directory does not exist, create it.
+從命令列將目錄變更至 azuread 目錄。 如果 **azuread** 目錄不存在，請予以建立。
 
 `cd azuread` - or- `mkdir azuread;`
 
-Type the following command:
+輸入以下命令：
 
 `npm install restify`
 
-This command installs Restify.
+此命令會安裝 Restify。
 
-#### Did you get an error?
+#### 您有收到錯誤訊息嗎？
 
-When using npm on some operating systems, you may receive an error of Error: EPERM, chmod '/usr/local/bin/..' and a request to try running the account as an administrator. If this occurs, use the sudo command to run npm at a higher privilege level.
+在某些作業系統上使用 npm 時，您可能會收到 [錯誤：EPERM, chmod '/usr/local/bin/..'] 的錯誤訊息，並收到以系統管理員身分執行該帳戶的要求。 若發生這個情況，使用 sudo 命令以更高的權限層級執行 npm。
 
-#### Did you get an error regarding DTrace?
+#### 您有收到有關 DTRACE 的錯誤訊息嗎？
 
-You may see something like this when installing Restify:
+安裝 Restify 時，您可能會看到類似下面的內容：
 
 ```Shell
-clang: error: no such file or directory: 'HD/azuread/node\_modules/restify/node\_modules/dtrace-provider/libusdt' make: *** [Release/DTraceProviderBindings.node] Error 1 gyp ERR! build error gyp ERR! stack Error: `make` failed with exit code: 2 gyp ERR! stack at ChildProcess.onExit (/usr/local/lib/node\_modules/npm/node\_modules/node-gyp/lib/build.js:267:23) gyp ERR! stack at ChildProcess.EventEmitter.emit (events.js:98:17) gyp ERR! stack at Process.ChildProcess.\_handle.onexit (child\_process.js:789:12) gyp ERR! System Darwin 13.1.0 gyp ERR! command "node" "/usr/local/lib/node\_modules/npm/node\_modules/node-gyp/bin/node-gyp.js" "rebuild" gyp ERR! cwd /Volumes/Development HD/azuread/node\_modules/restify/node\_modules/dtrace-provider gyp ERR! node -v v0.10.11 gyp ERR! node-gyp -v v0.10.0 gyp ERR! not ok npm WARN optional dep failed, continuing dtrace-provider@0.2.8 ```
+clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
+make: *** [Release/DTraceProviderBindings.node] Error 1
+gyp ERR! build error
+gyp ERR! stack Error: `make` failed with exit code: 2
+gyp ERR! stack     at ChildProcess.onExit (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/build.js:267:23)
+gyp ERR! stack     at ChildProcess.EventEmitter.emit (events.js:98:17)
+gyp ERR! stack     at Process.ChildProcess._handle.onexit (child_process.js:789:12)
+gyp ERR! System Darwin 13.1.0
+gyp ERR! command "node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+gyp ERR! cwd /Volumes/Development HD/azuread/node_modules/restify/node_modules/dtrace-provider
+gyp ERR! node -v v0.10.11
+gyp ERR! node-gyp -v v0.10.0
+gyp ERR! not ok
+npm WARN optional dep failed, continuing dtrace-provider@0.2.8
+```
 
 
 Restify 提供使用 DTrace 追蹤 REST 呼叫的強大機制。不過，許多作業系統沒有 DTrace 可以使用。您可以放心地忽略這些錯誤。

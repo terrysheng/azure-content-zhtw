@@ -86,7 +86,7 @@ Azure Site Recovery 可在許多部署案例中協調虛擬機器的複寫、容
 
 4. 在 [名稱] 中，輸入保存庫的易記識別名稱。
 
-5. 在 [**區域**] 中，選取保存庫的地理區域。可用的地理區域包括 [東亞]、[西歐]、[美國西部]、[美國東部]、[北歐] 和 [東南亞]。
+5. 在 [區域] 中，選取保存庫的地理區域。可用的地理區域包括 [東亞]、[西歐]、[美國西部]、[美國東部]、[北歐] 和 [東南亞]。
 6. 按一下 [建立保存庫]。
 
 	![新增保存庫](./media/site-recovery-vmm-to-azure/ASRE2AVMM_HvVault.png)
@@ -126,7 +126,9 @@ Azure Site Recovery 可在許多部署案例中協調虛擬機器的複寫、容
 5. 在 [網際網路連線] 中，指定 VMM 伺服器上執行的提供者連接到網際網路的方式。選取 [Use default system proxy settings]，以使用在伺服器上設定的預設網際網路連線設定。
 
 	![網際網路設定](./media/site-recovery-vmm-to-azure/ASRE2AVMM_ProviderProxy.png)
-	- 如果您想要使用自訂 Proxy，您應該在安裝提供者之前進行設定。設定自訂的 Proxy 設定時，將執行測試來檢查 Proxy 連線。- 如果您使用自訂 Proxy，或您的預設 Proxy 需要驗證，您將必須輸入 Proxy 的詳細資料，包括 Proxy 位址和連接埠。- 下列 URL 應該能夠從 VMM 伺服器與 Hyper-V 主機存取 -
+	- 如果您想要使用自訂 Proxy，您應該在安裝提供者之前進行設定。設定自訂的 Proxy 設定時，將執行測試來檢查 Proxy 連線。
+	- 如果您使用自訂 Proxy，或您的預設 Proxy 需要驗證，您將必須輸入 Proxy 的詳細資料，包括 Proxy 位址和連接埠。
+	- 下列 URL 應該能夠從 VMM 伺服器與 Hyper-V 主機存取。
 		- *.hypervrecoverymanager.windowsazure.com
 		- *.accesscontrol.windows.net
 		- *.backup.windowsazure.com
@@ -296,11 +298,11 @@ Azure Site Recovery 可在許多部署案例中協調虛擬機器的複寫、容
 1. 當容錯移轉到達 [完成測試] 階段時，請按一下 [完成測試] 以完成測試容錯移轉。您可以向下切入到 [工作] 索引標籤，來追蹤容錯移轉進度和狀態，並執行任何所需的動作。
 1. 在容錯移轉之後，您將可以在 Azure 入口網站中看到該虛擬機器測試複本。如果您設定從內部部署網路存取虛擬機器，您可以初始化虛擬機器的「遠端桌面」連線。
 
-    a.確認虛擬機器成功啟動。
+    a. 確認虛擬機器成功啟動。
 
-    b.如果您在容錯移轉之後要使用遠端桌面連接到 Azure 中的虛擬機器，請先在虛擬機器上啟用遠端桌面連線，再執行測試容錯移轉。您也必須在虛擬機器上新增 RDP 端點。您可以利用 [Azure 自動化 Runbook](site-recovery-runbook-automation.md) 來執行這個動作。
+    b. 如果您在容錯移轉之後要使用遠端桌面連接到 Azure 中的虛擬機器，請先在虛擬機器上啟用遠端桌面連線，再執行測試容錯移轉。您也必須在虛擬機器上新增 RDP 端點。您可以利用 [Azure 自動化 Runbook](site-recovery-runbook-automation.md) 來執行這個動作。
 
-    c.容錯移轉之後，如果您使用公用 IP 位址，請利用 [遠端桌面] 連接到 Azure 中的虛擬機器，以確定您沒有任何網域原則會阻止您使用公用位址連接到虛擬機器。
+    c. 容錯移轉之後，如果您使用公用 IP 位址，請利用 [遠端桌面] 連接到 Azure 中的虛擬機器，以確定您沒有任何網域原則會阻止您使用公用位址連接到虛擬機器。
 
 1.  測試完成之後，請執行下列動作：
 	- 按一下 [測試容錯移轉完成]。清除測試環境，以自動關閉電源及刪除測試虛擬機器。
@@ -322,4 +324,4 @@ Azure Site Recovery 可在許多部署案例中協調虛擬機器的複寫、容
 
 <LI>若有任何問題，請造訪 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 復原服務論壇</a>。</LI> </UL>
 
-<!------HONumber=August15_HO8-->
+<!-------HONumber=August15_HO8-->

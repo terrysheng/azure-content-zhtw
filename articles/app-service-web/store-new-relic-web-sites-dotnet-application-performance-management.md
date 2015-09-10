@@ -38,7 +38,8 @@ New Relic Standard 供 Azure 使用者免費使用。根據您所使用的網站
 
 Azure 客戶部署 New Relic 代理程式時享有 New Relic Pro 試用訂閱 2 週。
 
-使用 Azure Marketplace 註冊 New Relic --
+使用 Azure Marketplace 註冊 New Relic
+--
 
 New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密整合。
 
@@ -178,4 +179,4 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->

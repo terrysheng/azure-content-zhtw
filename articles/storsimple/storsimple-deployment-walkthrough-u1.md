@@ -241,7 +241,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 更新裝置可能需要數小時的時間。在裝置上執行下列步驟來掃描並套用更新。
 <!-- > can take 1-4 hours-->
 
-<!-- > [AZURE.NOTE] If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
+<!-- > [AZURE.NOTE] 如果您已在 Data 0 以外的網路介面設定閘道器，安裝更新前您必須先停用 Data 2 和 Data 3 網路介面。 請移至 **[裝置] > [設定]** 並停用 Data 2 和 Data 3 介面。 裝置更新之後，您應該重新啟用這些介面。-->
 
 #### 若要更新裝置
 
@@ -255,7 +255,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 4.	裝置成功更新之後，請啟用 Data 2 和 Data 3 網路介面 (如果已停用)。
 
-<!-- In step 2, you may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
+<!-- 系統可能會要求您在安裝更新前停用 Data 2 和 Data 3。 您必須停用這些網路介面，否則更新會失敗。-->
 
 ## 取得 Windows Server 主機的 IQN
 
@@ -287,4 +287,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 使用 [StorSimple Manager 服務](storsimple-manager-service-administration.md)以管理 StorSimple 裝置。
  
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

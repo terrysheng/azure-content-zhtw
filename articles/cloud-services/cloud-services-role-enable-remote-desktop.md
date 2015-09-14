@@ -1,37 +1,104 @@
 <properties 
-pageTitle="設定 Azure 雲端服務中角色的遠端桌面連線" 
-description="如何設定的 Azure 雲端服務應用程式以允許遠端桌面連線" 
-services="cloud-services" 
-documentationCenter="" 
-authors="Thraka" 
-manager="timlt" 
-editor=""/>
+pageTitle="啟用 Azure 雲端服務中角色的遠端桌面連線"
+	description="如何設定的 Azure 雲端服務應用程式以允許遠端桌面連線"
+	services="cloud-services"
+	documentationCenter=""
+	authors="sbtron"
+	manager="timlt"
+	editor=""/>
 <tags 
-ms.service="cloud-services" 
-ms.workload="tbd" 
-ms.tgt_pltfrm="na" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.date="07/06/2015" 
-ms.author="adegeo"/>
+ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/06/2015"
+	ms.author="saurabh"/>
 
-# 設定 Azure 中角色的遠端桌面連接
-建立執行應用程式的雲端服務之後，您可以在應用程式中從遠端存取角色執行個體，以進行設定或疑難排解問題。遠端桌面必須設定雲端服務。
+# 啟用 Azure 雲端服務中角色的遠端桌面連線
 
-* 需要啟用遠端桌面驗證的憑證嗎？ [建立](cloud-services-certs-create.md)一個並進行以下設定。
-* 雲端服務已經有遠端桌面設定了嗎？ [連接](#remote-into-role-instances)至雲端服務。
+>[AZURE.SELECTOR]
+- [Azure Portal](cloud-services-role-enable-remote-desktop.md)
+- [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+- [Visual Studio](https://msdn.microsoft.com/library/gg443832.aspx)
 
-## 設定 web 角色或背景工作角色的遠端桌面連線
-若要啟用 web 角色或背景工作角色的遠端桌面連線，您可以設定應用程式的服務模型中的連線，或者您可以使用 Azure 管理入口網站來設定執行個體執行之後的連線。
 
-### 設定服務模型中的連線
-**匯入**元素必須加入至將 **RemoteAccess** 模組和 **RemoteForwarder** 模組匯入到服務模型的服務定義檔。當您使用 Visual Studio 建立 Azure 專案時，會為您建立服務模型的檔案。
+遠端桌面可讓您存取 Azure 內執行中角色的桌面。您可以使用遠端桌面連線來疑難排解和診斷執行中應用程式的問題。
 
-服務模型包含 [ServiceDefinition.csdef](cloud-services-model-and-package.md#csdef) 檔案和 [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) 檔案。定義檔案是為部署準備雲端服務的應用程式時，和角色二進位檔一起封裝。ServiceConfiguration.cscfg 檔案會與應用程式封裝一起部署，並且由 Azure 用來決定應用程式的執行方式。
+您可以在開發期間藉由在服務定義中包含遠端桌面模組啟用遠端桌面連線，也可以選擇透過遠端桌面延伸模組啟用遠端桌面。慣用的方法是使用遠端桌面延伸模組，因為即使在部署應用程式之後，您仍然可以啟用遠端桌面，無需重新部署您的應用程式。
 
-建立專案之後，您可以使用 Visual Studio [啟用遠端桌面連線](https://msdn.microsoft.com/library/gg443832.aspx)。
 
-設定連線之後，服務定義檔應類似下列加入 `<Imports>` 元素的範例。
+## 從入口網站設定遠端桌面
+入口網站會使用遠端桌面延伸模組方法，因此即使在應用程式部署之後，您也可以啟用遠端桌面。雲端服務的 [設定] 頁面可讓您啟用遠端桌面，變更用來與虛擬機器連線的本機系統管理員帳戶、驗證中使用的憑證，並設定到期日。
+
+
+1. 依序按一下 [雲端服務]、雲端服務的名稱及 [設定]。
+
+2. 按一下 [遠端]。
+    
+    ![Cloud services remote](./media/cloud-services-role-enable-remote-desktop/CloudServices_Remote.png)
+    
+    > [AZURE.WARNING]當您首次啟用遠端桌面並按一下 [確定] (打勾記號) 時，所有角色執行個體都會重新啟動。若要防止重新啟動，角色上必須安裝用來將密碼加密的憑證。若要防止重新啟動，請[上傳雲端服務的憑證](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service)，然後再回到這個對話方塊。
+    
+
+3. 在 [角色] 中，選取想要更新的角色，或選取 [全部] 以更新所有角色。
+
+4. 進行下列任一變更：
+    
+    - 若要啟用遠端桌面，請選取 [啟用遠端桌面] 核取方塊。若要停用遠端桌面，請清除此核取方塊。
+    
+    - 建立用來對角色執行個體進行遠端桌面連線的帳戶。
+    
+    - 更新現有帳戶的密碼。
+    
+    - 選取要用於驗證的已上傳憑證 (使用 [憑證] 頁面上的 [上傳] 來上傳憑證)，或建立新的憑證。
+    
+    - 變更遠端桌面組態的到期日。
+
+5. 完成組態更新時，按一下 [確定] (勾選記號)。
+
+
+## 角色執行個體的遠端存取
+一旦在角色上啟用遠端桌面，您可以透過各種工具遠端存取角色執行個體。
+
+從入口網站連線到角色執行個體：
+    
+  1.   按一下 [**執行個體**] 以開啟 [**執行個體**] 頁面。
+  2.   選取已設定「遠端桌面」的角色執行個體。
+  3.   按一下 [**連接**]，然後依照指示開啟桌面。 
+  4.   按一下 [**開啟**]，然後按一下 [**連接**] 以啟動遠端桌面連線。 
+
+
+### 使用 Visual Studio 遠端存取角色執行個體
+
+在 Visual Studio 中，伺服器總管：
+
+1. 展開 **Azure\\Cloud Services\\[cloud service name]** 節點。
+2. 展開**預備**或**生產**。
+3. 展開個別角色。
+4. 以滑鼠右鍵按一下其中一個角色執行個體，按一下 [使用遠端桌面連線...]，然後輸入使用者名稱和密碼。 
+
+![伺服器總管遠端桌面](./media/cloud-services-role-enable-remote-desktop/ServerExplorer_RemoteDesktop.png)
+
+
+### 使用 PowerShell 取得 RDP 檔案
+您可以使用 [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) cmdlet 擷取 RDP 檔案。然後，您可以使用 RDP 檔案及遠端桌面連線存取雲端服務。
+
+### 以程式設計的方式透過服務管理 REST API 下載 RDP 檔案
+您可以使用[下載 RDP 檔案](https://msdn.microsoft.com/library/jj157183.aspx) REST 作業下載 RDP 檔案。
+
+
+
+## 在服務定義檔中設定遠端桌面
+
+這個方法可讓您在開發期間啟用應用程式的遠端桌面。此方法需要加密的密碼儲存在您的服務組態檔中，且遠端桌面組態的任何更新都需要重新部署應用程式。如果您想要避免這些缺點，您應該使用以上所述之以遠端桌面延伸模組為基礎的方法。
+
+您可以使用 Visual Studio [啟用遠端桌面連線](https://msdn.microsoft.com/library/gg443832.aspx)以使用服務定義檔方法。下列步驟說明服務模型檔案啟用遠端桌面所需的變更。Visual Studio 將會在發佈時自動產生這些變更。
+
+### 設定服務模型中的連線 
+使用**匯入**元素將 **RemoteAccess** 模組和 **RemoteForwarder** 模組匯入至 [ServiceDefinition.csdef](cloud-services-model-and-package.md#csdef) 檔案。
+
+服務定義檔應類似下列已加入 `<Imports>` 元素的範例。
 
 ```xml
 <ServiceDefinition name="<name-of-cloud-service>" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2013-03.2.0">
@@ -54,8 +121,7 @@ ms.author="adegeo"/>
     </WebRole>
 </ServiceDefinition>
 ```
-
-服務組態檔應類似下列範例，該範例具有您在設定連線時所提供的值，請注意 `<ConfigurationSettings>` 和 `<Certificates>` 元素：
+[ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) 檔案應類似下列範例，請注意 `<ConfigurationSettings>` 和 `<Certificates>` 元素。指定的憑證必須已[上傳至雲端服務](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service)。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -76,41 +142,9 @@ ms.author="adegeo"/>
 </ServiceConfiguration>
 ```
 
-當您[封裝](cloud-services-model-and-package.md#cspkg)和[發佈](cloud-services-how-to-create-deploy-portal.md)應用程式時，您必須確定已選取 [**啟用所有角色的遠端桌面**] 核取方塊。[此](https://msdn.microsoft.com/library/ff683672.aspx)文章提供使用 Visual Studio 和雲端服務的一般相關工作清單。
 
-### 在執行中執行個體上設定連線
-在雲端服務的 [設定] 頁面上，您可以啟用或修改遠端桌面連線設定。如需詳細資訊，請參閱[設定角色執行個體的遠端存取](cloud-services-how-to-configure.md)。
+## 其他資源
 
+[如何設定雲端服務](cloud-services-how-to-configure.md)
 
-
-
-## 角色執行個體的遠端存取
-若要存取 web 角色或背景工作角色的執行個體，您必須使用遠端桌面通訊協定 (RDP) 檔案。您可以從管理入口網站下載檔案，或以程式設計方式擷取檔案。
-
-### 透過管理入口網站下載 RDP 檔案
-
-您可以使用下列步驟從管理入口網站擷取 RDP 檔案，然後使用遠端桌面連線連線到使用該檔案的執行個體：
-
-1.  在 [執行個體] 頁面上，選取執行個體，然後按一下命令列上的 [**連線**]。
-2.  按一下 [**儲存**] 以將遠端桌面通訊協定檔案儲存到本機電腦。
-3.  開啟**遠端桌面連線**，按一下 [**顯示選項**]，然後按一下 [**開啟**]。
-4.  瀏覽至儲存 RDP 檔案的位置，選取檔案，按一下 [**開啟**]，然後按一下 [**連線**]。請遵循指示以完成連線。
-
-### 使用 PowerShell 取得 RDP 檔案
-您可以使用 [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) cmdlet 擷取 RDP 檔案。
-
-### 使用 Visual Studio 下載 RDP 檔案
-在 Visual Studio 中，您可以使用 [伺服器總管] 建立遠端桌面連線。
-
-1.  在 [伺服器總管] 中，展開 **Azure\\Cloud Services\\[cloud service name]** 節點。
-2.  展開**預備**或**生產**。
-3.  展開個別角色。
-4.  以滑鼠右鍵按一下其中一個角色執行個體，按一下 [**使用遠端桌面連線...**]，然後輸入使用者名稱和密碼。
-
-### 以程式設計的方式透過服務管理 REST API 下載 RDP 檔案
-您可以使用[下載 RDP 檔案](https://msdn.microsoft.com/library/jj157183.aspx) REST 作業下載 RDP 檔案。然後，您可以使用 RDP 檔案及遠端桌面連線存取雲端服務。
-
-## 後續步驟
-您可能需要[封裝](cloud-services-model-and-package.md)或[上傳 (部署)](cloud-services-how-to-create-deploy-portal.md) 您的應用程式。
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

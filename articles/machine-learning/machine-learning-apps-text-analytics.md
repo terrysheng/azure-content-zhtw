@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/28/2015"
+	ms.date="09/01/2015"
 	ms.author="luisca"/>
 
 
@@ -201,4 +201,4 @@ API 會傳回輸入文字中代表說話重點的字串清單。我們採用的�
 在系統中輸入的識別碼是由系統傳回的識別碼。Web 服務不會檢查識別碼是否為唯一。呼叫端必須負責驗證唯一性。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

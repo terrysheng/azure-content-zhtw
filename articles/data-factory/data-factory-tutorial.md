@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用 Azure Data Factory 移動和處理記錄檔"
-	description="此進階教學課程說明接近現實情況的案例，並使用 Azure Data Factory 服務和 Data Factory 編輯器來實作案例。"
+	pageTitle="使用 Azure Data Factory 移動和處理記錄檔 (Azure 入口網站)"
+	description="此進階教學課程說明接近現實情況的案例，並使用 Azure 入口網站中的 Azure Data Factory 服務和 Data Factory 編輯器來實作案例。"
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -418,6 +418,8 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 練習[逐步解說：使用內部部署資料來源][tutorial-onpremises]，了解如何建立管線，以將行銷活動成效資料複製到內部部署 SQL Server 資料庫。
 
+## 傳送意見
+非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-tutorial.md)提交您的意見反應。
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -526,4 +528,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

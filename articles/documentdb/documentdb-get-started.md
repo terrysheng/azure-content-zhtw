@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
-	ms.date="05/19/2015"
+	ms.topic="hero-article"
+	ms.date="09/03/2015"
 	ms.author="anhoh"/>
 
 #開始使用 DocumentDB .NET SDK  
@@ -33,6 +33,8 @@ DocumentDB 是一個 NoSQL 文件資料庫服務，提供[一些 API 和 SDK](ht
 - 刪除資料庫
 
 是否沒有時間完成本教學課程，只是想要取得有效的解決方案？ 別擔心。您可以在 [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started) 上找到完整的方案。請參閱[取得完整的解決方案](#GetSolution)，以取得簡要指示。
+
+當您完成此教學課程後，請使用本主題頁首或頁尾的投票按鈕，告訴我們本主題寫得如何。本主題近來時常更新，所以我們需要您提供改善本文的意見反應。如果想要我們與您連絡，歡迎在註解中留下電子郵件地址，以便後續連絡。
 
 ## 必要條件
 
@@ -454,6 +456,8 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 
 > [AZURE.NOTE]如果您多次執行應用程式而不移除資料庫，則您可能會在建立新的資料庫時，遇到識別碼已經在使用中的問題。若要避免這個問題，您可以檢查是否已有相同識別碼的資料庫集合或文件存在。如需如何達成此目標的參考，請造訪 [GitHub 頁面](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started)。
 
+恭喜！ 您已建立您的第一支 DocumentDB 應用程式！
+
 ##<a id="GetSolution"></a>取得完整的方案
 若要建置包含本文中所有範例的 GetStarted 方案，您將需要下列項目：
 
@@ -463,6 +467,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 若要在 Visual Studio 2013 中還原 DocumentDB .NET SDK 的參考，請在 [方案總管] 中的 **GetStarted** 方案上按一下滑鼠右鍵，然後按一下 [**啟用 NuGet 封裝還原**]。接下來，在 App.config 檔案中更新 EndpointUrl 和 AuthorizationKey 值，如[連接至 DocumentDB 帳戶](#Connect)中所述。
 
 ## 後續步驟
+
 -   需要更複雜的 ASP.NET MVC 範例嗎？ 請參閱[使用 DocumentDB 建置具有 ASP.NET MVC 的 Web 應用程式](documentdb-dotnet-application.md)。
 -	了解如何[監視 DocumentDB 帳戶](documentdb-monitor-accounts.md) (英文)。
 -	在 [Query Playground](https://www.documentdb.com/sql/demo) 中，針對範例資料集執行查詢。
@@ -475,4 +480,4 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

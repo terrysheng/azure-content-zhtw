@@ -98,7 +98,7 @@ Microsoft Azure 虛擬機器資源庫涵蓋數個包含 Microsoft SQL Server 的
 	
 	- **D**: 磁碟機是主要用於分頁檔的暫存磁碟機。**D**: 磁碟機不會永久保存，並且不會儲存在 blob 儲存體中。管理工作 (例如變更虛擬機器大小) 會重設 **D**: 磁碟機。建議您**不要**將 **D**: 磁碟機用於資料庫檔案，包括 tempdb。
 
-	如需有關建立及連接磁碟的詳細資訊，請參閱[如何將資料磁碟連接至虛擬機器](http://www.windowsazure.com/manage/windows/how-to-guides/attach-a-disk/)。
+	如需建立及連接磁碟的詳細資訊，請參閱[如何將資料磁碟連接至虛擬機器](storage-windows-attach-disk.md)。
 
 - 停止或解除安裝您不打算使用的服務。例如，如果虛擬機器僅用於 Reporting Services，請停止或解除安裝 Analysis Services 和 SQL Server Integration Services。下圖是預設會啟動的服務的範例。
 
@@ -274,7 +274,7 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 
 下表將摘要列出一些可用來從內部部署電腦發佈現有報表至 Microsoft Azure 虛擬機器上代管的報表伺服器的選項：
 
-- **報表產生器**：虛擬機器包含 Click Once 版本的 Microsoft SQL Server 報表產生器。若要在虛擬機器上第一次啟動報表產生器：
+- **報表產生器**：虛擬機器包含 Click Once 版本的 Microsoft SQL Server 報表產生器。若要在虛擬機器上首次啟動報表產生器：
 											
 	1. 以管理權限啟動瀏覽器。
 	
@@ -427,4 +427,4 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。�
 
 - [使用 PowerShell 管理 Azure SQL Database](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

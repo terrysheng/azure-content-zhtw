@@ -1,25 +1,26 @@
 <properties 
-	pageTitle="Azure Blob 儲存體中的取樣資料 | Microsoft Azure" 
-	description="Azure Blob 儲存體中的取樣資料" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Azure Blob 儲存體中的取樣資料 | Microsoft Azure"
+	description="Azure Blob 儲存體中的取樣資料"
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev"/>
 
 #<a name="heading"></a>Azure Blob 儲存體中的取樣資料
 
 本文件說明為儲存於 Azure Blob 儲存體中的資料進行取樣，您可以利用程式設計方式下載它，然後使用 Python 程式碼範例來對它進行取樣。執行此動作的步驟如下：
 
+## 下載和降低取樣資料
 1. 從下列 Python 程式碼範例中，使用 Blob 服務，從 Azure Blob 儲存體下載資料。 
 
 	    from azure.storage import BlobService
@@ -45,7 +46,7 @@
 	    #directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. 使用 `numpy` 的 `random.choice` 以進行資料取樣，如下所示：
+3. 使用 `numpy` 的 `random.choice` 以進行降低取樣資料，如下所示：
 
 	    # A 1 percent sample
     	sample_ratio = 0.01 
@@ -55,7 +56,7 @@
 
 	現在您可以使用上述具有 1% 樣本的資料框架，進行進一步探索和功能產生。
 
-##<a name="heading"></a>連接到 Azure Machine Learning
+##<a name="heading"></a>將資料上傳並將其讀入 Azure Machine Learning
 
 您可以使用下列程式碼範例，對資料進行向下取樣，並直接在 Azure ML 中使用它：
 
@@ -96,4 +97,4 @@
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

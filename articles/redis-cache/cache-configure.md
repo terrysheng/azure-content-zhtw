@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/25/2015"
+	ms.date="09/03/2015"
 	ms.author="sdanie"/>
 
 # 如何設定 Azure Redis 快取
@@ -55,9 +55,15 @@
 
 ![Redis 快取存取連接埠](./media/cache-configure/IC808316.png)
 
+## 定價層
+
+按一下 [定價層] 來檢視或變更快取的定價層。如需調整的詳細資訊，請參閱[如何調整 Azure Redis 快取](cache-how-to-scale.md)。
+
+![Redis 快取定價層](./media/cache-configure/pricing-tier.png)
+
 ## 診斷
 
-按一下 [**診斷**] 來設定用來儲存快取診斷的儲存體帳戶。
+按一下 [診斷] 來設定用來儲存快取診斷的儲存體帳戶。
 
 ![Redis 快取診斷](./media/cache-configure/IC808317.png)
 
@@ -65,7 +71,7 @@
 
 ## Maxmemory-policy 和 maxmemory-reserved
 
-按一下 [**Maxmemory 原則**] 來設定快取的記憶體原則。 **maxmemory-policy** 設定會設定快取的收回原則，而 **maxmemory-reserved** 設定則會設定保留給非快取程序的記憶體。
+按一下 [Maxmemory 原則] 來設定快取的記憶體原則。**maxmemory-policy** 設定會設定快取的收回原則，而 **maxmemory-reserved** 設定則會設定保留給非快取程序的記憶體。
 
 ![Redis 快取 Maxmemory 原則](./media/cache-configure/IC808318.png)
 
@@ -86,7 +92,7 @@
 
 ## Keyspace 通知 (進階設定)
 
-按一下 [**進階設定**] 來設定 Redis Keyspace 通知。Keyspace 通知可讓用戶端在特定事件發生時收到通知。
+按一下 [進階設定] 來設定 Redis Keyspace 通知。Keyspace 通知可讓用戶端在特定事件發生時收到通知。
 
 ![Redis 快取進階設定](./media/cache-configure/IC808319.png)
 
@@ -100,7 +106,7 @@
 
 [使用者] 區段會在 Preview 入口網站中提供角色型存取控制 (RBAC) 的支援，以協助組織輕鬆又準確地滿足其存取管理需求。如需詳細資訊，請參閱 [Azure Preview 入口網站中的角色型存取控制](http://go.microsoft.com/fwlink/?LinkId=512803)。
 
-[**標記**] 區段可協助您組織您的資源。如需詳細資訊，請參閱[使用標記來組織您的 Azure 資源](../resource-group-using-tags.md)。
+[標記] 區段可協助您組織您的資源。如需詳細資訊，請參閱[使用標記來組織您的 Azure 資源](../resource-group-using-tags.md)。
 
 ## 預設 Redis 伺服器組態
 
@@ -115,12 +121,22 @@
 |設定|預設值|說明|
 |---|---|---|
 |資料庫|16|預設資料庫為 DB 0。您可以根據每個連線使用 connection.GetDataBase(dbid) 選取一個不同的資料庫，其中 dbid 是介於 0 與 15 之間的數字。|
-|maxclients|10,000|這是允許同時連線的用戶端數目上限。一旦達到限制，Redis 將關閉所有新的連接，同時傳送「達到用戶端的數目上限」錯誤。|
+|maxclients|取決於定價層 <sup>1</sup>|這是允許同時連線的用戶端數目上限。一旦達到限制，Redis 將關閉所有新的連接，同時傳送「達到用戶端的數目上限」錯誤。|
 |maxmemory-policy|volatile-lru|Maxmemory 原則可設定當達到 maxmemory (建立快取時所選取之快取提供項目的大小) 時 Redis 將如何選取要移除的具目。Azure Redis 快取的預設設定為 volatile-lru，其會移除使用 LRU 演算法設定到期日的金鑰。可以在 Preview 入口網站中進行這項設定。如需詳細資訊，請參閱 [Maxmemory-policy 和 maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)。|
 |maxmemory-samples|3|LRU 和最小 TTL 演算法不是精確的演算法，而是近似的演算法 (為了節省記憶體)，因此您也可以選取要檢查的範例大小。例如，預設為 Redis 將檢查三個金鑰，並挑選最近較少使用的金鑰。|
 |lua-time-limit|5,000|Lua 指令碼的最大執行時間 (以毫秒為單位)。如果已到達最大執行時間，Redis 會記錄指令碼在最大允許的時間之後仍在執行中，並開始回覆查詢發生錯誤。|
 |lua-event-limit|500|這是指令碼事件佇列的最大大小。|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|用戶端輸出緩衝區限制可用來強制中斷基於某些原因而無法足夠快地從伺服器讀取資料之用戶端的連線 (常見的原因是 Pub/Sub 用戶端使用訊息的速度無法與發佈者產生這些訊息的速度一樣快)。如需詳細資訊，請參閱 [http://redis.io/topics/clients](http://redis.io/topics/clients)。|
+
+每個 Azure Redis 快取定價層的 <sup>1</sup>`maxclients` 都不同。
+
+-	C0 (250 MB) 快取 - 最多 256 個連接
+-	C1 (1 GB) 快取 - 最多 1,000 個連接
+-	C2 (2.5GB) 快取 - 最多 2,000 個連接
+-	C3 (6 GB) 快取 - 最多 5,000 個連接
+-	C4 (13 GB) 快取 - 最多 10,000 個連接
+-	C5 (26 GB) 快取 - 最多 15,000 個連接
+-	C6 (53 GB) 快取 - 最多 20,000 個連接
 
 ## Azure Redis 快取中不支援的 Redis 命令
 
@@ -154,4 +170,4 @@
 ## 後續步驟
 -	如需使用 Redis 命令的詳細資訊，請參閱[如何執行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

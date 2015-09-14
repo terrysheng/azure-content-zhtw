@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="以 R 在 Machine Learning 上建置的 Web 服務範例 | Microsoft Azure" 
-	description="尋找以 R 程式碼和 Machine Learning 建立的一組實用 Web 服務範例，並發佈至 Azure Marketplace。" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="以 R 在 Machine Learning 上建置的 Web 服務範例 | Microsoft Azure"
+	description="尋找以 R 程式碼和 Machine Learning 建立的一組實用 Web 服務範例，並發佈至 Azure Marketplace。"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="jaymathe"/>
 
 
@@ -73,4 +73,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="針對進階分析程序和技術自訂 Hadoop 叢集 | Microsoft Azure" 
+	pageTitle="針對進階分析程序和技術自訂 Hadoop 叢集 | Microsoft Azure"
 	description="自訂 Azure HDInsight Hadoop 叢集中提供熱門 Python 模組。"
-	services="machine-learning"  
-	documentationCenter="" 
-	authors="hangzh-msft" 
-	manager="paulettm" 
-	editor="cgronlun"  />
+	services="machine-learning"
+	documentationCenter=""
+	authors="hangzh-msft"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="hangzh;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="hangzh;bradsev"/>
 
 # 針對進階分析程序和技術自訂 Azure HDInsight Hadoop 叢集
 
@@ -98,4 +98,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 
-<properties 
-	pageTitle="開始使用推播通知 (Android JavaScript) | Microsoft Azure" 
-	description="了解如何使用 Azure 行動服務傳送推播通知至 Android JavaScript 應用程式。" 
-	services="mobile-services, notification-hubs" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="開始使用推播通知 (Android JavaScript) | Microsoft Azure"
+	description="了解如何使用 Azure 行動服務傳送推播通知至 Android JavaScript 應用程式。"
+	services="mobile-services, notification-hubs"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/01/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="ricksal"/>
 
 
@@ -25,10 +25,6 @@
 ## 摘要
 
 本主題說明如何使用 Azure 行動服務，透過 Google 雲端通訊 ("GCM") 將推播通知傳送至 Android 應用程式。您會將推播通知新增至快速入門專案 (本教學課程的先決條件)。使用您的行動服務中內含的 Azure 通知中樞來啟用推播通知。完成後，行動服務就會在每次插入記錄時傳送推播通知。
-
-<!-- [AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/androidStudio/GettingStartedWithPush/AndroidStudio" target="_blank">here</a>.
--->
-
 
 ## 必要條件
 
@@ -176,6 +172,5 @@ To see a completed version of the source code in an Eclipse project, go <a href=
 [什麼是通知中心？]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

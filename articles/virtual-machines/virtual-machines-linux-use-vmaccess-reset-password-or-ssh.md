@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/07/2015"
+	ms.date="08/28/2015"
 	ms.author="kathydav"/>
 
 # 如何為 Linux 虛擬機器重設密碼或 SSH #
 
-如果您因為忘記密碼、安全殼層 (SSH) 金鑰不正確或 SSH 設定有問題而無法連線到 Linux 虛擬機器，請使用 Azure Preview 入口網站或 VMAccessForLinux 延伸模組，來重設密碼或 SSH 金鑰或修正 SSH 組態。
+如果您因為忘記密碼、安全殼層 (SSH) 金鑰不正確或 SSH 設定有問題而無法連線到 Linux 虛擬機器，請使用 Azure Preview 入口網站或 VMAccessForLinux 延伸模組，來重設密碼或 SSH 金鑰或修正 SSH 組態。請注意，本文適用於使用**傳統**部署模型所建立的虛擬機器。
 
 ## Azure Preview 入口網站
 
@@ -261,6 +262,5 @@ SSH 組態中的錯誤可導致您無法存取虛擬機器。您可以將 SSH �
 [如何安裝和設定 Azure PowerShell]: ../install-configure-powershell.md
 [Azure VM 延伸模組與功能]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [透過 RDP 或 SSH 連接至 Azure 虛擬機器]: http://msdn.microsoft.com/library/azure/dn535788.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

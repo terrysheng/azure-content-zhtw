@@ -1,23 +1,21 @@
 <properties 
-	pageTitle="在 Azure 中使用 Bottle 建立 Python Web 應用程式" 
-	description="介紹在 Azure App Service Web Apps 中執行 Python Web 應用程式的教學課程。" 
-	services="app-service\web" 
-	documentationCenter="python" 
+	pageTitle="在 Azure 中使用 Bottle 建立 Python Web 應用程式"
+	description="介紹在 Azure App Service Web Apps 中執行 Python Web 應用程式的教學課程。"
+	services="app-service\web"
+	documentationCenter="python"
 	tags="python"
-	authors="huguesv" 
-	manager="wpickett" 
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
-
-
 
 
 # 在 Azure 中使用 Bottle 建立 Web 應用程式
@@ -36,7 +34,7 @@
 - Python 2.7 或 3.4
 - setuptools、pip、virtualenv (僅 Python 2.7)
 - Git
-- [Python Tools 2.1 for Visual Studio](optional)
+- [Python Tools 2.2 for Visual Studio][] (PTVS) - 注意：此為選擇性項目
 
 **注意**：Python 專案目前不支援 TFS 發佈。
 
@@ -46,7 +44,7 @@
 
 針對 Git，建議您安裝 [Git for Windows] 或 [GitHub for Windows]。如果您使用 Visual Studio，您可以使用整合式的 Git 支援。
 
-我們也建議您安裝 [Python Tools 2.1 for Visual Studio]。這是選擇性的，但如果您有 [Visual Studio] (包含免費的 Visual Studio Community 2013 或 Visual Studio Express 2013 for Web)，它會提供您絕佳的 Python IDE。
+我們也建議您安裝 [Python Tools 2.2 for Visual Studio]。這是選擇性的，但如果您有 [Visual Studio] (包含免費的 Visual Studio Community 2013 或 Visual Studio Express 2013 for Web)，它會提供您絕佳的 Python IDE。
 
 ### Mac/Linux
 
@@ -160,7 +158,7 @@ Python 虛擬環境。如果 Web 應用程式上不存在相容的虛擬環境�
 
 ![](./media/web-sites-python-create-deploy-bottle-app/windows-browser-bottle.png)
 
-您可以在來源中設定中斷點、使用監看式視窗等等。如需各種功能的詳細資訊，請參閱 [PTVS 文件][]。
+您可以在來源中設定中斷點、使用監看式視窗等等。如需各種功能的詳細資訊，請參閱 [Python Tools for Visual Studio 文件]。
 
 ### 進行變更
 
@@ -374,8 +372,8 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 
 如需有關使用 Azure 資料表儲存體和 MongoDB 的資訊：
 
-- [Azure 上採用 Python Tools 2.1 for Visual Studio 的 Bottle 和 MongoDB]
-- [Azure 上採用 Python Tools 2.1 for Visual Studio 的 Bottle 和 Azure 資料表儲存體]
+- [Azure 上使用 Python Tools for Visual Studio 的 Bottle 和 MongoDB]
+- [Azure 上使用 Python Tools for Visual Studio 的 Bottle 和 Azure 資料表儲存體]
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -383,8 +381,8 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 
 
 <!--Link references-->
-[Azure 上採用 Python Tools 2.1 for Visual Studio 的 Bottle 和 MongoDB]: web-sites-python-ptvs-bottle-table-storage.md
-[Azure 上採用 Python Tools 2.1 for Visual Studio 的 Bottle 和 Azure 資料表儲存體]: web-sites-python-ptvs-bottle-mongodb.md
+[Azure 上使用 Python Tools for Visual Studio 的 Bottle 和 MongoDB]: web-sites-python-ptvs-bottle-table-storage.md
+[Azure 上使用 Python Tools for Visual Studio 的 Bottle 和 Azure 資料表儲存體]: web-sites-python-ptvs-bottle-table-storage.md
 
 <!--External Link references-->
 [Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
@@ -393,11 +391,11 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 [Git for Windows]: http://msysgit.github.io/
 [GitHub for Windows]: https://windows.github.com/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
-[PTVS 文件]: http://pytools.codeplex.com/documentation
-[Python Tools for Visual Studio 說明文件]: http://pytools.codeplex.com/documentation
+[Python Tools for Visual Studio 文件]: http://aka.ms/ptvsdocs
+[Python Tools for Visual Studio 說明文件]: http://aka.ms/ptvsdocs
 [Bottle 說明文件]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

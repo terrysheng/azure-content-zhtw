@@ -1,5 +1,5 @@
 <properties pageTitle="教學課程：Azure Active Directory 與 Central Desktop 整合 | Microsoft Azure" description="了解如何使用 Central Desktop 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi"/>
 #教學課程：Azure Active Directory 與 Central Desktop 整合
 >[AZURE.TIP]如需意見反應，請按一下[這裡](http://go.microsoft.com/fwlink/?LinkId=522411)。
 
@@ -53,8 +53,6 @@
 在這個程序中，您需要上傳 base-64 編碼憑證到您的 Central Desktop 租用戶。  
 如果您不熟悉這個程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
 
-Nase
-
 ###若要設定單一登入，請執行下列步驟：
 
 1.  在 Azure AD 入口網站的 [Central Desktop] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
@@ -65,10 +63,10 @@ Nase
 
     ![設定單一登入](./media/active-directory-saas-central-desktop-tutorial/IC777628.png "設定單一登入")
 
-3.  在 [設定應用程式 URL] 頁面上，執行下列步驟，然後按 [下一步]：
+3.  在 [設定應用程式 URL] 頁面上，執行下列步驟，然後按 [下一步]。
 
     -   在 [Central Desktop 登入 URL] 文字方塊中，輸入您的 Central Desktop 租用戶的 URL (例如：**http://contoso.centraldesktop.com*))。
-    -   在 [Central Desktop 回覆 URL] 文字方塊中，輸入您的 Central Desktop AssertionConsumerService URL (例如：https://contoso.centraldesktop.com/saml2-assertion.php))。
+-   在 [Central Desktop 回覆 URL] 文字方塊中，輸入您的 Central Desktop AssertionConsumerService URL (例如：https://contoso.centraldesktop.com/saml2-assertion.php))。
 
     >[AZURE.NOTE]您可以從 Central Desktop 中繼資料取得這個值 (例如：**http://contoso.centraldesktop.com*))。
 
@@ -89,9 +87,9 @@ Nase
     ![單一登入設定](./media/active-directory-saas-central-desktop-tutorial/IC769564.png "單一登入設定")
 
     1.  選取 [啟用 SAML v2 單一登入]。
-    2.  在 Azure AD 入口網站的 [在 Central Desktop 設定單一登入] 頁面上，複製**簽發者 URL** 值，然後將它貼至 [SSO URL] 文字方塊中。
-    3.  在 Azure AD 入口網站的 [在 Central Desktop 設定單一登入] 頁面上，複製**遠端登入 URL** 值，然後將它貼至 [SSO 登入 URL] 文字方塊中。
-    4.  在 Azure AD 入口網站的 [在 Central Desktop 設定單一登入] 頁面上，複製**單一登出服務 URL** 值，然後將它貼至 [SSO 登出 URL] 文字方塊中。
+    2.  在 Azure AD 入口網站的 [在 Central Desktop 設定單一登入] 頁面上，複製 [簽發者 URL] 的值，然後將它貼到 [SSO URL] 文字方塊中。
+    3.  在 Azure AD 入口網站的 [在 Central Desktop 設定單一登入] 頁面上，複製 [遠端登入 URL] 的值，然後將它貼到 [SSO 登入 URL] 文字方塊中。
+    4.  在 Azure AD 入口網站的 [在 Central Desktop 設定單一登入] 頁面上，複製 [單一登出服務 URL] 的值，然後將它貼到 [SSO 登出 URL] 文字方塊中。
 
 8.  在 [訊息簽章驗證方法] 區段中，執行下列步驟：
 
@@ -99,7 +97,7 @@ Nase
 
     1.  選取 [憑證]。
     2.  從 [SSO 憑證] 清單中選取 [RSH SHA256]。
-    3.  從下載的憑證建立文字檔，複製文字檔的內容，然後將它貼至 [SSO 憑證] 欄位中。  
+    3.  從下載的憑證建立文字檔，複製文字檔的內容，然後將內容貼到 [SSO 憑證] 欄位中。  
 
         >[AZURE.TIP]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)
 
@@ -154,4 +152,4 @@ AAD 使用者必須先佈建到 Central Desktop 應用程式，才可以登入�
 
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

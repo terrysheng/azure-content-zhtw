@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="建立資料庫" 
-	description="了解 Azure Data Factory 資料集並學習如何建立它們。" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="建立資料庫"
+	description="了解 Azure Data Factory 資料集並學習如何建立它們。"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="spelluru"/>
 
 # 資料集
@@ -182,16 +182,34 @@
 
 | 名稱 | 說明 | 必要 | 預設值 |
 | ---- | ----------- | -------- | -------------- |
-| dataDelay | 延遲指定配量之外部資料可用性檢查的時間。例如，如果認為資料每小時可用，外部的資料是否可實際使用以及對應的配量是準備檢查可能會因為延遲 dataDelay。<p>僅適用於當前的時間；例如，如果現在是下午 1:00 且這個值是 10 分鐘，則驗證將會在下午 1:10 開始。</p><p>此設定不會影響過去的配量，將會在沒有任何延遲的情況下處理 (配量結束時間 + dataDelay < 現在的配量)。</p> | 否 | 0 |
+| dataDelay | <p>延遲指定配量之外部資料可用性檢查的時間。例如，如果認為資料每小時可用，則可檢查外部資料是否確實可以使用，且對應的配量準備可能會因為 dataDelay 而延遲。</p><p>僅適用於當前的時間；例如，如果現在是下午 1:00 且這個值是 10 分鐘，則驗證將會在下午 1:10 開始。</p><p>此設定不會影響過去的配量，將會在沒有任何延遲的情況下處理 (配量結束時間 + dataDelay < 現在的配量)。</p> <p>時間若大於 23:59 小時，則必須使用「日.小時:分:秒」格式指定。例如，若要指定 24 小時，請不要使用 24:00:00；請改用 1.00:00:00。如果您使用 24:00:00，這會視同 24 天 (24.00:00:00)。如為 1 天又 4 小時，請指定 1:04:00:00。</p>| 否 | 0 |
 | retryInterval | 失敗與下一步重試嘗試之間的等待時間。適用於當前的時間；如果先前嘗試失敗，我們會在上次嘗試之後等待這麼久。<p>如果現在是下午 1:00，我們將開始第一次嘗試。如果完成第一次驗證檢查的持續時間是 1 分鐘且作業失敗，則下一次重試會在 1:00 + 1 分鐘 (持續時間) + 1 分鐘 (重試間隔) = 1:02pm。</p><p>若是過去的配量，則不會有任何延遲。重試會立即執行。</p> | 否 | 00:01:00 (1 分鐘) | 
 | retryTimeout | 每次重試嘗試的逾時。<p>如果此值設為 10 分鐘，則必須在 10 分鐘內完成驗證。如果要花超過 10 分鐘來執行驗證，重試將會逾時。</p><p>如果所有驗證嘗試都逾時，則配量會標示為 TimedOut。</p> | 否 | 00:10:00 (10 分鐘) |
 | maximumRetry | 檢查外部資料可用性的次數。允許的最大值為 10。 | 否 | 3 | 
 
+#### 更多範例
 
+如果您需要在特定日期和時間 (假設在每月三號上午 8:00) 執行以每月為基礎的管線，您可以使用 [位移] 標記，以設定其應該要執行的日期和時間。
 
+	{
+	  "name": "MyDataset",
+	  "properties": {
+	    "type": "AzureSqlTable",
+	    "linkedServiceName": "AzureSqlLinkedService",
+	    "typeProperties": {
+	      "tableName": "MyTable"
+	    },
+	    "availability": {
+	      "frequency": "Month",
+	      "interval": 1,
+	      "offset": "3.08:10:00",
+	      "style": "StartOfInterval"
+	    }
+	  }
+	}
 
-
-
+## 傳送意見
+非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-datasets.md)提交您的意見反應。
 
 
 
@@ -199,4 +217,4 @@
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

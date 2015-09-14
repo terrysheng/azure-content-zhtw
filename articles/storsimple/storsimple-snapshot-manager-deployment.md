@@ -1,21 +1,21 @@
 <properties 
    pageTitle="部署 StorSimple Snapshot Manager | Microsoft Azure"
-   description="描述如何下載及安裝 StorSimple Snapshot Manager。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="了解如何下載及安裝 StorSimple Snapshot Manager MMC 嵌入式管理單元，來管理 StorSimple 資料保護和備份功能。"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/17/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="v-sharos"/>
 
-# 部署 StorSimple Snapshot Manager
+# 部署 StorSimple Snapshot Manager MMC 嵌入式管理單元
 
 ## 概觀
 
@@ -35,9 +35,7 @@ StorSimple Snapshot Manager 可以安裝在執行 Windows Server® 2008 R2 SP1�
 
 下列步驟提供在安裝 StorSimple Snapshot Manager 之前必須完成之組態工作的高階概觀。如需完整的 Microsoft Azure StorSimple 組態和安裝資訊，包括系統需求和逐步指示，請參閱[部署您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)。
 
->[AZURE.IMPORTANT]在您開始之前，請檢閱[部署您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)
-中的[部署設定檢查清單](storsimple-deployment-walkthrough.md#deployment-configuration-checklist)和[部署必要條件](storsimple-deployment-walkthrough.md#deployment-prerequisites)。
-<br>
+>[AZURE.IMPORTANT]在您開始之前，請檢閱[部署您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)中的[部署設定檢查清單](storsimple-deployment-walkthrough.md#deployment-configuration-checklist)和[部署必要條件](storsimple-deployment-walkthrough.md#deployment-prerequisites)。<br>
  
 ### 安裝 StorSimple Snapshot Manager 之前
 
@@ -49,7 +47,7 @@ StorSimple Snapshot Manager 可以安裝在執行 Windows Server® 2008 R2 SP1�
     - Windows Server 2012
     - Windows Server 2012 R2
  
-    > [AZURE.NOTE]對於 StorSimple 虛擬裝置，主機必須是 Microsoft Azure 虛擬機器。
+    >[AZURE.NOTE]對於 StorSimple 虛擬裝置，主機必須是 Microsoft Azure 虛擬機器。
 
 3. 請確定您符合所有的 Microsoft Azure StorSimple 組態需求。如需詳細資料，請移至[部署必要條件](storsimple-deployment-walkthrough.md#deployment-prerequisites)。
 
@@ -95,7 +93,7 @@ StorSimple Snapshot Manager 可以安裝在執行 Windows Server® 2008 R2 SP1�
 
 3. 在 [**解壓縮壓縮 (壓縮) 資料夾**] 視窗的 [**選取目的地並解壓縮檔案**] 方塊中，鍵入或瀏覽至您想要解壓縮檔案的路徑。
 
-      >[AZURE.IMPORTANT]您必須在 C: 磁碟機上安裝 StorSimple Snapshot Manager。
+       >[AZURE.IMPORTANT]您必須在 C: 磁碟機上安裝 StorSimple Snapshot Manager。
  
 4. 選取 [**完成時顯示解壓縮檔案**] 核取方塊，然後再按一下 [**解壓縮**]。
 
@@ -255,4 +253,4 @@ StorSimple Snapshot Manager 可以安裝在執行 Windows Server® 2008 R2 SP1�
 
 若要深入了解 StorSimple Snapshot Manager 使用者介面，請至 [StorSimple Snapshot Manager 使用者介面](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

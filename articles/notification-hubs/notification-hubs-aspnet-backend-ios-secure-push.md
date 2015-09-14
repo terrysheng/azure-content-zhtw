@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 通知中心安全推播" 
-	description="了解如何從 Azure 將安全的推播通知傳送至 iOS 應用程式。程式碼範例是以 Objective-C 及 C# 撰寫。" 
-	documentationCenter="ios" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Azure 通知中心安全推播"
+	description="了解如何從 Azure 將安全的推播通知傳送至 iOS 應用程式。程式碼範例是以 Objective-C 及 C# 撰寫。"
+	documentationCenter="ios"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="notification-hubs"/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 #Azure 通知中心安全推播
@@ -157,6 +157,5 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 3. 在 iOS 應用程式 UI 中，按一下 [登入]。然後按一下 [傳送推播]。您應該會在您的通知中心內看見安全通知。
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

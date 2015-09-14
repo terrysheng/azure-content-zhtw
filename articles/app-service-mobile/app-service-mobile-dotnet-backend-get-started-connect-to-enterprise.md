@@ -12,13 +12,13 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="06/19/2015"
 	ms.author="mahender"/>
 
 # 將您的行動應用程式連接到 SaaS API
 
-在本教學課程中，您會將行動應用程式連接到企業的軟體即服務 (SaaS) 解決方案。您會從[使用 Active Directory Authentication Library 單一登入驗證您的應用程式]更新應用程式，以在每次新增 TodoItem 時，在 SharePoint Online 中建立 Word 文件。
+在本教學課程中，您會將行動應用程式連接到企業的軟體即服務 (SaaS) 解決方案。每當加入新的 TodoItem 時，您將從 [驗證您的應用程式與 Azure Active Directory 驗證程式庫單一登入] 更新應用程式，藉此在 SharePoint Online 中建立 Microsoft Word 文件。
 
 本教學課程需要下列各項：
 
@@ -35,29 +35,29 @@
 
     ![][1]
 
-您現在已設定由 AAD 簽發 SharePoint 存取權杖給 App Service。
+您現在已設定 Azure AD 發出 SharePoint 存取權杖給 App Service。
 
 ## <a name="store-credentials"></a>將 SharePoint 資訊新增至您的行動應用程式
 
-若要呼叫 SharePoint，您必須指定行動應用程式需要聯繫到的端點。您還必須能夠證明應用程式服務的身分識別。此動作須使用用戶端識別碼和用戶端密碼的配對來完成。您已在 AAD 登入設定期間取得並儲存應用程式服務的用戶端識別碼。由於這是機密認證，因此不應以純文字的形式儲存在我們的程式碼中。您應將這些值設為行動應用程式程式碼套件的應用程式設定。
+若要呼叫 SharePoint，您必須指定行動應用程式需要聯繫到的端點。您還必須能夠證明應用程式服務的身分識別。此動作須使用用戶端識別碼和用戶端密碼的配對來完成。您已在 AAD 登入設定期間取得並儲存應用程式服務的用戶端識別碼。因為這些都是機密的認證，所以您不應將其以純文字儲存在程式碼中。相對地，您將設定這些值為行動應用程式程式碼網站的應用程式設定。
 
 1. 返回租用戶的 [AAD 應用程式] 索引標籤，然後為您的應用程式服務選取 Web 應用程式。
 
-2. 在 [設定] 下，向下捲動至 [金鑰]。在產生新的金鑰後，您會取得用戶端密碼。請注意，在您建立金鑰並退出頁面後，即無法再從入口網站存取此金鑰。您必須在建立後，將此值複製並儲存在安全的位置中。選取金鑰的持續時間，然後按一下 [儲存]，並將產生的值複製到他處。
+2. 在 [設定] 下，向下捲動至 [金鑰]。您將產生新的索引鍵來取得用戶端密碼。請注意，在您建立金鑰並退出頁面後，即無法再從入口網站存取此金鑰。您必須在建立後，將此值複製並儲存在安全的位置中。選取金鑰的持續時間，然後按一下 [儲存]，並將產生的值複製到他處。
 
 3. 在 [管理入口網站] 的 [行動應用程式程式碼] 區段中，導覽至 [設定] 索引標籤，然後向下捲動至 [應用程式設定]。在此處您可以提供金鑰值組，以便參考所需的認證。
 
-* 將 SP\_Authority 設為 AAD 租用戶的授權端點。此項目應與您的用戶端應用程式所使用的授權值相同。其格式會是 `https://login.windows.net/contoso.onmicrosoft.com`
+* 將 SP\_Authority 設為 AAD 租用戶的授權端點。此項目應與您的用戶端應用程式所使用的授權值相同。其格式將是 `https://login.windows.net/contoso.onmicrosoft.com`。
 
 * 將 SP\_ClientSecret 設為您先前取得的用戶端密碼值。
 
 * 將 SP\_SharePointURL 設為 SharePoint 網站的 URL。其格式應為 `https://contoso-my.sharepoint.com`
 
-您將可使用 ApiServices.Settings 在您的程式碼中再次取得這些值。
+您可以使用 ApiServices.Settings 在程式碼中再次取得這些值。
 
 ## <a name="obtain-token"></a>取得存取權杖及呼叫 SharePoint API
 
-若要存取 SharePoint，您必須要以 SharePoint 的特殊存取權杖作為目標對象。若要取得此權杖，您必須使用 App Service 的身分識別和為使用者簽發的權杖，來回呼 AAD。
+若要存取 SharePoint，您必須要以 SharePoint 的特殊存取權杖作為目標對象。若要取得此權杖，需要以 App Service 身分識別回撥 Azure AD，也需要針對使用者所發出的權杖。
 
 1. 在 Visual Studio 中開啟您的行動應用程式程式碼專案。
 
@@ -123,9 +123,9 @@
 
 ## <a name="create-document"></a>建立及上傳 Word 文件
 
-若要建立 Word 文件，您將會使用 OpenXML NuGet 封裝。請開啟 NuGet Manager 並搜尋 DocumentFormat.OpenXml，然後安裝此封裝。
+若要建立 Word 文件，您將使用 OpenXML NuGet 封裝。請開啟 NuGet Manager 並搜尋 DocumentFormat.OpenXml，然後安裝此封裝。
 
-1. 將下列程式碼新增至 TodoItemController。這將會根據 TodoItem 建立 Word 文件。文件的文字將會是項目的名稱。
+1. 將下列程式碼新增至 TodoItemController。這會基於 TodoItem 建立 Word 文件。文件的文字將會是項目的名稱。
 
         private static byte[] CreateWordDocument(TodoItem todoItem)
         {
@@ -182,9 +182,8 @@
 
 [Preview Azure Management Portal]: https://portal.azure.com/
 []: https://manage.windowsazure.com/
-[SharePoint Online]: http://office.microsoft.com/zh-cn/sharepoint/
+[SharePoint Online]: http://office.microsoft.com/zh-TW/sharepoint/
 [使用 Active Directory Authentication Library 單一登入驗證您的應用程式]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="深入了解 BizTalk 服務各版本的功能 | Microsoft Azure"
-	description="比較 BizTalk 服務各版本的功能：免費、開發人員、基本、標準和高級。MABS，WABS"
+	description="比較 BizTalk 服務各版本的功能：免費、開發人員、基本、標準和高級。MABS，WABS。"
 	services="biztalk-services"
 	documentationCenter=""
 	authors="MandiOhlinger"
@@ -12,17 +12,17 @@
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="06/23/2015"
 	ms.author="mandia"/>
 
 
 # BizTalk 服務：版本圖表
 
-Azure BizTalk 服務提供數個版本供您選擇。使用本主題決定最適合您的案例和商務需求的版本。
+Azure BizTalk 服務提供數個版本。使用本文決定最適合您的案例和商務需求的版本。
 
 
-## 描述版本
+## 比較版本
 
 **免費 (預覽)**
 
@@ -30,7 +30,7 @@ Azure BizTalk 服務提供數個版本供您選擇。使用本主題決定最適
 
 **開發人員**
 
-包括混合式連線、EAI & EDI 訊息處理與易於使用的交易夥伴管理入口網站、支援一般 EDI 結構描述，以及透過 X12 和 AS2 的豐富 EDI 處理。建立一般 EAI 案例，以利用任何 HTTP/S、REST、FTP、WCF 和 SFTP 通訊協定連接雲端中的服務，來讀取和寫入訊息。利用易於使用的 SAP、Oracle eBusiness、Oracle DB、Siebel 和 SQL Server 介面卡，來使用內部部署 LOB 系統的連線。在開發人員為主的環境中，使用 Visual Studio 工具輕鬆開發和部署。僅限沒有服務等級協定 (SLA) 的開發和測試目的。
+包括混合式連線、EAI 和 EDI 訊息處理與易於使用的交易夥伴管理入口網站、支援一般 EDI 結構描述，以及透過 X12 和 AS2 的豐富 EDI 處理。建立一般 EAI 案例，以利用任何 HTTP/S、REST、FTP、WCF 和 SFTP 通訊協定連接雲端中的服務，來讀取和寫入訊息。利用易於使用的 SAP、Oracle eBusiness、Oracle DB、Siebel 和 SQL Server 介面卡，來使用內部部署 LOB 系統的連線。在開發人員為主的環境中，使用 Visual Studio 工具輕鬆開發和部署。僅限沒有服務等級協定 (SLA) 的開發和測試目的。
 
 **基本**
 
@@ -46,7 +46,7 @@ Azure BizTalk 服務提供數個版本供您選擇。使用本主題決定最適
 
 
 ## 版本圖表
-下表列出差異：
+下表列出差異。
 
 <table border="1">
 <tr bgcolor="FAF9F9">
@@ -201,7 +201,7 @@ Azure BizTalk 服務提供數個版本供您選擇。使用本主題決定最適
 </tr>
 </table>
 
-**附註** <br/>對於硬體故障時的備援能力，高可用性暗示在單一 BizTalk 單位內具有多個 VM。
+> [AZURE.NOTE]針對硬體故障時的備援能力，高可用性即代表在單一 BizTalk 單位內具有多個 VM。
 
 
 ## 常見問題集
@@ -212,18 +212,18 @@ Azure BizTalk 服務提供數個版本供您選擇。使用本主題決定最適
 #### BizTalk 服務與 Azure BizTalk VM 有何差異？
 BizTalk 服務提供真正的平台即服務 (PaaS) 架構，可在雲端中組建整合方案。您可以利用 PaaS 模型，完全專注於應用程式邏輯，並將所有基礎結構管理留給 Microsoft，包括：
 
-- 不需要管理或修補虛擬機器
-- Microsoft 確定可用性
-- 您可以根據需求調整，方法為只需透過 Azure 管理入口網站要求更多或更少容量
+- 不需要管理或修補虛擬機器。
+- Microsoft 確保了可用性。
+- 您可以根據需求調整，只需透過 Azure 入口網站要求更多或更少容量。
 
 虛擬機器上的 BizTalk 伺服器提供基礎架構即服務 (IaaS) 架構。您可以建立虛擬機器，並設定它們完全和您的內部部署環境一樣，這使得在雲端中執行現有的應用程式更為容易，而不需變更程式碼。使用 IaaS 時，您仍須負責設定虛擬機器、管理虛擬機器 (例如，安裝軟體和修補程式)，以及架構高可用性的應用程式。
 
 如果您正在查看如何組建新的整合方案，以將您的基礎結構管理努力降至最低，請使用 BizTalk 服務。如果您正在查看如何快速移轉現有的 BizTalk 方案，或尋找根據需求環境，以開發並測試 BizTalk 伺服器應用程式，請在 Azure 虛擬機器上使用 BizTalk 伺服器。
 
 #### BizTalk 配接器服務與混合式連線有何差異？
-BizTalk 配接器服務是由 Azure BizTalk 服務使用。BizTalk 配接器服務使用 BizTalk Adapter Pack 來連線至內部部署的企業營運 (LOB) 系統。混合式連線則可讓您將 Azure 應用程式 (例如網站和行動服務) 連線至內部部署資源，既輕鬆又方便。
+BizTalk 配接器服務是由 Azure BizTalk 服務使用。BizTalk 配接器服務使用 BizTalk Adapter Pack 來連線至內部部署的企業營運 (LOB) 系統。混合式連線則可讓您將 Azure 應用程式 (例如 Azure App Service 的 Web Apps 和 Azure 行動服務) 連線至內部部署資源，既輕鬆又方便。
 
-#### 「 每單位混合式連線資料傳輸 (GB)」 代表什麼意思呢？ 是指每分鐘/小時/日/週/月嗎？ 達到限制時會發生什麼事？
+#### 「每單位混合式連線資料傳輸 (GB)」代表什麼意思？ 是指每分鐘/小時/日/週/月嗎？ 達到限制時會發生什麼事？
 
 混合式連線每單位的成本要視 BizTalk 服務版本而定。簡言之，成本取決於您傳輸的資料量。例如，每天傳輸 10 GB 資料的成本低於每天傳輸 100 GB 的成本。使用 BizTalk 服務的[定價計算機](http://azure.microsoft.com/pricing/calculator/?scenario=full)來決定特定的成本。一般而言，系統會每日強制執行該限制。如果超過這個限制，每 GB 會收取 $1 的超額費。
 
@@ -231,30 +231,29 @@ BizTalk 配接器服務是由 Azure BizTalk 服務使用。BizTalk 配接器服�
 
 每個協定由兩個不同協定組成，即傳送端通訊橋接器和接收端通訊橋接器。
 
-####  當我達到橋接器或協定數目的配額限制時將發生什麼情況？
+####  當我達到橋接器或合約數目的配額限制時將發生什麼情況？
 
 您將無法部署任何新的橋接器，或建立任何新的合約。為了能夠部署更多，您需要相應增加為更多的 BizTalk 服務單位，或升級至更高版本。
 
 #### 如何從 BizTalk 服務的某層移轉至另一層？
 
-使用備份與還原流程，從某層移轉至另一層。僅支援某些移轉路徑。請參閱「[BizTalk 服務：備份與還原](biztalk-backup-restore.md)」，以取得支援的移轉路徑詳細資料。
+使用備份與還原流程，從某層移轉至另一層。僅支援某些移轉路徑。請參閱 [BizTalk 服務：備份與還原](biztalk-backup-restore.md)，以取得支援的移轉路徑詳細資訊。
 
 #### 服務中是否包括 BizTalk 介面卡服務？ 如何接收軟體？
 
 是，BizTalk 介面卡服務 (含 BizTalk 介面卡套件) 隨附於 Azure BizTalk 服務 SDK [下載](http://www.microsoft.com/download/details.aspx?id=39087) (英文)。
 
-## 下一步
+## 後續步驟
 
-若要在 Azure 管理入口網站中建立 Azure BizTalk 服務，請移至 [BizTalk 服務：使用 Azure 管理入口網站進行佈建](biztalk-provision-services.md)。若要開始建立應用程式，請移至 [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=235197)。
+若要在 Azure 入口網站中建立 Azure BizTalk 服務，請移至 [BizTalk 服務：使用 Azure 入口網站進行佈建](biztalk-provision-services.md)。若要開始建立應用程式，請移至 [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=235197)。
 
-## 另請參閱
-- [BizTalk 服務：使用 Azure 管理入口網站進行佈建](biztalk-provision-services.md)<br/>
+## 其他資源
+- [BizTalk 服務：使用 Azure 入口網站進行佈建](biztalk-provision-services.md)<br/>
 - [BizTalk 服務：佈建狀態圖](biztalk-service-state-chart.md)<br/>
 - [BizTalk 服務：儀表板、監視和調整索引標籤](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 - [BizTalk 服務：備份與還原](biztalk-backup-restore.md)<br/>
 - [BizTalk 服務：節流](biztalk-throttling-thresholds.md)<br/>
 - [BizTalk 服務：簽發者名稱和簽發者金鑰](biztalk-issuer-name-issuer-key.md)<br/>
 - [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

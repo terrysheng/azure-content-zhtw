@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="教學課程：從 Azure Blob 複製資料到 Azure SQL"
-	description="此教學課程說明如何建立將資料從 Blob 複製到 Azure SQL 資料庫儲存個體的範例資料管線。"
+	pageTitle="教學課程：使用 Data Factory 編輯器建立具有複製活動的管線"
+	description="在本教學課程中，您將使用 Azure 入口網站中的 Data Factory 編輯器，建立具有複製活動的 Azure Data Factory 管線。"
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,7 +16,7 @@
 	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
-# 教學課程：使用 Data Factory 編輯器建立和監視 Data Factory
+# 教學課程：使用 Data Factory 編輯器建立具有複製活動的管線
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
@@ -381,6 +381,9 @@
  
 若要使用 Azure PowerShell 進行本教學課程，請參閱[使用 Azure PowerShell 建立和監視 Data Factory][monitor-manage-using-powershell]。
 
+## 傳送意見
+非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-editor.md)提交您的意見反應。
+
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -498,4 +501,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

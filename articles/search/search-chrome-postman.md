@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="08/25/2015"
 	ms.author="heidist"/>
 
 # 如何搭配 Azure 搜尋服務使用 Chrome Postman #
@@ -108,7 +108,7 @@
 
 如需 REST API 的文件，請參閱 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)。
 
-您也可以前往 [Azure 搜尋：教學課程、影片示範和範例](https://msdn.microsoft.com/library/azure/dn818681.aspx)以了解更多範例。
+您也可以前往 [Azure 搜尋：教學課程、影片示範和範例](search-video-demo-tutorial-list.md)以了解更多範例。
 
 <!-- Image References -->
 [1]: ./media/search-chrome-postman/full_postman_client.png
@@ -118,4 +118,4 @@
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

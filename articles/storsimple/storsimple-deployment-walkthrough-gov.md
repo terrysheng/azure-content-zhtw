@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="在 Government 入口網站中部署您的內部部署 StorSimple 裝置 | Microsoft Azure"
-	description="在 Azure Government 入口網站中部署 StorSimple Update 1 裝置和服務的步驟與最佳作法。"
+   pageTitle="在 Government 入口網站中部署 StorSimple 裝置 | Microsoft Azure"
+	description="描述在 Azure Government 入口網站中部署 StorSimple Update 1 裝置和服務的步驟與最佳做法。"
 	services="storsimple"
 	documentationCenter="NA"
 	authors="SharS"
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="TBD"
-	ms.date="08/21/2015"
+	ms.date="09/02/2015"
 	ms.author="v-sharos"/>
 
 # 在 Government 入口網站中部署您的內部部署 StorSimple 裝置
@@ -277,4 +277,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx)以管理 StorSimple 裝置。
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

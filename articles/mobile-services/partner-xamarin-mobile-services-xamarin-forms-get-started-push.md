@@ -2,8 +2,8 @@
 	pageTitle="將推播通知新增至行動服務應用程式 (Xamarin.Forms) - 行動服務"
 	description="了解如何在 Xamarin.Forms 應用程式中以 Azure 行動服務使用推播通知。"
 	documentationCenter="xamarin"
-	authors="normesta"
-	manager="stevenpo"
+	authors="wesmc7777"
+	manager="dwrede"
 	services="mobile-services"
 	editor=""/>
 
@@ -293,7 +293,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
             const string template = "{"aps":{"alert":"$(message)"}}";
 
             var expiryDate = DateTime.Now.AddDays(90).ToString
-                (System.Globalization.CultureInfo.CreateSpecificCulture("en-US"));
+                (System.Globalization.CultureInfo.CreateSpecificCulture("zh-TW"));
 
             var push = client.GetPush();
 
@@ -846,4 +846,4 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 [完整的 Xamarin.Forms Azure 推播通知範例]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

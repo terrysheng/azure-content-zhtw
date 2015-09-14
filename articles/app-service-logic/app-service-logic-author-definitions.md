@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="撰寫邏輯應用程式定義" 
-	description="了解如何撰寫邏輯應用程式的 JSON 定義。" 
-	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	pageTitle="撰寫邏輯應用程式定義"
+	description="了解如何撰寫邏輯應用程式的 JSON 定義。"
+	authors="stepsic-microsoft-com"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2015"
+	ms.date="06/16/2015"
 	ms.author="stepsic"/>
 	
 #撰寫邏輯應用程式定義
@@ -99,7 +99,7 @@
         "destinationMap": {
             "defaultValue": {
                 "science": "http://www.nasa.gov",
-                "microsoft": "https://www.microsoft.com/zh-tw/default.aspx",
+                "microsoft": "https://www.microsoft.com/zh-TW/default.aspx",
                 "google": "https://www.google.com",
                 "robots": "https://en.wikipedia.org/wiki/Robot",
                 "NSA": "https://www.nsa.gov/"
@@ -234,7 +234,7 @@
 }
 ```
 
-您可以閱讀 [MSDN 上的邏輯應用程式類型動作](https://msdn.microsoft.com/en-US/library/azure/dn948511.aspx)。
+您可以閱讀 [MSDN 上的邏輯應用程式類型動作](https://msdn.microsoft.com/zh-TW/library/azure/dn948511.aspx)。
 
 >[AZURE.NOTE]邏輯應用程式設計工具不支援邏輯應用程式類型的動作，因此您必須手動編輯定義。
 
@@ -250,7 +250,7 @@
     "parameters": {
         "dataFeeds": {
             "defaultValue": [
-                "https://www.microsoft.com/zh-tw/default.aspx",
+                "https://www.microsoft.com/zh-TW/default.aspx",
                 "https://gibberish.gibberish/"
             ],
             "type": "Array"
@@ -306,7 +306,7 @@
     "parameters": {
         "dataFeeds": {
             "defaultValue": [
-                "https://www.microsoft.com/zh-tw/default.aspx",
+                "https://www.microsoft.com/zh-TW/default.aspx",
                 "https://office.live.com/start/default.aspx"
             ],
             "type": "Array"
@@ -688,4 +688,4 @@ Content-type: application/json
 
 然後，在每個環境中，您就可以提供不同的值給 `connection` 參數。如需有關建立及管理邏輯應用程式的所有可用選項，請參閱 [REST API 文件](https://msdn.microsoft.com/library/azure/dn948513.aspx)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

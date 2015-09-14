@@ -1,21 +1,21 @@
 <properties 
    pageTitle="管理您的 StorSimple 頻寬範本 | Microsoft Azure"
-   description="描述如何管理可讓您控制頻寬耗用量的 StorSimple 頻寬範本。"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="描述如何管理可讓您控制頻寬耗用量的 StorSimple 頻寬範本。"
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# 管理您的 StorSimple 頻寬範本
+# 使用 StorSimple Manager 服務管理 StorSimple 頻寬範本
 
 ## 概觀
 
@@ -54,7 +54,7 @@
 
 #### 新增頻寬範本
 
-1. 按一下 [**新增/編輯頻寬範本**]。
+1. 在 StorSimple Manager 服務的 [設定] 頁面上，按一下 [加入/編輯頻寬範本]。
 
 2. 在 [**新增/編輯頻寬範本**] 對話方塊中：
 
@@ -176,4 +176,4 @@
 
 深入了解 [StorSimple 元件](storsimple-components.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

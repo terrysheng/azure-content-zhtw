@@ -1,21 +1,21 @@
 <properties 
    pageTitle="為 StorSimple 裝置設定 MPIO | Microsoft Azure"
-   description="針對與執行 Windows Server 2012 R2 的主機連線的 StorSimple 裝置設定 MPIO"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="描述如何針對與執行 Windows Server 2012 R2 的主機連線的 StorSimple 裝置設定多重路徑 I/O。"
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/11/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
-# 為 StorSimple 裝置設定 MPIO
+# 為 StorSimple 裝置設定多重路徑 I/O
 
 Microsoft 為 Windows Server 中的多重路徑 I/O (MPIO) 功能建立支援，協助建立高可用性、容錯的 SAN 組態。MPIO 使用備援實體路徑元件 — 配接器、纜線以及交換器 — 以在伺服器與存放裝置之間建立邏輯路徑。如果元件故障而導致邏輯路徑失敗，多重路徑邏輯使用替代的 I/O 路徑，讓應用程式仍然可以存取其資料。此外，依照您的設定，MPIO 也能藉由重新平衡所有路徑的負載來改善效能。如需詳細資訊，請參閱 [MPIO 概觀](https://technet.microsoft.com/library/cc725907.aspx "MPIO 概觀與功能")。
 
@@ -173,4 +173,4 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。您應該透過
 深入了解[使用 StorSimple Manager 服務修改 StorSimple 裝置設定](storsimple-modify-device-config.md)。
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="逐步解說：使用 Application Insights 監視 Microsoft Dynamics CRM" 
-	description="使用 Application Insights 取得 Microsoft Dynamics CRM Online 遙測。設定、取得資料、視覺化與匯出的逐步解說。" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="mazharmicrosoft" 
+	pageTitle="逐步解說：使用 Application Insights 監視 Microsoft Dynamics CRM"
+	description="使用 Application Insights 取得 Microsoft Dynamics CRM Online 遙測。設定、取得資料、視覺化與匯出的逐步解說。"
+	services="application-insights"
+	documentationCenter=""
+	authors="mazharmicrosoft"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="awills"/>
  
 # 逐步解說：使用 Application Insights 啟用Microsoft Dynamics CRM Online 遙測
@@ -151,7 +151,7 @@
 
 ## 範例 Dynamics CRM 解決方案
 
-[以下是在 Dynamics CRM 中實作的範例解決方案](https://dynamicsandappinsights.codeplex.com/)
+[以下是在 Dynamics CRM 中實作的範例解決方案](https://dynamicsandappinsights.codeplex.com/)。
 
 ## 詳細資訊
 
@@ -161,4 +161,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

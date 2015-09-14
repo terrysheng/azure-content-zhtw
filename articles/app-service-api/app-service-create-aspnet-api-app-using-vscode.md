@@ -1,19 +1,19 @@
 <properties
    pageTitle="在 Visual Studio 程式碼中建立 ASP.NET 5 API 應用程式"
-   description="本教學課程示範如何使用 Visual Studio 程式碼建立 ASP.NET 5 API 應用程式。"
-   services="app-service\api"
-   documentationCenter=".net"
-   authors="erikre"
-   manager="wpickett"
-   editor="jimbe"/>
+	description="本教學課程示範如何使用 Visual Studio 程式碼建立 ASP.NET 5 API 應用程式。"
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="erikre"
+	manager="wpickett"
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="erikre"/>
 
 # 在 Visual Studio 程式碼中建立 ASP.NET 5 API 應用程式
@@ -458,4 +458,4 @@ To https://user@testsite.scm.azurewebsites.net/testsite.git
 在本教學課程中，您學到如何在 Visual Studio 程式碼中建立 API 應用程式。如需 Visual Studio 程式碼的詳細資訊，請參閱 [Visual Studio 程式碼](https://code.visualstudio.com/Docs/)。如需 API 應用程式的相關資訊，請參閱[什麼是 API 應用程式？](app-service-api-apps-why-best-platform.md)。
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

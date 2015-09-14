@@ -1,23 +1,23 @@
 <properties 
    pageTitle="如何從同質群組移轉至區域虛擬網路 (VNet)"
-   description="了解如何從同質群組移轉至區域 VNet"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="了解如何從同質群組移轉至區域 VNet"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/29/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/02/2015"
+	ms.author="telmos"/>
 
 # 如何從同質群組移轉至區域虛擬網路 (VNet)
 
-您可以使用同質群組，以確保在相同同質群組內建立的資源由伺服器所實際主控，這些伺服器彼此鄰近，可讓這些資源進行更快速的通訊。在過去，建立虛擬網路 (VNet) 需要同質群組。當時，管理 VNet 的網路管理員服務僅能在一組實體伺服器或縮放單位內工作。最新的架構改進則增加區域的網路管理範圍。
+您可以使用同質群組，以確保在相同同質群組內建立的資源由伺服器所實際主控，這些伺服器彼此鄰近，可讓這些資源進行更快速的通訊。在過去，建立虛擬網路 (VNet) 需要同質群組。當時，管理 VNet 的網路管理員服務僅能在一組實體伺服器或縮放單位內工作。架構改進則增加區域的網路管理範圍。
 
 因為這些架構的改進，造成同質群組不再建議使用，或虛擬網路不再需要。針對 VNet 使用的同質群組現在已取代為區域。與區域相關聯的 VNet 稱為區域 VNet。
 
@@ -41,11 +41,13 @@
 	
 	在網路組態檔中編輯下列幾行，並取代為您需要的值：
 
-	**舊值：** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
+	**舊值：**<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
 
-	**新值：** \<VirtualNetworkSitename="VNetUSWest" Location="West US">
+	**新值：**<VirtualNetworkSitename="VNetUSWest" Location="West US">
 
 1. 儲存您的變更並網路組態[匯入](../virtual-networks-using-network-configuration-file/)至 Azure。
+
+>[AZURE.INFO]這項移轉不會對您的服務造成任何停機時間。
 
 ## 同質群組和 VM
 
@@ -64,4 +66,4 @@
 一旦部署 VM，其會部署至單一的縮放單位。同質群組可針對新的 VM 部署限制可用的 VM 大小集合，但任何已部署的現有 VM 部署，已在 VM 所部署的位置限制縮放單位中可用的 VM 大小集合。因此，從同質群組中移除 VM 不會產生任何效果。
  
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

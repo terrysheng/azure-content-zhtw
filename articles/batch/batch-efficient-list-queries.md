@@ -1,6 +1,6 @@
 <properties
 	pageTitle="在 Azure Batch 中的有效清單查詢 |Microsoft Azure"
-	description="了解如何減少清單中傳回之 Azure Batch 項目的數目，以及減少每個項目傳回的資訊量。"
+	description="了解查詢 Azure Batch 集區、工作、作業、運算節點等時，如何減少傳回的資料量並提高效能。"
 	services="batch"
 	documentationCenter=""
 	authors="davidmu1"
@@ -14,70 +14,123 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/04/2015"
-	ms.author="davidmu"/>
+	ms.date="08/27/2015"
+	ms.author="davidmu;v-marsma"/>
 
 # 有效率的 Batch 清單查詢
 
-下列方法是每個使用 Azure Batch 應用程式皆必須執行的作業範例，而且通常必須經常執行：
+Azure Batch 是大型運算，在實際執行環境中，工作、作業和運算節點等實體可能有數千個。因此，取得這些項目的相關資訊可能產生必須在每個查詢上傳送的大量資料。限制項目數目及各項目傳回的資訊類型將可加速查詢，因而提高應用程式的效能。
+
+下列 [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) API 方法是幾乎每個使用 Azure Batch 的應用程式皆必須執行的作業範例，而且通常是經常執行：
 
 - [ListTasks](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx)
 - [ListJobs](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx)
 - [ListPools](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.listpools.aspx)
-- [ListCertificates](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.certificateoperations.listcertificates.aspx)
+- [ListComputeNodes](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.listcomputenodes.aspx)
 
-監視是常見的使用狀況；例如，決定集區的容量和狀態需要查詢集區中的所有運算節點 (VM)。另一個範例是查詢一個工作的作業，以判斷是否有任何仍在佇列中的作業。在某些情況下必須有一組豐富的資料，但在其他情況下則只需所有項目的計數或某個特定狀態中的項目。
+監視是常見的使用狀況：例如，決定集區的容量和狀態需要查詢集區中的所有運算節點 (VM)。另一個範例是查詢一個工作的作業，以判斷是否有任何作業仍在佇列中。在某些情況下必須有一組豐富的資料，但在其他情況下，則只需要所有項目中的幾個或一組處於特定狀態的項目。
 
-請務必了解可以傳回的項目數目，和代表項目清單所需的資料大小都可能非常龐大。只要簡單地查詢許多會有龐大回應結果的項目，就有可能導致一些問題發生：
+請務必了解，傳回的項目數目和代表這些項目所需的資料量都可能非常龐大。在大型回應中直接查詢許多項目可能導致一些問題發生：
 
-- Batch API 的回應時間可能會非常緩慢。Batch 服務查詢項目的數目越多，所需的查詢時間就越久。龐大數目的項目必須分割成許多區塊，因此用戶端程式庫可能需要對服務呼叫多個服務 API，以取得一份清單的所有項目。
+- Batch API 的回應時間可能會非常緩慢。Batch 服務查詢項目的數目越多，所需的查詢時間就越久。龐大數目的項目必須分割成許多區塊，因此用戶端程式庫可能需要對服務呼叫多個 API，以取得一份清單的所有項目。
 - 由應用程式呼叫的 Batch API 處理程序需要處理的項目越多，則所需花費的時間就越久。
-- 越多的項目和/或越大的項目需要處理，則應用程式所呼叫的 Batch 將耗用更多的記憶體。
-- 越多的項目和/或越大的項目將導致網路流量增加。這將花費更多時間傳送，並依據應用程式架構，資料傳送到 Batch 帳戶區域外將可能導致網路費用增加。
+- 有越多和/或越大的項目需要處理時，呼叫 Batch 的應用程式將耗用更多的記憶體。
+- 越多和/或越大的項目將導致網路流量增加。這將花費更多時間傳送，並依據應用程式架構，資料傳送到 Batch 帳戶區域外將可能導致網路費用增加。
 
-Batch API 提供可同時減少傳回清單項目的數目，以及減少每個項目傳回資訊量的功能。類型的一個參數 [DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx) 可以指定清單作業。DetailLevel 是一個抽象的基底類別，並且實際上需要建立及通過一個 [ODATADetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx) 物件以作為參數。
-
-下列項目適用於所有的 API：
+下列規則適用於所有 Batch API：
 
 - 每個屬性名稱是一個字串，並對應至物件的屬性
 - 所有屬性名稱都會區分大小寫，但屬性值不會區分大小寫
-- 日期/時間字串可以使用兩種格式之一，並需要在前面加上 DateTime
-	- W3CDTF (例如 creationTime gt DateTime’2011-05-08T08:49:37Z’)
-	- RFC1123 (例如 creationTime gt DateTime’Sun, 08 May 2011 08:49:37 GMT’)
+- 屬性名稱和大小寫如同出現在 Batch REST API 中的元素
+- 日期/時間字串有兩種格式可指定，且必須在前面加上 DateTime
+	- W3CDTF (例如 *creationTime gt DateTime'2011-05-08T08:49:37Z'*)
+	- RFC1123 (例如 *creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'*)
 - 布林值的字串為 "true" 或 "false"
-- 如果指定一個無效的屬性或運算子，則將會建立例外狀況及一個「400 (錯誤的要求)」的內部例外狀況。
-- 使用 Select 和 Expand 子句的 DetailLevel 參數也能通過適當的 "Get" 方法。例如 PoolOperations.GetPool()
+- 指定無效的屬性或運算子將會導致「400 (錯誤要求)」錯誤
 
-ODataDetailLevel 物件有三個公用屬性，可以在建構函式中指定或是直接設定。三個屬性皆為字串：
+## 在 Batch .NET 中有效率地查詢
+
+Batch .NET API 能夠透過指定查詢的 [DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx)，以同時減少傳回清單項目的數目，以及減少每個項目傳回資訊量。DetailLevel 是一個抽象的基底類別，而 [ODATADetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx) 物件實際上需要建立並傳給適當的方法做為參數。
+
+ODataDetailLevel 物件有三個公用字串屬性，可以在建構函式中指定或是直接設定：
 
 - [FilterClause](#filter) – 篩選並且可能減少傳回項目的數目
-- [SelectClause](#select) – 指定傳回的特定屬性值，並減少項目和回應的大小
+- [SelectClause](#select) – 指定每個項目傳回的一部分屬性值，以減少項目和回應的大小
 - [ExpandClause](#expand) – 一次呼叫傳回所有的必要資料，而非多次呼叫
+
+> [AZURE.TIP]使用 Select 和 Expand 子句設定的 DetailLevel 執行個體，也可以傳給適當的 Get 方法，例如 [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx)，以限制傳回的資料量。
 
 ### <a id="filter"></a> FilterClause
 
-篩選字串可減少傳回項目的數目。可以指定一個或多個屬性值，以確保只會傳回必要的項目。以下是一些範例：只列出工作中正在執行的作業，只列出可執行作業的運算節點。
+篩選字串可減少傳回項目的數目。可以指定一個或多個具有辨識符號的屬性值，以確保只會傳回查詢有關的項目。例如，您只想要列出工作正在執行的作業，或只列出可執行作業的運算節點。
 
-[FilterClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.filterclause.aspx) 是包含一個或多個運算式的字串，其運算式包含屬性名稱、運算子和值。每個屬性將由運算子支援，而可以指定的屬性將指定給每個 API 呼叫。多個運算式可以由邏輯運算子 "and" 和 "or" 結合。
+ [FilterClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.filterclause.aspx) 是包含一個或多個運算式的字串，而運算式包含*屬性名稱*、*運算子*和*值*。每個屬性將由運算子支援，而可以指定的屬性將指定給每個 API 呼叫。多個運算式可以由邏輯運算子 **and** 和 **or** 結合。
 
-例如，列出作業的篩選可以是：
+例如，此篩選條件字串只會傳回 *displayName* 開頭為 "MyTask" 的執行中作業：
 
-	startswith(name, 'MyTask') and (state eq 'Running')
+	startswith(displayName, 'MyTask') and (state eq 'Running')
+
+下列每個 Batch REST API 文件都包含一份資料表，其中指定不同的清單作業所支援的屬性及這些屬性上的作業。
+
+- [列出帳戶中的集區](https://msdn.microsoft.com/library/azure/dn820101.aspx)
+- [列出集區中的運算節點](https://msdn.microsoft.com/library/azure/dn820159.aspx)
+- [列出帳戶中的工作](https://msdn.microsoft.com/library/azure/dn820117.aspx)
+- [列出工作的工作準備和工作釋放作業的狀態](https://msdn.microsoft.com/library/azure/mt282170.aspx)
+- [列出帳戶中的工作排程](https://msdn.microsoft.com/library/azure/mt282174.aspx)
+- [列出與作業排程相關聯的工作](https://msdn.microsoft.com/library/azure/mt282169.aspx)
+- [列出與工作相關聯的作業](https://msdn.microsoft.com/library/azure/dn820187.aspx)
+- [列出與作業相關聯的檔案](https://msdn.microsoft.com/library/azure/dn820142.aspx)
+- [列出帳戶中的憑證](https://msdn.microsoft.com/library/azure/dn820154.aspx)
+- [列出節點上的檔案](https://msdn.microsoft.com/library/azure/dn820151.aspx)
+
+> [AZURE.IMPORTANT]在任何三個子句類型中指定屬性時，請確定屬性名稱和大小寫符合其對應的 Batch REST API 元素。例如，當使用 .NET [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) 時，即使 .NET 屬性是 [CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state)，您也必須指定 **state** 而不是 **State**。例如，若要確認 **state** 屬性的名稱和大小寫適當，您可以在 Batch REST API 文件的[取得作業的相關資訊](https://msdn.microsoft.com/library/azure/dn820133.aspx)中檢查元素名稱。
 
 ### <a id="select"></a> SelectClause
 
 每個項目傳回的屬性值可以藉由使用選取字串限制。可以指定項目的屬性清單，然後只傳回那些屬性值。
 
-[SelectClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.selectclause.aspx) 是由一個屬性名稱清單所組成的字串，其中屬性名稱以逗號分隔。可以指定所有清單傳回項目中的屬性。
+[SelectClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.selectclause.aspx) 是由一個屬性名稱清單所組成的字串，其中屬性名稱以逗號分隔。您可以指定清單作業所傳回的項目可用的屬性組合。
 
 	"name, state, stateTransitionTime"
 
 ### <a id="expand"></a> ExpandClause
 
-擴充字串可以降低 API 呼叫的數目。用一個 API 所呼叫的清單，就可以取得每一個清單項目的詳細資訊，相對應於取得清單後，再為每一個清單項目進行呼叫。
+Expand 子句可以降低 API 呼叫的數目。使用單一 API 呼叫就可以取得每一個清單項目的詳細資訊，而不需要先取得清單，再重複處理清單，以呼叫清單中的每一個項目。
 
-[ExpandClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.expandclause.aspx) 與 Select 子句類似，因為它可控制是否在結果中傳回特定資料。Expand 子句只支援工作清單、作業清單、集區清單和工作清單。目前僅支援統計資料資訊。當需要所有屬性卻沒有 Select 子句時，則必須用 Expand 子句以取得統計資料資訊。如果使用 Select 子句取得屬性的子集，那麼統計資料可以在 Select 子句中指定，而 Expand 子句就可以為 null。
+[ExpandClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.expandclause.aspx) 與 Select 子句類似，因為它可控制是否在結果中傳回特定資料。只有工作清單、作業清單和集區清單支援 Expand 子句，目前僅支援統計資料資訊。當需要所有屬性卻未指定 Select 子句時，則必須用 Expand 子句以取得統計資料資訊。如果使用 Select 子句取得屬性的子集，則也可以在 Select 子句中指定 stats"，而 Expand 子句就可以為 null。
 
-> [AZURE.NOTE]建議您一律為清單 API 呼叫使用篩選和 Select 子句，以確保您的應用程式有最高效率和最佳效能。
+## 有效率的查詢範例
 
-<!---HONumber=August15_HO7-->
+下面的程式碼片段使用 Batch .NET API，有效率地向 Batch 服務查詢一組特定集區的統計資料。在此案例中，Batch 使用者具有測試與實際執行的集區，其測試集區識別碼前面加上 "test"，而實際執行的集區識別碼前面加上 "prod"。在程式碼片段中，*myBatchClient* 是適當初始化的 [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) 執行個體。
+
+	// First we need an ODATADetailLevel instance on which to set the expand, filter, and select
+	// clause strings
+	ODATADetailLevel detailLevel = new ODATADetailLevel();
+
+	// Specify the ExpandClause so that the .NET API pulls the statistics for the CloudPools in a single
+	// underlying REST API call. Note that we use the pool's REST API element name "stats" here as opposed
+	// to "Statistics" as it appears in the .NET API (CloudPool.Statistics)
+	detailLevel.ExpandClause = "stats";
+
+	// We want to pull only the "test" pools, so we limit the items returned by using a Filterclause and
+	// specifying that the pool IDs must start with "test"
+	detailLevel.FilterClause = "startswith(id, 'test')";
+
+	// To further limit the data that crosses the wire, configure the SelectClause to limit the
+	// properties returned on each CloudPool object to only CloudPool.Id and CloudPool.Statistics
+	detailLevel.SelectClause = "id, stats";
+
+	// Now get our collection of pools, minimizing the amount of data returned by specifying the
+	// detail level we configured above
+	List<CloudPool> testPools = myBatchClient.PoolOperations.ListPools(detailLevel).ToList();
+
+> [AZURE.TIP]建議您*一律*為清單 API 呼叫使用篩選和 Select 子句，以確保您的應用程式有最高效率和最佳效能。
+
+## 後續步驟
+
+1. 請務必查看與您的開發案例相關的 Batch API 文件 (如果尚未看過)
+    - [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
+    - [Batch .NET](https://msdn.microsoft.com/library/azure/dn865466.aspx)
+2. 擷取 GitHub 上的 [Azure Batch 範例](https://github.com/Azure/azure-batch-samples)並深入細查程式碼
+
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="在 Azure Active Directory 中建立工作或學校身分識別"
-   description="說明如何使用您的個人身分識別建立工作或學校身分識別，以搭配資源群組範本或以角色為基礎的存取等其他功能使用。"
-   services="virtual-machines"
-   documentationCenter=""
-   authors="squillace"
-   manager="timlt"
-   editor=""/>
+	description="說明如何使用您的個人身分識別建立工作或學校身分識別，以搭配資源群組範本或以角色為基礎的存取等其他功能使用。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure"
-   ms.date="05/05/2015"
-   ms.author="rasquill"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure"
+	ms.date="09/01/2015"
+	ms.author="rasquill"/>
 
 # 在 Azure Active Directory 中建立工作或學校身分識別
 
@@ -140,4 +140,4 @@
     data:
     info:    group create command OK
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

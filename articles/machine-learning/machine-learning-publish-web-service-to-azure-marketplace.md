@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="將 Machine Learning Web 服務發佈至 Azure Marketplace | Microsoft Azure" 
-	description="如何將 Azure Machine Learning Web 服務發佈至 Azure Marketplace" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="paulettm" 
+	pageTitle="將 Machine Learning Web 服務發佈至 Azure Marketplace | Microsoft Azure"
+	description="如何將 Azure Machine Learning Web 服務發佈至 Azure Marketplace"
+	services="machine-learning"
+	documentationCenter=""
+	authors="LuisCabrer"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/12/2015" 
-	ms.author="luisca"/>
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="bharaths"/>
 
 # 將 Azure Machine Learning Web 服務發佈至 Azure Marketplace 
 
@@ -109,4 +109,4 @@ Azure Marketplace 可讓您發行 Azure Machine Learning Web 服務，作為供�
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

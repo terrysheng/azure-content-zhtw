@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Azure 的雲端服務會是符合我需求的計算選項嗎？" 
-	description="了解 Azure 計算裝載選項以及其運作方式：App Service、雲端服務和虛擬機器" 
+	pageTitle="Azure 的雲端服務會是符合我需求的計算選項嗎？"
+	description="了解 Azure 計算裝載選項以及其運作方式：App Service、雲端服務和虛擬機器"
 	services="cloud-services"
-    documentationCenter=""
-	authors="Thraka" 
+	documentationCenter=""
+	authors="Thraka"
 	manager="timlt"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="adegeo"/>
 
 # 應該選擇雲端服務嗎？
@@ -36,4 +36,4 @@ Azure 對於執行的應用程式提供不同的裝載模型。每個模型都�
 [虛擬機器]: ../virtual-machines-choose-me.md
 [雲端服務]: #tellmecs
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

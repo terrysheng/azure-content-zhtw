@@ -1,21 +1,21 @@
 <properties
    pageTitle="在 HDInsight 中搭配使用 Hadoop Hive 與 Curl | Microsoft Azure"
-   description="了解如何使用 Curl 從遠端提交 Pig 工作到 HDInsight。"
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"
+	description="了解如何使用 Curl 從遠端提交 Pig 工作到 HDInsight。"
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/06/2015"
-   ms.author="larryfr"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/28/2015"
+	ms.author="larryfr"/>
 
 #使用 Curl 在 HDInsight 中以 Hadoop 執行 Hive 查詢
 
@@ -68,7 +68,7 @@
 
 2. 使用下列命令建立新資料表 **log4jLogs**：
 
-        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'wasb:///example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+GROUP+BY+t4;" -d statusdir="wasb:///example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
+        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'wasb:///example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="wasb:///example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
 
     此命令中使用的參數如下：
 
@@ -98,6 +98,10 @@
 
     > [AZURE.NOTE]請注意，在搭配 Curl 使用時，會以 `+` 字元取代 HiveQL 陳述式之間的空格。加上引號的值若包含空格，例如分隔符號，則不應以 `+` 取代。
 
+    * **INPUT\_\_FILE\_\_NAME LIKE '%25.log'** - 這會限制該搜尋僅能使用其檔名以 .log 結尾的檔案。如果不存在，Hive 便會嘗試搜尋這個目錄和子目錄中的所有檔案，包括不符合這份資料表定義之資料行結構描述的檔案。
+
+    > [AZURE.NOTE]請注意 %25 是 % 的 URL 編碼格式，因此實際的條件是 `like '%.log'`。% 必須為 URL 編碼，因為會將其視為在 URL 中的特殊字元。
+
     此命令應該會傳回可用來檢查工作狀態的工作識別碼。
 
         {"id":"job_1415651640909_0026"}
@@ -124,7 +128,7 @@
 
 6. 使用下列陳述式來建立名為 **errorLogs** 的新「內部」資料表：
 
-        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="CREATE+TABLE+IF+NOT+EXISTS+errorLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+STORED+AS+ORC;INSERT+OVERWRITE+TABLE+errorLogs+SELECT+t1,t2,t3,t4,t5,t6,t7+FROM+log4jLogs+WHERE+t4+=+'[ERROR]';SELECT+*+from+errorLogs;" -d statusdir="wasb:///example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
+        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="CREATE+TABLE+IF+NOT+EXISTS+errorLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+STORED+AS+ORC;INSERT+OVERWRITE+TABLE+errorLogs+SELECT+t1,t2,t3,t4,t5,t6,t7+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log';SELECT+*+from+errorLogs;" -d statusdir="wasb:///example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
 
     這些陳述式會執行下列動作：
 
@@ -133,7 +137,7 @@
 		> [AZURE.NOTE]與外部資料表不同，捨棄內部資料表也會同時刪除基礎資料。
 
     * **STORED AS ORC** - 以最佳化資料列單欄式 (Optimized Row Columnar, ORC) 格式儲存資料。這是高度最佳化且有效率的 Hive 資料儲存格式。
-    * **INSERT OVERWRITE ...SELECT**- 從包含 **[ERROR]** 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表
+    * **INSERT OVERWRITE ...SELECT**- 從包含 **[ERROR]** 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表。
     * **SELECT** - 從新的 **errorLogs** 資料表選取所有資料列。
 
 7. 使用傳回的工作識別碼檢查工作的狀態。成功後，如先前所述使用適用於 Mac、Linux 和 Windows 的 Azure CLI 下載並檢視結果。輸出應包含三行，其中都包含 **[ERROR]**。
@@ -190,4 +194,4 @@ Hive 與 HDInsight 搭配使用的一般資訊：
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

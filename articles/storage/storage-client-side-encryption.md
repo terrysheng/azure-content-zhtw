@@ -1,27 +1,27 @@
 <properties 
-	pageTitle="開始使用 Microsoft Azure 儲存體的用戶端加密 |Microsoft Azure" 
-	description="Azure Storage Client Library for .NET 提供用戶端加密以及與 Azure 金鑰保存庫整合的支援。用戶端加密為您的 Azure 儲存體應用程式提供最大安全性，因為您的存取金鑰永遠不會讓服務使用。用戶端加密適用於 Blob、佇列和資料表。" 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="carolz" 
+	pageTitle="Microsoft Azure 儲存體的用戶端加密 | Microsoft Azure"
+	description="Azure Storage Client Library for .NET 支援用戶端加密以及與 Azure 金鑰保存庫的整合，為您的 Azure 儲存體應用程式提供最大的安全性。"
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="carolz"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/21/2015"
 	ms.author="tamram"/>
 
 
-# 開始使用 Microsoft Azure 儲存體的用戶端加密
+# Microsoft Azure 儲存體的用戶端加密和 Azure Key Vault 金鑰保存庫
 
 ## 概觀
 
-[Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage) 提供功能，協助開發人員在上傳至 Azure 儲存體之前將用戶端應用程式內的資料加密，並在下載時解密資料。程式庫也支援與 Azure [金鑰保存庫](http://azure.microsoft.com/services/key-vault/)整合，以進行儲存體帳戶金鑰管理。
+[Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage) 支援在上傳至 Azure 儲存體之前將用戶端應用程式內的資料加密，並在下載至用戶端時解密資料。程式庫也支援與 [Azure 金鑰保存庫](http://azure.microsoft.com/services/key-vault/)整合，以進行儲存體帳戶金鑰管理。
 
 ## 透過信封技術進行加密和解密
 
@@ -242,4 +242,4 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 
 下載 [Azure Storage Client Library for.NET NuGet 封裝](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0)。從 GitHub 下載 [Azure Storage Client Library for .NET 原始程式碼](https://github.com/Azure/azure-storage-net)。下載 Azure 金鑰保存庫 NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 和 [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 封裝。造訪 [Azure 金鑰保存庫文件](../articles/key-vault-whatis.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

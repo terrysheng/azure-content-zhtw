@@ -13,22 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/02/2015"
 	ms.author="elizapo"/>
 
 # 如何建立 Azure RemoteApp 的混合式收藏
 
 RemoteApp 收藏分成兩種：
 
-- 雲端：完全在 Azure 之中，可使用 Azure 管理入口網站中的 [快速建立] 選項建立。  
-- 混合式：包含內部部署存取所需的虛擬網路，需使用管理入口網站中的 [使用 VNET 建立] 選項建立。
+- 雲端：完全位於 Azure 中。您可以選擇在雲端儲存所有資料 (也就是僅限雲端的集合) 或將您的集合連線到 VNET，並於該處儲存資料。   
+- 混合式：包含可內部存取的虛擬網路，這需要使用 Azure AD 和內部部署的 Active Directory 環境。
+
+
+**注意** *本主題正在進行修改。我正在處理幾個新的文件，可讓您更輕鬆地找出驗證和集合的選項。因此，我知道您現在或許有些混淆，不過我正盡快處理，以便提供您更適用的資訊。感謝您。*
 
 本教學課程將逐步引導您完成建立混合式收藏的程序。有八個步驟：
 
-1.	決定要對您的收藏使用哪個[映像](remoteapp-imageoptions.md)。您可以建立自訂映像，或使用您的訂用帳戶隨附的其中一個 Microsoft 映像。
+1.	決定您的集合所要使用的[映像](remoteapp-imageoptions.md)。您可以建立自訂映像，或使用您的訂用帳戶隨附的其中一個 Microsoft 映像。
 2. 設定虛擬網路。
 2.	建立 RemoteApp 收藏。
-2.	將您的收藏連結到虛擬網路。
+2.	將您的集合加入本機網域。
 3.	將範本映像新增到您的收藏。
 4.	設定目錄同步處理。RemoteApp 要求用下列方式與 Azure Active Directory 整合：1) 設定具有 [密碼同步] 選項的 Azure Active Directory 同步作業，或 2) 設定不具 [密碼同步] 選項的 Azure Active Directory 同步作業，但使用同盟至 AD FS 的網域。查看 [Active Directory 搭配 RemoteApp 的組態資訊](remoteapp-ad.md)。
 5.	發佈 RemoteApp 應用程式。
@@ -42,14 +45,17 @@ RemoteApp 收藏分成兩種：
 - 在 Active Directory 中建立使用者帳戶，以做為 RemoteApp 服務帳戶。限制此帳戶的權限，使其只能將機器加入網域中。
 - 收集內部部署網路的相關資訊：IP 位址資訊和 VPN 裝置詳細資料。
 - 安裝 [Azure PowerShell](../install-configure-powershell.md) 模組。
-- 收集您想授與存取權之使用者的相關資訊。您將需要每個使用者的 Azure Active Directory 使用者主體名稱 (例如，name@contoso.com)。
+- 收集您想授與存取權之使用者的相關資訊。您將需要每個使用者的 Azure Active Directory 使用者主體名稱 (例如，name@contoso.com)。請確定 UPN 符合 Azure AD 和 Active Directory。
 - 選擇範本映像。RemoteApp 範本映像包含您要為使用者發佈的應用程式與程式。如需詳細資訊，請參閱 [RemoteApp 映像選項](remoteapp-imageoptions.md)。 
+- 想要使用 Office 365 ProPlus 的映像嗎？ 請在[這裡](remoteapp-officesubscription.md)查看資訊。
 - [設定 RemoteApp 的 Azure Active Directory](remoteapp-ad.md)。
 
 
 
 ## 步驟 1：設定虛擬網路
 您可以部署混合式 RemoteApp 收藏，使用現有的 Azure 虛擬網路，或者可以建立新的虛擬網路。虛擬網路可讓您的使用者透過 RemoteApp 遠端資源存取您本機網路上的資料。使用 Azure 虛擬網路可以讓您的收藏直接從網路存取其他 Azure 服務和部署到該虛擬網路的虛擬機器。
+
+請確定您在建立 VNET 之前，先檢閱過 [VNET 大小](remoteapp-vnetsizing.md)。
 
 ### 建立 Azure VNET 並將它加入您的 Active Directory 部署
 
@@ -72,21 +78,21 @@ RemoteApp 收藏分成兩種：
 
 
 
-1. 在 [Azure 管理入口網站](http://manage.windowsazure.com)中，移至 RemoteApp 頁面。
+1. 在 [Azure 入口網站](http://manage.windowsazure.com)中，移至 RemoteApp 頁面。
 2. 按一下 [新增] > [使用 VNET 建立]。
 3. 輸入收藏的名稱。
 4. 選擇您要使用的方案 - 標準或基本。
+5. 從下拉式清單中依序選擇您的 VNET 和子網路。
+6. 選擇加入至您的網域。
 5. 按一下 [建立 RemoteApp 收藏]。
 
-建立了 RemoteApp 集合之後，請按兩下集合的名稱。這時會顯示 [**快速入門**] 頁面 - 這是您完成設定集合的頁面。
+建立了 RemoteApp 集合之後，請按兩下集合的名稱。這時會顯示 [快速入門] 頁面，您可以在這裡完成設定集合。
 
-## 步驟 3：將您的收藏連結到虛擬網路 ##
+## 步驟 3：將您的集合連結到本機網域 ##
 
  
-1. 在 [快速入門] 頁面上，按一下 [連結虛擬網路]。
-2. 從下拉式清單選擇您要使用的虛擬網路。
-3. 選擇您要使用的區域，然後確定欄位中顯示正確的訂用帳戶。 
-5. 回到 [快速入門] 頁面上，按一下 [加入本機網域]。將 RemoteApp 服務帳戶新增至您的本機 Active Directory 網域。您將需要網域名稱、組織單位、服務帳戶的使用者名稱和密碼。 
+1. 在 [快速入門] 頁面上，按一下 [加入本機網域]。
+2. 將 RemoteApp 服務帳戶新增至您的本機 Active Directory 網域。您將需要網域名稱、組織單位、服務帳戶的使用者名稱和密碼。 
 
 	這是您按照[設定 Azure RemoteApp 的 Active Directory](remoteapp-ad.md) 中的步驟所收集到的資訊。
 
@@ -103,7 +109,11 @@ RemoteApp 範本映像包含您要與使用者共用的程式。您可以建立�
 
 ## 步驟 5：設定 Active Directory 目錄同步處理 ##
 
-RemoteApp 要求用下列方式與 Azure Active Directory 整合：1) 設定具有 [密碼同步] 選項的 Azure Active Directory 同步作業，或 2) 設定不具 [密碼同步] 選項的 Azure Active Directory 同步作業，但使用同盟至 AD FS 的網域。如需規劃資訊和詳細步驟，請參閱[目錄同步處理藍圖](http://msdn.microsoft.com//library/azure/hh967642.aspx)。
+RemoteApp 要求用下列方式與 Azure Active Directory 整合：1) 設定具有 [密碼同步] 選項的 Azure Active Directory 同步作業，或 2) 設定不具 [密碼同步] 選項的 Azure Active Directory 同步作業，但使用同盟至 AD FS 的網域。
+
+簽出 [AD Connect](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx) - 本文會協助您以 4 個步驟設定目錄整合。
+
+如需規劃資訊和詳細步驟，請參閱[目錄同步處理藍圖](http://msdn.microsoft.com//library/azure/hh967642.aspx)。
 
 ## 步驟 6：發佈 RemoteApp 應用程式 ##
 
@@ -136,4 +146,4 @@ RemoteApp 應用程式是您提供給使用者的應用程式或程式。此程�
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

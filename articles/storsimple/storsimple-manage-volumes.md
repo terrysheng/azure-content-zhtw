@@ -1,6 +1,6 @@
 <properties
    pageTitle="管理 StorSimple 磁碟區 | Microsoft Azure"
-	description="說明如何新增、修改及監視 StorSimple 磁碟區，以及如何在必要時使其離線。"
+	description="說明如何加入、修改及監視 StorSimple 磁碟區，以及如何在必要時使其離線。"
 	services="storsimple"
 	documentationCenter="NA"
 	authors="SharS"
@@ -12,10 +12,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="TBD"
-	ms.date="08/21/2015"
+	ms.date="08/27/2015"
 	ms.author="v-sharos"/>
 
-# 管理 StorSimple 磁碟區
+# 使用 StorSimple Manager 服務來管理磁碟區
 
 ## 概觀
 
@@ -65,16 +65,16 @@ StorSimple Manager 服務是 Azure 入口網站的延伸模組，可讓您從單
 
 3. 按一下頁面底部的 [新增]。[新增磁碟區精靈] 隨即啟動。
 
-     ![add-volume](./media/storsimple-manage-volumes/HCS_AddVolume1M.png)
+     ![加入磁碟區精靈基本設定](./media/storsimple-manage-volumes/HCS_AddVolume1M.png)
 
 4. 在 [新增磁碟區精靈] 的 [基本設定] 下，執行列動作：
 
   1. 輸入磁碟區的 [名稱]。
   2. 為磁碟區指定 [佈建的容量] (GB 或 TB)。實體裝置的容量必須介於 1 GB 到 64 TB 之間。可為 StorSimple 虛擬裝置上的磁碟區佈建的最大容量為 30 TB。
   3. 在下拉式清單中，為磁碟區選取 [使用類型]。如果您在使用較不常存取的封存資料時，請選擇 [封存磁碟區]。對於所有其他使用情況，請選取 [階層式磁碟區]。(階層式磁碟區之前稱為主要磁碟區)。
-  5. 按一下箭號圖示 ![arrow-icon](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)，前往 [其他設定] 頁面。
+  5. 按一下箭號圖示 ![箭號圖示](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)，前往 [其他設定] 頁面。
 
-     ![add-volume](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
+     ![加入磁碟區精靈其他設定](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
    
 5. 在 [其他設定] 下，加入新的存取控制記錄 (ACR)：
   
@@ -172,7 +172,7 @@ StorSimple Manager 服務是 Azure 入口網站的延伸模組，可讓您從單
 
 5. 在 [修改磁碟區精靈] 的 [基本設定] 下，從 [監視] 下拉式清單中選取 [啟用] 或 [停用]。
 
-    ![監視磁碟區](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
+    ![修改磁碟區基本設定](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
 
 ## 後續步驟
 
@@ -181,4 +181,4 @@ StorSimple Manager 服務是 Azure 入口網站的延伸模組，可讓您從單
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="逐步解說：將遙測資料從 Application Insights 匯出至 SQL Database" 
-	description="使用連續匯出功能，在 Application Insights 中自行撰寫遙測資料分析的程式碼。" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="noamben" 
+	pageTitle="逐步解說：將遙測資料從 Application Insights 匯出至 SQL Database"
+	description="使用連續匯出功能，在 Application Insights 中自行撰寫遙測資料分析的程式碼。"
+	services="application-insights"
+	documentationCenter=""
+	authors="noamben"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="awills"/>
  
 # 逐步解說：使用串流分析從 Application Insights 匯出至 SQL
@@ -92,12 +92,16 @@
 
     ![選擇事件類型](./media/app-insights-code-sample-export-sql-stream-analytics/085-types.png)
 
-現在請休息一下，讓其他人使用您的應用程式一段時間。遙測資料會送過來，而您會在[計量瀏覽器][metrics]中看到統計圖表，並在[診斷搜尋][diagnostic]中看到個別事件。
 
-此外，資料會匯出至儲存體，您可以在其中檢查內容。例如，在 Visual Studio 中的儲存體瀏覽器：
+3. 可讓一些資料累積。請休息一下，讓其他人使用您的應用程式一段時間。遙測資料會送過來，而您會在[計量瀏覽器](app-insights-metrics-explorer.md)中看到統計圖表，並在[診斷搜尋](app-insights-diagnostic-search.md)中看到個別事件。
 
+    此外，資料會匯出至您的儲存體。
 
-![在 Visual Studio 中，依序開啟 [Server Browser]、[Azure]、[儲存體]](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
+4. 檢查匯出的資料。在 Visual Studio 中選擇 [檢視] / [Cloud Explorer]，然後開啟 [Azure] / [儲存體]。(如果您沒有此功能表選項，您需要安裝 Azure SDK：開啟 [新增專案] 對話方塊，然後開啟 [Visual C#] / [Cloud] / [取得 Microsoft Azure SDK for .NET]。)
+
+    ![在 Visual Studio 中，依序開啟 [Server Browser]、[Azure]、[儲存體]](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
+
+    記下衍生自應用程式名稱和檢測金鑰之路徑名稱的共同部分。
 
 事件會以 JSON 格式寫入至 Blob 檔案。每個檔案可能會包含一或多個事件。因此我們想要讀取事件資料，並篩選出需要的欄位。我們可以利用資料執行各種作業，但我們現在打算使用串流分析，將資料移至 SQL Database。這麼做可讓您輕鬆執行許多有趣的查詢工作。
 
@@ -194,14 +198,14 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 請務必將 [日期格式] 設為 YYYY-MM-DD (含連接號)。
 
-[路徑前置詞模式] 會指定串流分析在儲存體中尋找輸入檔案的方式。您必須將它設定為可對應「連續匯出」儲存資料的方式。請設定如下：
+[路徑前置詞模式] 會指定串流分析在儲存體中尋找輸入檔案的方式。您需要將它設定為與連續匯出儲存資料的方式相對應。請設定如下：
 
-    webapplication27_100000000-0000-0000-0000-000000000000/PageViews/{date}/{time}
+    webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 在此範例中：
 
-* `webapplication27` 是 Application Insights 資源的名稱。 
-* `1000...` 是 Application Insights 資源的檢測金鑰。 
+* `webapplication27` 是 Application Insights 資源名稱，**全部小寫**。 
+* `1234...` 是 Application Insights 資源的檢測金鑰，**但移除了連字號**。 
 * `PageViews` 是我們想要分析的資料類型。可用的類型取決於您在「連續匯出」中設定的篩選。檢查匯出的資料以查看其他可用的類型，並查看[匯出資料模型](app-insights-export-data-model.md)。
 * `/{date}/{time}` 是要依字面意思寫入資訊的格式。
 
@@ -259,7 +263,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ```
 
-請注意，前幾個屬性是頁面檢視資料的特定屬性。其他遙測資料類型的匯出會有不同的屬性。
+請注意，前幾個屬性是頁面檢視資料的特定屬性。其他遙測資料類型的匯出會有不同的屬性。請參閱[屬性類型和值的詳細資料模型參考。](app-insights-export-data-model.md)
 
 ## 設定資料庫的輸出
 
@@ -294,6 +298,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 ## 相關文章
 
 * [使用背景工作角色匯出至 SQL](app-insights-code-sample-export-telemetry-sql-database.md)
+* [屬性類型和值的詳細資料模型參考。](app-insights-export-data-model.md)
 * [Application Insights 中的連續匯出](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
 
@@ -307,4 +312,4 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
  
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

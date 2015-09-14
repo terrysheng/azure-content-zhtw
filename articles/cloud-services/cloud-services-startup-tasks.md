@@ -29,7 +29,7 @@ ms.service="cloud-services"
 
 環境變數可將資訊傳入啟動工作，而本機存放區可以用來傳遞來自啟動工作的資訊。例如，環境變數可以指定您想要安裝的程式路徑，以及可以將哪些檔案寫入本機存放區，以便日後供您的角色讀取。
 
-啟動工作可以將資訊和錯誤記錄到 **TEMP** 環境變數所指定的目錄中。啟動工作期間，如果在雲端上執行，**TEMP** 環境變數會解析成 *C:\\Resources\\temp\[guid].[rolename]\\RoleTemp* 目錄。
+啟動工作可以將資訊和錯誤記錄到 **TEMP** 環境變數所指定的目錄中。啟動工作期間，如果在雲端上執行，**TEMP** 環境變數會解析成 *C:\\Resources\\temp\\[guid].[rolename]\\RoleTemp* 目錄。
 
 啟動工作也可以在重新開機之間執行數次。例如，每次角色回收時，都會執行啟動工作，但每次角色回收不一定會重新開機。啟動工作的撰寫方式，應該要可讓它們順利執行多次。
 
@@ -68,9 +68,9 @@ ms.service="cloud-services"
 ```xml
 <Startup>
     <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple" >
-    <Environment>
-        <Variable name="MyVersionNumber" value="1.0.0.0" />
-    </Environment>
+        <Environment>
+            <Variable name="MyVersionNumber" value="1.0.0.0" />
+        </Environment>
     </Task>
 </Startup>
 ```
@@ -132,24 +132,24 @@ EXIT /B 0
 ```xml
 <Startup>
     <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple">
-    <Environment>
-
-        <!-- Create the environment variable that informs the startup task whether it is running
-            in the Compute Emulator or in the cloud. "%ComputeEmulatorRunning%"=="true" when
-            running in the Compute Emulator, "%ComputeEmulatorRunning%"=="false" when running
-            in the cloud. -->
-
-        <Variable name="ComputeEmulatorRunning">
-            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
-        </Variable>
-
-    </Environment>
+        <Environment>
+    
+            <!-- Create the environment variable that informs the startup task whether it is running
+                in the Compute Emulator or in the cloud. "%ComputeEmulatorRunning%"=="true" when
+                running in the Compute Emulator, "%ComputeEmulatorRunning%"=="false" when running
+                in the cloud. -->
+    
+            <Variable name="ComputeEmulatorRunning">
+                <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+            </Variable>
+    
+        </Environment>
     </Task>
 </Startup>
 ```
 
 ## 後續步驟
-了解如何透過雲端服務執行一些[常見的啟動工作](cloud-services-common-startup-tasks.md)。
+了解如何透過雲端服務執行一些[常見的啟動工作](cloud-services-startup-tasks-common.md)。
 
 [封裝](cloud-services-model-and-package.md)雲端服務。
 
@@ -164,4 +164,4 @@ EXIT /B 0
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

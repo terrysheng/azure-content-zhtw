@@ -1,12 +1,12 @@
 <properties
    pageTitle="Azure 備份 - 離線備份或使用 Azure 匯入/匯出服務進行初始植入 | Microsoft Azure"
-   description="了解 Azure 備份如何讓您使用 Azure 匯入/匯出服務在網路上傳送資料。此文章說明如何使用 Azure 匯入/匯出服務離線植入初始備份資料"
-   services="backup"
-   documentationCenter=""
-   authors="aashishr"
-   manager="shreeshd"
-   editor=""/>
-<tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/14/2015" ms.author="aashishr"; "jimpark"/>
+	description="了解 Azure 備份如何讓您使用 Azure 匯入/匯出服務在網路上傳送資料。此文章說明如何使用 Azure 匯入/匯出服務離線植入初始備份資料"
+	services="backup"
+	documentationCenter=""
+	authors="aashishr"
+	manager="shreeshd"
+	editor=""/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/28/2015" ms.author="aashishr"; "jimpark"/>
 
 # 在 Azure 備份中離線備份工作流程
 
@@ -22,7 +22,7 @@ Azure 備份與 Azure 匯入/匯出服務密切整合，可讓您快速傳輸初
 2. 起始工作流程之前，請確定已建立 Azure 備份保存庫、已下載保存庫認證、Azure 備份代理程式已安裝於您的 Windows Server/Windows 用戶端或 System Center Data Protection Manager (SCDPM) 伺服器，且電腦已註冊 Azure 備份保存庫。
 3. 在您打算備份我們資料的電腦上，從[這裡](https://manage.windowsazure.com/publishsettings)下載 Azure 發佈檔案設定。
 4. 準備可能是網路共用或電腦上其他磁碟機的*預備位置*。請確定預備位置有足夠的磁碟空間來保存您的初始複本。例如：若您正在嘗試備份 500 GB 的檔案伺服器，請確定預備區域至少有 500 GB 的空間 (雖然使用量可能較少)。預備區域是「暫時性儲存體」，因此在此工作流程期間會暫時使用。
-5. 外部 SATA 磁碟機寫入器和外部的 3.5 英吋的 SATA 磁碟機。只有 3.5 英吋的 SATA II/III 硬碟能夠用於匯入/匯出服務。不支援大於 4TB 的硬碟。您可以將 SATA II/III 磁碟附加至大多數使用 SATA II/III USB 介面卡的外部電腦。檢查 Azure 匯入/匯出文件以取得服務所支援的最新磁碟機組合。
+5. 外部 SATA 磁碟機寫入器和外部的 3.5 英吋的 SATA 磁碟機。只有 3.5 英吋的 SATA II/III 硬碟能夠用於匯入/匯出服務。不支援大於 6 TB 的硬碟。您可以將 SATA II/III 磁碟附加至大多數使用 SATA II/III USB 介面卡的外部電腦。檢查 Azure 匯入/匯出文件以取得服務所支援的最新磁碟機組合。
 6. 在 SATA 磁碟機寫入器所連接的電腦上啟用 BitLocker。
 7. 從[這裡](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409)將 Azure 匯入/匯出工具下載至 SATA 磁碟機寫入器所連接的電腦上。
 
@@ -108,4 +108,4 @@ Azure 備份與 Azure 匯入/匯出服務密切整合，可讓您快速傳輸初
 - 若您有關於 Azure 匯入/匯出工作流程的任何問題，請參閱此[文章](../storage-import-export-service.md)。
 - 若您有關於工作流程的任何問題，請參閱 Azure 備份[常見問題集](backup-azure-backup-faq.md)的＜離線備份＞章節
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

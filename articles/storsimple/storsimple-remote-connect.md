@@ -1,19 +1,19 @@
 <properties 
    pageTitle="遠端連線至 StorSimple 裝置 | Microsoft Azure"
-   description="說明如何使用 Windows PowerShell 遠端和 HTTP 或 HTTPS 遠端連線至 StorSimple 裝置。"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="說明如何設定您的裝置以進行遠端管理，以及如何透過 HTTP 或 HTTPS 連線到 Windows PowerShell for StorSimple。"
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/28/2015"
+	ms.author="alkohli"/>
 
 # 遠端連接至 StorSimple 裝置
 
@@ -81,7 +81,7 @@
 
 5. 確認 [**RemoteManagementMode**] 欄位顯示 **HttpsAndHttpEnabled**。下圖顯示 PuTTY 中的這些設定。
 
-     ![序列 Https 和 Http 已啟用](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
+     ![序列 HTTPS 和 HTTP 已啟用](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
 
 ### 準備遠端連線的用戶端
 
@@ -116,7 +116,7 @@
 
      此時，您應該有個連線到裝置的使用中遠端 Windows PowerShell 工作階段。
 
-    ![使用 HTTPS 進行 PS 遠端處理](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
+    ![使用 HTTPS 進行 PowerShell 遠端處理](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
 
 ## 透過 HTTP 連線
 
@@ -172,7 +172,7 @@
 
     確定 [**RemoteManagementMode**] 欄位顯示 **HttpsEnabled**。下圖顯示 PuTTY 中的這些設定。
 
-     ![序列 Https 已啟用](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
+     ![序列 HTTPS 已啟用](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
 
 4. 從 `Get-HcsSystem` 的輸出，複製裝置的序號，並儲存供稍後使用。
 
@@ -224,7 +224,7 @@
 
 3. 輸入您稍早儲存的裝置序號。對應至 IP 位址，如下圖所示。對於控制器 0 及控制器 1，在序號 (CN 名稱) 結尾後附加 **Controller0** 和 **Controller1**。
 
-    ![將 CN 名稱新增至主機檔案](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
+    ![將 CN 名稱加入至主機檔案](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
 
 4. 儲存主機檔案。
 
@@ -264,10 +264,10 @@
 
 6. 您必須等候幾分鐘，接著便會透過 SSL 經由 HTTPS 連線到您的裝置。您會看到訊息，指出您已連線到您的裝置。
 
-    ![使用 HTTPS 和 SSL 進行 PS 遠端處理](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
+    ![使用 HTTPS 和 SSL 進行 PowerShell 遠端處理](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
 ## 後續步驟
 
 [深入了解如何使用 Windows PowerShell 管理 StorSimple 裝置](storsimple-windows-powershell-administration.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

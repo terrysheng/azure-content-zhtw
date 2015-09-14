@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-management"
-	ms.date="08/26/2015"
+	ms.date="09/02/2015"
 	ms.author="carlrab"/>
 
 # 將資料庫移轉至 Azure SQL Database
@@ -29,18 +29,18 @@ Azure SQL Database V12 提供與 SQL Server 2014 和更新版本幾乎完全的�
 有多個方法可將相容的內部部署 SQL Server 資料庫移轉至 Azure SQL Database V12。
 
 - 針對小型到中型資料庫，移轉相容的 SQL Server 2005 或更新版本的資料庫很簡單，只要在 SQL Server Management Studio 中執行 [部署資料庫部署至 Microsoft Azure Database 精靈] 即可，前提是您沒有連接上的困難 (沒有連接能力、低頻寬或逾時問題)。
-- 針對中型到大型資料庫，或者當您有連接上的困難時，您可以使用 SQL Server Management Studio 將資料和結構描述匯出到 BACPAC 檔案 (儲存在本機或 Azure Blob)，然後將 BACPAC 檔案匯入您的 Azure SQL 執行個體。如果您將 BACPAC 儲存在 Azure Blob，您也可以從 Azure 入口網站匯入 BACPAC 檔案。  
+- 針對中型到大型資料庫，或者當您有連接上的困難時，您可以使用 SQL Server Management Studio 將資料和結構描述匯出到 BACPAC 檔案 (儲存在本機或 Azure Blob)，然後將 BACPAC 檔案匯入您的 Azure SQL 執行個體。如果您將 BACPAC 儲存在 Azure Blob，您也可以從 Azure 入口網站匯入 BACPAC 檔案。如需 BACPAC 檔案的詳細資訊，請參閱[資料層應用程式](https://msdn.microsoft.com/library/ee210546.aspx)。
 - 對於較大的資料庫，您可以分別移轉結構描述和資料，以達到最佳效能。您可以使用 SQL Server Management Studio 或 Visual Studio 將結構描述擷取至資料庫專案，然後部署此結構描述以建立 Azure SQL 資料庫。接著使用 BCP 擷取資料，再以平行資料流使用 BCP 將資料匯入到 Azure SQL 資料庫。不論您選擇的方法為何，移轉大型、複雜的資料庫會耗費好幾小時。
 
 ### 選項 #1
 ******使用 SQL Server Management Studio 移轉相容資料庫***
 
-SQL Server Management Studio 提供兩種方法來將相容的內部部署 SQL Server 資料庫移轉至 Azure SQL 資料庫。您可以使用 [部署資料庫至 Microsoft Azure SQL Database 精靈]，或將資料庫匯出至 BACPAC 檔案，然後再匯入此檔案以建立新的 Azure SQL 資料庫。此精靈會驗證 Azure SQL 資料庫 V12 相容性，將結構描述和資料擷取到 BACPAC 檔案，然後將此檔案匯入至指定的 Azure SQL 資料庫執行個體。
+SQL Server Management Studio 提供兩種方法來將相容的內部部署 SQL Server 資料庫移轉至 Azure SQL 資料庫。您可以使用 [部署資料庫至 Microsoft Azure SQL Database 精靈]，或將資料庫匯出至 BACPAC 檔案，然後再匯入此檔案以建立新的 Azure SQL 資料庫。此精靈會驗證 Azure SQL 資料庫 V12 相容性，將結構描述和資料擷取到 BACPAC 檔案，然後將此檔案匯入至指定的 Azure SQL 資料庫執行個體。若要使用此選項，請參閱[使用 SSMS](sql-database-migrate-ssms.md)。
 
 ### 選項 #2
-***使用 Visual Studio 離線更新資料庫結構描述，然後以 SQL Server Management Studio 進行部署***。
+***使用 Visual Studio 離線更新資料庫結構描述，然後以 SQL Server Management Studio 進行部署***
 
-如果您的內部部署 SQL Server 資料庫不相容或是您想判斷它是否相容，您可以將資料庫結構描述匯入到 Visual Studio 資料庫專案以進行分析。若要進行分析，請將專案的目標平台指定為 SQL Database V12，然後再建置專案。如果建置成功，則資料庫為相容。如果建置失敗，您可以使用 Visual Studio 的 SQL Server Data Tools ("SSDT") 解決錯誤。一旦專案成功建置，您可以將該專案發佈回來做為來源資料庫的複本，然後使用 SSDT 中的資料比較功能，將資料從來源資料庫複製到 Azure SQL V12 相容資料庫。並接著使用選項 #1，將這個更新過的資料庫部署至 Azure SQL Database。如果您需要的是僅限結構描述的移轉，則可以直接從 Visual Studio 將結構描述發佈至 Azure SQL Database。當資料庫結構描述需要的變更超過移轉精靈單獨可處理的數量時，使用這個方法。
+如果您的內部部署 SQL Server 資料庫不相容或是您想判斷它是否相容，您可以將資料庫結構描述匯入到 Visual Studio 資料庫專案以進行分析。若要進行分析，請將專案的目標平台指定為 SQL Database V12，然後再建置專案。如果建置成功，則資料庫為相容。如果建置失敗，您可以使用 Visual Studio 的 SQL Server Data Tools ("SSDT") 解決錯誤。一旦專案成功建置，您可以將該專案發佈回來做為來源資料庫的複本，然後使用 SSDT 中的資料比較功能，將資料從來源資料庫複製到 Azure SQL V12 相容資料庫。並接著使用選項 #1，將這個更新過的資料庫部署至 Azure SQL Database。如果您需要的是僅限結構描述的移轉，則可以直接從 Visual Studio 將結構描述發佈至 Azure SQL Database。當資料庫結構描述需要的變更超過移轉精靈單獨可處理的數量時，使用這個方法。若要使用此選項，請參閱[使用 Visual Studio](sql-database-migrate-visualstudio-ssdt.md)。
 
 ## 決定要使用的選項
 - 如果您預期資料庫可直接移轉而不需要變更，則應該使用快速且容易使用的選項 #1。如果您不確定，請依照選項 #1 的說明，一開始從資料庫匯出僅限結構描述的 BACPAC。如果匯出成功且未發生錯誤，則可以使選項 #1 移轉資料庫及其資料。  
@@ -72,4 +72,4 @@ Visual Studio 中的 SQL Server 工具可用來建立和管理資料庫專案，
 | 如果發生錯誤，無法變更輸出；來源結構描述必須相容。 | 提供完整的 Visual Studio SSDT 功能。結構描述會離線變更。 | 應用程式驗證會在 Azure 中進行。由於結構描述會直接移轉而不需要變更，因此為基本驗證。 | 應用程式驗證會在將資料庫部署至 Azure 之前，於 SQL Server 中完成。 |
 | 簡單且容易設定的一個或兩個步驟程序。 | 較複雜的多步驟程序 (如果只要部署結構描述則比較簡單)。 |
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="使用資料表儲存體的 Web 應用程式 (Node.js) | Microsoft Azure" 
-	description="本教學課程以「使用 Express 的 Web 應用程式」教學課程為基礎，再加上 Azure 儲存體服務和 Azure 模組建置而成。" 
-	services="cloud-services, storage" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="使用資料表儲存體的 Web 應用程式 (Node.js) | Microsoft Azure"
+	description="本教學課程以「使用 Express 的 Web 應用程式」教學課程為基礎，再加上 Azure 儲存體服務和 Azure 模組建置而成。"
+	services="cloud-services, storage"
+	documentationCenter="nodejs"
+	authors="TomArcher"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="02/25/2015" 
-	ms.author="mwasson"/>
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="tarcher"/>
 
 
 
@@ -25,7 +25,7 @@
 
 ## 概觀
 
-在本教學課程中，您將擴充在[使用 Express 的 Node.js Web 應用程式]教學課程中所建立的應用程式，方法是使用 Windows Azure Client Libraries for Node.js 來搭配資料管理服務使用。您將擴充您的應用程式，以建立一個可部署到 Azure 的 Web 架構工作清單應用程式。使用者可透過工作清單來擷取工作、新增工作及將工作標示為已完成。
+在本教學課程中，您將擴充在[使用 Express 的 Node.js Web 應用程式]教學課程中所建立的應用程式，方法是使用 Microsoft Azure Client Libraries for Node.js 來搭配資料管理服務使用。您將擴充您的應用程式，以建立一個可部署到 Azure 的 Web 架構工作清單應用程式。使用者可透過工作清單來擷取工作、新增工作及將工作標示為已完成。
 
 工作項目會儲存於 Azure 儲存體中。Azure 儲存體提供可容錯且高度可用的非結構化資料儲存體。Azure 儲存體包括數種可儲存和存取資料的資料結構，並且您可以從 Azure SDK for Node.js 中所隨附的 API 或透過 REST API 來運用儲存體服務。如需詳細資訊，請參閱[在 Azure 中儲存和存取資料] (英文)。
 
@@ -408,4 +408,4 @@ Azure 會就每小時伺服器時間所使用的 Web 角色執行個體數進行
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

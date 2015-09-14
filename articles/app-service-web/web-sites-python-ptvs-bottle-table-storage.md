@@ -1,25 +1,23 @@
 <properties 
-	pageTitle="Azure 上採用 Python Tools 2.1 for Visual Studio 的 Bottle 和 Azure 資料表儲存體" 
-	description="了解如何使用 Python Tools for Visual Studio 建立 Bottle 應用程式，藉此將資料儲存在 Azure 資料表儲存體中，並將 Web 應用程式部署到 Azure App Service Web Apps。" 
-	services="app-service\web" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+	pageTitle="Azure 上使用 Python Tools 2.2 for Visual Studio 的 Bottle 和 Azure 資料表儲存體"
+	description="了解如何使用 Python Tools for Visual Studio 建立 Bottle 應用程式，藉此將資料儲存在 Azure 資料表儲存體中，並將 Web 應用程式部署到 Azure App Service Web Apps。"
+	services="app-service\web"
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
 
-
-
-# Azure 上採用 Python Tools 2.1 for Visual Studio 的 Bottle 和 Azure 資料表儲存體 
+# Azure 上使用 Python Tools 2.2 for Visual Studio 的 Bottle 和 Azure 資料表儲存體 
 
 在此教學課程中，我們將使用 [Python Tools for Visual Studio]，並使用其中一個 PTVS 範例範本來建立簡單的民調 Web 應用程式。本教學課程也提供[教學影片](https://www.youtube.com/watch?v=GJXDGaEPy94)。
 
@@ -31,10 +29,10 @@
 
 ## 必要條件
 
- - Visual Studio 2012 或 2013
- - [Python Tools 2.1 for Visual Studio]
- - [Python Tools 2.1 for Visual Studio 範例 VSIX]
- - [Azure SDK Tools for VS 2013] 或 [Azure SDK Tools for VS 2012]
+ - Visual Studio 2013 或 2015
+ - [Python Tools 2.2 for Visual Studio]
+ - [Python Tools 2.2 for Visual Studio 範例 VSIX]
+ - [Azure SDK Tools for VS 2013] 或 [Azure SDK Tools for VS 2015]
  - [Python 2.7 32 位元]或 [Python 3.4 32 位元]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -202,19 +200,19 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 [Azure 入口網站]: https://portal.azure.com
 [Azure SDK for .NET]: http://azure.microsoft.com/downloads/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Python Tools 2.1 for Visual Studio 範例 VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=624025
+[Python Tools 2.2 for Visual Studio 範例 VSIX]: http://go.microsoft.com/fwlink/?LinkId=624025
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 32 位元]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32 位元]: http://go.microsoft.com/fwlink/?LinkId=517191
-[Python Tools for Visual Studio 說明文件]: http://pytools.codeplex.com/documentation
+[Python Tools for Visual Studio 說明文件]: http://aka.ms/ptvsdocs
 [Bottle 說明文件]: http://bottlepy.org/docs/dev/index.html
-[在 Microsoft Azure 上進行遠端偵錯]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
-[Web 專案]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[雲端服務專案]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[在 Microsoft Azure 上進行遠端偵錯]: http://go.microsoft.com/fwlink/?LinkId=624026
+[Web 專案]: http://go.microsoft.com/fwlink/?LinkId=624027
+[雲端服務專案]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Azure 儲存體]: http://azure.microsoft.com/documentation/services/storage/
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

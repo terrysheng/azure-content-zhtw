@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/04/2015"
+	ms.date="06/16/2015"
 	ms.author="krisragh"/>
 
 # 如何從 iOS 用戶端 (JavaScript 後端) 呼叫自訂 API
@@ -54,6 +54,5 @@
 [Get started with authentication]: mobile-services-ios-get-started-users.md
 [Get started with push notifications]: ../mobile-services-ios-get-started-push.md
 [在來源控制中儲存伺服器指令碼]: mobile-services-store-scripts-source-control.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

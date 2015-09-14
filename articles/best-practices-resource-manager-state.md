@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="09/02/2015"
 	ms.author="mmercuri"/>
 
 # Azure 資源管理員範本中的共用狀態
 
-此主題說明如何在「Azure 資源管理員」範本內以及跨連結的範本，管理及共用狀態。
+此主題示範在「Azure 資源管理員」範本內以及跨連結的範本，管理及共用狀態的最佳做法。本主題所顯示的參數與變數為您可以定義的物件類型範例，方便您用來組織部署需求。在這些範例中，您可以實作自己的物件與您環境適用的屬性值。
 
 ## 使用複雜物件來共用狀態
 
@@ -366,7 +366,7 @@ enableJumpbox | 來自條件約束清單的字串 (enabled/disabled) | 識別是
 
     "outputs": {
         "masterip": {
-            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].properties.privateIPAddress]",
+            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].privateIPAddress]",
             "type": "string"
          }
     }
@@ -381,4 +381,4 @@ enableJumpbox | 來自條件約束清單的字串 (enabled/disabled) | 識別是
 - [編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
 - [Azure 資源管理員範本函數](resource-group-template-functions.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,25 +1,25 @@
 <properties 
- pageTitle="管理虛擬機器擴充功能 | Microsoft Azure" 
- description="描述如何加入、尋找、更新及移除擴充功能。" 
- services="virtual-machines" 
- documentationCenter="" 
- authors="squillace" 
- manager="timlt" 
- editor=""/>
+ pageTitle="管理虛擬機器擴充功能 | Microsoft Azure"
+	description="描述如何加入、尋找、更新及移除擴充功能。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
 <tags 
- ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
- ms.workload="infrastructure-services"
- ms.date="03/10/2015" 
- ms.author="rasquill"/>
+ ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="rasquill"/>
 #管理虛擬機器擴充功能
 描述如何尋找、加入、修改或移除 Azure 上之 Windows 或 Linux 虛擬機器的 VM 擴充功能。
 
 ##使用 VM 擴充功能
 
-Azure VM 擴充功能會實作行為或功能，以協助其他程式在 Azure VM 上運作 (例如，**WebDeployForVSDevTest** 擴充功能可讓 Visual Studio 在您的 Azure VM 上對解決方案進行 Web 部署)，或是讓您能夠與 VM 互動以支援其他行為 (例如，您可以使用 Powershell 的 VM 存取擴充功能、xplat-cli 和 REST 用戶端來重設或修改 Azure VM 上的遠端存取值)。
+Azure VM 延伸模組會實作行為或功能，以協助其他程式在 Azure VM 上運作 (例如，**WebDeployForVSDevTest** 延伸模組可讓 Visual Studio 在您的 Azure VM 上進行 Web 部署解決方案)，或是讓您能夠與 VM 互動以支援一些其他行為 (例如，您可以使用 Powershell 的 VM 存取延伸模組、Azure CLI 和 REST 用戶端來重設或修改 Azure VM 上的遠端存取值)。
 
 >[AZURE.IMPORTANT]如需所支援功能的完整擴充功能清單，請參閱 [Azure VM 擴充功能與功能](https://msdn.microsoft.com/library/dn606311.aspx)。因為每個 VM 擴充功能支援特定功能，您確切可以及不可以使用擴充功能做到的事取決於擴充功能。因此，在修改 VM 之前，請確定您已閱讀想要使用之 VM 擴充功能的文件。不支援移除一些 VM 擴充功能。其他則具有已設定來大幅變更 VM 行為的屬性。
 
@@ -38,7 +38,7 @@ Azure VM 擴充功能會實作行為或功能，以協助其他程式在 Azure V
 Azure VM 擴充功能有 (如需所支援功能的完整擴充功能清單，請參閱 [Azure VM 擴充功能與功能](https://msdn.microsoft.com/library/dn606311.aspx)。) 您可以使用下列各項找到擴充功能和其他資訊：
 
 -   PowerShell
--   Azure 跨平台介面 (xplat-cli)
+-   Azure 跨平台介面 (Azure CLI)
 -   服務管理 REST API
 
 [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn495240.aspx) Cmdlet 或[服務管理 REST API](https://msdn.microsoft.com/library/ee460799.aspx) 來尋找可用擴充功能的相關資訊。
@@ -78,13 +78,13 @@ Azure VM 擴充功能有 (如需所支援功能的完整擴充功能清單，請
         CompanyName                 :
 
 
-###Azure 命令列介面 (xplat-cli)
+###Azure 命令列介面 (Azure CLI)
 
-有些擴充功能有特有的 xplat-cli 命令 (Docker VM 擴充功能便是一個例子)，這可能會讓其更容易進行設定。但下列命令適用於所有的 VM 擴充功能。
+有些延伸模組有特有的 Azure CLI 命令 (Docker VM 延伸模組便是一個例子)，這可能會讓其更容易進行設定。但下列命令適用於所有的 VM 延伸模組。
 
 您可以使用 **azure vm extension list** 命令來取得可用擴充功能的相關資訊，並使用 **--json** 選項來顯示有關一或多個擴充功能的所有可用資訊。如果您不使用擴充功能名稱，命令會傳回所有可用擴充功能的 json 描述。
 
-例如，下列程式碼範例示範如何使用 xplat-cli **azure vm extension list** 命令列出 **IaaSDiagnostics** 擴充功能的資訊，且使用 **–-json** 選項傳回完整資訊。
+例如，下列程式碼範例示範如何使用 Azure CLI **azure vm extension list** 命令列出 **IaaSDiagnostics** 延伸模組的資訊，且使用 **–-json** 選項傳回完整資訊。
 
 
     $ azure vm extension list -n IaaSDiagnostics --json
@@ -137,4 +137,4 @@ Azure VM 擴充功能有 (如需所支援功能的完整擴充功能清單，請
 
 >[AZURE.NOTE]擴充功能也可以使用 JSON 所定義的組態。使用這些類型的擴充功能時，只會使用 **SampleConfig** 項目。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

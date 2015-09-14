@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Microsoft Azure DocumentDB 簡介 - 免費試用 | Microsoft Azure" 
-	description="了解 Azure DocumentDB (NoSQL 文件資料庫) 及其對於雲端和行動應用程式的價值。同時也了解它如何管理資料及如何用於應用程式開發。" 
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
+	pageTitle="Microsoft Azure DocumentDB 簡介 - 免費試用 | Microsoft Azure"
+	description="了解 Azure DocumentDB (NoSQL 文件資料庫) 及其對於雲端和行動應用程式的價值。同時也了解它如何管理資料及如何用於應用程式開發。"
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mimig"/>
 
 # Microsoft Azure DocumentDB 簡介
@@ -103,12 +103,11 @@ DocumentDB 可讓您將應用程式邏輯撰寫成完全以 JavaScript 撰寫的
 
 - 註冊 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)，得到 30 天免費試用以及美金 200 元，讓您試用所有 Azure 服務。 
 - 如果您有 MSDN 訂用帳戶，就可以享有[免費的 Azure 信用額度每月美金 150 元](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)，可用於所有 Azure 服務。 
-- 或者，如果您想要免費試用 DocumentDB 30 天，但不使用信用卡，請傳送電子郵件至 askdocdb@microsoft.com，主旨行請寫「文件簡介，Azure 試用版」，我們會在試用活動期限前回覆並附上促銷碼。
 
-然後，當您準備好深入了解時，請造訪我們的[學習途徑](http://azure.microsoft.com/documentation/learning-paths/documentdb/)，以瀏覽所有您適用的學習資源。
+然後，當您準備好深入了解時，請造訪我們的[學習途徑](http://azure.microsoft.com/documentation/learning-paths/documentdb/)，以巡覽所有您適用的學習資源。
 
 
 [1]: ./media/documentdb-introduction/resources1.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

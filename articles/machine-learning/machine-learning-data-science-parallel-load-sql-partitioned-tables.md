@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="使用 SQL 資料分割資料表平行處理大量資料匯入 | Microsoft Azure" 
-	description="使用 SQL 資料分割資料表平行處理大量資料匯入" 
-	services="machine-learning" 
-	documentationCenter="" 
+	pageTitle="使用 SQL 資料分割資料表平行處理大量資料匯入 | Microsoft Azure"
+	description="使用 SQL 資料分割資料表平行處理大量資料匯入"
+	services="machine-learning"
+	documentationCenter=""
 	authors="msolhab"
-	manager="paulettm" 
-	editor="cgronlun" />
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="msolhab" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="msolhab"/>
 
 # 使用 SQL 資料分割資料表平行處理大量資料匯入
 
@@ -184,4 +184,4 @@
 如需使用公開資料集之進階分析程序和技術 (ADAPT) 的端對端逐步解說範例，請參閱[進階分析程序和技術實務：使用 SQL Server](machine-learning-data-science-process-sql-walkthrough.md)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="從 HTML 用戶端呼叫自訂 API - 行動服務" 
-	description="了解如何定義自訂 API 然後從使用 Azure 行動服務的 HTML 應用程式呼叫它。" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="bureado"  
-	manager="dwrede" 
+<properties
+	pageTitle="從 HTML 用戶端呼叫自訂 API - 行動服務"
+	description="了解如何定義自訂 API 然後從使用 Azure 行動服務的 HTML 應用程式呼叫它。"
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-html" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-html"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # 從 HTML 應用程式呼叫自訂 API
@@ -32,9 +32,9 @@
 
 ##<a name="update-app"></a>更新應用程式以呼叫自訂 API
 
-1. 使用您的文字編輯器開啟 index.html 檔案，找出名為 `buttonRefresh` 的 [按鈕] 元素，然後在後面新增以下新元素： 
+1. 使用您的文字編輯器開啟 index.html 檔案，找出名為 `buttonRefresh` 的 [按鈕] 元素，然後在後面新增以下新元素：
 
-		<button id="buttonCompleteAll">Complete All</button> 
+		<button id="buttonCompleteAll">Complete All</button>
 
 	這會將新按鈕新增至頁面。
 
@@ -92,4 +92,4 @@
 [新增行動服務至現有應用程式]: mobile-services-html-get-started-data.md
 [在來源控制中儲存伺服器指令碼]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

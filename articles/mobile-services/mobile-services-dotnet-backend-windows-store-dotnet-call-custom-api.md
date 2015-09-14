@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="從 Windows 市集用戶端呼叫自訂 API - 行動服務" 
-	description="了解如何定義自訂 API 然後從使用 Azure 行動服務的 Windows 市集應用程式呼叫它。" 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="從 Windows 市集用戶端呼叫自訂 API - 行動服務"
+	description="了解如何定義自訂 API 然後從使用 Azure 行動服務的 Windows 市集應用程式呼叫它。"
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # 從用戶端呼叫自訂 API
@@ -60,6 +60,5 @@
 
 [定義支援定期通知的自訂 API]: mobile-services-windows-store-dotnet-create-pull-notifications.md
 [在來源控制中儲存伺服器指令碼]: mobile-services-store-scripts-source-control.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

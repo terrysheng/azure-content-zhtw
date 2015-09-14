@@ -10,10 +10,10 @@
 <tags
 	ms.service="cloud-services"
 	ms.workload="tbd"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="06/01/2015"
+	ms.date="08/31/2015"
 	ms.author="mwasson"/>
 
 
@@ -41,7 +41,7 @@
 > [AZURE.NOTE]本教學課程使用 Azure PowerShell (需要 Windows)。
 
 - 安裝並設定 [Azure PowerShell](../install-configure-powershell.md)。
-- 下載並安裝 [Azure SDK for .NET 2.5](http://go.microsoft.com/fwlink/?linkid=518091)。在安裝過程中，選取：
+- 下載並安裝 [Azure SDK for .NET 2.7](http://www.microsoft.com/zh-TW/download/details.aspx?id=48178)。在安裝過程中，選取：
     - MicrosoftAzureAuthoringTools
     - MicrosoftAzureComputeEmulator
 
@@ -53,7 +53,8 @@
 
 1. 以系統管理員的身分執行 **Azure PowerShell**。(從 [**開始**] 功能表或**開始畫面** 中，搜尋 **Azure PowerShell**)。
 
-2.  輸入下列 PowerShell Cmdlet 來建立專案：
+2.  [連線 PowerShell](powershell-install-configure.md#how-to-connect-to-your-subscription) 至您的訂用帳戶。
+3.  輸入下列 PowerShell Cmdlet 來建立專案：
 
         New-AzureServiceProject helloworld
 
@@ -116,11 +117,12 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
 
 ### 發佈應用程式
 
-若要發佈，請依下列指示執行 **Publish-AzureServiceProject** Cmdlet：
+若要發佈，請執行下列命令：
 
-    Publish-AzureServiceProject -ServiceName NodeHelloWorld -Location "East US" -Launch
+  	$ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
+	Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
-- **-ServiceName** 指定部署的名稱。這必須是唯一名稱，否則發佈程序將失敗。
+- **-ServiceName** 指定部署的名稱。這必須是唯一名稱，否則發佈程序將失敗。**Get-Date** 命令會添加到應該讓名稱唯一的日期/時間字串。
 
 - **-Location** 指定託管應用程式的資料中心。若要查看可用資料中心的清單，請使用 **Get-AzureLocation** Cmdlet。
 
@@ -192,4 +194,4 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

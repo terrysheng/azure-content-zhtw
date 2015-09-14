@@ -1,6 +1,6 @@
 <properties pageTitle="指定 Node.js 版本" description="了解如何指定 Azure 網站和雲端服務所使用的 Node.js 版本" services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="02/19/2015" ms.author="mwasson"/>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/31/2015" ms.author="mwasson"/>
 
 
 
@@ -40,9 +40,11 @@ Azure 提供的 Node.js 版本會持續進行更新。除非另有指定，否�
 
 如果您要將應用程式裝載在雲端服務中，而且要使用 Azure PowerShell 來部署應用程式，您可以使用 **Set-AzureServiceProjectRole** PowerShell Cmdlet 覆寫預設 Node.js 版本。例如：
 
-	Set-AzureServiceProjectRole WebRole1 node 0.8.4
+	Set-AzureServiceProjectRole WebRole1 Node 0.8.4
 
-您也可以使用 **Get-AzureServiceProjectRoleRuntime** 擷取對於以雲端服務形式裝載的應用程式而言，可用的 Node.js 版本清單。
+請注意上述陳述式的參數會區分大小寫。您可以檢查角色 **package.json** 中的 **engines** 屬性，確認已選取正確的 Node.js 版本。
+
+您也可以使用 **Get-AzureServiceProjectRoleRuntime** 擷取對於以雲端服務形式裝載的應用程式而言，可用的 Node.js 版本清單。務必確認您專案所依據的 Node.js 版本列在此清單中。
 
 ##對 Azure 網站使用自訂版本
 
@@ -93,4 +95,4 @@ Azure 提供的 Node.js 版本會持續進行更新。除非另有指定，否�
 [使用模組]: nodejs-use-node-modules-azure-apps.md
 [建置並部署 Node.js 網站]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

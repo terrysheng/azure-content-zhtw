@@ -1,20 +1,20 @@
 <properties
    pageTitle="在事件中樞內使用 Storm on HDInsight 來處理事件 | Microsoft Azure"
-   description="了解如何利用在 Visual Studio 中使用 HDInsight Tools for Visual Studio 所建立之 C# Storm 拓撲來處理事件中樞資料。"
-   services="hdinsight,notification hubs"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+	description="了解如何利用在 Visual Studio 中使用 HDInsight Tools for Visual Studio 所建立之 C# Storm 拓撲來處理事件中樞資料。"
+	services="hdinsight,notification hubs"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/24/2015"
-   ms.author="larryfr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="09/02/2015"
+	ms.author="larryfr"/>
 
 # 利用 Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)
 
@@ -237,14 +237,14 @@ Spout 和 Bolt 會以名為 **eventhubs-storm-spout-0.9-jar-with-dependencies.ja
 
 事件中樞 Bolt 預期會收到路由傳送至事件中樞的單一字串值。在下列範例中，您將修改預設的 **Spout.cs** 檔案以產生 JSON 字串。
 
-1. 在**方案總管**中，以滑鼠右鍵按一下 **EventHubWriter** 專案，然後選取 [管理 NuGet 封裝]。搜尋 **Json.NET** 封裝，然後將它加入方案。您便可以輕鬆地建立透過 Bolt 傳送到事件中樞的 JSON 資料。
-
-1. 開啟 **Spout.cs**，並在檔案頂端加入下列內容：
+1. 在 [方案總管] 開啟 **Spout.cs**，並在檔案頂端加入下列內容：
 
 		using Newtonsoft.Json;
 		using Newtonsoft.Json.Linq;
 
 	讓您可以更輕鬆地使用 JSON 資料。
+    
+    > [AZURE.NOTE]JSON.NET 封裝應該已安裝，因為這是 SCP.NET 架構所需，用於 C# Storm 拓樸。
 
 3. 尋找下列程式碼：
 
@@ -420,9 +420,7 @@ Spout 和 Bolt 會以名為 **eventhubs-storm-spout-0.9-jar-with-dependencies.ja
 
 ### 修改 Bolt
 
-1. 在**方案總管**中，以滑鼠右鍵按一下 [EventHubReader] 專案，然後選取 [管理 NuGet 封裝]。搜尋 **Json.Net** 封裝，然後將它加入方案。我們便可以輕鬆地處理從 Spout 收到的 JSON 資料。並加入 **WindowsAzure.Storage** 封裝，以讓我們寫入資料表儲存體。
-
-1. 開啟 **Bolt.cs**，並在檔案頂端加入下列內容：
+1. 在 [方案總管] 中，展開 **EventHubReaderEventHubReader** 專案，然後開啟 **Bolt.cs** 檔案。在檔案開頭處新增下列程式碼：
 
 		using Newtonsoft.Json.Linq;
 		using Microsoft.WindowsAzure.Storage;
@@ -557,4 +555,4 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="在原始檔控制中儲存專案程式碼 | Microsoft Azure" 
-	description="了解如何儲存您的 .NET 後端專案，並從您的電腦上的本機 Git 儲存機制發佈。" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="在原始檔控制中儲存專案程式碼 | Microsoft Azure"
+	description="了解如何儲存您的 .NET 後端專案，並從您的電腦上的本機 Git 儲存機制發佈。"
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # 在原始檔控制中儲存專案程式碼
@@ -101,6 +101,5 @@
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [如何對 .NET 後端行動服務進行資料模型變更]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

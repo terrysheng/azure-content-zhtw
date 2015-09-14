@@ -1,6 +1,6 @@
 <properties
-	pageTitle="使用 Azure Data Factory 建置您的第一個管線"
-	description="本教學課程示範如何利用 Visual Studio 建立使用 Azure HDInsight 轉換資料的範例資料管線"
+	pageTitle="使用 Visual Studio 建置您的第一個 Azure Data Factory 管線。"
+	description="在本教學課程中，您將使用 Visual Studio，建立範例 Azure Data Factory 管線。"
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -12,11 +12,11 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="08/18/2015"
 	ms.author="spelluru"/>
 
-# 使用 Azure Data Factory 建置您的第一個管線
+# 使用 Visual Studio 建置您的第一個 Azure Data Factory 管線。
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -109,10 +109,10 @@
 3. 使用下列程式碼來取代 **JSON**：
 
 		{
-		"name": "HDInsightOnDemandLinkedService",
-		"properties": {
+		  "name": "HDInsightOnDemandLinkedService",
+		  "properties": {
 	        "type": "HDInsightOnDemandLinkedService",
-		"version": "3.1",
+            "version": "3.1",
 	        "clusterSize": 1,
 	        "timeToLive": "00:05:00",
 	        "linkedServiceName": "AzureStorageLinkedService1"
@@ -220,7 +220,7 @@
 19. 在 **Data Factory 工具列**中，按一下**下拉式方塊**以查看 Azure 訂用帳戶中的所有 Data Factory。如果您看到 [登入 Visual Studio] 對話方塊： 
 	20. 輸入和您想要在其中建立 Data Factory 之 Azure 訂用帳戶相關聯的**電子郵件帳戶**，輸入**密碼**，然後按一下 [登入]。
 	21. 一旦登入成功，您應該會看到 Azure 訂用帳戶中的所有 Data Factory。在本教學課程中，您將建立新的 Data Factory。       
-22. 在下拉式清單中，選取 [**DataFactoryMyFirstPipeline**]，然後按一下 [發佈] 按鈕以部署/發佈連結服務、資料集和管線。    
+22. 在下拉式清單中，選取 [DataFactoryMyFirstPipeline]，然後按一下 [發佈] 按鈕以部署/發佈連結服務、資料集和管線。    
 
 	![發佈按鈕](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
 
@@ -229,11 +229,11 @@
 
 ## 使用 [伺服器總管] 檢視 Data Factory 實體
 
-1. 在 [**Visual Studio**] 中，按一下功能表上的 [**檢視**]，然後按一下 [**伺服器總管**]。
-2. 在 [**伺服器總管**] 視窗中，依序展開 [**Azure**] 和 [**Data Factory**]。如果您看到 [**登入 Visual Studio**]，請輸入和 Azure 訂用帳戶相關聯的**帳戶**，然後按一下 [**繼續**]。輸入**密碼**，然後按一下 [**登入**]。Visual Studio 會嘗試取得訂用帳戶中所有 Azure Data Factory 的相關資訊。您會在 [***Data Factory 工作清單**] 視窗中看到這項作業的狀態。
+1. 在 [Visual Studio] 中，按一下功能表上的 [檢視]，然後按一下 [伺服器總管]。
+2. 在 [伺服器總管] 視窗中，依序展開 [Azure] 和 [Data Factory]。如果您看到 [登入 Visual Studio]，請輸入和 Azure 訂用帳戶相關聯的**帳戶**，然後按一下 [繼續]。輸入**密碼**，然後按一下 [登入]。Visual Studio 會嘗試取得訂用帳戶中所有 Azure Data Factory 的相關資訊。您會在 [Data Factory 工作清單] 視窗中看到這項作業的狀態。
 
 	![Server Explorer](./media/data-factory-build-your-first-pipeline-using-vs/server-explorer.png)
-3. 您可以在 Data Factory 上按一下滑鼠右鍵，並選取 [**將 Data Factory 匯出至新專案**]，以便根據現有的 Data Factory 建立 Visual Studio 專案。
+3. 您可以在 Data Factory 上按一下滑鼠右鍵，並選取 [將 Data Factory 匯出至新專案]，以便根據現有的 Data Factory 建立 Visual Studio 專案。
 
 	![匯出 Data Factory](./media/data-factory-build-your-first-pipeline-using-vs/export-data-factory-menu.png)
 
@@ -251,5 +251,7 @@
 ## 後續步驟
 在本文中，您已經建立可在隨選 HDInsight 叢集上執行 Hive 指令碼，含有轉換活動 (HDInsight 活動) 的管線。若要了解如何使用「複製活動」從 Azure Blob 複製資料到 Azure SQL，請參閱[教學課程：從 Azure Blob 複製資料到 Azure SQL](data-factory-get-started.md)。
   
+## 傳送意見
+非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md)提交您的意見反應。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

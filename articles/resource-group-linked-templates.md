@@ -1,20 +1,20 @@
 <properties
    pageTitle="透過 Azure 資源管理員使用連結的範本"
-   description="描述如何在「Azure 資源管理員」範本中使用連結的範本，以建立模組化範本方案。示範如何傳遞參數值、指定參數檔案，以及動態建立 URL。"
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="描述如何在「Azure 資源管理員」範本中使用連結的範本，以建立模組化範本方案。示範如何傳遞參數值、指定參數檔案，以及動態建立 URL。"
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/15/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/02/2015"
+	ms.author="tomfitz"/>
 
 # 透過 Azure 資源管理員使用連結的範本
 
@@ -44,9 +44,17 @@
       } 
     ] 
 
+資源管理員必須能夠存取連結的範本，這表示您無法將本機檔案指定為連結的範本。您可以只提供 URI 值，其中包含 **http** 或 **https**。有一個選擇是將連結的範本放在儲存體帳戶中，並將 URI 用於該項目，如底下所示。
+
+    "templateLink": {
+        "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
+        "contentVersion": "1.0.0.0",
+    }
+
+
 ## 連結到參數檔案
 
-下一個範例會使用 **parametersLink** 屬性連結到參數檔案。
+下一個範例會使用 **parametersLink** 屬性連接至參數檔案。
 
     "resources": [ 
       { 
@@ -66,6 +74,8 @@
          } 
       } 
     ] 
+
+連結的參數檔案的 URI 值不能是本機檔案，而且必須包含 **http** 或 **https**。
 
 ## 使用變數來連結範本
 
@@ -94,10 +104,10 @@
 
 ## 從連結的範本傳回值
 
-如果您需要從連結的範本將值傳遞給主要範本，您可以在連結的範本之 **outputs** 區段中建立一個值。如需範例，請參閱〈[在 Azure 資源管理員範本中共用狀態](best-practices-resource-manager-state.md)〉。
+如果您需要從連結的範本將值傳遞給主要範本，您可以在連結範本的 **outputs** 區段中建立一個值。如需範例，請參閱[在 Azure 資源管理員範本中共用狀態](best-practices-resource-manager-state.md)。
 
 ## 後續步驟
 - [撰寫範本](./resource-group-authoring-templates.md)
 - [部署範本](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

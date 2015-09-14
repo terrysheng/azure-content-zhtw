@@ -1,19 +1,19 @@
 <properties 	
-	pageTitle="Azure Data Factory - 範例" 
-	description="提供 Azure Data Factory 服務隨附範例的詳細資料。" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Azure Data Factory - 範例"
+	description="提供 Azure Data Factory 服務隨附範例的詳細資料。"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="spelluru"/>
 
 # Azure Data Factory - 範例
@@ -54,6 +54,9 @@
 ## GitHub 上的範例
 [GitHub Azure-DataFactory 儲存機制](https://github.com/azure/azure-datafactory)包含數個範例，可協助您快速運用 Azure Data Factory 服務，或修改指令碼並用在您自己的應用程式中。Samples\\JSON 資料夾包含常見案例的 JSON 程式碼片段。
 
+## 傳送意見
+非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-samples.md)提交您的意見反應。
+
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,24 +1,27 @@
 <properties 
-	pageTitle="處理使用進階分析的 Azure Blob 資料 | Microsoft Azure" 
-	description="處理 Azure Blob 儲存體中的資料。" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="處理使用進階分析的 Azure Blob 資料 | Microsoft Azure"
+	description="處理 Azure Blob 儲存體中的資料。"
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev"/>
 
 #<a name="heading"></a>處理使用進階分析的 Azure Blob 資料
 
-本文件涵蓋探索資料以及從 Azure Blob 儲存體中儲存的資料產生功能的說明。若要這樣做，必須從 Blob 來源將資料下載至本機檔案，然後將其載入 Pandas 資料框架中，以進行探索和操作。以下是要遵循的步驟：
+本文件涵蓋探索資料以及從 Azure Blob 儲存體中儲存的資料產生功能的說明。
+
+## 將資料載入至 Pandas 資料框架
+若要進行探索和操作資料集，必須從 Blob 來源將資料集下載至本機檔案，然後將其載入 Pandas 資料框架中。以下是此程序的遵循步驟：
 
 1. 使用 Blob 服務，透過下列 Python 程式碼範例，從 Azure Blob 下載資料。使用您的特定值來取代下列程式碼中的變數： 
 
@@ -185,4 +188,4 @@
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

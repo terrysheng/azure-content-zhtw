@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="請將教學課程中的輸出資料複製到內部部署 SQL Server 資料庫。"
-	description="本教學課程中的逐步解說延伸 Data Factory 教學課程，將行銷活動有效性資料複製到內部部署 SQL Server 資料庫。"
+	pageTitle="請將輸出資料複製到內部部署 SQL Server 資料庫 (Azure PowerShell)。"
+	description="本逐步解說使用 Azure PowerShell 擴充教學課程，如此可讓管線將輸出資料複製到 SQL Server Database。"
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -170,4 +170,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

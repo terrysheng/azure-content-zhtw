@@ -1,20 +1,20 @@
 <properties
    pageTitle="如何註冊資料來源"
-   description="強調如何利用 [Azure 資料目錄] 註冊資料來源 (包括擷取的中繼資料欄位，以及預覽期間支援的資料來源) 的說明文章。"
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
+	description="強調如何利用 [Azure 資料目錄] 註冊資料來源 (包括擷取的中繼資料欄位，以及預覽期間支援的資料來源) 的說明文章。"
+	services="data-catalog"
+	documentationCenter=""
+	authors="steelanddata"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="08/19/2015"
-   ms.author="maroche"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="08/25/2015"
+	ms.author="maroche"/>
 
 
 # 如何註冊資料來源
@@ -36,6 +36,7 @@
 * SQL Server Analysis Services 表格式資料表
 * SQL Server Reporting Services 報表
 * Azure 儲存體 Blob 和目錄
+* HDFS 檔案和目錄
 
 > [AZURE.NOTE]SQL Server 支援也包括 Microsoft Azure SQL Database
 
@@ -54,13 +55,13 @@
 ## 包括預覽
 根據預設，只有中繼資料是擷取自資料來源並複製到 [Azure 資料目錄] 服務，但查看資料來源所包含之資料的範例，通常能夠更容易了解資料來源。
 
-[Azure 資料目錄] 資料來源註冊工具可讓使用者在每個已註冊的資料表和檢視中包含資料的快照預覽。如果使用者選擇要在註冊期間包含預覽，註冊工具將包含每個資料表和檢視最多 20 筆記錄。此快照之後會與結構化和描述性中繼資料一同複製到 [目錄]。請注意：含有大量資料行的寬型資料表可能會在預覽中包含少於 20 筆的記錄。
+[Azure 資料目錄] 資料來源註冊工具，可讓使用者將資料快照預覽包含在每個已註冊的資料表和檢視中。如果使用者選擇要在註冊期間包含預覽，註冊工具將包含每個資料表和檢視最多 20 筆記錄。此快照之後會與結構化和描述性中繼資料一同複製到 [目錄]。請注意：含有大量資料行的寬型資料表可能會在預覽中包含少於 20 筆的記錄。
 ## 更新註冊
-註冊資料來源可讓您使用在註冊期間擷取的中繼資料和選擇性預覽，以在 [Azure 資料目錄] 中探索資料來源。如果在 [目錄] 中的資料來源需要更新 (例如，如果物件的結構描述已經變更、或應包含原先排除的資料表，或使用者想要更新在預覽中所包含的資料)，可以重新執行資料來源註冊工具。
+註冊資料來源可讓您使用在註冊期間擷取的中繼資料和選擇性預覽，藉此在 [Azure 資料目錄] 中探索資料來源。如果在 [目錄] 中的資料來源需要更新 (例如，如果物件的結構描述已經變更、或應包含原先排除的資料表，或使用者想要更新在預覽中所包含的資料)，可以重新執行資料來源註冊工具。
 
 重新註冊已註冊的資料來源會執行合併 “upsert” 作業：將會更新現有的物件，同時建立新的物件。任何由使用者透過 [Azure 資料目錄] 入口網站提供的中繼資料都將會保留。
 
 ## 摘要
-利用 [Azure 資料目錄] 註冊資料來源，可讓您透過將結構化和描述性中繼資料從資料來源複製到 [目錄] 服務，來更容易地探索及了解該資料來源。資料來源一經註冊之後，便可以使用 [Azure 資料目錄] 入口網站加以註解、管理及探索。
+使用 **Azure 資料目錄**註冊資料來源，可讓您透過將結構化和描述性中繼資料，從資料來源複製到「目錄」服務，來更容易地探索及了解資料來源。資料來源一經註冊之後，便可以使用 [Azure 資料目錄] 入口網站加以註解、管理及探索。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # 搭配 Blob 儲存體的內部部署應用程式
@@ -26,8 +26,8 @@
 
 - 已安裝 Java Developer Kit (JDK) 1.6 版或更新版本。
 - 已安裝 Azure SDK。
-- 已安裝 Azure Libraries for Java 的 JAR 和任何適用的相依性 JAR，且位於 Java 編輯器所使用的組建路徑中。如需有關安裝 Azure Libraries for Java 的詳細資訊，請參閱 [下載 Azure SDK for Java] (英文)。
-- 已設定 Azure 儲存體帳戶。本文中的程式碼將會使用此儲存體帳戶的帳戶名稱和帳戶金鑰。如需建立儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶] (英文)，如需擷取帳戶金鑰的詳細資訊，請參閱[如何管理儲存體帳戶] (英文)。
+- 已安裝 Azure Libraries for Java 的 JAR 和任何適用的相依性 JAR，且位於 Java 編輯器所使用的組建路徑中。如需安裝 Azure Libraries for Java 的詳細資訊，請參閱 [下載 Azure SDK for Java][]。
+- 已設定 Azure 儲存體帳戶。本文中的程式碼將會使用此儲存體帳戶的帳戶名稱和帳戶金鑰。如需建立儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶] (英文)，如需擷取帳戶金鑰的詳細資訊，請參閱[如何管理儲存體帳戶][] (英文)。
 - 您已建立一個已命名並儲存於路徑 c:\\myimages\\image1.jpg 中的本機影像檔案。或者，修改範例中的 **FileInputStream** 建構函式以使用其他影像路徑和檔案名稱。
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -353,12 +353,12 @@
 
 請遵循下列連結以深入了解更複雜的儲存體工作。
 
-- [Azure Storage SDK for Java]
-- [Azure 儲存體用戶端 SDK 參考]
-- [Azure 儲存體 REST API]
-- [Azure 儲存體團隊部落格]
+- [Azure Storage SDK for Java][]
+- [Azure 儲存體用戶端 SDK 參考][]
+- [Azure 儲存體 REST API][]
+- [Azure 儲存體團隊部落格][]
 
-  [Download the Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
   [如何建立儲存體帳戶]: storage-create-storage-account.md#create-a-storage-account
   [如何管理儲存體帳戶]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
   [如何使用 Java 的 Blob 儲存體服務]: storage-java-how-to-use-blob-storage.md
@@ -367,4 +367,4 @@
   [Azure 儲存體 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

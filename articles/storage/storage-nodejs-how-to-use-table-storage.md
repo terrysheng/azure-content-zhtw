@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用 Node.js 中的資料表儲存體 | Microsoft Azure" 
-	description="如何在 Azure 中使用資料表儲存體服務。程式碼範例以 Node.js API 撰寫。" 
-	services="storage" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="如何使用 Node.js 中的資料表儲存體 | Microsoft Azure"
+	description="如何在 Azure 中使用資料表儲存體服務。程式碼範例以 Node.js API 撰寫。"
+	services="storage"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
 
 
@@ -46,17 +46,18 @@
 
 1.  使用命令列介面，例如 **PowerShell** (Windows) **終端機** (Mac) 或 **Bash** (Unix)，瀏覽至儲存所建立應用程式的資料夾。
 
-2.  在命令視窗中輸入 **npm install azure-storage**，該命令應能產生以下輸出：
+2.  在命令視窗中輸入 **npm install azure-storage**。此命令的輸出類似下列範例。
 
-        azure-storage@0.1.0 node_modules\azure-storage
-		├── extend@1.2.1
-		├── xmlbuilder@0.4.3
-		├── mime@1.2.11
-		├── underscore@1.4.4
-		├── validator@3.1.0
-		├── node-uuid@1.4.1
-		├── xml2js@0.2.7 (sax@0.5.2)
-		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
+		azure-storage@0.5.0 node_modules\azure-storage
+		+-- extend@1.2.1
+		+-- xmlbuilder@0.4.3
+		+-- mime@1.2.11
+		+-- node-uuid@1.4.3
+		+-- validator@3.22.2
+		+-- underscore@1.4.4
+		+-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+		+-- xml2js@0.2.7 (sax@0.5.2)
+		+-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 
 3.  您可以手動執行 **ls** 命令，確認已建立 **node\_modules** 資料夾。該資料夾中有 **azure-storage** 封裝，當中包含存取儲存體所需的程式庫。
 
@@ -220,7 +221,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 成功的批次作業的 `result` 將包含批次中每個作業的相關資訊。
 
-### 處理批次操作
+### 處理批次作業
 
 若要檢查新增至批次的操作，您可以檢視 `operations` 的屬性。您也可以使用下列方法來處理操作。
 
@@ -275,9 +276,9 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 	  }
 	});
 
-如果作業成功，`result.entries` 將包含符合查詢的實體陣列。若查詢無法傳回所有實體，則 `result.continuationToken` 將為非 *Null*，並且可做為 **queryEntities** 的第三個參數來擷取更多結果。在初始查詢中，第三個參數應為 *Null*。
+如果作業成功，`result.entries` 將包含符合查詢的實體陣列。若查詢無法傳回所有實體，則 `result.continuationToken` 將為非 *Null*，並且可做為 **queryEntities** 的第三個參數來擷取更多結果。在初始查詢中，第三個參數請使用 *null*。
 
-### 如何查詢實體屬性的子集
+### 查詢實體屬性的子集
 
 一項資料表查詢可以只擷取實體的少數欄位。這可以減少頻寬並提高查詢效能 (尤其是對大型實體而言)。請使用 **select** 子句並傳遞要傳回的欄位名稱。例如，下列查詢只會傳回 **description** 和 **dueDate** 欄位。
 
@@ -286,7 +287,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 	  .top(5)
 	  .where('PartitionKey eq ?', 'hometasks');
 
-## 如何刪除實體
+## 刪除實體
 
 您可以使用實體的資料分割和資料列索引鍵來刪除實體。在本例中，**task1** 物件包含待刪除實體的 **RowKey** 及 **PartitionKey** 值。然後物件會傳給 **deleteEntity** 方法。
 
@@ -301,9 +302,9 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 	  }
 	});
 
-> [AZURE.NOTE]刪除項目時應該考慮使用 ETag，以確保項目未被另一個程序修改過。請參閱 [作法：更新實體][]，以取得使用 ETag 的相關資訊。
+> [AZURE.NOTE]刪除項目時應該考慮使用 ETag，以確保項目未被另一個程序修改過。請參閱[更新實體](#update-an-entity)，以取得使用 ETag 的相關資訊。
 
-## 如何刪除資料表
+## 刪除資料表
 
 下列程式碼會從儲存體帳戶刪除資料表。
 
@@ -315,9 +316,9 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 若不確定資料表是否存在，請使用 **deleteTableIfExists**。
 
-## 作法：使用接續權杖
+## 使用接續 Token
 
-當您查詢的大量結果的資料表時，請尋找接續權杖。因為您的查詢可能會產生大量可用的資料，如果該查詢並非可識別接續權杖存在的查詢，可能會無法得知。
+當您查詢大量結果的資料表時，請尋找接續 Token。因為您的查詢可能會產生大量可用的資料，如果該查詢並非可識別接續權杖存在的查詢，可能會無法得知。
 
 當此類權杖存在時，若查詢實體設定 `continuationToken` 屬性，系統便會傳回結果物件。您可以在執行查詢使用此方法以繼續在分割和資料表實體之間移動。
 
@@ -344,7 +345,7 @@ dc.table.queryEntities(tableName,
 
 GitHub 上的 Azure 儲存體 Node.js 儲存機制中也有接續範例，請尋找 `examples/samples/continuationsample.js`。
 
-## 作法：使用共用存取簽章
+## 使用共用存取簽章
 
 共用存取簽章 (SAS) 可安全地提供對資料表的精確存取，而不必提供您的儲存體帳戶名稱或金鑰。SAS 通常用來提供對資料的有限存取，例如允許行動應用程式查詢記錄。
 
@@ -449,4 +450,4 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

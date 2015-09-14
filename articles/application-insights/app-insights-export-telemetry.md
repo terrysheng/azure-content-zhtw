@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="從 Application Insights 的遙測連續匯出" 
-	description="匯出診斷和使用量資料至 Microsoft Azure 中的儲存體，並從那裡下載。" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="從 Application Insights 的遙測連續匯出"
+	description="匯出診斷和使用量資料至 Microsoft Azure 中的儲存體，並從那裡下載。"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="awills"/>
  
 # 從 Application Insights 匯出遙測
@@ -40,6 +40,7 @@
 
 建立匯出之後，就會開始進行。(您只會取得建立匯出之後送抵的資料。)
 
+資料出現在 Blob 中之前可能有大約一小時的延遲。
 
 如果稍後想要變更事件類型，只需要編輯匯出：
 
@@ -59,20 +60,23 @@
 
 未包含其他計算的度量。例如，我們不會匯出平均 CPU 使用率，但我們會匯出用以計算平均的原始遙測。
 
+該資料也包含您曾設定之[可用性 Web 測試](app-insights-monitor-web-app-availability.md)的任何結果。
+
 ## <a name="get"></a> 檢查資料
 
-使用[伺服器總管](http://msdn.microsoft.com/library/azure/ff683677.aspx)之類的工具開啟 Blob 儲存區時，您會看到具有一組 Blob 檔案的容器。每個檔案的 URI 為 application-id/telemetry-type/date/time。
+若要檢查在 Visual Studio 中的 Azure 儲存體，請依序開啟 [檢視]、[Cloud Explorer]。(如果您沒有該功能表命令，您需要安裝 Azure SDK：開啟 [新增專案] 對話方塊，展開 [Visual C#] / [Cloud]，然後選擇 [取得 Microsoft Azure SDK for .NET]。)
+
+當您開啟 Blob 存放區時，您會看到含有一組 Blob 檔案的容器。衍生自您 Application Insights 的資源名稱、其檢測金鑰、遙測-類型/日期/時間之每個檔案的 URI。(資源名稱全部小寫，而檢測金鑰會省略連字號。)
 
 ![使用適合的工具檢查 Blob 儲存區](./media/app-insights-export-telemetry/04-data.png)
 
 日期和時間為 UTC，並且是遙測存放在儲存區的時間 - 而不是產生的時間。因此，如果您編寫程式碼來下載資料，它可以透過資料線性地移動。
 
 
-
 ## <a name="format"></a> 資料格式
 
 * 每個 Blob 是包含多個以 '\\n' 分隔的列的文字檔案。
-* 每列是未格式化的 JSON 文件。如果您想要坐一旁並盯著它，請嘗試使用 Notepad++ 之類的檢視器搭配 JSON 外掛程式：
+* 每列是未格式化的 JSON 文件。如果您想要靜靜地仔細觀看，請在 Visual Studio 中開啟，並依序選擇 [編輯]、[進階]、[格式檔案]：
 
 ![使用合適的工具檢視遙測](./media/app-insights-export-telemetry/06-json.png)
 
@@ -124,7 +128,7 @@
 
 ## 匯出至 Power BI
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) 以豐富多元的視覺方式呈現您的資料，能將多個來源的資訊加以整合。您可以將有關您應用程式效能與使用量的遙測資料，從 Application Insights 串流處理到 Power BI。
+[Microsoft Power BI](https://powerbi.microsoft.com/) 以豐富多元的視覺方式呈現您的資料，以及將多個來源的資訊整合的能力。您可以將有關您應用程式效能與使用量的遙測資料，從 Application Insights 串流處理到 Power BI。
 
 [從 Application Insights 串流處理到 Power BI](app-insights-export-power-bi.md)
 
@@ -198,4 +202,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

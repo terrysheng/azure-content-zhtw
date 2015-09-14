@@ -24,6 +24,8 @@
 
 ## 如何登入
 
+[AZURE.VIDEO logging-on-to-vm-running-windows-server-on-azure]
+
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
 ## 疑難排解秘訣
@@ -36,4 +38,4 @@
 
 如果這些都無法解決問題，您必須進行更深入的疑難排解。如需相關指示，請參閱[疑難排解以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線](virtual-machines-troubleshoot-remote-desktop-connections.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

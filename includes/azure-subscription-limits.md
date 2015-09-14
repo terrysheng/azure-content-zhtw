@@ -6,8 +6,7 @@
 每一訂用帳戶的[雲端服務](cloud-services-what-is.md)|20|200
 每一訂用帳戶的[區域網路](http://msdn.microsoft.com/library/jj157100.aspx)|10|500
 每一訂用帳戶的 SQL Database 伺服器|6|150
-每一伺服器的 SQL Database|150|500
-每一訂用帳戶的 DNS 伺服器|9|100
+每一訂閱的 DNS 伺服器|9|100
 每一訂用帳戶的保留 IP|20|100
 每個訂用帳戶的 ExpressRoute 專用電路|10|25
 每一訂用帳戶託管服務的憑證|400|400
@@ -17,4 +16,4 @@
 
 <sup>1</sup>雖然只使用部分核心，在計算核心限制時，仍會將超小型執行個體視為一個核心。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

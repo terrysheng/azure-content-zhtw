@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="在 Azure App Service 中設定 Web 應用程式" 
-	description="如何在 Azure App Service 中設定 Web 應用程式" 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="在 Azure App Service 中設定 Web 應用程式"
+	description="如何在 Azure App Service 中設定 Web 應用程式"
+	services="app-service\web"
+	documentationCenter=""
+	authors="erikre"
+	manager="wpickett"
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
-	ms.author="mwasson"/>
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
+	ms.author="erikre"/>
 
 
 # 在 Azure App Service 中設定 Web 應用程式 #
@@ -176,4 +176,4 @@ Web 應用程式可能會使用根據 URL 路由傳送的模組，而非處理�
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

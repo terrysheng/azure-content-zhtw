@@ -1,27 +1,25 @@
 <properties 
-   pageTitle="更換 StorSimple 裝置上的電源和冷卻模組 | Microsoft Azure"
-   description="說明如何取下及更換 StorSimple 裝置上的電源和冷卻模組"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="更換 StorSimple 裝置上的 PCM | Microsoft Azure"
+	description="說明如何取下及更換 StorSimple 裝置上的電源和冷卻模組"
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/05/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # 更換 StorSimple 裝置上的電源和冷卻模組
 
 ## 概觀
 
-Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM) 包含電源供應器和冷卻風扇，是透過主要及 EBOD 機箱控制。
-
-每個機箱只有一個認證的 PCM 模型。764 W PCM 是認證的主要機箱， 580 W PCM 是認證的 EBOD 機箱。雖然主要機箱和 EBOD 機箱的 PCM 不同，更換程序完全相同。
+Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM) 包含電源供應器和冷卻風扇，是透過主要及 EBOD 機箱控制。每個機箱只有一個認證的 PCM 模型。764 W PCM 是認證的主要機箱， 580 W PCM 是認證的 EBOD 機箱。雖然主要機箱和 EBOD 機箱的 PCM 不同，更換程序完全相同。
 
 本教學課程說明如何：
 
@@ -50,19 +48,19 @@ Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM) 包含電源供�
 
 #### 取下 PCM
 
-1. 在管理入口網站中，按一下 [**裝置**] > [**維護**] > [**硬體狀態**]。檢查 [**共用元件**] 下 PCM 元件的狀態，找出故障的 PCM：
+1. 在管理入口網站中，按一下 [裝置] > [維護] > [硬體狀態]。檢查 [共用元件] 下 PCM 元件的狀態，找出故障的 PCM：
 
-     - 如果 PCM 0 的電源供應器效，[**PCM 0 中的電源供應器**] 的狀態會變成紅色。
+     - 如果 PCM 0 的電源供應器故障，[PCM 0 中的電源供應器] 的狀態會變成紅色。
 
-     - 如果 PCM 1 的電源供應器故障，[**PCM 1 中的電源供應器**] 的狀態會變成紅色。
+     - 如果 PCM 1 的電源供應器故障，[PCM 1 中的電源供應器] 的狀態會變成紅色。
 
-     - 如果 PCM 1 的風扇故障，[**PCM 0 的冷卻 0**]或 [**PCM 0 的冷卻 1**] 其中之一的狀態會變成紅色。
+     - 如果 PCM 1 的風扇故障，[PCM 0 的冷卻 0]或 [PCM 0 的冷卻 1] 其中之一的狀態會變成紅色。
 
-2. 在主要機箱背面找到故障的 PCM。如果您是使用 8600 型號，查看 LED 顯示器前端面板上顯示的系統單元識別碼可識別主要機箱。主要機箱的預設單元識別碼是 **00**，EBOD 機箱的預設單元識別碼是 **01**。下圖和下表說明 LED 顯示器的前端面板。
+2. 在主要機箱背面找到故障的 PCM。如果您是使用 8600 型號，查看 LED 顯示器前端面板上顯示的系統單元識別碼可識別主要機箱。主要機箱的預設單位識別碼是 **00**，EBOD 機箱的預設單位識別碼是 **01**。下圖和下表說明 LED 顯示器的前端面板。
 
     ![前置 OPS 面板上的系統識別碼](./media/storsimple-power-cooling-module-replacement/IC740991.png)
 
-     **圖 1** 裝置的前端面板
+     **圖 1** 裝置的正面面板
 
     |標籤|說明|
     |:---|:-----------|
@@ -72,7 +70,7 @@ Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM) 包含電源供�
     |4|邏輯錯誤|
     |5|單元識別碼顯示|
 
-3. 主要機箱背面的監視 LED 指示燈也可用來識別故障的 PCM。請看下列圖表以了解如何使用 LED 找出故障的 PCM。例如，如果對應至 [**風扇故障**] 的 LED 燈亮了，表示風扇故障。同樣的，如果對應至 [**AC 故障**] 的 LED 燈亮了，表示電源供應器故障。
+3. 主要機箱背面的監視 LED 指示燈也可用來識別故障的 PCM。請看下列圖表以了解如何使用 LED 找出故障的 PCM。例如，如果對應至 [風扇故障] 的 LED 燈亮了，表示風扇故障。同樣的，如果對應至 [AC 故障] 的 LED 燈亮了，表示電源供應器故障。
 
     ![裝置後擋板 PCM 監視 LED 指示燈](./media/storsimple-power-cooling-module-replacement/IC740992.png)
 
@@ -91,7 +89,7 @@ Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM) 包含電源供�
 
      ![裝置主要機箱模組的後擋板](./media/storsimple-power-cooling-module-replacement/IC740994.png)
 
-     **圖 3** 裝置背面和隨插即用模組
+     **圖 3** 裝置背面和外掛程式模組
 
     |標籤|說明|
     |:---|:-----------|
@@ -106,7 +104,7 @@ Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM) 包含電源供�
 
     ![開啟 PCM 把手](./media/storsimple-power-cooling-module-replacement/IC740995.png)
 
-    **圖 4** 開啟 PCM 把手
+    **圖 4** 打開 PCM 把手
 
 7. 抓住把手，取下 PCM。
 
@@ -146,7 +144,7 @@ Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM) 包含電源供�
 
 7. 開啟 PCM。
 
-8. 確認更換成功：StorSimple Manager 服務的管理入口網站中瀏覽至 [**裝置**] > [**維護**] > [**硬體狀態**]。在下 [**共用元件**] 下，PCM 的狀態應該是綠色。
+8. 確認更換成功：在 StorSimple Manager 服務的管理入口網站中，巡覽至 [裝置] > [維護]] > [硬體狀態]。在 [共用元件] 下，PCM 的狀態應該是綠色。
 										
     >[AZURE.NOTE]可能需要幾分鐘的時間讓替代的 PCM 完全初始化。
 
@@ -154,4 +152,4 @@ Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM) 包含電源供�
 
 深入了解 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

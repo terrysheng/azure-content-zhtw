@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="建立並上傳 FreeBSD VHD 到 Azure" 
-   description="了解如何建立及上傳包含 FreeBSD 作業系統的 Azure 虛擬硬碟 (VHD)。" 
-   services="virtual-machines" 
-   documentationCenter="" 
-   authors="KylieLiang" 
-   manager="timlt" 
-   editor=""/>
+   pageTitle="建立並上傳 FreeBSD VHD 到 Azure"
+	description="了解如何建立及上傳包含 FreeBSD 作業系統的 Azure 虛擬硬碟 (VHD)。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KylieLiang"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services" 
-   ms.date="05/19/2015"
-   ms.author="kyliel"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="05/19/2015"
+	ms.author="kyliel"/>
 
 # 建立並上傳 FreeBSD VHD 到 Azure 
 
@@ -23,7 +23,7 @@
 ##必要條件##
 本文假設您具有下列項目：
 
-- **Azure 訂閱** - 如果您沒有訂閱，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱＜[建立 Azure 帳戶](../php-create-account.md)＞。 
+- **Azure 訂用帳戶** - 如果您沒有的話，只需要幾分鐘的時間就可以建立帳戶。如果您有 MSDN 訂用帳戶，請參閱 [MSDN 訂戶的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。否則，請參閱[建立免費試用帳戶](http://azure.microsoft.com/pricing/free-trial/)。  
 
 - **Azure PowerShell 工具** - 您已安裝 Microsoft Azure PowerShell 模組，並設定為使用您的訂用帳戶。若要下載此模組，請參閱 [Azure 下載](http://azure.microsoft.com/downloads/)。這裡有安裝和設定模組的教學課程。您將使用 [Azure Downloads](http://azure.microsoft.com/downloads/) Cmdlet 上傳 VHD。
 
@@ -116,7 +116,7 @@
 			
 	- 選擇儲存體帳戶的**位置或同質群組**。同質群組可讓您將雲端服務和儲存體放在相同的資料中心。
 		 
-	- 決定儲存體帳戶是否要使用**地理區域複寫**。依預設會開啟地理區域複寫。此選項可讓您免費將資料複寫至次要位置，使您在主要位置發生重大錯誤時，可將儲存體容錯移轉至該位置。次要位置會自動指派，且無法變更。如果您因為法律規定或組織原則而需要更充分掌控您以雲端為基礎的儲存體所在的位置，您可以關閉地理複寫。但請注意，如果您後續又開啟地理區域複寫，在您將現有的資料複寫至次要位置時，將會產生一次性的資料傳輸費用。不含地理區域複寫的儲存服務會有相對的折扣。如需深入了解如何管理儲存體帳戶的地理區域複寫，請參閱：[建立、管理或刪除儲存體帳戶](../storage-create-storage-account/#replication-options)。
+	- 決定儲存體帳戶是否要使用**地理區域複寫**。依預設會開啟異地複寫。此選項可讓您免費將資料複寫至次要位置，使您在主要位置發生重大錯誤時，可將儲存體容錯移轉至該位置。次要位置會自動指派，且無法變更。如果您因為法律規定或組織原則而需要更充分掌控您以雲端為基礎的儲存體所在的位置，您可以關閉地理複寫。但請注意，如果您後續又開啟異地複寫，在您將現有的資料複寫至次要位置時，將會產生一次性的資料傳輸費用。不含異地複寫的儲存服務會有相對的折扣。如需深入了解如何管理儲存體帳戶的地理區域複寫，請參閱：[建立、管理或刪除儲存體帳戶](../storage-create-storage-account/#replication-options)。
 
 	![輸入儲存體帳戶詳細資料](./media/virtual-machines-freebsd-create-upload-vhd/Storage-create-account.png)
 
@@ -143,7 +143,7 @@
 
 您必須先在電腦與 Azure 中的訂閱之間建立安全連線，才能上傳 .vhd 檔案。您可以使用 Microsoft Azure Active Directory 方法或憑證方法來達到此目的。
 
-<h3>使用 Microsoft Azure AD 方法</h3>
+###使用 Microsoft Azure AD 方法
 
 1. 開啟 Azure PowerShell 主控台。
 
@@ -155,7 +155,7 @@
 
 3. Azure 會驗證並儲存認證資訊，然後關閉視窗。
 
-<h3>使用憑證方法</h3>
+###使用憑證方法
 
 1. 開啟 Azure PowerShell 主控台。 
 
@@ -206,4 +206,4 @@
 	![azure 中的 freebsd 映像](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

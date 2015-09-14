@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="儲存體分析" 
-	description="如何管理 Blob、佇列、資料表和檔案服務的並行存取" 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
+<properties
+	pageTitle="儲存體分析 | Microsoft Azure"
+	description="如何管理 Blob、佇列、資料表和檔案服務的並行存取"
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="adinah"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/18/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/18/2015"
 	ms.author="tamram"/>
 
 # 儲存體分析
@@ -22,7 +22,7 @@
 
 Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料。您可以使用此資料來追蹤要求、分析使用量趨勢，以及診斷儲存體帳戶的問題。
 
-若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。您可以從 [Azure 管理入口網站](https://manage.windowsazure.com/)啟用它；如需詳細資訊，請參閱[如何監視儲存體帳戶](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/)。您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。針對每個服務，使用[取得 Blob 服務屬性](https://msdn.microsoft.com/library/hh452239.aspx)、[取得佇列服務屬性](https://msdn.microsoft.com/library/hh452243.aspx)，以及[取得表格服務屬性](https://msdn.microsoft.com/library/hh452238.aspx)作業來啟用儲存體分析。
+若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。您可以從 [Azure 入口網站](https://manage.windowsazure.com/)啟用它。如需詳細資訊，請參閱[如何監視儲存體帳戶](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/)。您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。針對每個服務，使用[取得 Blob 服務屬性](https://msdn.microsoft.com/library/hh452239.aspx)、[取得佇列服務屬性](https://msdn.microsoft.com/library/hh452243.aspx)，以及[取得表格服務屬性](https://msdn.microsoft.com/library/hh452238.aspx)作業來啟用儲存體分析。
 
 彙總的資料會儲存於已知的 Blob (用於記錄) 和已知的資料表 (用於度量) 中，您可以使用 Blob 服務和資料表服務 API 來存取。
 
@@ -41,26 +41,26 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 
 系統將記錄下列類型的驗證要求：
 
-- 成功的要求
+- 成功的要求。
 
-- 失敗的要求，包括逾時、節流、網路、授權和其他錯誤
+- 失敗的要求，包括逾時、節流、網路、授權和其他錯誤。
 
-- 使用共用存取簽章 (SAS) 的要求，包括失敗和成功的要求
+- 使用共用存取簽章 (SAS) 的要求，包括失敗和成功的要求。
 
-- 分析資料的要求
+- 分析資料的要求。
 
 系統不會記錄儲存體分析本身所提出的要求 (例如，記錄檔的建立或刪除)。記錄資料的完整清單記錄於[儲存體分析記錄作業和狀態訊息](https://msdn.microsoft.com/library/hh343260.aspx)及[儲存體分析記錄檔格式](https://msdn.microsoft.com/library/hh343259.aspx)主題中。
 
 ### 記錄匿名要求
 系統將記錄下列類型的匿名要求：
 
-- 成功的要求
+- 成功的要求。
 
-- 伺服器錯誤
+- 伺服器錯誤。
 
-- 用戶端與伺服器的逾時錯誤
+- 用戶端與伺服器的逾時錯誤。
 
-- 失敗的 GET 要求，錯誤碼為 304 (未修改)
+- 失敗的 GET 要求，錯誤碼為 304 (未修改)。
 
 系統不會記錄所有其他失敗的匿名要求。記錄之資料的完整清單記錄於[儲存體分析記錄作業和狀態訊息](https://msdn.microsoft.com/library/hh343260.aspx)及 [儲存體分析記錄檔格式] (https://msdn.microsoft.com/library/hh343259.aspx)) 主題中。
 
@@ -72,45 +72,45 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 在同一個小時內建立的記錄檔可能會有重複的記錄。您可以藉由檢查 **RequestId** 和 **Operation** 數字來判斷記錄是否重複。
 
 ### 記錄檔命名慣例
-每個記錄檔的寫入格式如下：
+每個記錄檔的寫入格式如下。
 
-    <service-name>/YYYY/MM/DD/hhmm/<counter>.log 
+    <service-name>/YYYY/MM/DD/hhmm/<counter>.log
 
-下表描述記錄檔名稱中的每個屬性：
+下表描述記錄檔名稱中的每個屬性。
 
 | 屬性 | 說明 |
 |----------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| <service-name> | 儲存體服務的名稱。例如：Blob、資料表或佇列 |
-| YYYY | 適用於記錄檔的四位數年份。例如：2011 |
-| MM | 適用於記錄檔的二位數月份。例如：07 |
-| DD | 適用於記錄檔的二位數月份。例如：07 |
-| hh | 24 小時制 UTC 格式的二位數小時，表示記錄檔的開始小時例如：18 |
-| mm | 表示記錄檔之開始分鐘的二位數字。[AZURE.NOTE]目前的儲存體分析版本中不支援此值，其值一律為 00。 |
-| <counter> | 以零起始的六位數計數器，表示在一小時內針對儲存體服務產生的記錄檔 Blob 數目。此計數器會從 000000 開始。例如：000001 |
+| <service-name> | 儲存體服務的名稱。例如：Blob、資料表或佇列。 |
+| YYYY | 適用於記錄檔的四位數年份。例如：2011。 |
+| MM | 適用於記錄檔的二位數月份。例如：07。 |
+| DD | 適用於記錄檔的二位數月份。例如：07。 |
+| hh | 24 小時制 UTC 格式的二位數小時，表示記錄檔的開始小時例如：18。 |
+| mm | 表示記錄檔之開始分鐘的二位數字。目前的儲存體分析版本中不支援此值，其值一律為 00。 |
+| <counter> | 以零起始的六位數計數器，表示在一小時內針對儲存體服務產生的記錄檔 Blob 數目。此計數器會從 000000 開始。例如：000001。 |
 
-以下是結合上述範例的完整記錄檔名稱範例：
+以下是結合上述範例的完整記錄檔名稱範例。
 
     blob/2011/07/31/1800/000001.log
 
-以下是可以用來存取上述記錄檔的 URI 範例：
+以下是可以用來存取上述記錄檔的 URI 範例。
 
-    https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log 
+    https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log
 
 記錄儲存體要求時，產生的記錄檔名稱會與完成所要求之作業的小時相互關聯。例如，如果 GetBlob 要求已在 2011 年 7 月 31 日下午 6:30 完成，則會使用下列前置詞寫入記錄檔：`blob/2011/07/31/1800/`
 
 ### 記錄中繼資料
-所有的記錄檔 Blob 都會與中繼資料一同儲存，可用來識別 Blob 包含哪些記錄資料。下表描述每個中繼資料屬性：
+所有的記錄檔 Blob 都會與中繼資料一同儲存，可用來識別 Blob 包含哪些記錄資料。下表描述每個中繼資料屬性。
 
 | 屬性 | 說明 |
 |------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| LogType | 描述記錄檔是否包含關於讀取、寫入或刪除作業的資訊。此值可包含一個類型或是所有這三種類型的組合 (以逗號分隔)。範例 1：write 範例 2：read,write 範例 3：read,write,delete |
-| StartTime | 記錄檔中項目的最早時間，格式為 YYYY-MM-DDThh:mm:ssZ。例如：2011-07-31T18:21:46Z |
-| EndTime | 記錄檔中項目的最晚時間，格式為 YYYY-MM-DDThh:mm:ssZ。例如：2011-07-31T18:22:09Z |
-| LogVersion | 記錄檔格式的版本。目前唯一支援的值為：1.0 |
+| LogType | 描述記錄檔是否包含關於讀取、寫入或刪除作業的資訊。此值可包含一個類型或是所有這三種類型的組合 (以逗號分隔)。範例 1：write 範例 2：read,write 範例 3：read,write,delete。 |
+| StartTime | 記錄檔中項目的最早時間，格式為 YYYY-MM-DDThh:mm:ssZ。例如：2011-07-31T18:21:46Z。 |
+| EndTime | 記錄檔中項目的最晚時間，格式為 YYYY-MM-DDThh:mm:ssZ。例如：2011-07-31T18:22:09Z。 |
+| LogVersion | 記錄檔格式的版本。目前唯一支援的值為 1.0。 |
 
-下列清單顯示使用上述範例的完整中繼資料範例：
+下列清單顯示使用上述範例的完整中繼資料範例。
 
-- LogType=write 
+- LogType=write
 
 - StartTime=2011-07-31T18:21:46Z
 
@@ -126,7 +126,7 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 
 儲存體分析可以儲存包含與儲存體服務要求相關之彙總的交易統計資料及容量資料的度量。報告的交易是屬於 API 作業層級以及儲存體服務層級，而報告的容量則是屬於儲存體服務層級。度量資料可用來分析儲存體服務使用量、診斷針對儲存體服務提出之要求的問題，以及提升使用服務的應用程式效能。
 
-若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。您可以從 [Azure 管理入口網站](https://manage.windowsazure.com/)啟用它；如需詳細資訊，請參閱[如何監視儲存體帳戶](../how-to-monitor-a-storage-account.md)。您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。針對每個服務，[使用取得 Blob 服務屬性、取得佇列服務屬性](https://msdn.microsoft.com/library/hh452239.aspx)，以及[取得表格服務屬性作業來啟用儲存體分析](https://msdn.microsoft.com/library/hh452238.aspx)。
+若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。您可以從 [Azure 入口網站](https://manage.windowsazure.com/)啟用它。如需詳細資訊，請參閱[如何監視儲存體帳戶](../how-to-monitor-a-storage-account.md)。您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。針對每個服務，[使用取得 Blob 服務屬性、取得佇列服務屬性](https://msdn.microsoft.com/library/hh452239.aspx)，以及[取得表格服務屬性作業來啟用儲存體分析](https://msdn.microsoft.com/library/hh452238.aspx)。
 
 ### 交易度量
 
@@ -136,7 +136,7 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 
 例如，如果您在 Blob 服務上執行 **GetBlob** 作業，儲存體分析度量將會記錄要求，然後將它納入 Blob 服務和 **GetBlob** 作業的彙總資料中。但是，如果在該小時內並未要求任何 **GetBlob** 作業，將不會針對該作業將任何實體寫入 `$MetricsTransactionsBlob` 中。
 
-系統會針對使用者要求及儲存體分析本身所提出的要求記錄交易度量。例如，會記錄儲存體分析寫入記錄和資料表實體的要求。如需這些要求之計費方式的詳細資訊，請參閱[儲存體分析及計費](https://msdn.microsoft.com/library/hh360997.aspx)
+系統會針對使用者要求及儲存體分析本身所提出的要求記錄交易度量。例如，會記錄儲存體分析寫入記錄和資料表實體的要求。如需這些要求之計費方式的詳細資訊，請參閱[儲存體分析及計費](https://msdn.microsoft.com/library/hh360997.aspx)。
 
 ### 容量度量
 
@@ -150,7 +150,7 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 
 - **ObjectCount**：儲存體帳戶之 Blob 服務中認可及未認可區塊或分頁 Blob 的數目。
 
-如需容量度量的詳細資訊，請參閱＜儲存體分析度量資料表結構描述＞。
+如需容量度量的詳細資訊，請參閱[儲存體分析度量資料表結構描述](https://msdn.microsoft.com/library/hh343264.aspx)。
 
 ### 度量的儲存方式
 
@@ -159,11 +159,11 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 | 度量層級 | 資料表名稱 | 支援的版本 |
 |------------------------------------	|-----------------------------------------------------------------------------------------------------------------------------	|----------------------------------------------------------------------------------------------------------------------------------------------	|
 | 每小時度量，主要位置 | $MetricsTransactionsBlob <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue | 僅適用於 2013-08-15 之前的版本。儘管目前仍支援這些名稱，但還是建議您改用下列資料表。 |
-| 每小時度量，主要位置 | $MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue | 所有版本 (包含 2013-08-15) |
-| 每分鐘度量，主要位置 | $MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue | 所有版本 (包含 2013-08-15) |
+| 每小時度量，主要位置 | $MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue | 所有版本 (包含 2013-08-15)。 |
+| 每分鐘度量，主要位置 | $MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue | 所有版本 (包含 2013-08-15)。 |
 | 每小時度量，次要位置 | $MetricsHourSecondaryTransactionsBlob <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue | 所有版本 (包含 2013-08-15)。必須啟用讀取存取異地備援複寫。 |
 | 每分鐘度量，次要位置 | $MetricsMinuteSecondaryTransactionsBlob <br/>$MetricsMinuteSecondaryTransactionsTable <br/>$MetricsMinuteSecondaryTransactionsQueue | 所有版本 (包含 2013-08-15)。必須啟用讀取存取異地備援複寫。 |
-| 容量 (僅限 Blob 服務) | $MetricsCapacityBlob | 所有版本 (包含 2013-08-15) |
+| 容量 (僅限 Blob 服務) | $MetricsCapacityBlob | 所有版本 (包含 2013-08-15)。 |
 
 
 針對儲存體帳戶啟用儲存體分析時，即會自動建立這些資料表。您可以透過儲存體帳戶的命名空間存取它們，例如：`https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`
@@ -178,9 +178,9 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 
 儲存體分析所執行的下列動作會列入計費：
 
-- 建立 Blob 以用於記錄的要求
+- 建立 Blob 以用於記錄的要求。
 
-- 針對度量建立資料表實體的要求
+- 針對度量建立資料表實體的要求。
 
 如果您已設定資料保留原則，就不需在儲存體分析刪除舊記錄和度量資料時支付刪除交易的費用。不過，從用戶端刪除交易會列入計費。如需保留原則的詳細資訊，請參閱[設定儲存體分析資料保留原則](https://msdn.microsoft.com/library/azure/hh343263.aspx)。
 
@@ -193,17 +193,17 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 ## 後續步驟
 
 ### 設定儲存體分析
-- [如何監視儲存體帳戶](../how-to-monitor-a-storage-account.md) 
+- [如何監視儲存體帳戶](../how-to-monitor-a-storage-account.md)
 - [啟用及設定儲存體分析](https://msdn.microsoft.com/library/hh360996.aspx)
 
 ### 儲存體分析記錄  
-- [關於儲存體分析記錄](https://msdn.microsoft.com/library/hh343262.aspx) 
-- [儲存體分析記錄檔格式](https://msdn.microsoft.com/library/hh343259.aspx) 
-- [儲存體分析記錄作業和狀態訊息](https://msdn.microsoftcom/library/hh343260.aspx) 
+- [關於儲存體分析記錄](https://msdn.microsoft.com/library/hh343262.aspx)
+- [儲存體分析記錄檔格式](https://msdn.microsoft.com/library/hh343259.aspx)
+- [儲存體分析記錄作業和狀態訊息](https://msdn.microsoftcom/library/hh343260.aspx)
 
 ### 儲存體分析度量
 - [關於儲存體分析度量](https://msdn.microsoft.com/library/hh343258.aspx)
-- [儲存體分析度量資料表結構描述](https://msdn.microsoft.com/library/hh343264.aspx) 
+- [儲存體分析度量資料表結構描述](https://msdn.microsoft.com/library/hh343264.aspx)
 - [儲存體分析記錄作業和狀態訊息](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

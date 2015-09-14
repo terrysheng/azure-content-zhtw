@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 Azure Mobile Apps 上建立 Windows Runtime 8.1 通用應用程式"
-	description="遵循此教學課程，可開始使用 Azure 行動應用程式後端進行 C#、VB 或 JavaScript 的 Windows 市集開發。"
+	pageTitle="在 Azure App Service Mobile Apps 上建立 Windows Runtime 8.1 通用應用程式 | Microsoft Azure"
+	description="遵循此教學課程，可開始使用 Azure 行動應用程式後端進行 C#、Visual Basic 或 JavaScript 的 Windows 市集開發。"
 	services="app-service\mobile"
 	documentationCenter="windows"
 	authors="ggailey777"
@@ -22,7 +22,7 @@
 
 ##概觀
 
-本教學課程說明如何使用 Azure 行動應用程式後端，將雲端型後端服務新增到 Windows Runtime 8.1 通用應用程式。通用 Windows 應用程式解決方案包括 Windows 市集 8.1 和 Windows Phone 市集 8.1 應用程式的專案，以及一般共用專案。
+本教學課程說明如何藉由使用 Azure 行動應用程式後端，將雲端型後端服務新增到 Windows Runtime 8.1 通用應用程式。除了一般共用專案之外，通用 Windows 應用程式解決方案也包括 Windows 市集 8.1 和 Windows Phone 市集 8.1 應用程式的專案。
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-get-started-preview](../../includes/app-service-mobile-windows-universal-get-started-preview.md)]
 
@@ -34,17 +34,17 @@
 
 * [Visual Studio Community 2013] 或更新版本。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[嘗試 App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)，即可在 App Service 中立即建立短期入門行動應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE]如果您想要在註冊 Azure 帳戶之前先開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)。您可以於該處，在 App Service 中立即建立短期的入門行動 app - 不需信用卡，不需任何承諾。
 
-##建立新的 Azure 行動應用程式後端
+##建立新的 Azure 行動 app 後端
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
 ## 下載伺服器專案
 
-1. 在 [Azure 入口網站]中，按一下 [全部瀏覽] > [Web Apps]，然後按一下您剛建立的行動應用程式後端。 
+1. 在 [Azure 入口網站]中，按一下 [全部瀏覽] > [Web Apps]，然後按一下您剛建立的行動應用程式後端。
 
-2. 在行動應用程式後端中，按一下 [所有設定]，並在 [行動應用程式] 底下按一下 [快速入門] > [Windows (C#)]。
+2. 在行動應用程式後端中，按一下 [所有設定]，然後在 [行動應用程式] 底下按一下 [快速入門] > [Windows (C#)]。
 
 3. 在 [建立新的應用程式] 的 [下載並執行您的伺服器專案] 之下，按一下 [下載]，將壓縮的專案檔案解壓縮至本機電腦，並在 Visual Studio 中開啟此方案。
 
@@ -58,17 +58,17 @@
 
 建立行動應用程式後端之後，您可以依照 Azure 入口網站中的簡易快速入門，建立新的應用程式或修改現有的應用程式，以連接到您的行動應用程式後端。
 
-本節中，您會下載通用 Windows 應用程式範本專案，而該專案已自訂要連接到 Azure 行動應用程式後端。
+在本節中，您會下載通用 Windows 應用程式範本專案，而該專案已自訂要連接到 Azure 行動應用程式後端。
 
-1. 回到行動應用程式後端的刀鋒視窗中，按一下 [所有設定]，並在 [行動應用程式] 底下按一下 [快速入門] > [Windows (C#)]。 
+1. 回到行動應用程式後端的刀鋒視窗中，按一下 [所有設定]，然後在 [行動應用程式] 底下按一下 [快速入門] > [Windows (C#)]。
 
-2.  在 [建立新的應用程式] 的 [下載並執行您的 Windows 專案] 之下，按一下 [下載]，將壓縮的專案檔案解壓縮至本機電腦。
-  
+2.  在 [建立新的應用程式] 的 [下載並執行您的 Windows 專案] 之下，按一下 [下載]，並將壓縮的專案檔案解壓縮至本機電腦。
+
 3. (選擇性) 將通用 Windows 應用程式專案加入至包含伺服器專案的方案。如此即可更輕鬆地在相同的 Visual Studio 方案中偵錯及測試應用程式和後端 (如果您選擇這麼做的話)。
 
-4. 以 Windows 市集應用程式做為起始專案，按下 F5 鍵以重建專案並啟動 Windows 市集應用程式。
+4. 以 Windows 市集應用程式做為啟始專案，按下 F5 鍵以重建專案並啟動 Windows 市集應用程式。
 
-5. 在應用程式的 [插入 TodoItem] 中輸入有意義的文字，例如*完成教學課程*，然後按一下 [儲存]。
+5. 在應用程式的 [插入 TodoItem] 文字方塊中輸入有意義的文字，例如*完成教學課程*，然後按一下 [儲存]。
 
 	![](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/mobile-quickstart-startup.png)
 
@@ -92,8 +92,6 @@
 [Get started with authentication]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure 入口網站]: https://portal.azure.com/
-
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

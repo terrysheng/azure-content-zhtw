@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="計算 Azure 所提供的裝載選項" 
-	description="了解 Azure 計算裝載選項以及其運作方式：虛擬機器、網站、雲端服務等。" 
+	pageTitle="計算 Azure 所提供的裝載選項"
+	description="了解 Azure 計算裝載選項以及其運作方式：虛擬機器、網站、雲端服務等。"
 	services="cloud-services,virtual-machines"
-	authors="Thraka" 
+	authors="Thraka"
 	documentationCenter=""
 	manager="timlt"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="adegeo;cephalin;kathydav"/>
 
 
@@ -54,7 +54,6 @@ App Service 是大部分 Web 應用程式的最佳選擇。部署和管理都已
 如果您需要加強控制 Web 伺服器環境，例如想要從遠端登入伺服器或設定伺服器啟動工作，Azure 雲端服務通常是最佳選項。
 
 如果現有應用程式需要進行大幅修改才能在 Azure 網站或 Azure 雲端服務中執行，您可以選擇 Azure 虛擬機器來簡化移轉至雲端的工作。不過，相較於 Azure 網站和雲端服務，正確設定、保護和維護 VM 需要投入更多時間和 IT 專業知識。如果您考慮採用 Azure 虛擬機器，請確定您已將修補、更新和管理 VM 環境所需的持續性維護工作都納入考量。
-如果現有的應用程式需要進行大幅修改才能在 App Service 或 Azure 雲端服務中執行，您可以選擇 Azure 虛擬機器以簡化移轉至雲端的工作。不過，相較於 App Service 和雲端服務，正確地設定、保護和維護 VM 需要投入更多時間和 IT 專業知識。如果您考慮採用 Azure 虛擬機器，請確定您已將修補、更新和管理 VM 環境所需的持續性維護工作都納入考量。
 
 有時候，任何單一選項都不是正確的選項。在這種情況下，可以併用多個選項。例如，假設您要建置發揮雲端服務 Web 角色管理效益的應用程式，但是由於相容性或效能考量，您也需使用在虛擬機器中託管的標準 SQL Server。
 
@@ -80,4 +79,4 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 * 深入了解[雲端服務](services/cloud-services/)
 * 深入了解[虛擬機器](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

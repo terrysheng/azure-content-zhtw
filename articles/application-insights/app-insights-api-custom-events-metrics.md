@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.date="08/28/2015"
 	ms.author="awills"/>
 
 # 自訂事件和度量的 Application Insights API 
@@ -124,7 +124,7 @@ TelemetryClient 具備執行緒安全。
 
 ## <a name="properties"></a>使用屬性來篩選、搜尋和分割您的資料
 
-您可以將屬性和測量附加至事件 (也可以附加至度量、頁面檢視和其他遙測資料)。
+您可以將屬性和測量結果附加至您的事件 (同時還有度量，頁面檢視、例外狀況和其他的遙測資料)。
 
 **屬性**是可在使用情況報告中用來篩選遙測的字串值。例如，如果您的應用程式提供數個遊戲，則您可以將遊戲的名稱附加至每個事件，以了解哪些遊戲較受歡迎。
 
@@ -140,13 +140,22 @@ TelemetryClient 具備執行緒安全。
 
 *JavaScript*
 
-    appInsights.trackEvent // or trackPageView, trackMetric, ...
+    appInsights.trackEvent
       ("WinGame",
          // String properties:
          {Game: currentGame.name, Difficulty: currentGame.difficulty},
          // Numeric metrics:
          {Score: currentGame.score, Opponents: currentGame.opponentCount}
          );
+
+    appInsights.trackPageView
+        ("page name", "http://fabrikam.com/pageurl.html",
+          // String properties:
+         {Game: currentGame.name, Difficulty: currentGame.difficulty},
+         // Numeric metrics:
+         {Score: currentGame.score, Opponents: currentGame.opponentCount}
+         );
+          
 
 *C#*
 
@@ -341,9 +350,10 @@ TelemetryClient 具備執行緒安全。
 
     // At start of processing this request:
 
-    // Operation Id is attached to all telemetry and helps you identify
+    // Operation Id and Name are attached to all telemetry and help you identify
     // telemetry associated with one request:
     telemetry.Context.Operation.Id = Guid.NewGuid().ToString();
+    telemetry.Context.Operation.Name = requestName;
     
     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
@@ -353,6 +363,8 @@ TelemetryClient 具備執行緒安全。
     telemetryClient.TrackRequest(requestName, DateTime.Now,
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
+
+
 
 ## 追蹤例外狀況
 
@@ -369,7 +381,30 @@ TelemetryClient 具備執行緒安全。
        telemetry.TrackException(ex);
     }
 
-在 Windows 行動應用程式中，SDK 會攔截未處理的例外狀況，讓您不需要記錄。在 ASP.NET 中，您可以[撰寫程式碼來自動攔截例外狀況][exceptions]。
+*JavaScript*
+
+    try
+    {
+       ...
+    }
+    catch (ex)
+    {
+       appInsights.trackException(ex);
+    }
+
+SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 TrackException。
+
+* ASP.NET：[撰寫程式碼來攔截例外狀況](app-insights-asp-net-exceptions.md)
+* J2EE：[自動攔截到例外狀況](app-insights-java-get-started.md#exceptions-and-request-failures)
+* Windows 應用程式：[自動攔截到損毀](app-insights-windows-crashes.md)
+* JavaScript：自動攔截。如果您想要停用自動收集，請在您插入網頁的程式碼片段中加入一行：
+
+    ```
+    ({
+      instrumentationKey: "your key"
+      , disableExceptionTracking: true
+    })
+    ```
 
 
 ## 追蹤 
@@ -438,7 +473,7 @@ TelemetryClient 具備執行緒安全。
 
       appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
-在 [計量瀏覽器][](app-insights-metrics-explorer.md) 中，您可以建立 [經過驗證的使用者] 和 [帳戶] 的圖表。
+在 [計量瀏覽器][](app-insights-metrics-explorer.md) 中，您可以建立**已驗證的使用者**和**帳戶**的圖表。
 
 
 ## <a name="defaults"></a>設定已選取自訂遙測的預設值
@@ -490,96 +525,10 @@ TelemetryClient 具備執行緒安全。
     // ...
 
 
-## <a name="default-properties"></a>內容初始設定式 - 設定所有遙測的預設屬性
-
-您可以設定全域初始設定式，使得所有新 TelemetryClients 會自動使用您的內容。這包括平台特定遙測模組傳送的標準遙測，例如 Web 伺服器要求追蹤。
-
-典型的用途是識別來自不同版本或您的應用程式元件的遙測。在入口網站中，您可以依據「應用程式版本」篩選或群組結果。
-
-**定義您的初始設定式**
-
-
-*C#*
-
-```C#
-
-    using System;
-    using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.DataContracts;
-    using Microsoft.ApplicationInsights.Extensibility;
-
-    namespace MyNamespace
-    {
-      // Context initializer class
-      public class MyContextInitializer : IContextInitializer
-      {
-        public void Initialize (TelemetryContext context)
-        {
-            if (context == null) return;
-
-            context.Component.Version = "v2.1";
-        }
-      }
-    }
-```
-
-*Java*
-
-```Java
-
-    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
-    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
-
-    public class MyContextInitializer implements ContextInitializer {
-      @Override
-      public void initialize(TelemetryContext context) {
-        context.Component.Version = "2.1";
-      }
-    }
-```
-
-**載入您的初始設定式**
-
-在 ApplicationInsights.config 中：
-
-    <ApplicationInsights>
-      <ContextInitializers>
-        <!-- Fully qualified type name, assembly name: -->
-        <Add Type="MyNamespace.MyContextInitializer, MyAssemblyName"/> 
-        ...
-      </ContextInitializers>
-    </ApplicationInsights>
-
-*或者*，您也可以在程式碼中具現化初始設定式：
-
-*C#*
-
-```C#
-
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.ContextInitializers
-        .Add(new MyContextInitializer());
-    }
-```
-
-*Java*
-
-```Java
-
-    // load the context initializer
-    TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
-```
-
-
-### JavaScript Web 用戶端
-
-針對 JavaScript Web 用戶端，[使用遙測初始設定式](#js-initializer)。
 
 ## 遙測初始設定式
 
-使用遙測初始設定式，覆寫所選取的標準遙測模組行為。
+使用遙測初始設定式來定義與所有遙測一起傳送的全域屬性；並覆寫選取的標準遙測模組行為。
 
 例如，Web 封裝的 Application Insights 會收集有關 HTTP 要求的遙測。根據預設，它會將所有含 >= 400 回應碼的要求標記為失敗。但如果您想將 400 視為成功，您可以提供設定 Success 屬性的遙測初始設定式。
 
@@ -702,6 +651,8 @@ TelemetryClient 具備執行緒安全。
 
 如需 telemetryItem 上可用的非自訂屬性摘要，請參閱[資料模型](app-insights-export-data-model.md/#lttelemetrytypegt)。
 
+您可以依需要加入多個初始設定式。
+
 ## <a name="dynamic-ikey"></a>動態檢測金鑰
 
 若要避免混合來自開發、測試和實際執行環境的遙測，您可以[建立個別 Application Insights 資源][create]，並且依據環境變更其金鑰。
@@ -774,7 +725,9 @@ TelemetryClient 具備執行緒安全。
 
 ## TelemetryContext
 
-TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳送的值數目。它們通常由標準遙測模組設定，但是您也可以自行設定它們。
+TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳送的值數目。它們通常由標準遙測模組設定，但是您也可以自行設定它們。例如：
+
+    telemetryClient.Context.Operation.Name = “MyOperationName”;
 
 如果您自行設定這些值，請考慮從 [ApplicationInsights.config][config] 的相關程式碼行移除，如此您的值和標準值才不致混淆。
 
@@ -784,11 +737,96 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 * **位置** 識別裝置的地理位置。
 * **作業** 在 Web 應用程式中，目前的 HTTP 要求。在其他應用程式類型中，您可以設定以將事件群組在一起。
  * **識別碼**：產生的值，與不同事件相互關聯，如此當您在 [診斷搜尋] 中檢查任何事件時，您可以發現「相關項目」
- * **名稱**：HTTP 要求的 URL
+ * **名稱**：識別項，通常是 HTTP 要求的 URL。 
  * **SyntheticSource**：如果不為 null 或空白，這個字串表示要求的來源已被識別為傀儡程式或 Web 測試。根據預設，會從計量瀏覽器的計算中排除。
 * **屬性** 與所有遙測資料一起傳送的屬性。可以在個別 Track* 呼叫中覆寫。
 * **工作階段** 識別使用者的工作階段。識別碼會設為產生的值，當使用者一段時間沒有作用時會變更。
-* **使用者** 使用者資訊。 
+* **使用者**：使用者資訊。 
+
+
+## <a name="default-properties"></a>內容初始設定式 - 設定所有遙測的預設屬性
+
+您可以設定全域初始設定式，使得所有新 TelemetryClients 會自動使用您的內容。這包括平台特定遙測模組傳送的標準遙測，例如 Web 伺服器要求追蹤。
+
+典型的用途是識別來自不同版本或您的應用程式元件的遙測。在入口網站中，您可以依據「應用程式版本」篩選或群組結果。
+
+一般而言，[建議使用遙測初始設定式，而非內容初始設定式](http://apmtips.com/blog/2015/06/09/do-not-use-context-initializers/)。
+
+#### 定義內容初始設定式
+
+
+*C#*
+
+```C#
+
+    using System;
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.ApplicationInsights.Extensibility;
+
+    namespace MyNamespace
+    {
+      // Context initializer class
+      public class MyContextInitializer : IContextInitializer
+      {
+        public void Initialize (TelemetryContext context)
+        {
+            if (context == null) return;
+
+            context.Component.Version = "v2.1";
+        }
+      }
+    }
+```
+
+*Java*
+
+```Java
+
+    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
+    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
+
+    public class MyContextInitializer implements ContextInitializer {
+      @Override
+      public void initialize(TelemetryContext context) {
+        context.Component.Version = "2.1";
+      }
+    }
+```
+
+#### 載入內容初始設定式
+
+在 ApplicationInsights.config 中：
+
+    <ApplicationInsights>
+      <ContextInitializers>
+        <!-- Fully qualified type name, assembly name: -->
+        <Add Type="MyNamespace.MyContextInitializer, MyAssemblyName"/> 
+        ...
+      </ContextInitializers>
+    </ApplicationInsights>
+
+*或者*，您也可以在程式碼中具現化初始設定式：
+
+*C#*
+
+```C#
+
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.ContextInitializers
+        .Add(new MyContextInitializer());
+    }
+```
+
+*Java*
+
+```Java
+
+    // load the context initializer
+    TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
+```
 
 
 
@@ -838,7 +876,7 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
     是，但我們尚未發佈。
 
-## <a name="next"></a>後續步驟
+## <a name="next"></a>接續步驟
 
 
 [搜尋事件和記錄檔][diagnostic]
@@ -865,4 +903,4 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

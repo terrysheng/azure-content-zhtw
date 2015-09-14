@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="保護 Azure API 應用程式" 
-	description="了解如何使用 Visual Studio 保護 Azure API 應用程式。" 
-	services="app-service\api" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="保護 Azure API 應用程式"
+	description="了解如何使用 Visual Studio 保護 Azure API 應用程式。"
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/05/2015"
 	ms.author="tdykstra"/>
 
 # 保護 API 應用程式：新增 Azure Active Directory 或社交提供者驗證
@@ -229,7 +229,11 @@
 	* "twitter"
 	* "facebook" 
 
-2. 在 *ContactsController.cs* 檔案中，將 `Get` 方法的程式碼替換成以下程式碼。
+3. 在 *ContactsController.cs* 檔案檔案頂端加入 `using` 陳述式。
+
+		using Microsoft.Azure.AppService.ApiApps.Service;
+
+2. 將 `Get` 方法中的程式碼以下列程式碼取代。
 
 		var runtime = Runtime.FromAppSettings(Request);
 		var user = runtime.CurrentUser;
@@ -268,4 +272,4 @@
 [Azure 入口網站]: https://manage.windowsazure.com/
 [Azure 預覽入口網站]: https://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

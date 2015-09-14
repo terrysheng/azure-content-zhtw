@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
 
 
@@ -39,12 +39,12 @@
 
 ![顯示空白工作清單的網頁][node-table-finished]
 
->[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 
 ## 必要條件
 
-在依照本文中的指示進行之前，您應確定已安裝下列項目：
+在依照本文中的指示進行之前，請確定已安裝下列項目：
 
 * [node] 版本 0.10.24 或更高版本
 
@@ -86,19 +86,19 @@
 
 		sudo npm install express-generator@4.2.0 -g
 
-    輸出應該如下所示：
+    此輸出看起來類似下列範例：
 
 		express-generator@4.2.0 /usr/local/lib/node_modules/express-generator
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
-	> [AZURE.NOTE] '-g' 參數會全域安裝模組。這樣我們就可以使用 **express** 來產生 Web 應用程式樣板，而不需額外輸入路徑資訊。
+	> [AZURE.NOTE]'-g' 參數會全域安裝模組。這樣我們就可以使用 **express** 來產生 Web 應用程式樣板，而不需額外輸入路徑資訊。
 
 4. 若要建立應用程式的樣板，請輸入 **express** 命令：
 
         express
 
-	此命令的輸出應類似這樣：
+	這個命令的輸出看起來類似下列範例：
 
 		   create : .
 		   create : ./package.json
@@ -124,7 +124,7 @@
 		   run the app:
 		     $ DEBUG=my-application ./bin/www
 
-	在 **tasklist** 目錄中應有數個新的目錄和檔案。
+	您現在於 **tasklist** 目錄中有幾個新的目錄和檔案。
 
 ### 安裝其他模組
 
@@ -134,7 +134,7 @@
 
     npm install
 
-此命令的輸出應類似這樣：
+這個命令的輸出看起來類似下列範例：
 
 	debug@0.7.4 node_modules\debug
 
@@ -151,7 +151,7 @@
 
 **--save** 旗標會將這些模組的項目新增至 **package.json** 檔案。
 
-此命令的輸出應類似這樣：
+這個命令的輸出看起來類似下列範例：
 
 	async@0.9.0 node_modules\async
 
@@ -340,7 +340,7 @@
 		var accountName = nconf.get("STORAGE_NAME");
 		var accountKey = nconf.get("STORAGE_KEY");
 
-	> [AZURE.NOTE] nconf 會從環境變數或 **config.json** 檔案 (我們稍後會建立) 載入組態值。
+	> [AZURE.NOTE]nconf 會從環境變數或 **config.json** 檔案 (我們稍後會建立) 載入組態值。
 
 3. 在 app.js 檔中，向下捲動到看見此行處：
 
@@ -466,16 +466,17 @@
 
 3. 開啟瀏覽器並瀏覽至 http://127.0.0.1:3000。
 
-這應該會顯示如下所示的網頁：
+	類似下列的範例網頁隨即顯示。
 
-![顯示空白工作清單的網頁][node-table-finished]
+	![顯示空白工作清單的網頁][node-table-finished]
 
-若要建立新的待辦事項，請輸入名稱和類別目錄，然後按一下 [新增項目]。若要將工作標示為完成，請核取 [完成] 並且按一下 [更新工作]。
+4. 若要建立新的待辦事項，請輸入名稱和類別目錄，然後按一下 [新增項目]。
 
-![An image of the new item in the list of tasks][node-table-list-items]
+6. 若要將工作標示為完成，請核取 [完成] 並且按一下 [更新工作]。
+
+	![An image of the new item in the list of tasks][node-table-list-items]
 
 雖然應用程式是在本機執行，但是它會將資料儲存在 Azure 表格服務中。
-
 
 ## 將應用程式部署至 Azure
 
@@ -485,7 +486,7 @@
 >
 > 如果這是您建立的第一個 Web 應用程式，您必須使用 Azure 入口網站部署此應用程式。
 
-若要開始，請從命令列輸入下列命令安裝 [Azure 命令列介面]：
+若要開始，請安裝 [Azure CLI]，方法是從命令列輸入下列命令：
 
 	npm install azure-cli -g
 
@@ -500,7 +501,7 @@
 	此命令會啟動瀏覽器並瀏覽至下載頁面。若出現提示，請使用與您的 Azure 訂用帳戶相關聯的帳戶登入。
 
 	<!-- ![The download page][download-publishing-settings] -->
-	檔案應該會自動開始下載，如果沒有，您可以按一下頁面開頭的連結手動下載檔案。儲存檔案，並記下檔案路徑。
+	檔案下載會自動開始；如果沒有，您可以按一下頁面頂端的連結，以手動下載檔案。儲存檔案，並記下檔案路徑。
 
 2. 輸入下列命令以匯入設定：
 
@@ -508,7 +509,7 @@
 
 	指定前一個步驟下載之發佈設定檔案的路徑和檔案名稱。
 
-3. 匯入設定之後，您應該刪除發佈設定檔案。這個檔案已經不再需要，而且包含與 Azure 訂用帳戶相關的機密資訊。
+3. 匯入設定之後，刪除發佈設定檔案。這個檔案已經不再需要，而且包含與 Azure 訂用帳戶相關的機密資訊。
 
 ### 建立 App Service Web 應用程式
 
@@ -520,9 +521,7 @@
 
 	系統會提示您輸入 Web 應用程式名稱和位置。請提供唯一的名稱，並且選取與您的 Azure 儲存體帳戶相同的地理位置。
 
-	`--git` 參數會在 Azure 上建立此 Web 應用程式的 Git 儲存機制。它也會在目前的目錄中初始化 Git 儲存機制 (如果不存在)，並且新增名為 'azure' 的 [Git 遠端]，用來將應用程式發佈至 Azure。最後，它會建立 **web.config** 檔案，其中包含 Azure 代管 node 應用程式所使用的設定。
-
-	> [AZURE.NOTE] 如果目錄已有 Git 儲存機制，命令就不會重新初始化目錄。此外，如果您省略 `--git` 參數，但目錄中有 Git 儲存機制，則命令仍會建立 'azure' 遠端。
+	`--git` 參數會在 Azure 上建立此 Web 應用程式的 Git 儲存機制。它也會在目前的目錄中初始化 Git 儲存機制 (如果不存在)，並且新增名為 'azure' 的 [Git 遠端]，用來將應用程式發佈至 Azure。最後，它會建立 **web.config** 檔案，其中包含 Azure 代管 node 應用程式所使用的設定。如果您省略 `--git` 參數，但該目錄仍包含 Git 儲存機制，則此命令仍會建立 'azure' 遠端。
 
 	一旦此命令完成，您將會看到類似以下的輸出。請注意，**Website created at** 開頭的這一行包含 Web 應用程式的 URL。
 
@@ -539,7 +538,7 @@
 		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
 		info:   site create command OK
 
-	> [AZURE.NOTE] 如果這是您的訂用帳戶的第一個 App Service Web 應用程式，系統將指示您使用 Azure 入口網站來建立 Web 應用程式。如需詳細資訊，請參閱[在 Azure App Service 中建置和部署 Node.js Web 應用程式]。
+	> [AZURE.NOTE]如果這是您的訂用帳戶的第一個 App Service Web 應用程式，系統將指示您使用 Azure 入口網站來建立 Web 應用程式。如需詳細資訊，請參閱[在 Azure App Service 中建置和部署 Node.js Web 應用程式]。
 
 ### 設定環境變數
 
@@ -583,7 +582,7 @@
 
 		git push azure master
 
-	使用 **master** 做為目標分支。在部署結束時，您應該會看到如下所示的陳述式：
+	使用 **master** 做為目標分支。在部署結束時，您會看到類似下列範例中的陳述式：
 
 		To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
  		 * [new branch]      master -> master
@@ -597,11 +596,11 @@
 
 ## 其他資源
 
-[Azure 命令列介面]
+[Azure CLI]
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+* 如需 Azure 入口網站變更為 Azure 預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [在 Azure App Service 中建置和部署 Node.js Web 應用程式]: web-sites-nodejs-develop-deploy-mac.md
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
@@ -642,4 +641,4 @@
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

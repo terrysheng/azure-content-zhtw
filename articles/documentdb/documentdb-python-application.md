@@ -1,20 +1,20 @@
 <properties
     pageTitle="使用 DocumentDB 建置具有 Python 和 Flask 的 Web 應用程式 | Microsoft Azure"
-    description="了解如何使用 DocumentDB 來儲存和存取主控於 Azure 上之 Python 和 Flask (MVC) Web 應用程式的資料。"
-    services="documentdb"
-    documentationCenter="python"
-    authors="ryancrawcour"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	description="了解如何使用 DocumentDB 來儲存和存取主控於 Azure 上之 Python 和 Flask (MVC) Web 應用程式的資料。"
+	services="documentdb"
+	documentationCenter="python"
+	authors="ryancrawcour"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
     ms.service="documentdb"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="python"
-    ms.topic="hero-article"
-    ms.date="07/07/2015"
-    ms.author="ryancraw"/>
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="hero-article"
+	ms.date="09/03/2015"
+	ms.author="ryancraw"/>
 
 # 使用 DocumentDB 建置具有 Python 和 Flask (MVC) 的 Web 應用程式
 
@@ -338,7 +338,9 @@
 
 恭喜！ 您剛剛已經使用 Azure DocumentDB 建置您的第一個 Python 應用程式，並將它發佈至 Azure 網站。
 
-若要加入其他功能至您的應用程式，請檢閱 [DocumentDB Python SDK](https://pypi.python.org/pypi/pydocumentdb) 中提供的 API。
+因為我們很想知道，您是否覺得此教學課程很實用，所以請使用本主題頁首或頁尾的投票按鈕，告訴我們本主題寫得如何。本主題近來時常更新，所以我們需要您提供改善本文的意見反應。如果想要我們與您連絡，歡迎在註解中留下電子郵件地址，以便後續連絡。
+
+若要將其他功能加入您的應用程式，請檢閱 [DocumentDB Python SDK](https://pypi.python.org/pypi/pydocumentdb) 中提供的 API。
 
   [按一下這裡可存取 Flask 教學課程]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
@@ -349,4 +351,4 @@
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

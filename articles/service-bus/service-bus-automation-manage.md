@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2015"
+	ms.date="08/28/2015"
 	ms.author="csand"/>
 
 
 
-#使用 Azure 自動化管理 Azure 服務匯流排
+# 使用 Azure 自動化管理 Azure 服務匯流排
 
 本指南將為您介紹 Azure 自動化服務，以及如何使用它來簡化 Azure 服務匯流排的管理。
 
@@ -30,11 +30,9 @@ Azure 自動化提供高度可靠、高度可用的工作流程執行引擎，�
 
 將您的雲端管理工作交由「Azure 自動化」自動執行，以減少營運負擔並釋出 IT 和開發維運人力，使其專注於能夠為企業創造價值的工作上。
 
-
 ## Azure 自動化如何有助於管理 Azure 服務匯流排？
 
-可以在 Azure 自動化中使用[服務匯流排 REST API](https://msdn.microsoft.com/library/azure/hh780717.aspx) 來管理服務匯流排。在 Azure 自動化內，您可以利用 REST API 編寫 PowerShell 工作流程指令碼，以執行許多服務匯流排工作。您也可以將 Azure 自動化中的這些 REST API 與其他 Azure 服務的 Cmdlet 搭配，以透過 Azure 服務和協力廠商系統自動執行複雜的工作。
-
+您可以在 Azure 自動化中使用[服務匯流排 REST API](https://msdn.microsoft.com/library/azure/hh780717.aspx) 來管理服務匯流排。在 Azure 自動化內，您可以利用 REST API 編寫 PowerShell 工作流程指令碼，以執行許多服務匯流排工作。您也可以將 Azure 自動化中的這些 REST API 與其他 Azure 服務的 Cmdlet 搭配，以透過 Azure 服務和協力廠商系統自動執行複雜的工作。
 
 ## 後續步驟
 
@@ -44,4 +42,4 @@ Azure 自動化提供高度可靠、高度可用的工作流程執行引擎，�
 * 請參閱[使用 PowerShell 管理服務匯流排](service-bus-powershell-how-to-provision.md)的相關文章
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

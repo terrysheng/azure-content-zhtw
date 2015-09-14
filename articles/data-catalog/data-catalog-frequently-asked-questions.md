@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="08/21/2015"
+	ms.date="08/25/2015"
 	ms.author="maroche"/>
 
 # Azure 資料目錄的常見問題集
@@ -69,6 +69,8 @@ Azure 資料目錄強化技術性和非技術性使用者的能力，包括：
 - Oracle 資料庫檢視
 - Azure 儲存體 Blob
 - Azure 儲存體目錄
+- HDFS 檔案
+- HDSF 目錄
 
 ## 問：如何要求另一個資料來源的支援？
 
@@ -97,7 +99,7 @@ Azure 資料目錄強化技術性和非技術性使用者的能力，包括：
 
 <br/>
 
-> [AZURE.NOTE]如果資料來源 (例如 SQL Server Analysis Services) 有第一級的 **Description** 屬性，**Azure 資料目錄**發佈應用程式會擷取該屬性值。對於 SQL Server 關聯式資料庫，因為缺少第一級的 **Description** 屬性，**Azure 資料目錄**發佈應用程式會從物件和資料行的 ms\_description 擴充屬性擷取值。如需詳細資訊，請參閱 TechNet [在資料庫物件上使用擴充屬性](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx)。
+> [AZURE.NOTE]如果資料來源 (例如 SQL Server Analysis Services) 有第一級的 **Description** 屬性，**Azure 資料目錄**發佈應用程式就會擷取該屬性值。對於 SQL Server 關聯式資料庫，因為缺少第一級的 **Description** 屬性，所以 **Azure 資料目錄**發佈應用程式會從物件和資料行的 ms\_description 擴充屬性擷取值。如需詳細資訊，請參閱 TechNet [在資料庫物件上使用擴充屬性](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx)。
 
 ## 問：新註冊的資產經過多久才會出現在 Azure 資料目錄中？
 
@@ -123,7 +125,7 @@ Azure 資料目錄強化技術性和非技術性使用者的能力，包括：
 
 ## 問：如果我遇到問題，如何與 Azure 資料目錄小組分享資訊？
 
-請利用 **Azure 資料目錄**論壇來回報問題、分享資訊及發問。此論壇位於 http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409。
+請使用 **Azure 資料目錄**論壇來回報問題、分享資訊及發問。此論壇位於 http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409。
 
 ##問：Azure 資料目錄可以處理我想要使用的其他資料來源嗎？
 我們正積極將更多資料來源加入 **Azure 資料目錄**。如果有您希望我們支援的資料來源，請在 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)提出建議 (如果已建議，請表達支持)。
@@ -160,4 +162,4 @@ Azure 資料目錄強化技術性和非技術性使用者的能力，包括：
 
 請前往 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)。那裡提出的問題會在這裡找到答案。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

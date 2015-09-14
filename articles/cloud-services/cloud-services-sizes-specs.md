@@ -1,19 +1,19 @@
 <properties 
- pageTitle="雲端服務的大小" 
- description="列出 Azure 雲端服務 Web 和背景工作角色不同的大小。" 
- services="cloud-services" 
- documentationCenter="" 
- authors="Thraka" 
- manager="timlt" 
- editor=""/>
+ pageTitle="雲端服務的大小"
+	description="列出 Azure 雲端服務 Web 和背景工作角色不同的大小。"
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
+	editor=""/>
 <tags 
- ms.service="cloud-services" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="na" 
- ms.workload="tbd"
- ms.date="06/04/2015" 
- ms.author="adegeo"/>
+ ms.service="cloud-services"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="09/01/2015"
+	ms.author="adegeo"/>
  
 # 雲端服務的大小
 
@@ -76,4 +76,4 @@ Azure 虛擬機器和雲端服務是 Azure 所提供數種計算資源類型的�
 
 ＜[設定 Azure 的雲端服務](https://msdn.microsoft.com/library/hh124108)＞
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

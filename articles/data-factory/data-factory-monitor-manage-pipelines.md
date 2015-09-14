@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="監視和管理 Azure Data Factory 管線" 
-	description="了解如何使用 Azure Management Portal 和 Azure PowerShell 監控並管理您建立的 Azure 資料處理站和管線。" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="監視和管理 Azure Data Factory 管線"
+	description="了解如何使用 Azure Management Portal 和 Azure PowerShell 監控並管理您建立的 Azure 資料處理站和管線。"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
 # 監視和管理 Azure Data Factory 管線
@@ -467,4 +467,8 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 	Parameters        :
 	Outputs           
 
-<!---HONumber=August15_HO6-->
+
+## 傳送意見
+非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md)提交您的意見反應。
+
+<!---HONumber=September15_HO1-->

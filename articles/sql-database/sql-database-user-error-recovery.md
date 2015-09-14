@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="SQL Database 使用者錯誤復原" 
-   description="了解如何使用 Azure SQL Database 的時間點還原 (PITR) 功能，從使用者錯誤、意外的資料損毀或已刪除的資料庫復原。" 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="elfisher" 
-   manager="jeffreyg" 
-   editor="monicar"/>
+   pageTitle="SQL Database 使用者錯誤復原"
+	description="了解如何使用 Azure SQL Database 的時間點還原 (PITR) 功能，從使用者錯誤、意外的資料損毀或已刪除的資料庫復原。"
+	services="sql-database"
+	documentationCenter=""
+	authors="elfisher"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="07/23/2015"
-   ms.author="elfish"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-management"
+	ms.date="07/23/2015"
+	ms.author="elfish"/>
 
 # 從使用者錯誤復原 Azure SQL Database
 
@@ -30,6 +30,8 @@ Azure SQL Database 一律會還原至新的資料庫。所有「基本」、「�
 發生使用者錯誤或非預期的資料修改時，時間點還原可用來將資料庫還原至資料庫保留期限內的任何時間點。
 
 「基本」資料庫有 7 天的保留期，「標準」資料庫有 14 天的「保留期」，「高階」資料庫則有 35 天的保留期。若要深入了解資料庫保留，請閱讀我們的[商務持續性概觀](sql-database-business-continuity.md)。
+
+> [AZURE.NOTE]還原資料庫會建立新的資料庫。請務必確定您要還原到的伺服器有足夠的 DTU 容量供新的資料庫使用。您可以[連絡支援人員](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)，要求增加此配額。
 
 ###Azure 入口網站
 1. 登入 [Azure 入口網站](https://portal.Azure.com)
@@ -66,6 +68,8 @@ Azure SQL Database 一律會還原至新的資料庫。所有「基本」、「�
 若資料庫被刪除，Azure SQL Database 可讓您將已刪除的資料庫還原至刪除的時間點。Azure SQL Database 會將已刪除的資料庫備份，儲存一段資料庫保留期間的時間。
 
 已刪除資料庫的保留期間取決於資料庫所在的服務層，或是資料庫存在的天數，兩者中較少的天數。若要深入了解資料庫保留，請閱讀我們的[商務持續性概觀](sql-database-business-continuity.md)。
+
+> [AZURE.NOTE]還原資料庫會建立新的資料庫。請務必確定您要還原到的伺服器有足夠的 DTU 容量供新的資料庫使用。您可以[連絡支援人員](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)，要求增加此配額。
 
 ###Azure 入口網站
 1. 登入 [Azure 入口網站](https://portal.Azure.com)
@@ -109,4 +113,4 @@ Azure SQL Database 一律會還原至新的資料庫。所有「基本」、「�
 還原完成後，您可以遵循[完成復原的資料庫](sql-database-recovered-finalize.md)指南，設定復原的資料庫。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

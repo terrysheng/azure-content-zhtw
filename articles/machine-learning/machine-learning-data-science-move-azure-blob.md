@@ -1,33 +1,33 @@
 <properties 
-	pageTitle="從 Azure Blob 儲存體來回移動資料 | Microsoft Azure" 
-	description="從 Azure Blob 儲存體來回移動資料" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="從 Azure Blob 儲存體來回移動資料 | Microsoft Azure"
+	description="從 Azure Blob 儲存體來回移動資料"
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="sunliangms;sachouks;mohabib;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="sunliangms;sachouks;mohabib;bradsev"/>
 
 # 從 Azure Blob 儲存體來回移動資料
 
-[Azure Machine Learning 中進階分析程序和技術 (ADAPT) 的案例](../machine-learning-data-science-plan-sample-scenarios.md)文章可協助您判斷進階分析程序中各種資料科學工作流程所需的資源。如果您需要根據自己的案例從 Azure Blob 儲存體來回移動資料，請使用下列其中一個方法：
+本主題描述三種方法，用於從 Azure Blob 儲存體來回移動資料：
 
 - [使用 Azure 儲存體總管](#explorer)
 - [使用 AzCopy 命令列公用程式](#AzCopy)
 - [在 Python 中使用 Azure SDK](#PythonSDK)
 
+哪一種方法最適合，將取決於您的案例。 [Azure Machine Learning 中進階分析程序和技術 (ADAPT) 的案例](../machine-learning-data-science-plan-sample-scenarios.md)文章可協助您判斷進階分析程序中各種資料科學工作流程所需的資源。
 
-> [AZURE.TIP]或者，您可以使用 [Azure Data Factory](https://azure.microsoft.com/zh-tw/services/data-factory/) 建立並排程管線，以從 Azure Blob 儲存體下載資料，並將資料傳遞至已發行的 Azure Machine Learning Web 服務，再接收預測性分析的結果，然後將結果上傳至儲存體。如需詳細資訊，請參閱[使用 Azure Data Factory 和 Azure Machine Learning 來建立預測管線](../data-factory/data-factory-create-predictive-pipelines.md)。
+> [AZURE.TIP]或者，您可以使用 [Azure Data Factory](https://azure.microsoft.com/zh-TW/services/data-factory/) 建立並排程管線，以從 Azure Blob 儲存體下載資料，並將資料傳遞至已發行的 Azure Machine Learning Web 服務，再接收預測性分析的結果，然後將結果上傳至儲存體。如需詳細資訊，請參閱[使用 Azure Data Factory 和 Azure Machine Learning 來建立預測管線](../data-factory/data-factory-create-predictive-pipelines.md)。
 
-<para></para>
 
 > [AZURE.NOTE]如需 Azure Blob 儲存體的完整介紹，請參閱 [Azure Blob 基本概念](../storage-dotnet-how-to-use-blobs.md)和 [Azure Blob 服務](https://msdn.microsoft.com/library/azure/dd179376.aspx)。
 
@@ -181,4 +181,4 @@ AzCopy 是上傳和下載資料的命令列公用程式。
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

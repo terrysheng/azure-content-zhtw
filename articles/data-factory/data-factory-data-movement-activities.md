@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="資料移動活動" 
-	description="了解您可以在 Data Factory 管線用來移動資料的 Data Factory 實體。" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="資料移動活動"
+	description="了解您可以在 Data Factory 管線用來移動資料的 Data Factory 實體。"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/29/2015"
 	ms.author="spelluru"/>
 
 # 資料移動活動
@@ -93,4 +93,8 @@
 
 以複製活動而言，**typeProperties** 區段會根據來源和接收等類型而有所不同。以上所列的每個資料存放區特定頁面都會記錄這些資料存放區類型專屬的屬性。
 
-<!---HONumber=August15_HO7-->
+
+## 傳送意見
+非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md)提交您的意見反應。
+
+<!---HONumber=September15_HO1-->

@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務"
+<properties
+	pageTitle="開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務 | Microsoft Azure"
 	description="如何開始在 Visual Studio 的雲端服務專案中使用 Azure Blob 儲存體"
 	services="storage"
 	documentationCenter=""
@@ -7,7 +7,7 @@
 	manager="douge"
 	editor="tglee"/>
 
-<tags 
+<tags
 	ms.service="storage"
 	ms.workload="web"
 	ms.tgt_pltfrm="vs-getting-started"
@@ -27,20 +27,20 @@
 > - [Queues](vs-storage-cloud-services-getting-started-queues.md)
 > - [Tables](vs-storage-cloud-services-getting-started-tables.md)
 
-##概觀
+## 概觀
 
-本文描述如何在 Visual Studio 雲端服務專案中使用 [**新增連接的服務**] 對話方塊建立或參考的 Azure 儲存體帳戶，並開始搭配使用 Blob 儲存體。我們會說明如何存取及建立 Blob 容器，以及如何執行上傳、列出和下載 Blob 等一般工作。這些範例均以 C# 撰寫，並使用 [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)。
+本文描述如何在 Visual Studio 雲端服務專案中使用 [**新增連接的服務**] 對話方塊建立或參考的 Azure 儲存體帳戶，並開始搭配使用 Azure Blob 儲存體。我們會說明如何存取及建立 Blob 容器，以及如何執行上傳、列出和下載 Blob 等一般工作。這些範例均以 C# 撰寫，並使用 [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)。
 
 Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非結構化資料的服務，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。單一 Blob 可以是任何大小。Blob 可以是影像、音訊和視訊檔、原始資料及文件檔案。
 
 就像檔案在資料夾中一樣，儲存體 Blob 位於容器中。在您已建立儲存體之後，您會在儲存體中建立一個或多個容器。例如，在稱為 “Scrapbook” 的儲存體中，您可以在此儲存體中建立稱為 “images” 的容器來儲存圖片，以及建立另一個稱為 “audio” 的容器來儲存音訊檔。建立容器之後，就可以將個別的 Blob 檔案上傳至這些容器。
 
 - 如需以程式設計方式操作 Blob 的詳細資訊，請參閱[如何使用 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)。
-- 若需要 Azure 儲存體的一般資訊，請參閱[儲存體文件](https://azure.microsoft.com/documentation/services/storage/)。
-- 若需要 Azure 雲端服務的一般資訊，請參閱[雲端服務文件](http://azure.microsoft.com/documentation/services/cloud-services/)。
-- 若需要有關以程式編寫 ASP.NET 應用程式的詳細資訊，請參閱[ASP.NET](http://www.asp.net)。
+- 如需 Azure 儲存體的一般資訊，請參閱[儲存體文件](https://azure.microsoft.com/documentation/services/storage/)。
+- 如需 Azure 雲端服務的一般資訊，請參閱[雲端服務文件](http://azure.microsoft.com/documentation/services/cloud-services/)。
+- 如需 ASP.NET 應用程式設計的詳細資訊，請參閱 [ASP.NET](http://www.asp.net)。
 
-##在程式碼中存取 blob 容器
+## 在程式碼中存取 blob 容器
 
 若要以程式設計方式存取雲端服務中的 blob，您需要加入下列項目 (如果尚未存在)。
 
@@ -57,7 +57,6 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
-
 3. 取得 `CloudBlobClient` 物件，來參考儲存體帳戶中的現有容器。
 
 		// Create a blob client.
@@ -68,11 +67,11 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
         // Get a reference to a container named “mycontainer.”
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-**注意：**請在後續小節中的程式碼前面使用上述所有程式碼。
+> [AZURE.NOTE]請將前一個程序中顯示的所有程式碼使用於後續章節中顯示的程式碼之前。
 
-##在程式碼中建立容器
+## 在程式碼中建立容器
 
-**注意：**有些對外向 ASP.NET 中 Azure 儲存體執行呼叫的 API 是非同步的。如需詳細資訊，請參閱[使用 Async 和 Await 進行非同步程式設計](http://msdn.microsoft.com/library/hh191443.aspx)。以下程式碼假設使用非同步程式設計方法。
+> [AZURE.NOTE]有些對外向 ASP.NET 中 Azure 儲存體執行呼叫的 API 是非同步的。如需詳細資訊，請參閱[使用 Async 和 Await 進行非同步程式設計](http://msdn.microsoft.com/library/hh191443.aspx)。以下範例中的程式碼假設使用非同步程式設計方法。
 
 若要在儲存體帳戶中建立容器，您只需要為新增呼叫到 `CreateIfNotExistsAsync`，如下列程式碼所示：
 
@@ -80,7 +79,7 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
     // as described in the "Access blob containers in code" section.
 
     // If “mycontainer” doesn’t exist, create it.
-    await container.CreateIfNotExistsAsync();    
+    await container.CreateIfNotExistsAsync();
 
 
 若要讓所有人都能使用容器中的檔案，您可以使用下列程式碼將容器設定為公用容器。
@@ -95,11 +94,11 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
 
 ## 將 Blob 上傳至容器
 
-Azure Blob 儲存體支援區塊 Blob 和分頁 Blob。在大多數情況下，建議使用區塊 Blob 的類型。
+Azure 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，建議使用區塊 Blob 的類型。
 
 若要將檔案上傳至區塊 Blob，請取得容器參照，並使用該參照來取得區塊 Blob 參照。擁有 Blob 參考後，即可藉由呼叫 `UploadFromStream` 方法，將任何資料流上傳至其中。此操作會建立 Blob (如果其並不存在) 或覆寫 Blob (如果其已存在)。下列範例顯示如何將 Blob 上傳到容器，並假設已建立該容器。
 
-	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in 
+	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
 
     // Retrieve a reference to a blob named "myblob".
@@ -109,15 +108,14 @@ Azure Blob 儲存體支援區塊 Blob 和分頁 Blob。在大多數情況下，�
     using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
     {
         blockBlob.UploadFromStream(fileStream);
-    } 
+    }
 
 ## 列出容器中的 Blob
 
 若要列出容器中的 Blob，請先取得容器參照。然後您即可使用容器的 `ListBlobs` 方法來擷取其中的 Blob 和/或目錄。若要針對傳回的 `IListBlobItem` 存取一組豐富的屬性與方法，您必須先將它轉換成 `CloudBlockBlob`、`CloudPageBlob` 或 `CloudBlobDirectory` 物件。如果不清楚類型，可使用類型檢查來決定要將其轉換至何種類型。下列程式碼示範如何擷取和輸出 `photos` 容器中每個項目的 URI：
 
-	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in 
+	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
-
 	// Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, false))
 	{
@@ -126,7 +124,7 @@ Azure Blob 儲存體支援區塊 Blob 和分頁 Blob。在大多數情況下，�
 			CloudBlockBlob blob = (CloudBlockBlob)item;
 
 			Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
-                                        
+
 		}
 		else if (item.GetType() == typeof(CloudPageBlob))
 		{
@@ -138,12 +136,12 @@ Azure Blob 儲存體支援區塊 Blob 和分頁 Blob。在大多數情況下，�
 		else if (item.GetType() == typeof(CloudBlobDirectory))
 		{
 			CloudBlobDirectory directory = (CloudBlobDirectory)item;
-			
+
 			Console.WriteLine("Directory: {0}", directory.Uri);
 		}
 	}
 
-如上所示，Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更像資料夾的結構組織 Blob。例如，假設名為 `photos` 的容器中有下面這一組區塊 blob：
+如先前程式碼範例所示，Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更像資料夾的結構組織 Blob。例如，假設名為 `photos` 的容器中有下面這一組區塊 blob：
 
 	photo1.jpg
 	2010/architecture/description.txt
@@ -154,14 +152,14 @@ Azure Blob 儲存體支援區塊 Blob 和分頁 Blob。在大多數情況下，�
 	2011/architecture/description.txt
 	2011/photo7.jpg
 
-如同上述範例所示，當您在容器上呼叫 `ListBlobs` 時，傳回的集合將包含 `CloudBlobDirectory` 和 `CloudBlockBlob` 物件，其分別代表最上層所包含的目錄和 Blob。以下是最終得到的輸出：
+如同上述範例所示，當您在容器上呼叫 `ListBlobs` 時，傳回的集合包含 `CloudBlobDirectory` 和 `CloudBlockBlob` 物件，其分別代表最上層所包含的目錄和 Blob。以下是輸出結果：
 
 	Directory: https://<accountname>.blob.core.windows.net/photos/2010/
 	Directory: https://<accountname>.blob.core.windows.net/photos/2011/
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-此外，您可以選擇將 `ListBlobs` 方法的 `UseFlatBlobListing` 參數設定為 `true`。不論目錄為何，這會導致每個 Blob 作為 `CloudBlockBlob` 傳回。以下是對 `ListBlobs` 的呼叫：
+此外，您可以選擇將 `ListBlobs` 方法的 `UseFlatBlobListing` 參數設定為 `true`。不論目錄為何，這會導致每個 Blob 作為 `CloudBlockBlob` 傳回。以下是對 `ListBlobs`的呼叫︰
 
     // Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -169,7 +167,7 @@ Azure Blob 儲存體支援區塊 Blob 和分頁 Blob。在大多數情況下，�
 	   ...
 	}
 
-以下則是結果：
+其結果如下：
 
 	Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
 	Block blob of length 314618: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo3.jpg
@@ -186,7 +184,7 @@ Azure Blob 儲存體支援區塊 Blob 和分頁 Blob。在大多數情況下，�
 
 若要下載 Blob，請先擷取 Blob 參考，然後呼叫 `DownloadToStream` 方法。下列範例使用 `DownloadToStream` 方法將 Blob 內容傳送給資料流物件，您接著可將該物件永久儲存成本機檔案。
 
-	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in 
+	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
 
     // Get a reference to a blob named "photo1.jpg".
@@ -196,11 +194,11 @@ Azure Blob 儲存體支援區塊 Blob 和分頁 Blob。在大多數情況下，�
     using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
     {
         blockBlob.DownloadToStream(fileStream);
-    } 
+    }
 
 您也可以使用 `DownloadToStream` 方法，將 Blob 的內容當成文字字串下載。
 
-	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in 
+	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
 
 	// Get a reference to a blob named "myblob.txt"
@@ -217,14 +215,14 @@ Azure Blob 儲存體支援區塊 Blob 和分頁 Blob。在大多數情況下，�
 
 若要刪除 Blob，請先取得 Blob 參照，然後呼叫 `Delete` 方法。
 
-	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in 
+	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
 
     // Get a reference to a blob named "myblob.txt".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");
 
     // Delete the blob.
-    blockBlob.Delete(); 
+    blockBlob.Delete();
 
 
 ## 以非同步方式分頁列出 Blob
@@ -237,19 +235,19 @@ Azure Blob 儲存體支援區塊 Blob 和分頁 Blob。在大多數情況下，�
 
     async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer container)
     {
-        //List blobs to the console window, with paging.
+        // List blobs to the console window, with paging.
         Console.WriteLine("List blobs in pages:");
 
         int i = 0;
         BlobContinuationToken continuationToken = null;
         BlobResultSegment resultSegment = null;
 
-        //Call ListBlobsSegmentedAsync and enumerate the result segment returned, while the continuation token is non-null.
-        //When the continuation token is null, the last page has been returned and execution can exit the loop.
+        // Call ListBlobsSegmentedAsync and enumerate the result segment returned, while the continuation token is non-null.
+        // When the continuation token is null, the last page has been returned and execution can exit the loop.
         do
         {
-            //This overload allows control of the page size. You can return all remaining results by passing null for the maxResults parameter, 
-            //or by calling a different overload.
+            // This overload allows control of the page size. You can return all remaining results by passing null for the maxResults parameter,
+            // or by calling a different overload.
             resultSegment = await container.ListBlobsSegmentedAsync("", true, BlobListingDetails.All, 10, continuationToken, null, null);
             if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
             foreach (var blobItem in resultSegment.Results)
@@ -268,4 +266,4 @@ Azure Blob 儲存體支援區塊 Blob 和分頁 Blob。在大多數情況下，�
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

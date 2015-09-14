@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm" 
-	editor="cgronlun"  />
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="hangzh;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="hangzh;bradsev"/>
 
 #<a name="heading"></a> 在進階分析程序和技術中將 Hive 查詢提交至 HDInsight Hadoop 叢集 
 
 本文件說明在 Azure 中，將 Hive 查詢提交至 HDInsight 服務所管理的 Hadoop 叢集的各種方式。這項工作是 Azure Machine Learning 提供的進階分析程序和技術 (ADAPT) 的一部分。我們將討論數個資料有爭議的工作：資料探索和功能產生。泛型 Hive 查詢，示範如何探索資料，或是在 Azure HDInsight Hadoop 叢集中使用 Hive 來產生功能。這些 Hive 查詢會使用所提供的內嵌 Hive 使用者定義函式 (UDF)。
 
-<a href="https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts" target="_blank">Github 儲存機制</a>中也會提供 <a href="http://chriswhong.com/open-data/foil_nyc_taxi/" target="_blank">NYC 計程車車程資料</a>案例的專屬查詢範例。這些查詢已經具備指定的資料結構描述，且準備好進行提交來執行。
+[Github 儲存機制](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)中也會提供 [NYC 計程車車程資料](http://chriswhong.com/open-data/foil_nyc_taxi/)案例特定的查詢範例。這些查詢已經具備指定的資料結構描述，且準備好進行提交來執行。
 
 最後一節將討論使用者可以微調的參數，如此即可改善 Hive 查詢的效能。
 
@@ -319,4 +319,4 @@ Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

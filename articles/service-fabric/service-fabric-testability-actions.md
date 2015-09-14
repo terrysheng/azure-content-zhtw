@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Testability 動作。"
+   pageTitle="可測試性動作 |Microsoft Azure"
 	description="本文說明關於在 Microsoft Azure Service Fabric 中找到的 Testability 動作。"
 	services="service-fabric"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="NA"
-	ms.date="03/17/2015"
+	ms.date="08/31/2015"
 	ms.author="heeldin;motanv"/>
 
 # Testability 動作
@@ -234,4 +234,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [服務對服務間通訊的失敗案例](service-fabric-testability-scenarios-service-communication.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

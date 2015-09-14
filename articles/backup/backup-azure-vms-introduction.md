@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="09/01/2015"
 	ms.author="aashishr"/>
 
 # Azure 虛擬機器備份 - 簡介
@@ -92,48 +92,41 @@
 
 4. 在 [**區域**] 中，選取保存庫的地理區域。請注意，保存庫必須與您想要保護的虛擬機器位於相同區域。如果您的虛擬機器在不同區域，每個區域皆需建立保存庫。儲存備份資料不需指定儲存體帳戶，備份保存庫和 Azure 備份服務將自動處理。![建立備份保存庫](./media/backup-azure-vms-introduction/backup_vaultcreate.png)
 
-    >[AZURE.NOTE]Azure 備份服務只支援選取區域的虛擬機器備份。[支援區域](http://azure.microsoft.com/regions/#services)的檢查清單。如果您尋找的區域目前不受支援，就不會於建立保存庫期間出現在下拉式清單中。
-
 5. 按一下 [**建立保存庫**]。要等備份保存庫建立好，可能需要一些時間。監視位於入口網站底部的狀態通知。![建立保存庫快顯通知](./media/backup-azure-vms-introduction/creating-vault.png)
 
-6. 將有一則訊息確認保存庫已成功建立，並且該保存庫會在「復原服務」頁面中列為 [使用中] 狀態。![備份保存庫的清單](./media/backup-azure-vms-introduction/backup_vaultslist.png)
+6. 將有一則訊息確認保存庫已成功建立，並且該保存庫會在「復原服務」頁面中列為 [使用中] 狀態。請確定建立保存庫之後，立即選擇適當的儲存體備援選項。進一步了解[在備份保存庫中設定儲存體備援選項](../backup-azure-backup-create-vault.md#storage-redundancy-options)。![備份保存庫的清單](./media/backup-azure-vms-introduction/backup_vaultslist.png)
 
 7. 按一下 [備份保存庫] 前往 [**快速入門**] 頁面，上面將會顯示備份 Azure 虛擬機器的指示。![虛擬機器的備分指示在 [儀表板] 頁面上](./media/backup-azure-vms-introduction/vmbackup-instructions.png)
 
-    >[AZURE.NOTE]請確定建立保存庫之後，立即選擇適當的儲存體備援選項。進一步了解 [在備份保存庫中設定儲存體備援選項][vault-storage-redundancy]。
 
 ### 2\.VM 代理程式
 在您開始備份 Azure 虛擬機器之前，請先確定 Azure VM 代理程式已正確安裝在虛擬機器上。為了備份虛擬機器，Azure 備份服務將在 VM 代理程式上安裝延伸模組。由於 VM 代理程式在建立虛擬機器時為選擇性元件，您必須確定在佈建虛擬機器前，已選取 VM 代理程式的核取方塊。
 
 深入了解 [VM 代理程式](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409)和[如何安裝](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)。
 
->[AZURE.NOTE]如果您打算將您的虛擬機器從內部部署資料中心移轉至 Azure，請確定您已下載並安裝 VM 代理程式 MSI，再開始移轉程序。這也適用於 Azure 中使用 Azure Site Recovery 所保護的虛擬機器。
+## 限制
 
-## 在預覽期間的限制
-
+- 不支援 IaaS (V2) 虛擬機器的備份。
 - 不支援具有 16 個以上資料磁碟的虛擬機器備份。
 - 不支援使用進階儲存體的虛擬機器備份。
 - 不支援使用多重 NIC 或正在負載平衡組態的虛擬機器備份。
 - 不支援在還原期間取代現有的虛擬機器。先刪除現有的虛擬機器及任何相關聯的磁碟，然後從備份還原資料。
-- 不支援使用 Azure Site Recovery 還原的虛擬機器備份。
 - 不支援跨區域備份和還原。
 - Azure 備份服務只支援選取區域的虛擬機器備份。[支援區域](http://azure.microsoft.com/regions/#services)的檢查清單。如果您尋找的區域目前不受支援，就不會於建立保存庫期間出現在下拉式清單中。
 - 只有選取的作業系統版本能支援使用 Azure 備份服務為虛擬機器備份：
   - **Linux**：由 Azure 背書的散發套件清單可以在[這裡](../virtual-machines-linux-endorsed-distributions.md)取得。只要 VM 代理程式可以在虛擬機器上使用，其他「攜帶您自己的 Linux」散發套件也應該可以運作。
   - **Windows Server**：不支援比 Windows Server 2008 R2 更舊的版本。
+- 只能透過 PowerShell 支援還原屬於多 DC 組態的網域控制站 VM。進一步了解[還原多 DC 網域控制站](backup-azure-restore-vms.md#multiple-dcs)。
 
 如果您想要查看任何所包含功能，[傳送意見反應給我們](http://aka.ms/azurebackup_feedback)。
 
 ## 後續步驟
 若要開始使用虛擬機器備份，了解如何：
 
-- [探索、註冊及保護虛擬機器](backup-azure-vms.md)
+- [備份虛擬機器](backup-azure-vms.md)
 
 - [還原虛擬機器](backup-azure-restore-vms.md)
 
-+ 監視備份工作
+- [管理虛擬機器備份](backup-azure-manage-vms.md)
 
-
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

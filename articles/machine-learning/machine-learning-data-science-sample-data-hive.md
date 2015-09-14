@@ -4,8 +4,8 @@
 	services="machine-learning,hdinsight"
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm" 
-	editor="cgronlun"  />
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,18 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="hangzh;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="hangzh;bradsev"/>
 
 # 在 Azure HDInsight Hive 資料表中進行資料取樣
 
 如果您規劃分析的資料集很大，通常最好是對資料進行向下取樣，將資料縮減為更小但具代表性且更容易管理的大小。這有助於資料了解、探索和功能工程。它在 Azure Machine Learning 的進階分析程序和技術 (ADAPT) 中扮演的角色是，讓資料處理函數與機器學習服務模型的原型能夠快速建立。
 
-本文將說明如何使用 Hive 查詢，對 Azure HDInsight Hive 資料表中的資料進行向下取樣。我們會討論三個常用的取樣方法：統一隨機取樣、依群組隨機取樣和分層取樣。
+本文將說明如何使用 Hive 查詢，對 Azure HDInsight Hive 資料表中的資料進行向下取樣。我們將討論三個普遍使用的取樣方法：
+
+* 統一隨機取樣 
+* 依群組隨機取樣 
+* 分層取樣
 
 您應該從 Hadoop 叢集前端節點上的 Hadoop 命令列主控台提交 Hive 查詢。若要執行這個動作，請登入 Hadoop 叢集的前端節點、開啟 Hadoop 命令列主控台，然後從該處提交 Hive 查詢。如需在 Hadoop 命令列主控台中提交 Hive 查詢的相關指示，請參閱[如何提交 Hive 查詢](machine-learning-data-science-process-hive-tables.md#submit)。
 
-## <a name="uniform"></a> 統一隨機取樣 ##
+## <a name="uniform"></a>統一隨機取樣 ##
 統一隨機取樣表示資料集中的每個資料列都具有相等的取樣機率。這可藉由在內部 "select" 查詢中，以及在外部 "select" 查詢 (在該隨機欄位中設定條件) 中，將額外的欄位 rand() 新增至資料集中來實作。
 
 查詢範例如下：
@@ -42,7 +46,7 @@
 
 在此處，`<sample rate, 0-1>` 會指定使用者想要取樣的記錄比例。
 
-## <a name="group"></a> 依群組隨機取樣 ##
+## <a name="group"></a>依群組隨機取樣 ##
 
 對類別資料進行取樣時，您可能想要包含或排除類別變數中某些特殊值的所有執行個體。這就是「依群組取樣」的意思。例如，如果您有一個類別變數 "State"，其擁有 NY、MA、CA、NJ、PA 等值，則您會想要讓相同狀態的記錄一律在一起，而不論是否要對它們進行取樣。
 
@@ -92,7 +96,7 @@
 	where state_rank <= state_cnt*'${hiveconf:sampleRate}'
 
 
-如需可在 Hive 中使用之更進階取樣方法的相關資訊，請參閱 [LanguageManual 取樣](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling)。
+如需可在 Hive 中使用的進一步進階取樣方法相關資訊，請參閱 [LanguageManual 取樣](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

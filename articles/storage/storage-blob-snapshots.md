@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="建立 Blob 的快照集" 
-	description="建立 Azure 儲存體 Blob 快照集的做法指南" 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
+	pageTitle="建立 Blob 的快照集"
+	description="建立 Azure 儲存體 Blob 快照集的做法指南"
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="adinah"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="tamram"/>
 
 # 建立 Blob 快照集
@@ -125,4 +125,4 @@ Blob 可包含任意數目的快照集。系統會保存快照集，直到您將
 
 ![Azure 儲存體資源](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

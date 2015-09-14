@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="command-line-interface"
 	ms.workload="infrastructure"
-	ms.date="05/29/2015"
+	ms.date="08/25/2015"
 	ms.author="rasquill"/>
 
 # 使用 Windows PowerShell 和 Azure CLI 巡覽和選取 Azure 虛擬機器映像
@@ -240,4 +240,4 @@
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

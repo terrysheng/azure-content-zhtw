@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="新增憑證至 Java CA 存放區 | Microsoft Azure" 
-	description="了解如何將憑證授權單位 (CA) 憑證新增至 Twilio 服務或 Azure 服務匯流排的 Java CA 憑證 (cacerts) 存放區。" 
-	services="" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="新增憑證至 Java CA 存放區 | Microsoft Azure"
+	description="了解如何將憑證授權單位 (CA) 憑證新增至 Twilio 服務或 Azure 服務匯流排的 Java CA 憑證 (cacerts) 存放區。"
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # 新增憑證至 Java CA 憑證存放區
@@ -52,4 +52,4 @@ Baltimore 憑證可能已經安裝於您的 cacerts 存放區，因此請記得�
 
 如需 Azure 所用根憑證的詳細資訊，請參閱 [Azure 根憑證移轉](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

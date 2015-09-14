@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="" 
-	description="如何在 Visual Studio .NET 專案中開始使用 Azure 行動服務" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle=""
+	description="如何在 Visual Studio .NET 專案中開始使用 Azure 行動服務"
+	services="mobile-services"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/22/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="patshea123"/>
 
 # 開始使用行動服務 (.NET 專案)
@@ -47,22 +47,22 @@
 
 資料表的權限必須設為「具有應用程式金鑰的任何人」，此程式碼才能運作。如果您變更權限來保護行動服務，則需要加入使用者驗證支援。請參閱[開始使用驗證](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md) (英文)。
 
-#####加入資料表項目 
+#####加入資料表項目
 
 將新的項目插入至資料表。
 
 	TodoItem todoItem = new TodoItem() { Text = "My first to do item", Complete = false };
 	await todoTable.InsertAsync(todoItem);
 
-#####讀取或查詢資料表 
+#####讀取或查詢資料表
 
 下列程式碼會查詢資料表的所有項目。請注意，只會傳回第一頁的資料，依預設有 50 個項目。您可以傳遞想要的頁面大小 (這是選用參數)。
 
     List<TodoItem> items;
     try
     {
-        // Query that returns all items.   
-        items = await todoTable.ToListAsync();             
+        // Query that returns all items.
+        items = await todoTable.ToListAsync();
     }
     catch (MobileServiceInvalidOperationException e)
     {
@@ -85,4 +85,4 @@
 
 [深入了解行動服務](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

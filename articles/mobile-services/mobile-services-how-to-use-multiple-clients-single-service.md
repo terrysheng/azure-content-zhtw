@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="如何以單一行動服務後端使用多個用戶端 | Microsoft Azure" 
-	description="了解如何從鎖定不同行動平台的多個用戶端應用程式使用單一行動服務後端，包括 Windows 市集和 Windows Phone。" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="如何以單一行動服務後端使用多個用戶端 | Microsoft Azure"
+	description="了解如何從鎖定不同行動平台的多個用戶端應用程式使用單一行動服務後端，包括 Windows 市集和 Windows Phone。"
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor="mollybos"/>
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # 從單一行動服務支援多重裝置平台
- 
+
 使用 Azure 行動服務來進行行動應用程式開發的最大好處之一，是能夠使用單一後端服務，在多重用戶端平台上支援您的應用程式。行動服務提供適用於所有主要裝置平台的原生用戶端程式庫，可讓您使用單一後端服務或跨平台開發人員工具來開發應用程式時，更加輕鬆。本主題討論使用單一行動服務後端時，讓您的應用程式在多重用戶端平台上執行所需的考量。
 
 ##<a id="push"></a>跨平台推播通知
@@ -25,7 +25,7 @@
 
 + 適用於 iOS 應用程式的 Apple 推播通知服務 (APNS)
 + 適用於 Android 應用程式的 Google 雲端通訊 (GCM) 服務
-+ 適用於 Windows 市集、Windows Phone 8.1 市集和通用 Windows 應用程式的 Windows 通知服務 (WNS) 
++ 適用於 Windows 市集、Windows Phone 8.1 市集和通用 Windows 應用程式的 Windows 通知服務 (WNS)
 + 適用於 Windows Phone Silverlight 應用程式的 Microsoft 推播通知服務 (MPNS)
 
 >[AZURE.NOTE]通知中心目前不支援使用 WNS 將推播通知傳送至 Windows Phone Silverlight 8.1 應用程式。您必須使用 MPNS 將通知傳送至 Silverlight 以及 Windows Phone 8.0 和 7.0 應用程式。
@@ -34,8 +34,8 @@
 
 您可以使用平台特定行動服務用戶端程式庫中的註冊功能，或是使用行動服務 REST API 來建立用戶端註冊。通知中心支援兩種裝置註冊：
 
-+ **原生註冊**<br/>原生註冊會依平台特定的推播通知服務而調整。將通知傳送至使用原生註冊來註冊的裝置時，您必須在行動服務中呼叫平台特定的 API。若要將通知傳送至多重平台上的裝置，則需要多重平台特定的呼叫。   
-  
++ **原生註冊**<br/>原生註冊會依平台特定的推播通知服務而調整。將通知傳送至使用原生註冊來註冊的裝置時，您必須在行動服務中呼叫平台特定的 API。若要將通知傳送至多重平台上的裝置，則需要多重平台特定的呼叫。
+
 + **範本註冊**<br/>通知中心也支援平台特定的範本註冊。藉由使用範本註冊，您可以使用單一 API 呼叫將通知傳送至執行於任何已註冊平台上的應用程式。如需詳細資訊，請參閱[傳送跨平台通知給使用者]。
 
 >[AZURE.NOTE]嘗試將訊息傳送至未註冊任何裝置的原生裝置平台時，會發生錯誤。傳送範本通知時，不會發生此錯誤。
@@ -53,7 +53,7 @@
 下列程式碼會將推播通知從 .NET 後端服務傳送至所有 iOS 和 Windows 市集裝置註冊：
 
 	// Define a push notification for APNS.
-	ApplePushMessage apnsMessage = new ApplePushMessage(item.Text, TimeSpan.FromHours(1));    
+	ApplePushMessage apnsMessage = new ApplePushMessage(item.Text, TimeSpan.FromHours(1));
 
 	// Define a push notification for WNS.
 	WindowsPushMessage wnsMessage = new WindowsPushMessage();
@@ -61,8 +61,8 @@
                          @"<toast><visual><binding template=""ToastText01"">" +
                          @"<text id=""1"">" + item.Text + @"</text>" +
                          @"</binding></visual></toast>";
-    
-	// Send push notifications to all registered iOS and Windows Store devices. 
+
+	// Send push notifications to all registered iOS and Windows Store devices.
     await Services.Push.SendAsync(apnsMessage);
 	await Services.Push.SendAsync(wnsMessage);
 
@@ -70,13 +70,13 @@
 
 當您使用範本用戶端註冊，而不是原生用戶端註冊時，若要傳送相同通知，只需要透過單一呼叫至 [SendAsync]，提供 [TemplatePushMessage] 物件，如下所示：
 
-	// Create a new template message and add the 'message' parameter.    
+	// Create a new template message and add the 'message' parameter.
 	var templatePayload = new TemplatePushMessage();
     templatePayload.Add("message", item.Text);
 
 	// Send a push notification to all template registrations.
-    await Services.Push.SendAsync(templatePayload); 
- 
+    await Services.Push.SendAsync(templatePayload);
+
 ###JavaScript 後端
 
 在 JavaScript 後端行動服務中，若要傳送通知，您要在從全域**推送物件**取得的平台特定物件上，呼叫 [send] 方法，如下表所示：
@@ -88,20 +88,20 @@
 下列程式碼會將推播通知傳送至所有 Android 和 Windows Phone 註冊：
 
 	// Define a push notification for GCM.
-	var gcmPayload = 
+	var gcmPayload =
     '{"data":{"message" : item.text }}';
 
 	// Define the payload for a Windows Phone toast notification.
 	var mpnsPayload = '<?xml version="1.0" encoding="utf-8"?>' +
     '<wp:Notification xmlns:wp="WPNotification"><wp:Toast>' +
-    '<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text + 
+    '<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text +
     '</wp:Text2></wp:Toast></wp:Notification>';
 
-	// Send push notifications to all registered Android and Windows Phone 8.0 devices. 
+	// Send push notifications to all registered Android and Windows Phone 8.0 devices.
 	push.mpns.send(null, mpnsPayload, 'toast', 22, {
             success: function(pushResponse) {
                 // Push succeeds.
-                },              
+                },
                 error: function (pushResponse) {
                     // Push fails.
                     }
@@ -109,7 +109,7 @@
     push.gcm.send(null, gcmPayload, {
             success: function(pushResponse) {
                 // Push succeeds.
-                },              
+                },
                 error: function (pushResponse) {
                     // Push fails.
                     }
@@ -119,18 +119,18 @@
 
 當您使用範本用戶端註冊，而不是原生用戶端註冊時，若要傳送相同通知，只需要透過單一呼叫至全域**推送物件**上的 [send] 函數，提供範本訊息裝載，如下所示：
 
-	// Create a new template message with the 'message' parameter.    
+	// Create a new template message with the 'message' parameter.
 	var templatePayload = { "message": item.text };
 
 	// Send a push notification to all template registrations.
     push.send(null, templatePayload, {
             success: function(pushResponse) {
                 // Push succeeds.
-                },              
+                },
                 error: function (pushResponse) {
                     // Push fails.
                     }
-                }); 
+                });
 
 ##<a id="xplat-app-dev"></a>跨平台應用程式開發
 若要開發適用於所有主要行動裝置平台的原生行動裝置應用程式，您 (或您的組織) 必須至少要有 Objective-C、Java 和 C# 或 JavaScript 程式設計語言的專業能力。跨這些相異平台開發時，為了顧及成本，有些開發人員會為其應用程式選擇完全以網頁瀏覽器為基底的使用經驗。不過，這種以網頁為基底的使用經驗無法存取大部分原生資源，因而無法提供使用者對其行動裝置期待的豐富經驗。
@@ -138,9 +138,9 @@
 有跨平台工具可以在行動裝置上提供更豐富的原生使用經驗，但仍共用單一程式碼基底，最常見的就是 JavaScript。行動服務提供下列開發平台的快速入門教學課程，可讓您輕鬆建立及管理跨平台應用程式開發平台的後端服務：
 
 + [**Appcelerator**](http://go.microsoft.com/fwlink/p/?LinkId=509987)<br/>Appcelerator 可讓您使用 JavaScript 來開發單一應用程式，編譯成能夠在所有行動裝置平台上執行的原生應用程式。如此可提供在 UI 中的豐富使用者經驗、對所有原生裝置資源的存取權，以及原生應用程式效能。如需詳細資訊，請參閱 [Appcelerator 教學課程][Appcelerator]。
- 
+
 + [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)**/**[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap (Apache Cordova 專案的散發套件) 是免費的開放原始碼架構，可讓您使用標準化的 Web API、HTML 和 JavaScript 來開發在 Android、iOS 和 Windows 裝置上執行的單一應用程式。PhoneGap 提供 Web 檢視形式的 UI，但能夠存取推播通知、加速計、相機、儲存體、地理位置和應用程式內部瀏覽器等裝置上的原生資源，因而增強了使用者經驗。如需詳細資訊，請參閱 [PhoneGap 快速入門教學課程][PhoneGap]。
-	
+
 	Visual Studio 現在也可以讓您使用 Visual Studio 的多重裝置混合式應用程式擴充功能 (發行前軟體) 來建置跨平台 Cordova 應用程式。如需詳細資訊，請參閱[藉由 HTML 和 JavaScript 開始使用多重裝置混合式應用程式](http://msdn.microsoft.com/library/dn771545.aspx) (英文)。
 
 + [**Sencha Touch**](http://go.microsoft.com/fwlink/p/?LinkId=509988)<br/>Sencha Touch 提供一組針對觸控螢幕最佳化的控制項，從單一 HTML 和 JavaScript 程式碼基底，在各種行動裝置上提供類原生經驗。Sencha Touch 可與 PhoneGap 或 Cordova 程式庫搭配使用，讓使用者能夠存取原生裝置資源。如需詳細資訊，請參閱 [Sencha Touch 快速入門教學課程][Sencha]。
@@ -208,6 +208,5 @@ Visual Studio 2013 Update 2 新增對通用 Windows 應用程式專案的支援�
 [Windows Phone 8 開發人員的下一步]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [建置適用於所有 Windows 裝置的通用 Windows 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [使用 MVVM 的 Azure 行動服務通用 Windows 應用程式]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

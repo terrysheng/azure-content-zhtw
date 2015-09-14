@@ -103,7 +103,7 @@ VM 完成佈建之後，使用 VM 的外部 IP 位址 (或 DNS 名稱) 以及您
 
 >[AZURE.IMPORTANT]目前我們建議您不要套用核心更新，因為這可能會導致 Linux RDMA 驅動程式發生問題。
 
-**Intel MPI** - 從 [Intel.com 網站](https://software.intel.com/zh-tw/intel-mpi-library/)下載並安裝 Intel MPI Library 5.0 執行階段。註冊 Intel 之後，請遵循確認電子郵件中相關網頁的連結，並針對適當版本的 Intel MPI 複製 .tgz 檔案的下載連結。
+**Intel MPI** - 從 [Intel.com 網站](https://software.intel.com/zh-TW/intel-mpi-library/)下載並安裝 Intel MPI Library 5.0 執行階段。註冊 Intel 之後，請遵循確認電子郵件中相關網頁的連結，並針對適當版本的 Intel MPI 複製 .tgz 檔案的下載連結。
 
 執行類似下列的的命令在 VM 上安裝 Intel MPI：
 
@@ -190,7 +190,7 @@ azure vm capture -t <vm-name> <image-name>
 ### Select a region where A8 and A9 VMs are available, such as West US
 ### See Azure Pricing pages for prices and availability of A8 and A9 VMs
 
-azure network vnet create -l "West US" -e 10.32.0.0 <network-name>
+azure network vnet create -l "West US" -e 10.32.0.0 -i 16 <network-name>
 
 ### Create a cloud service. All the A8 and A9 instances need to be in the same cloud service for Linux RDMA to work across InfiniBand.
 ### Note: The current maximum number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
@@ -208,7 +208,7 @@ portnumber=101
 ### In this cluster there will be 8 size A9 nodes, named cluster11 to cluster18. Specify your captured image in <image-name>.
 
 for (( i=11; i<19; i++ )); do
-        azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i <image-name>
+        azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i -w <network-name> -b Subnet-1 <image-name>
 done
 
 ### Save this script and run it at the CLI prompt to provision your cluster
@@ -337,6 +337,6 @@ private ip address2:16
 
 * 嘗試在 Linux 叢集上部署並執行 Linux MPI 應用程式。
 
-* 如需 Intel MPI 的指引，請參閱＜[Intel MPI Library 文件](https://software.intel.com/zh-tw/articles/intel-mpi-library-documentation/)＞。
+* 如需 Intel MPI 的指引，請參閱＜[Intel MPI Library 文件](https://software.intel.com/zh-TW/articles/intel-mpi-library-documentation/)＞。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

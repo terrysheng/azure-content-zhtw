@@ -1,19 +1,19 @@
 <properties
     pageTitle="使用 Azure CLI 搭配 Azure 儲存體 | Microsoft Azure"
-    description="了解如何搭配 Azure 儲存體使用 Azure 命令列介面 (Azure CLI) 來建立和管理儲存體帳戶，以及使用 Azure Blob 和檔案。"
-    services="storage"
-    documentationCenter="na"
-    authors="tamram"
-    manager="jdial"/>
+	description="了解如何搭配 Azure 儲存體使用 Azure 命令列介面 (Azure CLI) 來建立和管理儲存體帳戶，以及使用 Azure Blob 和檔案。"
+	services="storage"
+	documentationCenter="na"
+	authors="tamram"
+	manager="jdial"/>
 
 <tags
     ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article" 
-    ms.date="05/27/2015"
-    ms.author="chungli;jiyang;yaxia;tamram"/>
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="chungli;jiyang;yaxia;tamram"/>
 
 # 使用 Azure CLI 搭配 Azure 儲存體
 
@@ -80,9 +80,9 @@ Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用�
 
     - **<container_name>** 使用指令碼中的指定名稱或為您的容器輸入新名稱。
 
-    - **<image_to_upload>** 輸入您本機電腦上的圖片路徑，例如："\~/images/HelloWorld.png"。
+    - **<image_to_upload>** 輸入您本機電腦上的圖片路徑，例如："~/images/HelloWorld.png"。
 
-    - **<destination_folder>** 輸入本機目錄的路徑，以儲存從 Azure 儲存體下載的檔案，例如："\~/downloadImages"。
+    - **<destination_folder>** 輸入本機目錄的路徑，以儲存從 Azure 儲存體下載的檔案，例如："~/downloadImages"。
 
 7. 在 vim 中更新必要變數之後，請按下按鍵組合 "Esc, : , wq!" 儲存指令碼。
 
@@ -189,7 +189,7 @@ Azure 檔案共用是在 Azure 中的 SMB 2.1 檔案共用。所有目錄和檔�
 
 ### 上傳本機檔案至目錄
 
-下列範例將從 **\~/temp/samplefile.txt** 上傳檔案至 **myDir** 目錄。編輯檔案路徑，以指向本機機器上的有效檔案：
+下列範例將從 **~/temp/samplefile.txt** 上傳檔案至 **myDir** 目錄。編輯檔案路徑，以指向本機機器上的有效檔案：
 
         azure storage file upload '~/temp/samplefile.txt' myshare myDir
 
@@ -203,6 +203,16 @@ Azure 檔案共用是在 Azure 中的 SMB 2.1 檔案共用。所有目錄和檔�
 
 請注意，列出作業不一定會顯示目錄名稱。如果省略，則命令會列出共用根目錄的內容。
 
+### 複製檔案
+
+從 Azure CLI 0.9.8 版開始，您可以將檔案複製到另一個檔案、將檔案複製到 Blob 或將 Blob 複製到檔案。下列示範如何使用 CLI 命令執行這些複製作業。將檔案複製到新的目錄：
+
+	azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare --dest-path destdir/hellocopy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+	
+將 Blob 複製到檔案目錄：
+
+	azure storage file copy start --source-container srcctn --source-blob hello2.txt --dest-share hello --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+
 ## 後續步驟
 
 以下是有助於您深入了解 Azure 儲存體的一些相關文章和資源。
@@ -214,4 +224,4 @@ Azure 檔案共用是在 Azure 中的 SMB 2.1 檔案共用。所有目錄和檔�
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

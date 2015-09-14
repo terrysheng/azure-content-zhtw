@@ -1,20 +1,20 @@
 <properties
    pageTitle="資料倉儲工作負載"
-   description="SQL 資料倉儲的彈性可讓您以滑動的方式調整資料倉儲單位 (DWU)，來增加、縮減或暫停計算能力。本文說明資料倉儲指標以及它們與 DWU 之間的關係。"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
-   editor=""/>
+	description="SQL 資料倉儲的彈性可讓您以滑動的方式調整資料倉儲單位 (DWU)，來增加、縮減或暫停計算能力。本文說明資料倉儲指標以及它們與 DWU 之間的關係。"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="barbkess"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="05/23/2015"
-   ms.author="barbkess;JRJ@BigBangData.co.uk"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="05/23/2015"
+	ms.author="barbkess;JRJ@BigBangData.co.uk"/>
 
 # 資料倉儲工作負載
 資料倉儲工作負載是指所有針對資料倉儲所發生的作業。資料倉儲工作負載包含將資料載入倉儲、對資料倉儲執行分析和報告、管理資料倉儲中的資料，以及從資料倉儲匯出資料的整個程序。這些元件的廣度與深度多半與資料倉儲的成熟度相當。
@@ -52,13 +52,16 @@
 - PolyBase 在管理資料方面扮演著重要角色。使用 PolyBase，您就能選擇將較舊的資料封存至 Hadoop 或 Azure blob 儲存體。由於資料還在線上，這樣便能提供許多可用選項。從 Hadoop 擷取資料可能需要較長的時間，但以擷取時間換取儲存體成本，可能會得不償失。
  
 ### 匯出資料
-將資料提供給報告和分析使用的方法，就是將資料從資料倉儲傳送到專門執行報告和分析的伺服器。這些伺服器稱為資料市集。例如，您可以預先處理報告資料，然後將它從資料倉儲匯出至各個國家的伺服器中，以提供分佈各地的客戶和分析師使用。
+將資料提供給報告和分析使用的方法，就是將資料從資料倉儲傳送到專門執行報告和分析的伺服器。這些伺服器稱為資料市集。例如，您可以預先處理報告資料，然後將它從資料倉儲匯出至各個國家/地區的伺服器中，以提供分佈各地的客戶和分析師使用。
 
 - 您可以在每天晚上，將每天的資料快照集填入唯讀報表伺服器，以便產生報告。這樣可為客戶提供較高的頻寬，同時降低資料倉儲的計算資源需求。從安全性的角度來說，資料市集可減少存取資料倉儲的使用者數目。
 - 如需進行分析，您可以在資料倉儲建立分析 Cube，然後針對資料倉儲執行分析，或是前置處理資料，然後再匯出到分析伺服器進行進一步分析。 
 
 ## 後續步驟
 若要開始開發您的資料倉儲，請參閱[開發概觀][]。
+
+## 叢書
+[巨量資料倉儲](https://www.manning.com/books/big-data-warehousing) (Karthik Ramachandran、Istvan Szededi 和 Richard L.Saltzer 合著，Manning Publications 出版)。[第 1 章](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
 
 <!--Image references-->
 
@@ -69,4 +72,4 @@
 
 <!--Other web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

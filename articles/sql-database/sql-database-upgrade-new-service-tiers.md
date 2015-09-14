@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="將 SQL Database Web 或 Business 資料庫升級至新的服務層" 
-	description="將 Azure SQL Database Web 或 Business 資料庫升級到新的 Azure SQL Database「基本」、「標準」，與「高階」服務層和效能層級。" 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+	pageTitle="將 SQL Database Web 或 Business 資料庫升級至新的服務層"
+	description="將 Azure SQL Database Web 或 Business 資料庫升級到新的 Azure SQL Database「基本」、「標準」，與「高階」服務層和效能層級。"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/18/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.date="06/18/2015"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -67,8 +67,7 @@ Azure SQL Web 和 Business 資料庫即將在 [2015 年 9 月淘汰](http://msdn
 
 下表彙總及比較新服務層的功能和效能層級︰
 
-![服務層功能比較][1]
-
+[AZURE.INCLUDE [SQL DB 服務層資料表](../../includes/sql-database-service-tiers-table.md)]
 
 **比較服務層和效能層級的其他資源：**
 
@@ -302,11 +301,10 @@ Azure SQL Database 服務提供遙測資料和工具，可用於評估您的 Web
 
 
 <!--Image references-->
-[1]: ./media/sql-database-upgrade-new-service-tiers/service-tier-features.png
 [2]: ./media/sql-database-upgrade-new-service-tiers/portal-dtus.JPG
 [3]: ./media/sql-database-upgrade-new-service-tiers/web-business-noisy-neighbor.png
 [4]: ./media/sql-database-upgrade-new-service-tiers/resource_consumption.png
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

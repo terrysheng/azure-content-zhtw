@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="檢視與修改主機名稱"
-	description="說明"
+   pageTitle="檢視與修改主機名稱 | Microsoft Azure"
+	description="如何檢視和變更 Azure 虛擬機器的主機名稱、Web 和背景工作角色以進行名稱解析"
 	services="virtual-network"
 	documentationCenter="na"
 	authors="joaoma"
@@ -51,7 +51,7 @@
 
 1. 設定名稱為 x-ms-version，值為 2013-11-01 的標頭項目。
 
-1. 傳送下列格式的要求：https://management.core.windows.net/<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true
+1. 傳送下列格式的要求：https://management.core.windows.net/\<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true
 
 1. 尋找各個 **RoleInstance** 項目的 **HostName** 項目。
 
@@ -71,4 +71,4 @@
 
 [使用網路組態檔指定 DNS 設定](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

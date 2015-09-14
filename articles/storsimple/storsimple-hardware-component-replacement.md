@@ -1,31 +1,31 @@
 <properties 
    pageTitle="StorSimple 硬體元件更換 | Microsoft Azure"
-   description="說明如何安全地更換 PCM、電池、控制器模組、EBOD 控制器、磁碟機，以及 StorSimple 裝置底座。"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="說明如何安全地更換 PCM、電池、控制器模組、EBOD 控制器、磁碟機，以及 StorSimple 裝置底座。"
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/05/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # StorSimple 硬體元件更換
 
 ## 概觀
 
-硬體元件更換教學課程將說明 Microsoft Azure StorSimple 裝置的硬體元件，以及取下並更換這些元件所需的步驟。在這些教學課程中，您將了解哪些元件可更換以及如何更換它們。
+硬體元件更換教學課程將說明 Microsoft Azure StorSimple 裝置的硬體元件，以及取下並更換這些元件所需的步驟。本文說明安全圖示、提供詳細教學課程的重點，並列出可替換的元件。
 
-在嘗試取下或更換任何 StorSimple 元件之前，請確定您檢閱[安全圖示慣例](#safety-icon-conventions)和其他[安全性預防措施](storsimple-safety.md)。
+>[AZURE.IMPORTANT]在嘗試取下或更換任何 StorSimple 元件之前，請確定先閱讀[安全圖示慣例](#safety-icon-conventions)和其他[安全性預防措施](storsimple-safety.md)。
  
 ### 安全性圖示慣例
 
-下表說明本指南中使用的安全性圖示。當您瀏覽取下並更換裝置元件的步驟時，請密切注意這些安全性圖示。
+下表說明本教學課程中使用的安全性圖示。當您瀏覽取下並更換裝置元件的步驟時，請密切注意這些安全性圖示。
 
 | 圖示 | 文字 | 其他資訊 |
 |:---- |:---- |:-----------|
@@ -41,7 +41,7 @@
 
 ### 開始之前
 
-讓您自己熟悉有關裝置的安全性資訊，以及本教學課程中使用的安全性圖示。如需完整資訊，請移至[裝置的安全性](storsimple-safety.md)。請務必檢閱[安全性預防措施](storsimple-safety.md#handling-precautions)，然後再處理 StorSimple 裝置。
+讓您自己熟悉有關裝置的安全性資訊，以及本教學課程中使用的安全性圖示。如需完整資訊，請移至[安全地安裝和操作您的 StorSimple 裝置](storsimple-safety.md)。請務必閱讀[安全性預防措施](storsimple-safety.md#handling-precautions)，然後再處理 StorSimple 裝置。
 
 在嘗試更換元件之前，請考量下列資訊。
 
@@ -53,13 +53,13 @@
 
 ![警告圖示](./media/storsimple-hardware-component-replacement/Warning.png) ![注意事項圖示](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **注意事項：**
 
-當更換模組時，**決不在機箱背面留下空白機架**。在取下問題組件之前，請取得更換或空白模組。
+當更換模組時，**絕不在機箱背面留下空白機架**。在取下問題組件之前，請取得更換或空白模組。
 
-## 裝置的硬體元件
+## 硬體元件更換程序
 
 Microsoft Azure StorSimple 裝置由主要和/或 EBOD 機箱的數個外掛程式模組所組成。8100 具有單一主要機箱，而 8600 是具有主要機箱與 EBOD 機箱的雙重機箱裝置。
 
-下表彙總裝置中的主要硬體元件。按一下更換程序資料行中的連結，即可移到相關聯的教學課程。
+下表彙總裝置中的主要硬體元件。按一下 [更換程序] 資料行中的連結，即可移到相關聯的教學課程。
 
 |元件|# 存在|外掛程式模組？|更換程序
 |:---------|:--------|:--------------|:---------------------|
@@ -86,7 +86,7 @@ Microsoft Azure StorSimple 裝置由主要和/或 EBOD 機箱的數個外掛程�
 
 ![具有磁碟機的裝置前擋板](./media/storsimple-hardware-component-replacement/IC741028.png)
 
-**圖 1** 裝置的前端
+**圖 1** 裝置正面
 
 |標籤|說明|
 |:----|:----------|
@@ -96,7 +96,7 @@ Microsoft Azure StorSimple 裝置由主要和/或 EBOD 機箱的數個外掛程�
 
 ![裝置主要機箱模組的後擋板](./media/storsimple-hardware-component-replacement/IC740994.png)
 
-**圖 2** 主要機箱的背面
+**圖 2** 主要機箱背面
 
 |標籤|說明|
 |:----|:----------|
@@ -107,7 +107,7 @@ Microsoft Azure StorSimple 裝置由主要和/或 EBOD 機箱的數個外掛程�
 
 ![裝置 EBOD 機箱外掛程式模組的後擋板](./media/storsimple-hardware-component-replacement/IC769599.png)
 
-**圖 3** EBOD 機箱的背面
+**圖 3** EBOD 機箱背面
 
 |標籤|說明|
 |:----|:----------|
@@ -136,10 +136,10 @@ Microsoft Azure StorSimple 裝置由主要和/或 EBOD 機箱的數個外掛程�
 
 - 機架掛接滑軌套件
 
-請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)，來訂購其中任何更換裝置。
+請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)，來訂購任何上述替換單位。
 
 ## 後續步驟
 
-請先檢閱所有[安全性資訊](storsimple-safety.md)，再嘗試更換 StorSimple 硬體元件。
+請先閱讀所有[安全資訊](storsimple-safety.md)，再嘗試更換 StorSimple 硬體元件。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

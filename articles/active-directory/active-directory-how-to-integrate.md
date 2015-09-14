@@ -1,20 +1,20 @@
 <properties
    pageTitle="如何與 Azure Active Directory 整合"
-   description="與 Azure Active Directory 整合的優點和所需資源指南。"
-   services="active-directory"
-   documentationCenter="dev-center-name"
-   authors="msmbaldwin"
-   manager="mbaldwin"
-   editor=""/>
+	description="與 Azure Active Directory 整合的優點和所需資源指南。"
+	services="active-directory"
+	documentationCenter="dev-center-name"
+	authors="msmbaldwin"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="07/30/2015"
-   ms.author="mbaldwin"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/25/2015"
+	ms.author="mbaldwin"/>
 
 # 與 Azure Active Directory 整合
 
@@ -50,7 +50,7 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
 **將您的應用程式擴廣到數百萬個已使用 Azure AD 的組織。** 搜尋和瀏覽 Marketplace 的使用者已經使用一或多項雲端服務，讓他們成為合格的雲端服務客戶。深入了解如何在 [Azure Marketplace](http://azure.microsoft.com/marketplace/partner-program/) 中推廣您的應用程式。
 
-**當使用者註冊您的應用程式時，它便會出現在其 Azure AD 存取面板和 Office 365 應用程式啟動程式中。** 使用者將能夠迅速且輕鬆地返回您的應用程式，以增加使用者參與度。深入了解 [Azure AD 存取面板](https://msdn.microsoft.com/library/azure/dn308586.aspx)。
+**當使用者註冊您的應用程式時，它便會出現在其 Azure AD 存取面板和 Office 365 應用程式啟動程式中。** 使用者將能夠迅速且輕鬆地返回您的應用程式，以增加使用者參與度。深入了解 [Azure AD 存取面板](active-directory-saas-access-panel-introduction.md)。
 
 ### 保護裝置對服務和服務對服務通訊的安全
 
@@ -78,7 +78,7 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
 **業界標準通訊協定。** Microsoft 致力於支援業界標準。Azure AD 支援 SAML 2.0、OpenID Connect 1.0、OAuth 2.0 和 WS 同盟 1.2 驗證通訊協定。Graph API 屬於 OData 4.0 標準。如果您的應用程式已經支援 SAML 2.0 或 OpenID Connect 1.0 通訊協定的同盟登入，那新增 Azure AD 支援便相當直接。深入了解 [Azure AD 支援的驗證通訊協定](../authentication-protocols.md)。
 
-**開放原始碼程式庫。** Microsoft 針對常用的語言和平台提供完整支援的開放原始碼程式庫，進而加快開發速度。原始碼採用 Apache 2.0 授權，您可以任何分岔以及貢獻回饋給專案。深入了解 [Azure AD 開放原始碼程式庫](https://msdn.microsoft.com/library/azure/dn151135.aspx)。
+**開放原始碼程式庫。** Microsoft 針對常用的語言和平台提供完整支援的開放原始碼程式庫，進而加快開發速度。原始碼採用 Apache 2.0 授權，您可以任何分岔以及貢獻回饋給專案。深入了解 [Azure AD 驗證程式庫](active-directory-authentication-libraries.md)。
 
 ### 全球的目前狀態和高可用性
 
@@ -90,4 +90,4 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
 [使用 Azure AD 登入使用者](active-directory-authentication-scenarios.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

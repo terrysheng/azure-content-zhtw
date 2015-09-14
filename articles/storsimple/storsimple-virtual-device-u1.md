@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 虛擬裝置 | Microsoft Azure"
-	description="了解如何建立、設定、部署和管理執行 Update 1.0 的 StorSimple 虛擬裝置。"
+   pageTitle="StorSimple 虛擬裝置 Update 1 | Microsoft Azure"
+	description="了解如何建立、部署和管理 Microsoft Azure 虛擬網路中的 StorSimple 虛擬裝置。(適用於 StorSimple Update 1)。"
 	services="storsimple"
 	documentationCenter=""
 	authors="alkohli"
@@ -12,10 +12,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="NA"
-	ms.date="08/21/2015"
+	ms.date="09/02/2015"
 	ms.author="alkohli"/>
 
-# StorSimple 虛擬裝置
+# 部署和管理 Azure 中的 StorSimple 虛擬裝置
 
 [AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 
@@ -384,4 +384,4 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 了解如何[從備份組還原 StorSimple 磁碟區](storsimple-restore-from-backup-set.md)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

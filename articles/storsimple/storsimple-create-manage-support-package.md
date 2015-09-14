@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="建立及管理支援封裝 | Microsoft Azure"
-   description="了解如何建立、解密和編輯 StorSimple 裝置的支援封裝。"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="建立 StorSimple 支援封裝 | Microsoft Azure"
+	description="了解如何建立、解密和編輯 StorSimple 裝置的支援封裝。"
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 
-# 建立及管理支援封裝
+# 建立及管理 StorSimple 支援封裝
 
 ## 概觀
 
@@ -198,4 +198,4 @@
 
 了解如何[使用支援封裝和裝置記錄對裝置部署進行疑難排解](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

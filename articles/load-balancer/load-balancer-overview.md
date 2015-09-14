@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Azure 負載平衡器概觀 | Microsoft Azure"
-   description="Azure 負載平衡器功能、架構和實作的概觀。有助於了解負載平衡器的運作方式，並將其用於雲端"
-   services="load-balancer"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor="tysonn" />
+	description="Azure 負載平衡器功能、架構和實作的概觀。有助於了解負載平衡器的運作方式，並將其用於雲端"
+	services="load-balancer"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/10/2015"
+	ms.author="joaoma"/>
 
 
 # 負載平衡器概觀 
@@ -21,7 +21,7 @@ Azure 負載平衡器可為您的應用程式提供高可用性和網路效能�
  
 可以設定為：
 
-- 對虛擬機器的連入網際網路流量進行負載平衡。我們稱之為[網際網路面向的負載平衡](load-balancer-overview.md)。
+- 對虛擬機器的連入網際網路流量進行負載平衡。我們稱之為[網際網路面向的負載平衡](load-balancer-internet-overview.md)。
 - 平衡虛擬網路中的虛擬機器之間、雲端服務中的虛擬機器之間，或內部部署電腦與跨單位部署虛擬網路中的虛擬機器之間的流量負載。我們稱之為[內部負載平衡 (ILB)](load-balancer-internal-overview.md)。
 - 	將外部流量轉送到特定的虛擬機器執行個體
 
@@ -99,4 +99,4 @@ Azure 負載平衡器組態支援 UDP 的完全錐形 NAT。在完全錐形 NAT 
 [開始使用 - 網際網路面向的負載平衡器](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

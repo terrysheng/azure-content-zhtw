@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="使用 Socket.io 的 Node.js 應用程式 | Microsoft Azure" 
-	description="學習如何在裝載於 Azure 的 node.js 應用程式中使用 socket.io。" 
-	services="cloud-services" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="使用 Socket.io 的 Node.js 應用程式 | Microsoft Azure"
+	description="學習如何在裝載於 Azure 的 node.js 應用程式中使用 socket.io。"
+	services="cloud-services"
+	documentationCenter="nodejs"
+	authors="TomArcher"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="02/25/2015" 
-	ms.author="mwasson"/>
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="tarcher"/>
 
 
 
@@ -28,6 +28,14 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
 ![A browser window displaying the service hosted on Azure][completed-app]
 
+## 必要條件
+
+請確定已安裝下列產品及版本，以順利完成本文中的範例：
+
+* 安裝 [Visual Studio 2013](https://www.visualstudio.com/zh-TW/downloads/download-visual-studio-vs.aspx)。
+* 安裝 [Node.js](https://nodejs.org/download/)。
+* 安裝 [Python 版本 2.7.10](https://www.python.org/)。
+
 ## 建立雲端服務專案
 
 下列步驟會建立雲端服務專案來裝載 Socket.IO 應用程式。
@@ -36,11 +44,15 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
 	![Azure PowerShell icon][powershell-menu]
 
-	[AZURE.INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
+2. 建立名為 **c:\\node** 的目錄。
+ 
+		PS C:\> md node
 
+3. 切換至 **c:\\node** 目錄，
+ 
+		PS C:\> cd node
 
-
-2. 切換至 **c:\\node** 目錄，然後輸入下列命令來建立名為 **chatapp** 的新方案和名為 **WorkerRole1** 的背景工作角色：
+4. 然後輸入下列命令來建立名為 **chatapp** 的新方案和名為 **WorkerRole1** 的背景工作角色：
 
 		PS C:\node> New-AzureServiceProject chatapp
 		PS C:\Node> Add-AzureNodeWorkerRole
@@ -69,7 +81,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
 在 Azure 模擬器中測試應用程式之前，我們必須稍做一些修改。請對 server.js 檔案執行下列步驟：
 
-1.  在 [記事本] 或其他文字編輯器中開啟 server.js 檔案。
+1.  在 Visual Studio 或其他文字編輯器中開啟 **server.js** 檔案。
 
 2.  在 server.js 開頭找出 **Module dependencies** 區段，將含有 **sio = require('..//..//lib//socket.io')** 的那一行變更為 **sio = require('socket.io')**，如下所示：
 
@@ -87,7 +99,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 		  console.log('   app listening on http://' + addr.address + ':' + addr.port);
 		});
 
-儲存 server.js 的變更之後，請使用下列步驟來安裝必要的模組，然後在 Azure 模擬器中測試應用程式：
+儲存 **server.js** 的變更之後，請使用下列步驟來安裝必要的模組，然後在 Azure 模擬器中測試應用程式：
 
 1.  使用 **Azure PowerShell**，切換至 **C:\\node\\chatapp\\WorkerRole1** 目錄，再使用下列命令來安裝此應用程式所需的模組：
 
@@ -107,7 +119,9 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
         PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
 
-2.  當瀏覽器視窗開啟時，請輸入暱稱，然後按 Enter 鍵。這樣可讓您以特定的暱稱來張貼訊息。若要測試多使用者功能，請使用相同 URL 開啟其他瀏覽器視窗，並輸入不同的暱稱。
+2.  開啟瀏覽器並巡覽至 ****http://127.0.0.1**。
+
+3.  當瀏覽器視窗開啟時，請輸入暱稱，然後按 Enter 鍵。這樣可讓您以特定的暱稱來張貼訊息。若要測試多使用者功能，請使用相同 URL 開啟其他瀏覽器視窗，並輸入不同的暱稱。
 
     ![兩個瀏覽器視窗顯示 User1 和 User2 的交談訊息](./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png)
 
@@ -158,4 +172,4 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
   
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

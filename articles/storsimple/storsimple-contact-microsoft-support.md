@@ -1,19 +1,19 @@
 <properties 
    pageTitle="連絡 Microsoft 支援服務 | Microsoft Azure"
-   description="了解如何建立支援要求和在 StorSimple 裝置上啟動支援工作階段。"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="了解如何建立支援要求和在 StorSimple 裝置上啟動支援工作階段。"
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # 連絡 Microsoft 支援服務
 
@@ -71,4 +71,4 @@
 
 > [AZURE.IMPORTANT]您可以執行 `Disable-HcsSupportAccess` 停用支援存取。在起始工作階段之後 8 小時，StorSimple 裝置也會嘗試停用支援存取。最好在起始支援工作階段之後變更 StorSimple 裝置認證。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

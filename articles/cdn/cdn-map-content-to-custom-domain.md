@@ -1,19 +1,19 @@
 <properties 
-	 pageTitle="如何將內容傳遞網路 (CDN) 內容對應至自訂網域" 
-	 description="本主題示範如何將 CDN 內容對應至自訂網域。" 
-	 services="cdn" 
-	 documentationCenter="" 
-	 authors="zhangmanling" 
-	 manager="dwrede" 
-	 editor=""/>
+	 pageTitle="如何將內容傳遞網路 (CDN) 內容對應至自訂網域"
+	description="本主題示範如何將 CDN 內容對應至自訂網域。"
+	services="cdn"
+	documentationCenter=""
+	authors="zhangmanling"
+	manager="dwrede"
+	editor=""/>
 <tags 
-	 ms.service="cdn" 
-	 ms.workload="media" 
-	 ms.tgt_pltfrm="na" 
-	 ms.devlang="na" 
-	 ms.topic="article" 
-	 ms.date="07/07/2015" 
-	 ms.author="mazha"/>
+	 ms.service="cdn"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="mazha"/>
 
 #如何將自訂網域對應至內容傳遞網路 (CDN) 端點
 
@@ -90,4 +90,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

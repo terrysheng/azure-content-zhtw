@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="08/29/2015"
 	ms.author="jroth"/>
 
 # Azure 訂閱和服務限制、配額與限制
@@ -24,7 +24,7 @@
 
 > [AZURE.NOTE]如果您想要將限制提升到**預設限制**以上，您可以[免費提出線上客戶支援要求](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。您無法將限制提升到高於下表中所示的**上限**值。如果沒有**上限**欄，指定的資源即沒有可調整的限制。
 
-### 限制和 Azure 資源管理員
+## 限制和 Azure 資源管理員
 
 現在您可以結合多個 Azure 中的資源到單一的 Azure 資源群組。使用資源群組時的限制是，在全域時會使用 Azure 資源管理員在地區層級管理。如需 Azure 資源群組的詳細資訊，請參閱[使用資源群組管理您的 Azure 資源](resource-group-portal.md)。
 
@@ -34,184 +34,211 @@
 <!-- -->
 因此，考慮決定每個區域中您的工作負載所需的 Azure 資源群組配額，並在要考慮部署的每個區域中要求該數量可能會有所幫助。請參閱[移難排解部署問題](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues)，以取得探索您特定區域目前的配額的其他說明。
 
-## 訂閱限制
+- [Active Directory](#active-directory-limits)
+- [API 管理](#api-management-limits)
+- [App Service](#app-service-limits)
+- [Application Insights](#application-insights-limits)
+- [Azure Redis 快取](#azure-redis-cache-limits)
+- [Azure RemoteApp](#azure-remoteapp-limits)
+- [備份](#backup-limits)
+- [批次](#batch-limits)
+- [CDN](#cdn-limits)
+- [雲端服務](#cloud-services-limits)
+- [Data Factory](#data-factory-limits)
+- [DocumentDB](#documentdb-limits)
+- [金鑰保存庫](#key-vault-limits)
+- [媒體服務](#media-services-limits)
+- [Mobile Engagement](#mobile-engagement-limits)
+- [行動服務](#mobile-services-limits)
+- [Multi-Factor Authentication](#multi-factor-authentication)
+- [網路功能](#networking-limits)
+- [通知中樞服務](#notification-hub-service-limits)
+- [Operational Insights](#operational-insights-limits)
+- [資源群組](#resource-group-limits)
+- [排程器](#scheduler-limits)
+- [Search](#search-limits)
+- [服務匯流排 (英文)](#service-bus-limits)
+- [站台復原](#site-recovery-limits)
+- [SQL Database](#sql-database-limits)
+- [儲存體](#storage-limits)
+- [StorSimple 系統](#storsimple-system-limits)
+- [串流分析](#stream-analytics-limits)
+- [訂用帳戶](#subscription-limits)
+- [虛擬機器](#virtual-machines-limits)
 
+
+### 訂閱限制
+#### 訂閱限制
 [AZURE.INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
-### 訂用帳戶限制 - Azure 資源管理員
+#### 訂用帳戶限制 - Azure 資源管理員
 
 使用 Azure 資源管理員和 Azure 資源群組時，適用下列限制。使用 Azure 資源管理員時未變更的限制不會在以下列出。請參閱先前的資料表來瞭解這些限制。
 
 [AZURE.INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
 
-## 資源群組限制
+### 資源群組限制
 
 [AZURE.INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
 
-## 虛擬機器限制
-
+### 虛擬機器限制
+#### 虛擬機器限制
 [AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 
-### 虛擬機器限制 - Azure 資源管理員
+#### 虛擬機器限制 - Azure 資源管理員
 
 使用 Azure 資源管理員和 Azure 資源群組時，適用下列限制。使用 Azure 資源管理員時未變更的限制不會在以下列出。請參閱先前的資料表來瞭解這些限制。
 
 [AZURE.INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
 
-## 網路限制
-
+### 網路限制
+#### 網路限制
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
-### 流量管理員限制
+#### 流量管理員限制
 
 [AZURE.INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
 
-### DNS 限制
+#### DNS 限制
 
 [AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
 
-## 儲存體限制
+### 儲存體限制
 
-### 標準儲存體限制
+#### 標準儲存體限制
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-如需儲存體帳戶限制的其他詳細資訊，請參閱〈[Azure 儲存體延展性和效能目標](../articles/storage/storage-scalability-targets.md)〉。
+如需儲存體帳戶限制的其他詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](../articles/storage/storage-scalability-targets.md)。
 
 
-### 進階儲存體限制
+#### 進階儲存體限制
 
 [AZURE.INCLUDE [azure-storage-limits-premium-storage](../includes/azure-storage-limits-premium-storage.md)]
 
 
-### 存放裝置 - Azure 資源管理員
+#### 存放裝置 - Azure 資源管理員
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
 
-## 雲端服務限制
+### 雲端服務限制
 
 [AZURE.INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 
-## App Service 限制 - Web Apps、Mobile Apps、API Apps、Logic Apps
+### 應用程式服務限制
+下列應用程式服務限制包含 Web 應用程式、行動應用程式、API 應用程式和邏輯應用程式的限制。
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
-## 排程器限制
+### 排程器限制
 
 [AZURE.INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
-## Batch 限制
+### Batch 限制
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
 
-## DocumentDB 限制
+### DocumentDB 限制
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
 
-## Mobile Engagement 限制
+### Mobile Engagement 限制
 
 [AZURE.INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 
-## 搜尋限制
+### 搜尋限制
 
 [AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
 
-如需有關 Azure 搜尋限制的其他詳細資訊，請參閱〈[限制和條件約束](https://msdn.microsoft.com/library/azure/dn798934.aspx)〉。
+如需 Azure 搜尋限制的其他詳細資訊，請參閱[限制和條件約束](https://msdn.microsoft.com/library/azure/dn798934.aspx)。
 
-## SQL Database 限制
-
-[AZURE.INCLUDE [azure-sql-database-limits](../includes/azure-sql-database-limits.md)]
-
-如需有關 SQL Database 限制的其他詳細資訊，請參閱下列主題：
-
- - [Azure SQL Database 服務層 (版本)](http://msdn.microsoft.com/library/azure/dn741340.aspx)
- - [Azure SQL Database 服務層和效能層級](http://msdn.microsoft.com/library/azure/dn741336.aspx)
- - [資料庫輸送量單位 (DTU) 配額](http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs)
- - [SQL Database 資源限制](sql-database/sql-database-resource-limits.md)
-
-## 媒體服務限制
+### 媒體服務限制
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
-## CDN 限制
+### CDN 限制
 
 [AZURE.INCLUDE [cdn-limits](../includes/cdn-limits.md)]
 
-## 行動服務限制
+### 行動服務限制
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-## 通知中樞服務限制
+### 通知中樞服務限制
 
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
 
 
-## 服務匯流排限制
+### 服務匯流排限制
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
-## Data Factory 限制
+### Data Factory 限制
 
 [AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
 
-## 串流分析限制
+### 串流分析限制
 
 [AZURE.INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
 
-## Active Directory 限制
+### Active Directory 限制
 
 [AZURE.INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
 
-## Azure RemoteApp 限制
+### Azure RemoteApp 限制
 
 [AZURE.INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
-## StorSimple 系統限制
+### StorSimple 系統限制
 
 [AZURE.INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
 
-## Operational Insights 限制
+### Operational Insights 限制
 
 [AZURE.INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 
-## 備份限制
+### 備份限制
 
 [AZURE.INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
-## 網站復原限制
+### 網站復原限制
 
 [AZURE.INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
 
-## Application Insights 限制
+### Application Insights 限制
 
 [AZURE.INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
-## API 管理限制
+### API 管理限制
 
 [AZURE.INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
-## Azure Redis 快取限制
+### Azure Redis 快取限制
 
 [AZURE.INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
 
-## 金鑰保存庫限制
+### 金鑰保存庫限制
 
 [AZURE.INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
 
-## Multi-Factor Authentication
+### Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
+
+### SQL Database 限制
+
+SQL Database 限制，請參閱 [SQL Database 資源限制](sql-database/sql-database-resource-limits.md)。
 
 ## 另請參閱
 
@@ -219,4 +246,4 @@
 
 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

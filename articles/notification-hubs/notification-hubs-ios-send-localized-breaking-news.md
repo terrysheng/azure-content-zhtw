@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="iOS 通知中樞已當地語系化的即時新聞教學課程" 
-	description="了解如何使用 Azure 服務匯流排通知中樞傳送本地化重大新聞通知 (iOS)。" 
-	services="notification-hubs" 
-	documentationCenter="ios" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="iOS 通知中樞已當地語系化的即時新聞教學課程"
+	description="了解如何使用 Azure 服務匯流排通知中樞傳送本地化重大新聞通知 (iOS)。"
+	services="notification-hubs"
+	documentationCenter="ios"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 # 使用通知中心將當地語系化的即時新聞傳送至 iOS 裝置
 
@@ -219,6 +219,5 @@
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
 [iOS 的通知中心作法]: http://msdn.microsoft.com/library/jj927168.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

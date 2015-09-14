@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Azure 上採用 Python Tools 2.1 for Visual Studio 的 Django 和 SQL Database" 
-	description="了解如何使用 Python Tools for Visual Studio 建立 Django Web 應用程式，藉此將資料儲存在 SQL Database 執行個體中，並部署到 Azure App Service Web Apps。" 
-	services="app-service\web" 
+	pageTitle="Azure 上使用 Python Tools 2.2 for Visual Studio 的 Django 和 SQL Database"
+	description="了解如何使用 Python Tools for Visual Studio 建立 Django Web 應用程式，藉此將資料儲存在 SQL Database 執行個體中，並部署到 Azure App Service Web Apps。"
+	services="app-service\web"
 	tags="python"
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
 
 
 
-# Azure 上採用 Python Tools 2.1 for Visual Studio 的 Django 和 SQL Database 
+# Azure 上使用 Python Tools 2.2 for Visual Studio 的 Django 和 SQL Database 
 
 在此教學課程中，我們將使用 [Python Tools for Visual Studio]，並使用其中一個 PTVS 範例範本來建立簡單的民調 Web 應用程式。本教學課程也提供[教學影片](https://www.youtube.com/watch?v=ZwcoGcIeHF4)。
 
@@ -30,10 +30,10 @@
 
 ## 必要條件
 
- - Visual Studio 2012 或 2013
- - [Python Tools 2.1 for Visual Studio]
- - [Python Tools 2.1 for Visual Studio 範例 VSIX]
- - [Azure SDK Tools for VS 2013] 或 [Azure SDK Tools for VS 2012]
+ - Visual Studio 2013 或 2015
+ - [Python Tools 2.2 for Visual Studio]
+ - [Python Tools 2.2 for Visual Studio 範例 VSIX]
+ - [Azure SDK Tools for VS 2013] 或 [Azure SDK Tools for VS 2015]
  - [Python 2.7 (32 位元)]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -208,17 +208,16 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 <!--External Link references-->
 [Azure 入口網站]: https://portal.azure.com
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Python Tools 2.1 for Visual Studio 範例 VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Python Tools 2.2 for Visual Studio 範例 VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 (32 位元)]: http://go.microsoft.com/fwlink/?LinkId=517190
-[Python Tools for Visual Studio 說明文件]: http://pytools.codeplex.com/documentation
-[在 Microsoft Azure 上進行遠端偵錯]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
-[Web 專案]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[雲端服務專案]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Python Tools for Visual Studio 說明文件]: http://aka.ms/ptvsdocs
+[在 Microsoft Azure 上進行遠端偵錯]: http://go.microsoft.com/fwlink/?LinkId=624026
+[Web 專案]: http://go.microsoft.com/fwlink/?LinkId=624027
+[雲端服務專案]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Django 說明文件]: https://www.djangoproject.com/
 [SQL Database]: /documentation/services/sql-database/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

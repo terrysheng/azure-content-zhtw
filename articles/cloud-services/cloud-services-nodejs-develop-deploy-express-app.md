@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Web 應用程式與 Express (Node.js) | Microsoft Azure" 
-	description="以雲端服務教學課程為基礎的教學課程，示範如何使用 Express 模組。" 
-	services="cloud-services" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Web 應用程式與 Express (Node.js) | Microsoft Azure"
+	description="以雲端服務教學課程為基礎的教學課程，示範如何使用 Express 模組。"
+	services="cloud-services"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
 
 
@@ -43,9 +43,9 @@ Node.js 包含核心執行時期的一組最低功能。開發人員在開發 No
 
 		PS C:\node> New-AzureServiceProject expressapp
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
-		PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 node 0.10.21
+		PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
 
-	> [AZURE.NOTE]**Add-AzureNodeWebRole** 預設會使用較舊版的 Node.js。上方的 **Set-AzureServiceProjectRole** 陳述式會指示 Azure 使用 0.10.21 版本的節點。
+	> [AZURE.NOTE]**Add-AzureNodeWebRole** 預設會使用較舊版的 Node.js。上方的 **Set-AzureServiceProjectRole** 陳述式會指示 Azure 使用 0.10.21 版本的節點。請注意這些參數會區分大小寫。您可以檢查 **WebRole1\\package.json** 中的 **engines** 屬性，確認已選取正確的 Node.js 版本。
 
 ##安裝 Express
 
@@ -135,4 +135,4 @@ Node.js 包含核心執行時期的一組最低功能。開發人員在開發 No
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 通知中心安全推播" 
-	description="了解如何在 Azure 中傳送安全的推播通知。程式碼範例是以 C# 撰寫並使用 .NET API。" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Azure 通知中心安全推播"
+	description="了解如何在 Azure 中傳送安全的推播通知。程式碼範例是以 C# 撰寫並使用 .NET API。"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="notification-hubs"/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 #Azure 通知中心安全推播
@@ -75,7 +75,7 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 		using Windows.ApplicationModel.Background;
 
 4. 從 Visual Studio 的 [檔案] 功能表中，按一下 [全部儲存]。
-		
+
 ## 建立推播背景元件
 
 下一個步驟說明如何建立推播背景元件。
@@ -96,11 +96,11 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
         		public string Payload { get; set; }
         		public bool Read { get; set; }
     		}
-    
+
 		    public sealed class PushBackgroundTask : IBackgroundTask
     		{
         		private string GET_URL = "{back-end endpoint}/api/notifications/";
-		
+
         		async void IBackgroundTask.Run(IBackgroundTaskInstance taskInstance)
 		        {
         		    // Store the content received from the notification so it can be retrieved from the UI.
@@ -161,7 +161,7 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 	![][3]
 
 13. 仍在 **Package.appxmanifest** 中，按一下頂端附近的 [宣告] 功能表。在 [可用宣告] 下拉式清單中，按一下 [背景工作]，然後按一下 [新增]。
- 
+
 14. 在 **Package.appxmanifest** 中，勾選 [屬性] 下的 [推播通知]。
 
 15. 在 **Package.appxmanifest** 中，在 [應用程式設定] 下的 [輸入點] 欄位中輸入 **PushBackgroundComponent.PushBackgroundTask**。
@@ -185,6 +185,5 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 [3]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

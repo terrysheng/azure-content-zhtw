@@ -1,25 +1,25 @@
 <properties 
-	pageTitle="進階分析程序和技術實務：使用 SQL Server | Microsoft Azure" 
-	description="進階分析程序和技術實務"  
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="進階分析程序和技術實務：使用 SQL Server | Microsoft Azure"
+	description="進階分析程序和技術實務"
+	services="machine-learning"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mohabib;fashah;bradsev"/>
 
                 
 # 進階分析程序和技術實務：使用 SQL Server
 
-在本教學課程中，您將遵循《進階分析程序和技術 (ADAPT)》(Azure Advanced Analytics Process and Technology (ADAPT)) 指南，利用對外公開使用的資料集，以端對端的方式建置和部署模型 (「[NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/)」資料集)。
+在此教學課程，您會跟著逐步解說，使用可公開取得的資料集 ([NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/)資料集) 建置和部署模型。此程序遵循《Azure 進階分析程序和技術 (ADAPT) 指南》。
 
 
 ## <a name="dataset"></a>NYC 計程車車程資料集
@@ -44,7 +44,7 @@
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-聯結 trip\\\_data and trip\\\_fare 的唯一索引鍵是由下列欄位組成：medallion、hack\\\_licence 和 pickup\\\_datetime。
+聯結 trip\\_data and trip\\_fare 的唯一索引鍵是由下列欄位組成：medallion、hack\\_licence 和 pickup\\_datetime。
 
 ## <a name="mltasks"></a>預測工作的範例
 
@@ -113,7 +113,7 @@
 
 	![SSMS 連線][12]
 
-3. 如果您尚未變更 SQL Server 驗證模式，且尚未建立新的 SQL 登入使用者，請開啟 [**指令碼範例**] 資料夾中名為 **change\\\_auth.sql** 的指令碼檔案。變更預設的使用者名稱和密碼。按一下工具列中的 [**!執行**] 執行指令碼。
+3. 如果您尚未變更 SQL Server 驗證模式，且尚未建立新的 SQL 登入使用者，請開啟 [**指令碼範例**] 資料夾中名為 **change\\_auth.sql** 的指令碼檔案。變更預設的使用者名稱和密碼。按一下工具列中的 [**!執行**] 執行指令碼。
 
 	![執行指令碼][13]
 
@@ -715,4 +715,4 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。特
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

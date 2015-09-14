@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="使用 StorSimple Manager 服務儀表板 | Microsoft Azure"
-   description="描述服務儀表板，並說明如何使用它來監視您的 StorSimple 解決方案的健全狀況。"
-   services="storsimple"
-   documentationCenter=""
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+   pageTitle="StorSimple Manager 服務儀表板 | Microsoft Azure"
+	description="描述 StorSimple Manager 服務儀表板，以及如何使用它來監視 StorSimple 解決方案的健全狀況。"
+	services="storsimple"
+	documentationCenter=""
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/17/2015"
-   ms.author="v-sharos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/02/2015"
+	ms.author="v-sharos"/>
 
 # 使用 StorSimple Manager 服務儀表板
 
@@ -76,4 +76,4 @@ StorSimple Manager 服務儀表板會顯示下列資訊：
 
 [了解如何進行 StorSimple 裝置的疑難排解](storsimple-troubleshoot-operational-device.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

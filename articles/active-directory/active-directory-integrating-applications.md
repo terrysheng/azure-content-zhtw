@@ -1,19 +1,19 @@
 <properties
    pageTitle="整合應用程式與 Azure Active Directory | Microsoft Azure"
-   description="如何在 Azure Active Directory (Azure AD) 中新增、更新或移除應用程式的詳細資料。"
-   services="active-directory"
-   documentationCenter=""
-   authors="msmbaldwin"
-   manager="mbaldwin"
-   editor="mbaldwin" />
+	description="如何在 Azure Active Directory (Azure AD) 中新增、更新或移除應用程式的詳細資料。"
+	services="active-directory"
+	documentationCenter=""
+	authors="msmbaldwin"
+	manager="mbaldwin"
+	editor="mbaldwin"/>
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="08/11/2015"
-   ms.author="mbaldwin" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/25/2015"
+	ms.author="mbaldwin"/>
 
 # 整合應用程式與 Azure Active Directory
 企業開發人員和軟體即服務 (SaaS) 提供者可以開發可與 Azure Active Directory (Azure AD) 整合的商業雲端服務或企業營運應用程式，以提供安全的登入和授權給其服務。若要整合應用程式或服務與 Azure AD，開發人員必須先使用 Azure 管理入口網站，向 Azure AD 註冊他們的應用程式相關詳細資料。
@@ -60,6 +60,8 @@ Azure AD 的新同意架構可讓您更輕鬆地開發需要存取由 Azure AD �
 
 如需同意架構的詳細資訊，請參閱 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)、[Azure AD 的驗證案例](active-directory-authentication-scenarios.md)和 Office 365 主題 [使用一般同意架構的驗證和授權] (https://msdn.microsoft.com/library/office/dn605895(v=office.15).aspx)。
 
+#### 同意體驗的範例
+
 下列步驟將示範如何將同意體驗用於應用程式開發人員和使用者。
 
 1. 在 Azure 管理入口網站的應用程式組態頁面上，使用權限中的下拉式功能表，將您的應用程式所需的權限設定為其他應用程式的控制項。
@@ -86,6 +88,8 @@ Azure AD 的新同意架構可讓您更輕鬆地開發需要存取由 Azure AD �
 
 - 委派權限：您的應用程式需要存取 web API 做為已登入的使用者，但其存取權受到選取權限的限制。這種類型的權限可由使用者授與，除非權限設定為需要系統管理員的同意。
 
+#### 在其他應用程式中新增 Web API 的存取
+
 1. 登入 Azure 管理入口網站。
 
 1. 按一下左側功能表中的 Active Directory 圖示，然後按一下想要的目錄。
@@ -103,6 +107,8 @@ Azure AD 的新同意架構可讓您更輕鬆地開發需要存取由 Azure AD �
 ### 向其他應用程式公開 Web API
 
 您可以開發 web API，並藉由公開權限範圍給其他應用程式開發人員，使其可供其他組織使用。正確設定的 web API 即可供使用，就像其他 Microsoft web API 一樣，包括 圖形 API 和 Office 365 API。藉由設定應用程式資訊清單 (此為代表您應用程式身分識別組態的 JSON 檔案)，即可使用您的 web API。您可以藉由瀏覽到您在 Azure 管理入口網站中的應用程式，並按一下命令列上的 [應用程式資訊清單] 按鈕，即可公開權限範圍。
+
+#### 向其他應用程式公開 web API
 
 1. 登入 Azure 管理入口網站。
 
@@ -134,11 +140,15 @@ Azure AD 的新同意架構可讓您更輕鬆地開發需要存取由 Azure AD �
 
 1. 儲存更新的 JSON 檔案並將其上傳，方法是按一下命令列中的 [管理資訊清單] 按鈕、選取 [上傳資訊清單]、瀏覽至您的已更新資訊清單檔，然後選取它。上傳之後，您的 web API 現在已設定為可供目錄中的其他應用程式使用。
 
+#### 確認已向目錄中的其他應用程式公開 web API
+
 1. 在頂端功能表上，按一下 [應用程式]、選取您想要設定 web API 存取權所需的應用程式，然後按一下 [設定]。
 
 1. 向下捲動至 [其他應用程式] 區段的 [權限]。按一下 [選取應用程式] 下拉式功能表，您就可以選取您只想對其公開權限的 web API。從 [委派權限] 下拉式功能表，選取新的權限。
 
 ![顯示待辦事項清單權限](./media/active-directory-integrating-applications/listpermissions.png)
+
+#### 應用程式資訊清單 JSON 檔案的 AppPermissions 結構描述
 
 下表列出應用程式資訊清單 JSON 檔案中 oauth2Permissions 部分的可能值。
 
@@ -175,9 +185,13 @@ Azure AD 的新同意架構可讓您更輕鬆地開發需要存取由 Azure AD �
 
 請務必注意單一租用戶與多租用戶應用程式之間的差異。單一租用戶應用程式適合在一個組織中使用。它們通常是由企業開發人員撰寫的企業營運 (LoB) 應用程式。單一租用戶應用程式只需要由一個目錄中的使用者存取，因此，它只需要佈建在一個目錄中。多租用戶應用程式適合在許多組織中使用。它們通常是由獨立軟體廠商 (ISV) 撰寫的軟體即服務 (SaaS) 應用程式。多租用戶應用程式需要佈建在將會用到它們的每個目錄中，而這需要使用者或系統管理員同意才能註冊。
 
+#### 讓外部使用者授與存取權
+
 如果您正在撰寫您想要提供給組織外的客戶或合作夥伴使用的應用程式，您必須在 Azure 管理入口網站中更新應用程式定義。
 
 >[AZURE.NOTE]啟用外部存取時，您必須確定應用程式的應用程式識別碼 URI 屬於已驗證的網域。此外，傳回 URL 必須以 https:// 開頭。如需詳細資訊，請參閱[應用程式物件和服務主體物件](active-directory-application-objects.md)。
+
+##### 讓外部使用者存取您的應用程式
 
 1. 登入 Azure 管理入口網站。
 
@@ -199,6 +213,22 @@ Web 應用程式可提供使用者的註冊體驗。如果您已提供註冊體�
 
 或者，您的 web 應用程式可能還會提供可允許系統管理員「註冊我的公司」的體驗。這種體驗也會將使用者重新導向至 Azure AD OAuth 2.0 授權端點。在此情況下，您也可以傳遞 prompt=admin\_consent 參數來觸發系統管理員同意體驗，系統管理員會在其中代表其組織授與同意。成功同意時，回應將包含 admin\_consent=true。兌換存取權杖時，您也將獲得提供組織資訊的 id\_token，以及會註冊您的應用程式的系統管理員。
 
+#### 啟用單一頁面應用程式的 OAuth 2.0 隱含授權。
+
+單一頁面應用程式 (SPA) 通常會利用執行於瀏覽器中的 JavaScript-heavy 前端進行結構化，此前端會呼叫應用程式的 web API 後端以執行其商務邏輯。針對裝載於 Azure AD 中的 SPA，您會使用 OAuth 2.0 隱含授權驗證具備 Azure AD 的使用者，並取得您可以使用的權杖以保護從應用程式的 JavaScript 用戶端到其後端 web API 的呼叫。使用者授與同意權之後，這個相同的驗證通訊協定可用來取得權杖以保護用戶端和其他為應用程式設定之 web API 資源之間的呼叫。根據預設，應用程式的 OAuth 2.0 隱含授權會停用。您也可以設定應用程式資訊清單中的 `oauth2AllowImplicitFlow`”` 值以啟用應用程式的 OAuth 2.0 隱含授權，此值為表示應用程式身分識別組態的 JSON 檔案。
+
+##### 啟用 OAuth 2.0 隱含授權
+
+1. 登入 Azure 管理入口網站。
+1. 按一下左側功能表中的 **Active Directory** 圖示，然後按一下想要的目錄。
+1. 在頂端功能表上，按一下 [應用程式]，然後按一下您想要設定的應用程式。單一登入及其他組態資訊都會顯示 [快速啟動] 頁面。
+1. 按一下命令列中的 [管理資訊清單] 按鈕並選取 [下載資訊清單]。開啟 JSON 應用程式資訊清單檔案並將 "oauth2AllowImplicitFlow" 值設為 “true”。根據預設，它是 “false”。
+
+       "oauth2AllowImplicitFlow"：true，
+
+1. 儲存更新的 JSON 檔案並將其上傳，方法是按一下命令列中的 [管理資訊清單] 按鈕、選取 [上傳資訊清單]、瀏覽至您的已更新資訊清單檔，然後選取它。上傳之後，您的 web API 現在已設定為使用 OAuth 2.0 隱含授權來驗證使用者。
+
+
 ### 授與存取權的舊版體驗
 
 本節描述 2014 年 3 月 12 日之前的舊版同意體驗。這種體驗仍受支援且如下所述。在使用新功能之前，您只能授與下列權限：
@@ -211,11 +241,13 @@ Web 應用程式可提供使用者的註冊體驗。如果您已提供註冊體�
 
 您可以遵循[利用 Azure AD 開發多租用戶 Web 應用程式](https://msdn.microsoft.com/library/azure/dn151789.aspx)中的步驟，授與在 Azure AD 中註冊之新應用程式的存取權。請務必注意，新的同意架構可允許更強大的應用程式，也可讓使用者 (而不只是系統管理員) 同意這些應用程式。
 
+#### 建置授與存取權給外部使用者的連結 (舊版)
+
 為了讓外部使用者使用其組織帳戶註冊您的應用程式，您必須更新您的應用程式，在 Azure AD 上顯示連結至頁面的按鈕，讓他們可以授與存取權。這個註冊按鈕的商標指導方針將於[整合應用程式的商標指導方針](active-directory-branding-guidelines.md)主題中討論。使用者授與或拒絕存取權之後，Azure AD 授與存取頁面會利用回應將瀏覽器重新導向回您的應用程式。如需應用程式屬性的詳細資訊，請參閱[應用程式物件與服務原則](active-directory-application-objects.md)。
 
 授與存取頁面由 Azure AD 建立，您可以在管理入口網站的應用程式 [組態] 頁面中找到連結。若要移至 [組態] 頁面，請按一下 Azure AD 租用戶頂端功能表中的應用程式連結、按一下您想要設定的應用程式，然後從 [快速啟動] 頁面的頂端功能表按一下 [設定]。
 
-您的應用程式連結看起來像這樣：`http://account.activedirectory.windowsazure.com/Consent.aspx?ClientID=058eb9b2-4f49-4850-9b78-469e3176e247&RequestedPermissions=DirectoryReaders&ConsentReturnURL= https%3A%2F%2Fadatum.com%2FExpenseReport.aspx%3FContextId%3D123456`。下表描述部分的連結：
+您的應用程式連結看起來像這樣：`http://account.activedirectory.windowsazure.com/Consent.aspx?ClientID=058eb9b2-4f49-4850-9b78-469e3176e247&RequestedPermissions=DirectoryReaders&ConsentReturnURL=https%3A%2F%2Fadatum.com%2FExpenseReport.aspx%3FContextId%3D123456`。下表描述部分的連結：
 
 |參數|說明|
 |---|---|
@@ -224,6 +256,8 @@ Web 應用程式可提供使用者的註冊體驗。如果您已提供註冊體�
 |ConsentReturnUrl|選用。您希望傳回授與存取回應的目標 URL。此值必須以 URL 編碼，且必須和設定於應用程式定義中的回覆 URL 在相同的網域下。如果未提供，授與存取回應將重新導向至已設定的回覆 URL。|
 
 指定 ConsentReturnUrl 和回覆 URL 彼此獨立可讓您的應用程式實作獨立的邏輯，以處理和回覆 URL 不同之 URL 上的回應 (通常會處理登入的 SAML 權杖)。您也可以在 ConsentReturnURL 編碼的 URL 中指定其他參數。這些參數會在重新導向時，以查詢字串參數的形式傳回至應用程式。此機制可用來維護其他資訊，或將存取權授與的應用程式要求繫結至來自 Azure AD 的回應。
+
+#### 授與存取權使用者經驗和回應 (舊版)
 
 當應用程式重新導向至授與存取連結時，下列映像會顯示使用者會體驗的內容。
 
@@ -250,6 +284,8 @@ Web 應用程式可提供使用者的註冊體驗。如果您已提供註冊體�
 
 以下是存取授與要求遭到拒絕的範例回應：`https://adatum.com/ExpenseReport.aspx?ContextID=123456&Consent=Denied`
 
+#### 不中斷地存取圖形 API 的輪流應用程式金鑰 (舊版)
+
 在您的應用程式存留期間，您可能需要在呼叫 Azure AD 取得存取權杖以呼叫圖形 API 時變更您所使用的金鑰。經常變更的金鑰分成兩類：當您的金鑰遭到入侵時的緊急變換，或是目前的金鑰即將到期的變更。請遵循下列程序，在您重新整理金鑰時提供不中斷的存取權 (主要針對第二個案例)。
 
 1. 在 Azure 管理入口網站中，按一下目錄租用戶、按一下頂端功能表的 [應用程式]，然後按一下您想要設定的應用程式。單一登入及其他組態資訊都會顯示 [快速啟動] 頁面。
@@ -263,6 +299,8 @@ Web 應用程式可提供使用者的註冊體驗。如果您已提供註冊體�
 1. 您現在應該在整個生產環境啟用此變更 – 在其他所有服務節點上啟用此變更之前，先在一個服務節點上加以驗證。
 
 1. 一旦在整個生產部署完成此更新之後，您就可以自由回到 Azure 管理入口網站並移除舊的金鑰。
+
+#### 啟用存取之後變更應用程式屬性 (舊版)
 
 一旦您讓外部使用者存取您的應用程式，您可能還是會繼續在 Azure 管理入口網站中變更您的應用程式屬性。不過，在您變更應用程式前授與您的應用程式存取權的客戶，在 Azure 管理入口網站中檢視您的應用程式相關詳細資料時，將不會看到那些變更。一旦應用程式可供客戶使用之後，您在進行某些變更時必須要非常小心。例如，如果您更新應用程式識別碼 URI，在此變更之前授與存取權的現有客戶將無法使用其公司或學校帳戶登入您的應用程式。
 
@@ -308,4 +346,4 @@ Web 應用程式可提供使用者的註冊體驗。如果您已提供註冊體�
 
 - 請瀏覽 [Active Directory 開發人員指南] (active-directory-developer's guide.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

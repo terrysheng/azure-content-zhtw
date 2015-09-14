@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="媒體服務延伸模組中的 CDN 快取原則" 
-	description="本主題提供媒體服務延伸模組中的 CDM 快取原則的概觀。" 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="媒體服務延伸模組中的 CDN 快取原則"
+	description="本主題提供媒體服務延伸模組中的 CDM 快取原則的概觀。"
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="juliako"/>
 
 #媒體服務延伸模組中的 CDN 快取原則
@@ -43,4 +43,4 @@ Azure 媒體服務為資料流端點提供 [整合式 CDN](http://azure.microsof
 3. 根據預設，2 秒快取標頭會套用至即時資料流資訊清單 (播放清單)，無論 Azure 媒體或 Azure 儲存體組態為何，且此值無法被覆寫。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

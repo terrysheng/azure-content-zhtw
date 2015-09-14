@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
-	editor="cgronlun"  />
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="mohabib;xibingao;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="mohabib;xibingao;bradsev"/>
 
 # 將 Azure 虛擬機器設定為 IPython Notebook 伺服器供進階分析使用
 
@@ -143,4 +143,4 @@ Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

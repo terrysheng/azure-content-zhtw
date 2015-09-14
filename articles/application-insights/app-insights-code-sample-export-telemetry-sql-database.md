@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="程式碼範例：使用背景工作角色從 Application Insignts 匯出至 SQL" 
-	description="使用連續匯出功能，在 Application Insights 中自行撰寫遙測資料分析的程式碼。" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="mazharmicrosoft" 
+	pageTitle="程式碼範例：使用背景工作角色從 Application Insignts 匯出至 SQL"
+	description="使用連續匯出功能，在 Application Insights 中自行撰寫遙測資料分析的程式碼。"
+	services="application-insights"
+	documentationCenter=""
+	authors="mazharmicrosoft"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="awills"/>
  
 # 程式碼範例：使用背景工作角色從 Application Insignts 匯出至 SQL
@@ -79,14 +79,17 @@
 
     ![選擇事件類型](./media/app-insights-code-sample-export-telemetry-sql-database/085-types.png)
 
-現在請休息一下，讓其他人使用您的應用程式一段時間。遙測資料會送過來，而您會在[計量瀏覽器][metrics]中看到統計圖表，並在[診斷搜尋][diagnostic]中看到個別事件。
+3. 可讓一些資料累積。請休息一下，讓其他人使用您的應用程式一段時間。遙測資料會送過來，而您會在[計量瀏覽器](app-insights-metrics-explorer.md)中看到統計圖表，並在[診斷搜尋](app-insights-diagnostic-search.md)中看到個別事件。
 
-此外，資料會匯出至儲存體，您可以在其中檢查內容。例如，在 Visual Studio 中的儲存體瀏覽器：
+    此外，資料會匯出至您的儲存體。
 
+4. 檢查匯出的資料。在 Visual Studio 中選擇 [檢視] / [Cloud Explorer]，然後開啟 [Azure] / [儲存體]。(如果您沒有此功能表選項，您需要安裝 Azure SDK：開啟 [新增專案] 對話方塊，然後開啟 [Visual C#] / [Cloud] / [取得 Microsoft Azure SDK for .NET]。)
 
-![在 Visual Studio 中，依序開啟 [Server Browser]、[Azure]、[儲存體]](./media/app-insights-code-sample-export-telemetry-sql-database/087-explorer.png)
+    ![在 Visual Studio 中，依序開啟 [Server Browser]、[Azure]、[儲存體]](./media/app-insights-code-sample-export-telemetry-sql-database/087-explorer.png)
 
-事件會以 JSON 格式寫入至 Blob 檔案。每個檔案可能會包含一或多個事件。因此我們想要撰寫程式碼來讀取事件資料，並篩選出需要的欄位。我們可以利用資料執行各種作業，但我們現在打算撰寫一些程式碼，將資料移至 SQL Database。這麼做可讓您輕鬆執行許多有趣的查詢工作。
+    記下衍生自應用程式名稱和檢測金鑰之路徑名稱的共同部分。
+
+事件會以 JSON 格式寫入至 Blob 檔案。每個檔案可能會包含一或多個事件。因此我們想要讀取事件資料，並篩選出需要的欄位。我們可以利用資料執行各種作業，但我們現在打算撰寫一些程式碼，將資料移至 SQL Database。這麼做可讓您輕鬆執行許多有趣的查詢工作。
 
 ## 建立 Azure SQL Database
 
@@ -112,9 +115,9 @@
 
 在 Visual Studio 中，建立新的背景工作角色專案：
 
-![[新增專案]、[Visual C\#]、[雲端]、[Azure 雲端服務]](./media/app-insights-code-sample-export-telemetry-sql-database/110-cloud.png)
+![[新增專案]、[Visual C#]、[雲端]、[Azure 雲端服務]](./media/app-insights-code-sample-export-telemetry-sql-database/110-cloud.png)
 
-![在新的 [雲端服務] 對話方塊中，依序選擇 [Visual C\#]、[背景工作角色]](./media/app-insights-code-sample-export-telemetry-sql-database/120-worker.png)
+![在新的 [雲端服務] 對話方塊中，依序選擇 [Visual C#]、[背景工作角色]](./media/app-insights-code-sample-export-telemetry-sql-database/120-worker.png)
 
 
 #### 連接到儲存體帳戶
@@ -134,11 +137,11 @@
 在 [方案總管] 中，以滑鼠右鍵按一下您的背景工作角色專案並選擇 [管理 NuGet 封裝]。搜尋並安裝這些封裝：
 
  * EntityFramework 6.1.2 或更新版本 - 根據 Blob 中的 JSON 內容，我們將使用此封裝即時產生資料庫的資料表結構描述。
- * JsonFx - 我們將使用此封裝來簡維 C#類別屬性的 JSON。
+ * JsonFx - 我們將使用此封裝來簡維 C# 類別屬性的 JSON。
 
-使用此工具從單一 JSON 文件中產生 C#類別。此外，還需要一些微幅變更，例如在資料庫資料表 (例如 urlData\_port) 中將 JSON 陣列簡維成單一 C#屬性，再簡維成單一資料行
+使用此工具從單一 JSON 文件中產生 C# 類別。此外，還需要一些微幅變更，例如在資料庫資料表 (例如 urlData\_port) 中將 JSON 陣列簡維成單一 C# 屬性，再簡維成單一資料行
 
- * [JSON C#類別產生器](http://jsonclassgenerator.codeplex.com/)
+ * [JSON C# 類別產生器](http://jsonclassgenerator.codeplex.com/)
 
 ## 代碼 
 
@@ -319,7 +322,7 @@
     	    }
         }
 
-#### 將 JSON 文件轉換成 C#類別遙測物件屬性
+#### 將 JSON 文件轉換成 C# 類別遙測物件屬性
 
      public object GetObject(IDictionary<string, object> d)
         {
@@ -536,4 +539,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

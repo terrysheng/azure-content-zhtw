@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/14/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # 在 Azure 中設定 AlwaysOn 可用性群組 (PowerShell)
 
@@ -528,7 +528,7 @@ Azure 虛擬機器 (VM) 可協助資料庫管理員以較低的成本實作高�
 		$svc2.Start(); 
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
-1. 從 [在 Azure VM 中建立 AlwaysOn 可用性群組的 WSFC 叢集](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)將 **CreateAzureFailoverCluster.ps1** 下載至本機工作目錄。此指令碼將可協助您建立功能 WSFC 叢集。如需有關 WSFC 與 Azure 網路的互動方式的重要資訊，請參閱 [Azure 虛擬機器中的 SQL Server 高可用性和災害復原](https://msdn.microsoft.com/zh-tw/library/azure/jj870962.aspx)。
+1. 從 [在 Azure VM 中建立 AlwaysOn 可用性群組的 WSFC 叢集](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)將 **CreateAzureFailoverCluster.ps1** 下載至本機工作目錄。此指令碼將可協助您建立功能 WSFC 叢集。如需有關 WSFC 如何與 Azure 網路互動的重要資訊，請參閱 [Azure 虛擬機器中的 SQL Server 高可用性和災害復原](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)。
 
 1. 變更您的工作目錄，並透過下載的指令碼建立 WSFC 叢集。
 
@@ -623,4 +623,4 @@ Azure 虛擬機器 (VM) 可協助資料庫管理員以較低的成本實作高�
 
 如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

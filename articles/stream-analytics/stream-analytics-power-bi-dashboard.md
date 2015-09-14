@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="串流分析上的 Power BI 儀表板 | Microsoft Azure" 
-	description="使用即時串流 Power BI 儀表板來收集商業智慧及分析來自串流分析工作的大量資料。" 	
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
+	pageTitle="串流分析上的 Power BI 儀表板 | Microsoft Azure"
+	description="使用即時串流 Power BI 儀表板來收集商業智慧及分析來自串流分析工作的大量資料。"
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="08/03/2015" 
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="08/27/2015"
 	ms.author="jeffstok"/>
 	
 # Azure 串流分析與 Power BI：用於串流資料即時分析的即時儀表板
@@ -185,17 +185,25 @@ Power BI 同時採用並行處理和輸送量的條件約束，如下所述：[h
     	TUMBLINGWINDOW(ss,4),
     	dspl
 
+## 更新授權
 
+有一個暫時性的限制，即每隔 90 天必須針對 Power BI 輸出的所有工作，以手動方式重新整理驗證 Token。如果您在建立工作之後或上次驗證過後變更了密碼，您也必須重新驗證您的 Power BI 帳戶。此問題發生時的徵兆就是沒有工作輸出，且作業記錄檔中出現「驗證使用者錯誤」：
+
+![graphic12][graphic12]
+
+若要解決這個問題，請停止執行工作並移至 Power BI 輸出。按一下 [更新授權] 連結，並從 [上次停止時間] 重新啟動您的工作以避免資料遺失。
+
+![graphic13][graphic13]
 
 ## 取得說明 ##
-如需進一步的協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟 ##
 
-- [Azure 串流分析介紹](stream-analytics-introduction.md)
-- [開始使用 Azure 串流分析](stream-analytics-get-started.md)
-- [調整 Azure 串流分析工作](stream-analytics-scale-jobs.md)
-- [Azure 串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
+- [開始使用 Azure Stream Analytics](stream-analytics-get-started.md)
+- [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
@@ -210,5 +218,7 @@ Power BI 同時採用並行處理和輸送量的條件約束，如下所述：[h
 [graphic9]: ./media/stream-analytics-power-bi-dashboard/9-stream-analytics-power-bi-dashboard.png
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
 [graphic11]: ./media/stream-analytics-power-bi-dashboard/11-stream-analytics-power-bi-dashboard.png
+[graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
+[graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

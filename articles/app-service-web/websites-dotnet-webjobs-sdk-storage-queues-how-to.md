@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何透過 WebJobs SDK 使用 Azure 佇列儲存體" 
-	description="了解如何透過 WebJobs SDK 使用 Azure 佇列儲存體。建立和刪除查詢、插入、查看、取得和刪除佇列訊息等。" 
-	services="app-service\web, storage" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="如何透過 WebJobs SDK 使用 Azure 佇列儲存體"
+	description="了解如何透過 WebJobs SDK 使用 Azure 佇列儲存體。建立和刪除查詢、插入、查看、取得和刪除佇列訊息等。"
+	services="app-service\web, storage"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/29/2015"
 	ms.author="tdykstra"/>
 
 # 如何透過 WebJobs SDK 使用 Azure 佇列儲存體
@@ -538,7 +538,12 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次嘗試�
 
 只有當程式是以 Azure WebJob 執行時，主控台輸出才會顯示在儀表板，而不是在本機或在某些其他環境中執行時。
 
-您可以[將儀表板連接字串設定為 null](#config) 來停用記錄。
+停用針對高輸送量的儀表板記錄。根據預設，SDK 會將記錄寫入儲存體，而且在處理許多訊息時，這項活動可能會降低效能。若要停用記錄，請將儀表板連接字串設定為 null，如下列範例所示。
+
+		JobHostConfiguration config = new JobHostConfiguration();       
+		config.DashboardConnectionString = “”;        
+		JobHost host = new JobHost(config);
+		host.RunAndBlock();
 
 下列範例示範寫入記錄檔的數種方式：
 
@@ -581,4 +586,4 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次嘗試�
 本指南提供的程式碼範例示範如何處理使用 Azure 佇列的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

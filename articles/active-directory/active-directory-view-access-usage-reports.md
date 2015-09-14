@@ -39,8 +39,8 @@
 |	------												|	-----																						|
 |	**異常活動報告**
 |	[從不明來源登入](active-directory-reporting-sign-ins-from-unknown-sources.md) |	可能表示使用者嘗試在不被追蹤的情況下登入。 |
-|	[在多次失敗後登入](active-directory-sign-ins-after-multiple-failures.md) |	可能表示暴力密碼破解攻擊成功。 |
-|	[從多個地理區域登入](active-directory-sign-ins-from-multiple-geographies.md) |	可能表示多個使用者登入相同帳戶。 |
+|	[在多次失敗後登入](active-directory-reporting-sign-ins-after-multiple-failures.md) |	可能表示暴力密碼破解攻擊成功。 |
+|	[從多個地理區域登入](active-directory-reporting-sign-ins-from-multiple-geographies.md) |	可能表示多個使用者登入相同帳戶。 |
 |	[從具有可疑活動的 IP 位址登入](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md) |	可能表示使用者嘗試多次入侵後成功登入。 |
 |	[從可能受感染的裝置登入](active-directory-reporting-sign-ins-from-possibly-infected-devices.md) |	可能表示使用者嘗試用於登入的裝置可能已受到感染。 |
 |	[異常的登入活動](active-directory-reporting-irregular-sign-in-activity.md) |	可能表示違背使用者平常登入習慣的事件。 |
@@ -76,7 +76,7 @@
 |	具有異常登入活動的使用者 | | |	✓ |
 |	認證外洩的使用者 | | |	✓ |
 |	**活動記錄檔**
-|	稽核報告 | | |	✓ |
+|	稽核報告 |	✓ | | |
 |	密碼重設活動 | | |	✓ |
 |	密碼重設註冊活動 | | |	✓ |
 |	自助服務群組活動 | | |	✓ |
@@ -100,7 +100,9 @@
 
 
 ## 異常活動報告
-異常登入活動報告包含 Azure 管理入口網站、Azure AD 存取面板、Office365、Sharepoint Online、Dynamics CRM Online 和其他 Microsoft 線上服務 (無論是否為同盟提供者) 的可疑登入活動。<p>提供下列報告：</p><ul><li>[從不明來源登入](active-directory-reporting-sign-ins-from-unknown-sources.md)。</li> <li>[在多次失敗後登入](active-directory-reporting-sign-ins-after-multiple-failures.md)。</li> <li>[從多個地理區域登入](active-directory-reporting-sign-ins-from-multiple-geographies.md)。</li> <li>[從具有可疑活動的 IP 位址登入](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)。</li> <li>[異常的登入活動](active-directory-reporting-irregular-sign-in-activity.md)。</li> <li>[從可能受感染的裝置登入](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)。</li> <li>[具有異常登入活動的使用者](active-directory-reporting-users-with-anomalous-sign-in-activity.md)。</li> <li>認證外洩的使用者</li></ul>
+<p>異常登入活動報告會將 Office365、Azure 管理入口網站、Azure AD 存取面板、Sharepoint Online、Dynamics CRM Online 和其他 Microsoft Online Services 的可疑登入活動加上旗標。</p>
+<p>所有這些報告，除了「多項失敗後的登入」報告，也會將上述服務的可疑<i>同盟</i>登入加上旗標，無論同盟提供者是誰。</p>
+<p>提供下列報告：</p><ul><li>[從不明來源登入](active-directory-reporting-sign-ins-from-unknown-sources.md)。</li> <li>[在多次失敗後登入](active-directory-reporting-sign-ins-after-multiple-failures.md)。</li> <li>[從多個地理區域登入](active-directory-reporting-sign-ins-from-multiple-geographies.md)。</li> <li>[從具有可疑活動的 IP 位址登入](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)。</li> <li>[異常的登入活動](active-directory-reporting-irregular-sign-in-activity.md)。</li> <li>[從可能受感染的裝置登入](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)。</li> <li>[具有異常登入活動的使用者](active-directory-reporting-users-with-anomalous-sign-in-activity.md)。</li> <li>認證外洩的使用者</li></ul>
 
 
 
@@ -267,11 +269,11 @@
 
 ## 自動電子郵件通知
 
-如需有關 Azure AD 的報告通知的詳細資訊，請參閱 [Azure Active Directory 報告通知](active-directory-reporting-notifications.md)。
+如需 Azure AD 的報告通知的詳細資訊，請參閱 [Azure Active Directory 報告通知](active-directory-reporting-notifications.md)。
 
 ## 後續步驟
 
 - [開始使用 Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

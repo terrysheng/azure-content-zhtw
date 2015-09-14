@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="設定裝置的 Web Proxy | Microsoft Azure"
-   description="了解如何使用 Windows PowerShell for StorSimple 來設定 StorSimple 裝置的 Web Proxy"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="設定 StorSimple 裝置的 Web Proxy | Microsoft Azure"
+	description="了解如何使用 Windows PowerShell for StorSimple 來設定 StorSimple 裝置的 Web Proxy。"
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/29/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
-# 設定裝置的 Web Proxy
+# 為 StorSimple 裝置設定 Web Proxy
 
 ## 概觀
 
-本教學課程說明如何使用 Windows PowerShell for StorSimple 來設定和檢視 StorSimple 裝置的 Web Proxy 設定。Web Proxy 設定供 StorSimple 裝置與雲端通訊時使用。Web Proxy 伺服器用來多增加一層安全性、篩選內容、快取以緩解頻寬需求，甚至是協助分析。
+本教學課程描述如何使用 Windows PowerShell for StorSimple 來設定和檢視 StorSimple 裝置的 Web Proxy 設定。Web Proxy 設定供 StorSimple 裝置與雲端通訊時使用。Web Proxy 伺服器用來多增加一層安全性、篩選內容、快取以緩解頻寬需求，甚至是協助分析。
 
 Web Proxy 是 StorSimple 裝置的選用設定。您只能透過 Windows PowerShell for StorSimple 來設定 Web Proxy。設定分成兩步驟，如下所示：
 
@@ -148,4 +148,4 @@ Web Proxy 設定已透過 Windows PowerShell 介面設定，無法從管理入�
 ## 後續步驟
 如果您在部署裝置或設定 Web Proxy 設定時遇到任何問題，請參閱 [StorSimple 裝置部署疑難排解](storsimple-troubleshoot-deployment.md)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

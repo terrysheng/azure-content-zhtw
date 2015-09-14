@@ -70,11 +70,9 @@ StorSimple 虛擬裝置 (也稱為 StorSimple 虛擬應用裝置) 會在 Azure �
 
 ### 自動儲存體分層
 
-Microsoft Azure StorSimple 會依據目前使用量、使用年限及與其他資料的關聯性，自動排列邏輯層中的資料。最常使用的資料會儲存在本機，而不常使用和非使用中資料會自動移轉至雲端。圖 1 說明此儲存方法。
+Microsoft Azure StorSimple 會依據目前使用量、使用年限及與其他資料的關聯性，自動排列邏輯層中的資料。最常使用的資料會儲存在本機，而不常使用和非使用中資料會自動移轉至雲端。下圖說明此儲存方法。
  
 ![StorSimple 儲存層](./media/storsimple-components/hcs-data-services-storsimple-components-tiers.png)
-
-**圖 1：StorSimple 儲存體**
 
 若要提供快速存取，StorSimple 會將經常使用的資料 (熱資料) 儲存在 StorSimple 裝置的 SSD 上。它會將偶爾使用的資料 (暖資料) 儲存在裝置的 HDD 上或儲存在資料中心的伺服器上。它會將非使用中的資料、備份資料，以及為封存或遵循法規而保留的資料移動至雲端。
 
@@ -170,7 +168,7 @@ Microsoft Azure StorSimple 包括 StorSimple Adapter for SharePoint，其為可�
 | 存取控制記錄 (ACR) | 與 Microsoft Azure StorSimple 裝置上的磁碟區相關聯的記錄，決定哪些主機可連接到其中。此決定根據連接到 StorSimple 裝置之主機 (包含在 ACR 中) 的 iSCSI 合格名稱 (IQN)。|
 | AES 256 | 256 位元進階加密標準 (AES) 演算法，用於加密移入和移出雲端的資料。 |
 | 配置單位大小 (AUS) | 最小數量的磁碟空間，可配置來保留 Windows 檔案系統中的檔案。如果檔案大小不是叢集大小的偶數倍數，則必須使用額外的空間來保留檔案 (最多為叢集大小的下一個倍數)，這會導致喪失空間和硬碟的片段。<br>Azure StorSimple 磁碟區建議的 AUS 是 64 KB，因為它適用於重複資料刪除演算法。|
-| 自動儲存體分層 | 自動將較不活躍的資料移到雲端中的層，然後可讓您從中央使用者介面管理所有儲存體。|
+| 自動儲存體分層 | 自動將較不活躍的資料從 SSD 移到 HDD，再移至雲端中的層，然後可讓您從中央使用者介面管理所有儲存體。|
 | 備份類別目錄 | 備份的集合，通常與所使用的應用程式類型相關。這個集合會顯示在 StorSimple Manager 服務 UI 的 [備份類別目錄] 頁面中。|
 | 備份類別目錄檔案 | 包含清單的檔案，此清單會列出 StorSimple Snapshot Manager 的備份資料庫中目前儲存的可用快照。 |
 | 備份原則 | 選取磁碟區、備份類型，以及可讓您根據預先定義的排程建立備份的時間資料表。|
@@ -228,4 +226,4 @@ Microsoft Azure StorSimple 包括 StorSimple Adapter for SharePoint，其為可�
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,28 +1,30 @@
 <properties
    pageTitle="使用 Azure RemoteApp 在任何裝置上執行任何 Windows 應用程式"
-   description="了解如何使用 Azure RemoteApp 與使用者共用任何 Windows 應用程式。"
-   services="remoteapp"
-   documentationCenter=""
-   authors="lizap"
-   manager="mbaldwin"
-   editor=""/>
+	description="了解如何使用 Azure RemoteApp 與使用者共用任何 Windows 應用程式。"
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="remoteapp"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="compute"
-   ms.date="08/10/2015"
-   ms.author="elizapo"/>
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="compute"
+	ms.date="09/02/2015"
+	ms.author="elizapo"/>
 
 # 使用 Azure RemoteApp 在任何裝置上執行任何 Windows 應用程式
 
-本教學課程顯示如何在任何裝置的任何位置立即執行 Windows 應用程式。不論是 Internet Explorer 6、10 年前撰寫的自訂應用程式還是 Office 應用程式，您的使用者不再需要繫結至數個應用程式的特定作業系統 (如 Windows XP)。
+只要使用 Azure RemoteApp，您可以在任何裝置的任何位置立即執行 Windows 應用程式。不論是 Internet Explorer 6、10 年前撰寫的自訂應用程式還是 Office 應用程式，您的使用者不再需要繫結至數個應用程式的特定作業系統 (如 Windows XP)。
 
-使用 Azure RemoteApp，您的使用者也可以使用專屬 Android 或 Apple 裝置，以及取得與 Windows (或 Windows Phone) 上的相同經驗。完成方式是在 Azure 的 Windows 虛擬機器集合中裝載 Windows 應用程式，而您的使用者可以從具有網際網路連線的任何地方進行存取。
+有了 Azure RemoteApp，您的使用者也可以使用專屬 Android 或 Apple 裝置，以及取得與 Windows (或 Windows Phone) 上的相同經驗。完成方式是在 Azure 的 Windows 虛擬機器集合中裝載 Windows 應用程式，而您的使用者可以從具有網際網路連線的任何地方進行存取。
 
-在本教學課程中，我們會與所有使用者共用 Access。不過，您可以使用任何應用程式。只要您可以在 Windows Server 2012 R2 電腦上安裝您的應用程式，就可以使用下列步驟進行共用。您可以檢閱[應用程式需求](remoteapp-appreqs)，確認應用程式可以運作。
+請繼續往下看，可找到如何執行這項操作的範例。
+
+在本文中，我們會與所有使用者共用 Access。不過，您可以使用任何應用程式。只要您可以在 Windows Server 2012 R2 電腦上安裝您的應用程式，就可以使用下列步驟進行共用。您可以檢閱[應用程式需求](remoteapp-appreqs)，確認應用程式可以運作。
 
 請注意：因為 Access 是一個資料庫，而且我們想要使用該資料庫，所以我們會進行一些額外的步驟，讓使用者存取 Access 資料共用。如果您的應用程式不是資料庫，或不需要使用者能夠存取檔案共用，您可以略過本教學課程中的這些步驟
 
@@ -33,12 +35,12 @@
 
 由建立集合開始。集合是做為您應用程式和使用者的容器。每個集合都是根據映像，而您可以建立專屬映像或使用訂用帳戶所提供的映像。在本教學課程中，我們使用 Office 2013 試用版映像，而此映像包含我們想要共用的應用程式。
 
-1. 在 Azure 管理入口網站中，在左導覽中向下捲動，直到看到 Azure RemoteApp。開啟該頁面。
+1. 在 Azure 入口網站中，在左側導覽樹中向下捲動，直到看到 RemoteApp。開啟該頁面。
 2. 按一下 [**建立 RemoteApp 集合**]。
 3. 按一下 [**快速建立**]，然後輸入集合的名稱。
 4. 選取您想要用來建立集合的區域。最佳的體驗是選取地理上最接近您使用者存取應用程式之位置的區域。例如，在本教學課程中，使用者將位在華盛頓州的雷德蒙德。最接近的 Azure 區域是**美國西部**。
 5. 選取您想要使用的計費方案。基本計費方案是大型 Azure VM 上有 16 位使用者，而標準計費方案是大型 Azure VM 上有 10 位使用者。基本方案一般最適用於資料項目類型工作流程。在生產力應用程式 (如 Office) 中，您想要使用標準方案。
-6. 最後，選取 Office 2013 Professional 映像。此映像包含 Office 2013 應用程式。  
+6. 最後，選取 Office 2013 Professional 映像。此映像包含 Office 2013 應用程式。提醒您，此映像僅適合試用版的集合和 POC。您無法在生產集合中使用此映像。
 7. 現在，按一下 [**建立 RemoteApp 集合**]。
 
 ![在 RemoteApp 中建立雲端集合](./media/remoteapp-anyapp/ra-anyappcreatecollection.png)
@@ -53,7 +55,6 @@
 
 如果您在建立集合時離開 Azure RemoteApp 節點，請從 Azure 首頁回到該節點開始。
 
-1. 按一下左導覽中的 [**RemoteApp**]。
 2. 按一下您先前建立的集合來存取其他選項和設定集合。
 ![新的 RemoteApp 雲端集合](./media/remoteapp-anyapp/ra-anyappcollection.png)
 3. 在 [**發佈**] 索引標籤上，按一下畫面底部的 [**發佈**]，然後按一下 [**發佈開始功能表程式**]。
@@ -62,7 +63,8 @@
 ![在 RemoteApp 中發佈 Access](./media/remoteapp-anyapp/ra-anyapppublishaccess.png)
 
 
-1. 應用程式完成發佈之後，請前往 [**使用者存取**] 索引標籤，新增所有需要存取您應用程式的使用者。輸入您使用者的使用者名稱 (電子郵件地址)，然後按一下 [**儲存**]。
+1. 應用程式完成發佈之後，請前往 [**使用者存取**] 索引標籤，新增所有需要存取您應用程式的使用者。輸入您使用者的使用者名稱 (電子郵件地址)，然後按一下 [儲存]。
+
 ![將使用者新增至 RemoteApp](./media/remoteapp-anyapp/ra-anyappaddusers.png)
 
 
@@ -89,7 +91,7 @@
         $ctx=New-AzureStorageContext <account name> <account key>
     	$s = New-AzureStorageShare <share name> -Context $ctx
 
-	So for our share, these are the cmdlets we run:
+	因此，針對我們的共用，這些就是我們所執行的 Cmdlet：
 
 	    $ctx=New-AzureStorageContext accessstorage <key>
     	$s = New-AzureStorageShare <share name> -Context $ctx
@@ -117,4 +119,4 @@
 
 <!--Image references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

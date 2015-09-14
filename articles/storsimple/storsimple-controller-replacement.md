@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="更換 StorSimple 裝置上的控制器模組 | Microsoft Azure"
-   description="說明如何取下並更換 StorSimple 裝置上的一個或兩個控制器模組。"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="更換 StorSimple 裝置控制器 | Microsoft Azure"
+	description="說明如何取下並更換 StorSimple 裝置上的一個或兩個控制器模組。"
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # 更換 StorSimple 裝置上的控制器模組
 
@@ -266,4 +266,4 @@
 
 深入了解 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

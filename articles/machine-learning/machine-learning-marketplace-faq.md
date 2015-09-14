@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="常見問題集：在 Azure Marketplace 中發佈和使用 Machine Learning 應用程式 | Microsoft Azure" 
-	description="常見問題集" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="paulettm" 
+	pageTitle="常見問題集：在 Azure Marketplace 中發佈和使用 Machine Learning 應用程式 | Microsoft Azure"
+	description="常見問題集"
+	services="machine-learning"
+	documentationCenter=""
+	authors="LuisCabrer"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="luisca"/>
 
 #在 Azure Marketplace 中發佈和使用 Machine Learning 應用程式：常見問題集
@@ -77,4 +77,4 @@ Marketplace Web 服務目前不支援批次輸入模式。
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

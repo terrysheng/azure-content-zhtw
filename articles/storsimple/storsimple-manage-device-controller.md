@@ -1,23 +1,24 @@
 <properties 
-   pageTitle="管理您的 StorSimple 備份原則 | Microsoft Azure"
-   description="了解如何停止、重新啟動、關閉或重設您的 StorSimple 裝置控制器。"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="管理 StorSimple 裝置控制器 | Microsoft Azure"
+	description="了解如何停止、重新啟動、關閉或重設您的 StorSimple 裝置控制器。"
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
 # 管理 StorSimple 裝置控制器
 
 ## 概觀
+
 本教學課程描述可在 StorSimple 裝置控制器上執行的不同作業。StorSimple 裝置中的控制器在主動-被動組態中是備援 (對等) 控制器。在指定的時間中，只能有一個控制器在主動模式，並處理所有磁碟和網路作業。另一個控制器處於被動模式。如果主動控制器發生故障，被動控制器便會自動變為主動。
 
 本教學課程包含使用下列內容管理裝置控制器的逐步指示：
@@ -221,4 +222,4 @@
 
 如果您遇到任何無法使用本教學課程中所列之程序解決的 StorSimple 裝置控制器相關問題，[請連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,19 @@
-﻿<properties 
-pageTitle="透過備份組還原 StorSimple 磁碟區| Microsoft Azure" 
-description="說明如何利用備份目錄透過備份組還原 StorSimple 磁碟區" 
-services="storsimple" 
-documentationCenter="NA" 
-authors="SharS" 
-manager="carolz" 
-editor=""/>
-
-<tags
+<properties 
+   pageTitle="從備份還原 StorSimple 磁碟區 | Microsoft Azure"
+	description="說明如何使用 StorSimple Manager 的 [備份類別目錄] 頁面，從備份組還原 StorSimple 磁碟區。"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
+<tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="06/25/2015"
-   ms.author="v-sharos"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/28/2015"
+	ms.author="v-sharos"/>
 
 # 從備份組還原 StorSimple 磁碟區
 
@@ -44,7 +43,7 @@ editor=""/>
 
 ## 如何從備份還原您的 StorSimple 磁碟區
 
-您可以使用 [**備份類別目錄**] 頁面，從特定的備份還原 StorSimple 磁碟區。不過，請記住，還原磁碟區會將磁碟區的狀態還原為其在取得備份時的狀態。在備份作業之後新增的所有資料都將遺失。
+您可以使用 [備份類別目錄] 頁面，從特定的備份還原 StorSimple 磁碟區。不過，請記住，還原磁碟區會將磁碟區的狀態還原為其在取得備份時的狀態。在備份作業之後新增的所有資料都將遺失。
 
 > [AZURE.WARNING]從備份還原將從備份取代現有的磁碟區。這可能會造成在取得備份之後寫入的所有資料遺失。
 
@@ -81,6 +80,6 @@ editor=""/>
 
 ## 後續步驟
 
-了解如何[管理 storsimple 磁碟區](storsimple-manage-volumes.md)
+了解如何[管理 StorSimple 磁碟區](storsimple-manage-volumes.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

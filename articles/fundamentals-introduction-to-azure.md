@@ -261,15 +261,35 @@ Visual Studio Online 是個行銷名稱，包含可協助開發 Azure 應用程�
 
 Visual Studio Online 提供負載測試服務。您可以在雲端的 VM 上，執行在 Visual Studio 中建立的負載測試。指定您要負載測試的使用者總數，Visual Studio Online 便會自動判斷所需的代理程式數目、運轉所需的虛擬機器，然後執行您的負載測試。如果您是 MSDN 訂閱者，您每個月將會獲得數以千計的免費負載測試使用者分鐘數。
 
-Visual Studio Online 還提供稱為「應用程式分析」的服務，可提供您的整個應用程式分析。它會提供效能的統計資料和使用應用程式的狀況。如果您已使用 System Center Operations Manager，也可連接到它，並發生問題時引發警示。+ Visual Studio Online 也提供敏捷式開發的支援，可用功能有連續整合組建、看板與虛擬小組室。
-	
-此外，亦可支援具備如連續整合組置、看板和虛擬小組室等功能的便捷開發。
+Visual Studio Online 亦可支援具備如連續整合組置、看板和虛擬小組室等功能的便捷開發。
 
 **Visual Studio Online 案例**
 
 針對需要全球合作但還沒準備好基礎結構朝此目標前進的公司，Visual Studio Online 會是最佳的選項。您可以在數分鐘內完成設定、選擇來源控制系統，並於當天開始撰寫程式碼及組建。小組工具提供一個可協調和共同作業的地方，而其他工具則提供快速測試和調整應用程式所需的分析。
 
 但具備內部部署系統的組織可以在 Visual Studio Online 上測試新專案，以檢查它是否更具效率。
+
+### Application Insights
+
+![Application Insights](./media/fundamentals-introduction-to-azure/ApplicationInsights.png)
+
+*圖：Application Insights 可監視即時 Web 或裝置應用程式的效能和使用情形。*
+
+當您已發佈您的應用程式 - 無論是在行動裝置、桌上型電腦或 web 瀏覽器上執行 - Application Insights 都會告訴您執行方式和使用者如何使用它。它會保留當機和回應緩慢的計數、在數據超越無法接受的臨界值時警示您，並幫助您診斷任何問題。
+
+當您開發新功能時，請和使用者一同規劃測量其成功。藉由分析使用模式，您將了解什麼最適合客戶並在每個開發週期中加強您的應用程式。
+
+雖然它裝載在 Azure 中，Application Insights 仍適用於廣泛且日漸成長的應用程式範圍，無論是否在 Azure 中皆然。J2EE 和 ASP.NET web 應用程式，以及 iOS、Android、OSX 和 Windows 應用程式皆涵蓋在內。從利用應用程式建置的 SDK 傳送遙測，並在 Azure 中的 Application Insights 服務中分析及顯示遙測。
+
+如果您想更特殊化的分析，請將遙測串流匯出到資料庫、Power BI 或任何其他工具。
+
+**Application Insights 案例**
+
+您正在開發應用程式。它可能是 web 應用程式、裝置應用程式或具備 web 後端的裝置應用程式。
+
+* 發佈您的應用程式之後，或在其進行負載測試時微調其效能。Application Insights 會從所有已安裝的執行個體彙總遙測，並為您呈現回應時間的圖表、要求和例外狀況計數、相依性回應時間和其他效能指標。這些內容可協助您微調應用程式的效能。您可以在必要時插入程式碼以報告多個特定資料。
+* 偵測及診斷即時應用程式中的問題。如果效能指標超越可接受的臨界值，您可以透過電子郵件取得警示。您可以調查特定使用者工作階段，例如查看造成例外狀況的要求。 
+* 追蹤使用量以評估每個功能的成功。當您設計新的使用者劇本時，請規畫測量其使用量，以及使用者是否達成其預期的目標。Application Insights 會提供您網頁檢視等基本使用量資料，而且您可以插入程式碼以追蹤使用者體驗的詳細資料。
 
 ### 自動化
 沒有人喜歡把時間浪費在不斷重複執行相同的手動程序。Azure 自動化提供您一個在 Azure 環境中建立、監控、管理及部署資源的方式。
@@ -592,4 +612,4 @@ SendGrid 是 Azure Store 中可讓您傳送電子郵件的應用程式。它提�
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

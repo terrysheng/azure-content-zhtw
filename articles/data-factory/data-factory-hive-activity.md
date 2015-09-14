@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Hive 活動" 
-	description="了解如何使用 Azure 資料處理站中的 Hive 活動，以在隨選/您自己的 HDInsight 叢集上執行 Hive 查詢。" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Hive 活動"
+	description="了解如何使用 Azure 資料處理站中的 Hive 活動，以在隨選/您自己的 HDInsight 叢集上執行 Hive 查詢。"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/26/2015"
 	ms.author="spelluru"/>
 
 # Hive 活動
@@ -103,7 +103,7 @@ script | 指定 Hive 指令碼內嵌 | 否
 
 若要在 Data Factory 管線中執行此 Hive 指令碼，您需要執行下列動作：
 
-1. 建立連結服務以註冊[您自己的 HDInsight 運算叢集](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)或設定[隨選 HDInsight 運算叢集](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)。讓我們來呼叫此連結服務 "HDInsightLinkedService"。
+1. 建立連結服務以註冊[您自己的 HDInsight 運算叢集](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)或設定[隨選 HDInsight 運算叢集](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)。讓我們將此連結服務命名為 "HDInsightLinkedService"。
 2. 建立[連結服務](data-factory-azure-storage-connector.md)以設定裝載資料之 Azure Blob 儲存體的連接。讓我們來呼叫此連結服務 "StorageLinkedService"
 3. 建立指向輸入和輸出資料的[資料集](data-factory-create-datasets.md)。讓我們來呼叫輸入資料集 "HiveSampleIn" 和輸出資料集 "HiveSampleOut"
 4. 將 Hive 查詢作為檔案複製到上述步驟 #2 中設定的 Azure Blob 儲存體。如果裝載資料的連結服務和裝載此查詢檔案的服務不同，請建立個別的 Azure 儲存體連結服務並在活動組態中參考它。使用 **scriptPath** 指定 hive 查詢檔案的路徑並使用 **scriptLinkedService** 指定包含指令碼檔案的 Azure 儲存體。
@@ -142,7 +142,7 @@ script | 指定 Hive 指令碼內嵌 | 否
 		  }
 		}
 
-6.	部署管線。如需詳細資料，請參閱[建立管線](data-factory-create-pipelines.md)一文。
+6.	部署管線。如需詳細資料，請參閱〈[建立管線](data-factory-create-pipelines.md)〉文章。
 7.	使用資料處理站監視和管理檢視來監視管線。如需詳細資料，請參閱[監視及管理 Data Factory 管線](data-factory-monitor-manage-pipelines.md)一文。 
 
 
@@ -176,8 +176,8 @@ script | 指定 Hive 指令碼內嵌 | 否
 		          		"scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
 		          		"scriptLinkedService": "StorageLinkedService",
 		          		"defines": {
-		            		"Input": "$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
-		            		"Output": "$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
+		            		"Input": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
+		            		"Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
 		          		},
        					"scheduler": {
           					"frequency": "Hour",
@@ -214,4 +214,9 @@ script | 指定 Hive 指令碼內嵌 | 否
 			SUM(Duration)
 		FROM HiveSampleIn Group by ProfileID
 
-<!---HONumber=August15_HO6-->
+
+
+## 傳送意見
+非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-hive-activity.md)提交您的意見反應。
+
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="進階分析程序和技術實務：使用 Hadoop 叢集 | Microsoft Azure" 
-	description="對採用 HDInsight Hadoop 叢集的端對端案例使用進階分析程序和技術 (ADAPT)，以使用公開可用的資料集來建置和部署模型。"  
-	services="machine-learning,hdinsight" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="進階分析程序和技術實務：使用 Hadoop 叢集 | Microsoft Azure"
+	description="對採用 HDInsight Hadoop 叢集的端對端案例使用進階分析程序和技術 (ADAPT)，以使用公開可用的資料集來建置和部署模型。"
+	services="machine-learning,hdinsight"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="hangzh;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="hangzh;bradsev"/>
 
                 
 # 進階分析程序和技術實務：使用 HDInsight Hadoop 叢集
@@ -48,7 +48,7 @@
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-聯結 trip\\\_data and trip\\\_fare 的唯一索引鍵是由下列欄位組成：medallion、hack\\\_licence 和 pickup\\\_datetime。
+聯結 trip\\_data and trip\\_fare 的唯一索引鍵是由下列欄位組成：medallion、hack\\_licence 和 pickup\\_datetime。
 
 若要取得特定車程的所有詳細資訊，加入下列三個索引鍵便已足夠："medallion"、"hack\_license" 和 "pickup\_datetime"。
 
@@ -809,4 +809,4 @@ b.對於迴歸問題，我們會藉由查看預測中的平方誤差、決定係
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

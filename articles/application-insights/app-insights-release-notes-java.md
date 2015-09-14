@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Application Insights 的版本資訊" 
-	description="最新的更新。" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Java 適用的 Application Insights 版本資訊"
+	description="最新的更新。"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/18/2015"
 	ms.author="awills"/>
  
 # Java 適用的 Application Insights SDK 的版本資訊
@@ -37,6 +37,14 @@
  
 比較舊的和新的 ApplicationInsights.xml。您看到的變更許多是因為我們新增與移除了模組。恢復您所做的任何自訂。
 
+## 版本 1.0.1
+- Java 代理程式支援收集與下列有關的相依性資訊：
+	- 透過 HttpClient、OkHttp 和 RestTemplate (Spring) 進行的 HTTP 呼叫。
+	- 透過 Jedis 用戶端對 Redis 進行的呼叫。傳遞可設定的閾值時，SDK 也將提取呼叫引數。
+	- 使用 Oracle DB 和 Apache Derby DB 用戶端對 JDBC 的呼叫。
+	- 支援已準備陳述式的 'executeBatch' 查詢類型 – SDK 將顯示該批次號碼的陳述式。
+	- 為支援 JDBC 的用戶端 (MySql、PostgreSql) 提供的查詢計劃 – 僅當跨越了可設定的閾值時，才擷取查詢計畫
+
 ## 1\.0.0 版
 - 加入 CollectD 適用的 Application Insights 寫入器外掛程式的支援。
 - 加入 Application Insights Java 代理程式的支援。
@@ -60,4 +68,4 @@
 - 能夠藉由將 ```SyntheticSource``` 屬性加入至報告項目，將遙測項目標記為綜合。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="08/02/2015"
+	ms.date="09/02/2015"
 	ms.author="joaoma"/>
 
 # 如何管理 DNS 區域
@@ -26,9 +26,9 @@
 
 ## 建立新的 DNS 區域
 
-若要建立新的 DNS 區域來裝載您的網域，請使用 `azure network dns-zone create`：
+若要建立新的 DNS 區域來裝載您的網域，請使用 `azure network dns zone create`：
 
-		Azure network dns-zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+		Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
 該作業會在 Azure DNS 中建立新的 DNS 區域。您可以選擇性地指定一系列的 Azure 資源管理員標記，如需詳細資訊，請參閱 [Etag 和標記](dns-getstarted-create-dnszone.md#Etags-and-tags)。
 
@@ -38,33 +38,33 @@
 
 ## 取得 DNS 區域
 
-若要抓取 DNS 區域，請使用 `azure network dns-zone show`：
+若要抓取 DNS 區域，請使用 `azure network dns zone show`：
 
-	azure network dns-zone show myresourcegroup contoso.com
+	azure network dns zone show myresourcegroup contoso.com
 
 此作業會傳回 DNS 區域的識別碼、資料錄集和標記的數量。
 
 
 ## 列出 DNS 區域
 
-若要抓取資源群組中的 DNS 區域，請使用 `azure network dns-zone list`：
+若要抓取資源群組中的 DNS 區域，請使用 `azure network dns zone list`：
 
-	azure network dns-zone list myresourcegroup
+	azure network dns zone list myresourcegroup
 
 
 ## 更新 DNS 區域
 
-您可以使用 `azure network dns-zone set` 變更 DNS 區域資源。這不會更新區域內的任何 DNS 記錄集 (請參閱[如何管理 DNS 記錄](dns-operations-recordsets.md))。它只用來更新區域資源本身的屬性。這在目前限於區域資源的 Azure 資源管理員「標記」。如需詳細資訊，請參閱 [Etag 和標記](dns-getstarted-create-dnszone.md#Etags-and-tags)。
+您可以使用 `azure network dns zone set` 變更 DNS 區域資源。這不會更新區域內的任何 DNS 記錄集 (請參閱[如何管理 DNS 記錄](dns-operations-recordsets.md))。它只用來更新區域資源本身的屬性。這在目前限於區域資源的 Azure 資源管理員「標記」。如需詳細資訊，請參閱 [Etag 和標記](dns-getstarted-create-dnszone.md#Etags-and-tags)。
 
-	azure network dns-zone set myresourcegroup contoso.com -t prod=value2
+	azure network dns zone set myresourcegroup contoso.com -t prod=value2
 
 ## 刪除 DNS 區域
 
-可以使用 `azure network dns-zone delete` 刪除 DNS 區域。
+可以使用 `azure network dns zone delete` 刪除 DNS 區域。
  
 在 Azure DNS 中刪除 DNS 區域之前，您必須刪除所有記錄集，但建立區域時在區域的根自動建立的 NS 和 SOA 記錄除外。
 
-	azure network dns-zone delete myresourcegroup contoso.com 
+	azure network dns zone delete myresourcegroup contoso.com 
 
 此作業具有選擇性的 '-q' 參數，可隱藏要求您確認是否想要移除 DNS 區域的提示。
 
@@ -76,4 +76,4 @@
 
 [使用 .NET SDK 自動化作業](dns-sdk.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

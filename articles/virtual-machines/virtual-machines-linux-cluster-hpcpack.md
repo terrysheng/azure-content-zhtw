@@ -1,19 +1,20 @@
 <properties
- pageTitle="開始在 HPC Pack 叢集中使用 Linux 運算節點 | Microsoft Azure"
- description="了解如何撰寫指令碼，以在包含一個執行 Windows Server 的前端節點與多個 Linux 運算節點的 Azure 中部署 HPC Pack 叢集。"
- services="virtual-machines"
- documentationCenter=""
- authors="dlepow"
- manager="timlt"
- editor=""/>
+ pageTitle="在 HPC Pack 叢集中使用 Linux 運算 VM | Microsoft Azure"
+	description="了解如何撰寫指令碼，以在包含一個執行 Windows Server 的前端節點與多個 Linux 運算節點的 Azure 中部署 HPC Pack 叢集。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 <tags
-ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-multiple"
- ms.workload="big-compute"
- ms.date="07/27/2015"
- ms.author="danlep"/>
+ ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.workload="big-compute"
+	ms.date="09/01/2015"
+	ms.author="danlep"/>
 
 # 開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點
 
@@ -25,7 +26,7 @@ ms.service="virtual-machines"
 
 ## 部署具有 Linux 運算節點的 HPC Pack 叢集
 
-您將使用 Microsoft HPC Pack IaaS 部署指令碼 (**New-HpcIaaSCluster.ps1**)，在 Azure 基礎結構服務 (IaaS) 中自動進行叢集部署。此 Azure PowerShell 指令碼使用 Azure Marketplace 中的 HPC Pack VM 映像進行快速部署，並提供一組完整的組態參數，讓部署變得簡單且有彈性。您可以使用指令碼來部署 Azure 虛擬網路、儲存體帳戶、雲端服務、網域控制站、不同的選用 SQL Server 資料庫伺服器、叢集前端節點、運算節點、代理程式節點、Azure PaaS (“高載”) 節點和 Linux 運算節點 ([HPC Pack 2012 R2 Update 2](https://technet.microsoft.com/library/mt269417.aspx) 中引入的 Linux 支援)。
+您將使用 Microsoft HPC Pack IaaS 部署指令碼 (**New-HpcIaaSCluster.ps1**)，在 Azure 基礎結構服務 (IaaS) 中自動進行叢集部署。此 Azure PowerShell 指令碼使用 Azure Marketplace 中的 HPC Pack VM 映像進行快速部署，並提供一組完整的組態參數，讓部署變得簡單且有彈性。此指令碼可部署 Azure 虛擬網路、儲存體帳戶、雲端服務、網域控制站、不同的選用 SQL Server 資料庫伺服器、叢集前端節點、運算節點、代理程式節點、Azure PaaS (“高載”) 節點和 Linux 運算節點 ([HPC Pack 2012 R2 Update 2](https://technet.microsoft.com/library/mt269417.aspx) 中引入的 Linux 支援)。
 
 如需 HPC Pack 叢集部署選項的概觀，請參閱 [HPC Pack 2012 R2 和 HPC Pack 2012 的入門指南](https://technet.microsoft.com/library/jj884144.aspx)。
 
@@ -66,9 +67,9 @@ HPC Pack IaaS 部署指令碼會使用 XML 組態檔做為輸入，可描述 HPC
   <HeadNode>
     <VMName>CentOS7RDMA-HN</VMName>
     <ServiceName>centos7rdma-je</ServiceName>
-<VMSize>A4</VMSize>
-<EnableRESTAPI />
-    <EnableWebPortal />
+  <VMSize>A4</VMSize>
+  <EnableRESTAPI />
+  <EnableWebPortal />
   </HeadNode>
   <LinuxComputeNodes>
     <VMNamePattern>CentOS7RDMA-LN%1%</VMNamePattern>
@@ -98,7 +99,7 @@ HPC Pack IaaS 部署指令碼會使用 XML 組態檔做為輸入，可描述 HPC
 
 * **VNet** - 將建立 HPC 叢集的虛擬網路和子網路設定。您可以在執行此指令碼前自行建立虛擬網路和子網路，或指令碼會建立位址空間為 192.168.0.0/20 的虛擬網路與位址空間為 192.168.0.0/23 的子網路。在此範例中，指令碼會建立虛擬網路 centos7rdmavnetje 和子網路 CentOS7RDMACluster。
 
-* **網域** - HPC Pack 叢集的 Active Directory 網域設定。指令碼建立的所有 Windows VM 都會加入網域。指令碼目前支援三個網域選項：ExistingDC、NewDC 和 HeadNodeAsDC。在此範例中，我們會將前端節點設定為網域控制站。完整網域名稱為 hpc.local。
+* **網域** - HPC Pack 叢集的 Active Directory 網域設定。指令碼建立的所有 Windows VM 都會加入網域。指令碼目前支援三個網域選項：ExistingDC、NewDC 和 HeadNodeAsDC。在此範例中，我們會將前端節點設定為網域控制站，其完整網域名稱為 hpc.local。
 
 * **資料庫** - HPC Pack 叢集的資料庫設定。指令碼目前支援三個資料庫選項：ExistingDB、NewRemoteDB 和 LocalDB。在本範例中，我們將前端節點上建立本機資料庫。
 
@@ -116,8 +117,7 @@ HPC Pack IaaS 部署指令碼會使用 XML 組態檔做為輸入，可描述 HPC
 
     尋找您需要的映像並取代組態檔中的 **ImageName** 值。
 
-* 針對大小 A8 和 A9 VM 支援 RDMA 連線能力的 Linux 映像。如果您指定已安裝並啟用 Linux RDMA 驅動程式的映像，HPC Pack IaaS 部署指令碼將會部署這些驅動程式。例如，您可以在 Marketplace 中為目前的 SUSE Linux Enterprise Server 12 (針對高效能運算最佳化) 映像指定映像名稱 `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708`。
-
+* 針對大小 A8 和 A9 VM 支援 RDMA 連線能力的 Linux 映像。如果您指定已安裝並啟用 Linux RDMA 驅動程式的映像，HPC Pack IaaS 部署指令碼將會部署這些驅動程式。例如，在 Marketplace 中為目前的 SUSE Linux Enterprise Server 12 (針對高效能運算最佳化) 映像指定映像名稱 `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708`。
 
 * 若要在從支援的映像建立的 Linux VM 上啟用 Linux RDMA 以執行 MPI 工作，請在叢集部署之後，根據您的應用程式需求在 Linux 節點上安裝並設定特定 MPI 程式庫。如需如何在 Azure 上的 Linux 節點中使用 RDMA 的詳細資訊，請參閱[設定 Linux RDMA 叢集以執行 MPI 應用程式](virtual-machines-linux-cluster-rdma.md)。
 
@@ -131,14 +131,14 @@ HPC Pack IaaS 部署指令碼會使用 XML 組態檔做為輸入，可描述 HPC
 2. 將目錄變更為指令碼資料夾 (在本範例中為 E:\\IaaSClusterScript)。
 
     ```
-cd E:\IaaSClusterScript
-```
+    cd E:\IaaSClusterScript
+    ```
 
 3. 執行下列命令來部署 HPC Pack 叢集。這個範例假設組態檔位於 E:\\HPCDemoConfig.xml。
 
     ```
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
-```
+    ```
 
     因為未指定 **-LogFile** 參數，所以指令碼會自動產生記錄檔。記錄並不會即時寫入，但會在驗證和部署結束時收集，所以如果 PowerShell 處理程序在指令碼正在執行時停止，則會遺失某些記錄。
 
@@ -152,7 +152,7 @@ cd E:\IaaSClusterScript
 
     ![資源][resources]
 
-    d.然後指令碼會開始部署 HPC Pack 叢集並將完成設定，而不需要進一步的手動步驟。這可能需要數分鐘的時間。
+    d.此指令碼會開始部署 HPC Pack 叢集並完成設定，而不需要進一步的手動步驟。這可能需要數分鐘的時間。
 
     ![部署][deploy]
 
@@ -201,7 +201,7 @@ PS > clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.n
 
 第一個命令會在 LinuxNodes 群組中的所有節點上建立名為 /rdma 的資料夾。第二個命令會將 Azure 檔案共用 allvhdsjw.file.core.windows.net/rdma 裝載至 /rdma 資料夾，其 dir 和檔案模式位元設為 777。在第二個命令中，allvhdsje 是您的儲存體帳戶名稱，而 storageaccountkey 是儲存體帳戶金鑰。
 
->[AZURE.NOTE]第二個命令中的 “`” 符號是 PowerShell 的逸出符號。“`,” 表示 “,” (逗號) 是命令的一部分。
+>[AZURE.NOTE]第二個命令中的 “`” 符號是 PowerShell 的逸出符號。“`,” 表示 “,” (逗號字元) 是命令的一部分。
 
 ### 前端節點共用
 
@@ -218,12 +218,12 @@ PS > clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.n
 ```
 PS > clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
 
-PS > clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS7RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>,password='<password>’,dir_mode=0777`,file_mode=0777
+PS > clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS7RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
 ```
 
-第一個命令會在 LinuxNodes 群組中的所有節點上建立名為 /openfoam 的資料夾。第二個命令會將共用資料夾 //CentOS7RDMA-HN/OpenFOAM 裝載至此資料夾，其 dir 和檔案模式位元設為 777。命令中的使用者名稱和密碼應該是前端節點上使用者的使用者名稱和密碼。
+第一個命令會在 LinuxNodes 群組中的所有節點上建立名為 /openfoam 的資料夾。第二個命令會將共用資料夾 //CentOS7RDMA-HN/OpenFOAM 裝載至此資料夾，其 dir 和檔案模式位元設為 777。命令中的使用者名稱和密碼應該是前端節點上叢集使用者的使用者名稱和密碼。
 
->[AZURE.NOTE]第二個命令中的 “`” 符號是 PowerShell 的逸出符號。“`,” 表示 “,” (逗號) 是命令的一部分。
+>[AZURE.NOTE]第二個命令中的 “`” 符號是 PowerShell 的逸出符號。“`,” 表示 “,” (逗號字元) 是命令的一部分。
 
 
 ### NFS 伺服器
@@ -271,31 +271,30 @@ HPC Pack **clusrun** 工具可透過 [命令] 視窗或 HPC 叢集管理員用�
 * 顯示叢集中所有節點的目前使用者名稱
 
     ```
-> clusrun whoami
-```
+    > clusrun whoami
+    ```
 
-* 將 **gdb** 偵錯工具第 i 個 **yum** 安裝在 linuxnodes 群組中的所有節點上，然後在 10 分鐘後重新啟動
+* 將 **gdb** 偵錯工具第 i 個 **yum** 安裝在 linuxnodes 群組中的所有節點上，然後在 10 分鐘後重新啟動節點
 
     ```
-> clusrun /nodegroup:linuxnodes yum install gdb –y; shutdown –r 10
-```
+    > clusrun /nodegroup:linuxnodes yum install gdb –y; shutdown –r 10
+    ```
 
-* 建立可在叢集中的節點上每秒顯示 1 到 10 的殼層指令碼，加以執行並立即顯示每個節點的輸出。
+* 建立可在叢集中的每個節點上一秒顯示數字 1 到 10 的殼層指令碼，加以執行並立即顯示節點的輸出。
 
     ```
-> clusrun /interleaved echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh```
+    > clusrun /interleaved echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
+    ```
 
->[AZURE.NOTE]您可能需要在 clusrun 命令中使用逸出字元。在 [命令] 視窗中使用 ^ 以及在 PowerShell 中顯示 ' 來轉換特殊字元。例如，在 PowerShell 中，逗號和分號字元必須分別由 `, 和 `, 轉換。在 [命令] 視窗中，這些字元不需要轉換。
-
-
-
+>[AZURE.NOTE]您可能需要在 **clusrun** 命令中使用逸出字元。如此範例所示，在命令視窗中使用 ^ 來逸出 ">" 符號。
 
 ## 後續步驟
 
-* 使用 **clusrun** 將您的 Linux 應用程式安裝在 Linux 運算節點上，並將工作提交至 HPC Pack 叢集。
+* 嘗試在叢集上執行 Linux 工作負載。如需範例，請參閱[在 Azure 中的 Linux 運算節點以 Microsoft HPC Pack 執行 NAMD](virtual-machines-linux-cluster-hpcpack-namd.md)。
 
-* 請嘗試將叢集擴充為大量節點，或部署大小 [A8 或 A9](virtual-machines-a8-a9-a10-a11-specs.md) 運算節點以執行 MPI 工作負載。
+* 嘗試將叢集相應增加至大量節點，或部署大小 [A8 或 A9](virtual-machines-a8-a9-a10-a11-specs.md) 運算節點以執行 MPI 工作負載。
 
+* 透過 Azure 資源管理員嘗試 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)，以利用大量 Linux 運算節點加速 HPC Pack 部署。
 
 <!--Image references-->
 [scenario]: ./media/virtual-machines-linux-cluster-hpcpack/scenario.png
@@ -311,4 +310,4 @@ HPC Pack **clusrun** 工具可透過 [命令] 視窗或 HPC 叢集管理員用�
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

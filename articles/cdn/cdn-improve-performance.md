@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="CDN - 藉由壓縮檔案來改善效能" 
-	description="您可以藉由壓縮檔案來改善檔案傳輸速度並增加頁面載入效能。" 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="CDN - 藉由壓縮檔案來改善效能"
+	description="您可以藉由壓縮檔案來改善檔案傳輸速度並增加頁面載入效能。"
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="juliako"/>
 
 #藉由壓縮檔案來改善效能
@@ -54,4 +54,4 @@ CDN 有兩種方式可以支援壓縮：
 1. 媒體服務 CDN 會啟用串流端點，預設會為下列內容類型啟用壓縮：application/vnd.ms-sstr+xml,application/dash+xml,application/vnd.apple.mpegurl,application/f4m+xml。您不能使用 Azure 入口網站啟用/停用上述類型的壓縮。  
 2. Edge Server 上只能快取一個檔案版本 (壓縮或未壓縮)。不同版本的要求將會導致 Edge Server 轉碼內容。  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

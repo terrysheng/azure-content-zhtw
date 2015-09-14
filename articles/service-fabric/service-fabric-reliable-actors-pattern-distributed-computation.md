@@ -1,20 +1,20 @@
 <properties
    pageTitle="Reliable Actor 分散式計算模式"
-   description="Service Fabric Reliable Actor 適用於平行非同步傳訊、可輕鬆管理的分散狀態和平行計算。"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="jessebenson"
-   manager="timlt"
-   editor=""/>
+	description="Service Fabric Reliable Actor 適用於平行非同步傳訊、可輕鬆管理的分散狀態和平行計算。"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="jessebenson"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/05/2015"
-   ms.author="claudioc"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/05/2015"
+	ms.author="claudioc"/>
 
 # Reliable Actor 設計模式：分散式計算
 我們很感激此功能，部分原因是看到現實生活中的客戶在極短的時間內，使用 Service Fabric Reliable Actor (確切來說是可計算風險的蒙地卡羅模擬法) 快速計算出財務數據。
@@ -82,7 +82,7 @@ public class PooledTask : Actor, IPooledTask
                 pi.InCircle++;
         }
 
-        var agg = ActorProxy.Create<IAggregator>(0);
+        var agg = ActorProxy.Create<IAggregator>(ActorId.NewId());
         return agg.AggregateAsync(pi);
     }
 }
@@ -203,4 +203,4 @@ public class Finaliser : Actor<FinalizerState>, IFinaliser
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,21 +1,21 @@
 <properties
  pageTitle="了解並解決 HDInsight 上的 WebHCat 錯誤"
- description="了解 WebHCat 在 HDInsight 上傳回的常見錯誤以及如何解決這些問題。"
- services="hdinsight"
- documentationCenter=""
- authors="Blackmist"
- manager="paulettm"
- editor="cgronlun"
- tags="azure-portal"/>
+	description="了解 WebHCat 在 HDInsight 上傳回的常見錯誤以及如何解決這些問題。"
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="big-data"
- ms.date="06/04/2015"
- ms.author="larryfr"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="09/02/2015"
+	ms.author="larryfr"/>
 
 #了解並解決 HDInsight 上從 WebHCat (Templeton) 收到的錯誤
 
@@ -86,4 +86,4 @@
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

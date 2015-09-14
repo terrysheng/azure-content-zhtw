@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="05/27/2015"
+	ms.date="09/01/2015"
 	ms.author="wesmc"/>
 
 # 開始使用通知中心
@@ -104,6 +104,7 @@
 		private NotificationHub hub;
     	private String HubName = "<Enter Your Hub Name>";
 		private String HubListenConnectionString = "<Your default listen connection string>";
+	    private static Boolean isVisible = false;
 
 
 	請務必更新三個預留位置：* **SENDER\_ID**：將 `SENDER_ID` 設定為您先前從在 [Google Cloud Console](http://cloud.google.com/console) 中建立的專案取得的專案號碼。* **HubListenConnectionString**：將 `HubListenConnectionString` 設定為中樞的 **DefaultListenAccessSignature** 連接字串。在 [Azure 入口網站]上，按一下您的中樞的 [儀表板] 索引標籤上的 [檢視連接字串]，即可複製該連接字串。* **HubName**：在 Azure 中針對您的中樞顯示在頁面頂端的通知中樞名稱 (**不是**完整 URL)。例如，使用 `"myhub"`。
@@ -139,6 +140,21 @@
     	}
 
 
+7. 將 **DialogNotify** 方法加入活動，以便在應用程式執行且可見時顯示通知。同時覆寫 **onStart** 和 **onStop**，判斷是否可看見活動以顯示對話方塊。
+
+	    @Override
+	    protected void onStart() {
+	        super.onStart();
+	        isVisible = true;
+	    }
+	
+	    @Override
+	    protected void onStop() {
+	        super.onStop();
+	        isVisible = false;
+	    }
+
+
 		/**
 		  * A modal AlertDialog for displaying a message on the UI thread
 		  * when there's an exception or message to report.
@@ -148,6 +164,9 @@
 		  */
     	public void DialogNotify(final String title,final String message)
     	{
+	        if (isVisible == false)
+	            return;
+
         	final AlertDialog.Builder dlg;
         	dlg = new AlertDialog.Builder(this);
 
@@ -170,7 +189,7 @@
         	});
     	}
 
-7. 由於 Android 不會顯示通知，因此您必須撰寫自己的接收器。在 **AndroidManifest.xml** 中，在 `<application>` 元素內新增下列元素。
+8. 由於 Android 不會顯示通知，因此您必須撰寫自己的接收器。在 **AndroidManifest.xml** 中，在 `<application>` 元素內新增下列元素。
 
 	> [AZURE.NOTE]以您的封裝名稱取代預留位置。
 
@@ -183,14 +202,14 @@
         </receiver>
 
 
-8. 在 Project 檢視中，展開 [app] -> [src] -> [main] -> [java]。以滑鼠右鍵按一下 **java** 底下您的封裝資料夾，按一下 [**New**]，然後按一下 [**Java Class**]。
+9. 在 [專案檢視] 中，展開 [app] > [src] > [main] > [java]。以滑鼠右鍵按一下 **java** 底下您的封裝資料夾，按一下 [**New**]，然後按一下 [**Java Class**]。
 
 	![][6]
 
-9. 在新類別的 [Name] 欄位中輸入 **MyHandler**，然後按一下 [OK]。
+10. 在新類別的 [名稱] 欄位中輸入 **MyHandler**，然後按一下 [確定]。
 
 
-10. 在 **MyHandler.java** 的頂端新增下列 import 陳述式：
+11. 在 **MyHandler.java** 的頂端新增下列 import 陳述式：
 
 		import android.app.NotificationManager;
 		import android.app.PendingIntent;
@@ -201,12 +220,12 @@
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
 
 
-11. 更新類別宣告，讓 `MyHandler` 成為 `com.microsoft.windowsazure.notifications.NotificationsHandler` 的子類別，如下所示。
+12. 更新類別宣告，讓 `MyHandler` 成為 `com.microsoft.windowsazure.notifications.NotificationsHandler` 的子類別，如下所示。
 
 		public class MyHandler extends NotificationsHandler {
 
 
-12. 在 `MyHandler` 類別中新增下列程式碼：
+13. 在 `MyHandler` 類別中新增下列程式碼：
 
 	此程式碼會覆寫 `OnReceive` 方法，所以處理常式會快顯 `AlertDialog` 以顯示收到的通知。處理常式也會使用 `sendNotification()` 方法，傳送通知給 Android 通知管理員。
 
@@ -245,7 +264,7 @@
 			mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 		}
 
-13. 在 Android Studio 的功能表列上，按一下 [Build] -> [Rebuild Project]，確保不會偵測到任何錯誤。
+14. 在 Android Studio 的功能表列上，按一下 [建置] > [重新建置專案]，確保不會偵測到任何錯誤。
 
 ##傳送通知
 
@@ -259,7 +278,7 @@
 
 ![][31]
 
-1. 在 Android Studio 的 Project 檢視中展開 [App] -> [src] -> [main] -> [res] -> [layout]。開啟 **activity\_main.xml** 配置檔案，然後按一下 [**文字**] 索引標籤以更新檔案的文字內容。以下列程式碼進行更新，加入新的 `Button` 和 `EditText` 控制項，以便將通知訊息傳送至通知中樞。在底部將此程式碼加在 `</RelativeLayout>` 之前。
+1. 在 Android Studio 的 [專案檢視] 中展開 [App] > [src] > [main] > [res] > [layout]。開啟 **activity\_main.xml** 配置檔案，然後按一下 [**文字**] 索引標籤以更新檔案的文字內容。以下列程式碼進行更新，加入新的 `Button` 和 `EditText` 控制項，以便將通知訊息傳送至通知中樞。在底部將此程式碼加在 `</RelativeLayout>` 之前。
 
 	    <Button
         android:layout_width="wrap_content"
@@ -279,7 +298,7 @@
         android:layout_marginBottom="42dp"
         android:hint="@string/notification_message_hint" />
 
-2. 在 Android Studio 的 Project 檢視中展開 [App] -> [src] -> [main] -> [res] -> [values]。開啟 **strings.xml** 檔案並加入新的 `Button` 和 `EditText` 控制項所參考的字串值。在檔案底部將這些值加在 `</resources>` 之前。
+2. 在 Android Studio 的 [專案檢視] 中展開 [App] > [src] > [main] > [res] > [values]。開啟 **strings.xml** 檔案並加入新的 `Button` 和 `EditText` 控制項所參考的字串值。在檔案底部將這些值加在 `</resources>` 之前。
 
         <string name="send_button">Send Notification</string>
         <string name="notification_message_hint">Enter notification message text</string>
@@ -311,7 +330,7 @@
 	    private String HubSasKeyValue = null;
 		private String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
 
-4. 您的活動會保留中心名稱以及中心的完整共用存取連接字串。您必須建立軟體存取簽章 (SaS) 權杖來驗證 POST 要求，以將訊息傳送至您的通知中樞。剖析連接字串中的金鑰資料，然後建立[一般概念](http://msdn.microsoft.com/library/azure/dn495627.aspx) REST API 參考中所提的 SaS 權杖，即可完成此作業。
+4. 您的活動會保留中心名稱以及中心的完整共用存取連接字串。您必須建立軟體存取簽章 (SaS) 權杖來驗證 POST 要求，以將訊息傳送至您的通知中樞。剖析連接字串中的金鑰資料，然後建立[一般概念](http://msdn.microsoft.com/library/azure/dn495627.aspx) REST API 參考中所提的 SaS Token，即可完成此作業。
 
 	在 **MainActivity.java** 中，將下列方法加入至 `MainActivity` 類別，以剖析連接字串。
 
@@ -451,7 +470,7 @@
 
 如果您要在模擬器上進行測試，請確定您的模擬器映像支援您為 app 選擇的 Google API 層級。如果您的映像不支援 Google API，您最後會發生 **SERVICE\_NOT\_AVAILABLE** 例外狀況。
 
-此外，請確定已將您的 Google 帳戶加入至執行中模擬器的 [設定] -> [帳戶] 之下。否則，嘗試向 GCM 註冊可能會導致 **AUTHENTICATION\_FAILED** 例外狀況。
+此外，請確定已將您的 Google 帳戶加入至執行中模擬器的 [設定] > [帳戶] 之下。否則，嘗試向 GCM 註冊可能會導致 **AUTHENTICATION\_FAILED** 例外狀況。
 
 ####測試應用程式
 
@@ -511,4 +530,4 @@
 [使用通知中心來推播通知給使用者]: notification-hubs-aspnet-backend-android-notify-users.md
 [使用通知中心傳送即時新聞]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

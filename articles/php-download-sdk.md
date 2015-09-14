@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="08/31/2015"
 	ms.author="tomfitz"/>
 
 #下載 Azure SDK for PHP
@@ -103,18 +103,10 @@ Azure PowerShell 是一組 PowerShell Cmdlet，可用於部署和管理 Azure �
 
 ##Azure CLI
 
-Azure CLI 是一組命令，可用於部署和管理 Azure 服務，例如 Azure 網站和 Azure 虛擬機器。下列清單說明如何根據您的作業系統來安裝 Azure CLI：
-
-* **Mac**：在此下載 Azure SDK 安裝程式：[http://go.microsoft.com/fwlink/?LinkId=252249][mac-installer]。開啟已下載的 .pkg 檔案，並依照提示完成安裝步驟。
-
-* **Linux**：安裝最新版本的 [Node.js][nodejs-org] (請參閱[透過封裝管理員來安裝 Node.js][install-node-linux])，然後執行下列命令：
-
-		npm install azure-cli -g
-
-	> [AZURE.NOTE]您可能需要以提高的權限來執行此命令：`sudo npm install azure-cli -g`
+Azure CLI 是一組命令，可用於部署和管理 Azure 服務，例如 Azure 網站和 Azure 虛擬機器。如需安裝 Azure CLI 的相關資訊，請參閱[安裝 Azure CLI](xplat-cli-install.md)。
 
 
-如需如何使用 Azure CLI 的相關資訊，請參閱[如何使用適用於 Mac、Linux 和 Windows 的 Azure 命令列][azure cli]。
+
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer
@@ -136,4 +128,4 @@ Azure CLI 是一組命令，可用於部署和管理 Azure 服務，例如 Azure
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

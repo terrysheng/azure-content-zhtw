@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Application Insights 的版本資訊" 
-	description="最新的更新。" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Windows 適用的 Application Insights 版本資訊"
+	description="最新的更新。"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/18/2015"
 	ms.author="sergkanz"/>
  
 # 適用於 Windows Phone 和市集的 Application Insights 版本資訊
@@ -77,4 +77,4 @@
 
 沒有可用於較舊版本的版本資訊。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -47,7 +47,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 >[AZURE.NOTE]如果您擁有以 SQL Server Evaluation Edition 平台映像建立的虛擬機器，該虛擬機器無法升級為組件庫內以分鐘計費之版本的映像。您可以在以下兩個選項中選擇其中一項：
 >
-> - 您可以使用資源庫中以分計費的 SQL Server 版本建立新的虛擬機器，然後依照[將資料庫移轉至 Azure VM 上的 SQL Server](virtual-machines-migrate-onpremises-database) 中的步驟，將資料庫檔案移轉至這部新的虛擬機器
+> - 您可以使用資源庫中以分計費的 SQL Server 版本建立新的虛擬機器，然後依照[將資料庫移轉至 Azure VM 上的 SQL Server](virtual-machines-migrate-onpremises-database) 中的步驟，將資料庫檔案移轉至這部新的虛擬機器。
 > - 您也可以依照[升級為不同的 SQL Server 版本](http://azure.microsoft.com/pricing/license-mobility/)中的步驟，在 [Azure 上透過軟體保證的授權流動性](https://msdn.microsoft.com/library/cc707783.aspx)合約的規範下，將現有的 SQL Server 評估版執行個體升級為其他版本的 SQL Server。如需如何購買授權版本之 SQL Server 的詳細資訊，請參閱[如何購買 SQL Server](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx)。
 
 4. 在第一個 [**虛擬機器組態**] 頁面，請提供下列資訊：
@@ -100,11 +100,11 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 1. 佈建完成時，請按一下虛擬機器的名稱以前往 [儀表板] 頁面。按一下頁面底部的 [**連接**]。
 
-2. 按一下 [開啟] 按鈕。
+2. 按一下 [**開啟**] 按鈕。
 
 	![按一下 [開啟] 按鈕](./media/virtual-machines-provision-sql-server/click-open-to-connect.png)
 
-3. 在 [Windows 安全性] 對話方塊中，按一下 [使用其他帳戶]。
+3. 在 [**Windows 安全性**] 對話方塊中，按一下 [**使用其他帳戶**]。
 
 	![按一下 [使用其他帳戶]](./media/virtual-machines-provision-sql-server/credentials.png)
 
@@ -149,11 +149,9 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 ### Azure 中的 SQL Server 工作負載：
 - [Azure 虛擬機器中的 SQL Server Business Intelligence](virtual-machines-sql-server-business-intelligence.md)
 
-- [SQL Server 資料倉儲和 Azure 虛擬機器中的交易式工作負載](virtual-machines-sql-server-dw-and-oltp-workloads.md)
-
 ### 白皮書：
 - [了解 Azure 虛擬機器中的 Azure SQL Database 和 SQL Server](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
 - [Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

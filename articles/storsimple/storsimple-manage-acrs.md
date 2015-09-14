@@ -1,21 +1,21 @@
 <properties 
    pageTitle="管理 StorSimple 中的存取控制記錄 | Microsoft Azure"
-   description="說明如何使用存取控制記錄 (ACR) 以判斷哪些主機可以連接至 StorSimple 裝置上的磁碟區。"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="tysonn" />
+	description="說明如何使用存取控制記錄 (ACR) 以判斷哪些主機可以連接至 StorSimple 裝置上的磁碟區。"
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# 管理 StorSimple 中的存取控制記錄
+# 使用 StorSimple Manager 服務管理存取控制記錄
 
 ## 概觀
 
@@ -34,7 +34,7 @@
 
 ## 加入存取控制記錄
 
-您可以使用管理入口網站中的 [**設定**] 頁面，以加入 ACR。一般而言，您會讓一個 ACR 與一個磁碟區產生關聯。
+使用 StorSimple Manager 服務的 [設定] 頁面加入 ACR。一般而言，您會讓一個 ACR 與一個磁碟區產生關聯。
 
 執行下列步驟以加入 ACR。
 
@@ -94,4 +94,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

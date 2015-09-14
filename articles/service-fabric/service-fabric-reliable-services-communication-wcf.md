@@ -1,20 +1,20 @@
 <properties
    pageTitle="可靠服務 API 所提供的 WCF 式通訊堆疊"
-   description="本文將說明可靠服務 API 所提供的 WCF 式通訊堆疊。"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="BharatNarasimman"
-   manager="vipulm"
-   editor=""/>
+	description="本文將說明可靠服務 API 所提供的 WCF 式通訊堆疊。"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="BharatNarasimman"
+	manager="vipulm"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="04/13/2015"
-   ms.author="bharatn@microsoft.com"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="required"
+	ms.date="08/27/2015"
+	ms.author="bharatn@microsoft.com"/>
 
 # 可靠服務的 WCF 式通訊堆疊
 可靠服務架構允許服務作者決定其想要使用服務的通訊堆疊。他們可以透過 [`CreateCommunicationListener`](../service-fabric-reliable-service-communication.md) 方法傳回的 `ICommunicationListener` 在其選擇的通訊堆疊上外掛程式。服務作者如果想要使用 WCF 式通訊，架構提供以 WCF 式實作的通訊堆疊。
@@ -114,4 +114,4 @@ var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
 ```
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # 如何使用 Java 的 Blob 儲存體
@@ -253,16 +253,16 @@ Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更
 
 了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解有關更複雜的儲存工作。
 
-- [Azure Storage SDK for Java]
-- [Azure 儲存體用戶端 SDK 參考]
-- [Azure 儲存體 REST API]
-- [Azure 儲存體團隊部落格]
+- [Azure Storage SDK for Java][]
+- [Azure 儲存體用戶端 SDK 參考][]
+- [Azure 儲存體 REST API][]
+- [Azure 儲存體團隊部落格][]
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
 [Azure 儲存體 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -12,8 +12,8 @@
 	ms.workload="core"
 	ms.tgt_pltfrm="c"
 	ms.devlang="java"
-	ms.topic="article" 
-	ms.date="07/21/2015"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="sethm"/>
 
 # 開始使用事件中心
@@ -24,7 +24,7 @@
 
 事件中心是可高度擴充的擷取系統，每秒可以吸收數以百萬計的事件，讓應用程式能處理和分析已連線裝置和應用程式所產生的大量資料。收集到事件中樞後，您可以使用任何即時分析提供者或儲存體叢集轉換和儲存資料。
 
-如需詳細資訊，請參閱[事件中心概觀]。
+如需詳細資訊，請參閱[事件中樞概觀]。
 
 在本教學課程中，您將學習如何使用以 C 撰寫的主控台應用程式將訊息擷取到事件中心，以及使用 Apache Storm 平行擷取它們。
 
@@ -38,7 +38,7 @@
 
 ## 建立事件中心
 
-1. 登入 [Azure 管理入口網站]，然後按一下畫面底部的 [新增]。
+1. 登入 [Azure 入口網站]，並按一下畫面底部的 [新增]。
 
 2. 依序按一下 [應用程式服務]、[服務匯流排]、[事件中心]、[快速建立]。
 
@@ -101,9 +101,9 @@
 [23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
 
 <!-- Links -->
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure 入口網站]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[事件中心概觀]: event-hubs-overview.md
+[事件中樞概觀]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
 [HDInsight Storm 概觀]: ../hdinsight/hdinsight-storm-overview.md/
@@ -111,4 +111,4 @@
 [在 Storm 和 HDInsight 上使用 SCP.NET 和 C# 開發串流資料處理應用程式]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

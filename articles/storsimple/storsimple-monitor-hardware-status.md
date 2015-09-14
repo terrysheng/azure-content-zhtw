@@ -1,25 +1,25 @@
 <properties 
    pageTitle="StorSimple 硬體元件和狀態 | Microsoft Azure"
-   description="了解如何透過 StorSimple Manager 服務監視 StorSimple 裝置的硬體元件。"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="了解如何透過 StorSimple Manager 服務監視 StorSimple 裝置的硬體元件。"
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/02/2015"
+	ms.author="alkohli"/>
 
-# StorSimple 硬體元件和狀態
+# 使用 StorSimple Manager 服務監視硬體元件和狀態
 
 ## 概觀
 
-本文描述內部部署 StorSimple 裝置中的各種實體和邏輯元件。它也會說明如何使用 StorSimple Manager 服務中的 [**維護**] 頁面監視裝置元件狀態。
+本文描述內部部署 StorSimple 裝置中的各種實體和邏輯元件。它也會說明如何使用 StorSimple Manager 服務中的 [維護] 頁面監視裝置元件狀態。
 
 [**維護**] 頁面會顯示所有 StorSimple 裝置元件的硬體狀態。在 8100 的元件清單下，有三個區段描述：
 
@@ -131,4 +131,4 @@
 
 如果持續發生裝置問題，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

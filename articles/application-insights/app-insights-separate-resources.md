@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="建立新 Application Insights 資源" 
-	description="設定新的應用程式並取得新的檢測金鑰。Application Insights 會監視實際運作之應用程式的效能和使用情形。" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="開發、測試和生產環境適用的不同 Application Insights 資源"
+	description="監視應用程式在不同開發階段的效能和使用量"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="awills"/>
 
-# 建立新 Application Insights 資源
+# 開發、測試和生產環境適用的不同 Application Insights 資源
 
 
 若要避免混合來自應用程式的偵錯、測試和生產版本的遙測，請建立個別 [Application Insights][start] 資源，以接收來自每個版本的資料。
@@ -98,4 +98,4 @@ iKey 也會用在您的應用程式網頁中，在[您從快速啟動刀鋒視�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

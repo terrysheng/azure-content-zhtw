@@ -12,11 +12,11 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="06/10/2015"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="stbaro"/>
 
-# 使用 DocumentDB 指令碼總管檢視預存程序、觸發程序和使用者定義函數
+# 使用 DocumentDB 指令碼總管檢視、編輯和建立預存程序、觸發程序和使用者定義函式。
 
 本文章提供 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) [指令碼總管] 的概述，它是讓您檢視 DocumentDB 伺服器端程式設計成品 (包括預存程序、觸發程序和使用者定義函數) 的 Azure 預覽入口網站工具。在[這裡](documentdb-programming.md)閱讀更多有關 DocumentDB 伺服器端程式設計的資訊。
 
@@ -63,13 +63,29 @@
 	![[指令碼總管] 重新整理命令螢幕擷取畫面](./media/documentdb-view-scripts/scriptexplorerrefresh.png)
 
 
-## 使用指令碼總管檢視預存程序、觸發程序和使用者定義函數
+## 使用 [指令碼總管] 檢視、編輯、建立和刪除預存程序、觸發程序和使用者定義函式。
 
-[指令碼總管] 可讓您輕鬆地檢視 DocumentDB 伺服器端程式設計成品。
+[指令碼總管] 可讓您輕鬆地在 DocumentDB 伺服器端程式設計成品上執行 CRUD 作業。
 
-- 只要按一下您想要檢視內容的指令碼即可。
+- 若要建立指令碼，只要在 [指令碼總管] 內按一下適用的建立命令，然後提供 ID、輸入指令碼內容，並按一下 [儲存] 命令。
+
+	![[指令碼總管] 建立選項螢幕擷取畫面](./media/documentdb-view-scripts/scriptexplorercreatecommand.png)
+
+- 在建立觸發程序時，您也必須指定觸發程序類型和觸發程序作業。
+
+	![[指令碼總管] 觸發程序選項螢幕擷取畫面](./media/documentdb-view-scripts/scriptexplorercreatetrigger.png)
+
+- 若要檢視指令碼，只要按一下您想要的指令碼即可。
 
 	![[指令碼總管] 檢視指令碼體驗螢幕擷取畫面](./media/documentdb-view-scripts/scriptexplorerviewscript.png)
+
+- 若要編輯指令碼，只要進行想要的變更，然後按一下 [儲存] 命令即可。
+
+	![[指令碼總管] 檢視指令碼體驗螢幕擷取畫面](./media/documentdb-view-scripts/scriptexplorereditscript.png)
+
+- 若要捨棄任何指令碼的暫止變更，只要按一下 [捨棄] 命令即可。
+
+	![[指令碼總管] 捨棄變更體驗螢幕擷取畫面](./media/documentdb-view-scripts/scriptexplorerdiscardchanges.png)
 
 - [指令碼總管] 還可讓您輕鬆地檢視目前已載入指令碼的系統屬性，您只需按一下 **[屬性]** 命令即可。
 
@@ -77,9 +93,17 @@
 
 	> [AZURE.NOTE]時間戳記 (\_ts) 屬性在內部會以 Epoch 時間表示，但是 [指令碼總管] 會以一般人可判讀的 GMT 格式顯示此值。
 
+- 若要刪除指令碼，請在 [指令碼總管] 中選取，然後按一下 [刪除] 命令。
+
+	![[指令碼總管] 刪除命令螢幕擷取畫面](./media/documentdb-view-scripts/scriptexplorerdeletescript1.png)
+
+- 按一下 [是] 以確認刪除動作，或按一下 [否] 以取消刪除動作。
+
+	![[指令碼總管] 刪除命令螢幕擷取畫面](./media/documentdb-view-scripts/scriptexplorerdeletescript2.png)
+
 ## 後續步驟
 
 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

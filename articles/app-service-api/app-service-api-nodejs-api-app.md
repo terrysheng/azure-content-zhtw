@@ -1,11 +1,11 @@
 <properties
-	pageTitle="在 Azure App Service 中建置和部署 Node.js API 應用程式"
+	pageTitle="建置和部署 Azure App Service 的 Node.js API 應用程式 | Microsoft Azure"
 	description="了解如何建立 Node.js API 應用程式封裝並將其部署至 Azure App Service。"
 	services="app-service\api"
 	documentationCenter="nodejs"
 	authors="pkefal"
-  manager="" 
-  editor=""/>
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="app-service-api"
@@ -20,7 +20,7 @@
 
 本教學課程說明如何建立 [Node.js](http://nodejs.org) 應用程式，並使用 [Git](http://git-scm.com) 將其部署至 Azure App Service API 應用程式。本教學課程中的指示可運用在任何足以執行 Node 應用程式的作業系統上。
 
-完成之應用程式的螢幕擷取畫面如下：
+以下螢幕擷取畫面顯示完成的應用程式：
 
 ![][sample-api-app-page]
 
@@ -34,7 +34,7 @@
 
 2. 按一下入口網站左下方的 [**新增**]。
 
-3. 按一下 **[Web + 行動] > [API 應用程式]**。
+3. 按一下 [Web + 行動] > [API 應用程式]。
 
 	![][portal-quick-create]
 
@@ -50,7 +50,7 @@
 
 	如果您已選取 [**新增到儀表板**] 核取方塊，則入口網站會在 API 應用程式建立之後自動開啟其刀鋒視窗。如果您已清除此核取方塊，請按一下入口網站首頁上的 [**通知**]，以查看 API 應用程式建立狀態，然後按一下通知可移至新 API 應用程式的刀鋒視窗。
 
-7. 按一下 **[設定] > [應用程式設定]**。
+7. 按一下 [設定] > [應用程式設定]。
 
 9. 將存取權層級設定為 [**公用 (匿名)**]。
 
@@ -78,7 +78,7 @@
 
 	![][setup-git-publishing]
 
-6. 如果您先前尚未設定部署認證以供發佈 API 應用程式或其他 App Service 應用程式，請立即設定：
+6. 如果您先前未設定發佈 API 應用程式或其他 App Service 應用程式的部署認證，請立即設定：
 
 	* 按一下 [**設定部署認證**]。
 
@@ -171,7 +171,6 @@
 
 		git init
 
-
 2. 使用下列命令將檔案新增至儲存機制：
 
 		git add .
@@ -193,9 +192,9 @@
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 	 	* [new branch]      master -> master
 
-## 在 Azure 預覽入口網站中檢視 API 定義
+## 在 Azure Preview 入口網站中檢視 API 定義
 
-現已將 API 部署到您的 API 應用程式，您可在 Azure 預覽入口網站中查看 API 定義。一開始要先重新啟動*閘道*，這可讓 Azure 認可 API 應用程式的 API 定義已經變更。閘道是一個 Web 應用程式，可處理資源群組中 API 應用程式的 API 管理和授權。
+現在您已部署了 API 到 API 應用程式，您可以看到在 Azure Preview 入口網站中的 API 定義。一開始要先重新啟動*閘道*，這可讓 Azure 認可 API 應用程式的 API 定義已經變更。閘道是一個 Web 應用程式，可處理資源群組中 API 應用程式的 API 管理和授權。
 
 6. 在 Azure 預覽入口網站中，移至您稍早建立之 API 應用程式的 [**API 應用程式**] 刀鋒視窗，然後按一下 [**閘道**] 連結。
 
@@ -243,6 +242,5 @@
 [server-js]: ./media/app-service-api-nodejs-api-app/server-js.png
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

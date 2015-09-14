@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/06/2015"
+	ms.date="08/27/2015"
 	ms.author="banders"/>
 
 # 幾分鐘內即上架到 Azure Operational Insights
@@ -28,11 +28,15 @@
 
 您可以使用 Operations Management Suite 網站建立 Operations Management Suite 工作區。也可以使用 Microsoft Azure 訂用帳戶建立 Operational Insights 工作區。目前，這兩個工作區擁有相同的功能。兩者之間唯一的差異是名稱。如果您使用 Azure 訂用帳戶，也可以使用該訂用帳戶來存取其他 Azure 服務。不論建立工作區的方法為何，您都會使用 Microsoft 帳戶或組織帳戶來建立工作區。
 
+以下就來看看此程序：
+
+![上架程序](./media/operational-insights-onboard-in-minutes/onboard-oms.png)
+
 ## 使用 Operations Management Suite 的 3 個註冊步驟
 
 1. 移至 [Operations Management Suite](http://microsoft.com/oms) 網站並按一下 [免費試用]。登入 Microsoft 帳戶 (如 Outlook.com)，或登入貴公司或教育機構所提供，用來搭配 Office 365 或其他 Microsoft 服務的組織帳戶。
 2. 提供唯一的工作區名稱。工作區是儲存管理資料的邏輯容器。它提供在不同組織團隊之間分割資料的方法，因為資料為其工作區專有。指定電子郵件地址和資料的儲存區域。![建立工作區及連結訂用帳戶](./media/operational-insights-onboard-in-minutes/create-workspace-link-sub.png)
-3. 接下來，您可以建立新的 Azure 訂用帳戶或連結現有的 Azure 訂用帳戶。如果您想要繼續使用免費試用版，請按一下 [**不是現在**]。
+3. 接下來，您可以建立新的 Azure 訂用帳戶或連結現有的 Azure 訂用帳戶。如果您想要繼續使用免費試用版，請按一下 [不是現在]。
 
 您已準備好開始使用 Operations Management Suite 入口網站。
 
@@ -82,7 +86,7 @@
 1. 在 Operations Manager 主控台內選取 [管理]。
 2. 展開 [Operational Insights] 節點，然後選取 [Operational Insights 連接]。
 3. 按一下右上方的 [註冊至 Operational Insights] 連結，並遵循指示執行作業。
-4. 完成註冊精靈之後，按一下 [加入電腦/群組] 連結。
+4. 完成註冊精靈之後，按一下 [新增電腦/群組] 連結。
 5. 在 [電腦搜尋] 對話方塊中，您可以搜尋 Operations Manager 監視的電腦或群組。選取要上架到 Operational Insights 的電腦或群組，按一下 [加入]，然後按一下 [確定]。您可以驗證 Operational Insights 服務是否正在接收資料，只要移至 Operations Management Suite 入口網站的 [使用量] 磚即可。資料應該會在大約 5-10 分鐘之後出現。
 
 若要閱讀更多有關將 Operations Manager 連接到 Operations Management Suite 的資訊，請參閱[從 System Center Operations Manager 連接至 Operational Insights](operational-insights-connect-scom.md)。
@@ -97,4 +101,4 @@
 - 熟悉[搜尋](operational-insights-search.md)。
 - 使用[儀表板](operational-insights-use-dashboards.md)來儲存及顯示自訂搜尋。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="從 .NET 用戶端使用 Azure App Service 中的 API 應用程式" 
-	description="了解如何使用 App Service SDK 從 .NET 用戶端中的 API 應用程式。" 
-	services="app-service\api" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="從 .NET 用戶端使用 Azure App Service 中的 API 應用程式"
+	description="了解如何使用 App Service SDK 從 .NET 用戶端中的 API 應用程式。"
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="tdykstra"/>
 
 # 從 .NET 用戶端使用 Azure App Service 中的 API 應用程式 
@@ -37,7 +37,7 @@
 
 - [建立 API 應用程式](app-service-dotnet-create-api-app.md)
 - [部署 API 應用程式](app-service-dotnet-deploy-api-app.md)
-- [保護 API 應用程式](../app-service-dotnet-add-authentication.md)
+- [保護 API 應用程式](../app-service-api-dotnet-add-authentication.md)
 
 [AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
 
@@ -205,4 +205,4 @@
 如需如何在 API 應用程式中使用驗證的相關資訊，請參閱 [Azure App Service 中 API 應用程式和行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

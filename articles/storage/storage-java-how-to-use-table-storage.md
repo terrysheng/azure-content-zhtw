@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用 Java 的資料表儲存體 | Microsoft Azure" 
-	description="如何在 Azure 中使用資料表儲存體服務。程式碼範例以 Java 程式碼撰寫。" 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="如何使用 Java 的資料表儲存體 | Microsoft Azure"
+	description="如何在 Azure 中使用資料表儲存體服務。程式碼範例以 Java 程式碼撰寫。"
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 
@@ -547,12 +547,12 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 了解資料表儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
-- [Azure Storage SDK for Java]
-- [Azure 儲存體用戶端 SDK 參考]
-- [Azure 儲存體 REST API]
-- [Azure 儲存體團隊部落格]
+- [Azure Storage SDK for Java][]
+- [Azure 儲存體用戶端 SDK 參考][]
+- [Azure 儲存體 REST API][]
+- [Azure 儲存體團隊部落格][]
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
@@ -561,4 +561,4 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 [部落格文章]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

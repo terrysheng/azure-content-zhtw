@@ -32,7 +32,7 @@
 
 開始進行本 HBase 教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Microsoft Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - 具有 Visual Studio 2013 的**工作站**：如需相關指示，請參閱[安裝 Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx)。
 
 ## 佈建 HBase 叢集
@@ -46,20 +46,20 @@
 2. 按一下左上角的 [新增]，再按 [資料 + 分析]、[HDInsight]。
 3. 輸入下列值：
 
-	- **叢集名稱**：輸入識別此叢集的名稱。
-	- **叢集類型**：HBase
-	- **叢集作業系統**：HDInsight HBase 叢集目前僅適用於 Windows 作業系統。
-	- **訂用帳戶**：選取用於佈建此叢集的 Azure 訂用帳戶。
-	- **資源群組**：加入或選取 Azure 資源群組。如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
-	- **設定認證**。您可以為以 Windows 為主的叢集建立叢集使用者 (又名為 HTTP 使用者、HTTP Web 服務使用者) 和遠端桌面使用者。
-	- **資料來源**：建立新的 Azure 儲存體帳戶，或選取現有的 Azure 儲存體帳戶，使其做為叢集的預設檔案系統。這個 Azure 儲存體帳戶必須與 HDInsight HBase 叢集位於相同的位置。
-	- **節點定價層：**選取 HBase 叢集的區域伺服器數目。
+	- **叢集名稱** - 輸入識別此叢集的名稱
+	- **叢集類型** - HBase
+	- **叢集作業系統** - HDInsight HBase 叢集目前僅適用於 Windows 作業系統
+	- **訂用帳戶** - 選取用於佈建此叢集的 Azure 訂用帳戶
+	- **資源群組** - 加入或選取 Azure 資源群組。如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)
+	- **設定認證** - 您可以為以 Windows 為主的叢集建立叢集使用者 (又名為 HTTP 使用者、HTTP Web 服務使用者) 和遠端桌面使用者
+	- **資料來源** - 建立新的 Azure 儲存體帳戶，或選取現有的 Azure 儲存體帳戶，使其做為叢集的預設檔案系統。這個 Azure 儲存體帳戶必須與 HDInsight HBase 叢集位於相同的位置
+	- **節點定價層** - 選取 HBase 叢集的區域伺服器數目
 
 		> [AZURE.WARNING]如需 HBase 服務的高可用性，您必須佈建包含至少**三個**節點的叢集。這可確保如果一個節點故障，仍可在其他節點上使用 HBase 資料區域。
 
 		> 如果正在學習 HBase 時，請務必選擇 1 做為叢集大小，並在每次使用叢集後予以刪除，以降低成本。
 
-	- **選用組態**：選取叢集版本、設定 Azure 虛擬網路、設定 Hive/Oozie 中繼存放區、設定指令碼動作，和新增額外的儲存體帳戶。
+	- **選用組態** - 選取叢集版本、設定 Azure 虛擬網路、設定 Hive/Oozie 中繼存放區、設定指令碼動作，和新增額外的儲存體帳戶。
 
 4. 按一下 [建立]。
 
@@ -176,34 +176,6 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 
 	![HDInsight 叢集儀表板。][img-hdinsight-hbase-hive-editor]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 **執行 Hive 查詢**
 
 1. 將下列 HiveQL 指令碼輸入至 Hive 編輯器，然後按一下 [提交]，以建立對應到 HBase 資料表的 Hive 資料表。在執行此陳述式前，請確定您已使用 HBase Shell 建立參考先前本教學課程的範例資料表。
@@ -240,7 +212,7 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 您必須從 GitHub 下載適用於 .NET 的 HBase REST API 用戶端程式庫並建置專案，才能使用 HBase .NET SDK。下列程序包括此工作的指示。
 
 1. 建立新的 C# Visual Studio Windows 桌面主控台應用程式。
-2. 按一下 [工具] 功能表 > [NuGet 套件管理器] > [套件管理器主控台]，以開啟 NuGet 套件管理器主控台。
+2. 按一下 [工具] > [NuGet 封裝管理員] > [封裝管理員主控台]，以開啟 NuGet 封裝管理員主控台。
 3. 在主控台中，執行下列 NuGet 命令：
 
 		Install-Package Microsoft.HBase.Client
@@ -264,7 +236,7 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
             ClusterCredentials creds = new ClusterCredentials(new Uri(clusterURL), hadoopUsername, hadoopUserPassword);
             HBaseClient hbaseClient = new HBaseClient(creds);
 
-            // Retrieve the cluster version
+            // Retrieve the cluster version.
             var version = hbaseClient.GetVersion();
             Console.WriteLine("The HBase cluster version is " + version);
 
@@ -323,12 +295,12 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 ## 後續步驟
 在 HDInsight 的本 HBase 教學課程中，您已了解如何佈建 HBase 叢集，以及如何建立資料表，並從 HBase Shell 檢視這些資料表中的資料。您同時也了解到如何使用 Hive 查詢 HBase 資料表中的資料，以及如何使用 HBase C# REST API 建立 HBase 資料表，並擷取其資料表中的資料。
 
-若要深入了解，請參閱：
+如需詳細資訊，請參閱：
 
-- [HDInsight HBase 概觀][hdinsight-hbase-overview]：HBase 是建置於 Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
-- [在 Azure 虛擬網路上佈建 HBase 叢集][hdinsight-hbase-provision-vnet]：由於 HBase 叢集已與虛擬網路整合，因此能夠部署到和應用程式相同的虛擬網路，讓應用程式得以和 HBase 直接通訊。
-- [設定 HDInsight 中的 HBase 複寫](hdinsight-hbase-geo-replication.md)：了解如何跨兩個 Azure 資料中心設定 HBase 複寫。
-- [利用 HDInsight 中的 HBase 分析 Twitter 情緒][hbase-twitter-sentiment]：了解如何使用 HDInsight 之 Hadoop 叢集中的 HBase，執行巨量資料的即時[情緒分析](http://en.wikipedia.org/wiki/Sentiment_analysis)。
+- [HDInsight HBase 概觀][hdinsight-hbase-overview]。HBase 是建置於 Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
+- [在 Azure 虛擬網路上佈建 HBase 叢集][hdinsight-hbase-provision-vnet]。由於 HBase 叢集已與虛擬網路整合，因此能夠部署到與您應用程式相同的虛擬網路，讓應用程式得以和 HBase 直接通訊。
+- [在 HDInsight 中設定 HBase 複寫](hdinsight-hbase-geo-replication.md)。了解如何跨兩個 Azure 資料中心設定 HBase 複寫。
+- [使用 HDInsight 中的 HBase 分析 Twitter 情緒][hbase-twitter-sentiment]。了解如何在 HDInsight 中使用 Hadoop 叢集中的 HBase 針對巨量資料進行即時[情緒分析](http://en.wikipedia.org/wiki/Sentiment_analysis)。
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -357,4 +329,4 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

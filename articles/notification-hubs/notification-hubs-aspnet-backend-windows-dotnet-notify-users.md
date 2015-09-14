@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 通知中心通知使用者" 
-	description="了解如何在 Azure 中傳送安全的推播通知。程式碼範例是以 C# 撰寫並使用 .NET API。" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	services="notification-hubs" 
+<properties
+	pageTitle="Azure 通知中心通知使用者"
+	description="了解如何在 Azure 中傳送安全的推播通知。程式碼範例是以 C# 撰寫並使用 .NET API。"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	services="notification-hubs"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/31/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 #Azure 通知中心通知使用者
@@ -28,7 +28,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 本教學課程還是[安全推播]教學課程的必要條件。完成本教學課程中的步驟後，您可以繼續進行[安全推播]教學課程，該教學課程說明如何修改本教學課程中的程式碼，以安全的方式傳送推播通知。
 
 
-##必要條件 
+##必要條件
 
 在開始本教學課程之前，您必須已完成下列行動服務教學課程：
 
@@ -100,7 +100,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
                     <TextBlock Grid.Row="2" Grid.ColumnSpan="3" Text="Password" FontSize="24" Margin="20,0,20,0" />
                     <PasswordBox Name="PasswordTextBox" Grid.Row="3" Grid.ColumnSpan="3" Margin="20,0,20,0"/>
 
-                    <Button Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                    <Button Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Content="1. Login and register" Click="LoginAndRegisterClick" Margin="0,0,0,20"/>
 
                     <ToggleButton Name="toggleWNS" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" Content="WNS" IsChecked="True" />
@@ -137,11 +137,11 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 
 13. 將下面的程式碼加入 [(Windows 8.1)] 和 [(Windows Phone 8.1)] 專案之 **MainPage.xaml.cs** 中的 MainPage 類別。
- 
+
 	`PushClick` 方法是 [傳送推播] 按鈕的 click 處理常式。它會呼叫後端以觸發所有裝置的通知，而所有裝置都具有符合 `to_tag` 參數的使用者名稱標記。通知訊息會以要求主體的 JSON 內容形式傳送。
 
 	`LoginAndRegisterClick` 方法是 [登入並註冊] 按鈕的 click 處理常式。它會在本機儲存體中儲存基本驗證權杖 (請注意，這代表驗證結構描述使用的任何權杖)，然後使用 `RegisterClient` 以使用後端來註冊通知。
-	
+
 
         private async void PushClick(object sender, RoutedEventArgs e)
         {
@@ -227,7 +227,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 
 15. 在 [方案總管] 中，以滑鼠右鍵按一下 [共用] 專案，然後按一下 [新增]，再按一下 [類別]。將類別命名為 **RegisterClient.cs**，然後按一下 [確定]**OK** 以產生類別。
-	
+
 	為了註冊推播通知，此類別會包裝連絡應用程式後端所需的 REST 呼叫。它也會在本機儲存通知中心所建立的 *registrationIds*，如[從您的應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)中的詳細說明。請注意，當您按一下 [Log in and register] 按鈕時，系統便會使用儲存在本機儲存體中的授權權杖。
 
 
@@ -327,7 +327,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
         }
 
 18. 儲存您的所有變更。
-		
+
 
 ## 測試應用程式
 
@@ -341,17 +341,17 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
     ![][14]
 
 4. 在 Windows Phone 8.1 執行個體上，於 [使用者名稱] 和 [密碼] 欄位中輸入使用者名稱字串，然後按一下 [登入和註冊]。
-5. 然後，在 [收件者使用者名稱標記] 欄位中，輸入在 Windows 8.1 上註冊的使用者名稱。輸入通知訊息，然後按一下 [傳送推播]。 
+5. 然後，在 [收件者使用者名稱標記] 欄位中，輸入在 Windows 8.1 上註冊的使用者名稱。輸入通知訊息，然後按一下 [傳送推播]。
 
     ![][16]
 
 6. 只有已經使用相符使用者名稱標記所註冊的裝置才會收到通知訊息。
-	
+
 	![][15]
- 
+
 ## 後續步驟
 
-* 如果您想要按興趣群組分隔使用者，請參閱[使用通知中心傳送即時新聞]。 
+* 如果您想要按興趣群組分隔使用者，請參閱[使用通知中心傳送即時新聞]。
 * 若要深入了解如何使用通知中心，請參閱[通知中心指引]。
 
 
@@ -373,4 +373,4 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 [使用通知中心傳送即時新聞]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

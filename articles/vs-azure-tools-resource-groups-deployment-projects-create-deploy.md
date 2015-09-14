@@ -85,7 +85,7 @@ JSON 檔案使用的結構描述在每個檔案的頂端提供做為參考。如
 
     ![[部署到資源群組] 對話方塊](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796673.png)
 
-1. 在 [資源群組] 下拉式方塊中，選擇現有的資源群組或建立一個新的。若要建立資源群組，請開啟 [資源群組] 下拉式方塊並選擇 [<Create New...>]。
+1. 在 [資源群組] 下拉式方塊中，選擇現有資源群組或建立新群組。若要建立資源群組，請開啟 [資源群組] 下拉式方塊，然後選擇 **<Create New...>**。
 
     [建立資源群組] 對話方塊隨即出現。
 
@@ -195,4 +195,4 @@ JSON 檔案使用的結構描述在每個檔案的頂端提供做為參考。如
 
 若要了解如何將資源新增至 Visual Studio 中的 Azure 資源群組，請參閱[將資源新增至 Azure 資源群組](https://msdn.microsoft.com/library/azure/mt125415.aspx)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties
  pageTitle="開始使用 HPC Pack 叢集以執行 Excel 和 SOA 工作負載 | Microsoft Azure"
- description="。"
- services="virtual-machines"
- documentationCenter=""
- authors="dlepow"
- manager="timlt"
- editor=""/>
+	description="。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 <tags
 ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-windows"
- ms.workload="big-compute"
- ms.date="08/18/2015"
- ms.author="danlep"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="big-compute"
+	ms.date="08/18/2015"
+	ms.author="danlep"/>
 
 # 開始使用 Azure 中的 HPC Pack 叢集執行 Excel 和 SOA 工作負載
 
@@ -60,7 +60,7 @@ ms.service="virtual-machines"
     >
     >運算節點 VM 會從選取之運算節點系列的最新映像建立。選取 **ComputeNode** 選項做為一般用途的最新 HPC Pack 2012 R2 Update 2 運算映像。選取 **ComputeNodeWithExcel** 選項做為最新的 HPC Pack 運算節點映像，包含評估版 Microsoft Excel Professional Plus 2013。如果您想要部署一般 SOA 工作階段或 Excel UDF 卸載的叢集，請選擇 **ComputeNode** 選項 (不需安裝 Excel)。
     >
-    >使用 **ComputeNodeWithExcel** 做為生產工作負載時，您必須提供有效的 Excel 授權以在運算節點上啟用 Excel。否則，Excel 評估版會在 30 天後到期，屆時將無法執行任何 Excel 工作負載。
+    >使用 **ComputeNodeWithExcel** 做為生產工作負載時，您必須提供有效的 Excel 授權以在運算節點上啟用 Excel。否則，Excel 評估版會在 30 天內到期，且執行 Excel 活頁簿會不斷失敗並出現 COMExeption (0x800AC472)。如果發生這種情況，您可登入前端節點，透過 [HPC 叢集管理員] 主控台在所有 Excel 運算節點上 clusrun “%ProgramFiles(x86)%\\Microsoft Office\\Office15\\OSPPREARM.exe”，進而重設 Excel 的授權狀態以獲得另外 30 天的評估時間。寬限期的重設授權狀態時間上限為 2，之後您可能需要提供有效的 Excel 授權。
 
     c.選擇訂用帳戶。
 
@@ -96,7 +96,7 @@ HPC Pack IaaS 部署指令碼提供靈活的另一種方式部署 HPC Pack 叢�
 
 **建立組態檔**
 
- HPC Pack IaaS 部署指令碼會使用 XML 組態檔做為輸入，可描述 HPC 叢集的基礎結構。若要部署由一個前端節點和從包含 Microsoft Excel 之運算節點映像所建立的 18 個運算節點組成的叢集，請將環境的值取代為下列範例組態檔。如需有關組態檔的詳細資訊，請參閱指令碼資料夾中的 Manual.rtf 檔案或[指令碼文件](https://msdn.microsoft.com/library/azure/dn864734.aspx)。
+ HPC Pack IaaS 部署指令碼會使用 XML 組態檔做為輸入，可描述 HPC 叢集的基礎結構。若要部署由一個前端節點和從包含 Microsoft Excel 之運算節點映像所建立的 18 個運算節點組成的叢集，請將環境的值取代為下列範例組態檔。如需組態檔的詳細資訊，請參閱指令碼資料夾中的 Manual.rtf 檔案或[指令碼文件](https://msdn.microsoft.com/library/azure/dn864734.aspx)。
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -222,7 +222,7 @@ You have enabled REST API or web portal on HPC Pack head node. Please import the
 ```
 4.	為您的電腦 ([x64](http://www.microsoft.com/download/details.aspx?id=14632)、[x86](https://www.microsoft.com/download/details.aspx?id=5555)) 下載完整的 [HPC Pack 2012 R2 Update 2 安裝](http://www.microsoft.com/download/details.aspx?id=47755)並安裝 HPC Pack 用戶端，或下載並安裝 [HPC Pack 2012 R2 Update 2 用戶端公用程式](https://www.microsoft.com/download/details.aspx?id=47754)及適當的 Visual C++ 2010 可轉散發套件。
 
-5.	在此範例中，我們使用名為 ConvertiblePricing\_Complete.xlsb 的範例 Excel 活頁簿，可在[這裡](https://www.microsoft.com/zh-tw/download/details.aspx?id=2939)下載。
+5.	在此範例中，我們使用名為 ConvertiblePricing\_Complete.xlsb 的範例 Excel 活頁簿，可在[這裡](https://www.microsoft.com/zh-TW/download/details.aspx?id=2939)下載。
 
 6.	將 Excel 活頁簿複製到工作資料夾，例如 D:\\Excel\\Run。
 
@@ -259,15 +259,15 @@ You have enabled REST API or web portal on HPC Pack head node. Please import the
 
 若要執行 Excel UDF，請遵循上述的步驟 1 - 3 來設定用戶端電腦。關於 Excel UDF，您不需要在運算節點上安裝 Excel 應用程式，因此您可以在步驟 1 中選擇一般運算節點映像，而不是具有 Excel 的運算節點映像。
 
->[AZURE.NOTE][Excel 2010 和 2013 叢集連接器] 對話方塊中有 34 個字元的限制。如果完整的叢集名稱過長，例如 hpcexcelhn01.southeastasia.cloudapp.azure.com，該名稱就不符限制且 UDF 將不會執行。因應措施是使用 IaaS 部署指令碼部署名稱較短的叢集，例如 hpcexcelhn01.cloudapp.net。此問題將在較新版的 SOA 工作階段 API 中修正。
+>[AZURE.NOTE][Excel 2010 和 2013 叢集連接器] 對話方塊中有 34 個字元的限制。如果完整的叢集名稱過長，例如 hpcexcelhn01.southeastasia.cloudapp.azure.com，該名稱就無法放入對話方塊中。解決方法是對用戶端電腦上的 SOA 工作階段 API 套用 Update 2 QFE KB3085833 ([在此](http://www.microsoft.com/zh-TW/download/details.aspx?id=48725)下載)，然後以長叢集名稱的值設定機器寬變數 (如 *CCP\_IAASHN*) 並在對話方塊中輸入 *%CCP\_IAASHN%* 做為叢集前端節點名稱。
 
 成功部署叢集之後，繼續進行下列步驟來執行內建的範例 Excel UDF。關於自訂的 Excel UDF，請參閱這些[資源](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx)以建置 XLL 並將其部署在 IaaS 叢集上。
 
-1.	開啟新的 Excel 活頁簿。在 [**開發**] 功能區上，按一下 [**增益集**]。然後在對話方塊中按一下 [**瀏覽**]、瀏覽至 %CCP\_HOME%Bin\\XLL32 資料夾並選取範例 ClusterUDF32.xll。
+1.	開啟新的 Excel 活頁簿。在 [開發] 功能區上，按一下 [增益集]。然後在對話方塊中按一下 [瀏覽]、瀏覽至 %CCP\_HOME%Bin\\XLL32 資料夾並選取範例 ClusterUDF32.xll。
 
     ![選取 UDF][udf]
 
-2.	按一下 [**檔案**] > [**選項**] > [**進階**]。在**公式**下，檢查**允許使用者定義的 XLL 函數執行運算叢集**。然後按一下 [**選項**] 並在**叢集前端節點名稱**中輸入完整叢集名稱。(如先前所述，這個輸入方塊限制為 34 個字元，因此較長的叢集名稱可能不適合。當您透過 IaaS 部署指令碼部署叢集時，您可以設定較短的完整名稱。)
+2.	按一下 [檔案] > [選項] > [進階]。在 [公式]下，核取 [允許使用者定義的 XLL 函數執行運算叢集]。然後按一下 [選項] 並在 [叢集前端節點名稱] 中輸入完整叢集名稱。(如先前所述，這個輸入方塊限制為 34 個字元，因此較長的叢集名稱可能不適合。當您透過 IaaS 部署指令碼部署叢集時，您可以設定較短的完整名稱。)
 
     ![設定 UDF][options]
 
@@ -376,4 +376,4 @@ SOA 用戶端應用程式不需要變更，除了將標頭名稱改變為 IaaS �
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

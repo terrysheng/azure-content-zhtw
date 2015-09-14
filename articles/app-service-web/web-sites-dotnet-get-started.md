@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 Azure App Service 中建立 ASP.NET Web 應用程式"
-	description="本教學課程說明如何在 Visual Studio 2013 中建立 ASP.NET Web 專案，並將它部署到 Azure App Service 中的 Web應用程式。在 15 分鐘內，您便會有在雲端中已啟動並執行的應用程式。"
+	pageTitle="在 Azure App Service 中建立 ASP.NET Web 應用程式 | Microsoft Azure"
+	description="本教學課程說明如何在 Visual Studio 2013 中建立 ASP.NET Web 專案，並將它部署到 Azure App Service 中的 Web應用程式。"
 	services="app-service\web"
 	documentationCenter=".net"
 	authors="tdykstra"
@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="08/10/2015"
 	ms.author="tdykstra"/>
 
@@ -20,7 +20,7 @@
 
 ## 概觀
 
-本教學課程示範如何使用 Visual Studio 2015 或 Visual Studio 2013，來建立 ASP.NET Web 應用程式並將其部署至 [App Service Web Apps](app-service-web-overview.md)。本教學課程假設您先前沒有使用 Azure 或 ASP.NET 的經驗。完成此教學課程後，您將有個簡單的 Web 應用程式已在雲端中啟動並執行。
+本教學課程示範如何使用 Visual Studio 2015 或 Visual Studio 2013，來建立 ASP.NET Web 應用程式並將其部署至 [Azure App Service 中的 Web 應用程式](app-service-web-overview.md)。本教學課程假設您先前沒有使用 Azure 或 ASP.NET 的經驗。完成此教學課程後，您將有個簡單的 Web 應用程式已在雲端中啟動並執行。
 
 下圖顯示完成的應用程式：
 
@@ -31,16 +31,16 @@
 * 如何安裝 Azure SDK 好讓電腦適合用於進行 Azure 開發。
 * 如何建立 Visual Studio ASP.NET Web 專案，並將該專案部署至 Azure Web 應用程式。
 * 如何對 Web 專案進行變更，並重新部署應用程式。
-* 如何使用 [Azure Preview 入口網站](/overview/preview-portal/)來監視及管理您的 Web 應用程式。
+* 說明如何使用 [Azure 入口網站](/overview/preview-portal/)來監控及管理您的 Web 應用程式。
 
 ##<a name="video"></a>註冊 Microsoft Azure
 
-要完成此教學課程，您必須要有 Azure 帳戶：
+您需要有 Azure 帳戶才能完成此教學課程。您可以：
 
-* 您可以[免費申請 Azure 帳戶](/pricing/free-trial/?WT.mc_id=A261C142F) - 您將取得可試用付費 Azure 服務的點數，且即使在點數用完後，您仍可保留該帳戶，並使用免費的 Azure 服務，例如 App Service Web Apps。
-* 您可以[啟用 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - 您的 MSDN 訂閱每月會提供您額度，您可以用在 Azure 付費服務。
+* [免費申請 Azure 帳戶](/pricing/free-trial/?WT.mc_id=A261C142F)。您將取得可試用付費 Azure 服務的額度。即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務和功能，例如 Azure App Service 中的 Web Apps 功能。
+* [啟用 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)。您的 MSDN 訂閱每月會提供您額度，您可以用在 Azure 付費服務。
 
-> [AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+> [AZURE.NOTE]如果您想要在註冊 Azure 帳戶之前先開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)。您可以於該處，在 App Service 中立即建立短期的入門 Web app - 不需信用卡，不需任何承諾。
 
 在此影片中，Scott Hanselman 示範註冊免費試用的 Microsoft Azure 有多容易。(持續時間：1:58)
 
@@ -56,17 +56,17 @@
 
 ![建立和部署](./media/web-sites-dotnet-get-started/Create_App.png)
 
-1. 開啟 Visual Studio 2015 或 Visual Studio 2013。 
+1. 開啟 Visual Studio 2015 或 Visual Studio 2013。
 
 	如果您使用 Visual Studio 2013，畫面會與螢幕擷取畫面稍有不同，但程序基本上都相同。
 
 2. 從 [檔案] 功能表，按一下 [新增] > [專案]。
 
-3. 在 [新增專案] 對話方塊中，按一下 [C\#] > [Web] > [ASP.NET Web 應用程式]。如有需要，您可以選擇 [Visual Basic]。
+3. 在 [新增專案] 對話方塊中，按一下 [C#] > [Web] > [ASP.NET Web 應用程式]。如有需要，您可以選擇 [Visual Basic]。
 
 3. 確定已選取 [.NET Framework 4.5.2] 作為目標架構。
 
-4.  [Application Insights](app-insights-overview.md) 會監視 Web 應用程式的可用性、效能和使用情形。如果您不想要試用，請清除 [將 Application Insights 加入專案] 核取方塊。
+4.  [Azure Application Insights](app-insights-overview.md) 會監視 Web 應用程式的可用性、效能和使用情形。如果您不想要試用，請清除 [將 Application Insights 加入專案] 核取方塊。
 
 4. 將應用程式命名為 **MyExample**。
 
@@ -88,7 +88,7 @@
 
 	您正在建立的範例應用程式無法讓使用者登入。[後續步驟](#next-steps)一節會連結到實作驗證和授權的教學課程。
 
-5. 在 [新增 ASP.NET 專案] 對話方塊中，保留 [MicrosoftAzure] 下的設定，然後按一下 [確定]。
+5. 在 [新增 ASP.NET 專案] 對話方塊中，保留 [Microsoft Azure] 下的設定，然後按一下 [確定]。
 
 	![[New ASP.NET Project] 對話方塊](./media/web-sites-dotnet-get-started/GS13newaspnetprojdb.png)
 
@@ -108,19 +108,19 @@
 
 4. 在 [App Service 方案] 下拉式清單中，選取 [建立新的 App Service 方案]。
 
-	本教學課程結尾的[後續步驟](#next-steps)一節含有 App Service 方案相關資訊的連結。
+	[後續步驟](#next-steps)一節含有 App Service 方案相關資訊的連結。
 
-5. 針對方案名稱輸入 *MyExamplePlan* 或其他您偏好使用的名稱。
+5. 針對方案名稱輸入 **MyExamplePlan** 或其他您偏好使用的名稱。
 
 6. 在 [資源群組] 下拉式清單中，選取 [建立新的資源群組]。
 
 	[後續步驟](#next-steps)一節含有資源群組相關資訊的連結。
 
-5. 針對資源群組名稱輸入 *MyExampleGroup* 或其他您偏好使用的名稱。
+5. 針對資源群組名稱輸入 **MyExampleGroup** 或其他您偏好使用的名稱。
 
 5. 在 [區域] 下拉式清單中，選擇最接近您的位置。
 
-	這個設定會指定 Web 應用程式將執行所在的 Azure 資料中心。您可以在本教學課程中選取任何區域，這不會造成顯著的差異，但對於實際執行的 Web 應用程式，您的 Web 伺服器就應盡可能靠近存取您網站的瀏覽器，以將[延遲](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090)降到最低。
+	這個設定會指定 Web 應用程式將執行所在的 Azure 資料中心。您可以在本教學課程中選取任何區域，這不會造成顯著的差異。但是對於實際執行的 Web 應用程式，您的 Web 伺服器就應盡可能靠近存取您網站的瀏覽器，以將[延遲](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090)降到最低。
 
 5. 保留資料庫欄位不變。
 
@@ -146,13 +146,13 @@
 
 ## 將應用程式部署至 Azure
 
-7. 在 [Azure App Service 活動] 視窗中，按一下 [立即將 MyExample 發行至這個 Web 應用程式]。
+7. 在 [Azure App Service 活動] 視窗中，按一下 [立即將 MyExample 發佈至這個 Web 應用程式]。
 
 	![已建立 Web 應用程式](./media/web-sites-dotnet-get-started/GS13sitecreated.png)
 
-	幾秒後，**發行 Web** 精靈隨即出現。
+	幾秒後，[發佈 Web] 精靈隨即出現。
 
-	Visual Studio 要將您的專案部署至 Azure 所需的設定，已儲存在*發行設定檔*中。精靈可讓您檢查及變更這些設定。
+	Visual Studio 要將您的專案部署至 Azure 所需的設定，已儲存在*發佈設定檔*中。您可以使用此精靈來檢閱及變更這些設定。
 
 8. 在 [發佈 Web] 精靈的 [連接] 索引標籤中，按 [下一步]。
 
@@ -162,9 +162,9 @@
 
 10. 在 [設定] 索引標籤中，按 [下一步]。
 
-	您可以接受 [組態] 和 [檔案發行選項] 的預設值。
+	您可以接受 [組態] 和 [檔案發佈選項] 的預設值。
 
-	[組態] 下拉式清單可讓您部署用於遠端偵錯的偵錯組建。[後續步驟](#next-steps)小節會連結至說明如何從遠端以偵錯模式執行 Visual Studio 的教學課程。
+	您可以使用 [組態] 下拉式清單以部署用於遠端偵錯的偵錯組建。[後續步驟](#next-steps)小節會連結至說明如何從遠端以偵錯模式執行 Visual Studio 的教學課程。
 
 	![[設定] 索引標籤](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)
 
@@ -190,7 +190,7 @@
 
 本教學課程章節是選擇性的。您將會變更首頁的 **h1** 標題、在開發電腦本機上執行專案以驗證變更，然後將變更部署至 Azure。
 
-2. 在 [方案總管] 中開啟 *Views/Home/Index.cshtml* 或 **.vbhtml** 檔案，將 **h1** 標題從 "ASP.NET" 變更為 "ASP.NET and Azure"，並儲存檔案。
+2. 在 [方案總管] 中開啟 **Views/Home/Index.cshtml** 或 **.vbhtml** 檔案，將 **h1** 標題從 "ASP.NET" 變更為 "ASP.NET and Azure"，並儲存檔案。
 
 	![MVC index.cshtml](./media/web-sites-dotnet-get-started/index.png)
 
@@ -204,13 +204,13 @@
 
 1. 關閉瀏覽器。
 
-1. 在 [方案總管] 中以滑鼠右鍵按一下專案，再選擇 [發行]。
+1. 在 [方案總管] 中以滑鼠右鍵按一下專案，再選擇 [發佈]。
 
-	![選擇發行](./media/web-sites-dotnet-get-started/choosepublish.png)
+	![選擇發佈](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	[發佈 Web] 精靈的 [預覽] 索引標籤隨即出現。以往如果需要變更任何發行設定，您會選擇不同的索引標籤，但現在您只需要使用相同的設定來重新部署。
+	[發佈 Web] 精靈的 [預覽] 索引標籤隨即出現。以往如果需要變更任何發佈設定，您會選擇不同的索引標籤，但現在您只需要使用相同的設定來重新部署。
 
-2. 在 [發行 Web] 精靈中，按一下 [發行]。
+2. 在 [發佈 Web] 精靈中，按一下 [發佈]。
 
 	![Click Publish](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
 
@@ -218,17 +218,17 @@
 
 	![已部署變更的 Web 應用程式](./media/web-sites-dotnet-get-started/deployedandazure.png)
 
-**提示：**您可以啟用 [Web 單鍵發行] 工具列，以加快部署速度。按一下 [檢視] > [工具列]，然後選取 [Web 單鍵發佈]。此工具列可讓您選取設定檔，按一下按鈕進行發行，或按一下按鈕以開啟 [發行 Web] 精靈。
+**提示：**您可以啟用 [Web 單鍵發佈] 工具列，以加快部署速度。按一下 [檢視] > [工具列]，然後選取 [Web 單鍵發佈]。您可以使用工具列來選取設定檔，按一下按鈕來發佈，或按一下按鈕來開啟 [發佈 Web] 精靈。
 
-![Web 單鍵發行工具列](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+![Web 單鍵發佈工具列](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
-## 在管理入口網站中監控及管理 Web 應用程式
+## 在 Azure 入口網站中監控及管理 Web 應用程式
 
-[Azure Preview 入口網站](/services/management-portal/)是讓您用來管理及監控 Azure 服務 (例如，您剛剛建立的 Web 應用程式) 的 Web 介面。在教學課程的這一節中，您會了解可在入口網站中執行的一些作業。
+[Azure 入口網站](/services/management-portal/)是您可以用來管理及監控 Azure 服務 (例如，您剛剛建立的 Web 應用程式) 的 Web 介面。在教學課程的這一節中，您會了解可在入口網站中執行的一些作業。
 
-1. 在瀏覽器中，移至 [https://portal.azure.com]()，然後以您的 Azure 認證登入。
+1. 在瀏覽器中，移至 [https://portal.azure.com](https://portal.azure.com)，然後以您的 Azure 認證登入。
 
-2. 按一下 [全部瀏覽] > [Web 應用程式]，然後按一下 Web 應用程式的名稱。
+2. 按一下 [全部瀏覽] > [Web Apps]，然後按一下 Web 應用程式的名稱。
 
 	[Web 應用程式] 刀鋒視窗會顯示 Web 應用程式的設定和使用量統計資料概觀。
 
@@ -248,7 +248,7 @@
 
 	![入口網站 Web 應用程式設定索引標籤](./media/web-sites-dotnet-get-started/portalconfigure2.png)
 
-這些只是管理入口網站的部分功能。您也可以建立新的 Web 應用程式、刪除現有的 Web 應用程式、停止及重新啟動 Web 應用程式，以及管理其他類型的 Azure 服務，例如資料庫和虛擬機器。
+這些只是入口網站的部分功能。您也可以建立新的 Web 應用程式、刪除現有的 Web 應用程式、停止及重新啟動 Web 應用程式，以及管理其他類型的 Azure 服務，例如資料庫和虛擬機器。
 
 ## 後續步驟
 
@@ -258,7 +258,7 @@
 
 	在本教學課程中，您看到在同一個作業中建立並部署 Web 應用程式的最快速方式。如需如何使用 Visual Studio 或透過[來源控制系統](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)來[自動化部署](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)的其他部署方式概觀，請參閱[如何部署 Azure Web 應用程式](web-sites-deploy.md)。
 
-	Visual Studio 也可產生能夠讓您將部署自動化的 Windows PowerShell 指令碼。如需詳細資訊，請參閱[自動化各個項目 (使用 Azure 建置真實世界的雲端應用程式)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything) (英文)。
+	Visual Studio 也可產生您可以用來將部署自動化的 Windows PowerShell 指令碼。如需詳細資訊，請參閱[自動化各個項目 (使用 Azure 建置真實世界的雲端應用程式)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything) (英文)。
 
 * 如何在 Visual Studio 中管理 Web 應用程式
 
@@ -276,7 +276,7 @@
 
 	如需如何使用 SSL 和您自己的網域 (例如 www.contoso.com，而非 contoso.azurewebsites.net) 的相關資訊，請參閱下列資源：
 
-	* [設定 Azure 網站的自訂網域名稱](web-sites-custom-domain-name.md)。
+	* [在 Azure App Service 中設定自訂網域名稱](web-sites-custom-domain-name.md)
 	* [對 Azure 網站啟用 HTTPS](web-sites-configure-ssl-certificate.md)
 
 * 如何避免閒置逾時之後的喚醒等待時間
@@ -285,9 +285,9 @@
 
 * 如何新增即時功能，例如交談
 
-	如果您的 Web 應用程式將包含即時功能 (例如交談服務、遊戲、股市行情等)，您可以使用 [ASP.NET SignalR](http://www.asp.net/signalr) 與 [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/) 傳輸方法來獲得最佳效能。如需詳細資訊，請參閱[搭配使用 SignalR 和 Azure Web 應用程式](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites)。
+	如果您的 Web 應用程式將包含即時功能 (例如交談服務、遊戲或股市行情)，您可以使用 [ASP.NET SignalR](http://www.asp.net/signalr) 與 [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/) 傳輸方法來獲得最佳效能。如需詳細資訊，請參閱[搭配使用 SignalR 和 Azure Web 應用程式](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites)。
 
-* 如何在 App Service、雲端服務和 Web 應用程式的 VM 之間進行選擇
+* 如何在 App Service、Azure 雲端服務和 Web 應用程式的 Azure 虛擬機器之間進行選擇
 
 	在 Azure 中，您可以在 App Service Web Apps 中執行 Web 應用程式 (如本教學課程所示)，或在雲端服務或虛擬機器中執行。如需詳細資訊，請參閱 [Azure Web 應用程式、雲端服務和 VM：每一項的使用時機](/manage/services/web-sites/choose-web-app-service/)。
 
@@ -296,9 +296,7 @@
 * [如何選擇或建立資源群組](../azure-preview-portal-using-resource-groups.md)
 
 ## 變更的項目
+* 如需從網站變更為 App Service 的指南，請參閱 [Azure App Service 及現有的 Azure 服務](http://go.microsoft.com/fwlink/?LinkId=529714)。
+* 如需從舊的入口網站變更為新入口網站的指南，請參閱[瀏覽 Azure 入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)。
 
-* 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

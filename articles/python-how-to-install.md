@@ -13,20 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/05/2015"
+	ms.date="08/31/2015"
 	ms.author="huvalo"/>
-
-
-
 
 # 安裝 Python 和 SDK
 
-您可以在 Windows 上輕易地設定 Python；此外，它也預先安裝於 Mac 和 Linux 中。本指南將逐步引導您完成安裝作業，並讓機器做好搭配 Azure 的準備。本指南將提供以下事項的協助：
-
-* Python Azure SDK 含有哪些內容？
-* 該使用哪個 Python 和哪個版本
-* 在 Windows 上進行安裝
-* 在 Mac 和 Linux 上進行安裝
+您可以在 Windows 上輕易地設定 Python；此外，它也預先安裝於 Mac 和 Linux 中。本指南將逐步引導您完成安裝作業，並讓機器做好搭配 Azure 的準備。
 
 ## Python Azure SDK 含有哪些內容？
 
@@ -55,25 +47,47 @@ Azure SDK for Python 內含的元件可讓您開發、部署及管理適用於 A
 
 除非您有特定的需求，否則我們建議您採用前兩個選項，如下文所述。
 
-## 在 Windows 上進行安裝
+## 安裝於 Windows、Linux 和 MacOS (只有用戶端程式庫)
 
-對於 Windows，您可以使用 Web Platform Installer 加速安裝。這些包括 [www.python.org][] 提供的 CPython。
+如果您已經安裝 Python，您可以使用 PIP 在現有的 Python 2.7 或 Python 3.3+ 環境中，安裝所有用戶端程式的組合。此作業會從 [Python 套件索引][] (PyPI) 下載封裝。
+
+請注意，您可能需要在 Linux 和 MacOS IE 上使用 `sudo` 命令。`sudo pip install azure`。
+
+	pip install azure
+
+從版本 1.0.0 開始，程式庫已分成多個封裝。您現在可以只安裝您需要的封裝或組合。
+
+若要安裝 Azure 儲存體執行階段用戶端程式庫：
+
+	pip install azure-storage
+
+若要安裝 Azure 服務匯流排執行階段用戶端程式庫：
+
+	pip install azure-servicebus
+
+若要安裝 Azure 資源管理員 (ARM) 用戶端程式庫：
+
+	pip install azure-mgmt
+
+若要安裝 Azure 服務管理 (ASM) 用戶端程式庫：
+
+	pip install azure-servicemanagement-legacy
+
+
+## 安裝於 Windows (Python、Azure 模擬器和用戶端程式庫)
+
+您可以使用 Web Platform Installer 簡化安裝。這些包括 [www.python.org][] 提供的 CPython。
 
 * [Microsoft Azure SDK for Python 2.7][]
 * [Microsoft Azure SDK for Python 3.4][]
 
 **注意：**在 Windows Server 上，若要下載 WebPI 安裝程式，您可能需要設定 IE ESC 設定 ([開始]/[系統管理工具]/[伺服器管理員]/[本機伺服器]，然後按一下 [**IE 增強式安全性設定**]，將其設定為 [關閉])
 
-
 ### Python 2.7
 
 WebPI 安裝程式提供開發 Python Azure 應用程式所需的任何項目。
 
 ![how-to-install-python-webpi-27-1](./media/python-how-to-install/how-to-install-python-webpi-27-1.png)
-
-完成後，您應該可以看見這個確認安裝選擇的畫面：
-
-![how-to-install-python-webpi-27-2](./media/python-how-to-install/how-to-install-python-webpi-27-2.png)
 
 安裝完成後，請在提示字元中輸入 `python` 以確認安裝作業順利完成。由於安裝方法不盡相同，您可能需要設定 "path" 變數才能找到 (正確版本的) Python：
 
@@ -90,10 +104,6 @@ WebPI 安裝程式提供開發 Python Azure 應用程式所需的任何項目。
 
 ![how-to-install-python-webpi-34-1](./media/python-how-to-install/how-to-install-python-webpi-34-1.png)
 
-完成後，您應該可以看見這個確認安裝選擇的畫面：
-
-![how-to-install-python-webpi-34-2](./media/python-how-to-install/how-to-install-python-webpi-34-2.png)
-
 安裝完成後，請在提示字元中輸入 python 以確認安裝作業順利完成。由於安裝方法不盡相同，您可能需要設定 "path" 變數才能找到 (正確版本的) Python：
 
 ![how-to-install-python-win-run-34](./media/python-how-to-install/how-to-install-python-win-run-34.png)
@@ -102,25 +112,7 @@ WebPI 安裝程式提供開發 Python Azure 應用程式所需的任何項目。
 
 		C:\Python34\Lib\site-packages\azure
 
-
-### 取得更多封裝
-
-[Python 套件索引][] (PyPI) 具有選擇性豐富的 Python 程式庫。如果您選擇安裝散發版本，便擁有從 Web 開發到工程運算等多樣化案例中令人感興趣的主要部分。
-
-
-### Python Tools for Visual Studio
-
-[Python Tools for Visual Studio][] (PTVS) 是 Microsoft 提供的免費/OSS 外掛程式，它能將 VS 轉變為成熟的 Python IDE：
-
-![how-to-install-python-ptvs](./media/python-how-to-install/how-to-install-python-ptvs.png)
-
-您可以選擇是否要使用 PTVS，不過我們建議您使用，因為它能提供 Python 和 Web 專案/方案支援、偵錯、程式碼剖析、互動式視窗、範本編輯和 IntelliSense。
-
-PTVS 也能讓您使用部署至[雲端服務][]和[網站][]的支援，輕鬆部署至 Microsoft Azure。
-
-PTVS 可以和您現有的 Visual Studio 2010、2012 或 2013 安裝一同運作。如需文件、下載項目和相關討論，請參閱 [CodePlex 上的 Python Tools for Visual Studio][]。
-
-## Windows 解除安裝
+### Windows 解除安裝
 
 就傳統上來說，**Azure SDK for Python** WebPI 產品並不是應用程式，而是將多個不同產品 (如 32 位元的 Python 2.7/3.4、適用於 Python 的 Azure 用戶端程式庫等) 一起搭售的集合。這樣的做法導致 WebPI 本身沒有傳統的解除安裝程式，因此您需要從 Windows 控制台分別移除 WebPI 安裝的程式。
 
@@ -130,29 +122,22 @@ PTVS 可以和您現有的 Visual Studio 2010、2012 或 2013 安裝一同運作
 
 接著再重新執行 WebPI。
 
-## 在 Linux 和 MacOS 上進行安裝
+## 取得更多封裝
 
-您的開發電腦很可能已安裝 Python。您可以輸入以下內容來加以查看：
+[Python 套件索引][] (PyPI) 具有選擇性豐富的 Python 程式庫。如果您選擇安裝散發版本，便擁有從 Web 開發到工程運算等多樣化案例中令人感興趣的主要部分。
 
-![how-to-install-python-linux-run](./media/python-how-to-install/how-to-install-python-linux-run.png)
 
-我們現在看到這個在 Azure 上執行的 Ubuntu Server 14.04 LTS VM 已安裝 CPython 2.7.6。如果您想要升級，請遵循 OS 的建議套件升級指示。
+## Python Tools for Visual Studio
 
-若要安裝 Python Azure 用戶端程式庫，請使用 **pip** 從 **PyPI** 取得。
+[Python Tools for Visual Studio][] (PTVS) 是 Microsoft 提供的免費/OSS 外掛程式，它能將 VS 轉變為成熟的 Python IDE：
 
-如果您沒有安裝 **pip**，請使用此命令來進行安裝：
+![how-to-install-python-ptvs](./media/python-how-to-install/how-to-install-python-ptvs.png)
 
-	curl https://bootstrap.pypa.io/get-pip.py | sudo python
+您可以選擇是否要使用 PTVS，不過我們建議您使用，因為它能提供 Python 和 Web 專案/方案支援、偵錯、程式碼剖析、互動式視窗、範本編輯和 IntelliSense。
 
-上述命令會以無訊息的方式提示您輸入根密碼。請輸入密碼並按 Enter。
+PTVS 也能讓您使用部署至[雲端服務][]和[網站][]的支援，輕鬆部署至 Microsoft Azure。
 
-接下來，使用 `pip` 命令來安裝 Python Azure 用戶端程式庫：
-
-	sudo pip install azure
-
-您現在應該能看見用戶端程式庫已安裝在 **site-packages** 下。在 MacOS 上：
-
-![how-to-install-python-mac-site](./media/python-how-to-install/how-to-install-python-mac-site.png)
+PTVS 可以和您現有的 Visual Studio 2013 或 2015 安裝一同運作。如需文件、下載項目和相關討論，請參閱 [Python Tools for Visual Studio]。
 
 ## 適用於 Linux 和 MacOS 的 Python Azure 案例
 
@@ -185,7 +170,7 @@ PTVS 可以和您現有的 Visual Studio 2010、2012 或 2013 安裝一同運作
 * [Django 專案 - 成熟的 Web 架構/CMS][]
 * [IPython - 先進的 Python REPL/Notebook][]
 * [Azure 上的 IPython Notebook][]
-* [CodePlex 上的 Python Tools for Visual Studio][]
+* [GitHub 上的 Python Tools for Visual Studio][]
 
 
 [Continuum Analytics Python 發佈]: http://continuum.io
@@ -204,10 +189,10 @@ PTVS 可以和您現有的 Visual Studio 2010、2012 或 2013 安裝一同運作
 [雲端服務]: cloud-services-python-ptvs.md
 [網站]: web-sites-python-ptvs-django-mysql.md
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[CodePlex 上的 Python Tools for Visual Studio]: http://pytools.codeplex.com
+[GitHub 上的 Python Tools for Visual Studio]: https://github.com/microsoft/ptvs
 [Python 套件索引]: http://pypi.python.org/pypi
-[Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281&clcid=0x409
-[Microsoft Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990&clcid=0x409
+[Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281
+[Microsoft Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
 [Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
 [How to use the Azure Command-Line Interface]: crossplat-cmd-tools.md
 [建立執行 Linux 的虛擬機器]: virtual-machines-linux-tutorial.md
@@ -219,4 +204,4 @@ PTVS 可以和您現有的 Visual Studio 2010、2012 或 2013 安裝一同運作
 [佇列儲存體]: storage-python-how-to-use-queue-storage.md
 [Blob 儲存體]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

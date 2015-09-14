@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="如何設定雲端服務 | Microsoft Azure" 
-	description="了解如何在 Azure 中設定雲端服務。了解更新雲端服務組態和設定角色執行個體的遠端存取。" 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="Thraka" 
-	manager="timlt" 
+	pageTitle="如何設定雲端服務 | Microsoft Azure"
+	description="了解如何在 Azure 中設定雲端服務。了解更新雲端服務組態和設定角色執行個體的遠端存取。"
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="06/29/2015"
 	ms.author="adegeo"/>
 
@@ -85,8 +85,8 @@
 
 ## 設定對角色執行個體的遠端存取
 
-您無法使用 **Azure Preview 入口網站**設定遠端存取，只能透過[非預覽入口網站](http://manage.windowsazure.com/)變更此設定。[這裡](cloud-services-how-to-configure.md#configure-remote-access-to-role-instances)有詳細說明。
+您無法使用 **Azure Preview 入口網站**設定遠端存取，只能透過[非預覽入口網站](http://manage.windowsazure.com/)變更此設定。[這裡](cloud-services-role-enable-remote-desktop.md)有詳細說明。
 			
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

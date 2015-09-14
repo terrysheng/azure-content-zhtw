@@ -23,9 +23,15 @@
 
 > [AZURE.NOTE]最好使用一或多個不同的磁碟來儲存虛擬機器的資料。當您建立 Azure 虛擬機器時，它會有一個作業系統的磁碟對應至 C 磁碟機，還有一個暫存磁碟對應至 D 磁碟機。**請勿使用 D 磁碟機來儲存檔案。** 顧名思義，D 磁碟機只提供暫存儲存空間。它並不提供備援或備份，因為它不在 Azure 儲存體內。
 
+## 影片逐步解說
+
+以下是本教學課程的逐步解說。
+
+[AZURE.VIDEO attaching-a-data-disk-to-a-windows-vm]
+
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-## <a id="initializeinWS"></a>作法：在 Windows Server 中初始化新的資料磁碟
+## <a id="initializeinWS"></a>如何：在 Windows Server 中初始化新的資料磁碟
 
 1. 連接至虛擬機器。如需指示，請參閱[如何登入執行 Windows Server 的虛擬機器][logon]。
 
@@ -53,4 +59,4 @@
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

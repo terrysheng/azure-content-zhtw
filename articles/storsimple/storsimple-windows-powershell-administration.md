@@ -1,35 +1,35 @@
 <properties 
-   pageTitle="使用 Windows PowerShell for StorSimple 管理 StorSimple 裝置 | Microsoft Azure"
-   description="了解如何使用 Windows PowerShell for StorSimple 來管理 StorSimple 裝置"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="PowerShell for StorSimple 裝置管理 | Microsoft Azure"
+	description="了解如何使用 Windows PowerShell for StorSimple 管理 StorSimple 裝置。"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/19/2015"
-   ms.author="alkohli@microsoft.com" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/28/2015"
+	ms.author="alkohli@microsoft.com"/>
 
 # 使用 Windows PowerShell for StorSimple 管理您的裝置
 
 ## 概觀
+
 Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 Microsoft Azure StorSimple 裝置。一如其名，它是 Windows PowerShell 型的命令列介面，建置在有限制的 Runspace 之中。從命令列使用者的觀點來看，有限制的 Runspace 就像是 Windows PowerShell 的受限版本。這個介面具備 Windows PowerShell 的一些基本功能，同時又具有額外的專用 Cmdlet，相互搭配來管理 Microsoft Azure StorSimple 裝置。
 
-本文說明 Windows PowerShell for StorSimple 的功能，包括如何與此介面連線，以及使用此介面可執行之工作流程的逐步程序的連結。工作流程包含如何註冊您的裝置、在裝置上設定網路介面、安裝需要裝置處於維護模式的更新、變更裝置狀態、疑難排解您可能會遇到的任何問題。
+本文描述 Windows PowerShell for StorSimple 的功能，包括如何與此介面連線，以及使用此介面可執行之工作流程逐步程序的連結。工作流程包含如何註冊您的裝置、在裝置上設定網路介面、安裝需要裝置處於維護模式的更新、變更裝置狀態、疑難排解您可能會遇到的任何問題。
 
 閱讀本文之後，您將能夠：
 
+- 使用 Windows PowerShell for StorSimple 連線至 StorSimple 裝置。
 
-- 使用 Windows PowerShell for StorSimple 連線至 StorSimple 裝置
+- 使用 Windows PowerShell for StorSimple 管理 StorSimple 裝置。
 
-- 使用 Windows PowerShell for StorSimple 管理 StorSimple 裝置
-
-- 在 Windows PowerShell for StorSimple 中取得說明
+- 在 Windows PowerShell for StorSimple 中取得說明。
 
 >[AZURE.NOTE]
 
@@ -95,7 +95,7 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
  	|---|---|
  	|退格鍵|Control-? (127)|
 	|Home 和 End 按鍵|標準|
-	|功能鍵和數字鍵台|ESC[n\~|
+	|功能鍵和數字鍵台|ESC[n~|
 	|方向鍵的初始狀態|正常|
 	|數字鍵台的初始狀態|正常|
 	|啟用額外的鍵盤功能|Control-Alt 和 AltGr 不同|
@@ -197,4 +197,4 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 ## 後續步驟
 如果您在執行上述任何工作流程時遇到任何 StorSimple 裝置的問題，請參閱[適用於疑難排解 StorSimple 部署的工具](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

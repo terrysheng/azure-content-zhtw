@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="使用 StorSimple Manager 服務變更 StorSimple 密碼 |Microsoft Azure" 
-   description="描述如何使用 StorSimple Manager 服務變更 StorSimple Snapshot Manager 與裝置系統管理員密碼。" 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="carolz" 
-   editor=""/>
+   pageTitle="變更 StorSimple 密碼 | Microsoft Azure"
+	description="描述如何使用 StorSimple Manager 服務變更 StorSimple Snapshot Manager 與裝置系統管理員密碼。"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/11/2015"
-   ms.author="v-sharos@microsoft.com"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="v-sharos@microsoft.com"/>
 
 # 使用 StorSimple Manager 服務變更 StorSimple 密碼
 
@@ -66,4 +66,4 @@ StorSimple Snapshot Manager 密碼現在應該已更新。
 
 [深入了解修改您的裝置組態](storsimple-modify-device-config.md)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 通知中心通知使用者" 
-	description="了解如何在 Azure 中將推播通知傳送給使用者。程式碼範例是以 Objective-C 撰寫並以 .NET API 作為後端。" 
-	documentationCenter="ios" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Azure 通知中心通知使用者"
+	description="了解如何在 Azure 中將推播通知傳送給使用者。程式碼範例是以 Objective-C 撰寫並以 .NET API 作為後端。"
+	documentationCenter="ios"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="notification-hubs"/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="05/31/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 #Azure 通知中心通知使用者
@@ -39,15 +39,15 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 2. 在您的 Main.storyboard 中從物件程式庫新增下面的螢幕擷取畫面中顯示的元件。
 
     ![][1]
- 
-	+ **使用者名稱**：含有預留位置文字 (*輸入使用者名稱*) 的 UITextField，位於傳送結果標籤正下方且受到左右邊界限制並位於傳送結果標籤正下方。 
+
+	+ **使用者名稱**：含有預留位置文字 (*輸入使用者名稱*) 的 UITextField，位於傳送結果標籤正下方且受到左右邊界限制並位於傳送結果標籤正下方。
 	+ **密碼**：含有預留位置文字 (*輸入密碼*) 的 UITextField，位於使用者名稱文字欄位正下方且受到左右邊界限制並位於使用者文字欄位正下方。勾選 [*傳回金鑰*] 底下屬性偵測器中的 [**安全文字輸入**] 選項。
 	+ **登入**：密碼文字欄位正下方標記的 UIButton，並取消勾選 [*控制項內容*] 底下屬性偵測器中的 [**啟用**] 選項。
 	+ **WNS**：當中樞中已設定 Windows 通知服務時，用來啟用傳送通知功能的標籤與開關。請參閱 [Windows 入門](notification-hubs-windows-store-dotnet-get-started.md)教學課程。
 	+ **GCM**：當中樞中已設定 Google Cloud Messaging 時，用來啟用傳送通知功能的標籤與開關。請參閱 [Android 入門](notification-hubs-android-get-started.md)教學課程。
 	+ **APNS**：啟用傳送通知給 Apple 平台通知服務之功能的標籤與開關。
 	+ **收件者使用者名稱**：含有預留位置文字 (*收件者使用者名稱標記*) 的 UITextField，位於 GCM 標籤正下方且受到左右邊界限制並位於 GCM 正下方。
-	
+
 
 	在[開始使用通知中心 (iOS)](notification-hubs-ios-get-started.md) 教學課程中已經新增一些元件。
 
@@ -67,7 +67,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		@property (weak, nonatomic) IBOutlet UISwitch *GCMSwitch;
 		@property (weak, nonatomic) IBOutlet UISwitch *APNSSwitch;
 
-		- (IBAction)LogInAction:(id)sender;		
+		- (IBAction)LogInAction:(id)sender;
 
 4. 請在 ViewController.h 中，在您的匯入陳述式正下方新增以下的 `#define`。將 *<輸入您的後端端點>* 預留位置替換成上一節中用來部署應用程式後端的目的地 URL。例如：**http://you_backend.azurewebsites.net*。
 
@@ -78,7 +78,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		@interface RegisterClient : NSObject
 
 		@property (strong, nonatomic) NSString* authenticationHeader;
-		
+
 		-(void) registerWithDeviceToken:(NSData*)token tags:(NSSet*)tags
 			andCompletion:(void(^)(NSError*))completion;
 
@@ -93,11 +93,11 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		@property (strong, nonatomic) NSURLSession* session;
 		@property (strong, nonatomic) NSURLSession* endpoint;
 
-		-(void) tryToRegisterWithDeviceToken:(NSData*)token tags:(NSSet*)tags retry:(BOOL)retry 
+		-(void) tryToRegisterWithDeviceToken:(NSData*)token tags:(NSSet*)tags retry:(BOOL)retry
 					andCompletion:(void(^)(NSError*))completion;
-		-(void) retrieveOrRequestRegistrationIdWithDeviceToken:(NSString*)token 
+		-(void) retrieveOrRequestRegistrationIdWithDeviceToken:(NSString*)token
 					completion:(void(^)(NSString*, NSError*))completion;
-		-(void) upsertRegistrationWithRegistrationId:(NSString*)registrationId deviceToken:(NSString*)token 
+		-(void) upsertRegistrationWithRegistrationId:(NSString*)registrationId deviceToken:(NSString*)token
 					tags:(NSSet*)tags andCompletion:(void(^)(NSURLResponse*, NSError*))completion;
 
 		@end
@@ -108,7 +108,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		@implementation RegisterClient
 
 		// Globals used by RegisterClient
-		NSString *const RegistrationIdLocalStorageKey = @"RegistrationId";		
+		NSString *const RegistrationIdLocalStorageKey = @"RegistrationId";
 
 		-(instancetype) initWithEndpoint:(NSString*)Endpoint
 		{
@@ -121,23 +121,23 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		    return self;
 		}
 
-		-(void) registerWithDeviceToken:(NSData*)token tags:(NSSet*)tags 
+		-(void) registerWithDeviceToken:(NSData*)token tags:(NSSet*)tags
 					andCompletion:(void(^)(NSError*))completion
 		{
 		    [self tryToRegisterWithDeviceToken:token tags:tags retry:YES andCompletion:completion];
 		}
 
-		-(void) tryToRegisterWithDeviceToken:(NSData*)token tags:(NSSet*)tags retry:(BOOL)retry 
+		-(void) tryToRegisterWithDeviceToken:(NSData*)token tags:(NSSet*)tags retry:(BOOL)retry
 					andCompletion:(void(^)(NSError*))completion
 		{
 		    NSSet* tagsSet = tags?tags:[[NSSet alloc] init];
 
-		    NSString *deviceTokenString = [[token description] 
+		    NSString *deviceTokenString = [[token description]
 				stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-		    deviceTokenString = [[deviceTokenString stringByReplacingOccurrencesOfString:@" " withString:@""] 
+		    deviceTokenString = [[deviceTokenString stringByReplacingOccurrencesOfString:@" " withString:@""]
 									uppercaseString];
 
-		    [self retrieveOrRequestRegistrationIdWithDeviceToken: deviceTokenString 
+		    [self retrieveOrRequestRegistrationIdWithDeviceToken: deviceTokenString
 				completion:^(NSString* registrationId, NSError *error) {
 		        NSLog(@"regId: %@", registrationId);
 		        if (error) {
@@ -145,7 +145,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		            return;
 		        }
 
-		        [self upsertRegistrationWithRegistrationId:registrationId deviceToken:deviceTokenString 
+		        [self upsertRegistrationWithRegistrationId:registrationId deviceToken:deviceTokenString
 					tags:tagsSet andCompletion:^(NSURLResponse * response, NSError *error) {
 		            if (error) {
 		                completion(error);
@@ -160,7 +160,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		            } else {
 		                NSLog(@"Registration error with response status: %ld", (long)httpResponse.statusCode);
 
-		                completion([NSError errorWithDomain:@"Registration" code:httpResponse.statusCode 
+		                completion([NSError errorWithDomain:@"Registration" code:httpResponse.statusCode
 									userInfo:nil]);
 		            }
 
@@ -168,30 +168,30 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		    }];
 		}
 
-		-(void) upsertRegistrationWithRegistrationId:(NSString*)registrationId deviceToken:(NSData*)token 
+		-(void) upsertRegistrationWithRegistrationId:(NSString*)registrationId deviceToken:(NSData*)token
 					tags:(NSSet*)tags andCompletion:(void(^)(NSURLResponse*, NSError*))completion
 		{
-		    NSDictionary* deviceRegistration = @{@"Platform" : @"apns", @"Handle": token, 
+		    NSDictionary* deviceRegistration = @{@"Platform" : @"apns", @"Handle": token,
 													@"Tags": [tags allObjects]};
-		    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:deviceRegistration 
+		    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:deviceRegistration
 								options:NSJSONWritingPrettyPrinted error:nil];
 
-		    NSLog(@"JSON registration: %@", [[NSString alloc] initWithData:jsonData 
+		    NSLog(@"JSON registration: %@", [[NSString alloc] initWithData:jsonData
 												encoding:NSUTF8StringEncoding]);
 
-		    NSString* endpoint = [NSString stringWithFormat:@"%@/api/register/%@", _endpoint, 
+		    NSString* endpoint = [NSString stringWithFormat:@"%@/api/register/%@", _endpoint,
 									registrationId];
 		    NSURL* requestURL = [NSURL URLWithString:endpoint];
 		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
 		    [request setHTTPMethod:@"PUT"];
 		    [request setHTTPBody:jsonData];
-		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", 
+		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@",
 													self.authenticationHeader];
 		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
 		    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 
-		    NSURLSessionDataTask* dataTask = [self.session dataTaskWithRequest:request 
-				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) 
+		    NSURLSessionDataTask* dataTask = [self.session dataTaskWithRequest:request
+				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
 			{
 		        if (!error)
 		        {
@@ -206,10 +206,10 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		    [dataTask resume];
 		}
 
-		-(void) retrieveOrRequestRegistrationIdWithDeviceToken:(NSString*)token 
+		-(void) retrieveOrRequestRegistrationIdWithDeviceToken:(NSString*)token
 					completion:(void(^)(NSString*, NSError*))completion
 		{
-		    NSString* registrationId = [[NSUserDefaults standardUserDefaults] 
+		    NSString* registrationId = [[NSUserDefaults standardUserDefaults]
 										objectForKey:RegistrationIdLocalStorageKey];
 
 		    if (registrationId)
@@ -219,28 +219,28 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		    }
 
 		    // request new one & save
-		    NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/register?handle=%@", 
+		    NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/register?handle=%@",
 									_endpoint, token]];
 		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
 		    [request setHTTPMethod:@"POST"];
-		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", 
+		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@",
 													self.authenticationHeader];
 		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
 
-		    NSURLSessionDataTask* dataTask = [self.session dataTaskWithRequest:request 
-				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) 
+		    NSURLSessionDataTask* dataTask = [self.session dataTaskWithRequest:request
+				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
 			{
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
 		        if (!error && httpResponse.statusCode == 200)
 		        {
-		            NSString* registrationId = [[NSString alloc] initWithData:data 
+		            NSString* registrationId = [[NSString alloc] initWithData:data
 						encoding:NSUTF8StringEncoding];
 
 		            // remove quotes
-		            registrationId = [registrationId substringWithRange:NSMakeRange(1, 
+		            registrationId = [registrationId substringWithRange:NSMakeRange(1,
 										[registrationId length]-2)];
 
-		            [[NSUserDefaults standardUserDefaults] setObject:registrationId 
+		            [[NSUserDefaults standardUserDefaults] setObject:registrationId
 						forKey:RegistrationIdLocalStorageKey];
 		            [[NSUserDefaults standardUserDefaults] synchronize];
 
@@ -252,7 +252,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		            if (error)
 		                completion(nil, error);
 		            else {
-		                completion(nil, [NSError errorWithDomain:@"Registration" code:httpResponse.statusCode 
+		                completion(nil, [NSError errorWithDomain:@"Registration" code:httpResponse.statusCode
 									userInfo:nil]);
 		            }
 		        }
@@ -278,14 +278,14 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		@interface ViewController () <UITextFieldDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
 
 		// create the Authorization header to perform Basic authentication with your app back-end
-		-(void) createAndSetAuthenticationHeaderWithUsername:(NSString*)username 
+		-(void) createAndSetAuthenticationHeaderWithUsername:(NSString*)username
 						AndPassword:(NSString*)password;
 
 		@end
 
 > [AZURE.NOTE]下列片段不是安全驗證結構描述，您應將 **createAndSetAuthenticationHeaderWithUsername:AndPassword:** 的實作替代成特定的驗證機制，使該機制產生註冊用戶端類別所利用的驗證權杖，例如 OAuth、Active Directory。
 
-9. 然後在 ViewController.m 的 `@implementation` 區段中新增以下程式碼，這會新增實作以設定裝置權杖與驗證標頭。 
+9. 然後在 ViewController.m 的 `@implementation` 區段中新增以下程式碼，這會新增實作以設定裝置權杖與驗證標頭。
 
 		-(void) setDeviceToken: (NSData*) deviceToken
 		{
@@ -293,14 +293,14 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		    self.LogInButton.enabled = YES;
 		}
 
-		-(void) createAndSetAuthenticationHeaderWithUsername:(NSString*)username 
+		-(void) createAndSetAuthenticationHeaderWithUsername:(NSString*)username
 						AndPassword:(NSString*)password;
 		{
 		    NSString* headerValue = [NSString stringWithFormat:@"%@:%@", username, password];
 
 		    NSData* encodedData = [[headerValue dataUsingEncoding:NSUTF8StringEncoding] base64EncodedDataWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
 
-		    self.registerClient.authenticationHeader = [[NSString alloc] initWithData:encodedData 
+		    self.registerClient.authenticationHeader = [[NSString alloc] initWithData:encodedData
 														encoding:NSUTF8StringEncoding];
 		}
 
@@ -322,10 +322,10 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		    [self createAndSetAuthenticationHeaderWithUsername:username AndPassword:password];
 
 		    __weak ViewController* selfie = self;
-		    [self.registerClient registerWithDeviceToken:self.deviceToken tags:nil 
+		    [self.registerClient registerWithDeviceToken:self.deviceToken tags:nil
 				andCompletion:^(NSError* error) {
 		        if (!error) {
-		            dispatch_async(dispatch_get_main_queue(), 
+		            dispatch_async(dispatch_get_main_queue(),
 					^{
 		                selfie.SendNotificationButton.enabled = YES;
 		                [self MessageBox:@"Success" message:@"Registered successfully!"];
@@ -335,38 +335,38 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		}
 
 
-		- (void)SendNotificationASPNETBackend:(NSString*)pns UsernameTag:(NSString*)usernameTag 
+		- (void)SendNotificationASPNETBackend:(NSString*)pns UsernameTag:(NSString*)usernameTag
 					Message:(NSString*)message
 		{
 		    NSURLSession* session = [NSURLSession
 		    	sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil
 		        delegateQueue:nil];
-		    
+
 			// Pass the pns and username tag as parameters with the REST URL to the ASP.NET backend
-		    NSURL* requestURL = [NSURL URLWithString:[NSString 
-				stringWithFormat:@"%@/api/notifications?pns=%@&to_tag=%@", BACKEND_ENDPOINT, pns, 
+		    NSURL* requestURL = [NSURL URLWithString:[NSString
+				stringWithFormat:@"%@/api/notifications?pns=%@&to_tag=%@", BACKEND_ENDPOINT, pns,
 				usernameTag]];
 
 		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
 		    [request setHTTPMethod:@"POST"];
 
 			// Get the mock authenticationheader from the register client
-		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", 
+		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@",
 				self.registerClient.authenticationHeader];
 		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
-		    
+
 		    //Add the notification message body
 		    [request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 		    [request setHTTPBody:[message dataUsingEncoding:NSUTF8StringEncoding]];
-		    
+
 			// Execute the send notification REST API on the ASP.NET Backend
-		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request 
-				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) 
+		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
+				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
 			{
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
 		        if (error || httpResponse.statusCode != 200)
 		        {
-		            NSString* status = [NSString stringWithFormat:@"Error Status for %@: %d\nError: %@\n", 
+		            NSString* status = [NSString stringWithFormat:@"Error Status for %@: %d\nError: %@\n",
 										pns, httpResponse.statusCode, error];
 		            dispatch_async(dispatch_get_main_queue(),
 		            ^{
@@ -375,13 +375,13 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		            });
 		            NSLog(status);
 		        }
-		        
+
 		        if (data != NULL)
 		        {
 		            xmlParser = [[NSXMLParser alloc] initWithData:data];
 		            [xmlParser setDelegate:self];
 		            [xmlParser parse];
-		        }		    
+		        }
 			}];
 		    [dataTask resume];
 		}
@@ -400,20 +400,20 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		-(void)SendToEnabledPlatforms
 		{
 		    NSString* json = [NSString stringWithFormat:@""%@"",self.notificationMessage.text];
-		    
+
 			[self.sendResults setText:@""];
 
 		    if ([self.WNSSwitch isOn])
 		        [self SendNotificationASPNETBackend:@"wns" UsernameTag:self.RecipientField.text Message:json];
-		
+
 		    if ([self.GCMSwitch isOn])
 		        [self SendNotificationASPNETBackend:@"gcm" UsernameTag:self.RecipientField.text Message:json];
-		
+
 		    if ([self.APNSSwitch isOn])
 		        [self SendNotificationASPNETBackend:@"apns" UsernameTag:self.RecipientField.text Message:json];
 		}
-		
-		
+
+
 
 11. 在 **ViewDidLoad** 函數中，新增下列內容以具現化 RegisterClient 執行個體，並設定文字欄位的委派。
 
@@ -427,8 +427,8 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		// Add import to the top of the file
 		#import "ViewController.h"
 
-	    - (void)application:(UIApplication *)application 
-	    			didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken 
+	    - (void)application:(UIApplication *)application
+	    			didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 	    {
 		    ViewController* rvc = (ViewController*) self.window.rootViewController;
 		    rvc.deviceToken = deviceToken;
@@ -464,6 +464,5 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 [2]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

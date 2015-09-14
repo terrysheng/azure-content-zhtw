@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="使用 Web API 註冊目前使用者以取得推播通知 | Microsoft Azure" 
-	description="了解如何在 ASP.NET Web API 執行註冊時，在 iOS 應用程式中向 Azure 通知中樞要求推播通知註冊。" 
-	services="notification-hubs" 
-	documentationCenter="ios" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="使用 Web API 註冊目前使用者以取得推播通知 | Microsoft Azure"
+	description="了解如何在 ASP.NET Web API 執行註冊時，在 iOS 應用程式中向 Azure 通知中樞要求推播通知註冊。"
+	services="notification-hubs"
+	documentationCenter="ios"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 # 使用 ASP.NET 來註冊目前使用者以取得推播通知
 
@@ -29,7 +29,7 @@
 
 ##更新應用程式  
 
-1. 在您的 MainStoryboard_iPhone.storyboard 中，從物件程式庫新增下列元件：
+1. 在您的 MainStoryboard\_iPhone.storyboard 中，從物件程式庫新增下列元件：
 
 	+ **標籤**：「使用通知中樞推播給使用者」
 	+ **標籤**：「安裝 ID」
@@ -236,6 +236,5 @@
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [開始使用通知中心]: /manage/services/notification-hubs/get-started-notification-hubs-ios
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

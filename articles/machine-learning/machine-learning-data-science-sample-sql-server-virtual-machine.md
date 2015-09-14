@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure 上的 SQL Server 取樣資料 | Microsoft Azure" 
-	description="在 Azure 上 SQL Server 中進行資料取樣" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="fashah" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Azure 上的 SQL Server 取樣資料 | Microsoft Azure"
+	description="在 Azure 上 SQL Server 中進行資料取樣"
+	services="machine-learning"
+	documentationCenter=""
+	authors="fashah"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="fashah;garye;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="fashah;garye;bradsev"/>
 
 #<a name="heading"></a>Azure 上的 SQL Server 取樣資料
 
@@ -44,8 +44,7 @@ Tablesample 可用來進行取樣及示範，如下所示。如果資料大小�
 	FROM <table_name> 
 	TABLESAMPLE (10 PERCENT)
 
-**注意**
-> 您可以藉由將這個取樣的資料儲存於新的資料表中，從該資料中探索並產生功能
+>[AZURE.NOTE]您可以藉由將這個取樣的資料儲存於新的資料表中，從該資料中探索並產生功能
 
 
 ###<a name="sql-aml"></a>連接到 Azure Machine Learning
@@ -114,4 +113,4 @@ Python 中的 [Pandas](http://pandas.pydata.org/) 程式庫提供一組豐富的
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

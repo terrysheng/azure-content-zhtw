@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="使用 Pusher 建立即時應用程式 (iOS) - 行動服務" 
-	description="了解如何使用 Pusher 將通知傳送到 iOS 上的 Azure 媒體服務應用程式。" 
-	services="mobile-services" 
-	documentationCenter="ios" 
-	authors="lindydonna" 
-	manager="dwrede" 
+<properties
+	pageTitle="使用 Pusher 建立即時應用程式 (iOS) - 行動服務"
+	description="了解如何使用 Pusher 將通知傳送到 iOS 上的 Azure 媒體服務應用程式。"
+	services="mobile-services"
+	documentationCenter="ios"
+	authors="lindydonna"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/05/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="donnam"/>
 
 
@@ -439,6 +439,5 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
 [行動服務伺服器指令碼參照]: http://go.microsoft.com/fwlink/p/?LinkId=262293
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

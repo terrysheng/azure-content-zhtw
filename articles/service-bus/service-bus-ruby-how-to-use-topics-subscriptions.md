@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="08/31/2015"
 	ms.author="tomfitz"/>
 
 
@@ -22,7 +22,7 @@
 
 # 如何使用服務匯流排主題/訂閱
 
-本指南將說明如何從 Ruby 應用程式使用服務匯流排主題和訂閱。所涵蓋的案例包括**建立主題和訂閱、建立訂閱篩選器、傳送訊息**至主題、**接收訂閱的訊息**，及**刪除主題和訂閱**。如需主題和訂閱的詳細資訊，請參閱[後續步驟](#NextSteps)一節。
+本指南將說明如何從 Ruby 應用程式使用服務匯流排主題和訂閱。所涵蓋的案例包括**建立主題和訂閱、建立訂閱篩選器、傳送訊息**至主題、**接收訂閱的訊息**，及**刪除主題和訂閱**。如需主題和訂閱的詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
 ## 什麼是服務匯流排主題和訂閱
 
@@ -58,7 +58,7 @@
 
       ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
-> [AZURE.NOTE]如果您登入 [Azure 管理入口網站](http://manage.windowsazure.com/) 並瀏覽至您的服務匯流排命名空間的連接資訊，也可以找到此金鑰。
+> [AZURE.NOTE]如果您登入 [Azure 入口網站](http://manage.windowsazure.com/)並巡覽至您服務匯流排命名空間的連線資訊，也可以找到此金鑰。
 
 ## 建立 Ruby 應用程式
 
@@ -201,7 +201,7 @@ azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 ## 如何刪除主題和訂閱
 
-主題和訂閱是持續性的，您必須透過 [Azure 管理入口網站](https://manage.windowsazure.com)或程式設計明確地加以刪除。下列範例說明如何刪除名為 "test-topic" 的主題：
+主題和訂用帳戶是持續性的，您必須透過 [Azure 入口網站](https://manage.windowsazure.com)或程式設計明確地加以刪除。下列範例說明如何刪除名為 "test-topic" 的主題：
 
 	azure_service_bus_service.delete_topic("test-topic")
 
@@ -218,4 +218,4 @@ azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 -	請造訪 GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 儲存機制 (英文)。
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

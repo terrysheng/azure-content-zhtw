@@ -1,21 +1,21 @@
 <properties 
-    pageTitle="StorSimple 監視指示器 | Microsoft Azure" 
-    description="描述用來監控 StorSimple 裝置狀態的 LED 與警報器。"
-    services="storsimple"
-    documentationCenter="NA"
-    authors="SharS"
-    manager="adinah"
-    editor="" />
+    pageTitle="StorSimple 監視指示器 | Microsoft Azure"
+	description="描述用來監視 StorSimple 裝置狀態的發光二極體 (LED 燈) 與警報器。"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
  <tags 
     ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="08/14/2015"
-    ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="v-sharos"/>
 
-# StorSimple 監視指示器   
+# 使用 StorSimple 監視指示器來管理您的裝置   
 
 ## 概觀
 
@@ -33,9 +33,7 @@ StorSimple 裝置包括發光二極體 (LED) 與警示，您可以用來監控�
 
 前端面板，也稱為「操作面板」或「操作面板」，其顯示系統中所有模組的彙總狀態。StorSimple 裝置與 EBOD 機箱上的前端面板完全相同，如下圖所示。
 
-   ![][1]
-
-**圖 1：裝置前端面板**
+   ![裝置正面面板][1]
  
 前端面板包含下列指示器：
 
@@ -72,10 +70,8 @@ StorSimple 裝置包括發光二極體 (LED) 與警示，您可以用來監控�
 
 StorSimple 裝置有 764W PCM 模組與額外電池。下圖顯示裝置的 LED 面板。
 
-   ![][2]
+   ![主要機箱上的 PCM LED 燈][2]
 
-**圖 2：主要機箱上的 PCM LED 燈**
- 
 LED 燈圖例：
 
 1. AC 電源故障
@@ -114,9 +110,7 @@ LED 面板上會指出 PCM 的狀態。裝置 PCM LED 面板有六個 LED。其�
 
 EBOD 機箱有一個 580W PCM，沒有額外電池。EBOD 機箱的 PCM 面板 LED 指示燈僅適用於電源供應器與風扇。下圖顯示這些 LED。
 
-   ![][3]
-
-**圖 3：EBOD 機箱上的 PCM LED 指示燈**
+   ![EBOD 機箱上的 PCM LED 燈][3]
  
 您可以使用下表來判斷 PCM 的狀態。
 
@@ -138,17 +132,15 @@ StorSimple 裝置包含主要控制器的 LED 與 EBOD 控制器模組的 LED。
 ### 監控主要控制器的 LED
 下圖可協助您識別主要控制器上的 LED。(所有元件列出如下，以協助定位)。
 
-   ![][4]
+   ![監視 LED 燈 - 主要控制器][4]
  
-**圖 4：監視主要控制器的 LED 燈號**
-
 使用下表來判斷控制器模組是否運作正常。
 
 ### 控制器 LED 指示燈  
 
 | LED | 說明                                                                            
 |---- | ----------- |
-| ID LED (藍色) | 指出已找到此模組。如果主動控制器上閃爍著藍色 LED，即表示該控制器處於作用中，而另一控制器則處於待命中。如需詳細資訊，請參閱[識別裝置上的主動控制器](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)。 |
+| ID LED (藍色) | 指出已找到此模組。如果主動控制器上閃爍著藍色 LED，即表示該控制器處於作用中，而另一控制器則處於待命中。如需詳細資訊，請參閱[識別裝置上的作用中控制器](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)。 |
 | 錯誤 LED (琥珀色) | 指出控制器中發生錯誤。        
 | 正常 LED (綠色) | 持續亮著綠色表示控制器正常。不停閃爍綠色表示控制器 VPD 組態錯誤。 |
 | SAS 活動 LED (綠色) | 持續亮著綠色表示連線目前沒有活動。不停閃爍綠色表示連線正在進行活動。 |
@@ -162,10 +154,8 @@ StorSimple 裝置包含主要控制器的 LED 與 EBOD 控制器模組的 LED。
 
 每個 6 GB/s SAS EBOD 控制器都有各自的 LED指出其狀態，如下圖所示。
 
-  ![][5]
+  ![監視 LED 燈 - EBOD 機相][5]
 
-**圖 5： 監視 EBOD 機箱上的 LED 指示燈**
- 
 使用下表來判斷 EBOD 控制器模組是否運作正常。
 
 ### EBOD 控制器模組 LED 指示燈  
@@ -180,9 +170,7 @@ StorSimple 裝置的磁碟機可以位於主要機箱與 EBOD 機箱。每個磁
 
 磁碟機的磁碟機狀態可由每個磁碟機載具模組正面掛接的綠色 LED 與紅琥珀色 LED 指出。下圖顯示這些 LED。
 
-  ![][6]
-
-**圖 6：磁碟機的 LED 指示燈**
+  ![磁碟機 LED 燈][6]
  
 您可以使用下表來判斷每個磁碟機的狀態，整體的前端面板 LED 狀態會受這些狀態影響。
 
@@ -257,7 +245,7 @@ StorSimple 裝置包含和主要機箱與 EBOD 機箱相關聯的有聲警報器
 
 ## 後續步驟
 
-深入了解 [StorSimple 硬體元件與狀態](storsimple-monitor-hardware-status.md)
+深入了解 [StorSimple 硬體元件與狀態](storsimple-monitor-hardware-status.md)。
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
@@ -268,4 +256,4 @@ StorSimple 裝置包含和主要機箱與 EBOD 機箱相關聯的有聲警報器
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

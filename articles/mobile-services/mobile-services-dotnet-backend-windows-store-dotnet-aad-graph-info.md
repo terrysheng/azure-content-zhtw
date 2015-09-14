@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="存取 Azure Active Directory Graph 資訊 (Windows 市集) | Microsoft Azure" 
-	description="了解如何在 Windows 市集應用程式中使用 Graph API 存取 Azure Active Directory 資訊。" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="存取 Azure Active Directory Graph 資訊 (Windows 市集) | Microsoft Azure"
+	description="了解如何在 Windows 市集應用程式中使用 Graph API 存取 Azure Active Directory 資訊。"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # 存取 Azure Active Directory 圖形資訊
@@ -34,7 +34,7 @@
 
 
 
-##必要條件 
+##必要條件
 
 在開始本教學課程之前，您必須已完成下列行動服務教學課程：
 
@@ -84,7 +84,7 @@
 	        public String postalCode { get; set; }
 	        public String mail { get; set; }
 	        public String[] otherMails { get; set; }
-	
+
 	        public override string ToString()
 	        {
 	            return "displayName : " + displayName + "\n" +
@@ -206,7 +206,7 @@
         }
 
 9. 儲存變更，並建置服務以驗證沒有語法錯誤。
-10. 將行動服務專案發行至您的 Azure 帳戶。 
+10. 將行動服務專案發行至您的 Azure 帳戶。
 
 
 ## <a name="update-app"></a>更新應用程式以使用 GetUserInfo
@@ -214,7 +214,7 @@
 在本節中，您會更新在[將驗證新增至您的應用程式]教學課程中實作的 `AuthenticateAsync` 方法，以呼叫自訂 API 並從 AAD 傳回使用者的其他相關資訊。
 
 [AZURE.INCLUDE [mobile-services-aad-graph-info-update-app](../../includes/mobile-services-aad-graph-info-update-app.md)]
-  
+
 
 
 ## <a name="test-app"></a>測試應用程式
@@ -252,6 +252,5 @@
 [Azure Active Directory 圖形團隊部落格]: http://go.microsoft.com/fwlink/?LinkId=510536
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [行動服務中使用 AAD 的角色型存取控制]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

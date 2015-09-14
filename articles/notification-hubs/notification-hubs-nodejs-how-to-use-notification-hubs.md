@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # 如何從 Node.js 使用通知中樞
@@ -216,6 +216,5 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
   [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

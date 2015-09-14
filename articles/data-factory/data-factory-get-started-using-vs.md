@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="教學課程：從 Azure Blob 複製資料到 Azure SQL" 
-	description="此教學課程說明如何建立將資料從 Blob 複製到 Azure SQL 資料庫儲存個體的範例資料管線。" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="教學課程：使用 Visual Studio 建立具有複製活動的管線"
+	description="在本教學課程中，您將使用 Visual Studio，建立具有複製活動的 Azure Data Factory 管線。"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
 # 教學課程：使用 Visual Studio 建立和監視 Data Factory
@@ -250,4 +250,8 @@
 
 如需如何使用 Azure Preview 入口網站來監視您在本教學課程中建立的管線和資料集的指示，請參閱〈[監視資料集和管線](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline)〉。
 
-<!---HONumber=August15_HO6-->
+
+## 傳送意見
+非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md)提交您的意見反應。
+
+<!---HONumber=September15_HO1-->

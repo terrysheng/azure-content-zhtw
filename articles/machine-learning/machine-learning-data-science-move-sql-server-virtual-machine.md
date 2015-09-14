@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="移動資料至 Azure 虛擬機器上的 SQL Server | Azure" 
-	description="從一般檔案或內部部署的 SQL Server 移動資料至 Azure VM 上的 SQL server" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="移動資料至 Azure 虛擬機器上的 SQL Server | Azure"
+	description="從一般檔案或內部部署的 SQL Server 移動資料至 Azure VM 上的 SQL Server"
+	services="machine-learning"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="fashah;mohabib;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="fashah;mohabib;bradsev"/>
 
 # 移動資料至 Azure 虛擬機器上的 SQL Server
 
@@ -40,16 +40,17 @@
 <tr>
   <td><b>內部部署 SQL Server</b></td>
   <td>
-    1.<a href="#export-flat-file">匯出至一般檔案</a><br>
-    2.<a href="#sql-migration">SQL Database 移轉精靈</a> <br>    
-    3.<a href="#sql-backup">資料庫備份和還原</a> <br>
+    1.<a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">將 SQL Server Database 部署到 Microsoft Azure VM 精靈</a><br>
+    2.<a href="#export-flat-file">匯出至一般檔案</a><br>
+    3.<a href="#sql-migration">SQL Database 移轉精靈</a> <br>    
+    4.<a href="#sql-backup">資料庫備份和還原</a> <br>
   </td>
 </tr>
 </table>
 
 請注意，本文件假設 SQL 命令是從 SQL Server Management Studio 或 Visual Studio 資料庫總管中執行。
 
-> [AZURE.TIP]或者，您可以使用 [Azure Data Factory](https://azure.microsoft.com/zh-cn/services/data-factory/) 建立並排程管線，以將資料移至 Azure 上的 SQL Server VM。如需詳細資訊，請參閱[使用 Azure Data Factory 複製資料 (複製活動)](../data-factory/data-factory-copy-activity.md)。
+> [AZURE.TIP]或者，您可以使用 [Azure Data Factory](https://azure.microsoft.com/zh-TW/services/data-factory/) 建立並排程管線，以將資料移至 Azure 上的 SQL Server VM。如需詳細資訊，請參閱[使用 Azure Data Factory 複製資料 (複製活動)](../data-factory/data-factory-copy-activity.md)。
 
 
 ## <a name="prereqs"></a>必要條件
@@ -173,13 +174,18 @@ BCP 是與 SQL Server 一起安裝的命令列公用程式，是最快速移動�
 
 ## <a name="sqlonprem_to_sqlonazurevm"></a>從內部部署的 SQL Server 移動資料至 Azure VM 上的 SQL Server
 
-您可以從內部部署的 SQL Server 移動資料，如下所示：
+您也可以使用下列移轉策略：
 
-1. [匯出至一般檔案](#export-flat-file) 
-2. [SQL Database 移轉精靈](#sql-migration)
-3. [資料庫備份和還原](#sql-backup)
+1. [將 SQL Server Database 部署到 Microsoft Azure VM 精靈](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
+2. [匯出至一般檔案](#export-flat-file) 
+3. [SQL Database 移轉精靈](#sql-migration)
+4. [資料庫備份和還原](#sql-backup)
 
 我們將在下方說明這每一項內容：
+
+### 將 SQL Server Database 部署到 Microsoft Azure VM 精靈
+
+[將 SQL Server Database 部署到 Microsoft Azure VM 精靈] 是簡單且建議的方式，可用於將資料從內部部署 SQL Server 執行個體移至 Azure VM 上的 SQL Server。如需詳細的步驟以及其他替代方案的討論，請參閱[將資料庫移轉至 Azure VM 上的 SQL Server](../virtual-machines/virtual-machines-migrate-onpremises-database.md)。
 
 ### <a name="export-flat-file"></a>匯出至一般檔案
 
@@ -221,10 +227,13 @@ SQL Server Management Studio 的資料庫備份/還原選項的螢幕擷取畫�
 
 ![SQL Server 匯入工具][1]
 
+## 資源
+
+[將資料庫移轉至 Azure VM 上的 SQL Server](../virtual-machines/virtual-machines-migrate-onpremises-database.md)
+
+[Azure 虛擬機器上的 SQL Server 概觀](../virtual-machines/virtual-machines-sql-server-infrastructure-services.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
- 
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Azure Site Recovery：常見問題集" 
-	description="本文討論關於使用 Azure Site Recovery 的熱門問題。" 
-	services="site-recovery" 
+	pageTitle="Azure Site Recovery：常見問題集"
+	description="本文討論關於使用 Azure Site Recovery 的熱門問題。"
+	services="site-recovery"
 	documentationCenter=""
 	authors="csilauraa"
 	manager="jwhit"
@@ -11,9 +11,9 @@
 	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="06/02/2015" 
+	ms.date="08/26/2015"
 	ms.author="lauraa"/>
 
 
@@ -42,6 +42,28 @@ ASR 已經過 ISO 27001:2005 認證，目前正處於完成其 HIPAA、DPA 及 F
 
 是。您可以使用 Rest API、PowerShell 或 Azure SDK，將 ASR 工作流程自動化。您可以在標題為 [PowerShell 對於 Azure Site Recovery 的支援簡介](http://azure.microsoft.com/blog/2014/11/05/introducing-powershell-support-for-azure-site-recovery/)的部落格文章中找到更多詳細資料。
 
+### ASR 是否將複寫加密 
+內部部署與 Azure 間及內部部署間複寫支援 Hyper-V 和 VMM 保護案例的傳輸中加密。Azure 的 Hyper-V 和 VMM 保護也支援靜止加密。如需詳細資訊，請參閱[這篇文章](https://azure.microsoft.com/blog/2014/09/02/azure-site-recovery-privacy-security-part1/)。
+
+### 可以將複寫/複製頻率提高到超過 15 分鐘嗎？
+* **Hyper-V & VMM 案例**︰不可以，使用主機型複寫的 Hyper-V 虛擬機器複寫只可以設定為 30 秒、5 分鐘和 15 分鐘
+* **VMware/實體案例**︰這不適用於來賓型複寫，因為技術使用連續資料保護。
+
+### 可以從使用 ASR 的複寫中排除特定的磁碟嗎？
+不支援此做法。透過 [Azure Site Recovery 意見反應論壇 - 從複寫中排除磁碟](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication)傳送您的意見反應。
+
+### 可以複寫以動態磁碟為基礎的虛擬機器嗎？
+HYPER-V 和 VMM 案例支援動態磁碟。VMware 虛擬機器或實體機器案例不支援動態磁碟。透過 [Azure Site Recovery 意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery)傳送您的意見反應。
+
+### 支援哪種儲存體帳戶類型？
+支援[標準異地備援儲存體](../storage/storage-redundancy.md#geo-redundant-storage)。只有 [VMware 虛擬機器或實體機器案例](site-recovery-vmware-to-azure.md)支援 [進階儲存體帳戶]((../storage/storage-premium-storage-preview-portal/)。標準本地備援儲存體支援處於待處理狀態，請透過[本地備援儲存體支援](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support)傳送您的意見反應。
+
+### 可以將現有復原網站複寫擴充到第三個網站嗎？
+不支援此做法。透過 [Azure Site Recovery 意見反應論壇 - 支援擴充複寫](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)傳送您的意見反應。
+
+### 可以使用離線機制將初始磁碟植入到 Azure 嗎？
+不支援此做法。透過 [Azure Site Recovery 意見反應論壇 - 支援離線複寫](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)傳送您的意見反應。
+
 ## 版本支援
 
 ### 支援哪些版本的 Windows Server 主機和叢集？
@@ -57,7 +79,7 @@ ASR 已經過 ISO 27001:2005 認證，目前正處於完成其 HIPAA、DPA 及 F
 
 ### ASR 是否支援第 2 代機器？
 
-ASR 目前支援將 Hyper-V 上的第 2 代虛擬機器複寫到 Azure。ASR 會在容錯移轉期間從第 2 代轉換成第 1 代。在容錯回復時，機器會轉換回第 1 代。[閱讀更多](http://azure.microsoft.com/updates/azure-site-recovery-supports-gen-2-vm-protection-in-west-us-north-europe-and-japan-west/)與目前支援項目有關的詳細資訊。
+是，ASR 支援將 Hyper-V 上的第 2 代虛擬機器複寫到 Azure。ASR 會在容錯移轉期間從第 2 代轉換成第 1 代。在容錯回復時，機器會轉換回第 1 代。如需進一步資訊，[請閱讀更多資訊](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。
 
 
 ## 在服務提供者網站之間部署 
@@ -128,6 +150,11 @@ ASR 目前支援將 Hyper-V 上的第 2 代虛擬機器複寫到 Azure。ASR 會
 
 不行，不支援此類型鏈結複寫。
 
+### 需要憑證才能設定兩個 VMM 資料中心之間的保護嗎？
+
+否。在 ASR 中設定 VMM 雲端之間的保護時，請指定驗證類型。除非您已設定可用的 Kerberos 環境，否則請選取 HTTPS。Azure Site Recovery 會自動設定用於 HTTPS 驗證的憑證。不需要進行任何手動設定。如果您確實已選取 Kerberos，Kerberos 票證將會用於主機伺服器的相互驗證。根據預設，連接埠 8083 (用於 Kerberos) 和 8084 (用於憑證) 將在 Hyper-V 主機伺服器上的 Windows 防火牆中開啟。請注意，這項設定只有在 Hyper-V 主機伺服器是執行於 Windows Server 2012 R2 時才有重要性。
+
+
 
 ## 使用 SAN 在兩個 VMM 資料中心之間部署
 
@@ -139,6 +166,15 @@ ASR 目前支援將 Hyper-V 上的第 2 代虛擬機器複寫到 Azure。ASR 會
 是。我們需要使用陣列特定的 SMI-S 提供者，在 VMM 的管理下帶出 SAN 陣列。
 
 我們支援以陣列類型為依據的單一 VMM HA 部署，不過，建議的設定是使用不同的 VMM 伺服器來管理站台。
+
+
+### 支援的儲存體陣列有哪些？
+
+NetApp、EMC 和 HP 已啟用 Azure Site Recovery SAN 複寫支援 (包含其 SMI-S 提供者的更新)。如需詳細資訊，請參閱下列連結。
+
+- [NetApp Clustered Data ONTAP 8.2](http://community.netapp.com/t5/Technology/NetApp-Unveils-Support-for-Microsoft-Azure-SAN-Replication-with-SMI-S-and/ba-p/94483)
+- [EMC VMAX 系列](https://thecoreblog.emc.com/high-end-storage/microsoft-azure-site-recovery-now-generally-available-vmax-srdf-integration-pack-ready-for-public-review/)    
+- [HP 3PAR](http://h20195.www2.hp.com/V2/GetDocument.aspx?docname=4AA5-7068ENW&cc=us&lc=en)
 
 
 ### 如果我不確定有關儲存體管理的資訊，該怎麼辦？
@@ -200,4 +236,4 @@ ASR 目前支援將 Hyper-V 上的第 2 代虛擬機器複寫到 Azure。ASR 會
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

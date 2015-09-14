@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="將自訂 Java Web 應用程式上傳至 Azure" 
-	description="本教學課程說明如何將自訂 Java Web 應用程式上傳至 Azure App Service Web Apps。" 
-	services="app-service\web" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="將自訂 Java Web 應用程式上傳至 Azure"
+	description="本教學課程說明如何將自訂 Java Web 應用程式上傳至 Azure App Service Web Apps。"
+	services="app-service\web"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # 將自訂 Java Web 應用程式上傳至 Azure
 
-本主題說明如何將自訂 Java Web 應用程式上傳至 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps。內容包括適用於任何 Java 網站或 Web 應用程式的資訊，以及針對特定應用程式的一些範例。
+本主題說明如何將自訂 Java Web 應用程式上傳至 [Azure App Service] Web Apps。內容包括適用於任何 Java 網站或 Web 應用程式的資訊，以及針對特定應用程式的一些範例。
 
 請注意，如同[在 Azure App Service 中建立 Java Web 應用程式](web-sites-java-get-started.md)中的說明一樣，Azure 提供了使用 Azure 預覽入口網站的組態 UI 和 Azure Marketplace 來建立 Java Web 應用程式的方法。本教學課程適用於您不打算使用入口網站組態 UI 或 Azure Marketplace 的案例。
 
@@ -46,11 +46,10 @@
     arguments="start"
     
     processPath="%JAVA_HOME\bin\java.exe"
-    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
+    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
 
 
 **processPath** - 將會啟動接聽 HTTP 要求程序的可執行檔或指令檔路徑。
-
 
 範例：
 
@@ -84,7 +83,7 @@
 在下列應用程式中，我們將提供 web.config 檔案和應用程式組態作為範例，說明如何啟用 App Service Web Apps 上的 Java 應用程式。
 
 ### Tomcat
-App Service Web Apps 隨附了兩個 Tomcat 變化，但很有可能您仍然可以上傳客戶特定執行個體。以下是搭配不同 JVM 之 Tomcat 的安裝範例。
+App Service Web Apps 隨附了兩個 Tomcat 變化，但很有可能您仍然可以上傳客戶特定執行個體。下面是以不同 Java 虛擬機器 (JVM) 安裝 Tomcat 的範例。
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<configuration>
@@ -125,7 +124,7 @@ App Service Web Apps 不支援 Direct3d 呼叫。若要將其停用，請新增�
 	      <add name="httppPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
 	    </handlers>
 	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" 
-	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
+	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
 	        startupTimeLimit="20"
 		  startupRetryCount="10"
 		  stdoutLogEnabled="true">
@@ -235,5 +234,7 @@ App Service Web Apps 支援 Liferay。因為 Liferay 需要大量記憶體，Web
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
  
+<!-- External Links -->
+[Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

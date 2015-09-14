@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="08/21/2015"
+	ms.date="08/27/2015"
 	ms.author="tomfitz"/>
 
 # 在 Azure 資源管理員中建立資源的多個執行個體
@@ -112,9 +112,11 @@
       } 
     ]
 
+您當然可以將列印張數設為陣列長度以外的值。比方說，您可以建立具有許多值的陣列，然後傳入參數值，指定要部署多少陣列項目。在此情況下，您可以設定列印張數，如第一個範例所示。
+
 ## 後續步驟
 - 若要了解範本的區段，請參閱[編寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)。
-- 如需可以在範本中使用的函數清單，請參閱 [Azure 資源管理員範本函數](./resource-group-template-functions.md)。
+- 如需可以在範本中使用的函式清單，請參閱 [Azure 資源管理員範本函式](./resource-group-template-functions.md)。
 - 若要了解如何部署範本，請參閱[使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

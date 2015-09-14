@@ -1,6 +1,6 @@
 <properties
-	pageTitle="作法：進行防火牆設定 (Azure SQL Database)"
-	description="設定 Azure SQL Database 的防火牆"
+	pageTitle="如何：進行防火牆設定 | Microsoft Azure"
+	description="設定存取 Azure SQL 資料庫之 IP 位址的防火牆。"
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
@@ -13,16 +13,16 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="article" 
-	ms.date="06/22/2015"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="rickbyh"/>
 
 
-# 作法：進行防火牆設定 (Azure SQL Database)
+# 如何：在 SQL Database 上進行防火牆設定
 
  Microsoft Azure SQL Database 使用防火牆規則以允許連接到您的伺服器和資料庫。您可以在 Azure SQL Database 伺服器中，針對主要或使用者資料庫定義伺服器層級和資料庫層級的防火牆設定，以選擇性地允許存取資料庫。
 
-**重要** 若要允許從 Azure 的應用程式連接到您的資料庫伺服器，必須啟用 Azure 連線。如需防火牆規則及啟用來自 Azure 的連接相關資訊，請參閱 [Azure SQL Database 防火牆](https://msdn.microsoft.com/library/azure/ee621782.aspx)。
+**重要** 若要允許從 Azure 的應用程式連接到您的資料庫伺服器，必須啟用 Azure 連線。如需防火牆規則及啟用來自 Azure 連線的詳細資訊，請參閱 [Azure SQL Database 防火牆](sql-database-firewall-configure.md)。
 
 
 ## 伺服器層級防火牆規則
@@ -48,27 +48,33 @@
 ## 透過管理入口網站來管理伺服器層級防火牆規則 
 
 1. 在 [管理入口網站] 中，按一下 [**SQL Database**]。這裡會列出所有資料庫及其對應的伺服器。
-1. 按一下頁面頂端的 [伺服器]。
-2. 按一下您要管理防火牆規則的伺服器旁邊的箭號。
-3. 按一下頁面頂端的 [設定]。
+2. 按一下頁面頂端的 [伺服器]。
+3. 按一下您要管理防火牆規則的伺服器旁邊的箭號。
+4. 按一下頁面頂端的 [設定]。
 
 	*  若要加入目前的電腦，請按一下 [新增至允許的 IP 位址]。
 	*  若要新增其他 IP 位址，請輸入「規則名稱」、「起始 IP 位址」和「結束 IP 位址」。
 	*  若要修改現有的規則，請按一下和修改規則中的任何欄位。
 	*  若要刪除現有的規則，將滑鼠停留在規則上方，直到資料列結尾出現 X。按一下 X 移除規則。
-8. 按一下頁面底部的 [**儲存**] 以儲存變更。
+5. 按一下頁面底部的 [**儲存**] 以儲存變更。
 
 ## 透過 Transact-SQL 來管理伺服器層級防火牆規則
+
 1. 透過管理入口網站或 SQL Server Management Studio 來啟動查詢視窗。
 2. 確認您已連接到 master 資料庫。
-3. 可從查詢視窗中建立、更新或刪除伺服器層級防火牆規則。
-4. 若要建立或更新伺服器層級防火牆規則，請執行 sp\_set\_firewall 規則預存程序。下列範例會在伺服器 Contoso 上啟用某個範圍的 IP 位址。
+3. 可從查詢視窗中選取、建立、更新或刪除伺服器層級防火牆規則。
+4. 若要建立或更新伺服器層級防火牆規則，請執行 sp\_set\_firewall 規則預存程序。下列範例會在伺服器 Contoso 上啟用某個範圍的 IP 位址。<br/>您可以從檢閱現有的規則開始著手。
 
-		EXEC sp_set_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
+		SELECT * FROM sys.database_firewall_rules ORDER BY name;
+
+	接著，加入防火牆規則。
+
+		EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
+			@start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 
 	若要刪除伺服器層級防火牆規則，請執行 sp\_delete\_firewall\_rule 預存程序。下列範例會刪除名為 ContosoFirewallRule 的規則。
  
-		EXEC sp_delete_firewall_rule @name = N'ContosoFirewallRule'
+		EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
  
 ## 透過 Azure PowerShell 來管理伺服器層級防火牆規則
 1. 啟動 Azure PowerShell。
@@ -137,11 +143,11 @@
  
 ## 後續步驟
 
-如需有關建立資料庫的教學課程，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)。如需從開放原始碼或協力廠商應用程式連接到 Azure SQL Database 的說明，請參閱[以程式設計方式連接至 Azure SQL Database 的指導方針](https://msdn.microsoft.com/library/azure/ee336282.aspx)。若要了解如何瀏覽至資料庫，請參閱[管理 Azure SQL Database 中的資料庫和登入](https://msdn.microsoft.com/library/azure/ee336235.aspx)。
+如需有關建立資料庫的教學課程，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)。如需從開放原始碼或協力廠商應用程式連線到 Azure SQL Database 的說明，請參閱[以程式設計方式連接到 Azure SQL Database 的指導方針](https://msdn.microsoft.com/library/azure/ee336282.aspx)。若要了解如何巡覽至資料庫，請參閱[管理 Azure SQL Database 中的資料庫和登入](https://msdn.microsoft.com/library/azure/ee336235.aspx)。
 
 <!--Image references-->
 [1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

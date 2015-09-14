@@ -1,20 +1,20 @@
 <properties
     pageTitle="Azure SQL Database - 彈性資料庫工具"
-    description="使用彈性資料庫工具輕鬆縮放雲端的資料庫資源。"
-    services="sql-database"
-    documentationCenter=""
-    manager="jeffreyg"
-    authors="sidneyh"
-    editor=""/>
+	description="軟體即服務 (SaaS) 開發人員可以輕鬆地使用這些工具在雲端中建立彈性的可擴充資料庫"
+	services="sql-database"
+	documentationCenter=""
+	manager="jeffreyg"
+	authors="ddove"
+	editor=""/>
 
 <tags
     ms.service="sql-database"
-    ms.workload="sql-database"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/03/2015"
-    ms.author="sidneyh"/>
+	ms.workload="sql-database"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/27/2015"
+	ms.author="sidneyh"/>
 
 # 彈性資料庫功能概觀
 
@@ -28,6 +28,8 @@
 下圖顯示的架構包含與資料庫集合有關的**彈性資料庫功能**。
 
 ![彈性資料庫工具][1]
+
+如需此圖形的可列印版本，請移至[彈性資料庫概觀下載](http://aka.ms/axmybc)。
 
 此圖中，資料庫色彩代表結構描述。相同色彩的資料庫共用相同的結構描述。
 
@@ -55,7 +57,7 @@
 
 水平縮放是指加入或移除資料庫來調整容量或整體效能。這也稱為「相應放大」。分區化是常用的水平縮放實作方法，主要是將資料分割到結構相同的一組資料庫上。
 
-垂直縮放是指增加或減少個別資料庫的效能層級 – 這也稱為「相應增加」。
+垂直縮放是指增加或減少個別資料庫的效能層級，這也稱為「相應增加」。
 
 大部分雲端級別的資料庫應用程式都採用這些兩種策略的組合。比方說，軟體即服務應用程式可能使用水平擴充來供應終端客戶，使用垂直縮放來允許每個終端客戶的資料庫隨工作負載所需而擴大或縮減資源。
 
@@ -87,7 +89,7 @@
 
 ## 後續步驟
 
-如需一個示範用戶端程式庫的範例應用程式，請參閱[開始使用彈性資料庫工具](sql-database-elastic-scale-get-started.md)。
+如需示範用戶端程式庫的範例應用程式，請參閱[開始使用彈性資料庫工具](sql-database-elastic-scale-get-started.md)。
 
 若要使用分割合併工具，您必須[設定安全性](sql-database-elastic-scale-split-merge-security-configuration,md)。
 
@@ -102,4 +104,4 @@
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

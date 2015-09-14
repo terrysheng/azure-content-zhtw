@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用行動和 Web 用戶端在 Azure 應用程式服務中建立應用程式"
+	pageTitle="使用行動和 Web 用戶端在 Azure App Service 中建立應用程式 | Microsoft Azure"
 	description="使用網站和行動用戶端在 Azure 應用程式服務中建立多通道應用程式。"
 	services="app-service\mobile"
 	documentationCenter=".net"
@@ -19,6 +19,5 @@
 # 使用行動和 Web 用戶端在 Azure 應用程式服務中建立應用程式
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-web-and-mobile](../../includes/app-service-mobile-dotnet-backend-web-and-mobile.md)]
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

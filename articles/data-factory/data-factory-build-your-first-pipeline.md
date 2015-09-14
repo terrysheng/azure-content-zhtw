@@ -1,6 +1,6 @@
 <properties
 	pageTitle="使用 Azure Data Factory 建置您的第一個管線"
-	description="本教學課程示範如何利用 Data Factory 編輯器建立使用 Azure HDInsight 轉換資料的範例資料管線"
+	description="本教學課程示範如何建立使用 Azure HDInsight 轉換資料的範例資料管線。"
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -173,4 +173,7 @@ Hive 指令碼執行後，其結果將會儲存在 Azure blob 儲存體容器：
 - 按一下頂端的[使用 PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) 連結，使用 Azure PowerShell 執行教學課程。
 - 按一下頂端的[使用 Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) 連結以使用 Visual Studio 執行本教學課程。 
 
-<!---HONumber=August15_HO7-->
+## 傳送意見
+非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md)提交您的意見反應。
+
+<!---HONumber=September15_HO1-->

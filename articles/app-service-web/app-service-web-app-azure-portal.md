@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/17/2015"
 	ms.author="jaime-espinosa"/>
 
 # 瀏覽 Azure 入口網站的參考
@@ -86,4 +86,4 @@ Azure 網站現在稱為[應用程式服務 Web 應用程式](http://go.microsof
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽新入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

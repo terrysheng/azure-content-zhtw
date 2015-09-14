@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
+	ms.date="09/02/2015"
 	ms.author="joaoma"/>
 
 # 開始使用 Azure DNS
@@ -125,7 +125,7 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 >[AZURE.NOTE]位於 DNS 區域的根 (或「頂點」) 的記錄集使用 "@" 做為記錄集名稱。
 
 
-建立第一個 DNS 區域之後，您可以使用 nslookup、dig 之類的 DNS 工具或 [Resolve-DnsName PowerShell Cmdlet](https://technet.microsoft.com/zh-tw/library/jj590781.aspx) 進行測試。<BR>
+建立第一個 DNS 區域之後，您可以使用 nslookup、dig 之類的 DNS 工具或 [Resolve-DnsName PowerShell Cmdlet](https://technet.microsoft.com/zh-TW/library/jj590781.aspx) 進行測試。<BR>
 
 如果您還沒有將網域委派給 Azure DNS 中的新區域，您必須將 DNS 查詢直接導向您的區域的其中一個名稱伺服器。NS 記錄中提供您的區域的名稱伺服器，如上述 Get-AzureDnsRecordSet 所列 — 請務必在下列命令中換成您區域的正確值。<BR>
 
@@ -153,4 +153,4 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 [開始建立記錄集與記錄](dns-getstarted-create-recordset.md)<BR> [如何管理 DNS 區域](dns-operations-dnszones.md)<BR> [如何管理 DNS 記錄](dns-operations-recordsets.md)<BR> [使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)<BR> [Azure DNS REST API 參考](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

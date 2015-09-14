@@ -13,10 +13,11 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="07/28/2015"
+	ms.date="09/02/2015"
 	ms.author="joaoma"/>
 
 # 開始使用 Azure DNS
+
 
 
 > [AZURE.SELECTOR]
@@ -38,6 +39,9 @@
 
 	Azure network
 
+
+>[AZURE.IMPORTANT]此 DNS 命令需要 Azure CLI 0.9.8 版本或更新版本。請輸入 `azure -v`，以檢查哪一個 Azure CLI 版本目前安裝在您的電腦。
+ 
 ### 步驟 2
 
 Azure DNS 使用 Azure 資源管理員。務必切換 CLI 以使用 ARM 命令和 DNS。
@@ -77,13 +81,13 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 
 標記與 Etag 不同。標記是名稱-值組的清單，由 Azure 資源管理員在計費或分群用途上用來標示資源。如需標記的詳細資訊，請參閱[使用標記來組織您的 Azure 資源](resource-group-using-tags.md)。Azure DNS CLI 在區域與記錄集上支援使用選項 ‘-Tag’ 參數來指定標記。下列範例示範如何使用兩個標記 ‘project = demo’ 和 ‘env = test’ 建立 DNS 區域：
 
-	Azure network dns-zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+	Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
 ## 建立 DNS 區域
 
-使用 "azure network dns-zone create" 命令建立 DNS 區域。在下列範例中，您將在稱為 'MyResourceGroup' 的資源群組中建立稱為 'contoso.com' 的 DNS 區域：
+使用 `azure network dns zone create` 命令建立 DNS 區域。在下列範例中，您將在稱為 'MyResourceGroup' 的資源群組中建立稱為 'contoso.com' 的 DNS 區域：
 
-    Azure network dns-zone create -n contoso.com -g myresourcegroup
+    Azure network dns zone create -n contoso.com -g myresourcegroup
 
 
 >[AZURE.NOTE]在 Azure DNS 中，指定區域名稱時不要以 ‘.’ 終止，例如指定為 ‘contoso.com’ 而非 ‘contoso.com.’。
@@ -96,13 +100,13 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 
 若要檢視這些記錄，請使用 "azure network dns-record-set show"：
 
-	Usage: network dns-record-set show <resource-group> <dns-zone-name> <name> <type>
+	Usage: network dns record-set show <resource-group> <dns-zone-name> <name> <type>
 
 
 在下列範例中，使用資源群組 "myresourcegroup"、記錄集名稱 "@" (適用於根記錄) 和類型 "SOA" 執行命令會產生下列輸出：
  
 
-	azure network dns-record-set show myresourcegroup "contoso.com" "@" SOA
+	azure network dns record-set show myresourcegroup "contoso.com" "@" SOA
 	info:    Executing command network dns-record-set show
 	+ Looking up the DNS record set "@"
 	data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/SOA/@
@@ -118,9 +122,9 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 	data:      Refresh time                  : 900
 	data:      Retry time                    : 300
 	data:                                    :
-<BR>若要檢視建立的 NS 記錄，請使用下列命令：
+<BR> 若要檢視建立的 NS 記錄，請使用下列命令：
 
-	azure network dns-record-set show myresourcegroup "contoso.com" "@" NS
+	azure network dns record-set show myresourcegroup "contoso.com" "@" NS
 	info:    Executing command network dns-record-set show
 	+ Looking up the DNS record set "@"
 	data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@
@@ -169,4 +173,4 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 
 [開始建立記錄集與記錄](dns-getstarted-create-recordset-cli.md)<BR> [如何管理 DNS 區域](dns-operations-dnszones-cli.md)<BR> [如何管理 DNS 記錄](dns-operations-recordsets-cli.md)<BR> [使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)<BR> [Azure DNS REST API 參考](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

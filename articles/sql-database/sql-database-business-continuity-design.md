@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="SQL Database 的業務續航力設計" 
-   description="選擇指引：本節提供如何選擇應使用之 BCDR 功能及何時使用的指引。其中包括使用 SQL DB 會自動取得之功能的說明。"
-   services="sql-database" 
-   documentationCenter="" 
-   authors="elfisher" 
-   manager="jeffreyg" 
-   editor="monicar"/>
+   pageTitle="SQL Database 的業務續航力設計"
+	description="選擇指引：本節提供如何選擇應使用之 BCDR 功能及何時使用的指引。其中包括使用 SQL DB 會自動取得之功能的說明。"
+	services="sql-database"
+	documentationCenter=""
+	authors="elfisher"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="07/14/2015"
-   ms.author="elfish"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-management"
+	ms.date="07/14/2015"
+	ms.author="elfish"/>
 
 #業務續航力的設計
 
@@ -59,16 +59,19 @@ SQL Database 預設提供每個資料庫的內建基本保護功能。其作法�
 
 ###Azure 入口網站
 
+[AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
+
 1. 登入 [Azure 入口網站](https://portal.Azure.com)
 2. 在畫面左側選取 [瀏覽]，然後選取 [SQL Database]。
-3. 巡覽至資料庫刀鋒視窗，選取 [異地複寫對應]，然後按一下 [設定異地複寫]。
+3. 巡覽至資料庫分頁，選取 [異地複寫對應]，然後按一下 [設定異地複寫]。
 4. 巡覽至 [異地複寫] 刀鋒視窗。選取目標區域。 
 5. 瀏覽至 [建立次要] 刀鋒視窗。選取目標區域中現有的伺服器，或建立新的伺服器。
-6. 選取次要類型 ([*可讀取*] 或 [*不可讀取*])
+6. 選取次要類型 ([可讀取] 或 [不可讀取])
 7. 按一下 [建立] 完成設定。
 
-> [AZURE.NOTE][異地複寫] 分頁上的 DR 配對區域會標示為 [建議]。如果您使用高階層資料庫，則可以選擇不同的區域。如果您使用標準資料庫，則無法變更。高階資料庫提供次要類型的選項 ([*可讀取*] 或 [*不可讀取*])。標準資料庫只能選取 [不可讀取] 的次要資料庫。
- 
+> [AZURE.NOTE][異地複寫] 分頁上的 DR 配對區域會標示為 [建議]。如果您使用高階層資料庫，則可以選擇不同的區域。如果您使用標準資料庫，則無法變更。高階資料庫提供次要類型的選項 ([可讀取] 或 [不可讀取])。標準資料庫只能選取 [不可讀取] 的次要資料庫。
+
+
 ###PowerShell
 
 使用 [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx) PowerShell Cmdlet 可自動化異地複寫組態。
@@ -99,4 +102,4 @@ SQL Database 預設提供每個資料庫的內建基本保護功能。其作法�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

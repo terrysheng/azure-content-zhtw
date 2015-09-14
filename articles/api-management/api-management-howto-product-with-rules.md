@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用 Azure API 管理以頻率限制保護 API"
+	pageTitle="使用 Azure API 管理保護 API| Microsoft Azure"
 	description="了解如何使用配額和節流 (頻率限制) 原則保護您的 API。"
 	services="api-management"
 	documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="08/05/2015"
 	ms.author="sdanie"/>
 
@@ -22,15 +22,15 @@
 
 在本教學課程中，您會建立「免費試用」的 API 產品，讓開發人員對您的 API 每分鐘最多可以呼叫 10 次，而每週最多呼叫 200 次。您接著會發佈此 API，並測試頻率限制原則。
 
->[AZURE.NOTE]如果您已經有設定好的產品，且想要在本教學課程中使用該產品，可以直接跳到[設定呼叫頻率限制和配額原則][]，並從該處使用您的產品 (而非**免費試用**產品) 來進行本教學課程。
+>[AZURE.NOTE]如果您已經有設定好的產品，且想要在本教學課程中使用該產品，可以直接跳到[設定呼叫頻率限制和配額原則][]，並從該處使用您的產品 (而非「免費試用」產品) 來進行本教學課程。
 
 ## <a name="create-product"> </a>建立產品
 
 在本步驟中，您將建立不需核准訂閱的免費試用產品。
 
-若要開始，請在 API 管理服務的 Azure 入口網站中按一下 [**管理**]。這會帶您前往 API 管理發行者入口網站。
+若要開始，請在 API 管理服務的 Azure 入口網站中按一下 [管理]。這會帶您前往 API 管理發佈者入口網站。
 
-![發行者入口網站][api-management-management-console]
+![發佈者入口網站][api-management-management-console]
 
 >如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][]教學課程中的[建立 API 管理服務執行個體][]。
 
@@ -38,31 +38,31 @@
 
 ![Add product][api-management-add-product]
 
-按一下 [**加入產品**] 以顯示 [**加入新的產品**] 快顯視窗。
+按一下 [加入產品] 以顯示 [加入新的產品] 對話方塊。
 
 ![Add new product][api-management-new-product-window]
 
-在 [**標題**] 文字方塊中輸入 **Free Trial**。
+在 [標題] 文字方塊中輸入「免費試用」。
 
-在 [**說明**] 文字方塊中輸入 **Subscribers will be able to run 10 calls/minute up to a maximum of 200 calls/week after which access is denied.**。
+在 [描述] 文字方塊中輸入下列文字：**存取遭到拒絕後，訂戶每分鐘可以執行 10 次呼叫，每週最多 200 次呼叫**。
 
-API 管理中的產品可以是**開放**或**受保護**的。受保護產品必須先擁有訂用帳戶才能使用，開放產品則可以使用而不需訂用帳戶。若要建立需要訂用帳戶的受保護產品，請務必核取 [**需要訂閱**]。這是預設設定。
+API 管理中的產品可以是受保護或開放的。受保護的產品必須先訂閱才能使用。開放產品不需要訂用帳戶即可使用。若要建立需要訂用帳戶的受保護產品，請務必選取 [需要訂用帳戶]。這是預設設定。
 
-如果您希望管理員檢閱並接受或拒絕對此產品的訂閱嘗試，請核取 [**Require subscription approval**]。如果未核取方塊，將會自動核准訂閱嘗試。在此範例中會自動核准訂閱，因此請勿核取方塊。
+如果您希望系統管理員檢閱並接受或拒絕對此產品的訂閱嘗試，請選取 [需要訂用帳戶核准]。如果未選取此核取方塊，將會自動核准訂閱嘗試。在此範例中會自動核准訂閱，因此請勿選取此方塊。
 
-若要允許開發人員帳戶多次訂閱新產品，請核取 [**允許多項同時訂閱**] 核取方塊。本主題不會使用多項同時訂閱，所以請勿核取該方塊。
+若要允許開發人員帳戶多次訂閱新產品，請選取 [允許多項同時訂閱] 核取方塊。本教學課程不會使用多項同時訂閱，所以維持未核取即可。
 
 輸入所有值之後，按一下 [**儲存**] 來建立產品。
 
 ![Product added][api-management-product-added]
 
-依預設，**Administrator** 群組中的使用者可看見新產品。我們即將加入 **Developers** 群組。按一下 [**免費試用**]，然後選取 [**可見度**] 索引標籤。
+依預設，**Administrator** 群組中的使用者可看見新產品。我們即將加入 **Developers** 群組。按一下 [免費試用]，然後選取 [可見度] 索引標籤。
 
 >在 API 管理中，群組的作用是管理產品對於開發人員的可見度。產品會將可見度授與群組，而開發人員可檢視並訂閱其所屬群組可見的產品。如需詳細資訊，請參閱[如何在 Azure API 管理中建立和使用群組][]。
 
 ![Add developers group][api-management-add-developers-group]
 
-核取 [**開發人員**] 群組，然後按一下 [**儲存**]。
+選取 [開發人員] 核取方塊，然後按一下 [儲存]。
 
 ## <a name="add-api"> </a>將 API 加入至產品
 
@@ -70,7 +70,7 @@ API 管理中的產品可以是**開放**或**受保護**的。受保護產品�
 
 >每個 API 管理服務執行個體隨附預先設定的範例 Echo API，可供您試驗與了解 API 管理。如需詳細資訊，請參閱[開始使用 Azure API 管理][]。
 
-從左側的 [**API 管理**] 功能表按一下 [**產品**]，並按 [**免費試用**] 來設定產品。
+從左側的 [API 管理] 功能表按一下 [產品]，然後按一下 [免費試用] 來設定產品。
 
 ![Configure product][api-management-configure-product]
 
@@ -78,17 +78,17 @@ API 管理中的產品可以是**開放**或**受保護**的。受保護產品�
 
 ![Add API to product][api-management-add-api]
 
-核取 [**Echo API**] 旁的核取方塊，然後按一下 [**儲存**]。
+請選取 [Echo API]，然後按一下 [儲存]。
 
 ![Add Echo API][api-management-add-echo-api]
 
 ## <a name="policies"> </a>設定呼叫頻率限制和配額原則
 
-費率限制和配額是在原則編輯器中設定。從左側的 [**API 管理**] 功能表按一下 [**原則**]，並從 [**Policy Scope Product**] 下拉式清單選取 [**免費試用**]。
+費率限制和配額是在原則編輯器中設定。在左邊的 [API 管理] 功能表下，按一下 [原則]。在 [產品] 清單中，按一下 [免費試用版]。
 
 ![Product policy][api-management-product-policy]
 
-按一下 [**加入原則**] 來匯入原則範本，並開始建立費率限制和配額原則。
+按一下 [加入原則] 來匯入原則範本，並開始建立頻率限制和配額原則。
 
 ![Add policy][api-management-add-policy]
 
@@ -100,7 +100,7 @@ API 管理中的產品可以是**開放**或**受保護**的。受保護產品�
 
 ![Policy statements][api-management-limit-policies]
 
-游標放置在 [**輸入**] 原則元素中之後，按一下 [**限制呼叫費率**] 旁的箭頭來插入其原則範本。
+游標放置在 **inbound** 原則元素中之後，按一下 [限制呼叫頻率] 旁的箭頭來插入其原則範本。
 
 	<rate-limit calls="number" renewal-period="seconds">
 	<api name="name" calls="number">
@@ -108,17 +108,17 @@ API 管理中的產品可以是**開放**或**受保護**的。受保護產品�
 	</api>
 	</rate-limit>
 
-**限制呼叫費率**可用在產品層級，也可以用在 API 和個別作業名稱層級。在本教學課程中只會使用產品層級原則，因此請將 **rate-limit** 項目中的 **api** 和 **operation** 項目刪除，只保留外部 **rate-limit** 項目，如以下範例所示。
+[限制呼叫頻率] 可用在產品層級，也可以用在 API 和個別作業名稱層級。本教學課程中只會使用產品層級原則，因此請將 **rate-limit** 元素中的 **api** 和 **operation** 元素刪除，只保留外部 **rate-limit** 元素，如以下範例所示。
 
 	<rate-limit calls="number" renewal-period="seconds">
 	</rate-limit>
 
-在**免費試用**產品中，允許的呼叫費率為每分鐘 10 個呼叫，因此請輸入 **10** 做為呼叫屬性的值，以及 **60** 做為 **renewal-period** 屬性。
+在「免費試用」產品中，允許的呼叫頻率為每分鐘 10 次呼叫，因此請輸入 **10** 做為 **calls** 屬性的值，輸入 **60** 做為 **renewal-period** 屬性的值。
 
 	<rate-limit calls="10" renewal-period="60">
 	</rate-limit>
 
-若要設定**設定使用量配額**原則，請將游標放置在 **inbound** 元素內緊接著新建立的 **rate-limit** 元素下，然後按一下 [設定使用量配額] 左側的箭頭。
+若要設定 [設定使用量配額] 原則，請將游標放置在 **inbound** 元素內新加入的 **rate-limit** 元素正下方，然後按一下 [設定使用量配額] 左側的箭頭。
 
 	<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
 	<api name="name" calls="number" bandwidth="kilobytes">
@@ -131,17 +131,17 @@ API 管理中的產品可以是**開放**或**受保護**的。受保護產品�
 	<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
 	</quota>
 
-配額可能是基於每一間隔的呼叫數、頻寬，或兩者。在本教學課程中，我們不會基於頻寬進行節流，因此請刪除 **bandwidth** 屬性。
+配額可以基於每一間隔的呼叫數、頻寬或兩者。在本教學課程中，我們不會基於頻寬進行節流，因此請刪除 **bandwidth** 屬性。
 
 	<quota calls="number" renewal-period="seconds">
 	</quota>
 
-在**免費試用**產品中，配額為每週 200 個呼叫。指定 **200** 作為呼叫屬性的值，並指定 **604800** 作為 renewal-period 的值。
+在免費試用產品中，配額為每週 200 個呼叫。指定 **200** 做為 **calls** 屬性的值，然後指定 **604800** 做為 **renewal-period** 屬性的值。
 
 	<quota calls="200" renewal-period="604800">
 	</quota>
 
->原則間隔是依秒來指定。若要計算一週的間隔，您可以將天數 (7) x 一天的小時數 (24) x 每小時的分鐘數 (60) x 每分鐘的秒數 (60)。7 * 24 * 60 * 60 = 604800。
+>原則間隔是依秒來指定。若要計算一週的間隔，您可以將天數 (7) x 一天的小時數 (24) x 每小時的分鐘數 (60) x 每分鐘的秒數 (60)：7 * 24 * 60 * 60 = 604800。
 
 完成設定原則之後，應該符合以下範例。
 
@@ -161,27 +161,27 @@ API 管理中的產品可以是**開放**或**受保護**的。受保護產品�
 		</outbound>
 	</policies>
 
-設定需要的原則之後，請按一下 [**儲存**]。
+設定需要的原則之後，按一下 [儲存]。
 
 ![Save policy][api-management-policy-save]
 
-## <a name="publish-product"> </a> 發行產品
+## <a name="publish-product"> </a> 發佈產品
 
-現在已加入 API，也已設定原則，產品即已備妥可供開發人員使用。在產品可供開發人員使用之前，必須先發行產品。從左側的 [**API 管理**] 功能表按一下 [**產品**]，並按 [**免費試用**] 來設定產品。
+現在已加入 API，也已設定原則，產品必須發佈才能供開發人員使用。從左側的 [API 管理] 功能表按一下 [產品]，然後按一下 [免費試用] 來設定產品。
 
 ![Configure product][api-management-configure-product]
 
-按一下 [**發行**]，然後按 [**是，發行**] 確認。
+按一下 [發佈]，然後按 [是，發佈] 確認。
 
 ![Publish product][api-management-publish-product]
 
 ## <a name="subscribe-account"> </a>為開發人員帳戶訂閱產品
 
-現在已發行產品，產品即可供開發人員訂閱和使用。
+現在已發佈產品，產品即可供開發人員訂閱和使用。
 
->API 管理的管理員執行個體會自動訂閱每個產品。在這個教學課程步驟中，我們會將其中一個非管理員開發人員帳戶訂閱「免費試用」產品。如果您的開發人員帳戶隸屬於管理員角色，即使您已訂閱，也可以遵循此步驟。
+>API 管理的管理員執行個體會自動訂閱每個產品。在這個教學課程步驟中，我們會將其中一個非系統管理員開發人員帳戶訂閱「免費試用」產品。如果您的開發人員帳戶隸屬於系統管理員角色，即使您已訂閱，也可以遵循此步驟。
 
-在左側的 [**API 管理**] 功能表上按一下 [**使用者**]，然後按一下您的開發人員帳戶的名稱。在此範例中，我們要使用 **Clayton Gragg** 開發人員帳戶。
+在左側的 [API 管理] 功能表上按一下 [使用者]，然後按一下您的開發人員帳戶的名稱。在此範例中，我們要使用 **Clayton Gragg** 開發人員帳戶。
 
 ![Configure developer][api-management-configure-developer]
 
@@ -189,11 +189,11 @@ API 管理中的產品可以是**開放**或**受保護**的。受保護產品�
 
 ![Add subscription][api-management-add-subscription-menu]
 
-核取 [**免費試用**] 旁的核取方塊，然後按一下 [**訂閱**]。
+選取 [免費試用]，然後按一下 [訂閱]。
 
 ![Add subscription][api-management-add-subscription]
 
->[AZURE.NOTE]在本教學課程中，沒有針對**免費試用**產品啟用多項同時訂閱。如果有啟用，則系統會提示您為訂閱項命名，如以下範例所示。
+>[AZURE.NOTE]在本教學課程中，沒有針對「免費試用」產品啟用多項同時訂閱。如果有啟用，則系統會提示您為訂閱項命名，如以下範例所示。
 
 ![Add subscription][api-management-add-subscription-multiple]
 
@@ -203,35 +203,35 @@ API 管理中的產品可以是**開放**或**受保護**的。受保護產品�
 
 ## <a name="test-rate-limit"> </a>呼叫作業並測試頻率限制
 
-現在免費試用產品已設定和發行，我們可以呼叫一些作業並測試費率限制原則。在右上角的功能表中按一下 [**開發人員入口網站**]，切換到開發人員入口網站。
+現在免費試用產品已設定和發佈，我們可以呼叫一些作業並測試費率限制原則。在右上角的功能表中按一下 [開發人員入口網站]，切換到開發人員入口網站。
 
 ![開發人員入口網站][api-management-developer-portal-menu]
 
-在上方功能表中按一下 [API]，然後選取 [Echo API]。
+在上方功能表中按一下 [API]，然後按一下 [Echo API]。
 
 ![開發人員入口網站][api-management-developer-portal-api-menu]
 
-選取 [**GET Resource**] 作業，然後按一下 [**開啟主控台**]。
+按一下 [GET 資源]，然後按 [開啟主控台]。
 
 ![Open console][api-management-open-console]
 
-保留預設的參數值，並選取您的**免費試用**產品的訂閱金鑰。
+保留預設的參數值，然後選取「免費試用」產品的訂用帳戶金鑰。
 
 ![Subscription key][api-management-select-key]
 
->[AZURE.NOTE]如果您有多個訂閱，請務必選取**免費試用**的金鑰，否則在先前步驟中設定的原則將不會生效。
+>[AZURE.NOTE]如果您有多個訂用帳戶，請務必選取「免費試用」的金鑰，否則在先前步驟中設定的原則將不會生效。
 
-按一下 [**HTTP Get**]，然後檢視回應。記下 [**200 OK**] 的 [**回應狀態**]。
+按一下 [HTTP Get]，然後檢視回應。記下 [**200 OK**] 的 [**回應狀態**]。
 
 ![Operation results][api-management-http-get-results]
 
-按一下 [**HTTP Get**]，將費率設為大於每分鐘 10 個呼叫的費率限制原則。超出費率限制原則時，會傳回 [**429 要求太多**] 回應狀態。
+按一下 [**HTTP Get**]，將費率設為大於每分鐘 10 個呼叫的費率限制原則。超出頻費限制原則之後，會傳回 [429 太多要求] 回應狀態。
 
 ![Operation results][api-management-http-get-429]
 
-[**回應標頭**] 和 [**回應內容**] 指出重試會成功的剩餘間隔時間。
+[回應標頭] 和 [回應內容] 區域指出重試成功之前的剩餘間隔時間。
 
-每分鐘 10 個呼叫的費率限制原則生效時，在超出費率限制之後，後續的呼叫會在對產品的 10 個成功呼叫的第一個經過 60 秒後失敗。在此範例中，剩餘的間隔時間為 43 秒。
+每分鐘 10 次呼叫的頻率限制原則生效時，在超出頻率限制之前，從最初成功呼叫產品 10 次後需要經過 60 秒，否則後續的呼叫會失敗。在此範例中，剩餘的間隔時間為 43 秒。
 
 ## <a name="next-steps"> </a>後續步驟
 
@@ -291,6 +291,5 @@ API 管理中的產品可以是**開放**或**受保護**的。受保護產品�
 
 [限制呼叫費率]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [設定使用量配額]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="傳送推播通知給已驗證的使用者" 
-	description="了解如何將推播通知傳送給特定" 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="傳送推播通知給已驗證的使用者"
+	description="了解如何將推播通知傳送給特定"
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # 傳送推播通知給已驗證的使用者
@@ -24,7 +24,7 @@
 
 本教學課程支援 Windows Phone 8.0 和 Windows Phone 8.1 Silverlight 應用程式。如需 Windows Phone 8.1 市集應用程式，請參閱[本主題的 Windows 市集版本](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md)。
 
-##必要條件 
+##必要條件
 
 在開始本教學課程之前，您必須已完成下列行動服務教學課程：
 
@@ -59,6 +59,5 @@
 [將推播通知新增至您的應用程式]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

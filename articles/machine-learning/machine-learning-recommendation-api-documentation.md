@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Machine Learning 建議 API 文件 | Microsoft Azure" 
-	description="Microsoft Azure Marketplace 中提供適用於建議引擎的 Azure Machine Learning 建議 API 文件。" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="AharonGumnik" 
-	manager="paulettm" 
+	pageTitle="Machine Learning 建議 API 文件 | Microsoft Azure"
+	description="Microsoft Azure Marketplace 中提供適用於建議引擎的 Azure Machine Learning 建議 API 文件。"
+	services="machine-learning"
+	documentationCenter=""
+	authors="AharonGumnik"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="LuisCa"/>
 
 #Azure Machine Learning 建議 API 文件
@@ -57,9 +57,9 @@ Azure Machine Learning 建議 API 可分成 10 個邏輯群組：
 
 - 每個訂用帳戶的模型數上限是 10。
 - 一個目錄可以保留的項目數上限是 100,000。
-- 保留的使用點數上限是 \~5,000,000。如果將上傳或回報新的點，就會將最舊的點刪除。
+- 保留的使用點數上限是 ~5,000,000。如果將上傳或回報新的點，就會將最舊的點刪除。
 - POST 中可以傳送的資料大小上限 (例如：匯入目錄資料、匯入使用資料) 是 200 MB。
-- 非作用中建議模型組建的每秒交易數目是 \~ 2TPS。作用中建議模型組建可以保留高達 20TPS。
+- 非作用中建議模型組建的每秒交易數目是 ~ 2TPS。作用中建議模型組建可以保留高達 20TPS。
 
 ##4\.API – 一般資訊
 
@@ -1586,7 +1586,7 @@ OData XML
 
 | HTTP 方法 | URI |
 |:--------|:--------|
-|GET |`<rootURI>/GetModelFeatures?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&rankBuildId=%27<rankBuildId>%27&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/GetModelFeatures?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&rankBuildId=%271000551%27&apiVersion=%271.0%27`
+|GET |`<rootURI>/GetModelFeatures?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&rankBuildId=<rankBuildId>&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/GetModelFeatures?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&rankBuildId=1000551&apiVersion=%271.0%27`
 
 | 參數名稱 |	有效值 |
 |:--------			|:--------			|
@@ -2861,4 +2861,4 @@ HTTP 狀態碼：200
 這份文件係依 「現狀」提供。本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更， 恕不另行通知。<br><br> 此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實人事物。<br><br> 本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。您可以複製並使用這份文件，供內部參考之用。<br><br> © 2015 Microsoft.著作權所有，並保留一切權利。
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

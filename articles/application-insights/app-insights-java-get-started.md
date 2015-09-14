@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="在 Java Web 專案中開始使用 Application Insights" 
-	description="使用 Application Insights 監視 Java 網站的效能和使用量" 
-	services="application-insights" 
-    documentationCenter="java"
-	authors="alancameronwills" 
+<properties
+	pageTitle="開始在 Java Web 專案中使用 Application Insights | Microsoft Azure"
+	description="使用 Application Insights 監視 Java 網站的效能和使用量"
+	services="application-insights"
+	documentationCenter="java"
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="06/30/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="06/30/2015"
 	ms.author="awills"/>
- 
+
 # 在 Java Web 專案中開始使用 Application Insights
 
 *Application Insights 目前僅供預覽。*
@@ -38,7 +38,7 @@
 ## 1\.取得 Application Insights 檢測金鑰
 
 1. 登入 [Microsoft Azure 入口網站](https://portal.azure.com)。
-2. 建立新 Application Insights 資源
+2. 建立新 Application Insights 資源。
 
     ![按一下 + 並選擇 [Application Insights]](./media/app-insights-java-get-started/01-create.png)
 3. 將應用程式類型設定為 Java Web 應用程式。
@@ -58,7 +58,7 @@
 
 #### 如果您使用 Maven...
 
-如果您的專案已設定為使用 Maven 來建置，請將下列程式碼片段合併至 pom.xml 檔案。
+如果您的專案已設定為使用 Maven 來建置，請將下列程式碼合併至 pom.xml 檔案。
 
 然後重新整理專案相依性，以下載程式庫。
 
@@ -80,13 +80,12 @@
     </dependencies>
 
 
-* *建置或總和檢查碼驗證錯誤？ 嘗試使用特定版本，例如：* `<version>1.0.n</version>`。您可以在 [SDK 版本資訊](app-insights-release-notes-java.md)或 [Maven 成品](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)中找到最新版本。
-* 更新為新版 SDK
- * 請重新整理專案的相依項目。
+* 建置或總和檢查碼驗證錯誤？ 嘗試使用特定版本，例如：`<version>1.0.n</version>`。您可以在 [SDK 版本資訊](app-insights-release-notes-java.md)或 [Maven 成品](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)中找到最新版本。
+* *需要更新為新的 SDK？* 請重新整理專案的相依項目。
 
 #### 如果您使用 Gradle...
 
-如果您的專案已設定為使用 Gradle 來建置，請將下列程式碼片段合併至 build.gradle 檔案。
+如果您的專案已設定為要使用 Gradle 建置，請將下列程式碼合併至 build.gradle 檔案。
 
 然後重新整理專案相依性，以下載程式庫。
 
@@ -99,7 +98,7 @@
       // or applicationinsights-core for bare API
     }
 
-* *建置或總和檢查碼驗證錯誤？ 嘗試使用特定版本，例如：* `version:'1.0.n'`。您可以在* [SDK 版本資訊](app-insights-release-notes-java.md)*中找到最新版本。 
+* *建置或總和檢查碼驗證錯誤？ 嘗試使用特定版本，例如：* `version:'1.0.n'`。您可以在* [SDK 版本資訊](app-insights-release-notes-java.md)*中找到最新版本。
 * 更新為新版 SDK
  * 請重新整理專案的相依項目。
 
@@ -107,7 +106,7 @@
 
 手動加入 SDK：
 
-1. 下載 [Java 適用的 Application Insights SDK](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip)
+1. 下載 [Java 適用的 Application Insights SDK](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip)。
 2. 從 ZIP 檔案解壓縮二進位檔案，然後加入您的專案。
 
 ### 問題...
@@ -115,17 +114,17 @@
 * *ZIP 中的 `-core` 和 `-web` 元件之間有何關係？*
 
  * `applicationinsights-core` 會提供裸機 API。您一律會需要它。
- * `applicationinsights-web` 提供追蹤 HTTP 要求計數和回應時間的度量。如果您不想要自動收集此遙測 - 例如，如果您想要撰寫自己的遙測，可以省略它。
+ * `applicationinsights-web` 提供追蹤 HTTP 要求計數和回應時間的度量。如果您不想自動收集此遙測，您可以忽略這個。例如，如果您想要自己撰寫。
 
 * *在我們發佈變更時更新 SDK*
- * 下載最新的 [適用 Java 的 Application Insights SDK](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) 並取代舊的。
+ * 下載最新的[Java 適用的 Application Insights SDK](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) 並取代舊的。
  * [SDK 版本資訊](app-insights-release-notes-java.md)中會說明變更內容。
 
 
 
-## 3\.加入 Application Insights XML 檔案
+## 3\.加入 Application Insights .XML 檔案
 
-請將 ApplicationInsights.xml 加入至專案的資源資料夾，否則請確定其已加入至您的專案部署類別路徑。複製到下列 XML。
+在專案中的資源資料夾中加入 ApplicationInsights.xml，或確定已將其加入專案部署類別路徑。將下列 XML 複製到其中。
 
 替換為您從 Azure 入口網站取得的檢測金鑰。
 
@@ -168,7 +167,7 @@
 
 上一個組態步驟可讓 HTTP 要求元件記錄每個 Web 要求。(如果您只需要單純的 API，則非必要。)
 
-在專案中找到並開啟 web.xml 檔案，並合併 web-app 節點下的下列程式碼片段，在其中您可以設定應用程式篩選器。
+在您的專案中找到並開啟 web.xml 檔案，然後將下列程式碼合併至 Web 應用程式節點下，也就是應用程式篩選器設定的位置。
 
 為獲得最準確的結果，應該在其他所有篩選器之前先對應此篩選器。
 
@@ -226,16 +225,16 @@
 [概觀] 分頁上會顯示 HTTP 要求資料。(如果沒有出現，請稍等片刻，然後按一下 [重新整理]。)
 
 ![範例資料](./media/app-insights-java-get-started/5-results.png)
- 
+
 
 逐一點選任何圖表以查看更詳細的度量。
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
- 
+
 
 而檢視要求的屬性時，您可以查看與它關聯的遙測事件，例如要求和例外狀況。
- 
+
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 
@@ -275,9 +274,9 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
 
-### 自訂效能計數器收集
+### 自訂效能計數器集合
 
-若要停用效能計數器標準集合的收集，請將下列程式碼片段加入 ApplicationInsights.xml 檔案的根節點下：
+若要停用效能計數器的一組標準集合，請將下列程式碼加入 ApplicationInsights.xml 檔案的根節點下：
 
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
@@ -306,7 +305,7 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
 
 
-#### Windows 效能計數器 
+#### Windows 效能計數器
 
 每個 [Windows 效能計數器](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx)是類別的成員 (以欄位是類別成員的相同方式)。類別可以是全域，或可以有一定數量或指定的執行個體。
 
@@ -317,9 +316,9 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
       </Windows>
     </PerformanceCounters>
 
-*	displayName – Application Insights 入口網站中顯示的名稱
-*	categoryName – 與此效能計數器有關聯的效能計數器類別 (效能物件)
-*	counterName – 效能計數器的名稱
+*	displayName – Application Insights 入口網站中顯示的名稱。
+*	categoryName – 與此效能計數器有關聯的效能計數器類別 (效能物件)。
+*	counterName – 效能計數器的名稱。
 *	instanceName – 效能計數器類別執行個體的名稱，或如果類別包含單一執行個體，則為空白字串 ("")。如果 categoryName 為 Process，而您要收集的效能計數器來自應用程式執行所在的目前 JVM 處理程序，請指定 `"__SELF__"`。
 
 您的效能計數器會在[計量瀏覽器][metrics]中以自訂度量的形式顯示。
@@ -329,7 +328,7 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
 ### Unix 效能計數器
 
-* [使用 Application Insights 外掛程式安裝 collectd ](app-insights-java-collectd.md) 來取得各種不同的系統和網路資料。
+* [使用 Application Insights 外掛程式安裝 collectd](app-insights-java-collectd.md) 來取得各種不同的系統和網路資料。
 
 ## 取得使用者與工作階段資料
 
@@ -371,6 +370,4 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

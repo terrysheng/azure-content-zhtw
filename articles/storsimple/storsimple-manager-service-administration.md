@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="使用 StorSimple Manager 服務管理 StorSimple 裝置"
-   description="使用 Azure 管理入口網站中的 StorSimple Manager 服務來管理您的 StorSimple 裝置。"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="tysonn" />
+   pageTitle="StorSimple Manager 服務管理 | Microsoft Azure"
+	description="了解如何使用 Azure 管理入口網站中的 StorSimple Manager 服務管理 StorSimple 裝置。"
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
 # 使用 StorSimple Manager 服務管理 StorSimple 裝置
 
@@ -104,9 +104,8 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 - [可運作裝置的疑難排解](storsimple-troubleshoot-operational-device.md)
 - [使用 StorSimple 監視 LED 指示燈](storsimple-monitoring-indicators.md)
 
-
 如果您不能解決問題，且您必須建立服務要求，請參閱：
 
 -  [連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

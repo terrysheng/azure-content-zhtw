@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="在 Power BI 中查看 Application Insights 資料" 
-	description="使用 Power BI 監視您應用程式的效能與使用量。" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="noamben" 
+	pageTitle="在 Power BI 中查看 Application Insights 資料"
+	description="使用 Power BI 監視您應用程式的效能與使用量。"
+	services="application-insights"
+	documentationCenter=""
+	authors="noamben"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="awills"/>
  
 # Application Insights 資料的 Power BI 檢視
@@ -74,9 +74,17 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 
     ![選擇事件類型](./media/app-insights-export-power-bi/080.png)
 
-現在請休息一下，讓其他人使用您的應用程式一段時間。遙測資料會送過來，而您會在[計量瀏覽器](app-insights-metrics-explorer.md)中看到統計圖表，並在[診斷搜尋](app-insights-diagnostic-search.md)中看到個別事件。
+3. 可讓一些資料累積。請休息一下，讓其他人使用您的應用程式一段時間。遙測資料會送過來，而您會在[計量瀏覽器](app-insights-metrics-explorer.md)中看到統計圖表，並在[診斷搜尋](app-insights-diagnostic-search.md)中看到個別事件。
 
-此外，資料會匯出至您的儲存體。
+    此外，資料會匯出至您的儲存體。
+
+4. 檢查匯出的資料。在 Visual Studio 中選擇 [檢視] / [Cloud Explorer]，然後開啟 [Azure] / [儲存體]。(如果您沒有此功能表選項，您需要安裝 Azure SDK：開啟 [新增專案] 對話方塊，然後開啟 [Visual C#] / [Cloud] / [取得 Microsoft Azure SDK for .NET]。)
+
+    ![](./media/app-insights-export-power-bi/04-data.png)
+
+    記下衍生自應用程式名稱和檢測金鑰之路徑名稱的共同部分。
+
+事件會以 JSON 格式寫入至 Blob 檔案。每個檔案可能會包含一或多個事件。因此我們想要讀取事件資料，並篩選出需要的欄位。該處有用這些資料所能做到的所有事情種類，但我們現在計劃要使用串流分析將資料傳送至 Power BI。
 
 ## 建立 Azure 串流分析執行個體
 
@@ -108,20 +116,21 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 
 ![](./media/app-insights-export-power-bi/140.png)
 
+
 請務必將 [日期格式] 設為 YYYY-MM-DD (含連接號)。
 
-[路徑前置詞模式] 會指定串流分析在儲存體中尋找輸入檔案的方式。您必須將它設定為可對應「連續匯出」儲存資料的方式。請設定如下：
+路徑前置詞模式會指定串流分析在存放區中尋找輸入檔案的位置。您需要將它設定為與連續匯出儲存資料的方式相對應。請設定如下：
 
-    webapplication27_100000000-0000-0000-0000-000000000000/PageViews/{date}/{time}
+    webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 在此範例中：
 
-* `webapplication27` 是 Application Insights 資源的名稱。 
-* `1000...` 是 Application Insights 資源的檢測金鑰。 
-* `PageViews` 是我們想要分析的資料類型。可用的類型取決於您在「連續匯出」中設定的篩選。檢查匯出的資料以查看其他可用的類型，並查看[匯出資料模型](app-insights-export-data-model.md)。
+* `webapplication27` 是 Application Insights 資源名稱，**全部小寫**。
+* `1234...` 是 Application Insights 資源的檢測金鑰，**省略破折號**。 
+* `PageViews` 是您想要分析的資料類型。可用的類型取決於您在「連續匯出」中設定的篩選。檢查匯出的資料以查看其他可用的類型，並查看[匯出資料模型](app-insights-export-data-model.md)。
 * `/{date}/{time}` 是要依字面意思寫入資訊的格式。
 
-若要取得 Application Insights 資源的名稱和 iKey，請在資源的概觀頁面中開啟 Essentials，或開啟 [設定]。
+> [AZURE.NOTE]檢查儲存區以確定您取得正確的路徑。
 
 #### 完成初始設定
 
@@ -180,7 +189,7 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 
 ![在 Power BI 中，選取您的資料集和欄位。](./media/app-insights-export-power-bi/200.png)
 
-現在您可以使用報表中的此資料集和 [Power BI](https://powerbi.microsoft.com) 中的儀表板。
+現在您可以使用報告中的此資料集和 [Power BI](https://powerbi.microsoft.com) 中的儀表板。
 
 
 ![在 Power BI 中，選取您的資料集和欄位。](./media/app-insights-export-power-bi/210.png)
@@ -194,7 +203,8 @@ Noam Ben Zeev 會示範如何匯出至 Power BI。
 ## 相關項目
 
 * [連續匯出](app-insights-export-telemetry.md)
+* [屬性類型和值的詳細資料模型參考。](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
 * [更多範例和逐步解說](app-insights-code-samples.md)
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

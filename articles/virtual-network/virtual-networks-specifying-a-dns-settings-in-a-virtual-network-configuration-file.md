@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="指定虛擬網路組態檔中的 DNS 設定"
-	description="說明"
+   pageTitle="指定虛擬網路組態檔中的 DNS 設定 | Microsoft Azure"
+	description="如何使用虛擬網路組態檔變更 DNS 伺服器設定"
 	services="virtual-network"
 	documentationCenter="na"
 	authors="joaoma"
@@ -53,4 +53,4 @@
 
 [Azure 服務組態結構描述](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

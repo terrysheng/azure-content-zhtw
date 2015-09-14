@@ -1,20 +1,20 @@
 <properties
    pageTitle="開始使用 Azure 虛擬機器上的 Docker 和 Compose"
-   description="在 Azure 上使用 Compose 和 Docker 的快速簡介"
-   services="virtual-machines"
-   documentationCenter=""
-   authors="dlepow"
-   manager="timlt"
-   editor=""/>
+	description="在 Azure 上使用 Compose 和 Docker 的快速簡介"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="08/07/2015"
-   ms.author="danlep"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="08/07/2015"
+	ms.author="danlep"/>
 
 # 開始使用 Azure 虛擬機器上的 Docker 和 Compose
 
@@ -24,7 +24,7 @@
 
 ## 步驟 1：設定 Linux VM 做為 Docker 主機
 
-您可以使用 Azure Markeplace 中的各種 Azure 程序和可用的映像建立 Linux VM，並將其設定為 Docker 主機。例如，如需建立包含 Docker VM 延伸模組之 Ubuntu VM 的快速程序，請參閱[透過 Azure 命令列介面使用 Docker VM 延伸模組](virtual-machines-docker-with-xplat-cli)。當您使用 Docker VM 延伸模組時，您的 VM 會自動設為 Docker 主機。該文章中的範例會示範如何使用服務管理模式中[適用於 Mac、Linux 和 Windows 的 Azure 命令列](xplat-cli.md) (Azure CLI) 來建立 VM 。
+您可以使用 Azure Markeplace 中的各種 Azure 程序和可用的映像建立 Linux VM，並將其設定為 Docker 主機。例如，如需建立包含 Docker VM 延伸模組之 Ubuntu VM 的快速程序，請參閱[透過 Azure 命令列介面使用 Docker VM 延伸模組](virtual-machines-docker-with-xplat-cli.md)。當您使用 Docker VM 延伸模組時，您的 VM 會自動設為 Docker 主機。該文中的範例會示範如何使用服務管理模式中的[Mac、Linux 和 Windows 適用的 Azure 命令列介面](../xplat-cli.md) (Azure CLI) 來建立 VM。
 
 ## 步驟 2：安裝 Compose
 
@@ -112,4 +112,4 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

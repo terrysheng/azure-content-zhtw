@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="使用行動服務將影像上傳至 Blob 儲存體 (Windows Phone) | Microsoft Azure" 
-	description="了解如何使用行動服務將影像上傳至 Azure Blob 儲存體。" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	services="mobile-services,storage" 
-	manager="dwrede" 
+<properties
+	pageTitle="使用行動服務將影像上傳至 Blob 儲存體 (Windows Phone) | Microsoft Azure"
+	description="了解如何使用行動服務將影像上傳至 Azure Blob 儲存體。"
+	documentationCenter="windows"
+	authors="ggailey777"
+	services="mobile-services,storage"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # 使用行動服務將影像上傳到 Azure 儲存體
@@ -27,7 +27,7 @@
 
 在本教學課程中，您會在 [GetStartedWithData 範例應用程式專案](mobile-services-dotnet-backend-windows-phone-get-started-data.md)中新增功能，以便使用行動服務所產生的 SAS 來拍照並將影像上傳到 Azure。
 
-##必要條件 
+##必要條件
 
 本教學課程需要下列各項：
 
@@ -54,7 +54,7 @@
   	這麼做會將 Azure 儲存體服務的用戶端程式庫新增至專案。
 
 [AZURE.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage](../../includes/mobile-services-windows-phone-upload-to-blob-storage.md)]
- 
+
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
 [Update the client app to capture images]: #add-select-images
@@ -78,7 +78,4 @@
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Windows Phone SDK 8.0]: http://www.microsoft.com/download/details.aspx?id=35471
 
-
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

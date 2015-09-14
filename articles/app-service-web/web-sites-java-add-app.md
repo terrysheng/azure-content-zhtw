@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="將 Java 應用程式新增至 Azure App Service Web Apps" 
-	description="本教學課程說明如何將頁面或應用程式新增至已設定為使用 Java 的 Azure App Service Web Apps 執行個體。" 
-	services="app-service\web" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="將 Java 應用程式新增至 Azure App Service Web Apps"
+	description="本教學課程說明如何將頁面或應用程式新增至已設定為使用 Java 的 Azure App Service Web Apps 執行個體。"
+	services="app-service\web"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # 將 Java 應用程式新增至 Azure App Service Web Apps
 
-當您依照[在 Azure App Service 中建立 Java Web 應用程式](web-sites-java-get-started.md)所述在 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 初始化 Java Web 應用程式之後，就可以將 WAR 放在 **webapps** 資料夾中以便上傳您的應用程式。
+當您依照[在 Azure App Service 中建立 Java Web 應用程式](web-sites-java-get-started.md)所述在 [Azure App Service][] 初始化 Java Web 應用程式之後，就可以將 WAR 放在 **webapps** 資料夾中以便上傳您的應用程式。
 
 **webapps** 資料夾的導覽路徑會根據 Web Apps 執行個體的設定方式而有所不同。
 
@@ -32,7 +32,8 @@ Tomcat Web 應用程式注意事項：將 WAR 檔案上傳至 **webapps** 資料
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
- 
- 
 
-<!---HONumber=August15_HO6-->
+<!-- External Links -->
+[Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
+
+<!---HONumber=September15_HO1-->

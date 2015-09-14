@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/24/2015"
+	ms.date="09/01/2015"
 	ms.author="jroth"/>
 
 # Azure 虛擬機器上的 SQL Server 概觀
@@ -29,24 +29,21 @@
 
 在註冊訂用帳戶之後，若要在 Azure 中部署 SQL Server 虛擬機器，最簡單的方式就是[在 Azure 管理入口網站中佈建 SQL Server 機器資源庫映像](virtual-machines-provision-sql-server.md)。這些映像包含的 SQL Server 授權，是以 VM 為計價單位。
 
-您可以在 Azure 虛擬機器執行常見的 SQL Server 工作負載。SQL Server 在資源庫中有數個可用的最佳化虛擬機器映像。如需特定工作負載的詳細資訊，請參閱：
-
-- [Azure 虛擬機器中的 SQL Server Business Intelligence](virtual-machines-sql-server-business-intelligence.md)
-- [SQL Server 資料倉儲和 Azure 虛擬機器中的交易式工作負載](virtual-machines-sql-server-dw-and-oltp-workloads.md)
-
 下表提供虛擬機器資源庫中的可用 SQL Server 映像比較。
 
 |SQL Server 版本|作業系統|SQL Server 版本|
 |---|---|---|
 |SQL Server 2008 R2 SP2|Windows Server 2008 R2|Enterprise、Standard 和 Web|
 |SQL Server 2008 R2 SP3|Windows Server 2008 R2|Enterprise、Standard 和 Web|
-|SQL Server 2012 SP2|Windows Server 2012|Enterprise、Standard、Web、OLTP (Enterprise) 和資料倉儲 (Enterprise)|
-|SQL Server 2012 SP2|Windows Server 2012 R2|Enterprise、Standard、Web、OLTP (Enterprise) 和資料倉儲 (Enterprise)|
-|SQL Server 2014|Windows Server 2012 R2|Enterprise、Standard、Web、OLTP (Enterprise) 和資料倉儲 (Enterprise)|
-|SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise、Standard、Web、OLTP (Enterprise) 和資料倉儲 (Enterprise)|
+|SQL Server 2012 SP2|Windows Server 2012|Enterprise、Standard 和 Web|
+|SQL Server 2012 SP2|Windows Server 2012 R2|Enterprise、Standard 和 Web|
+|SQL Server 2014|Windows Server 2012 R2|Enterprise、Standard 和 Web|
+|SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise、Standard 和 Web|
 |SQL Server 2016 CTP|Windows Server 2012 R2|評估|
 
-除了這些預先設定的映像，您也可以[建立 Azure 虛擬機器](virtual-machines-windows-tutorial.md)，而不需要預先安裝的 SQL Server。您可以安裝任何您擁有授權的 SQL Server 執行個體。將您的授權移轉至 Azure，以使用 [Azure 上透過軟體保證的授權機動性](http://azure.microsoft.com/pricing/license-mobility/)，在 Azure 虛擬機器中執行 SQL Server。在此案例中，您只需支付與虛擬機器相關聯的 Azure 運算和儲存體[成本](http://azure.microsoft.com/pricing/details/virtual-machines)。
+>[AZURE.NOTE]用於資料倉儲和交易式工作負載的虛擬機器資源庫映像 (非上方所示)，已被取代且即將從資源庫移除。請使用上表中的標準映像，並依照 [Azure 虛擬機器中 SQL Server 的效能最佳做法](virtual-machines-sql-server-performance-best-practices.md)中的建議，將特定工作負載的效能最佳化。
+
+除了這些預先設定的映像，您也可以[建立 Azure 虛擬機器](virtual-machines-windows-tutorial.md)，而不需要預先安裝的 SQL Server。您可以安裝任何您擁有授權的 SQL Server 執行個體。將您的授權移轉至 Azure，以使用 [Azure 上透過軟體保證的授權流動性](http://azure.microsoft.com/pricing/license-mobility/)，在 Azure 虛擬機器中執行 SQL Server。在此案例中，您只需支付與虛擬機器相關聯的 Azure 運算和儲存體[成本](http://azure.microsoft.com/pricing/details/virtual-machines)。
 
 在這些佈建及設定的早期階段，常見工作包括：
 
@@ -66,6 +63,7 @@
 
 - [在 Azure (GUI) 中設定 AlwaysOn 可用性群組](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
 - [設定 Azure 中 AlwaysOn 可用性群組的 ILB 接聽程式](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+- [使用 Azure 資源管理員範本部署 SQL Server AlwaysOn](virtual-machines-workload-template-sql-alwayson.md)
 - [將內部部署 AlwaysOn 可用性群組延伸至 Azure](virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups.md)
 
 如需其他高可用性注意事項，請參閱 [Azure 虛擬機器中的 SQL Server 高可用性和災害復原](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)。
@@ -92,7 +90,7 @@
 |來賓帳戶|已停用|
 |具有進階安全性的 Windows 防火牆|另一|
 |.NET Framework|第 4 版|
-|磁碟|選取的大小會限制可設定的資料磁碟數目。請參閱 [Azure 虛擬機器的大小](virtual-machines-size-specs.md)|
+|磁碟|選取的大小會限制可設定的資料磁碟數目。請參閱 [Azure 的虛擬機器大小](virtual-machines-size-specs.md)|
 
 ### SQL Server
 
@@ -110,7 +108,7 @@
 |Data Quality Services|已安裝 (僅限 SQL Server 2012 或更新版本)|
 |Master Data Services|已安裝 (僅限 SQL Server 2012 或更新版本)。需要[其他組態和元件](https://msdn.microsoft.com/library/ee633752.aspx)
 |PowerPivot for SharePoint|可用 (僅限 SQL Server 2012 或更新版本)。需要其他組態和元件 (包括 SharePoint)|
-|Distributed Replay Client|可用 (僅限 SQL Server 2012 或更新版本)，但未安裝。請參閱[從平台提供之 SQL Server 映像執行 SQL Server 設定](#running-sql-server-setup-from-the-platform-provided-sql-server-image)|
+|Distributed Replay Client|可用 (僅限 SQL Server 2012 或更新版本)，但未安裝。請參閱[從平台提供之 SQL Server 映像執行 SQL Server 安裝](#run-sql-server-setup-from-the-platform-provided-sql-server-image)|
 |工具|所有工具，包括 SQL Server Management Studio、SQL Server 組態管理員、Business Intelligence Development Studio、SQL Server 安裝程式、用戶端工具連接性、用戶端工具 SDK 和 SQL 用戶端連接性 SDK，以及升級和移轉工具，例如資料層應用程式 (DAC)、備份、還原、附加及卸離|
 |SQL Server 線上叢書|已安裝，但需要使用說明檢視器的組態|
 
@@ -128,9 +126,11 @@
 |預設語言|English|
 |跨資料庫擁有權鏈結|關閉|
 
+### 客戶經驗改進計畫 (CEIP)
+
 已啟用[客戶經驗改進計畫 (CEIP)](https://technet.microsoft.com/library/cc730757.aspx)。您可以使用 SQL Server 錯誤和使用方式報告公用程式來停用 CEIP。如需啟動 SQL Server 錯誤和使用方式報告公用程式，請在 [開始] 功能表中依序按一下 [所有程式]、[Microsoft SQL Server 版本]、[組態工具] 及 [SQL Server 錯誤和使用方式報告]。如果您不要使用已啟用 CEIP 的 SQL Server 執行個體，也可以考慮將您自己的虛擬機器映像部署至 Azure。如需詳細資訊，請參閱[建立和上傳包含 Windows Server 作業系統的虛擬硬碟](virtual-machines-create-upload-vhd-windows-server.md)。
 
-### 從平台提供之 SQL Server 映像執行 SQL Server 設定
+## 從平台提供之 SQL Server 映像執行 SQL Server 安裝
 
 如果您使用平台提供的 SQL Server 映像來建立虛擬機器，可以在以下位置找到存於虛擬機器的 SQL Server 安裝程式媒體：**C:\\SqlServer\_SQLMajorVersion.SQLMinorVersion\_Full** 目錄。您可以從這個目錄執行安裝程式，以執行任何安裝程式的動作，包括新增或移除功能、加入新的執行個體，或在磁碟空間允許的情況下修復執行個體。
 
@@ -144,4 +144,4 @@
 - [Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Azure 虛擬機器](virtual-machines-about.md) 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -115,13 +115,40 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 <tr><td></td><td>mimeType</td><td>字串</td><td>內容的 mime 類型。</td></tr>
 <tr><td></td><td>內容</td><td>字串</td><td>如何取得這項資料資產的指示。可能是一個 URL、電子郵件地址或一組指示。</td></tr>
 
+<tr><td>TableDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>numberOfRows</td></td><td>int</td><td>在此資料集的資料列數目。</td></tr>
+<tr><td></td><td>size</td><td>long</td><td>以位元組為單位的資料集大小。 </td></tr>
+<tr><td></td><td>schemaModifiedTime</td><td>字串</td><td>上次修改結構描述的時間。</td></tr>
+<tr><td></td><td>dataModifiedTime</td><td>字串</td><td>上次修改此資料集 (加入、修改或刪除資料) 的時間。</td></tr>
+
+<tr><td>ColumnsDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>columns</td></td><td>ColumnDataProfile[]</td><td>在此資料集的資料列數目。</td></tr>
+
+
 </table>
 
 ### 常見的類型
 
 常見類型可作為屬性的類型，而不是項目的類型。
 
-<table><tr><td><b>常見類型</b></td><td><b>屬性</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>字串</td><td>描述資料來源的類型，也就是 SQL Server、Oracle 資料庫等等...  </td></tr><tr><td></td><td>objectType</td><td>字串</td><td>描述資料來源中的物件類型，也就是 SQL Server 的資料表、檢視。</td></tr><tr><td></td><td>formatType</td><td>字串</td><td>描述資料結構。目前的值為結構化或非結構化。</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>字串</td><td>使用者的唯一電子郵件地址。</td></tr><tr><td></td><td>firstName</td><td>字串</td><td>使用者的名字 (用於顯示)。</td></tr><tr><td></td><td>lastName</td><td>字串</td><td>使用者的姓氏 (用於顯示)。</td></tr><tr><td>欄</td><td></td><td></td><td></td></tr><tr><td></td><td>名稱</td><td>字串</td><td>資料行或屬性的名稱。</td></tr><tr><td></td><td>類型</td><td>字串</td><td>資料行或屬性的資料類型。允許的類型取決於資產的資料 sourceType。僅支援一部分類型。</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>資料行或屬性允許的長度上限。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td></td><td>Precision</td><td>byte</td><td>資料行或屬性的精確度。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td></td><td>isNullable</td><td>Boolean</td><td>是否允許資料行有 Null 值。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td></td><td>expression</td><td>字串</td><td>如果值是導出資料行，此欄位會包含表示此值的運算式。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td></td><td>defaultValue</td><td>物件</td><td>如果物件的 insert 陳述式中未指定任何值，則插入預設值。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr><tr><td></td><td>tags</td><td>string[]</td><td>描述資料行的標記陣列。</td></tr><tr><td></td><td>說明</td><td>字串</td><td>用來描述資料行的描述。</td></tr><tr><td></td><td>columnName</td><td>字串</td><td>此資訊所參考的資料行名稱。</td></tr>
+<table><tr><td><b>常見類型</b></td><td><b>屬性</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>字串</td><td>描述資料來源的類型，也就是 SQL Server、Oracle 資料庫等等...  </td></tr><tr><td></td><td>objectType</td><td>字串</td><td>描述資料來源中的物件類型，也就是 SQL Server 的資料表、檢視。</td></tr><tr><td></td><td>formatType</td><td>字串</td><td>描述資料結構。目前的值為結構化或非結構化。</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>字串</td><td>使用者的唯一電子郵件地址。</td></tr><tr><td></td><td>firstName</td><td>字串</td><td>使用者的名字 (用於顯示)。</td></tr><tr><td></td><td>lastName</td><td>字串</td><td>使用者的姓氏 (用於顯示)。</td></tr><tr><td>欄</td><td></td><td></td><td></td></tr><tr><td></td><td>名稱</td><td>字串</td><td>資料行或屬性的名稱。</td></tr><tr><td></td><td>類型</td><td>字串</td><td>資料行或屬性的資料類型。允許的類型取決於資產的資料 sourceType。僅支援一部分類型。</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>資料行或屬性允許的長度上限。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td></td><td>Precision</td><td>byte</td><td>資料行或屬性的精確度。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td></td><td>isNullable</td><td>Boolean</td><td>是否允許資料行有 Null 值。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td></td><td>expression</td><td>字串</td><td>如果值是導出資料行，此欄位會包含表示此值的運算式。衍生自資料來源。只適用於某些來源類型。</td></tr><tr><td></td><td>defaultValue</td><td>物件</td><td>如果物件的 insert 陳述式中未指定任何值，則插入預設值。衍生自資料來源。只適用於某些來源類型。</td>
+
+</tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>tags</td><td>string[]</td><td>描述資料行的標記陣列。</td></tr>
+<tr><td></td><td>說明</td><td>字串</td><td>用來描述資料行的描述。</td></tr><tr><td></td><td>columnName</td><td>字串</td><td>此資訊所參考的資料行名稱。</td></tr>
+
+</tr><tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>columnName </td><td>字串</td><td>資料行的名稱。</td></tr>
+<tr><td></td><td>類型 </td><td>字串</td><td>資料行的類型。</td></tr>
+<tr><td></td><td>min </td><td>字串</td><td>在此資料集內的最小值。</td></tr>
+<tr><td></td><td>max </td><td>字串</td><td>在此資料集內的最大值。</td></tr>
+<tr><td></td><td>avg </td><td>double</td><td>在此資料集內的平均值。</td></tr>
+<tr><td></td><td>stdev </td><td>double</td><td>此資料集的標準差。</td></tr>
+<tr><td></td><td>nullCount </td><td>int</td><td>在此資料集內 null 值的計數。</td></tr>
+<tr><td></td><td>distinctCount  </td><td>int</td><td>在此資料集內相異值的計數。</td></tr>
+
+
+
 </table>
 
 ## 角色和授權
@@ -229,6 +256,6 @@ Azure 資料目錄使用兩種授權機制：
 > [AZURE.NOTE]在 PUT 中，不需要在內文中指定項目裝載：PUT 可以用來直接更新角色和 (或) 權限。
 
 <!--Image references-->
-[1]: ./media/data-catalog-developer-concepts/concept.png
+[1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="管理您的 StorSimple 儲存體帳戶 Microsoft Azure |Microsoft Azure"
-   description="說明如何使用 [設定] 頁面來新增、 編輯、刪除或替換儲存體帳戶的安全性金鑰。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+   pageTitle="管理 StorSimple 儲存體帳戶 | Microsoft Azure"
+	description="說明如何使用 StorSimple Manager 的 [設定] 頁面來加入、編輯、刪除或替換儲存體帳戶的安全性金鑰。"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="v-sharos"/>
 
-# 管理 StorSimple 儲存體帳戶
+# 使用 StorSimple Manager 服務管理儲存體帳戶
 
 ## 概觀
 
@@ -28,8 +28,6 @@
 本教學課程說明如何使用 [設定] 頁面來新增、 編輯或刪除儲存體帳戶或替換儲存體帳戶的安全性金鑰。
 
  ![[設定] 頁面](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)
-
-**圖 1：StorSimple Manager 服務設定頁面**
 
 儲存體帳戶包含的認證可供裝置用來存取雲端服務提供者的儲存體帳戶。對於 Microsoft Azure 儲存體帳戶，像是帳戶名稱與主要存取金鑰就屬於這些認證。
 
@@ -50,7 +48,7 @@
 
 有三種儲存體帳戶類型能與 StorSimple 裝置搭配使用。
 
-- **自動產生的儲存體帳戶** – 正如其名，這類型的儲存體帳戶是在初次建立服務時自動產生。若要深入了解如何建立此儲存體帳戶，請參閱中[部署內部部署的 StorSimple 裝置](storsimple-deployment-walkthrough.md)中的[步驟 1：建立新的服務](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service)。 
+- **自動產生的儲存體帳戶** – 正如其名，這類型的儲存體帳戶是在初次建立服務時自動產生。若要深入了解如何建立此儲存體帳戶，請參閱[部署您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)中的[步驟 1：建立新的服務](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service)。 
 - **服務訂用帳戶中的儲存體帳戶** – 這些是與相同服務訂用帳戶相關聯的 Azure 儲存體帳戶。若要深入了解如何建立這些儲存體帳戶，請參閱[關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)。 
 - **服務訂用帳戶外的儲存體帳戶** – 這些是與服務毫無關聯的 Azure 儲存體帳戶，而且可能在服務建立之前便已存在 。
 
@@ -97,7 +95,7 @@
 
 2. 在儲存體帳戶的表格式清單中，將滑鼠停留在您想要刪除的帳戶上方。
 
-3. 刪除圖示 (**x**) 會出現在該儲存體帳戶的最右邊資料行。按一下 [x] 圖示，以刪除認證。
+3. 刪除圖示 (**x**) 會出現在該儲存體帳戶資料行的最右邊。按一下 [x] 圖示，以刪除認證。
 
 4. 當系統提示您確認時，按一下 [是] 繼續進行刪除。表格式清單會更新以反映所做的變更。
 
@@ -145,11 +143,11 @@ Microsoft Azure 系統管理員可以直接存取儲存體帳戶 (透過 Microso
 3. 在對話方塊中，執行下列動作：
 
   1. 選取您要更新其存取金鑰的儲存體帳戶。
-  2. 您必須更新 StorSimple Manager 服務中的儲存體存取金鑰。在此情況下，您可以看到儲存體存取金鑰。在**儲存體帳戶存取金鑰**方塊中輸入新金鑰。 
+  2. 您必須更新 StorSimple Manager 服務中的儲存體存取金鑰。在此情況下，您可以看到儲存體存取金鑰。在 [**儲存體帳戶存取金鑰**] 方塊中，輸入新的金鑰。 
   3. 儲存您的變更。現在應已更新您的儲存體帳戶存取金鑰。
 
 ## 後續步驟
 
 深入了解 [StorSimple 安全性](storsimple-security.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

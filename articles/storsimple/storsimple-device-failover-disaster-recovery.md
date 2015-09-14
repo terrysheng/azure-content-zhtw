@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="StorSimple 裝置的容錯移轉和災害復原 | Microsoft Azure"
-   description="了解如何將 StorSimple 裝置容錯移轉至其本身、另一個實體裝置或虛擬裝置。"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="adinah"
-   editor="" />
+   pageTitle="StorSimple 容錯移轉和災害復原 | Microsoft Azure"
+	description="了解如何將 StorSimple 裝置容錯移轉至其本身、另一個實體裝置或虛擬裝置。"
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="adinah"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/28/2015"
+	ms.author="alkohli"/>
 
 # StorSimple 裝置的容錯移轉與災害復原
 
@@ -145,4 +145,4 @@
 如需如何使用 StorSimple Manager 服務管理裝置的相關資訊，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

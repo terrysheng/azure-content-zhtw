@@ -1,19 +1,19 @@
 <properties
    pageTitle="ExpressRoute 常見問題集"
-   description="ExpressRoute 常見問題集包含支援的 Azure 服務、費用、資料和連線、SLA、提供者和位置、頻寬等資訊及其他技術詳細資料。"
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="adinah"
-   editor="tysonn"/>
+	description="ExpressRoute 常見問題集包含支援的 Azure 服務、費用、資料和連線、SLA、提供者和位置、頻寬等資訊及其他技術詳細資料。"
+	documentationCenter="na"
+	services="expressroute"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/02/2015"
+	ms.author="cherylmc"/>
 
 # ExpressRoute 常見問題集
 
@@ -34,7 +34,7 @@ ExpressRoute 目前支援大多數的 Microsoft Azure 服務。我們現在宣�
 您可以在區域載波和陸地乙太網路連線中選取其中一個支援的 Exchange 提供者位置。您接著可以在 EXP 位置與 Microsoft 對等互連。檢查 [ExpressRoute 合作夥伴和位置](expressroute-locations.md)的最後一部分，以查看您的網路提供者是否存在於任何 Exchange 位置中。您接著可以訂購一個 ExpressRoute 電路，透過 Exchange 提供者連線至 Azure。
 
 ### ExpressRoute 需要多少錢？
-如需定價資訊，請查看[定價詳細資料](http://azure.microsoft.com/pricing/details/expressroute/)。
+如需定價資訊，請查看[定價詳細資訊](http://azure.microsoft.com/pricing/details/expressroute/)。
 
 ### 如果我支付指定頻寬的 ExpressRoute 電路，則我是否必須從網路服務提供者購買相同速度的 VPN 連線？
 否。您可以從服務提供者購買任何速度的 VPN 連線。不過，您與 Azure 的連線將會受限於您所購買的 ExpressRoute 電路頻寬。
@@ -48,25 +48,23 @@ ExpressRoute 目前支援大多數的 Microsoft Azure 服務。我們現在宣�
 ### ExpressRoute 是否提供服務等級協定 (SLA)？
 如需詳細資訊，請參閱 [ExpressRoute SLA 頁面](http://azure.microsoft.com/support/legal/sla/)。
 
-## 支援的 Azure 服務
+## 支援的服務
 ExpressRoute 支援大多數的 Azure 雲端服務。
 
-私人對等互連路徑支援與虛擬網路中所部署虛擬機器和雲端服務的連線能力。
+- 私人對等互連路徑支援與虛擬網路中所部署虛擬機器和雲端服務的連線能力。
+- 公用對等互連路徑支援 Azure 網站。
+- 您可透過公用對等互連路徑存取所有其他服務。例外狀況如下。
 
-公用對等互連路徑支援 Azure 網站。
+	**不支援下列服務：**
 
-您可透過公用對等互連路徑存取所有其他服務。例外狀況如下：
-
-**不支援下列項目：**
-
-- CDN
-- Visual Studio Online 載入測試
-- 多因素驗證
+	- CDN
+	- Visual Studio Online 載入測試
+	- 多因素驗證
 
 ## 資料與連線
 
 ### 我可以使用 ExpressRoute 傳輸的資料量是否有所限制？
-我們不會設定資料傳輸量的限制。如需頻寬費率的相關資訊，請參閱[定價詳細資料](http://azure.microsoft.com/pricing/details/expressroute/)。
+我們不會設定資料傳輸量的限制。如需頻寬費率的相關資訊，請參閱[定價詳細資訊](http://azure.microsoft.com/pricing/details/expressroute/)。
 
 ### ExpressRoute 支援的連線速度為何？
 支援的頻寬優惠：
@@ -79,7 +77,7 @@ ExpressRoute 支援大多數的 Azure 雲端服務。
 ### 可以使用的服務提供者有哪些？
 如需服務提供者和位置清單，請參閱 [ExpressRoute 合作夥伴和位置](expressroute-locations.md)。
 
-## 技術詳細資料
+## 技術詳細資訊
 
 ### 將我的內部部署位置連線至 Azure 會有哪些技術需求？
 請參閱 [ExpressRoute 必要條件頁面](expressroute-prerequisites.md)以取得相關需求。
@@ -91,7 +89,7 @@ ExpressRoute 支援大多數的 Azure 雲端服務。
 如果其中一個交叉連線失敗，您的連線就會中斷。您可以使用備援連線來支援網路的負載。為取得失敗恢復，您可以在其他對等互連位置額外建立多個電路。
 
 ### 我是否必須同時設定這兩個連結，才能讓服務開始運作？
-如果透過 NSP 進行連線，則 NSP 會代替您設定備援連結。如果透過 EXP 進行連線，則您必須設定這兩個連結。如果未設定供備援使用的電路，則 SLA 無效。
+如果透過 NSP 進行連線，則 NSP 會代替您設定備援連結。如果您已在 EXP 共置，您必須對 EXP 雲端交換平台設定兩個 LAN 連結。如果您透過單一 WAN 連結從私用的資料中心連線到 EXP，您需要在您位於該 EXP 的路由器上終止 WAN 連結，然後對 EXP 雲端交換平台設定兩個 LAN 連結。
 
 ### 我可以使用 ExpressRoute 來擴充其中一個至 Azure 的 VLAN 嗎？
 否。我們不支援至 Azure 的第 2 層連線擴充程式。
@@ -130,7 +128,7 @@ ExpressRoute 支援大多數的 Azure 雲端服務。
 否。從路由的觀點來看，所有連結至相同 ExpressRoute 電路的虛擬網路會屬於相同的路由網域，且不會相互隔離。如果需要路由隔離，您必須建立個別的 ExpressRoute 電路。
 
 ### 我可以將一個虛擬網路連結至多個 ExpressRoute 電路嗎？
-是。您最多可以將單一虛擬網路連結至 4 個 ExpressRoute 電路。所有的 ExpressRoute 電路都必須位於同一洲。您可以透過不同服務提供者在不同位置進行訂購。
+是。您最多可以將單一虛擬網路連結至 4 個 ExpressRoute 電路。它們的必須透過 4 個不同位置排序。
 
 ### 我可以從連線至 ExpressRoute 電路的虛擬網路來存取網際網路嗎？
 是。如果您尚未透過 BGP 工作階段通告預設路由 (0.0.0.0/0) 或網際網路路由首碼，您將能夠從連結至 ExpressRoute 電路的虛擬網路連線到網際網路。
@@ -160,6 +158,9 @@ ExpressRoute 支援大多數的 Azure 雲端服務。
 
 ### 如果超過 BGP 限制，該怎麼辦？
 BGP 工作階段將會被刪除。當首碼計數降至限制以下時，系統便會重設 BGP 工作階段。
+
+### 什麼是 ExpressRoute BGP 保留時間？ 可調整此保留時間嗎？
+保留時間為 180。會每隔 60 秒傳送保持運作訊息。這些是 Microsoft 端固定的設定，無法變更。
 
 ### 在將預設路由 (0.0.0.0/0) 通告至虛擬網路之後，我無法啟動在 Azure VM 上執行的 Windows。我該怎麼辦？
 下列步驟將協助 Azure 識別啟動需求：
@@ -221,7 +222,7 @@ ExpressRoute Premium 是下面所列功能的集合。
 否。您無法挑選所需功能。當您開啟 ExpressRoute Premium 時，我們便會將所有功能啟用。
 
 ### ExpressRoute Premium 需要多少錢？
-如需成本相關資訊，請參閱[定價詳細資料](http://azure.microsoft.com/pricing/details/expressroute/)。
+如需成本相關資訊，請參閱[定價詳細資訊](http://azure.microsoft.com/pricing/details/expressroute/)。
 
 ### 除了標準的 ExpressRoute 費用以外，我是否仍需支付 ExpressRoute Premium？
 是。除了 ExpressRoute 電路費用和連線提供者所需費用以外，還需另行支付 ExpressRoute Premium 費用。
@@ -234,9 +235,9 @@ ExpressRoute Premium 是下面所列功能的集合。
 
 ### 我要如何建立可連線到 Office 365 服務的 ExpressRoute 電路？
 
-1. 請檢閱 [ExpressRoute 必要條件頁面](expressroute-prerequisites.md)，以確定您符合需求
+1. 請檢閱 [ExpressRoute 必要條件頁面](expressroute-prerequisites.md)，以確定您符合需求。
 2. 請檢閱 [ExpressRoute 合作夥伴和位置](expressroute-locations.md)中的服務提供者和位置清單，以確定符合您的連線需求。
-3. 透過檢閱 [Office 365 的網路規劃和效能調整](http://aka.ms/tune/)來計劃您的容量需求
+3. 透過檢閱 [Office 365 的網路規劃和效能調整](http://aka.ms/tune/)來計劃您的容量需求。
 4. 依照下面工作流程中的所列步驟設定連線。
 
 	- [透過網路服務提供者設定 ExpressRoute 連線](expressroute-configuring-nsps.md)
@@ -252,7 +253,7 @@ ExpressRoute Premium 是下面所列功能的集合。
 
 ### 透過 ExpressRoute 連線可以存取哪些 Office 365 服務？
 
-**支援下列 Office 365 服務**
+**支援下列 Office 365 服務：**
 
 - Exchange Online 和 Exchange Online Protection
 - SharePoint Online
@@ -264,7 +265,7 @@ ExpressRoute Premium 是下面所列功能的集合。
 - Delve
 - Project Online
 
-**不支援下列 Office 365 服務**
+**不支援下列 Office 365 服務：**
 
 - Yammer
 - Office 365 ProPlus 用戶端下載項目
@@ -286,4 +287,4 @@ ExpressRoute Premium 是下面所列功能的集合。
 是。即使 ExpressRoute 已設定供我的組織使用，您仍可以透過網際網路存取 Office 365 服務端點。如果所處位置已設定透過 ExpressRoute 連線到 Office 365 服務，您將會透過 ExpressRoute 進行連線。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

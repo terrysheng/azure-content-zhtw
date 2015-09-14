@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="如何使用拼音的 Blob 儲存體 | Microsoft Azure" 
-	description="了解如何使用 Azure Blob 服務來上傳、下載、列出及刪除 Blob 內容。範例以 Ruby 撰寫。" 
-	services="storage" 
-	documentationCenter="ruby" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="如何使用拼音的 Blob 儲存體 | Microsoft Azure"
+	description="了解如何使用 Azure Blob 服務來上傳、下載、列出及刪除 Blob 內容。範例以 Ruby 撰寫。"
+	services="storage"
+	documentationCenter="ruby"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="05/11/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="tomfitz"/>
 
 
@@ -31,11 +31,11 @@
 
 ## 建立 Ruby 應用程式
 
-建立 Ruby 應用程式。如需指示，請參閱[在 Azure 上建立 Ruby 應用程式](/develop/ruby/tutorials/web-app-with-linux-vm/) (英文)。
+建立 Ruby 應用程式。如需指示，請參閱[在 Azure 上建立 Ruby 應用程式](/develop/ruby/tutorials/web-app-with-linux-vm/)。
 
 ## 設定您的應用程式以存取儲存體
 
-若要使用 Azure 儲存體，您需要下載並使用 Ruby azure 套件，這包含一組便利程式庫，能與儲存體 REST 服務通訊。
+若要使用 Azure 儲存體，您需要下載並使用 Ruby azure 封裝，這包含一組便利程式庫，能與儲存體 REST 服務通訊。
 
 ### 使用 RubyGems 來取得套件
 
@@ -60,17 +60,17 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 若要取得這些值，請執行下列動作：
 
 1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com/)。
-2. 瀏覽到您要使用的儲存體帳戶
+2. 瀏覽到您要使用的儲存體帳戶。
 3. 按一下導覽窗格底部的 [管理金鑰]。
 4. 在快顯對話方塊中，您將會看到儲存體帳戶名稱、主要存取金鑰和次要存取金鑰。如需存取金鑰，您可以使用主要存取金鑰或次要存取金鑰。
 
-## 作法：建立容器
+## 建立容器
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 **Azure::BlobService** 物件可讓您操作容器及 Blob。若要建立容器，請使用 **create\_container()** 方法。
 
-下列範例將建立容器或列印錯誤訊息 (若有的話)。
+下列程式碼範例會建立容器或列印錯誤訊息 (若有的話)。
 
 	azure_blob_service = Azure::BlobService.new
 	begin
@@ -83,7 +83,7 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 
 您可以只修改 <strong>create\_container() </strong> 呼叫以傳遞 **:public\_access\_level** 選項：
 
-	container = azure_blob_service.create_container("test-container", 
+	container = azure_blob_service.create_container("test-container",
 	  :public_access_level => "<public access level>")
 
 
@@ -94,23 +94,23 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 * **容器：**可指定 Blob 的公用讀取權限。您可以透過匿名要求讀取此容器內的 Blob 資料，但您無法使用容器資料。用戶端無法透過匿名要求列舉容器內的 Blob。
 
 或者，您可以使用 **set\_container\_acl()** 方法指定公用存取等級，藉此修改容器的公用存取等級。
- 
-下列範例會將公用存取等級變更為 **container**：
+
+下列程式碼範例會將公用存取等級變更為**容器**：
 
 	azure_blob_service.set_container_acl('test-container', "container")
 
-## 作法：將 Blob 上傳到容器中
+## 將 Blob 上傳至容器
 
 若要將內容上傳至 Blob，請使用 **create\_block\_blob()** 方法建立 Blob，使用檔案或字串作為 Blob 的內容。
 
-下列程式碼將上傳檔案 **test.png** 作為容器中的新 Blob (名為 "image-blob")。
+下列程式碼將上傳檔案 **test.png** 做為容器中的新 Blob (名為 "image-blob")。
 
 	content = File.open("test.png", "rb") { |file| file.read }
 	blob = azure_blob_service.create_block_blob(container.name,
 	  "image-blob", content)
 	puts blob.name
 
-## 作法：列出容器中的 Blob
+## 列出容器中的 Blob
 
 若要列出容器，請使用 **list\_containers()** 方法。若要列出容器內的 Blob，請使用 **list\_blobs()** 方法。
 
@@ -124,27 +124,26 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 	  end
 	end
 
-## 作法：下載 Blob
+## 下載 Blob
 
 若要下載 Blob，請使用 **get\_blob()** 方法以擷取內容。
 
-下列範例示範使用 **get\_blob()** 來下載 "image-blob" 的內容，並將它寫入本機檔案。
+下列程式碼範例示範使用 **get\_blob()** 來下載 "image-blob" 的內容，並將它寫入本機檔案。
 
 	blob, content = azure_blob_service.get_blob(container.name,"image-blob")
 	File.open("download.png","wb") {|f| f.write(content)}
 
-## 作法：刪除 Blob
-最後，若要刪除 Blob，請使用 **delete\_blob()** 方法。下列範例示範如何刪除 Blob。
+## 刪除 Blob
+最後，若要刪除 Blob，請使用 **delete\_blob()** 方法。下列程式碼範例示範如何刪除 Blob。
 
 	azure_blob_service.delete_blob(container.name, "image-blob")
 
 ## 後續步驟
 
-了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解有關更複雜的儲存工作。
+請遵循下列連結以深入了解更複雜的儲存體工作：
 
-- 請參閱 MSDN 參考資料：[Azure 儲存體](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-- 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
-- 請造訪 GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 儲存機制 (英文)。
- 
+- MSDN 參考：[Azure 儲存體](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
+- GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 儲存機制。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

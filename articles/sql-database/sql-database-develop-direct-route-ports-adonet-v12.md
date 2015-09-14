@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="針對 ADO.NET 4.5、ODBC 11 及 SQL Database V12 的 1433 以外的連接埠 | Microsoft Azure"
+	pageTitle="針對 ADO.NET 4.5 及 SQL Database V12 的 1433 以外的連接埠 | Microsoft Azure"
 	description="與 Azure SQL Database V12 的用戶端連線有時會略過 proxy 並直接與資料庫互動。1433 以外的連接埠變得重要。"
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
-	editor="" />
+	editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="genemi"/>
 
 
-# 針對 ADO.NET 4.5、ODBC 11 及 SQL Database V12 的 1433 以外的連接埠
+# 針對 ADO.NET 4.5 及 SQL Database V12 的 1433 以外的連接埠
 
 
 本主題說明 Azure SQL Database V12 對於使用 ADO.NET 4.5 或更新版本的用戶端的連接行為所帶來的變更。
@@ -122,13 +122,17 @@ SQL Database V11 和 V12 之間的用戶端連線差異是本主題中的重點�
 
 - [SQL Database V12 新功能](sql-database-v12-whats-new.md)
 
-- 重試邏輯考量：[「連接到 SQL Database：連結、最佳作法和設計方針」主題中的「閘道器不再提供 V12 中的重試邏輯」一節](sql-database-connect-central-recommendations.md#gatewaynoretry)
+
+- [連接到 SQL Database：連結、最佳作法和設計方針](sql-database-connect-central-recommendations.md)
+
 
 - ADO.NET 4.6 於 2015 年 7 月 20 日發行。.NET 小組的部落格通知可以在[這裡](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx)取得。
+
 
 - ADO.NET 4.5 於 2012 年 8 月 15 日發行。.NET 小組的部落格通知可以在[這裡](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx)取得。
  - 關於 ADO.NET 4.5.1 的部落格文章可以在[這裡](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx)取得。
 
+
 - [TDS 通訊協定版本清單](http://www.freetds.org/userguide/tdshistory.htm)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

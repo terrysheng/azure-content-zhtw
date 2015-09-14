@@ -3,7 +3,7 @@
 	description="了解如何使用 Azure App Service 將推播通知傳送至 Xamarin.iOS 應用程式。"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="normesta"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor=""/>
 
@@ -209,4 +209,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

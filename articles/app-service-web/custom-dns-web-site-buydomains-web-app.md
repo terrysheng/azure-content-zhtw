@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/21/2015"
+	ms.date="08/31/2015"
 	ms.author="mwasson"/>
 
 # 在 Azure App Service 中購買並設定自訂網域名稱
@@ -98,4 +98,4 @@
 此時，您應該能夠在瀏覽器中輸入自訂網域名稱，並且能成功移至您的 Web 應用程式。
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Machine Learning Recommendations API 中的常見作業 | Microsoft Azure" 
-	description="Azure ML Recommendation 範例應用程式" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="Machine Learning Recommendations API 中的常見作業 | Microsoft Azure"
+	description="Azure ML Recommendation 範例應用程式"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/15/2015" 
-	ms.author="luiscabrer"/>
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="luisca"/>
 
 
 # Machine Learning Recommendations API 中的常見作業
@@ -89,4 +89,4 @@
 範例應用程式並非預期在實際執行環境中執行。目錄中提供的資料太小，而且它將不會提供有意義的建議模型。提供資料基於示範目的。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

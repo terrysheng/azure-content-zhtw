@@ -399,7 +399,7 @@
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd}\' AND timestampcolumn < \'{1:yyyy-MM-dd}\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "FileSystemSink"
@@ -477,6 +477,7 @@ fileName | 如果您想要資料表參考資料夾中的特定檔案，請指定
 partitionedBy | partitionedBy 可以用來指定時間序列資料的動態 folderPath 和 filename。例如，folderPath 可針對每小時的資料進行參數化。 | 否
 格式 | 支援兩種格式類型：**TextFormat**、**AvroFormat**。若為此值，您需要將格式底下的 type 屬性設定為其中之一。如果 forAvroFormatmat 為 TextFormat，您可以指定格式的其他選擇性屬性。如需詳細資料，請參閱下面的格式一節。 | 否
 fileFilter | 指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。<p>允許的值為：* (多個字元) 和 ? (單一字元)。</p><p>範例 1："fileFilter": "*.log"</p>範例 2："fileFilter": 2014-1-?.txt"</p><p>**請注意**：fileFilter 適用於輸入 FileShare 資料集</p> | 否
+| compression | 指定此資料的壓縮類型和層級。支援的類型為：GZip、Deflate 和 BZip2，而支援的層級為：最佳和最快。如需詳細資訊，請參閱[壓縮支援](#compression-support)一節。 | 否 |
 
 > [AZURE.NOTE]無法同時使用檔名和 fileFilter。
 
@@ -518,14 +519,14 @@ fileFilter | 指定要用來在 folderPath (而不是所有檔案) 中選取檔�
 -------- | ----------- | --------
 columnDelimiter | 在檔案中做為資料行分隔符號的字元。預設值是逗號 (,)。 | 否
 rowDelimiter | 在檔案中做為資料列分隔符號的字元。預設值是下列任一項：[“\\r\\n”, “\\r”,” \\n”]。 | 否
-escapeChar | 用來逸出內容中顯示之資料行分隔符號的特殊字元。沒有預設值。您為此屬性指定的字元不得超過一個。<p>例如，如果您以逗號 (,) 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如："Hello, world")，可以定義 '$' 做為逸出字元，並在來源中使用字串 "Hello$, world"。</p><p>請注意，您無法同時為資料表指定 escapeChar 和 quoteChar。</p> | 否
-quoteChar | 用來引用字串值的特殊字元。引號字元內的資料行和資料列分隔符號會被視為字串值的一部分。沒有預設值。您為此屬性指定的字元不得超過一個。<p>例如，如果您以逗號 (,) 做為資料行分隔符號，但想要在文字中使用逗號字元 (例如：<Hello  world>)，您可以定義 ‘"’ 做為引用字元並在來源中使用字串 <"Hello, world">。這個屬性同時適用於輸入和輸出資料表。</p><p>請注意，您無法同時為資料表指定 escapeChar 和 quoteChar。</p> | 否
+escapeChar | 用來逸出內容中顯示之資料行分隔符號的特殊字元。沒有預設值。您為此屬性指定的字元不得超過一個。<p>例如，如果您以逗號 (,) 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如：“Hello, world”)，您可以定義 ‘$’ 做為逸出字元，並在來源中使用字串 “Hello$, world”。</p><p>請注意，您無法同時為資料表指定 escapeChar 和 quoteChar。</p> | 否
+quoteChar | 用來引用字串值的特殊字元。引號字元內的資料行和資料列分隔符號會被視為字串值的一部分。沒有預設值。您為此屬性指定的字元不得超過一個。<p>例如，如果您以逗號 (,) 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如：<Hello  world>)，您可以定義 ‘"’ 做為引用字元，並在來源中使用字串 <"Hello, world">。這個屬性同時適用於輸入和輸出資料表。</p><p>請注意，您無法同時為資料表指定 escapeChar 和 quoteChar。</p> | 否
 nullValue | 用來代表 Blob 檔案內容中 null 值的字元。預設值為 “\\N”.> | 否
 encodingName | 指定編碼名稱。如需有效編碼名稱的清單，請參閱：Encoding.EncodingName 屬性。<p>例如：windows-1250 或 shift\_jis。預設值為 UTF-8。</p> | 否
 
 #### 範例：
 
-下列範例可說明 **TextFormat** 的部分格式屬性。
+下列範例顯示 **TextFormat** 的一些格式屬性。
 
 	"typeProperties":
 	{
@@ -556,6 +557,8 @@ encodingName | 指定編碼名稱。如需有效編碼名稱的清單，請參�
 	
 若要在之後的 Hive 資料表中使用 Avro 格式，您可以參考 [Apache Hive 的教學課程](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe)。
 
+[AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
+
 ## 檔案共用複製活動類型屬性
 
 **FileSystemSource** 和 **FileSystemSink** 目前不支援任何屬性。
@@ -573,4 +576,4 @@ encodingName | 指定編碼名稱。如需有效編碼名稱的清單，請參�
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

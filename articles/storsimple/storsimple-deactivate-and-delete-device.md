@@ -1,19 +1,19 @@
 <properties 
    pageTitle="停用及刪除 StorSimple 裝置 | Microsoft Azure"
-   description="描述如何停用然後刪除 StorSimple 裝置，以從服務將其移除。"
-   services="storsimple"
-   documentationCenter=""
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="描述如何停用然後刪除 StorSimple 裝置，將其從服務中移除。"
+	services="storsimple"
+	documentationCenter=""
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="v-sharos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="v-sharos"/>
 
 # 停用及刪除 StorSimple 裝置
 
@@ -91,4 +91,4 @@
 
 如需技術協助，[請連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

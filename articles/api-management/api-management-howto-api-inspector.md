@@ -1,26 +1,30 @@
 <properties 
-	pageTitle="如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫" 
-	description="了解如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫。" 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫"
+	description="了解如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫。"
+	services="api-management"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="api-management"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫
 
-API 管理提供 API 偵測器工具協助您進行 API 的偵錯和疑難排解。API 偵測器可以在應用程式的程式設計中，也可以直接從開發人員入口網站中使用。本指南提供使用 API 偵測器的逐步解說。
+API 管理提供 API 偵測器工具協助您進行 API 的偵錯和疑難排解。API 偵測器可以程式設計的方式使用，也可以直接從開發人員入口網站使用。
 
->[AZURE.NOTE]除了追蹤作業，API 偵測器也會追蹤[原則運算式](https://msdn.microsoft.com/library/azure/dn910913.aspx)評估。如需示範，請參閱 [Cloud Cover 第 177 集：更多 API 管理功能與 Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) 並向前快轉到 21:00。
+除了追蹤作業，API 偵測器也會追蹤[原則運算式](https://msdn.microsoft.com/library/azure/dn910913.aspx)評估。如需示範，請參閱[雲端報導第 177 集：更多 API 管理功能](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)，並向前快轉到 21:00。
+
+本指南提供使用 API 偵測器的逐步解說。
+
+>[AZURE.NOTE]API 偵測器追蹤則只能用於 API 管理服務執行個體的[系統管理員](api-management-howto-create-groups.md)。API 偵測器追蹤只會在對需要訂用帳戶金鑰的[受保護產品](api-management-howto-add-products.md)呼叫時傳回。
 
 ## <a name="trace-call"> </a> 使用 API 偵測器來追蹤呼叫
 
@@ -226,7 +230,7 @@ API 管理提供 API 偵測器工具協助您進行 API 的偵錯和疑難排解
 ## <a name="next-steps"> </a>後續步驟
 
 -	在[開始使用進階 API 組態][]教學課程中查看其他主題。
--	在 [Cloud Cover 第 177 集：更多 API 管理功能與 Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) 中觀看追蹤原則運算式的示範。向前快轉到 21:00 來查看示範。
+-	請觀看[雲端報導第 177 集：更多 API 管理功能](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)中追蹤原則運算式的示範。向前快轉到 21:00 來查看示範。
 
 >[AZURE.VIDEO episode-177-more-api-management-features-with-vlad-vinogradsky]
 
@@ -257,4 +261,4 @@ API 管理提供 API 偵測器工具協助您進行 API 的偵錯和疑難排解
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

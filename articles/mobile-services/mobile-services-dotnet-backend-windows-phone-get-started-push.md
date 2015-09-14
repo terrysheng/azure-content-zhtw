@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="使用 Azure 行動服務及通知中心傳送通知至 Windows Phone 應用程式。" 
-	description="了解如何搭配 Azure 行動服務使用通知中心傳送推播通知至 Windows Phone 應用程式。" 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="使用 Azure 行動服務及通知中心傳送通知至 Windows Phone 應用程式。"
+	description="了解如何搭配 Azure 行動服務使用通知中心傳送推播通知至 Windows Phone 應用程式。"
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # 將推播通知新增至行動服務應用程式
@@ -202,6 +202,5 @@
 [行動服務 .NET 作法概念參考資料]: mobile-services-html-how-to-use-client-library.md
 [Windows Phone Silverlight 8.1 應用程式]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [Azure 管理入口網站]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

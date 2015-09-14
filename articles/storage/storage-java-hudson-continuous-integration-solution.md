@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用 Hudson 與 Azure Blob 服務 | Microsoft Azure" 
-	description="說明如何使用 Hudson 與 Azure Blob 儲存體作為組建成品的存放庫。" 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="如何使用 Hudson 與 Azure Blob 服務 | Microsoft Azure"
+	description="說明如何使用 Hudson 與 Azure Blob 儲存體作為組建成品的存放庫。"
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="robmcm"/>
 
 #使用 Azure 儲存體與 Hudson 連續整合解決方案
@@ -168,4 +168,4 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

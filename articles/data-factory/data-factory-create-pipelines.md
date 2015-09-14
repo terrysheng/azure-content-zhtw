@@ -1,20 +1,13 @@
 <properties 
-	pageTitle="建立管線" 
-	description="了解 Azure Data Factory 管線並學習如何建立管理來移動和轉換資料，以產生可用來獲取深入見解的資訊" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="建立管線"
+	description="了解 Azure Data Factory 管線並學習如何建立管理來移動和轉換資料，以產生可用來獲取深入見解的資訊"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" y
-	ms.date="07/28/2015" 
-	ms.author="spelluru"/>
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" y" ms.date="07/28/2015" ms.author="spelluru"/>
 
 # 了解管線和活動
 本文將協助您了解 Azure Data Factory 中的管線和活動，以及如何運用這些來為您的案例或業務建構端對端的資料導向工作流程。本文假設您已經完成在此之前的[概觀](data-factory-introduction.md)和[建立資料集](data-factory-create-datasets.md)文章。
@@ -25,7 +18,7 @@
 ### 什麼是活動？
 活動會定義在您資料上執行的動作。每個活動會取得零或多個[資料集](data-factory-create-datasets.md)做為輸入，並產生一或多個資料集做為輸出。**活動代表 Azure Data Factory 中的協調流程單位。**
 
-例如，您可能會使用複製活動來協調從一個資料集複製資料到另一個資料集的流程。同樣地，您可能會使用在 Azure HDInsight 叢集上執行 Hive 查詢的 Hive 活動，來轉換或分析您的資料。Azure Data Factory 提供各種[資料轉換、分析](data-factory-data-transformation-activities.md)和[資料移動活動](data-factory-data-movement-activities.md)。您也可以選擇建立自訂 .NET 活動來執行自己的程式碼。
+例如，您可能會使用複製活動來協調從一個資料集複製資料到另一個資料集的流程。同樣地，您可能會使用在 Azure HDInsight 叢集上執行 Hive 查詢的 Hive 活動，來轉換或分析您的資料。Azure Data Factory 提供大量的[資料轉換、分析](data-factory-data-transformation-activities.md)和[資料移動活動](data-factory-data-movement-activities.md)。您也可以選擇建立自訂 .NET 活動來執行自己的程式碼。
 
 請考慮下列 2 個資料集：
 
@@ -199,7 +192,7 @@
 	    }
 	}
 
-[**活動**] 區段內可以有一或多個已定義的活動。每個活動都有下列最上層結構：
+[活動] 區段內可以有一或多個已定義的活動。每個活動都有下列最上層結構：
 
 	{
 	    "name": "ActivityName",
@@ -260,7 +253,7 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 
 1. 登入 [Azure Preview 入口網站](https://portal.azure.com/)。
 2. 瀏覽至您想在其中建立管線的 Azure Data Factory 執行個體
-3. 按一下 [**摘要**] 透鏡中的 [**製作和部署**] 磚。 
+3. 按一下 [摘要] 透鏡中的 [製作和部署] 磚。 
  
 	![[製作和部署] 磚](./media/data-factory-create-pipelines/author-deploy-tile.png)
 
@@ -272,7 +265,7 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 
 	![管線編輯器](./media/data-factory-create-pipelines/pipeline-in-editor.png)
 
-6. 在您完成管線製作之後，接著按一下命令列上的 [**部署**] 來部署管線。
+6. 在您完成管線製作之後，接著按一下命令列上的 [部署] 來部署管線。
 
 	**注意：**在部署期間，Azure Data Factory 服務會執行一些驗證檢查，協助修正一些常見問題。萬一發生錯誤，將顯示對應的資訊。採取更正動作並重新部署所製作的管線。您可以使用編輯器來更新及刪除管線。
 
@@ -310,7 +303,8 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 - 了解[在 Azure Data Factory 中管理和監視](data-factory-monitor-manage-pipelines.md)。
 - [建置和部署第一個管線](data-factory-build-your-first-pipeline.md)。 
 
-
+## 傳送意見
+非常感謝您對此文章的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-pipelines.md)提交您的意見反應。
  
 
    
@@ -335,4 +329,4 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 
  
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

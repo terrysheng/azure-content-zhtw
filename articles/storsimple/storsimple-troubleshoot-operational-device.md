@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="疑難排解可運作的 StorSimple 裝置 | Microsoft Azure"
-   description="說明如何診斷和修正在可運作的 StorSimple 裝置上所發生的錯誤。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+   pageTitle="疑難排解已部署的 StorSimple 裝置 | Microsoft Azure"
+	description="描述如何診斷和修正在已部署且可運作的 StorSimple 裝置上所發生的錯誤。"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/19/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="v-sharos"/>
 
 # 可運作的 StorSimple 裝置疑難排解
 
 ## 概觀
 
-本文提供實用的疑難排解指導方針，可用來解決在部署 StorSimple 裝置且可運作之後您可能遇到的問題。文中將說明常見問題、可能原因和建議的步驟，可協助您解決在執行 StorSimple 時可能遇到的問題。此資訊適用於 StorSimple 內部部署實體裝置和 StorSimple 虛擬裝置。
+本文提供實用的疑難排解指導方針，可用來解決在部署 StorSimple 裝置且可運作之後您可能遇到的問題。文中將描述常見問題、可能原因和建議的步驟，可協助您解決在執行 Microsoft Azure StorSimple 時可能遇到的問題。此資訊適用於 StorSimple 內部部署實體裝置和 StorSimple 虛擬裝置。
 
 在本文節尾，您可以找到您可能會在 Microsoft Azure StorSimple 作業期間遭遇到的錯誤代碼清單，以及您要解決錯誤所採取的步驟。
 
@@ -64,7 +64,7 @@
 如果您無法解決問題，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)，尋求協助。
 
 
-[1]: https://technet.microsoft.com/zh-tw/%5Clibrary/Dn688135(v=WPS.630).aspx
-[2]: https://technet.microsoft.com/zh-tw/%5Clibrary/Dn715782(v=WPS.630).aspx
+[1]: https://technet.microsoft.com/zh-TW/%5Clibrary/Dn688135(v=WPS.630).aspx
+[2]: https://technet.microsoft.com/zh-TW/%5Clibrary/Dn715782(v=WPS.630).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

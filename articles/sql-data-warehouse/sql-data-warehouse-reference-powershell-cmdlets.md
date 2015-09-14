@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-services"
-	ms.date="06/29/2015"
-	ms.author="sidneyh;barbkess"/>
+	ms.date="08/28/2015"
+	ms.author="twounder;sidneyh;barbkess"/>
 
 # 開始使用 Azure 資料倉儲 Cmdlet 和 REST API
 
@@ -27,8 +27,8 @@
 ## 取得和執行 Azure PowerShell Cmdlet
 
 1. 如要下載 Azure PowerShell 模組，請執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)。 
-2. 2. 如要執行模組，請在開始視窗中鍵入 **Microsoft Azure PowerShell**。
-3. 如果您尚未將帳戶加入電腦，請執行下列 Cmdlet。(如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure/))：
+2. 如要執行模組，請在開始視窗中鍵入 **Microsoft Azure PowerShell**。
+3. 如果您尚未將帳戶加入電腦，請執行下列 Cmdlet。(如需詳細資訊，請參閱[如何安裝及設定 Azure PowerShell]()：
 
 		Add-AzureAccount
 3. 使用此 Cmdlet 切換模式：
@@ -101,6 +101,7 @@ RestorePointCreationDate |備份快照時間 (在 restorePointType = DISCRETE �
 
 <!--Article references-->
 [SQL 資料倉儲參考概觀]: sql-data-warehouse-overview-reference.md
+[How to install and configure Azure PowerShell]: powershell-install-configure.md
 
 <!--MSDN references-->
 
@@ -110,4 +111,4 @@ RestorePointCreationDate |備份快照時間 (在 restorePointType = DISCRETE �
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

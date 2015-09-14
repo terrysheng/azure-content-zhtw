@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Azure 儲存體範例 | Microsoft Azure"
-   description="檢視、下載及試用 Azure 儲存體的範例。探索使用 .NET、Java、Node.js 和 C++ 的儲存體用戶端程式庫之 Blob、佇列、資料表和檔案的入門範例。"
-   services="storage"
-   documentationCenter="na"
-   authors="tamram"
-   manager="na"
-   editor="na" />
+	description="檢視、下載及試用 Azure 儲存體的範例。探索使用 .NET、Java、Node.js 和 C++ 的儲存體用戶端程式庫之 Blob、佇列、資料表和檔案的入門範例。"
+	services="storage"
+	documentationCenter="na"
+	authors="tamram"
+	manager="na"
+	editor="na"/>
 <tags 
    ms.service="storage"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage"
-   ms.date="05/27/2015"
-   ms.author="tamram" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="storage"
+	ms.date="09/01/2015"
+	ms.author="tamram"/>
 
 # Azure 儲存體範例
 
@@ -81,4 +81,4 @@
 - [C++ 儲存體用戶端程式庫的原始程式碼](https://github.com/Azure/azure-storage-cpp)
 - [C++ 用戶端程式庫參考](http://azure.github.io/azure-storage-cpp/) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

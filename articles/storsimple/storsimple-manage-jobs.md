@@ -1,21 +1,21 @@
 <properties 
    pageTitle="檢視和管理 StorSimple 工作 | Microsoft Azure"
-   description="說明 StorSimple Manager 服務工作頁面，以及如何使用該頁面來追蹤最近、當前和排程的備份工作。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor=""/>
+	description="說明 StorSimple Manager 服務工作頁面，以及如何使用該頁面來追蹤最近、當前和排程的備份工作。"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# 檢視和管理 StorSimple 工作
+# 使用 StorSimple Manager 服務來檢視和管理 StorSimple 工作
 
 ## 概觀
 
@@ -89,4 +89,4 @@
 
 [了解如何管理您的 StorSimple 備份原則](storsimple-manage-backup-policies.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

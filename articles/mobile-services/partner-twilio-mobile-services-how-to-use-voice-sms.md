@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="使用 Twilio for Voice and SMS 功能 | Microsoft Azure" 
-	description="了解如何使用 Twilio API 和 Azure 行動服務執行一般工作。" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="devinrader" 
-	manager="twilio" 
+<properties
+	pageTitle="使用 Twilio for Voice and SMS 功能 | Microsoft Azure"
+	description="了解如何使用 Twilio API 和 Azure 行動服務執行一般工作。"
+	services="mobile-services"
+	documentationCenter=""
+	authors="devinrader"
+	manager="twilio"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="devinrader"/>
 
 
@@ -84,7 +84,7 @@ Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您�
 2. 為行動服務設定原始檔控制後，請在您的本機電腦上開啟儲存機制，瀏覽至 `\services` 子資料夾，在文字編輯器中開啟 package.json 檔案，再將下列欄位新增至 **dependencies** 物件：
 
 		"twilio": "~1.7.0"
- 
+
 3. 在新增 **dependencies** 物件的 Twilio 封裝參考之後，package.json 檔案看起來應該如下所示：
 
 		{
@@ -96,7 +96,7 @@ Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您�
 		    "node": ">= 0.8.19"
 		  },
 		  "dependencies": {
-			"twilio": "~1.7.0" 
+			"twilio": "~1.7.0"
 		  },
 		  "devDependencies": {},
 		  "scripts": {},
@@ -105,12 +105,12 @@ Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您�
 		  "keywords":[]
 		}
 
-	>[AZURE.NOTE]應將 Twilio 的相依性新增為 `"twilio": "~1.7.0"`，包含 (\~)。不支援使用插入號 (^) 的參考。
+	>[AZURE.NOTE]應將 Twilio 的相依性新增為 `"twilio": "~1.7.0"`，包含 (~)。不支援使用插入號 (^) 的參考。
 
 4. 認可此檔案更新，並將更新推回行動服務。
 
 	此項 package.json 檔案更新會重新啟動您的行動服務。
-	
+
 行動服務現在會安裝並載入 Twilio 封裝，以便您可以在自訂的 API 和資料表指令碼中參考及使用 Twilio 程式庫。
 
 ## <a id="howto_make_call"></a>作法：撥出電話
@@ -123,12 +123,12 @@ Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您�
         var client = new twilio.RestClient('[ACCOUNT_SID]', 'AUTH_TOKEN');
 
         client.makeCall({
-            to:'+16515556677', 
+            to:'+16515556677',
             from: '+14506667788',
-            url: 'http://www.example.com/twiml.php' 
+            url: 'http://www.example.com/twiml.php'
 
         }, function(err, responseData) {
-            console.log(responseData.from); 
+            console.log(responseData.from);
             response.send(200, '');
         });
     };
@@ -145,13 +145,13 @@ Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您�
     exports.post = function(request, response) {
 
         var client = new twilio.RestClient('[ACCOUNT_SID]', 'AUTH_TOKEN');
- 
+
         client.sendSms({
             to:'[]',
             from:'[]',
             body:'ahoy hoy! Testing Twilio and node.js'
         }, function(error, message) {
-    
+
             // The "error" variable will contain error information, if any.
             // If the request was successful, this value will be "false"
             if (!error) {
@@ -188,7 +188,7 @@ Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您�
 如需 TwiML 的詳細資訊，請參閱 [https://www.twilio.com/docs/api/twiml](https://www.twilio.com/docs/api/twiml)。
 
 設定好如何提供 TwiML 回應之後，您可以將 URL 傳入 **client.makeCall** 方法中，如下列程式碼範例所示：
-    
+
     var twilio = require('twilio');
 
     exports.post = function(request, response) {
@@ -196,9 +196,9 @@ Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您�
         var client = new twilio.RestClient('[ACCOUNT_SID]', 'AUTH_TOKEN');
 
         client.makeCall({
-            to:'+16515556677', 
+            to:'+16515556677',
             from: '+14506667788',
-            url: 'http://<your_mobile_service>.azure-mobile.net/api/makeCall' 
+            url: 'http://<your_mobile_service>.azure-mobile.net/api/makeCall'
 
         }, function(err, responseData) {
 
@@ -228,6 +228,5 @@ Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您�
 [azure_twilio_howto_ruby]: /develop/ruby/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_python]: /develop/python/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_php]: /develop/php/how-to-guides/twilio-voice-and-sms-service/
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

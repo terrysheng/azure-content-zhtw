@@ -1,1 +1,3 @@
-![Service Tiers and Performance Levels](./media/sql-database-service-tiers-table/sql-database-service-tiers-table.png)
+![服務層與效能等級](./media/sql-database-service-tiers-table/sql-database-service-tiers-table.png)
+
+<!---HONumber=September15_HO1-->

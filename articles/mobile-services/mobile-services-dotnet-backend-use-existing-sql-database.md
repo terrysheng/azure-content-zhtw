@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="使用現有的 SQL Database 和行動服務 .NET 後端建置服務 | Microsoft Azure" 
-	description="了解如何對於 .NET 型行動服務使用現有雲端或內部部署 SQL 資料庫。" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="使用現有的 SQL Database 和行動服務 .NET 後端建置服務 | Microsoft Azure"
+	description="了解如何對於 .NET 型行動服務使用現有雲端或內部部署 SQL 資料庫。"
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 
@@ -39,7 +39,7 @@
             {
                 [Key]
                 public int CustomerId { get; set; }
-                
+
                 public string Name { get; set; }
 
                 public virtual ICollection<Order> Orders { get; set; }
@@ -48,7 +48,7 @@
         }
 
 3. 在 **Models** 資料夾中建立 **Order.cs** 檔案，然後使用下列實作方式：
-    
+
         using System.ComponentModel.DataAnnotations;
 
         namespace ShoppingService.Models
@@ -65,7 +65,7 @@
                 public bool Completed { get; set; }
 
                 public int CustomerId { get; set; }
-              
+
                 public virtual Customer Customer { get; set; }
 
             }
@@ -144,7 +144,7 @@
     **Customer** 關係屬性已取代為**客戶**名稱，以及可用來為用戶端上的關係手動建立模型的 **MobileCustomerId** 屬性。現在您可以忽略 **CustomerId** 屬性，後續才會使用此屬性。
 
 3. 您可能會發現，在 **EntityData** 基底類別上加上系統屬性後，我們的 DTO 此時的屬性數目比模型類型還多。顯然，我們需要一個位置來儲存這些屬性，因此我們將在原始資料庫中額外新增一些資料行。雖然這樣會變更資料庫，但並不會中斷現有的應用程式，因為這些變更只是附加的 (將新的資料行新增至結構描述)。若要這麼做，請將下列陳述式新增至 **Customer.cs** 和 **Order.cs** 的最上方：
-    
+
         using System.ComponentModel.DataAnnotations.Schema;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.ComponentModel.DataAnnotations;
@@ -174,7 +174,7 @@
         public byte[] Version { get; set; }
 
 4. 剛剛新增的系統屬性具有某些會在資料庫作業期間明確產生的內建行為 (例如，自動更新建立/更新時間)。若要啟用這些行為，我們必須變更 **ExistingContext.cs**。在檔案的最上方，新增下列項目：
-    
+
         using System.Data.Entity.ModelConfiguration.Conventions;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.Linq;
@@ -188,7 +188,7 @@
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
 
             base.OnModelCreating(modelBuilder);
-        } 
+        }
 
 5. 我們將在資料庫中填入某些範例資料。開啟檔案 **WebApiConfig.cs**。建立新的 [**IDatabaseInitializer**](http://msdn.microsoft.com/library/gg696323.aspx)，並依照下列方式在 **Register** 方法中加以設定。
 
@@ -227,11 +227,11 @@
 
                     List<Customer> customers = new List<Customer>
                     {
-                        new Customer { CustomerId = 1, Name = "John", Orders = new Collection<Order> { 
+                        new Customer { CustomerId = 1, Name = "John", Orders = new Collection<Order> {
                             orders[0]}, Id = Guid.NewGuid().ToString()},
-                        new Customer { CustomerId = 2, Name = "Paul", Orders = new Collection<Order> { 
+                        new Customer { CustomerId = 2, Name = "Paul", Orders = new Collection<Order> {
                             orders[1]}, Id = Guid.NewGuid().ToString()},
-                        new Customer { CustomerId = 3, Name = "Ringo", Orders = new Collection<Order> { 
+                        new Customer { CustomerId = 3, Name = "Ringo", Orders = new Collection<Order> {
                             orders[2]}, Id = Guid.NewGuid().ToString()},
                     };
 
@@ -318,7 +318,7 @@ AutoMapper 此時會將物件互相對應。所有具有對應名稱的屬性都
                 {
                     return (T)(object)GetKey(mobileCustomerId, this.context.Customers, this.Request);
                 }
-                
+
                 public override SingleResult<MobileCustomer> Lookup(string mobileCustomerId)
                 {
                     int customerId = GetKey<int>(mobileCustomerId);
@@ -605,7 +605,7 @@ AutoMapper 此時會將物件互相對應。所有具有對應名稱的屬性都
             public DateTimeOffset? UpdatedAt { get; set; }
 
             public bool Deleted { get; set; }
-            
+
             [Version]
             public string Version { get; set; }
 
@@ -615,4 +615,4 @@ AutoMapper 此時會將物件互相對應。所有具有對應名稱的屬性都
 
 您可在此時建置用來存取服務的用戶端應用程式，以執行下一個步驟。如需詳細資訊，請參閱[將行動服務新增至現有的應用程式](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

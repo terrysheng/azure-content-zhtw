@@ -1,6 +1,6 @@
 <properties
-   pageTitle="StorSimple 虛擬裝置 | Microsoft Azure"
-	description="說明如何建立、設定、部署和管理 StorSimple 虛擬裝置。"
+   pageTitle="Azure StorSimple 虛擬裝置 | Microsoft Azure"
+	description="了解如何建立、部署和管理 Microsoft Azure 虛擬網路中的 StorSimple 虛擬裝置。(適用於 StorSimple .3 版本或更早版本。)"
 	services="storsimple"
 	documentationCenter=""
 	authors="alkohli"
@@ -12,18 +12,16 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="NA"
-	ms.date="08/21/2015"
+	ms.date="09/02/2015"
 	ms.author="alkohli"/>
 
-# StorSimple 虛擬裝置
+# 部署和管理 Azure 中的 StorSimple 虛擬裝置
 
 [AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 
 ## 概觀
 
 StorSimple 虛擬裝置是 Microsoft Azure StorSimple 解決方案提供的另一項功能。StorSimple 虛擬裝置會在 Microsoft Azure 虛擬網路中的虛擬機器上執行，而您可以使用它來備份和複製主機上的資料。這篇文章中的下列主題將協助您了解、設定及使用 StorSimple 虛擬裝置。
-
-
 
 - 虛擬裝置與實體裝置的差異。
 
@@ -387,4 +385,4 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 若要管理您的虛擬裝置，請參閱[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service)中的工作流程詳細清單。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

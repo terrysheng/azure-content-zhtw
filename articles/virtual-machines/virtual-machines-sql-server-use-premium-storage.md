@@ -41,7 +41,7 @@
 
 ### 機器大小
 
-若要使用高階儲存體，您必須使用 DS 系列的虛擬機器 (VM)。如果您先前未曾在雲端服務中使用過 DS 系列的機器，就必須刪除現有的 VM、保留連結的磁碟，接著先建立新的雲端服務，然後再將 VM 重新建立為 DS* 角色大小。如需虛擬機器大小的詳細資訊，請參閱 [Azure 的虛擬機器和雲端服務大小](https://msdn.microsoft.com/library/azure/dn197896.aspx)。
+若要使用高階儲存體，您必須使用 DS 系列的虛擬機器 (VM)。如果您先前未曾在雲端服務中使用過 DS 系列的機器，就必須刪除現有的 VM、保留連結的磁碟，接著先建立新的雲端服務，然後再將 VM 重新建立為 DS* 角色大小。如需虛擬機器大小的詳細資訊，請參閱 [Azure 的虛擬機器和雲端服務大小](virtual-machines-size-specs.md)。
 
 ### 雲端服務
 
@@ -141,7 +141,7 @@
 
 ### VM 儲存體寬頻和 VHD 儲存體輸送量 
 
-儲存體效能的程度取決於指定的 DS* VM 大小與 VHD 大小。VM 對於連結的 VHD 數量以及它們將支援的最大頻寬 (MB/秒) 有不同的容許程度。如需特定頻寬數，請參閱 [Azure 的虛擬機器和雲端服務大小](https://msdn.microsoft.com/library/azure/dn197896.aspx)。
+儲存體效能的程度取決於指定的 DS* VM 大小與 VHD 大小。VM 對於連結的 VHD 數量以及它們將支援的最大頻寬 (MB/秒) 有不同的容許程度。如需特定頻寬數，請參閱 [Azure 的虛擬機器和雲端服務大小](virtual-machines-size-specs.md)。
 
 提高 IOPS 可透過更大的磁碟大小來達成。當您考量移轉路徑時，應將這點納入考慮。如需詳細資訊，請參閱[適用於 IOPS 和磁碟類型的表格](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whzh-twing-premium-storage)。
 
@@ -421,7 +421,7 @@
 - 在設定次要項目時，可能需要較長的 SQL 資料傳輸時間。
 - 當您平行執行新機器時，會在移轉期間產生額外成本。
 
-#### 2.移轉到新的 AlwaysOn 叢集
+#### 2\.移轉到新的 AlwaysOn 叢集
 
 另一種策略是在新的雲端服務中，使用全新的節點來建立全新的 AlwaysOn 叢集，然後重新導向用戶端來使用該節點。
 
@@ -1144,4 +1144,4 @@
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

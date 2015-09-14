@@ -1,21 +1,21 @@
 <properties 
    pageTitle="StorSimple Adapter for SharePoint | Microsoft Azure"
-   description="描述如何在 SharePoint 伺服器陣列中安裝 StorSimple Adapter for SharePoint。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="描述如何在 SharePoint 伺服器陣列中安裝並設定 StorSimple Adapter for SharePoint。"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/11/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="v-sharos"/>
 
-# StorSimple Adapter for SharePoint
+# 安裝和設定 StorSimple Adapter for SharePoint
 
 ## 概觀
 
@@ -238,6 +238,6 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 [3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/zh-cn/library/ff943565.aspx
+[8]: https://technet.microsoft.com/zh-TW/library/ff943565.aspx
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

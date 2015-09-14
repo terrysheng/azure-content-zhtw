@@ -1,24 +1,24 @@
 <properties
-   pageTitle="透過 Memcache 通訊協定，將 Azure App Service 中的 Web 應用程式連線到 Redis Cache"
-   description="使用 Memcache 通訊協定，將 Azure App Service 中的 Web 應用程式連線到 Redis Cache"
-   services="app-service\web"
-   documentationCenter="php"
-   authors="SyntaxC4"
-   manager="wpickett"
-   editor="riande"/>
+   pageTitle="透過 Memcache 通訊協定，將 Azure App Service 中的 Web 應用程式連線到 Redis Cache | Microsoft Azure"
+	description="使用 Memcache 通訊協定，將 Azure App Service 中的 Web 應用程式連線到 Redis Cache"
+	services="app-service\web"
+	documentationCenter="php"
+	authors="SyntaxC4"
+	manager="wpickett"
+	editor="riande"/>
 
 <tags
    ms.service="app-service-web"
-   ms.devlang="php"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="windows"
-   ms.workload="web"
-   ms.date="06/30/2015"
-   ms.author="cfowler"/>
+	ms.devlang="php"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="windows"
+	ms.workload="web"
+	ms.date="06/30/2015"
+	ms.author="cfowler"/>
 
 # 透過 Memcache 通訊協定，將 Azure App Service 中的 Web 應用程式連線到 Redis Cache
 
-本文說明如何使用 [Memcache][13] 通訊協定，將 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中的 WordPress Web 應用程式連接到 [Azure Redis 快取][12]。如果現有的 Web 應用程式在記憶體內部快取中使用 Memcached 伺服器，則可將它移轉至 Azure App Service，並使用 Microsoft Azure 本身的快取解決方案，而不需要變更您的應用程式程式碼，或只要些許變更。此外，您可以利用現有的 Memcache 專長，在 Azure App Service 中建立高擴充性、分散式應用程式，並於記憶體內部快取中使用 Azure Redis Cache，同時使用常用應用程式架構，例如 .NET、PHP、Node.js、Java 和 Python。
+本文說明如何使用 [Memcache][13] 通訊協定，將 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中的 WordPress Web 應用程式連接到 [Azure Redis 快取][12]。如果現有的 Web 應用程式在記憶體內部快取中使用 Memcached 伺服器，則可將它移轉至 Azure App Service，並使用 Microsoft Azure 本身的快取解決方案，而不需要變更您的應用程式程式碼，或只要些許變更。此外，您可以利用現有的 Memcache 專長，在 Azure App Service 中建立高可調整性、分散式應用程式，並於記憶體內部快取中使用 Azure Redis Cache，同時使用常用應用程式架構，例如 .NET、PHP、Node.js、Java 和 Python。
 
 App Service Web 應用程式可讓此應用程式案例使用 Web Apps Memcache 填充碼，它是本機 Memcached 伺服器，可做為 Memcache proxy，快取對於 Azure Redis Cache 的呼叫。這可讓任何使用 Memcache 通訊協定進行通訊的應用程式，以 Redis Cache 快取資料。此 Memcache 填充碼作用於通訊協定層級，因此可供任何應用程式或應用程式架構使用，只要它們使用 Memcache 通訊協定進行通訊。
 
@@ -51,7 +51,7 @@ Web Apps Memcache 填充碼可以搭配任何應用程式，只要應用程式�
 
 ### 新增 REDIS\_KEY 應用程式設定
 
-您必須建立的第二個應用程式設定是 **REDIS\_KEY** 應用程式設定。此設定提供安全存取 Redis Cache 執行個體所需的驗證權杖。REDIS\_KEY 應用程式設定所需要的值，可擷取自 Redis 快取執行個體的 [存取索引鍵] 刀鋒視窗。
+您必須建立的第二個應用程式設定是 **REDIS\_KEY** 應用程式設定。此設定提供安全存取 Redis Cache 執行個體所需的驗證權杖。您可以從 Redis 快取執行個體的 [存取索引鍵] 刀鋒視窗擷取 REDIS\_KEY 應用程式設定所需要的值。
 
 ![Azure Redis 快取主要索引鍵](./media/web-sites-connect-to-redis-using-memcache-protocol/4-azure-redis-cache-primarykey.png)
 
@@ -61,7 +61,7 @@ Web Apps Memcache 填充碼可以搭配任何應用程式，只要應用程式�
 
 ### 新增 MEMCACHESHIM\_REDIS\_ENABLE 應用程式設定
 
-最後的應用程式設定可用來在 Web 應用程式中啟用 Memcache 填充碼，它將使用 REDIS\_HOST 和 REDIS\_KEY 來連線到 Azure Redis Cache 並轉送快取呼叫。將應用程式設定的索引鍵設定為 **MEMCACHESHIM\_REDIS\_ENABLE**，值設定為 **true**。
+最後的應用程式設定可用來在 Web Apps 中啟用 Memcache 填充碼，它會使用 REDIS\_HOST 和 REDIS\_KEY 來連線到 Azure Redis Cache 並轉送快取呼叫。將應用程式設定的索引鍵設定為 **MEMCACHESHIM\_REDIS\_ENABLE**，值設定為 **true**。
 
 ![Web 應用程式 AppSetting MEMCACHESHIM\_REDIS\_ENABLE](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
 
@@ -73,7 +73,7 @@ Web Apps Memcache 填充碼可以搭配任何應用程式，只要應用程式�
 
 ### 下載 php\_memcache 延伸模組
 
-瀏覽至 [PECL][6]，在快取類別底下按一下 [memcache][7]。在下載欄中，按一下 DLL 連結。
+瀏覽至 [PECL][6]。在快取類別底下，按一下 [memcache][7]。在下載欄下按一下 DLL 連結。
 
 ![PHP PECL 網站](./media/web-sites-connect-to-redis-using-memcache-protocol/7-php-pecl-website.png)
 
@@ -83,10 +83,10 @@ Web Apps Memcache 填充碼可以搭配任何應用程式，只要應用程式�
 
 ### 啟用 php\_memcache 延伸模組
 
-下載檔案之後，解壓縮並上傳 **php\_memcache.dll** 至 **d:\\home\\site\\wwwroot\\bin\\ext\** 目錄。php\_memcache.dll 上傳至 Web 應用程式之後，延伸模組必須啟用至 PHP 執行階段。若要在 Azure 入口網站中啟用 Memcache 延伸模組，請開啟 Web 應用程式的 [應用程式設定] 刀鋒視窗，然後新增索引鍵為 **PHP\_EXTENSIONS** 且值為 **bin\\ext\\php\_memcache.dll** 的應用程式設定。
+下載檔案之後，解壓縮 **php\_memcache.dll** 並將其上傳至 **d:\\home\\site\\wwwroot\\bin\\ext\** 目錄。在 php\_memcache.dll 上傳至 Web 應用程式之後，您必須啟用延伸至 PHP 執行階段。若要在 Azure 入口網站中啟用 Memcache 延伸模組，請開啟 Web 應用程式的 [應用程式設定] 刀鋒視窗，然後新增索引鍵為 **PHP\_EXTENSIONS** 且值為 **bin\\ext\\php\_memcache.dll** 的應用程式設定。
 
 
-> 如果 Web 應用程式需要載入多個 PHP 延伸模組，PHP\_EXTENSIONS 的值應該是 DLL 檔案相對路徑以逗號分隔的清單。
+> [AZURE.NOTE]如果 Web 應用程式需要載入多個 PHP 延伸模組，PHP\_EXTENSIONS 的值應該是 DLL 檔案相對路徑以逗號分隔的清單。
 
 ![Web 應用程式 AppSetting PHP\_EXTENSIONS](./media/web-sites-connect-to-redis-using-memcache-protocol/9-azure-website-appsettings-php-extensions.png)
 
@@ -94,17 +94,17 @@ Web Apps Memcache 填充碼可以搭配任何應用程式，只要應用程式�
 
 ## 安裝 Memcache WordPress 外掛程式
 
-> 您也可以從 WordPress.org 下載 [Memcached Object Cache Plugin](https://wordpress.org/plugins/memcached/)。
+> [AZURE.NOTE]您也可以從 WordPress.org 下載 [Memcached 物件快取外掛程式](https://wordpress.org/plugins/memcached/)。
 
-在 WordPress 外掛程式頁面上，按一下 [新增] 按鈕。
+在 WordPress 外掛程式頁面上，按一下 [新增]。
 
 ![WordPress 外掛程式頁面](./media/web-sites-connect-to-redis-using-memcache-protocol/10-wordpress-plugin.png)
 
-在搜尋方塊中，輸入「memcached」並按 **Enter** 鍵。
+在搜尋方塊中，輸入 **memcached** 並按 **Enter** 鍵。
 
 ![WordPress 新增新的外掛程式](./media/web-sites-connect-to-redis-using-memcache-protocol/11-wordpress-add-new-plugin.png)
 
-在清單中尋找 **Memcached Object Cache**，然後按一下 [立即安裝] 按鈕。
+在清單中尋找 **Memcached 物件快取**，然後按一下 [立即安裝]。
 
 ![WordPress 安裝 Memcache 外掛程式](./media/web-sites-connect-to-redis-using-memcache-protocol/12-wordpress-install-memcache-plugin.png)
 
@@ -112,7 +112,7 @@ Web Apps Memcache 填充碼可以搭配任何應用程式，只要應用程式�
 
 >[AZURE.NOTE]遵循此部落格中有關[如何啟用 Web Apps 中的網站延伸模組][8] (英文) 的指示，以安裝 Visual Studio Online。
 
-在 `wp-config.php` 檔案中，在檔案結尾附近停止編輯註解的上方，新增下列程式碼片段。
+在 `wp-config.php` 檔案中，在檔案結尾附近停止編輯註解的上方，新增下列程式碼。
 
 ```php
 $memcached_servers = array(
@@ -120,7 +120,7 @@ $memcached_servers = array(
 );
 ```
 
-貼上此程式碼片段之後，monaco 將會自動儲存文件。
+貼上此程式碼之後，monaco 將會自動儲存文件。
 
 下一個步驟是啟用 object-cache 外掛程式。將 **object-cache.php** 從 **wp-content/memcached** 資料夾拖放到 **wp-content** 資料夾即可啟用 Memcache Object Cache 功能。
 
@@ -195,6 +195,5 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [11]: http://stackoverflow.com/questions/tagged/azure-web-sites
 [12]: /services/cache/
 [13]: http://memcached.org
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

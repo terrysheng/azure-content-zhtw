@@ -1,29 +1,27 @@
 <properties
    pageTitle="複製 StorSimple 磁碟區 | Microsoft Azure"
-   description="說明不同的複製類型以及使用時機，並說明如何使用備份組來複製個別磁碟區。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+	description="說明不同的複製類型以及使用時機，並說明如何使用備份組來複製個別磁碟區。"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/11/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="alkohli"/>
 
-# 複製 StorSimple 磁碟區
+# 使用 StorSimple Manager 服務來複製磁碟區
 
 ## 概觀
 
-[備份類別目錄] 頁面會顯示在產生手動或自動備份時建立的所有備份組。您可以使用此頁面來列出備份原則或磁碟區的所有備份、選取或刪除備份，或是使用備份來還原或複製磁碟區。
+[備份類別目錄] 頁面會顯示在進行手動或自動備份時建立的所有備份組。您可以使用此頁面來列出備份原則或磁碟區的所有備份、選取或刪除備份，或是使用備份來還原或複製磁碟區。
 
-  ![backup-catalog](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
-
-**圖 1：備份類別目錄**
+  ![備份類別目錄頁面](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
 
 本教學課程說明如何使用備份組來複製個別磁碟區。它也會說明「暫時性」與「永久」複製之間的差異。
 
@@ -37,7 +35,7 @@
 
 2. 展開備份組以檢視相關聯的磁碟區。從備份組中按一下並選取磁碟區。
 
-     ![複製](./media/storsimple-clone-volume/HCS_Clone.png)
+     ![複製磁碟區](./media/storsimple-clone-volume/HCS_Clone.png)
 
 3. 按一下 [複製]，以開始複製選取的磁碟區。
 
@@ -91,4 +89,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

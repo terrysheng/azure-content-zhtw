@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/08/2015"
+	ms.date="09/01/2015"
 	ms.author="tdykstra"/>
 
 # 開始使用 Azure 雲端服務和 ASP.NET
@@ -399,7 +399,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 12. 在左側窗格中，選取 [更新]。
 
-13. 尋找 [*Azure 儲存體*] 封裝，而如果它不在清單中，請按一下 [**更新**] 來取得最新版本的儲存體用戶端程式庫。
+13. 尋找 *WindowsAzure.Storage* 封裝，而如果它不在清單中，請按一下 [更新] 來取得最新版本的儲存體用戶端程式庫。
 
 	![Update SCL](./media/cloud-services-dotnet-get-started/updstg.png)
 
@@ -409,9 +409,11 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 16. 尋找 *EntityFramework* NuGet 封裝，並將它安裝在這三個專案中。
 
+17. 尋找 *Microsoft.WindowsAzure.ConfigurationManager* NuGet 封裝，並在背景工作角色專案中安裝。
+
 ### 設定專案參考
 
-10. 在 ContosoAdsWeb 專案中，設定 ContosoAdsCommon 專案的參考。以滑鼠右鍵按一下 ContosoAdsWeb 專案，然後按一下 [**參考**] - [**加入參考**]。在 [**參考管理員**] 對話方塊中，於左側窗格選取 [**方案 - 專案**]，選取 [**ContosoAdsCommon**]，然後按一下 [**確定**]。
+10. 在 ContosoAdsWeb 專案中，設定 ContosoAdsCommon 專案的參考。以滑鼠右鍵按一下 ContosoAdsWeb 專案，然後按一下 [**參考**] - [**加入參考**]。在 [參考管理員] 對話方塊中，於左側窗格選取 [方案 - 專案]，選取 [ContosoAdsCommon]，然後按一下 [確定]。
 
 11. 在 ContosoAdsWorker 專案中，設定 ContosAdsCommon 專案的參考。
 
@@ -461,7 +463,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 在本節中，您會從所下載的方案複製檔案到新方案。下一節將示範和說明此程式碼的重要部分。
 
-若要加入檔案到專案或資料夾，請以滑鼠右鍵按一下專案或資料夾，然後按一下 [**加入**] - [**現有項目**]。選取您需要的檔案，然後按一下 [**加入**]。如果詢問您是否要取代現有的檔案，請按一下 [是]。
+若要加入檔案到專案或資料夾，請以滑鼠右鍵按一下專案或資料夾，然後按一下 [**加入**] - [**現有項目**]。選取您需要的檔案，然後按一下 [加入]。如果詢問您是否要取代現有的檔案，請按一下 [是]。
 
 3. 在 ContosoAdsCommon 專案中，刪除 *Class1.cs* 檔案，並在其位置加入來自所下載專案的 *Ad.cs* 和 *ContosoAdscontext.cs* 檔案。
 
@@ -811,4 +813,4 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。�
 * [如何管理雲端服務](cloud-services-how-to-manage.md)
 * [Azure 儲存體](/documentation/services/storage/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

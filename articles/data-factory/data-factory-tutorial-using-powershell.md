@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用 Azure Data Factory 移動和處理記錄檔"
-	description="此進階教學課程說明接近現實情況的案例，並補充說明使用 Azure Data Factory 服務的案例。"
+	pageTitle="使用 Azure Data Factory 移動和處理記錄檔 (Azure PowerShell)"
+	description="此進階教學課程說明接近現實情況的案例，並使用 Azure Data Factory 服務和 Azure PowerShell 來實作案例。"
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -558,4 +558,4 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

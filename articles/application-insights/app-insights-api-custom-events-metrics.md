@@ -473,7 +473,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
       appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
-在 [計量瀏覽器][](app-insights-metrics-explorer.md) 中，您可以建立**已驗證的使用者**和**帳戶**的圖表。
+在 [計量瀏覽器](app-insights-metrics-explorer.md) 中，您可以建立**已驗證的使用者**和**帳戶**的圖表。
 
 
 ## <a name="defaults"></a>設定已選取自訂遙測的預設值
@@ -903,4 +903,4 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
  
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

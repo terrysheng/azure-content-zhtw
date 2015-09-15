@@ -46,7 +46,7 @@
 
 - 如果您是經驗豐富的 Web 型企業營運應用程式實作者，請自行決定是否要調整第 3 到 5 階段中的指示，以建置最適合您需求的應用程式基礎結構。 
 - 如果您已經具備現有的 Azure 混合式雲端實作，可自行決定是否要調整或略過第 1 和 2 階段中的指示，在適當的子網路上裝載適用於新應用程式的虛擬機器。
-- 所有伺服器都位於 Azure 虛擬網路中的單一子網路上。如果您想要提供其他相當於隔離子網路的安全性，可以使用 [網路安全性群組][](../virtual-networks/virtual-networks-nsg.md)。
+- 所有伺服器都位於 Azure 虛擬網路中的單一子網路上。如果您想要提供其他相當於隔離子網路的安全性，可以使用 [網路安全性群組](../virtual-networks/virtual-networks-nsg.md)。
 
 若要建置開發/測試環境或此設定的概念證明，請參閱〈[在混合式雲端中設定用於測試的 Web 型 LOB 應用程式](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)〉。
 
@@ -66,4 +66,4 @@
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->

@@ -185,7 +185,7 @@ Reach SDK 需要「Android 支援程式庫 (v4)」。
 
 #### 系統通知
 
-若要自訂系統通知，您需要使用 [類別]。您可以跳到 [類別][](#categories)。
+若要自訂系統通知，您需要使用 [類別]。您可以跳到 [類別](#categories)。
 
 #### 應用程式內通知
 
@@ -649,4 +649,4 @@ Reach SDK 使用意圖系統來解析特定類別的正確活動，如果解析�
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 
 <properties 
-	pageTitle="使用 Azure AD Connect 同步處理規則編輯器" 
-	description="了解如何使用 Azure AD Connect 同步處理規則編輯器。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="使用 Azure AD Connect 同步處理規則編輯器"
+	description="了解如何使用 Azure AD Connect 同步處理規則編輯器。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure AD Connect 同步處理規則編輯器
@@ -79,4 +79,4 @@
 轉換主題相當龐大，它會盡可能使用 Azure AD Connect 提供大部分的自訂組態。在此概觀文件中，我們將不會討論自訂組態；但稍後我們會在此文件中討論其他屬性流程。
  
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

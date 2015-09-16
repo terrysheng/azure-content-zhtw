@@ -1,7 +1,7 @@
 1.	登入線上 [Microsoft Azure Preview 入口網站](https://portal.azure.com/)。
 2.	在 Jumpbar，依序按一下 [**新增**]、[**資料 + 儲存體**]、[**Azure DocumentDB**]。 
 
-	![Azure Preview 入口網站的螢幕擷取畫面，反白顯示 新增 按鈕、建立 刀鋒視窗中的 資料 + 儲存體，以及 資料 + 儲存體 刀鋒視窗中的 Azure DocumentDB][1]   
+	![Azure Preview 入口網站的螢幕擷取畫面][1]   
 
 	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  -->
 	
@@ -50,4 +50,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!--------HONumber=August15_HO6------>
+<!---------HONumber=August15_HO6------>

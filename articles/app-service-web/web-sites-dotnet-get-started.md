@@ -299,4 +299,4 @@
 * 如需從網站變更為 App Service 的指南，請參閱 [Azure App Service 及現有的 Azure 服務](http://go.microsoft.com/fwlink/?LinkId=529714)。
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱[瀏覽 Azure 入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)。
 
-<!---HONumber=September15_HO1-->
+<!-----HONumber=September15_HO1-->

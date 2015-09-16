@@ -43,16 +43,16 @@
 
 The completed application is provided at the end of this tutorial as well.
 
-## 1. Register an App
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+## 1. 註冊應用程式
+在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 建立新的應用程式，或遵循下列[詳細步驟](active-directory-v2-app-registration.md)。  請確定：
 
-- Copy down the **Application Id** assigned to your app, you'll need it soon.
-- Add the **Web** platform for your app.
-- Enter the correct **Redirect URI**. The redirect URI indicates to Azure AD where authentication responses should be directed - the default for this tutorial is `http://localhost:3000/auth/openid/return`.
+- 請複製指派給應用程式的**應用程式 ID**，您很快就會需要它。
+- 為應用程式加入 **Web** 平台。
+- 請輸入正確的**重新導向 URI**。 重新導向 URI 會向 Azure AD 表示驗證回應應導向的位置，本教學課程的預設為 `http://localhost:3000/auth/openid/return`.
 
-## 2. Add pre-requisities to your directory
+## 2. 在目錄中新增必要條件
 
-From the command-line, change directories to your root folder if not already there and run the following commands:
+從命令列中，將目錄位置變更至根資料夾 (若目錄位置原本不在該處)，然後執行下列命令：
 
 - `npm install express`
 - `npm install ejs`
@@ -417,4 +417,4 @@ exports.list = function(req, res){
 
 如需其他資源，請查看：- [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow "azure-active directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

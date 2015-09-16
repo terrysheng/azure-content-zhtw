@@ -73,7 +73,7 @@
 
         ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        或安裝 Preview 入口網站並指定進行**傳統**部署 (範圍包括運算、儲存體及網路).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -158,4 +158,4 @@
 - 若要了解如何建立宣告式部署，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要查看部署範本的命令，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!-----HONumber=August15_HO9-->
+<!------HONumber=August15_HO9-->

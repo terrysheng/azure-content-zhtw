@@ -83,7 +83,6 @@
 3. 現在，您需要建立 Azure [儲存體帳戶](../storage-create-storage-account.md)。我們命名為 "accessstorage"，因此請選擇對您有意義的名稱 (只能有一個 "accessstorage")。
 ![Azure 儲存體帳戶](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. 現在，回到您的儀表板，以取得您儲存體的路徑 (端點位置)。您將立即使用此項，因此請確定在某個位置複製它。
-
 ![儲存體帳戶路徑](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5.接著，建立儲存體帳戶之後，您需要有主要存取金鑰。按一下 [**管理存取金鑰**]，然後複製主要存取金鑰。
 6.現在，設定儲存體帳戶的內容，並建立 Access 的新檔案共用。在提升權限的 Windows PowerShell 視窗中，執行下列 Cmdlet：
@@ -119,4 +118,4 @@
 
 <!--Image references-->
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

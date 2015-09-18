@@ -20,9 +20,9 @@
 
 您可以將 Visual Studio Online 小組專案設定為自動建置和部署至 Azure Web 應用程式或雲端服務。(如需如何使用「內部部署」的 Team Foundation Server 來設定連續組建及部署系統的相關資訊，請參閱 [Azure 中雲端服務的連續傳遞](cloud-services-dotnet-continuous-delivery.md))。
 
-本教學課程假設您已安裝 Visual Studio 2013 和 Azure SDK。如果尚無 Visual Studio 2013，請至 **www.visualstudio.com** 選擇 [免費開始用][](http://www.visualstudio.com) 連結來下載。從[這裡](http://go.microsoft.com/fwlink/?LinkId=239540)安裝 Azure SDK。
+本教學課程假設您已安裝 Visual Studio 2013 和 Azure SDK。如果尚無 Visual Studio 2013，請至 [www.visualstudio.com](http://www.visualstudio.com) 選擇 **免費開始用** 連結來下載。從[這裡](http://go.microsoft.com/fwlink/?LinkId=239540)安裝 Azure SDK。
 
-> [AZURE.NOTE]您需要 Visual Studio Online 帳戶，才能完成本教學課程：
+> [AZURE.NOTE] 您需要 Visual Studio Online 帳戶，才能完成本教學課程：
 > 您可以[開啟免費的 Visual Studio Online 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=512979)。
 
 若要使用 Visual Studio Online 將雲端服務設定為自動建立和部署至 Azure，請依照下列步驟進行。
@@ -39,7 +39,7 @@
 如果要建立 Web 應用程式，請選擇 ASP.NET Web 應用程式的專案範本，然後選擇 [MVC]。
 請參閱「[在 Azure App Service 中建立 ASP.NET Web 應用程式](../web-sites-dotnet-get-started.md)」。
 
-	> [AZURE.NOTE]Visual Studio Online 目前僅支援 Visual Studio Web 應用程式的 CI 部署。Web Site 專案超出範圍。
+	> [AZURE.NOTE] Visual Studio Online 目前僅支援 Visual Studio Web 應用程式的 CI 部署。Web Site 專案超出範圍。
 
 1. 開啟方案的內容功能表，選擇 [將方案加入至原始檔控制]。
 
@@ -162,7 +162,7 @@
 
 	![][29]
 
-1. 在 [Azure 管理入口網站][](http://manage.windowsazure.com) 中，選取預備環境之後，您可以在 [部署] 索引標籤上檢視相關聯的部署。
+1. 在 [Azure 管理入口網站](http://manage.windowsazure.com) 中，選取預備環境之後，您可以在 [部署] 索引標籤上檢視相關聯的部署。
 
 	![][30]
 
@@ -322,4 +322,4 @@
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

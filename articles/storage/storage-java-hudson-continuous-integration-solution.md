@@ -117,7 +117,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
     在您為 [Execute Windows batch command] 輸入指令碼的 [命令] 區段下方是個連結，可連結到 Hudson 認可的環境變數。按一下該連結即可了解各環境變數名稱和描述。請注意，含有特殊字元的環境變數 (例如 **BUILD\_URL** 環境變數) 不能當做容器名稱或共同虛擬路徑。
 
 8. 在此範例中，請按一下 [Make new container public by default]。(如果您想要使用私用容器，則需要建立共用存取簽章來允許存取。這已超出本主題的範圍。若要深入了解共用存取簽章，請參閱[建立共用存取簽章](http://go.microsoft.com/fwlink/?LinkId=279889)。)
-9. [選擇性] 如果您要在上傳組建成品之前清除容器的內容，請按一下 [Clean container before uploading] (若不想清除容器的內容，請維持不核取)。
+9. [選擇性] 如果您要在上傳組建成品之前清除容器的內容，請按一下 [Clean container before uploading] \(若不想清除容器的內容，請維持不核取)。
 10. 在 [List of Artifacts to upload]，輸入 **text/*.txt**。
 11. 在 [Common virtual path for uploaded artifacts]，輸入 **${BUILD\_ID}/${BUILD\_NUMBER}**。
 12. 按一下 [Save] 儲存您的設定。
@@ -129,7 +129,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
     4. 按一下 [容器]。
     5. 按一下名為 **myjob** 的容器，這是您在建立 Hudson 工作時所指定工作名稱的小寫版本。在 Azure 儲存體中，容器名稱和 Blob 名稱皆為小寫 (並且區分大小寫)。在名為 **myjob** 之容器的 Blob 清單中，您應該會看到 **hello.txt** 和 **date.txt**。請複製這些項目中任何一項的 URL，然後在瀏覽器中開啟它。您會看到文字檔已上傳作為組建成品。
 
-每一工作只能建立一個將成品上傳至 Azure Blob 儲存體的建置後動作。請注意，將成品上傳至 Azure Blob 儲存體的單一建置後動作可以在 [List of Artifacts to upload] 內，使用分號作為分隔符號來指定不同的檔案 (包含萬用字元) 和檔案路徑。例如，若 Hudson 組建在您工作區的 **build** 資料夾中產生 JAR 檔和 TXT 檔，且您想將兩者都上傳至 Azure Blob 儲存體，請在 [List of Artifacts to upload] 中使用下列值：**build/*.jar;build/*.txt**。您也可以使用雙冒號語法來指定要在 Blob 名稱內使用的路徑。例如，若您想要在 Blob 路徑中使用 **binaries** 上傳 JAR，並在 Blob 路徑中使用 **notices** 上傳 TXT，請在 [List of Artifacts to upload] 中使用下列值：**build/*.jar::binaries;build/*.txt::notices**。
+每一工作只能建立一個將成品上傳至 Azure Blob 儲存體的建置後動作。請注意，將成品上傳至 Azure Blob 儲存體的單一建置後動作可以在 [List of Artifacts to upload] 內，使用分號作為分隔符號來指定不同的檔案 (包含萬用字元) 和檔案路徑。例如，若 Hudson 組建在您工作區的 **build** 資料夾中產生 JAR 檔和 TXT 檔，且您想將兩者都上傳至 Azure Blob 儲存體，請在 [List of Artifacts to upload] 中使用下列值：**build/\*.jar;build/\*.txt**。您也可以使用雙冒號語法來指定要在 Blob 名稱內使用的路徑。例如，若您想要在 Blob 路徑中使用 **binaries** 上傳 JAR，並在 Blob 路徑中使用 **notices** 上傳 TXT，請在 [List of Artifacts to upload] 中使用下列值：**build/\*.jar::binaries;build/\*.txt::notices**。
 
 ## 如何建立從 Azure Blob 儲存體下載的組建步驟 ##
 
@@ -138,7 +138,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 1. 在工作組態的 [Build] 區段中，按一下 [Add build step]，並選擇 [Download from Azure Blob storage]。
 2. 在 [儲存體帳戶名稱] 中，選取要使用的儲存體帳戶。
 3. 在 [容器名稱] 中，指定您要下載的 Blob 所在之容器的名稱。您可以使用環境變數。
-4. 在 [Blob 名稱] 中，指定 Blob 名稱。您可以使用環境變數。另外，您也可以在指定 Blob 名稱的開頭字母之後，使用星號作為萬用字元。例如，**project*** 指定名稱開頭為 **project** 的所有 Blob。
+4. 在 [Blob 名稱] 中，指定 Blob 名稱。您可以使用環境變數。另外，您也可以在指定 Blob 名稱的開頭字母之後，使用星號作為萬用字元。例如，**project\*** 指定名稱開頭為 **project** 的所有 Blob。
 5. [選擇性] 在 [下載路徑] 中，指定在 Hudson 機器上您要從 Azure Blob 儲存體下載檔案的路徑。也可以使用環境變數(如果您未提供 [下載路徑] 的值，則 Azure Blob 儲存體中的檔案會下載至工作的工作區)。
 
 如果您還有其他項目要從 Azure Blob 儲存體下載，您可以建立其他組建步驟。
@@ -168,4 +168,4 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 
  
 
-<!---HONumber=September15_HO1-->
+<!-----HONumber=September15_HO1-->

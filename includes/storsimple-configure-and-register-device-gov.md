@@ -80,7 +80,10 @@
 
      `Get-HcsSystem`
 
-    您應該會看到下列版本：- HcsSoftwareVersion：6.3.9600.17491 - CisAgentVersion：1.0.9037.0 - MdsAgentVersion：26.0.4696.1433
+    您應該會看到下列版本：
+    - HcsSoftwareVersion：6.3.9600.17491
+    - CisAgentVersion：1.0.9037.0
+    - MdsAgentVersion：26.0.4696.1433
  
 9. 執行下列 Cmdlet 以確認已正確套用韌體更新：
 
@@ -135,4 +138,4 @@
      
         
 
-<!-----HONumber=August15_HO6-->
+<!------HONumber=August15_HO6-->

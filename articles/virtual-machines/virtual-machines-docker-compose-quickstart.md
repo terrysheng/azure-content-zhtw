@@ -45,9 +45,10 @@ $ chmod +x /usr/local/bin/docker-compose
 $ docker-compose --version
 ```
 
-您將看到類似 ```
+您將看到類似的輸出
+```
 docker-compose 1.3.2
-``` 的輸出
+```
 
 
 ## 步驟 3：建立 docker-compose.yml 組態檔
@@ -56,9 +57,18 @@ docker-compose 1.3.2
 
 在 VM 上建立工作目錄，並使用您慣用的文字編輯器建立 `docker-compose.yml`。若要嘗試簡單的範例，請將下列文字複製到檔案。此設定會使用來自 [DockerHub 登錄](https://registry.hub.docker.com/_/wordpress/)的映像，安裝 WordPress (開放原始碼部落格和內容管理系統) 和連結的後端 MariaDB SQL 資料庫。
 
- ``` wordpress: image: wordpress links: - db:mysql ports: - 8080:80
+ ```
+ wordpress:
+  image: wordpress
+  links:
+    - db:mysql
+  ports:
+    - 8080:80
 
-db: image: mariadb environment: MYSQL\_ROOT\_PASSWORD: <your password>
+db:
+  image: mariadb
+  environment:
+    MYSQL_ROOT_PASSWORD: <your password>
 
 ```
 
@@ -74,7 +84,9 @@ $ docker-compose up -d
 This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
 
 ```
-Creating wordpress\_db\_1...Creating wordpress\_wordpress\_1... ```
+Creating wordpress_db_1...
+Creating wordpress_wordpress_1...
+```
 
 >[AZURE.NOTE]請務必在啟動時使用 **-d** 選項，讓容器在背景持續執行。
 
@@ -106,10 +118,11 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 * 如需建置和部署多容器應用程式的其他範例，請參閱 [Compose CLI 參考](http://docs.docker.com/compose/cli/)和[使用者指南](http://docs.docker.com/compose/)。
 * 使用 Azure 資源管理員範本 (您自己的範本或[社群](http://azure.microsoft.com/documentation/templates/)提供的範本) 部署包含 Docker 的 Azure VM，以及使用 Compose 設定的應用程式。例如，[以 Docker 部署 WordPress 部落格](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/)範本使用 Docker 和 Compose，藉由 Ubuntu VM 上的 MySQL 後端快速部署 WordPress。
-* 嘗試整合 Docker Compose 與 [Docker Swarm](virtual-machines-docker-swarm.md) 叢集。如需案例，請參閱 [Docker Compose/Swarm 整合](https://github.com/docker/compose/blob/master/SWARM.md)。
+* 嘗試整合 Docker Compose 與 [Docker Swarm](virtual-machines-docker-swarm.md) 叢集。如需案例，請參閱
+[Docker Compose/Swarm 整合](https://github.com/docker/compose/blob/master/SWARM.md)。
 
 <!--Image references-->
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

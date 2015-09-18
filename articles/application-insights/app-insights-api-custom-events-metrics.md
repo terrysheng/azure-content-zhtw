@@ -197,7 +197,7 @@ TelemetryClient 具備執行緒安全。
     telemetry.trackEvent("WinGame", properties, metrics);
 
 
-> [AZURE.NOTE]切勿在屬性中記錄個人識別資訊。
+> [AZURE.NOTE] 切勿在屬性中記錄個人識別資訊。
 
 **如果您使用度量**，請開啟 [計量瀏覽器]，然後從自訂群組中選取度量：
 
@@ -903,4 +903,4 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
  
 
-<!----HONumber=September15_HO1-->
+<!-----HONumber=September15_HO1-->

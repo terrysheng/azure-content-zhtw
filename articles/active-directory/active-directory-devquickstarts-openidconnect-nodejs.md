@@ -38,22 +38,22 @@
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
-The completed application is provided at the end of this tutorial as well.
+本教學課程最後也會提供完整的應用程式。
 
-## 1. Register an App
-- Sign into the Azure Management Portal.
-- In the left hand nav, click on **Active Directory**.
-- Select the tenant where you wish to register the application.
-- Click the **Applications** tab, and click add in the bottom drawer.
-- Follow the prompts and create a new **Web Application and/or WebAPI**.
-    - The **name** of the application will describe your application to end-users
-    -	The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:3000/auth/openid/return``.
-    - The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`
-- Once you've completed registration, AAD will assign your app a unique client identifier.  You'll need this value in the next sections, so copy it from the Configure tab.
+## 1. 註冊應用程式
+- 登入 Azure 管理入口網站。
+- 在左側導覽中按一下 **Active Directory**.
+- 選取您要註冊應用程式的租用戶。
+- 按一下 [**應用程式**] 索引標籤，然後按一下最下面抽屜的 [**新增**]。
+- 遵照提示進行，並建立新的 **Web 應用程式和/或 WebAPI**。
+    - 應用程式的 [**名稱**] 將對使用者說明您的應用程式
+    -	[**登入 URL**] 是指應用程式的基底 URL。  基本架構的預設值是 `http://localhost:3000/auth/openid/return`。
+    - [**應用程式識別碼 URI**] 是指應用程式的唯一識別碼。  慣例會使用 `https://<tenant-domain>/<app-name>`，例如：`https://contoso.onmicrosoft.com/my-first-aad-app`.
+- 完成註冊後，AAD 會為您的應用程式指派一個唯一用戶端識別碼。  您在後續章節中將會用到這個值，所以請從 [設定] 索引標籤中複製此值。
 
-## 2. Add pre-requisities to your directory
+## 2. 在目錄中新增必要條件
 
-From the command-line, change directories to your root folder if not already there and run the following commands:
+從命令列中，將目錄位置變更至根資料夾 (若目錄位置原本不在該處)，然後執行下列命令：
 
 - `npm install express`
 - `npm install ejs`
@@ -64,21 +64,21 @@ From the command-line, change directories to your root folder if not already the
 - `npm install assert-plus`
 - `npm install passport`
 
-- In addition, you'll need our `passport-azure-ad` as well:
+- 此外，您也需要我們的 `passport-azure-ad`：
 
 - `npm install passport-azure-ad`
 
-This will install the libraries that passport-azure-ad depend on.
+如此會安裝 passport-azure-ad 做為依據的程式庫。
 
-## 3. Set up your app to use the passport-node-js strategy
-Here, we'll configure the Express middleware to use the OpenID Connect authentication protocol.  Passport will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+## 3. 設定您的 App 以使用 passport-node-js 策略。
+我們將在此設定 Express 中介軟體，以使用 OpenID Connect 驗證通訊協定。  Express 將用來發出登入和登出要求、管理使用者的工作階段，以及取得使用者相關資訊等其他作業。
 
--	To begin, open the `config.js` file in the root of the project, and enter your app's configuration values in the `exports.creds` section.
-    -	The `clientID:` is the **Application Id** assigned to your app in the registration portal.
-    -	The `returnURL` is the **Redirect Uri** you entered in the portal.
-    - The `clientSecret` is the secret you generated in the portal
+-	首先，在專案的根中開啟 `web.config` 檔案，並在 `<appSettings>` 區段中輸入您應用程式的設定值。
+    -	`clientID`: 是在註冊入口網站中指派給應用程式的**應用程式 ID**。
+    -	`returnURL` 是您在入口網站中輸入的**重新導向 URI**。
+    - `clientSecret` 是您在入口網站中輸入的密碼。
 
-- Next open `app.js` file in the root of the proejct and add the follwing call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`
+- 接下來開啟專案根中的 `app.js`  檔案，並新增下列呼叫以叫用與 `passport-azure-ad` 一併使用的 `OIDCStrategy` 策略
 
 
 ```JavaScript
@@ -391,4 +391,4 @@ For reference, the completed sample (without your configuration values) [is prov
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

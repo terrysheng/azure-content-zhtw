@@ -21,7 +21,7 @@
 
 	![](./media/mobile-services-register-twitter-access/mobile-identity-tab-twitter-only.png)
 
-2. 按一下 [設定] 索引標籤，向下捲動至 [應用程式設定]，並輸入您從 Twitter 網站取得之下列各項的 [名稱] 和 [值] 組，然後按 [儲存]。
+2. 按一下 [設定] 索引標籤，向下捲動至 **應用程式設定**，並輸入您從 Twitter 網站取得之下列各項的 [名稱] 和 [值] 組，然後按 [儲存]。
 
 	+ `TWITTER_ACCESS_TOKEN`
 	+ `TWITTER_ACCESS_TOKEN_SECRET`
@@ -37,4 +37,4 @@
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [應用程式設定]: http://msdn.microsoft.com/library/azure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

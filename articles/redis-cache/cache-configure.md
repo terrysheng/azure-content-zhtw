@@ -155,7 +155,7 @@
 
 ## Redis 主控台
 
-您可以使用 [Redis 主控台] (可供標準快取使用) 安全地發出命令至您的 Azure Redis 快取執行個體。若要存取 Redis 主控台，請從 [Redis 快取] 刀鋒視窗按一下 [主控台]。
+您可以使用 [Redis 主控台] \(可供標準快取使用) 安全地發出命令至您的 Azure Redis 快取執行個體。若要存取 Redis 主控台，請從 [Redis 快取] 刀鋒視窗按一下 [主控台]。
 
 ![Redis 主控台](./media/cache-configure/redis-console-menu.png)
 
@@ -170,4 +170,4 @@
 ## 後續步驟
 -	如需使用 Redis 命令的詳細資訊，請參閱[如何執行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)。
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

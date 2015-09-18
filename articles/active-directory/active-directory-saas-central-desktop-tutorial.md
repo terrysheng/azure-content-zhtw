@@ -152,4 +152,4 @@ AAD 使用者必須先佈建到 Central Desktop 應用程式，才可以登入�
 
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!----HONumber=September15_HO1-->
+<!-----HONumber=September15_HO1-->

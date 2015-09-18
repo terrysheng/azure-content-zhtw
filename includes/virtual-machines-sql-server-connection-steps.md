@@ -79,11 +79,11 @@
 
 2. 在 SQL Server 組態管理員的主控台窗格中，展開 [SQL Server 網路組態]。
 
-3. 在主控台窗格中，按一下 [MSSQLSERVER 的通訊協定] (預設的執行個體名稱)。 在詳細資料窗格中以滑鼠右鍵按一下 [TCP]。依預設，組件庫映像的 TCP 應該是 [已啟用]。對於自訂映像，請按一下 [啟用] (如果它的狀態是 [已停用])。
+3. 在主控台窗格中，按一下 [MSSQLSERVER 的通訊協定] \(預設的執行個體名稱)。 在詳細資料窗格中以滑鼠右鍵按一下 [TCP]。依預設，組件庫映像的 TCP 應該是 [已啟用]。對於自訂映像，請按一下 [啟用] \(如果它的狀態是 [已停用])。
 
 	![啟用 TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
 
-5. 在主控台窗格中，按一下 [SQL Server 服務]。在詳細資料窗格中，以滑鼠右鍵按一下 SQL Server (**執行個體名稱**) (預設執行個體是 **SQL Server (MSSQLSERVER)**)，然後按一下 [重新啟動] 以停止及重新啟動 SQL Server 執行個體。
+5. 在主控台窗格中，按一下 [SQL Server 服務]。在詳細資料窗格中，以滑鼠右鍵按一下 **SQL Server (_執行個體名稱_)** (預設執行個體是 **SQL Server (MSSQLSERVER)**)，然後按一下 [重新啟動] 以停止及重新啟動 SQL Server 執行個體。
 
 	![重新啟動 Database Engine](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
 
@@ -175,7 +175,7 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 ### 從另一部電腦連接 Database Engine
  
 1. 在連接網際網路的電腦上開啟 SQL Server Management Studio。
-2. 在 [連接到伺服器] 或 [連接到 Database Engine] 對話方塊的 [伺服器名稱]**** 方塊中，輸入虛擬機器的 DNS 名稱 (於上一個工作中決定) 和 *DNSName,portnumber* 格式的公用端點連接埠名稱 (例如 **tutorialtestVM.cloudapp.net,57500**)。若要取得連接埠號碼，請登入 Azure 管理入口網站並尋找虛擬機器。在儀表板上，按一下 [端點]，然後使用指派給 [MSSQL] 的 [公用連接埠]。![公用連接埠](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
+2. 在 [連接到伺服器] 或 [連接到 Database Engine] 對話方塊的 [伺服器名稱] 方塊中，輸入虛擬機器的 DNS 名稱 (於上一個工作中決定) 和 *DNSName,portnumber* 格式的公用端點連接埠名稱 (例如 **tutorialtestVM.cloudapp.net,57500**)。若要取得連接埠號碼，請登入 Azure 管理入口網站並尋找虛擬機器。在儀表板上，按一下 [端點]，然後使用指派給 [MSSQL] 的 [公用連接埠]。![公用連接埠](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
 3. 在 [驗證] 方塊中，選取 [SQL Server 驗證]。
 5. 在 [登入] 方塊中，輸入於先前工作中建立之登入的名稱。
 6. 在 [密碼] 方塊中，輸入於先前工作中建立之登入的密碼。
@@ -183,4 +183,4 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 	![使用 SSMS 進行連線](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->

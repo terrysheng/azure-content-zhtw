@@ -10,7 +10,7 @@
 
 5. 在第一個 [虛擬機器組態] 頁面上：
 
-	- 輸入 [**虛擬機器名稱**] (如 "testlinuxvm")。
+	- 輸入 [**虛擬機器名稱**] \(如 "testlinuxvm")。
 	- 驗證 [**階層**] 並挑選 [**大小**]。階層可決定您可以選擇的大小。大小會影響其使用成本以及組態選項 (例如您可連接的資料磁碟數目)。如需詳細資訊，請參閱〈[虛擬機器的大小](../articles/virtual-machines-size-specs.md)〉。
 	- 輸入**新的使用者名稱**，或接受預設值 **azureuser**。這個名稱會新增至 Sudoers 清單檔案。
 	- 決定要使用的 [**驗證**] 類型。如需一般密碼指導方針，請參閱[字串密碼](http://msdn.microsoft.com/library/ms161962.aspx)。
@@ -62,4 +62,4 @@
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

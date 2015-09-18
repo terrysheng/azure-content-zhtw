@@ -102,7 +102,7 @@
 
 7. 在應用程式中檢查清單中的其中一個項目，然後按一下 [重新整理] 按鈕。
 
-   	請注意，已檢查的項目此時會從清單中消失。Each refresh results in a round-trip to the mobile service, which now returns filtered data.
+   	請注意，已檢查的項目此時會從清單中消失。每次重新整理都會往返行動服務一次，而現在會傳回篩選的資料。
 
 這將結束**開始使用資料**教學課程。
 
@@ -140,4 +140,4 @@
 [開發人員程式碼範例網站]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

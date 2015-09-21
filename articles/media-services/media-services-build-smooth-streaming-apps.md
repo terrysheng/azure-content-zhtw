@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -963,6 +963,15 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
 您已完成課程 4。在本課程中，您新增了選擇追蹤的功能。
 
 
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 ##其他資源：
 - [如何建置具有進階功能的 Smooth Streaming Windows 8 JavaScript 應用程式 (英文)](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
 - [Smooth Streaming 技術概觀 (英文)](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
@@ -971,4 +980,4 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

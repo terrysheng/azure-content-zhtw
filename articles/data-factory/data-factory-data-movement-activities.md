@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="資料移動活動"
-	description="了解您可以在 Data Factory 管線用來移動資料的 Data Factory 實體。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="資料移動活動" 
+	description="了解您可以在 Data Factory 管線中用來移動資料的 Data Factory 實體。" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/29/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/29/2015" 
 	ms.author="spelluru"/>
 
 # 資料移動活動
@@ -86,7 +86,7 @@
 您可以在各自的資料存放區連接器文章中的資料存放區找到指定原生類型系統到 .NET 的對應。您可以在建立資料表時使用這些對應來判斷適當的類型，就會在複製活動期間執行正確的轉換。
 
 ### 使用不同的檔案格式。
-對於以檔案為基礎的來源，複製活動支援各種不同的檔案格式，包括二進位、文字和 Avro 格式。
+對於以檔案為基礎的來源，複製活動支援各種不同的檔案格式，包括二進位、文字和 Avro 格式。您可以使用複製活動，從某種格式轉換為另一種。範例：文字 (CSV) 轉 Avro。
 
 ### 複製活動屬性
 名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。另一方面，活動的 **typeProperties** 區段中可用的屬性會隨著每項活動類型而有所不同。
@@ -97,4 +97,4 @@
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md)提交您的意見反應。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

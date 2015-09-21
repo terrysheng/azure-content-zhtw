@@ -2,7 +2,7 @@
 	pageTitle="監視任何網站的可用性和回應性 | Microsoft Azure"
 	description="在 Application Insights 中設定 Web 測試。如果網站無法使用或回應緩慢，將收到警示。"
 	services="application-insights"
-	documentationCenter=""
+    documentationCenter=""
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/08/2015"
+	ms.date="09/08/2015"
 	ms.author="awills"/>
 
 # 監視任何網站的可用性和回應性
@@ -117,7 +117,7 @@ Web 測試可分為兩種：
 或者，您可以下載結果檔案，然後在 Visual Studio 中檢查。
 
 
-看起來正常，但回報為失敗？ 請檢查所有映像、指令碼、樣式表和頁面載入的任何其他檔案。如果上述方法都失敗，即使主要 HTML 頁面載入成功，測試也會回報為已失敗。
+看起來正常，但回報為失敗？ 請檢查所有映像、指令碼、樣式表和頁面載入的任何其他檔案。If any of them fails, the test will be reported as failed, even if the main html page loads OK.
 
 
 
@@ -129,7 +129,7 @@ Web 測試可分為兩種：
 
 請注意，您無法在測試中使用編碼的函式：做為 .webtest 檔案中的指令碼必須包含案例步驟。
 
-#### 1. 記錄案例
+#### 1\.記錄案例
 
 使用 Visual Studio Ultimate 來記錄 Web 工作階段。
 
@@ -154,7 +154,7 @@ Web 測試可分為兩種：
     ![在 Visual Studio 中，開啟 .webtest 檔案，並按一下 [執行]。](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 
-(請勿在 Web 測試程式碼中插入迴圈。)
+(請勿在 Web 測試中插入迴圈)。
 
 #### 2. 將 Web 測試上傳至 Application Insights
 
@@ -218,7 +218,7 @@ Web 測試外掛程式提供這種作法。
 
 * *可以從我的 Web 測試呼叫程式碼嗎？*
 
-    否。測試步驟必須在 .webtest 檔案中。
+    否。測試步驟必須在 .webtest 檔案中。這裡有一些您會覺得有用的外掛程式。
 
 ## <a name="video"></a>影片
 
@@ -240,4 +240,4 @@ Web 測試外掛程式提供這種作法。
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

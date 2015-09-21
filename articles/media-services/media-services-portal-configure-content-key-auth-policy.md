@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -84,8 +84,17 @@ Microsoft Azure 媒體服務可讓您提供您使用進階加密標準 (AES) (�
 
 您可以按一下 [**匯入原則 xml**] 按鈕，並提供符合[這裡](https://msdn.microsoft.com/library/azure/dn783459.aspx)所定義之 XML 結構描述的不同 XML。
 
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##後續步驟
-現在，您已設定內容金鑰授權原則，請移至[如何：使用 Azure 管理入口網站來啟用加密](../media-services-manage-content#encrypt/)主題。
+現在，您已設定內容金鑰的授權原則，請前往[作法：使用 Azure 管理入口網站來啟用加密](../media-services-manage-content#encrypt/)主題。
 
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
@@ -93,4 +102,4 @@ Microsoft Azure 媒體服務可讓您提供您使用進階加密標準 (AES) (�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

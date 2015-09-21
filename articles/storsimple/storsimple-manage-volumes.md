@@ -1,19 +1,19 @@
 <properties
    pageTitle="管理 StorSimple 磁碟區 | Microsoft Azure"
-	description="說明如何加入、修改及監視 StorSimple 磁碟區，以及如何在必要時使其離線。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="說明如何加入、修改及監視 StorSimple 磁碟區，以及如何在必要時使其離線。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/09/2015"
+   ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務來管理磁碟區
 
@@ -70,7 +70,7 @@ StorSimple Manager 服務是 Azure 入口網站的延伸模組，可讓您從單
 4. 在 [新增磁碟區精靈] 的 [基本設定] 下，執行列動作：
 
   1. 輸入磁碟區的 [名稱]。
-  2. 為磁碟區指定 [佈建的容量] \(GB 或 TB)。實體裝置的容量必須介於 1 GB 到 64 TB 之間。可為 StorSimple 虛擬裝置上的磁碟區佈建的最大容量為 30 TB。
+  2. 為磁碟區指定 [佈建的容量] (GB 或 TB)。實體裝置的容量必須介於 1 GB 到 64 TB 之間。可為 StorSimple 虛擬裝置上的磁碟區佈建的最大容量為 30 TB。
   3. 在下拉式清單中，為磁碟區選取 [使用類型]。如果您在使用較不常存取的封存資料時，請選擇 [封存磁碟區]。對於所有其他使用情況，請選取 [階層式磁碟區]。(階層式磁碟區之前稱為主要磁碟區)。
   5. 按一下箭號圖示 ![箭號圖示](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)，前往 [其他設定] 頁面。
 
@@ -88,8 +88,7 @@ StorSimple Manager 服務是 Azure 入口網站的延伸模組，可讓您從單
 
 當您需要擴充磁碟區，或變更存取該磁碟區的主機時，請修改磁碟區。
 
-> [AZURE.IMPORTANT]如果您修改裝置上的磁碟區大小，也必須變更主機上的磁碟區大小。修改主機上的磁碟區時，請參閱主機作業系統的指示。
-
+> [AZURE.IMPORTANT]如果您修改裝置上的磁碟區大小，也必須變更主機上的磁碟區大小。此處所述的主機端步驟適用於 Windows Server 2012 (2012R2)。Linux 或其他主機作業系統的程序會有所不同。如果要在執行其他作業系統的主機上修改磁碟區，請參考主機作業系統的指示。
 
 ### 若要修改磁碟區
 
@@ -113,7 +112,14 @@ StorSimple Manager 服務是 Azure 入口網站的延伸模組，可讓您從單
  
     > [AZURE.NOTE]您無法變更磁碟區的 [啟用預設備份] 選項。
 
-6. 按一下核取圖示 ![核取圖示](./media/storsimple-manage-volumes/HCS_CheckIcon.png)，即可儲存您的變更。
+6. 按一下核取圖示 ![核取圖示](./media/storsimple-manage-volumes/HCS_CheckIcon.png)，即可儲存您的變更。入口網站將會顯示更新磁碟區訊息。如果磁碟區已成功更新，即會顯示成功訊息。
+
+7. 如果您要延伸磁碟區，請在 Windows 主機電腦上完成下列步驟：
+
+   1. 移至 [電腦管理] -> [磁碟管理]。
+   2. 以滑鼠右鍵按一下 [磁碟管理]，並選取 [重新掃描磁碟]。
+   3. 在磁碟清單中，選取您已更新的磁碟區，按一下滑鼠右鍵，然後選取 [延伸磁碟區]。[延伸磁碟區精靈] 隨即啟動。按 [下一步]。
+   4. 使用預設值完成精靈。完成精靈後，磁碟區應該會顯示增加的大小。
 
 ## 使磁碟區離線
 
@@ -176,9 +182,11 @@ StorSimple Manager 服務是 Azure 入口網站的延伸模組，可讓您從單
 
 ## 後續步驟
 
+觀賞如何[延伸 StorSimple 磁碟區](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume)的說明影片。
+
 了解如何[複製 StorSimple 磁碟區](storsimple-clone-volume.md)。
 
 
  
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

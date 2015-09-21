@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="將資源移動到新的資源群組"
-	description="使用 Azure PowerShell 或 REST API 將資源移動到至新的「Azure 資源管理員」資源群組。"
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="tfitzmac"
-	manager="wpickett"
+	pageTitle="將資源移動到新的資源群組" 
+	description="使用 Azure PowerShell 或 REST API 將資源移動到至新的「Azure 資源管理員」資源群組。" 
+	services="azure-resource-manager" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="azure-resource-manager" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="tomfitz"/>
 
 # 將資源移動到新的資源群組或訂用帳戶
@@ -39,12 +39,13 @@
 
 - API 管理
 - Azure 搜尋
+- Azure Web 應用程式 (有部分[限制](app-service-web/app-service-move-resources.md))
 - Data Factory
 - 金鑰保存庫
 - Mobile Engagement
 - Operational Insights
 - Redis 快取
-- Azure Web Apps (適用某些[限制](app-service-web/app-service-move-resources.md))
+- SQL Database
 
 支援移動到新資源群組，但不支援移動到新訂用帳戶的服務有：
 
@@ -82,7 +83,7 @@
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-使用目前包含您要移動之資源的訂用帳戶和資源群組取代 **{source-subscription-id}** 和 **{source-resource-group-name}**。針對 {api-version} 使用 **2015-01-01**。
+以目前包含您要移動之資源的訂用帳戶和資源群組取代 **{source-subscription-id}** 和 **{source-resource-group-name}**。對於 {api-version}，請使用 **2015-01-01**。
 
 在要求中包含定義目標資源群組和您想要移動之資源的 JSON 物件。
 
@@ -101,4 +102,4 @@
 - [使用 Azure 入口網站管理資源](azure-portal/resource-group-portal.md)
 - [使用標記組織您的資源](./resource-group-using-tags.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

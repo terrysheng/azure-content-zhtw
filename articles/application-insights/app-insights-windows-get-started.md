@@ -2,7 +2,7 @@
 	pageTitle="適用於 Windows Phone 和市集 App 的 Application Insights | Microsoft Azure"
 	description="使用 Application Insights 分析 Windows 裝置應用程式的使用情况和效能。"
 	services="application-insights"
-	documentationCenter="windows"
+    documentationCenter="windows"
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -69,6 +69,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 4. 將 ApplicationInsights.config 檔案加入至您專案的根目錄，並插入從入口網站複製的檢測金鑰。此組態檔的範例 XML 如下所示。
 
 	```xml
+
 		<?xml version="1.0" encoding="utf-8" ?>
 		<ApplicationInsights>
 			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
@@ -82,6 +83,10 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 5. 加入下列的初始化程式碼。最好是將此程式碼加入至 `App()` 建構函式。如果您在其他地方加入，您可能會遺漏第一個 PageViews 的自動集合。
 
 ```C#
+
+    using Microsoft.ApplicationInsights;
+    ...
+
 	public App()
 	{
 	   // Add this initilization line.
@@ -96,7 +101,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 ## <a name="network"></a>3.對應用程式啟用網路存取
 
-如果應用程式尚未[要求連出網路存取](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx)，您必須將此功能加入至它的資訊清單，當做[必要功能](https://msdn.microsoft.com/library/windows/apps/br211477.aspx)。
+如果應用程式尚未[要求網際網路存取](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx)，您必須將此功能加入至它的資訊清單，當做[必要功能](https://msdn.microsoft.com/library/windows/apps/br211477.aspx)。
 
 ## <a name="run"></a>4.執行專案
 
@@ -111,10 +116,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 ## <a name="monitor"></a>5.查看監視資料
 
-從專案開啟 Application Insights。
-
-![Right-click your project and open the Azure portal](./media/app-insights-windows-get-started/appinsights-04-openPortal.png)
-
+在 [Azure 入口網站](https://portal.azure.com)中，開啟您先前建立的 Application Insights 資源。
 
 剛開始的時候，您只會看見一或兩個資料點。例如：
 
@@ -165,7 +167,7 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 
 ```
 
-如需詳細資訊，請參閱[自訂事件和度量][api]。
+如需詳細資訊，請參閱 [API 概觀：自訂事件和度量][api]。
 
 ## 後續步驟
 
@@ -178,7 +180,7 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 
 如果您偏好使用 Visual Studio 執行設定步驟，可以針對 Windows Phone、Windows 市集和其他許多類型的應用程式這樣做。
 
-### <a name="new"></a>如果您要建立新的 Windows App 專案...
+### <a name="new"></a>如果您要建立新的 Windows 應用程式專案...
 
 在 [新增專案] 對話方塊中，選取 [Application Insights]。
 
@@ -196,7 +198,10 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 
 ## 升級到新版的 SDK
 
-當[新的 SDK 版本發行時](app-insights-release-notes-windows.md)：* 在您的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。* 選取已安裝的 Application Insights 封裝，然後選擇 [動作：升級]。
+當[新的 SDK 版本發行](app-insights-release-notes-windows.md)時：
+
+* 以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。
+* 選取已安裝的 Application Insights 封裝，然後選擇 [動作: 升級]。
 
 
 ## <a name="usage"></a>後續步驟
@@ -227,4 +232,4 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

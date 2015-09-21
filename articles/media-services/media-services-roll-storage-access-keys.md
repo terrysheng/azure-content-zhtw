@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #如何：更換儲存體存取金鑰之後更新媒體服務
@@ -43,7 +43,7 @@
 
 - 使用媒體服務管理 REST API。
 
-	下列程式碼範例示範如何建構 https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key 要求，以便透過媒體服務同步指定的儲存體金鑰。在本情況中，會使用次要儲存體金鑰。如需詳細資訊，請參閱[如何：使用媒體服務管理 REST API](http://msdn.microsoft.com/zh-tw/library/azure/dn167656.aspx)。
+	下列程式碼範例示範如何建構 https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key 要求，以便透過媒體服務同步指定的儲存體金鑰。在本情況中，會使用次要儲存體金鑰。如需詳細資訊，請參閱[如何：使用媒體服務管理 REST API](http://msdn.microsoft.com/library/azure/dn167656.aspx)。
  
 		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 		{
@@ -106,6 +106,11 @@
 若要更新定位器的到期日，請使用 [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) 或 [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API。請注意，當您更新 SAS 定位器的到期日，URL 也會隨之變更。
 
  
- 
+##媒體服務學習路徑
 
-<!---HONumber=August15_HO7-->
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

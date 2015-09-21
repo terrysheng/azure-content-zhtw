@@ -27,7 +27,7 @@
 
 如果您想要看影片，下方片段播放的步驟與本教學課程相同。
 
-> [AZURE.VIDEO build-offline-apps-azure-mobile-services]
+> [AZURE.VIDEO build-offline-apps-with-mobile-services]
 
 在本教學課程中，您會為支援處理離線同步處理衝突的應用程式，下載通用的 Windows C# 解決方案。您將在應用程式中整合行動服務，然後執行 Windows 市集 8.1 和 Windows Phone 8.1 用戶端以產生同步衝突，並加以解決。
 
@@ -165,4 +165,4 @@
 [Todo 離線行動服務範例]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

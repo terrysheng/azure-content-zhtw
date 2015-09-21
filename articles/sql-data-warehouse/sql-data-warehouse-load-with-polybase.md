@@ -1,20 +1,20 @@
 <properties
    pageTitle="SQL 資料倉儲中的 PolyBase 教學課程 | Microsoft Azure"
-	description="瞭解 PolyBase 是什麼及如何用於資料倉儲案例。"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor="jrowlandjones"/>
+   description="瞭解 PolyBase 是什麼及如何用於資料倉儲案例。"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="05/09/2015"
-	ms.author="sahajs;barbkess"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/02/2015"
+   ms.author="sahajs;barbkess"/>
 
 
 # 使用 PolyBase 載入資料
@@ -137,6 +137,8 @@ DROP EXTERNAL FILE FORMAT text_file_format
 
 LOCATION 選項指定從資料來源根目錄到資料的路徑。在此範例中，資料位於 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'。相同資料表的所有檔案都必須在 Azure BLOB 中相同的邏輯資料夾底下。
 
+您也可以選擇指定拒絕選項 (REJECT\_TYPE、REJECT\_VALUE、REJECT\_SAMPLE\_VALUE)，以決定 PolyBase 如何處理從外部資料來源收到的錯誤記錄。
+
 ```
 -- Creating external table pointing to file stored in Azure Storage
 CREATE EXTERNAL TABLE [ext].[CarSensor_Data] 
@@ -170,11 +172,11 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 ;
 ```
 
-> [AZURE.NOTE]卸除的外部資料表時必須使用 `DROP EXTERNAL TABLE` 您**不能**使用 `DROP TABLE`。
+> [AZURE.NOTE]卸除外部資料表時，您必須使用 `DROP EXTERNAL TABLE`。您**不能**使用 `DROP TABLE`。
 
 參考主題：[卸除外部資料表 (Transact-SQL)][]。
 
-另外值得注意的是外部資料表會同時顯示在 `sys.tables` 以及更明顯的 `sys.external_tables` 目錄檢視。
+另外值得注意的是，外部資料表會同時顯示在 `sys.tables` 以及更明顯的 `sys.external_tables` 目錄檢視中。
 
 ## 替換儲存體金鑰
 
@@ -197,21 +199,17 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 ## 查詢 Azure blob 儲存體資料
 針對外部資料表的查詢只使用資料表名稱，如同關聯式資料表一樣。
 
-這是臨機操作查詢，聯結 SQL 資料倉儲中儲存的保險客戶資料，與 Azure 儲存體 blob 中儲存的汽車感應器資料。結果顯示開車速度超過其他人的駕駛。
 
 ```
--- Join SQL Data Warehouse relational data with Azure storage data. 
-SELECT 
-      [Insured_Customers].[FirstName]
-,     [Insured_Customers].[LastName]
-,     [Insured_Customers].[YearlyIncome]
-,     [CarSensor_Data].[Speed]
-FROM  [dbo].[Insured_Customers] 
-JOIN  [ext].[CarSensor_Data]         ON [Insured_Customers].[CustomerKey] = [CarSensor_Data].[CustomerKey]
-WHERE [CarSensor_Data].[Speed] > 60 
-ORDER BY [CarSensor_Data].[Speed] DESC
+
+-- Query Azure storage resident data via external table. 
+SELECT * FROM [ext].[CarSensor_Data]
 ;
+
 ```
+
+> [AZURE.NOTE]外部資料表上的查詢可能會失敗，並顯示「查詢已中止 -- 從外部來源讀取時已達最大拒絕閾值」錯誤。這表示您的外部資料包含「錯誤」記錄。如果實際的資料類型/資料行數目不符合外部資料表的資料行定義，或資料不符合指定的外部檔案格式，則會將資料記錄視為「錯誤」。若要修正此問題，請確定您的外部資料表及外部檔案格式定義皆正確，且這些定義與您的外部資料相符。萬一外部資料記錄的子集有錯誤，您可以使用 CREATE EXTERNAL TABLE DDL 中的拒絕選項，選擇拒絕這些查詢記錄。
+
 
 ## 從 Azure blob 儲存體載入資料
 此範例將 Azure blob 儲存體中的資料載入至 SQL 資料倉儲資料庫。
@@ -327,4 +325,4 @@ $write.Dispose()
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms189450.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

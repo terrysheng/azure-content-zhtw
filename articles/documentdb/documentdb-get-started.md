@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
+	ms.topic="hero-article" 
 	ms.date="09/03/2015"
 	ms.author="anhoh"/>
 
@@ -34,7 +34,7 @@ DocumentDB 是一個 NoSQL 文件資料庫服務，提供[一些 API 和 SDK](ht
 
 是否沒有時間完成本教學課程，只是想要取得有效的解決方案？ 別擔心。您可以在 [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started) 上找到完整的方案。請參閱[取得完整的解決方案](#GetSolution)，以取得簡要指示。
 
-當您完成此教學課程後，請使用本主題頁首或頁尾的投票按鈕，告訴我們本主題寫得如何。本主題近來時常更新，所以我們需要您提供改善本文的意見反應。如果想要我們與您連絡，歡迎在註解中留下電子郵件地址，以便後續連絡。
+我們會根據您的意見反應，經常更新並改善此主題。當您完成教學課程後，請使用位於此頁面頂端及底部的投票按鈕來投票，並務必對您想看到的改善內容提供您的意見反應。如果想要我們直接與您連絡，歡迎在留言中留下電子郵件地址。
 
 ## 必要條件
 
@@ -480,4 +480,4 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

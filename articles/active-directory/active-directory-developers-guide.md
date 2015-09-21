@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure Active Directory 開發人員指南 | Microsoft Azure"
-	description="本文提供 Azure Active Directory 開發人員導向資源的完整指南。"
-	services="active-directory"
-	documentationCenter="dev-center-name"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   description="本文提供 Azure Active Directory 開發人員導向資源的完整指南。"
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/12/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/02/2015"
+   ms.author="mbaldwin"/>
 
 
 # Azure Active Directory 開發人員指南
@@ -27,7 +27,7 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 1. [Active Directory 驗證案例](active-directory-authentication-scenarios.md)：利用 Azure Active Directory 的簡易驗證來提供登入功能給您的應用程式。
 
-1. [Azure Active Directory 圖形 API](https://msdn.microsoft.com/library/azure/hh974476.aspx)：使用 Azure Active Directory 圖形 API 以程式設計方式透過 REST API 端點存取 Azure Active Directory。
+1. [Azure Active Directory Graph API](active-directory-graph-api.md)：使用 Azure Active Directory Graph API，以程式設計方式透過 REST API 端點存取 Azure Active Directory。
 
 1. [在 Azure Active Directory 中整合應用程式](active-directory-integrating-applications.md)：了解註冊您的應用程式和多租用戶應用程式的商標指導方針。
 
@@ -47,11 +47,17 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 |[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Windows 市集](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
 
 
-### Web 應用程式與 Web API 快速入門指南
+### Web 應用程式快速入門指南
 
-|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)|[![Javascript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)
-|:--:|:--:|:--:|:--:
-|[.NET Web 應用程式](active-directory-devquickstarts-webapp-dotnet.md)|[.NET Web API](active-directory-devquickstarts-webapi-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-webapi-nodejs.md)
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![Javascript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs)
+|:--:|:--:|:--:|
+|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-openidconnect-nodejs)
+
+### Web API 快速入門指南
+
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)
+|:--:|:--:|
+|[.NET](active-directory-devquickstarts-webapi-dotnet.md)|[Node.js](active-directory-devquickstarts-webapi-nodejs.md)
 
 ### 查詢目錄快速入門指南
 
@@ -86,9 +92,9 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 ### Graph API
 
-- [圖形 API 參考](https://msdn.microsoft.com/library/azure/hh974476.aspx)：Azure Active Directory 圖形 API 的 REST 參考。[檢視互動式圖形 API 參考體驗](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
+- [Graph API 參考](https://msdn.microsoft.com/library/azure/hh974476.aspx)：Azure Active Directory Graph API 的 REST 參考。[檢視互動式 Graph API 參考體驗](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
 
-- [圖形 API 權限範圍](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes)：OAuth 2.0 權限範圍，用來控制應用程式對租用戶中的目錄資料有何存取權。
+- [Graph API 權限範圍](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes)：OAuth 2.0 權限範圍，用來控制應用程式對租用戶中的目錄資料有何存取權。
 
 
 ### 驗證通訊協定
@@ -99,7 +105,7 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 - [OAuth 2.0 通訊協定參考](https://msdn.microsoft.com/library/azure/dn645545.aspx)：您可以使用 OAuth 2.0 通訊協定，授權存取 Azure Active Directory 租用戶中的 Web 應用程式和 Web API。
 
 
-- [OpenID Connect 1.0 通訊協定參考](https://msdn.microsoft.com/library/azure/dn645541.aspx)：OpenID Connect 1.0 通訊協定擴充 OAuth 2.0 以做為驗證通訊協定。
+- [OpenID Connect 1.0 通訊協定參考](https://msdn.microsoft.com/library/azure/dn645541.aspx)：OpenID Connect 1.0 通訊協定會擴充 OAuth 2.0 以做為驗證通訊協定。
 
 
 - [WS-同盟 1.2 通訊協定參考](https://msdn.microsoft.com/library/azure/dn903702.aspx)：Web 服務同盟 1.2 版規格中所指定的 WS-同盟 1.2 通訊協定。
@@ -117,7 +123,7 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 - [使用 Azure Active Directory 開發新式原生應用程式](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)
 
 ### Azure Friday
-[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) 是每星期五的一對一影片系列，專門提供簡短的 (10-15 分鐘) 訪談，由專家就各種 Azure 主題發表意見。請使用頁面上的 [服務篩選] 功能，查看所有 Azure Active Directory 影片。
+[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) 是每星期五的一對一影片系列，專門提供簡短的 (10 至 15 分鐘) 訪談，由專家就各種 Azure 主題發表意見。請使用頁面上的 [服務篩選] 功能，查看所有 Azure Active Directory 影片。
 
 - [Azure 身分識別 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)
 - [Azure 身分識別 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
@@ -127,10 +133,10 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 - [Active Directory 團隊部落格](http://blogs.technet.com/b/ad/)：Azure Active Directory 領域的最新發展。
 
-- [Azure Active Directory 圖形團隊部落格](http://blogs.msdn.com/b/aadgraphteam)︰圖形 API 特定的 Azure Active Directory 資訊。
+- [Azure Active Directory Graph 團隊部落格](http://blogs.msdn.com/b/aadgraphteam)︰Graph API 專屬的 Azure Active Directory 資訊。
 
-- [雲端身分識別](http://www.cloudidentity.net)：一位主要 Azure Active Directory PM 對於「身分識別管理即服務」的見解。
+- [雲端識別](http://www.cloudidentity.net)：一位 Azure Active Directory 重要 PM 對於「身分識別管理即服務」的見解。
 
 - [Twitter 上的 Azure Active Directory](https://twitter.com/azuread)：140 個字元以內的 Azure Active Directory 公告。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

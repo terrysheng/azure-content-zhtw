@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -23,13 +23,10 @@
 
 Azure 媒體服務提供一些工具，供您用來建立適用於大部分平台的豐富、動態用戶端播放器應用程式，此處所述的平台包括：iOS 裝置、Android 裝置、Windows、Windows Phone、Xbox 和機上盒。本主題也會提供 SDK 和 Player Framework 連結，可讓您開發自己的用戶端應用程式，使用來自 Azure 媒體服務的串流媒體。
 
-##使用現有播放器來播放您的內容
-
-如需詳細資訊，請參閱[使用現有播放器來播放您的內容](media-services-playback-content-with-existing-players.md)。
 
 ##Azure Media Player
 
-[Azure Media Player](http://aka.ms/ampinfo) 是一款網頁視訊播放器，可以在各種瀏覽器和裝置上播放 Microsoft Azure 媒體服務的媒體內容。Azure Media Player 採用業界標準，例如 HTML5、媒體來源延伸模組 (MSE) 和加密媒體擴充功能 (EME)，提供豐富的調適性串流體驗。無法在裝置或瀏覽器使用這些標準時，Azure Media Player 則會使用 Flash 和 Silverlight 做為後援技術。不論使用何種播放技術，開發人員都會有統一的 JavaScript 介面來存取應用程式開發介面。這樣我們就可以在各種裝置和瀏覽器上順利播放 Azure 媒體服務提供的內容。
+[Azure 媒體播放器](http://aka.ms/ampinfo) 是一款網頁視訊播放器，可以在各種瀏覽器和裝置上播放 Microsoft Azure 媒體服務的媒體內容。Azure Media Player 採用業界標準，例如 HTML5、媒體來源延伸模組 (MSE) 和加密媒體擴充功能 (EME)，提供豐富的調適性串流體驗。無法在裝置或瀏覽器使用這些標準時，Azure Media Player 則會使用 Flash 和 Silverlight 做為後援技術。不論使用何種播放技術，開發人員都會有統一的 JavaScript 介面來存取應用程式開發介面。這樣我們就可以在各種裝置和瀏覽器上順利播放 Azure 媒體服務提供的內容。
 
 我們可以利用 Microsoft Azure 媒體服務播放 DASH、Smooth Streaming 和 HLS 資料流等格式的內容。Azure Media Player 會考量這些不同的格式，並根據平台/瀏覽器功能自動播放最合適的連結。Microsoft Azure 媒體服務也允許利用 PlayReady 加密或 AES 128 位元信封加密，進行資產的動態加密。只要設定正確，Azure Media Player 允許解密 PlayReady 和 AES 128 位元加密的內容。
 
@@ -67,7 +64,16 @@ Azure 媒體服務允許透過 Windows Media 平台插入廣告：Player Framewo
 
 廣告可以放在主要影片時間軸的任何時間點。您必須告訴播放器何時播放廣告以及要播放哪些廣告。使用一組標準的 XML 格式檔案即可搞定：Video Ad Service Template (VAST)、Digital Video Multiple Ad Playlist (VMAP)、Media Abstract Sequencing Template (MAST) 以及 Digital Video Player Ad Interface Definition (VPAID)。VAST 檔案會指定要顯示的廣告。VMAP 檔案會指定何時播放各種廣告而且包含 VAST XML。MAST 檔案是另一種廣告排序的方法，而且也包含 VAST XML。VPAID 檔案會定義影片播放器廣告和廣告或廣告伺服器之間的介面。如需詳細資訊，請參閱[插入廣告](https://msdn.microsoft.com/library/dn387398.aspx)。
 
-如需瞭解即時資料流視訊的隱藏式字幕和廣告支援，請參閱[支援隱藏式字幕和廣告插入標準](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad)。
+如需了解即時資料流視訊的隱藏式字幕和廣告支援，請參閱[支援的隱藏式輔助字幕和廣告插入標準](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad)。
+
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 
 ##另請參閱
 
@@ -76,4 +82,4 @@ Azure 媒體服務允許透過 Windows Media 平台插入廣告：Player Framewo
 [GitHub dash.js 存放庫](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

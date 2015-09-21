@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="如何使用存取控制 (.NET) | Microsoft Azure" 
-	description="了解如何使用 Azure 應用程式中的存取控制服務 (ACS)，以在使用者嘗試存取 Web 應用程式時予以驗證。" 
-	services="active-directory" 
-	documentationCenter=".net" 
-	authors="msmbaldwin" 
-	manager="mbaldwin" 
+<properties
+	pageTitle="如何使用存取控制 (.NET) | Microsoft Azure"
+	description="了解如何使用 Azure 應用程式中的存取控制服務 (ACS)，以在使用者嘗試存取 Web 應用程式時予以驗證。"
+	services="active-directory"
+	documentationCenter=".net"
+	authors="msmbaldwin"
+	manager="mbaldwin"
 	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/02/2015" 
 	ms.author="mbaldwin"/>
 
 
@@ -78,7 +78,7 @@ ACS 是以宣告式身分識別為原則來打造，後者是為內部部署上�
 若要完成本指南中的工作，您需要有下列項目：
 
 -	Azure 訂閱
--	Microsoft Visual Studio 2012 
+-	Microsoft Visual Studio 2012
 -	Visual Studio 2012 的 Identity and Access Tool (若要下載，請參閱 [Identity and Access Tool][] (英文))
 
 
@@ -87,7 +87,7 @@ ACS 是以宣告式身分識別為原則來打造，後者是為內部部署上�
 若要使用 Azure 中的 Active Directory 存取控制，請建立存取控制命名空間。此命名空間可提供在您的應用程式內定址 ACS 資源的唯一範圍。
 
 1.  登入 [Azure 管理入口網站][] (https://manage.WindowsAzure.com)。
-    
+
 2.  按一下 [Active Directory]。
 
 	![][1]
@@ -124,7 +124,7 @@ Azure 即會建立並啟動命名空間。
             if (!String.IsNullOrEmpty(User.Identity.Name))
             {
                 name = User.Identity.Name;
-            }    
+            }
             <text>
             Hello, @Html.ActionLink(name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
                     @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
@@ -238,19 +238,19 @@ Azure 即會建立並啟動命名空間。
         <table>
             <tr>
                 <td>
-                    IsAuthenticated: 
+                    IsAuthenticated:
                 </td>
                 <td>
-                    @ViewBag.ClaimsIdentity.IsAuthenticated 
+                    @ViewBag.ClaimsIdentity.IsAuthenticated
                 </td>
             </tr>
             <tr>
                 <td>
-                    Name: 
-                </td>        
+                    Name:
+                </td>
                 <td>
                     @ViewBag.ClaimsIdentity.Name
-                </td>        
+                </td>
             </tr>
         </table>
         <h3>Claims from ClaimsIdentity</h3>
@@ -349,7 +349,7 @@ Visual Studio 中的 Identity and Access Tool 會自動將您的應用程式與 
 ## 接下來
 
 您已建立與 ACS 整合的 Web 應用程式。不過，這只是開始而已！ 您可以以此案例為基礎進行延伸。
- 
+
 例如，您可以為此 RP 新增更多身分識別提供者，或允許企業目錄 (例如 Active Directory 網域服務) 中註冊的使用者登入 Web 應用程式。
 
 您也可以新增規則至命名空間，來決定哪些宣告會傳送至應用程式以依應用程式商務邏輯進行處理。
@@ -401,6 +401,5 @@ Visual Studio 中的 Identity and Access Tool 會自動將您的應用程式與 
   [18]: ./media/active-directory-dotnet-how-to-use-access-control/acsManagementService.png
   [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

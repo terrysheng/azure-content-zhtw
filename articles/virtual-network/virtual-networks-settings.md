@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="09/02/2015"
    ms.author="telmos" />
 
 # 如何管理虛擬網路 (VNet) 屬性
-您可以使用管理入口網站來檢視和修改 VNet 設定。
+您可以使用 Azure 入口網站來檢視和修改 VNet 設定。
 
 ## 檢視 VNet 設定
 
@@ -100,4 +100,4 @@
 
 [如何刪除虛擬網路 (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -3,11 +3,11 @@
 	description="了解如何使用 PowerShell 部署和管理 Data Protection Manager (DPM) 的 Azure 備份"
 	services="backup"
 	documentationCenter=""
-	authors="SamirMehta"
+	authors="AnuragMehrotra"
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="jimpark"; "aashishr"; "sammehta"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/04/2015" ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
 
 
 # 使用 PowerShell 部署和管理 Data Protection Manager (DPM) 伺服器的 Azure 備份
@@ -21,12 +21,7 @@ PS C:\> & "C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin\DpmCliIn
 
 Welcome to the DPM Management Shell!
 
-Full list of cmdlets: Get-Command
-Only DPM cmdlets: Get-DPMCommand
-Get general help: help
-Get help for a cmdlet: help <cmdlet-name> or <cmdlet-name> -?
-Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax
-Sample DPM scripts: Get-DPMSampleScript
+Full list of cmdlets: Get-Command Only DPM cmdlets: Get-DPMCommand Get general help: help Get help for a cmdlet: help <cmdlet-name> or <cmdlet-name> -? Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax Sample DPM scripts: Get-DPMSampleScript
 ```
 
 ## 設定和註冊
@@ -206,10 +201,11 @@ PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 視需要重複此步驟，直到您已加入所有選取的資料來源至保護群組中為止。您也可以從只有一個資料來源開始，並完成建立保護群組的工作流程，然後稍後將更多的資料來源加入至保護群組。
 
 ### 選取資料保護方式
-資料來源加入至保護群組之後，下一步是使用 [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725) Cmdlet 指定保護方法。此範例中，將為本機磁碟和雲端備份設定保護群組。
+資料來源加入至保護群組之後，下一步是使用 [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725) Cmdlet 指定保護方法。此範例中，將為本機磁碟和雲端備份設定保護群組。您也必須使用 [Add-DPMChildDatasource](https://technet.microsoft.com/zh-TW/library/hh881732.aspx) Cmdlet 搭配 -Online 旗標，指定您想要在雲端中保護的資料來源。
 
 ```
 PS C:\> Set-DPMProtectionType -ProtectionGroup $MPG -ShortTerm Disk –LongTerm Online
+PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS –Online
 ```
 
 ### 設定保留範圍
@@ -301,4 +297,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 ## 後續步驟
 如需 DPM 的 Azure 備份詳細資訊，請參閱 [Azure DPM 備份簡介](backup-azure-dpm-introduction.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

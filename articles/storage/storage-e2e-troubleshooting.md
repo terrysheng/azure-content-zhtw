@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # 使用 Azure 儲存體度量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解 
@@ -23,7 +23,7 @@
 
 在本教學課程中，我們將示範如何識別可能會影響效能的用戶端特定錯誤，以及使用 Microsoft 提供的工具和 Azure 儲存體來從端對端排解這些錯誤，以便最佳化用戶端應用程式。
 
-本教學課程提供端對端疑難排解案例的實際操作探勘。如需疑難排解 Azure 儲存體應用程式的深度概念性指南，請參閱[監控、診斷和疑難排解儲存體](../articles/storage-monitoring-diagnosing-troubleshooting.md)。
+本教學課程提供端對端疑難排解案例的實際操作探勘。如需疑難排解 Azure 儲存體應用程式的深度概念性指南，請參閱[監控、診斷和疑難排解儲存體](storage-monitoring-diagnosing-troubleshooting.md)。
 
 ## 對 Azure 儲存體應用程式進行疑難排解的工具
 
@@ -347,7 +347,7 @@ Message Analyzer 會找出並選取搜尋準則符合用戶端要求識別碼的
 | 若要調查... | 使用篩選運算式… | 運算式套用到記錄檔 (用戶端、伺服器、網路、全部) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | 佇列上未預期的訊息傳遞延遲 | AzureStorageClientDotNetV4.Description 包含「正在重試失敗的作業」。 | 用戶端 |
-| PercentThrottlingError 的 HTTP 增加 | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | 網路 |
+| PercentThrottlingError 的 HTTP 增加 | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | 網路 |
 | PercentTimeoutError 增加 | HTTP.Response.StatusCode == 500 | 網路 |
 | PercentTimeoutError 增加 (全部) |    **StatusCode == 500 | All | | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | | HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | | HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | | 404 (all) | *StatusCode == 404 | All | | Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | | HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | | 409 (all) | *StatusCode == 409 | All | | Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | | Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | | Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | | Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
 
@@ -356,7 +356,7 @@ Message Analyzer 會找出並選取搜尋準則符合用戶端要求識別碼的
 
 如需在 Azure 儲存體中進行端對端案例疑難排解的詳細資訊，請參閱下列資源：
 
-- [監控、診斷及疑難排解儲存體](http://azure.microsoft.com/documentation/articles/storage-monitoring-diagnosing-troubleshooting/)
+- [監控、診斷及疑難排解儲存體](storage-monitoring-diagnosing-troubleshooting.md)
 - [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 - [如何監視儲存體帳戶](storage-monitor-storage-account.md)
 - [如何搭配使用 AzCopy 與 Microsoft Azure 儲存體](storage-use-azcopy.md)
@@ -364,4 +364,4 @@ Message Analyzer 會找出並選取搜尋準則符合用戶端要求識別碼的
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

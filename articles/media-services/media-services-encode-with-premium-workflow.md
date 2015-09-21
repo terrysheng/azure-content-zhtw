@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #使用 Media Encoder Premium Workflow 進行進階編碼
@@ -268,4 +268,12 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 
 如果您的輸入視訊不包含隱藏式字幕，輸出資產仍然會包含空白 TTML 檔案。
 
-<!---HONumber=August15_HO7-->
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

@@ -198,7 +198,7 @@
 
 ## 後續步驟
 
-現在您已了解服務匯流排佇列的基本概念，請參閱 MSDN 主題[佇列、主題和訂閱][]，以取得詳細資訊。
+現在您已了解服務匯流排佇列的基本概念，請參閱[佇列、主題和訂用帳戶][]主題，以取得詳細資訊。
 
 [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
 [Azure Management Portal]: http://manage.windowsazure.com/
@@ -208,9 +208,9 @@
 [Namespace List screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_05_NamespaceList.jpg
 [Properties Pane screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_06_PropertiesPane.jpg
 [Default Key screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg
-[佇列、主題和訂閱]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

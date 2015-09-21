@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="使用 StorSimple Snapshot Manager 來連接和管理 StorSimple 裝置 |Microsoft Azure"
+   pageTitle="使用 StorSimple Snapshot Manager 來管理裝置 | Microsoft Azure"
    description="描述如何使用 StorSimple Snapshot Manager MMC 嵌入式管理單元，來連接和管理 StorSimple 裝置。"
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/18/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Snapshot Manager 來連接和管理 StorSimple 裝置
@@ -262,4 +262,4 @@
 
 [使用 StorSimple Snapshot Manager 來檢視和管理磁碟區](storsimple-snapshot-manager-manage-volumes.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

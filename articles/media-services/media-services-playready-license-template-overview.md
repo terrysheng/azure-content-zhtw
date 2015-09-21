@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #媒體服務 PlayReady 授權範本概觀
@@ -301,4 +301,12 @@ XML 符合 PlayReady 授權範本 XML 結構描述，該結構描述是在 PlayR
 	  <xs:element name="ScmsRestriction" nillable="true" type="tns:ScmsRestriction" />
 	</xs:schema>
 
-<!---HONumber=August15_HO7-->
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

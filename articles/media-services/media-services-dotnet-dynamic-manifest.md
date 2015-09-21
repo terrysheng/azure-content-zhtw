@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用媒體服務 .NET SDK 建立篩選器"
-	description="本主題說明如何建立篩選器，讓您的用戶端可以使用篩選器來串流特定的資料流區段。媒體服務會建立動態資訊清單來完成此選擇性資料流。"
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="使用媒體服務 .NET SDK 建立篩選器" 
+	description="本主題說明如何建立篩選器，讓您的用戶端可以使用篩選器來串流特定的資料流區段。媒體服務會建立動態資訊清單來完成此選擇性資料流。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ne"
-	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ne" 
+	ms.topic="article" 
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 
@@ -135,9 +135,16 @@
 
 
 
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##另請參閱 
 
 [動態資訊清單概觀](media-services-dynamic-manifest-overview.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

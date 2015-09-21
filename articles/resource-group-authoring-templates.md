@@ -1,20 +1,20 @@
 <properties
    pageTitle="編寫 Azure 資源管理員範本"
-	description="使用宣告式 JSON 語法建立 Azure 資源管理員範本，藉此將應用程式部署至 Azure。"
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="使用宣告式 JSON 語法建立 Azure 資源管理員範本，藉此將應用程式部署至 Azure。"
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/20/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/20/2015"
+   ms.author="tomfitz"/>
 
 # 編寫 Azure 資源管理員範本
 
@@ -122,6 +122,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 - object 或 secureObject - 任何有效的 JSON 物件
 - array - 任何有效的 JSON 陣列
 
+若要將參數指定為選用，請將其預設值設定為空字串。
 
 >[AZURE.NOTE]所有密碼、金鑰和其他密碼都應該使用 **secureString** 類型。部署資源後，無法讀取類型為 secureString 的範本參數。
 
@@ -220,7 +221,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 | 元素名稱 | 必要 | 說明
 | :----------------------: | :------: | :----------
-| apiVersion | 是 | 支援資源的 API 版本。如需資源的可用版本及結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)。
+| apiVersion | 是 | 支援資源的 API 版本。如需可用版本及資源的結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)。
 | 類型 | 是 | 資源類型。這個值是資源提供者的命名空間與資源提供者所支援資源類型的組合。
 | 名稱 | 是 | 資源名稱。此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。
 | location | 否 | 所提供資源的支援地理位置。
@@ -313,7 +314,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 ## 進階案例。
 本主題介紹範本。然而，您的案例可能需要更進階的工作。
 
-您可能必須將兩個範本合併在一起，或在上層範本中使用下層範本。如需詳細資訊，請參閱[透過 Azure 資源管理員使用連結的範本](resource-group-linked-templates.md)。
+您可能必須將兩個範本合併在一起，或在上層範本中使用下層範本。如需詳細資訊，請參閱[搭配使用連結的範本與 Azure 資源管理員](resource-group-linked-templates.md)。
 
 建立資源類型時若要逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
 
@@ -402,9 +403,9 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
     }
 
 ## 後續步驟
-- 如需有關您可以在範本內使用之函數的詳細資訊，請參閱 [Azure 資源管理員範本函數](resource-group-template-functions.md)
+- 如需關於您可以在範本內使用之函式的詳細資訊，請參閱 [Azure 資源管理員範本函式](resource-group-template-functions.md)
 - 若要了解如何部署您建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
 - 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)
 - 若要查看可用的結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

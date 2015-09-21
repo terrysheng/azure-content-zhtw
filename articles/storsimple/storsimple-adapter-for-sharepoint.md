@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple Adapter for SharePoint | Microsoft Azure"
-	description="描述如何在 SharePoint 伺服器陣列中安裝並設定 StorSimple Adapter for SharePoint。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="描述如何在 SharePoint 伺服器陣列中安裝、設定或移除 StorSimple Adapter for SharePoint。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/03/2015"
+   ms.author="v-sharos" />
 
 # 安裝和設定 StorSimple Adapter for SharePoint
 
@@ -55,7 +55,7 @@ RBS 的 Microsoft Azure StorSimple 實作提供下列優點：
 
 ### 容量和效能限制
 
-在考慮於 SharePoint 解決方案中使用 RBS 之前，您應該注意 SharePoint Server 2010 和 SharePoint Server 2013 已測試的效能和容量限制，以及這些限制與可接受的效能有何關係。如需詳細資訊，請參閱＜SharePoint 2013 的軟體界限及限制＞。
+在考慮於 SharePoint 解決方案中使用 RBS 之前，您應該注意 SharePoint Server 2010 和 SharePoint Server 2013 已測試的效能和容量限制，以及這些限制與可接受的效能有何關係。如需詳細資訊，請參閱 [SharePoint 2013 的軟體界限及限制](https://technet.microsoft.com/library/cc262787.aspx)。
 
 設定 RBS 之前，請檢閱下列事項：
 
@@ -155,11 +155,11 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 
     2. 啟動伺服器管理員。
 
-    3. 在左窗格中按一下 [**本機伺服器**]。
+    3. 在左窗格中按一下 [本機伺服器]。
 
-    4. 在右窗格中，按一下 [**IE 增強式安全性設定**] 旁邊的 [**開啟**]。
+    4. 在右窗格中，按一下 [IE 增強式安全性設定] 旁邊的 [開啟]。
 
-    5. 在 [**系統管理員**下，按一下 [**關閉**]。
+    5. 在 [系統管理員] 下，按一下 [關閉]。
 
     6. 按一下 [確定]。
 
@@ -175,7 +175,7 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 
 只有在 StorSimple 裝置向 SQL Server 呈現的磁碟區上，才能外部化 BLOB。不支援在其他目標上進行 BLOB 外部化。
 
-當您完成所有必要設定步驟時，請移至[安裝 StorSimple Adapter for SharePoint](#install-the-storsimple-adapter-for-sharepoint)。
+當您完成所有必要條件設定步驟後，請移至[安裝 StorSimple Adapter for SharePoint](#install-the-storsimple-adapter-for-sharepoint)。
 
 ## 安裝 StorSimple Adapter for SharePoint
 
@@ -199,7 +199,7 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 
 當您啟用 RBS 時，此維護程式 (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) 會自動安裝在所有 SharePoint WFE 伺服器和應用程式伺服器上。此程式安裝在下列位置：<boot drive>:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
 
-如需有關設定和使用維護程式的資訊，請參閱[在 SharePoint Server 2013 中維護 RBS][8]。
+如需設定和使用維護程式的相關資訊，請參閱[在 SharePoint Server 2013 中維護 RBS][8]。
 
 >[AZURE.IMPORTANT]RBS 維護程式會消耗大量資源。您應該將它排程在 SharePoint 伺服器陣列的活動量較少期間執行。
 
@@ -226,7 +226,75 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 >
 >- 升級/重新安裝完成之後，您需要針對內容資料庫啟用 RBS。如需詳細資訊，請參閱[設定 RBS](#configure-rbs)。
 >
->- 如果要設定 RBS 的 SharePoint 伺服器陣列有非常大量的資料庫 (超過 200 個)，**SharePoint 管理中心**頁面可能會逾時。如果發生這種情況，請重新整理頁面。這不會影響設定程序。
+>- 如果要設定 RBS 的 SharePoint 伺服器陣列有非常大量的資料庫 (超過 200 個)，則 [SharePoint 管理中心] 頁面可能會逾時。如果發生這種情況，請重新整理頁面。這不會影響設定程序。
+
+[AZURE.INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
+ 
+## 移除 StorSimple Adapter for SharePoint
+
+下列程序描述如何先將 Blob 移回 SQL Server 內容資料庫，然後再解除安裝 StorSimple Adapter for SharePoint。
+
+>[AZURE.IMPORTANT]您必須先將 Blob 移回內容資料庫，才能解除安裝配接器軟體。
+
+### 開始之前 
+
+在將資料移回 SQL Server 內容資料庫並開始配接器移除程序之前，請先收集下列資訊：
+
+- 已啟用 RBS 之所有資料庫的名稱
+- 已設定的 Blob 存放區 UNC 路徑
+
+### 將 Blob 移回內容資料庫
+
+在解除安裝 StorSimple Adapter for SharePoint 軟體之前，必須將所有已外部化的 Blob 移轉回 SQL Server 內容資料庫中。如果您在將所有 Blob 移回內容資料庫之前就先嘗試解除安裝 StorSimple Adapter for SharePoint，則會看到下列警告訊息。
+
+![警告訊息](./media/storsimple-adapter-for-sharepoint/sasp1.png)
+ 
+####將 Blob 移回內容資料庫 
+
+1. 下載每個已外部化的物件。
+
+2. 開啟 [SharePoint 管理中心] 頁面，並瀏覽至 [系統設定]。
+
+3. 在 [Azure StorSimple] 下方，按一下 [設定 StorSimple Adapter]。
+
+4. 在 [設定 StorSimple Adapter] 頁面上，針對您想要從外部 Blob 儲存體移除的每個內容資料庫下方，按一下 [停用] 按鈕。
+
+5. 從 SharePoint 中刪除物件，然後重新上傳。
+
+或者，您可以使用 SharePoint 隨附的 Microsoft ` RBS Migrate()` PowerShell cmdlet。如需詳細資訊，請參閱[將內容移入或移出 RBS](https://technet.microsoft.com/library/ff628255.aspx)。
+
+將 Blob 移回內容資料庫之後，請移至下一個步驟：[解除安裝配接器](#uninstall-the-adapter)。
+
+### 解除安裝配接器
+
+將 Blob 移回 SQL Server 內容資料庫之後，請使用下列其中一個選項，解除安裝 StorSimple Adapter for SharePoint。
+
+#### 使用安裝程式來解除安裝配接器 
+
+1. 使用具有系統管理員權限的帳戶登入 Web 前端 (WFE) 伺服器。
+2. 按兩下 StorSimple Adapter for SharePoint。安裝精靈隨即啟動。
+
+![安裝精靈](./media/storsimple-adapter-for-sharepoint/sasp2.png)
+
+3. 按 [下一步]。下列頁面隨即出現。
+
+![安裝精靈移除頁面](./media/storsimple-adapter-for-sharepoint/sasp3.png)
+
+4. 按一下 [移除] 以選取移除程序。下列頁面隨即出現。
+
+![安裝精靈確認頁面](./media/storsimple-adapter-for-sharepoint/sasp4.png)
+
+5. 按一下 [移除] 確認移除。下列進度頁面隨即出現。
+
+![安裝精靈進度頁面](./media/storsimple-adapter-for-sharepoint/sasp5.png)
+
+6. 移除完成後，會出現完成頁面。按一下 [完成] 以關閉安裝精靈。
+
+#### 使用控制台來解除安裝配接器 
+
+1. 開啟 [控制台]，然後按一下 [程式和功能]。
+
+2. 選取 [StorSimple Adapter for SharePoint]，然後按一下 [解除安裝]。
 
 ## 後續步驟
 
@@ -240,4 +308,4 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/zh-TW/library/ff943565.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

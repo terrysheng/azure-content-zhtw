@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 # 建置 Azure 搜尋服務的原型應用程式
@@ -80,7 +80,7 @@
 
 如果可以將資料置入 JSON 檔案，您可以利用您的資料覆寫現有的檔案，然後執行應用程式來建立和載入索引。將資料分散到多個檔案有助於示範批次上傳作業。
 
-其他載入資料的方法，包括使用索引子 (需要 Azure DocumentDB 資料來源或 Azure SQL Database 資料來源)。示範其他載入資料之方式的範例程式碼，可在 MSDN 上的 [Azure 搜尋服務視訊和教學課程清單](https://msdn.microsoft.com/library/azure/dn818681.aspx)中找到。
+其他載入資料的方法，包括使用索引子 (需要 Azure DocumentDB 資料來源或 Azure SQL Database 資料來源)。您可以在 MSDN 上的 [Azure 搜尋：影片和教學課程清單](search-video-demo-tutorial-list.md)中，找到示範其他載入資料之方式的範例程式碼。
 
 ### 編輯查詢
 
@@ -133,4 +133,4 @@
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

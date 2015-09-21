@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -78,7 +78,15 @@ Azure 媒體服務支援許多熱門的串流格式，例如 Smooth Streaming、
 ##開發視訊播放器
 
 如需瞭解如何自行開發播放程式，請參閱[開發視訊播放器](media-services-develop-video-players.md)
+
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

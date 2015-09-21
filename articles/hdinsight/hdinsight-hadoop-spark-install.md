@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="使用指令碼動作在 Hadoop 叢集上安裝 Spark | Microsoft Azure" 
-	description="了解如何使用 Spark 自訂 HDInsight 叢集。您將使用指令碼動作組態選項來使用指令碼安裝 Spark。" 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="使用指令碼動作在 Hadoop 叢集上安裝 Spark | Microsoft Azure"
+	description="了解如何使用 Spark 自訂 HDInsight 叢集。您將使用指令碼動作組態選項來使用指令碼安裝 Spark。"
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/11/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/11/2015"
 	ms.author="nitinme"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 Spark
@@ -22,8 +22,9 @@
 
 在本主題中，您將學習如何使用指令碼動作來安裝 Spark。安裝 Spark 之後，您也將學習如何在 HDInsight 叢集上執行 Spark 查詢。
 
-> [AZURE.NOTE]HDInsight 現在提供 Spark，做為第一級叢集類型，這表示您現在可以直接佈建 Spark 叢集而不必修改 Hadoop 叢集。使用 Spark 叢集類型時，您會取得具備 Spark 1.3.1 版的 HDInsight 3.2 版叢集。如需詳細資訊，請參閱[開始使用 HDInsight 上的 Apache Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)。
-
+> [AZURE.IMPORTANT]HDInsight 現在為以 Windows 為基礎的叢集，提供 Spark 做為第一級叢集類型，這表示您現在可以直接佈建 Spark 叢集而不必修改 Hadoop 叢集。使用 Spark 叢集類型時，您會取得具備 Spark 1.3.1 版的 HDInsight 3.2 版叢集。如需詳細資訊，請參閱[開始使用 HDInsight 上的 Apache Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)。
+>
+> 如需透過叢集自訂搭配以 Linux 為基礎的叢集使用 Spark 的詳細資訊，請參閱[在以 Linux 為基礎的 HDInsight 叢集上安裝 Spark](hdinsight-hadoop-spark-install-linux.md)。
 
 ## <a name="whatis"></a>什麼是 Spark？
 
@@ -38,7 +39,7 @@ Spark 也可用來執行傳統的磁碟型資料處理。Spark 以避免在中�
 在本主題中，我們使用指令碼動作自訂指令碼在 HDInsight 叢集上安裝 Spark。根據您佈建的 HDInsight 叢集版本，此指令碼可安裝 Spark 1.2.0 或 Spark 1.0.2。
 
 - 如果您在佈建 **HDInsight 3.2** 叢集時使用此指令碼，它會安裝 **Spark 1.2.0**。
-- 如果您在佈建 **HDInsight 3.1** 叢集時使用此指令碼，它會安裝 **Spark 1.0.2**。 
+- 如果您在佈建 **HDInsight 3.1** 叢集時使用此指令碼，它會安裝 **Spark 1.0.2**。
 
 您可以修改此指令碼或建立自有指令碼，以安裝其他版本的 Spark。
 
@@ -58,7 +59,7 @@ Spark 也可用來執行傳統的磁碟型資料處理。Spark 以避免在中�
 2. 在精靈的 [**指令碼動作**] 頁面上，按一下 [**加入指令碼動作**] 以提供有關指令碼動作的詳細資料，如下所示：
 
 	![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-spark-install/HDI.CustomProvision.Page6.png "使用指令碼動作以自訂叢集")
-	
+
 	<table border='1'>
 	<tr><th>屬性</th><th>值</th></tr>
 	<tr><td>名稱</td>
@@ -77,7 +78,7 @@ Spark 也可用來執行傳統的磁碟型資料處理。Spark 以避免在中�
 Spark 提供以 Scala、Python 及 Java 撰寫的 API。您也可以使用互動式 Spark 殼層來執行 Spark 查詢。本節說明如何透過不同方法來使用 Spark：
 
 - [使用 Spark 殼層來執行互動式查詢](#sparkshell)
-- [使用 Spark 殼層來執行 Spark SQL 查詢](#sparksql) 
+- [使用 Spark 殼層來執行 Spark SQL 查詢](#sparksql)
 - [使用獨立 Scala 程式](#standalone)
 
 ###<a name="sparkshell"></a>使用 Spark 殼層來執行互動式查詢
@@ -105,7 +106,7 @@ Spark 提供以 Scala、Python 及 Java 撰寫的 API。您也可以使用互動
 6. 輸出應該如以下所示：
 
 	![在 HDInsight 叢集中執行 Scala 互動式殼層所得到的輸出](./media/hdinsight-hadoop-spark-install/hdi-scala-interactive.png)
-		
+
 
 7. 輸入 :q 以結束 Scala 提示。
 
@@ -166,7 +167,7 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 		import org.apache.spark.SparkContext
 		import org.apache.spark.SparkContext._
 		import org.apache.spark.SparkConf
-		
+
 		object SimpleApp {
 		  def main(args: Array[String]) {
 		    val logFile = "/example/data/gutenberg/davinci.txt"			//Location of the sample data file on Azure Blob storage
@@ -189,18 +190,18 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 
 
 		name := "SimpleApp"
-	
+
 		version := "1.0"
-	
+
 		scalaVersion := "2.10.4"
-	
+
 		libraryDependencies += "org.apache.spark" %% "spark-core" % "1.2.0"
 
 
 
 	>[AZURE.NOTE]請確定在檔案中保留那些空白行。
 
-	
+
 3. 在 **SimpleScalaApp** 資料夾下，建立目錄結構 **\\src\\main\\scala**，然後將您稍早建立的 Scala 程式 (**SimpleApp.scala**) 貼到 \\src\\main\\scala 資料夾下。
 4. 開啟命令提示字元，瀏覽至 SimpleScalaApp 目錄，並輸入下列命令：
 
@@ -243,7 +244,7 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 		$location = "<MicrosoftDataCenter>"				# Location of the HDInsight cluster. It must be in the same data center as the Storage account.
 		$clusterNodes = <ClusterSizeInNumbers>			# Number of nodes in the HDInsight cluster
 		$version = "<HDInsightClusterVersion>"          # For example, "3.2"
-	
+
 2. 指定設定值，例如要使用的叢集中節點和預設儲存體。
 
 		# Specify the configuration options
@@ -252,7 +253,7 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 		$config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
 		$config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
 		$config.DefaultStorageAccount.StorageContainerName=$containerName
-	
+
 3. 使用 **Add-AzureHDInsightScriptAction** Cmdlet 將指令碼動作加入叢集組態。稍後在建立叢集時，將會執行指令碼動作。
 
 		# Add a script action to the cluster configuration
@@ -281,11 +282,11 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">指令碼所需的參數。本主題中使用的範例指令碼不需要任何參數，因此您在上述程式碼片段中看不到此參數。
 </td></tr>
 </table>
-	
+
 4. 最後，開始佈建已安裝 Spark 的自訂叢集。
-	
+
 		# Start provisioning a cluster with Spark installed
-		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version 
+		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
 
 出現提示時，請輸入叢集的認證。建立叢集可能需要幾分鐘的時間。
 
@@ -316,7 +317,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 2. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
 
 3. 在 [**新增專案**] 中，輸入或選取下列值：
-	
+
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
 <tr>
 <th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">屬性</th>
@@ -350,9 +351,9 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 		using Microsoft.WindowsAzure.Management.HDInsight;
 		using Microsoft.WindowsAzure.Management.HDInsight.ClusterProvisioning;
 		using Microsoft.WindowsAzure.Management.HDInsight.Framework.Logging;
-	
+
 9. 在 Main() 函數中，複製及貼上下列程式碼，並提供變數的值：
-		
+
         var clusterName = args[0];
 
         // Provide values for the variables
@@ -365,7 +366,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
         string password = "<HDInsightUserPassword>";
         int clustersize = <NumberOfNodesInTheCluster>;
 
-        // Provide the certificate thumbprint to retrieve the certificate from the certificate store 
+        // Provide the certificate thumbprint to retrieve the certificate from the certificate store
         X509Store store = new X509Store();
         store.Open(OpenFlags.ReadOnly);
         X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.Thumbprint == thumbprint);
@@ -374,7 +375,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
         HDInsightCertificateCredential creds = new HDInsightCertificateCredential(new Guid(subscriptionId), cert);
         var client = HDInsightClient.Connect(creds);
 		client.IgnoreSslErrors = true;
-        
+
         // Provide the cluster information
 		var clusterInfo = new ClusterCreateParameters()
         {
@@ -387,7 +388,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
             Password = password,
             ClusterSizeInNodes = clustersize,
             Version = "3.2"
-        };        
+        };
 
 10. 將下列程式碼附加至 Main() 函數中，以使用 [ScriptAction](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) 類別叫用用來安裝 Spark 的自訂指令碼。
 
@@ -427,6 +428,5 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: ../install-configure-powershell.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

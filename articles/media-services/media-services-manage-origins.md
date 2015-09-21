@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="如何管理媒體服務帳戶中的串流端點"
-	description="本主題說明如何使用 Azure 管理入口網站管理串流端點。"
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="如何管理媒體服務帳戶中的串流端點" 
+	description="本主題說明如何使用 Azure 管理入口網站管理串流端點。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	writer="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -134,10 +135,18 @@
 如需詳細資訊，請參閱[宣佈 Azure 媒體服務與 Azure CDN (內容傳遞網路) 的整合](http://azure.microsoft.com/blog/2015/03/17/announcing-azure-media-services-integration-with-azure-cdn-content-delivery-network/)。
 
 
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 [streaming-endpoint-enable-cdn]: ./media/media-services-manage-origins/media-services-origins-enable-cdn.png
 [streaming-endpoint]: ./media/media-services-manage-origins/media-services-origins-page.png
 [configure-origin]: ./media/media-services-manage-origins/media-services-origins-configure.png
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

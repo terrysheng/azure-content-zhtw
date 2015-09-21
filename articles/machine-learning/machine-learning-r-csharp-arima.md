@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="預測 - 自動迴歸整合式移動平均 (ARIMA) | Microsoft Azure"
-	description="預測 - 自動迴歸整合移動平均 (ARIMA)"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="預測 - 自動迴歸整合式移動平均 (ARIMA) | Microsoft Azure" 
+	description="預測 - 自動迴歸整合移動平均 (ARIMA)" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="yijichen" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="jaymathe"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/02/2015" 
+	ms.author="yijichen"/>
 
  
 #預測 - 自動迴歸整合移動平均 (ARIMA)
@@ -138,4 +138,4 @@ Azure Machine Learning 中已建立新的空白實驗，並已使用預先定義
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

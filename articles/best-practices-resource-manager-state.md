@@ -13,16 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="09/04/2015"
 	ms.author="mmercuri"/>
 
 # Azure 資源管理員範本中的共用狀態
 
 此主題示範在「Azure 資源管理員」範本內以及跨連結的範本，管理及共用狀態的最佳做法。本主題所顯示的參數與變數為您可以定義的物件類型範例，方便您用來組織部署需求。在這些範例中，您可以實作自己的物件與您環境適用的屬性值。
 
+本主題是較大份白皮書的一部分。若要閱讀整份文件，請下載 [世界級 ARM 範本注意事項和證明可行的作法] (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf)。
+
+
 ## 使用複雜物件來共用狀態
 
-除了單一值參數，您可以在「Azure 資源管理員」範本中使用複雜物件做為參數。利用複雜物件，您可以為特定區域實作和參考資料集合，例如 T 恤大小 (用於描述虛擬機器)、網路設定、作業系統 (OS) 設定，以及可用性設定。
+與其給予可提供總彈性和無數個變化的範本，其實常見的模式是提供可選取已知組態的能力 - 實際上，是諸如沙箱、小型、中型和大型等標準 T 恤尺寸。T 恤尺寸的其他範例包括產品供應項目，例如社群版本或企業版本。在其他情況下，這可能是某種技術的工作負載特定組態， 例如，對應減少或沒有 SQL。
+
+有了複雜物件，您可以建立變數，其中包含有時也稱為「屬性包」的資料集合，並使用該資料在範本中驅動資源宣告。這種方法可針對預先為客戶設定好的各種大小提供良好且已知的組態。如果沒有已知組態，客戶就必須自行判斷叢集大小、納入平台資源限制，以及進行數學運算來識別儲存體帳戶所產生的資料分割和其他資源 (因叢集大小和資源限制而導致) 。已知組態讓客戶能夠輕鬆選取正確的 T 恤尺寸，也就是指定的部署。除了為客戶提供更好的經驗，少量的已知組態可讓您更輕鬆地提供支援，並協助您提供較高的密度等級。
+
 
 下列範例將顯示如何定義包含複雜物件以代表資料集合的變數。此集合定義的值用於虛擬機器大小、網路設定、作業系統設定，以及可用性設定。
 
@@ -74,7 +80,7 @@
       "udCount": 5
     }
 
-您稍後可以在範本中參考這些變數。參考具名變數和其屬性的能力可簡化範本語法，而且可以讓您更容易了解內容。下列範例使用如上所示的物件來設定值，以定義要部署的資源。例如，請注意 VM 大小是透過擷取 `variables('tshirtSize').vmSize` 的值來設定，而磁碟大小的值則是擷取自 `variables('tshirtSize').diskSize`。此外，連結的範本之 URI 是使用 `variables('tshirtSize').vmTemplate` 的值所設定。
+您稍後可以在範本中參考這些變數。參考具名變數和其屬性的能力可簡化範本語法，而且可以讓您更容易了解內容。下列範例使用如上所示的物件來設定值，以定義要部署的資源。例如，請注意 VM 大小是透過擷取 `variables('tshirtSize').vmSize` 的值來設定，而磁碟大小的值則是擷取自 `variables('tshirtSize').diskSize`。此外，連結之範本的 URI 是使用 `variables('tshirtSize').vmTemplate` 的值來設定。
 
     "name": "master-node",
     "type": "Microsoft.Resources/deployments",
@@ -146,7 +152,7 @@
 ---- | ----- | -----------
 location | 來自 Azure 區域之條件約束清單的字串 | 將部署資源的位置。
 storageAccountNamePrefix | String | 將放置 VM 磁碟之儲存體帳戶的唯一 DNS 名稱
-domainName | String | 可公開存取的 JumpBox VM 網域名稱 (格式：**{domainName}.{location}.cloudapp.com**) 例如：**mydomainname.westus.cloudapp.azure.com**
+domainName | String | 可公開存取的 jumpbox VM 網域名稱格式為：**{domainName}.{location}.cloudapp.com** 例如：**mydomainname.westus.cloudapp.azure.com**
 adminUsername | String | VM 的使用者名稱
 adminPassword | String | VM 的密碼
 tshirtSize | 來自提供 T 恤大小之條件約束清單的字串 | 要佈建的具名縮放單位大小。例如，"Small"、"Medium"、"Large"
@@ -161,7 +167,7 @@ enableJumpbox | 來自條件約束清單的字串 (enabled/disabled) | 識別是
 
 靜態變數通常用於提供基底值，例如在範本中全程使用的 URL，或用來組合動態變數值的值。
 
-在下面的範本摘要中，*templateBaseUrl* 指定範本在 GitHub 中的根位置。下一行會建置新的變數 *sharedTemplateUrl*，它會串連 *templateBaseUrl* 的值與共用資源範本的已知名稱。接下來，複雜物件變數用來儲存 T 恤大小，其中會串連 *templateBaseUrl* 以指定 *vmTemplate* 屬性中儲存的已知組態範本位置。
+在下面的範本摘要中，*templateBaseUrl* 會指定 GitHub 中範本的根位置。下一行會建置新的變數 *sharedTemplateUrl*，其會將 *templateBaseUrl* 的值與共用資源範本的已知名稱串連在一起。接下來，複雜物件變數會用來儲存 T 恤尺寸，其中會串連 *templateBaseUrl* 以指定 *vmTemplate* 屬性中儲存的已知組態範本位置。
 
 這個方法的好處是您可以輕鬆地移動、分岔，或使用範本做為新範本的基礎。如果範本位置變更，您只需要在一個地方 (亦即主要範本) 變更靜態變數，這樣就可以將變更傳遞到所有範本。
 
@@ -188,9 +194,9 @@ enableJumpbox | 來自條件約束清單的字串 (enabled/disabled) | 識別是
 
 ##### tshirtSize
 
-當呼叫主要範本時，您可以從固定數目的選項中選擇 T 恤大小，通常會包含像是 *Small*、*Medium* 和 *Large* 的值。
+呼叫主要範本時，您可以從固定的選項數中選擇 T 恤尺寸，通常會包含像是 *Small*、*Medium* 和 *Large* 的值。
 
-在主要範本中，這個選項顯示為參數，例如 *tshirtSize*：
+在主要範本中，這個選項會顯示為參數，像是 *tshirtSize*：
 
     "tshirtSize": {
       "type": "string",
@@ -205,7 +211,7 @@ enableJumpbox | 來自條件約束清單的字串 (enabled/disabled) | 識別是
       }
     }
 
-在主要範本內部，變數對應到每個大小。例如，如果可用的大小是 Small、Medium 和 Large，變數區段將會包含名為 *tshirtSizeSmall*、*tshirtSizeMedium* 和 *tshirtSizeLarge* 的變數。
+在主要範本內部，變數對應到每個大小。例如，如果可供選擇的大小為小型、中型和大型，則變數區段會包含名為 *tshirtSizeSmall*、*tshirtSizeMedium* 和 *tshirtSizeLarge* 的變數。
 
 如以下範例所示，這些變數會定義特定 T 恤大小的屬性。每個變數都會識別 VM 類型、磁碟大小、要做為連結目標的關聯縮放單位資源範本、執行個體數目、儲存體帳戶詳細資訊，和 JumpBox 狀態。
 
@@ -251,7 +257,7 @@ enableJumpbox | 來自條件約束清單的字串 (enabled/disabled) | 識別是
       }
     }
 
-*tshirtSize* 變數出現在變數區段的更下方。您提供的 T 恤大小 (*Small*、*Medium* 和 *Large*) 結尾會與文字 *tshirtSize* 串連，來為該 T 恤大小擷取關聯的複雜物件變數：
+*tshirtSize* 變數會出現在變數區段的更下方處。您提供的 T 恤大小 (*Small*、*Medium* 和 *Large*) 結尾會與文字 *tshirtSize* 串連，以便替該 T 恤大小擷取相關聯的複雜物件變數：
 
     "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
 
@@ -294,7 +300,7 @@ enableJumpbox | 來自條件約束清單的字串 (enabled/disabled) | 識別是
 
 ##### storageSettings
 
-儲存體詳細資料通常會與連結的範本共用。在下面的範例中，*storageSettings* 物件提供有關儲存體帳戶和容器名稱的詳細資料。
+儲存體詳細資料通常會與連結的範本共用。在下面的範例中，*storageSettings* 物件會提供有關儲存體帳戶和容器名稱的詳細資料。
 
     "storageSettings": {
         "vhdStorageAccountName": "[parameters('storageAccountName')]",
@@ -319,7 +325,7 @@ enableJumpbox | 來自條件約束清單的字串 (enabled/disabled) | 識別是
 
 ##### machineSettings
 
-一個產生的變數，*machineSettings* 是複雜物件，包含用來建立新 VM 的混合核心變數：系統管理員使用者名稱與密碼、VM 名稱的前置詞，以及作業系統映像參考，如下所示：
+產生的變數 *machineSettings* 為複雜物件，其中包含用來建立新 VM 的混合核心變數：系統管理員使用者名稱與密碼、VM 名稱的前置詞，以及作業系統映像參考，如下所示：
 
     "machineSettings": {
         "adminUsername": "[parameters('adminUsername')]",
@@ -333,17 +339,17 @@ enableJumpbox | 來自條件約束清單的字串 (enabled/disabled) | 識別是
         }
     },
 
-請注意，*osImageReference* 從 *osSettings* 變數 (定義於主要範本) 擷取值。這表示您可以輕鬆地變更 VM 的作業系統—完全地或根據範本取用者的喜好設定。
+請注意 *osImageReference* 會擷取在主要範本中所定義之 *osSettings* 變數的值。這表示您可以輕鬆地變更 VM 的作業系統—完全地或根據範本取用者的喜好設定。
 
 ##### vmScripts
 
-*vmScripts* 物件包含有關在 VM 執行個體上下載及執行的指令碼詳細資料，包括外部和內部參考。外部參考包含基礎結構。內部參考包含已安裝的軟體和組態。
+*vmScripts* 物件包含要在 VM 執行個體上下載及執行之指令碼的詳細資料，包括外部和內部參考。外部參考包含基礎結構。內部參考包含已安裝的軟體和組態。
 
-使用 *scriptsToDownload* 屬性列出要下載到 VM的指令碼。
+您可以使用 *scriptsToDownload* 屬性列出要下載到 VM 的指令碼。
 
 如以下範例所示，此物件也包含對不同動作類型之命令列引數的參考。這些動作包括為每個個別節點執行預設安裝、部署所有節點後所執行的安裝，以及可能為給定範本指定的任何其他指令碼。
 
-這個範例來自用於部署 MongoDB 的範本，需要有仲裁程式以提供高可用性。*arbiterNodeInstallCommand* 已新增到 *vmScripts* 以安裝仲裁程式。
+這個範例來自用於部署 MongoDB 的範本，需要有仲裁程式以提供高可用性。*arbiterNodeInstallCommand* 已加入到 *vmScripts* 中以安裝仲裁程式。
 
 您可以在變數區段中找到定義特定文字以搭配適當的值執行指令碼的變數。
 
@@ -360,7 +366,7 @@ enableJumpbox | 來自條件約束清單的字串 (enabled/disabled) | 識別是
 
 ## 從範本傳回狀態
 
-您不只可以將資料傳遞到範本中，也可以與發出呼叫的範本共用資料。在連結的範本 **outputs** 區段中，您可以提供可由來源範本取用的機碼值組。
+您不只可以將資料傳遞到範本中，也可以與發出呼叫的範本共用資料。在已連結範本的 **outputs** 區段中，您可以提供可供來源範本使用的機碼/值組。
 
 下列範例顯示如何傳遞在連結的範本中產生的私人 IP 位址。
 
@@ -381,4 +387,4 @@ enableJumpbox | 來自條件約束清單的字串 (enabled/disabled) | 識別是
 - [編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
 - [Azure 資源管理員範本函數](resource-group-template-functions.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

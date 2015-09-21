@@ -49,7 +49,7 @@ Azure 搜尋服務會將您的資料儲存在可以透過全文檢索查詢搜�
 
 ##觀看實作示範
 
-觀看我們的影片來了解案例和功能。如需影片內容的連結，請造訪 [Azure 搜尋服務：教學課程、 影片示範和範例](https://msdn.microsoft.com/library/azure/dn818681.aspx)。
+觀看我們的影片來了解案例和功能。如需影片內容的連結，請造訪 [Azure 搜尋：教學課程、影片示範和範例](search-video-demo-tutorial-list.md)。
 
 ##深入探討功能
 
@@ -69,7 +69,7 @@ Azure 搜尋服務會自動涵蓋您已對這項服務所配置之資料分割�
 
 資料分割和複本是整個服務資源，具有所有複本上執行的所有索引。如果您需要索引隔離，或者也許您有地理上將服務和資源散佈在不同資料中心的需求，則可以建立第二個服務。
 
-對儲存體以及載入至服務的索引和文件數目有所限制。您的有效限制將為先到者：即將耗盡實體儲存體，或即將達到索引和文件計數的上限。如需詳細資訊，請參閱[限制和條件約束 (Azure 搜尋服務)](https://msdn.microsoft.com/library/azure/dn798934.aspx)。
+對儲存體以及載入至服務的索引和文件數目有所限制。您的有效限制將為先到者：即將耗盡實體儲存體，或即將達到索引和文件計數的上限。如需詳細資訊，請參閱[限制和條件約束 (Azure 搜尋)](search-limits-quotas-capacity.md)。
 
 ###可程式性
 
@@ -85,7 +85,7 @@ REST API 由 HTTP 要求和回應組成，其內容以 JSON 格式表示。有�
 
 ###索引和文件
 
-您可以有多個索引 (如需根據定價層的限制，請參閱[限制和條件約束 (Azure 搜尋服務)](https://msdn.microsoft.com/library/azure/dn798934.aspx))。請注意，目前不支援聯結索引。搜尋要求可以指定一個索引。
+您可以有多個索引 (如需根據定價層的限制，請參閱[限制和條件約束 (Azure 搜尋)](search-limits-quotas-capacity.md))。請注意，目前不支援聯結索引。搜尋要求可以指定一個索引。
 
 **文件**包含欄位及相關聯的屬性。欄位包含可搜尋的文字、主要 (或甚至以獨佔方式) 用於篩選條件和計分設定檔的值，以及很可能是資料存放區中的 URL 或內容指標，例如影像。許多搜尋應用程式會使用多種形式的儲存體。影像或視訊可以更廉價地儲存在其他儲存媒體中，例如 Azure Blob 儲存體。
 
@@ -129,6 +129,6 @@ REST API 由 HTTP 要求和回應組成，其內容以 JSON 格式表示。有�
 
 您也可以嘗試下列教學課程：
 
-[如何在 .NET 中使用 Azure 搜尋服務](search-howto-dotnet-sdk.md) [開始使用 Azure 搜尋服務 .NET](search-get-started-dotnet.md) [Azure 搜尋服務：教學課程、影片示範和範例](https://msdn.microsoft.com/library/azure/dn818681.aspx)
+[如何在 .NET 中使用 Azure 搜尋](search-howto-dotnet-sdk.md) [開始使用 Azure 搜尋 .NET](search-get-started-dotnet.md) [Azure 搜尋：教學課程、影片示範和範例](search-video-demo-tutorial-list.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

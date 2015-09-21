@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="使用指令碼動作來自訂 HDInsight 叢集 | Microsoft Azure" 
-	description="深入了解使用指令碼動作來自訂 HDInsight 叢集。" 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="使用指令碼動作來自訂 HDInsight 叢集 | Microsoft Azure"
+	description="深入了解使用指令碼動作來自訂 HDInsight 叢集。"
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/07/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/07/2015"
 	ms.author="nitinme"/>
 
 # 使用指令碼動作來自訂 HDInsight 叢集
@@ -26,9 +26,7 @@
 HDInsight 提供一個稱為 [指令碼動作] 的組態選項，可叫用自訂指令碼，以定義佈建處理期間要在叢集上執行的自訂。這些指令碼可用來在叢集上安裝額外的軟體或變更叢集上的應用程式組態。
 
 
-> [AZURE.NOTE]只有在隨附 Windows 作業系統的 HDInsight 叢集 3.1 或更新版本上才支援指令碼動作。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
-> 
-> 可以免費使用指令碼動作做為標準 Azure HDInsight 訂用帳戶的一部分。
+> [AZURE.NOTE]本文的資訊是針對以 Windows 為基礎的 HDInsight 叢集。如需本文中以 Linux 為基礎的叢集的特定版本，請參閱[使用指令碼動作自訂 HDInsight 叢集 (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 
 您也可以使用多種其他方法來自訂 HDInsight 叢集，例如包括額外的 Azure 儲存體帳戶、變更 Hadoop 組態檔 (core-site.xml、hive-site.xml 等)，或是將共用程式庫 (例如 Hive、Oozie) 加入至叢集中的共同位置。這些自訂可以透過 Azure PowerShell、Azure HDInsight .NET SDK 或 Azure 入口網站來完成。如需詳細資訊，請參閱[使用自訂選項在 HDInsight 中佈建 Hadoop 叢集][hdinsight-provision-cluster]。
 
@@ -40,7 +38,7 @@ HDInsight 提供一個稱為 [指令碼動作] 的組態選項，可叫用自訂
 
 當指令碼執行時，叢集會進入 **ClusterCustomization** 階段。在此階段，指令碼會在系統管理員帳戶下，以平行方式在叢集中所有指定的節點上執行，而在節點上提供完整的系統管理員權限。
 
-> [AZURE.NOTE]因為您在 **ClusterCustomization** 階段中於叢集節點上擁有系統管理員權限，所以您可以使用指令碼來執行作業，例如停止和啟動服務，包括 Hadoop 相關服務。因此，在指令碼中，您必須在指令碼完成執行之前，確定 Ambari 服務及其他 Hadoop 相關服務已啟動並且正在執行。這些服務必須在叢集建立時，成功地確定叢集的健康情況和狀態。如果您變更叢集上的任何會影響這些服務的組態，就必須使用所提供的協助程式函式。如需 Helper 函式的詳細資訊，請參閱[開發 HDInsight 的指令碼動作指令碼][hdinsight-write-script]。
+> [AZURE.NOTE]因為您在 **ClusterCustomization** 階段中於叢集節點上擁有系統管理員權限，所以您可以使用指令碼來執行作業，例如停止和啟動服務，包括 Hadoop 相關服務。因此，在指令碼中，您必須在指令碼完成執行之前，確定 Ambari 服務及其他 Hadoop 相關服務已啟動並且正在執行。這些服務必須在叢集建立時，成功地確定叢集的健康情況和狀態。如果您變更叢集上的任何會影響這些服務的組態，就必須使用所提供的協助程式函式。如需關於協助程式函式的詳細資訊，請參閱[開發 HDInsight 的指令碼動作指令碼][hdinsight-write-script]。
 
 指令碼的輸出和錯誤記錄檔會儲存在您為叢集指定的預設儲存體帳戶中。記錄檔是以 **u<\\cluster-name-fragment><\\time-stamp>setuplog** 的名稱儲存在資料表中。這些是從叢集中所有節點上 (前端節點和背景工作節點) 執行之指令碼彙總的記錄檔。
 
@@ -58,17 +56,17 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 **安裝 Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Spark][hdinsight-install-spark]。
 **安裝 R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1。請參閱[在 HDInsight 叢集上安裝及使用 R][hdinsight-install-r]。
 **安裝 Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install.md)。
-\- **安裝 Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install.md)。
+- **安裝 Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install.md)。
 
 
 
 **在 Azure Preview 入口網站**
 
-1. 依照[使用自訂選項佈建叢集](hdinsight-provision-clusters.md#portal)所述，開始佈建叢集。 
-2. 在 [選擇性組態] 的 [指令碼動作] 刀鋒視窗上，按一下 [加入指令碼動作] 以提供有關指令碼動作的詳細資料，如下所示：
+1. 依照[使用自訂選項佈建叢集](hdinsight-provision-clusters.md#portal)所述，開始佈建叢集。
+2. 在 [選擇性組態] 的 [指令碼動作] 刀鋒視窗中，按一下 [加入指令碼動作] 以提供有關指令碼動作的詳細資料，如下所示：
 
 	![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "使用指令碼動作以自訂叢集")
-	
+
 	<table border='1'>
 	<tr><th>屬性</th><th>值</th></tr>
 	<tr><td>名稱</td>
@@ -82,7 +80,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 </table>請按 ENTER 加入一個以上的指令碼動作，以在叢集上安裝多個元件。
 
 3. 按一下 [選取] 儲存指令碼動作組態，並繼續佈建叢集。
-  
+
 
 ## 支援在 HDInsight 叢集上使用開放原始碼軟體
 Microsoft Azure HDInsight 服務是彈性的平台，可讓您使用以 Hadoop 形成之開放原始碼技術的生態系統，在雲端中建置巨量資料應用程式。Microsoft Azure 提供對開放原始碼技術的一般層級支援，如 <a href="http://azure.microsoft.com/support/faq/" target="_blank">Azure 支援常見問題集網站</a>的**支援範圍**章節中所述。HDInsight 服務對於某些元件提供額外層級的支援，如下所述。
@@ -124,6 +122,5 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "叢集佈建期間的階段"
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

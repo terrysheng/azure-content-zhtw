@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="09/08/2015" 
 	ms.author="awills"/>
  
 # 監視 Web 應用程式的效能 (英文)
@@ -22,23 +22,26 @@
 
 確認應用程式的運作狀況良好，以及迅速找出任何失敗。[Application Insights][start] 能指出任何效能問題和例外狀況，以及協助您尋找及診斷根本原因。
 
-Application Insights 能監視託管於內部部署設施或虛擬機器上的 ASP.NET Web 應用程式和 WCF 服務，以及 Microsoft Azure 網站。
+Application Insights 可以監視 Java 和 ASP.NET Web 應用程式與服務、WCF 服務。這些服務可以裝載在內部部署、虛擬機器上，或做為 Microsoft Azure 網站。
+
+用戶端方面，Application Insights 可從網頁及各種裝置 (包括 iOS、Android 和 Windows 市集應用程式) 上取得遙測。
 
 
 ## <a name="setup"></a>設定效能監視
 
 如果您尚未將 Application Insights 新增至專案中 (亦即專案沒有 ApplicationInsights.config)，請選擇以下任一種方法來開始使用：
 
-* [將 Application Insights 新增至 Visual Studio 中的專案][greenbrown] - 建議方法。除了被動效能監視之外，您還可以插入診斷記錄及追蹤流量。
-* [立即監視即時網站的效能][redfield] (英文) - 如果您選用這個方法，便不需要更新應用程式專案或重新部署網站。
-* [若為 Microsoft Azure 網站](../insights-how-to-customize-monitoring.md)，您已經可以在網站的 [監視] 透鏡上查看度量。 
-
-使用其中一種方法，即可在 Application Insights 中的 [概觀] 刀鋒視窗中快速查看資料。使用其中一種方法，即可在 Application Insights 中的 [概觀] 刀鋒視窗中快速查看資料。
+* [ASP.NET Web 應用程式](app-insights-asp-net.md)
+* [J2EE Web 應用程式](app-insights-java-get-started.md)
 
 
-## <a name="view"></a>探索度量
+## <a name="view"></a>探索效能度量
 
-按一下任一項目可查看詳細資料，也能查看較長期的結果。例如，按一下 [要求] 磚，然後選取時間範圍：
+在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您為應用程式設定的 Application Insights 資源。概觀刀鋒視窗會顯示基本的效能資料：
+
+
+
+按一下任一圖表可查看詳細資料，也能查看較長期的結果。例如，按一下 [要求] 磚，然後選取時間範圍：
 
 
 ![按一下詳細資料的方式來選取時間範圍](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
@@ -106,7 +109,7 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 
 您可以選擇的度量包含[效能計數器](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters)。Windows 提供多種計數器，您也可以自行定義。
 
-此範例會顯示預設提供的效能計數器。針對每個計數器我們有[加入個別的圖表](app-insights-metrics-explorer.md#editing-charts-and-grids)，並[另存為我的最愛](app-insights-metrics-explorer.md#editing-charts-and-grids)來命名圖表：
+此範例會顯示預設提供的效能計數器。我們已針對每個計數器[加入個別的圖表](app-insights-metrics-explorer.md#editing-charts-and-grids)，並透過[另存為我的最愛](app-insights-metrics-explorer.md#editing-charts-and-grids)來命名圖表：
 
 ![](./media/app-insights-web-monitor-performance/sys-perf.png)
 
@@ -116,11 +119,11 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
       <Counters>
         <Add PerformanceCounter="\Objects\Processes"/>
-        <Add PerformanceCounter="\Sales(electronics)#Items Sold" ReportAs="Item sales"/>
+        <Add PerformanceCounter="\Sales(electronics)# Items Sold" ReportAs="Item sales"/>
       </Counters>
     </Add>
 
-格式為 `\Category(instance)\Counter"`，若是沒有執行個體的類別，則為 `\Category\Counter`。若要探索您的系統中有哪些可用計數器，請閱讀[本簡介](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters)。
+格式為 `\Category(instance)\Counter"`，若是沒有執行個體的類別，則為 `\Category\Counter`。若要探索您的系統中有哪些計數器可用，請閱讀[本簡介](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters)。
 
 若計數器名稱含有下列項目以外的字元，則需要 `ReportAs`：字母、圓角括號、斜線、連字號、底線、空格和點。
 
@@ -131,7 +134,7 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
     var perfCollector = new PerformanceCollectorModule();
     perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
     perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
-      @"\Sales(electronics)#Items Sold", "Items sold"));
+      @"\Sales(electronics)# Items Sold", "Items sold"));
     perfCollector.Initialize(TelemetryConfiguration.Active);
     TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
 
@@ -183,4 +186,4 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

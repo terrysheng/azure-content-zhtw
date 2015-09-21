@@ -145,9 +145,10 @@ PHP | [Azure AD Graph API 的 PHP 範例應用程式](http://code.msdn.microsoft
 
 ##### 其他資源
 
+[Azure Active Directory 開發人員指南](active-directory-developers-guide.md)
 
 [Azure AD Graph API 協助程式程式庫](http://code.msdn.microsoft.com/Windows-Azure-AD-Graph-API-a8c72e18)
 
 [使用 OAuth 和 Active Directory Federation Services 開發現代化的應用程式](http://msdn.microsoft.com/library/dn633593.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

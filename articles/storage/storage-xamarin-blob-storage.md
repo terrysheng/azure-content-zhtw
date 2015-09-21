@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # 如何使用 Xamarin 的 Blob 儲存體 (預覽)
@@ -179,4 +179,4 @@ Xamarin 可讓開發人員使用共用的 C# 程式碼基底，使用其原生�
 [如何使用 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -98,7 +98,7 @@ Microsoft Azure 搜尋服務是一項可讓您將搜尋功能內嵌到自訂用�
 
 額外的複本和資料分割會以搜尋單位計費。當您新增資源時，頁面上會顯示要支援任何特定資源設定所需要的搜尋單位總數。
 
-您可以查看[定價詳細資料](http://go.microsoft.com/fwlink/p/?LinkID=509792)以取得每單位的計費資訊。有關如何設定資料分割和複本的組合，請參閱[限制和條件約束](http://msdn.microsoft.com/library/azure/dn798934.aspx)以協助您決定設定方式。
+您可以查看[定價詳細資料](http://go.microsoft.com/fwlink/p/?LinkID=509792)以取得每單位的計費資訊。有關如何設定資料分割和複本的組合，請參閱[限制和條件約束](search-limits-quotas-capacity.md)以協助您決定設定方式。
 
  ![][15]
 
@@ -378,4 +378,4 @@ Microsoft Azure 搜尋服務是一項可讓您將搜尋功能內嵌到自訂用�
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

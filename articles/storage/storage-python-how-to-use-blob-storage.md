@@ -114,4 +114,4 @@
 [Python Azure 封裝]: https://pypi.python.org/pypi/azure
 [Python Azure 儲存體封裝]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

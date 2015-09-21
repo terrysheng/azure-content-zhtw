@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/18/2015"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -417,13 +417,14 @@ MPEG DASH
 
 若要測試漸進式下載，請將 URL 貼入瀏覽器 (例如，Internet Explorer、Chrome 或 Safari)。
 
-##後續步驟
 
-若要深入了解建置點播視訊應用程式的相關資訊，請參閱[建置 VoD 應用程式](media-services-video-on-demand-workflow.md)。
 
-###其他資源
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - 立即在線上取得您的影片！</a>
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - 動態封裝和行動裝置</a>
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 <!-- Anchors. -->
@@ -431,6 +432,6 @@ MPEG DASH
 
 <!-- URLs. -->
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
-  [管理入口網站]: http://manage.windowsazure.com/
+  [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

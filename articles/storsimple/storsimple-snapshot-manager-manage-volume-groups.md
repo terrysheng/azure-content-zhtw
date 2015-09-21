@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="使用 StorSimple Snapshot Manager 來建立和管理磁碟區群組 |Microsoft Azure"
+   pageTitle="StorSimple Snapshot Manager 磁碟區群組 | Microsoft Azure"
    description="描述如何使用 StorSimple Snapshot Manager MMC 嵌入式管理單元，來建立和理磁碟區群組。"
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Snapshot Manager 來建立和管理磁碟區群組
@@ -142,4 +142,4 @@
 
 [使用 StorSimple Snapshot Manager 建立和管理備份原則](storsimple-snapshot-manager-manage-backup-policies.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

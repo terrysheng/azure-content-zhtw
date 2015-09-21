@@ -76,7 +76,7 @@
 |	具有異常登入活動的使用者 | | |	✓ |
 |	認證外洩的使用者 | | |	✓ |
 |	**活動記錄檔**
-|	稽核報告 |	✓ | | |
+|	稽核報告 |	✓ |	✓ |	✓ |
 |	密碼重設活動 | | |	✓ |
 |	密碼重設註冊活動 | | |	✓ |
 |	自助服務群組活動 | | |	✓ |
@@ -276,4 +276,4 @@
 - [開始使用 Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

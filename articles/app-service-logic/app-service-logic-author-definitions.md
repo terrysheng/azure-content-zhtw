@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="撰寫邏輯應用程式定義"
-	description="了解如何撰寫邏輯應用程式的 JSON 定義。"
-	authors="stepsic-microsoft-com"
-	manager="dwrede"
-	editor=""
-	services="app-service\logic"
+	pageTitle="撰寫邏輯應用程式定義" 
+	description="了解如何撰寫邏輯應用程式的 JSON 定義。" 
+	authors="stepsic-microsoft-com" 
+	manager="dwrede" 
+	editor="" 
+	services="app-service\logic" 
 	documentationCenter=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 	
 #撰寫邏輯應用程式定義
@@ -686,6 +686,41 @@ Content-type: application/json
 }
 ``` 
 
-然後，在每個環境中，您就可以提供不同的值給 `connection` 參數。如需有關建立及管理邏輯應用程式的所有可用選項，請參閱 [REST API 文件](https://msdn.microsoft.com/library/azure/dn948513.aspx)。
+然後，在每個環境中，您就可以提供不同的值給 `connection` 參數。
 
-<!---HONumber=September15_HO1-->
+## 執行步驟直到條件符合
+
+您需要有要呼叫的 API，且您必須等候特定回應才能繼續。想像一下，例如您在處理檔案前，想要等某人將檔案上傳至目錄。您可以使用 *do-until* 陳述式來執行此步驟：
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "triggers": {},
+    "actions": {
+        "http0": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://mydomain/listfiles"
+            },
+            "until": {
+                "limit": {
+                    "timeout": "PT10M"
+                },
+                "conditions": [
+                    {
+                        "expression": "@greater(length(action().outputs.body),0)"
+                    }
+                ]
+            }
+        }
+    },
+    "outputs": {}
+}
+```
+
+如需有關建立及管理邏輯應用程式的所有可用選項，請參閱 [REST API 文件](https://msdn.microsoft.com/library/azure/dn948513.aspx)。
+
+<!---HONumber=Sept15_HO2-->

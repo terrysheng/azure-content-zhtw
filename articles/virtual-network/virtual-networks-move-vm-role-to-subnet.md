@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/29/2015"
+   ms.date="09/04/2015"
    ms.author="telmos" />
 
 # 如何將 VM 或角色執行個體移至不同的子網路
@@ -51,4 +51,4 @@
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

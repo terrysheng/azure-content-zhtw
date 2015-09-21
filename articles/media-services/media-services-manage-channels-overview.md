@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用通道，從內部部署編碼器接收多位元速率即時串流"
-	description="本主題描述如何讓通道接收內部部署編碼器的多位元速率即時資料流。串流可以隨即透過一或多個串流端點傳遞給用戶端播放應用程式，使用下列其中一個自動調整串流通訊協定：HLS、Smooth Streaming、MPEG DASH、HDS。"
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="使用通道，從內部部署編碼器接收多位元速率即時串流" 
+	description="本主題描述如何讓通道接收內部部署編碼器的多位元速率即時資料流。串流可以隨即透過一或多個串流端點傳遞給用戶端播放應用程式，使用下列其中一個自動調整串流通訊協定：HLS、Smooth Streaming、MPEG DASH、HDS。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ne"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ne" 
+	ms.topic="article" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #使用通道，從內部部署編碼器接收多位元速率即時串流
@@ -246,6 +246,15 @@ SCTE-35|數位訊號系統，用來提示廣告插入。下游接收端會使用
 
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##相關主題
 
 [Azure 媒體服務的分散 MP4 即時內嵌規格](media-services-fmp4-live-ingest-overview.md)
@@ -257,4 +266,4 @@ SCTE-35|數位訊號系統，用來提示廣告插入。下游接收端會使用
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

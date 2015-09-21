@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="行動服務和 Azure Active Directory 中的角色型存取控制 (Windows 市集) | Microsoft Azure" 
-	description="了解如何在 Windows Store 應用程式中控制以 Azure Active Directory 角色為基礎的存取權。" 
+	pageTitle="使用 JavaScript 和 Azure Active Directory 的行動服務中的角色型存取控制 (Windows 市集) | Microsoft Azure" 
+	description="了解如何在 Windows 市集應用程式中，搭配 JavaScript 後端使用行動服務，控制以 Azure Active Directory 角色為基礎的存取權。" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="09/03/2015" 
 	ms.author="wesmc"/>
 
-# 行動服務和 Azure Active Directory 中的角色型存取控制
+# 使用 .NET 和 Azure Active Directory 的行動服務中的角色型存取控制
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
@@ -24,7 +24,7 @@
 
 角色型存取控制 (RBAC) 是將您的使用者可具備的權限指派給角色，而妥善定義哪些類別的使用者可執行哪些動作的實務作法。本教學課程將逐步解說如何將基本 RBAC 新增至 Azure 行動服務。
 
-本教學課程將說明角色型存取控制，檢查每個使用者在 Azure Active Directory (AAD) 中定義之「銷售」群組的成員資格。存取檢查將在行動服務後端中，使用 JavaScript 和 Azure Active Directory 的[圖形 API] 來執行。只有屬於「銷售」角色的使用者能夠查詢資料。
+本教學課程將說明角色型存取控制，檢查每個使用者在 Azure Active Directory (AAD) 中定義之「銷售」群組的成員資格。存取檢查將在行動服務後端中，使用 JavaScript 和 Azure Active Directory 的[Graph API] 來執行。只有屬於「銷售」角色的使用者能夠查詢資料。
 
 
 >[AZURE.NOTE]本教學課程的目的是要擴充驗證知識以加入授權實務作法。您應先使用 Azure Active Directory 驗證提供者完成[將驗證新增至您的行動服務應用程式]教學課程。本教學課程接著將更新[將驗證新增至您的行動服務應用程式]教學課程中使用的 TodoItem 應用程式。
@@ -280,9 +280,10 @@
 [Directory Sync Scenarios]: http://msdn.microsoft.com/library/azure/jj573653.aspx
 [儲存伺服器指令碼]: mobile-services-store-scripts-source-control.md
 [註冊使用 Azure Active Directory 登入]: mobile-services-how-to-register-active-directory-authentication.md
+[Graph API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [圖形 API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [圖形 API 錯誤參考]: http://msdn.microsoft.com/library/azure/hh974480.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [存取 Azure Active Directory Graph 資訊]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

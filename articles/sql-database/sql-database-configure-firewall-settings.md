@@ -13,14 +13,15 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.topic="article" 
+	ms.date="09/04/2015"
 	ms.author="rickbyh"/>
 
 
 # 如何：在 SQL Database 上進行防火牆設定
 
- Microsoft Azure SQL Database 使用防火牆規則以允許連接到您的伺服器和資料庫。您可以在 Azure SQL Database 伺服器中，針對主要或使用者資料庫定義伺服器層級和資料庫層級的防火牆設定，以選擇性地允許存取資料庫。
+
+Microsoft Azure SQL Database 使用防火牆規則以允許連接到您的伺服器和資料庫。您可以在 Azure SQL Database 伺服器中，針對主要或使用者資料庫定義伺服器層級和資料庫層級的防火牆設定，以選擇性地允許存取資料庫。
 
 **重要** 若要允許從 Azure 的應用程式連接到您的資料庫伺服器，必須啟用 Azure 連線。如需防火牆規則及啟用來自 Azure 連線的詳細資訊，請參閱 [Azure SQL Database 防火牆](sql-database-firewall-configure.md)。
 
@@ -30,24 +31,14 @@
 伺服器層級防火牆規則可透過 Microsoft Azure 管理入口網站、Transact-SQL、Azure PowerShell 或 REST API 來建立及管理。
 
 ### 透過新的 Azure 入口網站來管理伺服器層級防火牆規則
-1. 瀏覽 https://portal.azure.com 上的 Azure 入口網站，並使用您的 Azure 系統管理員或參與者帳戶登入。
-2. 在左橫幅中，按一下 [全部瀏覽]，向下捲動，然後按一下 [SQL Server]。
-3. 在顯示的 SQL Server 清單中，按一下要設定防火牆規則的伺服器。
 
-	![防火牆][1]
 
-4. 在伺服器刀鋒視窗中，按一下刀鋒視窗頂端的 [設定]，然後按一下 [防火牆] 以開啟伺服器的 [防火牆設定] 刀鋒視窗。
-5. 加入或變更防火牆規則。
+[AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
-	* 若要加入目前電腦的 IP 位址，按一下刀鋒視窗頂端的 [**新增用戶端 IP**]。
-	* 若要新增其他 IP 位址，請輸入**規則名稱**、**起始 IP** 位址和**結束 IP** 位址。
-	* 若要修改現有的規則，請按一下和變更規則中的任何欄位。
-	* 要刪除現有的規則，請按一下規則，按一下資料列尾端的省略符號 (...)，然後按一下 [**刪除**]。
-6. 按一下 [防火牆設定] 刀鋒視窗頂端的[儲存] 以儲存變更。![防火牆刀鋒視窗][2] 
 
 ## 透過管理入口網站來管理伺服器層級防火牆規則 
 
-1. 在 [管理入口網站] 中，按一下 [**SQL Database**]。這裡會列出所有資料庫及其對應的伺服器。
+1. 在管理入口網站中，按一下 [SQL Database]。這裡會列出所有資料庫及其對應的伺服器。
 2. 按一下頁面頂端的 [伺服器]。
 3. 按一下您要管理防火牆規則的伺服器旁邊的箭號。
 4. 按一下頁面頂端的 [設定]。
@@ -56,7 +47,7 @@
 	*  若要新增其他 IP 位址，請輸入「規則名稱」、「起始 IP 位址」和「結束 IP 位址」。
 	*  若要修改現有的規則，請按一下和修改規則中的任何欄位。
 	*  若要刪除現有的規則，將滑鼠停留在規則上方，直到資料列結尾出現 X。按一下 X 移除規則。
-5. 按一下頁面底部的 [**儲存**] 以儲存變更。
+5. 按一下頁面底部的 [儲存] 以儲存變更。
 
 ## 透過 Transact-SQL 來管理伺服器層級防火牆規則
 
@@ -143,11 +134,11 @@
  
 ## 後續步驟
 
-如需有關建立資料庫的教學課程，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)。如需從開放原始碼或協力廠商應用程式連線到 Azure SQL Database 的說明，請參閱[以程式設計方式連接到 Azure SQL Database 的指導方針](https://msdn.microsoft.com/library/azure/ee336282.aspx)。若要了解如何巡覽至資料庫，請參閱[管理 Azure SQL Database 中的資料庫和登入](https://msdn.microsoft.com/library/azure/ee336235.aspx)。
+如需建立資料庫的教學課程，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)。如需從開放原始碼或協力廠商應用程式連接到 Azure SQL Database 的說明，請參閱[以程式設計方式連接至 Azure SQL Database 的方針](https://msdn.microsoft.com/library/azure/ee336282.aspx)。若要了解如何瀏覽至資料庫，請參閱[管理 Azure SQL Database 中的資料庫和登入](https://msdn.microsoft.com/library/azure/ee336235.aspx)。
 
 <!--Image references-->
 [1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

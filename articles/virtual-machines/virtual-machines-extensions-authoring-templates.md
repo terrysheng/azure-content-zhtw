@@ -1,20 +1,20 @@
 <properties
    pageTitle="使用 Azure VM 延伸模組編寫範本 | Microsoft Azure"
-	description="深入了解如何使用延伸模組編寫範本"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   description="深入了解如何使用延伸模組編寫範本"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="kundanap"/>
 
 # 使用 VM 延伸模組編寫 Azure 資源管理員範本。
 
@@ -22,10 +22,10 @@
 
 Azure 資源管理員範本可讓您藉由定義資源之間的相依性，以宣告方式指定 JSON 語言中的 Azure IaaS 基礎結構。如需 Azure 資源管理員範本的詳細概觀，請參閱以下文章：
 
-<a href="https://azure.microsoft.com/zh-TW/documentation/articles/resource-group-overview/" target="_blank">資源群組概觀</a>。<br/><a href="https://azure.microsoft.com/zh-TW/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank">以 Azure CLI 部署範本</a>。<br/><a href="https://azure.microsoft.com/zh-TW/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">以 Azure Powershell 部署範本</a>。
+[資源群組概觀](../resource-group-overview.md)
 
 ## VM 延伸模組的範例範本程式碼片段。
-用於部署延伸模組的範本程式碼片段如下所示：
+若要將 VM 延伸模組部署到 Azure 資源管理員範本中，您必須以宣告方式在範本中指定延伸模組組態。以下是用來指定延伸模組組態的格式。
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -43,6 +43,11 @@ Azure 資源管理員範本可讓您藉由定義資源之間的相依性，以�
       }
       }
       }
+
+您可以在以上程式碼中看到，延伸模組範本包含兩個主要部分：
+
+1. 延伸模組名稱、發行者和版本。
+2. 延伸模組組態。
 
 ## 識別任何延伸模組的 publisher、type 和 the typeHandlerVersion。
 
@@ -68,14 +73,16 @@ Azure VM 延伸模組是由 Microsoft 和受信任的第 3 方發行者所發佈
 
 編寫延伸模組範本的下一個步驟是識別用於提供組態參數的格式。每個延伸模組都支援自己的參數集。
 
-若要查看 Windows 延伸模組的一些範例組態，請按一下 [Windows 延伸模組範例](virtual-machines-extensions-configuration-samples-windows.md)文件。
+若要查看 Windows 延伸模組的範例組態，請按一下 [Windows 延伸模組範例](virtual-machines-extensions-configuration-samples-windows.md)文件。
 
-若要查看 Linux 延伸模組的一些範例組態，請按一下 [Linux 延伸模組範例](virtual-machines-extensions-configuration-samples-linux.md)文件。
+若要查看 Linux 延伸模組的範例組態，請按一下 [Linux 延伸模組範例](virtual-machines-extensions-configuration-samples-linux.md)文件。
 
 請參閱 VM 範本的下列項目以取得 VM 延伸模組的完整範本。
 
-<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">在 Linux VM 上的自訂指令碼延伸模組</a>。</br><a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">在 Windows VM 上的自訂指令碼延伸模組</a>。
+[Windows VM 上的自訂指令碼延伸模組](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+
+[Linux VM 上的自訂指令碼延伸模組](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
 編寫範本之後，您可以使用 Azure CLI 或 Azure Powershell 部署它們。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用 Azure 通知中樞 | Microsoft Azure"
+	pageTitle="開始使用適用於 Kindle 應用程式的 Azure 通知中樞 | Microsoft Azure"
 	description="在本教學課程中，您會了解如何使用 Azure 通知中樞將推播通知傳送至 Kindle 應用程式。"
 	services="notification-hubs"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# 開始使用通知中心
+# 開始使用適用於 Kindle 應用程式的通知中樞
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -281,4 +281,4 @@
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

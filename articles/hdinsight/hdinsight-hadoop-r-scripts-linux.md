@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="在 HDInsight 中使用 R 來自訂叢集| Microsoft Azure"
 	description="了解如何安裝和使用 R 來自訂 Hadoop 叢集。"
 	services="hdinsight"
@@ -7,7 +7,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
+<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
@@ -20,7 +20,7 @@
 
 您可以使用**指令碼動作**叢集自訂，在 HDInsight 上 Hadoop 中的任何一種叢集上安裝 R。這可讓資料科學家和分析師使用 R 來部署強大的 MapReduce/YARN 程式設計架構，以處理部署在 HDInsight 中之 Hadoop 叢集上的大量資料。
 
-> [AZURE.NOTE]此文件中的步驟需要以 Linux 為基礎的 HDInsight 叢集。如需使用以 Windows 為基礎的 R 的詳細資訊，請參閱[在 HDInsight Hadoop 叢集上安裝和使用 R (Windows)](hdinsight-hadoop-r-scripts.md)
+> [AZURE.NOTE]此文件中的步驟需要以 Linux 為基礎的 HDInsight 叢集。如需搭配以 Windows 為基礎的叢集使用 R 的詳細資訊，請參閱[在 HDInsight Hadoop 叢集上安裝和使用 R (Windows)](hdinsight-hadoop-r-scripts.md)。
 
 ## 什麼是 R？
 
@@ -84,11 +84,11 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 1. 使用 SSH 連線到 HDInsight 叢集
 
 		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-		
+
 	如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱下列文章：
-	
+
 	* [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)
-	
+
 	* [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. 從 `username@headnode1:~$` 提示，輸入下列命令以啟動互動式 R 工作階段：
@@ -100,24 +100,24 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 		library(rmr2)
 		ints = to.dfs(1:100)
 		calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
-		
+
 
 	第一行會呼叫 RHadoop 程式庫 rmr2，用於 MapReduce 作業。
-	
+
 	第二行會產生值 1 - 100，然後使用 `to.dfs` 將它們儲存到 Hadoop 檔案系統。
-	
+
 	第三行會使用 rmr2 所提供的功能建立 MapReduce 程序並開始處理。您應該會在程序開始時看到幾行捲動過去。
-	
+
 4. 接下來，請使用下列項目查看儲存 MapReduce 輸出的目標暫存路徑：
 
 		print(calc())
-		
+
 	應該類似 `/tmp/file5f615d870ad2`。若要檢視實際輸出，請使用下列項目：
-	
+
 		print(from.dfs(calc))
-	
+
 	輸出應該會看起來如下：
-	
+
 		[1,]  1 2
 		[2,]  2 4
 		.
@@ -126,7 +126,7 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 		[98,]  98 196
 		[99,]  99 198
 		[100,] 100 200
-		
+
 5. 若要關閉 R，請輸入以下內容：
 
 		q()
@@ -148,6 +148,5 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

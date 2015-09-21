@@ -1,16 +1,26 @@
+<properties
+   pageTitle="Azure 備份限制資料表"
+   description="描述 Azure 備份的系統限制。"
+   services="backup"
+   documentationCenter="NA"
+   authors="Jim-Parker"
+   manager="jwhit"
+   editor="" />
+<tags  ms.service="backup" ms.devlang="NA" ms.topic="article" ms.tgt_pltfrm="NA" ms.workload="TBD" ms.date="08/26/2015" ms.author="jimpark"; "aashishr" />
+
 
 下列限制適用於 Azure 備份。
 
 | 限制識別碼 | 預設限制 |
 |---|---|
 |可針對每個保存庫註冊的伺服器/電腦數目|50|
-|在 Azure 保存庫儲存體中所儲存資料的資料來源大小|1\.65 TB 上限<sup>1</sup>|
+|在 Azure 保存庫儲存體中所儲存資料的資料來源大小|最大 54400 GB<sup>1</sup>|
 |可以在每個 Azure 訂用帳戶中建立的備份保存庫的數目|25|
 |每日可以排程的備份次數|Windows 伺服器/用戶端每日 3 個<br/>SCDPM 每日 2 個|
 |可以建立的復原點數目|366<sup>2</sup>|
 |連接到 Azure 虛擬機器進行備份的資料磁碟|5|
 
-- <sup>1</sup>1.65 TB 限制並不適用於 IaaS VM 備份。
+- <sup>1</sup>54400 GB 上限並不適用於 IaaS VM 備份。
 - <sup>2</sup>您可以使用數目小於 366 的任何排列。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

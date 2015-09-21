@@ -1,19 +1,19 @@
 <properties
    pageTitle="複製 StorSimple 磁碟區 | Microsoft Azure"
-	description="說明不同的複製類型以及使用時機，並說明如何使用備份組來複製個別磁碟區。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="說明不同的複製類型以及使用時機，並說明如何使用備份組來複製個別磁碟區。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/27/2015"
+   ms.author="alkohli" />
 
 # 使用 StorSimple Manager 服務來複製磁碟區
 
@@ -29,7 +29,7 @@
 
 您可以使用本機或雲端快照，在相同的裝置、 另一個裝置或甚至虛擬機器上建立複製。
 
-## 若要複製磁碟區
+#### 若要複製磁碟區
 
 1. 在 StorSimple Manager 服務頁面上，按一下 [備份類別目錄] 索引標籤，然後選取備份組。
 
@@ -89,4 +89,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

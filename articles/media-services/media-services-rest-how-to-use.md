@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -89,6 +89,16 @@ HEAD|傳回 GET 回應的物件中繼資料。
 如果您想要在瀏覽器檢視中繼資料，或是未在要求中包含 x-ms-version 標頭，您應該將 "?api-version=2.x" 附加到 URI 的結尾。
 
 
+
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 <!-- Anchors. -->
 
 
@@ -99,4 +109,4 @@ HEAD|傳回 GET 回應的物件中繼資料。
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

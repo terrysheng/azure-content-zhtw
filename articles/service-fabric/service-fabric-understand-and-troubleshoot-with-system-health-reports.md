@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/16/2015"
+   ms.date="09/03/2015"
    ms.author="oanapl"/>
 
 # 使用系統健康情況報告進行疑難排解
@@ -530,4 +530,4 @@ HealthEvents          :
 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="使用指令碼動作在 Hadoop 叢集上安裝 Solr | Microsoft Azure" 
-	description="了解如何使用 Solr 自訂 HDInsight 叢集。您將使用指令碼動作組態選項來使用指令碼安裝 Solr。" 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="使用指令碼動作在 Hadoop 叢集上安裝 Solr | Microsoft Azure"
+	description="了解如何使用 Solr 自訂 HDInsight 叢集。您將使用指令碼動作組態選項來使用指令碼安裝 Solr。"
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/07/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/07/2015"
 	ms.author="nitinme"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 Solr
@@ -27,8 +27,9 @@
 
 在本主題中，您將學習如何使用指令碼動作來安裝 Solr。Solr 是強大的搜尋平台，可對 Hadoop 管理的資料執行企業級搜尋功能。在 HDInsight 叢集上安裝 Solr 之後，您也將學習如何使用 Solr 搜尋資料。
 
-> [AZURE.NOTE]本主題中使用的範例指令碼會以特定組態建立 Solr 叢集。如果您想要以不同的集合、分區、結構描述和複本等項目設定 Solr 叢集，則必須相應修改指令碼和 Solr 二進位檔。
-
+> [AZURE.NOTE]本主題中使用的範例指令碼會以特定組態建立以 Windows 為基礎的 Solr 叢集。如果您想要以不同的集合、分區、結構描述和複本等項目設定 Solr 叢集，則必須相應修改指令碼和 Solr 二進位檔。
+>
+> 如需搭配以 Linux 為基礎的叢集使用 Solr 的詳細資訊，請參閱[在 HDInsight Hadoop 叢集上安裝和使用 R (Linux)](hdinsight-hadoop-solr-install-linux.md)
 
 ## <a name="whatis"></a>什麼是 Solr？
 
@@ -42,11 +43,11 @@
 > [AZURE.NOTE]範例指令碼只能與 HDInsight 叢集版本 3.1 搭配使用。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
 
 
-1. 依照[使用自訂選項佈建叢集](hdinsight-provision-clusters.md#portal)所述，使用**自訂建立**選項開始佈建叢集。 
+1. 依照[使用自訂選項佈建叢集](hdinsight-provision-clusters.md#portal)所述，使用**自訂建立**選項開始佈建叢集。
 2. 在精靈的 [**指令碼動作**] 頁面上，按一下 [**加入指令碼動作**] 以提供有關指令碼動作的詳細資料，如下所示：
 
 	![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "使用指令碼動作以自訂叢集")
-	
+
 	<table border='1'>
 	<tr><th>屬性</th><th>值</th></tr>
 	<tr><td>名稱</td>
@@ -67,7 +68,7 @@
 1. **使用遠端桌面通訊協定 (RDP) 遠端登入到已安裝 Solr 的 HDInsight 叢集**。從 Azure 入口網站，針對您所建立且已安裝 Solr 的叢集啟用遠端桌面，然後遠端登入到叢集。如需指示，請參閱<a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連線到 HDInsight 叢集</a>。
 
 2. **上傳資料檔案以對 Solr 編製索引**。在對 Solr 編製索引時，會在其中放置可能需要搜尋的文件。若要對 Solr 編製索引，請使用 RDP 遠端登入到叢集、瀏覽至桌面、開啟 Hadoop 命令列，然後瀏覽至 **C:\\apps\\dist\\solr-4.7.2\\example\\exampledocs**。執行以下命令：
-	
+
 		java -jar post.jar solr.xml monitor.xml
 
 	您會在主控台上看到下列輸出：
@@ -85,7 +86,7 @@
 	2. 在 [**wt**] 文字方塊中，選取輸出格式。預設值是 [**json**]。按一下 [**執行查詢**]。
 
 		![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "在 Solr 儀表板上執行查詢")
-	
+
 	輸出中會傳回兩個我們之前用於對 Solr 編製索引的文件。輸出結果類似下面：
 
 			"response": {
@@ -139,7 +140,7 @@
 			      }
 			    ]
 			  }
-   
+
 
 4. **建議步驟：從 Solr 將已編製索引的資料備份到與 HDInsight 叢集相關聯的 Azure Blob 儲存體**。您最好從 Solr 叢集節點將已編製索引的資料備份到 Azure Blob 儲存體。請執行下列步驟來進行此作業：
 
@@ -159,7 +160,7 @@
 			</response>
 
 	2. 在遠端工作階段中，瀏覽至 {SOLR\_HOME}{Collection}\\data。若是透過範例指令碼建立的叢集，則應該是 **C:\\apps\\dist\\solr-4.7.2\\example\\solr\\collection1\\data**。在此位置中，您應該會看到以類似 **snapshot.*timestamp*** 的名稱建立的快照資料夾。
-	
+
 	3. 壓縮快照資料夾，並上傳至 Azure Blob 儲存體。從 Hadoop 命令列使用下列命令瀏覽至快照資料夾的位置：
 
 			  hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
@@ -179,6 +180,5 @@
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

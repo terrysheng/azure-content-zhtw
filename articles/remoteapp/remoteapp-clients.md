@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="存取應用程式"
+    pageTitle="從任何裝置存取您的應用程式 | Microsoft Azure"
     description="了解 Azure RemoteApp 支援哪些用戶端以及如何存取您的應用程式。"
     services="remoteapp"
 	documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/12/2015"
+    ms.date="09/09/2015"
     ms.author="elizapo" />
 
 
@@ -41,10 +41,11 @@ Azure RemoteApp 的優點之一，就是您可以從任何裝置存取應用程�
 
  精簡型用戶端呢？ 支援下列 Windows Embedded 精簡型用戶端：
 
- - Windows Embedded Standard 7 with Service Pack 1
- - Windows Embedded POSReady7
- - Windows Embedded Thin PC
- - Windows Embedded 8.1 Industry
+- Windows Embedded Standard 7
+- Windows Embedded 8 Standard
+- Windows Embedded 8.1 Industry Pro
+- Windows 10 IoT Enterprise
+
 
 ## 下載用戶端
 
@@ -207,4 +208,4 @@ Azure RemoteApp 的優點之一，就是您可以從任何裝置存取應用程�
 	![Azure RemoteApp 的示範摘要](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

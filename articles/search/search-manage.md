@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 # 在 Microsoft Azure 上管理搜尋服務
@@ -36,7 +36,7 @@ Azure 搜尋是一種雲端架構服務和 HTTP 架構 API，可用來自訂搜�
 
 若要規劃功能和了解計費標準，可參考下列連結：
 
-+	[限制條件](http://msdn.microsoft.com/library/dn798934.aspx)
++	[限制條件](search-limits-quotas-capacity.md)
 +	[價格詳細資料](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
 當您準備註冊時，請參閱[在入口網站中建立搜尋服務](search-create-service-portal.md)。
@@ -100,7 +100,7 @@ Azure 搜尋是一種雲端架構服務和 HTTP 架構 API，可用來自訂搜�
 
 在服務儀表板上的使用量區段中，您可以快速判斷資料分割資源層級是否適合您的應用程式。
 
-使用搜尋服務 API 可取得文件和索引的計數。根據價格層不同，會有些與這些計數相關聯的固定限制。如需詳細資訊，請參閱[限制條件](http://msdn.microsoft.com/library/dn798934.aspx)。
+使用搜尋服務 API 可取得文件和索引的計數。根據價格層不同，會有些與這些計數相關聯的固定限制。如需詳細資訊，請參閱[限制條件](search-limits-quotas-capacity.md)。
 
 +	[取得索引統計資料](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[文件計數](http://msdn.microsoft.com/library/dn798924.aspx)
@@ -193,4 +193,4 @@ Azure 特別為透過 Preview 入口網站管理的所有服務，或在 Azure �
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

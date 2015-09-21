@@ -1,24 +1,30 @@
 <properties
    pageTitle="Azure VM 延伸模組的範例組態 |Microsoft Azure"
-	description="編寫延伸模組與範本的範例組態"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   description="編寫延伸模組與範本的範例組態"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="kundanap"/>
 
 # Azure Windows VM 延伸模組組態範例。
 
-本文提供範例組態，可用來設定 Azure IaaS Windows VM 的 Azure VM 延伸模組。若要了解這些延伸模組的詳細資訊，請按一下<a href="https://msdn.microsoft.com/zh-TW/library/azure/dn606311.aspx" target="_blank">這裡</a>。
+本文提供範例組態，可用來設定 Azure IaaS Windows VM 的 Azure VM 延伸模組。
+
+若要深入了解這些延伸模組，請按一下這裡：[Azure VM 延伸模組概觀](https://msdn.microsoft.com/library/azure/dn606311.aspx)。
+
+若要深入了解如何撰寫延伸模組範本，請按一下這裡：[撰寫延伸模組範本](virtual-machines-extensions-authoring-templates.md)。
+
+本文列出部分 Windows 延伸模組所需的組態值。
 
 ## VM 延伸模組的範例範本程式碼片段。
 用於部署延伸模組的範本程式碼片段如下所示：
@@ -268,6 +274,29 @@
             }
           }
 
+### Azure 診斷
+
+按一下這裡以取得 [Azure 診斷功能延伸模組](https://msdn.microsoft.com/library/azure/dn782207.aspx/)的概觀
+
+          {
+            "publisher": "Microsoft.Azure.Diagnostics",
+            "type": "IaaSDiagnostics",
+            "typeHandlerVersion": "1.4",
+            "settings": {
+              "xmlCfg": "[base64(variables('wadcfgx'))]",
+              "storageAccount": "[parameters('diagnosticsStorageAccount')]"
+            },
+            "protectedSettings": {
+            "storageAccountName": "[parameters('diagnosticsStorageAccount')]",
+            "storageAccountKey": "[listkeys(variables('accountid'), '2015-05-01-preview').key1]",
+            "storageAccountEndPoint": "https://core.windows.net"
+          }
+          }
+
 在上述範例中，請將版本號碼取代成最新的版本號碼。
 
-<!---HONumber=September15_HO1-->
+以下是使用自訂指令碼延伸模組的完整 VM 範本範例。
+
+[Windows VM 上的自訂指令碼延伸模組](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+
+<!---HONumber=Sept15_HO2-->

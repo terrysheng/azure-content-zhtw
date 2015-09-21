@@ -1,19 +1,19 @@
 <properties 
    pageTitle="VM 與角色執行個體的解析"
-	description="Azure IaaS、混合式解決方案、不同雲端服務之間、Active Directory 以及使用專屬 DNS 伺服器的名稱解析案例"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="Azure IaaS、混合式解決方案、不同雲端服務之間、Active Directory 以及使用專屬 DNS 伺服器的名稱解析案例"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="GarethBradshawMSFT"
+   manager="jdial"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/10/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/02/2015"
+   ms.author="joaoma" />
 
 # VM 與角色執行個體的名稱解析
 
@@ -52,19 +52,17 @@
 
 - 方便使用：不需要設定，就能使用 Azure 提供的名稱解析。
 
+- Azure 提供的名稱解析服務都高度可用，可省去您建立和管理 DNS 伺服器叢集的需求。
+
 - 提供相同雲端服務內角色執行個體或 VM 之間的名稱解析，不需要 FQDN。
 
-- 提供 ARM 型虛擬網路中 VM 之間的名稱解析，不需要 FQDN，在不同的雲端服務中解析名稱時，傳統網路需要 FQDN。
+- 提供 ARM 型虛擬網路中 VM 之間的名稱解析，不需要 FQDN，在不同的雲端服務中解析名稱時，傳統虛擬網路需要 FQDN。
 
 - 您可以建立最能描述您部署的主機名稱，而不要使用自動產生的名稱。
 
 **注意事項：**
 
-- 無法使用不同虛擬網路之間的名稱解析。
-
-- 您只能針對位於已加入 Azure 虛擬網路之前 180 個雲端服務中的 VM 與角色執行個體註冊主機名稱。如果您有 180 個以上的雲端服務，每個服務中有各自的 VM 數目和角色執行個體，您就必須提供專屬 DNS 伺服器進行名稱解析。
-
-- 無法使用跨單位名稱解析。
+- 無法使用虛擬網路之間以及 Azure 和內部部署機器之間的名稱解析。
 
 - Azure 建立的 DNS 尾碼不能修改。
 
@@ -74,7 +72,57 @@
 
 - 主機名稱必須是 DNS 相容 (只能使用 0-9、a-z 和 '-'，無法以 '-' 開始或結束。請參閱 RFC 3696 第 2 節)。
 
-- DNS 查詢流量會根據每個 VM 進行節流。如果您的應用程式會對多個目標名稱執行頻繁的 DNS 查詢，有些查詢可能會逾時。若要避免這個狀況，建議啟用用戶端快取。在 Windows 上預設為啟用，但是某些 Linux 散發版本可能未啟用快取。
+- DNS 查詢流量會根據每個 VM 進行節流。這應該不會影響大部分的應用程式。如果觀察到要求節流，請確定用戶端快取已啟用。如需詳細資料，請參閱[充分利用 Azure 提供的名稱解析](#Getting-the-most-from-Azure-provided-name-resolution)。
+
+- 只有前 180 個雲端服務中的 VM 會為每個傳統虛擬網路註冊。這並不適用於 ARM 型虛擬網路。
+
+
+### 充分利用 Azure 提供的名稱解析
+**用戶端快取：**
+
+並非所有的 DNS 查詢都需要透過網路傳送。用戶端快取可藉由解決本機快取的週期性 DNS 查詢，協助減少延遲以及改善網路標誌的恢復能力。DNS 記錄包含存留時間 (TTL)，可讓快取盡可能長時間儲存記錄而不會影響記錄的有效性，所以用戶端快取適用於大部分的情況。
+
+預設 Windows DNS 用戶端有內建的 DNS 快取。根據預設，某些 Linux 散發版本不包含快取，建議新增快取至每個 Linux VM。有許多不同 DNS 快取封裝可用，例如 dnsmasq，以下是在最常見的散發版本上安裝 dnsmasq 的步驟：
+
+- **Ubuntu (使用 resolvconf)**：
+	- 只安裝 dnsmasq 封裝 (“sudo apt-get install dnsmasq”)。
+- **SUSE (使用 netconf)**：
+	- 安裝 dnsmasq 封裝 (“sudo zypper install dnsmasq”) 
+	- 啟用 dnsmasq 服務 (“systemctl enable dnsmasq.service”) 
+	- 啟動 dnsmasq 服務 (“systemctl start dnsmasq.service”) 
+	- 編輯 “/etc/sysconfig/network/config” 並將 NETCONFIG\_DNS\_FORWARDER="" 變更為 ”dnsmasq”
+	- 更新 resolv.conf ("netconfig update") 來設定快取做為本機 DNS 解析程式
+- **OpenLogic (使用 NetworkManager)**：
+	- 安裝 dnsmasq 封裝 (“sudo yum install dnsmasq”)
+	- 啟用 dnsmasq 服務 (“systemctl enable dnsmasq.service”)
+	- 啟動 dnsmasq 服務 (“systemctl start dnsmasq.service”)
+	- 將 “prepend domain-name-servers 127.0.0.1;” 新增至 “/etc/dhclient-eth0.conf”
+	- 重新啟動網路服務 (「服務網路重新啟動」) 來設定快取做為本機 DNS 解析程式
+
+[AZURE.NOTE]：'dnsmasq' 封裝只是許多適用於 Linux 之 DNS 快取的其中一個。使用它之前，請檢查特定需求的適用性，而且沒有安裝其他快取。
+
+**用戶端重試：**
+
+DNS 主要是 UDP 通訊協定。因為 UDP 通訊協定並不保證訊息傳遞，所以重試邏輯會在 DNS 通訊協定本身處理。每個 DNS 用戶端 (作業系統) 可以展現不同的重試邏輯，根據建立者喜好設定而定：
+
+ - Windows 作業系統會在 1 秒後重試，然後再依序隔 2、4、4 秒後重試。 
+ - 預設 Linux 安裝程式會在 5 秒之後重試。建議您變更為以 1 秒的間隔重試 5 次。  
+
+檢查 Linux VM 上目前的設定，'cat /etc/resolv.conf' 並查看 [選項] 行，例如：
+
+	options timeout:1 attempts:5
+
+resolv.conf 檔案通常是自動產生的，且不可編輯。新增 [選項] 行的特定步驟會因散發版本而有所不同：
+
+- **Ubuntu** (使用 resolvconf)：
+	- 將選項行新增至 '/etc/resolveconf/resolv.conf.d/head' 
+	- 執行 'resolvconf -u' 以進行更新
+- **SUSE** (使用 netconf)：
+	- 將 'timeout:1 attempts:5' 新增至 '/etc/sysconfig/network/config' 中的 NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" 參數 
+	- 執行 'netconfig update' 以進行更新
+- **OpenLogic** (使用 NetworkManager)：
+	- 將 'echo "options timeout:1 attempts:5"' 新增至 '/etc/NetworkManager/dispatcher.d/11-dhclient' 
+	- 執行 'service network restart' 以進行更新
 
 ## 使用專屬 DNS 伺服器的名稱解析
 
@@ -112,12 +160,11 @@
 
 對於傳統虛擬網路，您可以使用兩個不同的組態檔指定 DNS 設定：「網路組態檔」和「服務組態檔」。
 
-> [AZURE.NOTE]服務組態檔中的 DNS 伺服器會覆寫網路組態檔中的設定。
- 
 網路組態檔說明您的訂用帳戶中的虛擬網路。當您將角色執行個體或 VM 新增至虛擬網路中的雲端服務時，網路組態檔中的 DNS 設定就會套用到每個角色執行個體或 VM，除非已指定雲端服務特定 DNS 伺服器。
 
 您加入 Azure 的每個雲端服務，都會建立服務組態檔。當您將角色執行個體或 VM 加入雲端服務時，服務組態檔中的 DNS 設定就會套用到每個角色執行個體或 VM。
 
+> [AZURE.NOTE]服務組態檔中的 DNS 伺服器會覆寫網路組態檔中的設定。
 
 
 ## 後續步驟
@@ -130,4 +177,4 @@
 
 [使用網路組態檔設定虛擬網路](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

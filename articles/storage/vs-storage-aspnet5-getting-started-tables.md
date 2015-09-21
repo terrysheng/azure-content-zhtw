@@ -1,6 +1,6 @@
 <properties
-	pageTitle="如何開始使用 Azure 資料表儲存體和 Visual Studio 連線的服務 | Microsoft Azure"
-	description="如何在 Visual Studio 的 ASP.NET 5 專案中開始使用 Azure 資料表儲存體"
+	pageTitle="如何開始使用資料表儲存體和 Visual Studio 已連接服務 (ASP.NET 5) | Microsoft Azure"
+	description="在使用 Visual Studio 已連接服務連接到儲存體帳戶之後，如何在 ASP.NET 5 專案中開始使用 Azure 資料表儲存體"
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea123"/>
 
 # 開始使用 Azure 資料表儲存體和 Visual Studio 連線的服務
@@ -45,7 +45,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 若要存取 ASP.NET 5 專案中的資料表，您需要將下列項目併入至存取 Azure 資料表儲存體的任何 C# 原始程式檔。
 
-1. 確定 C# 檔案頂端的命名空間宣告包含這些 `using` 陳述式。
+1. 請確定 C# 檔案頂端的命名空間宣告包含這些 **using** 陳述式。
 
 	    using Microsoft.Framework.Configuration;
 	    using Microsoft.WindowsAzure.Storage;
@@ -53,26 +53,26 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 	    using System.Threading.Tasks;
 	    using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
-2. 取得 `CloudStorageAccount` 物件，其代表您的儲存體帳戶資訊。使用下列程式碼，從 Azure 服務組態取得您的儲存體連接字串和儲存體帳戶資訊。
+2. 取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。使用下列程式碼，從 Azure 服務組態取得您的儲存體連接字串和儲存體帳戶資訊。
 
 	    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 	        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
     **注意：**請在下列範例的程式碼前面使用上述所有程式碼。
 
-3. 取得 `CloudTableClient` 物件以參考儲存體帳戶中的資料表物件。
+3. 取得 **CloudTableClient** 物件，以參考儲存體帳戶中的資料表物件。
 
 	    // Create the table client.
     	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-4. 取得 `CloudTable` 參考物件以參考特定資料表和實體。
+4. 取得 **CloudTable** 參考物件，以參考特定資料表和實體。
 
     	// Get a reference to a table named "peopleTable"
 	    CloudTable table = tableClient.GetTableReference("peopleTable");
 
 ## 在程式碼中建立資料表
 
-若要建立 Azure 資料表，請加入呼叫到 `CreateIfNotExistsAsync()`。
+若要建立 Azure 資料表，請加入 **CreateIfNotExistsAsync()** 的呼叫。
 
 	// Create the CloudTable if it does not exist
 	await table.CreateIfNotExistsAsync();
@@ -96,7 +96,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 	    public string PhoneNumber { get; set; }
 	}
 
-實體的資料表作業是使用您稍早在＜在程式碼中存取資料表＞中建立的 `CloudTable` 物件來執行。 `TableOperation` 物件代表要完成的作業。下列程式碼範例顯示如何建立 `CloudTable` 物件及 `CustomerEntity` 物件。為了準備這項作業，建立 `TableOperation` 以便將客戶實體插入至資料表。最後，呼叫 CloudTable.ExecuteAsync 來執行操作。
+涉及實體的資料表作業是利用您稍早在＜存取程式碼中的資料表＞中建立的 **CloudTable** 物件來執行。 **TableOperation** 物件要執行的操作。下列程式碼範例顯示如何建立 **CloudTable** 物件及 **CustomerEntity** 物件。為了準備這項操作，其建立了 **TableOperation**，以便在資料表中插入客戶實體。最後，呼叫 CloudTable.ExecuteAsync 來執行操作。
 
 	// Get a reference to the CloudTable object named 'peopleTable' as described in "Access a table in code"
 
@@ -113,7 +113,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 ## 插入實體批次
 
-您可以在單一寫入操作中將多個項目插入至資料表。下列程式碼範例會建立兩個實體物件 ("Jeff Smith" 和 "Ben Smith")，並使用 **Insert** 方法將其加入至 `TableBatchOperation` 物件，然後透過呼叫 CloudTable.ExecuteBatchAsync 開始啟動作業。
+您可以在單一寫入操作中將多個項目插入至資料表。下列程式碼範例會建立兩個實體物件 ("Jeff Smith" 和 "Ben Smith")，並使用 **Insert** 方法將這兩個物件加入至 **TableBatchOperation** 物件，然後透過呼叫 CloudTable.ExecuteBatchAsync 開始啟動作業。
 
 	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
@@ -138,7 +138,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 	await peopleTable.ExecuteBatchAsync(batchOperation);
 
 ## 取得資料分割中的所有實體
-若要向資料表查詢資料分割中的所有實體，請使用 `TableQuery` 物件。下列程式碼範例會指定篩選器來篩選出資料分割索引鍵為 'Smith' 的實體。此範例會將查詢結果中每個實體的欄位列印至主控台。
+若要向資料表查詢資料分割中的所有實體，請使用 **TableQuery** 物件。下列程式碼範例會指定篩選器來篩選出資料分割索引鍵為 'Smith' 的實體。此範例會將查詢結果中每個實體的欄位列印至主控台。
 
 	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
@@ -163,7 +163,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 
 ## 取得單一實體
-您可以撰寫查詢來取得單一特定實體。下列程式碼使用 `TableOperation` 物件來指定名為 'Ben Smith' 的客戶。此方法只會傳回一個實體而非一個集合，且 `TableResult.Result` 中的傳回值為 `CustomerEntity` 物件。若要從「資料表」服務中擷取單一實體，最快的方法是在查詢中同時指定資料分割索引鍵和資料列索引鍵。
+您可以撰寫查詢來取得單一特定實體。下列程式碼使用 **TableOperation** 物件來指定名為 'Ben Smith' 的客戶。這個方法只會傳回一個實體而非集合，而且所傳回的 **TableResult.Result** 值是 **CustomerEntity** 物件。若要從「資料表」服務中擷取單一實體，最快的方法是在查詢中同時指定資料分割索引鍵和資料列索引鍵。
 
 	// Get a reference to a CloudTableobject named 'peopleTable' as described in "Access a table in code"
 
@@ -211,4 +211,4 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

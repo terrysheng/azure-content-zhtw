@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/09/2015"
    ms.author="lodipalm"/>
 
 # 搭配使用 Azure Data Factory 與 SQL 資料倉儲
@@ -43,7 +43,7 @@ Azure Data Factory 可讓資料在內部部署來源與不同的 Azure 服務之
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]: ./data-factory-copy-activity/
+[Copy data with Azure Data Factory]: ./data-factory-data-movement-activities/#copyactivity
 [SQL 資料倉儲開發概觀]: ./sql-data-warehouse-overview-develop/
 [SQL 資料倉儲整合概觀]: ./sql-data-warehouse-overview-integration/
 
@@ -51,6 +51,6 @@ Azure Data Factory 可讓資料在內部部署來源與不同的 Azure 服務之
 
 <!--Other Web references-->
 [Azure Data Factory 文件]: https://azure.microsoft.com/documentation/services/data-factory/
-[使用 Azure Data Factory 複製資料]: https://azure.microsoft.com/zh-tw/documentation/articles/data-factory-data-movement-activities/
+[使用 Azure Data Factory 複製資料]: https://azure.microsoft.com/zh-TW/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

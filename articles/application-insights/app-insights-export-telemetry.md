@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="從 Application Insights 的遙測連續匯出"
-	description="匯出診斷和使用量資料至 Microsoft Azure 中的儲存體，並從那裡下載。"
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="從 Application Insights 的遙測連續匯出" 
+	description="匯出診斷和使用量資料至 Microsoft Azure 中的儲存體，並從那裡下載。" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="awills"/>
  
 # 從 Application Insights 匯出遙測
@@ -64,7 +64,9 @@
 
 ## <a name="get"></a> 檢查資料
 
-若要檢查在 Visual Studio 中的 Azure 儲存體，請依序開啟 [檢視]、[Cloud Explorer]。(如果您沒有該功能表命令，您需要安裝 Azure SDK：開啟 [新增專案] 對話方塊，展開 [Visual C#] / [Cloud]，然後選擇 [取得 Microsoft Azure SDK for .NET]。)
+您可以直接在入口網站中檢查儲存體。按一下 [瀏覽]、選取您的儲存體帳戶，然後開啟 [容器]。
+
+若要在 Visual Studio 中檢查 Azure 儲存體，請依序開啟 [檢視]、[Cloud Explorer]。(如果您沒有該功能表命令，則必須安裝 Azure SDK：開啟 [新增專案] 對話方塊，展開 [Visual C#]/[Cloud]，然後選擇 [取得 Microsoft Azure SDK for .NET]。)
 
 當您開啟 Blob 存放區時，您會看到含有一組 Blob 檔案的容器。衍生自您 Application Insights 的資源名稱、其檢測金鑰、遙測-類型/日期/時間之每個檔案的 URI。(資源名稱全部小寫，而檢測金鑰會省略連字號。)
 
@@ -128,7 +130,7 @@
 
 ## 匯出至 Power BI
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) 以豐富多元的視覺方式呈現您的資料，以及將多個來源的資訊整合的能力。您可以將有關您應用程式效能與使用量的遙測資料，從 Application Insights 串流處理到 Power BI。
+[Microsoft Power BI](https://powerbi.microsoft.com/) 具有將多個來源的資訊加以整合的能力，可以豐富多元的視覺方式呈現您的資料。您可以將有關您應用程式效能與使用量的遙測資料，從 Application Insights 串流處理到 Power BI。
 
 [從 Application Insights 串流處理到 Power BI](app-insights-export-power-bi.md)
 
@@ -202,4 +204,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -497,10 +497,15 @@
 	}
 	
 
-	
-##相關主題
 
-[使用執行從單一位元速率到多位元速率串流之即時編碼的通道](media-services-manage-live-encoder-enabled-channels.md)
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

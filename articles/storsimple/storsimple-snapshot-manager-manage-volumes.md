@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="使用 StorSimple Snapshot Manager 來檢視和管理磁碟區 | Microsoft Azure"
+   pageTitle="StorSimple Snapshot Manager 及磁碟區 | Microsoft Azure"
    description="描述如何使用 StorSimple Snapshot Manager MMC 嵌入式管理單元來檢視和管理磁碟區。"
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Snapshot Manager 來檢視和管理磁碟區
@@ -270,4 +270,4 @@
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

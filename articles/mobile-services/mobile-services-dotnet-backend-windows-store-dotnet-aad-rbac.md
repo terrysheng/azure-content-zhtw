@@ -1,6 +1,6 @@
 <properties
-	pageTitle="行動服務和 Azure Active Directory 中的角色型存取控制 (Windows 市集) | Microsoft Azure"
-	description="了解如何在 Windows Store 應用程式中控制以 Azure Active Directory 角色為基礎的存取權。"
+	pageTitle="使用 JavaScript 和 Azure Active Directory 的行動服務中的角色型存取控制 (Windows 市集) | Microsoft Azure"
+	description="了解如何在 Windows 市集應用程式中，搭配 .NET 後端使用行動服務，控制以 Azure Active Directory 角色為基礎的存取權。"
 	documentationCenter="windows"
 	authors="wesmc7777"
 	manager="dwrede"
@@ -8,15 +8,15 @@
 	services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services"
+	ms.service="mobile-services" 
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# 行動服務和 Azure Active Directory 中的角色型存取控制
+# 使用 JavaScript 和 Azure Active Directory 的行動服務中的角色型存取控制
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
@@ -36,7 +36,7 @@
 * 執行於 Windows 8.1 的 Visual Studio 2013。
 * 使用 Azure Active Directory 驗證提供者完成[將驗證新增至您的應用程式]教學課程。
 
- 
+
 
 
 ##為整合的應用程式產生金鑰
@@ -56,7 +56,7 @@
 
 
 
-##在行動服務上建立自訂授權屬性 
+##在行動服務上建立自訂授權屬性
 
 在本節中，您將新建可用來對行動服務作業執行存取檢查的自訂授權屬性。屬性將會根據傳至 Active Directory 群組的角色名稱查閱該群組。接著，它會根據該群組的成員資格執行存取檢查。
 
@@ -101,18 +101,18 @@
             private bool isInitialized;
             private bool isHosted;
 	        private ApiServices services = null;
-	
+
 	        // Constants used with ADAL and the Graph REST API for AAD
 	        private const string AadInstance = "https://login.windows.net/{0}";
 	        private const string GraphResourceId = "https://graph.windows.net/";
 	        private const string APIVersion = "?api-version=2013-04-05";
-	
+
 	        // App settings pulled from the Mobile Service
 	        private string tenantdomain;
 	        private string clientid;
 	        private string clientkey;
 	        private Dictionary<int, string> groupIds = new Dictionary<int, string>();
-	
+
 	        private string token = null;
 
             public AuthorizeAadRole(AadRoles role)
@@ -128,13 +128,13 @@
 
             public AadRoles Role { get; private set; }
 
-            // Generate a local dictionary for the role group ids configured as 
+            // Generate a local dictionary for the role group ids configured as
             // Mobile Service app settings
             private void InitGroupIds()
             {
             }
 
-            // Use ADAL and the authentication app settings from the Mobile Service to 
+            // Use ADAL and the authentication app settings from the Mobile Service to
             // get an AAD access token
             private string GetAADToken()
             {
@@ -253,7 +253,7 @@
 
             services = new ApiServices(actionContext.ControllerContext.Configuration);
 
-            // Check whether we are running in a mode where local host access is allowed 
+            // Check whether we are running in a mode where local host access is allowed
             // through without authentication.
             if (!this.isInitialized)
             {
@@ -383,7 +383,7 @@
 <!-- URLs. -->
 [將驗證新增至您的應用程式]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
 [How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Directory Sync Scenarios]: http://msdn.microsoft.com/library/azure/jj573653.aspx
 [Store Server Scripts]: mobile-services-store-scripts-source-control.md
 [註冊使用 Azure Active Directory 登入]: mobile-services-how-to-register-active-directory-authentication.md
@@ -392,4 +392,4 @@
 [存取 Azure Active Directory Graph 資訊]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [適用於 .NET 的 ADAL]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

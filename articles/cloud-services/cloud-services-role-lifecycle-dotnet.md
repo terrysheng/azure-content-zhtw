@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/11/2015" 
+ms.date="09/08/2015" 
 ms.author="adegeo"/>
 
 # 在 .NET 中自訂 Web 或背景工作角色的生命週期
@@ -80,4 +80,4 @@ public override bool OnStart()
 ## 後續步驟
 了解如何[建立雲端服務封裝](cloud-services-model-and-package.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

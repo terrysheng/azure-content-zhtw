@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 隨選媒體編碼器的概觀和比較"
-	description="本主題概要說明並提供 Azire 隨選媒體編碼器的比較。"
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Azure 隨選媒體編碼器的概觀和比較" 
+	description="本主題概要說明並提供 Azire 隨選媒體編碼器的比較。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 #Azure 隨選媒體編碼器的概觀和比較
@@ -238,6 +238,14 @@ MPEG Layer 2|否|否|是
 MP3 (MPEG-1 音訊層 3)|否|否|是
 Windows Media 音訊|否|是|是
 
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##相關文章
 
 - [配額和限制](media-services-quotas-and-limitations.md)
@@ -246,4 +254,4 @@ Windows Media 音訊|否|是|是
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="09/09/2015" 
 	ms.author="glenga"/>
 
 
@@ -33,7 +33,7 @@
 
 - 如果是以 Web 為基礎的應用程式，請開啟 HTML 檔案，將下列程式碼加入至頁面的指令碼參考：
 
-        <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.5.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js"></script>
 
 - 如果是以 JavaScript/HTML 撰寫的 Windows 市集應用程式，請將 **WindowsAzure.MobileServices.WinJS** NuGet 封裝新增至您的專案。
 
@@ -46,7 +46,7 @@
 
 您必須將預留位置 `AppUrl` 取代成行動服務的應用程式 URL，將 `AppKey` 取代成應用程式金鑰。若要了解如何取得行動服務的應用程式 URL 和應用程式金鑰，請參考[在現有的應用程式中新增行動服務](mobile-services-html-get-started-data.md)教學課程。
 
->[AZURE.IMPORTANT]應用程式金鑰是用來針對行動服務篩選出隨機要求，它會隨應用程式一起發送。因為此金鑰並未加密，所以並不安全。若要真正保護行動服務資料的安全，您必須改在允許存取之前驗證使用者。如需詳細資訊，請參閱[作法：驗證使用者](#caching)。
+>[AZURE.IMPORTANT]應用程式金鑰是用來針對行動服務篩選出隨機要求，它會隨應用程式一起發送。因為此金鑰並未加密，所以並不安全。若要真正保護行動服務資料的安全，您必須改在允許存取之前驗證使用者。如需詳細資訊，請參閱[作法：驗證使用者](#authentication)。
 
 ##<a name="querying"></a>作法：查詢行動服務中的資料
 
@@ -385,7 +385,7 @@
  
 如需 **invokeApi** 更實際的範例，以及更完整的討論，請參閱 [Azure 行動服務用戶端 SDK 中的自訂 API](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx)。
 
-##<a name="caching"></a>作法：驗證使用者
+##<a name="authentication"></a>作法：驗證使用者
 
 行動服務支援使用各種外部識別提供者 (Facebook、Google、Microsoft 帳戶以及 Twitter) 來驗證與授權應用程式使用者。您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。您也可以使用通過驗證使用者的身分識別來實作伺服器指令碼中的授權規則。如需詳細資訊，請參閱 [開始使用驗證] 教學課程。
 
@@ -412,7 +412,7 @@
 
 在此案例中，行動服務透過顯示所選提供者的登入頁面，並在使用識別提供者成功登入後產生行動服務驗證權杖的方式，來管理 OAuth 2.0 驗證流程。[login] 函數完成時會傳回 JSON 物件 (**user**)，此物件會在 **userId** 和 **authenticationToken** 欄位中分別顯示使用者識別碼和行動服務驗證權杖。您可以快取並重複使用此權杖，直到它到期為止。如需詳細資訊，請參閱「快取驗證權杖」。
 
-> [AZURE.NOTE]**Windows 市集應用程式** 使用 Microsoft 帳戶登入提供者來驗證 Windows 市集應用程式的使用者時，也應該向行動服務註冊應用程式封裝。向行動服務註冊 Windows 市集應用程式封裝資訊之後，用戶端就能夠重複使用 Microsoft 帳戶登入認證來享受單一登入的方便性。如果您沒有執行此動作，Microsoft 帳戶登入使用者會在每次呼叫登入方法時j都會看到登入提示。若要了解如何註冊 Windows 市集應用程式封裝，請參閱[註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank")。向行動服務註冊封裝資訊之後，請呼叫 [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") 方法，並在 <em>useSingleSignOn</em> 參數中提供 **true** 值以重複使用認證。
+> [AZURE.NOTE]**Windows 市集應用程式** 使用 Microsoft 帳戶登入提供者來驗證 Windows 市集應用程式的使用者時，也應該向行動服務註冊應用程式封裝。向行動服務註冊 Windows 市集應用程式封裝資訊之後，用戶端就能夠重複使用 Microsoft 帳戶登入認證來享受單一登入的方便性。如果您沒有執行此動作，Microsoft 帳戶登入使用者會在每次呼叫登入方法時j都會看到登入提示。若要了解如何註冊 Windows 市集應用程式封裝，請參閱[註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank")。向行動服務註冊封裝資訊之後，請呼叫 [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") 方法，並在 **useSingleSignOn** 參數中提供 *true* 值以重複使用認證。
 
 ###用戶端流程
 您的應用程式也可以個別連絡識別提供者，然後將傳回的權杖提供給行動服務進行驗證。此用戶端流程可讓您為使用者提供單一登入的體驗，或從身分識別提供者擷取其他使用者資料。
@@ -564,7 +564,7 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 
 ##<a name="hostnames"></a>作法：使用跨原始資源共用
 
-若要控制允許哪些網站與您的行動服務互動，以及傳送要求至您的行動服務，請務必將您用來代管行動服務的網站主機名稱，加入跨原始資源共用 (Cross-Origin Resource Sharing，CORS) 核准清單。如果是 JavaScript 後端行動服務，您可以在 [Azure 管理入口網站](https://manage.windowsazure.com)中的 [設定] 索引標籤上設定允許清單。需要的話可使用萬用字元。依預設，新的行動服務會指示瀏覽器只允許來自 `localhost` 的存取，而跨原始資源共用 (CORS) 可讓在外部主機名稱的瀏覽器中執行的 JavaScript 程式碼與您的行動服務互動。WinJS 應用程式不需要此組態。
+若要控制允許哪些網站與您的行動服務互動，以及傳送要求至您的行動服務，請務必將您用來代管行動服務的網站主機名稱，加入跨原始資源共用 (Cross-Origin Resource Sharing，CORS) 允許清單。如果是 JavaScript 後端行動服務，您可以在 [Azure 管理入口網站](https://manage.windowsazure.com)中的 [設定] 索引標籤上設定允許清單。需要的話可使用萬用字元。依預設，新的行動服務會指示瀏覽器只允許來自 `localhost` 的存取，而跨原始資源共用 (CORS) 可讓在外部主機名稱的瀏覽器中執行的 JavaScript 程式碼與您的行動服務互動。WinJS 應用程式不需要此組態。
 
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
@@ -580,7 +580,7 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 [How to: Insert data into a mobile service]: #inserting
 [How to: Modify data in a mobile service]: #modifying
 [How to: Delete data in a mobile service]: #deleting
-[How to: Authenticate users]: #caching
+[How to: Authenticate users]: #authentication
 [How to: Handle errors]: #errors
 [How to: Use promises]: #promises
 [How to: Customize request headers]: #customizing
@@ -608,4 +608,4 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 [從用戶端呼叫自訂 API]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

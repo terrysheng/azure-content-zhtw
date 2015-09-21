@@ -1,9 +1,9 @@
 <properties
-   pageTitle="什麼是 SQL 資料倉儲 | Microsoft Azure"
-   description="Azure 雲端中的企業級分散式資料庫，可處理資料量高達 PB 的關聯式與非關聯式資料。它是業界首見能在幾秒內增加、縮減和暫停的雲端資料倉儲。"
+   pageTitle="什麼是 Azure SQL 資料倉儲 | Microsoft Azure"
+   description="企業級分散式資料庫，可處理資料量高達 PB 的關聯式與非關聯式資料。它是業界首見能在幾秒內增加、縮減和暫停的雲端資料倉儲。"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="twounder"
    manager="jhubbard"
    editor=""/>
 
@@ -13,17 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/23/2015"
-   ms.author="barbkess;JRJ@BigBangData.co.uk;"/>
+   ms.date="09/09/2015"
+   ms.author="barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
-# 什麼是 SQL 資料倉儲？
+# 什麼是 Azure SQL 資料倉儲？
 
-SQL 資料倉儲是 Azure 雲端中的企業級分散式資料庫，可處理資料量高達 PB 的關聯式與非關聯式資料。它是業界首見能在幾秒內增加、縮減和暫停的雲端資料倉儲。
+Azure SQL 資料倉儲是一種企業級分散式資料庫，可處理資料量高達 PB 的關聯式與非關聯式資料。它是業界首見能在幾秒內增加、縮減和暫停的雲端資料倉儲，並具有經實證的 SQL 功能。
 
 SQL 資料倉儲結合了 SQL Server 的企業級關聯式資料庫的頂尖技術和雲端運算的可靠性。閱讀關於 SQL 資料倉儲的重要設計元件的更多資訊。
 
 ## 增加、縮減或暫停計算資源
-SQL 資料倉儲可讓資料儲存在雲端規模的儲存空間並以獨立的方式調整計算，讓您只在需要時負擔查詢效能的費用。您現在可以動態部署、增加、縮減甚至暫停計算。妥善運用雲端規模的儲存空間，並根據每季的需求套用查詢計算。暫停時，您只需負擔儲存空間的費用。
+SQL 資料倉儲引進分隔的儲存體和計算功能，可單獨進行調整。SQL 資料倉儲運用雲端規模的儲存體和 Azure 運算，讓您只在需要時支付查詢效能的費用。您現在可以動態部署、增加、縮減甚至在幾秒內暫停計算，以購買企業所需的深入資訊。變更計算數量就和向左或向右移動滑桿一樣簡單。
+
+SQL 資料倉儲提供獨立於儲存體且可完全控制計算數量的功能，可讓您暫停計算。就地保存後，計算即會送回中央集區，以節省成本。有需要時，只要繼續計算，並讓工作負載使用資料和計算即可。
 
 > [AZURE.NOTE]資料倉儲單位 (DWU) 是 SQL 資料倉儲中的計算資源調整單位。
 
@@ -76,4 +78,4 @@ Polybase 讓查詢 Azure blob 儲存體或 Hadoop 檔案系統 (HDFS) 中的非�
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

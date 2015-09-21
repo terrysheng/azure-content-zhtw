@@ -1,63 +1,33 @@
 <properties
-   pageTitle="使用 Azure 資源管理員範本部署應用程式"
-	services="azure-resource-manager"
-	description="使用 Azure 資源管理員部署應用程式至 Azure。範本是 JSON 檔案，並可從入口網站、PowerShell、適用於 Mac、Linux 和 Windows 的 Azure 命令列介面，或 REST 來使用。"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   pageTitle="透過資源管理員範本部署資源 |Microsoft Azure"
+   services="azure-resource-manager"
+   description="使用 Azure 資源管理員將資源部署至 Azure。範本是 JSON 檔案，並可從入口網站、PowerShell、適用於 Mac、Linux 和 Windows 的 Azure 命令列介面，或 REST 來使用。"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/20/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/09/2015"
+   ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員範本部署應用程式
 
 本主題說明如何使用 Azure 資源管理員範本，將您的應用程式部署至 Azure。它會說明如何使用 Azure PowerShell、Azure CLI、REST API 或 Microsoft Azure Preview 入口網站部署您的應用程式。
 
-Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在 Azure 佈建您的應用程式。在單一 JSON 範本中，您可以部署多個服務，例如虛擬機器、虛擬網路、儲存體、應用程式服務和資料庫。您可以使用相同的範本，在應用程式生命週期的每個階段，重複且一致地部署應用程式。
-
-若要簡化您應用程式的管理，您可將共用相同生命週期的所有資源，組織成單一的資源群組。資源群組可讓您輕鬆地將相關的資源一起部署、更新及刪除。在大部分情況下，資源群組會對應至單一應用程式或應用程式層 (適用於大型應用程式)。透過範本部署的資源會位在單一的資源群組內，但它們可以包括其他資源群組中的相依資源。
-
-在資源群組中，您可以追蹤部署的執行狀況，並查看部署的狀態和從範本執行輸出的任何結果。
+如需資源管理員的簡介，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。若要了解如何建立範本，請參閱[撰寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)。
 
 使用範本部署應用程式時，您可以提供參數值，以自訂建立資源的方式。您可以透過內嵌方式或在參數檔案中指定這些參數的值。
-
-## 概念
-
-- 資源群組 - 共用相同生命週期的實體集合
-- 資源管理員範本 - 定義部署之目標狀態的宣告式 JSON 檔案
-- 部署 - 追蹤資源管理員範本執行狀況的作業
-- 參數 - 使用者執行部署時提供的值，以自訂部署的資源
-- 參數檔案 - 儲存參數名稱和值的 JSON 檔案 
-
-## 案例
-
-您可以使用資源管理員範本來：
-
-- 部署複雜的多層式應用程式，例如 Microsoft SharePoint。
-- 一致且重複地部署您的應用程式。
-- 支援開發、測試及生產環境。
-- 檢視部署狀態。
-- 使用部署稽核記錄檔來疑難排解部署失敗。
-
-## 使用 Preview 入口網站部署
-
-您知道嗎？ 經由[預覽入口網站](https://portal.azure.com/)建立的每個應用程式均受到 Azure 資源管理員範本的支援！ 只要透過入口網站建立虛擬機器、虛擬網路、儲存體帳戶、App Service 或資料庫，您就已經充分利用 Azure 資源管理員的優點，不多費心力。只要選取 [**新增**] 圖示，您就會進入透過 Azure 資源管理員部署應用程式的程序。
-
-![新增](./media/resource-group-template-deploy/new.png)
-
-如需使用預覽入口網站與 Azure 資源管理員的相關資訊，請參閱[使用Azure Preview 入口網站來管理您的 Azure 資源](resource-group-portal.md)。
 
 
 ## 使用 PowerShell 部署
 
-如果您之前未曾搭配使用Azure PowerShell 與資源管理員，請參閱[將 Azure PowerShell 與 Azure 資源管理員搭配使用](../powershell-azure-resource-manager.md)。
+您可以執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409) 來下載和安裝 Azure PowerShell 模組。
 
 1. 登入您的 Azure 帳戶。提供您的認證之後，命令會傳回您的帳戶的相關資訊。
 
@@ -171,13 +141,13 @@ Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在
    
      您有下列選項可以用來提供參數值：
 
-     - 使用內嵌參數和本機範本。
+     - 使用內嵌參數和本機範本。每個參數皆為此格式：`"ParameterName": { "value": "ParameterValue" }`。以下範例顯示含逸出字元的參數。
 
-             azure group deployment create -f <PathToTemplate> {"ParameterName":"ParameterValue"} -g ExampleResourceGroup -n ExampleDeployment
+             azure group deployment create -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
      - 使用內嵌參數和範本的連結。
 
-             azure group deployment create --template-uri <LinkToTemplate> {"ParameterName":"ParameterValue"} -g ExampleResourceGroup -n ExampleDeployment
+             azure group deployment create --template-uri <LinkToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
      - 使用參數檔案。如需範本檔案的相關資訊，請參閱[參數檔案](./#parameter-file)。
     
@@ -236,6 +206,15 @@ Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在
          GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
            <common headers>
 
+## 使用 Preview 入口網站部署
+
+您知道嗎？ Azure 資源管理員範本支援所有經由[預覽入口網站](https://portal.azure.com/)建立的應用程式！ 只要透過入口網站建立虛擬機器、虛擬網路、儲存體帳戶、App Service 或資料庫，您就已經充分利用 Azure 資源管理員的優點，不多費心力。只要選取 [新增] 圖示，您即可進入透過 Azure 資源管理員部署應用程式的程序。
+
+![新增](./media/resource-group-template-deploy/new.png)
+
+如需關於搭配 Azure 資源管理員使用入口網站的詳細資訊，請參閱[使用 Azure 預覽入口網站來管理您的 Azure 資源](resource-group-portal.md)。
+
+
 ## 參數檔案
 
 如果您在部署期間，使用參數檔案傳遞參數值到您的範本，您需要建立格式類似以下範例的 JSON 檔案。
@@ -261,9 +240,9 @@ Azure 資源管理員範本可讓您透過宣告式 JSON，快速且輕鬆地在
 ## 後續步驟
 - 如需透過 .NET 用戶端程式庫部署資源的範例，請參閱[使用 .NET 程式庫和範本部署資源](../arm-template-deployment.md)
 - 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- 若要了解 Azure 資源管理員範本的區段，請參閱[編寫範本](../resource-group-authoring-templates.md)
-- 如需您可以在 Azure 資源管理員範本中使用的函式的清單，請參閱[範本函式](../resource-group-template-functions.md)
+- 若要了解 Azure 資源管理員範本的區段，請參閱[撰寫範本](../resource-group-authoring-templates.md)
+- 如需可以在 Azure 資源管理員範本中使用的函式清單，請參閱[範本函式](../resource-group-template-functions.md)
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

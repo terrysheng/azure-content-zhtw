@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中管理使用者帳戶
@@ -26,7 +26,7 @@
 
 ![發行者入口網站][api-management-management-console]
 
-從左邊的 [API 管理] 功能表中按一下 [開發人員]，然後按一下 [add user]。
+從左邊的 [API 管理] 功能表中按一下 [使用者]，然後按一下 [加入使用者]。
 
 ![Create developer][api-management-create-developer]
 
@@ -42,7 +42,7 @@
 
 ## <a name="invite-developer"> </a>邀請開發人員
 
-若要邀請開發人員，請從左邊的 [API 管理] 功能表中按一下 [開發人員]，然後按一下 [邀請使用者]。
+若要邀請開發人員，請從左邊的 [API 管理] 功能表中按一下 [使用者]，然後按一下 [邀請使用者]。
 
 ![Invite developer][api-management-invite-developer]
 
@@ -50,7 +50,7 @@
 
 ![Invite developer][api-management-invite-developer-window]
 
-這時會顯示確認訊息，但剛邀請的開發人員在尚未接受邀請之前，不會出現在清單中。
+這時會顯示確認訊息，但剛獲邀的開發人員在尚未接受邀請之前，都不會出現在清單中。
 
 ![Invite confirmation][api-management-invite-developer-confirmation]
 
@@ -91,4 +91,4 @@
 [開始使用 Azure API 管理]: api-management-get-started.md#create-service-instance
 [設定電子郵件範本]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

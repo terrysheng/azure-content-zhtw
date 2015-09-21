@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram;andtyler"/>
 
 # Azure 儲存體服務的跨原始資源共用 (CORS) 支援
@@ -136,10 +136,10 @@ CORS 規則的評估，如下所示：
 
 要求||| Response||
 ---|---|---|---|---
- | | | |
- | http://www.contoso.com |x-ms-blob-content-type | 第一個規則 |成功
- | http://www.contoso.com| x-ms-blob-content-type | 第二個規則 |成功
- | http://www.contoso.com| x-ms-blob-content-type | 第二個規則 | 失敗
+**方法** |**原始** |**要求標頭** |**規則相符** |**結果**
+**PUT** | http://www.contoso.com |x-ms-blob-content-type | 第一個規則 |成功
+**GET** | http://www.contoso.com| x-ms-blob-content-type | 第二個規則 |成功
+**GET** | http://www.contoso.com| x-ms-blob-content-type | 第二個規則 | 失敗
 
 第一個要求符合第一個規則 (原始網域符合允許的原始網域、方法符合允許的方法，而且標頭符合允許的標頭)，因而成功。
 
@@ -196,4 +196,4 @@ CORS 規則的評估，如下所示：
 [W3C 跨原始資源共用規格](http://www.w3.org/TR/cors/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

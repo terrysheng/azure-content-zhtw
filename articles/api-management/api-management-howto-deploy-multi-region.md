@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/10/2015"
 	ms.author="sdanie"/>
 
 # 如何將 Azure API 管理服務執行個體部署到多個 Azure 區域
 
 API 管理支援多區域部署，可讓 API 發行者跨所需的任意數量 Azure 區域發佈單一 API 管理服務。這有助於降低地理上分散的 API 取用者感受到的要求延遲，並且可以改善某個區域離線時服務的可用性。
 
-最初建立 API 管理服務時，它只會包含一個[單位][]，並且位在指派做為主要區域的單一 Azure 區域中。可透過 Azure 入口網站輕鬆加入其他區域。API 管理 Proxy 伺服器會部署到每個區域，並且將呼叫流量遞送到最近的 Proxy。當區域離線時，流量會自動重新導向到下一個最近的 Proxy。
+最初建立 API 管理服務時，它只會包含一個[單位][]，並且位在指派做為主要區域的單一 Azure 區域中。可透過 Azure 入口網站輕鬆加入其他區域。API 管理 Proxy 伺服器會部署到每個區域，並且將呼叫流量遞送到最近的 Proxy。如果區域離線，流量會自動重新導向到下一個最近的 Proxy。
 
 > [AZURE.IMPORTANT]多重區域部署僅供**[進階][]**層使用。
 
@@ -75,4 +75,4 @@ API 管理支援多區域部署，可讓 API 發行者跨所需的任意數量 A
 [單位]: http://azure.microsoft.com/pricing/details/api-management/
 [進階]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

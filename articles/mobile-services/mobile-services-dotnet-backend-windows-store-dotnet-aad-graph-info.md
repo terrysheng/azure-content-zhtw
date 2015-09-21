@@ -1,6 +1,6 @@
 <properties
-	pageTitle="存取 Azure Active Directory Graph 資訊 (Windows 市集) | Microsoft Azure"
-	description="了解如何在 Windows 市集應用程式中使用 Graph API 存取 Azure Active Directory 資訊。"
+	pageTitle="搭配 .NET 後端使用行動服務，存取 Azure Active Directory Graph 資訊 (Windows 市集) | Microsoft Azure"
+	description="了解如何使用 Graph API，存取 .NET 後端行動服務中的 Azure Active Directory 資訊。"
 	documentationCenter="windows"
 	authors="wesmc7777"
 	manager="dwrede"
@@ -9,14 +9,14 @@
 
 <tags
 	ms.service="mobile-services"
-	ms.workload="mobile"
+	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# 存取 Azure Active Directory 圖形資訊
+# 搭配 .NET 後端使用行動服務，存取 Azure Active Directory Graph 資訊
 
 
 
@@ -253,4 +253,4 @@
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [行動服務中使用 AAD 的角色型存取控制]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

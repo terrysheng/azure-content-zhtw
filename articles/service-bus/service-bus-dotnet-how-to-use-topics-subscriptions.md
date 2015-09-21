@@ -1,20 +1,20 @@
 <properties
     pageTitle="如何使用服務匯流排主題 (.NET) | Microsoft Azure"
-	description="了解如何在 Azure 使用服務匯流排主題及訂用帳戶。程式碼範例專為 .NET 應用程式撰寫。"
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    description="了解如何在 Azure 使用服務匯流排主題及訂用帳戶。程式碼範例專為 .NET 應用程式撰寫。"
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
     ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="07/02/2015"
-	ms.author="sethm"/>
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="07/02/2015"
+    ms.author="sethm"/>
 
 # 如何使用 Azure 服務匯流排主題和訂用帳戶
 
@@ -284,20 +284,19 @@
 
 了解基本的服務匯流排主題和訂用帳戶之後，請參考下列連結以取得更多資訊。
 
--   請參閱 MSDN 參考：[佇列、主題和訂用帳戶][]。
+-   請參閱[佇列、主題和訂用帳戶][]。
 -   [SqlFilter][] 的 API 參考資料。
 -   建立一個可行的應用程式，往返傳送或接收服務匯流排佇列的訊息：[服務匯流排代理傳訊 .NET 教學課程][]。
--   服務匯流排範例：從 [Azure 範例][]下載，或參閱 [MSDN][] 上的概觀。
+-   服務匯流排範例：從 [Azure 範例][]下載，或參閱[概觀](service-bus-samples.md)。
 
   [Azure portal]: http://manage.windowsazure.com
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
-  [佇列、主題和訂用帳戶]: http://msdn.microsoft.com/library/hh367516.aspx
+  [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [服務匯流排代理傳訊 .NET 教學課程]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [Azure 範例]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

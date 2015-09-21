@@ -1,20 +1,20 @@
 <properties
-   pageTitle="使用 Azure RemoteApp 在任何裝置上執行任何 Windows 應用程式"
-	description="了解如何使用 Azure RemoteApp 與使用者共用任何 Windows 應用程式。"
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"
-	editor=""/>
+   pageTitle="使用 Azure RemoteApp 在任何裝置上執行任何 Windows 應用程式 | Microsoft Azure"
+   description="了解如何使用 Azure RemoteApp 與使用者共用任何 Windows 應用程式。"
+   services="remoteapp"
+   documentationCenter=""
+   authors="lizap"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="remoteapp"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="compute"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="compute"
+   ms.date="09/02/2015"
+   ms.author="elizapo"/>
 
 # 使用 Azure RemoteApp 在任何裝置上執行任何 Windows 應用程式
 
@@ -55,6 +55,7 @@
 
 如果您在建立集合時離開 Azure RemoteApp 節點，請從 Azure 首頁回到該節點開始。
 
+1. 按一下左導覽中的 [**RemoteApp**]。
 2. 按一下您先前建立的集合來存取其他選項和設定集合。
 ![新的 RemoteApp 雲端集合](./media/remoteapp-anyapp/ra-anyappcollection.png)
 3. 在 [**發佈**] 索引標籤上，按一下畫面底部的 [**發佈**]，然後按一下 [**發佈開始功能表程式**]。
@@ -84,9 +85,9 @@
 ![Azure 儲存體帳戶](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. 現在，回到您的儀表板，以取得您儲存體的路徑 (端點位置)。您將立即使用此項，因此請確定在某個位置複製它。
 
- ![儲存體帳戶路徑](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
-5. 接著，建立儲存體帳戶之後，您需要有主要存取金鑰。按一下 [**管理存取金鑰**]，然後複製主要存取金鑰。
-6. 現在，設定儲存體帳戶的內容，並建立 Access 的新檔案共用。在提升權限的 Windows PowerShell 視窗中，執行下列 Cmdlet：
+![儲存體帳戶路徑](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
+5.接著，建立儲存體帳戶之後，您需要有主要存取金鑰。按一下 [**管理存取金鑰**]，然後複製主要存取金鑰。
+6.現在，設定儲存體帳戶的內容，並建立 Access 的新檔案共用。在提升權限的 Windows PowerShell 視窗中，執行下列 Cmdlet：
 
         $ctx=New-AzureStorageContext <account name> <account key>
     	$s = New-AzureStorageShare <share name> -Context $ctx
@@ -119,4 +120,4 @@
 
 <!--Image references-->
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

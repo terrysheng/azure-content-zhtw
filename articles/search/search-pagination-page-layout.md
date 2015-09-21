@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 #如何在 Azure 搜尋服務中對搜尋結果分頁#
@@ -103,7 +103,7 @@
 - [Azure 搜尋服務 REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx)
 - [索引作業](http://msdn.microsoft.com/library/azure/dn798918.aspx)
 - [文件作業](http://msdn.microsoft.com/library/azure/dn800962.aspx)
-- [Azure 搜尋服務的影片和教學課程](http://msdn.microsoft.com/library/azure/dn818681.aspx)
+- [Azure 搜尋服務的影片和教學課程](search-video-demo-tutorial-list.md)
 - [Azure 搜尋服務中的多面向導覽](search-faceted-navigation.md)
 
 
@@ -114,4 +114,4 @@
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

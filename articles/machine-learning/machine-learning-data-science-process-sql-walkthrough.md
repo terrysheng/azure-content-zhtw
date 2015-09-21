@@ -1,22 +1,23 @@
-<properties 
+<properties
 	pageTitle="進階分析程序和技術實務：使用 SQL Server | Microsoft Azure"
-	description="進階分析程序和技術實務"
+	description="進階分析程序和技術實務"  
 	services="machine-learning"
+	solutions=""
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun" />
 
-<tags 
+<tags
 	ms.service="machine-learning"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="09/09/2015" 
 	ms.author="mohabib;fashah;bradsev"/>
 
-                
+
 # 進階分析程序和技術實務：使用 SQL Server
 
 在此教學課程，您會跟著逐步解說，使用可公開取得的資料集 ([NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/)資料集) 建置和部署模型。此程序遵循《Azure 進階分析程序和技術 (ADAPT) 指南》。
@@ -53,7 +54,7 @@
 1. 二進位分類：預測是否已支付某趟車程的小費，例如大於 $0 的 *tip\_amount* 為正面範例，等於 $0 的 *tip\_amount* 為負面範例。
 
 2. 多類別分類：預測已針對該車程支付的小費的金額範圍。我們將 *tip\_amount* 分成五個分類收納組或類別：
-	
+
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
 		Class 2 : tip_amount > $5 and tip_amount <= $10
@@ -126,7 +127,7 @@
 	- 在左邊的 [**選取頁面**] 清單中選取 [**資料庫設定**]。
 
 	- 確認**資料庫預設位置**，和/或將其變更為您選擇的**資料磁碟**位置。如果新資料庫是使用預設位置設定所建立，則此為新資料庫所在位置。
-	
+
 		![SQL Database 的預設值][15]
 
 5. 若要建立新資料庫與一組檔案群組來保留資料分割資料表，請開啟指令碼範例 **create\_db\_default.sql**。指令碼將會在預設資料位置中建立名為 **TaxiNYC** 的新資料庫和 12 個檔案群組。每個檔案群組都將保留一個月內的 trip\_data 和 trip\_fare 資料。視需要修改資料庫名稱。按一下 [**!執行**]，執行指令碼。
@@ -173,7 +174,7 @@
 
 當您準備好繼續進行 Azure Machine Learning，您可以：
 
-1. 儲存最後一個 SQL 查詢以擷取和取樣資料，然後複製該查詢，直接貼至 Azure Machine Learning 中的「[讀取器][reader]」模組，或者 
+1. 儲存最後一個 SQL 查詢以擷取和取樣資料，然後複製該查詢，直接貼至 Azure Machine Learning 中的「[讀取器][reader]」模組，或者
 2. 保存您計畫用來在新資料庫資料表中建置模型的取樣和工程設計資料，並在 Azure Machine Learning 的「[讀取器][reader]」模組中使用新的資料表。
 
 在本節中，我們會儲存最後一個查詢，以擷取資料並對資料進行取樣。＜[IPython Notebook 中的資料探索和功能工程](#ipnb)＞一節中示範了第二個方法的執行方式。
@@ -184,7 +185,7 @@
 	SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')
 
 	-- Report number of columns in table nyctaxi_trip
-	SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip' 
+	SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
 
 #### 探索：依據 medallion 的車程分佈
 
@@ -232,12 +233,12 @@
 此範例會計算在指定期間內 (或者，如果涵蓋一整年，則是在整個資料庫中) 小費範圍的分佈。這是標籤類別的分佈，會在稍後用來將多類別分類模型化。
 
 	SELECT tip_class, COUNT(*) AS tip_freq FROM (
-		SELECT CASE 
+		SELECT CASE
 			WHEN (tip_amount = 0) THEN 0
 			WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
 			WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
 			WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
-			ELSE 4 
+			ELSE 4
 		END AS tip_class
 	FROM nyctaxi_fare
 	WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
@@ -247,7 +248,7 @@
 
 此範例會將上車和下車的經緯度轉換為 SQL 地理位置點、使用 SQL 地理位置點的差距來計算車程距離，然後傳回結果的隨機取樣以進行比較。此範例只會使用稍早所提供的資料品質評估查詢，將結果限制為有效座標。
 
-	SELECT 
+	SELECT
 	pickup_location=geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326)
 	,dropoff_location=geography::STPointFromText('POINT(' + dropoff_longitude + ' ' + dropoff_latitude + ')', 4326)
 	,trip_distance
@@ -290,7 +291,7 @@
 
 - 將小型資料取樣讀取至記憶體中的資料框架。
 - 使用取樣的資料來執行一些視覺化操作和探索。
-- 使用取樣的資料來試驗功能工程。 
+- 使用取樣的資料來試驗功能工程。
 - 如為較大型的資料探索、資料操作及功能工程，請使用 Pythont，針對 Azure VM 中的 SQL Server 資料庫直接發出 SQL 查詢。
 - 決定用於 Azure Machine Learning 模型建置的取樣大小。
 
@@ -319,45 +320,45 @@
 #### 報告資料表 nyctaxi\_trip 中資料列和資料行的數目
 
     nrows = pd.read_sql('''
-		SELECT SUM(rows) FROM sys.partitions 
+		SELECT SUM(rows) FROM sys.partitions
 		WHERE object_id = OBJECT_ID('nyctaxi_trip')
 	''', conn)
-    
+
 	print 'Total number of rows = %d' % nrows.iloc[0,0]
-    
+
     ncols = pd.read_sql('''
-		SELECT COUNT(*) FROM information_schema.columns 
+		SELECT COUNT(*) FROM information_schema.columns
 		WHERE table_name = ('nyctaxi_trip')
 	''', conn)
-    
+
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
 - 資料列總數 = 173179759  
 - 資料行總數 = 14
-    
+
 #### 從 SQL Server 資料庫讀入小型資料取樣
 
     t0 = time.time()
-    
+
 	query = '''
-		SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, 
-			f.tolls_amount, f.total_amount, f.tip_amount 
-		FROM nyctaxi_trip t, nyctaxi_fare f 
+		SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax,
+			f.tolls_amount, f.total_amount, f.tip_amount
+		FROM nyctaxi_trip t, nyctaxi_fare f
 		TABLESAMPLE (0.05 PERCENT)
-		WHERE t.medallion = f.medallion 
-		AND   t.hack_license = f.hack_license 
+		WHERE t.medallion = f.medallion
+		AND   t.hack_license = f.hack_license
 		AND   t.pickup_datetime = f.pickup_datetime
 	'''
 
     df1 = pd.read_sql(query, conn)
-    
+
     t1 = time.time()
     print 'Time to read the sample table is %f seconds' % (t1-t0)
-    
+
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
 讀取資料表範例的時間為 6.492000 秒 已擷取的資料列數和資料行數 = (84952, 21)
-    
+
 #### 描述性統計資料
 
 現在已經準備好來探索取樣的資料。一開始會先查看 [**trip\_distance**] 欄位或任何其他欄位的描述性統計資料：
@@ -426,14 +427,14 @@
 在本節中，我們會聯結資料表 **nyctaxi\_trip** 和 **nyctaxi\_fare**、擷取 1% 的隨機取樣，然後將取樣的資料保存在名為 **nyctaxi\_one\_percent** 的新資料表中：
 
     cursor = conn.cursor()
-    
+
     drop_table_if_exists = '''
         IF OBJECT_ID('nyctaxi_one_percent', 'U') IS NOT NULL DROP TABLE nyctaxi_one_percent
     '''
-    
+
     nyctaxi_one_percent_insert = '''
         SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, f.total_amount, f.tip_amount
-		INTO nyctaxi_one_percent 
+		INTO nyctaxi_one_percent
 		FROM nyctaxi_trip t, nyctaxi_fare f
 		TABLESAMPLE (1 PERCENT)
 		WHERE t.medallion = f.medallion
@@ -441,11 +442,11 @@
 		AND   t.pickup_datetime = f.pickup_datetime
 		AND   pickup_longitude <> '0' AND dropoff_longitude <> '0'
     '''
-    
+
     cursor.execute(drop_table_if_exists)
     cursor.execute(nyctaxi_one_percent_insert)
     cursor.commit()
-    
+
 ### 在 IPython Notebook 中使用 SQL 查詢進行資料探索
 
 在本節中，我們將使用前面所建立的新資料表中保存的 1% 取樣資料，來探索資料分佈。請注意，如＜[SQL Server 中的資料探索和功能工程](#dbexplore)＞一節所述，您可以使用原始資料表，或是使用 **TABLESAMPLE** 執行類似的探索，以限制探索範例，或是透過使用 **pickup\_datetime** 資料分割，將結果限制為指定的期間。
@@ -453,8 +454,8 @@
 #### 探索：車程的每日分佈
 
     query = '''
-		SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c 
-		FROM nyctaxi_one_percent 
+		SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
+		FROM nyctaxi_one_percent
 		GROUP BY CONVERT(date, dropoff_datetime)
 	'''
 
@@ -463,11 +464,11 @@
 #### 探索：根據 medallion 的車程分佈
 
     query = '''
-		SELECT medallion,count(*) AS c 
-		FROM nyctaxi_one_percent 
+		SELECT medallion,count(*) AS c
+		FROM nyctaxi_one_percent
 		GROUP BY medallion
 	'''
-    
+
 	pd.read_sql(query,conn)
 
 ### 在 IPython Notebook 中使用 SQL 查詢進行的功能工程
@@ -484,13 +485,13 @@
 		nyctaxi_one_percent_add_col = '''
 			ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
 		'''
-		
+
 		cursor.execute(nyctaxi_one_percent_add_col)
 		cursor.commit()
-    
+
     	nyctaxi_one_percent_update_col = '''
-        	UPDATE nyctaxi_one_percent 
-            SET 
+        	UPDATE nyctaxi_one_percent
+            SET
                tipped = CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END,
                tip_class = CASE WHEN (tip_amount = 0) THEN 0
                                 WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
@@ -515,22 +516,22 @@
     cursor.commit()
 
     nyctaxi_one_percent_update_col = '''
-		WITH B AS 
+		WITH B AS
 		(
-			SELECT medallion, hack_license, 
+			SELECT medallion, hack_license,
 				SUM(CASE WHEN vendor_id = 'cmt' THEN 1 ELSE 0 END) AS cmt_count,
 				SUM(CASE WHEN vendor_id = 'vts' THEN 1 ELSE 0 END) AS vts_count
-			FROM nyctaxi_one_percent 
+			FROM nyctaxi_one_percent
 			GROUP BY medallion, hack_license
-		) 
-    
-		UPDATE nyctaxi_one_percent 
+		)
+
+		UPDATE nyctaxi_one_percent
 		SET nyctaxi_one_percent.cmt_count = B.cmt_count,
 			nyctaxi_one_percent.vts_count = B.vts_count
-		FROM nyctaxi_one_percent A INNER JOIN B 
+		FROM nyctaxi_one_percent A INNER JOIN B
 		ON A.medallion = B.medallion AND A.hack_license = B.hack_license
 	'''
-    
+
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
@@ -546,20 +547,20 @@
     cursor.commit()
 
     nyctaxi_one_percent_update_col = '''
-		WITH B(medallion,hack_license,pickup_datetime,trip_time_in_secs, BinNumber ) AS 
+		WITH B(medallion,hack_license,pickup_datetime,trip_time_in_secs, BinNumber ) AS
 		(
-			SELECT medallion,hack_license,pickup_datetime,trip_time_in_secs, 
+			SELECT medallion,hack_license,pickup_datetime,trip_time_in_secs,
 			NTILE(5) OVER (ORDER BY trip_time_in_secs) AS BinNumber from nyctaxi_one_percent
 		)
-    
-		UPDATE nyctaxi_one_percent 
+
+		UPDATE nyctaxi_one_percent
 		SET trip_time_bin = B.BinNumber
-		FROM nyctaxi_one_percent A INNER JOIN B 
+		FROM nyctaxi_one_percent A INNER JOIN B
 		ON A.medallion = B.medallion
 		AND A.hack_license = B.hack_license
 		AND A.pickup_datetime = B.pickup_datetime
 	'''
-    
+
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
@@ -568,7 +569,7 @@
 此範例會將緯度和/或經度欄位的十進位表示法細分為資料粒度不同的多個區域欄位，例如國家/地區、城市、城鎮、街區等。請注意，新的地理位置欄位不會對應到實際的位置。如需對應地理編碼位置的資訊，請參閱「[Bing 地圖服務 REST 服務](https://msdn.microsoft.com/library/ff701710.aspx)」。
 
     nyctaxi_one_percent_insert_col = '''
-		ALTER TABLE nyctaxi_one_percent 
+		ALTER TABLE nyctaxi_one_percent
 		ADD l1 varchar(6), l2 varchar(3), l3 varchar(3), l4 varchar(3),
 			l5 varchar(3), l6 varchar(3), l7 varchar(3)
 	'''
@@ -578,13 +579,13 @@
 
     nyctaxi_one_percent_update_col = '''
 		UPDATE nyctaxi_one_percent
-		SET l1=round(pickup_longitude,0) 
+		SET l1=round(pickup_longitude,0)
 			, l2 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 1 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),1,1) ELSE '0' END     
 			, l3 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 2 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),2,1) ELSE '0' END     
 			, l4 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 3 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),3,1) ELSE '0' END     
 			, l5 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 4 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),4,1) ELSE '0' END     
 			, l6 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 5 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),5,1) ELSE '0' END     
-			, l7 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 6 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),6,1) ELSE '0' END 
+			, l7 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 6 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),6,1) ELSE '0' END
 	'''
 
     cursor.execute(nyctaxi_one_percent_update_col)
@@ -655,12 +656,12 @@
 
 ## <a name="mldeploy"></a>在 Azure Machine Learning 中部署模型
 
-當您備妥模型時，可以輕鬆地直接從實驗中將它部署為 Web 服務。如需發佈 Azure ML Web 服務的詳細資訊，請參閱「[發佈 Azure Machine Learning Web 服務](machine-learning-publish-a-machine-learning-web-service.md)」。
+當您備妥模型時，可以輕鬆地直接從實驗中將它部署為 Web 服務。如需關於部署 Azure ML Web 服務的詳細資訊，請參閱[部署 Azure 機器學習 Web 服務](machine-learning-publish-a-machine-learning-web-service.md)。
 
 若要部署新的 Web 服務，您需要：
 
 1. 建立計分實驗。
-2. 發佈 Web 服務。
+2. 部署 Web 服務。
 
 若要從「**已完成**」的訓練實驗建立計分實驗，請按一下下方動作列中的 [**建立計分實驗**]。
 
@@ -674,11 +675,11 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。特
 
 建立計分實驗時，請檢閱它，並視需要進行調整。典型的調整是使用某一個會排除標籤欄位的輸入資料集和 (或) 查詢來取代它們，因為在呼叫服務時將無法使用這些欄位。若要將輸入資料集和 (或) 查詢的大小縮減為只有幾筆足以表示輸入結構描述的記錄，這也是個很好的練習。針對輸出連接埠，通常會使用「[專案資料行][project-columns]」模組排除所有輸入欄位，而且只會在輸出中包含「**計分標籤**」和「**計分機率**」。
 
-下圖為計分實驗範例。準備發佈時，請按一下下方動作列中的 [**發佈 WEB 服務**] 按鈕。
+下圖為計分實驗範例。準備部署時，請按下方動作列中的 [發佈 Web 服務] 按鈕。
 
 ![Azure ML 發佈][11]
 
-總言之，在此逐步解說教學課程中，您已經建立 Azure 資料科學環境，從資料擷取到 Azure Machine Learning Web 服務的模型訓練和發佈這整個過程中都會使用大型公用資料集。
+總言之，在此逐步解說教學課程中，您已經建立 Azure 資料科學環境，從資料擷取到 Azure 機器學習 Web 服務的模型訓練和部署，這整個過程中都會使用大型公用資料集。
 
 ### 授權資訊
 
@@ -713,6 +714,5 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。特
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

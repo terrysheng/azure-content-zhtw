@@ -1,20 +1,20 @@
 <properties
    pageTitle="資料倉儲工作負載"
-	description="SQL 資料倉儲的彈性可讓您以滑動的方式調整資料倉儲單位 (DWU)，來增加、縮減或暫停計算能力。本文說明資料倉儲指標以及它們與 DWU 之間的關係。"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor=""/>
+   description="SQL 資料倉儲的彈性可讓您以滑動的方式調整資料倉儲單位 (DWU)，來增加、縮減或暫停計算能力。本文說明資料倉儲指標以及它們與 DWU 之間的關係。"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="05/23/2015"
-	ms.author="barbkess;JRJ@BigBangData.co.uk"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/04/2015"
+   ms.author="barbkess;twounder;JRJ@BigBangData.co.uk"/>
 
 # 資料倉儲工作負載
 資料倉儲工作負載是指所有針對資料倉儲所發生的作業。資料倉儲工作負載包含將資料載入倉儲、對資料倉儲執行分析和報告、管理資料倉儲中的資料，以及從資料倉儲匯出資料的整個程序。這些元件的廣度與深度多半與資料倉儲的成熟度相當。
@@ -37,7 +37,7 @@
 
 - 傳統上，載入的程序稱為 ETL，也就是「擷取」(Extract)、「轉換」(Transform) 及「載入」(Load)。資料通常需要進行轉換，才能與資料倉儲中的其他資料保持一致。以前企業會使用專用的 ETL 伺服器來執行轉換。現在要進行如此快速的大量平行處理程序，您可以先將資料載入 SQL 資料倉儲，然後再執行轉換。這個稱為擷取、載入及轉換 (ELT) 的程序，正逐漸成為資料倉儲工作負載的全新標準。
 
-> [AZURE 附註] 現在，使用 SQL Server CTP2 就能即時在 OLTP 資料表上執行分析。雖然這不會取代資料倉儲儲存和分析資料的需求，但的確能夠用來進行即時執行分析。
+> [AZURE.NOTE]現在，使用 SQL Server CTP2 就能即時在 OLTP 資料表上執行分析。雖然這不會取代資料倉儲儲存和分析資料的需求，但的確能夠用來進行即時執行分析。
  
 ### 報告和分析查詢
 報告和分析查詢通常會根據幾個條件分成小型、中型和大型，但通常是根據時間。大部分的資料倉儲中，還有混合快速執行與長時間執行查詢的工作負載。在每個案例都務必判斷此混合方式以及它的頻率 (每小時、每天、月末、季末等等)。請務必了解混合式查詢工作負載搭配並行存取，為資料倉儲適當規劃容量。
@@ -61,15 +61,15 @@
 若要開始開發您的資料倉儲，請參閱[開發概觀][]。
 
 ## 叢書
-[巨量資料倉儲](https://www.manning.com/books/big-data-warehousing) (Karthik Ramachandran、Istvan Szededi 和 Richard L.Saltzer 合著，Manning Publications 出版)。[第 1 章](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
+[巨量資料倉儲](https://www.manning.com/books/big-data-warehousing) (Big Data Warehousing) (Karthik Ramachandran、Istvan Szededi 和 Richard L.Saltzer 合著，Manning Publications 出版)。[第 1 章](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
 
 <!--Image references-->
 
 <!--Article references-->
-[開發概觀]: sql-data-warehouse-overview-development.md
+[開發概觀]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other web references-->
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

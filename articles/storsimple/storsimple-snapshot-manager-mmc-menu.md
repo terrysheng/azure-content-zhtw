@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="在 StorSimple Snapshot Manager 使用 MMC 功能表動作 |Microsoft Azure"
-   description="描述如何在 StorSimple Snapshot Manager 使用 Microsoft Management Console (MMC) 功能表動作。"
+   pageTitle="StorSimple Snapshot Manager MMC 功能表動作 | Microsoft Azure"
+   description="說明如何在 StorSimple Snapshot Manager 中，使用標準的 Microsoft Management Console (MMC) 功能表動作。"
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # 在 StorSimple Snapshot Manager 使用 MMC 功能表動作
@@ -127,4 +127,4 @@
 
 [深入了解 StorSimple Snapshot Manager 使用者介面](storsimple-use-snapshot-manager.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

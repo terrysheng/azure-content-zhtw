@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/20/2015" 
+	ms.date="09/08/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft 串流分析版本資訊
+
+## 資料流分析 2015/09/10 版本的注意事項 ##
+
+此版本包含下列更新。
+
+課程名稱|說明
+---|---
+支援 PowerBI 群組|若要啟用與其他 Power BI 使用者共享資料，現在資料流分析工作可寫入至 Power BI 帳戶內的群組。
 
 ## 串流分析 2015 年 8 月 20 日版本的注意事項 ##
 
@@ -24,9 +32,9 @@
 
 課程名稱|說明
 ---|---
-加入 LAST 函式 |在串流分析工作已經有可用的 [LAST](http://msdn.microsoft.com/library/mt421186.aspx) 函式，讓您擷取在指定時間範圍事件資料流中的最新事件。
-新的陣列函數|現在已有可用的陣列函數 [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx)、[GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) 與 [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx)。
-新的記錄函數|現在已有可用的記錄函數 [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) 和 [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx)。
+加入 LAST 函式 |在資料流分析工作中已可使用 [LAST](http://msdn.microsoft.com/library/mt421186.aspx) 函數，讓您擷取指定時間範圍內事件資料流中的最新事件。
+新的陣列函數|現在已可使用陣列函數 [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx)、[GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) 及 [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx)。
+新的記錄函數|現在已可使用記錄函數 [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) 和 [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx)。
 
 ## 串流分析 07/30/2015 版本的注意事項 ##
 
@@ -35,8 +43,8 @@
 課程名稱|說明
 ---|---
 與 Azure 識別碼分離的 Power BI 組織識別碼|此功能可在任何 Azure 帳戶類型 (Live ID 或組織識別碼) 下啟用 ASA 工作的 [Power BI 輸出](stream-analytics-power-bi-dashboard.md)。此外，您可以擁有 Azure 帳戶的組織識別碼，並使用另一個識別碼用於授權 Power BI 輸出。
-服務匯流排佇列輸出的支援|[服務匯流排佇列](stream-analytics-connect-data-event-outputs.md#service-bus-queues)輸出現在可用於串流分析工作。
-服務匯流排主題輸出的支援|[服務匯流排主題](stream-analytics-connect-data-event-outputs.md#service-bus-topics)輸出現在可用於串流分析工作。
+服務匯流排佇列輸出的支援|[服務匯流排佇列](stream-analytics-connect-data-event-outputs.md#service-bus-queues)輸出現在可用於資料流分析工作。
+服務匯流排主題輸出的支援|[服務匯流排主題](stream-analytics-connect-data-event-outputs.md#service-bus-topics)輸出現在可用於資料流分析工作。
 
 ## 串流分析 2015/07/09 版本的注意事項 ##
 
@@ -73,7 +81,7 @@ SQL Database事件容量限制|使用 SQL Database 做為輸出來源時，非�
 PowerBI 資料集只能包含一個資料表|PowerBI 不允許指定的資料集中存在多個資料表。
 
 ## 取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟
 
@@ -84,4 +92,4 @@ PowerBI 資料集只能包含一個資料表|PowerBI 不允許指定的資料集
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

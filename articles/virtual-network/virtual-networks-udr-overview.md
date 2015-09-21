@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/09/2015"
+   ms.date="09/04/2015"
    ms.author="telmos" />
 
 # 使用者定義的路由和 IP 轉送
@@ -90,4 +90,4 @@
 - 了解如何[建立路由](../virtual-networks-udr-how-to#How-to-manage-routes)並將其關聯至子網路。
 - 了解如何針對做為虛擬設備執行之 VM [啟用 IP 轉送](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding)。 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

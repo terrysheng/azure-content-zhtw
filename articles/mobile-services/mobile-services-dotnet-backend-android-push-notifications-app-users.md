@@ -1,6 +1,6 @@
 <properties
-	pageTitle="傳送推播通知給已驗證的使用者"
-	description="了解如何將推播通知傳送給特定"
+	pageTitle="傳送推播通知給 Android 應用程式的已驗證使用者 (.NET 後端)"
+	description="了解如何搭配 .NET 後端使用行動服務，將推播通知傳送給 Android 應用程式的已驗證特定使用者。"
 	services="mobile-services,notification-hubs"
 	documentationCenter="android"
 	authors="wesmc7777"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="notification-hubs"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015" 
 	ms.author="wesmc"/>
 
-# 傳送推播通知給已驗證的使用者
+# 傳送推播通知給 Android 應用程式的已驗證使用者
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
@@ -25,7 +25,7 @@
 本主題說明如何將推播通知傳送給任何已註冊之 iOS 裝置上的驗證使用者。不同於先前的[推播通知][Get started with push notifications]教學課程，本教學課程會變更您的行動服務，而要求使用者必須先完成驗證，用戶端才能向通知中心註冊推播通知。此外也會修改註冊，以根據指派的使用者識別碼新增標記。最後會更新伺服器程式碼，而僅將通知傳送給已驗證的使用者，而不是所有的註冊。
 
 
-本教學課程支援 Android 應用程式。
+本教學課程支援 Android 應用程式 (透過搭配 .Net 後端使用的行動服務)。
 
 ##必要條件
 
@@ -63,4 +63,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

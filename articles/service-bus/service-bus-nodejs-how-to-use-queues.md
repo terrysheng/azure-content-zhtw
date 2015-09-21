@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用服務匯流排佇列 (Node.js) | Microsoft Azure"
-	description="了解如何從 Node.js 應用程式，在 Azure 中使用服務匯流排佇列。"
-	services="service-bus"
-	documentationCenter="nodejs"
-	authors="MikeWasson"
-	manager="wpickett"
+	pageTitle="如何使用服務匯流排佇列 (Node.js) | Microsoft Azure" 
+	description="了解如何從 Node.js 應用程式，在 Azure 中使用服務匯流排佇列。" 
+	services="service-bus" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="07/06/2015" 
 	ms.author="mwasson"/>
 
 # 如何使用服務匯流排佇列
@@ -165,8 +165,8 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 了解基本的服務匯流排佇列之後，請參考下列連結以取得更多資訊。
 
--   請參閱 MSDN 參考：[佇列、主題和訂閱][]。
--   造訪 GitHub 上的 [Azure SDK for Node] (英文) 儲存機制。
+-   請參閱[佇列、主題和訂用帳戶][]。
+-   造訪 GitHub 上的 [Azure SDK for Node][] (英文) 儲存機制。
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
   [後續步驟]: #next-steps
@@ -183,10 +183,10 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
   [Azure Management Portal]: http://manage.windowsazure.com
   
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [佇列、主題和訂閱]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
   [建立 Node.js 應用程式並將其部署到 Azure 網站]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [使用儲存體的 Node.js 雲端服務]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [使用儲存體的 Node.js Web 應用程式]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

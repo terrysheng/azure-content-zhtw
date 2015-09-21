@@ -396,7 +396,7 @@ Azure 搜尋服務 .NET SDK 支援以 .NET Framework 4.0 或更新版為目標�
 
 ## 後續步驟 ##
 
-- 使用[影片與其他範例和教學課程](https://msdn.microsoft.com/library/azure/dn818681.aspx)加深知識。
+- 使用[影片與其他範例和教學課程](search-video-demo-tutorial-list.md)加深知識。
 - 了解這一版 Azure 搜尋服務 SDK 的功能：[Azure 搜尋服務概觀](https://msdn.microsoft.com/library/azure/dn798933.aspx)。
 - 檢閱[命名規則](https://msdn.microsoft.com/library/azure/dn857353.aspx)，了解命名各種物件的規則。
 - 檢閱 Azure 搜尋服務[支援的資料類型](https://msdn.microsoft.com/library/azure/dn798938.aspx)。
@@ -625,4 +625,4 @@ Hotel.cs：
     }
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="部署 StorSimple 裝置 (Update 1) | Microsoft Azure"
-	description="描述部署 StorSimple Update 1 裝置和服務的步驟與最佳做法。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="描述部署 StorSimple Update 1 裝置和服務的步驟與最佳做法。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/08/2015"
+   ms.author="alkohli" />
 
 # 部署您的內部部署 StorSimple 裝置 (Update 1)
 
@@ -202,7 +202,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 > - 如需在 Windows Server 主機上安裝和設定 MPIO 和 iSCSI 的指示，請移至[為 StorSimple 裝置設定 MPIO](storsimple-configure-mpio-windows-server.md)。其中也會包括掛接、初始化和格式化 StorSimple 磁碟區的步驟。
 
-> - 如需在 Linux 主機上安裝和設定 MPIO 和 iSCSI 的指示，請移至[為 StorSimple Linux 主機設定 MPIO](storsimple-configure-mpio-linux.md)
+> - 如需在 Linux 主機上安裝和設定 MPIO 和 iSCSI 的指示，請移至[為 StorSimple Linux 主機設定 MPIO](storsimple-configure-mpio-on-linux.md)
 
 如果您決定不設定 MPIO，請執行下列步驟在 Windows Server 主機上掛接、初始化及格式化您的 StorSimple 磁碟區。
 
@@ -241,7 +241,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 更新裝置可能需要數小時的時間。在裝置上執行下列步驟來掃描並套用更新。
 <!-- > can take 1-4 hours-->
 
-<!-- > [AZURE.NOTE] 如果您已在 Data 0 以外的網路介面設定閘道器，安裝更新前您必須先停用 Data 2 和 Data 3 網路介面。 請移至 **[裝置] > [設定]** 並停用 Data 2 和 Data 3 介面。 裝置更新之後，您應該重新啟用這些介面。-->
+<!-- > [AZURE.NOTE] If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### 若要更新裝置
 
@@ -255,7 +255,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 4.	裝置成功更新之後，請啟用 Data 2 和 Data 3 網路介面 (如果已停用)。
 
-<!-- 系統可能會要求您在安裝更新前停用 Data 2 和 Data 3。 您必須停用這些網路介面，否則更新會失敗。-->
+<!-- In step 2, you may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
 
 ## 取得 Windows Server 主機的 IQN
 
@@ -273,7 +273,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 多重路徑 I/O (MPIO) 是 Windows Server 預設不會安裝的選擇性功能。您應該透過伺服器管理員將它安裝為功能。如需 MPIO 安裝指示，請移至[為 StorSimple 裝置設定 MPIO](storsimple-configure-mpio-windows-server.md)。
 
-如需為連接到 Linux 主機之 StorSimple 裝置安裝 MPIO 的指示，請移至[為 Linux 主機設定 MPIO](storsimple-configure-mpio-linux.md)。
+如需為連接到 Linux 主機之 StorSimple 裝置安裝 MPIO 的指示，請移至[為 Linux 主機設定 MPIO](storsimple-configure-mpio-on-linux.md)。
 
 
 > [AZURE.NOTE]StorSimple 虛擬裝置不支援 MPIO。
@@ -287,4 +287,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 使用 [StorSimple Manager 服務](storsimple-manager-service-administration.md)以管理 StorSimple 裝置。
  
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

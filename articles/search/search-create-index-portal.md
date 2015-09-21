@@ -6,7 +6,7 @@
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
 	ms.service="search"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="09/08/2015"
 	ms.author="heidist"/>
 
 # 在 Azure 入口網站中建立 Azure 搜尋索引
@@ -100,4 +100,4 @@
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

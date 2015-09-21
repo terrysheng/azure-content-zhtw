@@ -1,21 +1,23 @@
 <properties
    pageTitle="Azure Active Directory 圖形 API"
-	description="圖形 API 的概觀和快取入門指南，可讓您以程式設計方式透過 REST API 端點存取 Azure AD。"
-	services="active-directory"
-	documentationCenter=""
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor="mbaldwin"/>
+   description="圖形 API 的概觀和快取入門指南，可讓您以程式設計方式透過 REST API 端點存取 Azure AD。"
+   services="active-directory"
+   documentationCenter=""
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor="mbaldwin" />
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/08/2015"
+   ms.author="mbaldwin" />
 
 # Azure Active Directory 圖形 API
+
+> *檢視[互動式 Graph API 參考文件](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)*。
 
 Azure Active Directory 圖形 API 支援以程式設計方式透過 REST API 端點存取 Azure AD。應用程式可以使用 Graph API，來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。例如，圖形 API 支援對使用者物件執行下列常見的作業：
 
@@ -31,22 +33,22 @@ Azure Active Directory 圖形 API 支援以程式設計方式透過 REST API 端
 
 除了使用者物件，您也可以在其他物件上執行類似的作業，例如群組和應用程式。若要在目錄上呼叫圖形 API，應用程式必須向 Azure AD 註冊並設定為允許存取此目錄。這通常是透過使用者或系統管理員同意流程來達成。
 
-若要開始使用 Azure Active Directory 圖形 API，請參閱[圖形 API 快速入門指南](active-directory-graph-api-quickstart.md)。
+若要開始使用 Azure Active Directory Graph API，請參閱[Graph API 快速入門指南](active-directory-graph-api-quickstart.md)，或檢視[互動式 Graph API 參考文件](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
 
 
 ## 特性
 
 圖形 API 提供下列功能：
 
-- **REST API 端點**：圖形 API 是 RESTful 服務，由使用標準 HTTP 要求存取的端點所組成。圖形 API 支援要求和回應的 XML 或 Javascript 物件標記法 (JSON) 內容類型。如需詳細資訊，請參閱 [Azure AD Graph REST API 參考](https://msdn.microsoft.com/library/azure/hh974478.aspx)。
+- **REST API 端點**：Graph API 是 RESTful 服務，由使用標準 HTTP 要求存取的端點所組成。圖形 API 支援要求和回應的 XML 或 Javascript 物件標記法 (JSON) 內容類型。如需詳細資訊，請參閱 [Azure AD Graph REST API 參考](https://msdn.microsoft.com/library/azure/hh974478.aspx)。
 
 - **向 Azure AD 驗證**：必須在要求的 Authorization 標頭中附加 JSON Web Token (JWT)，以驗證 Graph API 的每個要求。您可以向 Azure AD 的權杖端點提出要求並提供有效的認證，以取得此權杖。您可以使用 OAuth 2.0 用戶端認證流程或授權碼授與流程，以取得權杖來呼叫 Graph。如需詳細資訊，請參閱 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)。
 
-- **以角色為基礎的授權 (RBAC)**：在圖形 API 中使用安全性群組執行 RBAC。例如，如果您想要判斷使用者是否能夠存取特定的資源，應用程式可以呼叫 [檢查群組成員資格 (可移轉)](https://msdn.microsoft.com/library/azure/dn151601.aspx) 作業，它會傳回 true 或 false。
+- **以角色為基礎的授權 (RBAC)**：在 Graph API 中使用安全性群組執行 RBAC。例如，如果您想要判斷使用者是否能夠存取特定的資源，應用程式可以呼叫[檢查群組成員資格 (可移轉)](https://msdn.microsoft.com/library/azure/dn151601.aspx) 作業，它會傳回 true 或 false。
 
-- **差異查詢**：如果您想要檢查目錄在兩段時間之間的變更，但不想對圖形 API 進行頻繁的查詢，您可以提出差異查詢要求。此類型的要求只會傳回前一個差異查詢要求與目前要求之間所做的變更。如需詳細資訊，請參閱 [Azure AD Graph API 差異查詢](https://msdn.microsoft.com/library/azure/jj836245.aspx)。
+- **差異查詢**：如果您想要檢查目錄在兩段時間之間的變更，但不想對 Graph API 進行頻繁的查詢，您可以提出差異查詢要求。此類型的要求只會傳回前一個差異查詢要求與目前要求之間所做的變更。如需詳細資訊，請參閱 [Azure AD Graph API 差異查詢](https://msdn.microsoft.com/library/azure/jj836245.aspx)。
 
-- **目錄擴充**：如果您正在開發的應用程式需要讀取或寫入目錄物件的唯一屬性，您可以使用圖形 API 註冊並使用擴充值。例如，如果應用程式需要每個使用者都有 Skype ID 屬性，您可以在目錄中註冊新的屬性，每個使用者物件上就會有此屬性。如需詳細資訊，請參閱 [Azure AD Graph API 目錄結構描述延伸模組](https://msdn.microsoft.com/library/azure/dn720459.aspx)。
+- **目錄延伸模組**：如果您正在開發的應用程式需要讀取或寫入目錄物件的唯一屬性，您可以使用 Graph API 註冊並使用延伸模組值。例如，如果應用程式需要每個使用者都有 Skype ID 屬性，您可以在目錄中註冊新的屬性，每個使用者物件上就會有此屬性。如需詳細資訊，請參閱 [Azure AD Graph API 目錄結構描述延伸模組](https://msdn.microsoft.com/library/azure/dn720459.aspx)。
 
 ## 案例
 
@@ -64,4 +66,4 @@ Azure Active Directory 圖形 API 支援以程式設計方式透過 REST API 端
 
 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

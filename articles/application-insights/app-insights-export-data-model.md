@@ -451,7 +451,7 @@
 * 
     用戶端上的應用程式本機。如果遙測項目上未明確提供，則以使用者代理程式欄位做為其來源。 
 
-    *範例*<br/> ru<br/>zh-tw<br/>de-DE<br/>未知
+    *範例*<br/> ru<br/>zh-TW<br/>de-DE<br/>未知
 
 **machineName**
 
@@ -680,6 +680,18 @@
 * 
     在應用程式內定義帳戶的唯一識別碼。由開發人員提供。 
 
+### 自訂度量
+
+    context.custom.metrics.<metric-name>
+
+      double value
+      double count
+      double min
+      double max
+      double stdDev
+      double sampledValue
+      double sum
+
 
 ## remotedependency
 
@@ -707,7 +719,7 @@
 * 
     遠端相依性的名稱 
 
-    *衍生：*標準化為 &lt;telemetryType.name&gt;
+    衍生：標準化為 &lt;telemetryType.name&gt;
 
 **remoteDependencyType**
 
@@ -754,7 +766,7 @@
 * 
     要求是否成功的指標。200 中的回應碼會視為成功。 
 
-    *預設：*若為 null，則設為 true
+    預設：若為 null，則設為 true
 
 
 ## sessionmetric
@@ -813,7 +825,7 @@
 * 
     工作階段的第一個事件。源自事件名稱並且可供 sessionMetric 度量做為分割/彙總使用 
 
-    *衍生：*源自事件名稱
+    衍生：源自 event.name
 
 **entryUrl**
 
@@ -821,7 +833,7 @@
 * 
     工作階段的第一個 URL。源自 urlData.base 並且可供 sessionMetric 度量做為分割/彙總使用 
 
-    *衍生：*源自 &lt;telemetryType&gt;.Url
+    衍生：源自 &lt;telemetryType&gt;.Url
 
 **eventCount**
 
@@ -841,7 +853,7 @@
 * 
     工作階段的最後一個事件。源自事件名稱並且可供 sessionMetric 度量做為分割/彙總使用 
 
-    *衍生：*源自事件名稱
+    衍生：源自 event.name
 
 **exitUrl**
 
@@ -849,7 +861,7 @@
 * 
     工作階段的最後一個 URL。源自 urlData.base 並且可供 sessionMetric 度量做為分割/彙總使用 
 
-    *衍生：*源自 &lt;telemetryType&gt;.Url
+    衍生：源自 &lt;telemetryType&gt;.Url
 
 **pageBounceCount**
 
@@ -857,7 +869,7 @@
 * 
     此 sessionMetric 遙測項目代表之退回工作階段的計數。退回工作階段是根據單一檢視遙測項目建立的工作階段。 
 
-    *衍生：*若 sessionMetric.viewCount + sessionMetric.requestCount = 1，則為 1，否則為 0
+    衍生：若 sessionMetric.viewCount + sessionMetric.requestCount = 1，則為 1，否則為 0
 
 **pageCount**
 
@@ -1009,7 +1021,7 @@
 * 
     參考 URL 的一部分，不包括主機、查詢 parms。它是根 URI。這個值可以用於分割/彙總。 
 
-    *衍生：*查看 URL 轉換的附錄
+    衍生：查看 URL 轉換的附錄
 
 **referrerData.hashTag**
 
@@ -1017,7 +1029,7 @@
 * 
     參考 URL 的雜湊標記文字 
 
-    *衍生：*查看 URL 轉換的附錄
+    衍生：查看 URL 轉換的附錄
 
 **referrerData.host**
 
@@ -1025,7 +1037,7 @@
 * 
     參考 URL 的主機。如果 URL 是本機的 URI，則以空白表示 
 
-    *衍生：*查看 URL 轉換的附錄
+    衍生：查看 URL 轉換的附錄
 
 **referrerData.port**
 
@@ -1033,7 +1045,7 @@
 * 
     如果在完整 URL 上表示則為參考 URL 的連接埠。否則為空白。 
 
-    *衍生：*查看 URL 轉換的附錄
+    衍生：查看 URL 轉換的附錄
 
 **referrerData.protocol**
 
@@ -1041,7 +1053,7 @@
 * 
     參考 URL 的通訊協定 (HTTP、FTP 等) 
 
-    *衍生：*查看 URL 轉換的附錄
+    衍生：查看 URL 轉換的附錄
 
     *範例*<br/> http<br/>https
 
@@ -1051,7 +1063,7 @@
 * 
     參考 URL 的查詢參數名稱陣列 
 
-    *衍生：*查看 URL 轉換的附錄
+    衍生：查看 URL 轉換的附錄
 
 **referrerData.queryParameters.value**
 
@@ -1059,7 +1071,7 @@
 * 
     從 referringData URL 剖析的查詢參數值陣列。 
 
-    *衍生：*查看 URL 轉換的附錄
+    衍生：查看 URL 轉換的附錄
 
 
 
@@ -1069,4 +1081,4 @@
 * [連續匯出](app-insights-export-telemetry.md)
 * [程式碼範例](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #使用 REST API 傳遞點播視訊 (VoD) 使用者入門 
@@ -1189,6 +1189,16 @@ MPEG DASH 的串流 URL 具有下列格式：
 若要測試漸進式下載，請將 URL 貼入瀏覽器 (例如，IE、Chrome、Safari)。
 
 
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 ##其他資源
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - 立即在線上取得您的影片！</a>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - 動態封裝和行動裝置</a>
@@ -1201,4 +1211,4 @@ MPEG DASH 的串流 URL 具有下列格式：
 
  
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用 Azure Media Encoder 為資產編碼"
-	description="了解如何使用 Azure Media Encoder 為媒體服務上的媒體內容編碼。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。"
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="如何使用 Azure Media Encoder 為資產編碼" 
+	description="了解如何使用 Azure Media Encoder 為媒體服務上的媒體內容編碼。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 
@@ -211,10 +211,17 @@
     }
 
 
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##另請參閱 
 
 [媒體服務編碼概觀](media-services-encode-asset.md)
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -1,20 +1,21 @@
 <properties
     pageTitle="什麼是 Azure Machine Learning？| Microsoft Azure"
-	description="說明完全受管理之機器學習服務的基本概念，這項雲端技術可讓您建立、操作及銷售解決方案。"
+    description="說明完全受管理之機器學習服務的基本概念，這項雲端技術可讓您建立、操作及銷售解決方案。"
+	keywords="what is machine learning,cloud technology,predictive,what is predictive analytics,operationalize"
 	services="machine-learning"
-	documentationCenter=""
-	authors="cjgronlund"
-	manager="neerajkh"
-	editor="cgronlun"/>
+    documentationCenter=""
+    authors="cjgronlund"
+    manager="neerajkh"
+    editor="cgronlun"/>
 
 <tags
     ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="cgronlun;tedway;olgali"/>
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/09/2015"
+    ms.author="cgronlun;tedway;olgali"/>
 
 
 # Microsoft Azure Machine Learning 簡介
@@ -29,7 +30,7 @@
 
 Azure Machine Learning 是強大的雲端架構預測分析服務，可讓您快速地建立預測模型，並將其部署為分析解決方案。
 
-Azure Machine Learning 不僅提供可建立預測分析模型的工具，也提供完全受管理的服務，您可以透過這項服務將預測模型發佈為可供取用的 Web 服務。Azure Machine Learning 提供可在雲端上建立完整預測分析解決方案的工具：您可以快速地建立、測試、操作及管理預測模型。您不需要購買任何硬體，或手動管理虛擬機器。
+Azure 機器學習不僅提供可建立預測性分析模型的工具，也提供完全受管理的服務，您可以透過這項服務將預測性模型部署為可供取用的 Web 服務。Azure Machine Learning 提供可在雲端上建立完整預測分析解決方案的工具：您可以快速地建立、測試、操作及管理預測模型。您不需要購買任何硬體，或手動管理虛擬機器。
 
 [AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
 
@@ -59,7 +60,7 @@ Azure Machine Learning 具備在雲端上建立預測分析解決方案所需的
 * 向 [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) 購買現成的 Web 服務，例如建議、文字分析和異常偵測。
 
 * 操作您的預測分析模型：
-    * [發佈 Web 服務](machine-learning-publish-a-machine-learning-web-service.md)
+    * [部署 Web 服務](machine-learning-publish-a-machine-learning-web-service.md)
     * [透過 API 定型和重新定型模型](machine-learning-retrain-models-programmatically.md)
     * [管理 Web 服務端點](machine-learning-create-endpoint.md)
     * [調整 Web 服務](machine-learning-scaling-endpoints.md)
@@ -115,4 +116,4 @@ Azure Machine Learning 具備在雲端上建立預測分析解決方案所需的
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

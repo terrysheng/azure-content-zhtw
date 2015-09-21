@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用 Azure 通知中樞 | Microsoft Azure"
+	pageTitle="開始使用適用於 Android 應用程式的 Azure 通知中樞 | Microsoft Azure"
 	description="在本教學課程中，您會了解如何使用 Azure 通知中樞，推播通知到 Android 裝置。"
 	services="notification-hubs"
 	documentationCenter="android"
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="09/01/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# 開始使用通知中心
+# 開始使用適用於 Android 應用程式的通知中樞
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -527,7 +527,7 @@
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Azure 入口網站]: https://manage.windowsazure.com/
 [通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
-[使用通知中心來推播通知給使用者]: notification-hubs-aspnet-backend-android-notify-users.md
+[使用通知中樞將通知推播給使用者]: notification-hubs-aspnet-backend-android-notify-users.md
 [使用通知中心傳送即時新聞]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

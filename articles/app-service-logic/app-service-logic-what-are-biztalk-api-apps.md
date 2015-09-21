@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="什麼是連接器和 BizTalk API 應用程式"
-	description="了解 API 應用程式、連接器和 BizTalk API 應用程式"
-	services="app-service\logic"
-	documentationCenter=""
-	authors="MandiOhlinger"
-	manager="dwrede"
+	pageTitle="什麼是連接器和 BizTalk API 應用程式" 
+	description="了解 API 應用程式、連接器和 BizTalk API 應用程式" 
+	services="app-service\logic" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.service="app-service-logic" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="mandia"/>
 
 # 什麼是連接器和 BizTalk API 應用程式
@@ -48,4 +48,4 @@ Azure 應用程式服務中有不同的服務「層」可用。所有層都包�
 請參閱[連接器和 API 應用程式清單](app-service-logic-connectors-list.md)，以取得各類別內含的完整連接器和 API 應用程式清單，包括標準連接器、BizTalk EAI、高階連接器等。
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

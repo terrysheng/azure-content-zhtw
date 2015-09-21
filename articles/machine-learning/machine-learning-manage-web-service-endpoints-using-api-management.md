@@ -1,6 +1,7 @@
 <properties
 	pageTitle="了解如何使用 API 管理來管理 AzureML Web 服務 | Microsoft Azure"
 	description="示範如何使用 API 管理來管理 AzureML Web 服務的指南"
+	keywords="machine learning,api management"
 	services="machine-learning"
 	documentationCenter=""
 	authors="roalexan"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/09/2015"
 	ms.author="roalexan" />
 
 
@@ -37,7 +38,7 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 
 * 一個 Azure 帳戶。如果您沒有 Azure 帳戶，請按一下[這裡](http://azure.microsoft.com/pricing/free-trial/)以取得如何建立免費試用帳戶的詳細資訊。
 * AzureML 帳戶。如果您沒有 AzureML 帳戶，請按一下[這裡](https://studio.azureml.net/)以取得如何建立免費試用帳戶的詳細資訊。
-* 發佈為 Web 服務之 AzureML 實驗的工作區、服務和 API 金鑰。如需如何建立 AzureML 實驗的詳細資訊，請按一下[這裡](machine-learning/machine-learning-create-experiment.md)。如需如何將 AzureML 實驗發佈為 Web 服務的詳細資訊，請按一下[這裡](machine-learning/machine-learning-publish-a-machine-learning-web-service.md)。此外，附錄 A 中的指示說明如何建立及測試簡單的 AzureML 實驗，並將其發佈為 Web 服務。
+* 部署為 Web 服務之 AzureML 實驗的工作區、服務和 API 金鑰。如需如何建立 AzureML 實驗的詳細資訊，請按一下[這裡](machine-learning/machine-learning-create-experiment.md)。如需如何將 AzureML 實驗部署為 Web 服務的詳細資訊，請按一下[這裡](machine-learning/machine-learning-publish-a-machine-learning-web-service.md)。此外，附錄 A 中的指示說明如何建立及測試簡單的 AzureML 實驗，並將其部署為 Web 服務。
 
 ##建立 API 管理執行個體
 
@@ -147,7 +148,7 @@ API 是透過您經由 Azure 管理入口網站存取的 API 發行者入口網�
 
 ###建立實驗
 
-以下是建立簡單的 AzureML 實驗並將其發佈為 Web 服務的步驟。Web 服務接受任意文字的資料行做為輸入，並傳回一組以整數來表示的特徵。例如：
+以下步驟可讓您建立簡單的 AzureML 實驗並將其部署為 Web 服務。Web 服務接受任意文字的資料行做為輸入，並傳回一組以整數來表示的特徵。例如：
 
 文字 | 雜湊的文字
 --- | ---
@@ -383,4 +384,4 @@ AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

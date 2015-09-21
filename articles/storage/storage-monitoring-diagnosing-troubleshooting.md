@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="v-dobett"/>
 
 # 監視、診斷與疑難排解 Microsoft Azure 儲存體 
@@ -911,4 +911,4 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

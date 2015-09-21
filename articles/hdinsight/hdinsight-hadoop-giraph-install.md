@@ -1,25 +1,27 @@
-<properties 
-	pageTitle="在 HDInsight 的 Hadoop 叢集上安裝和使用 Giraph | Microsoft Azure" 
-	description="了解如何使用 Giraph 自訂 HDInsight 叢集。您將使用指令碼動作設定選項來使用指令碼安裝 Giraph。" 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="在 HDInsight 的 Hadoop 叢集上安裝和使用 Giraph | Microsoft Azure"
+	description="了解如何使用 Giraph 自訂 HDInsight 叢集。您將使用指令碼動作設定選項來使用指令碼安裝 Giraph。"
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/11/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/11/2015"
 	ms.author="nitinme"/>
 
 # 在 HDInsight Hadoop 叢集上安裝 Giraph，以及使用 Giraph 來處理大規模圖形
 
 您也可以使用**指令碼動作**叢集自訂，在 Azure HDInsight 上 Hadoop 中的任何一種叢集上安裝 Giraph。指令碼動作可讓您執行指令碼，只在建立叢集時才能自訂叢集。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]。
+
+> [AZURE.NOTE]本文的資訊是針對以 Windows 為基礎的 HDInsight 叢集。如需使用以 Linux 為基礎的叢集的詳細資訊，請參閱[在 HDInsight Hadoop 叢集上安裝 Giraph (Linux)](hdinsight-hadoop-giraph-install-linux.md)。
 
 在本主題中，您將學習如何使用指令碼動作來安裝 Giraph。一旦您已安裝 Giraph，您也將了解如何將 Giraph 用於大部分的一般應用程式，也就是處理大型的圖形。
 
@@ -35,18 +37,18 @@
 - 識別網路中兩台電腦之間的最短路線。
 - 計算網頁的頁面排名。
 
-   
+
 ## <a name="install"></a>如何安裝 Giraph？
 
 您可以從一個唯讀的 Azure 儲存體 Blob 取得在 HDInsight 叢集上安裝 Giraph 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)。本節提供有關如何在使用 Azure 入口網站佈建叢集時使用範例指令碼的指示。
 
 > [AZURE.NOTE]範例指令碼只能與 HDInsight 叢集版本 3.1 搭配使用。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
 
-1. 依照[使用自訂選項佈建叢集](hdinsight-provision-clusters.md#portal)所述，使用**自訂建立**選項開始佈建叢集。 
+1. 依照[使用自訂選項佈建叢集](hdinsight-provision-clusters.md#portal)所述，使用**自訂建立**選項開始佈建叢集。
 2. 在精靈的 [**指令碼動作**] 頁面上，按一下 [**加入指令碼動作**] 以提供有關指令碼動作的詳細資料，如下所示：
 
 	![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "使用指令碼動作以自訂叢集")
-	
+
 	<table border='1'>
 	<tr><th>屬性</th><th>值</th></tr>
 	<tr><td>名稱</td>
@@ -79,7 +81,7 @@
 
 	![tiny\_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
 
-	
+
 
 4. 執行 SimpleShortestPathsComputation 範例。使用 tiny\_graph.txt 檔案做為輸入，即可使用下列 Azure PowerShell Cmdlet 來執行此範例。您必須已安裝和設定 [Azure PowerShell][powershell-install]。
 
@@ -99,7 +101,7 @@
 		  -JarFile $jarFile
 		  -ClassName "org.apache.giraph.GiraphRunner"
 		  -Arguments $jobArguments
-		
+
 		# Run the job, write output to the Azure PowerShell window
 		$job = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $jobDefinition
 		Write-Host "Wait for the job to complete ..." -ForegroundColor Green
@@ -119,7 +121,7 @@
 
 		# Select the current subscription
 		Select-AzureSubscription $subscriptionName
-		
+
 		# Create the Storage account context object
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
@@ -144,7 +146,7 @@
 		3	1.0
 
 	SimpleShortestPathComputation 範例已刻意設計成從物件識別碼 1 開始，尋找前往其他物件的最短路徑。因此，輸出應該會顯示 `destination_id distance`，其中 distance 是物件識別碼 1 與目標識別碼之間經過的邊緣的值 (或權數)。
-	
+
 	顯現為圖形後，您可以走過識別碼 1 與其他所有物件之間的最短路徑來驗證結果。請注意，識別碼 1 和識別碼 4 之間的最短路徑為 5。這是<span style="color:orange">識別碼 1 和 3 之間</span>加上<span style="color:red">識別碼 3 和 4 之間</span>的總距離。
 
 	![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
@@ -166,6 +168,5 @@
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

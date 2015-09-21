@@ -13,13 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/24/2015"
+   ms.date="09/10/2015"
    ms.author="seanmck"/>
 
 # 設定 Service Fabric 開發環境
  本文章涵蓋所有開始建置 [Service Fabric][1] 應用程式的所需資訊，包含安裝執行階段、SDK 和工具，以及設定本機叢集。
 
- >[AZURE.NOTE]這些指示是針對設定新的電腦。如果您已在您的電腦上安裝舊版的 Service Fabric，請遵循[指示來更新您的開發環境](service-fabric-update-your-development-environment.md)。
+ >[AZURE.NOTE]這些指示是針對設定新的電腦。如果您已在電腦上安裝舊版的 Service Fabric，請遵循[指示以更新您的開發環境](service-fabric-update-your-development-environment.md)。
 
 ## 必要條件
 ### 支援的作業系統版本
@@ -51,8 +51,9 @@ Service Fabric 元件的安裝是由 Web Platform Installer 所完成。遵循�
 
 Service Fabric 會使用 Windows PowerShell 指令碼，以便建立本機開發叢集，以及從 Visual Studio 部署應用程式。根據預設，Windows 會封鎖這些指令碼的執行。若要啟用其，您必須修改 PowerShell 執行原則。以系統管理員身分開啟 PowerShell 並輸入下列命令：
 
-    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
-
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+```
 
 ## 安裝並啟動本機叢集
 本機叢集代表最後用於單一開發電腦上生產環境中的多個電腦拓樸。若要設定本機叢集，請遵循下列步驟：
@@ -60,9 +61,17 @@ Service Fabric 會使用 Windows PowerShell 指令碼，以便建立本機開發
 
 1. 關閉所有其他的 PowerShell 視窗，並以系統管理員身分啟動一個新視窗。
 
-2. 瀏覽至包含 `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"` 的叢集安裝目錄
+2. 瀏覽至叢集安裝目錄
 
-3. 執行 `.\DevClusterSetup.ps1`
+    ```powershell
+    cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"
+    ```
+    
+3. 執行
+
+    ```powershell
+    .\DevClusterSetup.ps1
+    ```
 
 幾分鐘後，您應該會看到顯示節點資訊以及確認叢集已成功建立的輸出。在某些情況中，當 Service Fabric 主機服務和命名服務啟動時，您可能會看到警告。這是正常情況，並且後面會短暫地顯示某些叢集基本資訊。
 
@@ -72,7 +81,11 @@ Service Fabric 會使用 Windows PowerShell 指令碼，以便建立本機開發
 
 您可以使用 SDK 隨附的 Service Fabric 總管工具，檢查您的叢集是否已成功建立。
 
-1. 執行 `. "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"` 來啟動 Service Fabric 總管
+1. 啟動 Service Fabric 總管，方法是執行 
+
+    ```powershell
+    . "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"
+    ```
 
 2. 展開在左上角的 [Onebox/本機叢集] 節點。
 
@@ -93,4 +106,4 @@ Service Fabric 會使用 Windows PowerShell 指令碼，以便建立本機開發
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 連結"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

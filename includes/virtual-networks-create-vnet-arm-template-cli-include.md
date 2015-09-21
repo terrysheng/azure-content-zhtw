@@ -7,11 +7,16 @@
 
 		azure config mode arm
 
+	此為上述命令的預期輸出內容：
+
 		info:    New mode is arm
 
-3. 如有必要，請執行 **azure group create**，以建立新的資源群組，如下所示。請注意命令的輸出。輸出後顯示的清單可說明所使用的參數。如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](resource-group-overview.md/#resource-groups)。
+3. 若有必要，請執行 **azure group create** 以建立新的資源群組，如下所示。請查看命令的輸出內容。輸出之後所顯示的清單說明需使用的參數。如需資源群組的詳細資訊，請瀏覽 [Azure 資源管理員概觀](resource-group-overview.md/#resource-groups)。
 
 		azure group create -n TestRG -l centralus
+
+	此為上述命令的預期輸出內容：
+
 		info:    Executing command group create
 		+ Getting resource group TestRG
 		+ Creating resource group TestRG
@@ -24,12 +29,14 @@
 		data:
 		info:    group create command OK
 
-	- **-n (或 --name)**。新資源群組的名稱。在我們的案例中為 *TestRG*。
-	- **-l (或 --location)**。將會建立新資源群組的 Azure 區域。在我們的案例中為 *centralus*。
+	- **-n (或 --name)**。新資源群組的名稱。在本文案例中為 *TestRG*。
+	- **-l (或 --location)**。將會在當中建立新資源群組的 Azure 區域。在本文案例中為 *centralus*。
 
-4. 執行 **azure group deployment create** Cmdlet，使用先前下載並修改的範本和參數檔案部署新的 VNet。輸出後顯示的清單可說明所使用的參數。
+4. 執行 **azure group deployment create** Cmdlet，以使用先前下載並修改的範本和參數檔案，部署新的 VNet。輸出後顯示的清單可說明所使用的參數。
 
 		azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+
+	此為上述命令的預期輸出內容：
 
 		info:    Executing command group deployment create
 		+ Initializing template configurations and parameters
@@ -58,9 +65,11 @@
 	- **-f (或 --template-file)**。ARM 範本檔案的路徑。
 	- **-e (或 --parameters-file)**。ARM 參數檔案的路徑。
 
-5. 執行 **azure network vnet show** 命令來檢視新 vnet 的屬性，如下所示。
+5. 執行 **azure network vnet show** 命令以檢視新 Vnet 的屬性，如下所示。
 
 		azure network vnet show -g TestRG -n TestVNet
+
+	此為上述命令的預期輸出內容：
 
 		info:    Executing command network vnet show
 		+ Looking up virtual network "TestVNet"
@@ -80,4 +89,4 @@
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

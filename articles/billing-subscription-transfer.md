@@ -1,20 +1,20 @@
 <properties
    pageTitle="移轉 Azure 訂用帳戶 | Microsoft Azure"
-	description="如何將 Azure 訂用帳戶轉移到另一位使用者和關於程序的一些常見問題集 (FAQ)"
-	services="billing"
-	documentationCenter=""
-	authors="curtand"
-	manager="msmStevenPo"
-	editor=""/>
+   description="如何將 Azure 訂用帳戶轉移到另一位使用者和關於程序的一些常見問題集 (FAQ)"
+   services="billing"
+   documentationCenter=""
+   authors="curtand"
+   manager="msmStevenPo"
+   editor=""/>
 
 <tags
    ms.service="billing"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="billing"
-	ms.date="08/19/2015"
-	ms.author="curtand;ruchic"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="billing"
+   ms.date="08/19/2015"
+   ms.author="curtand;ruchic"/>
 
 # 移轉 Azure 訂用帳戶
 
@@ -94,4 +94,15 @@
 
     是，事實上您可以使用這項機制，將訂用帳戶的付款方法從發票變更為信用卡。請移轉至您擁有的另一個帳戶，然後在收到訂用帳戶時輸入您的信用卡。有以下限制：現在訂用帳戶帳單記錄拆成兩個帳戶。但好處是您不必[連絡支援服務](http://go.microsoft.com/fwlink/?LinkID=619338)也可這樣做。
 
-<!---HONumber=September15_HO1-->
+## 接受訂閱擁有權後的後續步驟
+
+1. 您現在是帳戶管理員。請檢視並更新服務管理員和共同管理員。在 [Azure 管理入口網站](https://manage.windowsazure.com)中移至 [設定] 來管理系統管理員。[深入了解](http://go.microsoft.com/fwlink/?LinkID=533293)。 
+2. 您也可以針對訂用帳戶和服務使用角色型存取控制 (RBAC)。請造訪 [Azure Preview 入口網站](https://portal.azure.com)[深入了解 RBAC](http://go.microsoft.com/fwlink/?LinkID=544802)
+3. 更新與此訂閱服務相關聯的認證。其中包含： 
+    -   可將使用者管理權限授與給訂用帳戶資源的管理憑證。如需詳細資訊，請參閱[建立和上傳 Azure 的管理憑證](https://msdn.microsoft.com/library/azure/gg551722.aspx)。
+    -	服務 (例如儲存體) 的存取金鑰。如需詳細資訊，請參閱[檢視、複製和重新產生儲存體存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
+    -	服務 (例如 Azure 虛擬機器) 的遠端存取認證
+4. 請至 [Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)[深入了解](http://go.microsoft.com/fwlink/?LinkID=533292) 更新此訂用帳戶的計費警示。
+5. 	如果您正與合作夥伴協力作業，請考慮更新此訂用帳戶的合作夥伴 ID。您可以在 [Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)中執行這個動作。
+
+<!---HONumber=Sept15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="開始使用資料 (Android) | Microsoft Azure" 
-	description="了解如何開始使用行動服務，在您的 Android 應用程式中使用資料。" 
+	pageTitle="開始使用 Android 上的資料 (JavaScript 後端) | Microsoft Azure" 
+	description="了解如何開始使用行動服務，以利用您 Android 應用程式中的資料 (JavaScript 後端)。" 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="09/04/2015" 
 	ms.author="ricksal"/>
 
-# 將行動服務新增至現有的 Android 應用程式
+# 將行動服務新增至現有的 Android 應用程式(JavaScript 後端)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
@@ -161,4 +161,4 @@ Android 的**開始使用資料**教學課程到此結束。
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -1,20 +1,20 @@
-<properties 
+<properties
    pageTitle="Microsoft Azure AD Connect - 從 Windows Azure AD 同步作業工具 (DirSync) 升級"
-	description="了解如何從 DirSync 升級至 Azure AD Connect。本文說明如何將目前 Windows Azure AD 同步作業工具 (DirSync) 升級至 Azure AD Connect 的步驟。"
-	services="active-directory"
-	documentationCenter=""
-	authors="shoatman"
-	manager="terrylanfear"
-	editor="billmath"/>
+   description="了解如何從 DirSync 升級至 Azure AD Connect。本文說明如何將目前 Windows Azure AD 同步作業工具 (DirSync) 升級至 Azure AD Connect 的步驟。"
+   services="active-directory"
+   documentationCenter=""
+   authors="shoatman"
+   manager="terrylanfear"
+   editor="billmath"/>
 
-<tags 
+<tags
    ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/26/2015"
-	ms.author="shoatman"/>
+   ms.workload="identity"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="09/02/2015" 
+   ms.author="shoatman"/>
 
 # 將 Windows Azure Active Directory 同步作業 (DirSync) 升級至 Azure Active Directory Connect
 
@@ -143,7 +143,7 @@ Azure AD Connect 會連線並向您呈現下列 UI：
 
 ![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 
-7. 按 [下一步]。 
+7. 按 [下一步]。
 8. 在 [準備好設定] 頁面上，保持核取 [設定一完成，即開始同步處理程序]。[AZURE.NOTE]將會開始 Windows Server Active Directory 和 Azure Active Directory 之間的同步處理作業，但沒有變更會匯出到 Azure AD。一次只能有一個作用中的同步處理工具匯出變更。
 9. 按一下 [安裝]。
 
@@ -204,6 +204,5 @@ Azure AD Connect 會連線並向您呈現下列 UI：
 * [使用 Azure AD Connect 的下一步](active-directory-aadconnect-whats-next.md)
 * [深入了解](active-directory-aadconnect-learn-more.md)
 * [MSDN 上的 Azure AD Connect](active-directory-aadconnect.md)
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

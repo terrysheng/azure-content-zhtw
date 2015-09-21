@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
-   ms.author="sahajs"/>
+   ms.date="09/02/2015"
+   ms.author="sahajs;twounder"/>
 
 # 搭配使用 Azure 串流分析與 SQL 資料倉儲
 
-Azure 串流分析是完全受管理的服務，可用來對雲端中的串流資料進行低延遲、高可用性、可延展的複雜事件處理。如需基本概念，請參閱 [Azure 串流分析簡介][]。您可以接著透過[開始使用教學課程][]，了解如何使用串流分析建立端對端解決方案。
+Azure 串流分析是完全受管理的服務，可用來對雲端中的串流資料進行低延遲、高可用性、可延展的複雜事件處理。如需基本概念，請參閱 [Azure 串流分析簡介][]。您可以接著依照[開始使用 Azure 資料流分析][]教學課程，了解如何使用資料流分析建立端對端解決方案。
 
 在本文中，您將學習如何使用 Azure SQL 資料倉儲資料庫做為串流分析工作的輸出接收器。
 
 ## 必要條件
 
-首先，請完成[開始使用教學課程][]中的下列步驟。
+首先，執行[開始使用 Azure 資料流分析][]教學課程的下列步驟。
 
 1. 建立事件中樞輸入
 2. 設定並啟動事件產生器應用程式
@@ -42,7 +42,14 @@ Azure 串流分析是完全受管理的服務，可用來對雲端中的串流�
 選取 SQL Database，然後按 [下一步]。![][Add Output]
 
 ### 步驟 3
-在下一頁上輸入下列值 - 輸出別名：輸入此工作輸出的易記名稱。 - 訂用帳戶：- 如果您的 SQL 資料倉儲資料庫位於與串流分析工作相同的訂用帳戶中，請選取 [從目前的訂用帳戶使用 SQL Database]。- 如果您的資料庫是在不同的訂用帳戶中，請選取 [從另一個訂用帳戶使用 SQL 資Database]。- 資料庫：指定目的地資料庫的名稱。- 伺服器名稱：為您剛指定的資料庫指定伺服器名稱。您可以使用 Azure 入口網站進行搜尋。
+在下一頁輸入下列值：
+
+- 輸出別名：為這個工作輸出設定一個易記名稱。
+- 訂用帳戶：
+	- 如果 SQL 資料倉儲資料庫是在與此資料流分析工作相同的訂用帳戶中，則請選取 [使用目前訂用帳戶的 SQL Database]。
+	- 如果您的資料庫是在不同的訂用帳戶中，請選取 [使用其他訂用帳戶的 SQL Database]。
+- 資料庫：指定目的地資料庫的名稱。
+- 伺服器名稱：為您剛指定的資料庫指定伺服器名稱。您可以使用 Azure 入口網站進行搜尋。
 
 ![][Server Name]
 
@@ -63,7 +70,9 @@ Azure 串流分析是完全受管理的服務，可用來對雲端中的串流�
 
 
 ## 後續步驟
-如需整合概觀，請參閱 [SQL 資料倉儲整合概觀][]。如需更多開發秘訣，請參閱 [SQL 資料倉儲開發概觀][]。
+如需整合概觀，請參閱 [SQL 資料倉儲整合概觀][]。
+
+如需更多開發秘訣，請參閱 [SQL 資料倉儲開發概觀][]。
 
 <!--Image references-->
 [Add Output]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/add-output.png
@@ -72,14 +81,14 @@ Azure 串流分析是完全受管理的服務，可用來對雲端中的串流�
 [Test Connection]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/test-connection.png
 
 <!--Article references-->
-[Azure 串流分析簡介]: ./stream-analytics-introduction/
-[開始使用教學課程]: ./articles/stream-analytics-get-started/
-[SQL 資料倉儲開發概觀]: ./sql-data-warehouse-overview-develop/
-[SQL 資料倉儲整合概觀]: ./sql-data-warehouse-overview-integration/
+[Azure 串流分析簡介]: stream-analytics-introductiond.md
+[開始使用 Azure 資料流分析]: stream-analytics-get-started.md
+[SQL 資料倉儲開發概觀]: sql-data-warehouse-overview-develop.md
+[SQL 資料倉儲整合概觀]: sql-data-warehouse-overview-integration.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

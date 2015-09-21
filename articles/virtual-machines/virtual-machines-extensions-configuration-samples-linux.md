@@ -1,24 +1,30 @@
 <properties
    pageTitle="Azure VM 延伸模組的範例組態 |Microsoft Azure"
-	description="編寫延伸模組與範本的範例組態"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   description="編寫延伸模組與範本的範例組態"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="kundanap"/>
 
 # Azure Linux VM 延伸模組組態範例。
 
-本文提供範例組態，可用來設定 Azure IaaS Linux VM 的 Azure VM 延伸模組。若要了解這些延伸模組的詳細資訊，請按一下<a href="https://msdn.microsoft.com/zh-TW/library/azure/dn606311.aspx" target="_blank">這裡</a>。
+本文提供範例組態，可用來設定 Azure IaaS Linux VM 的 Azure VM 延伸模組。
+
+若要進一步了解這些延伸模組，請按一下這裡：[Azure VM 延伸模組概觀](https://msdn.microsoft.com/library/azure/dn606311.aspx)。
+
+若要進一步了解如何撰寫延伸模組範本，請按一下這裡：[撰寫延伸模組範本](virtual-machines-extensions-authoring-templates.md)。
+
+本文列出部分 Linux 延伸模組所需的組態值。
 
 ## VM 延伸模組的範例範本程式碼片段。
 用於部署延伸模組的範本程式碼片段如下所示：
@@ -91,7 +97,7 @@
         }
 
 ### VM 存取延伸模組 (密碼重設)
-如需更新的結構描述，請參閱以下連結：<a href="https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess" target="_blank">這裡</a>。
+關於更新的結構描述，請參閱 [VMAccessForLinux 文件](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
         {
           "publisher": "Microsoft.OSTCExtensions",
@@ -107,7 +113,7 @@
         }
 
 ### OS 修補
-如需更新的結構描述，請參閱以下連結：<a href="https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching" target="_blank">這裡</a>。
+關於更新的結構描述，請參閱 [OSPatching 文件](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching)
 
         {
         "publisher": "Microsoft.OSTCExtensions",
@@ -132,7 +138,7 @@
         }
 
 ### Docker 延伸模組
-如需更新的結構描述，請參閱以下連結：<a href="https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema" target="_blank">這裡</a>。
+關於更新的結構描述，請參閱 [Docker 延伸模組文件](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema)
 
         {
           "publisher": "Microsoft.Azure.Extensions ",
@@ -155,6 +161,29 @@
             }
             }
         }
+
+        ### Linux Diagnostics Extension
+        {
+        "storageAccountName": "storage account to receive data",
+        "storageAccountKey": "key of the account",
+        "perfCfg": [
+        {
+            "query": "SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation",
+            "table": "LinuxMemory"
+        }
+        ],
+        "fileCfg": [
+        {
+            "file": "/var/log/mysql.err",
+            "table": "mysqlerr"
+        }
+        ]
+        }
+
 在上述範例中，請將版本號碼取代成最新的版本號碼。
 
-<!---HONumber=September15_HO1-->
+以下是使用延伸模組建立 Linux VM 的完整 VM 範本：
+
+[Linux VM 上的自訂指令碼延伸模組](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
+
+<!---HONumber=Sept15_HO2-->

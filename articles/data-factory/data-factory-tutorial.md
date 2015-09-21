@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用 Azure Data Factory 移動和處理記錄檔 (Azure 入口網站)"
-	description="此進階教學課程說明接近現實情況的案例，並使用 Azure 入口網站中的 Azure Data Factory 服務和 Data Factory 編輯器來實作案例。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="使用 Azure Data Factory 移動和處理記錄檔 (Azure 入口網站)" 
+	description="此進階教學課程說明接近現實情況的案例，並使用 Azure 入口網站中的 Azure Data Factory 服務和 Data Factory 編輯器來實作案例。" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # 教學課程：衡量行銷活動的成效  
@@ -441,7 +441,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [sqlcmd-install]: http://www.microsoft.com/download/details.aspx?id=35580
-[azure-sql-firewall]: http://msdn.microsoft.com/library/azure/jj553530.aspx
+[azure-sql-firewall]: https://azure.microsoft.com/documentation/articles/sql-database-configure-firewall-settings/
 
 
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
@@ -528,4 +528,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

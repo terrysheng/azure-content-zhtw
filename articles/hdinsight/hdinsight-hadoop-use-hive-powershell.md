@@ -14,26 +14,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="09/03/2015"
    ms.author="larryfr"/>
 
 #使用 PowerShell 執行 Hive 查詢
 
 [AZURE.INCLUDE [Hive 選取器](../../includes/hdinsight-selector-use-hive.md)]
 
-本文件提供使用 Azure PowerShell 在 HDInsight 叢集的 Hadoop 中執行 Hive 查詢的範例。
+本文件提供在 Azure 資源群組模式中使用 Azure PowerShell 的範例，以便在 HDInsight 叢集的 Hadoop 中執行 Hive 查詢。如需在 Azure 服務模式中使用 Azure PowerShell，請參閱[使用 PowerShell ASM 模式執行 Hive 查詢](hdinsight-hadoop-use-hive-powershell-v1.md)。
 
 > [AZURE.NOTE]本文件不提供範例中使用的 HiveQL 陳述式所執行的工作詳細的描述。如需此範例中使用的 HiveQL 的相關資訊，請參閱[在 HDInsight 上搭配 Hadoop 使用 Hive](hdinsight-use-hive.md)。
 
 
-##<a id="prereq"></a>必要條件
+**必要條件**
 
-若要完成本文中的步驟，您需要下列項目。
+若要完成這篇文章中的步驟，您需要下列項目。
 
 - **Azure HDInsight (HDInsight 上的 Hadoop) 叢集 (Windows 型或 Linux 型)**
-- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝及使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
 
-##<a id="powershell"></a>使用 Azure PowerShell 執行 Hive 查詢
+##使用 Azure PowerShell 執行 Hive 查詢
 
 Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Hive 查詢。在內部，您可以使用在 HDInsight 叢集上執行的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (先前稱為 Templeton) 的 REST 呼叫來達到此目的。
 
@@ -49,7 +49,7 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Hiv
 
 * **Get-AzureHDInsightJobOutput**：用來擷取工作的輸出
 
-* **Invoke-Hive**：用來執行 HiveQL 陳述式並封鎖其完成。這會阻止查詢完成，然後傳回結果
+* **Invoke AzureHDInsightHiveJob**: 用來執行 HiveQL 陳述式。這會阻止查詢完成，然後傳回結果
 
 * **Use-AzureHDInsightCluster**：設定要用於 **Invoke-Hive** 命令的目前叢集
 
@@ -57,7 +57,16 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Hiv
 
 1. 使用編輯器，將下列程式碼儲存為 **hivejob.ps1**。您必須將 **CLUSTERNAME** 取代為 HDInsight 叢集的名稱。
 
-		#Login to your Azure subscription
+		#Specify the values
+		$clusterName = "CLUSTERNAME"
+		$resourceGroupName = "RESOURCEGROUPNAME"
+		$httpUsername = "HTTPUSERNAME"
+		$httpUserPassword  = "HTTPUSERPASSWORD"
+
+		# Switch to the ARM mode
+		Switch-AzureMode -Name AzureResourceManager
+		
+		# Login to your Azure subscription
 		# Is there an active Azure subscription?
 		$sub = Get-AzureSubscription -ErrorAction SilentlyContinue
 		if(-not($sub))
@@ -65,28 +74,29 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Hiv
 		    Add-AzureAccount
 		}
 
-		#Specify the cluster name
-		$clusterName = "CLUSTERNAME"
-
 		#HiveQL
 		$queryString = "DROP TABLE log4jLogs;" +
 				       "CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION 'wasb:///example/data/';" +
-				       "SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;"
+				       "SELECT * FROM log4jLogs WHERE t4 = '[ERROR]';"
 
 		#Create an HDInsight Hive job definition
-		$hiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $queryString
+		$hiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $queryString 
 
 		#Submit the job to the cluster
 		Write-Host "Start the Hive job..." -ForegroundColor Green
-		$hiveJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $hiveJobDefinition
+
+		$passwd = ConvertTo-SecureString $httpUserPassword -AsPlainText -Force
+		$creds = New-Object System.Management.Automation.PSCredential ($httpUsername, $passwd)
+		$hiveJob = Start-AzureHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $creds
+
 
 		#Wait for the Hive job to complete
 		Write-Host "Wait for the job to complete..." -ForegroundColor Green
-		Wait-AzureHDInsightJob -Job $hiveJob -WaitTimeoutInSeconds 3600
+		Wait-AzureHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobId $hiveJob.JobId -ClusterCredential $creds
 
 		# Print the output
 		Write-Host "Display the standard output..." -ForegroundColor Green
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $hiveJob.JobId -StandardOutput
+		Get-AzureHDInsightJobOutput -ClusterName $clusterName -JobId $hiveJob.JobId -StandardOutput 
 
 2. 開啟新的 **Azure PowerShell** 命令提示字元。將目錄變更至 **hivejob.ps1** 檔案的位置，然後使用下列命令來執行指令碼：
 
@@ -118,7 +128,7 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Hiv
 	>
 	> 如需 **Here-Strings** 的詳細資訊，請參閱<a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">使用 Windows PowerShell Here-Strings</a>。
 
-##<a id="troubleshooting"></a>疑難排解
+##疑難排解
 
 如果在工作完成時未傳回任何資訊，則可能是處理期間發生錯誤。若要檢視這項工作的錯誤資訊，請將下列內容新增至 **hivejob.ps1** 檔案的結尾，並儲存它，然後重新予以執行。
 
@@ -128,11 +138,11 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Hiv
 
 這會傳回執行工作時寫入至伺服器上之 STDERR 的資訊，而且可能有助於判斷工作的失敗原因。
 
-##<a id="summary"></a>摘要
+##摘要
 
 如您所見，Azure PowerShell 提供簡單的方法，在 HDInsight 叢集中執行 Hive 查詢、監視工作狀態，以及擷取輸出。
 
-##<a id="nextsteps"></a>接續步驟
+##後續步驟
 
 如需 HDInsight 中 Hive 的一般資訊：
 
@@ -144,4 +154,4 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Hiv
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

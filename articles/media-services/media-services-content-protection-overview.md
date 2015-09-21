@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #保護內容概觀
@@ -121,7 +121,16 @@ Microsoft Azure 媒體服務可讓您傳遞利用進階加密標準 (AES) (使�
 
 使用 **.NET** 或 **REST API** 設定資產傳遞原則。
 
-[AZURE.INCLUDE [媒體-服務-選取器-資產-傳遞-原則](../../includes/media-services-selector-asset-delivery-policy.md)]
+[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
+
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 
 
 ##相關連結
@@ -141,4 +150,4 @@ Microsoft Azure 媒體服務可讓您傳遞利用進階加密標準 (AES) (使�
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

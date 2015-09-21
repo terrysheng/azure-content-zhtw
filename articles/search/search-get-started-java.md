@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="06/24/2015"
+	ms.date="09/08/2015"
 	ms.author="heidist"/>
 
 # 開始在 Java 中使用 Azure 搜尋服務
@@ -38,7 +38,7 @@
 
 在此應用程式中，**SearchServlet.java** 程式會使用[索引子](https://msdn.microsoft.com/library/azure/dn798918.aspx)建構來建置及載入索引，以從公用 Azure SQL Database 擷取篩選過的 USGS 資料集。程式碼中提供線上資料來源的預先定義認證和連接資訊。關於資料存取，不需要進一步設定。
 
-> [AZURE.NOTE]我們在此資料集套用了一個篩選，以維持不超過免費版定價層的 10,000 個文件的數量上限。如果使用標準版定價層，則不套用此限制，可以修改此程式碼以使用更大的資料集。如需各個定價層的容量詳細資料，請參閱[限制和條件約束](https://msdn.microsoft.com/library/azure/dn798934.aspx)。
+> [AZURE.NOTE]我們在此資料集套用了一個篩選，以維持不超過免費版定價層的 10,000 個文件的數量上限。如果使用標準版定價層，則不套用此限制，可以修改此程式碼以使用更大的資料集。如需各個定價層的容量詳細資料，請參閱[限制和條件約束](search-limits-quotas-capacity.md)。
 
 ## 關於程式檔
 
@@ -213,9 +213,9 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 
 這是第一個以 Java 和 USGS 資料集為基礎的 Azure 搜尋服務教學課程。我們會漸漸擴充本教學課程，以示範其他您可能會想用在自訂方案中的搜尋功能。
 
-如果您已有一些 Azure 搜尋服務的背景知識，可以利用此範例做為進一步實驗的跳板，例如擴充[搜尋頁面](search-pagination.md)或實作[多面向導覽](../search-faceted-navigation/)。您也可以新增計數和批次處理文件，讓使用者可以逐頁查看結果，藉此改進搜尋結果頁面。
+如果您已有一些 Azure 搜尋服務的背景知識，可以利用此範例做為進一步實驗的跳板，例如擴充[搜尋頁面](search-pagination.md)或實作[多面向導覽](search-faceted-navigation.md)。您也可以新增計數和批次處理文件，讓使用者可以逐頁查看結果，藉此改進搜尋結果頁面。
 
-不熟悉 Azure 搜尋服務嗎？ 建議您嘗試學習其他教學課程，深入了解您還可以建立哪些東西。請瀏覽我們的[文件頁面](http://azure.microsoft.com/documentation/services/search/)以尋找更多資源。您也可以查看我們[影片和教學課程清單](https://msdn.microsoft.com/library/azure/dn798933.aspx)中的連結，以存取更多資訊。
+不熟悉 Azure 搜尋服務嗎？ 建議您嘗試學習其他教學課程，深入了解您還可以建立哪些東西。請瀏覽我們的[文件頁面](http://azure.microsoft.com/documentation/services/search/)以尋找更多資源。您也可以查看我們[影片和教學課程清單](search-video-demo-tutorial-list.md)中的連結，以存取更多資訊。
 
 <!--Image references-->
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG
@@ -231,4 +231,4 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="整合內部部署身分識別與 Azure Active Directory。"
-	description="這就是 Azure AD Connect，說明它是什麼及使用的理由。"
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="整合內部部署身分識別與 Azure Active Directory。" 
+	description="這就是 Azure AD Connect，說明它是什麼及使用的理由。" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/24/2015"
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="09/09/2015" 
 	ms.author="billmath"/>
 
 # 整合內部部署身分識別與 Azure Active Directory
@@ -102,7 +102,7 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 - 想要與其整合之 Azure AD 租用戶的 Azure AD 全域管理員帳戶
 - Azure AD Connect 必須安裝於 Windows Server 2008 或更新版本上。此伺服器可能是網域控制站或成員伺服器。
 - AD 結構描述版本與樹系層級必須是 Windows Server 2003 或更新版本。只要符合結構描述和樹系層級需求，網域控制站就能執行任何版本。
-- 如果正在部署 Active Directory 同盟服務，則將安裝 AD FS 的伺服器必須是 Windows Server 2012 或更新版本。
+- 如果正在部署 Active Directory Federation Service，則將安裝 AD FS 的伺服器必須是 Windows Server 2012 R2 或更新版本。
 - Azure AD Connect 需要 SQL Server 資料庫來儲存身分識別資料。預設會安裝 SQL Server 2012 Express LocalDB (輕量版的 SQL Server Express)，並且在本機電腦上建立服務的服務帳戶。SQL Server Express 有 10 GB 的大小限制，可讓您管理大約 100000 個物件。
 - 如果您需要管理更多數量的目錄物件，則必須將安裝程序指向不同版本的 SQL Server。Azure AD Connect 支援從 SQL Server 2008 (含 SP4) 至 SQL Server 2014 的各種 Microsoft SQL Server。
 - 本機 Active Directory 的企業系統管理員帳戶
@@ -273,4 +273,4 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

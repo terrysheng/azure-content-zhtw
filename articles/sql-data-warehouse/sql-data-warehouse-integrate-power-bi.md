@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/09/2015"
    ms.author="lodipalm"/>
 
 # 搭配使用 Power BI 與 SQL 資料倉儲
@@ -51,17 +51,15 @@
 ## 尋找參數值
 在 Azure 入口網站中可以找到完整的伺服器名稱和資料庫名稱。請注意，SQL 資料倉儲此時只會出現在 Azure Preview 入口網站中。
 
-## 後續步驟
-如需整合概觀，請參閱 [SQL 資料倉儲整合概觀][]。如需更多開發秘訣，請參閱 [SQL 資料倉儲開發概觀][]。
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL 資料倉儲開發概觀]: ./sql-data-warehouse-overview-develop/
-[SQL 資料倉儲整合概觀]: ./sql-data-warehouse-overview-integration/
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
+[SQL Data Warehouse integration overview]: ./sql-data-warehouse-overview-integration/
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

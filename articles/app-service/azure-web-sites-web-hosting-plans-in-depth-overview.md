@@ -3,7 +3,7 @@
 	description="了解 Azure App Service 之應用程式服務方案的運作方式，以及在管理經驗上帶來的效益。" 
 	services="app-service" 
 	documentationCenter="" 
-	authors="cephalin" 
+	authors="btardif" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="09/07/2015" 
 	ms.author="byvinyal"/>
 
 #Azure App Service 方案深入概觀#
@@ -50,17 +50,11 @@
 
 您不能建立空的應用程式服務方案。但是，您可以在應用程式建立期間明確地建立新方案。
 
-若要在 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中這麼做，請按一下 [**新增**]，然後依序選取 [**Web + 行動**]、[**Web 應用程式**]、[**行動應用程式**]、[**邏輯應用程式**] 或 [**API 應用程式**]。接著，您可以選取或建立新應用程式的應用程式服務方案。
- 
-![應用程式服務方案常見問答集](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview01.png)
+若要在 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中這麼做，請按一下 [新增]，然後依序選取 [Web + 行動]、[Web 應用程式]、[行動應用程式]、[邏輯應用程式] 或 [API 應用程式]。![][createWebApp]
 
-##將應用程式指派給應用程式服務方案
-
-在建立程序期間，可以將應用程式指派給現有計畫。
-
-若要在 [Azure 入口網站](http://portal.azure.com)中這麼做，請按一下 [**新增**]，然後依序選取 [**Web + 行動**]、[**Web 應用程式**]、[**行動應用程式**]、[**邏輯應用程式**] 或 [**API 應用程式**]。接著，您可以選取或建立新應用程式的應用程式服務方案。按一下 [**或選取現有項目**] 會提供您可以從中選擇的現有方案清單。
-
-![應用程式服務方案常見問答集](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview02.png)
+接著，您可以選取或建立新應用程式的應用程式服務方案。
+  
+ ![][createASP]
  
 ## 將應用程式移到不同的應用程式服務方案
 
@@ -70,7 +64,7 @@
  
 這會開啟 [應用程式服務方案] 刀鋒視窗。此時，您可以挑選現有的方案，或建立新的方案。不同地理位置中的方案會呈現灰色而無法選取。
 
-![應用程式服務方案常見問答集](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview03.png)
+![][change]
 
 請注意，每個方案都有其專屬定價層。將網站從 [ **免費**] 層移到 [ **標準**] 層時，您的應用程式將可以利用 [**標準**] 層的所有功能和資源。
 
@@ -84,7 +78,7 @@
 
 在下圖中，您可以看到 [**應用程式服務方案**] 刀鋒視窗和 [**定價層**] 刀鋒視窗。按一下 [**應用程式服務方案**] 刀鋒視窗的 [**定價層**] 部分，將會展開 [**定價層**] 刀鋒視窗，您可以在其中變更方案的定價層和執行個體大小。
  
-![應用程式服務方案常見問答集](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview04.png)
+ ![][pricingtier]
 
 ##摘要
 
@@ -95,5 +89,13 @@
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
+ 
+ 
+ <!-- Images. -->
+[pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
+[assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
+[change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
+[createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
+[createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

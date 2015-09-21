@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="建立以 Azure VM 為基礎的 Azure RemoteApp 映像"
+    pageTitle="建立以 Azure VM 為基礎的 Azure RemoteApp 映像 | Microsoft Azure"
     description="了解如何開始使用 Azure 虛擬機器來建立 Azure RemoteApp 映像。" 
     services="remoteapp" 
     documentationCenter="" 
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="09/02/2015" 
     ms.author="elizapo" />
 
 
@@ -27,7 +27,7 @@
 
 使用這些步驟來建立以 Azure VM 為基礎的映像。
 
-1. 建立 Azure 虛擬機器。您可以使用 Azure 虛擬機器資源庫中的「Windows Server 遠端桌面工作階段主機」映像。此映像符合所有的 Azure RemoteApp 範本映像需求。 
+1. 建立 Azure 虛擬機器。您可以使用「Windows Server 遠端桌面工作階段主機」或來自 Azure 虛擬機器映像庫的「Windows Server 遠端桌面工作階段主機與 Microsoft Office 365 ProPlus」映像。此映像符合所有的 Azure RemoteApp 範本映像需求。 
 
 	如需詳細資訊，請參閱[建立執行 Windows 的 VM](virtual-machines-windows-tutorial.md)。
 
@@ -35,7 +35,7 @@
 
 	如需詳細資訊，請參閱[如何登入執行 Windows Server 的虛擬機器](virtual-machines-log-on-windows-server.md)。
 
-3. 如果您打算使用 Windows Server 遠端桌面工作階段主機映像，它包含了可確保您的 VM 符合 RemoteApp 必要需求的驗證指令碼。若要執行指令碼，請按兩下桌面上的 **ValidateRemoteAppImage**。在繼續進行下一個步驟之前，請確定已修正指令碼所報告的所有錯誤。
+3. 如果您打算使用 Windows Server 遠端桌面工作階段主機映像之一，它包含了可確保您的 VM 符合 RemoteApp 先決條件的驗證指令碼。若要執行指令碼，請按兩下桌面上的 **ValidateRemoteAppImage**。在繼續進行下一個步驟之前，請確定已修正指令碼所報告的所有錯誤。
 
 4. SYSPREP 一般化和擷取映像。如需相關指示，請參閱[如何擷取 Windows 虛擬機器作為範本使用](../virtual-machines-capture-image-windows-server.md)。
 
@@ -59,4 +59,4 @@
 現在您已經準備好開始建立新的收藏 ([雲端](remoteapp-create-cloud-deployment.md)收藏或[混合式](remoteapp-create-hybrid-deployment.md))，視您的需求而定。
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

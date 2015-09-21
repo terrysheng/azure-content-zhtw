@@ -1,5 +1,5 @@
 <properties
-   pageTitle="更新 Azure RemoteApp 收藏"
+   pageTitle="更新 Azure RemoteApp 服務 | Microsoft Azure"
    description="了解如何更新 Azure RemoteApp 收藏"
    services="remoteapp"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="08/12/2015"
+   ms.date="09/03/2015"
    ms.author="elizapo"/>
 
 # 更新 Azure RemoteApp 中的收藏
@@ -25,7 +25,7 @@
 因此，您該如何更新您的收藏？ 相當簡單：
 
 1. 更新您在收藏中使用的映像。套用所需的任何修補程式或更新，然後將它儲存成新的名稱。
-2. [上傳](remoteapp-uploadimage.md)或[匯入](remoteapp-image-on-azurevm)該映像至 RemoteApp。
+2. 將該映像[上傳](remoteapp-uploadimage.md)或[匯入](remoteapp-image-on-azurevm.md)至 RemoteApp。
 3. 現在，在 [收藏] 頁面上，按一下 [**更新**]。
 4. 從 [**範本映像**] 清單中選擇新的映像。
 4. 以下是麻煩的部分 - 您必須決定如何處理任何目前正在使用收藏中應用程式的使用者。您有下列選擇：
@@ -36,4 +36,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

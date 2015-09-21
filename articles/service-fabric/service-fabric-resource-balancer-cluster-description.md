@@ -3,7 +3,7 @@
    description="指定資源平衡器的叢集描述"
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
-   ms.author="abhic"/>
+   ms.date="09/03/2015"
+   ms.author="masnider"/>
 
 # 叢集描述
 
@@ -192,4 +192,4 @@ NodeName、NodeType、FaultDomain 和 UpgradeDomain 位置屬性均有預設值�
 [Image6]: media/service-fabric-resource-balancer-cluster-description/Thresholds.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

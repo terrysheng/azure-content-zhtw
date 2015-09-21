@@ -2,7 +2,7 @@
 	pageTitle="加入 Application Insights SDK 監視 ASP.NET App | Microsoft Azure"
 	description="使用 Application Insights 分析內部部署或 Microsoft Azure Web 應用程式的使用情況、可用性和效能。"
 	services="application-insights"
-	documentationCenter=".net"
+    documentationCenter=".net"
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.date="09/09/2015"
 	ms.author="awills"/>
 
 
@@ -108,11 +108,6 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 按一下任何圖表以查看詳細度量。[深入了解度量。][perf]
 
-現在部署應用程式並觀看資料累積情形。
-
-
-以偵錯模式執行時，系統會透過管線迅速傳送遙測資料，因此您應該可以在幾秒內看見資料。在部署應用程式時，資料累積會較為緩慢。
-
 #### 沒有資料？
 
 * 開啟 [[搜尋][diagnostic]] 磚來查看個別事件。
@@ -120,27 +115,40 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 * 請稍等片刻，然後按一下 [重新整理]。圖表會定期自行重新整理，但是如果您在等待一些要顯示的資料，您可以手動重新整理。
 * 請參閱[疑難排解][qna]。
 
+## 發佈您的應用程式
+
+現在請將應用程式部署至 IIS 或 Azure，並觀看資料累積情形。
+
+以偵錯模式執行時，系統會透過管線迅速傳送遙測資料，因此您應該可以在幾秒內看見資料。在部署應用程式時，資料累積會較為緩慢。
+
+
 #### 組建伺服器發生問題？
 
 請參閱[此疑難排解項目](app-insights-troubleshoot-faq.md#NuGetBuild)。
 
-## 5\.加入相依性追蹤
+## 5\.加入相依性追蹤和效能計數器
 
 SDK 需要一些協助，才能取得某些資料的存取權。特別是，您需要這個額外步驟才能自動測量您的應用程式對資料庫、REST API 和其他外部元件的呼叫。這些相依性度量對於協助您診斷效能問題的價值難以衡量。
+
+此步驟也可啟用[效能計數器報告](app-insights-web-monitor-performance.md#system-performance-counters)，例如 CPU、記憶體、網路佔用。
 
 #### 如果您的應用程式是在您的 IIS 伺服器中執行
 
 使用系統管理員權限登入您的伺服器，並安裝 [Application Insights 狀態監視器](http://go.microsoft.com/fwlink/?LinkId=506648)。
 
-(即使 App 不是使用 SDK 建置，您也可以使用狀態監視器[檢測已在執行的 App](app-insights-monitor-performance-live-website-now.md))。
+(即使應用程式不是以 SDK 建置而成，您也可以使用狀態監視器[檢測已在執行的應用程式](app-insights-monitor-performance-live-website-now.md))。
 
 #### 如果您的 app 是 Azure Web 應用程式
 
 在您的 Azure Web 應用程式的控制台中，加入 Application Insights 延伸模組。
 
-![在您的 Web 應用程式中，[工具]、[效能監視]、[新增]、[Application Insights]](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+![在您的 Web 應用程式中，依序按一下 [設定]、[延伸模組]、[加入]、[Application Insights]](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
-(延伸模組只能協助使用 SDK 建置的 app。與狀態監視器不同，它無法檢測現有的應用程式。)
+(延伸模組只能協助使用 SDK 建置並發佈至 Azure 的應用程式。與狀態監視器不同，它無法檢測現有的應用程式。)
+
+#### 如果是 Azure 雲端服務專案
+
+[將指令碼加入至 Web 和背景工作角色](app-insights-cloudservices.md)
 
 ## 6\.加入用戶端監視
 
@@ -152,7 +160,7 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 如果您的 app 顯示網頁，請在每一頁加入 JavaScript 程式碼片段。從您的 Application Insights 資源取得程式碼：
 
-![在您的 Web 應用程式中，開啟 [快速入門]，然後按一下 [取得程式碼來監視我的網頁]](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
+![在您的 Web 應用程式中，開啟 [快速啟動]，然後按一下 [取得程式碼來監視我的網頁]](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
 
 請注意，此程式碼包含可識別您的應用程式資源的檢測金鑰。
 
@@ -160,7 +168,7 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 #### 如果您的用戶端是裝置 app
 
-如果您的應用程式為用戶端 (例如電話或其他裝置) 提供服務，請將[適當的 SDK](app-insights-platforms.md) 加入至您的裝置 App。
+如果您的應用程式為用戶端 (例如電話或其他裝置) 提供服務，請將[適當的 SDK](app-insights-platforms.md) 加入至您的裝置應用程式。
 
 如果您使用與伺服器 SDK 相同的檢測金鑰來設定用戶端 SDK，將整合兩個資料流，讓您同時看到。
 
@@ -240,4 +248,4 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

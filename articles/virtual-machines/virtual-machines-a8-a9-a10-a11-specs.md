@@ -5,14 +5,15 @@
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-resource-manager, azure-service-management"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="07/22/2015"
+ ms.date="09/02/2015"
  ms.author="danlep"/>
 
 # 關於 A8、A9、A10 和 A11 密集運算執行個體
@@ -53,7 +54,7 @@ A8 和 A9 執行個體具有兩張網路介面卡，可連接到下列兩個後�
 32-Gbps 後端，具有 RDMA 功能 | 在單一雲端服務或可用性集合內的執行個體之間啟用低延遲、高輸送量的應用程式通訊。只保留給 MPI 流量。
 
 
->[AZURE.IMPORTANT]在於 IaaS 中執行 Linux 的 A8 和 A9 VM 上，目前只能透過在 SUSE Linux Enterprise Server 12 上使用 Azure Linux RDMA 和 Intel MPI Library 5.0 (SLES 12) 的應用程式來啟用對 RDMA 網路的存取。在於 IaaS 或 PaaS 中執行 Windows Server 的 A8 和 A9 執行個體上，目前只能經由使用 Microsoft Network Direct 介面的應用程式來啟用對 RDMA 網路的存取。如需其他需求，請參閱本文中的[存取 RDMA 網路](#access-the-rdma-network)。
+>[AZURE.IMPORTANT]在執行 Linux 的 A8 和 A9 VM 上，目前只能透過在 SUSE Linux Enterprise Server 12 上使用 Azure Linux RDMA 和 Intel MPI Library 5 (SLES 12) 的應用程式來啟用對 RDMA 網路的存取權。在執行 Windows Server 的 A8 和 A9 執行個體上，目前只能經由使用 Microsoft Network Direct 介面的應用程式來啟用對 RDMA 網路的存取權。如需其他需求，請參閱本文中的[存取 RDMA 網路](#access-the-rdma-network)。
 
 A10 和 A11 執行個體具有可連線至 Azure 服務和網際網路的單一 10-Gbps 乙太網路介面卡。
 
@@ -63,11 +64,11 @@ A10 和 A11 執行個體具有可連線至 Azure 服務和網際網路的單一 
 
 * **核心配額** – 您可能需要從您的 Azure 訂用帳戶中增加核心配額，預設的 20 個核心不足以處理許多具有 8 核心或 16 核心執行個體的案例。若為初始測試，您可能要考慮要求將配額增加到 100 個核心。若要這樣做，請開啟[了解 Azure 限制及增加](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)中所示的免費支援票證 。
 
->[AZURE.NOTE]Azure 配額為信用額度，而不是容量保證。您只需支付您使用的核心。
+    >[AZURE.NOTE]Azure 配額為信用額度，而不是容量保證。您只需支付您使用的核心。
 
 * **同質群組** – 針對大多數的新部署，目前不建議使用同質群組。不過，請注意，如果您正在使用的同質群組包含大小不同於 A8–A11 的執行個體，則您無法針對 A8–A11 執行個體使用它，反之亦然。
 
-* **虛擬網路** – 使用密集運算執行個體不需要 Azure 虛擬網路。不過，您可能需要至少一個雲端型 Azure 虛擬網路來處理許多 IaaS 案例，或者如果您需要存取內部部署資源 (例如，應用程式授權伺服器)，則需要站對站連線。您必須先建立新的 (區域) 虛擬網路，再部署執行個體。不支援將 A8、A9、A10 或 A11 VM 新增至同質群組中的虛擬網路。如需詳細資訊，請參閱[如何建立虛擬網路 (VNet)](../virtual-network/virtual-networks-create-vnet.md) 和[使用站對站 VPN 連線設定虛擬網路](../vpn-gateway/vpn-gateway-site-to-site-create.md)。
+* **虛擬網路** – 使用運算密集型執行個體時並不需要 Azure 虛擬網路。不過，您可能需要至少一個雲端型 Azure 虛擬網路來處理許多 IaaS 案例，或者如果您需要存取內部部署資源 (例如，應用程式授權伺服器)，則需要站對站連線。您必須先建立新的 (區域) 虛擬網路，再部署執行個體。不支援將 A8、A9、A10 或 A11 VM 新增至同質群組中的虛擬網路。如需詳細資訊，請參閱[如何建立虛擬網路 (VNet)](../virtual-network/virtual-networks-create-vnet.md) 和[使用站對站 VPN 連線來設定虛擬網路](../vpn-gateway/vpn-gateway-site-to-site-create.md)。
 
 * **雲端服務或可用性集合** – 若要透過 RDMA 網路進行連線，就必須將 A8 和 A9 執行個體部署在相同的雲端服務 (適用於在 Azure 服務管理中含有 Linux VM 或 Windows VM 的 IaaS 案例，或是含有 Windows Server 的 PaaS 案例) 或相同的可用性集合 (適用於 Azure 資源管理員中的 Linux 或 Windows VM) 中。
 
@@ -75,43 +76,43 @@ A10 和 A11 執行個體具有可連線至 Azure 服務和網際網路的單一 
 
 ### HPC Pack 和 Linux 的考量
 
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) 是 Microsoft 針對 Windows 所提供的免費 HPC 叢集和工作管理解決方案。從 HPC Pack 2012 R2 Update 2 開始，HPC Pack 就支援在部署於 Azure VM 中的計算節點上執行數個 Linux 散發套件，其是透過 Windows Server 前端節點來管理。使用最新版本的 HPC Pack，您可以部署 Linux 架構的叢集，能夠執行 MPI 應用程式來存取 Azure 中的 RDMA 網路。如需詳細資訊，請參閱 [HPC Pack 文件](http://go.microsoft.com/fwlink/?LinkId=617894)。
+[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) 是 Microsoft 針對 Windows 所提供的免費 HPC 叢集和工作管理解決方案。從 HPC Pack 2012 R2 Update 2 開始，HPC Pack 就支援在部署於 Azure VM 中的計算節點上執行數個 Linux 散發套件，其是透過 Windows Server 前端節點來管理。使用最新版本的 HPC Pack，您可以部署 Linux 架構的叢集，能夠執行 MPI 應用程式來存取 Azure 中的 RDMA 網路。如需詳細資訊，請參閱 [開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點](virtual-machines-linux-cluster-hpcpack.md)。
 
 ### HPC Pack 和 Windows 的考量
 
 將 A8、A9、A10 和 A11 執行個體與 Windows Server 搭配使用時，並不需要 HPC Pack，但它是在 Azure 中建立 Windows HPC Server 叢集的建議工具。如果是 A8 和 A9 執行個體，HPC Pack 會是執行可存取 Azure 中 RDMA 網路之 Windows MPI 應用程式最有效的方式。HPC Pack 包含 Windows 訊息傳遞介面之 Microsoft 實作的執行階段環境。
 
-如需在 Windows Server 上具備 HPC Pack 的 IaaS 和 PaaS 案例中部署及使用密集運算執行個體的詳細資訊和檢查清單，請參閱 [A8 和 A9 密集運算執行個體：HPC Pack 快速入門](https://msdn.microsoft.com/library/azure/dn594431.aspx)。
+如需在 Windows Server 上具備 HPC Pack 的 IaaS 和 PaaS 案例中部署及使用運算密集型執行個體的詳細資訊和檢查清單，請參閱 [A8 和 A9 運算密集型執行個體：HPC Pack 快速入門](https://msdn.microsoft.com/library/azure/dn594431.aspx)。
 
 ## 存取 RDMA 網路
 
 ### 從 Linux A8 和 A9 VM 進行存取
 
-在單一雲端服務或可用性設定組中，A8 和 A9 執行個體可以為了執行 MPI 應用程式 (使用 Linux RDMA 驅動程式在執行個體之間進行通訊)，存取 Azure 中的 RDMA 網路。此時，Azure Linux RDMA 僅支援 [Intel MPI Library 5.0](https://software.intel.com/zh-tw/intel-mpi-library/)。
+在單一雲端服務或可用性設定組中，A8 和 A9 執行個體可以為了執行 MPI 應用程式 (使用 Linux RDMA 驅動程式在執行個體之間進行通訊)，存取 Azure 中的 RDMA 網路。此時，僅 [Intel MPI Library 5](https://software.intel.com/zh-TW/intel-mpi-library/) 支援 Azure Linux RDMA。
 
 >[AZURE.NOTE]目前無法透過驅動程式延伸模組來安裝 Azure Linux RDMA 驅動程式。只能透過使用來自 Azure Marketplace 之已啟用 RDMA 的 SLES 12 映像來使用它們。
 
-請參閱下表，以了解要在計算節點 (IaaS) 叢集中存取 RDMA 網路之 Linux MPI 應用程式的必要條件。如需部署選項和設定步驟，請參閱[設定 Linux RDMA 叢集以執行 MPI 應用程式](virtual-machines-linux-cluster-rdma.md)。
+請參閱下表，以了解要在計算節點 (IaaS) 叢集中存取 RDMA 網路之 Linux MPI 應用程式的必要條件。如需部署選項和組態步驟，請參閱[設定 Linux RDMA 叢集以執行 MPI 應用程式](virtual-machines-linux-cluster-rdma.md)。
 
 必要條件 | 虛擬機器 (IaaS)
 ------------ | -------------
 作業系統 | 來自 Azure Marketplace 的 SLES 12 HPC 映像
-MPI | Intel MPI Library 5.0
+MPI | Intel MPI Library 5
 
 ### 從 Windows A8 和 A9 執行個體進行存取
 
 在單一雲端服務或可用性集合中，A8 和 A9 執行個體可為了執行 MPI 應用程式 (使用 Microsoft Network Direct 介面在執行個體之間進行通訊)，存取 Azure 中的 RDMA 網路。A10 和 A11 執行個體不包含 RDMA 網路的存取權。
 
-請參閱下表取得 MPI 應用程式的必要條件，以存取虛擬機器 (IaaS) 中的 RDMA 網路和 A8 或 A9 執行個體的雲端服務 (PaaS) 部署。若需典型的部署案例，請參閱 [A8 和 A9 密集運算執行個體：HPC Pack 快速入門](https://msdn.microsoft.com/library/azure/dn594431.aspx)。
+請參閱下表取得 MPI 應用程式的必要條件，以存取虛擬機器 (IaaS) 中的 RDMA 網路和 A8 或 A9 執行個體的雲端服務 (PaaS) 部署。如需典型的部署案例，請參閱 [A8 和 A9 運算密集型執行個體：HPC Pack 快速入門](https://msdn.microsoft.com/library/azure/dn594431.aspx)。
 
 
 必要條件 | 虛擬機器 (IaaS) | 雲端服務 (PaaS)
 ---------- | ------------ | -------------
 作業系統 | Windows Server 2012 R2 或 Windows Server 2012 | Windows Server 2012 R2、Windows Server 2012 或 Windows Server 2008 R2 客體 OS 系統系列
-MPI | MS-MPI 2012 R2 或更新版本為獨立安裝或透過 HPC Pack 2012 R2 或更新版本安裝<br/><br/>Intel MPI Library 5.0 | MS-MPI 2012 R2 或更新版本會透過 HPC Pack 2012 R2 或更新版本安裝<br/><br/>Intel MPI Library 5.0
+MPI | MS-MPI 2012 R2 或更新版本為獨立安裝或透過 HPC Pack 2012 R2 或更新版本安裝<br/><br/>Intel MPI Library 5 | MS-MPI 2012 R2 或更新版本會透過 HPC Pack 2012 R2 或更新版本安裝<br/><br/>Intel MPI Library 5
 
 
->[AZURE.NOTE]針對 IaaS 案例，[HpcVmDrivers 延伸模組](https://msdn.microsoft.com/library/azure/dn690126.aspx)必須新增至 VM，才能安裝 RDMA 連線所需的 Windows 驅動程式。
+>[AZURE.NOTE]針對 IaaS 案例，必須將 HpcVmDrivers 延伸模組加入 VM 中，才能安裝 RDMA 連線所需的 Windows 網路裝置驅動程式。取決於您的部署方法，HpcVmDrivers 延伸模組可能會自動加入到 A8 或 A9 VM 中，或者您可能需要自行予以加入。若要加入延伸模組，請參閱 [管理 VM 延伸模組](virtual-machines-extensions-install.md)。
 
 
 ## 其他應該知道的事項
@@ -130,4 +131,4 @@ MPI | MS-MPI 2012 R2 或更新版本為獨立安裝或透過 HPC Pack 2012 R2 �
 * 若要使用 A8 和 A9 執行個體來部署和設定 Linux 叢集以存取 Azure RDMA 網路，請參閱[設定 Linux RDMA 叢集以執行 MPI 應用程式](virtual-machines-linux-cluster-rdma.md)。
 * 若要在 Windows 上開始部署和使用具備 HPC Pack 的 A8 和 A9 執行個體，請參閱 [A8 和 A9 密集運算執行個體：HPC Pack 快速入門](https://msdn.microsoft.com/library/azure/dn594431.aspx)和[在 A8 和 A9 執行個體上執行 MPI 應用程式](https://msdn.microsoft.com/library/azure/dn592104.aspx)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

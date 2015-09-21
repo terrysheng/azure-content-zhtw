@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用媒體編碼器標準為資產編碼"
-	description="本主題說明如何使用 .NET 來使用 Media Encoder Standard 為資產編碼。"
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="如何使用媒體編碼器標準為資產編碼" 
+	description="本主題說明如何使用 .NET 來使用 Media Encoder Standard 為資產編碼。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"    
 	ms.author="juliako"/>
 
 
@@ -116,8 +116,16 @@
 		    return processor;
 		}
 
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##另請參閱 
 
 [媒體服務編碼概觀](media-services-encode-asset.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

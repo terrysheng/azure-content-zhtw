@@ -84,7 +84,7 @@ Microsoft Azure 搜尋服務是全新推出的服務，可讓您將搜尋功能�
 
 額外的複本和資料分割會依搜尋單位計費。當您新增資源時，頁面上會顯示要支援任何特定資源設定所需要的搜尋單位總數。
 
-您可以查看[定價詳細資料](http://go.microsoft.com/fwlink/p/?LinkID=509792)以取得每單位的計費資訊。有關如何設定資料分割和複本的組合，請參閱[限制和條件約束](http://msdn.microsoft.com/library/azure/dn798934.aspx)以協助您決定設定方式。
+您可以查看[定價詳細資料](http://go.microsoft.com/fwlink/p/?LinkID=509792)以取得每單位的計費資訊。有關如何設定資料分割和複本的組合，請參閱[限制和條件約束](search-limits-quotas-capacity.md)以協助您決定設定方式。
 
 <a id="sub-4"></a>
 ##測試服務作業
@@ -120,4 +120,4 @@ Microsoft Azure 搜尋服務是全新推出的服務，可讓您將搜尋功能�
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

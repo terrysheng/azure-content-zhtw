@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 # 設定環境
@@ -44,9 +44,12 @@
 
 [AZURE.INCLUDE [媒體-服務-選取器-連接](../../includes/media-services-selector-connect.md)]
 
-## 後續步驟
 
-- [開始使用提供使用.NET SDK 的點播視訊 (VoD) 內容](media-services-dotnet-get-started.md)
-- [使用 .NET SDK 建立通道，執行從單一位元速率到多位元速率串流的即時編碼 (預覽)](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+##後續步驟：AMS 學習路徑
 
-<!---HONumber=September15_HO1-->
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

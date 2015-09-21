@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
    
 # 入門：連接到 SQL 資料倉儲
@@ -188,4 +188,4 @@ C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server
 [載入範例資料]: ./sql-data-warehouse-get-started-load-samples.md
 [開發程式碼]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

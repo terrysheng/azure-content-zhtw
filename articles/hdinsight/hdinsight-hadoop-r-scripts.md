@@ -23,6 +23,7 @@
 
 指令碼動作可讓您執行指令碼來自訂叢集，但只能在建立叢集時進行。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]。
 
+> [AZURE.NOTE]此文件中的步驟需要以 Windows 為基礎的 HDInsight 叢集。如需搭配以 Linux 為基礎的叢集使用 R 的詳細資訊，請參閱[在 HDInsight Hadoop 叢集上安裝和使用 R (Linux)](hdinsight-hadoop-r-scripts-linux.md)。
 
 ## 什麼是 R？
 
@@ -36,7 +37,7 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 
 > [AZURE.NOTE]範例指令碼是在 HDInsight 叢集版本 3.1 中所推出。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](../hdinsight-component-versioning/)。
 
-1. 當您從預覽入口網站佈建 HDInsight 叢集時，按一下 [選擇性組態]，然後按一下 [指令碼動作]。
+1. 若您透過預覽入口網站佈建 HDInsight 叢集，請按一下 [選擇性組態]，然後按一下 [指令碼動作]。
 2. 在 [指令碼動作] 頁面上，輸入下列值：
 
 	![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "使用指令碼動作以自訂叢集")
@@ -283,4 +284,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 應�
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

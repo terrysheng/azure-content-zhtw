@@ -33,6 +33,8 @@
 
 下一步是設定裝載在 Azure 中的開發/測試內部網路 SharePoint 伺服器陣列。
 
+> [AZURE.NOTE]Microsoft 已發行 SharePoint Server 2016 IT 預覽版。若要輕鬆安裝和測試此預覽版，您可以搭配 SharePoint Server 2016 IT 預覽版和其預先安裝的必要元件來使用 Azure 虛擬機器資源庫映像。如需詳細資訊，請參閱[在 Azure 中測試 SharePoint Server 2016 IT 預覽版](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/) (英文)。
+
 ## 建立裝載在 Azure 中的開發/測試內部網路 SharePoint 伺服器陣列。
 
 您有兩個選擇可以針對裝載在 Azure 中的 SharePoint 伺服器陣列建立開發/測試環境：
@@ -106,7 +108,7 @@
 
 	準備 SharePoint 資料庫，並建立 AlwaysOn 可用性群組，然後將 SharePoint 資料庫新增至其中。如需詳細的設定步驟，請參閱＜[第 5 階段](virtual-machines-workload-intranet-sharepoint-phase5.md)＞。
 
-一旦設定之後，您可以使用〈[適用於 SharePoint 2013 的 Microsoft Azure 架構](http://technet.microsoft.com/library/dn635309.aspx)〉中的指引來擴充 SharePoint 伺服器陣列。
+設定完成後，您可以使用[適用於 SharePoint 2013 的 Microsoft Azure 架構](http://technet.microsoft.com/library/dn635309.aspx)中的指引來擴充此 SharePoint 伺服器陣列。
 
 ## 其他資源
 
@@ -124,4 +126,4 @@
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

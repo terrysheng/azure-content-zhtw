@@ -11,13 +11,13 @@
 
 2. 在 Visual Studio 主功能表中，依序按一下 **[工具]**、**[Library Package Manager]** 和 **[Package Manager Console]**，然後在主控台視窗中輸入下列資訊並按 **Enter** 鍵：
 
-        Install-Package WindowsAzure.ServiceBus
+        Install-Package Microsoft.Azure.NotificationHubs
  	
-	透過使用 <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 封裝</a>，將在 Azure 服務匯流排 SDK 中新增參照。
+	這會使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 封裝</a>加入 Azure 通知中樞 SDK 的參考。
 
 3. 開啟 Program.cs 檔案，並新增下列 `using` 陳述式：
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 4. 在 `Program` 類別中，新增或取代 (如果方法已存在) 下列方法：
 
@@ -100,4 +100,4 @@
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

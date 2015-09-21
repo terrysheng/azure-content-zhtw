@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Azure 自動化 DSC 概觀"
-	description="Azure 自動化期望狀態組態 (DSC)、其條款和已知問題的概觀"
-	services="automation"
-	documentationCenter="dev-center-name"
-	authors="coreyp-at-msft"
-	manager="stevenka"
-	editor="tysonn"/>
+   pageTitle="Azure 自動化 DSC 概觀" 
+   description="Azure 自動化期望狀態組態 (DSC)、其條款和已知問題的概觀" 
+   services="automation" 
+   documentationCenter="dev-center-name" 
+   authors="coreyp-at-msft" 
+   manager="stevenka" 
+   editor="tysonn"/>
 
 <tags
    ms.service="automation"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="TBD"
-	ms.date="08/18/2015"
-	ms.author="coreyp"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="TBD" 
+   ms.date="09/04/2015"
+   ms.author="coreyp"/>
 
 # Azure 自動化 DSC 概觀 #
 
@@ -193,6 +193,12 @@ Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://
 -	`Get-AzureAutomationDscCompilationJobOutput`
 -	`Start-AzureAutomationDscCompilationJob`
 
+
+##Azure 自動化 DSC 週期##
+從空的自動化帳戶到一組受管理的正確設定節點，會包含一組用來定義組態、將這些組態變為節點組態，並將節點上架至 Azure 自動化 DSC 及節點組態的程序。下圖說明 Azure 自動化 DSC 週期：
+
+![替代文字](./media/automation-dsc-overview/DSCLifecycle.png)
+
 ##錯誤/已知問題：##
 
 - 由於 Azure 自動化 DSC 處於預覽，第一次使用這項功能時，您將需要使用 Azure PowerShell Cmdlet 或 Azure Preview 入口網站進行註冊。您可以藉由呼叫下列兩個 Cmdlet 來註冊：
@@ -222,8 +228,8 @@ Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://
 
 - 使用 `Register-AzureAutomationDscNode`、`Set-AzureVMExtension` 或 Azure 預覽入口網站中的 Azure 自動化 DSC VM 延伸模組將 Azure VM 上架以使用 Azure 自動化 DSC 管理時，如果註冊失敗，並出現**未指定電腦名稱，並且組態目錄沒有任何組態檔**，這是誤報而 VM 註冊實際上是成功的。您可以使用 `Get-AzureAutomationDscNode` Cmdlet 驗證成功註冊。
 
-- 使用 `Register-AzureAutomationDscNode`、`Set-AzureVMExtension` 或 Azure 預覽入口網站中的 Azure 自動化 DSC VM 延伸模組將 Azure VM 上架以使用 Azure 自動化 DSC 管理時，它最多可能需要一小時，VM 才會在 Azure 自動化中顯示為 DSC 節點。這是因為 VM 上憑藉著 Azure VM DSC 延伸模組的 Windows Management Framework 5.0 安裝，需要它才能將 VM 上架到 Azure 自動化 DSC。
+- 使用 `Register-AzureAutomationDscNode`、`Set-AzureVMExtension` 或 Azure 預覽入口網站中的 Azure 自動化 DSC VM 延伸模組將 Azure VM 上架以使用 Azure 自動化 DSC 管理時，這最多可能需要一小時，VM 才會在 Azure 自動化中顯示為 DSC 節點。這是因為 VM 上憑藉著 Azure VM DSC 延伸模組的 Windows Management Framework 5.0 安裝，需要它才能將 VM 上架到 Azure 自動化 DSC。
 
 - 上架到 Azure 自動化 DSC 的 DSC 節點一開始都會顯示為「相容」狀態，即使它們實際上不符合所對應的 DSC 節點組態。節點執行其第一次提取，並將其第一個 DSC 報表傳送到 Azure 自動化 DSC 之後，節點的狀態應該是正確的。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

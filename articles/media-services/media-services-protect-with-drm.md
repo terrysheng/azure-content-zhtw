@@ -12,8 +12,8 @@
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/14/2015"
+	ms.topic="get-started-article" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #使用 PlayReady DRM 動態加密和授權傳遞服務
@@ -579,4 +579,12 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 		    }
 		}
 
-<!---HONumber=August15_HO9-->
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

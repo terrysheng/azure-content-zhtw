@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Media Encoder Standard 格式和轉碼器"
-	description="本主題提供 Azure Media Encoder Standard 格式和轉碼器的概觀。"
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Media Encoder Standard 格式和轉碼器" 
+	description="本主題提供 Azure Media Encoder Standard 格式和轉碼器的概觀。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/03/2015"
 	ms.author="juliako"/>
 
 #Media Encoder Standard 格式和轉碼器
@@ -29,10 +29,10 @@
 FLV (使用 H.264 和 AAC 轉碼器) (.flv) |是 
 MXF (.mxf) |是 
 GXF (.gxf) |是 
-MPEG2-PS、MPEG2-TS、3GP (.ts、.ps、.3gp) |是 
+MPEG2-PS、MPEG2-TS、3GP (.ts、.ps、.3gp、.3gpp、.mpg) |是 
 Windows Media 視訊 (WMV)/ASF (.wmv、.asf) |是 
 AVI (未壓縮 8 位元/10 位元) (.avi)|是 
-MP4/ISMV (.ismv)|是 
+MP4 (.mp4、.m4a、.m4v)/ISMV (.isma、.ismv)|是 
 [Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |是 
 Matroska/WebM (.mkv) |是 
 WAVE/WAV (.wav) |是 
@@ -81,8 +81,16 @@ Dolby® Digital Plus (E-AC3) |否
 
 檔案格式|視訊轉碼器|音訊轉碼器
 ---|---|---
-MP4 (* .mp4)<br/><br/>(包括多位元速率 MP4 容器) |H.264 (高、主要和基準設定檔)|AAC-LC、HE-AAC v1、HE-AAC v2 
+MP4 <br/><br/>(包括多位元速率 MP4 容器) |H.264 (高、主要和基準設定檔)|AAC-LC、HE-AAC v1、HE-AAC v2 
 MPEG2-TS |H.264 (高、主要和基準設定檔)|AAC-LC、HE-AAC v1、HE-AAC v2 
+
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##另請參閱
 
@@ -90,4 +98,4 @@ MPEG2-TS |H.264 (高、主要和基準設定檔)|AAC-LC、HE-AAC v1、HE-AAC v2
 
 [如何使用 Media Encoder Standard 進行編碼](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

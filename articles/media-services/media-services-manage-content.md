@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用 Azure 管理入口網站透過 Azure 媒體服務管理媒體內容"
-	description="了解如何在 Azure 媒體服務中管理您的媒體內容。這包括：上傳、索引、編碼、加密，以及發佈。"
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="如何使用 Azure 管理入口網站透過 Azure 媒體服務管理媒體內容" 
+	description="了解如何在 Azure 媒體服務中管理您的媒體內容。這包括：上傳、索引、編碼、加密，以及發佈。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/23/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -206,6 +206,14 @@ SAS URL 具有下列格式：
 - **媒體服務內容播放程式**會從預設串流端點播放。如果您想要從非預設串流端點播放，請使用其他播放程式。例如，[Azure 媒體服務播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。
  
 
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ![AMSPlayer][AMSPlayer]
 
 <!-- Images -->
@@ -221,4 +229,4 @@ SAS URL 具有下列格式：
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

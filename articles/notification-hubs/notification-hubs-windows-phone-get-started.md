@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用 Azure 通知中樞 | Microsoft Azure"
+	pageTitle="開始使用適用於 Windows Phone 的 Azure 通知中樞 | Microsoft Azure"
 	description="在本教學課程中，您會了解如何使用 Azure 通知中樞，將推播通知傳送到 Windows Phone 8 或 Windows Phone 8.1 Silverlight 應用程式。"
 	services="notification-hubs"
 	documentationCenter="windows"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/16/2015"
+	ms.date="09/08/2015"
 	ms.author="wesmc"/>
 
-# 開始使用通知中心
+# 開始使用適用於 Windows Phone 的通知中樞
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -137,17 +137,17 @@
 
 4. 按一下滑鼠右鍵，再依序按一下 [工具]、[程式庫封裝管理員] 和 [封裝管理員主控台]。
 
-	即會顯示套件管理器主控台。
+	這會顯示 [Package Manager Console]。
 
-6. 在主控台視窗中，將 [預設專案] 設為您的新主控台應用程式專案，然後在主控台視窗中執行下列命令：
+5.  在 [封裝管理員主控台] 視窗中，將 [預設專案] 設為新的主控台應用程式專案，然後在主控台視窗中執行下列命令：
 
-        Install-Package WindowsAzure.ServiceBus
+        Install-Package Microsoft.Azure.NotificationHubs
 
-	這會使用 <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 封裝</a>新增 Azure 服務匯流排 SDK 的參考。
+	這會使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 封裝</a>加入 Azure 通知中樞 SDK 的參考。
 
-5. 開啟 Program.cs 檔案，並新增下列 `using` 陳述式：
+6. 開啟 Program.cs 檔案，並新增下列 `using` 陳述式：
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 6. 在 **Program** 類別中，新增下列方法：
 
@@ -215,4 +215,4 @@
 [磚目錄]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

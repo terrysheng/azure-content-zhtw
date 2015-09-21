@@ -1,19 +1,19 @@
 <properties 
    pageTitle="什麼是網路存取控制清單 (ACL)？"
-	description="了解 ACL"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="了解 ACL"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/08/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/04/2015"
+   ms.author="telmos" />
 
 # 什麼是網路存取控制清單 (ACL)？
 
@@ -99,4 +99,4 @@ ACL 是包含規則清單的物件。當您建立 ACL 並將它套用到虛擬�
 
 [如何使用 PowerShell 管理存取控制清單 (ACL) 端點](../virtual-networks-acl-powershell)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

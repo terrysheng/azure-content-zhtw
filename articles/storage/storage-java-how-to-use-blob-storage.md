@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # 如何使用 Java 的 Blob 儲存體
@@ -161,11 +161,11 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         e.printStackTrace();
     }
 
-Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更像資料夾的結構組織 Blob。
+請注意，為 Blob 命名時，您可以在其名稱中包含路徑資訊。這會建立虛擬目錄結構，讓您能夠組織及周遊，就像使用傳統檔案系統一樣。請注意，目錄結構僅限虛擬目錄結構 - Blog 儲存體中唯一可用的資源為容器和 blob。但是，用戶端程式庫提供 **CloudBlobDirectory** 物件來參照虛擬目錄，以及簡化透過此方式組織之 Blob 的使用程序。
 
 例如，您可能有名為 "photos" 的容器，當中您可能上傳名為 "rootphoto1"、"2010/photo1"、"2010/photo2" 和 "2011/photo1" 的 Blob。這會在 "photos" 容器內建立虛擬目錄 "2010" 和 "2011"。當您在 "photos" 容器上呼叫 **ListBlobs** 時，傳回的集合將包含 **CloudBlobDirectory** 和 **CloudBlob** 物件，其分別代表最上層所包含的目錄和 Blob。在此情況下，系統會傳回目錄 "2010" 和 "2011"，以及照片 "rootphoto1"。您可以使用 **instanceof** 運算子來區別這些物件。
 
-您可以選擇性地將參數傳入 **listBlobs** 方法，將 **useFlatBlobListing** 參數設為 true。如此會導致不論目錄為何，都會傳回每個 Blob。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考] (英文) 中的 **CloudBlobContainer.listBlobs**。
+您可以選擇性地將參數傳入 **listBlobs** 方法，將 **useFlatBlobListing** 參數設為 true。如此會導致不論目錄為何，都會傳回每個 Blob。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考]中的 **CloudBlobContainer.listBlobs**。
 
 ## 下載 Blob
 
@@ -227,7 +227,7 @@ Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更
 
 ## 刪除 Blob 容器
 
-最後，若要刪除 Blob 容器，請取得 Blob 容器參考，然後呼叫 **deleteIfExists**。
+最後，若要刪除 Blob 容器，請取得 Blob 容器的參考，然後呼叫 **deleteIfExists**。
 
     try
     {
@@ -265,4 +265,4 @@ Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更
 [Azure 儲存體 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

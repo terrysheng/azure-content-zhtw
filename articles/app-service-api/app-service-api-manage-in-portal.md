@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="管理 API 應用程式"
-	description="了解如何使用 Azure 入口網站和 Visual Studio 伺服器總管來管理 Azure App Service API 應用程式。"
-	services="app-service\api"
-	documentationCenter=""
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="管理 API 應用程式" 
+	description="了解如何使用 Azure 入口網站和 Visual Studio 伺服器總管來管理 Azure App Service API 應用程式。" 
+	services="app-service\api" 
+	documentationCenter="" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
+	ms.service="app-service-api" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/17/2015"
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="tdykstra"/>
 
 # 管理 Azure App Service 中的 API 應用程式
@@ -134,4 +134,4 @@
 
 如需如何使用命令列管理 API 應用程式的相關資訊，請參閱文章左側 (在寬瀏覽器視窗上) 或文章頂端 (在窄瀏覽器視窗上) 出現之功能表的 [**自動化**] 區段中的文章。
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

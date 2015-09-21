@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中使用 Azure Active Directory 授權開發人員帳戶
@@ -228,4 +228,4 @@
 
 [使用 Azure Active Directory 帳戶登入開發人員入口網站]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

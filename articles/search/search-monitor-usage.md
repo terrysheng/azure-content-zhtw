@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="07/08/2015"
+   ms.date="09/08/2015"
    ms.author="heidist"/>
 
 # 監視在 Azure 搜尋服務中的使用量和統計資料
@@ -45,7 +45,7 @@ Azure 搜尋服務 REST API 和 .NET SDK 都提供以程式設計方式存取服
 
 ## 後續步驟
 
-檢視[限制和容量](https://msdn.microsoft.com/library/azure/dn798934.aspx)來判斷如果現有容量不足時，您將需要的分割和複本組合。
+檢視[限制和容量](search-limits-quotas-capacity.md)來判斷如果現有容量不足時，您將需要的分割和複本組合。
 
 如需服務管理的詳細資訊，請瀏覽[在 Microsoft Azure 上管理搜尋服務](search-manage.md)。
 
@@ -57,4 +57,4 @@ Azure 搜尋服務 REST API 和 .NET SDK 都提供以程式設計方式存取服
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -200,9 +200,17 @@
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
 
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##相關主題
 
 [啟動儲存體金鑰之後更新媒體服務定位器](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

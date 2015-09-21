@@ -1,12 +1,4 @@
-<properties 
-	pageTitle="使用範本部署 Azure 資源"
-	description="了解如何使用Azure 資源管理程式庫中一些可用的用戶端部署虛擬機器、虛擬網路和儲存體帳戶"
-	services="virtual-machines,virtual-networks,storage"
-	documentationCenter="" 
-	authors="davidmu1" 
-	manager="timlt" 
-	editor="tysonn" 
-	tags="azure-resource-manager"/>
+<屬性 pageTitle =「使用範本部署 Azure 資源」描述 =「了解如何使用 Azure 資源管理程式庫中一些可用的用戶端部署虛擬機器、虛擬網路和儲存體帳戶」服務 =「虛擬機器、虛擬網路、儲存體」documentationCenter="" 作者 ="davidmu1" 管理員 ="timlt" 編輯器 ="tysonn" 標記 ="azure-資源-管理員/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -27,7 +19,7 @@
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Azure 儲存體帳戶](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/zh-tw/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](http://www.microsoft.com/zh-tw/download/details.aspx?id=40855)
+- [Windows Management Framework 3.0](http://www.microsoft.com/zh-TW/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](http://www.microsoft.com/zh-TW/download/details.aspx?id=40855)
 - [Azure PowerShell](../powershell-install-configure.md)
 
 執行這些步驟需要 30 分鐘左右。
@@ -302,7 +294,7 @@
           }
         }
 
-    >[AZURE.NOTE]映像庫中的映像 VHD 名稱會定期變更，因此您必須取得目前的映像名稱，才能部署虛擬機器。若要這樣做，請參閱[使用 Windows PowerShell 管理映像 Windows](https://msdn.microsoft.com/library/azure/dn790330.aspx)，然後將 {source-image-name} 取代成您想要使用的 VHD 檔案的名稱。例如，"a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd"。將 {subscription-id} 取代成您的訂用帳戶的識別碼。
+    >[AZURE.NOTE]映像庫中的映像 VHD 名稱會定期變更，因此您必須取得目前的映像名稱，才能部署虛擬機器。若要這樣做，請參閱[關於虛擬機器的映像](https://azure.microsoft.com/zh-TW/documentation/articles/virtual-machines-images/)，然後將 {source-image-name} 替換成您想要使用的 VHD 檔案名稱。例如，"a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd"。將 {subscription-id} 取代成您的訂用帳戶的識別碼。
 
 
 4.	儲存您所建立的參數檔案。
@@ -451,4 +443,4 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 	![建立 AD 應用程式](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

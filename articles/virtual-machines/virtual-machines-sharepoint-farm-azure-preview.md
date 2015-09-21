@@ -35,6 +35,8 @@
 
 如需這兩種伺服器陣列的組態詳細資料，請參閱 [SharePoint Server 伺服器陣列組態詳細資料](virtual-machines-sharepoint-farm-config-azure-preview.md)。
 
+> [AZURE.NOTE]Microsoft 已發行 SharePoint Server 2016 IT 預覽版。若要輕鬆安裝和測試此預覽版，您可以搭配 SharePoint Server 2016 IT 預覽版和其預先安裝的必要元件來使用 Azure 虛擬機器資源庫映像。如需詳細資訊，請參閱[在 Azure 中測試 SharePoint Server 2016 IT 預覽版](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/) (英文)。
+
 ## 逐步設定
 
 若要使用 SharePoint 伺服器陣列範本建立您的 SharePoint 伺服器陣列，請執行下列動作：
@@ -60,7 +62,7 @@ SharePoint 伺服器陣列具有預先設定的端點，可讓對於連接網際
 2.	在資源群組清單中，按一下您 SharePoint 伺服器陣列資源群組的名稱。
 3.	在 SharePoint 伺服器陣列資源群組的窗格中，按一下 [Deployment history]。
 4.	在 [Deployment history] 窗格中，按一下 [Microsoft.SharePointFarm]。
-5.	在 [Microsoft.SharePointFarm] 窗格中，選取 [SHAREPOINTSITEURL] 欄位中的 URL 並將它複製。
+5.	在 [Microsoft.SharePointFarm] 窗格中，選取並複製 [SHAREPOINTSITEURL] 欄位中的 URL。
 6.	在您的網際網路瀏覽器中，將此 URL 貼入地址欄位。
 7.	出現提示時，輸入您在建立伺服器陣列時所指定的使用者帳戶認證。
 
@@ -70,7 +72,7 @@ SharePoint 伺服器陣列具有預先設定的端點，可讓對於連接網際
 2.	在資源群組清單中，按一下您 SharePoint 伺服器陣列資源群組的名稱。
 3.	在 SharePoint 伺服器陣列資源群組的窗格中，按一下 [Deployment history]。
 4.	在 [Deployment history] 窗格中，按一下 [Microsoft.SharePointFarm]。
-5.	在 [Microsoft.SharePointFarm] 窗格中，選取 [SHAREPOINTCENTRALADMINURL] 欄位中的 URL 並將它複製。
+5.	在 [Microsoft.SharePointFarm] 窗格中，選取並複製 [SHAREPOINTCENTRALADMINURL] 欄位中的 URL。
 6.	在您的網際網路瀏覽器中，將此 URL 貼入地址欄位。
 7.	出現提示時，輸入您在建立伺服器陣列時所指定的使用者帳戶認證。
 
@@ -83,7 +85,7 @@ SharePoint 伺服器陣列具有預先設定的端點，可讓對於連接網際
 
 ## Azure 資源管理員
 
-Azure Preview 入口網站的 SharePoint Server 伺服器陣列功能會在服務管理中建立虛擬機器。若要在資源管理員中建立 SharePoint Server 2013 伺服器陣列，請參閱[使用 Azure 資源管理員範本部署 SharePoint 伺服器陣列](virtual-machines-workload-template-sharepoint.md)。
+Azure 預覽入口網站的 SharePoint Server 伺服器陣列功能會以傳統部署模型建立虛擬機器。若要使用 Azure 資源管理員部署模型建立 SharePoint Server 2013 伺服器陣列，請參閱[使用 Azure 資源管理員範本部署 SharePoint 伺服器陣列](virtual-machines-workload-template-sharepoint.md)。
 
 ## 其他資源
 
@@ -95,4 +97,4 @@ Azure Preview 入口網站的 SharePoint Server 伺服器陣列功能會在服�
 
 [在 Azure 基礎結構服務中架設的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

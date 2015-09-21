@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/16/2015"
+   ms.date="09/03/2015"
    ms.author="oanapl"/>
 
 # 如何檢視 Service Fabric 健康情況報告
@@ -174,7 +174,7 @@ HealthEvents            : None
 以下 Powershell Cmdlet 會使用自訂的應用程式原則，取得叢集的健康情況。它會篩選結果，以取得只有「錯誤」或「警告」的應用程式和節點。如此一來，就不會傳回任何狀況良好的節點。只有 fabric:/WordCount 應用程式符合應用程式篩選。由於自訂原則針對 fabric:/WordCount 應用程式，指定將警告視為錯誤，因此應用程式以及叢集，均被評估為「錯誤」。
 
 ```powershell
-PS C:\> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
+PS c:> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
 $appHealthPolicy.ConsiderWarningAsError = $true
 $appHealthPolicyMap = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicyMap
 $appUri1 = New-Object -TypeName System.Uri -ArgumentList "fabric:/WordCount"
@@ -326,7 +326,7 @@ ApplicationHealth applicationHealth = fabricClient.HealthManager.GetApplicationH
 以下 Cmdlet 會傳回 fabric:/WordCount 應用程式的健康情況。
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS c:> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Warning
@@ -836,4 +836,4 @@ UpgradeReplicaSetCheckTimeout : 00:15:00
 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

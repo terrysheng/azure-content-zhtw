@@ -1,6 +1,7 @@
 <properties
 	pageTitle="學習使用適用於 HDInsight 的 Visual Studio Hadoop 工具 | Microsoft Azure"
 	description="了解如何安裝和使用適用於 HDInsight 的 Visual Studio Hadoop 工具來連線到 Hadoop 叢集和執行 Hive 查詢。"
+	keywords="hadoop tools,hive query,visual studio"
 	services="HDInsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,17 +15,14 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/28/2015"
+	ms.date="09/03/2015"
 	ms.author="jgao"/>
 
 # 開始使用適用於 HDInsight 的 Visual Studio Hadoop 工具來執行 Hive 查詢
 
 了解如何使用 HDInsight Tools for Visual Studio 來連線到 HDInsight 叢集並提交 Hive 查詢。如需使用 HDInsight 的詳細資訊，請參閱 [HDInsight 簡介][hdinsight.introduction]和[開始使用 HDInsight][hdinsight.get.started]。如需連線到 Storm 叢集的詳細資訊，請參閱[使用 Visual Studio 開發 HDInsight 上 Apache Storm 的 C# 拓撲][hdinsight.storm.visual.studio.tools]。
 
->[AZURE.NOTE]最新版本引進了一些新功能，例如 Hive 編輯器支援、Hive 指令碼本機驗證，以及 YARN 記錄存取。
-
-
-## 必要條件
+**必要條件**
 
 若要完成本教學課程並使用 Visual Studio 中的 Hadoop 工具，您需要下列項目：
 
@@ -64,11 +62,11 @@ HDInsight Tools for Visual Studio 封裝在 Microsoft Azure SDK for .NET 2.5.1 �
 **連線到您的 Azure 訂用帳戶**
 
 1.	開啟 Visual Studio。
-2.	從 [檢視] 功能表中，按一下 [伺服器總管] 以開啟 [伺服器總管] 視窗。
-3.	展開 [Azure]，然後展開 [HDInsight]。
+2.	從 [**檢視**] 功能表中，按一下 [**伺服器總管**] 以開啟 [伺服器總管] 視窗。
+3.	展開 [**Azure**]，然後展開 [**HDInsight**]。
 
-	>[AZURE.NOTE]請注意，應會開啟 [HDInsight 工作清單] 視窗。如果沒看見，請從 [檢視] 功能表中按一下 [其他視窗]，然後按一下 [HDInsight 工作清單視窗]，即可開啟此視窗。  
-4.	輸入您的 Azure 訂用帳戶認證，然後按一下 [登入]。只有當您從未在此工作站上從 Visual Studio 連線到 Azure 訂用帳戶時，才需要這樣做。
+	>[AZURE.NOTE]請注意，[HDInsight 工作清單] 視窗應會開啟。如果沒看見，請從 [檢視] 功能表中按一下 [其他視窗]，然後按一下 [HDInsight 工作清單視窗]，即可開啟此視窗。  
+4.	輸入您的 Azure 訂用帳戶認證，然後按一下 [**登入**]。只有當您從未在此工作站上從 Visual Studio 連線到 Azure 訂用帳戶時，才需要這樣做。
 5.	在 [伺服器總管] 中，您會看到現有 HDInsight 叢集的清單。如果您沒有任何叢集，您可以使用 Azure Preview 入口網站、Azure PowerShell 或 HDInsight SDK 來佈建一個。如需詳細資訊，請參閱[佈建 HDInsight 叢集][hdinsight-provision]。
 
 	![Hadoop 工具：HDInsight Tools for Visual Studio 伺服器總管叢集清單][5]
@@ -104,8 +102,8 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 
 **列出 Hive 資料表和檢視 Hive 資料表結構描述**
 
-1.	從 [伺服器總管] 中，展開 [Azure] > [HDInsight] > 選擇的叢集 > [Hive 資料庫] > [預設] > [hivesampletable] 來查看資料表結構描述。
-4.	在 [hivesampletable] 上按一下滑鼠右鍵，然後按一下 [檢視前 100 個資料列] 來列出資料列。這相當於使用 Hive ODBC 驅動程式來執行下列 Hive 查詢：
+1.	從 [**伺服器總管**] 中，展開 [**Azure**] > [**HDInsight**] > 選擇的叢集 > [**Hive 資料庫**] > [**預設**] > [**hivesampletable**] 來查看資料表結構描述。
+4.	在 [**hivesampletable**] 上按一下滑鼠右鍵，然後按一下 [**檢視前 100 個資料列**] 來列出資料列。這相當於使用 Hive ODBC 驅動程式來執行下列 Hive 查詢：
 
 		SELECT * FROM hivesampletable LIMIT 100
 
@@ -119,9 +117,9 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 
 **建立 Hive 資料表**
 
-1. 從 [伺服器總管] 中，展開 [Azure] > [HDInsight 叢集] > 某個 HDInsight 叢集 > [Hive 資料庫]，然後在 [預設] 上按一下滑鼠右鍵，並按一下 [建立資料表]。
+1. 從 [**伺服器總管**] 中，展開 [**Azure**] > [**HDInsight 叢集**] > 某個 HDInsight 叢集 > [**Hive 資料庫**]，然後在 [**預設**] 上按一下滑鼠右鍵，並按一下 [**建立資料表**]。
 2. 設定資料表。
-3. 按一下 [建立資料表] 以提交工作來建立新 Hive 資料表。
+3. 按一下 [**建立資料表**] 以提交工作來建立新 Hive 資料表。
 
 	![Hadoop 工具：hdinsight visual studio 工具建立 hive 資料表][7]
 
@@ -133,8 +131,8 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 
 **建立、驗證和執行特定查詢**
 
-1. 從 [伺服器總管] 中，展開 [Azure]，然後展開 [HDInsight 叢集]。
-2. 在您想要執行查詢的叢集上按一下滑鼠右鍵，然後按一下 [撰寫 Hive 查詢]。
+1. 從 [**伺服器總管**] 中，展開 [**Azure**]，然後展開 [**HDInsight 叢集**]。
+2. 在您想要執行查詢的叢集上按一下滑鼠右鍵，然後按一下 [**撰寫 Hive 查詢**]。
 3. 輸入 Hive 查詢。請注意，Hive 編輯器支援 Intellisense。HDInsight Tools for Visual Studio 支援在編輯 Hive 指令碼時載入遠端中繼資料。例如，當您輸入 "SELECT * FROM"，IntelliSense 會列出所有建議的資料表名稱。在指定了資料表名稱時，IntelliSense 會列出資料行名稱。此工具幾乎支援所有的 Hive DML 陳述式、子查詢以及內建 UDF。
 
 	![Hadoop 工具：HDInsight Visual Studio 工具 IntelliSense][13]
@@ -146,26 +144,26 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 
 	![Hadoop 工具：HDInsight Tools for Visual Studio 本機驗證][10]
 
-4. 按一下 [提交] 或 [提交 (進階)]。使用進階提交選項時，您將為指令碼設定 [工作名稱]、[引數]、[其他組態] 和 [狀態目錄]：
+4. 按一下 [**提交**] 或 [**提交 (進階)**]。使用進階提交選項時，您將為指令碼設定 [工作名稱]、[引數]、[其他組態] 和 [狀態目錄]：
 
 	![hdinsight hadoop hive 查詢][9]
 
 	提交工作之後，您會看到 [Hive 工作摘要] 視窗。
 
 	![HDInsight Hadoop Hive 查詢的摘要][8]
-5. 使用 [重新整理] 按鈕來更新狀態，直到工作狀態變更為 [已完成] 為止。
-6. 按一下底部的連結以查看下列內容：[工作查詢]、[工作輸出]、[工作記錄] 或 [Yarn 記錄]。
+5. 使用 [**重新整理**] 按鈕來更新狀態，直到工作狀態變更為 [**已完成**] 為止。
+6. 按一下底部的連結以查看下列內容：[**工作查詢**]、[**工作輸出**]、[**工作記錄**] 或 [**Yarn 記錄**]。
 
 
 
 **建立和執行 Hive 方案**
 
 1. 在 [檔案] 功能表中按一下 [新增]，然後按一下 [專案]。
-2. 從左窗格中選取 [HDInsight]，選取中間窗格中的 [Hive 應用程式]，輸入屬性，然後按一下 [確定]。
+2. 從左窗格中選取 [**HDInsight**]，選取中間窗格中的 [**Hive 應用程式**]，輸入屬性，然後按一下 [**確定**]。
 
 	![Hadoop 工具：hdinsight visual studio 工具新 hive 專案][11]
-3. 從 [方案總管] 中，按兩下 **Script.hql** 來開啟它。
-4. 若要驗證 Hive 指令碼，您可以按一下 [驗證指令碼] 按鈕，或在 Hive 編輯器中的指令碼上按一下滑鼠右鍵，然後按一下內容功能表中的 [驗證指令碼]。
+3. 從 [**方案總管**] 中，按兩下 **Script.hql** 來開啟它。
+4. 若要驗證 Hive 指令碼，您可以按一下 [**驗證指令碼**] 按鈕，或在 Hive 編輯器中的指令碼上按一下滑鼠右鍵，然後按一下內容功能表中的 [**驗證指令碼**]。
 
 
 ### 檢視 Hive 工作
@@ -175,19 +173,21 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 
 **檢視 Hive 工作**
 
-1. 從 [伺服器總管] 中，展開 [Azure]，然後展開 [HDInsight]。
-2. 在某個 HDInsight 叢集上按一下滑鼠右鍵，然後按一下 [檢視 Hive 工作]。您會看到在該叢集上執行之 Hive 工作的清單。
-3. 按一下工作清單中的某個工作來選取它，然後使用 [Hive 工作摘要] 視窗來開啟 [工作查詢]、[工作輸出]、[工作記錄] 或 [Yarn 記錄]。
+1. 從 [**伺服器總管**] 中，展開 [**Azure**]，然後展開 [**HDInsight**]。
+2. 在某個 HDInsight 叢集上按一下滑鼠右鍵，然後按一下 [檢視工作]。您會看到在該叢集上執行之 Hive 工作的清單。
+3. 按一下工作清單中的某個工作來選取它，然後使用 [**Hive 工作摘要**] 視窗來開啟 [**工作查詢**]、[**工作輸出**]、[**工作記錄**] 或 [**Yarn 記錄**]。
 
 	![Hadoop 工具：HDInsight Visual Studio 工具檢視 Hive 工作][12]
 
 ### Tez Hive 工作效能圖表
 
-HDInsight Visual Studio 工具支援顯示由 Tez 執行引擎執行之 Hive 工作的效能圖形。如需啟用 Tez 的資訊，請參閱[使用 HDInsight 中的 Hive][hdinsight.hive]。您提交 Visual Studio 中的 Hive 工作之後，Visual Studio 會在工作完成時顯示圖形。您可能需要按一下 [重新整理] 按鈕，以取得最新的工作狀態。
+HDInsight Visual Studio 工具支援顯示由 Tez 執行引擎執行之 Hive 工作的效能圖形。如需啟用 Tez 的資訊，請參閱[使用 HDInsight 中的 Hive][hdinsight.hive]。您提交 Visual Studio 中的 Hive 工作之後，Visual Studio 會在工作完成時顯示圖形。請按一下 [重新整理] 按鈕，以取得最新的工作狀態。
 
 > [AZURE.NOTE]此功能只適用於高於 3.2.4.593 版的 HDInsight 叢集，且只能用於已完成的工作。這適用於以 Windows 和 Linux 為基礎的叢集。
 
 ![hadoop hive tez 效能圖表](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
+
+為協助您更了解 Hive 查詢，此工具在本版本中新增了 Hive 運算子檢視功能。您只需按兩下工作圖形的頂點，即可查看頂點內的所有運算子。您也可將滑鼠停留在特定運算子上方，以檢視該運算子的更多詳細資料。
 
 ## 執行 Pig 指令碼
 
@@ -236,4 +236,4 @@ HDInsight Tools for Visual Studio 支援建立 Pig 指令碼並提交至 HDInsig
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

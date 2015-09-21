@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="使用 StorSimple Snapshot Manager 來檢視和管理備份作業 | Microsoft Azure"
+   pageTitle="StorSimple Snapshot Manager 備份工作 | Microsoft Azure"
    description="描述如何使用 StorSimple Snapshot Manager MMC 嵌入式管理單元來檢視和管理已排程、目前執行中和已完成的備份作業。"
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/05/2015"
    ms.author="v-sharos" />
 
 
@@ -129,4 +129,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

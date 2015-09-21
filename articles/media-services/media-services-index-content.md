@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015"   
 	ms.author="juliako"/>
 
 
@@ -336,6 +336,15 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 
 目前支援英文和西班牙文。如需詳細資訊，請參閱 [Azure Media Indexer (西班牙文)](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)。
 
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##相關連結
 
 [搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
@@ -346,4 +355,4 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 
 <!-- URLs. -->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

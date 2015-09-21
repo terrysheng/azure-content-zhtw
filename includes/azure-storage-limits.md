@@ -24,9 +24,9 @@
 單一資料表分割的目標輸送量 (1 KB 實體)|每秒最多 2000 個實體
 單一檔案共用的目標輸送量 (預覽)|每秒最多 60 MB
 每一儲存體帳戶的輸入上限<sup>3</sup> (美國地區)|如果啟用 GRS/ZRS<sup>4</sup>，則為 10 Gbps，LRS 為 20 Gbps
-每一儲存體帳戶的輸出上限<sup>3</sup> (美國地區)|如果啟用 GRS/ZRS<sup>4</sup>，則為 20 Gbps，LRS 為 30 Gbps
+每一儲存體帳戶的輸出上限<sup>3</sup> (美國地區)|如果啟用 RA-GRS/GRS/ZRS<sup>4</sup>，則為 20 Gbps，LRS 為 30 Gbps
 每一儲存體帳戶的輸入上限<sup>3</sup> (歐洲和亞洲地區)|如果啟用 GRS/ZRS<sup>4</sup>，則為 5 Gbps，LRS 為 10 Gbps
-每一儲存體帳戶的輸出上限<sup>3</sup> (歐洲和亞洲地區)|如果啟用 GRS/ZRS<sup>4</sup>，則為 10 Gbps，LRS 為 15 Gbps
+每一儲存體帳戶的輸出上限<sup>3</sup> (歐洲和亞洲地區)|如果啟用 RA-GRS/GRS/ZRS<sup>4</sup>，則為 10 Gbps，LRS 為 15 Gbps
 
 <sup>1</sup>如果您需要超過 100 個儲存體帳戶，請連絡 [Azure 支援](http://azure.microsoft.com/support/faq/)尋求協助。
 
@@ -36,6 +36,11 @@
 
 <sup>3</sup>*輸入* 是指傳送至某個儲存體帳戶的所有資料 (要求)。*輸出*是指從某個儲存體帳戶接收的所有資料 (回應)。
 
-<sup>4</sup>GRS 指的是異地備援儲存體。ZRS 指的是區域備援儲存體，且僅適用於區塊 blob。LRS 指的是本地備援儲存體。
+<sup>4</sup>Azure 儲存體複寫選項包括：
 
-<!---HONumber=September15_HO1-->
+- **RA-GRS**：讀取權限異地備援儲存體。如果已啟用 RA-GRS，次要位置的輸出目標會與主要位置的輸出目標完全相同。
+- **GRS**：異地備援儲存體。 
+- **ZRS**：區域備援儲存體。僅適用於區塊 Blob。 
+- **LRS**：本地備援儲存體。 
+
+<!---HONumber=Sept15_HO2-->

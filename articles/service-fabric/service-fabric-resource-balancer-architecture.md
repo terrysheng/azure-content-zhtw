@@ -3,7 +3,7 @@
    description="Service Fabric 資源平衡器的架構概觀"
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
-   ms.author="abhic"/>
+   ms.date="09/03/2015"
+   ms.author="masnider"/>
 
 # 資源平衡器架構概觀
 
@@ -38,4 +38,4 @@ Service Fabric 資源平衡器是由單一的集中式資源平衡服務和存�
 [Image1]: media/service-fabric-resource-balancer-architecture/Service-Fabric-Resource-Balancer-Architecture.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

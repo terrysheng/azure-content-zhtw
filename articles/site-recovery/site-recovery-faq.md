@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Azure Site Recovery：常見問題集"
-	description="本文討論關於使用 Azure Site Recovery 的熱門問題。"
-	services="site-recovery"
+	pageTitle="Azure Site Recovery：常見問題集" 
+	description="本文討論關於使用 Azure Site Recovery 的熱門問題。" 
+	services="site-recovery" 
 	documentationCenter=""
 	authors="csilauraa"
 	manager="jwhit"
@@ -11,9 +11,9 @@
 	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
-	ms.date="08/26/2015"
+	ms.date="08/26/2015" 
 	ms.author="lauraa"/>
 
 
@@ -64,6 +64,17 @@ HYPER-V 和 VMM 案例支援動態磁碟。VMware 虛擬機器或實體機器案
 ### 可以使用離線機制將初始磁碟植入到 Azure 嗎？
 不支援此做法。透過 [Azure Site Recovery 意見反應論壇 - 支援離線複寫](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)傳送您的意見反應。
 
+### 可以在以 Hyper-v 做為來源時，調節分配給複寫流量的頻寬嗎？
+- 如果您在兩個內部部署網站間進行複寫，您便可以使用 Windows 服務品質來進行此動作。以下為範例指令碼： 
+
+    	New-NetQosPolicy -Name ASRReplication -IPDstPortMatchCondition 8084 -ThrottleRate (2048*1024)
+    	gpupdate.exe /force
+
+- 如果您正在複寫至 Azure，您可以使用下列範例 Powershell Cmdlet 來設定指令碼：
+
+    	Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth (512*1024) -NonWorkHourBandwidth (2048*1024)
+
+
 ## 版本支援
 
 ### 支援哪些版本的 Windows Server 主機和叢集？
@@ -79,7 +90,7 @@ HYPER-V 和 VMM 案例支援動態磁碟。VMware 虛擬機器或實體機器案
 
 ### ASR 是否支援第 2 代機器？
 
-是，ASR 支援將 Hyper-V 上的第 2 代虛擬機器複寫到 Azure。ASR 會在容錯移轉期間從第 2 代轉換成第 1 代。在容錯回復時，機器會轉換回第 1 代。如需進一步資訊，[請閱讀更多資訊](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。
+是，ASR 支援將 Hyper-V 上的第 2 代虛擬機器複寫到 Azure。ASR 會在容錯移轉期間從第 2 代轉換成第 1 代。在容錯回復時，機器會轉換回第 1 代。如需進一步資訊，請[深入閱讀](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。
 
 
 ## 在服務提供者網站之間部署 
@@ -236,4 +247,4 @@ NetApp、EMC 和 HP 已啟用 Azure Site Recovery SAN 複寫支援 (包含其 SM
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="在 HDInsight 中自訂佈建 Hadoop 叢集 |Microsoft Azure"
-	description="了解如何使用 Azure 入口網站、Azure PowerShell、命令列或 .NET SDK 自訂佈建 Azure HDInsight 的叢集。"
-	services="hdinsight"
-	documentationCenter=""
-	authors="mumian"
-	manager="paulettm"
-	editor="cgronlun"/>
+   pageTitle="在 HDInsight 中自訂佈建 Hadoop 叢集 |Microsoft Azure" 
+   description="了解如何使用 Azure 入口網站、Azure PowerShell、命令列或 .NET SDK 自訂佈建 Azure HDInsight 的叢集。" 
+   services="hdinsight" 
+   documentationCenter="" 
+   authors="mumian" 
+   manager="paulettm" 
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/07/2015"
-	ms.author="jgao"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data" 
+   ms.date="08/07/2015"
+   ms.author="jgao"/>
 
 #在 HDInsight 中佈建 Hadoop 叢集 (英文)
 
@@ -106,7 +106,7 @@
 
 	選取 VM 的節點大小。如需詳細資訊，請參閱[雲端服務的大小](cloud-services-sizes-specs.md)。
 
-	根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
+	根據選擇的 VM，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
 
 
 - **HDInsight 使用者**
@@ -224,10 +224,10 @@
 
 > [AZURE.NOTE]您必須先建立 Azure 虛擬網路，才能佈建 HDInsight 叢集。如需詳細資訊，請參閱＜[虛擬網路組態工作](../services/virtual-machines/)＞。
 >
->[AZURE.NOTE]Azure HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。使用 Azure PowerShell Cmdlet Get-AzureVNetConfig 來檢查現有的 Azure 虛擬網路是否以位置為基礎。如果您的虛擬網路並非以位置為基礎，您會有下列選項：
+> Azure HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。使用 Azure PowerShell Cmdlet Get-AzureVNetConfig 來檢查現有的 Azure 虛擬網路是否以位置為基礎。如果您的虛擬網路並非以位置為基礎，您會有下列選項：
 >
 > - 將現有的虛擬網路組態匯出，然後建立新的虛擬網路。根據預設，所有新的虛擬網路都是以位置為基礎。
-> - 移轉到以位置為基礎的虛擬網路。請參閱[將現有服務移轉到區域範圍](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)。
+> - 移轉到以位置為基礎的虛擬網路。請參閱[將現有服務移轉到區域範圍](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/) (英文)。
 >
 > 強烈建議您一個叢集只指定一個子網路。
 
@@ -288,7 +288,7 @@
 
 	- 名稱：指定指令碼動作的名稱。
 	- 指令碼 URI：針對自訂叢集時所叫用的指令碼，指定統一資源識別項 (URI)。
-	- 節點類型：指定執行自訂指令碼的節點。您可以選擇<b>所有節點</b>、<b>僅限前端節點</b>，或是<b>僅限資料節點</b>。
+	- 節點類型：指定執行自訂指令碼的節點。您可以選擇 [所有節點]<b></b>、[僅限前端節點]<b></b> 或 [僅限資料節點]<b></b>。
 	- 參數：若指令碼要求的話，請指定參數。</td></tr>
 
 	您可以加入一個以上的指令碼動作，以在叢集上安裝多個元件。加入指令碼之後，請按一下核取記號以開始佈建叢集。
@@ -786,4 +786,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

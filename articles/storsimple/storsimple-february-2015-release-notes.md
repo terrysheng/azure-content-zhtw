@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="StorSimple 8000 系列 Update 0.3 版本資訊 - 2015 年 2 月 | Microsoft Azure"
-    description="說明 2015 年 2 月所發行 StorSimple 的新功能、問題及因應措施。"
+    pageTitle="StorSimple 8000 Update 0.3 版本資訊 | Microsoft Azure"
+    description="說明 2015 年 2 月 Microsoft Azure StorSimple 版本 (Update 0.3) 的新功能與修正、未解決問題及可用的因應措施。"
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/19/2015"
+    ms.date="09/04/2015"
     ms.author="v-sharos" />
 
 # StorSimple 8000 系列 Update 0.3 版本資訊 - 2015 年 2 月
@@ -86,4 +86,4 @@
 這個版本不包含任何虛擬裝置的更新。套用此更新不會變更虛擬裝置的軟體版本。
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

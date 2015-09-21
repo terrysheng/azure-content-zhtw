@@ -1,20 +1,20 @@
 <properties
     pageTitle="如何使用服務匯流排佇列 (.NET) | Microsoft Azure"
-	description="了解如何使用 Azure 中的服務匯流排佇列。程式碼範例是以 C# 撰寫並使用 .NET API。"
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    description="了解如何使用 Azure 中的服務匯流排佇列。程式碼範例是以 C# 撰寫並使用 .NET API。"
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
     ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="07/02/2015"
-	ms.author="sethm"/>
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="07/02/2015"
+    ms.author="sethm"/>
 
 # 如何使用 Azure 服務匯流排佇列
 
@@ -223,9 +223,9 @@
 
 了解基本的服務匯流排佇列之後，請參考下列連結以取得更多資訊。
 
--   請參閱 MSDN 概觀：[佇列、主題和訂用帳戶。][]
+-   請參閱[佇列、主題和訂用帳戶][]。
 -   建立一個可行的應用程式，往返傳送或接收服務匯流排佇列的訊息：[服務匯流排代理傳訊 .NET 教學課程]。
--   服務匯流排範例：從 [Azure 範例][]下載，或參閱 [MSDN][] 上的概觀。
+-   服務匯流排範例：從 [Azure 範例][]下載，或參閱[概觀][]。
 
   [What are Service Bus Queues]: #what-queues
   [Create a Service Namespace]: #create-namespace
@@ -239,9 +239,9 @@
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
   [Azure portal]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
-  [佇列、主題和訂用帳戶。]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
   [服務匯流排代理傳訊 .NET 教學課程]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [Azure 範例]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
+  [概觀]: service-bus-samples.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

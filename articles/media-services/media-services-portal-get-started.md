@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="09/05/2015"
 	ms.author="juliako"/>
 
 
 # 使用 Azure 入口網站傳遞點播視訊 (VoD) 使用者入門
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
-
-
 
 
 本教學課程將逐步引導您透過 Azure 入口網站實作點播視訊 (VoD) 內容傳遞應用程式。
@@ -224,6 +222,13 @@ Azure 入口網站提供內容播放程式，您可用來測試您的視訊。
 
 
 
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ### 其他資源
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - 立即在線上取得您的影片！</a>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - 動態封裝和行動裝置</a>
@@ -249,4 +254,4 @@ Azure 入口網站提供內容播放程式，您可用來測試您的視訊。
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

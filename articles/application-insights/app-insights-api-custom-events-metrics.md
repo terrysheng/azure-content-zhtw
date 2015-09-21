@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="自訂事件和度量的 Application Insights API"
-	description="在您的裝置或桌面應用程式、網頁或服務中插入幾行程式碼，來追蹤使用狀況及診斷問題。"
+	pageTitle="自訂事件和度量的 Application Insights API" 
+	description="在您的裝置或桌面應用程式、網頁或服務中插入幾行程式碼，來追蹤使用狀況及診斷問題。" 
 	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+    documentationCenter="" 
+	authors="alancameronwills" 
 	manager="douge"/>
  
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/28/2015" 
 	ms.author="awills"/>
 
 # 自訂事件和度量的 Application Insights API 
@@ -82,9 +82,9 @@ TelemetryClient 具備執行緒安全。
 
 ## 追蹤事件
 
-事件可以在[計量瀏覽器][metrics]顯示為彙總的計數，而且您也可以在[診斷搜尋][diagnostic]中顯示個別發生次數。
+在 Application Insights 中，*自訂事件*是您可以在[計量瀏覽器][metrics]顯示為彙總計數，以及在[診斷搜尋][diagnostic]中顯示為個別發生點的資料點。(它與 MVC 或其他架構的「事件」不相關。)
 
-在您的程式碼中插入事件，以計算使用特定功能的頻率、達成特定目標的頻率，或進行特定選擇。
+在您的程式碼中插入 TrackEvent 呼叫，以計算使用者選擇特定功能的頻率、達成特定目標的頻率，或可能製造特定類型的錯誤。
 
 例如，在遊戲應用程式中，每當使用者贏得遊戲時傳送事件：
 
@@ -105,14 +105,12 @@ TelemetryClient 具備執行緒安全。
 
     telemetry.trackEvent("WinGame");
 
-
-在 [概觀] 刀鋒視窗上，按一下 [自訂事件] 磚：
+這裡的 "WinGame" 是出現在 Application Insights 入口網站的名稱。在 [概觀] 刀鋒視窗上，按一下 [自訂事件] 磚：
 
 ![在 portal.azure.com 中瀏覽至您的應用程式資源](./media/app-insights-api-custom-events-metrics/01-custom.png)
 
-逐一點選以查看概觀圖表和完整清單。
 
-選取圖表，並且依據事件名稱分組，以查看最重要的事件的相對貢獻。
+此圖表依事件名稱分組，讓您可以查看最重要事件的相對貢獻。若要控制圖表狀況，請選取圖表並使用群組控制項。
 
 ![選取圖表，並設定群組](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
@@ -197,13 +195,13 @@ TelemetryClient 具備執行緒安全。
     telemetry.trackEvent("WinGame", properties, metrics);
 
 
-> [AZURE.NOTE] 切勿在屬性中記錄個人識別資訊。
+> [AZURE.NOTE]切勿在屬性中記錄個人識別資訊。
 
 **如果您使用度量**，請開啟 [計量瀏覽器]，然後從自訂群組中選取度量：
 
 ![開啟計量瀏覽器，選取圖表，並選取度量](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
-*如果您的度量未顯示，請關閉選取刀鋒視窗、等候一段時間，然後按一下 [重新整理]。*
+如果您的度量並未出現，或自訂標題不存在，請關閉選取的刀鋒視窗，稍後再試。有時候度量經由管線彙總時可能需要一個小時。
 
 **如果您使用屬性和度量**，依據屬性分割度量：
 
@@ -903,4 +901,4 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
  
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -1,7 +1,7 @@
 
 <properties 
-  pageTitle="設定和擷取儲存體資源的屬性與中繼資料 | Microsoft Azure" 
-  description="了解如何設定和擷取 Azure 儲存體資源的屬性和中繼資料。" 
+  pageTitle="在 Azure 儲存體中設定和擷取物件的屬性與中繼資料 | Microsoft Azure" 
+  description="將物件的自訂中繼資料儲存在Azure 儲存體中，並設定和擷取系統屬性。" 
   services="storage" 
   documentationCenter="" 
   authors="tamram" 
@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="08/04/2015" 
+  ms.date="09/03/2015" 
   ms.author="tamram"/>
 
 
@@ -106,4 +106,4 @@
 - [開始使用適用於 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

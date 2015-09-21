@@ -1,6 +1,8 @@
 <properties
+	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="彈性資料庫分割-合併工具教學課程 | Microsoft Azure"
 	description="使用彈性資料庫工具來分割及合併"
+	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
@@ -62,7 +64,7 @@
 
 ### 建立自我簽署憑證
 
-使用 [Visual Studio 開發人員命令提示字元](http://msdn.microsoft.com/library/ms229859.aspx) 視窗建立新的目錄，並從這個目錄中執行下列命令：
+使用 [Visual Studio 開發人員命令提示字元][](http://msdn.microsoft.com/library/ms229859.aspx) 視窗建立新的目錄，並從這個目錄中執行下列命令：
 
     makecert ^
     -n "CN=*.cloudapp.net" ^
@@ -100,12 +102,12 @@
 
 ### 更新服務組態檔
 
-將上面複製的憑證指紋，貼到這些設定的憑證指紋/值屬性中。Web 角色：
+將上面複製的憑證指紋，貼到這些設定的憑證指紋/值屬性中。背景工作角色：
 
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
-背景工作角色：
+Web 角色：
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
     <Setting name="AllowedClientCertificateThumbprints" value="" />
@@ -332,4 +334,4 @@
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

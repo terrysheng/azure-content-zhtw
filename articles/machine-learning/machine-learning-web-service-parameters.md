@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="09/04/2015" 
 	ms.author="raymondl;garye"/>
 
 #使用 Azure Machine Learning Web 服務參數
@@ -22,7 +22,7 @@
 
 常見的範例是設定[讀取者][reader]模組，讓已發行 Web 服務的使用者可以在存取服務時，指定不同的資料來源。或者，設定[寫入者][writer]模組，以便指定不同的目的地。部分其他範例包括變更[雜湊功能][feature-hashing]模組的位元數，或變更[以篩選為基礎的功能選擇][filter-based-feature-selection] 模組的所需功能數。
 
-您可以定義 Web 服務參數，並使其與一個或多個模組參數產生關聯，而且您可以指定它們是必要還是選用參數。接著，Web 服務的使用者可以在服務遭到存取時，提供這些參數的值，如此一來，模組動作便會在執行階段進行修改。
+您可以設定 Web 服務參數，並使其與實驗中的一個或多個模組參數產生關聯，而且您可以指定它們是必要還是選用參數。然後 Web 服務的使用者就可以在呼叫 Web 服務時，提供這些參數的值。
 
 [AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
 
@@ -91,4 +91,4 @@ Web 服務的使用者現在就可以在存取 Web 服務時為[寫入器][write
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

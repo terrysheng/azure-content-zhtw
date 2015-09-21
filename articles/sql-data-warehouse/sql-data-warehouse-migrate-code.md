@@ -3,7 +3,7 @@
    description="將 SQL 程式碼移轉至 Azure SQL 資料倉儲來開發解決方案的秘訣。"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # 將您的 SQL 程式碼移轉至 SQL 資料倉儲
 
-為了確保您的程式碼符合 SQL 資料倉儲，您很可能需要變更您的程式碼基底。某些 SQL 資料倉儲功能設計為直接以分散式方式運作，也可以大幅改善效能。不過，為了維持效能和延展性，某些功能也無法使用。
+為了確保您的程式碼符合 SQL 資料倉儲，您很可能需要變更您的程式碼基底。某些 SQL 資料倉儲功能設計為直接以分散式方式運作，可以大幅改善效能。不過，為了維持效能和延展性，某些功能也無法使用。
 
 ## Transact-SQL 程式碼變更
 
-下列清單摘要說明 Azure SQL 資料倉儲中不支援的主要功能。所提供的連結會帶您前往不支援功能的因應措施：
+下列清單摘要說明 Azure SQL 資料倉儲中不支援的主要功能。此連結會帶您前往不支援功能的因應措施：
 
 - [更新時的 ANSI 聯結][]
 - [刪除時的 ANSI 聯結][]
@@ -50,7 +50,7 @@
 - [使用 select 進行變數指派][]
 - [動態 SQL 字串沒有 MAX 資料類型][]
 
-幸好這些限制大部分都可以克服。上面提及的相關開發文章中已包含說明。
+幸好這些限制大部分都可以克服。上面提及的相關開發文章中已提供說明。
 
 ### 遞迴通用資料表運算式 (CTE)
 
@@ -114,4 +114,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

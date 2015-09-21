@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/17/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -299,10 +299,19 @@ IngestManifestAsset 會建立資產與大量 IngestManifest 的關聯，以進�
 	var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
 
 
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 ##後續步驟
 您已將資產上傳至媒體服務，現在請移至[如何取得媒體處理器][] (英文) 主題。
 
 [如何取得媒體處理器]: media-services-get-media-processor.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

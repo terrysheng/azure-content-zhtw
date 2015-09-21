@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 
@@ -67,6 +67,13 @@ Azure 入口網站提供一種方法來快速建立 Azure 媒體服務帳戶。�
 
 	此外，您還可以檢視使用 Azure 媒體服務 SDK 來完成下列工作的程式碼：上傳、編碼和發行影片。您可以按一下 [寫入某程式碼] 區段下的其中一個連結，並複製程式碼，然後將該程式碼用在您的應用程式中。
 
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ## 後續步驟
 
 - [開始使用提供使用.NET SDK 的點播視訊 (VoD) 內容](media-services-dotnet-get-started.md)
@@ -85,4 +92,4 @@ Azure 入口網站提供一種方法來快速建立 Azure 媒體服務帳戶。�
 
   [Azure 入口網站]: http://manage.windowsazure.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

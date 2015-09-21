@@ -213,9 +213,9 @@ azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 了解基本的服務匯流排主題之後，請參考下列連結以取得更多資訊。
 
--   請參閱 MSDN 參考：[佇列、主題和訂用帳戶](http://msdn.microsoft.com/library/windowsazure/hh367516.aspx)
+-   請參閱[佇列、主題和訂用帳戶](service-bus-queues-topics-subscriptions.md)。
 -   [SqlFilter](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx) 的 API 參考資料。
--	請造訪 GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 儲存機制 (英文)。
+-	請瀏覽 GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 儲存機制 (英文)。
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

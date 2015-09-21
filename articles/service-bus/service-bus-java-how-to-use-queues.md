@@ -172,10 +172,10 @@ QueueInfo 有相關方法可讓您調整佇列的屬性 (例如，針對要在�
 
 ## 後續步驟
 
-現在您已了解服務匯流排佇列的基本概念，請參閱 MSDN 主題[佇列、主題和訂用帳戶][]，以取得詳細資訊。
+現在您已了解服務匯流排佇列的基本概念，請參閱[佇列、主題和訂用帳戶][]，以取得詳細資訊。
 
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
-  [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/zh-cn/library/azure/hh694271.aspx
+  [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/zh-TW/library/azure/hh694271.aspx
   [What are Service Bus Queues?]: #what-are-service-bus-queues
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -186,7 +186,7 @@ QueueInfo 有相關方法可讓您調整佇列的屬性 (例如，針對要在�
   [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrashes
   [Next Steps]: #bkmk_NextSteps
   [Azure Management Portal]: http://manage.windowsazure.com/
-  [佇列、主題和訂用帳戶]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
+  [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

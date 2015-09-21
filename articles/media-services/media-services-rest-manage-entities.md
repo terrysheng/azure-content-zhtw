@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #使用 REST API 管理媒體服務實體
@@ -148,4 +148,12 @@ Microsoft Azure 媒體服務是以 REST 為基礎的服務，內建在 OData v3 
 	Host: media.windows.net
 	Content-Length: 0
 
-<!---HONumber=August15_HO7-->
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

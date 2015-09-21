@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中建立 API
@@ -97,4 +97,4 @@ API 是在發行者入口網站中建立和設定。若要存取發行者入口�
 [如何在 Azure API 管理中使用相互憑證驗證來保護後端服務]: api-management-howto-mutual-certificates.md
 [如何在 Azure API 管理中使用 OAuth 2.0 授權開發人員帳戶]: api-management-howto-oauth2.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

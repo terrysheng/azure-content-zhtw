@@ -1,21 +1,21 @@
 
 <properties
    pageTitle="Azure AD 的驗證案例"
-	description="Azure Active Directory (AAD) 五個最常見驗證案例的概觀"
-	services="active-directory"
-	documentationCenter="dev-center-name"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   description="Azure Active Directory (AAD) 五個最常見驗證案例的概觀"
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/02/2015"
+   ms.author="mbaldwin"/>
 
 # Azure AD 的驗證案例
 
@@ -60,13 +60,13 @@ Azure Active Directory (Azure AD) 提供身分識別做為服務來簡化開發�
 - 開發人員可以使用開放原始碼 Azure AD 驗證程式庫，為您處理通訊協定的細節，以輕鬆完成驗證。如需詳細資訊，請參閱 [Azure Active Directory 驗證程式庫](active-directory-authentication-libraries.md)。
 
 
-• 使用者通過驗證之後，應用程式必須驗證使用者的安全性權杖，以確定相關各方的驗證成功。開發人員可以使用提供的驗證程式庫來驗證來自 Azure AD 的任何權杖，包括 JSON Web Token (JWT) 或 SAML 2.0。如果您想要手動執行驗證，請參閱 [JWT 權杖處理常式](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx)文件。
+• 使用者通過驗證之後，應用程式必須驗證使用者的安全性權杖，以確定相關各方的驗證成功。開發人員可以使用提供的驗證程式庫來驗證來自 Azure AD 的任何權杖，包括 JSON Web Token (JWT) 或 SAML 2.0。如果您想要手動執行驗證，請參閱 [JWT 權杖處理常式](https://msdn.microsoft.com/library/dn205065.aspx)文件。
 
 
 > [AZURE.IMPORTANT]Azure AD 使用公開金鑰密碼編譯來簽署權杖並驗證它們有效。如需有關應用程式中必要的邏輯以確保永遠以最新金鑰更新的相關資訊，請參閱 [Azure AD 中簽署金鑰變換的相關重要資訊](https://msdn.microsoft.com/library/azure/dn641920.aspx)。
 
 
-• 驗證程序的要求和回應流程由使用的驗證通訊協定決定，例如 OAuth 2.0、OpenID Connect，WS-同盟或 SAML 2.0。[Azure Active Directory 驗證通訊協定](https://msdn.microsoft.com/library/azure/dn151124.aspx)主題和下列各節中更詳細地討論這些通訊協定。
+• 驗證程序的要求和回應流程由使用的驗證通訊協定決定，例如 OAuth 2.0、OpenID Connect，WS-同盟或 SAML 2.0。[Azure Active Directory 驗證通訊協定](active-directory-authentication-protocols.md)主題和下列各節中更詳細地討論這些通訊協定。
 
 > [AZURE.NOTE]Azure AD 支援 OAuth 2.0 和 OpenID Connect 標準，這些標準廣泛運用持有者權杖，包括以 JWT 表示的持有者權杖。持有人權杖是輕巧型的安全性權杖，授權「持有者」存取受保護的資源。從這個意義上說，「持有者」是可出示權杖的任何一方。雖然某一方必須先向 Azure AD 驗證以收到持有者權杖，但如果傳輸和儲存時未採取必要的步驟來保護權杖，它可能會被非預期的一方攔截和使用。雖然某些安全性權杖都有內建的機制，可防止未經授權的人士使用權杖，但持有者權杖沒有這項機制，而必須以安全通道來傳輸，例如傳輸層安全性 (HTTPS)。如果持有人權杖以純文字傳輸，惡意人士可能使用攔截式攻擊來取得權杖，然後未經授權存取受保護的資源。儲存或快取持有者權杖供以後使用時，也適用相同的安全性原則。務必確定您的應用程式以安全的方式傳輸和儲存持有者權杖。關於持有者權杖的其他安全性考量，請參閱 [RFC 6750 第 5 節](http://tools.ietf.org/html/rfc6750)。
 
@@ -134,7 +134,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 
 如果您目前正在開發單一租用戶應用程式，但想要提供給許多組織使用，您可以在 Azure AD 中輕鬆地變更應用程式及其組態，將它變成具備多租用戶功能。此外，不論您是在單一租用戶或多租用戶應用程式中提供驗證，Azure AD 對所有目錄中的所有權杖都使用相同的簽署金鑰。
 
-本文件列出的每個案例都有一個小節來說明其佈建需求。如需在 Azure AD 中佈建應用程式的深入資訊，以及單一和多租用戶應用程式之間的差異，請參閱[整合應用程式與 Azure Active Directory](active-directory-integrating-applications.md)，以取得詳細資訊。繼續閱讀來了解 Azure AD 中常見的應用程式案例。
+本文件列出的每個案例都有一個小節來說明其佈建需求。如需關於在 Azure AD 中佈建應用程式的深入資訊，以及了解單一和多租用戶應用程式之間的差異，請參閱[整合應用程式與 Azure Active Directory](active-directory-integrating-applications.md)，以取得詳細資訊。繼續閱讀來了解 Azure AD 中常見的應用程式案例。
 
 ## 應用程式類型和案例
 
@@ -459,10 +459,12 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 
 ## 另請參閱
 
+[Azure Active Directory 開發人員指南](active-directory-developers-guide.md)
+
 [Azure Active Directory 程式碼範例](active-directory-code-samples.md)
 
 [Azure AD 中簽署金鑰變換的相關重要資訊](https://msdn.microsoft.com/library/azure/dn641920.aspx)
 
 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

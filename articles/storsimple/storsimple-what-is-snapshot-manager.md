@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/13/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # 什麼是 StorSimple Snapshot Manager？
@@ -148,4 +148,4 @@ VSS 的 StorSimple Snapshot Manager 實作會使用 SQL Server 和一般 NTFS �
 
 [下載 StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

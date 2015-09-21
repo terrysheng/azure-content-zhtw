@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用 Azure 通知中樞 | Microsoft Azure"
+	pageTitle="開始使用適用於 Windows 市集應用程式的 Azure 通知中樞 | Microsoft Azure"
 	description="在本教學課程中，您會了解如何使用 Azure 通知中樞，將推播通知傳送到 Windows 市集或 Windows Phone 8.1 (非 Silverlight) 應用程式。"
 	services="notification-hubs"
 	documentationCenter="windows"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/24/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# 開始使用通知中樞
+# 開始使用適用於 Windows 市集應用程式的通知中樞
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -264,4 +264,4 @@
 [磚目錄]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [徽章概觀]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

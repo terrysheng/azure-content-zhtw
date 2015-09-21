@@ -1,6 +1,7 @@
 <properties
-	pageTitle="從 Android 用戶端呼叫自訂 API | Microsoft Azure"
-	description="了解如何定義自訂 API 然後從使用 Azure 行動服務的 Android 應用程式呼叫它。"
+	writer="ricksal"
+	pageTitle="從 Android 用戶端呼叫自訂 API (JavaScript 後端) | Microsoft Azure"
+	description="了解如何定義自訂 API，然後從使用 Azure 行動服務的 Android 應用程式呼叫它 (JavaScript 後端)。"
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
@@ -13,10 +14,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="ricksal"/>
 
-# 從用戶端呼叫自訂 API
+# 從 Android 用戶端呼叫自訂 API (JavaScript 後端)
 
 [AZURE.INCLUDE [mobile-services-selector-call-custom-api](../../includes/mobile-services-selector-call-custom-api.md)]
 
@@ -68,4 +69,4 @@
 
 [在來源控制中儲存伺服器指令碼]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

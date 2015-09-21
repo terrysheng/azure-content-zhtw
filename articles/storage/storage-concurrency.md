@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # 管理 Microsoft Azure 儲存體中的並行存取
@@ -273,4 +273,4 @@ Microsoft Azure 儲存體服務的設計已符合最複雜的線上應用程式�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,20 +1,20 @@
 <properties
     pageTitle="Azure SQL Database - 彈性資料庫工具"
-	description="軟體即服務 (SaaS) 開發人員可以輕鬆地使用這些工具在雲端中建立彈性的可擴充資料庫"
-	services="sql-database"
-	documentationCenter=""
-	manager="jeffreyg"
-	authors="ddove"
-	editor=""/>
+    description="軟體即服務 (SaaS) 開發人員可以輕鬆地使用這些工具在雲端中建立彈性的可擴充資料庫"
+    services="sql-database"
+    documentationCenter=""
+    manager="jeffreyg"
+    authors="ddove"
+    editor=""/>
 
 <tags
     ms.service="sql-database"
-	ms.workload="sql-database"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/27/2015"
-	ms.author="sidneyh"/>
+    ms.workload="sql-database"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/27/2015"
+    ms.author="sidneyh"/>
 
 # 彈性資料庫功能概觀
 
@@ -97,6 +97,10 @@
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
+### 懇請給予意見反應！
+有什麼我們能改進的地方？ 本主題是否清楚解說此功能？ 或者，您是否對任何地方有疑惑？ 我們致力於提供最好的服務，因此請使用投票按鈕投票，並告訴我們須改進之處 (或可取之處)。如果想要我們連絡您，請在意見反應內留下您的電子郵件。
+
+
 <!--Anchors-->
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-introduction/tools.png
@@ -104,4 +108,4 @@
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

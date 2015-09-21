@@ -14,40 +14,42 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="07/21/2015"
+	ms.date="09/08/2015"
 	ms.author="josephd"/>
 
 # 在 Azure 基礎結構服務中架設的 SharePoint 伺服器陣列
 
 在 Microsoft Azure 基礎結構服務中，設定第一個或下一個開發/測試或實際執行 SharePoint 伺服器陣列，這樣您就可以利用簡化設定的優點，還能夠快速擴大伺服器陣列，使其增加新的容量或最佳化關鍵功能。
 
+> [AZURE.NOTE]Microsoft 已發行 SharePoint Server 2016 IT 預覽版。若要輕鬆安裝和測試此預覽版，您可以搭配 SharePoint Server 2016 IT 預覽版和其預先安裝的必要元件來使用 Azure 虛擬機器資源庫映像。如需詳細資訊，請參閱[在 Azure 中測試 SharePoint Server 2016 IT 預覽版](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/) (英文)。
+
 ## 基本的 SharePoint 開發/測試伺服器陣列
 
-針對在服務管理中建立的虛擬機器，請使用 Azure Preview 入口網站中的 [SharePoint Server 伺服器陣列](virtual-machines-sharepoint-farm-azure-preview.md)功能，建立網際網路對向 SharePoint 網站的基本開發/測試伺服器陣列。
+若為使用傳統部署模型建立的虛擬機器，請使用 Azure 預覽入口網站中的 [SharePoint Server 伺服器陣列](virtual-machines-sharepoint-farm-azure-preview.md)功能，建立網際網路面向 SharePoint 網站的基本開發/測試伺服器陣列。
 
 自動建立的環境包含三個伺服器，用於純雲端 Azure 虛擬網路的網域控制站、SQL Server 和 SharePoint 伺服器。
 
-若要建立與資源管理員中建立之虛擬機器相同的組態，請使用範本。請參閱[部署一個包含三部伺服器的 SharePoint 陣列](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm)。
+若要以資源管理員部署模型建立類似的組態，請使用範本。請參閱[部署一個包含三部伺服器的 SharePoint 伺服器陣列](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm)。
 
 ## 高可用性 SharePoint 開發/測試伺服器陣列
 
-針對在服務管理中建立的虛擬機器，請使用 Azure Preview 入口網站中的 [SharePoint Server 伺服器陣列](virtual-machines-sharepoint-farm-azure-preview.md)功能，建立網際網路對向 SharePoint 網站的高可用性 SharePoint 開發/測試伺服器陣列。
+若為傳統虛擬機器，請使用 Azure 預覽入口網站中的 [SharePoint Server 伺服器陣列](virtual-machines-sharepoint-farm-azure-preview.md)功能，建立網際網路面向 SharePoint 網站的高可用性 SharePoint 開發/測試伺服器陣列。
 
 自動建立的環境包含純雲端 Azure 虛擬網路中的九個伺服器：二個用於網域控制站、三個用於 SQL Server 叢集、二個應用程式層 SharePoint 伺服器以及二個 Web 層 SharePoint 伺服器。
 
-若要建立與資源管理員中建立之虛擬機器相同的組態，請使用範本。請參閱[部署一個包含九部伺服器的 SharePoint 伺服器陣列](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm)。
+若要以資源管理員虛擬機器建立類似的組態，請使用範本。請參閱[部署一個包含九部伺服器的 SharePoint 伺服器陣列](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm)。
 
 ## 混合式雲端開發/測試伺服器陣列
 
 利用 [混合式雲端開發/測試環境中的 SharePoint 內部網路伺服器陣列](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), ，您可以建立模擬的混合式雲端設定 (就可以架設簡易雙層式 SharePoint 伺服器陣列)，用來從您在網際網路上的位置，測試 Azure 中架設的內部網路 SharePoint 伺服陣列。
 
-這個組態使用服務管理中建立的虛擬機器。
+此組態會使用傳統虛擬機器。
 
 ## 高可用性、內部網路 SharePoint 實際執行伺服器陣列
 
-利用[在 Azure 中利用 SQL Server AlwaysOn 可用性群組部署 SharePoint 2013](virtual-machines-workload-intranet-sharepoint-overview.md)，您可以在 Azure 中建置可立即實際執行、高可用性的內部網路 SharePoint Server 2013 伺服器陣列。
+利用[在 Azure 中以 SQL Server AlwaysOn 可用性群組部署 SharePoint 2013](virtual-machines-workload-intranet-sharepoint-overview.md)，您可以在 Azure 中建置可立即實際執行、高可用性的內部網路 SharePoint Server 2013 伺服器陣列。
 
-這個組態使用服務管理中建立的虛擬機器。
+此組態會使用傳統虛擬機器。
 
 ## 其他資源
 
@@ -63,4 +65,4 @@
 
 - [在 Microsoft Azure 中部署 Office 365 目錄同步作業 (DirSync)](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

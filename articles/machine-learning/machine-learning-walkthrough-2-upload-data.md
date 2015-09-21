@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="步驟 2：將資料上傳至 Machine Learning 實驗中 | Microsoft Azure" 
-	description="開發預測解決方案逐步解說步驟 2：將儲存的公用資料上傳至 Azure Machine Learning Studio 中。" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="步驟 2：將資料上傳至 Machine Learning 實驗中 | Microsoft Azure"
+	description="開發預測解決方案逐步解說步驟 2：將儲存的公用資料上傳至 Azure Machine Learning Studio 中。"
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015" 
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@
 2.	**上傳現有資料**
 3.	[建立新實驗](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	[訓練及評估模型](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5.	[發佈 Web 服務](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[部署 Web 服務](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[存取 Web 服務](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -70,7 +70,7 @@ UCI 網站提供了功能向量的屬性說明，這些屬性包括財務資訊�
 
 ![上傳資料集][1]
 
- 
+
 這會將資料上傳至我們可在實驗中使用的資料集模組。
 
 如需將各種資料類型匯入試驗的詳細資訊，請參閱[將訓練資料匯入 Azure Machine Learning Studio](machine-learning-import-data.md)。
@@ -78,6 +78,5 @@ UCI 網站提供了功能向量的屬性說明，這些屬性包括財務資訊�
 **下一步：[建立新實驗](machine-learning-walkthrough-3-create-new-experiment.md)**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

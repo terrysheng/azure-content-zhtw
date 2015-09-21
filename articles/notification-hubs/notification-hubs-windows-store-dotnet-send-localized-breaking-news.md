@@ -1,6 +1,6 @@
 <properties
 	pageTitle="通知中樞已當地語系化的即時新聞教學課程"
-	description="了解如何使用 Azure 服務匯流排通知中樞傳送本地化重大新聞通知。"
+	description="了解如何使用 Azure 通知中樞傳送本地化即時新聞通知。"
 	services="notification-hubs"
 	documentationCenter="windows"
 	authors="wesmc7777"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="09/08/2015" 
 	ms.author="wesmc"/>
 
 # 使用通知中心傳送當地語系化的即時新聞
@@ -231,4 +231,4 @@
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Windows 市集的通知中心作法]: http://msdn.microsoft.com/library/jj927172.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # 接收警示通知
@@ -39,6 +39,8 @@
 5. 當您選取 [**計量**] 時，您將會為計量選擇條件和閾值標準。這是 Azure 用來監視和規劃警示活動的一段時間。![條件和閾值](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
 6. 您也可以選擇 [**事件**]，以在特定事件發生時收到通知。![事件](./media/insights-receive-alert-notifications/Insights_Events.png)
+    
+>[AZURE.NOTE]目前 [事件] 只支援 Web 應用程式。
 
 7. 最後，您可以選擇傳送電子郵件通知給負責管理員。
 
@@ -63,4 +65,4 @@
 * [追蹤服務健康狀況](insights-service-health.md) 可以找出 Azure 何時遭遇效能降低或服務中斷。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

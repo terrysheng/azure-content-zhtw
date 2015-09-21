@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="在 Power BI 中查看 Application Insights 資料"
-	description="使用 Power BI 監視您應用程式的效能與使用量。"
-	services="application-insights"
-	documentationCenter=""
-	authors="noamben"
+	pageTitle="在 Power BI 中查看 Application Insights 資料" 
+	description="使用 Power BI 監視您應用程式的效能與使用量。" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="awills"/>
  
 # Application Insights 資料的 Power BI 檢視
@@ -24,6 +24,9 @@
 在本文中，我們將示範如何從 Application Insights 匯出資料，並使用「串流分析」將資料移入 Power BI。[串流分析](http://azure.microsoft.com/services/stream-analytics/)是我們做為配接器使用的 Azure 服務。
 
 ![Application Insights 使用量資料的 Power BI 檢視範例](./media/app-insights-export-power-bi/020.png)
+
+
+> [AZURE.NOTE]您需要有工作或學校的帳戶 (MSDN 的組織帳戶)，才能將串流分析的資料傳送至 Power BI。
 
 ## 影片
 
@@ -116,7 +119,6 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 
 ![](./media/app-insights-export-power-bi/140.png)
 
-
 請務必將 [日期格式] 設為 YYYY-MM-DD (含連接號)。
 
 路徑前置詞模式會指定串流分析在存放區中尋找輸入檔案的位置。您需要將它設定為與連續匯出儲存資料的方式相對應。請設定如下：
@@ -140,13 +142,15 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 
 關閉精靈，並等候設定完成。
 
+> [AZURE.TIP]您可以使用範例命令來下載一些資料。將其保留下來做為偵錯查詢的測試範例。
+
 ## 設定輸出
 
 現在選取您的工作並設定輸出。
 
 ![選取新的通道，依序按一下 [輸出]、[新增]、[Power BI]](./media/app-insights-export-power-bi/160.png)
 
-授權串流分析存取您的 Power BI 資源，然後建立輸出、目標 Power BI 資料集和資料表的名稱
+提供您的**工作或學校帳戶**來授權串流分析存取您的 Power BI 資源。接著自創一個輸出的名稱，以及目標 Power BI 資料集和資料表的名稱。
 
 ![創建三個名稱](./media/app-insights-export-power-bi/170.png)
 
@@ -155,6 +159,11 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 查詢會控管從輸入到輸出的轉譯。
 
 ![選取工作並按一下 [查詢]。貼上下面的範例。](./media/app-insights-export-power-bi/180.png)
+
+
+使用測試函式來確認您取得正確的輸出。填入您從輸入頁面所採用的範例資料。
+
+#### 顯示事件計數的查詢
 
 貼上此查詢：
 
@@ -173,7 +182,29 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 
 * export-input 是我們提供給串流輸入的別名
 * pbi-output 是我們所定義的輸出別名
-* 我們會使用 GetElements，因為事件名稱是在巢狀 JSON 陣列中。然後 Select 會取用事件名稱，以及時間週期內具有該名稱之執行個體數目的計數。Group By 子句會將項目分組到 1 分鐘的時間週期內。
+* 我們會使用 [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx)，因為事件名稱是在巢狀 JSON 陣列中。然後 Select 會取用事件名稱，以及時間週期內具有該名稱之執行個體數目的計數。[Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) 子句會將項目分組到 1 分鐘的時間週期內。
+
+
+#### 顯示度量值的查詢
+
+
+```SQL
+
+    SELECT
+      A.context.data.eventtime,
+      avg(CASE WHEN flat.arrayvalue.myMetric.value IS NULL THEN 0 ELSE  flat.arrayvalue.myMetric.value END) as myValue
+    INTO
+      [pbi-output]
+    FROM
+      [export-input] A
+    OUTER APPLY GetElements(A.context.custom.metrics) as flat
+    GROUP BY TumblingWindow(minute, 1), A.context.data.eventtime
+
+``` 
+
+* 此查詢會切入度量遙測，來取得事件時間和度量值。度量值位於陣列中，因此我們使用 OUTER APPLY GetElements 模式來擷取資料列。在此情況下，"myMetric" 是度量的名稱。 
+
+
 
 ## 執行工作
 
@@ -185,7 +216,7 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 
 ## 在 Power BI 中查看結果
 
-開啟 Power BI 並選取您定義為串流分析工作之輸出的資料集與資料表。
+以您的工作或學校帳戶開啟 Power BI，並選取您定義為串流分析工作輸出的資料集與資料表。
 
 ![在 Power BI 中，選取您的資料集和欄位。](./media/app-insights-export-power-bi/200.png)
 
@@ -207,4 +238,4 @@ Noam Ben Zeev 會示範如何匯出至 Power BI。
 * [Application Insights](app-insights-overview.md)
 * [更多範例和逐步解說](app-insights-code-samples.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

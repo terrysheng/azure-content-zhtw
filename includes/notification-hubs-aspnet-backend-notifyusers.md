@@ -109,18 +109,18 @@
 
 ## 使用 WebAPI 後端註冊通知
 
-在本節中，我們會將新的控制器加入至 WebAPI 後端來處理要求，以使用通知中樞的用戶端程式庫 (也就是 Azure 服務匯流排用戶端程式庫) 為使用者和裝置註冊通知。控制器將會對已由 `AuthenticationTestHandler` 驗證並附加至 HttpContext 的使用者，新增使用者標記。此標記會有以下字串格式：`"username:<actual username>"`。
+在本節中，我們會將新的控制器加入至 WebAPI 後端來處理要求，以使用通知中樞的用戶端程式庫，為使用者和裝置註冊通知。控制器將會對已由 `AuthenticationTestHandler` 驗證並附加至 HttpContext 的使用者，新增使用者標記。此標記會有以下字串格式：`"username:<actual username>"`。
 
 
  
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 **AppBackend** 專案，然後按一下 [Manage NuGet Packages]。
 
-2. 在左側按一下 [**線上**]，並在 [**搜尋**] 方塊中搜尋 **servicebus**。
+2. 在左側按一下 [線上]，並在 [搜尋] 方塊中搜尋 **Microsoft.Azure.NotificationHubs**。
 
-3. 按一下結果清單中的 [**Microsoft Azure 服務匯流排**]，然後按一下 [**安裝**]。請完成安裝，然後關閉 [NuGet Package Manager] 視窗。
+3. 在搜尋結果清單中按一下 [Microsoft Azure 通知中樞服務管理程式庫]，然後按一下 [安裝]。請完成安裝，然後關閉 [NuGet Package Manager] 視窗。
 
-	![][B14]
+	這會使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 封裝</a>加入 Azure 通知中樞 SDK 的參考。
 
 4. 我們現在會建立新的類別檔案，表示即將傳送的不同安全通知。在完整的實作中，通知會儲存在資料庫中。為了簡單起見，本教學課程會將它們儲存在記憶體中。在 [方案總管] 中，於 **Models** 資料夾上按一下滑鼠右鍵，按一下 [**新增**]，然後按一下 [**類別**]。將新類別命名為 **Notifications.cs**，然後按一下 [**新增**] 以產生類別。
 
@@ -128,7 +128,7 @@
 
 5. 在 Notifications.cs 中，將下列 `using` 陳述式新增在檔案頂端：
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 6. 以下列內容取代 `Notifications` 類別定義，並確定以通知中樞的連接字串 (含完整存取權) 和中心名稱 (可在 [Azure 管理入口網站](http://manage.windowsazure.com)取代) 取代兩個預留位置：
 
@@ -269,7 +269,7 @@
 
 ## 從 WebAPI 後端傳送通知
 
-在本節中，您會加入新控制器，以便用戶端裝置使用 ASP.NET WebAPI 後端中的 Azure 服務匯流排用戶端程式庫，根據使用者名稱標記傳送通知。
+在本節中，您會加入新的控制器，以便用戶端裝置使用 ASP.NET WebAPI 後端中的 Azure 通知中樞服務管理程式庫，根據使用者名稱標記傳送通知。
 
 
 1. 建立另一個名為 **NotificationsController** 的新控制器。以您在上一節中建立 **RegisterController** 的相同方式來建立新控制器。
@@ -359,4 +359,4 @@
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #將現有的 blob 複製到媒體服務資產
@@ -286,4 +286,11 @@
 		}
  
 
-<!---HONumber=August15_HO7-->
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

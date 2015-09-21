@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="自訂 Azure AD Connect 安裝"
-	description="這份文件詳述了 Azure AD Connect 的自訂安裝選項。"
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="自訂 Azure AD Connect 安裝" 
+	description="這份文件詳述了 Azure AD Connect 的自訂安裝選項。" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="active-directory"  
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # 自訂 Azure AD Connect 安裝
@@ -184,17 +184,6 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 
 在預備模式中，可以對同步處理引擎進行所需的變更，並檢閱要匯出的項目。當此組態看起來設定良好時，請再次執行安裝精靈，並停用預備模式。這麼做可將資料匯出至 Azure AD。同時請務必停用其他伺服器，如此才能只讓一部伺服器主動匯出。
 
-### 防止意外刪除
-安裝 Azure AD Connect 時，就會依預設啟用防止意外刪除的功能，並設定為不允許超過 500 個刪除項目的匯出。500 是預設值，可加以變更。啟用這項功能後，如果有太多刪除項目，就不會繼續匯出，且您會收到一封電子郵件，內容看起來像這樣：
-
-![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/email.png)
-
-
-如果這是非預期的結果，請進行調查，並採取任何修正動作。
-
-若要暫時停用此保護功能，並刪除這些項目，請執行：Disable-ADSyncExportDeletionThreshold
-
-若要重新啟用此保護功能，或變更預設的臨界值設定，請執行：Enable-ADSyncExportDeletionThreshold
 
 
 ## 設定與 AD FS 同盟
@@ -279,4 +268,4 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

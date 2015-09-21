@@ -35,7 +35,7 @@ Azure Active Directory 是一項可在雲端中提供完整身分識別與存取
 Active Directory Basic Edition 是一個 Azure Active Directory 的付費產品，且包含下列功能：
 
 - **公司商標** - 若要讓使用者體驗更美好，您可以在組織的 [登入] 和 [存取面板] 頁面加上公司標誌和色彩配置。在加上標誌之後，您也可以選擇是否加入標誌的當地語系化版本，以取得不同的語言和地區設定。如需詳細資訊，請參閱[在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)。
-- **以群組為基礎的應用程式存取** - 使用群組來佈建使用者，並將使用者存取大量指派給數千個 SaaS 應用程式。您可以只在雲端中建立這些群組，或者您可以利用內部部署 Active Directory 中已同步處理的現有群組來建立這些群組。如需詳細資訊，請參閱[在 Azure AD 中將群組存取權指派給 SaaS 應用程式](https://msdn.microsoft.com/library/azure/dn621141.aspx)。
+- **以群組為基礎的應用程式存取** - 使用群組來佈建使用者，並將使用者存取大量指派給數千個 SaaS 應用程式。您可以只在雲端中建立這些群組，或者您可以利用內部部署 Active Directory 中已同步處理的現有群組來建立這些群組。如需詳細資訊，請參閱[在 Azure AD 中將群組存取權指派給 SaaS 應用程式](active-directory-accessmanagement-group-saasapps.md)。
 - **自助式密碼重設** - Azure 一律允許目錄系統管理員重設密碼。有了 Azure Active Directory Basic，您現在可以減少在您的使用者忘了密碼功能時撥打服務台電話的次數，方法是使用 Office 365 中的相同登入體驗，對您目錄下的所有使用者提供重設其密碼的功能。如需詳細資訊，請參閱 [Azure AD 中的密碼管理](https://msdn.microsoft.com/library/azure/dn510386.aspx)。
 - **99.9% 的企業 SLA** - 我們保證至少 99.9%的 Azure Active Directory Basic 服務可用性。
 - [**Azure Active Directory 應用程式 Proxy**](https://msdn.microsoft.com/library/azure/dn768214.aspx) - 提供員工使用 Azure Active Directory，從雲端安全存取內部部署應用程式 (如 SharePoint 和 Exchange/OWA) 的權限。
@@ -122,4 +122,4 @@ Active Directory Premium 版本是一個 Azure Active Directory 的付費產品�
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 - [檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

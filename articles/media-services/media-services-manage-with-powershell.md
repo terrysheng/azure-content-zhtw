@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -108,6 +108,14 @@ Azure 媒體服務使用 Azure 儲存體來儲存媒體內容。建立新的媒�
 
 	PS C:\> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
 
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #篩選器與動態資訊清單
@@ -185,7 +185,12 @@
 - 如果您更新篩選器，則資料流端點需要 2 分鐘的時間來重新整理規則。如果內容是透過使用某些篩選器提供的 (並在 Proxy 和 CDN 快取中快取)，則更新這些篩選器會導致播放程式失敗。建議在更新篩選器之後清除快取。如果這個選項無法執行，請考慮使用不同的篩選器。
 
 
-##另請參閱
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 
@@ -209,4 +214,4 @@
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

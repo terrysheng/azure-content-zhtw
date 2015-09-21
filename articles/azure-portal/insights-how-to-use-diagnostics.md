@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # 啟用監視和診斷
@@ -71,4 +71,4 @@
 * [追蹤服務健康狀況](insights-service-health.md)可以找出 Azure 何時遭遇效能降低或服務中斷。 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

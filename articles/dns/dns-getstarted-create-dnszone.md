@@ -1,20 +1,20 @@
 <properties
    pageTitle="開始使用 Azure DNS | Microsoft Azure"
-	description="了解如何建立 Azure DNS 的 DNS 區域。這是建立第一個 DNS 區域以開始裝載 DNS 網域的逐步解說。"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor=""/>
+   description="了解如何建立 Azure DNS 的 DNS 區域。這是建立第一個 DNS 區域以開始裝載 DNS 網域的逐步解說。"
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/02/2015"
+   ms.author="joaoma"/>
 
 # 開始使用 Azure DNS
 
@@ -30,9 +30,11 @@
 必須先完成下列步驟，才能使用 Azure PowerShell 管理 Azure DNS。
 
 ### 步驟 1
- Azure DNS 使用 Azure 資源管理員 (ARM)。請確定您切換 PowerShell 模式來使用 ARM Cmdlet。如需詳細資訊，請參閱[將 Windows PowerShell 與資源管理員搭配使用](powershell-azure-resource-manager.md)。<BR><BR>
+Azure DNS 使用 Azure 資源管理員 (ARM)。請確定您切換 PowerShell 模式來使用 ARM Cmdlet。如需詳細資訊，請參閱[將 Windows PowerShell 與資源管理員搭配使用](powershell-azure-resource-manager.md)。<BR><BR>
 
 		PS C:\> Switch-AzureMode -Name AzureResourceManager
+
+您可能會看到「Switch-AzureMode cmdlet 已經過時，未來版本將移除」的警告訊息。 您應忽略此則訊息。
 
 ### 步驟 2
  登入您的 Azure 帳戶。<BR><BR>
@@ -153,4 +155,4 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 [開始建立記錄集與記錄](dns-getstarted-create-recordset.md)<BR> [如何管理 DNS 區域](dns-operations-dnszones.md)<BR> [如何管理 DNS 記錄](dns-operations-recordsets.md)<BR> [使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)<BR> [Azure DNS REST API 參考](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

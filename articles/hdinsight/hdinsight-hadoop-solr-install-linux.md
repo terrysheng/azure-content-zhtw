@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="使用指令碼動作在 Hadoop 叢集上安裝 Solr | Microsoft Azure"
 	description="了解如何使用 Solr 自訂 HDInsight 叢集。您將使用指令碼動作組態選項來使用指令碼安裝 Solr。"
 	services="hdinsight"
@@ -8,7 +8,7 @@
 	editor="cgronlun"
 	tags="azure-portal"/>
 
-<tags 
+<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
@@ -22,7 +22,7 @@
 
 在本主題中，您將學習如何使用指令碼動作在 Azure HDInsight 上安裝 Solr。Solr 是強大的搜尋平台，可對 Hadoop 管理的資料執行企業級搜尋功能。在 HDInsight 叢集上安裝 Solr 之後，您也將學習如何使用 Solr 搜尋資料。
 
-> [AZURE.NOTE]此文件中的步驟需要以 Linux 為基礎的 HDInsight 叢集。如需搭配以 Windows 為基礎的叢集使用 Solr 的詳細資訊，請參閱[在 HDInsight Hadoop 叢集上安裝和使用 R (Windows)](hdinsight-hadoop-solr-install.md)。
+> [AZURE.NOTE]此文件中的步驟需要以 Linux 為基礎的 HDInsight 叢集。如需搭配以 Windows 為基礎的叢集使用 Solr 的詳細資訊，請參閱[在 HDInsight Hadoop 叢集上安裝和使用 Solr (Windows)](hdinsight-hadoop-solr-install.md)。
 
 本主題中使用的範例指令碼會以特定組態建立 Solr 叢集。如果您想要以不同的集合、分區、結構描述和複本等項目設定 Solr 叢集，則必須相應修改指令碼和 Solr 二進位檔。
 
@@ -69,15 +69,15 @@
 1. 使用 SSH 連線到 HDInsight 叢集
 
 		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-		
+
 	如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱下列文章：
-	
+
 	* [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)
-	
+
 	* [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)
-	
+
 	> [AZURE.IMPORTANT]本文件中稍後的步驟會使用 SSL 通道以連線至 Solr Web UI。為了使用這些步驟，您必須建立 SSL 通道，然後設定您的瀏覽器以使用它。
-	> 
+	>
 	> 如需詳細資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)
 
 2. 使用下列命令以具備 Solr 索引範例資料：
@@ -94,13 +94,13 @@
 		Time spent: 0:00:01.624
 
 	post.jar 公用程式使用 **solr.xml** 和 **monitor.xml** 這兩個範例文件對 Solr 編製索引。這些項目會儲存在 Solr 內的 __collection1__ 中。
-	
+
 3. 使用下列項目以查詢 Solr 公開的 REST API：
 
 		curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
-		
+
 	這會對任何符合 __*:*__ (在查詢字串中編碼為 *%3A*) 的文件針對 __collection1__ 發出查詢，回應應該以 JSON 傳回。回應看起來應該如下所示：
-	
+
 			"response": {
 			    "numFound": 2,
 			    "start": 0,
@@ -156,7 +156,7 @@
 ###使用 Solr 儀表板
 
 Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀表板不會直接從您的 HDInsight 叢集公開至網際網路上，必須使用 SSH 通道來存取。如需使用 SSH 通道的詳細資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)
-	
+
 一旦您建立 SSH 通道，請使用下列步驟以使用 Solr 儀表板：
 
 1. 在您的瀏覽器中，連線至 \_\___http://headnode0:8983/solr/#/__。此流量應該會透過 SSH 通道路由至您的 HDInsight 叢集的 headnode0 。您應該會看到如下所示的頁面：
@@ -168,13 +168,13 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀�
 3. 從 __collection1__ 底下的項目中，選取 [查詢] 。使用下列值來填入搜尋頁面：
 
 	* 在 [**q**] 文字方塊中輸入 ***:***。如此便會傳回已在 Solr 中編製索引的所有文件。如果您想要搜尋文件內的特定字串，您可以在此輸入該字串。
-	
+
 	* 在 [**wt**] 文字方塊中，選取輸出格式。預設值是 [**json**]。
-	
+
 	最後，選取搜尋頁面底部的 [執行查詢] 按鈕。
 
 	![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
-	
+
 	輸出中會傳回兩個我們之前用於對 Solr 編製索引的文件。輸出結果類似下面：
 
 			"response": {
@@ -236,8 +236,8 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀�
 	sudo stop solr
 
 	sudo start solr
-	
-   
+
+
 ##備份已編製索引的資料
 
 您最好從 Solr 叢集節點將已編製索引的資料備份到 Azure Blob 儲存體。請執行下列步驟來進行此作業：
@@ -260,17 +260,17 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀�
 2. 接下來，將目錄變更為 __/usr/hdp/current/solr/example/solr__。在這裡每個集合會有子目錄。每個集合目錄包含__資料__目錄，這是該集合的快照所在的位置。
 
 	例如，如果您使用先前的步驟來編製範例文件的索引，__/usr/hdp/current/solr/example/solr/collection1/data__ 目錄現在應該包含一個名為 __snapshot.###########__ 的目錄，其中 # 是快照的日期和時間。
-	
+
 3. 使用如下的命令，建立快照資料夾的壓縮封存：
 
 		tar -zcf snapshot.20150806185338855.tgz snapshot.20150806185338855
 
 	這會建立名為 __snapshot.20150806185338855.tgz__ 的新封存，其中包含 __snapshot.20150806185338855__ 目錄的內容。
-	
+
 3. 然後您可以使用下列命令，將封存儲存至叢集的主要儲存體：
 
 	hadoop fs -copyFromLocal snapshot.20150806185338855.tgz /example/data
-	
+
 	> [AZURE.NOTE]您可能想要建立用來儲存 Solr 快照的專用目錄。例如，`hadoop fs -mkdir /solrbackup`。
 
 如需有關使用 Solr 備份和還原的詳細資訊，請參閱[製作和還原 SolrCores 的備份](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores)。
@@ -297,6 +297,5 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀�
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

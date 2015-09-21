@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用 Azure 通知中樞 | Microsoft Azure"
+	pageTitle="開始使用適用於 Chrome 應用程式的 Azure 通知中樞 | Microsoft Azure"
 	description="在本教學課程中，您將了解如何使用 Azure 通知中樞，將通知推播到 Chrome 應用程式。"
 	services="notification-hubs"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# 開始使用通知中心
+# 開始使用適用於 Chrome 應用程式的通知中樞
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -380,7 +380,8 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 	- *client* 是我們用來發出 HTTP POST 要求的 *XMLHttpRequest* 執行個體。請注意，我們會使用 sasToken 更新 *Authorization* 標頭。成功完成此呼叫後，即會向 Azure 通知中樞註冊此 Chrome 應用程式執行個體。
 
 
-您應該會在結尾處看見下列資料夾檢視：![][21]
+8. 您應該會在結尾處看見下列資料夾檢視：
+   	![][21]
 
 ###設定和測試 Chrome 應用程式
 
@@ -493,4 +494,4 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 [Azure 通知中樞通知使用者]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Azure 通知中樞即時新聞]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Azure 佇列和服務匯流排佇列 - 異同比較"
-	description="分析 Azure 所提供之兩種佇列類型之間的差異和相似性。"
-	services="service-bus"
-	documentationCenter="na"
-	authors="sethmanheim"
-	manager="timlt"
-	editor="tysonn"/>
+   description="分析 Azure 所提供之兩種佇列類型之間的差異和相似性。"
+   services="service-bus"
+   documentationCenter="na"
+   authors="sethmanheim"
+   manager="timlt"
+   editor="tysonn" />
 <tags 
    ms.service="service-bus"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="08/25/2015"
-	ms.author="sethm"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd"
+   ms.date="09/09/2015"
+   ms.author="sethm" />
 
 # Azure 佇列和服務匯流排佇列 - 異同比較
 
@@ -257,7 +257,7 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 |比較準則|Azure 佇列|服務匯流排佇列|
 |---|---|---|
 |驗證|**對稱金鑰**|**對稱金鑰**|
-|存取控制模型|透過 SAS 權杖進行委派存取。|透過 ACS 進行 RBAC|
+|安全性模型|透過 SAS 權杖進行委派存取。|SAS|
 |識別提供者同盟|**否**|**是**|
 
 ### 其他資訊
@@ -265,10 +265,6 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 - 對這兩種佇列技術提出的每項要求都必須經過驗證。不支援具有匿名存取的公用佇列。使用 SAS 時，您可以發佈唯寫 SAS、唯讀 SAS 或甚至是完整存取 SAS 來解決這種情況。
 
 - Azure 佇列所提供的驗證配置需要使用對稱金鑰，這個金鑰是雜湊式訊息驗證碼 (HMAC)、使用 SHA-256 演算法所計算並且編碼為 **Base64** 字串。如需個別通訊協定的詳細資訊，請參閱[驗證對儲存體帳戶的存取](https://msdn.microsoft.com/library/hh225339.aspx)。服務匯流排佇列支援使用對稱金鑰的類似模型。如需詳細資訊，請參閱[使用服務匯流排的共用存取簽章驗證](https://msdn.microsoft.com/library/dn170477.aspx)。
-
-- 服務匯流排所支援的 Microsoft Azure Active Directory 存取控制 (也稱為存取控制服務或 ACS) 提供三種不同的角色：**管理員**、**傳送者**和**接收者**，Azure 佇列目前不支援這項服務。
-
-- 由於服務匯流排提供 ACS 整合，因此可讓您與 Active Directory (透過使用 ADFS) 以及其他常見的 Web 識別提供者形成同盟。
 
 ## 成本
 
@@ -315,4 +311,4 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 - [了解 Azure 儲存體計費 - 頻寬、交易和容量](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

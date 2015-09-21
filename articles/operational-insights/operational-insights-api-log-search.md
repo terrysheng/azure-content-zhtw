@@ -31,14 +31,13 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 
 ### 使用 ARM 用戶端
 
-1. 安裝 [Chocolatey](https://chocolatey.org/)，也就是 Windows 的開放原始碼機器封裝管理員。
-2. 以系統管理員身分開啟 PowerShell 視窗並執行下列命令：
+1. 安裝 [Chocolatey](https://chocolatey.org/)，也就是 Windows 的開放原始碼機器封裝管理員。以系統管理員身分開啟命令提示字元視窗，然後執行下列命令：
 
     ```
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
     ```
 
-3. 開啟新的命令提示字元以安裝 ARMClient，然後執行下列命令：
+2. 執行下列命令來安裝 ARMClient：
 
     ```
     choco install armclient
@@ -66,7 +65,7 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 2. 取得 Operations Management Suite 工作區。例如：
 
     ```
-    armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2014-10-10
+    armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2015-03-20
     ```
 
     成功的 Get 呼叫會輸出繫結至訂用帳戶的所有工作區。例如：
@@ -90,12 +89,12 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 3. 建立您的搜尋變數。例如：
 
     ```
-    $mySearch = "{ 'top':150, 'query':'Error'}”;
+    $mySearch = "{ 'top':150, 'query':'Error'}";
     ```
 4. 使用新的搜尋變數搜尋。例如：
 
     ```
-    armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2014-10-10 $mySearch
+    armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2015-03-20 $mySearch
     ```
 
 ## Search API 參考範例
@@ -106,7 +105,7 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 **範例 Url：**
 
 ```
-	/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search?api-version=2014-10-10
+	/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search?api-version=2015-03-20
 ```
 
 **要求：**
@@ -123,7 +122,7 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 	  "start":"2015-02-04T21:03:29.231Z",
 	  "end":"2015-02-11T21:03:29.231Z"
 	}
-	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2014-10-10 $searchParametersJson
+	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2015-03-20 $searchParametersJson
 ```
 下表描述可用的屬性。
 
@@ -194,22 +193,22 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 **要求已儲存搜尋的內容：**
 
 ```
-	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2014-10-10
+	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2015-03-20
 ```
 
->[AZURE.NOTE] 如果搜尋會傳回「擱置中」狀態，則輪詢更新的結果可以透過此 API 完成。6 分鐘後，搜尋的結果將會從快取卸除，並將傳回 Http Gone。如果初始搜尋要求立即傳回「成功」狀態，它就不會加入至快取，使 API在被查詢時傳回 Http Gone。Http 200 結果內容的格式將會和更新值相同，都是初始搜尋要求。
+>[AZURE.NOTE]如果搜尋會傳回「擱置中」狀態，則輪詢更新的結果可以透過此 API 完成。6 分鐘後，搜尋的結果將會從快取卸除，並將傳回 Http Gone。如果初始搜尋要求立即傳回「成功」狀態，它就不會加入至快取，使 API在被查詢時傳回 Http Gone。Http 200 結果內容的格式將會和更新值相同，都是初始搜尋要求。
 
 ### 已儲存的搜尋 - 僅限於 REST
 
 **已儲存搜尋的要求清單：**
 
 ```
-	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
+	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2015-03-20
 ```
 
-支援的方法: GET PUT DELETE
+支援的方法：GET PUT DELETE
 
-支援的收集方法: GET
+支援的收集方法：GET
 
 下表描述可用的屬性。
 
@@ -221,14 +220,14 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 |properties.displayName|**必要**。使用者定義的查詢顯示名稱。如果模型化為 Azure 資源，則這會是標記。|
 |properties.category|**必要**。使用者定義的查詢類別。如果模型化為 Azure 資源，則這會是標記。|
 
->[AZURE.NOTE] 當儲存搜尋的輪詢位於工作區時，Operational Insights Search API 目前會傳回使用者建立的儲存搜尋。API 不會傳回目前解決方案所提供的儲存搜尋。這項功能將會在之後加入。
+>[AZURE.NOTE]當儲存搜尋的輪詢位於工作區時，Operational Insights Search API 目前會傳回使用者建立的儲存搜尋。API 不會傳回目前解決方案所提供的儲存搜尋。這項功能將會在之後加入。
 
 ### 刪除儲存搜尋
 
 **要求：**
 
 ```
-	armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10
+	armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2015-03-20
 ```
 
 ### 更新儲存搜尋
@@ -237,7 +236,7 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 
 ```
 	$savedSearchParametersJson = "{'etag': 'W/`"datetime\'2015-04-16T23%3A35%3A35.3182423Z\'`"', 'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
-	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10 $savedSearchParametersJson
+	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2015-03-20 $savedSearchParametersJson
 ```
 
 ### 中繼資料 - 僅限 JSON
@@ -247,7 +246,7 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 **欄位要求：**
 
 ```
-	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/schema?api-version=2014-10-10
+	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/schema?api-version=2015-03-20
 ```
 
 **回應：**
@@ -346,4 +345,4 @@ Azure 資源管理員可透過 [Library for.NET](https://msdn.microsoft.com/libr
 
 請注意，上述結果包含已具有前置詞及附加詞的錯誤訊息。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

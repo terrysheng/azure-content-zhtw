@@ -1,38 +1,32 @@
 <properties
    pageTitle="Azure 資料目錄版本資訊"
-	description="Azure 資料目錄 2015 年 8 月 28 日公開預覽版本的版本資訊。"
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Azure 資料目錄 2015 年 8 月 28 日公開預覽版本的版本資訊。"
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/28/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="09/04/2015"
+   ms.author="maroche"/>
 
 # Azure 資料目錄版本資訊
 
-## Azure 資料目錄 2015 年 8 月 28 日版本注意事項
+## Azure 資料目錄 2015 年 9 月 4 日版本的注意事項
 
-### 某些已註冊資料資產之遺漏的資料設定檔
+### 某些已註冊的資料資產可能遺漏資料設定檔
 
-藉由在資料來源註冊工具中已選取的資料分析選項，用以註冊資料來源時，在下列情況下，資料設定檔資訊可能未包含在內：
+在註冊資料來源時，於資料來源註冊工具中選取資料分析選項，則在資料行名稱中使用多位元組字元註冊 Oracle 資料表和檢視表時，資料設定檔資訊可能未包含在內。
 
-* Azure SQL Database 資料表
-* SQL Server 資料表和檢視，其中有多個物件，在不同的結構描述中名稱相同。
-* SQL Server 資料表和檢視，其具有大於 118 個字元的資料行名稱。
-* Oracle 資料表和檢視，其具有大於 20 個字元的資料行名稱。
-* Oracle 資料表和檢視，其資料行名稱使用空格或多位元組字元。
+這些限制起因於 9 月 4 日版本的已知問題，而且將在未來的 Azure 資料目錄更新中解決。
 
-這些限制起因於 8 月 28 日版本的已知問題，而且將在未來的 Azure 資料目錄更新中解決。
-
-## Azure 資料目錄 2015 年 7 月 13 日版本注意事項
+## Azure 資料目錄 2015 年 7 月 13 日版本的注意事項
 
 ### 註冊並連接至 Oracle 資料庫
 
@@ -83,4 +77,4 @@ Azure 資料目錄初始預覽版本中對於 SQL Server Reporting Services (SSR
 
 若要找出 RegistrationTool.exe.config 檔案，請啟動註冊工具，然後開啟 Windows 工作管理員公用程式。在工作管理員的 [詳細資料] 索引標籤，以滑鼠右鍵按一下 RegistrationTool.exe，再從快顯功能表中選擇 [開啟檔案位置]。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

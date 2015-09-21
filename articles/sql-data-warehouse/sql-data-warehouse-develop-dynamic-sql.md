@@ -13,15 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 資料倉儲中的動態 SQL
-開發 SQL 資料倉儲的應用程式程式碼時，您可能會發現自己必須使用動態 sql，協助提供彈性的、泛型的且模組化的解決方案。不過，SQL 資料倉儲此時不支援 blob 資料類型。這可能會限制字串的大小，因為 blob 類型包括 varchar(max) 和 nvarchar(max) 類型。您可能會發現，您在建置必須執行之動態 SQL 程式碼的大型字串時，您使用了應用程式程式碼中的這些類型。
+開發 SQL 資料倉儲的應用程式程式碼時，您可能須使用動態 SQL，以協助提供有彈性的泛型模組化解決方案。不過，SQL 資料倉儲目前不支援 Blob 資料類型。這可能會限制字串的大小，因為 blob 類型包括 varchar(max) 和 nvarchar(max) 類型。如果您在建立超大型字串時，曾在應用程式的程式碼中使用這些類型，您必須將這些程式碼分成許多區塊，並以 EXEC 陳述式取代。
 
-在這些情況下，您必須將程式碼細分成區塊，並改為使用 EXEC 陳述式。
-
-簡化的範例如下所示：
+以下是簡單的範例：
 
 ```
 DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
@@ -31,7 +29,7 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-如果字串不是特別長，則您可以一如往常使用 [sp\_executesql][]。
+如果字串簡短，那麼您可以一如往常使用 [sp\_executesql][]。
 
 
 ## 後續步驟
@@ -43,8 +41,8 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 [開發概觀]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[sp\_executesql]: https://msdn.microsoft.com/zh-tw/library/ms188001.aspx
+[sp\_executesql]: https://msdn.microsoft.com/zh-TW/library/ms188001.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

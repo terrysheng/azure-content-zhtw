@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用 Azure 通知中樞 | Microsoft Azure"
+	pageTitle="開始使用適用於 iOS app 的 Azure 通知中樞 | Microsoft Azure"
 	description="在本教學課程中，您將了解如何使用 Azure 通知中樞，將通知推播至 iOS 應用程式。"
 	services="notification-hubs"
 	documentationCenter="ios"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="09/02/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# 開始使用通知中心
+# 開始使用適用於 iOS app 的通知中樞
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -508,4 +508,4 @@
 
 [本機和推播通知程式設計指南]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

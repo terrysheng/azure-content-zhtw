@@ -62,7 +62,7 @@ Azure 搜尋是可透過 Azure 訂用帳戶取得的完全管理線上服務。[
 
 有幾種方式可以載入文件，但現在全部都需要 API。對於大部分的原型，這個步驟因需要撰寫程式碼而可能最為耗時。本文稍後將說明這些選項。
 
-> [AZURE.NOTE]請記住，共用服務的限制是一個索引有 10,000 份文件。請務必減少您的資料集，讓它低於限制。如需詳細資訊，請參閱[限制條件](https://msdn.microsoft.com/library/dn798934.aspx)。
+> [AZURE.NOTE]請記住，共用服務的限制是一個索引有 10,000 份文件。請務必減少您的資料集，讓它低於限制。如需詳細資訊，請參閱[限制條件](search-limits-quotas-capacity.md)。
 
 #### 如何將資料載入索引
 
@@ -190,4 +190,4 @@ Azure 搜尋中其中一個較吸引人的功能是可以輕鬆地放大或縮�
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

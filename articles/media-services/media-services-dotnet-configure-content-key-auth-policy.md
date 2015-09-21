@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -390,8 +390,17 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。這
 
 
 
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 ##後續步驟
 現在，您已設定內容金鑰授權原則，請移至[如何設定資產傳遞原則](media-services-dotnet-configure-asset-delivery-policy.md)主題。
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

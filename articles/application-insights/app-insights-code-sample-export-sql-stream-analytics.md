@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="逐步解說：將遙測資料從 Application Insights 匯出至 SQL Database"
-	description="使用連續匯出功能，在 Application Insights 中自行撰寫遙測資料分析的程式碼。"
-	services="application-insights"
-	documentationCenter=""
-	authors="noamben"
+	pageTitle="逐步解說：將遙測資料從 Application Insights 匯出至 SQL Database" 
+	description="使用連續匯出功能，在 Application Insights 中自行撰寫遙測資料分析的程式碼。" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="awills"/>
  
 # 逐步解說：使用串流分析從 Application Insights 匯出至 SQL
@@ -97,7 +97,7 @@
 
     此外，資料會匯出至您的儲存體。
 
-4. 檢查匯出的資料。在 Visual Studio 中選擇 [檢視] / [Cloud Explorer]，然後開啟 [Azure] / [儲存體]。(如果您沒有此功能表選項，您需要安裝 Azure SDK：開啟 [新增專案] 對話方塊，然後開啟 [Visual C#] / [Cloud] / [取得 Microsoft Azure SDK for .NET]。)
+4. 請在入口網站 (選擇 [瀏覽]，接著選取您的儲存體帳戶，然後選擇 [容器]) 或 Visual Studio 中，檢查匯出的資料。在 Visual Studio 中，依序選擇 [檢視]、[Cloud Explorer]，然後依序開啟 [Azure]、[儲存體]。(如果您沒有此功能表選項，您需要安裝 Azure SDK：開啟 [新增專案] 對話方塊，然後開啟 [Visual C#] / [Cloud] / [取得 Microsoft Azure SDK for .NET]。)
 
     ![在 Visual Studio 中，依序開啟 [Server Browser]、[Azure]、[儲存體]](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
 
@@ -165,7 +165,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/34-create-table.png)
 
-在此範例中，我們會使用頁面檢視的資料。若要查看其他的可用資料，請檢查您的 JSON 輸出，並查看[匯出資料模型](app-insights-export-data-model.md)。
+在此範例中，我們會使用頁面檢視的資料。若要查看其他可用的資料，請檢查您的 JSON 輸出，並查看[匯出資料模型](app-insights-export-data-model.md)。
 
 ## 建立 Azure 串流分析執行個體
 
@@ -218,6 +218,8 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 ![確認並關閉精靈](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
 
 關閉精靈，並等候設定完成。
+
+>[AZURE.TIP]使用範例函數來檢查您是否已正確設定輸入路徑。如果此方法失敗：請檢查儲存體中您所選擇的範例時間範圍的資料。編輯輸入定義，並檢查您是否已正確設定儲存體帳戶、路徑前置詞和日期格式。
 
 ## 設定查詢
 
@@ -312,4 +314,4 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

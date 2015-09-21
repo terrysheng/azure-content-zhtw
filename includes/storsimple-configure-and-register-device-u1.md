@@ -1,3 +1,20 @@
+<properties 
+   pageTitle="設定和註冊裝置"
+   description="說明如何使用 Windows PowerShell for StorSimple 來設定和註冊裝置 (執行 Update 1)。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/08/2015"
+   ms.author="alkohli" />
+
 
 ### 設定和註冊裝置
 
@@ -25,11 +42,11 @@
    - 閘道器
    - 適用於主要 DNS 伺服器的 IP 位址
     
-		請注意，系統在過程中的每個步驟完成後進行網路設定驗證。
+		Note that the system is validating network settings after each step in the process.
    
       >[AZURE.NOTE]您可能需要等候幾分鐘，以套用子網路遮罩和 DNS 設定。如果您收到「檢查 Data 0 的網路連線」錯誤訊息，請檢查主動控制器之 DATA 0 網路介面上的實體網路連線。
 
-8. (選用) 設定 Web Proxy 伺服器。雖然 Web Proxy 設定是選用的，但**請注意，如果您使用 Web Proxy，就只能在此處設定它**。如需詳細資訊，請參閱[設定裝置的 Web Proxy](https://msdn.microsoft.com/library/azure/dn764937.aspx)。
+8. (選用) 設定 Web Proxy 伺服器。雖然 Web Proxy 設定是選用的，但**請注意，如果您使用 Web Proxy，就只能在此處設定它**。如需詳細資訊，請參閱[設定裝置的 Web Proxy](../articles/storsimple/storsimple-configure-web-proxy.md)。
 
 9. 為裝置設定主要 NTP 伺服器。NTP 伺服器是必要項目，因為您的裝置必須同步處理時間，才能使用您的雲端服務提供者進行驗證。請確定您的網路允許 NTP 流量從您的資料中心通過網際網路。如果不可行，請指定內部 NTP 伺服器。
  
@@ -58,10 +75,12 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
   
-        如果裝置狀態為 **離線**，請等待數分鐘，讓裝置上線 
+        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
       
-        若裝置經數分鐘後仍舊離線，您便需要確認您的防火牆網路設置是否與[StorSimple 裝置的網路需求](https://msdn.microsoft.com/library/dn772371.aspx) 說明相同。若您沒有 HTTP 1.1 支援，請檢查及確保 9354 連接埠為開啟狀態並允許輸出通訊。此連接埠是供 StorSimple 管理員服務及 StorSimple 裝置間進行通訊之用。
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](../articles/storsimple/storsimple-system-requirements.md). 
+
+		If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
        
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

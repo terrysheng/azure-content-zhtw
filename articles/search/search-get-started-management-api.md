@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 # 開始使用 Azure 搜尋管理 REST API
@@ -204,4 +204,4 @@ Azure 資源管理員需要 Azure Active Directory 服務做為其身分識別�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Azure 媒體服務的分散 MP4 即時內嵌規格
@@ -196,6 +196,15 @@ Microsoft Azure 媒體服務的 ISO 分散 MP4 即時內嵌使用標準的長時
 3. 使用不同的伺服器 (編碼器) 執行個體來編碼和傳送 (1) 和 (2) 中所提到的多餘資料流。 
 
 
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png
 [image2]: ./media/media-services-fmp4-live-ingest-overview/media-services-image2.png
 [image3]: ./media/media-services-fmp4-live-ingest-overview/media-services-image3.png
@@ -206,4 +215,4 @@ Microsoft Azure 媒體服務的 ISO 分散 MP4 即時內嵌使用標準的長時
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

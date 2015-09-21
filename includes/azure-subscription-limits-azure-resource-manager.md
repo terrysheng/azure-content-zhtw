@@ -4,7 +4,7 @@
 每一訂用帳戶的[共同管理員](http://msdn.microsoft.com/library/azure/gg456328.aspx)|無限|無限
 每一訂用帳戶的[儲存體帳戶](storage-create-storage-account.md)|100|100<sup>2</sup>
 每一訂用帳戶的[資源群組](resource-group-overview.md)|800|800
-資源管理員 API 讀取|每小時 32000|每小時 32000
+資源管理員 API 讀取|每小時 15000|每小時 15000
 資源管理員 API 寫入|每小時 1200|每小時 1200
 資源管理員 API 要求的大小|4194304 個位元組|4194304 個位元組
 每一訂用帳戶的[雲端服務](cloud-services-what-is.md)|已被取代<sup>3</sup>|已被取代<sup>3</sup>
@@ -16,4 +16,4 @@
 
 <sup>3</sup>Azure 資源群組和 Azure 資源管理員已不再需要這些功能。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="09/04/2015"
    ms.author="telmos" />
 
 # 如何使用 PowerShell 管理端點的存取控制清單 (ACL)
@@ -97,4 +97,4 @@
 
 [如何設定與虛擬機器的通訊](http://go.microsoft.com/fwlink/?LinkId=303938)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

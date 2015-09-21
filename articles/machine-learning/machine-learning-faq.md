@@ -1,34 +1,35 @@
-<properties 
-	pageTitle="Azure Machine Learning 常見問題集 | Microsoft Azure" 
-	description="Azure Machine Learning 簡介：常見問題集，涵蓋計費、功能，以及適用於簡化預測性模型化之雲端服務的限制。" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="pablissima" 
-	manager="paulettm" 
+<properties
+	pageTitle="Azure Machine Learning 常見問題集 | Microsoft Azure"
+	description="Azure Machine Learning 簡介：常見問題集，涵蓋計費、功能，以及適用於簡化預測性模型化之雲端服務的限制。"
+	keywords="machine learning introduction,predictive modeling,what is machine learning"
+	services="machine-learning"
+	documentationCenter=""
+	authors="pablissima"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/18/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/09/2015"
 	ms.author="paulettm"/>
 
 #Azure Machine Learning 常見問題集 (FAQ)：計費、功能、限制及支援
 
 此常見問題集針對 Azure Machine Learning 問題提供解答，Azure Machine Learning 是適合透過 Web 服務執行預測性模型化和運作方案的雲端服務。這個常見問題集涵蓋使用服務的相關問題，包括計費模型、功能、限制及支援。
- 
+
 ##一般問題
 
 **什麼是 Azure Machine Learning 服務？**
- 
+
 Azure Machine Learning 是受到完整管理的服務，可用來建立、測試、操作及管理雲端中的預測分析方案。僅使用瀏覽器，您即可以登入、上傳資料，以及立即開始機器學習實驗。拖放式預測性模型化、大型模組和用以啟動範本的程式庫，讓您得以簡便而快速地執行一般機器學習工作。如需詳細資訊，請參閱 [Azure Machine Learning 服務概觀](/services/machine-learning/)。如需涵蓋重要術語和概念的機器學習簡介，請參閱 [Azure Machine Learning 簡介](machine-learning-what-is-machine-learning.md)。
 
 
 [AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
- 
+
 **什麼是 Machine Learning Studio？**
 
 Machine Learning Studio 是您透過網頁瀏覽器存取的工作區環境。Machine Learning Studio 包含一組具有視覺化結構介面的模組，可讓您以實驗的形式建置端對端資料科學工作流程。
@@ -54,7 +55,7 @@ Machine Learning API 服務可讓您將 Machine Learning Studio 中內建的預�
 
 ## Machine Learning Studio 問題
 
-###建立實驗	
+###建立實驗
 **實驗圖形有版本控制或 Git 整合嗎？**
 
 沒有，不過每次執行實驗便會保留該版本的圖形，無法由其他使用者修改。
@@ -93,15 +94,13 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 **可以從 Amazon S3 讀取資料嗎？**
 
 如果您有少量的資料，而且想要透過 HTTP URL 公開，則您可以使用[讀取器][reader]模組。若為任何較大量的資料，請先傳送至 Azure 儲存體，然後使用[讀取器][reader]模組將它帶入實驗中。
-<!--
-<SEE CLOUD DS PROCESS>
--->
+<!--<SEE CLOUD DS PROCESS>-->
 
 **有內建的影像輸入功能嗎？**
 
 您可以在[映像讀取器][image-reader]參考中了解影像輸入功能。
 
-###模組 
+###模組
 
 **我在尋找的演算法、資料來源、資料格式、資料轉換作業不在 Azure ML Studio 中，我有哪些選擇？**
 
@@ -110,14 +109,14 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 
 **是否可將我現有的程式碼放入 ML Studio 中？**
 
-是的，您可以在 ML Studio 中放入現有的 R 程式碼，並使用 Azure Machine Learning 提供的學習器在相同的實驗中加以執行，然後透過 Azure Machine Learning 發佈為 Web 服務。請參閱[透過 R 擴展您的實驗](machine-learning-extend-your-experiment-with-r.md)。
+是的，您可以在 ML Studio 中放入現有的 R 程式碼，並使用 Azure 機器學習提供的學習器在相同的實驗中加以執行，然後透過 Azure 機器學習部署為 Web 服務。請參閱[透過 R 擴展您的實驗](machine-learning-extend-your-experiment-with-r.md)。
 
 **可使用 [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language) 之類來定義模型嗎？**
 
 不，不支援，但是自訂 R 和 Python 程式碼可以用來定義模組。
 
 
-###資料處理 
+###資料處理
 **有能力在實驗內將資料以互動方式視覺化嗎 (R 視覺效果外)？**
 
 按一下模組的輸出，您即可以將資料視覺化，並取得統計資料。
@@ -157,7 +156,7 @@ Machine Learning Studio 提供頂級演算法，例如 Scalable Boosted Decision
 
 目前只能在 R 中建立新的自訂模組。
 
-###R 模組 
+###R 模組
 **Machine Learning Studio 中可使用什麼 R 套件？**
 
 Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在持續增加。若要了解如何取得支援的 R 封裝的清單，請參閱 [透過 R 擴展您的實驗](machine-learning-extend-your-experiment-with-r.md)。如果您要的封裝不在此清單中，請在[使用者意見反映論壇](http://go.microsoft.com/fwlink/?LinkId=404231)中提供封裝名稱。
@@ -170,7 +169,7 @@ Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在
 
 否，Studio 中沒有 R 適用的 REPL 環境。
 
-###Python 模組 
+###Python 模組
 
 **是否可以建置自訂的 Python 模組？**
 
@@ -197,11 +196,11 @@ Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在
 ###使用
 **何時該以「批次執行服務」的形式執行預測模型？何時該以要求回應服務的形式執行？**
 
-「要求回應服務 (RRS)」是低延遲性的高階 Web 服務，可用來為從實驗環境建立並發佈的無狀態模型提供介面。「批次執行服務 (BES)」是可為一批資料記錄進行非同步評分的服務。BES 的輸入類似於 RRS 中使用的資料輸入。主要差異在於，BES 會從多種來源讀取記錄區塊，例如 Blob 服務、Azure 中的資料表服務、Azure SQL Database、HDInsight (Hive 查詢) 和 HTTP 來源。如需詳細資訊，請參閱[如何使用 Machine Learning Web 服務](machine-learning-consume-web-services.md)。
+「要求回應服務 (RRS)」是低延遲性的高階 Web 服務，可用來為從實驗環境建立並部署的無狀態模型提供介面。「批次執行服務 (BES)」是可為一批資料記錄進行非同步評分的服務。BES 的輸入類似於 RRS 中使用的資料輸入。主要差異在於，BES 會從多種來源讀取記錄區塊，例如 Blob 服務、Azure 中的資料表服務、Azure SQL Database、HDInsight (Hive 查詢) 和 HTTP 來源。如需詳細資訊，請參閱[如何使用 Machine Learning Web 服務](machine-learning-consume-web-services.md)。
 
 **如何為已部署的 Web 服務更新模型？**
 
-要為已部署的服務更新預測模型，只需修改並重新執行用來撰寫和儲存已訓練模型的實驗即可。在您有新版的已訓練模型後，ML Studio 會詢問您是否要更新預備 Web 服務。在更新套用至預備 Web 服務後，相同的更新也將可供您套用至實際執行 Web 服務。如需有關如何更新已部署的 Web 服務的詳細資訊，請參閱[發佈 Machine Learning Web 服務](machine-learning-publish-a-machine-learning-web-service.md)。
+要為已部署的服務更新預測模型，只需修改並重新執行用來撰寫和儲存已訓練模型的實驗即可。在您有新版的已訓練模型後，ML Studio 會詢問您是否要更新預備 Web 服務。在更新套用至預備 Web 服務後，相同的更新也將可供您套用至實際執行 Web 服務。如需關於如何更新已部署 Web 服務的詳細資訊，請參閱[部署機器學習 Web 服務](machine-learning-publish-a-machine-learning-web-service.md)。
 
 您也可以使用重新訓練 API。[這裡](https://azuremlretrain.codeplex.com/)提供範例程式碼。
 
@@ -213,11 +212,11 @@ Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在
 **是否有哪個位置，可讓我查看我的 RRS/BES 輸出？**
 
 針對 RRS，通常您可在 Web 服務回應查看此結果。您可以也將資料寫入 Blob。BES 的輸出預設會寫入至 Blob。您也可以使用寫入器模組將輸出寫入資料庫或資料表。
- 
- ** 只能從這個 Studio 中建立的模型來建立 Web 服務嗎? 不，您也可以直接從 Jupyter Notebook 和 RStudio 建立 Web 服務。
- 
 
-##延展性 
+ **** 只能從這個 Studio 中建立的模型來建立 Web 服務嗎? 不，您也可以直接從 Jupyter Notebook 和 RStudio 建立 Web 服務。
+
+
+##延展性
 
 **什麼是 Web 服務的延展性？**
 
@@ -259,30 +258,30 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 
 編號
 
-##安全性和可用性 
+##安全性和可用性
 
 **根據預設，哪些人可以存取部署在實際執行環境之 Web 服務的 HTTP 端點？ 如何限制對此端點的存取？**
 
-發佈 Web 服務之後，我們會建立該服務的預設端點。會將該預設端點部署到生產環境，並且可使用其 API 金鑰呼叫。其他端點可以從 Azure 入口網站，或以程式設計方式使用 Web 服務管理 API 加入自己的索引鍵。必須要有存取金鑰，才能呼叫實際執行和預備環境中的 Web 服務。如需詳細資訊，請參閱[連線到 Machine Learning Web 服務](machine-learning-connect-to-azure-machine-learning-web-service.md)。
+部署 Web 服務之後，我們會建立該服務的預設端點。會將該預設端點部署到生產環境，並且可使用其 API 金鑰呼叫。其他端點可以從 Azure 入口網站，或以程式設計方式使用 Web 服務管理 API 加入自己的索引鍵。必須要有存取金鑰，才能呼叫實際執行和預備環境中的 Web 服務。如需詳細資訊，請參閱[連線到 Machine Learning Web 服務](machine-learning-connect-to-azure-machine-learning-web-service.md)。
 
 
 **如果找不到我的儲存體帳戶，會發生什麼情況？**
 
 Machine Learning Studio 依賴使用者提供的 Azure 儲存體帳戶，才能在執行工作流程時儲存中繼資料。此儲存體帳戶是在建立工作區時提供給 Machine Learning Studio。建立工作區之後，如果刪除儲存體帳戶，而且不再能找到，工作區會停止運作，並且該工作區中的所有實驗將會失敗。
- 
+
 如果您不小心刪除儲存體帳戶，從中復原的唯一辦法是使用與刪除的那個完全相同的區域中的相同名稱重新建立儲存體帳戶。在那之後，請重新同步處理存取金鑰。
- 
+
 
 **如果我的儲存體帳戶存取金鑰未同步，會發生什麼情況？** Machine Learning Studio 依賴使用者提供的 Azure 儲存體帳戶，才能在執行工作流程時儲存中繼資料。此儲存體帳戶是在建立工作區時提供給 Machine Learning Studio，並且存取金鑰會與該工作區相關聯。建立工作區之後，如果變更存取金鑰，該工作區不再能存取儲存體帳戶，工作區會停止運作，並且該工作區中的所有實驗將會失敗。
 
 如果您變更了儲存體帳戶存取金鑰，請確保在 Azure 入口網站中的工作區設定中重新同步處理存取金鑰
 
 
-##Azure Marketplace 
+##Azure Marketplace
 
 請參閱[在 Machine Learning Marketplace 中發佈和使用 App 的常見問題集](machine-learning-marketplace-faq.md)
 
-##支援和訓練 
+##支援和訓練
 
 **哪裡可以取得 Azure ML 的訓練？**
 
@@ -306,6 +305,5 @@ Azure Machine Learning 在 MSDN 上也設有社群論壇，可供您詢問 Azure
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -1,25 +1,25 @@
 <properties 
    pageTitle="建立和部署 Azure 資源群組部署專案"
-	description="建立和部署 Azure 資源群組部署專案"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
+   description="建立和部署 Azure 資源群組部署專案"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="azure-resource-manager"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # 建立和部署 Azure 資源群組部署專案
 
 安裝 Azure SDK 2.6 之後可在 Visual Studio 中使用 **Azure 資源群組**部署專案範本。Azure 資源群組專案可讓您將多個相關的 Azure 資源分組在一起，並在單一部署作業中將其發佈。Azure 資源群組專案會使用一項稱為 **Azure 資源管理員**的技術執行其工作。**Azure 資源管理員**是一項 REST API 服務，可讓您定義 Azure 資源群組，其包含多個通常會一起使用並具有類似生命週期的 Azure 資源。藉由使用資源群組，您可以利用單一函數呼叫在一個群組中的所有資源上運作，而不需為每個個別資源呼叫不同的函數。若要深入了解 Azure 資源群組，請參閱[使用資源群組管理您的 Azure 資源](./azure-portal/azure-preview-portal-using-resource-groups/)。
 
-Azure 資源群組專案包含 Azure 資源管理員 JSON 範本，可定義部署到資源群組的項目。如需詳細資訊，請參閱 [Azure 資源管理員範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)。
+Azure 資源群組專案包含 Azure 資源管理員 JSON 範本，可定義部署到資源群組的項目。如需詳細資訊，請參閱 [Azure 資源管理員範本語言](resource-group-authoring-templates.md)。
 
 Azure 資源管理員有許多不同的資源提供者可供使用，可以用來部署 Ubuntu Server 和 Windows Server 2012 R2 等資源。本主題使用 **Web Apps** 資源，該資源會將基本的空白網站部署至 Azure。
 
@@ -85,7 +85,7 @@ JSON 檔案使用的結構描述在每個檔案的頂端提供做為參考。如
 
     ![[部署到資源群組] 對話方塊](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796673.png)
 
-1. 在 [資源群組] 下拉式方塊中，選擇現有資源群組或建立新群組。若要建立資源群組，請開啟 [資源群組] 下拉式方塊，然後選擇 **<Create New...>**。
+1. 在 [資源群組] 下拉式方塊中，選擇現有的資源群組或建立一個新的。若要建立資源群組，請開啟 [資源群組] 下拉式方塊並選擇 [<Create New...>]。
 
     [建立資源群組] 對話方塊隨即出現。
 
@@ -195,4 +195,4 @@ JSON 檔案使用的結構描述在每個檔案的頂端提供做為參考。如
 
 若要了解如何將資源新增至 Visual Studio 中的 Azure 資源群組，請參閱[將資源新增至 Azure 資源群組](https://msdn.microsoft.com/library/azure/mt125415.aspx)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

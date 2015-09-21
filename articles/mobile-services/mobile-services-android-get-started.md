@@ -1,6 +1,6 @@
 <properties
-	pageTitle="開始為 Android 應用程式使用 Azure 行動服務"
-	description="遵循此教學課程，可開始使用 Azure 行動服務進行 Android 開發。"
+	pageTitle="開始使用適用於 Android 應用程式的 Azure 行動服務 (JavaScript 後端)"
+	description="遵循此教學課程，開始使用 Azure 行動服務進行 Android 開發 (JavaScript 後端)。"
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/04/2015"
 	ms.author="ricksal"/>
 
-# 開始使用行動服務
+# 開始使用適用於 Android 的行動服務 (JavaScript 後端)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
@@ -117,4 +117,4 @@
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

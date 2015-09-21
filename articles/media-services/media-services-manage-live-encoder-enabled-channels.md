@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用啟用的通道來以 Azure 媒體服務執行即時編碼"
-	description="本主題描述如何設定通道，從內部部署編碼器接收單一位元速率即時串流，再利用媒體服務將此串流即時編碼為自動調整位元速率串流。串流可以隨即透過一或多個串流端點傳遞給用戶端播放應用程式，使用下列其中一個自動調整串流通訊協定：HLS、Smooth Streaming、MPEG DASH、HDS。"
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="使用啟用的通道來以 Azure 媒體服務執行即時編碼" 
+	description="本主題描述如何設定通道，從內部部署編碼器接收單一位元速率即時串流，再利用媒體服務將此串流即時編碼為自動調整位元速率串流。串流可以隨即透過一或多個串流端點傳遞給用戶端播放應用程式，使用下列其中一個自動調整串流通訊協定：HLS、Smooth Streaming、MPEG DASH、HDS。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ne"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ne" 
+	ms.topic="article" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #使用啟用的通道來以 Azure 媒體服務執行即時編碼 (預覽)
@@ -419,6 +419,14 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 - [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##相關主題
 
 [使用 Azure 媒體服務傳遞即時串流事件](media-services-live-streaming-workflow.md)
@@ -430,4 +438,4 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

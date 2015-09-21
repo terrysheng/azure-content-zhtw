@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
 
 
@@ -154,17 +154,19 @@
 
 
 
-## 加入相依性追蹤
+## 加入相依性追蹤和系統效能計數器
 
 [相依性度量](app-insights-dependencies.md)對於協助您診斷效能問題非常有價值。它們會測量您的 app 對資料庫、REST API 和其他外部元件的呼叫。
 
 ![](./media/app-insights-asp-net/04-dependencies.png)
 
-#### 如果您的 app 是在您的 IIS 伺服器中執行
+此步驟也可啟用[效能計數器報告](app-insights-web-monitor-performance.md#system-performance-counters)，例如 CPU、記憶體、網路佔用。
+
+#### 如果您的應用程式是在您的 IIS 伺服器中執行
 
 使用系統管理員權限登入您的伺服器，並安裝 [Application Insights 狀態監視器](http://go.microsoft.com/fwlink/?LinkId=506648)。
 
-(您也可以使用狀態監視器來[檢測已在執行的 app](app-insights-monitor-performance-live-website-now.md)，即使它不是使用 SDK 建置)。
+(即使應用程式不是以 SDK 建置而成，您也可以使用狀態監視器[檢測已在執行的應用程式](app-insights-monitor-performance-live-website-now.md))。
 
 #### 如果您的 app 是 Azure Web 應用程式
 
@@ -172,11 +174,15 @@
 
 ![在您的 Web 應用程式中，依序按一下 [設定]、[延伸模組]、[加入]、[Application Insights]](./media/app-insights-asp-net/05-extend.png)
 
-(延伸模組只能協助使用 SDK 建置的 app。與狀態監視器不同，它無法檢測現有的 app)。
+(延伸模組只能協助使用 SDK 建置的 app。與狀態監視器不同，它無法檢測現有的應用程式。)
+
+#### 監視 Azure 雲端服務角色
+
+我們提供[手動新增狀態監視器的程序](app-insights-cloudservices.md)。
 
 ## 可用性 Web 測試
 
-[設定 Web 測試][availability]以從外部測試您的應用程式處於線上且能夠回應。
+[設定 Web 測試][availability]以從外部測試您的應用程式已上線且反應靈敏。
 
 
 ![](./media/app-insights-asp-net/appinsights-10webtestresult.png)
@@ -220,4 +226,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

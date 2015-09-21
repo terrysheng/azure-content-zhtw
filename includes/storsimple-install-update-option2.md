@@ -1,18 +1,30 @@
+<properties 
+   pageTitle="選項 2：使用 Azure 管理入口網站套用 Update 1.2"
+   description="說明如何使用管理入口網站安裝 StorSimple 8000 系列 Update 1.2。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/08/2015"
+   ms.author="v-sharos" />
 
-#### 從 Azure 管理入口網站安裝 Update 1
+#### 從 Azure 管理入口網站安裝 Update 1.2
 
 1. 在管理入口網站中，移至 [**裝置**] 頁面，並選取您的裝置。
  
 2. 瀏覽至 [**裝置**] > [**設定**]。
 
-3. 在 [**網路介面**] 之下，找到具有已指派閘道器的網路介面。這將是 DATA 0 以外的網路介面。
+3. 在 [網路介面] 下，請先確認您有至少一個已啟用 iSCSI 的網路介面。接著，找到具有已指派閘道的網路介面 (而非 DATA 0)。
 
-4. 清除閘道器設定。請注意，因為閘道器設定需要具備雲端功能的網路介面，您將需要停用此介面的雲端存取以清除設定。
+4. 停用具有已指派閘道的網路介面，並儲存修改過的組態。請注意，系統會保留網路介面設定，因此當您稍後重新啟用此網路介面時，入口網站會還原為原始設定。
 
-5. 針對其他具有已指派閘道器的網路介面 (不含 DATA 0)，請重複步驟 4。
+7. 您現在可以[使用管理入口網站安裝 Update 1.2](#use-the-management-portal-to-install-update-1)。請遵循從本程序步驟 3 開始的指示。當您安裝完所有更新後，便可重新啟用停用的網路介面。
 
-6. 儲存已修改的設定。
-
-7. 您現在可以[使用管理入口網站安裝 Update 1](#use-the-management-portal-to-install-update-1)。
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

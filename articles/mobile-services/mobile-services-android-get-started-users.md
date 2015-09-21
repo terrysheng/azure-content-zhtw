@@ -1,6 +1,6 @@
 <properties
-	pageTitle="開始使用驗證 (Android) | Microsoft Azure"
-	description="了解如何使用行動服務透過眾多識別提供者驗證 Android 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。"
+	pageTitle="開始使用 Android 上的驗證 (JavaScript 後端) | Microsoft Azure"
+	description="了解如何使用行動服務，透過眾多識別提供者 (包括 Google、Facebook、Twitter 和 Microsoft) 驗證 Android 應用程式的使用者。"
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/04/2015"
 	ms.author="ricksal"/>
 
-# 將驗證加入至行動服務 Android 應用程式
+# 將驗證加入至行動服務 Android 應用程式 (JavaScript 後端)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
@@ -108,4 +108,4 @@
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

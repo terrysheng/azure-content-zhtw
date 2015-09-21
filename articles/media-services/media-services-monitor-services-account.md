@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -57,10 +57,18 @@ Azure 媒體服務儀表板會顯示可用來管理媒體服務帳戶的使用�
 4. 完成監視組態時，按一下 [儲存]。與媒體服務度量相似，大約一小時過後，您在儀表板上應該就會開始看到監視資料。度量存放在儲存體帳戶中的四個資料表：$MetricsTransactionsBlob、$MetricsTransactionsTable、$MetricsTransactionsQueue 及 $MetricsCapacityBlob。如需詳細資訊，請參閱＜[儲存體分析度量](http://go.microsoft.com/fwlink/?LinkId=256668)＞。
 
 
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 <!-- Images -->
 [dashboard]: ./media/media-services-monitor-services-account/media-services-dashboard.png
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

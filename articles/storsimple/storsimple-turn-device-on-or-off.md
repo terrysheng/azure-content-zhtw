@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/19/2015"
+   ms.date="09/04/2015"
    ms.author="alkohli" />
 
 # 開啟或關閉您的 StorSimple 裝置 
@@ -241,4 +241,4 @@ StorSimple 8600 型同時具有主要機箱和 EBOD 機箱。這需要使用纜�
 
 如果您在開啟或關閉 StorSimple 裝置時發生問題，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

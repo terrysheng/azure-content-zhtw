@@ -1,19 +1,19 @@
-<properties 
+<properties
  pageTitle="有關虛擬機器擴充功能和功能 | Microsoft Azure"
-	description="描述依提供或改善項目分組的虛擬機器擴充功能，例如連線能力和基本管理。"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor=""/>
-<tags 
+ description="描述依提供或改善項目分組的虛擬機器擴充功能，例如連線能力和基本管理。"
+ services="virtual-machines"
+ documentationCenter=""
+ authors="squillace"
+ manager="timlt"
+ editor=""/>
+<tags
  ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="rasquill"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
+ ms.workload="infrastructure-services"
+ ms.date="09/03/2015"
+ ms.author="rasquill"/>
 #有關虛擬機器擴充功能和功能
 Microsoft Azure 提供由 Microsoft 和信任的協力廠商提供者建置的 VM 擴充功能，來啟用安全性、執行階段、偵錯、管理和其他您可以利用的功能，以提高使用 Azure 虛擬機器時的產能。本主題描述 Azure VM 擴充功能提供給 Windows 和 Linux 虛擬機器以供您使用的各種功能，本主題也指向每一者的文件。
 
@@ -94,6 +94,6 @@ VM 擴充功能實作了您想要使用在 VM 使用的大部分重要功能，�
 |VM 擴充功能名稱|功能描述|相關資訊|
 |---|---|---|
 |**BGInfo**|呈現使用 RDP 時，桌面上實用伺服器資訊的整合圖形。|[BGInfo 擴充功能](https://msdn.microsoft.com/library/dn606289.aspx)|
-|**HpcVmDrivers**|在大小為 A8 或 A9 的虛擬機器上安裝、設定和維護下列網路裝置驅動程式，讓 VM 可以存取 Azure 遠端直接記憶體存取 (RDMA) 網路。|[HpcVmDrivers 擴充功能](https://msdn.microsoft.com/library/dn690126.aspx)
+|**HpcVmDrivers**|在執行 Windows Server 2012 R2 或 Windows Server 2012，且大小為 A8 或 A9 的 VM 上安裝、設定及維護遠端直接記憶體存取 (RDMA) 網路裝置驅動程式。啟用安裝叢集的 A8 或 A9 VM，以便在執行平行 MPI 應用程式時使用 RDMA 網路。|[關於 A8、A9、A10 和 A11 密集運算執行個體](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

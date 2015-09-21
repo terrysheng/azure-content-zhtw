@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 資料處理站-常見問題集"
-	description="關於 Azure Data Factory 的常見問題。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Azure 資料處理站-常見問題集" 
+	description="關於 Azure Data Factory 的常見問題。" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="spelluru"/>
 
 # Azure 資料處理站-常見問題集
@@ -181,4 +181,4 @@ Data Factory 可在美國西部和北歐地區使用。資料處理站所使用�
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

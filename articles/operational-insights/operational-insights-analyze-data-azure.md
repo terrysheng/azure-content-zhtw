@@ -47,7 +47,7 @@ Operational Insights 會在內部部署或雲端基礎結構中使用來自伺�
 
 ![Operational Insights 伺服器頁面的影像](./media/operational-insights-analyze-data-azure/servers.png)
 
- >[AZURE.NOTE]必須安裝 [Azure VM 代理程式](https://msdn.microsoft.com/library/azure/dn832621.aspx) 以自動安裝 Operational Insights 的代理程式。
+ >[AZURE.NOTE]必須安裝 [Azure VM 代理程式](https://msdn.microsoft.com/library/azure/dn832621.aspx) 以自動安裝 Operational Insights 的代理程式。如果您有 Azure 資源管理員虛擬機器，它不會顯示在清單中，您必須使用 PowerShell 或建立 ARM 範本來安裝代理程式。
 
 
 
@@ -56,6 +56,8 @@ Operational Insights 會在內部部署或雲端基礎結構中使用來自伺�
 如果您想要編寫指令碼以變更 Azure 虛擬機器，您可以使用 PowerShell 以啟用 Microsoft Monitoring Agent。
 
 Microsoft Monitoring Agent 是 [Azure 虛擬機器擴充功能](https://msdn.microsoft.com/library/azure/dn832621.aspx)，您可以使用 PowerShell 管理它，如下列範例所示。
+
+如需「傳統」的 Azure 虛擬機器，請使用此 PowerShell：
 
 ```powershell
 Add-AzureAccount
@@ -67,8 +69,26 @@ $hostedService="enter hosted service here"
 $vm = Get-AzureVM –ServiceName $hostedService
 Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'MicrosoftMonitoringAgent' -Version '1.*' -PublicConfiguration "{'workspaceId':  '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
 ```
+如需 Azure 資源管理員虛擬機器，請使用此 PowerShell：
 
-使用 PowerShell 進行設定時，您必須提供工作區識別碼及主要金鑰。您可以在 Operational Insights 入口網站的 [**設定**] 頁面上找到您的工作區識別碼及主要金鑰。
+```powershell
+Add-AzureAccount
+Switch-AzureMode -Name AzureResourceManager
+
+$workspaceId="enter workspace here"
+$workspaceKey="enter workspace key here"
+
+$resourcegroup = "enter resource group"
+$resourcename = "enter resource group"
+
+$vm = Get-AzureVM -ResourceGroupName $resourcegroup -Name $resourcename
+$location = $vm.Location
+
+Set-AzureVMExtension -ResourceGroupName $resourcegroup -VMName $resourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+
+```
+
+使用 PowerShell 進行設定時，您必須提供工作區識別碼及主要金鑰。您可以在 Operational Insights 入口網站的 [設定] 頁面上找到您的工作區 ID 及主要金鑰。
 
 ![來源](./media/operational-insights-analyze-data-azure/sources01.png)
 
@@ -96,7 +116,7 @@ Windows 事件記錄檔|傳送至 Windows 事件記錄系統的資訊。
 效能計數器|作業系統和自訂效能計數器。
 損毀傾印|應用程式損毀時之處理序狀態的相關資訊。
 自訂錯誤記錄檔|您的應用程式或服務所建立的記錄檔。
-NET EventSource|您的程式碼使用 .NET [EventSource 類別](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx) 所產生的事件
+NET EventSource|您的程式碼使用 .NET [EventSource 類別] (https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx) 所產生的事件
 以資訊清單為基礎的 ETW|任何處理序所產生的 ETW 事件
 Syslog|傳送至 Syslog 或 Rsyslog 精靈的事件
 
@@ -131,7 +151,7 @@ Operational Insights 目前能夠分析：
 
 ### 啟用診斷
 
-若要啟用 Windows 事件記錄檔，或變更 scheduledTransferPeriod，請使用 XML 組態檔 (diagnostics.wadcfg) 設定 Azure 診斷，如「如何在雲端服務中啟用診斷」主題中的[步驟 2：將 diagnostics.wadcfg 檔案加入至您的 Visual Studio 解決方案](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2)和[步驟 3：設定應用程式的診斷](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3)中所示。下列範例組態檔會從應用程式和系統記錄檔中收集 IIS 記錄檔和所有事件：
+若要啟用 Windows 事件記錄檔，或變更 scheduledTransferPeriod，請使用 XML 組態檔 (diagnostics.wadcfg) 設定 Azure 診斷，如＜如何在雲端服務中啟用診斷＞主題中的[步驟 2：將 diagnostics.wadcfg 檔案加入至您的 Visual Studio 解決方案](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2)和[步驟 3：設定應用程式的診斷](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3)中所示。下列範例組態檔會從應用程式和系統記錄檔中收集 IIS 記錄檔和所有事件：
 
     <?xml version="1.0" encoding="utf-8" ?>
     <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"
@@ -154,7 +174,7 @@ Operational Insights 目前能夠分析：
     </DiagnosticMonitorConfiguration>
 
 
-在「如何在雲端服務中啟用診斷」主題中的[步驟 4：設定診斷資料的儲存體](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step4)中，確定您的 ConfigurationSettings 會指定儲存體帳戶，如下列範例所示：
+在＜如何在雲端服務中啟用診斷＞主題中的[步驟 4：設定診斷資料的儲存體](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step4)中，確定您的 ConfigurationSettings 會指定儲存體帳戶，如下列範例所示：
 
 
     <ConfigurationSettings>
@@ -173,16 +193,16 @@ Operational Insights 目前能夠分析：
 ### 使用 Azure 管理入口網站啟用虛擬機器中的 Azure 診斷
 
 1. 建立虛擬機器時安裝 VM 代理程式。如果虛擬機器已經存在，請確認已安裝 VM 代理程式。
-	- 如果您使用預設的 Azure 管理入口網站建立虛擬機器，請執行 [**自訂建立**] 並選取 [**安裝 VM 代理程式**]。
-	- 如果使用新的 Azure 管理入口網站來建立虛擬機器，請依序選取 [**選用設定**] 及 [**診斷**]，並將 [**狀態**] 設為 [**開啟**]。
+	- 如果您使用預設的 Azure 管理入口網站建立虛擬機器，請執行 [自訂建立] 並選取 [安裝 VM 代理程式]。
+	- 如果使用新的 Azure 管理入口網站來建立虛擬機器，請依序選取 [選擇性組態] 及 [診斷]，並將 [狀態] 設為 [開啟]。
 
 	完成時，VM 會自動安裝和執行 Azure 診斷擴充功能以負責收集診斷資料。
 
 2. 在現有的 VM 上啟用監視和設定事件記錄。您可以在 VM 層級上啟用診斷。若要啟用診斷然後設定事件記錄，請執行下列步驟：
 	1. 選取 VM。
-	2. 按一下 [**監視**]。
-	3. 按一下 [**診斷**]。
-	4. 將 [**狀態**] 設為 [**開啟**]。
+	2. 按一下 [監視]。
+	3. 按一下 [診斷]。
+	4. 將 [狀態] 設為 [開啟]。
 	5. 選取您想要使用的每個診斷度量。Operational Insights 可分析 Windows 事件系統記錄檔、Windows 事件應用程式記錄檔和 IIS 記錄檔。
 	7. 按一下 [確定]。
 
@@ -231,11 +251,11 @@ Operational Insights 目前能夠分析：
 
 ### 由 Operational Insights 啟用分析
 
-1. 在預設的 Azure 入口網站中，瀏覽至 Operational Insights 工作區，然後選取 [**儲存體**] 索引標籤。![工作區儲存體索引標籤](./media/operational-insights-analyze-data-azure/workspace-storage-tab.png)
-2. 按一下 [**新增儲存體帳戶**] 開啟 [**新增儲存體帳戶**] 方塊。
+1. 在預設的 Azure 入口網站中，瀏覽至 Operational Insights 工作區，然後選取 [儲存體] 索引標籤。![工作區儲存體索引標籤](./media/operational-insights-analyze-data-azure/workspace-storage-tab.png)
+2. 按一下 [加入儲存體帳戶] 開啟 [加入儲存體帳戶] 方塊。
 3. 選取您要使用的儲存體帳戶。
-4. 在 [**資料類型**] 清單中選取資料類型：任何**事件**、**IIS 記錄檔**或 **Syslog (Linux)**。
-5. 按一下 [**確定**] 影像。<br> ![儲存體帳戶方塊](./media/operational-insights-analyze-data-azure/storage-account.png)
+4. 在 [資料類型] 清單中選取資料類型：任何**事件**、**IIS 記錄檔**或 **Syslog (Linux)**。
+5. 按一下 [確定] 影像。<br> ![儲存體帳戶方塊](./media/operational-insights-analyze-data-azure/storage-account.png)
 6. 為您想要收集的每一個資料類型和儲存體帳戶組合重複上述步驟。
 
 大約 1 小時後，您會開始看到來自儲存體帳戶的資料，這些資訊可在 Operational Insights 中進行分析。
@@ -249,4 +269,4 @@ Operational Insights 目前能夠分析：
 
 [設定 Proxy 和防火牆設定 (選擇性)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -290,14 +290,14 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 了解基本的服務匯流排主題之後，請參考下列連結以取得更多資訊。
 
--   請參閱 MSDN 參考：[佇列、主題和訂用帳戶][]。
+-   請參閱[佇列、主題和訂用帳戶][]。
 -   [SqlFilter][] 的 API 參考資料。
 -   造訪 GitHub 上的 [Azure SDK for Node] (英文) 儲存機制。
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Azure Management Portal]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [佇列、主題和訂用帳戶]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [建立 Node.js 應用程式並將其部署到 Azure 網站]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
@@ -305,4 +305,4 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
   [使用儲存體的 Node.js Web 應用程式]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

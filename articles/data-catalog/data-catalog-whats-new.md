@@ -1,24 +1,34 @@
 <properties
    pageTitle="Azure 資料目錄的新功能"
-	description="概略介紹 Azure 資料目錄預覽版本中的新功能。"
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="概略介紹 Azure 資料目錄預覽版本中的新功能。"
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/28/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="09/04/2015"
+   ms.author="maroche"/>
 
 # Azure 資料目錄的新功能
 
 **Azure 資料目錄**的更新會定期發行。並非所有發行版本都會包含供使用者使用的新功能，某些版本著重在後端服務功能。本頁將特別強調已加入 **Azure 資料目錄**服務的新使用者功能。
+
+## 2015 年 9 月 4 日當週發行的新功能
+
+自 2015 年 9 月 4 日當週起，**Azure 資料目錄**已加入下列功能：
+
+- 支援手動註冊未知的資料來源類型。使用者可以使用 **Azure 資料目錄**入口網站手動輸入資料來源資訊 ，這樣一來，資料來源註冊工具未明確支援的資料來源，就可以加上註解並加以探索。
+- 支援註冊與探索 SQL Server 資料庫以做為容器。註冊 SQL Server 資料表和檢視時，**Azure 資料目錄**會建立該資料庫以及資料表和檢視的項目。您可以使用 **Azure 資料目錄**入口網站探索資料庫並為其加上註解。除了搜尋和篩選目錄的內容之外，使用者也可以搜尋和篩選資料庫的內容。
+
+
+> [AZURE.NOTE]2015 年 9 月 4 日之前註冊的 SQL Server 資料表和檢視，必須在資料庫項目加入目錄之前，使用資料來源註冊工具重新加以註冊。重新註冊資料來源並不會影響使用者在 **Azure 資料目錄**入口網站所加入的任何註解。
 
 ## 2015 年 8 月 28 日當週發行的新功能
 
@@ -37,4 +47,4 @@
 - 僅限 Standard Edition：現在將擁有者加入資料資產時，**Azure 資料目錄**可支援讓使用者帳戶和安全性群組做為擁有者。若要將安全性群組加入並使其成為所選資料資產的擁有者，您可以輸入群組的顯示名稱或群組的 UPN 電子郵件地址 (如果有的話)。
 - 支援 Azure Blob 儲存體的資料來源。使用者現在可以註冊並探索 Azure 儲存體 Blob 和目錄。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

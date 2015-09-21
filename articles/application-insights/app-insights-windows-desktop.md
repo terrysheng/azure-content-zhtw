@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/19/2015" 
+	ms.date="09/07/2015" 
 	ms.author="awills"/>
 
 # Windows 傳統型應用程式、服務和背景工作角色上的 Application Insights
@@ -23,7 +23,9 @@
 
 Application Insights 可讓您監視所部署應用程式的使用量和效能。
 
-所有的 Windows 應用程式 - 包括傳統型應用程式、背景服務和背景工作角色 - 都能使用 Application Insights 核心 SDK 傳送遙測至 Application Insights。核心 SDK 僅提供一個 API：不同於 Web 或裝置 SDK，它不包含任何自動收集資料的模組，因此您必須撰寫程式碼來傳送您自己的遙測。
+所有的 Windows 應用程式 - 包括傳統型應用程式、背景服務和背景工作角色 - 都能使用 Application Insights 核心 SDK 傳送遙測至 Application Insights。您也可以將 Application Insights SDK 新增至類別庫專案。
+
+核心 SDK 僅提供一個 API：不同於 Web 或裝置 SDK，它不包含任何自動收集資料的模組，因此您必須撰寫程式碼來傳送您自己的遙測。效能計數器收集器等某些其他封裝也能在桌面應用程式中運作。
 
 
 ## <a name="add"></a> 建立 Application Insights 資源
@@ -46,25 +48,27 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 
     ![以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 封裝]](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. 安裝 Application Insights 核心 API 套件。
+2. 安裝 Application Insights 核心 API 套件：Microsoft.ApplicationInsights。
 
     ![搜尋「Application Insights」](./media/app-insights-windows-desktop/04-core-nuget.png)
 
-    您可以安裝其他封裝 (例如效能計數器) 或是記錄擷取封裝，以便使用其功能。
+    *可以使用其他封裝嗎？*
 
-3. 在程式碼中設定您的 InstrumentationKey，例如在 main() 中。
+    可以，您可以安裝其他封裝 (例如效能計數器或是相依性收集器封裝)，以便使用其模組。Microsoft.ApplicationInsights.Web 包含數個這類封裝。如果您想要使用[記錄或追蹤收集器封裝](app-insights-asp-net-trace-logs.md)，請從使用 Web 伺服器封裝開始。
 
-    `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
+    (但請勿使用 Microsoft.ApplicationInsights.Windows：其只適用於 Windows 市集應用程式。)
 
-*為什麼沒有 ApplicationInsights.config？*
+3. 設定您的 InstrumentationKey。
 
-* 核心 API 套件未安裝 .config 檔案，此套件只能用來設定遙測收集器。因此您可以撰寫自己的程式碼，以設定檢測金鑰並傳送遙測。
-* 如果您安裝其中一個其他封裝，您必須具備 .config 檔案。您可以在該處插入檢測金鑰，而非在程式碼中設定。
+    * 如果您只安裝核心 API 封裝 Microsoft.ApplicationInsights，您必須在程式碼中設定金鑰，例如在 main ()： 
 
-*可不可以使用不同的 NuGet 封裝？*
+     `TelemetryConfiguration.Active.InstrumentationKey = "`*您的金鑰*`";`
 
-* 可以，您可以使用 Web 伺服器封裝 (Microsoft.ApplicationInsights.Web)，這會安裝多種集合模組 (例如效能計數器) 的收集器。它會安裝您要在其中放置檢測金鑰的.config 檔案。使用 [ApplicationInsights.config 停用您不想要的模組](app-insights-configuration-with-applicationinsights-config.md)，例如 HTTP 要求收集器。 
-* 如果您想要使用[記錄或追蹤收集器封裝](app-insights-asp-net-trace-logs.md)，請從使用 Web 伺服器封裝開始。 
+    * 如果您安裝其中一個其他封裝，您可以使用程式碼設定金鑰，或在 ApplicationInsights.config 中設定：
+ 
+     `<InstrumentationKey>`*您的金鑰*`</InstrumentationKey>`
+
+
 
 ## <a name="telemetry"></a>插入遙測呼叫
 
@@ -108,14 +112,12 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 
 使用任一個 [Application Insights API][api] 來傳送遙測。在 Windows 桌面應用程式中，不會自動傳送遙測。一般您會使用：
 
-* TrackPageView(pageName) 用於切換表單、頁面或索引標籤
-* TrackEvent(eventName) 用於其他使用者動作
-* TrackMetric(name, value) 用在背景工作，以傳送未附加到特定事件之度量的一般報告。
-* TrackTrace(logEvent) 用於[診斷記錄][diagnostic]
-* TrackException(exception) 用在 catch 子句中
-
-
-若要確定所有遙測在關閉應用程式之前都已傳送，請使用 `TelemetryClient.Flush()`。一般來說，遙測會批次處理並定期傳送。(只有在您僅使用核心 API 時才建議使用排清。Web 和裝置 SDK 會自動實作此行為。)
+* 在切換表單、頁面或索引標籤上的 `TrackPageView(pageName)`
+* 其他使用者動作的 `TrackEvent(eventName)`
+* 背景工作中的 `TrackMetric(name, value)`，可傳送未附加到特定事件之度量的一般報告。
+* [診斷記錄][][diagnostic] 的 `TrackTrace(logEvent)`
+* catch 子句中的 `TrackException(exception)`
+* `Flush()` 確定所有遙測在關閉應用程式之前都已傳送。只有當您只使用核心 API (Microsoft.ApplicationInsights) 時才可以使用此選項。Web 和裝置 SDK 會自動實作此行為。(如果您的應用程式會在不一定有網際網路的內容中執行，請參閱[持續性通道](#persistence-channel)。)
 
 
 #### 內容初始設定式
@@ -160,12 +162,114 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 
 返回 Azure 入口網站中的應用程式分頁。
 
-前幾個事件將出現在診斷搜尋中。
+前幾個事件將出現在[診斷搜尋](app-insights-diagnostic-search.md)中。
 
 如果您預期有更多資料，請在幾秒之後按一下 [重新整理]。
 
-如果您使用 TrackMetric 或 TrackEvent 的測量參數，請開啟 [[計量瀏覽器][metrics]]，並開啟 [篩選器] 分頁，您可在其中看到所有的度量。
+如果您使用 TrackMetric 或 TrackEvent 的測量參數，請開啟 [計量瀏覽器][][metrics]，並開啟 [篩選器] 刀鋒視窗。您應該會看到您的度量，但是它們有時可能需要一些時間才能通過管線，所以您可能必須關閉篩選器刀鋒視窗、稍待片刻，然後重新整理。
 
+
+
+## 持續性通道 
+
+如果您的應用程式在不一定有網際網路連線或速度很慢的地方執行，請考慮使用持續性通道，而不使用預設的記憶體中通道。
+
+預設的記憶體中通道將會在應用程式關閉時遺失任何尚未傳送的遙測。雖然您可以使用 `Flush()` 嘗試傳送緩衝區中剩餘的任何資料，如果沒有網際網路連線，它就會逾時，並且在應用程式關閉時延遲。
+
+相較之下，持續性通道會緩衝處理檔案中的遙測，再將它傳送至入口網站。`Flush()` 可確保資料會儲存在檔案中。如果任何資料未在應用程式關閉時傳送，它會保留在檔案中。當應用程式重新啟動時，即使沒有網際網路連線，資料也會傳送。在連線可用之前，資料都會視需求累積在檔案中。
+
+### 使用持續性通道
+
+1. 匯入 NuGet 封裝 [Microsoft.ApplicationInsights.PersistenceChannel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PersistenceChannel)。
+2. 在適當的初始化位置，將此程式碼納入您的應用程式中：
+ 
+    ```C# 
+
+      using Microsoft.ApplicationInsights.Channel;
+      using Microsoft.ApplicationInsights.Extensibility;
+      ...
+
+      // Set up 
+      TelemetryConfiguration.Active.InstrumentationKey = "YOUR INSTRUMENTATION KEY";
+ 
+      TelemetryConfiguration.Active.TelemetryChannel = new PersistenceChannel();
+    
+    ``` 
+3. 在您的應用程式關閉之前使用 `telemetryClient.Flush()`，以確定資料已傳送至入口網站或儲存至檔案。
+
+ 
+持續性通道最適合裝置的案例，其中應用程式所產生的事件數目相對較少，而連線通常不可靠。這個通道會先將磁碟的事件寫入到可靠的儲存空間，然後嘗試傳送它。
+
+#### 範例
+
+假設您想要監視未處理的例外狀況。您訂閱 `UnhandledException` 事件。在回呼中，您可以包含對排清的呼叫，以確定會保存遙測。
+ 
+```C# 
+
+AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException; 
+ 
+... 
+ 
+private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e) 
+{ 
+    ExceptionTelemetry excTelemetry = new ExceptionTelemetry((Exception)e.ExceptionObject); 
+    excTelemetry.SeverityLevel = SeverityLevel.Critical; 
+    excTelemetry.HandledAt = ExceptionHandledAt.Unhandled; 
+ 
+    telemetryClient.TrackException(excTelemetry); 
+ 
+    telemetryClient.Flush(); 
+} 
+
+``` 
+
+當應用程式關閉時，您會看到 `%LocalAppData%\Microsoft\ApplicationInsights` 中的檔案，包含壓縮的事件。
+ 
+下次您啟動此應用程式時，通道將盡可能找出此檔案並傳送遙測至 Application Insights。
+
+#### 測試範例
+
+```C#
+
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Send data from the last time the app ran
+            System.Threading.Thread.Sleep(5 * 1000);
+
+            // Set up persistence channel
+
+            TelemetryConfiguration.Active.InstrumentationKey = "YOUR KEY";
+            TelemetryConfiguration.Active.TelemetryChannel = new PersistenceChannel();
+
+            // Send some data
+
+            var telemetry = new TelemetryClient();
+
+            for (var i = 0; i < 100; i++)
+            {
+                var e1 = new Microsoft.ApplicationInsights.DataContracts.EventTelemetry("persistenceTest");
+                e1.Properties["i"] = "" + i;
+                telemetry.TrackEvent(e1);
+            }
+
+            // Make sure it's persisted before we close
+            telemetry.Flush();
+        }
+    }
+}
+
+```
+
+
+持續性通道的程式碼位於 [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/master/src/TelemetryChannels/PersistenceChannel) 上。
 
 
 ## <a name="usage"></a>後續步驟
@@ -190,4 +294,4 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

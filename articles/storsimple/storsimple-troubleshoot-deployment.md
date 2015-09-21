@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="StorSimple 裝置部署問題的疑難排解 | Microsoft Azure"
+   pageTitle="StorSimple 部署問題的疑難排解 | Microsoft Azure"
    description="說明如何診斷和修正您第一次部署 StorSimple 時發生的錯誤。"
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/18/2015"
+   ms.date="09/04/2015"
    ms.author="alkohli" />
 
 # StorSimple 裝置部署問題的疑難排解
@@ -575,4 +575,4 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

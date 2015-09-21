@@ -1,18 +1,20 @@
 <properties 
-	pageTitle="計算 Azure 所提供的裝載選項"
-	description="了解 Azure 計算裝載選項以及其運作方式：虛擬機器、網站、雲端服務等。"
+	pageTitle="計算 Azure 所提供的裝載選項" 
+	description="了解 Azure 計算裝載選項以及其運作方式：虛擬機器、網站、雲端服務等。" 
+	headerExpose="" 
+	footerExpose="" 
 	services="cloud-services,virtual-machines"
-	authors="Thraka"
+	authors="Thraka" 
 	documentationCenter=""
 	manager="timlt"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="adegeo;cephalin;kathydav"/>
 
 
@@ -24,7 +26,7 @@ Azure 對於執行的應用程式提供不同的裝載模型。每個模型都�
 
 | 計算選項 | 對象 |
 | ------------------ | --------   |
-| [應用程式服務] | 適用於所有裝置的可調整 Web Apps、Mobile Apps、API Apps 及 Logic Apps |
+| [App Service] | 適用於所有裝置的可調整 Web Apps、Mobile Apps、API Apps 及 Logic Apps |
 | [雲端服務] | 可用性和延展性極佳，且能透過 OS 更充分進行控制的多層式架構 (N-Tier) 雲端應用程式 |
 | [虛擬機器] | 具備完整的 OS 控制能力的自訂 Windows 和 Linux VM |
 
@@ -68,15 +70,15 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 [07_CombineTechnologies]: ./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png
 !-->
 
-[應用程式服務]: #tellmeas
+[App Service]: #tellmeas
 [虛擬機器]: #tellmevm
 [雲端服務]: #tellmecs
 
 ## 後續步驟
 
 * [比較](../choose-web-site-cloud-service-vm/) App Service、雲端服務和虛擬機器之間的差異
-* 深入了解 [應用程式服務](../app-service-web-overview.md)
+* 深入了解 [App Service](../app-service-web-overview.md)
 * 深入了解[雲端服務](services/cloud-services/)
 * 深入了解[虛擬機器](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

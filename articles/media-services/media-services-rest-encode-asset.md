@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -257,6 +257,15 @@
 	. . . 
 
 
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##後續步驟
 您已了解如何建立為資產編碼的工作，現在請移至[如何使用媒體服務檢查工作進度](media-services-rest-check-job-progress.md) (英文) 主題。
 
@@ -265,4 +274,4 @@
 
 [取得媒體處理器](media-services-rest-get-media-processor.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

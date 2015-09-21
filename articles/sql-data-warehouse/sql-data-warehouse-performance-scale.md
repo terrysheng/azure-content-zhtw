@@ -1,20 +1,20 @@
 <properties
    pageTitle="SQL 資料倉儲的彈性效能與延展性 | Microsoft Azure"
-	description="使用資料倉儲單位相應增加和減少計算資源，了解 SQL 資料倉儲的彈性。提供程式碼範例。"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="TwoUnder"
-	manager="barbkess"
-	editor=""/>
+   description="使用資料倉儲單位相應增加和減少計算資源，了解 SQL 資料倉儲的彈性。提供程式碼範例。"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="TwoUnder"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="06/25/2015"
-	ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/09/2015"
+   ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
 
 # SQL 資料倉儲的彈性效能與延展性
 如要彈性地增加或減少您的計算能力，您只需調整配置給 SQL 資料倉儲的資料倉儲單位 (DWU) 數量。資料倉儲單位是 SQL 資料倉儲帶來的新概念，可讓您輕鬆又有效地進行管理。本主題是資料倉儲單位的簡介，說明如何使用資料倉儲單位彈性調整計算能力。本文也提供有關針對環境設定合理 DWU 值的一些初始指導。
@@ -23,18 +23,15 @@
 Microsoft 會在幕後執行許多效能基準測試，以判斷需要多少硬體和哪些組態才能為客戶提供具競爭力的供應項目。相應增加和減少計算能力可透過 100 個 DWU 的區塊完成，但不會提供 100 個 DWU 的所有倍數。
 
 ## 應該使用多少 DWU 呢？
-SQL 資料倉儲可為客戶解鎖許多不同的解決方案。因此，客戶將可執行各式各樣的查詢類型，而操作的資料量、結構描述的架構、散發資料的方式、可存取資料的使用者數量、存取頻率等...，也各有不同。
+與其針對某個客戶類別提供可能合適的規範性 DWU 起始點，我們還是透過實用的方法著手解決這個問題。SQL 資料倉儲的效能是以線性方式調整，在幾秒內就能從某個計算比例變更為另一個 (例如從 100 個 DWU 至 2000 個 DWU)。這可讓您靈活嘗試並判斷案例的最適數目。
 
-與其針對某個客戶類別提供可能合適的規範性 DWU 起始點，我們還是透過實用的方法著手解決這個問題。SQL 資料倉儲的效能是以線性方式調整，在幾秒內就能從某個計算比例變更為另一個 (例如從 100 個 DWU 至 2000 個 DWU)。這可讓您盡情嘗試，並判斷哪個比例最適合您的狀況。
-
-
-1. 開發中的資料倉儲可從少量的 DWU 開始。
-2. 監視應用程式效能，以熟悉 DWU 與您觀察到的效能之間的相對關係。
-3. 假設線性調整方式，判斷需要將效能加快或減慢多少才能達到您業務需求的最佳效能等級。 
-4. 根據需求，增加或減少您使用的 DWU 數量。服務會迅速回應並調整計算資源，以符合 DWU 需求。
+1. 若是開發過程中的資料倉儲，可從少量的 DWU 開始。
+2. 監視應用程式效能，觀察比較所選 DWU 數目與您觀察到的效能。
+3. 透過假設線性標尺，判斷需要將效能加快或減慢多少才能達到您需求的最佳效能等級。 
+4. 增加或減少選取的 DWU 數目。服務會迅速回應並調整計算資源，以符合 DWU 需求。
 5. 繼續進行調整，直到達到您業務需求的最佳效能為止。
 
-如果應用程式的工作負載持續變動，則您可以上移或下移效能等級以配合尖峰和離峰點。比方說，如果工作負載尖峰通常落在月底，您就可以規劃在尖峰天數期間新增更多 DWU，並在尖峰期間結束之後加以節流。
+如果應用程式的工作負載持續變動，請將效能等級上移或下移，以配合尖峰和離峰點。比方說，如果工作負載尖峰通常落在月底，可規劃在尖峰天數期間新增更多 DWU，然後在尖峰期間結束之後相應減少。
  
 ## 相應增加和減少計算資源
 SQL 資料倉儲不仰賴雲端儲存空間運作，其絕佳的彈性可讓您透過資料倉儲單位 (DWU) 的滑動標尺，增加、縮減或暫停計算能力。這樣就能將您的計算能力彈性調整為最適合您業務的計算能力。
@@ -96,4 +93,4 @@ Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Se
 
 [Azure 入口網站]: http://portal.azure.com/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="使用 Azure Machine Learning 進行存活分析 | Microsoft Azure"
-	description="存活分析 - 事件發生機率"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="使用 Azure Machine Learning 進行存活分析 | Microsoft Azure" 
+	description="存活分析 - 事件發生機率" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="zhangya" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="jaymathe"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/02/2015" 
+	ms.author="zhangya"/>
 
 
 #存活分析 
@@ -207,4 +207,4 @@ Azure Machine Learning 中已建立新的空白實驗，並將兩個[執行 R �
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

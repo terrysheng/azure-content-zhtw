@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -95,6 +95,16 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 動態封裝不支援下列來源檔案格式。
 
 - Dolby digital 加上 mp4 檔案。
-- Dolby digital 加上 smooth 檔案。 
+- Dolby digital 加上 smooth 檔案。
 
-<!---HONumber=August15_HO7-->
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+ 
+
+<!---HONumber=Sept15_HO2-->

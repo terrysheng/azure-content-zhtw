@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Microsoft Azure 儲存體效能與延展性檢查清單"
+	pageTitle="Azure 儲存體效能與延展性檢查清單 | Microsoft Azure"
 	description="在開發具效能的應用程式中使用 Azure 儲存體的實證做法檢查清單。"
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah"
+	manager="carolz"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Microsoft Azure 儲存體效能與延展性檢查清單
@@ -104,7 +104,7 @@ Azure 檔案服務目前為預覽版，我們將於日後加入以下的已經�
 -	如果您的應用程式達到延展性目標，那麼請確定使用指數輪詢進行重試 (請參閱[重試](#subheading14))。最好的方式是確保您一定不會達到延展性目標 (方法是使用上述其中一個方法)，但這可確保您的應用程式不會持續快速重試，而降低節流的效能。  
 
 ####有用資源
-下列連結提供延展性目標上的其他詳細資料：您可以在 [MSDN 上的 Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/library/azure/dn249410.aspx)頁面上檢視目前的延展性目標。您可以進一步了解 [Azure 儲存體備援選項和讀取異地備援儲存體](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)部落格文章中的儲存體備援選項。如需詳細資訊，請參閱下一節；如需 Azure 服務的目前定價資訊，請參閱 [Azure 定價概述](http://azure.microsoft.com/pricing/overview/)。
+下列連結提供延展性目標的其他詳細資料：- 請參閱 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md)以取得延展性目標的詳細資訊。- 請參閱 [Azure 儲存體複寫](storage-redundancy.md)以及 [Azure 儲存體備援選項和讀取異地備援儲存體](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)部落格文章，以取得儲存體備援選項相關資訊。- 如需 Azure 服務的目前定價資訊，請參閱 [Azure 定價](http://azure.microsoft.com/pricing/overview/)。
 
 ###網路
 雖然 API 呼叫非常重要，但應用程式的實體網路限制經常會對效能產生重大影響。下列說明了使用者可能會遇到的部分限制。
@@ -117,7 +117,7 @@ Azure 檔案服務目前為預覽版，我們將於日後加入以下的已經�
 與任何網路使用方式一樣，請留意導致錯誤和封包遺失的網路狀況將會減慢有效的輸送量。使用 WireShark 或 NetMon 可能有助於診斷此問題。
 
 #####有用資源
-如需虛擬機器大小與所配置頻寬的詳細資訊，請參閱 MSDN 上的 [Azure 雲端服務上大規模服務設計的最佳做法](http://msdn.microsoft.com/library/azure/dn197896.aspx)。
+如需虛擬機器大小與所配置頻寬的詳細資訊，請參閱[虛擬機器大小](../virtual-machines/virtual-machines-size-specs.md)。
 
 ####<a name="subheading4"></a>位置
 在任何分散式環境中，將用戶端放置於伺服器附近可提供最佳的效能。若要以最低的延遲時間存取 Azure 儲存體，對用戶端而言的最佳位置是在同一個 Azure 區域內。例如，如果您擁有使用 Azure 儲存體的 Azure 網站，您應將這兩者置於單一區域內 (例如，美國西部或東南亞)。這可降低延遲和成本 — 本文撰寫期間，在單一區域內的頻寬使用量是免費的。
@@ -139,7 +139,7 @@ Azure 檔案服務目前為預覽版，我們將於日後加入以下的已經�
 ####有用資源
 如需 SAS 的詳細資訊，請參閱[共用存取簽章：第 1 部分：了解 SAS 模型](../storage-dotnet-shared-access-signature-part-1/)。
 
-如需 CORS 的詳細資訊，請參閱 [MSDN 上之 Azure 儲存體服務的跨原始來源資源分享 (CORS) 支援](http://msdn.microsoft.com/library/azure/dn535601.aspx) (英文)。
+如需 CORS 的詳細資訊，請參閱[跨原始資源共用 (CORS) 支援 Azure 儲存體服務](http://msdn.microsoft.com/library/azure/dn535601.aspx)。
 
 ###快取
 ####<a name="subheading7"></a>取得資料
@@ -149,7 +149,7 @@ Azure 檔案服務目前為預覽版，我們將於日後加入以下的已經�
 
 組態、查詢和其他持續被應用程式使用的資料是進行快取的最佳候選對象。
 
-如需如何使用 .NET 來取得 Blob 屬性，以找出最後修改日期的範例，請參閱 MSDN 上的[設定和擷取屬性及中繼資料](http://msdn.microsoft.com/library/azure/hh225342.aspx)。如需條件式下載的詳細資訊，請參閱 MSDN 上的[有條件地重新整理 Blob 的本機複本](http://msdn.microsoft.com/library/azure/dd179371.aspx)。
+如需如何使用 .NET 來取得 Blob 屬性，以找出最後修改日期的範例，請參閱[設定和擷取屬性及中繼資料](storage-properties-metadata.md)。如需條件式下載的詳細資訊，請參閱[指定 Blob 服務作業的條件式標頭](http://msdn.microsoft.com/library/azure/dd179371.aspx)。
 
 ####<a name="subheading8"></a>以批次方式上傳資料
 在某些應用程式案例中，您可以在本機彙總資料，然後以批次方式將它定期上傳，而非立即上傳每一份資料。例如，Web 應用程式可保留活動記錄檔︰應用程式可以在每次活動發生時，以資料表實體的格式 (這需要許多儲存體作業) 將每個活動的詳細資料上傳到 Blob，或可以將活動詳細資料儲存到本機記錄檔，然後以使用分隔符號的檔案格式將所有活動詳細資料定期上傳到 Blob。如果每筆記錄項目的大小是 1KB，您可以在單一 “Put Blob” 交易中上傳上千筆記錄項目 (您可以在單一交易中上傳的 Blob 大小上限為 64MB)。當然，如果本機電腦在上傳前當機，您可能會失去一些記錄資料：應用程式開發人員必須針對用戶端裝置的可能性進行設計，或上傳失敗。如果必須上傳活動資料以取得 Timespan (而不是只是單一活動)，則我們建議選擇 Blob 勝過資料表。
@@ -166,19 +166,19 @@ Azure 檔案服務目前為預覽版，我們將於日後加入以下的已經�
 
 若是其他程式設計語言，請參閱該語言的文件以確定如何設定連線限制。
 
-如需詳細資訊，請參閱 MSDN 上的 [Web 服務：並行連線](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx)文章。
+如需詳細資訊，請參閱 [Web 服務：並行連線](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx)部落格文章。
 
 ####<a name="subheading10"></a>如果使用同步程式碼搭配 Async Task，則提高 ThreadPool 的執行緒數量下限
 此程式碼將提高執行緒集合的執行緒數量下限：
 
 	ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 
-如需詳細資訊，請參閱 MSDN 上的 [ThreadPool.SetMinThreads 方法](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx)。
+如需詳細資訊，請參閱 [ThreadPool.SetMinThreads 方法](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx))。
 
 ####<a name="subheading11"></a>充分運用 .NET 4.5 記憶體回收
 在用戶端應用程式中使用 .NET 4.5 或更新版本，以便在伺服器記憶體回收中充分運用效能改善。
 
-如需詳細資訊，請參閱 MSDN 上的 [.NET 4.5 中的效能改善概觀](http://msdn.microsoft.com/magazine/hh882452.aspx) (英文) 文章。
+如需詳細資訊，請參閱 [.NET 4.5 中的效能改進概觀](http://msdn.microsoft.com/magazine/hh882452.aspx)文章。
 
 ###<a name="subheading12"></a>無限制的平行處理原則
 雖然平行處理原則對效能而言是一大利器，但在使用無限制的平行處理原則 (沒有執行緒數量和/或平行要求的限制) 來上傳或下載資料、使用多個背景工作來存取相同儲存體帳戶內的多個資料分割 (容器、佇列或資料表分割)，或存取相同資料分割中的多個項目時，請小心處理。如果平行處理原則沒有限制，則您的應用程式可超出用戶端裝置的功能或儲存體帳戶的延展性目標，因而產生較長的延遲與節流作業。
@@ -205,7 +205,7 @@ Azure 檔案服務目前為預覽版，我們將於日後加入以下的已經�
 ####<a name="subheading16"></a>每個 Blob 的頻寬和作業
 您能夠以高達上限 60 MB/秒 (這大約是 480 Mbps，已超出許多用戶端網路的功能，包括用戶端裝置上的實體 NIC) 的速度來讀取或寫入單一 Blob。此外，單一 Blob 每秒支援高達 500 個要求。如果您有多個需要讀取相同 Blob 的用戶端，您可能超出這些限制，您應考慮使用 CDN 來分散 Blob。
 
-如需 Blob 的目標輸送量詳細資訊，請參閱 MSDN 上的 [Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/library/azure/dn249410.aspx)。
+如需 Blob 的目標輸送量詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md)。
 
 ###複製與移動 Blob
 ####<a name="subheading17"></a>複製 Blob
@@ -215,7 +215,7 @@ Azure 檔案服務目前為預覽版，我們將於日後加入以下的已經�
 
 請注意，在相同儲存體帳戶本身內進行複製通常可快速完成。
 
-如需詳細資訊，請參閱[在 MSDN 上複製 Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx)。
+如需詳細資訊，請參閱[複製 Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx)。
 
 ####<a name="subheading18"></a>使用 AzCopy
 Azure 儲存體團隊推出一個命令列工具 “AzCopy”，旨在協助將多個 Blob 大量傳輸至儲存體帳戶、從儲存體帳戶複製，及跨儲存體帳戶進行複製。此工具已針對此案例進行最佳化，且可達到高傳輸率。建議在大量上傳、下載和複製案例中使用此工具。您可以深入了解此工具，並在[此處](storage-use-azcopy.md)下載。
@@ -224,9 +224,9 @@ Azure 儲存體團隊推出一個命令列工具 “AzCopy”，旨在協助將�
 Azure 儲存體針對超大量的資料 (大於 1TB) 提供匯入/匯出服務，這允許透過寄送硬碟的方式，從 Blob 儲存體進行上傳和下載。您可以將資料放在硬碟上，並將它寄送到 Microsoft 進行上傳，或寄送空白硬碟到 Microsoft 以下載資料。您可以在[此處](storage-import-export-service.md)閱讀相關資訊。這會比透過網路來上傳/下載此大量資料還要有效率。
 
 ###<a name="subheading20"></a>使用中繼資料
-Blob 服務支援包含 Blob 中繼資料的標頭要求。例如，如果您的應用程式需要相片的 EXIF 資料，它可以擷取相片並擷取該資料。若要節省頻寬並改善效能，當應用程式上傳相片時，您的應用程式可以在 Blob 的中繼資料中儲存 EXIF 資料：您即可僅使用一個 HEAD 要求來擷取中繼資料中的 EXIF 資料，並節省大量頻寬以及每次讀取 Blob 時擷取 EXIF 資料所需的處理時間。這在您僅需要中繼資料而非 Blob 完整內容的案例中，此操作會很有幫助。請注意，每個 Blob 僅可儲存 8KB 的中繼資料 (此服務不接受超過此值的儲存要求)，因此如果資料不符合該大小，則您可能無法使用此方法。
+Blob 服務支援包含 Blob 中繼資料的標頭要求。例如，如果您的應用程式需要相片的 EXIF 資料，它可以擷取相片並擷取該資料。若要節省頻寬並改善效能，當應用程式上傳相片時，您的應用程式可以在 Blob 的中繼資料中儲存 EXIF 資料：您即可僅使用一個 HEAD 要求來擷取中繼資料中的 EXIF 資料，並節省大量頻寬以及每次讀取 Blob 時擷取 EXIF 資料所需的處理時間。這在您僅需要中繼資料而非 Blob 完整內容的案例中，此操作會很有幫助。請注意，每個 Blob 僅可儲存 8 KB 的中繼資料 (此服務不接受超過此值的儲存要求)，因此如果資料不符合該大小，您就可能無法使用此方法。
 
-如需如何使用 .NET 來取得 Blob 中繼資料，請參閱 MSDN 上的[設定和擷取屬性及中繼資料](http://msdn.microsoft.com/library/azure/hh225342.aspx)。
+如需如何使用 .NET 來取得 Blob 中繼資料的範例，請參閱[設定和擷取屬性及中繼資料](storage-properties-metadata.md)。
 
 ###快速上傳
 若要快速上傳 Blob，請先回答一個問題：您會上傳一或多個 Blob？ 使用下列指引，根據您的案例來判斷所要使用的正確方法。
@@ -237,7 +237,7 @@ Blob 服務支援包含 Blob 中繼資料的標頭要求。例如，如果您的
 -	.NET：在要使用的 BlobRequestOptions 物件上設定 ParallelOperationThreadCount。
 -	Java/Android：使用 BlobRequestOptions.setConcurrentRequestCount()
 -	Node.js：在要求選項或在 Blob 服務上使用 parallelOperationThreadCount。
--	C++：使用 blob_request_options::set_parallelism_factor 方法。
+-	C++：使用 blob\_request\_options::set\_parallelism\_factor 方法。
 
 ####<a name="subheading22"></a>快速上傳多個 Blob
 若要快速上傳多個 Blob，請平行上傳 Blob。因為這個方法會將上傳散佈到儲存體服務的多個資料分割，因此會比搭配平行區塊上傳一次上傳單一 Blob 的方法要快。單一 Blob 僅支援 60 MB/秒 (大約是 480 Mbps) 的輸送量。本文撰寫期間，位於美國的 LRS 帳戶支援高達 20 Gbps 輸入，這比個別 Blob 所支援的輸送量要大的多。[AzCopy](#subheading18) 依預設會執行平行上傳，在此案例中我們建議使用此方法。
@@ -245,7 +245,7 @@ Blob 服務支援包含 Blob 中繼資料的標頭要求。例如，如果您的
 ###<a name="subheading23"></a>選擇 Blob 的正確類型
 Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。在指定使用的案例中，您的 Blob 類型選擇將會影響解決方案的效能和延展性。區塊 Blob 適用於您想要有效地上傳大量資料時：例如，用戶端應用程式可能需要將相片或視訊上傳至 Blob 儲存體。分頁 Blob 則適用於應用程式需要執行隨機寫入資料時：例如，將 Azure VHD 儲存為分頁 Blob。
 
-如需詳細資訊，請參閱 MSDN 上的[了解區塊 Blob 和分頁 Blob](http://msdn.microsoft.com/library/azure/ee691964.aspx)。
+如需詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob](http://msdn.microsoft.com/library/azure/ee691964.aspx)。
 
 ##資料表
 除了上述[所有服務](#allservices)的已經實證做法以外，下列已經實證的做法尤其適用於資料表服務。
@@ -265,7 +265,7 @@ Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。在指定使用�
 ####<a name="subheading25"></a>使用 JSON
 自儲存體服務版本 2013-08-15 開始，資料表服務支援使用 JSON (而非以 XML 為基礎的 AtomPub 格式) 來轉換資料表資料。這可降低約 75% 的裝載大小，並可大幅提高您的應用程式效能。
 
-如需詳細資訊，請參閱 MSDN 上的文章 [Microsoft Azure 資料表：JSON 簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx)和[表格服務作業的裝載格式](http://msdn.microsoft.com/library/azure/dn535600.aspx)。
+如需詳細資訊，請參閱 [Microsoft Azure 資料表：JSON 簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx)文章和[表格服務作業的裝載格式](http://msdn.microsoft.com/library/azure/dn535600.aspx)。
 
 ####<a name="subheading26"></a>關閉 Nagle
 在不同的 TCP/IP 網路中已廣泛採用 Nagle 的演算法，來作為提高網路效能的方法。不過，它並非是所有情況下的最佳作法 (例如高互動式環境)。在 Azure 儲存體中，Nagle 的演算法對於資料表和佇列服務要求的效能有負面的影響，可以的話您應將它停用。
@@ -353,7 +353,7 @@ Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。在指定使用�
 ###<a name=subheading39"></a>延展性限制
 單一佇列每秒可以處理大約 2000 則訊息 (每則訊息 1 KB) (每個 AddMessage、GetMessage 和 DeleteMessage 在此算一則訊息)。如果這對於您的應用程式而言還不足夠，您應該使用多個佇列並將訊息分散於這些佇列。
 
-您可以在 [MSDN 上的 Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/library/azure/dn249410.aspx)頁面上檢視目前的延展性目標。
+在 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md)上檢視目前的延展性目標。
 
 ###<a name=subheading40"></a>關閉 Nagle
 請參閱討論 Nagle 演算法的資料表組態一節 — Nagle 演算法通常對佇列要求的效能有負面影響，您應將它停用。
@@ -384,4 +384,4 @@ Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。在指定使用�
 本文討論一些最常見的已經實證做法，以便在使用 Azure 儲存體時將效能最佳化。我們鼓勵每位應用程式開發人員根據上述的每個做法來評估他們的應用程式，並考慮照著建議去做，為其使用 Azure 儲存體的應用程式取得最佳效能。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -173,15 +173,13 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 
 下列 App.config 檔案包含必要的連線值。<appSettings> 元素中的值是您在媒體服務帳戶設定程序中取得的必要值。
 
+	<configuration>
+	  <appSettings>
+	    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+	    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+	  </appSettings>
+	</configuration>
 
-<pre>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</pre>
 
 若要從組態擷取連線值，可以使用 **ConfigurationManager** 類別，然後將值指派至程式碼中的欄位：
 	
@@ -189,9 +187,19 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 	private static readonly string _accountKey = ConfigurationManager.AppSettings["MediaServicesAccountKey"];
 
 
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 <!-- Anchors. -->
 
 
 <!-- URLs. -->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

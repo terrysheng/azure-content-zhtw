@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -399,8 +399,16 @@ Smooth Streaming for OSMF 動態外掛程式與 [Strobe Media Playback (SMP)](ht
 如需一般 OSMF 開發的詳細資訊，請參閱官方 [OSMF 開發頁面](http://osmf.org/resources.html)。
 
 
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##另請參閱
 
 [OSMF 的 Microsoft 彈性資料流外掛程式更新](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) (英文)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

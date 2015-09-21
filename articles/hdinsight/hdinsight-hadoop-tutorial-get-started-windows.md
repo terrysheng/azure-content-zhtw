@@ -1,6 +1,7 @@
 <properties
    pageTitle="Hadoop 教學課程：開始在 Windows 上使用 Hadoop |Microsoft Azure"
    description="開始使用 HDInsight 中的 Hadoop。了解如何在 Windows 上佈建 Hadoop 叢集、在資料上執行 Hive 查詢和在 Excel 中輸出分析。"
+   keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
@@ -14,7 +15,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/07/2015"
+   ms.date="09/03/2015"
    ms.author="nitinme"/>
 
 
@@ -144,10 +145,11 @@
 
 **從叢集儀表板執行 Hive 工作**
 
-1. 登入 [Azure 入口網站][azure-management-portal]。
-2. 按一下左窗格上的 [HDInsight]。您會看見叢集清單，包括您在上一節中建立的叢集。
-3. 按一下您要執行 Hive 工作的叢集名稱，然後按一下頁面底部的 [**查詢主控台**]。
-4. 網頁會在不同瀏覽器索引標籤中開啟。輸入 Hadoop 使用者帳戶和密碼。預設使用者名稱為 **admin**；密碼是您在佈建叢集時所輸入的密碼。儀表板顯示如下：
+1. 登入 [Azure 預覽入口網站](https://ms.portal.azure.com/)。
+2. 按一下 [瀏覽全部]，然後按一下 [HDInsight 叢集] 以檢視叢集清單，包括您在上一節中建立的叢集。
+3. 按一下您要執行 Hive 工作的叢集名稱，然後按一下刀鋒視窗頂端的 [儀表板]。
+4. 網頁會在不同瀏覽器索引標籤中開啟。輸入 Hadoop 使用者帳戶和密碼。預設使用者名稱為 **admin**；密碼是您在佈建叢集時所輸入的密碼。
+5. 在儀表板中按一下 [Hive 編輯器] 索引標籤。以下網頁隨即開啟。
 
 	![HDInsight 叢集儀表板中的 [Hive 編輯器] 索引標籤。][img-hdi-dashboard]
 
@@ -280,4 +282,4 @@
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

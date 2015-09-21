@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="使用 StorSimple Snapshot Manager 來建立和管理備份作業 | Microsoft Azure"
+   pageTitle="StorSimple Snapshot Manager 備份原則 | Microsoft Azure"
    description="描述如何使用 StorSimple Snapshot Manager MMC 嵌入式管理單元，來建立和管理控制已排定之備份的備份原則。"
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Snapshot Manager 來建立和管理備份原則
@@ -118,4 +118,4 @@
 
 [使用 StorSimple Snapshot Manager 來檢視和管理備份工作](storsimple-snapshot-manager-manage-backup-jobs.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

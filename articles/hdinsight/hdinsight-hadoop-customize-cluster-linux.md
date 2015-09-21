@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="使用指令碼動作來自訂 HDInsight 叢集 | Microsoft Azure"
 	description="深入了解使用指令碼動作來自訂 HDInsight 叢集。"
 	services="hdinsight"
@@ -8,7 +8,7 @@
 	editor="cgronlun"
 	tags="azure-portal"/>
 
-<tags 
+<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
@@ -21,7 +21,7 @@
 
 HDInsight 提供一個稱為「**指令碼動作**」的組態選項，此指令碼動作可叫用自訂指令碼，以定義佈建程序期間要在叢集上執行的自訂。這些指令碼可用來在叢集上安裝額外的軟體或變更叢集上的應用程式組態。
 
-> [AZURE.NOTE]本文的資訊是以 Linux 為基礎的 HDInsight 叢集的特定資訊。如需這份文件之以 Windows 為基礎的叢集的特定版本，請參閱[使用指令碼動作來自訂 HDInsight 叢集 (Windows)](hdinsight-hadoop-customize-cluster-linux.md)
+> [AZURE.NOTE]本文的資訊是以 Linux 為基礎的 HDInsight 叢集的特定資訊。如需本文中以 Windows 為基礎的叢集的特定版本，請參閱[使用指令碼動作自訂 HDInsight 叢集 (Windows)](hdinsight-hadoop-customize-cluster.md)
 
 ## 叢集佈建程序中的指令碼動作
 
@@ -53,12 +53,12 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
 ##從 Azure Preview 入口網站使用指令碼動作
 
-1. 依照[使用自訂選項佈建叢集](hdinsight-provision-clusters.md#portal)所述，開始佈建叢集。 
+1. 依照[使用自訂選項佈建叢集](hdinsight-provision-clusters.md#portal)所述，開始佈建叢集。
 
 2. 在 [選擇性組態] 的 [指令碼動作] 刀鋒視窗上，按一下 [加入指令碼動作] 以提供有關指令碼動作的詳細資料，如下所示：
 
 	![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png "使用指令碼動作以自訂叢集")
-	
+
 	| 屬性 | 值 |
 	| -------- | ----- |
 	| 名稱 | 指定指令碼動作的名稱。 |
@@ -76,8 +76,8 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
 ### 開始之前
 
-* 如需設定工作站以執行 HDInsight Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell](../powershell-install-configure.md)。 
-* 如需如何建立 ARM 範本的指示，請參閱[撰寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。 
+* 如需設定工作站以執行 HDInsight Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell](../powershell-install-configure.md)。
+* 如需如何建立 ARM 範本的指示，請參閱[撰寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 * 如果您之前未曾搭配使用Azure PowerShell 與資源管理員，請參閱[將 Azure PowerShell 與 Azure 資源管理員搭配使用](powershell-azure-resource-manager)。
 
 ### 使用指令碼動作佈建叢集
@@ -113,7 +113,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 		        "clusterStorageAccountName": {
 		            "type": "string"
 		        },
-		        "clusterStorageAccountResourceGroup": { 
+		        "clusterStorageAccountResourceGroup": {
 		            "type": "string"
 		        },
 		        "clusterStorageType": {
@@ -165,7 +165,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 		                "osType": "Linux",
 		                "clusterDefinition": {
 		                    "kind": "hadoop",
-		
+
 		                    "configurations": {
 		                        "gateway": {
 		                            "restAuthCredential.isEnabled": true,
@@ -240,14 +240,14 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 		}
 
 
-	
+
 2. 啟動 Azure PowerShell 並且登入您的 Azure 帳戶。提供您的認證之後，命令會傳回您的帳戶的相關資訊。
 
 		Add-AzureAccount
-	
+
 		Id                             Type       ...
-		--                             ----    
-		someone@example.com            User       ...   
+		--                             ----
+		someone@example.com            User       ...
 
 3. 如果您有多個訂用帳戶，請提供您想要用於部署的訂用帳戶識別碼。
 
@@ -287,7 +287,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 		  ProvisioningState : Succeeded
 		  Timestamp         : 8/17/2015 7:00:27 PM
 		  Mode              : Incremental
-		  ... 
+		  ...
 
 8. 如果您的部署失敗，您可以使用下列 Cmdlet 來取得失敗的相關資訊。
 
@@ -314,7 +314,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 		$location = "<MicrosoftDataCenter>"				# Location of the HDInsight cluster. It must be in the same data center as the storage account.
 		$clusterNodes = <ClusterSizeInNumbers>			# The number of nodes in the HDInsight cluster.
 		$version = "<HDInsightClusterVersion>"          # HDInsight version, for example "3.1"
-	
+
 2. 指定組態值 (例如叢集中的節點) 和要使用的預設儲存體。
 
 		# SPECIFY THE CONFIGURATION OPTIONS
@@ -323,7 +323,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 		$config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
 		$config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
 		$config.DefaultStorageAccount.StorageContainerName=$containerName
-	
+
 3. 使用 **Add-AzureHDInsightScriptAction** Cmdlet 以叫用指令碼。下列範例使用指令碼以在叢集上安裝 R：
 
 		# INVOKE THE SCRIPT USING THE SCRIPT ACTION
@@ -339,10 +339,10 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 	| ClusterRoleCollection | 指定執行自訂指定碼的節點。有效值為 **HeadNode** (在前端節點上安裝)、**WorkerNode** (在所有資料節點上安裝)，或 **ZookeeperNode** (在 zookeeper 節點上安裝)。您可以使用其中一個值或所有值。 |
 	| 參數 | 指令碼所需的參數。 |
 	| Uri | 指定所執行之指令碼的 URI。 |
-	
+
 4. 最後，佈建叢集：
-	
-		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version 
+
+		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
 
 出現提示時，請輸入叢集的認證。建立叢集可能需要幾分鐘的時間。
 
@@ -361,7 +361,7 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 2. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
 
 3. 在 [**新增專案**] 中，輸入或選取下列值：
-	
+
 	| 屬性 | 值 |
 	| -------- | ----- |
 	| 類別 | 範本/Visual C#/Windows |
@@ -386,9 +386,9 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 		using Microsoft.WindowsAzure.Management.HDInsight;
 		using Microsoft.WindowsAzure.Management.HDInsight.ClusterProvisioning;
 		using Microsoft.WindowsAzure.Management.HDInsight.Framework.Logging;
-	
+
 9. 在 **Main()** 函數中，貼上下列程式碼，並提供變數的值：
-		
+
         var clusterName = args[0];
 
         // PROVIDE VALUES FOR THE VARIABLES
@@ -401,7 +401,7 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
         string password = "<HDInsightUserPassword>";
         int clustersize = <NumberOfNodesInTheCluster>;
 
-        // PROVIDE THE CERTIFICATE THUMBPRINT TO RETRIEVE THE CERTIFICATE FROM THE CERTIFICATE STORE 
+        // PROVIDE THE CERTIFICATE THUMBPRINT TO RETRIEVE THE CERTIFICATE FROM THE CERTIFICATE STORE
         X509Store store = new X509Store();
         store.Open(OpenFlags.ReadOnly);
         X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.Thumbprint == thumbprint);
@@ -423,7 +423,7 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
             Password = password,
             ClusterSizeInNodes = clustersize,
             Version = "3.1"
-        };        
+        };
 
 10. 將下列程式碼附加至 **Main()** 函式。此程式碼會叫用指令碼動作；在此範例中，會叫用在叢集上安裝 R 的指令碼：
 
@@ -484,11 +484,11 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 1. 在您的瀏覽器中，瀏覽至 https://CLUSTERNAME.azurehdinsight.net。將 CLUSTERNAME 取代為 HDInsight 叢集的名稱。
 
 	出現提示時，輸入管理帳戶名稱 (admin) 和叢集的密碼。您可能必須在 Web 表單中重新輸入系統管理員認證。
-	
+
 2. 在頁面頂端的列中，選取 __ops__ 項目。這會顯示透過 Ambari 在叢集上執行的目前和先前作業的清單。
 
 	![Ambari Web UI 列與選取的 ops](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
-	
+
 3. 尋找在 [作業] 欄位中有 __run\_customscriptaction__ 的項目。這些項目是在執行指令碼動作時建立的。
 
 	![作業的螢幕擷取畫面](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
@@ -508,6 +508,5 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "叢集佈建期間的階段"
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

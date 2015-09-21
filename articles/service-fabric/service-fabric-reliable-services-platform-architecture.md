@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/13/2015"
+   ms.date="09/03/2015"
    ms.author="alanwar"/>
 
 # 可靠的服務架構
@@ -92,4 +92,4 @@ Service Fabric 可靠的服務可能是具狀態或無狀態。每一種服務�
 [可靠的服務組態](../Service-Fabric/service-fabric-reliable-services-configuration.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -100,10 +100,19 @@ Dash.js 是以 JavaScript 撰寫的開放原始碼 MPEG-DASH 視訊播放程式�
 
 若要播放視訊，請將瀏覽器指向 basicPlayback.html 檔案，然後按一下所顯示視訊播放程式上的 [播放]。
 
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##另請參閱
 
 [開發視訊播放程式應用程式](media-services-develop-video-players.md)
 
 [GitHub dash.js 存放庫](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

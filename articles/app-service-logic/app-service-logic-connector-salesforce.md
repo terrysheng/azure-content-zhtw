@@ -1,20 +1,20 @@
 <properties
    pageTitle="在 Logic Apps 中使用 Salesforce 連接器 | Microsoft Azure App Service"
-	description="如何建立並設定 Salesforce 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="如何建立並設定 Salesforce 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="sameerch"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="sameerch"/>
 
 
 # 開始使用 Salesforce 連接器並將它加入您的邏輯應用程式
@@ -34,13 +34,13 @@
 邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。您可以將 Salesforce 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
 
-## 建立 SalesForce 連接器 API 應用程式
+## 建立 Salesforce 連接器 API 應用程式
 1.	使用 Azure 入口網站右下方的 [+新增] 選項開啟 Azure Marketplace。
-2.	瀏覽至 [Web 與行動] > [API 應用程式]，並搜尋 SalesForce。
-3.	設定 SalesForce 連接器，方法為提供裝載方案及資源群組的詳細資料，並選取 API 應用程式的名稱：![][15]
-4. 設定 [封裝設定] 中您有興趣讀取/寫入的 SalesForce 實體。
+2.	瀏覽至 [Web 與行動] > [API 應用程式]，並搜尋 Salesforce。
+3.	設定 Salesforce 連接器，方法是提供裝載方案及資源群組的詳細資料，並選取 API 應用程式的名稱：![][15]
+4. 在 [封裝設定] 中設定您有興趣讀取/寫入的 Salesforce 實體。
 
-完成上述步驟後，您現在即可建立 SalesForce 連接器 API 應用程式。
+完成上述步驟後，您現在即可建立 Salesforce 連接器 API 應用程式。
 
 
 ## 建立邏輯應用程式
@@ -56,7 +56,7 @@
 
 5.	展開資源庫中的 [此資源群組中的 API 應用程式] 來查看所有可用的 API 應用程式。從資源庫中選取 [Salesforce]，[Salesforce 連接器] 便會被新增至流程：![][5]
 
-8.	若要授權您的邏輯應用程式存取您的 SalesForce 帳戶，請按一下 [授權] 以提供 Salesforce 登入認證：![][6]
+8.	若要授權您的邏輯應用程式存取您的 Salesforce 帳戶，請按一下 [授權] 以提供 Salesforce 登入認證：![][6]
 
 9.	您將會被重新導向至 Salesforce 登入頁面，並且可以使用 Salesforce 認證進行驗證：![][7] ![][8]
 
@@ -104,4 +104,4 @@
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

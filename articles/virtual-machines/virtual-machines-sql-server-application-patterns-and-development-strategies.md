@@ -3,7 +3,7 @@
 	description="本文涵蓋了一系列與在 Azure VM 上執行之 SQL Server 相關的應用程式模式。它們可為解決方案架構師和開發人員提供基礎良好的應用程式架構和設計。"
 	services="virtual-machines"
 	documentationCenter="na"
-	authors="rothja"
+	authors="Selcin"
 	manager="jeffreyg"
 	editor="monicar" />
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/20/2015"
-	ms.author="jroth" />
+	ms.author="selcint" />
 
 # Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略
 
@@ -322,4 +322,4 @@
 
 如需在 Azure 虛擬機器中執行 SQL Server 的詳細資訊，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!------HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

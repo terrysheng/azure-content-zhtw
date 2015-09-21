@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="利用 Azure 媒體服務提供點播媒體"
-	description="本主題說明利用 Azure 媒體服務傳遞點播媒體時常見的案例。"
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="利用 Azure 媒體服務提供點播媒體" 
+	description="本主題說明利用 Azure 媒體服務傳遞點播媒體時常見的案例。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"   
 	ms.author="juliako"/>
 
 
@@ -87,137 +87,17 @@
 
 ##概念
 
-如需瞭解如何傳遞點播內容的概念，請參閱[媒體服務概念](media-services-concepts.md)。
+如需了解如何傳遞點播內容的概念，請參閱[媒體服務概念](media-services-concepts.md)。
 
-##一般工作：提供點播媒體
 
-###建立媒體服務帳戶
+##後續步驟：AMS 學習路徑
 
-使用 **Azure 管理入口網站**[建立 Azure 媒體服務帳戶](media-services-create-account.md)。
+您可以在此檢視 AMS 學習路徑：
 
-###設定開發環境  
-
-為開發環境選擇 **.NET** 或 **REST API**。
-
-[AZURE.INCLUDE [媒體-服務-選取器-設定](../../includes/media-services-selector-setup.md)]
-
-###以程式設計方式連接  
-
-選擇 **.NET** 或 **REST API** 以程式設計方式連接到 Azure 媒體服務。
-
-[AZURE.INCLUDE [媒體-服務-選取器-連接](../../includes/media-services-selector-connect.md)]
-
-
-###設定串流端點
-
-如需串流端點的概觀以及如何管理它們的詳細資訊，請參閱 [如何在媒體服務帳戶中管理串流端點](media-services-manage-origins.md)。
-
-###上傳媒體 
-
-使用 **Azure 管理入口網站**、**.NET** 或 **REST API** 上傳檔案。
-
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
-
-###建立工作 / 作業
-
-工作 (Job) 是一個實體，其中包含一組工作 (Task，例如編碼或編製索引) 的相關中繼資料。每一項工作 (Task) 會對輸入資產執行不可部分完成的作業。如需如何建立編碼工作 (Job) 的範例，請參閱：
-
-如需概觀，請參閱[使用 Azure 媒體服務工作](media-services-jobs.md)。
-
-利用 **.NET** 或 **REST API** 為您的工作取得合適的媒體處理器。
-
-[AZURE.INCLUDE [media-services-selector-get-media-processor](../../includes/media-services-selector-get-media-processor.md)]
-
-下列範例會利用 **Azure 管理入口網站**、**.NET** 或 **REST API** 建立編碼工作。
-
-[AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
-
-####編製索引
-
-[AZURE.INCLUDE [media-services-selector-index-content](../../includes/media-services-selector-index-content.md)]
-
-####編碼 
-
-**概觀**：
-
-- [動態封裝概觀](media-services-dynamic-packaging-overview.md)
-- [透過 Azure 媒體服務編碼的隨選內容](media-services-encode-asset.md)。
-
-使用 **Azure 管理入口網站**、**.NET** 或 **REST API**，以 **Azure Media Encoder** 進行編碼。
- 
-[AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
-
-利用 **Media Encoder Premium Workflow** 並搭配 **.NET** 進行進階編碼。
-
-[AZURE.INCLUDE [media-services-selector-advanced-encoding](../../includes/media-services-selector-advanced-encoding.md)]
-
-####監視工作進度
-
-使用 **Azure 管理入口網站**、**.NET** 或 **REST API** 監視工作進度。
-
-[AZURE.INCLUDE [media-services-selector-job-progress](../../includes/media-services-selector-job-progress.md)]
-
-###保護內容 
-
-**概觀**：
-
-[內容保護概觀](media-services-content-protection-overview.md)
-
-如果您想要使用進階加密標準 (AES) (使用 128 位元加密金鑰) 或 PlayReady DRM 加密資產，您必須建立內容金鑰。
-
-使用 **.NET** 或 **REST API** 來建立金鑰。
-
-[AZURE.INCLUDE [媒體-服務-選取器-建立-contentkey](../../includes/media-services-selector-create-contentkey.md)]
-
-一旦您建立內容金鑰之後，您就可以使用 **.NET** 或 **REST API** 設定金鑰授權原則。
-
-[AZURE.INCLUDE [媒體-服務-選取器-內容-金鑰-auth-原則](../../includes/media-services-selector-content-key-auth-policy.md)]
-
-
-使用 **.NET** 或 **REST API** 設定資產傳遞原則。
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-
-####與夥伴整合
-
-[使用 castLabs 將 DRM 授權傳遞到 Azure 媒體服務](media-services-castlabs-integration.md)
-
-###發行及傳遞資產
-
-動態封裝概觀
-
-> [AZURE.SELECTOR]
-- [Overview](media-services-dynamic-packaging-overview.md)
-
-
-傳遞內容概觀
-
-> [AZURE.SELECTOR]
-- [Overview](media-services-deliver-content-overview.md)
-
-Publish assets (by creating Locators) 使用 **Azure 管理入口網站**、**.NET** 或 **REST API** 發行資產 (藉由建立定位器)。
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
-
-###啟用 Azure CDN
-
-媒體服務支援與 Azure CDN 整合。如需如何啟用 Azure CDN 的資訊，請參閱[如何管理媒體服務帳戶中的串流端點](media-services-manage-origins.md#enable_cdn)。
-
-###調整媒體服務帳戶
-
-您可以指定要佈建給帳戶的**串流保留單元**和**編碼保留單元**，藉以調整**媒體服務**。
-
-您也可以透過新增儲存體帳戶，來調整媒體服務帳戶。每個儲存體帳戶的限制為 500 TB。若想將儲存空間擴大為超過預設限制，您可以選擇將多個儲存體帳戶附加至單一媒體服務帳戶。
-
-[本主題](media-services-how-to-scale.md)會連結相關主題。
-
-###使用現有播放器來播放您的內容
-
-如需詳細資訊，請參閱[使用現有播放器來播放您的內容](media-services-playback-content-with-existing-players.md)。
-
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

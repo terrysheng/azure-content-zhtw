@@ -1,140 +1,356 @@
 <properties
-	pageTitle="使用 C# 連接及查詢您的 SQL Database"
-	description="這個 C# 用戶端程式碼範例使用 ADO.NET 連接到 Azure SQL Database 雲端服務上的 AdventureWorks 資料庫，並與其互動。"
+	pageTitle="使用 C# 查詢 SQL Database | Microsoft Azure"
+	description="IP 位址、連接字串、安全登入的組態檔和免費 Visual Studio 的詳細資料皆可啟用 C# 程式以使用 ADO.NET 連接到您在雲端中的 Azure SQL Database 資料庫。"
 	services="sql-database"
 	documentationCenter=""
-	authors="ckarst"
+	authors="MightyPen"
 	manager="jeffreyg"
 	editor=""/>
-
 
 <tags
 	ms.service="sql-database"
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
-	ms.date="07/17/2015"
-	ms.author="cakarst"/>
+	ms.topic="get-started-article"
+	ms.date="09/09/2015"
+	ms.author="genemi"/>
 
 
 # 使用 C&#x23; 連接及查詢您的 SQL Database
 
 
-本主題提供 C# 程式碼範例，示範如何使用 ADO.NET 連接到現有的 AdventureWorks SQL Database。這個範例會編譯成可查詢資料庫並顯示結果集的主控台應用程式。
+您想要撰寫在雲端中使用 ADO.NET 連接到 Azure SQL Database 資料庫的 C# 程式。
+
+本主題會為每位 Azure SQL Database 和 C# 的新手描述每一個步驟。對 Microsoft SQL Server 和 C# 有豐富經驗的人可略過一些步驟並著重於專屬於 SQL Database 的步驟。
 
 
 ## 必要條件
 
 
-- Azure SQL Database 上的現有 AdventureWorks 資料庫。[只需幾分鐘即可建立](sql-database-get-started.md)。
-- [Visual Studio 和 .NET Framework](https://www.visualstudio.com/zh-tw/visual-studio-homepage-vs.aspx)
+若要執行 C# 程式碼範例，您必須具備：
 
 
-## 步驟 1：主控台應用程式
+- Azure 帳戶和訂用帳戶。您可以註冊[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
 
-1. 使用 Visual Studio 建立 C# 主控台應用程式。
+- Azure SQL Database 服務上的 **AdventureWorksLT** 示範資料庫。
+ - 在短時間內[建立示範資料庫](sql-database-get-started.md)。
 
 
-![連接和查詢](./media/sql-database-connect-query/ConnectandQuery_VisualStudio.png)
+- Visual Studio 2013 Update 4 (或更新版本)。Microsoft 現在*免費*提供 Visual Studio Community。
+ - [Visual Studio Community，下載](http://www.visualstudio.com/products/visual-studio-community-vs)
+ - [免費 Visual Studio 的更多選項](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
+ - 或是讓本主題稍後的[步驟](#InstallVSForFree)描述 [Azure Preview 入口網站](http://portal.azure.com/)如何引導您安裝 Visual Studio。
 
 
-## 步驟 2：SQL 程式碼範例
+<a name="InstallVSForFree" id="InstallVSForFree"></a>
+
+&nbsp;
+
+## 步驟 1：免費安裝 Visual Studio Community
 
 
-1. 將下面的程式碼範例複製並貼到您的主控台應用程式中。
+如果您需要安裝 Visual Studio，您可以：
+
+- 將瀏覽器瀏覽至提供免費下載及其他選項的 Visual Studio 網頁以免費安裝 Visual Studio Community。或
+- 讓 [Azure Preview 入口網站](http://portal.azure.com/)引導您下載網頁，將於稍後描述。
 
 
-> [AZURE.WARNING]為方便了解，這個程式碼範例盡可能設計得很簡短。這個範例的目的不是在生產環境中使用。
+### 透過 Azure Preview 入口網站的 Visual Studio
 
 
-這個程式碼不適用於生產環境。如果您想要實作可供生產環境使用的程式碼，以下是業界最佳作法：
+1. 透過 [Azure Preview 入口網站](http://portal.azure.com/)登入，http://portal.azure.com/。
+
+2. 按一下 [全部瀏覽] > [SQL Database]。刀鋒視窗會開啟該資料庫的搜尋。
+
+3. 在靠近頂端的篩選文字方塊中，開始輸入 **AdventureWorksLT** 資料庫的名稱。
+
+4. 當您看到伺服器上資料庫的資料列時，按一下資料列。刀鋒視窗會為您的資料庫開啟。
+
+5. 為了方便起見，請按一下前述每個刀鋒視窗上的最小化控制項。
+
+6. 按一下資料庫刀鋒視窗頂端附近的 [在 Visual Studio 中開啟] 按鈕。關於 Visual Studio 的新刀鋒視窗會利用連結開啟以安裝 Visual Studio 的位置。
+ 
+	![[在 Visual Studio 中開啟] 按鈕][20-OpenInVisualStudioButton]
+
+7. 按一下 [Community (免費)] 連結或類似的連結。新的網頁會隨即新增。
+
+8. 使用新網頁上的連結安裝 Visual Studio。
+
+9. 安裝 Visual Studio 之後，於**在 Visual Studio 中開啟**刀鋒視窗上按一下 [在 Visual Studio 中開啟] 按鈕。Visual Studio 隨即開啟。
+
+10. 以其 [SQL Server 物件總管] 窗格的優點而言，Visual Studio 會在對話方塊中要求您填寫連接字串欄位。
+ - 選擇 [SQL Database 驗證]，而非 [Windows 驗證]。
+ - 請記得要指定您的 **AdventureWorksLT** 資料庫 (對話方塊中的 [選項] > [連接屬性])。
+
+11. 在 [SQL Server 物件總管] 中，展開資料庫的節點。
 
 
-- 例外狀況處理。
-- 暫時性錯誤的重試邏輯。
-- 在組態檔中安全儲存密碼。
+## 步驟 2：在 Visual Studio 中建立新專案
 
 
-
-### C# 範例的原始程式碼
-
-
-將這個原始程式碼到貼到您的 **Program.cs** 檔案中。
+在 Visual Studio 中，建立以 C# > Windows > **主控台應用程式**之入門範本為基礎的新專案。
 
 
-	using System;  // C#
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
-	using System.Threading.Tasks;
-	using System.Data.SqlClient;
+1. 按一下 [**檔案**] > [**新增**] > [**專案**]。**** 對話方塊隨即顯示。
 
-	namespace ConnectandQuery_Example
+2. 在 [已安裝] 之下，展開 C# 和 Windows，讓**主控台應用程式**選項出現在中間窗格。
+
+	![[新增專案] 對話方塊][30-VSNewProject]
+
+2. 針對**名稱**，請輸入 **ConnectAndQuery\_Example**。按一下 [確定]。
+
+
+## 步驟 3：為 config 處理新增組件參考
+
+
+我們的 C# 範例會使用 .NET Framework 組件 **System.Configuration.dll**，因此讓我們新增它的參考。
+
+
+1. 在 [方案總管] 窗格中，以滑鼠右鍵按一下 [參考] > [新增參考]。[參考管理員] 視窗隨即出現。
+
+2. 展開 [組件] > [架構]。
+
+3. 捲動然後按一下以反白顯示 **System.Configuration**。確定是否選取其核取方塊。
+
+4. 按一下 [確定]。
+
+5. 藉由功能表 [建置] > [建置方案] 編譯您的程式。
+
+
+## 步驟 4：取得連接字串
+
+
+使用 [Azure Preview 入口網站](http://portal.azure.com/)複製資料庫的連接字串。
+
+您的第一次使用會將 Visual Studio 連接到您的 Azure SQL Database **AdventureWorksLT** 資料庫。
+
+
+[AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
+
+
+## 步驟 5：將連接字串新增至 App.config 檔案
+
+
+1. 在 Visual Studio 中，從 [方案總管] 窗格開啟 App.config 檔案。
+
+2. 新增 **&#x3c;configuration&#x3e; &#x3c;/configuration&#x3e;** 元素，如下列範例的 App.config 程式碼範例所示。
+ - 以您的實際值取代 *{your\_placeholders}*：
+
+```
+	<?xml version="1.0" encoding="utf-8" ?>
+	<configuration>
+	    <startup> 
+	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+	    </startup>
+	
+		<connectionStrings>
+			<clear />
+			<add name="ConnectionString4NoUserIDNoPassword"
+			connectionString="Server=tcp:{your_serverName_here}.database.windows.net,1433; Database={your_databaseName_here}; Connection Timeout=30; Encrypt=True; TrustServerCertificate=False;"
+			/>
+		</connectionStrings>
+	</configuration>
+```
+
+3. 儲存 App.config 變更。
+
+4. 在 [方案總管] 窗格中，以滑鼠右鍵按一下 [App.config] 節點，然後按一下 [屬性]。
+
+5. 將**複製到輸出目錄**設定為**永遠複製**。
+ - 這會使 App.config 檔案的內容取代 &#x2a;.exe.config 檔案的內容，其位於 &#x2a;.exe 檔案建置所在的目錄中。每次您重新編譯 &#x2a;.exe 時都會出現取代情形。
+ - &#x2a;.exe.config 檔案會在我們的範例 C# 程式執行時讀取。
+
+	![複製到輸出目錄 = 永遠複製][50-VSCopyToOutputDirectoryProperty]
+
+
+## 步驟 6：在範例 C# 程式碼中貼上
+
+
+1. 在 Visual Studio 中，使用 [方案總管] 窗格開啟您的 **Program.cs** 檔案。 
+
+	![貼到我們的範例 C# 程式碼中][40-VSProgramCsOverlay]
+
+2. 在下列範例 C# 程式碼中貼上以覆寫 Program.cs 中的所有起始程式碼。
+ - 如果您想要較短的程式碼範例，您可以將整個連接字串指派給變數 **SQLConnectionString** 當做常值。然後您可以清除這兩個方法 **GetConnectionStringFromExeConfig** 和 **GatherPasswordFromConsole**。
+
+
+```
+using System;  // C#
+using G = System.Configuration;   // System.Configuration.dll
+using D = System.Data;            // System.Data.dll
+using C = System.Data.SqlClient;  // System.Data.dll
+using T = System.Text;
+	
+namespace ConnectAndQuery_Example
+{
+	class Program
 	{
-		class Program
+		static void Main()
 		{
-			static void Main()
+			string connectionString4NoUserIDNoPassword,
+				password, userName, SQLConnectionString;
+	
+			// Get most of the connection string from ConnectAndQuery_Example.exe.config
+			// file, in the same directory where ConnectAndQuery_Example.exe resides.
+			connectionString4NoUserIDNoPassword = Program.GetConnectionStringFromExeConfig
+				("ConnectionString4NoUserIDNoPassword");
+			// Get the user name from keyboard input.
+			Console.WriteLine("Enter your User ID, without the trailing @ and server name: ");
+			userName = Console.ReadLine();
+			// Get the password from keyboard input.
+			password = Program.GatherPasswordFromConsole();
+	
+			SQLConnectionString = "Password=" + password + ';' +
+				"User ID=" + userName + ";" + connectionString4NoUserIDNoPassword;
+	
+			// Create an SqlConnection from the provided connection string.
+			using (C.SqlConnection connection = new C.SqlConnection(SQLConnectionString))
 			{
-				string SQLConnectionString = "[Your_Connection_String]";
-				// Create a SqlConnection from the provided connection string.
-				using (SqlConnection connection = new SqlConnection(SQLConnectionString))
+				// Formulate the command.
+				C.SqlCommand command = new C.SqlCommand();
+				command.Connection = connection;
+	
+				// Specify the query to be executed.
+				command.CommandType = D.CommandType.Text;
+				command.CommandText = @"
+					SELECT TOP 9 CustomerID, NameStyle, Title, FirstName, LastName
+					FROM SalesLT.Customer;  -- In AdventureWorksLT database.
+					";
+				// Open a connection to database.
+				connection.Open();
+	
+				// Read data returned for the query.
+				C.SqlDataReader reader = command.ExecuteReader();
+				while (reader.Read())
 				{
-					// Begin to formulate the command.
-					SqlCommand command = new SqlCommand();
-					command.Connection = connection;
-
-					// Specify the query to be executed.
-					command.CommandType = System.Data.CommandType.Text;
-						command.CommandText =
-						@"SELECT TOP 10
-						CustomerID, NameStyle, Title, FirstName, LastName
-						FROM SalesLT.Customer";
-
-					// Open connection to database.
-					connection.Open();
-
-					// Read data from the query.
-					SqlDataReader reader = command.ExecuteReader();
-					while (reader.Read())
-					{
-						// Formatting will depend on the contents of the query.
-						Console.WriteLine("Value: {0}, {1}, {2}, {3}, {4}",
-							reader[0], reader[1], reader[2], reader[3], reader[4]);
-					}
+					Console.WriteLine("Values:  {0}, {1}, {2}, {3}, {4}",
+						reader[0], reader[1], reader[2], reader[3], reader[4]);
 				}
-				Console.WriteLine("Press any key to continue...");
-				Console.ReadKey();
 			}
+			Console.WriteLine("View the results here, then press any key to finish...");
+			Console.ReadKey(true);
+		}
+		//----------------------------------------------------------------------------------
+	
+		static string GetConnectionStringFromExeConfig(string connectionStringNameInConfig)
+		{
+			G.ConnectionStringSettings connectionStringSettings =
+				G.ConfigurationManager.ConnectionStrings[connectionStringNameInConfig];
+	
+			if (connectionStringSettings == null)
+			{
+				throw new ApplicationException(String.Format
+					("Error. Connection string not found for name '{0}'.",
+					connectionStringNameInConfig));
+			}
+				return connectionStringSettings.ConnectionString;
+		}
+	
+		static string GatherPasswordFromConsole()
+		{
+			T.StringBuilder passwordBuilder = new T.StringBuilder(32);
+			ConsoleKeyInfo key;
+			Console.WriteLine("Enter your password: ");
+			do
+			{
+				key = Console.ReadKey(true);
+				if (key.Key != ConsoleKey.Backspace)
+				{
+					passwordBuilder.Append(key.KeyChar);
+					Console.Write("*");
+				}
+				else  // Backspace char was entered.
+				{
+					// Retreat the cursor, overlay '*' with ' ', retreat again.
+					Console.Write("\b \b");
+					passwordBuilder.Length = passwordBuilder.Length - 1;
+				}
+			}
+			while (key.Key != ConsoleKey.Enter); // Enter key will end the looping.
+			Console.WriteLine(Environment.NewLine);
+			return passwordBuilder.ToString();
 		}
 	}
+}
+```
 
 
-## 步驟 3：尋找資料庫的連接字串
+### 編譯您的程式
 
 
-1. 開啟 [Azure Preview 入口網站](http://portal.azure.com/)。
-2. 按一下 [瀏覽] > [SQL Database] > [Adventure Works 資料庫] > [屬性] > [顯示資料庫連接字串]。
+1. 在 Visual Studio 中，依序按一下功能表 [建置] > [建置方案] 以編譯您的程式。
 
 
-![入口網站](./media/sql-database-connect-query/ConnectandQuery_portal.png)
+### 範例程式中的動作摘要
 
 
-在 [資料庫連接字串] 刀鋒視窗上，您可以找到 ADO.NET、ODBC、PHP 和 JDBC 的適當連接字串。
+1. 從組態檔讀取大多數的 SQL 連接字串。
+
+2. 從鍵盤收集使用者名稱和密碼，並將其新增以完成連接字串。
+
+3. 使用連接字串和 ADO.NET 類別來連接至 Azure SQL Database 上的 **AdventureWorksLT** 示範資料庫。
+
+4. 發出 SQL **SELECT** 以從 **SalesLT** 資料表讀取。
+
+5. 將傳回的資料列列印到主控台。
 
 
-## 步驟 4：以真正的連接資訊取代
+我們試著讓 C# 範例保持簡短。但是我們加入可讀取組態檔的程式碼以滿足像您這樣的客戶所提出的數個要求。我們同意生產品質程式應該使用組態檔而不是 .exe 中的常值硬式編碼。
 
 
-- 在您貼上的原始程式碼中，以連接字串取代 *[Your\_Connection\_String]* 預留位置，並請務必以您的實際密碼取代該字串中的 *your\_password\_here*。
+> [AZURE.WARNING]以程式碼簡潔度而言，我們選擇不包含程式碼以在此教育範例中進行例外狀況處理和重試邏輯。不過，與雲端資料庫互動的生產程式應該包含兩者。
+>
+> [這裡](sql-database-develop-csharp-retry-windows.md)是具有重試邏輯之程式碼範例的連結。
 
 
-## 步驟 5：執行應用程式
+## 步驟 7：加入伺服器防火牆中允許的 IP 位址範圍
 
 
-1. 若要建置並執行您的應用程式，請按一下 [偵錯] > [開始偵錯]
-2. 程式會將查詢結果列印至主控台視窗。
- 
+在用戶端電腦的 IP 位址加入 SQL Database 防火牆之前，您的用戶端 C# 程式無法連接到 Azure SQL Database。您的程式將會失敗並出現一個好用的錯誤訊息，陳述必要的 IP 位址。
 
-<!---HONumber=August15_HO6-->
+
+您可以使用 [Azure Preview 入口網站](http://portal.azure.com/)新增 IP 位址。
+
+
+
+[AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
+
+
+
+如需詳細資訊，請參閱：<br/> [作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)。
+
+
+
+## 步驟 8：執行程式
+
+
+1. 在 Visual Studio 中，藉由功能表 [偵錯] > [開始偵錯] 執行您的程式。主控台視窗隨即顯示。
+
+2. 依照指示輸入您的使用者名稱和密碼。
+ - 幾個連接工具需要您的使用者名稱附加 "@{your\_serverName\_here}"，但這個後置詞對於 ADO.NET 而言是選擇性的。請務必輸入此後置詞。
+
+3. 資料列會隨即顯示。
+
+
+## 相關連結
+
+
+- [SQL Database 的用戶端快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
+
+- 如果您的用戶端程式執行於 Azure VM，請於下文深入了解 1433 以外的 TCP 連接埠：<br/>[供 ADO.NET 4.5 和 SQL Database V12 使用之 1433 以上的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
+
+
+
+<!-- Image references. -->
+
+[20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
+
+[30-VSNewProject]: ./media/sql-database-connect-query/connqry-vs-new-project-f.png
+
+[40-VSProgramCsOverlay]: ./media/sql-database-connect-query/connqry-vs-program-cs-overlay-g.png
+
+[50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
+
+<!---HONumber=Sept15_HO2-->

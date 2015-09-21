@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/20/2015"
-   ms.author="lvargas;barbkess"/>
+   ms.date="09/05/2015"
+   ms.author="lvargas;twounder;barbkess"/>
 
 # SQL 資料倉儲預覽版期望
 
@@ -29,7 +29,7 @@
 
 ## 可預測且可調整的效能
 
-Azure SQL 資料倉儲引進了資料倉儲單位 (DWUs)，做為測量資料倉儲可用計算資源 (CPU、記憶體、儲存體 I/O) 的方法。增加 DWU 數目可增加資源。當 DWU 數目增加時，SQL 資料倉儲作業可跨越更多分散式資源平行執行 (例如資料載入或查詢)。這可減少延遲並改善效能。
+Azure SQL 資料倉儲引進了資料倉儲單位 (DWU)，做為測量資料倉儲可用計算資源 (CPU、記憶體、儲存體 I/O) 的方法。增加 DWU 數目可增加資源。當 DWU 數目增加時，SQL 資料倉儲作業可跨越更多分散式資源平行執行 (例如資料載入或查詢)。這可減少延遲並改善效能。
 
 任何資料倉儲都具有 2 個基本效能度量：
 
@@ -78,4 +78,4 @@ Azure SQL 資料倉儲每個月都可能有高達 4 個維護事件，用以安�
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

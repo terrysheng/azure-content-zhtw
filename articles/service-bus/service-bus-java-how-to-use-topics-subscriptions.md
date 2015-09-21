@@ -222,10 +222,10 @@
 
 ## 後續步驟
 
-現在您已了解服務匯流排佇列的基本概念，請參閱 MSDN 主題[服務匯流排佇列、主題和訂用帳戶][]，以取得詳細資訊。
+現在您已了解服務匯流排佇列的基本概念，請參閱[佇列、主題和訂用帳戶][]，以取得詳細資訊。
 
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
-  [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/zh-cn/library/azure/hh694271.aspx
+  [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/zh-TW/library/azure/hh694271.aspx
   [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -244,7 +244,7 @@
   [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
   [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-  [服務匯流排佇列、主題和訂用帳戶]: http://msdn.microsoft.com/library/hh367516.aspx
+  [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

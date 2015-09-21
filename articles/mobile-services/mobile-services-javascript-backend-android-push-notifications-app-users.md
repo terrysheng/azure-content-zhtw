@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="傳送推播通知給已驗證的使用者"
-	description="了解如何將推播通知傳送給特定"
+	pageTitle="傳送推播通知給 Android 應用程式的已驗證使用者 (JavaScript 後端)"
+	description="了解如何搭配 JavaScript 後端使用行動服務，將推播通知傳送給 Android 應用程式的已驗證特定使用者。"
 	services="mobile-services, notification-hubs"
 	documentationCenter="android"
 	authors="wesmc7777"
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015" 
 	ms.author="wesmc"/>
 
 
-# 傳送推播通知給已驗證的使用者
+# 傳送推播通知給 Android 應用程式的已驗證使用者
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
@@ -26,9 +26,9 @@
 
 本主題說明如何將推播通知傳送給任何已註冊之 iOS 裝置上的驗證使用者。不同於先前的[推播通知][Get started with push notifications]教學課程，本教學課程會變更您的行動服務，而要求使用者必須先完成驗證，用戶端才能向通知中心註冊推播通知。此外也會修改註冊，以根據指派的使用者識別碼新增標記。最後會更新伺服器指令碼，而僅將通知傳送給已驗證的使用者，而不是所有的註冊。
 
-本教學課程支援 Android 應用程式。
+本教學課程支援 Android 應用程式 (透過搭配 JavaScript 後端使用的 Azure 行動服務)。
 
-##必要條件 
+##必要條件
 
 在開始本教學課程之前，您必須已完成下列行動服務教學課程：
 
@@ -46,21 +46,21 @@
 <pre><code> function insert(item, user, request) {
 
     // Define a payload for the Google Cloud Messaging toast notification.
-    var payload = 
+    var payload =
         '{"data":{"message" : "Hello from Mobile Services! An Item was inserted"}}';
 
     // Get the ID of the logged-in user.
-    var userId = user.userId;		
+    var userId = user.userId;
 
     request.execute({
         success: function() {
-            // If the insert succeeds, send a notification to all devices 
+            // If the insert succeeds, send a notification to all devices
             // registered to the logged-in user as a tag.
             push.gcm.send(userId, payload, {
                 success: function(pushResponse) {
                     console.log("Sent push with " + userId + " tag:", pushResponse, payload);
 	    			request.respond();
-                    },             
+                    },
                     error: function (pushResponse) {
                             console.log("Error Sending push:", pushResponse);
 	    				request.respond(500, { error: pushResponse });
@@ -94,7 +94,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [Get started with push notifications]: mobile-services-javascript-backend-android-get-started-push.md
 [開始使用推播通知]: mobile-services-javascript-backend-android-get-started-push.md
 
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

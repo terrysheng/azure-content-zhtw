@@ -1,77 +1,88 @@
 <properties 
-    pageTitle="StorSimple 8000 系列 Update 1 版本資訊 | Microsoft Azure"
-	description="說明 StorSimple 8000 Series Update 1 的新功能、問題及因應措施。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+    pageTitle="StorSimple 8000 系列 Update 1.2 版本資訊 | Microsoft Azure"
+    description="說明 StorSimple 8000 系列 Update 1.2 的新功能、問題及因應措施。"
+    services="storsimple"
+    documentationCenter="NA"
+    authors="alkohli"
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/21/2015"
-	ms.author="alkohli"/>
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="TBD"
+    ms.date="09/09/2015"
+    ms.author="alkohli" />
 
-# StorSimple 8000 Series Update 1 版本資訊  
+# StorSimple 8000 系列 Update 1.2 版本資訊  
 
 ## 概觀
 
-下列版本資訊說明 StorSimple 8000 Series Update 1 的新功能，並識別未決的重要問題。當中也包含此版本中隨附之 StorSimple 軟體與韌體更新的清單。這是 StorSimple 8000 系列發行版本於 2014 年 7 月公開上市之後的第一個主要版本。
+下列版本資訊說明 StorSimple 8000 系列 Update 1.2 的新功能，並識別未決的重要問題。當中也包含此版本中隨附之 StorSimple 軟體、驅動程式與磁碟韌體更新的清單。
 
-此更新會將裝置軟體變更為 StorSimple 8000 Series Update 1。在 StorSimple 方案中部署更新之前，請檢閱版本資訊中所包含的資訊。如需詳細資訊，請參閱如何[在 StorSimple 裝置上安裝 Update 1](storsimple-install-update-1.md)。
+Update 1.2 可以套用至任何執行 Release (GA)、Update 0.1、Update 0.2 或 Update 0.3 軟體的 StorSimple 裝置。如果您的裝置是執行 Update 1 或 Update 1.1，就無法使用 Update 1.2。如果您的裝置是執行 Release (GA)，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)協助您安裝此更新。
 
-在 StorSimple 方案中部署更新之前，請檢閱版本資訊中所包含的資訊。
+下表列出 Updates 1、1.1 和 1.2 的對應裝置軟體版本。
+
+| 如果執行更新... | 這是您裝置的軟體版本。 |
+|---------------------|---------------------------------------|
+| Update 1.2 | 6\.3.9600.17584 |
+| Update 1.1 | 6\.3.9600.17521 |
+| Update 1.0 | 6\.3.9600.17491 |
+
+在 StorSimple 方案中部署更新之前，請檢閱版本資訊中所包含的資訊。如需詳細資訊，請參閱如何[在 StorSimple 裝置上安裝 Update 1.2](storsimple-install-update-1.md)。
 
 >[AZURE.IMPORTANT]
 > 
-- 重大修補程式 Update 1.1 已於 6 月 23 日發行。此修補程式可解決備份引擎中的問題。如果您在 6 月 23 日之前已套用了 Update 1，而且目前使用的軟體版本為 **6.3.9600.17491**，請務必套用此重大更新，以避免備份發生問題。安裝更新之後，軟體版本會變更 **6.3.9600.17521**。
-- 如果您在 5 月 27 日到 7 月 10 日之間建立軟體版本為 **6.3.9600.17481** 的虛擬裝置，請建立新的虛擬裝置，並將舊虛擬裝置上的所有磁碟區容錯移轉到新虛擬裝置。(這是因為較舊的虛擬裝置無法更新。) 如果您並未建立新的虛擬裝置，您可能會看到備份啟動失敗。如需容錯移轉和災害復原程序，請移至 [StorSimple 裝置的容錯移轉和災害復原](storsimple-device-failover-disaster-recovery.md)。
-- 使用 StorSimple Manager 服務 (而非 Windows PowerShell for StorSimple) 安裝 Update 1。
-- 此版本也包含只有在裝置處於 [維護] 模式時才能套用的磁碟韌體更新。這些都是干擾性更新，將會導致您的裝置停機。您可以在已計劃的維護期間套用這些更新。
 - 安裝此更新大約需要 5-10 小時 (包括 Windows Update)。 
+- Update 1.2 具有軟體、LSI 驅動程式和磁碟韌體更新。若要安裝，請遵循[在 StorSimple 裝置上安裝 Update 1.2](storsimple-install-update-1.md) 中的指示。
 - 如果是新版本，您可能不會立即看到更新，因為我們會分階段推出更新。請在數天內再次掃描更新，因為很快就會提供更新。
 
-## Update 1 的新功能
 
-此更新包含下列新功能和改進功能：
+## Update 1.2 的新功能
+
+這些功能在 Update 1 初次發行時，僅供有限的使用者使用。而在 Update 1.2 版本中，大多數 StorSimple 使用者都可發現下列新功能與改進功能：
 
 - **從 5000-7000 系列移轉至 8000 系列裝置** – 此版本推出新的移轉功能，可讓 StorSimple 5000-7000 系列應用裝置使用者將其資料移轉至 StorSimple 8000 系列實體應用裝置或 1100 虛擬應用裝置。移轉功能包含兩個重要的價值主張：                                                                  
 
     - **業務持續性**：透過允許將 5000-7000 系列應用裝置上的現有資料移轉到 8000 系列應用裝置。
     - **8000 系列應用裝置的改進功能**：例如透過 StorSimple Manager 服務對多個應用裝置進行有效率的集中式管理、更高等級的硬體和更新的韌體、虛擬應用裝置、資料行動力，以及未來藍圖中的功能。
 
-    如需如何將 StorSimple 5000-7000 系列移轉至 8000 系列裝置的詳細資訊，請參閱[移轉指南](http://www.microsoft.com/download/details.aspx?id=47322)。
+    如需如何將 StorSimple 5000-7000 系列移轉至 8000 系列裝置的詳細資訊，請參閱《移轉指南》[](http://www.microsoft.com/download/details.aspx?id=47322)。
 
 - **Azure Government 入口網站的可用性** – Azure Government 入口網站現已提供 StorSimple。請參閱如何[在 Azure Government 入口網站中部署 StorSimple 裝置](storsimple-deployment-walkthrough-gov.md)。
 
 - **其他雲端服務提供者的支援** – 支援的其他雲端服務提供者包括 Amazon S3、含 RRS 的 Amazon S3、HP 以及 OpenStack (beta)。
 
-- **最新儲存 API 的更新** – StorSimple 已經透過這個版本，更新為最新的 Azure 儲存體服務 API。執行 GA 的 StorSimple 8000 系列裝置將使用 2012 年 2 月 12 日之前的 Azure 儲存體服務 API版本。如[儲存體服務版本刪除公告](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/)中所述，這些 API 將於 2015 年 12 月 10 日前被取代。請務必在 2015 年 12 月 9 日之前，套用 StorSimple 8000 Series Update 1。如果您無法執行這項操作，StorSimple 裝置將會停止正常運作。
+- **最新儲存 API 的更新** – StorSimple 已經透過這個版本，更新為最新的 Azure 儲存體服務 API。執行 Update 1 前軟體版本 (發行、0.1、0.2 和 0.3 版本) 的 StorSimple 8000 系列裝置，是使用 2012 年 2 月 12 日之前的 Azure 儲存體服務 API 版本。如[儲存體服務版本刪除公告](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/)中所述，這些 API 將於 2015 年 12 月 10 日前被取代。請務必在 2015 年 12 月 9 日之前，套用 StorSimple 8000 Series Update 1。如果您無法執行這項操作，StorSimple 裝置將會停止正常運作。
 
 - **區域備援儲存體 (ZRS) 的支援** – 升級至最新版的儲存體 API 之後，StorSimple 8000 系列除了本地備援儲存體 (LRS) 和異地備援儲存體 (GRS) 之外，也將支援區域備援儲存體 (ZRS)。如需 ZRS 的詳細資訊，請參閱本文件的 [Azure 儲存體備援選項](../storage/storage-redundancy.md)。
 
 - **增強的初始部署和更新經驗** – 在此版本中，已增強安裝和更新程序。安裝精靈安裝已獲得改善，如果網路組態和防火牆設定不正確，可提供意見給使用者。已提供其他診斷 Cmdlet 來協助您為裝置的網路連線進行疑難排解。如需有關用於疑難排解的新診斷 Cmdlet 的詳細資訊，請參閱[疑難排解部署文件](storsimple-troubleshoot-deployment.md)。
 
-## 在 Update 1 中修正的問題
+## 在 Update 1.2 中修正的問題
 
-下表提供此更新中修正之問題的摘要。
+下表提供 Update 1.2、1.1 和 1 中修正之問題的摘要。
 
-| 編號 | 功能 | 問題 | 適用於實體裝置 | 適用於虛擬裝置 |
-|-----|---------|-------|---------------------------------|--------------------------------|
-| 1 | Windows PowerShell for StorSimple | 當使用者從遠端使用 Windows PowerShell for StorSimple 存取 StorSimple 裝置，然後再啟動安裝精靈時，只要輸入 Data 0 IP，就會當機。這個 Bug 現在已在 Update 1 中修正。 | 是 | 是 |
-| 2 | 恢復出廠預設值 | 在某些情況下，當您要恢復出廠預設值時，StorSimple 裝置會卡住，並顯示此訊息：「正在重設為原廠預設值 (階段 8)」。如果正在進行 Cmdlet 時，按 CTRL+C，就會發生這種情況。這個 Bug 現在已修正。| 是 | 否 |
-| 3 | 恢復出廠預設值 | 雙控制器恢復出廠預設值失敗之後，允許您繼續進行裝置註冊。這會產生不支援的系統組態。在 Update 1 中，會顯示錯誤訊息，而且在恢復出廠預設值失敗的裝置上，會阻止進行註冊。 | 是 | 否 |
-| 4 | 恢復出廠預設值 | 在某些情況下，會引發誤判的不相符警示。在執行 Update 1 的裝置上，將不會再產生不正確的不相符警示。 | 是 | 否 |
-| 5 | 恢復出廠預設值 | 如果恢復出廠預設值在完成前遭到中斷，裝置會進入復原模式，且不允許您存取 Windows PowerShell for StorSimple。這個 Bug 現在已修正。 | 是 | 否 |
-| 6 | 災害復原 | 災害復原 (DR) 在目標裝置上探索備份期間失敗的災害復原 (DR) Bug 已修正。 | 是 | 是 |
-| 7 | 監控 LED | 在某些情況下，應用裝置背面的監控 LED 並未指出正確的狀態。藍色 LED 已熄滅。即使在未設定這些介面時，DATA 0 和 DATA 1 LED 也在閃爍。此問題已修正，且監控 LED 現在會指出正確的狀態。 | 是 | 否 |
-| 8 | 網路介面 | 在舊版中，使用無法路由的閘道設定的 StorSimple 裝置可能會離線。在此版本中，已將 Data 0 的路由計量設為最低，因此，即使其他網路介面都具備雲端功能，來自裝置的所有雲端流量還是會透過 Data 0 路由。 | 是 | 是 | 
-| 9 | 備份 | 修補程式版本更新 1.1 (軟體版本 6.3.9600.17521) 中已修正了 Update 1 (軟體版本 6.3.9600.17491) 中，導致備份在建立的 24 天後損毀的錯誤。 | 是 | 是 |
 
-## Update 1 中的已知問題
+| 編號 | 功能 | 問題 | 在 Update 中修正的問題 | 適用於實體裝置 | 適用於虛擬裝置 |
+|-----|---------|-------|-----------------|---------------------------------|--------------------------------|
+| 1 | Windows PowerShell for StorSimple | 當使用者從遠端使用 Windows PowerShell for StorSimple 存取 StorSimple 裝置，然後再啟動安裝精靈時，只要輸入 Data 0 IP，就會當機。這個 Bug 現在已在 Update 1 中修正。 | Update 1 | 是 | 是 |
+| 2 | 恢復出廠預設值 | 在某些情況下，當您要恢復出廠預設值時，StorSimple 裝置會卡住，並顯示此訊息：「正在重設為原廠預設值 (階段 8)」。如果正在進行 Cmdlet 時，按 CTRL+C，就會發生這種情況。這個 Bug 現在已修正。| Update 1 | 是 | 否 |
+| 3 | 恢復出廠預設值 | 雙控制器恢復出廠預設值失敗之後，允許您繼續進行裝置註冊。這會產生不支援的系統組態。在 Update 1 中，會顯示錯誤訊息，而且在恢復出廠預設值失敗的裝置上，會阻止進行註冊。 | Update 1 | 是 | 否 |
+| 4 | 恢復出廠預設值 | 在某些情況下，會引發誤判的不相符警示。在執行 Update 1 的裝置上，將不會再產生不正確的不相符警示。 | Update 1 | 是 | 否 |
+| 5 | 恢復出廠預設值 | 如果恢復出廠預設值在完成前遭到中斷，裝置會進入復原模式，且不允許您存取 Windows PowerShell for StorSimple。這個 Bug 現在已修正。 | Update 1 | 是 | 否 |
+| 6 | 災害復原 | 災害復原 (DR) 在目標裝置上探索備份期間失敗的災害復原 (DR) Bug 已修正。 | Update 1 | 是 | 是 |
+| 7 | 監控 LED | 在某些情況下，應用裝置背面的監控 LED 並未指出正確的狀態。藍色 LED 已熄滅。即使在未設定這些介面時，DATA 0 和 DATA 1 LED 也在閃爍。此問題已修正，且監控 LED 現在會指出正確的狀態。 | Update 1 | 是 | 否 |
+| 8 | 監控 LED | 在某些情況下，套用 Update 1 之後，作用中控制器上的藍色燈號會關閉，導致難以識別作用中控制器。此修補程式版本已修正此問題。| Update 1.2 | 是 | 否 |
+| 9 | 網路介面 | 在舊版中，使用無法路由的閘道設定的 StorSimple 裝置可能會離線。在此版本中，已將 Data 0 的路由計量設為最低，因此，即使其他網路介面都具備雲端功能，來自裝置的所有雲端流量還是會透過 Data 0 路由。 | Update 1 | 是 | 是 | 
+| 10 | 備份 | 修補程式版本 Update 1.1 已修正了 Update 1 中，導致備份在建立 24 天後損毀的錯誤。 | Update 1.1 | 是 | 是 |
+| 11 | 備份 | 舊版中的錯誤導致雲端快照集變更率低，且效能不佳。此修補程式版本已修正此問題。| Update 1.2 | 是 | 是 |
+| 12 | 備份 | 此修補程式版本已修正 Update 1 會報告升級失敗，並導致控制器進入修復模式的錯誤。| Update 1.2 | 是 | 是 |
+
+
+## Update 1.2 中的已知問題
 
 下表提供此版本的已知問題摘要。
 
@@ -92,27 +103,25 @@
 | 13| 複製和 DR | 執行 Update 1 的 StorSimple 裝置無法對執行 Update 1 前軟體的裝置複製或執行災害復原。 | 您必須將目標裝置更新為 Update 1，以允許這些作業 | 是 | 是 |
 | 14 | 移轉 | 當磁碟區群組中沒有相關聯的磁碟區時，5000-7000 系列裝置上用於移轉的設定備份可能會失敗。 | 刪除不含相關聯磁碟區的所有空磁碟區群組，然後重試設定備份。| 是 | 否 |
 
-## Update 1 中的實體裝置更新
+## Update 1.2 中的實體裝置更新
 
-如果將修補程式更新 1.2 套用至執行 Update 1 之前版本的實體裝置，軟體版本會變更為 6.3.9600.17521。
+如果將修補程式 Update 1.2 套用至執行 Update 1 之前版本的實體裝置，軟體版本會變更為 6.3.9600.17584。
 
-## Update 1 中的控制器和韌體更新
+## Update 1.2 中的控制器和韌體更新
 
-這個版本會針對實體裝置的 SAS 控制站更新驅動程式與軔體。它也會更新裝置上的磁碟軔體。
+這個版本會更新裝置上的驅動程式和磁碟韌體。
  
 - 如需有關 SAS 控制器更新的詳細資訊，請參閱[適用於 Microsoft Azure StorSimple 應用裝置的 LSI SAS 控制器的 Update 1](https://support.microsoft.com/kb/3043005)。 
 
-- 如需有關韌體更新的詳細資訊，請參閱[適用於 Microsoft Azure StorSimple 應用裝置的韌體 Update 1](https://support.microsoft.com/kb/3063414)。
-
 - 如需有關磁碟韌體更新的詳細資訊，請參閱[適用於 Microsoft Azure StorSimple 應用裝置的磁碟韌體 Update 1](https://support.microsoft.com/kb/3063416)。
  
-## Update 1 中的虛擬裝置更新
+## Update 1.2 中的虛擬裝置更新
 
-這項更新無法套用至虛擬裝置。不過，7 月 10 日之後建立的任何虛擬裝置會自動更新為這個版本。
+這項更新無法套用至虛擬裝置。將需要建立新的虛擬裝置。
 
 ## 後續步驟
 
-- [在您的裝置上安裝 Update 1](storsimple-install-update-1.md)。
+- [在您的裝置上安裝 Update 1.2](storsimple-install-update-1.md)。
  
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

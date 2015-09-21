@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/14/2015"
+   ms.date="09/08/2015"
    ms.author="liviodlc"/>
 
 #自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) 可讓您自動化在雲端 (SaaS) 應用程�
 **以下是這項功能可讓您執行的一些範例：**
 
 - 當人員加入您的小組時，在正確的 SaaS 應用程式中為新的人員自動建立新帳戶。
-- 當人員離開小組時，自動從 SaaS 應用程式中移除帳戶。
+- 當人員離開小組時，自動從 SaaS 應用程式停用帳戶。
 - 確保您的 SaaS 應用程式中的身分識別，根據目錄中的變更保持最新狀態。
 - 將支援的非使用者物件，例如群組，佈建至 SaaS 應用程式。
 
@@ -108,4 +108,4 @@ Azure AD 會藉由連接到每個應用程式廠商所提供的佈建端點，�
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

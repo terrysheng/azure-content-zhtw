@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="09/03/2015"
    ms.author="abhic"/>
 
 # 位置限制概觀
@@ -39,4 +39,4 @@ NodeProperty - 使用者或系統所定義從字串對值的對應，會隨著�
 如需詳細資訊，請參閱：＜[應用程式案例](../service-fabric-application-scenarios)＞。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

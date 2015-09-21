@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Media Encoder 格式和轉碼器"
-	description="本主題提供 Azure 媒體編碼器格式和轉碼器的概觀。"
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Azure Media Encoder 格式和轉碼器" 
+	description="本主題提供 Azure 媒體編碼器格式和轉碼器的概觀。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/05/2015" 
 	ms.author="juliako"/>
 
 #Azure Media Encoder 格式和轉碼器
@@ -21,7 +21,7 @@
 本文件包含您可以和 Azure 媒體編碼器搭配使用之最常見輸入與輸出檔案格式和轉碼器的清單。
 
 
-##輸入視訊檔案格式 (容器)
+##輸入檔案格式 (容器)
  
 檔案格式 (副檔名)|支援
 ---|---
@@ -33,32 +33,25 @@
 DVD 傳輸串流 (TS) 檔案 (.ts) |是
 DVD 視訊物件 (VOB) 檔案 (.vob) |是
 Expression Encoder 螢幕擷取轉碼器檔案 (.xesc) |是
-MP4 (.mp4) |是
+MP4 (.mp4、.m4a、.m4v)/ISMV (.isma、.ismv) |是
 MPEG-1 系統資料流 (.mpeg、.mpg) |是
 MPEG-2 視訊檔案 (.m2v) |是
-Smooth Streaming 檔案格式 (PIFF 1.3) (.ismv) |是
 Windows Media 視訊 (WMV) (.wmv) |是
+AC-3 (Dolby Digital) 音訊 (.ac3)|是
+音訊交換檔案格式 (AIFF) (.aiff)|是
+廣播聲波格式 (.bwf)|是
+MP3 (MPEG-1 音訊層 3) (.mp3)|是
+MPEG-4 有聲書 (m4b)|是
+WAVE 檔案 (.wav)|是
+Windows Media 音訊 (.wma)|是
 Adobe® Flash® F4V |否		
 MXF/SMPTE 377M |限制 
 GXF |否		 
 [Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|否
 Matroska/WebM |否
 
+
 支援部分未壓縮格式。如需詳細資訊，請參閱[支援的未壓縮視訊格式](#uncompressed)
-
-##輸入音訊檔案格式
-
-檔案格式 (副檔名)|支援
----|---
-AC-3 (Dolby Digital) 音訊 (.ac3)|是
-音訊交換檔案格式 (AIFF) (.aiff)|是
-廣播聲波格式 (.bwf)|是
-MP3 (MPEG-1 音訊層 3) (.mp3)|是
-MP4 音訊 (m4A)|是
-MPEG-4 有聲書 (m4b)|是
-WAVE 檔案 (.wav)|是
-Windows Media 音訊 (.wma)|是
-
 
 ##輸入視訊轉碼器
 
@@ -121,7 +114,7 @@ Windows Media (* .wmv、* .wma)|VC-1 (進階、主要和簡易設定檔)|Windows
 MP4 (* .mp4)|H.264 (高、主要和基準設定檔)|AAC-LC、HE-AAC v1、HE-AAC v2、Dolby Digital Plus
 Smooth Streaming 檔案格式 (PIFF 1.1) (* .ismv、* .isma)|VC-1 (進階設定檔)<p>H.264 (高、主要和基準設定檔) |Windows Media Audio Standard、Windows Media Audio Professional<p><p>AAC-LC、HE-AAC v1、HE-AAC v2
 
-如需媒體服務中其他支援的轉碼器和篩選器，請參閱 [Windows DirectShow 篩選](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx)。
+如需媒體服務中其他支援的轉碼器和篩選器，請參閱 [Windows DirectShow 篩選](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx) (英文)。
 
 ##<a id="uncompressed"></a>支援的未壓縮視訊格式 
 
@@ -141,4 +134,12 @@ YUV 211 格式資料|壓縮 YUV 格式。每行的每第二個水平像素都是
 Cirrus Logic Jr YUV 411 格式|Cirrus Logic Jr YUV 411 格式， 每個 Y、U 和 V 樣本小於 8 位元。每行的每個水平像素都是 Y 樣本，每第四個水平像素是 U 和 V 樣本。每條垂直線都會進行取樣。
 Indeo-produced YVU9 格式|Indeo-produced YVU9 格式，包含與最後一個影格的區別額外資訊。每個像素 9.5 位元，但回報為 9 位元。
 
-<!---HONumber=September15_HO1-->
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

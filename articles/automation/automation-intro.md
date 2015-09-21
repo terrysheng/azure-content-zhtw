@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/06/2015"
+	ms.date="09/03/2015"
 	ms.author="bwren"/>
 
 # 什麼是 Azure 自動化？
@@ -58,11 +58,11 @@ Azure 自動化中的 Runbook 是基於 PowerShell 工作流程，因此它們�
 
 - **Azure 自動化程式庫**是您目前的所在位置。本文件庫中的文章提供完整的文件，說明如何設定和管理 Azure 自動化，以及撰寫自己的 Runbook。
 - [Azure PowerShell Cmdlet](http://msdn.microsoft.com/library/jj156055.aspx) 提供使用 Windows PowerShell 自動執行 Azure 作業的資訊。Runbook 會使用這些 Cmdlet 來處理 Azure 資源。
-- [Azure 自動化部落格](http://azure.microsoft.com/blog/tag/azure-automation)提供 Microsoft 的最新 Azure 自動化資訊。您應該訂閱此部落格，隨時掌握 Azure 自動化團隊的最新消息。
+- [管理部落格](http://azure.microsoft.com/blog/topics/management) 提供來自 Microsoft 的 Azure 自動化最新資訊和其他管理技術。您應該訂閱此部落格，隨時掌握 Azure 自動化團隊的最新消息。
 - [自動化論壇](http://go.microsoft.com/fwlink/p/?LinkId=390561)可讓您張貼有關要由 Microsoft 和自動化社群解決的 Azure 自動化問題。
 
 ## 可以提供意見嗎？
 
 **請不吝提供意見！** 如果您要尋找 Azure 自動化 Runbook 解決方案或整合模組，請在指令碼中心提出指令碼要求。如果您有關於 Azure 自動化的任何意見或功能要求，請張貼在 [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback) 上。感謝您！
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

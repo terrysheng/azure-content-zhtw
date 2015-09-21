@@ -1,19 +1,19 @@
 <properties 
    pageTitle="管理虛擬網路 (VNet) 所使用的 DNS 伺服器"
-	description="了解如何新增和移除虛擬網路 (VNet) 中的 DNS 伺服器"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="了解如何新增和移除虛擬網路 (VNet) 中的 DNS 伺服器"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/08/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/04/2015"
+   ms.author="telmos" />
 
 # 管理虛擬網路 (VNet) 所使用的 DNS 伺服器
 
@@ -65,4 +65,4 @@
 
 [如何刪除虛擬網路 (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

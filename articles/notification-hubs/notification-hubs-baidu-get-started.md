@@ -1,6 +1,6 @@
 <properties
-	pageTitle="開始使用 Azure 通知中樞 | Microsoft Azure"
-	description="在本教學課程中，您會了解如何使用 Azure 通知中樞，推播通知到 Android 裝置。"
+	pageTitle="透過百度開始使用 Azure 通知中樞 | Microsoft Azure"
+	description="在本教學課程中，您將了解如何透過百度使用 Azure 通知中樞，將通知推播到 Android 裝置。"
 	services="notification-hubs"
 	documentationCenter="android"
 	authors="wesmc7777"
@@ -13,10 +13,10 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# 開始使用通知中心
+# 透過百度開始使用通知中樞
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -478,4 +478,4 @@
 [Azure 入口網站]: https://manage.windowsazure.com/
 [百度入口網站]: http://www.baidu.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

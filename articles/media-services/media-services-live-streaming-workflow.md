@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="利用 Azure 媒體服務提供即時資料流"
-	description="本主題提供即時串流中涉及的主要元件的概觀。"
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="利用 Azure 媒體服務提供即時資料流" 
+	description="本主題提供即時串流中涉及的主要元件的概觀。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 
@@ -70,6 +70,13 @@
 如需詳細資訊，請參閱[使用通道，從內部部署編碼器接收多位元速率即時串流](media-services-manage-channels-overview.md)。
 
 
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##相關主題
 
 [媒體服務概念](media-services-concepts.md)
@@ -85,4 +92,4 @@
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

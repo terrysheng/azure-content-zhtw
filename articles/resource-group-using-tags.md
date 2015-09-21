@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="09/04/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -143,7 +143,7 @@
 
 對於支援的服務，您可以使用標記來分組您的計費資料。例如，[和 Azure 資源管理員整合的虛擬機器](/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)可讓您定義並套用標記，以組織虛擬機器的計費使用情況。如果您執行不同組織的多個 VM，您可以使用標記根據成本中心來分組使用情況。您也可以使用標記來根據執行階段環境分類成本。例如，在生產環境中執行之 VM 的計費使用情況。
 
-您可以透過[使用情況 api](billing-usage-rate-card-overview.md) 或使用情況以逗號分隔值 (CSV) 檔案 (您可以從 [Azure 帳戶入口網站](https://account.windowsazure.com/)或 [EA 入口網站](https://ea.azure.com)下載)，擷取關於標記的資訊。如需以程式設計方式存取帳單資訊的詳細資訊，請參閱[深入瞭解 Microsoft Azure 資源耗用量](billing-usage-rate-card-overview.md)。
+您可以透過[Azure 資源使用狀況和 RateCard API](billing-usage-rate-card-overview.md) 或使用情況逗號分隔值 (CSV) 檔案 (您可以從 [Azure 帳戶入口網站](https://account.windowsazure.com/)或 [EA 入口網站](https://ea.azure.com)下載)，擷取關於標記的資訊。如需以程式設計方式存取帳單資訊的詳細資訊，請參閱[深入瞭解 Microsoft Azure 資源耗用量](billing-usage-rate-card-overview.md)。若為 REST API 作業，請參閱 [Azure 計費 REST API 參考](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)。
 
 當您下載服務 (支援附計費的標記) 的使用情況 CSV 時，標記會出現在 [**標記**] 資料行。若需更多詳細資料，請參閱[了解 Microsoft Azure 的計費](billing-understand-your-bill.md)。
 
@@ -151,11 +151,11 @@
 
 ## 後續步驟
 
-- 如需部署資源時使用 Azure PowerShell 的簡介，請參閱 [使用 Azure PowerShell 與 Azure 資源管理員搭配](./powershell-azure-resource-manager.md)。
-- 如需部署資源時使用 Azure CLI 的簡介，請參閱[使用 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理搭配](./xplat-cli-azure-resource-manager.md)。
-- 如需使用 Preview 入口網站的簡介，請參閱〈[使用 Azure Preview 入口網站來管理您的 Azure 資源](./resource-group-portal.md)〉  
+- 如需部署資源時使用 Azure PowerShell 的簡介，請參閱 [搭配使用 Azure PowerShell 與 Azure 資源管理員](./powershell-azure-resource-manager.md)。
+- 如需部署資源時使用 Azure CLI 的簡介，請參閱[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](./xplat-cli-azure-resource-manager.md)。
+- 如需使用預覽入口網站的簡介，請參閱[使用 Azure 預覽入口網站來管理您的 Azure 資源](./resource-group-portal.md)  
   
 
   
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

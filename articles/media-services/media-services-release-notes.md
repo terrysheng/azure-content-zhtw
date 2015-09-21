@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="媒體服務版本資訊"
-	description="媒體服務版本資訊"
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="媒體服務版本資訊" 
+	description="媒體服務版本資訊" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="media"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="media" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/07/2015"   
 	ms.author="juliako"/>
 
 
@@ -534,6 +534,14 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 
 	所有方法皆已新增非同步支援。
 
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 <!-- Anchors. -->
 
 <!-- Images. -->
@@ -573,4 +581,4 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [處理媒體服務工作通知]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

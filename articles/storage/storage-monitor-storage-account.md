@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2015"
+	ms.date="09/03/2015"
 	ms.author="tamram"/>
 
 # 在 Azure 入口網站中監視儲存體帳戶
@@ -157,4 +157,4 @@
 
 診斷記錄檔儲存在儲存體帳戶中的 $logs Blob 容器。如需存取 $logs 容器的詳細資訊，請參閱[關於儲存體分析記錄](http://msdn.microsoft.com/library/azure/hh343262.aspx)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

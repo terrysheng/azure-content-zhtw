@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/17/2015"  
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -219,7 +219,7 @@ VMAP 檔案開頭為 <VMAP> 元素，包含一或多個 <AdBreak> 元素，每�
 1. 時間 – hh: mm: 或 hh:mm:ss.mmm 的格式，其中.mmm 為毫秒。這個屬性的值會指定從視訊時間軸開始到廣告插播開始的時間。
 1. 百分比 – n% 格式，其中 n 是視訊時間軸在播放廣告之前播放的百分比
 1. 開始/結束 – 指定廣告應該在視訊顯示之前或之後顯示
-1. 位置 – 指定當廣告插播的時機為未知時 (例如即時串流)，廣告插播的順序。每個廣告插播的順序是以 \#n 格式指定，其中 n 是大於或等於 1 的整數。1 表示廣告應該在第一個機會時播放，2 表示廣告應該在第二個機會時播放，依此類推。
+1. 位置 – 指定當廣告插播的時機為未知時 (例如即時串流)，廣告插播的順序。每個廣告插播的順序是以 #n 格式指定，其中 n 是大於或等於 1 的整數。1 表示廣告應該在第一個機會時播放，2 表示廣告應該在第二個機會時播放，依此類推。
 
 在 <**AdBreak**> 元素內可以有一個 <**AdSource**> 元素。<**AdSource**> 元素包含下列屬性：
 
@@ -796,9 +796,18 @@ Microsoft 媒體平台：Player Framework for iOS 包含範例應用程式集合
 	{
 	    [self logFrameworkError];
 	}
+
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
  
 ##另請參閱
 
 [開發視訊播放程式應用程式](media-services-develop-video-players.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

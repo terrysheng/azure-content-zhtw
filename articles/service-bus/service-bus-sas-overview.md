@@ -1,5 +1,5 @@
 <properties
-   pageTitle="共用存取簽章概觀"
+   pageTitle="共用存取簽章概觀 | Microsoft Azure"
    description="共用存取簽章為何、其如何運作，以及如何從 Node、PHP 和 C# 中使用它們。"
    services="service-bus,event-hubs"
    documentationCenter="na"
@@ -12,8 +12,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/24/2015"
+   ms.workload="na"
+   ms.date="09/04/2015"
    ms.author="darosa"/>
 
 # 共用存取簽章
@@ -24,7 +24,7 @@
 
 共用存取簽章是以 SHA-256 安全雜湊或 URI 為基礎的驗證機制。SAS 是所有服務匯流排服務使用的非常強大的機制。在實際使用中，SAS 有兩個元件：*共用存取原則*和*共用存取簽章* (通常稱為*權杖*)。
 
-您可以在[使用服務匯流排的共用存取簽章驗證](https://msdn.microsoft.com/library/azure/dn170477.aspx)中找到共用存取簽章與服務匯流排的更詳細資訊。
+您可以在[使用服務匯流排的共用存取簽章驗證](service-bus-shared-access-signature-authentication.md)中，找到共用存取簽章與服務匯流排的更詳細資訊。
 
 ## 共用的存取原則
 
@@ -251,6 +251,8 @@ AMQP 訊息因為具有眾多屬性而有點複雜，且含有比簡單訊息更
 
 如需有關如何使用這些 SAS 權杖的詳細資訊，請參閱[服務匯流排 REST API 參考](https://msdn.microsoft.com/library/azure/hh780717.aspx)。
 
-如需有關 SAS 的詳細資訊，請參閱 MSDN 上的[服務匯流排驗證](https://msdn.microsoft.com/library/azure/dn155925.aspx)節點。在 [Damir 的部落格](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)中有更多有關 C# 和 Java 指令碼中 SAS 的範例
+如需關於服務匯流排驗證的詳細資訊，請參閱[服務匯流排驗證和授權](service-bus-authentication-and-authorization.md)。
 
-<!---HONumber=August15_HO7-->
+您可以在[此部落格文章](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)中找到更多 C# 和 Java Script 的 SAS 範例。
+
+<!---HONumber=Sept15_HO2-->

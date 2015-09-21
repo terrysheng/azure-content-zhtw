@@ -318,7 +318,7 @@ Azure 搜尋服務具有可設定的 **searchMode** 屬性，可用來控制搜�
 
 若要執行所有工作，您需要 Azure 訂用帳戶，讓您可以在服務中建立並填入索引。如需有關如何註冊免費試用版的詳細資訊，請造訪 [https://azure.microsoft.com/pricing/free-trial](https://azure.microsoft.com/pricing/free-trial/)。
 
-若要深入了解 Azure 搜尋服務，請造訪 [http://azure.microsoft.com](http://azure.microsoft.com) 上的[文件頁面](http://azure.microsoft.com/documentation/services/search/)或了解任何數目的[範例和影片](https://msdn.microsoft.com/library/dn818681.aspx)以探索完整範圍的 Azure 搜尋服務功能。
+若要深入了解 Azure 搜尋，請瀏覽 [http://azure.microsoft.com](http://azure.microsoft.com) 上的[文件頁面](http://azure.microsoft.com/documentation/services/search/)或查看任何[範例和影片](search-video-demo-tutorial-list.md)以探索 Azure 搜尋的完整功能。
 
 <a name="Schema"></a>
 ##關於結構描述
@@ -529,4 +529,4 @@ Azure 搜尋服務具有可設定的 **searchMode** 屬性，可用來控制搜�
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

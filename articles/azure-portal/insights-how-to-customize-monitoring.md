@@ -13,7 +13,7 @@ documentationCenter=""/>
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # 監視服務計量
@@ -73,4 +73,4 @@ documentationCenter=""/>
 * 使用 Application Insights [監視任何網頁的可用性和回應性](../app-insights-monitor-web-app-availability.md)，讓您可以找出您的頁面是否關閉。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

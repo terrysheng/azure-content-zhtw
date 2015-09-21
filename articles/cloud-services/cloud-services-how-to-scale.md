@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="如何調整雲端服務 | Microsoft Azure" 
-	description="了解如何在 Azure 中調整雲端服務和連結的資源。" 
+	pageTitle="設定雲端服務的自動調整規模 | Microsoft Azure" 
+	description="了解如何透過入口網站，設定 Azure 雲端服務和已連結資源的自動調整規模規則。" 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="09/08/2015"
 	ms.author="adegeo"/>
 
 
 
 
 
-# 如何調整應用程式
+# 如何自動調整應用程式
 
 在 Azure 管理入口網站的 [調整] 頁面上，您可以手動調整應用程式，也可以設定參數來自動調整應用程式。您可以調整執行 Web 角色、背景工作角色或虛擬機器的應用程式。若要調整執行 Web 角色或背景工作角色執行個體的應用程式，您可以新增或移除角色執行個體來容納工作負載。
 
@@ -227,4 +227,4 @@
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

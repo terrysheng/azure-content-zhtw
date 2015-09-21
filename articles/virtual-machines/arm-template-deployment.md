@@ -1,4 +1,12 @@
-<屬性 pageTitle =「使用範本部署 Azure 資源」描述 =「了解如何使用 Azure 資源管理程式庫中一些可用的用戶端部署虛擬機器、虛擬網路和儲存體帳戶」服務 =「虛擬機器、虛擬網路、儲存體」documentationCenter="" 作者 ="davidmu1" 管理員 ="timlt" 編輯器 ="tysonn" 標記 ="azure-資源-管理員/>
+<properties
+	pageTitle="使用範本部署 Azure 資源"
+	description="了解如何使用 Azure 資源管理程式庫中一些可用的用戶端部署虛擬機器、虛擬網路和儲存體帳戶"
+	services="virtual-machines,virtual-networks,storage"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager/>
 
 <tags
 	ms.service="azure-resource-manager"

@@ -374,13 +374,13 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 	- *registerWithGCM* 是第一個按鈕點擊處理常式，可向 GCM 進行 *chrome.gcm.register* 呼叫，以註冊此 Chrome 應用程式執行個體。
 	- *registerCallback* 是回呼函數，會在上述 GCM 註冊呼叫傳回時受到呼叫。
 	- *registerWithNH* 是第二個按鈕點擊處理常式，會向通知中樞進行註冊。它會取得使用者已指定的 *hubName* 和 *connectionString* 並製作通知中樞註冊 REST API 呼叫。
-	- *splitConnectionString* 和 *generateSaSToken* 都是建立 SaS 權杖的 Javascript 實作，必須在所有的 REST API 呼叫中傳送。相關資訊請見 - http://msdn.microsoft.com/library/dn495627.aspx 
+	- *splitConnectionString* 和 *generateSaSToken* 都是建立 SaS 權杖的 Javascript 實作，必須在所有的 REST API 呼叫中傳送。相關資訊請見 - 如需詳細資訊，請參閱 [般概念](http://msdn.microsoft.com/library/dn495627.aspx) 
 	- *sendNHRegistrationRequest* 是發出 HTTP REST 呼叫的函數。
 	- *registrationPayload* 會定義註冊 xml 裝載。相關資訊請見 - [建立註冊 NH REST API]。我們會以接收自 GCM 的項目來更新其中的註冊識別碼。
 	- *client* 是我們用來發出 HTTP POST 要求的 *XMLHttpRequest* 執行個體。請注意，我們會使用 sasToken 更新 *Authorization* 標頭。成功完成此呼叫後，即會向 Azure 通知中樞註冊此 Chrome 應用程式執行個體。
 
 
-8. 您應該會在結尾處看見下列資料夾檢視：
+您應該會在結尾處看見下列資料夾檢視：
    	![][21]
 
 ###設定和測試 Chrome 應用程式
@@ -494,4 +494,4 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 [Azure 通知中樞通知使用者]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Azure 通知中樞即時新聞]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

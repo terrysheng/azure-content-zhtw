@@ -68,7 +68,7 @@
 3.  在 [設定應用程式 URL] 頁面上，執行下列步驟，然後按 [下一步]。
 
     -   在 [Central Desktop 登入 URL] 文字方塊中，輸入您的 Central Desktop 租用戶的 URL (例如：**http://contoso.centraldesktop.com*))。
--   在 [Central Desktop 回覆 URL] 文字方塊中，輸入您的 Central Desktop AssertionConsumerService URL (例如：https://contoso.centraldesktop.com/saml2-assertion.php))。
+    -   在 [Central Desktop 回覆 URL] 文字方塊中，輸入您的 Central Desktop AssertionConsumerService URL (例如：https://contoso.centraldesktop.com/saml2-assertion.php))。
 
     >[AZURE.NOTE]您可以從 Central Desktop 中繼資料取得這個值 (例如：**http://contoso.centraldesktop.com*))。
 
@@ -154,4 +154,4 @@ AAD 使用者必須先佈建到 Central Desktop 應用程式，才可以登入�
 
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

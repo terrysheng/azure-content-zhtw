@@ -92,7 +92,7 @@
         $ctx=New-AzureStorageContext <account name> <account key>
     	$s = New-AzureStorageShare <share name> -Context $ctx
 
-	因此，針對我們的共用，這些就是我們所執行的 Cmdlet：
+ 因此，針對我們的共用，這些就是我們所執行的 Cmdlet：
 
 	    $ctx=New-AzureStorageContext accessstorage <key>
     	$s = New-AzureStorageShare <share name> -Context $ctx
@@ -120,4 +120,4 @@
 
 <!--Image references-->
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

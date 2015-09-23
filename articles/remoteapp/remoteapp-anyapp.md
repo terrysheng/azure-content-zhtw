@@ -85,14 +85,14 @@
 ![Azure 儲存體帳戶](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. 現在，回到您的儀表板，以取得您儲存體的路徑 (端點位置)。您將立即使用此項，因此請確定在某個位置複製它。
 
-![儲存體帳戶路徑](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
-5.接著，建立儲存體帳戶之後，您需要有主要存取金鑰。按一下 [**管理存取金鑰**]，然後複製主要存取金鑰。
-6.現在，設定儲存體帳戶的內容，並建立 Access 的新檔案共用。在提升權限的 Windows PowerShell 視窗中，執行下列 Cmdlet：
+ ![儲存體帳戶路徑](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
+5. 接著，建立儲存體帳戶之後，您需要有主要存取金鑰。按一下 [**管理存取金鑰**]，然後複製主要存取金鑰。
+6. 現在，設定儲存體帳戶的內容，並建立 Access 的新檔案共用。在提升權限的 Windows PowerShell 視窗中，執行下列 Cmdlet：
 
         $ctx=New-AzureStorageContext <account name> <account key>
     	$s = New-AzureStorageShare <share name> -Context $ctx
 
- 因此，針對我們的共用，這些就是我們所執行的 Cmdlet：
+	因此，針對我們的共用，這些就是我們所執行的 Cmdlet：
 
 	    $ctx=New-AzureStorageContext accessstorage <key>
     	$s = New-AzureStorageShare <share name> -Context $ctx
@@ -120,4 +120,4 @@
 
 <!--Image references-->
 
-<!----HONumber=Sept15_HO2-->
+<!-----HONumber=Sept15_HO2-->

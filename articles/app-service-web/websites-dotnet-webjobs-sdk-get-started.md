@@ -92,10 +92,12 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 1. 在 Visual Studio 中開啟 [伺服器總管] 視窗。
 
-2. 以滑鼠右鍵按一下 **Azure** 節點，然後按一下 [連線到 Microsoft Azure]。![連接到 Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. 以滑鼠右鍵按一下 **Azure** 節點，然後按一下 [連線到 Microsoft Azure]。
+![連接到 Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. 使用您的 Azure 認證登入。
-5. 以滑鼠右鍵按一下 Azure 節點下的 [儲存體]，然後按一下 [建立儲存體帳戶]。![建立儲存體帳戶](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. 以滑鼠右鍵按一下 Azure 節點下的 [儲存體]，然後按一下 [建立儲存體帳戶]。
+![建立儲存體帳戶](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. 在 [建立儲存體帳戶] 對話方塊中，輸入儲存體帳戶的名稱。
 
@@ -246,7 +248,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 7. 在[應用程式服務方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)下拉式清單中，選擇 [應用程式服務方案]。輸入 App Service 方案名稱 (例如 ContosoAdsPlan)。
 
-8. 在 [資源群組][](../resource-group-overview.md) 下拉式清單中，選擇 [建立新的資源群組]。
+8. 在 [資源群組](../resource-group-overview.md) 下拉式清單中，選擇 [建立新的資源群組]。
 
 9. 輸入資源群組名稱 (例如 ContosoAdsGroup)。
 
@@ -825,4 +827,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 * 如需從網站變更為 App Service 的指南，請參閱 [Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)。
 * 如需 Azure 入口網站變更為 Azure Preview 入口網站的指南，請參閱[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)。
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

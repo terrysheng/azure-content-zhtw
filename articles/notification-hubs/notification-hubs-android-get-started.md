@@ -70,7 +70,9 @@
 
 
 
-	這兩個封裝的參考文件位於下列連結： * [com.microsoft.windowsazure.messaging](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/messaging/package-summary.html) * [com.microsoft.windowsazure.notifications](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/notifications/package-summary.html)
+	這兩個封裝的參考文件位於下列連結：
+	* [com.microsoft.windowsazure.messaging](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/messaging/package-summary.html)
+	* [com.microsoft.windowsazure.notifications](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/notifications/package-summary.html)
 
 
     > [AZURE.NOTE]檔案名稱結尾的數字在後續 SDK 版本中可能會變更。
@@ -107,7 +109,10 @@
 	    private static Boolean isVisible = false;
 
 
-	請務必更新三個預留位置：* **SENDER\_ID**：將 `SENDER_ID` 設定為您先前從在 [Google Cloud Console](http://cloud.google.com/console) 中建立的專案取得的專案號碼。* **HubListenConnectionString**：將 `HubListenConnectionString` 設定為中樞的 **DefaultListenAccessSignature** 連接字串。在 [Azure 入口網站]上，按一下您的中樞的 [儀表板] 索引標籤上的 [檢視連接字串]，即可複製該連接字串。* **HubName**：在 Azure 中針對您的中樞顯示在頁面頂端的通知中樞名稱 (**不是**完整 URL)。例如，使用 `"myhub"`。
+	請務必更新三個預留位置：
+	* **SENDER\_ID**：將 `SENDER_ID` 設定為您先前從在 [Google Cloud Console](http://cloud.google.com/console) 中建立的專案取得的專案號碼。
+	* **HubListenConnectionString**：將 `HubListenConnectionString` 設定為中樞的 **DefaultListenAccessSignature** 連接字串。在 [Azure 入口網站]上，按一下您的中樞的 [儀表板] 索引標籤上的 [檢視連接字串]，即可複製該連接字串。
+	* **HubName**：在 Azure 中針對您的中樞顯示在頁面頂端的通知中樞名稱 (**不是**完整 URL)。例如，使用 `"myhub"`。
 
 
 
@@ -530,4 +535,4 @@
 [使用通知中樞將通知推播給使用者]: notification-hubs-aspnet-backend-android-notify-users.md
 [使用通知中心傳送即時新聞]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

@@ -57,7 +57,7 @@
 	![選取 Azure AD 租用戶][SELECT-AZURE-AD-APP]
 
 
-4. 既然您已選取應用程式的主頁面，請注意頁面底部的「管理資訊清單」功能 (1)。如果您按一下此連結，系統將提示您下載或上傳 JSON 資訊清單檔案。按一下 [下載資訊清單] (2)，其後會立即出現下載確認對話方塊，提示您按一下 [下載資訊清單] (3) 加以確認，然後在本機開啟或儲存檔案 (4)。
+4. 既然您已選取應用程式的主頁面，請注意頁面底部的「管理資訊清單」功能 (1)。如果您按一下此連結，系統將提示您下載或上傳 JSON 資訊清單檔案。按一下 [下載資訊清單] \(2)，其後會立即出現下載確認對話方塊，提示您按一下 [下載資訊清單] \(3) 加以確認，然後在本機開啟或儲存檔案 (4)。
 
 	![管理資訊清單、下載選項][MANAGE-MANIFEST-DOWNLOAD]
 
@@ -104,4 +104,4 @@
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

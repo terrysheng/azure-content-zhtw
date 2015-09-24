@@ -78,7 +78,7 @@
 第一部分是您以系統管理員身分執行的作業。然後，是您的使用者執行的一些步驟。
 
 1. 請從發佈命令列介面 (cmd.exe) 開始。在 [**發佈**] 索引標籤中，選取 [**cmd**]，然後按一下 [**發佈 > 使用路徑發佈程式**]。
-2. 輸入應用程式和路徑的名稱。基於我們的目的，使用 "File Explorer" 做為名稱並使用 "%SYSTEMDRIVE%\\windows\\explorer.exe" 做為路徑。
+2. 輸入應用程式和路徑的名稱。基於我們的目的，使用 "File Explorer" 做為名稱並使用 "%SYSTEMDRIVE%\windows\\explorer.exe" 做為路徑。
 ![發佈 cmd.exe 檔案。](./media/remoteapp-anyapp/ra-publishcmd.png)
 3. 現在，您需要建立 Azure [儲存體帳戶](../storage-create-storage-account.md)。我們命名為 "accessstorage"，因此請選擇對您有意義的名稱 (只能有一個 "accessstorage")。
 ![Azure 儲存體帳戶](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
@@ -119,4 +119,4 @@
 <!--Image references-->
  
 
-<!------HONumber=Sept15_HO2-->
+<!-------HONumber=Sept15_HO2-->

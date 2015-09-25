@@ -103,7 +103,7 @@
 
 
 1.	為同步群組輸入有意義的名稱。
-2.	從下拉式清單中選取 [區域] (資料中心) 以裝載此同步群組。
+2.	從下拉式清單中選取 [區域] \(資料中心) 以裝載此同步群組。
 3. 按一下向右箭頭。
 
 	![Image3](./media/sql-database-get-started-sql-data-sync/NewSyncGroupName-Figure3.PNG)
@@ -202,4 +202,4 @@ Azure SQL 資料同步可讓您選取要同步的資料表和資料欄。如果�
 
  
 
-<!----HONumber=Sept15_HO2-->
+<!-----HONumber=Sept15_HO2-->

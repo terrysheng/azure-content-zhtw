@@ -1,5 +1,5 @@
 <properties
-	pageTitle="如何從 iOS 用戶端呼叫自訂 API"
+	pageTitle="了解如何從 iOS 用戶端 (.NET 後端) 呼叫自訂 API"
 	description="了解如何定義自訂 API 然後從使用 Azure 行動服務的 iOS 應用程式呼叫它。"
 	services="mobile-services"
 	documentationCenter="ios"
@@ -50,4 +50,4 @@
 [Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
 [Store server scripts in source control]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

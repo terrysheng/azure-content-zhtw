@@ -1,19 +1,19 @@
 <properties 
    pageTitle="管理 StorSimple 儲存體帳戶 | Microsoft Azure"
-	description="說明如何使用 StorSimple Manager 的 [設定] 頁面來加入、編輯、刪除或替換儲存體帳戶的安全性金鑰。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="說明如何使用 StorSimple Manager 的 [設定] 頁面來加入、編輯、刪除或替換儲存體帳戶的安全性金鑰。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務管理儲存體帳戶
 
@@ -148,6 +148,7 @@ Microsoft Azure 系統管理員可以直接存取儲存體帳戶 (透過 Microso
 
 ## 後續步驟
 
-深入了解 [StorSimple 安全性](storsimple-security.md)。
+- 深入了解 [StorSimple 安全性](storsimple-security.md)。
+- 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

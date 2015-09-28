@@ -1,20 +1,20 @@
 <properties
     pageTitle="幾分鐘內即上架到 Operational Insights | Microsoft Azure"
-	description="了解如何在幾分鐘之內完成 Azure Operational Insights 的設定"
-	services="operational-insights"
-	documentationCenter=""
-	authors="bandersmsft"
-	manager="jwhit"
-	editor=""/>
+    description="了解如何在幾分鐘之內完成 Azure Operational Insights 的設定"
+    services="operational-insights"
+    documentationCenter=""
+    authors="bandersmsft"
+    manager="jwhit"
+    editor=""/>
 
 <tags
     ms.service="operational-insights"
-	ms.workload="operational-insights"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="08/27/2015"
-	ms.author="banders"/>
+    ms.workload="operational-insights"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="09/10/2015"
+    ms.author="banders"/>
 
 # 幾分鐘內即上架到 Azure Operational Insights
 
@@ -101,4 +101,4 @@
 - 熟悉[搜尋](operational-insights-search.md)。
 - 使用[儀表板](operational-insights-use-dashboards.md)來儲存及顯示自訂搜尋。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

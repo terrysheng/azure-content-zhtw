@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="在 Azure 中設定 AlwaysOn 可用性群組 (PowerShell)"
+	pageTitle="在 Azure VM 中設定 AlwaysOn 可用性群組 (PowerShell)"
 	description="透過 PowerShell 在 Azure 中建立 AlwaysOn 可用性群組。"
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/14/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
-# 在 Azure 中設定 AlwaysOn 可用性群組 (PowerShell)
+# 在 Azure VM 中設定 AlwaysOn 可用性群組 (PowerShell)
 
 >[AZURE.NOTE]如欲參考相同情況的 GUI 式教學課程，請參閱[在 Azure 中設定 AlwaysOn 可用性群組 (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md)。
 
@@ -623,4 +623,4 @@ Azure 虛擬機器 (VM) 可協助資料庫管理員以較低的成本實作高�
 
 如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

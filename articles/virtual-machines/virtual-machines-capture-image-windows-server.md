@@ -3,7 +3,7 @@
 	description="了解如何對執行 Windows Server 的 Azure 虛擬機器 (VM) 擷取映像。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,13 +15,13 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/16/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #如何擷取 Windows 虛擬機器作為映像使用#
 
 本文說明如何擷取執行 Windows 的 Azure 虛擬機器，以便用它作為映像來建立其他虛擬機器。此映像包括作業系統磁碟和任何連結至虛擬機器的資料磁碟。它不包含網路組態，因此您將需要在建立其他使用該範本的虛擬機器時加以設定。
 
-Azure 會將映像儲存在 [**我的映像**] 之下。這個位置與您已上傳映像的任何儲存位置相同。如需有關映像的詳細資訊，請參閱[關於 Azure 中的虛擬機器映像][]。
+Azure 會將映像儲存在 [**我的映像**] 之下。這個位置與您已上傳映像的任何儲存位置相同。如需映像的詳細資訊，請參閱[有關虛擬機器的映像](virtual-machines-images.md)。
 
 ##開始之前##
 
@@ -71,8 +71,6 @@ Azure 會將映像儲存在 [**我的映像**] 之下。這個位置與您已上
 ##後續步驟##
 映像已準備好用來建立虛擬機器。若要這麼做，您將需要使用 [**從資源庫**] 功能表項目並選取您剛建立的映像，以便建立虛擬機器。如需指示，請參閱[建立執行 Windows 的自訂虛擬機器][]。
 
-
-[關於 Azure 中的虛擬機器映像]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [建立一個執行 Windows 的自訂虛擬機器]: virtual-machines-windows-create-custom.md
 [建立執行 Windows 的自訂虛擬機器]: virtual-machines-windows-create-custom.md
 [如何將資料磁碟連結至虛擬機器]: storage-windows-attach-disk.md
@@ -86,4 +84,4 @@ Azure 會將映像儲存在 [**我的映像**] 之下。這個位置與您已上
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

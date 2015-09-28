@@ -1,19 +1,19 @@
 <properties 
    pageTitle="監視 StorSimple 裝置 | Microsoft Azure"
-	description="說明如何使用 StorSimple Manager 服務來監視 I/O 效能、容量使用率、網路輸送量和裝置效能。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="說明如何使用 StorSimple Manager 服務來監視 I/O 效能、容量使用率、網路輸送量和裝置效能。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # 使用 StorSimple Manager 服務監視 StorSimple 裝置 
 
@@ -91,6 +91,8 @@
 
 ## 後續步驟
 
-[了解如何使用 StorSimple Manager 服務裝置儀表板](storsimple-device-dashboard.md)。
+- 了解如何[使用 StorSimple Manager 服務裝置儀表板](storsimple-device-dashboard.md)。
 
-<!---HONumber=September15_HO1-->
+- 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
+
+<!---HONumber=Sept15_HO3-->

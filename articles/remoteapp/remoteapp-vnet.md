@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="驗證要搭配 Azure RemoteApp 使用的 Azure VNET"
+    pageTitle="驗證要搭配 Azure RemoteApp 使用的 Azure VNET | Microsoft Azure"
     description="了解如何確定 Azure VNET 已準備好搭配 Azure RemoteApp 使用"
     services="remoteapp"
     documentationCenter=""
@@ -33,8 +33,9 @@
 
 如需端對端混合式收藏工作流程的詳細資訊，請參閱下列文章：
 
+- [如何針對 Azure RemoteApp 規劃您的虛擬網路](remoteapp-planvpn.md)
 - [建立混合式收藏](remoteapp-create-hybrid-deployment.md)
 - [將 Azure RemoteApp 收藏部署到 Azure 虛擬網路 (支援 ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

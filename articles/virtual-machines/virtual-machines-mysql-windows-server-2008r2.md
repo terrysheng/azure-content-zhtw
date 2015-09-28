@@ -3,7 +3,7 @@
 	description="建立執行 Windows Server 2012 R2 的 Azure 虛擬機器，然後在該虛擬機器上安裝及設定 MySQL 資料庫。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/10/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 
 # 在 Azure 中執行 Windows Server 2012 R2 的虛擬機器上安裝 MySQL
@@ -87,7 +87,7 @@
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_CommandPrompt.png)
 
-19.	您也可以使用 C:\\Program Files (x86)\\MySQL\\MySQL Server 5.6\\my-default.ini 檔案中的項目設定伺服器預設設定，例如基底與資料目錄和磁碟機。如需詳細資訊，請參閱 [5\.1.2 伺服器組態預設值](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html)。
+19.	您也可以使用 C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini 檔案中的項目設定伺服器預設設定，例如基底與資料目錄和磁碟機。如需詳細資訊，請參閱 [5.1.2 伺服器組態預設值](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html)。
 
 
 如果您要 MySQL 伺服器服務可供網際網路上的 MySQL 用戶端電腦使用，則必須設定 MySQL 伺服器服務接聽的 TCP 連接埠端點，並建立額外的 Windows 防火牆規則。除非您已在 [**類型和網路**] 頁面中 (位於先前程序的步驟 10) 指定其他的連接埠，否則將會使用 TCP 連接埠 3306。
@@ -128,4 +128,4 @@
 
 如需 MySQL 的相關資訊，請參閱 [MySQL 文件](http://dev.mysql.com/doc/)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

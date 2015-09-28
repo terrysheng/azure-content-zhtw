@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/06/2015"
+	ms.date="09/10/2015"
 	ms.author="banders"/>
 
 # Operational Insights 功能指南
@@ -47,7 +47,7 @@ Operational Insights 是一項分析服務，可讓 IT 系統管理員取得跨�
 	- [將電腦直接連線到 Operational Insights](operational-insights-direct-agent.md)
 	- [在 Microsoft Azure 中分析來自伺服器的資料](operational-insights-analyze-data-azure.md)
 - **使用行動應用程式即時執行所有上述作業**
-	- 如需 Windows Phone 應用程式的詳細資訊，請參閱 [Operational Insights 行動應用程式](http://www.windowsphone.com/zh-cn/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)。
+	- 如需 Windows Phone 應用程式的詳細資訊，請參閱 [Operational Insights 行動應用程式](http://www.windowsphone.com/zh-TW/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)。
 
 ## Operational Insights 環境
 
@@ -72,4 +72,4 @@ Operational Insights 環境組成項目包含：
 ### 可在何處取得 Operational Insights？
 Microsoft Azure Operational Insights 位於美國。雖然 Operational Insights 的語言是英文，但是數個其他市場都提供此服務。如需相關資訊，請參閱[國際可用性](http://go.microsoft.com/fwlink/?LinkId=229842)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

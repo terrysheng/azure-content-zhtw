@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="設定和註冊裝置"
-   description="說明如何使用 Windows PowerShell for StorSimple 來設定和註冊裝置 (執行 Update 1)。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="alkohli" />
+<!--author=alkohli last changed: 9/17/15-->
 
 
 ### 設定和註冊裝置
@@ -42,7 +27,7 @@
    - 閘道器
    - 適用於主要 DNS 伺服器的 IP 位址
     
-		Note that the system is validating network settings after each step in the process.
+		請注意，系統在此過程中會於完成每個步驟後便檢查網路設定一次。
    
       >[AZURE.NOTE]您可能需要等候幾分鐘，以套用子網路遮罩和 DNS 設定。如果您收到「檢查 Data 0 的網路連線」錯誤訊息，請檢查主動控制器之 DATA 0 網路介面上的實體網路連線。
 
@@ -83,4 +68,4 @@
      
        
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

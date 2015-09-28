@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### 取得 Windows 主機的 IQN
 
@@ -9,4 +10,4 @@
 
 3. 儲存這個字串。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

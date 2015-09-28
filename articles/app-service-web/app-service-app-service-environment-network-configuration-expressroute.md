@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用 ExpressRoute 的網路組態詳細資料"
-	description="在連接至 ExpressRoute 循環之虛擬網路中執行 App Service 環境的網路組態詳細資料。"
-	services="app-service\web"
-	documentationCenter=""
-	authors="stefsch"
-	manager="nirma"
+	pageTitle="使用 ExpressRoute 的網路組態詳細資料" 
+	description="在連接至 ExpressRoute 循環之虛擬網路中執行 App Service 環境的網路組態詳細資料。" 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="stefsch" 
+	manager="nirma" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="stefsch"/>
 
 # 使用 ExpressRoute 之 App Service 環境的網路組態詳細資料 
@@ -21,20 +21,25 @@
 ## 概觀 ##
 客戶可以將 [Azure ExpressRoute][ExpressRoute] 循環連接至虛擬網路基礎結構，因而將其內部部署網路延伸至 Azure。您可以在這個[虛擬網路][virtualnetwork]基礎結構的子網路中建立 App Service 環境。在 App Service 環境上執行的應用程式接著可以建立與後端資源的安全連線，而後端資源只能透過 ExpressRoute 連線來存取。
 
+**注意：**在「v2」虛擬網路中，無法建立 App Service 環境。App Service 環境目前僅支援處理傳統「v1」虛擬網路。
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ## 需要的網路連線 ##
 在連接至 ExpressRoute 的虛擬網路中，可能一開始會不符合 App Service 環境的一些網路連線需求。
 
 App Service 環境需要下列所有項目，才能正確運作：
 
 
--  與 App Service 環境位於相同區域之 Azure 儲存體和 SQL 資料庫資源的輸出網路連線。這個網路路徑無法通過內部公司 Proxy，因為，這麼做可能會變更輸出網路流量的有效 NAT 位址。變更在 Azure 儲存體和 SQL 資料庫端點上導向之 App Service 環境輸出網路流量的 NAT 位址會導致連線失敗。
+-  與「App Service 環境」位於相同區域之全球 Azure 儲存體和 Sql 資料庫資源的輸出網路連線。這個網路路徑無法通過內部公司 Proxy，因為，這麼做可能會變更輸出網路流量的有效 NAT 位址。變更在 Azure 儲存體和 SQL 資料庫端點上導向之 App Service 環境輸出網路流量的 NAT 位址會導致連線失敗。
 -  虛擬網路的 DNS 組態必須可以解析下列 Azure 控制網域內的端點：**.file.core.windows.net*、**.blob.core.windows.net*、**.database.windows.net*。
 -  在建立 App Service 環境後，以及重新設定和調整 App Service 環境變更的期間，虛擬網路的 DNS 組態必須保持穩定。   
--  必須如此[文章][requiredports]所述，允許 App Service 環境之必要連接埠的輸入網路存取。
+-  若在 VPN 閘道的另一端存有自訂 DNS 伺服器，則該 DNS 伺服器必須可供連線取用。 
+-  按照本[文章][requiredports]所述，您必須允許「App Service 環境」之必要連接埠的輸入網路存取。
 
 確定虛擬網路的有效 DNS 組態，即可符合 DNS 需求。
 
-在 App Service 環境的子網路上設定[網路安全性群組][NetworkSecurityGroups]以允許必要存取權，即可符合輸入網路存取的需求 (如此[文章][requiredports]所述)。
+在「App Service 環境」的子網路上設定[網路安全性群組][NetworkSecurityGroups]以允許必要存取權，即可符合輸入網路存取的需求，如本[文章][requiredports]所述。
 
 ## 啟用 App Service 環境的輸出網路連線##
 新建立的 ExpressRoute 循環預設會通告允許輸出網際網路連線的預設路由。使用此組態，App Service 環境將可以連接至其他 Azure 端點。
@@ -43,9 +48,9 @@ App Service 環境需要下列所有項目，才能正確運作：
 
 解決方法是在子網路上定義包含 App Service 環境的一 (或多個) 使用者定義路由 (UDR)。UDR 會定義將使用的子網路特有路由，而非預設路由。
 
-如果使用者定義路由的背景資訊，請參閱此[概觀][UDROverview]。
+如需使用者定義路由的背景資訊，請參閱此[概觀][UDROverview]。
 
-如需建立和設定使用者定義路由的詳細資料，請參閱此〈[作法指南][UDRHowTo]〉。
+如需建立和設定使用者定義路由的詳細資料，請參閱此[作法指南][UDRHowTo]。
 
 ## App Service 環境的範例 UDR 組態 ##
 
@@ -54,7 +59,7 @@ App Service 環境需要下列所有項目，才能正確運作：
 1. 從 [Azure 下載頁面][AzureDownloads]安裝最新 Azure Powershell (日期為 2015 年 6 月或更新版本)。在 [命令列工具] 的 [Windows Powershell] 下，有一個 [安裝] 連結可安裝最新的 Powershell Cmdlet。
 
 2. 建議您建立唯一的子網路，以專供 App Service 環境使用。這可確保套用至子網路的 UDR 只會開啟 App Service 環境的輸出流量。
-3. **重要事項**：除非是在進行下列組態步驟**之後**，否則請不要部署 App Service 環境。這可確保輸出網路連線可用，再嘗試部署 App Service 環境。
+3. **重要事項**：除非已經進行下列設定步驟，否則請不要部署「App Service 環境」。這可確保輸出網路連線可用，再嘗試部署 App Service 環境。
 
 **步驟 1：建立具名路由表**
 
@@ -79,7 +84,7 @@ App Service 環境需要下列所有項目，才能正確運作：
 
 如需可供 Azure 使用之 CIDR 範圍的完整和已更新清單，您可以從 [Microsoft 下載中心][DownloadCenterAddressRanges]下載內含所有範圍的 XML 檔案
 
-**注意：**在某個時間點，縮寫的 CIDR 簡稱 0.0.0.0/0 將可用於 *AddressPrefix* 參數。這個簡稱等同於「所有網際網路位址」。現在，開發人員必須改為使用一組足以涵蓋所有可能 Azure 位址範圍的更廣 CIDR 範圍，而 Azure 位址範圍用於已部署 App Service 環境的區域中。
+**注意：**在某個時間點，縮寫的 CIDR 簡稱 0.0.0.0/0 將可用於 *AddressPrefix* 參數。這個簡稱等同於「所有網際網路位址」。現在，開發人員必須改為使用一組足以涵蓋所有可能 Azure 位址範圍的一組廣泛 CIDR。
 
 **步驟 3：建立路由表與包含 App Service 環境之子網路的關聯**
 
@@ -96,7 +101,7 @@ App Service 環境需要下列所有項目，才能正確運作：
 - Azure 端點的輸出流量不會流到 ExpressRoute 循環。
 - 已正確解析 Azure 端點的 DNS 查閱。 
 
-確認上述步驟之後，即可繼續建立 App Service 環境！
+確認上述步驟之後，即可刪除虛擬機器並繼續建立「App Service 環境」！
 
 ## 開始使用
 
@@ -121,4 +126,4 @@ App Service 環境需要下列所有項目，才能正確運作：
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

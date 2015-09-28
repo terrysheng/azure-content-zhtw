@@ -1,6 +1,7 @@
 <properties
-	pageTitle="開始使用 DocumentDB .NET SDK | Microsoft Azure"
-	description="了解如何建立和設定 Azure DocumentDB 帳戶、建立資料庫、建立集合，以及在 NoSQL 文件資料庫帳戶內儲存 JSON 文件。"
+	pageTitle="NoSQL 資料庫 - 開始使用 DocumentDB .NET SDK | Microsoft Azure"
+	description="了解如何建立資料庫並設定 Azure DocumentDB 帳戶。建立資料庫、集合，以及在 NoSQL 資料庫帳戶內儲存 JSON 文件。"
+	keywords="Create a database, create database, nosql database, nosql databases, nuget, documentdb, azure, Microsoft azure"
 	services="documentdb"
 	documentationCenter=".net"
 	authors="AndrewHoh"
@@ -480,4 +481,4 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

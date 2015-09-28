@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在原始檔控制中儲存專案程式碼 | Microsoft Azure"
+	pageTitle="在原始檔控制中儲存 .NET 後端專案程式碼 | Azure 行動服務"
 	description="了解如何儲存您的 .NET 後端專案，並從您的電腦上的本機 Git 儲存機制發佈。"
 	services="mobile-services"
 	documentationCenter=""
@@ -10,17 +10,17 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/15/2015"
 	ms.author="glenga"/>
 
-# 在原始檔控制中儲存專案程式碼
+# 在原始檔控制中儲存行動服務專案程式碼
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
-- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
+- [Javascript backend](mobile-services-store-scripts-source-control.md)
 
 本主題將示範如何使用 Azure 行動服務所提供的原始檔控制來儲存您的 .NET 後端服務專案。您可直接從本機 Git 儲存機制上傳專案至生產行動服務以發佈專案。
 
@@ -32,12 +32,11 @@
 
 ##<a name="clone-repo"></a>安裝 Git 與建立本機儲存機制
 
-1. 在您的本機電腦上安裝 Git。 
+1. 在您的本機電腦上安裝 Git。
 
 	安裝 Git 所需的步驟會因作業系統而有所不同。如需作業系統特定的發佈和安裝指引，請參閱[安裝 Git]。
 
-	> [AZURE.NOTE]
-	> 在某些作業系統上，會同時提供例 Git 的命令列和 GUI 兩種版本。本文提供的指示將使用命令列版本。
+	> [AZURE.NOTE]在某些作業系統上，會同時提供例 Git 的命令列和 GUI 兩種版本。本文提供的指示將使用命令列版本。
 
 2. 開啟命令列，例如 **GitBash** (Windows) 或 **Bash** (Unix Shell)。在 OS X 系統上，您可以透過 **[終端機]** 應用程式來存取命令列。
 
@@ -67,11 +66,11 @@
 2. 移除所有 NuGet 封裝資料夾，保留 packages.config 檔案。
 
 	行動服務會依據 packages.confign 檔案自動還原 NuGet 封裝。您也可以定義 .gitignore 檔案以防止新增封裝目錄。
- 
+
 3. 在 Git 命令提示字元中，輸入下列命令以開始追蹤新的指令碼檔案：
 
 		$ git add .
-	
+
 4. 輸入下列命令以認可變更：
 
 		$ git commit -m "adding the .NET backend service project"
@@ -79,7 +78,7 @@
 5. 輸入下列命令，將變更上傳至遠端儲存機制，並提供您的認證：
 
 		$ git push origin master
-	
+
 	您應該會看到一連串命令，指出專案已部署到行動服務、已新增封裝，且服務已重新啟動。
 
 6. 瀏覽至 .NET 後端行動服務的 URL，您應該會看到：
@@ -102,4 +101,4 @@
 [Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [如何對 .NET 後端行動服務進行資料模型變更]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -3,7 +3,7 @@
 	description="深入了解 Azure 中虛擬機器的基本概念。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager,azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/14/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #關於 Azure 虛擬機器
 
@@ -49,4 +49,4 @@ Azure 虛擬機器是由 Azure 所提供的隨選且可調整的數種運算資�
 [虛擬機器]: #tellmevm
 [雲端服務]: cloud-services-choose-me.md
 
-<!--------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

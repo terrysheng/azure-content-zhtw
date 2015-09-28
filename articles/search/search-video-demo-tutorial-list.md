@@ -6,15 +6,15 @@
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="NA"
 	ms.workload="search"
-	ms.topic="article"
+	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="08/19/2015"
+	ms.date="09/16/2015"
 	ms.author="heidist"/>
 
 #Azure 搜尋：教學課程、影片示範和範例
@@ -23,7 +23,7 @@
 
 ##示範網站
 
-[**Azure 搜尋示範用紐約市 (NYC) 徵才入口網站**](http://aka.ms/azjobsdemo)是一個 ASP.NET 網站，其使用 NYC 開放資料計劃中的資料來示範 Azure 搜尋的功能。
+[**Azure 搜尋示範用紐約市 (NYC) 徵才入口網站**](http://aka.ms/azjobsdemo)是一個活躍的 ASP.NET 網站，使用 NYC 開放資料計劃中的資料來示範 Azure 搜尋的功能。
 
 [**Try App Service + Azure 搜尋**](search-tryappservice.md)具有免費一小時工作階段與 Azure 搜尋，其中包含資料、實用的 Web 應用程式，以及讓您可以線上修改以便試用多種搜尋功能的原始碼。
 
@@ -64,7 +64,16 @@
 
 ##程式碼範例
 
-[****https://github.com/AzureSearch**](https://github.com/AzureSearch)是 Azure 搜尋的 GitHub 儲存機制，包含 Azure 搜尋開發小組所建立的程式碼範例。您可以瀏覽儲存機制來查看其內容，或按一下下方連結直接移至特定的範例。
+[****https://github.com/liamca/AzureSearchDemos**](https://github.com/liamca/AzureSearchDemos) 是由 Liam Cavanagh 所建立包含程式碼範例的 GitHub 儲存機制。下列範例可以在此儲存機制中找到：
+
+- [AdventureWorksWP8]() 是 Windows Phone App。
+- [AzSearchAutoScaleWeb](https://github.com/liamca/AzureSearchDemos/tree/master/AzSearchAutoScaleWeb) 
+- [BabyNameJS](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) 是 index.html 檔案，在教學課程中提供檔案。
+- [DotNetSample](https://github.com/liamca/AzureSearchDemos/tree/master/DotNetSample) 是適用於 Azure 搜尋的 ASP.NET MVC 應用程式。
+- [NYCJobs.NET](https://github.com/liamca/AzureSearchDemos/tree/master/NYCJobs.NET) 提供 NYCJobs 現場示範網站的原始程式碼。
+- [建議](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations)使用 Active Data Factory、SQL Database、Blob 儲存體，和 HDInsight 以根據產品被一起購買的頻率實作產品建議。
+
+[****https://github.com/AzureSearch**](https://github.com/AzureSearch) 是 Azure 搜尋的另一個 GitHub 儲存機制，包含 Azure 搜尋開發小組所建立的程式碼範例。您可以瀏覽儲存機制來查看其內容，或按一下下方連結直接移至特定的範例。
 
 - [**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)
 - [**NodeJSIndexerDemo**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)
@@ -81,4 +90,4 @@
 - [**SQL Server 與 Azure 搜尋的同步處理範例**](http://sqlserver2azuresearch.codeplex.com/)是從內嵌的本機資料庫載入 SQL Server 資料列集的 Windows 主控台應用程式。
 - [**評分設定檔示範**](https://azuresearchscoringprofiles.codeplex.com/)是定義、執行和更新評分設定檔，以微調搜尋結果的 Windows 主控台應用程式。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

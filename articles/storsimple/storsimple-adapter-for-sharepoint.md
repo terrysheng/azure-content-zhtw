@@ -274,19 +274,19 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 1. 使用具有系統管理員權限的帳戶登入 Web 前端 (WFE) 伺服器。
 2. 按兩下 StorSimple Adapter for SharePoint。安裝精靈隨即啟動。
 
-![安裝精靈](./media/storsimple-adapter-for-sharepoint/sasp2.png)
+    ![安裝精靈](./media/storsimple-adapter-for-sharepoint/sasp2.png)
 
 3. 按 [下一步]。下列頁面隨即出現。
 
-![安裝精靈移除頁面](./media/storsimple-adapter-for-sharepoint/sasp3.png)
+    ![安裝精靈移除頁面](./media/storsimple-adapter-for-sharepoint/sasp3.png)
 
 4. 按一下 [移除] 以選取移除程序。下列頁面隨即出現。
 
-![安裝精靈確認頁面](./media/storsimple-adapter-for-sharepoint/sasp4.png)
+    ![安裝精靈確認頁面](./media/storsimple-adapter-for-sharepoint/sasp4.png)
 
 5. 按一下 [移除] 確認移除。下列進度頁面隨即出現。
 
-![安裝精靈進度頁面](./media/storsimple-adapter-for-sharepoint/sasp5.png)
+    ![安裝精靈進度頁面](./media/storsimple-adapter-for-sharepoint/sasp5.png)
 
 6. 移除完成後，會出現完成頁面。按一下 [完成] 以關閉安裝精靈。
 
@@ -294,7 +294,7 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 
 1. 開啟 [控制台]，然後按一下 [程式和功能]。
 
-2. 選取 [StorSimple Adapter for SharePoint]，然後按一下 [解除安裝]。
+2. 選取 **StorSimple Adapter for SharePoint**，然後按一下 [解除安裝]。
 
 ## 後續步驟
 
@@ -308,4 +308,4 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/zh-TW/library/ff943565.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

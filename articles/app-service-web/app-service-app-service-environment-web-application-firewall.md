@@ -5,15 +5,15 @@
 	documentationCenter="" 
 	authors="naziml" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="09/15/2015" 
 	ms.author="naziml"/>
 
 # 設定 App Service 環境的 Web 應用程式防火牆 (WAF)
@@ -21,13 +21,15 @@
 ## 概觀 ##
 [Azure Marketplace](http://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) 上的 Web 應用程式防火牆 (如 [Barracuda WAF for Azure](https://www.barracuda.com/programs/azure)) 有助於保護 Web 應用程式安全，方法是檢查輸入 Web 流量來封鎖 SQL 插入、跨站台指令碼，惡意上傳和應用程式 DDoS 以及其他攻擊。它也會針對資料外洩防護 (DLP) 檢查來自後端 Web 伺服器的回應。這與隔離以及 App Service 環境所提供的額外調整合併使用，以提供裝載商務關鍵 Web 應用程式的理想環境，而這些 Web 應用程式需要防禦惡意要求和大量流量。
 
+\+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ## 設定 ##
 在本文中，我們將設定受多個 Barracuda WAF 負載平衡執行個體保護的 App Service 環境，只讓來自 WAF 的流量到達 App Service 環境，而且無法從 DMZ 進行存取。在 Barracuda WAF 執行個體之前，我們也有 Azure 流量管理員可在 Azure 資料中心和區域中進行負載平衡。安裝程式的高階圖表看起來會像下方內容所示。
 
 ![架構][Architecture]
 
 ## 設定 App Service 環境 ##
-若要設定 App Service 環境，請參閱有關本主題的[文件](app-service-web-how-to-create-an-app-service-environment.md)。建立 App Service 環境之後，即可在此環境中建立 [Web 應用程式](app-service-web-overview.md)、[API 應用程式](app-service-api-apps-why-best-platform.md)和[行動應用程式](app-service-mobile-value-prop-preview.md)，而這些都是受下一節中所設定的 WAF 保護。
+若要設定 App Service 環境，請參閱有關本主題的[文件](app-service-web-how-to-create-an-app-service-environment.md)。建立 App Service 環境之後，即可在此環境中建立 [Web Apps](app-service-web-overview.md)、[API Apps](app-service-api-apps-why-best-platform.md) 和 [Mobile Apps](app-service-mobile-value-prop-preview.md)，而這些都是由下一節中所設定的 WAF 所保護。
 
 ## 設定 Barracuda WAF 雲端服務 ##
 Barracuda 具有在 Azure 中於虛擬機器上部署其 WAF 的[詳細文章](https://techlib.barracuda.com/WAF/AzureDeploy)。但是，因為我們想要具有備援性，但不想要引進單一失敗點，所以您想要在遵循這些指示時將至少 2 個 WAF 執行個體 VM 部署至相同的雲端服務。
@@ -97,4 +99,4 @@ Barracuda WAF 使用 TCP 連接埠 8000，以透過其管理入口網站進行�
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="應用程式模型 v2.0 | Microsoft Azure"
+	pageTitle="App 模型 v2.0 App 的類型 | Microsoft Azure"
 	description="Azure AD 應用程式模型 v2.0 公開預覽版本支援的應用程式與案例類型。"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # 應用程式模型 v2.0 預覽：應用程式類型
@@ -125,4 +125,4 @@ v2.0 應用程式模型目前不支援此流程，也就是說應用程式只能
 
 使用 OAuth 2.0 的 Jwt Bearer 認證授與可支援此鏈結的 Web API，亦稱為[代理者流程](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow)。不過，v2.0 應用程式模型預覽目前尚未施行代理者流程。若要查看此流程在正式運作的 Azure AD 服務中如何運作，請參閱 [GitHub 上的代理者程式碼範例](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

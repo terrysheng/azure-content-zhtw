@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="stevenpo"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 
@@ -27,12 +27,12 @@
 
 - 開啟 [Windows 服務] 主控台並確認 [Microsoft AAD 應用程式 Proxy 連接器] 服務已啟用並在執行中。您也可以查看應用程式 Proxy 服務屬性頁面，如下圖所示：
 
-![Microsoft AAD 應用程式 Proxy 連接器屬性螢幕擷取畫面][1]
+![Microsoft AAD 應用程式 Proxy 連接器屬性螢幕擷取畫面][connectorproperties.png]
 
 - 開啟 [事件檢視器] 並尋找與應用程式 Proxy 連接器相關的事件 (位於 [應用程式及服務記錄檔] > [Microsoft] > [AadApplicationProxy] > [Connector] > [Admin] 之下)。
 - 如有需要，開啟分析和偵錯記錄檔及開啟應用程式 Proxy 連接器工作階段記錄檔，即可取得更詳細的記錄檔，如下圖所示：
 
-![應用程式 Proxy 連接器工作階段記錄檔螢幕擷取畫面][2]
+![應用程式 Proxy 連接器工作階段記錄檔螢幕擷取畫面][sessionlog.png]
 
 
 ## 一般錯誤
@@ -87,7 +87,7 @@
 [啟用應用程式 Proxy 服務](active-directory-application-proxy-enable.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-application-proxy-troubleshoot/ConnectorProperties.jpg
-[2]: ./media/active-directory-application-proxy-troubleshoot/SessionLog.jpg
+[1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
+[2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

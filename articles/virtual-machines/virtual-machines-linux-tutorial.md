@@ -303,9 +303,6 @@
 
 - [使用適用於 Linux 的 Azure CustomScript 延伸模組部署 LAMP 應用程式](virtual-machines-linux-script-lamp.md)
 
-- [關於 Azure VM 組態設定](http://msdn.microsoft.com/library/azure/dn763935.aspx)
-
 - [Azure 上 Linux 的 Docker 虛擬機器擴充程式](virtual-machines-docker-vm-extension.md)
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

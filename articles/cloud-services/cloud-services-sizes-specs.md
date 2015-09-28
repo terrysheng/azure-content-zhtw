@@ -1,20 +1,20 @@
-<properties 
+<properties
  pageTitle="雲端服務的大小"
-	description="列出 Azure 雲端服務 Web 和背景工作角色不同的大小。"
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
-<tags 
+ description="列出 Azure 雲端服務 Web 和背景工作角色不同的大小。"
+ services="cloud-services"
+ documentationCenter=""
+ authors="Thraka"
+ manager="timlt"
+ editor=""/>
+<tags
  ms.service="cloud-services"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="09/01/2015"
-	ms.author="adegeo"/>
- 
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="tbd"
+ ms.date="09/14/2015"
+ ms.author="adegeo"/>
+
 # 雲端服務的大小
 
 本主題描述雲端服務角色執行個體 (Web 角色和背景工作角色)的可用大小和選項。同時也提供計劃使用這些資源時，需注意的部署考量。
@@ -41,26 +41,26 @@ Azure 虛擬機器和雲端服務是 Azure 所提供數種計算資源類型的�
 
 |大小|CPU<br>核心|記憶體|磁碟大小|
 |---|---|---|---|
-|特小型|1|768 MB|作業系統 = 客體 OS 大小<br/>本機資源 = 19 GB<br/>應用程式 = 大約 1.5 GB|
-|小型|1|1\.75 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 224 GB<br/>應用程式 = 大約 1.5 GB|
-|中型|2|3\.5 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 489 GB<br/>應用程式 = 大約 1.5 GB|
-|大型|4|7 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 999 GB<br/>應用程式 = 大約 1.5 GB|
-|特大型|8|14 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 2,039 GB<br/>應用程式 = 大約 1.5 GB|
-|A5|2|14 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 489 GB<br/>應用程式 = 大約 1.5 GB|
-|A6|4|28 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 999 GB<br/>應用程式 = 大約 1.5 GB|
-|A7|8|56 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 2,039 GB<br/>應用程式 = 大約 1.5 GB
-|A8|8|56 GB|OS = 客體 OS 大小<br/>本機資源 = 1.77 TB<br/>應用程式 = 大約 1.5 GB<blockquote> 注意：如需使用此大小的資訊與考量，請參閱<a href="http://go.microsoft.com/fwlink/p/?linkid=328042">關於 A8、A9、A10 和 A11 計算密集型執行個體</a>。</blockquote>|
-|A9|16|112 GB|OS = 客體 OS 大小<br/>本機資源 = 1.77 TB<br/>應用程式 = 大約 1.5 GB<blockquote> 注意：如需使用此大小的資訊與考量，請參閱<a href="http://go.microsoft.com/fwlink/p/?linkid=328042">關於 A8、A9、A10 和 A11 計算密集型執行個體</a>。</blockquote>|
-|A10|8|56 GB|OS = 客體 OS 大小<br/>本機資源 = 1.77 TB<br/>應用程式 = 大約 1.5 GB<blockquote> 注意：如需使用此大小的資訊與考量，請參閱<a href="http://go.microsoft.com/fwlink/p/?linkid=328042">關於 A8、A9、A10 和 A11 計算密集型執行個體</a>。</blockquote>|
-|A11|16|112 GB|OS = 客體 OS 大小<br/>本機資源 = 1.77 TB<br/>應用程式 = 大約 1.5 GB<blockquote> 注意：如需使用此大小的資訊與考量，請參閱<a href="http://go.microsoft.com/fwlink/p/?linkid=328042">關於 A8、A9、A10 和 A11 計算密集型執行個體</a>。</blockquote>|
-|標準\_D1|1|3\.5 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 50 GB<br/>應用程式 = 大約 1.5 GB|
-|標準\_D2|2|7 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 100 GB<br/>應用程式 = 大約 1.5 GB|
-|標準\_D3|4|14 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 200 GB<br/>應用程式 = 大約 1.5 GB|
-|標準\_D4|8|28 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 400 GB<br/>應用程式 = 大約 1.5 GB|
-|標準\_D11|2|14 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 100 GB<br/>應用程式 = 大約 1.5 GB|
-|標準\_D12|4|28 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 200 GB<br/>應用程式 = 大約 1.5 GB|
-|標準\_D13|8|56 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 400 GB<br/>應用程式 = 大約 1.5 GB|
-|標準\_D14|16|112 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 800 GB<br/>應用程式 = 大約 1.5 GB|
+|特小型|1|768 MB|作業系統 = 客體 OS 大小<br/>本機資源 = 15384 MB<br/>應用程式 = 大約 1.5 GB|
+|小型|1|1\.75 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 225304 MB<br/>應用程式 = 大約 1.5 GB|
+|中型|2|3\.5 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 496664 MB<br/>應用程式 = 大約 1.5 GB|
+|大型|4|7 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 1018904 MB<br/>應用程式 = 大約 1.5 GB|
+|特大型|8|14 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 2083864 MB<br/>應用程式 = 大約 1.5 GB|
+|A5|2|14 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 496664 MB<br/>應用程式 = 大約 1.5 GB|
+|A6|4|28 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 1018904 MB<br/>應用程式 = 大約 1.5 GB|
+|A7|8|56 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 2083864 MB<br/>應用程式 = 大約 1.5 GB
+|A8|8|56 GB|OS = 客體 OS 大小<br/>本機資源 = 1856172 MB<br/>應用程式 = 大約 1.5 GB<blockquote> 注意：如需使用此大小的資訊與考量事項，請參閱<a href="http://go.microsoft.com/fwlink/p/?linkid=328042">關於 A8、A9、A10 和 A11 運算密集型執行個體</a>。</blockquote>|
+|A9|16|112 GB|OS = 客體 OS 大小<br/>本機資源 = 1856172 MB<br/>應用程式 = 大約 1.5 GB<blockquote> 注意：如需使用此大小的資訊與考量事項，請參閱<a href="http://go.microsoft.com/fwlink/p/?linkid=328042">關於 A8、A9、A10 和 A11 運算密集型執行個體</a>。</blockquote>|
+|A10|8|56 GB|OS = 客體 OS 大小<br/>本機資源 = 1856172 MB<br/>應用程式 = 大約 1.5 GB<blockquote> 注意：如需使用此大小的資訊與考量事項，請參閱<a href="http://go.microsoft.com/fwlink/p/?linkid=328042">關於 A8、A9、A10 和 A11 運算密集型執行個體</a>。</blockquote>|
+|A11|16|112 GB|OS = 客體 OS 大小<br/>本機資源 = 1856172 MB<br/>應用程式 = 大約 1.5 GB<blockquote> 注意：如需使用此大小的資訊與考量事項，請參閱<a href="http://go.microsoft.com/fwlink/p/?linkid=328042">關於 A8、A9、A10 和 A11 運算密集型執行個體</a>。</blockquote>|
+|標準\_D1|1|3\.5 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 46104 MB<br/>應用程式 = 大約 1.5 GB|
+|標準\_D2|2|7 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 97304 MB<br/>應用程式 = 大約 1.5 GB|
+|標準\_D3|4|14 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 199704 MB<br/>應用程式 = 大約 1.5 GB|
+|標準\_D4|8|28 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 404504 MB<br/>應用程式 = 大約 1.5 GB|
+|標準\_D11|2|14 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 97304 MB<br/>應用程式 = 大約 1.5 GB|
+|標準\_D12|4|28 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 199704 MB<br/>應用程式 = 大約 1.5 GB|
+|標準\_D13|8|56 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 404504 MB<br/>應用程式 = 大約 1.5 GB|
+|標準\_D14|16|112 GB|作業系統 = 客體 OS 大小<br/>本機資源 = 814104 MB<br/>應用程式 = 大約 1.5 GB|
 
 ## 設定雲端服務大小
 
@@ -72,8 +72,10 @@ Azure 虛擬機器和雲端服務是 Azure 所提供數種計算資源類型的�
     <WebRole name="WebRole1" vmsize="Small">
     …
     </WebRole>
+
+針對指定的本機資源大小，確定其小於或等於上表中的最大本機資源大小。
 ## 後續步驟
 
-＜[設定 Azure 的雲端服務](https://msdn.microsoft.com/library/hh124108)＞
+[設定 Azure 的雲端服務](https://msdn.microsoft.com/library/hh124108)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

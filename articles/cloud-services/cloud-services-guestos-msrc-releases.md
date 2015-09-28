@@ -1,24 +1,38 @@
 <properties 
-   pageTitle="適用於 Azure 客體 OS 的更新清單 | Microsoft Azure"
-	description="適用於 Azure 客體作業系統版次的更新清單"
-	services="cloud-services"
-	documentationCenter="na"
-	authors="yuemlu"
-	manager="markkie"
-	editor=""/>
+   pageTitle="適用於 Azure 客體 OS 的更新清單 | Microsoft Azure" 
+   description="適用於 Azure 客體作業系統版次的更新清單" 
+   services="cloud-services" 
+   documentationCenter="na" 
+   authors="yuemlu" 
+   manager="markkie" 
+   editor=""/>
 
 <tags
    ms.service="cloud-services"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="08/24/2015"
-	ms.author="yuemlu"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd" 
+   ms.date="09/14/2015"
+   ms.author="yuemlu"/>
 
 # Azure 客體作業系統 
 
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。推出這些更新的特定[系列][family-explain]皆會包含這些更新。
+
+## 九月客體 OS
+
+| 公告識別碼 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-093 | [3088903] | Internet Explorer 的安全性更新 | 4\.24, 3.31, 2.43 | 2015 年 9 月 8 日 |
+| MS15-094 | [3089548] | Internet Explorer 的累積安全性更新 | 4\.24, 3.31, 2.43 | 2015 年 9 月 8 日 |
+| MS15-096 | [3072595] | Active Directory 服務中的弱點可能會允許拒絕服務 | 4\.24, 3.31, 2.43 | 2015 年 9 月 8 日 |
+| MS15-097 | [3089656] | Microsoft 圖形元件中的弱點可能會允許提高權限 | 4\.24, 3.31, 2.43 | 2015 年 9 月 8 日 |
+| MS15-098 | [3089669] | Windows 筆記本中的弱點可能會允許遠端程式碼執行 | 4\.24, 3.31, 2.43 | 2015 年 9 月 8 日 |
+| MS15-101 | [3089662] | .NET Framework 中的弱點可能會允許權限提高 | 4\.24, 3.31, 2.43 | 2015 年 9 月 8 日 |
+| MS15-102 | [3089657] | Windows Task Management 中的資訊安全性弱點可能會允許提高權限 | 4\.24, 3.31, 2.43 | 2015 年 9 月 8 日 |
+| MS15-105 | [3091287] | Windows Hyper-V 中的弱點可能會允許略過安全性功能 | 4\.24 | 2015 年 9 月 8 日 |
+
 
 ## 8 月客體作業系統
 
@@ -157,6 +171,16 @@
 | N/A | [2999802][2999802] | 在 Windows 中列印虛線時會變成實線 | 4\.15、3.22,、2.34 | 2015 年 1 月 13 日 |
 | N/A | [2896881][2896881] | 在 Windows 中於登入程序期間使用 AddPrinterConnection VBScript 命令對應使用者印表機時，登入時間過長 | 4\.15、3.22,、2.34 | 2015 年 1 月 13 日 |
 
+
+[3088903]: http://support.microsoft.com/kb/3088903
+[3089548]: http://support.microsoft.com/kb/3089548
+[3072595]: http://support.microsoft.com/kb/3072595
+[3089656]: http://support.microsoft.com/kb/3089656
+[3089669]: http://support.microsoft.com/kb/3089669
+[3089657]: http://support.microsoft.com/kb/3089657
+[3091287]: http://support.microsoft.com/kb/3091287
+[3089662]: http://support.microsoft.com/kb/3089662
+
 [3082442]: http://support.microsoft.com/kb/3082442
 [3078662]: http://support.microsoft.com/kb/3078662
 [3080348]: http://support.microsoft.com/kb/3080348
@@ -184,7 +208,7 @@
 
 [MS15-034]: https://technet.microsoft.com/library/security/MS15-034
 
-[3042553]: https://support.microsoft.com/zh-tw/kb/3042553/
+[3042553]: https://support.microsoft.com/zh-TW/kb/3042553/
 
 [3034682]: http://support.microsoft.com/kb/3034682
 [3036220]: http://support.microsoft.com/kb/3036220
@@ -264,4 +288,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

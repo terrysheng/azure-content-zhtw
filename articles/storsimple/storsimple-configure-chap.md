@@ -1,19 +1,19 @@
 <properties 
    pageTitle="為 StorSimple 裝置設定 CHAP | Microsoft Azure"
-	description="描述如何在 StorSimple 裝置上設定 Challenge Handshake 驗證通訊協定 (CHAP)。"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="描述如何在 StorSimple 裝置上設定 Challenge Handshake 驗證通訊協定 (CHAP)。"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # 為 StorSimple 裝置設定 CHAP
 
@@ -188,6 +188,7 @@ CHAP 可以是單向 (單向) 或相互 (雙向)。單向 CHAP 是指目標驗�
 
 ## 後續步驟
 
-深入了解 [StorSimple 安全性](storsimple-security.md)。
+- 深入了解 [StorSimple 安全性](storsimple-security.md)。
+- 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

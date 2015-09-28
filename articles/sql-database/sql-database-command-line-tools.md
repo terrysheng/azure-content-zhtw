@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 PowerShell 管理 Azure SQL Database 資源" 
+	pageTitle="使用 PowerShell 管理 Azure SQL Database" 
 	description="使用 PowerShell 管理 Azure SQL Database。" 
 	services="sql-database" 
 	documentationCenter="" 
@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="09/11/2015" 
 	ms.author="vinsonyu"/>
 
-# 使用 PowerShell 管理 Azure SQL Database 資源
+# 使用 PowerShell 管理 Azure SQL Database
 
+
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-manage-portal.md)
+- [SSMS](sql-database-manage-azure-ssms.md)
+- [PowerShell](sql-database-command-line-tools.md)
 
 本主題提供 PowerShell 命令，使用 Azure 資源管理員 Cmdlet 來執行許多 Azure SQL Database 工作。
 
@@ -137,4 +142,4 @@
 - [Azure SQL Database 服務管理 Cmdlet](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

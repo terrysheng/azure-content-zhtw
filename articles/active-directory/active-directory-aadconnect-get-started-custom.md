@@ -24,7 +24,6 @@
 如需快速安裝的資訊，請參閱[快速安裝](active-directory-aadconnect.md#getting-started-with-azure-ad-connect)。如需從 DirSync 升級至 Azure AD Connect 的資訊，請參閱[升級 DirSync 至 Azure Active Directory Connect](active-directory-aadconnect-dirsync-upgrade-get-started.md)。
 
 
-
 ## 安裝必要的元件
 
 安裝同步處理服務時，您可以將選用組態區段保持未核取狀態，Azure AD Connect 會自動設定所有項目。這包括設定 SQL Server 2012 Express 執行個體，以及建立適當的群組與指派其權限。如果您想要變更預設值，則可以使用下表了解可用的選用組態選項。
@@ -174,7 +173,7 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 
 若要執行這項操作，您必須將 Active Directory 和 MSOnline PowerShell 安裝在本機上。
 
-
+如需詳細資訊，請參閱 [在 Azure AD Connect 中啟用裝置回寫](active-directory-aadconnect-get-started-custom-device-writeback.md)。
 
 ## 預備模式
 在預備模式中，可以同時設定新的同步處理伺服器與現有的伺服器。系統僅支援讓一部同步處理伺服器與雲端中的一個目錄連接。但如果想要從另一部伺服器移動，例如執行 DirSync 的伺服器，則可以啟用預備模式中的 Azure AD Connect。啟用後，同步處理引擎時會照常匯入並同步處理資料，但不會匯出任何項目至 Azure AD，且會關閉密碼同步處理和密碼回寫。
@@ -268,4 +267,4 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="與 DocumentDB 資源進行 RESTful 互動 | Microsoft Azure" 
-	description="了解如何使用 HTTP 動詞命令來執行與 Microsoft Azure DocumentDB 資源之間的 RESTful 互動。" 
+	description="檢閱在此 RESTful Web 服務教學課程中檢閱 HTTP 方法。了解如何使用 HTTP 動詞命令來執行與 Microsoft Azure DocumentDB 資源之間的 RESTful 互動。"
+	keywords="http methods, restful services tutorial, restful web services tutorial, http verbs, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="h0n" 
 	manager="jhubbard" 
@@ -16,11 +17,11 @@
 	ms.date="08/03/2015" 
 	ms.author="h0n"/>
 
-# 與 DocumentDB 資源進行 RESTful 互動 
+# RESTful Web 服務教學課程：與 DocumentDB 資源進行 RESTful 互動 
 
 DocumentDB 支援使用 HTTP 方法來建立、讀取、取代、取得和刪除 DocumentDB 資源。
 
-閱讀本文後，您將能夠回答下列問題：
+閱讀此 RESTful Web 應用程式教學課程後後，您將能夠回答下列問題：
 
 - 標準 HTTP 方法如何與 DocumentDB 資源搭配使用？
 - 如何使用 POST 建立新的資源？
@@ -39,13 +40,13 @@ DocumentDB 資源可支援下列 HTTP 動詞命令及其標準解釋：
 
 >[AZURE.NOTE]日後，我們打算透過 PATCH 新增對於選擇性更新的支援。
 
-如下圖所示，POST 只能對摘要資源發出；PUT、DELETE 只能對項目資源發出；GET 和 HEAD 能對摘要或項目資源發出。
+如以下 HTTP 動詞命令圖所示，POST 只能對摘要資源發出；PUT、DELETE 只能對項目資源發出；GET 和 HEAD 能對摘要或項目資源發出。
 
-![][1]
+![此 RESTful Web 服務教學課程中的 HTTP 動詞命令概觀。][1]
 
 **使用標準 HTTP 方法的互動模型**
 
-## 使用 POST 建立新的資源 
+## 使用 POST HTTP 方法建立新的資源 
 為了更加了解互動模型，我們來看一下建立新資源 (也稱為 INSERT) 的情況。為了建立新資源，您必須發出 HTTP POST 要求，而且此要求的本文內要包含以資源所屬容器摘要的 URI 表示資源的程式碼。此要求唯一的必要屬性是資源識別碼。
 
 舉例來說，為了建立新資料庫，您需要對 /dbs 發佈 (POST) 資料庫資源 (透過設定具有唯一名稱的 id 屬性)。同樣地，為了建立新集合，您需要對 */dbs/\_rid/colls/* 發佈 (POST) 集合資源，以此類推。回應將會包含具有系統所產生屬性 (包括可供導覽到其他資源的 *\_self* 資源連結) 的完全認可資源。以下是簡單的 HTTP 互動模型範例，用戶端可以發出 HTTP 要求，以在帳戶內建立新資料庫。
@@ -74,7 +75,7 @@ The DocumentDB service responds with a successful response and a status code ind
 	}
 ```
   
-## 使用 POST 註冊預存程序
+## 使用 POST HTTP 方法註冊預存程序
 再來看另一個建立和執行資源的範例，考量 "HelloWorld" 預存程序完全是以 JavaScript 撰寫。
 
 ```
@@ -125,7 +126,7 @@ DocumentDB 服務的回應是產生成功回應和狀態碼，指出已成功註
 	}
 ```
 
-## 使用 POST 執行預存程序
+## 使用 POST HTTP 方法執行預存程序
 最後，為了執行上述範例的預存程序，您需要對預存程序資源的 URI (/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs/UoEi5w+upwABAAAAAAAAgA==/) 發出 POST，如下所示。
 
 	POST https://fabrikam.documents.azure.com/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs/UoEi5w+upwABAAAAAAAAgA== HTTP/1.1
@@ -136,7 +137,7 @@ DocumentDB 服務將做出下列回應。
 	
 	"Hello World"
 
-請注意，POST 動詞命令可用於建立新資源、執行預存程序和發出 SQL 查詢。為了說明 SQL 查詢如何執行，請看下列說明。
+請注意，POST HTTP 動詞命令可用於建立新資源、執行預存程序和發出 SQL 查詢。為了說明 SQL 查詢如何執行，請看下列說明。
 
 	POST https://fabrikam.documents.azure.com/dbs/UoEi5w==/colls/UoEi5w+upwA=/docs HTTP/1.1
 	...
@@ -162,7 +163,7 @@ DocumentDB 服務將做出下列回應。
 ```
 
 
-## 使用 PUT、GET、和 DELETE
+## 使用 PUT、GET、和 DELETE HTTP 動詞命令
 取代或讀取資源分別等同於對資源的 *\_self* 連結發出 PUT (具有有效要求本文) 和 GET 動詞命令。同樣地，刪除資源等同於對資源的 *\_self* 連結發出 DELETE 動詞命令。必須指出的一點是，要想在 DocumentDB 的資源模型中以階層方式組織資源，就必須支援串聯刪除功能，以便只要刪除擁有者的資源就能刪除相依資源。相依資源可能會散佈在擁有者資源以外的其他節點，因此，刪除作業可能進展緩慢。不論記憶體回收的機制為何，資源一經刪除，就會立即釋出配額供您使用。請注意，系統會保留參考完整性。例如，您不可以將集合插入至已刪除的資料庫，或者取代或查詢不再存在之集合的文件。
  
 對資源的 feed 發出 GET 或是查詢集合都可能會導致產生數百萬個項目，因此這兩部伺服器根本不可能有辦法顯示這些項目，用戶端也不可能在一次往返/要求和回應交換內就完全取用這些項目。為了解決此問題，DocumentDB 允許用戶端以一次一頁的方式對大型摘要進行分頁處理。用戶端可以使用 [x-ms-continuation] 回應標頭做為資料指標，以導覽到下一頁。
@@ -204,4 +205,4 @@ DocumentDB 服務將做出下列回應。
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

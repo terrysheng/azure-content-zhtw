@@ -74,15 +74,14 @@ API 是跨所有平台統一的，除了一些小變化形式。
 
     private TelemetryClient telemetry = new TelemetryClient();
 
-我們建議對於 Web 應用程式中的每個要求或其他應用程式中的每個工作階段，使用 `TelemetryClient` 的執行個體。您可以設定如 `TelemetryClient.Context.User.Id` 的屬性以追蹤使用者和工作階段。這項資訊會附加至執行個體所傳送的所有事件。
-
 TelemetryClient 具備執行緒安全。
 
+我們建議針對您每個應用程式的模組使用 `TelemetryClient` 執行個體。比方說，您可能在 Web 服務中有一個 `TelemetryClient` 報告傳入的 http 要求，另一個中介類別告報商業邏輯事件。您可以設定如 `TelemetryClient.Context.User.Id` 的屬性以追蹤使用者和工作階段，或 `TelemetryClient.Context.Device.Id` 來識別電腦。這項資訊會附加至執行個體所傳送的所有事件。
 
 
 ## 追蹤事件
 
-在 Application Insights 中，*自訂事件*是您可以在[計量瀏覽器][metrics]顯示為彙總計數，以及在[診斷搜尋][diagnostic]中顯示為個別發生點的資料點。(它與 MVC 或其他架構的「事件」不相關。)
+在 Application Insights 中，「自訂事件」是您可以在[計量瀏覽器][metrics]顯示為彙總計數，以及在[診斷搜尋][diagnostic]中顯示為個別發生點的資料點。(它與 MVC 或其他架構的「事件」不相關。)
 
 在您的程式碼中插入 TrackEvent 呼叫，以計算使用者選擇特定功能的頻率、達成特定目標的頻率，或可能製造特定類型的錯誤。
 
@@ -195,7 +194,7 @@ TelemetryClient 具備執行緒安全。
     telemetry.trackEvent("WinGame", properties, metrics);
 
 
-> [AZURE.NOTE]切勿在屬性中記錄個人識別資訊。
+> [AZURE.NOTE] 切勿在屬性中記錄個人識別資訊。
 
 **如果您使用度量**，請開啟 [計量瀏覽器]，然後從自訂群組中選取度量：
 
@@ -440,7 +439,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
             }
 ```
 
-請記住， 伺服器 SDK 包含[相依性模組](app-insights-dependencies.md)，可用來自動探索和追蹤特定相依性呼叫，例如資料庫和 REST API。您必須在伺服器上安裝代理程式才能讓模組正常運作。如果您想要追蹤不會由自動化追蹤攔截的呼叫，或不想安裝代理程式，您可以使用這個呼叫。
+請記住，伺服器 SDK 包含[相依性模組](app-insights-dependencies.md)，可用來自動探索和追蹤特定相依性呼叫，例如資料庫和 REST API。您必須在伺服器上安裝代理程式才能讓模組正常運作。如果您想要追蹤不會由自動化追蹤攔截的呼叫，或不想安裝代理程式，您可以使用這個呼叫。
 
 若要關閉標準的相依性追蹤模組，請編輯 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 並刪除 `DependencyCollector.DependencyTrackingTelemetryModule` 的參考。
 
@@ -471,7 +470,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
       appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
-在 [計量瀏覽器](app-insights-metrics-explorer.md) 中，您可以建立**已驗證的使用者**和**帳戶**的圖表。
+在[計量瀏覽器](app-insights-metrics-explorer.md)中，您可以建立**已驗證的使用者**和**帳戶**圖表。
 
 
 ## <a name="defaults"></a>設定已選取自訂遙測的預設值
@@ -901,4 +900,4 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

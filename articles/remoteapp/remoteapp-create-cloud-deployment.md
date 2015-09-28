@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="如何建立 Azure RemoteApp 的雲端收藏"
-	description="了解如何建立將資料儲存在 Azure 雲端中的 Azure RemoteApp 部署。"
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"
+	pageTitle="如何建立 Azure RemoteApp 的雲端收藏 | Microsoft Azure" 
+	description="了解如何建立將資料儲存在 Azure 雲端中的 Azure RemoteApp 部署。" 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
 	editor=""/>
 
 <tags 
-	ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.service="remoteapp" 
+	ms.workload="compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="elizapo"/>
 
 # 如何建立 Azure RemoteApp 的雲端收藏
 
 Azure RemoteApp 收藏分成兩種：
 
-- 雲端：完全位於 Azure 中。您可以選擇在雲端儲存所有資料 (也就是僅限雲端的集合) 或將您的集合連接到 VNET 在那裡儲存資料。   
+- 雲端：完全位於 Azure 中。您可以選擇在雲端儲存所有資料 (也就是僅限雲端的集合) 或將您的集合連線到 VNET，並於該處儲存資料。   
 - 混合式：包含可內部存取的虛擬網路，這需要使用 Azure AD 和內部部署的 Active Directory 環境。
 
 本教學課程將逐步引導您完成建立雲端收藏的程序。共有四個步驟：
@@ -41,7 +41,7 @@ Azure RemoteApp 收藏分成兩種：
 - 此程序假設您將使用您的訂用帳戶隨附的範本映像之一，或是您已上傳所要使用的範本映像。如果您需要上傳不同的範本映像，您可以從 [範本映像] 頁面執行此作業。只要按一下 [上傳範本映像]，然後遵循精靈中的步驟即可。 
 - 想要使用 Office 365 ProPlus 的映像嗎？ 請在[這裡](remoteapp-officesubscription.md)查看資訊。
 - 想提供自訂應用程式或 LOB 程式？ 請建立新的[映像](remoteapp-imageoptions.md)，並在您的雲端部署中加以使用。
-- 了解您是否需要連接到 VNET。如果您選擇連接到 VNET，請確定它是否符合調整大小的指導方針，以及它是否可以連接到 RemoteApp。
+- 了解您是否需要連接到 VNET。如果您選擇連接到 VNET，請確定它是否符合[調整大小的指導方針](remoteapp-vnetsizing.md)，以及它是否[可以連接到 RemoteApp](remoteapp-vnet.md)。如需詳細資訊，請參閱 [VNET 規劃文章](remoteapp-planvpn.md)。
 - 如果您使用 VNET，請決定是否要將它聯結至本機 Active Directory 網域。
 
 ## 步驟 1：建立雲端集合 - 不論是否有 VNET##
@@ -62,7 +62,7 @@ Azure RemoteApp 收藏分成兩種：
 	
 	**重要：**佈建收藏最多可能需要 30 分鐘。
 
-建立了 RemoteApp 集合之後，請按兩下集合的名稱。這時會顯示 [快速入門] 頁面 - 這是您完成設定集合的頁面。
+建立了 RemoteApp 集合之後，請按兩下集合的名稱。這時會顯示 [快速入門] 頁面，您可以在這裡完成設定集合。
 
 請使用下列步驟建立**雲端 + VNET 集合**：
 
@@ -71,7 +71,7 @@ Azure RemoteApp 收藏分成兩種：
 3. 輸入收藏的名稱。
 4. 選擇您要使用的方案 - 標準或基本。
 5. 選擇您已經建立的 VNET。不知道該怎麼做？ 這些步驟目前都在[混合式](remoteapp-create-hybrid-deployment.md)主題中。
-6. 決定您是否要將集合聯結至網域。如果是，您需要使用 AD Connect 來整合 Azure AD 及 Active Directory 環境。涵蓋在**步驟 2** 中。
+6. 決定您是否要將集合聯結至網域。如果是，您需要使用 AD Connect 來整合 Azure AD 及 Active Directory 環境。這涵蓋在**步驟 2** 中。
 6. 按一下 [建立 RemoteApp 收藏]。
 
 
@@ -109,4 +109,4 @@ RemoteApp 應用程式是您提供給使用者的應用程式或程式。此程�
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

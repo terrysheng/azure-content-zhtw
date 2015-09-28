@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="09/10/2015" 
 	ms.author="awills"/>
  
 # 在 ASP.NET 應用程式中使用 Application Insights 的診斷失敗和例外狀況  
@@ -50,7 +50,7 @@
 
 *相依性*是您的應用程式呼叫的服務，通常透過 REST API 或資料庫連線。[Application Insights 狀態監視器][redfield]會自動監視各種類型的相依性呼叫，測量呼叫持續時間及成功或失敗。
 
-若要取得相依性資料，您必須在 IIS 伺服器上[安裝狀態監視器][redfield]，或者，如果您的應用程式是 Azure Web 應用程式，則使用 [Application Insights 延伸模組][azure]。您可以藉由下列方法來達成目的
+若要取得相依性資料，您必須在 IIS 伺服器上[安裝狀態監視器][redfield]，或者，如果您的應用程式是 Azure Web 應用程式，則使用 [Application Insights 延伸模組][azure]。
 
 失敗的相依性呼叫列在 [失敗] 刀鋒視窗，您也可以在要求詳細資料和例外狀況詳細資料中的 [相關項目] 底下找到它們。
 
@@ -426,7 +426,15 @@ VB
 
 [範例](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
+## 例外狀況效能計數器
 
+若您已在伺服器上[安裝狀態監視器][redfield]，則可取得由 .NET 測量的例外狀況比率圖表。這包括已處理和未處理的 .NET 例外狀況。
+
+開啟 [計量瀏覽器] 刀鋒視窗、加入新圖表，然後選取 [效能計數器] 下方所列的 [例外狀況比率]。
+
+.NET framework 會計算間隔中的例外狀況次數並除以間隔長度，以計算得出例外狀況比率。
+
+請注意，其與 Application Insights 入口網站執行 TrackException 報告計數算得的「例外狀況」計數不同。取樣間隔不同，且 SDK 不會針對所有已處理與未處理的例外狀況傳送 TrackException 報告。
 
 <!--Link references-->
 
@@ -441,4 +449,4 @@ VB
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

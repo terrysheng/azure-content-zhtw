@@ -1,20 +1,20 @@
 <properties
    pageTitle="了解資源管理員與傳統部署模型之間的差異"
-	description="描述資源管理員部署模型與傳統 (或服務管理) 部署模型之間的差異。"
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="描述資源管理員部署模型與傳統 (或服務管理) 部署模型之間的差異。"
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/20/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="tomfitz"/>
 
 # 了解資源管理員部署和傳統部署
 
@@ -101,7 +101,7 @@
 - 您可以將標籤套用至資源，以便以邏輯方式組織訂用帳戶中的所有資源。
 
 
-在資源管理員之前，您透過傳統部署建立的每個資源未存在於資源群組內。加入資源管理員時，所有資源會追溯地加入至預設資源群組。如果您現在透過傳統部署建立資源，資源會自動在空的資源群組內建立，即使您在部署時未指定該資源群組。不過，只是存在於資源群組內並不表示該資源已轉換成資源管理員模型。如果是透過傳統部署建立資源，您必須繼續透過傳統作業來運作。
+在資源管理員之前，您透過傳統部署建立的每個資源未存在於資源群組內。加入資源管理員時，所有資源會追溯地加入至預設資源群組。如果您現在透過傳統部署建立資源，資源會自動在該服務的預設資源群組內建立，即使您在部署時未指定該資源群組。不過，只是存在於資源群組內並不表示該資源已轉換成資源管理員模型。對於虛擬機器、儲存體和虛擬網路，如果是透過傳統部署建立資源，您必須繼續透過傳統作業來運作。
 
 您可以將資源移至不同的資源群組，並將新的資源加入至現有的資源群組。因此，您的資源群組可以包含透過資源管理員和傳統部署建立之資源的混合。此資源的組合可能建立非預期的結果，因為資源不支援相同的作業。
 
@@ -158,4 +158,4 @@
 - 若要了解如何建立宣告式部署，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要查看部署範本的命令，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!------HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

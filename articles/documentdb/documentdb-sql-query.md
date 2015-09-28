@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="使用 DocumentDB SQL 進行查詢 | Microsoft Azure" 
-	description="DocumentDB (一種 NoSQL 文件資料庫服務) 支援透過階層式 JSON 文件使用類似 SQL 文法來進行查詢，而不需要明確的結構描述或建立次要索引。" 
+	pageTitle="在 DocumentDB 資料庫上執行 SQL 查詢 – 查詢 SQL | Microsoft Azure" 
+	description="瞭解 DocumentDB 如何透過階層式 JSON 文件支援 SQL 查詢以自動編製索引。探索真正無結構描述的 SQL 查詢資料庫環境。" 
+	keywords="Query database, sql queries, sql query, structured query language, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -16,7 +17,7 @@
 	ms.date="08/13/2015" 
 	ms.author="mimig"/>
 
-# 查詢 DocumentDB
+# 在 DocumentDB 中執行 SQL 查詢
 Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構化查詢語言) 來查詢文件。DocumentDB 確實是無結構描述。由於它是直接在資料庫引擎內使用 JSON 資料模型，因此它提供不需明確的結構描述或建立次要索引，即可自動編製 JSON 文件索引的功能。
 
 在為 DocumentDB 設計查詢語言時，我們有兩個謹記的目標：
@@ -30,9 +31,9 @@ Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構�
 
 > [AZURE.VIDEO dataexposedqueryingdocumentdb]
 
-然後回到本文中，我們會先從逐步解說一些簡單的 JSON 文件和查詢開始。
+接著再回到本文開始著手演練一些簡易 JSON 文件和 SQL 命令。
 
-## 開始使用
+## 開始在 DocumentDB 中使用「結構化查詢語言」(SQL) 命令
 為了查看 DocumentDB SQL 如何運作，讓我們從一些簡單的 JSON 文件開始著手，然後對其逐步執行一些簡單查詢。請考慮有關兩個家族的這兩份 JSON 文件。請注意，使用 DocumentDB，我們不需要明確地建立任何結構描述或次要索引。我們只需要將 JSON 文件插入到 DocumentDB 集合中，再接著進行查詢即可。這裡有 Andersen 一家的簡單 JSON 文件，包括這一家的父母、孩子 (以及寵物)、地址及註冊資訊。這份文件包含字串、數字、布林值、陣列和巢狀屬性。
 
 **文件**
@@ -157,7 +158,7 @@ Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構�
 我們想要透過目前所看到的範例來指出 DocumentDB 查詢語言的一些重要部分：
  
 -	因為 DocumentDB SQL 處理 JSON 值，所以它處理樹狀形式的實體，而不是資料列和資料行。因此，此語言可讓您參照樹狀目錄中任意深度的節點 (例如 `Node1.Node2.Node3…..Nodem`)，該節點與參照 `<table>.<column>` 之兩個部分的關聯式 SQL 類似。   
--	語言處理無結構描述的資料。因此，需要動態繫結類型系統。相同的運算式可能會對不同的文件產生不同的類型。查詢的結果會是有效的 JSON 值，但不保證會是固定的結構描述。  
+-	結構化查詢語言可處理無結構描述資料。因此，需要動態繫結類型系統。相同的運算式可能會對不同的文件產生不同的類型。查詢的結果會是有效的 JSON 值，但不保證會是固定的結構描述。  
 -	DocumentDB 只支援嚴謹的 JSON 文件。這表示類型系統和運算式只能處理 JSON 類型。如需詳細資料，請參閱 [JSON 規格](http://www.json.org/)。  
 -	DocumentDB 集合是 JSON 文件的無結構描述容器。集合中文件內及跨文件之資料實體中的關係，會由內含項目以隱含方式擷取，而不是由主索引鍵和外部索引鍵關係擷取。這是本文稍後討論之文件內聯結中值得指出的重要部分。
 
@@ -182,7 +183,7 @@ Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構�
 如需示範如何為集合設定索引編製原則的範例，請參閱 MSDN 上的 [DocumentDB 範例](https://github.com/Azure/azure-documentdb-net)。現在，讓我們深入討論 DocumentDB SQL 文法。
 
 
-## DocumentDB 查詢基本概念
+## DocumentDB SQL 查詢的基本概念
 根據 ANSI-SQL 標準，每個查詢都會包含 SELECT 子句以及選擇性的 FROM 和 WHERE 子句。針對每個查詢，通常都會列舉 FROM 子句中的來源。接著，會對來源套用 WHERE 子句中的篩選，以擷取 JSON 文件的子集。最後，使用 SELECT 子句來投射選取清單中所要求的 JSON 值。
     
     SELECT <select_list> 
@@ -296,7 +297,7 @@ WHERE 子句 (**`WHERE <filter_condition>`**) 是選用的。它會指定條件�
 	WHERE c.grade >= 5     -- matching grades == 5
 
 
-一元運算子 +、-、\~ 及 NOT 也是支援的運算子，可在查詢內使用 (如下列範例所示)：
+一元運算子 +、-、~ 及 NOT 也是支援的運算子，可在查詢內使用 (如下列範例所示)：
 
 	SELECT *
 	FROM Families.children[0] c
@@ -704,7 +705,7 @@ DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範�
 	  }
 	]
 	
-## 進階概念
+## 進階 SQL 查詢資料庫概念
 ### 反覆運算
 在 DocumentDB SQL 中已透過 **IN** 關鍵字加入新的建構，以支援反覆運算 JSON 陣列。FROM 來源支援反覆運算。讓我們從下列範例開始：
 
@@ -1055,7 +1056,7 @@ DocumentDB 憑藉著為 JSON 資料庫，來描繪 JavaScript 運算子和其評
 
 與 JavaScript 不同，DocumentDB SQL 不會執行隱含轉換。例如，類似 `SELECT * FROM Person p WHERE p.Age = 21` 的查詢會針對包含 Age 屬性且值為 21 的文件進行比對。任何其他 Age 屬性符合字串 "21" 或其他可能之無限制變化 (例如 "021"、"21.0"、"0021"、"00021" 等等) 的文件，則不會成為比對的結果。這與 JavaScript 形成對比，在 JavaScript 中，會將字串值隱含地轉換成數字 (根據運算子，例如：==)。這項選擇對 DocumentDB SQL 中有效率的索引比對十分重要。
 
-## 參數化 SQL
+## 參數化 SQL 查詢
 DocumentDB 支援查詢使用以類似 @ 標記法表示的參數。參數化 SQL 提供使用者輸入的健全處理和逸出，防止透過 SQL 插入式意外洩露資料。
 
 比方說，您可以撰寫查詢，將姓氏和地址 (州) 做為參數，然後根據使用者輸入，使用各種不同姓氏和地址 (州) 的值執行查詢。
@@ -1487,7 +1488,7 @@ LINQ 是一種 .NET 程式設計模型，此模型會將運算表示為對物件
 
 下圖顯示使用 DocumentDB 支援 LINQ 查詢的架構。開發人員可以使用 DocumentDB 用戶端來建立 **IQueryable** 物件，此物件會直接查詢 DocumentDB 查詢提供者，而此查詢提供者會接著將 LINQ 查詢轉譯成 DocumentDB 查詢。然後，將查詢傳遞給 DocumentDB 伺服器，以擷取一組具有 JSON 格式的結果。傳回的結果會在用戶端進行還原序列化，變成 .NET 物件的串流。
 
-![][1]
+![使用 DocumentDB 支援 LINQ 查詢的架構。][1]
  
 
 
@@ -1603,7 +1604,7 @@ DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最�
 		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
 		new int[] { 3, child.grade, 5 };
 
-### 查詢運算子
+### SQL 查詢運算子
 以下一些範例說明如何將一些標準 LINQ 查詢運算子往下轉譯為 DocumentDB 查詢。
 
 #### Select 運算子
@@ -1692,7 +1693,7 @@ DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最�
 	AND f.children[0].grade < 3
 
 
-### 複合查詢
+### 複合 SQL 查詢
 您可以包含上述的運算子，以形成功能更強大的查詢。由於 DocumentDB 支援巢狀集合，因此這個組合可以是串連或巢狀形式。
 
 #### 串連 
@@ -1797,7 +1798,7 @@ DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最�
 	WHERE c.familyName = f.parents[0].familyName
 
 
-## 執行查詢
+## 執行 SQL 查詢
 DocumentDB 公開資源的方式是透過 REST API，此 API 可供任何能發出 HTTP/HTTPS 要求的語言呼叫。此外，DocumentDB 還為數種熱門語言 (例如 .NET、Node.js、JavaScript 和 Python) 提供程式設計程式庫。REST API 和各種程式庫都支援透過 SQL 進行查詢。.NET SDK 除了 SQL 之外，也支援 LINQ 查詢。
 
 下列範例顯示如何建立查詢，並針對 DocumentDB 資料庫帳戶提交它。
@@ -2088,4 +2089,4 @@ DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

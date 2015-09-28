@@ -1,5 +1,5 @@
 <properties
-	pageTitle="如何為 Azure RemoteApp 建立自訂範本映像"
+	pageTitle="如何為 Azure RemoteApp 建立自訂範本映像 | Microsoft Azure"
 	description="了解如何為 Azure RemoteApp 建立自訂範本映像您可以使用此範本與混合式或雲端集合搭配。"
 	services="remoteapp"
 	documentationCenter=""
@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015" 
+	ms.date="09/12/2015" 
 	ms.author="elizapo"/>
 
 # 如何為 Azure RemoteApp 建立自訂範本映像
-Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與使用者共用的所有程式。若要建立自訂 RemoteApp 範本映像，您可以從現有的映像建立，或是建立新映像。可上傳用於 Azure RemoteApp 的映像有下列需求：
+Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與使用者共用的所有程式。若要建立自訂 RemoteApp 範本映像，您可以從現有的映像建立，或是建立新映像。
+
+
+> [AZURE.TIP]您知道您可以從 Azure VM 建立映像嗎？ 這是真的，而且它可以減少匯入映像所花費的時間。請在[這裡](remoteapp-image-on-azurevm.md)查明步驟。
+
+可上傳用於 Azure RemoteApp 的映像有下列需求：
 
 
 - 映像大小應為 MB 的倍數。如果您嘗試上傳的映像大小不是正確的倍數，上傳作業會失敗。
@@ -31,9 +36,8 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 - *請勿*安裝「遠端桌面連線代理人」角色。
 - 必須停用「加密檔案系統 (EFS)」。
 - 映像必須使用參數 **/oobe /generalize /shutdown** 進行 SYSPREP 處理 (請不要使用 **/mode:vm** 參數)。
-- 不支援從快照鏈結上傳您 VHD。
+- 不支援從快照鏈結上傳您的 VHD。
 
-> [AZURE.TIP]您知道您現在可以從 Azure VM 建立映像嗎？ 這是真的，而且它可以減少匯入映像所花費的時間。請在[這裡](remoteapp-image-on-azurevm.md)查明步驟。
 
 **開始之前**
 
@@ -56,7 +60,7 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 4.	安裝 Windows Server 2012 R2。
 5.	安裝「遠端桌面工作階段主機 (RDSH)」角色和「桌面體驗」功能。
 6.	安裝您的應用程式所需的其他功能。
-7.	安裝及設定您的應用程式。
+7.	安裝及設定您的應用程式。若要讓共用應用程式更加容易，請將任何您要共用的 App 或程式加入此映像的 [開始] 功能表，特別是在 **%systemdrive%\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs 中。
 8.	執行您的應用程式所需的任何其他 Windows 設定。
 9.	停用「加密檔案系統 (EFS)」。
 10.	**必要：**前往 Windows Update 並安裝所有重要的更新。
@@ -106,11 +110,12 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 1.	安裝您的應用程式所需的其他功能，例如 .NET Framework 3.5。若要安裝這些功能，請執行 [新增角色和功能] 精靈。
 7.	安裝並設定您要透過 RemoteApp 發佈的程式和應用程式。
 
- 	**重要事項：**
+>[AZURE.IMPORTANT]
+>
+>請在安裝應用程式之前先安裝 RDSH 角色，以確保可在映像上傳至 RemoteApp 之前發現任何關於應用程式相容性的問題。
+>
+>請確定應用程式的捷徑 (**.lnk** 檔案) 出現在所有使用者的 [開始] 功能表 (%systemdrive%\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs)。也請確定您在 [開始] 功能表中看到的圖示是您想讓使用者看到的。如果不是，請變更圖示。(您*不一定*要將應用程式新增至 [開始] 功能表，但這樣做的話在 RemoteApp 中發佈應用程式會更輕鬆。否則，當您發佈應用程式時，您必須提供應用程式的安裝路徑。)
 
-
-	- 請在安裝應用程式之前先安裝 RDSH 角色，以確保可在映像上傳至 RemoteApp 之前發現任何關於應用程式相容性的問題。
-	- 確定應用程式出現在 [**開始**] 功能表中。也請確定您在 [**開始**] 功能表中看到的圖示是您想讓使用者看到的。如果不是，請變更圖示。(您*不一定*要將應用程式新增至 [開始] 功能表，但這樣做的話在 RemoteApp 中發佈應用程式會更輕鬆。否則，當您發佈應用程式時，您必須提供應用程式的安裝路徑。)
 
 8.	執行您的應用程式所需的任何其他 Windows 設定。
 9.	停用「加密檔案系統 (EFS)」。在提高權限的命令視窗上執行下列命令：
@@ -137,4 +142,4 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 - [如何建立 RemoteApp 的雲端收藏](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

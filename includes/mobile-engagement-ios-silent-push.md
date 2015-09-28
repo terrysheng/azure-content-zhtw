@@ -21,10 +21,12 @@
             <string>remote-notification</string>
         </array>
     ...
+    
+6. 如果您使用 Xcode 7 及 iOS 9，您必須執行下列額外的步驟：• 將 [啟用 Bitcode] 設定為 [否]，這位於 [目標] > [建置設定] > [啟用 Bitcode] 下，可設定為 [是] 或 [否]。(請務必在頂端列選取 [全部]) • 在 [目標] > [您的目標名稱] > [功能] 啟用 [推播通知]。
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push1.png
 [2]: ./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push2.png
 [3]: ./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push3.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 
@@ -21,7 +21,7 @@
 
 AngularJS 應用程式的快速入門教學課程尚未就緒…盡快再查看以及從 Twitter 上的 @AzureAD 尋找更新。
 
-> [AZURE.NOTE]此資訊適用於 v2.0 應用程式模型公開預覽版本。如需如何整合公開上市 Azure AD 服務的相關指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
+> [AZURE.NOTE]此資訊適用於 v2.0 應用程式模型公開預覽。如需如何整合公開上市 Azure AD 服務的相關指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
 
 <!-- TOOD:
 
@@ -152,4 +152,4 @@ For additional resources, check out:
 
 -->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

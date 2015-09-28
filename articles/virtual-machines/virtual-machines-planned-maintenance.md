@@ -75,7 +75,7 @@
 此計劃性維護事件將會對此虛擬機器組態類型的應用程式可用性造成影響。在單一執行個體組態中，對於虛擬機器的計劃性維護，Azure 提供一週的事先通知。
 
 ### 電子郵件通知
-僅針對單一執行個體和多重執行個體虛擬機器組態，Azure 會預先傳送電子郵件通訊，警告您有關即將到來的規劃性維護 (單一執行個體為提前 1 週，多個執行個體為提前 48 小時)。此電子郵件將會傳送到訂用帳戶所提供的主要電子郵件帳戶。以下是這種電子郵件類型的範例：
+僅針對單一執行個體和多重執行個體虛擬機器組態，Azure 會預先傳送電子郵件通訊，警告您有關即將到來的規劃性維護 (單一執行個體為提前 1 週，多個執行個體為提前 48 小時)。這封電子郵件將會傳送到訂用帳戶中提供的帳戶管理員和共同系統管理員電子郵件帳戶。以下是這種電子郵件類型的範例：
 
 <!--Image reference-->
 ![][image1]
@@ -110,4 +110,4 @@ Azure 將會組織一組區域配對。在虛擬機器使用單一執行個體�
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

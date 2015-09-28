@@ -16,7 +16,6 @@
 	ms.date="09/09/2015" 
 	ms.author="glenga"/>
 
-
 # 如何使用 Azure 行動服務的 HTML/JavaScript 用戶端
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
@@ -367,7 +366,7 @@
 
 ##<a name="#custom-api"></a>作法：呼叫自訂 API
 
-自訂 API 可讓您定義自訂端點，並用來公開無法對應插入、更新、刪除或讀取等操作的伺服器功能。透過使用自訂 API，您可以進一步控制訊息，包括讀取與設定 HTTP 訊息標頭，並定義除了 JSON 以外的訊息內文格式。如需完整範例，包括如何在您的行動服務中建立自訂 API，請參閱[從用戶端呼叫自訂 API] (英文)。
+自訂 API 可讓您定義自訂端點，並用來公開無法對應插入、更新、刪除或讀取等操作的伺服器功能。透過使用自訂 API，您可以進一步控制訊息，包括讀取與設定 HTTP 訊息標頭，並定義除了 JSON 以外的訊息內文格式。如需如何在您的行動服務中建立自訂 API 的範例，請參閱[如何：定義自訂 API 端點](mobile-services-dotnet-backend-define-custom-api.md)。
 
 在 **MobileServiceClient** 上呼叫 [invokeApi](https://github.com/Azure/azure-mobile-services/blob/master/sdk/Javascript/src/MobileServiceClient.js#L337) 方法，可以從用戶端呼叫自訂 API。例如，下列程式碼字行會傳送 POST 要求至行動服務上的 **completeAll** API：
 
@@ -564,7 +563,7 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 
 ##<a name="hostnames"></a>作法：使用跨原始資源共用
 
-若要控制允許哪些網站與您的行動服務互動，以及傳送要求至您的行動服務，請務必將您用來代管行動服務的網站主機名稱，加入跨原始資源共用 (Cross-Origin Resource Sharing，CORS) 允許清單。如果是 JavaScript 後端行動服務，您可以在 [Azure 管理入口網站](https://manage.windowsazure.com)中的 [設定] 索引標籤上設定允許清單。需要的話可使用萬用字元。依預設，新的行動服務會指示瀏覽器只允許來自 `localhost` 的存取，而跨原始資源共用 (CORS) 可讓在外部主機名稱的瀏覽器中執行的 JavaScript 程式碼與您的行動服務互動。WinJS 應用程式不需要此組態。
+若要控制允許哪些網站與您的行動服務互動，以及傳送要求至您的行動服務，請務必將您用來代管行動服務的網站主機名稱，加入跨原始資源共用 (Cross-Origin Resource Sharing，CORS) 白名單。如果是 JavaScript 後端行動服務，您可以在 [Azure 管理入口網站](https://manage.windowsazure.com)中的 [設定] 索引標籤上設定允許清單。需要的話可使用萬用字元。依預設，新的行動服務會指示瀏覽器只允許來自 `localhost` 的存取，而跨原始資源共用 (CORS) 可讓在外部主機名稱的瀏覽器中執行的 JavaScript 程式碼與您的行動服務互動。WinJS 應用程式不需要此組態。
 
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
@@ -605,7 +604,7 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 [使用單一登入來驗證應用程式]: mobile-services-windows-store-javascript-single-sign-on.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData 系統查詢選項參考]: http://go.microsoft.com/fwlink/p/?LinkId=444502
-[從用戶端呼叫自訂 API]: mobile-services-html-call-custom-api.md
+[Call a custom API from the client]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

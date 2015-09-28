@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # SharePoint 內部網路伺服器陣列工作負載第 2 階段：設定網域控制站
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
 
 在 Azure 基礎結構服務內，使用 SQL Server AlwaysOn 可用性群組部署內部網路專用的 SharePoint 2013 伺服器陣列的這個階段中，您需要在服務管理的 Azure 虛擬網路中設定兩個網域控制站。然後，SharePoint 伺服器陣列資源的用戶端 Web 要求可以在 Azure 虛擬網路中進行驗證，而不是透過內部部署網路的 VPN 或 Azure ExpressRoute 連線傳送該驗證流量。
 
@@ -106,14 +108,16 @@
 
 ### <a id="logon"></a>若要使用遠端桌面連線登入虛擬機器
 
-1.	在 Azure 入口網站的左窗格中，按一下 [**虛擬機器**]。
-2.	若要連線到 VM，按一下 VM 名稱旁 [**狀態**] 資料行中的 [**執行**]。
+1.	在 Azure 入口網站的左窗格中，按一下 [虛擬機器]。
+2.	若要連線到虛擬機器，按一下機器名稱旁 [**狀態**] 資料行中的 [**執行**]。
 3.	在頁面底部的命令列中按一下 [**連線**]。
 4.	入口網站會通知您正在擷取 .rdp 檔案。按一下 [確定]。
 5.	瀏覽器對話方塊隨即出現，並詢問「您想開啟或儲存來自 manage.windowsazure.com 的 ComputerName.rdp 嗎？」。 按一下 [開啟]。
 6.	在 [**遠端桌面連線**] 對話方塊中按一下 [**連線**]。
 7.	在 [**Windows 安全性**] 對話方塊中按一下 [**使用其他帳戶**]。
-8.	在 [**使用者名稱**] 中，輸入 VM 名稱以及使用該 VM 建立的本機系統管理員帳戶名稱 (本機電腦帳戶)。 使用下列格式：*ComputerName**LocalAdministratorAccountName*
+8.	在 [**使用者名稱**] 中，輸入虛擬機器名稱以及使用該虛擬機器建立的本機系統管理員帳戶名稱 (本機電腦帳戶)。  
+  
+使用下列格式：*ComputerName*\*LocalAdministratorAccountName*
 9.	在 [**密碼**] 中輸入本機系統管理員帳戶的密碼。
 10.	按一下 [確定]。
 11.	在 [**遠端桌面連線**] 對話方塊中按一下 [**是**]。新機器的桌面會顯示在遠端桌面工作階段視窗中。
@@ -246,4 +250,4 @@ SharePoint 伺服器陣列需要下列使用者帳戶：
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

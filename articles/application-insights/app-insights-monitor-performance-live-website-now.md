@@ -2,9 +2,9 @@
 	pageTitle="在執行中的網站上診斷效能問題 | Microsoft Azure"
 	description="監視網站的效能而不重新部署網站。使用獨立或帶有 Application Insights 的 SDK，取得相依性遙測資料。"
 	services="application-insights"
-	documentationCenter=".net"
+    documentationCenter=".net"
 	authors="alancameronwills"
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags
 	ms.service="application-insights"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/27/2015"
+	ms.date="09/10/2015"
 	ms.author="awills"/>
 
 
@@ -55,6 +55,8 @@ Visual Studio Application Insights 的狀態監視器可讓您在任何 IIS 伺�
 4. 在安裝精靈中，登入 Microsoft Azure。
 
     ![使用 Microsoft 帳戶認證登入 Azure](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
+
+    *連線錯誤？ 請參閱[疑難排解](#troubleshooting)。*
 
 5. 挑選您想要監視的已安裝 Web 應用程式或網站，然後設定您在 Application Insights 入口網站中查看結果時想要使用的資源。
 
@@ -114,6 +116,32 @@ Visual Studio Application Insights 的狀態監視器可讓您在任何 IIS 伺�
 您可以鑽研過去七天的特定例外狀況，並取得堆疊追蹤和內容資料。
 
 
+## 疑難排解
+
+### 連接錯誤
+
+您需要在伺服器防火牆開啟某些傳出的連接埠，以允許狀態監視器運作：
+
++ 遙測 - 永遠需要這些項目：
+ +	`dc.services.visualstudio.com:80`
+ +	`f5.services.visualstudio.com:80`
+ +	`dc.services.visualstudio.com:443`
+ +	`f5.services.visualstudio.com:443`
+ +	`dc.services.vsallin.net:443`
++ 組態 - 進行變更時才需要：
+ -	`management.core.windows.net:443`
+ -	`management.azure.com:443`
+ -	`login.windows.net:443`
+ -	`login.microsoftonline.com:443`
+ -	`secure.aadcdn.microsoftonline-p.com:443`
+ -	`auth.gfx.ms:443`
+ -	`login.live.com:443`
++ 安裝：
+ +	`packages.nuget.org:443`
+ +	`appinsightsstatusmonitor.blob.core.windows.net:80`
+
+這份清單可能會隨時變更。
+
 ### 沒有遙測資料？
 
   * 使用您的網站來產生一些資料。
@@ -123,7 +151,7 @@ Visual Studio Application Insights 的狀態監視器可讓您在任何 IIS 伺�
 
   ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
-  * 請確定伺服器防火牆允許連出流量從連接埠 443 送往 dc.services.visualstudio.com。
+  * 請確定伺服器防火牆允許上列連接埠的連出流量。
   * 如果您在伺服器上看到有關「權限不足」的訊息，請嘗試下列操作：
     * 在 IIS 管理員中，選取應用程式集區，開啟 [進階設定]，並記下 [處理序模型] 節點下的身分識別。
     * 在電腦的管理控制台中，將此身分識別加入至效能監試器使用者群組。
@@ -168,4 +196,4 @@ IIS 支援：IIS 7、7.5、8、8.5 (需要有 IIS)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

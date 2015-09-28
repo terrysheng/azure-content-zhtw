@@ -1,29 +1,31 @@
 <properties 
-	pageTitle="企業營運應用程式第 3 階段 | Microsoft Azure"
-	description="在 Azure 企業營運應用程式第 3 階段中，建立電腦和 SQL Server 叢集，並啟用可用性群組。"
+	pageTitle="企業營運應用程式第 3 階段 | Microsoft Azure" 
+	description="在 Azure 企業營運應用程式第 3 階段中，建立電腦和 SQL Server 叢集，並啟用可用性群組。" 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # 企業營運應用程式工作負載第 3 階段：設定 SQL Server 基礎結構
 
-在 Azure 基礎結構服務部署高可用性企業營運應用程式的這個階段中，您將設定兩部執行 SQL Server 的電腦和叢集多數節點電腦，然後再將他們併入 Windows Server 叢集。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型建立資源。
 
-您必須先完成這個階段才能前往[第 4 階段](virtual-machines-workload-high-availability-LOB-application-phase4.md)。如需所有階段的相關資訊，請參閱〈[在 Azure 中部署高可用性的企業營運應用程式](virtual-machines-workload-high-availability-LOB-application-overview.md)〉。
+在 Azure 基礎結構服務部署高可用性企業營運系統應用程式的這個階段中，您將設定兩部執行 SQL Server 的電腦和叢集多數節點電腦，然後再將他們併入 Windows Server 叢集。
 
-> [AZURE.NOTE]這些指示會使用 Azure 映像資源庫中的 SQL Server 映像，並根據 SQL Server 授權的使用情況產生持續性費用。它也可以在 Azure 中建立虛擬機器並安裝自己的 SQL Server 授權，不過那些指示並未包含於此處。
+您必須先完成這個階段才能前往[第 4 階段](virtual-machines-workload-high-availability-LOB-application-phase4.md)。如需所有階段的相關資訊，請參閱[在 Azure 中部署高可用性的企業營運系統應用程式](virtual-machines-workload-high-availability-LOB-application-overview.md)。
+
+> [AZURE.NOTE]這些指示會使用 Azure 映像資源庫中的 SQL Server 映像，並根據 SQL Server 授權的使用情況產生持續性費用。您也可在 Azure 中建立虛擬機器並安裝您自己的 SQL Server 授權，但您必須擁有軟體保證和授權機動性，才能在虛擬機器上使用 SQL Server 授權，包括 Azure 虛擬機器在內。如需在虛擬機器上安裝 SQL Server 的詳細資訊，請參閱[安裝 SQL Server](https://msdn.microsoft.com/library/bb500469.aspx)。
 
 ## 在 Azure 中建立 SQL Server 叢集虛擬機器
 
@@ -112,9 +114,11 @@
 	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
+> [AZURE.NOTE]因為這些虛擬機器用於內部網路應用程式，所以未獲指派公用 IP 位址或 DNS 網域名稱標籤，也不會公開到網際網路。不過，這也表示您無法從 Azure Preview 入口網站連接到它們。當您檢視虛擬機器的屬性時，[連接] 按鈕將無法使用。使用「遠端桌面連線」配件或其他遠端桌面工具，來使用虛擬機器的私人 IP 位址或內部網路 DNS 名稱連接該虛擬機器。
+
 ## 設定執行 SQL Server 的電腦
 
-對於每部執行 SQL Server 的虛擬機器，使用需要的遠端桌面用戶端，並建立第一個網域控制站虛擬機器的遠端桌面連接。使用其內部網路 DNS 或電腦名稱，以及本機系統管理員帳戶的認證。
+對於每部執行 SQL Server 的虛擬機器，使用您選擇的遠端桌面用戶端，並建立遠端桌面連線。使用其內部網路 DNS 或電腦名稱，以及本機系統管理員帳戶的認證。
 
 對於每部執行 SQL Server 的虛擬機器，請在 Windows PowerShell 提示中使用下列命令，將其加入適當的 AD DS 網域。
 
@@ -148,28 +152,28 @@
 
 使用下列程序兩次，分別為兩部執行 SQL server 的虛擬機器進行設定，以便讓他們使用 F: 磁碟機作為帳戶和權限的新資料庫。
 
-1. 在 [開始] 畫面中輸入 **SQL Studio**，然後按一下 [**SQL Server 2014 Management Studio**]。
-2. 在 [**連線到伺服器**] 中按一下 [**連線**]。
-3. 在左側窗格中，以滑鼠右鍵按一下最上層節點 (以機器名稱命名的預設執行個體)，然後按一下 [**內容**]。
-4.	在 [**伺服器內容**] 中按一下 [**資料庫設定**]。
-5.	在 [**資料庫預設位置**] 中設定下列值： 
-	- 將 [**資料**] 路徑設定為 **f:\\Data**。
-	- 將 [**記錄檔**] 路徑設定為 **f:\\Log**。
-	- 將 [**備份**] 路徑設定為 **f:\\Backup**。
+1. 在 [開始] 畫面中輸入「SQL Studio」，然後按一下 [**SQL Server 2014 Management Studio**]。
+2. 在 [連線到伺服器] 中按一下 [連線]。
+3. 在左側窗格中，以滑鼠右鍵按一下最上層節點 (以機器名稱命名的預設執行個體)，然後按一下 [內容]。
+4.	在 [伺服器內容] 中按一下 [資料庫設定]。
+5.	在 [資料庫預設位置] 中設定下列值： 
+	- 將 [資料] 路徑設定為 **f:\\Data**。
+	- 將 [記錄檔] 路徑設定為 **f:\\Log**。
+	- 將 [備份] 路徑設定為 **f:\\Backup**。
 	- 只有新的資料庫才會使用這些位置。
-6.	按一下 [**確定**] 關閉視窗。
-7.	在左側窗格中展開 [**安全性資料夾**]。
-8.	以滑鼠右鍵按一下 [**登入**]，然後按一下 [**新增登入**]。
-9.	在 [**登入名稱**] 中輸入*網域*\\sqladmin in，其中*網域*是指[第 2 階段](virtual-machines-workload-high-availability-LOB-application-phase2.md)中建立 sqladmin 帳戶所在網域的名稱。 
-10.	在 [**選取頁面**] 下按一下 [**伺服器角色**]，再按一下 [**系統管理員**] ，然後按一下 [**確定**]。
+6.	按一下 [確定] 關閉視窗。
+7.	在左側窗格中展開 [安全性資料夾]。
+8.	以滑鼠右鍵按一下 [登入]，然後按一下 [新增登入]。
+9.	在 [登入名稱] 中輸入*網域*\\sqladmin in，其中*網域*是指[第 2 階段](virtual-machines-workload-high-availability-LOB-application-phase2.md)中建立 sqladmin 帳戶所在網域的名稱。 
+10.	在 [選取頁面] 下按一下 [伺服器角色]，再按一下 [系統管理員] ，然後按一下 [確定]。
 11.	關閉 SQL Server 2014 Management Studio。
 
 使用下列程序兩次，分別為每部 SQL 伺服器進行設定，以便允許使用 sqladmin 帳戶進行遠端桌面連接。
 
-1.	在 [開始] 畫面中，以滑鼠右鍵按一下 [**這台電腦**]，然後按一下 [**內容**] 。
-2.	在 [**系統**] 視窗中按一下 [**遠端設定**]。
-3.	在 [**遠端桌面**] 部分中按一下 [**選取使用者**]，然後按一下 [**新增**]。
-4.	在 [**輸入要選取的物件名稱**] 中輸入「[網域]**\\sqladmin**」，然後按三次 [**確定**]。
+1.	在 [開始] 畫面中，以滑鼠右鍵按一下 [本機]，然後按一下 [內容]。
+2.	在 [系統] 視窗中按一下 [遠端設定]。
+3.	在 [遠端桌面] 部分中按一下 [選取使用者]，然後按一下 [新增]。
+4.	在 [輸入要選取的物件名稱] 中輸入「[網域]\\sqladmin」，然後按三次 [確定]。
 
 SQL Server 服務需要一個可讓用戶端存取資料庫伺服器的連接埠。同時也需要連接埠來連線 SQL Server Management Studio，並管理高可用性群組。接下來，在系統管理員層級 Windows PowerShell 提示中執行下列命令兩次，分別為每部 SQL Server 虛擬機器進行設定，以便新增防火牆規則並允許此類型的輸入流量。
 
@@ -209,29 +213,29 @@ SQL Server AlwaysOn 可用性群組依賴 Windows Server 的容錯移轉叢集 (
 
 由於目前 Azure 中 DHCP 的非 RFC 相容行為，無法成功建立 Windows Server 容錯移轉叢集 (WSFC) 叢集。如需詳細資訊，請在 Azure 虛擬機器中 SQL Server 的「高可用性和災害復原」內搜尋「Azure 網路中的 WSFC 叢集行為」。 不過還是有相對的因應措施。使用下列步驟建立叢集。
 
-1.	使用[第 2 階段](virtual-machines-workload-high-availability-LOB-application-phase2.md)中建立的 sqladmin 帳戶登入主要 SQL Server 虛擬機器。
-2.	在 [開始] 畫面中輸入 **Failover**，然後按一下 [**容錯移轉叢集管理員**]。
+1.	使用在[第 2 階段](virtual-machines-workload-high-availability-LOB-application-phase2.md)中建立的 sqladmin 帳戶登入主要 SQL Server 虛擬機器。
+2.	在 [開始] 畫面中輸入「Failover」，然後按一下 [**容錯移轉叢集管理員**]。
 3.	在左側窗格中，以滑鼠右鍵按一下 [**容錯移轉叢集管理員**]，然後按一下 [**建立叢集**]。
-4.	在 [**開始之前**] 頁面上，按一下 [**下一步**]。
-5.	在 [**選取伺服器**] 頁面中輸入主要 SQL Server 機器的名稱，按一下 [**新增**]，然後按一下 [**下一步**]。
-6.	在 [**驗證警告**] 頁面中，按一下 [**否]。我不需要從 Microsoft 取得此叢集的支援，也不想要執行驗證測試。按 [下一步] 後，繼續建立叢集。**]，然後按一下 [**下一步**]。
-7.	在 [**管理叢集的存取點**] 頁面中，請在 [**叢集名稱**] 文字方塊中輸入叢集名稱，然後按 [**下一步**]。
-8.	在 [**確認**] 頁面中按一下 [**下一步**] 開始建立叢集。 
-9.	在 [**摘要**] 頁面中按一下 [**完成**]。
-10.	在左側窗格中按一下您的新叢集。在 [內容] 窗格的 [**叢集核心資源**] 部分中，開啟您的伺服器叢集名稱。[**IP位址**] 資源的狀態為 [**失敗**]。 由於指派給叢集的 IP 位址與虛擬機器相同，因此該 IP 位址資源無法上線，造成位址重覆的狀況。 
-11.	以滑鼠右鍵按一下失敗的 [**IP 位址**]資源，然後按一下 [**內容**]。
-12.	在 [**IP 位址內容**] 對話方塊中，按一下 [**靜態 IP 位址**]。
-13.	輸入一個未使用的 IP，此 IP 位址範圍需與 SQL Server 所在的子網路相對應，然後按一下 [**確定**]。
-14.	以滑鼠右鍵按一下失敗的 [IP 位址] 資源，然後按一下 [**上線**]。等待兩個資源上線。待叢集名稱資源上線後，將使用新的 Active Directory (AD) 電腦帳戶更新網域控制站。此 AD 帳戶稍後將用來執行可用性群組叢集服務。
-15.	現在 AD 帳戶已建立，請讓叢集名稱離線。以滑鼠右鍵按一下 [**叢集核心資源**] 中的叢集名稱，然後按一下 [**離線**]。
-16.	若要移除叢集 IP 位址，請以滑鼠右鍵按一下 [**IP 位址**]，按一下 [**移除**] ，並在出現提示時按一下 [**是**]。由於叢集資源依賴 IP 位址資源，因此無法再次上線。不過，可用性群組不需依賴叢集名稱或 IP 位址即可正常運作。因此叢集名稱可保持離線狀態。
-17.	若要將其餘節點新增至叢集，請以滑鼠右鍵按一下左側窗格中的叢集名稱，然後按一下 [**新增節點**]。
-18.	在 [**開始之前**] 頁面上，按一下 [**下一步**]。 
-19.	在 [**選取伺服器**] 頁面中輸入名稱，然後按一下 [**新增**]，同時將次要 SQL Server 和叢集多數節點新增至叢集。新增兩台電腦後按一下 [**下一步**]。若無法新增機器，並出現錯誤訊息「遠端登錄並未執行」，請執行下列步驟。登入機器、開啟 [服務] 嵌入式管理單元 (services.msc) 並啟用遠端登錄。如需更多資訊，請參閱[無法連線至遠端登陸服務](http://technet.microsoft.com/library/bb266998.aspx)。 
-20.	在 [**驗證警告**] 頁面中，按一下 [**否]。我不需要從 Microsoft 取得此叢集的支援，也不想要執行驗證測試。按 [下一步] 後，繼續建立叢集。**]，然後按一下 [**下一步**]。 
-21.	在 [**確認**] 頁面中按一下 [**下一步**]。
-22.	在 [**摘要**] 頁面中按一下 [**完成**]。
-23.	在左側窗格中按一下 [ **節點**]。畫面中應該會列出三台電腦。
+4.	在 [開始之前] 頁面中按一下 [下一步]。
+5.	在 [選取伺服器] 頁面中輸入主要 SQL Server 機器的名稱，按一下 [新增]，然後按一下 [下一步]。
+6.	在 [驗證警告] 頁面中，按一下 [**否，我不需要從 Microsoft 取得此叢集的支援，也不想要執行驗證測試。按 [下一步] 後，繼續建立叢集。**]，然後按一下 [下一步]。
+7.	在 [管理叢集的存取點] 頁面中，請在 [叢集名稱] 文字方塊中輸入叢集名稱，然後按 [下一步]。
+8.	在 [確認] 頁面中按一下 [下一步] 開始建立叢集。 
+9.	在 [摘要] 頁面中按一下 [完成]。
+10.	在左側窗格中按一下您的新叢集。在 [內容] 窗格的 [叢集核心資源] 部分中，開啟您的伺服器叢集名稱。[IP位址] 資源的狀態為 [失敗]。由於指派給叢集的 IP 位址與虛擬機器相同，因此該 IP 位址資源無法上線，造成位址重覆的狀況。 
+11.	以滑鼠右鍵按一下失敗的 [IP 位址] 資源，然後按一下 [內容]。
+12.	在 [IP 位址內容] 對話方塊中，按一下 [靜態 IP 位址]。
+13.	輸入一個未使用的 IP，此 IP 位址範圍需與 SQL Server 所在的子網路相對應，然後按一下 [確定]。
+14.	以滑鼠右鍵按一下失敗的 [IP 位址] 資源，然後按一下 [上線]。等待兩個資源上線。待叢集名稱資源上線後，將使用新的 Active Directory (AD) 電腦帳戶更新網域控制站。此 AD 帳戶稍後將用來執行可用性群組叢集服務。
+15.	現在 AD 帳戶已建立，請讓叢集名稱離線。以滑鼠右鍵按一下 [叢集核心資源] 中的叢集名稱，然後按一下 [離線]。
+16.	若要移除叢集 IP 位址，請以滑鼠右鍵按一下 [IP 位址]，按一下 [移除]，並在出現提示時按一下 [是]。由於叢集資源依賴 IP 位址資源，因此無法再次上線。不過，可用性群組不需依賴叢集名稱或 IP 位址即可正常運作。因此叢集名稱可保持離線狀態。
+17.	若要將其餘節點新增至叢集，請以滑鼠右鍵按一下左側窗格中的叢集名稱，然後按一下 [新增節點]。
+18.	在 [開始之前] 頁面中按一下 [下一步]。 
+19.	在 [選取伺服器] 頁面中輸入名稱，然後按一下 [新增]，同時將次要 SQL Server 和叢集多數節點新增至叢集。新增兩台電腦後按一下 [下一步]。若無法新增機器，並出現錯誤訊息「遠端登錄並未執行」，請執行下列步驟。登入機器、開啟 [服務] 嵌入式管理單元 (services.msc) 並啟用遠端登錄。如需更多資訊，請參閱[無法連線至遠端登陸服務](http://technet.microsoft.com/library/bb266998.aspx)。 
+20.	在 [驗證警告] 頁面中，按一下 [**否，我不需要從 Microsoft 取得此叢集的支援，也不想要執行驗證測試。按 [下一步] 後，繼續建立叢集。**]，然後按一下 [下一步]。 
+21.	在 [確認] 頁面中按一下 [ 下一步]。
+22.	在 [摘要] 頁面中按一下 [完成]。
+23.	在左側窗格中按一下 [節點]。畫面中應該會列出三台電腦。
 
 ## 啟用 AlwaysOn 可用性群組
 
@@ -239,12 +243,12 @@ SQL Server AlwaysOn 可用性群組依賴 Windows Server 的容錯移轉叢集 (
 
 使用這些步驟啟用 SQL Server 上的 AlwaysOn 可用性群組。
 
-1.	使用[第 2 階段](virtual-machines-workload-high-availability-LOB-application-phase2.md)中建立的 sqladmin 帳戶登入主要 SQL Server 虛擬機器。
-2.	在 [ 開始] 畫面中輸入 **SQL Server Configuration**，然後按一下 [**SQL Server 組態管理員**]。
-3.	在左側窗格中按一下 [**SQL Server 服務**]。
+1.	使用在[第 2 階段](virtual-machines-workload-high-availability-LOB-application-phase2.md)中建立的 sqladmin 帳戶登入主要 SQL Server 虛擬機器。
+2.	在 [ 開始] 畫面中輸入「SQL Server Configuration」，然後按一下 [SQL Server 組態管理員]。
+3.	在左側窗格中按一下 [SQL Server 服務]。
 4.	在 [内容] 窗格中按兩下 [**SQL Server (MSSQLSERVER)**]。
-5.	在 [**SQL Server (MSSQLSERVER) 屬性**] 中按一下 [**AlwaysOn 高可用性**] 索引標籤、選取 [**啟用 AlwaysOn可用性群組**]，然後按一下 [**套用**]，並在出現提示時按一下 [**確定**]。先不要關閉屬性視窗。 
-6.	按一下 [虛擬-機器-管理-可用性] 索引標籤，然後在 [**帳戶名稱**] 中輸入「[網域]**\\sqlservice**」。在 [**密碼**] 和 [**確認密碼**] 中輸入 sqlservice 帳戶密碼，然後按一下 [**確定**]。
+5.	在 [SQL Server (MSSQLSERVER) 屬性] 中按一下 [AlwaysOn 高可用性] 索引標籤，再選取 [啟用 AlwaysOn可用性群組]，然後按一下 [套用]，並在出現提示時按一下 [確定]。先不要關閉屬性視窗。 
+6.	按一下 [虛擬-機器-管理-可用性] 索引標籤，然後在 [帳戶名稱] 中輸入「[網域]\\sqlservice」。在 [密碼] 和 [確認密碼] 中輸入 sqlservice 帳戶密碼，然後按一下 [確定]。
 7.	在訊息視窗中按一下 [**是**]，重新開啟 SQL Server 服務。
 8.	使用 sqladmin 帳戶登入次要 SQL Server 虛擬機器，並重覆步驟 2 至 7。 
 
@@ -254,7 +258,7 @@ SQL Server AlwaysOn 可用性群組依賴 Windows Server 的容錯移轉叢集 (
 
 ## 後續步驟
 
-如要繼續設定此工作負載，請前往〈[第 4 階段：設定 Web 伺服器](virtual-machines-workload-high-availability-LOB-application-phase4.md)〉。
+如要繼續設定此工作負載，請前往[第 4 階段：設定 Web 伺服器](virtual-machines-workload-high-availability-LOB-application-phase4.md)。
 
 ## 其他資源
 
@@ -268,4 +272,4 @@ SQL Server AlwaysOn 可用性群組依賴 Windows Server 的容錯移轉叢集 (
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

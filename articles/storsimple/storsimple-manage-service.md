@@ -1,19 +1,19 @@
 <properties 
    pageTitle="部署 StorSimple Manager 服務 | Microsoft Azure"
-	description="說明如何在管理入口網站中建立和刪除 StorSimple Manager 服務，並且說明如何管理服務註冊金鑰。"
-	services="storsimple"
-	documentationCenter=""
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="說明如何在管理入口網站中建立和刪除 StorSimple Manager 服務，並且說明如何管理服務註冊金鑰。"
+   services="storsimple"
+   documentationCenter=""
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="v-sharos" />
 
 # 部署 StorSimple Manager 服務
 
@@ -107,10 +107,12 @@ StorSimple Manager 登陸頁面會列出所有 StorSimple Manager 服務，您�
 
 ## 後續步驟
 
-[深入了解 StorSimple 部署程序](storsimple-deployment-walkthrough.md)。
+- 深入了解 [StorSimple 部署程序](storsimple-deployment-walkthrough.md)。
 
-[深入了解管理 StorSimple 儲存體帳戶](storsimple-manage-storage-accounts.md)。
+- 深入了解[管理 StorSimple 儲存體帳戶](storsimple-manage-storage-accounts.md)。
+
+- 深入了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

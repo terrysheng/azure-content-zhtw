@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Machine Learning 建議 API 文件 | Microsoft Azure"
-	description="Microsoft Azure Marketplace 中提供適用於建議引擎的 Azure Machine Learning 建議 API 文件。"
-	services="machine-learning"
-	documentationCenter=""
-	authors="AharonGumnik"
-	manager="paulettm"
+	pageTitle="Machine Learning 建議 API 文件 | Microsoft Azure" 
+	description="Microsoft Azure Marketplace 中提供適用於建議引擎的 Azure Machine Learning 建議 API 文件。" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="AharonGumnik" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/14/2015" 
 	ms.author="LuisCa"/>
 
 #Azure Machine Learning 建議 API 文件
@@ -352,7 +352,7 @@ HTTP 狀態碼：200
 | MaxUserLength | 使用者之不同項目的最大數目。 |
 | MinItemLength | 項目之不同使用者的最大數目。 |
 | MinUserLength | 使用者之不同項目的最小數目。 |
-| RawNumberOfItems | 剪除不能模型化的項目之前的項目數目。 |
+| RawNumberOfItems | 使用方式檔案中的項目數目。 |
 | RawNumberOfUsers | 任何剪除動作之前的使用點數目。 |
 | RawNumberOfRecords | 任何剪除動作之前的使用點數目。 |
 | SamplingNumberOfItems | N/A |
@@ -848,6 +848,7 @@ OData XML
 | HTTP 方法 | URI |
 |:--------|:--------|
 |POST |`<rootURI>/AddRule?apiVersion=%271.0%27`|
+|標頭 |`"Content-Type", "text/xml"`|
 
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
@@ -945,6 +946,7 @@ HTTP 狀態碼：200
 | HTTP 方法 | URI |
 |:--------|:--------|
 |POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|標頭 |`"Content-Type", "text/xml"`|
 
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
@@ -1189,6 +1191,7 @@ OData XML
 | HTTP 方法 | URI |
 |:--------|:--------|
 |POST |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27`|
+|標頭 |`"Content-Type", "text/xml"`|
 
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
@@ -1736,6 +1739,7 @@ FBT (通常會一起購買) 組建也是另一種建議運算法，有時稱為�
 | HTTP 方法 | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
+|標頭 |`"Content-Type", "text/xml"` (如果傳送要求本文)|
 
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
@@ -1809,6 +1813,7 @@ OData XML
 | HTTP 方法 | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&buildType=%27<buildType>%27&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&buildType=%27Ranking%27&apiVersion=%271.0%27`|
+|標頭 |`"Content-Type", "text/xml"` (如果傳送要求本文)|
 
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
@@ -2861,4 +2866,4 @@ HTTP 狀態碼：200
 這份文件係依 「現狀」提供。本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更， 恕不另行通知。<br><br> 此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實人事物。<br><br> 本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。您可以複製並使用這份文件，供內部參考之用。<br><br> © 2015 Microsoft.著作權所有，並保留一切權利。
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

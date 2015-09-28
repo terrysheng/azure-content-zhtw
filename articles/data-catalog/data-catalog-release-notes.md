@@ -61,7 +61,7 @@ Azure 資料目錄初始預覽版本中對於 SQL Server Reporting Services (SSR
 
 在某些情況下，只有當使用者是在公司網路上，或只有當使用者從公司網路外部連接時，才會發生此錯誤行為。全域驗證原則允許分別為內部網路和外部網路連線啟用驗證方法。如果使用者連線的網路未啟用表單驗證，可能會發生登入錯誤。
 
-如需詳細資訊，請參閱[針對不支援 WIA 的裝置設定內部網路表單型驗證](https://technet.microsoft.com/library/dn727110.aspx)。
+如需詳細資訊，請參閱[設定驗證原則](https://technet.microsoft.com/zh-TW/library/dn486781.aspx)。
 
 **原因 2：網路 Proxy 設定**。如果公司網路使用 Proxy 伺服器，註冊工具可能無法透過 Proxy 連線到 Azure Active Directory。使用者可以編輯註冊工具的組態檔，將此區段加入至檔案，以確保註冊工具能夠連線：
 
@@ -77,4 +77,4 @@ Azure 資料目錄初始預覽版本中對於 SQL Server Reporting Services (SSR
 
 若要找出 RegistrationTool.exe.config 檔案，請啟動註冊工具，然後開啟 Windows 工作管理員公用程式。在工作管理員的 [詳細資料] 索引標籤，以滑鼠右鍵按一下 RegistrationTool.exe，再從快顯功能表中選擇 [開啟檔案位置]。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

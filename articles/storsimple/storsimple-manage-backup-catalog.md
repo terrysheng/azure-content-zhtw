@@ -1,19 +1,19 @@
 <properties 
    pageTitle="管理您的 StorSimple 備份類別目錄 | Microsoft Azure"
-	description="說明如何使用 StorSimple Manager 服務的 [備份類別目錄] 頁面列出、選取和刪除磁碟區的備份組。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="說明如何使用 StorSimple Manager 服務的 [備份類別目錄] 頁面列出、選取和刪除磁碟區的備份組。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/14/2015"
+   ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務管理備份類別目錄
 
@@ -113,6 +113,8 @@
 
 ## 後續步驟
 
-了解如何使用備份類別目錄以[從備份組還原裝置](storsimple-restore-from-backup-set.md)。
+- 了解如何使用備份類別目錄以[從備份組還原裝置](storsimple-restore-from-backup-set.md)。
 
-<!---HONumber=September15_HO1-->
+- 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
+
+<!---HONumber=Sept15_HO3-->

@@ -44,7 +44,7 @@ Hadoop 叢集的標準實作通常包含單一前端節點。HDInsight 會透過
 
 已加入 [ZooKeeper](http://zookeeper.apache.org/) 節點 (ZK)，並使用於前端節點的領袖選擇，以確保背景工作節點和閘道 (GW) 知道當作用中前端節點 (Head Node0) 變成非作用中狀態時，容錯移轉至次要前端節點 (Head Node1) 的時機。
 
-![HDInsight Hadoop 實作中的高可靠性前端節點圖表。](http://i.imgur.com/jrUmrH4.png)
+![HDInsight Hadoop 實作中的高可靠性前端節點圖表。](./media/hdinsight-high-availability/hadoop.high.availability.architecture.diagram.png)
 
 
 
@@ -98,4 +98,4 @@ SDK 的情況十分類似。使用 SDK 建立與佈建叢集的說明已記錄�
 - [使用 RDP 連接到 HDInsight 叢集](hdinsight-administer-use-management-portal.md#rdp)
 - [使用 HDInsight .NET SDK](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

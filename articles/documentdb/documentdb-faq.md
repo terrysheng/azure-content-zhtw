@@ -1,30 +1,31 @@
 <properties 
-	pageTitle="DocumentDB 常見問題集 | Microsoft Azure"
-	description="關於 NoSQL 文件資料庫服務 Azure DocumentDB 的常見問題集解答"
-	services="documentdb"
-	authors="mimig1"
-	manager="jhubbard"
-	editor="monicar"
+	pageTitle="DocumentDB 資料庫問題 - 常見問題集 | Microsoft Azure" 
+	description="取得 Azure DocumentDB NoSql 文件資料庫服務常見問題的解答。解答產能、效能層級和調整的相關資料庫問題。" 
+	keywords="Database questions, frequently asked questions, documentdb, azure, Microsoft azure"
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="mimig"/>
 
 
 #DocumentDB 常見問題集
 
-## Microsoft Azure DocumentDB 基本概念
+## Microsoft Azure DocumentDB 基本概念的相關資料庫問題
 
 ### 什麼是 Microsoft Azure DocumentDB？ 
 Microsoft Azure DocumentDB 是一種極具調整性的 NoSQL 文件「資料庫即服務」，可在無結構描述的資料上進行豐富的查詢，協助提供可設定和可靠的效能，且支援快速開發，這些完全都是透過受管理的平台，背後有 Microsoft Azure 強大的功能與先進的技術做後盾。如果關鍵要求在於可預測的輸送量、低遲性和無結構描述的資料模型，則 DocumentDB 就是 Web 和行動應用程式最適當的解決方案。DocumentDB 透過原生 JSON 資料模型，提供結構描述的彈性和豐富的檢索能力，且包含多文件交易式支援與整合式 JavaScript。
   
-如需有關部署和使用此服務的指示，請參閱 [DocumentDB 文件頁面](http://azure.microsoft.com/documentation/services/documentdb/)。
+如需更多資料庫問題、解答，以及部署和使用此服務的指示，請參閱 [DocumentDB 文件頁面](http://azure.microsoft.com/documentation/services/documentdb/)。
 
 ### DocumentDB 是何種資料庫？
 DocumentDB 是 NoSQL 文件導向的資料庫，以 JSON 格式儲存資料。DocumentDB 支援巢狀、獨立式資料結構，可透過豐富的 DocumentDB [SQL 查詢文法](documentdb-sql-query.md)來查詢。DocumentDB 透過[預存程序、觸發程序和使用者定義函數](documentdb-programming.md)，提供伺服器端 JavaScript 高效能的交易式處理。資料庫也支援可由開發人員調整的一致性層級與相關聯的[效能層級](documentdb-performance-levels.md)。
@@ -75,7 +76,7 @@ DocumentDB 帳戶可以藉由加入集合，根據儲存體和輸送量來擴充
 ### 我如何設定使用者和權限？
 您可以使用其中一套 [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 或透過 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 來建立使用者和權限。
 
-## 針對 Microsoft Azure DocumentDB 進行開發
+## 針對 Microsoft Azure DocumentDB 進行開發的相關資料庫問題
 
 ### 如何開始針對 DocumentDB 進行開發？
 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 適用於 .NET、Python、Node.js、JavaScript 和 Java。開發人員也可以使用 [RESTful HTTP API](https://msdn.microsoft.com/library/azure/dn781481.aspx)，從各種平台和語言來與 DocumentDB 資源互動。
@@ -111,4 +112,4 @@ DocumentDB 透過 JavaScript 預存程序和觸發程序，支援語言整合式
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -1,6 +1,7 @@
 <properties
-    pageTitle="使用 DocumentDB 建置具有 Python 和 Flask 的 Web 應用程式 | Microsoft Azure"
-    description="了解如何使用 DocumentDB 來儲存和存取主控於 Azure 上之 Python 和 Flask (MVC) Web 應用程式的資料。"
+    pageTitle="使用 DocumentDB 進行 Python Flask Web 應用程式開發 | Microsoft Azure"
+    description="檢閱有關如何使用 DocumentDB 來儲存和存取 Azure 上主控之 Python Flask Web 應用程式資料的資訊。尋找應用程式開發解決方案。" 
+	keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
     authors="ryancrawcour"
@@ -16,13 +17,13 @@
     ms.date="09/03/2015"
     ms.author="ryancraw"/>
 
-# 使用 DocumentDB 建置具有 Python 和 Flask (MVC) 的 Web 應用程式
+# 使用 DocumentDB 進行 Python Flask Web 應用程式開發
 
-為了特別說明客戶要如何有效率地利用 Azure DocumentDB 來儲存和查詢 JSON 文件，本文件提供如何使用 Azure Document DB 建置投票 Web 應用程式的端對端教學課程。
+為了特別說明客戶要如何有效率地利用 Azure DocumentDB 來儲存和查詢 JSON 文件，本文件提供如何使用 Azure Document DB 建置投票 Web 應用程式的端對端 Python Web 應用程式教學課程。
 
 本教學課程說明如何使用 Azure 所提供的 DocumentDB 服務，來儲存和存取 Azure 上所託管 Python Web 應用程式的資料，並假設您先前已有使用 Python 和 Azure 網站的經驗。
 
-本教學課程涵蓋下列項目：
+此資料庫教學課程涵蓋：
 
 1. 建立和佈建 DocumentDB 帳戶。
 2. 建立 Python MVC 應用程式。
@@ -31,10 +32,10 @@
 
 按照本教學課程進行後，您將建置可讓您舉行投票活動的簡單投票應用程式。
 
-![本教學課程所建立的待辦事項清單 Web 應用程式的螢幕擷取畫面](./media/documentdb-python-application/image1.png)
+![本資料庫教學課程所建立的待辦事項清單 Web 應用程式的螢幕擷取畫面](./media/documentdb-python-application/image1.png)
 
 
-## 必要條件
+## 資料庫教學課程必要條件
 
 在依照本文中的指示進行之前，您應確定已安裝下列項目：
 
@@ -58,18 +59,18 @@
 
 1. 開啟 Visual Studio，並依序按一下 [檔案] -> [新增專案] -> [Python] -> [Flask Web 專案]，然後建立名為 **tutorial** 的新專案。
 
-	對於 Flask 的初學者而言，這個網路架構可協助我們在 Python 中更快速地建置 Web 應用程式。[按一下這裡可存取 Flask 教學課程][] (英文)。
+	對於 Python Flask 的初學者而言，此 Web 應用程式開發架構可協助我們在 Python 中更快速地建置 Web 應用程式。[按一下這裡可存取 Flask 教學課程][] (英文)。
 
-	![左側為使用反白顯示之 Python 的 Visual Studio 中的 [新增專案] 視窗、中間為選取的 Flask Web 專案，以及 [名稱] 方塊中為教學課程名稱的螢幕擷取畫面](./media/documentdb-python-application/image9.png)
+	![Visual Studio 中左側為反白顯示的 Python、中間為選取的「Python Flask Web 專案」，以及 [名稱] 方塊中名稱為 tutorial 的 [新增專案] 視窗螢幕擷取畫面](./media/documentdb-python-application/image9.png)
 
 2. 系統會詢問您是否要安裝外部套件。按一下 [安裝到虛擬環境]。因為 PyDocumentDB 目前不支援 Python 3.x，所以請務必使用 Python 2.7 做為基底環境。這會設定專案所需的 Python 虛擬環境。
 
-	![教學課程 - Python Tools for Visual Studio 視窗的螢幕擷取畫面](./media/documentdb-python-application/image10.png)
+	![資料庫教學課程 - Python Tools for Visual Studio 視窗的螢幕擷取畫面](./media/documentdb-python-application/image10.png)
 
 
 ## 步驟 3：修改 Python Flask Web 應用程式
 
-### 將 Flask 封裝新增至專案
+### 將 Python Flask 封裝新增至專案
 
 專案設定好之後，您需要新增專案所需的特定 Flask 封裝，包括 pydocumentdb (DocumentDB 的 Python 封裝)。
 
@@ -100,7 +101,7 @@
 
 - 按下 **F5** 啟動網站。這會啟動 Flask 開發伺服器和您的網頁瀏覽器。應該會出現下列網頁。
 
-	![在瀏覽器中顯示的空白 Flask 專案](./media/documentdb-python-application/image12.png)
+	![在瀏覽器中會顯示空白的 Python Flask Web 開發專案](./media/documentdb-python-application/image12.png)
 
 ### 建立資料庫、集合和文件定義
 
@@ -301,7 +302,7 @@
 	![Visual Studio [方案總管] 視窗的螢幕擷取畫面](./media/documentdb-python-application/image15.png)
 
 
-## 步驟 4：在本機執行您的應用程式
+## 步驟 4：在本機執行您的 Web 應用程式
 
 1. 按下 F5 或按一下 Visual Studio 中的 [執行] 按鈕，您應該就會在畫面上看到下列內容。
 
@@ -309,7 +310,7 @@
 
 2. 按一下 [建立/清除投票資料庫] 來產生資料庫。
 
-	![Web 應用程式之建立頁面的螢幕擷取畫面](./media/documentdb-python-application/image17.png)
+	![Web 應用程式建立頁面 - 開發詳細資訊的螢幕擷取畫面](./media/documentdb-python-application/image17.png)
 
 3. 然後，按一下 [投票]，並選取您的選項。
 
@@ -320,7 +321,7 @@
 	![顯示投票頁面結果的螢幕擷取畫面](./media/documentdb-python-application/image19.png)
 
 
-## 步驟 5：將應用程式部署至 Azure 網站
+## 步驟 5：將 Web 應用程式部署至 Azure 網站
 
 您已經擁有可在DocumentDB 正常運作的完整應用程式，我們現在要將此應用程式部署至 Azure 網站。
 
@@ -336,11 +337,11 @@
 
 ## 後續步驟
 
-恭喜！ 您剛剛已經使用 Azure DocumentDB 建置您的第一個 Python 應用程式，並將它發佈至 Azure 網站。
+恭喜！ 您剛剛已使用 Azure DocumentDB 建置您的第一個 Python Web 應用程式，並將其發佈至 Azure 網站。
 
 我們會根據您的意見反應，經常更新並改善此主題。當您完成教學課程後，請使用位於此頁面頂端及底部的投票按鈕來投票，並務必對您想看到的改善內容提供您的意見反應。如果想要我們直接與您連絡，歡迎在留言中留下電子郵件地址。
 
-若要將其他功能加入您的應用程式，請檢閱 [DocumentDB Python SDK](https://pypi.python.org/pypi/pydocumentdb) 中提供的 API。
+若要將其他功能加入您的 Web 應用程式，請檢閱 [DocumentDB Python SDK](https://pypi.python.org/pypi/pydocumentdb) 中提供的 API。
 
   [按一下這裡可存取 Flask 教學課程]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
@@ -351,4 +352,4 @@
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="terrylan"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 # 如何為內部部署應用程式提供安全的遠端存取
@@ -46,14 +46,14 @@ Azure AD 應用程式 Proxy 為使用 IWA 的應用程式或宣告感知應用�
 應用程式 Proxy 還有其他更多用途：
 
 
-- [使用您自己的網域名稱發佈應用程式](https://msdn.microsoft.com/library/azure/mt210927.aspx)
-- [啟用單一登入](https://msdn.microsoft.com/library/azure/dn879065.aspx)
-- [使用宣告感知應用程式](https://msdn.microsoft.com/library/azure/mt210926.aspx)
-- [啟用條件式存取](https://msdn.microsoft.com/library/azure/dn931796.aspx)
+- [使用您自己的網域名稱發佈應用程式](active-directory-application-proxy-custom-domains.md)
+- [啟用單一登入](active-directory-application-proxy-sso-using-kcd.md)
+- [使用宣告感知應用程式](active-directory-application-proxy-claims-aware-apps.md)
+- [啟用條件式存取](active-directory-application-proxy-conditional-access.md)
 
 
 ### 深入了解應用程式 Proxy
-- [看看我們在這裡的線上說明](https://msdn.microsoft.com/library/azure/dn768219.aspx)
+- [看看我們在這裡的線上說明](active-directory-application-proxy-enable.md)
 - [查閱應用程式 Proxy 部落格](http://blogs.technet.com/b/applicationproxyblog/)
 - [觀看我們在 Channel 9 上的影片！](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
@@ -61,4 +61,4 @@ Azure AD 應用程式 Proxy 為使用 IWA 的應用程式或宣告感知應用�
 * [以組織方式註冊 Azure](../sign-up-organization.md)
 * [Azure 身分識別](../fundamentals-identity.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

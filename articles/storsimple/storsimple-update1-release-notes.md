@@ -79,7 +79,7 @@ Update 1.2 可以套用至任何執行 Release (GA)、Update 0.1、Update 0.2 �
 | 9 | 網路介面 | 在舊版中，使用無法路由的閘道設定的 StorSimple 裝置可能會離線。在此版本中，已將 Data 0 的路由計量設為最低，因此，即使其他網路介面都具備雲端功能，來自裝置的所有雲端流量還是會透過 Data 0 路由。 | Update 1 | 是 | 是 | 
 | 10 | 備份 | 修補程式版本 Update 1.1 已修正了 Update 1 中，導致備份在建立 24 天後損毀的錯誤。 | Update 1.1 | 是 | 是 |
 | 11 | 備份 | 舊版中的錯誤導致雲端快照集變更率低，且效能不佳。此修補程式版本已修正此問題。| Update 1.2 | 是 | 是 |
-| 12 | 備份 | 此修補程式版本已修正 Update 1 會報告升級失敗，並導致控制器進入修復模式的錯誤。| Update 1.2 | 是 | 是 |
+| 12 | 更新 | 此修補程式版本已修正 Update 1 會報告升級失敗，並導致控制器進入修復模式的錯誤。| Update 1.2 | 是 | 是 |
 
 
 ## Update 1.2 中的已知問題
@@ -124,4 +124,4 @@ Update 1.2 可以套用至任何執行 Release (GA)、Update 0.1、Update 0.2 �
 - [在您的裝置上安裝 Update 1.2](storsimple-install-update-1.md)。
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="應用程式模型 v2.0 | Microsoft Azure"
+	pageTitle="App 模型 v2.0 &gt; .Net Web API|Microsoft Azure"
 	description="如何建置 .NET MVC Web 應用程式，以從個人 Microsoft 帳戶及公司或學校帳戶接受權杖。"
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # 應用程式模型 v2.0 預覽版本：保護 MVC Web API
@@ -156,4 +156,4 @@ public IEnumerable<TodoItem> Get()
 
 如需其他資源，請簽出：- [應用程式模型 v2.0 預覽版本 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow "azure-active directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

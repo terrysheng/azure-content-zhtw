@@ -1,3 +1,4 @@
+<!--author=alkohli last changed: 9/17/15-->
 
 ### 建立備份
 
@@ -24,4 +25,8 @@
 
 您已經完成裝置設定。
 
-<!---HONumber=August15_HO6-->
+![提供的影片](./media/storsimple-take-backup/Video_icon.png)**提供的影片**
+
+若要觀看影片示範如何建立 StorSimple 備份，請按一下[這裡](http://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/)。
+
+<!---HONumber=Sept15_HO3-->

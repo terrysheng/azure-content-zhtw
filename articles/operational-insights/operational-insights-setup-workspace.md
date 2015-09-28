@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/05/2015"
+    ms.date="09/10/2015"
     ms.author="banders"/>
 
 # 設定工作區和管理設定
@@ -184,7 +184,7 @@ Microsoft Azure Operational Insights 含有基底組態評估功能，因此您�
 
 ## 升級工作區為付費資料方案
 
-Operational Insights 有三種工作區資料方案類型：**免費**、**標準**和**高級**。如果您使用*免費*方案，有可能會達到 500MB 的資料容量。此時您將需要將工作區升級為 '**隨用隨付方案**'，才能收集超過此限制的資料。您隨時都可以轉換您的方案類型。如需 Operational Insights 定價的詳細資訊，請參閱[定價詳細資料](http://azure.microsoft.com/pricing/operational-insights/)
+Operational Insights 有三種工作區資料方案類型：**免費**、**標準**和**高級**。如果您使用*免費*方案，有可能會達到 500MB 的資料容量。此時您將需要將工作區升級為 '**隨用隨付方案**'，才能收集超過此限制的資料。您隨時都可以轉換您的方案類型。如需 Operational Insights 定價的詳細資訊，請參閱[定價詳細資料](https://azure.microsoft.com/zh-TW/pricing/details/operational-insights/)
 
 >[AZURE.IMPORTANT]工作區方案只有在*連結*到 Azure 訂用帳戶時才能變更。如果您在 Azure 中建立了工作區，或者如果您*已經*連結了工作區，可以忽略此訊息。如果您是從 [opinsights.azure.com](http://opinsights.azure.com) 建立工作區，就必須依照[連結現有的工作區到 Azure 訂用帳戶](#link-an-existing-workspace-to-an-Azure-subscription)的步驟。
 
@@ -253,4 +253,4 @@ Operational Insights 有三種工作區資料方案類型：**免費**、**標�
 - [Azure Operational Insights 中的 IIS 記錄檔格式需求](http://blogs.technet.com/b/momteam/archive/2014/09/19/iis-log-format-requirements-in-system-center-advisor.aspx)
 - 請在[意見反應論壇](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy)中，參閱社群要求我們實作的記錄檔的其他資料來源和類型
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

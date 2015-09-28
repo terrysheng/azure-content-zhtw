@@ -146,7 +146,9 @@ Visual Studio 專用的 Service Fabric 工具支援在本機機器上偵錯。�
 
 ## 後續步驟
 
-[Service Fabric Reliable 動作項目簡介](service-fabric-reliable-actors-introduction.md)[動作項目 API 參考文件](https://msdn.microsoft.com/library/azure/dn971626.aspx)[範例程式碼](https://github.com/Azure/servicefabric-samples)
+- [Service Fabric Reliable Actor 簡介](service-fabric-reliable-actors-introduction.md)
+- [動作項目 API 參考文件](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+- [範例程式碼](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -156,4 +158,4 @@ Visual Studio 專用的 Service Fabric 工具支援在本機機器上偵錯。�
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

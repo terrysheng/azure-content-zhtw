@@ -3,7 +3,7 @@
 	description="使用 Azure PowerShell，在服務管理中快速建立以 Windows 為基礎的新虛擬機器，並執行管理功能。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/09/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # 使用 Azure PowerShell 建立和管理服務管理中以 Windows 為基礎的虛擬機器
 
@@ -209,4 +209,4 @@
 
 [使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

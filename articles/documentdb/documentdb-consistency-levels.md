@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="DocumentDB 中的一致性層級 | Microsoft Azure" 
-	description="DocumentDB 對於相關效能等級有 4 個一致性等級，可便於應用程式開發人員針對一致性、可用性和延遲三方面進行可預測的取捨評估。" 
+	description="請檢閱 DocumentDB 具有相關效能等級的四個一致性等級，可如何協助在最終一致性、可用性和延遲的取捨評估取得平衡。" 
+	keywords="eventual consistency, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -22,10 +23,10 @@
  
 所有系統資源 (包括資料庫帳戶、資料庫、集合、使用者和權限) 在讀取和查詢方面始終具有極大程度的一致性。一致性層級只適用於使用者定義的資源。針對使用者定義的資源 (包括文件、附件、預存程序、觸發程序和 UDF) 所進行的查詢和讀取作業，DocumentDB 提供四個不同的一致性層級：
 
- - 增強式
- - 界限-陳舊 
- - 工作階段
- - 最終 
+ - 增強式一致性
+ - 界限陳舊一致性
+ - 工作階段一致性
+ - 最終一致性
 
 這些細微且定義完善的一致性層級可讓您在一致性、可用性與效能三者間做出合理取捨。這些一致性層級受到可預測的效能層級的支援，可確保應用程式有一致的結果。
 
@@ -89,4 +90,4 @@
 -	Werner Vogels。再論最終一致。[http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

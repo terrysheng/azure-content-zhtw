@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/10/2015"
+	ms.date="09/09/2015"
 	ms.author="stbaro"/>
 
 # 使用 DocumentDB Document Explorer 檢視、編輯、建立和上傳 JSON 文件 #
@@ -26,7 +26,7 @@
 -	如何透過網頁瀏覽器輕鬆地檢視 DocumentDB 文件的系統屬性？
 -	如何透過網頁瀏覽器輕鬆地在 DocumentDB 中執行文件的大量擷取？
 
-##<a id="Launch"></a>啟動並瀏覽 Document Explorer##
+##<a id="Launch"></a>啟動 [文件總管]##
 
 您可以從任何 DocumentDB 帳戶、資料庫和集合分頁啟動 Document Explorer。
 
@@ -44,35 +44,6 @@
 
 	![[Document Explorer] 的螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/documentexplorerinitial.png)
 
-3. 根據預設，Document Explorer 會在選取的集合中，依照建立日期 (最早到最晚) 載入前 100 個文件。您可以選取 [Document Explorer] 刀鋒視窗底部的 [載入更多] 選項，載入其他的文件 (每批 100 個文件)。按一下 [Document Explorer] 刀鋒視窗頂端的 [設定] 命令，即可修改預設行為。
-
-	![[Document Explorer 設定] 刀鋒視窗的螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/documentexplorersettings.png)
-
-
-4. 您可以在 [設定] 刀鋒視窗中，調整項目數量來傳回每一頁，並在 [Document Explorer] 方格中提供 WHERE 子句以載入比對文件。閱讀更多 DocumentDB SQL 文法資訊，請按一下[這裡](documentdb-sql-query.md)。
-
-	![[Document Explorer 設定] 刀鋒視窗的螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
-
-	> [AZURE.NOTE]修改 Document Explorer 設定後，您必須按一下 [重新整理] 命令才能套用新設定。設定只會維持在目前的瀏覽器工作階段。
-	
-5. [資料庫] 和 [集合] 下拉式清單方塊可用來輕鬆地變更目前檢視文件的集合，而無需關閉並重新啟動 Document Explorer。
-
-5. Document Explorer 還支援根據 id 屬性篩選目前載入的文件集。您只需在篩選方塊中輸入即可。
-
-	![反白顯示篩選條件的 [Document Explorer] 螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/documentexplorerfilter.png)
-
-	Document Explorer 清單中的結果便會根據您所提供的準則進行篩選。
-
-	![含篩選結果的 [Document Explorer] 螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
-
-
-	> [AZURE.IMPORTANT]Document Explorer 篩選功能只會從**目前**載入的文件集進行篩選，而且不會針對目前選取的集合執行查詢。
-
-6. 若要重新整理 Document Explorer 所載入的文件清單，您只需要按一下刀鋒視窗頂端的 [重新整理] 命令即可。
-
-	![[Document Explorer] 重新整理命令的螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/documentexplorerrefresh.png)
-
-
 ##<a id="Create"></a>使用 Document Explorer 檢視、建立和編輯文件##
 
 Document Explorer 可讓您輕鬆地建立、編輯和刪除文件。
@@ -87,7 +58,7 @@ Document Explorer 可讓您輕鬆地建立、編輯和刪除文件。
 
 	> [AZURE.NOTE]如果您未提供 "id" 屬性，則 Document Explorer 會自動新增 id 屬性，並產生一個 GUID 做為識別碼值。
 
-- 如果您已經有來自 JSON 檔案、MongoDB、SQL Server、CSV 檔案、Azure 資料表儲存體，或其他 DocumentDB 集合的資料，即可使用 DocumentDB 的[資料移轉工具](documentdb-import-data.md)快速匯入資料。
+- 如果您已經有來自 JSON 檔案、MongoDB、SQL Server、CSV 檔案、Azure 資料表儲存體、Amazon DynamoDB、HBase，或其他 DocumentDB 集合的資料，即可使用 DocumentDB 的[資料移轉工具](documentdb-import-data.md)快速匯入資料。
 
 - 若要編輯現有文件，您只需要在 Document Explorer 中選取該文件，視需要編輯文件，然後按一下 [儲存] 命令即可。
 
@@ -115,6 +86,38 @@ Document Explorer 可讓您輕鬆地建立、編輯和刪除文件。
 
 	> [AZURE.NOTE]時間戳記 (\_ts) 屬性在內部會以 Epoch 時間表示，但是 Document Explorer 會以一般人可判讀的 GMT 格式顯示此值。
 
+##<a id="Navigate"></a>文件總管導覽選項以及進階設定##
+
+[文件總管] 支援許多導覽選項以及進階設定。
+
+1. 根據預設，Document Explorer 會在選取的集合中，依照建立日期 (最早到最晚) 載入前 100 個文件。您可以選取 [Document Explorer] 刀鋒視窗底部的 [載入更多] 選項，載入其他的文件 (每批 100 個文件)。按一下 [Document Explorer] 刀鋒視窗頂端的 [設定] 命令，即可修改預設行為。
+
+	![[Document Explorer 設定] 刀鋒視窗的螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/documentexplorersettings.png)
+
+
+2. 您可以在 [設定] 刀鋒視窗中，調整項目數量來傳回每一頁，並在 [Document Explorer] 方格中提供 WHERE 子句以載入比對文件。閱讀更多 DocumentDB SQL 文法資訊，請按一下[這裡](documentdb-sql-query.md)。
+
+	![[Document Explorer 設定] 刀鋒視窗的螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
+
+	> [AZURE.NOTE]修改 Document Explorer 設定後，您必須按一下 [重新整理] 命令才能套用新設定。設定只會維持在目前的瀏覽器工作階段。
+	
+3. [資料庫] 和 [集合] 下拉式清單方塊可用來輕鬆地變更目前檢視文件的集合，而無需關閉並重新啟動 Document Explorer。
+
+4. Document Explorer 還支援根據 id 屬性篩選目前載入的文件集。您只需在篩選方塊中輸入即可。
+
+	![反白顯示篩選條件的 [Document Explorer] 螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/documentexplorerfilter.png)
+
+	Document Explorer 清單中的結果便會根據您所提供的準則進行篩選。
+
+	![含篩選結果的 [Document Explorer] 螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
+
+
+	> [AZURE.IMPORTANT]Document Explorer 篩選功能只會從**目前**載入的文件集進行篩選，而且不會針對目前選取的集合執行查詢。
+
+5. 若要重新整理 Document Explorer 所載入的文件清單，您只需要按一下刀鋒視窗頂端的 [重新整理] 命令即可。
+
+	![[Document Explorer] 重新整理命令的螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/documentexplorerrefresh.png)
+
 ##<a id="BulkAdd"></a>使用 Document Explorer 大量新增文件##
 
 Document Explorer 支援大量擷取一或多個現有 JSON 文件。
@@ -137,7 +140,8 @@ Document Explorer 支援大量擷取一或多個現有 JSON 文件。
 
 ##<a name="NextSteps"></a>接續步驟
 
-若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
+- 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
+
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

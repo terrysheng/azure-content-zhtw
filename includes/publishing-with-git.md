@@ -1,5 +1,3 @@
-# 在 Azure App Service 中使用 GIT 連續部署
-
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 支援從原始程式碼控制和儲存機制工具 (如 BitBucket、CodePlex、Dropbox、Git、GitHub、Mercurial 和 TFS) 連續部署至 Web Apps。您可以使用這些工具維護應用程式的內容和程式碼，然後快速輕鬆地隨時將變更推送到 Azure Web 應用程式。
 
 在本文中，您將了解如何使用 Git，從本機電腦直接發行到 Web Apps (在 Azure 中，這個發行方法稱為「**本機 Git**」)。您還能了解如何從儲存機制網站 (如 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial) 進行連續部署。如需有關使用 TFS 持續部署的詳細資訊，請參閱＜[使用 Visual Studio Online 持續傳遞至 Azure]＞(英文)。
@@ -56,7 +54,7 @@ Web 應用程式支援以各種程式設計語言建立的應用程式。以此�
 		 1 file changed, 1 insertion(+)
 		 create mode 100644 index.html
 
-## <a id="Step4"></a>啟用 Web 應用程式儲存機制
+## <a id="Step4"></a>啟用 Web App 儲存機制
 
 請執行下列步驟來啟用 Web 應用程式的 Git 儲存機制。
 
@@ -300,4 +298,4 @@ Azure 將與所選儲存機制建立關聯，然後從指定的分支提取檔�
 [使用 Dropbox 分享 Git 儲存機制]: https://gist.github.com/trey/2722927
 [使用 Visual Studio Online 持續傳遞至 Azure]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

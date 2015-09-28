@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="09/15/2015" 
 	ms.author="tomfitz"/>
 
 # 使用範本建立 Redis 快取
 
-在本主題中，您將學習如何建立 Azure 資源管理員範本，以部署 Azure Redis 快取。您將學習如何定義要部署哪些資源，以及如何定義執行部署時所指定的參數。您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。
+在本主題中，您將學習如何建立 Azure 資源管理員範本，以部署 Azure Redis 快取。快取可以搭配現有的儲存體帳戶以保留診斷資料。您將學習如何定義要部署哪些資源，以及如何定義執行部署時所指定的參數。您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。
+
+目前對於訂用帳戶，同一區域中所有快取的診斷設定是共用的。更新區域中的一個快取將會影響區域中的所有其他快取。
 
 如需關於建立範本的詳細資訊，請參閱[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)。
 
@@ -26,7 +28,7 @@
 
 ## 部署內容
 
-在此範本中，您將部署 Azure Redis 快取。
+在此範本中，您將部署使用現有儲存體帳戶的 Azure Redis 快取來診斷資料。
 
 若要自動執行部署，請按一下下列按鈕：
 
@@ -48,6 +50,34 @@ Redics 快取的位置。針對最佳效能，使用要與快取搭配使用之�
       "type": "string"
     }
 
+### diagnosticsStorageAccountName
+
+要用於診斷的現有儲存體帳戶名稱。
+
+    "diagnosticsStorageAccountName": {
+      "type": "string"
+    }
+
+### enableNonSslPort
+
+指出是否允許透過非 SSL 連接埠存取的布林值。
+
+    "enableNonSslPort": {
+      "type": "bool"
+    }
+
+### diagnosticsStatus
+
+指出診斷是否啟用的值。使用 ON 或 OFF。
+
+    "diagnosticsStatus": {
+      "type": "string",
+      "defaultValue": "ON",
+      "allowedValues": [
+            "ON",
+            "OFF"
+        ]
+    }
     
 ## 要部署的資源
 
@@ -56,23 +86,36 @@ Redics 快取的位置。針對最佳效能，使用要與快取搭配使用之�
 建立 Azure Redis 快取。
 
     {
-      "apiVersion": "2014-04-01-preview",
+      "apiVersion": "2015-08-01",
       "name": "[parameters('redisCacheName')]",
       "type": "Microsoft.Cache/Redis",
       "location": "[parameters('redisCacheLocation')]",
       "properties": {
-        "sku": {
-          "name": "[parameters('redisCacheSKU')]",
-          "family": "[parameters('redisCacheFamily')]",
-          "capacity": "[parameters('redisCacheCapacity')]"
-        },
+        "enableNonSslPort": "[parameters('enableNonSslPort')]",
         "redisVersion": "[parameters('redisCacheVersion')]",
-        "enableNonSslPort": true
-      }
+        "sku": {
+          "capacity": "[parameters('redisCacheCapacity')]",
+          "family": "[parameters('redisCacheFamily')]",
+          "name": "[parameters('redisCacheSKU')]"
+        }
+      },
+        "resources": [
+          {
+            "apiVersion": "2014-04-01",
+            "type": "diagnosticSettings",
+            "name": "service", 
+            "location": "[parameters('redisCacheLocation')]",
+            "dependsOn": [
+              "[concat('Microsoft.Cache/Redis/', parameters('redisCacheName'))]"
+            ],
+            "properties": {
+              "status": "[parameters('diagnosticsStatus')]",
+              "storageAccountName": "[parameters('diagnosticsStorageAccountName')]",
+              "retention": "30"
+            }
+          }
+        ]
     }
-     
-
-
 
 ## 執行部署的命令
 
@@ -86,4 +129,4 @@ Redics 快取的位置。針對最佳效能，使用要與快取搭配使用之�
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

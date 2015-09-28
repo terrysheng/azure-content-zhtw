@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="在 Azure App Service 中使用 Azure CDN"
-	description="教學課程，指導您如何將 Web 應用程式部署至提供整合式 Azure CDN 端點內容的 Azure App Service"
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="在 Azure App Service 中使用 Azure CDN" 
+	description="教學課程，指導您如何將 Web 應用程式部署至提供整合式 Azure CDN 端點內容的 Azure App Service" 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.service="app-service" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 
@@ -27,6 +27,8 @@
 - 輕鬆地升級 Azure App Service 的 Web 應用程式中的 NuGet 封裝 (例如 jQuery 或 Bootstrap 版本) 
 - 從相同的 Visual Studio 介面來管理 Web 應用程式和 CDN 提供的內容
 - 整合 ASP.NET 統合和縮製與 Azure CDN
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 將建置的項目 ##
 
@@ -79,7 +81,7 @@
 	當發佈完成時，您會在瀏覽器中看到您已發佈的 Web 應用程式。
 
 1. 若要建立 CDN 端點，請登入 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)。
-2. 按一下 [新增] > App Service > CDN > [快速建立]。選取 **http://*&lt;sitename>*.azurewebsites.net/**，然後按一下 [**建立**]。
+2. 按一下 [新增] > [應用程式服務] > [CDN] > [快速建立]。選取 **http://*&lt;sitename>*.azurewebsites.net/**，然後按一下 [**建立**]。
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
@@ -445,7 +447,7 @@
 
 [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) 類別包含一個稱為 [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) 的屬性，可讓您設定 CDN 失敗時的後援機制。若要使用此屬性，請遵循下列步驟：
 
-1. 在 ASP.NET 專案中，開啟 *App\_Start\\BundleConfig.cs*，在您於每一個 [Bundle 建構函式](http://msdn.microsoft.com/library/jj646464.aspx)中已加入 CDN URL 的地方，如下方顯示的四處加入 `CdnFallbackExpression` 程式碼，以便將後援機制加入至預設套件組合。  
+1. 在 ASP.NET 專案中，開啟 *App\_Start\\BundleConfig.cs*，在您於每一個 [Bundle 建構函式](http://msdn.microsoft.com/library/jj646464.aspx)中已加入 CDN URL 的地方，如下方顯示的四處加入 `CdnFallbackExpression` 程式碼，以便將後援機制加入預設套件組合。  
 	
         public static void RegisterBundles(BundleCollection bundles)
         {
@@ -521,11 +523,11 @@
 	...
 	```
 
-	請注意，針對 CSS 套件組合插入的指令碼，仍在這一行中包含 `CdnFallbackExpression` 屬性殘留的遊蕩部分：
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	但因為 || 運算式的開頭部分一定會傳回 true (緊鄰的上一行)，所以 document.write() 函數永遠不會執行。
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
 6. 若要測試後援指令碼是否可運作，請回到 CDN 端點的儀表板，按一下 [**停用端點**]。
 
@@ -545,4 +547,4 @@
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

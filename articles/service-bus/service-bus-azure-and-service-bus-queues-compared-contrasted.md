@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="09/09/2015"
+   ms.date="09/11/2015"
    ms.author="sethm" />
 
 # Azure 佇列和服務匯流排佇列 - 異同比較
@@ -272,7 +272,7 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 
 |比較準則|Azure 佇列|服務匯流排佇列|
 |---|---|---|
-|佇列交易成本|**$0.0005**<br/><br/>(每 10,000 筆交易)|**基本層**：**$0.05**<br/><br/>(每百萬個作業)|
+|佇列交易成本|**$0.0036**<br/><br/>(每 100,000 筆交易)|**基本層**：**$0.05**<br/><br/>(每百萬個作業)|
 |可計費的作業|**全部**|**僅限傳送/接收**<br/><br/>(其他作業免費)|
 |閒置交易|**可計費**<br/><br/>(查詢空的佇列會視為一筆可計費的交易)|**可計費**<br/><br/>(針對空的佇列進行接收會視為一個可計費的訊息)|
 |儲存成本|**$0.07**<br/><br/>(每個 GB/月)|**$0.00**|
@@ -288,7 +288,7 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 
 - 由於支援長期輪詢，因此在需要低度延遲傳遞的情況下使用服務匯流排佇列可能會符合成本效益。
 
->[AZURE.NOTE]所有成本都可能會變更。上表反映撰寫本文時的目前定價，不包括目前可能適用的任何促銷優惠方案。如需 Azure 的最新定價資訊，請參閱 [Azure 定價](http://azure.microsoft.com/pricing/)頁面。如需服務匯流排定價的詳細資訊，請參閱 [服務匯流排定價]((http://azure.microsoft.com/pricing/details/service-bus/)。
+>[AZURE.NOTE]所有成本都可能會變更。上表反映撰寫本文時的目前定價，不包括目前可能適用的任何促銷優惠方案。如需 Azure 的最新定價資訊，請參閱 [Azure 定價](http://azure.microsoft.com/pricing/)頁面。如需服務匯流排定價的詳細資訊，請參閱[服務匯流排定價](http://azure.microsoft.com/pricing/details/service-bus/)。
 
 ## 結論
 
@@ -311,4 +311,4 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 - [了解 Azure 儲存體計費 - 頻寬、交易和容量](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

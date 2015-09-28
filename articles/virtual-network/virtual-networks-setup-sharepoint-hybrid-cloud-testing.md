@@ -1,24 +1,25 @@
 <properties 
-	pageTitle="SharePoint 2013 伺服器陣列測試環境 | Microsoft Azure"
-	description="了解如何在混合式雲端環境中建立雙層式 SharePoint Server 2013 內部網路伺服器陣列進行開發或 IT 專業測試。"
-	services="virtual-network"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	pageTitle="SharePoint 2013 伺服器陣列測試環境 | Microsoft Azure" 
+	description="了解如何在混合式雲端環境中建立雙層式 SharePoint Server 2013 內部網路伺服器陣列進行開發或 IT 專業測試。" 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/10/2015" 
 	ms.author="josephd"/>
 
-
 # 在混合式雲端中設定用於測試的 SharePoint 內部網路伺服器陣列
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋之內容包括以傳統部署模型建立資源。
 
 本主題將逐步引導您建立混合式雲端環境測試 Microsoft Azure 代管的內部網路 SharePoint 伺服器陣列。以下是產生的組態。
 
@@ -58,7 +59,7 @@
 
 從 Azure 管理入口網站，視需要啟動 DC2 電腦。
 
-首先，使用 CORP\User1 認證建立 DC2 的遠端桌面連線。
+首先，使用 CORP\\User1 認證建立 DC2 的遠端桌面連線。
 
 接著，建立 SharePoint 伺服器陣列管理員帳戶。在 DC2 開啟系統管理員層級 Windows PowerShell 提示字元並執行這個命令。
 
@@ -71,15 +72,15 @@
 
 	$storageacct="<Name of the storage account for your TestVNET virtual network>"
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for SQL1."
-	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
-	Set-AzureStorageAccount –StorageAccountName $storageacct
+	$cred1=Get-Credential -Message "Type the name and password of the local administrator account for SQL1."
+	$cred2=Get-Credential -UserName "CORP\User1" -Message "Now type the password for the CORP\User1 account."
+	Set-AzureStorageAccount -StorageAccountName $storageacct
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name SQL1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles -LUN 0 -HostCaching None
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 接下來，*使用本機系統管理員帳戶*連線到新的 SQL1 虛擬機器。
 
@@ -88,13 +89,13 @@
 3.	提示開啟 SQL1.rdp 時，按一下 [開啟]。
 4.	顯示 [遠端桌面連線] 訊息方塊後，按一下 [連接]。
 5.	出現輸入認證的提示時，使用這些：
-	- 名稱：**SQL1**[本機系統管理員帳戶名稱]
+	- 名稱：**SQL1\**[本機系統管理員帳戶名稱]
 	- 密碼：[本機系統管理員帳戶密碼]
 6.	顯示憑證相關的 [遠端桌面連線] 訊息方塊提示時，按一下 [是]。
 
 接著，設定 Windows 防火牆規則，允許基本連線測試和 SQL Server 的流量。從 SQL1 的系統管理員層級 Windows PowerShell 命令提示字元下，執行這些命令。
 
-	New-NetFirewallRule -DisplayName "SQL Server" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action allow 
+	New-NetFirewallRule -DisplayName "SQL Server" -Direction Inbound -Protocol TCP -LocalPort 1433,1434,5022 -Action allow 
 	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
 	ping dc1.corp.contoso.com
 
@@ -126,17 +127,17 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 3.	在 [物件總管] 樹狀結構窗格中，以滑鼠右鍵按一下 [SQL1]，然後按一下 [內容]。
 4.	在 [伺服器內容] 視窗中，按一下 [資料庫設定]。
 5.	找出 [資料庫預設位置] 並設定下列值： 
-	- 對於 [資料]，輸入路徑 **f:\Data**。
-	- 對於 [記錄]，輸入路徑 **f:\Log**。
-	- 對於 [備份]，輸入路徑 **f:\Backup**。
+	- 對於 [資料]，輸入路徑 **f:\\Data**。
+	- 對於 [記錄]，輸入路徑 **f:\\Log**。
+	- 對於 [備份]，輸入路徑 **f:\\Backup**。
 	- 請注意，只有新的資料庫才會使用這些位置。
 6.	按一下 [確定] 關閉視窗。
 7.	在 [物件總管] 樹狀結構窗格中，開啟 [安全性]。
 8.	以滑鼠右鍵按一下 [登入]，然後按一下 [新增登入]。
-9.	在 [登入名稱] 中，輸入 **CORP\User1**。
+9.	在 [登入名稱] 中，輸入 **CORP\\User1**。
 10.	在 [伺服器角色] 頁面上，按一下 [sysadmin]，然後按一下 [確定]。
 11.	在 [物件總管] 樹狀結構窗格中，以滑鼠右鍵按一下 [登入]，然後按一下 [新增登入]。
-12.	在 [一般] 頁面的 [登入名稱] 中，輸入 **CORP\SPFarmAdmin**。
+12.	在 [一般] 頁面的 [登入名稱] 中，輸入**CORP\\SPFarmAdmin**。
 13.	在 [伺服器角色] 頁面上，選取 **dbcreator**，然後按一下 [確定]。
 14.	關閉 Microsoft SQL Server Management Studio。
 
@@ -150,15 +151,15 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 首先，在本機電腦的 Azure PowerShell 命令提示字元下，使用下列命令建立 SP1 的 Azure 虛擬機器。
 
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for SP1."
-	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
+	$cred1=Get-Credential -Message "Type the name and password of the local administrator account for SP1."
+	$cred2=Get-Credential -UserName "CORP\User1" -Message "Now type the password for the CORP\User1 account."
 	$image= Get-AzureVMImage | where { $_.Label -eq "SharePoint Server 2013 Trial" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name SP1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
-然後，以 CORP\User1 認證連接到 SP1 虛擬機器。
+然後，以 CORP\\User1 認證連接到 SP1 虛擬機器。
 
 接著，設定 Windows 防火牆規則，允許基本連線測試的流量。從 SP1 的系統管理員層級 Windows PowerShell 命令提示字元下，執行這些命令。
 
@@ -173,19 +174,19 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 2.	在 [歡迎使用 SharePoint 產品] 頁面中按一下 [**下一步**]。 
 3.	在通知可能需要在組態期間重新啟動某些服務的對話方塊中，按一下 [是]。
 4.	在 [連接到伺服器陣列] 頁面上，按一下 [建立新的伺服器陣列]，然後按 [下一步]。
-5.	在 [指定組態資料庫設定] 頁面上，於 [資料庫伺服器] 中輸入 **sql1.corp.contoso.com**，於 [使用者名稱] 中輸入 **CORP\\SPFarmAdmin**，於 [密碼] 中輸入 SPFarmAdmin 帳戶密碼，然後按 [下一步]。
-6.	在 [指定伺服器陣列安全性設定] 頁面上，於 [**複雜密碼**] 和 [**確認複雜密碼**] 中，鍵入 **P@ssphrase**，然後按一下 [**下一步**]。
+5.	在 [指定組態資料庫設定] 頁面上，於 [資料庫伺服器] 中輸入 **sql1.corp.contoso.com**，於 [使用者名稱] 中輸入**CORP\\SPFarmAdmin**，於 [密碼] 中輸入 SPFarmAdmin 帳戶密碼，然後按 [下一步]。
+6.	在 [指定伺服器陣列安全性設定] 頁面上，於 [複雜密碼] 和 [確認複雜密碼] 中，鍵入 ****P@ssphrase**，然後按一下 [下一步]。
 7.	在 [設定 SharePoint 管理中心 Web 應用程式] 頁面中，按 [**下一步**]。
 8.	在 [完成 SharePoint 產品組態精靈] 頁面上，按一下 [下一步]。SharePoint 產品組態精靈可能需要幾分鐘才能完成。
 9.	在 [組態成功] 頁面中，按一下 [**完成**]。完成之後，Internet Explorer 會啟動，並顯示名稱為「初始伺服器陣列組態精靈」的索引標籤。
-10.	在 [**協助改善 SharePoint**] 對話方塊中，按一下 [**否，我不想參加**]，然後按一下 [**確定**]。
-11.	針對**要用什麼方式設定 SharePoint 伺服器陣列？**，按一下 [**啟動精靈**]。
-12.	在 [設定您的 SharePoint 伺服器陣列] 頁面的 [**服務帳戶**] 中，按一下 [**使用現有受管理帳戶**]。
-13.	在 [**服務**] 中，取消選取所有核取方塊 ([**狀態服務**] 旁的方塊除外)，然後按一下 [**下一步**]。在其網頁上的 [工作] 可能顯示一段時間才會完成。
-14.	在 [建立網站集合] 頁面中，於 [**標題和描述**] 中鍵入 **Contoso Corporation**，並於 [**標題**] 中指定 URL ****http://sp1**/，然後按一下 [**確定**]。在其網頁上的 [工作] 可能顯示一段時間才會完成。這個步驟會針對團隊網站使用 URL http://sp1。
-15.	在 [這將完成伺服器陣列組態精靈] 頁面中，按一下 [**完成**]。[Internet Explorer] 索引標籤將顯示 SharePoint 2013 管理中心網站。
+10.	在 [協助改善 SharePoint] 對話方塊中，按一下 [否，我不想參加]，然後按一下 [確定]。
+11.	針對**要用什麼方式設定 SharePoint 伺服器陣列？**，按一下 [啟動精靈]。
+12.	在 [設定您的 SharePoint 伺服器陣列] 頁面的 [服務帳戶] 中，按一下 [使用現有受管理帳戶]。
+13.	在 [服務] 中，取消選取所有核取方塊 ([狀態服務] 旁的方塊除外)，然後按一下 [下一步]。在其網頁上的 [工作] 可能顯示一段時間才會完成。
+14.	在 [建立網站集合] 頁面的 [標題和描述] 中，於 [標題] 鍵入 **Contoso Corporation**，指定 URL ****http://sp1**/，然後按一下 [確定]。在其網頁上的 [工作] 可能顯示一段時間才會完成。這個步驟會針對團隊網站使用 URL http://sp1。
+15.	在 [這將完成伺服器陣列組態精靈] 頁面中，按一下 [完成]。[Internet Explorer] 索引標籤將顯示 SharePoint 2013 管理中心網站。
 16.	以 CORP\\User1 帳戶認證登入 CLIENT1 電腦，然後啟動 Internet Explorer。
-17.	在網址列中，鍵入 **http://sp1/**，然後按 ENTER。您應該會看見 Contoso Corporation 的 SharePoint 團隊網站。網站可能需要一些時間才會呈現。
+17.	在網址列中，鍵入 ****http://sp1/**，然後按 ENTER。您應該會看見 Contoso Corporation 的 SharePoint 團隊網站。網站可能需要一些時間才會呈現。
 
 這是您目前的組態。
 
@@ -212,4 +213,4 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 [Azure 基礎結構服務實作指導方針](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

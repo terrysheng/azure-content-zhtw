@@ -8,21 +8,23 @@
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/03/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # 在 Azure App Service 中還原 Web 應用程式
 
 本文說明如何使用 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 備份功能，來還原您先前備份的 Web 應用程式。如需詳細資訊，請參閱 [App Service Web Apps 備份](web-sites-backup.md)。
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 Web Apps 還原功能可讓您依需求將 Web 應用程式還原為先前的狀態，或是根據原始 Web 應用程式的其中一個備份建立新的 Web 應用程式。建立以平行方式執行最新版本的新 Web 應用程式，對於 A/B 測試將有所幫助。
 
-Web 應用程式還原功能可在 [Azure 預覽入口網站](http://portal.azure.com)的 [備份] 分頁上取得，僅適用於標準和高階模式。如需使用標準或高階模式調整應用程式規模的相關資訊，請參閱[在 Azure App Service 中調整 Web 應用程式規模](web-sites-scale.md)。請注意，高階模式能夠透過標準模式執行更多每日備份。
+Web 應用程式還原功能可在 [Azure 預覽入口網站](http://portal.azure.com)的 [備份] 刀鋒視窗上取得，僅適用於標準和高階模式。如需使用標準或高階模式調整應用程式規模的相關資訊，請參閱[在 Azure App Service 中調整 Web 應用程式規模](web-sites-scale.md)。請注意，高階模式能夠透過標準模式執行更多每日備份。
 
 <a name="PreviousBackup"></a>
 ## 從先前製作的備份還原 Web 應用程式
@@ -96,4 +98,4 @@ Web 應用程式還原功能可在 [Azure 預覽入口網站](http://portal.azur
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

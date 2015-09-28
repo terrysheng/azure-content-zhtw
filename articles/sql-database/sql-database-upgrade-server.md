@@ -84,12 +84,16 @@
     # Adding the account
     #
     Add-AzureAccount
+    
+    # Switch mode
+    #
     Switch-AzureMode -Name AzureResourceManager
 
     # Setting the variables
     #
     $SubscriptionName = 'YOUR_SUBSCRIPTION' 
-    $ResourceGroupName = 'YOUR_RESOURCE_GROUP' $ServerName = 'YOUR_SERVER' 
+    $ResourceGroupName = 'YOUR_RESOURCE_GROUP' 
+    $ServerName = 'YOUR_SERVER' 
     
     # Selecting the right subscription 
     # 
@@ -101,8 +105,7 @@
     
     # Starting the upgrade process 
     #
-    Start-AzureSqlServerUpgrade -ResourceGroupName 
-    $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
+    Start-AzureSqlServerUpgrade -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
 
 
 ## 自訂升級對應
@@ -122,7 +125,8 @@
 
 將資料庫升級至單一資料庫：
 
-    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties  $databaseMap.Name = "DB2"
+    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties  
+    $databaseMap.Name = "DB2"
     $databaseMap.TargetEdition = "Standard"
     $databaseMap.TargetServiceLevelObjective = "S0"
     Start-AzureSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection($databaseMap) -ElasticPoolCollection ($elasticPool)
@@ -137,4 +141,4 @@
 - [Azure SQL Database 服務管理 Cmdlet](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

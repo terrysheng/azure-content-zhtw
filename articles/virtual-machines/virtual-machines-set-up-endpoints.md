@@ -3,7 +3,7 @@
 	description="了解如何設定入口網站中的端點，以和 Azure 中的虛擬機器通訊。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/28/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #如何設定虛擬機器的端點
 
@@ -96,4 +96,4 @@
 
 [Azure 基礎結構服務的負載平衡](virtual-machines-load-balance.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

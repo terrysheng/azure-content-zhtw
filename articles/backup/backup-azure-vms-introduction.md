@@ -3,7 +3,7 @@
 	description="使用 Azure 備份服務來備份在 Azure 中虛擬機器的簡介"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
@@ -122,4 +122,4 @@
 - [還原虛擬機器](backup-azure-restore-vms.md)
 - [管理虛擬機器備份](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -7,21 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2015" ms.author="trinadhk";"aashishr" />
 
 
 # 使用 PowerShell 部署和管理 Azure VM 的備份
 本文說明如何使用 Azure PowerShell 來備份和復原 Azure IaaS VM。
 
 ## 概念
-Azure Backup 的文件中的 [Azure IaaS VM 備份簡介](backup-azure-vms-introduction.md)。其中涵蓋為什麼應該備份 VM 的基本資訊、必要條件和限制。
+取得 Azure 備份文件中的 [Azure IaaS VM 備份簡介](backup-azure-vms-introduction.md)。其中涵蓋為什麼應該備份 VM 的基本資訊、必要條件和限制。
 
 若要有效地使用 PowerShell，就必須了解物件的階層及從何處開始。
 
@@ -31,7 +24,11 @@ Azure Backup 的文件中的 [Azure IaaS VM 備份簡介](backup-azure-vms-intro
 
 
 ## 設定和註冊
-首先，使用 **Switch-AzureMode** Cmdlet 切換至 *AzureResourceManager* 模式，以啟用 Azure 備份 Cmdlet：
+開始：
+
+1. [下載最新的 PowerShell](https://github.com/Azure/azure-powershell/releases) (所需最低版本為：0.9.8)
+
+2. 使用 **Switch-AzureMode** Cmdlet 切換至 *AzureResourceManager* 模式，以啟用 Azure 備份 Cmdlet：
 
 ```
 PS C:\> Switch-AzureMode AzureResourceManager
@@ -49,8 +46,8 @@ PowerShell 可以自動化下列設定和註冊工作：
 您可以使用 **New-AzureRMBackupVault** Cmdlet 建立新的備份保存庫。備份保存庫是 ARM 資源，因此您必須將它放在資源群組內。在提高權限的 Azure PowerShell 主控台中，執行下列命令：
 
 ```
-PS C:\> New-AzureRMResourceGroup –Name “test-rg” –Region “West US”
-PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
 您可以使用 **Get-AzureRMBackupVault** Cmdlet 取得特定訂用帳戶中所有備份保存庫的清單。
@@ -59,7 +56,7 @@ PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg”
 
 
 ### 註冊 VM
-使用 Azure 備份來設定備份的第一個步驟是向 Azure 備份保存庫註冊您的電腦或 VM。**Register-AzureRMBackupContainer** Cmdlet 會取用輸入的 Azure IaaS 虛擬機器資訊，並向指定的保存庫註冊。註冊作業會將 Azure 虛擬機器與備份保存庫相關聯，並於整個備份生命週期內追蹤 VM。
+使用 Azure 備份來設定備份的第一個步驟是向 Azure 備份保存庫註冊您的電腦或 VM。**Register-AzureRMBackupContainer** Cmdlet 會取用 Azure IaaS 虛擬機器的輸入資訊，並向指定的保存庫註冊。註冊作業會將 Azure 虛擬機器與備份保存庫相關聯，並於整個備份生命週期內追蹤 VM。
 
 向 Azure 備份服務註冊您的 VM 會建立最上層的容器物件。一個容器通常包含多個可備份的項目，但以 VM 而言，容器只有一個備份項目。
 
@@ -82,7 +79,7 @@ DefaultPolicy             AzureVM            Daily              26-Aug-15 12:30:
 
 備份原則至少與一個保留原則相關聯。保留原則定義復原點在 Azure 備份中保留的時間長度。**New-AzureRMBackupRetentionPolicy** Cmdlet 會建立可儲存保留原則資訊的 PowerShell 物件。這些保留原則物件做為 *New-AzureRMBackupProtectionPolicy* Cmdlet 的輸入，或直接與 *Enable-AzureRMBackupProtection* Cmdlet 搭配使用。
 
-備份原則定義項目備份的時間和頻率。**New-AzureRMBackupProtectionPolicy** Cmdlet 會建立可儲存備份原則資訊的 PowerShell 物件。備份原則做為 *Enable-AzureRMBackupProtection* Cmdlet 的輸入。
+備份原則定義項目備份的時間和頻率。**New-AzureRMBackupProtectionPolicy** Cmdlet 會建立可儲存備份原則資訊的 PowerShell 物件。備份原則用來做為 *Enable-AzureRMBackupProtection* Cmdlet 的輸入。
 
 ```
 PS C:\> $Daily = New-AzureRMBackupRetentionPolicyObject -DailyRetention -Retention 30
@@ -234,4 +231,4 @@ New-AzureVM -ServiceName "panbhasample" -Location "SouthEast Asia" -VM $vm
 - [New-AzureVMConfig](https://msdn.microsoft.com/library/azure/dn495159.aspx)
 - [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

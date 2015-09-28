@@ -1,30 +1,34 @@
 <properties 
-	pageTitle="App Service 環境簡介"
-	description="了解可提供安全、VNet 聯結、專用延展單位的 App Service 環境功能，以便執行您所有的應用程式。"
-	services="app-service\web"
-	documentationCenter=""
-	authors="ccompy"
-	manager="wpickett"
+	pageTitle="App Service 環境簡介" 
+	description="了解可提供安全、VNet 聯結、專用延展單位的 App Service 環境功能，以便執行您所有的應用程式。" 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="ccompy" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
-	ms.author="stefsh"/>
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
+	ms.author="stefsch"/>
 
 # App Service 環境簡介
 
 ## 概觀 ##
 App Service 環境是 Azure App Service 的 [Premium][PremiumTier] 服務方案選項，可提供完全隔離和專用的環境，以便安全地執行所有應用程式。這包括 [Web Apps][WebApps]、[Mobile Apps][MobileApps]、[API 應用程式][APIApps]和[邏輯應用程式][LogicApps] (具有擴充調整選項)。
 
-App Service 環境的計算資源專門用來執行您的應用程式。App Service 環境一律建立於區域虛擬網路中，您的應用程式會有網路隔離的新選項。此外，App Service 環境支援其他調整選項，最多有 50 個計算資源可用來執行您的應用程式。在 App Service 環境之外，用於裝載您的應用程式的計算資源限制為 20 個。
+App Service 環境的計算資源專門用來執行您的應用程式。App Service 環境一律建立於區域傳統 "v1" 虛擬網路中，這會給您的應用程式網路隔離新選項。此外，App Service 環境支援其他調整選項，最多有 50 個計算資源可用來執行您的應用程式。在 App Service 環境之外，用於裝載您的應用程式的計算資源限制為 20 個。
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 虛擬網路支援 ##
-App Service 環境可以建立於預先存在的區域虛擬網路，或新的區域虛擬網路 ([虛擬網路的其他資訊][MoreInfoOnVirtualNetworks])。因為 App Service 環境一律存在於區域虛擬網路，而更精確來說是在區域虛擬網路的子網路中，所以您可以運用虛擬網路的安全性功能來控制傳入和傳出網路通訊。
+App Service 環境可以建立於預先存在的區域傳統 "v1" 虛擬網路，或新的區域傳統 "v1" 虛擬網路 ([虛擬網路的其他資訊][MoreInfoOnVirtualNetworks])。因為 App Service 環境一律存在於區域虛擬網路，而更精確來說是在區域虛擬網路的子網路中，所以您可以運用虛擬網路的安全性功能來控制傳入和傳出網路通訊。
+
+**附註：**在 "v2" 虛擬網路中，無法建立 App Service 環境。
 
 您可以使用[網路安全性群組][NetworkSecurityGroups]將傳入網路通訊限制為 App Service 環境所在的子網路。這可讓您在上游裝置和服務 (例如 Ｗeb 應用程式防火牆和網路 SaaS 提供者) 背後執行應用程式。
 
@@ -79,4 +83,4 @@ App Service 環境可以設定為單一背景工作集區中最多有 50 個計�
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="建立資料庫帳戶 - 免費試用版 | Microsoft Azure" 
-	description="了解如何使用 Azure DocumentDB 的線上服務入口網站、JSON 的受管理 NoSQL 文件資料庫，來建立資料庫帳戶。立即取得免費試用版。"
+	description="了解如何使用 Azure DocumentDB 的線上資料庫建立者、JSON 的受管理 NoSQL 文件資料庫，來建立資料庫帳戶。立即取得免費試用版。"
+	keywords="Free trial, online database creator, create a database, create database, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -45,4 +46,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

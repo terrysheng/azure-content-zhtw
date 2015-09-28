@@ -1,5 +1,5 @@
 <properties
-	pageTitle="應用程式模型 v2.0 | Microsoft Azure"
+	pageTitle="App 模型 v2.0 .NET 原生 App | Microsoft Azure"
 	description="如何建置可使用個人 Microsoft 帳戶及工作或學校帳戶登入使用者的 .NET 原生應用程式。"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # 應用程式模型 v2.0 預覽：將登入加入 Windows 傳統型應用程式
@@ -50,7 +50,7 @@
 ## 2. 安裝和設定 ADAL
 您現在有了已向 Microsoft 註冊的應用程式，可以安裝 ADAL 並撰寫與您身分識別相關的程式碼。為了讓 ADAL 能與 v2.0 端點通訊，您需要提供一些應用程式註冊的相關資訊。
 
--	首先，使用 Package Manager Console 將 ADAL 新增到 TodoListClient 專案中。
+-    首先，使用 Package Manager Console 將 ADAL 新增到 TodoListClient 專案中。
 
 ```
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease 
@@ -247,4 +247,4 @@ ADAL 可使用個人和工作帳戶，輕鬆地將通用的身分識別功能納
 
 如需其他資源，請查看：- [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow "adal" 標記 >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

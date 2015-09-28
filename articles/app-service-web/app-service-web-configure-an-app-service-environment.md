@@ -1,40 +1,42 @@
 <properties 
-	pageTitle="如何設定 App Service 環境"
-	description="設定、管理和監視 App Service環境"
-	services="app-service\web"
-	documentationCenter=""
-	authors="ccompy"
-	manager="stefsch"
+	pageTitle="如何設定 App Service 環境" 
+	description="設定、管理和監視 App Service環境" 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="ccompy" 
+	manager="stefsch" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/27/2015"
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="ccompy"/>
 
 # 設定 App Service 環境 #
 
 ## 概觀 ##
 
-App Service 環境是目前以預覽狀態提供的新 Premium 層次功能。它還提供新的調整和網路存取功能。這項新的調整功能可讓您將 Azure App Service 的執行個體放入 VNET 中。如果您不熟悉 App Service 環境 (ASE) 功能，請閱讀此處的文件：[What is an App Service Environment](app-service-app-service-environment-intro.md)。如需有關如何建立 ASE 的資訊，請讀取文件：[如何建立 App Service 環境](app-service-web-how-to-create-an-app-service-environment.md)。
+App Service 環境是目前以預覽狀態提供的新 Premium 層次功能。它還提供新的調整和網路存取功能。這項新的調整功能可讓您將 Azure App Service 的執行個體放入 VNET 中。如果您不熟悉 App Service 環境 (ASE) 功能，請閱讀此處的文件：[What is an App Service Environment]/app-service-app-service-environment-intro.md)。如需有關如何建立 ASE 的資訊，請讀取文件：[如何建立 App Service 環境](app-service-web-how-to-create-an-app-service-environment.md)。
 
 App Service 環境是由數個主要元件所組成：
 
 - 在 Azure App 環境託管服務中執行的計算資源
 - 儲存體
 - 資料庫
-- 具有至少一個子網路的虛擬網路
+- 傳統 "v1" 虛擬網路具有至少一個子網路
 - 在其中執行 Azure App 環境託管服務的子網路
 
 為了協助管理和監視 App Service 環境，您可以從 Azure Preview 入口網站中的 [瀏覽] -> [App Service 環境] 存取該目的的 UI。初始版本有管理系統所需的功能，而且將會持續在未來幾週內藉由其他功能提供改善。
 
 ![][1]
 
-## 監視 ##
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
+## 監控 ##
 
 初始預覽版本中並沒有很多計量功能，但是會在近期內推出。這些計量功能將協助系統管理員做出系統調整和作業相關決策。
 
@@ -90,8 +92,8 @@ App Service 環境是由數個主要元件所組成：
 
 [虛擬網路][virtualnetwork]和子網路全都在使用者的控制之下。App Service 環境的確有一些網路需求，但其餘部分是由使用者控制。這些 ASE 需求包括：
 
-- 至少有 512 個位址的 VNET
-- 至少有 256 個位址的子網路 
+- 至少有 512 個位址的傳統 "v1" VNET
+- 至少有 8 個位址的子網路 
 - VNET 必須是區域 VNET  
  
 透過一般虛擬網路 UI 即可管理您的 VNET。
@@ -131,4 +133,4 @@ App Service 環境是由數個主要元件所組成：
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 容錯移轉和災害復原 | Microsoft Azure"
-	description="了解如何將 StorSimple 裝置容錯移轉至其本身、另一個實體裝置或虛擬裝置。"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="adinah"
-	editor=""/>
+   description="了解如何將 StorSimple 裝置容錯移轉至其本身、另一個實體裝置或虛擬裝置。"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/28/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="alkohli" />
 
 # StorSimple 裝置的容錯移轉與災害復原
 
@@ -129,11 +129,16 @@
 	
 	b.移至 [磁碟區容器] 頁面。此時應會列出所有磁碟區容器，以及舊裝置中的磁碟區。
 
+![提供的影片](./media/storsimple-device-failover-disaster-recovery/Video_icon.png)**提供的影片**
+
+若要觀看影片示範如何將失敗的實體裝置還原至雲端中的虛擬裝置，請按一下[這裡](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/)。
+
 ## 業務持續性災害復原 (BCDR)
 
 當整個 Azure 資料中心停止運作時，就構成業務持續性災害復原 (BCDR) 狀況。這會影響您的 StorSimple Manager 服務和相關聯的 StorSimple 裝置。
 
 如果 StorSimple 裝置在發生災害的前一刻才剛註冊，這些 StorSimple 裝置可能需要進行原廠重設。災害發生後，StorSimple 裝置會顯示為離線。必須從入口網站刪除 StorSimple 裝置，進行原廠重設，然後重新註冊。
+
 
 ## 後續步驟
 
@@ -142,7 +147,7 @@
 - [更新您的 StorSimple 裝置](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [刪除您的 StorSimple 裝置](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-如需如何使用 StorSimple Manager 服務管理裝置的相關資訊，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
+如需如何使用 StorSimple Manager 的相關資訊，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

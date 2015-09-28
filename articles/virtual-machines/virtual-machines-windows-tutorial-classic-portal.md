@@ -3,7 +3,7 @@
 	description="在 Azure 入口網站中建立 Windows 虛擬機器。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # 在 Azure 入口網站中建立執行 Windows 的虛擬機器
 
@@ -52,8 +52,4 @@
 
 - 附加磁碟來儲存資料。您可以附加空的磁碟和含有資料的磁碟。如需指示，請參閱[連接資料磁碟的教學課程](storage-windows-attach-disk.md)。
 
-## 其他資源
-
-若要深入了解您可以為虛擬機器設定什麼功能以及何時可以設定，請參閱〈[關於 Azure VM 組態設定](http://msdn.microsoft.com/library/azure/dn763935.aspx)〉。
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Azure 中的企業營運應用程式 | Microsoft Azure"
-	description="了解 Azure 中企業營運應用程式的價值、設定測試環境，以及部署高可用性組態。"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	pageTitle="Azure 中的企業營運應用程式 | Microsoft Azure" 
+	description="了解 Azure 中企業營運應用程式的價值、設定測試環境，以及部署高可用性組態。" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Azure 基礎結構服務工作負載：高可用性企業營運應用程式
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型建立資源。
 
 在 Microsoft Azure 中設定第一個或下一個以網路為基礎的內部網路專用企業營運應用程式，這樣您就可以利用簡化組態的優點，還能夠快速擴大應用程式，使其增加新的容量。
  
@@ -33,7 +35,7 @@
 
 ## 建立裝載在 Azure 中的開發/測試企業營運應用程式。
 
-跨單位虛擬網路會透過站台對站台 VPN 或 ExpressRoute 連接到內部部署網路。如果您想要建立模擬最後組態和實驗的開發/測試環境，以便透過 VPN 連接存取應用程式並執行遠端系統管理，請參閱〈[在混合式雲端中設定以 Web 為基礎的 LOB 應用程式以進行測試](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)〉。
+跨單位虛擬網路會透過站台對站台 VPN 或 ExpressRoute 連接到內部部署網路。如果您想要建立模擬最後組態和實驗的開發/測試環境，以便透過 VPN 連線存取應用程式並執行遠端系統管理，請參閱[在混合式雲端中設定以 Web 為基礎的 LOB 應用程式以進行測試](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)。
 
 ![](./media/virtual-machines-workload-high-availability-LOB-application/CreateLOBAppHybridCloud_3.png)
  
@@ -53,7 +55,7 @@
 - 具有兩個執行 SQL Server 的虛擬機器以及叢集中多數節點電腦的 SQL Server AlwaysOn 組態。
 - 虛擬網路中具有兩個複本網域控制站的 Active Directory 網域服務。
 
-如需企業營運應用程式的概觀，請參閱〈[企業營運應用程式架構藍圖](http://msdn.microsoft.com/dn630664)〉。
+如需企業營運應用程式的概觀，請參閱[企業營運應用程式架構藍圖](http://msdn.microsoft.com/dn630664)。
 
 ### 用料表
 
@@ -103,4 +105,4 @@
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

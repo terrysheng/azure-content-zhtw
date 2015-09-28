@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫"
-	description="了解如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫。"
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
+	pageTitle="如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫" 
+	description="了解如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫。" 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/14/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫
@@ -24,7 +24,7 @@ API 管理提供 API 偵測器工具協助您進行 API 的偵錯和疑難排解
 
 本指南提供使用 API 偵測器的逐步解說。
 
->[AZURE.NOTE]API 偵測器追蹤則只能用於 API 管理服務執行個體的[系統管理員](api-management-howto-create-groups.md)。API 偵測器追蹤只會在對需要訂用帳戶金鑰的[受保護產品](api-management-howto-add-products.md)呼叫時傳回。
+>[AZURE.NOTE]只有當要求包含屬於[系統管理員](api-management-howto-create-groups.md)的訂用帳戶金鑰，才會產生其 API 偵測器追蹤並提供使用。
 
 ## <a name="trace-call"> </a> 使用 API 偵測器來追蹤呼叫
 
@@ -261,4 +261,4 @@ API 管理提供 API 偵測器工具協助您進行 API 的偵錯和疑難排解
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

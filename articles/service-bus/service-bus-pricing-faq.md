@@ -21,18 +21,18 @@
 
 >[AZURE.NOTE][事件中樞可用性和支援常見問題集](event-hubs-availability-and-support-faq.md)主題說明事件中樞的價格結構，而[事件中樞價格](http://azure.microsoft.com/pricing/details/event-hubs/)主題中有更詳細的資訊。
 
-- [服務匯流排的收費方式為何？](#How-do-you-charge-for-Service-Bus?)
-- [何種服務匯流排用法需支付資料傳輸費用？ 何種不需？](#What-usage-of-Service-Bus-is-subject-to-data-transfer?-What-is-not?)
-- [到底什麼是服務匯流排「轉送」？](#What-exactly-is-a-Service-Bus-"relay"?)
-- [如何計算轉送時數計量？](#How-is-the-Relay-Hours-meter-calculated?)
-- [如果我有一個以上的接聽程式連接到指定的轉送，該怎麼辦？](#What-if-I-have-more-than-one-listener-connected-to-a-given-relay?)
-- [如何針對轉送計算訊息計量？](#How-is-the-Messages-meter-calculated-for-relays?)
-- [服務匯流排是否會收取儲存體費用？](#Does-Service-Bus-charge-for-storage?)
-- [服務匯流排是否有任何使用量配額？](#Does-Service-Bus-have-any-usage-quotas?)
+- [服務匯流排的收費方式為何？](#how-do-you-charge-for-service-bus)
+- [何種服務匯流排用法需支付資料傳輸費用？ 何種不需？](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
+- [到底什麼是服務匯流排「轉送」？](#what-exactly-is-a-service-bus-quotrelayquot)
+- [如何計算轉送時數計量？](#how-is-the-relay-hours-meter-calculated)
+- [如果我有一個以上的接聽程式連接到指定的轉送，該怎麼辦？](#what-if-i-have-more-than-one-listener-connected-to-a-given-relay)
+- [如何針對轉送計算訊息計量？](#how-is-the-messages-meter-calculated-for-relays)
+- [服務匯流排是否會收取儲存體費用？](#does-service-bus-charge-for-storage)
+- [服務匯流排是否有任何使用量配額？](#does-service-bus-have-any-usage-quotas)
 
 ## 服務匯流排的收費方式為何？
 
-如需服務匯流排價格的完整資訊，請參閱[服務匯流排價格和計費](https://msdn.microsoft.com/library/dn831889.aspx)和[服務匯流排價格詳細資料](http://azure.microsoft.com/pricing/details/service-bus/)。除了註明的價格，您還需支付您的應用程式佈建所在資料中心外部的輸出相關資料傳輸費用。如需詳細資訊，請參閱下面的[何種服務匯流排用法需支付資料傳輸費用？ 何種不需？](#What-usage-of-Service-Bus-is-subject-to-data-transfer?-What-is-not?)。
+如需服務匯流排價格的完整資訊，請參閱[服務匯流排價格和計費](https://msdn.microsoft.com/library/dn831889.aspx)和[服務匯流排價格詳細資料](http://azure.microsoft.com/pricing/details/service-bus/)。除了註明的價格，您還需支付您的應用程式佈建所在資料中心外部的輸出相關資料傳輸費用。如需詳細資訊，請參閱下面的[何種服務匯流排用法需支付資料傳輸費用？ 何種不需？](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)。
 
 ## 何種服務匯流排用法需支付資料傳輸費用？ 何種不需？
 
@@ -114,4 +114,4 @@
 - [Azure 服務匯流排架構概觀](fundamentals-service-bus-hybrid-solutions.md)
 - [如何使用服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

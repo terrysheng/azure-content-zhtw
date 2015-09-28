@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # 搜尋 Operational Insights 中的資料
@@ -451,7 +451,7 @@ Type=PerfHourly  CounterName="% Processor Time"  InstanceName="_Total" | Measure
 
 如果您已熟悉 Microsoft System Center Operations Manager，您可以考慮管理組件詞彙中的 where 命令。如果此範例是一項規則，查詢的第一個部分會是資料來源，而 where 命令會是條件偵測。
 
-您可以在 [**我的儀表板**] 中將查詢當做一個磚來使用，做為一種監視器來查看電腦 CPU 是否過度使用。若要深入了解儀表板，請參閱 [Operational Insights 儀表板](operational-insights-use-dashboards)。您也可以使用行動應用程式建立和使用儀表板。如需詳細資訊，請參閱 [Azure Operational Insights 行動應用程式](http://www.windowsphone.com/zh-tw/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)。在下列映像底部的兩個磚中，您可以看到監視器顯示清單並做為一個數字。基本上，您一定想要此數字為零且清單是空的。否則，它會指出警示條件。如有需要，您可以使用它來看看那些電腦承受壓力。
+您可以在 [**我的儀表板**] 中將查詢當做一個磚來使用，做為一種監視器來查看電腦 CPU 是否過度使用。若要深入了解儀表板，請參閱 [Operational Insights 儀表板](operational-insights-use-dashboards)。您也可以使用行動應用程式建立和使用儀表板。如需詳細資訊，請參閱 [Azure Operational Insights 行動應用程式](http://www.windowsphone.com/zh-TW/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)。在下列映像底部的兩個磚中，您可以看到監視器顯示清單並做為一個數字。基本上，您一定想要此數字為零且清單是空的。否則，它會指出警示條件。如有需要，您可以使用它來看看那些電腦承受壓力。
 
 ![行動儀表板](./media/operational-insights-search/search-mobile.png)
 
@@ -615,7 +615,7 @@ Operational Insights 中的時間表/時間選取器會以 **TimeGenerated** 欄
 下表列出受支援的日期/時間單位。
 
 日期/時間單位|說明
----|--- 
+---|---
 YEAR, YEARS|四捨五入為目前的年份，或位移指定的年數。
 MONTH, MONTHS|四捨五入為目前的月份，或位移指定的月數。
 DAY, DAYS, DATE|四捨五入為目前的月份日期，或位移指定的天數。
@@ -2049,4 +2049,4 @@ system "Windows Server" OR Severity:1|system AND ("Windows Server" OR Severity:1
 ## 其他資源
 Stefan Roth 建立好用的搜尋小祕技。請瀏覽他的[部落格](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/)，深入了解並下載他的小祕技。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

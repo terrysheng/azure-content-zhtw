@@ -1,5 +1,5 @@
 <properties
-   pageTitle="透過 Memcache 通訊協定，將 Azure App Service 中的 Web 應用程式連線到 Redis Cache | Microsoft Azure"
+	pageTitle="透過 Memcache 通訊協定，將 Azure App Service 中的 Web 應用程式連線到 Redis Cache | Microsoft Azure"
 	description="使用 Memcache 通訊協定，將 Azure App Service 中的 Web 應用程式連線到 Redis Cache"
 	services="app-service\web"
 	documentationCenter="php"
@@ -8,12 +8,12 @@
 	editor="riande"/>
 
 <tags
-   ms.service="app-service-web"
+	ms.service="app-service"
 	ms.devlang="php"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
 	ms.workload="web"
-	ms.date="06/30/2015"
+	ms.date="09/16/2015"
 	ms.author="cfowler"/>
 
 # 透過 Memcache 通訊協定，將 Azure App Service 中的 Web 應用程式連線到 Redis Cache
@@ -21,6 +21,8 @@
 本文說明如何使用 [Memcache][13] 通訊協定，將 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中的 WordPress Web 應用程式連接到 [Azure Redis 快取][12]。如果現有的 Web 應用程式在記憶體內部快取中使用 Memcached 伺服器，則可將它移轉至 Azure App Service，並使用 Microsoft Azure 本身的快取解決方案，而不需要變更您的應用程式程式碼，或只要些許變更。此外，您可以利用現有的 Memcache 專長，在 Azure App Service 中建立高可調整性、分散式應用程式，並於記憶體內部快取中使用 Azure Redis Cache，同時使用常用應用程式架構，例如 .NET、PHP、Node.js、Java 和 Python。
 
 App Service Web 應用程式可讓此應用程式案例使用 Web Apps Memcache 填充碼，它是本機 Memcached 伺服器，可做為 Memcache proxy，快取對於 Azure Redis Cache 的呼叫。這可讓任何使用 Memcache 通訊協定進行通訊的應用程式，以 Redis Cache 快取資料。此 Memcache 填充碼作用於通訊協定層級，因此可供任何應用程式或應用程式架構使用，只要它們使用 Memcache 通訊協定進行通訊。
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 必要條件
 
@@ -196,4 +198,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

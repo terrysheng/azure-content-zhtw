@@ -1,5 +1,5 @@
 <properties
-	pageTitle="應用程式模型 v2.0 | Microsoft Azure"
+	pageTitle="App 模型 v2.0 限制事項 | Microsoft Azure"
 	description="Azure AD v2.0 應用程式模型限制事項清單。"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # 應用程式模型 v2.0 預覽：限制事項
@@ -85,4 +85,4 @@ v2.0 應用程式模型支援 Open ID Connect 和 OAuth 2.0。不過，並非每
 
 若要進一步了解 v2.0 應用程式模型支援的通訊協定功能範圍，請參閱 [OpenID Connect 與 OAuth 2.0 通訊協定參照](active-directory-v2-protocols.md)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

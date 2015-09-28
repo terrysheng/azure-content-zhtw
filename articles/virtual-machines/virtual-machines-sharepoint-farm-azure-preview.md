@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
 	ms.author="josephd"/>
 
 # SharePoint Server 伺服器陣列
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
 
 使用 SharePoint Server 伺服器陣列時，Microsoft Azure 預覽入口網站會自動為您建立預先設定的 SharePoint Server 2013 伺服器陣列。當您在開發和測試環境中需要基本或高可用性 SharePoint 伺服器陣列時，或是您要評估將 SharePoint Server 2013 做為組織的共同作業方案時，這將可為您省下許多時間。
 
@@ -35,13 +37,13 @@
 
 如需這兩種伺服器陣列的組態詳細資料，請參閱 [SharePoint Server 伺服器陣列組態詳細資料](virtual-machines-sharepoint-farm-config-azure-preview.md)。
 
-> [AZURE.NOTE]Microsoft 已發行 SharePoint Server 2016 IT 預覽版。若要輕鬆安裝和測試此預覽版，您可以搭配 SharePoint Server 2016 IT 預覽版和其預先安裝的必要元件來使用 Azure 虛擬機器資源庫映像。如需詳細資訊，請參閱[在 Azure 中測試 SharePoint Server 2016 IT 預覽版](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/) (英文)。
+> [AZURE.NOTE]Microsoft 已發行 SharePoint Server 2016 IT 預覽版。若要輕鬆安裝和測試此預覽版，您可以搭配 SharePoint Server 2016 IT 預覽版和其預先安裝的必要元件來使用 Azure 虛擬機器資源庫映像。如需詳細資訊，請參閱[在 Azure 中測試 SharePoint Server 2016 IT Preview](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)。
 
 ## 逐步設定
 
 若要使用 SharePoint 伺服器陣列範本建立您的 SharePoint 伺服器陣列，請執行下列動作：
 
-1. 在 [Microsoft Azure Preview 入口網站](https://portal.azure.com/)中，按一下 [新增] > [計算] > [SharePoint Server 伺服器陣列]。如果沒有顯示 [SharePoint Server 伺服器陣列]，請依序按一下 [新增] > [計算] > [Marketplace]，在 [搜尋計算] 中輸入 **SharePoint**，然後按一下 [SharePoint Server 伺服器陣列]。在 [SharePoint Server 伺服器陣列] 窗格中，按一下 [建立]。
+1. 在 [Microsoft Azure Preview 入口網站](https://portal.azure.com/)中，按一下 [新增] > [運算] > [SharePoint Server 伺服器陣列]。如果沒有顯示 [SharePoint Server 伺服器陣列]，請依序按一下 [新增] > [運算] > [Marketplace]，在 [搜尋運算] 中輸入 **SharePoint**，然後按一下 [SharePoint Server 伺服器陣列]。在 [SharePoint Server 伺服器陣列] 窗格中，按一下 [建立]。
 2. 在 [建立 SharePoint 伺服器陣列] 窗格中，輸入資源群組的名稱。
 3. 為您伺服器陣列中每個虛擬機器的本機系統管理員帳戶，輸入使用者名稱和密碼。選擇難以猜測的名稱和密碼，並且在記錄後儲存於安全之處。
 4. 如果您需要高可用性伺服器陣列，請按一下 [啟用高可用性]。
@@ -97,4 +99,4 @@ Azure 預覽入口網站的 SharePoint Server 伺服器陣列功能會以傳統�
 
 [在 Azure 基礎結構服務中架設的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

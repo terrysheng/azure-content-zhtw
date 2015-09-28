@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/09/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務來管理磁碟區
@@ -88,7 +88,10 @@ StorSimple Manager 服務是 Azure 入口網站的延伸模組，可讓您從單
 
 當您需要擴充磁碟區，或變更存取該磁碟區的主機時，請修改磁碟區。
 
-> [AZURE.IMPORTANT]如果您修改裝置上的磁碟區大小，也必須變更主機上的磁碟區大小。此處所述的主機端步驟適用於 Windows Server 2012 (2012R2)。Linux 或其他主機作業系統的程序會有所不同。如果要在執行其他作業系統的主機上修改磁碟區，請參考主機作業系統的指示。
+> [AZURE.IMPORTANT]
+>
+> - 如果您修改裝置上的磁碟區大小，也必須變更主機上的磁碟區大小。 
+> - 此處所述的主機端步驟適用於 Windows Server 2012 (2012R2)。Linux 或其他主機作業系統的程序會有所不同。如果要在執行其他作業系統的主機上修改磁碟區，請參考主機作業系統的指示。 
 
 ### 若要修改磁碟區
 
@@ -120,6 +123,10 @@ StorSimple Manager 服務是 Azure 入口網站的延伸模組，可讓您從單
    2. 以滑鼠右鍵按一下 [磁碟管理]，並選取 [重新掃描磁碟]。
    3. 在磁碟清單中，選取您已更新的磁碟區，按一下滑鼠右鍵，然後選取 [延伸磁碟區]。[延伸磁碟區精靈] 隨即啟動。按 [下一步]。
    4. 使用預設值完成精靈。完成精靈後，磁碟區應該會顯示增加的大小。
+
+![提供的影片](./media/storsimple-manage-volumes/Video_icon.png)**提供的影片**
+
+若要觀看影片示範如何擴充磁碟區，請按一下[這裡](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume)。
 
 ## 使磁碟區離線
 
@@ -180,13 +187,12 @@ StorSimple Manager 服務是 Azure 入口網站的延伸模組，可讓您從單
 
     ![修改磁碟區基本設定](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
 
+
 ## 後續步驟
 
-觀賞如何[延伸 StorSimple 磁碟區](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume)的說明影片。
-
-了解如何[複製 StorSimple 磁碟區](storsimple-clone-volume.md)。
-
+- 了解如何[複製 StorSimple 磁碟區](storsimple-clone-volume.md)。
+- 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
  
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

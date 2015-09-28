@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="09/15/2015"
 	ms.author="nitinme"/>
 
 
@@ -1153,9 +1153,7 @@ Apache Mahout 是 Apache Hadoop 的機器學習庫。Mahout 包含用來處理�
 此版本包含 HDInsight 服務的增強功能：
 
 * **HDP 2.1 可用性**：HDInsight 3.1 (內含 HDP 2.1) 已公開上市，且為新叢集的預設版本。
-* **HBase – Azure 入口網站改進**：我們正使 HBase 叢集可用於預覽版。您可以從入口網站中按三下滑鼠以建立 HBase 叢集。
-
-![](http://i.imgur.com/cmOl5fM.png)
+* **HBase – Azure 入口網站改進**：我們正使 HBase 叢集可用於預覽版。您可以從入口網站建立 HBase 叢集，只要按幾下滑鼠即可。 
 
 HBase 可讓您在 HDInsight 上建置各種即時工作負載，包括處理大型資料集的互動式網站，甚至是將數百萬個端點的感應器和遙測資料儲存起來的服務，都沒問題。下一步是使用 Hadoop 工作來分析這些工作負載中的資料，而透過 Azure PowerShell 和 Hive 叢集儀表板，就能在 HDInsight 中進行此分析。
 
@@ -1348,4 +1346,4 @@ SQL Server 的 Java 資料庫連接 (JDBC) 驅動程式僅供 HDInsight 內部�
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

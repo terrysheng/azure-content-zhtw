@@ -1,19 +1,19 @@
 <properties
    pageTitle="ExpressRoute 位置 |Microsoft Azure"
-	description="本文提供提供服務所在位置以及如何連線到 Azure 區域的詳細概觀。"
-	services="expressroute"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor="tysonn"/>
+   description="本文提供提供服務所在位置以及如何連線到 Azure 區域的詳細概觀。"
+   services="expressroute"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor="tysonn" />
 <tags
    ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/06/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/06/2015"
+   ms.author="cherylmc" />
 
 # Azure ExpressRoute 合作夥伴和對等互連位置
 本文中的資料表會提供有關 ExpressRoute 連線提供者 (EXP 和 NSP)、ExpressRoute 地理涵蓋範圍、透過 ExpressRoute 支援的 Microsoft 雲端服務，以及 ExpressRoute 系統整合者 (SI) 的資訊。
@@ -77,7 +77,7 @@
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | 支援 | 不支援 | 新加坡 |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | 支援 | 敬請期待 | 阿姆斯特丹、辰內+、香港、倫敦、孟買+、新加坡 |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | 支援 | 不支援 | 墨爾本+、雪梨 |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | 支援 | 不支援 | 倫敦、香港、矽谷、華盛頓特區 |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | 支援 | 敬請期待 | 倫敦、香港、矽谷、華盛頓特區 |
 
  **+** 表示即將推出
 
@@ -115,4 +115,4 @@
 - 如果您想要設定 ExpressRoute 連線，請參閱[設定 EXP 連線](expressroute-configuring-exps.md)或[設定 NSP 連線](expressroute-configuring-nsps.md)。
 - 如果您想要為相同虛擬網路設定站對站 VPN 連線和 ExpressRoute，請參閱[設定並存的 ExpressRoute 和站對站 VPN 連線](expressroute-coexist.md)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

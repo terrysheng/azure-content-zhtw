@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="使用 DocumentDB 來建置 Node.js Web 應用程式 | Microsoft Azure" 
-	description="了解如何使用 Microsoft Azure DocumentDB 來儲存和存取託管於 Azure 網站上的 Node.js Express Web 應用程式資料。" 
+	pageTitle="了解 Node.js-DocumentDB Node.js 教學課程 |Microsoft Azure" 
+	description="了解 Node.js！ 透過教學課程探索如何使用 Microsoft Azure DocumentDB 來儲存和存取 Azure 網站上託管的 Node.js Express Web 應用程式資料。" 
+	keywords="Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="nodejs" 
 	authors="ryancrawcour" 
@@ -18,26 +19,26 @@
 
 # <a name="_Toc395783175"></a>使用 DocumentDB 建置 Node.js Web 應用程式
 
-本教學課程說明如何使用 Azure DocumentDB 服務，從託管於 Azure 網站上的 Node.js Express 應用程式儲存和存取資料。
+本 Node.js 教學課程說明如何使用 Azure DocumentDB 服務，從 Azure 網站上託管的 Node.js Express 應用程式儲存和存取資料。
 
-我們建議使用者從觀看下列影片開始，內容示範如何佈建 Azure DocumentDB 資料庫帳戶，以及如何將 JSON 文件儲存在 Node.js 應用程式中。
+我們建議使用者從觀看下列影片開始，內容示範如何佈建 Azure DocumentDB 資料庫帳戶，以及如何將 JSON 文件儲存於 Node.js 應用程式。
 
 > [AZURE.VIDEO azure-demo-getting-started-with-azure-documentdb-on-nodejs-in-linux]
 
-然後，回到這篇文章，您可在此找到下列問題的答案：
+然後再回到本 Node.js 教學課程，您可在此找到下列問題的答案：
 
 - 如何透過 documentdb npm 模組搭配使用 DocumentDB？
 - 如何將 Web 應用程式部署至 Azure 網站？
 
-依照本教學課程的指示，您將建置一個簡單的網頁型工作管理應用程式，可讓您建立、擷取和完成工作。在 Azure DocumentDB 中，這些工作將會儲存為 JSON 文件。
+依照本資料庫教學課程的指示，您將建置一個簡單的網頁型工作管理應用程式，其可讓您建立、擷取和完成工作。在 Azure DocumentDB 中，這些工作將會儲存為 JSON 文件。
 
-![本教學課程所建立的 [我的待辦事項清單] 應用程式螢幕擷取畫面](./media/documentdb-nodejs-application/image1.png)
+![本 Node.js 教學課程所建立的「我的待辦事項清單」應用程式螢幕擷取畫面](./media/documentdb-nodejs-application/image1.png)
 
 是否沒有時間完成本教學課程，只是想要從 GitHub 取得完整的解決方案？ 這不是問題，您可以從[這裡](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo)取得。
 
 ## <a name="_Toc395783176"></a>必要條件
 
-> [AZURE.TIP]本教學課程假設您先前已有些許使用 Node.js 和 Azure 網站的經驗。
+> [AZURE.TIP]本 Node.js 教學課程假設您先前已有些許使用 Node.js 和 Azure 網站的經驗。
 
 在依照本文中的指示進行之前，您應先確定備妥下列項目：
 
@@ -54,9 +55,9 @@
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="_Toc395783178"></a>步驟 2：建立新的 Node.js 應用程式
+## <a name="_Toc395783178"></a>步驟 2：學習如何建立新的 Node.js 應用程式
 
-現在讓我們使用 [Express](http://expressjs.com/) 架構開始建立基本的 Hello World Node.js 專案。
+現在讓我們學習使用 [Express](http://expressjs.com/) 架構，建立基本的 Hello World Node.js 專案。
 
 1. 開啟您偏好的終端機。
 
@@ -75,7 +76,7 @@
 
 5. 您可以檢視新的應用程式，請導覽瀏覽器至 [http://localhost:3000/](http://localhost:3000)。
 
-	![Hello World 應用程式在瀏覽器視窗中的螢幕擷取畫面](./media/documentdb-nodejs-application/image12.png)
+	![了解 Node.js - Hello World 應用程式在瀏覽器視窗中的螢幕擷取畫面](./media/documentdb-nodejs-application/image12.png)
 
 ## <a name="_Toc395783179"></a>步驟 3：安裝其他模組
 
@@ -535,7 +536,7 @@
 
 4. 若要完成工作，您只需勾選 [已完成] 資料行中的核取方塊，然後按一下 [更新工作]。
 
-## <a name="_Toc395783182"></a>步驟 7：將應用程式部署至 Azure 網站
+## <a name="_Toc395783182"></a>步驟 7：將應用程式開發專案部署至 Azure 網站
 
 1. 如果您還沒有這麼做，請為您的 Azure 網站提供一個 Git 儲存機制。您可以在[這裡](../web-sites-publish-source-control-git.md#step4)找到如何執行這項作業的相關指示。
 
@@ -559,4 +560,4 @@
   [Git]: http://git-scm.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

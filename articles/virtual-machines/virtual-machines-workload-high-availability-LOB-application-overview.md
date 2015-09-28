@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="部署企業營運應用程式 | Microsoft Azure"
-	description="在 Azure 中透過五個階段，部署包含 SQL Server AlwaysOn 可用性群組的 Web 型、高可用性企業營運應用程式。"
+	pageTitle="部署企業營運應用程式 | Microsoft Azure" 
+	description="在 Azure 中透過五個階段，部署包含 SQL Server AlwaysOn 可用性群組的 Web 型、高可用性企業營運應用程式。" 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # 在 Azure 中部署高可用性的企業營運應用程式
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型建立資源。
 
 本文包含在 Azure 基礎結構服務中，部署包含 SQL Server AlwaysOn 可用性群組之高可用性、內部網路專屬 Web 型企業營運應用程式的逐步指示連結。應用程式會裝載於這些電腦上：
 
@@ -38,7 +40,7 @@
 - [第 2 階段：設定網域控制站](virtual-machines-workload-high-availability-LOB-application-phase2.md)。建立和設定複本 Active Directory 網域服務 (AD DS) 網域控制站。
 - [第 3 階段：設定 SQL Server 基礎結構](virtual-machines-workload-high-availability-LOB-application-phase3.md)。建立和設定執行 SQL Server 的虛擬機器、建立叢集，以及啟用 SQL Server AlwaysOn 可用性群組。
 - [第 4 階段：設定 Web 伺服器](virtual-machines-workload-high-availability-LOB-application-phase4.md)。建立和設定兩部 Web 伺服器虛擬機器。
-- [第 5 階段：將應用程式資料庫加入至 SQL Server AlwaysOn 可用性群組](virtual-machines-workload-high-availability-LOB-application-phase5.md)。準備企業營運應用程式資料庫並將其加入至 SQL Server AlwaysOn 可用性群組。
+- [第 5 階段：將應用程式資料庫加入 SQL Server AlwaysOn 可用性群組](virtual-machines-workload-high-availability-LOB-application-phase5.md)。準備企業營運應用程式資料庫並將其加入至 SQL Server AlwaysOn 可用性群組。
 
 此部署是設計來搭配[企業營運應用程式架構藍圖](http://msdn.microsoft.com/dn630664)並納入最新的建議。
 
@@ -48,9 +50,9 @@
 - 如果您已經具備現有的 Azure 混合式雲端實作，可自行決定是否要調整或略過第 1 和 2 階段中的指示，在適當的子網路上裝載適用於新應用程式的虛擬機器。
 - 所有伺服器都位於 Azure 虛擬網路中的單一子網路上。如果您想要提供其他相當於隔離子網路的安全性，可以使用 [網路安全性群組](../virtual-networks/virtual-networks-nsg.md)。
 
-若要建置開發/測試環境或此設定的概念證明，請參閱〈[在混合式雲端中設定用於測試的 Web 型 LOB 應用程式](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)〉。
+若要建置開發/測試環境或此設定的概念證明，請參閱[在混合式雲端中設定用於測試的 Web 式 LOB 應用程式](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)。
 
-如需有關針對 Azure 設計 IT 工作負載的詳細資訊，請參閱〈[Azure 基礎結構服務實作方針](virtual-machines-infrastructure-services-implementation-guidelines.md)〉。
+如需針對 Azure 設計 IT 工作負載的詳細資訊，請參閱[Azure 基礎結構服務實作方針](virtual-machines-infrastructure-services-implementation-guidelines.md)。
 
 ## 後續步驟
 
@@ -66,4 +68,4 @@
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

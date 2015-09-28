@@ -1,13 +1,13 @@
 <properties
    pageTitle="Azure 備份常見問題集 | Microsoft Azure"
-	description="Azure 備份服務的常見問題集"
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="shreeshd"
-	editor=""/>
+   description="Azure 備份服務的常見問題集"
+   services="backup"
+   documentationCenter=""
+   authors="Jim-Parker"
+   manager="shreeshd"
+   editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Azure 備份 - 常見問題集
 下列是關於 Azure 備份常見問題的清單。若您有任何關於 Azure 備份的其他問題，請前往[論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)並張貼您的問題。我們社群的服務人員將協助您找到答案。若遇到常見問題，我們會將其加入此文章，以便您可以快速且輕鬆地找到。
@@ -40,7 +40,7 @@
 
 **Q6.我應該將保存庫視為計費實體嗎？** <br/> A6.雖然可以取得每個保存庫的詳細計費，但強烈建議您考慮 Azure 訂用帳戶作為計費實體。這在所有服務皆保持一致，而且您可以更輕鬆地進行管理。
 
-**Q7.針對每個保存庫註冊的伺服器/電腦具有任何數目限制嗎？** <br/> A7.是，您可以針對每個保存庫註冊最多 50 個電腦。若您需要註冊更多電腦，請建立新的保存庫。
+**Q7.針對每個保存庫註冊的伺服器/電腦具有任何數目限制嗎？** <br/> A7.是，您可以針對每個保存庫註冊最多 50 個電腦。對於 Azure IaaS 虛擬機器，限制為每個保存庫 100 個 VM。若您需要註冊更多電腦，請建立新的保存庫。
 
 **Q8.從 Windows Server/用戶端或 SCDPM 伺服器進行備份的資料量具有任何限制嗎？** <br/> A8.編號
 
@@ -114,7 +114,7 @@
 |Microsoft Exchange|在要備份的 Exchange Server 中所有 Exchange 資料庫的總和|
 |BMR/系統狀態|在要備份的電腦上 BMR 或系統狀態的每個個別複本|
 
-**Q2.每日可排程的備份次數是否有限制？**<br/> A2.是，Azure 備份透過 Windows Server/用戶端每日可以備份 3 個複本，而透過 SCDPM 每日可以備份 2 個複本。
+**Q2.每日可排程的備份次數是否有限制？**<br/> A2.是，Azure 備份透過 Windows Server/用戶端每日可以備份 3 個複本，透過 SCDPM 每日可以備份 2 個複本，而透過 IaaS VM 每日可以備份 1 個。
 
 **Q3.DPM 和 Azure 備份 (例如在不包含 DPM 的 Windows Server 上) 的備份排程原則是否具有差異？** <br/> A3.是。您可以使用 DPM 指定每日、每週、每月、每年排程，或從 Windows Server (不包含 DPM) 指定僅每日和每週排程。
 
@@ -132,13 +132,9 @@
 
 **Q9.若每個復原點就像一個完整的復原點，則其是否會影響可計費的備份儲存體總數？**<br/> A9.典型的長期保留復原點產品會將備份資料儲存為完整的復原點。不過，這些是效率不佳的儲存體，但可以更輕鬆且更快速地進行還原。增量複本是有效率的儲存體，但會要求您還原一連串的資料，而這會影響復原時間。Azure 備份的唯一儲存體架構透過最佳化儲存資料以進行快速還原，並降低儲存體成本支出，可讓您魚與熊掌兼得。這個方法可確保您有效率地使用頻寬 (輸入和輸出)，並將儲存體和復原所花時間保持在最少狀態。
 
-**Q10.可建立的復原點數目有限制嗎？**<br/> A10.自 2015 年 4 月起，您可以擁有最多 366 個復原點。您可以使用數目小於 366 的任何排列。例如 – 下圖中的保留復原點增加至 354。<br/>
+**Q10.可建立的復原點數目有限制嗎？**<br/> A10.沒有，我們已經取消了復原點的限制。您可以建立您所需的復原點數量。
 
-![保留畫面](./media/backup-azure-backup-faq/RetentionScreen1.png)
-
-**Q11.一旦 Microsoft 改進 366 的限制，我需要升級代理程式或重新植入初始備份嗎？** <br/> A11.否。一旦我們在服務進行變更，您將會透過我們的社交媒體通路 (部落格、Azure 公告和入口網站等) 收到通知。根據您的需求，我們僅會要求您變更保留原則。
-
-**Q12.為什麼備份中傳輸的資料量不等於我備份的資料量？**<br/> A12.已備份的所有資料會經過壓縮，且在傳輸之前會經過加密。您可以預期 30-40% 的壓縮效益，這取決於正在備份的資料類型。
+**Q11.為什麼備份中傳輸的資料量不等於我備份的資料量？**<br/> A11.已備份的所有資料會經過壓縮，且在傳輸之前會經過加密。您可以預期 30-40% 的壓縮效益，這取決於正在備份的資料類型。
 
 ## 復原
 **Q1.我可以在備份至 Azure 的資料上執行幾次復原？**<br/> A1.從 Azure 備份進行復原的次數沒有任何限制。
@@ -169,8 +165,8 @@
 
 	| 登錄路徑 | 登錄金鑰 | 值 |
 	| ------ | ------- | ------ |
-	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Config | ScratchLocation | <i>新的快取資料夾位置</i> |
-	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Config\\CloudBackupProvider | ScratchLocation | <i>新的快取資料夾位置</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>新的快取資料夾位置</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>新的快取資料夾位置</i> |
 
 
 + 藉由在提高權限的命令提示字元中執行下列命令來啟動 OBEngine：
@@ -179,4 +175,4 @@
 
 一旦利用新快取位置成功備份，您就可以移除原始的快取資料夾。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

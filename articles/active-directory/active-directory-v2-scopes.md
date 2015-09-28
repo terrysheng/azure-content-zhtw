@@ -1,5 +1,5 @@
 <properties
-	pageTitle="應用程式模型 v2.0 | Microsoft Azure"
+	pageTitle="App 模型 v2.0 範圍、權限和同意 | Microsoft Azure"
 	description="Azure AD v2.0 應用程式模型中的授權描述，包括範圍、權限及同意。"
 	services="active-directory"
 	documentationCenter=""
@@ -116,4 +116,4 @@ Content-Type: application/json
 
 如需有關如何取得及使用重新整理權杖的詳細資訊，請參閱[應用程式模型 v2.0 通訊協定參考](active-directory-v2-protocols.md)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

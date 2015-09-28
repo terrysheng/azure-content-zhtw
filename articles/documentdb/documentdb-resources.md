@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="DocumentDB 資源模型和概念 | Microsoft Azure" 
-	description="Microsoft Azure DocumentDB 是完全受到管理的 NoSQL 文件資料庫，其使用由資料庫帳戶、資料庫、集合、預存程序、觸發程序、UDF、文件、附件、媒體、使用者及權限所組成的階層式模型來管理資源。"  
+	pageTitle="DocumentDB 階層式資源模型和概念 | Microsoft Azure" 
+	description="深入了解 DocumentDB 資料庫的階層式模型、集合、使用者定義函數 (UDF)、文件、權限，以便管理資源等。"
+	keywords="Hierarchical Model, documentdb, azure, Microsoft azure"	
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -16,21 +17,21 @@
 	ms.date="08/03/2015" 
 	ms.author="anhoh"/>
 
-#DocumentDB 資源模型和概念
+# DocumentDB 階層式資源模型和概念
 
 DocumentDB 管理的資料庫實體稱為**資源**。每個資源可透過邏輯 URI 唯一識別。您可以使用標準 HTTP 動詞命令、要求/回應標頭和狀態碼來與資源互動。
 
 閱讀本文後，您將能夠回答下列問題：
 
 - 什麼是 DocumentDB 資源？
-- 什麼是 DocumentDB 資源的階層？
+- 什麼是 DocumentDB 資源的階層式模型？
 - 什麼是系統定義的資源與使用者定義的資源？
 - 如何處理資源？
 - 如何使用集合？
 - 如何使用預存程序、觸發程序和使用者定義函數 (UDF)？
 
 ##階層式資源模型
-如下圖所示，DocumentDB 的**資源模型**包含某個資料庫帳戶下的多組資源，而每組資源都可以透過邏輯和穩定 URI 來定址。在本文中，一組資源稱為**摘要**。
+如下圖所示，DocumentDB 的階層式**資源模型**包含某個資料庫帳戶下的多組資源，而每組資源都可以透過邏輯和穩定 URI 來定址。在本文中，一組資源稱為**摘要**。
 
 >[AZURE.NOTE] DocumentDB 提供高效率的 TCP 通訊協定，此 TCP 通訊協定在通訊模型中也符合 REST 限制，並且可以透過 [.NET 用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 取得。
 
@@ -378,7 +379,6 @@ DocumentDB 可讓您將二進位 Blob/媒體儲存至 DocumentDB 或您自己的
 針對 DocumentDB 所管理的媒體，附件的 _media 屬性將會依媒體的 URI 來參考媒體。DocumentDB 將會在捨棄所有未完成的參考時，確保回收媒體的記憶體，如果您上傳新的媒體並填入 _media 以指向新增的媒體，則 DocumentDB 會自動產生附件。如果您選擇將媒體儲存在您所管理的遠端 Blob 存放區中 (例如 OneDrive、Azure Storage、DropBox 等)，則還是可以使用附件來參考媒體。在此情況下，您將自行建立附件，並填入其 _media 屬性中。
 
 與所有其他資源相同，使用 REST API 或任何用戶端 SDK，即可輕鬆地建立、取代、刪除、讀取或列舉附件。與文件相同，附件的讀取一致性層級會遵循資料庫帳戶的一致性原則。根據您應用程式的資料一致性需求，可以覆寫每個要求的這個原則。查詢附件時，讀取一致性會遵循集合上所設定的索引模式。為求「一致」，這會遵循帳戶的一致性原則。
-
 ##使用者
 DocumentDB 使用者代表用於分組權限的邏輯命名空間。DocumentDB 使用者可能對應至身份識別管理系統或預先定義應用程式角色中的使用者。對於 DocumentDB，使用者只代表抽象以分組資料庫下的一組權限。
 
@@ -415,4 +415,4 @@ DocumentDB 使用者代表用於分組權限的邏輯命名空間。DocumentDB �
 [3]: media/documentdb-resources/resources3.png
  
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

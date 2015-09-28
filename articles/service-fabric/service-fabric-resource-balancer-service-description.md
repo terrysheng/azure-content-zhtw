@@ -3,7 +3,7 @@
    description="設定資源平衡器使用的服務描述概觀"
    services="service-fabric"
    documentationCenter=".net"
-   authors="GaugeField"
+   authors="masnider"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
+   ms.date="09/15/2015"
    ms.author="masnider"/>
 
 # 服務描述概觀
@@ -202,7 +202,9 @@ Task t = fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
    </StatefulService>
  </ServiceTemplates>
 ```
-程式碼範例顯示應用程式資訊清單的 DefaultServices 定義。``` xml
+程式碼範例顯示應用程式資訊清單的 DefaultServices 定義。
+
+``` xml
 <DefaultServices>
   <Service Name="QueueServiceInstance">
     <StatefulService MinReplicaSetSize="3" ServiceTypeName="QueueService" TargetReplicaSetSize="3">
@@ -229,4 +231,4 @@ Task t = fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 [Image3]: media/service-fabric-resource-balancer-service-description/MW.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="在 Visual Studio 中建立和管理 Azure 虛擬機器"
-	description="在 Visual Studio 中建立和管理 Azure 虛擬機器"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="在 Visual Studio 中建立和管理 Azure 虛擬機器"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="virtual-machines"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # 在 Visual Studio 中建立和管理 Azure 虛擬機器
 
@@ -54,7 +54,7 @@
     按一下虛擬機器映像名稱，即可查看頁面右側的映像相關資訊。
 
     >[AZURE.NOTE]您無法將虛擬機器映像新增至 [公用映像] 或 [MSDN 映像] 清單，因為這些清單是唯讀的。您建立的所有虛擬機器會新增至 [私人映像] 清單。
-    
+
     >如果您是具有 Visual Studio 層級訂用帳戶的 MSDN 訂閱者，您可以建立一個預先建置的 Azure 虛擬機器，其中包含 Visual Studio 以及其他數個映像。如需詳細資訊，請參閱[使用映像在 Visual Studio 中建立虛擬機器、MSDN 訂閱者的 Visual Studio 2013 資源庫映像](http://visualstudio2013msdngalleryimage.azurewebsites.net)和 [MSDN 訂閱](https://www.visualstudio.com/products/msdn-subscriptions-vs)。|
 
 1. 在 [虛擬機器基本設定] 頁面上，輸入電腦名稱，然後新增虛擬機器的規格 (包含大小) 以及使用者名稱和密碼。完成後，按 [下一步]。
@@ -92,7 +92,6 @@
     ![虛擬機器活動記錄 - 已完成。](./media/vs-azure-tools-virtual-machines-create-manage/IC744139.png)
 
     如果作業順利完成，新的虛擬機器會出現在 [伺服器總管] 的 [虛擬機器] 節點中。按一下 [使用遠端桌面連接] 捷徑，即可登入。
-
 
     ![出現在 [伺服器總管] 中的虛擬機器。](./media/vs-azure-tools-virtual-machines-create-manage/IC744140.png)
 
@@ -145,7 +144,7 @@
     Sysprep 是一個工具，可從虛擬機器的 Windows 版本中移除系統特定資料，讓其成為其他人可使用的範本。如需詳細資訊，請參閱[如何擷取 Windows 虛擬機器作為範本使用](http://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/)。
 
 1. 設定好擷取設定之後，選擇 [擷取] 按鈕可建立檢查點。
- 
+
     在 Azure 建立檢查點時，[Azure 活動記錄檔] 會顯示作業的進度。
 
     ![擷取虛擬機器檢查點](./media/vs-azure-tools-virtual-machines-create-manage/IC744144.png)
@@ -174,12 +173,8 @@
 
 1. 在捷徑功能表上，選擇 [關閉] 命令，或選擇 [設定] 以檢視虛擬機器組態頁面，然後選擇 [關閉] 按鈕。
 
-## 另請參閱
+## 後續步驟
 
-[虛擬機器](https://msdn.microsoft.com/library/azure/)
+若要了解建立虛擬機器的詳細資訊，請參閱[建立執行 Linux 的虛擬機器](virtual-machines-linux-tutorial.md)和[在 Azure Preview 入口網站中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial.md)。
 
-[從伺服器總管存取 Azure 虛擬機器](https://msdn.microsoft.com/library/azure/jj131259.aspx)
-
-[Azure Tools for Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx)
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

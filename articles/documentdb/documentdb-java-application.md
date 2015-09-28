@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="使用 DocumentDB 來建置 Java Web 應用程式 | Microsoft Azure" 
-	description="本教學課程示範如何使用 Azure DocumentDB 服務，從 Azure 網站上裝載的 Java 應用程式儲存和存取資料。" 
+	pageTitle="使用 DocumentDB 進行 Java 應用程式開發教學課程 | Microsoft Azure"
+	description="本 Java Web 應用程式教學課程示範如何使用 Azure DocumentDB 服務，從 Azure 網站上託管的 Java 應用程式儲存和存取資料。"
+	keywords="Application development, database tutorial, java application, java web application tutorial, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="java" 
 	authors="aliuy" 
@@ -16,21 +17,21 @@
 	ms.date="07/21/2015" 
 	ms.author="andrl"/>
 
-# 使用 DocumentDB 來建置 Java Web 應用程式 #
+# 使用 DocumentDB 來建置 Java Web 應用程式
 
-本教學課程示範如何使用 [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) 服務，從託管於 Azure 網站上的 Java 應用程式儲存和存取資料。在本教學課程中，您將了解：
+本 Java Web 應用程式教學課程示範如何使用 [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) 服務，從 Azure 網站上託管的 Java 應用程式儲存和存取資料。在本教學課程中，您將了解：
 
 - 如何在 Eclipse 中建置基本的 JSP 應用程式。
 - 如何透過 [DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java) 使用 Azure DocumentDB 服務。
 
-本教學課程會示範如何建立以 Web 為基礎的工作管理應用程式，方便您建立、擷取以及將工作標示為完成，如下圖所示。在 Azure DocumentDB 中，[待辦事項] 清單中的每項工作都會以 JSON 文件的形式儲存。
+本 Java 應用程式教學課程會示範如何建立以 Web 為基礎的工作管理應用程式，方便您建立、抓取以及將工作標示為完成，如下圖所示。在 Azure DocumentDB 中，[待辦事項] 清單中的每項工作都會以 JSON 文件的形式儲存。
 
-![[我的待辦事項清單] 應用程式](./media/documentdb-java-application/image1.png)
+![我的待辦事項清單 Java 應用程式](./media/documentdb-java-application/image1.png)
 
-> [AZURE.TIP]本教學課程假設您先前已有使用 Java 的經驗。如果您不熟悉 Java 或[必備工具](#Prerequisites)，我們建議您從 [GitHub](https://github.com/Azure/azure-documentdb-java) 下載完整的[待辦事項](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo)專案，並使用 [本文結尾的指示](#GetProject)開始建置。建置完成後，您可以檢閱文件，以加深對專案內容中程式碼的了解。
+> [AZURE.TIP]本應用程式開發教學課程假設您先前已有使用 Java 的經驗。如果您不熟悉 Java 或[必備工具](#Prerequisites)，我們建議您從 [GitHub](https://github.com/Azure/azure-documentdb-java) 下載完整的[待辦事項](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo)專案，並使用 [本文結尾的指示](#GetProject)開始建置。建置完成後，您可以檢閱文件，以加深對專案內容中程式碼的了解。
 
-##<a id="Prerequisites"></a>必要條件 ##
-開始進行本教學課程之前，您必須具備下列條件：
+##<a id="Prerequisites"></a>針對此 Java Web 應用程式教學課程的必要條件
+開始進行本應用程式開發教學課程之前，您必須具備下列條件：
 
 - 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](../../pricing/free-trial/)。
 - [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
@@ -39,28 +40,28 @@
 
 如果您是第一次安裝這些工具，coreservlets.com 提供了安裝程序的的逐步解說，請參閱其[教學課程：安裝 TomCat7 並與 Eclipse 搭配使用](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html)一文中的 [快速入門] 區段。
 
-##<a id="CreateDB"></a>步驟 1：建立 DocumentDB 資料庫帳戶 ##
+##<a id="CreateDB"></a>步驟 1：建立 DocumentDB 資料庫帳戶
 在 Azure 中佈建 DocumentDB 資料庫帳戶：
 
 1. 如果您還沒有資料庫帳戶，請依照[建立資料庫帳戶](documentdb-create-account.md)中的指示建立一個帳戶。如果您已經擁有帳戶，請繼續執行步驟 2。
 2. 使用 [**金鑰**] 刀鋒視窗 (如下圖所示)，將端點 [**URI**] 和 [**主要金鑰**] 複製到剪貼簿，並將它們保存在隨手可得的地方，因為我們將在接下來要建立的 Web 應用程式中使用這些值。
 
-![顯示 DocumentDB 帳戶的 Azure Preview 入口網站螢幕擷取畫面，內含反白顯示的 [主動式] 集線器、[DocumentDB 帳戶] 刀鋒視窗上反白顯示的 [金鑰] 按鈕、[金鑰] 刀鋒視窗上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值][1]
+![建立 DocumentDB 帳戶 – 資料庫教學課程。顯示 DocumentDB 帳戶的 Azure Preview 入口網站螢幕擷取畫面，內含反白顯示的 [主動式] 集線器、[DocumentDB 帳戶] 刀鋒視窗上反白顯示的 [金鑰] 按鈕、[金鑰] 刀鋒視窗上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值][1]
 
 
-##<a id="CreateJSP"></a>步驟 2：建立 JSP 應用程式 ##
+##<a id="CreateJSP"></a>步驟 2：建立 Java JSP 應用程式
 
 建立 JSP 應用程式：
 
 1. 首先，我們將從建立 Java 專案開始。啟動 Eclipse，依序按一下 [**檔案**]、[**新增**] 和 [**動態 Web 專案**]。如果您在可用專案中沒有看到 [**動態 Web 專案**]，請執行下列動作：依序按一下 [**檔案**]、[**新增**]、[**專案**]，展開 [**Web**]，按一下 [**動態 Web 專案**]，然後按 [**下一步**]。 
 
-	![](./media/documentdb-java-application/image10.png)
+	![JSP Java 應用程式開發](./media/documentdb-java-application/image10.png)
 
 2. 在 [**專案名稱**] 方塊中輸入專案名稱，然後在 [**目標執行階段**] 下拉式選單中，選擇性地選取值 (例如 Apache Tomcat v7.0)，然後按一下 [**完成**]。選取目標執行階段可讓您透過 Eclipse 在本機執行專案。
 3. 在 Eclipse 的 [專案總管] 檢視中，展開您的專案。在 **WebContent** 上按一下滑鼠右鍵、按一下 [新增]，然後按一下 [JSP File]。
 4. 在 [**新增 JSP 檔案**] 對話方塊中，將檔案命名為 **index.jsp**。將上層資料夾保持為 **WebContent**，如下圖所示，然後按 [**下一步**]。
 
-	![](./media/documentdb-java-application/image11.png)
+	![建立新的 JSP 檔案 - Java Web 應用程式教學課程](./media/documentdb-java-application/image11.png)
 
 5. 在 [**選取 JSP 範本**] 對話方塊中，基於本教學課程的目的，選取 [**新增 JSP 檔案 (html)**]，然後按一下 [**完成**]。
 
@@ -73,7 +74,7 @@
 8. 儲存 index.jsp 檔案。
 9. 如果您在步驟 2 中已設定目標執行階段，就可以依序按一下 [**專案**] 和 [**執行**]，即可在本機執行您的 JSP 應用程式：
 
-	![](./media/documentdb-java-application/image12.png)
+	![Hello World – Java 應用程式教學課程](./media/documentdb-java-application/image12.png)
 
 ##<a id="InstallSDK"></a>步驟 3：安裝 DocumentDB Java SDK ##
 
@@ -90,7 +91,7 @@
  - 在 [**成品 ID**] 方塊中，輸入 azure documentdb。
  - 在 [**版本**] 方塊中，輸入 1.1.0。
 
-	![](./media/documentdb-java-application/image13.png)
+	![安裝 DocumentDB Java 應用程式 SDK](./media/documentdb-java-application/image13.png)
 
 	或透過文字編輯器，將 GroupId 和 ArtifactId 的相依性 XML 識別碼直接新增至 pom.xml 中：
 
@@ -103,7 +104,7 @@
 5. 按一下 [**確定**]，Maven 便會開始安裝 DocumentDB Java SDK。
 6. 儲存 pom.xml 檔案。
 
-##<a id="UseService"></a>步驟 4：在 Java 應用程式中使用 DocumentDB 服務 ##
+##<a id="UseService"></a>步驟 4：在 Java 應用程式中使用 DocumentDB 服務 
 
 1. 首先，讓我們先定義 TodoItem 物件：
 
@@ -357,7 +358,7 @@
 	    }
 
 
-##<a id="Wire"></a> 步驟 5：組建其餘的應用程式 ##
+##<a id="Wire"></a>步驟 5：將 Java 應用程式開發專案的其他部分串接在一起
 
 既然我們已經完成主要的部分，剩下的就是建置一個快速的使用者介面，然後將其串接到我們的 DAO。
 
@@ -734,7 +735,7 @@
 
 6. 當項目出現時，您可以切換勾選核取方塊，然後按一下 [**更新工作**]，來更新其完成狀態。
 
-##<a id="Deploy"></a>步驟 6：將應用程式部署至 Azure 網站 ##
+##<a id="Deploy"></a>步驟 6：將 Java 應用程式部署至 Azure 網站
 
 「Azure 網站」讓部署「Java 應用程式」變得相當簡單，您只需將應用程式匯出成 WAR 檔案，然後透過原始檔控制 (例如 GIT) 或 FTP 上傳它即可。
 
@@ -749,7 +750,7 @@
 	將 WAR 檔案上傳至 webapps 目錄之後，執行階段環境便會偵測到您已新增它，並自動將其載入。
 4. 若要檢視您已完成的產品，請瀏覽至 http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/ 和開始新增工作！
 
-##<a id="GetProject"></a>從 GitHub 取得的專案##
+##<a id="GetProject"></a>從 GitHub 取得的專案
 
 本教學課程中的所有範例都包含在 GitHub (屬於 [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) 儲存機制的一部分) 上的 [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) 專案中。若要將 todo 專案匯入 Eclipse，請確認您擁有 [[必要條件](#Prerequisites)] 區段中所列出的軟體和資源，然後執行下列動作：
 
@@ -779,4 +780,4 @@
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

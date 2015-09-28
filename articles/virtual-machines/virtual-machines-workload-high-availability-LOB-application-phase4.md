@@ -1,27 +1,29 @@
 <properties 
-	pageTitle="企業營運應用程式第 4 階段 | Microsoft Azure"
-	description="在 Azure 企業營運應用程式第 4 階段中，建立網頁伺服器，並在此載入您的企業營運應用程式。"
+	pageTitle="企業營運應用程式第 4 階段 | Microsoft Azure" 
+	description="在 Azure 企業營運應用程式第 4 階段中，建立網頁伺服器，並在此載入您的企業營運應用程式。" 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # 企業營運應用程式工作負載第 4 階段：設定 Web 伺服器
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型建立資源。
+
 在 Azure 基礎結構服務部署高可用性企業營運應用程式的這個階段中，您將建置 Web 伺服器，並在其中載入企業營運應用程式。
 
-您必須先完成這個階段才能前往[第 5 階段](virtual-machines-workload-high-availability-LOB-application-phase5.md)。如需所有階段的相關資訊，請參閱〈[在 Azure 中部署高可用性的企業營運應用程式](virtual-machines-workload-high-availability-LOB-application-overview.md)〉。
+您必須先完成這個階段才能前往[第 5 階段](virtual-machines-workload-high-availability-LOB-application-phase5.md)。如需所有階段的相關資訊，請參閱[在 Azure 中部署高可用性的企業營運應用程式](virtual-machines-workload-high-availability-LOB-application-overview.md)。
 
 ## 在 Azure 中建立 Web 伺服器虛擬機器
 
@@ -34,7 +36,7 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 	$testIP="<a chosen IP address from the subnet address space, Table S - Item 2 – Subnet address space column>"
 	Test-AzureStaticVNetIP –VNetName $vnet –IPAddress $testIP
 
-若 Test-AzureStaticVNetIP 命令中的 [**IsAvailable**] 欄位顯示為 **True**，您便可使用此 IP 位址。
+若 Test-AzureStaticVNetIP 命令中的 [IsAvailable] 欄位顯示為 **True**，您便可使用此 IP 位址。
 
 使用此命令切換回 PowerShell 的資源管理員模式。
 
@@ -116,6 +118,8 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
+> [AZURE.NOTE]因為這些虛擬機器用於內部網路應用程式，所以未獲指派公用 IP 位址或 DNS 網域名稱標籤，也不會公開到網際網路。不過，這也表示您無法從 Azure Preview 入口網站連線到它們。當您檢視虛擬機器的屬性時，[連線] 按鈕將無法使用。
+
 使用您選擇的遠端桌面用戶端，並建立每個 Web 伺服器虛擬機器的遠端桌面連接。使用其內部網路 DNS 或電腦名稱，以及本機系統管理員帳戶的認證。
 
 接下來，對於每部 Web 伺服器虛擬機器，請在 Windows PowerShell 提示中使用下列命令，將其加入適當的 Active Directory 網域。
@@ -130,15 +134,15 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 
 接下來，為每個 Web 伺服器安裝並設定 IIS。
 
-1. 執行伺服器管理員，然後按一下 [**新增角色及功能**]。
-2. 在 [開始之前] 頁面上，按 [**下一步**]。
-3. 在 [選取安裝類型] 頁面上，按 [**下一步**]。
-4. 在 [選取目的地伺服器] 頁面上，按 [**下一步**]。
-5. 在 [伺服器角色] 頁面上，按一下 [**角色**] 清單中的 [**Web 伺服器 (IIS)**]。
-6. 出現提示時，按一下 [**新增功能**]，然後按 [**下一步**]。
-7. 在 [選取功能] 頁面上，按 [**下一步**]。
-8. 在 [網頁伺服器 (IIS)] 頁面上，按 [**下一步**]。
-9. 在 [選取角色服務] 頁面上，選取或清除測試 LOB 應用程式所需服務的核取方塊，然後按 [**下一步**]。10. 在 [確認安裝選項] 頁面上，按一下 [**安裝**]。
+1. 執行伺服器管理員，然後按一下 [新增角色及功能]。
+2. 在 [開始之前] 頁面中按 [下一步]。
+3. 在 [選取安裝類型] 頁面上，按 [下一步]。
+4. 在 [選取目的地伺服器] 頁面上，按 [下一步]。
+5. 在 [伺服器角色] 頁面上，按一下 [角色] 清單中的 [網頁伺服器 (IIS)]。
+6. 出現提示時，按一下 [新增功能]，然後按 [下一步]。
+7. 在 [選取功能] 頁面上，按 [下一步]。
+8. 在 [網頁伺服器 (IIS)] 頁面上，按 [下一步]。
+9. 在 [選取角色服務] 頁面上，選取或清除 LOB 應用程式所需服務的核取方塊，然後按 [下一步]。10. 在 [確認安裝選項] 頁面上，按一下 [安裝]。
 
 ## 將您的企業營運應用程式部署於 Web 伺服器虛擬機器。
 
@@ -154,7 +158,7 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 
 ## 下一步
 
-若要繼續設定此工作負載，請前往〈[第 5 階段：建立可用性群組並新增應用程式資料庫](virtual-machines-workload-high-availability-LOB-application-phase5.md)〉。
+若要繼續設定此工作負載，請前往[第 5 階段：建立可用性群組並新增應用程式資料庫](virtual-machines-workload-high-availability-LOB-application-phase5.md)。
 
 ## 其他資源
 
@@ -168,4 +172,4 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

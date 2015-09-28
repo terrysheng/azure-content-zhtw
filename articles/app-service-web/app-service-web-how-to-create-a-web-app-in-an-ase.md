@@ -5,20 +5,22 @@
 	documentationCenter=""
 	authors="ccompy"
 	manager="stefsch"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/27/2015"
+	ms.date="09/15/2015"
 	ms.author="ccompy"/>
 
 # 如何在 App Service 環境中建立 Web 應用程式 #
 
 在 App Service 環境 (ASE) 中建立 Web 應用程式幾乎與往常一樣。如果您不熟悉 App Service 環境功能，請閱讀文件：[什麼是 App Service 環境](app-service-app-service-environment-intro.md)。
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 若要在 ASE 中建立 Web 應用程式，您必須先從擁有 ASE 開始。如需有關建立 ASE 的詳細資訊，請閱讀此處的文件：[如何建立 App Service 環境](app-service-web-how-to-create-an-app-service-environment.md)。
 
@@ -91,4 +93,4 @@ App Service 方案是一組受管理的 Web 應用程式。當您選取定價時
 [HowtoConfigureASE]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

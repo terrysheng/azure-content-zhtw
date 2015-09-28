@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="在 HDInsight Linux 叢集上使用色調與 Hadoop | Microsoft Azure"
-	description="了解如何在 HDInsight Linux 上安裝及使用色調和 Hadoop 叢集。"
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="paulettm"
+	pageTitle="在 HDInsight Linux 叢集上使用色調與 Hadoop | Microsoft Azure" 
+	description="了解如何在 HDInsight Linux 上安裝及使用色調和 Hadoop 叢集。" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/21/2015"
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="nitinme"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用色調
@@ -38,7 +38,9 @@
 
 > [AZURE.NOTE]您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
-1. 使用[在 Linux 上佈建 HDInsight 叢集](hdinsight-provision-linux-clusters.md#portal)中的步驟開始佈建叢集，但是不完成佈建。
+1. 使用[在 Linux 上佈建 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md#portal)中的步驟開始佈建叢集，但是不完成佈建。
+
+	> [AZURE.NOTE]若要在 HDInsight 叢集上安裝色調，建議的 HeadNode 大小為至少 A4 (8 核心、14 GB 記憶體)。
 
 2. 在 [選用組態] 刀鋒視窗中，選取 [指令碼動作]，並提供下列資訊：
 
@@ -47,12 +49,12 @@
 	* __HEAD__：勾選此選項
 	* __WORKER__：將此選項保留空白。
 	* __ZOOKEEPER__：將此選項保留空白。
-	* __參數__：指令碼預期 cluster admin password 是參數。在單引號中指定密碼。
+	* __參數__：指令碼預期 **cluster admin password** 是參數。這是您在佈建叢集時指定的密碼。您必須在單引號中指定密碼。
 
 
 3. 在 [指令碼動作] 底部，使用 [選取] 按鈕以儲存組態。最後，使用 [選用組態] 刀鋒視窗底部的 [選取] 按鈕，儲存選用組態資訊。
 
-4. 繼續如[在 Linux 上佈建 HDInsight 叢集](hdinsight-provision-linux-clusters.md#portal)中所述佈建叢集。
+4. 繼續如[在 Linux 上佈建 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md#portal)中所述佈建叢集。
 
 ## 搭配使用色調與 HDInsight 叢集
 
@@ -112,7 +114,7 @@
 
 	這是由已知問題造成的。因應措施是修改 Ambari，讓作用中的資源管理員也在 HEADNODE0 上執行。
 
-5.	當 HDInsight 叢集使用 Azure 儲存體 (使用 `wasb://`) 時，色調了解 WebHDFS。因此，搭配指令碼動作使用的自訂指令碼會安裝 WebWasb，這是針對與 WASB 通訊的 WebHDFS 相容服務。所以，即使色調入口網站說 HDFS 在位置中 (像是將滑鼠移至 [檔案瀏覽器])，它應該解譯為 WASB。
+5.	當 HDInsight 叢集使用 Azure 儲存體 (使用 `wasb://`) 時，色調了解 WebHDFS。因此，搭配指令碼動作使用的自訂指令碼會安裝 WebWasb，這是針對與 WASB 通訊的 WebHDFS 相容服務。所以，即使色調入口網站說 HDFS 在位置上 (像是將滑鼠移至 [檔案瀏覽器])，它應該解譯為 WASB。
 
 
 ## 後續步驟
@@ -131,4 +133,4 @@
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

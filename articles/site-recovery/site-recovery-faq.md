@@ -200,6 +200,15 @@ NetApp、EMC 和 HP 已啟用 Azure Site Recovery SAN 複寫支援 (包含其 SM
 
 您也需要使用更新的 SMI-S 提供者，透過 SCVMM 來探索陣列，該提供者是由您的個別儲存體廠商所提供。
 
+## 在 VMware 與 Azure 之間部署
+
+### 我有一個複製的 VMware VM。我可以將複製的 VM 保護到 Azure 嗎？
+您無法複製受保護的 VM。只要複製的 VM 中沒有已安裝的行動服務，您就可以將複製的 VMware VM 保護到 Azure。您可以在安裝行動服務前複製 VM，以避免重複項目，因為兩部 VM 會使用相同的 GUID 報告而影響複寫。
+
+### 我可以複製處理序伺服器 VM 嗎？
+否，您不應該複製處理序伺服器。當部署處理序伺服器時，它會建立自己的唯一識別碼。如果複製，則兩部處理序伺服器將會有相同的 GUID 而影響現有的複寫。
+
+
 ## 在實體伺服器與 Azure 之間部署
 
 ### 是否可以使用 Azure 來保護我的實體內部部署伺服器？
@@ -247,4 +256,4 @@ NetApp、EMC 和 HP 已啟用 Azure Site Recovery SAN 複寫支援 (包含其 SM
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

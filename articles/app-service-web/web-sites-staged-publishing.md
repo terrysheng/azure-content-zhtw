@@ -4,16 +4,17 @@
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
+	writer="cephalin"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 # 針對 Azure App Service 中的 Web 應用程式設定預備環境
@@ -33,9 +34,10 @@
 
 - 非生產的位置無法使用調整規模。
 
-- 非生產位置不支援連結的資源管理。
+- 非生產位置不支援連結的資源管理。只有在 [Azure 預覽入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中，您才能藉由暫時將非生產位置移到其他 App Service 方案模式，來避免這種對生產位置的潛在影響。請注意，非生產位置必須先再次與生產位置共用相同模式，您才能交換這兩個位置。
 
-	> [AZURE.NOTE]只有在 [Azure 預覽入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中，您才能藉由暫時將非生產位置移到其他 App Service 方案模式，來避免這種對生產位置的潛在影響。請注意，非生產位置必須先再次與生產位置共用相同模式，您才能交換這兩個位置。
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 <a name="Add"></a>
 ## 將部署位置新增至 Web 應用程式 ##
@@ -59,7 +61,7 @@ Web 應用程式必須在 [標準] 或 [高階] 模式中執行，您才能啟�
 
 	![組態來源][MultipleConfigurationSources]
 
-5. 在 [**部署位置**] 刀鋒視窗中，按一下部署位置以開啟該位置的刀鋒視窗，其中含有一組度量和設定，就像任何其他 Web 應用程式一樣。**your-web-app-name-deployment-slot-name** 將出現在刀鋒視窗頂端，提醒您正在檢視該部署位置。
+5. 在 [部署位置] 刀鋒視窗中，按一下部署位置以開啟該位置的刀鋒視窗，其中含有一組度量和設定，就像任何其他 Web 應用程式一樣。**your-web-app-name-deployment-slot-name** 將出現在刀鋒視窗頂端，提醒您正在檢視該部署位置。
 
 	![Deployment Slot Title][StagingTitle]
 
@@ -259,4 +261,4 @@ Azure CLI 提供跨平台命令供您處理 Azure，包括支援管理 Web 應�
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

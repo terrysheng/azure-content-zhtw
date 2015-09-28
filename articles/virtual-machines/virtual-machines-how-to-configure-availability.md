@@ -3,7 +3,7 @@
 	description="使用 Azure 入口網站和 Azure PowerShell 命令，為設定 Azure 中新的或現有虛擬機器的可用性集合提供步驟"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,9 +15,9 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
-#如何設定虛擬機器的可用性集合#
+# 如何設定虛擬機器的可用性集合
 
 可用性設定組可協助您的虛擬機器在停機期間 (例如維護期間) 仍然保持可用狀態。在可用性設定組中置入二或多個類似設定的虛擬機器，將可針對虛擬機器所執行的應用程式或服務，建立維護其可用性所需的備援。如需其運作方式的詳細資訊，請參閱〈[管理虛擬機器的可用性][]〉。
 
@@ -95,9 +95,9 @@
 
 >[AZURE.NOTE]系統可能必須重新啟動虛擬機器，以結束將它加入至可用性集合的作業。
 
-##其他資源
+## 其他資源
 
-[關於 Azure 虛擬機器組態設定]
+[服務管理中針對虛擬機器的文章]
 
 <!-- LINKS -->
 [選項 1：同時建立虛擬機器和可用性設定組]: #createset
@@ -107,6 +107,6 @@
 [管理虛擬機器的可用性]: virtual-machines-manage-availability.md
 [建立執行 Windows Server 的虛擬機器]: virtual-machines-windows-tutorial.md
 [虛擬網路概觀]: virtual-networks-overview.md
-[關於 Azure 虛擬機器組態設定]: http://msdn.microsoft.com/library/azure/dn763935.aspx
+[服務管理中針對虛擬機器的文章]: virtual-machines-service-management-articles.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

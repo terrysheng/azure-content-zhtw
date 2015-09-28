@@ -1,19 +1,19 @@
 <properties
    pageTitle="部署內部部署 StorSimple 裝置 | Microsoft Azure"
-	description="描述部署 StorSimple 裝置和服務的步驟與最佳做法。(適用於 Microsoft Azure StorSimple .3 版本或更早版本。)"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="adinah"
-	editor=""/>
+   description="描述部署 StorSimple 裝置和服務的步驟與最佳做法。(適用於 Microsoft Azure StorSimple .3 版本或更早版本。)"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="" />
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/17/2015"
+   ms.author="alkohli" />
 
 # 部署內部部署 StorSimple 裝置
 
@@ -290,4 +290,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 - 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx)以管理 StorSimple 裝置。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

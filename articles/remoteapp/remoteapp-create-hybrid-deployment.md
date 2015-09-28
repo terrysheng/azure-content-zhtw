@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何建立 Azure RemoteApp 的混合式收藏"
-	description="了解如何建立連接內部網路的 RemoteApp 部署。"
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"
+	pageTitle="如何建立 Azure RemoteApp 的混合式收藏 | Microsoft Azure" 
+	description="了解如何建立連接內部網路的 RemoteApp 部署。" 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
 	editor=""/>
 
 <tags 
-	ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.service="remoteapp" 
+	ms.workload="compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="elizapo"/>
 
 # 如何建立 Azure RemoteApp 的混合式收藏
@@ -29,7 +29,7 @@ RemoteApp 收藏分成兩種：
 本教學課程將逐步引導您完成建立混合式收藏的程序。有八個步驟：
 
 1.	決定您的集合所要使用的[映像](remoteapp-imageoptions.md)。您可以建立自訂映像，或使用您的訂用帳戶隨附的其中一個 Microsoft 映像。
-2. 設定虛擬網路。
+2. 設定虛擬網路。請參閱 [VNET 規劃](remoteapp-planvpn.md)和[大小](remoteapp-vnetsizing.md)資訊。
 2.	建立 RemoteApp 收藏。
 2.	將您的集合加入本機網域。
 3.	將範本映像新增到您的收藏。
@@ -55,7 +55,7 @@ RemoteApp 收藏分成兩種：
 ## 步驟 1：設定虛擬網路
 您可以部署混合式 RemoteApp 收藏，使用現有的 Azure 虛擬網路，或者可以建立新的虛擬網路。虛擬網路可讓您的使用者透過 RemoteApp 遠端資源存取您本機網路上的資料。使用 Azure 虛擬網路可以讓您的收藏直接從網路存取其他 Azure 服務和部署到該虛擬網路的虛擬機器。
 
-請確定您在建立 VNET 之前，先檢閱過 [VNET 大小](remoteapp-vnetsizing.md)。
+請確定您在建立 VNET 之前，先檢閱過 [VNET 規劃](remoteapp-planvpn.md)和 [VNET 大小](remoteapp-vnetsizing.md)。
 
 ### 建立 Azure VNET 並將它加入您的 Active Directory 部署
 
@@ -111,7 +111,7 @@ RemoteApp 範本映像包含您要與使用者共用的程式。您可以建立�
 
 RemoteApp 要求用下列方式與 Azure Active Directory 整合：1) 設定具有 [密碼同步] 選項的 Azure Active Directory 同步作業，或 2) 設定不具 [密碼同步] 選項的 Azure Active Directory 同步作業，但使用同盟至 AD FS 的網域。
 
-簽出 [AD Connect](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx) - 本文會協助您以 4 個步驟設定目錄整合。
+請參閱 [AD Connect](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx) - 本文會協助您以 4 個步驟設定目錄整合。
 
 如需規劃資訊和詳細步驟，請參閱[目錄同步處理藍圖](http://msdn.microsoft.com//library/azure/hh967642.aspx)。
 
@@ -121,7 +121,7 @@ RemoteApp 應用程式是您提供給使用者的應用程式或程式。此程�
 
 您必須先將應用程式發佈至使用者摘要，您的使用者才能存取 RemoteApp 應用程式；使用者摘要是您的使用者可透過遠端桌面用戶端存取的可用應用程式清單。
  
-您可以將多個應用程式發佈至 RemoteApp 收藏。在 RemoteApp 發佈頁面中按一下 [發佈] 以新增應用程式。您可以從範本映像的 [開始] 功能表發佈，或藉由為應用程式指定範本映像的路徑來發佈。如果您選擇從 [開始] 功能表新增，請選擇要發佈的應用程式。如果您選擇提供應用程式的路徑，請提供應用程式的名稱，以及應用程式在範本映像上的安裝路徑。
+您可以將多個應用程式發佈至 RemoteApp 收藏。在 RemoteApp 發佈頁面中按一下 [發佈] 以新增應用程式。您可以從範本映像的 [開始] 功能表發佈，或藉由為 App 指定範本映像的路徑來發佈。如果您選擇從 [開始] 功能表新增，請選擇要加入的程式。如果您選擇提供應用程式的路徑，請提供應用程式的名稱，以及應用程式在範本映像上的安裝路徑。
 
 ## 步驟 7：設定使用者存取 ##
 
@@ -146,4 +146,4 @@ RemoteApp 應用程式是您提供給使用者的應用程式或程式。此程�
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

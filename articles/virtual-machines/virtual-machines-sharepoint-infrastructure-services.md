@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
 	ms.date="09/08/2015"
@@ -19,9 +19,11 @@
 
 # 在 Azure 基礎結構服務中架設的 SharePoint 伺服器陣列
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型或傳統部署模型建立資源。
+
 在 Microsoft Azure 基礎結構服務中，設定第一個或下一個開發/測試或實際執行 SharePoint 伺服器陣列，這樣您就可以利用簡化設定的優點，還能夠快速擴大伺服器陣列，使其增加新的容量或最佳化關鍵功能。
 
-> [AZURE.NOTE]Microsoft 已發行 SharePoint Server 2016 IT 預覽版。若要輕鬆安裝和測試此預覽版，您可以搭配 SharePoint Server 2016 IT 預覽版和其預先安裝的必要元件來使用 Azure 虛擬機器資源庫映像。如需詳細資訊，請參閱[在 Azure 中測試 SharePoint Server 2016 IT 預覽版](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/) (英文)。
+> [AZURE.NOTE]Microsoft 已發行 SharePoint Server 2016 IT 預覽版。若要輕鬆安裝和測試此預覽版，您可以搭配 SharePoint Server 2016 IT 預覽版和其預先安裝的必要元件來使用 Azure 虛擬機器資源庫映像。如需詳細資訊，請參閱[在 Azure 中測試 SharePoint Server 2016 IT Preview](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)。
 
 ## 基本的 SharePoint 開發/測試伺服器陣列
 
@@ -47,7 +49,7 @@
 
 ## 高可用性、內部網路 SharePoint 實際執行伺服器陣列
 
-利用[在 Azure 中以 SQL Server AlwaysOn 可用性群組部署 SharePoint 2013](virtual-machines-workload-intranet-sharepoint-overview.md)，您可以在 Azure 中建置可立即實際執行、高可用性的內部網路 SharePoint Server 2013 伺服器陣列。
+使用[在 Azure 中以 SQL Server AlwaysOn 可用性群組部署 SharePoint 2013](virtual-machines-workload-intranet-sharepoint-overview.md)，您可以在 Azure 中建置可立即實際執行、高可用性的內部網路 SharePoint Server 2013 伺服器陣列。
 
 此組態會使用傳統虛擬機器。
 
@@ -65,4 +67,4 @@
 
 - [在 Microsoft Azure 中部署 Office 365 目錄同步作業 (DirSync)](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

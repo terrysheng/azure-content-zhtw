@@ -1,19 +1,19 @@
 <properties 
    pageTitle="管理您的 StorSimple 備份原則 | Microsoft Azure"
-	description="說明如何使用 StorSimple Manager 服務建立並管理手動備份、備份排程與備份保留。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="說明如何使用 StorSimple Manager 服務建立並管理手動備份、備份排程與備份保留。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor=""/>
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos"/>
 
 # 使用 StorSimple Manager 服務管理備份原則
 
@@ -53,6 +53,10 @@
 
 [AZURE.INCLUDE [storsimple-add-backup-policy](../../includes/storsimple-add-backup-policy.md)]
 
+![提供的影片](./media/storsimple-manage-backup-policies/Video_icon.png)**提供的影片**
+
+若要觀看影片示範如何建立本機或雲端備份原則，請按一下[這裡](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/)。
+
 
 ## 新增或修改排程
 
@@ -82,6 +86,6 @@
 
 ## 後續步驟
 
-了解如何[使用 StorSimple Snapshot Manager 來檢視和管理備份工作](storsimple-snapshot-manager-manage-backup-jobs.md)
+- 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -3,7 +3,7 @@
 	description="了解 Azure 中虛擬機器的磁碟和 VHD 的基本知識。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager,azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/30/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # 有關虛擬機器的磁碟和 VHD
 
@@ -65,4 +65,4 @@ Windows 虛擬機器：
 -  [擷取 Windows 虛擬機器](virtual-machines-capture-image-windows-server.md)
 -  [中斷連結磁碟](storage-windows-detach-disk.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

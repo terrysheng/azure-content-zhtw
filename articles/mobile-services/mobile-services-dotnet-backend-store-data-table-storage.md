@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="建置使用資料表儲存體而非 SQL Database 的服務 | Microsoft Azure" 
+	pageTitle="建置使用資料表儲存體的 .NET 後端行動服務 | Azure 行動服務" 
 	description="了解如何搭配 .NET 後端行動服務使用 Azure 資料表儲存體。" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
-# 建置使用資料表儲存體而非 SQL Database 的 .NET 後端行動服務
+# 建置使用資料表儲存體的 .NET 後端行動服務
 
 本主題說明如何在 .NET 後端行動服務中使用非關聯式資料存放區。在本教學課程中，您將修改 Azure 行動服務快速入門專案，以使用 Azure 資料表儲存體而非預設 Azure SQL Database 資料存放區。
 
@@ -158,4 +158,4 @@
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

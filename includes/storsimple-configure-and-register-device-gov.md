@@ -1,5 +1,4 @@
-
-
+<!--author=SharS last changed: 9/17/15-->
 
 ### 設定和註冊裝置
 
@@ -37,7 +36,7 @@
 
       4. 選擇性設定 Web Proxy 伺服器。
 
-      >[AZURE.IMPORTANT]雖然 Web Proxy 設定是選用的，但請注意，如果您使用 Web Proxy，就只能在此處設定它。如需詳細資訊，請參閱[設定裝置的 Web Proxy](https://msdn.microsoft.com/library/azure/dn764937.aspx)。
+      >[AZURE.IMPORTANT]雖然 Web Proxy 設定是選用的，但請注意，如果您使用 Web Proxy，就只能在此處設定它。如需詳細資訊，請參閱[設定裝置的 Web Proxy](storsimple-configure-web-proxy.md)。
 
 6. 按 Ctrl + C 來結束安裝精靈。
  
@@ -138,4 +137,4 @@
      
         
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

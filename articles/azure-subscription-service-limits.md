@@ -42,9 +42,11 @@
 - [Azure RemoteApp](#azure-remoteapp-limits)
 - [備份](#backup-limits)
 - [批次](#batch-limits)
+- [BizTalk 服務](#biztalk-services-limits)
 - [CDN](#cdn-limits)
 - [雲端服務](#cloud-services-limits)
 - [Data Factory](#data-factory-limits)
+- [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
 - [金鑰保存庫](#key-vault-limits)
 - [媒體服務](#media-services-limits)
@@ -64,6 +66,7 @@
 - [StorSimple 系統](#storsimple-system-limits)
 - [串流分析](#stream-analytics-limits)
 - [訂用帳戶](#subscription-limits)
+- [流量管理員](#traffic-manager-limits)
 - [虛擬機器](#virtual-machines-limits)
 
 
@@ -143,6 +146,11 @@
 ### Batch 限制
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
+
+###BizTalk 服務限制
+下表顯示 Azure Biztalk 服務的限制。
+
+[AZURE.INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 
 ### DocumentDB 限制
@@ -238,7 +246,7 @@
 
 ### SQL Database 限制
 
-SQL Database 限制，請參閱 [SQL Database 資源限制](sql-database/sql-database-resource-limits.md)。
+如需 SQL Database 的限制，請參閱 [SQL Database 資源限制](sql-database/sql-database-resource-limits.md)。
 
 ## 另請參閱
 
@@ -246,4 +254,4 @@ SQL Database 限制，請參閱 [SQL Database 資源限制](sql-database/sql-dat
 
 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

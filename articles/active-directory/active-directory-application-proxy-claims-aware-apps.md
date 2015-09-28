@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="stevenpo"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 
@@ -42,15 +42,11 @@
 1. 開啟 [ADFS 管理]。
 2. 移至 [信賴憑證者信任]，並以滑鼠右鍵按一下您要使用應用程式 Proxy 發佈的應用程式，然後選擇 [屬性]。
 
-![信賴憑證者信任 - 以滑鼠右鍵按一下應用程式名稱 - 螢幕擷取畫面][1]
+![信賴憑證者信任 - 以滑鼠右鍵按一下應用程式名稱 - 螢幕擷取畫面](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)
 
 3. 在 [端點] 索引標籤的 [端點類型] 下，選取 [WS-同盟]。
 4. 在 [受信任的 URL] 下，輸入您在應用程式 Proxy 的 [外部 URL] 下所輸入的 URL，然後按一下 [確定]。
 
-![新增端點 - 設定 [信任的 URL] 值 - 螢幕擷取畫面][2]
+![新增端點 - 設定 [信任的 URL] 值 - 螢幕擷取畫面](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)
 
-<!--image references-->
-[1]: ./media/active-directory-application-proxy-claims-aware-apps/AppDropdown.jpg
-[2]: ./media/active-directory-application-proxy-claims-aware-apps/AddEndpoint.jpg
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

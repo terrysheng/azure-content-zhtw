@@ -1,24 +1,27 @@
 <properties 
-	pageTitle="企業營運應用程式第 1 階段 | Microsoft Azure"
-	description="在 Azure 企業營運應用程式第 1 階段中，建立虛擬網路和其他 Azure 基礎結構項目。"
+	pageTitle="企業營運應用程式第 1 階段 | Microsoft Azure" 
+	description="在 Azure 企業營運應用程式第 1 階段中，建立虛擬網路和其他 Azure 基礎結構項目。" 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
-	editor=""/>
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # 企業營運應用程式工作負載第 1 階段：設定 Azure
-
-這個階段會在 Azure 基礎結構服務中，部署內部網路專屬、高可用性的企業營運應用程式，而您將在這個階段中建置 Azure 網路功能與儲存體基礎結構。您必須先完成這個階段才能前往[第 2 階段](virtual-machines-workload-high-availability-LOB-application-phase2.md)。如需所有階段的相關資訊，請參閱〈[在 Azure 中部署高可用性的企業營運應用程式](virtual-machines-workload-high-availability-LOB-application-overview.md)〉。
+ 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型建立資源。
+ 
+這個階段會在 Azure 基礎結構服務中，部署內部網路專屬、高可用性的企業營運應用程式，而您將在這個階段中建置 Azure 網路功能與儲存體基礎結構。您必須先完成這個階段才能前往[第 2 階段](virtual-machines-workload-high-availability-LOB-application-phase2.md)。如需所有階段的相關資訊，請參閱[在 Azure 中部署高可用性的企業營運應用程式](virtual-machines-workload-high-availability-LOB-application-overview.md)。
 
 您必須使用下列基本網路元件來佈建 Azure：
 
@@ -87,7 +90,7 @@
 
 	Get-Module azure | format-table version
 
-如果您需要安裝最新版的 Azure PowerShell，請使用 **[控制台] -> [程式和功能]** 來移除目前的版本。然後，按照〈[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)〉中的操作方法，在本機電腦安裝 Azure PowerShell。開啟 Azure PowerShell 提示字元。
+如果您需要安裝最新版的 Azure PowerShell，請使用 [控制台] -> [程式和功能] 來移除目前的版本。然後，按照[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md) 中的指示，在本機電腦安裝 Azure PowerShell。開啟 Azure PowerShell 提示字元。
 
 首先，利用以下命令選取正確的 Azure 訂用帳戶。以正確的名稱取代括號中的所有內容，包括 < and > 字元。
 
@@ -196,7 +199,7 @@
 	$vnetConnectionKey="<Table V – Item 8 – Value column>"
 	$vnetConnection=New-AzureVirtualNetworkGatewayConnection -Name $vnetConnectionName -ResourceGroupName $rgName -Location $locName -ConnectionType IPsec -SharedKey $vnetConnectionKey -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localGateway
 
-接下來，設定內部部署 VPN 裝置，以連接到 Azure VPN 閘道器。如需詳細資訊，請參閱〈[設定 VPN 裝置](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device)〉。
+接下來，設定內部部署 VPN 裝置，以連接到 Azure VPN 閘道器。如需詳細資訊，請參閱[設定 VPN 裝置](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device)。
 
 若要設定內部部署 VPN 裝置，您將需要下列項目：
 
@@ -248,4 +251,4 @@
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

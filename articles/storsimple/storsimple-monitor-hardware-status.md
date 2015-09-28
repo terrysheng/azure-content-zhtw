@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 硬體元件和狀態 | Microsoft Azure"
-	description="了解如何透過 StorSimple Manager 服務監視 StorSimple 裝置的硬體元件。"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="了解如何透過 StorSimple Manager 服務監視 StorSimple 裝置的硬體元件。"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # 使用 StorSimple Manager 服務監視硬體元件和狀態
 
@@ -125,10 +125,12 @@
 |裝置控制器的連接|I/O|實體|Controller|否|指出 EBOD I/O 模組和裝置控制器之間的連接狀態。|
 
 ## 後續步驟
-如果您需要疑難排解降級或失敗狀態的裝置元件，請參閱 [StorSimple 監視指示器](storsimple-monitoring-indicators.md)。
+- 若要深入了解如何使用 StorSimple Manager，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
+ 
+- 如果您需要疑難排解降級或失敗狀態的裝置元件，請參閱 [StorSimple 監視指示器](storsimple-monitoring-indicators.md)。
 
-若要更換故障的硬體元件，請參閱[StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
+- 若要更換故障的硬體元件，請參閱 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
-如果持續發生裝置問題，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
+- 如果持續發生裝置問題，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

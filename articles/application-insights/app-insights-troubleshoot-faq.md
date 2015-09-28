@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Application Insights 的疑難排解與問題"
-	description="Visual Studio 的 Application Insights 哪個部分不清楚或無法運作嗎？ 試試這裡。"
-	services="application-insights"
-	documentationCenter=".net"
-	authors="alancameronwills"
+	pageTitle="Application Insights 的疑難排解與問題" 
+	description="Visual Studio 的 Application Insights 哪個部分不清楚或無法運作嗎？ 試試這裡。" 
+	services="application-insights" 
+    documentationCenter=".net"
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="application-insights" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
  
 # 疑難排解與問題：ASP.NET 的 Application Insights
@@ -136,6 +136,9 @@
 + 按一下 [重新整理] 按鈕。刀鋒視窗會定期自行重新整理，但您也可以手動重新整理。時間範圍越大，重新整理的間隔就越長。
 + 在 Microsoft Azure 開始面板中，查看服務狀態對應。如果看到一些警示指示，請等待它們恢復 [正常]，然後關閉再重新開啟 Application Insights 應用程式刀鋒視窗。
 + 也請查閱[我們的狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)。
+
+#### 我發佈 App 到我的伺服器之後卻沒有資料
+
 + 在防火牆中，您可能必須開啟 TCP 連接埠 80 和 443，以允許連出流量送往 dc.services.visualstudio.com 和 f5.services.visualstudio.com。
 + 如果您必須使用 Proxy 在貴公司網路之外傳送內容，請設定 Web.config 中的 [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx)
 + Windows Server 2008：確定您已安裝以下更新：[KB2468871](https://support.microsoft.com/kb/2468871)、[KB2533523](https://support.microsoft.com/kb/2533523)、[KB2600217](https://support.microsoft.com/kb/2600217)。
@@ -148,7 +151,7 @@
 
 #### <a name="q08"></a>我可以使用 Application Insights 來監視內部網路 Web 伺服器嗎？
 
-是，如果您的伺服器可以傳送資料至公用網際網路，您可以監視健全狀況和使用量。
+是，如果您的伺服器可以傳送資料至公用網際網路，您可以監視健全狀況和使用量。請開啟防火牆的 TCP 連接埠 80 和 443，以允許連出流量送往 dc.services.visualstudio.com 和 f5.services.visualstudio.com。
 
 但如果您想對服務執行 Web 測試，則必須在連接埠 80 上從公用網際網路存取。
 
@@ -159,13 +162,15 @@
 #### 我曾經看到資料，但是已停止
 
 * 檢查[狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)。
-* 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。若有達到配額，您可以升級您的方案，或付費取得額外容量。請參閱[定價機制](http://azure.microsoft.com/pricing/details/application-insights/)。
+* 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。若有達到配額，您可以升級您的方案，或付費取得額外容量。請參閱[定價配置](http://azure.microsoft.com/pricing/details/application-insights/)。
 
+## 狀態監視器無法運作
 
+請參閱[疑難排解狀態監視器](app-insights-monitor-performance-live-website-now.md#troubleshooting)。防火牆連接埠是最常見的問題。
 
 ## 入口網站
 
-#### <a name="q05"></a>我正在查看 Microsoft Azure Preview 開始面板。我如何在 Application Insights 中尋找我的資料？
+#### <a name="q05"></a>我正在查看 Microsoft Azure 預覽開始面板。我如何在 Application Insights 中尋找我的資料？
 
 下列其中一種方法：
 
@@ -179,7 +184,7 @@
 在 [方案總管] 中，以滑鼠右鍵按一下 `ApplicationInsights.config`，然後選擇 [**更新 Application Insights**]。您可以將資料傳送至 Azure 中的現有資源或新資源。更新精靈會變更 ApplicationInsights.config 中的檢測機碼，這決定伺服器 SDK 將您的資料送往何處。除非您取消選取 [全部更新]，否則它也會變更機碼出現在您網頁中的位置。
 
 
-#### <a name="q06"></a>在 Microsoft Azure Preview 主畫面上，該對應會顯示我的應用程式狀態嗎？
+#### <a name="q06"></a>在 Microsoft Azure 預覽主畫面上，該對應會顯示我的應用程式狀態嗎？
 
 不會！ 它是顯示 Azure 服務的狀態。若要查看 Web 測試結果，請選擇 [瀏覽] > [Application Insights] > (您的應用程式)，然後查看 Web 測試結果。
 
@@ -228,6 +233,10 @@
 
 您可以[撰寫 PowerShell 指令碼](app-insights-powershell-script-create-resource.md)來建立 Application Insights 資源。
 
+## 更多解答
+
+* [Application Insights 論壇](https://social.msdn.microsoft.com/Forums/vstudio/zh-TW/home?forum=ApplicationInsights)
+
 
 <!--Link references-->
 
@@ -239,4 +248,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="DocumentDB 程式設計：預存程序、觸發程序和 UDF | Microsoft Azure" 
-	description="了解如何使用 Microsoft Azure DocumentDB 來撰寫 JavaScript 原生預存程序、觸發程序和使用者定義函數 (UDF)。" 
+	pageTitle="DocumentDB 程式設計：預存程序、資料庫觸發程序和 UDF | Microsoft Azure" 
+	description="了解如何使用 DocumentDB 來撰寫 JavaScript 預存程序、資料庫觸發程序和使用者定義函數 (UDF)。取得資料庫程式設計秘訣等等。" 
+	keywords="Database triggers, stored procedure, stored procedure, database program, sproc, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="aliuy" 
@@ -16,11 +17,11 @@
 	ms.date="08/18/2015" 
 	ms.author="andrl"/>
 
-# DocumentDB 伺服器端程式設計：預存程序、觸發程序和 UDF
+# DocumentDB 伺服器端程式設計：預存程序、資料庫觸發程序和 UDF
 
-了解 DocumentDB 的語言如何整合，JavaScript 的交易式執行可讓開發人員在 JavaScript 中原生撰寫 [**預存程序**]、[**觸發程序**] 和 [**使用者定義函數 (UDF)**]。這一特點可讓您得以撰寫可以直接在資料庫儲存體資料分割上傳送和執行的應用程式邏輯。
+了解 DocumentDB 的語言如何整合，JavaScript 的交易式執行可讓開發人員在 JavaScript 中原生撰寫 [**預存程序**]、[**觸發程序**] 和 [**使用者定義函數 (UDF)**]。這一特點可讓您得以撰寫能直接在資料庫儲存體資料分割上傳送和執行的資料庫程式應用程式邏輯。
 
-我們建議使用者從觀看下列影片開始入門，Andrew Liu 在其中提供了 DocumentDB 的伺服器端程式設計模型的簡介。
+我們建議使用者從觀看下列影片開始入門，Andrew Liu 在其中提供了 DocumentDB 的伺服器端資料庫程式設計模型的簡介。
 
 > [AZURE.VIDEO azure-demo-a-quick-intro-to-azure-documentdbs-server-side-javascript]
 
@@ -33,7 +34,7 @@
 - 如何註冊及使用 HTTP 以 RESTful 方式執行預存程序、觸發程序或 UDF？
 - 哪些 DocumentDB SDK 可用來建立及執行預存程序、觸發程序和 UDF？
 
-## 簡介
+## 預存程序和 UDF 程式設計簡介
 
 這種「*以 JavaScript 做為新式 T-SQL*」的方式，可讓應用程式開發人員不必傷腦筋處理複雜的類型系統不符問題和物件關聯式對應技術。此外，它本身還有一些可加以利用以便建置豐富應用程式的優勢：
 
@@ -49,7 +50,7 @@
 	-	它會在未經處理的資料上方新增抽象層，讓資料架構設計人員發展其應用程式，而不會動到資料。這在資料無結構描述時特別有用，因為暫時的假設是，如果它們需要直接處理資料，則可能需要編譯成應用程式。  
 	-	這個抽象層讓企業得以透過指令碼簡化存取來確保資料安全。  
 
-[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 以及許多平台 (包括 .NET、Node.js 和 JavaScript) 中的[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 都支援建立和執行觸發程序、預存程序和自訂查詢運算子。<b>本教學課程使用 [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)</b> 說明預存程序、觸發程序和 UDF 的語法和用法。
+[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 以及許多平台 (包括 .NET、Node.js 和 JavaScript) 中的[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 都支援建立和執行資料庫觸發程序、預存程序和自訂查詢運算子。**本教學課程使用 [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)** 說明預存程序、觸發程序和 UDF 的語法和用法。
 
 ## 預存程序
 
@@ -147,7 +148,7 @@
 
 上面描述的範例已示範如何使用預存程序。本教學課程稍後會討論觸發程序和使用者定義函數 (UDF)。
 
-## 交易
+## 資料庫程式交易
 一般資料庫中的交易可以定義為以單一工作邏輯單位執行的一連串作業。每個交易都提供「ACID 保證」。ACID 是著名的縮寫，代表四個屬性：不可部分完成的作業 (Atomicity)、一致性 (Consistency)、隔離 (Isolation) 和持久性 (Durability)。
 
 簡言之，不可部分完成的作業保證會將交易內完成的所有工作視為單一單位，所有工作不是全部認可就是一個都不認可。「一致性」確保資料在交易中一律處於良好內部狀態。「隔離」保證兩個交易不會彼此干擾；一般而言，大部分的商業系統都會提供多個可以根據應用程式的需要來使用的隔離等級。「持久性」確保資料庫中所認可的任何變更一律會存在。
@@ -234,7 +235,7 @@
 
 JavaScript 函數能使用的資源也受到限制。DocumentDB 會根據所佈建的資料庫帳戶大小預留每個集合的輸送量。輸送量是以 CPU、記憶體和 IO 使用量的標準單位 (稱為要求單位或 RU) 來表示。JavaScript 函數有可能會在短時間內使用大量 RU，如果達到集合限制，速率便會受到限制。需要使用大量資源的預存程序也可能會遭到隔離，以確保基本資料庫作業的可用性。
 
-### 範例：大量匯入資料
+### 範例：將大量資料匯入資料庫程式
 以下的預存程序範例，其撰寫目的是要將文件大量匯入集合之中。請注意預存程序如何透過檢查 createDocument 所傳回的布林值處理界限執行，然後使用每次叫用預存程序時所插入的文件計數來追蹤和繼續各批次的進度。
 
 	function bulkImport(docs) {
@@ -286,8 +287,8 @@ JavaScript 函數能使用的資源也受到限制。DocumentDB 會根據所佈�
 	    }
 	}
 
-## <a id="trigger"></a>觸發程序
-### 預先觸發程序
+## <a id="trigger"></a> 資料庫觸發程序
+### 資料庫預先觸發程序
 DocumentDB 提供作業在文件上執行或觸發的觸發程序。例如，您可以在建立文件時指定預先觸發程序；此預先觸發程序會在建立文件之前執行。下列範例說明如何使用預先觸發程序來驗證所建立文件的屬性：
 
 	var validateDocumentContentsTrigger = {
@@ -356,7 +357,7 @@ DocumentDB 提供作業在文件上執行或觸發的觸發程序。例如，您
 	
 	// Fails, can’t use a create trigger in a replace operation
 
-### 後續觸發程序
+### 資料庫後續觸發程序
 後續觸發程序與預先觸發程序類以，都與文件上的作業相關聯，且未採用任何輸入參數。它們是在作業完成「之後」執行，而且可以存取傳送給用戶端的回應訊息。
 
 下列範例說明起作用的後續觸發程序：
@@ -915,4 +916,4 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 -	[服務導向資料庫架構](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[在 Microsoft SQL Server 中託管 .NET 執行階段](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!-------HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

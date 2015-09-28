@@ -1,5 +1,5 @@
 <properties
-	pageTitle="傳送推播通知給已驗證的使用者"
+	pageTitle="傳送推播通知給 iOS 中的已驗證使用者 (JavaScript 後端)"
 	description="了解如何將推播通知傳送給特定使用者"
 	services="mobile-services,notification-hubs"
 	documentationCenter="ios"
@@ -73,4 +73,4 @@ function insert(item, user, request) {
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

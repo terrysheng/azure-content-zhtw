@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="設定從 Visual Studio 發佈雲端服務所需的服務"
-	description="了解設定雲端和儲存體帳戶服務以及設定 Azure 應用程式的程序"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="了解設定雲端和儲存體帳戶服務以及設定 Azure 應用程式的程序"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="09/08/2015"
+   ms.author="kempb" />
 
 # 設定從 Visual Studio 發佈雲端服務所需的服務
 
-##概觀
+## 概觀
 
 在您可以發佈雲端服務專案之前，您必須設定下列服務：
 
@@ -80,7 +80,7 @@
     - 區域或同質群組 (例如美國西部或東亞)。
     - 您要用於儲存體帳戶的複寫類型，例如異地備援。
 
-1. 完成之後，請選擇 [建立]。新的儲存體帳戶會出現在 [伺服器總管] 的 [儲存體] 清單中。
+1. 當您完成時，選擇 [建立]。新的儲存體帳戶會出現在 [伺服器總管] 中的**儲存體**清單中。
 
 ### 使用 Azure 管理入口網站建立儲存體帳戶
 
@@ -143,7 +143,7 @@
     1. 您必須選取下列選項之一來決定服務存取儲存體帳戶的方式：
         - **使用 HTTP**。這是標準選項。例如，`http://<account name>.blob.core.windows.net`。
         - **使用 HTTPS** 確保安全的連接。例如，`https://<accountname>.blob.core.windows.net`。
-        - 為三項服務中的每一項**指定自訂端點**。然後您可以將這些端點輸入特定服務的欄位。 
+        - 為三項服務中的每一項**指定自訂端點**。然後您可以將這些端點輸入特定服務的欄位。
 
         >[AZURE.NOTE]如果您建立自訂端點，您可以建立更複雜的連接字串。當您使用這個字串格式，您可以指定儲存體服務端點，其包含您向 Blob 服務註冊儲存體帳戶的自訂網域名稱。您也可以透過共用的存取簽章，只在單一容器中授與 blob 資源的存取權。如需有關如何建立自訂端點的詳細資訊，請參閱[設定 Azure 儲存體連接字串](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/)。
 
@@ -153,4 +153,4 @@
 
 [從 Visual Studio 發佈至 Azure 雲端服務](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

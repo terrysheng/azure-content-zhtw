@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="使用伺服器總管瀏覽和管理儲存體資源"
-	description="使用伺服器總管瀏覽和管理儲存體資源"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="使用伺服器總管瀏覽和管理儲存體資源"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="storage"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # 使用伺服器總管瀏覽和管理儲存體資源
 
@@ -42,19 +42,21 @@
 
 Blob 節點會顯示所選之儲存體帳戶的容器清單。Blob 容器包含 blob 檔案，您可以將這些 blob 組織成資料夾和子資料夾。如需詳細資訊，請參閱[如何從 .NET 使用 Blob 儲存體](..storage/storage-dotnet-how-to-use-blobs/) (英文)。
 
-###建立 Blob 容器
+### 建立 Blob 容器
 
 1. 開啟 **Blob** 節點的捷徑功能表，然後選擇 [建立 Blob 容器]。
 
-1. 在 [建立 Blob 容器] 對話方塊中輸入新容器的名稱，然後選擇 [確定]。![加入新的 blob 容器](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
+1. 在 [建立 Blob 容器] 對話方塊中輸入新容器的名稱，然後選擇 [確定]。
+
+    ![加入新的 blob 容器](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
 
     >[AZURE.NOTE]Blob 容器名稱必須以數字 (0-9) 或小寫字母 (a-z) 開頭。
 
-###刪除 Blob 容器
+### 刪除 Blob 容器
 
 - 開啟您想要移除之 Blob 容器的捷徑功能表，然後選擇 [刪除]。
 
-###顯示包含在 blob 容器中的項目清單
+### 顯示包含在 blob 容器中的項目清單
 
 - 開啟清單中 blob 容器名稱的捷徑功能表，並且選擇 [檢視 Blob 容器]。
 
@@ -64,7 +66,6 @@ Blob 節點會顯示所選之儲存體帳戶的容器清單。Blob 容器包含 
 
     您可以使用 blob 容器檢視右上角的按鈕在 blob 上執行下列作業：
 
-
     - 輸入篩選值並加以套用
 
     - 重新整理容器中的 blob 清單
@@ -73,15 +74,13 @@ Blob 節點會顯示所選之儲存體帳戶的容器清單。Blob 容器包含 
 
     - 刪除 Blob
 
-
-        >[AZURE.NOTE]從 blob 容器中刪除檔案並不會刪除基礎的檔案。只會將它從 blob 容器移除。
-
+      >[AZURE.NOTE]從 blob 容器中刪除檔案並不會刪除基礎的檔案。只會將它從 blob 容器移除。
 
     - 開啟 blob
 
     - 將 blob 儲存到本機電腦
 
-###在 blob 容器中建立資料夾或子資料夾 
+### 在 blob 容器中建立資料夾或子資料夾
 
 1. 在 [伺服器總管] 中選擇 blob 容器。在 [容器] 視窗中，選擇 [上傳 Blob] 按鈕。
 
@@ -93,11 +92,11 @@ Blob 節點會顯示所選之儲存體帳戶的容器清單。Blob 容器包含 
 
     ![加入至 blob 容器的資料夾](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766038.png)
 
-1. 按兩下資料夾或按下 ENTER 以查看資料夾的內容。當您位於容器的資料夾中，您可以藉由選擇 開啟上層目錄 (向上箭頭) 按鈕來瀏覽回容器的根。
+1. 按兩下資料夾或按下 ENTER 以查看資料夾的內容。當您位於容器的資料夾中，您可以藉由選擇 [開啟上層目錄] (向上箭頭) 按鈕來瀏覽回容器的根。
 
-###刪除容器資料夾
+### 刪除容器資料夾
 
- - 刪除資料夾中的所有檔案 
+ - 刪除資料夾中的所有檔案
 
     >[AZURE.NOTE]因為 blob 容器中的資料夾是虛擬資料夾，所以您無法建立空的資料夾，也無法刪除資料夾並刪除其檔案內容。您必須刪除資料夾的完整內容才能刪除該資料夾。
 
@@ -162,7 +161,7 @@ Blob 節點會顯示所選之儲存體帳戶的容器清單。Blob 容器包含 
 
 ![檢視佇列](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC651470.png)
 
-如需儲存體服務佇列的詳細資訊，請參閱[作法：使用佇列儲存體服務](http://go.microsoft.com/fwlink/?LinkID=264702)。如需儲存體服務佇列之 web 服務的詳細資訊，請參閱[佇列服務概念](http://go.microsoft.com/fwlink/?LinkId=264788)。如需有關如何使用 Visual Studio 將訊息傳送至儲存體服務佇列的資訊，請參閱[傳送訊息至儲存體服務佇列](https://msdn.microsoft.com/library/azure/jj649344.aspx)。
+如需儲存體服務佇列的詳細資訊，請參閱[作法：使用佇列儲存體服務](http://go.microsoft.com/fwlink/?LinkID=264702)。如需儲存體服務佇列之 Web 服務的詳細資訊，請參閱[佇列服務概念](http://go.microsoft.com/fwlink/?LinkId=264788)。如需有關如何使用 Visual Studio 將訊息傳送至儲存體服務佇列的資訊，請參閱[傳送訊息至儲存體服務佇列](https://msdn.microsoft.com/library/azure/jj649344.aspx)。
 
 >[AZURE.NOTE]儲存體服務佇列與服務匯流排佇列不同。如需服務匯流排佇列的詳細資訊，請參閱服務匯流排佇列、主題和訂用帳戶。
 
@@ -184,11 +183,9 @@ Azure 資料表儲存體服務可儲存大量的結構化資料。此服務是�
 
 1. 開啟資料表的捷徑功能表，然後選擇 [檢視資料表]。
 
-    
     ![方案總管中的 Azure 資料表](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744165.png)
 
 資料表會根據實體 (顯示於資料列) 和屬性 (顯示於資料行) 加以組織。例如，下圖顯示**資料表設計工具**中所列的實體：
-
 
 ### 編輯資料表資料
 
@@ -205,7 +202,7 @@ Azure 資料表儲存體服務可儲存大量的結構化資料。此服務是�
 
     - 您無法建立名為 Timestamp 的屬性，Azure 儲存體服務會使用該名稱的屬性。
 
-    - 如果您輸入日期時間值，就必須遵循適合電腦之地區和語言設定的格式 (例如，MM/DD/YYYY HH:MM:SS [AM|PM] 適用於美式英文)。
+    - 如果您輸入日期時間值，您必須遵循適合您的電腦之區域和語言設定的格式 (例如，MM/DD/YYYY HH:MM:SS [AM|PM] 適用於美國英文)。
 
 ### 加入實體
 
@@ -253,7 +250,7 @@ Azure 資料表儲存體服務可儲存大量的結構化資料。此服務是�
 
 ### 重新整理資料表資料
 
-- 選取**儲存體**下的**資料表**節點，並選擇 [重新整理] 按鈕。 
+- 選取**儲存體**下的**資料表**節點，並選擇 [重新整理] 按鈕。
 
 - 若要重新整理**資料表設計工具**中所顯示的實體清單，請選擇**資料表設計工具**上的 [執行] 按鈕。
 
@@ -303,7 +300,7 @@ Azure 資料表儲存體服務可儲存大量的結構化資料。此服務是�
 
     - 要用於連接至儲存體帳戶的通訊協定，例如 HTTP、HTTPS 或自訂端點。如需有關自訂端點的詳細資訊，請參閱[如何設定連接字串](https://msdn.microsoft.com/library/azure/ee758697.aspx)。
 
-### 檢視次要端點 
+### 檢視次要端點
 
 - 如果您建立的儲存體帳戶使用**讀取權限異地備援**複寫選項，您可以檢視其次要端點。開啟帳戶名稱的捷徑功能表，然後選擇 [屬性]。
 
@@ -313,10 +310,10 @@ Azure 資料表儲存體服務可儲存大量的結構化資料。此服務是�
 
 - 在 [伺服器總管] 中，開啟帳戶名稱的捷徑功能表，然後選擇 [刪除]。如果您刪除儲存體帳戶，也會移除該帳戶的所有已儲存金鑰資訊。
 
->[AZURE.NOTE]如果您從 [伺服器總管] 刪除儲存體帳戶，它並不會影響您的儲存體帳戶或其包含的任何資料，它只會從 [伺服器總管] 移除參考。若要永久刪除儲存體帳戶，請使用 Azure 管理入口網站。
+    >[AZURE.NOTE]如果您從 [伺服器總管] 刪除儲存體帳戶，它並不會影響您的儲存體帳戶或其包含的任何資料，它只會從 [伺服器總管] 移除參考。若要永久刪除儲存體帳戶，請使用 Azure 管理入口網站。
 
-## 另請參閱
+## 後續步驟
 
-[存取 Azure 儲存體服務](https://msdn.microsoft.com/library/azure/ee405490.aspx)
+若要了解如何使用 Azure 儲存體服務的詳細資訊，請參閱[存取 Azure 儲存體服務](https://msdn.microsoft.com/library/azure/ee405490.aspx)。
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

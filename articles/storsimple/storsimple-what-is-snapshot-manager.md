@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # 什麼是 StorSimple Snapshot Manager？
@@ -144,8 +144,8 @@ VSS 的 StorSimple Snapshot Manager 實作會使用 SQL Server 和一般 NTFS �
 
 ## 後續步驟
 
-[深入了解 StorSimple Snapshot Manager 工作和工作流程](storsimple-snapshot-manager-admin.md)
+- 深入了解如何[使用 StorSimple Snapshot Manager 來管理您的 StorSimple 解決方案](storsimple-snapshot-manager-admin.md)。
 
-[下載 StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
+- 下載 [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220)。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

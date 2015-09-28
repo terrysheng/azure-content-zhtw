@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 虛擬裝置 Update 1 | Microsoft Azure"
-	description="了解如何建立、部署和管理 Microsoft Azure 虛擬網路中的 StorSimple 虛擬裝置。(適用於 StorSimple Update 1)。"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="了解如何建立、部署和管理 Microsoft Azure 虛擬網路中的 StorSimple 虛擬裝置。(適用於 StorSimple Update 1)。"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/16/2015"
+   ms.author="alkohli" />
 
 # 部署和管理 Azure 中的 StorSimple 虛擬裝置
 
@@ -122,27 +122,28 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 
 2. 移至 [裝置] 頁面。按一下 [裝置] 頁面底部的 [建立虛擬裝置]。
 
-3. 在 [建立虛擬裝置] 對話方塊中，指定下列資訊：
+3. 在 [建立虛擬裝置] 對話方塊中，指定下列詳細資料。
+
+     ![StorSimple 建立虛擬裝置](./media/storsimple-virtual-device-u1/StorSimple_CreateVirtualDevice1.png)
 
 	1. **名稱** - 虛擬裝置的唯一名稱。
 
-
 	2. **版本** - 選擇虛擬裝置的版本。如果您利用此服務註冊 Update 1 (或以上版本) 實體裝置，就不會有此選項。只有在您利用此服務註冊更新前 1 和 Update 1 的組合時，此欄位才會出現。給定版本的虛擬裝置會判斷您可以容錯移轉或從其複製的實體裝置，請務必建立適當版本的虛擬裝置。選取：
 
-	   - 如果您利用 GA 版本或 Update 0.1 到 0.3 從實體裝置容錯移轉或 DR，則為 Update 0.3 版。 
-	   - 如果您利用 Update 1 (或以上版本) 從實體裝置容錯移轉或複製，則為 Update 1 版。 
-
+	   - 如果您使用 GA 版本或 Update 0.1 到 0.3 從實體裝置容錯移轉或災害復原，則為 Update 0.3 版。 
+	   - 如果您使用 Update 1 (或以上版本) 從實體裝置容錯移轉或複製，則為 Update 1 版。 
  
 	3. **虛擬網路** - 要與此虛擬裝置一起使用的虛擬網路名稱。
 
 	4. **子網路** - 虛擬網路上與虛擬裝置一起使用的子網路。
 
 	5. **虛擬裝置建立的儲存體帳戶** - 在佈建期間用來存放虛擬裝置映像的儲存體帳戶。此儲存體帳戶應該與虛擬裝置和虛擬網路位於相同的區域中。不應讓實體裝置或虛擬裝置用它來儲存資料。根據預設，將基於此用途建立新的儲存體帳戶。不過，如果您知道已經擁有適合此用途的儲存體帳戶，則可從清單中選取該帳戶。
-	
 
     >[AZURE.NOTE]虛擬裝置只能使用 Azure 儲存體帳戶。StorSimple 虛擬裝置不支援其他雲端服務提供者，例如 Amazon、HP 和 OpenStack (皆受實體裝置支援)。
 	
-4. 按一下勾號，表示您了解虛擬裝置上儲存的資料將裝載於 Microsoft 資料中心。若您只使用實體裝置，加密金鑰就會與裝置放在一起。因此，Microsoft 無法將它解密。當您使用虛擬裝置時，加密金鑰和解密金鑰都會儲存於 Microsoft Azure 中。如需詳細資訊，請參閱[使用虛擬裝置的安全性考量](#security-considerations-for-using-a-virtual-device)。
+4. 按一下勾號，表示您了解虛擬裝置上儲存的資料將裝載於 Microsoft 資料中心。若您只使用實體裝置，加密金鑰就會與裝置放在一起。因此，Microsoft 無法將它解密。![StorSimple 虛擬裝置建立中階段](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceCreating1M.png)
+
+    當您使用虛擬裝置時，加密金鑰和解密金鑰都會儲存於 Microsoft Azure 中。如需詳細資訊，請參閱[使用虛擬裝置的安全性考量](#security-considerations-for-using-a-virtual-device)。
 
 ### 設定和註冊虛擬裝置
 
@@ -150,16 +151,24 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 
 執行下列步驟來設定和註冊 StorSimple 虛擬裝置。
 
-
 1. 選取您剛才在 [裝置] 頁面中建立的 **StorSimple 虛擬裝置**。 
 
-2. 按一下 [完成裝置設定]。這會啟動 [設定裝置] 精靈。
+2. 按一下 [完成裝置設定]。這會啟動 [設定裝置精靈]。
+
+    ![在 [裝置] 頁面完成 StorSimple 裝置安裝](./media/storsimple-virtual-device-u1/StorSimple_CompleteDeviceSetupSVA1M.png)
 
 3. 在提供的空白處輸入 [服務資料加密金鑰]。
 
 4. 以指定的長度和設定輸入 Snapshot Manager 和裝置系統管理員密碼。
 
 5. 按一下勾號來完成虛擬裝置的初始設定和註冊。
+
+    ![StorSimple 虛擬裝置設定](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceSettings1.png)
+
+設定和註冊完成之後，裝置將會上線。(裝置上線可能需要幾分鐘的時間。)
+
+![StorSimple 虛擬裝置上線階段](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceOnline1M.png)
+
 
 ### 修改裝置組態設定
 
@@ -278,7 +287,7 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 >[AZURE.WARNING]**為了加強安全性，強烈建議您在連接到端點時應使用 HTTPS，並且在完成 PowerShell 遠端工作階段之後刪除端點。**
 
-您應遵循[遠端連接至 StorSimple 裝置](storsimple-remote-connect.md)中的程序，來設定虛擬裝置的遠端處理功能。
+您應遵循[遠端連線至 StorSimple 裝置](storsimple-remote-connect.md)中的程序，來設定虛擬裝置的遠端處理功能。
 
 不過，如果您要從虛擬網路或 Microsoft Azure 環境以外的另一部電腦直接連接到虛擬裝置，就必須依照下列程序中的說明來建立其他端點。
 
@@ -384,4 +393,4 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 了解如何[從備份組還原 StorSimple 磁碟區](storsimple-restore-from-backup-set.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

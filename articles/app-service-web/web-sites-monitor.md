@@ -8,17 +8,19 @@
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 #<a name="howtomonitor"></a>監視 Azure App Service 中的 Web 應用程式
 
 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 透過 [監視] 管理頁面，針對標準與高階應用程式服務方案提供監視功能。[監視] 管理頁面可提供 Web 應用程式的效能統計資料，如下文所述。
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ##<a name="websitemetrics"></a>作法：新增 Web 應用程式度量
 
@@ -94,7 +96,7 @@ Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) 
 
 您可以同時啟用 [Application diagnostics (file system)]、[Application diagnostics (table storage)] 及 [Application diagnostics (blob storage)]，且它們可以擁有各自的記錄層級組態。例如，您也許會想要將錯誤和警告記錄在儲存體並做為長期的記錄解決方案，同時在檢測應用程式程式碼後啟用檔案系統記錄並搭配詳細資訊層級，以供疑難排解問題之用。
 
-您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂用帳戶，請參閱[如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
+您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
 
 > [AZURE.NOTE]應用程式記錄功能仰賴應用程式產生的記錄資訊。用來產生記錄資訊的方法和資訊的格式取決於應用程式的撰寫語言。如需有關使用應用程式記錄功能的語言特有資訊，請參閱以下文章：
 >
@@ -152,7 +154,7 @@ Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) 
 
 **FTP**
 
-1. 開啟 [Azure 入口網站](https://manage.windowsazure.com) Web 應用程式的 [儀表板] 管理頁面，接著記下 [診斷記錄] 下列示的 FTP 站台和 [部署使用者] 下列示的帳戶。FTP 站台是記錄檔的所在位置，而列示於 [Deployment User] 下的帳戶可用來通過 FTP 站台的驗證。
+1. 開啟 [Azure 入口網站](https://manage.windowsazure.com) Web 應用程式的 [儀表板] 管理頁面，接著記下 [診斷記錄] 下列示的 FTP 網站和 [部署使用者] 下列示的帳戶。FTP 站台是記錄檔的所在位置，而列示於 [Deployment User] 下的帳戶可用來通過 FTP 站台的驗證。
 2. 如果您尚未建立部署認證，列示於 [Deployment User] 下的帳戶將會是 [未設定]。在這種情況下，您必須建立部署認證 (如 [儀表板] 的 [Reset Deployment Credentials] 區段所述)，因為您必須使用這些認證來通過儲存記錄檔之 FTP 站台的驗證。Azure 不支援使用 Live ID 認證來通過此 FTP 站台的驗證。
 3. 請考慮使用 FTP 用戶端 (如 [FileZilla][fzilla]) 來連接 FTP 站台。與瀏覽器普遍的功能相比，FTP 用戶端更能簡化認證的指定和 FTP 站台資料夾的檢視。
 4. 請將 FTP 站台上的記錄檔複製到本機電腦。
@@ -271,10 +273,10 @@ Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) 
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需 Azure 入口網站變更為 Azure Preview 入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+* 如需 Azure 入口網站變更為 Azure 預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

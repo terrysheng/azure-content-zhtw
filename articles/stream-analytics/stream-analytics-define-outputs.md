@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/17/2015" 
 	ms.author="jeffstok"/>
 
 # 了解串流分析輸出
@@ -48,7 +48,7 @@
 <tbody>
 <tr>
 <td>屬性名稱</td>
-<td>說明</td>
+<td>描述</td>
 </tr>
 <tr>
 <td>輸出別名</td>
@@ -232,4 +232,4 @@
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -114,7 +114,7 @@ Active Directory Premium 版本是一個 Azure Active Directory 的付費產品�
 - 特殊權限身分識別管理：特殊權限身分識別管理提供改進的監督，有助於符合服務等級的合約和法規遵循需求。
 - 自助服務應用程式的要求：系統管理員可以提供一份 SaaS 應用程式清單給使用者，讓使用者選擇他們想要使用的項目，應用程式將立即或於核准之後可供使用。
 - Azure 報告 API：其他的監控或 SIEM 將可取得所有 Azure Active Directory 的安全性報告。
-
+- [Azure Active Directory B2C](http://azure.microsoft.com/services/active-directory-b2c/)：雲端式取用者目錄和身分識別及存取管理的全方位高階新服務，對於想直接與取用者連接的企業，該設計可滿足此種日亦漸增的需求。
 
 ## 接下來
 
@@ -122,4 +122,4 @@ Active Directory Premium 版本是一個 Azure Active Directory 的付費產品�
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 - [檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

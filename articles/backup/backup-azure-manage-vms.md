@@ -4,11 +4,11 @@
 	description="了解如何管理 Azure 虛擬機器"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
 
 # 管理虛擬機器
 
@@ -24,6 +24,8 @@
 
 3. 若要檢視和管理虛擬機器的備份原則設定，按一下 [**原則**] 索引標籤。
 
+    ![虛擬機器原則](./media/backup-azure-manage-vms/manage-policy-settings.png)
+
     [**備份原則**] 索引標籤將顯示現有的原則。您可以視需要修改。如果您需要建立新的原則，按一下 [**原則**] 頁面中的 [**建立**]。請注意，如果您想要移除一個原則，該原則就不能與任何虛擬機器相關聯。
 
     ![虛擬機器原則](./media/backup-azure-manage-vms/backup-vmpolicy.png)
@@ -37,7 +39,7 @@
 
 若要進行虛擬機器的隨選備份：
 
-1. 瀏覽至 [受保護項目] 頁面，並選取 [Azure 虛擬機器] 作為 [類型] \(若尚未選取)，然後按一下 [選取] 按鈕。
+1. 瀏覽至 [受保護項目] 頁面，並選取 [Azure 虛擬機器] 做為 [類型] (若尚未選取)，然後按一下 [選取] 按鈕。
 
     ![VM 類型](./media/backup-azure-manage-vms/vm-type.png)
 
@@ -63,11 +65,11 @@
 - 保留 Azure 備份保存庫中與虛擬機器相關聯的備份資料
 - 刪除與虛擬機器相關聯的備份資料
 
-如果您選取保留與虛擬機器相關聯的備份資料，您可以使用備份資料還原虛擬機器。如需這類虛擬機器的價格詳細資訊，請按一下[這裡](http://azure.microsoft.com/pricing/details/backup/)。
+如果您選取保留與虛擬機器相關聯的備份資料，您可以使用備份資料還原虛擬機器。如需這類虛擬機器的定價詳細資訊，請按一下[這裡](http://azure.microsoft.com/pricing/details/backup/)。
 
 若要停止虛擬機器的保護：
 
-1. 瀏瀏覽至 [受保護項目] 頁面，並選取 [Azure 虛擬機器] 作為篩選類型 (若尚未選取)，然後按一下 [選取] 按鈕。
+1. 瀏覽至 [受保護項目] 頁面，並選取 [Azure 虛擬機器] 做為篩選類型 (若尚未選取)，然後按一下 [選取] 按鈕。
 
     ![VM 類型](./media/backup-azure-manage-vms/vm-type.png)
 
@@ -93,14 +95,14 @@
 
     ![已停止保護](./media/backup-azure-manage-vms/protection-stopped-status.png)
 
-    如果您已選取 [刪除相關聯的備份資料] 選項，則虛擬機器將不會出現在 [受保護項目] 頁面中。
+    若您已選取 [刪除相關聯的備份資料] 選項，則虛擬機器將不會出現在 [受保護項目] 頁面中。
 
 ## 重新保護虛擬機器
 如果您未選取 [**停止保護**] 中的 [**刪除相關聯的備份資料**] 選項，您可以遵循類似於備份已註冊虛擬機器的步驟，重新保護虛擬機器。一旦受保護，此虛擬機器會在停止保護之前保留備份資料，而在重新保護之後建立復原點。
 
 重新保護之後，如果有 [**停止保護**] 之前的復原點，則虛擬機器的保護狀態會變更為 [**受保護**]。
 
-    ![Reprotected VM](./media/backup-azure-manage-vms/reprotected-status.png)
+  ![重新保護的 VM](./media/backup-azure-manage-vms/reprotected-status.png)
 
 >[AZURE.NOTE]重新保護虛擬機器時，您可以選擇與最初用於保護虛擬機器不同的原則。
 
@@ -122,9 +124,9 @@
 - 在停止保護作業期間
 - 在虛擬機器上完成停止保護作業之後
 
-對於在成功完成 [停止備份] 作業後處於 [已停止保護] 狀態的虛擬機器，若要刪除其上的備份資料：
+針對在順利完成 [停止備份] 作業後處於 [已停止保護] 狀態的虛擬機器，若要刪除其中的備份資料：
 
-1. 瀏覽至 [受保護項目] 頁面，並選取 [Azure 虛擬機器] 作為*類型*，然後按一下 [選取] 按鈕。
+1. 瀏覽至 [受保護項目] 頁面，並選取 [Azure 虛擬機器] 做為*類型*，然後按一下 [選取] 按鈕。
 
     ![VM 類型](./media/backup-azure-manage-vms/vm-type.png)
 
@@ -149,7 +151,9 @@
 ## 儀表板
 在 [**儀表板**] 頁面中，您可以檢閱有關 Azure 虛擬機器、其儲存體和過去 24 小時內相關聯作業的資訊。您可以檢視備份狀態和任何相關聯的備份錯誤。
 
-    ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+![儀表板](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+
+>[AZURE.NOTE]儀表板中的值會每隔 24 小時重新整理一次。
 
 ## 稽核作業
 Azure 備份提供由客戶觸發之備份作業的「作業記錄檔」檢閱，可輕鬆查看備份保存庫上執行了哪些管理作業。作業記錄檔會啟用備份作業的絕佳事後剖析和稽核支援。
@@ -170,19 +174,19 @@ Azure 備份提供由客戶觸發之備份作業的「作業記錄檔」檢閱�
 
 檢視對應到備份保存庫的作業記錄檔：
 
-1. 瀏覽到 Azure 入口網站中的 [管理服務]，然後按一下 [作業記錄檔] 索引標籤。
+1. 瀏覽至 Azure 入口網站中的 [管理服務]，然後按一下 [作業記錄檔] 索引標籤。
 
     ![作業記錄檔](./media/backup-azure-manage-vms/ops-logs.png)
 
-2. 在篩選器中，選取 [備份] 做為*類型*，指定*服務名稱*中的備份保存庫名稱，並且按一下 [提交]。
+2. 在篩選器中，選取 [備份] 做為*類型*，指定*服務名稱*中的備份保存庫名稱，然後按一下 [提交]。
 
     ![作業記錄檔篩選器](./media/backup-azure-manage-vms/ops-logs-filter.png)
 
-3. 在作業記錄檔中，選取任何作業，然後按一下 [詳細資料] 以查看對應到作業的詳細資料。
+3. 在作業記錄檔中選取任一作業，然後按一下 [詳細資料] 以查看對應至作業的詳細資料。
 
     ![作業記錄檔擷取詳細資料](./media/backup-azure-manage-vms/ops-logs-details.png)
 
-    **詳細資料精靈**包含觸發的作業、工作識別碼、觸發作業所在的資源和作業的開始時間等相關資訊。
+    **詳細資料精靈**包含觸發的作業、工作識別碼、觸發作業所在的資源，以及作業的開始時間等相關資訊。
 
     ![Operation Details](./media/backup-azure-manage-vms/ops-logs-details-window.png)
 
@@ -201,9 +205,9 @@ PS C:\> Switch-AzureMode AzureResourceManager
 PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault' -EventName Backup  -EventSource Administrative -Level Error -OperationName 'Microsoft.Backup/backupVault/Backup' -ResourceProvider Microsoft.Backup -Status Failed  -SubStatus Failed -RuleType Event -Location eastus -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -Name Backup-Failed -Description 'Backup failed for one of the VMs in vault trinadhkVault' -CustomEmails 'contoso@microsoft.com' -SendToServiceOwners
 ```
 
-**ResourceId**：您可從上一節所述的作業記錄檔快顯功能表取得。作業之詳細資料快顯視窗中的 ResourceUri 是要套用於此 cmdlet 的 ResourceId。
+**ResourceId**：您可從以上章節所述的 [作業記錄檔] 快顯視窗中取得。作業之詳細資料快顯視窗中的 ResourceUri 是要套用於此 cmdlet 的 ResourceId。
 
-**EventName**：對於 IaaS VM 備份上的警示，支援的值為 - Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
+**EventName**：對於 IaaS VM 備份的警示，支援的值為 - Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
 
 **層級**：支援的值為 - 資訊、錯誤。對於失敗動作的警示請使用「錯誤」，對於成功工作的警示請使用「資訊」。
 
@@ -219,7 +223,7 @@ PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/su
 
 **名稱**：警示規則的名稱。
 
-**描述**：警示規則的描述。
+**說明**：警示規則的說明。
 
 **CustomEmails**：指定您要傳送警示通知的自訂電子郵件地址
 
@@ -239,10 +243,10 @@ PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/su
 以事件為基礎的警示受限於下列限制：
 
 1. 在備份保存庫中的所有虛擬機器上觸發警示。您無法自訂它以取得備份保存庫中特定一組虛擬機器的警示。
-2. 在下一個警示期間，如果沒有符合觸發事件的警示，則會自動解析警示。使用 Add-AlertRule cmdlet 中的 *WindowSize* 參數設定警示觸發持續時間。
+2. 在下一個警示期間，如果沒有符合觸發事件的警示，則會自動解析警示。使用 Add-AlertRule Cmdlet 中的 *WindowSize* 參數，設定警示觸發持續時間。
 
 ## 後續步驟
 
 - [還原 Azure VM](backup-azure-restore-vms.md)
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -3,7 +3,7 @@
 	description="提供一些有關 Azure 虛擬機器最常見問題的解答"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/17/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Azure 虛擬機器常見問題集
 
@@ -148,4 +148,4 @@ Azure 可依據 VM 的大小和作業系統，以每小時價格方式收費。�
 
 [建立 Windows 虛擬機器的不同方式](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

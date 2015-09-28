@@ -131,7 +131,7 @@ Web 測試可分為兩種：
 
 #### 1\.記錄案例
 
-使用 Visual Studio Ultimate 來記錄 Web 工作階段。
+使用 Visual Studio Enterprise 或 Ultimate 來記錄 Web 工作階段。
 
 1. 建立 Web 效能測試專案。
 
@@ -147,16 +147,20 @@ Web 測試可分為兩種：
 
     不要讓案例太長。以 100 個步驟和 2 分鐘為限。
 
-4. 在 Visual Studio 中執行測試，以確定可以運作。
+4. 編輯本測試以進行下列事項：
+ - 加入驗證以檢查收到的文字和回應碼。
+ - 移除任何多餘的互動。您也可以移除圖片或廣告或追蹤網站的相依要求。
+
+    請記住您只能編輯此測試指令碼 - 您無法加入自訂程式碼或呼叫其他 Web 測試。請勿在此測試中插入迴圈。您可以使用標準 Web 測試的外掛程式。
+
+5. 在 Visual Studio 中執行測試，以確定可以運作。
 
     Web 測試執行器會開啟網頁瀏覽器，並重複您已記錄的動作。請確定運作如您所預期。
 
     ![在 Visual Studio 中，開啟 .webtest 檔案，並按一下 [執行]。](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 
-(請勿在 Web 測試中插入迴圈)。
-
-#### 2. 將 Web 測試上傳至 Application Insights
+#### 2\.將 Web 測試上傳至 Application Insights
 
 1. 在 Application Insights 入口網站中，建立新的 Web 測試。
 
@@ -218,7 +222,7 @@ Web 測試外掛程式提供這種作法。
 
 * *可以從我的 Web 測試呼叫程式碼嗎？*
 
-    否。測試步驟必須在 .webtest 檔案中。這裡有一些您會覺得有用的外掛程式。
+    否。測試步驟必須在 .webtest 檔案中。而且您不能呼叫其他 Web 測試或使用迴圈。但是這裡有一些您會覺得有用的外掛程式。
 
 ## <a name="video"></a>影片
 
@@ -240,4 +244,4 @@ Web 測試外掛程式提供這種作法。
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

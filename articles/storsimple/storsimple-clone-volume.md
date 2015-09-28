@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/27/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
 # 使用 StorSimple Manager 服務來複製磁碟區
@@ -43,8 +43,7 @@
 
   1. 識別目標裝置。這是即將建立複製的位置。您可以選擇相同的裝置，或指定另一個裝置。如果您選擇與其他雲端服務提供者相關的磁碟區 (非 Azure)，目標裝置的下拉式清單將只會顯示實體裝置。您無法將與其他雲端服務提供者相關的磁碟區複製到虛擬裝置。
 
-        >  [AZURE.NOTE] 確定要複製的容量小於目標裝置中可用的容量。
-
+        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
   2. 為複製指定唯一的磁碟區名稱。此名稱必須包含 3 到 127 個字元。
   3. 按一下箭頭圖示 ![arrow-icon](./media/storsimple-clone-volume/HCS_ArrowIcon.png) 以繼續前往下一頁。
 
@@ -80,14 +79,20 @@
 
 您要復原過去一年的 Microsoft PowerPoint 簡報檔案。IT 系統管理員辨識該時間範圍內的特定備份，然後篩選磁碟區。系統管理員接著再複製磁碟區，找出您要找的檔案再提供給您。在此案例中，使用的是暫時性複製。
  
+![提供的影片](./media/storsimple-clone-volume/Video_icon.png)**提供的影片**
+
+若要觀看影片示範如何使用 StorSimple 的複製和還原功能，將已刪除的檔案復原，請按一下[這裡](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/)。
+
 ### 利用永久複製在實際執行環境中進行測試
 
 您需要確認生產環境中的測試錯誤。您要在實際執行環境中建立磁碟區的複製。為了提高效能，您必須建立這個複製的雲端快照。複製的磁碟區現已獨立，進而促進效能。在此案例中，使用的是永久複製。
 
-## 後續步驟
-了解如何[從備份組還原 StorSimple 磁碟區](storsimple-restore-from-backup-set.md)。
 
+## 後續步驟
+- 了解如何[從備份組還原 StorSimple 磁碟區](storsimple-restore-from-backup-set.md)。
+
+- 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
  
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -26,6 +26,8 @@
 * 作用中 [SharePoint Online] 訂閱
 * 完成[使用 Active Directory Authentication Library 單一登入驗證您的應用程式]教學課程。您應使用 SharePoint 訂閱所提供的租用戶。
 
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
+
 ## <a name="configure-permissions"></a>針對 SharePoint 的委派存取設定您的應用程式
 根據預設，您從 AAD 取得的權杖僅具有有限權限。若要存取第三方資源或 SaaS 應用程式 (例如 SharePoint Online)，您必須明確允許此類存取。
 
@@ -186,4 +188,4 @@
 [使用 Active Directory Authentication Library 單一登入驗證您的應用程式]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

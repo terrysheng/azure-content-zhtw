@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### 透過序列主控台連接
 
@@ -29,4 +30,4 @@
 7. 按一下 [開啟] 以啟動序列工作階段。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

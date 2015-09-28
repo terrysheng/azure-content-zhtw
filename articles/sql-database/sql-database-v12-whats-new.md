@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/10/2015" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -41,8 +41,8 @@ SQL Database V12 的一個主要目標就是要提高與 Microsoft SQL Server 20
 
 
 - [Common Language Runtime (CLR) 組件](http://msdn.microsoft.com/library/ms189524.aspx)
-- [Window 函數](https://msdn.microsoft.com/library/bb934097.aspx) (包含 [OVER](http://msdn.microsoft.com/library/ms189461.aspx)) 
-- [XML 索引](https://msdn.microsoft.com/library/bb934097.aspx)和[選擇性 XML 索引](http://msdn.microsoft.com/library/jj670104.aspx)
+- [Window 函數](http://msdn.microsoft.com/library/bb934097.aspx) (包含 [OVER](http://msdn.microsoft.com/library/ms189461.aspx)) 
+- [XML 索引](http://msdn.microsoft.com/library/bb934097.aspx)和[選擇性 XML 索引](http://msdn.microsoft.com/library/jj670104.aspx)
 - [變更追蹤](http://msdn.microsoft.com/library/bb933875.aspx)
 - [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx)
 - [全文檢索搜尋](http://msdn.microsoft.com/library/ms142571.aspx)
@@ -59,7 +59,19 @@ SQL Database V12 的一個主要目標就是要提高與 Microsoft SQL Server 20
 
 - 支援記憶體內部[資料行存放區索引](http://msdn.microsoft.com/library/gg492153.aspx)。
 - 利用 [TRUNCATE TABLE](http://msdn.microsoft.com/library/ms177570.aspx) 相關增強功能，[依據資料列進行資料表分割](http://msdn.microsoft.com/library/ms187802.aspx)
-- 可使用動態管理檢視 [(DMVs)](http://msdn.microsoft.com/library/ms188754.aspx) 和擴充的事件 [(XEvents)](https://msdn.microsoft.com/library/bb630282.aspx) 來協助監視和調整效能。
+- 可使用動態管理檢視 [(DMVs)](http://msdn.microsoft.com/library/ms188754.aspx) 來協助監視和調整效能。
+
+
+### 可靠的效能
+
+
+如果您的用戶端在 Azure 虛擬機器 (VM) 上執行時，用戶端程式連線至 SQL Database V12，您就必須開啟此 VM 上的下列範圍連接埠：
+
+- 11000-11999
+- 14000-14999
+
+
+如需 SQL Database V12 連接埠的詳細資訊，請按一下[這裡](sql-database-develop-direct-route-ports-adonet-v12.md)。SQL Database V12 的效能增強功能需要這些連接埠。
 
 
 ## 更有效地支援雲端 SaaS 廠商
@@ -83,6 +95,8 @@ SQL Database V12 的一個主要目標就是要提高與 Microsoft SQL Server 20
 - [自主資料庫](http://msdn.microsoft.com/library/azure/ff394108.aspx)
 - 使用 GRANT、DENY、REVOKE 管理的[應用程式角色](http://msdn.microsoft.com/library/ms190998.aspx)
 - [透明資料加密](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
+- [使用 Azure Active Directory 驗證連線到 SQL Database](sql-database-aad-authentication.md)
+ - SQL Database 現在支援 Azure Active Directory 驗證，這是 Azure Active Directory (Azure AD) 中使用身分識別連線到 SQL Database 的機制。您可以使用 Azure Active Directory 驗證，在單一中央位置集中管理資料庫使用者和其他 Microsoft 服務的身分識別。
 
 
 ## 當需要復原時提升業務持續性
@@ -98,7 +112,7 @@ V12 提供大幅改進的復原點目標 (RPO) 與預估復原時間 (ERT)：
 | 主動式異地複寫 | • RPO < 5 分鐘。<br/>• ERT < 1 小時。 | • RPO < 5 秒。<br/>• ERT < 30 秒。 |
 
 
-如需詳細資訊，請參閱 [SQL Database 業務持續性](https://msdn.microsoft.com/library/azure/hh852669.aspx)。
+如需詳細資訊，請參閱 [SQL Database 業務持續性](http://msdn.microsoft.com/library/azure/hh852669.aspx)。
 
 
 ## 更多需要立即升級的理由
@@ -118,7 +132,7 @@ V12 提供大幅改進的復原點目標 (RPO) 與預估復原時間 (ERT)：
 查看您是否已經具備執行較早版本 SQL Database 服務的資料庫或邏輯伺服器的一個簡單方法是執行下列動作：
 
 
-1. 移至 [Azure Preview 入口網站](http://portal.azure.com/)。
+1. 移至 [Azure 預覽入口網站](http://portal.azure.com/)。
 2. 按一下 [瀏覽]。
 3. 按一下 [SQL Server]。
 4. 您的伺服器或資料庫旁邊的圖示會告知詳情：
@@ -147,4 +161,4 @@ V12 資料庫只能裝載在 V12 邏輯伺服器上。而 V12 只可以裝載 V1
 
 [Microsoft Azure 預覽專用的使用補充條款](http://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

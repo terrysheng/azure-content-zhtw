@@ -1,19 +1,19 @@
 <properties 
    pageTitle="管理 StorSimple 裝置控制器 | Microsoft Azure"
-	description="了解如何停止、重新啟動、關閉或重設您的 StorSimple 裝置控制器。"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="了解如何停止、重新啟動、關閉或重設您的 StorSimple 裝置控制器。"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # 管理 StorSimple 裝置控制器
 
@@ -220,6 +220,8 @@
 
 ## 後續步驟
 
-如果您遇到任何無法使用本教學課程中所列之程序解決的 StorSimple 裝置控制器相關問題，[請連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
+- 如果您遇到任何無法使用本教學課程中所列之程序解決的 StorSimple 裝置控制器相關問題，[請連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
-<!---HONumber=September15_HO1-->
+- 若要深入了解如何使用 StorSimple Manager，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
+
+<!---HONumber=Sept15_HO3-->

@@ -5,15 +5,15 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="mo	nicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/24/2015"
-	ms.author="jroth"/>
+	ms.date="09/16/2015"
+	ms.author="jroth" />
 
 # 設定 Azure 中 AlwaysOn 可用性群組的外部接聽程式
 
@@ -35,13 +35,11 @@
 
 - 如果您要建立混合式環境的接聽程式，內部部署網路必須能夠連線到公用網際網路，以及使用 Azure 虛擬網路的站對站 VPN。位於 Azure 子網路時，僅能透過相應雲端服務的公用 IP 位址才能連線至可用性群組接聽程式。
 
->[AZURE.NOTE]本教學課程著重在使用 PowerShell 針對包含 Azure 複本的可用性群組建立接聽程式。如需有關如何使用 SSMS 或 Transact-SQL 設定接聽程式的詳細資訊，請參閱〈[建立或設定可用性群組接聽程式](https://msdn.microsoft.com/library/hh213080.aspx)〉。
-
 ## 判斷接聽程式的協助工具
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-本文著重於建立使用**外部負載平衡**的接聽程式。如果您想要虛擬網路專屬的接聽程式，請參閱本文提供設定[包含 ILB 之接聽程式](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)步驟的版本
+本文著重於建立使用**外部負載平衡**的接聽程式。如果您想要虛擬網路專屬的接聽程式，請參閱本文提供設定[包含 ILB 之接聽程式](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)步驟的版本。
 
 ## 使用伺服器直接回傳建立負載平衡 VM 端點
 
@@ -75,9 +73,9 @@
 
 [AZURE.INCLUDE [防火牆](../../includes/virtual-machines-ag-listener-create-listener.md)]
 
-1. 對於外部負載平衡，您必須取得包含複本之雲端服務的公用虛擬 IP 位址。登入 Azure 入口網站。巡覽至包含可用性群組 VM 的雲端服務。開啟 [**儀表板**] 檢視。 
+1. 對於外部負載平衡，您必須取得包含複本之雲端服務的公用虛擬 IP 位址。登入 Azure 入口網站。巡覽至包含可用性群組 VM 的雲端服務。開啟 [儀表板] 檢視。 
 
-3. 記下 [**公用虛擬 IP (VIP) 位址**] 下方所顯示的位址。如果您的解決方案跨越多個 VNet，請針對包含主控複本之 VM 的每個雲端服務重複此步驟。
+3. 記下 [公用虛擬 IP (VIP) 位址] 下方所顯示的位址。如果您的解決方案跨越多個 VNet，請針對包含主控複本之 VM 的每個雲端服務重複此步驟。
 
 4. 在其中一個 VM 上，將下方的 PowerShell 指令碼複製到文字編輯器，並將變數設定為之前記下的值。
 
@@ -112,16 +110,16 @@
 
 ## 測試可用性群組接聽程式 (位於網際網路)
 
-若要從虛擬網路外部存取接聽程式，您必須使用外部/公用負載平衡 (如本主題中所述) 而非 ILB，因為 ILB 僅能在相同的 VNet 中進行存取。在連接字串中，您將指定雲端服務名稱。例如，如果您擁有稱為「*mycloudservice*」的雲端服務，則 sqlcmd 陳述式看起來會像這樣：
+若要從虛擬網路外部存取接聽程式，您必須使用外部/公用負載平衡 (如本主題中所述) 而非 ILB，因為 ILB 僅能在相同的 VNet 中進行存取。在連接字串中，您將指定雲端服務名稱。例如，如果您擁有稱為 *mycloudservice* 的雲端服務，則 sqlcmd 陳述式看起來會像這樣：
 
 	sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-不同於先前範例，必須使用 SQL 驗證，因為呼叫端無法透過網際網路使用 Windows 驗證。如需詳細資訊，請參閱〈[Azure VM 中的 AlwaysOn 可用性群組：用戶端連線能力情況](http://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx)〉。使用 SQL 驗證時，請確定您在兩個複本上建立相同的登入。如需有關使用可用性群組疑難排解登入的詳細資訊，請參閱〈[如何對應登入或使用包含的 SQL Database 使用者以連接到其他複本並對應到可用性資料庫](http://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx)〉。
+不同於先前範例，必須使用 SQL 驗證，因為呼叫端無法透過網際網路使用 Windows 驗證。如需詳細資訊，請參閱 [Azure VM 中的 AlwaysOn 可用性群組：用戶端連線能力情況](http://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx)。使用 SQL 驗證時，請確定您在兩個複本上建立相同的登入。如需使用可用性群組疑難排解登入的詳細資訊，請參閱[如何對應登入或使用包含的 SQL Database 使用者以連線到其他複本並對應到可用性資料庫](http://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx)。
 
-如果 AlwaysOn 複本位於不同的子網路中，用戶端必須在連接字串中指定 **MultisubnetFailover = True**。這會導致對於不同子網路中的複本進行平行連接嘗試。請注意，此情況包含跨區域的 AlwaysOn 可用性群組部署。
+如果 AlwaysOn 複本位於不同的子網路中，用戶端必須在連接字串中指定 **MultisubnetFailover=True**。這會導致對於不同子網路中的複本進行平行連接嘗試。請注意，此情況包含跨區域的 AlwaysOn 可用性群組部署。
 
 ## 後續步驟
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

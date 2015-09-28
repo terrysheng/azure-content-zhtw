@@ -32,7 +32,10 @@ Application Insights 可以監視 Java 和 ASP.NET Web 應用程式與服務、W
 如果您尚未將 Application Insights 新增至專案中 (亦即專案沒有 ApplicationInsights.config)，請選擇以下任一種方法來開始使用：
 
 * [ASP.NET Web 應用程式](app-insights-asp-net.md)
+ * [加入例外狀況監視](app-insights-asp-net-exceptions.md)
+ * [加入相依性監視](app-insights-monitor-performance-live-website-now.md)
 * [J2EE Web 應用程式](app-insights-java-get-started.md)
+ * [加入相依性監視](app-insights-java-agent.md)
 
 
 ## <a name="view"></a>探索效能度量
@@ -138,7 +141,12 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
     perfCollector.Initialize(TelemetryConfiguration.Active);
     TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
 
+### 例外狀況計數
 
+「例外狀況率和例外狀況度量之間的差異為何？」
+
+* 「例外狀況率」是系統效能計數器。CLR 會計算所有擲回之已處理和未處理的例外狀況，並依據間隔的長度將總數分割為取樣間隔。Application Insights SDK 會收集此結果並將它傳送至入口網站。
+* 「例外狀況」是在圖表的取樣間隔中由入口網站接收之 TrackException 報告的計數。它只包含您程式碼中撰寫 TrackException 呼叫所在位置的已處理例外狀況，並且不包含所有的[未處理例外狀況](app-insights-asp-net-exceptions.md)。 
 
 ## 設定警示
 
@@ -186,4 +194,4 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

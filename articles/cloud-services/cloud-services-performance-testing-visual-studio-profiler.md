@@ -11,11 +11,11 @@
 
 <tags 
 	ms.service="cloud-services" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="09/14/2015" 
 	ms.author="patshea"/>
 
 # 使用 Visual Studio 分析工具，在 Azure 計算模擬器中本機測試雲端服務的效能
@@ -25,11 +25,8 @@
 本文涵蓋進行分析的「CPU 取樣」方法，這可以在模擬器上本機完成。CPU 取樣不是非常侵入式的分析方法。分析工具會按指定的取樣間隔取得呼叫堆疊的快照集。會收集一段時間的資料，而且資料會顯示在報告中。此分析方法傾向指出在計算密集應用程式中的哪個位置完成大部分的 CPU 工作。這可讓您有機會聚焦在應用程式耗用最多時間的「最忙碌路徑」。
 
 
-## 必要條件
 
-只有在您有 Visual Studio Premium 或 Visual Studio Ultimate 的狀況下，才能在本機執行分析工具。
-
-## <a name="step1"> </a>步驟 1：設定 Visual Studio 進行分析
+## 步驟 1：設定 Visual Studio 進行分析
 
 首先，有些 Visual Studio 組態選項可能在進行分析時很實用。若要讓分析報告發揮作用，您需要應用程式的符號 (.pdb 檔案)，也需要系統庫的符號。您會希望確定參考可用的符號伺服器。若要這樣做，請在 Visual Studio 的 [工具] 功能表上，依序選擇 [選項]、[偵錯] 和 [符號]。請確定 Microsoft Symbol Servers 列在 [符號檔 (.pdb) 位置] 下方。您也可以參考 http://referencesource.microsoft.com/symbols，其中可能有其他符號檔案。
 
@@ -73,7 +70,7 @@
 
 在方案組態設定為 [**發行**] 的情況下，在本機建置和執行雲端服務，而不要進行偵錯 (Ctrl+F5)。這確保建立在本機執行應用程式的所有檔案和資料夾，並確保已啟動所有模擬器。從工作列啟動 Compute Emulator UI，以驗證您的背景工作角色執行中。
 
-## <a name="step2"> </a>步驟 2：連結至程序
+## 步驟 2：連結至程序
 
 您必須將分析工具連結至執行中程序，而不是從 Visual Studio 2010 IDE 啟動應用程式來分析應用程式。
 
@@ -107,7 +104,7 @@
 
 ![][10]
 
-## <a name="step3"> </a>步驟 3：檢視效能報告
+## 步驟 3：檢視效能報告
 
 會顯示您應用程式的效能報告。
 
@@ -126,7 +123,7 @@
 
 ![][14]
 
-## <a name="step4"> </a>步驟 4: 進行變更與比較效能
+## 步驟 4：進行變更與比較效能
 
 您也可以在變更程式碼之前和之後比較效能。請停止執行中流程並編輯程式碼，以使用 StringBuilder 取代字串串連作業：
 
@@ -151,7 +148,7 @@
 
 恭喜！ 您已開始使用分析工具。
 
-## <a name="troubleshooting"> </a> 疑難排解
+##  疑難排解
 
 - 確定您正在分析發行組建並開始而不進行偵錯。
 
@@ -165,17 +162,11 @@
 
 - 取樣時，如果您看到訊息 [PRF0025: No data was collected]，請確認您所連結的程序具有 CPU 活動。未執行任何計算工作的應用程式可能不會產生任何取樣資料。在執行任何取樣之前，也可能已結束程序。請確認所分析角色的 Run 方法未終止。
 
-## <a name="nextSteps"> </a> 後續步驟
+## 後續步驟
 
-在 Visual Studio 分析工具中，不支援在模擬器中檢測 Azure 二進位，但是，如果您想要測試記憶體配置，則可以在分析時選擇該選項。您也可以選擇並行分析來協助您判斷執行緒是否浪費時間來競爭鎖定，或選擇階層互動分析來協助您追蹤在應用程式階層之間互動時的效能問題 (最常發生在資料層與背景工作角色之間)。您可以檢視應用程式所產生的資料庫查詢，以及使用分析資料來提高資料庫的使用。如需階層互動分析的詳細資訊，請參閱[逐步介紹：在 Visual Studio Team System 2010 中使用階層互動分析][3] (英文)。
+在 Visual Studio 分析工具中，不支援在模擬器中檢測 Azure 二進位，但是，如果您想要測試記憶體配置，則可以在分析時選擇該選項。您也可以選擇並行分析來協助您判斷執行緒是否浪費時間來競爭鎖定，或選擇階層互動分析來協助您追蹤在應用程式階層之間互動時的效能問題 (最常發生在資料層與背景工作角色之間)。您可以檢視應用程式所產生的資料庫查詢，以及使用分析資料來提高資料庫的使用。如需階層互動分析的詳細資訊，請參閱部落格文章[逐步介紹：在 Visual Studio Team System 2010 中使用階層互動分析][3]。
 
 
-[Step 1: Configure Visual Studio for Profiling]: #step1
-[Step 2: Attach to a Process]: #step2
-[Step 3: View Profiling Reports]: #step3
-[Step 4: Make Changes and Compare Performance]: #step4
-[Troubleshooting]: #troubleshooting
-[Next Steps]: #nextSteps
 
 [1]: http://msdn.microsoft.com/library/azure/hh369930.aspx
 [2]: http://msdn.microsoft.com/library/azure/hh411542.aspx
@@ -195,4 +186,4 @@
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

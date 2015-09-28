@@ -1,19 +1,19 @@
 <properties 
    pageTitle="設定 StorSimple 裝置的 Web Proxy | Microsoft Azure"
-	description="了解如何使用 Windows PowerShell for StorSimple 來設定 StorSimple 裝置的 Web Proxy。"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="了解如何使用 Windows PowerShell for StorSimple 來設定 StorSimple 裝置的 Web Proxy。"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # 為 StorSimple 裝置設定 Web Proxy
 
@@ -67,7 +67,7 @@ Web Proxy 設定完成之後，您可以在 Microsoft Azure StorSimple Manager �
 
 4. 選擇驗證類型為 [**NTLM**]、[**基本**] 或 [**無**]。[基本] 是 Proxy 伺服器設定最不安全的驗證。NT LAN Manager (NTLM) 是非常安全和複雜的驗證通訊協定，使用三向傳訊系統 (需要更高完整性時，則是四向) 來驗證使用者。預設驗證為 NTLM。如需詳細資訊，請參閱[基本](http://hc.apache.org/httpclient-3.x/authentication.html)和 [NTLM 驗證](http://hc.apache.org/httpclient-3.x/authentication.html)。
 
-	> [AZURE.IMPORTANT] **在 StorSimple Manager 服務中，當裝置的 Proxy 伺服器設定中已啟用基本或 NTLM 驗證時，裝置監控圖表沒有作用。為了讓監控圖表發揮作用，您必須確保驗證設定為 [無]。**
+	> [AZURE.IMPORTANT]**在 StorSimple Manager 服務中，當裝置的 Proxy 伺服器設定中已啟用基本或 NTLM 驗證時，裝置監控圖表沒有作用。為了讓監控圖表發揮作用，您必須確保驗證設定為 [無]。**
 
 5. 如果您使用驗證，請提供 [**Web Proxy 使用者名稱**] 和 [**Web Proxy 密碼**]。您也必須確認密碼。
 
@@ -75,7 +75,7 @@ Web Proxy 設定完成之後，您可以在 Microsoft Azure StorSimple Manager �
 
 如果是第一次註冊您的裝置，請繼續註冊。如果您的裝置已註冊，就會結束精靈。將會儲存已設定的設定。
 
-現在也會啟用 Web Proxy。您可以略過 [啟用 Web Proxy](#enable-web-proxy) 步驟，直接移至[在管理入口網站中檢視 Web Proxy 設定](#view-web-proxy-settings-in-the-management-portal)。
+現在也會啟用 Web Proxy。您可以略過 [啟用 Web Proxy][](#enable-web-proxy) 步驟，直接移至[在管理入口網站中檢視 Web Proxy 設定](#view-web-proxy-settings-in-the-management-portal)。
 
 
 ## 透過 Windows PowerShell for StorSimple Cmdlet 來設定 Web Proxy
@@ -100,7 +100,7 @@ Web Proxy 現在已設定，必須啟用。
 
 預設會停用 Web Proxy。在 StorSimple 裝置上設定 Web Proxy 設定之後，您需要使用 Windows PowerShell for StorSimple 來啟用 Web Proxy 設定。
 
-> [AZURE.NOTE] **如果您使用安裝精靈來設定 Web Proxy，則不需要此步驟。依預設，安裝精靈工作階段之後會自動啟用 Web Proxy。**
+> [AZURE.NOTE]**如果您使用安裝精靈來設定 Web Proxy，則不需要此步驟。依預設，安裝精靈工作階段之後會自動啟用 Web Proxy。**
 
 在 Windows PowerShell for StorSimple 中執行下列步驟，在您的裝置上啟用 Web Proxy：
 
@@ -146,6 +146,9 @@ Web Proxy 設定已透過 Windows PowerShell 介面設定，無法從管理入�
 > - Web Proxy 設定相關的錯誤不會顯示在 StorSimple Manager 服務的管理入口網站中。完成設定之後，如果 Web Proxy 有問題，管理入口網站中的裝置狀態會變更為 [離線]。|
 
 ## 後續步驟
-如果您在部署裝置或設定 Web Proxy 設定時遇到任何問題，請參閱 [StorSimple 裝置部署疑難排解](storsimple-troubleshoot-deployment.md)。
 
-<!-----HONumber=September15_HO1-->
+- 如果您在部署裝置或設定 Web Proxy 設定時遇到任何問題，請參閱 [疑難排解 StorSimple 裝置部署](storsimple-troubleshoot-deployment.md)。
+
+- 若要了解如何使用 StorSimple Manager，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
+
+<!---HONumber=Sept15_HO3-->

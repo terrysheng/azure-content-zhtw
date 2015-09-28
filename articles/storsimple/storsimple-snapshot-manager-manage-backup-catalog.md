@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Snapshot Manager 來管理備份目錄
@@ -205,6 +205,7 @@ StorSimple Snapshot Manager 在建立預防措施備份時，會顯示下列訊�
 
 ## 後續步驟
 
-深入了解 [StorSimple Snapshot Manager 工作和工作流程](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows)。
+- 深入了解如何[使用 StorSimple Snapshot Manager 來管理您的 StorSimple 解決方案](storsimple-snapshot-manager-admin.md)。
+- 深入了解 [StorSimple Snapshot Manager 工作和工作流程](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows)。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -2,24 +2,27 @@
 	pageTitle="Azure App Service 和它對現有 Azure 服務的影響" 
 	description="說明新的 Azure App Service 和其功能如何影響 Azure 中的現有服務。" 
 	authors="yochayk" 
+	writer="yochayk" 
 	editor="yochayk" 
 	manager="nirma" 
 	services="app-service\web" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="09/15/2015" 
 	ms.author="yochayk"/>
 
 
 # Azure App Service 和現有的 Azure 服務
 
 本文概述現有 Azure 服務的變更做為將數個 Azure 服務一起帶入 [Azure App Service](http://azure.microsoft.com/services/app-service/) (新的整合服務) 的變更一部分。
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 概觀 
 
@@ -90,4 +93,4 @@ App Service 會將下列現有 Azure 服務 - [網站](http://azure.microsoft.co
 若要深入了解，請瀏覽 [App Service 文件](http://azure.microsoft.com/documentation/services/app-service/)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

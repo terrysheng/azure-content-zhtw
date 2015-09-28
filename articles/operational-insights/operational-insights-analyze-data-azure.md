@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="09/10/2015"
    ms.author="banders"/>
 # 在 Microsoft Azure 中分析來自伺服器的資料
 
@@ -269,4 +269,4 @@ Operational Insights 目前能夠分析：
 
 [設定 Proxy 和防火牆設定 (選擇性)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

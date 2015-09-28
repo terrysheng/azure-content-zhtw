@@ -1,32 +1,35 @@
 <properties
    pageTitle="整合應用程式與 Azure Active Directory | Microsoft Azure"
-	description="如何在 Azure Active Directory (Azure AD) 中新增、更新或移除應用程式的詳細資料。"
-	services="active-directory"
-	documentationCenter=""
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor="mbaldwin"/>
+   description="如何在 Azure Active Directory (Azure AD) 中新增、更新或移除應用程式的詳細資料。"
+   services="active-directory"
+   documentationCenter=""
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor="mbaldwin" />
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="08/25/2015"
+   ms.author="mbaldwin" />
 
 # 整合應用程式與 Azure Active Directory
+
+[AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+
 企業開發人員和軟體即服務 (SaaS) 提供者可以開發可與 Azure Active Directory (Azure AD) 整合的商業雲端服務或企業營運應用程式，以提供安全的登入和授權給其服務。若要整合應用程式或服務與 Azure AD，開發人員必須先使用 Azure 管理入口網站，向 Azure AD 註冊他們的應用程式相關詳細資料。
 
 本文將說明如何在 Azure AD 中新增、更新或移除應用程式。您將了解可與 Azure AD 整合的不同類型應用程式，以及如何設定您的應用程式存取其他資源，例如 web API 等等。
 
-如需有關應用程式屬性的詳細資訊，請參閱 [應用程式物件和服務主體物件](active-directory-application-objects.md)；若要了解利用 Azure Active Directory 開發應用程式時應該使用的商標指導方針，請參閱[整合應用程式的商標指導方針](active-directory-branding-guidelines.md)。
+如需有關應用程式屬性的詳細資訊，請參閱[應用程式物件和服務主體物件](active-directory-application-objects.md)；若要了解利用 Azure Active Directory 開發應用程式時應使用的商標指導方針，請參閱[整合應用程式的商標指導方針](active-directory-branding-guidelines.md)；在[了解 Azure Active Directory 應用程式資訊清單](active-directory-application-manifest.md)中會說明應用程式資訊清單。
 
 ## 新增應用程式
 
 任何想要使用 Azure AD 功能的應用程式都必須先在目錄中註冊。此登錄程序牽涉到提供 Azure AD 應用程式的相關詳細資料，例如其所在的 URL、要在使用者驗證之後傳送回應的 URL，以及會識別應用程式的 URI 等。
 
-如果您正在建置的 web 應用程式只需要在 Azure AD 中登入使用者，您只需依照下列指示。如果您的應用程式需要存取 web API，表示您正在建置的原生應用程式需要存取 web API，或者您想要讓您的應用程式有多個租用戶，您必須繼續閱讀[更新應用程式](#updating-an-application)區段以繼續設定您的應用程式。
+如果您正在建置的 web 應用程式只需要在 Azure AD 中登入使用者，您只需依照下列指示。若您的應用程式需要存取 Web API，表示您正在建置的原生應用程式需要存取 Web API，或是您想讓應用程式有多個租用戶，您必須繼續閱讀[更新應用程式](#updating-an-application)一節，以繼續設定您的應用程式。
 
 如果您想要提供應用程式給其他組織，您也必須在新增應用程式之後啟用外部存取。
 
@@ -106,7 +109,7 @@ Azure AD 的新同意架構可讓您更輕鬆地開發需要存取由 Azure AD �
 
 ### 向其他應用程式公開 Web API
 
-您可以開發 web API，並藉由公開權限範圍給其他應用程式開發人員，使其可供其他組織使用。正確設定的 web API 即可供使用，就像其他 Microsoft web API 一樣，包括 圖形 API 和 Office 365 API。藉由設定應用程式資訊清單 (此為代表您應用程式身分識別組態的 JSON 檔案)，即可使用您的 web API。您可以藉由瀏覽到您在 Azure 管理入口網站中的應用程式，並按一下命令列上的 [應用程式資訊清單] 按鈕，即可公開權限範圍。
+您可以開發 web API，並藉由公開權限範圍給其他應用程式開發人員，使其可供其他組織使用。正確設定的 web API 即可供使用，就像其他 Microsoft web API 一樣，包括 圖形 API 和 Office 365 API。藉由設定[應用程式資訊清單](active-directory-application-manifest.md) (此為代表您應用程式身分識別組態的 JSON 檔案)，即可使用您的 Web API。您可以藉由瀏覽到您在 Azure 管理入口網站中的應用程式，並按一下命令列上的 [應用程式資訊清單] 按鈕，即可公開權限範圍。如需詳細資訊，請參閱[了解 Azure Active Directory 應用程式資訊清單](active-directory-application-manifest.md)。
 
 #### 向其他應用程式公開 web API
 
@@ -207,7 +210,7 @@ Azure AD 的新同意架構可讓您更輕鬆地開發需要存取由 Azure AD �
 
 ### 使用同意架構授與存取權
 
-若要使用同意架構授與存取權，用戶端應用程式必須使用 OAuth 2.0 要求授權。[程式碼範例](https://github.com/AzureADSamples)也可向您示範 web 應用程式、原生應用程式或伺服器/精靈應用程式如何要求授權碼並存取權仗以呼叫 web API。
+若要使用同意架構授與存取權，用戶端應用程式必須使用 OAuth 2.0 要求授權。[程式碼範例](https://github.com/AzureADSamples)也可向您示範 Web 應用程式、原生應用程式或伺服器/精靈應用程式如何要求授權碼並存取權杖以呼叫 Web API。
 
 Web 應用程式可提供使用者的註冊體驗。如果您已提供註冊體驗，預期使用者會按一下註冊 (或 [登入] 按鈕)，將瀏覽器重新導向至 Azure AD OAuth2.0 授權端點或 OpenID Connect userinfo 端點。這些端點可讓應用程式藉由檢查 id\_token 取得新使用者的相關資訊。
 
@@ -215,18 +218,18 @@ Web 應用程式可提供使用者的註冊體驗。如果您已提供註冊體�
 
 #### 啟用單一頁面應用程式的 OAuth 2.0 隱含授權。
 
-單一頁面應用程式 (SPA) 通常會利用執行於瀏覽器中的 JavaScript-heavy 前端進行結構化，此前端會呼叫應用程式的 web API 後端以執行其商務邏輯。針對裝載於 Azure AD 中的 SPA，您會使用 OAuth 2.0 隱含授權驗證具備 Azure AD 的使用者，並取得您可以使用的權杖以保護從應用程式的 JavaScript 用戶端到其後端 web API 的呼叫。使用者授與同意權之後，這個相同的驗證通訊協定可用來取得權杖以保護用戶端和其他為應用程式設定之 web API 資源之間的呼叫。根據預設，應用程式的 OAuth 2.0 隱含授權會停用。您也可以設定應用程式資訊清單中的 `oauth2AllowImplicitFlow`”` 值以啟用應用程式的 OAuth 2.0 隱含授權，此值為表示應用程式身分識別組態的 JSON 檔案。
+單一頁面應用程式 (SPA) 通常會利用執行於瀏覽器中的 JavaScript-heavy 前端進行結構化，此前端會呼叫應用程式的 web API 後端以執行其商務邏輯。針對裝載於 Azure AD 中的 SPA，您會使用 OAuth 2.0 隱含授權驗證具備 Azure AD 的使用者，並取得您可以使用的權杖以保護從應用程式的 JavaScript 用戶端到其後端 web API 的呼叫。使用者授與同意權之後，這個相同的驗證通訊協定可用來取得權杖以保護用戶端和其他為應用程式設定之 web API 資源之間的呼叫。根據預設，應用程式的 OAuth 2.0 隱含授權會停用。您也可以設定[應用程式資訊清單](active-directory-application-manifest.md)中的 `oauth2AllowImplicitFlow`”` 值，以啟用應用程式的「OAuth 2.0 隱含授權」，此值為表示應用程式身分識別組態的 JSON 檔案。
 
 ##### 啟用 OAuth 2.0 隱含授權
 
 1. 登入 Azure 管理入口網站。
 1. 按一下左側功能表中的 **Active Directory** 圖示，然後按一下想要的目錄。
 1. 在頂端功能表上，按一下 [應用程式]，然後按一下您想要設定的應用程式。單一登入及其他組態資訊都會顯示 [快速啟動] 頁面。
-1. 按一下命令列中的 [管理資訊清單] 按鈕並選取 [下載資訊清單]。開啟 JSON 應用程式資訊清單檔案並將 "oauth2AllowImplicitFlow" 值設為 “true”。根據預設，它是 “false”。
+1. 按一下命令列中的 [管理資訊清單] 按鈕，並選取 [下載資訊清單]。開啟 JSON 應用程式資訊清單檔案並將 "oauth2AllowImplicitFlow" 值設為 “true”。根據預設，它是 “false”。
 
        "oauth2AllowImplicitFlow"：true，
 
-1. 儲存更新的 JSON 檔案並將其上傳，方法是按一下命令列中的 [管理資訊清單] 按鈕、選取 [上傳資訊清單]、瀏覽至您的已更新資訊清單檔，然後選取它。上傳之後，您的 web API 現在已設定為使用 OAuth 2.0 隱含授權來驗證使用者。
+1. 儲存更新的 JSON 檔案並將其上傳，方法是按一下命令列中的 [管理資訊清單] 按鈕、選取 [上傳資訊清單]、瀏覽至您的已更新資訊清單檔案並將其選取。上傳之後，您的 web API 現在已設定為使用 OAuth 2.0 隱含授權來驗證使用者。
 
 
 ### 授與存取權的舊版體驗
@@ -239,7 +242,7 @@ Web 應用程式可提供使用者的註冊體驗。如果您已提供註冊體�
 
 - 登入使用者並讀取與寫入其組織的目錄資料 (僅限應用程式)
 
-您可以遵循[利用 Azure AD 開發多租用戶 Web 應用程式](https://msdn.microsoft.com/library/azure/dn151789.aspx)中的步驟，授與在 Azure AD 中註冊之新應用程式的存取權。請務必注意，新的同意架構可允許更強大的應用程式，也可讓使用者 (而不只是系統管理員) 同意這些應用程式。
+您可遵循[利用 Azure AD 開發多租用戶 Web 應用程式](https://msdn.microsoft.com/library/azure/dn151789.aspx)中的步驟，授與在 Azure AD 中註冊之新應用程式的存取權。請務必注意，新的同意架構可允許更強大的應用程式，也可讓使用者 (而不只是系統管理員) 同意這些應用程式。
 
 #### 建置授與存取權給外部使用者的連結 (舊版)
 
@@ -342,8 +345,10 @@ Web 應用程式可提供使用者的註冊體驗。如果您已提供註冊體�
 
 - 請參閱[整合應用程式的商標指導方針](active-directory-branding-guidelines.md)
 
-- 了解[應用程式物件和服務主體物件](active-directory-application-objects.md)
+- 了解[應用程式物件和服務主體物件](active-directory-application-objects.md)相關資訊
+
+- 了解[Azure Active Directory 應用程式資訊清單](active-directory-application-manifest.md)相關資訊
 
 - 請瀏覽 [Active Directory 開發人員指南] (active-directory-developer's guide.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

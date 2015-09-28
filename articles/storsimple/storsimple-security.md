@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="StorSimple 安全性 |Microsoft Azure"
-	description="說明保護內部部署和雲端中之 StorSimple 服務、裝置和資料的安全性和隱私權功能。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="Carolz"
-	editor=""/>
+   pageTitle="StorSimple 安全性 |Microsoft Azure" 
+   description="說明保護內部部署和雲端中之 StorSimple 服務、裝置和資料的安全性和隱私權功能。" 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="Carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/10/2015"
+   ms.author="v-sharos"/>
 
 # StorSimple 安全性和資料保護
 
@@ -56,6 +56,7 @@ StorSimple 裝置是包含固態硬碟 (SSD) 和硬碟 (HDD) 的內部部署混�
 > 
 > * 如果您在註冊完第一個裝置之後遺失服務註冊金鑰，您可以透過 StorSimple Manager 服務產生新的金鑰。這不會對現有裝置的作業有任何影響。 
 > * 裝置註冊完後，它會使用權杖與 Microsoft Azure 通訊。裝置註冊後便不會用到服務註冊金鑰。
+> * 我們建議您在每次使用之後重新產生服務註冊金鑰。
 
 ## 透過密碼保護您的 StorSimple 解決方案
 
@@ -83,7 +84,7 @@ Windows PowerShell for StorSimple 是一個可讓您管理 StorSimple 裝置的�
 
 ### Challenge Handshake 驗證通訊協定 (CHAP) 啟動器和目標密碼
 
-CHAP 是 StorSimple 裝置用來驗證遠端用戶端身分識別的一種驗證配置。此驗證會以共用密碼為基礎。CHAP 可以是單向 (單向) 或相互 (雙向)。使用單向 CHAP 時，目標 (StorSimple 裝置) 會驗證啟動器 (主機)。相互 CHAP 會要求目標驗證啟動器，然後啟動器驗證目標。您可以設定 Azure StorSimple 使用任一種方法。
+CHAP 是 StorSimple 裝置用來驗證遠端用戶端身分識別的一種驗證配置。此驗證會以共用密碼為基礎。CHAP 可以是單向 (單向) 或相互 (雙向)。使用單向 CHAP 時，目標 (StorSimple 裝置) 會驗證啟動器 (主機)。相互或反相 CHAP 會要求目標驗證啟動器，然後啟動器驗證目標。您可以設定 StorSimple 使用任一種方法。
 
 > [AZURE.IMPORTANT]
 > 
@@ -107,7 +108,7 @@ StorSimple Snapshot Manager 是一個 Microsoft Management Console (MMC) 嵌入�
 
 建議您使用下列指導方針，以協助確保 Azure StorSimple 密碼強度夠強並且受到嚴密保護：
 
-- 每三個月變更您的密碼。
+- 每三個月變更您的密碼。每年會強制變更密碼。
 - 使用強式密碼。如需詳細資訊，請移至[建立強式密碼並保護它們](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/)。
 - 針對不同的存取機制一律使用不同的密碼。您所指定的每個密碼都應該是唯一的。
 - 請勿與未經授權存取 StorSimple 裝置的任何人分享密碼。
@@ -138,7 +139,7 @@ StorSimple Manager 服務的主要目的是管理和設定 StorSimple 裝置。S
 > * 您可以透過選取服務儀表板上的 [變更服務資料加密金鑰] 選項，變更服務資料加密金鑰及對應的資料加密憑證。變更加密金鑰時，必須使用新的金鑰更新所有裝置。因此，建議您在所有裝置都在線上時變更金鑰。如果裝置處於離線狀態，您可以在其他時間變更金鑰。金鑰已過期的裝置仍然可以執行備份，但在金鑰更新之前將無法還原資料。如需詳細資訊，請移至[使用 StorSimple Manager 服務儀表板](storsimple-service-dashboard.md)。
 > * 若要確保資料安全性不會受到危害，您必須使用實體 StorSimple 裝置變更服務資料加密金鑰。
 > * 如果服務資料加密金鑰遺失，Microsoft 支援人員可協助您擷取該金鑰，但前提是您至少要有一個裝置處於線上狀態。建議您在擷取服務資料加密金鑰後將其變更。如需相關指示，請移至[變更服務資料加密金鑰](storsimple-service-dashboard.md#change-the-service-data-encryption-key)。
-> * 服務資料加密金鑰和資料加密憑證不會過期。不過，建議您定期變更服務資料加密金鑰，以防金鑰洩露。</li></ul>
+> * 服務資料加密金鑰和資料加密憑證不會過期。不過，建議您每年變更服務資料加密金鑰，以防金鑰洩露。</li></ul>
 
 
 ## 保護靜態資料的安全
@@ -150,10 +151,9 @@ StorSimple 裝置會根據使用頻率，將資料儲存在本機階層和雲端
 - 在 StorSimple Manager 服務中輸入雲端儲存體加密金鑰時，此金鑰會使用服務資料加密金鑰的公開部分進行加密，然後傳送至裝置。
 - 雲端儲存體加密金鑰不會儲存在服務中的任何地方，只有此裝置才知道儲存位置。
 - 指定雲端儲存體加密金鑰是選用選項。您可以將已在主機上加密的資料傳送至裝置。
+- 建議您每季輪替雲端儲存體加密金鑰。不會強制輪替這些金鑰。
 
 ### 其他的安全性最佳作法
-
-- 若要實作備援，請使用多重路徑 (MPIO) 以避免 iSCSI SAN 中的單一失敗點。如需詳細指示，請參閱[為 StorSimple 裝置設定 MPIO](storsimple-configure-mpio-windows-server.md)。
 
 - 分割流量：透過部署完全分開的網路並在無法使用實體隔離的位置使用 VLAN，將您的 iSCSI SAN 從公司 LAN 中的使用者流量隔離。iSCSI 存放裝置的專用網路會保證您業務關鍵資料的安全性和效能。不建議在公司 LAN 上將存放裝置與使用者流量混用，這會增加延遲並造成網路失敗。
 
@@ -253,4 +253,4 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 [部署您的 StorSimple 裝置](storsimple-deployment-walkthrough.md)。
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

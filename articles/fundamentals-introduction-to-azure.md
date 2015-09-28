@@ -132,7 +132,6 @@ Azure SQL Database 先前稱為 SQL Azure，它提供了關聯式資料庫管理
 
 SQL Database 不僅是雲端的 DBMS，也是一項 PaaS 服務。您仍可控管您的資料與其存取者，但 SQL Database 會負責處理例行的管理工作，例如：管理硬體基礎結構以及讓資料庫和作業系統軟體自動保持最新狀態。SQL Database 還提供高可用性、自動備份、時間點還原功能，以及可以複寫在不同地理區域上的複本。
 
-另外還有一個高級選項，您可以多付一些費用便可擁有隸屬於自己的專用伺服器。選擇標準選項，資料庫便會在共用硬體上執行，如果您剛好是在特別忙碌的伺服器上，則有可能會對您的資料庫查詢進行節流。
 
 **SQL Database 的案例**
 
@@ -612,4 +611,4 @@ SendGrid 是 Azure Store 中可讓您傳送電子郵件的應用程式。它提�
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

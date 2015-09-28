@@ -1,19 +1,19 @@
 <properties
-	pageTitle="VMM 與 Hyper-V 網站保護的「監視與疑難排解指南」"
-	description="Azure Site Recovery 可將內部部署伺服器上的虛擬機器複寫、容錯移轉及復原協調至 Azure 或次要資料中心。使用這份文件來監控和疑難排解 VMM 或 Hyper-V 網站保護。"
-	services="site-recovery"
-	documentationCenter=""
-	authors="anbacker"
-	manager="mkjain"
+	pageTitle="VMM 與 Hyper-V 網站保護的「監視與疑難排解指南」" 
+	description="Azure Site Recovery 可將內部部署伺服器上的虛擬機器複寫、容錯移轉及復原協調至 Azure 或次要資料中心。使用這份文件來監控和疑難排解 VMM 或 Hyper-V 網站保護。" 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="anbacker" 
+	manager="mkjain" 
 	editor=""/>
 
 <tags 
-	ms.service="site-recovery"
+	ms.service="site-recovery" 
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="09/01/2015"
+	ms.workload="storage-backup-recovery" 
+	ms.date="09/01/2015" 
 	ms.author="anbacker"/>
 	
 # 監視和疑難排解 VMware、VMM、Hyper-V 和實體網站的保護
@@ -83,14 +83,6 @@ ASR 中的每個作業都會被稽核，並且在 [工作] 索引標籤底下追
 
 注意：如果有任何作用中的作業正在進行中或失敗，則如先前所述瀏覽至 [工作] 檢視，以檢視工作的特定錯誤。
 
-## 事件記錄檔
-
-| 案例 | 事件來源 |
-|-------------------------	|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| VMM 網站保護 | VMM 伺服器 <ul><li> **Applications and Service Logs/Microsoft/VirtualMachineManager/Server/Admin** </li></ul> Hyper-V 主機 <ul><li> **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** (適用於 Azure 為目標)</li><li> **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** </li></ul> |
-| Hyper-V 網站保護 | <ul><li> **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** </li><li> **Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational** </li><li> **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** </li><ul>|
-
-
 ## 疑難排解內部部署 Hyper-V 問題
 
 連接到內部部署 HYPER-V 管理員主控台，選取虛擬機器，然後查看複寫健康狀態。
@@ -104,6 +96,16 @@ ASR 中的每個作業都會被稽核，並且在 [工作] 索引標籤底下追
 在虛擬機器複寫已暫停的情況下，以滑鼠右鍵按一下並選取 [複寫] -> [繼續複寫] ![疑難排解內部部署 Hyper-V 問題](media/site-recovery-monitoring-and-troubleshooting/image19.png)
 
 如果虛擬機器移轉透過 ASR 設定的新 Hyper-V 主機 (在叢集或獨立電腦中)，虛擬機器的複寫將不受影響。確定新的 Hyper-V 主機符合所有必要條件並已使用 ASR 進行設定。
+
+### 事件記錄檔
+
+| 事件來源 | 詳細資料 |
+|-------------------------	|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+| **Applications and Service Logs/Microsoft/VirtualMachineManager/Server/Admin** (VMM 伺服器) | 這可提供很有用的記錄以疑難排解許多不同的 VMM 問題。 |
+| **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** (Hyper-V 主機) | 這可提供很有用的記錄以疑難排解許多 Microsoft Azure 復原服務代理程式問題。<br/> ![Hyper-V 主機的事件來源](media/site-recovery-monitoring-and-troubleshooting/eventviewer03.png) |
+| **Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational** (Hyper-V 主機) | 這可提供很有用的記錄以疑難排解許多 Microsoft Azure Site Recovery 服務問題。<br/> ![Hyper-V 主機的事件來源](media/site-recovery-monitoring-and-troubleshooting/eventviewer02.png) |
+| **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** (Hyper-V 主機) | 這可提供很有用的記錄以疑難排解許多 Hyper-V 虛擬機器管理問題。<br/> ![Hyper-V 主機的事件來源](media/site-recovery-monitoring-and-troubleshooting/eventviewer01.png) |
+
 
 ### HYPER-V 複寫記錄選項
 
@@ -120,6 +122,8 @@ ASR 中的每個作業都會被稽核，並且在 [工作] 索引標籤底下追
 ![疑難排解內部部署 Hyper-V 問題](media/site-recovery-monitoring-and-troubleshooting/image16.png)
 
 若要檢視收集的資訊，請先藉由停用記錄檔來停止追蹤工作階段，然後儲存記錄檔並且在 [事件檢視器] 中重新開啟，或使用其他工具視需要轉換它。
+
+
 
 ## 連絡 Microsoft 支援
 
@@ -150,6 +154,10 @@ ASR 中的每個作業都會被稽核，並且在 [工作] 索引標籤底下追
 
 以下是您可能會遇到的常見錯誤及其解決方案。每個錯誤記錄在個別的 WIKI 頁面。
 
+### 一般
+-   <span style="color:green;">NEW</span> [作業失敗，發生錯誤「作業正在進行中。」 錯誤 505, 514, 532](http://social.technet.microsoft.com/wiki/contents/articles/32190.azure-site-recovery-jobs-failing-with-error-an-operation-is-in-progress-error-505-514-532.aspx)
+-   <span style="color:green;">NEW</span> [作業失敗，發生錯誤「伺服器未連接到網際網路」。錯誤 25018](http://social.technet.microsoft.com/wiki/contents/articles/32192.azure-site-recovery-jobs-failing-with-error-server-isn-t-connected-to-the-internet-error-25018.aspx)
+
 ### 設定
 -   [無法註冊 VMM 伺服器，因為發生內部錯誤。如需錯誤的詳細資訊，請參閱 Site Recovery 入口網站中的工作檢視。再次執行安裝程式以註冊伺服器。](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
 -   [無法連接到 Hyper-V 復原管理員保存庫。請確認 Proxy 設定，或稍後再試一次。](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
@@ -161,11 +169,14 @@ ASR 中的每個作業都會被稽核，並且在 [工作] 索引標籤底下追
 -   [設定保護時無法選取訂用帳戶內的儲存體帳戶](http://social.technet.microsoft.com/wiki/contents/articles/32027.can-t-select-the-storage-account-within-the-subscription-while-configuring-protection.aspx)
 
 ### 保護
+- <span style="color:green;">NEW</span> [啟用保護失敗，發生錯誤「保護無法針對虛擬機器設定」。錯誤 60007, 40003](http://social.technet.microsoft.com/wiki/contents/articles/32194.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-configured-for-the-virtual-machine-error-60007-40003.aspx)
+- <span style="color:green;">NEW</span> [啟用保護失敗，發生錯誤「保護無法針對虛擬機器啟用。」 錯誤 70094](http://social.technet.microsoft.com/wiki/contents/articles/32195.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-enabled-for-the-virtual-machine-error-70094.aspx)
+- <span style="color:green;">NEW</span> [即時移轉錯誤 23848 - 虛擬機器即將使用 Live 類型移動。這可能會中斷虛擬機器的復原保護狀態。](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx) 
 - [啟用保護失敗，因為主機機器上未安裝代理程式](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
 - [找不到複本虛擬機器的適當主機 - 因為計算資源不足](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx)
 - [找不到複本虛擬機器的適當主機 - 因為未連接邏輯網路](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx)
 - [無法連接到複本主機機器 - 連線無法建立](http://social.technet.microsoft.com/wiki/contents/articles/31106.cannot-connect-to-the-replica-host-machine-connection-could-not-be-established.aspx)
-- [即時移轉錯誤 23848 - 虛擬機器即將使用 Live 類型移動。這可能會中斷虛擬機器的復原保護狀態。](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx)
+
 
 ### 復原
 - VMM 無法完成主機作業 -
@@ -183,9 +194,9 @@ ASR 中的每個作業都會被稽核，並且在 [工作] 索引標籤底下追
     -   [無法起始容錯移轉，因為正在進行測試容錯移轉](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
 
 ### 設定伺服器、處理序伺服器、主要目標
-設定伺服器 (CS)、處理序伺服器 (PS)、主要目標 (MT) - [將 PS/CS 做為 VM 加以管理的 ESXi 主機失敗，並且出現紫色的當機螢幕。](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
+設定伺服器 (CS)、處理序伺服器 (PS)、主要目標 (MT) - [將 PS/CS 做為 VM 加以管理的 ESXi 主機失敗，並且出現紫色的當機畫面。](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
 ### 容錯移轉之後的遠端桌面疑難排解
 -   許多客戶面臨在 Azure 中連接到容錯移轉的 VM 的問題。[使用疑難排解文件 RDP 至 VM](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

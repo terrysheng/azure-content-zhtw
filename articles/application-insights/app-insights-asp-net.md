@@ -148,9 +148,18 @@
 
 如果您尚未發佈您的 app (因為您加入了 Application Insights)，請立即發佈您的 app。隨著人們使用您的 app，您會在圖表中看到資料成長。
 
+
+#### 發佈資料到伺服器之後，卻沒有資料？
+
+請在您的伺服器防火牆中，開啟這些連出流量的連接埠：
+
++ `dc.services.visualstudio.com:443`
++ `f5.services.visualstudio.com:443`
+
 ### 針對開發、測試和發行保持個別的資源
 
 針對主要應用程式，建議您從偵錯、測試和生產傳送遙測資料到[不同資源](app-insights-separate-resources.md)。
+
 
 
 
@@ -166,7 +175,7 @@
 
 使用系統管理員權限登入您的伺服器，並安裝 [Application Insights 狀態監視器](http://go.microsoft.com/fwlink/?LinkId=506648)。
 
-(即使應用程式不是以 SDK 建置而成，您也可以使用狀態監視器[檢測已在執行的應用程式](app-insights-monitor-performance-live-website-now.md))。
+您必須確定某些 [額外的連接埠在您的伺服器防火牆中開啟](app-insights-monitor-performance-live-website-now.md#troubleshooting)。
 
 #### 如果您的 app 是 Azure Web 應用程式
 
@@ -226,4 +235,4 @@
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

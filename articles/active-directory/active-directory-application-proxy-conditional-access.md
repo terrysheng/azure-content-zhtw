@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 # 使用條件式存取
-> [AZURE.NOTE]應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](https://msdn.microsoft.com/library/azure/dn532272.aspx)。
+> [AZURE.NOTE]應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 
 您現在可以啟用存取規則，以授與條件式存取給使用者和群組，以便存取使用應用程式 Proxy 發佈的應用程式。這可讓您︰- 需要每個應用程式的 Multi-Factor Authentication - 只有當使用者不在工作時才需要 Multi-Factor Authentication - 封鎖使用者，使其不在工時無法存取應用程式
 
@@ -44,10 +44,10 @@
 
 
 ## 設定同盟服務的 MFA
-對於同盟的租用戶，Multi-Factor Authentication (MFA) 可能由 Azure Active Directory 或內部部署 AD FS 伺服器執行。根據預設，MFA 會發生在 Azure Active Directory 所裝載的任何頁面上。若要設定內部部署 MFA，請執行 Windows PowerShell 並使用 –SupportsMFA 屬性來設定 Azure AD 模組。下列範例示範如何在 contoso.com 租用戶上使用 [Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx) 來啟用內部部署 MFA︰`Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true ` 除了設定這個旗標，同盟租用戶 AD FS 執行個體必須設為執行 Multi-Factor Authentication。依照[內部部署 Microsoft Azure Multi-Factor Authentication](http://technet.microsoft.com/library/dn280946.aspx)的指示進行。
+對於同盟的租用戶，Multi-Factor Authentication (MFA) 可能由 Azure Active Directory 或內部部署 AD FS 伺服器執行。根據預設，MFA 會發生在 Azure Active Directory 所裝載的任何頁面上。若要設定內部部署 MFA，請執行 Windows PowerShell 並使用 –SupportsMFA 屬性來設定 Azure AD 模組。下列範例示範如何在 contoso.com 租用戶上使用 [Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx) 來啟用內部部署 MFA︰`Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true ` 除了設定這個旗標，同盟租用戶 AD FS 執行個體必須設為執行 Multi-Factor Authentication。請遵循[內部部署 Microsoft Azure Multi-Factor Authentication](..multi-factor-authentication-get-started-server.md) 的指示。
 ## 其他資源
 
 * [以組織身分註冊 Azure](..sign-up-organization.md)
 * [Azure 身分識別](..fundamentals-identity.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

@@ -1,23 +1,23 @@
 <properties 
    pageTitle="什麼是網路安全性群組 (NSG)"
-	description="了解網路安全性群組 (NSG)"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="了解網路安全性群組 (NSG)"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/13/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/13/2015"
+   ms.author="telmos" />
 
 # 什麼是網路安全性群組 (NSG)？
 
-您可以在虛擬網路中，使用 NSG 控制傳輸至一個或多個虛擬機器 (VM) 執行個體的流量。網路安全性群組是與您訂用帳戶相關聯的最上層物件，NSG 包含存取控制規則，可允許或拒絕傳輸至 VM 執行個體的流量。NSG 的規則可以隨時變更，而變更時會套用至所有相關聯的執行個體。若要使用 NSG，您必須擁有與區域 (位置) 相關聯的 VNet。
+您可以在虛擬網路中，使用 NSG 控制傳輸至一個或多個虛擬機器 (VM) 執行個體的流量。NSG 包含存取控制規則，可根據流量方向、通訊協定、來源位址和連接埠與目的地位址和連接埠，允許或拒絕流量。NSG 的規則可以隨時變更，而變更時會套用至所有相關聯的執行個體。若要使用 NSG，您必須有區域 VNet。
 
 >[AZURE.WARNING]NSG 不相容於與同質群組相關聯的 VNet。如果您沒有區域 VNet，而且您想要控制傳輸至端點的流量，請參閱＜[什麼是網路存取控制清單 (ACL)？](./virtual-networks-acl.md)＞。您也可以[將 VNet 移轉至區域 VNet](./virtual-networks-migrate-to-regional-vnet.md)。
 
@@ -249,4 +249,4 @@ Azure 中常見的案例就是根據 VM 和 PaaS 角色是否需要存取網際�
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

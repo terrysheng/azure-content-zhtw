@@ -5,15 +5,15 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/11/2015"
-	ms.author="jroth"/>
+	ms.date="09/16/2015"
+	ms.author="jroth" />
 
 # 設定 Azure 中 AlwaysOn 可用性群組的 ILB 接聽程式
 
@@ -34,8 +34,6 @@
 - 用戶端應用程式必須與包含可用性群組 VM 的雲端服務位於不同雲端服務上。Azure 在相同的雲端服務中不支援伺服器直接回傳搭配用戶端和伺服器使用。
 
 - 每個雲端服務僅支援一個可用性群組接聽程式，因為接聽程式設定為使用雲端服務 VIP 位址或內部負載平衡器的 VIP 位址。請注意，雖然 Azure 現在支援在指定的雲端服務中建立多個 VIP 位址中，這項限制仍為有效。
-
->[AZURE.NOTE]本教學課程著重在使用 PowerShell 針對包含 Azure 複本的可用性群組建立接聽程式。如需有關如何使用 SSMS 或 Transact-SQL 設定接聽程式的詳細資訊，請參閱〈[建立或設定可用性群組接聽程式](https://msdn.microsoft.com/library/hh213080.aspx)〉。
 
 ## 判斷接聽程式的協助工具
 
@@ -59,9 +57,9 @@
 
 		(Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 
-1. 選擇其中一個可用的位址，並將它用於下列指令碼中的 **$ILBStaticIP** 參數。
+1. 選擇其中一個可用的位址，並將其用於下列指令碼中的 **$ILBStaticIP** 參數。
 
-3. 將下方的 PowerShell 指令碼複製到文字編輯器，並設定變數值以符合您的環境 (請注意，某些參數已提供預設值)。請注意，使用同質群組的現有部署無法新增 ILB。如需 ILB 需求的詳細資訊，請參閱〈[內部負載平衡器](../load-balancer/load-balancer-internal-overview.md)〉。此外，如果您的可用性群組跨越 Azure 區域，您必須針對雲端服務和位於該資料中心的節點，在每個資料中心執行一次指令碼。
+3. 將下方的 PowerShell 指令碼複製到文字編輯器，並設定變數值以符合您的環境 (請注意，某些參數已提供預設值)。請注意，使用同質群組的現有部署無法新增 ILB。如需 ILB 需求的詳細資訊，請參閱[內部負載平衡器](../load-balancer/load-balancer-internal-overview.md)。此外，如果您的可用性群組跨越 Azure 區域，您必須針對雲端服務和位於該資料中心的節點，在每個資料中心執行一次指令碼。
 
 		# Define variables
 		$ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
@@ -135,4 +133,4 @@
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

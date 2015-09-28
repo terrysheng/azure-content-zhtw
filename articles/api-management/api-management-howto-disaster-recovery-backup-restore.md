@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="09/15/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中使用服務備份和還原實作災害復原
@@ -28,7 +28,7 @@
 
 ## 驗證 Azure 資源管理員要求
 
->[AZURE.IMPORTANT]備份和還原的 REST API 會使用 Azure 資源管理員，並有不同的驗證機制的 REST API 來管理您的 API 管理實體。本節中的步驟描述如何驗證 Azure 資源管理員的要求。如需詳細資訊，請參閱[驗證 Azure Resource Manager 要求](http://msdn.microsoft.com/library/dn790557.aspx)。
+>[AZURE.IMPORTANT]備份和還原的 REST API 會使用 Azure 資源管理員，並有不同的驗證機制的 REST API 來管理您的 API 管理實體。本節中的步驟描述如何驗證 Azure 資源管理員的要求。如需詳細資訊，請參閱[驗證 Azure Resource Manager 要求](http://msdn.microsoft.com/library/azure/dn790557.aspx)。
 
 所有您使用 Azure 資源管理員對資源所做的工作，必須透過 Azure Active Directory 使用以下步驟驗證。
 
@@ -189,4 +189,4 @@
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

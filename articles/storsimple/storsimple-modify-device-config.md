@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="修改 StorSimple 裝置組態 | Microsoft Azure"
-	description="描述如何使用 StorSimple Manager 服務來重新設定已部署的 StorSimple 裝置。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   pageTitle="修改 StorSimple 裝置組態 | Microsoft Azure" 
+   description="描述如何使用 StorSimple Manager 服務來重新設定已部署的 StorSimple 裝置。" 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/14/2015"
-	ms.author="v-sharos@microsoft.com"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/15/2015"
+   ms.author="v-sharos@microsoft.com"/>
 
 # 使用 StorSimple Manager 服務來修改 StorSimple 裝置組態。
 
@@ -83,7 +83,7 @@ DATA 0 依預設已啟用雲端功能。設定 DATA 0 時，您也需要設定�
 
 - **速度** – 並非使用者可設定的參數。DATA 0、DATA 1、DATA 4 和 DATA 5 永遠是 1 GbE，而 DATA 2 和 DATA 3 是 10 GbE 介面。
 
-     >[AZURE.NOTE]>>- 速度和雙工永遠是自動交涉。>- 不支援 Jumbo 框架。
+     >[AZURE.NOTE]速度和雙工會一律自動交涉。不支援 Jumbo 框架。
  
 - **介面狀態** – 介面可以啟用或停用。如果已啟用，則裝置會嘗試使用介面。我們建議您僅啟用那些連線到網路的使用中介面。停用任何您沒有使用的介面。
 
@@ -124,8 +124,9 @@ DATA 0 依預設已啟用雲端功能。設定 DATA 0 時，您也需要設定�
 
 ## 後續步驟
 
-[為 StorSimple 裝置設定 MPIO](storsimple-configure-mpio-windows-server.md)。
- 
+- 了解如何[為 StorSimple 裝置設定 MPIO](storsimple-configure-mpio-windows-server.md)。
+
+- 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
      
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

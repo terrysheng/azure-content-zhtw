@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/24/2015"
+   ms.date="08/12/2015"
    ms.author="larryfr"/>
 
-# 在 Linux 上使用 HDInsight 的相關資訊 (預覽)
+# 在 Linux 上使用 HDInsight 的相關資訊
 
 以 Linux 為基礎的 Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端中執行的 Hadoop。其操作大多與 Linux 安裝上的任何其他 Hadoop 相同。本文件會指出其中應注意的特殊不同之處。
 
@@ -29,17 +29,13 @@
 
 * **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
 
-	> [AZURE.NOTE]使用叢集系統管理員使用者和密碼進行驗證，然後登入 Ambari 。這也會用到叢集系統管理員使用者和密碼。
+	使用叢集系統管理員使用者和密碼進行驗證，然後登入 Ambari 。這也會用到叢集系統管理員使用者和密碼。
+
+	驗證是純文字的 - 請一律使用 HTTPS 來協助確保連線的安全性。
+
+	> [AZURE.IMPORTANT]雖然可以直接透過網際網路存取叢集的 Ambari，但要使用某些功能則要靠存取叢集所使用之內部網域名稱的節點來達成。由於這是內部網域名稱且並未公開，因此在嘗試透過網際網路存取某些功能時會收到「找不到伺服器」的錯誤。
 	>
-	> 驗證是純文字的 - 請一律使用 HTTPS 來協助確保連線的安全性。
-
-	雖然可以直接透過網際網路存取叢集的 Ambari，但要使用某些功能則要靠存取叢集所使用之內部網域名稱的節點來達成。由於這是內部網域名稱且並未公開，因此在嘗試透過網際網路存取某些功能時會收到「找不到伺服器」的錯誤。
-
-	若要解決這個問題，請使用 SSH 通道將 Web 流量以 Proxy 處理傳輸到叢集前端節點。使用下列文章的 **SSH 通道**章節從本機電腦上的連接埠建立連往叢集的 SSH 通道：
-
-	* [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)：使用 `ssh` 命令建立 SSH 通道的步驟。
-
-	* [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows)：使用 Putty 建立 SSH 通道的步驟。
+	> 若要使用 Ambari Web UI 的完整功能，請使用 SSH 通道將 Web 流量以 Proxy 處理傳輸到叢集前端節點。請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
@@ -53,9 +49,9 @@
 	>
 	> 驗證是純文字的 - 請一律使用 HTTPS 來協助確保連線的安全性。
 
-* **SSH** - &lt;clustername>-ssh.azurehdinsight.net on port 22 or 23.連接埠 22 用來連接至 headnode0、而 23 用來連接至 headnode1。如需前端節點的詳細資訊，請參閱 [HDInsight 上 Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)。
+* **SSH** - 連接埠 22 或 23 上的 &lt;clustername>-ssh.azurehdinsight.net。連接埠 22 用來連接至 headnode0、而 23 用來連接至 headnode1。如需前端節點的詳細資訊，請參閱 [HDInsight 上 Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)。
 
-	> [AZURE.NOTE]您只能從用戶端電腦透過 SSH 存取叢集前端節點。然後在連線後，再從前端節點使用 SSH 存取背景工作節點。
+	> [AZURE.NOTE]您只能從用戶端電腦透過 SSH 存取叢集前端節點。然後在連線後，再從前端節點使用 SSH 存取背景工作角色節點。
 
 ## 檔案位置
 
@@ -101,17 +97,28 @@ HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要�
 	> [AZURE.TIP]如果您已安裝 [jq](http://stedolan.github.io/jq/)，您可以使用下列程式碼以只傳回 `fs.defaultFS` 項目：
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
-	
+
 3. 若要尋找用來驗證儲存體帳戶的金鑰，或尋找與叢集相關聯的任何次要儲存體帳戶，使用下列方法：
 
 		curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
-		
+
 4. 在傳回的 JSON 資料中，找到以 `fs.azure.account.key` 開頭的項目。項目名稱的其餘部分是儲存體帳戶名稱。例如，`fs.azure.account.key.mystorage.blob.core.windows.net`。此項目中儲存的值是用來驗證儲存體帳戶的金鑰。
 
 	> [AZURE.TIP]如果您已安裝 [jq](http://stedolan.github.io/jq/)，可以使用下列程式碼來傳回金鑰和值清單：
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
+您也可以使用 Azure Preview 入口網站尋找儲存體資訊︰
+
+1. 在 [Azure Preview 入口網站](https://portal.azure.com/)中，選取您的 HDInsight 叢集。
+
+2. 從 [Essentials] 區段選取 [所有設定]。
+
+3. 從 [設定] 選取 [Azure 儲存體金鑰]。
+
+4. 從 [Azure 儲存體金鑰]，選取其中一個列出的儲存體帳戶。如此會顯示有關儲存體帳戶的資訊。
+
+5. 選取金鑰圖示。如此會顯示此儲存體帳戶的金鑰。
 
 ### 如何存取 Blob 儲存體？
 
@@ -137,10 +144,80 @@ HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要�
 
 * [儲存體 REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
+##<a name="scaling"></a>調整您的叢集
+
+叢集調整功能可讓您變更在 Azure HDInsight 中執行的叢集所用的資料節點數目，而不需要刪除然後再重新建立叢集。
+
+正在叢集上執行其他工作或處理序時，您可以執行調整作業。
+
+不同的叢集類型會受調整影響，如下所示：
+
+* __Hadoop__︰相應減少叢集中節點數目時，會重新啟動叢集中的部分服務。這會導致執行中或擱置的工作在調整作業完成時失敗。您可以在作業完成後重新提交這些工作。
+
+* __HBase__︰區域伺服器會在完成調整作業的數分鐘之內自動取得平衡。若要手動平衡區域伺服器，請使用下列步驟：
+
+	1. 使用 SSH 連線到 HDInsight 叢集。如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱下列其中一份文件：
+
+		* [從 Linux、Unix 和 Mac OS X 搭配使用 SSH 與 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+		* [從 Windows 搭配使用 SSH 與 HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+	1. 使用下列命令來啟動 HBase Shell：
+
+			hbase shell
+
+	2. 載入 HBase Shell 後，使用下列命令來手動平衡區域伺服器︰
+
+			balancer
+
+* __Storm__︰執行調整作業之後，您應該重新平衡任何執行中的 Storm 拓撲。這可讓拓撲根據叢集中的新節點數目，重新調整平行處理原則設定。若要重新平衡執行中的拓撲，請使用下列其中一個選項：
+
+	* __SSH__︰連接到伺服器並使用下列命令來重新平衡拓撲：
+
+			storm rebalance TOPOLOGYNAME
+
+		您也可以指定參數來覆寫拓撲原先提供的平行處理原則提示。例如，`storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` 會將拓撲重新設定為 5 個背景工作角色處理序、適用於 blue-spout 元件的 3 個執行程式，以及適用於 yellow-bolt 元件的 10 個執行程式。
+
+	* __Storm UI__︰使用下列步驟來重新平衡使用 Storm UI 的拓撲。
+
+		1. [建立叢集的 SSH 通道並開啟 Ambari Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
+
+		2. 從頁面左邊的服務清單中選取 [Storm]。然後從 [快速連結] 選取 [Storm UI]。
+
+			![快速連結中的 Storm UI 項目](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
+
+			這會顯示 Storm UI︰
+
+			![Storm UI](./media/hdinsight-hadoop-linux-information/storm-ui.png)
+
+		3. 選取您要重新平衡的拓撲，然後選取 [重新平衡] 按鈕。在執行重新平衡作業之前輸入延遲。
+
+如需有關調整 HDInsight 叢集的特定資訊，請參閱：
+
+* [使用 Azure Preview 入口網站管理 HDInsight 上的 Hadoop 叢集](hdinsight-administer-use-portal-linux.md#scaling)
+
+* [使用 Azure PowerShell 管理 HDInsight 上的 Hadoop 叢集](hdinsight-administer-use-command-line.md#scaling)
+
+## 如何安裝 Hue (或其他 Hadoop 元件)？
+
+HDInsight 是受管理的服務，這表示如果偵測到問題，叢集中的節點可能會終結並由 Azure 自動重新佈建。因此，不建議在叢集節點上手動安裝元件。
+
+請改用 [HDInsight 指令碼動作](hdinsight-hadoop-customize-cluster.md)。
+
+指令碼動作是在叢集佈建期間執行的 Bash 指令碼，而且可用來在叢集上安裝其他元件。範例指令碼可供安裝下列元件：
+
+* [Hue](hdinsight-hadoop-hue-linux.md)
+* [Giraph](hdinsight-hadoop-giraph-install-linux.md)
+* [R](hdinsight-hadoop-r-scripts-linux.md)
+* [Solr](hdinsight-hadoop-solr-install-linux.md)
+* [Spark](hdinsight-hadoop-spark-install-linux.md)
+
+如需有關開發自己的指令碼動作的詳細資訊，請參閱[使用 HDInsight 進行指令碼動作開發](hdinsight-hadoop-script-actions-linux.md)。
+
 ## 後續步驟
 
 * [搭配 HDInsight 使用 Hivet](hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="遠端連線至 StorSimple 裝置 | Microsoft Azure"
-	description="說明如何設定您的裝置以進行遠端管理，以及如何透過 HTTP 或 HTTPS 連線到 Windows PowerShell for StorSimple。"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="說明如何設定您的裝置以進行遠端管理，以及如何透過 HTTP 或 HTTPS 連線到 Windows PowerShell for StorSimple。"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/28/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # 遠端連接至 StorSimple 裝置
 
@@ -268,6 +268,8 @@
 
 ## 後續步驟
 
-[深入了解如何使用 Windows PowerShell 管理 StorSimple 裝置](storsimple-windows-powershell-administration.md)。
+- 深入了解[如何使用 Windows PowerShell 管理 StorSimple 裝置](storsimple-windows-powershell-administration.md)。
 
-<!---HONumber=September15_HO1-->
+- 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
+
+<!---HONumber=Sept15_HO3-->

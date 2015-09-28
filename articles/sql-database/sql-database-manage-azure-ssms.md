@@ -13,15 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="09/11/2015" 
 	ms.author="jeffreyg"/>
 
 
 # 使用 SQL Server Management Studio 管理 Azure SQL Database 
 
+
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-manage-portal.md)
+- [SSMS](sql-database-manage-azure-ssms.md)
+- [PowerShell](sql-database-command-line-tools.md)
+
 您可以使用 SQL Server Management Studio (SSMS) 來管理 Azure SQL Database 邏輯伺服器與資料庫。本主題會引導您使用 SSMS 的一般工作。在您開始之前，您應該已經有 Azure SQL Database 中建立的邏輯伺服器與資料庫。若要開始使用，請閱讀[建立您的第一個 Azure SQL Database](sql-database-get-started.md)，然後再回來。
 
-每當您使用 Azure SQL Database 時，建議您使用最新版本的 SSMS。請造訪[下載 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 將其取得。
+每當您使用 Azure SQL Database 時，建議您使用最新版本的 SSMS。請造訪[下載 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 以取得。
 
 
 ## 連線到 SQL Database 邏輯伺服器
@@ -30,7 +36,7 @@
 
 1.  登入 [Azure 管理入口網站](http://manage.windowsazure.com)。
 
-2.  在左窗格中，按一下 [**SQL Database**]。
+2.  在左窗格中，按一下 [SQL Database]。
 
 3.  在 SQL Databases 首頁上，按一下頁面頂端的 [伺服器]，以列出與訂閱相關的所有伺服器。尋找想要連線的伺服器名稱，並將它複製到剪貼簿上。
 
@@ -186,4 +192,4 @@ SQL Database 支援數種動態管理檢視，您可用他們來監視個別資�
  
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

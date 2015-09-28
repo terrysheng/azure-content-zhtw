@@ -1,19 +1,19 @@
 <properties 
    pageTitle="PowerShell for StorSimple 裝置管理 | Microsoft Azure"
-	description="了解如何使用 Windows PowerShell for StorSimple 管理 StorSimple 裝置。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="了解如何使用 Windows PowerShell for StorSimple 管理 StorSimple 裝置。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/28/2015"
-	ms.author="alkohli@microsoft.com"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/28/2015"
+   ms.author="alkohli@microsoft.com" />
 
 # 使用 Windows PowerShell for StorSimple 管理您的裝置
 
@@ -66,7 +66,7 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 
 您可選擇下列設定：
 
-1. **登入並具備完整存取權** 此選項可讓您連線 (使用適當的認證) 至本機控制器上的 **SSAdminConsole** Runspace。(本機控制器是您目前正透過 StorSimple 裝置序列主控台存取的控制器)。 也可使用此選項讓「Microsoft 支援」存取不受限制的 Runspace (支援工作階段)，以對任何可能的裝置問題進行疑難排解。使用選項 1 登入之後，您可以允許 Microsoft 支援工程師執行特定 Cmdlet 去存取不受限制的 Runspace。如需詳細資訊，請參閱[啟動支援工作階段](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple)。此選項會連線至本機控制器上的 Runspace。
+1. **登入並具備完整存取權** 此選項可讓您連線 (使用適當的認證) 至本機控制器上的 **SSAdminConsole** Runspace。(本機控制器是您目前正透過 StorSimple 裝置序列主控台存取的控制器)。 也可使用此選項讓「Microsoft 支援」存取不受限制的 Runspace (支援工作階段)，以對任何可能的裝置問題進行疑難排解。使用選項 1 登入之後，您可以允許 Microsoft 支援工程師執行特定 Cmdlet 去存取不受限制的 Runspace。如需詳細資訊，請參閱[啟動支援工作階段](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple)。
 
 1. **登入對等控制器並具備完整存取權** 此選項和選項 1 相同，不過是讓您連線 (使用適當的認證) 至對等控制器上的 **SSAdminConsole** Runspace。因為 StorSimple 裝置是高可用性的裝置，具有兩個主動-被動組態的控制器；對等指的是您透過序列主控台存取的裝置中的其他控制器。和選項 1 類似，此選項也可用於讓「Microsoft 支援」存取對等控制器上不受限制的 Runspace。
 
@@ -175,7 +175,7 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 
 - 若要取得任何 Cmdlet 的線上說明，請使用前述 Cmdlet 搭配 `-Online` 參數：`Get-Help <cmdlet-name> -Online`
 
-- 如需完整說明，可以使用 –Full 參數以及 – 舉例來說 – 使用 `–Examples` 參數。
+- 如需完整說明，可以使用 –Full 參數以及例如使用 `–Examples` 參數。
 
 #### 更新說明
 
@@ -183,18 +183,18 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 
 #### 更新 Cmdlet 說明
 
-1. 請使用 [**以系統管理員身分執行**] 選項啟動 Windows PowerShell。
+1. 請使用 [以系統管理員身分執行] 選項啟動 Windows PowerShell。
 
-1. 在命令提示字元中輸入：`Update-Help`
+1. 在命令提示字元中，輸入：`Update-Help`
 
 1. 將會安裝更新的說明檔。
 
 1. 在說明檔案安裝之後，輸入：`Get-Help Get-Command`。將會顯示可用說明的 Cmdlet 清單。
 
 
->[AZURE.NOTE]若要取得任何 Runspace 中所有可用 Cmdlet 的清單，登入對應的功能表選項，執行 `Get-Command` Cmdlet。
+>[AZURE.NOTE]若要取得任何 Runspace 中所有可用 Cmdlet 的清單，請登入對應的功能表選項並執行 `Get-Command` Cmdlet。
 
 ## 後續步驟
 如果您在執行上述任何工作流程時遇到任何 StorSimple 裝置的問題，請參閱[適用於疑難排解 StorSimple 部署的工具](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

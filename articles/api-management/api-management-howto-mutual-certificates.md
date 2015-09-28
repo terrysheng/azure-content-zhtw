@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/15/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中使用相互憑證驗證來保護後端服務
@@ -141,4 +141,4 @@ API 管理提供以相互憑證保護 API 後端服務之存取的功能。本�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

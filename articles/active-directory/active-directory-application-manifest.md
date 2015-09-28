@@ -17,7 +17,8 @@
    ms.author="dkershaw;bryanla"/>
 
 # 了解 Azure Active Directory 應用程式資訊清單
-與 Azure Active Directory (AD) 整合的應用程式必須向 Azure AD 租用戶註冊，提供應用程式的持續性身分識別組態。在執行階段參考此組態，啟用允許應用程式透過 Azure AD 外部和代理驗證/授權的案例。如需有關 Azure AD 應用程式模型的詳細資訊，請參閱[新增、更新及移除應用程式][ADD-UPD-RMV-APP]一文。
+
+與 Azure Active Directory (AD) 整合的應用程式必須向 Azure AD 租用戶註冊，提供應用程式的持續性身分識別組態。在執行階段參考此組態，啟用允許應用程式透過 Azure AD 外部和代理驗證/授權的案例。如需 Azure AD 應用程式模型的詳細資訊，請參閱[新增、更新及移除應用程式][ADD-UPD-RMV-APP]一文。
 
 ## 更新應用程式的身分識別組態
 
@@ -37,7 +38,7 @@
 - 宣告已知的用戶端應用程式。
 - 要求 Azure AD 對登入使用者發出群組成員資格宣告。注意：可設定為額外發出有關使用者目錄角色成員資格的宣告。請參閱[雲端應用程式中使用 AD 群組的授權][AAD-GROUPS-FOR-AUTHORIZATION]一文以取得實作範例。
 - 可讓您的應用程式支援 OAuth 2.0 隱含授與流程 (適用於內嵌的 JavaScript 網頁或單一頁面應用程式 (SPA))
-- 啟用 X509 憑證做為密碼金鑰。請參閱[在 Office 365 中建置服務與精靈應用程式][O365-SERVICE-DAEMON-APPS]一文以取得實作範例。 
+- 啟用 X509 憑證做為密碼金鑰。請參閱[在 Office 365 中建置服務與精靈應用程式][O365-SERVICE-DAEMON-APPS]一文以取得實作範例。
 
 應用程式資訊清單也會提供追蹤應用程式註冊狀態的好方法。因為它可供 JSON 格式使用，所以檔案表示法可以簽入您的原始檔控制，以及應用程式的原始程式碼。
 
@@ -57,7 +58,7 @@
 	![選取 Azure AD 租用戶][SELECT-AZURE-AD-APP]
 
 
-4. 既然您已選取應用程式的主頁面，請注意頁面底部的「管理資訊清單」功能 (1)。如果您按一下此連結，系統將提示您下載或上傳 JSON 資訊清單檔案。按一下 [下載資訊清單] \(2)，其後會立即出現下載確認對話方塊，提示您按一下 [下載資訊清單] \(3) 加以確認，然後在本機開啟或儲存檔案 (4)。
+4. 既然您已選取應用程式的主頁面，請注意頁面底部的「管理資訊清單」功能 (1)。如果您按一下此連結，系統將提示您下載或上傳 JSON 資訊清單檔案。按一下 [下載資訊清單] (2)，其後會立即出現下載確認對話方塊，提示您按一下 [下載資訊清單] (3) 加以確認，然後在本機開啟或儲存檔案 (4)。
 
 	![管理資訊清單、下載選項][MANAGE-MANIFEST-DOWNLOAD]
 
@@ -94,14 +95,14 @@
 
 <!--article references -->
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
-[ADD-UPD-RMV-APP]: https://msdn.microsoft.com/library/azure/dn132599.aspx
+[ADD-UPD-RMV-APP]: active-directory-integrating-applications.md
 [APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
 [APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType
 [AZURE-PORTAL]: https://manage.windowsazure.com
-[GRAPH-API]: https://msdn.microsoft.com/library/azure/hh974476.aspx
+[GRAPH-API]: active-directory-graph-api.md
 [INTEGRATING-APPLICATIONS-AAD]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

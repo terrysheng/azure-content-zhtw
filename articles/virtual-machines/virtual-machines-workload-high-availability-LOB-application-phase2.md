@@ -1,27 +1,29 @@
 <properties 
-	pageTitle="企業營運應用程式第 2 階段 | Microsoft Azure"
-	description="在 Azure 企業營運應用程式第 2 階段中，建立並設定兩個 Active Directory 複本網域控制站。"
+	pageTitle="企業營運應用程式第 2 階段 | Microsoft Azure" 
+	description="在 Azure 企業營運應用程式第 2 階段中，建立並設定兩個 Active Directory 複本網域控制站。" 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # 企業營運應用程式工作負載第 2 階段：設定網域控制站
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型建立資源。
+
 在 Azure 基礎結構服務部署高可用性企業營運應用程式的這個階段中，您需要在 Azure 虛擬網路中設定兩個複本網域控制站，才能在 Azure 虛擬網路中本機驗證 Web 資源的用戶端 Web 要求，而不需跨越連接將驗證流量傳送至您的內部部署網路。
 
-您必須先完成這個階段才能前往[第 3 階段](virtual-machines-workload-high-availability-LOB-application-phase3.md)。如需所有階段的相關資訊，請參閱〈[在 Azure 中部署高可用性的企業營運應用程式](virtual-machines-workload-high-availability-LOB-application-overview.md)〉。
+您必須先完成這個階段才能前往[第 3 階段](virtual-machines-workload-high-availability-LOB-application-phase3.md)。如需所有階段的相關資訊，請參閱[在 Azure 中部署高可用性的企業營運系統應用程式](virtual-machines-workload-high-availability-LOB-application-overview.md)。
 
 ## 在 Azure 中建立網域控制站虛擬機器
 
@@ -49,7 +51,7 @@
 - 資料表 ST，適用於儲存體帳戶
 - 資料表 A，適用於可用性設定組
 
-回想您在〈[第 1 階段：設定 Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md)〉中所定義的資料表 V、S、ST 和 A。
+回想您在[第 1 階段：設定 Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md) 中所定義的資料表 V、S、ST 和 A。
 
 當您提供所有適當值後，在 Azure PowerShell 提示中執行結果區塊。
 
@@ -109,6 +111,8 @@
 	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
+> [AZURE.NOTE]因為這些虛擬機器用於內部網路應用程式，所以未獲指派公用 IP 位址或 DNS 網域名稱標籤，也不會公開到網際網路。不過，這也表示您無法從 Azure Preview 入口網站連接到它們。當您檢視虛擬機器的屬性時，[連接] 按鈕將無法使用。使用「遠端桌面連線」配件或其他遠端桌面工具，來使用虛擬機器的私人 IP 位址或內部網路 DNS 名稱連接該虛擬機器。
+
 ## 設定第一個網域控制站
 
 使用您選擇的遠端桌面用戶端，並建立第一個網域控制站虛擬機器的遠端桌面連接。使用其內部網路 DNS 或電腦名稱，以及本機系統管理員帳戶的認證。
@@ -161,17 +165,17 @@
 
 接下來，您需要為您的虛擬網路更新 DNS 伺服器，讓 Azure 將兩個新網域控制站的 IP 位址指派給虛擬機器，做為他們的 DNS 伺服器。請注意，此程序會使用資料表 V (適用於虛擬網路設定) 和資料表 M (適用於虛擬機器) 的值。
 
-1.	在 [Azure Preview 入口網站](https://portal.azure.com/)的左窗格中按一下 [**全部瀏覽 > 虛擬網路**]，然後按一下您虛擬網路的名稱 (資料表 V – 項目 1 – 值資料行)。
-2.	在虛擬網路的窗格上，按一下 [**所有設定**]。
-3.	在 [**設定**] 窗格上，按一下 [**DNS 伺服器**]。
-4.	在 [**DNS 伺服器**] 窗格上，輸入下列項目：
+1.	在 [Azure Preview 入口網站](https://portal.azure.com/)的左窗格中，依序按一下 [全部瀏覽] > [虛擬網路]，然後按一下您虛擬網路的名稱 (資料表 V – 項目 1 – 值資料行)。
+2.	在虛擬網路的窗格上，按一下 [所有設定]。
+3.	在 [設定] 窗格上，按一下 [DNS 伺服器]。
+4.	在 [DNS 伺服器] 窗格上，輸入下列項目：
 	- 針對**主要 DNS 伺服器**：資料表 V – 項目 6 – 值資料行
 	- 針對**次要 DNS 伺服器**：資料表 V – 項目 7 – 值資料行
-5.	從 Azure Preview 入口網站，按一下 **[全部瀏覽] > [虛擬機器]**。
-6.	在 **[虛擬機器] 窗格**中，按一下第一個網域控制站 (資料表 M – 項目 1 - 虛擬機器名稱資料行) 的名稱。
-7.	在虛擬機器的窗格中，按一下 [**重新啟動**]。
-8.	重新啟動第一個網域控制站時，在 [**虛擬機器**] 窗格上，按一下第二個網域控制站 (資料表 M – 項目 2 - 虛擬機器名稱資料行) 的名稱。
-9.	在虛擬機器的窗格中，按一下 [**重新啟動**]。等待第二個網域控制站啟動。
+5.	在 Azure Preview 入口網站的左窗格中，按一下 [全部瀏覽] > [虛擬機器]。
+6.	在 [虛擬機器] 窗格中，按一下第一個網域控制站 (資料表 M – 項目 1 - 虛擬機器名稱資料行) 的名稱。
+7.	在虛擬機器的窗格中，按一下 [重新啟動]。
+8.	重新啟動第一個網域控制站時，在 [虛擬機器] 窗格上，按一下第二個網域控制站 (資料表 M – 項目 2 - 虛擬機器名稱資料行) 的名稱。
+9.	在虛擬機器的窗格中，按一下 [重新啟動]。等待第二個網域控制站啟動。
 
 請注意，重新啟動兩個網域控制站後，他們才不會由內部部署 DNS 伺服器設定做為 DNS 伺服器。由於他們本身都是 DNS 伺服器，因此當升級為網域控制站時，它們會自動由內部部署 DNS 伺服器設定做為 DNS 轉寄站。
 
@@ -192,7 +196,7 @@
 
 ## 後續步驟
 
-如要繼續設定此工作負載的組態，請移至〈[第 3 階段：設定 SQL Server 的基礎結構](virtual-machines-workload-high-availability-LOB-application-phase3.md)〉。
+如要繼續設定此工作負載，請移至[第 3 階段：設定 SQL Server 的基礎結構](virtual-machines-workload-high-availability-LOB-application-phase3.md)。
 
 ## 其他資源
 
@@ -206,4 +210,4 @@
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

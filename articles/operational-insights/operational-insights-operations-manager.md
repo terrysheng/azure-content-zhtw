@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Operational Insights 的 Operations Manager 考量
@@ -83,8 +83,8 @@ Operational Insights 不支援將執行 Windows Server 的電腦 (屬於相同�
 
 代理程式數目|管理群組所需的估計空間
 ---|---
-5|\~2.5 MB (5 個代理程式 x 100 KB 資料/天 x 5 天 = 2,500 KB)
-50|\~25 MB (50 個代理程式 x 100 KB 資料/天 x 5 天 = 25,000 KB)
+5|~2.5 MB (5 個代理程式 x 100 KB 資料/天 x 5 天 = 2,500 KB)
+50|~25 MB (50 個代理程式 x 100 KB 資料/天 x 5 天 = 25,000 KB)
 
 ## Operational Insights 的 Operations Manager 執行身分帳戶
 
@@ -215,4 +215,4 @@ Open a PowerShell window and run the following script after you’ve updated it 
 
 如果您想要分析來自不同地理位置的伺服器資料，請考慮在每個位置設定一個管理群組。這可以改善從代理程式到管理群組傳輸資料的效能。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

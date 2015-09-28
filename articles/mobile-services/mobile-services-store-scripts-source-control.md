@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在原始檔控制中儲存專案程式碼 | Microsoft Azure"
+	pageTitle="在原始檔控制中儲存 JavaScript 後端專案程式碼 | Azure 行動服務"
 	description="了解如何在您電腦的本機 Git 存放庫中儲存伺服器指令碼檔案和模組。"
 	services="mobile-services"
 	documentationCenter=""
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="09/15/2015" 
 	ms.author="ggailey777"/>
 
-# 在原始檔控制中儲存專案程式碼
+# 在原始檔控制中儲存行動服務專案程式碼
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
-- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
+- [Javascript backend](mobile-services-store-scripts-source-control.md)
 
 本主題說明如何使用 Azure 行動服務所提供的原始檔控制來儲存您的伺服器指令碼。指令碼和其他 JavaScript 程式碼後端檔案可以從本機 Git 儲存機制升級到生產行動服務。它還說明如何定義多個指令碼所需的共用程式碼，以及如何使用 package.json 檔案將 Node.js 模組新增至您的行動服務。
 
@@ -95,7 +95,8 @@
 	您應會看到一連串命令，指出已將認可部署到行動服務。
 
 6. 回到管理入口網站中，按一下 [**資料**] 索引標籤，然後按一下 [**TodoItem**] 資料表、[**指令碼**]，再選取 [**插入**] 作業。
-7.請注意，顯示的插入作業指令碼會與您剛才上傳至儲存機制的 JavaScript 程式碼相同。
+7. 
+	請注意，顯示的插入作業指令碼會與您剛才上傳至儲存機制的 JavaScript 程式碼相同。
 
 ##<a name="use-npm"></a>在伺服器指令碼中運用共用程式碼和 Node.js 模組
 
@@ -161,4 +162,4 @@
 [模組]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

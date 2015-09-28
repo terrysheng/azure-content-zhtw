@@ -3,18 +3,11 @@
 	description="尋找 Azure 虛擬機器備份與還原的疑難排解資訊"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/14/2015" ms.author="trinadhk";"aashishr"/>
 
 
 # 錯誤疑難排解
@@ -30,7 +23,6 @@
 ## 註冊
 | 備份作業 | 錯誤詳細資料 | 因應措施 |
 | -------- | -------- | -------|
-| 註冊 | Azure VM 角色未處於可安裝擴充功能的狀態 - 請檢查 VM 是否處於「執行中」狀態。Azure 探索服務擴充功能需要 VM 處於「執行中」。 | 啟動虛擬機器，當它處於「執行中」狀態時，重試註冊作業。|
 | 註冊 | 連接至虛擬機器的資料磁碟數目超過支援的限制 - 請卸離此虛擬機器上的某些資料磁碟，然後重試作業。Azure 備份最多支援 16 個資料磁碟連接至 Azure 虛擬機器進行備份。 | None |
 | 註冊 | Microsoft Azure 備份遇到內部錯誤 - 等候幾分鐘的時間，然後再次嘗試操作。如果問題持續發生，請連絡 Microsoft 支援服務。 | 您可能會因為不支援下列其中一個組態而發生此錯誤：<ol><li>Premium LRS <li>多重 NIC <li>負載平衡器 </ol> |
 | 註冊 | 因為安裝代理程式作業逾時而註冊失敗 | 請檢查是否支援虛擬機器的作業系統版本。 |
@@ -59,7 +51,7 @@
 | 作業 | 錯誤詳細資料 | 因應措施 |
 | -------- | -------- | -------|
 | 取消工作 | 不支援取消這種工作類型：請等待工作完成。 | None |
-| 取消工作 | 工作不是處於可取消的狀態：請等待工作完成。<br>或<br> 所選取的工作不是處於可取消的狀態：請等待工作完成。| 工作極有可能幾乎要完成，請等待作業完成 |
+| 取消工作 | 工作不是處於可取消的狀態：請等待工作完成。<br> 或 <br> 所選取的工作不是處於可取消的狀態：請等待工作完成。| 工作極有可能幾乎要完成，請等待作業完成 |
 | 取消工作 | 無法取消工作，因為它不在進行中：只支援取消進行中的工作。請嘗試取消進行中的工作。 | 這起因於暫時性狀態。請稍候再重試取消作業 |
 | 取消工作 | 無法取消工作：請等待工作完成。 | None |
 
@@ -95,16 +87,27 @@
 - 下載並安裝[代理程式 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。您需要有系統管理員權限，才能完成安裝。
 - [更新 VM 屬性](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)，表示已安裝代理程式。
 
+如為 Linux VM：
+
+- 請從 GitHub 安裝最新的 [Linux 代理程式](https://github.com/Azure/WALinuxAgent)。 
+- [更新 VM 屬性](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)，表示已安裝代理程式。
+
 
 ### 更新 VM 代理程式
-更新 VM 代理程式與重新安裝 [VM 代理程式二進位檔](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)一樣簡單。不過，您需要確定在更新 VM 代理程式時，沒有任何執行中的備份作業。
+若為 Windows VM：
+
+- 更新 VM 代理程式與重新安裝 [VM 代理程式二進位檔](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)一樣簡單。不過，您需要確定在更新 VM 代理程式時，沒有任何執行中的備份作業。
+
+如為 Linux VM：
+
+- 請遵循[更新 Linux VM 代理程式](../virtual-machines-linux-update-agent.md)上的指示。 
 
 
 ### 驗證 VM 代理程式安裝
 如何檢查 Windows VM 上的 VM 代理程式版本：
 
-1. 登入 Azure 虛擬機器，然後瀏覽到 *C:\\WindowsAzure\\Packages* 資料夾。您應該會發現 WaAppAgent.exe 檔案已存在。
-2. 以滑鼠右鍵按一下該檔案、移至 [內容]，然後選取 [詳細資料] 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更高版本
+1. 登入 Azure 虛擬機器，然後巡覽至 *C:\\WindowsAzure\\Packages* 資料夾。您應該會發現 WaAppAgent.exe 檔案已存在。
+2. 以滑鼠右鍵按一下該檔案、移至 [屬性]，然後選取 [詳細資料] 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更高版本
 
 ## 網路
 如同所有的延伸模組，備份延伸模組需要存取公用網際網路才能運作。沒有公用網際網路的存取權可能會以各種方式顯現：
@@ -120,4 +123,4 @@
 1. 取得要列入允許清單的 [Azure 資料中心 IP](https://msdn.microsoft.com/library/azure/dn175718.aspx)。
 2. 使用 [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) Cmdlet 解除封鎖 IP。在 Azure VM 中提升權限的 PowerShell 視窗中執行這個 Cmdlet (以系統管理員身分執行)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

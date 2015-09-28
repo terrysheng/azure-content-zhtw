@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="建構資料表設計工具的篩選字串"
-	description="建構資料表設計工具的篩選字串"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="建構資料表設計工具的篩選字串"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="storage"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # 建構資料表設計工具的篩選字串
 
-##概觀
+## 概觀
 
 若要在 Visual Studio [資料表設計工具] 中顯示的 Azure 資料表中篩選資料，您可以建構篩選字串並在篩選欄位中輸入它。篩選條件字串語法由 WCF Data Services 定義，類似於 SQL WHERE 子句，但會透過 HTTP 要求傳送至表格服務。[資料表設計工具] 會為您處理適當的編碼，因此，若要篩選所需的屬性值，您只需要在篩選欄位中輸入屬性名稱、比較運算子、準則值和 (選擇性) 布林運算子。您不需要像透過[儲存體服務 REST API 參考](http://go.microsoft.com/fwlink/p/?LinkId=400447)建構 URL 來查詢資料表一樣包含 $filter 查詢選項。
 
@@ -55,11 +55,9 @@ WCF Data Services 以[開放式資料通訊協定](http://go.microsoft.com/fwlin
 
     PartitionKey eq 'Partition1' and RowKey eq '00001'
 
-
 您可以用括號括住每個篩選運算式 (雖然並非必要)：
 
     (PartitionKey eq 'Partition1') and (RowKey eq '00001')
-
 
 請注意，表格服務不支援萬用字元查詢，在 [資料表設計工具] 中也不支援。不過，您可以在所需的前置詞上使用比較運算子，以執行前置詞比對。下列範例會傳回 LastName 屬性開頭為字母 'A' 的實體：
 
@@ -72,7 +70,6 @@ WCF Data Services 以[開放式資料通訊協定](http://go.microsoft.com/fwlin
 這個範例會傳回與 Age 屬性的值大於 30 的所有實體：
 
     Age gt 30
-
 
 這個範例會傳回與 AmountDue 屬性的值小於或等於 100.25 的所有實體：
 
@@ -88,11 +85,11 @@ WCF Data Services 以[開放式資料通訊協定](http://go.microsoft.com/fwlin
 
 您也可以不加邏輯運算子來撰寫這個篩選運算式。在下列範例中，表格服務也會傳回 IsActive 為 **true** 的所有實體：
 
-[複製](javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode\_3d6a191e-f389-447a-bbbb-ef8b163bc645');)
+    IsActive
 
 若要傳回 IsActive 為 false 的所有實體，您可以使用 not 運算子：
 
-    IsActive
+    not IsActive
 
 ## 篩選 DateTime 屬性
 
@@ -102,4 +99,4 @@ WCF Data Services 以[開放式資料通訊協定](http://go.microsoft.com/fwlin
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

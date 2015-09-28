@@ -3,6 +3,6 @@
 每一訂用帳戶的設定檔 | 100
 每一設定檔的端點| 200
 
-<!---HONumber=August15_HO7-->
+您可以連絡支援人員，以提高預設限制。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -1,3 +1,4 @@
+<!--author=alkohli last changed: 9/17/15-->
 
 #### 完成最小的 StorSimple 裝置安裝
 
@@ -33,4 +34,8 @@
 
  >[AZURE.NOTE]您可以隨時存取 [**設定**] 頁面，以修改其他所有裝置設定。
 
-<!---HONumber=August15_HO7-->
+![提供的影片](./media/storsimple-complete-minimum-device-setup/Video_icon.png)**提供的影片**
+
+若要觀看影片示範如何完成最小量裝置設定，請按一下[這裡](http://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/)。
+
+<!---HONumber=Sept15_HO3-->

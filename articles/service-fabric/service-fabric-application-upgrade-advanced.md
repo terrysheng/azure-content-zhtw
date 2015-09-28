@@ -51,4 +51,4 @@ Service Fabric 應用程式可以藉由佈建完整、獨立式應用程式封�
 [疑難排解應用程式升級](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

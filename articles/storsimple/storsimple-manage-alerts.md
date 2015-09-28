@@ -1,19 +1,19 @@
 <properties 
    pageTitle="檢視和管理 StorSimple 警示 | Microsoft Azure"
-	description="描述 StorSimple 警示條件和嚴重性、如何設定警示通知，以及如何使用 StorSimple Manager 服務管理警示。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="描述 StorSimple 警示條件和嚴重性、如何設定警示通知，以及如何使用 StorSimple Manager 服務管理警示。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務來檢視和管理 StorSimple 警示
 
@@ -231,6 +231,7 @@ StorSimple Manager 服務儀表板可讓您快速概覽裝置上的警示數目 
 
 ## 後續步驟
 
-[深入了解 StorSimple 錯誤](storsimple-troubleshoot-operational-device.md)。
+- 深入了解 [StorSimple 錯誤](storsimple-troubleshoot-operational-device.md)。
+- 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

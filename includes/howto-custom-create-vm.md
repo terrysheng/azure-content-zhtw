@@ -3,13 +3,13 @@
 *自訂*虛擬機器會參考您使用 [從組件庫] 方法建立的虛擬機器，因其比使用 [快速建立] 方法可讓您設定更多選項。這些選項包含︰
 
 - 更多用以建立虛擬機器 (VM) 的映像選擇
-- 將 VM 連線到虛擬網路 
-- 將 VM 加入現有的雲端服務 
+- 將 VM 連線到虛擬網路
+- 將 VM 加入現有的雲端服務
 - 將 VM 加入可用性設定組
 
-**重要事項**：如果要讓虛擬機器使用虛擬網路，以便依主機名稱直接連接虛擬機器，或設定跨單位連線，則必須在建立虛擬機器時指定虛擬網路。只有在建立虛擬機器時，才能將虛擬機器設定為加入虛擬網路。如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](http://go.microsoft.com/fwlink/p/?LinkID=294063)。
+> [AZURE.IMPORTANT]如果要讓虛擬機器使用虛擬網路，以便依主機名稱來連接虛擬機器，或設定跨單位連線，則必須在建立虛擬機器時指定虛擬網路。只有在建立虛擬機器時，才能將虛擬機器設定為加入虛擬網路。如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](http://go.microsoft.com/fwlink/p/?LinkID=294063)。
 
-1. 登入 [Azure 管理入口網站](http://manage.windowsazure.com)。
+1. 登入 [Azure 入口網站](http://manage.windowsazure.com)。
 
 2. 按一下命令列上的 [新增]。
 
@@ -30,11 +30,11 @@
 10. 按一下箭頭以繼續。
 
 11. 在 [雲端服務] 中，執行下列其中一項：
-	
+
 	- 如果這是雲端服務中的第一個或唯一的虛擬機器，請選取 [Create a new cloud service]。然後，在 [Cloud Service DNS Name] 中，輸入使用 3 到 24 個小寫字母和數字的名稱。透過雲端服務連絡虛擬機器時，使用的 URI 中將包含此名稱。
 	- 如果要將此虛擬機器加入雲端服務，請在清單中選取它。
 
-	**注意**：如需將虛擬機器放在相同雲端服務中的詳細資訊，請參閱[如何在雲端服務中連接虛擬機器](http://www.windowsazure.com/manage/windows/how-to-guides/connect-to-a-cloud-service/)。
+	> [AZURE.NOTE]如需關於將虛擬機器放在相同雲端服務中的詳細資訊，請參閱[如何在雲端服務中連接虛擬機器](http://www.windowsazure.com/manage/windows/how-to-guides/connect-to-a-cloud-service/)。
 
 12. 在 [區域/同質群組/虛擬網路] 中，選取您要用於虛擬機器的區域、同質群組或虛擬網路。如需有關同質群組的詳細資訊，請參閱[關於虛擬網路的同質群組](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)。
 
@@ -42,14 +42,13 @@
 
 14. 如果要將虛擬機器加入可用性設定組，請在 [可用性設定組] 中選取 **[建立可用性設定組]**，或加入現有的可用性設定組。
 
-	**注意**：屬於可用性設定組的虛擬機器會部署到不同的容錯網域。將多個虛擬機器放在相同的可用性設定組中，有助於確保應用程式在網路故障、本機磁碟硬體故障和任何規劃停機期間仍可使用。
+	**注意**：可用性集合中的虛擬機器會部署到不同的容錯網域。將多個虛擬機器放在相同的可用性設定組中，有助於確保應用程式在網路故障、本機磁碟硬體故障和任何規劃停機期間仍可使用。
 
 15.  在 [端點] 下，檢閱將建立以允許連線至虛擬機器的新端點，例如透過遠端桌面或安全殼層 (SSH) 用戶端。您也可以立即加入端點，或在稍後建立端點。如需有關稍後建立端點的指示，請參閱[如何設定虛擬機器的端點](../articles/virtual-machines/virtual-machines-set-up-endpoints.md)。
 
 16.  在 [VM Agent] 下，決定是否安裝 VM 代理程式。此代理程式提供環境讓您安裝延伸模組，以協助您與虛擬機器互動。如需詳細資訊，請參閱[管理延伸模組](http://go.microsoft.com/FWLink/p/?LinkID=390493)。
 
 17. 按一下箭號來建立虛擬機器。
-
 
 	![成功建立自訂虛擬機器](./media/howto-custom-create-vm/VMSuccessWindows.png)
 
@@ -59,4 +58,4 @@
 - [如何登入執行 Linux 的虛擬機器](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [如何登入執行 Windows Server 的虛擬機器](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

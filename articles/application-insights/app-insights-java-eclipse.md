@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
  
 # 在 Eclipse 中利用 Java 開始使用 Application Insights
@@ -116,6 +116,104 @@ Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您
 
 [深入了解設定用戶端遙測。][usage]
 
+## 發行您的應用程式
+
+現在將您的應用程式發佈至伺服器供人使用，然後查看入口網站顯示的遙測。
+
+* 請確定您的防火牆允許應用程式將遙測傳送至這些連接埠：
+
+ * dc.services.visualstudio.com:443
+ * dc.services.visualstudio.com:80
+ * f5.services.visualstudio.com:443
+ * f5.services.visualstudio.com:80
+
+
+* 在 Windows 伺服器上，安裝：
+
+ * [Microsoft Visual C++ 可轉散發套件](http://www.microsoft.com/download/details.aspx?id=40784)
+
+    (這會啟用效能計數器。)
+
+## 例外狀況與要求失敗
+
+會自動收集未處理的例外狀況：
+
+![](./media/app-insights-java-get-started/21-exceptions.png)
+
+若要收集其他例外狀況的資料，您有兩個選項：
+
+* [在您的程式碼中插入 TrackException 的呼叫](app-insights-api-custom-events-metrics.md#track-exception)。 
+* [在伺服器上安裝 Java 代理程式](app-insights-java-agent.md)。指定您想要觀看的方法。
+
+
+## 監視方法呼叫和外部相依性
+
+[安裝 Java 代理程式](app-insights-java-agent.md)以記錄指定的內部方法和透過 JDBC 發出的呼叫與計時資料。
+
+
+## 效能計數器
+
+按一下 [伺服器] 磚，您就會看到一些效能計數器。
+
+
+![](./media/app-insights-java-get-started/11-perf-counters.png)
+
+### 自訂效能計數器集合
+
+若要停用效能計數器的一組標準集合，請將下列程式碼加入 ApplicationInsights.xml 檔案的根節點下：
+
+    <PerformanceCounters>
+       <UseBuiltIn>False</UseBuiltIn>
+    </PerformanceCounters>
+
+### 收集其他效能計數器
+
+您可以指定要收集的其他效能計數器。
+
+#### JMX 計數器 (由虛擬機器公開)
+
+    <PerformanceCounters>
+      <Jmx>
+        <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
+        <Add objectName="java.lang:type=Memory" attribute="HeapMemoryUsage.used" displayName="Heap Memory Usage-used" type="composite"/>
+      </Jmx>
+    </PerformanceCounters>
+
+*	`displayName` – Application Insights 入口網站中顯示的名稱。
+*	`objectName` – JMX 物件名稱。
+*	`attribute` – 要提取的 JMX 物件名稱的屬性
+*	`type` (選用) - JMX 物件屬性的類型：
+ *	預設值：簡易類型，例如 int 或 long。
+ *	`composite`：效能計數器資料的格式為 'Attribute.Data'
+ *	`tabular`：效能計數器資料的格式為資料表列
+
+
+
+#### Windows 效能計數器
+
+每個 [Windows 效能計數器](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx)是類別的成員 (以欄位是類別成員的相同方式)。類別可以是全域，或可以有一定數量或指定的執行個體。
+
+    <PerformanceCounters>
+      <Windows>
+        <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />
+        <Add displayName="Bytes Printed per Second" categoryName="Print Queue" counterName="Bytes Printed/sec" instanceName="Fax" />
+      </Windows>
+    </PerformanceCounters>
+
+*	displayName – Application Insights 入口網站中顯示的名稱。
+*	categoryName – 與此效能計數器有關聯的效能計數器類別 (效能物件)。
+*	counterName – 效能計數器的名稱。
+*	instanceName – 效能計數器類別執行個體的名稱，或如果類別包含單一執行個體，則為空白字串 ("")。如果 categoryName 為 Process，而您要收集的效能計數器來自應用程式執行所在的目前 JVM 處理程序，請指定 `"__SELF__"`。
+
+您的效能計數器會在[計量瀏覽器][metrics]中以自訂度量的形式顯示。
+
+![](./media/app-insights-java-get-started/12-custom-perfs.png)
+
+
+### Unix 效能計數器
+
+* [使用 Application Insights 外掛程式安裝 collectd](app-insights-java-collectd.md)，來取得各種不同的系統和網路資料。
+
 ## 可用性 Web 測試
 
 Application Insights 可讓您定期測試網站，以檢查網站運作中且正常回應。若要設定，請在 [概觀] 刀鋒視窗上逐一點選空白 Web 測試圖表，並提供您的公用 URL。
@@ -169,4 +267,4 @@ Application Insights 可讓您定期測試網站，以檢查網站運作中且�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

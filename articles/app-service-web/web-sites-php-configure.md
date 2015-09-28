@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="09/16/2015"
 	ms.author="tomfitz"/>
 
 #在 Azure App Service Web Apps 中設定 PHP
@@ -21,6 +21,8 @@
 ## 簡介
 
 本指南將示範如何為 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中的 Web Apps 設定內建的 PHP 執行階段、提供自訂的 PHP 執行階段，以及啟用擴充功能。若要使用 App Service，請註冊[免費試用]。若要充分利用本指南，您應該先在 App Service 中建立 PHP Web 應用程式。
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 作法：變更內建 PHP 版本
 當您建立 App Service Web 應用程式時，預設會安裝 PHP 5.4，而且可立即使用。若要查看可用的修訂版、其預設組態及啟用的擴充，最好的方法是部署呼叫 [phpinfo()] 函數的指令碼。
@@ -176,4 +178,4 @@ Zend 擴充功能也支援使用 **PHP\_ZENDEXTENSIONS** 索引鍵。若要啟�
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

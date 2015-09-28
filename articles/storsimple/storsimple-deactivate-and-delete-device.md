@@ -1,19 +1,19 @@
 <properties 
    pageTitle="停用及刪除 StorSimple 裝置 | Microsoft Azure"
-	description="描述如何停用然後刪除 StorSimple 裝置，將其從服務中移除。"
-	services="storsimple"
-	documentationCenter=""
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="描述如何停用然後刪除 StorSimple 裝置，將其從服務中移除。"
+   services="storsimple"
+   documentationCenter=""
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="v-sharos" />
 
 # 停用及刪除 StorSimple 裝置
 
@@ -87,8 +87,10 @@
 刪除裝置可能需要數分鐘的時間。
 
 ## 後續步驟
-若要將已停用的裝置還原為原廠預設值，請移至[將裝置重設為原廠預設設定](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings)。
+- 若要將已停用的裝置還原為原廠預設值，請移至[將裝置重設為原廠預設設定](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings)。
 
-如需技術協助，[請連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
+- 如需技術協助，[請連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
-<!---HONumber=September15_HO1-->
+- 若要了解如何使用 StorSimple Manager，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
+
+<!---HONumber=Sept15_HO3-->

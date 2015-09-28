@@ -1,6 +1,7 @@
 <properties 
     pageTitle="DocumentDB 索引編製原則 | Microsoft Azure" 
-    description="了解 DocumentDB 中索引的運作方式，以及了解如何設定及變更索引編製原則。" 
+    description="了解 DocumentDB 中索引的運作方式，以及了解如何設定及變更編製索引原則。設定在 DocumentDB 中的編製索引原則，以便自動編製索引和追求更高效能。" 
+	keywords="how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="" 
     authors="arramac" 
@@ -19,7 +20,7 @@
 
 # DocumentDB 索引編製原則
 
-雖然許多客戶都很樂意讓 DocumentDB 自動處理[索引編製的所有層面](documentdb-indexing.md)，但是 DocumentDB 也支援在建立期間指定集合的自訂**索引編製原則**。相較於其他資料庫平台所提供的次要索引，DocumentDB 中的索引編製原則在彈性和功能上都更為強大，因為後者可讓您設計和自訂索引的圖形，而不會犧牲結構描述的靈活度。您可以透過管理索引編製原則，在索引儲存空間負擔、寫入和查詢的輸送量，以及查詢一致性之間進行細微的取捨。
+雖然許多客戶都很樂意讓 DocumentDB 自動處理[索引編製的所有層面](documentdb-indexing.md)，但是 DocumentDB 也支援在建立期間指定集合的自訂**索引編製原則**。相較於其他編制索引資料庫平台所提供的次要索引，DocumentDB 中的索引編製原則在彈性和功能上都更為強大，因為後者可讓您設計和自訂索引的圖形，而不會犧牲結構描述的靈活度。若要了解索引如何在 DocumentDB 內運作，您必須了解透過管理編製索引原則，在索引儲存空間負荷、寫入和查詢的輸送量，以及查詢一致性之間進行細微的取捨。
 
 在本文中，我們會深入探討 DocumentDB 索引編製原則、自訂索引編製原則的方式，以及相關聯的取捨。
 
@@ -62,7 +63,7 @@
 >
 >根據預設，DocumentDB 會使用雜湊索引為文件內的所有字串屬性一致地編製索引，並使用範圍索引為數值屬性編製索引。
 
-### 索引模式
+### 資料庫編製索引模式
 
 DocumentDB 支援三個索引編製模式，這些模式可以透過 DocumentDB 集合的索引編製原則設定：[一致]、[延遲] 和 [無]。
 
@@ -600,7 +601,7 @@ DocumentDB 可讓您即時對集合的索引編製原則進行變更。DocumentD
 
 **線上索引轉換**
 
-![線上索引轉換](media/documentdb-indexing-policies/index-transformations.png)
+![編製索引的運作方式 – DocumentDB 線上索引轉換](media/documentdb-indexing-policies/index-transformations.png)
 
 索引轉換是在線上進行，也就是說，每個舊原則編製的文件索引會根據每個新原則有效率地轉換，**而不會影響集合的寫入可用性或佈建的輸送量**。使用 REST API、SDK 或從預存程序和觸發程序中建立的讀取和寫入作業一致性在索引轉換期間不會受到影響。也就是說，當您進行索引編製原則變更時，您的 App 效能不會降低，也不需要停機時間。
 
@@ -766,4 +767,4 @@ DocumentDB API 會提供效能度量 (像是已使用的索引儲存體)，以�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

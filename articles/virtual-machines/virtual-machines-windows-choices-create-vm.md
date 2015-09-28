@@ -3,7 +3,7 @@
 	description="列出建立 Windows 虛擬機器的不同方式，並提供指示的連結。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager,azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.topic="index-page"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="07/15/2015"
-	ms.author="kathydav"/>
+	ms.date="09/15/2015"
+	ms.author="cynthn"/>
 
 # 建立 Windows 虛擬機器的不同方式
 
@@ -67,8 +67,6 @@ Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器�
 [連接資料磁碟][]
 
 ## 其他資源
-[關於 Azure 虛擬機器組態設定][]
-
 [基本組態測試環境][]
 
 [Azure 混合式雲端測試環境][]
@@ -97,10 +95,8 @@ Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器�
 
 [連接資料磁碟]: storage-windows-attach-disk.md
 
-[關於 Azure 虛擬機器組態設定]: http://msdn.microsoft.com/library/azure/dn763935.aspx
-
 [基本組態測試環境]: virtual-machines-base-configuration-test-environment.md
 
 [Azure 混合式雲端測試環境]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

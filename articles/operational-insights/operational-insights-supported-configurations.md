@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Operational Insights 支援的組態
@@ -29,13 +29,13 @@
 使用 Operational Insights 作為附加服務有下列先決條件：
 
 
-- 在 System Center 2012 SP1 Operations Manager 和 Operational Insights 之間進行整合必須要有 [Operational Insights Connector for Operations Manager](https://www.microsoft.com/zh-tw/download/details.aspx?id=38199) 中隨附的更新管理組件。您可以從 [Operational Insights Connector for Operations Manager](https://www.microsoft.com/zh-tw/download/details.aspx?id=38199) 下載並安裝管理組件。
+- 在 System Center 2012 SP1 Operations Manager 和 Operational Insights 之間進行整合必須要有 [Operational Insights Connector for Operations Manager](https://www.microsoft.com/zh-TW/download/details.aspx?id=38199) 中隨附的更新管理組件。您可以從 [Operational Insights Connector for Operations Manager](https://www.microsoft.com/zh-TW/download/details.aspx?id=38199) 下載並安裝管理組件。
 
 - System Center 2012 SP1：Operations Manager 更新彙總套件 6，如果是更新彙總套件 7 更好。此更新必須套用到管理伺服器、代理程式以及 Operations 主控台，Operational Insights 才能作為附加服務。
 
 - System Center 2012 R2：Operations Manager 更新彙總套件 2，如果是更新彙總套件 3 更好。此更新必須套用到管理伺服器、代理程式以及 Operations 主控台，Operational Insights 才能作為附加服務。
 
-- 若要檢視產能管理資料，您必須啟用 Operations Manager 與 Virtual Machine Manager (VMM) 之間的連線。如需連接系統的詳細資訊，請參閱[如何連接 VMM 與 Operations Manager](https://technet.microsoft.com/zh-tw/library/hh882396.aspx)。
+- 若要檢視產能管理資料，您必須啟用 Operations Manager 與 Virtual Machine Manager (VMM) 之間的連線。如需連接系統的詳細資訊，請參閱[如何連接 VMM 與 Operations Manager](https://technet.microsoft.com/zh-TW/library/hh882396.aspx)。
 
 請參閱[檢視 Operational Insights 警示](http://go.microsoft.com/fwlink/?LinkID=293793)了解安裝和組態指示。
 
@@ -48,11 +48,11 @@
 
 ### Operations Manager 的必要軟體
 
-若要檢視產能管理資料，您必須啟用 Operations Manager 與 VMM 之間的連線。如需連接系統的詳細資訊，請參閱[如何連接 VMM 與 Operations Manager](https://technet.microsoft.com/zh-tw/library/hh882396.aspx)。
+若要檢視產能管理資料，您必須啟用 Operations Manager 與 VMM 之間的連線。如需連接系統的詳細資訊，請參閱[如何連接 VMM 與 Operations Manager](https://technet.microsoft.com/zh-TW/library/hh882396.aspx)。
 
 ## 直接連線到 Operational Insights 的代理程式
 
-用來直接連線到服務的代理程式是 Microsoft Monitoring Agent。其系統需求列在 [Microsoft 下載中心](https://www.microsoft.com/zh-tw/download/details.aspx?id=40316&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True)頁面上。
+用來直接連線到服務的代理程式是 Microsoft Monitoring Agent。其系統需求列在 [Microsoft 下載中心](https://www.microsoft.com/zh-TW/download/details.aspx?id=40316&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True)頁面上。
 
 ## 瀏覽器
 
@@ -100,4 +100,4 @@
 
 此外，也支援在 WOW64 實作中執行的 32 位元版本 SQL Server。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

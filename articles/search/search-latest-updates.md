@@ -94,10 +94,20 @@ Azure 搜尋服務目前已正式推出，並為支援的 [2015-02-28 版本 API
 
 - 在 [Azure 管理入口網站](https://portal.azure.com)預覽版本中的佈建。Azure 搜尋服務是新版入口網站所提供的少數服務中的其中一項服務。
 
+##管理 API 版本 2015-08-19
+**發行日期：2015 年 9 月 11 日**
+
+[管理 REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx) 包含下列更新。
+
+- checkNameAvailability 會檢查指定的服務名稱是否已在使用中。
+- 複本範圍先前是 1-6，而現在是 1-12。
+- SKU 屬性已從屬性包移至服務裝載最上層。
+- 建立搜尋服務作業的回應主體已更新，以容納 SKU 設定的重新配置。
+
 ##管理 Api 版本 2015-02-28
 **發行日期：2015 年 3 月 5日**
 
-[管理 REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx) 為 API 管理的第一個版本，屬於 Azure 搜尋服務中正式運作的版本。這個版本與舊版預覽的功能沒有不同。
+[管理 REST API](search-management-api-2014-02-28.md) 為 API 管理的第一個版本，屬於 Azure 搜尋中正式運作的版本。這個版本與舊版預覽的功能沒有不同。
 
 ##管理 api-版本 2014-07-31-預覽
 **發行日期：2014 年 10 月**
@@ -107,4 +117,4 @@ Azure 搜尋服務目前已正式推出，並為支援的 [2015-02-28 版本 API
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

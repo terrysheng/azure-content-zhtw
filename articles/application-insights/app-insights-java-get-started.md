@@ -2,7 +2,7 @@
 	pageTitle="開始在 Java Web 專案中使用 Application Insights | Microsoft Azure"
 	description="使用 Application Insights 監視 Java 網站的效能和使用量"
 	services="application-insights"
-	documentationCenter="java"
+    documentationCenter="java"
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/30/2015"
+	ms.date="09/09/2015"
 	ms.author="awills"/>
 
 # 在 Java Web 專案中開始使用 Application Insights
@@ -206,19 +206,13 @@
 
 (如果預設堆疊中定義了攔截器，可以將攔截器加入該堆疊。)
 
-## 5\.在伺服器上安裝
 
-在 Windows 伺服器上，安裝：
 
-* [Microsoft Visual C++ 可轉散發套件](http://www.microsoft.com/download/details.aspx?id=40784)
-
-(這會啟用效能計數器。)
-
-## 6\.執行您的應用程式
+## 5\.執行您的應用程式
 
 在您的開發電腦上以偵錯模式執行應用程式，或發佈至您的伺服器。
 
-## 7\.在 Application Insights 中檢視遙測
+## 6\.在 Application Insights 中檢視遙測
 
 返回 [Microsoft Azure 入口網站](https://portal.azure.com) 中的 Application Insights 資源。
 
@@ -250,15 +244,34 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
 這可提供要求有意義的彙總，例如要求數量和要求的平均執行時間。
 
+
+## 5\.在伺服器上安裝您的 App
+
+現在將您的應用程式發佈至伺服器供人使用，然後查看入口網站顯示的遙測。
+
+* 請確定您的防火牆允許應用程式將遙測傳送至這些連接埠：
+
+ * dc.services.visualstudio.com:443
+ * dc.services.visualstudio.com:80
+ * f5.services.visualstudio.com:443
+ * f5.services.visualstudio.com:80
+
+
+* 在 Windows 伺服器上，安裝：
+
+ * [Microsoft Visual C++ 可轉散發套件](http://www.microsoft.com/download/details.aspx?id=40784)
+
+    (這會啟用效能計數器。)
+
 ## 例外狀況與要求失敗
 
-會收集未處理的例外狀況：
+會自動收集未處理的例外狀況：
 
 ![](./media/app-insights-java-get-started/21-exceptions.png)
 
 若要收集其他例外狀況的資料，您有兩個選項：
 
-* [在您的程式碼中插入 TrackException 的呼叫][apiexceptions]。
+* [在您的程式碼中插入 TrackException 的呼叫][apiexceptions]。 
 * [在伺服器上安裝 Java 代理程式](app-insights-java-agent.md)。指定您想要觀看的方法。
 
 
@@ -328,7 +341,7 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
 ### Unix 效能計數器
 
-* [使用 Application Insights 外掛程式安裝 collectd](app-insights-java-collectd.md) 來取得各種不同的系統和網路資料。
+* [使用 Application Insights 外掛程式安裝 collectd](app-insights-java-collectd.md)，來取得各種不同的系統和網路資料。
 
 ## 取得使用者與工作階段資料
 
@@ -347,6 +360,17 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
 * [追蹤自訂事件和度量][api]，以了解使用者正對應用程式進行的動作。
 * [搜尋事件和記錄][diagnostic]以協助診斷問題。
+
+
+## 可用性 Web 測試
+
+Application Insights 可讓您定期測試網站，以檢查網站運作中且正常回應。若要設定，請在 [概觀] 刀鋒視窗上逐一點選空白 Web 測試圖表，並提供您的公用 URL。
+
+您將取得回應時間的圖表，以及若網站關閉還會取得電子郵件通知。
+
+![Web 測試範例](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
+
+[深入了解 Web 測試的可用性。][availability]
 
 
 
@@ -370,4 +394,4 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
-<properties 
-                pageTitle="什麼是 Azure Active Directory？" 
-                description="使用 Azure Active Directory 將現有的內部部署身分識別延伸至雲端，或開發 Azure AD 整合式應用程式。" 
-                services="active-directory" 
-                documentationCenter="" 
-                authors="markusvi" 
-                manager="swadhwa" 
+<properties
+                pageTitle="什麼是 Azure Active Directory？"
+                description="使用 Azure Active Directory 將現有的內部部署身分識別延伸至雲端，或開發 Azure AD 整合式應用程式。"
+                services="active-directory"
+                documentationCenter=""
+                authors="markusvi"
+                manager="swadhwa"
                 editor=""/>
 
-<tags 
-                ms.service="active-directory" 
-                ms.workload="identity" 
-                ms.tgt_pltfrm="na" 
-                ms.devlang="na" 
-                ms.topic="article" 
-                ms.date="08/10/2015" 
+<tags
+                ms.service="active-directory"
+                ms.workload="identity"
+                ms.tgt_pltfrm="na"
+                ms.devlang="na"
+                ms.topic="article"
+                ms.date="08/10/2015"
                 ms.author="markusvi"/>
 
 
@@ -56,7 +56,7 @@ Azure AD 有多租用戶、地理位置分散且具有高可用性的設計，�
 
 -	快速採用雲端服務，提供員工和合作夥伴簡單的單一登入體驗，這是由 Azure AD 提供、完全自動的 SaaS 應用程式存取管理和佈建服務功能。
 -	讓員工可以在任何地方，使用他們所喜愛的裝置工作，存取世界級雲端應用程式和服務，以及各種自助式功能。
--	輕鬆安全地管理員工和廠商存取您公司的社交媒體帳戶。 
+-	輕鬆安全地管理員工和廠商存取您公司的社交媒體帳戶。
 -	利用 Azure AD 多重要素驗證和條件式存取，改善應用程式的安全性。
 -	實作一致、自助式的應用程式存取管理，讓企業主能夠快速採取行動，同時能夠降低 IT 成本和額外負荷。
 -	利用安全性報告和監視，監視應用程式使用量並保護您的企業免於受到嚴重的威脅。
@@ -73,7 +73,7 @@ Azure AD 有多租用戶、地理位置分散且具有高可用性的設計，�
  - 閱讀我們的〈開始使用 Azure AD〉了解秘訣和訣竅，獲得 Azure AD 租用戶並快速執行
 -	如果您是開發人員：
  - 請查看我們的 Azure Active Directory 的[開發人員手冊](https://msdn.microsoft.com/library/azure/ff800682.aspx)<need link>
- - [開始使用試用版](https://azure.microsoft.com/trial/get-started-active-directory/) – 立即註冊免費 30 天的試用版，並開始與 Azure AD 整合您的應用程式 
+ - [開始使用試用版](https://azure.microsoft.com/trial/get-started-active-directory/) – 立即註冊免費 30 天的試用版，並開始與 Azure AD 整合您的應用程式
 
 
 
@@ -104,4 +104,4 @@ Azure AD 有多租用戶、地理位置分散且具有高可用性的設計，�
 
 - [如何探索組織內使用未經批准的雲端應用程式](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

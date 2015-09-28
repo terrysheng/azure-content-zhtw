@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Media Encoder Standard 格式和轉碼器
@@ -36,7 +36,20 @@ MP4 (.mp4、.m4a、.m4v)/ISMV (.isma、.ismv)|是
 [Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |是 
 Matroska/WebM (.mkv) |是 
 WAVE/WAV (.wav) |是 
+QuickTime (.mov) |是
  
+###輸入容器中的音訊格式 
+
+Media Encoder Standard 支援在輸入容器中帶有下列音訊格式：
+
+- MXF、GXF 和 QuickTime 檔案，其具有交錯立體聲或 5.1 範例的音訊音軌
+
+或
+
+- MXF、GXF 及 QuickTime 檔案，其中該音訊當做個別的 PCM 曲目攜帶，但可從檔案中繼資料推算通道對應 (立體聲或 5.1)
+
+請注意，將在不久的將來提供明確/使用者提供的通道對應支援。
+
 
 ##輸入視訊轉碼器
 
@@ -53,6 +66,13 @@ Canopus HQ/HQX |否
 Mpeg-4 第 2 部分 |是 
 [Theora](https://en.wikipedia.org/wiki/Theora) |是 
 YUV420 未壓縮或夾層 |是
+Apple ProRes 422 |是
+Apple ProRes 422 LT |是
+Apple ProRes 422 HQ |是
+Apple ProRes Proxy|是
+Apple ProRes 4444 |是
+Apple ProRes 4444 XQ |是
+
 
 
 ##輸入音訊轉碼器
@@ -89,7 +109,7 @@ MPEG2-TS |H.264 (高、主要和基準設定檔)|AAC-LC、HE-AAC v1、HE-AAC v2
 
 您可以在此檢視 AMS 學習路徑：
 
-- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 即時串流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##另請參閱
@@ -98,4 +118,4 @@ MPEG2-TS |H.264 (高、主要和基準設定檔)|AAC-LC、HE-AAC v1、HE-AAC v2
 
 [如何使用 Media Encoder Standard 進行編碼](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

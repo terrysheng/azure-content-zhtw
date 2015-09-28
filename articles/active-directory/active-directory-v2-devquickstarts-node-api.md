@@ -1,5 +1,5 @@
 <properties
-	pageTitle="應用程式模型 v2.0 | Microsoft Azure"
+	pageTitle="App 模型 v2.0 Node.js Web API | Microsoft Azure"
 	description="如何建置可接受來自個人 Microsoft 帳戶及工作或學校帳戶之權杖的 NodeJS Web API。"
 	services="active-directory"
 	documentationCenter="nodejs"
@@ -10,15 +10,16 @@
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
-	ms.tgt_pltfrm="na"
+  	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="09/11/2015"
 	ms.author="brandwe"/>
 
 # 應用程式模型 v2.0 預覽：使用 node.js 保護 Web API
 
-> [AZURE.NOTE]此資訊適用於 v2.0 應用程式模型公開預覽。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
+> [AZURE.NOTE]
+此資訊適用於 v2.0 應用程式模型公開預覽。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
 
 有了 v2.0 應用程式模型，您就能使用 [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) 存取權杖來保護 Web API，讓使用者能夠使用個人的 Microsoft 帳戶以及公司或學校帳戶，安全存取您的 Web API。
 
@@ -38,35 +39,35 @@
 
 
 ## 1. 註冊應用程式
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  請確定：
+在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 建立新的應用程式，或遵循下列[詳細步驟](active-directory-v2-app-registration.md)。  請確定：
 
 - 請複製指派給應用程式的**應用程式 ID**，您很快就會需要它。
-- 為您的應用程式新增 **行動**平台。
-- 從入口網站複製完整的 **重新導向 URI**。 您必須使用 `urn:ietf:wg:oauth:2.0:oob` 的預設值。
+- 為應用程式新增**行動**平台。
+- 從入口網站複製完整的 **重新導向 URI**。您必須使用 `urn:ietf:wg:oauth:2.0:oob` 的預設值。
 
 
 ## 2: 下載適用於您平台的 node.js
 若要成功使用此範例，您必須具備已成功安裝的 Node.js。
 
-Install Node.js from [http://nodejs.org](http://nodejs.org).
+從 [http://nodejs.org](http://nodejs.org) 安裝 Node.js。
 
 ## 3: 在您的平台上安裝 MongoDB
 
-若要成功使用此範例，您必須具備已成功安裝的 MongoDB。 我們將會使用 MongoDB 讓 REST API 得以在不同伺服器執行個體之間持續使用。
+若要成功使用此範例，您必須具備已成功安裝的 MongoDB。
 
-Install MongoDB from [http://mongodb.org](http://www.mongodb.org).
+從 [http://mongodb.org](http://www.mongodb.org) 安裝 MongoDB。.
 
-> [AZURE.NOTE] 本逐步解說假設您會使用 MongoDB 的預設安裝和伺服器端點，在撰寫本文時為：mongodb://localhost
+> [AZURE.NOTE] 本逐步解說假設您會使用 MongoDB 的預設安裝和伺服器端點，在撰寫本文時為： mongodb://localhost
 
 ## 4: 在您的 Web API 上安裝 Restify 模組
 
-我們將會使用 Resitfy 來建置 REST API。 Restify 是衍生自 Express 的最小且具彈性的 Node.js 應用程式架構，其中包含一組強大功能除了可用來建立連線外，還可以用來建置 REST API。
+我們將會使用 Resitfy 來建置 REST API。Restify 是衍生自 Express 的最小且具彈性的 Node.js 應用程式架構，其中包含一組強大功能除了可用來建立連線外，還可以用來建置 REST API。
 
 ### 安裝 Restify
 
 從命令列將目錄變更至 azuread 目錄。 如果 **azuread** 目錄不存在，請予以建立。
 
-`cd azuread` - or- `mkdir azuread;`
+`cd azuread` - 或- `mkdir azuread;`
 
 輸入以下命令：
 
@@ -76,7 +77,7 @@ Install MongoDB from [http://mongodb.org](http://www.mongodb.org).
 
 #### 您有收到錯誤訊息嗎？
 
-在某些作業系統上使用 npm 時，您可能會收到 [錯誤：EPERM, chmod '/usr/local/bin/..'] 的錯誤訊息，並收到以系統管理員身分執行該帳戶的要求。 若發生這個情況，使用 sudo 命令以更高的權限層級執行 npm。
+在某些作業系統上使用 npm 時，您可能會收到 [錯誤：EPERM, chmod '/usr/local/bin/..'] 的錯誤訊息，並收到以系統管理員身分執行該帳戶的要求。若發生這個情況，使用 sudo 命令以更高的權限層級執行 npm。
 
 #### 您有收到有關 DTRACE 的錯誤訊息嗎？
 
@@ -98,7 +99,6 @@ gyp ERR! node-gyp -v v0.10.0
 gyp ERR! not ok
 npm WARN optional dep failed, continuing dtrace-provider@0.2.8
 ```
-
 
 Restify 提供使用 DTrace 追蹤 REST 呼叫的強大機制。不過，許多作業系統沒有 DTrace 可以使用。您可以放心地忽略這些錯誤。
 
@@ -271,7 +271,8 @@ identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-c
 
 *audience*：來自入口網站的重新導向 URI。
 
-> [AZURE.NOTE]我們會經常變更金鑰。請確定您總是從 "openid\_keys" URL 中進行提取，而且應用程式可以存取網際網路。
+> [AZURE.NOTE]
+我們會經常變更金鑰。請確定您總是從 "openid\_keys" URL 中進行提取，而且應用程式可以存取網際網路。
 
 
 ## 11：將設定加入 server.js 檔案
@@ -648,7 +649,8 @@ consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 
 然後，變更目錄並啟動 curling...
 
-`$ cd azuread` `$ node server.js`
+`$ cd azuread`
+`$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 
@@ -714,7 +716,8 @@ server.use(passport.initialize()); // Starts passport
 server.use(passport.session()); // Provides session support
 ```
 
-> [AZURE.TIP]撰寫 API 時，您應一律將資料連結到使用者無法證明其在權杖中是唯一的項目。當此伺服器儲存 TODO 項目時，會根據我們放在 [擁有者] 欄位的權杖 (透過 token.sub 呼叫) 中的使用者訂用帳戶識別碼來儲存它們。這確保只有該使用者可以存取他的 TODO，而且沒有其他人可存取輸入的 TODO。不會在「擁有者」API 中公開，因此，外部使用者可以要求其他的 TODO，即使它們已經過驗證也一樣。
+> [AZURE.TIP]
+撰寫 API 時，您應一律將資料連結到使用者無法證明其在權杖中是唯一的項目。當此伺服器儲存 TODO 項目時，會根據我們放在 [擁有者] 欄位的權杖 (透過 token.sub 呼叫) 中的使用者訂用帳戶識別碼來儲存它們。這確保只有該使用者可以存取他的 TODO，而且沒有其他人可存取輸入的 TODO。不會在「擁有者」API 中公開，因此，外部使用者可以要求其他的 TODO，即使它們已經過驗證也一樣。
 
 接下來，我們將使用隨附於 passport-azure-ad 的 Open ID Connect Bearer 策略。目前只需看一下此程式碼，我很快就會討論到它。將這段程式碼放在您貼上上述內容的後方：
 
@@ -763,9 +766,10 @@ passport.use(oidcStrategy);
 
 Passport 會使用適用於它的所有策略 (Twitter、Facebook 等) 且所有策略寫入器都依循的類似模式。查看此策略，您會看見我們將它當成 function() 來傳遞，其中含有一個 token 和一個 done 做為參數。一旦策略完成所有工作之後，便會盡責地返回。當它完成之後，我們會想要儲存使用者並隱藏權杖，因此我們不需再次要求它。
 
-> [AZURE.IMPORTANT]上述程式碼會讓所有使用者經歷伺服器的驗證。這就是所謂的自動註冊。在生產伺服器中，您想要讓所有人都必須先經歷您所決定的註冊過程。這通常是您在取用者 App 中看到的模式，可讓您向 Facebook 註冊，但接著會要求您填寫其他資訊。如果這不是命令列程式，我們就只能從傳回的權杖物件中擷取電子郵件，然後要求他們填寫其他資訊。由於這是測試伺服器，因此，我們只會將它們直接加入記憶體中的資料庫。
+> [AZURE.IMPORTANT]
+上述程式碼會讓所有使用者經歷伺服器的驗證。這就是所謂的自動註冊。在生產伺服器中，您想要讓所有人都必須先經歷您所決定的註冊過程。這通常是您在取用者 App 中看到的模式，可讓您向 Facebook 註冊，但接著會要求您填寫其他資訊。如果這不是命令列程式，我們就只能從傳回的權杖物件中擷取電子郵件，然後要求他們填寫其他資訊。由於這是測試伺服器，因此，我們只會將它們直接加入記憶體中的資料庫。
 
-### 2\.最後，保護某些端點
+### 2. 最後，保護某些端點
 
 您可以保護端點，方法是透過您想要使用的通訊協定來指定 passport.authenticate() 呼叫。
 
@@ -851,6 +855,8 @@ Transfer-Encoding: chunked
 
 [在 Node.js 中使用 v2.0 應用程式模型保護 Web APP >>](active-directory-v2-devquickstarts-node-web.md)
 
-如需其他資源，請查看：- [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow "azure-active directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+如需其他資源，請查看：
+- [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md)
+- [StackOverflow "azure-active directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

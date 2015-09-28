@@ -5,15 +5,15 @@
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/03/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # 在 Azure App Service 中備份 Web 應用程式
@@ -22,6 +22,8 @@
 [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 中的備份和還原功能可讓您以手動或自動方式輕鬆建立 Web 應用程式備份。您可以將 Web 應用程式還原至先前的狀態，或根據原始應用程式的其中一個備份來建立新的 Web 應用程式。
 
 如需從備份還原 Azure Web 應用程式的相關資訊，請參閱[還原 Web 應用程式](web-sites-restore.md)。
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 <a name="whatsbackedup"></a>
 ## 備份什麼項目 
@@ -40,7 +42,7 @@ Web Apps 可以備份下列資訊：
 
 * 使用備份和還原功能時，網站必須處於標準模式中。如需調整 Web 應用程式規模以使用標準模式的詳細資訊，請參閱[在 Azure App Service 中調整 Web 應用程式規模](web-sites-scale.md)。請注意，高階模式能夠執行的每日備份數量比標準模式更多。
 
-* 使用備份和還原功能時，Azure 儲存體帳戶和容器必須與您即將備份的 Web 應用程式隸屬於相同的訂用帳戶。如果您還沒有儲存體帳戶，可以建立一個帳戶，做法是按一下 [Azure 預覽入口網站](http://portal.azure.com)上 [備份] 分頁中的 [儲存體帳戶]，然後從 [目的地] 分頁中選擇 [儲存體帳戶] 和 [容器]。如需 Azure 儲存體帳戶的詳細資訊，請參閱本文結尾處的[連結](#moreaboutstorage)。
+* 使用備份和還原功能時，Azure 儲存體帳戶和容器必須與您即將備份的 Web 應用程式隸屬於相同的訂用帳戶。若您尚無儲存體帳戶，則可建立一個帳戶，做法是按一下 [Azure Preview 入口網站](http://portal.azure.com)上 [備份] 刀鋒視窗中的 [儲存體帳戶]，然後從 [目的地] 刀鋒視窗選擇 [儲存體帳戶] 和 [容器]。如需 Azure 儲存體帳戶的詳細資訊，請參閱本文結尾處的[連結](#moreaboutstorage)。
 
 * 備份和還原功能支援最多 10GB 的網站和資料庫內容。如果備份功能由於裝載超過限制而無法繼續，作業記錄裡將會顯示錯誤。
 
@@ -138,15 +140,15 @@ Web Apps 可以備份下列資訊：
 
 	[AZURE.NOTE]最後一行說明您可以排除個人檔案以及資料夾。
 
-2. 建立稱為 `_backup.filter` 的檔案，並將上述清單放入此檔案中，但移除 `D:\home`。一行列出一個目錄或檔案。因此，檔案的內容應該如下：
+2. 建立名為 `_backup.filter` 的檔案並將上述清單放入此檔案中，但請移除 `D:\home`。一行列出一個目錄或檔案。因此，檔案的內容應該如下：
 
-    \site\wwwroot\Logs \LogFiles \site\wwwroot\Images\2013 \site\wwwroot\Images\2014 \site\wwwroot\Images\brand.png
+    \\site\\wwwroot\\Logs \\LogFiles \\site\\wwwroot\\Images\\2013 \\site\\wwwroot\\Images\\2014 \\site\\wwwroot\\Images\\brand.png
 
-3. 使用 [ftp](web-sites-deploy.md#ftp) 或任何其他方法，將此檔案上傳至網站的 `D:\home\site\wwwroot` 目錄。如果您希望，可以直接在 `http://{yourapp}.scm.azurewebsites.net/DebugConsole` 中建立檔案，並在其中插入內容。
+3. 使用 [ftp](web-sites-deploy.md#ftp) 或其他任何方法，將此檔案上傳至網站的 `D:\home\site\wwwroot` 目錄。若有需要，您可直接在 `http://{yourapp}.scm.azurewebsites.net/DebugConsole` 中建立檔案，並在其中插入內容。
 
-4. 執行備份的方式如常：[手動](#create-a-manual-backup)或[自動](#configure-automated-backups)。
+4. 執行備份的方式與平常無異：[手動](#create-a-manual-backup)或[自動](#configure-automated-backups)。
 
-現在，會從備份中排除 `_backup.filter` 中所指定的任何檔案和資料夾。在此範例中，將不再備份記錄檔和 2013年和 2014 年影像檔，以及 brand.png。
+現會從備份排除 `_backup.filter` 中指定的所有檔案和資料夾。在此範例中，將不再備份記錄檔和 2013年和 2014 年影像檔，以及 brand.png。
 
 >[AZURE.NOTE]以您[還原定期備份](web-sites-restore.md)的相同方式還原您網站的部分備份。還原程序將執行正確事項。
 >
@@ -156,7 +158,7 @@ Web Apps 可以備份下列資訊：
 
 ## 備份的儲存方式
 
-建立 Web 應用程式的一或多個備份之後，備份就會顯示在您儲存體帳戶以及 Web 應用程式的 [容器] 分頁中。在儲存體帳戶中，每個備份都會有一個包含備份資料的 .zip 檔案，以及一個包含 .zip 檔案內容資訊清單的 .xml 檔案。如果您要存取備份而不實際執行 Web 應用程式還原，則可以將這些檔案解壓縮並加以瀏覽。
+建立 Web 應用程式的一或多個備份之後，備份就會顯示在您儲存體帳戶以及 Web 應用程式的 [容器] 刀鋒視窗中。在儲存體帳戶中，每個備份都會有一個包含備份資料的 .zip 檔案，以及一個包含 .zip 檔案內容資訊清單的 .xml 檔案。如果您要存取備份而不實際執行 Web 應用程式還原，則可以將這些檔案解壓縮並加以瀏覽。
 
 Web 應用程式的資料庫備份則儲存在 .zip 檔案的根目錄中。若是 SQL 資料庫，這會是 BACPAC 檔案 (無副檔名)，而且可以匯入。若要根據 BACPAC 匯出建立新的 SQL 資料庫，請參閱[匯入 BACPAC 檔案以建立新的使用者資料庫](http://technet.microsoft.com/library/hh710052.aspx)。
 
@@ -178,13 +180,13 @@ Web 應用程式的資料庫備份則儲存在 .zip 檔案的根目錄中。若�
 -	在預備位置上，還原 Web 應用程式的完整備份。
 -	在完整備份還原上還原最新部分備份，這也是在預備位置上進行。
 -	測試還原以查看預備應用程式正確地運作。
--	[交換](web-sites-staged-publishing.md#Swap)預備 Web 應用程式到生產位置。
+-	[交換](web-sites-staged-publishing.md#Swap)預備 Web 應用程式至生產位置。
 
->[AZURE.NOTE]請一定要測試還原程序。如需詳細資訊，請參閱[極好的事項](http://axcient.com/blog/one-thing-can-derail-disaster-recovery-plan/)。例如，特定部落格平台 (如 [Ghost](https://ghost.org/)) 有其在備份期間之行為的明確警告。測試還原程序，即可在還沒有失敗或災害之前攔截到這些警告。
+>[AZURE.NOTE]請一定要測試還原程序。如需詳細資訊，請參閱[絕佳事項](http://axcient.com/blog/one-thing-can-derail-disaster-recovery-plan/)。例如，特定部落格平台 (如 [Ghost](https://ghost.org/)) 有其在備份期間之行為的明確警告。測試還原程序，即可在還沒有失敗或災害之前攔截到這些警告。
 
 <a name="nextsteps"></a>
 ## 後續步驟
-如需從備份還原 Web 應用程式的相關資訊，請參閱[在 Azure App Service 中還原 Web 應用程式](web-sites-restore.md)。
+如需從備份還原 Web 應用程式的相關資訊，請參閱「[在 Azure App Service 中還原 Web 應用程式](web-sites-restore.md)」。
 
 若要開始使用 Azure，請參閱 [Microsoft Azure 免費試用](/pricing/free-trial/)。
 
@@ -220,4 +222,4 @@ Web 應用程式的資料庫備份則儲存在 .zip 檔案的根目錄中。若�
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="更換 StorSimple 裝置控制器 | Microsoft Azure"
-	description="說明如何取下並更換 StorSimple 裝置上的一個或兩個控制器模組。"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="說明如何取下並更換 StorSimple 裝置上的一個或兩個控制器模組。"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/10/2015"
+   ms.author="alkohli" />
 
 # 更換 StorSimple 裝置上的控制器模組
 
@@ -32,14 +32,14 @@
 
 |案例|更換案例|適用程序|
 |:---|:-------------------|:-------------------|
-|1|一個控制器處於故障狀態，而另一個控制器為狀況良好並作用中。|[單一控制器更換](#replace-a-single-controller)|
-|2|兩個控制器都故障，而且需要更換。底座、磁碟和磁碟機箱的狀況良好。|[雙重控制器更換](#replace-both-controllers)|
+|1|一個控制器處於故障狀態，而另一個控制器為狀況良好並作用中。|[單一控制器更換](#replace-a-single-controller)，其中描述[單一控制器更換背後的邏輯](#single-controller-replacement-logic)，以及[更換步驟](#single-controller-replacement-steps)。|
+|2|兩個控制器都故障，而且需要更換。底座、磁碟和磁碟機箱的狀況良好。|[雙重控制器更換](#replace-both-controllers)，其中描述[雙重控制器更換背後的邏輯](#dual-controller-replacement-logic)，以及[更換步驟](#dual-controller-replacement-steps)。 |
 |3|交換來自相同裝置或來自不同裝置的控制器。底座、磁碟和磁碟機箱的狀況良好。|插槽不符警示訊息將出現。|
-|4|遺漏一個控制器，而另一個控制器故障。|[雙重控制器更換](#replace-both-controllers)|
+|4|遺漏一個控制器，而另一個控制器故障。|[雙重控制器更換](#replace-both-controllers)，其中描述[雙重控制器更換背後的邏輯](#dual-controller-replacement-logic)，以及[更換步驟](#dual-controller-replacement-steps)。|
 |5|一個或兩個控制器故障。您無法透過序列主控台或 Windows PowerShell 遠端存取裝置。|如需手動控制器更換程序，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。|
 |6|控制器具有不同的組建版本，原因可能如下：<ul><li>控制器具有不同的軟體版本。</li><li>控制器具有不同的韌體版本。</li></ul>|如果控制器軟體版本不同，更換邏輯會偵測到該情況，並更新更換控制器上的軟體版本。<br><br>如果控制器軔體版本不同，而且舊的韌體版本**無法**自動升級，警示訊息將出現在管理入口網站中。您應掃描更新並安裝韌體更新。</br></br>如果控制器軔體版本不同，而且舊的韌體版本可以自動升級，控制器更換邏輯會偵測到此情況，並且在控制器啟動之後，軔體將會自動更新。|
 
-您需要取下故障的控制器模組。一或兩個控制器模組可能故障，這會導致單一控制器更換或雙重控制器更換。如需更換程序，請參閱下列資訊：
+您需要取下故障的控制器模組。一或兩個控制器模組可能故障，這會導致單一控制器更換或雙重控制器更換。如需更換程序和其背後邏輯的資訊，請參閱以下各項：
 
 - [更換單一控制器](#replace-a-single-controller)
 - [更換兩個控制器](#replace-both-controllers)
@@ -75,9 +75,9 @@
 
 #### 若要取下單一故障的控制器模組
 
-1. 在 StorSimple Manager 服務的管理入口網站中，按一下 [**裝置**] 索引標籤，然後按一下您想要監視的裝置名稱。
+1. 在 StorSimple Manager 服務的管理入口網站中，按一下 [裝置] 索引標籤，然後按一下您想要監視的裝置名稱。
 
-2. 按一下 [**維護**] 索引標籤，然後導覽至 [**硬體狀態**]。控制器 0 或控制器 1 的狀態應該是紅色，表示故障。
+2. 按一下 [維護] 索引標籤，然後瀏覽至 [硬體狀態]。控制器 0 或控制器 1 的狀態應該是紅色，表示故障。
 
     >[AZURE.NOTE]單一控制器更換中的故障控制器一律為待命控制器。
 
@@ -102,7 +102,7 @@
 
 7. 當單一控制器更換邏輯在背景中進行時，請重新連接纜線。請完全依照更換之前連接纜線的相同方式，小心地連接所有纜線。
 
-8. 在控制器重新啟動之後，請檢查管理入口網站中的 [**控制器狀態**] 和 [**叢集狀態**]，以確認控制站回到狀況良好的狀態且處於待命模式。
+8. 在控制器重新啟動之後，請檢查管理入口網站中的 [控制器狀態] 和 [叢集狀態]，以確認控制站回到狀況良好的狀態且處於待命模式。
 
 >[AZURE.NOTE]如果您是透過序列主控台監視裝置，則可能會在控制器從更換程序中復原時看到多次重新啟動。當序列主控台功能表呈現時，您便知道更換已完成。如果功能表未在啟動控制器更換的兩個小時內出現，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
@@ -194,7 +194,7 @@
 
 在您從 StorSimple 裝置取下故障模組之後，請使用下列程序來安裝原廠提供的控制器模組。
 
-### 若要安裝控制器模組
+#### 若要安裝控制器模組
 
 1. 查看介面連接器是否有任何損毀。如果有任一連接器接腳壞掉或彎曲，請勿安裝該模組。
 
@@ -214,7 +214,7 @@
 
     >[AZURE.NOTE]最多可能需要 5 分鐘，控制器和 LED 即會啟動。
 
-5. 若要確認更換成功，請在管理入口網站中，導覽至 [**裝置**] > [**維護**] > [**硬體狀態**]，並確定控制器 0 及控制器 1 兩者的狀況良好 (狀態為綠色)。
+5. 若要確認更換成功，請在管理入口網站中，瀏覽至 [裝置] > [維護] > [硬體狀態]，並確定控制器 0 及控制器 1 兩者的狀況良好 (狀態為綠色)。
 
 ## 識別您裝置上的作用中控制器
 
@@ -230,7 +230,7 @@
 
 ### 使用管理入口網站來識別作用中控制器
 
-在管理入口網站中，導覽至 [**裝置**] > [**維護**]，然後捲動至 [**控制器**] 區段。在這裡您可以確認哪一個控制站作用中。
+在管理入口網站中，導覽至 [裝置] > [維護]，然後捲動至 [控制器] 區段。在這裡您可以確認哪一個控制站作用中。
 
 ![識別管理入口網站中的作用中控制器](./media/storsimple-controller-replacement/IC752072.png)
 
@@ -266,4 +266,4 @@
 
 深入了解 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

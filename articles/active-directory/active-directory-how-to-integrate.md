@@ -1,20 +1,20 @@
 <properties
    pageTitle="如何與 Azure Active Directory 整合"
-	description="與 Azure Active Directory 整合的優點和所需資源指南。"
-	services="active-directory"
-	documentationCenter="dev-center-name"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   description="與 Azure Active Directory 整合的優點和所需資源指南。"
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="08/25/2015"
+   ms.author="mbaldwin"/>
 
 # 與 Azure Active Directory 整合
 
@@ -34,9 +34,9 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
 ### 瀏覽以尋找使用者、管理使用者佈建，及控制存取應用程式
 
-**瀏覽以尋找目錄中的使用者。** 邀請他人或授與存取權限時，與其要求使用者輸入電子郵件位址，您可以使用 Graph API 來協助使用者搜尋及瀏覽以尋找組織中的其他人。使用者可以使用常見的通訊錄樣式介面進行瀏覽，包括檢視組織階層的詳細資料。深入了解 [Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx)。
+**瀏覽以尋找目錄中的使用者。** 邀請他人或授與存取權限時，與其要求使用者輸入電子郵件位址，您可以使用 Graph API 來協助使用者搜尋及瀏覽以尋找組織中的其他人。使用者可以使用常見的通訊錄樣式介面進行瀏覽，包括檢視組織階層的詳細資料。深入了解 [Graph API](active-directory-graph-api.md)。
 
-**重複使用您的客戶已經在管理的 Active Directory 群組與通訊群組清單。** Azure AD 包含您的客戶已經用於電子郵件通訊群組和管理存取的群組。使用 Graph API，與其要求您的客戶在應用程式中建立和管理一組個別的群組，您可以重複使用這些群組。群組資訊也可以透過登入權杖傳送至您的應用程式。深入了解 [Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx)。
+**重複使用您的客戶已經在管理的 Active Directory 群組與通訊群組清單。** Azure AD 包含您的客戶已經用於電子郵件通訊群組和管理存取的群組。使用 Graph API，與其要求您的客戶在應用程式中建立和管理一組個別的群組，您可以重複使用這些群組。群組資訊也可以透過登入權杖傳送至您的應用程式。深入了解 [Graph API](active-directory-graph-api.md)。
 
 **使用 Azure AD 來控制有權存取應用程式的人員。** 系統管理員和 Azure AD 中的應用程式擁有者可以將應用程式的存取權限指派給特定使用者和群組。使用 Graph API，您可以讀取這份清單並用它來控制資源的佈建和取消佈建，以及應用程式內的存取。
 
@@ -72,7 +72,7 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
 **登入偵測異常。** Azure AD 每天處理超過 10 億個登入，同時使用機器學習演算法來偵測可疑活動，並向 IT 系統管理員通知可能發生的問題。藉由支援 Azure AD 登入，您的應用程式便會獲得這項保護的好處。深入了解[檢視 Azure Active Directory 存取報告](active-directory-view-access-usage-reports.md)。
 
-**條件式存取。** 除了多因素驗證，系統管理員還可以要求使用者在登入您的應用程式之前必須符合特定條件。可以設定的條件包括用戶端裝置的 IP 位址範圍、指定群組的成員資格，以及用於存取的裝置狀態。深入了解 [Azure Active Directory 條件式存取](https://msdn.microsoft.com/library/azure/dn906873.aspx)。
+**條件式存取。** 除了多因素驗證，系統管理員還可以要求使用者在登入您的應用程式之前必須符合特定條件。可以設定的條件包括用戶端裝置的 IP 位址範圍、指定群組的成員資格，以及用於存取的裝置狀態。深入了解 [Azure Active Directory 條件式存取](active-directory-conditional-access.md)。
 
 ### 容易開發
 
@@ -90,4 +90,4 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
 [使用 Azure AD 登入使用者](active-directory-authentication-scenarios.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="安裝您的 StorSimple 8100 裝置 | Microsoft Azure"
-	description="描述如何打開包裝、掛接機架和佈線 StorSimple 8100 裝置，再部署和設定軟體。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="描述如何打開包裝、掛接機架和佈線 StorSimple 8100 裝置，再部署和設定軟體。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/16/2015"
+   ms.author="alkohli" />
 
 # 打開包裝、掛接機架和佈線 StorSimple 8100 裝置
 
@@ -275,4 +275,4 @@
 您現在已準備好[部署和設定您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

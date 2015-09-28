@@ -1,3 +1,5 @@
+<!--author=alkohli last changed: 9/16/15-->
+
 
 #### 將您的裝置接上纜線，以取得電源
 
@@ -41,4 +43,4 @@
     |8|EBOD 機箱|
     |9|PDU|
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

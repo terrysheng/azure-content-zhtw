@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # 設定 Operational Insights 的 Proxy 和防火牆設定
@@ -174,4 +174,4 @@ Operations Manager 管理群組必須能夠存取您的網域和 URL 的連接�
 3. 加入開頭為 **HTTP** 的所有計數器。![新增計數器](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. 如果您的 Operations Manager 組態良好，您會看到健康情況服務管理計數器的事件和其他資料項目的活動，根據您在 Operational Insights 中加入的管理套件和設定的記錄收集原則。![顯示活動的效能監視器](./media/operational-insights-proxy-firewall/sendingdata2.png)
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -5,20 +5,22 @@
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="09/16/2015" 
 	ms.author="ccompy"/>
 
 # 在 App Service 環境中調整 Web 應用程式 #
 
 基本上，App Service 環境是 Azure App Service 在 VNET 中的個人部署，僅可由您的訂用帳戶管理。這類環境會提供新的網路功能，因為它們位於您的 VNET 中，而且還可以調整超過 Azure App Service 環境中通常可用的數量。如果您需要更多有關何謂 App Service 環境 (ASE) 的資訊，請查看[什麼是 App Service 環境][WhatisASE]。如需有關建立 App Service 環境或在 App Service 環境中建立 Web 應用程式的詳細資訊，請參閱[如何建立 App Service 環境][HowtoCreateASE]和[如何在 App Service 環境中建立 Web 應用程式][CreateWebappinASE]
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 快速提醒您，當您正常變更 Web 應用程式的調整屬性時，您是在 App Service 方案層級進行變更。如需調整 App Service 方案的詳細資訊，或只需 App Service 環境外部 App Service 方案的詳細資訊，請參閱[在 Azure App Service 中調整 Web 應用程式][ScaleWebapp]和 [App Service 方案深度概觀][Appserviceplans]。
 
@@ -84,4 +86,4 @@
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

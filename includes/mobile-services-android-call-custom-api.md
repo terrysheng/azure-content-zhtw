@@ -1,5 +1,5 @@
 
-##<a name="update-app"></a>更新應用程式以呼叫自訂 API
+###<a name="update-app"></a>更新應用程式以呼叫自訂 API
 
 1. 我們將在現有的按鈕旁新增標示為 [Complete All] 的按鈕，並將兩個按鈕下移一行。在 Android Studio 中，開啟快速入門專案中的 *res\\layout\\activity\_to\_do.xml* 檔案，尋找 **LinearLayout** 元素，此元素包含名為 `buttonAddToDo` 的 **Button** 元素。複製 **LinearLayout** 並將其緊貼在原始元素後方。從第一個 **LinearLayout** 刪除 **Button** 元素。
 
@@ -95,7 +95,7 @@
 	
 	此方法會處理新按鈕的 **Click** 事件。**invokeApi** 方法是在用戶端上呼叫，可將 POST 要求傳送給新的自訂 API。如有任何錯誤，自訂 API 傳回的結果會顯示在訊息對話方塊中。
 
-## 測試應用程式
+### 測試應用程式
 
 1. 在 [執行] 功能表中，按一下 [執行應用程式] 以在 Android 模擬器或連接的 Android 裝置中啟動專案。
 
@@ -112,4 +112,4 @@
 
 	出現訊息對話方塊，指出標示為完成的項目數，並重新執行篩選查詢，以便清除清單的所有項目。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

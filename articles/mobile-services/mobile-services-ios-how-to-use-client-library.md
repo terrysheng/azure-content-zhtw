@@ -233,6 +233,12 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 進行刪除時，至少必須設定 `id` 屬性。
 
+##<a name="#custom-api"></a>作法：呼叫自訂 API
+
+自訂 API 可讓您定義自訂端點，並用來公開無法對應插入、更新、刪除或讀取等操作的伺服器功能。透過使用自訂 API，您可以進一步控制訊息，包括讀取與設定 HTTP 訊息標頭，並定義除了 JSON 以外的訊息內文格式。如需如何在您的行動服務中建立自訂 API 的範例，請參閱[如何：定義自訂 API 端點](mobile-services-dotnet-backend-define-custom-api.md)。
+
+[AZURE.INCLUDE [mobile-services-ios-call-custom-api](../../includes/mobile-services-ios-call-custom-api.md)]
+
 
 ##<a name="authentication"></a>作法：驗證使用者
 
@@ -326,4 +332,4 @@ Azure 行動服務支援兩個驗證工作流程：
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [衝突處理常式]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

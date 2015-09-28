@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="09/10/2015"
 	ms.author="alfran"/>
 
 # Operational Insights 中的解決方案
@@ -129,4 +129,4 @@ SQL 評估需要在每個代理程式上執行 .NET 4。它支援 Standard、Dev
 - 上次更新後至今的天數
 - Windows Update 代理程式版本
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

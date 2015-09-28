@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Publish-WebApplicationWebSite (Windows PowerShell 指令碼)"
-	description="了解如何將 Web 專案發佈至 Azure 網站。此指令碼會在您的 Azure 訂用帳戶中建立所需的資源 (如果它們不存在)。"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="了解如何將 Web 專案發佈至 Azure 網站。此指令碼會在您的 Azure 訂用帳戶中建立所需的資源 (如果它們不存在)。"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # Publish-WebApplicationWebSite (Windows PowerShell 指令碼)
 
@@ -22,13 +22,13 @@
 將 Web 專案發佈至 Azure 網站。指令碼會在您的 Azure 訂用帳戶中建立所需的資源 (如果它們不存在)。
 
 	Publish-WebApplicationWebSite
-	–Configuration <configuration> 
+	–Configuration <configuration>
 	-SubscriptionName <subscriptionName>
 	-WebDeployPackage <packageName>
 	-DatabaseServerPassword @{Name = "name"; Password = "password"}
 	-SendHostMessagesToOutput
 	-Verbose
-	
+
 
 ## 組態
 
@@ -68,14 +68,14 @@
 |預設值|無|
 |接受管線輸入？|false|
 |接受萬用字元？|false|
-	
+
 ## DatabaseServerPassword
 
 在 Azure 中 SQL Database 的使用者名稱和密碼。
 
 |參數|預設值|
-|別名|無|
 |---|---|
+|別名|無|
 |必要？|false|
 |位置|已命名|
 |預設值|無|
@@ -129,4 +129,4 @@ JSON 組態檔會指定待部署項目的詳細資料。它會包含您在建立
 
 [Publish-WebApplicationVM (Windows PowerShell 指令碼)](https://msdn.microsoft.com/library/azure/dn689112.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

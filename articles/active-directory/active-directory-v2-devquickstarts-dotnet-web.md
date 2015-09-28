@@ -1,5 +1,5 @@
 <properties
-	pageTitle="應用程式模型 v2.0 | Microsoft Azure"
+	pageTitle="App 模型 v2.0 .Net Web App|Microsoft Azure"
 	description="如何建置可使用個人 Microsoft 帳戶及工作或學校帳戶登入使用者的 .NET MVC Web 應用程式。"
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # 應用程式模型 v2.0 預覽：將登入加入 .NET MVC Web 應用程式
@@ -21,7 +21,7 @@
 有了 v2.0 應用程式模型，您就可以快速地將驗證加入 Web 應用程式，同時支援個人 Microsoft 帳戶以及工作或學校帳戶。在 ASP.NET Web 應用程式中，您可以使用隨附於 .NET Framework 4.5 的 Microsoft OWIN 中介軟體來完成此項作業。
 
   >[AZURE.NOTE]
-	此資訊適用於 v2.0 應用程式模型公開預覽。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
+    此資訊適用於 v2.0 應用程式模型公開預覽。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
 
  現在，我們將使用 OWIN 來執行下列作業：
 - 使用 Azure AD 和 v2.0 應用程式模型將使用者登入應用程式。
@@ -55,7 +55,7 @@
     -	`ida:ClientId`是在註冊入口網站中指派給應用程式的**應用程式 ID**。
     -	`ida:RedirectUri` 是您在入口網站中輸入的**重新導向 URI**。
 
--	接下來，使用 Package Manager Console 將Next, add the OWIN 中介軟體 NuGet 套件新增到專案中。
+-    接下來，使用 Package Manager Console 將Next, add the OWIN 中介軟體 NuGet 套件新增到專案中。
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect 
@@ -210,4 +210,4 @@ public ActionResult About()
 - [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md) 
 - [StackOverflow "azure-active directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="使用 StorSimple Manager 裝置儀表板 | Microsoft Azure"
-	description="描述 StorSimple Manager 服務裝置儀表板，以及如何用它來檢視儲存體度量和連線的啟動器，並尋找序號和 IQN。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="描述 StorSimple Manager 服務裝置儀表板，以及如何用它來檢視儲存體度量和連線的啟動器，並尋找序號和 IQN。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # 使用 StorSimple Manager 裝置儀表板
 
@@ -97,6 +97,7 @@ StorSimple Manager 裝置儀表板可提供特定 StorSimple 裝置的資訊概�
 
 ## 後續步驟
 
-[深入了解 StorSimple Manager 服務儀表板](storsimple-service-dashboard.md)。
+- [深入了解 StorSimple Manager 服務儀表板](storsimple-service-dashboard.md)。
+- 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

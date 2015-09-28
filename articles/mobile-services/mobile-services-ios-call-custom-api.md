@@ -1,9 +1,10 @@
 <properties
-	pageTitle="如何從 iOS 用戶端呼叫自訂 API"
+	pageTitle="如何從 iOS 用戶端 (JavaScript 後端) 呼叫自訂 API"
 	description="了解如何定義自訂 API 然後從使用 Azure 行動服務的 iOS 應用程式呼叫它。"
 	services="mobile-services"
 	documentationCenter="ios"
 	authors="krisragh"
+	writer="krisragh"
 	manager="dwrede"
 	editor=""/>
 
@@ -55,4 +56,4 @@
 [Get started with push notifications]: ../mobile-services-ios-get-started-push.md
 [在來源控制中儲存伺服器指令碼]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

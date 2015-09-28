@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="如何管理服務組態和設定檔"
-	description="了解如何使用服務組態和設定檔組態檔案 | 其儲存部署環境的設定及雲端服務的發佈設定。"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="了解如何使用服務組態和設定檔組態檔案 | 其儲存部署環境的設定及雲端服務的發佈設定。"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # 如何管理服務組態和設定檔
 
-##概觀
+## 概觀
 
 當您發佈雲端服務時，Visual Studio 會將組態資訊儲存在兩種組態檔中：服務組態和設定檔。服務組態 (.cscfg 檔) 可儲存 Azure 雲端服務的部署環境設定。Azure 會在管理雲端服務時使用這些組態檔。另一方面，設定檔 (.azurePubxml 檔案) 可儲存雲端服務的發佈設定。這些設定是您使用發佈精靈時所選內容的記錄，可由 Visual Studio 在本機使用。本主題說明如何使用這兩種類型的組態檔。
 
@@ -33,7 +33,7 @@
 
 ### 新增服務組態
 
-1. 在 [方案總管] 中，開啟 Azure 專案的捷徑功能表，然後按一下 [管理組態]。 
+1. 在 [方案總管] 中，開啟 Azure 專案的捷徑功能表，然後按一下 [管理組態]。
 
     [管理服務組態] 對話方塊隨即出現。
 
@@ -47,20 +47,20 @@
 ### 刪除服務組態
 
 1. 在 [方案總管] 中，開啟 Azure 專案的捷徑功能表，然後按一下 [管理組態]。
-    
+
     [管理服務組態] 對話方塊隨即出現。
 
 1. 若要刪除服務組態，請從 [名稱] 清單中選擇您要刪除的組態，然後按一下 [移除]。隨即出現一個對話方塊，以確認您要刪除此組態。
 
 1. 按一下 [刪除]。
- 
+
      在 [方案總管] 中，此服務組態檔會從 Azure 專案中移除。
 
 
 ### 重新命名服務組態
 
 1. 在 [方案總管] 中，開啟 Azure 專案的捷徑功能表，然後按一下 [管理組態]。
- 
+
     [管理服務組態] 對話方塊隨即出現。
 
 1. 若要將服務組態重新命名，請從 [名稱] 清單中選擇新的服務組態，然後按一下 [重新命名]。在 [名稱] 文字方塊中輸入您要用於此服務組態的名稱，然後按一下 [確定]。
@@ -94,7 +94,7 @@
 1. 在 [名稱] 清單中選擇設定檔，然後按一下 [建立複本]。
 
 1. 選擇 [關閉] 按鈕。
- 
+
     新的設定檔會出現在 [目標設定檔] 清單中。
 
 1. 在 [目標設定檔] 清單中，按一下您剛建立的設定檔。[發佈精靈] 設定會填入您所選設定檔中的選項。
@@ -131,4 +131,4 @@
 
 若要了解如何從 Visual Studio 設定 Azure 專案的其他部分，請參閱[設定 Azure 專案](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

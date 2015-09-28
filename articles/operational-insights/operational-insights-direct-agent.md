@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/02/2015" 
+	ms.date="09/10/2015" 
 	ms.author="banders"/>
 # 將電腦直接連線到 Operational Insights
 
@@ -76,4 +76,4 @@ $healthServiceSettings.ReloadConfiguration()
 
 - [設定 Proxy 和防火牆設定 (選擇性)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

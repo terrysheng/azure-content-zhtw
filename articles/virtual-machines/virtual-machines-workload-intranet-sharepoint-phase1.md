@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
@@ -19,7 +19,9 @@
 
 # SharePoint 內部網路伺服器陣列工作負載第 1 階段：設定 Azure
 
-在 Azure 基礎結構服務內，使用 SQL Server AlwaysOn 可用性群組部署內部網路專用的 SharePoint 2013 伺服器陣列的這個階段中，您需要在 Azure 服務管理中建置 Azure 網路功能與儲存體基礎結構。您必須先完成這個階段才能前往[第 2 階段](virtual-machines-workload-intranet-sharepoint-phase2.md)。如需所有階段的詳細資訊，請參閱[在 Azure 中使用 SQL Server AlwaysOn 可用性群組部署 SharePoint](virtual-machines-workload-intranet-sharepoint-overview.md)。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+
+在 Azure 基礎結構服務內，使用 SQL Server AlwaysOn 可用性群組部署內部網路專用的 SharePoint 2013 伺服器陣列的這個階段中，您需要在 Azure 服務管理中建置 Azure 網路功能與儲存體基礎結構。您必須先完成這個階段才能前往[第 2 階段](virtual-machines-workload-intranet-sharepoint-phase2.md)。如需所有階段的詳細資訊，請參閱[在 Azure 中部署包含 SQL Server AlwaysOn 可用性群組的 SharePoint](virtual-machines-workload-intranet-sharepoint-overview.md)。
 
 您必須使用下列基本網路元件來佈建 Azure：
 
@@ -114,7 +116,7 @@
 
 您必須為每一個雲端服務選擇唯一的名稱。*雲端服務名稱可以包含字母、數字和連字號。欄位中的第一個和最後一個字元，必須是字母或數字。*
 
-例如，您可以將第一個雲端服務網域控制站命名為 DCs-*UniqueSequence*，其中的 *UniqueSequence* 代表規組織名稱的縮寫。例如，如果組織名稱為 Tailspin Toys，您可以將雲端服務命名為 DCs-Tailspin。
+例如，您可以將第一個雲端服務網域控制站命名為 DCs-*UniqueSequence*，其中的 *UniqueSequence* 代表貴組織名稱的縮寫。例如，如果組織名稱為 Tailspin Toys，您可以將雲端服務命名為 DCs-Tailspin。
 
 您可以在本機電腦使用下列 Azure PowerShell 命令，測試名稱是否不重複。
 
@@ -171,4 +173,4 @@
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

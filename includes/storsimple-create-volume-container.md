@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="建立磁碟區容器"
-   description="說明如何在 StorSimple 裝置上建立磁碟區容器。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### 建立磁碟區容器
 
@@ -31,4 +16,8 @@
 
   新建立的磁碟區容器將列於 [磁碟區容器] 頁面上。
 
-<!---HONumber=Sept15_HO2-->
+![提供的影片](./media/storsimple-create-volume-container/Video_icon.png)**提供的影片**
+
+若要觀看影片示範如何在您的 StorSimple 方案中建立磁碟區容器，請按一下[這裡](http://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/)。
+
+<!---HONumber=Sept15_HO3-->

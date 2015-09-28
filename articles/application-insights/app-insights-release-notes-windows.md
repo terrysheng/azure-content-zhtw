@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Windows 適用的 Application Insights 版本資訊"
-	description="最新的更新。"
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Windows 適用的 Application Insights 版本資訊" 
+	description="最新的更新。" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/18/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/18/2015" 
 	ms.author="sergkanz"/>
  
 # 適用於 Windows Phone 和市集的 Application Insights 版本資訊
@@ -31,6 +31,23 @@
 * 選取已安裝的 Application Insights 封裝並選擇升級。
 * 比較舊版和新版的 ApplicationInsights.config。將任何您在舊版中所做的自訂合併回來。
 * 重建您的方案。
+
+## 1\.2 版
+
+### Windows 應用程式 SDK
+
+- 修正 FileNotFound 例外狀況，這種例外狀況會使持續性遙測無法在重新開啟 App 後傳送。
+
+### 核心 SDK
+
+- 由 [GitHub](http://github.com/microsoft/ApplicationInsights-dotnet) 運送的第一版 Application Insights SDK
+
+## 1\.1 版
+
+### 核心 SDK
+
+- SDK 現在引進了新的遙測類型 ```DependencyTelemetry```，其中包含從應用程式相依性呼叫的相關資訊
+- 新方法 ```TelemetryClient.TrackDependency``` 允許從應用程式傳送相依性呼叫的相關資訊
 
 ## 1\.0.0 版
 
@@ -77,4 +94,4 @@
 
 沒有可用於較舊版本的版本資訊。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

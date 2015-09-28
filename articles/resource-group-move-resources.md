@@ -38,8 +38,9 @@
 目前支援移動到新資源群組與訂用帳戶的服務有：
 
 - API 管理
+- Azure DocumentDB
 - Azure 搜尋
-- Azure Web 應用程式 (有部分[限制](app-service-web/app-service-move-resources.md))
+- Azure Web Apps (有部分[限制](app-service-web/app-service-move-resources.md))
 - Data Factory
 - 金鑰保存庫
 - Mobile Engagement
@@ -102,4 +103,4 @@
 - [使用 Azure 入口網站管理資源](azure-portal/resource-group-portal.md)
 - [使用標記組織您的資源](./resource-group-using-tags.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
+   ms.date="09/14/2015"
    ms.author="telmos" />
 
 # 虛擬網路概觀
@@ -85,7 +85,7 @@ VNet 提供下列服務給 IaaS VM 以及 PaaS 角色執行個體部署至 IaaS 
 
 ## 後續步驟
 
-- [建立 VNet](../virtual-networks-create-a-vnet.md) 和子網路。
+- [建立 VNet](../virtual-networks-create-vnet-arm-pportal.md) 和子網路。
 - [在 VNet 中建立 VM](../virtual-machines-windows-tutorial.md)。
 - 了解 [NSG](../virtual-networks-nsg.md)。
 - 了解[負載平衡器](../load-balancer-overview.md)。
@@ -93,4 +93,4 @@ VNet 提供下列服務給 IaaS VM 以及 PaaS 角色執行個體部署至 IaaS 
 - [保留公用 IP 位址](../virtual-networks-reserved-public-ip.md)。
 - 了解[使用者定義的路由和 IP 轉送](virtual-networks-udr-overview.md)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

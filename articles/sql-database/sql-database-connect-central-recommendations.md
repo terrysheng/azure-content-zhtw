@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="連接到 SQL Database：連結、最佳作法和設計方針"
-	description="針對從 ADO.NET 和 PHP 之類的技術連接到 Azure SQL Database 的用戶端程式，統合收集連結和建議的入門主題。"
-	services="sql-database"
-	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	pageTitle="連接到 SQL Database：最佳做法 | Microsoft Azure" 
+	description="針對從 ADO.NET 和 PHP 之類的技術連接到 Azure SQL Database 的用戶端程式，統合收集連結和最佳做法建議的入門主題。" 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="MightyPen" 
+	manager="jeffreyg" 
 	editor=""/>
 
 
 <tags 
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
-# 連接到 SQL Database：連結、最佳作法和設計方針
+# 連接到 SQL Database：最佳做法和設計方針
 
 
 本主題是開始使用至 Azure SQL Database 的用戶端連線的好地方。它提供指向各種技術之程式碼範例的連結，可用來連接到 SQL Database 並與其互動。這些技術包括企業程式庫、JDBC 和 PHP 和更多技術。所提供的資訊適用於您用來連接到 SQL Database 的所有特定技術。
@@ -77,7 +77,10 @@
  - 您可以在 SQL Database 伺服器上或個別的資料庫中設定防火牆設定。
 
 
-- 若要處理暫時性錯誤，請將[*重試* 邏輯](#TransientFaultsAndRetryLogicGm)加入至與 Azure SQL Database 互動的用戶端程式。
+- 如果您的用戶端在 Azure 虛擬機器 (VM) 上執行時，用戶端程式連接至 SQL Database V12，您就必須開啟此 VM 上 11000-11999 和 14000-14999 範圍的連接埠。如需詳細資訊，請按一下[這裡](sql-database-develop-direct-route-ports-adonet-v12.md)。
+
+
+- 若要處理「暫時性錯誤」，請將[「重試」邏輯](#TransientFaultsAndRetryLogicGm)加入至與 Azure SQL Database 互動的用戶端程式。
 
 
 ### 連接集區
@@ -131,15 +134,15 @@ Azure 系統能夠在 SQL Database 服務出現繁重的工作負載時動態重
 ### 暫時性錯誤的錯誤號碼
 
 
-當 SQL Database 發生任何錯誤時，會擲回 [SqlException](http://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx)。**SqlException** 在其 [Number] 屬性中包含一個數字錯誤碼。如果錯誤碼識別暫時性錯誤，您的程式應該重試呼叫。
+當 SQL Database 發生任何錯誤時，會擲回 [SqlException](http://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx)。**SqlException** 在它的 **Number** 屬性中包含一個數字錯誤碼。如果錯誤碼識別暫時性錯誤，您的程式應該重試呼叫。
 
 
 - [SQL Database 用戶端程式的錯誤訊息](sql-database-develop-error-messages.md#bkmk_connection_errors)
- - 其 [暫時性錯誤、連接中斷錯誤] 區段是一個有理由自動重試的暫時性錯誤清單。
+ - 它的 [暫時性錯誤、連接中斷錯誤] 區段是一個有理由自動重試的暫時性錯誤清單。
  - 例如，如果出現錯誤號碼 40613，表示發生類似如下的狀況，則重試：<br/>*伺服器 'theserver' 上的資料庫 'mydatabase' 目前無法使用。*
 
 
-如需進一步資訊，請參閱：- [Azure SQL Database 開發：作法主題](http://msdn.microsoft.com/library/azure/ee621787.aspx) - [疑難排解 Azure SQL Database 的連接問題](http://support.microsoft.com/kb/2980233/)
+如需進一步資訊，請參閱：[Azure SQL Database 開發：作法主題](http://msdn.microsoft.com/library/azure/ee621787.aspx) - [疑難排解 Azure SQL Database 的連接問題](http://support.microsoft.com/kb/2980233/)
 
 
 ## 技術
@@ -164,4 +167,4 @@ Azure 系統能夠在 SQL Database 服務出現繁重的工作負載時動態重
 
 - [SQL Database 和 SQL Server 的連接庫](sql-database-libraries.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

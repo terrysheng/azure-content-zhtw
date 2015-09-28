@@ -1,19 +1,19 @@
 <properties 
    pageTitle="管理 StorSimple 中的存取控制記錄 | Microsoft Azure"
-	description="說明如何使用存取控制記錄 (ACR) 以判斷哪些主機可以連接至 StorSimple 裝置上的磁碟區。"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="說明如何使用存取控制記錄 (ACR) 以判斷哪些主機可以連接至 StorSimple 裝置上的磁碟區。"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # 使用 StorSimple Manager 服務管理存取控制記錄
 
@@ -90,8 +90,8 @@
 
 ## 後續步驟
 
-深入了解[管理 StorSimple 磁碟區](storsimple-manage-volumes.md)。
-
+- 深入了解[管理 StorSimple 磁碟區](storsimple-manage-volumes.md)。
+- 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

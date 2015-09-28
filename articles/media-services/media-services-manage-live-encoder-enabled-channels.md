@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #使用啟用的通道來以 Azure 媒體服務執行即時編碼 (預覽)
@@ -41,22 +41,13 @@
 
 ![即時工作流程][live-overview]
 
->[AZURE.NOTE]並非所有資料中心都支援使用 Azure 媒體服務進行即時編碼。
->
->如果您使用 Azure 管理入口網站來建立通道，您將會有兩個通道編碼類型選項可用：[**無**] 和 [**標準**]。如果您只看到 [**無**] 選項時，表示您的資料中心不支援使用 AMS 的即時編碼。
->
->如果您使用 .NET SDK 或 REST API，請執行下列動作來檢查：
->
->1. 嘗試建立通道，將編碼類型設為 [標準]。 
->2. 如果傳回結果 HTTP 錯誤碼 412 (預先指定的條件失敗) 且具有下列訊息：「*即時編碼在此區域中不支援；EncodingType 必須設定為 [無]。*」，則您的資料中心不支援即時編碼。
-
 
 ##本主題內容
 
 - [常見即時串流案例](media-services-manage-live-encoder-enabled-channels.md#scenario)概觀
 - [通道和其相關元件的說明](media-services-manage-live-encoder-enabled-channels.md#channel)
-- [考量](media-services-manage-live-encoder-enabled-channels.md#considerations)
-- [與即時串流相關的工作](media-services-manage-live-encoder-enabled-channels.md#tasks)
+- [考量](media-services-manage-live-encoder-enabled-channels.md#Considerations)
+
 
 ##<a id="scenario"></a>常見即時串流案例
 
@@ -397,6 +388,7 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 
 ##<a id="Considerations"></a>考量
 
+- 當**標準**編碼類型的通道發生遺失輸入來源/發佈摘要時，它會透過取代含有錯誤靜態圖像與無聲的來源視訊/音訊來補償它。通道將會繼續發出靜態圖像，直到輸入/發佈補償恢復為止。我們建議不要讓即時通道停留在此狀態超過 2 個小時。超過該時間點，就無法保證通道在輸入重新連線時的行為，也無法保證其回應重設命令的行為。您將必須停止通道、將它刪除，以及建立新的通道。
 - 通道或其相關聯程式正在執行時，您無法變更輸入通訊協定。如果您需要不同的通訊協定，則應該為每個輸入通訊協定建立個別的通道。 
 - 每當您重新設定即時編碼器，請呼叫通道上的**重設**方法。重設通道之前，您必須停止程式。重設通道之後，請重新啟動程式。 
 - 只有當通道處於執行中的狀態，且通道上的所有程式皆已停止時，才能停止通道。
@@ -438,4 +430,4 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

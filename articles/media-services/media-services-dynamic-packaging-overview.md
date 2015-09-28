@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="動態封裝概觀" 
-	description="本主題提供動態封裝的概觀。" 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor="" 
-	services="media-services" 
+<properties
+	pageTitle="動態封裝概觀"
+	description="本主題提供動態封裝的概觀。"
+	authors="Juliako"
+	manager="dwrede"
+	editor=""
+	services="media-services"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2015" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
-#動態封裝 
+#動態封裝
 
 ##概觀
 
@@ -38,14 +38,14 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 
 ##常見的案例
 
-1. 上傳輸入檔案 (稱為夾層檔)。例如，H.264、MP4 或 WMV (如需支援格式清單，請參閱媒體服務編碼器所支援的格式)。
- 
+1. 上傳輸入檔案 (稱為夾層檔)。例如，H.264、MP4 或 WMV (如需支援格式清單，請參閱[媒體服務編碼器所支援的格式](media-services-azure-media-encoder-formats))。
+
 1. 將夾層檔編碼為 H.264 MP4 自動調整位元速率集。
- 
+
 1. 藉由建立隨選定位器，發行包含自動調整位元速率 MP4 集的資產。
- 
+
 1. 建置串流 URL 來存取和串流您的內容。
- 
+
 >[AZURE.NOTE]並非所有的 MP4 檔案格式都受動態封裝支援，如需詳細資訊，請參閱[動態封裝不支援的格式](media-services-dynamic-packaging-overview.md#unsupported_formats)。
 
 ##準備動態串流的資產
@@ -65,7 +65,7 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 [AZURE.INCLUDE [媒體-服務-選取器-上傳-檔案](../../includes/media-services-selector-upload-files.md)]
 
 使用 **Azure 管理入口網站**、**.NET** 或 **REST API**，以 **Azure Media Encoder** 進行編碼。
- 
+
 [AZURE.INCLUDE [媒體-服務-選取器-編碼](../../includes/media-services-selector-encode.md)]
 
 
@@ -105,6 +105,4 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 - [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
- 
-
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

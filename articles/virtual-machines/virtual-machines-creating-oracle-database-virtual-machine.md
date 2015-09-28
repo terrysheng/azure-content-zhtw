@@ -1,5 +1,5 @@
-<properties title="Creating an Oracle Database virtual machine in Azure" pageTitle="在 Azure 中建立 Oracle 資料庫虛擬機器" description="逐步執行在 Microsoft Azure 中建立 Oracle 虛擬機器，然後在其上建立 Oracle 資料庫的範例。" services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz"/>
+<properties pageTitle="在 Azure 中建立 Oracle 資料庫虛擬機器" description="逐步執行在 Microsoft Azure 中建立 Oracle 虛擬機器，然後在其上建立 Oracle 資料庫的範例。" services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #在 Azure 中建立 Oracle 資料庫虛擬機器
 以下範例說明如何在 Azure 中，根據 Microsoft 提供且在 Windows Server 2012 上執行的 Oracle 資料庫映像來建立虛擬機器 (VM)。有兩個步驟。首先，建立 VM，然後在 VM 內建立 Oracle 資料庫。顯示的範例是 Oracle 資料庫版本 12c，但步驟幾乎與版本 11g 相同。
 
@@ -19,13 +19,13 @@
 
 7.	選擇 [定價層]。請注意，預設會顯示建議的定價層，若要查看所有設定選項，可按一下右上方的 [檢視全部]。
 
-8.	考量下列因素，並視需要來設定[選用設定](https://msdn.microsoft.com/library/azure/dn763935.aspx)：
+8.	考量下列因素，並依照需要設定選用設定：
 
 	a.維持 [儲存體帳戶] 不變，以使用 VM 名稱建立新的儲存體帳戶。
 
 	b.維持 [可用性集合] 為 [未設定]。
 
-	c.此時請勿新增任何 [端點]。
+	c.此時請勿加入任何「端點」。
 
 9.	選擇或建立資源群組。
 
@@ -33,7 +33,7 @@
 
 11. 選擇 [位置]。
 
-12. 按一下 [建立]，即會開始建立 VM 的程序。VM 的狀態為**執行中**之後，請繼續進行下一個程序。
+12. 按一下 [建立]，即會開始建立 VM 的程序。VM 的狀態為 [執行中]之後，請繼續進行下一個程序。
 
 
 ##在 Azure 中使用 Oracle 資料庫 VM 建立您的資料庫
@@ -50,7 +50,7 @@
 
 6.	建立名為 **ORACLE\_HOSTNAME** 的環境變數，並將其值設定為 VM 的電腦名稱。您可以使用下列步驟建立環境變數：
 
-	a.在 Windows 中，按一下 [開始]，輸入**控制台**，按一下 [控制台] 圖示，然後依序按一下 [系統及安全性]、[系統] 及 [進階系統設定]。
+	a.在 Windows 中，按一下 [開始]，輸入「控制台」，按一下 [控制台] 圖示，然後依序按一下 [系統及安全性]、[系統]、[進階系統設定]。
 
 	b.按一下 [進階] 索引標籤，然後按一下 [環境變數]。
 
@@ -70,7 +70,7 @@
 
 		![](media/virtual-machines-creating-oracle-database-virtual-machine/image5.png)
 
-	b.**步驟 2：**輸入**全域資料庫名稱**的值。輸入並確認 [管理密碼] 的值。此密碼是用於 Oracle 資料庫的 **SYSTEM** 使用者。清除 [建立做為容器資料庫]。按 [下一步]。
+	b.**步驟 2：**輸入 [全域資料庫名稱] 的值。輸入並確認 [管理密碼] 的值。此密碼是用於 Oracle 資料庫的 **SYSTEM** 使用者。清除 [建立做為容器資料庫]。按 [下一步]。
 
 		![](media/virtual-machines-creating-oracle-database-virtual-machine/image6.png)
 
@@ -86,7 +86,7 @@
 
 ##確認資料庫已安裝
 
-1.	仍然登入您的 VM，啟動 SQL Plus 命令提示字元。在 Windows 中，中按一下 [開始]*，然後輸入 **SQL Plus**。按一下 [SQL Plus] 圖示。
+1.	仍然登入您的 VM，啟動 SQL Plus 命令提示字元。在 Windows 中，中按一下 [開始]，然後輸入「SQL Plus」。按一下 [SQL Plus] 圖示。
 
 2.	出現提示時，使用 **SYSTEM** 的使用者名稱以及您在建立 Oracle 資料庫時指定的密碼來登入。
 
@@ -114,17 +114,17 @@
 
 ### 在虛擬機器防火牆中開啟連接埠 1521
 
-1.	在已登入虛擬機器的情況下，在 Windows 中按一下 [開始]，輸入**具有進階安全性的 Windows 防火牆**，然後按一下 [具有進階安全性的 Windows 防火牆] 圖示。這會開啟 [具有進階安全性的 Windows 防火牆] 管理主控台。
+1.	在已登入虛擬機器的情況下，在 Windows 中按一下 [開始]，輸入「具有進階安全性的 Windows 防火牆」，然後按一下 [具有進階安全性的 Windows 防火牆] 圖示。這會開啟 [具有進階安全性的 Windows 防火牆] 管理主控台。
 
 2.	在防火牆管理主控台中，按一下左邊窗格內的 [輸入規則] (如果您沒有看到 [輸入規則]，請展開左邊窗格內的最上層節點)，然後按一下右邊窗格內的 [新增規則]。
 
-3.	針對**規則類型**，選取 [連接埠]，然後按一下 [下一步]。
+3.	針對 [規則類型]，選取 [連接埠]，然後按一下 [下一步]。
 
-4.	對於 [通訊協定與連接埠]，請選取 [TCP]，選取 [特定本機連接埠]，輸入 **1521** 做為連接埠，然後按 [下一步]。
+4.	針對 [通訊協定與連接埠]，請選取 [TCP]，選取 [特定本機連接埠]，輸入「1521」做為連接埠，然後按一下 [下一步]。
 
 5.	選取 [允許連線] 並按一下 [下一步]。
 
-6.	接受套用規則之設定檔的預設值，然後按 [下一步]。
+6.	接受套用規則之設定檔的預設值，然後按一下 [下一步]。
 
 7.	指定規則的名稱並選擇性指定描述，然後按一下 [完成]。
 
@@ -157,9 +157,9 @@
 10. 按一下 [確定]。
 
 ##啟用 Oracle Database Enterprise Manager 遠端存取
-如果您想要啟用遠端存取 Oracle Database Enterprise Manager 的功能，可在防火牆中開啟連接埠 5500，並在 Azure 入口網站中針對 5500 建立虛擬機器端點 (使用稍早開啟連接埠 1521 以及針對 1521 建立端點的步驟)。接著，若要從遠端電腦執行 Oracle Enterprise Manager，可開啟瀏覽器至 `http://<<unique_domain_name>>:5500/em` 形式的 URL。
+如果您想要啟用遠端存取 Oracle Database Enterprise Manager 的功能，可在防火牆中開啟連接埠 5500，並在 Azure 入口網站中針對 5500 建立虛擬機器端點 (使用稍早開啟連接埠 1521 以及針對 1521 建立端點的步驟)。接著，若要從遠端電腦執行 Oracle Enterprise Manager，可在瀏覽器開啟格式為 `http://<<unique_domain_name>>:5500/em` 的 URL。
 
-> [AZURE.NOTE]您可以按一下 [虛擬機器]，然後選取用來執行 Orable 資料庫的虛擬機器，來決定 [Azure 入口網站](https://ms.portal.azure.com/)中 *<<unique\_domain\_name>>* 的值。
+> [AZURE.NOTE]您可以在 [Azure 入口網站](https://ms.portal.azure.com/)中按一下 [虛擬機器]，然後選取用來執行 Orable 資料庫的虛擬機器，以決定 *<<unique\_domain\_name>>* 的值。
 
 ##設定常用選項和進階選項套件組合
 如果您選擇 [Oracle Database 包含常用選項] 或 [Oracle Database 包含進階選項套件組合]，則下一個步驟是在您的 Oracle 安裝中設定附加元件功能。由於設定會根據您對於每個個別元件的需求而截然不同，因此，請參閱 Oracle 文件，以取得在 Windows 上設定這些功能的相關指示。
@@ -175,10 +175,10 @@
 
 -	[Oracle Database 12c 文件庫](http://www.oracle.com/pls/db1211/homepage)
 
--	[從 Java 應用程式連線到 Oracle 資料庫](http://docs.oracle.com/cd/E11882_01/appdev.112/e12137/getconn.htm#TDPJD136)
+-	[從 Java 應用程式連線到 Oracle 資料庫](http://docs.oracle.com/cd/E11882_01/appdev.112/e12137/getconn.htm#TDPJD136) (英文)
 
 -	[Azure 的 Oracle 虛擬機器影像](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
--	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
+-	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm) (英文)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

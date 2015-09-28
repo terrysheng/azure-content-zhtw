@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 資源管理員範本函數"
-	description="描述要在 Azure 資源管理員範本中用來擷取值、格式化字串，並擷取部署資訊的函數。"
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="描述要在 Azure 資源管理員範本中用來擷取值、格式化字串，並擷取部署資訊的函數。"
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/21/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="tomfitz"/>
 
 # Azure 資源管理員範本函數
 
@@ -108,6 +108,25 @@
 | operand1 | 是 | 被除數。
 | operand2 | 是 | 除數，必須不是 0。
 
+## int
+
+**int(valueToConvert)**
+
+將指定的值轉換成整數。
+
+| 參數 | 必要 | 說明
+| :--------------------------------: | :------: | :----------
+| valueToConvert | 是 | 要轉換成整數的值。值的類型只能是字串或整數。
+
+下列範例會將使用者提供的參數值轉換成整數。
+
+    "parameters": {
+        "appId": { "type": "string" }
+    },
+    "variables": { 
+        "intValue": "[int(parameters('appId'))]"
+    }
+
 ## length
 
 **length(array)**
@@ -116,7 +135,7 @@
 
 ## listKeys
 
-**listKeys (resourceName or resourceIdentifier, [apiVersion])**
+**listKeys (resourceName or resourceIdentifier, apiVersion)**
 
 傳回儲存體帳戶的金鑰。使用 [resourceId](./#resourceid) 函數或使用格式 **providerNamespace/resourceType/resourceName**，即可指定 resourceId。您可以使用此函數來取得 primaryKey 和 secondaryKey。
   
@@ -129,7 +148,7 @@
 
     "outputs": { 
       "exampleOutput": { 
-        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]", 
+        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-05-01-preview')]", 
         "type" : "object" 
       } 
     } 
@@ -206,9 +225,9 @@
        }
     ]
 
-## provider
+## 提供者
 
-**provider (providerNamespace, [resourceType])**
+**providers (providerNamespace, [resourceType])**
 
 傳回資源提供者和其所支援資源類型的相關資訊。如果未提供類型，則會傳回所有支援的類型。
 
@@ -384,6 +403,25 @@
         "stringPieces": "[split(parameters('inputString'), ',')]"
     }
 
+## 字串
+
+**string(valueToConvert)**
+
+將指定的值轉換成字串。
+
+| 參數 | 必要 | 說明
+| :--------------------------------: | :------: | :----------
+| valueToConvert | 是 | 要轉換成字串的值。值的類型只能是布林值、整數或字串。
+
+下列範例會將使用者提供的參數值轉換成字串。
+
+    "parameters": {
+        "appId": { "type": "int" }
+    },
+    "variables": { 
+        "stringValue": "[string(parameters('appId'))]"
+    }
+
 ## sub
 
 **sub(operand1, operand2)**
@@ -469,7 +507,7 @@
 ## 後續步驟
 - 如需 Azure 資源管理員範本中各節的說明，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
 - 若要合併多個範本，請參閱[透過 Azure 資源管理員使用連結的範本](resource-group-linked-templates.md)
-- 建立資源類型時若要逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)
+- 建立資源類型時若要逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
 - 若要了解如何部署您建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

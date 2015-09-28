@@ -1,31 +1,33 @@
 <properties 
-	pageTitle="如何控制 App Service 環境的輸入流量"
-	description="了解如何設定網路安全性規則，以控制 App Service 環境的輸入流量。"
-	services="app-service\web"
-	documentationCenter=""
-	authors="ccompy"
-	manager="wpickett"
+	pageTitle="如何控制 App Service 環境的輸入流量" 
+	description="了解如何設定網路安全性規則，以控制 App Service 環境的輸入流量。" 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="ccompy" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
-	ms.author="stefsh"/>
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
+	ms.author="stefsch"/>
 
 # 如何控制 App Service 環境的輸入流量
 
 ## 概觀 ##
-APP Service 環境一律建立於區域[虛擬網路][virtualnetwork]的子網路中。建立 APP Service 環境時，可以定義新的區域虛擬網路和新的子網路。或者，APP Service 環境可以建立於預先存在的區域虛擬網路和預先存在的子網路中。如需建立 App Service 環境的詳細資訊，請參閱[如何建立 App Service 環境][HowToCreateAnAppServiceEnvironment]。
+APP Service 環境會一律建立於區域傳統 "v1" [虛擬網路][virtualnetwork]的子網路中。建立 APP Service 環境時，可定義新的區域傳統 "v1" 虛擬網路和新的子網路。或者亦可在先前既存的區域傳統 "v1" 虛擬網路與子網路中，建立 APP Service 環境。如需建立 App Service 環境的詳細資訊，請參閱[如何建立 App Service 環境][HowToCreateAnAppServiceEnvironment]。
 
 App Service 環境必須一律建立於子網路中，因為子網路可提供網路界限以便用來鎖定上游裝置和服務背後的輸入流量，因此只接受來自特定上游 IP 位址的 HTTP 和 HTTPS 流量。
 
 使用[網路安全性群組][NetworkSecurityGroups]，可控制子網路上的輸入和輸出網路流量。控制輸入流量時，需要在網路安全性群組中建立網路安全性規則，然後將網路安全性群組指派給包含 App Service 環境的子網路。
 
 將網路安全性群組指派給子網路後，會根據網路安全性群組中定義的允許和拒絕規則，允許/封鎖 App Service 環境中應用程式的輸入流量。
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## App Service 環境中使用的網路連接埠 ##
 利用網路安全性群組鎖定輸入網路流量之前，請務必知道 App Service 環境所用的必要和選用網路連接埠集合。意外關閉送至某些連接埠的流量，可能會導致在 App Service 環境中喪失功能。
@@ -37,20 +39,22 @@ App Service 環境必須一律建立於子網路中，因為子網路可提供�
 - 80：對於在 App Service 環境的 App Service 方案中執行的應用程式，其輸入 HTTP 流量的預設連接埠。
 - 443：對於在 App Service 環境的 App Service 方案中執行的應用程式，其輸入 SSL 流量的預設連接埠。
 - 21：FTP 的控制通道。如果未使用 FTP，就可以安全地封鎖此連接埠。
-- 10001-10020：FTP 的資料通道。在控制通道中，如果未使用 FTP，就可以安全地封鎖這些連接埠 (**注意：**FTP 資料通道可能會在預覽期間變更。)
+- 10001-10020：FTP 的資料通道。在控制通道中若未使用 FTP，即可安全地封鎖這些連接埠 (**注意：**FTP 資料通道可能會在預覽期間變更。)
 - 4016：用於 Visual Studio 2012 的遠端偵錯。如果未使用此功能，就可以安全地封鎖此連接埠。
 - 4018：用於 Visual Studio 2013 的遠端偵錯。如果未使用此功能，就可以安全地封鎖此連接埠。
 - 4020：用於 Visual Studio 2015 的遠端偵錯。如果未使用此功能，就可以安全地封鎖此連接埠。
 
 ## 輸出連線和 DNS 需求 ##
-請注意，為了讓 App Service 環境正確運作，也需要 Azure 儲存體以及相同 Azure 區域中 SQL Database 的輸出存取權。如果虛擬網路中封鎖輸出網際網路存取，則 App Service 環境將無法存取這些 Azure 端點。
+請注意，為了讓 App Service 環境正確運作，您也需要全球 Azure 儲存體以及相同 Azure 區域中 SQL Database 的輸出存取權。如果虛擬網路中封鎖輸出網際網路存取，則 App Service 環境將無法存取這些 Azure 端點。
 
 客戶可能也已在虛擬網路中設定自訂 DNS 伺服器。App Service 環境需要可以解析 *.database.windows.net、*.file.core.windows.net 和 *.blob.core.windows.net 下的 Azure 端點。
 
-也建議事先在虛擬網路上設定任何自訂 DNS 伺服器，再建立 App Service 環境。如果在建立 App Service 環境時變更虛擬網路的 DNS 組態，則會導致 App Service 環境建立程序失敗。
+也建議事先在虛擬網路上設定任何自訂 DNS 伺服器，再建立 App Service 環境。如果在建立 App Service 環境時變更虛擬網路的 DNS 組態，則會導致 App Service 環境建立程序失敗。同樣地，若自訂 DNS 伺服器存在於 VPN 閘道的另一端，且 DNS 伺服器無法連線或使用，則 App Service 環境建立程序也會失敗。
 
 ## 建立網路安全性群組 ##
 如需有關網路安全性群組如何運作的完整詳細資訊，請參閱下列[資訊][NetworkSecurityGroups]。以下詳細資料是有關網路安全性群組的重點，著重於設定網路安全群組並套用到包含 App Service 環境的子網路。
+
+**注意：**網路安全性群組只能使用如下所述的 Powershell Cmdlet 設定。由於新入口網站僅允許使用與 "v2" 虛擬網路關聯的 NSG 圖形化組態，因此無法使用新入口網站 (portal.azure.com) 採圖形化方式設定網路安全性群組。不過，App Service 環境目前僅支援處理傳統 "v1" 虛擬網路。因此，您僅可使用 Powershell Cmdlet 將網路安全性群組設為與 "v1" 虛擬網路關聯。
 
 網路安全性群組首次會建立為與訂用帳戶相關聯的獨立實體。由於網路安全性群組建立於 Azure 區域，所以請確保網路安全性群組建立於與 App Service 環境相同的區域中。
 
@@ -104,9 +108,9 @@ App Service 環境必須一律建立於子網路中，因為子網路可提供�
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Remove-AzureNetworkSecurityGroupFromSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
 ## 明確 IP-SSL 的特殊考量 ##
-如果以明確的 IP 位址設定應用程式，而不是 App Service 環境的預設 IP 位址，則 HTTP 和 HTTPS 流量會透過一組與連接埠 80 和 443 不同的連接埠流入子網路。
+若以明確的 IP 位址設定應用程式，而非使用 App Service 環境的預設 IP 位址，則 HTTP 和 HTTPS 流量會透過與連接埠 80 和 443 不同的一組連接埠流入子網路。
 
-在 App Service 環境的初始預覽期間，不可能判斷 IP-SSL 所使用的特定連接埠。不過，一旦透過入口網站、命令列工具和 REST API 公開這項資訊，開發人員就能夠設定網路安全性群組也透過這些連接埠控制流量。
+若要尋找每個 IP-SSL 的位址所用的個別連接埠配對，您可從 App Service 環境的使用者介面刀鋒視窗， 依序按一下 [所有設定] --> [IP 位址]。「IP 位址」刀鋒視窗會顯示 App Service 環境的所有明確設定 IP-SSL 位址，以及用於路由與每個 IP-SSL 位址關聯之 HTTP 和 HTTPS 流量的特殊連接埠配對。在網路安全性群組中設定規則時，必須針對 DestinationPortRange 參數使用此連接埠配對。
 
 ## 開始使用
 
@@ -130,4 +134,4 @@ App Service 環境必須一律建立於子網路中，因為子網路可提供�
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

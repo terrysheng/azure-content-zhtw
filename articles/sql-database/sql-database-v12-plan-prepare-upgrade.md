@@ -1,5 +1,5 @@
 <properties
-	pageTitle="規劃和準備升級至 SQL Database V12"
+	pageTitle="規劃升級至 SQL Database V12 |Microsoft Azure"
 	description="說明升級至 Azure SQL Database V12 版本的相關準備和限制。"
 	services="sql-database"
 	documentationCenter=""
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="09/16/2015"
 	ms.author="genemi"/>
 
 
 # 規劃和準備升級至 SQL Database V12
 
 
-本主題描述將 Azure SQL Database 從 V11 版升級至 V12 ([某些區域為預覽](sql-database-v12-whats-new.md#V12AzureSqlDbPreviewGaTable)) 所必須執行的規劃和準備。
+本主題描述將 Azure SQL Database 從 V11 版升級至 V12 版必須執行的規劃和準備。
 
 
 全新的 [Azure Preview 入口網站](http://portal.azure.com/)可支援您升級至 V12。
@@ -107,6 +107,18 @@ V12 不支援 Web 和商務服務定價層級。
 在升級完成後，您可以設定資料庫再次使用異地複寫。
 
 
+### Azure VM 上的用戶端
+
+
+如果您的用戶端在 Azure 虛擬機器 (VM) 上執行時，用戶端程式連線至 SQL Database V12，您就必須開啟此 VM 上的下列範圍連接埠：
+
+- 11000-11999
+- 14000-14999
+
+
+如需 SQL Database V12 連接埠的詳細資訊，請按一下[這裡](sql-database-develop-direct-route-ports-adonet-v12.md)。SQL Database V12 的效能增強功能需要這些連接埠。
+
+
 ##<a id="limitations"></a>升級至 V12 期間和之後的限制
 
 
@@ -138,7 +150,7 @@ V12 不支援 Web 和商務服務定價層級。
 - 開發線上或離線資料庫。
 
 
-您可以改為使用 [Visual Studio Community 2013](https://www.visualstudio.com/zh-tw/news/vs2013-community-vs.aspx/) 連線，這是 VS2013 免費且功能完整的版本。
+您可以改為使用 [Visual Studio Community 2013](https://www.visualstudio.com/zh-TW/news/vs2013-community-vs.aspx/) 連線，這是 VS2013 免費且功能完整的版本。
 
 
 您可以在較舊的 Azure 入口網站的 [資料庫] 頁面上，按一下 [在 Visual Studio 中開啟] 在電腦上啟動 VS2013，來連線至您的 Azure SQL Database。
@@ -166,7 +178,7 @@ V12 不支援 Web 和商務服務定價層級。
 | :--- | :--- |
 | 無法還原成 V11 | 在升級完成之後，就無法還原或復原結果。 |
 | Web 或商務層 | 在升級開始之後，新的 V12 資料庫的伺服器就無法再辨識或接受 Web 或商務服務層。 |
-| 50% 折扣不會反映在 Azure 入口網站的定價層卡片中 | 在預覽期間，在最新 Azure SQL Database Preview Update (V12) 中註冊的資料庫享有 50% 預覽折扣*。即使折扣不會顯示在預覽入口網站的服務定價層刀鋒視窗，仍會一律提供折扣。<br/><br/> 在 **2015 年 3 月 31 日** 以前 (所有區域屆時便會過期)，50% 折扣在所有地理區域中仍然有效。此折扣在已宣佈公開上市 (GA) 的區域仍然有效。<br/><br/>(* 使用最新的 Azure SQL Database Update V12 功能時，必須遵循您的授權合約 (例如，Enterprise Agreement、Microsoft Azure 合約或 Microsoft 線上訂用帳戶合約) 中的預覽條款，以及任何適用的 [Microsoft Azure Preview 補充使用條款](http://azure.microsoft.com/support/legal/preview-supplemental-terms/)。在預覽期間，Microsoft 將以一半的公開上市 (GA) 費率向您 (或您的轉銷商 (適用的話)) 收取所有在此預覽中註冊之資料庫的費用，以提供 50% 的預覽折扣。Microsoft 將透過電子郵件，提供預覽期間和折扣預覽費率到期前 30 天的通知。 |
+
 
 
 ### 在升級至 V12 *之後*匯出和匯入
@@ -244,4 +256,4 @@ Stop- Cmdlet 表示取消，不是暫停。升級一旦停止就沒有任何方�
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -6,7 +6,7 @@
 
 3. 在 [API 名稱] 中輸入 completeall，然後按一下 [檢查] 按鈕以建立新的 API。
 
-	> [AZURE.NOTE]有了預設權限，具備應用程式金鑰的任何人都可以呼叫自訂 API。不過，應用程式金鑰並不會被視為安全的認證，因為它不是以安全的方式散佈或儲存。請考慮限制只有經過驗證的使用者才能存取，以提供進階的安全性。
+	> [AZURE.TIP]有了預設權限，具備應用程式金鑰的任何人都可以呼叫自訂 API。不過，應用程式金鑰並不會被視為安全的認證，因為它不是以安全的方式散佈或儲存。請考慮限制只有經過驗證的使用者才能存取，以提供進階的安全性。
 
 4. 按一下 API 資料表中的 [completeall]。
 
@@ -26,8 +26,7 @@
 		};
 
 
-
-> [AZURE.NOTE]<a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">Express.js 程式庫</a>會實作提供給自訂 API 函數的 <a href="http://msdn.microsoft.com/library/windowsazure/jj554218.aspx" target="_blank">request</a> 和 <a href="http://msdn.microsoft.com/library/windowsazure/dn303373.aspx" target="_blank">response</a> 物件。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/windowsazure/dn280974.aspx" target="_blank">自訂 API</a>。
+> [AZURE.NOTE][Express.js](http://go.microsoft.com/fwlink/p/?LinkId=309046) 程式庫會實作提供給自訂 API 函式的 [request](http://msdn.microsoft.com/library/windowsazure/jj554218.aspx) 和 [response](http://msdn.microsoft.com/library/windowsazure/dn303373.aspx) 物件。
 
 <!-- Anchors. -->
 
@@ -36,4 +35,4 @@
 <!-- URLs. -->
 [mssql 物件]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

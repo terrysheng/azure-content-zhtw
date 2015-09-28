@@ -3,11 +3,11 @@
 您可以使用 Azure CLI 透過任何 Windows、Linux 或 OSX 電腦命令提示字元管理 Azure 資源。若要使用 Azure CLI 建立 VNet，請遵循下列步驟。
 
 1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
-2. 執行 **azure network vnet create** 命令來建立 VNet 和子網路，如下所示。請查看 CLI 命令的輸出內容。輸出後顯示的清單可說明所使用的參數。
+2. 執行 **azure network vnet create** 命令來建立 VNet 和子網路，如下所示。輸出後顯示的清單可說明所使用的參數。
 
 			azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
 	
-	此為上述命令的預期輸出內容：
+	預期的輸出：
 
 			info:    Executing command network vnet create
 			+ Looking up network configuration
@@ -23,7 +23,7 @@
 	- **-r (或 --subnet-cidr)**。CIDR 格式的子網路網路遮罩。在本文案例中為 *24*。
 	- **-l (或 --location)**。將要建立 VNet 的 Azure 區域。在本文案例中為「美國中部」。
 
-3. 執行 **azure network vnet subnet create** 命令以建立子網路，如下方所示。請查看命令的輸出內容。輸出後顯示的清單可說明所使用的參數。
+3. 執行 **azure network vnet subnet create** 命令以建立子網路，如下方所示。輸出後顯示的清單可說明所使用的參數。
 
 			azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
 	
@@ -65,4 +65,4 @@
 			data:
 			info:    network vnet show command OK
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

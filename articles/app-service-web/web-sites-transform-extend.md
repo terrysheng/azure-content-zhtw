@@ -2,23 +2,26 @@
 	pageTitle="Azure App Service Web 應用程式進階設定和擴充功能"
 	description="使用 XML 文件轉換 (XDT) 宣告來轉換 Azure App Service Web 應用程式中的 ApplicationHost.config 檔案，以及新增私用擴充功能來啟用自訂系統管理動作。"
 	authors="cephalin"
+	writer="cephalin"
 	editor="mollybos"
 	manager="wpickett"
 	services="app-service\web"
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 # Azure App Service Web 應用程式進階設定和擴充功能
 
 使用 [XML 文件轉換](http://msdn.microsoft.com/library/dd465326.aspx) (XDT) 宣告，即可在 Azure App Service 的 Web 應用程式中轉換 [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) 檔案。您也可以使用 XDT 宣告來新增私用擴充功能，以啟用自訂的 Web 應用程式系統管理動作。本文包含一個 PHP Manager Web 應用程式擴充功能範例，該範例會透過 Web 介面來啟用 PHP 設定的管理功能。
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ##<a id="transform"></a>透過 ApplicationHost.config 的進階設定
 App Service 平台提供適用於 Web 應用程式設定的彈性和控制。雖然無法在 App Service 中直接編輯標準的 IIS ApplicationHost.config 設定檔，但此平台支援以 XML 文件轉換 (XDT) 為基礎的宣告式 ApplicationHost.config 轉換模型。
@@ -179,4 +182,4 @@ Web 應用程式擴充功能的程式碼位於 %HOME%\\SiteExtensions[your-exten
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

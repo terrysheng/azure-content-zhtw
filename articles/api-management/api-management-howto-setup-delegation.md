@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/14/2015" 
 	ms.author="antonba"/>
 
 # 如何委派使用者註冊和產品訂閱
@@ -90,7 +90,7 @@
 1. 開發人員在 API 管理開發人員入口網站中選取產品，然後按一下 [訂閱] 按鈕
 2. 瀏覽器重新導向至委派端點
 3. 委派端點執行必要的產品訂閱步驟 - 這由您決定，可能需要重新導向至另一個頁面來要求帳單資訊、詢問其他問題，或只是儲存資訊而不要求任何使用者動作
-4. 成功時，將使用者重新導向回到他們所來自的 API 管理開發人員入口網站頁面
+
 
 若要啟用此功能，請在 [委派] 頁面按一下 [Delegate product subscription]。
 
@@ -114,8 +114,6 @@
 3. 根據 **operation** 中要求的操作類型 (例如帳單、進一步的問題等)，執行任何產品訂閱處理
 
 4. 當使用者在您這邊成功訂閱產品時，[呼叫 REST API 來訂閱產品]，讓使用者訂閱 API 管理產品。
-
-5. 收到要求時，將使用者重新導向回提供的 **returnUrl**。
 
 ## <a name="delegate-example-code"> </a> 範例程式碼 ##
 
@@ -168,4 +166,4 @@
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

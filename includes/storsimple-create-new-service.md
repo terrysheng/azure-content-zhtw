@@ -1,3 +1,5 @@
+<!--author=alkohli last changed: 9/17/15-->
+
 
 #### 建立新服務
 
@@ -16,10 +18,14 @@
   4. 選取 [建立新的儲存體帳戶]，自動建立具有此服務的儲存體帳戶。這個儲存體帳戶將具有一個特殊名稱，例如 "storsimplebwv8c6dcnf"。 如果您需要將資料放在不同的位置，取消核取此方塊。 
   5. 按一下 [建立 StorSimple Manager] 來建立服務。
 
-   ![建立服務](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
+   ![建立 StorSimple Manager](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
 
   系統會將您導向至 [服務] 登陸頁面。服務建立需要幾分鐘的時間。成功建立服務之後，即會在適當時機通知您，並將服務狀態變更為 [作用中]。
  
    ![服務建立](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!---HONumber=August15_HO8-->
+![提供的影片](./media/storsimple-create-new-service/Video_icon.png)**提供的影片**
+
+若要觀看影片示範如何建立新的 StorSimple Manager 服務，請按一下[這裡](http://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/)。
+
+<!---HONumber=Sept15_HO3-->

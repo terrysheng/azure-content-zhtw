@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### 掛接、初始化及格式化磁碟區
 
@@ -27,7 +28,11 @@
   3. 指定 64 KB 的配置單位大小。這個配置單位大小適用於 StorSimple 解決方案中所使用的重複資料刪除演算法。
   4. 執行快速格式化。
 
+![提供的影片](./media/storsimple-mount-initialize-format-volume/Video_icon.png)**提供的影片**
+
+若要觀看影片示範如何掛接、初始化和格式化 StorSimple 磁碟區，請按一下[這裡](http://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/)。
+
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

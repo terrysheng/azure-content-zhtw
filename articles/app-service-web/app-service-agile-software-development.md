@@ -1,7 +1,7 @@
 <properties
 	pageTitle="敏捷式軟體開發 (Agile Software Development) 與 Azure App Service"
 	description="學習如何使用支援敏捷式軟體開發的方式來建立高級別複雜應用程式與 Azure App Service。"
-	services="app-service\web"
+	services="app-service\web,app-service\api,app-service\mobile"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -33,15 +33,17 @@
 | - 輕鬆地檢視最新組建結果 | 從儲存機制持續部署至 Azure，表示您可以在認可變更之後立即於即時應用程式中測試新程式碼。 |
 | - 每天認可到主要分支<br> - 自動化部署 | 生產應用程式與儲存機制主要分支的連續整合會自動將主要分支的每次認可/合併部署至生產環境。 |
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ## 將執行的作業 ##
 
-您將逐步進行一般「開發-測試-預備-生產」工作流程，以將新變更發行至 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 範例應用程式 (內含兩個 [Web 應用程式](/services/app-service/web/)：一個是前端 (FE)，另一個是 Web API 後端 (BE)) 和 [SQL 資料庫](/services/sql-database/)。您將使用部署架構，如下所示：
+您將逐步進行一般「開發-測試-預備-生產」工作流程，以將新變更發佈至 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 範例應用程式 (內含兩個 [Web 應用程式](/services/app-service/web/)：一個是前端 (FE)，另一個是 Web API 後端 (BE)) 和 [SQL 資料庫](/services/sql-database/)。您將使用部署架構，如下所示：
 
 ![](./media/app-service-agile-software-development/what-1-architecture.png)
 
 將圖片放入文字：
 
--	部署架構分成三個不同環境 (或 Azure 中的[資源群組](resource-group-overview.md))，各有其專屬 [App Service 方案](azure-web-sites-web-hosting-plans-in-depth-overview.md)、[調整](web-sites-scale.md)設定和 SQL 資料庫。 
+-	部署架構分成三個不同環境 (或 Azure 中的[資源群組](resource-group-overview.md))，其各有專屬 [App Service 方案](azure-web-sites-web-hosting-plans-in-depth-overview.md)、[調整](web-sites-scale.md)設定和 SQL 資料庫。 
 -	您可以個別管理每個環境。它們甚至可以存在於不同的訂用帳戶中。
 -	預備和生產環境會實作為相同 App Service 應用程式的兩個位置。主要分支是設定進行具有預備位置的連續整合。
 -	在預備位置 (含生產資料) 上驗證主要分支的認可時，已驗證的預備應用程式會交換到生產位置，[而不中斷](web-sites-staged-publishing.md)。
@@ -73,7 +75,7 @@
 
 >[AZURE.NOTE]本教學課程中使用的指令碼會自動從 GitHub 儲存機制設定連續發行。這需要您的 GitHub 認證已儲存在 Azure 中，否則，嘗試設定 Web 應用程式的原始檔控制設定時，指令碼部署會失敗。
 >
->若要在 Azure 中儲存您的 GitHub 認證，請在 [Azure 預覽入口網站](https://portal.azure.com)中建立 Web 應用程式，並[設定 GitHub 部署](web-sites-publish-source-control.md#Step7)。您只需要做一次這個動作。
+>若要在 Azure 中儲存您的 GitHub 認證，請在 [Azure Preview 入口網站](https://portal.azure.com)中建立 Web 應用程式，並[設定 GitHub 部署](web-sites-publish-source-control.md#Step7)。您只需要做一次這個動作。
 
 在一般 DevOps 案例中，應用程式是在 Azure 中即時執行，而且您想要透過連續發行對它進行變更。在此案例中，您會有您所開發、測試以及用來部署生產環境的範本。您將在本節中設定它。
 
@@ -81,13 +83,13 @@
  
 	![](./media/app-service-agile-software-development/production-1-private-repo.png)
 
-2.	開啟 Git Shell 工作階段。如果您還沒有 Git Shell，請立即安裝 [GitHub for Windows](https://windows.github.com/)。
+2.	開啟 Git Shell 工作階段。若您尚無 Git Shell，請立即安裝 [GitHub for Windows](https://windows.github.com/)。
 
 3.	執行下列命令，以建立分叉的本機複製品：
 
 		git clone https://github.com/<your_fork>/ToDoApp.git 
 
-4.	具有本機複製品之後，請導覽至 *&lt;repository\_root>*\\ARMTemplates，並執行 deploy.ps1 指令碼，如下所示：
+4.	具有本機副本後，瀏覽至 *&lt;repository\_root>*\\ARMTemplates，然後執行 deploy.ps1 指令碼，如下所示：
 
 		.\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git
 
@@ -97,7 +99,7 @@
 
 	![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
  
-	>[AZURE.TIP]請查看 *&lt;repository\_root>*\\ARMTemplates\\Deploy.ps1，以查看它如何產生具有唯一識別碼的資源。您可以使用相同的方法來建立相同部署的複製品，而不需擔心衝突的資源名稱。
+	>[AZURE.TIP]查看 *&lt;repository\_root>*\\ARMTemplates\\Deploy.ps1，以了解其如何產生具有唯一識別碼的資源。您可以使用相同的方法來建立相同部署的複製品，而不需擔心衝突的資源名稱。
  
 6.	回到 Git Shell 工作階段，並執行：
 
@@ -105,11 +107,11 @@
 
 	![](./media/app-service-agile-software-development/production-4-swap.png)
 
-7.	指令碼完成時，請返回瀏覽至前端的位址 (http://ToDoApp*&lt;unique_string>*master.azurewebsites.net/) 以查看在生產環境中執行的應用程式。
+7.	指令碼完成時，請返回瀏覽至前端的位址 (http://ToDoApp*&lt;unique_string>*master.azurewebsites.net/)，以查看在生產環境中執行的應用程式。
  
-5.	登入 [Azure 預覽入口網站](https://portal.azure.com)，並查看建立的內容。
+5.	登入 [Azure Preview 入口網站](https://portal.azure.com)，並查看建立的內容。
 
-	您應該可以在相同的資源群組中看到兩個 Web 應用程式，其中一個的名稱具有 `Api` 後置詞。如果您查看資源群組檢視，則也會看到 SQL Database 和伺服器、App Service 方案以及 Web 應用程式的預備位置。瀏覽不同的資源，並將它們與 *&lt;repository\_root>*\\ARMTemplates\\ProdAndStage.json 比較以查看它們在範本中的設定方式。
+	您應可在相同的資源群組中看到兩個 Web 應用程式，其中一個的名稱具有 `Api` 後置詞。如果您查看資源群組檢視，則也會看到 SQL Database 和伺服器、App Service 方案以及 Web 應用程式的預備位置。瀏覽不同的資源，並將其與 *&lt;repository\_root>*\\ARMTemplates\\ProdAndStage.json 比較以查看其在範本中的設定方式。
 
 	![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
 
@@ -119,7 +121,7 @@
 
 現在，您已有在 Azure 內之生產環境中執行的複雜應用程式，您將根據敏捷式方法來更新應用程式。在本節中，您將建立需要進行必要更新的開發和測試分支。
 
-1.	先建立測試環境。在 Git Shell 工作階段中，執行下列命令來建立稱為 **NewUpdate** 之新分支的環境。 
+1.	先建立測試環境。在 Git Shell 工作階段中，執行下列命令來建立稱為 **NewUpdate** 的新分支環境。 
 
 		git checkout -b NewUpdate
 		git push origin NewUpdate 
@@ -132,7 +134,7 @@
 	-	您可以在任何 Azure 訂用帳戶中建立它。這表示可以分開管理生產環境和測試環境。
 	-	您的測試環境是即時在 Azure 中執行。
 	-	您的測試環境等同於生產環境，差異在於預備位置和調整設定。因為這些是 ProdandStage.json 與 Dev.json 之間的唯一差異，所以您可以得知這項資訊。
-	-	您可以在其專屬 App Service 方案與不同的價格層中管理您的測試環境 (例如**免費**)。
+	-	您可以在其專屬 App Service 方案與不同的價格層 (例如**免費**) 中管理測試環境 。
 	-	刪除這個測試環境，就像刪除資源群組一樣簡單。您將了解[稍後](#delete)如何執行這項作業。
 
 2.	執行下列命令，以繼續建立開發分支：
@@ -152,7 +154,7 @@
 
 >[AZURE.NOTE]有多位開發人員處理新的更新時，只要執行下列動作，每一位都可以輕鬆地建立分支和專用開發環境：
 >
->1.	在 GitHub 中建立其在儲存機制中的專屬分叉 (請參閱[分岔儲存機制](https://help.github.com/articles/fork-a-repo/))。
+>1.	在 GitHub 建立其在儲存機制中的專屬分叉 (請參閱[分叉儲存機制](https://help.github.com/articles/fork-a-repo/))。
 >2.	複製其本機電腦上的分岔
 >3.	執行相同的命令，來建立其專屬開發分支和環境。
 
@@ -174,7 +176,7 @@
 
 		git checkout Dev
 
-2.	變更程式碼以使用[啟動](http://getbootstrap.com/components/)清單，以對應用程式的 UI 層進行簡單的變更。開啟 *&lt;repository\_root>*\\src\\MultiChannelToDo.Web\\app\\index.cshtml，並進行下面反白顯示的變更：
+2.	將程式碼變更為使用 [Bootstrap](http://getbootstrap.com/components/) 清單，以對應用程式的 UI 層進行簡易變更。開啟 *&lt;repository\_root>*\\src\\MultiChannelToDo.Web\\index.cshtml，並進行以下反白顯示的變更：
 
 	![](./media/app-service-agile-software-development/commit-1-changes.png)
 
@@ -192,17 +194,17 @@
  
 	這些 git 命令與另一個原始檔控制系統中的「簽入程式碼」類似 (例如 TFS)。執行 `git push` 時，新的認可會觸發自動將程式碼推送至 Azure，然後重建應用程式，以反映開發環境中的變更。
 
-4.	若要確認已將此程式碼推送至您的開發環境，請移至您開發環境的 Web 應用程式分頁，並查看 [部署]組件。您應該可以在這裡看到最新認可的訊息。
+4.	若要確認已將此程式碼推送至您的開發環境，請移至您開發環境的 Web 應用程式刀鋒視窗，並查看 [部署] 組件。您應該可以在這裡看到最新認可的訊息。
 
 	![](./media/app-service-agile-software-development/commit-2-deployed.png)
 
-5.	在這裡，按一下 [瀏覽] 以查看 Azure 中即時應用程式中的新變更。
+5.	在其中按一下 [瀏覽]，以查看 Azure 中即時應用程式的新變更。
 
 	![](./media/app-service-agile-software-development/commit-3-webapp-in-browser.png)
 
 	這對應用程式而言是相當小的變更。不過，複雜 Web 應用程式的新變更通常會有不想要和非預期的副作用。能夠輕鬆地測試即時組建中的每個認可，可讓您在客戶看到這些問題之前先找出它們。
 
-現在，您應該已熟悉開發人員在 **NewUpdate** 專案中如何實現，並可以輕鬆地建立專屬開發環境，然後建置每個認可並測試每個組建。
+現在，您應已熟悉開發人員在 **NewUpdate** 專案中如何實現，並可以輕鬆地建立專屬開發環境，然後建置每個認可並測試每個組建。
 
 ## 將程式碼合併至測試環境 ##
 
@@ -223,7 +225,7 @@
 
 這樣就大功告成了！
 
-前往您測試環境的 Web 應用程式分頁，以查看現在推送至測試環境的新認可 (合併至 NewUpdate 分支)。然後，按一下 [瀏覽] 查看現在於 Azure 中即時執行的樣式變更。
+前往您測試環境的 Web 應用程式分頁，以查看現在推送至測試環境的新認可 (合併至 NewUpdate 分支)。然後按一下 [瀏覽]，以查看現在於 Azure 中即時執行的樣式變更。
 
 ## 將更新部署至生產環境 ##
 
@@ -236,7 +238,7 @@
 	git merge NewUpdate
 	git push origin master
 
-請記住，根據在 ProdandStage.json 中設定預備和生產環境的方式，新的程式碼會推送至「預備」位置，並在該處執行。因此，如果您導覽至預備位置的 URL，則會看到新的程式碼正在該處執行。若要這樣做，請在 Git Shell 中執行 `Show-AzureWebsite` Cmdlet。
+請記住，根據在 ProdandStage.json 中設定預備和生產環境的方式，新的程式碼會推送至 [預備] 位置並在該處執行。因此，如果您導覽至預備位置的 URL，則會看到新的程式碼正在該處執行。若要這樣做，請在 Git Shell 中執行 `Show-AzureWebsite` Cmdlet。
 
 	Show-AzureWebsite -Name ToDoApp<unique_string>master -Slot Staging
  
@@ -279,4 +281,4 @@
 -	[在 Azure AD 中建立或編輯使用者](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[專案 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

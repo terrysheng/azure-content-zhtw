@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # 探索 Operational Insights 安全性和稽核資料
@@ -100,4 +100,4 @@ Windows 運算環境可讓您設定安全性相關記錄的擷取層級。例如
 
 除了本機原則設定之外，如果您使用 AppLocker 收集稽核資料，Operational Insights 將會收集這些資料，然後您就可以加以檢視。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

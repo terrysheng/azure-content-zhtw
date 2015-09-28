@@ -65,7 +65,6 @@ Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器�
 [連接資料磁碟][]
 
 ## 其他資源
-[關於 Azure VM 組態設定][]
 
 [基本組態測試環境][]
 
@@ -96,11 +95,10 @@ Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器�
 
 [連接資料磁碟]: virtual-machines-linux-how-to-attach-disk.md
 
-[關於 Azure VM 組態設定]: http://msdn.microsoft.com/library/azure/dn763935.aspx
 [基本組態測試環境]: virtual-machines-base-configuration-test-environment.md
 [Azure 混合式雲端測試環境]: virtual-machines-hybrid-cloud-test-environments.md
 
 [建立執行 Linux 的虛擬機器]: virtual-machines-linux-tutorial.md
 [建立自訂虛擬機器]: virtual-machines-create-custom.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

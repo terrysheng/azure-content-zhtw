@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用混合式連線從 Azure 行動服務連線至內部佈署 SQL Server - Azure 行動服務" 
-	description="了解如何使用混合式連線從 Azure 行動服務連線至內部佈署 SQL Server" 
+	pageTitle="使用混合式連線從 .NET 後端行動服務連線至內部佈署 SQL Server | Azure 行動服務" 
+	description="了解如何使用 Azure 混合式連線從 .NET 後端行動服務連線至內部佈署 SQL Server" 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/15/2015" 
 	ms.author="glenga"/>
 
   
@@ -133,4 +133,4 @@
 [Azure 管理入口網站]: http://manage.windowsazure.com
 [開始使用行動服務]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

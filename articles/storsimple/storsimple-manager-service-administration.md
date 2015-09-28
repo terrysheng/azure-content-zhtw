@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple Manager 服務管理 | Microsoft Azure"
-	description="了解如何使用 Azure 管理入口網站中的 StorSimple Manager 服務管理 StorSimple 裝置。"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="了解如何使用 Azure 管理入口網站中的 StorSimple Manager 服務管理 StorSimple 裝置。"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/11/2015"
+   ms.author="alkohli" />
 
 # 使用 StorSimple Manager 服務管理 StorSimple 裝置
 
@@ -89,7 +89,7 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 |修改裝置設定</br>修改時間設定</br>修改 DNS.md 設定</br>設定網路介面|StorSimple Manager 服務 → 裝置 → 設定|[修改 StorSimple 裝置的裝置組態](storsimple-modify-device-config.md)|
 |檢視 Web Proxy 設定|StorSimple Manager 服務 → 裝置 → 設定|[設定裝置的 Web Proxy](storsimple-configure-web-proxy.md)|
 |修改裝置系統管理員密碼</br>修改 StorSimple Snapshot Manager 密碼|StorSimple Manager 服務 → 裝置 → 設定|[變更 StorSimple 密碼](storsimple-change-passwords.md)|
-|設定遠端管理|StorSimple Manager 服務 → 裝置 → 設定|[遠端連接至 StorSimple 裝置](https://msdn.microsoft.com/library/azure/dn772393.aspx)|
+|設定遠端管理|StorSimple Manager 服務 → 裝置 → 設定|[遠端連接至 StorSimple 裝置](storsimple-remote-connect.md)|
 |設定警示設定|StorSimple Manager 服務 → 裝置 → 設定|[檢視和管理 StorSimple 警示](storsimple-manage-alerts.md)|
 |為 StorSimple 裝置設定 CHAP|StorSimple Manager 服務 → 裝置 → 設定|[為 StorSimple 裝置設定 CHAP](storsimple-configure-chap.md)|
 |新增備份原則</br>新增或修改排程</br>刪除備份原則</br>手動備份</br>使用多個磁碟區和排程建立自訂備份原則|StorSimple Manager 服務 → 裝置 → 備份原則|[管理備份原則](storsimple-manage-backup-policies.md)|
@@ -97,6 +97,10 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 |了解 StorSimple 硬體元件</br>監視硬體狀態</br>(上述項目僅適用於內部部署裝置)|StorSimple Manager 服務 → 裝置 → 維護|[監視硬體元件](storsimple-monitor-hardware-status.md)|
 |建立支援封裝|StorSimple Manager 服務 → 裝置 → 維護|[建立及管理支援封裝](storsimple-create-manage-support-package.md)|
 |安裝軟體更新|StorSimple Manager 服務 → 裝置 → 維護|[更新您的裝置](storsimple-update-device.md)|
+
+![提供的影片](./media/storsimple-manager-service-administration/Video_icon.png)**提供的影片**
+
+若要觀看影片，逐步引導您使用 StorSimple Manager 服務使用者介面，請按一下[這裡](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/)。
 
 ##後續步驟
 如果您遇到與 StorSimple 裝置的日常作業或其中任何硬體元件的任何問題，請參閱：
@@ -108,4 +112,4 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 
 -  [連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

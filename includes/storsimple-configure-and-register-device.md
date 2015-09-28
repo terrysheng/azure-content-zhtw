@@ -1,3 +1,5 @@
+<!--author=alkohli last changed: 9/17/15-->
+
 
 #### 設定和註冊裝置
 
@@ -30,7 +32,7 @@
    
       >[AZURE.NOTE]您可能需要等候幾分鐘，以套用子網路遮罩和 DNS 設定。如果您收到「裝置尚未就緒。」的錯誤訊息，請檢查主動控制器之 DATA 0 網路介面上的實體網路連線。
 
-8. (選用) 設定 Web Proxy 伺服器。雖然 Web Proxy 設定是選用的，但**請注意，如果您使用 Web Proxy，就只能在此處設定它**。如需詳細資訊，請參閱[設定裝置的 Web Proxy](https://msdn.microsoft.com/library/azure/dn764937.aspx)。如果您在此步驟中遇到任何問題，請參考 [Web proxy 設定期間發生的錯誤](storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings)中的疑難排解指導。
+8. (選用) 設定 Web Proxy 伺服器。雖然 Web Proxy 設定是選用的，但**請注意，如果您使用 Web Proxy，就只能在此處設定它**。如需詳細資訊，請參閱[設定裝置的 Web Proxy](storsimple-configure-web-proxy.md)。如果您在此步驟中遇到任何問題，請參考 [Web Proxy 設定期間發生的錯誤](storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings)中的疑難排解指導方針。
  
 
       >[AZURE.NOTE]您可以隨時按 Ctrl + C 來結束安裝精靈。您在發出此命令之前套用的所有設定都將保留。
@@ -70,4 +72,8 @@
 
 裝置已成功註冊之後若未成為上線狀態，您可以執行 `Test-HcsmConnection -Verbose` 以確定網路連線能力良好。如需此 Cmdlet 的詳細用法，請前往 [Test-HcsmConnection 的 Cmdlet 參考](https://technet.microsoft.com/library/dn715782.aspx)。
 
-<!---HONumber=August15_HO7-->
+![提供的影片](./media/storsimple-configure-and-register-device/Video_icon.png)**提供的影片**
+
+若要觀看影片示範如何使用 Windows PowerShell for StorSimple 設定和註冊裝置，請按一下[這裡](http://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/)。
+
+<!---HONumber=Sept15_HO3-->

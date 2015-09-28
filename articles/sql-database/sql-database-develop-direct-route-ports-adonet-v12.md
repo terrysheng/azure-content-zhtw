@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/04/2015" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -69,10 +69,12 @@
 3. 查詢會直接傳送到資料庫，結果會直接傳回至用戶端。
 
 
-請確定 Azure 用戶端電腦上 11000-11999 及 14000-14999的連接埠範圍已保留可供 ADO.NET 4.5 用戶端與 SQL Database V12 互動。
+請確定 Azure 用戶端電腦上 11000-11999 及 14000-14999 的連接埠範圍已保留可供 ADO.NET 4.5 用戶端與 SQL Database V12 互動。
 
 - 特別是範圍中的連接埠必須沒有其他任何輸出封鎖器。
-- Azure VM 上的 Windows 防火牆會控制連接埠設定。
+
+- 在您的 Azure VM 上，**具有進階安全性的 Windows 防火牆**會控制此連接埠設定。
+ - 您可以使用[防火牆的使用者介面](http://msdn.microsoft.com/library/cc646023.aspx)來新增規則，其中您可使用如 **11000-11999** 的語法指定 **TCP** 通訊協定和連接埠範圍。
 
 
 ## 版本說明
@@ -104,7 +106,7 @@ SQL Database V11 和 V12 之間的用戶端連線差異是本主題中的重點�
 
 
 - ADO.NET 4.5 於 2012 年 8 月 15 日發行。您可以在[這裡](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx)查看 .NET 小組的部落格公告。
- - 您可以在[這裡](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx)查看關於 ADO.NET 4.5.1 的部落格文章。
+ - 您可以在[這裡](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx)查看有關 ADO.NET 4.5.1 的部落格文章。
 
 
 - [TDS 通訊協定版本清單](http://www.freetds.org/userguide/tdshistory.htm)
@@ -112,4 +114,4 @@ SQL Database V11 和 V12 之間的用戶端連線差異是本主題中的重點�
 
 - [連接到 SQL Database：連結、最佳作法和設計方針](sql-database-connect-central-recommendations.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="應用程式模型 v2.0 | Microsoft Azure"
+	pageTitle="應用程式模型 v2.0 概觀 | Microsoft Azure"
 	description="建置具備 Microsoft 帳戶和 Azure Active Directory 登入之應用程式的簡介。"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # 應用程式模型 v2.0 預覽版：以單一應用程式登入 Microsoft 帳戶和 Azure AD 使用者
@@ -57,4 +57,4 @@ V2.0 應用程式模型為預覽狀態。在預覽期間，歡迎您提供使用
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -8,17 +8,19 @@
 	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="09/15/2015"
 	ms.author="jaime-espinosa"/>
 
 # 瀏覽 Azure 入口網站的參考
 
 Azure 網站現在稱為[應用程式服務 Web 應用程式](http://go.microsoft.com/fwlink/?LinkId=529714)。我們正在更新所有文件以反映這項名稱變更，並提供新 Azure 入口網站的指示。除非完成該程序，否則您可以使用這份文件做為指南，以在新 Azure 入口網站中使用 Web 應用程式。
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
  
 ## 舊入口網站的未來
 
@@ -68,7 +70,7 @@ Azure 網站現在稱為[應用程式服務 Web 應用程式](http://go.microsof
 
 ![](./media/app-service-web-app-azure-portal/AppSettingsPreview.png)
 
-入口網站中有些項目已使用不同的方式重新命名或分組，讓您更輕鬆地找到它們，而不是品牌名稱。例如，下面是舊入口網站中應用程式設定之對應頁面的螢幕擷取畫面 (**設定**)。
+入口網站中有些項目已使用不同的方式重新命名或分組，讓您更輕鬆地找到它們，而不是品牌名稱。例如，下面是舊入口網站中 App 設定之對應頁面的螢幕擷取畫面 (**設定**)。
 
 ![](./media/app-service-web-app-azure-portal/AppSettings.png)
 
@@ -86,4 +88,4 @@ Azure 網站現在稱為[應用程式服務 Web 應用程式](http://go.microsof
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽新入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

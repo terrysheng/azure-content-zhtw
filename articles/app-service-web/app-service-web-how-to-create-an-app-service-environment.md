@@ -8,25 +8,27 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/27/2015" 
+	ms.date="09/11/2015" 
 	ms.author="ccompy"/>
 
 # 如何建立 App Service 環境 #
 
 App Service 環境 (ASE) 是目前預覽狀態下 Azure App Service 的 Premium 服務選項。它提供的增強設定功能並不適用於多租用戶戳記。若要更深入了解 App Service 環境所提供的功能，請閱讀[什麼是 App Service 環境][WhatisASE]文件。
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ### 概觀 ###
 
 ASE 功能基本上會將 Azure App Service 部署到客戶的 VNET 中。若要這麼做，客戶需要：
 
-- 區域 VNET，有超過 512 (/ 23) 個或更多地址
-- 此 VNET 中的子網路，其中有 256 (/ 24) 個或更多地址
-- 子網路**不得包含任何其他計算資源**。一個子網路只能部署一個 App Service 環境。如果子網路中已有任何其他計算資源，則建立嘗試會失敗。
+- 區域傳統 "v1" VNET，有超過 512 (/ 23) 個或更多位址
+- 此 VNET 中的子網路，其中有 8 (/ 29) 個或更多位址
+- 此子網路**不得包含任何其他計算資源**。一個子網路只能部署一個 App Service 環境。如果子網路中已有任何其他計算資源，則建立嘗試會失敗。
 
 如果您尚未有想用來裝載 App Service 環境的 VNET，您可以在 App Service 環境建立期間建立一個 VNET。
 
@@ -72,7 +74,7 @@ App Service 環境的定價是根據指派的計算資源。無論是否裝載�
 
 
 ### 建立 VNET ###
-雖然快速建立功能可自動建立新的 VNET，但這項功能還支援選取現有的 VNET 和手動建立 VNET。如果現有的 VNET 夠大，您可加以選取，以支援 App Service 環境部署。VNET 必須有 512 個或更多位址。如果您選取預先存在的 VNET，您也必須指定要使用的子網路或建立新的子網路。子網路必須有 256 個或更多位址。
+雖然快速建立功能可自動建立新的 VNET，但這項功能還支援選取現有的 VNET 和手動建立 VNET。如果現有的 VNET 夠大，您可加以選取 (在這時候，只有傳統 "v1" 虛擬網路受支援)，以支援 App Service 環境部署。VNET 必須有 512 個或更多位址。如果您選取預先存在的 VNET，您也必須指定要使用的子網路或建立新的子網路。此子網路必須有 8 個或更多位址。
 
 如果要經由 VNET 建立 UI，您必須提供：
 
@@ -143,4 +145,4 @@ App Service 環境的定價是根據指派的計算資源。無論是否裝載�
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

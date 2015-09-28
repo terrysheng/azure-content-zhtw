@@ -27,7 +27,7 @@
 
 ## 支援的組態 ##
 
-- **服務限制有哪些？** 您可以在 [Azure 訂用帳戶和服務限制、配額及條件約束](.\azure-subscription-service-limits.md)中了解 Azure RemoteApp 的預設設定和服務限制。讓我們知道您是否有更多的問題。
+- **服務限制有哪些？** 您可以在 [Azure 訂用帳戶和服務限制、配額及條件約束](azure-subscription-service-limits.md)中了解 Azure RemoteApp 的預設設定和服務限制。讓我們知道您是否有更多的問題。
 - **我必須有多少個使用者？** 至少 20 個使用者。容我再次重複 - 至少 20 個。您將為 20 個使用者付費。 
 - **是否支援自訂的企業營運 (LOB) 應用程式？** 是。若要在 Azure RemoteApp 中使用自訂應用程式，請建立[自訂範本映像](remoteapp-create-custom-image.md)，然後將其上傳至 RemoteApp 收藏。
 - **我自訂的 LOB 應用程式能在 Azure RemoteApp 中運作嗎？** 最好的方式就是進行測試。檢閱[應用程式相容性需求](http://www.microsoft.com/download/details.aspx?id=18704)並查看 [RD 相容性中心](http://www.rdcompatibility.com/compatibility/default.aspx)。
@@ -82,4 +82,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

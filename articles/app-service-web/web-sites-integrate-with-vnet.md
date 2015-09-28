@@ -5,28 +5,31 @@
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # 將 Web 應用程式與 Azure 虛擬網路整合 #
+
 本文件說明虛擬網路整合預覽功能，以及示範如何使用 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中的 Web Apps 來設定此功能。如果您不熟悉 Azure 虛擬網路，這是讓您利用 Azure 和內部部署資源建置混合式解決方案的功能。
 
 這項整合能讓您的 Web 應用程式存取虛擬網路中的資源，但不授與從虛擬網路存取 Web 應用程式的權限。一些標準案例包括當 Web 應用程式需要存取在虛擬網路中之虛擬機器 (甚至是您擁有的資料中心) 內執行的資料庫或 Web 服務時。它不允許您掛接磁碟機。目前也不支援與虛擬網路中的驗證系統整合。這項功能目前僅供預覽，不過在 GA 之前，我們仍會持續改良。
 
 如需 Azure 虛擬網路的詳細資料，請參閱「虛擬網路概觀」以取得 Azure 虛擬網路的使用案例和優點。
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ## 開始使用 ##
 在將 Web 應用程式連接至虛擬網路之前，請留意以下事項。
 
-1.	唯有以**標準**層中的 App Service 方案為基礎運作的 Web Apps 能連接至虛擬網路。「免費」、「共用」及「基本」方案中的 Web Apps 均無法連接至虛擬網路。
+1.	唯有以**標準**層中的 App Service 方案為基礎運作的 Web Apps 能連線至虛擬網路。「免費」、「共用」及「基本」方案中的 Web Apps 均無法連接至虛擬網路。
 2.	如果目標虛擬網路已存在，您必須先以動態路由閘道啟用其點對站台連線，才能使該虛擬網路與 Web 應用程式連線。如果您以靜態路由設定閘道，便無法啟用點對站台的虛擬私人網路 (VPN)。
 3.	您最多只能在 App Service 方案中設定 5 個網路。一個 Web 應用程式一次只能連接一個網路。這 5 個網路可供同一個 App Service 方案中任意數量的 Web 應用程式使用。  
 
@@ -106,4 +109,4 @@ Web Apps 另外提供一項稱為「混合式連線」的功能，此功能在�
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

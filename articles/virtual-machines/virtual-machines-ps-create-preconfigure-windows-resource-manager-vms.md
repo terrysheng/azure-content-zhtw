@@ -3,7 +3,7 @@
 	description="了解如何使用 Azure PowerShell 在 Azure 中建立和預先設定 Windows 和以資源管理員為基礎的虛擬機器。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/22/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # 利用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器
 
@@ -389,4 +389,4 @@ $NicName 字串必須是資源群組中獨特的字串。最佳作法是將虛�
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

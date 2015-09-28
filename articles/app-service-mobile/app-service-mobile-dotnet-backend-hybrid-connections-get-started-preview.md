@@ -23,6 +23,8 @@
 
 在此教學課程中，您將學習如何修改行動應用程式的 .NET 後端，而非以您服務佈建的預設 Azure SQL Database，以使用本機內部部署的 SQL Server 資料庫。
 
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
+
 ## 必要條件 ##
 
 本教學課程要求您具備下列項目：
@@ -162,4 +164,4 @@
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

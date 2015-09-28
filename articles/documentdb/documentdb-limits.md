@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="DocumentDB 限制與配額 | Microsoft Azure" 
-	description="了解 DocumentDB 強制執行的限制和配額。" 
+	description="了解 DocumentDB 強制執行的限制和配額。檢閱使用 Azure 資料庫服務的配額。"
+	keywords="Quotas, database, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -17,10 +18,10 @@
 	ms.author="mimig"/>
 
 
-#DocumentDB 限制與配額
+# DocumentDB 限制與配額
 
 下表說明 DocumentDB 強制執行的限制和配額。
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

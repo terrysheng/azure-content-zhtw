@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用遠端桌面透過 xrdp 來連接 Microsoft Azure Linux VM。"
+	pageTitle="使用遠端桌面連接 Microsoft Azure Linux VM。"
 	description="了解如何在 Microsoft Azure Linux VM 上安裝和設定遠端桌面。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.date="09/14/2015"
 	ms.author="mingzhan"/>
 
 
-#使用遠端桌面透過 xrdp 來連接 Microsoft Azure Linux VM
+#使用遠端桌面連接 Microsoft Azure Linux VM
 
 ##概觀
 
-RDP (遠端桌面通訊協定) 是用於 Windows 的專屬通訊協定，但我們如何使用 RDP 遠端連接 Linux VM？
+RDP (遠端桌面通訊協定) 是用於 Windows 的專屬通訊協定，但我們如何使用 RDP 遠端連接 Linux VM (虛擬機器)？
 
-本指南會為您提供答案！ 它會協助您在 Microsoft Azure Linux VM (虛擬機器) 上安裝及設定 xrdp，而您能夠從 Windows 電腦使用遠端桌面來連接它。
+本指南會為您提供答案！ 它會協助您在 Microsoft Azure Linux VM 上安裝及設定 xrdp，而您能夠從 Windows 電腦使用遠端桌面來連接它。在本指南中我們會使用執行 Ubuntu 或 OpenSUSE 的 Linux VM 做為範例。
 
 Xrdp 是開放原始碼 RDP 伺服器，可讓您從 Windows 電腦使用遠端桌面連接 Linux 伺服器。其執行效果比 VNC (虛擬網路運算) 好多了。VNC 具有 "JPEG"品質和緩慢行為，而 RDP 既快速又清楚。
  
@@ -45,11 +45,7 @@ Xrdp 是開放原始碼 RDP 伺服器，可讓您從 Windows 電腦使用遠端�
 
 透過 putty 連接到 Linux VM，然後安裝 `Gnome Desktop`。
 
-針對 Red Hat 系列 Linux，使用︰
-
-	#sudo yum install gnome* "xorg*" -y
-
-針對 Debian 和 Ubuntu，使用︰
+針對 Ubuntu，使用：
 
 	#sudo apt-get update
 	#sudo apt-get install ubuntu-desktop
@@ -57,20 +53,13 @@ Xrdp 是開放原始碼 RDP 伺服器，可讓您從 Windows 電腦使用遠端�
 
 針對 OpenSUSE，使用︰
 
-	#sudo zypper -y install gnome-session
-
+	#sudo zypper install gnome-session
 
 ##安裝 xrdp
 
-對於 Red Hat 系列 Linux，您需要先在 Linux VM 中新增 EPEL 儲存機制，才能透過 `yum` 安裝 xrdp 封裝，請使用：
-
-	#sudo rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-	#sudo yum -y install xrdp tigervnc-server tigervnc-server-module xterm
-
-針對 Debian 和 Ubuntu Linux，使用︰
+針對 Ubuntu，使用：
 
 	#sudo apt-get install xrdp
-
 
 針對 OpenSUSE，使用︰
 
@@ -82,38 +71,26 @@ Xrdp 是開放原始碼 RDP 伺服器，可讓您從 Windows 電腦使用遠端�
 
 ##在開機時啟動 xrdp 並設定 xdrp 服務
 
-針對 Red Hat 系列 Linux，使用︰
-
-	#sudo service xrdp start
-	#sudo chkconfig xrdp on
-
-
 針對 OpenSUSE，使用︰
 
 	#sudo systemctl start xrdp
 	#sudo systemctl enable xrdp
- 
 
-##如果您使用 Red Hat 系列 Linux 則停用 iptables 
-
-使用︰
-
-	#sudo service iptables stop
-
+對於 Ubuntu，安裝之後會啟動 xrdp，並在開機時自動啟用。
 
 ##如果您使用晚於 Ubuntu 12.04LTS 的 Ubuntu 版本則使用 xfce
 
-因為目前 xrop 無法支援來自晚於 Ubuntu 12.04LTS 之 Ubuntu 版本的 Gnome 桌面，我們將改用 `xfce` 桌面。
+因為目前 xrdp 無法支援來自晚於 Ubuntu 12.04LTS 之 Ubuntu 版本的 Gnome 桌面，我們將改用 `xfce` 桌面。
 
-安裝 `xfce`，請使用：
+安裝 `xfce`，使用：
 
     #sudo apt-get install xubuntu-desktop
 
-然後啟用 `xfce`，請使用：
+然後啟用 `xfce`，使用：
     
     #echo xfce4-session >~/.xsession
 
-編輯組態檔 `/etc/xrdp/startwm.sh`，請使用：
+編輯組態檔 `/etc/xrdp/startwm.sh`，使用：
 
     #sudo vi /etc/xrdp/startwm.sh   
 
@@ -125,7 +102,7 @@ Xrdp 是開放原始碼 RDP 伺服器，可讓您從 Windows 電腦使用遠端�
 
 
 ##從 Windows 電腦連接 Linux VM
-在 Windows 電腦上，啟動遠端桌面用戶端、輸入 Linux VM DNS 名稱或移至 Azure 入口網站中您的 VM 的 `Dashboard` 並按一下 `Connect`，您將會看到以下登入視窗：
+在 Windows 電腦上，啟動遠端桌面用戶端、輸入 Linux VM DNS 名稱或移至 Azure 入口網站中您的 VM 的 [`Dashboard`] 並按一下 [`Connect`] 以連接至您的 Linux VM，您將會看到以下登入視窗：
 
 ![image](./media/virtual-machines-linux-remote-desktop/no2.png)
 
@@ -133,7 +110,7 @@ Xrdp 是開放原始碼 RDP 伺服器，可讓您從 Windows 電腦使用遠端�
 
 
 ##下一步
-如需使用 xrdp 的詳細資訊，您可以參考[這裡](http://www.xrdp.org/)。
+如需使用 xrdp 的詳細資訊，您可以參考[這裡](http://www.xrdp.org/) (英文)。
 
 
 
@@ -141,4 +118,4 @@ Xrdp 是開放原始碼 RDP 伺服器，可讓您從 Windows 電腦使用遠端�
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

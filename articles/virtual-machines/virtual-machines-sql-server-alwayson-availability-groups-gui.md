@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="在 Azure (GUI) 中設定 AlwaysOn 可用性群組 (GUI)"
+	pageTitle="在 Azure VM (GUI) 中設定 AlwaysOn 可用性群組"
 	description="在 Azure 虛擬機器中建立 AlwaysOn 可用性群組。本教學課程主要是透過使用者介面作業，而非編寫指令碼。"
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/12/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
-# 在 Azure (GUI) 中設定 AlwaysOn 可用性群組 (GUI)
+# 在 Azure VM (GUI) 中設定 AlwaysOn 可用性群組
 
 本端對端教學課程將示範如何透過在 Azure 虛擬機器上執行的 SQL Server AlwaysOn 實作可用性群組。
 
@@ -534,4 +534,4 @@
 
 如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)。
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

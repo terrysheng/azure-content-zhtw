@@ -5,22 +5,24 @@
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="09/16/2015" 
 	ms.author="tdykstra"/>
 
 # 使用 Visual Studio 疑難排解 Azure App Service 中的 Web 應用程式
 
 ## 概觀
 
-本教學課程示範如何使用 Visual Studio 工具，協助偵錯在 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中執行的 Web 應用程式，方法是以[偵錯模式](http://www.visualstudio.com/zh-tw/get-started/debug-your-app-vs.aspx)從遠端執行，或者檢視應用程式記錄與 Web 伺服器記錄。
+本教學課程示範如何使用 Visual Studio 工具，協助偵錯在 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中執行的 Web 應用程式，方法是以[偵錯模式](http://www.visualstudio.com/zh-TW/get-started/debug-your-app-vs.aspx)從遠端執行，或者檢視應用程式記錄與 Web 伺服器記錄。
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 您將了解：
 
@@ -55,9 +57,9 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 	如需從 Visual Studio 連線至 Azure 資源的詳細資訊，請參閱[管理帳戶、訂閱和系統管理角色](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)。
 
-2. 在 [伺服器總管] 中，展開 [Azure]，然後展開 [Web 應用程式]。
+2. 在 [伺服器總管] 中，展開 [Azure]，然後展開 [App Service]。
 
-3. 以滑鼠右鍵按一下您在[開始使用 Azure 和 ASP.NET][GetStarted] 中建立的 Web 應用程式，然後按一下 [檢視設定]。
+3. 展開資源群組 (其包含您在「[開始使用 Azure 和 ASP.NET][GetStarted]」中建立的 Web 應用程式)，使用滑鼠右鍵按一下 Web 應用程式節點，然後按一下 [檢視設定]。
 
 	![在伺服器總管中檢視設定](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -69,7 +71,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
    
 	如需此視窗中 [應用程式設定] 與 [連接字串] 方塊的詳細資訊，請參閱 [Azure Web Apps：應用程式設定與連接字串如何運作](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx)。
 
-	如果您想要執行無法在此視窗中完成的 Web 應用程式管理工作，可按一下 [完整的 Web 應用程式設定] 來開啟管理入口網站的瀏覽器視窗。如需詳細資訊，請參閱[如何設定 Web 應用程式](/zh-tw/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)。
+	若您想要執行無法在此視窗中完成的 Web 應用程式管理工作，請按一下 [在管理入口網站中開啟]，以開啟 Azure Preview 入口網站的瀏覽器視窗。如需詳細資訊，請參閱[如何設定 Web 應用程式](/zh-TW/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)。
 
 ## <a name="remoteview"></a>在伺服器總管中存取 Web 應用程式檔案
 
@@ -109,7 +111,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 	![詳細的錯誤訊息](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-	(顯示的錯誤是透過將紅色字行新增至 *Views\Home\Index.cshtml* 中來加以建立。)
+	(顯示的錯誤是透過將紅色字行新增至 *Views\\Home\\Index.cshtml* 中來加以建立。)
 
 能夠讀取與編輯您的 Azure Web 應用程式上的檔案，使得疑難排解作業更為輕鬆，編輯 Web.config 檔案僅僅是其中一個範例案例。
 
@@ -123,7 +125,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 1. 開啟您在[開始使用 Azure 和 ASP.NET][GetStarted] 中建立的 Web 專案。
 
-1. 開啟 *Controllers\HomeController.cs*。
+1. 開啟 *Controllers\\HomeController.cs*。
 
 2. 刪除 `About()` 方法，然後插入以下程式碼加以取代。
 
@@ -146,13 +148,13 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 4. 當部署完成且您的瀏覽器開啟至 Web 應用程式的 Azure URL 之後，請關閉瀏覽器。
 
-5. 針對 Visual Studio 2013：在 [伺服器總管] 中，依序展開 [Azure]、[Web 應用程式]，然後以滑鼠右鍵按一下您的 Web 應用程式，接著按一下 [連結偵錯工具]。
+5. 針對 Visual Studio 2013：在 [伺服器總管] 中，以滑鼠右鍵按一下您的 Web 應用程式，接著按一下 [連結偵錯工具]。
 
 	![連結偵錯工具](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
 	瀏覽器會自動開啟至您在 Azure 中執行的首頁。您可能需要等候 20 秒左右的時間，讓 Azure 設定要偵錯的伺服器。通常只有當您第一次在 Web 應用程式上執行偵錯模式時，才會出現這個延遲現象。後續 48 小時內再次啟動的偵錯程序將不會再出現任何延遲。
 
-6. 針對 Visual Studio 2012 含 Update 4：<a id="vs2012"></a>
+6. 針對 Visual Studio 2012 含 Update 4 或更新版本：<a id="vs2012"></a>
 
 	* 在 Azure 管理入口網站中，針對您的 Web 應用程式移至 [設定] > [應用程式設定]，然後向下捲動至 [偵錯] 區段。
 
@@ -192,7 +194,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 ## <a name="remotedebugwj"></a>遠端偵錯 WebJobs
 
-本節說明如何使用您在[開始使用 Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md) 中建立的專案和 Web 應用程式進行遠端偵錯。本節上所顯示的功能僅適用於 Visual Studio 2013 with Update 4。遠端偵錯僅適用於連續的 WebJobs。排程與隨選 WebJobs 不支援偵錯。
+本節說明如何使用您在[開始使用 Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md) 中建立的專案和 Web 應用程式進行遠端偵錯。本節顯示的功能僅適用於 Visual Studio 2013 含 Update 4 或更新版本。遠端偵錯僅適用於連續的 WebJobs。排程與隨選 WebJobs 不支援偵錯。
 
 1. 開啟您在[開始使用 Azure WebJobs SDK][GetStartedWJ] 中建立的 Web 專案。
 
@@ -210,7 +212,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 	Visual Studio 會部署 Web 和 WebJob 專案，且在瀏覽器中開啟您 Web 應用程式的 Azure URL。
 
-5. 在 [伺服器總管] 中，依序展開 [Azure] > [Web 應用程式] > 您的 Web 應用程式 > [WebJob] > [連續]，然後以滑鼠右鍵按一下 [ContosoAdsWebJob]。
+5. 在 [伺服器總管] 中，依序展開 [Azure] > [App Service] > 您的 Web 應用程式 > [WebJob] > [連續]，然後使用滑鼠右鍵按一下 [ContosoAdsWebJob]。
 
 7. 按一下 [連結偵錯工具]。
 
@@ -296,7 +298,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 ### 將追蹤陳述式新增至應用程式
 
-1. 開啟 *Controllers\HomeController.cs*，然後使用下列程式碼來取代檔案內容，以便為 `System.Diagnostics` 加入 `Trace` 陳述式與 `using` 陳述式：
+1. 開啟 *Controllers\\HomeController.cs*，然後使用下列程式碼來取代檔案內容，以便為 `System.Diagnostics` 加入 `Trace` 陳述式與 `using` 陳述式：
 
 		using System;
 		using System.Collections.Generic;
@@ -517,9 +519,9 @@ Web 伺服器記錄會記下 Web 應用程式的所有 HTTP 活動。為了在 [
 
 	![下載的檔案](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-	* 應用程式追蹤記錄位於 *LogFiles\Application* 資料夾的 *.txt* 檔案中。
-	* Web 伺服器記錄位於 *LogFiles\http\RawLogs* 資料夾的 *.log* 檔案中。您可以使用[記錄檔剖析器](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) (英文) 之類的工具來檢視與操作這些檔案。
-	* 詳細的錯誤訊息記錄位於 *LogFiles\DetailedErrors* 資料夾的 *.html* 檔案中。
+	* 應用程式追蹤記錄位於 *LogFiles\\Application* 資料夾的 *.txt* 檔案中。
+	* Web 伺服器記錄位於 *LogFiles\\http\\RawLogs* 資料夾的 *.log* 檔案中。您可以使用[記錄檔剖析器](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) (英文) 之類的工具來檢視與操作這些檔案。
+	* 詳細的錯誤訊息記錄位於 *LogFiles\\DetailedErrors* 資料夾的 *.html* 檔案中。
 
 	(*deployments* 資料夾用於存放來源控制發行功能所建立的檔案，它與 Visual Studio 發行功能沒有任何關聯。*Git* 資料夾則用於存放與來源控制發行功能相關的追蹤記錄，以及記錄檔案串流服務。)
 
@@ -569,9 +571,9 @@ Web 伺服器記錄會記下 Web 應用程式的所有 HTTP 活動。為了在 [
 
 	![設定記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
-	這麼做會在管理入口網站中開啟您的 Web 應用程式的 [設定] 索引標籤。要到達此頁面的另一個方法，就是按一下 [Web 應用程式] 索引標籤、按一下您的 Web 應用程式，然後按一下 [設定] 索引標籤。
+	這會在 Azure 入口網站中開啟您 Web 應用程式的 [設定] 索引標籤。
 
-2. 在管理入口網站的 [設定] 索引標籤中，向下捲動至應用程式診斷區段，然後將 [Application Logging (Table Storage)] 變更為 [開啟]。
+2. 在入口網站的 [設定] 索引標籤中，向下捲動至應用程式診斷區段，然後將 [Application Logging (Table Storage)] 變更為 [開啟]。
 
 3. 將 [記錄層級] 變更為 [資訊]。
 
@@ -585,7 +587,7 @@ Web 伺服器記錄會記下 Web 應用程式的所有 HTTP 活動。為了在 [
 
 6. 在 [Manage table storage for application diagnostics] 方塊中，按一下核取方塊以關閉該方塊。
 
-6. 在管理入口網站的 [設定] 索引標籤中，按一下 [儲存]。
+6. 在入口網站的 [設定] 索引標籤中，按一下 [儲存]。
 
 7. 在顯示應用程式 Web 應用程式的瀏覽器視窗中，依序按一下 [首頁]、[關於] 和 [連絡人]。
 
@@ -637,15 +639,13 @@ Azure Web 應用程式會使用 IIS 7.0 及更新版本所提供的相同失敗�
 
 2. 在 Visual Studio 中，於 [Azure Web 應用程式] 視窗的 [組態] 索引標籤中按一下 [在管理入口網站中開啟]。
 
-3. 在適用於您 Web 應用程式的管理入口網站分頁中，按一下 [所有設定] > [部署認證]，然後按一下 [重設您的部署認證]。
-
-4. 輸入新的使用者名稱與密碼。
+3. 在適用於您 Web 應用程式的 Azure Preview 入口網站刀鋒視窗中，按一下 [設定 ] > [部署認證]，然後輸入新的使用者名稱和密碼。
 
 	![新的 FTP 使用者名稱與密碼](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
-5. 在管理入口網站的 [儀表板] 索引標籤中，按 F5 以重新整理頁面，然後向下捲動至顯示 [Deployment / FTP User] 的地方。請注意，該使用者名稱前面已加上 Web 應用程式名稱前置詞。**當您登入時，必須使用這個完整的使用者名稱，加上此處所示的 Web 應用程式名稱前置詞。**
+	****當您登入時，必須使用此完整使用者名稱搭配 Web 應用程式名稱前置詞。例如，若您輸入使用者名稱 "myid"，而網站為 "myexample"，則會登入為 "myexample\\myid"。
 
-5. 在新的瀏覽器視窗中，前往您 Web 應用程式之管理入口網站頁面 [儀表板] 索引標籤中的 [FTP 主機名稱] 下方所示的 URL。[FTP 主機名稱] 位於 [Quick Glance] 區段中的 [Deployment / FTP User] 附近。
+5. 在新的瀏覽器視窗中，前往您 Web 應用程式之 [Web 應用程式] 入口網站刀鋒視窗中 [FTP 主機名稱] 或 [FTPS 主機名稱] 下方所示的 URL。
 
 6. 使用您先前建立的 FTP 認證登入 (包括該使用者名稱的 Web 應用程式名稱前置詞)。
 
@@ -736,7 +736,7 @@ Azure Web 應用程式會使用 IIS 7.0 及更新版本所提供的相同失敗�
 
 針對錯誤記錄，做為撰寫自己的追蹤程式碼的替代方法，便是使用開放原始碼的記錄架構，例如 [ELMAH](http://nuget.org/packages/elmah/)。如需詳細資訊，請參閱 [Scott Hanselman 關於 ELMAH 的部落格文章](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx) (英文)。
 
-此外，如果您想要從 Azure 取得串流記錄，則您不需要使用 ASP.NET 或 System.Diagnostics 追蹤功能。Azure Web 應用程式串流記錄服務會串流它在 *LogFiles* 資料夾所找到的任何 *.txt*、*.html* 或 *.log* 檔案。因此，您可以建立自己的記錄系統以寫入 Web 應用程式的檔案系統，而您的檔案將自動進行串流與下載。您只需撰寫會在 *d:\home\logfiles* 資料夾中建立相關檔案的應用程式碼。
+此外，如果您想要從 Azure 取得串流記錄，則您不需要使用 ASP.NET 或 System.Diagnostics 追蹤功能。Azure Web 應用程式串流記錄服務會串流它在 *LogFiles* 資料夾所找到的任何 *.txt*、*.html* 或 *.log* 檔案。因此，您可以建立自己的記錄系統以寫入 Web 應用程式的檔案系統，而您的檔案將自動進行串流與下載。您只需撰寫會在 *d:\\home\\logfiles* 資料夾中建立相關檔案的應用程式碼。
 
 ### 分析 Web 伺服器記錄
 
@@ -755,14 +755,12 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤](http://www.iis.net/lear
 
 如果您想對 Azure 雲端服務 (而非 Web 應用程式) 進行偵錯，請參閱[偵錯雲端服務](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx)。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
-
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+* 如需 Azure 入口網站變更為 Azure 預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [GetStarted]: web-sites-dotnet-get-started.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

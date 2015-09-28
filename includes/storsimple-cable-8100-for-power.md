@@ -1,3 +1,4 @@
+<!--author=alkohli last changed: 9/16/15-->
 
 #### 連接電源線
 
@@ -23,4 +24,4 @@
 
 4. 將兩個 PCM 的電源開關切換到 ON (開啟) 位置，以開啟系統。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

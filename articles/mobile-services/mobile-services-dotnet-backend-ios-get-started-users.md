@@ -1,5 +1,5 @@
 <properties
-	pageTitle="將驗證新增到現有的 Azure 行動服務應用程式 (iOS) | Microsoft Azure"
+	pageTitle="將驗證新增到現有的 Azure 行動服務應用程式 (iOS) | .NET 後端 | Microsoft Azure"
 	description="了解如何使用行動服務透過眾多識別提供者驗證 iOS 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。"
 	services="mobile-services"
 	documentationCenter="ios"
@@ -65,4 +65,4 @@
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

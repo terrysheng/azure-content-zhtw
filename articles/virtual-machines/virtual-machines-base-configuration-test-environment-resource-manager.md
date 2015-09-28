@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/23/2015"
 	ms.author="josephd"/>
 
 # 基本設定測試環境與 Azure 資源管理員
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型建立資源。您也可以使用[傳統部署模型](virtual-machines-base-configuration-test-environment.md)建立這些資源。
 
 本文將逐步解說如何利用在資源管理員中建立的虛擬機器，在 Microsoft Azure 虛擬網路中建立「基本設定」測試環境。
 
@@ -48,25 +50,20 @@
 3.	設定 APP1。
 4.	設定 CLIENT1。
 
-如果您還沒有 Azure 帳戶，請到[試用 Azure](http://azure.microsoft.com/pricing/free-trial/) 申請免費試用。如果您有 MSDN 訂用帳戶，請參閱 [MSDN 訂戶的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
+如果您還沒有 Azure 帳戶，請到[試用 Azure](http://azure.microsoft.com/pricing/free-trial/) 申請免費試用。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
 
-> [AZURE.NOTE]Azure 中的虛擬機器執行時，需要支付相關費用。這項成本是按照您的免費試用版、MSDN 訂用帳戶或付費訂用帳戶進行計算。如需詳細了解 Azure 虛擬機器的執行成本，請參閱[虛擬機器價格詳細資料](http://azure.microsoft.com/pricing/details/virtual-machines/)和 [Azure 價格計算機](http://azure.microsoft.com/pricing/calculator/)。為了降低成本，請參閱[將 Azure 的測試環境虛擬機器費用降至最低](#costs)。
-
-[AZURE.INCLUDE [resource-manager-pointer-to-service-management](../../includes/resource-manager-pointer-to-service-management.md)]
-
-- [基本設定測試環境](virtual-machines-base-configuration-test-environment.md)
-
+> [AZURE.NOTE]Azure 中的虛擬機器執行時，需要支付相關費用。這項成本是按照您的免費試用版、MSDN 訂用帳戶或付費訂用帳戶進行計算。如需詳細了解 Azure 虛擬機器的執行成本，請參閱[虛擬機器定價詳細資料](http://azure.microsoft.com/pricing/details/virtual-machines/)和 [Azure 定價計算機](http://azure.microsoft.com/pricing/calculator/)。為了降低成本，請參閱[將 Azure 的測試環境虛擬機器費用降至最低](#costs)。
 
 ## 階段 1：建立虛擬網路
 
-首先，按照[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md) 中的操作方法，在本機電腦安裝 Azure PowerShell。開啟 Azure PowerShell 提示字元。
+首先，按照[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md) 中的指示，在本機電腦安裝 Azure PowerShell。開啟 Azure PowerShell 提示字元。
 
 接下來，利用以下命令選取正確的 Azure 訂用帳戶。以正確的名稱取代括號中的所有內容，包括 < and > 字元。
 
 	$subscr="<Subscription name>"
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 
-您可以從 **Get-AzureSubscription** 命令顯示的 SubscriptionName 屬性，取得訂用帳戶名稱。
+您可以從 **Get-AzureSubscription** 命令顯示的 SubscriptionName 屬性，取得正確的訂用帳戶名稱。
 
 接下來，將 Azure PowerShell 切換至資源管理員模式。
 
@@ -144,8 +141,8 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 
 接著，連接到 DC1 虛擬機器。
 
-1.	在 Azure Preview 入口網站的左窗格中，按一下 [**瀏覽全部**]，按一下 [**瀏覽**] 清單中 **虛擬機器**]，然後按一下 [**DC1**] 虛擬機器。  
-2.	在 [**DC1**] 窗格中，按一下 [**連接**]。
+1.	在 Azure Preview 入口網站的左窗格中，按一下 [瀏覽全部]，按一下 [瀏覽] 清單中的 [虛擬機器]，然後按一下 [DC1] 虛擬機器。  
+2.	在 [DC1] 窗格中按一下 [連線]。
 3.	出現提示時，開啟下載的 DC1.rdp 檔案。
 4.	顯示 [遠端桌面連線] 訊息方塊後，按一下 [連接]。
 5.	出現輸入認證的提示時，使用下列：
@@ -289,9 +286,9 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 2.	在 [CLIENT1 的屬性] 中，按一下 [IE 增強式安全性設定] 旁的 [開啟]。
 3.	在 [Internet Explorer 增強式安全性設定] 中，按一下 [系統管理員] 和 [使用者] 的 [關閉]，然後按一下 [確定]。
 4.	從 [開始] 畫面中，按一下 [Internet Explorer]，然後按一下 [確定]。
-5.	在網址列中，鍵入 ****http://app1.corp.contoso.com/**，然後按下 ENTER。您應該會看到 APP1 的預設網際網路資訊服務網頁。
+5.	在網址列中，鍵入 ****http://app1.corp.contoso.com/**，然後按 ENTER。您應該會看到 APP1 的預設網際網路資訊服務網頁。
 6.	按一下桌面工作列中的 [檔案總管] 圖示。
-7.	在網址列中，輸入 **\\\\app1\\Files**，然後按下 ENTER。
+7.	在網址列中，輸入 **\\\app1\\Files**，然後按下 ENTER。
 8.	您應該會看到一個資料夾視窗，裡面有檔案共用資料夾的內容。
 9.	在 [檔案] 共用資料夾視窗中，按兩下 **Example.txt** 檔案。您應該會看到 Example.txt 檔案的內容。
 10.	關閉 [example.txt - 記事本] 和 [檔案] 共用資料夾視窗。
@@ -336,4 +333,4 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 	Start-AzureVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

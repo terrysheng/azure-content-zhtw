@@ -121,6 +121,13 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 以偵錯模式執行時，系統會透過管線迅速傳送遙測資料，因此您應該可以在幾秒內看見資料。在部署應用程式時，資料累積會較為緩慢。
 
+#### 發佈資料到伺服器之後，卻沒有資料？
+
+請在您的伺服器防火牆中，開啟這些連出流量的連接埠：
+
++ `dc.services.visualstudio.com:443`
++ `f5.services.visualstudio.com:443`
+
 
 #### 組建伺服器發生問題？
 
@@ -130,13 +137,13 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 SDK 需要一些協助，才能取得某些資料的存取權。特別是，您需要這個額外步驟才能自動測量您的應用程式對資料庫、REST API 和其他外部元件的呼叫。這些相依性度量對於協助您診斷效能問題的價值難以衡量。
 
-此步驟也可啟用[效能計數器報告](app-insights-web-monitor-performance.md#system-performance-counters)，例如 CPU、記憶體、網路佔用。
-
 #### 如果您的應用程式是在您的 IIS 伺服器中執行
 
 使用系統管理員權限登入您的伺服器，並安裝 [Application Insights 狀態監視器](http://go.microsoft.com/fwlink/?LinkId=506648)。
 
-(即使應用程式不是以 SDK 建置而成，您也可以使用狀態監視器[檢測已在執行的應用程式](app-insights-monitor-performance-live-website-now.md))。
+您可能需要[在防火牆中開啟額外的傳出連接埠](app-insights-monitor-performance-live-website-now.md#troubleshooting)。
+
+此步驟也可啟用[效能計數器報告](app-insights-web-monitor-performance.md#system-performance-counters)，例如 CPU、記憶體、網路佔用。
 
 #### 如果您的 app 是 Azure Web 應用程式
 
@@ -168,7 +175,7 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 #### 如果您的用戶端是裝置 app
 
-如果您的應用程式為用戶端 (例如電話或其他裝置) 提供服務，請將[適當的 SDK](app-insights-platforms.md) 加入至您的裝置應用程式。
+如果您的應用程式為用戶端 (例如電話或其他裝置) 提供服務，請將[適當的 SDK](app-insights-platforms.md) 加入您的裝置 App。
 
 如果您使用與伺服器 SDK 相同的檢測金鑰來設定用戶端 SDK，將整合兩個資料流，讓您同時看到。
 
@@ -248,4 +255,4 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

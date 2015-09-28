@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### 建立手動備份
 
@@ -21,4 +22,4 @@
 
   備份應該會出現在類別目錄中顯示的備份組清單中。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

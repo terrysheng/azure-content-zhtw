@@ -1,20 +1,20 @@
 <properties
    pageTitle="將資料庫移轉至 Azure SQL Database"
-	description="Microsoft Azure SQL Database、資料庫部署、資料庫移轉、匯入資料庫，匯出資料庫、移轉精靈"
-	services="sql-database"
-	documentationCenter=""
-	authors="carlrabeler"
-	manager="jeffreyg"
-	editor=""/>
+   description="Microsoft Azure SQL Database、資料庫部署、資料庫移轉、匯入資料庫，匯出資料庫、移轉精靈"
+   services="sql-database"
+   documentationCenter=""
+   authors="carlrabeler"
+   manager="jeffreyg"
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="09/02/2015"
-	ms.author="carlrab"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management"
+   ms.date="09/02/2015"
+   ms.author="carlrab"/>
 
 # 將資料庫移轉至 Azure SQL Database
 
@@ -49,7 +49,7 @@ SQL Server Management Studio 提供兩種方法來將相容的內部部署 SQL S
 ## 移轉工具
 使用的工具包括 SQL Server Management Studio (SSMS) 和 Visual Studio VS 的 SQL Server 工具 (VS, SSDT)，以及 Azure 入口網站。
 
-> 請務必安裝最新版本的用戶端工具，因為舊版工具與 Azure SQL Database V12 不相容。
+> [AZURE.IMPORTANT]請務必安裝最新版本的用戶端工具，因為舊版工具與 Azure SQL Database V12 不相容。
 
 ### SQL Server Management Studio (SSMS)
 您可以使用 SSMS 將相容的資料庫直接部署至 Azure SQL Database，或將資料庫的邏輯備份匯出成 BACPAC，然後再使用 SSMS 匯入，以建立新的 Azure SQL Database。
@@ -72,4 +72,4 @@ Visual Studio 中的 SQL Server 工具可用來建立和管理資料庫專案，
 | 如果發生錯誤，無法變更輸出；來源結構描述必須相容。 | 提供完整的 Visual Studio SSDT 功能。結構描述會離線變更。 | 應用程式驗證會在 Azure 中進行。由於結構描述會直接移轉而不需要變更，因此為基本驗證。 | 應用程式驗證會在將資料庫部署至 Azure 之前，於 SQL Server 中完成。 |
 | 簡單且容易設定的一個或兩個步驟程序。 | 較複雜的多步驟程序 (如果只要部署結構描述則比較簡單)。 |
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

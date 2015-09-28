@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Azure 的命令列建置"
-	description="Azure 的命令列建置"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Azure 的命令列建置"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Azure 的命令列建置
 
-##概觀
+## 概觀
 
 您可以藉由在命令提示字元中執行 MSBuild 來建立 Azure 部署的封裝。除了自動化部份的組建程序，您還可以設定及定義進行偵錯、預備及實際執行的組建。
 
@@ -62,4 +62,4 @@
 
 建立封裝之後，您可以將它部署至 Azure。如需示範該程序的教學課程，請參閱 Azure 網站。如需如何自動化該程序的相關資訊，請參閱 [Azure 中雲端服務的連續傳遞](../cloud-services/cloud-services-dotnet-continuous-delivery)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

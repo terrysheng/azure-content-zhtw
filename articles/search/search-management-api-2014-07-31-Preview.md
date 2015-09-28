@@ -4,7 +4,7 @@
 
 # 管理 API：版本 2014-07-31-Preview
 
-本文說明 **2014-07-31-Preview** 版本的 Azure 搜尋管理 REST API。它之後已取代為 MSDN 上的公開上市版本：[Azure 搜尋管理 REST API 2015-02-28](https://msdn.microsoft.com/library/dn832684.aspx)。\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+本文說明 **2014-07-31-Preview** 版本的 Azure 搜尋管理 REST API。在那之後，較新版本已取代它。如需最新版本，請參閱 MSDN 上的 [Azure 搜尋管理 REST API 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx)。\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ## 服務管理作業
 
@@ -26,7 +26,7 @@ Azure 搜尋服務管理 REST API 提供以程式設計方式透過入口網站�
 
 ### 版本
 
-目前的 Azure 搜尋服務管理 REST API 版本為 `api-version=2014-07-31-Preview`。這是此 API 的唯一版本。
+`api-version=2014-07-31-Preview` 在 Azure 搜尋公用預覽期間導入。如需從每次發行到下一次發行之變更的詳細資訊，請參閱 [Azure 搜尋的新功能](search-latest-updates.md)。
 
 ### 驗證和存取管理
 
@@ -815,4 +815,4 @@ Azure 資源管理員的存取控制會使用內建擁有者、參與者和讀�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

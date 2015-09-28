@@ -1,20 +1,22 @@
-<properties 
-	pageTitle="Azure 上的虛擬機器是我所需的計算選項嗎？" 
-	description="了解 Azure 計算裝載選項以及其運作方式：App Service、雲端服務和虛擬機器" 
+<properties
+	pageTitle="Azure 上的虛擬機器是我所需的計算選項嗎？"
+	description="了解 Azure 計算裝載選項以及其運作方式：App Service、雲端服務和虛擬機器"
+	headerExpose=""
+	footerExpose=""
 	services="virtual-machines"
-	authors="KBDAzure" 
+	authors="cynthn"
 	documentationCenter=""
 	manager="timlt"
 	tags=azure-resource-manager, azure-service-management/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/19/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/19/2015"
+	ms.author="cynthn"/>
 
 # 我應該選擇 Azure 虛擬機器嗎？
 
@@ -29,4 +31,4 @@ Azure 對於執行的應用程式提供不同的裝載模型。每個模型都�
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

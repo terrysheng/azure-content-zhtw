@@ -15,9 +15,13 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 	
-> [AZURE.NOTE]使用此快速入門的先決條件為，您必須擁有受 Azure AD (含 B2C) 保護的 Web API，才可完整運作。我們已經為 .NET 與 node.js 建立一個 Web API 供您使用。本逐步解說假設您已設定 node.js Web API 範例。請參閱 [Node.js 的 Azure AD B2C Web API 教學課程](active-directory-b2c-devquickstarts-api-node.md)。
+> [AZURE.NOTE]
+	使用此快速入門的先決條件為，您必須擁有受 Azure AD (含 B2C) 保護的 Web API，才可完整運作。我們已經為 .NET 與 node.js 建立一個 Web API 供您使用。
+	本逐步解說假設您已設定 node.js Web API 範例。請參閱 [Node.js 的 Azure AD B2C Web API 教學課程](active-directory-b2c-devquickstarts-api-node.md)。
 
-> [AZURE.NOTE]本文不會說明如何使用 Azure AD B2C 實作登入、註冊和設定檔管理。而會著重在如何在使用者已通過驗證後呼叫 Web API。您應該先從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始 (如果還沒有進行)，以了解 Azure AD B2C 的基本概念。
+> [AZURE.NOTE]
+	本文不會說明如何使用 Azure AD B2C 實作登入、註冊和設定檔管理。而會著重在如何在使用者已通過驗證後呼叫 Web API。
+    您應該先從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始 (如果還沒有進行)，以了解 Azure AD B2C 的基本概念。
 
 對於需要存取受保護資源的 Android 用戶端，Azure AD 提供 Active Directory 驗證程式庫 (ADAL)。ADAL 存在的唯一目的是為了讓您的應用程式輕鬆取得存取權杖。為了示範究竟多麼簡單，我們將建置一個執行下列動作的 Android 待辦事項清單應用程式：
 
@@ -377,7 +381,13 @@ private void getTasks() { if (Constants.CURRENT\_RESULT == null || Constants.CUR
  
  我們也要撰寫方法以便在首次執行時將資料表初始化：
  
- ``` private void initAppTables() { try { // Get the Mobile Service Table instance to use // mToDoTable = mClient.getTable(WorkItem.class); // mToDoTable.TABvLES\_URL = "/api/"; //mTextNewToDo = (EditText)findViewById(R.id.listViewToDo);
+ ```
+     private void initAppTables() {
+        try {
+            // Get the Mobile Service Table instance to use
+//            mToDoTable = mClient.getTable(WorkItem.class);
+//            mToDoTable.TABvLES_URL = "/api/";
+            //mTextNewToDo = (EditText)findViewById(R.id.listViewToDo);
 
             // Create an adapter to bind the items with the view
             //mAdapter = new WorkItemAdapter(ToDoActivity.this, R.layout.listViewToDo);
@@ -492,7 +502,12 @@ ADAL encrypts the tokens and store in SharedPreferences by default. You can look
 
 Android webview does not clear session cookies after app is closed. You can handle this with sample code below:
 ```java
-CookieSyncManager.createInstance(getApplicationContext()); CookieManager cookieManager = CookieManager.getInstance(); cookieManager.removeSessionCookie(); CookieSyncManager.getInstance().sync(); ``` 深入了解 Cookie：http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+CookieSyncManager.createInstance(getApplicationContext());
+CookieManager cookieManager = CookieManager.getInstance();
+cookieManager.removeSessionCookie();
+CookieSyncManager.getInstance().sync();
+```
+深入了解 Cookie：http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
 <!---HONumber=Sept15_HO3-->

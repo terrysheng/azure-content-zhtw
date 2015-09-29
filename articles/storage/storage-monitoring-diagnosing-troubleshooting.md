@@ -240,9 +240,9 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 儲存體用戶端程式庫會自動為每一項要求產生唯一的用戶端要求 ID。
 
-- 在儲存體用戶端程式庫所建立的用戶端記錄上，用戶端要求 ID 會顯示在與該要求相關之每個記錄項目的 [用戶端要求 ID] 欄位。
+- 在儲存體用戶端程式庫所建立的用戶端記錄上，用戶端要求 ID 會顯示在與該要求相關之每個記錄項目的 [用戶端要求 ID\] 欄位。
 - 以 Fiddler 所擷取的網路追蹤為例，用戶端要求 ID 會顯示在要求訊息中，並呈現為 **x-ms-client-request-id** HTTP 標頭值。
-- 在伺服器端的儲存體記錄中，用戶端要求 ID 會顯示在 [用戶端要求 ID] 資料欄。
+- 在伺服器端的儲存體記錄中，用戶端要求 ID 會顯示在 [用戶端要求 ID\] 資料欄。
 
 > [AZURE.NOTE]多個要求可以共用同一個用戶端要求 ID，這是因為用戶端可以指派此值 (雖然儲存體用戶端程式庫會自動指派新的值)。如果重試來自用戶端，則所有嘗試都共用相同的用戶端要求 ID。如果批次是從用戶端傳送，則該批次具有單一用戶端要求 ID。
 
@@ -910,4 +910,4 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

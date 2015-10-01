@@ -42,7 +42,8 @@ In an instance of on-premises SQL Server, dynamic management views return server
 The following query returns the size of your database (in megabytes):
 
 ```
--- 計算資料庫的大小。SELECT SUM(reserved\_page\_count)*8.0/1024 FROM sys.dm\_db\_partition\_stats; GO ```
+-- 計算資料庫的大小。SELECT SUM(reserved\_page\_count)*8.0/1024 FROM sys.dm\_db\_partition\_stats; GO 
+```
 
 下列查詢會傳回您資料庫中個別物件的大小 (以 MB 為單位)：
 
@@ -131,4 +132,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [SQL Database 簡介](sql-database-technical-overview.md)
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

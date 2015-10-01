@@ -41,7 +41,7 @@
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
-The completed application is provided at the end of this tutorial as well.
+本教學課程最後也會提供完整的應用程式。
 
 ## 1. 註冊應用程式
 在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 建立新的應用程式，或遵循下列[詳細步驟](active-directory-v2-app-registration.md)。  請確定：
@@ -72,23 +72,24 @@ The completed application is provided at the end of this tutorial as well.
 - `npm install passport-azure-ad`
 
 
-This will install the libraries that passport-azure-ad depend on.
+如此會安裝 passport-azure-ad 做為依據的程式庫。
 
-## 3. Set up your app to use the passport-node-js strategy
-Here, we'll configure the Express middleware to use the OpenID Connect authentication protocol.  Passport will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+## 3. 設定您的 App 以使用 passport-node-js 策略。
+我們將在此設定 Express 中介軟體，以使用 OpenID Connect 驗證通訊協定。 Express 將用來發出登入和登出要求、管理使用者的工作階段，以及取得使用者相關資訊等其他作業。
 
--	To begin, open the `config.js` file in the root of the project, and enter your app's configuration values in the `exports.creds` section.
-    -	The `clientID:` is the **Application Id** assigned to your app in the registration portal.
-    -	The `returnURL` is the **Redirect URI** you entered in the portal.
-    - The `clientSecret` is the secret you generated in the portal.
+-	若要開始，請開啟專案根目錄中的 `config.js` 檔案，並在 `exports.creds` 區段中輸入應用程式的組態值。
+    -	`clientID:` 是在註冊入口網站中指派給應用程式的**應用程式 ID**。
+    -	`returnURL` 是您在入口網站中輸入的**重新導向 URI**。
+    - `clientSecret` 是您在入口網站中輸入的密碼
 
-- Next open `app.js` file in the root of the proejct and add the follwing call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`
+- 接下來開啟專案根中的  `app.js` 檔案，並新增下列呼叫以叫用與 `passport-azure-ad` 一併使用的 `OIDCStrategy` 策略
 
 
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Add some logging var log = bunyan.createLogger({ name: 'Microsoft OIDC Example Web Application' }); ```
+// Add some logging var log = bunyan.createLogger({ name: 'Microsoft OIDC Example Web Application' }); 
+```
 
 - 之後，請使用我們僅供參考的策略來處理登入要求
 
@@ -417,4 +418,4 @@ exports.list = function(req, res){
 
 如需其他資源，請查看：- [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow "azure-active directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

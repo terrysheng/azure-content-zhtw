@@ -147,18 +147,18 @@
 
     |Web 應用程式類型|使用計算模擬器在本機執行/偵錯|在 Azure 中執行|
     |---|---|---|
-    |ASP.NET Web 應用程式|在功能表列上，選擇 [偵錯]、[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|選擇 [Azure 活動記錄檔] 的 [部署] 索引標籤中顯示的 URL 超連結，以在瀏覽器中載入起始頁。|
-    |ASP.NET MVC 2 Web 應用程式|在功能表列上，選擇 [偵錯]、[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|選擇 [Azure 活動記錄檔] 的 [部署] 索引標籤中顯示的 URL 超連結，以在瀏覽器中載入起始頁。|
-    |ASP.NET MVC 3 Web 應用程式|在功能表列上，選擇 [偵錯]、[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|選擇 [Azure 活動記錄檔] 的 [部署] 索引標籤中顯示的 URL 超連結，以在瀏覽器中載入起始頁。|
-    |ASP.NET MVC 4 Web 應用程式|在功能表列上，選擇 [偵錯]、[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|選擇 [Azure 活動記錄檔] 的 [部署] 索引標籤中顯示的 URL 超連結，以在瀏覽器中載入起始頁。|
-    |ASP.NET 空白 Web 應用程式|您必須在應用程式中加入設定做為 Web 專案起始頁的 .aspx 網頁。然後在功能表列上，選擇 [偵錯]、[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|如果應用程式中有預設的 .aspx 網頁，請選擇 [Azure 活動記錄檔] 的 [部署] 索引標籤中顯示的 URL 超連結，瀏覽器就會載入此網頁。如果您有不同的 .aspx 網頁，則必須使用下列格式的 URL 來瀏覽到此特定網頁：`<url for deployment>/<name of page>.aspx`|
-    |Silverlight 應用程式|在功能表列上，選擇 [偵錯]、[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|您必須使用下列格式的 URL 來瀏覽到應用程式的特定網頁：`<url for deployment>/<name of page>.aspx`|
-    |Silverlight 商務應用程式|在功能表列上，選擇 [偵錯]、[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|您必須使用下列格式的 URL 來瀏覽到應用程式的特定網頁：`<url for deployment>/<name of page>.aspx`|
-    |Silverlight 瀏覽應用程式|在功能表列上，選擇 [偵錯]、[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|您必須使用下列格式的 URL 來瀏覽到應用程式的特定網頁：`<url for deployment>/<name of page>.aspx`|
-    |WCF 服務應用程式|您必須將 .svc 檔案設定做為 WCF 服務專案的起始頁。然後在功能表列上，選擇 [偵錯]、[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|您必須使用下列格式的 URL 來瀏覽到應用程式的 svc 檔案：`<url for deployment>/<name of service file>.svc`|
-    |WCF 工作流程服務應用程式|您必須將 .svc 檔案設定做為 WCF 服務專案的起始頁。然後在功能表列上，選擇 [偵錯]、[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|您必須使用下列格式的 URL 來瀏覽到應用程式的 svc 檔案：`<url for deployment>/<name of service file>.svc`|
-    |ASP.NET 動態實體|在功能表列上，選擇 [偵錯]、[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|您必須更新連接字串 (請參閱下一節)。您還必須使用下列格式的 URL 來瀏覽到應用程式的特定網頁：`<url for deployment>/<name of page>.aspx`|
-    |ASP.NET 動態資料 Linq to SQL|在功能表列上，選擇 [偵錯]、[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|您必須遵循以下程序中的步驟：將 SQL Azure 資料庫用於應用程式 (請參閱本主題前面的章節)。您還必須使用下列格式的 URL 來瀏覽到應用程式的特定網頁：`<url for deployment>/<name of page>.aspx`|
+    |ASP.NET Web 應用程式|在功能表列上，選擇 [偵錯]、\[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|選擇 [Azure 活動記錄檔] 的 [部署] 索引標籤中顯示的 URL 超連結，以在瀏覽器中載入起始頁。|
+    |ASP.NET MVC 2 Web 應用程式|在功能表列上，選擇 [偵錯]、\[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|選擇 [Azure 活動記錄檔] 的 [部署] 索引標籤中顯示的 URL 超連結，以在瀏覽器中載入起始頁。|
+    |ASP.NET MVC 3 Web 應用程式|在功能表列上，選擇 [偵錯]、\[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|選擇 [Azure 活動記錄檔] 的 [部署] 索引標籤中顯示的 URL 超連結，以在瀏覽器中載入起始頁。|
+    |ASP.NET MVC 4 Web 應用程式|在功能表列上，選擇 [偵錯]、\[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|選擇 [Azure 活動記錄檔] 的 [部署] 索引標籤中顯示的 URL 超連結，以在瀏覽器中載入起始頁。|
+    |ASP.NET 空白 Web 應用程式|您必須在應用程式中加入設定做為 Web 專案起始頁的 .aspx 網頁。然後在功能表列上，選擇 [偵錯]、\[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|如果應用程式中有預設的 .aspx 網頁，請選擇 [Azure 活動記錄檔] 的 [部署] 索引標籤中顯示的 URL 超連結，瀏覽器就會載入此網頁。如果您有不同的 .aspx 網頁，則必須使用下列格式的 URL 來瀏覽到此特定網頁：`<url for deployment>/<name of page>.aspx`|
+    |Silverlight 應用程式|在功能表列上，選擇 [偵錯]、\[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|您必須使用下列格式的 URL 來瀏覽到應用程式的特定網頁：`<url for deployment>/<name of page>.aspx`|
+    |Silverlight 商務應用程式|在功能表列上，選擇 [偵錯]、\[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|您必須使用下列格式的 URL 來瀏覽到應用程式的特定網頁：`<url for deployment>/<name of page>.aspx`|
+    |Silverlight 瀏覽應用程式|在功能表列上，選擇 [偵錯]、\[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|您必須使用下列格式的 URL 來瀏覽到應用程式的特定網頁：`<url for deployment>/<name of page>.aspx`|
+    |WCF 服務應用程式|您必須將 .svc 檔案設定做為 WCF 服務專案的起始頁。然後在功能表列上，選擇 [偵錯]、\[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|您必須使用下列格式的 URL 來瀏覽到應用程式的 svc 檔案：`<url for deployment>/<name of service file>.svc`|
+    |WCF 工作流程服務應用程式|您必須將 .svc 檔案設定做為 WCF 服務專案的起始頁。然後在功能表列上，選擇 [偵錯]、\[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|您必須使用下列格式的 URL 來瀏覽到應用程式的 svc 檔案：`<url for deployment>/<name of service file>.svc`|
+    |ASP.NET 動態實體|在功能表列上，選擇 [偵錯]、\[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|您必須更新連接字串 (請參閱下一節)。您還必須使用下列格式的 URL 來瀏覽到應用程式的特定網頁：`<url for deployment>/<name of page>.aspx`|
+    |ASP.NET 動態資料 Linq to SQL|在功能表列上，選擇 [偵錯]、\[開始偵錯] (鍵盤：選擇 **F5** 鍵)。|您必須遵循以下程序中的步驟：將 SQL Azure 資料庫用於應用程式 (請參閱本主題前面的章節)。您還必須使用下列格式的 URL 來瀏覽到應用程式的特定網頁：`<url for deployment>/<name of page>.aspx`|
 
 ## 更新 ASP.NET 動態實體的連接字串
 
@@ -206,4 +206,4 @@
 ## 後續步驟
 如需關於發佈的詳細資訊，請參閱[設定從 Visual Studio 發佈雲端服務所需的服務](vs-azure-tools-setting-up-services-required-to-publish-a-cloud-service-from-visual-studio.md)。另請參閱[設定具名的驗證認證](vs-azure-tools-setting-up-named-authentication-credentials.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!-----HONumber=Sept15_HO3-->

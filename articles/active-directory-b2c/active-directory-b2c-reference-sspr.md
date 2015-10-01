@@ -34,6 +34,6 @@
 
 若要進行測試，請針對任何登入原則 (已使用本機帳戶做為身分識別提供者) 使用「立即執行」功能。在本機帳戶登入頁面上 (您會在其中輸入電子郵件地址和密碼，或是使用者名稱和密碼)，按一下 [無法存取您的帳戶？] 以驗證取用者體驗。
 
-> [AZURE.NOTE]您可使用 [公司商標功能][](active-directory-add-company-branding.md) 自訂自助式密碼重設頁面。
+> [AZURE.NOTE]您可使用 [公司商標功能](active-directory-add-company-branding.md) 自訂自助式密碼重設頁面。
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

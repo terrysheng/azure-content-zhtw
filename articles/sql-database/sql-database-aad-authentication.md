@@ -166,7 +166,7 @@ Azure Active Directory 驗證是 Azure Active Directory (Azure AD) 中使用身�
 
 用來佈建和管理 Azure AD 系統管理員的 Cmdlet：
 
-| Cmdlet 名稱 | 說明 |
+| Cmdlet 名稱                                       | 說明                                                                                                     |
 |---------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
 | Set-AzureSqlServerActiveDirectoryAdministrator | 佈建 Azure SQL Server 的 Azure Active Directory 系統管理員。(必須來自目前的訂用帳戶。) |
 | Remove-AzureSqlServerActiveDirectoryAdministrator | 移除 Azure SQL Server 的 Azure Active Directory 系統管理員。 |
@@ -183,7 +183,7 @@ Set-AzureSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
 
 **DisplayName** 輸入參數可接受 Azure AD 顯示名稱或使用者主體名稱。例如，``DisplayName="John Smith"`` 或 ``DisplayName="johns@contoso.com"``。Azure AD 群組只支援 Azure AD 顯示名稱。
 
-> [AZURE.NOTE]Azure PowerShell 命令 ```Set-AzureSqlServerActiveDirectoryAdministrator``` 不會阻止您為不支援的使用者佈建 Azure AD 系統管理員。不支援的使用者可以佈建，但是不能連接到資料庫。(請參閱以上 **Azure AD 功能和限制**中支援的系統管理員清單。)
+> [AZURE.NOTE] Azure PowerShell 命令 ```Set-AzureSqlServerActiveDirectoryAdministrator``` 不會阻止您為不支援的使用者佈建 Azure AD 系統管理員。不支援的使用者可以佈建，但是不能連接到資料庫。(請參閱以上 **Azure AD 功能和限制**中支援的系統管理員清單。)
 
 下列範例使用選用的 **ObjectID**：
 
@@ -192,7 +192,7 @@ Set-AzureSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
 –ServerName "demo_server" -DisplayName "DBA_Group" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353f"
 ```
 
-> [AZURE.NOTE]當 **DisplayName** 不是唯一時，就需要 Azure AD **ObjectID**。若要擷取 **ObjectID** 和 **DisplayName** 值，請使用 Azure 入口網站的 Active Directory 區段以及檢視使用者或群組的屬性。
+> [AZURE.NOTE] 當 **DisplayName** 不是唯一時，就需要 Azure AD **ObjectID**。若要擷取 **ObjectID** 和 **DisplayName** 值，請使用 Azure 入口網站的 Active Directory 區段以及檢視使用者或群組的屬性。
 
 下列範例會傳回 Azure SQL Server 的目前 Azure AD 系統管理員的相關資訊：
 
@@ -245,7 +245,7 @@ Azure Active Directory 驗證需要建立資料庫使用者做為自主資料庫
 
 如果您使用認證從未與 Azure 建立同盟的網域登入 Windows，或在使用 Azure AD 驗證時使用以初始或用戶端網域為基礎的 Azure AD，請使用這個方法。
 
-1. 啟動 Management Studio，並在 [連接到資料庫引擎] (或 [連接到伺服器]) 對話方塊的 [驗證] 方塊中選取 [Active Directory 密碼驗證]。
+1. 啟動 Management Studio，並在 [連接到資料庫引擎]\(或 [連接到伺服器]) 對話方塊的 [驗證] 方塊中選取 [Active Directory 密碼驗證]。
 2. 在 [使用者名稱] 方塊中，以 ****username@domain.com** 格式輸入您的 Azure Active Directory 使用者名稱。這必須是來自 Azure Active Directory 的帳戶或來自與 Azure Active Directory 建立同盟之網域的帳戶。
 3. 在 [密碼] 方塊中，輸入您的 Azure Active Directory 帳戶或同盟網域帳戶的使用者密碼。
 4. 按一下 [選項] 按鈕，然後在 [連接屬性] 頁面的 [連接至資料庫] 方塊中輸入您想要連接的目標使用者資料庫名稱。
@@ -331,4 +331,4 @@ Azure Active Directory 驗證支援下列方法，使用 Azure AD 身分識別�
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 <!--anchors-->
 
-<!----HONumber=Sept15_HO3-->
+<!-----HONumber=Sept15_HO3-->

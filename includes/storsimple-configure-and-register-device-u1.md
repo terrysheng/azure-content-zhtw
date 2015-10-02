@@ -60,12 +60,12 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
   
-        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
-      
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](../articles/storsimple/storsimple-system-requirements.md). 
-
-		If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
+	如果裝置狀態為 [離線]，請等待數分鐘，讓裝置上線。
+	      
+	如果數分鐘後裝置仍然為離線狀態，請確定有依照[您的 StorSimple 裝置網路需求](../articles/storsimple/storsimple-system-requirements.md)進行火牆設定。
+	
+	如果您的機器不支援 HTTP 1.1，請檢查連接埠 9354 並確定此連接埠已開啟供輸出通訊使用。此連接埠供 StorSimple Manager 服務和 StorSimple 裝置間的通訊使用。　
      
        
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

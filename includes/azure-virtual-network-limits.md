@@ -43,4 +43,4 @@
 
 若您需要增加這些限制，請連絡支援人員。
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=Sept15_HO1-->

@@ -16,4 +16,4 @@
 
 <sup>1</sup>雖然只使用部分核心，在計算核心限制時，仍會將超小型執行個體視為一個核心。
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=Sept15_HO1-->

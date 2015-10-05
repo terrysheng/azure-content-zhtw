@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="09/05/2015"
+    ms.date="09/23/2015"
     ms.author="sstein"/>
 
 # 使用 PowerShell 將 BACPAC 匯入 SQL Database
@@ -96,7 +96,7 @@ Blob 名稱是您想要用來建立資料庫之現有的 .bacpac 檔案名稱。
 
 這個命令會將匯入資料庫要求提交給服務。視資料庫大小而定，匯入作業可能需要一些時間才能完成。
 
-    $exportRequest = Start-AzureSqlDatabaseExport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
+    $importRequest = Start-AzureSqlDatabaseImport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
     
 
 ## 監視作業的進度
@@ -132,7 +132,7 @@ Blob 名稱是您想要用來建立資料庫之現有的 .bacpac 檔案名稱。
     $StorageCtx = New-AzureStorageContext -StorageAccountName $StorageName -StorageAccountKey $StorageKey
     $Container = Get-AzureStorageContainer -Name $ContainerName -Context $StorageCtx
     
-    $ImportRequest = Start-AzureSqlDatabaseExport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
+    $ImportRequest = Start-AzureSqlDatabaseImport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
     
     Get-AzureSqlDatabaseImportExportStatus -RequestId $ImportRequest.RequestGuid -ServerName $ServerName -Username $credential.UserName
     
@@ -150,4 +150,4 @@ Blob 名稱是您想要用來建立資料庫之現有的 .bacpac 檔案名稱。
 - [災害復原詳細資訊](sql-database-disaster-recovery-drills.md)
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -3,8 +3,9 @@
 	description="透過本教學課程，使用 CLI 來自動化金鑰保存庫中的一般工作"
 	services="key-vault"
 	documentationCenter=""
-	authors="msmbaldwin"
-	manager="mbaldwin"tags="azure-resource-manager"/>
+	authors="BrucePerlerMS"
+	manager="mbaldwin"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -12,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.date="09/22/2015"
 	ms.author="bruceper"/>
 
 # 使用 CLI 管理金鑰保存庫 #
@@ -185,7 +186,7 @@
 例如，如果您的保存庫名稱是 ContosoKeyVault，且您要授權的應用程式具有 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed 的用戶端識別碼，您想要授權應用程式使用保存庫中的金鑰來進行解密並簽署，則請執行下列作業：
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '[“decrypt”,”sign”]'
-    
+
 如果您想要授權該相同的應用程式讀取您保存庫中的機密資料，請執行以下命令：
 
 	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["Get"]'
@@ -212,7 +213,7 @@
 
     azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --destination 'HSM'
 
-如需有關如何產生此 BYOK 封包的詳細指示，請參閱[如何使用 Azure 金鑰保存庫中受 HSM 保護的金鑰](https://msdn.microsoft.com/library/azure/dn903624.aspx)。
+如需有關如何產生此 BYOK 封包的詳細指示，請參閱[如何使用 Azure 金鑰保存庫中受 HSM 保護的金鑰](key-vault-hsm-protected-keys.md)。
 
 
 ## 刪除金鑰保存庫及相關聯的金鑰和密碼
@@ -253,6 +254,6 @@
 
 ## 後續步驟
 
-如需程式設計參考，請參閱 [Azure 金鑰保存庫 REST API 參考](https://msdn.microsoft.com/library/azure/dn903609.aspx)和 [Azure 金鑰保存庫 C# 用戶端 API 參考](https://msdn.microsoft.com/library/azure/dn903628.aspx)。
+如需程式設計參考，請參閱 [Azure 金鑰保存庫開發人員指南](key-vault-developers-guide.md)。
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

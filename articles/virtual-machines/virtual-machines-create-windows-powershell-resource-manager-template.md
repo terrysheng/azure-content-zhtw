@@ -1,5 +1,5 @@
 <properties
-	pageTitle="利用 Resource Manager 範本建立 Windows 虛擬機器"
+	pageTitle="使用 ARM 範本建立 VM | Microsoft Azure"
 	description="利用 PowerShell 或 Azure CLI 搭配 Resource Manager 範本，輕鬆建立新的 Windows 虛擬機器。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # 利用 Resource Manager 範本建立 Windows 虛擬機器
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文內容涵蓋以資源管理員部署模型建立資源。您無法以傳統部署模型建立此資源。
 
 您可以搭配 Azure PowerShell 或 Azure CLI，使用 Resource Manager 範本輕鬆建立新的 Windows 型 Azure 虛擬機器。這個範本建立的單一虛擬機器會採用 Windows ，而且是在新資源群組的單一子網路的新虛擬網路上執行。
 
@@ -333,4 +335,4 @@
 
 [如何安裝和設定 Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

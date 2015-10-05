@@ -1,6 +1,6 @@
 <properties
-	pageTitle="利用 Azure PowerShell 在服務管理中建立並管理 Windows 虛擬機器。"
-	description="使用 Azure PowerShell，在服務管理中快速建立以 Windows 為基礎的新虛擬機器，並執行管理功能。"
+	pageTitle="使用 Azure PowerShell 建立和管理 Windows VM | Microsoft Azure"
+	description="藉由 Azure Powershell 使用傳統部署模型建立和管理 Windows 虛擬機器。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,13 +17,13 @@
 	ms.date="07/09/2015"
 	ms.author="cynthn"/>
 
-# 使用 Azure PowerShell 建立和管理服務管理中以 Windows 為基礎的虛擬機器
+# 使用 Azure PowerShell 建立和管理 Windows 虛擬機器
 
-本文說明如何使用 Azure PowerShell 建立和管理服務管理中以 Windows 為基礎的 Azure 虛擬機器。
+本文說明如何使用 Azure PowerShell 建立和管理 Windows 虛擬機器。
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立 Windows VM。您也可以使用[資源管理員部署模型](virtual-machines-deploy-rmtemplates-powershell.md)建立 Windows VM。
 
-- [使用 Azure 資源管理員範本和 PowerShell 部署以及管理虛擬機器](virtual-machines-deploy-rmtemplates-powershell.md)
+
 
 ## 設定 Azure PowerShell
 
@@ -209,4 +209,4 @@
 
 [使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

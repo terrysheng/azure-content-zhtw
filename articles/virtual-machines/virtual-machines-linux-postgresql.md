@@ -1,34 +1,37 @@
 <properties
-	pageTitle="在執行 Linux 的 Microsoft Azure 虛擬機器上安裝和設定 PostgreSQL | Microsoft Azure"
-	description="了解如何在 Azure 中的 Linux 虛擬機器上安裝和設定 PostgreSQL。"
+	pageTitle="設定 Linux VM 上的 PostgreSQL | Microsoft Azure"
+	description="了解如何在 Azure 中的 Linux 虛擬機器上安裝和設定 PostgreSQL"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
 	editor=""
-	tags=""/>
+ 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="linux"
+	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
 	ms.date="08/10/2015"
 	ms.author="mingzhan"/>
 
 
-#安裝和設定 Azure 上的 PostgreSQL
+# 安裝和設定 Azure 上的 PostgreSQL
 
 PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。它包含企業用功能，例如完整的 ACID 的相容性、可靠的交易式程序，以及多版本的並行控制。它也支援標準，例如 ANSI SQL 和 SQL/MED (包括 Oracle、MySQL、MongoDB 和許多其他項目的外部資料包裝函式)。其高度可擴充性支援超過 12 種程序性語言、GIN 和 GiST 索引、空間資料支援和多個類似 NoSQL 的功能，適用於 JSON 或以索引鍵-值為基礎的應用程式。
 
 在本文中，您將學習如何在執行 Linux 的 Azure 虛擬機器上安裝和設定 PostgreSQL。
 
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型或傳統部署模型建立資源。
+
+## 安裝 PostgreSQL
+
 > [AZURE.NOTE]您必須已經具有執行 Linux 的 Azure 虛擬機器，才能完成本教學課程。若要建立並設定 Linux VM 再繼續進行，請參閱 [Azure Linux VM 教學課程](virtual-machines-linux-tutorial.md)。
 
 在此情況下，使用連接埠 1999 做為 PostgreSQL 連接埠。
-
-## 安裝 PostgreSQL
 
 連接到您透過 PuTTY 建立的 Linux VM。如果這是您第一次使用 Azure Linux VM，請參閱[如何搭配 Azure 上的 Linux 使用 SSH](virtual-machines-linux-use-ssh-key.md) 以了解如何使用 PuTTY 來連接到 Linux VM。
 
@@ -251,4 +254,4 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。它�
 ##取得 PostgreSQL 的詳細資訊
 既然您已完成在 Azure Linux VM 中的 PostgreSQL 安裝，您可以在 Azure 中享用它。若要深入了解 PostgreSQL，請造訪 [PostgreSQL 網站](http://www.postgresql.org/)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="09/03/2015"
+	ms.date="09/21/2015"
 	ms.author="jgao"/>
 
 # 開始使用適用於 HDInsight 的 Visual Studio Hadoop 工具來執行 Hive 查詢
@@ -35,7 +35,6 @@
 
 	- Windows 8.1、Windows 8 或 Windows 7。
 	- Visual Studio (下列其中一個版本)：
-		- Visual Studio 2012 Professional/Premium/Ultimate，含 [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 		- Visual Studio 2013 Community/Professional/Premium/Ultimate，含 [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
 		- Visual Studio 2015 (Community/Enterprise)
 
@@ -44,12 +43,14 @@
 
 ## Install HDInsight tools for Visual Studio
 
-HDInsight Tools for Visual Studio 封裝在 Microsoft Azure SDK for .NET 2.5.1 版或更新版本內。您可以使用 [Web Platform Installer](http://go.microsoft.com/fwlink/?LinkId=255386) 來進行安裝。您必須選擇與 Visual Studio 版本相符的封裝。此 Hadoop 工具套件也會安裝 Microsoft Hive ODBC 驅動程式 (32 位元和 64 位元)。
+HDInsight Tools for Visual Studio 和 Microsoft Hive ODBC Driver 已封裝在 Microsoft Azure SDK for .NET 2.5.1 版或更新版本內。您可以使用 [Web Platform Installer](http://go.microsoft.com/fwlink/?LinkId=255386) 來進行安裝。您必須選擇與 Visual Studio 版本相符的封裝。如果您沒有安裝 Visual Studio，可以使用 [Web Platform Installer](http://go.microsoft.com/fwlink/?LinkId=255386) 或使用下列連結，安裝最新的 Visual Studio Community 和 Azure SDK：
+
+- [Visual Studio Community 2015 與 Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2015CommunityAzurePack.appids) 
+- [Visual Studio Community 2013 與 Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2013CommunityAzurePack.appids) 
+- [Microsoft Azure SDK for .NET (VS 2015)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids) 
+- [Microsoft Azure SDK for .NET (VS 2013)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2013AzurePack.appids) 
 
 ![Hadoop 工具：HDinsight Tools for Visual Studio Web Platform installer.][1]
-
-
->[AZURE.NOTE]如果您有 Visual Studio 2015 或 2012，並且已安裝 Azure SDK 2.5，則必須先手動移除舊版本，再安裝最新版本。Visual Studio 2013 支援直接更新。
 
 ## 連線到 Azure 訂用帳戶
 「適用於 Visual Studio 的 HDInsight 工具」可讓您連線到您的 HDInsight 叢集、執行一些基本管理作業，以及執行 Hive 查詢。
@@ -181,7 +182,7 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 
 ### Tez Hive 工作效能圖表
 
-HDInsight Visual Studio 工具支援顯示由 Tez 執行引擎執行之 Hive 工作的效能圖形。如需啟用 Tez 的資訊，請參閱[使用 HDInsight 中的 Hive][hdinsight.hive]。您提交 Visual Studio 中的 Hive 工作之後，Visual Studio 會在工作完成時顯示圖形。請按一下 [重新整理] 按鈕，以取得最新的工作狀態。
+HDInsight Visual Studio 工具支援顯示由 Tez 執行引擎執行之 Hive 工作的效能圖形。如需啟用 Tez 的資訊，請參閱[在 HDInsight 中使用 Hive][hdinsight.hive]。您提交 Visual Studio 中的 Hive 工作之後，Visual Studio 會在工作完成時顯示圖形。請按一下 [重新整理] 按鈕，以取得最新的工作狀態。
 
 > [AZURE.NOTE]此功能只適用於高於 3.2.4.593 版的 HDInsight 叢集，且只能用於已完成的工作。這適用於以 Windows 和 Linux 為基礎的叢集。
 
@@ -236,4 +237,4 @@ HDInsight Tools for Visual Studio 支援建立 Pig 指令碼並提交至 HDInsig
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

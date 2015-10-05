@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### 透過管理入口網站安裝一般更新
 
@@ -11,4 +12,4 @@
 
     成功安裝更新時，系統將會通知您。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

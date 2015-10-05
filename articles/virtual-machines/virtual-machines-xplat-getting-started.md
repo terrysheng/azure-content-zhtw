@@ -1,11 +1,12 @@
 <properties
-   pageTitle="如何使用 Azure CLI 建立 Azure 虛擬機器 | Microsoft Azure"
+   pageTitle="如何使用 Azure CLI 建立 Azure VM | Microsoft Azure"
    description="本主題描述如何在任何平台上安裝 Azure CLI、如何使用它來連接到您的 Azure 帳戶，以及如何從 Azure CLI 建立 VM。"
    services="virtual-machines"
-   documentationCenter="virtual-machines"
+   documentationCenter=""
    authors="dlepow"
    manager="timlt"
-   editor="tysonn"/>
+   editor="tysonn"
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -17,6 +18,9 @@
    ms.author="danlep"/>
 
 # 使用 Azure 命令列介面 (Azure CLI) 建立 VM
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。您也可以使用[資源管理員部署模型](virtual-machines-deploy-rmtemplates-azure-cli.md)建立資源。
+
 Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。
 
 只安裝 Azure CLI 和擁有 Azure 訂用帳戶，並無法立即建立 VM，現在讓我們來說明這些步驟。如果您沒有 Azure 帳戶，[請取得免費帳戶](http://azure.microsoft.com/pricing/free-trial/)。
@@ -43,7 +47,7 @@ Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。
 
     您可以從這裡選擇映像，並使用 `show` 命令，更詳細地檢視其屬性：
 
-        azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-zh-tw-30GB
+        azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-zh-TW-30GB
 
 2. 一旦選擇 VM 映像之後，您就可使用 `vm create` 命令來建立映像。此命令有許多選項，您可以使用 `help` 命令來列出這些選項：
 
@@ -59,7 +63,7 @@ Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。
 
     The Linux example below creates a VM in West US, opens the default SSH port 22 (the -e argument), and creates a user called `myadminuser`:
 
-        azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-zh-tw-30GB "myadminuser" "myAdm1n@passwd"
+        azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-zh-TW-30GB "myadminuser" "myAdm1n@passwd"
 
 ## 後續步驟
 
@@ -69,9 +73,9 @@ Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。
 
     ssh myadminuser@my-new-cli-vm.cloudapp.net
 
-建議您前往《[Azure CLI 命令參考頁面](../virtual-machines-command-line-tools.md)》，以查看使用 Azure CLI 管理 Azure 的基礎結構的更多範例。
+建議您前往 [Azure CLI 命令參考頁面](../virtual-machines-command-line-tools.md)，以查看使用 Azure CLI 管理 Azure 的基礎結構的更多範例。
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

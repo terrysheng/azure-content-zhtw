@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure SQL Database 定價層建議" 
-   description="在 Azure 入口網站中變更定價層時，提供的各種定價層建議所建議的層是最適合執行現有 Azure SQL Database 的工作負載。" 
+   description="在 Azure 入口網站中變更定價層時，提供的各種定價層建議所建議的層是最適合執行現有 Azure SQL Database 的工作負載。定價層會說明 SQL Database 的服務層級和效能等級。" 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,19 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="06/30/2015"
+   ms.date="09/22/2015"
    ms.author="sstein"/>
 
 # SQL Database 定價層建議
 
- 在 Azure 入口網站中變更定價層時，提供的各種定價層建議所建議的層是最適合執行現有 Azure SQL Database 的工作負載。
+ 提供的各種定價層建議會針對最適合執行現有 Azure SQL Database 工作負載的服務層和效能等級提供建議。
 
-> [AZURE.NOTE]定價層建議僅適用於 Web 和 Business 資料庫，而且只有在 [Azure 入口網站](https://portal.azure.com/)中可看到建議。
+> [AZURE.NOTE]定價層建議僅適用於 Web 和 Business 資料庫，以及彈性資料庫集區，而且只有在 [Azure 預覽入口網站](https://portal.azure.com/)中才可看到建議。
+
+
+經由下列工作取得定價層建議：
+
+- [變更 SQL Database 的服務層級和效能等級 (定價層)](sql-database-scale-up.md)
+- [將 Azure SQL Server 升級至 V12](sql-database-v12-upgrade.md)
+- [建立彈性資料庫集區](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
 
 ## 概觀
 
-Azure 會評估 SQL Database 的歷程記錄資源使用狀況，藉此分析目前的效能和功能需求。此外，還會根據資料庫的大小決定至少可接受的服務層，並且啟用[商務持續性](https://msdn.microsoft.com/library/azure/hh852669.aspx)功能。
+SQL Database 服務會評估 SQL Database 的歷程記錄資源使用狀況，藉此分析目前的效能和功能需求。此外，還會根據資料庫的大小決定至少可接受的服務層，並且啟用[商務持續性](https://msdn.microsoft.com/library/azure/hh852669.aspx)功能。
 
 然後 Azure 會分析這項資訊，並且建議最適合的服務層和效能等級，以用於執行資料庫典型工作負載和維護其目前功能集。
 
@@ -45,9 +52,9 @@ Azure 會評估 SQL Database 的歷程記錄資源使用狀況，藉此分析目
 
 ## 取得定價層建議
 
-選取現有的 Web 或商務資料庫，然後按一下 [定價層] 磚，可取得定價層建議。
+選取現有的 Web 或商務資料庫，然後按一下 [定價層] 磚，可取得定價層建議。(當您[將 Azure SQL Server 升級至 V12](sql-database-v12-upgrade.md) 時也會獲得定價層建議。)
 
-1. 登入 [Azure 入口網站](https://portal.azure.com/)。
+1. 登入 [Azure 預覽入口網站](https://portal.azure.com/)。
 2. 按一下左側功能表中的 [瀏覽]。
 3. 按一下 [瀏覽] 刀鋒視窗中的 [SQL Database]。
 4. 在 [SQL Database] 刀鋒視窗中，按一下您想讓服務分析的資料庫。
@@ -90,4 +97,4 @@ Azure 會評估 SQL Database 的歷程記錄資源使用狀況，藉此分析目
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

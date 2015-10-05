@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="08/14/2015" 
 	ms.author="robmcm"/>
 
 #下載 Azure SDK for Java
@@ -22,4 +22,8 @@
 
 [AZURE.INCLUDE [download\_eclipse](../includes/download_eclipse.md)]
 
-<!---HONumber=August15_HO6-->
+## 後續步驟
+
+如需詳細資訊，請參閱 [Java 開發人員中心](/develop/java/)。
+
+<!---HONumber=Sept15_HO4-->

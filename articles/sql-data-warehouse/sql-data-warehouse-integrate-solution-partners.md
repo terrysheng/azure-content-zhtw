@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/07/2015"
+   ms.date="09/22/2015"
    ms.author="joliang"/>
 
-# SQL 資料倉儲解決方案合作夥伴 #
+# SQL 資料倉儲解決方案合作夥伴
 
 若要建立端對端資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。本文列出有提供 SQL 資料倉儲解決方案的合作夥伴公司。
 
@@ -46,6 +46,7 @@
 | ![Yellowfin][21] |**Yellowfin**<br>Yellowfin 獲得 BARC 的 BI 調查報告評選為臨機操作報告和儀表板方面最頂級的雲端 BI 廠商。連接到 Azure SQL 資料倉儲，然後以得獎的共同作業 BI 和位置智慧功能來建立和共用漂亮的報告和儀表板。 | [更多資訊][yellowfin_more] |
 
 ## 後續步驟
+
 若要深入了解與 SQL 資料倉儲整合，請參閱[使用 SQL 資料倉儲建置整合式解決方案][]。
 
 
@@ -100,4 +101,4 @@
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

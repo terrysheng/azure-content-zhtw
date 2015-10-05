@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/11/2015"
+	ms.date="09/18/2015"
 	ms.author="cabailey"/>
 #如何為 Azure 金鑰保存庫產生並傳輸受 HSM 保護的金鑰
 
@@ -106,18 +106,19 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 |亞洲|KeyVault-BYOK-Tools-AsiaPacific.zip|0C76967B3AC76687E4EA47EB96174EE6B25AB24E3114E28A90D9B93A2E6ABF6E|
 |拉丁美洲|KeyVault-BYOK-Tools-LatinAmerica.zip|B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48|
 |日本|KeyVault-BYOK-Tools-Japan.zip|DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113|
+|澳大利亞|KeyVault-BYOK-Tools-Australia.zip|8EBC69E58E809A67C036B50BB4F1130411AD87A7464E0D61A9E993C797915967|
 
-若要驗證您已下載之 BYOK 工具組的完整性，請從您的 Azure PowerShell 工作階段，使用 [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) cmdlet。
+若要驗證您已下載之 BYOK 工具組的完整性，請從您的 Azure PowerShell 工作階段，使用 [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) Cmdlet。
 
 	Get-FileHash KeyVault-BYOK-Tools-*.zip
 
 工具組包含下列各項：
 
-- 具有以 **BYOK-BYOK-KEK-PKG-** 開頭之名稱的金鑰互換金鑰 (KEK) 封裝。
-- 具有以 **BYOK-Byok-securityworld-pkg-** 開頭之名稱的安全世界封裝。
+- 具有以 **BYOK-KEK-pkg-** 做為開頭名稱的金鑰互換金鑰 (KEK) 封裝。
+- 具有以 **BYOK-SecurityWorld-pkg-** 做為開頭名稱的安全世界封裝。
 - 名為 v**erifykeypackage.py** 的 python 指令碼。
 - 名為 **KeyTransferRemote.exe** 的命令列可執行檔和相關聯的 DLL。
-- Visual C++ 可轉散發套件，名為 **vcredist\_x64.exe。**
+- Visual C++ 可轉散發套件，名為 **vcredist\_x64.exe**。
 
 將封裝複製到 USB 磁碟機或其他可攜式儲存裝置。
 
@@ -130,7 +131,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 在 Windows 電腦上安裝 nCipher (Thales) 支援軟體，然後將 Thales HSM 附加至該電腦。
 
-確定 Thales 工具位於您的路徑 (**%nfast\_home%\\bin** 和** %nfast\_home%\\python\\bin**)。例如，輸入下列內容：
+確定 Thales 工具位於您的路徑 (**%nfast\_home%\\bin** 和 ** %nfast\_home%\\python\\bin**)。例如，輸入下列內容：
 
 		set PATH=%PATH%;”%nfast_home%\bin”;”%nfast_home%\python\bin”
 
@@ -154,7 +155,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 	new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
 
-此程式會在 %NFAST\_KMDATA%\\local\\world 建立**安全世界**檔案，對應到 C:\\ProgramData\\nCipher\\Key Management Data\\local 資料夾。您可以使用不同的值進行仲裁，但是在我們的範例中，系統會提示您輸入三個空白的卡片和其個別的 pin。然後，任兩張卡片可提供安全世界的完整存取權。這些卡片將成為新安全世界的**系統管理員卡組**。
+此程式會在 %NFAST\_KMDATA%\\local\\world 建立**安全世界**檔案，並對應到 C:\\ProgramData\\nCipher\\Key Management Data\\local 資料夾。您可以使用不同的值進行仲裁，但是在我們的範例中，系統會提示您輸入三個空白的卡片和其個別的 pin。然後，任兩張卡片可提供安全世界的完整存取權。這些卡片將成為新安全世界的**系統管理員卡組**。
 
 然後執行以下動作：
 
@@ -188,12 +189,15 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 	- 日本：
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
+	- 澳大利亞：
+
+			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
 
 	>[AZURE.TIP]Thales 軟體包含 %NFAST\_HOME%\\python\\bin 中的 python
 	
-2.	確認您看到下列訊息，表示成功驗證：**結果：成功**
+2.	確認您看到下列訊息，表示驗證成功：**Result: SUCCESS**。
 
-此指令碼會驗證簽章者鏈結到 Thales 根金鑰。此根金鑰的雜湊內嵌於指令碼中，而且其值應為 **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**。您也可以造訪 [Thales 網站](http://www.thalesesec.com/)以分別確認此值。
+此指令碼會驗證簽章者鏈結到 Thales 根金鑰。此根金鑰的雜湊內嵌於指令碼中，而且其值應為 **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**。您也可以造訪 [Thales 網站](http://www.thalesesec.com/)以另行確認此值。
 
 您現在可以開始建立新的金鑰。
 
@@ -207,11 +211,11 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 當您執行此命令時，請使用下列指示：
 
-- 以任何字串值取代 **ident** 和 **contosokey** 之 *contosokey* 的值。若要將系統管理負擔降至最低並減少錯誤的風險，建議您同時對兩者使用相同的值。**Ident** 值只能包含數字、連字號和小寫字母。
+- 以任意字串值取代 **ident** 和 **plainname** 的 *contosokey* 值。若要將系統管理負擔降至最低並減少錯誤的風險，建議您同時對兩者使用相同的值。**ident** 值只能包含數字、連字號和小寫字母。
 
 - 在這個範例中，Pubexp 保留空白 (預設值)，但是您可以指定特定值。如需詳細資訊，請參閱 Thales 文件。
 
-此命令會在您的 %NFAST\_KMDATA%\\local 資料夾建立名稱開頭為 **key\_simple\_** 的語彙基元化金鑰檔案，其後跟隨在命令中指定的 ident。例如：**key\_simple\_contosokey**。此檔案包含已加密的金鑰。
+此命令會在您的 %NFAST\_KMDATA%\\local 資料夾建立名稱開頭為 **key\_simple\_** 的語彙基元化金鑰檔案，後面接著在命令中指定的 ident。例如：**key\_simple\_contosokey**。此檔案包含已加密的金鑰。
 
 在安全的位置備份此語彙基元化金鑰檔案。
 
@@ -242,12 +246,15 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 - 日本：
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-JPN-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-JPN-1
+- 澳大利亞：
+
+		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1
 
 當您執行此命令時，請以您從[產生您的金鑰](#step-3-generate-your-key)步驟的**步驟 3.3：建立新的金鑰**中指定的相同值取代 *contosokey*。
 
 系統會要求您插入您的安全世界系統管理員卡。
 
-此命令完成時，您會看到**結果：成功**，降低權限的金鑰複本會在名為 key\_xferacId\_ 的檔案中<contosokey>。
+此命令完成時，您會看到 **Result: SUCCESS**，而降低權限的金鑰複本會在名為 key\_xferacId\_ 的檔案中<contosokey>。
 
 ###步驟 4.2：檢查金鑰的新複本
 
@@ -280,6 +287,9 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 - 日本：
 
 		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-JPN-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-JPN-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+- 澳大利亞：
+
+		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
 當您執行此命令時，請使用下列指示：
 
@@ -289,7 +299,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 - 以用於輸出檔案名稱的標籤取代 *ContosoFirstHSMKey*。
 
-當此動作成功完成時，會顯示**結果：成功**，而且目前的資料夾中會有新的檔案，其名稱如下：*TransferPackage-ContosoFirstHSMkey*.byok
+當此動作成功完成時，會顯示 **Result: SUCCESS**，而且目前的資料夾中會有新的檔案，其名稱如下：TransferPackage-*ContosoFirstHSMkey*.byok
 
 ###步驟 4.4：將金鑰傳輸封裝複製到網際網路連線的工作站 
 
@@ -297,7 +307,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 ##步驟 5：將金鑰傳輸至 Azure 金鑰保存庫
 
-在最後一個步驟中，在網際網路連線的工作站上，使用 [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) cmdlet 來上傳您從中斷連線的工作站複製到 Azure 金鑰保存庫 HSM 的金鑰傳輸封裝：
+在最後一個步驟中，在網際網路連線的工作站上，使用 [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) Cmdlet 來上傳您從中斷連線的工作站複製到 Azure 金鑰保存庫 HSM 的金鑰傳輸封裝：
 
 	Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\TransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
 
@@ -307,4 +317,4 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 您現在可以在您的金鑰保存庫中使用這個受 HSM 保護的金鑰。如需詳細資訊，請參閱[開始使用 Azure 金鑰保存庫](key-vault-get-started.md)教學課程中的**如果您想要使用硬體安全模組 (HSM)** 一節。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

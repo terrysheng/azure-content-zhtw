@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services" 
-   ms.date="07/14/2015"
+   ms.date="09/22/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -34,19 +34,28 @@ Azure SQL Database 的所有連線，也就是任何時候只要資料需要「�
 
 ## 驗證
 
-「驗證」是指連線到資料庫時如何證明身分識別。SQL Database 目前支援使用使用者名稱和密碼的 SQL 驗證。
+「驗證」是指連線到資料庫時如何證明身分識別。SQL Database 支援兩種驗證類型：
 
-當您為資料庫建立邏輯伺服器時，採取使用者名稱和密碼指定了「伺服器管理員」登入。使用這些認證，您就可以使用資料庫擁有者或 "dbo" 的身分驗證該伺服器上的任何資料庫。
+ - **SQL 驗證**，它會使用使用者名稱和密碼
+ - **Azure Active Directory 驗證**，它會使用由 Azure Active Directory 管理的身分識別，並支援受管理和整合的網域
 
-不過，最好的作法是，您的應用程式應該使用不同的帳戶來驗證，因為萬一您的應用程式程式碼容易受到 SQL 插入式攻擊，您就可以限制授與應用程式的權限，並降低惡意活動的風險。建議的方法是建立[自主資料庫使用者](https://msdn.microsoft.com/library/ff929188)，讓您的應用程式採取使用者名稱和密碼直接與單一資料庫進行驗證。您可以藉由執行下列 T-SQL，在使用伺服器管理員登入連線到您的使用者資料庫時，建立自主資料庫使用者：
+當您為資料庫建立邏輯伺服器時，採取使用者名稱和密碼指定了「伺服器管理員」登入。使用這些認證，您就可以使用資料庫擁有者或 "dbo" 的身分驗證該伺服器上的任何資料庫。 如果您想要使用 Azure Active Directory 驗證，就必須建立另一個名為「Azure AD 管理員」的伺服器管理員，其能夠管理 Azure AD 使用者和群組。此管理員也可以執行一般伺服器管理員可執行的所有作業。如需如何建立 Azure AD 管理員以啟用 Azure Active Directory 驗證的逐步解說，請參閱[使用 Azure Active Directory 驗證連接到 SQL Database](sql-database-aad-authentication.md) 。
+
+最好的做法是，您的應用程式應該使用不同的帳戶來驗證，因為萬一應用程式的程式碼容易受到 SQL 插入式攻擊，您就可以限制授與應用程式的權限，並降低惡意活動的風險。建議的方法是建立[自主資料庫使用者](https://msdn.microsoft.com/library/ff929188)，讓您的 App 直接與單一資料庫進行驗證。您可以藉由執行下列 T-SQL 命令，在以伺服器管理員身分登入連線到您的使用者資料庫時，建立使用 SQL 驗證的自主資料庫使用者：
 
 ```
-CREATE USER ApplicationUser WITH PASSWORD = 'strong_password';
+CREATE USER ApplicationUser WITH PASSWORD = 'strong_password'; -- SQL Authentication
 ```
 
-應用程式的連接字串應該指定這個使用者名稱和密碼，而不是伺服器管理員登入來連線到資料庫。
+如果您建立了 Azure AD 管理員，就可以藉由執行下列 T-SQL 命令，在以 Azure AD 管理員身分登入連線到您的使用者資料庫時，建立使用 Azure Active Directory 驗證的自主資料庫使用者：
 
-如需驗證 SQL Database 的詳細資訊，請參閱[在 Azure SQL Database 中管理資料庫和登入](https://msdn.microsoft.com/library/ee336235)。
+```
+CREATE USER [Azure_AD_principal_name | Azure_AD_group_display_name] FROM EXTERNAL PROVIDER; -- Azure Active Directory Authentication
+```
+
+在這兩個案例中，應用程式的連接字串應該指定這些使用者認證 (而不是伺服器管理員登入)，以連線到資料庫。
+
+如需驗證 SQL Database 的詳細資訊，請參閱[在 Azure SQL Database 中管理資料庫和登入](sql-database-manage-logins.md)。
 
 
 ## Authorization
@@ -98,4 +107,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 除了上述可協助您的應用程式符合各種安全法規需求的特色和功能之外，Azure SQL Database 也定期參與稽核，並且經過認證符合許多法規標準。如需詳細資訊，請參閱 [Microsoft Azure 信任中心](http://azure.microsoft.com/support/trust-center/)，您可以在當中找到 [SQL Database 法規認證](http://azure.microsoft.com/support/trust-center/services/)的最新清單。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

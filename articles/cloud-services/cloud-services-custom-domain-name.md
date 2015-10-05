@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在雲端服務中設定自訂網域名稱"
+	pageTitle="在雲端服務中設定自訂網域名稱 | Microsoft Azure"
 	description="了解如何設定 DNS 設定在自訂網域上公開 Azure 應用程式或資料。"
 	services="cloud-services"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 # 設定 Azure 雲端服務的自訂網域名稱
@@ -23,7 +23,7 @@
 - [Azure Preview Portal](cloud-services-custom-domain-name-portal.md)
 
 
-當您建立雲端服務時，Azure 會將它指派給 cloudapp.net 的子網域。例如，如果您的雲端服務的名稱為「contoso」，您的使用者可以透過類似 http://&lt;*contoso*>.cloudapp.net 的 URL 存取您的應用程式。Azure 也會指派虛擬 IP 位址。
+當您建立雲端服務時，Azure 會將它指派給 cloudapp.net 的子網域。例如，如果雲端服務的名稱為 "contoso"，您的使用者可以透過類似 http://contoso.cloudapp.net 的 URL 存取您的應用程式。Azure 也會指派虛擬 IP 位址。
 
 不過，您也可以在自己的網域名稱 (例如 contoso.com) 上公開您的應用程式。本文說明如何保留或設定雲端服務 Web 角色的自訂網域名稱。
 
@@ -145,8 +145,14 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 
 ## 後續步驟
 
--   [如何管理雲端服務](cloud-services-how-to-manage.md)
--   [如何將 CDN 內容對應至自訂網域](http://msdn.microsoft.com/library/windowsazure/gg680307.aspx)
+* [如何管理雲端服務](cloud-services-how-to-manage.md)
+* [如何將 CDN 內容對應至自訂網域](cdn-map-content-to-custom-domain.md)
+* [雲端服務的一般設定](cloud-services-how-to-configure.md)。
+* 了解如何[部署雲端服務](cloud-services-how-to-create-deploy.md)。
+* 設定 [SSL 憑證](cloud-services-configure-ssl-certificate.md)。
+
+
+
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
@@ -159,4 +165,4 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

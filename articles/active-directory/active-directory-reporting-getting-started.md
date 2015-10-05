@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure AD 報告：開始使用"
-   description="Azure AD 報告：開始使用"
+   description="在 Azure Active Directory 報告列出各種可用的報告"
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="mbaldwin"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/30/2015"
+   ms.date="09/21/2015"
    ms.author="curtand;kenhoff"/>
 
 # 開始使用 Azure AD 報告
@@ -156,4 +156,4 @@ Azure Active Directory 包括您的目錄的安全性、活動和稽核報告。
 
 > [AZURE.TIP]如需有關 Azure AD 報告的更多文件，請參閱[檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

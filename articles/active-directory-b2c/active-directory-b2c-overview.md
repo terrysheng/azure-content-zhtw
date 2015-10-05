@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：在您的應用程式中註冊與登入取用者
@@ -62,4 +62,4 @@ Azure Active Directory B2C 處於預覽版狀態。我們冀望在此期間能�
 - [Azure Active Directory B2C 常見問題集](active-directory-b2c-faqs.md)
 - [針對 Azure Active Directory B2C 的檔案支援要求](active-directory-b2c-support.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

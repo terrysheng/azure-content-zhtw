@@ -1,17 +1,17 @@
 <properties
-	pageTitle="如何重設 Windows 虛擬機器的密碼或遠端桌面服務"
-	description="使用 Azure Preview 入口網站或 PowerShell 命令，快速重設 Windows 虛擬機器的本機系統管理員密碼或遠端桌面服務。"
+	pageTitle="在 Windows VM 上重設密碼或遠端桌面 | Microsoft Azure"
+	description="在使用資源管理員部署模型建立的 Windows VM 上，重設管理員密碼或遠端桌面服務。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
@@ -19,18 +19,18 @@
 
 # 如何重設 Windows 虛擬機器的密碼或遠端桌面服務
 
-如果您因為忘記密碼或遠端桌面服務組態有問題，而無法連線至 Windows 虛擬機器，請使用 Azure Preview 入口網站或 VMAccess 延伸模組，來重設本機系統管理員密碼或重設遠端桌面服務組態。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型建立的虛擬機器。
 
-> [AZURE.NOTE]這篇文章並不適用於 Azure 資源管理員中建立的虛擬機器。
+如果您因為忘記密碼或遠端桌面服務組態有問題，而無法連線至 Windows 虛擬機器，請使用 Azure Preview 入口網站或 VMAccess 延伸模組，來重設本機系統管理員密碼或重設遠端桌面服務組態。
 
 ## Preview 入口網站
 
-若要在 [Preview 入口網站](https://portal.azure.com)中重設遠端桌面服務，可依序按一下 [**全部瀏覽**] > [**虛擬機器 (傳統)**] > *您的 Windows 虛擬機器* > [**重設遠端存取**]。下列頁面隨即出現。
+若要在[預覽入口網站](https://portal.azure.com)中重設遠端桌面服務，可依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > *您的 Windows 虛擬機器* > [重設遠端存取]。下列頁面隨即出現。
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-若要在 [Preview 入口網站](https://portal.azure.com)中重設本機系統管理員帳戶的名稱和密碼，可依序按一下 [**全部瀏覽**] > [**虛擬機器 (傳統)**] > *您的 Windows 虛擬機器* > [**所有設定**] > [**密碼重設**]。下列頁面隨即出現。
+若要在[預覽入口網站](https://portal.azure.com)中重設本機系統管理員帳戶的名稱和密碼，可依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > *您的 Windows 虛擬機器* > [所有設定] > [密碼重設]。下列頁面隨即出現。
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -39,7 +39,7 @@
 
 在開始之前，您將需要下列項目：
 
-- Azure PowerShell 模組 0.8.5 版或更新版本。您可以使用 **Get-Module azure | format-table version** 命令，來檢查已安裝的 Azure PowerShell 版本。如需最新版本的指示與連結，請參閱[如何安裝和設定 Azure PowerShell](http://go.microsoft.com/fwlink/p/?linkid=320552&clcid=0x409)。
+- Azure PowerShell 模組 0.8.5 版或更新版本。您可以使用 **Get-Module azure | format-table version** 命令檢查已安裝的 Azure PowerShell 版本。如需最新版本的指示與連結，請參閱[如何安裝和設定 Azure PowerShell](http://go.microsoft.com/fwlink/p/?linkid=320552&clcid=0x409)。
 - 新的本機系統管理員帳戶密碼。如果您想要重設遠端桌面服務組態，則無需此資訊。
 - VM 代理程式。
 
@@ -100,7 +100,7 @@ VMAccess 延伸項目會在虛擬機器上執行這兩個命令：
 1.	在診斷封裝中，按一下 **Microsoft Azure IaaS (Windows) 診斷封裝**，即可建立新的診斷工作階段。
 2.	在**您的 Azure VM 遇到下列哪些問題？**頁面上，選取 **RDP 連線至 Azure VM (需要重新開機)** 問題。
 
-如需詳細資訊，請參閱 [Microsoft Azure IaaS (Windows) 診斷封裝](http://support.microsoft.com/kb/2976864)知識庫文件。
+如需詳細資訊，請參閱 [Microsoft Azure IaaS (Windows) 診斷封裝](http://support.microsoft.com/kb/2976864)知識庫文章。
 
 如果您無法執行 Azure IaaS (Windows) 診斷封裝或執行後仍未解決您的問題，請參閱[疑難排解遠端桌面連線至 Windows 架構 Azure 虛擬機器](virtual-machines-troubleshoot-remote-desktop-connections.md)。
 
@@ -113,4 +113,4 @@ VMAccess 延伸項目會在虛擬機器上執行這兩個命令：
 
 [疑難排解以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

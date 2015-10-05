@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何設定雲端服務 | Microsoft Azure"
-	description="了解如何在 Azure 中設定雲端服務。了解更新雲端服務組態和設定角色執行個體的遠端存取。"
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
+	pageTitle="如何設定雲端服務 (Preview 入口網站) | Microsoft Azure" 
+	description="了解如何在 Azure 中設定雲端服務。了解更新雲端服務組態和設定角色執行個體的遠端存取。這些範例使用 Azure Preview 入口網站。" 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -85,8 +85,13 @@
 
 ## 設定對角色執行個體的遠端存取
 
-您無法使用 **Azure Preview 入口網站**設定遠端存取，只能透過[非預覽入口網站](http://manage.windowsazure.com/)變更此設定。[這裡](cloud-services-role-enable-remote-desktop.md)有詳細說明。
+您無法使用 **Azure Preview 入口網站**設定遠端存取，只能透過[非預覽入口網站](http://manage.windowsazure.com/)變更此設定。[這裡](cloud-services-role-enable-remote-desktop.md)有相關描述。
 			
- 
+## 後續步驟
 
-<!---HONumber=September15_HO1-->
+* 了解如何[部署雲端服務](cloud-services-how-to-create-deploy-portal.md)。
+* 設定[自訂網域名稱](cloud-services-custom-domain-name-portal.md)。
+* [管理您的雲端服務](cloud-services-how-to-manage-portal.md)。
+* 設定 [SSL 憑證](cloud-services-configure-ssl-certificate-portal.md)。
+
+<!---HONumber=Sept15_HO4-->

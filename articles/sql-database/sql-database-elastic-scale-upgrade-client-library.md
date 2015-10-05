@@ -1,6 +1,7 @@
-<properties 
-	pageTitle="升級至最新的彈性資料庫用戶端程式庫" 
-	description="使用 PowerShell 和 C# 升級指示" 
+<properties
+	
+	pageTitle="Upgrade to the latest elastic database client library" 
+	description="Upgrade apps and libraries using Nuget" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
@@ -12,23 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2015" 
+	ms.date="09/22/2015" 
 	ms.author="sidneyh" />
 
 # 升級至最新的彈性資料庫用戶端程式庫
 
 新版本的彈性資料庫用戶端程式庫是透過 Visual Studio 中的 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) 和 NuGetPackage Manager 介面提供。升級包含用戶端程式庫的錯誤修正以及對新功能的支援。
 
+使用新的程式庫重新建置您的應用程式，以及變更您 Azure SQL Databases 中儲存的現有分區對應管理員中繼資料以支援新功能。
+
+依照順序執行步驟可確保在更新中繼資料物件時，舊版用戶端程式庫不會再於您的環境中出現，這表示升級之後將不會再建立舊版中繼資料物件。
+
 ## 升級步驟
-
-升級會要求您使用新的程式庫重新建置您的應用程式，以及變更您 Azure SQL Databases 中儲存的現有分區對應管理員中繼資料以支援新功能。
-
-請依照下面的順序升級您每個分區中的應用程式、分區對應管理員資料庫，以及本機分區對應管理員中繼資料。依照此順序執行升級步驟可確保在更新中繼資料物件時，舊版用戶端程式庫不會再於您的環境中出現，這表示升級之後將不會再建立舊版中繼資料物件。
 
 **1.升級您的應用程式。** 在 Visual Studio 中，將最新的用戶端程式庫版本下載到您所有使用程式庫的開發專案中，並加以參照；然後重新建置及部署。
 
  * 在您的 Visual Studio 解決方案中，依序選取 [工具] --> [NuGet Package Manager] --> [管理解決方案的 NuGet Packages]。 
- * 在左邊面板中，選取 [更新]，然後在視窗中顯示的 [Azure SQL Database Elastic Scale 用戶端程式庫]套件上選取 [更新]按鈕。![升級 Nuget Pacakges][1]
+ * (Visual Studio 2013) 在左邊面板中，選取 [更新]，然後在視窗中顯示的 [Azure SQL Database Elastic Scale 用戶端程式庫]套件上選取 [更新]按鈕。
+ * (Visual Studio 2015) 設定篩選方塊為 [可升級]。選取要更新的套件，然後按一下 [更新] 按鈕。
+	
  
  * 建置並部署。
 
@@ -94,4 +97,4 @@
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

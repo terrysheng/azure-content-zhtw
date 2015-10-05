@@ -1,17 +1,18 @@
 <properties
-	pageTitle="Ubuntu 資源管理員範本上的 Spark"
-	description="了解如何使用 Azure PowerShell 或 Azure CLI 搭配 Azure 資源管理員範本，在 Ubuntu VM 上輕鬆部署新的 Spark 叢集"
+	pageTitle="Ubuntu 資源管理員範本上的 Spark | Microsoft Azure"
+	description="如何使用 Azure PowerShell 或 Azure CLI 搭配 Azure 資源管理員範本，在 Ubuntu VM 上部署新的 Spark 叢集"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="paolosalvatori"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="vm-linux"
 	ms.workload="multiple"
 	ms.date="05/16/2015"
 	ms.author="paolosalvatori"/>
@@ -20,11 +21,14 @@
 
 Apache Spark 是進行大規模資料處理的快速引擎。Spark 有支援循環資料流程和記憶體內部計算的進階 DAG 執行引擎，而且它可以存取不同的資料來源，包括 HDFS、Spark、HBase 和 S3。
 
-除了在 Mesos 或 YARN 叢集管理員上執行，Spark 也提供簡單的獨立部署模式。這個教學課程將逐步引導您使用範例 Azure 資源管理員範本，以透過 [Azure PowerShell](../powershell-install-configure.md) 或 [Azure CLI](../xplat-cli.md) 在 Ubuntu VM 上部署 Spark 叢集。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何以資源管理員部署模型部署資源。您無法以傳統部署模型部署此資源。
+
+
+除了在 Mesos 或 YARN 叢集管理員上執行，Spark 也提供簡單的獨立部署模式。本教學課程將逐步引導您使用範例 Azure 資源管理員範本，以透過 [Azure PowerShell](../powershell-install-configure.md) 或 [Azure CLI](../xplat-cli.md) 在 Ubuntu VM 上部署 Spark 叢集。
 
 這個範本會在 Ubuntu 虛擬機器上部署 Spark 叢集。這個範本也會佈建安裝所需的儲存體帳戶、虛擬網路、可用性設定組、公用 IP 位址和網路介面。Spark 叢集是建立在子網路後面，因此，不會有公用 IP 可存取叢集。您可以在部署期間，選擇部署「跳躍箱」。這個「跳躍箱」也是部署於子網路中的 Ubuntu VM，但是它*會*使用您可以連節的公開 SSH 連接埠來公開公用 IP 位址。接著，從「跳躍箱」，您可以 SSH 到子網路中的所有 Spark VM。
 
-這個範本會利用「T 恤尺寸」概念，來指定「小型」、「中型」或「大型」Spark 叢集設定。當範本語言支援多個動態範本大小設定時，這可以變更來指定 Spark 叢集主要節點和從屬節點的數目、VM 大小等項目。從現在開始，您可以查看檔案 azuredeploy.json 中，以變數 **tshirtSizeS**、**tshirtSizeM** 和 **tshirtSizeL** 定義的 VM 大小與主要和從屬的數目：
+這個範本會利用「T 恤尺寸」概念，來指定「小型」、「中型」或「大型」Spark 叢集設定。當範本語言支援多個動態範本大小設定時，這可以變更來指定 Spark 叢集主要節點和從屬節點的數目、VM 大小等項目。現在您可以查看檔案 azuredeploy.json 中，以變數 **tshirtSizeS**、**tshirtSizeM** 和 **tshirtSizeL** 定義的 VM 大小與主要和從屬節點的數目：
 
 - S：1 主要，1 從屬
 - M：1 主要，4 從屬
@@ -43,7 +47,7 @@ Apache Spark 是進行大規模資料處理的快速引擎。Spark 有支援循�
 -	四個從屬節點，在與主要節點相同的虛擬子網路和可用性設定組中執行。
 -	位於相同虛擬網路和子網路的跳躍箱 VM，可以用來存取叢集。
 
-Spark 3.0.0 版為預設版本，而且可以變更為 Spark 儲存機制上可用的任何預先建置之二進位檔。另外還有指令碼中的佈建，可從來源取消註解組建。靜態 IP 位址將指派給每個 Spark 主要節點：10.0.0.10。靜態 IP 位址將指派給每個 Spark 從屬節點，以便解決目前無法從範本內動態撰寫 IP 位址清單的限制。(根據預設，第一個節點將獲指派私人 IP 位址 10.0.0.30，而第二個節點將獲指派 10.0.0.31，依此類推)。 若要檢查部署錯誤，請移至新的 Azure 入口網站，然後查看 **資源群組** > **最後部署** > **檢查作業詳細資料**。
+Spark 3.0.0 版為預設版本，而且可以變更為 Spark 儲存機制上可用的任何預先建置之二進位檔。另外還有指令碼中的佈建，可從來源取消註解組建。靜態 IP 位址將指派給每個 Spark 主要節點：10.0.0.10。靜態 IP 位址將指派給每個 Spark 從屬節點，以便解決目前無法從範本內動態撰寫 IP 位址清單的限制。(根據預設，第一個節點將獲指派私人 IP 位址 10.0.0.30，而第二個節點將獲指派 10.0.0.31，依此類推)。 若要檢查部署錯誤，請移至新的 Azure 入口網站，然後查看 [資源群組] > [最後部署] > [檢查作業詳細資料]。
 
 在深入了解與 Azure 資源管理員和將針對此次部署使用之範本的詳細資訊之前，請確定您已正確設定 Azure PowerShell 或 Azure CLI。
 
@@ -91,7 +95,7 @@ foreach ($file in $files)
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-完成複製時，請尋找 C:\\Azure\\Templates 目錄中的 **spark-on-ubuntu** 資料夾。
+完成複製後，請尋找 C:\\Azure\\Templates 目錄中的 **spark-on-ubuntu** 資料夾。
 
 ### 步驟 2：(選用) 了解範本參數
 
@@ -242,7 +246,7 @@ foreach ($file in $files)
 
 藉由建立 JSON 檔案 (其中包含適用於所有參數的執行階段值)，來為您的部署準備參數檔案。接著將此檔案當成單一實體傳遞給部署命令。如果未包含參數檔案，Azure PowerShell 將使用範本中指定的任何預設值，然後提示您填寫剩餘的值。
 
-以下是來自 azuredeploy-parameters.json 檔案的參數集範例。請注意，您必須為參數 **storageAccountName**、**adminUsername** 及 **adminPassword** 提供有效值，以及為其他參數提供任何自訂：
+以下是來自 azuredeploy-parameters.json 檔案的參數集範例。請注意，您必須為參數 **storageAccountName**、**adminUsername** 及 **adminPassword** 提供有效值，以及為其他參數提供任何自訂項：
 
 ```json
 {
@@ -379,9 +383,9 @@ Parameters        :
 
 若要這樣做，請移至 [Azure 入口網站](https://portal.azure.com)，然後執行下列動作：
 
-- 按一下左側導覽列上的 **[瀏覽]**，然後向下捲動並按一下 **[資源群組]**。
+- 按一下左側導覽列上的 [瀏覽]，然後向下捲動並按一下 [資源群組]。
 - 按一下剛建立的資源群組，以顯示 [資源群組] 刀鋒視窗。
-- 在 [資源群組] 刀鋒視窗的 [**監視**] 部分中，按一下 [**事件**] 長條圖，就能看見部署的事件。
+- 在 [資源群組] 刀鋒視窗的 [監視] 部分中，按一下 [事件] 長條圖，就能看見部署的事件。
 - 按一下個別事件，您可以進一步查看不是由範本親自進行的各項操作的詳細資料。
 
 ![portal-events](media/virtual-machines-spark-template/portal-events.png)
@@ -486,7 +490,7 @@ azuredeploy.json 的 "parameters" 區段會指定此範本中所使用的可修�
 },
 ```
 
-**vmStorageAccountContainerName** 是簡單名稱/值變數的範例。**vnetID** 是在執行階段使用函式 **resourceId** 和 **parameters** 計算的變數範例。**numberOfMasterInstances** 和 **vmSize** 變數的值會在執行階段使用 **concat**、**variables** 和 **parameters** 函式計算。
+**vmStorageAccountContainerName** 是簡單名稱/值變數的範例。**vnetID** 是在執行階段使用函式 **resourceId** 和 **parameters** 計算的變數範例。**numberOfMasterInstances** 和 **vmSize** 變數的值是在執行階段使用 **concat**、**variables** 和 **parameters** 函式計算而得的。
 
 如果您想要自訂 Spark 叢集部署的大小，則可在 azuredeploy.json 範本中變更變數 **tshirtSizeS**、**tshirtSizeM** 和 **tshirtSizeL** 的屬性。
 
@@ -817,7 +821,7 @@ azuredeploy.json 的 "parameters" 區段會指定此範本中所使用的可修�
 }
 ```
 
-請注意，主要和從屬節點資源的延伸模組會在佈建程序期間執行不同的命令，這些命令定義於 **commandToExecute 屬性** 中。
+請注意，主要和從屬節點資源的擴充功能會在佈建程序期間執行不同的命令，這些命令定義於 **commandToExecute** 屬性 中。
 
 如果您查看最新的虛擬機器延伸模組的 JSON 程式碼片段，可以看到此資源相依於虛擬機器資源和其網路介面。這表示已先部署這些兩個資源必須，然後才能佈建和執行此 VM 延伸模組。也請注意，使用 **copyindex()** 函數，針對每個從屬虛擬機器重複此步驟。
 
@@ -843,4 +847,4 @@ azuredeploy.json 的 "parameters" 區段會指定此範本中所使用的可修�
 
 [疑難排解範本部署](resource-group-deploy-debug.md)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

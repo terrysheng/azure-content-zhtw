@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="開始使用 Android 上的資料 (JavaScript 後端) | Microsoft Azure" 
-	description="了解如何開始使用行動服務，以利用您 Android 應用程式中的資料 (JavaScript 後端)。" 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="開始使用 Android 上的資料 (JavaScript 後端) | Microsoft Azure"
+	description="了解如何開始使用行動服務，以利用您 Android 應用程式中的資料 (JavaScript 後端)。"
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="09/16/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="09/23/2015"
 	ms.author="ricksal"/>
 
 # 將行動服務新增至現有的 Android 應用程式(JavaScript 後端)
@@ -46,6 +46,10 @@
 
 - [Azure 行動服務 Android SDK]；
 - <a  href="https://developer.android.com/sdk/index.html" target="_blank">Android Studio 整合式開發環境</a>，其中包括 Android SDK 以及 Android 4.2 或更新版本。下載的 GetStartedWithData 專案需要 Android 4.2 或更新版本。不過，Mobile Services SDK 只需要 Android 2.2 或更新版本。
+
+## 範例程式碼
+
+若要檢視已完成的原始程式碼，請前往<a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/AndroidStudio">這裡</a>。
 
 ## 下載 GetStartedWithData 專案
 
@@ -87,26 +91,18 @@
 4. 按一下 [資料] 索引標籤，然後按一下 [瀏覽]。
 
    	![][9]
-  
+
    	請注意，**TodoItem** 資料表現在包含資料和行動服務產生的一些值，且資料行已自動加入至資料表，以符合應用程式中的 TodoItem 類別。
 
 Android 的**開始使用資料**教學課程到此結束。
 
 ## 疑難排解
 
-###驗證 Android SDK 版本
+### 驗證 Android SDK 版本
 
 [AZURE.INCLUDE [確認 SDK](../../includes/mobile-services-verify-android-sdk-version.md)]
 
 
-## 舊版程式碼
-
-如果您想要查看本教學課程的 Eclipse 版本，請移至： 
-[開始透過 Eclipse 使用資料](mobile-services-android-get-started-data-EC.md)。
-
-若要查看 Eclipse 專案中完整版的原始程式碼，請移至<a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">這裡</a>。
-
-如果想要取得前一版 Azure Mobile Services Android SDK 中使用的範例檔案，您可以在[這裡](http://go.microsoft.com/fwlink/p/?LinkID=282122)取得。
 
 ## 後續步驟
 
@@ -150,7 +146,6 @@ Android 的**開始使用資料**教學課程到此結束。
 [使用分頁縮小查詢範圍]: /develop/mobile/tutorials/add-paging-to-data-android
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-android
-[Get started with data (Eclipse)]: /documentation/articles/mobile-services-android-get-started-data-EC/
 [開始使用驗證]: /develop/mobile/tutorials/get-started-with-users-android
 [開始使用推送通知]: /develop/mobile/tutorials/get-started-with-push-android
 
@@ -159,6 +154,5 @@ Android 的**開始使用資料**教學課程到此結束。
 [Azure 行動服務 Android SDK]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
- 
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

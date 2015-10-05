@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="如何管理雲端服務 | Microsoft Azure" 
-	description="了解如何在 Azure Preview 入口網站中管理雲端服務。" 
+	pageTitle="如何管理雲端服務 (Preview 入口網站) | Microsoft Azure" 
+	description="了解如何在 Azure Preview 入口網站中管理雲端服務。這些範例使用 Azure Preview 入口網站。" 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -106,4 +106,11 @@ Azure Preview 入口網站不會像目前 Azure 入口網站一樣將資源連�
 
 [Azure Preview 入口網站]: https://portal.azure.com
 
-<!---HONumber=August15_HO7-->
+## 後續步驟
+
+* [雲端服務的一般設定](cloud-services-how-to-configure-portal.md)。
+* 了解如何[部署雲端服務](cloud-services-how-to-create-deploy-portal.md)。
+* 設定[自訂網域名稱](cloud-services-custom-domain-name-portal.md)。
+* 設定 [SSL 憑證](cloud-services-configure-ssl-certificate-portal.md)。
+
+<!---HONumber=Sept15_HO4-->

@@ -1,12 +1,13 @@
-<properties 
-   pageTitle="Azure 虛擬機器中的 SQL Server 自動備份"
+<properties
+   pageTitle="SQL Server 虛擬機器的自動備份 | Microsoft Azure"
    description="針對在 Azure 虛擬機器中執行的 SQL Server，說明自動備份功能。"
    services="virtual-machines"
    documentationCenter="na"
    authors="rothja"
    manager="jeffreyg"
-   editor="monicar" />
-<tags 
+   editor="monicar"
+   tags="azure-resource-manager" />
+<tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
@@ -17,9 +18,12 @@
 
 # Azure 虛擬機器中的 SQL Server 自動備份
 
-自動備份會針對執行 SQL Server 2014 Standard 或 Enterprise 之 Azure VM 上所有現存和新的資料庫，自動設定 [Managed Backup 到 Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx)。這可讓您設定採用持久性 Azure Blob 儲存體的一般資料庫備份。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型管理資源。
 
->[AZURE.NOTE]自動備份相依於 SQL Server IaaS 代理程式。若要安裝並設定該代理程式，您必須要有在目標虛擬機器上執行的 Azure VM 代理程式。較新的虛擬機器資源庫映像預設會啟用此選項，但現有的 VM 上可能會遺失了 Azure VM 代理程式。如果您正在使用自己的 VM 映像，也需要安裝 SQL Server IaaS 代理程式。如需詳細資訊，請參閱 [VM 代理程式和延伸模組](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)。
+
+自動備份會針對執行 SQL Server 2014 Standard 或 Enterprise 之 Azure VM 上所有現有和新的資料庫，自動設定 [Managed Backup 到 Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx)。這可讓您設定採用持久性 Azure Blob 儲存體的一般資料庫備份。
+
+>[AZURE.NOTE]自動備份相依於 SQL Server IaaS 代理程式。若要安裝並設定該代理程式，您必須要有在目標虛擬機器上執行的 Azure VM 代理程式。較新的虛擬機器資源庫映像預設會啟用此選項，但現有的 VM 上可能會遺失了 Azure VM 代理程式。如果您正在使用自己的 VM 映像，也需要安裝 SQL Server IaaS 代理程式。如需詳細資訊，請參閱 [VM 代理程式和擴充功能](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)。
 
 ## 自動備份設定
 
@@ -35,7 +39,7 @@
 
 ## 在入口網站中設定自動備份
 
-在建立新的 SQL Server 2014 虛擬機器時，您可以使用 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409)來設定自動備份。下列螢幕擷取畫面顯示 **[選擇性組態]** | **[SQL 自動備份]** 下的這些選項。
+在建立新的 SQL Server 2014 虛擬機器時，您可以使用 [Azure 預覽入口網站](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409)來設定自動備份。下列螢幕擷取畫面顯示 [選擇性組態] | [SQL 自動備份] 下的這些選項。
 
 ![Azure 入口網站中的 SQL 自動備份組態](./media/virtual-machines-sql-server-automated-backup/IC778483.jpg)
 
@@ -53,7 +57,7 @@
     $storageaccountkey = (Get-AzureStorageKey -StorageAccountName $storageaccount).Primary
     $storagecontext = New-AzureStorageContext -StorageAccountName $storageaccount -StorageAccountKey $storageaccountkey
     $autobackupconfig = New-AzureVMSqlServerAutoBackupConfig -StorageContext $storagecontext -Enable -RetentionPeriod 10
-    
+
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -AutoBackupSettings $autobackupconfig | Update-AzureVM
 
 可能需要幾分鐘的時間來安裝及設定 SQL Server IaaS 代理程式。
@@ -66,8 +70,8 @@
     $password = "P@ssw0rd"
     $encryptionpassword = $password | ConvertTo-SecureString -AsPlainText -Force  
     $autobackupconfig = New-AzureVMSqlServerAutoBackupConfig -StorageContext $storagecontext -Enable -RetentionPeriod 10 -EnableEncryption -CertificatePassword $encryptionpassword
-    
-    Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -AutoBackupSettings $autobackupconfig | Update-AzureVM 
+
+    Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -AutoBackupSettings $autobackupconfig | Update-AzureVM
 
 若要停用自動備份，請執行相同的指令碼，但不要對 **New-AzureVMSqlServerAutoBackupConfig** 使用 **-Enable** 參數。和安裝一樣，可能需要幾分鐘的時間來停用自動備份。
 
@@ -81,7 +85,7 @@
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension –Uninstall | Update-AzureVM
 
-您也可以使用 **Remove-AzureVMSqlServerExtension** 命令來解除安裝延伸模組：
+您也可以使用 **Remove-AzureVMSqlServerExtension** 命令來解除安裝擴充功能：
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Remove-AzureVMSqlServerExtension | Update-AzureVM
 
@@ -101,12 +105,12 @@
 
 ## 後續步驟
 
-自動備份會在 Azure VM 上設定受管理備份。因此，請務必[檢閱受管理備份的文件](https://msdn.microsoft.com/library/dn449496.aspx)，以了解其行為和隱含意義。
+自動備份會在 Azure VM 上設定受管理備份。因此，請務必[檢閱 Managed Backup 的文件](https://msdn.microsoft.com/library/dn449496.aspx)，以了解其行為和隱含意義。
 
-您可以在下列主題中找到 Azure VM 上之 SQL Server 的其他備份和還原指引：[備份和還原 Azure 虛擬機器中的 SQL Server](virtual-machines-sql-server-backup-and-restore.md)。
+您可以在下列主題中找到 Azure VM 上 SQL Server 的其他備份和還原指引：[Azure 虛擬機器中的 SQL Server 備份和還原](virtual-machines-sql-server-backup-and-restore.md)。
 
 Azure 中的 SQL Server VM 相關功能為 [Azure 虛擬機器中的 SQL Server 自動修補](virtual-machines-sql-server-automated-patching.md)。
 
 請檢閱其他[在 Azure 虛擬機器中執行 SQL Server 的資源](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

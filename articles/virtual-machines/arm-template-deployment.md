@@ -1,12 +1,12 @@
 <properties
-	pageTitle="使用範本部署 Azure 資源"
-	description="了解如何使用 Azure 資源管理程式庫中一些可用的用戶端部署虛擬機器、虛擬網路和儲存體帳戶"
+	pageTitle="使用範本部署 Azure 資源 | Microsoft Azure"
+	description="了解如何使用 Azure 資源管理程式庫中可用的部分用戶端，以部署虛擬機器、虛擬網路和儲存體帳戶。"
 	services="virtual-machines,virtual-networks,storage"
 	documentationCenter=""
 	authors="davidmu1"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-resource-manager/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -18,6 +18,8 @@
 	ms.author="davidmu"/>
 
 # 使用 .NET 程式庫和範本部署 Azure 資源
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何以資源管理員部署模型建立資源。
 
 藉由使用資源群組和範本，您可以管理所有能夠一起支援您的應用程式的資源。本教學課程將示範如何使用 Azure 資源管理程式庫中可用的部分用戶端，以及如何建立範本以部署虛擬機器、虛擬網路和儲存體帳戶。
 
@@ -451,4 +453,4 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 	![建立 AD 應用程式](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用虛擬網路延伸 HDInsight | Microsoft Azure"
+	pageTitle="使用虛擬網路延伸 HDInsight | Microsoft Azure"  
 	description="了解如何使用 Azure 虛擬網路將 HDInsight 連接到其他雲端資源或您的資料中心內的資源"
 	services="hdinsight"
 	documentationCenter=""
@@ -9,12 +9,12 @@
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="07/06/2015"
-	ms.author="larryfr"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="09/23/2015"
+   ms.author="larryfr"/>
 
 
 #使用 Azure 虛擬網路延伸 HDInsight 功能
@@ -173,4 +173,4 @@ HDInsight 叢集會被指派特定的虛擬網路介面完整網域名稱 (FQDN)
 
 若要深入了解 Azure 虛擬網路，請參閱 [Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

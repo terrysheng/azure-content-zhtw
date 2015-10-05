@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
 
 # SQL 資料倉儲的彈性效能與延展性
@@ -93,4 +93,4 @@ Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Se
 
 [Azure 入口網站]: http://portal.azure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

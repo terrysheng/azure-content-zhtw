@@ -183,7 +183,7 @@ Azure 雲端服務可以有一或多個背景工作角色或 web 角色。您必
 
 ## 管理每個角色執行個體的本機儲存體
 
-您可以為角色的每個執行個體新增本機檔案系統儲存體。您可以在此儲存其他角色不需要存取的本機資料。您不需要儲存至資料表、blob 或 SQL Database 儲存體的任何資料都可以儲存在這裡。例如，您可以使用這個本機儲存體快取可能需要再次使用的資料。角色的其他執行個體無法存取在此儲存的資料。如需有關本機儲存體資源的詳細資訊，請參閱[設定本機儲存體資源](https://msdn.microsoft.com/library/azure/ee758708)。
+您可以為角色的每個執行個體新增本機檔案系統儲存體。您可以在此儲存其他角色不需要存取的本機資料。您不需要儲存至資料表、blob 或 SQL Database 儲存體的任何資料都可以儲存在這裡。例如，您可以使用這個本機儲存體快取可能需要再次使用的資料。角色的其他執行個體無法存取在此儲存的資料。如需有關本機儲存體資源的詳細資訊，請參閱[設定本機儲存體資源](../cloud-services/cloud-services-configure-local-storage-resources.md)。
 
 本機儲存體設定會套用至所有服務組態。您只能新增、移除或修改所有服務組態的本機儲存體。
 
@@ -376,4 +376,4 @@ Azure 雲端服務可以有一或多個背景工作角色或 web 角色。您必
 ## 後續步驟
 藉由參閱[設定 Azure 專案](vs-azure-tools-configuring-an-azure-project.md)深入了解 Visual Studio 中的 Azure 專案。藉由參閱[結構描述參考](https://msdn.microsoft.com/library/azure/dd179398)深入了解雲端服務結構描述。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

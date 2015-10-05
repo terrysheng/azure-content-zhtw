@@ -1,3 +1,4 @@
+<!--author=alkohli last changed: 9/23/15-->
 
 #### 連接 SAS 纜線
 
@@ -24,11 +25,11 @@
 
 3. 接下來，使用提供的 SAS 纜線以連接主要機箱與 EBOD 機箱，如下所示：
 
-    1. 識別主要機箱與 EBOD 機箱上的四個 SAS 連接埠。SAS 連接埠標在主要機箱上標示為 EBOD，在 EBOD 機箱上標示為 CTRL，如底下的 SAS 佈線圖所示。
+    1. 識別主要機箱與 EBOD 機箱上的四個 SAS 連接埠。SAS 連接埠標在主要機箱上標示為 EBOD，對應到 EBOD 機箱上的連接埠 A，如底下的 SAS 佈線圖所示。
 
-    2. 使用提供的 SAS 纜線以連接 EBOD 連接埠與 CTRL 連接埠。
+    2. 使用提供的 SAS 纜線以連接 EBOD 連接埠與連接埠 A。
 
-    3. 控制器 0 的 EBOD 連接埠應該連接至 EBOD 控制器 0 的 CTRL 連接埠。控制器 1 的 EBOD 連接埠應該連接至 EBOD 控制器 1 的 CTRL 連接埠。如需指引，請參閱下圖。
+    3. 控制器 0 的 EBOD 連接埠應該連接至 EBOD 控制器 0 的連接埠 A。控制器 1 的 EBOD 連接埠應該連接至 EBOD 控制器 1 的連接埠 A。如需指引，請參閱下圖。
 																	
      ![您裝置的 SAS 纜線](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
 
@@ -43,6 +44,6 @@
     |3|EBOD 控制器 0|
     |4|EBOD 控制器 1|
     |5、6|主要機箱上的 SAS 連接埠 (標示為 EBOD)|
-    |7、8|EBOD 機箱上的 SAS 連接埠 (標示為 CTRL)|
+    |7、8|EBOD 機箱上的 SAS 連接埠 (連接埠 A)|
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

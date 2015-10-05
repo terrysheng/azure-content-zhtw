@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="stevepo"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/03/2015"
+   ms.date="09/21/2015"
    ms.author="curtand"/>
 
 #在 Azure 中管理 Office 365 訂用帳戶的目錄。
@@ -70,4 +70,4 @@
 ##後續步驟
 如需訂用帳戶與目錄間的關聯性詳細資訊，請參閱[如何將訂用帳戶如何關聯至目錄](active-directory-how-subscriptions-associated-directory.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # 將您的解決方案移轉至 SQL 資料倉儲
@@ -52,4 +52,4 @@ SQL 資料倉儲是一個能夠彈性調整以符合您需求的分散式資料�
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

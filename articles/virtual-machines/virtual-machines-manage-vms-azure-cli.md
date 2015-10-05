@@ -1,11 +1,12 @@
 <properties
-   pageTitle="使用適用於 Mac、Linux 和 Windows 的 Azure CLI 管理 Azure VM | Microsoft Azure"
-   description="描述如何使用適用於 Mac、Linux 和 Windows 的 Azure CLI 建立、管理以及刪除 Azure VM。"
+   pageTitle="使用 Azure CLI 管理 Azure VM | Microsoft Azure"
+   description="描述如何使用適用於 Mac、Linux 和 Windows 的 Azure CLI 管理 Azure VM。"
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="dlepow"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"
@@ -17,6 +18,8 @@
    ms.author="danlep"/>
 
 # 使用適用於 Mac、Linux 和 Windows 的 Azure CLI 管理虛擬機器
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括管理以傳統部署模型建立的資源。您也可以管理以[資源管理員部署模型](virtual-machines-how-to-automate-azure-resource-manager.md)建立的資源。
 
 當您進行 VM 的日常管理時，使用 Azure CLI 可以自動完成很多工作。這篇文章提供了幾個簡單工作的範例命令，另外也提供顯示用來完成更複雜的工作之命令的文章連結。
 
@@ -79,6 +82,5 @@
 ## 後續步驟
 
 如需其他有關 Azure CLI 搭配 **arm** 模式使用的範例，請參閱[搭配 Azure 資源管理使用適用於 Mac、Linux 和 Windows 的 Microsoft Azure CLI](../xplat-cli-resource-manager.md)。若要深入了解 Azure 資源和概念，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

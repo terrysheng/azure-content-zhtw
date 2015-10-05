@@ -1,20 +1,20 @@
 <properties
    pageTitle="開始使用 SQL 資料倉儲中的 Cmdlet"
-	description="使用 PowerShell Cmdlet 暫止和重新啟動 SQL 資料倉儲"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="sidneyh"
-	manager="jhubbard"
-	editor=""/>
+   description="使用 PowerShell Cmdlet 暫止和重新啟動 SQL 資料倉儲"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sidneyh"
+   manager="jhubbard"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="08/28/2015"
-	ms.author="twounder;sidneyh;barbkess"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="twounder;sidneyh;barbkess"/>
 
 # 開始使用 Azure 資料倉儲 Cmdlet 和 REST API
 
@@ -111,4 +111,4 @@ RestorePointCreationDate |備份快照時間 (在 restorePointType = DISCRETE �
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="在 Azure Active Directory 應用程式庫中列出您的應用程式"
-   description="Azure Active Directory 開發人員導向資源的完整指南"
+   description="如何列出 Azure Active Directory 組件庫中支援單一登入的應用程式 | Microsoft Azure"
    services="active-directory"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/30/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 
@@ -56,6 +56,5 @@
 > 附加應用程式大型圖示 (PNG 檔案、215px x 215px、背景純色)：
 >
 > 附加應用程式標誌 (PNG 檔案、150px x 122px、透明背景色彩)：
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

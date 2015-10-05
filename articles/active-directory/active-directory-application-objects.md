@@ -1,5 +1,5 @@
 <properties
-   pageTitle="應用程式物件和服務主體物件"
+   pageTitle="應用程式物件和服務主體物件 | Microsoft Azure"
    description="Azure Active Directory 中 Application 物件與 ServicePrincipal 物件間的關聯性討論"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 
@@ -85,4 +85,4 @@
 
 ##
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

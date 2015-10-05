@@ -1,11 +1,12 @@
 <properties
-	pageTitle="安裝適用於 Mac、Linux 和 Windows 的 Azure CLI"
+	pageTitle="安裝 Azure 命令列介面 | Microsoft Azure"
 	description="安裝適用於 Mac、Linux 和 Windows 的 Azure CLI 以開始使用 Azure 服務"
-	editor="tysonn"
+	editor=""
 	manager="timlt"
 	documentationCenter=""
 	authors="dlepow"
-	services=""/>
+	services=""
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="multiple"
@@ -13,16 +14,18 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="09/18/2015"
 	ms.author="danlep"/>
 
 # 安裝 Azure CLI
 
-本文件說明如何安裝 Azure 命令列介面 (Azure CLI)。Azure CLI 提供一組以開放原始碼命令介面為基礎的命令，來管理 Microsoft Azure 上的資源。
+本文說明如何安裝 Azure 命令列介面 (Azure CLI)。Azure CLI 提供一組開放原始碼的命令介面式命令，用於建立和管理 Microsoft Azure 中的資源。
 
-> [AZURE.NOTE]如果您已經安裝 Azure CLI，請將它連接到您的 Azure 資源。如需詳細資訊，請參閱[如何連接到您的 Azure 訂用帳戶](xplat-cli-connect.md#configure)。
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型或傳統部署模型建立和管理資源。
 
 Azure CLI 是以 JavaScript 所撰寫，而且需要 [Node.js](https://nodejs.org)。它是使用 [Azure SDK for Node](https://github.com/azure/azure-sdk-for-node) 實作，並在 Apache 2.0 授權下發佈。專案儲存機制位於 [https://github.com/azure/azure-xplat-cli](https://github.com/azure/azure-xplat-cli)。
+
+> [AZURE.NOTE]如果您已經安裝 Azure CLI，請將它連接到您的 Azure 資源。如需詳細資訊，請參閱[如何連接到您的 Azure 訂用帳戶](xplat-cli-connect.md#configure)。
 
 <a id="install"></a>
 ## 如何安裝 Azure CLI
@@ -33,7 +36,7 @@ Azure CLI 是以 JavaScript 所撰寫，而且需要 [Node.js](https://nodejs.or
 2. 安裝 Node.js 和 npm，然後使用 **npm install** 命令
 3. 執行 Azure CLI 做為 Docker 容器
 
-安裝 Azure CLI 之後，您就能從命令列介面 (Bash、終端機、命令提示字元) 中使用 **azure** 命令存取 Azure CLI 命令。
+安裝好 Azure CLI 之後，您就能從命令列介面 (Bash、終端機及命令提示字元等) 中使用 **azure** 命令存取 Azure CLI 命令。
 
 ## 使用安裝程式
 
@@ -86,7 +89,7 @@ Azure CLI 是以 JavaScript 所撰寫，而且需要 [Node.js](https://nodejs.or
 
 ### 在 Windows 和 Mac OS X 上安裝 node.js 和 npm
 
-您可以在 Windows 與 OS X 上，使用來自 [Nodejs.org](https://nodejs.org/download/) 的安裝程式來安裝 node.js 和 npm。您可能需要重新啟動電腦才能完成安裝。請檢查是否已安裝正確節點和 npm，方法是開啟命令提示字元並輸入
+您可以在 Windows 與 OS X 上，使用來自 [Nodejs.org](https://nodejs.org/download/) 的安裝程式來安裝 node.js 和 npm。您可能需要重新啟動電腦才能完成安裝。請檢查是否已正確安裝節點和 npm，方法是開啟命令視窗並輸入
 
 	npm -v
 
@@ -94,7 +97,7 @@ Azure CLI 是以 JavaScript 所撰寫，而且需要 [Node.js](https://nodejs.or
 
 	npm install -g azure-cli
 
-安裝 Azure CLI 之後，您就能從命令列使用者介面中使用 **azure** 命令存取 Azure CLI 命令。在安裝結束時，您會看到類似下列的項目：
+在安裝結束時，您會看到類似下列的項目：
 
 	azure-cli@0.8.0 ..\node_modules\azure-cli
 	|-- easy-table@0.0.1
@@ -114,7 +117,7 @@ Azure CLI 是以 JavaScript 所撰寫，而且需要 [Node.js](https://nodejs.or
 	|-- kuduscript@0.1.2 (commander@1.1.1, streamline@0.4.11)
 	|-- azure@0.7.13 (dateformat@1.0.2-1.2.3, envconf@0.0.4, mpns@2.0.1, mime@1.2.10, validator@1.4.0, xml2js@0.2.8, wns@0.5.3, request@2.25.0)
 
->[AZURE.NOTE]對於 Linux 系統，您也可以安裝 Azure CLI，方法是從[原始碼](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409)建置它。如需從原始碼進行建置的詳細資訊，請參閱封存中內含的 INSTALL 檔案。
+>[AZURE.NOTE]對於 Linux 系統，您也可以安裝 Azure CLI，方法是從[原始碼](http://go.microsoft.com/fwlink/?linkid=253472)建置它。如需從原始碼進行建置的詳細資訊，請參閱封存中內含的 INSTALL 檔案。
 
 ## 使用 Docker 容器
 
@@ -124,8 +127,10 @@ Azure CLI 是以 JavaScript 所撰寫，而且需要 [Node.js](https://nodejs.or
 
 ## 執行 Azure CLI 命令
 
-安裝 Azure CLI 之後，您就能從命令列使用者介面 (Bash、終端機、cmd.exe 等) 中使用 **azure** 命令存取 Azure CLI 命令。例如，若要在 Windows 中執行 help 命令，請使用系統管理員權限啟動命令提示字元 (cmd.exe)：```
-	C:\> azure help
+安裝好 Azure CLI 之後，您就能從命令列使用者介面 (Bash、終端機及命令提示字元等) 中使用 **azure** 命令存取 Azure CLI 命令。例如，若要在 Windows 執行 help 命令，請啟動命令視窗並輸入下列命令：
+
+```
+	c:> azure help
 ```
 
 您現在已經準備就緒！ 接下來，您可以[從 Azure CLI 連線到您的 Azure 訂用帳戶](xplat-cli-connect.md)，然後開始使用 **azure** 命令。
@@ -134,16 +139,13 @@ Azure CLI 是以 JavaScript 所撰寫，而且需要 [Node.js](https://nodejs.or
 <a id="additional-resources"></a>
 ## 其他資源
 
-* [搭配使用 Azure CLI 和服務管理 (或 ASM 模式) 命令][cliasm]
+* [搭配使用 Azure CLI 和資源管理命令][cliarm]
 
-* [搭配使用 Azure CLI 和資源管理 (或 ASM 模式) 命令][cliarm]
+* [搭配使用 Azure CLI 和服務管理 (傳統) 命令][cliasm]
 
-* 如需 Azure CLI 的詳細資訊、下載來源程式碼、報告問題，或是對專案發表意見，請造訪 [Azure CLI 的 GitHub 儲存機制](https://github.com/azure/azure-xplat-cli)。
+* 若要深入了解 Azure CLI、下載來源程式碼、報告問題，或是對專案發表意見，請造訪 [Azure CLI 的 GitHub 儲存機制](https://github.com/azure/azure-xplat-cli)。
 
 * 如果您在使用 Azure CLI 或 Azure 方面遇到問題，請造訪 [Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/home) (英文)。
-
-* 如需 Azure 的詳細資訊，請參閱 [http://azure.microsoft.com/](http://azure.microsoft.com)。
-
 
 
 
@@ -153,4 +155,4 @@ Azure CLI 是以 JavaScript 所撰寫，而且需要 [Node.js](https://nodejs.or
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

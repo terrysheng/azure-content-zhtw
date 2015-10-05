@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/11/2015"
+   ms.date="09/22/2015"
    ms.author="mbaldwin" />
 
 # Azure 金鑰保存庫開發人員指南
@@ -55,11 +55,11 @@ Azure 金鑰保存庫金鑰和密碼也可以使用 PowerShell 和 CLI 管理，
 
 - [使用 PowerShell 建立和管理金鑰保存庫](key-vault-get-started.md)
 - [使用 CLI 建立和管理金鑰保存庫](key-vault-manage-with-cli.md)
-- [如何為 Azure 金鑰保存庫產生並傳輸受 HSM 保護的金鑰](https://msdn.microsoft.com/library/azure/dn903624.aspx)
+- [如何為 Azure 金鑰保存庫產生並傳輸受 HSM 保護的金鑰](key-vault-hsm-protected-keys.md)
 - [關於金鑰和密碼](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
 ## 另請參閱
 
 - [Azure 金鑰保存庫程式碼範例](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

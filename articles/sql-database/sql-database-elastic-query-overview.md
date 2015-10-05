@@ -1,6 +1,8 @@
 <properties
+    title="Azure SQL Database elastic database query overview"
     pageTitle="Azure SQL Database 彈性資料庫查詢概觀"
     description="彈性查詢功能的概觀"
+    metaKeywords="azure sql database elastic database queries"
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
@@ -55,7 +57,7 @@
 
 建立彈性資料庫查詢方案需要彈性資料庫工具[**分區對應**](sql-database-elastic-scale-shard-map-management.md)來代表彈性資料庫查詢的遠端資料庫。如果您已經在使用彈性資料庫用戶端程式庫，您可以使用現有的分區對應。否則，您必須使用彈性資料庫工具建立分區對應。
 
-下列 C#程式碼範例示範如何新增單一遠端資料庫做為分區來建立分區對應。
+下列 C# 程式碼範例示範如何新增單一遠端資料庫做為分區來建立分區對應。
 
     ShardMapManagerFactory.CreateSqlShardMapManager(
       "yourconnectionstring",
@@ -265,4 +267,4 @@ SP\_EXECUTE\_FANOUT 預存程序可存取分區對應所代表的資料庫。此
 
 <!--anchors-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

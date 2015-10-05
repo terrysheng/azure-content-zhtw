@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -33,7 +33,7 @@
 
 如果尚未建立雲端服務，請先閱讀[這裡](cloud-services-how-to-create-deploy.md)。
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+[AZURE.INCLUDE 〈[websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)〉]
 
 
 ## 步驟 1：取得 SSL 憑證
@@ -145,6 +145,14 @@
 
 若要對預備部署而不是對生產部署使用 SSL，首先您需要判定要在預備部署中使用的 URL。請將您的雲端服務部署至預備環境，但不包括憑證或任何憑證資訊。一旦部署好，您就可以判定 GUID 型 URL (這會列在管理入口網站的 [網站 URL] 欄位中)。建立一般名稱 (CN) 等於 GUID 型 URL (例如，**32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**) 的憑證、使用管理入口網站將該憑證新增至預備的雲端服務、將憑證資訊新增至 CSDEF 與 CSCFG 檔案、重新封裝套件，然後將預備部署更新為使用新的套件與 CSCFG 檔。
 
+## 後續步驟
+
+* [雲端服務的一般設定](cloud-services-how-to-configure.md)。
+* 了解如何[部署雲端服務](cloud-services-how-to-create-deploy.md)。
+* 設定[自訂網域名稱](cloud-services-custom-domain-name.md)。
+* [管理您的雲端服務](cloud-services-how-to-manage.md)。
+
+
   [Azure 管理入口網站]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
   [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
@@ -152,4 +160,4 @@
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!------HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

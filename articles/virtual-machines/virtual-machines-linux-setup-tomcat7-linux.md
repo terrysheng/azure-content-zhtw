@@ -1,24 +1,27 @@
-<properties 
-	pageTitle="如何對於 Microsoft Azure 在 Linux 虛擬機器上設定 Tomcat7" 
-	description="了解如何使用執行 Linux 的 Azure 虛擬機器 (VM) 對於 Microsoft Azure 設定 Tomcat7。" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="NingKuang" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="設定 Linux VM 上的 Apache Tomcat | Microsoft Azure"
+	description="了解如何使用執行 Linux 的 Azure 虛擬機器 (VM) 設定 Apache Tomcat7。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="NingKuang"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/21/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/21/2015"
 	ms.author="ningk"/>
 
-#如何對於 Microsoft Azure 在 Linux 虛擬機器上設定 Tomcat7 
+#如何對於 Microsoft Azure 在 Linux 虛擬機器上設定 Tomcat7
 
 Apache Tomcat (或直接稱為 Tomcat，以往也稱為 Jakarta Tomcat) 是 Apache Software Foundation (ASF) 開發的開放原始碼 Web 伺服器和 Servlet 容器。Tomcat 實作 Sun Microsystems 的 Java Servlet 和 JavaServer 頁面 (JSP) 規格，並提供執行 Java 程式碼的純 Java HTTP 網頁伺服器環境。在最簡單的組態中，Tomcat 會在單一作業系統處理序中執行。此程序會執行 Java 虛擬機器 (JVM)。從瀏覽器到 Tomcat 的每個 HTTP 要求都會以 Tomcat 程序中個別的執行緒形式予以處理。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
 
 在本指南中，您將在 Linux 映像上安裝 tomcat7，並將它部署於 Microsoft Azure。
 
@@ -46,20 +49,20 @@ SSH 對系統管理員而言是很重要的工具。不過，依據人為決定�
 
 依照下列步驟來產生 SSH 驗證金鑰。
 
-1.	從下列位置下載並安裝 puttygen： [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 
+1.	從下列位置下載並安裝 puttygen： [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2.	執行 PUTTYGEN.EXE。
 3.	按一下 [產生] 來產生金鑰。在這個程序中，您可以在視窗中的空白區域移動滑鼠來提高隨機性。![][1]
 4.	在產生程序之後，Puttygen.exe 會顯示產生的金鑰。例如：![][2]
 5.	選取並複製 [金鑰] 中的公開金鑰，並將它儲存在名為 publicKey.pem 的檔案中。不要按 [儲存公開金鑰]，因為儲存的公開金鑰檔案格式與我們想要的公開金鑰不同。
-6.	按一下 [儲存私密金鑰]，並將它儲存在名為 privateKey.ppk 的檔案中。 
+6.	按一下 [儲存私密金鑰]，並將它儲存在名為 privateKey.ppk 的檔案中。
 
 ###步驟 2：在 Azure Preview 入口網站中建立映像。
 在 [Azure Preview 入口網站](https://portal.azure.com/)中，按一下工作列中的 [新增] 來建立映像，並根據您的需求選擇 Linux 映像。下列範例使用 Ubuntu 14.04 映像。![][3]
- 
+
 對於 [主機名稱]，指定您和網際網路用戶端將用來存取此虛擬機器的 URL 名稱。定義 DNS 名稱的最後一個部分，例如 tomcatdemo，然後 Azure 會產生如 tomcatdemo.cloudapp.net 的 URL。
 
 對於 [SSH 驗證金鑰]，從 **publicKey.pem** 檔案複製金鑰值，其中包含 puttygen 所產生的公開金鑰。![][4]
-  
+
 視需要設定其他設定，然後按一下 [建立]。
 
 ##第 2 階段：準備用於 Tomcat7 的虛擬機器
@@ -70,15 +73,15 @@ Azure 中的端點包含通訊協定 (TCP 或 UDP) 以及公用和私人的連�
 TCP 連接埠 8080 是 tomcat 接聽的預設連接埠號碼。在 Azure 端點開啟這個連接埠，可讓您和其他網際網路用戶端存取 tomcat 頁面。
 
 1.	在 Azure Preview 入口網站中，按一下 [瀏覽] -> [虛擬機器]，然後按一下您建立的虛擬機器。![][5]
-2.	若要將端點新增至虛擬機器，請按一下 [端點] 方塊。![][6] 
+2.	若要將端點新增至虛擬機器，請按一下 [端點] 方塊。![][6]
 3.	按一下 [新增]。  
 	1.	對於**端點**，在 [端點] 中輸入端點的名稱，然後在 [公用連接埠] 中輸入 80。  
-	  
+
 		如果設定為 80，不需要在 URL 中包含連接埠號碼就可讓您存取 tomcat。例如，http://tomcatdemo.cloudapp.net。
 
 		如果您將它設定為另一個值 (例如 81)，您就必須將此連接埠號碼加入 URL 才能存取 tomcat。例如，http://tomcatdemo.cloudapp.net:81/。
 	2.	在 [私人連接埠] 中輸入 8080。tomcat 預設接聽 TCP 連接埠 8080。如果您變更 tomcat 的預設接聽連接埠，則必須更新私人連接埠，使其與 tomcat 接聽連接埠相同。![][7]
- 
+
 4.	按一下 [確定]，將端點加入您的虛擬機器。
 
 
@@ -89,13 +92,13 @@ TCP 連接埠 8080 是 tomcat 接聽的預設連接埠號碼。在 Azure 端點�
 首先，從 Azure Preview 入口網站取得您虛擬機器的 DNS 名稱。按一下 [瀏覽] -> [虛擬機器] -> 您的虛擬機器名稱 -> [內容]，然後查看 [內容] 磚的 [網域名稱] 欄位。
 
 從 [SSH] 欄位取得 SSH 連線的連接埠號碼。範例如下。![][8]
- 
+
 從[這裡](http://www.putty.org/)下載 Putty。
 
 下載之後，按一下可執行檔 PUTTY.EXE。使用來自虛擬機器內容的主機名稱和連接埠號碼設定基本選項。範例如下：![][9]
- 
+
 在左窗格中，按一下 [連線] -> [SSH] -> [驗證]，然後按一下 [瀏覽] 來指定 **privateKey.ppk** 檔案的位置，其中包含 puttygen 在＜第 1 階段：建立映像＞中產生的私密金鑰。範例如下：![][10]
- 
+
 按一下 [開啟]。您可能會收到警告訊息方塊。如果您已正確設定 DNS 名稱和連接埠號碼，按一下 [是]。![][11]
 
 
@@ -179,7 +182,7 @@ tomcat7 伺服器將在您安裝時自動啟動。您也可以自行使用下列
 
 若要停止 tomcat7：
 
-	sudo /etc/init.d/tomcat7 stop 
+	sudo /etc/init.d/tomcat7 stop
 
 若要檢視 tomcat7 的狀態：
 
@@ -205,7 +208,7 @@ tomcat7 伺服器將在您安裝時自動啟動。您也可以自行使用下列
 開啟瀏覽器，並輸入 URL **http://<your tomcat server DNS name>/manager/html**。本文中的範例 URL 是 http://tomcatexample.cloudapp.net/manager/html。
 
 連接之後，您應該會看到類似下面的內容：![][18]
- 
+
 ##常見問題
 
 ###無法從網際網路存取使用 Tomcat 和 Moodle 的虛擬機器
@@ -213,7 +216,7 @@ tomcat7 伺服器將在您安裝時自動啟動。您也可以自行使用下列
 -	**徵兆** Tomcat 正在執行中，但無法使用瀏覽器來查看 Tomcat 預設頁面。
 -	**可能的根本原因**   
 	1.	Tomcat 接聽連接埠與您虛擬機器針對 Tomcat 流量的端點私人連接埠不同。  
-	
+
 		檢查您的公用連接埠和私人連接埠端點設定，確定私人連接埠與 Tomcat 接聽連接埠相同。請參閱＜第 1 階段：建立映像＞，以取得為虛擬機器設定端點的指示。
 
 		若要決定 tomcat 接聽連接埠，請開啟 /etc/httpd/conf/httpd.conf (Red Hat 版本) 或 /etc/tomcat7/server.xml (Debian 版本)。tomcat 接聽連接埠預設為 8080。下列是一個範例：
@@ -237,9 +240,9 @@ tomcat7 伺服器將在您安裝時自動啟動。您也可以自行使用下列
 
 -	**解決方法**
 	1. 如果 Tomcat 接聽連接埠與虛擬機器上針對流量的端點私人連接埠不同，您需要將私人連接埠變更為與 tomcat 接聽連接埠相同。   
-	
+
 	2.	如果問題是防火牆/iptables 造成，請在 /etc/sysconfig/iptables 中加入下列幾行：
-	
+
 			-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
 			-A INPUT -p tcp -m tcp --dport 443 -j ACCEPT  
 
@@ -301,6 +304,5 @@ tomcat7 伺服器將在您安裝時自動啟動。您也可以自行使用下列
 [16]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-16.png
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

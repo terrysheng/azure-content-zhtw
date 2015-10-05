@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="09/04/2015"
    ms.author="bwren" />
 
 # Azure 自動化中的圖形化編寫
@@ -61,6 +61,17 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。圖
 第一次啟動圖形化編輯器時，不會顯示測試控制項。當您以互動方式[測試圖形化 Runbook](#graphical-runbook-procedures) 時會開啟。
 
 ## 圖形化 Runbook 程序 
+
+### 匯出和匯入圖形化 Runbook
+
+您可以只匯出圖形化 Runbook 的已發行版本。如果尚未發行 Runbook，則 [匯出已發行] 按鈕將會停用。當您按一下 [匯出已發行] 按鈕，Runbook 就會下載到本機電腦。檔案名稱須符合帶有 *graphrunbook* 副檔名的 Runbook 名稱。
+
+![匯出已發行](media/automation-graphical-authoring-intro/runbook-export.png)
+
+您可以在加入 Runbook 時選取 [匯入] 選項，將圖形化 Runbook 檔案匯入。當您選取要匯入的檔案時，您可以保留同一個**名稱**，或提供一個新名稱。
+
+![匯入 Runbook](media/automation-graphical-authoring-intro/runbook-import.png)
+
 
 ### 測試圖形化 Runbook
 
@@ -280,4 +291,4 @@ Runbook 可能需要使用者透過 Azure 預覽入口網站啟動 Runbook 時�
 - [自動化資產](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

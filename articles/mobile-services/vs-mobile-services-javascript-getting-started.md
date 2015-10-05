@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="" 
+	pageTitle="在使用 Visual Studio 連接服務加入 Azure 行動服務之後，開始使用 Javascript Mobile App | Microsoft Azure" 
 	description="如何在 Visual Studio 中的 JavaScript 專案開始使用行動服務" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="09/17/2015" 
 	ms.author="patshea"/>
 
-# 開始使用行動服務
+# 在使用 Visual Studio 連接服務加入 Azure 行動服務之後，開始使用 Javascript Mobile App
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
@@ -24,9 +24,9 @@
 
 依照這些範例中之程式碼執行的第一個步驟取決於您要連線的行動服務類型。
 
-對於 JavaScript 後端行動服務，請建立名為 TodoItem 的資料表。若要建立資料表，請在 [伺服器總管] 的 [Azure] 節點下尋找行動服務，在行動服務的節點上按一下滑鼠右鍵以開啟內容功能表，然後選擇 [建立資料表]。輸入 "TodoItem" 做為資料表名稱。
+ - 對於 JavaScript 後端行動服務，請建立名為 TodoItem 的資料表。若要建立資料表，請在 [伺服器總管] 的 [Azure] 節點下尋找行動服務，在行動服務的節點上按一下滑鼠右鍵以開啟內容功能表，然後選擇 [建立資料表]。輸入 "TodoItem" 做為資料表名稱。
 
-若使用 .NET 後端行動服務，則 Visual Studio 為您建立的預設專案範本中已有 TodoItem 資料表，但您必須將它發行到 Azure。若要發行它，請開啟行動服務專案的內容功能表，然後選擇 [發行 Web]。接受預設值，然後選擇 [發行] 按鈕。
+ - 若使用 .NET 後端行動服務，則 Visual Studio 為您建立的預設專案範本中已有 TodoItem 資料表，但您必須將它發行到 Azure。若要發行它，請開啟行動服務專案的內容功能表，然後選擇 [發行 Web]。接受預設值，然後選擇 [發行] 按鈕。
 
 ##取得資料表的參考
 
@@ -92,4 +92,4 @@
 
 [深入了解行動服務](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

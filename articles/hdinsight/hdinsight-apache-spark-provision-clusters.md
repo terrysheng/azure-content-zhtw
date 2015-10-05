@@ -1,20 +1,20 @@
 <properties
    pageTitle="在 HDInsight 中佈建 Apache Spark 叢集 | Microsoft Azure"
-	description="了解如何使用 Azure 入口網站、Azure PowerShell、命令列或 HDInsight .NET SDK 佈建 Azure HDInsight 的 Spark 叢集。"
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="paulettm"
-	editor="cgronlun"
-	tags="azure-portal"/>
+   description="了解如何使用 Azure 入口網站、Azure PowerShell、命令列或 HDInsight .NET SDK 佈建 Azure HDInsight 的 Spark 叢集。"
+   services="hdinsight"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
+   editor="cgronlun"
+   tags="azure-portal"/>
 <tags
     ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/17/2015"
-	ms.author="nitinme"/>
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-data"
+    ms.date="09/22/2015"
+    ms.author="nitinme"/>
 
 # 使用自訂選項在 HDInsight 上佈建 Apache Spark 叢集
 
@@ -33,7 +33,7 @@
 
 在設定期間，您必須指定 Azure Blob 儲存體帳戶和預設容器。叢集以此做為預設儲存位置。您可以選擇性地指定將與叢集相關聯的其他 Azure 儲存體帳戶。
 
->[AZURE.NOTE]請不要讓多個叢集共用一個 Blob 儲存體容器。不支援此做法。
+>[AZURE.NOTE] 請不要讓多個叢集共用一個 Blob 儲存體容器。不支援此做法。
 
 如需使用次要 Blob 存放區的詳細資訊，請參閱[搭配使用 Azure Blob 儲存體與 HDInsight](hdinsight-use-blob-storage.md)。
 
@@ -85,7 +85,7 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 
     ![在 Azure Preview 入口網站中建立新的叢集](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.1.png "在 Azure Preview 入口網站中建立新的叢集")
 
-3. 輸入 [叢集名稱]，針對 [叢集類型] 選取 [Hadoop]，然後從 [叢集作業系統] 下拉式清單中選取 [Windows Server 2012 R2 資料中心]。如果該叢集可用，其名稱旁會出現綠色核取記號。
+3. 輸入 [叢集名稱]，針對 [叢集類型] 選取 [Spark]，然後從 [叢集作業系統] 下拉式清單中選取 [Windows Server 2012 R2 資料中心]。如果該叢集可用，其名稱旁會出現綠色核取記號。
 
 	![輸入叢集名稱和類型](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.2.png "輸入叢集名稱和類型")
 
@@ -437,4 +437,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

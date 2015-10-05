@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/20/2015" 
 	ms.author="juliako"/>
 
 #作法：設定資產傳遞原則
@@ -265,6 +265,15 @@ HDS
 	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
+如果您想要使用 Widevine DRM 保護內容，請將 AssetDeliveryConfiguration 值更新為使用 WidevineLicenseAcquisitionUrl (其值為 7) 和指定授權傳遞服務的 URL。您可以使用下列 AMS 合作夥伴來助您傳遞 Widevine 授權：[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](http://ezdrm.com/)、[castLabs](http://castlabs.com/company/partners/azure/)。
+
+例如：
+ 
+	
+	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{"Key":7,"Value":"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
+
+>[AZURE.NOTE]以 Widevine 加密時，就只能使用 DASH 來傳遞。請務必在資產傳遞通訊協定中指定 DASH (2)。
+  
 ###連結資產與資產傳遞原則
 
 請參閱[連結資產與資產傳遞原則](#link_asset_with_asset_delivery_policy)
@@ -373,6 +382,7 @@ HDS
     /// <summary>
     /// Keys used to get specific configuration for an asset delivery policy.
     /// </summary>
+
     public enum AssetDeliveryPolicyConfigurationKey
     {
         /// <summary>
@@ -409,8 +419,12 @@ HDS
         /// The initialization vector to use for envelope encryption.
         /// </summary>
         EnvelopeEncryptionIV,
-    }
 
+        /// <summary>
+        /// Widevine DRM acquisition url
+        /// </summary>
+        WidevineLicenseAcquisitionUrl
+    }
 
 
 ##媒體服務學習路徑
@@ -422,4 +436,4 @@ HDS
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

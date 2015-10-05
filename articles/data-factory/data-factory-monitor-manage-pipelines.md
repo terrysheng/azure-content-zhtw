@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="監視和管理 Azure Data Factory 管線"
-	description="了解如何使用 Azure Management Portal 和 Azure PowerShell 監控並管理您建立的 Azure 資料處理站和管線。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="監視和管理 Azure Data Factory 管線" 
+	description="了解如何使用 Azure Management Portal 和 Azure PowerShell 監控並管理您建立的 Azure 資料處理站和管線。" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # 監視和管理 Azure Data Factory 管線
@@ -287,6 +287,10 @@ Azure 事件可讓您深入了解 Azure 資源的情況。當建立、更新或�
 
 在上述 JSON 定義中，如果不想接獲特定失敗的通知，您可以移除 **subStatus**。
 
+上述範例會為您的訂用帳戶中所有 Data Factory 設定警示。如果您想要為特定 Data Factory 設定警示，您可以在 [dataSource] 區塊指定 Data Factory 的 [資源 URI]，如下所示：
+
+	"resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
+
 下列表格提供可用作業與狀態 (及子狀態) 的清單。
 
 作業名稱 | 狀態 | 子狀態
@@ -337,7 +341,7 @@ OnDemandClusterDeleted | Succeeded
 
 
 #### 使用者事件疑難排解
-您可以看到按一下 [**作業**] 磚後所產生的所有事件，而且也可以在 [**事件**] 刀鋒視窗中針對這些作業設定顯示警示：
+您可以看到按一下 [作業] 磚後所產生的所有事件，而且也可以在 [事件] 刀鋒視窗中針對這些作業設定顯示警示：
 
 ![作業](./media/data-factory-monitor-manage-pipelines/operations.png)
 
@@ -369,9 +373,9 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 #### 啟用度量：
 若要啟用度量，請從 Data Factory 的刀鋒視窗按一下下列選項：
 
-[**監視**] -> [**度量**] -> [**診斷設定**] -> [**診斷**]
+[監視] -> [度量] -> [診斷設定] -> [診斷]
 
-在 [**診斷**] 刀鋒視窗中，按一下 [**啟用**]，然後選取儲存體帳戶並儲存。
+在 [診斷] 刀鋒視窗中，按一下 [啟用]，然後選取儲存體帳戶並儲存。
 
 ![啟用度量](./media/data-factory-monitor-manage-pipelines/enable-metrics.png)
 
@@ -380,9 +384,9 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 
 ### 設定度量警示：
 
-若要設定度量警示，請從 Data Factory 刀鋒視窗按一下下列選項：[**監視**] -> [**度量**] -> [**新增警示**] -> [**新增警示規則**]。
+若要設定度量警示，請從 Data Factory 刀鋒視窗按一下下列選項：[監視] -> [度量] -> [新增警示] -> [新增警示規則]。
 
-填入警示規則的詳細資料、指定電子郵件並按一下 [**確定**]。
+填入警示規則的詳細資料、指定電子郵件並按一下 [確定]。
 
 
 ![設定度量警示](./media/data-factory-monitor-manage-pipelines/setting-up-alerts-on-metrics.png)
@@ -471,4 +475,4 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md)提交您的意見反應。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="彈性資料庫工作概觀" 
-	description="說明彈性資料庫工作服務" 
+	pageTitle="使用 PowerShell 建立及管理彈性資料庫作業" 
+	description="用來管理 Azure SQL Database 集區的 PowerShell" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="ddove"/>
@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/17/2015" 
 	ms.author="ddove; sidneyh" />
 
 # 使用 PowerShell 建立和管理 SQL Database 彈性資料庫工作 (預覽)
@@ -673,4 +673,4 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。如果
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 預覽：從 .NET Web 應用程式呼叫 Web API
@@ -24,7 +24,7 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-本文不涵蓋如何使用 Azure AD B2C 實作登入、註冊和管理設定檔。重點在於如何在使用者完成驗證後呼叫 Web API。您應該先從 [.NET Web App 使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始 (如果還沒有進行)，以了解 Azure AD B2C 的基本概念。
+本文不涵蓋如何使用 Azure AD B2C 實作登入、註冊和管理設定檔。而會著重在如何在使用者已通過驗證後呼叫 Web API。您應該先從 [.NET Web App 使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始 (如果還沒有進行)，以了解 Azure AD B2C 的基本概念。
 
 ## 1\.取得 Azure AD B2C 目錄
 
@@ -37,35 +37,37 @@
 - 在應用程式中加入 **Web 應用程式/Web API**
 - 輸入 `https://localhost:44316/` 作為**回覆 URL** -它是此程式碼範例的預設 URL。
 - 為您的應用程式建立**應用程式密碼**，並複製下來。稍後您將會用到此資訊。
-- 複製指派給應用程式的**應用程式識別碼**。稍後您也將會用到此資訊。
+- 複製指派給應用程式的**應用程式識別碼**。稍後您也會用到此資訊。
+
+    > [AZURE.IMPORTANT]您無法為此使用已在 [Azure 入口網站](https://manage.windowsazure.com/)上的 [應用程式] 索引標籤中登錄的應用程式。
 
 ## 3\.建立您的原則
 
-在 Azure AD B2C 中，每個使用者體驗皆由[**原則**](active-directory-b2c-reference-policies.md)定義。此 Web 應用程式包含三種身分識別體驗 - 註冊、登入和編輯設定檔。您必須為每個類型建立一個原則，如[原則參考文件](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)所述。建立您的三個原則時，請務必：
+在 Azure AD B2C 中，每個使用者經驗皆是由某個[**原則**](active-directory-b2c-reference-policies.md)所定義。此 Web 應用程式包含三種身分識別體驗 - 註冊、登入和編輯設定檔。您必須為每個類型建立一個原則，如[原則參考文章](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)所述。建立您的三個原則時，請務必：
 
 - 在註冊原則中選擇 [顯示名稱] 和其他一些註冊屬性。
 - 在每個原則中選擇 [顯示名稱] 和 [物件識別碼] 應用程式宣告。您也可以選擇其他宣告。
-- 建立每個原則後，複製原則的 [名稱]。前置詞應該為 `b2c_1_`。稍後您將需要這些原則名稱。 
+- 建立每個原則後，請複製原則的 [名稱]。其前置詞應該為 `b2c_1_`。稍後您將需要這些原則名稱。 
 
 當您成功建立三個原則後，就可以開始建置您的應用程式。
 
-請注意，本文並未涵蓋如何使用您剛才建立的原則。若您想要深入了解 Azure AD B2C 中的原則如何運作，您應該從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始。
+請注意，本文不會說明如何使用您剛才建立的原則。若您想要了解 Azure AD B2C 中的原則如何運作，您應該從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始。
 
 ## 4\.下載程式碼
 
-本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet)。若要循著指示建立範例，您可以[下載 .zip 格式的基本架構專案](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip)或複製基本架構：
+本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet) 上。若要遵循指示建立範例，您可以[下載 .zip 格式的基本架構專案](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip)或複製基本架構：
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git
 ```
 
-完整的應用程式也[提供 .zip 格式](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip)，或放在相同儲存機制的 `complete` 分支。
+完整的應用程式也提供 [.zip 格式](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip)；您也可以在相同儲存機制的 `complete` 分支取得。
 
-下載範例程式碼後，請開啟 Visual Studio `.sln` 檔案開始進行。您會看到方案中有兩個專案：`TaskWebApp` 專案和 `TaskService` 專案。`TaskWebApp` 是與使用者互動的 WPF Web 應用程式前端。`TaskService` 是應用程式的後端 Web API，儲存每個使用者的待辦事項清單。
+下載範例程式碼後，請開啟 Visual Studio `.sln` 檔案開始進行。您會看到方案中有兩個專案：`TaskWebApp` 專案和 `TaskService` 專案。`TaskWebApp` 是與使用者互動的 WPF Web 應用程式前端。`TaskService` 是應用程式的後端 Web API，可儲存每個使用者的待辦事項清單。
 
 ## 5\.設定工作服務
 
-當 `TaskService` 收到 `TaskWebApp` 的要求時，它會檢查存取權杖是否有效來驗證要求。為了驗證存取權杖，您需要提供應用程式的一些資訊給 `TaskService`。在 `TaskService` 專案中，開啟專案根目錄中的 `web.config` 檔案，取代 `<appSettings>` 區段中的值：
+當 `TaskService` 收到 `TaskWebApp` 的要求時，它會檢查存取權杖是否有效可驗證要求。為了驗證存取權杖，您必須提供應用程式的一些資訊給 `TaskService`。在 `TaskService` 專案中，開啟專案根目錄中的 `web.config` 檔案，取代 `<appSettings>` 區段中的值：
 
 ```
 <appSettings>
@@ -106,7 +108,7 @@ In order for the `TaskWebApp` to communicate with Azure AD B2C, there are a few 
 </appSettings>
 ```     
 
-另外有兩個 `[PolicyAuthorize]` 裝飾項目，需要在其中提供您的登入原則名稱。當使用者嘗試存取應用程式中需要驗證的頁面時，`[PolicyAuthorize]` 屬性用來叫用特定原則。
+另外有兩個 `[PolicyAuthorize]` 裝飾項目，需要在其中提供您的登入原則名稱。當使用者嘗試存取應用程式中需要驗證的頁面時，`[PolicyAuthorize]` 屬性會用來叫用特定原則。
 
 ```C#
 // Controllers\HomeController.cs
@@ -331,7 +333,7 @@ public async Task<ActionResult> Index()
 
 #### 在 Web API 上建立和刪除工作
 
-您可以遵循完全相同的模式來傳送 POST 和 DELETE 要求給 `TaskService`。只要呼叫 `AuthenticationContext.AcquireTokenSilentAsync(...)`，並將產生的權杖附加至要求中的 `Authorization` 標頭。我們已經為您實作 `Create` 動作。請嘗試親自完成 `TasksController.cs` 中的 `Delete` 動作。
+您可以遵循完全相同的模式來傳送 POST 和 DELETE 要求給 `TaskService`。只要呼叫 `AuthenticationContext.AcquireTokenSilentAsync(...)`，並將產生的權杖附加至要求中的 `Authorization` 標頭即可。我們已經為您實作 `Create` 動作。請嘗試親自完成 `TasksController.cs` 中的 `Delete` 動作。
 
 ## 8\.登出使用者
 
@@ -362,7 +364,7 @@ public void SignOut()
 
 ## 9\.執行範例應用程式
 
-最後，建置並執行 `TaskClient` 和 `TaskService`。註冊或登入應用程式，並為登入的使用者建立工作。登出，再以不同使用者重新登入，並為該使用者建立工作。請注意每位使用者的工作如何儲存於 API，因為 API 會從它收到的存取權杖中擷取使用者的身分識別。
+最後，建置並執行 `TaskClient` 和 `TaskService`。註冊或登入應用程式，並為登入的使用者建立工作。登出後，再以不同使用者重新登入，並為該使用者建立工作。請注意每位使用者的工作如何儲存於 API，因為 API 會從它收到的存取權杖中擷取使用者的身分識別。
 
 為了方便參考，您可以[在此處取得 .zip 格式](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip)的完整範例，或者從 GitHub 中複製：
 
@@ -380,4 +382,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

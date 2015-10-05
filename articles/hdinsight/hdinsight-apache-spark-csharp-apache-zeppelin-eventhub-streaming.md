@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="09/23/2015" 
 	ms.author="nitinme"/>
 
 
@@ -74,11 +74,27 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 在本節中，您會建立 [Zeppelin](https://zeppelin.incubator.apache.org) Notebook 以接收來自事件中樞的訊息，並傳遞到 HDInsight 中的 Spark 叢集。
 
-1. 在 [Azure 預覽入口網站](https://ms.portal.azure.com/)的「開始面板」，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板的話)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集] 瀏覽至您的叢集。   
+### 將資源配置給 Zeppelin 以供串流處理應用程式使用
+
+當您使用 Zeppelin 來建立串流處理應用程式時，必須考量下列事項：
+
+* **配置給 Zeppelin 的事件中樞資料分割和核心**。在先前步驟中，您建立了含有一些資料分割的事件中樞。在您於下列內容建立的 Zeppelin 串流處理應用程式中，您將再次指定相同數目的資料分割。若要使用 Zeppelin 成功串流處理來自事件中樞的資料，您配置給 Zeppelin 的核心數目必須是事件中樞上資料分割數目的兩倍。
+* **要配置給 Zeppelin 的核心數目下限**。在您於下列內容建立的 Zeppelin 串流處理應用程式中，您會建立一個暫存資料表來儲存應用程式進行串流處理時的訊息。接著，您會使用 Spark SQL 陳述式，來讀取此暫存資料表中的訊息。若要成功執行 Spark SQL 陳述式，您必須確定至少已配置兩個核心給 Zeppelin。
+
+如果您結合了上述兩項需求，即會得到下列結果：
+
+* 您必須配置給 Zeppelin 的核心數目下限為 2。
+* 配置的核心數目永遠都必須是事件中樞上資料分割數目的兩倍。 
+
+如需如何在 Spark 叢集中配置資源的相關指示，請參閱[在 HDInsight 中管理適用於 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)。
+
+### 使用 Zeppelin 建立串流處理應用程式
+
+1. 在 [Azure Preview 入口網站](https://ms.portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
 
 2. 啟動 Zeppelin Notebook。在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Zeppelin Notebook]。出現提示時，輸入叢集的系統管理員認證。遵循頁面顯示的指示以啟動 Notebook。
 
-2. 建立新的 Notebook。在標頭窗格中按一下 [Notebook]，然後在下拉式清單中按一下 [建立新 Note]。
+2. 建立新的 Notebook。在標頭窗格中按一下 [Notebook]，然後在下拉式清單中按一下 [建立新記事]。
 
 	![建立新的 Zeppelin Notebook](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.CreateNewNote.png "建立新的 Zeppelin Notebook")
 
@@ -89,6 +105,8 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 	![Zeppelin Notebook 狀態](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.NewNote.Connected.png "Zeppelin Notebook 狀態")
 
 4. 將以下程式碼片段貼入新 Notebook 中預設建立的空白段落中，並取代預留位置以使用您的事件中樞組態。在此程式碼片段中，您會接收來自事件中樞的串流，並將串流註冊到名為 **mytemptable** 的暫存資料表。在下一節中，我們會啟動傳送者應用程式。接著，您可以直接從資料表讀取資料。
+
+	> [AZURE.NOTE]在下列程式碼片段中，必須將 **eventhubs.checkpoint.dir** 設定為您預設儲存體容器中的目錄。如果目錄不存在，串流處理應用程式即會建立它。您可以指定像是 "**wasb://container@storageaccount.blob.core.windows.net/mycheckpointdir/**" 的目錄完整路徑，或者只指定目錄的相對路徑，例如 "**/mycheckpointdir**"。
 
 		import org.apache.spark.streaming.{Seconds, StreamingContext}
 		import org.apache.spark.streaming.eventhubs.EventHubsUtils
@@ -123,7 +141,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 	![程式碼片段的輸出](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Zeppelin.Code.Output.png "程式碼片段的輸出")
 
-2. 執行**傳送者**專案，並在主控台視窗中按 **Enter** 開始將訊息傳送到事件中樞。
+2. 執行**傳送者**專案，並在主控台視窗中按 **Enter**，開始將訊息傳送到事件中樞。
 
 3. 在 Zeppelin Notebook 的新段落中，輸入以下程式碼片段以讀取在 Spark 中接收到的訊息。
 
@@ -138,7 +156,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 	![重新啟動 Zeppelin 解譯器](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Zeppelin.Restart.Interpreter.png "重新啟動 Zeppelin 解譯器")
 
-##<a name="sparkstreamingha"></a>以高可用性執行串流應用程式
+##<a name="sparkstreamingha"></a>以高可用性執行串流處理應用程式
 
 使用 Zeppelin 來接收串流資料並傳遞到 HDInsight 上的 Spark 叢集是塑造應用程式原型的好方法。不過，若要以高可用性和恢復功能在實際執行設定中執行串流應用程式，您需要執行以下作業：
 
@@ -147,7 +165,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 3. RDP 到叢集，並將應用程式 jar 複製到叢集的前端節點。
 3. RDP 到叢集，並在叢集節點上執行應用程式。
 
-如需執行這些步驟的指示和範例串流應用程式，請至 GitHub 下載：[https://github.com/hdinsight/hdinsight-spark-examples](https://github.com/hdinsight/hdinsight-spark-examples)。
+如需執行這些步驟的相關指示和串流處理應用程式範例，請從 GitHub 下載：[https://github.com/hdinsight/hdinsight-spark-examples](https://github.com/hdinsight/hdinsight-spark-examples)。
 
 
 ##<a name="seealso"></a>另請參閱
@@ -170,4 +188,4 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

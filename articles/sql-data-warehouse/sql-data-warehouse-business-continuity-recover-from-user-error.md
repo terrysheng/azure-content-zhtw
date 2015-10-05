@@ -1,20 +1,20 @@
 <properties
    pageTitle="從 SQL 資料倉儲中的使用者錯誤復原資料庫 | Microsoft Azure"
-	description="從 SQL 資料倉儲中的使用者錯誤復原資料庫的步驟"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="sahaj08"
-	manager="barbkess"
-	editor=""/>
+   description="從 SQL 資料倉儲中的使用者錯誤復原資料庫的步驟"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sahaj08"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="06/26/2015"
-	ms.author="sahajs"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/23/2015"
+   ms.author="sahajs"/>
 
 # 從 SQL 資料倉儲中的使用者錯誤復原資料庫
 
@@ -30,16 +30,23 @@ SQL 資料倉儲提供兩個核心功能，可從造成非預期之資料損毀�
 
 ### PowerShell
 
-使用 PowerShell 可以程式設計方式執行資料庫還原。若要還原資料庫，請使用 [Start-AzureSqlDatabaseRestore][] Cmdlet。
+使用 Azure PowerShell 可以程式設計方式執行資料庫還原。如要下載 Azure PowerShell 模組，請執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)。
 
-1. 在包含要還原之資料庫的帳戶下選取訂用帳戶。
-2. 列出資料庫的還原點 (需要 Azure 資源管理模式)
-3. 使用 RestorePointCreationDate 挑選出想要的還原點。
-3. 將資料庫還原到想要的還原點。
-4. 監視還原的進度。
+若要還原資料庫，請使用 [Start-AzureSqlDatabaseRestore][] Cmdlet。
+
+1. 開啟 Microsoft Azure PowerShell。
+2. 連接到您的 Azure 帳戶，並列出與您的帳戶相關聯的所有訂用帳戶。
+3. 選取包含要還原之資料庫的訂用帳戶。
+4. 列出資料庫的還原點 (需要 Azure 資源管理模式)。
+5. 使用 RestorePointCreationDate 挑選出想要的還原點。
+6. 將資料庫還原到想要的還原點。
+7. 監視還原的進度。
 
 ```
-Select-AzureSubscription -SubscriptionId <Subscription_GUID>
+
+Add-AzureAccount
+Get-AzureSubscription
+Select-AzureSubscription -SubscriptionName "<Subscription_name>"
 
 # List database restore points
 Switch-AzureMode AzureResourceManager
@@ -59,7 +66,7 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerNa
 Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
 
-請注意，如果您的伺服器是 foo.database.windows.net，請使用 "foo" 作為 Powershell Cmdlet 中的 -ServerName。
+請注意，如果您的伺服器是 foo.database.windows.net，請使用 "foo" 作為上述 Powershell Cmdlet 中的 -ServerName。
 
 ### REST API
 使用 REST 可以程式設計方式執行資料庫還原。
@@ -74,15 +81,20 @@ Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $R
 若資料庫已刪除，您可以將已刪除的資料庫還原至刪除的時間點。Azure SQL 資料倉儲會在卸除資料庫前採用資料庫快照集，並保留 7 天。
 
 ### PowerShell
-使用 PowerShell 以程式設計方式還原已刪除的資料庫。若要還原已刪除的資料庫，請使用 [Start-AzureSqlDatabaseRestore][] Cmdlet。
+使用 Azure PowerShell 以程式設計方式還原已刪除的資料庫。如要下載 Azure PowerShell 模組，請執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)。
 
-1. 從已刪除的資料庫清單中尋找已刪除的資料庫及其刪除日期。
+若要還原已刪除的資料庫，請使用 [Start-AzureSqlDatabaseRestore][] Cmdlet。
+
+1. 開啟 Microsoft Azure PowerShell。
+2. 連接到您的 Azure 帳戶，並列出與您的帳戶相關聯的所有訂用帳戶。
+3. 選取包含要還原之已刪除資料庫的訂用帳戶。
+4. 從已刪除資料庫的清單中找出資料庫及其刪除日期。
 
 ```
 Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>"
 ```
 
-2. 取得特定已刪除的資料庫，並開始進行還原。
+5. 取得特定已刪除的資料庫，並開始進行還原。
 
 ```
 $Database = Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>" -DeletionDate "1/01/2015 12:00:00 AM"
@@ -91,6 +103,8 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase
 
 Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
+
+請注意，如果您的伺服器是 foo.database.windows.net，請使用 "foo" 作為上述 Powershell Cmdlet 中的 -ServerName。
 
 ### REST API
 使用 REST 可以程式設計方式執行資料庫還原。
@@ -122,4 +136,4 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

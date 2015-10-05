@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="08/13/2015"
+	ms.date="09/17/2015"
 	ms.author="bwren"/>
 
 
@@ -21,9 +21,9 @@
 
 > [AZURE.SELECTOR]
 - [Graphical](automation-first-runbook-graphical.md)
-- [Textual](automation-first-runbook-textual.md)
+- [PowerShell Workflow](automation-first-runbook-textual.md)
 
-本教學課程將逐步引導您在 Azure 自動化中建立[圖形化 Runbook](automation-graphical-authoring-intro.md)。讓我們先從將測試和發佈的簡單 Runbook 開始，同時說明如何追蹤 Runbook 工作的狀態。然後我們要修改 Runbook 以實際上管理 Azure 資源，在此情況下是啟動 Azure 虛擬機器。接著我們要藉由加入 Runbook 參數和條件式連結，讓 Runbook 更穩固。
+本教學課程將逐步引導您在 Azure 自動化中建立[圖形化 Runbook](automation-runbook-types.md#graphical-runbooks)。讓我們先從將測試和發佈的簡單 Runbook 開始，同時說明如何追蹤 Runbook 工作的狀態。然後我們要修改 Runbook 以實際上管理 Azure 資源，在此情況下是啟動 Azure 虛擬機器。接著我們要藉由加入 Runbook 參數和條件式連結，讓 Runbook 更穩固。
 
 ## 必要條件
 
@@ -165,8 +165,8 @@
 ## 相關文章
 
 - [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)
-- [我的第一個文字式 runbook](automation-first-runbook-textual.md)
+- [我的第一個 PowerShell 工作流程 Runbook](automation-first-runbook-textual.md)
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="07/21/2015"
+	ms.date="09/23/2015"
 	ms.author="yidingz"/>
 
 # 開始使用適用於 .NET 的 Azure Batch 程式庫  
@@ -205,14 +205,14 @@
 
 2. 將此程式碼加入至設定認證以呼叫 Azure Batch 服務的 Main 中：
 
-			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("https://[account-name].[region].batch.azure.com", "[account-name]", "[account-key]");
+			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("[account-url]", "[account-name]", "[account-key]");
 			BatchClient client = BatchClient.Open(cred);
 
-	取代下列值：
+	使用與 Batch 帳戶相關聯的值取代加上括號的值，您可在 [Azure 預覽入口網站](https://portal.azure.com)找到這些值。若要找出這些值，請登入 [Azure 預覽入口網站](https://portal.azure.com)，然後遵循下列指示進行：
 
-	- **[account-name]** 取代成您先前建立的 Batch 帳戶的名稱。
-	- **[region]** 取代成您的帳戶所在的區域。請參閱 [Azure 區域](http://azure.microsoft.com/regions/)以探索可用的區域。
-	- **[account-key]** 取代成 Batch 帳戶的主索引鍵。
+	- **[account-name]** - 按一下 [Batch 帳戶]，選取您稍早建立的 Batch 帳戶
+	- **[account-url]** - 在 Batch 帳戶刀鋒視窗中，按一下 [屬性] > [URL]
+	- **[account-key]** - 在 Batch 帳戶刀鋒視窗中，按一下 [屬性] > [金鑰] > [主要存取金鑰]
 
 3.	將此方法加入至可建立集區的 Program 類別：
 
@@ -339,7 +339,7 @@
 		}
 
 
-	**[account-name]** 必須取代成您先前建立的儲存體帳戶的名稱。將上述範例中的四個 **[account-name]** 執行個體全部更新。
+	**[account-name]** 必須替換成您先前建立的儲存體帳戶的名稱。將上述範例中的四個 **[account-name]** 執行個體全部更新。
 
 
 2. 將此程式碼加入至可呼叫您剛才加入的方法的 Main 中：
@@ -493,6 +493,6 @@
 
 1. 既然您已經了解執行中工作的基本概念，您可以了解如何在應用程式的需求變更時，自動調整運算節點。若要這樣做，請參閱[自動調整 Azure Batch 集區中的運算節點](batch-automatic-scaling.md)
 
-2. 有些應用程式會產生可能難以處理的大量資料。解決這個問題的其中一種方式是透過[有效率的清單查詢](batch-efficient-list-queries.md)。
+2. 有些應用程式會產生可能難以處理的大量資料。解決方法之一是透過[有效率的清單查詢](batch-efficient-list-queries.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

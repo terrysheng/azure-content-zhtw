@@ -1,6 +1,23 @@
-<properties title="Configuring Oracle Data Guard for Azure" pageTitle="設定適用於 Azure 的 Oracle Data Guard" description="在 Azure 虛擬機器上逐步執行設定和實作高可用性和嚴重損壞修復之 Oracle Data Guard 的教學課程。" services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties
+	pageTitle="在 VM 中設定 Oracle Data Guard |Microsoft Azure"
+	description="在 Azure 虛擬機器上逐步執行設定和實作高可用性和嚴重損壞修復之 Oracle Data Guard 的教學課程。"
+	services="virtual-machines"
+	authors="bbenz"
+	documentationCenter=""
+	tags="azure-service-management"/>
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
+	ms.author="bbenz" />
+
 #設定適用於 Azure 的 Oracle Data Guard
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括管理以傳統部署模型建立的資源。
+
 本教學課程示範如何在 Azure 虛擬機器環境中設定和實作 Oracle Data Guard，以取得高可用性並進行嚴重損壞修復 。本教學課程著重於非 RAC Oracle 資料庫的單向複寫。
 
 Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。它是簡單、高效能且直接的解決方案，適用於整個 Oracle 資料庫的嚴重損壞修復、資料保護和高可用性。
@@ -68,7 +85,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 >| **記憶體** | 最少 2 GB | 最少 2 GB |
 >| **磁碟空間** | 最少 5 GB | 最少 5 GB |
 
-針對 Oracle 資料庫和 Oracle Data Guard 的後續版本，可能會有一些您需要實作的其他變更。如需最新的版本特定資訊，請參閱 Oracle 網站上的[資料防護](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html)和 [Oracle 資料庫](http://www.oracle.com/us/corporate/features/database-12c/index.html)文件。
+針對 Oracle 資料庫和 Oracle Data Guard 的後續版本，可能會有一些您需要實作的其他變更。如需最新的版本特定資訊，請參閱 Oracle 網站上的 [Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) 和 [Oracle 資料庫](http://www.oracle.com/us/corporate/features/database-12c/index.html)文件。
 
 ##實作實體的待命資料庫環境
 ### 1\.建立主要資料庫
@@ -77,17 +94,17 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 - 在 SQL*Plus 命令提示字元中，使用 SYSDBA 角色，以 SYS 使用者身分來連接您的資料庫，並執行下列陳述式來查看您的資料庫名稱：
 
 		SQL> select name from v$database;
-		
+
 		The result will display like the following:
-		
+
 		NAME
 		---------
 		TEST
 - 接下來，從 dba\_data\_files 系統檢視中查詢資料庫檔案的名稱：
 
-		SQL> select file_name from dba_data_files; 
-		FILE_NAME 
-		------------------------------------------------------------------------------- 
+		SQL> select file_name from dba_data_files;
+		FILE_NAME
+		-------------------------------------------------------------------------------
 		C:\ <YourLocalFolder>\TEST\USERS01.DBF
 		C:\ <YourLocalFolder>\TEST\UNDOTBS01.DBF
 		C:\ <YourLocalFolder>\TEST\SYSAUX01.DBF
@@ -142,8 +159,8 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 	3         ONLINE  C:<YourLocalFolder>\TEST\REDO03.LOG               NO
 	2         ONLINE  C:<YourLocalFolder>\TEST\REDO02.LOG               NO
 	1         ONLINE  C:<YourLocalFolder>\TEST\REDO01.LOG               NO
-	Next, query the v$log system view, displays log file information from the control file. 
-	SQL> select bytes from v$log; 
+	Next, query the v$log system view, displays log file information from the control file.
+	SQL> select bytes from v$log;
 	BYTES
 	----------
 	52428800
@@ -182,7 +199,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 首先，以 sysdba 身分登入。在 Windows 命令提示字元中，執行：
 
 	sqlplus /nolog
-	
+
 	connect / as sysdba
 
 然後，在 SQL*Plus 命令提示字元中關閉資料庫：
@@ -205,13 +222,13 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 
 然後，執行：
 
-	SQL> alter database archivelog; 
+	SQL> alter database archivelog;
 	Database altered.
 
 接下來，執行 Alter database 陳述式搭配 Open 子句，使資料庫可用於一般用途：
 
 	SQL> alter database open;
-	
+
 	Database altered.
 
 #### 設定主要資料庫的初始化參數
@@ -224,16 +241,16 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 	File created.
 
 接著，您需要編輯 pfile 來新增待命參數。若要這樣做，請開啟 %ORACLE\_HOME%\\database 位置中的 INITTEST.ORA 檔案。接著，將下列陳述式附加至 INITTEST.ora 檔案。請注意，INIT.ORA 檔案的命名慣例是 INIT<YourDatabaseName>.ORA。
-	
-	db_name='TEST' 
-	db_unique_name='TEST' 
+
+	db_name='TEST'
+	db_unique_name='TEST'
 	LOG_ARCHIVE_CONFIG='DG_CONFIG=(TEST,TEST_STBY)'
 	LOG_ARCHIVE_DEST_1= 'LOCATION=C:\OracleDatabase\archive   VALID_FOR=(ALL_LOGFILES,ALL_ROLES) DB_UNIQUE_NAME=TEST'
 	LOG_ARCHIVE_DEST_2= 'SERVICE=TEST_STBY LGWR ASYNC VALID_FOR=(ONLINE_LOGFILES,PRIMARY_ROLE) DB_UNIQUE_NAME=TEST_STBY'
 	LOG_ARCHIVE_DEST_STATE_1=ENABLE
-	LOG_ARCHIVE_DEST_STATE_2=ENABLE 
-	REMOTE_LOGIN_PASSWORDFILE=EXCLUSIVE 
-	LOG_ARCHIVE_FORMAT=%t_%s_%r.arc 
+	LOG_ARCHIVE_DEST_STATE_2=ENABLE
+	REMOTE_LOGIN_PASSWORDFILE=EXCLUSIVE
+	LOG_ARCHIVE_FORMAT=%t_%s_%r.arc
 	LOG_ARCHIVE_MAX_PROCESSES=30
 	# Standby role parameters --------------------------------------------------------------------
 	fal_server=TEST_STBY
@@ -251,11 +268,11 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 首先，關閉資料庫：
 
 	SQL> shutdown immediate;
-	
+
 	Database closed.
-	
+
 	Database dismounted.
-	
+
 	ORACLE instance shut down.
 
 接下來，執行 startup nomount 命令，如下所示：
@@ -277,7 +294,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 然後，關閉資料庫：
 
 	SQL> shutdown immediate;
-	
+
 	ORA-01507: database not mounted
 
 接著，使用 startup 命令來啟動執行個體：
@@ -322,18 +339,18 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 ### 1\.準備待命資料庫的初始設定參數檔案
 
 本節示範如何準備待命資料庫的初始化參數檔案。若要這樣做，請先手動將 INITTEST.ORA 檔案從 Machine1 複製到 Machine2。您應該可以在這兩部機器的 %ORACLE\_HOME%\\database 資料夾中看到 INITTEST.ORA 檔案。然後，修改 Machine2 中的 INITTEST.ora 檔案，以下列指定的方式來設定它，使其適用於待命角色：
-	
+
 	db_name='TEST'
 	db_unique_name='TEST_STBY'
 	db_create_file_dest='c:\OracleDatabase\oradata\test_stby’
 	db_file_name_convert=’TEST’,’TEST_STBY’
 	log_file_name_convert='TEST','TEST_STBY'
-	
-	
+
+
 	job_queue_processes=10
 	LOG_ARCHIVE_CONFIG='DG_CONFIG=(TEST,TEST_STBY)'
 	LOG_ARCHIVE_DEST_1='LOCATION=c:\OracleDatabase\TEST_STBY\archives VALID_FOR=(ALL_LOGFILES,ALL_ROLES) DB_UNIQUE_NAME=’TEST'
-	LOG_ARCHIVE_DEST_2='SERVICE=TEST LGWR ASYNC VALID_FOR=(ONLINE_LOGFILES,PRIMARY_ROLE) 
+	LOG_ARCHIVE_DEST_2='SERVICE=TEST LGWR ASYNC VALID_FOR=(ONLINE_LOGFILES,PRIMARY_ROLE)
 	LOG_ARCHIVE_DEST_STATE_1='ENABLE'
 	LOG_ARCHIVE_DEST_STATE_2='ENABLE'
 	LOG_ARCHIVE_FORMAT='%t_%s_%r.arc'
@@ -359,9 +376,9 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 以下列指定的方式，使用遠端桌面功能連至 Machine1 並編輯 listener.ora 檔案。當您編輯 listener.ora 檔案時，請務必在同一個資料行中對齊左右括號。您可以在下列資料夾中找到 listener.ora 檔案：c:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\NETWORK\\ADMIN\\。
 
 	# listener.ora Network Configuration File: C:\OracleDatabase\product\11.2.0\dbhome_1\network\admin\listener.ora
-	
+
 	# Generated by Oracle configuration tools.
-	
+
 	SID_LIST_LISTENER =
 	  (SID_LIST =
 	    (SID_DESC =
@@ -371,7 +388,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 	      (ENVS = "EXTPROC_DLLS=ONLY:C:\OracleDatabase\product\11.2.0\dbhome_1\bin\oraclr11.dll")
 	    )
 	  )
-	
+
 	LISTENER =
 	  (DESCRIPTION_LIST =
 	    (DESCRIPTION =
@@ -381,9 +398,9 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 	  )
 
 接下來，使用遠端桌面功能連至 Machine2，並編輯 listener.ora 檔案，如下所示：# listener.ora Network Configuration File: C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\network\\admin\\listener.ora
-	
+
 	# Generated by Oracle configuration tools.
-	
+
 	SID_LIST_LISTENER =
 	  (SID_LIST =
 	    (SID_DESC =
@@ -393,7 +410,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 	      (ENVS = "EXTPROC_DLLS=ONLY:C:\OracleDatabase\product\11.2.0\dbhome_1\bin\oraclr11.dll")
 	    )
 	  )
-	
+
 	LISTENER =
 	  (DESCRIPTION_LIST =
 	    (DESCRIPTION =
@@ -416,7 +433,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 	      (SERVICE_NAME = test)
 	    )
 	  )
-	
+
 	TEST_STBY =
 	  (DESCRIPTION =
 	    (ADDRESS_LIST =
@@ -428,7 +445,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 	  )
 
 使用遠端桌面功能連至 Machine2 並編輯 tnsnames.ora 檔案，如下所示：
-	
+
 	TEST =
 	  (DESCRIPTION =
 	    (ADDRESS_LIST =
@@ -438,7 +455,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 	      (SERVICE_NAME = test)
 	    )
 	  )
-	
+
 	TEST_STBY =
 	  (DESCRIPTION =
 	    (ADDRESS_LIST =
@@ -455,7 +472,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 在主要和待命的虛擬機器中開啟新的 Windows 命令提示字元，並執行下列陳述式：
 
 	C:\Users\DBAdmin>tnsping test
-	
+
 	TNS Ping Utility for 64-bit Windows: Version 11.2.0.1.0 - Production on 14-NOV-2013 06:29:08
 	Copyright (c) 1997, 2010, Oracle.  All rights reserved.
 	Used parameter files:
@@ -464,10 +481,10 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 	Attempting to contact (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = MACHINE1)(PORT = 1521))) (CONNECT_DATA = (SER
 	VICE_NAME = test)))
 	OK (0 msec)
-	
+
 
 	C:\Users\DBAdmin>tnsping test_stby
-	
+
 	TNS Ping Utility for 64-bit Windows: Version 11.2.0.1.0 - Production on 14-NOV-2013 06:29:16
 	Copyright (c) 1997, 2010, Oracle.  All rights reserved.
 	Used parameter files:
@@ -493,10 +510,10 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 啟動資料庫：
 
 	SQL>shutdown immediate;
-	
+
 	SQL>startup nomount
 	ORACLE instance started.
-	
+
 	Total System Global Area  747417600 bytes
 	Fixed Size                  2179496 bytes
 	Variable Size             473960024 bytes
@@ -512,7 +529,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 >[AZURE.IMPORTANT]請勿使用作業系統驗證，因為待命伺服器機器中還沒有任何資料庫。
 
 	C:\> RMAN TARGET sys/password@test AUXILIARY sys/password@test_STBY
-	
+
 	RMAN>DUPLICATE TARGET DATABASE
 	  FOR STANDBY
 	  FROM ACTIVE DATABASE
@@ -545,15 +562,15 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 開啟 SQL*Plus 命令提示字元視窗，並檢查待命虛擬機器 (Machine2) 上的封存重做記錄：
 
 	SQL> show parameters db_unique_name;
-	
+
 	NAME                                TYPE       VALUE
 	------------------------------------ ----------- ------------------------------
 	db_unique_name                      string     TEST_STBY
-	
+
 	SQL> SELECT NAME FROM V$DATABASE
-	
+
 	SQL> SELECT SEQUENCE#, FIRST_TIME, NEXT_TIME, APPLIED FROM V$ARCHIVED_LOG ORDER BY SEQUENCE#;
-	
+
 	SEQUENCE# FIRST_TIM NEXT_TIM APPLIED
 	----------------  ---------------  --------------- ------------
 	45                    23-FEB-14   23-FEB-14   YES
@@ -565,9 +582,9 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 
 開啟 SQL*Plus 命令提示字元視窗，並切換主要機器 (Machine1) 上的 logfile：
 
-	SQL> alter system switch logfile; 
+	SQL> alter system switch logfile;
 	System altered.
-	
+
 	SQL> archive log list
 	Database log mode              Archive Mode
 	Automatic archival             Enabled
@@ -579,14 +596,14 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 檢查待命虛擬機器 (Machine2) 上的封存重做記錄：
 
 	SQL> SELECT SEQUENCE#, FIRST_TIME, NEXT_TIME, APPLIED FROM V$ARCHIVED_LOG ORDER BY SEQUENCE#;
-	
+
 	SEQUENCE# FIRST_TIM NEXT_TIM APPLIED
 	----------------  ---------------  --------------- ------------
 	45                    23-FEB-14   23-FEB-14   YES
 	46                    23-FEB-14   23-FEB-14   YES
 	47                    23-FEB-14   23-FEB-14   YES
 	48                    23-FEB-14   23-FEB-14   YES
-	
+
 	49                    23-FEB-14   23-FEB-14   YES
 	50                    23-FEB-14   23-FEB-14   IN-MEMORY
 
@@ -607,4 +624,4 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 ##其他資源
 [適用於 Azure 的 Oracle 虛擬機器映像](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

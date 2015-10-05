@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="lodipalm"/>
 
 #以 SQL 資料倉儲來搭配運用其他服務
@@ -71,4 +71,4 @@ Azure 串流分析是複雜、完全受管理的基礎結構，可處理和取�
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

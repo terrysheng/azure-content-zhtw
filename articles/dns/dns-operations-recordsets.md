@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="在 Azure DNS 管理 DNS 記錄集和記錄 |Microsoft Azure"
-	description="將網域裝載於 Azure DNS 時，在 Azure DNS 管理 DNS 記錄集和記錄。對記錄集和記錄執行作業的所有 PowerShell 命令。"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   pageTitle="在 Azure DNS 管理 DNS 記錄集和記錄 |Microsoft Azure" 
+   description="將網域裝載於 Azure DNS 時，在 Azure DNS 管理 DNS 記錄集和記錄。對記錄集和記錄執行作業的所有 PowerShell 命令。" 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="Adinah" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="en"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="en"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
-# 如何管理 DNS 記錄
+# 如何使用 PowerShell 管理 DNS 記錄
 
 
 > [AZURE.SELECTOR]
@@ -36,7 +36,7 @@
 
 >針對位於區域頂點的記錄集，請使用 "@"做為記錄集名稱 (包括引號)。記錄集的完整名稱就等於區域名稱，在此案例中為 "contoso.com"。
 
-Azure DNS 支援下列記錄類型：A、AAAA、CNAME、MX、NS、SOA、SRV、TXT。每個區域會自動建立 SOA 類型的記錄集，無法另外建立。
+Azure DNS 支援下列記錄類型： A、AAAA、CNAME、MX、NS、SOA、SRV、TXT。每個區域會自動建立 SOA 類型的記錄集，無法另外建立。
 
 	PS C:\> $rs = New-AzureDnsRecordSet -Name www -Zone $zone -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
 
@@ -271,4 +271,4 @@ Set-AzureDnsRecordSet Cmdlet 使用 ‘etag’ 檢查，以確保不會覆寫並
 [開始建立記錄集和記錄](../dns-getstarted-create-recordset)<BR> [在 DNS 區域上執行作業](../dns-operations-dnszones)<BR> [使用 .NET SDK 將作業自動化](../dns-sdk)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

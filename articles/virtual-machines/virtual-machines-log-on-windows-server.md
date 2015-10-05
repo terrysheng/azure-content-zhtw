@@ -1,6 +1,6 @@
 <properties
-	pageTitle="登入執行 Windows Server 的虛擬機器"
-	description="了解如何使用 Azure 入口網站來登入執行 Windows Server 的虛擬機器。"
+	pageTitle="登入 VM | Microsoft Azure"
+	description="使用入口網站登入以傳統部署模型建立的 Windows 虛擬機器。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -18,11 +18,13 @@
 	ms.author="cynthn"/>
 
 
-# 如何登入執行 Windows Server 的虛擬機器#
+# 登入以傳統部署模型建立的 Windows 虛擬機器
 
-您會使用 Azure 入口網站中的 [連線] 按鈕啟動「遠端桌面」工作階段。首先您要連線至虛擬機器，然後登入。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型管理資源。
 
-想要連線至 Linux VM 嗎？ 請參閱[如何登入執行 Linux 的虛擬機器](virtual-machines-linux-how-to-log-on.md)。
+您會使用 Azure Preview 入口網站中的 [連接] 按鈕啟動「遠端桌面」工作階段。首先您要連線至虛擬機器，然後登入。
+
+您想要連線至 Linux VM 嗎？ 請參閱[如何登入執行 Linux 的虛擬機器](virtual-machines-linux-how-to-log-on.md)。
 
 ## 連線至虛擬機器。
 
@@ -51,4 +53,4 @@
 
 如果這些秘訣沒效，或者不是您所需要的，請參閱[疑難排解以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線](virtual-machines-troubleshoot-remote-desktop-connections.md)。本文會逐步帶領您診斷及解決常見的問題。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
  
@@ -69,4 +69,4 @@ SQL 資料倉儲中的檢視僅限中繼資料使用。
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

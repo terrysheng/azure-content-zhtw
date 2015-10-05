@@ -1,23 +1,25 @@
-<properties 
-	pageTitle="在 Azure 中建立及上傳 SUSE Linux VHD" 
-	description="了解如何建立及上傳包含 SUSE Linux 作業系統的 Azure 虛擬硬碟 (VHD)。" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="在 Azure 中建立及上傳 SUSE Linux VHD"
+	description="了解如何建立及上傳包含 SUSE Linux 作業系統的 Azure 虛擬硬碟 (VHD)。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/15/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/15/2015"
 	ms.author="szarkos"/>
 
-
 # 準備執行 Azure 的 SLES 或 openSUSE 虛擬機器
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [準備執行 Azure 的 SLES 11 SP3 虛擬機器](#sles11)
 - [準備執行 Azure 的 openSUSE 13.1+ 虛擬機器](#osuse)
@@ -115,7 +117,7 @@
 
 	如果命令傳回 "No repositories defined..."，則使用下列命令來新增這些儲存機制：
 
-		# sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_13.1 Cloud:Tools_13.1 
+		# sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_13.1 Cloud:Tools_13.1
 		# sudo zypper ar -f http://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
 		# sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
 
@@ -177,7 +179,4 @@
 
 13. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

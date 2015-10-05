@@ -1,11 +1,12 @@
 <properties
-	pageTitle="使用資源管理員範本和適用於 Mac、Linux 和 Windows 的 Microsoft Azure CLI 來部署和管理虛擬機器 | Microsoft Azure"
-	description="使用 Azure 資源管理員和 Azure CLI 輕鬆部署以及管理 Azure 虛擬機器最常用的設定。"
+	pageTitle="使用範本部署和管理 VM |Microsoft Azure"
+	description="使用 Azure 資源管理員範本和 Azure CLI 部署和管理 Azure 虛擬機器最常用的設定。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -19,6 +20,9 @@
 # 使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器
 
 本文會為您示範如何使用 Azure 資源管理員範本和 Azure CLI，執行下列部署和管理 Azure 虛擬機器的常見工作。如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)和[使用範本的應用程式架構](virtual-machines-app-frameworks.md)。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文內容涵蓋使用資源管理員部署模型中的範本來部署和管理 VM。您無法在傳統的部署模型中使用範本。
+
 
 - [在 Azure 中快速建立虛擬機器](#quick-create-a-vm-in-azure)
 - [在 Azure 中利用範本部署虛擬機器](#deploy-a-vm-in-azure-from-a-template)
@@ -1265,9 +1269,9 @@
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>工作：登入 Linux 型虛擬機器
 
-通常 Linux 機器是透過 SSH 連接的。如需詳細資訊，請參閱[如何在 Azure 上的 Linux 使用 SSH](virtual-machines-linux-use-ssh-key.md)。
+通常 Linux 機器是透過 SSH 連接的。如需詳細資訊，請參閱[如何搭配使用 SSH 與 Azure 上的 Linux](virtual-machines-linux-use-ssh-key.md)。
 
-## <a id="stop-a-virtual-machine"></a>工作： 停止 VM
+## <a id="stop-a-virtual-machine"></a>工作：停止 VM
 
 請執行這個命令：
 
@@ -1275,13 +1279,13 @@
 
 >[AZURE.IMPORTANT]萬一它是 Vnet 的最後一個 VM，您可以使用這個參數來保留 Vnet 的虛擬 IP (VIP)。<br><br>如果使用這個 `StayProvisioned` 參數，還是需要支付 VM 的費用。
 
-## <a id="start-a-virtual-machine"></a>工作： 啟動 VM
+## <a id="start-a-virtual-machine"></a>工作：啟動 VM
 
 請執行這個命令：
 
     azure vm start <group name> <virtual machine name>
 
-## <a id="attach-a-data-disk"></a>工作： 連接資料磁碟
+## <a id="attach-a-data-disk"></a>工作：連接資料磁碟
 
 您也需要決定是否要附加新的磁碟或附加已經包含資料的磁碟。如果是新的磁碟，這個命令會建立 .vhd 檔案，然後將它附加在同一個命令中。
 
@@ -1302,4 +1306,4 @@
 
 如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)和[使用範本的應用程式架構](virtual-machines-app-frameworks.md)。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

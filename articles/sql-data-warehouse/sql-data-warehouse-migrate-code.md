@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # 將您的 SQL 程式碼移轉至 SQL 資料倉儲
@@ -114,4 +114,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

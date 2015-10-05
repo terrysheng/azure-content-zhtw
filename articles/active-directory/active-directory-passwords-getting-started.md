@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="開始使用：Azure AD 密碼管理 |Microsoft Azure" 
-	description="讓使用者重設自己的密碼、探索密碼重設的必要條件，以及啟用密碼回寫以管理 Active Directory 中的內部部署密碼。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="開始使用：Azure AD 密碼管理 |Microsoft Azure"
+	description="讓使用者重設自己的密碼、探索密碼重設的必要條件，以及啟用密碼回寫以管理 Active Directory 中的內部部署密碼。"
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # 開始使用密碼管理
@@ -343,6 +343,4 @@
 [030]: ./media/active-directory-passwords-getting-started/030.jpg "Image_030.jpg"
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

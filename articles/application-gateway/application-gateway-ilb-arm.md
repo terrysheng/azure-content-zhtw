@@ -12,7 +12,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="08/07/2015"
+   ms.date="09/21/2015"
    ms.author="joaoma"/>
 
 
@@ -97,16 +97,22 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 ### 步驟 1	
 	
-	$subnet = New-AzureVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
+	$subnetconfig = New-AzureVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
 指派用於建立虛擬網路的位址範圍 10.0.0.0/24 給子網路變數 subnet
 
 ### 步驟 2
 	
-	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 
 使用前置詞 10.0.0.0/16 搭配子網路 10.0.0.0/24，在美國西部 ("West US") 區域的 "appw-rg" 資源群組中建立名為 "appgwvnet" 的虛擬網路
 	
+### 步驟 3
+
+	$subnet=$vnet.subnets[0]
+
+將子網路物件指派給下一個步驟的變數 $subnet。
+ 
 
 ## 建立應用程式閘道器組態物件
 
@@ -168,13 +174,12 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 
 
-
 ## 啟動閘道
 
-閘道器設定完成後，使用 `Start-AzureApplicationGateway` Cmdlet 來啟動閘道器。成功啟動閘道之後，會開始應用程式閘道計費。
+設定閘道之後，請使用 `Start-AzureApplicationGateway` Cmdlet 來啟動閘道。成功啟動閘道之後，會開始應用程式閘道計費。
 
 
-**注意：**`Start-AzureApplicationGateway` Cmdlet 最多可能需要 15 到 20 分鐘的時間才能完成。
+**注意：**`Start-AzureApplicationGateway`Cmdlet 可能需要 15-20 分鐘的時間才能完成。
 
 在以下範例中，應用程式閘道器名為 "appgwtest"，資源群組為 "appgw-rg"：
 
@@ -187,7 +192,7 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 ### 步驟 2
 	 
-使用 `Start-AzureApplicationGateway` 啟動應用程式閘道器：
+使用 `Start-AzureApplicationGateway` 啟動應用程式閘道：
 
 	PS C:\> Start-AzureApplicationGateway -ApplicationGateway $getgw  
 
@@ -201,11 +206,11 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 ## 確認應用程式閘道器狀態
 
-使用 `Get-AzureApplicationGateway` Cmdlet 檢查閘道器狀態。如果 *Start-AzureApplicationGateway* 在上一個步驟成功，則狀態應該為 [正在執行]，且 Vip 和 DnsName 應該具備有效的項目。
+使用 `Get-AzureApplicationGateway` Cmdlet 檢查閘道狀態。如果 *Start-AzureApplicationGateway* 在上一個步驟成功，則此狀態應該會是 *Running*，且 Vip 和 DnsName 應該會具有有效的項目。
 
 這個範例示範已啟動、正在執行且準備好將流量傳送到 `http://<generated-dns-name>.cloudapp.net` 的應用程式閘道器。
 
-	PS C:\> Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName app-rg
+	PS C:\> Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
 	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
@@ -224,21 +229,21 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 若要刪除應用程式閘道，您需要依序執行下列動作：
 
-1. 使用 `Stop-AzureApplicationGateway` Cmdlet 停止閘道器。 
-2. 使用 `Remove-AzureApplicationGateway` Cmdlet 移除閘道器。
-3. 使用 `Get-AzureApplicationGateway` Cmdlet 確認已移除閘道器。
+1. 使用 `Stop-AzureApplicationGateway` Cmdlet 停止閘道。 
+2. 使用 `Remove-AzureApplicationGateway` Cmdlet 移除閘道。
+3. 使用 `Get-AzureApplicationGateway` Cmdlet 確認已移除閘道。
 
-這個範例的第一行顯示 `Stop-AzureApplicationGateway` Cmdlet，後面接著輸出。
+這個範例會在第一行顯示 `Stop-AzureApplicationGateway` Cmdlet，後面接著輸出。
 
 ### 步驟 1
 
 取得應用程式閘道器物件，並關聯至變數 "$getgw"：
  
-	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName app-rg
+	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### 步驟 2
 	 
-使用 `Stop-AzureApplicationGateway` 停止應用程式閘道器：
+使用 `Stop-AzureApplicationGateway` 停止應用程式閘道：
 
 	PS C:\> Stop-AzureApplicationGateway -ApplicationGateway $getgw  
 
@@ -248,10 +253,10 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 	----       ----------------     ------------                             ----
 	Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 
-一旦應用程式閘道器處於 [已停止] 狀態，使用 `Remove-AzureApplicationGateway` Cmdlet 移除服務。
+應用程式閘道處於「已停止」狀態之後，請使用 `Remove-AzureApplicationGateway` Cmdlet 移除服務。
 
 
-	PS C:\> Remove-AzureApplicationGateway -Name $appgwName -ResourceGroupName $rgname -Force
+	PS C:\> Remove-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
 
 	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway 
 	VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
@@ -262,10 +267,10 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 >[AZURE.NOTE]選擇性的 "-force" 參數可用來隱藏移除確認訊息
 >
 
-若要確認已移除服務，可以使用 `Get-AzureApplicationGateway` Cmdlet。這不是必要步驟。
+若要確認已移除服務，您可以使用 `Get-AzureApplicationGateway` Cmdlet。這不是必要步驟。
 
 
-	PS C:\>Get-AzureApplicationGateway -Name appgwtest-ResourceGroupName app-rg
+	PS C:\>Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway 
 
@@ -274,13 +279,13 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 ## 後續步驟
 
-如果您想要設定 SSL 卸載，請參閱〈[設定應用程式閘道器以進行 SSL 卸載](application-gateway-ssl.md)〉。
+如果您想要設定 SSL 卸載，請參閱[設定應用程式閘道以進行 SSL 卸載](application-gateway-ssl.md)。
 
-如果您想要將應用程式閘道器設為與 ILB 搭配使用，請參閱〈[建立搭配內部負載平衡器 (ILB) 的應用程式閘道器](application-gateway-ilb.md)〉。
+如果您想要將應用程式閘道設為與 ILB 搭配使用，請參閱[建立具有內部負載平衡器 (ILB) 的應用程式閘道](application-gateway-ilb.md)。
 
 如果您想取得一般負載平衡選項的詳細資訊，請參閱：
 
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

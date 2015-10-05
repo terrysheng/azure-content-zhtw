@@ -1,26 +1,29 @@
 <properties
-  pageTitle="在 Ubuntu 上使用 Azure 資源管理員範本建立 MongoDB 叢集"
-	description="在 Ubuntu 上透過 Azure PowerShell 或 Azure CLI 使用 Azure 資源管理員範本建立 MongoDB 叢集"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="karthmut"
-	manager="timlt"
-	editor="tysonn"/>
+  pageTitle="在 Ubuntu 上建立 MongoDB 叢集 | Microsoft Azure"
+  description="在 Ubuntu 上透過 Azure PowerShell 或 Azure CLI 使用 Azure 資源管理員範本建立 MongoDB 叢集"
+  services="virtual-machines"
+  documentationCenter=""
+  authors="scoriani"
+  manager="timlt"
+  editor="tysonn"
+  tags="azure-resource-manager"/>
 
 <tags
   ms.service="virtual-machines"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/29/2015"
-	ms.author="karthmut"/>
+  ms.workload="multiple"
+  ms.tgt_pltfrm="vm-windows"
+  ms.devlang="na"
+  ms.topic="article"
+  ms.date="04/29/2015"
+  ms.author="scoriani"/>
 
 # 在 Ubuntu 上使用 Azure 資源管理員範本建立 MongoDB 叢集
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型建立資源。
+
 MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性，以及自動調整範圍。MongoDB 可安裝作為獨立資料庫或安裝於叢集中，以運用內建的複寫功能。在某些情況下，您可以使用複寫來提高讀取產能。用戶端能夠將讀取和寫入操作傳送到其他伺服器。您也可以在不同的資料中心保留複本，以針對分散式應用程式增加資料的位置和可用性。使用 MongoDB，複寫也可提供備援並提高資料可用性。在不同的資料庫伺服器上使用多個資料複本，複寫可以保護資料庫免於遺失單一伺服器。複寫也能讓您從硬體故障和服務中斷復原。使用其他資料複本，您可以將其中一個專門用於災害復原、報告或備份。
 
-除了提供 Azure Marketplace 已有的各種功能之外，現在您也可以使用透過 [Azure PowerShell](../powershell-install-configure.md) 或 [Azure CLI](../xplat-cli.md) 部署的 Azure 資源管理員範本，在 Ubuntu VM 上輕鬆部署新的 MongoDB 叢集。
+除了 Azure Marketplace 已提供的各種功能之外，現在您也可以使用透過 [Azure PowerShell](../powershell-install-configure.md) 或 [Azure CLI](../xplat-cli.md) 部署的 Azure 資源管理員範本，在 Ubuntu VM 上輕鬆部署新的 MongoDB 叢集。
 
 根據這個範本部署的新叢集會採用下圖中所述的拓撲，不過，您可以自訂本文中所述的範本，輕鬆實現其他拓撲。
 
@@ -305,9 +308,9 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
 
 部署期間以及部署結束之後，您可以檢查所有佈建期間所進行的要求，包括任何發生的錯誤。
 
-若要執行該動作，請移至 [Azure 入口網站](https://portal.azure.com)，然後執行下列動作：
+若要這樣做，請移至 [Azure 入口網站](https://portal.azure.com)，然後執行下列動作：
 
-- 按一下左側導覽列上的 [ **瀏覽**]，向下捲動，然後按一下 [**資源群組**]。
+- 按一下左側導覽列上的 [瀏覽]，向下捲動，然後按一下 [資源群組]。
 - 按一下剛建立的資源群組後，就會顯示資源群組刀鋒視窗。
 - 在資源群組刀鋒視窗的 [監視] 部分中，按一下 [事件] 長條圖，您就能看見部署的事件。按一下個別事件之後，系統會進一步向下切入代表範本進行的各項操作詳細資料。
 
@@ -331,7 +334,7 @@ MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性
 
 ## MongoDB 範本結構和檔案組織的導覽
 
-為了讓 Azure 資源管理員範本的設計更加完善且可重複使用，您必須在部署 MongoDB 之類的複雜解決方案期間，考慮清楚如何安排一連串複雜但又彼此相關的工作。除了透過相關延伸模組執行指令碼之外，還可以運用 Azure 資源管理員*範本連結*和*資源迴圈*，這樣就能實作模組化方法，而實際上所有以複雜範本為基礎的部署都能重複使用此方法。
+為了讓 Azure 資源管理員範本的設計更加完善且可重複使用，您必須在部署 MongoDB 之類的複雜解決方案期間，考慮清楚如何安排一連串複雜但又彼此相關的工作。除了透過相關擴充功能執行指令碼之外，還可以運用 Azure 資源管理員「範本連結」和「資源迴圈」，這樣就能實作模組化方法，而實際上所有以複雜範本為基礎的部署都能重複使用此方法。
 
 下圖說明在此部署中從 GitHub 下載的所有檔案彼此間的關係：
 
@@ -548,7 +551,7 @@ azuredeploy.json 的參數區段會指定此範本中所使用的可修改參數
       "dataDiskSize": 250
     },
 
-「中等」MongoDB 叢集將使用 D2 作為裝載資料之三個 MongoDB 叢集的 VM 大小，再加上第四個 A1 VM，這個 VM 將針對複寫目的作為仲裁程式。叫用來部署資料節點的對應子範本會是 `member-resources-D2.json`，而資料檔案 (每一個 250 GB) 將儲存於兩個儲存體帳戶中。這個變數將用於資源區段中，以協調節點部署和其他工作。
+「中等」MongoDB 叢集將使用 D2 作為裝載資料之三個 MongoDB 叢集的 VM 大小，再加上第四個 A1 VM，這個 VM 將針對複寫目的作為仲裁程式。叫用來部署資料節點的對應子範本會是 `member-resources-D2.json`，而資料檔案 (每一個 250 GB) 將儲存在兩個儲存體帳戶中。這個變數將用於資源區段中，以協調節點部署和其他工作。
 
 ### 資源區段
 
@@ -582,11 +585,11 @@ azuredeploy.json 的參數區段會指定此範本中所使用的可修改參數
 
 特別是，下列連結的範本將用於此部署：
 
--	**shared-resource.json**：包含所有要在整個部署中共用資源的定義。例如，用來儲存 VM 的作業系統磁碟和虛擬網路的儲存體帳戶。
+-	**shared-resource.json**：包含要在整個部署中共用的所有資源定義。例如，用來儲存 VM 的作業系統磁碟和虛擬網路的儲存體帳戶。
 -	**jumpbox-resources.json**：啟用時，負責部署所有與 Jumpbox VM 相關的資源，其中一個具有公用 IP 位址，可用來從公用網路存取 MongoDB 叢集。
 -	**arbiter-resources.json**：啟用時，這個範本會在 MongoDB 叢集中部署仲裁程式成員。仲裁程式不會包含資料，但可在複本集包含偶數節點以管理主要選取時使用。
 -	**member-resources-Dx.json**：可指定能有效地部署 MongoDB 節點的資源範本。您可以根據選取的 T 恤尺寸定義來使用特定檔案，每個檔案間只有每個節點連接磁碟數的差異。
--	**mongodb-ubuntu-install.sh**：叢集中每個節點上的 CustomScriptForLinux 延伸模組所叫用的 Bash 指令碼檔案。負責掛接和格式化資料磁碟，以及在節點上安裝 MongoDB 位元。
+-	**mongodb-ubuntu-install.sh**：叢集中每個節點上的 CustomScriptForLinux 擴充功能所叫用的 Bash 指令碼檔案。負責掛接和格式化資料磁碟，以及在節點上安裝 MongoDB 位元。
 
 若要部署 MongoDB 叢集，需要使用特定邏輯，才能正確設定複本集。以下範例是您必須在部署期間使用的特定順序：
 
@@ -646,7 +649,7 @@ azuredeploy.json 的參數區段會指定此範本中所使用的可修改參數
 
 要強調的一個重要概念是，如何能夠部署單一資源類型的多個複本，而且每一個執行個體都能為必要設定指定唯一值。這個概念稱為*資源迴圈*。
 
-在上一個片段中，將使用參數 (要在叢集中部署的節點數) 來設定變數 (“numberOfMembers”)，然後將它傳遞給 **“copy”** 元素，以觸發數個 (迴圈) 子部署，每一個都會針對叢集中的每個成員，將範本具現化。為了能夠設定執行個體間需要唯一值的所有設定，可使用 **copyindex()** 函式來取得數值，以指出目前用來建立這個特定資源迴圈的索引。
+在上一個範例中，將使用參數 (要在叢集中部署的節點數) 來設定變數 (“numberOfMembers”)，然後將它傳遞給 **“copy”** 元素，以觸發數個 (迴圈) 子部署，每一個都會針對叢集中的每個成員，將範本具現化。為了能夠設定執行個體間需要唯一值的所有設定，可使用 **copyindex()** 函式來取得數值，以指出目前用來建立這個特定資源迴圈的索引。
 
 建立資源時還有一個重要的概念，那就是指定資源之間的相依性和優先順序，如同您在 **dependsOn** JSON 陣列中看到的一樣。在這個特殊的範本中，部署每一個節點都取決於先前成功部署的**共用資源**。
 
@@ -690,4 +693,4 @@ vm-disk-utils-0.1.sh 是 shared\_scripts\\ubuntu 資料夾的一部分 (位於 a
 
 如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](../resource-group-authoring-templates.md)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

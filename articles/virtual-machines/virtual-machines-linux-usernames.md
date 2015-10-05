@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="在 Azure 上選取適用於 Linux 的使用者名稱" 
+	pageTitle="選取 Linux 的使用者名稱 | Microsoft Azure" 
 	description="了解如何在 Azure 中選取適用於 Linux 虛擬機器的使用者名稱。" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -248,4 +249,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="09/22/2015"
    ms.author="barbkess"/>
 
 # 語言元素
@@ -49,8 +49,8 @@
 ## 運算子
 - [\+ (加)](https://msdn.microsoft.com/library/ms178565.aspx)
 - [\+ (字串串連)](https://msdn.microsoft.com/library/ms177561.aspx)
-- [\- (負)](https://msdn.microsoft.com/library/ms189480.aspx)
-- [\- (減)](https://msdn.microsoft.com/library/ms189518.aspx)
+- [- (負)](https://msdn.microsoft.com/library/ms189480.aspx)
+- [- (減)](https://msdn.microsoft.com/library/ms189518.aspx)
 - [* (乘)](https://msdn.microsoft.com/library/ms176019.aspx)
 - [/ (除)](https://msdn.microsoft.com/library/ms175009.aspx)
 - [模數](https://msdn.microsoft.com/library/ms190279.aspx)
@@ -78,7 +78,7 @@
 - [& (位元 AND)](https://msdn.microsoft.com/library/ms174965.aspx)
 - [| (位元 OR)](https://msdn.microsoft.com/library/ms186714.aspx)
 - [^ (位元互斥 OR)](https://msdn.microsoft.com/library/ms190277.aspx)
-- [\~ (位元 NOT)](https://msdn.microsoft.com/library/ms173468.aspx)
+- [~ (位元 NOT)](https://msdn.microsoft.com/library/ms173468.aspx)
 - [^= (位元互斥 OR EQUALS)](https://msdn.microsoft.com/library/cc627413.aspx)
 - |= (位元 OR EQUALS)
 - ？ (位元 AND EQUALS)
@@ -290,4 +290,4 @@
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

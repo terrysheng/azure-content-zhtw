@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用 Visual Studio 建立 Web 專案的虛擬機器"
+	pageTitle="使用 Visual Studio 建立 Web 專案的 VM | Microsoft Azure"
 	description="建立網站的虛擬機器"
 	services="virtual-machines"
 	documentationCenter=""
@@ -68,4 +68,4 @@
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

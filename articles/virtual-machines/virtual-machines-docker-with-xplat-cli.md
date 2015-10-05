@@ -13,10 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/22/2015"
+	ms.date="09/22/2015"
 	ms.author="rasquill"/>
 
 # 透過 Azure 命令列介面 (Azure CL) 使用 Docker VM 延伸模組
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
 
 本主題說明如何透過 Azure CLI 中的服務管理 (asm) 模式，在任何平台上建立包含 Docker VM 延伸模組的 VM。[Docker](https://www.docker.com/) 是最常用的虛擬化方式之一，它不使用虛擬機器，而是使用 [Linux 容器](http://en.wikipedia.org/wiki/LXC)作為在共用資源上獨立資料和執行計算的方法。您可以將 Docker VM 擴充程式應用在 [Azure Linux 代理程式](virtual-machines-linux-agent-user-guide.md)上，如此可在 Azure 上建立 Docker VM 來託管任何數量的應用程式容器。若要查看容器及其優點的高層級討論，請參閱 [Docker 高層級白板](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard) (英文)。
 
@@ -25,7 +27,7 @@
 + [Azure 容器及容器管理資源]
 + [後續步驟]
 
-## <a id='How to use the Docker VM Extension with Azure'>如何搭配使用 Docker VM 延伸模組與 Azure</a>
+##如何搭配使用 Docker VM 擴充程式與 Azure
 若要將 Docker VM 延伸模組與 Azure 搭配使用，您必須安裝 0.8.6 版本以上的 [Azure 命令列介面](https://github.com/Azure/azure-sdk-tools-xplat) (Azure CLI) (本文截稿當時的最新版本為 0.8.10)。您可以在 Mac、Linux 及 Windows 上安裝 Azure CLI。
 
 
@@ -63,10 +65,10 @@
 
 `azure vm image list | grep Ubuntu-14_04`
 
-並選取其中一個映像名稱 (例如 `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-zh-tw-30GB`)，然後使用下列命令建立使用該映像的新 VM。
+並選取其中一個映像名稱 (例如 `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-ZH-TW-30GB`)，然後使用下列命令建立使用該映像的新 VM。
 
 ```
-azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-zh-tw-30GB" <username> <password>
+azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-ZH-TW-30GB" <username> <password>
 ```
 
 其中：
@@ -139,4 +141,4 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 [Docker 使用者指南]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="什麼是 Azure 金鑰保存庫？ | Microsoft Azure" 
-	description="Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。使用 Azure 金鑰保存庫之後，客戶可以加密金鑰和密碼 (例如驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼)，方法是使用受硬體安全模組 (HSM) 保護的金鑰。" 
-	services="key-vault" 
-	documentationCenter="" 
-	authors="cabailey" 
+<properties
+	pageTitle="什麼是 Azure 金鑰保存庫？ | Microsoft Azure"
+	description="Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。使用 Azure 金鑰保存庫之後，客戶可以加密金鑰和密碼 (例如驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼)，方法是使用受硬體安全模組 (HSM) 保護的金鑰。"
+	services="key-vault"
+	documentationCenter=""
+	authors="cabailey"
 	manager="mbaldwin"
 	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="key-vault" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="09/11/2015" 
+<tags
+	ms.service="key-vault"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/22/2015"
 	ms.author="cabailey"/>
 
 
 
-# 什麼是 Azure 金鑰保存庫？ 
+# 什麼是 Azure 金鑰保存庫？
 
 大部分地區均提供 Azure 金鑰保存庫。如需詳細資訊，請參閱[金鑰保存庫價格頁面](../../../../pricing/details/key-vault/)。
 
@@ -43,7 +43,7 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 
 只要擁有 Azure 訂用帳戶，任何人都可以建立和使用金鑰保存庫。雖然金鑰保存庫有益於開發人員和安全性系統管理員，但管理組織其他 Azure 服務的組織系統管理員也可以實作並管理金鑰保存庫。例如，此系統管理員可以使用 Azure 訂用帳戶登入、建立組織要用來儲存金鑰的保存庫，然後負責執行營運工作，例如：
 
-+ 建立或匯入金鑰或密碼 
++ 建立或匯入金鑰或密碼
 + 撤銷或刪除金鑰或密碼
 + 授權使用者或應用程式來管理或使用金鑰和密碼
 + 設定金鑰使用方法 (例如，簽署或加密)
@@ -53,7 +53,7 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 
    ![Azure 金鑰保存庫概觀][1]
 
-開發人員也可透過使用 API 直接管理金鑰。如需詳細資訊，請參閱 MSDN 上 Microsoft Azure 文件庫中的[金鑰保存庫](https://msdn.microsoft.com/library/azure/dn903625.aspx)。
+開發人員也可透過使用 API 直接管理金鑰。如需詳細資訊，請參閱[金鑰保存庫開發人員指南](key-vault-developers-guide.md)。
 
 ## 後續步驟
 
@@ -65,7 +65,4 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
-
- 
-
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,11 +1,13 @@
 <properties 
-	pageTitle="在 Azure 中 Linux 的背書散發套件" 
-	description="了解在 Azure 背書散發套件上的 Linux，包括 Ubuntu、OpenLogic 和 SUSE 的準則。" 
+	pageTitle="Linux 的背書散發套件 | Microsoft Azure" 
+	description="了解在 Azure 背書散發套件上的 Linux，包括 Ubuntu、Oracle、OpenLogic 和 SUSE 的準則。" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management,azure-resource-manager" 
+	/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -35,7 +37,7 @@ Azure Linux 代理程式已預先安裝於 Azure 組件庫映像上，而且通�
 ---|---|---|---
 Canonical Ubuntu|Ubuntu 12.04、14.04、14.10 和 15.04|在核心中|封裝：在「walinuxagent」下的儲存機制中<p>來源：<p>[GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 OpenLogic 的 CentOS |CentOS 6.3+、7.0+| CentOS 6.3：[LIS 下載](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +：在核心中|封裝：在<a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">「WALinuxAgent」下的 OpenLogic 儲存機制中<p><p>來源：[GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-|494\.4.0+ |在核心中|來源：[GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
+[CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0+ |在核心中|來源：[GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
 Oracle Linux| 6\.4+、7.0+|在核心中|封裝：在「WALinuxAgent」下的儲存機制中<p><p>來源：[GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 SUSE Linux Enterprise |SLES 11 SP3 +、SLES 12 + 和 <p><p> SLES for SAP 11.3+ |在核心中|封裝：在「WALinuxAgent」下的[雲端：工具](https://build.opensuse.org/project/show/Cloud:Tools)儲存機制中<p><p>來源：[GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 openSUSE |openSUSE 13.1+|在核心中|封裝：在「WALinuxAgent」下的[雲端：工具](https://build.opensuse.org/project/show/Cloud:Tools)儲存機制中<p><p>原始程式碼：[GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
@@ -77,4 +79,4 @@ Azure 上的 SUSE Linux Enterprise Server 是一個經證實可為雲端運算�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

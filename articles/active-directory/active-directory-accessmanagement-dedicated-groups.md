@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure Active Directory 中的專用群組 | Microsoft Azure" 
-	description="說明如何在 Azure AD 中管理群組的主題。" 
+	description="在 Azure AD 中的專用的群組及建立方式的概觀。" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -28,9 +28,7 @@
 以下是將提供一些 Azure Active Directory 的其他相關資訊的部分主題
 
 * [使用 Azure Active Directory 群組管理資源的存取權](active-directory-manage-groups.md)
-
 * [什麼是 Azure Active Directory？](active-directory-whatis.md)
-
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 
 <properties
-   pageTitle="Azure AD 的驗證案例"
+   pageTitle="Azure AD 的驗證案例 | Microsoft Azure"
    description="Azure Active Directory (AAD) 五個最常見驗證案例的概觀"
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Azure AD 的驗證案例
@@ -68,7 +68,7 @@ Azure Active Directory (Azure AD) 提供身分識別做為服務來簡化開發�
 
 • 驗證程序的要求和回應流程由使用的驗證通訊協定決定，例如 OAuth 2.0、OpenID Connect，WS-同盟或 SAML 2.0。[Azure Active Directory 驗證通訊協定](active-directory-authentication-protocols.md)主題和下列各節中更詳細地討論這些通訊協定。
 
-> [AZURE.NOTE]Azure AD 支援 OAuth 2.0 和 OpenID Connect 標準，這些標準廣泛運用持有者權杖，包括以 JWT 表示的持有者權杖。持有人權杖是輕巧型的安全性權杖，授權「持有者」存取受保護的資源。從這個意義上說，「持有者」是可出示權杖的任何一方。雖然某一方必須先向 Azure AD 驗證以收到持有者權杖，但如果傳輸和儲存時未採取必要的步驟來保護權杖，它可能會被非預期的一方攔截和使用。雖然某些安全性權杖都有內建的機制，可防止未經授權的人士使用權杖，但持有者權杖沒有這項機制，而必須以安全通道來傳輸，例如傳輸層安全性 (HTTPS)。如果持有人權杖以純文字傳輸，惡意人士可能使用攔截式攻擊來取得權杖，然後未經授權存取受保護的資源。儲存或快取持有者權杖供以後使用時，也適用相同的安全性原則。務必確定您的應用程式以安全的方式傳輸和儲存持有者權杖。關於持有者權杖的其他安全性考量，請參閱 [RFC 6750 第 5 節](http://tools.ietf.org/html/rfc6750)。
+> [AZURE.NOTE]Azure AD 支援 OAuth 2.0 和 OpenID Connect 標準，這些標準廣泛運用持有者權杖，包括以 JWT 表示的持有者權杖。持有人權杖是輕巧型的安全性權杖，授權「持有者」存取受保護的資源。從這個意義上說，「持有者」是可出示權杖的任何一方。雖然某一方必須先向 Azure AD 驗證以收到持有人權杖，但如果傳輸和儲存時未採取必要的步驟來保護權杖，它可能會被非預期的一方攔截和使用。雖然某些安全性權杖都有內建的機制，可防止未經授權的人士使用權杖，但持有者權杖沒有這項機制，而必須以安全通道來傳輸，例如傳輸層安全性 (HTTPS)。如果持有人權杖以純文字傳輸，惡意人士可能使用攔截式攻擊來取得權杖，然後未經授權存取受保護的資源。儲存或快取持有者權杖供以後使用時，也適用相同的安全性原則。務必確定您的應用程式以安全的方式傳輸和儲存持有者權杖。關於持有者權杖的其他安全性考量，請參閱 [RFC 6750 第 5 節](http://tools.ietf.org/html/rfc6750)。
 
 
 既然您已有基本概念的概觀，請閱讀下列各節，了解 Azure AD 中的佈建運作方式，以及 Azure AD 支援的常見案例。
@@ -467,4 +467,4 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 
 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

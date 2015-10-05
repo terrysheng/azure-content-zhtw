@@ -1,5 +1,5 @@
 <properties
-	pageTitle="有關虛擬機器的磁碟和 VHD"
+	pageTitle="有關磁碟和 VHD | Microsoft Azure"
 	description="了解 Azure 中虛擬機器的磁碟和 VHD 的基本知識。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,7 +17,9 @@
 	ms.date="06/30/2015"
 	ms.author="cynthn"/>
 
-# 有關虛擬機器的磁碟和 VHD
+# 有關 Azure 虛擬機器的磁碟和 VHD
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括了解以資源管理員部署模型，和以傳統部署模型建立的資源。
 
 當您在 Azure 中建立虛擬機器時，所有虛擬機器都會設定成至少有兩個磁碟 – 一個是系統磁碟，另一個是暫存本機磁碟 (又稱資源磁碟)。作業系統磁碟是由映像建立，且作業系統磁碟與該映像，實際上都是儲存在 Azure 儲存體帳戶的虛擬硬碟 (VHD)。虛擬機器也可以有資料磁碟，而這些磁碟也以 VHD 儲存。
 
@@ -29,7 +31,7 @@
 
 - **作業系統磁碟** - 每個虛擬機器都有一個連接的作業系統磁碟。它註冊為 SATA 磁碟機，並標示為 C 磁碟機。此磁碟的最大容量為 1023 GB。Azure 建立作業系統磁碟時，會建立三個該磁碟機的複本以達到高持久性。此外，如果您設定虛擬機器進行異地複寫，您的 VHD 也會複寫到位於 400 英哩之外的其他站台。
 - 系統會自動為您建立**暫存磁碟**。在 Windows 虛擬機器上，這個磁碟會標示為 D 磁碟機。在 Linux 虛擬機器上，這個磁碟通常是 /dev/sdb，且由 Azure Linux 代理程式格式化並裝載至 /mnt/resource。
-- **資料磁碟** 是連接至虛擬機器的 VHD，用來儲存應用程式資料或其他您需要保留的資料。資料磁碟註冊為 SCSI 磁碟機，並以您選擇的字母標示。每個資料磁碟的最大容量為 1023 GB。虛擬機器的大小會決定您可以連接之磁碟的數量，以及您可以用來裝載磁碟的儲存體類型。
+- **資料磁碟**是連接至虛擬機器的 VHD，用來儲存應用程式資料或其他您需要保留的資料。資料磁碟註冊為 SCSI 磁碟機，並以您選擇的字母標示。每個資料磁碟的最大容量為 1023 GB。虛擬機器的大小會決定您可以連接之磁碟的數量，以及您可以用來裝載磁碟的儲存體類型。
 
 	如需虛擬機器容量的詳細資訊，請參閱[虛擬機器的大小](virtual-machines-size-specs.md)。
 
@@ -65,4 +67,4 @@ Windows 虛擬機器：
 -  [擷取 Windows 虛擬機器](virtual-machines-capture-image-windows-server.md)
 -  [中斷連結磁碟](storage-windows-detach-disk.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

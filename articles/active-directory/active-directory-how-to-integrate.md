@@ -1,5 +1,5 @@
 <properties
-   pageTitle="如何與 Azure Active Directory 整合"
+   pageTitle="如何與 Azure Active Directory 整合 | Microsoft Azure"
    description="與 Azure Active Directory 整合的優點和所需資源指南。"
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/25/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # 與 Azure Active Directory 整合
@@ -90,4 +90,4 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
 [使用 Azure AD 登入使用者](active-directory-authentication-scenarios.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

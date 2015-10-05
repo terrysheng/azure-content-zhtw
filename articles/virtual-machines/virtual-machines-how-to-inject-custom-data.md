@@ -1,5 +1,5 @@
 <properties
-	pageTitle="將自訂資料插入 Azure 虛擬機器"
+	pageTitle="將自訂資料插入虛擬機器 | Microsoft Azure"
 	description="本主題說明如何在建立執行個體時，將自訂資料插入 Azure 虛擬機器，以及如何在 Windows 或 Linux 上尋找自訂資料。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -20,7 +20,11 @@
 
 #將自訂資料插入 Azure 虛擬機器
 
-不論作業系統是 Windows 或 Linux 散發套件，將指令碼或其他資料插入正在佈建的 Azure 虛擬機器是很常見的案例。本主題將說明如何：
+不論作業系統是 Windows 或 Linux 散發套件，將指令碼或其他資料插入正在佈建的 Azure 虛擬機器是很常見的案例。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+
+本主題將說明如何：
 
 - 將資料插入正在佈建的 Azure 虛擬機器
 
@@ -47,7 +51,7 @@
 
 + 如果 Azure 的虛擬機器是以 Windows 為基礎的虛擬機器，自訂資料檔案則會儲存至 `%SYSTEMDRIVE%\AzureData\CustomData.bin`。雖然從本機電腦傳送到新虛擬機器的資料是 base64 編碼，但是系統會自動將它解碼並立即開啟或使用。
 
-   >[AZURE.NOTE]如果檔案已存在，則會被覆寫。目錄上的安全性會設為 [**System:Full Control**] 和 [**Administrators:Full Control**]。
+   >[AZURE.NOTE]如果檔案已存在，則會被覆寫。目錄上的安全性會設為 [System:Full Control] 和 [Administrators:Full Control]。
 
 + 如果您的 Azure 虛擬機器是以 Linux 為基礎的虛擬機器，自訂資料檔案則會位於下列兩個位置中。資料將會以 base64 編碼，因此您必須先解碼資料。
 
@@ -78,4 +82,4 @@
 
 [Azure 命令列介面](https://github.com/Azure/azure-sdk-tools-xplat)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

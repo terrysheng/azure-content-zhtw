@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/02/2015"
+   ms.date="09/22/2015"
    ms.author="sahajs;barbkess"/>
 
 
@@ -316,13 +316,13 @@ $write.Dispose()
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 
-[卸除外部資料來源 (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/mt146367.aspx
-[卸除外部檔案格式 (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/mt146379.aspx
-[卸除外部資料表 (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/mt130698.aspx
+[卸除外部資料來源 (Transact-SQL)]: https://msdn.microsoft.com/ZH-TW/library/mt146367.aspx
+[卸除外部檔案格式 (Transact-SQL)]: https://msdn.microsoft.com/ZH-TW/library/mt146379.aspx
+[卸除外部資料表 (Transact-SQL)]: https://msdn.microsoft.com/ZH-TW/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms189522.aspx
-[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms189450.aspx
+[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/ZH-TW/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ZH-TW/library/ms189522.aspx
+[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ZH-TW/library/ms189450.aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

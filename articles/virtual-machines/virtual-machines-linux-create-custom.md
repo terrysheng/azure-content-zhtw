@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 Azure 中建立執行 Linux 的自訂虛擬機器"
-	description="了解如何在 Azure 中建立執行 Linux 的自訂虛擬機器"
+	pageTitle="建立 Linux VM | Microsoft Azure"
+	description="了解如何以執行 Linux 作業系統的傳統部署模型建立自訂虛擬機器。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -19,7 +19,9 @@
 
 # 如何在 Azure 中建立執行 Linux 的自訂虛擬機器
 
-本主題說明如何透過使用傳統的部署模型的 Azure CLI 建立*自訂*的虛擬機器。我們將使用 Azure 上可用 **IMAGES** 中的 Linux 映像。Azure CLI 命令提供下列組態選項：
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。您也可以使用[資源管理員部署模型](virtual-machines-linux-tutorial.md)建立資源。
+
+本主題說明如何透過使用傳統的部署模型的 Azure CLI 建立*自訂*的虛擬機器。我們將使用 Azure 上可用**映像**中的 Linux 映像。Azure CLI 命令提供下列組態選項：
 
 - 將 VM 連線到虛擬網路
 - 將 VM 加入現有的雲端服務
@@ -29,7 +31,7 @@
 > [AZURE.IMPORTANT]如果要讓虛擬機器使用虛擬網路，以便依主機名稱來連接虛擬機器，或設定跨單位連線，則必須在建立虛擬機器時指定虛擬網路。只有在建立虛擬機器時，才能將虛擬機器設定為加入虛擬網路。如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](http://go.microsoft.com/fwlink/p/?LinkID=294063)。
 
 <p/>
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
+
 
 - [建立執行 Linux 的虛擬機器](virtual-machines-linux-tutorial.md)
 
@@ -38,4 +40,4 @@
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -1,11 +1,12 @@
 <properties
-	pageTitle="在 Linux 上使用負載平衡集合將 MySQL 叢集化"
-	description="本文說明在 Azure 上設定負載平衡、高可用性 Linux 叢集的模式，使用 MySQL作為範例"
+	pageTitle="使用負載平衡集將 MySQL 叢集化 | Microsoft Azure"
+	description="在 Azure 上安裝以傳統部署模型建立的負載平衡、高可用性 Linux MySQL 叢集"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="bureado"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,16 +19,7 @@
 
 # 在 Linux 上使用負載平衡集合將 MySQL 叢集化
 
-* [準備就緒](#getting-ready)
-* [設定叢集](#setting-up-the-cluster)
-* [設定 MySQL](#setting-up-mysql)
-* [設定 Corosync](#setting-up-corosync)
-* [設定 Pacemaker](#setting-up-pacemaker)
-* [測試](#testing)
-* [STONITH](#stonith)
-* [限制](#limitations)
-
-## 簡介
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
 
 本文旨在瀏覽與說明要在 Microsoft Azure 上部署高度可用 Linux 架構服務的其他可用方法，首先從 MySQL Server 高可用性開始。您可在[第 9 頻道](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL) (英文) 上找到說明此方法的影片。
 
@@ -346,6 +338,5 @@ Pacemaker 會使用叢集來監視資源，定義在主要故障時將這些資�
 - 負載平衡器至少需要 5 秒的時間進行回應，因此應用程式應為叢集感知且應可容許逾時；其他架構也可提供協助，例如應用程式內部佇列、查詢中繼軟體等。
 - 若要確保寫入作業會以正常的步調結束，且會儘可能頻繁地將快取清除到磁碟以減少記憶體損失，MySQL 調整是有必要的。
 - VM 互連中的寫入效能將會取決於虛擬開關，因為虛擬開關是 DRBD 用來複寫裝置的機制。
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

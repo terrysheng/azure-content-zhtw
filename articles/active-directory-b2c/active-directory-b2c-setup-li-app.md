@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory (AD) B2C 預覽：針對具有 LinkedIn 帳戶的取用者提供註冊和登入
@@ -52,4 +52,4 @@
 6. 按一下 [設定此身分識別提供者]，然後輸入您先前建立之 LinkedIn 應用程式的 [用戶端識別碼] 與 [用戶端密碼]。
 7. 依序按一下 [確定] 與 [建立]，以儲存您的 LinkedIn 組態。
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

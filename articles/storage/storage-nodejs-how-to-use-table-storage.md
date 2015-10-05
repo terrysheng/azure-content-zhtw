@@ -1,13 +1,13 @@
-<properties 
-	pageTitle="如何使用 Node.js 中的資料表儲存體 | Microsoft Azure"
-	description="如何在 Azure 中使用資料表儲存體服務。程式碼範例以 Node.js API 撰寫。"
+<properties
+	pageTitle="如何使用 Node.js 中的 Azure 資料表儲存體 | Microsoft Azure"
+	description="了解如何使用 Azure 資料表儲存體。程式碼範例以 Node.js API 撰寫。"
 	services="storage"
 	documentationCenter="nodejs"
 	authors="MikeWasson"
 	manager="wpickett"
 	editor=""/>
 
-<tags 
+<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
@@ -17,7 +17,7 @@
 	ms.author="mwasson"/>
 
 
-# 如何使用 Node.js 的資料表儲存體
+# 如何使用 Node.js 的 Azure 資料表儲存體
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
@@ -26,11 +26,11 @@
 
 本主題示範如何使用 Node.js 應用程式中的 Azure 表格服務執行一般案例。
 
-本主題中的程式碼範例假設您已經有 Node.js 應用程式。如需如何在 Azure 中建立 Node.js 應用程式的相關指示，請參閱下列主題：
+本主題中的程式碼範例假設您已經有 Node.js 應用程式。如需如何在 Azure 中建立 Node.js 應用程式的資訊，請參閱下列主題：
 
-- [建置並部署 Node.js 網站至 Azure][Create and deploy a Node.js application to an Azure Web Site]
-- [使用 WebMatrix 建置 Node.js 網站並部署至 Azure][Web Site with WebMatrix]。
-- [建置 Node.js 應用程式並部署到 Azure 雲端服務][Node.js Cloud Service] (使用 Windows PowerShell)
+- [建置 Node.js 網站並部署至 Azure](建立 Node.js 應用程式並部署至 Azure 網站)
+- [使用 WebMatrix 建置 Node.js 網站並部署至 Azure](使用 WebMatrix 建立並部署 Node.js 應用程式)
+- [建置 Node.js 應用程式並部署至 Azure 雲端服務](Node.js 雲端服務) (使用 Windows PowerShell)
 
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -71,7 +71,7 @@
 
 Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_ACCESS\_KEY 或 AZURE\_STORAGE\_CONNECTION\_STRING，以取得連接 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則呼叫 **TableService** 時必須指定帳戶資訊。
 
-如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]。
+如需在 Azure 網站的 Azure 入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]。
 
 ## 建立資料表
 
@@ -87,7 +87,7 @@ Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_AC
 		}
 	});
 
-`result` 若為 `true` 表示建立了新的資料表，若為 `false` 則表示資料表已存在。`response` 將包含要求的相關資訊。
+如果建立新資料表，`result` 將是 `true`，如果資料表已存在，則為 `false`。`response` 會包含要求的相關資訊。
 
 ### 篩選器
 
@@ -118,7 +118,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 以下是定義實體的範例。請注意，**dueDate** 定義為 **Edm.DateTime** 型別。可選擇是否指定型別，若未指定，則會推斷型別。
 
-	var task = { 
+	var task = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '1'},
 	  description: {'_':'take out the trash'},
@@ -176,15 +176,15 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
     });
 
 > [AZURE.NOTE]依預設，更新實體並不會檢查正在更新的資料先前是否被另一個程序修改過。若要支援並行更新：
-> 
+>
 > 1. 取得正在更新之物件的 ETag。系統會針對實體相關的作業將 ETag 包含在 `response` 中傳回，且可透過 `response['.metadata'].etag` 擷取 ETag。
-> 
+>
 > 2. 對實體執行更新操作時，請將先前擷取的 ETag 資訊新增至新的實體。例如：
-> 
+>
 >     `entity2['.metadata'].etag = currentEtag;`
 >    
 > 3. 執行更新操作。如果擷取 ETag 值之後，實體 (例如您應用程式的其他執行個體) 進行了修改，系統會傳回 `error`，表示不符合要求中指定的更新條件。
-    
+
 使用 **updateEntity** 及 **mergeEntity** 時，如果正在更新的實體不存在，則更新操作會失敗。因此，如果您要儲存一個實體，而不管它是否已存在，您應該改用 **insertOrReplaceEntity** 或 **insertOrMergeEntity**。
 
 更新作業成功的 `result` 將包含已更新實體的 **Etag**。
@@ -195,13 +195,13 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
  下列範例示範在批次中提交兩個實體：
 
-    var task1 = { 
+    var task1 = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '1'},
 	  description: {'_':'Take out the trash'},
 	  dueDate: {'_':new Date(2015, 6, 20)}
 	};
-	var task2 = { 
+	var task2 = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '2'},
 	  description: {'_':'Wash the dishes'},
@@ -209,7 +209,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 	};
 
 	var batch = new azure.TableBatch();
-	
+
 	batch.insertEntity(task1, {echoContent: true});
 	batch.insertEntity(task2, {echoContent: true});
 
@@ -223,17 +223,17 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 ### 處理批次作業
 
-若要檢查新增至批次的操作，您可以檢視 `operations` 的屬性。您也可以使用下列方法來處理操作。
+若要檢查新增至批次的操作，您可以檢視 `operations` 的屬性。您也可以使用下列方法來處理操作：
 
-* **clear** - 清除批次中的所有操作。
+* **clear** - 清除批次中的所有操作
 
-* **getOperations** - 從批次取得操作。
+* **getOperations** - 從批次取得操作
 
-* **hasOperations** - 若批次包含操作，則傳回 true。
+* **hasOperations** - 若批次包含操作，則傳回 true
 
-* **removeOperations** - 移除操作。
+* **removeOperations** - 移除操作
 
-* **size** - 傳回批次中的操作數目。
+* **size** - 傳回批次中的操作數目
 
 ## 依索引鍵擷取實體
 
@@ -251,15 +251,15 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 若要查詢資料表，請透過 **TableQuery** 物件使用下列子句建置查詢運算式：
 
-* **select** - 要從查詢傳回的欄位。
+* **select** - 要從查詢傳回的欄位
 
-* **where** - where 子句。
+* **where** - where 子句
 
-	* **and** - `and` where 條件。
+	* **and** - `and` where 條件
 
-	* **or** - `or` where 條件。
+	* **or** - `or` where 條件
 
-* **top** - 要提取的項目數。
+* **top** - 要提取的項目數
 
 
 下列範例建立的查詢會傳回 PartitionKey 為 'hometasks' 的前 5 個項目。
@@ -291,7 +291,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 您可以使用實體的資料分割和資料列索引鍵來刪除實體。在本例中，**task1** 物件包含待刪除實體的 **RowKey** 及 **PartitionKey** 值。然後物件會傳給 **deleteEntity** 方法。
 
-	var task = { 
+	var task = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '1'}
 	};
@@ -320,7 +320,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 當您查詢大量結果的資料表時，請尋找接續 Token。因為您的查詢可能會產生大量可用的資料，如果該查詢並非可識別接續權杖存在的查詢，可能會無法得知。
 
-當此類權杖存在時，若查詢實體設定 `continuationToken` 屬性，系統便會傳回結果物件。您可以在執行查詢使用此方法以繼續在分割和資料表實體之間移動。
+當此類權杖存在時，在查詢實體設定 `continuationToken` 屬性期間，系統便會傳回結果物件。您可以在執行查詢使用此方法以繼續在分割和資料表實體之間移動。
 
 查詢時，系統可能會將 continuationToken 參數放在查詢物件執行個體和回呼函數之間：
 
@@ -343,13 +343,13 @@ dc.table.queryEntities(tableName,
 
 如果您檢查 `continuationToken` 物件，您會找到像是 `nextPartitionKey`、`nextRowKey` 和 `targetLocation` 的屬性，這些屬性可以用來逐一查看所有結果。
 
-GitHub 上的 Azure 儲存體 Node.js 儲存機制中也有接續範例，請尋找 `examples/samples/continuationsample.js`。
+GitHub 上的 Azure 儲存體 Node.js 儲存機制中也有接續範例。尋找 `examples/samples/continuationsample.js`。
 
 ## 使用共用存取簽章
 
 共用存取簽章 (SAS) 可安全地提供對資料表的精確存取，而不必提供您的儲存體帳戶名稱或金鑰。SAS 通常用來提供對資料的有限存取，例如允許行動應用程式查詢記錄。
 
-信任的應用程式 (例如雲端型服務) 會使用 **TableService** 的 **generateSharedAccessSignature** 來產生 SAS，並提供它給不信任或不完全信任的應用程式。例如行動應用程式。SAS 是使用原則來產生，該原則描述 SAS 有效期間的開始和結束日期，以及授與 SAS 持有者的存取等級。
+信任的應用程式 (例如雲端型服務) 會使用 **TableService** 的 **generateSharedAccessSignature** 來產生 SAS，並提供它給不信任或不完全信任的應用程式 (例如行動應用程式)。SAS 是使用原則來產生，該原則描述 SAS 有效期間的開始和結束日期，以及授與 SAS 持有者的存取等級。
 
 下列範例會產生新的共用存取原則，讓 SAS 持有者查詢 ('r') 資料表，並於建立它之後的 100 分鐘過期。
 
@@ -357,7 +357,7 @@ GitHub 上的 Azure 儲存體 Node.js 儲存機制中也有接續範例，請尋
 	var expiryDate = new Date(startDate);
 	expiryDate.setMinutes(startDate.getMinutes() + 100);
 	startDate.setMinutes(startDate.getMinutes() - 100);
-		
+
 	var sharedAccessPolicy = {
 	  AccessPolicy: {
 	    Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
@@ -376,7 +376,7 @@ GitHub 上的 Azure 儲存體 Node.js 儲存機制中也有接續範例，請尋
 	var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
 	var query = azure.TableQuery()
 	  .where('PartitionKey eq ?', 'hometasks');
-		
+
 	sharedTableService.queryEntities(query, null, function(error, result, response) {
 	  if(!error) {
 		// result contains the entities
@@ -430,24 +430,24 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
 
 ## 後續步驟
 
-了解資料表儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
+如需詳細資訊，請參閱下列資源：
 
--   請參閱 MSDN 參考資料：[儲存和存取在 Azure 中的資料][]
--   造訪 [Azure 儲存體團隊部落格][] (英文)。
--   請造訪 GitHub 上的 [Azure Storage SDK for Node][] 儲存機制 (英文)。
+-   MSDN 參考資料：[儲存和存取在 Azure 中的資料][]。
+-   [Azure 儲存體團隊部落格][]。
+-   GitHub 上的 [Azure Storage SDK for Node][] 儲存機制 (英文)。
+-   [Node.js 開發人員中心](/develop/nodejs/)
 
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
   [OData.org]: http://www.odata.org/
-  [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+  [Azure portal]: http://manage.windowsazure.com
 
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
   [儲存和存取在 Azure 中的資料]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Web Site with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+  [Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
   [使用儲存體的 Node.js Web 應用程式]: ../storage-nodejs-use-table-storage-web-site.md
-  [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
- 
+  [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

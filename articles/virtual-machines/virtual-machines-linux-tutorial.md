@@ -1,12 +1,12 @@
 <properties
-	pageTitle="在 Azure 中建立執行 Linux 的虛擬機器"
-	description="了解如何透過使用 Azure 的映像建立執行 Linux 的 Azure 虛擬機器 (VM)。"
+	pageTitle="建立執行 Linux 的虛擬機器 | Microsoft Azure"
+	description="了解如何透過使用 Azure 和 Azure 命令列介面的映像建立執行 Linux 的 Azure 虛擬機器 (VM)。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-resource-management" />
+	tags="azure-resource-manager" />
 
 <tags
 	ms.service="virtual-machines"
@@ -39,7 +39,7 @@
 
 很好。現在，輸入 `azure config mode arm` 來確定您正處於資源管理模式。
 
-更棒。現在輸入 `azure login` 並遵循依照提示執行，以使用工作或學校識別碼來登入。
+更棒。現在輸入 `azure login` 並遵循依照提示執行，以[使用工作或學校識別碼來登入](../xplat-cli-connect.md#use-the-log-in-method)。
 
 > [AZURE.NOTE]如果您發生登入錯誤，可能需要[從您個人的 Microsoft 帳戶建立工作或學校識別碼](resource-group-create-work-id-from-personal.md)。
 
@@ -305,4 +305,4 @@
 
 - [Azure 上 Linux 的 Docker 虛擬機器擴充程式](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

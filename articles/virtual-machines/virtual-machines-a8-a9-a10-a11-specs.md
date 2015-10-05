@@ -1,12 +1,12 @@
 <properties
  pageTitle="關於 A8、A9、A10 和 A11 執行個體 | Microsoft Azure"
- description="取得使用 Azure A8、A9、A10 和 A11 密集運算執行個體的背景資訊和考量。"
+ description="取得使用虛擬機器和雲端服務適用的 Azure A8、A9、A10 和 A11 密集運算大小的背景資訊和考量。"
  services="virtual-machines, cloud-services"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager, azure-service-management"/>
+ tags="azure-resource-manager,azure-service-management"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -17,6 +17,8 @@ ms.service="virtual-machines"
  ms.author="danlep"/>
 
 # 關於 A8、A9、A10 和 A11 密集運算執行個體
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文探討以資源管理員部署模型或傳統部署模型建立資源。
 
 這篇文章提供使用 Azure A8、A9、A10 和 A11 執行個體，也稱為*密集運算*執行個體的背景資訊和考量。這些執行個體的主要功能包括：
 
@@ -121,7 +123,7 @@ MPI | MS-MPI 2012 R2 或更新版本為獨立安裝或透過 HPC Pack 2012 R2 �
 
 * 您無法將現有 Azure VM 的大小調整為 A8、A9、A10 或 A11 的大小。
 
-* 目前無法使用屬於現有同質群組的雲端服務來部署 A8、A9、A10 和 A11 執行個體。同樣地，具有包含 A8、A9、A10 和 A11 執行個體之雲端服務的同質群組不能用來部署其他執行個體大小。如果您嘗試這些部署，您會看到類似 `Azure deployment failure (Compute.OverconstrainedAllocationRequest): The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints.` 的錯誤訊息
+* 目前無法使用屬於現有同質群組的雲端服務來部署 A8、A9、A10 和 A11 執行個體。同樣地，具有包含 A8、A9、A10 和 A11 執行個體之雲端服務的同質群組不能用來部署其他執行個體大小。如果您嘗試這些部署，您會看到類似 `Azure deployment failure (Compute.OverconstrainedAllocationRequest): The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints.` 的錯誤訊息。
 
 * Azure 中的 RDMA 網路會保留位址空間 172.16.0.0/12。如果您打算在 Azure 虛擬網路中已部署的 A8 和 A9 執行個體上執行 MPI 應用程式，請確定虛擬網路位址空間不會與 RDMA 網路重疊。
 
@@ -131,4 +133,4 @@ MPI | MS-MPI 2012 R2 或更新版本為獨立安裝或透過 HPC Pack 2012 R2 �
 * 若要使用 A8 和 A9 執行個體來部署和設定 Linux 叢集以存取 Azure RDMA 網路，請參閱[設定 Linux RDMA 叢集以執行 MPI 應用程式](virtual-machines-linux-cluster-rdma.md)。
 * 若要在 Windows 上開始部署和使用具備 HPC Pack 的 A8 和 A9 執行個體，請參閱 [A8 和 A9 密集運算執行個體：HPC Pack 快速入門](https://msdn.microsoft.com/library/azure/dn594431.aspx)和[在 A8 和 A9 執行個體上執行 MPI 應用程式](https://msdn.microsoft.com/library/azure/dn592104.aspx)。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

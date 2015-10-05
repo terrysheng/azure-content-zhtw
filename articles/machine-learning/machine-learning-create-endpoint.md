@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="04/21/2015"
+	ms.date="09/17/2015"
 	ms.author="himad"/>
 
 
@@ -38,7 +38,7 @@ Azure Machine Learning 可讓您為已發行的 Web 服務建立多個端點。�
 - 按一下底部的 [新增端點] 按鈕。填寫名稱和描述，確定此 Web 服務中沒有名稱相同的其他端點。除非您有特殊需求，否則請保留節流層級的預設值。若要深入了解節流，請參閱[調整 API 端點](machine-learning-scaling-endpoints.md)。![建立端點](./media/machine-learning-create-endpoint/figure-4.png)
 
 
-建立端點之後，您就可以透過同步 API、批次 API 以及 Excel 工作表來取用該端點。如需關於使用機器學習 Web 服務的詳細資訊，請參閱[如何使用已發行的 Azure Machine Learning Web 服務](machine-learning-consume-web-services.md)。
+建立端點之後，您就可以透過同步 API、批次 API 以及 Excel 工作表來取用該端點。除了透過此 UI 新增端點之外，您也可以使用端點管理 API，以程式設計方式加入端點。如需關於使用機器學習 Web 服務的詳細資訊，請參閱[如何使用已發行的 Azure Machine Learning Web 服務](machine-learning-consume-web-services.md)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

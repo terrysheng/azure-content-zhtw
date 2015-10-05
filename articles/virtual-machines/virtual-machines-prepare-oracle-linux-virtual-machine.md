@@ -1,12 +1,31 @@
-<properties pageTitle="準備執行 Azure 的 Oracle Linux 虛擬機器" description="逐步完成在 Microsoft Azure 中執行 Linux 的 Oracle 虛擬機器設定。" services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+pageTitle="準備 Azure 的 Oracle Linux 虛擬機器 | Microsoft Azure" 
+description="逐步完成在 Microsoft Azure 中執行 Linux 的 Oracle 虛擬機器設定。" 
+services="virtual-machines" 
+authors="bbenz" 
+documentationCenter="virtual-machines"
+tags="azure-service-management,azure-resource-manager"
+/>
+
+<tags 
+ms.service="virtual-machines" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.tgt_pltfrm="vm-linux" 
+ms.workload="infrastructure-services" 
+ms.date="06/22/2015" 
+ms.author="bbenz" />
+
 #準備用於 Azure 的 Oracle Linux 虛擬機器
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文適用於以資源管理員部署模型，或以傳統部署模型建立的 VM。
+
 -   [準備用於 Azure 的 Oracle Linux 6.4+ 虛擬機器](virtual-machines-linux-create-upload-vhd-oracle.md)
 
 -   [準備用於 Azure 的 Oracle Linux 7.0+ 虛擬機器](virtual-machines-linux-create-upload-vhd-oracle.md)
 
 ##必要條件
-本文假設您已將 Oracle Linux 作業系統安裝到虛擬硬碟。有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。如需相關指示，請參閱[安裝 HYPER-V 和建立虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。
+本文假設您已將 Oracle Linux 作業系統安裝到虛擬硬碟。有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。如需相關指示，請參閱[安裝 Hyper-V 和建立虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。
 
 **Oracle Linux 安裝注意事項**
 
@@ -71,7 +90,7 @@
 
 	這也將確保所有主控台訊息都會傳送給第一個序列埠，以協助 Azure 支援團隊進行問題偵錯程序。因為 Oracle Red Hat 相容核心的一個錯誤，這將會停用 NUMA。
 
-	除了上述以外，我們還建議您*移除*下列參數：
+	除了上述以外，我們還建議您「移除」下列參數：
 
 		rhgb quiet crashkernel=auto
 
@@ -89,7 +108,7 @@
 
 12.  請勿在作業系統磁碟上建立交換空間。
 
-	Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，本機資源磁碟是*暫存*磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
+	Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，本機資源磁碟是「暫存」磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
 
 		ResourceDisk.Format=y
 
@@ -166,7 +185,7 @@
 
 		GRUB\_CMDLINE\_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
-	這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。除了上述以外，我們還建議您*移除*下列參數：
+	這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。除了上述以外，我們還建議您「移除」下列參數：
 
 		rhgb quiet crashkernel=auto
 
@@ -186,7 +205,7 @@
 
 13.  請勿在作業系統磁碟上建立交換空間。
 
-	Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，本機資源磁碟是*暫存*磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
+	Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，本機資源磁碟是「暫存」磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -202,4 +221,4 @@
 
 15.  在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

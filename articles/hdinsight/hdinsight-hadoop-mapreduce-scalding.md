@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="07/06/2015"
+ ms.date="09/23/2015"
  ms.author="larryfr"/>
 
 # 使用 HDInsight 上的 Apache Hadoop 開發 Scalding MapReduce 工作
@@ -290,4 +290,4 @@ Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。�
 
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

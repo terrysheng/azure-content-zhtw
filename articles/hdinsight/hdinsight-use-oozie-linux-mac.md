@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.date="09/23/2015"
 	ms.author="larryfr"/>
 
 
@@ -48,9 +48,9 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
 
 1. Hive 動作會執行 HiveQL 指令碼，以從 HDInsight 隨附的 **hivesampletable** 擷取記錄。每個資料列均代表來自特定行動裝置的瀏覽。顯示的記錄格式類似如下：
 
-		8       18:54:20        zh-tw   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-		23      19:19:44        zh-tw   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-		23      19:19:46        zh-tw   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+		8       18:54:20        ZH-TW   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+		23      19:19:44        ZH-TW   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+		23      19:19:46        ZH-TW   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
 	本文件中使用的 Hive 指令碼會計算每個平台 (例如 Android 或 iPhone) 的總瀏覽次數，並將計數儲存到新的 Hive 資料表。
 
@@ -362,7 +362,6 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。使
 		</configuration>
 
 	* 將 **wasb://mycontainer@mystorageaccount.blob.core.windows.net** 的所有執行個體替換為您之前收到的值。
-
 
 	> [AZURE.WARNING] 您必須使用完整的 WASB 路徑，其中包含容器和儲存體帳戶做為路徑的一部分。使用簡短格式 (wasb:///) 會在工作開始時導致 RunHiveScript 動作失敗。
 
@@ -716,7 +715,7 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/zh-tw/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/ZH-TW/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
@@ -726,4 +725,4 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

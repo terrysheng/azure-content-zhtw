@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Site Recovery 儲存體對應"
+	pageTitle="Site Recovery 儲存體對應 | Microsoft Azure"
 	description="Azure Site Recovery 可將內部部署上虛擬機器和實體伺服器的複寫、容錯移轉及復原協調至 Azure 或次要內部部署站台。"
 	services="site-recovery"
 	documentationCenter=""
@@ -17,10 +17,10 @@
 	ms.author="raynew"/>
 
 
-# Site Recovery 儲存體對應
+# Azure Site Recovery 儲存體對應
 
 
-Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容錯移轉及復原，為您的商務持續性與災害復原做出貢獻。了解 [Site Recovery 概觀](site-recovery-overview.md)中可能的部署案例。
+Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容錯移轉及復原，為您的商務持續性與嚴重損壞修復 (BCDR) 策略做出貢獻。了解 [Site Recovery 概觀](site-recovery-overview.md)中可能的部署案例。
 
 
 ## 本文內容
@@ -43,7 +43,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 	- **無儲存體對應** — 如果您沒有設定儲存體對應，虛擬機器將會複寫至與複本虛擬機器相關聯之 Hyper-V 主機伺服器上指定的預設儲存體位置。
 
 - **內部部署至內部部署 (使用 SAN 複寫)** — 對應來源和目標 VMM 伺服器上的儲存體陣列集區以執行下列操作：
-	- **識別目標儲存體集區** — 儲存體對應可確保複寫群組中的 LUN 複寫對應的目標儲存體集區。
+	- **識別目標儲存體集區** — 儲存體對應可確保複寫群組中的 LUN 會複寫至對應的目標儲存體集區。
 
 
 
@@ -52,7 +52,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 如果兩個站台由相同的 VMM 伺服器管理，您將在來源和目標 VMM 伺服器上或單一 VMM 伺服器上的儲存體分類之間對應。正確設定對應並啟用複寫時，主要位置的虛擬機器虛擬硬碟將會複寫至對應目標位置的儲存體中。請注意：
 
 - 儲存體分類必須可用於來源與目標雲端中的主機群組。
-- - 分類不需要具有相同類型的儲存體。例如，您可以將包含 SMB 共用的來源分類對應至包含 CSV 的目標分類
+- 分類不需要具有相同類型的儲存體。例如，您可以將包含 SMB 共用的來源分類對應至包含 CSV 的目標分類。
 - 若要深入了解，請參閱[如何在 VMM 中建立儲存體分類](https://technet.microsoft.com/library/gg610685.aspx)。
 
 ## 範例
@@ -74,7 +74,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 在此範例中：- 為 GOLD 儲存體 (SourceShare1) 上的任何虛擬機器建立複本虛擬機器時，它將會複寫至 GOLD\_TARGET 儲存體 (TargetShare1)。- 為 SILVER 儲存體 (SourceShare2) 上的任何虛擬機器建立複本虛擬機器時，它將會複寫至 SILVER\_TARGET (TargetShare2) 儲存體，依此類推。
 
-VMM 中的實際檔案共用及其獲指派的分類將如下顯示。
+VMM 中的實際檔案共用及其獲指派的分類會顯示在下一個螢幕擷取畫面中。
 
 ![VMM 中的儲存體分類](./media/site-recovery-storage-mapping/StorageMapping2.png)
 
@@ -95,15 +95,14 @@ VMM 中的實際檔案共用及其獲指派的分類將如下顯示。
 
 **虛擬機器** | **來源儲存體** | **來源分類** | **對應的目標儲存體**
 ---|---|---|---
-VM1 | C:\\ClusterStorage\\SourceVolume1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\\\FileServer\\SourceShare1</p><p>Both GOLD\_TARGET</p>
+VM1 | C:\\ClusterStorage\\SourceVolume1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\\FileServer\\SourceShare1</p><p>Both GOLD\_TARGET</p>
 VM2 | \\FileServer\\SourceShare1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\FileServer\\SourceShare1</p> <p>Both GOLD\_TARGET</p>
 VM3 | C:\\ClusterStorage\\SourceVolume2 | SILVER | <p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p>
 VM4 | \\FileServer\\SourceShare2 | SILVER |<p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p><p>Both SILVER\_TARGET</p>
-VM5 | C:\\ClusterStorage\\SourceVolume3 | N/A | 沒有對應，因此將會使用 Hyper-V 主機的預設儲存體位置
+VM5 | C:\\ClusterStorage\\SourceVolume3 | N/A | 沒有對應，因此會使用 Hyper-V 主機的預設儲存體位置
 
 ## 後續步驟
 
-既然您已經更了解儲存體對應，請開始讀取[最佳作法](site-recovery-best-practices.md)以準備部署。
- 
+既然您已經更了解儲存體對應，請開始閱讀[最佳作法](site-recovery-best-practices.md)以準備部署。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

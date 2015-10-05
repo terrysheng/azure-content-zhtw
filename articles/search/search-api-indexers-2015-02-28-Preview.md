@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="07/08/2015" 
+ms.date="09/21/2015" 
 ms.author="heidist" />
 
 #索引子作業 (Azure 搜尋服務 REST API：2015-02-28-Preview)
@@ -40,7 +40,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 我們考慮在未來增加支援其他資料來源。為了協助我們確定決策的優先順序，請您在 [Azure 搜尋服務意見反應論壇](http://feedback.azure.com/forums/263029-azure-search)上提供寶貴意見。
 
-如需索引子和資料來源資源相關的最大限制，請參閱[限制和條件約束](https://msdn.microsoft.com/library/azure/dn798934.aspx)。
+如需索引子和資料來源資源相關的最大限制，請參閱[服務限制](search-limits-quotas-capacity.md)。
 
 ## 一般使用流程
 
@@ -775,4 +775,4 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 </tr>
 </table>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

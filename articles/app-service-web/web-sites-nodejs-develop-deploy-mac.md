@@ -18,7 +18,15 @@
 
 # 在 Azure App Service 中建置和部署 Node.js Web 應用程式
 
-本教學課程說明如何建立 [Node][nodejs.org] 應用程式，並使用 [Git] 將其部署至 [Azure App Service 中的 Web Apps 功能](http://go.microsoft.com/fwlink/?LinkId=529714)。本教學課程中的指示可運用在任何足以執行 Node 應用程式的作業系統上。
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+
+本教學課程說明如何建立 [Node][nodejs.org] 應用程式，並使用 [Git] 將其部署至 [Azure App Service 中的 Web 應用程式功能](http://go.microsoft.com/fwlink/?LinkId=529714)。本教學課程中的指示可運用在任何足以執行 Node 應用程式的作業系統上。
 
 完成之應用程式的螢幕擷取畫面如下：
 
@@ -33,9 +41,9 @@
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 按一下入口網站左上方的 [+ 新增] 圖示。
+2. 按一下入口網站左上方的 [+新增] 圖示。
 
-3. 按一下 [Web + 行動]，然後按一下 [Web app]。
+3. 按一下 [Web + 行動]，然後按一下 [Web 應用程式]。
 
     ![][portal-quick-create]
 
@@ -47,7 +55,7 @@
 
 6. 按一下 [建立]。
 
-7. 一旦狀態變更為 [執行中] 之後，入口網站就會自動開啟 Web app 的刀鋒視窗。您也可以按一下 [瀏覽] 開啟該分頁。
+7. 一旦狀態變更為 [執行中] 之後，入口網站就會自動開啟 Web 應用程式的刀鋒視窗。您也可以按一下 [瀏覽] 開啟該分頁。
 
 	![][go-to-dashboard]
 
@@ -65,13 +73,13 @@
 	![][deployment-credentials]
 
 
-11. 若要發佈，就需要推送至 Git 遠端儲存機制。尋找儲存機制的 URL、按一下 [所有設定]，然後按一下 [內容]。該 URL 會列於 [GIT URL] 下方。
+11. 若要發佈，就需要推送至 Git 遠端儲存機制。尋找儲存機制的 URL、按一下 [所有設定]，然後按一下 [屬性]。該 URL 會列於 [GIT URL] 下方。
 
 	![][git-url]
 
 ##在本機建置與測試您的應用程式
 
-在本節中，您將建立 **server.js** 檔案，其中內含來自 [nodejs.org] (英文) 的「Hello World」範例。此範例已從原始範例中加以修改，將 process.env.PORT 新增為在 Azure Web 應用程式中執行時要接聽的連接埠。
+在本節中，您將建立 **server.js** 檔案，其中包含來自 [nodejs.org] 的「Hello World」範例。此範例已從原始範例中加以修改，將 process.env.PORT 新增為在 Azure Web 應用程式中執行時要接聽的連接埠。
 
 1. 使用文字編輯器，在 **helloworld** 目錄中建立名為 **server.js** 的新檔案。如果 **helloworld** 目錄不存在，請建立一個。
 
@@ -94,12 +102,11 @@
 
 ##發行您的應用程式
 
-1. 從命令列中，將目錄變更至 **helloworld** 目錄，然後輸入以下命令來初始化本機 Git 儲存機制。
+1. 從命令列將目錄位置變更至 **helloworld** 目錄，然後輸入以下命令來初始化本機 Git 儲存機制。
 
 		git init
 
-	> [AZURE.NOTE]**Git 命令無法使用？**
-	[Git](http://git-scm.com/%20target="_blank) 是一個您可用來部署 Azure 網站的分散式版本控制系統。如需您的平台適用的安裝指示，請參閱 [Git 下載頁面](http://git-scm.com/download%20target="_blank")。
+	> [AZURE.NOTE]無法使用 Git 命令嗎？ [Git](http://git-scm.com/%20target="_blank) 是一個分散式版本控制系統，您可用它來部署 Azure 網站。如需平台適用的安裝指示，請參閱 [Git 下載頁面](http://git-scm.com/download%20target="_blank")。
 
 2. 使用下列命令將檔案新增至儲存機制：
 
@@ -132,12 +139,12 @@
 		 * [new branch]      master -> master
 
 
-5. 若要檢視您的 app，請按一下 Azure 入口網站內 [Web App] 組件上的 [瀏覽] 按鈕。
+5. 若要檢視您的應用程式，請按一下 Azure 入口網站內 [Web 應用程式] 組件上的 [瀏覽] 按鈕。
 
 ##將變更發行至您的應用程式
 
 1. 在文字編輯器中開啟 **server.js** 檔案，然後將「Hello World\\n」變更為「Hello Azure\\n」。儲存檔案。
-2. 從命令列中，將目錄位置變更至 **helloworld** 目錄，然後執行下列命令：
+2. 從命令列將目錄位置變更至 **helloworld** 目錄，然後執行下列命令：
 
 		git add .
 		git commit -m "changing to hello azure"
@@ -145,7 +152,7 @@
 
 	系統將提示您輸入先前建立的密碼。
 
-3. 按一下 [瀏覽] 以瀏覽至您的 app，並注意已經套用更新。
+3. 按一下 [瀏覽] 以瀏覽至您的應用程式，您會注意到已經套用更新。
 
 	![顯示「Hello Azure」的網頁][helloworld-completed]
 
@@ -155,9 +162,9 @@
 
 ##後續步驟
 
-雖然本文中的步驟使用 Azure 入口網站來建立 Web app，但是您也可以使用 [Azure 命令列介面](../xplat-cli.md)來執行相同的操作。
+雖然本文中的步驟使用 Azure 入口網站來建立 Web 應用程式，但是您也可以使用 [Azure 命令列介面](../xplat-cli.md)來執行相同的操作。
 
-Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。若要了解 Web Apps 如何與模組搭配使用，請參閱[使用 Node.js 模組來搭配 Azure 應用程式](../nodejs-use-node-modules-azure-apps.md)。
+Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。若要了解 Web 應用程式如何與模組搭配使用，請參閱[搭配 Azure 應用程式使用 Node.js 模組](../nodejs-use-node-modules-azure-apps.md)。
 
 若要深入了解 Azure 隨附的 Node.js 版本，以及如何指定要與您的應用程式搭配使用的版本，請參閱[在 Azure 應用程式中指定 Node.js 版本](../nodejs-specify-node-version-azure-apps.md) (英文)。
 
@@ -168,9 +175,10 @@ Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。
 
 * [Azure PowerShell](../install-configure-powershell.md)
 * [Azure 命令列介面](../xplat-cli.md)
+* [Node.js 開發人員中心](/develop/nodejs/)
 
 ## 變更的項目
-* 如需從網站變更為 App Service 的指南，請參閱 [Azure App Service 及現有的 Azure 服務](http://go.microsoft.com/fwlink/?LinkId=529714)。
+* 如需從網站變更為 App Service 的指南，請參閱 [Azure App Service 和現有的 Azure 服務](http://go.microsoft.com/fwlink/?LinkId=529714)。
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱[瀏覽 Azure 入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)。
 
 
@@ -197,4 +205,4 @@ Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。
 
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

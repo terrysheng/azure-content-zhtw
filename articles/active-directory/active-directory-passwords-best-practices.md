@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="最佳作法：Azure AD 密碼管理 | Microsoft Azure" 
-	description="Azure Active Directory 中部署和使用方式的最佳作法、範例使用者文件和密碼管理的訓練指南。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="最佳作法：Azure AD 密碼管理 | Microsoft Azure"
+	description="Azure Active Directory 中部署和使用方式的最佳作法、範例使用者文件和密碼管理的訓練指南。"
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # 部署密碼管理並訓練使用者使用它
@@ -98,12 +98,12 @@
 1.	在 **Azure 管理入口網站**的 [Active Directory 延伸模組](https://manage.windowsazure.com)中瀏覽至您的目錄。
 2.	按一下 [使用者] 索引標籤。
 3.	從清單中選取您需要的使用者。
-4.	您會在第一個索引標籤上發現**備用電子郵件**項目，此項目可做為啟用密碼重設的屬性。 
+4.	您會在第一個索引標籤上發現**備用電子郵件**項目，此項目可做為啟用密碼重設的屬性。
 
     ![][005]
 
 5.	按一下 [工作資訊] 索引標籤。
-6.	您會在此頁面上發現**辦公室電話**、**行動電話**、**驗證電話**和**驗證電子郵件**。您也可以設定這些屬性，以允許使用者重設密碼。 
+6.	您會在此頁面上發現**辦公室電話**、**行動電話**、**驗證電話**和**驗證電子郵件**。您也可以設定這些屬性，以允許使用者重設密碼。
 
     ![][006]
 
@@ -136,6 +136,5 @@
 [004]: ./media/active-directory-passwords-best-practices/004.jpg "Image_004.jpg"
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

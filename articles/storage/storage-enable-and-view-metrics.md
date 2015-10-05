@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="儲存體分析" 
-	description="如何管理 Blob、佇列、資料表和檔案服務的並行存取" 
+	pageTitle="啟用 Azure 入口網站中的儲存體度量 | Microsoft Azure" 
+	description="如何啟用 Blob、佇列、表格和檔案服務的儲存體度量" 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="09/04/2015" 
 	ms.author="tamram"/>
 
 # 啟用儲存體度量和檢視度量資料
@@ -192,4 +192,4 @@
 [啟用儲存體記錄和存取記錄檔資料](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

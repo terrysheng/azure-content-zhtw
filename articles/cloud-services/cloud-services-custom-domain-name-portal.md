@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在雲端服務中設定自訂網域名稱"
-	description="了解如何設定 DNS 設定在自訂網域上公開 Azure 應用程式或資料。"
+	pageTitle="在雲端服務 (Preview 入口網站) 中設定自訂網域名稱 | Microsoft Azure"
+	description="了解如何藉由 DNS 設定，公開您的 Azure 應用程式或資料到自訂網域的網際網路上。這些範例使用 Azure Preview 入口網站。"
 	services="cloud-services"
 	documentationCenter=".net"
 	authors="Thraka"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 # 設定 Azure 雲端服務的自訂網域名稱
@@ -22,7 +22,7 @@
 - [Azure Portal](cloud-services-custom-domain-name.md)
 - [Azure Preview Portal](cloud-services-custom-domain-name-portal.md)
 
-當您建立雲端服務時，Azure 會將它指派給 **cloudapp.net** 的子網域。例如，如果雲端服務的名稱為「contoso」，您的使用者可以透過類似 http://*contoso*.cloudapp.net 的 URL 存取您的應用程式。Azure 也會指派虛擬 IP 位址。
+當您建立雲端服務時，Azure 會將它指派給 **cloudapp.net** 的子網域。例如，如果雲端服務的名稱為 "contoso"，您的使用者可以透過類似 http://contoso.cloudapp.net 的 URL 存取您的應用程式。Azure 也會指派虛擬 IP 位址。
 
 不過，您也可以在自己的網域名稱 (例如 **contoso.com**) 上公開您的應用程式。本文說明如何保留或設定雲端服務 Web 角色的自訂網域名稱。
 
@@ -134,15 +134,18 @@ CNAME 記錄將*特定的*網域 (例如 **contoso.com** 或 **www.contoso.com**
 | @ | 137\.135.70.239 |
 
 
-此範例示範建立根網域的 A 記錄。如果想要建立萬用字元項目來涵蓋所有子網域，請輸入 '__*__' 作為子網域。
+此範例示範建立根網域的 A 記錄。如果想要建立萬用字元項目來涵蓋所有子網域，請輸入 '\_\_*\_\_' 作為子網域。
 
 >[AZURE.WARNING]
 >依預設，Azure 中的 IP 位址是動態的。您可能想要使用[保留的 IP 位址](..\virtual-network\virtual-networks-reserved-public-ip.md)，以確保您的 IP 位址不會變更。
 
 ## 後續步驟
 
--   [如何管理雲端服務](cloud-services-how-to-manage.md)
--   [如何將 CDN 內容對應至自訂網域](http://msdn.microsoft.com/library/windowsazure/gg680307.aspx)
+* [如何管理雲端服務](cloud-services-how-to-manage.md)
+* [如何將 CDN 內容對應至自訂網域](cdn-map-content-to-custom-domain.md)
+* [雲端服務的一般設定](cloud-services-how-to-configure-portal.md)。
+* 了解如何[部署雲端服務](cloud-services-how-to-create-deploy-portal.md)。
+* 設定 [SSL 憑證](cloud-services-configure-ssl-certificate-portal.md)。
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
@@ -154,4 +157,4 @@ CNAME 記錄將*特定的*網域 (例如 **contoso.com** 或 **www.contoso.com**
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

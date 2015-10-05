@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="設定 Azure 中 AlwaysOn 可用性群組的外部接聽程式"
+	pageTitle="設定 AlwaysOn 可用性群組的外部接聽程式 | Microsoft Azure"
 	description="本教學課程將逐步引導您完成建立 Azure 中 AlwaysOn 可用性群組接聽程式的步驟，並且可使用相關聯雲端服務的公用虛擬 IP 位址從外部存取。"
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"
+	tags="azure-service-management" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -22,6 +23,8 @@
 - [External Listener](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
 
 本主題說明如何設定 AlwaysOn 可用性群組的接聽程式，並且能夠在網際網路上從外部存取。如此可將雲端服務的**公用虛擬 IP (VIP)** 位址與接聽程式建立關聯。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
 
 您的可用性群組可包含的複本為僅限內部部署、僅限 Azure，或同時跨內部部署和 Azure 的混合式組態。Azure 複本可位於相同區域內，或使用多個虛擬網路 (VNet) 跨多個區域。下列步驟假設您已[設定可用性群組](virtual-machines-sql-server-alwayson-availability-groups-gui.md)，但尚未設定接聽程式。
 
@@ -122,4 +125,4 @@
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

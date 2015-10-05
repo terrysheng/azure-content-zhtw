@@ -1,11 +1,11 @@
 
 <properties
 	pageTitle="使用屬性來建立進階規則 | Microsoft Azure"
-	description="管理安全性群組，以及如何使用這些群組管理資源的存取權的進階說明。"
+	description="《使用說明》用來建立進階的群組規則，包括支援的運算式規則運算子和參數。"
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 
@@ -124,7 +124,7 @@ Azure 管理入口網站會為您提供設定更進階的規則的彈性，以�
 | passwordPolicies | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName | 任何字串值或 $null。 | (user.physicalDeliveryOfficeName -eq "value") |
 | postalCode | 任何字串值或 $null。 | (user.postalCode -eq "value") |
-| preferredLanguage | ISO 639-1 code | (user.preferredLanguage -eq "zh-tw") |
+| preferredLanguage | ISO 639-1 code | (user.preferredLanguage -eq "zh-TW") |
 | sipProxyAddress | 任何字串值或 $null。 | (user.sipProxyAddress -eq "value") |
 | state | 任何字串值或 $null。 | (user.state -eq "value") |
 | streetAddress | 任何字串值或 $null。 | (user.streetAddress -eq "value") |
@@ -168,4 +168,4 @@ Azure 管理入口網站會為您提供設定更進階的規則的彈性，以�
 
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

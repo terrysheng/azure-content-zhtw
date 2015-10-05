@@ -13,16 +13,14 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="brandwe"/>
 
 # B2C 預覽：使用 node.js 保護 Web API 安全
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-> [AZURE.NOTE]
-	本文不涵蓋如何使用 Azure AD B2C 實作登入、註冊和管理設定檔。重點在於如何在使用者完成驗證後呼叫 Web API。
-您應該先從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始 (如果還沒有進行)，以了解 Azure AD B2C 的基本概念。
+> [AZURE.NOTE]本文不涵蓋如何使用 Azure AD B2C 實作登入、註冊和管理設定檔。而會著重在如何在使用者已通過驗證後呼叫 Web API。您應該先從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始 (如果還沒有進行)，以了解 Azure AD B2C 的基本概念。
 
 > [AZURE.NOTE]此寫入範例已連線至我們的 [iOS B2C 範例應用程式。](active-directory-b2c-devquickstarts-ios.md) 請先執行本逐步解說，然後遵循該範例操作。
 
@@ -57,6 +55,9 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 - Enter `http://localhost/TodoListService` as a **Reply URL** - it is the default URL for this code sample.
 - Create an **Application Secret** for your application and copy it down.  You will need it shortly.
 - Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
+
+    > [AZURE.IMPORTANT]
+    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
 
 ## 3. Create your policies
 
@@ -264,7 +265,7 @@ var bunyan = require('bunyan');
 var restify = require('restify');
 var config = require('./config');
 var passport = require('passport');
-var OIDCBearerStrategy = require('passport-azure-ad').OIDCStrategy;
+var OIDCBearerStrategy = require('passport-azure-ad').BearerStategy;
 ```
 
 儲存檔案。我們稍後會再回到此檔案。
@@ -284,11 +285,10 @@ var OIDCBearerStrategy = require('passport-azure-ad').OIDCStrategy;
 // Don't commit this file to your public repos. This config is for first-run
 exports.creds = {
 mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
-issuer: 'https://sts.windows.net/**<your application id>**/',
-audience: '<your redirect URI>',
+audience: '<your audience URI>',
 identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-configuration' // For using Microsoft you should never need to change this.
 tenantName:'<tenant name>',
-policyName:'<policy>',
+policyName:'b2c_1_<sign in policy name>',
 };
 
 ```
@@ -297,16 +297,16 @@ policyName:'<policy>',
 
 *IdentityMetadata*：passport-azure-ad 將在此處尋找適用於 IdP 的組態資料，以及用來驗證 JWT 權杖的金鑰。如果使用 Azure Active Directory，您可能不想變更此項目。
 
-*audience*：來自入口網站的重新導向 URI。我們的範例會使用：`http://localhost/TodoListService`
+*audience*：入口網站上能識別服務的 URI。我們的範例會使用：`http://localhost/TodoListService`
 
-*tenantName*：您的租用戶名稱 (例如 contoso.microsoftonline.com)
+*tenantName*：您的租用戶名稱 (例如 contoso.onmicrosoft.com)
 
-*policyName*：您想做為驗證傳入伺服器之權杖的原則。此原則應與您針對用戶端應用程式所用的原則相同。
+*policyName*：您想用來驗證傳入伺服器之權杖的原則。此原則應與您針對用戶端應用程式登入所用的原則相同。
 
-> [AZURE.NOTE]我們會經常變更金鑰。請確定您總是從 "openid\_keys" URL 中進行提取，而且應用程式可以存取網際網路。
+> [AZURE.NOTE]在我們的 B2C 預覽中，您可以將相同的原則用於用戶端與伺服器設定。如果您已完成逐步解說並建立這些原則，則不需要再做一次。由於您已完成此逐步解說，因此在本網站上瀏覽任何用戶端逐步解說時，您將不需要建立新的原則。
 
 
-## 11：將設定加入 server.js 檔案
+## 13：將設定加入 server.js 檔案
 
 我們必須從您剛才跨應用程式建立的組態檔中讀取這些值。若要這樣做，我們只需在應用程式中將 .config 檔案作為必要資源加入，然後將全域變數設定為 config.js 文件中的那些值即可
 
@@ -341,7 +341,7 @@ name: 'Microsoft Azure Active Directory Sample'
 });
 ```
 
-## 12：使用 Moongoose 加入 MongoDB 模型和結構描述資訊
+## 步驟 14：使用 Moongoose 新增 MongoDB 模型和結構描述資訊
 
 現在，當我們將這三個檔案整合一起提供給 REST API 服務時，您便會開始看到所有準備工作的成效。
 
@@ -402,7 +402,7 @@ var Task = mongoose.model('Task');
 ```
 從程式碼可以得知，當我們在定義***路由***時，我們會建立結構描述，然後建立將用來儲存整個程式碼資料的模型物件。
 
-## 13：在工作 REST API 伺服器中加入路由
+## 步驟 15：在工作 REST API 伺服器中新增路由
 
 既然我們已經擁有可以使用的資料庫模型，讓我們新增將用於 REST API 伺服器的路由。
 
@@ -579,7 +579,7 @@ util.inherits(TaskNotFoundError, restify.RestError);
 ```
 
 
-## 14：建立伺服器！
+## 步驟 16：建立伺服器！
 
 我們已經定義好資料庫，也準備好路由，要做的最後一件事是加入將會管理呼叫的伺服器執行個體。
 
@@ -616,7 +616,7 @@ server.use(restify.bodyParser({
 mapParams: true
 }));
 ```
-## 15：加入路由 (目前不含驗證)
+## 步驟 17：將路由加入伺服器 (目前不含驗證)
 
 ```Javascript
 /// Now the real handlers. Here we just CRUD
@@ -667,7 +667,7 @@ consoleMessage += '\n !!! why not try a $curl -isS %s | json to get some ideas? 
 consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 });
 ```
-## 16：加入 OAuth 支援之前，請先執行伺服器。
+## 18：加入 OAuth 支援之前，請先執行伺服器。
 
 加入驗證之前，請先測試您的伺服器
 
@@ -728,7 +728,7 @@ Hello
 
 **您必須將 REST API 伺服器搭配 MongoDB 使用！**
 
-## 17：將驗證加入 REST API 伺服器
+## 19：將驗證加入 REST API 伺服器
 
 既然我們已經擁有執行中的 REST API (順道恭喜您！)，我們可以開始讓它在 Azure AD 中發揮其價值。
 
@@ -736,7 +736,7 @@ Hello
 
 `cd azuread`
 
-### 1：使用 passport-azure-ad 包含的 oidcbearerstrategy
+### 1：使用 passport-azure-ad 所含的 OIDCBearerStrategy
 
 到目前為止，我們已經建置典型的 REST TODO 伺服器，且其中不含任何授權種類。這是我們將其結合在一起的起點。
 
@@ -749,9 +749,9 @@ server.use(passport.initialize()); // Starts passport
 server.use(passport.session()); // Provides session support
 ```
 
-> [AZURE.TIP]撰寫 API 時，您應一律將資料連結到使用者無法證明其在權杖中是唯一的項目。當此伺服器儲存 TODO 項目時，會根據我們放在 [擁有者] 欄位的權杖 (透過 token.sub 呼叫) 中的使用者訂用帳戶識別碼來儲存它們。這確保只有該使用者可以存取他的 TODO，而且沒有其他人可存取輸入的 TODO。不會在「擁有者」API 中公開，因此，外部使用者可以要求其他的 TODO，即使它們已經過驗證也一樣。
+> [AZURE.TIP]撰寫 API 時，您應一律將資料連結到使用者無法證明其在權杖中是唯一的項目。此伺服器儲存 TODO 項目時，會根據我們放在 [擁有者] 欄位的權杖 (透過 token.sub 呼叫) 中使用者的物件識別碼來儲存這些項目。這確保只有該使用者可以存取他的 TODO，而且沒有其他人可存取輸入的 TODO。不會在「擁有者」API 中公開，因此，外部使用者可以要求其他的 TODO，即使它們已經過驗證也一樣。
 
-接下來，我們將使用隨附於 passport-azure-ad 的 Open ID Connect Bearer 策略。目前只需看一下此程式碼，我很快就會討論到它。將這段程式碼放在您貼上上述內容的後方：
+接下來，我們將使用隨附於 passport-azure-ad 的 Bearer 策略。目前只需看一下此程式碼，我很快就會討論到它。將這段程式碼放在您貼上上述內容的後方：
 
 ```Javascript
 /**
@@ -807,34 +807,34 @@ Passport 會使用適用於它的所有策略 (Twitter、Facebook 等) 且所有
 讓我們在伺服器程式碼中編輯路由，以執行更有趣的作業：
 
 ```Javascript
-server.get('/tasks', passport.authenticate('oidc-bearer', {
+server.get('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), listTasks);
-server.get('/tasks', passport.authenticate('oidc-bearer', {
+server.get('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), listTasks);
-server.get('/tasks/:owner', passport.authenticate('oidc-bearer', {
+server.get('/tasks/:owner', passport.authenticate('oauth-bearer', {
 session: false
 }), getTask);
-server.head('/tasks/:owner', passport.authenticate('oidc-bearer', {
+server.head('/tasks/:owner', passport.authenticate('oauth-bearer', {
 session: false
 }), getTask);
-server.post('/tasks/:owner/:task', passport.authenticate('oidc-bearer', {
+server.post('/tasks/:owner/:task', passport.authenticate('oauth-bearer', {
 session: false
 }), createTask);
-server.post('/tasks', passport.authenticate('oidc-bearer', {
+server.post('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), createTask);
-server.del('/tasks/:owner/:task', passport.authenticate('oidc-bearer', {
+server.del('/tasks/:owner/:task', passport.authenticate('oauth-bearer', {
 session: false
 }), removeTask);
-server.del('/tasks/:owner', passport.authenticate('oidc-bearer', {
+server.del('/tasks/:owner', passport.authenticate('oauth-bearer', {
 session: false
 }), removeTask);
-server.del('/tasks', passport.authenticate('oidc-bearer', {
+server.del('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), removeTask);
-server.del('/tasks', passport.authenticate('oidc-bearer', {
+server.del('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), removeAll, function respond(req, res, next) {
 res.send(204);
@@ -846,7 +846,7 @@ next();
 
 讓我們再次使用 `curl`，以查看我們現在是否有針對端點的 OAuth2 保護。我們會在針對這個端點執行任何用戶端 SDK 之前，執行此動作。傳回的標頭應該足以說明我們執行的作業步驟正確無誤。
 
-首先，請確定 monogoDB 執行個體正在執行中...
+首先，請確定 monogoDB 執行個體正在執行中：
 
 	$sudo mongod
 
@@ -887,4 +887,4 @@ Transfer-Encoding: chunked
 
 [使用 iOS 搭配 B2C 連線至 Web-API >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,10 +1,10 @@
-
+<!--author=SharS last changed: 9/17/15-->
 
 在此程序中，您將會：
 
 1. [準備執行維護程式可執行檔](#to-prepare-to-run-the-maintainer)。
 
-2. [為立即刪除被遺棄的 BLOB 準備內容資料庫和資源回收筒](#to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs)。
+2. [為立即刪除遺棄的 BLOB 準備內容資料庫和資源回收筒](#to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs)。
 
 3. [執行 Maintainer.exe](#to-run-the-maintainer)。
 
@@ -38,7 +38,7 @@
 
        `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
 
-2. 在 web 前端伺服器上的**管理中心**下，為所需的內容資料庫編輯 **Web 應用程式一般設定**以暫時停用資源回收筒。這個動作將同時清空任何相關網站集合的資源回收筒。若要這樣做，請按一下 [**管理中心**] -> [**應用程式管理**] -> [**Web 應用程式 (管理 web 應用程式)**] -> [**SharePoint - 80**] -> [**一般應用程式設定**]。將**資源回收筒狀態**設為 **OFF**。
+2. 在 Web 前端伺服器上的**管理中心**下，為所需的內容資料庫編輯 **Web 應用程式一般設定**以暫時停用資源回收筒。這個動作將同時清空任何相關網站集合的資源回收筒。若要這樣做，請按一下 [管理中心] -> [應用程式管理] -> [Web 應用程式 (管理 Web 應用程式)] -> [SharePoint - 80] -> [一般應用程式設定]。將**資源回收筒狀態**設為 **關閉**。
 
     ![Web 應用程式一般設定](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
 
@@ -62,6 +62,6 @@
 
       `exec mssqlrbs.rbs_sp_set_config_value ‘orphan_scan_period’ , ’days 30’`
 
-2. 在 web 前端伺服器上的**管理中心**中，為所需的內容資料庫編輯 **Web 應用程式一般設定**以重新啟用資源回收筒。若要這樣做，請按一下 [**管理中心**] -> [**應用程式管理**] -> [**Web 應用程式 (管理 web 應用程式)**] -> [**SharePoint - 80**] -> [**一般應用程式設定**]。將資源回收筒狀態設為 **ON**。
+2. 在 Web 前端伺服器上的**管理中心**中，為所需的內容資料庫編輯 **Web 應用程式一般設定**以重新啟用資源回收筒。若要這樣做，請按一下 [管理中心] -> [應用程式管理] -> [Web 應用程式 (管理 Web 應用程式)] -> [SharePoint - 80] -> [一般應用程式設定]。將資源回收筒狀態設為 **開啟**。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

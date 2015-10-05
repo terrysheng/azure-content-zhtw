@@ -1,26 +1,28 @@
 <properties
    pageTitle="在 Visual Studio 程式碼中建立 ASP.NET 5 API 應用程式"
-	description="本教學課程示範如何使用 Visual Studio 程式碼建立 ASP.NET 5 API 應用程式。"
-	services="app-service\api"
-	documentationCenter=".net"
-	authors="erikre"
-	manager="wpickett"
-	editor="jimbe"/>
+   description="本教學課程示範如何使用 Visual Studio 程式碼建立 ASP.NET 5 API 應用程式。"
+   services="app-service\api"
+   documentationCenter=".net"
+   authors="erikre"
+   manager="wpickett"
+   editor="jimbe"/>
 
 <tags
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="dotnet"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="app-service-api" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="dotnet" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="erikre"/>
 
 # 在 Visual Studio 程式碼中建立 ASP.NET 5 API 應用程式
 
 > [AZURE.SELECTOR]
-- [Visual Studio 2015 or 2013](app-service-dotnet-create-api-app.md)
-- [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
+- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [Node.js](app-service-api-nodejs-api-app.md)
+- [Java](app-service-api-java-api-app.md)
 
 ## 概觀
 
@@ -319,7 +321,7 @@ dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server
 
 稍後，在本教學課程中，您會將上述的主機 URL 預留位置字串取代為您稍後將建立和複製的 Azure 主機 URL。
 
-## 在 Azure 預覽入口網站中建立 API 應用程式
+## 在 Azure Preview 入口網站中建立 API 應用程式
 
 > [AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有帳戶，則可以[申請免費試用](/pricing/free-trial/)或[啟用自己的 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/)。您也可以免費試用 [App Service 應用程式範例](http://tryappservice.azure.com)。
 
@@ -441,8 +443,8 @@ To https://user@testsite.scm.azurewebsites.net/testsite.git
 
 > [AZURE.NOTE]如果您變更應用程式，則可以重新發佈，方法是在 VSCode 中選取 [**全部認可**] 核取方塊，然後在 **GitBash** 中輸入 **git push azure master** 命令。
 
-## 在 Azure 預覽入口網站中檢視 API 定義
-現已將 API 部署到您的 API 應用程式，您可在 Azure 預覽入口網站中查看 API 定義。一開始要先重新啟動閘道器，這可讓 Azure 認可 API 應用程式的 API 定義已經變更。閘道是一個 Web 應用程式，可處理資源群組中 API 應用程式的 API 管理和授權。
+## 在 Azure Preview 入口網站中檢視 API 定義
+現已將 API 部署到您的 API 應用程式，您可在 Azure Preview 入口網站中查看 API 定義。一開始要先重新啟動閘道器，這可讓 Azure 認可 API 應用程式的 API 定義已經變更。閘道是一個 Web 應用程式，可處理資源群組中 API 應用程式的 API 管理和授權。
 
 1. 在 Azure 預覽入口網站中，移至您稍早建立之 API 應用程式的 [**API 應用程式**] 刀鋒視窗，然後按一下 [**閘道器**] 連結。
 2. 在 [**閘道器**] 刀鋒視窗中，按一下 [**重新啟動**]。您現在可以關閉此刀鋒視窗。
@@ -458,4 +460,4 @@ To https://user@testsite.scm.azurewebsites.net/testsite.git
 在本教學課程中，您學到如何在 Visual Studio 程式碼中建立 API 應用程式。如需 Visual Studio 程式碼的詳細資訊，請參閱 [Visual Studio 程式碼](https://code.visualstudio.com/Docs/)。如需 API 應用程式的相關資訊，請參閱[什麼是 API 應用程式？](app-service-api-apps-why-best-platform.md)。
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

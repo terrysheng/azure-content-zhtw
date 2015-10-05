@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="09/03/2015"
+    ms.date="09/21/2015"
     ms.author="ryancraw"/>
 
 # 使用 DocumentDB 進行 Python Flask Web 應用程式開發
@@ -352,4 +352,4 @@
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

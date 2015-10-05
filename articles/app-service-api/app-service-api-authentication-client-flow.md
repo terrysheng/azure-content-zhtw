@@ -97,6 +97,8 @@
 	* 使用您已建立的 AAD 應用程式而不是建立一個新應用程式。
  
 	* 保持您的 AAD 應用程式已經擁有的相同**應用程式識別碼 URI**。(不要將它變更為讀我檔案中指定的格式。)
+	
+	* 依照指示變更其他 AAD 應用程式設定；特別是將登入和回覆 URL 設為範例應用程式的基底 URL。
 
 您會保留為 API 應用程式建立的相同的應用程式識別碼 URI，以便您可以對 Web 應用程式和 API 應用程式使用相同的 AAD 存取權杖。如果您將應用程式識別碼 URI 變更為讀我檔案所規定的格式，如此能存取 Web 應用程式，但無法存取 API 應用程式。您將無法將 AAD 權杖傳遞至 API 應用程式閘道器來取得 Zumo 權杖，因為閘道器會預期應用程式識別碼 URI 的權杖是由閘道器 URL 加上 "/login/aad" 組成。
 
@@ -106,13 +108,11 @@
 
 8.	在 Visual Studio 的 [方案總管] 中，在 WebApp-GroupClaims-DotNet 專案上按一下滑鼠右鍵，然後按一下 [加入] > [Azure API 應用程式用戶端]。
 
-9.	在 [加入 Microsoft Azure API 應用程式用戶端] 對話方塊中，選取使用 AAD 保護的 API 的應用程式。
+9.	在 [加入 Microsoft Azure API 應用程式用戶端] 對話方塊中，選取以 AAD 保護的 API 應用程式。
 
 	程式碼產生完成之後，您會在 [**方案總管**] 中看到該 API 應用程式名稱的新資料夾。此資料夾包含實作用戶端類別和資料模型的程式碼。
 
-	![](./media/app-service-api-authentication-client-flow/aboutpagestart.png)
-
-10. 修正 *ContactsList/ContactsExtensions.cs* 中產生的程式碼造成的不明確的參考：將 `Task.Factory.StartNew` 的兩個執行個體變更為 `System.Threading.Tasks.Task.Factory.StartNew`。
+10. 修正 *ContactsList/ContactsExtensions.cs* 中產生的程式碼造成的不明確參考：將 `Task.Factory.StartNew` 的兩個執行個體變更為 `System.Threading.Tasks.Task.Factory.StartNew`。
  
 ## 加入程式碼來交換 Zumo 權杖的 AAD 權杖
 
@@ -154,14 +154,14 @@
 
 	在此程式碼中，`ConfigHelper.Authority` 會解析為 "https://login.microsoftonline.com/{your tenant}"，例如："https://login.microsoftonline.com/contoso.onmicrosoft.com"。
 
-2.	在 `About` 方法的結尾緊接著 `return View()` 陳述式之前加入程式碼來呼叫 API 應用程式。(在下一個步驟中，您將加入程式碼到 `About` 檢視來顯示傳回的資料。)
+2.	在 `About` 方法的結尾、緊接著 `return View()` 陳述式之前，加入程式碼來呼叫 API 應用程式。(在下一個步驟中，您將加入程式碼到 `About` 檢視來顯示傳回的資料。)
 
 		var appServiceClient = await GetAppServiceClient();
 		var client = appServiceClient.CreateContactsList();
 		var contacts = client.Contacts.Get();
 		ViewData["contacts"] = contacts;
 
-3. 在 *Views/Home/About.cshtml* 中，將程式碼加入緊接在 `h2` 標題之後，以顯示連絡資訊。
+3. 在 *Views/Home/About.cshtml* 中，將程式碼加入到 `h2` 標題之後，以顯示連絡資訊。
 
 		<h3>Contacts</h3>
 		<table class="table table-striped table-bordered table-condensed table-hover">
@@ -190,13 +190,13 @@
 
 	若沒有這個繫結重新導向，應用程式將會失敗，因為 App Service SDK 包含 System.Net.Http.Primitives 1.5.0.0 版的相依性，但專案所使用的版本為 4.2.28.0。
  
-3. 遵循[讀我檔案](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/)中**部署此範例至 Azure**的指示。
+3. 遵循[讀我檔案](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/)中**部署此範例至 Azure** 的指示進行。
 
 5. 執行應用程式。
 
 	![](./media/app-service-api-authentication-client-flow/homepage.png)
 
-6. 按一下 [登入]，然後輸入您正用於此應用程式的 AAD 網域中的使用者的認證。
+6. 按一下 [登入]，然後輸入您正用於此應用程式的 AAD 網域中的使用者認證。
 
 	![](./media/app-service-api-authentication-client-flow/signedin.png)
 
@@ -222,9 +222,9 @@
 
 ## 後續步驟
 
-您已了解如何為 App Service API 應用程式執行用戶端流程驗證。如需在 API 應用程式中處理驗證的其他方式的相關資訊，請參閱 [API 應用程式與行動裝置應用程式的驗證](../app-service/app-service-authentication-overview.md)。
+您已了解如何為 App Service API 應用程式執行用戶端流程驗證。如需關於在 API 應用程式中處理驗證的其他方式的資訊，請參閱 [API 應用程式與行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
 
 [Azure 入口網站]: https://manage.windowsazure.com/
 [Azure Preview 入口網站]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

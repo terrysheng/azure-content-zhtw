@@ -1,8 +1,8 @@
 <properties
-   pageTitle="Azure 入口網站鍵盤快速鍵"
+   pageTitle="Azure 入口網站鍵盤快速鍵 | Microsoft Azure"
    description="本文章一律是最新且適用於整個 Azure 入口網站的鍵盤快速鍵清單。個別的服務可能會擁有專用的鍵盤快速鍵。"
    services="cloud-services"
-   documentationCenter="dev-center-name"
+   documentationCenter=""
    authors="curtand"
    manager="msStevenPo"
    editor=""/>
@@ -50,4 +50,4 @@
 
 進一步了解 Azure 入口網站：http://azure.microsoft.com。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

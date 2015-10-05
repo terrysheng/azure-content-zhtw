@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Azure 虛擬機器中的 SQL Server 安全性考量"
-	description="提供一般指引方針，以保護在 Azure 虛擬機器中執行的 SQL Server。"
+	pageTitle="Azure 中的 SQL Server 安全性考量 | Microsoft Azure"
+	description="本主題關於以傳統部署模型建立的資源，並提供一般指導方針來保護在 Azure 虛擬機器中執行的 SQL Server。"
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+   editor="monicar"    
+   tags="azure-service-management"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,11 +14,13 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
 # Azure 虛擬機器中的 SQL Server 安全性考量
 
 本主題包含整體安全性指導方針，可協助制定 Azure VM 中 SQL Server 執行個體的存取安全。不過，為了確保能更有效保護 Azure 中的 SQL Server 資料庫執行個體，除了 Azure 的安全性最佳作法外，我們也建議您實作傳統的內部部署安全性作法。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括搭配傳統部署模型使用資源。
 
 如需關於 SQL Server 安全性作法的詳細資訊，請參閱 [SQL Server 2008 R2 安全性最佳作法 - 操作與管理工作](http://download.microsoft.com/download/1/2/A/12ABE102-4427-4335-B989-5DA579A4D29D/SQL_Server_2008_R2_Security_Best_Practice_Whitepaper.docx)
 
@@ -31,7 +34,7 @@ Azure 符合多種業界規範及標準，可讓您使用在虛擬機器中執�
 
 - 為您的所有帳戶使用複雜的強式密碼。如需如何建立強式密碼的詳細資訊，請參閱資訊安全中心的[建立強式密碼](http://go.microsoft.com/fwlink/?LinkId=293596)文章 (英文)。
 
-- 根據預設，Azure 會在 SQL Server 虛擬機器安裝期間選取 Windows 驗證。因此，已停用 **SA** 登入，並由安裝程式指派密碼。我們建議最好不要使用或啟用 **SA** 登入。以下是需要 SQL 登入時的替代策略：
+- 根據預設，Azure 會在 SQL Server 虛擬機器安裝期間選取 Windows 驗證。因此，系統會停用 **SA** 登入，並由安裝程式指派密碼。我們建議最好不要使用或啟用 **SA** 登入。以下是需要 SQL 登入時的替代策略：
 	- 建立具有 **CONTROL SERVER** 權限的 SQL 帳戶。
 	- 如果您必須使用 **SA** 登入，請啟用此登入，並將它重新命名，然後指派新密碼。
 	- 先前提到的兩個選項，都需要將驗證模式變更為 SQL Server 和 Windows 驗證模式。如需詳細資訊，請參閱「變更伺服器驗證模式」。
@@ -44,7 +47,7 @@ Azure 符合多種業界規範及標準，可讓您使用在虛擬機器中執�
 
 ## 保護 Azure 虛擬機器之連接的考量：
 
-- 考慮使用 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)來管理虛擬機器，而不是公用 RDP 連接埠。
+- 請考慮使用 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)來管理虛擬機器，而不是公用 RDP 連接埠。
 
 - 如果虛擬機器上有任何不使用的端點，請將它們全部移除。
 
@@ -54,8 +57,8 @@ Azure 符合多種業界規範及標準，可讓您使用在虛擬機器中執�
 
 ## 後續步驟
 
-如果您也想了解關於效能的最佳做法，請參閱 [Azure 虛擬機器中 SQL Server 的效能最佳做法](virtual-machines-sql-server-performance-best-practices.md)。
+如果您也想了解關於效能的最佳作法，請參閱 [Azure 虛擬機器中 SQL Server 的效能最佳作法](virtual-machines-sql-server-performance-best-practices.md)。
 
-如需在 Azure VM 中執行 SQL Server 的其他相關主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)。
+如需在 Azure VM 中執行 SQL Server 的其他相關主題，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

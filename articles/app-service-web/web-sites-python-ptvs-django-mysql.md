@@ -1,25 +1,30 @@
 <properties 
-	pageTitle="Azure 上使用 Python Tools 2.2 for Visual Studio 的 Django 和 MySQL"
-	description="了解如何使用 Python Tools for Visual Studio 建立 Django Web 應用程式，藉此將資料儲存在 MySQL 資料庫執行個體中，並部署到 Azure App Service Web Apps。"
-	services="app-service\web"
-	documentationCenter="python"
-	authors="huguesv"
-	manager="wpickett"
+	pageTitle="Azure 上使用 Python Tools 2.2 for Visual Studio 的 Django 和 MySQL" 
+	description="了解如何使用 Python Tools for Visual Studio 建立 Django Web 應用程式，藉此將資料儲存在 MySQL 資料庫執行個體中，並部署到 Azure App Service Web Apps。" 
+	services="app-service\web" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
-
-
-
 # Azure 上使用 Python Tools 2.2 for Visual Studio 的 Django 和 MySQL 
+
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
 
 在此教學課程中，我們將使用 [Python Tools for Visual Studio]，並使用其中一個 PTVS 範例範本來建立簡單的民調 Web 應用程式。本教學課程也提供[教學影片](https://www.youtube.com/watch?v=oKCApIrS0Lo)。
 
@@ -99,7 +104,7 @@
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)-->
 
-1.  在搜尋方塊中輸入「**mysql**」，然後按一下 [**MySQL 資料庫**]，再按一下 [**建立**]。
+1.  在搜尋方塊中輸入 "**mysql**"，然後按一下 [MySQL 資料庫]，再按一下 [建立]。
 
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 
@@ -211,4 +216,4 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

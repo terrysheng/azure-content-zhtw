@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/09/2015"
+   ms.date="09/17/2015"
    ms.author="alkohli" />
 
 # 在 StorSimple 裝置上安裝 Update 1.2
@@ -153,4 +153,4 @@ Update 1.2 包括裝置軟體更新、LSI 驅動程式更新和磁碟韌體更�
 
 深入了解 [Update 1.2 版](storsimple-update1-release-notes.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

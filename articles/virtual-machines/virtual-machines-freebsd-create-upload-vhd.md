@@ -1,29 +1,32 @@
-<properties 
-   pageTitle="建立並上傳 FreeBSD VHD 到 Azure"
-	description="了解如何建立及上傳包含 FreeBSD 作業系統的 Azure 虛擬硬碟 (VHD)。"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="KylieLiang"
-	manager="timlt"
-	editor=""/>
+<properties
+   pageTitle="建立及上傳 FreeBSD VM 映像 | Microsoft Azure"
+   description="了解如何建立及上傳包含 FreeBSD 作業系統的虛擬硬碟 (VHD)，以建立 Azure 虛擬機器。"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="KylieLiang"
+   manager="timlt"
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure-services"
-	ms.date="05/19/2015"
-	ms.author="kyliel"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-linux"
+   ms.workload="infrastructure-services"
+   ms.date="05/19/2015"
+   ms.author="kyliel"/>
 
-# 建立並上傳 FreeBSD VHD 到 Azure 
+# 建立並上傳 FreeBSD VHD 到 Azure
 
 本文說明如何建立及上傳包含 FreeBSD 作業系統的虛擬硬碟 (VHD)，以便使用它做為您自己的映像，在 Azure 中建立虛擬機器 (VM)。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
 
 ##必要條件##
 本文假設您具有下列項目：
 
-- **Azure 訂用帳戶** - 如果您沒有的話，只需要幾分鐘的時間就可以建立帳戶。如果您有 MSDN 訂用帳戶，請參閱 [MSDN 訂戶的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。否則，請參閱[建立免費試用帳戶](http://azure.microsoft.com/pricing/free-trial/)。  
+- **Azure 訂用帳戶** - 如果您沒有的話，只需要幾分鐘的時間就可以建立帳戶。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。否則，請參閱[建立免費試用帳戶](http://azure.microsoft.com/pricing/free-trial/)。  
 
 - **Azure PowerShell 工具** - 您已安裝 Microsoft Azure PowerShell 模組，並設定為使用您的訂用帳戶。若要下載此模組，請參閱 [Azure 下載](http://azure.microsoft.com/downloads/)。這裡有安裝和設定模組的教學課程。您將使用 [Azure Downloads](http://azure.microsoft.com/downloads/) Cmdlet 上傳 VHD。
 
@@ -48,9 +51,9 @@
 
     從光碟安裝之後，預設會啟用 SSH。如果未啟用，或您直接使用 FreeBSD VHD，輸入：
 
-		# echo 'sshd_enable="YES"' >> /etc/rc.conf 
-		# ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key 
-		# ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key 
+		# echo 'sshd_enable="YES"' >> /etc/rc.conf
+		# ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
+		# ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 		# service sshd restart
 
 3. **設定序列主控台**
@@ -73,7 +76,7 @@
 
     5\.2 **安裝 wget**
 
-		# pkg install wget 
+		# pkg install wget
 
 6. **安裝 Azure 代理程式**
 
@@ -111,11 +114,11 @@
 	![快速建立儲存體帳戶](./media/virtual-machines-freebsd-create-upload-vhd/Storage-quick-create.png)
 
 4. 依照下列方式填入欄位：
-	
+
 	- 在 **URL** 下，為儲存體帳戶輸入要在 URL 中使用的子網域名稱。此項目可以包含 3 至 24 個小寫字母與數字。此名稱會成為 URL 內用來為訂閱的 Blob、「佇列」或「資料表」資源定址的主機名稱。
-			
+
 	- 選擇儲存體帳戶的**位置或同質群組**。同質群組可讓您將雲端服務和儲存體放在相同的資料中心。
-		 
+
 	- 決定儲存體帳戶是否要使用**地理區域複寫**。依預設會開啟異地複寫。此選項可讓您免費將資料複寫至次要位置，使您在主要位置發生重大錯誤時，可將儲存體容錯移轉至該位置。次要位置會自動指派，且無法變更。如果您因為法律規定或組織原則而需要更充分掌控您以雲端為基礎的儲存體所在的位置，您可以關閉地理複寫。但請注意，如果您後續又開啟異地複寫，在您將現有的資料複寫至次要位置時，將會產生一次性的資料傳輸費用。不含異地複寫的儲存服務會有相對的折扣。如需深入了解如何管理儲存體帳戶的地理區域複寫，請參閱：[建立、管理或刪除儲存體帳戶](../storage-create-storage-account/#replication-options)。
 
 	![輸入儲存體帳戶詳細資料](./media/virtual-machines-freebsd-create-upload-vhd/Storage-create-account.png)
@@ -148,7 +151,7 @@
 1. 開啟 Azure PowerShell 主控台。
 
 2. 輸入以下命令：`Add-AzureAccount`
-	
+
 	這個命令會開啟登入視窗，您可以用您的工作或學校帳戶登入。
 
 	![PowerShell Window](./media/virtual-machines-freebsd-create-upload-vhd/add_azureaccount.png)
@@ -157,11 +160,11 @@
 
 ###使用憑證方法
 
-1. 開啟 Azure PowerShell 主控台。 
+1. 開啟 Azure PowerShell 主控台。
 
 2. 輸入：`Get-AzurePublishSettingsFile`。
 
-3. 隨即開啟瀏覽器視窗，並提示您下載 .publishsettings 檔案。它包含您 Microsoft Azure 訂閱的資訊和憑證。
+3. 隨即開啟瀏覽器視窗，並提示您下載 .publishsettings 檔案。它包含您 Microsoft Azure 訂用帳戶的資訊和憑證。
 
 	![瀏覽器下載頁面](./media/virtual-machines-freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
 
@@ -172,7 +175,7 @@
 	其中 `<PathToFile>` 是 .publishsettings 檔案的完整路徑。
 
    如需詳細資訊，請參閱[開始使用 Microsoft Azure Cmdlet](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)
-	
+
    如需有關安裝及設定 PowerShell 的詳細資訊，請參閱[如何安裝及設定 Microsoft Azure PowerShell](../install-configure-powershell.md)。
 
 ## 步驟 4：上傳 .vhd 檔案 ##
@@ -204,6 +207,5 @@
 4. 佈建完成後，您會看到 FreeBSD VM 在 Azure 中執行。
 
 	![azure 中的 freebsd 映像](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

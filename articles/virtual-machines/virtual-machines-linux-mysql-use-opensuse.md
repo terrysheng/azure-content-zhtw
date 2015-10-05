@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在 Azure 中執行 OpenSUSE Linux 的虛擬機器上安裝 MySQL"
+	pageTitle="在 Microsoft Azure 中的 OpenSUSE Linux VM 上安裝 MySQL"
 	description="了解如何在 Azure 的虛擬機器上安裝 MySQL。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -38,4 +38,4 @@
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

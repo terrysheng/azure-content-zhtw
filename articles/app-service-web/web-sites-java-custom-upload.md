@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="將自訂 Java Web 應用程式上傳至 Azure"
-	description="本教學課程說明如何將自訂 Java Web 應用程式上傳至 Azure App Service Web Apps。"
-	services="app-service\web"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="將自訂 Java Web 應用程式上傳至 Azure" 
+	description="本教學課程說明如何將自訂 Java Web 應用程式上傳至 Azure App Service Web Apps。" 
+	services="app-service\web" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # 將自訂 Java Web 應用程式上傳至 Azure
@@ -106,7 +106,7 @@ App Service Web Apps 隨附了兩個 Tomcat 變化，但很有可能您仍然可
 在 Tomcat 端，您必須進行幾個組態變更。必須編輯 server.xml 以設定下列選項：
 
 -	關機連接埠 = -1
--	HTTP 連接器連接埠 = {port.http}
+-	HTTP 連接器連接埠 = ${port.http}
 -	HTTP 連接器位址 = "127.0.0.1"
 -	註解化 HTTPS 和 AJP 連接器
 -	您也可以在 catalina.properties 檔案中進行 IPv4 設定，在此檔案中，您可以新增 `java.net.preferIPv4Stack=true`
@@ -227,7 +227,11 @@ App Service Web Apps 支援 Liferay。因為 Liferay 需要大量記憶體，Web
 
 進行這些變更之後，請重新啟動執行 Liferay 的 Web 應用程式，然後開啟 http://yourwebapp。您可以在 Web 應用程式根目錄中找到 Liferay 入口網站。
 
+## 後續步驟
+
 如需 Liferay 的詳細資訊，請參閱 [http://www.liferay.com](http://www.liferay.com)。
+
+如需 Java 的詳細資訊，請參閱 [Java 開發人員中心](/develop/java/)。
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -237,4 +241,4 @@ App Service Web Apps 支援 Liferay。因為 Liferay 需要大量記憶體，Web
 <!-- External Links -->
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

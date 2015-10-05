@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
 
 # Azure 虛擬機器備份
 
@@ -111,7 +111,7 @@
 - 只有選取的作業系統版本能支援使用 Azure 備份服務為虛擬機器備份：
   - **Linux**：由 Azure 背書的散發套件清單可以在[這裡](../virtual-machines-linux-endorsed-distributions.md)取得。只要 VM 代理程式可以在虛擬機器上使用，其他「攜帶您自己的 Linux」散發套件也應該可以運作。
   - **Windows Server**：不支援比 Windows Server 2008 R2 更舊的版本。
-- 只能透過 PowerShell 支援還原屬於多 DC 組態的網域控制站 VM。進一步了解[還原多 DC 網域控制站](backup-azure-restore-vms.md#multiple-dcs)
+- 只能透過 PowerShell 支援還原屬於多 DC 組態的網域控制站 VM。進一步了解[還原多 DC 網域控制站](backup-azure-restore-vms.md#restoring-domain-controller-vms)
 
 如果您想要查看任何所包含功能，[傳送意見反應給我們](http://aka.ms/azurebackup_feedback)。
 
@@ -122,4 +122,4 @@
 - [還原虛擬機器](backup-azure-restore-vms.md)
 - [管理虛擬機器備份](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

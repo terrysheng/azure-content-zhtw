@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 資料倉儲中的並行存取和工作負載管理
@@ -73,7 +73,7 @@ SQL 資料倉儲已透過使用資料庫角色來實作資源類別。若要成�
 
 ### 資源類別成員資格
 
-您可以使用 `sp_addrolemember` 和 `sp_droprolemember` 程序，將自己新增和移除至工作負載管理資料庫角色。請注意，您需要 `ALTER ROLE` 權限才能執行此動作。您不能使用 ALTER ROLE DDL 語法。您必須使用上述的預存程序。本文最後的 [管理使用者) [\#managing-users] 一節提供如何建立登入和使用者的完整範例。
+您可以使用 `sp_addrolemember` 和 `sp_droprolemember` 程序，將自己新增和移除至工作負載管理資料庫角色。請注意，您需要 `ALTER ROLE` 權限才能執行此動作。您不能使用 ALTER ROLE DDL 語法。您必須使用上述的預存程序。本文最後的 [管理使用者) [#managing-users] 一節提供如何建立登入和使用者的完整範例。
 
 > [AZURE.NOTE]相較於在工作負載管理群組內外新增使用者，通常更容易的做法是透過永久指派給較高資源類別的個別登入/使用者，起始更密集的作業。
 
@@ -139,19 +139,49 @@ SQL 資料倉儲已透過使用資料庫角色來實作資源類別。若要成�
 - INSERT-SELECT
 - UPDATE
 - 刪除
-- SELECT (不是只查詢 DMV 時)
+- SELECT (當查詢使用者資料表時)
 - ALTER INDEX REBUILD
 - ALTER INDEX REORGANIZE
 - ALTER TABLE REBUILD
-- CREATE CLUSTERED INDEX
+- CREATE INDEX
 - CREATE CLUSTERED COLUMNSTORE INDEX
 - CREATE TABLE AS SELECT 
 - 載入資料 
+- 資料移動服務 (DMS) 進行的資料移動作業
+
+下列陳述式**不**接受資源類別：
+
+- CREATE TABLE
+- ALTER TABLE ...SWITCH PARTITION 
+- ALTER TABLE ...SPLIT PARTITION 
+- ALTER TABLE ...MERGE PARTITION 
+- DROP TABLE
+- ALTER INDEX DISABLE
+- DROP INDEX
+- CREATE STATISTICS
+- UPDATE STATISTICS
+- DROP STATISTICS
+- TRUNCATE TABLE
+- ALTER AUTHORIZATION
+- CREATE LOGIN
+- CREATE USER
+- ALTER USER
+- DROP USER
+- CREATE PROCEDURE
+- ALTER PROCEDURE
+- DROP PROCEDURE
+- CREATE VIEW
+- DROP VIEW
+- INSERT VALUES
+- SELECT (從系統檢視和 DMV)
+- EXPLAIN
+- DBCC
 
 <!--
 Removed as these two are not confirmed / supported under SQLDW
 - CREATE REMOTE TABLE AS SELECT
-- CREATE EXTERNAL TABLE AS SELECT 
+- CREATE EXTERNAL TABLE AS SELECT
+- REDISTRIBUTE 
 -->
 > [AZURE.NOTE]值得強調的是，只針對動態管理檢視和目錄檢視執行的 `SELECT` 查詢**不是**由資源類別控管。
 
@@ -418,8 +448,8 @@ FROM	sys.dm_pdw_wait_stats w
 [開發概觀]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[在 Azure SQL Database 中管理資料庫和登入]: https://msdn.microsoft.com/zh-tw/library/azure/ee336235.aspx
+[在 Azure SQL Database 中管理資料庫和登入]: https://msdn.microsoft.com/zh-TW/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

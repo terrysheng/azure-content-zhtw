@@ -1,26 +1,29 @@
-<properties 
-	pageTitle="在 Azure Linux VM 上最佳化 MySQL 效能" 
-	description="了解如何最佳化在執行 Linux 之 Azure 虛擬機器 (VM) 上執行的 MySQL。" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="NingKuang" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="在 Linux VM 上的 MySQL 效能最佳化 | Microsoft Azure"
+	description="了解如何最佳化在執行 Linux 之 Azure 虛擬機器 (VM) 上執行的 MySQL。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="NingKuang"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/21/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/21/2015"
 	ms.author="ningk"/>
 
-#在 Azure Linux VM 上最佳化 MySQL 效能 
+#在 Azure Linux VM 上最佳化 MySQL 效能
 
 有許多因素會影響 Azure 上的 MySQL 效能，均與虛擬硬體選取和軟體設定有關。本文著重於透過儲存體、系統和資料庫設定最佳化效能。
 
-##在 Azure 虛擬機器上利用 RAID 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型管理資源。
+
+##在 Azure 虛擬機器上利用 RAID
 儲存體是影響雲端環境中的資料庫效能的關鍵因素。相較於單一磁碟，RAID 可透過並行提供更快速的存取。如需詳細資訊，請參閱[標準 RAID 層級](http://en.wikipedia.org/wiki/Standard_RAID_levels)。
 
 Azure 中的磁碟 I/O 輸送量和 I/O 回應時間可透過 RAID 大幅改進。我們的實驗室測試顯示︰當 RAID 磁碟數目增加一倍 (從 2 到 4、4 到 8 等) 時，磁碟 I/O 輸送量可以增加一倍，而平均 I/O 回應時間則可減少一半。如需詳細資訊，請參閱[附錄 A](#AppendixA)。
@@ -32,9 +35,9 @@ Azure 中的磁碟 I/O 輸送量和 I/O 回應時間可透過 RAID 大幅改進�
 請注意，您可針對不同虛擬機器類型新增的磁碟數目會有所限制。[Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)中有這些限制的詳細說明。雖然您可以選擇設定具有較少磁碟的 RAID，但您需要連接 4 個資料磁碟，才能遵循本文中的 RAID 4 範例。
 
 本文假設您已經建立 Linux 虛擬機器並已安裝及設定 MYSQL 。如需開始使用的詳細資訊，請參閱「如何在 Azure 上安裝 MySQL」。
-  
+
 ###在 Azure 上設定 RAID
-下列步驟說明如何使用 Windows Azure 管理入口網站，在 Azure 上建立 RAID。您也可以使用 Windows PowerShell 指令碼設定 RAID。在此範例中，我們將設定具有 4 個磁碟的 RAID 0。
+下列步驟說明如何使用 Azure 管理入口網站，在 Azure 上建立 RAID。您也可以使用 Windows PowerShell 指令碼設定 RAID。在此範例中，我們將設定具有 4 個磁碟的 RAID 0。
 
 ####步驟 1：將資料磁碟新增至您的虛擬機器  
 
@@ -45,16 +48,16 @@ Azure 中的磁碟 I/O 輸送量和 I/O 回應時間可透過 RAID 大幅改進�
 在虛擬機器頁面上，按一下 [儀表板]。
 
 ![][2]
- 
+
 
 在工作列上，按一下 [連接]。
- 
+
 ![][3]
 
 然後按一下 [連接空的磁碟]。
 
 ![][4]
- 
+
 資料磁碟的 [主機快取偏好設定] 應設定為 [無]。
 
 這會將一個空的磁碟新增到虛擬機器中。再重複執行此步驟三次，您的 RAID 就有 4 個資料磁碟。
@@ -66,7 +69,7 @@ Azure 中的磁碟 I/O 輸送量和 I/O 回應時間可透過 RAID 大幅改進�
 ####步驟 2：建立具有額外磁碟的 RAID
 遵循這份文件中詳細的 RAID 安裝步驟：
 
-[http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
+[在 Linux 上設定軟體 RAID](virtual-machines-linux-configure-RAID.md)
 
 >[AZURE.NOTE]如果您使用 XFS 檔案系統，請在建立 RAID 後遵循下列步驟。
 
@@ -76,7 +79,7 @@ Azure 中的磁碟 I/O 輸送量和 I/O 回應時間可透過 RAID 大幅改進�
 
 若要在 Fedora 、CentOS 或 RHEL 上安裝 XFS，請使用下列命令：
 
-	yum -y install xfsprogs  xfsdump 
+	yum -y install xfsprogs  xfsdump
 
 
 ####步驟 3：設定新的儲存體路徑
@@ -116,11 +119,11 @@ Linux 會實作四種類型的 I/O 排程演算法：
 ###步驟 1. 檢視目前的 I/O 排程器
 使用下列命令：
 
-	root@mysqlnode1:~# cat /sys/block/sda/queue/scheduler 
+	root@mysqlnode1:~# cat /sys/block/sda/queue/scheduler
 
 您會看到下列輸出，其表示目前的排程器。
 
-	noop [deadline] cfq 
+	noop [deadline] cfq
 
 
 ###步驟 2.變更 I/O 排程演算法的目前裝置 (/dev/sda)
@@ -150,7 +153,7 @@ Linux 會實作四種類型的 I/O 排程演算法：
 
 ##設定系統檔案作業設定
 最佳作法是停用檔案系統上的 atime 記錄功能。Atime 是上次檔案存取時間。每當存取檔案時，檔案系統就會在記錄檔中記錄時間戳記。不過，很少使用這項資訊。如果您不需要它，可予以停用，將會減少整體的磁碟存取時間。
- 
+
 若要停用 atime 記錄，您必須修改檔案系統組態檔案 /etc/ fstab，並新增 **noatime** 選項。
 
 例如，編輯 vim /etc/fstab 檔案，新增 noatime，如下所示。
@@ -170,7 +173,7 @@ Linux 會實作四種類型的 I/O 排程演算法：
 修改前範例：
 
 ![][5]
- 
+
 修改後範例：
 
 ![][6]
@@ -190,7 +193,7 @@ MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目為 1
 執行以下命令：
 
 	ulimit -SHn 65536
-	ulimit -SHu 65536 
+	ulimit -SHu 65536
 
 ###步驟 3：確定會在開機時更新限制
 將下列啟動命令放入 /etc/rc.local 檔案中，以便在每次開機時生效。
@@ -198,7 +201,7 @@ MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目為 1
 	echo “ulimit -SHn 65536” >>/etc/rc.local
 	echo “ulimit -SHu 65536” >>/etc/rc.local
 
-##MySQL 資料庫最佳化 
+##MySQL 資料庫最佳化
 您可以使用相同的效能微調策略，將 Azure 上的 MySQL 設定為內部部署電腦。
 
 主要的 I/O 最佳化規則如下：
@@ -214,10 +217,10 @@ MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目為 1
 -	**innodb\_log\_file\_size**：這是重做記錄檔的大小。您可以使用重做記錄檔來確保寫入作業快速、可靠並可在當機後復原。這會設定為 512 MB，將提供大量空間給您記錄寫入作業。
 -	**max\_connections**：應用程式有時不會正確關閉連線。較大的值讓伺服器有更多的時間來回收閒置的連線。連線數目上限為 10000，但建議的上限為 5000。
 -	**Innodb\_file\_per\_table**：此設定可啟用或停用 InnoDB 在個別檔案中儲存資料表的功能。開啟此選項將確保可有效地套用數個進階管理作業。從效能觀點來看，它可以加速資料表空間傳輸，並將 debris 管理效能最佳化。因此這個選項的建議設定為 ON。</br> 從 MySQL 5.6 開始，預設設定為 ON。因此，不需要採取任何動作。若為其他版本，也就是 5.6 以前的版本，預設設定為 OFF。必須將此選項設為 ON。而且應在載入資料之前套用，因為只有新建的資料表會受影響。
--	**innodb\_flush\_log\_at\_trx\_commit**：預設值為 1，其範圍設為 0\~2。對獨立 MySQL DB 而言，預設值是最適合的選項。設定為 2 可達到最大資料完整性，適合於 MySQL 叢集中的主機。設定為 0 會讓資料遺失，這可能會影響可靠性，在某些情況下，效能會更佳，適合於 MySQL 叢集中的從屬。
+-	**innodb\_flush\_log\_at\_trx\_commit**：預設值為 1，其範圍設為 0~2。對獨立 MySQL DB 而言，預設值是最適合的選項。設定為 2 可達到最大資料完整性，適合於 MySQL 叢集中的主機。設定為 0 會讓資料遺失，這可能會影響可靠性，在某些情況下，效能會更佳，適合於 MySQL 叢集中的從屬。
 -	**Innodb\_log\_buffer\_size**：記錄緩衝區允許交易執行，而不需在交易認可前將記錄檔排清到磁碟。不過，如果有大型二進位物件或文字欄位，將會非常快速地耗用快取，並將觸發頻繁的磁碟 I/O。如果 Innodb\_log\_waits 狀態變數不是 0，最好能增加緩衝區大小。
 -	**query\_cache\_size**：最佳選項是一開始就將它停用。將 query\_cache\_size 設為 0 (這現在是 MySQL 5.6 中的預設值)，並使用其他方法來加速查詢。  
-  
+
 請參閱[附錄 D](#AppendixD) 來比較最佳化之後的效能。
 
 
@@ -236,11 +239,11 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 	service  mysql  restart
 
 ###步驟 3：使用 “show” 命令來檢查設定是否生效
- 
+
 ![][7]
-   
+
 ![][8]
- 
+
 在此範例中，您可以看到緩慢查詢功能已開啟。您可以接著使用 **mysqldumpslow** 工具，判斷效能瓶頸並將效能最佳化，例如，新增索引。
 
 
@@ -255,7 +258,7 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 
 
 ![][9]
- 
+
 **測試命令：**
 
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=5G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite
@@ -264,7 +267,7 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 
 <a name="AppendixB"></a>附錄 B：**不同 RAID 層級的 MySQL 效能 (輸送量) 比較** (XFS檔案系統)
 
- 
+
 ![][10] ![][11]
 
 **測試命令：**
@@ -279,7 +282,7 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 
 <a name="AppendixC"></a>附錄 C：**不同區塊大小的磁碟效能 (IOPS) 比較** (XFS 檔案系統)
 
- 
+
 ![][13]
 
 **測試命令：**
@@ -292,7 +295,7 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 
 <a name="AppendixD"></a>附錄 D：**最佳化之前和之後的 MySQL 效能 (輸送量) 比較** (XFS檔案系統)
 
-  
+
 ![][14]
 
 **測試命令：**
@@ -343,6 +346,5 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 [12]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-12.png
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="搭配使用適用於 Mac、Linux 和 Windows 的 Microsoft Azure CLI 與 Azure 資源管理 | Microsoft Azure"
+	pageTitle="適用於 Mac、Linux 和 Windows 的 CLI | Microsoft Azure"
 	description="搭配使用適用於 Mac、Linux 和 Windows 的 Microsoft Azure CLI 與 Azure 資源管理員。"
 	editor="tysonn"
 	manager="timlt"
@@ -13,8 +13,10 @@
 
 > [AZURE.SELECTOR]
 - [Azure PowerShell](../powershell-azure-resource-manager.md)
-- [Azure CLI](xplat-cli-azure-resource-manager.md)
 
+<br>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型管理資源。
 
 此文描述如何搭配使用 Mac、Linux 和 Windows 適用的 Azure CLI 與 Azure 資源管理員模式，建立、管理以及刪除 Azure 資源與 VM。
 
@@ -22,9 +24,9 @@
 
 ## Azure 資源
 
-使用 Azure 資源管理員將一組_資源_ (使用者管理的實體，例如虛擬機器、資料庫伺服器、資料庫或網站) 作為單一邏輯單位管理，或作為_資源群組_管理。您可以在命令列上以命令建立、管理及刪除這些資源，就如同在 asm 模式。
+使用 Azure 資源管理員將一組「資源」(使用者管理的實體，例如虛擬機器、資料庫伺服器、資料庫或網站) 視為單一邏輯單位管理，或視為「資源群組」管理。您可以在命令列上以命令建立、管理及刪除這些資源，就如同在 asm 模式。
 
-您也可以使用 Azure 資源管理員模式，以_宣告_的方式來描述可在 JSON *範本*中部署的資源群組其結構與關係，來管理 Azure 資源。範本會說明可在執行命令時內嵌的參數，或儲存於個別 JSON azuredeploy-parameters.json 檔案中的參數。如此一來，您只要提供不同的參數，就能使用相同的範本輕易建立新資源。例如，建立網站的範本將具有網站名稱的參數、網站將放置的區域，以及其他共同參數。
+您也可以使用 Azure 資源管理員模式，以「宣告」的方式來描述可在 JSON「範本」中部署的資源群組其結構與關係，藉此管理 Azure 資源。範本會說明可在執行命令時內嵌的參數，或儲存於個別 JSON azuredeploy-parameters.json 檔案中的參數。如此一來，您只要提供不同的參數，就能使用相同的範本輕易建立新資源。例如，建立網站的範本將具有網站名稱的參數、網站將放置的區域，以及其他共同參數。
 
 使用範本修改或建立群組時，會建立_部署_，接著將其套用至群組。如需 Azure 資源管理員的詳細資訊，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。
 
@@ -104,7 +106,7 @@
 
 >[AZURE.NOTE]雖然不是必要，但很重要，就是將公用 IP 名稱作為參數傳遞給 **network nic create** 命令，因為 NIC 與此 IP 間的這個連結稍後會用於對使用此 NIC 建立的虛擬機器執行 SSH。
 
-如需 **network** 命令的詳細資訊，請參閱命令列說明或[透過 Azure 資源管理使用 Azure CLI](azure-cli-arm-commands.md)。
+如需 **network** 命令的詳細資訊，請參閱命令列說明或[搭配使用 Azure 資源管理與 Azure CLI](azure-cli-arm-commands.md)。
 
 #### 尋找作業系統映像
 
@@ -154,7 +156,7 @@
 
 	azure network public-ip show "testrg" "testip"
 
-使用 **vm** 命令可以輕易管理此虛擬機器。如需詳細資訊，請瀏覽[搭配使用 Azure CLI 與 Azure 資源管理](azure-cli-arm-commands.md)。
+使用 **vm** 命令可以輕易管理此虛擬機器。如需詳細資訊，請瀏覽[搭配使用 Azure 資源管理與 Azure CLI](azure-cli-arm-commands.md)。
 
 ### vm quick-create 捷徑
 
@@ -208,7 +210,7 @@ Azure CLI 將使用預設的 VM 大小建立虛擬機器。它也會建立儲存
 
 	使用範本時，您可以將參數做為命令列參數的一部分提供，或藉由指定包含參數值的檔案提供。您也可以直接在範本的 **parameters** 區段中撰寫 **value** 欄位，雖然這會讓範本緊密地與特定的部署連結，因而無法輕鬆地重複使用。無論如何，參數都必須是 JSON 格式，並且您必須為沒有預設值的金鑰提供您自己的值。
 
-	例如，若要建立一個檔案並包含 CoreOS.CoreOSStable.0.2.40-preview 範本的參數，請使用下列資料建立名為 params.json 的檔案。用您自己的值來取代此範例中使用的值。[**位置**] 應指定您附近的 Azure 區域，例如 [**北歐**] 或[ **美國中南部**]。(此範例使用 **[美國西部]**)。
+	例如，若要建立一個檔案並包含 CoreOS.CoreOSStable.0.2.40-preview 範本的參數，請使用下列資料建立名為 params.json 的檔案。用您自己的值來取代此範例中使用的值。[**位置**] 應指定您附近的 Azure 區域，例如 [**北歐**] 或[ **美國中南部**]。(此範例使用**美國西部**)。
 
 		{
 		  "newStorageAccountName": {
@@ -289,7 +291,7 @@ Azure CLI 將使用預設的 VM 大小建立虛擬機器。它也會建立儲存
 
 		azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw/githubusercontent.com/azurermtemplates/azurermtemplates/master/101-simple-vm-from-image/azuredeploy.json
 
-	> [AZURE.NOTE]請務必以 _raw_ 模式開啟 json 範本。瀏覽器網址列中出現的 URL，與一般模式中出現的不同。在 GitHub 上檢視檔案時，若要以_「原始」_模式開啟檔案，請按一下右上角的 [原始]。
+	> [AZURE.NOTE]請務必以 _raw_ 模式開啟 json 範本。瀏覽器網址列中出現的 URL，與一般模式中出現的不同。在 GitHub 上檢視檔案時，若要以「原始」模式開啟檔案，請按一下右上角的 [Raw]。
 
 #### 使用資源
 
@@ -330,8 +332,8 @@ Azure CLI 將使用預設的 VM 大小建立虛擬機器。它也會建立儲存
 ## 後續步驟
 
 * 如需使用 Azure 命令列介面 (Azure CLI) 的相關資訊，請參閱[安裝和設定 Azure CLI][clisetup]。
-* 如需透過 Azure PowerShell 來使用 Azure 資源管理員的相關資訊，請參閱 [搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)。
-* 如需從 Azure 入口網站使用 Azure 資源管理員的相關資訊，請參閱[使用資源群組來管理 Azure 資源][psrm]。
+* 如需透過 Azure PowerShell 來使用 Azure 資源管理員的相關資訊，請參閱[搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)。
+* 如需從 Azure 入口網站使用 Azure 資源管理員的相關資訊，請參閱[使用資源群組管理 Azure 資源][psrm]。
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
@@ -339,4 +341,4 @@ Azure CLI 將使用預設的 VM 大小建立虛擬機器。它也會建立儲存
 [clisetup]: ../xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

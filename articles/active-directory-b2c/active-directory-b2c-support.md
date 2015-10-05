@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：如何提出 Azure Active Directory B2C 的支援要求
@@ -50,4 +50,4 @@
 
 ![支援 - 無訂用帳戶](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

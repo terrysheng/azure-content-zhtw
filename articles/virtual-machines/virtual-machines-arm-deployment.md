@@ -19,6 +19,8 @@
 
 # 使用 Compute、Network 和 Storage .NET Library 部署 Azure 資源
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型管理資源。
+
 本教學課程會為您示範如何使用 Compute、Storage 和 Network .NET Library 中的一些可用用戶端建立和刪除 Microsoft Azure 中的資源。它也會為您示範如何使用 Azure Active Directory 驗證對 Azure 資源管理員的要求。
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
@@ -27,7 +29,7 @@
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Azure 儲存體帳戶](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/zh-tw/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](http://www.microsoft.com/zh-tw/download/details.aspx?id=40855)
+- [Windows Management Framework 3.0](http://www.microsoft.com/zh-TW/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](http://www.microsoft.com/zh-TW/download/details.aspx?id=40855)
 - [Azure PowerShell](../install-configure-powershell.md)
 
 執行這些步驟需要 30 分鐘左右。
@@ -388,4 +390,4 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 	![建立 AD 應用程式](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

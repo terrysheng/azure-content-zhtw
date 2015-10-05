@@ -19,6 +19,14 @@
 
 #在 Azure App Service 中建立 PHP-MySQL Web 應用程式並使用 FTP 部署
 
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+
 本教學課程說明如何建立 PHP-MySQL Web 應用程式，以及如何使用 FTP 部署該 Web 應用程式。本教學課程假定您的電腦已經安裝 [PHP][install-php]、[MySQL][install-mysql]、一台 Web 伺服器，以及一個 FTP 用戶端。本教學課程裡的說明可運用在包括 Windows、Mac 與 Linux 的任何作業系統上。看完本指南後，您將擁有可在 Azure 上執行的 PHP/MySQL Web 應用程式。
  
 您將了解：
@@ -289,4 +297,4 @@
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

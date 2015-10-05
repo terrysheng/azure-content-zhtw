@@ -1,28 +1,31 @@
 <properties
-   pageTitle="Azure VM 延伸模組的範例組態 |Microsoft Azure"
-   description="編寫延伸模組與範本的範例組態"
+   pageTitle="Linux VM 延伸模組的範例組態 | Microsoft Azure"
+   description="編寫 Linux VM 之延伸模組與範本的範例組態"
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
+   ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
-# Azure Linux VM 延伸模組組態範例。
+# Linux VM 延伸模組組態範例
 
-本文提供範例組態，可用來設定 Azure IaaS Linux VM 的 Azure VM 延伸模組。
+本文提供範例組態，可用來設定 Linux VM 的 Azure VM 延伸模組。
 
-若要進一步了解這些延伸模組，請按一下這裡：[Azure VM 延伸模組概觀](https://msdn.microsoft.com/library/azure/dn606311.aspx)。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
-若要進一步了解如何撰寫延伸模組範本，請按一下這裡：[撰寫延伸模組範本](virtual-machines-extensions-authoring-templates.md)。
+若要深入了解這些延伸模組，請按一下這裡：[Azure VM 延伸模組概觀](https://msdn.microsoft.com/library/azure/dn606311.aspx)。
+
+若要深入了解如何撰寫延伸模組範本，請按一下這裡：[撰寫延伸模組範本](virtual-machines-extensions-authoring-templates.md)。
 
 本文列出部分 Linux 延伸模組所需的組態值。
 
@@ -186,4 +189,4 @@
 
 [Linux VM 上的自訂指令碼延伸模組](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

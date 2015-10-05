@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/10/2015"
+	ms.date="09/22/2015"
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 建置您的第一個管線
@@ -148,13 +148,15 @@ Hive 指令碼執行後，其結果將會儲存在 Azure blob 儲存體容器：
 	1. 下載[最新版本的 **AzCopy**](http://aka.ms/downloadazcopy)，或[最新預覽版本](http://aka.ms/downloadazcopypr)。請參閱[如何使用 AzCopy](../storage/storage-use-azcopy.md) 一文以取得使用公用程式的指示。
 	2. AzCopy 安裝之後，您可以在命令提示字元中執行下列命令，將其新增到系統路徑。 
 	
-			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
-	
+			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy			 
 
 	3. 瀏覽至 c:\\adfgettingstarted 資料夾，然後執行下列命令來將 Hive .HQL 檔案上傳到儲存體帳戶。使用您的儲存體帳戶名稱取代 **StorageAccountName**，並使用儲存體帳戶金鑰取代 **Storage Key**。
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
-	4. 檔案成功上傳之後，您會看見下列來自 AzCopy 的輸出。
+
+		> [AZURE.NOTE]上述命令會在您的 Azure Blob 儲存體建立名為 **script** 的容器，並複製 **partitionweblogs.hql** 檔案到該容器。
+	>
+	5. 檔案成功上傳之後，您會看見下列來自 AzCopy 的輸出。
 	
 			Finished 1 of total 1 file(s).
 			[2015/06/15 15:47:13] Transfer summary:
@@ -174,4 +176,4 @@ Hive 指令碼執行後，其結果將會儲存在 Azure blob 儲存體容器：
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md)提交您的意見反應。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

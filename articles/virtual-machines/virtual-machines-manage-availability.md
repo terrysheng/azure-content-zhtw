@@ -1,11 +1,12 @@
 <properties
-	pageTitle="管理虛擬機器的可用性 | Microsoft Azure"
+	pageTitle="管理 VM 可用性 | Microsoft Azure"
 	description="了解如何使用多部虛擬機器以確保 Azure 應用程式的高可用性。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="kenazk"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,7 +17,7 @@
 	ms.date="07/23/2015"
 	ms.author="kenazk"/>
 
-#管理虛擬機器的可用性
+# 管理虛擬機器的可用性
 
 ## 了解規劃和未規劃維護
 有兩種可影響虛擬機器可用性的 Microsoft Azure 平台事件：規劃維護和非規劃維護。
@@ -69,4 +70,4 @@ FD 定義共用通用電源和網路交換器的虛擬機器群組。根據預�
 [避免可用性設定組中只有一部執行個體虛擬機器]: #avoid-single-instance-virtual-machines-in-availability-sets
 [如何設定虛擬機器的可用性設定組]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

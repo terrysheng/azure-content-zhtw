@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用 Azure 資源管理員範本部署 SQL Server AlwaysOn | Microsoft Azure"
+	pageTitle="SQL Server AlwaysOn 搭配 Azure 資源管理員範本 | Microsoft Azure"
 	description="使用資源管理員範本和 Azure Preview 入口網站、Azure PowerShell 或 Azure CLI 輕鬆部署支援 SQL Server AlwaysOn 的五部伺服器。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,6 +19,8 @@
 
 # 使用 Azure 資源管理員範本部署 SQL Server AlwaysOn
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文內容涵蓋以資源管理員部署模型建立資源。您無法以傳統部署模型建立此資源。
+
 依照本文中的指示，使用 Azure 資源管理員範本部署 SQL Server AlwaysOn。此範本會在新的虛擬網路中兩個不同的子網路上建立五部虛擬機器。
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/five-server-sqlao.png)
@@ -36,7 +38,7 @@
 3.	如有需要，按一下 [訂用帳戶]，然後選取正確的 Azure 訂用帳戶。
 4.	按一下 [資源群組]，然後選取現有的資源群組。或者，按一下 [或建立新的] 為此工作負載建立一個新的資源群組。
 5.	如有需要，按一下 [資源群組位置]，然後選取正確的 Azure 位置。
-6.	如有需要，按一下 [**法律條款**] 檢閱使用範本的條款和合約。
+6.	如有需要，按一下 [法律條款] 檢閱使用範本的條款和合約。
 7.	按一下 [建立]。
 
 視不同範本而定，可能需要一些時間讓 Azure 建置工作負載。範本執行完成時，您在現有或新的資源群組中就會有一個新的、包含五部伺服器的 SQL Server AlwaysOn 組態。
@@ -65,7 +67,7 @@
 
 接下來，在 Azure PowerShell 提示字元中執行命令區塊。
 
-當執行 **New-AzureResourceGroupDeployment** 命令時，會提示您提供一系列參數的值。當您指定了所有參數值之後，**New-AzureResourceGroupDeployment** 會建立和設定虛擬機器。
+當您執行 **New-AzureResourceGroupDeployment** 命令時，會提示您提供一系列參數的值。當您指定了所有參數值之後，**New-AzureResourceGroupDeployment** 會建立和設定虛擬機器。
 
 範本執行完成時，您在新的資源群組中就會有一個新的、包含五部伺服器的 SQL Server AlwaysOn 組態。
 
@@ -86,7 +88,7 @@
 	azure group create sqlao eastus2
 	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sql-server-2014-alwayson-dsc/azuredeploy.json sqlao sqldevtest
 
-當執行 **azure group deployment create** 命令時，會提示您提供一系列參數的值。當您指定了所有參數值之後，Azure 會建立和設定虛擬機器。
+當您執行 **azure group deployment create** 命令時，會提示您提供一系列參數的值。當您指定了所有參數值之後，Azure 會建立和設定虛擬機器。
 
 範本執行完成時，您在新的資源群組中就會有一個新的、包含五部伺服器的 SQL Server AlwaysOn 組態。
 
@@ -105,4 +107,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

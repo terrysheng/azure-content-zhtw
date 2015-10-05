@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # 從 Azure App Service 中的 ASP.NET API 應用程式連接至 SaaS 平台
@@ -454,4 +454,4 @@ Dropbox 登入之後的重新導向 URL 可能與此範例類似：
 [Azure portal]: https://manage.windowsazure.com/
 [Azure 入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

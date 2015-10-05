@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Active Directory 驗證通訊協定"
+   pageTitle="Azure Active Directory 驗證通訊協定 | Microsoft Azure"
    description="Azure Active Directory (AD) 所支援驗證通訊協定的概觀"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory 驗證通訊協定
@@ -55,4 +55,4 @@ Azure Active Directory (Azure AD) 支援數個最常用的驗證和授權通訊�
 
 [Active Directory 程式碼範例](active-directory-code-samples.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

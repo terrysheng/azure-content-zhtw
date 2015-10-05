@@ -1,6 +1,6 @@
 <properties
-	pageTitle="如何建立和部署雲端服務 | Microsoft Azure"
-	description="了解如何在 Azure 中使用「快速建立」方法來建立和部署雲端服務。"
+	pageTitle="如何建立和部署雲端服務 (Preview 入口網站) | Microsoft Azure"
+	description="了解如何在 Azure 中使用「快速建立」方法來建立和部署雲端服務。這些範例使用 Azure Preview 入口網站。"
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -107,4 +107,11 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：「快�
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
 
-<!---HONumber=August15_HO8-->
+## 後續步驟
+
+* [雲端服務的一般設定](cloud-services-how-to-configure-portal.md)。
+* 設定[自訂網域名稱](cloud-services-custom-domain-name-portal.md)。
+* [管理您的雲端服務](cloud-services-how-to-manage-portal.md)。
+* 設定 [SSL 憑證](cloud-services-configure-ssl-certificate-portal.md)。
+
+<!---HONumber=Sept15_HO4-->

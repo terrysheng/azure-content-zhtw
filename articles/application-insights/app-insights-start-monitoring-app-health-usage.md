@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="09/23/2015"
 	ms.author="awills"/>
 
 
@@ -133,6 +133,21 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 請參閱[此疑難排解項目](app-insights-troubleshoot-faq.md#NuGetBuild)。
 
+
+## 追蹤應用程式版本
+
+確定 `buildinfo.config` 是由您的建置程序所產生。在您的.csproj 檔案中加入：
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+當它有組建資訊時，Application Insights Web 模組會自動加入**應用程式版本**做為遙測的每個項目的屬性。如此可讓您在執行[診斷搜尋][diagnostic]或[探索度量][metrics]時，依據版本來篩選。
+
+
 ## 5\.加入相依性追蹤和效能計數器
 
 SDK 需要一些協助，才能取得某些資料的存取權。特別是，您需要這個額外步驟才能自動測量您的應用程式對資料庫、REST API 和其他外部元件的呼叫。這些相依性度量對於協助您診斷效能問題的價值難以衡量。
@@ -157,6 +172,8 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 [將指令碼加入至 Web 和背景工作角色](app-insights-cloudservices.md)
 
+
+
 ## 6\.加入用戶端監視
 
 您已安裝會從應用程式的伺服器 (後端) 傳送遙測資料的 SDK。現在您可以加入用戶端監視。這可提供有關在用戶端中發生的使用者、工作階段、頁面檢視和任何例外狀況或損毀的相關資料。
@@ -175,7 +192,7 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 #### 如果您的用戶端是裝置 app
 
-如果您的應用程式為用戶端 (例如電話或其他裝置) 提供服務，請將[適當的 SDK](app-insights-platforms.md) 加入您的裝置 App。
+如果您的應用程式為用戶端 (例如電話或其他裝置) 提供服務，請將[適當的 SDK](app-insights-platforms.md) 加入至您的裝置應用程式。
 
 如果您使用與伺服器 SDK 相同的檢測金鑰來設定用戶端 SDK，將整合兩個資料流，讓您同時看到。
 
@@ -255,4 +272,4 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

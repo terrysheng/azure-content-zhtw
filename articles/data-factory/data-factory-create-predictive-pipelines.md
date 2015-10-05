@@ -1,29 +1,31 @@
 <properties 
-	pageTitle="Data Factory - 使用 Data Factory 和機器學習服務來建立預測管線 | Microsoft Azure"
-	description="說明如何使用 Azure Data Factory 和 Azure Machine Learning 建立預測管線。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Data Factory - 使用 Data Factory 和機器學習服務來建立預測管線 | Microsoft Azure" 
+	description="說明如何使用 Azure Data Factory 和 Azure Machine Learning 建立預測管線。" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 和 Azure Machine Learning 來建立預測管線 
 ## 概觀
 
-Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Machine Learning][azure-machine-learning] web 服務進行預測性分析。這可讓您使用 Azure Data Factory 協調資料移動和處理，然後使用 Azure Machine Learning 執行批次評分。若要達到此目的，您必須執行下列動作：
+> [AZURE.NOTE]請參閱[使用 Azure Machine Learning 批次執行活動建立預測管線](data-factory-azure-ml-batch-execution-activity.md)一文，來了解新的機器學習服務批次執行活動，其提供的彈性會比本文所涵蓋的批次計分活動更多。
+
+Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Machine Learning][azure-machine-learning] Web 服務進行預測性分析。這可讓您使用 Azure Data Factory 協調資料移動和處理，然後使用 Azure Machine Learning 執行批次評分。若要達到此目的，您必須執行下列動作：
 
 1. 使用 **AzureMLBatchScoring** 活動。
-2. Batch 執行 API 的**要求 URI**。您可以按一下 web 服務頁面中的**批次執行**連結即可找到要求 URI (如下所示)。
-3. 已發佈之 Azure Machine Learning Web 服務的 **API 金鑰**。您可以按一下您已發佈的 web 服務即可找到這項資訊。 
+2. 適用於批次執行 API 的**要求 URI**。您可以按一下 Web 服務頁面中的**批次執行**連結 (如下所示)，即可找到要求 URI。
+3. 適用於已發佈之 Azure Machine Learning Web 服務的 **API 金鑰**。您可以按一下您已發佈的 web 服務即可找到這項資訊。 
 
 	![機器學習服務儀表板][machine-learning-dashboard]
 
@@ -38,7 +40,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Ma
 ## 範例
 此範例使用 Azure 儲存體來存放輸入和輸出資料。您也可以使用 Azure SQL Database，不用 Azure 儲存體。
 
-建議您在瀏覽此範例之前，先瀏覽[透過 Data Factory 建立第一個管線][adf-build-1st-pipeline]教學課程，並在此範例中使用 Data Factory 編輯器建立 Data Factory 成品 (連結服務、資料表、管線)。
+建議您在瀏覽此範例之前，先瀏覽[透過 Data Factory 建立第一個管線][adf-build-1st-pipeline]教學課程，並在此範例中使用 Data Factory 編輯器來建立 Data Factory 成品 (連結服務、資料表、管線)。
  
 
 1. 為您的 **Azure 儲存體**建立**連結服務**。如果評分輸入和輸出檔案會在不同的儲存體帳戶中，您將需要兩個連結的服務。以下是 JSON 範例：
@@ -53,7 +55,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Ma
 		  }
 		}
 
-2. 建立**輸入** Azure Data Factory **資料表**。請注意，與其他 Data Factory 資料表不同的是，這些資料表必須同時包含 **folderPath** 和 **fileName** 值。您可以使用資料分割，讓每個批次執行 (每一個資料配量) 處理或產生唯一的輸入和輸出檔案。您將可能需要包含某個上游活動，以將輸入轉換成 CSV 檔案格式，並將它放在每個配量的儲存體帳戶中。在該情況下，您將不會包含下面範例所示的 **external** 及 **externalData** 設定，而您的 ScoringInputBlob 將會是不同「活動」的輸出資料表。
+2. 建立**輸入** Azure Data Factory **資料表**。請注意，與其他 Data Factory 資料表不同的是，這些資料表必須同時包含 **folderPath** 和 **fileName** 值。您可以使用資料分割，讓每個批次執行 (每一個資料配量) 處理或產生唯一的輸入和輸出檔案。您將可能需要包含某個上游活動，以將輸入轉換成 CSV 檔案格式，並將它放在每個配量的儲存體帳戶中。在此案例中，您將不會包含下面範例所示的 **external** 和 **externalData** 設定，而您的 ScoringInputBlob 將會是不同「活動」的輸出資料表。
 
 		{
 		  "name": "ScoringInputBlob",
@@ -198,7 +200,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Ma
 
 	"typeProperties": {
     	"webServiceParameters": {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(WindowStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
     	}
   	}
  
@@ -228,8 +230,8 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Ma
 
 | 輸出/輸入 | 輸入是 Azure SQL | 輸入是 Azure Blob |
 | ------------ | ------------------ | ------------------- |
-| 輸出是 Azure SQL | <p>Data Factory 服務會使用 INPUT 連結服務中的連接字串資訊，產生具有下列名稱的 Web 服務參數：「資料庫伺服器名稱」、「資料庫名稱」、「伺服器使用者帳戶名稱」、「伺服器使用者帳戶密碼」。請注意，您必須在 Azure ML Studio 中使用 Web 服務參數的預設名稱。</p><p>如果 Azure ML 模型中的 Azure SQL 讀取器和 Azure SQL 寫入器共用上述的相同 Web 服務參數，則是正確的。如果它們未共用相同的 Web 服務參數 (例如，如果 Azure SQL 寫入器使用參數名稱：資料庫伺服器名稱1、資料庫名稱1、伺服器使用者帳戶名稱1、伺服器使用者帳戶密碼1 (結尾為 '1' ))，您必須在活動 JSON 的 webServiceParameters 區段中傳遞這些 OUTPUT Web 服務參數的值。</p><p>您可以使用活動 JSON 的 webServiceParameters 區段傳遞任何其他 Web 服務參數的值。</p> | <p>Data Factory 服務會使用 OUTPUT 連結服務中的連接字串資訊，產生具有下列名稱的 Web 服務參數：「資料庫伺服器名稱」、「資料庫名稱」、「伺服器使用者帳戶名稱」、「伺服器使用者帳戶密碼」。請注意，您必須在 Azure ML Studio 中使用這些 Web 服務參數的預設名稱。</p><p>您可以使用活動 JSON 的 webServiceParameters 區段傳遞任何其他 Web 服務參數的值。<p>輸入 Blob 會用做輸入位置。</p> |
-|輸出是 Azure Blob | Data Factory 服務會使用 INPUT 連結服務中的連接字串資訊，產生具有下列名稱的 Web 服務參數：「資料庫伺服器名稱」、「資料庫名稱」、「伺服器使用者帳戶名稱」、「伺服器使用者帳戶密碼」。請注意，在 Azure ML Studio 中必須使用這些 Web 服務參數的預設名稱。 | <p>您必須使用活動 JSON 的 WebServiceParameters 區段來傳遞任何 Web 服務參數的值。</p><p>Blob 會用做輸入和輸出位置。</p> |
+| 輸出是 Azure SQL | <p>Data Factory 服務會使用 INPUT 連結服務中的連接字串資訊，來產生具有下列名稱的 Web 服務參數：「資料庫伺服器名稱」、「資料庫名稱」、「伺服器使用者帳戶名稱」、「伺服器使用者帳戶密碼」。請注意，您必須針對 Azure ML Studio 中的 Web 服務參數使用這些預設名稱。</p><p>如果 Azure ML 模型中的 Azure SQL 讀取器和 Azure SQL 寫入器共用上述的相同 Web 服務參數，則是正確的。如果它們未共用相同的 Web 服務參數 (例如，如果 Azure SQL 寫入器使用參數名稱：資料庫伺服器名稱1、資料庫名稱1、伺服器使用者帳戶名稱1、伺服器使用者帳戶密碼1 (結尾為 '1' ))，則您必須在活動 JSON 的 webServiceParameters 區段中傳遞這些 OUTPUT Web 服務參數的值。</p><p>您可以使用活動 JSON 的 webServiceParameters 區段，來傳遞任何其他 Web 服務參數的值。</p> | <p>Data Factory 服務會使用 OUTPUT 連結服務中的連接字串資訊，來產生具有下列名稱的 Web 服務參數：「資料庫伺服器名稱」、「資料庫名稱」、「伺服器使用者帳戶名稱」、「伺服器使用者帳戶密碼」。請注意，您必須針對 Azure ML Studio 的 Web 服務參數使用這些預設名稱。</p><p>您可以使用活動 JSON 的 webServiceParameters 區段，來傳遞任何其他 Web 服務參數的值。<p>輸入 Blob 將用來做為輸入位置。</p> |
+|輸出是 Azure Blob | Data Factory 服務會使用 INPUT 連結服務中的連接字串資訊，產生具有下列名稱的 Web 服務參數：「資料庫伺服器名稱」、「資料庫名稱」、「伺服器使用者帳戶名稱」、「伺服器使用者帳戶密碼」。請注意，在 Azure ML Studio 中必須使用這些 Web 服務參數的預設名稱。 | <p>您必須使用活動 JSON 的 WebServiceParameters 區段，來傳遞任何 Web 服務參數的值。</p><p>Blob 將用來做為輸入和輸出位置。</p> |
     
 
 > [AZURE.NOTE]Azure SQL 寫入器可能會在覆寫身分識別資料行時發生索引鍵違規。您應該確定輸出資料表的結構，以避免這種情況。
@@ -238,7 +240,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Ma
 
 #### Azure Blob 做為來源
 
-在 Azure Machine Learning 實驗中使用讀取器模組時，您可以指定 Azure Blob 做為輸入。Azure Blob 儲存體中的檔案可以是在 HDInsight 上執行的 Pig 和 Hive 指令碼所產生的輸出檔 (例如 000000\_0)。讀取器模組可讓您設定讀取器模組之**容器、目錄或 Blob 的路徑**屬性來讀取檔案 (沒有副檔名)，藉此指向包含檔案的容器/資料夾，如下所示。請注意，星號 (也就是 *) **會指定容器/資料夾中的所有檔案 (也就是 data/aggregateddata/year=2014/month-6/*)** 將讀取為實驗的一部分。
+在 Azure Machine Learning 實驗中使用讀取器模組時，您可以指定 Azure Blob 做為輸入。Azure Blob 儲存體中的檔案可以是在 HDInsight 上執行的 Pig 和 Hive 指令碼所產生的輸出檔 (例如 000000\_0)。讀取器模組可讓您設定讀取器模組之**容器、目錄或 Blob 的路徑**屬性來讀取檔案 (不含副檔名)，藉此指向包含檔案的容器/資料夾，如下所示。請注意，星號 (也就是 *) **會指定容器/資料夾中的所有檔案 (也就是 data/aggregateddata/year=2014/month-6/*)** 將讀取為實驗的一部分。
 
 ![Azure Blob 屬性](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -300,7 +302,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Ma
 - Data Factory 服務不會自動填入寫入器的參數 (尾碼為 '1' 的參數)。因此，您需要在活動 JSON 的 **webServiceParameters** 區段中指定這些參數的值。  
 - **客戶識別碼**、**評分標籤**和**評分機率**會儲存為以逗號分隔的資料行。 
 - 在此範例中，**資料表名稱**對應到輸出資料庫中的資料表。
-- **開始**和**結束**日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**結束**時間可自行選用。如果您未指定 **end** 屬性的值，則會以「**開始時間 + 48 小時**」計算。若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考](https://msdn.microsoft.com/library/dn835050.aspx)。
+- **開始**和**結束**日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**結束**時間是選用項目。如果您未指定 **end** 屬性的值，則會以「開始 + 48 小時」來計算。若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考](https://msdn.microsoft.com/library/dn835050.aspx)。
 
 
 
@@ -313,4 +315,4 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Ma
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

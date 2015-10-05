@@ -25,7 +25,7 @@
 
 ## 連絡 Azure 客戶支援
 
-如果在本文章中有任何需要協助的地方，您可以連絡在 [MSDN Azure 和 Stack Overflow 論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專員。
+如果在本文章中有任何需要協助的地方，您可以連絡在 [MSDN Azure 和堆疊溢位論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專員。
 
 或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下**取得支援**。如需使用 Azure 支援的相關資訊，請參閱 [Microsoft Azure 支援常見問題集](http://azure.microsoft.com/support/faq/)。
 
@@ -53,8 +53,8 @@
 進行詳細疑難排解之前請先執行這些步驟。
 
 - 檢查 Azure 入口網站或 Azure Preview 入口網站中虛擬機器的狀態。
-- [重新啟動虛擬機器](https://msdn.microsoft.com/library/azure/dn763934.aspx)
-- [調整虛擬機器的大小](https://msdn.microsoft.com/library/dn168976.aspx)
+- 重新啟動虛擬機器
+- [調整虛擬機器的大小](virtual-machines-size-specs.md)
 
 在這些步驟之後，請再試一次遠端桌面連線。
 
@@ -205,4 +205,4 @@ PortNumber 屬性會顯示目前的連接埠號碼。如有需要，請使用此
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

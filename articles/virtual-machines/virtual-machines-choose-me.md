@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 上的虛擬機器是我所需的計算選項嗎？"
-	description="了解 Azure 計算裝載選項以及其運作方式：App Service、雲端服務和虛擬機器"
+	pageTitle="我應該要選擇 Azure VM 嗎？| Microsoft Azure"
+	description="了解 Azure VM 以及與 Azure 上的不同應用程式裝載模型之異同。"
 	headerExpose=""
 	footerExpose=""
 	services="virtual-machines"
@@ -10,7 +10,7 @@
 	tags=azure-resource-manager, azure-service-management/>
 
 <tags
-	ms.service="multiple"
+	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -19,6 +19,8 @@
 	ms.author="cynthn"/>
 
 # 我應該選擇 Azure 虛擬機器嗎？
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Azure 對於執行的應用程式提供不同的裝載模型。每個模型都有不同的服務集，因此請根據您要執行的工作選擇服務集。 Azure VM 是適合您的選項嗎？
 
@@ -31,4 +33,4 @@ Azure 對於執行的應用程式提供不同的裝載模型。每個模型都�
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

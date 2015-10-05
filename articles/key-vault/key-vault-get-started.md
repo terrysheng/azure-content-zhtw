@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/22/2015"
+	ms.date="09/22/2015"
 	ms.author="cabailey"/>
 
 # 開始使用 Azure 金鑰保存庫 #
@@ -179,7 +179,7 @@
 
 
 	Set-AzureKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
-	
+
 如果您想要授權該相同的應用程式讀取您保存庫中的機密資料，請執行以下命令：
 
 
@@ -242,6 +242,6 @@
 
 如需 Azure 金鑰保存庫的 Windows PowerShell Cmdlet 清單，請參閱 [Azure 金鑰保存庫 Cmdlet](https://msdn.microsoft.com/library/azure/dn868052.aspx)。
 
-如需程式設計參考，請參閱 MSDN 上 Microsoft Azure 文件庫中的[金鑰保存庫](https://msdn.microsoft.com/library/azure/dn903625.aspx)。
+如需程式設計參考，請參閱 [Azure 金鑰保存庫開發人員指南](key-vault-developers-guide.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

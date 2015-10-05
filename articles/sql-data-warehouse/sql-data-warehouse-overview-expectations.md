@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/05/2015"
+   ms.date="09/22/2015"
    ms.author="lvargas;twounder;barbkess"/>
 
 # SQL 資料倉儲預覽版期望
@@ -49,7 +49,7 @@ SQL 資料倉儲會使用異地備援 blob，將所有資料儲存在在 Azure �
 
 ### 備份
 
-Azure SQL 資料倉儲會使用 Azure 儲存體快照，每 4 小時備份一次所有資料。這些快照會保留 7 天。這樣一來，在擷取最新快照時的過去 7 天內，最多就有 42 個時間點可用來還原資料。在公開上市前，我們會讓您指定保留期間。您可以使用 PowerShell 或 REST API 從快照還原資料。
+Azure SQL 資料倉儲會使用 Azure 儲存體快照，至少每 8 小時備份一次所有資料。這些快照會保留 7 天。這樣一來，在擷取最新快照時的過去 7 天內，就有至少 21 個時間點可用來還原資料。您可以使用 PowerShell 或 REST API 從快照還原資料。
 
 快照會以非同步的方式複製到遠端 Azure 區域，以在區域失敗 (災害復原) 時增加復原能力。
 
@@ -78,4 +78,4 @@ Azure SQL 資料倉儲每個月都可能有高達 4 個維護事件，用以安�
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

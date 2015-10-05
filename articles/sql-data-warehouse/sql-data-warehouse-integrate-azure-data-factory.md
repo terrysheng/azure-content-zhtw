@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/23/2015"
    ms.author="lodipalm"/>
 
 # 搭配使用 Azure Data Factory 與 SQL 資料倉儲
@@ -30,8 +30,6 @@ Azure Data Factory 可讓資料在內部部署來源與不同的 Azure 服務之
 + IaaS 上的 SQL Server
 
 如需有關如何設定資料複製活動的資訊，請參閱[使用 Azure Data Factory 複製資料][]。
-
-> [AZURE.NOTE]在這個階段，Azure Data Factory 無法用於將資料傳輸到 SQL 資料倉儲中的非 null 資料行。
 
 ## 預存程序
  如同可用來排程資料傳輸，Azure Data Factory 也可以用來協調預存程序的執行。這允許建立更多複雜的管線並擴充 Azure Data Factory 的功能，以利用 SQL 資料倉儲的運算能力。
@@ -51,6 +49,6 @@ Azure Data Factory 可讓資料在內部部署來源與不同的 Azure 服務之
 
 <!--Other Web references-->
 [Azure Data Factory 文件]: https://azure.microsoft.com/documentation/services/data-factory/
-[使用 Azure Data Factory 複製資料]: https://azure.microsoft.com/zh-TW/documentation/articles/data-factory-data-movement-activities/
+[使用 Azure Data Factory 複製資料]: https://azure.microsoft.com/ZH-TW/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

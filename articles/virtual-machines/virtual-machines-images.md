@@ -1,5 +1,5 @@
 <properties
-	pageTitle="關於虛擬機器的映像"
+	pageTitle="關於虛擬機器的映像 | Microsoft Azure"
 	description="深入了解如何透過 Azure 的虛擬機器使用映像。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/13/2015"
@@ -57,4 +57,4 @@ Azure 會使用映像透過作業系統提供新的虛擬機器。一個映像�
 
 [建立 Windows 虛擬機器的不同方式](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

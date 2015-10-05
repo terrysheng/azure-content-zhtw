@@ -1,7 +1,7 @@
 <properties
-	pageTitle="從 Windows 虛擬機器卸離磁碟 | Microsoft Azure"
-	description="了解從 Azure 中的虛擬機器卸離磁碟。"
-	services="virtual-machines, storage"
+	pageTitle="從 Windows VM 卸離磁碟 | Microsoft Azure"
+	description="了解如何使用傳統部署模型從 Azure 中的虛擬機器卸離磁碟。"
+	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -21,6 +21,9 @@
 
 # 如何從 Windows 虛擬機器卸離磁碟
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何使用傳統部署模型卸離磁碟。
+
+
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 
 ## 其他資源
@@ -29,4 +32,4 @@
 
 [如何將資料磁碟附加至 Windows 虛擬機器](storage-windows-attach-disk.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

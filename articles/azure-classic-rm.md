@@ -1,21 +1,21 @@
 <properties
    pageTitle="資源管理員和服務管理 (傳統) 部署模式 | Azure"
-	description="了解資源管理員與傳統部署模型之間的差異"
-	services="virtual-network"
-	documentationCenter=""
-	authors="telmosampaio"
-	manager="carolz"
-	editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+   description="了解資源管理員與傳統部署模型之間的差異"
+   services="virtual-network"
+   documentationCenter=""
+   authors="telmosampaio"
+   manager="carolz"
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/14/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/14/2015"
+   ms.author="telmos"/>
 
 # Azure 部署模型
 
@@ -65,7 +65,7 @@ Azure 有兩個入口網站︰
 ## 後續步驟
 
 - 深入了解[資源管理員](/resource-group-overview.md)。
-- 了解如何[設計範本](/best-practices-resource-manager-design-templates/md)。
-- 使用[最佳作法](best-practices-resource-manager-examples.md)
+- 了解如何[設計範本](/best-practices-resource-manager-design-templates.md)。
+- 使用[最佳作法](/best-practices-resource-manager-examples.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

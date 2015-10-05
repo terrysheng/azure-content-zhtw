@@ -1,11 +1,11 @@
 <properties
-	pageTitle="什麼是 Azure 的自助式註冊？"
+	pageTitle="什麼是 Azure 的自助式註冊？| Microsoft Azure"
 	description="Azure 的自助式註冊、如何管理註冊程序及其作法的概觀。"
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="08/14/2015" 
+	ms.date="09/21/2015"
 	ms.author="stevenpo"/>
 
 
@@ -34,39 +34,37 @@
 + **未受管理的 Azure 租用戶**： 這是該身分識別建立所在的目錄。未受管理的租用戶是沒有全域管理員的目錄。
 + **電子郵件驗證的使用者**：這是 Azure AD 中的使用者帳戶類型。在註冊自助式供應項目後自動建立身分識別的使用者，就是所謂的電子郵件驗證的使用者。電子郵件驗證的使用者是加上 creationmethod=EmailVerified 標記之目錄的一般成員。
 
-## 客戶體驗
-
-### 使用者體驗
+## 使用者體驗
 
 例如，假設電子郵件為 Dan@BellowsCollege.com 的使用者會透過電子郵件接收機密檔案。檔案已受 Azure 版權管理 (Azure RMS) 保護。但是 Dan 的組織 (Bellows College) 尚未註冊 Azure RMS，也未部署 Active Directory RMS。在此情況下，Dan 可以註冊個人版 RMS 的免費訂閱，以便讀取受保護的檔案。
 
 如果 Dan 是第一個使用 BellowsCollege.com 的電子郵件地址註冊此自助式供應項目的使用者，則會在 Azure AD 中針對 BellowsCollege.com 建立未受管理的租用戶。如果來自 BellowsCollege.com 網域的其他使用者註冊此提供項目或類似的自助式供應項目，他們也會有在 Azure 中相同的未受管理租用戶中建立的電子郵件驗證的使用者帳戶。
 
-### 管理員體驗
+## 管理員體驗
 
 擁有未受管理 Azure 租用戶之 DNS 網域名稱的管理員，可以在證明擁有權後接管或合併租用戶。下一節會更詳細地說明管理員體驗，但其摘要如下：
 
 - 當您接管未受管理的 Azure 租用戶時，您只會變成未受管理租用戶的全域管理員。這有時候稱為內部接管。
 - 當您合併未受管理的 Azure 租用戶時，您會將未受管理租用戶的 DNS 網域名稱新增至受管理的 Azure 租用戶，而且會建立使用者與資源的對應，以便使用者繼續存取服務而不中斷。這有時候稱為外部接管。
 
-### Microsoft Azure 目錄中會建立什麼？
+## Azure Active Directory 中建立的項目為何？
 
 #### 租用戶
 
-- 針對網域建立 Azure 租用戶 (每個網域一個租用戶)。
-- Azure 租用戶目錄沒有全域管理員。
+- 會建立網域的 Azure Active Directory 租用戶 (每個網域一個租用戶)。
+- Azure AD 租用戶目錄沒有全域管理員。
 
 #### 使用者
 
-- 針對註冊的每位使用者，在 Azure 租用戶中建立使用者物件。
+- 針對註冊的每位使用者，在 Azure AD 租用戶中建立使用者物件。
 - 每個使用者物件都會標示為爆紅。
 - 每一位使用者都可以存取他們所註冊的服務。
 
-### 如何針對我擁有的網域宣告自助式 Azure 租用戶？
+### 如何針對我擁有的網域宣告自助式 Azure AD 租用戶？
 
-您可藉由執行網域驗證來宣告自助式 Azure 租用戶。網域驗證會藉由建立 DNS 記錄來證明您擁有該網域。
+您可藉由執行網域驗證來宣告自助式 Azure AD 租用戶。網域驗證會藉由建立 DNS 記錄來證明您擁有該網域。
 
-有兩種方式可進行 Azure 租用戶的 DNS 接管：
+有兩種方式可進行 Azure AD 租用戶的 DNS 接管作業：
 
 - 內部接管 (管理員會探索未受管理的 Azure 租用戶，並且想要轉換成受管理的租用戶)
 - 外部接管 (管理員會嘗試將新的網域新增至其受管理的 Azure 租用戶)
@@ -234,4 +232,4 @@
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

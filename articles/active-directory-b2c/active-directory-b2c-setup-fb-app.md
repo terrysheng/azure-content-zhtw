@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：針對具有 Facebook 帳戶的取用者提供註冊和登入
@@ -70,4 +70,4 @@
 6. 按一下 [設定此身分識別提供者]，然後在 [應用程式識別碼] 與 [應用程式密碼] 欄位中，分別輸入您先前建立之 Facebook 應用程式的**應用程式識別碼** 和**應用程式密碼**。
 7. 依序按一下 [確定]與 [建立]，以儲存您的 Facebook 組態。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

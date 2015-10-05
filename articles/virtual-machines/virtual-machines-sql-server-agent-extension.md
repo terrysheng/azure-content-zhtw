@@ -1,24 +1,27 @@
 <properties 
-	pageTitle="SQL Server IaaS 代理程式延伸模組"
-	description="描述 SQL Server 代理程式延伸模組，可讓在 Azure 上的雲端中執行 SQL Server 的虛擬機器，使用自動化功能，並描述如果尚未自動安裝代理程式，如何加以安裝。"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="jeffgoll"
+	pageTitle="SQL Server IaaS 代理程式延伸模組 | Microsoft Azure" 
+	description="本主題會使用以傳統部署模型建立的資源，並說明 SQL Server 代理程式延伸模組，其可讓在 Azure 上執行 SQL Server 的 VM 使用自動化功能。" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="jeffgoll" 
 	manager="jeffreyg"
-	editor=""/>
+   editor="monicar"    
+   tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
+	ms.workload="infrastructure-services" 
 	ms.date="06/17/2015"
 	ms.author="jeffreyg"/>
 
 # SQL Server IaaS 代理程式延伸模組
 
 這個延伸模組可讓 Azure 虛擬機器中的 SQL Server 使用這篇文章中列出的某些服務，這些服務只有在安裝此延伸模組時才能使用。此延伸模組會為 Azure Preview 入口網站中的 SQL Server 組件庫映像自動安裝。它可以安裝在 Azure 中的任何 SQL Server VM，其已安裝 Azure VM 客體代理程式。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括搭配傳統部署模型使用資源。
  
 ## 必要條件
 使用 Powershell cmdlet 的需求：
@@ -74,4 +77,4 @@ Get-AzureVMSqlServerExtension [[-VM] <IPersistentVM>] [[-Version] <string>] [<Co
 ### 語法
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

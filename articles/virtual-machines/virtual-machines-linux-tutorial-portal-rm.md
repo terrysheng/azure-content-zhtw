@@ -6,7 +6,7 @@
 	authors="squillace"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-resource-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -128,4 +128,4 @@
 
 - [Azure 上 Linux 的 Docker 虛擬機器擴充程式](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

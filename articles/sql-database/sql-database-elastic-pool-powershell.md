@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="使用 PowerShell 建立和管理 SQL Database 彈性資料庫集區"
-	description="使用 PowerShell 建立和管理 Azure SQL Database 彈性資料庫集區"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="使用 PowerShell 建立和管理 SQL Database 彈性資料庫集區" 
+   description="使用 PowerShell 建立和管理 Azure SQL Database 彈性資料庫集區" 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="stevestein" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="data-management"
-	ms.date="08/25/2015"
-	ms.author="adamkr; sstein"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="data-management" 
+   ms.date="09/23/2015"
+   ms.author="adamkr; sstein"/>
 
 # 使用 PowerShell 建立和管理 SQL Database 彈性資料庫集區
 
@@ -240,4 +240,4 @@
 
 如需關於彈性資料庫和彈性資料庫集區的詳細資訊，包括 API 和錯誤詳細資料，請參閱[彈性資料庫集區參考](sql-database-elastic-pool-reference.md)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

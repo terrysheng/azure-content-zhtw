@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # 管理群組的擁有者
@@ -40,9 +40,7 @@
 以下是將提供一些 Azure Active Directory 的其他相關資訊的部分主題
 
 * [使用 Azure Active Directory 群組管理資源的存取權](active-directory-manage-groups.md)
-
 * [什麼是 Azure Active Directory？](active-directory-whatis.md)
-
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/03/2015"
+	ms.date="09/17/2015"
 	ms.author="bwren"/>
 
 # 什麼是 Azure 自動化？
@@ -33,7 +33,7 @@ Runbook 是可在 Azure 自動化中執行一些自動程序的一組工作。�
 
 ## Runbook 可以自動化什麼？
 
-Azure 自動化中的 Runbook 是基於 PowerShell 工作流程，因此它們會執行 PowerShell 能做的一切功能。如果應用程式或服務具有 API，則 Runbook 處理它。如果您有它適用的 PowerShell 模組，可以將該模組載入到 Azure 自動化，並且在 Runbook 中包含這些 Cmdlet。Azure 自動化 Runbook 會在 Azure 雲端執行，使得它可以存取雲端中的任何資源或可以從雲端存取的外部資源。使用[混合式 Runbook 背景工作](automation-hybrid-runbook-worker.md)，Runbook 可以在您的本機資料中心中執行以管理本機資源。
+Azure 自動化中的 Runbook 是以 Windows PowerShell 或 Windows PowerShell 工作流程為基礎，因此它們會執行 PowerShell 能做的一切功能。如果應用程式或服務具有 API，則 Runbook 處理它。如果您有它適用的 PowerShell 模組，可以將該模組載入到 Azure 自動化，並且在 Runbook 中包含這些 Cmdlet。Azure 自動化 Runbook 會在 Azure 雲端執行，使得它可以存取雲端中的任何資源或可以從雲端存取的外部資源。使用[混合式 Runbook 背景工作](automation-hybrid-runbook-worker.md)，Runbook 可以在您的本機資料中心中執行以管理本機資源。
 
 
 ## 我可以在哪裡取得 Runbook？
@@ -43,14 +43,14 @@ Azure 自動化中的 Runbook 是基於 PowerShell 工作流程，因此它們�
 
 ## 如何建立我自己的 Runbook？
 
-您可以從頭[建立您自己的 Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) 或根據您的需求從 [Runbook 資源庫](http://msdn.microsoft.com/library/azure/dn781422.aspx)修改 Runbook。如果您想要直接使用 PowerShell 程式碼，您可以在 Azure 入口網站中[使用文字編輯器編輯 Runbook](http://msdn.microsoft.com/library/azure/dn879137.aspx) 或離線編輯。如果您想要編輯 Runbook 而不要看到基礎程式碼，則可以在 Azure 預覽入口網站中使用[圖形化編輯器](automation-graphical-authoring-intro.md)。
+您可以從頭[建立您自己的 Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) 或根據您的需求從 [Runbook 資源庫](http://msdn.microsoft.com/library/azure/dn781422.aspx)修改 Runbook。有三個不同的 [Runbook 類型](automation-runbook-types.md)，您可以依據需求和 PowerShell 經驗自行選擇。如果您想要直接使用 PowerShell 程式碼，則可以使用離線編輯的 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 或 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)，或是使用 Azure 入口網站中的[文字編輯器](http://msdn.microsoft.com/library/azure/dn879137.aspx)。如果您想要編輯 Runbook 而不要看到基礎程式碼，則可以使用 Azure 預覽入口網站中的[圖形化編輯器](automation-graphical-authoring-intro.md)建立[圖形化 Runbook](automation-runbook-types.md#graphical-runbooks)。
 
 
 ## Azure 自動化與其他自動化工具如何產生關聯？
 
-[服務管理自動化 (SMA)](http://technet.microsoft.com/library/dn469260.aspx) 旨在自動化私人雲端中的管理工作。它會在您的本機資料中心安裝為 [Windows Azure Pack](http://www.microsoft.com/server-cloud/products/windows-azure-pack/default.aspx) 的元件。SMA 和 Azure 自動化使用基於 Windows PowerShell 工作流程的相同 Runbook 格式，但 SMA 不支援[圖形化 Runbook](automation-graphical-authoring-intro.md)。
+[服務管理自動化 (SMA)](http://technet.microsoft.com/library/dn469260.aspx) 旨在自動化私人雲端中的管理工作。它會安裝在您的本機資料中心，做為 [Windows Azure Pack](http://www.microsoft.com/server-cloud/products/windows-azure-pack/default.aspx) 的元件。SMA 和 Azure 自動化使用以 Windows PowerShell 和 Windows PowerShell 工作流程為基礎的相同 Runbook 格式，但 SMA 不支援[圖形化 Runbook](automation-graphical-authoring-intro.md)。
 
-[System Center 2012 Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) 旨在內部部署資源的自動化。它會使用與 Azure 自動化和服務管理自動化不同的 Runbook 格式，並具有圖形化介面，用來建立 Runbook，而不需要編寫任何指令碼。其 Runbook 是由來自專門為 Orchestrator 編寫的整合套件的活動組成。
+[System Center 2012 Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) 旨在自動化內部部署資源。它會使用與 Azure 自動化和服務管理自動化不同的 Runbook 格式，並具有圖形化介面，用來建立 Runbook，而不需要編寫任何指令碼。其 Runbook 是由來自專門為 Orchestrator 編寫的整合套件的活動組成。
 
 ## 我可以在哪裡取得詳細資訊？
 
@@ -58,11 +58,11 @@ Azure 自動化中的 Runbook 是基於 PowerShell 工作流程，因此它們�
 
 - **Azure 自動化程式庫**是您目前的所在位置。本文件庫中的文章提供完整的文件，說明如何設定和管理 Azure 自動化，以及撰寫自己的 Runbook。
 - [Azure PowerShell Cmdlet](http://msdn.microsoft.com/library/jj156055.aspx) 提供使用 Windows PowerShell 自動執行 Azure 作業的資訊。Runbook 會使用這些 Cmdlet 來處理 Azure 資源。
-- [管理部落格](http://azure.microsoft.com/blog/topics/management) 提供來自 Microsoft 的 Azure 自動化最新資訊和其他管理技術。您應該訂閱此部落格，隨時掌握 Azure 自動化團隊的最新消息。
+- [管理部落格](http://azure.microsoft.com/blog/topics/management)提供 Azure 自動化的最新資訊，以及 Microsoft 的其他管理技術。您應該訂閱此部落格，隨時掌握 Azure 自動化團隊的最新消息。
 - [自動化論壇](http://go.microsoft.com/fwlink/p/?LinkId=390561)可讓您張貼有關要由 Microsoft 和自動化社群解決的 Azure 自動化問題。
 
 ## 可以提供意見嗎？
 
 **請不吝提供意見！** 如果您要尋找 Azure 自動化 Runbook 解決方案或整合模組，請在指令碼中心提出指令碼要求。如果您有關於 Azure 自動化的任何意見或功能要求，請張貼在 [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback) 上。感謝您！
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

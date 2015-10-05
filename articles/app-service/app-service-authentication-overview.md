@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # 在 Azure 應用程式服務中驗證 API 應用程式和行動應用程式
@@ -208,10 +208,10 @@ Azure 應用程式服務提供內建的驗證服務，可實作 [OAuth 2.0](#oau
 * [將驗證新增至您的 iOS 應用程式](../app-service-mobile/app-service-mobile-dotnet-backend-ios-get-started-users-preview.md)
 * [將驗證新增至 Xamarin.iOS 應用程式](../app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md)
 * [將驗證新增至 Xamarin.Android 應用程式](../app-service-mobile/app-service-mobile-dotnet-backend-xamarin-android-get-started-users-preview.md)
-* [將驗證新增至您的 Windows 應用程式](../app-service-mobile/app-service-mobile-dotnet-backend-windows-store-get-started-users-preview.md)
+* [將驗證新增至您的 Windows 應用程式](../app-service-mobile/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md)
 
 ### <a id="maobo"></a>行動應用程式代表呼叫受保護的資源
 
 * [在行動應用程式中取得存取權杖和呼叫 SharePoint API](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

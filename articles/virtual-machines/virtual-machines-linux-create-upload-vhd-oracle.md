@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="在 Azure 中建立及上傳 Oracle Linux VHD" 
+	pageTitle="建立及上傳 Oracle Linux VHD | Microsoft Azure" 
 	description="了解如何建立及上傳包含 Oracle Linux 作業系統的 Azure 虛擬硬碟 (VHD)。" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -17,6 +18,8 @@
 	ms.author="szark"/>
 
 # 準備執行 Azure 的 Oracle Linux 虛擬機器
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [準備執行 Azure 的 Oracle Linux 6.4+ 虛擬機器](#oracle6)
 - [準備執行 Azure 的 Oracle Linux 7.0+ 虛擬機器](#oracle7)
@@ -227,4 +230,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

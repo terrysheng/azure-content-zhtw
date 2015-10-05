@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="09/22/2015"
 	ms.author="larryfr"/>
 
 #透過在 HDInsight 上將 Apache Mahout 與 Linux 架構的 Hadoop 搭配使用來產生電影推薦 (預覽)
@@ -30,6 +30,14 @@ Mahout 是 Apache Hadoop 的[機器學習][ml]庫。Mahout 包含可處理資料
 ##必要條件
 
 * HDInsight 叢集上以 Linux 為基礎的 Hadoop。如需有關建立此叢集的資訊，請參閱[開始在 HDInsight 中使用 Linux 架構的 Hadoop][getstarted]。
+
+##Mahout 版本控制
+
+如需關於 HDInsight 叢集隨附的 Mahout 版本詳細資訊，請參閱 [HDInsight 版本和 Hadoop 元件](hdinsight-component-versioning.md)。
+
+> [AZURE.WARNING]雖然可以將 Mahout 的不同版本上傳至 HDInsight 叢集，但只有 HDInsight 叢集隨附的元件可獲得完整支援，且 Microsoft 支援服務將助您釐清及解決與這些元件相關的問題。
+>
+> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/zh-TW/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如 [Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
 
 ##<a name="recommendations"></a>了解推薦
 
@@ -256,4 +264,4 @@ Mahout 工作不會移除處理工作時所建立的暫存資料。範例工作�
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

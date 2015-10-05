@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
+	ms.date="09/20/2015"   
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [目前的已知問題](#issues)
 - [REST API 版本歷程記錄](#rest_version_history)
+- [2015 年 9 月版本](#september_changes_15)
 - [2015 年 8 月版本](#august_changes_15)
 - [2015 年 7 月版本](#july_changes_15)
 - [2015 年 6 月版本](#june_changes_15)
@@ -73,6 +74,16 @@ SDK 中的媒體服務物件無法序列化，因此無法與 Azure 快取搭配
 
 如需媒體服務 REST API 版本歷程記錄的相關資訊，請參閱 [Azure 媒體服務 REST API 參考]。
 
+##<a id="september_changes_15"></a>2015 年 9 月版本 
+
+- AMS 現在提供以 Widevine Modular DRM 技術，保護點播視訊 (VOD) 和即時資料流的能力。您可以使用下列傳遞服務合作夥伴來助您傳遞 Widevine 授權：[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](http://ezdrm.com/)、[castLabs](http://castlabs.com/company/partners/azure/)。如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)。
+
+	您可以使用 [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (從版本 3.5.1 開始) 或 REST API 來設定 AssetDeliveryConfiguration 以使用 Widevine。
+
+- AMS 已新增對 Apple ProRes 影片的支援。您現在可以上傳使用 Apple ProRes 或其他轉碼器的 QuickTime 來源視訊檔案。如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/)。
+
+- 您現在可以使用 Media Encoder Standard 進行字幕裁剪和即時封存解壓縮。如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)。
+
 ##<a id="august_changes_15"></a>2015 年 8 月版本
 
 - 現在已有適用於 Java 0.8.0 版本的 Azure 媒體服務 SDK 以及新的範例可用。如需詳細資訊，請參閱：
@@ -86,7 +97,7 @@ SDK 中的媒體服務物件無法序列化，因此無法與 Azure 快取搭配
 
 - 宣布 Media Encoder Standard 的一般可用性。如需詳細資訊，請參閱[此部落格文章](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
 
-	Media Encoder Standard 使用[本](http://go.microsoft.com/fwlink/?LinkId=618336)節中所述的預設。請注意，使用 4k 編碼的預設時，您應該取得「進階」保留單元類型。如需詳細資訊，請參閱[如何調整編碼](media-services-portal-encoding-units)。
+	Media Encoder Standard 使用[本](http://go.microsoft.com/fwlink/?LinkId=618336)節中所述的預設。請注意，使用 4k 編碼的預設時，您應該取得**進階**保留單元類型。如需詳細資訊，請參閱[如何調整編碼](media-services-portal-encoding-units)。
 - 直播即時字幕與 Azure 媒體服務和播放器。如需詳細資訊，請參閱[此部落格文章](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
 
 ###媒體服務 .NET SDK 更新
@@ -581,4 +592,4 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [處理媒體服務工作通知]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

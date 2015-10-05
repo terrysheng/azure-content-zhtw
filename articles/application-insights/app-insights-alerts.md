@@ -114,6 +114,8 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
 若伺服器針對 HTTP 要求的回應時間 (平均超過 5 分鐘) 慢於 1 秒，則傳送電子郵件給我。我的 Application Insights 資源稱為 IceCreamWebApp，其位於 Fabrikam 資源群組。我是 Azure 訂用帳戶的擁有者。
 
+GUID 是該訂用帳戶的 ID (而非應用程式的檢測金鑰)。
+
     Add-AlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
      -ResourceGroup "Fabrikam" `
@@ -127,7 +129,7 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
 #### 範例 2
 
-我已安裝應用程式，並在其中使用 [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) 報告名為 salesPerHour 的度量。 若 salesPerHour 超過 24 小時皆低於平均值 100，則傳送電子郵件給我的同事。
+我已安裝應用程式，並在其中使用 [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) 報告名為 "salesPerHour" 的度量。 若 salesPerHour 超過 24 小時皆低於平均值 100，則傳送電子郵件給我的同事。
 
     Add-AlertRule -Name "poor sales" `
      -Description "slow sales alert" `
@@ -169,7 +171,14 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 `view.count`|頁面檢視|網頁的用戶端使用者要求計數。系統會篩選掉綜合流量。
 {您的自訂度量名稱}|{您的度量名稱}|由 [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric) 或[追蹤呼叫之測量參數](app-insights-api-custom-events-metrics.md#properties)所報告的度量值。
 
-   
+此度量由不同遙測模組所傳送：
+
+度量群組 | 收集器模組
+---|---
+basicExceptionBrowser、<br/>clientPerformance、<br/>檢視 | [瀏覽器 JavaScript](app-insights-javascript.md)
+performanceCounter | [效能](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3)
+remoteDependencyFailed| [相依性](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1)
+要求，<br/>requestFailed|[伺服器要求](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
 
 <!--Link references-->
@@ -182,4 +191,4 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="timwieman"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,6 +18,8 @@
 	ms.author="twieman"/>
 
 # 使用資源管理員範本的 Redis 叢集
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何以資源管理員部署模型建立 Redis 叢集。
 
 Redis 是開放原始碼的索引鍵值快取和存放區，其中的索引鍵可以包含類似字串、雜湊、清單、集合和排序的集合等資料結構。Redis 針對這些資料類型支援一組不可部分完成的操作。隨著 Redis 版本 3.0 的發行，Redis 叢集現在可以在穩定的最新 Redis 版本中使用。Redis 叢集是 Redis 的分散式實作，其中的資料會自動分區到多個 Redis 節點，能夠在節點子集發生故障時繼續運作。
 
@@ -96,7 +99,7 @@ $webclient.DownloadFile($url,$filePath)
 git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 ```
 
-複製完成時，尋找 C:\\Azure\\Templates 目錄中的 **redis-high-availability** 資料夾。
+複製完成後，尋找 C:\\Azure\\Templates 目錄中的 **redis-high-availability** 資料夾。
 
 ### 步驟 2：(選用) 了解範本參數
 
@@ -258,7 +261,7 @@ git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 }
 ```
 
->[AZURE.NOTE]參數 `storageAccountName` 必須是全新的唯一儲存體帳戶名稱，並滿足 Microsoft Azure 儲存體帳戶的命名需求 (僅限小寫字母和數字)。這個儲存體帳戶將建立來做為部署程序的一部分。
+>[AZURE.NOTE]參數 `storageAccountName` 必須是全新的唯一儲存體帳戶名稱，並滿足 Microsoft Azure 儲存體帳戶的命名要求 (僅限使用小寫字母和數字)。這個儲存體帳戶將建立來做為部署程序的一部分。
 
 填寫 Azure 部署名稱、資源群組名稱、Azure 位置，以及儲存 JSON 檔案的資料夾。然後執行以下命令：
 
@@ -344,9 +347,9 @@ New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -T
 
 部署期間以及部署結束之後，您可以檢查所有佈建期間所進行的要求，包括任何發生的錯誤。
 
-若要這樣做，請移至 [Azure 入口網站](https://portal.azure.com)，然後執行下列動作：
+若要這麼做，請移至 [Azure 入口網站](https://portal.azure.com)，然後執行下列動作：
 
-- 請按一下左側導覽列上的 [瀏覽]，然後向下捲動並按一下 [資源群組]。
+- 按一下左側導覽列中的 [瀏覽]，然後向下捲動並按一下 [資源群組]。
 - 選取剛建立的資源群組，會顯示 [資源群組] 刀鋒視窗。
 - 在 [監視] 區段中，選取 [事件] 橫條圖。這樣將會顯示適用於您部署的事件。
 - 按一下個別事件，您可以進一步查看代表範本所做的每個作業之詳細資料。
@@ -453,7 +456,7 @@ $webclient.DownloadFile($url,$filePath)
 }
 ```
 
-`vmStorageAccountContainerName` 和 `vmStorageAccountDomain` 變數是簡單名稱/值變數的範例。`vnetID` 是在執行階段使用函式 `resourceId` 和 `parameters` 來計算的變數範例。`machineSettings` 會藉由在 `machineSettings` 變數中巢串 JSON 物件 `osImageReference`，基於這些概念更進一步建置的。`vmScripts` 包含 JSON 陣列 `scriptsToDownload`，其是在執行階段使用 `concat` 和 `variables` 函式計算而得的。
+`vmStorageAccountContainerName` 和 `vmStorageAccountDomain` 變數是簡單名稱/值變數的範例。`vnetID` 是在執行階段使用函式 `resourceId` 和 `parameters` 來計算的變數範例。`machineSettings` 會在 `machineSettings` 變數中巢串 JSON 物件 `osImageReference`，並基於這些概念更進一步加以建置。`vmScripts` 包含 JSON 陣列 `scriptsToDownload`，其是在執行階段使用 `concat` 和 `variables` 函式計算而得的結果。
 
 如果您想要自訂 Redis 叢集部署的大小，則可在 azuredeploy.json 範本中變更變數 `tshirtSizeSmall`、`tshirtSizeMedium` 及 `tshirtSizeLarge` 的屬性。
 
@@ -485,7 +488,7 @@ $webclient.DownloadFile($url,$filePath)
 },
 ```
 
-請注意：`totalMemberCountExcludingLast` 和 `totalMemberCount` 屬性是必要的，因為範本語言目前不含「數學」運算。
+注意：`totalMemberCountExcludingLast` 和 `totalMemberCount` 屬性是必要項目，因為範本語言目前尚不包含「數學」運算。
 
 如需關於範本語言的詳細資訊，請參閱 MSDN 中的 [Azure 資源管理員範本語言](../resource-group-authoring-templates.md)。
 
@@ -527,9 +530,9 @@ $webclient.DownloadFile($url,$filePath)
 - **jumpbox-resources.json**：部署「跳躍箱」 VM 及所有相關資源，例如，網路介面、公用 IP 位址，以及用來 SSH 到環境的輸入端點。
 - **node-resources.json**：部署所有 Redis 叢集節點 VM 和連接的資源 (網路介面卡、私人 IP 等)。此範本也會部署 VM 延伸模組 (適用於 Linux 的自訂指令碼)，並叫用 bash 指令碼，在每一個節點上實際安裝並設定 Redis。要叫用的指令碼會以 `commandToExecute` 屬性的 `machineSettings` 參數傳遞給這個範本。所有的 Redis 叢集節點都可平行部署和執行指令碼，但有一個節點例外。有一個節點在結束之前都需要加以儲存，因為 Redis 叢集設定只能在一個節點上執行，而它必須在所有節點都執行 Redis 伺服器之後完成：這就是為什麼要執行的指令碼會傳遞給此範本的原因；最後一個節點需要執行些微不同的指令碼，該指令碼不只會安裝 Redis 伺服器，而且還會設定 Redis 叢集。
 
-讓我們深入了解最後一個範本 node-resources.json 的*使用方式*，因為從範本開發角度來看，這是最有趣的範本之一。要強調一個重要概念是單一範本檔案如何能夠部署單一資源類型的多個複本，而且每一個執行個體都能為必要設定指定唯一值。這個概念稱為**資源迴圈**。
+以下將深入說明最後一個範本 node-resources.json 的使用方式，因為從範本開發的角度來看，這是最有趣的範本之一。要強調一個重要概念是單一範本檔案如何能夠部署單一資源類型的多個複本，而且每一個執行個體都能為必要設定指定唯一值。這個概念稱為**資源迴圈**。
 
-從主要 azuredeploy.json 檔案叫用 node-resources.json 時，會從使用 `copy` 元素來建立排序迴圈的資源內叫用它。使用 `copy` 元素的資源會以 `copy` 元素的 `count` 參數中指定的次數來「複製」它自己。對於您需要在不同的部署資源執行個體之間指定唯一值的所有設定，可使用 **copyindex()** 函式來取得數值，以指出目前用來建立這個特定資源迴圈的索引。在下列來自 azuredeploy.json 的片段中，您可以在為 Redis 叢集節點建立的多個 VM 上看見這個概念的運用：
+從主要的 azuredeploy.json 檔案叫用 node-resources.json 時，會從使用 `copy` 元素建立排序迴圈的資源內叫用該範本。使用 `copy` 元素的資源會以 `copy` 元素的 `count` 參數中指定的次數來「複製」它自己。對於您需要在不同的部署資源執行個體之間指定唯一值的所有設定，可使用 **copyindex()** 函式來取得數值，以指出目前用來建立這個特定資源迴圈的索引。在下列來自 azuredeploy.json 的片段中，您可以在為 Redis 叢集節點建立的多個 VM 上看見這個概念的運用：
 
 ```json
 {
@@ -580,7 +583,7 @@ $webclient.DownloadFile($url,$filePath)
 
 建立資源的另一個重要概念是指定資源之間的相依性和優先順序，如同您在 `dependsOn` JSON 陣列中所見。在這個特殊範本中，您可以看見 Redis 叢集節點相依於先建立的共用資源。
 
-如先前所提及，最後一個節點需要等待佈建，直到 Redis 叢集中的所有其他節點都已使用在其上執行的 Redis 伺服器進行佈建為止。這現在可以在 azuredeploy.json 中完成，做法是從上述的範本程式碼片段中，擁有相依於 `copy` 迴圈 (名稱為 `memberNodesLoop`) 且名為 `lastnode-resources` 的資源。在 `memberNodesLoop` 的佈建完成後，可以佈建 `lastnode-resources`：
+如先前所提及，最後一個節點需要等待佈建，直到 Redis 叢集中的所有其他節點都已使用在其上執行的 Redis 伺服器進行佈建為止。現在可以在 azuredeploy.json 中完成這個動作，作法是從上述範本程式碼片段中，取得相依於 `copy` 迴圈 (名稱為 `memberNodesLoop`) 且名為 `lastnode-resources` 的資源。完成 `memberNodesLoop` 的佈建作業後，即可佈建 `lastnode-resources`：
 
 ```json
 {
@@ -627,7 +630,7 @@ $webclient.DownloadFile($url,$filePath)
 
 請注意，`lastnode-resources` 資源如何將些微不同的 `machineSettings.commandToExecute` 傳遞到連結的範本。這是因為最後一個節點，除了已安裝的 Redis 伺服器，還需要呼叫指令碼來設定 Redis 叢集 (這只有在所有 Redis 伺服器都已啟動且執行之後才能完成)。
 
-另一個要探索的有趣片段是與 `CustomScriptForLinux` VM 延伸模組相關的片段。這些片段都是以獨立資源類型進行安裝，而且每個叢集節點上都具有相依性。在此情況下，這可用來在每個 VM 節點上安裝並設定 Redis。讓我們查看來自 node-resources.json 範本的程式碼片段，其中會使用下列程式碼：
+另一個要探索的有趣片段是與 `CustomScriptForLinux` VM 擴充功能相關的片段。這些片段都是以獨立資源類型進行安裝，而且每個叢集節點上都具有相依性。在此情況下，這可用來在每個 VM 節點上安裝並設定 Redis。讓我們查看來自 node-resources.json 範本的程式碼片段，其中會使用下列程式碼：
 
 ```json
 {
@@ -650,7 +653,7 @@ $webclient.DownloadFile($url,$filePath)
 }
 ```
 
-您可以看見這個資源相依於已經部署的資源 VM (`Microsoft.Compute/virtualMachines/vmMember<X>`，`<X>` 是參數 `machineSettings.machineIndex`，其為 VM 的索引，並使用 **copyindex()** 函式傳遞到此指令碼)。
+您可以看見這個資源相依於已經部署的資源 VM (`Microsoft.Compute/virtualMachines/vmMember<X>`，`<X>` 是參數 `machineSettings.machineIndex`，也就是 VM 的索引，並使用 **copyindex()** 函式傳遞到此指令碼)。
 
 讓您自己熟悉此部署內所含的其他檔案，就能了解如何利用 Azure 資源管理員範本，根據任何技術來組織和協調適用於多節點解決方案的複雜部署策略所需的所有詳細資料和最佳做法。在此建議一種範本檔案建構方法，請自行決定是否採用，如下圖重點標示的部分：
 
@@ -666,4 +669,4 @@ $webclient.DownloadFile($url,$filePath)
 
 如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](../resource-group-authoring-templates.md)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

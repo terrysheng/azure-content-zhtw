@@ -162,4 +162,4 @@ Azure AD 目錄在設計上是隔離的。它不支援將 Azure AD Connect 同�
 ## 後續步驟
 若要了解如何安裝這些案例的 Azure AD Connect，請參閱[自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)。若要深入了解 Azure AD Connect 同步處理的組態，請參閱 [Azure AD Connect 同步處理](active-directory-aadconnectsync-whatis.md)。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

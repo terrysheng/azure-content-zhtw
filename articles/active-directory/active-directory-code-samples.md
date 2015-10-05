@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Active Directory 程式碼範例"
+   pageTitle="Azure Active Directory 程式碼範例 | Microsoft Azure"
    description="依案例的組織的 Azure Active Directory 程式碼範例的索引。"
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/30/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory 程式碼範例
@@ -151,4 +151,4 @@ PHP | [Azure AD Graph API 的 PHP 範例應用程式](http://code.msdn.microsoft
 
 [使用 OAuth 和 Active Directory Federation Services 開發現代化的應用程式](http://msdn.microsoft.com/library/dn633593.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

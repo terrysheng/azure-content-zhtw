@@ -1,12 +1,13 @@
-<properties 
-	pageTitle="Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略"
-	description="本文涵蓋了一系列與在 Azure VM 上執行之 SQL Server 相關的應用程式模式。它們可為解決方案架構師和開發人員提供基礎良好的應用程式架構和設計。"
+<properties
+	pageTitle="在 VM 上的 SQL Server 應用程式模式 | Microsoft Azure"
+	description="這篇文章涵蓋適用於 Azure VM 上的 SQL Server 應用程式模式。它們可為解決方案架構師和開發人員提供基礎良好的應用程式架構和設計。"
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="Selcin"
 	manager="jeffreyg"
-	editor="monicar" />
-<tags 
+	editor="monicar"
+	tags="azure-service-management,azure-resource-manager" />
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
@@ -17,7 +18,7 @@
 
 # Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略
 
-## 摘要： 
+## 摘要：
 判斷哪種或哪些應用程式模式，適用於 Azure 環境中以 SQL Server 為基礎的應用程式，是很重要的設計決策，這需要深入了解 SQL Server 和 Azure 的每個基礎結構元件是如何搭配運作。您可以透過 Azure 基礎結構服務中的 SQL Server，輕鬆地維護和監視建置於 Windows Server 上的現有 SQL Server 應用程式，或移轉至 Azure 的虛擬機器中。
 
 本文的目的在於為解決方案架構師和開發人員提供基礎良好的應用程式架構和設計，讓他們將現有應用程式移轉至 Azure，以及在 Azure 中開發新應用程式時可以採用。
@@ -105,7 +106,7 @@
 
 在圖表中，網際網路通訊協定可以是 TCP、UDP、HTTP 或 HTTPS。
 
->[AZURE.NOTE] 在 Azure 中設定虛擬網路是免費的。不過，您必須為連接到內部部署的 VPN 閘道付費。此費用取決於佈建和可用的連接時間量。
+>[AZURE.NOTE]在 Azure 中設定虛擬網路是免費的。不過，您必須為連接到內部部署的 VPN 閘道付費。此費用取決於佈建和可用的連接時間量。
 
 ## 展示層向外延展的 2 層和 3 層
 
@@ -322,4 +323,4 @@
 
 如需在 Azure 虛擬機器中執行 SQL Server 的詳細資訊，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

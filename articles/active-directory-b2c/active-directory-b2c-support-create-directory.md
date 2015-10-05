@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # 建立 Azure AD 目錄或 Azure AD B2C 目錄 - 問題與解決方法
@@ -34,4 +34,4 @@
 	- 刪除剛建立的目錄並再試一次。
 - 若上述解決方法無效，請連絡「支援服務」。參閱[本文](active-directory-b2c-support.md)以了解如何提出 Azure AD B2C 支援要求。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

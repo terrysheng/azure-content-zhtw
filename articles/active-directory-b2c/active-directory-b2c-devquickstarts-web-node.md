@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="brandwe"/>
 
 # B2C 預覽：將登入功能加入至 nodeJS Web 應用程式
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-> [AZURE.NOTE]本文不涵蓋如何使用 Azure AD B2C 實作登入、註冊和管理設定檔。重點在於如何在使用者完成驗證後呼叫 Web API。您應該先從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始 (如果還沒有進行)，以了解 Azure AD B2C 的基本概念。
+> [AZURE.NOTE]本文不涵蓋如何使用 Azure AD B2C 實作登入、註冊和管理設定檔。而會著重在如何在使用者已通過驗證後呼叫 Web API。您應該先從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始 (如果還沒有進行)，以了解 Azure AD B2C 的基本概念。
 
 **Passport** 是 Node.js 的驗證中介軟體。您可以暗中將極具彈性且模組化的 Passport 放入任何 Express 或 Resitify Web 應用程式。一組完整的策略可支援使用使用者名稱和密碼、Facebook、Twitter 及其他等驗證。我們已為 Microsoft Azure Active Directory 開發一項策略。我們將安裝此模組，然後加入 Microsoft Azure Active Directory `passport-azure-ad` 外掛程式。
 
@@ -54,6 +54,9 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 - Enter `http://localhost/TodoListService` as a **Reply URL** - it is the default URL for this code sample.
 - Create an **Application Secret** for your application and copy it down.  You will need it shortly.
 - Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
+
+    > [AZURE.IMPORTANT]
+    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
 
 ## 3. Create your policies
 
@@ -425,4 +428,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="06/29/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # 使用 Visual Studio 部署 WebJob
@@ -200,4 +200,4 @@
 * 如需 Azure 入口網站變更為 Azure 預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

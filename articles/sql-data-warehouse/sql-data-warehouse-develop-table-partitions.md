@@ -1,20 +1,20 @@
 <properties
    pageTitle="SQL 資料倉儲中的資料表分割 | Microsoft Azure"
-	description="在 Azure SQL 資料倉儲中使用資料表分割開發解決方案的秘訣。"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="jrowlandjones"
-	manager="barbkess"
-	editor=""/>
+   description="在 Azure SQL 資料倉儲中使用資料表分割開發解決方案的秘訣。"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="jrowlandjones"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="06/22/2015"
-	ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 資料倉儲中的資料表分割
 
@@ -326,4 +326,4 @@ DROP TABLE #partitions;
 
 <!-- Other web references -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

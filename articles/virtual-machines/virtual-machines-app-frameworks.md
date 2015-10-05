@@ -1,11 +1,12 @@
 <properties
-   pageTitle="應用程式架構"
+   pageTitle="應用程式架構 | Microsoft Azure"
    description="描述如何使用範本與 Azure 資源管理員，建立主流應用程式架構。範例包括 LAMP 堆疊、SharePoint 以及 SQL Server。"
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="squillace"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager" />
 
 <tags
    ms.service="virtual-machines"
@@ -19,6 +20,8 @@
 # 使用範本建立應用程式架構
 
 請使用這個範本，快速設計出色的作品。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文內容涵蓋以資源管理員部署模型建立資源。
 
 | 範本 | 說明 | 檢視範本 | 立即部署 |
 |:---|:---|:---:|:---:|
@@ -49,4 +52,4 @@
 
 深入了解 [Azure 資源管理員](../resource-group-template-deploy.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

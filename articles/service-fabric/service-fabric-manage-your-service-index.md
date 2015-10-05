@@ -21,7 +21,6 @@
 
 - [應用程式生命週期](service-fabric-application-lifecycle.md)
 - [使用 Service Fabric 總管視覺化叢集](service-fabric-visualizing-your-cluster.md)
-- [保護可設定狀態服務的複寫流量](service-fabric-replication-security.md)
 
 ## 封裝、部署和移除應用程式
 下列主題討論 Service Fabric 應用程式模型，以及如何封裝與部署應用程式。
@@ -41,13 +40,12 @@
 - [進階主題](service-fabric-application-upgrade-advanced.md)
 - [疑難排解應用程式升級失敗](service-fabric-application-upgrade-troubleshooting.md)
 - [應用程式升級教學課程/逐步解說](service-fabric-application-upgrade-tutorial.md)
-- [Service Fabric 應用程式升級：資料序列化](service-fabric-application-upgrade-data-serialization.md) 
+- [Service Fabric 應用程式升級：資料序列化](service-fabric-application-upgrade-data-serialization.md)
 
 ## 調整與分割應用程式服務
 下列文章說明調整與分割：
 
 - [分割 Service Fabric 服務](service-fabric-concepts-partitioning.md)
 - [調整 Service Fabric 應用程式](service-fabric-concepts-scalability.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

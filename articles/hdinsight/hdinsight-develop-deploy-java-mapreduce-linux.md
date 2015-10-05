@@ -270,6 +270,8 @@
 - [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
 - 〈[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)〉
 
+如需詳細資訊，也請參閱 [Java 開發人員中心](/develop/java/)。
+
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -298,4 +300,4 @@
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

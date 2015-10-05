@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"    
+	ms.date="09/20/2015"    
 	ms.author="juliako"/>
 
 
@@ -22,8 +22,6 @@
 編碼工作是媒體服務中最常見的處理作業。您建立編碼工作以將媒體檔案從一種編碼轉換成另一種編碼。編碼時，您可以使用媒體服務內建的 Media Encoder。您也可以使用媒體服務合作夥伴提供的編碼器；第三方編碼器可透過 Azure Marketplace 取得。
 
 本主題說明如何使用 .NET 透過 Media Encoder Standard 將您的資產編碼。Media Encoder Standard 使用[這裡](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)描述的其中一個編碼器預設值進行設定。
-
->[AZURE.NOTE]目前版本的媒體處理器會要求您以整個 XML 或 JSON 字串傳遞作為編碼預設值。支援以具名字串傳遞，例如「H264 Multiple Bitrate 720p」，透過服務更新很快就可以使用。
 
 建議一律將夾層檔編碼為調適性位元速率 MP4 集，然後使用[動態封裝](media-services-dynamic-packaging-overview.md)將該集合轉換為所要的格式。若要利用動態封裝，您必須先取得至少一個串流端點的隨選串流單位，您打算從中傳遞您的內容。如需詳細資訊，請參閱[如何調整媒體服務](media-services-manage-origins.md#scale_streaming_endpoints)。
 
@@ -35,7 +33,7 @@
 
 - 建立編碼工作。
 - 取得對 Media Encoder Standard 編碼器的參考
-- 從[這裡](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)顯示的其中一個預設值，載入預設 XML。
+- 指定要使用「H264 多重位元速率 720p」預設值。您可以在[這裡](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)看到所有預設。您也可以在[這裡](https://msdn.microsoft.com/library/mt269962.aspx)的主題檢查這些預設值必須符合的結構描述。
 - 將單一編碼工作加入工作。 
 - 指定要編碼的輸入資產。
 - 建立將包含已編碼資產的輸出資產。
@@ -50,13 +48,12 @@
 		    // processor to use for the specific task.
 		    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 		
-		    // Load the XML (or JSON) from the local file
-		    string configuration = File.ReadAllText(pathToLocalPresetFile);
-		
-		    // Create a task
-		    ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+
+		    // Create a task with the encoding details, using a string preset.
+		    // In this case "H264 Multiple Bitrate 720p" preset is used.
+		    ITask task = job.Tasks.AddNew("My encoding task",
 		        processor,
-		        configuration,
+		        "H264 Multiple Bitrate 720p",
 		        TaskOptions.None);
 		
 		    // Specify the input asset to be encoded.
@@ -126,6 +123,6 @@
 
 ##另請參閱 
 
-[媒體服務編碼概觀](media-services-encode-asset.md)
+[如何使用 .NET 的媒體編碼器標準產生縮圖](media-services-dotnet-generate-thumbnail-with-mes.md) [媒體服務編碼概觀](media-services-encode-asset.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

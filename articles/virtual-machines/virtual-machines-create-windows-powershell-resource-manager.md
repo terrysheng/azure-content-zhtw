@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="davidmu1"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,11 +19,9 @@
 
 # 利用 Azure Resource Manager 和 PowerShell 建立 Windows 虛擬機器
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文內容涵蓋以資源管理員部署模型建立資源。您也可以使用[傳統部署模型](virtual-machines-create-windows-powershell-service-manager.md)建立資源。
+
 這個主題描述如何使用 Azure 資源管理員和 PowerShell 快速建立 Windows Azure 虛擬機器。
-
-[AZURE.INCLUDE [resource-manager-pointer-to-service-management](../../includes/resource-manager-pointer-to-service-management.md)]
-
-- [利用 PowerShell 和 Azure 服務管理建立 Windows 虛擬機器](virtual-machines-create-windows-powershell-service-manager.md)
 
 ## 建立 Windows 虛擬機器
 
@@ -142,4 +141,4 @@
 
 [如何安裝和設定 Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何透過 WebJobs SDK 使用 Azure 佇列儲存體"
-	description="了解如何透過 WebJobs SDK 使用 Azure 佇列儲存體。建立和刪除查詢、插入、查看、取得和刪除佇列訊息等。"
-	services="app-service\web, storage"
-	documentationCenter=".net"
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="如何透過 WebJobs SDK 使用 Azure 佇列儲存體" 
+	description="了解如何透過 WebJobs SDK 使用 Azure 佇列儲存體。建立和刪除查詢、插入、查看、取得和刪除佇列訊息等。" 
+	services="app-service\web, storage" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # 如何透過 WebJobs SDK 使用 Azure 佇列儲存體
@@ -586,4 +586,4 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次嘗試�
 本指南提供的程式碼範例示範如何處理使用 Azure 佇列的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

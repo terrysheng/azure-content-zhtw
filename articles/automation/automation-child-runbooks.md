@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
+   ms.date="09/17/2015"
    ms.author="bwren" />
 
 # Azure 自動化中的子 Runbook
@@ -30,18 +30,34 @@ Azure 自動化中的最佳作法是撰寫可重複使用、模組化的 Runbook
 
 以內嵌方式呼叫之子 Runbook 的參數可以是任何資料類型 (包括複雜物件)，而且沒有您使用 Azure 管理入口網站或使用 Start-AzureAutomationRunbook Cmdlet 啟動 Runbook 時的 [JSON 序列化](automation-starting-a-runbook.md#runbook-parameters)。
 
-下列範例會叫用一個測試子 Runbook，它會接受三個參數、一個複雜物件、一個整數和一個布林值。子 Runbook 的輸出會指派給一個變數。
+### Runbook 類型
+
+在使用內嵌執行的 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 中，您無法使用 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 或 [圖形化 Runbook](automation-runbook-types.md#graphical-runbooks) 做為子 Runbook。同樣地，在使用內嵌執行的 PowerShell 工作流程 Runbook 或圖形 icalrunbook 中，您也無法使用 PowerShell Runbook 做為子 Runbook。PowerShell Runbook 只能使用另一個 PowerShell 做為子 Runbook。圖形化和 PowerShell 工作流程 Runbook 可互為彼此的子 Runbook。
+
+叫用使用內嵌執行的圖形化或 PowerShell 工作流程子 Runbook 時，只要使用 Runbook 名稱即可。叫用 PowerShell 子 Runbook 時，則必須在名稱前面加上 *. \*，以指明指令碼位於本機目錄。
+
+### 範例
+
+下列範例會叫用一個測試子 Runbook，它會接受三個參數、一個複雜物件、一個整數和一個布林值。子 Runbook 的輸出會指派給一個變數。此案例的子 Runbook 是 PowerShell 工作流程 Runbook
 
 	$vm = Get-AzureVM –ServiceName "MyVM" –Name "MyVM"
 	$output = Test-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
 
+以下是使用 PowerShell Runbook 做為子 Runbook 的相同範例。
+
+	$vm = Get-AzureVM –ServiceName "MyVM" –Name "MyVM"
+	$output = .\Test-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
+
+
 ##  使用 Cmdlet 啟動子 Runbook
 
-您可以如[使用 Windows PowerShell 啟動 Runbook](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell) 中的說明，使用 [Start-AzureAutomationRunbook](http://msdn.microsoft.com/library/dn690259.aspx) Cmdlet 啟動 Runbook，。當您從 Cmdlet 啟動子 Runbook 時，在子 Runbook 的工作建立後，父 Runbook 會隨即移動到下一行。如果您需要從 Runbook 擷取任何輸出，則您需要使用 [Get-AzureAutomationJobOutput](http://msdn.microsoft.com/library/dn690268.aspx) 來存取工作。
+您可以依照[使用 Windows PowerShell 啟動 Runbook](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell) 中的說明，使用 [Start-AzureAutomationRunbook](http://msdn.microsoft.com/library/dn690259.aspx) Cmdlet 啟動 Runbook。當您從 Cmdlet 啟動子 Runbook 時，在子 Runbook 的工作建立後，父 Runbook 會隨即移動到下一行。如果您需要從 Runbook 擷取任何輸出，則您需要使用 [Get-AzureAutomationJobOutput](http://msdn.microsoft.com/library/dn690268.aspx) 來存取工作。
 
-使用 Cmdlet 啟動之子 Runbook 的工作，將會與父 Runbook 的工作分開執行。這會使產生的工作比叫用指令碼內嵌更多，並使它們更難以困難。父 Runbook 可以啟動多個子 Runbook，不需要等候每個子 Runbook 完成。對於呼叫子 Runbook 內嵌的相同類型平行執行作業，父 Runbook 將需要使用[平行關鍵字](automation-powershell-workflow.md#parallel-processing)。
+使用 Cmdlet 啟動之子 Runbook 的工作，將會與父 Runbook 的工作分開執行。這會使產生的工作比叫用指令碼內嵌更多，並使它們更難以困難。父 Runbook 可以啟動多個子 Runbook，不需要等候每個子 Runbook 完成。對於呼叫子 Runbook 內嵌的同類型平行執行作業，父 Runbook 將需要使用[平行關鍵字](automation-powershell-workflow.md#parallel-processing)。
 
 使用 Cmdlet 啟動之子 Runbook 的參數是以雜湊表方式提供，如 [Runbook 參數](automation-starting-a-runbook.md#runbook-parameters)中所述。只能使用簡單資料類型。若 Runbook 有複雜資料類型的參數，必須以內嵌方式呼叫。
+
+### 範例
 
 下列範例使用參數啟動子 Runbook，然後等待其完成。完成後，父 Runbook 會從工作收集其輸出。
 
@@ -57,7 +73,7 @@ Azure 自動化中的最佳作法是撰寫可重複使用、模組化的 Runbook
 	
 	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
 
-[Start-ChildRunbook](http://gallery.technet.microsoft.com/scriptcenter/Start-Azure-Automation-1ac858a9) 是在 TechNet 資源庫中可供使用的協助程式 Runbook，可從 Cmdlet 啟動 Runbook。這提供等待子 Runbook 直到完成並擷取其輸出的選項。除了在您的 Azure 自動化環境中使用此 Runbook 外，這個 Runbook 可作為參照來與使用 Cmdlet 的 Runbook 和工作搭配使用。協助程式 Runbook 本身必須以內嵌方式呼叫，因為它需要雜湊表參數來接受子 Runbook 的參數值。
+[Start-ChildRunbook](http://gallery.technet.microsoft.com/scriptcenter/Start-Azure-Automation-1ac858a9) 是 TechNet 資源庫中可供使用的協助程式 Runbook，可從 Cmdlet 啟動 Runbook。這提供等待子 Runbook 直到完成並擷取其輸出的選項。除了在您的 Azure 自動化環境中使用此 Runbook 外，這個 Runbook 可作為參照來與使用 Cmdlet 的 Runbook 和工作搭配使用。協助程式 Runbook 本身必須以內嵌方式呼叫，因為它需要雜湊表參數來接受子 Runbook 的參數值。
 
 
 ## 子 Runbook 的呼叫方法比較
@@ -78,4 +94,4 @@ Azure 自動化中的最佳作法是撰寫可重複使用、模組化的 Runbook
 - [在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md)
 - [Azure 自動化中的 Runbook 輸出與訊息](automation-runbook-output-and-messages.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

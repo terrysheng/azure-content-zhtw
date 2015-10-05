@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Application Insights 資料的 Power BI 檢視
@@ -42,13 +42,13 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 
 連續匯出一律會將資料輸出至 Azure 儲存體帳戶，因此您必須先建立儲存體。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)的訂用帳戶中建立儲存體帳戶。
+1. 在 [Azure 入口網站](https://portal.azure.com)的訂用帳戶中建立「傳統」儲存體帳戶。
 
     ![在 Azure 入口網站中，依序選擇 [新增]、[資料]、[儲存體]](./media/app-insights-export-power-bi/030.png)
 
 2. 建立容器
 
-    ![在新的儲存體中，依序選取 [容器]、[新增]](./media/app-insights-export-power-bi/040.png)
+    ![在新的儲存體中，選取 [容器]，按一下容器磚，然後按一下 [新增]](./media/app-insights-export-power-bi/040.png)
 
 3. 複製儲存體存取金鑰
 
@@ -238,4 +238,4 @@ Noam Ben Zeev 會示範如何匯出至 Power BI。
 * [Application Insights](app-insights-overview.md)
 * [更多範例和逐步解說](app-insights-code-samples.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

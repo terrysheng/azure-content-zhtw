@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="09/17/2015"
    ms.author="v-sharos" />
 
 # 更新您的 StorSimple 8000 系列裝置
@@ -119,4 +119,4 @@ StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀
 - 深入了解如何[使用 Windows PowerShell for StorSimple 管理 StorSimple 裝置](storsimple-windows-powershell-administration.md)。
 - 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

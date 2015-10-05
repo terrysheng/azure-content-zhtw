@@ -13,35 +13,35 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2015"
+   ms.date="09/22/2015"
    ms.author="lodipalm;barbkess"/>
 
 # 將資料載入 SQL 資料倉儲
 SQL 資料倉儲提供許多選項，供載入資料，包括：
 
+- PolyBase
 - Azure Data Factory
 - BCP 命令列公用程式
-- PolyBase
 - SQL Server Integration Services (SSIS)
 - 協力廠商資料載入工具
 
-同時，所有上述方法可以搭配 SQL 資料倉儲使用。我們的許多使用者會看到數百 GB 到數十 TB 的初始載入。在下面各節中，我們會提供一些有關初始資料載入的指引。
+雖然所有上述方法可以搭配 SQL 資料倉儲使用，但 PolyBase 能明確地平行處理 Azure Blob 儲存體的負載，這讓它成為載入資料最快的工具。查看更多有關如何[載入 PolyBase][] 的資訊。此外，由於許多使用者都在尋求從內部部署來源初始載入 100 秒 GB 到 10 秒 TB，因此在以下各節中，我們將針對初始資料的載入提供一些指引。
 
 ## 從 SQL Server 初始載入至 SQL 資料倉儲的 
 從內部部署 SQL Server 執行個體載入至 SQL 資料倉儲時，建議採用下列步驟：
 
-1. **BCP** SQL Server 資料為一般檔案 
+1. **BCP** SQL Server 資料轉為一般檔案 
 2. 使用 **AZCopy** 或 **匯入/匯出** (若為大型資料集)，將檔案移至 Azure
 3. 將 PolyBase 設定為從您的儲存體帳戶讀取您的檔案
 4. 利用 **PolyBase** 建立新的資料表並載入資料
 
 在下列各節中，我們將深入探討每個步驟，並提供程序的範例。
 
-> [AZURE.NOTE]從如 SQL Server 這類系統移動資料之前，建議檢閱我們文件的[移轉結構描述][]和[移轉程式碼][]文章。
+> [AZURE.NOTE]從 SQL Server 之類的系統移動資料之前，建議您檢閱我們文件的[移轉結構描述][]和[移轉程式碼][]文章。
 
 ## 使用 BCP 匯出檔案
 
-若要準備將您的檔案移動到 Azure，您必須將它們匯出至一般檔案。最佳作法就是使用 BCP 命令列公用程式。如果尚未有此公用程式，它可以與[適用於 SQL Server 的 Microsoft 命令列公用程式][]一起下載。範例 BCP 命令看起來可能如下所示：
+若要準備將您的檔案移動到 Azure，您必須將它們匯出至一般檔案。最佳作法就是使用 BCP 命令列公用程式。如果您還沒有此公用程式，可以與[適用於 SQL Server 的 Microsoft 命令列公用程式][]一起下載。範例 BCP 命令看起來可能如下所示：
 
 ```
 bcp "<Directory><File>" -c -T -S <Server Name> -d <Database Name>
@@ -58,11 +58,11 @@ Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name>
 一旦順利地將您的資料匯出至檔案，就可以開始將它們移至 Azure。完成此作業的方法為使用 AZCopy 或使用匯入/匯出服務，如下節所述。
 
 ## 使用 AZCopy 或匯入/匯出載入至 Azure
-如果您是移動 5-10 TB 範圍或以上中的資料，我們建議您使用我們的磁碟運送服務[匯入/匯出][]，以便完成移動。不過，在我們的研究中，我們已經能夠使用公用網際網路搭配 AZCopy，輕鬆地移動單一數字 TB 範圍中的資料。此程序也可以加速或透過 ExpressRoute 擴充。
+如果您是移動 5-10 TB 範圍或以上的資料，建議您使用我們的磁碟運送服務[匯入/匯出][]，以便完成移動。不過，在我們的研究中，我們已經能夠使用公用網際網路搭配 AZCopy，輕鬆地移動單一數字 TB 範圍中的資料。此程序也可以加速或透過 ExpressRoute 擴充。
 
-下列步驟將詳細說明如何使用 AZCopy 將資料從內部部署移入 Azure 儲存體帳戶。如果您沒有 Azure 儲存體帳戶位於同一區域，則可以遵循 [Azure 儲存體文件][]建立一個。您也可以從不同區域中的儲存體帳戶載入資料，但在此情況下，效能將不是最佳的。
+下列步驟將詳細說明如何使用 AZCopy 將資料從內部部署移入 Azure 儲存體帳戶。如果您的 Azure 儲存體帳戶沒有位於同一區域，則可以遵循 [Azure 儲存體文件][]建立一個。您也可以從不同區域中的儲存體帳戶載入資料，但在此情況下，效能將不是最佳的。
 
-> [AZURE.NOTE]本文件假設您已安裝的 AZCopy 命令列公用程式，而且能夠使用 Powershell 執行它。如果這不是這樣，請遵循 [AZCopy 安裝指示][]。
+> [AZURE.NOTE]本文件假設您已安裝的 AZCopy 命令列公用程式，而且能夠使用 Powershell 執行它。如果不是這樣，請遵循 [AZCopy 安裝指示][]。
 
 現在，已提供一組使用 BCP 建立的檔案，因此 AzCopy 只需從 Azure powershell 或藉由執行 powershell 指令碼來執行。在更高的層級中，執行 AZCopy 所需的提示將會採用下列格式：
 
@@ -73,16 +73,16 @@ AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Stor
 除了基本作法外，我們也建議您採用下列最佳作法，使用 AZCopy 載入：
 
 
-+ **並行連接**：除了增加一次執行的 AZCopy 作業數目外，也可以設定 /NC 參數來進一步平行處理 AZCopy 作業本身，這會對目的地開啟數個並行連接。儘管這個參數最高可以設定為 512，但是我們發現最佳的資料傳輸發生在 256，因此建議測試值的數目，以尋找何者最適合您的組態。
++ **並行連接**：除了增加同時執行的 AZCopy 作業數目外，也可以設定 /NC 參數來進一步平行處理 AZCopy 作業本身，這會對目的地開啟數個並行連接。儘管這個參數最高可以設定為 512，但是我們發現最佳的資料傳輸發生在 256，因此建議測試值的數目，以尋找何者最適合您的組態。
 
 + **快速路由**：如同上述，如果啟用快速路由，則可以加速此程序。快速路由和步驟的概觀可在 [ExpressRoute 文件][]中找到。
 
-+ **資料夾結構**：若要更輕鬆地使用 PolyBase 進行傳輸，請確定每個資料表都對應到它自己的資料夾。如此，稍後使用 PolyBase 載入時，將簡化步驟並將其減至最少。換言之，如果資料表分割成多個檔案，或甚至是資料夾內的子目錄，也沒有任何影響。
++ **資料夾結構**：若要更輕鬆地使用 PolyBase 進行傳輸，請確定每個資料表都對應到自己的資料夾。如此，稍後使用 PolyBase 載入時，將簡化步驟並將其減至最少。換言之，如果資料表分割成多個檔案，或甚至是資料夾內的子目錄，也沒有任何影響。
 	 
 
 ## 設定 PolyBase 
 
-既然您的資料位於 Azure 儲存體 blob 中，我們即會使用 PolyBase 將它匯入 SQL 資料倉儲執行個體中。以下步驟僅適用於組態，而且對於每個 SQL 資料倉儲執行個體、使用者或儲存體帳戶，其中許多步驟只需完成一次即可。也會在我們的[使用 PolyBase 載入][]文件中更詳細地概述這些步驟。
+既然您的資料位於 Azure 儲存體 blob 中，我們即會使用 PolyBase 將它匯入 SQL 資料倉儲執行個體中。以下步驟僅適用於組態，而且對於每個 SQL 資料倉儲執行個體、使用者或儲存體帳戶，其中許多步驟只需完成一次即可。這些步驟也會在我們的[使用 PolyBase 載入][]文件中更詳細地概述。
 
 1. **建立資料庫主要金鑰。** 每個資料庫只需完成這項作業一次。 
 
@@ -171,6 +171,7 @@ FROM    <External Table Name>
 <!--Article references-->
 [Load data with bcp]: sql-data-warehouse-load-with-bcp.md
 [使用 PolyBase 載入]: sql-data-warehouse-load-with-polybase.md
+[載入 PolyBase]: sql-data-warehouse-load-with-polybase.md
 [solution partners]: sql-data-warehouse-solution-partners.md
 [開發概觀]: sql-data-warehouse-overview-develop.md
 [移轉結構描述]: sql-data-warehouse-migrate-schema.md
@@ -183,10 +184,10 @@ FROM    <External Table Name>
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 <!--Other Web references-->
-[AZCopy 安裝指示]: https://azure.microsoft.com/zh-tw/documentation/articles/storage-use-azcopy/
-[適用於 SQL Server 的 Microsoft 命令列公用程式]: http://www.microsoft.com/zh-tw/download/details.aspx?id=36433
-[匯入/匯出]: https://azure.microsoft.com/zh-tw/documentation/articles/storage-import-export-service/
-[Azure 儲存體文件]: https://azure.microsoft.com/zh-tw/documentation/articles/storage-create-storage-account/
+[AZCopy 安裝指示]: https://azure.microsoft.com/zh-TW/documentation/articles/storage-use-azcopy/
+[適用於 SQL Server 的 Microsoft 命令列公用程式]: http://www.microsoft.com/zh-TW/download/details.aspx?id=36433
+[匯入/匯出]: https://azure.microsoft.com/zh-TW/documentation/articles/storage-import-export-service/
+[Azure 儲存體文件]: https://azure.microsoft.com/zh-TW/documentation/articles/storage-create-storage-account/
 [ExpressRoute 文件]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

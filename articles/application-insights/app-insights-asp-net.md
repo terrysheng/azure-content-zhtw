@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 
@@ -156,10 +156,23 @@
 + `dc.services.visualstudio.com:443`
 + `f5.services.visualstudio.com:443`
 
-### 針對開發、測試和發行保持個別的資源
 
-針對主要應用程式，建議您從偵錯、測試和生產傳送遙測資料到[不同資源](app-insights-separate-resources.md)。
+## 開發、測試和發行
 
+針對主要應用程式，建議您從不同戳章 (偵錯、測試和生產組建) 傳送遙測資料到[不同資源](app-insights-separate-resources.md)。
+
+## 追蹤應用程式版本
+
+請確定 `buildinfo.config` 是由您的建置程序所產生。在您的 .csproj 檔案中加入：
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+當它有組建資訊時，Application Insights Web 模組會自動加入**應用程式版本**做為遙測的每個項目的屬性。如此可讓您在執行[診斷搜尋][diagnostic]或[探索度量][metrics]時，依據版本來篩選。
 
 
 
@@ -235,4 +248,4 @@
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

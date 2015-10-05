@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="從 Azure SQL 來回移動資料 | Azure Data Factory"
-	description="了解如何使用 Azure Data Factory 從 Azure SQL 資料庫來回移動資料。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="從 Azure SQL 來回移動資料 | Azure Data Factory" 
+	description="了解如何使用 Azure Data Factory 從 Azure SQL 資料庫來回移動資料。" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從 Azure SQL 來回移動資料
@@ -474,4 +474,4 @@
 
 	 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

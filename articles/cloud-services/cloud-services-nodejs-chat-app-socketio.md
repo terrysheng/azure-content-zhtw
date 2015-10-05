@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用 Socket.io 的 Node.js 應用程式 | Microsoft Azure"
-	description="學習如何在裝載於 Azure 的 node.js 應用程式中使用 socket.io。"
-	services="cloud-services"
-	documentationCenter="nodejs"
-	authors="TomArcher"
-	manager="wpickett"
+	pageTitle="使用 Socket.io 的 Node.js 應用程式 | Microsoft Azure" 
+	description="學習如何在裝載於 Azure 的 node.js 應用程式中使用 socket.io。" 
+	services="cloud-services" 
+	documentationCenter="nodejs" 
+	authors="TomArcher" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="tarcher"/>
 
 
@@ -149,6 +149,8 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
 在本教學課程中，您學到如何建立裝載於 Azure 雲端服務的基本交談應用程式。若要了解如何在 Azure 網站中裝載此應用程式，請參閱[在 Azure 網站上使用 Socket.IO 建立 Node.js 交談應用程式][chatwebsite]。
 
+如需詳細資訊，也請參閱 [Node.js 開發人員中心](/develop/nodejs/)。
+
   [chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
 
   [Azure SLA]: http://www.windowsazure.com/support/sla/
@@ -172,4 +174,4 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
   
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

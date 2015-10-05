@@ -1,22 +1,25 @@
 <properties
    pageTitle="使用 Azure CLI 建立多個 VM 的部署 | Microsoft Azure"
-   description="了解如何使用 Azure CLI 建立多個 VM 的部署"
+   description="了解如何使用傳統部署模式和 Azure CLI 建立多個 VM 的部署。"
    services="virtual-machines"
    documentationCenter="nodejs"
    authors="AlanSt"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"
    ms.devlang="nodejs"
    ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
+   ms.tgt_pltfrm="Linux"
    ms.workload="infrastructure-services"
    ms.date="02/20/2015"
-   ms.author="alanst;kasing"/>
+   ms.author="alanst"/>
 
 # 使用 Azure CLI 建立多個 VM 的部署
+
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
 
 下列指令碼將示範如何在 VNET 中，使用 Azure 命令列介面 (Azure CLI) 設定多個 VM 的多雲端服務部署。
 
@@ -32,9 +35,9 @@
 >[AZURE.NOTE]您可能需要將雲端服務名稱 servercs 和 workercs 變更為唯一的雲端服務名稱
 
     azure network vnet create samplevnet -l "West US"
-    azure vm create -l "West US" -w samplevnet -e 10000 -z Small -n servervm servercs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-zh-tw-30GB azureuser Password@1
-    azure vm create -l "West US" -w samplevnet -e 10001 -z Small –n clientvm1 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-zh-tw-30GB azureuser Password@1
-    azure vm create -l "West US" -w samplevnet -e 10002 -c -z Small -n clientvm2 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-zh-tw-30GB azureuser Password@1
+    azure vm create -l "West US" -w samplevnet -e 10000 -z Small -n servervm servercs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-zh-TW-30GB azureuser Password@1
+    azure vm create -l "West US" -w samplevnet -e 10001 -z Small –n clientvm1 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-zh-TW-30GB azureuser Password@1
+    azure vm create -l "West US" -w samplevnet -e 10002 -c -z Small -n clientvm2 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-zh-TW-30GB azureuser Password@1
     azure vm disk attach-new servervm 100
     azure vm disk attach-new servervm 500
     azure vm endpoint create servervm 443 443 -n https -o tcp
@@ -67,4 +70,4 @@
 * [如何登入執行 Linux 的虛擬機器](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

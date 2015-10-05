@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="03/10/2015"
+ ms.date="09/22/2015"
  ms.author="rasquill"/>
  
 #有關虛擬機器代理程式和擴充功能
@@ -62,4 +62,4 @@ Azure 虛擬機器代理程式 (VM 代理程式) 是一個安全、輕量級程�
 
 如需這些工作的詳細資訊，請參閱[加入、尋找、更新及移除 Azure VM 延伸模組](virtual-machines-extensions-install.md)。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

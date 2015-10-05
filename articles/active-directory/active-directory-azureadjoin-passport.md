@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="透過初次執行體驗使用 Azure AD 設定新的裝置| Microsoft Azure" 
-	description="說明使用者如何在初次執行體驗期間設定 Azure AD Join 的主題。" 
+	pageTitle="Microsoft Passport 概觀和這種新的憑證型驗證的詳細資料。 | Microsoft Azure" 
+	description="此主題說明使用者如何在初次執行體驗期間設定 Azure AD Join。" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # 透過 Microsoft Passport 不需要密碼就能驗證身分識別
@@ -66,7 +66,7 @@ Microsoft Passport 驗證週期![](./media/active-directory-azureadjoin/active-d
 
 ## 其他資訊
 
-* [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-user-upgrade.md)
+* [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-overview.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

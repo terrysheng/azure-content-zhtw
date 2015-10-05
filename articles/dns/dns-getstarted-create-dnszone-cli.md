@@ -1,22 +1,22 @@
 <properties
-   pageTitle="開始使用 Azure DNS | Microsoft Azure"
-	description="了解如何使用 PowerShell 或 CLI 逐步建立 Azure DNS 的 DNS 區域來開始裝載 DNS 網域"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor=""/>
+   pageTitle="開始藉由 CLI 使用 Azure DNS | Microsoft Azure"
+   description="了解如何使用 CLI 逐步建立 Azure DNS 的 DNS 區域來開始裝載 DNS 網域"
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
-# 開始使用 Azure DNS
+# 開始藉由 CLI 使用 Azure DNS
 
 
 
@@ -173,4 +173,4 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 
 [開始建立記錄集與記錄](dns-getstarted-create-recordset-cli.md)<BR> [如何管理 DNS 區域](dns-operations-dnszones-cli.md)<BR> [如何管理 DNS 記錄](dns-operations-recordsets-cli.md)<BR> [使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)<BR> [Azure DNS REST API 參考](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

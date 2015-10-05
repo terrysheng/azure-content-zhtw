@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="設定雲端服務的 SSL | Microsoft Azure" 
-	description="了解如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。" 
+	pageTitle="設定雲端服務 (Preview 入口網站) 的 SSL | Microsoft Azure" 
+	description="了解如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。這些範例使用 Azure Preview 入口網站。" 
 	services="cloud-services" 
 	documentationCenter=".net" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -33,7 +33,7 @@
 
 如果尚未建立雲端服務，請先閱讀[這裡](cloud-services-how-to-create-deploy-portal.md)。
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+[AZURE.INCLUDE 〈[websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)〉]
 
 ## 步驟 1：取得 SSL 憑證
 
@@ -43,7 +43,7 @@
 
 -   憑證必須包含私密金鑰。
 -   憑證必須是為了進行金鑰交換而建立，且可匯出成個人資訊交換檔 (.pfx)。
--   憑證的主體名稱必須符合用來存取雲端服務的網域。您無法向憑證授權單位 (CA) 取得 cloudapp.net 網域的 SSL 憑證。您必須取得要在存取您的服務時使用的自訂網域名稱。當您向 CA 要求憑證時，憑證的主體名稱必須符合用來存取應用程式的自訂網域名稱。例如，如果您的自訂網域名稱為 **contoso.com**，則您需向 CA 要求 **\*.contoso.com** 或 **www.contoso.com** 的憑證。
+-   憑證的主體名稱必須符合用來存取雲端服務的網域。您無法向憑證授權單位 (CA) 取得 cloudapp.net 網域的 SSL 憑證。您必須取得要在存取您的服務時使用的自訂網域名稱。當您向 CA 要求憑證時，憑證的主體名稱必須符合用來存取應用程式的自訂網域名稱。例如，如果您的自訂網域名稱為 **contoso.com**，則您需向 CA 要求 ****.contoso.com** 或 **www.contoso.com** 的憑證。
 -   憑證至少必須以 2048 位元加密。
 
 基於測試目的，您可以[建立](cloud-services-certs-create.md)並使用自我簽署憑證。自我簽署憑證不是由 CA 驗證，因此可以使用 cloudapp.net 網域做為網站 URL。例如，以下工作即使用自我簽署憑證，該憑證中使用的一般名稱 (CN) 為 **sslexample.cloudapp.net**。
@@ -155,4 +155,11 @@
 
 [Azure Portal]: http://portal.azure.com/
 
-<!------HONumber=August15_HO7-->
+## 後續步驟
+
+* [雲端服務的一般設定](cloud-services-how-to-configure-portal.md)。
+* 了解如何[部署雲端服務](cloud-services-how-to-create-deploy-portal.md)。
+* 設定[自訂網域名稱](cloud-services-custom-domain-name-portal.md)。
+* [管理您的雲端服務](cloud-services-how-to-manage-portal.md)。
+
+<!---HONumber=Sept15_HO4-->

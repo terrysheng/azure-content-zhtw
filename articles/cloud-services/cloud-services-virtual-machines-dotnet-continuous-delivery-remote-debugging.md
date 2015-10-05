@@ -28,8 +28,8 @@
 ## <a name="cloudservice"></a>為雲端服務啟用遠端偵錯
 
 1. 在組建代理程式上，設定 Azure 的初始環境，如[Azure 的命令列建置](http://msdn.microsoft.com/library/hh535755.aspx)所述。
-2. 由於封裝需要遠端偵錯執行階段 (msvsmon.exe)，所以請安裝 [Visual Studio 2015 RC 遠端工具](http://www.microsoft.com/download/details.aspx?id=46874) (如果您使用 Visual Studio 2013，則請安裝 [Visual Studio 2013 Update 5 RC 遠端工具](https://www.microsoft.com/zh-tw/download/details.aspx?id=46870))。或者，您也可以從已安裝 Visual Studio 的系統中複製遠端偵錯二進位檔案。
-3. 建立憑證，如[建立 Azure 的服務憑證](http://msdn.microsoft.com/library/azure/gg432987.aspx)所述。保留 .pfx 和 RDP 憑證指紋，並將憑證上傳至目標雲端服務。
+2. 由於封裝需要遠端偵錯執行階段 (msvsmon.exe)，所以請安裝 [Visual Studio 2015 RC 遠端工具](http://www.microsoft.com/download/details.aspx?id=46874) (如果您使用 Visual Studio 2013，則請安裝 [Visual Studio 2013 Update 5 RC 遠端工具](https://www.microsoft.com/ZH-TW/download/details.aspx?id=46870))。或者，您也可以從已安裝 Visual Studio 的系統中複製遠端偵錯二進位檔案。
+3. 建立憑證，如[建立 Azure 的服務憑證](cloud-services-certs-create.md)所述。保留 .pfx 和 RDP 憑證指紋，並將憑證上傳至目標雲端服務。
 4. 在 MSBuild 命令列中使用下列選項，指定啟用遠端偵測來建置和封裝(以系統和專案檔案的實際路徑替代角括弧括住的項目)。
 
 		msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.6" "<path to your VS solution file>"
@@ -43,7 +43,7 @@
 
 1. 建立 Azure 虛擬機器。請參閱[建立執行 Windows Server 的虛擬機器](../virtual-machines-windows-tutorial.md)或[在 Visual Studio 中建立 Azure 虛擬機器](http://msdn.microsoft.com/library/azure/dn569263.aspx)。
 2. 在 [Azure 入口網站頁面](http://go.microsoft.com/fwlink/p/?LinkID=269851)，檢視虛擬機器儀表板來查看虛擬機器的「RDP 憑證指紋」。此指紋是用於延伸模組組態中的 `ServerThumbprint` 值。
-3. 建立用戶端憑證，如[建立 Azure 的服務憑證](http://msdn.microsoft.com/library/azure/gg432987.aspx)所述 (保留 .pfx 和 RDP 憑證指紋)。
+3. 建立用戶端憑證，如[建立 Azure 的服務憑證](cloud-services-certs-create.md)所述 (保留 .pfx 和 RDP 憑證指紋)。
 4. 從 Microsoft 下載中心下載 [Azure Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (0.7.4 版或更新版本)。
 5. 執行下列指令碼來啟用 RemoteDebug 延伸模組。將路徑和個人資料替換成您自己的路徑和個人資料，例如您的訂用帳戶、服務名稱和指紋。(注意：此指令碼是專為 Visual Studio 2015 RC 設定。如果您使用 Visual Studio 2013，請使用「RemoteDebugVS2013」設定 ReferenceName 和 ExtensionName)。
 
@@ -93,6 +93,5 @@
 	</pre>
 
 6. 將憑證 (.pfx) 匯入已安裝 Visual Studio with Azure SDK for .NET 的機器。
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

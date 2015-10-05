@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用 Azure 自動化管理 Azure 金鑰保存庫"
+	pageTitle="使用 Azure 自動化管理 Azure 金鑰保存庫 | Microsoft Azure"
 	description="了解如何使用 Azure 自動化服務來管理 Azure 金鑰保存庫。"
 	services="Key-Vault, automation"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="09/22/2015"
 	ms.author="csand"/>
 
 
@@ -44,6 +44,5 @@ Azure 金鑰保存庫 Cmdlet 可讓您執行這些工作：建立或匯入金鑰
 
 * 請參閱 Azure 自動化[快速入門教學課程](../automation-create-runbook-from-samples.md)。
 * 請參閱 [Azure 金鑰保存庫 PowerShell 指令碼](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091)。
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

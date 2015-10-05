@@ -1,23 +1,28 @@
 <properties 
-	pageTitle="Azure 中的虛擬機器和容器"
-	description="描述虛擬機器、Docker 和 Linux 容器，以及它們各自在 Azure 中的群組使用方式，包括每一項的優點，以及每種方法順暢運作的案例。"
-	services="virtual-machines"
-	documentationCenter="virtual-machines"
-	authors="squillace"
-	manager="timlt"/>
+	pageTitle="虛擬機器和容器 | Microsoft Azure" 
+	description="描述虛擬機器、Docker 和 Linux 容器，以及它們各自在 Azure 中的群組使用方式，包括每一項的優點，以及每種方法順暢運作的案例。" 
+	services="virtual-machines" 
+	documentationCenter="virtual-machines" 
+	authors="squillace" 
+	manager="timlt"
+	tags="azure-resource-manager,azure-service-management" 
+/>
 	
 
 <tags 
-	ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="infrastructure"
-	ms.workload="infrastructure"
-	ms.date="07/02/2015"
-	ms.author="rasquill"/>
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="infrastructure" 
+	ms.workload="infrastructure" 
+	ms.date="07/02/2015" 
+	ms.author="rasquill" 
+/>
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Azure 中的虛擬機器和容器
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Azure 提供您建立在虛擬機器上的絕佳雲端解決方案，虛擬機器是根據實際的電腦硬體而模擬出來的電腦，為了是要靈活移動軟體部署，並且比實體硬體更能大幅強化資源的運用。過去幾年來，多虧有容器的 [Docker](https://www.docker.com) 方法和 docker 生態系統，Linux 容器技術大幅擴充了可開發和管理分散式軟體的方式。由於容器中的應用程式程式碼與主機 Azure VM 獨立，也與相同 VM 上的其他容器獨立，除了 Azure VM 賦予您的靈活度之外，您還可以在應用程式層級做更多的開發，擁有更高的部署靈活度。
 
@@ -187,7 +192,7 @@ Microsoft Azure 上的 Docker：
 - [如何在 Azure 上搭配 swarm 使用 docker](virtual-machines-docker-swarm.md)
 - [在 Azure 上開始使用 Docker 和 Compose](virtual-machines-docker-compose-quickstart.md)
 - [使用 Azure 資源群組範本在 Azure 上快速建立 Docker 主機](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
-- 內含應用程式對 `compose` 的[內建支援](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys)
+- 內含應用程式對 [`compose` 的內建支援](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys)
 - [在 Azure 上實作 Docker 私用登錄](virtual-machines-docker-registry-on-azure-blob-storage.md)
 
 Linux 散發套件和 Azure 範例：
@@ -234,4 +239,4 @@ Linux 散發套件和 Azure 範例：
 [微服務]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

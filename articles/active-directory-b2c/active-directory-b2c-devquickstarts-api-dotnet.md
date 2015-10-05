@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 	
 # Azure AD B2C 預覽：建置 .NET Web API
@@ -36,32 +36,34 @@
 - 對於 Web 應用程式，請使用**重新導向 Uri** `https://localhost:44316/` -它是此程式碼範例的 Web 應用程式用戶端的預設位置。
 - 複製指派給應用程式的**應用程式識別碼**。稍後您將會用到此資訊。
 
+     >[AZURE.IMPORTANT]您無法為此使用已在 [Azure 入口網站](https://manage.windowsazure.com/)上的 [應用程式] 索引標籤中登錄的應用程式。
+
 ## 3\.建立您的原則
 
-在 Azure AD B2C 中，每個使用者體驗皆由[**原則**](active-directory-b2c-reference-policies.md)定義。此程式碼範例中的用戶端包含三個身分識別使用體驗 - 註冊、登入和編輯設定檔。您必須為每個類型建立一個原則，如[原則參考文件](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)所述。建立您的三個原則時，請務必：
+在 Azure AD B2C 中，每個使用者經驗皆是由某個[**原則**](active-directory-b2c-reference-policies.md)所定義。此程式碼範例中的用戶端包含三個身分識別使用體驗 - 註冊、登入和編輯設定檔。您必須為每個類型建立一個原則，如[原則參考文章](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)所述。建立您的三個原則時，請務必：
 
-- 在身分識別提供者刀鋒視窗中選擇 [使用者識別碼註冊] 或 [電子郵件註冊]。
+- 在身分識別提供者刀鋒視窗中，選擇 [使用者識別碼註冊] 或 [電子郵件註冊]。
 - 在註冊原則中選擇 [顯示名稱] 和其他一些註冊屬性。
-- 在每個原則中選擇 [顯示名稱] 和 [物件識別碼]宣告作為應用程式宣告。您也可以選擇其他宣告。
+- 在每個原則中選擇 [顯示名稱] 和 [物件識別碼]宣告做為應用程式宣告。您也可以選擇其他宣告。
 - 建立每個原則後，複製原則的 [名稱]。前置詞應該為 `b2c_1_`。稍後您將需要這些原則名稱。 
 
 當您成功建立三個原則後，就可以開始建置您的應用程式。
 
 ## 4\.下載程式碼
 
-本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet)。若要循著指示建立範例，您可以[下載 .zip 格式的基本架構專案](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip)或複製基本架構：
+本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet) 上。若要遵循指示建立範例，您可以[下載 .zip 格式的基本架構專案](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip)或複製基本架構：
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet.git
 ```
 
-完整的應用程式也[提供 .zip 格式](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip)，或放在相同儲存機制的 `complete` 分支。
+完整的應用程式也提供 [.zip 格式](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip)；您也可以在相同儲存機制的 `complete` 分支取得。
 
-下載範例程式碼後，請開啟 Visual Studio `.sln` 檔案開始進行。您會看到方案中有兩個專案：`TaskWebApp` 專案和 `TaskService` 專案。`TaskWebApp` 是與使用者互動的 MVC Web 應用程式。`TaskService` 是應用程式的後端 Web API，儲存每個使用者的待辦事項清單。
+下載範例程式碼後，請開啟 Visual Studio `.sln` 檔案開始進行。您會看到方案中有兩個專案：`TaskWebApp` 專案和 `TaskService` 專案。`TaskWebApp` 是與使用者互動的 MVC Web 應用程式。`TaskService` 是應用程式的後端 Web API，可儲存每個使用者的待辦事項清單。
 
 ## 5\.設定工作 Web 應用程式
 
-當使用者與 `TaskWebApp` 互動時，用戶端會傳送要求給 Azure AD，然後收到可用於呼叫 `TaskService` Web API 的權杖。為了讓使用者登入並取得權杖，您需要提供應用程式的一些資訊給 `TaskWebApp`。在 `TaskWebApp` 專案中，開啟專案根目錄中的 `web.config` 檔案，取代 `<appSettings>` 區段中的值：
+使用者與 `TaskWebApp` 互動時，用戶端會傳送要求給 Azure AD，然後收到可用於呼叫 `TaskService` Web API 的權杖。為了讓使用者登入並取得權杖，您必須提供應用程式的部分資訊給 `TaskWebApp`。在 `TaskWebApp` 專案中，開啟專案根目錄中的 `web.config` 檔案，取代 `<appSettings>` 區段中的值：
 
 ```
 <appSettings>
@@ -81,7 +83,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Dot
 </appSettings>
 ```
 
-另外有兩個 `[PolicyAuthorize]` 裝飾項目，需要在其中提供您的登入原則名稱。當使用者嘗試存取應用程式中需要驗證的頁面時，`[PolicyAuthorize]` 屬性用來叫用特定原則。
+另外有兩個 `[PolicyAuthorize]` 裝飾項目，需要在其中提供您的登入原則名稱。當使用者嘗試存取應用程式中需要驗證的頁面時，`[PolicyAuthorize]` 屬性會用來叫用特定原則。
 
 ```C#
 // Controllers\HomeController.cs
@@ -99,11 +101,11 @@ public class TasksController : Controller
 {
 ```
 
-如果您想要了解像 `TaskWebApp` 這種 Web 應用程式如何使用 Azure AD B2C，請查看 [Web 應用程式登入使用者入門](active-directory-b2c-devquickstarts-web-dotnet.md)一文。
+如果您想要了解 `TaskWebApp` 這類 Web 應用程式如何使用 Azure AD B2C，請查看 [Web 應用程式登入使用者入門](active-directory-b2c-devquickstarts-web-dotnet.md)一文。
 
 ## 6\.保護 API
 
-既然您已經有一個代替使用者呼叫 API 的用戶端，您可以使用 OAuth 2.0 持有人權杖保護 `TaskService`。您的 API 可使用 Microsoft 的 OWIN 程式庫來接受並驗證權杖。
+既然現在已有一個代替使用者呼叫 API 的用戶端，您可以使用 OAuth 2.0 持有人權杖保護 `TaskService`。您的 API 可使用 Microsoft 的 OWIN 程式庫來接受並驗證權杖。
 
 #### 安裝 OWIN
 首先要安裝 OWIN OAuth 驗證管線：
@@ -149,7 +151,7 @@ public partial class Startup
 ```
 
 #### 設定 OAuth 2.0 驗證
-開啟檔案 `App_Start\Startup.Auth.cs`，並實作 `ConfigureAuth(...)` 方法：
+開啟檔案 `App_Start\Startup.Auth.cs` 並實作 `ConfigureAuth(...)` 方法。
 
 ```C#
 // App_Start\Startup.Auth.cs
@@ -194,7 +196,7 @@ public class TasksController : ApiController
 ```
 
 #### 從權杖取得使用者資訊
-`TaskController` 將工作儲存在資料庫中，而每一項工作都有一個「擁有」此工作的相關聯使用者。擁有者由使用者的**物件識別碼**所識別 (這也是為什麼您必須在所有原則中，加入物件識別碼作為應用程式宣告)：
+`TaskController` 會將工作儲存在資料庫中，而每一項工作都有一個「擁有」此工作的相關聯使用者。擁有者是依照使用者的**物件識別碼**來識別 (這也是為什麼您必須在所有原則中，加入物件識別碼做為應用程式宣告)：
 
 ```C#
 // Controllers\TasksController.cs
@@ -230,4 +232,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### 透過 Windows PowerShell for StorSimple 安裝一般 Hotfix
 
@@ -18,4 +19,4 @@
 
 5. 系統將提示您進行確認。輸入 **Y** 繼續安裝 Hotfix。
 
-<!-----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

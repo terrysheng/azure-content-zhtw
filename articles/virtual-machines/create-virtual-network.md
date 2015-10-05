@@ -1,22 +1,27 @@
 <properties 
-	pageTitle="教學課程：建立純雲端虛擬網路"
-	description="了解如何在此教學課程中建立範例純雲端 Azure 虛擬網路。"
-	services="virtual-machines, virtual-network"
-	documentationCenter=""
-	authors="cherylmc"
-	manager="adinah"
-	editor=""/>
+	pageTitle="建立純雲端虛擬網路 | Microsoft Azure" 
+	description="了解如何在此教學課程中建立範例純雲端 Azure 虛擬網路。" 
+	services="virtual-machines, virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/17/2015" 
 	ms.author="cherylmc"/>
 
 # 教學課程：在 Azure 中建立純雲端虛擬網路
+
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文內容涵蓋以資源管理員部署模型建立資源。
+
 
 本教學課程將逐步引導您在 Azure 管理入口網站中，建立包含兩個子網路的純雲端 Azure 虛擬網路範例。產生的虛擬網路看起來如下：
 
@@ -118,4 +123,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

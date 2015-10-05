@@ -3,7 +3,7 @@
 	description="了解如何使用 Azure PowerShell 或 Azure CLI 搭配資源管理員範本，在 Ubuntu VM 上 輕鬆部署新的 DataStax Enterprise 叢集"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="karthmut"
+	authors="scoriani"
 	manager="timlt"
 	editor="tysonn"/> <!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" --> <tags
 	ms.service="virtual-machines"
@@ -12,7 +12,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/29/2015"
-	ms.author="karthmut"/>
+	ms.author="scoriani"/>
 
 # 在 Ubuntu 上使用資源管理員範本的 DataStax Enterprise
 
@@ -44,7 +44,7 @@ DataStax 是知名的業界領導者，他們根據 Apache Cassandra™ 來開�
 
 ### 步驟 1-a：使用 PowerShell 下載範本檔案
 
-為 JSON 範本和其他相關聯的檔案建立本機資料夾 (例如，C:\Azure\Templates\DataStax)。
+為 JSON 範本和其他相關聯的檔案建立本機資料夾 (例如，C:\\Azure\\Templates\\DataStax)。
 
 使用您本機資料夾的資料夾名稱來替代，並執行下一個命令集。
 
@@ -498,4 +498,4 @@ vm-disk-utils-0.1.sh 是 azure-quickstart-tempates github 儲存機制中 shared
 
 如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](../resource-group-authoring-templates.md)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

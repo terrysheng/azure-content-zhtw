@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="適用於 Azure 的 Linux 代理程式使用者指南" 
+	pageTitle="Linux 代理程式使用者指南 | Microsoft Azure" 
 	description="了解如何安裝和設定 Linux 代理程式 (waagent)，來管理虛擬機器與 Azure 網狀架構控制器之間的互動。" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -317,4 +318,4 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

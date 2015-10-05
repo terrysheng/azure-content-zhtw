@@ -5,16 +5,16 @@
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
-	editor=""/>
+	editor="" />
 
 
 <tags 
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/21/2015"
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="genemi"/>
 
 
@@ -242,4 +242,4 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 - [Azure SQL Database 一般方針和限制](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [資源管理](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

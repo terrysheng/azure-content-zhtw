@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2015" ms.author="trinadhk";"aashishr" />
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/21/2015" ms.author="trinadhk";"aashishr" />
 
 
 # 使用 PowerShell 部署和管理 Azure VM 的備份
@@ -140,7 +140,7 @@ PS C:\> Wait-AzureRMBackupJob -Job $joblist[0] -Timeout 43200
 若要取得可識別正確備份項目的 PowerShell 物件，您需要從保存庫中的「容器」開始，向下深入物件階層。若要選取代表 VM 的容器，請使用 **Get-AzureRMBackupContainer** Cmdlet，並將它傳給 **Get-AzureRMBackupItem** Cmdlet。
 
 ```
-PS C:\> $backupitem = Get-AzureBackupContainer -Vault $backupvault -Type AzureVM -name "testvm" | Get-AzureRMBackupItem
+PS C:\> $backupitem = Get-AzureRMBackupContainer -Vault $backupvault -Type AzureVM -name "testvm" | Get-AzureRMBackupItem
 ```
 
 ### 選擇復原點
@@ -231,4 +231,4 @@ New-AzureVM -ServiceName "panbhasample" -Location "SouthEast Asia" -VM $vm
 - [New-AzureVMConfig](https://msdn.microsoft.com/library/azure/dn495159.aspx)
 - [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

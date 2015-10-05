@@ -1,6 +1,6 @@
 <properties
 	pageTitle="如何使用 Node.js 中的 Blob 儲存體 | Microsoft Azure"
-	description="了解如何使用 Azure Blob 服務來上傳、下載、列出及刪除 Blob 內容。範例以 Node.js 撰寫。"
+	description="了解如何使用 Azure Blob 服務來上傳、下載、列出及刪除 Blob 內容。範例是以 Node.js 撰寫的。"
 	services="storage"
 	documentationCenter="nodejs"
 	authors="MikeWasson"
@@ -24,7 +24,7 @@
 
 ## 概觀
 
-本文示範如何使用 Azure Blob 服務執行一般案例。這些範例使用 Node.js API 撰寫。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。
+本文示範如何使用 Azure Blob 服務執行一般案例。這些範例透過 Node.js API 撰寫。涵蓋的案例包括如何上傳、列出、下載及刪除 blob。
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -32,7 +32,7 @@
 
 ## 建立 Node.js 應用程式
 
-建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站]、[Node.js 雲端服務][Node.js Cloud Service] (使用 Windows PowerShell) 或[使用 WebMatrix 的網站]。
+如需如何建立 Node.js 應用程式的相關指示，請參閱 [建立 Node.js 應用程式並將其部署到 Azure 網站]、[Node.js 雲端服務][Node.js Cloud Service] (使用 Windows PowerShell) 或[使用 WebMatrix 的 Web 應用程式]。
 
 ## 設定您的應用程式以存取儲存體
 
@@ -67,7 +67,7 @@
 
 Azure 模組會讀取環境變數 `AZURE_STORAGE_ACCOUNT` 及 `AZURE_STORAGE_ACCESS_KEY`，或讀取 `AZURE_STORAGE_CONNECTION_STRING` 以取得連接 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則呼叫 **createBlobService** 時必須指定帳戶資訊。
 
-如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]。
+如需在 Azure web 應用程式的 Azure 入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]。
 
 ## 建立容器
 
@@ -75,11 +75,11 @@ Azure 模組會讀取環境變數 `AZURE_STORAGE_ACCOUNT` 及 `AZURE_STORAGE_ACC
 
     var blobSvc = azure.createBlobService();
 
-> [AZURE.NOTE]使用 **createBlobServiceAnonymous** 並提供主機位址，可匿名存取 Blob。例如，`var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`。
+> [AZURE.NOTE]使用 **createBlobServiceAnonymous** 並提供主機位址，可匿名存取 Blob。例如，使用 `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`。
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-若要建立新的容器，請使用 **createContainerIfNotExists**。以下程式碼範例會建立一個名為 'mycontainer' 的新容器
+若要建立新的容器，請使用 **createContainerIfNotExists**。以下程式碼範例會建立一個名為 'mycontainer' 的新容器：
 
 	blobSvc.createContainerIfNotExists('mycontainer', function(error, result, response){
       if(!error){
@@ -174,7 +174,7 @@ Blob 可以區塊或分頁為基礎。Block 區塊可讓您更有效率地上傳
 
 * **createWriteStreamToNewPageBlob** - 建立新的 Blob，然後提供串流來寫入它
 
-下列程式碼範例會將 **test.txt** 檔的內容上傳至 **mypageblob**
+下列程式碼範例會將 **test.txt** 檔的內容上傳至 **mypageblob**。
 
 	blobSvc.createPageBlobFromLocalFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
 	  if(!error){
@@ -250,7 +250,7 @@ Blob 可以區塊或分頁為基礎。Block 區塊可讓您更有效率地上傳
 	  }
 	});
 
-使用 ETag 時的一般模式為：
+使用 ETag 時，一般模式為：
 
 1. 取得執行建立、列出或取得操作之後的 ETag。
 
@@ -268,7 +268,7 @@ Blob 可以區塊或分頁為基礎。Block 區塊可讓您更有效率地上傳
 	  }
 	});
 
-**myblob** 的後續作業必須提供 `options.leaseId`參數。租用識別碼會從 **acquireLease** 傳回 `result.id`。
+**myblob** 的後續作業必須提供 `options.leaseId` 參數。租用識別碼會從 **acquireLease** 做為 `result.id` 傳回。
 
 > [AZURE.NOTE]依預設，租用期間無限制。若要指定有限期間 (15 到 60 秒)，您可以提供 `options.leaseDuration` 參數。
 
@@ -276,13 +276,13 @@ Blob 可以區塊或分頁為基礎。Block 區塊可讓您更有效率地上傳
 
 ## 使用共用存取簽章
 
-共用存取簽章 (SAS) 可安全地提供對 Blob 和容器的精確存取，而不必提供您的儲存體帳戶名稱或金鑰。SAS 通常用來提供對資料的有限存取，例如允許行動應用程式存取 Blob。
+共用存取簽章 (SAS) 可安全地提供對 Blob 和容器的精確存取，而不必提供您的儲存體帳戶名稱或金鑰。共用存取簽章通常用來提供對資料的有限存取，例如允許行動應用程式存取 Blob。
 
-> [AZURE.NOTE]雖然您也可以用匿名方式存取 Blob，但 SAS 可讓您提供更受控制的存取，因為您必須產生 SAS。
+> [AZURE.NOTE]雖然您也可以用匿名方式存取 Blob，但共用存取簽章可讓您提供更受控制的存取，因為您必須產生 SAS。
 
-信任的應用程式 (例如雲端型服務) 會使用 **BlobService** 的 **generateSharedAccessSignature** 來產生 SAS，並提供它給不信任或不完全信任的應用程式 (例如行動應用程式)。SAS 是使用原則來產生，該原則描述 SAS 有效期間的開始和結束日期，以及授與 SAS 持有者的存取等級。
+信任的應用程式 (例如雲端型服務) 會使用 **BlobService** 的 **generateSharedAccessSignature** 來產生共用存取簽章，並提供它給不信任或不完全信任的應用程式 (例如行動應用程式)。共用存取簽章是使用原則來產生，該原則描述共用存取簽章有效期間的開始和結束日期，以及授與共用存取簽章持有者的存取等級。
 
-下列程式碼範例會產生新的共用存取原則，讓 SAS 持有者對 **myblob** Blob 執行讀取操作，並於建立它之後的 100 分鐘過期。
+下列程式碼範例會產生新的共用存取原則，讓共用存取簽章持有者對 **myblob** Blob 執行讀取操作，並於建立它之後的 100 分鐘過期。
 
 	var startDate = new Date();
 	var expiryDate = new Date(startDate);
@@ -300,9 +300,9 @@ Blob 可以區塊或分頁為基礎。Block 區塊可讓您更有效率地上傳
 	var blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', 'myblob', sharedAccessPolicy);
 	var host = blobSvc.host;
 
-請注意，也必須提供主機資訊，因為 SAS 持有者嘗試存取容器時需要此資訊。
+請注意，也必須提供主機資訊，因為共用存取簽章持有者嘗試存取容器時需要此資訊。
 
-用戶端應用程式接著以 **BlobServiceWithSAS** 來使用 SAS，對 Blob 執行操作。以下會取得 **myblob** 的相關資訊。
+用戶端應用程式接著以 **BlobServiceWithSAS** 來使用共用存取簽章，對 Blob 執行操作。以下會取得 **myblob** 的相關資訊。
 
 	var sharedBlobSvc = azure.createBlobServiceWithSas(host, blobSAS);
 	sharedBlobSvc.getBlobProperties('mycontainer', 'myblob', function (error, result, response) {
@@ -311,7 +311,7 @@ Blob 可以區塊或分頁為基礎。Block 區塊可讓您更有效率地上傳
 	  }
 	});
 
-因為產生的 SAS 只有讀取權限，若嘗試修改 Blob，則會傳回錯誤。
+由於共用存取簽章是利用唯讀存取權所產生，如果嘗試修改 blob，就會傳回錯誤。
 
 ### 存取控制清單
 
@@ -352,29 +352,30 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
 	  }
 	});
 
-設定 ACL 之後，您可以根據原則的識別碼來建立 SAS。下列程式碼範例會建立 'user2' 的新 SAS：
+設定 ACL 之後，您可以根據原則的識別碼來建立共用存取簽章。下列程式碼範例會為 'user2' 建立新的共用存取簽章：
 
 	blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 
 ## 後續步驟
 
-了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
+如需詳細資訊，請參閱下列資源。
 
--   請參閱 [適用於節點 API 之 Azure 儲存體 SDK 的參考資料][]
--   請參閱 MSDN 參考資料：[在 Azure 中儲存和存取資料][]。
--   造訪 [Azure 儲存體團隊部落格][] (英文)。
--   請造訪 GitHub 上的 [Azure Storage SDK for Node][] 儲存機制 (英文)。
+-   [Azure Storage SDK for Node API 參考][]
+-   MSDN 參考資料：[儲存和存取在 Azure 中的資料][]
+-   [Azure 儲存體團隊部落格][]
+-   GitHub 上的 [Azure Storage SDK for Node][] 儲存機制
+-   [Node.js 開發人員中心](/develop/nodejs/)
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
-[建立 Node.js 應用程式並將其部署到 Azure 網站]: /develop/nodejs/tutorials/create-a-website-(mac)/
+[Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
 [使用儲存體的 Node.js Web 應用程式]: ../storage-nodejs-use-table-storage-web-site.md
-[使用 WebMatrix 的網站]: ../web-sites-nodejs-use-webmatrix.md
-[using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure Management Portal]: http://manage.windowsazure.com
+[使用 WebMatrix 的 Web 應用程式]: ../web-sites-nodejs-use-webmatrix.md
+[Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+[Azure portal]: http://manage.windowsazure.com
 [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-[在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[儲存和存取在 Azure 中的資料]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
-[適用於節點 API 之 Azure 儲存體 SDK 的參考資料]: http://dl.windowsazure.com/nodestoragedocs/index.html
+[Azure Storage SDK for Node API 參考]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

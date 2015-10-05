@@ -1,20 +1,20 @@
 <properties
    pageTitle="Service Fabric Reliable Actor 的 'ReliableDictionaryActortateProvider' 組態概觀"
-	description="深入了解設定 'ReliableDictionaryActortateProvider' 類型的 Service Fabric 可設定狀態的動作項目"
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="sumukhs"
-	manager="anuragg"
-	editor=""/>
+   description="深入了解設定 'ReliableDictionaryActortateProvider' 類型的 Service Fabric 可設定狀態的動作項目"
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="sumukhs"
+   manager="anuragg"
+   editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="sumukhs"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="sumukhs"/>
 
 # 設定可靠動作項目 - ReliableDictionaryActortateProvider
 您可以變更 Visual Studio 封裝根目錄在 [Config] 資料夾下為指定動作項目產生的「settings.xml」檔案，來修改 ReliableDictionaryActortateProvider 的預設組態。
@@ -27,8 +27,6 @@ Service-Fabric 執行階段會查尋 "settings.xml" 檔案中預先定義的區�
 複寫器安全性組態用來保護在複寫期間使用的通訊通道。這表示服務將無法看到彼此的複寫流量，並且也會確保高度可用資料的安全。依預設，空白的安全性組態區段不會啟用複寫安全性。
 ### 區段名稱
 & l t;ActorName & g t;ServiceReplicatorSecurityConfig
-### 組態名稱
-請參閱＜[複寫安全性](../service-fabric/service-fabric-replication-security.md)＞
 
 ## 複寫器組態
 複寫器組態用來設定複寫器，並負責將狀態複寫和保存至本機，讓動作項目狀態提供者變得高度可靠。預設組態由 Visual Studio 範本產生，且應已足夠使用。本節說明可用於微調複寫器的其他組態。
@@ -86,6 +84,5 @@ OptimizeForLocalSSD 設定用來停用狀態資訊先寫入共用記錄檔，才
 MaxRecordSizeInKB 定義複寫器可以寫入記錄檔的記錄大小上限。在大部分情況下，預設的 1024 KB 記錄大小是最佳作法，不過如果服務造成更大的資料項目成為狀態資訊的一部分，則可能需要增加此值。讓 MaxRecordSizeInKB 小於 1024 的好處不大，因為較小的記錄只會使用需要較小記錄的空間。預期只會在極少數的情況下需要變更。
 
 SharedLogId 和 SharedLogPath 設定永遠會一起使用，並允許服務使用與節點預設共用記錄檔不同的共用記錄檔。如需最佳效率，請儘可能讓所有服務指定相同的共用記錄檔。共用記錄檔應該放在共用記錄檔專用的磁碟上，以減少磁頭移動爭用情形。預期只會在極少數的情況下需要變更。
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

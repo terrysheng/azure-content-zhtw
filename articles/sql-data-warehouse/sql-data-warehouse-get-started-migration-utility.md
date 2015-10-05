@@ -1,20 +1,20 @@
 <properties
    pageTitle="移轉：資料倉儲移轉公用程式 | Microsoft Azure"
-	description="移轉至 SQL 資料倉儲。"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""/>
+   description="移轉至 SQL 資料倉儲。"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="08/13/2015"
-	ms.author="lodipalm"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="lodipalm"/>
 
 
 #資料倉儲移轉公用程式 (預覽)
@@ -57,4 +57,4 @@
 [開發]: https://azure.microsoft.com/zh-TW/documentation/articles/sql-data-warehouse-overview-develop/
 [這裡]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

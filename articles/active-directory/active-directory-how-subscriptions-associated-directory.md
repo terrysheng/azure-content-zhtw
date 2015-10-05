@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Azure 訂閱如何與 Azure AD 產生關聯"
+	pageTitle="Azure 訂用帳戶如何與 Azure AD 產生關聯 | Microsoft Azure"
 	description="有關登入 Microsoft Azure 及相關問題的主題，例如 Azure 訂用帳戶與 Azure AD 之間的關係。"
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/14/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Azure 訂閱如何與 Azure AD 產生關聯
@@ -67,7 +67,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 使用者可以同時擔任這兩個角色，但這並非必要。使用者可以被指派目錄全域管理員角色，但不可被指派為 Azure 訂用帳戶的服務管理員或共同管理員。若不是訂用帳戶的管理員，這位使用者便無法登入管理入口網站。但是使用者可以使用其他工具 (例如 Azure AD PowerShell 或 Office 365 系統管理中心) 來執行目錄管理工作。
 
-### 為什麼我無法使用目前的使用者帳戶來管理目錄？
+## 為什麼我無法使用目前的使用者帳戶來管理目錄？
 
 有時候，使用者可能會在註冊 Azure 訂用帳戶之前，嘗試使用工作或學校帳戶來登入管理入口網站。在此情況下，使用者會收到該帳戶沒有訂用帳戶的訊息。此訊息將包含可開始免費試用訂用帳戶的連結。
 
@@ -124,4 +124,4 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

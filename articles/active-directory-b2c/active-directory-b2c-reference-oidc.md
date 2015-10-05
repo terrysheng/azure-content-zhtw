@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 預覽：使用 OpenID Connect 的 Web 登入
@@ -345,4 +345,4 @@ image goes here
 
 -->
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

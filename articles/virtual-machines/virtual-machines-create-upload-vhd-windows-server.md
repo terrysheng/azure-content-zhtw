@@ -1,6 +1,6 @@
 <properties
-	pageTitle="建立並上傳 Windows Server VHD 到 Azure"
-	description="了解在已安裝 Windows Server 作業系統的 Azure 中建立並上傳虛擬硬碟 (VHD)。"
+	pageTitle="使用 Powershell 建立並上傳 Windows Server VHD 到 Azure"
+	description="了解如何使用傳統部署模型和 Azure Powershell 建立及上傳 Windows Server 架構的虛擬硬碟 (VHD)。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -198,4 +198,4 @@
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="如何變更 Windows 暫存磁碟的磁碟機代號"
-	description="描述如何在 Azure 重新對應 Windows VM 上的暫存磁碟"
+	pageTitle="變更暫存磁碟的磁碟機代號 | Microsoft Azure"
+	description="變更隨傳統部署模型建立的 Windows 虛擬機器上的暫存磁碟的磁碟機代號"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn
@@ -18,7 +18,9 @@
 	ms.date="05/27/2015"
 	ms.author="cynthn"/>
 
-#如何變更 Windows 暫存磁碟的磁碟機代號
+#變更隨傳統部署模型建立的虛擬機器上的 Windows 暫存磁碟的磁碟機代號
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
 
 如果您需要使用 D 磁碟機來儲存資料，請遵循下列指示，使用不同的磁碟機作為暫存磁碟。切勿使用暫存磁碟儲存需要保留的資料。
 
@@ -26,7 +28,9 @@
 
 如果您要使用 D 磁碟機現有的資料磁碟，請確定已將 VHD 上傳至儲存體帳戶。如需指示，請參閱[建立 Windows Server VHD 並上傳至 Azure][VHD] 中的步驟 3 和 4。
 
-> [AZURE.WARNING]如果您調整虛擬機器大小，並將虛擬機器移至不同的主機，則暫存磁碟將變更回 D 磁碟機。
+> [AZURE.WARNING]如果您調整虛擬機器大小或「停止 (取消配置)」虛擬機器，這可能會導致虛擬機器被放置到新的 Hypervisor。已規劃或未規劃的維護事件也可能會觸發這個放置動作。在此案例中，暫存磁碟會重新指派給第一個可用的磁碟機代號。如果您的應用程式特別需要 "D" 磁碟機，請務必在移動分頁檔之後指派一個新的永久性磁碟並為它指派代號 D。Azure 不會收回代號 D。
+
+> [AZURE.WARNING]如果您在明確地移動分頁檔之後調整虛擬機器大小，請注意，如果新的虛擬機器的暫存磁碟大小不足以包含原始 VM 大小的分頁檔，則開機時可能會發生錯誤。當 Azure 以下一個可用的磁碟機代號建立暫存磁碟機時，如果暫存磁碟機未設為下一個可用的磁碟機代號，導致 Windows 參照分頁檔設定中無效的磁碟機代號，也可能會發生這個錯誤。
 
 ##變更磁碟機代號
 
@@ -45,6 +49,10 @@
 7.	確認 E 已對應至暫存磁碟。
 
 8.	將 pagefile.sys 從其他磁碟機移至 E 磁碟機。
+
+9.	重新啟動虛擬機器。
+
+
 
 ## 其他資源
 [如何登入執行 Windows Server 的虛擬機器][Logon]
@@ -66,4 +74,4 @@
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

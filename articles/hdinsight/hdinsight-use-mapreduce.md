@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 # 在 HDInsight 上的 Hadoop 中使用 MapReduce
@@ -193,4 +193,4 @@ HDInsight 可以使用各種方法執行 HiveQL 工作。請使用下表決定�
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

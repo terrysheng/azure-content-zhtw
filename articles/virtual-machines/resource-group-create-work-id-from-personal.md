@@ -1,24 +1,28 @@
 <properties
-   pageTitle="在 Azure Active Directory 中建立工作或學校身分識別"
-	description="說明如何使用您的個人身分識別建立工作或學校身分識別，以搭配資源群組範本或以角色為基礎的存取等其他功能使用。"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor=""/>
+   pageTitle="在 AAD 中建立工作或學校身分識別 | Microsoft Azure"
+   description="了解如何在 Azure Active Directory 中建立工作或學校身分識別，以搭配使用資源管理員和傳統部署模型。"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="squillace"
+   manager="timlt"
+   editor=""
+   tags="azure-service-management,azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure"
-	ms.date="09/01/2015"
-	ms.author="rasquill"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure"
+   ms.date="09/01/2015"
+   ms.author="rasquill"/>
 
 # 在 Azure Active Directory 中建立工作或學校身分識別
 
 如果您已建立個人的 Azure 帳戶，或有個人的 MSDN 訂用帳戶，並已建立 Azure 帳戶來運用 MSDN Azure 點數 -- 您已使用 *Microsoft 帳戶*身分識別建立。Azure 有許多很棒的功能 -- 例如[資源群組範本](../resource-group-overview.md) -- 需要工作或學校帳戶 (由 Azure Active Directory 管理的身分識別) 才能運作。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括同時以資源管理員部署模型及傳統部署模型，建立所需的 AAD 身分識別。
+
 
 幸運的是，預設的 Azure Active Directory 網域會提供您個人的 Azure 帳戶，讓您可以用來建立新的工作或學校帳戶，以搭配需要這類帳戶使用的 Azure 功能。
 
@@ -52,9 +56,9 @@
 
 ![](./media/resource-group-create-work-id-from-personal/defaultdirectoryuserslisting.png)
 
-我們將在接下來的步驟中依照[這些指示](https://technet.microsoft.com/library/hh967632.aspx#BKMK_1)執行，但會使用特定的範例。
+我們將在接下來的步驟中依照[這些指示](https://technet.microsoft.com/library/hh967632.aspx#BKMK_1)進行，但會使用特定的範例。
 
-按一下頁面底端的 [**+新增使用者**]。在出現的頁面中，輸入新的使用者名稱，並讓 [使用者類型] 成為 [您組織中的新使用者]。在此範例中，使用者名稱為 `ahmet`。選取您先前找到的預設網域，以做為 ahmet 電子郵件地址的網域。完成時按一下 [下一步] 箭頭。
+按一下頁面底端的 [**+新增使用者**]。在出現的頁面中，輸入新的使用者名稱，並將 [使用者類型] 設為 [您組織中的新使用者]。在此範例中，使用者名稱為 `ahmet`。選取您先前找到的預設網域，以做為 ahmet 電子郵件地址的網域。完成時按一下 [下一步] 箭頭。
 
 ![](./media/resource-group-create-work-id-from-personal/addingauserwithdirectorydropdown.png)
 
@@ -109,7 +113,7 @@
 
 ## 後續步驟
 
-您現在可以使用新的 Azure Active Directory 身分識別，來使用 [Azure 資源群組範本](xplat-cli-azure-resource-manager.md)。
+您現在可以使用新的 Azure Active Directory 身分識別來使用 [Azure 資源群組範本](xplat-cli-azure-resource-manager.md)。
 
      azure login
     info:    Executing command login
@@ -140,4 +144,4 @@
     data:
     info:    group create command OK
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,11 +1,12 @@
 <properties
-	pageTitle="搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理 | Microsoft Azure"
-	description="了解如何使用適用於 Mac、Linux 和 Windows 的 Azure CLI，以便使用 Azure CLI arm 模式來管理 Azure 資源。"
+	pageTitle="使用 Azure CLI 搭配資源管理員 | Microsoft Azure"
+	description="了解如何使用適用於 Mac、Linux 和 Windows 的 Azure CLI，藉由資源管理員部署模式來管理 Azure 資源。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-mangaer"/>
 
 <tags
 	ms.service="multiple"
@@ -16,7 +17,10 @@
 	ms.date="06/09/2015"
 	ms.author="danlep"/>
 
-# 使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 資源管理
+# 搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理員
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文內容涵蓋以資源管理員部署模型建立資源。您也可以使用[傳統部署模型](virtual-machines-command-line-tools.md)建立資源。
+
 
 本主題描述如何使用 **arm** 模式中的 Azure 命令列介面 (Azure CLI)，在 Mac、Linux 和 Windows 電腦的命令列上建立、管理和刪除服務。您可以使用 Azure SDK 的各種程式庫、透過 PowerShell，以及使用 Azure 入口網站來執行相同的工作。
 
@@ -24,7 +28,7 @@ Azure 資源管理可讓您建立資源群組，包含虛擬機器、網站、�
 
 ## 命令式和宣告式方法
 
-如同[服務管理模式 (**asm**)](../virtual-machines-command-line-tools.md)，Azure CLI 的 **arm** 模式可讓您在命令列以命令方式建立資源。例如，若您輸入 `azure group create <groupname> <location>` 表示要求 Azure 建立資源群組，若輸入 `azure group deployment create <resourcegroup> <deploymentname>` 表示指示 Azure 建立任意數目的項目部署，並將其放在群組中。因為每一種資源類型皆具有命令式指令，您可以將他們鏈結在一起以建立相當複雜的部署。
+如同 [服務管理模式 (**asm**)](../virtual-machines-command-line-tools.md)，Azure CLI 的 **arm** 模式提供的命令可讓您在命令列以命令方式建立資源。例如，若您輸入 `azure group create <groupname> <location>` 表示要求 Azure 建立資源群組，若輸入 `azure group deployment create <resourcegroup> <deploymentname>` 表示指示 Azure 建立任意數目的項目部署，並將其放在群組中。因為每一種資源類型皆具有命令式指令，您可以將他們鏈結在一起以建立相當複雜的部署。
 
 不過，使用說明資源群組是以更強大宣告式方法所建立的資源群組_範本_時，可讓您基於 (幾乎) 任何用途自動進行 (幾乎) 任意資源數目的複雜部署。使用範本時，唯一的命令式指令是進行部署。如需範本、資源及資源群組的一般概觀，請參閱＜[Azure 資源群組概觀](resource-groups-overview)＞。
 
@@ -1735,6 +1739,5 @@ Azure 資源管理可讓您建立資源群組，包含虛擬機器、網站、�
 	vm image list-offers [options] <location> <publisher>
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

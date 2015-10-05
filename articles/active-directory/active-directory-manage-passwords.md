@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # 在 Azure AD 中管理密碼
@@ -48,4 +48,4 @@
 - [在 Azure AD 中建立或編輯使用者](active-directory-create-users.md)
 - [在 Azure AD 中管理群組](active-directory-manage-groups.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="從 Azure Blob 來回移動資料 | Azure Data Factory"
-	description="了解如何使用 Azure Data Factory 從 Azure Blob 儲存體來回移動資料"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="從 Azure Blob 來回移動資料 | Azure Data Factory" 
+	description="了解如何使用 Azure Data Factory 從 Azure Blob 儲存體來回移動資料" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從 Azure Blob 來回移動資料
@@ -472,6 +472,7 @@
 | -------- | ----------- | -------------- | -------- | 
 | treatEmptyAsNull | 指定是否將 null 或空字串視為 null 值。 | TRUE<br/>FALSE | 否 |
 | skipHeaderLineCount | 指出需要略過多少行。僅適用於輸入資料集使用 **TextFormat** 時。 | 0 與最大值之間的整數。 | 否 | 
+| 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 | True (預設值)、False | 否 | 
 
 
 **BlobSink** 在 **typeProperties** 區段中支援下列屬性：
@@ -479,6 +480,8 @@
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- |
 | blobWriterAddHeader | 指定是否要加入資料行定義的標頭。 | TRUE<br/>FALSE (預設值) | 否 |
+| copyBehavior | 當來源為 BlobSource 或 FileSystem 時，定義複製行為。 | <p>有三種可能的 copyBehavior 屬性值。</p><ul><li>**PreserveHierarchy：**在目標資料夾中保留檔案的階層架構，亦即來源檔案和來源資料夾的相對路徑，與目標檔案和目標資料夾的相對路徑完全相同。</li><li>**FlattenHierarchy：**來源資料夾的所有檔案都會在目標資料夾的第一層中。目標檔案都會有自動產生的名稱。</li><li>**MergeFiles：**會將來源資料夾的所有檔案合併到一個檔案。如果已指定檔案/Blob 名稱，合併檔案名稱會是指定的名稱；否則，就會是自動產生的檔案名稱。</li></ul> | 否 |
+
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -492,4 +495,4 @@
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md)提交您的意見反應。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,27 +1,38 @@
 <properties
    pageTitle="建立、啟動或刪除應用程式閘道 | Microsoft Azure"
-	description="本頁面提供建立、設定、啟動和刪除 Azure 應用程式閘道的指示。"
-	documentationCenter="na"
-	services="application-gateway"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="本頁面提供建立、設定、啟動和刪除 Azure 應用程式閘道的指示。"
+   documentationCenter="na"
+   services="application-gateway"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn"/>
 <tags
    ms.service="application-gateway"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/29/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/21/2015"
+   ms.author="joaoma"/>
 
 # 建立、啟動或刪除應用程式閘道
 
-在此版本中，您可以使用 PowerShell 或 REST API 呼叫來建立應用程式閘道。即將推出的版本將提供 Azure 入口網站和 CLI 支援。本文將逐步引導您完成建立和設定、啟動及刪除應用程式閘道的步驟。
+應用程式閘道是第 7 層負載平衡器。它提供在不同伺服器之間進行容錯移轉、效能路由傳送 HTTP 要求，而不論它們是在雲端或內部部署中。應用程式閘道具有下列應用程式傳遞功能：HTTP 負載平衡、以 Cookie 為基礎的工作階段同質性、SSL 卸載。
 
 > [AZURE.SELECTOR]
-- [Azure classic steps](application-gateway-create-gateway.md)
-- [Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
+- [Azure Classic Powershell steps](application-gateway-create-gateway.md)
+- [Azure Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
+- [Azure Resource Manager template steps](application-gateway-create-gateway-arm-template.md)
+
+
+<BR>
+
+本文將逐步引導您完成建立和設定、啟動及刪除應用程式閘道的步驟。
+
+
+>[AZURE.IMPORTANT]使用 Azure 資源之前，請務必了解 Azure 目前有「資源管理員」和「傳統」兩種部署模型。使用任何 Azure 資源之前，請先確認您了解[部署模型和工具](azure-classic-rm.md)。您可以按一下本文頂端的索引標籤，檢視不同工具的文件。本文件將說明使用 Azure 傳統部署建立應用程式閘道的方式。若要使用資源管理員版本，請移至[使用資源管理員建立應用程式閘道部署](application-gateway-create-gateway-arm.md)。
+
+
 
 
 
@@ -34,7 +45,7 @@
 ## 建立應用程式閘道需要什麼？
 
 
-當您使用 **New-AzureApplicationGateway** 命令來建立應用程式閘道時不需要進行任何設定，而且新建立的資源將必須使用 XML 或設定物件來設定。
+當您使用 **New-AzureApplicationGateway** 命令來建立應用程式閘道時，不需進行任何設定，而且必須使用 XML 或設定物件來設定新建立的資源。
 
 
 值如下：
@@ -43,7 +54,7 @@
 - **後端伺服器集區設定：**每個集區都有一些設定，例如連接埠、通訊協定和以 Cookie 為基礎的同質性。這些設定會繫結至集區，並套用至集區內所有伺服器。
 - **前端連接埠：**此連接埠是在應用程式閘道上開啟的公用連接埠。流量會達到此連接埠，然後重新導向至其中一個後端伺服器。
 - **接聽程式：**接聽程式具有前端連接埠、通訊協定 (Http 或 Https，都區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。
-- **規則：**規則會繫結接聽程式和後端伺服器集區，並定義流量達到特定接聽程式時應該重新導向至哪個後端伺服器集區。目前只支援「基本」規則。「基本」規則是循環配置資源的負載分散。
+- **規則：**規則會繫結接聽程式和後端伺服器集區，並定義流量達到特定接聽程式時應該導向至哪一個後端伺服器集區。目前只支援「基本」規則。「基本」規則是循環配置資源的負載分散。
 
 
 
@@ -57,7 +68,7 @@
 
 ### 建立應用程式閘道資源
 
-若要建立閘道，請使用 `New-AzureApplicationGateway` Cmdlet，並以您的值來取代其中的值。請注意，此時不會開始為閘道計費。會在稍後的步驟中於成功啟動閘道之後開始計費。
+若要建立閘道，請使用 `New-AzureApplicationGateway` Cmdlet，並以您自己的值來取代這些值。請注意，此時不會開始為閘道計費。會在稍後的步驟中於成功啟動閘道之後開始計費。
 
 下列範例會使用虛擬網路 (稱為 "testvnet1") 與子網路 (稱為 "subnet-1") 來建立新的應用程式閘道。
 
@@ -74,7 +85,7 @@
  *Description*、*InstanceCount* 和 *GatewaySize* 為選用參數。
 
 
-**若要驗證**已建立閘道器，您可以使用 `Get-AzureApplicationGateway` Cmdlet。
+**若要驗證**閘道已建立，您可以使用 `Get-AzureApplicationGateway` Cmdlet。
 
 
 
@@ -93,7 +104,7 @@
 >[AZURE.NOTE]*InstanceCount* 的預設值是 2，最大值是 10。*GatewaySize* 的預設值是 Medium。您可以選擇 Small、Medium 和 Large。
 
 
- 因為尚未啟動閘道器，所以 *Vip* 和 *DnsName* 會顯示為空白。閘道處於執行中狀態之後，將會建立這些項目。
+ 因為尚未啟動閘道，所以 *Vip* 和 *DnsName* 會顯示為空白。閘道處於執行中狀態之後，將會建立這些項目。
 
 ## 設定應用程式閘道
 
@@ -205,7 +216,7 @@
 
 ### 步驟 2
 
-接下來，您將設定應用程式閘道。您會使用 `Set-AzureApplicationGatewayConfig` Cmdlet 搭配組態 XML 檔案。
+接下來，您將設定應用程式閘道。您將使用 `Set-AzureApplicationGatewayConfig` Cmdlet 搭配組態 XML 檔案。
 
 
 	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
@@ -218,7 +229,7 @@
 
 ## 使用設定物件設定應用程式閘道
 
-下列範例示範如何使用設定物件來設定應用程式閘道。所有的設定項目都必須個別設定，然後再加入至應用程式閘道設定物件。建立設定物件之後，您會使用 `Set-AzureApplicationGateway` 命令，將設定認可到先前建立的應用程式閘道器資源。
+下列範例示範如何使用設定物件來設定應用程式閘道。所有的設定項目都必須個別設定，然後再加入至應用程式閘道設定物件。建立組態物件之後，您將會使用 `Set-AzureApplicationGateway` 命令，將組態認可到先前建立的應用程式閘道資源。
 
 >[AZURE.NOTE]在將值指派到各個設定物件之前，您必須宣告 PowerShell 要用來儲存的物件種類。用來建立個別項目的第一行會定義將使用哪些 Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(物件名稱)。
 
@@ -317,13 +328,13 @@
 
 ### 步驟 3
 
-使用 `Set-AzureApplicationGatewayConfig`，將設定物件認可到應用程式閘道資源。
+使用 `Set-AzureApplicationGatewayConfig`，將組態物件認可到應用程式閘道資源。
 
 	Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 
 ## 啟動閘道
 
-閘道設定完成之後，使用 `Start-AzureApplicationGateway` Cmdlet 來啟動閘道。成功啟動閘道之後，會開始應用程式閘道計費。
+閘道設定完成後，使用 `Start-AzureApplicationGateway` Cmdlet 啟動閘道。成功啟動閘道之後，會開始應用程式閘道計費。
 
 
 > [AZURE.NOTE]`Start-AzureApplicationGateway` Cmdlet 最多可能需要 15 到 20 分鐘才能完成。
@@ -340,9 +351,9 @@
 
 ## 確認閘道狀態
 
-使用 `Get-AzureApplicationGateway` Cmdlet 來檢查閘道狀態。如果 *Start-AzureApplicationGateway* 在上一個步驟中成功，則狀態應該是 [執行中]，而且 Vip 和 DnsName 應具備有效項目。
+使用 `Get-AzureApplicationGateway` Cmdlet 檢查閘道狀態。如果 *Start-AzureApplicationGateway* 在上一個步驟成功，則狀態應該為「執行中」，且 Vip 和 DnsName 應該具備有效的項目。
 
-下列範例示範已啟動、執行中且準備好將流量傳送到 `http://<generated-dns-name>.cloudapp.net` 的應用程式閘道。
+下列範例示範已啟動、正在執行且準備好將流量傳送到 `http://<generated-dns-name>.cloudapp.net` 的應用程式閘道。
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
 
@@ -363,9 +374,9 @@
 
 刪除應用程式閘道：
 
-1. 使用 `Stop-AzureApplicationGateway` Cmdlet 來停止閘道。
-2. 使用 `Remove-AzureApplicationGateway` Cmdlet 來移除閘道。
-3. 使用 `Get-AzureApplicationGateway` Cmdlet 來確認已移除閘道。
+1. 使用 `Stop-AzureApplicationGateway` Cmdlet 停止閘道。
+2. 使用 `Remove-AzureApplicationGateway` Cmdlet 移除閘道。
+3. 使用 `Get-AzureApplicationGateway` Cmdlet 確認已移除閘道。
 
 下列範例會在第一行顯示 `Stop-AzureApplicationGateway` Cmdlet，後面接著輸出。
 
@@ -377,7 +388,7 @@
 	----       ----------------     ------------                             ----
 	Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 
-一旦應用程式閘道處於 [已停止] 狀態之後，使用 `Remove-AzureApplicationGateway` Cmdlet 來移除服務。
+應用程式閘道處於「已停止」狀態之後，請使用 `Remove-AzureApplicationGateway` Cmdlet 移除服務。
 
 
 	PS C:\> Remove-AzureApplicationGateway AppGwTest
@@ -388,7 +399,7 @@
 	----       ----------------     ------------                             ----
 	Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
-若要確認已移除服務，可以使用 `Get-AzureApplicationGateway` Cmdlet。這不是必要步驟。
+若要確認已移除服務，您可以使用 `Get-AzureApplicationGateway` Cmdlet。這不是必要步驟。
 
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
@@ -400,13 +411,13 @@
 
 ## 後續步驟
 
-如果您想要設定 SSL 卸載，請參閱〈[設定應用程式閘道器以進行 SSL 卸載](application-gateway-ssl.md)〉。
+如果您想要設定 SSL 卸載，請參閱[設定應用程式閘道以進行 SSL 卸載](application-gateway-ssl.md)。
 
-如果您想要將應用程式閘道設為與 ILB 搭配使用，請參閱[建立搭配內部負載平衡器 (ILB) 的應用程式閘道](application-gateway-ilb.md)。
+如果您想要將應用程式閘道設為與 ILB 搭配使用，請參閱[建立具有內部負載平衡器 (ILB) 的應用程式閘道](application-gateway-ilb.md)。
 
 如果您想進一步了解一般負載平衡選項，請參閱：
 
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

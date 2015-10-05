@@ -1,20 +1,20 @@
 <properties
    pageTitle="使用 Apache Storm 和 HBase 分析感應器資料 | Microsoft Azure"
-	description="了解如何透過虛擬網路連線至 Apache Storm。搭配使用 Storm 和 HBase 來處理事件中樞的感應器資料，並使用 D3.js 將其視覺化呈現。"
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"/>
+   description="了解如何透過虛擬網路連線至 Apache Storm。搭配使用 Storm 和 HBase 來處理事件中樞的感應器資料，並使用 D3.js 將其視覺化呈現。"
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="07/06/2015"
-	ms.author="larryfr"/>
+   ms.devlang="java"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="09/23/2015"
+   ms.author="larryfr"/>
 
 # 在 HDInsight (Hadoop) 中使用 Apache Storm、事件中樞和 HBase 分析感應器資料
 
@@ -420,4 +420,4 @@
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

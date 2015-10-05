@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Site Recovery 網路對應"
+	pageTitle="Azure Site Recovery 網路對應 | Microsoft Azure"
 	description="Azure Site Recovery 可將內部部署上虛擬機器和實體伺服器的複寫、容錯移轉及復原協調至 Azure 或次要內部部署站台。"
 	services="site-recovery"
 	documentationCenter=""
@@ -17,10 +17,10 @@
 	ms.author="raynew"/>
 
 
-# Site Recovery 網路對應
+# Azure Site Recovery 網路對應
 
 
-Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容錯移轉及復原，為您的商務持續性與災害復原做出貢獻。了解 [Site Recovery 概觀](site-recovery-overview.md)中可能的部署案例。
+Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容錯移轉及復原，為您的商務持續性與嚴重損壞修復 (BCDR) 策略做出貢獻。了解 [Site Recovery 概觀](site-recovery-overview.md)中可能的部署案例。
 
 
 ## 本文內容
@@ -45,11 +45,11 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 - **內部部署 VMM 伺服器至 Azure** — 網路對應會對應來源 VMM 伺服器上的 VM 網路與目標 VMM 伺服器上的 VM 網路，以便：
 	- **在容錯移轉之後連線虛擬機器** — 在相同網路上容錯移轉的所有機器都可以彼此連線，無論它們隸屬於哪個復原計畫都一樣。
 	- **網路閘道** — 如果目標 Azure 網路上已設定網路閘道，則虛擬機器可以連線到其他內部部署虛擬機器。
-	- **無網路對應** — 如果您未設定網路對應，則只有在相同復原計畫中容錯移轉的虛擬機器才能在容錯移轉到 Azure 之後彼此連線。
+	- **無網路對應** — 如果您未設定網路對應，則只有在相同復原計畫中容錯移轉的虛擬機器，才能在容錯移轉到 Azure 之後彼此連線。
 
 ## VM 網路
 
-VMM 邏輯網路提供實體網路基礎結構的抽象檢視。VM 網路提供網路介面，讓虛擬機器可以連線到邏輯網路。邏輯網路至少需要一個 VM 網路。當您將虛擬機器放在雲端中保護時，必須連線至連結到與雲端相關聯的邏輯網路的 VM 網路。深入了解：
+VMM 邏輯網路提供實體網路基礎結構的抽象檢視。VM 網路提供網路介面，讓虛擬機器可以連線到邏輯網路。邏輯網路至少需要一個 VM 網路。當您將虛擬機器放在雲端中保護時，必須連線至 VM 網路，且此網路已連結到與雲端相關聯的邏輯網路。深入了解：
 
 - [邏輯網路 (第 1 部分)](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx)
 - [VMM 2012 SP1 中的虛擬網路](http://blogs.technet.com/b/scvmm/archive/2013/01/08/virtual-networking-in-vmm-2012-sp1.aspx)
@@ -108,7 +108,7 @@ VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | 尚未提供
 
 ## 多重子網路
 
-如果目標網路具有多個子網路，且其中一個子網路的名稱和來源虛擬機器所在之子網路名稱相同，複本虛擬機器將會在容錯移轉之後連線到該目標子網路。如果沒有目標子網路具有相符的名稱，虛擬機器將會連線到網路中的第一個子網路。
+如果目標網路具有多個子網路，且其中一個子網路的名稱和來源虛擬機器所在的子網路名稱相同，則複本虛擬機器將會在容錯移轉之後連線到該目標子網路。如果沒有目標子網路具有相符的名稱，虛擬機器將會連線到網路中的第一個子網路。
 
 
 ### 容錯回復
@@ -121,19 +121,18 @@ VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | 尚未提供
 VM1 | VMNetwork1-Network
 VM2 (VM1 的複本) | VMNetwork1-Chicago
 
-讓我們使用這些設定檢閱幾個可能的案例中發生的情況。
+讓我們使用這些設定，檢閱幾個可能的案例中發生的情況。
 
 **案例** | **結果**
 ---|---
-在容錯移轉之後，VM-2 的網路內容沒有變更 | VM 1 仍然連線至來源網路。
-在容錯移轉並中斷連線之後，VM-2 的網路內容變更 | VM-1 已中斷連線
-在容錯移轉並連線至 VMNetwork2-Chicago 之後，VM-2 的網路內容變更 | 如果未對應 VMNetwork2-Chicago，將會中斷 VM-1 連線
-VMNetwork1-Chicago 的網路對應已變更 | VM-1 現在將會連線到對應至 VMNetwork1-Chicago 的網路
+在容錯移轉之後，VM-2 的網路屬性沒有變更。 | VM 1 仍然連線至來源網路。
+在容錯移轉並中斷連線之後，VM-2 的網路屬性有所變更。 | VM-1 已中斷連線。
+在容錯移轉並連線至 VMNetwork2-Chicago 之後，VM-2 的網路屬性有所變更。 | 如果未對應 VMNetwork2-Chicago，將會中斷 VM-1 連線。
+VMNetwork1-Chicago 的網路對應已變更。 | VM-1 現在會連線到對應至 VMNetwork1-Chicago 的網路。
 
 
 ## 後續步驟
 
-既然您已經更了解網路對應，請開始讀取[最佳作法](site-recovery-best-practices.md)以準備部署。
- 
+既然您已經更了解網路對應，請開始閱讀[最佳作法](site-recovery-best-practices.md)以準備部署。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

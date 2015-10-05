@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/24/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 #在 HDInsight 中使用 .NET SDK for Hadoop 執行 Pig 工作
@@ -43,7 +43,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 如需如何執行這項作業的指示，請參閱[建立自我簽署憑證](http://go.microsoft.com/fwlink/?LinkId=511138)。
 
-> [AZURE.NOTE]建立憑證時，請一定要記下您使用的易記名稱，供稍後使用。
+> [AZURE.NOTE] 建立憑證時，請一定要記下您使用的易記名稱，供稍後使用。
 
 ##<a id="subscriptionid"></a>尋找訂閱識別碼
 
@@ -235,4 +235,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

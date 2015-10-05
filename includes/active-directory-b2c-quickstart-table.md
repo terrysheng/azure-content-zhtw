@@ -5,6 +5,6 @@
 | 在 Windows 通用 App 中加入註冊和登入 (即將推出) | [在 Node JS Web App 中加入註冊和登入](active-directory-b2c-devquickstarts-web-node.md) | [使用 OpenID Connect 的 Web Apps](active-directory-b2c-reference-oidc.md) |
 | 在 Windows 桌面 App 中加入註冊和登入 (即將推出) | [保護 .NET Web API](active-directory-b2c-devquickstarts-api-dotnet.md) | 使用 OpenID Connect 的單一頁面應用程式 (即將推出)
 | | [保護 NodeJS Web API](active-directory-b2c-devquickstarts-api-node.md) | 伺服器端精靈 (即將推出) |
-| | [從 .NET Web App 呼叫 Web API](active-directory-b2c-web-api-dotnet.md) | 伺服器端精靈 (即將推出) |
+| | [從 .NET Web App 呼叫 Web API](active-directory-b2c-devquickstarts-web-api-dotnet.md) | 伺服器端精靈 (即將推出) |
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

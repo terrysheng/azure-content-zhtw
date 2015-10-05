@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用 Java 的資料表儲存體 | Microsoft Azure"
-	description="如何在 Azure 中使用資料表儲存體服務。程式碼範例以 Java 程式碼撰寫。"
-	services="storage"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="如何使用 Java 的資料表儲存體 | Microsoft Azure" 
+	description="如何在 Azure 中使用資料表儲存體服務。程式碼範例以 Java 程式碼撰寫。" 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 
@@ -552,6 +552,9 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 - [Azure 儲存體 REST API][]
 - [Azure 儲存體團隊部落格][]
 
+如需詳細資訊，也請參閱 [Java 開發人員中心](/develop/java/)。
+
+
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
@@ -561,4 +564,4 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 [部落格文章]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="StorSimple 系統需求 | Microsoft Azure"
-	description="描述系統需求和 Azure StorSimple 解決方案的軟體、高可用性及網路最佳作法。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   pageTitle="StorSimple 系統需求 | Microsoft Azure" 
+   description="描述系統需求和 Azure StorSimple 解決方案的軟體、高可用性及網路最佳作法。" 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="alkohli" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/21/2015"
+   ms.author="alkohli"/>
 
 # StorSimple 軟體、高可用性和網路需求
 
@@ -154,7 +154,8 @@ StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和�
 | UDP 123 (NTP) | 外 | WAN | 在某些情況下，請參閱附註。 |只有當您使用網際網路 NTP 伺服器時，才需要此連接埠。 |
 | TCP 9354 | 外 | WAN | 在某些情況下，請參閱附註。 |StorSimple Manager 服務使用輸出連接埠與裝置通訊。如果您目前的網路不支援使用 HTTP 1.1 來連線到網際網路，則需要此連接埠；例如，如果您使用以 HTTP 1.0 為基礎的 proxy 伺服器時。<br> 如果透過 proxy 伺服器連接，請參閱[服務匯流排需求](https://msdn.microsoft.com/library/azure/ee706729.aspx)以取得詳細資訊。 |
 | 3260 (iSCSI) | 在 | LAN | 否 | 此連接埠用來透過 iSCSI 存取資料。|
-| 5985 | 在 | LAN | 否 | StorSimple Snapshot Manager 會使用輸入連接埠與 StorSimple 裝置通訊。<br>當您從遠端透過 HTTP 或 HTTPS 連線到 Windows PowerShell for StorSimple，也會使用此連接埠。 |
+| 5985 | 在 | LAN | 否 | StorSimple Snapshot Manager 會使用輸入連接埠與 StorSimple 裝置通訊。<br>當您從遠端透過 HTTP 連線到 Windows PowerShell for StorSimple，也會使用此連接埠。 |
+| 5986 | 在 | LAN | 否 | 當您透過 HTTPS 從遠端連線到 Windows PowerShell for StorSimple，便會使用此連接埠。 |
 
 <sup>1</sup> 公用網際網路上沒有必須開啟的輸入連接埠。
 
@@ -194,4 +195,4 @@ StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和�
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

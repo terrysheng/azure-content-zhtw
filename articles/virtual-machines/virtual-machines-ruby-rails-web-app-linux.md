@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="在使用 Linux VM 之 Azure 上的 Ruby on Rails Web 應用程式" 
-	description="在使用 Linux 虛擬機器的 Azure 上裝載 Ruby on Rails 型網站。" 
-	services="virtual-machines" 
-	documentationCenter="ruby" 
-	authors="MikeWasson" 
-	manager="wpickett" 
-	editor=""/>
+<properties
+	pageTitle="在 Linux VM 上裝載 Ruby on Rails 網站 | Microsoft Azure"
+	description="在使用 Linux 虛擬機器的 Azure 上設定及裝載 Ruby on Rails 型網站。"
+	services="virtual-machines"
+	documentationCenter="ruby"
+	authors="MikeWasson"
+	manager="wpickett"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="web"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="06/09/2015"
 	ms.author="mwasson"/>
 
 
@@ -25,6 +26,8 @@
 此教學課程說明如何在 Azure 上使用 Linux 虛擬機器，於 Rails 網站裝載 Ruby。
 
 此教學課程使用 Ubuntu Server 14.04 LTS 通過驗證。若使用不同的 Linux 發行版本，您可能需要修改這些步驟以安裝 Rails。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源
 
 ## 建立 Azure VM
 
@@ -50,8 +53,8 @@
 
 ## 安裝 Ruby on Rails
 
-1. 使用 SSH 連線到 VM。 
-	
+1. 使用 SSH 連線到 VM。
+
 2. 從 SSH 工作階段中，使用下列命令在 VM 上安裝 Ruby：
 
 		sudo apt-get update -y
@@ -170,6 +173,5 @@
 [new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
 
 [new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

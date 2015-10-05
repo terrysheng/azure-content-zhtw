@@ -18,7 +18,8 @@
 	ms.author="danlep"/>
 
 # 服務管理中針對虛擬機器的文章
-這是在 Azure 服務管理中使用虛擬機器的文章清單。針對新的部署，我們建議使用 Azure 資源管理員為基礎的虛擬機器和其他資源。如需資源管理員優點的說明，請參閱 [Azure 資源管理員底下的 Azure 運算、網路和儲存體提供者](virtual-machines-azurerm-versus-azuresm.md)。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型管理資源。
 
 ## 開始使用
 
@@ -150,4 +151,4 @@
 
 [使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 服務管理](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

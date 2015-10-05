@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
+	ms.date="09/21/2015"   
 	ms.author="juliako"/>
 
 
@@ -29,19 +29,18 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 >[AZURE.IMPORTANT]在編製內容索引時，請務必使用語音非常清楚的媒體檔案 (不含背景音樂、噪音、效果或麥克風雜音)。適當內容的一些範例有：錄製的會議、演講或簡報。下列內容可能不適合用來編製索引：電影、電視節目、任何具有混合音訊與音效的內容、錄製效果不良有背景噪音 (雜音) 的內容。
 
 
-編製索引工作會為每個要編製索引的檔案產生四個輸出：
+索引工作會產生下列輸出檔案：
 
-- SAMI 格式的隱藏式字幕檔案。
-- Timed Text Markup Language (TTML) 格式的隱藏式字幕檔案。
+- 下列格式的隱藏式輔助字幕檔案：**SAMI**、**TTML** 和 **WebVTT**。
 
-	SAMI 和 TTML 都包含稱為 Recognizability 的標記，它會根據來源視訊中的語音可辨識度來為索引工作評分。您可以使用 Recognizability 值篩選輸出檔的實用性。較低的分數表示由於音訊品質所致的不良索引結果。
+	隱藏式輔助字幕檔案包含稱為 Recognizability 的標記，它會根據來源視訊中的語音可辨識度來為索引工作評分。您可以使用 Recognizability 值篩選輸出檔的實用性。較低的分數表示由於音訊品質所致的不良索引結果。
 - 關鍵字檔案 (XML)。
 - 與 SQL Server 搭配使用的音訊編製索引 blob 檔案 (AIB)。
 	
 	如需詳細資訊，請參閱[搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)。
 
 
-本主題示範如何建立索引工作以**建立資產的索引**和**建立多個檔案的索引**。
+本主題示範如何建立索引工作**建立資產的索引**和**建立多個檔案的索引**。
 
 如需最新的 Azure Media Indexer 更新，請參閱[媒體服務部落格](http://azure.microsoft.com/blog/topics/media-services/)。
 
@@ -164,11 +163,11 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 <br/><br/>
 也可以利用其他搜尋引擎，例如 Apache Lucene/Solr，只根據隱藏式字幕和關鍵字 XML 檔案編製視訊的索引，但這會導致搜尋結果較不正確。</td></tr>
 <tr><td>InputFileName.smi<br/>InputFileName.ttml</td>
-<td>SAMI 和 TTML 格式的隱藏字幕 (CC) 檔案。
+<td>SAMI、TTML 和 WebVTT 格式的隱藏式輔助字幕 (CC) 檔案。
 <br/><br/>
 它們可以用來讓具有聽力障礙的人存取音訊和視訊檔案。
 <br/><br/>
-SAMI 和 TTML 都包含稱為 <b>Recognizability</b> 的標記，它會根據來源視訊中的語音可辨識度來為索引工作評分。您可以使用 <b>Recognizability</b> 值篩選輸出檔的實用性。較低的分數表示由於音訊品質所致的不良索引結果。</td></tr>
+隱藏式輔助字幕檔案包含稱為 <b>Recognizability</b> 的標記，它會根據來源視訊中的語音可辨識度來為索引工作評分。您可以使用 <b>Recognizability</b> 值篩選輸出檔的實用性。較低的分數表示由於音訊品質所致的不良索引結果。</td></tr>
 <tr><td>InputFileName.kw.xml</td>
 <td>關鍵字檔案。
 <br/><br/>
@@ -261,7 +260,7 @@ SAMI 和 TTML 都包含稱為 <b>Recognizability</b> 的標記，它會根據來
 
 ###輸出檔案
 
-當有多個輸入媒體檔案時，WAMI 會產生工作輸出的資訊清單檔，名為 'JobResult.txt'。針對每個輸入媒體檔案，產生的 AIB、SAMI、TTML 以及關鍵字檔案會循序編號，如下所示。
+當有多個輸入媒體檔案時，WAMI 會產生工作輸出的資訊清單檔，名為 'JobResult.txt'。針對每個輸入媒體檔案，產生的 AIB、SAMI、TTML、WebVTT 以及關鍵字檔案會循序編號，如下所示。
 
 如需輸出檔案的描述，請參閱[輸出檔案](#output_files)。
 
@@ -292,7 +291,7 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 <tr><td>Media_1.aib </td>
 <td>檔案 #0 - 音訊索引 blob 檔案。</td></tr>
 <tr><td>Media_1.smi<br/>Media_1.ttml</td>
-<td>檔案 #0 - SAMI 和 TTML 格式的隱藏式字幕 (CC) 檔案。</td></tr>
+<td>檔案 #0 - SAMI、TTML 和 WebVTT 格式的隱藏式輔助字幕 (CC) 檔案。</td></tr>
 <tr><td>Media_1.kw.xml</td>
 <td>檔案 #0 - 關鍵字檔案。</td></tr>
 <tr><td>Media_2.aib </td>
@@ -306,7 +305,7 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 如果不是所有輸入媒體檔案都成功編製索引，則索引工作將會失敗，錯誤碼為 4000。如需詳細資訊，請參閱[錯誤碼](#error_codes)。
 
 
-會產生 (與成功工作) 相同的輸出。您可以參閱輸出資訊清單檔，根據 Error 欄位值找出哪些輸入檔案失敗。針對失敗的輸入檔案，將不會產生結果的 AIB、SAMI、TTML 和關鍵字檔案。
+會產生 (與成功工作) 相同的輸出。您可以參閱輸出資訊清單檔，根據 Error 欄位值找出哪些輸入檔案失敗。針對失敗的輸入檔案，將不會產生結果的 AIB、SAMI、TTML、WebVTT 和關鍵字檔案。
 
 
 ### <a id="error_codes"></a>錯誤碼
@@ -355,4 +354,4 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 
 <!-- URLs. -->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

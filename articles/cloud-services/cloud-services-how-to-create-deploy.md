@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -149,5 +149,11 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：[**快�
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
+## 後續步驟
 
-<!---HONumber=August15_HO7-->
+* [雲端服務的一般設定](cloud-services-how-to-configure.md)。
+* 設定[自訂網域名稱](cloud-services-custom-domain-name.md)。
+* [管理您的雲端服務](cloud-services-how-to-manage.md)。
+* 設定 [SSL 憑證](cloud-services-configure-ssl-certificate.md)。
+
+<!---HONumber=Sept15_HO4-->

@@ -19,6 +19,14 @@
 
 #在 Azure 應用程式服務中建立 PHP-MySQL Web 應用程式並使用 Git 部署
 
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+
 本教學課程說明如何建立 PHP-MySQL Web 應用程式，以及如何使用 Git 將其部署至 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714)。您會使用 [PHP][install-php]、MySQL 命令列工具 ([MySQL][install-mysql] 的一部分)、Web 伺服器，以及安裝在您的電腦上的 [Git][install-git]。本教學課程裡的說明可運用在包括 Windows、Mac 與 Linux 的任何作業系統上。看完本指南後，您將擁有可在 Azure 上執行的 PHP/MySQL Web 應用程式。
 
 您將了解：
@@ -41,7 +49,7 @@
 請遵循以下步驟來建立 Web 應用程式與 MySQL 資料庫：
 
 1. 登入 [Azure 入口網站][management-portal]。
-2. 按一下 [**新增**] 圖示。
+2. 按一下 [新增] 圖示。
 
 3. 依序按一下 [Web + 行動]、[Azure Marketplace]。
 
@@ -288,4 +296,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/16/2015"
+   ms.date="09/23/2015"
    ms.author="alkohli" />
 
 # 打開包裝、掛接機架和佈線 StorSimple 8600 裝置
@@ -206,7 +206,7 @@
 
 第一次設定此裝置時，請先執行 SAS 佈線步驟，然後再完成電源佈線步驟。
 
-[AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-sas-cable-8600.md)]
+[AZURE.INCLUDE [storsimple-cable-8600-for-SAS](../../includes/storsimple-sas-cable-8600.md)]
 
 [AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
@@ -291,4 +291,4 @@ H,I  | 主機 (例如，檔案伺服器)
 您現在已準備好[部署和設定您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)
  
 
-<!-----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

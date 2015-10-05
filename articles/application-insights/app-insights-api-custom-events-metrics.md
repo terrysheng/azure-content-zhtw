@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/28/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 # 自訂事件和度量的 Application Insights API 
@@ -439,7 +439,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
             }
 ```
 
-請記住，伺服器 SDK 包含[相依性模組](app-insights-dependencies.md)，可用來自動探索和追蹤特定相依性呼叫，例如資料庫和 REST API。您必須在伺服器上安裝代理程式才能讓模組正常運作。如果您想要追蹤不會由自動化追蹤攔截的呼叫，或不想安裝代理程式，您可以使用這個呼叫。
+請記住， 伺服器 SDK 包含[相依性模組](app-insights-dependencies.md)，可用來自動探索和追蹤特定相依性呼叫，例如資料庫和 REST API。您必須在伺服器上安裝代理程式才能讓模組正常運作。如果您想要追蹤不會由自動化追蹤攔截的呼叫，或不想安裝代理程式，您可以使用這個呼叫。
 
 若要關閉標準的相依性追蹤模組，請編輯 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 並刪除 `DependencyCollector.DependencyTrackingTelemetryModule` 的參考。
 
@@ -696,7 +696,10 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
     telemetry.Flush();
 
-請注意此函式是同步的。
+    // Allow some time for flushing before shutdown.
+    System.Threading.Thread.Sleep(1000);
+
+請注意此函式是非同步的。
 
 
 
@@ -900,4 +903,4 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="變更 StorSimple 裝置模式 | Microsoft Azure"
-	description="描述 StorSimple 裝置模式並說明如何使用 Windows PowerShell for StorSimple 來變更裝置的模式。"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="描述 StorSimple 裝置模式並說明如何使用 Windows PowerShell for StorSimple 來變更裝置的模式。"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/17/2015"
+   ms.author="alkohli" />
 
 # 變更 StorSimple 裝置的裝置模式
 
@@ -97,4 +97,4 @@ StorSimple 裝置可以在標準、維護和復原模式下運作。以下簡短
 
 了解如何在 StorSimple 裝置上[套用標準和維護模式更新](storsimple-update-device.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

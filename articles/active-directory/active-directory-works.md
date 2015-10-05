@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 
@@ -48,6 +48,5 @@ Azure AD 支援數個最常用的驗證和授權通訊協定。[深入了解 Azu
 
 * [以組織身分註冊 Azure](sign-up-organization.md)
 * [Azure 身分識別](fundamentals-identity.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

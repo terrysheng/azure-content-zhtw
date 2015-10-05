@@ -1,18 +1,19 @@
 <properties
-   pageTitle="使用 Chef 自動化 Azure 虛擬機器部署"
-	description="了解使用 Chef 自動化 Azure 虛擬機器的藝術"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="diegoviso"
-	manager="timlt"
-	editor=""/>
+   pageTitle="使用 Chef 的 Azure 虛擬機器部署 | Microsoft Azure"
+   description="了解如何使用 Chef 執行自動化的虛擬機器部署和設定 Microsoft Azure"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="diegoviso"
+   manager="timlt"
+   tags="azure-service-management,azure-resource-manager"
+   editor=""/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/19/2015"
-	ms.author="diviso"/>
+ms.tgt_pltfrm="vm-multiple"
+ms.devlang="na"
+ms.topic="article"
+ms.date="05/19/2015"
+ms.author="diviso"/>
 
 # 使用 Chef 自動化 Azure 虛擬機器部署
 
@@ -236,4 +237,4 @@ Chef 會使用 Cookbook 來定義一組您想在受管理的用戶端上執行�
 
 <!--Link references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -4,8 +4,8 @@
 	services="app-service\api"
 	documentationCenter="nodejs"
 	authors="pkefal"
-	manager=""
-	editor=""/>
+  manager="" 
+  editor=""/>
 
 <tags
 	ms.service="app-service-api"
@@ -17,6 +17,12 @@
 	ms.author="pakefali"/>
 
 # 在 Azure App Service 中建置和部署 Node.js API 應用程式
+
+> [AZURE.SELECTOR]
+- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
+- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [Node.js](app-service-api-nodejs-api-app.md)
+- [Java](app-service-api-java-api-app.md)
 
 本教學課程說明如何建立 [Node.js](http://nodejs.org) 應用程式，並使用 [Git](http://git-scm.com) 將其部署至 Azure App Service API 應用程式。本教學課程中的指示可運用在任何足以執行 Node 應用程式的作業系統上。
 
@@ -243,4 +249,4 @@
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

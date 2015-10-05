@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="使用行動服務將影像上傳至 Blob 儲存體 (Android) | 行動服務"
 	description="了解如何使用行動服務將影像上傳至 Azure 儲存體，並從您的 Android 應用程式存取該影像。"
 	services="mobile-services"
@@ -7,13 +7,13 @@
 	manager="dwrede"
 	editor=""/>
 
-<tags 
+<tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="09/18/2015"
 	ms.author="ricksal"/>
 
 # 將影像從 Android 裝置上傳至 Azure 儲存體
@@ -47,7 +47,8 @@
 
 將上傳資料所需的認證儲存至用戶端應用程式中的 Azure 儲存體服務，是不安全的做法。您應該將這些認證儲存在您的行動服務中，並使用這些認證來產生共用存取簽章 (SAS)，以便提供上傳新影像的權限。行動服務會以安全的方式，將 SAS (5 分鐘後到期的認證) 傳回用戶端應用程式。應用程式會使用此暫存認證來上傳影像。如需詳細資訊，請參閱[共用存取簽章，第 1 部分：了解 SAS 模型](storage-dotnet-shared-access-signature-part-1.md)
 
->[AZURE.NOTE] [Here](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages) 是此應用程式中已完成的用戶端原始程式碼部分。
+## 程式碼範例
+[這裡](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages)是此應用程式中已完成的用戶端原始程式碼部分。若要執行此程式碼，您必須完成本教學課程的行動服務後端組件。
 
 ## 在管理入口網站中更新已註冊的插入指令碼
 
@@ -130,7 +131,7 @@
 	    static final int REQUEST_TAKE_PHOTO = 1;
 	    public Uri mPhotoFileUri = null;
 	    public File mPhotoFile = null;
-		
+
 	    public void takePicture(View view) {
 	        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 	        // Ensure that there's a camera activity to handle the intent
@@ -161,14 +162,14 @@
 	     */
 	    @com.google.gson.annotations.SerializedName("imageUri")
 	    private String mImageUri;
-	
+
 	    /**
 	     * Returns the item ImageUri
 	     */
 	    public String getImageUri() {
 	        return mImageUri;
 	    }
-	
+
 	    /**
 	     * Sets the item ImageUri
 	     *
@@ -178,20 +179,20 @@
 	    public final void setImageUri(String ImageUri) {
 	        mImageUri = ImageUri;
 	    }
-	
+
 	    /**
 	     * ContainerName - like a directory, holds blobs
 	     */
 	    @com.google.gson.annotations.SerializedName("containerName")
 	    private String mContainerName;
-	
+
 	    /**
 	     * Returns the item ContainerName
 	     */
 	    public String getContainerName() {
 	        return mContainerName;
 	    }
-	
+
 	    /**
 	     * Sets the item ContainerName
 	     *
@@ -201,20 +202,20 @@
 	    public final void setContainerName(String ContainerName) {
 	        mContainerName = ContainerName;
 	    }
-	
+
 	    /**
 	     *  ResourceName
 	     */
 	    @com.google.gson.annotations.SerializedName("resourceName")
 	    private String mResourceName;
-	
+
 	    /**
 	     * Returns the item ResourceName
 	     */
 	    public String getResourceName() {
 	        return mResourceName;
 	    }
-	
+
 	    /**
 	     * Sets the item ResourceName
 	     *
@@ -224,20 +225,20 @@
 	    public final void setResourceName(String ResourceName) {
 	        mResourceName = ResourceName;
 	    }
-	
+
 	    /**
 	     *  SasQueryString - permission to write to storage
 	     */
 	    @com.google.gson.annotations.SerializedName("sasQueryString")
 	    private String mSasQueryString;
-	
+
 	    /**
 	     * Returns the item SasQueryString
 	     */
 	    public String getSasQueryString() {
 	        return mSasQueryString;
 	    }
-	
+
 	    /**
 	     * Sets the item SasQueryString
 	     *
@@ -297,19 +298,19 @@
 	        if (mClient == null) {
 	            return;
 	        }
-	
+
 	        // Create a new item
 	        final ToDoItem item = new ToDoItem();
-	
+
 	        item.setText(mTextNewToDo.getText().toString());
 	        item.setComplete(false);
 	        item.setContainerName("todoitemimages");
-	
+
 	        // Use a unigue GUID to avoid collisions.
 	        UUID uuid = UUID.randomUUID();
 	        String uuidInString = uuid.toString();
 	        item.setResourceName(uuidInString);
-	
+
 	        // Send the item to be inserted. When blob properties are set this
 	        // generates an SAS in the response.
 	        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
@@ -317,23 +318,23 @@
 	            protected Void doInBackground(Void... params) {
 	                try {
 		                    final ToDoItem entity = addItemInTable(item);
-		
+
 		                    // If we have a returned SAS, then upload the blob.
 		                    if (entity.getSasQueryString() != null) {
-		
+
 	                       // Get the URI generated that contains the SAS
 	                        // and extract the storage credentials.
-	                        StorageCredentials cred = 
+	                        StorageCredentials cred =
 								new StorageCredentialsSharedAccessSignature(entity.getSasQueryString());
 	                        URI imageUri = new URI(entity.getImageUri());
-	
+
 	                        // Upload the new image as a BLOB from a stream.
 	                        CloudBlockBlob blobFromSASCredential =
 	                                new CloudBlockBlob(imageUri, cred);
-	
+
 	                        blobFromSASCredential.uploadFromFile(mPhotoFileUri.getPath());
   	                    }
-	
+
 	                    runOnUiThread(new Runnable() {
 	                        @Override
 	                        public void run() {
@@ -348,17 +349,17 @@
 	                return null;
 	            }
 	        };
-	
+
 	        runAsyncTask(task);
-	
+
 	        mTextNewToDo.setText("");
 	    }
-	
+
 
 此程式碼會將要求傳送給行動服務以插入新 TodoItem。回應內容包含 SAS，這能用來將影像從本機儲存體上傳至 Azure 儲存體中的 Blob 。
 
 
-## 測試上傳影像 
+## 測試上傳影像
 
 1. 在 Android Studio 中按下 [執行]。在對話方塊中，選擇要使用的裝置。
 
@@ -380,7 +381,7 @@
 您現在已藉由整合行動服務與 Blob 服務，而能夠安全地上傳影像，請參閱其他後端服務和整合主題：
 
 + [使用 SendGrid 從行動服務傳送電子郵件]
- 
+
   了解如何使用 SendGrid 電子郵件服務將電子郵件功能新增到行動服務本主題示範如何新增伺服器端指令碼，以使用 SendGrid 傳送電子郵件。
 
 + [在行動服務中排程後端工作]
@@ -390,12 +391,12 @@
 + [行動服務伺服器指令碼參考]
 
   參考使用伺服器指令碼來執行伺服器端工作以及與其他 Azure 元件和外部資源整合的主題。
- 
+
 + [行動服務 .NET 作法概念性參考]
 
   深入了解如何搭配使用行動服務與 .NET
-  
- 
+
+
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
 [Update the client app to capture images]: #add-select-images
@@ -420,6 +421,5 @@
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 [行動服務 .NET 作法概念性參考]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

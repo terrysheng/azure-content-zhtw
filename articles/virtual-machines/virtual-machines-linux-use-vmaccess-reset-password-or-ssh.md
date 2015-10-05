@@ -1,6 +1,6 @@
 <properties
-	pageTitle="如何使用 Linux 虛擬機器 VMAccess"
-	description="如何使用 Azure Preview 入口網站或適用於 Linux 的 VMAccess 延伸模組，來重設密碼和 SSH 金鑰、重設 SSH 組態，以及刪除 Linux 使用者"
+	pageTitle="從 Azure 重設 CLI Linux VM 密碼"
+	description="如何使用VMAccess 延伸模組從 Azure 入口網站或 CLI 來重設 Linux VM 密碼和 SSH 金鑰、SSH 組態並刪除使用者帳戶。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -263,4 +263,4 @@ SSH 組態中的錯誤可導致您無法存取虛擬機器。您可以將 SSH �
 [Azure VM 延伸模組與功能]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [透過 RDP 或 SSH 連接至 Azure 虛擬機器]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

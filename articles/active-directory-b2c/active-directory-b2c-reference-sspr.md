@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：針對取用者設定自助式密碼重設
@@ -36,4 +36,4 @@
 
 > [AZURE.NOTE]您可使用 [公司商標功能](active-directory-add-company-branding.md) 自訂自助式密碼重設頁面。
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

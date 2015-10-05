@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/24/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 #Apache Storm on HDInsight 簡介：Hadoop 的即時分析
@@ -207,4 +207,4 @@ Storm 可以提供不同程度的訊息處理保證。例如，基本的 Storm �
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

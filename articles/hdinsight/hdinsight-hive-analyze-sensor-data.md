@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2015" 
+	ms.date="09/23/2015" 
 	ms.author="larryfr"/>
 
 #在 HDInsight 的 Hadoop 上使用 Hive 查詢主控台分析感應器資料
@@ -38,7 +38,7 @@
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE]Microsoft Excel 用於搭配 [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=zh-tw&rs=zh-tw&ad=US) 進行資料視覺化。
+	> [AZURE.NOTE]Microsoft Excel 用於搭配 [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=ZH-TW&rs=ZH-TW&ad=US) 進行資料視覺化。
 
 * [Microsoft Hive ODBC 驅動程式](http://www.microsoft.com/download/details.aspx?id=40886)
 
@@ -54,4 +54,4 @@
 
 3. 依照網頁上提供的指示完成範例。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

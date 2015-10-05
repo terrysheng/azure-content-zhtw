@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # 我的 WebJob 專案 (Visual Studio Azure 儲存體連接的服務) 發生什麼狀況？
 
@@ -41,4 +41,4 @@ Azure 儲存體 NuGet 封裝已加入至 Visual Studio 專案或在其中更新�
 
 如需詳細資訊，請參閱 [Azure WebJobs 建議資源](http://go.microsoft.com/fwlink/?linkid=390226)。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

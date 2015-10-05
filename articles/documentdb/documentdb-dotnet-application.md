@@ -26,7 +26,7 @@
 
 本逐步解說說明如何使用 Azure 所提供的 DocumentDB 服務，來儲存和存取 Azure 上所託管 ASP.NET MVC Web 應用程式的資料。
 
-> [AZURE.TIP]本教學課程假設您先前有過使用 ASP.NET MVC 和 Azure 網站的經驗。如果您不熟悉 ASP.NET 或[必備工具](#_Toc395637760)，我們建議您從 [GitHub](https://github.com/Azure/azure-documentdb-net) 下載完整的[待辦事項](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo)教學課程專案，並使用 [本文結尾的指示](#GetProject)開始建置。建置完成後，您可以檢閱文件，以加深對專案內容中程式碼的了解。
+> [AZURE.TIP]本教學課程假設您先前有過使用 ASP.NET MVC 和 Azure 網站的經驗。如果您不熟悉 ASP.NET 或[必備工具](#_Toc395637760)，我們建議您從 [GitHub][] 下載完整的範例專案，並依照此範例的指示進行。建置完成後，您可以檢閱此文章，以加深對專案內容中程式碼的了解。
 
 ## <a name="_Toc395637760"></a> 此資料庫教學課程的必要條件
 
@@ -54,7 +54,7 @@
 
 1. 在 Visual Studio 的 [**檔案**] 功能表中，指向 [**新增**]，然後按一下 [**專案**]。
 
-   	[**新增專案**] 對話方塊隨即出現。
+   	[**新增專案** ] 對話方塊隨即出現。
 2. 在 [**專案類型**] 窗格中，依序展開 [**範本**]、[**Visual C#**]、[**Web**]，然後選取 [**ASP.NET Web 應用程式**]。
 
   	![[新增專案] 對話方塊的螢幕擷取畫面，內含反白顯示的 ASP.NET Web 應用程式專案類型](./media/documentdb-dotnet-application/image10.png)
@@ -77,7 +77,7 @@
 
   	在這裡我並沒有選擇 [資料庫伺服器]，因為我們並未使用 Azure SQL Database Server，稍後我們會在 Azure Preview 入口網站中建立新的 Azure DocumentDB 帳戶。
 
-	如需選擇 **App Service 方案**和**資源群組**的詳細資訊，請參閱 [Azure App Service 方案深入概觀](azure-web-sites-web-hosting-plans-in-depth-overview.md)。
+	如需關於選擇 **App Service 方案**和**資源群組**的詳細資訊，請參閱 [Azure App Service 方案深入概觀](azure-web-sites-web-hosting-plans-in-depth-overview.md)。
 
   	![[設定 Microsoft Azure 網站] 對話方塊的螢幕擷取畫面](./media/documentdb-dotnet-application/image11_1.png)
 
@@ -400,7 +400,7 @@
     	<add key="database" value="ToDoList"/>
     	<add key="collection" value="Items"/>
 	
-4. 現在，使用 Azure Preview 入口網站的 [金鑰] 刀鋒視窗來更新 [*端點*] 和 [*authKey*] 的值。使用 [金鑰] 刀鋒視窗的 [**URI**] 做為端點設定的值，並使用 [金鑰] 刀鋒視窗的 [**主索引鍵**] 或 [**次要金鑰**] 做為 authKey 設定的值。
+4. 現在，使用 Azure 預覽入口網站的 [金鑰] 刀鋒視窗來更新 [端點] 和 [authKey] 的值。使用 [金鑰] 刀鋒視窗的 [**URI**] 做為端點設定的值，並使用 [金鑰] 刀鋒視窗的 [**主索引鍵**] 或 [**次要金鑰**] 做為 authKey 設定的值。
 
 
     負責裝設 DocumentDB 儲存機制，現在讓我們加入我們的應用程式邏輯。
@@ -476,7 +476,7 @@
 			return View(); 
    		}
 
-	現在此控制器需要更多程式碼，以接受 [**建立**] 檢視所提交的資料。
+	現在此控制器需要更多程式碼，以接受 [建立] 檢視所提交的資料。
 
 2. 將下一個程式碼區塊新增至 ItemController.cs 類別，以告訴 ASP.NET MVC 如何使用表單 POST 來執行此控制器的作業。
 	
@@ -493,7 +493,7 @@
 		}
 	這段程式碼會呼叫 DocumentDBRepository，並且使用 CreateItemAsync 方法將新的待辦事項項目保存到資料庫。
  
-	**安全性注意事項**：此處所使用的 **ValidateAntiForgeryToken** 屬性可協助應用程式防止跨網站偽造要求攻擊。這不光只是新增此屬性，您的檢視也必須使用這個防偽權杖。如需此主題的詳細資訊以及如何正確實作此作業的範例，請參閱[防止跨網站偽造要求][]。[GitHub][] 上提供的原始程式碼已有完整實作。
+	**安全性注意事項**：此處所使用的 **ValidateAntiForgeryToken** 屬性可協助應用程式防止跨網站偽造要求攻擊。這不光只是新增此屬性，您的檢視也必須使用這個防偽權杖。如需此主題的詳細資訊以及如何正確實作此作業的範例，請參閱[防止跨網站偽造要求][] (英文)。[GitHub][] 上提供的原始程式碼已有完整實作。
 
 	**安全性注意事項**：我們也會在方法參數上使用 **Bind** 屬性，以協助防範 over-posting 攻擊。如需詳細資訊，請參閱 [ASP.NET MVC 中的基本 CRUD 作業][]。
 
@@ -565,9 +565,9 @@
 		}
 		
 	
-	第一個方法會處理當使用者按一下 [**索引**] 檢視中的 [**編輯**] 連結時所發生的 Http GET。此方法會從 DocumentDB 中提取 [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)，並將它傳遞給 [**編輯**] 檢視。
+	第一個方法會處理當使用者按一下 [索引] 檢視中的 [編輯] 連結時所發生的 Http GET。此方法會從 DocumentDB 中提取 [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)，並將它傳遞給 [編輯] 檢視。
 
-	[**編輯**] 檢視會接著對 **IndexController** 執行 Http POST。
+	[編輯] 檢視會接著對 **IndexController** 執行 Http POST。
 	
 	新增的第二個方法會處理此作業，將更新物件傳遞至 DocumentDB 並保留在資料庫中。
 
@@ -581,7 +581,7 @@
 
 	![本資料庫教學課程所建立的待辦事項清單 Web 應用程式的螢幕擷取畫面](./media/documentdb-dotnet-application/image24.png)
 
-	如果這個時候發生錯誤，您可以將程式碼與 [GitHub][] 上的 [待辦事項] 教學課程進行比對。
+	如果這個時候發生錯誤，您可以將程式碼與 [GitHub][] 上的範例專案進行比對
 
 2. 按一下 [**新建**] 連結，並在 [**名稱**] 和 [**描述**] 欄位中新增值。將 [**已完成**] 核取方塊保持為未選取狀態，否則，**新項目**會以已完成的狀態新增，且不會出現在初始清單中。
 
@@ -619,44 +619,12 @@
 
 若要將其他功能加入至您的應用程式，請檢閱[文件 DB .NET 程式庫](http://msdn.microsoft.com/library/azure/dn783362.aspx)中提供的 API，並歡迎您貢獻到 [GitHub][] 上的 DocumentDB .NET 程式庫。
 
-##<a id="GetProject"></a>從 GitHub 取得方案
-
-如果您想要節省時間，並想要不用自行加入程式碼即可建置完整的 [待辦事項] 方案，那麼您很幸運。您可在 GitHub 上取得完整的方案，而且您可以使用下列指示，在幾分鐘內完成建置並部署方案。
-
-1. 請確定您已安裝[先決條件軟體](#_Toc395637760)，其中包括 Visual Studio 和 Azure SDK for .NET 2.3 或更新版本。
-
-2. 使用 Git for Windows ([http://www.git-scm.com/](http://www.git-scm.com/)) 複製 azure-documentdb-net 儲存機制，或從 [GitHub](https://github.com/Azure/azure-documentdb-net/) 下載 zip 檔。
-
-2. 從 Visual Studio 中，開啟 azure-documentdb-net/tutorials/todo 目錄中的 todo.sln 檔案。
-
-3. 若要在 Visual Studio 2013 中還原對 DocumentDB .NET SDK 的參考，請在 [**方案總管**] 中的 [待辦事項] 方案上按一下滑鼠右鍵，然後按一下 [**啟用 NuGet 封裝還原**]，便可還原參考。
-
-4. 從 [Azure Preview 入口網站](https://portal.azure.com/)中您的 DocumentDB 帳戶的 [**金鑰**] 刀鋒視窗擷取 **URI** 和**主要金鑰**或**次要金鑰**值。
-
-	
-	如果您沒有帳戶，請參閱[建立資料庫帳戶](documentdb-create-account.md)設定一個帳戶。
-
-	![顯示 DocumentDB 帳戶的 Azure Preview 入口網站螢幕擷取畫面，內含反白顯示的 [主動式] 集線器、[DocumentDB 帳戶] 刀鋒視窗上反白顯示的 [金鑰] 按鈕、[金鑰] 刀鋒視窗上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值](media/documentdb-dotnet-application/keys.png)
-
-5. 在 Web.config 檔案中，更新 [**端點**] 和 [**authKey**] 金鑰的預設值。
-
-    	<add key="endpoint" value="~enter URI for your DocumentDB Account, from Azure Preview portal~" /> 
-		<add key="authKey" value="~enter either Primary or Secondary key for your DocumentDB Account, from Azure Preview portal~" /> 
-
-	- 複製 [金鑰] 刀鋒視窗中的 [**URI**] 值，並將它貼到 [**端點**] 屬性值。 
-	- 複製 [**金鑰**] 刀鋒視窗中的 [**主要金鑰**] 或 [**次要金鑰**] 值，並將它貼到 [**authKey**] 屬性值。
-	
-
-
-7. 您現在可以 [在本機執行您的應用程式](#_Toc395637773)，然後 [將它部署到 Azure 網站](#_Toc395637774)。
-
 
 [*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
 [防止跨網站偽造要求]: http://go.microsoft.com/fwlink/?LinkID=517254
 [ASP.NET MVC 中的基本 CRUD 作業]: http://go.microsoft.com/fwlink/?LinkId=317598
- 
+[GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

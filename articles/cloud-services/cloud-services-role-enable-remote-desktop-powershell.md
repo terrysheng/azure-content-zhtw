@@ -1,19 +1,19 @@
 <properties 
-pageTitle="啟用 Azure 雲端服務中角色的遠端桌面連線"
-	description="如何設定的 Azure 雲端服務應用程式以允許遠端桌面連線"
-	services="cloud-services"
-	documentationCenter=""
-	authors="sbtron"
-	manager="timlt"
-	editor=""/>
+pageTitle="使用 PowerShell 啟用 Azure 雲端服務中角色的遠端桌面連線" 
+description="如何使用 PowerShell 設定的 Azure 雲端服務應用程式以允許遠端桌面連線" 
+services="cloud-services" 
+documentationCenter="" 
+authors="sbtron" 
+manager="timlt" 
+editor=""/>
 <tags 
-ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
-	ms.author="saurabh"/>
+ms.service="cloud-services" 
+ms.workload="tbd" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="09/17/2015" 
+ms.author="saurabh"/>
 
 # 使用 PowerShell 啟用 Azure 雲端服務中角色的遠端桌面連線
 
@@ -102,4 +102,4 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 [如何設定雲端服務](cloud-services-how-to-configure.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

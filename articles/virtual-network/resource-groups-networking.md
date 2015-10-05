@@ -18,20 +18,7 @@
 # 網路資源提供者
 現今企業成功的基礎是可以使用靈活、具彈性、安全且可重複的方式來建置和管理大規模網路感知應用程式。Azure 資源管理員 (ARM) 可讓您建立這類應用程式，做為資源群組中的單一資源集合。這類資源是透過 ARM 下的各種資源提供者進行管理。
 
-Azure 資源管理員 (ARM) 可讓您建立這類應用程式和相關聯的網路資源集合，做為資源群組中的單一資源集合。應用程式和網路資源是以 ARM 資源群組中的單一單元形式執行。
-
-您可以使用下列任何管理介面來管理網路資源：
-
-- REST 型 API
-- PowerShell
-- .NET SDK
-- Node.JS SDK
-- Java SDK
-- Azure CLI
-- Azure 入口網站
-- ARM 範本語言
-
-隨著網路資源提供者的引進，您可以利用下列優點：
+Azure 資源管理員會仰賴不同的資源提供者來提供資源的存取權。有三個主要的資源提供者：網路、儲存體和運算。本文件討論網路資源提供者的特性和優點，包括：
 
 - **中繼資料** - 您可以使用標記新增資源的資訊。這些標記可以用來追蹤資源群組和訂用帳戶中的資源使用。
 - **更進一步控制網路** - 網路資源是進行鬆散偶合，而您可以更精密地控制它們。這表示可以更彈性地管理網路資源。
@@ -40,19 +27,55 @@ Azure 資源管理員 (ARM) 可讓您建立這類應用程式和相關聯的網�
 - **更易於管理和部署** - 更容易部署和管理應用程式，因為您可以建立整個應用程式堆疊做為資源群組中的單一資源集合。而且可以更快速地部署，因為只要提供範本 JSON 裝載即可進行部署。
 - **快速自訂** - 您可以使用宣告樣式範本進行可重複且快速自訂的部署。 
 - **可重複自訂** - 您可以使用宣告樣式範本進行可重複且快速自訂的部署。
+- **管理介面** - 您可以使用任何下列任一介面來管理您的資源：
+	- REST 型 API
+	- PowerShell
+	- .NET SDK
+	- Node.JS SDK
+	- Java SDK
+	- Azure CLI
+	- 預覽入口網站
+	- ARM 範本語言
 
 ## 網路資源 
 您現在可以獨立地管理網路資源，而不是透過單一計算資源 (虛擬機器) 進行管理。這確保具有較高程度的彈性和靈活性可在資源群組中撰寫複雜且大型的基礎結構。
- 
-下圖說明網路資源模型和其關聯的高階檢視。最上層資源會加上藍色外框。除了最上層資源之外，您還可以看到加上灰色外框的子資源。您可以個別管理每個資源。
 
-![網路資源模型](./media/resource-groups-networking/Figure1.png)
-
-含有多介層應用程式之範例部署的概念檢視顯示如下。所有網路資源都會加上藍色外框。
+含有多介層應用程式之範例部署的概念檢視顯示如下。您看到的每項資源 (如 NIC、公用 IP 位址和 VM 等) 都可以分開管理。
 
 ![網路資源模型](./media/resource-groups-networking/Figure2.png)
 
-## REST API 
+每項資源均包含一組通用屬性，以及其個別的屬性集。通用屬性包括：
+
+|屬性|說明|範例值|
+|---|---|---|
+|**name**|唯一的資源名稱。每個資源類型都有自己的命名限制。|PIP01、VM01、NIC01|
+|**位置**|資源所在的 Azure 區域|westus、eastus|
+|**id**|唯一的 URI 型識別|/subscriptions/<subGUID>/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestPIP|
+
+您可以在下列各節中查看資源的個別屬性。
+
+[AZURE.INCLUDE [virtual-networks-nrp-pip-include](../../includes/virtual-networks-nrp-pip-include.md)]
+
+[AZURE.INCLUDE [virtual-networks-nrp-vnet-include](../../includes/virtual-networks-nrp-vnet-include.md)]
+
+[AZURE.INCLUDE [virtual-networks-nrp-nic-include](../../includes/virtual-networks-nrp-nic-include.md)]
+
+[AZURE.INCLUDE [virtual-networks-nrp-nsg-include](../../includes/virtual-networks-nrp-nsg-include.md)]
+
+[AZURE.INCLUDE [virtual-networks-nrp-lb-include](../../includes/virtual-networks-nrp-lb-include.md)]
+
+[AZURE.INCLUDE [virtual-networks-nrp-appgw-include](../../includes/virtual-networks-nrp-lb-include.md)]
+
+[AZURE.INCLUDE [virtual-networks-nrp-vpn-include](../../includes/virtual-networks-nrp-vpn-include.md)]
+
+[AZURE.INCLUDE [virtual-networks-nrp-dns-include](../../includes/virtual-networks-nrp-dns-include.md)]
+
+[AZURE.INCLUDE [virtual-networks-nrp-tm-include](../../includes/virtual-networks-nrp-tm-include.md)]
+
+## 管理介面
+您可以使用不同的介面管理您的 Azure 網路資源。在本文件中，我們將著重在指引這些介面：REST API 和範本。
+
+### REST API 
 如前所述，網路資源可以透過各種介面進行管理，包括 REST API、.NET SDK、Node.JS SDK、Java SDK、PowerShell、CLI、Azure 入口網站和範本。
 
 Rest API 符合 HTTP 1.1 通訊協定規格。API 的一般 URI 結構顯示如下：
@@ -73,7 +96,7 @@ Rest API 符合 HTTP 1.1 通訊協定規格。API 的一般 URI 結構顯示如�
 
 要求和回應都符合 JSON 裝載格式。如需詳細資料，請參閱 [Azure 資源管理 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)。
 
-## ARM 範本語言
+### ARM 範本語言
 除了以命令方式 (透過 API 或 SDK) 管理資源之外，您還可以使用宣告式程式設計樣式，利用 ARM 範本語言建置和管理網路資源。
 
 範本的範例表示法提供如下 –
@@ -214,150 +237,7 @@ Rest API 符合 HTTP 1.1 通訊協定規格。API 的一般 URI 結構顯示如�
 
 上述範例範本使用虛擬網路和子網路資源。下列是其他您可以使用的網路資源：
 
-## NIC
-網路介面卡或 NIC 代表可以關聯到虛擬機器 (VM) 的網路介面。一個 VM 可以有一或多個 NIC。
-
-![單一 VM 上的 NIC](./media/resource-groups-networking/Figure3.png)
-
-NIC 資源的重要屬性包括：
-
-- IP 設定
-- 內部 DNS 名稱
-- DNS 伺服器
-
-NIC 也可以與下列網路資源相關聯：
-
-- 網路安全性群組 (NSG) 
-- 負載平衡器
-
-## 虛擬網路和子網路
-虛擬網路 (VNET) 和子網路有助於定義在 Azure 中執行之工作負載的安全性範圍。VNET 具備位址空間 (也稱為 CIDR 區塊)。
-
-子網路是 VNET 的子資源，而且有助於使用 IP 位址首碼來定義 CIDR 區塊內位址空間的區段。本質上執行各種工作負載的 VM 是在子網路界限中運作。
-
-![單一 VM 上的 NIC](./media/resource-groups-networking/Figure4.png)
-
-VNET 資源的重要屬性包括：
-
-- IP 位址空間 (CIDR 區塊) 
-- VNET 名稱
-- 子網路
-- DNS 伺服器
-
-VNET 也可以與下列網路資源相關聯：
-
-- VPN 閘道
-
-子網路的重要屬性包括：
-
-- IP 位址首碼
-- 子網路名稱
-
-子網路也可以與下列網路資源相關聯：
-
-- NSG
-
-## 負載平衡器
-當您想要調整應用程式時，會使用負載平衡器。典型部署案例包含在多個 VM 執行個體上執行的應用程式。VM 執行個體受到負載平衡器保護，以協助將網路流量散發到各種執行個體。
-
-![單一 VM 上的 NIC](./media/resource-groups-networking/Figure5.png)
-
-負載平衡器包含下列子資源：
-
-- **前端 IP 組態** - 負載平衡器可以包括一個或多個前端 IP 位址 (亦稱為虛擬 IP (VIP))。這些 IP 位址做為流量的輸入。 
-- **後端位址集區** - 這些是與 VM NIC 相關聯的 IP 位址，而負載會散發到 VM NIC。
-- **負載平衡規則** - 規則屬性會將指定的前端 IP 與連接埠組合對應到一組後端 IP 位址與連接埠組合。使用負載平衡器資源的單一定義，您可以定義多個負載平衡規則，而每個規則都會反映與 VM 相關聯的前端 IP 與連接埠以及後端 IP 與連接埠組合。 
-- **探查** - 探查可讓您追蹤 VM 執行個體的健全狀況。如果健全狀況探查失敗，則 VM 執行個體不會自動進入輪替。
-- **輸入 NAT 規則** - 定義流經前端 IP 並散發到後端 IP 之輸入流量的 NAT 規則。
-
-## 應用程式閘道
-
-應用程式閘道會根據第 7 層負載平衡，提供 Azure 管理的 HTTP 負載平衡解決方案。應用程式負載平衡可讓以 HTTP 為基礎的網路流量使用路由規則。
-
-應用程式閘道包含下列子資源：
-
-- **後端伺服器集區** - 後端伺服器的 IP 位址清單。列出的 IP 位址應屬於虛擬網路子網路或是公用 IP/VIP。 
-- **後端伺服器集區設定** - 每個集區都有一些設定，例如連接埠、通訊協定和以 Cookie 為基礎的同質性。這些設定會繫結至集區，並套用至集區內所有伺服器。
-- **前端連接埠** - 此連接埠是在應用程式閘道上開啟的公用連接埠。流量會達到此連接埠，然後重新導向至其中一個後端伺服器。
-- **接聽程式** - 接聽程式具有前端連接埠、通訊協定 (Http 或 Https，都區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。 
-- **規則** - 規則會繫結接聽程式和後端伺服器集區，並定義流量達到特定接聽程式時應該導向至哪個後端伺服器集區。目前只支援基本規則。基本規則是循環配置資源的負載分配。
-
-
-## 公用 IP
-公用 IP 位址資源提供保留或動態公用 IP 位址。公用 IP 位址可以指派給負載平衡器或 NAT，或是與 VM 之 NIC 上的私用 IP 位址相關聯。
-
-公用 IP 資源的重要屬性包括：
-
-- **IP 配置方法** - 保留或動態。 
-
-## 網路安全性群組 (NSG)
-透過實作允許和拒絕規則，NSG 資源會建立工作負載的安全性界限。這類規則可以套用於 NIC 層級 (VM 執行個體層級) 或子網路層級 (VM 群組)。
-
-NSG 資源的重要屬性包括：
-
-- **安全性規則** - NSG 可以定義多個安全性規則。每個規則都可以允許或拒絕不同類型的流量。
-
-## 安全性規則
-安全性規則是 NSG 的子資源。
-
-安全性規則的重要屬性包括：
-
-- **通訊協定** - 套用此規則的網路通訊協定。
-- **來源連接埠範圍** - 來源連接埠，或 0 到 65535 的範圍。萬用字元可以用來比對所有連接埠。 
-- **目的地連接埠範圍** - 目的地連接埠，或 0 到 65535 的範圍。萬用字元可以用來比對所有連接埠。
-- **來源位址首碼** - 來源 IP 位址範圍。 
-- **目的地位址首碼** - 目的地 IP 位址範圍。
-- **存取** -「*允許*」或「*拒絕*」流量。
-- **優先順序** - 100 與 4096 之間的值。安全性規則集合中每一個規則的優先順序號碼必須是唯一的。優先順序號碼愈小，規則優先順序就愈高。
-- **方向** - 指定以「*輸入*」還是「*輸出*」方向，將規則套用到流量。 
-
-## VPN 閘道 
-VPN 閘道資源可讓您建立其內部部署資料中心與 Azure 之間的安全連線。您可以使用三種不同的方式設定 VPN 閘道資源：
- 
-- **指向網站** - 您可以從任何電腦使用 VPN 用戶端，安全地存取 VNET 中所裝載的 Azure 資源。 
-- **多網站連線** - 您可以安全地從內部部署資料中心連接到 VNET 中執行的資源。 
-- **VNET 對 VNET** - 您可以安全地跨相同區域內的 Azure VNET 或跨區域連接，以建置異地備援的工作負載。
-
-VPN 閘道的重要屬性包括：
- 
-- **閘道類型** - 動態路由閘道或靜態路由閘道。 
-- **VPN 用戶端位址集區首碼** - 要指派給用戶端的 IP 位址，而用戶端透過指向網站組態進行連接。
-
-
-
-## 流量管理員設定檔
-流量管理員和其子端點資源會將您的流量散發到 Azure 內部和 Azure 外部的端點。這類流量散發是透過原則進行控管。流量管理員也可監視端點健全狀況，並根據端點健全狀況適當地轉向流量。
-
-流量管理員設定檔的重要屬性包括：
-
-- **流量路由方法** - 可能的值為「*效能*」、「*加權*」和「*優先順序*」。
-- **DNS 組態** - 設定檔的 FQDN。
-- **通訊協定** - 監視通訊協定，可能的值為 *HTTP* 和 *HTTPS*。
-- **連接埠** - 監視連接埠。 
-- **路徑** - 監視路徑。
-- **端點** - 端點資源的容器。
-
-## 端點 
-端點是流量管理員設定檔的子資源。它代表服務或 Web 端點，並根據流量管理員設定檔資源中所設定的原則，將使用者流量散發到此服務或 Web 端點。
-
-端點的重要屬性包括：
- 
-- **類型** - 端點的類型，可能的值為「*Azure 端點*」、「*外部端點*」和「*巢狀端點*」。 
-- **目標資源識別碼** - 服務或 Web 端點的公用 IP 位址。這可以是 Azure 或外部端點。
-- **加權** - 用於流量管理的端點加權。 
-- **優先順序** - 端點的優先順序，用來定義容錯移轉動作。 
-
-## Azure DNS
-
-Azure DNS 是 DNS 網域的主機服務，採用 Microsoft Azure 基礎結構提供名稱解析。
-
-Azure DNS 的重要屬性包括：
-
-- ** DNS 區域 ** - 託管特定網域 DNS 記錄的網域區域資訊。
-- ** DNS 記錄集 ** - 特定類型之記錄的集合。支援的類型有 A、AAAA、CNAME、MX、NS、SOA、SRV 和 TXT。
-
-
-## 使用範本
+### 使用範本
 
 您可以使用 PowerShell 或 AzureCLI 從範本部署服務到 Azure，或執行按一下動作來從 GitHub 部署。若要在 GitHub 中從範本部署服務，請執行下列步驟：
 
@@ -392,4 +272,4 @@ Azure DNS 的重要屬性包括：
 
 [範本部署](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

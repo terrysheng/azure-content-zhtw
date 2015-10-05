@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # 如何透過 WebJobs SDK 使用 Azure Blob 儲存體
@@ -232,4 +232,4 @@ Blob 回條儲存於 AzureWebJobsStorage 連接字串所指定之 Azure 儲存�
 本指南提供了程式碼範例，示範如何處理使用 Azure Blob 的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

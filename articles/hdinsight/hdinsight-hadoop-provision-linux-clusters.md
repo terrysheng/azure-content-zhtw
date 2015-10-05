@@ -1,21 +1,21 @@
 <properties
    	pageTitle="在 HDInsight 中於 Linux 上佈建 Hadoop、HBase 或 Storm 叢集 | Microsoft Azure"
-	description="了解如何使用管理入口網站、命令列及 .NET SDK，在 HDInsight 的 Linux 上佈建 Hadoop 叢集。"
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="paulettm"
-	editor="cgronlun"
+   	description="了解如何使用管理入口網站、命令列及 .NET SDK，在 HDInsight 的 Linux 上佈建 Hadoop 叢集。"
+   	services="hdinsight"
+   	documentationCenter=""
+   	authors="nitinme"
+   	manager="paulettm"
+   	editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    	ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/21/2015"
-	ms.author="nitinme"/>
+   	ms.devlang="na"
+   	ms.topic="article"
+   	ms.tgt_pltfrm="na"
+   	ms.workload="big-data"
+   	ms.date="09/21/2015"
+   	ms.author="nitinme"/>
 
 
 #使用自訂選項在 HDInsight 中佈建 Hadoop Linux 叢集
@@ -61,8 +61,9 @@ Metastore 包含 Hive 資料表、資料分割、結構描述和資料行等相�
 
 ### 使用指令碼動作來自訂叢集
 
-您可以在佈建期間使用指令碼來安裝其他元件或自訂組態。這類指令碼可透過**指令碼動作**叫用，指令碼動作是一個組態選項，其可從 Preview 入口網站、HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 使用。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+您可以在佈建期間使用指令碼來安裝其他元件或自訂組態。這類指令碼會透過 [指令碼動作] 叫用。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
+> [AZURE.IMPORTANT]佈建叢集之後，不支援加入其他元件，因為在重新安裝叢集節點的映像之後，便無法使用這些元件。透過指令碼動作安裝的元件會在重新安裝映像程序時進行重新安裝。
 
 ### 使用 Azure 虛擬網路
 
@@ -100,21 +101,22 @@ Metastore 包含 Hive 資料表、資料分割、結構描述和資料行等相�
 
 您可以從 Linux 電腦以及 Windows 電腦佈建 HDInsight Hadoop Linux 叢集。下表提供不同作業系統中可用佈建選項的相關資訊，以及各個選項之指示的連結。
 
-從執行此 OS 的電腦佈建 Linux 叢集| 使用 Azure 入口網站 | 使用 Azure PowerShell | 使用 .NET SDK
------------------| ------------------------| -------------------| ---------- | ---------
-Linux| 按一下[這裡](#portal) | 不適用 | 不適用
-Windows | 按一下[這裡](#portal) | 按一下[這裡](#powershell) | 按一下[這裡](#sdk)
+從執行此 OS 的電腦佈建 Linux 叢集 | 使用 Azure 入口網站 | 使用 Azure CLI | 使用 Azure PowerShell | 使用 .NET SDK
+-----------------| --------| ------------------------| -------------------| ---------- | ---------
+Linux| 按一下[這裡](#portal) | 按一下[這裡](#cli) | 不適用 | 不適用
+Mac OS X | 按一下[這裡](#portal) | 按一下[這裡](#cli) | 不適用 | 不適用
+Windows | 按一下[這裡](#portal) | 按一下[這裡](#cli) | 按一下[這裡](#powershell) | 按一下[這裡](#sdk)
 
 ### <a id="portal"></a>使用 Azure 入口網站
 
-HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相同的資料中心內必須要有 Azure 儲存體帳戶，您才能建立 HDInsight 叢集。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](../hdinsight-use-blob-storage.md)。如需建立 Azure 儲存帳號的詳細資訊，請參閱[如何建立儲存帳號](../storage-create-storage-account.md)。
+HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相同的資料中心內必須要有 Azure 儲存體帳戶，您才能建立 HDInsight 叢集。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](../hdinsight-use-blob-storage.md)。如需建立 Azure 儲存帳戶的詳細資訊，請參閱[如何建立儲存帳戶](../storage-create-storage-account.md)。
 
 
 > [AZURE.NOTE]目前只有**東南亞**、**北歐**、**美國東部**和**美國中南部**等地區可代管 HDInsight Linux 叢集。
 
 **建立 HDInsight 叢集**
 
-1. 登入 [Azure 預覽入口網站](https://portal.azure.com)。
+1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
 2. 請按一下 [新增]、[資料分析]，然後按一下 [HDInsight]。
 
     ![在 Azure Preview 入口網站中建立新的叢集](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.1.png "在 Azure Preview 入口網站中建立新的叢集")
@@ -122,18 +124,18 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 3. 輸入 [叢集名稱]，針對 [叢集類型] 選取 [Hadoop]，然後從 [叢集作業系統] 下拉式清單中選取 [Ubuntu]。如果該叢集可用，其名稱旁會出現綠色核取記號。
 
 
-	> [AZURE.NOTE]若要佈建 HBase 或 Storm 叢集，請為 [叢集類型] 下拉式清單選取適當的值。
+	> [AZURE.NOTE]若要佈建 HBase 或 Storm 叢集，請選取 [叢集類型] 下拉式清單的適當值。
 
 
 	![輸入叢集名稱和類型](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.2.png "輸入叢集名稱和類型")
 
 4. 如果您有多個訂用帳戶，請按一下 [訂用帳戶] 項目，以選取將用於該叢集的 Azure 訂用帳戶。
 
-5. 按一下 [資源群組] 來查看現有資源群組的清單，然後選取其中一個用來建立叢集。或者按一下 [建立新項目]，然後輸入新資源群組的名稱。出現綠色核取記號即表示新群組的名稱可用。
+5. 按一下 [資源群組] 來查看現有資源群組清單，然後選取要在其中建立叢集的資源群組。或者，您可以按一下 [建立新的]，然後輸入新資源群組的名稱。出現綠色核取記號即表示新群組的名稱可用。
 
 	> [AZURE.NOTE]如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
 
-6. 按一下 [認證]，然後輸入管理員使用者的密碼。您也必須輸入 [SSH 使用者名稱] 和 [密碼] 或 [公開金鑰]，這會用來驗證 SSH 使用者。建議使用公開金鑰的方法。在底部按一下 [選取] 以儲存認證組態。
+6. 按一下 [認證]，然後輸入系統管理員使用者的密碼。您也必須輸入 [SSH 使用者名稱] 和 [密碼] 或 [公開金鑰]，這會用來驗證 SSH 使用者。建議使用公開金鑰的方法。在底部按一下 [選取] 以儲存認證組態。
 
 	![提供叢集認證](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.3.png "提供叢集認證")
 
@@ -151,11 +153,11 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 
 	- **選取方法**：將此設為 [來自所有訂用帳戶]，即可瀏覽您所有訂用帳戶中的儲存體帳戶。如果您想要輸入現有儲存體帳戶的 [儲存體名稱] 和 [存取金鑰]，請將此設為 [存取金鑰]。
 
-	- **選取儲存體帳戶 / 建立新的**：請按一下 [選取儲存體帳戶] 瀏覽並選取您要與叢集相關聯的現有儲存體帳戶。或按一下 [建立新項目] 來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可用，將會出現綠色核取記號。
+	- **選取儲存體帳戶 / 建立新的**：請按一下 [選取儲存體帳戶] 來瀏覽並選取您要與叢集關聯的現有儲存體帳戶。或按一下 [建立新項目] 來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可用，將會出現綠色核取記號。
 
 	- **選擇預設容器**：使用此選項可輸入要用於該叢集的預設容器名稱。雖然您可以輸入任何名稱，但我們建議您使用與叢集相同的名稱，以便輕易辨識用於這個特定叢集的容器。
 
-	- **位置**：儲存體帳戶所在地或將建立的地理區域。
+	- **位置**：儲存體帳戶所在或將建立帳戶的地理區域。
 
 		> [AZURE.IMPORTANT]選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
 
@@ -199,13 +201,13 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 
 		按一下 [選取]，直到您回到 [新的 HDInsight 叢集] 刀鋒視窗。
 
-10. 在 [新的 HDInsight 叢集] 刀鋒視窗中，確認已選取 [釘選到「開始面板」]，然後按一下 [建立]。這將會建立叢集，並將該叢集磚加入到您 Azure 入口網站的「開始面板」。該圖示可表示該叢集正在佈建，並將在佈建完成後變更為 HDInsight 圖示。
+10. 在 [新的 HDInsight 叢集] 刀鋒視窗中，確認已選取 [釘選到開始面板]，然後按一下 [建立]。這將會建立叢集，並將該叢集磚加入到您 Azure 入口網站的「開始面板」。該圖示可表示該叢集正在佈建，並將在佈建完成後變更為 HDInsight 圖示。
 
 	| 佈建期間 | 佈建完成 |
 	| ------------------ | --------------------- |
 	| ![「開始面板」上的佈建指示器](./media/hdinsight-hadoop-provision-linux-clusters/provisioning.png) | ![佈建的叢集磚](./media/hdinsight-hadoop-provision-linux-clusters/provisioned.png) |
 
-	> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。使用「開始面板」上的圖格或頁面左邊的 [通知] 項目，檢查佈建處理序。
+	> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。使用「開始面板」上的磚或頁面左邊的 [通知] 項目，檢查佈建處理序。
 
 11. 佈建完成後，在「開始面板」按一下該叢集磚，以啟動叢集刀鋒視窗。此叢集刀鋒視窗提供該叢集的基本資訊，如名稱、其所屬的資源群組、位置、作業系統、叢集儀表板 URL 等。
 
@@ -223,15 +225,79 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 
 	* **快速入門** (![雲和雷電圖示 = 快速入門](./media/hdinsight-hadoop-provision-linux-clusters/quickstart.png))：顯示可協助您開始使用 HDInsight 的資訊。
 
-	* **使用者** (![使用者圖示](./media/hdinsight-hadoop-provision-linux-clusters/users.png))：可讓您設定 Azure 訂用帳戶上其他使用者對此叢集的 [入口網站管理] 權限。
+	* **使用者** (![使用者圖示](./media/hdinsight-hadoop-provision-linux-clusters/users.png))：可讓您設定 Azure 訂用帳戶上其他使用者對此叢集的「入口網站管理」權限。
 
 		> [AZURE.IMPORTANT]這「只」會影響在 Azure Preview 入口網站對此叢集的存取和權限，對於連線至 HDInsight 叢集或將工作提交至其上的使用者則沒有作用。
 
-	* **標記** (![標記圖示](./media/hdinsight-hadoop-provision-linux-clusters/tags.png))：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可能會建立名為__專案__的金鑰，然後使用與特定專案相關聯的所有服務之通用值。
+	* **標記** (![標記圖示](./media/hdinsight-hadoop-provision-linux-clusters/tags.png))：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可能會建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯的所有服務之通用值。
 
+### <a id="cli"></a> 使用 Azure CLI
 
+Azure CLI 是可讓您管理 Azure 服務的跨平台命令列公用工具。它可搭配 Azure 資源管理範本用來佈建 HDInsight 叢集，以及相關聯的儲存體帳戶和其他服務。
+
+Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 HDInsight) 的 JSON 文件 這個以範本為基礎的方法可讓您定義一個範本中 HDInsight 所需的所有資源，並透過可將變更套用至群組的__部署__整體管理群組的變更。
+
+下列步驟將逐步完成使用 Azure CLI 和範本建立新 HDInsight 叢集的程序︰
+
+1. 如果尚未安裝，請依照[安裝及設定 Azure CLI](../xplat-cli.md) 文件中的步驟執行。
+
+2. 從命令列、終端機或殼層，使用下列命令來驗證您的 Azure 訂用帳戶：
+
+        azure login
+
+    系統會提示您提供使用者名稱與密碼。如果您有多個 Azure 訂用帳戶，則可以使用 `azure account set <subscriptionname>` 設定 Azure CLI 命令將使用的訂用帳戶。
+
+3. 使用下列命令來切換至 Azure 資源管理員模式︰
+
+        azure config mode arm
+
+4. 建立 HDInsight 叢集的範本。以下是一些基本範例範本：
+
+    * [以 Linux 為基礎的叢集 (使用 SSH 公開金鑰)](https://github.com/matt1883/azure-quickstart-templates/tree/master/hdinsight-linux-sshpublickey)
+    * [以 Linux 為基礎的叢集 (使用 SSH 帳戶的密碼)](https://github.com/matt1883/azure-quickstart-templates/tree/master/hdinsight-linux-sshpassword)
+
+    這兩個範本也會建立 HDInsight 所使用的預設 Azure 儲存體帳戶。
+
+    您需要的檔案是 __azuredeploy.json__ 和 __azuredeploy.parameters.json__。
+
+5. 在編輯器中開啟 __azuredeploy.parameters.json__ 檔案，並在 `parameters` 區段中提供項目的值：
+
+    * __位置__︰將在其中建立資源的資料中心。您可以檢視 __azuredeploy.json__ 檔案中的 `location` 區段，以取得允許的位置清單。
+    * __clusterName__︰HDInsight 叢集的名稱。這個名稱必須是唯一的，否則部署將會失敗。
+    * __clusterStorageAccountName__︰將會針對 HDInsight 叢集建立的 Azure 儲存體帳戶名稱。這個名稱必須是唯一的，否則部署將會失敗。
+    * __clusterLoginPassword__︰叢集系統管理員使用者的密碼。這應該是安全的密碼，因為它是用來存取網站和叢集上的 REST 服務。
+    * __sshUserName__︰要為此叢集建立的第一個 SSH 使用者名稱。SSH 將利用此帳戶用來從遠端存取此叢集。此名稱必須是唯一的，不能是叢集上使用中的帳戶名稱。無效的名稱，包含 root, storm 以及 hbase。
+    * __sshPublicKey__︰如果您使用的範本需要 SSH 公開金鑰，您就必須在下面這行上新增您的公開金鑰。如需產生和使用公開金鑰的詳細資訊，請參閱下列文章：
+
+        * [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)
+        * [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+    * __sshPassword__︰如果您使用的範本需要 SSH 密碼，您就必須在下面這行上新增密碼。
+
+    完成後，請儲存並關閉檔案。
+
+5. 使用下列來建立空的資源群組。以您要用於此群組的名稱取代 __RESOURCEGROUPNAME__。以應建立群組的資料中心取代 __LOCATION__︰
+
+        azure group create RESOURCEGROUPNAME LOCATION
+    
+    > [AZURE.NOTE]如果位置名稱包含空格，請將它放在雙引號中。例如 "South Central US"。
+
+6. 使用下列命令來建立此資源群組的初始部署。以 __azuredeploy.json__ 範本檔案的路徑取代 __PATHTOTEMPLATE__。以 __azuredeploy.parameters.json__ 檔案的路徑取代 __PATHTOPARAMETERSFILE__。以您在上一個步驟中建立的群組的名稱取代 __RESOURCEGROUPNAME__︰
+
+        azure group deployment create -f PATHTOTEMPLATE -e PATHTOPARAMETERSFILE -g RESOURCEGROUPNAME -n InitialDeployment
+
+    一旦接受部署，您應該會看到類似 `group deployment create command ok` 的訊息。
+
+7. 可能需要一些時間 (大約 15 分鐘) 才能完成部署。您可以使用下列命令檢視有關部署的資訊。以上一個步驟中使用的資源群組名稱取代 __RESOURCEGROUPNAME__︰
+
+        azure group log show -l RESOURCEGROUPNAME
+
+    如果在部署期間發生失敗，您可以使用下列命令取得更多有關失敗的資訊
+
+        azure group log show -l -v RESOURCEGROUPNAME
 
 ### <a id="powershell"></a>使用 Azure PowerShell
+
 Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控制和自動化工作量的部署與管理。本節提供如何使用 Azure PowerShell 佈建 HDInsight 叢集的指示。如需設定工作站以執行 HDInsight Windows Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。如需搭配使用 Azure PowerShell 與 HDInsight 的詳細資訊，請參閱[使用 PowerShell 管理 HDInsight](hdinsight-administer-use-powershell.md)。如需 HDInsight Windows PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/dn858087.aspx)。
 
 
@@ -312,146 +378,138 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 
 ![HDI.CLI.Provision][image-hdi-ps-provision]
 
+
+
 ###<a id="sdk"></a>使用 HDInsight .NET SDK
 HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NET Framework 應用程式使用 HDInsight。請遵循下列指示建立 Visual Studio 主控台應用程式，並貼上建立叢集的程式碼。
 
 **建立 Visual Studio 主控台應用程式**
 
-1. 開啟 Visual Studio 2013。
+1. 開啟 Visual Studio 2013 或 2015。
 
 2. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
 
 3. 在 [**新增專案**] 中，輸入或選取下列值：
 
-	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-<tr>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">屬性</th>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">值</th></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">類別</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">範本/Visual C#/Windows</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">範本</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">主控台應用程式</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">名稱</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
-</table>
+	|屬性|值|
+	|--------|-----|
+	|範本|Templates/Visual C#/Windows/Console Application|
+	|名稱|CreateHDICluster|
 
 4. 按一下 [確定] 以建立專案。
 
-5. 在 [工具] 功能表中按一下 [Nuget 封裝管理員]，然後按一下 [管理解決方案的 Nuget 封裝]。在對話方塊內的 [搜尋] 文字方塊，搜尋 [HDInsight]。從顯示的結果安裝下列項目：
+5. 在 [工具] 功能表中按一下 [Nuget 套件管理員]，然後按一下 [Package Manager Console]。
 
-	 * Microsoft.Azure.Management.HDInsight
-	 * Microsoft.Azure.Management.HDInsight.Job
+6. 在主控台中執行下列命令，以安裝套件：
 
-	搜尋 Azure 驗證，並從顯示的結果安裝 **Microsoft.Azure.Common.Authentication**。
+		Install-Package Microsoft.Azure.Common.Authentication -pre
+		Install-Package Microsoft.Azure.Management.HDInsight -Pre
+
+	這些命令會將 .NET 程式庫及其參考新增至目前的 Visual Studio 專案。
 
 6. 在 [方案總管] 中按兩下 **Program.cs** 予以開啟，貼上下列程式碼，並提供變數的值：
 
-
-        using System;
-		using System.Collections.Generic;
-		using System.Diagnostics;
-		using System.Linq;
-		using System.Security;
-		using System.Text;
-		using System.Threading.Tasks;
-		using Hyak.Common;
 		using Microsoft.Azure;
 		using Microsoft.Azure.Common.Authentication;
+		using Microsoft.Azure.Common.Authentication.Factories;
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
-		using Microsoft.Azure.Management.HDInsight.Job;
-		using Microsoft.Azure.Management.HDInsight.Job.Models;
 		using Microsoft.Azure.Management.HDInsight.Models;
-		using Newtonsoft.Json;
-
 
 		namespace CreateHDICluster
 		{
 		    internal class Program
 		    {
-		        private static ProfileClient _profileClient;
-		        private static SubscriptionCloudCredentials _cloudCredentials;
 		        private static HDInsightManagementClient _hdiManagementClient;
+		
+		        private static Guid SubscriptionId = new Guid("<AZURE SUBSCRIPTION ID>");
+		        private const string ResourceGroupName = "<AZURE RESOURCEGROUP NAME>";
 
-		        private static Guid SubscriptionId = new Guid("<SubscriptionID>");
-		        private const string ResourceGroupName = "<ResourceGroupName>";
-		        private const string ExistingStorageName = "<storageaccountname>.blob.core.windows.net";
-		        private const string ExistingStorageKey = "<account key>";
-		        private const string ExistingContainer = "<container name>";
-		        private const string NewClusterName = "<cluster name>";
-		        private const int NewClusterNumNodes = <number of nodes>;
-		        private const string NewClusterLocation = "<location>";		//should be same as the storage account
-		        private const OSType NewClusterOsType = OSType.Linux;
-		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+		        private const string NewClusterName = "<HDINSIGHT CLUSTER NAME>";
+		        private const int NewClusterNumNodes = <NUMBER OF NODES>;
+		        private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
 		        private const string NewClusterVersion = "3.2";
-		        private const string NewClusterUsername = "admin";
-		        private const string NewClusterPassword = "<password>";
-				private const string NewClusterSshUserName = "sshuser";
-        		private const string NewClusterSshPublicKey = "<ssh public key>";
+		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+		        private const OSType NewClusterOSType = OSType.Windows;
 
+		        private const string ExistingStorageName = "<STORAGE ACCOUNT NAME>.blob.core.windows.net";
+		        private const string ExistingStorageKey = "<STORAGE ACCOUNT KEY>";
+		        private const string ExistingContainer = "<DEFAULT CONTAINER NAME>"; 
+
+		        private const string NewClusterUsername = "admin";
+		        private const string NewClusterPassword = "<HTTP USER PASSWORD>";
+
+		        private const string NewClusterSshUserName = "sshuser";
+		        private const string NewClusterSshPublicKey = @"---- BEGIN SSH2 PUBLIC KEY ----
+					Comment: ""rsa-key-20150731""
+					AAAAB3NzaC1yc2EAAAABJQAAAQEA4QiCRLqT7fnmUA5OhYWZNlZo6lLaY1c+IRsp
+					gmPCsJVGQLu6O1wqcxRqiKk7keYq8bP5s30v6bIljsLZYTnyReNUa5LtFw7eauGr
+					yVt3Pve6ejfWELhbVpi0iq8uJNFA9VvRkz8IP1JmjC5jsdnJhzQZtgkIrdn3w0e6
+					WVfu15kKyY8YAiynVbdV51EB0SZaSLdMZkZQ81xi4DDtCZD7qvdtWEFwLa+EHdkd
+					pzO36Mtev5XvseLQqzXzZ6aVBdlXoppGHXkoGHAMNOtEWRXpAUtEccjpATsaZhQR
+					zZdZlzHduhM10ofS4YOYBADt9JohporbQVHM5w6qUhIgyiPo7w==
+					---- END SSH2 PUBLIC KEY ----"; //replace the public key with your own
+		
 		        private static void Main(string[] args)
 		        {
-		            System.Console.WriteLine("Start cluster provisioning");
-
-		            _profileClient = GetProfile();
-		            _cloudCredentials = GetCloudCredentials();
-		            _hdiManagementClient = new HDInsightManagementClient(_cloudCredentials);
-
-		            System.Console.WriteLine(String.Format("Creating the cluster {0}...", NewClusterName));
+		            var tokenCreds = GetTokenCloudCredentials();
+		            var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+		
+		            _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+		
 		            CreateCluster();
-		            System.Console.WriteLine("Done. Press any key to continue.");
-		            System.Console.ReadKey(true);
 		        }
-
+		
+		        public static SubscriptionCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
+		        {
+		            var authFactory = new AuthenticationFactory();
+		
+		            var account = new AzureAccount { Type = AzureAccount.AccountType.User };
+		
+		            if (username != null && password != null)
+		                account.Id = username;
+		
+		            var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+		
+		            var accessToken =
+		                authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
+		                    .AccessToken;
+		
+		            return new TokenCloudCredentials(accessToken);
+		        }
+		
+		        public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(SubscriptionCloudCredentials creds, Guid subId)
+		        {
+		            return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);
+		        }
+		
+		
 		        private static void CreateCluster()
 		        {
 		            var parameters = new ClusterCreateParameters
 		            {
 		                ClusterSizeInNodes = NewClusterNumNodes,
-		                UserName = NewClusterUsername,
-		                Password = NewClusterPassword,
 		                Location = NewClusterLocation,
+		                ClusterType = NewClusterType,
+		                OSType = NewClusterOSType,
+		                Version = NewClusterVersion,
+
 		                DefaultStorageAccountName = ExistingStorageName,
 		                DefaultStorageAccountKey = ExistingStorageKey,
 		                DefaultStorageContainer = ExistingContainer,
-		                ClusterType = NewClusterType,
-		                OSType = NewClusterOsType,
-						SshUserName = NewClusterSshUserName,
+
+		                UserName = NewClusterUsername,
+		                Password = NewClusterPassword,
+		                SshUserName = NewClusterSshUserName,
                 		SshPublicKey = NewClusterSshPublicKey
 		            };
-
+		
 		            _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
 		        }
-
-		        private static ProfileClient GetProfile(string username = null, SecureString password = null)
-		        {
-		            var profileClient = new ProfileClient(new AzureProfile());
-		            var env = profileClient.GetEnvironmentOrDefault(EnvironmentName.AzureCloud);
-		            var acct = new AzureAccount { Type = AzureAccount.AccountType.User };
-
-		            if (username != null && password != null)
-		                acct.Id = username;
-
-		            profileClient.AddAccountAndLoadSubscriptions(acct, env, password);
-
-		            return profileClient;
-		        }
-
-		        private static SubscriptionCloudCredentials GetCloudCredentials()
-		        {
-		            var sub = _profileClient.Profile.Subscriptions.Values.FirstOrDefault(s => s.Id.Equals(SubscriptionId));
-
-		            Debug.Assert(sub != null, "subscription != null");
-		            _profileClient.SetSubscriptionAsDefault(sub.Id, sub.Account);
-
-		            return AzureSession.AuthenticationFactory.GetSubscriptionCloudCredentials(_profileClient.Profile.Context);
-		        }
-
-		    }
+			}
 		}
+		
+10. 取代類別成員值。
 
 7. 按 **F5** 鍵執行應用程式。主控台視窗會開啟並顯示應用程式的狀態。系統也會提示您輸入 Azure 帳戶認證。建立 HDInsight 叢集可能需要幾分鐘的時間。
 
@@ -516,4 +574,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

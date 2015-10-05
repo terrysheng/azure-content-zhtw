@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # 從 [設定] 使用 Azure AD 設定 Windows 10 裝置
@@ -36,8 +36,8 @@
 
 
 ## 其他資訊
-* [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-user-upgrade.md)
+* [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-overview.md)
 * [深入了解使用方式情節和 Azure AD Join 的部署考量](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # 根據 SQL 資料倉儲中的選項分組
@@ -180,9 +180,9 @@ ORDER BY 1,2,3
 [開發概觀]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[GROUP BY]: https://msdn.microsoft.com/zh-tw/library/ms177673.aspx
+[GROUP BY]: https://msdn.microsoft.com/ZH-TW/library/ms177673.aspx
 
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

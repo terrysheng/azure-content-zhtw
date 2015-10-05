@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # 在 SQL 資料倉儲中重新命名
@@ -75,9 +75,9 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 [開發概觀]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[KILL]: https://msdn.microsoft.com/zh-tw/library/ms173730.aspx
+[KILL]: https://msdn.microsoft.com/ZH-TW/library/ms173730.aspx
 
 <!--Other Web references-->
 [Azure management portal]: http://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

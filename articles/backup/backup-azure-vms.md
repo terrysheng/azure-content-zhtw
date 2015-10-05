@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="09/14/2015" ms.author="trinadhk"; "aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="09/24/2015" ms.author="trinadhk"; "aashishr"; "jimpark"/>
 
 
 # 備份 Azure 虛擬機器
@@ -30,8 +30,7 @@
 
     ![選取工作負載](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. 按一下頁面底部的 [**探索**] 按鈕。
-  ![探索按鈕](./media/backup-azure-vms/discover-button-only.png)
+3. 按一下頁面底部的 [**探索**] 按鈕。![探索按鈕](./media/backup-azure-vms/discover-button-only.png)
 
 4. 在列表顯示虛擬機器時，探索程序可能會執行幾分鐘。探索程序執行時，畫面底部會出現快顯通知。
 
@@ -122,7 +121,7 @@ Azure 備份服務會自動處理備份擴充功能的升級和修補，完全�
 如果 VM 正在執行，表示已安裝備份擴充功能。執行中的 VM 也提供最大的機會來取得應用程式一致點。不過，即使 VM 已關閉且無法安裝擴充功能 (也稱為離線 VM)，Azure 備份服務仍會繼續備份 VM。一致性會受影響 - 在此情況下，復原點為*損毀一致*。
 
 ### 初始備份
-虛擬機器受到原則保護之後，就會出現在 [受保護的項目] 索引標籤下，狀態為 受保護 - (擱置中的初始備份)。根據預設，第一個排定的備份是初始備份。若要在設定保護之後立即觸發初始備份，請使用 [受保護項目] 頁面底部的 [立即備份] 按鈕。
+虛擬機器受到原則保護之後，就會出現在 [受保護的項目] 索引標籤下，狀態為 [受保護 - (擱置中的初始備份)]。根據預設，第一個排定的備份是初始備份。若要在設定保護之後立即觸發初始備份，請使用 [受保護項目] 頁面底部的 [立即備份] 按鈕。
 
 Azure 備份服務會初始備份作業建立備份工作。按一下 [工作] 索引標籤來檢視工作清單。在備份工作進行時，Azure 備份服務會發出命令給每個虛擬機器中的備份擴充功能，以排清所有寫入並取得一致的快照。
 
@@ -195,7 +194,7 @@ Azure 備份服務會初始備份作業建立備份工作。按一下 [工作] �
 雖然大部分的時間花費在讀取和複製資料，但備份 VM 所花費的全部時間還包含其他作業：
 
 1. [安裝或更新備份擴充功能](backup-azure-vms.md#offline-vms)所花費的時間
-2. 佇列等候時間：因為服務正在處理多個客戶的備份，備份作業可能不會立即啟動。VM 的平均等候時間是 15-30 分鐘。
+2. 佇列等候時間：因為備份服務正在處理多個客戶的備份，備份作業可能不會立即啟動。在尖峰負載時，等候時間會因為正在處理的備份數目而長達 8 小時。不過，針對每日備份原則，總計 VM 備份時間將會小於 24 小時。
 
 ## 錯誤疑難排解
 針對虛擬機器備份期間遇到的錯誤，取得詳盡的因應措施清單：
@@ -208,4 +207,4 @@ Azure 備份服務會初始備份作業建立備份工作。按一下 [工作] �
 - [還原虛擬機器](backup-azure-restore-vms.md)
 - [管理虛擬機器](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

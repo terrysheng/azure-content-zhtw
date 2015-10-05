@@ -1,11 +1,12 @@
 <properties
-   pageTitle="針對 Azure VM 延伸模組的失敗進行疑難排解"
+   pageTitle="針對 Azure VM 延伸模組的失敗進行疑難排解 | Microsoft Azure"
    description="深入了解針對 Azure VM 延伸模組的失敗進行疑難排解"
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -18,9 +19,12 @@
 
 # 針對 Azure VM 延伸模組的失敗進行疑難排解。
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋內容包括如何使用資源管理員部署模型。
+
 ## Azure 資源管理員範本概觀。
 
 Azure 資源管理員範本可讓您藉由定義資源之間的相依性，以宣告方式指定 JSON 語言中的 Azure IaaS 基礎結構。
+
 
 按一下文章[撰寫延伸模組範本](virtual-machines-extensions-authoring-templates.md)來深入了解撰寫使用延伸模組的範本。
 
@@ -80,4 +84,4 @@ Azure Powershell：
 
 一旦移除了延伸模組，範本就可以重新執行並在 VM 上執行指令碼。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

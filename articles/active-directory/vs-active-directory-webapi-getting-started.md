@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/03/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # 開始使用 Azure Active Directory 和 Visual Studio 已連接服務 (WebApi 專案)
 
@@ -29,4 +29,4 @@
 [深入了解 Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

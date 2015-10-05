@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="09/22/2015" 
 	ms.author="sidneyh"/>
 
 # 分區彈性 
 
-**分區彈性**可讓應用程式開發人員根據需求，動態地放大和縮小資料庫資源，以最佳化其應用程式的效能並降低成本。Azure SQL Database 的**彈性資料庫工具**結合[基本、標準和進階服務層](http://msdn.microsoft.com/library/azure/dn741340.aspx)，提供令人信服的彈性案例。彈性資料庫工具支援水平縮放 - 一種設計模式，從分區集加入或移除資料庫 (也稱為[分區](sql-database-elastic-scale-glossary.md))，以放大或縮小容量。同樣地，SQL Database 服務層提供**垂直縮放**功能，單一資料庫的資源可以相應增加或減少，以適當地配合需求。單一分區的垂直縮放和許多分區的水平縮放結合起來，為應用程式開發人員提供非常有彈性的環境，可以調整以符合效能、容量和成本最佳化的需求。
+**分區彈性**可讓應用程式開發人員根據需求，動態地放大和縮小資料庫資源，以最佳化其應用程式的效能並降低成本。Azure SQL Database 的**彈性資料庫工具**結合[基本、標準和進階服務層](sql-database-service-tiers)，提供令人信服的彈性案例。彈性資料庫工具支援水平縮放 - 一種設計模式，從分區集加入或移除資料庫 (也稱為[分區](sql-database-elastic-scale-glossary.md))，以放大或縮小容量。同樣地，SQL Database 服務層提供**垂直縮放**功能，單一資料庫的資源可以相應增加或減少，以適當地配合需求。單一分區的垂直縮放和許多分區的水平縮放結合起來，為應用程式開發人員提供非常有彈性的環境，可以調整以符合效能、容量和成本最佳化的需求。
 
 搭配新引進的**彈性資料庫集區**功能，更容易達成垂直縮放。集區允許在整個集區共享的預算內，讓個別資料庫的資源耗用*自動*擴大或縮小。對於選擇不利用彈性資料庫集區的應用程式，這篇文章將說明實作以原則為基礎的機制來管理垂直縮放的其他技術，以及水平縮放作業自動化的一些常見案例。
 
@@ -147,7 +147,7 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-scale-elasticity/data-ingestion.png
+
 
 <!--anchors-->
 [Telemetry]: #telemetry
@@ -155,4 +155,4 @@
 [Action]: #action
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

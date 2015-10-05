@@ -1,19 +1,19 @@
 <properties 
    pageTitle="應用程式閘道簡介 | Microsoft Azure"
-	description="此頁面提供第 7 層負載平衡的應用程式閘道服務的概觀，包括閘道大小、HTTP 負載平衡、以 Cookie 為基礎的工作階段同質，以及 SSL 卸載。"
-	documentationCenter="na"
-	services="application-gateway"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="此頁面提供第 7 層負載平衡的應用程式閘道服務的概觀，包括閘道大小、HTTP 負載平衡、以 Cookie 為基礎的工作階段同質，以及 SSL 卸載。"
+   documentationCenter="na"
+   services="application-gateway"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn"/>
 <tags 
    ms.service="application-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/23/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article" 
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="08/23/2015"
+   ms.author="joaoma"/>
 
 # 什麼是應用程式閘道？
 
@@ -36,7 +36,10 @@ Azure 透過在傳輸層級 (TCP/UDP) 執行的 Azure 負載平衡器，並讓�
 
 應用程式閘道會根據其設定 (無論是虛擬機器、雲端服務、Web App 或外部 IP 位址) 路由傳送 HTTP 流量。
 
-下圖說明應用程式閘道流量的流動方式：![應用程式閘道2](./media/application-gateway-introduction/appgateway2.png)
+下圖說明應用程式閘道流量的流動方式：
+
+ 
+![應用程式閘道2](./media/application-gateway-introduction/appgateway2.png)
 
 HTTP 第 7 層負載平衡可用於：
 
@@ -61,4 +64,4 @@ HTTP 第 7 層負載平衡可用於：
 
 設定 SSL 卸載。請參閱[使用應用程式閘道設定 SSL 卸載](application-gateway-ssl.md)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

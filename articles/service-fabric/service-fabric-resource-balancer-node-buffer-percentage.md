@@ -3,7 +3,7 @@
    description="資源平衡器的節點緩衝區百分比角色概觀"
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
-   ms.author="abhic"/>
+   ms.date="09/03/2015"
+   ms.author="masnider"/>
 
 # 節點緩衝區百分比概觀
 
@@ -47,4 +47,4 @@
 如需詳細資訊，請參閱：[資源平衡器架構](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

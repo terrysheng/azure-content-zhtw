@@ -44,6 +44,8 @@
 
 如需有關使用分割合併工具的指示，請參閱[分割合併工具概觀](sql-database-elastic-scale-overview-split-and-merge.md)。
 
+[彈性資料庫用戶端程式庫現在已開放原始碼！](http://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
+
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -51,4 +53,4 @@
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

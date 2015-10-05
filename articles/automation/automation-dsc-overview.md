@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure 自動化 DSC 概觀" 
+   pageTitle="Azure 自動化 DSC 概觀 | Microsoft Azure" 
    description="Azure 自動化期望狀態組態 (DSC)、其條款和已知問題的概觀" 
    services="automation" 
    documentationCenter="dev-center-name" 
@@ -13,12 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="09/04/2015"
+   ms.date="09/16/2015"
    ms.author="coreyp"/>
 
 # Azure 自動化 DSC 概觀 #
-
->[AZURE.IMPORTANT]**Azure 自動化 DSC 目前處於有限預覽版本**，並不支援生產環境工作負載。目前大部分是以 Cmdlet 為基礎，而且具有少量的圖形化使用者介面。註冊使用 Azure 自動化 DSC 的預覽版，即表示貴用戶認可這項功能處於預覽版，並且受限於縮減或不同的服務條款，如[服務合約](https://go.microsoft.com/fwLink/p/?LinkID=389530&clcid=0x409)中之闡述，且貴用戶同意[預覽版增補條款](https://go.microsoft.com/fwLink/p/?LinkID=247638&clcid=0x409)。雖然服務目前免費提供使用，未來將推出定價。
 
 ## 什麼是 PowerShell DSC？ ##
 期望狀態組態 (DSC) 是 Windows PowerShell 中的新管理平台，可讓您使用宣告式 PowerShell 語法管理實體主機和虛擬機器的組態。
@@ -49,6 +47,8 @@ Azure 自動化 DSC 建置在 PowerShell DSC 中推出的基礎上，提供您�
 
 Azure 自動化 DSC 可讓您 [編寫和管理 PowerShell 期望狀態組態](https://technet.microsoft.com/library/dn249918.aspx)、匯入 [DSC 資源](https://technet.microsoft.com/library/dn282125.aspx)，並產生 DSC 節點組態 (MOF 文件)，全都在雲端。這些 DSC 項目將會放在 Azure 自動化 [DSC 提取伺服器](https://technet.microsoft.com/library/dn249913.aspx)上，以便在雲端或內部的目標節點 (例如實體和虛擬機器) 可以加以提取，自動符合它們指定的狀態，並向 Azure 自動化回報其期望狀態的符合性。
 
+寧可觀賞也不要閱讀？ 請觀賞以下在 2015 年 5 月發佈的影片，此為首次發佈 Azure 自動化 DSC 的時間。**附註：**儘管這段影片中所討論的概念和週期都是正確的，但是 Azure 自動化 DSC 自從這段影片錄製之後已經進步許多。它現在可公開預覽、在 Azure 入口網站中具有更豐富的 UI，並支援額外的功能。
+
 > [AZURE.VIDEO microsoft-ignite-2015-heterogeneous-configuration-management-using-microsoft-azure-automation]
 
 ## Azure 自動化 DSC 詞彙 ##
@@ -71,20 +71,14 @@ PowerShell DSC 引進了稱為組態的新概念。組態可讓您透過 PowerSh
 
 Azure 自動化 DSC 可讓您在 Azure 自動化中匯入、編寫並編譯 DSC 組態，類似於匯入、編寫並在 Azure 自動化中開始使用 Runbook 的方式。
 
-Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://msdn.microsoft.com/library/mt244122.aspx)中提供下列 Cmdlet，以用於 DSC 組態的管理：
-
-- `Get-AzureAutomationDscConfiguration`
-- `Import-AzureAutomationDscConfiguration`
-
 >[AZURE.IMPORTANT]在 Azure 自動化 DSC 中，組態應該僅包含一個組態區塊，具有與組態相同的名稱。
+
 
 ###節點組態###
 
-編譯了 DSC 組態之後，根據組態中的節點區塊，會產生一或多個節點組態。節點組態與「MOF」或「組態文件」是一樣的 (如果您熟悉這些 PS DSC 詞彙)，而代表「角色」，例如 webserver 或worker，應該設想一或多個節點的期望狀態。
+編譯了 DSC 組態之後，根據組態中的節點區塊，會產生一或多個節點組態。節點組態與「MOF」或「組態文件」是一樣的 (如果您熟悉這些 PS DSC 詞彙)，而代表「角色」，例如 webserver 或worker，應該設想一或多個節點的期望狀態。Azure 自動化 DSC 中的節點組態名稱會採用「<Configuration-name>.<Node configuration-block-name>」的形式。
 
 可察覺節點組態的 PS DSC 節點，應該透過 DSC 發送或提取方法來執行。Azure 自動化 DSC 依賴 DSC 提取方法，其中要求節點組態的節點應該從 Azure 自動化 DSC 提取伺服器套用。由於節點會對 Azure 自動化 DSC 提出要求，因此這些節點可以在防火牆之後、將所有輸入連接埠關閉等等。他們只需要對網際網路的輸出存取權。
-
-Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://msdn.microsoft.com/library/mt244122.aspx)中提供下列 Cmdlet，以用於 DSC 節點組態的管理：`Get-AzureAutomationDscNodeConfiguration`
 
 
 ###節點###
@@ -93,75 +87,6 @@ DSC 節點是由 DSC 所管理的任何一部機器的組態。這可能是 Azur
 
 Azure 自動化 DSC 使將節點上架以由 Azure 自動化 DSC 進行管理更為輕鬆，並允許變更指派給每個節點伺服器端的節點組態，因此下一次節點檢查伺服器的指示時，會設想不同的角色並變更它的設定方式來符合組態。節點也會向 Azure 自動化 DSC 報告其狀態和組態符合性。
 
-Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://msdn.microsoft.com/library/mt244122.aspx)中提供下列 Cmdlet，以用於 DSC 節點的管理：
-
--	`Get-AzureAutomationDscNode`  
--	`Register-AzureAutomationDscNode` (用於將 Azure v2 VM 上架為節點)
--	`Get-AzureAutomationDscOnboardingMetaconfig` (用於上架節點)
--	`Set-AzureAutomationDscNode` (用來設定/更新節點為節點組態對應)
--	`Unregister-AzureAutomationDscNode`
--	`Get-AzureAutomationDscNodeReport`
--	`Export-AzureAutomationDscNodeReportContent`
-
-`Get-AzureAutomationRegistrationInfo` Cmdlet 可透過 Azure 入口網站中的 Azure 自動化 DSC VM 延伸模組，或透過 PowerShell，用來取得註冊 URL 和將 Azure 傳統 VM 上架到 Azure 自動化帳戶所需的金鑰。
-
-
-Azure 自動化 DSC VM 延伸模組：
-
-![替代文字](./media/automation-dsc-overview/AADSC_4.png)
-
-
-PowerShell：
-
-    # fill in correct values for your VM / Automation Account here
-    $VMName = ""
-    $ServiceName = ""
-    $AutomationAccountName = ""
-    $AutomationAccountResourceGroup = ""
-
-
-    # get Azure Automation DSC registration info
-    Switch-AzureMode AzureResourceManager
-
-    $Account = Get-AzureAutomationAccount -ResourceGroupName $AutomationAccountResourceGroup -Name $AutomationAccountName
-
-    $RegistrationInfo = $Account | Get-AzureAutomationRegistrationInfo
-
-
-    # use the DSC extension to onboard the VM for management with Azure Automation DSC
-    Switch-AzureMode AzureServiceManagement
-
-    $VM = Get-AzureVM -Name $VMName -ServiceName $ServiceName
-
-    $PublicConfiguration = ConvertTo-Json -Depth 8 @{
-        SasToken = ""
-        ModulesUrl = "https://eus2oaasibizamarketprod1.blob.core.windows.net/automationdscpreview/RegistrationMetaConfig.zip"
-        ConfigurationFunction = "RegistrationMetaConfig.ps1\RegistrationMetaConfig"
-
-        # update these DSC agent configurations if these defaults are not what you want. 
-        # See https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396 for more details
-        Properties = @{
-            RegistrationKey = $RegistrationInfo.PrimaryKey
-            RegistrationUrl = $RegistrationInfo.Endpoint
-            NodeConfigurationName = "configname.webserver"
-            ConfigurationMode = "ApplyAndMonitor"
-            ConfigurationModeFrequencyMins = 15
-            RefreshFrequencyMins = 30
-           RebootNodeIfNeeded = $False
-           ActionAfterReboot = "ContinueConfiguration"
-           AllowModuleOverwrite = $False
-        }
-    } 
-
-    $VM = Set-AzureVMExtension `
-        -VM $vm `
-        -Publisher Microsoft.Powershell `
-        -ExtensionName DSC `
-        -Version 1.9 `
-        -PublicConfiguration $PublicConfiguration
-
-    $VM | Update-AzureVM
- 
 
 ###資源###
 DSC 資源是可用來定義 Windows PowerShell 期望狀態組態 (DSC) 組態的建置組塊。DSC 隨附一組內建功能，可用於設定資源，例如檔案和資料夾、伺服器功能和角色、登錄設定、環境變數，以及服務和程序。若要了解內建 DSC 資源的完整清單，以及如何使用它們，請參閱 [內建的 Windows PowerShell 期望狀態組態資源](https://technet.microsoft.com/library/dn249921.aspx)。
@@ -170,15 +95,9 @@ DSC 資源也可匯入成為 PowerShell 模組的一部分，以擴充內建的 
 
 Azure 自動化 DSC 隨附與 PS DSC 相同的所有內建 DSC 資源。透過匯入包含資源的 PowerShell 模組到 Azure 自動化，即可加入其他資源至 Azure 自動化 DSC。
 
-Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://msdn.microsoft.com/library/mt244122.aspx)中提供下列 Cmdlet，用於管理 PowerShell：
-
-- `New-AzureAutomationModule`
-- `Remove-AzureAutomationModule`
-- `Set-AzureAutomationModule`
-- `Get-AzureAutomationModule`
 
 ###編譯工作###
-Azure 自動化 DSC 中的編譯工作是組態編譯的執行個體，以建立一或多個節點組態。它們類似於 Azure 自動化 Runbook 工作，除了它們未實際執行除了建立節點組態以外的任何工作。編譯工作所建立的任何節點組態會自動放在 Azure 自動化 DSC 提取伺服器上，並覆寫舊版節點組態的設定 (如果此組態已存在)。編譯工作產生之節點組態名稱的形式為 "<Configuration-name>.<Node configuration-block-name>"。例如，編譯下列組態會產生稱為 "MyConfiguration.webserver" 的單一節點組態
+Azure 自動化 DSC 中的編譯工作是組態編譯的執行個體，以建立一或多個節點組態。它們類似於 Azure 自動化 Runbook 工作，除了它們未實際執行除了建立節點組態以外的任何工作。編譯工作所建立的任何節點組態都會自動放在 Azure 自動化 DSC 提取伺服器上，並覆寫舊版節點組態 (如果此組態具有舊版節點組態)。編譯工作產生之節點組態名稱的形式為 "<Configuration-name>.<Node configuration-block-name>"。例如，編譯下列組態會產生稱為 "MyConfiguration.webserver" 的單一節點組態
 
 
 ![替代文字](./media/automation-dsc-overview/AADSC_5.png)
@@ -186,27 +105,19 @@ Azure 自動化 DSC 中的編譯工作是組態編譯的執行個體，以建立
 
 >[AZURE.NOTE]就像 Runbook，一樣可以發行組態。這與將 DSC 項目放入 Azure 自動化 DSC 提取伺服器無關。編譯工作造成 DSC 項目放在 Azure 自動化 DSC 提取伺服器上。如需有關 Azure 自動化中的「發行」的詳細資訊，請參閱[發行 Runbook](https://msdn.microsoft.com/library/dn903765.aspx)。
 
-
 Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://msdn.microsoft.com/library/mt244122.aspx)中提供下列 Cmdlet，用於編譯工作的管理：
 
 -	`Get-AzureAutomationDscCompilationJob`
 -	`Get-AzureAutomationDscCompilationJobOutput`
 -	`Start-AzureAutomationDscCompilationJob`
 
-
 ##Azure 自動化 DSC 週期##
 從空的自動化帳戶到一組受管理的正確設定節點，會包含一組用來定義組態、將這些組態變為節點組態，並將節點上架至 Azure 自動化 DSC 及節點組態的程序。下圖說明 Azure 自動化 DSC 週期：
 
 ![替代文字](./media/automation-dsc-overview/DSCLifecycle.png)
 
+
 ##錯誤/已知問題：##
-
-- 由於 Azure 自動化 DSC 處於預覽，第一次使用這項功能時，您將需要使用 Azure PowerShell Cmdlet 或 Azure Preview 入口網站進行註冊。您可以藉由呼叫下列兩個 Cmdlet 來註冊：
-
- - `Register-AzureProvider –ProviderNamespace Microsoft.Automation`
- - `Register-AzureProviderFeature -FeatureName dsc -ProviderNamespace Microsoft.Automation` 
- 
->[AZURE.NOTE]在功能提供使用之前，Azure 自動化 DSC 註冊可能要花一個小時才能完成。
 
 - Azure 自動化 DSC 目前不支援進行部分或複合 DSC 組態。
 
@@ -218,18 +129,19 @@ Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://
 
 - 指定 DSC 資源在模組內並存且使用「每個資料夾的版本」格式的 PowerShell 模組，目前將無法在 Azure 自動化中運作。
 
-- 使用 `New-AzureAutomationModule` 或 `Set-AzureAutomationModule` Cmdlet 將 PowerShell 模組匯入到 Azure 自動化時，模組匯入是非同步的。即使 Cmdlet 成功傳回，不表示模組匯入已成功。若要檢查匯入是否已成功，請使用 `Get-AzureAutomationModule –Name <ModuleName>` (請務必只取得此模組，而非所有模組)，並檢查模組的 **ProvisioningState** 欄位顯示已成功。
-
 - 匯入到 Azure 自動化的 PowerShell 模組不能包含 .doc 或 .docx 檔案。包含 DSC 資源的某些 PowerShell 模組包含這些檔案，供說明之用。匯入到 Azure 自動化之前，應該先從模組移除這些檔案。
 
-- Azure 自動化中的組態目前僅支援參數值的字串。如果您想要傳遞的參數值的字串以外的項目，將以 JSON 字串的形式傳遞參數值，並在組態內使用 ConvertFrom-Json 將 JSON 字串轉換回非字串值。
-
-- 已先向 Azure 自動化帳戶註冊節點時，或節點變更為對應至組態伺服器端的不同節點時，它的狀態會相容，即使節點的狀態實際上與現在對應的節點組態不相容亦然。節點在註冊之後傳送第一份報告，或節點組態對應變更，均可以信任節點狀態。
+- 若已先向 Azure 自動化帳戶註冊節點，或已將該節點變更為對應至不同的節點組態伺服器端，則它的狀態將會是「相容」，即使節點的狀態實際上與現在對應的節點組態不相容亦然。當節點執行它的首次提取並傳送它的第一份報告之後，在註冊或節點組態對應變更之後，均可信任節點狀態。
 
 - 使用 `Register-AzureAutomationDscNode`、`Set-AzureVMExtension` 或 Azure 預覽入口網站中的 Azure 自動化 DSC VM 延伸模組將 Azure VM 上架以使用 Azure 自動化 DSC 管理時，如果註冊失敗，並出現**未指定電腦名稱，並且組態目錄沒有任何組態檔**，這是誤報而 VM 註冊實際上是成功的。您可以使用 `Get-AzureAutomationDscNode` Cmdlet 驗證成功註冊。
 
-- 使用 `Register-AzureAutomationDscNode`、`Set-AzureVMExtension` 或 Azure 預覽入口網站中的 Azure 自動化 DSC VM 延伸模組將 Azure VM 上架以使用 Azure 自動化 DSC 管理時，這最多可能需要一小時，VM 才會在 Azure 自動化中顯示為 DSC 節點。這是因為 VM 上憑藉著 Azure VM DSC 延伸模組的 Windows Management Framework 5.0 安裝，需要它才能將 VM 上架到 Azure 自動化 DSC。
+- 使用 `Register-AzureAutomationDscNode`、`Set-AzureVMExtension` 或 Azure Preview 入口網站中的 Azure 自動化 DSC VM 延伸模組，將 Azure VM 上架以使用 Azure 自動化 DSC 加以管理時，這最多可能需要一個小時，VM 才會在 Azure 自動化中顯示為 DSC 節點。這是因為 VM 上憑藉著 Azure VM DSC 延伸模組的 Windows Management Framework 5.0 安裝，需要它才能將 VM 上架到 Azure 自動化 DSC。
 
-- 上架到 Azure 自動化 DSC 的 DSC 節點一開始都會顯示為「相容」狀態，即使它們實際上不符合所對應的 DSC 節點組態。節點執行其第一次提取，並將其第一個 DSC 報表傳送到 Azure 自動化 DSC 之後，節點的狀態應該是正確的。
+- 註冊節點所包含的節點會自動交涉要針對該特定節點向 Azure 自動化 DSC 進行驗證時所使用的憑證 (事後註冊)。此憑證會在建立後的一年到期，PS DSC 提取通訊協定目前沒有方法可在該憑證接近到期時發出新的憑證。基於這個理由，節點必須在一年之後重新向 Azure 自動化 DSC 註冊，直到可在 WMF 的未來版本中實作此通訊協定為止 (希望可在從現在起的一年內實現)。
 
-<!---HONumber=Sept15_HO2-->
+##相關文章##
+
+- [Azure 自動化 DSC Cmdlet](https://msdn.microsoft.com/library/mt244122.aspx)
+- [Azure 自動化 DSC 價格](http://azure.microsoft.com/pricing/details/automation/)
+
+<!---HONumber=Sept15_HO4-->

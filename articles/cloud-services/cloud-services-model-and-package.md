@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="在 Azure 中，什麼是雲端服務模型和封裝？" 
-    description="說明 Azure 中的雲端服務模型 (.csdef、.cscfg) 和封裝 (.cspkg)" 
-    services="cloud-services" 
-    documentationCenter="" 
-    authors="Thraka" 
-    manager="timlt" 
+<properties
+    pageTitle="在 Azure 中，什麼是雲端服務模型和封裝？"
+    description="說明 Azure 中的雲端服務模型 (.csdef、.cscfg) 和封裝 (.cspkg)"
+    services="cloud-services"
+    documentationCenter=""
+    authors="Thraka"
+    manager="timlt"
     editor=""/>
-<tags 
-    ms.service="cloud-services" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/06/2015" 
+<tags
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/06/2015"
     ms.author="adegeo"/>
 
 # 什麼是雲端服務模型？如何封裝？
@@ -24,7 +24,7 @@
 
 * 我想要深入了解 [ServiceDefinition.csdef](#csdef) 和 [ServiceConfig.cscfg](#cscfg) 檔案。
 * 我已經了解，請給我[一些範例](#next-steps)，讓我可以設定。
-* 我想要建立 [ServicePackage.cspkg](#cspkg)。 
+* 我想要建立 [ServicePackage.cspkg](#cspkg)。
 * 我打算使用 Visual Studio，而我想要...
     * [建立新的雲端服務][vs_create]
     * [重新設定現有的雲端服務][vs_reconfigure]
@@ -253,7 +253,7 @@ Azure 對於 Web 角色，僅允許一個進入點。這表示所有流量都是
 
 <!--
 * [Configure Sizes for Cloud Services](!!!!!https://msdn.microsoft.com/library/azure/ee814754.aspx)  
-* [Configure Local Storage Resources](!!!!!https://msdn.microsoft.com/library/azure/ee758708.aspx)
+* [Configure Local Storage Resources](!!!!!https://azure.microsoft.com/documentation/articles/cloud-services-configure-local-storage-resources/)
 -->
 
 * [設定雲端服務執行個體的遠端桌面][remotedesktop]
@@ -269,9 +269,9 @@ Azure 對於 Web 角色，僅允許一個進入點。這表示所有流量都是
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/zh-tw/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/zh-tw/library/ee460772.aspx
+[vs_remote]: https://msdn.microsoft.com/zh-TW/library/gg443832.aspx
+[vs_deploy]: https://msdn.microsoft.com/zh-TW/library/ee460772.aspx
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/zh-tw/library/ee405487.aspx
+[vs_create]: https://msdn.microsoft.com/zh-TW/library/ee405487.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

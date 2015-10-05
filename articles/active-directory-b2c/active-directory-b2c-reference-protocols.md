@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 預覽：驗證通訊協定
@@ -53,7 +53,7 @@ Azure AD B2C **原則**可視為服務的最重要服務。Azure AD B2C 可引�
 
 
 ## 權杖
-Azure AD B2C 的 OAuth 2.0 和 OpenID Connect 實作廣泛運用持有人權杖，包括以 JWT 表示的持有人權杖。持有人權杖是輕巧型的安全性權杖，授權「持有者」存取受保護的資源。從這個意義上說，「持有者」是可出示權杖的任何一方。雖然某一方必須先向 Azure AD 驗證以收到持有者權杖，但如果傳輸和儲存時未採取必要的步驟來保護權杖，它可能會被非預期的一方攔截和使用。雖然某些安全性權杖都有內建的機制，可防止未經授權的人士使用權杖，但持有者權杖沒有這項機制，而必須以安全通道來傳輸，例如傳輸層安全性 (HTTPS)。如果持有人權杖以純文字傳輸，惡意人士可能使用攔截式攻擊來取得權杖，然後未經授權存取受保護的資源。儲存或快取持有者權杖供以後使用時，也適用相同的安全性原則。務必確定您的應用程式以安全的方式傳輸和儲存持有人權杖。關於持有者權杖的其他安全性考量，請參閱 [RFC 6750 第 5 節](http://tools.ietf.org/html/rfc6750)。
+Azure AD B2C 的 OAuth 2.0 和 OpenID Connect 實作廣泛運用持有人權杖，包括以 JWT 表示的持有人權杖。持有人權杖是輕巧型的安全性權杖，授權「持有者」存取受保護的資源。從這個意義上說，「持有者」是可出示權杖的任何一方。雖然某一方必須先向 Azure AD 驗證以收到持有人權杖，但如果傳輸和儲存時未採取必要的步驟來保護權杖，它可能會被非預期的一方攔截和使用。雖然某些安全性權杖都有內建的機制，可防止未經授權的人士使用權杖，但持有者權杖沒有這項機制，而必須以安全通道來傳輸，例如傳輸層安全性 (HTTPS)。如果持有人權杖以純文字傳輸，惡意人士可能使用攔截式攻擊來取得權杖，然後未經授權存取受保護的資源。儲存或快取持有者權杖供以後使用時，也適用相同的安全性原則。務必確定您的應用程式以安全的方式傳輸和儲存持有人權杖。關於持有者權杖的其他安全性考量，請參閱 [RFC 6750 第 5 節](http://tools.ietf.org/html/rfc6750)。
 
 如需 Azure AD B2C 中所用各種不同權杖類型的詳細資訊，請參閱 [Azure AD 權杖參考](active-directory-b2c-reference-tokens.md)。
 
@@ -70,4 +70,4 @@ Azure AD B2C 的 OAuth 2.0 和 OpenID Connect 實作廣泛運用持有人權杖�
 
 <!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

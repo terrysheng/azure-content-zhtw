@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 #  Azure Active Directory B2C 預覽：使用「自訂屬性」來收集取用者相關資訊
@@ -46,4 +46,4 @@
 
 您可以使用原則上的「立即執行」功能來驗證取用者體驗。現在您應會在取用者註冊期間收集之屬性的清單中看見「ShoeSize」，其亦會在傳回至您應用程式的權杖中出現。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

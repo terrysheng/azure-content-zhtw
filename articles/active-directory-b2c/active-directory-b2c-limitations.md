@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：限制
@@ -26,13 +26,9 @@ Azure Active Directory (AD) B2C 有幾項功能在預覽期間還不支援。在
 
 您在[建立 Azure AD B2C 目錄期間](active-directory-b2c-get-started)可能會遇到一些已知問題。請參閱這篇[文章](active-directory-b2c-support-create-directory.md)，取得指導方針。
 
-## 本機帳戶登入頁面上的商標問題
+## 驗證電子郵件和自助式密碼重設頁面上的商標問題
 
-本機帳戶登入頁面上的預設範本將包含 "Microsoft Azure" 商標元素。我們正著手解決這個問題。您可以使用[公司商標功能](./active-directory/active-directory-add-company-branding.md)來變更此頁面上的商標。
-
-## 本機帳戶登出的問題
-
-目前，本機帳戶登出沒有作用。我們正著手解決這個問題。解決方法是關閉瀏覽器或清除 Cookie。
+預設驗證電子郵件和自助式密碼重設頁面包含「Microsoft」和「Azure」商標元素。我們日後將移除這些商標元素。您可以使用[公司商標功能](./active-directory/active-directory-add-company-branding.md)來變更頁面上的商標，屆時這些商標元素將不會再出現。
 
 ## 支援實際執行應用程式
 
@@ -40,7 +36,7 @@ Azure Active Directory (AD) B2C 有幾項功能在預覽期間還不支援。在
 
 ## 應用程式的限制
 
-Azure AD B2C 預覽目前不支援下列類型的應用程式。如需受支援的應用程式類型的描述，請參閱[這篇文章](active-directory-b2c-apps)。
+Azure AD B2C 預覽目前不支援下列類型的應用程式。如需受支援的應用程式類型的描述，請參閱這篇[文章](active-directory-b2c-apps)。
 
 ### 單一頁面應用程式 (Javascript)
 
@@ -70,16 +66,16 @@ Azure AD B2C 預覽支援 OpenID Connect 和 OAuth 2.0。不過，並非每個�
 
 ## Azure 入口網站上的使用者管理問題
 
-在 Azure Preview 入口網站上可存取 B2C 功能。不過，您可以使用 Azure 入口網站來存取其他的目錄功能，包括使用者管理。目前，Azure Preview 入口網站上的使用者管理 ([使用者] 索引標籤) 有幾個已知問題。
+在 Azure Preview 入口網站上可存取 B2C 功能。不過，您可以使用 Azure 入口網站來存取其他的目錄功能，包括使用者管理。目前，Azure 預覽入口網站上的使用者管理 ([使用者] 索引標籤) 有幾個已知問題。
 
-- 以本機帳戶使用者而言 (亦即，以電子郵件地址和密碼或使用者名稱和密碼來註冊的取用者)，[使用者名稱] 欄位未對應至註冊期間使用的登入識別項 (電子郵件地址或使用者名稱)。這是因為 Azure 入口網站上顯示的欄位，實際上是使用者主體名稱 (UPN)，而這在 B2C 案例中沒有用到。若要檢視本機帳戶的登入識別碼，請在 [Graph Explorer](https://graphexplorer.cloudapp.net/) 中尋找使用者物件。您將會遇到與社交帳戶使用者 (亦即，以 Facebook、Google+ 等註冊的取用者) 同樣的問題，但在此情況下，沒所謂的登入識別項。
+- 以本機帳戶使用者而言 (亦即，以電子郵件地址和密碼或使用者名稱和密碼來註冊的取用者)，[使用者名稱] 欄位未對應至註冊期間使用的登入識別項 (電子郵件地址或使用者名稱)。這是因為 Azure 入口網站上顯示的欄位，實際上是使用者主體名稱 (UPN)，而這在 B2C 案例中沒有用到。若要檢視本機帳戶的登入識別項，請在 [Graph Explorer](https://graphexplorer.cloudapp.net/) 中尋找使用者物件。您將會遇到與社交帳戶使用者 (亦即，以 Facebook、Google+ 等註冊的取用者) 同樣的問題，但在此情況下，沒所謂的登入識別項。
 
     ![本機帳戶 - UPN](./media/active-directory-b2c-limitations/limitations-user-mgmt.png)
 
-- 以本機帳戶使用者而言，您將無法在 [設定檔] 索引標籤上編輯任何欄位和儲存變更。我們將儘快修正此問題。
+- 以本機帳戶使用者而言，您將無法在 [設定檔] 索引標籤中編輯任何欄位和儲存變更。我們將儘快修正此問題。
 
 ## 刪除 Azure AD B2C 目錄時的限制
 
 您無法在 Azure 入口網站中刪除 Azure AD B2C 目錄。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,23 +1,25 @@
-<properties 
-	pageTitle="在 Azure 中建立及上傳 Ubuntu Linux VHD" 
-	description="了解如何建立及上傳包含 Ubuntu Linux 作業系統的 Azure 虛擬硬碟 (VHD)。" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="在 Azure 中建立及上傳 Ubuntu Linux VHD"
+	description="了解如何建立及上傳包含 Ubuntu Linux 作業系統的 Azure 虛擬硬碟 (VHD)。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/15/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/15/2015"
 	ms.author="szarkos"/>
 
-
 # 準備執行 Azure 的 Ubuntu 虛擬機器
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ##必要條件##
 
@@ -80,7 +82,7 @@
 		(recommended) sudo apt-get dist-upgrade
 
 		# sudo reboot
-	
+
 	Ubuntu 14+：
 
 		# sudo apt-get update
@@ -122,7 +124,4 @@
 
 11. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

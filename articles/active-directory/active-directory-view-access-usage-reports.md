@@ -1,20 +1,20 @@
 <properties
-	pageTitle="檢視存取和使用情況報告"
-	description="說明如何檢視存取和使用情況報告來深入了解貴組織之目錄完整性和安全性的主題。"
+	pageTitle="檢視存取和使用情況報告 | Microsoft Azure"
+	description="說明如何檢視存取和使用情況報告來深入了解貴組織之目錄完整性和安全性。"
 	services="active-directory"
 	documentationCenter=""
 	authors="kenhoff"
-	manager="TerryLan"
-	editor="LisaToft"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
-	ms.author="kenhoff;Justinha"/>
+	ms.date="09/21/2015"
+	ms.author="kenhoff;Justinha;curtand"/>
 
 # 檢視存取和使用情況報告
 
@@ -90,12 +90,6 @@
 |	最活躍的 RMS 使用者 | | |	僅 RMS |
 |	RMS 裝置使用量 | | |	僅 RMS |
 |	啟用 RMS 的應用程式使用量 | | |	僅 RMS |
-
-
-
-
-
-
 
 
 
@@ -276,4 +270,4 @@
 - [開始使用 Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

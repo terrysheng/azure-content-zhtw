@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 資料倉儲中的資料表設計 #
@@ -123,8 +123,8 @@ OR  y.[is_user_defined] = 1
 
 有兩個選項可在 SQL 資料倉儲中散發資料：
 
-1. 根據單一資料行中的雜湊值散發資料
-2. 平均但隨機散發資料  
+1. 平均但隨機散發資料 
+2. 根據單一資料行中的雜湊值散發資料
 
 在資料表層級決定資料散發。將所有資料表散發。您會在 SQL 資料倉儲資料庫中指派每個資料表的散發 。
 
@@ -306,4 +306,4 @@ SQL 資料倉儲不使用或支援下列功能：
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,21 +1,21 @@
 <properties
    pageTitle="Azure SQL Database 防火牆 | Microsoft Azure"
-	description="如何設定您的 Microsoft Azure SQL Database 防火牆。"
-	services="sql-database"
-	documentationCenter=""
-	authors="BYHAM"
-	manager="jeffreyg"
-	editor=""
-	tags=""/>
+   description="如何設定您的 Microsoft Azure SQL Database 防火牆。"
+   services="sql-database"
+   documentationCenter=""
+   authors="BYHAM"
+   manager="jeffreyg"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="08/04/2015"
-	ms.author="rickbyh"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="data-management"
+   ms.date="08/04/2015"
+   ms.author="rickbyh"/>
 
 # Azure SQL Database 防火牆
 
@@ -114,11 +114,11 @@ Microsoft Azure SQL Database 為 Azure 和其他網際網路式應用程式提�
 
 當對於 Microsoft Azure SQL Database 服務的存取未如預期運作時，請考慮下列幾點：
 
-- **本機防火牆組態：**在您的電腦可以存取 Azure SQL Database 之前，您可能需要在電腦上為 TCP 連接埠 1433 建立防火牆例外狀況。 
+- **本機防火牆組態：**在您的電腦可以存取 Azure SQL Database 之前，您可能需要在電腦上為 TCP 連接埠 1433 建立防火牆例外狀況。如果您是在 Azure 雲端界限內建立連接，您可能必須開啟其他連接埠。如需詳細資訊，請參閱[針對 ADO.NET 4.5 及 SQL Database V12 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)的 **SQL Database V12：內部與外部**一節。
 
-- **網路位址轉譯 (NAT)：**由於 NAT，您的電腦用來連線到 Azure SQL Database 的 IP 位址可能會不同於您的電腦 IP 組態設定中顯示的 IP 位址。若要檢視您的電腦用來連線到 Azure 的 IP 位址，請登入管理入口網站並瀏覽至主控您資料庫的伺服器上的 [設定] 索引標籤。在 [允許的 IP 位址] 區段底下，[目前的用戶端 IP 位址] 隨即顯示。對 **允許的 IP 位址** 按一下 [新增]，以允許此電腦存取伺服器。
+- **網路位址轉譯 (NAT)：**由於 NAT，您的電腦用來連接到 Azure SQL Database 的 IP 位址，可能會不同於您電腦 IP 組態設定中顯示的 IP 位址。若要檢視您的電腦用來連接到 Azure 的 IP 位址，請登入管理入口網站，並瀏覽至主控您資料庫的伺服器上的 [設定] 索引標籤。在 [允許的 IP 位址] 區段底下，[目前的用戶端 IP 位址] 隨即顯示。對 **允許的 IP 位址** 按一下 [新增]，以允許此電腦存取伺服器。
 
-- **允許清單的變更尚未生效：**讓 Azure SQL Database 防火牆組態變更生效可能會有最多 5 分鐘的延遲。
+- **允許清單的變更尚未生效：**Azure SQL Database 防火牆組態變更可能會延遲最多 5 分鐘才能生效。
 
 - **登入未獲授權或使用不正確的密碼：**如果 Azure SQL Database 伺服器上的登入沒有權限，或所使用的密碼不正確，與 Azure SQL Database 伺服器的連線就會遭到拒絕。建立防火牆設定只會讓用戶端有機會嘗試連線至您的伺服器；每個用戶端必須提供必要的安全性認證。如需準備登入的詳細資訊，請參閱「管理 Azure SQL Database 中的資料庫、登入和使用者」。
 
@@ -135,4 +135,4 @@ Microsoft Azure SQL Database 為 Azure 和其他網際網路式應用程式提�
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

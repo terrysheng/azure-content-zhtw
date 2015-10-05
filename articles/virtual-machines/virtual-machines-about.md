@@ -1,5 +1,5 @@
 <properties
-	pageTitle="關於 Azure 虛擬機器"
+	pageTitle="關於 Azure 虛擬機器 | Microsoft Azure"
 	description="深入了解 Azure 中虛擬機器的基本概念。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,7 +17,9 @@
 	ms.date="07/14/2015"
 	ms.author="cynthn"/>
 
-#關於 Azure 虛擬機器
+#關於以這兩種部署模型建立 Azure 虛擬機器
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型，和以傳統部署模型建立的資源。
 
 Azure 虛擬機器是由 Azure 所提供的隨選且可調整的數種運算資源類型之一。一般而言，如果您對於計算環境所需的控制權比其他選擇可提供的還要多，則您會選擇虛擬機器，而不是其他選項。
 
@@ -41,12 +43,12 @@ Azure 虛擬機器是由 Azure 所提供的隨選且可調整的數種運算資�
 
 [建立 Windows 虛擬機器的不同方式](virtual-machines-windows-choices-create-vm.md)
 
-如果您剛開始了解 Azure 虛擬機器，也請務必查看＜[常見問題集](virtual-machines-questions.md)＞。
+如果您剛開始了解 Azure 虛擬機器，也請務必查看[常見問題集](virtual-machines-questions.md)。
 
 
 <!--links-->
-[應用程式服務]: app-service-choose-me.md
-[虛擬機器]: #tellmevm
-[雲端服務]: cloud-services-choose-me.md
+[App Service]: app-service-choose-me.md
+[Virtual Machines]: #tellmevm
+[Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

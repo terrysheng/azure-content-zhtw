@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/18/2015" 
 	ms.author="juliako"/>
 
 #使用 REST API 傳遞點播視訊 (VoD) 使用者入門 
@@ -1067,12 +1067,12 @@ MPEG DASH 的串流 URL 具有下列格式：
 	         }
 	      },
 	      "Id":"nb:lid:UUID:8e5a821d-2194-4d00-8884-adf979856874",
-	      "ExpirationDateTime":"/Date(1337049393000)/",
+	      "ExpirationDateTime":"\/Date(1337049393000)\/",
 	      "Type":1,
 	      "Path":"https://storagetestaccount001.blob.core.windows.net/asset-71d2dd33-efdf-ec43-8ea1-136a110bd42c?st=2012-05-14T21%3A36%3A33Z&se=2012-05-15T02%3A36%3A33Z&sr=c&si=8e5a821d-2194-4d00-8884-adf979856874&sig=y75dViDpC5V8WutrXM%2B%2FGpR3uOtqmlISiNlHU1YUBOg%3D",
 	      "AccessPolicyId":"nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8",
 	      "AssetId":"nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c",
-	      "StartTime":"/Date(1337031393000)/"
+	      "StartTime":"\/Date(1337031393000)\/"
 	   }
 	}
 
@@ -1086,7 +1086,7 @@ MPEG DASH 的串流 URL 具有下列格式：
 
 設定 AccessPolicy 與 Locator 之後，您可以使用 Azure 儲存體 REST API 下載檔案。
 
->[AZURE.NOTE] 您必須將要下載的檔案名稱新增到前一節中所收到的 Locator **Path** 值。例如，https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+>[AZURE.NOTE]您必須將要下載的檔案名稱新增到前一節中所收到的 Locator **Path** 值。例如，https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 
 如需使用 Azure 儲存體 blob 的詳細資訊，請參閱 [Blob 服務 REST API](http://msdn.microsoft.com/library/azure/dd135733.aspx)。
 
@@ -1160,12 +1160,12 @@ MPEG DASH 的串流 URL 具有下列格式：
 	         }
 	      },
 	      "Id":"nb:lid:UUID:52034bf6-dfae-4d83-aad3-3bd87dcb1a5d",
-	      "ExpirationDateTime":"/Date(1337049395000)/",
+	      "ExpirationDateTime":"\/Date(1337049395000)\/",
 	      "Type":2,
 	      "Path":"http://wamsbayclus001rest-hs.net/52034bf6-dfae-4d83-aad3-3bd87dcb1a5d/",
 	      "AccessPolicyId":"nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8",
 	      "AssetId":"nb:cid:UUID:eb5540a2-116e-4d36-b084-7e9958f7f3c3",
-	      "StartTime":"/Date(1337031395000)/"
+	      "StartTime":"\/Date(1337031395000)\/"
 	   }
 	}
 
@@ -1211,4 +1211,4 @@ MPEG DASH 的串流 URL 具有下列格式：
 
  
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

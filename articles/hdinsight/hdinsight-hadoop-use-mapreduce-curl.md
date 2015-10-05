@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 #使用 Curl 搭配執行 MapReduce 工作與 HDInsight 上的 Hadoop
@@ -115,4 +115,4 @@ Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

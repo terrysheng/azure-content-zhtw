@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="在 Azure 資料處理站管線中使用自訂活動"
-	description="了解如何建立自訂活動，並在 Azure 資料處理站管線中使用這些活動。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="在 Azure 資料處理站管線中使用自訂活動" 
+	description="了解如何建立自訂活動，並在 Azure 資料處理站管線中使用這些活動。" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # 在 Azure 資料處理站管線中使用自訂活動
@@ -53,7 +53,7 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 
 4. 將 Azure 儲存體 NuGet 封裝匯入專案。
 
-		Install-Package Azure.Storage
+		Install-Package Azure.Storage -Version 4.3.0 
 
 5. 將下列 **using** 陳述式加入至專案的原始程式檔。
 
@@ -244,9 +244,20 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 	4. 在 **version** 屬性中，指定您要使用的 HDInsight 版本。如果您排除此屬性，則會使用最新版本。  
 	5. 在 **linkedServiceName** 中，指定您在「開始使用」教學課程中建立的 **StorageLinkedService**。 
 
-		{ "name": "HDInsightOnDemandLinkedService", "properties": { "type": "HDInsightOnDemand", "typeProperties": { "clusterSize": "1", "timeToLive": "00:05:00", "version": "3.1", "linkedServiceName": "StorageLinkedService" } } }
+			{
+			  "name": "HDInsightOnDemandLinkedService",
+			  "properties": {
+			    "type": "HDInsightOnDemand",
+			    "typeProperties": {
+			      "clusterSize": "1",
+			      "timeToLive": "00:05:00",
+			      "version": "3.1",
+			      "linkedServiceName": "StorageLinkedService"
+			    }
+			  }
+			}
 
-2. 按一下命令列的 [部署]，部署連結服務。
+2. 按一下命令列上的 [部署]，部署連結服務。
    
 #### 若要使用您自己的 HDInsight 叢集： 
 
@@ -405,6 +416,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 		    "type": "AzureBatch",
 		    "typeProperties": {
 		      "accountName": "<Azure Batch account name>",
+			  "batchUri": "https://<region>.batch.azure.com",
 		      "accessKey": "<Azure Batch account key>",
 		      "poolName": "<Azure Batch pool name>",
 		      "linkedServiceName": "<Specify associated storage linked service reference here>"
@@ -412,11 +424,10 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 		  }
 		}
 
-	> [AZURE.NOTE]將 "**.<region name**" 附加至您用於 **accountName** 屬性的批次帳戶名稱。範例："mybatchaccount.eastus"。另一個選項是提供 batchUri 端點，如下所示。
+	> [AZURE.IMPORTANT][Azure Batch 帳戶刀鋒視窗] 的 **URL** 格式如下：accountname.region.batch.azure.com。針對 JSON 中的 **batchUri** 屬性，您必須從該 URL **移除「帳戶名稱」**，並針對 **accountName** JSON 屬性使用該**帳戶名稱**。
+	  
+	針對 **poolName** 屬性，您也可以指定該集區的 ID，而非集區名稱。
 
-		accountName: "adfteam",
-		batchUri: "https://eastus.batch.azure.com",
- 
 	如需這些屬性的描述，請參閱 [Azure Batch 連結服務 MSDN 主題](https://msdn.microsoft.com/library/mt163609.aspx)。
 
 2.  在 Data Factory 編輯器 中，開啟您在逐步解說中建立的管線的 JSON 定義，並以 **AzureBatchLinkedService** 取代 **HDInsightLinkedService**。
@@ -467,4 +478,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

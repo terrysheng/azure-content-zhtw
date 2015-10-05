@@ -13,7 +13,7 @@
 
 	>[AZURE.WARNING]Switch-AzureMode Cmdlet 即將被汰除。屆時將重新命名所有的資源管理員 Cmdlet。
 
-3. 如有必要，請執行 **New-AzureResourceGroup** Cmdlet，以建立新的資源群組。下列命令會在「美國中部」Azure 區域中，建立名為 *TestRG* 的資源群組。如需資源群組的詳細資訊，請瀏覽 [Azure 資源管理員概觀](resource-group-overview.md/#resource-groups)。
+3. 如有必要，請執行 **New-AzureResourceGroup** Cmdlet，以建立新的資源群組。下列命令會在「美國中部」Azure 區域中，建立名為 *TestRG* 的資源群組。如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](resource-group-overview.md)。
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
 		
@@ -101,4 +101,4 @@
 		                      }
 		                    ]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

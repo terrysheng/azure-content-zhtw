@@ -18,23 +18,19 @@
 
 # 如何快速地開始使用 Azure Marketplace 中的 Docker
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+
 要開始使用 [Docker]，最快速的方式是前往 Azure Marketplace，並搭配使用 [Canonical] 所建立的 **Docker on Ubuntu Server** 映像範本和 [MSOpenTech] 建立 VM。這會建立 Ubuntu Server VM，並自動安裝 [Docker VM 延伸模組](virtual-machines-docker-vm-extension.md)，且在 Azure 上預先安裝並執行**最新的** Docker 引擎。
 
 您可以立即使用 SSH 連接到 VM，並直接開始使用 Docker 執行工作，無須執行其他動作。
 
 > [AZURE.NOTE]Azure Marketplace 範本所建立的 VM 並未裝載遠端 Docker 用戶端管理所需的 Docker 遠端 API。若要啟用從遠端在此 VM 上控制 Docker 主機的功能，請參閱[使用 HTTPS 執行 Docker](https://docs.docker.com/articles/https/)，或依照[從 Azure 入口網站使用 Docker VM 延伸模組](virtual-machines-docker-with-portal.md)或[從 Azure CLI 使用 Docker VM 延伸模組](virtual-machines-docker-with-xplat-cli.md)中的步驟進行操作。如果您想要與眾不同，您可以從 Github 建置 [Windows Docker Client](https://github.com/ahmetalpbalkan/Docker.DotNet) 並加以試用 (或僅從 [nuget](https://www.nuget.org/packages/Docker.DotNet/) 加以擷取)。
 
-本主題內容：
-
-- [登入入口網站]
-- [使用 Docker 映像從 Canonical 和 MSOpenTech 建立 VM]
-- [使用 SSH 連線，即可開始使用]
-
-## <a id='logon'>登入入口網站</a>
+## 登入入口網站
 
 這部分很簡單，除非您沒有 Azure 帳戶。[即使沒有，也可以輕鬆地免費取得](http://azure.microsoft.com/pricing/free-trial/)！
 
-## <a id='createvm'>使用 Docker 映像從 Canonical 和 MSOpenTech 建立 VM</a>
+## 使用 Docker 映像從 Canonical 和 MSOpenTech 建立 VM
 
 1. 既然您已經登入，請按一下位於左下角的 [新增]，以建立新 VM 映像。您可能會立即在橫幅中看到適當的映像：
 
@@ -52,7 +48,7 @@
 
 > ![在入口網站中執行的 Docker 映像](./media/virtual-machines-docker-ubuntu-quickstart/DockerUbuntuRunning.png)
 
-## <a id='havingfun'>使用 SSH 連線，即可開始使用</a>
+## 使用 SSH 連線，即可開始使用
 
 現在好戲正要上演。您可以使用 SSH 立即連接到 VM：
 
@@ -68,9 +64,9 @@
 您會想要開始使用 [Docker]！
 
 <!--Anchors-->
-[登入入口網站]: #logon
-[使用 Docker 映像從 Canonical 和 MSOpenTech 建立 VM]: #createvm
-[使用 SSH 連線，即可開始使用]: #havingfun
+[Log on to the Portal]: #logon
+[Create a VM with the Docker Image from Canonical and MSOpenTech]: #createvm
+[Connect with SSH and Have Fun]: #havingfun
 [Next steps]: #next-steps
 
 
@@ -81,4 +77,4 @@
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

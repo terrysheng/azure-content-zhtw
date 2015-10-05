@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -53,7 +53,7 @@
 
 	要讓 Azure 保證服務在雲端服務更新期間有 99.95% 的可用性，每個角色都至少必須有兩個角色執行個體 (虛擬機器)。如此才能讓一個虛擬機器在受到更新時，還有另一個虛擬機器可以處理用戶端要求。
 
-8. 按一下 [確定] (核取記號\) 開始更新服務。
+8. 按一下 [確定] (核取記號) 開始更新服務。
 
 
 
@@ -156,6 +156,12 @@
 
 > [AZURE.NOTE]如果對雲端服務設定了詳細資訊監視，則當您刪除該雲端服務時，Azure 並不會從您的儲存體帳戶中刪除監視資料。您將需要手動刪除資料。如需關於何處可找到這些量值資料表的詳細資訊，請參閱<a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">如何監視雲端服務</a>中的＜作法：在管理入口網站外存取詳細資訊監視資料＞。
 
- 
 
-<!---HONumber=August15_HO7-->
+## 後續步驟
+
+ * [雲端服務的一般設定](cloud-services-how-to-configure.md)。
+* 了解如何[部署雲端服務](cloud-services-how-to-create-deploy.md)。
+* 設定[自訂網域名稱](cloud-services-custom-domain-name.md)。
+* 設定 [SSL 憑證](cloud-services-configure-ssl-certificate.md)。
+
+<!---HONumber=Sept15_HO4-->

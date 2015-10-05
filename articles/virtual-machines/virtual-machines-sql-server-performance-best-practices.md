@@ -1,11 +1,13 @@
 <properties 
-	pageTitle="Azure 虛擬機器中的 SQL Server 效能最佳作法"
+	pageTitle="SQL Server 效能最佳作法 | Microsoft Azure"
 	description="提供將 Microsoft Azure VM 中 SQL Server 效能最佳化的最佳作法。"
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar" 
+	tags="azure-service-management" />
+	
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -16,6 +18,8 @@
 	ms.author="jroth" />
 
 # Azure 虛擬機器中的 SQL Server 效能最佳作法
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
 
 ## 概觀
 
@@ -127,4 +131,4 @@
 
 請檢閱 [Azure 虛擬機器上 SQL Server 的概觀](virtual-machines-sql-server-infrastructure-services.md)中的其他 SQL Server 虛擬機器主題。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

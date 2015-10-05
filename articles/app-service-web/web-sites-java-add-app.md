@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="將 Java 應用程式新增至 Azure App Service Web Apps"
-	description="本教學課程說明如何將頁面或應用程式新增至已設定為使用 Java 的 Azure App Service Web Apps 執行個體。"
-	services="app-service\web"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="將 Java 應用程式新增至 Azure App Service Web Apps" 
+	description="本教學課程說明如何將頁面或應用程式新增至已設定為使用 Java 的 Azure App Service Web Apps 執行個體。" 
+	services="app-service\web" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # 將 Java 應用程式新增至 Azure App Service Web Apps
@@ -29,6 +29,10 @@
 
 Tomcat Web 應用程式注意事項：將 WAR 檔案上傳至 **webapps** 資料夾之後，Tomcat 應用程式伺服器便會偵測到您已新增該檔案，並會將其自動載入。請注意，如果您將檔案 (WAR 檔案除外) 複製到根目錄，則在使用這些檔案之前，必須重新啟動應用程式伺服器。在 Azure 上執行的 Tomcat Java Web 應用程式，其自動載入功能會視新增的 WAR 檔案或新增至 **webapps** 資料夾的新檔案或目錄而定。
 
+## 後續步驟
+
+如需詳細資訊，請參閱 [Java 開發人員中心](/develop/java/)。
+
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
@@ -36,4 +40,4 @@ Tomcat Web 應用程式注意事項：將 WAR 檔案上傳至 **webapps** 資料
 <!-- External Links -->
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

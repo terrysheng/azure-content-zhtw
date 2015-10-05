@@ -1,6 +1,6 @@
 <properties
-	pageTitle="如何在 Azure VM 上安裝和設定 Symantec Endpoint Protection"
-	description="說明如何在 Azure 的新的或現有的 VM 上，安裝和設定 Symantec Endpoint Protection 安全性延伸模組"
+	pageTitle="在 VM 上安裝 Symantec Endpoint Protection | Microsoft Azure"
+	description="了解如何在以傳統部署模型所建立新的或現有的 Azure VM 上安裝和設定 Symantec Endpoint Protection 安全性延伸模組。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -19,7 +19,9 @@
 
 # 如何在 Azure VM 上安裝和設定 Symantec Endpoint Protection
 
-本文說明如何在執行 Windows Server 的新或現有虛擬機器 (VM) 上，安裝和設定 Symantec Endpoint Protection 用戶端。這是包括服務 (例如病毒和間諜軟體防護、防火牆及入侵防禦) 的完整用戶端。請注意，這篇文章指的是使用傳統的部署模型所建立的虛擬機器。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明在使用傳統部署模型所建立的虛擬機器上安裝應用程式。
+
+本文說明如何在執行 Windows Server 的新或現有虛擬機器 (VM) 上，安裝和設定 Symantec Endpoint Protection 用戶端。這是包括服務 (例如病毒和間諜軟體防護、防火牆及入侵防禦) 的完整用戶端。
 
 透過使用 VM 代理程式，用戶端會安裝為安全性延伸模組。在新的虛擬機器上，您將安裝代理程式與端點用戶端。在沒有代理程式的現有虛擬機器上，您必須先下載與安裝代理程式。本文將探討這兩種狀況。
 
@@ -46,7 +48,7 @@
 
 在開始之前，您將需要下列項目：
 
-- 在本機電腦上安裝 Azure PowerShell 模組 0.8.2 版或更新版本。您可以使用 **Get-Module azure | format-table version** 命令，來檢查已安裝的 Azure PowerShell 版本。如需最新版本的指示與連結，請參閱[如何安裝和設定 Azure PowerShell][PS]。請確定登入您的 Azure 訂用帳戶。
+- 在本機電腦上安裝 Azure PowerShell 模組 0.8.2 版或更新版本。您可以使用 **Get-Module azure | format-table version** 命令檢查已安裝的 Azure PowerShell 版本。如需最新版本的指示與連結，請參閱[如何安裝和設定 Azure PowerShell][PS]。請確定登入您的 Azure 訂用帳戶。
 
 - 在 Azure 虛擬機器上執行的 VM 代理程式。
 
@@ -95,4 +97,4 @@
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!------HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

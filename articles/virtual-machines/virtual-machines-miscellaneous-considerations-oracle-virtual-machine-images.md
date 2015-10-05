@@ -1,22 +1,24 @@
-<properties 
-pageTitle="針對 Oracle 虛擬機器映像的其他考量"
-	description="在 Azure 中部署 Oracle 虛擬機器前先了解其他考量。"
-	services="virtual-machines"
-	documentationCenter=""
-	manager=""
-	authors="bbenz"
-	tags=""/>
+<properties
+pageTitle="使用 Oracle VM 映像的考量事項 | Microsoft Azure"
+description="部署前，請先了解 Azure 中 Windows Server 上 Oracle VM 的支援組態和限制。"
+services="virtual-machines"
+documentationCenter=""
+manager=""
+authors="bbenz"
+tags="azure-service-management"/>
 
 <tags
 ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/22/2015"
-	ms.author="bbenz"/>
+ms.devlang="na"
+ms.topic="article"
+ms.tgt_pltfrm="vm-windows"
+ms.workload="infrastructure-services"
+ms.date="06/22/2015"
+ms.author="bbenz" />
 
 #針對 Oracle 虛擬機器映像的其他考量
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+
 本文章涵蓋針對 Azure 上 Oracle 虛擬機器的考量，此虛擬機器以 Microsoft 提供的 Oracle 軟體映像為基礎，且作業系統為 Windows Server。
 
 -  Oracle 資料庫虛擬機器映像
@@ -38,13 +40,13 @@ Azure 會指派每部虛擬機器各一個內部 IP 位址。除非虛擬機器�
 
 連接的磁碟依賴 Azure Blob 儲存體服務。理論上每個磁碟最多都能達約每秒 500 輸入/輸出作業 (IOPS)。連接的磁碟一開始可能未達最佳效能，經過持續作業約 60-90 分鐘的燒錄 (burn-in) 期間後，IOPS 效能可能會大幅改善。若磁碟之後保持閒置，IOPS 效能可能會縮減，直到另一個持續作業的燒錄期間。簡單地說，磁碟越活躍就越接近最佳 IOPS 效能。
 
-雖然最簡單的方法是將單一磁碟連接至虛擬機器，並將資料庫檔案放在該磁碟，但這個方法也對效能產生較多限制。反之，透過使用多個連接的磁碟，並將資料庫資料分散至其間，然後使用 Oracle Automatic Storage Management (ASM)，通常就能改善有效的 IOPS 效能。如需詳細資訊，請參閱 [Oracle Automatic Storage 概觀](http://www.oracle.com/technetwork/database/index-100339.html)。雖然可以在作業系統層級使用多重磁碟等量，但因為它對 IOPS 效能的改善尚屬未知，所以不建議此方法。
+雖然最簡單的方法是將單一磁碟連接至虛擬機器，並將資料庫檔案放在該磁碟，但這個方法也對效能產生較多限制。反之，透過使用多個連接的磁碟，並將資料庫資料分散至其間，然後使用 Oracle Automatic Storage Management (ASM)，通常就能改善有效的 IOPS 效能。如需詳細資訊，請參閱 [Oracle Automatic Storage 概觀](http://www.oracle.com/technetwork/database/index-100339.html) (英文)。雖然可以在作業系統層級使用多重磁碟等量，但因為它對 IOPS 效能的改善尚屬未知，所以不建議此方法。
 
 請根據您希望最佳化資料庫讀取作業或寫入作業的效能，考慮兩種連接多個磁碟的方法：
 
-- 相較於使用 Windows Server 2012 儲存體集區的方法，「獨立的 Oracle ASM」可能會有較佳的寫入作業效能，但讀取作業的 IOPS 較差。下圖以邏輯方式說明這種排列方式。![](media/virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images/image2.png)
+- 相較於使用 Windows Server 2012 儲存體集區的方法，**獨立的 Oracle ASM** 可能會有較佳的寫入作業效能，但讀取作業的 IOPS 較差。下圖以邏輯方式說明這種排列方式。![](media/virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images/image2.png)
 
-- 如果您的資料庫主要執行讀取作業，或者您注重讀取作業效能勝於寫入作業，「搭配 Windows Server 2012 儲存體集區的 Oracle ASM」可能會有較佳的讀取作業 IOPS 效能。需要以 Windows Server 2012 作業系統為基礎的映像。如需儲存空間集區的詳細資訊，請參閱[在獨立伺服器上部署儲存空間](http://technet.microsoft.com/library/jj822938.aspx)。在這種排列方式下，兩個相等之連接的磁碟子集，會先在兩個儲存體集區磁碟區中一併視為實體磁碟進行等量，然後磁碟區會加入到 ASM 磁碟群組。下圖以邏輯方式說明這種排列方式。
+- 如果您的資料庫主要執行讀取作業，或者您對讀取作業效能的重視勝於寫入作業，那麼**搭配 Windows Server 2012 儲存體集區使用 Oracle ASM** 可能會有較佳的讀取作業 IOPS 效能。需要以 Windows Server 2012 作業系統為基礎的映像。如需關於儲存空間集區的詳細資訊，請參閱[在獨立伺服器上部署儲存空間](http://technet.microsoft.com/library/jj822938.aspx)。在這種排列方式下，兩個相等之連接的磁碟子集，會先在兩個儲存體集區磁碟區中一併視為實體磁碟進行等量，然後磁碟區會加入到 ASM 磁碟群組。下圖以邏輯方式說明這種排列方式。
 
 	![](media/virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images/image3.png)
 
@@ -54,21 +56,21 @@ Azure 會指派每部虛擬機器各一個內部 IP 位址。除非虛擬機器�
 
 在 Azure 虛擬機器中使用 Oracle 資料庫時，您必須負責實作高可用性和災害復原解決方案，以避免任何停機。您也需負責備份自己的資料和應用程式。
 
-Azure 上的 Oracle Database Enterprise Edition (不含 RAC) 高可用性和災害復原可以使用 [Data Guard、Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) 或 [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate) 來達成，且兩個資料庫位在不同的虛擬機器。這兩個虛擬機器都應該在相同的[雲端服務](cloud-services-connect-virtual-machine.md)和[虛擬網路](http://azure.microsoft.com/documentation/services/virtual-network/)，以確保它們可以透過永續私人 IP 位址互相存取。此外，建議您將虛擬機器放在相同的[可用性集合](manage-availability-virtual-machines.md)中，讓 Azure 將其放置於不同的容錯網域和升級網域。請注意，只有相同雲端服務內的虛擬機器可以參與相同的可用性集合。每部虛擬機器必須至少有 2 GB 的記憶體和 5 GB 的磁碟空間。
+Azure 上的 Oracle Database Enterprise Edition (不含 RAC) 可以使用 [Data Guard、Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) 或 [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate) 來達成高可用性和嚴重損壞修復，且兩個資料庫位於不同的虛擬機器上。這兩個虛擬機器應該位於相同的[雲端服務](cloud-services-connect-virtual-machine.md)和[虛擬網路](http://azure.microsoft.com/documentation/services/virtual-network/)中，以確保它們可以透過永續私人 IP 位址互相存取。此外，建議您將虛擬機器放在相同的[可用性設定組](manage-availability-virtual-machines.md)中，讓 Azure 可將其放置於不同的容錯網域和升級網域。請注意，只有相同雲端服務內的虛擬機器可以參與相同的可用性集合。每部虛擬機器必須至少有 2 GB 的記憶體和 5 GB 的磁碟空間。
 
-使用 Oracle Data Guard，可以藉由某個虛擬機器中的主要資料庫、另一個虛擬機器中的次要 (待命) 資料庫以及它們之間的單向複寫設定，達到高可用性。這樣讀取作業存取的會是資料庫的複本。使用 Oracle GoldenGate，您則可以設定兩個資料庫之間的雙向複寫。若要了解如何使用這些工具為資料庫設定高可用性解決方案，請參閱 Oracle 網站上的 [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) 和 [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) 文件。如需資料庫複本的讀取-寫入存取權，您可以使用 [OracleActive Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html)。
+使用 Oracle Data Guard，可以藉由某個虛擬機器中的主要資料庫、另一個虛擬機器中的次要 (待命) 資料庫以及它們之間的單向複寫設定，達到高可用性。這樣讀取作業存取的會是資料庫的複本。使用 Oracle GoldenGate，您則可以設定兩個資料庫之間的雙向複寫。若要了解如何使用這些工具為資料庫設定高可用性解決方案，請參閱 Oracle 網站上的 [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) 和 [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) 文件 (英文)。如需資料庫複本的讀取-寫入存取權，您可以使用 [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html)。
 
 ##Oracle WebLogic Server 虛擬機器映像
 
 -  **只有 Enterprise Edition 支援叢集。** 如果您使用 Microsoft 授權的 WebLogic Server 映像 (尤其作業系統是 Windows Server)，則只在使用 Enterprise Edition 的 WebLogic Server 時，您才有權使用 WebLogic 叢集。請勿在使用 WebLogic Server Standard Edition 時使用叢集。
 
--  **連線逾時：**如果您的應用程式依賴另一個 Azure 雲端服務 (例如，資料庫層服務) 的公用端點連線，請注意 Azure 會在無活動達 4 分鐘之後關閉這些開放連線。這可能會影響依賴連接集區的功能和應用程式，因為無活動時間超過該限制的連接將不再有效。如果這樣會影響您的應用程式，請考慮在您的連接集區上啟用「Keep-Alive」邏輯。
+-  **連線逾時：**如果您的應用程式需要仰賴其他 Azure 雲端服務 (例如資料庫層服務) 的公用端點連線，請注意 Azure 會在閒置 4 分鐘後關閉這些開放連線。這可能會影響依賴連接集區的功能和應用程式，因為無活動時間超過該限制的連接將不再有效。如果這樣會影響您的應用程式，請考慮在您的連接集區上啟用「Keep-Alive」邏輯。
 
-	請注意，如果端點是 Azure 雲端服務部署的「內部」端點 (例如位於與您的 WebLogic 虛擬機器「相同」雲端服務內的獨立資料庫虛擬機器)，則連接是直接的而不需依賴 Azure 負載平衡器，因此不受限於連接逾時。
+	請注意，如果端點是 Azure 雲端服務部署的「內部」端點 (例如位於與 WebLogic 虛擬機器「相同」雲端服務中的獨立資料庫虛擬機器)，則可直接連接而不需仰賴 Azure 負載平衡器，因此並不受限於連線逾時。
 
 -  **不支援 UDP 多點傳送。** Azure 支援 UDP 單點傳播，但不支援多點傳送或廣播。WebLogic Server 可以依賴 Azure 的 UDP 單點傳播功能。若要依賴 UDP 單點傳播獲得最佳結果，建議 WebLogic 叢集大小保持靜態，或叢集中保持不超過 10 個受管理伺服器。
 
--  **WebLogic Server 預期針對 T3 存取的公用和私人連接埠是相同的 (例如，使用 Enterprise JavaBeans 時)。** 考慮一多層式案例，其中服務層 (EJB) 應用程式是在 WebLogic Server 叢集上執行，該叢集在名為 **SLWLS** 的雲端服務包含兩個或多個受管理伺服器。用戶端層是在不同的雲端服務中，執行簡單的 Java 程式，嘗試呼叫服務層中的 EJB。由於負載平衡服務層是必要動作，所以必須先為 WebLogic Server 叢集中的虛擬機器建立公用負載平衡端點。如果您為該端點指定的私人連接埠與公用連接埠不同 (例如，7006:7008)，則會發生下列錯誤：
+-  **WebLogic Server 預期針對 T3 存取的公用和私人連接埠是相同的 (例如，使用 Enterprise JavaBeans 時)。** 考慮使用多層式案例，其中服務層 (EJB) 應用程式是在 WebLogic Server 叢集上執行，而該叢集包含了兩個或多個受管理伺服器，且都位於名為 **SLWLS** 的雲端服務中。用戶端層是在不同的雲端服務中，執行簡單的 Java 程式，嘗試呼叫服務層中的 EJB。由於負載平衡服務層是必要動作，所以必須先為 WebLogic Server 叢集中的虛擬機器建立公用負載平衡端點。如果您為該端點指定的私人連接埠與公用連接埠不同 (例如，7006:7008)，則會發生下列錯誤：
 
 		[java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.cloudapp.net:7006:
 
@@ -103,4 +105,4 @@ Azure 上的 Oracle Database Enterprise Edition (不含 RAC) 高可用性和災�
 ##其他資源
 [Azure 的 Oracle 虛擬機器影像](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

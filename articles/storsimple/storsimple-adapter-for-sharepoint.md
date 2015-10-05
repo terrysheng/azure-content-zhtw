@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/03/2015"
+   ms.date="09/17/2015"
    ms.author="v-sharos" />
 
 # 安裝和設定 StorSimple Adapter for SharePoint
@@ -308,4 +308,4 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/zh-TW/library/ff943565.aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

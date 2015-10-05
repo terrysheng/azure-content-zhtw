@@ -4,16 +4,16 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="TerryLan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Azure AD 術語
@@ -43,4 +43,4 @@ Microsoft Online Services 登入小幫手 | 登入小幫手是安裝在用戶端
 - [Azure 訂用帳戶如何與 Azure AD 產生關聯](active-directory-how-subscriptions-associated-directory.md)
 - [Azure AD 服務限制](active-directory-service-limits-restrictions.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

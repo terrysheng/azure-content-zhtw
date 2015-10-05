@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="對雲端服務啟用遠端桌面 (Node.js)"
-	description="了解如何對裝載 Azure Node.js 應用程式的虛擬機器啟用遠端桌面存取。"
-	services="cloud-services"
-	documentationCenter="nodejs"
-	authors="MikeWasson"
-	manager="wpickett"
+	pageTitle="對雲端服務啟用遠端桌面 (Node.js)" 
+	description="了解如何對裝載 Azure Node.js 應用程式的虛擬機器啟用遠端桌面存取。" 
+	services="cloud-services" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="mwasson"/>
 
 
@@ -98,7 +98,7 @@
 
 - [從遠端存取 Azure 中的角色執行個體] 
 - [搭配使用遠端桌面與 Azure 角色]
-
+- [Node.js 開發人員中心](/develop/nodejs/)
 
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
 
@@ -116,4 +116,4 @@
   [搭配使用遠端桌面與 Azure 角色]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

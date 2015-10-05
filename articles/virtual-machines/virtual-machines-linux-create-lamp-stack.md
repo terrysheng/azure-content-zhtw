@@ -1,11 +1,12 @@
 <properties
-	pageTitle="如何使用 Microsoft Azure 建立 LAMP 堆疊"
+	pageTitle="使用 Azure 建立 LAMP 堆疊 | Microsoft Azure"
 	description="了解如何透過 Microsoft Azure 使用執行 Linux 的 Azure 虛擬機器 (VM) 建立 LAMP 堆疊。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="NingKuang"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -20,6 +21,8 @@
 
 "LAMP" 堆疊是一組開放原始碼軟體，通常會安裝在一起讓伺服器裝載動態網站與 Web 應用程式。這個詞彙其實是一個縮寫，指的是使用 Apache Web 伺服器的 Linux 作業系統。網站資料儲存在 MySQL 資料庫中，動態內容則由 PHP 處理。
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型或傳統部署模型建立資源。
+
 在本指南中，我們會將 LAMP 堆疊安裝在 Linux 映像上，並將它部署在 Microsoft Azure。
 
 您將了解：
@@ -28,7 +31,7 @@
 -	如何準備用於 LAMP 堆疊的虛擬機器。
 -	如何在虛擬機器上安裝 LAMP 伺服器所需的軟體。
 
-假設讀者已具備 Azure 訂用帳戶。若還不是，您可以在 [http://azure.microsoft.com](http://azure.microsoft.com) 註冊免費試用。如果您擁有 MSDN 訂用帳戶，請參閱 [Microsoft Azure 特價：MSDN、MPN 及 Bizspark 優惠](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39)。若要深入了解 Azure，請參閱[什麼是 Azure？](http://azure.microsoft.com/overview/what-is-azure/)
+假設讀者已具備 Azure 訂用帳戶。若還不是，您可以在 [http://azure.microsoft.com](http://azure.microsoft.com) 註冊免費試用。如果您擁有 MSDN 訂用帳戶，請參閱 [Microsoft Azure 特價：MSDN、MPN 及 Bizspark 優惠](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39)。若要深入了解 Azure，請參閱[什麼是 Azure？](http://azure.microsoft.com/overview/what-is-azure/)。
 
 除了本主題以外，如果您已經有虛擬機器，而只是想了解在不同 Linux 散發套件上安裝 LAMP 堆疊的基本概念，請參閱[在 Azure 中的 Linux 虛擬機器上安裝 LAMP 堆疊](virtual-machines-linux-install-lamp-stack.md)。
 
@@ -141,6 +144,7 @@ TCP 連接埠 80 是 Apache 接聽的預設連接埠號碼。在 Azure 端點開
 安裝之後，使用此命令啟動 Apache：
 
 	sudo service httpd start
+
 ####測試 Apache
 若要檢查是否已成功安裝 Apache，請瀏覽至 Apache 伺服器的 DNS 名稱 (本文中的範例 URL http://lampdemo.cloudapp.net/))。頁面應該會顯示 "It works!" 的字樣![][14]
 
@@ -345,7 +349,7 @@ Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相
 		sudo chgrp lampappgroup /var/www/html/  # Change the ownership to group lampappgroup
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
-	>[AZURE.NOTE] 如果您想要修改 /var/www/html/ 中的檔案，您可能需要重新登入。
+	>[AZURE.NOTE]如果您想要修改 /var/www/html/ 中的檔案，您可能需要重新登入。
 -	使用 SFTP 用戶端 (例如 FileZilla) 連接至您虛擬機器的 DNS 名稱 (例如 lampdemo.cloudapp.net)，並瀏覽至 /**var/www/html** 以發佈您的網站。![][18]
 
 
@@ -356,7 +360,7 @@ Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相
 
 -	**徵兆** Apache 正在執行，但是您無法透過瀏覽器檢視 Apache 的預設頁面。
 -	**可能的根本原因**
-	1.	Apache 接聽連接埠與您虛擬機器處理 Web 流量的端點之私用連接埠不同。</br> 檢查您的公用連接埠和私用連接埠端點設定，確定私用連接埠與 Apache 接聽連接埠相同。請參閱第 1 階段：建立映像，以取得為虛擬機器設定端點的指示。</br> 若要判斷 Apache 的接聽連接埠，請開啟 /etc/httpd/conf/httpd.conf (Red Hat 版本) 或 /etc/apache2/ports.conf (Debian 版本)，搜尋字串 "Listen"。預設連接埠為 80。
+	1.	Apache 接聽連接埠與您虛擬機器處理 Web 流量的端點之私用連接埠不同。</br> 檢查您的公用連接埠和私用連接埠端點設定，確定私用連接埠與 Apache 接聽連接埠相同。請參閱＜第 1 階段：建立映像＞，以取得為虛擬機器設定端點的指示。</br> 若要判斷 Apache 的接聽連接埠，請開啟 /etc/httpd/conf/httpd.conf (Red Hat 版本) 或 /etc/apache2/ports.conf (Debian 版本)，搜尋字串 "Listen"。預設連接埠為 80。
 
 	2.	防火牆已停用 Apache 的接聽連接埠。</br> 如果您可以從本機主機看到 Apache 預設頁面，則問題很可能是 Apache 接聽的連接埠被防火牆封鎖。您可以使用 w3m 工具瀏覽網頁。下列命令會安裝 w3m，並瀏覽至 Apache 預設頁面：
 
@@ -450,6 +454,5 @@ Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相
 [16]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-16.png
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

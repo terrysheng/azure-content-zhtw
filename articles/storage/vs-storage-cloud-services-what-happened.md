@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # 我的雲端服務專案發生什麼狀況 (Visual Studio Azure 儲存體已連接服務)？
 
@@ -43,4 +43,4 @@ Azure 儲存體 NuGet 封裝已加入至 Visual Studio 專案。這個封裝會�
 - **ServiceConfiguration.Cloud.cscfg**
 - **ServiceConfiguration.Local.cscfg**
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

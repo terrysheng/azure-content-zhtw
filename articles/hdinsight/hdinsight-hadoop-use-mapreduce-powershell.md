@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 #使用 PowerShell 搭配執行 Hive 查詢與 HDInsight 上的 Hadoop
@@ -174,4 +174,4 @@ MapReduce 工作的輸出會儲存在名稱為 *part-r-#####* 的檔案中。使
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="" 
+	pageTitle="當您使用 Visual Studio 連接服務將行動服務加入 Javascript App 時會發生什麼狀況" 
 	description="說明您在 Visual Studio 中的 Azure 行動服務專案的情形 " 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="07/02/2015" 
 	ms.author="patshea"/>
 
-# 我的專案發生什麼情形？
+# 當我使用連接服務加入行動服務時，我的 Visual Studio Azure Javascript 專案發生什麼狀況？
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
@@ -46,4 +46,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="新增憑證至 Java CA 存放區 | Microsoft Azure"
-	description="了解如何將憑證授權單位 (CA) 憑證新增至 Twilio 服務或 Azure 服務匯流排的 Java CA 憑證 (cacerts) 存放區。"
-	services=""
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="新增憑證至 Java CA 存放區 | Microsoft Azure" 
+	description="了解如何將憑證授權單位 (CA) 憑證新增至 Twilio 服務或 Azure 服務匯流排的 Java CA 憑證 (cacerts) 存放區。" 
+	services="" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # 新增憑證至 Java CA 憑證存放區
@@ -50,6 +50,10 @@ Baltimore 憑證可能已經安裝於您的 cacerts 存放區，因此請記得�
 
 如果您需要新增 Baltimore CyberTrust 根憑證，它的序號是 02:00:00:b9、SHA1 指紋是 d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74。從 <https://cacert.omniroot.com/bc2025.crt> 下載它並儲存到副檔名為 **.cer** 的本機檔案，然後使用 **keytool** 匯入，如上文所述。
 
+## 後續步驟
+
 如需 Azure 所用根憑證的詳細資訊，請參閱 [Azure 根憑證移轉](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx)。
 
-<!---HONumber=September15_HO1-->
+如需 Java 的詳細資訊，請參閱 [Java 開發人員中心](/develop/java/)。
+
+<!---HONumber=Sept15_HO4-->

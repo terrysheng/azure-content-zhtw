@@ -1,6 +1,6 @@
 <properties
-	pageTitle="搭配 Azure 服務管理使用適用於 Mac、Linux 和 Windows 的 Azure CLI | Microsoft Azure"
-	description="了解如何使用適用於 Mac、Linux 和 Windows 的命令列工具，以便使用 Azure CLI asm 模式管理 Azure。"
+	pageTitle="搭配使用 Azure CLI 與服務管理 | Microsoft Azure"
+	description="了解如何使用適用於 Mac、Linux 和 Windows 的命令列工具，以便在傳統 (服務管理) 部署模式使用 Azure CLI 管理 Azure。"
 	services="virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
 	authors="dlepow"
@@ -18,6 +18,8 @@
 	ms.author="danlep"/>
 
 # 使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 服務管理
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。您也可以使用[資源管理員部署模型](virtual-machines-deploy-rmtemplates-azure-cli.md)建立資源。
 
 本主題說明如何在 **arm** 模式下使用 Azure CLI，在 Mac、Linux 和 Windows 電腦的命令列上建立、管理和刪除服務。此功能類似於隨 Azure SDK for .NET、Node.JS 和 PHP 安裝的 Windows PowerShell Cmdlet 所提供的功能。
 
@@ -65,7 +67,7 @@
 	warn:   Remember to delete it now that it has been imported.
 	info:   Account publish settings imported successfully
 
-> [AZURE.NOTE]publishsettings 檔可能包含多個訂閱的詳細資料 (也就是訂閱名稱和 ID)。當您匯入 publishsettings 檔時，第一個訂閱將作為預設訂閱。若要使用不同的訂用帳戶，請執行下列命令。<code>\~$ azure config set subscription &lt;other-subscription-id&gt;</code>
+> [AZURE.NOTE]publishsettings 檔可能包含多個訂閱的詳細資料 (也就是訂閱名稱和 ID)。當您匯入 publishsettings 檔時，第一個訂閱將作為預設訂閱。若要使用不同的訂用帳戶，請執行下列命令。<code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
 
 **account clear [options]**
 
@@ -208,7 +210,7 @@ This command creates a new affinity group
 
 **-c, --connect** 於主機服務中已建立的部署內建立虛擬機器。如果使用這個選項時並未加上 -vmname，則會自動產生新虛擬機器的名稱。<br /> **-n, --vm-name** 指定虛擬機器的名稱。此參數預設使用主機服務名稱。如果未指定 -vmname，則會以 &lt;service-name>&lt;id> 格式產生新虛擬機器的名稱，其中 &lt;id> 是服務中現有虛擬機器的編號加 1。例如，如果您使用這個命令將新的虛擬機器加入至已有一個虛擬機器的主機服務 MyService，則新虛擬機器的名稱會是 MyService2。<br /> **-u, --blob-url** 指定要在其中建立虛擬機器系統磁碟的目標 Blob 儲存體 URL。<br /> **-z, --vm-size** 指定虛擬機器的大小。有效值為："ExtraSmall"、"Small"、"Medium"、"Large"、"ExtraLarge"、"A5"、"A6"、"A7"、"A8"、"A9"、"A10"、"A11"、"Basic\_A0"、"Basic\_A1"、"Basic\_A2"、"Basic\_A3"、"Basic\_A4"、"Standard\_D1"、"Standard\_D2"、"Standard\_D3"、"Standard\_D4"、"Standard\_D11"、"Standard\_D12"、"Standard\_D13"、"Standard\_D14"、"Standard\_DS1"、"Standard\_DS2"、"Standard\_DS3"、"Standard\_DS4"、"Standard\_DS11"、"Standard\_DS12"、"Standard\_DS13"、"Standard\_DS14"、"Standard\_G1"、"Standard\_G2"、"Standard\_G3"、"Standard\_G4"、"Standard\_G55"。預設值為 "Small"。<br /> **-r** 將 RDP 連線功能新增至 Windows 虛擬機器。<br /> **-e, --ssh** 將 SSH 連線功能新增至 Windows 虛擬機器。<br /> **-t, --ssh-cert** 指定 SSH 憑證。<br /> **-s** 訂用帳戶 <br /> **-o, --community** 所指定的影像為社群影像 <br /> **-w** 虛擬網路名稱 <br/> **-l, --location** 指定位置 (例如，「美國中北部」)。<br /> **-a, --affinity-group** 指定同質群組。<br /> **-w, --virtual-network-name** 指定要將虛擬機器新增到的虛擬網路。若要設定和管理虛擬網路，可以從 Azure 入口網站進行。<br /> **-b, --subnet-names** 指定要對虛擬機器指派的子網路名稱。
 
-在此範例中，MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-zh-tw-30GB 是由平台所提供的映像。如需作業系統映像的詳細資訊，請參閱 vm image list。
+在此範例中，MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-zh-TW-30GB 是由平台所提供的映像。如需作業系統映像的詳細資訊，請參閱 vm image list。
 
 	~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "West US" -r
 	info:   Executing command vm create
@@ -420,15 +422,15 @@ info:   vm shutdown command OK
 	~$ azure vm image list
 	data:   Name                                                                   Category   OS
 	data:   ---------------------------------------------------------------------  ---------  -------
-	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-zh-tw-30GB.vhd   Canonical  Linux
+	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-zh-TW-30GB.vhd   Canonical  Linux
 	data:   MSFT__Windows-Server-2008-R2-SP1.11-29-2011                            Microsoft  Windows
 	data:   MSFT__Windows-Server-2008-R2-SP1-with-SQL-Server-2012-Eval.11-29-2011  Microsoft  Windows
-	data:   MSFT__Windows-Server-8-Beta.zh-tw.30GB.2012-03-22                      Microsoft  Windows
+	data:   MSFT__Windows-Server-8-Beta.zh-TW.30GB.2012-03-22                      Microsoft  Windows
 	data:   MSFT__Windows-Server-8-Beta.2-17-2012                                  Microsoft  Windows
-	data:   MSFT__Windows-Server-2008-R2-SP1.zh-tw.30GB.2012-3-22                  Microsoft  Windows
-	data:   OpenLogic__OpenLogic-CentOS-62-20120509-zh-tw-30GB.vhd                 OpenLogic  Linux
-	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-zh-tw-30GB.vhd       SUSE       Linux
-	data:   SUSE__OpenSUSE64121-03192012-zh-tw-15GB.vhd                            SUSE       Linux
+	data:   MSFT__Windows-Server-2008-R2-SP1.zh-TW.30GB.2012-3-22                  Microsoft  Windows
+	data:   OpenLogic__OpenLogic-CentOS-62-20120509-zh-TW-30GB.vhd                 OpenLogic  Linux
+	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-zh-TW-30GB.vhd       SUSE       Linux
+	data:   SUSE__OpenSUSE64121-03192012-zh-TW-15GB.vhd                            SUSE       Linux
 	data:   WIN2K8-R2-WINRM                                                        User       Windows
 	info:   vm image list command OK
 
@@ -499,7 +501,7 @@ info:   vm shutdown command OK
 	data:   LogicalDiskSizeInGB "30"
 	data:   MediaLink "http://mystorageaccount.blob.core.azure-preview.com/vhd-store/mycentos-cb39b8223b01f95c.vhd"
 	data:   Name "mycentos-mycentos-0-20120524070008"
-	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-zh-tw-30GB.vhd"
+	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-zh-TW-30GB.vhd"
 	info:   vm disk show command OK
 
 **vm disk list [options] [vm-name]**
@@ -2346,4 +2348,4 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在 Azure 中建立一個執行 Windows 的自訂虛擬機器"
+	pageTitle="建立執行 Windows 的自訂虛擬機器 | Microsoft Azure"
 	description="了解如何在 Azure 中建立一個執行 Windows 的自訂虛擬機器。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -20,6 +20,8 @@
 
 #在 Azure 中建立一個執行 Windows 的自訂虛擬機器
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+
 「自訂」虛擬機器是指您使用 [從組件庫] 選項建立的虛擬機器，因為您可以有比 [快速建立] 選項更多的設定選擇。這些選擇包括：
 
 - 將虛擬機器連線至虛擬網路
@@ -34,4 +36,4 @@
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

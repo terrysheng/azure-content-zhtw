@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="DNS 區域上的作業 | Microsoft Azure"
-	description="您可以使用 Azure Powershell Cmdlet 或 CLI 管理 DNS 區域。如何在 Azure DNS 上更新、刪除及建立 DNS 區域"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   pageTitle="DNS 區域上的作業 | Microsoft Azure" 
+   description="您可以使用 Azure Powershell 管理 DNS 區域。如何在 Azure DNS 上更新、刪除及建立 DNS 區域" 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="Adinah" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
-# 如何管理 DNS 區域
+# 如何管理使用 PowerShell 的 DNS 區域
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-operations-dnszones-cli.md)
@@ -108,4 +108,4 @@
 
 [使用 .NET SDK 自動化作業](dns-sdk.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

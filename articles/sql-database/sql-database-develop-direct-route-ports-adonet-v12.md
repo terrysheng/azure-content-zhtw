@@ -114,4 +114,10 @@ SQL Database V11 和 V12 之間的用戶端連線差異是本主題中的重點�
 
 - [連接到 SQL Database：連結、最佳作法和設計方針](sql-database-connect-central-recommendations.md)
 
-<!---HONumber=Sept15_HO3-->
+
+- [Azure SQL Database 防火牆](sql-database-firewall-configure.md)
+
+
+- [如何：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)
+
+<!---HONumber=Sept15_HO4-->

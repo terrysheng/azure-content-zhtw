@@ -1,11 +1,12 @@
 <properties
 	pageTitle="搭配 Django 的 Python Web 應用程式 | Microsoft Azure"
-	description="本教學課程會教您如何使用執行 Windows Server 2012 R2 Datacenter 的虛擬機器，在 Azure 上裝載 Django 型網站。"
+	description="本教學課程會教您如何藉由傳統部署模型使用執行 Windows Server 2012 R2 Datacenter 的虛擬機器，在 Azure 上裝載 Django 型網站。"
 	services="virtual-machines"
 	documentationCenter="python"
 	authors="huguesv"
 	manager="wpickett"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 
 <tags 
@@ -18,11 +19,15 @@
 	ms.author="huvalo"/>
 
 
+# Windows Server VM 上的 Django Hello World Web 應用程式
 
+> [AZURE.SELECTOR]
+- [Windows](virtual-machines-python-django-web-app-windows-server.md)
+- [Mac/Linux](virtual-machines-python-django-web-app-linux.md)
 
-# Django Hello World Web 應用程式
+<br>
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
 
 本教學課程說明如何使用 Windows Server 虛擬機器，在 Microsoft Azure 上裝載 Django 型網站。本教學課程假設您先前沒有使用 Azure 的經驗。完成本教學課程之後，您將在雲端啟動並執行 Django 型應用程式。
 
@@ -178,4 +183,4 @@
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

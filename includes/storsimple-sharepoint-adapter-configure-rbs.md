@@ -1,24 +1,24 @@
-
+<!--author=SharS last changed: 9/17/15-->
 
 >[AZURE.NOTE]變更 StorSimple Adapter for SharePoint 的 RBS 組態時，您必須利用屬於 Domain Admins 群組的使用者帳戶登入。此外，您必須從瀏覽器 (在和管理中心相同的主機上執行) 存取組態頁面。
 
 #### 設定 RBS
 
-1. 開啟 [SharePoint 管理中心] 頁面，並瀏覽至**系統設定**。 
+1. 開啟 [SharePoint 管理中心] 頁面，並瀏覽至 [系統設定]。 
 
-2. 在 [**Azure StorSimple**] 區段中，按一下 [**設定 StorSimple Adapter**]。
+2. 在 [Azure StorSimple] 區段中，按一下 [設定 StorSimple Adapter]。
 
     ![設定 StorSimple Adapter](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS1-include.png)
 
-3. 在 [**設定 StorSimple Adapter**] 頁面上：
+3. 在 [設定 StorSimple Adapter] 頁面上：
 
-    1. 請確定已選取 [**啟用編輯路徑**] 核取方塊。
+    1. 請確定已選取 [啟用編輯路徑] 核取方塊。
 
     2. 在文字方塊中，輸入 BLOB 存放區的通用命名慣例 (UNC) 路徑。
 
           >[AZURE.NOTE]BLOB 存放區磁碟區必須裝載在設定於 StorSimple 裝置上的 iSCSI 磁碟區。
 
-    3. 按一下**啟用**每個您想要設定遠端存放的內容資料庫下方的按鈕。
+    3. 按一下每個您想要設定遠端存放的內容資料庫下方的 [啟用] 按鈕。
 
           >[AZURE.NOTE]BLOB 存放區必須由所有 web 前端 (WFE) 伺服器共用，而且已針對 SharePoint 伺服器陣列設定的使用者帳戶必須可存取此共用權限。
 
@@ -28,7 +28,7 @@
 
           ![設定 StorSimple Adapter 啟用停用](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
 
-    4. 按一下 [**更新**] 按鈕以套用組態。當您按一下 [**更新**] 按鈕時，所有 WFE 伺服器上的 RBS 組態狀態將會更新，且整個伺服器陣列將會啟用 RBS 功能。下列訊息隨即出現。
+    4. 按一下 [更新] 按鈕以套用組態。當您按一下 [更新] 按鈕時，所有 WFE 伺服器上的 RBS 組態狀態將會更新，且整個伺服器陣列將會啟用 RBS 功能。下列訊息隨即出現。
 
            ![配接器組態訊息](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
 
@@ -36,7 +36,7 @@
  
 4. 驗證組態：
 
-    1. 登入 SharePoint 管理中心網站，並瀏覽至 [**設定 StorSimple Adapter**] 頁面。
+    1. 登入 SharePoint 管理中心網站，並瀏覽至 [設定 StorSimple Adapter] 頁面。
 
     2. 請檢查組態詳細資料以確定它們符合您所輸入的設定。
 
@@ -46,7 +46,7 @@
 
     2. 瀏覽至您所設定的 UNC 路徑。請確定已建立 RBS 目錄結構，且它包含已上傳的物件。
 
-6. (選擇性) 您可以使用隨附於 SharePoint 的 Microsoft RBS `Migrate()` PowerShell cmdlet 以移轉現有的 BLOB 內容至 StorSimple 裝置。如需詳細資訊，請參閱[移轉內容出或入 SharePoint 2013 中的 RBS][6] 或[移轉內容出或入 RBS (SharePoint Foundation 2010)][7]。
+6. (選擇性) 您可以使用隨附於 SharePoint 的 Microsoft RBS `Migrate()` PowerShell cmdlet 以移轉現有的 BLOB 內容至 StorSimple 裝置。如需詳細資訊，請參閱[將內容移入或移出 SharePoint 2013 中的 RBS][6] 或[將內容移入或移出 RBS (SharePoint Foundation 2010)][7]。
 
 7. (選擇性) 在測試安裝上，您可以確認已將 Blob 移出內容資料庫，如下所示：
 
@@ -104,4 +104,4 @@
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -10,7 +10,7 @@
 <tags
 	ms.service="cloud-services"
 	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
 	ms.date="08/31/2015"
@@ -177,6 +177,9 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
 
 	> [AZURE.NOTE]刪除服務不會刪除初次發佈服務時建立的儲存體帳戶，而且將持續對使用的儲存體計費。如需刪除儲存體帳戶的詳細資訊，請參閱[如何從 Azure 訂用帳戶刪除儲存體帳戶](http://msdn.microsoft.com/library/windowsazure/hh531562.aspx)。
 
+## 後續步驟
+
+如需詳細資訊，請參閱 [Node.js 開發人員中心](/develop/nodejs/)。
 
 [The Windows Start menu with the Azure SDK Node.js entry expanded]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
 [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
@@ -194,4 +197,4 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -19,8 +19,10 @@
 # 在 Azure App Service 中建立 ASP.NET API 應用程式
 
 > [AZURE.SELECTOR]
-- [Visual Studio 2015 or 2013](app-service-dotnet-create-api-app.md)
-- [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
+- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [Node.js](app-service-api-nodejs-api-app.md)
+- [Java](app-service-api-java-api-app.md)
 
 ## 概觀
 
@@ -48,4 +50,4 @@
 
 現在已準備好部署您的 API 應用程式，而且您可以依照[部署 API 應用程式](app-service-dotnet-deploy-api-app.md)教學課程進行部署。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="使用 PowerShell 建立具有原生模式報表伺服器的 Azure VM"
+	pageTitle="使用 PowerShell 建立具有原生模式報表伺服器的 VM | Microsoft Azure"
 	description="本主題說明並逐步引導您在 Azure 虛擬機器中，部署並設定 SQL Server Reporting Services 原生模式報表伺服器。"
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" 
+	tags="azure-service-management"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,9 +14,11 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
 # 使用 PowerShell 建立具有原生模式報表伺服器的 Azure VM
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
 
 本主題說明並逐步引導您在 Azure 虛擬機器中，部署並設定 SQL Server Reporting Services 原生模式報表伺服器。本文件的步驟採用一連串手動步驟的組合建立虛擬機器，並使用 Windows PowerShell 指令碼設定 VM 上的 Reporting Services。組態指令碼包含針對 HTTP 或 HTTPS 開啟防火牆連接埠。
 
@@ -41,7 +44,7 @@
 
 1. 瀏覽至 [Azure 管理入口網站](https://manage.windowsazure.com)。
 
-1. 按一下左窗格中的 [**虛擬機器**]。
+1. 按一下左窗格中的 [虛擬機器]。
 
 	![Microsoft Azure 虛擬機器](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC660124.gif)
 
@@ -49,57 +52,57 @@
 
 	![新增按鈕](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692019.gif)
 
-1. 按一下 [**從資源庫**]。
+1. 按一下 [從資源庫]。
 
 	![從資源庫新增 VM](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692020.gif)
 
-1. 按一下 [**SQL Server 2014 RTM Standard – Windows Server 2012 R2**]，然後按一下箭頭以繼續。
+1. 按一下 [SQL Server 2014 RTM Standard – Windows Server 2012 R2]，然後按一下箭頭以繼續。
 
 	![下一步](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
 
-	如果您需要 Reporting Services 資料驅動的訂用帳戶功能，請選擇 [**SQL Server 2014 RTM Enterprise – Windows Server 2012 R2**]。如需有關 SQL Server 版本及功能支援的詳細資訊，請參閱 [SQL Server 2012 版本支援的功能](https://msdn.microsoft.com/library/cc645993.aspx#Reporting)。
+	如果您需要 Reporting Services 資料驅動的訂用帳戶功能，請選擇 [SQL Server 2014 RTM Enterprise – Windows Server 2012 R2]。如需有關 SQL Server 版本及功能支援的詳細資訊，請參閱 [SQL Server 2012 版本支援的功能](https://msdn.microsoft.com/library/cc645993.aspx#Reporting)。
 
-1. 在 [**虛擬機器組態**] 頁面中，編輯下列欄位：
+1. 在 [虛擬機器組態] 頁面中，編輯下列欄位：
 									
-	- 如果有多個 [**版本發行日期**]，請選取最新版本。
+	- 如果有多個 [版本發行日期]，請選取最新版本。
 	
-	- [**虛擬機器名稱**]：下一個組態頁面中也使用此機器名稱，作為預設的雲端服務 DNS 名稱。DNS 名稱在 Azure 服務中必須是獨一無二的。請考慮以能夠描述 VM 用途的電腦名稱命名 VM。例如 ssrsnativecloud。
+	- [虛擬機器名稱]：下一個組態頁面中也使用此機器名稱，作為預設的雲端服務 DNS 名稱。DNS 名稱在 Azure 服務中必須是獨一無二的。請考慮以能夠描述 VM 用途的電腦名稱命名 VM。例如 ssrsnativecloud。
 	
-	- [**層**]：標準
+	- [層]：標準
 	
-	- [**大小：A3**] 是建議 SQL Server 工作負載採用的 VM 大小。若 VM 只作為報表伺服器使用，那麼除非報表伺服器需處理大量的工作負載，否則 A2 的 VM 大小就已經足夠。如需 VM 的價格資訊，請參閱[虛擬機器定價](http://azure.microsoft.com/pricing/details/virtual-machines/)。
+	- [大小：A3] 是建議 SQL Server 工作負載採用的 VM 大小。若 VM 只作為報表伺服器使用，那麼除非報表伺服器需處理大量的工作負載，否則 A2 的 VM 大小就已經足夠。如需 VM 的價格資訊，請參閱[虛擬機器定價](http://azure.microsoft.com/pricing/details/virtual-machines/)。
 	
-	- [**新的使用者名稱**]：系統會使用您提供的名稱建立 VM 上的系統管理員。
+	- [新的使用者名稱]：系統會使用您提供的名稱建立 VM 上的系統管理員。
 	
-	- [**建立新密碼**] 並**確認**。此密碼將用於新的系統管理員帳戶，因此建議您使用強式密碼。
+	- [建立新密碼] 並**確認**。此密碼將用於新的系統管理員帳戶，因此建議您使用強式密碼。
 	
 	- 按 [下一步]。![下一步](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
 
 1. 在下一個頁面中，編輯下列欄位：
 
-	- [**雲端服務**]：選取 [**建立新的雲端服務**]。
+	- [雲端服務]：選取 [建立新的雲端服務]。
 	
-	- [**雲端服務 DNS 名稱**]：這是與 VM 相關聯的雲端服務的公用 DNS 名稱。預設名稱就是您為 VM 名稱鍵入的名稱。如果您在本主題的後續步驟中，建立信任的 SSL 憑證，系統會將 DNS 名稱作為該憑證的 [**核發給**] 值。
+	- [雲端服務 DNS 名稱]：這是與 VM 相關聯的雲端服務的公用 DNS 名稱。預設名稱就是您為 VM 名稱鍵入的名稱。如果您在本主題的後續步驟中，建立信任的 SSL 憑證，系統會將 DNS 名稱作為該憑證的 [**核發給**] 值。
 	
-	- [**地區/同質群組/虛網路**]：選擇最靠近您使用者的地區。
+	- [地區/同質群組/虛擬網路]：選擇最靠近您使用者的地區。
 	
-	- [**儲存體帳戶**]：使用自動產生的儲存體帳戶。
+	- [儲存體帳戶]：使用自動產生的儲存體帳戶。
 	
-	- [**可用性集合**]：無。
+	- [可用性集合]：無。
 	
-	- [**端點**]：保留**遠端桌面**和 **PowerShell** 端點，然後根據您的環境新增 HTTP 或 HTTPS 端點。
+	- [端點]：保留**遠端桌面**和 **PowerShell** 端點，然後根據您的環境新增 HTTP 或 HTTPS 端點。
 
-		- [**HTTP**]：預設的公用和私用連接埠都是 **80**。請注意，如果您使用的私用連接埠不是 80，請修改 http 指令碼中的 **$HTTPport = 80**。
+		- [HTTP]：預設的公用和私用連接埠都是 **80**。請注意，如果您使用的私用連接埠不是 80，請修改 http 指令碼中的 **$HTTPport = 80**。
 
-		- [**HTTPS**]：預設的公用和私用連接埠都是 **443**。安全性最佳作法就是變更私用連接埠，並將防火牆和報表伺服器設為使用私用連接埠。如需有關端點的詳細資訊，請參閱[如何設定與虛擬機器的通訊](virtual-machines-set-up-endpoints.md)。請注意，如果您使用的連接埠不是 443，請變更 HTTPS 指令碼中的 **$HTTPsport = 443** 參數。
+		- [HTTPS]：預設的公用和私用連接埠都是 **443**。安全性最佳作法就是變更私用連接埠，並將防火牆和報表伺服器設為使用私用連接埠。如需有關端點的詳細資訊，請參閱[如何設定與虛擬機器的通訊](virtual-machines-set-up-endpoints.md)。請注意，如果您使用的連接埠不是 443，請變更 HTTPS 指令碼中的 **$HTTPsport = 443** 參數。
 	
-	- 按一下 [下一步]。![下一步](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
+	- 按 [下一步]。![下一步](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
 
-1. 在精靈的最後一頁，保持選取預設值 [**安裝 VM 代理程式**]。本主題的步驟不會使用 VM 代理程式，但若您打算保留此 VM，VM 代理程式和延伸模組可讓您增強 CM。如需有關 VM 代理程式的詳細資訊，請參閱 [VM 代理程式和延伸模組 – 第 1 部分](http://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/) (英文)。其中一個已安裝並執行的預設延伸模組是「BGINFO」延伸模組，它會在 VM 桌面上顯示系統資訊，例如內部 IP 和可用磁碟空間。
+1. 在精靈的最後一頁，保持選取預設值 [安裝 VM 代理程式]。本主題的步驟不會使用 VM 代理程式，但若您打算保留此 VM，VM 代理程式和延伸模組可讓您增強 CM。如需有關 VM 代理程式的詳細資訊，請參閱 [VM 代理程式和延伸模組 – 第 1 部分](http://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/) (英文)。其中一個已安裝並執行的預設延伸模組是「BGINFO」延伸模組，它會在 VM 桌面上顯示系統資訊，例如內部 IP 和可用磁碟空間。
 
 1. 按一下 [完成]。![確定](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC660122.gif)
 
-1. VM 的 [**狀態]** 在佈建程序進行期間會顯示為 [**啟動中 (佈建中)**]，然後在 VM 已佈建完成，可供使用時顯示為 [**正在執行**]。
+1. VM 的 [狀態] 在佈建程序進行期間會顯示為 [啟動中 (佈建中)]，然後在 VM 已佈建完成，可供使用時顯示為 [正在執行]。
 
 ## 步驟 2：建立伺服器憑證
 
@@ -125,7 +128,7 @@
 
 	[管理 Windows Server 2012 的安全性工具](https://technet.microsoft.com/library/jj730960.aspx) (英文)
 
-	>[AZURE.NOTE]信任的 SSL 憑證的 [**核發給**] 欄位應該與新 VM 的**雲端服務 DNS 名稱**相同。
+	>[AZURE.NOTE]信任的 SSL 憑證的 [核發給] 欄位應該與新 VM 的**雲端服務 DNS 名稱**相同。
 
 1. **在 Web 伺服器上安裝伺服器憑證**。此案例中的 Web 伺服器是作為裝載報表伺服器的 VM，而我們會在後面設定 Reporting Services 的步驟中建立網站。如需有關如何使用憑證 MMC 嵌入式管理單元，在 Web 伺服器上安裝伺服器憑證的詳細資訊，請參閱[安裝伺服器憑證](https://technet.microsoft.com/library/cc740068) (英文)。
 	
@@ -149,21 +152,21 @@
 	
 	1. 執行 mmc.exe。如需詳細資訊，請參閱[做法：使用 MMC 嵌入式管理單元檢視憑證](https://msdn.microsoft.com/library/ms788967.aspx)。
 	
-	1. 在主控台應用程式的 [**檔案**] 功能表中，新增**憑證**嵌入式管理單元，在系統提示時選取 [**電腦帳戶**]，然後按一下 [**下一步**]。
+	1. 在主控台應用程式的 [檔案] 功能表中，新增**憑證**嵌入式管理單元，在系統提示時選取 [電腦帳戶]，然後按一下 [下一步]。
 	
-	1. 選取要管理的 [**本機電腦**]，然後按一下 [**完成**]。
+	1. 選取要管理的 [本機電腦]，然後按一下 [完成]。
 	
-	1. 按一下 [**確認**]，展開 [**憑證 - 個人**] 節點，然後按一下 [**憑證**]。憑證是以 VM 的 DNS 名稱來命名，並以 **cloudapp.net** 結尾。以滑鼠右鍵按一下憑證名稱，並按一下 [**複製**]。
+	1. 按一下 [確認]，展開 [憑證 - 個人] 節點，然後按一下 [憑證]。憑證是以 VM 的 DNS 名稱來命名，並以 **cloudapp.net** 結尾。以滑鼠右鍵按一下憑證名稱，並按一下 [複製]。
 	
-	1. 展開 [**信任的根憑證授權**] 節點，接著以滑鼠右鍵按一下 [**憑證**]，然後按一下 [**貼上**]。
+	1. 展開 [信任的根憑證授權] 節點，接著以滑鼠右鍵按一下 [憑證]，然後按一下 [貼上]。
 	
-	1. 若要驗證，請按兩下 [**信任的根憑證授權**] 下的憑證名稱，確認沒有任何錯誤且您能看到您的憑證。若您要使用本主題中的 HTTPS 指令碼設定報表伺服器，需將**指紋**憑證的值作為指令碼的參數。**若要取得憑證指紋值**，請完成下列步驟。在＜[使用指令碼設定報表伺服器和 HTTPS](#use-script-to-configure-the-report-server-and-HTTPS)＞一節中，還有可擷取憑證指紋的 PowerShell 範例。
+	1. 若要驗證，請按兩下 [信任的根憑證授權] 下的憑證名稱，確認沒有任何錯誤且您能看到您的憑證。若您要使用本主題中的 HTTPS 指令碼設定報表伺服器，需將**指紋**憑證的值作為指令碼的參數。**若要取得憑證指紋值**，請完成下列步驟。在＜[使用指令碼設定報表伺服器和 HTTPS](#use-script-to-configure-the-report-server-and-HTTPS)＞一節中，還有可擷取憑證指紋的 PowerShell 範例。
 		
 		1. 按兩下憑證名稱，例如 ssrsnativecloud.cloudapp.net。
 		
-		1. 按一下 [**詳細資料**] 索引標籤。
+		1. 按一下 [詳細資料] 索引標籤。
 		
-		1. 按一下 [**指紋**]。憑證指紋的值會顯示在 [詳細資料] 欄位中，例如 ‎a6 08 3c df f9 0b f7 e3 7c 25 ed a4 ed 7e ac 91 9c 2c fb 2f。
+		1. 按一下 [指紋]。憑證指紋的值會顯示在 [詳細資料] 欄位中，例如 ‎a6 08 3c df f9 0b f7 e3 7c 25 ed a4 ed 7e ac 91 9c 2c fb 2f。
 		
 		1. 複製憑證指紋並儲存其值，即可在稍後或現在編輯指令碼。
 		
@@ -199,7 +202,7 @@
 
 1. 在 VM 上，以系統管理權限開啟 **Windows PowerShell ISE**。Windows Server 2012 預設會安裝 PowerShell ISE。建議您使用 ISE 代替標準 Windows PowerShell 視窗，以便將指令碼貼到 ISE、修改指令碼，並接著執行指令碼。
 
-1. 在 Windows PowerShell ISE 中，按一下 [**檢視**] 功能表，然後按一下 [**顯示指令碼窗格**]。
+1. 在 Windows PowerShell ISE 中，按一下 [檢視] 功能表，然後按一下 [顯示指令碼窗格]。
 
 1. 複製下列指令碼，然後將指令碼貼到 [Windows PowerShell ISE 指令碼] 窗格。
 
@@ -348,7 +351,7 @@
 
 		Get-ExecutionPolicy
 
-1. 在 [**Windows PowerShell ISE**] 中，按一下 [**檢視**] 功能表，然後按一下 [**顯示指令碼窗格**]。
+1. 在 [Windows PowerShell ISE] 中，按一下 [檢視] 功能表，然後按一下 [顯示指令碼窗格]。
 
 1. 複製下列指令碼，並將指令碼貼到 [Windows PowerShell ISE 指令碼] 窗格。
 
@@ -517,11 +520,11 @@
 	
 	- 在 VM 上執行 mmc.exe，然後新增**憑證**嵌入式管理單元。
 	
-	- 在 [**信任的根憑證授權**] 節點下，按兩下您的憑證名稱。如果您使用 VM 的自我簽署憑證，則憑證是以 VM 的 DNS 名稱來命名，並以 **cloudapp.net** 結尾。
+	- 在 [信任的根憑證授權] 節點下，按兩下您的憑證名稱。如果您使用 VM 的自我簽署憑證，則憑證是以 VM 的 DNS 名稱來命名，並以 **cloudapp.net** 結尾。
 	
-	- 按一下 [**詳細資料**] 索引標籤。
+	- 按一下 [詳細資料] 索引標籤。
 	
-	- 按一下 [**指紋**]。憑證指紋的值會顯示在 [詳細資料] 欄位中，例如 af 11 60 b6 4b 28 8d 89 0a 82 12 ff 6b a9 c3 66 4f 31 90 48
+	- 按一下 [指紋]。憑證指紋的值會顯示在 [詳細資料] 欄位中，例如 af 11 60 b6 4b 28 8d 89 0a 82 12 ff 6b a9 c3 66 4f 31 90 48
 	
 	- **執行指令碼之前**，請先移除每一組值之間的空格。例如 af1160b64b288d890a8212ff6ba9c3664f319048
 
@@ -559,39 +562,39 @@
 
 1. 執行 Windows Update 並安裝 VM 的更新。如果需要重新啟動 VM，請重新啟動 VM，並從 Azure 管理入口網站重新連接至 VM。
 
-1. 在 VM 的 [開始] 功能表中，鍵入 **Reporting Services**，並開啟 [**Reporting Services 組態管理員**]。
+1. 在 VM 的 [開始] 功能表中，鍵入 **Reporting Services**，並開啟 [Reporting Services 組態管理員]。
 
-1. 保留 [**伺服器名稱**] 和 [**報表伺服器執行個體**] 的預設值。按一下 [連接]。
+1. 保留 [伺服器名稱] 和 [報表伺服器執行個體] 的預設值。按一下 [連接]。
 
-1. 按一下左窗格中的 [**Web 服務 URL**]。
+1. 按一下左窗格中的 [Web 服務 URL]。
 
 1. 根據預設，RS 會設定為 HTTP 連接埠 80，而 IP 為全部指派。若要新增 HTTPS：
 
-	1. 在 [**SSL 憑證**] 中：選取您要使用的憑證，例如 [VM 名稱].cloudapp.net。如果未列出憑證，請參閱＜**步驟 2：建立伺服器憑證**＞一節，以取得有關如何在 VM 上安裝和信任憑證的資訊。
+	1. 在 [SSL 憑證] 中：選取您要使用的憑證，例如 [VM 名稱].cloudapp.net。如果未列出憑證，請參閱＜**步驟 2：建立伺服器憑證**＞一節，以取得有關如何在 VM 上安裝和信任憑證的資訊。
 	
-	1. 在 [**SSL 連接埠**] 下：選擇 443。如果您在 VM 中，以不同的私用連接埠設定 HTTPS 私用端點，請在此處使用該值。
+	1. 在 [SSL 連接埠] 下：選擇 443。如果您在 VM 中，以不同的私用連接埠設定 HTTPS 私用端點，請在此處使用該值。
 	
-	1. 按一下 [**套用**]，並等候作業完成。
+	1. 按一下 [套用]，並等候作業完成。
 
-1. 在左窗格中，按一下 [**資料庫**]。
+1. 在左窗格中，按一下 [資料庫]。
 
-	1. 按一下 [**變更資料庫**]。
+	1. 按一下 [變更資料庫]。
 	
-	1. 按一下 [**建立新的報表伺服器資料庫**]，然後按一下 [**下一步**]。
+	1. 按一下 [建立新的報表伺服器資料庫]，然後按一下 [下一步]。
 	
-	1. 將預設的 [**伺服器名稱**] 保留為 VM 名稱，並將預設的 [**驗證類型**] 保留為 [**目前使用者** – **整合式安全性**]。按 [下一步]。
+	1. 將預設的 [伺服器名稱] 保留為 VM 名稱，並將預設的 [驗證類型] 保留為 [目前使用者 – 整合式安全性]。按 [下一步]。
 	
-	1. 將預設的 [**資料庫名稱**] 保留為 **ReportServer**，然後按一下 [**下一步**]。
+	1. 將預設的 [資料庫名稱] 保留為 **ReportServer**，然後按一下 [下一步]。
 	
-	1. 將預設的 [**驗證類型**] 保留為 [**服務認證**]，然後按一下 [**下一步**]。
+	1. 將預設的 [驗證類型] 保留為 [服務認證]，然後按一下 [下一步]。
 	
-	1. 在 [**摘要**] 頁面上，按一下 [**下一步**]。
+	1. 在 [摘要] 頁面上，按一下 [下一步]。
 	
-	1. 組態設定完成後，按一下 [**完成**]。
+	1. 組態設定完成後，按一下 [完成]。
 
-1. 在左窗格中，按一下 [**報表管理員 URL**]。將預設的 [**虛擬目錄**] 保留為 [**報表**]，然後按一下 [**套用**]。
+1. 在左窗格中，按一下 [報表管理員 URL]。將預設的 [虛擬目錄] 保留為 [報表]，然後按一下 [套用]。
 
-1. 按一下 [**結束**]，關閉 Reporting Services 組態管理員。
+1. 按一下 [結束]，關閉 Reporting Services 組態管理員。
 
 ## 步驟 4：開啟 Windows 防火牆連接埠
 
@@ -657,7 +660,7 @@
 
 	1. 以管理權限啟動瀏覽器。
 	
-	1. 瀏覽至虛擬機器上的報表管理員，然後按一下功能區中的 [**報表產生器**]。
+	1. 瀏覽至虛擬機器上的報表管理員，然後按一下功能區中的 [報表產生器]。
 
 	如需詳細資訊，請參閱[安裝、解除安裝和支援報表產生器](https://technet.microsoft.com/library/dd207038.aspx)。
 
@@ -679,7 +682,7 @@
 
 ## 在不使用 VM 時將成本降至最低
 
->[AZURE.NOTE]若要在不使用 Azure 虛擬機器時將費用降至最低，請從 Azure 管理入口網站關閉 VM。如果您使用 VM 內的 Windows 電源選項關閉 VM，則仍需針對 VM 支付相同金額。為了降低費用，您必須在 Azure 管理入口網站關閉 VM。如果您不再需要 VM，請記得刪除 VM 和相關聯的 .vhd 檔案，以節省儲存空間費用。如需詳細資訊，請參閱[虛擬機器定價](http://azure.microsoft.com/pricing/details/virtual-machines)的＜常見問題集＞一節。
+>[AZURE.NOTE]若要在不使用 Azure 虛擬機器時將費用降至最低，請從 Azure 管理入口網站關閉 VM。如果您使用 VM 內的 Windows 電源選項關閉 VM，則仍需針對 VM 支付相同金額。為了降低費用，您必須在 Azure 管理入口網站關閉 VM。如果您不再需要 VM，請記得刪除 VM 和相關聯的 .vhd 檔案，以節省儲存空間費用。如需詳細資訊，請參閱[虛擬機器價格](http://azure.microsoft.com/pricing/details/virtual-machines)的＜常見問題集＞一節。
 
 ## 相關資訊
 
@@ -701,4 +704,4 @@
 
 [Azure 虛擬機器上的 SQL Server 概觀](virtual-machines-sql-server-infrastructure-services.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="使用 Azure AD 的後續步驟是什麼？"
-	description="涵蓋使用 Azure AD 的進階工作。"
+	pageTitle="使用 Azure Active Directory 的後續步驟是什麼？"
+	description="進階工作，例如使用 Azure Active Directory 管理密碼、管理使用者、管理群組及條件式存取"
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # 使用 Azure AD 的後續步驟是什麼？
 
 
-###本主題的其他文章
+### 本主題的其他文章
 [什麼是 Azure AD？](active-directory-whatis.md)<br> [運作方式](active-directory-works.md)<br> [入門](active-directory-get-started.md)<br> [後續步驟](active-directory-next-steps.md)<br> [深入了解](active-directory-learn-map.md)
 
 ## 在 Azure AD 中管理使用者
@@ -41,4 +41,4 @@ Azure AD 裝置註冊會利用當使用者登入時用來驗證裝置的身分�
 * [Azure 身分識別](fundamentals-identity.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

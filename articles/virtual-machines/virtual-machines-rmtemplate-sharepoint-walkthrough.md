@@ -1,5 +1,5 @@
 <properties
-	pageTitle="三部伺服器的 SharePoint 伺服器陣列資源管理員範本"
+	pageTitle="3 伺服器 SharePoint 伺服陣列 ARM 範本 | Microsoft Azure"
 	description="逐步講解三部伺服器之 SharePoint 伺服器陣列的 Azure 資源管理員範本。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -10,13 +10,15 @@
 
 <tags
 	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.workload="infrastructure-services"                                                                             ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # 三部伺服器的 SharePoint 伺服器陣列資源管理員範本
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文內容涵蓋以資源管理員部署模型建立資源。您無法以傳統部署模型建立此資源。
 
 本主題逐步講解三部伺服器的 SharePoint 伺服器陣列的 azuredeploy.json 範本檔案結構。您可以從[此處](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json)在瀏覽器中查看這個範本的內容。
 
@@ -350,7 +352,7 @@
 
 其他的 **"Microsoft.Compute/virtualMachines/extensions"** 區段會呼叫 PowerShell 指令碼來設定 SQL Server。
 
-接下來的 **"type": "Microsoft.Compute/virtualMachines"** 區段會在部署中建立 SharePoint 虛擬機器，指定儲存體帳戶、可用性集合、負載平衡器、虛擬網路及網路介面。其他的 **"Microsoft.Compute/virtualMachines/extensions"** 區段會呼叫 PowerShell 指令碼來設定 SharePoint 伺服器陣列。
+接下來的 **"type": "Microsoft.Compute/virtualMachines"** 區段會在部署中建立 SharePoint 虛擬機器，指定儲存體帳戶、可用性設定組、負載平衡器、虛擬網路及網路介面。其他的 **"Microsoft.Compute/virtualMachines/extensions"** 區段會呼叫 PowerShell 指令碼來設定 SharePoint 伺服器陣列。
 
 請注意 JSON **"resources"** 區段的子區段整體組織：
 
@@ -364,7 +366,7 @@
 1.	建立部署所需的 Azure 基礎結構的一般 (儲存體帳戶、虛擬網路)、層相關 (可用性集合)，以及虛擬機器相關 (公用 IP 位址、可用性集合、網路介面、負載平衡器執行個體) 元素。
 2.	至於應用程式中的每一層 (例如驗證、資料庫、Web)，使用一般 (儲存體帳戶、 虛擬網路)、 特定層 (可用性集合) 和虛擬機器特定公用 IP 位址、 網路介面 (負載平衡器執行個體) 元素，在該層中建立以及設定伺服器。
 
-如需詳細資訊，請參閱 [Azure 資源管理員範本語言](../resource-group-authoring-templates.md)。
+如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](../resource-group-authoring-templates.md)。
 
 ## 其他資源
 
@@ -374,4 +376,4 @@
 
 [虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="對執行 Windows Server 的虛擬機器擷取映像"
-	description="了解如何對執行 Windows Server 的 Azure 虛擬機器 (VM) 擷取映像。"
+	pageTitle="擷取 Windows VM 的映像 | Microsoft Azure"
+	description="擷取以傳統部署模型所建立的 Windows 虛擬機器映像。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,11 +17,13 @@
 	ms.date="07/16/2015"
 	ms.author="cynthn"/>
 
-#如何擷取 Windows 虛擬機器作為映像使用#
+#擷取以傳統部署模型所建立的 Windows 虛擬機器映像。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
 
 本文說明如何擷取執行 Windows 的 Azure 虛擬機器，以便用它作為映像來建立其他虛擬機器。此映像包括作業系統磁碟和任何連結至虛擬機器的資料磁碟。它不包含網路組態，因此您將需要在建立其他使用該範本的虛擬機器時加以設定。
 
-Azure 會將映像儲存在 [**我的映像**] 之下。這個位置與您已上傳映像的任何儲存位置相同。如需映像的詳細資訊，請參閱[有關虛擬機器的映像](virtual-machines-images.md)。
+Azure 會將映像儲存在 [我的映像] 之下。這個位置與您已上傳映像的任何儲存位置相同。如需映像的詳細資訊，請參閱[有關虛擬機器的映像](virtual-machines-images.md)。
 
 ##開始之前##
 
@@ -50,9 +52,9 @@ Azure 會將映像儲存在 [**我的映像**] 之下。這個位置與您已上
 
 	![執行 Sysprep](./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png)
 
-7.	Sysprep 會將虛擬機器關機，並會在 Azure 入口網站中，將虛擬機器的狀態變更為 [**已停止**]。
+7.	Sysprep 會將虛擬機器關機，並會在 Azure 入口網站中，將虛擬機器的狀態變更為 [已停止]。
 
-8.	在 Azure 入口網站中，按一下 [**虛擬機器**] 並選取您想要擷取的虛擬機器。
+8.	在 Azure 入口網站中，按一下 [虛擬機器] 並選取您想要擷取的虛擬機器。
 
 9.	按一下命令列上的 [擷取]。
 
@@ -62,14 +64,14 @@ Azure 會將映像儲存在 [**我的映像**] 之下。這個位置與您已上
 
 10.	在 [映像名稱] 中輸入新映像的名稱。
 
-11.	將 Windows Server 映像新增到自訂映像組合之前，必須先如前述步驗所指示，執行 Sysprep 將它一般化。按一下 [**我已在虛擬機器上執行 Sysprep**]，表示您已這麼做。
+11.	將 Windows Server 映像新增到自訂映像組合之前，必須先如前述步驗所指示，執行 Sysprep 將它一般化。按一下 [我已在虛擬機器上執行 Sysprep]，表示您已這麼做。
 
 12.	按一下打勾記號以擷取映像。新映像現在會出現在 [映像] 下。
 
  	![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
 
 ##後續步驟##
-映像已準備好用來建立虛擬機器。若要這麼做，您將需要使用 [**從資源庫**] 功能表項目並選取您剛建立的映像，以便建立虛擬機器。如需指示，請參閱[建立執行 Windows 的自訂虛擬機器][]。
+映像已準備好用來建立虛擬機器。若要這麼做，您將需要使用 [從資源庫] 功能表項目並選取您剛建立的映像，以便建立虛擬機器。如需指示，請參閱[建立執行 Windows 的自訂虛擬機器][]。
 
 [建立一個執行 Windows 的自訂虛擬機器]: virtual-machines-windows-create-custom.md
 [建立執行 Windows 的自訂虛擬機器]: virtual-machines-windows-create-custom.md
@@ -84,4 +86,4 @@ Azure 會將映像儲存在 [**我的映像**] 之下。這個位置與您已上
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

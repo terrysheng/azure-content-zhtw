@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Azure 虛擬機器中的 SQL Server Business Intelligence"
-	description="本主題描述 Azure 虛擬機器 (VM) 上執行的 SQL Server 提供的 Business Intelligence (BI) 功能。"
+	pageTitle="SQL Server Business Intelligence |Microsoft Azure"
+	description="本主題使用隨傳統部署模型建立的資源，並描述 Azure 虛擬機器 (VM) 上執行的 SQL Server 提供的 Business Intelligence (BI) 功能。"
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" 
+	tags="azure-service-management"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,9 +14,11 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
 # Azure 虛擬機器中的 SQL Server Business Intelligence
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括使用資源搭配傳統部署模型。
  
 Microsoft Azure 虛擬機器資源庫含有包含 SQL Server 安裝的映像。資源庫映像中支援的 SQL Server 版本與您可以在內部部署電腦與虛擬機器中安裝的安裝檔案相同。本主題摘要說明映像上安裝的 SQL Server 商業智慧 (BI) 功能和佈建虛擬機器後所需的組態步驟。本主題也描述 BI 功能支援的部署拓撲和最佳作法。
 
@@ -74,7 +77,7 @@ Microsoft Azure 虛擬機器資源庫涵蓋數個包含 Microsoft SQL Server 的
 
 |SQL Server BI 功能|在資源庫映像上安裝|注意事項|
 |---|---|---|
-|**Reporting Services 原生模式**|是|已安裝但需要組態，包括報表管理員 URL。請參閱章節[設定 Reporting Services](#configure-reporting-services)。|
+|**Reporting Services 原生模式**|是|已安裝但需要組態，包括報表管理員 URL。請參閱[設定 Reporting Services](#configure-reporting-services) 一節。|
 |**Reporting Services SharePoint 模式**|否|Microsoft Azure 虛擬機器資源庫映像庫不包含 SharePoint 或 SharePoint 安裝檔案。<sup>1</sup>|
 |**Analysis Services 多維度和資料採礦 (OLAP)**|是|已安裝並設定為預設的 Analysis Services 執行個體|
 |**Analysis Services 表格式**|否|SQL Server 2012 和 2014 映像中支援，但預設不會安裝。安裝另一個執行個體的 Analysis Services。請參閱本主題中的＜安裝其他 SQL Server 服務和功能＞。|
@@ -220,7 +223,7 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 
 1. 按一下左窗格中的 [資料庫]。
 
-1. 按一下 [變更資料庫。
+1. 按一下 [變更資料庫]。
 
 1. 確認 [建立新的報表伺服器資料庫] 選取，然後按 [下一步]。
 
@@ -230,11 +233,11 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 
 1. 請注意，資料庫名稱是 **ReportServer**，而 [報表伺服器模式] 是**原生**，然後按 [下一步]。
 
-1. 在 [認證] 頁面上，按 [下一步]。
+1. 在 [認證] 頁面上，按一下 [下一步]。
 
-1. 在 [摘要] 頁面上，按 [下一步]。
+1. 在 [摘要] 頁面上，按一下 [下一步]。
 
-1. 在 [進度和完成] 頁面上，按 [下一步]。
+1. 在 [進度和完成] 頁面上，按一下 [下一步]。
 
 **報告管理員 URL：**
 
@@ -284,7 +287,7 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 
 - **SQL Server Data Tools**：VM：SQL Server Data Tools 安裝在虛擬機器上，並可用在虛擬機器上建立**報表伺服器專案**和報表。SQL Server Data Tools 可以將報表發佈至虛擬機器上的報表伺服器。
 
-- **SQL Server Data Tools：遠端**：在您的本機電腦上，於包含 Reporting Services 報表的 SQL Server Data Tools 中建立 Reporting Services 專案。設定專案以連接至 Web 服務 URL。
+- **SQL Server Data Tools：遠端**：在本機電腦上，以 含有 Reporting Services 報表的 SQL Server Data Tools 建立 Reporting Services 專案。設定專案以連接至 Web 服務 URL。
 
 	![SSRS 專案的 ssdt 專案屬性](./media/virtual-machines-sql-server-business-intelligence/IC650114.gif)
 
@@ -358,7 +361,7 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。�
 
 		netstat /ao
 
-1. 使用 SQL Server Management Studio，藉由更新表格式 AS 執行個體一般屬性中的「連接埠」值來建立靜態的 Analysis Services 具名執行個體連接埠。如需詳細資訊，請參閱[設定 Windows 防火牆以允許 Analysis Services 存取](https://msdn.microsoft.com/library/ms174937.aspx#bkmk_fixed)中的＜對預設或具名執行個體使用固定的連接埠」。
+1. 使用 SQL Server Management Studio，藉由更新表格式 AS 執行個體一般屬性中的「連接埠」值來建立靜態的 Analysis Services 具名執行個體連接埠。如需詳細資訊，請參閱[設定 Windows 防火牆以允許 Analysis Services 存取](https://msdn.microsoft.com/library/ms174937.aspx#bkmk_fixed)中的＜對預設或具名執行個體使用固定的連接埠＞。
 
 1. 重新啟動 Analysis Services 服務的表格式執行個體。
 
@@ -384,7 +387,7 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。�
 
 	|連接埠|類型|說明|
 |---|---|---|
-|**80**|TCP|報表伺服器遠端存取 (*)。| |**1433**|TCP|SQL Server Management Studio (*)。| |**1434**|UDP|SQL Server Browser。在 VM 加入網域時所需。|
+|**80**|TCP|報表伺服器遠端存取 (*).| |**1433**|TCP|SQL Server Management Studio (*).| |**1434**|UDP|SQL Server Browser。在 VM 加入網域時所需。|
 |**2382**|TCP|SQL Server Browser。|
 |**2383**|TCP|SQL Server Analysis Services 預設執行個體和叢集具名執行個體。|
 |**使用者定義**|TCP|為您選擇的連接埠編號建立靜態 Analysis Services 具名執行個體連接埠，然後在防火牆中解除封鎖連接埠號碼。|
@@ -427,4 +430,4 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。�
 
 - [使用 PowerShell 管理 Azure SQL Database](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

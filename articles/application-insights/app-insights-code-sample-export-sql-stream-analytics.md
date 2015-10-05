@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # 逐步解說：使用串流分析從 Application Insights 匯出至 SQL
@@ -59,13 +59,13 @@
 
 連續匯出一律會將資料輸出至 Azure 儲存體帳戶，因此您必須先建立儲存體。
 
-1. 在 [Azure 入口網站][portal]的訂用帳戶中建立儲存體帳戶。
+1. 在 [Azure 入口網站][portal]的訂用帳戶中建立「傳統」儲存體帳戶。
 
-    ![在 Azure 入口網站中，依序選擇 [新增]、[資料]、[儲存體]](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
+    ![在 Azure 入口網站中，依序選擇 [新增]、[資料]、[儲存體]。選取 [傳統]，然後選擇 [建立]。提供儲存體的名稱。](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 
 2. 建立容器
 
-    ![在新的儲存體中，依序選取 [容器]、[新增]](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
+    ![在新的儲存體中，選取 [容器]，按一下容器磚，然後按一下 [新增]](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
 
 3. 複製儲存體存取金鑰
 
@@ -314,4 +314,4 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

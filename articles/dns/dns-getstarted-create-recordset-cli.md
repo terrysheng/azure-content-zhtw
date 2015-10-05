@@ -1,23 +1,23 @@
 <properties
-   pageTitle="建立 DNS 區域的記錄集和記錄 | Microsoft Azure"
-	description="如何建立 Azure DNS 的主機記錄。使用 PowerShell或 CLI 設定記錄集和記錄"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   pageTitle="使用 CLI 建立 DNS 區域的記錄集和記錄 | Microsoft Azure"
+   description="如何建立 Azure DNS 的主機記錄。使用 CLI 設定記錄集和記錄"
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="Adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
 
-# 建立 DNS 記錄
+# 使用 CLI 建立 DNS 記錄
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-getstarted-create-recordset-cli.md)
@@ -52,14 +52,14 @@ Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、
 
 
 
-## 使用 CLI 建立記錄集和記錄
+## 建立記錄集和記錄 
 
 下列範例將示範如何建立記錄集與記錄。我們將使用 DNS 'A' 記錄類型，如需其他記錄類型，請參閱[如何管理 DNS 記錄](dns-operations-recordsets-cli.md)
 
 
 ### 步驟 1
 
-使用 CLI 建立記錄集：
+建立記錄集：
 
 	Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
 
@@ -122,4 +122,4 @@ Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、
 [使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

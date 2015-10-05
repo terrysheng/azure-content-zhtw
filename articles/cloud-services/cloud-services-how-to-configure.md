@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何設定雲端服務 | Microsoft Azure"
-	description="了解如何在 Azure 中設定雲端服務。了解更新雲端服務組態和設定角色執行個體的遠端存取。"
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
+	pageTitle="如何設定雲端服務 | Microsoft Azure" 
+	description="了解如何在 Azure 中設定雲端服務。了解更新雲端服務組態和設定角色執行個體的遠端存取。" 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -80,8 +80,12 @@ Azure 管理入口網站也可讓您[啟用 Azure 雲端服務中角色的遠端
     4. 按一下 [確定] \(勾選記號)。
 
 
-## 其他資源
+## 後續步驟
 
-[啟用 Azure 雲端服務中角色的遠端桌面連線](cloud-services-role-enable-remote-desktop.md)
+* 了解如何[部署雲端服務](cloud-services-how-to-create-deploy.md)。
+* 設定[自訂網域名稱](cloud-services-custom-domain-name.md)。
+* [管理您的雲端服務](cloud-services-how-to-manage.md)。
+* [啟用 Azure 雲端服務中角色的遠端桌面連線](cloud-services-role-enable-remote-desktop.md)
+* 設定 [SSL 憑證](cloud-services-configure-ssl-certificate.md)。
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

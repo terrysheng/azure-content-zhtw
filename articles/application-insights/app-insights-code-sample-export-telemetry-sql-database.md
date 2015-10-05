@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="程式碼範例：使用背景工作角色從 Application Insignts 匯出至 SQL"
-	description="使用連續匯出功能，在 Application Insights 中自行撰寫遙測資料分析的程式碼。"
-	services="application-insights"
-	documentationCenter=""
-	authors="mazharmicrosoft"
+	pageTitle="程式碼範例：使用背景工作角色從 Application Insignts 匯出至 SQL" 
+	description="使用連續匯出功能，在 Application Insights 中自行撰寫遙測資料分析的程式碼。" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="mazharmicrosoft" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # 程式碼範例：使用背景工作角色從 Application Insignts 匯出至 SQL
@@ -51,13 +51,13 @@
 
 ## 在 Azure 中建立儲存體
 
-1. 在 [Azure 入口網站][portal]的訂用帳戶中建立儲存體帳戶。
+1. 在 [Azure 入口網站][portal]的訂用帳戶中建立「傳統」儲存體帳戶。
 
     ![在 Azure 入口網站中，依序選擇 [新增]、[資料]、[儲存體]](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
 
 2. 建立容器
 
-    ![在新的儲存體中，依序選取 [容器]、[新增]](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
+    ![在新的儲存體中，選取 [容器]，按一下容器磚，然後按一下 [新增]](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
 
 
 ## 啟動對 Azure 儲存體的連續匯出
@@ -539,4 +539,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

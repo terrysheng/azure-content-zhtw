@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 
@@ -343,4 +343,4 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 對於您想要使用圖形 API 在 B2C 目錄上執行的動作，如果您有任何問題或要求，我們洗耳恭聽！ 請在文章上留言，或在程式碼範例 GitHub 儲存機制中提出問題。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

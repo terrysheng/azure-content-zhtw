@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="適用於 Azure AD Join 的使用案例和部署考量| Microsoft Azure" 
-	description="說明系統管理員如何為其使用者 (員工、學生、其他使用者) 設定 Azure AD Join 的主題。" 
+	description="列出並說明 Azure AD Join 可用的不同部署案例。" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # 適用於 Azure AD Join 的使用案例和部署考量 
@@ -82,7 +82,7 @@
 
 
 ## 其他資訊
-* [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-user-upgrade.md)
+* [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-overview.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

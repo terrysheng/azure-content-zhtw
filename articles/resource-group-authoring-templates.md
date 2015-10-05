@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/20/2015"
+   ms.date="09/18/2015"
    ms.author="tomfitz"/>
 
 # 編寫 Azure 資源管理員範本
@@ -232,6 +232,8 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 如果資源名稱不是唯一，您可以使用 **resourceId** Helper 函式 (如下所述) 來取得任何資源的唯一識別碼。
 
+[屬性] 項目的值和您在 REST API 作業 (PUT 方法) 要求主體中提供來建立資源的值是完全一樣的。如需您想要部署之資源的 REST API 作業，請參閱 [Azure 參考](https://msdn.microsoft.com/library/azure/mt420159.aspx)。
+
 下列範例顯示 **Microsoft.Web/serverfarms** 資源，以及含巢狀 **Extensions** 資源的 **Microsoft.Web/sites** 資源：
 
     "resources": [
@@ -314,7 +316,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 ## 進階案例。
 本主題介紹範本。然而，您的案例可能需要更進階的工作。
 
-您可能必須將兩個範本合併在一起，或在上層範本中使用下層範本。如需詳細資訊，請參閱[搭配使用連結的範本與 Azure 資源管理員](resource-group-linked-templates.md)。
+您可能必須將兩個範本合併在一起，或在上層範本中使用下層範本。如需詳細資訊，請參閱[透過 Azure 資源管理員使用連結的範本](resource-group-linked-templates.md)。
 
 建立資源類型時若要逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
 
@@ -408,4 +410,4 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 - 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)
 - 若要查看可用的結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -104,6 +104,9 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
             if (tc != null)
             {
                 tc.Flush(); // only for desktop apps
+
+                // Allow time for flushing:
+                System.Threading.Thread.Sleep(1000);
             }
             base.OnClosing(e);
         }
@@ -174,7 +177,7 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 
 如果您的應用程式在不一定有網際網路連線或速度很慢的地方執行，請考慮使用持續性通道，而不使用預設的記憶體中通道。
 
-預設的記憶體中通道將會在應用程式關閉時遺失任何尚未傳送的遙測。雖然您可以使用 `Flush()` 嘗試傳送緩衝區中剩餘的任何資料，如果沒有網際網路連線，它就會逾時，並且在應用程式關閉時延遲。
+預設的記憶體中通道將會在應用程式關閉時遺失任何尚未傳送的遙測。雖然您可以使用 `Flush()` 嘗試傳送緩衝區中剩餘的任何資料，但如果沒有網際網路連線，或者如果在完成傳輸之前關閉了應用程式，它還是會遺失資料。
 
 相較之下，持續性通道會緩衝處理檔案中的遙測，再將它傳送至入口網站。`Flush()` 可確保資料會儲存在檔案中。如果任何資料未在應用程式關閉時傳送，它會保留在檔案中。當應用程式重新啟動時，即使沒有網際網路連線，資料也會傳送。在連線可用之前，資料都會視需求累積在檔案中。
 
@@ -294,4 +297,4 @@ namespace ConsoleApplication1
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

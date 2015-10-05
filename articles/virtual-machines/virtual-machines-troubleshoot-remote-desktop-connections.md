@@ -1,5 +1,5 @@
 <properties
-	pageTitle="無法透過 RDP 連線到 Azure VM | Microsoft Azure"
+	pageTitle="在 Windows VM 上疑難排解遠端桌面連線 | Microsoft Azure"
 	description="疑難排解執行 Windows 之 Azure 虛擬機器的遠端桌面或 RDP 連線"
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,15 +19,17 @@
 
 # 疑難排解執行 Windows 之 Azure 虛擬機器的遠端桌面連線
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何疑難排解以傳統部署模型或資源管理員部署模型建立的虛擬機器。
+
 遠端桌面 (RDP) 連接到執行 Windows 之 Azure 虛擬機器失敗，可以有各種原因。本文將協助您找出原因並加以更正。
 
 > [AZURE.NOTE]本文僅適用於執行 Windows 之 Azure 虛擬機器。如需疑難排解執行 Linux 之 Azure 虛擬機器的連線，請參閱[這篇文章](virtual-machines-troubleshoot-ssh-connections.md)。
 
 ## 連絡 Azure 客戶支援
 
-如果在本文章中有任何需要協助的地方，您可以連絡在 [MSDN Azure 和堆疊溢位論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專員。
+如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專員。
 
-或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下**取得支援**。如需使用 Azure 支援的相關資訊，請參閱 [Microsoft Azure 支援常見問題集](http://azure.microsoft.com/support/faq/)。
+或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](http://azure.microsoft.com/support/faq/)。
 
 
 ## 基本步驟
@@ -40,15 +42,15 @@
 
 - [重新啟動虛擬機器](https://msdn.microsoft.com/library/azure/dn763934.aspx)。
 
-- [調整虛擬機器的大小](https://msdn.microsoft.com/library/dn168976.aspx)。
+- [調整虛擬機器的大小](https://msdn.microsoft.com/library/dn168976.aspx)
 
 
 ## 在 Windows 上執行 Azure IaaS 診斷封裝
 
-如果您從執行 Windows 8、Windows 8.1、Windows Server 2012 或 Windows Server 2012 R2 的電腦上執行疑難排解，您可以嘗試執行 [Azure IaaS (Windows) 診斷封裝](http://support.microsoft.com/kb/2976864)。此封裝可以解決許多常見的遠端桌面問題。
+如果您從執行 Windows 8、Windows 8.1、Windows Server 2012 或 Windows Server 2012 R2 的電腦上執行疑難排解，可以嘗試執行 [Azure IaaS (Windows) 診斷封裝](http://support.microsoft.com/kb/2976864)。此封裝可以解決許多常見的遠端桌面問題。
 
-1.	按一下[支援診斷頁面](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)上的 **Microsoft Azure IaaS (Windows) 診斷封裝**。按一下 [建立] 進行新的診斷工作階段。您可以和不同的目標電腦**共用**此工作階段，或在本機電腦上**下載**它。
-2.	**執行**工作階段，**接受** Microsoft 授權合約和**啟動**診斷工具。
+1.	按一下[支援診斷頁面](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)上的 [Microsoft Azure IaaS (Windows) 診斷封裝]。按一下 [建立]，以執行新的診斷工作階段。您可以和不同的目標電腦**共用**此工作階段，或在本機電腦上**下載**。
+2.	**執行**工作階段，**接受** Microsoft 授權合約，然後**啟動**診斷工具。
 3.	在快顯視窗中驗證您的 Azure 訂用帳戶並依照提示進行。
 4.	在**您的 Azure VM 遇到下列哪些問題？**頁面上，選取 **RDP 連線至 Azure VM (需要重新開機)** 問題。
 
@@ -59,9 +61,9 @@
 
 以下是您嘗試連線 Azure 虛擬機器和遠端桌面時可能最常遇到的錯誤：
 
-1. [遠端桌面連線錯誤：遠端工作階段已中斷連線，因為沒有可用的遠端桌面授權伺服器來提供授權](#rdplicense)。
+1. [遠端桌面連線錯誤：遠端工作階段已中斷連線，因為沒有可用的遠端桌面授權伺服器能夠提供授權](#rdplicense)。
 
-2. [遠端桌面連線錯誤：遠端桌面無法找到電腦「名稱」](#rdpname)。
+2. [遠端桌面連線錯誤：遠端桌面找不到電腦「名稱」](#rdpname)。
 
 3. [遠端桌面連線錯誤：發生驗證錯誤。無法連絡本機安全性授權](#rdpauth)。
 
@@ -104,7 +106,7 @@ RDP 檔案中的位址部分有雲端服務的完整網域名稱，包含 VM (�
 
 原因：目標 VM 在認證的使用者名稱部分找不到安全性授權。
 
-若您的使用者名稱格式為 *SecurityAuthority*\*UserName* (範例：CORP\\User1)，則 *SecurityAuthority* 部分便應輸入虛擬機器的電腦名稱 (作為本機的安全性授權)，或 Active Directory 網域名稱。
+若您的使用者名稱格式為 *SecurityAuthority*\*UserName* (範例：CORP\\User1)，則 *SecurityAuthority* 部分便應輸入虛擬機器的電腦名稱 (做為本機的安全性授權) 或 Active Directory 網域名稱。
 
 可能的解決方案：
 
@@ -135,12 +137,12 @@ RDP 檔案中的位址部分有雲端服務的完整網域名稱，包含 VM (�
 
 每部 Windows 電腦都有遠端桌面使用者本機群組，其中包含能夠遠端登入的帳戶和群組。本機系統管理員群組成員也有權限，即使這些帳戶未列在遠端桌面使用者本機群組中。對於加入網域的機器，本機系統管理員群組也包含此網域的網域系統管理員。
 
-請確保您正用於連接的帳戶具有遠端桌面登入權限。請使用網域或本機系統管理員帳戶做為因應措施，來透過遠端桌面連線，並使用電腦管理嵌入式管理單元將想要的帳戶新增到遠端桌面使用者本機群組 (**系統工具 > 本機使用者和群組 > 群組 > 遠端桌面使用者**)。
+請確保您正用於連接的帳戶具有遠端桌面登入權限。請使用網域或本機系統管理員帳戶做為因應措施，以透過遠端桌面連線，並使用電腦管理嵌入式管理單元 (**系統工具 > 本機使用者和群組 > 群組 > 遠端桌面使用者**)，將想要的帳戶新增到遠端桌面使用者本機群組。
 
 
 ## 詳細疑難排解
 
-如果沒有發生這些錯誤，而您仍然無法透過遠端桌面連線到 VM，請參閱[這篇文章](virtual-machines-rdp-detailed-troubleshoot.md)找出其他原因。
+如果沒有發生這些錯誤，但您仍然無法透過遠端桌面連線到 VM，請參閱[這篇文章](virtual-machines-rdp-detailed-troubleshoot.md)以找出其他原因。
 
 
 ## 其他資源
@@ -155,4 +157,4 @@ RDP 檔案中的位址部分有雲端服務的完整網域名稱，包含 VM (�
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -5,7 +5,8 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor="jimbe"
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,6 +18,8 @@
 	ms.author="robmcm"/>
 
 # 如何在虛擬機器上以 Java 執行大量運算工作
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
 
 Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機器可以處理工作並將結果傳遞給用戶端機器或行動裝置應用程式。閱讀此文章後，您將了解如何建立一個執行大量運算之 Java 應用程式 (此應用程式又可由另一個 Java 應用程式監視) 的虛擬機器。
 
@@ -46,22 +49,22 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
 1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com)。
 2. 依序按一下 [新增]、[運算]、[虛擬機器] 及 [從組件庫]。
-3. 在 [**虛擬機器映像選取**] 對話方塊中，選取 [**JDK 7 Windows Server 2012**]。請注意，唯有當您擁有尚未做好在 JDK 7 中運作之準備的舊版應用程式時，才能選取 [JDK 6 Windows Server 2012]。
+3. 在 [虛擬機器映像選取] 對話方塊中，選取 [JDK 7 Windows Server 2012]。請注意，唯有當您擁有尚未做好在 JDK 7 中運作之準備的舊版應用程式時，才能選取 [JDK 6 Windows Server 2012]。
 4. 按 [下一步]。
-4. 在 [**虛擬機器組態**] 對話方塊中：
+4. 在 [虛擬機器組態] 對話方塊中：
     1. 指定虛擬機器的名稱。
     2. 指定要用於虛擬機器的大小。
     3. 在 [使用者名稱] 欄位中輸入系統管理員的名稱。請記住即將輸入的名稱和密碼，因為當您從遠端登入此虛擬機器時將需要用到它們。
     4. 在 [新增密碼] 欄位中輸入密碼，然後在 [確認] 欄位中再輸入一次。此為系統管理員帳戶的密碼。
     5. 按 [下一步]。
-5. 在下一個 [**虛擬機器組態**] 對話方塊中：
+5. 在下一個 [虛擬機器組態] 對話方塊中：
     1. 對於 [雲端服務]，請使用預設值 [Create a new cloud service]
     2. [Cloud service DNS name] 的值在整個 cloudapp.net 中必須是唯一的。必要時請修改此值，使 Azure 指出該值是唯一的。
     2. 指定區域、同質群組或虛擬網路。為因應本教學課程的目的，請指定如 [美國西部] 的區域。
     2. 對於 [儲存體帳戶]，請選取 [Use an automatically generated storage account]。
     3. 對於 [可用性設定組]，請選取 [(無)]。
     4. 按 [下一步]。
-5. 在最終的 [**虛擬機器組態**] 對話方塊中：
+5. 在最終的 [虛擬機器組態] 對話方塊中：
     1. 接受預設的端點項目。
     2. 按一下 [完成]。
 
@@ -82,21 +85,21 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 建立服務命名空間：
 
 1.  登入 [Azure 管理入口網站](https://manage.windowsazure.com)。
-2.  在管理入口網站左下方的瀏覽窗格中，按一下 [**服務匯流排、存取控制和快取**]。
-3.  在管理入口網站的左上方窗格中，按一下 [**服務匯流排**] 節點，然後按一下 [**新增**] 按鈕。![Service Bus Node screenshot][svc_bus_node]
-4.  在 [**建立新的服務命名空間**] 對話方塊中輸入一個**命名空間**，然後確認它是唯一的，按一下 [**檢查可用性**] 按鈕。![Create a New Namespace screenshot][create_namespace]
+2.  在管理入口網站左下方的瀏覽窗格中，按一下 [服務匯流排、存取控制和快取]。
+3.  在管理入口網站的左上方窗格中，按一下 [服務匯流排] 節點，然後按一下 [新增] 按鈕。![Service Bus Node screenshot][svc_bus_node]
+4.  在 [建立新的服務命名空間] 對話方塊中輸入一個**命名空間**，然後確認它是唯一的，再按一下 [檢查可用性] 按鈕。![Create a New Namespace screenshot][create_namespace]
 5.  確定命名空間名稱可用之後，選擇要裝載命名空間的國家或地區，然後按一下 [建立命名空間] 按鈕。  
 
-    然後，您建立的命名空間就會出現在管理入口網站中，稍待片刻就會生效。等到狀態變成 [作用中] 之後，再繼續進行下一步。
+    然後，您建立的命名空間就會出現在管理入口網站中，稍待片刻就會生效。等到狀態變成 [作用中] 之後，再繼續下一個步驟。
 
 ## 取得命名空間的預設管理認證
 
 若要在新的命名空間上執行管理作業 (例如建立佇列)，您必須取得命名空間的管理認證。
 
-1.  在左方瀏覽窗格中，按一下 [**服務匯流排**] 節點，以顯示可用的命名空間清單。![Available Namespaces screenshot][avail_namespaces]
+1.  在左方瀏覽窗格中，按一下 [服務匯流排] 節點，以顯示可用的命名空間清單。![Available Namespaces screenshot][avail_namespaces]
 2.  從顯示的清單中，選取您剛建立的命名空間。![Namespace List screenshot][namespace_list]
-3.  右邊的 [**屬性**] 窗格會列出新命名空間的屬性。![Properties Pane screenshot][properties_pane]
-4.  [預設金鑰] 是隱藏的。請按一下 [**檢視**] 按鈕以顯示安全性認證。![Default Key screenshot][default_key]
+3.  右邊的 [屬性] 窗格會列出新命名空間的屬性。![Properties Pane screenshot][properties_pane]
+4.  [預設金鑰] 是隱藏的。請按一下 [檢視] 按鈕以顯示安全性認證。![Default Key screenshot][default_key]
 5.  記下 [Default Issuer] 和 [預設金鑰]，因為您將在下面使用這項資訊來執行命名空間作業。
 
 ## 如何建立執行大量運算工作的 Java 應用程式
@@ -292,7 +295,7 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
 ## 如何建立監視大量運算工作進度的 Java 應用程式
 
-1. 在您的開發電腦上，使用本節結尾的範例程式碼建立一個 Java 主控台應用程式。在本教學課程中，我們將使用 **TSPClient.java** 做為 Java 檔案名稱。如上述，請將 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 及 **your\_service\_bus\_key** 預留位置，分別修改成使用您服務匯流排 [**命名空間**]、[**預設簽發者**] 及 [**預設金鑰**] 的值。
+1. 在您的開發電腦上，使用本節結尾的範例程式碼建立一個 Java 主控台應用程式。在本教學課程中，我們將使用 **TSPClient.java** 做為 Java 檔案名稱。如上述，請將 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 及 **your\_service\_bus\_key** 預留位置，分別修改成使用您服務匯流排 [命名空間]、[預設簽發者] 及 [預設金鑰] 的值。
 2. 將應用程式匯出至可執行的 JAR，並將所需的程式庫封裝至產生的 JAR 中。在本教學課程中，我們將使用 **TSPClient.jar** 做為產生的 JAR 名稱。
 
 <p/>
@@ -492,7 +495,7 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
         java -jar TSPClient.jar
 
-    您可以選擇是否要傳遞命令列引數來指定檢查佇列之間的睡眠分鐘數。檢查佇列的預設睡眠期間為 3 分鐘，若未將任何命令列引數傳遞至 **TSPClient**，便會使用預設值。如果您想要使用其他值 (例如 1 分鐘) 做為睡眠間隔，請執行下列命令。
+    您可以選擇是否要傳遞命令列引數來指定檢查佇列之間的睡眠分鐘數。檢查佇列的預設睡眠期間為 3 分鐘，若未將任何命令列引數傳遞至 **TSPClient**，便會使用此預設值。如果您想要使用其他值 (例如 1 分鐘) 做為睡眠間隔，請執行下列命令。
 
 	    java -jar TSPClient.jar 1
 
@@ -503,7 +506,7 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
     求解器將會執行直到完成所有路徑檢查為止。
 
 ## 如何停止 Java 應用程式
-不論是求解器或用戶端應用程式，只要您想在正常完成之前就予以結束，都可以按 [Ctrl+C] 來結束應用程式。
+如果您想要在正常完成前結束 Solver 或用戶端應用程式，都可以按 **Ctrl+C** 來結束。
 
 
 [solver_output]: ./media/virtual-machines-java-run-compute-intensive-task/WA_JavaTSPSolver.png
@@ -516,4 +519,4 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

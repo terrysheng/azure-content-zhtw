@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="從 Azure Data Factory 叫用 MapReduce 程式"
-	description="了解如何從 Azure Data Factory，在 Azure HDInsight 叢集上執行 MapReduce 程式以處理資料。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="從 Azure Data Factory 叫用 MapReduce 程式" 
+	description="了解如何從 Azure Data Factory，在 Azure HDInsight 叢集上執行 MapReduce 程式以處理資料。" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # 從 Data Factory 叫用 MapReduce 程式
@@ -32,7 +32,7 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 3. 指定 **className** 屬性的類別名稱。
 4. 為 **jarFilePath** 屬性指定包含檔案名稱的 JAR 檔案路徑。
 5. 為 **jarLinkedService** 屬性指定連結服務，此連結服務參考包含 JAR 檔案的 Azure Blob 儲存體。   
-6. 在 **arguments** 區段中，為 MapReduce 程式指定所有引數。 
+6. 在 **arguments** 區段中，為 MapReduce 程式指定所有引數。在執行階段，您會看到 MapReduce 架構的幾個額外的引數 (例如: mapreduce.job.tags)。若要區分在 MapReduce 引數中所使用您的引數，請考慮同時使用選項和值做為引數，如下列範例所示 (-s、--input、--output 等等...這些選項後面緊跟著其值)。
 
  
 
@@ -102,4 +102,4 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

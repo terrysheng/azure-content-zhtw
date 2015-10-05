@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="選項 1：使用 Windows PowerShell for StorSimple 來安裝 Update 1.2"
-   description="說明如何使用 Windows PowerShell for StorSimple 來安裝 StorSimple 8000 Series Update 1.2。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/09/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### 從 Windows PowerShell for StorSimple 安裝 Update 1.2
 
@@ -86,7 +71,7 @@
         Controller1Events   : 
         ````
  
-     下列範例輸出指出更新已完成。更新完成時，`RunInProgress` 將會為 `False`。
+     下列範例輸出指出更新已完成。更新完成時，`RunInProgress` 將會是 `False`。
 
         ````
         Controller1>Get-HcsUpdateStatus
@@ -100,7 +85,7 @@
         ````
 		
 
-	> [AZURE.NOTE]有的時候，Cmdlet 會在更新仍在進行中時回報為 `False`。若要確保此 Hotfix 已完成，請等待幾分鐘的時間、重新執行此命令並確認 `RunInProgress` 為 `False`。如果的確為 False 的話，則 Hotfix 已完成。
+	> [AZURE.NOTE]有時在更新進行期間，Cmdlet 會回報 `False`。若要確保此 Hotfix 已完成，請等待幾分鐘的時間、重新執行此命令並確認 `RunInProgress` 為 `False`。如果的確為 False 的話，則 Hotfix 已完成。
 	
 8. 軟體更新完成後，請確認系統軟體版本。輸入以下命令：
 
@@ -118,7 +103,7 @@
 
 10. 在磁碟韌體更新已成功套用且裝置已結束維護模式後，返回管理入口網站。維護模式更新在 24 小時內不會更新至入口網站。您可能需要等待，之後才能從管理入口網站套用其餘的非干擾性升級。
 
-11. 當您準備好要套用更新時，瀏覽至**維護**頁面，然後在頁面底部按一下 [掃描更新]。您會在有可用的更新時收到通知，包括驅動程式和 Windows 更新。按一下 [安裝] 開始安裝程序。成功安裝所有更新之後就完成了。
+11. 當您準備好要套用更新時，瀏覽至**維護**頁面，然後在頁面底部按一下 [掃描更新]。您會在有可用的更新時收到通知，包括驅動程式和 Windows 更新。按一下 [安裝更新] 開始安裝程序。成功安裝所有更新之後就完成了。
 
 
 
@@ -127,4 +112,4 @@
  
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

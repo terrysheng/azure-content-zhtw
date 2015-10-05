@@ -36,7 +36,7 @@ Servicedefinition.csdef 檔案將包含端點組態，而當一個 Web 或背景
 
 
 
-當網際網路用戶端傳送網頁要求至雲端服務的公用 IP 位址與 TCP 連接埠 443 時，Azure 負載平衡器會對負載平衡集合中，介於這三部虛擬機器之間的要求執行隨機的平衡。
+當網際網路用戶端傳送網頁要求至雲端服務的公用 IP 位址與 TCP 連接埠 443 時，Azure 負載平衡器會對負載平衡集合中，介於這三部虛擬機器之間的要求執行以雜湊為基礎的負載平衡。您可以在[負載平衡器概觀頁面](load-balancer-overview#load-balancer-features)取得負載平衡器演算法的詳細資訊。
 
 
 ## 後續步驟
@@ -52,4 +52,4 @@ Servicedefinition.csdef 檔案將包含端點組態，而當一個 Web 或背景
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

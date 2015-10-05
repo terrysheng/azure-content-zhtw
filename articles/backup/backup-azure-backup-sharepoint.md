@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/14/2015" ms.author="sammehta"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/22/2015" ms.author="sammehta"; "jimpark"/>
 
 
 # 將 SharePoint 伺服器陣列備份至 Azure
@@ -226,4 +226,4 @@ DPM 會以本機系統身分執行，並備份 SQL Server 資料庫，它需要�
 - 檢閱 [System Center 2012 - Data Protection Manager 版本資訊](https://technet.microsoft.com/library/jj860415.aspx)
 - 檢閱 [System Center 2012 SP1 的 Data Protection Manager 版本資訊](https://technet.microsoft.com/library/jj860394.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

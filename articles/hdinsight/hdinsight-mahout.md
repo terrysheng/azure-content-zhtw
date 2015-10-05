@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.date="09/23/2015"
 	ms.author="larryfr"/>
 
 #透過在 HDInsight 上將 Apache Mahout 與 Hadoop 搭配使用來產生電影推薦
@@ -422,4 +422,4 @@ HDInsight 3.1 叢集包含 Mahout。路徑和檔案名稱包含叢集上安裝�
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

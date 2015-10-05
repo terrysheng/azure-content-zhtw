@@ -68,6 +68,8 @@ Azure 網站不支援所有的原生模組，而且在編譯具有非常特定�
 
 現在，您了解如何搭配 Node.js 模組與 Azure 使用，接著了解如何[指定 Node.js 版本]、[建置與部署 Node.js 網站]，和[如何使用適用於 Mac 和 Linux 的 Azure 命令列介面]。
 
+如需詳細資訊，請參閱 [Node.js 開發人員中心](/develop/nodejs/)。
+
 [指定 Node.js 版本]: nodejs-specify-node-version-azure-apps.md
 [如何使用適用於 Mac 和 Linux 的 Azure 命令列介面]: xplat-cli.md
 [建置與部署 Node.js 網站]: web-sites-nodejs-develop-deploy-mac.md
@@ -76,4 +78,4 @@ Azure 網站不支援所有的原生模組，而且在編譯具有非常特定�
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [使用 Kudu 自訂網站部署指令碼]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

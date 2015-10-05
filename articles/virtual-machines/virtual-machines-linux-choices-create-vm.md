@@ -1,6 +1,6 @@
 <properties
-	pageTitle="建立 Linux 虛擬機器的不同方式"
-	description="列出建立 Linux 虛擬機器的不同方式，並提供指示的連結。"
+	pageTitle="建立 Linux VM 的不同方式 | Microsoft Azure"
+	description="列出在 Azure 建立 Linux 虛擬機器的不同方式，並提供進一步指示的連結。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -101,4 +101,4 @@ Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器�
 [建立執行 Linux 的虛擬機器]: virtual-machines-linux-tutorial.md
 [建立自訂虛擬機器]: virtual-machines-create-custom.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/07/2015"
+   ms.date="09/21/2015"
    ms.author="jgao"/>
 
 #在 HDInsight 中佈建 Hadoop 叢集 (英文)
@@ -678,26 +678,16 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 
 **建立 Visual Studio 主控台應用程式**
 
-1. 開啟 Visual Studio 2013。
+1. 開啟 Visual Studio 2013 或 2015。
 
 2. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
 
 3. 在 [**新增專案**] 中，輸入或選取下列值：
 
-	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-<tr>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">屬性</th>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">值</th></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">類別</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">範本/Visual C#/Windows</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">範本</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">主控台應用程式</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">名稱</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
-</table>
+	|屬性|值|
+	|--------|-----|
+	|範本|Templates/Visual C#/Windows/Console Application|
+	|名稱|CreateHDICluster|
 
 4. 按一下 [確定] 以建立專案。
 
@@ -705,68 +695,102 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 
 6. 在主控台中執行下列命令，以安裝套件：
 
-		Install-Package Microsoft.WindowsAzure.Management.HDInsight
+		Install-Package Microsoft.Azure.Common.Authentication -pre
+		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 
-	此命令會將 .NET 程式庫及其參考加入至目前的 Visual Studio 專案。
+	這些命令會將 .NET 程式庫及其參考新增至目前的 Visual Studio 專案。
 
-7. 從 [方案總管] 中，按兩下 [Program.cs] 將它開啟。
+7. 在 [方案總管] 中，按兩下 **Program.cs** 加以開啟。
+8. 使用下列程式碼來取代此程式碼：
 
-8. 在檔案頂端新增下列 using 陳述式：
+		using Microsoft.Azure;
+		using Microsoft.Azure.Common.Authentication;
+		using Microsoft.Azure.Common.Authentication.Factories;
+		using Microsoft.Azure.Common.Authentication.Models;
+		using Microsoft.Azure.Management.HDInsight;
+		using Microsoft.Azure.Management.HDInsight.Models;
 
-		using System.Security.Cryptography.X509Certificates;
-		using Microsoft.WindowsAzure.Management.HDInsight;
-		using Microsoft.WindowsAzure.Management.HDInsight.ClusterProvisioning;
+		namespace CreateHDICluster
+		{
+		    internal class Program
+		    {
+		        private static HDInsightManagementClient _hdiManagementClient;
+		
+		        private static Guid SubscriptionId = new Guid("<AZURE SUBSCRIPTION ID>");
+		        private const string ResourceGroupName = "<AZURE RESOURCEGROUP NAME>";
 
+		        private const string NewClusterName = "<HDINSIGHT CLUSTER NAME>";
+		        private const int NewClusterNumNodes = <NUMBER OF NODES>;
+		        private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
+		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+		        private const OSType NewClusterOSType = OSType.Windows;
+		        private const string NewClusterVersion = "3.2";
 
-9. 在 Main() 函數中，複製並貼上下列程式碼：
+		        private const string NewClusterUsername = "admin";
+		        private const string NewClusterPassword = "<HTTP USER PASSWORD>";
+		        private const string ExistingStorageName = "<STORAGE ACCOUNT NAME>.blob.core.windows.net";
+		        private const string ExistingStorageKey = "<STORAGE ACCOUNT KEY>";
+		        private const string ExistingContainer = "<DEFAULT CONTAINER NAME>"; 
+		
+		
+		        private static void Main(string[] args)
+		        {
+		            var tokenCreds = GetTokenCloudCredentials();
+		            var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+		
+		            _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+		
+		            CreateCluster();
+		        }
+		
+		        public static SubscriptionCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
+		        {
+		            var authFactory = new AuthenticationFactory();
+		
+		            var account = new AzureAccount { Type = AzureAccount.AccountType.User };
+		
+		            if (username != null && password != null)
+		                account.Id = username;
+		
+		            var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+		
+		            var accessToken =
+		                authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
+		                    .AccessToken;
+		
+		            return new TokenCloudCredentials(accessToken);
+		        }
+		
+		        public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(SubscriptionCloudCredentials creds, Guid subId)
+		        {
+		            return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);
+		        }
+		
+		
+		        private static void CreateCluster()
+		        {
+		            var parameters = new ClusterCreateParameters
+		            {
+		                ClusterSizeInNodes = NewClusterNumNodes,
+		                Location = NewClusterLocation,
+		                ClusterType = NewClusterType,
+		                OSType = NewClusterOSType,
+		                Version = NewClusterVersion,
 
-        string certfriendlyname = "<CertificateFriendlyName>";     // Friendly name for the certificate you created earlier  
-        string subscriptionid = "<AzureSubscriptionID>";
-        string clustername = "<HDInsightClusterName>";
-        string location = "<MicrosoftDataCenter>";
-        string storageaccountname = "<AzureStorageAccountName>.blob.core.windows.net";
-        string storageaccountkey = "<AzureStorageAccountKey>";
-        string containername = "<HDInsightDefaultContainerName>";
-        string username = "<HDInsightUsername>";
-        string password = "<HDInsightUserPassword>";
-        int clustersize = <NumberOfNodesInTheCluster>;
+		                UserName = NewClusterUsername,
+		                Password = NewClusterPassword,
 
-        // Get the certificate object from certificate store by using the friendly name to identify it
-        X509Store store = new X509Store();
-        store.Open(OpenFlags.ReadOnly);
-        X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certfriendlyname);
-
-        // Create the Storage account if it doesn't exist
-
-        // Create the container if it doesn't exist.
-
-		// Create an HDInsightClient object
-        HDInsightCertificateCredential creds = new HDInsightCertificateCredential(new Guid(subscriptionid), cert);
-        var client = HDInsightClient.Connect(creds);
-
-		// Supply the cluster information
-        ClusterCreateParameters clusterInfo = new ClusterCreateParameters()
-        {
-            Name = clustername,
-            Location = location,
-            DefaultStorageAccountName = storageaccountname,
-            DefaultStorageAccountKey = storageaccountkey,
-            DefaultStorageContainer = containername,
-            UserName = username,
-            Password = password,
-            ClusterSizeInNodes = clustersize
-        };
-
-		// Create the cluster
-        Console.WriteLine("Creating the HDInsight cluster ...");
-
-        ClusterDetails cluster = client.CreateCluster(clusterInfo);
-
-        Console.WriteLine("Created cluster: {0}.", cluster.ConnectionUrl);
-        Console.WriteLine("Press ENTER to continue.");
-        Console.ReadKey();
-
-10. 取代 Main() 函數開頭處的變數。
+		                DefaultStorageAccountName = ExistingStorageName,
+		                DefaultStorageAccountKey = ExistingStorageKey,
+		                DefaultStorageContainer = ExistingContainer
+		            };
+		
+		            _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
+		        }
+			}
+		}
+		
+10. 取代類別成員值。
 
 **執行應用程式**
 
@@ -786,4 +810,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # 快速入門：佈建 SQL 資料倉儲 #
@@ -161,6 +161,8 @@ Azure 入口網站的左上角有一個 [新增] 按鈕。[新增] 按鈕是在 
 1. [連接和查詢][]資料倉儲。
 2. 載入[範例資料]。
 
+	> [AZURE.NOTE]我們想要改善這份文件。如果對於「這篇文章很有幫助嗎？」的問題，您選擇回答「否」，則請填寫有關遺漏的內容或如何改善本文的簡短建議。非常感謝！
+
 <!--Image references-->
 
 
@@ -172,4 +174,4 @@ Azure 入口網站的左上角有一個 [新增] 按鈕。[新增] 按鈕是在 
 [免費試用]: https://azure.microsoft.com/zh-TW/pricing/free-trial/
 [Azure 入口網站]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

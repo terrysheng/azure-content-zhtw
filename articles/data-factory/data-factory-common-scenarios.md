@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 的常見案例
@@ -76,4 +76,4 @@ Azure Data Factory 支援下列可讓產生的資料易於取用的功能：
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

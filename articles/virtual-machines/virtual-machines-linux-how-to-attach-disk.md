@@ -1,6 +1,6 @@
 <properties
-	pageTitle="將磁碟附加至在 Azure 中執行 Linux 的虛擬機器"
-	description="了解如何將資料磁碟附加至 Azure 虛擬機器，並初始化磁碟以便開始使用。"
+	pageTitle="將磁碟附加至 Linux VM | Microsoft Azure"
+	description="了解如何將資料磁碟附加至 Azure 上執行的 Linux 虛擬機器，並初始化磁碟以便開始使用。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -18,6 +18,8 @@
 	ms.author="dkshir"/>
 
 # 如何將資料磁碟連接至 Linux 虛擬機器
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何以傳統部署模型附加磁碟。
 
 您可以附加空的磁碟和含有資料的磁碟。在這兩種情況下，磁碟實際上是位於 Azure 儲存體帳戶中的 .vhd 檔案。另外，在這兩種情況下，當您附加磁碟之後，磁碟必須完成初始化才能使用。請注意，本文指的是使用傳統的部署模型所建立的虛擬機器。
 
@@ -45,7 +47,7 @@
 
 	或
 
-	b) 使用 `lsscsi` 命令來找出裝置識別碼。`lsscsi` 可透過 `yum install lsscsi` (Red Hat 式散發) 或 `apt-get install lsscsi`(Debian 式散發) 來進行安裝。您可以透過磁碟的 _LUN_ 或**邏輯單元編號**找到您所需的磁碟。例如，您所附加磁碟的 _LUN_ 可以輕鬆地從`azure vm disk list <virtual-machine>` 看到，如下所示：
+	b) 使用 `lsscsi` 命令來找出裝置識別碼。您可透過 `yum install lsscsi` (Red Hat 式散發) 或 `apt-get install lsscsi`(Debian 式散發) 來安裝 `lsscsi`。您可以透過磁碟的 _LUN_ (亦稱為**邏輯單元編號**) 找到您所需的磁碟。例如，您可從 `azure vm disk list <virtual-machine>` 輕易看到所附加磁碟的 _LUN_，如下所示：
 
 			~$ azure vm disk list ubuntuVMasm
 			info:    Executing command vm disk list
@@ -171,4 +173,4 @@
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -268,6 +268,8 @@ Azure Web Apps 可用於多個 SKU，SKU 可以決定您網站適用的資源。
 
 在本教學課程中，您學到如何建立裝載於 Azure Web 應用程式中的聊天應用程式。您也可以將此應用程式交由 Azure 雲端服務託管。如需相關作法的步驟，請參閱＜[在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 聊天應用程式][cloudservice]＞。
 
+如需詳細資訊，也請參閱 [Node.js 開發人員中心](/develop/nodejs/)。
+
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
@@ -283,4 +285,4 @@ Azure Web Apps 可用於多個 SKU，SKU 可以決定您網站適用的資源。
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

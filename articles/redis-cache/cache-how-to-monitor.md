@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何監視 Azure Redis 快取"
-	description="了解如何監視您 Azure Redis 快取執行個體的健全狀況和效能"
-	services="redis-cache"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
+	pageTitle="如何監視 Azure Redis 快取" 
+	description="了解如何監視您 Azure Redis 快取執行個體的健全狀況和效能" 
+	services="redis-cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cache"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="cache-redis"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="sdanie"/>
 
 # 如何監視 Azure Redis 快取
@@ -24,7 +24,7 @@ Azure Redis 快取提供數個選項來監視您的快取執行個體。您可�
 
 快取度量是使用 Redis [INFO](http://redis.io/commands/info) 命令進行收集。如需用於每個快取度量之不同 INFO 命令的詳細資訊，請參閱[可用度量和報告間隔](#available-metrics-and-reporting-intervals)。
 
-若要檢視快取度量，請[瀏覽](https://msdn.microsoft.com/library/azure/cbe6d113-7bdc-4664-a59d-ff0df6f4e214#CacheSettings)至您在 [Azure Preview 入口網站](https://portal.azure.com)中的快取執行個體。您可以在 [Redis 快取] 分頁上存取 Azure Redis 快取執行個體的度量。
+若要檢視快取度量，請[瀏覽](cache-configure.md)至您在 [Azure Preview 入口網站](https://portal.azure.com)中的快取執行個體。您可以在 [Redis 快取] 分頁上存取 Azure Redis 快取執行個體的度量。
 
 ![監視][redis-cache-monitor-overview]
 
@@ -52,15 +52,13 @@ Azure Redis 快取可讓您將診斷資料儲存在儲存體帳戶中，因此�
 
 按一下 [儲存體帳戶] 右邊的箭號，來選取要保存診斷資料的儲存體帳戶。為了達到最佳效能，請在與您快取相同的區域中選取儲存體帳戶。
 
-使用 [保留 (天)] 下拉式清單選取診斷資料的保留期間。您也可以在清單頂端的文字方塊中輸入所需的天數。
-
 設定診斷設定之後，請按一下 [儲存] 儲存組態。請注意，可能需要幾分鐘的時間，變更才會生效。
 
 >[AZURE.IMPORTANT]相同區域和訂用帳戶中的快取會共用相同的診斷儲存體帳戶，在組態變更時，會套用至訂用帳戶中所有位於該區域的快取。
 
 若要檢視預存度量，請檢查儲存體帳戶中名稱開頭為 `WADMetrics` 的資料表。如需在 Preview 入口網站外部存取預存度量的詳細資訊，請參閱[存取 Redis 快取監視資料](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)範例。
 
->[AZURE.NOTE]只有儲存在所選取儲存體帳戶中的度量才會顯示在 Preview 入口網站中。如果您變更儲存體帳戶，則先前設定之儲存體帳戶中的資料仍然可供下載，但不會顯示在 Preview 入口網站中，而且不會在保留期間間隔耗盡時予以清除。
+>[AZURE.NOTE]只有儲存在所選取儲存體帳戶中的度量才會顯示在 Preview 入口網站中。如果您變更儲存體帳戶，則先前設定之儲存體帳戶中的資料仍然可供下載，但不會顯示在 Preview 入口網站中。
 
 ## 可用度量和報告間隔
 
@@ -80,7 +78,7 @@ Azure Redis 快取可讓您將診斷資料儲存在儲存體帳戶中，因此�
 | 設定 | 所指定報告間隔期間的快取 set 作業數目。這個值是 Redis INFO all 命令的下列值總和：`cmdstat_set`、`cmdstat_hset``cmdstat_hmset`、`cmdstat_hsetnx`、`cmdstat_lset`、`cmdstat_mset`、`cmdstat_msetnx`、`cmdstat_setbit`、`cmdstat_setex`、`cmdstat_setrange` 和 `cmdstat_setnx` |
 | 總作業數 | 所指定報告間隔期間，快取伺服器所處理命令的總數。這個值會對應至 Redis INFO `total_commands_processed` 命令。請注意，Azure Redis 快取純粹用於發佈/訂閱時，則沒有 `Cache Hits`、`Cache Misses`、`Gets` 或 `Sets` 的度量但是會有 `Total Operations` 度量可反映發佈/訂閱作業的快取使用量。 |
 | 已使用的記憶體 | 所指定報告間隔期間的已使用快取記憶體數量 (MB)。這個值會對應至 Redis INFO `used_memory` 命令。 |
-| CPU | 所指定報告間隔期間的 Azure Redis 快取伺服器 CPU 使用率 (百分比)。這個值會對應至作業系統 `\Processor(_Total)% Processor Time` 效能計數器。 |
+| CPU | 所指定報告間隔期間的 Azure Redis 快取伺服器 CPU 使用率 (百分比)。這個值會對應至作業系統 `\Processor(_Total)\% Processor Time` 效能計數器。 |
 | 快取讀取 | 所指定報告間隔期間，從快取讀取的資料量 (KB/s)。這個值衍生自網路介面卡，而網路介面卡支援裝載快取且非 Redis 特有的虛擬機器。 |
 | 快取寫入 | 所指定報告間隔期間，寫入至快取的資料量 (KB/s)。這個值衍生自網路介面卡，而網路介面卡支援裝載快取且非 Redis 特有的虛擬機器。 |
 
@@ -221,4 +219,4 @@ Azure Redis 快取可讓您將診斷資料儲存在儲存體帳戶中，因此�
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,25 +1,25 @@
 
 <properties
-		pageTitle="使用 Linux 診斷延伸模組監視 Linux VM 的效能和診斷資料 | Microsoft Azure"
-	description="了解如何使用 Linux 診斷延伸模組監視 Linux VM 的效能和診斷資料。"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="NingKuang"
-	manager="timlt"
-	editor=""
-	tags=""/>
+		pageTitle="用 VM 擴充功能監視 Linux VM | Microsoft Azure"
+		description="了解如何使用 Linux 診斷擴充功能監視 Azure 中 Linux VM 的效能和診斷資料。"
+		services="virtual-machines"
+		documentationCenter=""
+  		authors="NingKuang"
+		manager="timlt"
+		editor=""
+  		tags="azure-service-management"/>
 
 <tags
 		ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/20/2015"
-	ms.author="Ning"/>
+		ms.workload="infrastructure-services"
+		ms.tgt_pltfrm="vm-linux"
+		ms.devlang="na"
+		ms.topic="article"
+		ms.date="07/20/2015"
+		ms.author="Ning"/>
 
 
-# 使用 Linux 診斷延伸模組監視 Linux VM 的效能和診斷資料
+# 使用 Linux 診斷擴充功能監視 Linux VM 的效能和診斷資料
 
 ## 簡介
 
@@ -35,10 +35,12 @@ Linux 診斷延伸模組可利用下列功能協助使用者監視在 Microsoft 
 - 在此[文件](https://scx.codeplex.com/wikipage?title=xplatproviders")指定的所有系統資料。
 - 使用者指定記錄檔。
 
-## 如何啟用延伸模組
-透過 [Azure 入口網站](https://ms.portal.azure.com/#)、Azure PowerShell 或 Azure CLI 指令碼，可以啟用延伸模組。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型管理資源。
 
-若要直接從 Azure 入口網站檢視和設定系統和效能資料，請遵循這些[步驟](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "Windows 部落格的 URL")。
+## 如何啟用延伸模組
+透過 [Azure 入口網站](https://ms.portal.azure.com/#)、Azure PowerShell 或 Azure CLI 指令碼，可以啟用擴充功能。
+
+若要直接從 Azure 入口網站檢視和設定系統和效能資料，請遵循這些[步驟](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "Windows 部落格的 URL")進行。
 
 
 本文將著重在透過 Azure CLI 命令啟動及設定延伸模組。這可讓您直接從儲存體資料表讀取和檢視資料。
@@ -46,7 +48,7 @@ Linux 診斷延伸模組可利用下列功能協助使用者監視在 Microsoft 
 
 ## 必要條件
 - Microsoft Azure Linux Agent 2.0.6 版或更新版本。請注意，大部分的 Azure VM Linux 資源庫映像包含版本 2.0.6 或更新版本。您可以執行 **WAAgent -version** 以確認 VM 中安裝的版本。如果執行 VM 的版本早於 2.0.6，您可以遵循這些[指示](https://github.com/Azure/WALinuxAgent "指示")來更新它。
-- [Azure CLI](./xplat-cli.md)。遵循[本指引](./xplat-cli-install.md)在電腦上設定 Azure CLI 環境。安裝好 Azure CLI 之後，您就能從命令列介面 (Bash、終端機、命令提示字元) 中使用 **azure** 命令存取 Azure CLI 命令。例如，執行 **azure vm extension set --help** 取得詳細的使用方式、執行 **azure login** 登入 Azure、執行 **azure vm list** 列出您在 Azure 上具備的所有虛擬機器。
+- [Azure CLI](./xplat-cli.md)。遵循[本指引](./xplat-cli-install.md)在電腦上設定 Azure CLI 環境。安裝好 Azure CLI 之後，您就能從命令列介面 (Bash、終端機、命令提示字元) 中使用 **azure** 命令存取 Azure CLI 命令。例如，執行 **azure vm extension set --help** 取得詳細的使用方式、執行 **azure login** 登入 Azure、執行 **azure vm list** 列出您在 Azure 上的所有虛擬機器。
 - 儲存資料的儲存體帳戶。您需要先前建立的儲存體帳戶名稱和存取金鑰才能將資料上傳至您的儲存體。
 
 
@@ -141,4 +143,4 @@ Linux 診斷延伸模組可利用下列功能協助使用者監視在 Microsoft 
 - 若為 2.0 版，只能透過指令碼存取 Rsyslog 資訊和客戶指定記錄檔。
 - 若為 2.0 版，如果您已經先透過指令碼啟用 Linux 診斷延伸模組，您就無法從 Azure 入口網站檢視資料。如果您先從入口網站啟用延伸模組，指令碼就會持續運作。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

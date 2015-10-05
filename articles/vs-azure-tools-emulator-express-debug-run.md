@@ -1,24 +1,24 @@
-<properties 
+<properties
    pageTitle="使用 Emulator Express 在本機電腦上執行及偵錯雲端服務 | Microsoft Azure"
-	description="使用 Emulator Express 在本機電腦上執行及偵錯雲端服務"
-	services="visual-studio-online"
-	documentationCenter="n/a"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="使用 Emulator Express 在本機電腦上執行及偵錯雲端服務"
+   services="visual-studio-online"
+   documentationCenter="n/a"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="visual-studio-online"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/14/2015"
-	ms.author="patshea"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="multiple"
+   ms.workload="na"
+   ms.date="08/14/2015"
+   ms.author="patshea" />
 
 
 # 使用 Emulator Express 在本機電腦上執行及偵錯雲端服務
 
-使用 Emulator Express，您可以測試及偵錯雲端服務，而不需以系統管理員身分執行 Visual Studio。視您的雲端服務的需求而定，您可以進行專案設定以使用 Emulator Express 或完整模擬器。如需完整模擬器的詳細資訊，請參閱[在計算模擬器中執行 Azure 應用程式](https://msdn.microsoft.com/library/azure/hh403990.aspx)。Emulator Express 最初隨附在 Azure SDK 2.1 中，而從 Azure SDK 2.3 起，它成為預設模擬器。
+使用 Emulator Express，您可以測試及偵錯雲端服務，而不需以系統管理員身分執行 Visual Studio。視您的雲端服務的需求而定，您可以進行專案設定以使用 Emulator Express 或完整模擬器。如需完整模擬器的詳細資訊，請參閱[在計算模擬器中執行 Azure 應用程式](../storage/storage-use-emulator.md)。Emulator Express 最初隨附在 Azure SDK 2.1 中，而從 Azure SDK 2.3 起，它成為預設模擬器。
 
 ## 在 Visual Studio IDE 中使用 Emulator Express
 
@@ -54,4 +54,4 @@
 
 [偵錯雲端服務](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

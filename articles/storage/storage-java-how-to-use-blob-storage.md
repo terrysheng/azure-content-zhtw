@@ -258,6 +258,8 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 - [Azure 儲存體 REST API][]
 - [Azure 儲存體團隊部落格][]
 
+如需詳細資訊，也請參閱 [Java 開發人員中心](/develop/java/)。
+
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
@@ -265,4 +267,4 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 [Azure 儲存體 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

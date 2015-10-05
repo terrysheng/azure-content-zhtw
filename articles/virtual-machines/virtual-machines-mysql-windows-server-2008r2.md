@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 Azure 中建立執行 MySQL 的虛擬機器"
-	description="建立執行 Windows Server 2012 R2 的 Azure 虛擬機器，然後在該虛擬機器上安裝及設定 MySQL 資料庫。"
+	pageTitle="建立執行 MySQL 的 VM | Microsoft Azure"
+	description="以傳統部署模型建立執行 Windows Server 2012 R2 的 Azure 虛擬機器，然後在該虛擬機器上安裝及設定 MySQL 資料庫。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -18,12 +18,13 @@
 	ms.author="cynthn"/>
 
 
-# 在 Azure 中執行 Windows Server 2012 R2 的虛擬機器上安裝 MySQL
+# 在以傳統部署模型建立且執行 Windows Server 2012 R2 的虛擬機器上安裝 MySQL
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
 
-[MySQL](http://www.mysql.com) 是一種很受歡迎的開放原始碼 SQL 資料庫。您可以使用 [Azure 入口網站](http://manage.windowsazure.com)，從映像庫建立一個執行 Windows Server 2012 R2 的虛擬機器。您可以接著安裝並將它設定為 MySQL 伺服器。
+[MySQL](http://www.mysql.com) 是一種很受歡迎的開放原始碼 SQL 資料庫。您可以使用 [Azure 入口網站](http://manage.windowsazure.com)，從映像庫建立執行 Windows Server 2012 R2 的虛擬機器。您可以接著安裝並將它設定為 MySQL 伺服器。
 
-如需在 Linux 上安裝 MySQL 的指示，請參閱[如何在 Azure 上安裝 MySQL](virtual-machines-linux-install-mysql.md)。
+如需在 Linux 上安裝 MySQL 的指示，請參閱：[如何在 Azure 上安裝 MySQL](virtual-machines-linux-install-mysql.md)。
 
 本教學課程說明如何：
 
@@ -40,7 +41,7 @@
 
 建立虛擬機器之後，您可以選擇連接其他資料磁碟。對於生產工作負載建議執行此操作，這可避免包括作業系統的 OS 磁碟機 (C:) 空間不足。
 
-請參閱[如何將資料磁碟連接至 Windows 虛擬機器](storage-windows-attach-disk.md)，並依照指示連接空的磁碟。將主機快取設定設為 [無] 或 [唯讀]。
+請參閱[如何將資料磁碟附加至 Windows 虛擬機器](storage-windows-attach-disk.md)，並依照指示連接空的磁碟。將主機快取設定設為 [無] 或 [唯讀]。
 
 ## 登入虛擬機器
 
@@ -56,7 +57,7 @@
 
 1.	使用遠端桌面連線到虛擬機器之後，按一下 [開始] 畫面中的 [Internet Explorer]。
 2.	選取右上角的 [**工具**] 按鈕 (齒輪圖示)，然後按一下 [**網際網路選項**]。依序按一下 [安全性] 索引標籤和[信任的網站] 圖示，然後按一下 [網站] 按鈕。將 http://*.mysql.com 新增至受信任的網站清單。按一下 [**關閉**]，然後按一下 [**確定**]。
-3.	在 Internet Explorer 的網址列中，鍵入 http://dev.mysql.com/downloads/mysql/。
+3.	在 Internet Explorer 的網址列中，輸入 http://dev.mysql.com/downloads/mysql/。
 4.	使用 MySQL 網站尋找並下載 Windows 版 MySQL 最新版安裝程式。選擇 MySQL 安裝程式時，下載的版本都有完整的檔案集 (例如，mysql-installer-community-5.6.23.0.msi 的檔案大小為 282.4 MB)，並且將安裝程式檔案儲存到 Windows 桌面。
 5.	從桌面上，按兩下安裝程式檔案即可開始安裝。
 6.	在 [授權合約] 頁面上接受授權合約，然後按 [下一步]。
@@ -128,4 +129,4 @@
 
 如需 MySQL 的相關資訊，請參閱 [MySQL 文件](http://dev.mysql.com/doc/)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="07/17/2015"
+ ms.date="09/23/2015"
  ms.author="larryfr"/>
 
 #使用 Hive JDBC 驅動程式連接到 Azure HDInsight 上的 Hive
@@ -72,4 +72,4 @@
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

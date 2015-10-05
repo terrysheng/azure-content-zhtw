@@ -1,10 +1,10 @@
 <properties
 	pageTitle="設定自助式服務應用程式存取管理的 Azure AD | Microsoft Azure"
-	description="說明如何在 Azure AD 中管理群組的主題。"
+	description="自助式群組管理概觀，這種管理可讓使用者在 Microsoft Azure Active Directory (AD) 中建立及管理安全性群組，讓使用者可要求安全性群組成員資格"
 	services="active-directory"
 	documentationCenter=""
     authors="femila"
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="09/21/2015"
 	ms.author="femila"/>
 
 #設定自助式服務應用程式存取管理的 Azure AD
@@ -49,4 +49,4 @@
 
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

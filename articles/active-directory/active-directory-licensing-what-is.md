@@ -1,20 +1,20 @@
 <properties
    pageTitle="什麼是 Microsoft Azure Active Directory 授權？ | Microsoft Azure"
-	description="描述 Microsoft Azure AD 授權、如何運作、如何開始著手，以及最佳作法，包括 Office 365、Microsoft Intune 和 Azure Active Directory Premium 與 Basic 版本"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="swadhwa"
-	editor=""/>
+   description="描述 Microsoft Azure AD 授權、如何運作、如何開始著手，以及最佳作法，包括 Office 365、Microsoft Intune 和 Azure Active Directory Premium 與 Basic 版本"
+   services="active-directory"
+   documentationCenter=""
+   authors="curtand"
+   manager="stevenpo"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/16/2015"
-	ms.author="curtand"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/21/2015"
+   ms.author="curtand"/>
 
 # 什麼是 Microsoft Azure Active Directory 授權？
 
@@ -131,4 +131,4 @@ Azure Active Directory (AD) 是 Microsoft 的「身分識別即服務 (IDaaS)」
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [直接購買 Azure AD Premium 授權](http://aka.ms/buyaadp)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

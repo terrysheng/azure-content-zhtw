@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # 從 Application Insights 匯出遙測
@@ -22,6 +22,19 @@
 在免費試用期間，或是使用[標準及高階定價方案](http://azure.microsoft.com/pricing/details/application-insights/)時，都可使用「連續匯出」功能。
 
 (如果您只想要[一次性匯出](app-insights-metrics-explorer.md#export-to-excel)您在度量或搜尋刀鋒視窗上看到的內容，請按一下分頁頂端的 [匯出]。)
+
+## 建立儲存體帳戶
+
+如果您還沒有「傳統」儲存體帳戶，請立即建立一個。
+
+
+1. 在 [Azure 入口網站](https://portal.azure.com)的訂用帳戶中建立「傳統」儲存體帳戶。
+
+    ![在 Azure 入口網站中，依序選擇 [新增]、[資料]、[儲存體]](./media/app-insights-export-telemetry/030.png)
+
+2. 建立容器
+
+    ![在新的儲存體中，選取 [容器]，按一下容器磚，然後按一下 [新增]](./media/app-insights-export-telemetry/040.png)
 
 ## <a name="setup"> </a> 設定連續匯出
 
@@ -130,7 +143,7 @@
 
 ## 匯出至 Power BI
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) 具有將多個來源的資訊加以整合的能力，可以豐富多元的視覺方式呈現您的資料。您可以將有關您應用程式效能與使用量的遙測資料，從 Application Insights 串流處理到 Power BI。
+[Microsoft Power BI](https://powerbi.microsoft.com/) 以豐富多元的視覺方式呈現您的資料，以及將多個來源的資訊整合的能力。您可以將有關您應用程式效能與使用量的遙測資料，從 Application Insights 串流處理到 Power BI。
 
 [從 Application Insights 串流處理到 Power BI](app-insights-export-power-bi.md)
 
@@ -204,4 +217,4 @@
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

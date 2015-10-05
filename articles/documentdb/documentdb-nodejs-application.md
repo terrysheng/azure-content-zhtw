@@ -34,7 +34,7 @@
 
 ![本 Node.js 教學課程所建立的「我的待辦事項清單」應用程式螢幕擷取畫面](./media/documentdb-nodejs-application/image1.png)
 
-是否沒有時間完成本教學課程，只是想要從 GitHub 取得完整的解決方案？ 這不是問題，您可以從[這裡](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo)取得。
+是否沒有時間完成本教學課程，只是想要取得完整的解決方案？ 沒有問題，您可以從 [GitHub][] 取得完整的範例解決方案。
 
 ## <a name="_Toc395783176"></a>必要條件
 
@@ -554,10 +554,13 @@
 
 恭喜！ 您剛剛已經使用 Azure DocumentDB 建置您的第一個Node.js Express Web 應用程式，並將它發佈至 Azure 網站。
 
-您可以在[這裡](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo)下載完整參考應用程式的原始程式碼。
+您可以從 [GitHub][] 下載完整參考應用程式的原始程式碼。
 
-  [Node.js]: http://nodejs.org/
-  [Git]: http://git-scm.com/
+如需詳細資訊，請參閱 [Node.js 開發人員中心](/develop/nodejs/)。
+
+[Node.js]: http://nodejs.org/
+[Git]: http://git-scm.com/
+[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

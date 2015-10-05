@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="在 Azure 中的 Linux 虛擬機器上使用根權限" 
+	pageTitle="在 Linux 虛擬機器上使用根權限 | Microsoft Azure" 
 	description="了解如何在 Azure 中的 Linux 虛擬機器上使用根權限。" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -17,15 +18,13 @@
 	ms.author="szark"/>
 
 
-
-
 # 在 Azure 中的 Linux 虛擬機器上使用根權限
 
 在 Azure 中的 Linux 虛擬機器上，依預設會停用 `root` 使用者。使用者可以使用 `sudo` 命令，以提高的權限來執行命令。不過，根據系統如何佈建而定，操作過程可能不同。
 
 1. **SSH 金鑰和密碼，或僅密碼** - 虛擬機器是以憑證 (`.CER` 檔案) 或 SSH 金鑰和密碼來佈建，或只以使用者名稱和密碼來佈建。在此情況下，執行命令之前，`sudo` 會提示輸入使用者的密碼。
 
-2. **僅 SSH 金鑰** - 虛擬機器是以憑證 (`.cer` 或 `.pem` 檔案) 或 SSH 金鑰來佈建，而未使用密碼。在此情況下，執行命令之前，`sudo` **不會**提示輸入使用者的密碼。
+2. **僅 SSH 金鑰** - 虛擬機器是以憑證 (`.cer`、`.pem` 或 `.pub` 檔案) 或 SSH 金鑰來佈建，而未使用密碼。在此情況下，執行命令之前，`sudo` **不會**提示輸入使用者的密碼。
 
 
 ## SSH 金鑰和密碼，或僅密碼
@@ -54,4 +53,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

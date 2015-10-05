@@ -1,57 +1,181 @@
 <properties
-   pageTitle="在 Azure 中疑難排解資源群組部署"
-	description="描述在 Azure 中部署資源的常見問題，並顯示 Azure 入口網站使用方法、適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (Azure CLI) 以及 PowerShell，來檢查部署並偵測問題。"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor=""/>
+   pageTitle="疑難排解資源群組部署 |Microsoft Azure"
+   description="描述部署使用資源管理員部署模型建立之資源的常見問題，以及示範如何偵測並修正這些問題。"
+   services="azure-resource-manager,virtual-machines"
+   documentationCenter=""
+   authors="squillace"
+   manager="timlt"
+   editor=""/>
 
 <tags
-   ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="command-line-interface"
-	ms.workload="infrastructure"
-	ms.date="08/26/2015"
-	ms.author="rasquill"/>
+   ms.service="azure-resource-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-multiple"
+   ms.workload="infrastructure"
+   ms.date="09/18/2015"
+   ms.author="rasquill"/>
 
 # 在 Azure 中疑難排解資源群組部署
 
-有許多原因都可能導致部署失敗。最好能夠事先檢查一些事項，以避免發生部署錯誤。本文件會描述幾個可防止簡單錯誤、下載範本檔案，及檢查部署記錄的工具和作業。它也會討論檢查部署記錄中是否有失敗時要注意的主要區域。
+當您在部署期間遇到問題時，您需要了解發生什麼問題。[資源管理員] 提供兩種方法讓您了解發生什麼情形以及其發生原因。您可以使用部署命令來擷取有關資源群組的特定部署。或者，您可以使用稽核記錄來擷取在資源群組上執行的所有作業的相關資訊。您可以利用此資訊來修正問題，並在您的解決方案中繼續執行作業。
 
-## 與 Azure 互動的有用工具
-當您從命令列使用 Azure 資源時，將收集可協助您進行工作的工具。Azure 資源群組範本為 JSON 文件，而且 Azure 資源管理員 API 會接受並傳回 JSON，因此 JSON 剖析工具是您用來協助瀏覽資源相關資訊，以及設計範本和範本參數檔案或與之互動的首要選擇。
+本主題主要著重於使用部署命令來排解部署疑難問題。如需使用稽核記錄檔來追蹤您的資源上所有作業的詳細資訊，請參閱[稽核作業與資源管理員](../resource-group-audit.md)。
 
-### Mac、Linux 和 Windows 工具
-如果您使用 Mac、Linux 和 Windows 的 Azure 命令列介面，則可能熟悉標準下載工具 (例如 **[curl](http://curl.haxx.se/)** 和 **[wget](https://www.gnu.org/software/wget/)** 或 **[Resty](https://github.com/beders/Resty)**) 和 JSON 公用程式 (例如 **[jq](http://stedolan.github.io/jq/download/)**、**[jsawk](https://github.com/micha/jsawk)** 以及擅於處理 JSON 的語言程式庫)。(這些工具亦多數具有 Windows 的連接埠，例如 [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)；事實上，有數種方法都可以取得 Linux 以及在 Windows 上執行的其他開放原始碼軟體工具)。
+本主題說明如何透過 Azure PowerShell、Azure CLI 和 REST API 擷取疑難排解資訊。如需使用 Preview 入口網站來排解部署疑難問題的相關資訊，請參閱[使用 Azure Preview 入口網站來管理您的 Azure 資源](../azure-portal/resource-group-portal.md)。
 
-本主題包括一些您可以與 **jq** 搭配使用的 Azure CLI 命令，以精確地取得您想要更有效率的資訊。您應該選擇熟悉的工具組來協助您了解 Azure 資源使用狀況。
+本主題也說明了使用者遇到的常見錯誤的解決方案。
 
-### Windows PowerShell
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括排解以資源管理員部署模型建立之資源群組的疑難問題。您無法以傳統部署模型建立資源群組。
 
-Windows PowerShell 有幾個基本命令來執行相同的程序。
 
-- 使用 **[Invoke-WebRequest](https://technet.microsoft.com/library/hh849901%28v=wps.640%29)** Cmdlet 可下載檔案 (例如資源群組範本或參數 JSON 檔案)。
-- 使用 **[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898%28v=wps.640%29.aspx)** Cmdlet 可將 JSON 字串轉換成自訂物件 ([PSCustomObject](https://msdn.microsoft.com/library/windows/desktop/system.management.automation.pscustomobject%28v=vs.85%29.aspx))，而自訂物件具有 JSON 字串中每個欄位的屬性。
+## PowerShell 疑難排解
 
-## 防止適用於 Mac、Linux 和 Windows 之 Azure CLI 中的錯誤
+您可以利用 **Get-AzureResourceGroupDeployment** 命令取得部署的整體狀態。下列範例中的部署失敗。
 
-Azure CLI 有數個命令可協助防止錯誤，並在錯誤發生時偵測發生的問題。
+    PS C:\> Get-AzureResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
 
-- **azure location list**。此命令會取得支援每種資源類型的位置，例如虛擬機器的提供者。在您輸入資源的位置之前，請使用此命令來確認該位置是否支援此資源類型。
+    DeploymentName    : ExampleDeployment
+    ResourceGroupName : ExampleGroup
+    ProvisioningState : Failed
+    Timestamp         : 8/27/2015 8:03:34 PM
+    Mode              : Incremental
+    TemplateLink      :
+    Parameters        :
+                    Name             Type                       Value
+                    ===============  =========================  ==========
+                    siteName         String                     ExampleSite
+                    hostingPlanName  String                     ExamplePlan
+                    siteLocation     String                     West US
+                    sku              String                     Free
+                    workerSize       String                     0
 
-    因為位置清單可能很長，而且有多個提供者，所以您可以先使用工具來檢查提供者和位置，再使用尚未使用的位置。下列指令碼使用 **jq** 探索可以取得 Azure 虛擬機器之資源提供者的位置。
+    Outputs           :
 
-        azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
-        {
-          "name": "Microsoft.Compute/virtualMachines",
-          "location": "East US,West US,West Europe,East Asia,Southeast Asia,North Europe"
-        }
+每個部署通常由多個作業所組成，而每個作業代表部署程序中的一個步驟。若要探索部署有何問題，您通常需要查看有關部署作業的詳細資訊。您可以利用 **Get-AzureResourceGroupDeploymentOperation** 查看作業的狀態。
 
-- **azure group template validate <resource group>**.這個命令會在您使用範本和範本參數之前，先驗證它們。請輸入自訂或資源庫範本，以及您打算使用的範本參數值。
+    PS C:\> Get-AzureResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup
+    Id                        OperationId          Properties         
+    -----------               ----------           -------------
+    /subscriptions/xxxxx...   347A111792B648D8     @{ProvisioningState=Failed; Timestam...
+    /subscriptions/xxxxx...   699776735EFC3D15     @{ProvisioningState=Succeeded; Times...
 
-    下列範例顯示如何驗證範本和任何必要的參數。Azure CLI 會提示您輸入所需的參數值。
+它會顯示部署中的兩項作業。其中一個的佈建狀態為 [失敗]，而另一個的佈建狀態為 [成功]。
+
+您可以使用下列命令擷取狀態訊息：
+
+    PS C:\> (Get-AzureResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties.StatusMessage
+
+    Code       : Conflict
+    Message    : Website with given name mysite already exists.
+    Target     :
+    Details    : {@{Message=Website with given name mysite already exists.}, @{Code=Conflict}, @{ErrorEntity=}}
+    Innererror :
+
+## Azure CLI 疑難排解
+
+您可以利用 **azure group deployment show** 命令取得部署的整體狀態。下列範例中的部署失敗。
+
+    azure group deployment show ExampleGroup ExampleDeployment
+
+    info:    Executing command group deployment show
+    + Getting deployments
+    data:    DeploymentName     : ExampleDeployment
+    data:    ResourceGroupName  : ExampleGroup
+    data:    ProvisioningState  : Failed
+    data:    Timestamp          : 2015-08-27T20:03:34.9178576Z
+    data:    Mode               : Incremental
+    data:    Name             Type    Value
+    data:    ---------------  ------  ------------
+    data:    siteName         String  ExampleSite
+    data:    hostingPlanName  String  ExamplePlan
+    data:    siteLocation     String  West US
+    data:    sku              String  Free
+    data:    workerSize       String  0
+    info:    group deployment show command OK
+
+
+您可以在稽核記錄檔中找出部署失敗原因的詳細資訊。若要查看稽核記錄檔，請執行 **azure group log show** 命令。您可以包含 **--last-deployment** 選項，只擷取最新部署的記錄檔。
+
+    azure group log show ExampleGroup --last-deployment
+
+**azure group log show** 命令可傳回大量資訊。在疑難排解時，您通常想要將焦點放在失敗的作業。下列指令碼會使用 **--json** 選項和 **jq**，來搜尋部署失敗的記錄檔。若要了解 **jq** 等工具，請參閱[與 Azure 互動的有用工具](#useful-tools-to-interact-with-azure)
+
+    azure group log show ExampleGroup --json | jq '.[] | select(.status.value == "Failed")'
+
+    {
+      "claims": {
+        "aud": "https://management.core.windows.net/",
+        "iss": "https://sts.windows.net/<guid>/",
+        "iat": "1442510510",
+        "nbf": "1442510510",
+        "exp": "1442514410",
+        "ver": "1.0",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "<guid>",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "<guid>",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "someone@example.com",
+        "puid": "XXXXXXXXXXXXXXXX",
+        "http://schemas.microsoft.com/identity/claims/identityprovider": "example.com",
+
+        "altsecid": "1:example.com:XXXXXXXXXXX",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "<hash string>",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Tom",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "FitzMacken",
+        "name": "Tom FitzMacken",
+        "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+        "groups": "<guid>",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "example.com#someone@example.com",
+        "wids": "<guid>",
+        "appid": "<guid>",
+        "appidacr": "0",
+        "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+        "http://schemas.microsoft.com/claims/authnclassreference": "1",
+        "ipaddr": "000.000.000.000"
+      },
+      "properties": {
+        "statusCode": "Conflict",
+        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name 
+          mysite already exists."},{"Code":"Conflict"},{"ErrorEntity":{"Code":"Conflict","Message":"Website with given name mysite already exists.","ExtendedCode":
+          "54001","MessageTemplate":"Website with given name {0} already exists.","Parameters":["mysite"],"InnerErrors":null}}],"Innererror":null}"
+      },
+    ...
+
+您可以看到 [屬性] 包含 json 中有關失敗作業的資訊。
+
+您可以使用 **-verbose** 和 **-vv** 選項，查看記錄檔中的詳細資訊。使用 **--verbose** 選項，顯示作業在 `stdout` 上經歷的步驟。如需完整的要求歷程記錄，請使用 **-vv** 選項。這些訊息通常會提供任何失敗原因的重要線索。
+
+## REST API 疑難排解
+
+資源管理員 REST API 提供的 URI 可供擷取部署的相關資訊、部署和作業，以及有關特定作業的詳細資料。如需這些命令的完整描述，請參閱：
+
+- [取得範本部署的相關資訊](https://msdn.microsoft.com/library/azure/dn790565.aspx)
+- [列出所有範本部署作業](https://msdn.microsoft.com/library/azure/dn790518.aspx)
+- [取得範本部署作業的相關資訊](https://msdn.microsoft.com/library/azure/dn790519.aspx)
+
+
+## 重新整理過期的認證
+
+如果您的 Azure 認證已過期或您尚未登入您的 Azure 帳戶，您的部署將會失敗。如果您的工作階段的開啟時間太長，您的認證可能會過期。您可以使用下列選項重新整理您的認證︰
+
+- 對於 PowerShell，使用 **Add-AzureAccount** Cmdlet。發行設定檔中的認證無法滿足 AzureResourceManager 模組中 Cmdlet 的需求。
+- 對於 Azure CLI，使用 **azure login**。如需驗證錯誤的協助，請確定您[已正確地設定 Azure CLI](../xplat-cli-connect.md)。
+
+## 檢查範本和參數的格式
+
+如果您範本或參數檔案的格式不正確，您的部署將會失敗。執行部署之前，您可以測試您的範本和參數的有效性。
+
+### PowerShell
+
+對於 PowerShell，使用 **Test-AzureResourceGroupTemplate**。
+
+    PS C:\> Test-AzureResourceGroupTemplate -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
+    VERBOSE: 12:55:32 PM - Template is valid.
+
+### Azure CLI
+
+對於 Azure CLI，使用 **azure group template validate <resource group>**
+
+下列範例顯示如何驗證範本和任何必要的參數。Azure CLI 會提示您輸入所需的參數值。
 
         azure group template validate \
         > --template-uri "https://contoso.com/templates/azuredeploy.json" \
@@ -64,146 +188,54 @@ Azure CLI 有數個命令可協助防止錯誤，並在錯誤發生時偵測發�
         + Validating the template
         info:    group template validate command OK
 
-## 取得資訊來修正 Azure CLI 部署問題
+### REST API
 
-- **azure group log show <resource group>**：此命令會取得每個資源群組部署記錄中的項目。如果出現問題，便會首先檢查部署記錄。
+對於 REST API，請參閱[驗證範本部署](https://msdn.microsoft.com/library/azure/dn790547.aspx)。
 
-        info:    Executing command group log show
-        info:    Getting group logs
-        data:    ----------
-        data:    EventId:              <guid>
-        data:    Authorization:
-        data:                          action: Microsoft.Network/networkInterfaces/write
-        data:                          role:   Subscription Admin
-        data:                          scope:  /subscriptions/xxxxxxxxxxx/resourcegroups/templates/
-                                               providers/Microsoft.Network/
-                                               networkInterfaces/myNic
-        data:    ResourceUri:          /subscriptions/xxxxxxxxxxxx/resourcegroups/templates/providers/
-                                       Microsoft.Network/networkInterfaces/myNic
-        data:    SubscriptionId:       <guid>
-        data:    EventTimestamp (UTC): Wed Apr 22 2015 05:53:31 GMT+0000 (UTC)
-        data:    OperationName:        Microsoft.Network/networkInterfaces/write
-        data:    OperationId:          <guid>
-        data:    Status:               Started
-        data:    SubStatus:
-        data:    Caller:
-        data:    CorrelationId:        <guid>
-        data:    Description:
-        data:    HttpRequest:          clientRequestId: <guid>
-                                       clientIpAddress: 000.000.00.000
-                                       method:          PUT
+## 檢查哪些位置支援此資源
 
-        data:    Level:                Informational
-        data:    ResourceGroup:        templates
-        data:    ResourceProvider:     Microsoft.Network
-        data:    EventSource:          Microsoft Resources
-        data:    Properties:           requestbody: {"location":"West US","properties
-                                       ":{"ipConfigurations":[{"
-                                       name":"ipconfig1","properties":{"
-                                       privateIPAllocationMethod
+指定資源的位置時，您必須使用其中一個支援此資源的位置。在您輸入資源的位置之前，請使用下列其中一個命令來確認該位置是否支援此資源類型。
 
-                                       ":"Dynamic","publicIPAddress":{"id":"/
-                                       subscriptions/
-                                       <guid>/
-                                       resourceGroups/
-                                       templates/providers/Microsoft.Network/
-                                       publicIPAddresses/
-                                       myPublicIP"},"subnet":{"idThe AzureResourceManager module includes cmdlets that ":"/subscriptions/
-                                       <guid>/resourceGroups/templates/
-                                       providers/
-                                       Microsoft.Network/virtualNetworks/myVNET/subnets/
-                                       Subnet-1
-                                       "}}}]}}
+### PowerShell
 
-使用 **--last-deployment** 選項，只擷取最新部署的記錄。下列指令碼會使用 **--json** 選項和 **jq**，來搜尋部署失敗的記錄。
+對於 Powershell，您可以利用 **Get-AzureLocation** 命令來查看完整的資源和位置清單。
 
-        azure group log show templates --json | jq '.[] | select(.status.value == "Failed")'
+    PS C:\> Get-AzureLocation
 
-        {
-          "claims": {
-            "aud": "https://management.core.windows.net/",
-            "iss": "https://sts.windows.net/<guid>/",
-            "iat": "1429678549",
-            "nbf": "1429678549",
-            "exp": "1429682449",
-            "ver": "1.0",
-            "http://schemas.microsoft.com/identity/claims/tenantid": "<guid>",
-            "http://schemas.microsoft.com/identity/claims/objectidentifier": "<guid>",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "ahmet@contoso.onmicrosoft.com",
-            "puid": "XXXXXXXXXXXXXX",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "<hash string>",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "ahmet",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "",
-            "name": "Friendly Name",
-            "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-            "groups": "<guid>",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "ahmet@contoso.onmicrosoft.com",
-            "appid": "<guid>",
-            "appidacr": "0",
-            "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-            "http://schemas.microsoft.com/claims/authnclassreference": "1"
-          },
-          "properties": {},
-          "authorization": {
-            "action": "Microsoft.Resources/subscriptions/resourcegroups/deployments/write",
-            "role": "Subscription Admin",
-            "scope": "/subscriptions/<guid>/resourcegroups/templates/deployments/basic-vm-version-0.1"
-          },
-          "eventChannels": "Operation",
-          "eventDataId": "<guid>",
-          "correlationId": "<guid>",
-          "eventName": {
-            "value": "EndRequest",
-            "localizedValue": "End request"
-          },
-          "eventSource": {
-            "value": "Microsoft.Resources",
-            "localizedValue": "Microsoft Resources"
-          },
-          "level": "Error",
-          "resourceGroupName": "templates",
-          "resourceProviderName": {
-            "value": "Microsoft.Resources",
-            "localizedValue": "Microsoft Resources"
-          },
-          "resourceUri": "/subscriptions/<guid>/resourcegroups/templates/deployments/basic-vm-version-0.1",
-          "operationId": "<guid>",
-          "operationName": {
-            "value": "Microsoft.Resources/subscriptions/resourcegroups/deployments/write",
-            "localizedValue": "Update deployment"
-          },
-          "status": {
-            "value": "Failed",
-            "localizedValue": "Failed"
-          },
-          "subStatus": {},
-          "eventTimestamp": "2015-04-22T05:53:40.8150293Z",
-          "submissionTimestamp": "2015-04-22T05:54:00.6728843Z",10037FFE8E80BB65
-          "subscriptionId": "<guid>"
-        }
+    Name                                    Locations                               LocationsString
+    ----                                    ---------                               ---------------
+    ResourceGroup                           {East Asia, South East Asia, East US... East Asia, South East Asia, East US,...
+    Microsoft.ApiManagement/service         {Central US, East US, East US 2, Nor... Central US, East US, East US 2, Nort...
+    Microsoft.AppService/apiapps            {East US, West US, South Central US,... East US, West US, South Central US, ...
+    ...
 
+您可以利用下列命令來指定特定類型的資源︰
 
-- **-verbose 和 -vv 選項**：使用 **--verbose** 選項，將模式設為詳細資訊，以顯示作業在 `stdout` 上經歷的步驟。如需完整的要求歷程記錄 (包括 **--verbose** 所啟用的步驟)，請使用 **-vv** 選項。這些訊息通常會提供任何失敗原因的重要線索。
+    PS C:\> Get-AzureLocation | Where-Object Name -eq "Microsoft.Compute/virtualMachines" | Format-Table Name, LocationsString -Wrap
 
-- **您的 Azure 認證未設定或已過期**：若要在 Azure CLI 工作階段中重新整理認證，只需要輸入 `azure login`。如需驗證錯誤的協助，請確定您[已正確地設定 Azure CLI](../xplat-cli-connect.md)。
+    Name                                                        LocationsString
+    ----                                                        ---------------
+    Microsoft.Compute/virtualMachines                           East US, East US 2, West US, Central US, South Central US,
+                                                                North Europe, West Europe, East Asia, Southeast Asia,
+                                                                Japan East, Japan West
 
-## 防止 Windows PowerShell 中的錯誤
+### Azure CLI
 
-AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
+對於 Azure CLI，您可以使用 **azure location list**。因為位置清單可能很長，而且有多個提供者，所以您可以先使用工具來檢查提供者和位置，再使用尚未使用的位置。下列指令碼使用 **jq** 來探索可取得 Azure 虛擬機器之資源提供者的位置。
 
+    azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
+    {
+      "name": "Microsoft.Compute/virtualMachines",
+      "location": "East US,East US 2,West US,Central US,South Central US,North Europe,West Europe,East Asia,Southeast Asia,Japan East,Japan West"
+    }
 
-- **Get-AzureLocation**：此 Cmdlet 會取得支援每種資源類型的位置。在您輸入資源的位置之前，請使用此 Cmdlet 來確認該位置是否支援此資源類型。
+### REST API
+        
+對於 REST API，請參閱[取得資源提供者的相關資訊](https://msdn.microsoft.com/library/azure/dn790534.aspx)。
 
+## 建立唯一的資源名稱
 
-- **Test-AzureResourceGroupTemplate**：使用範本和範本參數之前，請先進行測試。請輸入自訂或資源庫範本，以及您打算使用的範本參數值。此 Cmdlet 會測試範本是否達到內部的一致性，以及您的參數值設定是否與範本相符。
-
-## 取得資訊來修正 Windows PowerShell 中的部署問題
-
-- **Get-AzureResourceGroupLog**：此 Cmdlet 會取得每個資源群組部署記錄中的項目。如果出現問題，便會首先檢查部署記錄。
-
-- **詳細資訊和偵錯**：AzureResourceManager 模組中的 Cmdlet 會呼叫實際執行工作的 REST API。若要查看 API 傳回的訊息，請將 $DebugPreference 變數設為 "Continue"，並在您的命令中使用 Verbose 命令參數。這些訊息通常會提供任何失敗原因的重要線索。
-
-- **您的 Azure 認證未設定或已過期**：若要在 Windows PowerShell 工作階段中重新整理認證，請使用 **Add-AzureAccount** Cmdlet。發行設定檔中的認證無法滿足 AzureResourceManager 模組中 Cmdlet 的需求。
+對於某些資源 (最顯著的儲存體帳戶、資料庫伺服器和網站)，您必須提供在整個 Azure 中是唯一的資源名稱。目前沒有方法可測試名稱是否唯一。我們建議使用其他組織不太可能使用的命名慣例。
 
 ## 驗證、訂用帳戶、角色和配額問題
 
@@ -231,34 +263,29 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 
 在這些情況下，您應該移至入口網站，並提出支援問題，以針對您想要部署的區域提高配額。
 
-> [AZURE.NOTE] 請記住，對於資源群組，配額適用於每個個別區域，而不是整個訂用帳戶。如果您需要在美國西部部署 30 個核心，就必須要求在美國西部擁有 30 個資源管理員核心。如果您需要在任何具有存取權限的區域中部署 30 個核心，就應該要求在所有區域中擁有 30 個資源管理員核心。
-<!-- -->
-舉例來說，若要更明確地了解核心，您可以使用下列命令來檢查應該要求適當配額數目的區域，這個命令可以使用管線傳送到 **jq** 以進行 JSON 剖析。
-<!-- -->
-        Azure 提供者會顯示 Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}'
-        {
-          "name": "virtualMachines",
-          "apiVersions": [
-            "2015-05-01-preview",
-            "2014-12-01-preview"
-          ],
-          "locations": [
-            "East US",
-            "West US",
-            "West Europe",
-            "East Asia",
-            "Southeast Asia"
-          ]
-        }
+> [AZURE.NOTE]請記住，對於資源群組，配額適用於每個個別區域，而不是整個訂用帳戶。如果您需要在美國西部部署 30 個核心，就必須要求在美國西部擁有 30 個資源管理員核心。如果您需要在任何具有存取權限的區域中部署 30 個核心，就應該要求在所有區域中擁有 30 個資源管理員核心。<!-- --> 舉例來說，若要更明確地了解核心，您可以使用下列命令來檢查應該要求適當配額數目的區域，這個命令可以使用管線傳送到 **jq** 以進行 JSON 剖析。 <!-- --> azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
 
 
-## Azure CLI 和 PowerShell 模式問題
-
-您可能曾經在使用資源管理員 API 或 Azure 入口網站時，看不到使用服務管理 API 或使用入口網站所部署的 Azure 資源。請務必使用建立資源所用的相同資源管理員 API 或入口網站來管理資源。如果資源消失，請使用其他管理 API 或入口網站確認資源是否可用。
-
-## Azure 資源提供者註冊問題
+## 檢查資源提供者註冊
 
 資源是由資源提供者所管理，並且可能啟用帳戶或訂用帳戶以便使用特定提供者。如果您可以使用某個提供者，則也必須註冊該提供者才能使用。Azure 入口網站或正在使用的命令列介面會自動註冊大部分的提供者；但並非全部。
+
+### PowerShell
+
+若要取得資源提供者的清單及您的註冊狀態，請使用 **Get-AzureProvider**。
+
+    PS C:\> Get-AzureProvider
+
+    ProviderNamespace                       RegistrationState                       ResourceTypes
+    -----------------                       -----------------                       -------------
+    Microsoft.AppService                    Registered                              {apiapps, appIdentities, gateways, d...
+    Microsoft.Batch                         Registered                              {batchAccounts}
+    microsoft.cache                         Registered                              {Redis, checkNameAvailability, opera...
+    ...
+
+若要向提供者進行註冊，請使用 **Register-AzureProvider**。
+
+### Azure CLI
 
 若要使用 Azure CLI 查看是否註冊提供者以供使用，請使用 `azure provider list` 命令 (下列是截斷的輸出範例)。
 
@@ -307,8 +334,14 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
           "registrationState": "Registered"
         }
 
-
 如果提供者需要註冊，請使用 `azure provider register <namespace>` 命令，其中 *namespace* 值來自先前的清單。
+
+### REST API
+
+若要取得註冊狀態，請參閱[取得資源提供者的相關資訊](https://msdn.microsoft.com/library/azure/dn790534.aspx)。
+
+若要註冊提供者，請參閱[向資源提供者註冊訂用帳戶](https://msdn.microsoft.com/library/azure/dn790548.aspx)。
+
 
 ## 了解自訂範本的部署何時成功
 
@@ -318,76 +351,21 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 
 不過，建立自訂範本的自訂指令碼 (例如，使用 [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/))，即可防止 Azure 報告部署成功，而此自訂指令碼知道如何監視整個部署以了解系統是否準備就緒，並只在使用者可以與整個部署互動時才會順利傳回。如果您想要確保最後才執行您的延伸模組，請在範本中使用 **dependsOn** 屬性。您可以在[這裡](https://msdn.microsoft.com/library/azure/dn790564.aspx)看到範例。
 
-## 合併範本
+## 與 Azure 互動的有用工具
+當您從命令列使用 Azure 資源時，將收集可協助您進行工作的工具。Azure 資源群組範本為 JSON 文件，而且 Azure 資源管理員 API 會接受並傳回 JSON，因此 JSON 剖析工具是您用來協助瀏覽資源相關資訊，以及設計範本和範本參數檔案或與之互動的首要選擇。
 
-您有時可能需要合併兩個範本，也可能需要從父系範本啟動子系範本。完成方式是在主版範本內使用部署資源來部署子範本。
+### Mac、Linux 和 Windows 工具
+如果您使用 Mac、Linux 和 Windows 的 Azure 命令列介面，則可能熟悉標準下載工具 (例如 **[curl](http://curl.haxx.se/)** 和 **[wget](https://www.gnu.org/software/wget/)** 或 **[Resty](https://github.com/beders/Resty)**) 和 JSON 公用程式 (例如 **[jq](http://stedolan.github.io/jq/download/)**、**[jsawk](https://github.com/micha/jsawk)** 以及擅於處理 JSON 的語言程式庫)。(這些工具亦多數具有 Windows 的連接埠，例如 [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)；事實上，有數種方法都可以取得 Linux 以及在 Windows 上執行的其他開放原始碼軟體工具)。
 
+本主題包括一些您可以與 **jq** 搭配使用的 Azure CLI 命令，以精確地取得您想要更有效率的資訊。您應該選擇熟悉的工具組來協助您了解 Azure 資源使用狀況。
 
-    {
-            "name": "instance01",
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2015-01-01",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "https://mystore.blob.windows.net/azurermtemplates/my-child-template.json",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "storageAccountName": { "value": "[variables('stgAcctName1')]" },
-                    "adminUsername": { "value": "[parameters('adminUsername')]" },
-                    "adminPassword": { "value": "[parameters('adminPassword')]" }
-                }
-            }
-    }
+### PowerShell
 
+PowerShell 有幾個基本命令來執行相同的程序。
 
-## 跨資源群組
+- 使用 **[Invoke-WebRequest](https://technet.microsoft.com/library/hh849901%28v=wps.640%29)** Cmdlet 可下載檔案 (例如資源群組範本或參數 JSON 檔案)。
+- 使用 **[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898%28v=wps.640%29.aspx)** Cmdlet 可將 JSON 字串轉換成自訂物件 ([PSCustomObject](https://msdn.microsoft.com/library/windows/desktop/system.management.automation.pscustomobject%28v=vs.85%29.aspx))，而自訂物件具有 JSON 字串中每個欄位的屬性。
 
-通常您可能會想要使用將部署範本之目前資源群組外部的資源。此行為的最常見情況，是在替代資源群組中使用儲存體帳戶或虛擬網路的時候。這通常是必要作業，因此，刪除含有虛擬機器的資源群組，並不會刪除 VHD Blob 或多個資源群組所使用的 VNet。下列範例顯示如何使用來自外部資源群組的資源：
-
-
-    {
-      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-          "virtualNetworkName": {
-              "type": "string"
-          },
-          "virtualNetworkResourceGroup": {
-              "type": "string"
-          },
-          "subnet1Name": {
-              "type": "string"
-          },
-          "nicName": {
-              "type": "string"
-          }
-      },
-      "variables": {
-          "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-          "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]"
-      },
-      "resources": [
-      {
-          "apiVersion": "2015-05-01-preview",
-          "type": "Microsoft.Network/networkInterfaces",
-          "name": "[parameters('nicName')]",
-          "location": "[parameters('location')]",
-          "properties": {
-              "ipConfigurations": [{
-                  "name": "ipconfig1",
-                  "properties": {
-                      "privateIPAllocationMethod": "Dynamic",
-                      "subnet": {
-                          "id": "[variables('subnet1Ref')]"
-                      }
-                  }
-              }]
-           }
-      }]
-
-    }
 
 ## 後續步驟
 
@@ -397,4 +375,4 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

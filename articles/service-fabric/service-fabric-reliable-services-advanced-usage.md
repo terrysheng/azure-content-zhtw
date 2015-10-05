@@ -1,20 +1,20 @@
 <properties
    pageTitle="可靠的服務程式設計模型進階用法"
-	description="深入了解 Service Fabric 可靠服務程式設計模型的進階用法，以在服務中增加彈性。"
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="jessebenson"
-	manager="timlt"
-	editor="masnider"/>
+   description="深入了解 Service Fabric 可靠服務程式設計模型的進階用法，以在服務中增加彈性。"
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="jessebenson"
+   manager="timlt"
+   editor="masnider"/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="jesseb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="jesseb"/>
 
 # 可靠服務程式設計模型的進階用法
 Service Fabric 可簡化撰寫和管理可靠的無狀態與具狀態服務。本指南會討論到「可靠服務」程式設計模型的進階用法，以在您的服務中取得更多控制權和彈性。在閱讀這份指南之前，請您先熟悉＜[可靠的服務程式設計模型](service-fabric-reliable-services-introduction.md)＞。
@@ -59,7 +59,4 @@ StatefulServiceBase 也會提供與 StatelessServiceBase 相同的四個生命�
 
 - [放置條件約束概觀](service-fabric-placement-constraint.md)
 
-- [保護 Azure Service Fabric 中具狀態服務的複寫流量](service-fabric-replication-security.md)
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

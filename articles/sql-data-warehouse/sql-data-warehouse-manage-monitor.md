@@ -1,38 +1,24 @@
 <properties
    pageTitle="使用 DMV 監視工作負載 | Microsoft Azure"
-	description="了解如何使用 DMV 監視工作負載。"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="sahaj08"
-	manager="barbkess"
-	editor=""/>
+   description="了解如何使用 DMV 監視工作負載。"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sahaj08"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="08/06/2015"
-	ms.author="sahajs"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="sahajs"/>
 
 # 使用 DMV 監視工作負載
 
 本文說明如何使用動態管理檢視 (DMV)，在 Azure SQL 資料倉儲中監視工作負載及調查查詢執行。
-
-
-
-
-## 權限
-
-在 SQL 資料倉儲中，查詢動態管理檢視需要 **VIEW DATABASE STATE** 權限。**VIEW DATABASE STATE** 權限會傳回目前資料庫中所有物件的相關資訊。若要授與 **VIEW DATABASE STATE** 權限給特定的資料庫使用者，請執行下列查詢：
-
-```
-
-GRANT VIEW DATABASE STATE TO database_user;
-
-```
-
 
 
 
@@ -217,4 +203,4 @@ DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

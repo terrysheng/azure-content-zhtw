@@ -1,6 +1,6 @@
 <properties
-	pageTitle="使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器"
-	description="了解如何使用 Azure PowerShell 在 Azure 建立和預先設定以 Linux 為基礎的虛擬機器。"
+	pageTitle="使用 Azure Powershell 建立 Linux VM | Microsoft Azure"
+	description="了解如何使用 Azure PowerShell 建立和預先設定 Linux VM。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -11,23 +11,27 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/09/2015"
 	ms.author="cynthn"/>
 
-# 使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器
+# 使用 Azure PowerShell 建立和預先設定 Linux 虛擬機器
 
 > [AZURE.SELECTOR]
 - [Azure CLI](virtual-machines-linux-tutorial.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
-下列步驟示範如何使用建置區塊方法，自訂 Azure PowerShell 命令集，用來在服務管理中建立和預先設定以 Linux 為基礎的 Azure 虛擬機器。您可以使用此程序，對於以 Linux 為基礎的新虛擬機器建立命令集合，並擴充現有部署，或建立快速建置自訂開發/測試或 IT 專業環境的多個命令集。
+<br>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+
+下列步驟將示範如何利用一組 Azure PowerShell 命令，以傳統管理模型建立和預先設定 Linux 虛擬機器。您可以使用此程序，對於以 Linux 為基礎的新虛擬機器建立命令集合，並擴充現有部署，或建立快速建置自訂開發/測試或 IT 專業環境的多個命令集。
 
 這些步驟遵循建立 Azure PowerShell 命令集合的填空方法。如果您剛使用 Azure PowerShell 或只想知道可指定哪些值來成功設定組態，這個方法相當實用。進階的 Azure PowerShell 使用者可以使用命令並取代本身的變數值 (以「$」為開頭的行)。
 
-如需設定以 Windows 為基礎的虛擬機器系列主題，請參閱《[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)》。
+如需設定以 Windows 為基礎的虛擬機器系列主題，請參閱[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)。
 
 ## 步驟 1：安裝 Azure PowerShell
 
@@ -91,7 +95,7 @@
 
 	$vm1 | Add-AzureProvisioningConfig -Linux -SSHKeyPairs "<SSH key pairs>"
 
-如需詳細資訊，請參閱[如何搭配使用 SSH 與 Azure 上的 Linux](virtual-machines-linux-use-ssh-key.md)。
+如需詳細資訊，請參閱[如何在 Azure 上搭配使用 SSH 與 Linux](virtual-machines-linux-use-ssh-key.md)。
 
 也可選擇指定已在訂閱中部署的 SSH 公開金鑰清單。
 
@@ -158,7 +162,7 @@
 如果您將再次建立這個虛擬機器或類似的虛擬機器，您可以：
 
 - 將此命令集儲存為 PowerShell 指令碼檔案 (*.ps1)
-- 在 Azure 入口網站的 [**自動化**] 區段中，將這個命令集儲存為 Azure 自動化 Runbook。
+- 在 Azure 入口網站的 [自動化] 區段中，將這個命令集儲存為 Azure 自動化 Runbook。
 
 ## <a id="examples"></a>範例
 
@@ -260,4 +264,4 @@
 
 [使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

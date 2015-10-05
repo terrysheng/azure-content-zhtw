@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="為使用者設定 Azure AD Join| Microsoft Azure" 
-	description="說明系統管理員如何為其使用者 (員工、學生、其他使用者) 設定 Azure AD Join 的主題。" 
+	description="說明系統管理員如何為其組織中的使用者 (員工、學生、其他使用者) 設定 Azure AD Join 的主題。" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # 在組織中設定 Azure AD Join
@@ -47,8 +47,8 @@
 - 使用者可在個人裝置上將工作帳戶新增至 Windows 
 
 ## 其他資訊
-* [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-user-upgrade.md)
+* [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-overview.md)
 * [了解適用於 Azure AD Join 的使用案例](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

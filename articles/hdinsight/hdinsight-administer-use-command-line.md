@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="09/17/2015"
 	ms.author="jgao"/>
 
 # 使用 Azure 命令列介面 (Azure CLI) 管理 HDInsight 上的 Hadoop 叢集
@@ -160,4 +160,4 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "列出和顯示叢集"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

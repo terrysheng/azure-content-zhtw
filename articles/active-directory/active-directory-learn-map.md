@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # 深入了解 Azure AD
 
-###本主題的其他文章
+### 本主題的其他文章
 [什麼是 Azure AD？](active-directory-whatis.md)<br> [運作方式](active-directory-works.md)<br> [入門](active-directory-get-started.md)<br> [後續步驟](active-directory-next-steps.md)<br> [深入了解](active-directory-learn-map.md)
 
 我已有 Azure 訂用帳戶。與 Azure AD 有何關聯？ [訂閱帳戶如何與目錄產生關聯](active-directory-how-subscriptions-associated-directory.md)
@@ -36,6 +36,5 @@
 
 * [以組織身分註冊 Azure](sign-up-organization.md)
 * [Azure 身分識別](fundamentals-identity.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

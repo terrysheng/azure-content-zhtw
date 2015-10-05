@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/16/2015"
+   ms.date="09/23/2015"
    ms.author="alkohli" />
 
 # 打開包裝、掛接機架和佈線 StorSimple 8100 裝置
@@ -235,7 +235,7 @@
     3. DATA 0 連接埠與主要 LAN (具有網際網路存取的網路)。其他資料連接埠可以連線到網路的 SAN/iSCSI LAN (VLAN) 區段，視預期的角色而定。
 
     至少設定一個網路介面用於雲端存取，一個網路介面用於 iSCSI。對於高可用性和效能，請在每個控制器上設定網路介面的兩個配對。請參閱下圖的網路佈線。(最小的網路組態會以藍色實線顯示。對於高可用性和效能，需要的其他組態會以虛線顯示。)
-
+	
     ![為您的 2U 裝置進行網路佈線](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
     **您裝置的網路纜線**
@@ -277,4 +277,4 @@
 您現在已準備好[部署和設定您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)
  
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

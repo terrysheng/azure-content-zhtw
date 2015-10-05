@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Azure WebJobs 文件資源
@@ -142,4 +142,4 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

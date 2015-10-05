@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="09/16/2015" 
 	ms.author="awills"/>
  
 # 在 Eclipse 中利用 Java 開始使用 Application Insights
@@ -22,7 +22,7 @@ Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您
 
 ## 必要條件
 
-目前外掛程式可用於 Eclipse 中的動態網站專案。([將 Application Insights 加入至其他類型的 Java 專案][java]。)
+目前外掛程式可用於 Eclipse 中的 Maven 專案和動態網站專案。([將 Application Insights 加入至其他類型的 Java 專案][java]。)
 
 您需要：
 
@@ -46,29 +46,20 @@ Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您
 
 對每個 Java 專案遵循其餘的步驟。
 
-## 取得 Application Insights 檢測金鑰
+## 在 Azure 中建立 Application Insights 資源
 
-您的使用量和效能分析將顯示在 Azure Web 入口網站的 Azure 資源中。在此步驟中，您會為您的應用程式設定 Azure 資源。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 
 
-1. 登入 [Microsoft Azure 入口網站](https://portal.azure.com)。(您將需要 [Azure 訂用帳戶](http://azure.microsoft.com/)。)
-2. 建立新 Application Insights 資源
+## 將 Application Insights 加入至專案
 
-    ![按一下 + 並選擇 [Application Insights]](./media/app-insights-java-eclipse/01-create.png)
-3. 將應用程式類型設定為 Java Web 應用程式。
+1. 從 Java Web 專案的內容功能表將 Application Insights 加入。
 
-    ![填寫名稱，選擇 [Java Web 應用程式]，然後按一下 [建立]](./media/app-insights-java-eclipse/02-create.png)
-4. 尋找新資源的檢測金鑰。您將需要將此資訊貼上到 Eclipse 中的專案。
+    ![在新資源概觀中，按一下 [屬性] 並複製檢測金鑰](./media/app-insights-java-eclipse/02-context-menu.png)
 
-    ![在新資源概觀中，按一下 [屬性] 並複製檢測金鑰](./media/app-insights-java-eclipse/03-key.png)
-
-## 將 SDK 加入至您的 Java 專案
-
-1. 從 Web 專案的內容功能表將 Application Insights 加入。
-
-    ![在新資源概觀中，按一下 [屬性] 並複製檢測金鑰](./media/app-insights-java-eclipse/4-addai.png)
 2. 將您從 Azure 入口網站取得的檢測金鑰貼上。
 
-    ![在新資源概觀中，按一下 [屬性] 並複製檢測金鑰](./media/app-insights-java-eclipse/5-config.png)
+    ![在新資源概觀中，按一下 [屬性] 並複製檢測金鑰](./media/app-insights-java-eclipse/03-ikey.png)
 
 
 金鑰會隨著遙測的每個項目傳送，並告知 Application Insights 在您的資源中顯示它。
@@ -267,4 +258,4 @@ Application Insights 可讓您定期測試網站，以檢查網站運作中且�
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

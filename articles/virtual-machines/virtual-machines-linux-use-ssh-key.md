@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="使用 SSH 連接到 Azure 中的 Linux 虛擬機器" 
+	pageTitle="使用 SSH 來連線至 Linux 虛擬機器 | Microsoft Azure" 
 	description="了解如何在 Azure 的 Linux 虛擬機器上產生並使用 SSH 金鑰。" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -17,6 +18,8 @@
 	ms.author="szark"/>
 
 #如何對 Azure 上的 Linux 使用 SSH
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 目前版本的 Azure 管理入口網站僅接受封裝於 X509 憑證中的 SSH 公開金鑰。請遵循下列步驟，產生 SSH 金鑰並用於 Azure。
 
@@ -133,7 +136,7 @@
 
 ## 建立 Putty 的 PPK ##
 
-1. 從下列位置下載並安裝 Puttygen： [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. 從下列位置下載並安裝 Puttygen： [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 2. Puttygen 可能無法讀取稍早建立的私密金鑰 (`myPrivateKey.key`)。執行下列命令以將它轉譯成 Puttygen 可認得的 RSA 私密金鑰：
 
@@ -163,7 +166,7 @@
 
 ## 使用 Putty 連線到 Linux 機器 ##
 
-1.	從下列位置下載並安裝 putty： [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1.	從下列位置下載並安裝 putty： [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2.	執行 putty.exe
 3.	使用管理入口網站的 IP 來填入主機名稱：
 
@@ -176,4 +179,4 @@
 5.	按一下 [開啟] 以連線到虛擬機器。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

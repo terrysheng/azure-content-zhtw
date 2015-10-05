@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="Azure AD 密碼管理是什麼 | Microsoft Azure"
-	description="Azure AD 中的密碼管理功能說明，包括密碼重設、變更、密碼管理報告，以及本機內部部署 Active Directory 回寫。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+	description="Azure AD 中的密碼管理功能說明，包括密碼重設、變更、密碼管理報告，以及本機內部部署 Active Directory 回寫。"
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # 從任何地方管理您的密碼
@@ -40,7 +40,7 @@
 - **自助式密碼變更**可讓使用者或系統管理員變更過期或未過期密碼，無須向系統管理員或服務台請求支援。
 - **自助式密碼重設**可讓使用者或系統管理員自動重設密碼，無須向系統管理員或服務台請求支援。自助式密碼重設需要 Azure AD Premium 或 Basic。如需詳細資訊，請參閱 Azure Active Directory 版本。
 - **由系統管理員起始的密碼重設**可讓系統管理員在 [Azure 管理入口網站](https://manage.windowsazure.com)中重設使用者或其他系統管理員的密碼。
-- **密碼管理活動報告**讓系統管理員得以深入了解其組織內發生的密碼重設和註冊活動。 
+- **密碼管理活動報告**讓系統管理員得以深入了解其組織內發生的密碼重設和註冊活動。
 - **密碼回寫**允許從雲端管理內部部署密碼，讓同盟或已同步處理密碼的使用者能夠執行或代表上述所有案例。如果要進行密碼回寫，就必須使用 Azure AD Premium。如需詳細資訊，請參閱開始使用 Azure AD Premium。
 
 ## 為何要使用 Azure AD 密碼管理？
@@ -77,6 +77,6 @@
 * [密碼管理常見問題集](active-directory-passwords-faq.md)
 * [疑難排解密碼管理](active-directory-passwords-troubleshoot.md)
 * [深入了解](active-directory-passwords-learn-more.md)
-* [MSDN 上的密碼管理](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
+* [MSDN 上的密碼管理](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

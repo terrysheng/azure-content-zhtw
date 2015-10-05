@@ -17,6 +17,14 @@
 
 # 在 Azure App Service 中建立 Java Web 應用程式
 
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+
 本教學課程示範如何在 Microsoft Azure 上建立 Web 應用程式，方法是使用 Java、透過 Azure Marketplace 或 [Azure 應用程式服務中的 Web 應用程式功能][]的組態 UI。
 
 如果您不打算使用這些技術 (例如，如果您要自訂應用程式容器)，請參閱將[自訂的 Java Web 應用程式上傳至 Azure](web-sites-java-custom-upload.md)。
@@ -81,6 +89,8 @@
 
 此時，在 Azure 上，您會擁有作為 Java Web 應用程式執行的 Java 應用程式伺服器。若要加入您自己的應用程式或網頁，請參閱[將應用程式或網頁新增至 Java Web 應用程式](web-sites-java-add-app.md)。
 
+如需詳細資訊，請參閱 [Java 開發人員中心](/develop/java/)。
+
 ## 變更的項目
 
 * 如需從網站變更為 App Service 的指南，請參閱 [Azure App Service 及現有的 Azure 服務][]。
@@ -94,4 +104,4 @@
 [Azure App Service 及現有的 Azure 服務]: http://go.microsoft.com/fwlink/?LinkId=529714
 [瀏覽 Azure 入口網站的參考]: http://go.microsoft.com/fwlink/?LinkId=529715
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

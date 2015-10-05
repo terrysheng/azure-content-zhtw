@@ -1,11 +1,13 @@
 <properties
- pageTitle="有關虛擬機器擴充功能和功能 | Microsoft Azure"
- description="描述依提供或改善項目分組的虛擬機器擴充功能，例如連線能力和基本管理。"
+ pageTitle="虛擬機器擴充功能和功能 | Microsoft Azure"
+ description="了解哪些擴充功能適用於 Azure 虛擬機器，並依它們提供或改善的內容來分組。"
  services="virtual-machines"
  documentationCenter=""
  authors="squillace"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-service-management,azure-resource-manager"/>
+
 <tags
  ms.service="virtual-machines"
  ms.devlang="na"
@@ -17,7 +19,10 @@
 #有關虛擬機器擴充功能和功能
 Microsoft Azure 提供由 Microsoft 和信任的協力廠商提供者建置的 VM 擴充功能，來啟用安全性、執行階段、偵錯、管理和其他您可以利用的功能，以提高使用 Azure 虛擬機器時的產能。本主題描述 Azure VM 擴充功能提供給 Windows 和 Linux 虛擬機器以供您使用的各種功能，本主題也指向每一者的文件。
 
-如需 VM 代理程式以及它們如何運作以支援 VM 擴充功能的詳細資訊，請參閱 [VM 代理程式和 VM 擴充功能概觀](https://msdn.microsoft.com/library/dn832621.aspx)。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型，或以傳統部署模型建立的資源。
+
+
+如需 VM 代理程式，以及它們如何運作以支援 VM 擴充功能的詳細資訊，請參閱 [VM 代理程式和 VM 擴充功能概觀](https://msdn.microsoft.com/library/dn832621.aspx)。
 
 ##Azure VM 擴充功能
 
@@ -44,11 +49,11 @@ VM 擴充功能實作了您想要使用在 VM 使用的大部分重要功能，�
 |**CentosChefClient**|||
 |**ChefClient**|在 Windows 上建立 Chef 用戶端。(也可以使用下面的 DSC 擴充功能。)|[Chef 和 Microsoft Azure](https://www.getchef.com/solutions/azure/)|
 |**LinuxChefClient**|||
-|**DockerExtension**|安裝 Docker 背景程式以支援遠端 Docker 命令。|[如何使用 Docker 虛擬機器擴充功能](virtual-machines-docker-vm-extension.md)如需更廣泛的資訊，請參閱 [Docker VM 擴充功能使用者指南](https://github.com/Azure/azure-docker-extension/blob/master/README.md)|
+|**DockerExtension**|安裝 Docker 背景程式以支援遠端 Docker 命令。|[如何使用 Docker 虛擬機器擴充功能](virtual-machines-docker-vm-extension.md)如需更詳盡的資訊，請參閱 [Docker VM 擴充功能使用者指南](https://github.com/Azure/azure-docker-extension/blob/master/README.md) (英文)|
 |**DSC**|PowerShell DSC (需要狀態組態) 擴充功能。|[Azure PowerShell DSC (需要狀態組態) 擴充功能](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx)|
 |**PuppetEnterpriseAgent**|實作 Puppet Enterprise 的功能。 |[Puppet on Azure](http://puppetlabs.com/solutions/microsoft)|
 |**CustomScriptExtension** (Windows)**CustomScriptForLinux** (Linux)|隨時在 VM 上叫用自訂指令碼：啟動或存留期間。|[自訂指令碼擴充功能](https://msdn.microsoft.com/library/dn781373.aspx)[Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)|
-|**AzureCATExtensionHandler**|使用 **IaaSDiagnostics** 和幾個其他資料來源，例如 [Azure 儲存體分析度量](https://msdn.microsoft.com/library/azure/hh343270.aspx)所收集的診斷資料，並將它轉換成適合 SAP 主機控制程序使用的彙總資料集|[適用於 SAP 的 Azure 強化監視功能](http://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/)|
+|**AzureCATExtensionHandler**|使用 **IaaSDiagnostics** 和幾個其他資料來源，例如 [Azure 儲存體分析度量](https://msdn.microsoft.com/library/azure/hh343270.aspx)所收集的診斷資料，並將它轉換成適合 SAP 主機控制程序使用的彙總資料集。|[適用於 SAP 的 Azure 強化監視功能](http://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/)|
 
 ##安全性與保護
 
@@ -69,9 +74,9 @@ VM 擴充功能實作了您想要使用在 VM 使用的大部分重要功能，�
 
 |**VM 擴充功能名稱**|功能描述|相關資訊|
 |---|---|---|
-|**AzureVmLogCollector**|您可以視需要使用 **AzureVMLogCollector** 擴充功能，從一或多個雲端服務 VM (從 Web 角色和背景工作角色) 執行一次性的記錄收集，並將收集到的檔案傳輸到 Azure 儲存體帳戶 - 全都不必遠端登入任何 VM。 |[AzureLogCollector 擴充功能](https://msdn.microsoft.com/library/dn927183.aspx)|
-|**IaaSDiagnostics**|啟用、停用和設定 Azure 診斷，也由 **AzureCATExtensionHandler** 用來支援 SAP 監視。|[使用 Azure 診斷擴充功能監視 Microsoft Azure 虛擬機器](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)|
-|**OSPatchingForLinux**|可讓 Azure VM 管理員，使用自訂的組態進行自動化 VM 作業系統更新。您可以使用 OSPatching 擴充功能來設定虛擬機器的作業系統更新，包括：指定安裝作業系統修補程式的頻率和時機、指定安裝哪些修補程式，以及設定更新之後的重新開機行為|[作業系統修補擴充功能部落格文章](http://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/)。另請參閱 Github 上，位於[作業系統修補擴充功能](https://github.com/Azure/azure-linux-extensions)的讀我檔案和原始檔。|
+|**AzureVmLogCollector**|您可以視需要使用 **AzureVMLogCollector** 擴充功能，從一或多個雲端服務 VM (從 Web 角色和背景工作角色) 執行一次性的記錄收集作業，並將收集到的檔案傳輸到 Azure 儲存體帳戶，完全不必遠端登入任何 VM。 |[AzureLogCollector 擴充功能](https://msdn.microsoft.com/library/dn927183.aspx)|
+|**IaaSDiagnostics**|可啟用、停用和設定 Azure 診斷，也由 **AzureCATExtensionHandler** 用來支援 SAP 監視。|[使用 Azure 診斷擴充功能監視 Microsoft Azure 虛擬機器](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)|
+|**OSPatchingForLinux**|可讓 Azure VM 管理員，使用自訂的組態進行自動化 VM 作業系統更新。您可以使用 OSPatching 擴充功能來設定虛擬機器的作業系統更新，包括：指定安裝作業系統修補程式的頻率和時機、指定安裝哪些修補程式，以及設定更新之後的重新開機行為|[作業系統修補擴充功能部落格文章](http://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/) (英文)。另請參閱 Github 上，位於[作業系統修補擴充功能](https://github.com/Azure/azure-linux-extensions)的讀我檔案和原始檔。|
 
 ##開發和偵錯
 
@@ -96,4 +101,4 @@ VM 擴充功能實作了您想要使用在 VM 使用的大部分重要功能，�
 |**BGInfo**|呈現使用 RDP 時，桌面上實用伺服器資訊的整合圖形。|[BGInfo 擴充功能](https://msdn.microsoft.com/library/dn606289.aspx)|
 |**HpcVmDrivers**|在執行 Windows Server 2012 R2 或 Windows Server 2012，且大小為 A8 或 A9 的 VM 上安裝、設定及維護遠端直接記憶體存取 (RDMA) 網路裝置驅動程式。啟用安裝叢集的 A8 或 A9 VM，以便在執行平行 MPI 應用程式時使用 RDMA 網路。|[關於 A8、A9、A10 和 A11 密集運算執行個體](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

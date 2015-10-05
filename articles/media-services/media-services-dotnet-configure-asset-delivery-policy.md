@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="09/20/2015"  
 	ms.author="juliako"/>
 
 #作法：設定資產傳遞原則
@@ -101,6 +101,33 @@ HDS
             assetDeliveryPolicy.AssetDeliveryPolicyType);
     }
 
+Azure 媒體服務也可讓您加入 Widevine 加密。下列範例會示範 PlayReady 和 Widevine 如何新增到資產傳遞原則。
+
+	static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+	{
+	    Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
+	
+	    Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+	        new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+	    {
+	        {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+	        {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl,"http://testurl"},
+	        
+	    };
+	
+	    var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
+	            "AssetDeliveryPolicy",
+	        AssetDeliveryPolicyType.DynamicCommonEncryption,
+	        AssetDeliveryProtocol.Dash,
+	        assetDeliveryPolicyConfiguration);
+	
+	   
+	    // Add AssetDelivery Policy to the asset
+	    asset.DeliveryPolicies.Add(assetDeliveryPolicy);
+	
+	}
+
+>[AZURE.NOTE]以 Widevine 加密時，就只能使用 DASH 來傳遞。請務必在資產傳遞通訊協定中指定 DASH (2)。
 
 
 ##DynamicEnvelopeEncryption 資產傳遞原則 
@@ -287,8 +314,12 @@ HDS
         /// The initialization vector to use for envelope encryption.
         /// </summary>
         EnvelopeEncryptionIV,
-    } 
 
+        /// <summary>
+        /// Widevine DRM acquisition url
+        /// </summary>
+        WidevineLicenseAcquisitionUrl
+    }
 
 ##媒體服務學習路徑
 
@@ -297,4 +328,4 @@ HDS
 - [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # 開始使用 Azure 佇列儲存體和 Visual Studio 連線的服務
 
@@ -179,4 +179,4 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

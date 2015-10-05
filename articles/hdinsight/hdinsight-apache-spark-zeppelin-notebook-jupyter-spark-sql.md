@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="在 HDInsight 上佈建 Spark 叢集，並使用 Spark SQL 從 Zeppelin 和 Jupyter 執行互動式分析 | Microsoft Azure" 
-	description="說明如何在 HDInsight 中快速佈建 Apache Spark 叢集，接著使用 Spark SQL 從 Zeppelin 和 Jupyter Notebook 執行互動式查詢的逐步指示。" 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="在 Azure HDInsight 上佈建 Spark 叢集，並使用 Spark SQL 從 Zeppelin 和 Jupyter 執行互動式分析 | Microsoft Azure"
+	description="說明如何在 HDInsight 中快速佈建 Apache Spark 叢集，接著使用 Spark SQL 從 Zeppelin 和 Jupyter Notebook 執行互動式查詢的逐步指示。"
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/07/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/07/2015"
 	ms.author="nitinme"/>
 
 
-# 快速入門：在 HDInsight 上佈建 Apache Spark 並使用 Spark SQL 執行互動式查詢
+# 開始使用：在 Azure HDInsight 上佈建 Apache Spark 並使用 Spark SQL 執行互動式查詢
 
 [AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
 
 * [在 HDInsight 上佈建 Apache Spark 並使用 Spark SQL 執行互動式查詢](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1.md)
 
-了解如何使用快速建立選項在 HDInsight 中佈建 Apache Spark 叢集，然後使用網頁型的 [Zeppelin](https://zeppelin.incubator.apache.org) 和 [Jupyter](https://jupyter.org) Notebook 在 Spark 叢集上執行Spark SQL 互動式查詢。
+了解如何使用 [快速建立] 選項在 HDInsight 中佈建 Apache Spark 叢集，然後使用網頁型的 [Zeppelin](https://zeppelin.incubator.apache.org) 和 [Jupyter](https://jupyter.org) Notebook 在 Spark 叢集上執行 Spark SQL 互動式查詢。
 
 
    ![開始使用 HDInsight 中的 Apache Spark](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.GetStartedFlow.Spark.png "開始使用 HDInsight 教學課程中的 Apache Spark說明的步驟：建立儲存體帳戶、佈建叢集、執行 Spark SQL 陳述式")
@@ -34,32 +34,32 @@
 開始進行本教學課程之前，您必須擁有 Azure 訂用帳戶。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 
-##<a name="provision"></a>佈建 HDInsight Spark 叢集
+## <a name="provision"></a>佈建 HDInsight Spark 叢集
 
 在本節中，您將佈建採用 Spark 1.3.1 版的 HDInsight 3.2 版叢集。如需不同 HDInsight 版本及其 SLA 的相關資訊，請參閱〈[HDInsight 元件版本設定](hdinsight-component-versioning.md)〉。
 
->[AZURE.NOTE]本文章中的步驟能使用基本組態設定在 HDInsight 中建立 Apache Spark 叢集。如需其他叢集組態設定 (例如使用其他儲存體、Azure 虛擬網路或 Hive 中繼存放區) 的相關資訊，請參閱[使用自訂選項佈建 HDInsight 叢集](hdinsight-apache-spark-provision-clusters.md)。
+>[AZURE.NOTE]本文章中的步驟能使用基本組態設定在 HDInsight 中建立 Apache Spark 叢集。如需其他叢集組態設定 (例如，使用其他儲存體、Azure 虛擬網路或 Hive 中繼存放區) 的相關資訊，請參閱[使用自訂選項佈建 HDInsight 叢集](hdinsight-apache-spark-provision-clusters.md)。
 
 
 **佈建 Spark 叢集**
 
-1. 登入 [Azure 預覽入口網站](https://ms.portal.azure.com/)。 
+1. 登入 [Azure Preview 入口網站](https://ms.portal.azure.com/)。
 
-2. 請按一下 [新增]、[資料分析]，然後按一下 [HDInsight]。
+2. 依序按一下 [新增]、[資料 + 分析] 及 [HDInsight]。
 
     ![在 Azure Preview 入口網站中建立新的叢集](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.CreateCluster.1.png "在 Azure Preview 入口網站中建立新的叢集")
 
-3. 輸入 [叢集名稱]，針對 [叢集類型] 選取 [Hadoop]，然後從 [叢集作業系統] 下拉式清單中選取 [Windows Server 2012 R2 資料中心]。如果該叢集可用，其名稱旁會出現綠色核取記號。
+3. 輸入 [叢集名稱]、針對 [叢集類型] 選取 [Hadoop]，然後從 [叢集作業系統] 下拉式功能表中選取 [Windows Server 2012 R2 資料中心]。如果該叢集可用，叢集名稱旁就會出現綠色勾號。
 
 	![輸入叢集名稱和類型](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.CreateCluster.2.png "輸入叢集名稱和類型")
 
-4. 如果您有多個訂用帳戶，請按一下 [訂用帳戶] 項目，以選取將用於該叢集的 Azure 訂用帳戶。
+4. 如果您有多個訂用帳戶，請按一下 [訂用帳戶] 項目，以選取要用於該叢集的 Azure 訂用帳戶。
 
-5. 按一下 [資源群組] 來查看現有資源群組的清單，然後選取其中一個用來建立叢集。或者按一下 [建立新項目]，然後輸入新資源群組的名稱。出現綠色核取記號即表示新群組的名稱可用。
+5. 按一下 [資源群組] 來查看現有資源群組的清單，然後選取其中一個來建立叢集。或者按一下 [建立新項目]，然後輸入新資源群組的名稱。出現綠色勾號即表示新群組的名稱可供使用。
 
-	> [AZURE.NOTE]如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
+	> [AZURE.NOTE]如果有任何可用的資源群組，此項目即會預設為現有資源群組的其中一個群組。
 
-6. 按一下 [認證]，然後輸入 [叢集登入使用者名稱] 和 [叢集登入密碼]。如果您想要在叢集節點上啟用遠端桌面，請在 [啟用遠端桌面] 按一下 [是]，然後指定所需的值。本教學課程並不需要遠端桌面，因此您可以略過這個步驟。在底部按一下 [選取] 以儲存認證組態。
+6. 按一下 [認證]，然後輸入 [叢集登入使用者名稱] 和 [叢集登入密碼]。如果您想要在叢集節點上啟用遠端桌面，請針對 [啟用遠端桌面] 按一下 [是]，然後指定所需的值。本教學課程並不需要遠端桌面，因此您可以略過這個步驟。在底部按一下 [選取] 以儲存認證組態。
 
 	![提供叢集認證](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.CreateCluster.3.png "提供叢集認證")
 
@@ -71,14 +71,14 @@
 
 	- **選取方法**：將此設為 [來自所有訂用帳戶]，即可瀏覽您所有訂用帳戶中的儲存體帳戶。如果您想要輸入現有儲存體帳戶的 [儲存體名稱] 和 [存取金鑰]，請將此設為 [存取金鑰]。
 
-	- **選取儲存體帳戶 / 建立新的**：請按一下 [選取儲存體帳戶] 瀏覽並選取您要與叢集相關聯的現有儲存體帳戶。或按一下 [建立新項目] 來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可用，將會出現綠色核取記號。
+	- **選取儲存體帳戶 / 建立新的**：請按一下 [選取儲存體帳戶] 瀏覽並選取您要與叢集相關聯的現有儲存體帳戶。或按一下 [建立新項目] 來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可供使用，就會出現綠色勾號。
 
 	- **選擇預設容器**：使用此選項可輸入要用於該叢集的預設容器名稱。雖然您可以輸入任何名稱，但我們建議您使用與叢集相同的名稱，以便輕易辨識用於這個特定叢集的容器。
 
 	- **位置**：儲存體帳戶所在地或將建立的地理區域。
 
 		> [AZURE.IMPORTANT]選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
-	
+
 	按一下 [選取] 以儲存資料來源組態。
 
 8. 按一下 [節點定價層] 會顯示將針對此叢集建立之節點的相關資訊。設定該叢集所需的背景工作節點數目。該叢集的預估成本將會顯示在此刀鋒視窗內。
@@ -87,7 +87,7 @@
 
 	按一下 [選取] 以儲存此節點定價組態。
 
-9. 在 [新的 HDInsight 叢集] 刀鋒視窗中，確認已選取 [釘選到開始面板]，然後按一下 [建立]。這將會建立叢集，並將該叢集磚加入到您 Azure 入口網站的「開始面板」。該圖示可表示該叢集正在佈建，並將在佈建完成後變更為 HDInsight 圖示。
+9. 在 [新的 HDInsight 叢集] 刀鋒視窗中，確認已選取 [釘選到開始面板]，然後按一下 [建立]。這會建立叢集，並將該叢集磚加入到您 Azure 入口網站的開始面板。該圖示可表示該叢集正在佈建，並將在佈建完成後變更為 HDInsight 圖示。
 
 	| 佈建期間 | 佈建完成 |
 	| ------------------ | --------------------- |
@@ -95,14 +95,14 @@
 
 	> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。使用「開始面板」上的圖格或頁面左邊的 [通知] 項目，檢查佈建處理序。
 
-10. 佈建完成後，在「開始面板」按一下 Spark 叢集的圖格，以啟動叢集刀鋒視窗。
+10. 佈建完成後，在開始面板上按一下 Spark 叢集的磚，以啟動叢集刀鋒視窗。
 
 
-##<a name="zeppelin"></a>使用 Zeppelin Notebook 執行互動式 Spark SQL 查詢
+## <a name="zeppelin"></a>使用 Zeppelin Notebook 執行互動式 Spark SQL 查詢
 
 佈建叢集後，您可以使用網頁型的 Zeppelin Notebook 來針對 Spark HDInsight 叢集執行 Spark SQL 互動式查詢。在本節中，我們將使用叢集預設提供的範例資料檔案 (hvac.csv) 來執行一些互動式 Spark SQL 查詢。
 
->[AZURE.NOTE]叢集也預設會提供遵循以下指示建立的 Notebook。啟動 Zeppelin 後，您可以根據 **Zeppelin HVAC tutorial** 名稱來找到本 Notebook。
+>[AZURE.NOTE]叢集上預設也會提供遵循以下指示所建立的 Notebook。啟動 Zeppelin 後，您可以根據 **Zeppelin HVAC tutorial** 名稱來找到本 Notebook。
 
 1. 啟動 Zeppelin Notebook。在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Zeppelin Notebook]。出現提示時，輸入叢集的系統管理員認證。遵循頁面顯示的指示以啟動 Notebook。
 
@@ -112,13 +112,13 @@
 
 	在同一個頁面的 [**Notebook**] 標題下方，您應該會看到名稱開頭為 **Note XXXXXXXXX** 的新 Notebook。按一下新的 Notebook。
 
-3. 在新 Notebook 的網頁上按一下標題，需要的話可以變更 Notebook 的名稱。按下 ENTER 以儲存名稱變更。此外，請確定 Notebook 標頭在右上角顯示 [**已連接**] 狀態。
+3. 在新 Notebook 的網頁上按一下標題，並視需要變更 Notebook 的名稱。按下 ENTER 以儲存名稱變更。此外，請確定 Notebook 標頭在右上角顯示 [已連接] 狀態。
 
 	![Zeppelin Notebook 狀態](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.NewNote.Connected.png "Zeppelin Notebook 狀態")
 
 4. 將範例資料載入暫存資料表。當您在 HDInsight 中佈建 Spark 叢集時，系統會將範例資料檔案 **hvac.csv** 複製到相關聯的儲存體帳戶，其路徑為 **\HdiSamples\SensorSampleData\hvac**。
 
-	將以下程式碼片段貼入新 Notebook 中預設建立的空白段落。
+	將以下程式碼貼入新 Notebook 中預設建立的空白段落：
 
 		// Create an RDD using the default Spark context, sc
 		val hvacText = sc.textFile("wasb:///HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -139,7 +139,7 @@
 		// Register as a temporary table called "hvac"
 		hvac.registerTempTable("hvac")
 		
-	按下 **SHIFT + ENTER**，或按一下 [開始] 按鈕讓段落執行程式碼片段。段落右上角的狀態應該會從「準備就緒」逐一轉變成「擱置」、「執行中」及「已完成」。輸出會顯示在同一個段落的底部。螢幕擷取畫面如下所示：
+	針對該段落，按下鍵盤上的 **SHIFT + ENTER** 鍵，或按一下 [開始] 按鈕，來執行程式碼。段落右上角的狀態應該會從「準備就緒」逐一轉變成「擱置」、「執行中」及「已完成」。輸出會出現在同一個段落的底部。螢幕擷取畫面如下所示：
 
 	![從原始資料建立暫存資料表](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.LoadDataIntoTable.png "從原始資料建立暫存資料表")
 
@@ -158,17 +158,16 @@
 
 	![使用 Notebook 執行 Spark SQL 陳述式](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.SparkSQLQuery1.png "使用 Notebook 執行 Spark SQL 陳述式")
 
-	 按一下顯示選項 (以矩形反白顯示) 以針對相同輸出切換不同的表示法。按一下 [設定] 以選擇構成輸出中索引鍵和值的項目。上述螢幕擷取畫面使用 **buildingID** 做為索引鍵、平均 **temp\_diff** 做為值。
+	按一下顯示選項 (以矩形反白顯示) 以針對相同輸出切換不同的表示法。按一下 [設定] 以選擇構成輸出中索引鍵和值的項目。上述螢幕擷取畫面使用 **buildingID** 做為索引鍵、平均 **temp\_diff** 做為值。
 
-	
-6. 您也可以在查詢中使用變數來執行 Spark SQL 陳述式。下一個程式碼片段示範如何在查詢中利用您可能會用來查詢的值定義 **Temp** 變數。當您第一次執行查詢時，下拉式清單會自動填入您指定的變數值。
+6. 您也可以在查詢中使用變數來執行 Spark SQL 陳述式。下一個程式碼範例示範如何在查詢中利用您可能用來查詢的值來定義 **Temp** 變數。當您第一次執行查詢時，下拉式清單會自動填入您指定的變數值。
 
 		%sql
 		select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff
 		from hvac
-		where targettemp > "${Temp = 65,65|75|85}" 
+		where targettemp > "${Temp = 65,65|75|85}"
 
-	將此程式碼片段貼入新段落，然後按下 **SHIFT + ENTER**。以下螢幕擷取畫面顯示輸出。
+	將此程式碼範例貼入新段落，然後按下 **SHIFT + ENTER** 鍵。以下螢幕擷取畫面顯示輸出。
 
 	![使用 Notebook 執行 Spark SQL 陳述式](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.SparkSQLQuery2.png "使用 Notebook 執行 Spark SQL 陳述式")
 
@@ -178,11 +177,11 @@
 
 	![重新啟動 Zeppelin 解譯器](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Zeppelin.Restart.Interpreter.png "重新啟動 Zeppelin 解譯器")
 
-##<a name="jupyter"></a>使用 Jupyter Notebook 執行 Spark SQL 查詢
+## <a name="jupyter"></a>使用 Jupyter Notebook 執行 Spark SQL 查詢
 
 在本節中，您會使用 Jupyter Notebook 來針對 Spark 叢集執行 Spark SQL 查詢。
 
->[AZURE.NOTE]叢集也預設會提供遵循以下指示建立的 Notebook。啟動 Jupyter 後，您可以根據 **HVACTutorial.ipynb** 名稱來找到本 Notebook。
+>[AZURE.NOTE]叢集上預設也會提供遵循以下指示所建立的 Notebook。啟動 Jupyter 後，您可以根據 **HVACTutorial.ipynb** 名稱來找到本 Notebook。
 
 1. 啟動 Jupyter Notebook。在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入 Spark 叢集的系統管理員認證。
 
@@ -194,7 +193,7 @@
 
 	![提供 Notebook 的名稱](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.Jupyter.Notebook.Name.png "提供 Notebook 的名稱")
 
-4. 匯入所需的模組，然後建立 Spark 和 SQL 內容。將以下程式碼片段貼入空白儲存格，然後按下 **SHIFT + ENTER**。
+4. 匯入所需的模組，然後建立 Spark 和 SQL 內容。將以下程式碼範例貼入空白儲存格，然後按下 **SHIFT + ENTER** 鍵。
 
 		from pyspark import SparkContext
 		from pyspark.sql import SQLContext
@@ -204,14 +203,13 @@
 		sc = SparkContext('spark://headnodehost:7077', 'pyspark')
 		sqlContext = SQLContext(sc)
 
-	每當您在 Jupyter 中執行工作時，網頁瀏覽器視窗標題會顯示 Notebook 標題和 **(忙碌)** 狀態。您也會在右上角的 **Python 2** 文字旁看到實心圓。工作完成後，實心圓將會變成空心圓。
+	每當您在 Jupyter 中執行工作時，網頁瀏覽器視窗標題將會顯示 Notebook 標題和 **(忙碌)** 狀態。您也會在右上角的 **Python 2** 文字旁看到實心圓。工作完成後，實心圓將變成空心圓。
 
 	 ![Jupyter Notebook 工作的狀態](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Jupyter.Job.Status.png "Jupyter Notebook 工作的狀態")
 
-4. 將範例資料載入暫存資料表。當您在 HDInsight 中佈建 Spark 叢集時，系統會將範例資料檔案 **hvac.csv** 複製到相關聯的儲存體帳戶，其路徑為 **\HdiSamples\SensorSampleData\hvac**。
+4. 將範例資料載入暫存資料表。當您在 HDInsight 中佈建 Spark 叢集時，系統會將範例資料檔案 **hvac.csv** 複製到相關聯的儲存體帳戶，其路徑為 **\\HdiSamples\\SensorSampleData\\hvac**。
 
-	將以下程式碼片段貼入空白儲存格，然後按下 **SHIFT + ENTER**。此程式碼片段會將資料註冊到名為 **hvac** 的暫存資料表。
-
+	在空白儲存格中，貼上以下程式碼範例，然後按下 **SHIFT + ENTER** 鍵。此程式碼範例會將資料註冊到名為 **hvac** 的暫存資料表。
 
 		# Load the data
 		hvacText = sc.textFile("wasb:///HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -232,7 +230,7 @@
 		data = sqlContext.sql("select buildingID, (targettemp - actualtemp) as temp_diff, date from hvac where date = "6/1/13"")
 		data.show()
 
-5. 待工作順利完成後，畫面會出現以下輸出。
+5. 待工作順利完成後，即會顯示以下輸出。
 
 		buildingID temp_diff date  
 		4          8         6/1/13
@@ -256,12 +254,12 @@
 		9          -9        6/1/13
 		15         -10       6/1/13
 
-6. 重新啟動核心以結束應用程式。在頂端功能表列中依序按一下 [**核心**] 和 [**重新啟動**]，然後再按一下提示字元中的 [**重新啟動**]。
+6. 重新啟動核心以結束應用程式。在頂端功能表列中依序按一下 [核心] 和 [重新啟動]，然後再按一下提示字元中的 [重新啟動]。
 
 	![重新啟動 Jupyter 核心](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Jupyter.Restart.Kernel.png "重新啟動 Jupyter 核心")
 
 
-##<a name="seealso"></a>另請參閱
+## <a name="seealso"></a>另請參閱
 
 
 * [概觀：Azure HDInsight 上的 Apache Spark](hdinsight-apache-spark-overview.md)
@@ -282,4 +280,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="取得深入了解：Azure AD 密碼管理報告 |Microsoft Azure" 
-	description="本文說明如何使用報告，在您的組織中取得密碼管理作業的深入了解。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="取得深入了解：Azure AD 密碼管理報告 |Microsoft Azure"
+	description="本文說明如何使用報告，在您的組織中取得密碼管理作業的深入了解。"
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # 如何使用密碼管理報告取得 Operational Insights
@@ -106,14 +106,14 @@
 ### 允許的詳細資料資料行的值
 以下是使用密碼重設活動報告時，您預期的結果類型清單：
 
-詳細資料 | 結果類型 
+詳細資料 | 結果類型
 ----|----
 在完成電子郵件驗證選項之後使用者已放棄 | Abandoned
-在完成行動 SMS 驗證選項之後使用者已放棄|Abandoned 
-在完成行動語音通話驗證選項之後使用者已放棄 | Abandoned 
+在完成行動 SMS 驗證選項之後使用者已放棄|Abandoned
+在完成行動語音通話驗證選項之後使用者已放棄 | Abandoned
 在完成辦公室語音通話驗證選項之後使用者已放棄 | Abandoned
-在完成安全性問題選項之後使用者已放棄|Abandoned 
-在輸入其使用者識別碼之後使用者已放棄| Abandoned 
+在完成安全性問題選項之後使用者已放棄|Abandoned
+在輸入其使用者識別碼之後使用者已放棄| Abandoned
 在開始電子郵件驗證選項之後使用者已放棄|Abandoned
 在開始行動 SMS 驗證選項之後使用者已放棄|Abandoned
 在開始行動語音通話驗證選項之後使用者已放棄|Abandoned
@@ -141,7 +141,7 @@
 我們無法取得您的內部部署密碼重設服務。請檢查您的同步處理電腦的事件記錄檔|Failed
 我們在重設使用者的內部部署密碼時發現問題。請檢查您的同步處理電腦的事件記錄檔 | Failed
 此使用者不是密碼重設使用者群組的成員。將此使用者加入至該群組中以解決此問題。|Failed
-已針對此租用戶完全停用密碼重設。若要解決這個問題，請參閱[這裡](http://aka.ms/ssprtroubleshoot)。 | Failed 
+已針對此租用戶完全停用密碼重設。若要解決這個問題，請參閱[這裡](http://aka.ms/ssprtroubleshoot)。 | Failed
 使用者成功重設密碼|Succeeded
 
 **其他資源**
@@ -162,6 +162,5 @@
 [001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

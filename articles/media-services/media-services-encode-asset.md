@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="09/23/2015"  
 	ms.author="juliako"/>
 
 #Azure 隨選媒體編碼器的概觀和比較
@@ -70,13 +70,13 @@ Media Encoder Standard 使用[這裡](http://go.microsoft.com/fwlink/?linkid=618
 
 ###輸入和輸出中繼資料
 
-[這裡](http://msdn.microsoft.com/library/azure/dn783120.aspx) (和 Azure 媒體編碼器相同) 說明編碼器輸入中繼資料。
+[這裡](http://msdn.microsoft.com/library/azure/dn783120.aspx)說明編碼器輸入中繼資料。
 
-[這裡](http://msdn.microsoft.com/library/azure/dn783217.aspx) (和 Azure 媒體編碼器相同) 說明編碼器輸出中繼資料。
+[這裡](http://msdn.microsoft.com/library/azure/dn783217.aspx)說明編碼器輸出中繼資料。
 
 ###縮圖
 
-目前不支援。
+如需如何產生縮圖的相關資訊，請參閱[如何使用媒體編碼器標準產生縮圖](media-services-dotnet-generate-thumbnail-with-mes.md)。
 
 ###音訊和/或視訊重疊
 
@@ -112,7 +112,7 @@ Azure 媒體編碼器使用[這裡](https://msdn.microsoft.com/library/azure/dn6
 
 ###縮圖
 
-[建立縮圖](https://msdn.microsoft.com/library/azure/Dn673581.aspx)
+[建立縮圖](https://msdn.microsoft.com/library/hh973624.aspx)
 
 ###音訊和/或視訊重疊
 
@@ -127,14 +127,16 @@ Azure 媒體編碼器使用[這裡](https://msdn.microsoft.com/library/azure/dn6
 [使用 Dolby Digital Plus 將您的媒體編碼](media-services-encode-with-dolby-digital-plus.md)
 
 ##Media Encoder Premium Workflow
-	
+
+###概觀
+
+[介紹 Azure 媒體服務中的 Premium 編碼](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+
+###使用方式
+
 Media Encoder Premium Workflow 使用複雜的工作流程設定。您可以使用[工作流程設計工具](media-services-workflow-designer.md)建立和更新工作流程檔案。
 
-如需詳細資訊，請參閱：
-
-- [介紹 Azure 媒體服務中的 Premium 編碼](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-- [如何使用 Azure 媒體服務中的 Premium 編碼](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-
+[如何使用 Azure 媒體服務中的 Premium 編碼](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
 ##<a id="compare_encoders"></a>比較編碼器
 
@@ -254,4 +256,4 @@ Windows Media 音訊|否|是|是
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

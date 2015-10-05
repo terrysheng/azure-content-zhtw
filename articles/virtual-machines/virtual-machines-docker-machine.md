@@ -13,12 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="05/25/2015"
+   ms.date="09/22/2015"
    ms.author="rasquill"/>
 
 # 如何搭配 Azure 使用 docker-machine
 
 本主題說明如何搭配 [machine](https://github.com/docker/machine) 和 [Azure CLI](https://github.com/Azure/azure-xplat-cli) 使用 [Docker](https://www.docker.com/)，建立 Azure 虛擬機器，從執行 Ubuntu 的電腦上簡單快速地管理 Linux 容器。基於示範緣故，本教學課程將示範如何同時部署 [busybox Docker 中樞映像](https://registry.hub.docker.com/_/busybox/)和 [nginx Docker 中樞映像](https://registry.hub.docker.com/_/nginx/)，並設定容器以將 Web 路由要求傳送到 nginx 容器 (Docker **machine** 文件說明如何針對其他平台修改這些指示)。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+
 
 您必須具備一些先決條件，才能完成本教學課程。您將需要安裝下列項目：
 
@@ -38,7 +41,7 @@
 
 <br />
 
->  不論您選擇哪一個方法，都必須在命令列上直接呼叫二進位檔，或者放置二進位檔的路徑，例如 **/usr/local/bin**。請記得輸入 `chmod +x` &lt;*`binaryName`*&gt; 來確定已將它標記為可執行檔，其中 &lt;*`binaryName`*&gt; 是 Docker machine 可執行檔的名稱。本教學課程使用 **docker-machine\_linux-amd64**。
+>  不論您選擇哪一個方法，都必須在命令列上直接呼叫二進位檔，或者放置二進位檔的路徑，例如 **/usr/local/bin**。請記得輸入 `chmod +x` &lt;*`binaryName`*&gt; 來確定已將其標記為可執行檔，其中 &lt;*`binaryName`*&gt; 是 Docker machine 可執行檔的名稱。本教學課程使用 **docker-machine\_linux-amd64**。
 
 ## 建立適用於 docker、machine 及 Azure 的憑證和金鑰檔
 
@@ -210,4 +213,4 @@
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -3,7 +3,7 @@
 	description="了解如何對執行 Linux 的 Azure 虛擬機器 (VM) 擷取映像。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="karthmut"
+	authors="madhana"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/20/2015"
-	ms.author="karthmut"/>
+	ms.author="madhana"/>
 
 
 
@@ -162,4 +162,4 @@ Azure 會將此範本視為映像，並將其儲存在您的映像清單中。�
 [如何將資料磁碟連接至虛擬機器]: storage-windows-attach-disk.md
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

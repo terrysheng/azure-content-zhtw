@@ -5,7 +5,8 @@
 	documentationCenter="python"
 	authors="szarkos"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -15,7 +16,10 @@
 	ms.topic="article"
 	ms.date="06/11/2015"
 	ms.author="szark"/>
+
 #Azure 上的 Linux 簡介
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 本主題摘要說明在 Azure 雲端中使用 Linux 虛擬機器的相關資訊。使用組件庫中現存的映像來部署 Linux 虛擬機器會很簡單。
 
@@ -89,11 +93,10 @@ Azure 可將現有虛擬機器的狀態擷取到映像中，供以後用來部�
 在 Linux 上，資源磁碟通常由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像中的 **/mnt**)。
 
 
-	>[AZURE.NOTE] Note that the resource disk is a **temporary** disk, and might be deleted and reformatted when the VM is rebooted.
+	>[AZURE.NOTE] 請注意資源磁碟為**暫存**磁碟，可能會在重新啟動 VM 時遭到刪除並重新格式化.
 
 在 Linux 上，核心可能會將資料磁碟命名為 `/dev/sdc`，而使用者必須分割、格式化及掛接該資源。[如何將資料磁碟連接至虛擬機器](virtual-machines-linux-how-to-attach-disk.md)的教學課程中涵蓋這部分的逐步指示。
 
  - **另請參閱：** [在 Linux 上設定軟體 RAID](virtual-machines-linux-configure-raid.md)
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

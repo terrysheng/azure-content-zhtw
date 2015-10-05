@@ -3,7 +3,7 @@
 	description="了解如何從 Java 程式碼使用 Azure SQL Database。" 
 	services="sql-database" 
 	documentationCenter="java" 
-	authors="rmcmurray" 
+	authors="MightyPen" 
 	manager="jeffreyg" 
 	editor="jimbe"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
-	ms.author="robmcm"/>
+	ms.date="09/22/2015" 
+	ms.author="genemi"/>
 
 # 如何使用採用 Java 的 Azure SQL Database
 
@@ -698,6 +698,8 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 
 若要深入了解 Microsoft JDBC Driver for SQL Server，請參閱 [JDBC 驅動程式的概觀](http://msdn.microsoft.com/library/ms378749.aspx) (英文)。若要深入了解 SQL Database，請參閱 [SQL Database 概觀](http://msdn.microsoft.com/library/windowsazure/ee336241.aspx) (英文)。
 
+如需詳細資訊，也請參閱 [Java 開發人員中心](/develop/java/)。
+
 [Concepts]: #concepts
 [Prerequisites]: #prerequisites
 [Creating an Azure SQL Database]: #create_db
@@ -726,4 +728,4 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

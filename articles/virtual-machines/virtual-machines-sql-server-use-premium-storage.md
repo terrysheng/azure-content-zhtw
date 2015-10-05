@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="在虛擬機器上搭配使用 Azure 高階儲存體和 SQL Server"
-	description="本文提供如何利用在 Azure 虛擬機器上執行的 SQL Server，開始使用 Azure 高階儲存體的指導方針。其中包含新部署和移轉 IaaS 上現有 SQL Server 部署的範例。"
+	pageTitle="使用 Azure 高階儲存體搭配 SQL Server | Microsoft Azure"
+	description="本文會使用以傳統部署模型建立的資源，並提供使用 Azure 高階儲存體搭配 Azure 虛擬機器上執行之 SQL Server 的指導方針。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="danielsollondon"
 	manager="jeffreyg"
-	editor=""/>
+   editor="monicar"    
+   tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -21,7 +22,11 @@
 
 ## 概觀
 
-[Azure 高階儲存體](../storage-premium-storage-preview-portal.md)是新一代儲存體，可提供低延遲和高輸送量 IO。它最適合用於需要大量 IO 的重要工作負載，例如，IaaS [虛擬機器](http://azure.microsoft.com/services/virtual-machines/)上的 SQL Server。本文提供移轉執行 SQL Server 的虛擬機器來執行高階儲存體的規劃與指導方針。這包括 Azure 基礎結構 (網路功能、儲存體) 和客體 Windows VM 步驟。[附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)中的範例示範一個全方位的端對端移轉，說明如何透過 PowerShell 移動更大規模的 VM，來利用 改善的本機 SSD 儲存體。
+[Azure 高階儲存體](../storage-premium-storage-preview-portal.md)是新一代儲存體，可提供低延遲和高輸送量 IO。它最適合用於需要大量 IO 的重要工作負載，例如，IaaS [虛擬機器](http://azure.microsoft.com/services/virtual-machines/)上的 SQL Server。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括搭配傳統部署模型使用資源。
+
+本文提供移轉執行 SQL Server 的虛擬機器來執行高階儲存體的規劃與指導方針。這包括 Azure 基礎結構 (網路功能、儲存體) 和客體 Windows VM 步驟。[附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)中的範例示範一個全方位的端對端移轉，說明如何透過 PowerShell 移動更大規模的 VM，來利用 改善的本機 SSD 儲存體。
 
 請務必了解在 IAAS VM 上搭配使用 Azure 高階儲存體和 SQL Server 的端對端處理程序。其中包括：
 
@@ -143,7 +148,7 @@
 
 儲存體效能的程度取決於指定的 DS* VM 大小與 VHD 大小。VM 對於連結的 VHD 數量以及它們將支援的最大頻寬 (MB/秒) 有不同的容許程度。如需特定頻寬數，請參閱 [Azure 的虛擬機器和雲端服務大小](virtual-machines-size-specs.md)。
 
-提高 IOPS 可透過更大的磁碟大小來達成。當您考量移轉路徑時，應將這點納入考慮。如需詳細資訊，請參閱[適用於 IOPS 和磁碟類型的表格](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whzh-twing-premium-storage)。
+提高 IOPS 可透過更大的磁碟大小來達成。當您考量移轉路徑時，應將這點納入考慮。如需詳細資訊，請參閱[適用於 IOPS 和磁碟類型的表格](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whzh-TWing-premium-storage)。
 
 最後，請考量 VM 對於所有連結磁碟支援的磁碟頻寬上限各有不同。在高負載下，您可針對該 VM 角色大小充分使用可用的最大磁碟頻寬。例如，Standard_DS14 最多將支援 512MB/秒；因此，透過三個 P30 磁碟，您就能充分使用 VM 的磁碟頻寬。但在此範例中，根據讀取和寫入 IO 的組合而定，可能會超過輸送量限制。
 
@@ -421,7 +426,7 @@
 - 在設定次要項目時，可能需要較長的 SQL 資料傳輸時間。
 - 當您平行執行新機器時，會在移轉期間產生額外成本。
 
-#### 2\.移轉到新的 AlwaysOn 叢集
+#### 2.移轉到新的 AlwaysOn 叢集
 
 另一種策略是在新的雲端服務中，使用全新的節點來建立全新的 AlwaysOn 叢集，然後重新導向用戶端來使用該節點。
 
@@ -675,7 +680,7 @@
 
     Set-ClusterQuorum -NodeMajority  
 
-如需管理和設定叢集仲裁的詳細資訊，請參閱[設定和管理 Windows Server 2012 容錯移轉叢集中的仲裁](https://technet.microsoft.com/zh-tw/library/jj612870.aspx)。
+如需管理和設定叢集仲裁的詳細資訊，請參閱[設定和管理 Windows Server 2012 容錯移轉叢集中的仲裁](https://technet.microsoft.com/zh-TW/library/jj612870.aspx)。
 
 #### 步驟 6：擷取現有的端點和 ACL
     #GET Endpoint info
@@ -1144,4 +1149,4 @@
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

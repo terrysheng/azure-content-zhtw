@@ -13,7 +13,7 @@ ms.devlang="java"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/06/2015"
+ms.date="09/23/2015"
 ms.author="larryfr"/>
 
 #使用 Apache Storm on HDInsight 處理 Azure 事件中樞的車輛感應器資料
@@ -58,4 +58,4 @@ Storm 拓撲中使用的元件如下：
 
 若需更多範例 Storm 拓撲，請參閱 [Storm on HDInsight 上的範例拓撲](hdinsight-storm-example-topology.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -83,7 +83,7 @@ Web 角色預設會啟用診斷。Azure 雲端服務專案和儲存體帳戶已�
 
 ### 本機儲存體頁面
 
-您可以使用 [本機儲存體] 屬性頁面，為角色保留一或多個本機儲存體資源。本機儲存體資源是執行中角色執行個體所在之 Azure 虛擬機器的檔案系統中的保留目錄。如需有關如何使用本機儲存體資源的詳細資訊，請參閱[設定本機儲存體資源](https://msdn.microsoft.com/library/azure/ee758708.aspx)。
+您可以使用 [本機儲存體] 屬性頁面，為角色保留一或多個本機儲存體資源。本機儲存體資源是執行中角色執行個體所在之 Azure 虛擬機器的檔案系統中的保留目錄。如需有關如何使用本機儲存體資源的詳細資訊，請參閱[設定本機儲存體資源](../cloud-services/cloud-services-configure-local-storage-resources.md)。
 
 ### 憑證頁面
 
@@ -112,4 +112,4 @@ Web 角色預設會啟用診斷。Azure 雲端服務專案和儲存體帳戶已�
 
 若要深入了解設定 Azure 雲端服務專案，請參閱[在使用 Visual Studio 的 Azure 雲端服務專案中管理角色](vs-azure-tools-cloud-service-project-managing-roles.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

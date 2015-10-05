@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="深入了解：Azure AD 密碼管理 | Microsoft Azure" 
-	description="Azure AD 密碼管理的進階主題，包括密碼回寫的運作方式、密碼回寫安全性、密碼重設入口網站的運作方式，以及密碼重設使用哪些資料。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="深入了解：Azure AD 密碼管理 | Microsoft Azure"
+	description="Azure AD 密碼管理的進階主題，包括密碼回寫的運作方式、密碼回寫安全性、密碼重設入口網站的運作方式，以及密碼重設使用哪些資料。"
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # 深入了解密碼管理
@@ -280,6 +280,5 @@
 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

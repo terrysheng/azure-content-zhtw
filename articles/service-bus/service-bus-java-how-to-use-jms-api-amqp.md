@@ -1,9 +1,10 @@
 <properties 
 	pageTitle="如何使用 AMQP 1.0 與 Java 服務匯流排 API 搭配 | Microsoft Azure" 
-	description="了解如何搭配 Azure 服務匯流排和 Advanced Message Queuing Protodol (AMQP) 1.0 使用 Java Message Service (JMS)。" 
+	description="如何搭配 Azure 服務匯流排和 Advanced Message Queuing Protodol (AMQP) 1.0 使用 Java Message Service (JMS)。" 
 	services="service-bus" 
 	documentationCenter="java" 
 	authors="sethmanheim" 
+	writer="sethm" 
 	manager="timlt" 
 	editor=""/>
 
@@ -35,7 +36,7 @@
 
 ## 下載 AMQP 1.0 JMS 用戶端程式庫
 
-如需哪裡下載最新版 Apache Qpid JMS AMQP 1.0 用戶端程式庫的資訊，請造訪 [http://people.apache.org/\~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)。
+如需哪裡下載最新版 Apache Qpid JMS AMQP 1.0 用戶端程式庫的資訊，請造訪 [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)。
 
 您使用服務匯流排建立和執行 JMS 應用程式時，必須從 Apache Qpid JMS AMQP 1.0 散發封裝將下列 4 個 JAR 檔加入 Java CLASSPATH：
 
@@ -335,7 +336,10 @@ exit
 * [如何透過服務匯流排 .NET API 使用 AMQP 1.0](service-bus-dotnet-advanced-message-queuing.md)
 * [服務匯流排 AMQP 1.0 開發人員指南](http://msdn.microsoft.com/library/jj841071.aspx)
 * [如何使用服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md)
+* [Java 開發人員中心](/develop/java/)。
+
+
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

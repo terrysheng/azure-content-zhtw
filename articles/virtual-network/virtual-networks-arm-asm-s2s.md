@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/14/2015"
+   ms.date="09/18/2015"
    ms.author="telmos" />
 
 # 將傳統 VNet 連接到新的 VNet
@@ -363,4 +363,4 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 - 深入了解 [ARM 的網路資源提供者 (NRP)](../resource-groups-networking.md)。
 - 檢視有關如何[在傳統 VNet 和 ARM VNet 之間建立 S2S VPN 連線](../virtual-networks-arm-asm-s2s-howto.md)的一般指導方針。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

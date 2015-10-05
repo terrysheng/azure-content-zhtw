@@ -1,19 +1,19 @@
 <properties 
    pageTitle="如何設定 Azure Redis 快取"
-	description="了解 Azure Redis 快取的預設 Redis 組態，以及了解如何設定您的 Azure Redis 快取執行個體"
-	services="redis-cache"
-	documentationCenter="na"
-	authors="steved0x"
-	manager="dwrede"
-	editor="tysonn"/>
+   description="了解 Azure Redis 快取的預設 Redis 組態，以及了解如何設定您的 Azure Redis 快取執行個體"
+   services="redis-cache"
+   documentationCenter="na"
+   authors="steved0x"
+   manager="dwrede"
+   editor="tysonn" />
 <tags 
    ms.service="cache"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="cache-redis"
-	ms.workload="tbd"
-	ms.date="09/03/2015"
-	ms.author="sdanie"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="cache-redis"
+   ms.workload="tbd"
+   ms.date="09/22/2015"
+   ms.author="sdanie" />
 
 # 如何設定 Azure Redis 快取
 
@@ -170,4 +170,4 @@
 ## 後續步驟
 -	如需使用 Redis 命令的詳細資訊，請參閱[如何執行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)。
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

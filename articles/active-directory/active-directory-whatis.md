@@ -72,7 +72,7 @@ Azure AD 有多租用戶、地理位置分散且具有高可用性的設計，�
  - [試試看！](https://azure.microsoft.com/trial/get-started-active-directory/) - 您可以立即註冊免費 30 天的試用版，使用此連結不到 5 分鐘即可部署第一個雲端解決方案
  - 閱讀我們的〈開始使用 Azure AD〉了解秘訣和訣竅，獲得 Azure AD 租用戶並快速執行
 -	如果您是開發人員：
- - 請查看我們的 Azure Active Directory 的[開發人員手冊](https://msdn.microsoft.com/library/azure/ff800682.aspx)<need link>
+ - 請查看我們的 Azure Active Directory 的[開發人員手冊](active-directory-developers-guide.md) 
  - [開始使用試用版](https://azure.microsoft.com/trial/get-started-active-directory/) – 立即註冊免費 30 天的試用版，並開始與 Azure AD 整合您的應用程式
 
 
@@ -104,4 +104,4 @@ Azure AD 有多租用戶、地理位置分散且具有高可用性的設計，�
 
 - [如何探索組織內使用未經批准的雲端應用程式](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

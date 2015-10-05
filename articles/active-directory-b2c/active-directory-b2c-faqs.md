@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：常見問題集
@@ -105,4 +105,4 @@ Azure AD B2C 無法與 Office 365 一起使用。一般而言，它不能用來�
 
 您也可能想要檢閱目前的[預覽限制和條件約束](active-directory-b2c-limitations.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

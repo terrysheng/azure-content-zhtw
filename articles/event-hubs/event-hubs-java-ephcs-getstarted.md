@@ -34,7 +34,7 @@
 
 + Microsoft Visual Studio Express 2013 for Windows
 
-+ 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
++ 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
 
 ## 建立事件中心
 
@@ -95,6 +95,7 @@
 - [使用「事件中樞」相應放大事件處理]範例。
 - 使用服務匯流排佇列的[佇列訊息解決方案]。
 
+如需詳細資訊，也請參閱 [Java 開發人員中心](/develop/java/)。
 
 <!-- Images. -->
 [1]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub1.png
@@ -118,4 +119,4 @@
 [佇列訊息解決方案]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

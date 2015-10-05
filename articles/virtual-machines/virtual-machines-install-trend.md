@@ -1,6 +1,6 @@
 <properties
-	pageTitle="如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service | Microsoft Azure"
-	description="這篇文章描述如何在 Azure 中的 VM 上安裝和設定 Trend Micro 安全性。"
+	pageTitle="在 VM 上安裝 Trend Micro Deep Security | Microsoft Azure"
+	description="本文說明如何在 Azure 中，在以傳統部署模型建立的 VM 上安裝和設定 Trend Micro 安全性。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -20,7 +20,9 @@
 
 # 如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service
 
-本文說明如何在執行 Windows Server 的新或現有虛擬機器 (VM) 上，安裝和設定 Trend Micro Deep Security as a Service。Deep Security as a Service 包括反惡意程式碼防護、防火牆、入侵防禦系統及完整監視。請注意，這篇文章指的是使用傳統的部署模型所建立的虛擬機器。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明在使用傳統部署模型所建立的虛擬機器上安裝應用程式。
+
+本文說明如何在執行 Windows Server 的新或現有虛擬機器 (VM) 上，安裝和設定 Trend Micro Deep Security as a Service。Deep Security as a Service 包括反惡意程式碼防護、防火牆、入侵防禦系統及完整監視。
 
 透過 VM 代理程式，用戶端會安裝為安全性延伸模組。在新的虛擬機器上，您將安裝 VM 代理程式與 Deep Security 代理程式。在沒有 VM 代理程式的現有虛擬機器上，您必須先下載與安裝 VM 代理程式。本文將探討這兩種狀況。
 
@@ -28,13 +30,13 @@
 
 ## 在新的虛擬機器上安裝 Deep Security 代理程式
 
-當您使用 [從資源庫] 選項建立虛擬機器時，[Azure 入口網站](http://manage.windowsazure.com)可讓您安裝 VM 代理程式和 Trend Micro 安全性延伸模組。如果您打算建立單一虛擬機器，使用此方法可輕易地新增 Trend Micro 的防護。
+當您使用 [從主機庫] 選項建立虛擬機器時，[Azure 入口網站](http://manage.windowsazure.com)可讓您安裝 VM 代理程式和 Trend Micro 安全性擴充功能。如果您打算建立單一虛擬機器，使用此方法可輕易地新增 Trend Micro 的防護。
 
 此 [From Gallery] 選項會開啟可協助您設定虛擬機器的精靈。您可以使用精靈的最後一個頁面，來安裝 VM 代理程式和 Trend Micro 安全性延伸模組。如需一般指示，請參閱[在 Azure 入口網站中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial-classic-portal.md)。當您進入精靈的最後一個頁面時，請執行下列動作：
 
 1.	在 [VM 代理程式] 下，勾選 [安裝 VM 代理程式]。
 
-2.	在 [安全性延伸模組] 下，勾選 [Trend Micro Deep Security Agent]。
+2.	在 [安全性擴充功能] 下，勾選 [Trend Micro Deep Security Agent]。
 
 	![Install the VM Agent and the Deep Security Agent](./media/virtual-machines-install-trend/InstallVMAgentandTrend.png)
 
@@ -44,7 +46,7 @@
 
 若要執行此作業，您將需要下列項目：
 
-- 在本機電腦上安裝 Azure PowerShell 模組 0.8.2 版或更新版本。您可以使用 **Get-Module azure | format-table version** 命令，來檢查已安裝的 Azure PowerShell 版本。如需最新版本的指示與連結，請參閱[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)。
+- 在本機電腦上安裝 Azure PowerShell 模組 0.8.2 版或更新版本。您可以使用 **Get-Module azure | format-table version** 命令來檢查已安裝的 Azure PowerShell 版本。如需最新版本的指示與連結，請參閱[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)。
 
 - 在目標虛擬機器上安裝 VM 代理程式。
 
@@ -69,7 +71,7 @@
 
 讓代理程式安裝並開始執行需要幾分鐘的時間。之後，您必須在虛擬機器上啟用 Deep Security，才能由 Deep Security Manager 進行管理。如需其他指示，請參閱：
 
-- 與此解決方案相關的 Trend 文章：[Microsoft Azure 的即時雲端安全性](http://go.microsoft.com/fwlink/?LinkId=404101)
+- 與此解決方案相關的 Trend 文章：[Microsoft Azure 的即時雲端安全性](http://go.microsoft.com/fwlink/?LinkId=404101) (英文)
 - 設定虛擬機器的 [Windows PowerShell 指令碼範例](http://go.microsoft.com/fwlink/?LinkId=404100)
 - 範例的[指示](http://go.microsoft.com/fwlink/?LinkId=404099)
 
@@ -84,4 +86,4 @@
 [如何登入執行 Windows Server 的虛擬機器]: virtual-machines-log-on-windows-server.md
 [Azure VM 延伸模組與功能]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

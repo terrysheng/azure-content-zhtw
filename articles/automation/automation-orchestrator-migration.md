@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="09/17/2015"
    ms.author="bwren" />
 
 
 # 從 Orchestrator 移轉到 Azure 自動化
 
-[System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) 中的 Runbook 是根據來自專為 Orchestrator 編寫的整合套件的活動，而 Azure 自動化中的 Runbook 則是根據 Windows PowerShell 工作流程。Azure 自動化中的圖形化 Runbook 外觀都類似 Orchestrator Runbook，其活動代表 PowerShell Cmdlet、子 Runbook 和資產。
+[System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) 中的 Runbook 是根據來自專為 Orchestrator 編寫的整合套件的活動，而 Azure 自動化中的 Runbook 則是根據 Windows PowerShell 工作流程。Azure 自動化中的[圖形化 Runbook](automation-runbook-types#graphical-runbooks) 外觀都類似 Orchestrator Runbook，其活動代表 PowerShell Cmdlet、子 Runbook 和資產。
 
 [System Center Orchestrator 遷移工具組](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all)包含工具，可協助您將 Runbook 從 Orchestrator 轉換成 Azure 自動化。除了轉換 Runbook 本身，您必須將整合模組與用來整合模組與 Windows PowerShell Cmdlet 的活動轉換。
 
@@ -71,7 +71,7 @@ Microsoft 提供[整合套件](http://technet.microsoft.com/library/hh295851.asp
 
 ## Runbook 轉換器 (即將推出)
 
-此工具會將 Orchestrator Runbook 轉換為可以匯入 Azure 自動化的圖形化 Runbook。這項工具的進一步資訊將在可取得時提供。
+此工具會將 Orchestrator Runbook 轉換為可以匯入 Azure 自動化的[圖形化 Runbook](automation-runbook-types.md#graph-runbooks)。這項工具的進一步資訊將在可取得時提供。
 
 ## 相關文章
 
@@ -81,4 +81,4 @@ Microsoft 提供[整合套件](http://technet.microsoft.com/library/hh295851.asp
 - [Orchestrator 標準活動](http://technet.microsoft.com/library/hh403832.aspx)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

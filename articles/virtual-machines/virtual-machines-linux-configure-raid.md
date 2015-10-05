@@ -1,11 +1,13 @@
 <properties 
-	pageTitle="在 Azure 中執行 Linux 的虛擬機器上設定軟體 RAID" 
+	pageTitle="在執行 Linux 的虛擬機器上設定軟體 RAID | Microsoft Azure" 
 	description="了解如何使用 mdadm，在 Azure 的 Linux 上設定 RAID。" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
+	writer="szark" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tag="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -21,6 +23,7 @@
 # 在 Linux 上設定軟體 RAID
 在 Azure 的 Linux 虛擬機器上使用軟體 RAID，以單一 RAID 裝置的形式顯示多個連接的資料磁碟，這種案例很常遇到。相較於只使用單一磁碟，這通常可用來提高效能並允許增加輸送量。
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## 連接資料磁碟
 設定 RAID 裝置通常需要兩個以上的空白資料磁碟。本文將不會詳細說明如何將資料磁碟連接至 Linux 虛擬機器。請參閱 Microsoft Azure 文章[連接磁碟](storage-windows-attach-disk.md#attachempty)，取得如何在 Azure 上將空白資料磁碟連接至 Linux 虛擬機器的詳細指示。
@@ -178,4 +181,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

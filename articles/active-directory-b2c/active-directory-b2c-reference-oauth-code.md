@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 預覽：OAuth 2.0 授權碼流程
@@ -272,4 +272,4 @@ Here is the entire flow for a native  app; each request is detailed in the secti
 - [建立應用程式](active-directory-b2c-app-registration.md)來取得應用程式識別碼和 redirect\_uri。您可以在應用程式中加入**原生用戶端**。
 - [建立您的原則](active-directory-b2c-reference-policies.md)來取得原則名稱。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

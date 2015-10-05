@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # 開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務 (WebJob 專案)
 
@@ -238,4 +238,4 @@ Blob 回條儲存於 AzureWebJobsStorage 連接字串所指定之 Azure 儲存�
 
 本文提供的程式碼範例示範如何處理使用 Azure Blob 的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

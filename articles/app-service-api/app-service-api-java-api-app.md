@@ -18,6 +18,12 @@
 
 # 在 Azure App Service 中建置和部署 Java API 應用程式
 
+> [AZURE.SELECTOR]
+- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
+- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [Node.js](app-service-api-nodejs-api-app.md)
+- [Java](app-service-api-java-api-app.md)
+
 本教學課程說明如何建立 Java 應用程式，並使用 [Git](http://git-scm.com) 將其部署至 Azure App Service API 應用程式。本教學課程中的指示可運用在任何足以執行 Java 應用程式的作業系統上。本教學課程也使用 [Gradle](https://gradle.org) 來啟用 Java 應用程式的組建自動化和封裝相依性解析。最後，[RESTEasy](http://resteasy.jboss.org/) 用來建立符合 REST 限制的服務，並完全落實 [JaxRS](https://jax-rs-spec.java.net/) 規格。
 
 完成之應用程式的螢幕擷取畫面如下：
@@ -270,4 +276,4 @@
 [api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="IHenkel"
-	manager="stevepo"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/31/2015"
+	ms.date="09/21/2015"
 	ms.author="inhenk"/>
 
 # Azure AD 特殊權限身分識別管理
@@ -94,8 +94,7 @@ Azure AD 特殊權限身分識別管理員有一個儀表板可提供重要資�
 ![][6]
 
 ## 後續步驟
-
-[Microsoft Azure 部落格](http://azure.microsoft.com/blog/) [角色型存取控制](../role-based-access-control-configure.md)
+[AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-privileged-identity-management-configure/Search_PIM.png
@@ -105,4 +104,4 @@ Azure AD 特殊權限身分識別管理員有一個儀表板可提供重要資�
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

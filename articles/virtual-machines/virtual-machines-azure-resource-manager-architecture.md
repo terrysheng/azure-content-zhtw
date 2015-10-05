@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Azure 資源管理員架構"
-	description="了解資源管理員的架構，以及計算、網路和儲存體資源提供者之間的關聯性。"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+   pageTitle="Azure 資源管理員架構 | Microsoft Azure"
+   description="了解資源管理員的架構，以及計算、網路和儲存體資源提供者之間的關聯性。"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="davidmu1"
+   manager="timlt"
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -18,6 +18,8 @@
 	ms.author="davidmu"/>
 
 # Azure 資源管理員架構
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 本文提供服務管理與資源管理員架構的概觀，可用來建立以基礎結構為基礎的應用程式和工作負載。
 
@@ -79,4 +81,4 @@
 
 [Azure 資源管理員概觀](resource-group-overview.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

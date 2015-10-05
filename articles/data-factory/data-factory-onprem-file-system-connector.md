@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="從檔案系統來回移動資料 | Azure Data Factory"
-	description="了解如何使用 Azure Data Factory 從內部部署檔案系統來回移動資料。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="從檔案系統來回移動資料 | Azure Data Factory" 
+	description="了解如何使用 Azure Data Factory 從內部部署檔案系統來回移動資料。" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從內部部署檔案系統來回移動資料
@@ -561,7 +561,18 @@ encodingName | 指定編碼名稱。如需有效編碼名稱的清單，請參�
 
 ## 檔案共用複製活動類型屬性
 
-**FileSystemSource** 和 **FileSystemSink** 目前不支援任何屬性。
+**FileSystemSource** 支援下列屬性：
+
+| 屬性 | 說明 | 允許的值 | 必要 |
+| -------- | ----------- | -------------- | -------- |
+| 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 | True/False (預設值為 False)| 否 | 
+
+**FileSystemSink** 支援下列屬性：
+
+| 屬性 | 說明 | 允許的值 | 必要 |
+| -------- | ----------- | -------------- | -------- |
+| copyBehavior | 當來源為 BlobSource 或 FileSystem 時，定義複製行為。 | <p>有三種可能的 copyBehavior 屬性值。</p><ul><li>**PreserveHierarchy：**在目標資料夾中保留檔案的階層架構，亦即來源檔案和來源資料夾的相對路徑，與目標檔案和目標資料夾的相對路徑完全相同。</li><li>**FlattenHierarchy：**來源資料夾的所有檔案都會在目標資料夾的第一層中。目標檔案都會有自動產生的名稱。</li><li>**MergeFiles：**會將來源資料夾的所有檔案合併到一個檔案。如果已指定檔案/Blob 名稱，合併檔案名稱會是指定的名稱；否則，就會是自動產生的檔案名稱。</li></ul> | 否 |
+
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -576,4 +587,4 @@ encodingName | 指定編碼名稱。如需有效編碼名稱的清單，請參�
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

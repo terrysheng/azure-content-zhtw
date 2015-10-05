@@ -14,7 +14,8 @@
 
 Azure 提供的 Node.js 版本會持續進行更新。除非另有指定，否則會使用最新的版本。目前包含下列版本：
 
-- 0\.12.x：0.12.0
+- 4\.x.x：4.0.0
+- 0\.12.x：0.12.6、0.12.3、0.12.2、0.12.0
 - 0\.10.x：0.10.32、0.10.31、0.10.29、0.10.28、10.26、0.10.24、0.10.21、0.10.18、0.10.5
 - 0\.8.x：0.8.28、0.8.27、0.8.26、0.8.19、0.8.2
 - 0\.6.x：0.6.20、0.6.17
@@ -90,9 +91,11 @@ Azure 提供的 Node.js 版本會持續進行更新。除非另有指定，否�
 
 您已了解如何指定應用程式使用的 Node.js 版本，現在請了解如何[使用模組]、[建置並部署 Node.js 網站]和[如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]。
 
+如需詳細資訊，請參閱 [Node.js 開發人員中心](/develop/nodejs/)。
+
 [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]: xplat-cli.md
 [Azure 命令列工具]: xplat-cli.md
 [使用模組]: nodejs-use-node-modules-azure-apps.md
 [建置並部署 Node.js 網站]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

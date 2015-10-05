@@ -1,6 +1,6 @@
 <properties
-   pageTitle="如何在 Azure 中標記虛擬機器"
-   description="了解如何在 Azure 中標記虛擬機器"
+   pageTitle="如何標記 VM |Microsoft Azure"
+   description="了解如何標記以資源管理員部署模型建立的 Azure 虛擬機器。"
    services="virtual-machines"
    documentationCenter=""
    authors="mmccrory"
@@ -19,17 +19,19 @@
 
 # 如何在 Azure 中標記虛擬機器
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何標記以資源管理員部署模型建立的虛擬機器。
+
 本文說明在 Azure 中透過 Azure 資源管理員標記虛擬機器的不同方式。標記是使用者定義的索引鍵/值組，可直接置於資源或資源群組。Azure 目前對每一個資源和資源群組最多支援 15 個標記。標記可在建立或加入至現有資源時置於資源上。請注意，標籤只支援透過 Azure 資源管理員建立的資源。
 
 ## 透過範本標記虛擬機器
 
 首先，我們來看一下透過範本進行標記。[此範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm)將標記置於下列資源上：運算 (虛擬機器)、儲存體 (儲存體帳戶) 和網路 (公用 IP 位址、虛擬網路和網路介面)。
 
-從[範本連結](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm)按一下 [**部署至 Azure**] 按鈕。這會瀏覽至 [Azure Preview 入口網站](http://portal.azure.com/)，以便您部署此範本。
+按一下[範本連結](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) 中的 [部署至 Azure] 按鈕。這會瀏覽至 [Azure 預覽入口網站](http://portal.azure.com/)，以便您部署此範本。
 
 ![使用標記的簡單部署](./media/virtual-machines-tagging-arm/deploy-to-azure-tags.png)
 
-此範本包含下列標記：*部門*、*應用程式* 和*建立者*。如果您想要不同的標記名稱，您可以直接在範本中新增/編輯這些標記。
+此範本包含下列標記：「部門」、「應用程式」以及「建立者」。如果您想要不同的標記名稱，您可以直接在範本中新增/編輯這些標記。
 
 ![範本中的 Azure 標記](./media/virtual-machines-tagging-arm/azure-tags-in-a-template.png)
 
@@ -42,11 +44,11 @@
 
 在您使用您所選擇的標籤完成編輯後，儲存範本檔案。
 
-接著，在 [**編輯參數**] 區段中，您可以填寫標記的值。
+接著，在 [編輯參數] 區段中，您可以填寫標記的值。
 
 ![在 Azure 入口網站中編輯標記](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
 
-按一下 [**建立**]，使用您的標記值來部署此範本。
+按一下 [建立]，使用您的標記值來部署此範本。
 
 
 ## 透過入口網站進行標記
@@ -83,9 +85,9 @@
                 "Environment": "Production"
                }
 
-如果想要透過 PowerShell 新增標記，您可以使用 `Set-AzureResource` 命令。請注意，透過 PowerShell 標記更新時，標記會整體進行更新。所以，如果您將一個標記新增至已有標記的資源，您必須包含想要置於資源上的所有標記。以下是如何透過 PowerShell Cmdlet 將其他標記新增至資源的範例。
+如果要透過 PowerShell 新增標記，您可以使用 `Set-AzureResource` 命令。請注意，透過 PowerShell 標記更新時，標記會整體進行更新。所以，如果您將一個標記新增至已有標記的資源，您必須包含想要置於資源上的所有標記。以下是如何透過 PowerShell Cmdlet 將其他標記新增至資源的範例。
 
-第一個 Cmdlet 會使用 `Get-AzureResource` 和 `Tags` 函式，將置於 *MyWindowsVM* 上的所有標記設為 *tags* 變數。
+第一個 Cmdlet 會使用 `Get-AzureResource` 和 `Tags` 函數，將置於 *MyWindowsVM* 上的所有標記設為 *tags* 變數。
 
         PS C:\> $tags = (Get-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/virtualmachines" -ApiVersion 2015-05-01-preview).Tags
 
@@ -104,7 +106,7 @@
         Value		Production
         Name		Environment
 
-第三個命令會將其他標記新增至 *tags* 變數。請注意，使用 **+=** 將新的索引鍵/值組附加至 *tags* 清單。
+第三個命令會將其他標記新增至 *tags* 變數。注意，請使用 **+=** 將新的索引鍵/值組附加至 *tags* 清單。
 
         PS C:\> $tags +=@{Name="Location";Value="MyLocation"}
 
@@ -129,7 +131,7 @@
         Value		MyLocation
         Name		Location
 
-若要深入了解透過 PowerShell 進行標記，請參閱 [Azure 資源 Cmdlet][]。
+若要深入了解如何透過 PowerShell 進行標記，請參閱 [Azure 資源 Cmdlet][]。
 
 
 ## 透過 Azure CLI 進行標記
@@ -138,7 +140,7 @@
 
         azure vm show -g MyResourceGroup -n MyVM
 
-不同於 PowerShell，如果您要將標記新增至已包含標記的資源，不需指定所有的標記 (舊的和新的) 即可使用 `azure vm set` 命令。相反地，此命令可讓您將標記附加至您的資源。若要透過 Azure CLI 新增 VM 標記，您可以搭配使用 `azure vm set` 命令與標記參數 **-t**：
+不同於 PowerShell 的是，如果您要將標記新增至已含有標記的資源，不需指定所有標記 (無論新舊) 即可使用 `azure vm set` 命令。相反地，此命令可讓您將標記附加至您的資源。若要透過 Azure CLI 新增 VM 標記，您可以搭配使用 `azure vm set` 命令與標記參數 **-t**：
 
         azure vm set -g MyResourceGroup -n MyVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 
@@ -154,15 +156,15 @@
 
 透過 Azure 資源管理員置於運算、網路和儲存體資源上的標記，將會在計費入口網站填入您的使用量詳細資料。
 
-按一下 [**下載使用量詳細資料**] 以檢視您的訂用帳戶的使用量詳細資料。
+按一下 [下載使用量詳細資料]，以檢視訂用帳戶的使用量詳細資料。
 
 ![Azure 入口網站中的使用量詳細資料](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
 
-選取您的計費陳述式和 [**第 2 版**] 使用量詳細資料：
+選取您的計費陳述式和 [第 2 版] 使用量詳細資料：
 
 ![Azure 入口網站中的版本 2 預覽使用量詳細資料](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
 
-從使用量詳細資料，您可以在 [**標記**] 資料行中看到所有標記：
+從使用量詳細資料中，您可以在 [標記] 資料行中看到所有標記：
 
 ![Azure 入口網站中的標記資料行](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
 
@@ -180,11 +182,11 @@
 
 
 [PowerShell 環境與 Azure 資源管理員]: ../powershell-azure-resource-manager.md
-[Azure 資源 Cmdlet]: https://msdn.microsoft.com/zh-tw/library/azure/dn757692.aspx
+[Azure 資源 Cmdlet]: https://msdn.microsoft.com/zh-TW/library/azure/dn757692.aspx
 [Azure CLI 環境]: ./xplat-cli-azure-resource-manager.md
 [Azure 資源管理員概觀]: ../resource-group-overview.md
 [使用標記來組織 Azure 資源]: ../resource-group-using-tags.md
 [了解 Azure 帳單]: ../billing-understand-your-bill.md
 [深入瞭解 Microsoft Azure 資源耗用量]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

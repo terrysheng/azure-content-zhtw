@@ -1,6 +1,6 @@
 <properties
-	pageTitle="將磁碟附加至虛擬機器 | Microsoft Azure"
-	description="了解如何將資料磁碟附加至 Azure 虛擬機器，並初始化磁碟以便開始使用。"
+	pageTitle="將磁碟附加至 VM | Microsoft Azure"
+	description="將資料磁碟連接至以傳統部署模型建立的虛擬機器，並予以初始化。"
 	services="virtual-machines, storage"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,9 @@
 	ms.date="07/16/2015"
 	ms.author="cynthn"/>
 
-# 如何將資料磁碟附加至 Windows 虛擬機器
+# 將資料磁碟連接至以傳統部署模型建立的 Windows 虛擬機器
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。您也可以使用[資源管理員部署模型](virtual-machines-attach-disk-preview.md)建立資源。
 
 您可以附加空的磁碟和含有資料的磁碟。在這兩種情況下，磁碟實際上是位於 Azure 儲存體帳戶中的 .vhd 檔案。另外，在這兩種情況下，當您附加磁碟之後，磁碟必須完成初始化才能使用。
 
@@ -59,4 +61,4 @@
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

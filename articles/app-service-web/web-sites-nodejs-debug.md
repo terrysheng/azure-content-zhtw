@@ -110,6 +110,8 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 
 如需有關為應用程式指定 Node.js 版本的詳細資訊，請參閱＜[在 Azure 應用程式中指定 Node.js 版本]＞(英文)。
 
+如需詳細資訊，也請參閱 [Node.js 開發人員中心](/develop/nodejs/)。
+
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
@@ -125,4 +127,4 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

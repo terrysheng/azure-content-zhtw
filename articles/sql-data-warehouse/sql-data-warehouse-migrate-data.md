@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # 移轉資料
@@ -191,7 +191,7 @@ PolyBase 也支援一項稱為「遞迴資料夾周遊」的功能。您可以�
 
 [生產版本]: http://aka.ms/downloadazcopy/
 [預覽版本]: http://aka.ms/downloadazcopypr/
-[ADO.NET 目的地配接器]: https://msdn.microsoft.com/zh-tw/library/bb934041.aspx
-[SSIS 文件]: https://msdn.microsoft.com/zh-tw/library/ms141026.aspx
+[ADO.NET 目的地配接器]: https://msdn.microsoft.com/ZH-TW/library/bb934041.aspx
+[SSIS 文件]: https://msdn.microsoft.com/ZH-TW/library/ms141026.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

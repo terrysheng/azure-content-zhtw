@@ -174,6 +174,9 @@ QueueInfo 有相關方法可讓您調整佇列的屬性 (例如，針對要在�
 
 現在您已了解服務匯流排佇列的基本概念，請參閱[佇列、主題和訂用帳戶][]，以取得詳細資訊。
 
+如需詳細資訊，也請參閱 [Java 開發人員中心](/develop/java/)。
+
+
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/zh-TW/library/azure/hh694271.aspx
   [What are Service Bus Queues?]: #what-are-service-bus-queues
@@ -189,4 +192,4 @@ QueueInfo 有相關方法可讓您調整佇列的屬性 (例如，針對要在�
   [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="疑難排解以 Linux 為基礎之 Azure 虛擬機器的安全殼層 (SSH) 連線"
-	description="如果您無法連線以 Linux 為基礎的 Azure 虛擬機器，請使用下列步驟來隔離問題的來源。"
+	pageTitle="疑難排解 Linux VM 的 SSH 連線 | Microsoft Azure"
+	description="如果您無法連接以 Linux 為基礎的 Azure 虛擬機器，請使用這些步驟來釐清問題的來源。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -20,11 +20,13 @@
 
 # 疑難排解以 Linux 為基礎之 Azure 虛擬機器的安全殼層 (SSH) 連線
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何在以傳統部署模型，或以資源管理員部署模型建立的虛擬機器上疑難排解 SSH 連線。
+
 如果您無法連線到以 Linux 為基礎的 Azure 虛擬機器，本文將說明有條理隔離並更正問題的方法。
 
 ## 步驟 1：重設 SSH 組態、金鑰或密碼
 
-請遵循[如何為 Linux 虛擬機器重設密碼或 SSH](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) 中的指示。利用這些指示，您可以：
+請遵循[如何為 Linux 虛擬機器重設密碼或 SSH](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) 中關於虛擬機器的指示進行。利用這些指示，您可以：
 
 - 重設密碼或 SSH 金鑰。
 - 建立新的 sudo 使用者帳戶。
@@ -49,12 +51,12 @@
 
 在 Azure Preview 入口網站中：
 
-1. 按一下 [**瀏覽**] > [**虛擬機器**] > [*VM 名稱*]。如果是在 Azure 資源管理員中建立的虛擬機器，請按一下 [**瀏覽**] > [**虛擬機器 (v2)**] > [*VM 名稱*]。虛擬機器的狀態窗格應該會顯示為**執行中**。向下捲動以顯示計算、儲存體和網路資源的近期活動。
+1. 按一下 [**瀏覽**] > [**虛擬機器**] > [*VM 名稱*]。如果是在 Azure 資源管理員中建立的虛擬機器，請按一下 [瀏覽] > [虛擬機器 (v2)] > [VM 名稱]。虛擬機器的狀態窗格應該會顯示為**執行中**。向下捲動以顯示計算、儲存體和網路資源的近期活動。
 2. 按一下 [**設定**] 以檢查端點、IP 位址和其他設定。
 
 若要確認網路連線，請分析設定的端點，並判斷您是否可以透過另一個通訊協定 (例如 HTTP 或另一個已知的服務) 連接到虛擬機器。
 
-如有需要，請[重新啟動虛擬機器](https://msdn.microsoft.com/library/azure/dn763934.aspx)或[調整虛擬機器大小](https://msdn.microsoft.com/library/dn168976.aspx)。
+如有需要，請重新啟動虛擬機器或[調整虛擬機器大小](virtual-machines-size-specs.md)。
 
 在這些步驟之後，請再試一次 SSH 連線。
 
@@ -92,7 +94,7 @@
 
 ### 來源 2：組織邊緣裝置
 
-若要排除組織邊緣裝置為問題或錯誤設定來源之可能性，請確認直接連接到網際網路的電腦能 SSH 連線到您的 Azure 虛擬機器。如果您透過站對站 VPN 或 ExpressRoute 連線存取虛擬機器，請跳至[來源 4：網路安全性群組](#nsg)。
+若要排除組織邊緣裝置為問題或錯誤設定來源之可能性，請確認直接連接到網際網路的電腦能 SSH 連線到您的 Azure 虛擬機器。如果您透過網站間 VPN 或 ExpressRoute 連線存取虛擬機器，請跳至[來源 4：網路安全性群組](#nsg)。
 
 ![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot3.png)
 
@@ -118,7 +120,7 @@
 
 如果您可以建立 SSH 連線到相同虛擬網路中的虛擬機器，請檢查：
 
-- 目標虛擬機器上的 SSH 流量端點組態。此端點的私用 TCP 連接埠必須符合虛擬機器上 SSH 服務正在接聽的 TCP 連接埠，根據預設為 22。如果是在 Azure 資源管理員中使用範本建立的虛擬機器，請利用 [**瀏覽**] > [**虛擬機器 (v2)**] > [*VM 名稱*] > [**設定**] > [**端點**]，確認 Azure Preview 入口網站中的 SSH TCP 連接埠號碼。
+- 目標虛擬機器上的 SSH 流量端點組態。此端點的私用 TCP 連接埠必須符合虛擬機器上 SSH 服務正在接聽的 TCP 連接埠，根據預設為 22。如果是在 Azure 資源管理員中使用範本建立的虛擬機器，請利用 [瀏覽] > [虛擬機器 (v2)] > [VM 名稱] > [設定] > [端點]，確認 Azure 預覽入口網站中的 SSH TCP 連接埠號碼。
 - 目標虛擬機器上的 SSH 流量端點 ACL。ACL 讓您可指定要根據來源 IP 位址允許或拒絕來自網際網路的連入流量。設定錯誤的 ACL 會阻止送至端點的連入 SSH 流量。檢查您的 ACL，以確保允許來自您的 Proxy 或其他邊緣伺服器的公用 IP 位址之連入流量。如需詳細資訊，請參閱[關於網路存取控制清單 (ACL)](../virtual-network/virtual-networks-acl.md)。
 
 若要排除端點為問題或錯誤設定來源之可能性，請移除目前的端點，再指定 **SSH** 名稱 (TCP 連接埠 22 做為公用及私用連接埠編號)。如需詳細資訊，請參閱[在 Azure 中設定虛擬機器的端點](virtual-machines-set-up-endpoints.md)。
@@ -133,7 +135,7 @@
 
 ![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot5.png)
 
-如果您還沒這麼做，請遵循[如何為 Linux 虛擬機器重設密碼或 SSH](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) 中的指示。
+請遵循[如何為 Linux 虛擬機器重設密碼或 SSH](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) 中關於虛擬機器的指示進行 (如果您還沒這麼做)。
 
 再次嘗試來自您電腦的連線。如果無法成功，下列為某些可能的原因：
 
@@ -153,7 +155,7 @@
 
 如果無法重新建立虛擬機器，則可能是時候該提出 Azure 支援事件了。
 
-若要提出事件，請前往 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下**取得支援**。
+若要提出事件，請前往 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。
 
 如需使用 Azure 支援的相關資訊，請參閱 [Microsoft Azure 支援常見問題集](http://azure.microsoft.com/support/faq/)。
 
@@ -165,4 +167,4 @@
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

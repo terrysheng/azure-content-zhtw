@@ -1,5 +1,5 @@
  <properties
-   pageTitle="支援的權杖和宣告類型"
+   pageTitle="支援的權杖和宣告類型 | Microsoft Azure"
    description="可供了解及評估 Azure Active Directory (AAD) 所簽發之 SAML 2.0 和 JSON Web Token (JWT) 權杖中的宣告的指南。"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/12/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # 支援的權杖和宣告類型
@@ -412,4 +412,4 @@ Version 宣告儲存權杖的版本號碼。在 JWT 權杖中，使用者主體�
 
 [Azure Active Directory 驗證通訊協定](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

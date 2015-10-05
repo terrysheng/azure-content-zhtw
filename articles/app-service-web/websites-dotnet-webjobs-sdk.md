@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # 什麼是 Azure WebJobs SDK
@@ -104,4 +104,4 @@ WebJobs SDK 提供多種使用 Azure 儲存體的方法。例如，如果使用 
 如需 WebJobs SDK 的詳細資訊，請參閱 [Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="保護 SQL 資料倉儲中的資料庫 | Microsoft Azure"
-	description="保護 Azure SQL 資料倉儲中的資料庫以便開發解決方案的秘訣。"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="sahaj08"
-	manager="barbkess"
-	editor=""/>
+   description="保護 Azure SQL 資料倉儲中的資料庫以便開發解決方案的秘訣。"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sahaj08"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="06/22/2015"
-	ms.author="sahajs"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="sahajs"/>
 
 # 保護 SQL 資料倉儲中的資料庫
 
@@ -33,10 +33,23 @@
 
 當您為資料庫建立邏輯伺服器時，採取使用者名稱和密碼指定了「伺服器管理員」登入。使用這些認證，您就可以使用資料庫擁有者或 "dbo" 的身分驗證該伺服器上的任何資料庫。
 
-不過，最佳做法是，您的組織使用者應該使用其他的帳戶進行驗證，這樣 一來，您就能在應用程式程式碼容易遭受 SQL 插入式攻擊時，限制授予給應用程式的權限，並降低惡意活動的風險。建議的方法是建立自主資料庫使用者，讓您的應用程透過使用者名稱和密碼直接與單一資料庫進行驗證。您可以藉由執行下列 T-SQL，在使用伺服器管理員登入連線到您的使用者資料庫時，建立自主資料庫使用者：
+不過，最佳作法是，貴組織的使用者應該使用不同的帳戶來驗證。因為萬一應用程式的程式碼容易受到 SQL 插入式攻擊，您就可以限制授與應用程式的權限，並降低惡意活動的風險。若要依據伺服器登入建立資料庫使用者：
+
+首先，使用伺服器管理員登入連接到您伺服器上的主資料庫，並建立新的伺服器登入。
 
 ```
-CREATE USER ApplicationUser WITH PASSWORD = 'strong_password';
+-- Connect to master database and create a login
+CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
+
+```
+
+然後使用您的伺服器管理員登入，連接到 SQL 資料倉儲資料庫，並根據您剛建立的伺服器登入建立資料庫使用者。
+
+```
+
+-- Connect to SQL DW database and create a database user
+CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
+
 ```
 
 如需有關驗證 SQL Database 的詳細資訊，請參閱[管理 Azure SQL Database 中的資料庫和登入][]。
@@ -47,13 +60,17 @@ CREATE USER ApplicationUser WITH PASSWORD = 'strong_password';
 「授權」是指在 Azure SQL 資料倉儲內可以執行的動作，這是由使用者帳戶的角色成員資格和權限所控制。最好的作法是，您應該授與使用者所需的最低權限。Azure SQL 資料倉儲可讓您輕鬆地透過 T-SQL 中的角色進行上述管理：
 
 ```
-ALTER ROLE db_datareader ADD MEMBER ApplicationUser; -- allows ApplicationUser to read data
-ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser to write data
+EXEC sp_addrolemember 'db_datareader', 'ApplicationUser'; -- allows ApplicationUser to read data
+EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationUser to write data
 ```
 
 您所連線的伺服器管理員帳戶是 db\_owner 的成員，有權限在資料庫中執行任何動作。請儲存此帳戶，以便部署結構描述升級及其他管理作業。請使用具更多有限權限的 "ApplicationUser" 帳戶，從應用程式連線到具應用程式所需之最低權限的資料庫。
 
-有些方法能夠進一步限制使用者使用 Azure SQL Database 的方式：- db\_datareader 和 db\_datawriter 以外的[資料庫角色][]，可用來建立功能更強大的應用程式使用者帳戶，或功能次之的管理帳戶。- 細微[權限][]可讓您控制能對資料庫中的個別資料行、資料表、檢視、程序和其他物件執行的作業。[預存程序][]可用來限制能對資料庫採取的動作。
+有許多方式可以進一步限制使用者透過 Azure SQL Database 可以執行的動作：
+
+- 除了 db\_datareader 和 db\_datawriter 以外，[資料庫角色][]均可以用來建立權力較大的應用程式使用者帳戶，或權力較小的管理帳戶。
+- 細微的[權限][]可讓您控制您可以對資料庫中個別資料行、資料表、檢視、程序和其他物件執行哪些作業。
+- [預存程序][]可用來限制對資料庫可採取的動作。
 
 要從 Azure 管理入口網站或使用 Azure 資源管理員 API 管理資料庫和邏輯伺服器，是由入口網站使用者帳戶的角色指派所控制。如需有關此主題的詳細資訊，請參閱 [Azure Preview 入口網站中的角色型存取控制][]。
 
@@ -102,4 +119,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 <!--Other Web references-->
 [Azure Preview 入口網站中的角色型存取控制]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

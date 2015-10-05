@@ -1,11 +1,12 @@
 <properties
-	pageTitle="IPython Notebook | Microsoft Azure"
-	description="本教學課程說明如何使用執行 Linux 或 Windows 的虛擬機器 (VM)，在 Azure 上部署 IPython Notebook。"
-	services="virtual-machines"
+	pageTitle="建立 IPython Notebook | Microsoft Azure"
+	description="了解如何在 Azure 中以傳統部署模型建立的 Linux 或 Windows 虛擬機器上，部署 IPython Notebook。"
+	services="virtua-lmachines"
 	documentationCenter="python"
 	authors="huguesv"
 	manager="wpickett"
-	editor=""/>
+	editor=""
+	tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,8 +17,9 @@
 	ms.date="05/20/2015"
 	ms.author="huvalo"/>
 
-
 # Azure 上的 IPython Notebook
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明在使用傳統部署模型所建立的虛擬機器上部署 Notebook。
 
 [IPython 專案](http://ipython.org) 提供用於科學運算的工具集合，其中包括強大的互動式殼層、高效能且易於使用的平行庫，以及稱為 IPython Notebook 的 Web 型環境。對於將程式碼執行與即時運算文件的建立相互結合的互動式運算，Notebook 提供工作環境。這些 Notebook 文件可以包含任何文字、數學公式、輸入程式碼、結果、圖形、視訊，以及新型 Web 瀏覽器能夠顯示的其他任何類型的媒體。
 
@@ -49,7 +51,7 @@
 
 ![螢幕擷取畫面](./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-005.png)
 
-在此步驟後，[**端點**] 儀表板索引標籤將如下一個螢幕擷取畫面所示。
+在此步驟後，[端點] 儀表板索引標籤看起來會像下一個螢幕擷取畫面。
 
 ![螢幕擷取畫面](./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-006.png)
 
@@ -87,7 +89,7 @@
 
 若要在 Windows VM 上安裝 IPython 及其相依性，請使用遠端桌面連線至 VM。然後進行以下步驟，使用 Windows PowerShell 執行所有命令行動作。
 
-**注意**：為了使用 Internet Explorer 下載任何項目，您需要變更部分安全設定。從 [**伺服器管理員**] 中，按一下 [**本機伺服器**]，然後在 [**IE 增強式安全性設定**] 中為管理員將它關閉。您可以在安裝 IPython 後再次啟用它。
+**注意**：為了使用 Internet Explorer 下載任何項目，您必須變更部分安全性設定。從 [**伺服器管理員**]，按一下 [**本機伺服器**]，然後在 [**IE 增強式安全性設定**] 中為管理員將它關閉。您可以在安裝 IPython 後再次啟用它。
 
 1.  下載並安裝最新 32 位元版本的 [Python 2.7][]。您需要將 `C:\Python27` 和 `C:\Python27\Scripts` 加入 `PATH` 環境變數。
 
@@ -120,9 +122,9 @@
 
 1.  開啟 Windows 防火牆中的連接埠。在 Windows Server 2012 上，防火牆預設會阻擋傳入的連線。若要開啟連接埠 9999，請依照下列步驟執行：
 
-    - 從 [開始] 畫面啟動 [**具備進階安全性的 Windows 防火牆**]。
+    - 從 [**開始**] 畫面啟動 [**具備進階安全性的 Windows 防火牆**]。
 
-    - 在左側窗格中，按一下 [**內送規則**]。
+    - 在左側窗格中，按一下 [**輸入規則**]。
 
 	- 在 [動作] 窗格中，按一下 [**新增規則**]。
 
@@ -130,7 +132,7 @@
 
 	- 在下一個畫面中，選取 [TCP]，並且在 [指定本機連接埠] 中輸入 **9999**。
 
-	- 接受預設值，並且將規則命名，然後按一下 [**完成**]。
+	- 接受預設值，並且為規則命名，然後按一下 [**完成**]。
 
 ### 設定 IPython Notebook
 
@@ -270,4 +272,4 @@ IPython Notebook 為交互存取 Azure 上 Python 生態系統的功能提供強
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

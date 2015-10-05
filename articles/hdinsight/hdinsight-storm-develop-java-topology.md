@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/08/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 #使用 HDInsight 上的 Apache Storm 和 Maven 開發基本字數統計應用程式的 Java 型拓撲
@@ -467,4 +467,4 @@ Trident 是 Storm 提供的高層級抽象。它支援具狀態的處理。Tride
 
 您可透過瀏覽 [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)找到更多範例 Storm 拓撲。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

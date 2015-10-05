@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="選項 2：使用 Azure 管理入口網站套用 Update 1.2"
-   description="說明如何使用管理入口網站安裝 StorSimple 8000 系列 Update 1.2。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### 從 Azure 管理入口網站安裝 Update 1.2
 
@@ -27,4 +12,4 @@
 
 7. 您現在可以[使用管理入口網站安裝 Update 1.2](#use-the-management-portal-to-install-update-1)。請遵循從本程序步驟 3 開始的指示。當您安裝完所有更新後，便可重新啟用停用的網路介面。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Active Directory 企業對企業 (B2B) 共同作業"
-   description="Azure Active Directory B2B 共同作業可讓商務夥伴存取您的公司應用程式"
+   description="Azure Active Directory B2B 共同作業可讓商務夥伴存取您的公司應用程式，且每位使用者都可用單一 Azure AD 帳戶來代表"
    services="active-directory"
    documentationCenter=""
    authors="curtand"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/16/2015"
+   ms.date="09/17/2015"
    ms.author="curtand"/>
 
 # Azure Active Directory B2B 共同作業
@@ -48,18 +48,18 @@ Azure Active Directory B2B 共同作業的設定很簡單，各種規模的合�
 
 ## CSV 檔案格式
 
-CSV 檔案採用以下的格式。
+CSV 檔案採用以下的格式。新增所有必要的逗號，即使您沒有指定一個或多個選項。
 
-**電子郵件：**受邀使用者的電子郵件地址。<br/> **DisplayName：**受邀使用者的顯示名稱 (通常是名字和姓氏)。<br/> **InviteAppID：**在電子郵件邀請和接受網頁上用於表示商標的應用程式識別碼。<br/> **InviteReplyURL：**在受邀用者接受邀請後，將使用者導向此 URL。這應該是公司專屬的 URL (例如 [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/))。<br/> **InviteAppResources：**供應用程式指派使用者的 AppID。您可以呼叫 `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId` 擷取 AppID<br/> **InviteGroupResources：**供群組新增使用者的 ObjectID。您可以呼叫 `Get-MsolGroup | fl DisplayName, ObjectId` 擷取 ObjectID<br/> **InviteContactUsUrl：**可加入電子郵件邀請中的「連絡我們」URL，方便受邀使用者連絡您的組織。<br/>
+**電子郵件：**受邀使用者的電子郵件地址。<br/> **DisplayName：**受邀使用者的顯示名稱 (通常是名字和姓氏)。<br/> **InviteAppID：**在電子郵件邀請和接受網頁上用於表示商標的應用程式識別碼。<br/> **InviteReplyURL：**在受邀用者接受邀請後，將使用者導向此 URL。這應該是公司專屬的 URL (例如 [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/))。如果未指定這個選擇性的欄位，就會產生邀請公司的存取面板 URL (這個 URL 的格式為 `https://account.activedirectory.windowsazure.com/applications/default.aspx?tenantId=<TenantID>`)。<br/> **InviteAppResources：**供應用程式指派使用者的 AppID。您可以呼叫 `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId` 擷取 AppID<br/> **InviteGroupResources：**供群組新增使用者的 ObjectID。您可以呼叫 `Get-MsolGroup | fl DisplayName, ObjectId` 擷取 ObjectID<br/> **InviteContactUsUrl：**可加入電子郵件邀請中的「連絡我們」URL，方便受邀使用者連絡您的組織。<br/>
 
 ## CSV 檔案範例
 以下是 CSV 範例，請依用途自行修改。將它儲存為您喜歡的任何檔案名稱，但必須確定副檔名為 '.csv'。
 
 ```
 Email,DisplayName,InviteAppID,InviteReplyUrl,InviteAppResources,InviteGroupResources,InviteContactUsUrl
-wharp@contoso.com,Walter Harp,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/<br/>
-jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/<br/>
+wharp@contoso.com,Walter Harp,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
+jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 ```
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

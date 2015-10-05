@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/18/2015" 
 	ms.author="sergkanz"/>
  
 # 適用於 Windows Phone 和市集的 Application Insights 版本資訊
@@ -94,4 +94,4 @@
 
 沒有可用於較舊版本的版本資訊。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

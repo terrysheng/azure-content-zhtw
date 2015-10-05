@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：在取用者導向應用程式中啟用 Multi-Factor Authentication
@@ -53,4 +53,4 @@ Azure Active Directory (AD) B2C 直接整合 [Azure Multi-Factor Authentication]
 
 取用者登入 (使用社交或本機帳戶) 時，若已將通過驗證的電話號碼附加至取用者帳戶，系統會要求其進行驗證。若未附加電話號碼，系統會要求取用者提供一個電話號碼並加以驗證；驗證成功後，即會將此電話號碼附加至取用者帳戶以供之後使用。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

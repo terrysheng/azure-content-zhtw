@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### 透過 Windows PowerShell for StorSimple 安裝維護模式更新
 
@@ -25,4 +26,4 @@
 
 8. 更新這兩個控制站之後，結束維護模式。如需相關指示，請參閱[步驟 4：結束維護模式](storsimple-update-device.md#step4)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

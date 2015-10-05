@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/05/2015"
+	ms.date="09/23/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -144,4 +144,4 @@ BACPAC 會匯出至 Azure 儲存體 Blob 容器，以供您在作業順利完成
 - [災害復原詳細資訊](sql-database-disaster-recovery-drills.md)
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

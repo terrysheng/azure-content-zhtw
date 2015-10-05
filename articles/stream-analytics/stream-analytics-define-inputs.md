@@ -60,17 +60,17 @@ Azure 串流分析的輸入定義為資料來源的連接。在工作執行所�
 
 | 屬性 | 說明 |
 |------------------------------|--------------------------------------------------------------------|
-| System.EventProcessedUtcTime | 串流分析處理事件的日期與時間 |
-| System.EventEnqueuedUtcTime | 事件中樞收到事件的日期與時間 |
-| System.PartitionId | 輸入配接器以零起始的資料分割識別碼 |
+| EventProcessedUtcTime | 串流分析處理事件的日期與時間 |
+| EventEnqueuedUtcTime | 事件中樞收到事件的日期與時間 |
+| PartitionId | 輸入配接器以零起始的資料分割識別碼 |
 
 例如，您可以撰寫類似下列的查詢：
 
 
     SELECT
-    	System. EventProcessedUtcTime,
-    	System. EventEnqueuedUtcTime,
-    	System.PartitionId
+    	EventProcessedUtcTime,
+    	EventEnqueuedUtcTime,
+    	PartitionId
     FROM Input
 
 ## 建立 Blob 儲存體的資料流輸入
@@ -136,23 +136,23 @@ Azure 串流分析的輸入定義為資料來源的連接。在工作執行所�
 
 | 屬性 | 說明 |
 |--------------------------------|--------------------------------------------------------------------|
-| System.BlobName | 事件來源的輸入 Blob 名稱。 |
-| System.EventProcessedUtcTime | 串流分析處理事件的日期與時間 |
-| System.BlobLastModifiedUtcTime | 上次修改 Blob 的時間與日期 |
-| System.PartitionId | 輸入配接器以零起始的資料分割識別碼 |
+| BlobName | 事件來源的輸入 Blob 名稱。 |
+| EventProcessedUtcTime | 串流分析處理事件的日期與時間 |
+| BlobLastModifiedUtcTime | 上次修改 Blob 的時間與日期 |
+| PartitionId | 輸入配接器以零起始的資料分割識別碼 |
 
 例如，您可以撰寫類似下列的查詢：
 
 
     SELECT
-    	System.BlobName,
-    	System.EventProcessedUtcTime,
-    	System.BlobLastModifiedUtcTime
+    	BlobName,
+    	EventProcessedUtcTime,
+    	BlobLastModifiedUtcTime
     FROM Input
 
 
 ## 取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/ZH-TW/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟
 以上就是串流分析 (物聯網資料串流分析專用的受管理服務) 的簡介。若要深入了解此服務，請參閱：
@@ -170,4 +170,4 @@ Azure 串流分析的輸入定義為資料來源的連接。在工作執行所�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

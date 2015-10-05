@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="使用多個服務組態設定 Azure 專案"
-	description="使用多個服務組態設定 Azure 專案"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="使用多個服務組態設定 Azure 專案"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # 設定 Azure 專案
 
@@ -85,7 +85,7 @@ Web 角色預設會啟用診斷。Azure 雲端服務專案和儲存體帳戶已�
 
 ## 本機儲存體頁面
 
-您可以使用 [本機儲存體] 屬性頁面，為角色保留一或多個本機儲存體資源。本機儲存體資源是執行中角色執行個體所在之 Azure 虛擬機器的檔案系統中的保留目錄。如需有關如何使用本機儲存體資源的詳細資訊，請參閱[設定本機儲存體資源](https://msdn.microsoft.com/library/azure/ee758708.aspx)。
+您可以使用 [本機儲存體] 屬性頁面，為角色保留一或多個本機儲存體資源。本機儲存體資源是執行中角色執行個體所在之 Azure 虛擬機器的檔案系統中的保留目錄。如需有關如何使用本機儲存體資源的詳細資訊，請參閱[設定本機儲存體資源](../cloud-services/cloud-services-configure-local-storage-resources.md)。
 
 ## 憑證頁面
 
@@ -114,4 +114,4 @@ Web 角色預設會啟用診斷。Azure 雲端服務專案和儲存體帳戶已�
 
 [Azure Tools for Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="sabbour"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,7 +19,9 @@
 
 # MariaDB (MySQL) 叢集 - Azure 教學課程
 
-<p>我們要建立 [MariaDBs](https://mariadb.org/en/about/) 的多重主機 [Galera](http://galeracluster.com/products/) 叢集，它穩固、可擴充且非常可靠，可直接取代 MySQL，在 Azure 虛擬機器上的高可用性環境中運作。</p>
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立 MariaDB 叢集。
+
+我們要建立 [MariaDB](https://mariadb.org/en/about/) 的多重主機 [Galera](http://galeracluster.com/products/) 叢集，它穩固、可擴充且非常可靠，可在某些時刻取代 MySQL，在 Azure 虛擬機器上的高可用環境中運作。
 
 ## 架構概觀
 
@@ -368,6 +371,5 @@
 [最佳化和測試 Azure Linux VM 上的 MySQL 效能]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [Azure CLI 工具中的問題 #1268]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [在 Linux 上叢集 MySQL 的另一種方法]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

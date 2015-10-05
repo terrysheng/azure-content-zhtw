@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用 Azure 自動化管理 Azure 虛擬機器"
+	pageTitle="使用 Azure 自動化管理 VM | Microsoft Azure"
 	description="了解如何使用 Azure 自動化服務大規模地管理 Azure 虛擬機器。"
 	services="virtual-machines, automation"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/20/2015"
+	ms.date="08/11/2015"
 	ms.author="jolevy"/>
 
 
@@ -21,6 +21,8 @@
 #使用 Azure 自動化管理 Azure 虛擬機器
 
 本指南將為您介紹 Azure 自動化服務，以及如何使用它來簡化您的 Azure 虛擬機器管理。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## 什麼是 Azure 自動化？
 
@@ -42,4 +44,4 @@ Azure 自動化提供非常可靠且高度可用的工作流程執行引擎，�
 
 [開始使用 Azure 自動化](../automation-create-runbook-from-samples.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

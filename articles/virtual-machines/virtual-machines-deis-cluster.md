@@ -1,11 +1,12 @@
 <properties
-   pageTitle="在 Azure 上部署 3 個節點的 Deis 叢集"
+   pageTitle="部署 3 個節點的 Deis 叢集 | Microsoft Azure"
    description="本文說明如何使用 Azure 資源管理員，在 Azure 上建立 3 個節點的 Deis 叢集。"
    services="virtual-machines"
    documentationCenter=""
    authors="HaishiBai"
    manager="larar"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -20,15 +21,17 @@
 
 本文將指導您逐步完成在 Azure 上佈建 [Deis](http://deis.io/) 叢集。它涵蓋建立必要的憑證，以及在新佈建的叢集上部署及調整 **Go** 應用程式範例的所有步驟。
 
-下圖顯示已部署的系統之架構。系統管理員使用 Deis 工具 (如 **deis** 和 **deisctl**) 來管理叢集。連線是透過會將連線轉送到叢集上其中一個節點的 Azure 負載平衡器而建立。用戶端也是透過負載平衡器存取部署的應用程式。在此情況下，負載平衡器將流量轉送到 Deis 路由器網狀結構，進一步將流量路由至裝載於叢集上且相對應的 Docker 容器。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何以資源管理員部署模型建立資源。
+
+下圖顯示已部署的系統之架構。系統管理員會使用 Deis 工具 (如 **deis** 和 **deisctl**) 來管理叢集。連線是透過會將連線轉送到叢集上其中一個節點的 Azure 負載平衡器而建立。用戶端也是透過負載平衡器存取部署的應用程式。在此情況下，負載平衡器將流量轉送到 Deis 路由器網狀結構，進一步將流量路由至裝載於叢集上且相對應的 Docker 容器。
 
   ![已部署之 Desis 叢集的架構圖](media/virtual-machines-deis-cluster/architecture-overview.png)
 
 若要完成下列步驟，您需要：
 
  * 有效的 Azure 訂用帳戶。如果沒有，您可以在 [azure.com](https://azure.microsoft.com) 免費取得一個。
- * 用於 Azure 資源群組的工作或學校識別碼。如果您有個人帳戶且使用 Microsoft ID 登入，則您需要[以您的個人識別碼建立一個供作識別碼](resource-group-create-work-id-from-personal.md)。
- * 依您的用戶端作業系統而定 -- [Azure PowerShell](powershell-install-configure.md) 或 [適用於 Mac、Linux 和 Windows 的 Azure CLI](xplat-cli-install.md)。
+ * 用於 Azure 資源群組的工作或學校識別碼。如果您有個人帳戶且使用 Microsoft ID 登入，則您需要[以您的個人識別碼建立一個工作識別碼](resource-group-create-work-id-from-personal.md)。
+ * 依您的用戶端作業系統而定 -- [Azure PowerShell](powershell-install-configure.md) 或[適用於 Mac、Linux 和 Windows 的 Azure CLI](xplat-cli-install.md)。
  * [OpenSSL](https://www.openssl.org/)。OpenSSL 是用來產生必要的憑證。
  * Git 用戶端，例如 [Git Bash](https://git-scm.com/)。
  * 若要測試範例應用程式，您也需要 DNS 伺服器。您也可以使用任何 DNS 伺服器或 支援萬用字元 A 記錄的服務。
@@ -54,10 +57,10 @@
 
         openssl req -x509 -days 365 -new -key [your private key file] -out [cert file to be generated]
 
-5. 移至 [https://discovery.etcd.io/new](https://discovery.etcd.io/new) 來產生新的叢集權杖，看起來如下：
+5. 移至 [https://discovery.etcd.io/new](https://discovery.etcd.io/new) 來產生新的叢集權杖，看起來會像下面這樣：
 
         https://discovery.etcd.io/6a28e078895c5ec737174db2419bb2f3
-<br /> 每個 CoreOS 叢集必須有這項免費服務提供的唯一權杖。詳細資訊請參閱 [CoreOS 文件](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) (英文)。
+<br /> 每個 CoreOS 叢集都必須有這項免費服務提供的唯一權杖。如需詳細資訊，請參閱 [CoreOS 文件](https://coreos.com/docs/cluster-management/setup/cluster-discovery/)。
 
 6. 修改 **cloud-config.yaml**，以新權杖取代現有的 **discovery** 權杖：
 
@@ -70,7 +73,7 @@
             discovery: https://discovery.etcd.io/3973057f670770a7628f917d58c2208a
         ...
 
-7. 修改 **azuredeploy parameters.json** 檔案：開啟您在步驟 4 於文字編輯器中建立的憑證。將 `----BEGIN CERTIFICATE-----` 和 `-----END CERTIFICATE-----` 之間的所有文字複製到 **sshKeyData** 參數中 (您必須移除所有新行字元)。
+7. 修改 **azuredeploy parameters.json** 檔案：開啟您在步驟 4 中，於文字編輯器內建立的憑證。將 `----BEGIN CERTIFICATE-----` 和 `-----END CERTIFICATE-----` 之間的所有文字複製到 **sshKeyData** 參數中 (您必須移除所有新行的字元)。
 
 8. 修改 **newStorageAccountName** 參數。這是 VM OS 磁碟的儲存體帳戶。此帳戶名稱必須是全域唯一的。
 
@@ -124,7 +127,7 @@
     deisctl install platform
     deisctl start platform
 
-> [AZURE.NOTE]啟動平台需要一些時間 (最多 10 分鐘)。尤其啟動建立器服務需要較長的時間。而且有時要嘗試幾次才會成功：若作業似乎無回應，請嘗試輸入 `ctrl+c` 來中斷命令的執行，然後再試一次。
+> [AZURE.NOTE]啟動平台需要一些時間 (最多 10 分鐘)。尤其啟動建立器服務需要較長的時間。而且有時要嘗試幾次才會成功：如果作業似乎無回應，請嘗試輸入 `ctrl+c` 來中斷命令的執行，然後再試一次。
 
 您可以使用 `deisctl list` 確認是否所有服務都在執行：
 
@@ -162,7 +165,7 @@
 
 ## 部署及調整 Hello World 應用程式
 
-以下步驟說明如何將 Go 應用程式「Hello World」部署到叢集。步驟皆是根據 [Deis 文件](http://docs.deis.io/en/latest/using_deis/using-dockerfiles/#using-dockerfiles) (英文)。
+以下步驟說明如何將 Go 應用程式「Hello World」部署到叢集。這些步驟皆是以 [Deis 文件](http://docs.deis.io/en/latest/using_deis/using-dockerfiles/#using-dockerfiles) (英文) 為基礎。
 
 1. 為了讓路由網狀結構正確運作，您指向負載平衡器公用 IP 的網域必須有萬用字元 A 記錄。以下螢幕擷取畫面顯示在 GoDaddy 上註冊之範例網域的 A 記錄：
 
@@ -197,7 +200,7 @@
         deis create
         git push deis master
 <p />
-8. git push 會觸發建置及部署 Docker 映像，這需要幾分鐘來完成。根據我的經驗，第 10 步驟 (將映像推送到私用儲存機制) 通常會無回應。若發生此情況，您可以停止程序，並使用 `deis apps:destroy –a <application name>` 移除應用程式，然後再試一次。您也可以使用 `deis apps:list` 來尋找您應用程式的名稱。如果一切都正常運作，您會在命令輸出的結尾看到訊息如下：
+8. git push 會觸發建置及部署 Docker 映像，這需要幾分鐘來完成。根據我的經驗，第 10 步驟 (將映像推送到私用儲存機制) 通常會無回應。若發生此情況，您可以停止程序，並使用 `deis apps:destroy –a <application name>` 來移除應用程式，然後再試一次。您也可以使用 `deis apps:list` 來尋找應用程式的名稱。如果一切都正常運作，您會在命令輸出的結尾看到訊息如下：
 
         -----> Launching...
                done, lambda-underdog:v2 deployed to Deis
@@ -254,4 +257,4 @@
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

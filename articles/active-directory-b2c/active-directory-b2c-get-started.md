@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：如何建立 Azure AD B2C 目錄
@@ -67,4 +67,4 @@
 
 移至[使用 Azure AD B2C 註冊應用程式並建置快速啟動應用程式](active-directory-b2c-app-registration.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

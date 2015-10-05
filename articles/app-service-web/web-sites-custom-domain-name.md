@@ -130,7 +130,7 @@
 
 ## 後續步驟
 
-如需詳細資訊，請參閱：[開始使用 Azure DNS](../dns/dns-getstarted-create-dnszone) 和[將網域委派給 Azure DNS](../dns/dns-domain-delegation)
+如需詳細資訊，請參閱：[開始使用 Azure DNS](../dns/dns-getstarted-create-dnszone.md) 和[將網域委派給 Azure DNS](../dns/dns-domain-delegation.md)
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -147,4 +147,4 @@
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

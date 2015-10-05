@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.date="09/23/2015"
 	ms.author="larryfr"/>
 
 
@@ -241,4 +241,4 @@ Hive 與 Pig 很適合在 Azure HDInsight 中處理資料，但您有時需要�
 
 * 〈[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)〉
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

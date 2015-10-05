@@ -163,10 +163,11 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 ## 後續步驟
 
-了解基本的服務匯流排佇列之後，請參考下列連結以取得更多資訊。
+如需詳細資訊，請參閱下列資源。
 
--   請參閱[佇列、主題和訂用帳戶][]。
--   造訪 GitHub 上的 [Azure SDK for Node][] (英文) 儲存機制。
+-   [佇列、主題和訂閱][]
+-   GitHub 上的 [Azure SDK for Node][] 儲存機制。
+-   [Node.js 開發人員中心](/develop/nodejs/)
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
   [後續步驟]: #next-steps
@@ -183,10 +184,10 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
   [Azure Management Portal]: http://manage.windowsazure.com
   
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
+  [佇列、主題和訂閱]: service-bus-queues-topics-subscriptions.md
   [建立 Node.js 應用程式並將其部署到 Azure 網站]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [使用儲存體的 Node.js 雲端服務]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [使用儲存體的 Node.js Web 應用程式]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

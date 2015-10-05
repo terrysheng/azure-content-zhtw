@@ -1,19 +1,19 @@
 <properties
 	pageTitle="在 Azure AD 中指派系統管理員角色"
-	description="本主題說明 Azure AD 可用的系統管理員角色和其指派方式。"
+	description="說明 Azure AD 可用的系統管理員角色和其指派方式。"
 	services="active-directory"
 	documentationCenter=""
-	authors="curtand" 
+	authors="curtand"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # 在 Azure AD 中指派系統管理員角色
@@ -68,14 +68,14 @@
 
 全域管理員可以存取所有系統管理功能。註冊 Azure 訂用帳戶的人員預設會獲指派目錄的全域管理員角色。只有全域管理員才能指派其他系統管理員角色。
 
-## 指派或移除系統管理員角色
+## 指派或移除系統管理員角色 
 
 
 1. 在管理入口網站中，按一下 [**Active Directory**]，然後按一下您組織目錄的名稱。
 2. 在 [**使用者**] 頁面上，按一下您想要編輯之使用者的顯示名稱。
-3. 選取 [**組織角色**] 下拉式功能表，然後選取您想要指派給這位使用者的系統管理員角色，或選取 [**使用者**] (如果您想要移除現有系統管理員角色)。
+3. 選取 [**組織角色**] 下拉式功能表，然後選取您想要指派給這位使用者的系統管理員角色，或選取 [**使用者**] (如果您想要移除現有系統管理員角色)。 
 4. 在 [**替代電子郵件地址**] 方塊中，輸入電子郵件地址。此電子郵件地址用於重要通知 (包括密碼自行重設)，因此，不論使用者是否可以存取 Azure，使用者都必須可以存取電子郵件帳戶。
-5. 選取 [**允許**] 或 [**封鎖**] 指定是否允許使用者登入和存取服務。
+5. 選取 [**允許**] 或 [**封鎖**] 指定是否允許使用者登入和存取服務。 
 6. 從 [**使用位置**] 下拉式清單中，指定位置。
 7. 完成時，請按一下 [**儲存**]。
 
@@ -85,4 +85,4 @@
 - [管理密碼](active-directory-manage-passwords.md)
 - [管理群組](active-directory-manage-groups.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

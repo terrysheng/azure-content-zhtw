@@ -271,7 +271,7 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
 若要收集其他例外狀況的資料，您有兩個選項：
 
-* [在您的程式碼中插入 TrackException 的呼叫][apiexceptions]。 
+* [在您的程式碼中插入 trackException() 的呼叫][apiexceptions]。 
 * [在伺服器上安裝 Java 代理程式](app-insights-java-agent.md)。指定您想要觀看的方法。
 
 
@@ -381,7 +381,9 @@ Application Insights 可讓您定期測試網站，以檢查網站運作中且�
 
 [疑難排解 Java](app-insights-java-troubleshoot.md)
 
+## 後續步驟
 
+如需詳細資訊，請參閱 [Java 開發人員中心](/develop/java/)。
 
 <!--Link references-->
 
@@ -394,4 +396,4 @@ Application Insights 可讓您定期測試網站，以檢查網站運作中且�
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

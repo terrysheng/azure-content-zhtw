@@ -43,7 +43,8 @@
 > [AZURE.NOTE]不支援在 Windows 全新體驗中加入內部部署 Active Directory 網域。因此，如果您打算將電腦加入網域，您應該選取連結「改為使用本機帳戶設定 Windows」。接著您可以從 [電腦設定] 加入網域，如同之前已完成的步驟。
 
 ## 其他資訊
-* [了解適用於 Azure AD Join 的使用方式情節](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-overview.md)
+* [了解適用於 Azure AD Join 的使用案例](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

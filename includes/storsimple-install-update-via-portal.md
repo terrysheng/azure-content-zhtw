@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="從 Azure 管理入口網站安裝 Update 1.2"
-   description="說明如何使用管理入口網站來安裝 StorSimple 8000 Series Update 1.2。"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### 從管理入口網站安裝 Update 1.2
 
@@ -76,8 +61,8 @@
 
     ![維護頁面](./media/storsimple-install-update-via-portal/InstallUpdate12_10M.png)
 
-13. 您現在會看到已有維護模式更新可供使用。這些更新為干擾性更新，會導致裝置產生停機時間，且只能透過您裝置的 Windows PowerShell 介面加以套用。請遵循下列指示：透過 Windows PowerShell for StorSimple [安裝維護模式更新](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple)來安裝這些更新。
+13. 您現在會看到已有維護模式更新可供使用。這些更新為干擾性更新，會導致裝置產生停機時間，且只能透過您裝置的 Windows PowerShell 介面加以套用。請遵循[安裝維護模式更新](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple)中的指示，以透過 Windows PowerShell for StorSimple 來安裝這些更新。
 
 > [AZURE.NOTE]在某些情況下，在裝置上成功套用維護模式更新之後，指出維護模式更新可供使用的訊息可能會持續顯示長達 24 小時。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

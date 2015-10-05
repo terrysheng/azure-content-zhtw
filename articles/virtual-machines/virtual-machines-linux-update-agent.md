@@ -1,11 +1,12 @@
 <properties
-	pageTitle="如何從 Github 升級至最新版的 Azure Linux 代理程式"
-	description="了解如何從 Github，為 Azure 中的 Linux VM 更新 Azure Linux 代理程式。"
+	pageTitle="從 GitHub 更新 Azure Linux 代理程式 | Microsoft Azure"
+	description="了解如何從 Github 更新 Azure 中的 Linux VM 之 Azure Linux 代理程式為最新版本"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,19 +18,21 @@
 	ms.author="mingzhan"/>
 
 
-# 如何從 Github 升級至最新版的 Azure Linux 代理程式
+# 如何在 VM 上從 Github 升級至最新版的 Azure Linux 代理程式
 
-若要更新 [Azure Linux 代理程式](https://github.com/Azure/WALinuxAgent) ，您必須準備好：
+若要更新在 Azure 中 Linux VM 之 [Azure Linux 代理程式](https://github.com/Azure/WALinuxAgent) ，您必須準備好：
 
 1. 在 Azure 中執行的 Linux VM
 2. 您已使用 SSH 連線到 Linux VM
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型或傳統部署模型管理資源。
 
 > [AZURE.NOTE]如果您會從 Windows 電腦執行這項工作，可以使用 Putty 來 SSH 到 Linux 機器。如需詳細資訊，請參閱[如何登入執行 Linux 的虛擬機器](virtual-machines-linux-how-to-log-on.md)。
 
 支援 Azure 的 Linux 散發版本有將 Azure Linux 代理程式套件放在其儲存機制，因此請先從這個 Distro 儲存機制檢查並安裝最新版本。
 
 對於 Ubuntu，只要輸入：
-     
+
     #sudo apt-get install walinuxagent
 
 在 CentOS 上請輸入：
@@ -63,8 +66,8 @@
     #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent  
 
 ###如需 2.1.x 版本或更高版本，請鍵入：
-  
-    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip 
+
+    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip
     #unzip WALinuxAgent-[version].zip
     #cd WALinuxAgent-[version]
 
@@ -83,15 +86,15 @@
     #chmod +x waagent
 
  將新的可執行檔複製到 /usr/sbin /
-   
+
   針對大部分的 Linux，請使用
-         
+
       #sudo cp waagent /usr/sbin
 
   針對 CoreOS，請使用：
 
     #sudo cp waagent /usr/share/oem/bin/
- 
+
 ###如需 2.1.x 版本，使用：
 
 您可能需要先安裝套件 `setuptools`，請參閱[這裡](https://pypi.python.org/pypi/setuptools)。接著執行如下：
@@ -110,10 +113,10 @@
 
 針對 CoreOS，請使用：
 
-    #sudo systemctl restart waagent 
+    #sudo systemctl restart waagent
 
 ## 確認 Azure Linux 代理程式版本
-   
+
     #waagent -version
 
 針對 CoreOS，上述命令可能無效。
@@ -122,8 +125,4 @@
 
 如需有關 Azure Linux 代理程式的詳細資訊，請參閱 [Azure Linux 代理程式讀我檔案](https://github.com/Azure/WALinuxAgent)。
 
-
-
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

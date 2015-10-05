@@ -92,7 +92,9 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 
 內建元件受到完整支援，且 Microsoft 支援服務將會協助釐清與解決這些元件的相關問題。
 
-自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。如此可能會進而解決問題或要求您參與可在其中找到開放原始碼技術深度專業知識的可用管道。例如，有許多社群網站可以使用，像是：<a href ="https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight" target="_blank">適用於 HDInsight 的 MSDN 論壇</a>和<a href="http://stackoverflow.com" target="_blank">堆疊溢位</a>。另外，Apache 專案在 <a href="http://apache.org" target="_blank">Apache.org</a> 上有專案網站；例如，<a href="http://hadoop.apache.org/" target="_blank">Hadoop</a> 和 <a href="http://spark.apache.org/" target="_blank">Spark</a>。
+> [AZURE.WARNING]透過 HDInsight 叢集提供的元件會受到完整支援，且 Microsoft 支援服務將協助釐清與解決這些元件的相關問題。
+>
+> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/zh-TW/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如 [Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
 
 HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使用或如何安裝在叢集上，都適用相同層級的支援。以下是自訂元件可用於 HDInsight 叢集之最常見方式的清單：
 
@@ -123,4 +125,4 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "叢集佈建期間的階段"
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

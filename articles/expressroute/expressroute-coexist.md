@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="09/17/2015"
    ms.author="cherylmc"/>
 
 # 設定並存的 Azure ExpressRoute 和站對站 VPN 連線
@@ -150,7 +150,10 @@
 
 	使用下列範例，將該值替換為您自己的值。
 
-	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <local-network- gateway-public-IP> -AddressSpace <local-network-address-space>`
+	`New-AzureLocalNetworkGateway -Gatewayname MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>`
+
+	> [AZURE.IMPORTANT]如果您的區域網路有多個路由，您可以將它們全部放在陣列中傳遞。$MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
+
 
 	若要抓取虛擬網路閘道器設定 (包括閘道器識別碼和公用 IP)，請使用 `Get-AzureVirtualNetworkGateway` Cmdlet。請參閱下列範例。
 
@@ -192,13 +195,13 @@
 2. 匯出虛擬網路的結構描述。使用下列 PowerShell Cmdlet，將該值替換為您自己的值。
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
-3. 編輯網路組態檔結構描述，讓閘道器子網路是 /27 (或更短的前置詞)。請參閱下列範例。如需關於使用網路組態檔的詳細資訊，請參閱[如何使用網路組態檔建立 VNet](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal)。如需關於組態結構描述的詳細資訊，請參閱 [Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)。
+3. 編輯網路組態檔結構描述，讓閘道器子網路是 /27 或更短 (/26、/25 等)。請參閱下列範例。如需使用網路組態檔的詳細資訊，請參閱[如何使用網路組態檔建立 VNet](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal)。如需組態結構描述的詳細資訊，請參閱 [Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)。
 
 
           <Subnet name="GatewaySubnet">
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
           </Subnet>
-4. 如果您先前的閘道器是站對站 VPN，則也必須將連線類型變更為 **Dedicated** (專用)。
+4. 如果您先前的閘道是站對站 VPN，則也必須將連線類型變更為 [專用]。
 
 		         <Gateway>
 		          <ConnectionsToLocalNetwork>
@@ -207,7 +210,7 @@
 		            </LocalNetworkSiteRef>
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
-5. 此時，您必須使用沒有閘道器的 VNet。您可以繼續進行＜[使用並存連線建立新的 VNet](#create-a-new-vnet-with-coexisting-connections)＞文章中的**步驟 3**，以建立新的閘道器並完成連線。
+5. 此時，您必須使用沒有閘道器的 VNet。您可以繼續進行[使用並存連線建立新的 VNet](#create-a-new-vnet-with-coexisting-connections) 文章中的**步驟 3**，以建立新的閘道器並完成連線。
 
 
 
@@ -217,4 +220,4 @@
 
 深入了解 VPN 閘道。請參閱[關於 VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -67,7 +67,7 @@
 - `npm install express-session`
 - `npm install cookie-parser`
 
-- In addition, we've use `passport-azure-ad` for our Preview in the skeleton of the quickstart.
+- 此外，我們在快速入門的架構中為「預覽」使用 `passport-azure-ad`。
 
 - `npm install passport-azure-ad`
 

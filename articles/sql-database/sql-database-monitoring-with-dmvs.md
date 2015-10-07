@@ -44,13 +44,17 @@ GRANT VIEW DATABASE STATE TO database_user;
 下列查詢會傳回資料庫的大小 (以 MB 為單位)：
 
 ```
--- 計算資料庫的大小。SELECT SUM(reserved\_page\_count)*8.0/1024 FROM sys.dm\_db\_partition\_stats; GO 
+-- 計算資料庫的大小。 
+SELECT SUM(reserved\_page\_count)*8.0/1024
+FROM sys.dm\_db\_partition\_stats; 
+GO
 ```
 
 下列查詢會傳回您資料庫中個別物件的大小 (以 MB 為單位)：
 
 ```
--- Calculates the size of individual database objects. 
+-- Calculates the size of individual database objects.
+
 SELECT sys.objects.name, SUM(reserved_page_count) * 8.0 / 1024
 FROM sys.dm_db_partition_stats, sys.objects 
 WHERE sys.dm_db_partition_stats.object_id = sys.objects.object_id 
@@ -134,4 +138,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [SQL Database 簡介](sql-database-technical-overview.md)
 
-<!----HONumber=Sept15_HO3-->
+<!-----HONumber=Sept15_HO3-->

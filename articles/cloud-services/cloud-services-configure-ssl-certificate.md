@@ -33,7 +33,7 @@
 
 如果尚未建立雲端服務，請先閱讀[這裡](cloud-services-how-to-create-deploy.md)。
 
-[AZURE.INCLUDE 〈[websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)〉]
+[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 
 ## 步驟 1：取得 SSL 憑證
@@ -160,4 +160,4 @@
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=Sept15_HO4-->
+<!----HONumber=Sept15_HO4-->

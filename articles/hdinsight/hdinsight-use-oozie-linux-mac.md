@@ -489,7 +489,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 工作的狀態。它可讓
 
 	![功能表的圖](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
 
-4. Oozie Web UI 預設會顯示執行中的工作流程工作。若要查看所有的工作流程工作，請選取 [All Jobs] (所有工作)。
+4. Oozie Web UI 預設會顯示執行中的工作流程工作。若要查看所有的工作流程工作，請選取 [All Jobs] \(所有工作)。
 
 	![顯示的所有工作](./media/hdinsight-use-oozie-linux-mac/ooziejobs.png)
 
@@ -497,9 +497,9 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 工作的狀態。它可讓
 
 	![工作資訊](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
 
-6. 您可以在 [Job Info] (工作資訊) 索引標籤中看到基本的工作資訊，以及工作內的個別動作。使用上方的索引標籤，即可檢視 Job Definition (工作定義)、Job Configuration (工作組態)，以及存取 Job Log (工作記錄)，或檢視工作的定向非循環圖 (DAG)。
+6. 您可以在 [Job Info] \(工作資訊) 索引標籤中看到基本的工作資訊，以及工作內的個別動作。使用上方的索引標籤，即可檢視 Job Definition (工作定義)、Job Configuration (工作組態)，以及存取 Job Log (工作記錄)，或檢視工作的定向非循環圖 (DAG)。
 
-	* **Job Log (工作記錄)**：選取 [GetLogs] 按鈕，以取得工作的所有記錄，或使用 [Enter Search Filter] (輸入搜尋篩選條件) 欄位來篩選記錄。
+	* **Job Log (工作記錄)**：選取 [GetLogs] 按鈕，以取得工作的所有記錄，或使用 [Enter Search Filter] \(輸入搜尋篩選條件) 欄位來篩選記錄。
 
 		![工作記錄](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
@@ -507,7 +507,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 工作的狀態。它可讓
 
 		![工作 DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
-7. 在 [Job Info] (工作資訊) 索引標籤中選取其中一個動作，便會出現此動作的資訊。例如，選取 **RunHiveScript** 動作。
+7. 在 [Job Info] \(工作資訊) 索引標籤中選取其中一個動作，便會出現此動作的資訊。例如，選取 **RunHiveScript** 動作。
 
 	![動作資訊](./media/hdinsight-use-oozie-linux-mac/action.png)
 
@@ -596,7 +596,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 工作的狀態。它可讓
 
 	這麼做會提交並啟動工作。
 
-7. 如果您造訪 Oozie Web UI，並選取 [Coordinator Jobs] (協調器工作) 索引標籤，您應會看到類似以下的資訊：
+7. 如果您造訪 Oozie Web UI，並選取 [Coordinator Jobs] \(協調器工作) 索引標籤，您應會看到類似以下的資訊：
 
 	![協調器工作索引標籤](./media/hdinsight-use-oozie-linux-mac/coordinatorjob.png)
 
@@ -616,7 +616,7 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 
 1. 在 Oozie Web UI 中檢視工作。
 
-2. 如果發生錯誤或特定動作失敗，請選取該動作，以查看 [Error Message] (錯誤訊息) 欄位是否有提供失敗的詳細資訊。
+2. 如果發生錯誤或特定動作失敗，請選取該動作，以查看 [Error Message] \(錯誤訊息) 欄位是否有提供失敗的詳細資訊。
 
 3. 如果有提供，請使用動作的 URL 以檢視動作的更多詳細資料 (例如 JobTracker 記錄)。
 
@@ -725,4 +725,4 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!----HONumber=Sept15_HO4-->

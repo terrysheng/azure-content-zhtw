@@ -38,7 +38,20 @@ Azure Site Recovery 功能在設計時有考量到應用程式層級的保護/�
 
 ASR 複寫技術與虛擬機器中執行的任何應用程式相容。我們已經與應用程式產品團隊合作進行了其他測試，以進一步支援每個應用程式。
 
-**工作負載** | <p>**複寫 Hyper-V 虛擬機器**</p><p>**(至次要網站)**</p> | <p>**複寫 Hyper-V 虛擬機器**</p><p>**(至 Azure)**</p> | <p>**複寫 VMware 虛擬機器**</p><p>**(至次要網站)**</p> | <p>**複寫 VMware 虛擬機器**</p><p>**(至 Azure)****</p>---|---|---|---|---Active Directory、DNS | Y | Y | Y | Y Web 應用程式 (IIS、SQL) | Y | Y | Y | Y SCOM | Y | Y | Y | Y Sharepoint | Y | Y | Y | Y <p>SAP</p><p>複寫 SAP 非叢集至 Azure 網站</p> | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) Exchange (非 DAG) | Y | 即將推出 | Y | Y 遠端桌面/VDI | Y | Y | Y | N/A <p>Linux</p><p>(作業系統和應用程式)</p> | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) Dynamics AX | Y | Y | Y | Y Dynamics CRM | Y | 即將推出 | 即將推出 Oracle | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) Windows 檔案伺服器 | Y | Y | Y | Y
+**工作負載** | <p>**複寫 Hyper-V 虛擬機器**</p><p>**(至次要網站)**</p> | <p>**複寫 Hyper-V 虛擬機器**</p><p>**(至 Azure)**</p> | <p>**複寫 VMware 虛擬機器**</p><p>**(至次要網站)**</p> | <p>**複寫 VMware 虛擬機器**</p><p>**(至 Azure)****</p>
+---|---|---|---|---
+Active Directory、DNS | Y | Y | Y | Y
+Web 應用程式 (IIS、SQL) | Y | Y | Y | Y
+SCOM | Y | Y | Y | Y
+Sharepoint | Y | Y | Y | Y
+<p>SAP</p><p>複寫 SAP 非叢集至 Azure 網站</p> | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試)
+Exchange (非 DAG) | Y | 即將推出 | Y | Y
+遠端桌面/VDI | Y | Y | Y | N/A
+<p>Linux</p><p>(作業系統和應用程式)</p> | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試)
+Dynamics AX | Y | Y | Y | Y
+Dynamics CRM | Y | 即將推出 | 即將推出
+Oracle | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試)
+Windows 檔案伺服器 | Y | Y | Y | Y
 
 ##Active Directory 和 DNS
 
@@ -107,4 +120,4 @@ SAP 是全世界許多組織所使用首屈一指的企業資源規劃 (ERP) 軟
 
 參考連結的文件以了解[為 SAP 部署 Azure Site Recovery](http://aka.ms/asr-sap) 的詳細指引
 
-<!---HONumber=Sept15_HO4-->
+<!----HONumber=Sept15_HO4-->

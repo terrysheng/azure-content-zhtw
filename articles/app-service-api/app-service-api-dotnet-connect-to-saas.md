@@ -115,9 +115,9 @@
 
 1. 在 SimpleDropbox 專案中，安裝 [DropboxRestAPI](https://www.nuget.org/packages/DropboxRestAPI) NuGet 套件。
 
-	* 在 [工具] 功能表中按一下 [Nuget 套件管理員] > [Package Manager Console]。
+	* 在 [工具] 功能表中按一下 [Nuget 套件管理員] > [封裝管理員主控台]。
 
-	* 在 [Package Manager Console] 視窗中，輸入這個命令：
+	* 在 [封裝管理員主控台] 視窗中，輸入這個命令：
 	 
 			install-package DropboxRestAPI  
 
@@ -450,8 +450,8 @@ Dropbox 登入之後的重新導向 URL 可能與此範例類似：
 您已了解如何為連接至 SaaS 平台的 API 應用程式編寫程式碼及進行設定。如需如何處理 API 應用程式中驗證之其他教學課程的連結，請參閱 [API 應用程式和行動應用程式的驗證 - 後續步驟](../app-service/app-service-authentication-overview.md#next-steps)。
 
 [Azure preview portal]: https://portal.azure.com/
-[Azure Preview 入口網站]: https://portal.azure.com/
+[Azure 預覽入口網站]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 [Azure 入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!----HONumber=Sept15_HO4-->

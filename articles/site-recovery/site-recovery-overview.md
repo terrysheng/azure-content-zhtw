@@ -48,21 +48,6 @@ Azure | VMware 虛擬機器 | 將 VMWare 虛擬機器複寫至 Azure | [閱讀�
 
 如需針對不同工作負載使用 Azure Site Recovery 的指引，請參閱[這份文件](site-recovery-workload.md)。
 
-**工作負載** | <p>**複寫 Hyper-V 虛擬機器**</p><p>**(至次要網站)**</p> | <p>**複寫 Hyper-V 虛擬機器**</p><p>**(至 Azure)**</p> | <p>**複寫 VMware 虛擬機器**</p><p>**(至次要網站)**</p> | <p>**複寫 VMware 虛擬機器**</p><p>**(至 Azure)**</p>
----|---|---|---|---
-Active Directory、DNS | Y | Y | Y | Y 
-Web 應用程式 (IIS、SQL) | Y | Y | Y | Y
-SCOM | Y | Y | Y | Y
-Sharepoint | Y | Y | Y | Y
-<p>SAP</p><p>複寫 SAP 非叢集至 Azure 網站</p> | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試)
-Exchange (非 DAG) | Y | 即將推出 | Y | Y
-遠端桌面/VDI | Y | Y | Y | N/A 
-<p>Linux</p><p>(作業系統和應用程式)</p> | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) 
-Dynamics AX | Y | Y | Y | Y Dynamics CRM | Y | 即將推出 | 即將推出
-Oracle | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試)
-Windows 檔案伺服器 | Y | Y | Y | Y
-
-
 ## 功能和需求 
 
 此資料表摘要說明 Site Recovery 主要功能，以及這些功能在使用預設 Hyper-V 複本與使用 SAN 複寫至 Azure、複寫至次要站台期間的處理方式。
@@ -89,4 +74,4 @@ Azure 復原服務代理程式</p><p>用來透過 HTTPS 連線至 Site Recovery|
 完成此概觀之後，請[讀取最佳作法](site-recovery-best-practices.md)以協助您開始進行部署規劃。
  
 
-<!---HONumber=Sept15_HO4-->
+<!----HONumber=Sept15_HO4-->
